@@ -124,9 +124,7 @@ eu:
         cancel_order:
           more_than_one: ezabatu zure botoa hemen %{name} eta hasi berriro
           only_one: ezabatu zure botoa eta hasi berriro.
-        finished_message: Amaitu duzu bozkatzeko prozesua. Eskerrik asko parte hartzeagatik!
         highlighted_cta: Botoa eman hemen %{name}
-        if_change_opinion: Iritzia aldatu baduzu, ahal duzu
         my_budgets: Nire aurrekontuak
         progress: Amaitu bozketa
         show: Ikusi proiektuak
@@ -168,7 +166,6 @@ eu:
           assigned: 'Esleituta:'
           cancel_order: ezabatu ezazu botoa eta hasi berriro
           checked_out:
-            description: 'Jada bozkatu duzu aurrekonturako. Iritziz aldatu baduzu, ezeztatu hemen: %{cancel_link}.'
             title: Botoa zuzen bidali da
           minimum_projects_rule:
             description: Zure aburuz, proiektuetako zeinei esleitu behar diegu aurrekontua? Hautatu gutxienez %{minimum_number} eta bozkatu zure lehentasunen arabera proiektua zehazteko.
