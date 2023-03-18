@@ -77,11 +77,9 @@ lt:
           no_data_stored: Duomenys neišsaugomi.
         create:
           error: Kuriant įgaliojimą kilo problema.
-          success: Jums suteiktas leidimas.
           unconfirmed: Kad gautumėte leidimą, turite patvirtinti savo el. pašto adresą.
         destroy:
           error: Šalinant leidimą iškilo problema.
-          success: Leidimą pašalinote.
         first_login:
           actions:
             another_dummy_authorization_handler: Patikrinkti pagal kitą leidimų tvarkytojo pavyzdį
@@ -211,8 +209,6 @@ lt:
           new:
             send: Atsiųskite SMS
             title: Paprašykite patvirtinimo kodo
-          update:
-            success: Sveikiname! Jūs patikrinti.
   errors:
     messages:
       uppercase_only_letters_numbers: visos raidės turi būti didžiosios ir tik raidės ir (arba) skaičiai
