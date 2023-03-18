@@ -934,7 +934,6 @@ ar:
             description: كل اقتراح يمكن أن تتراكم أكثر من %{limit} يدعم
           minimum_votes_per_user:
             description: يجب عليك توزيع ما لا يقل عن %{votes} دعما بين المقترحات المختلفة.
-            given_enough_votes: لقد قدمت ما يكفي من الدعم.
             supports_remaining: يجب عليك دعم %{remaining_votes} مقترحات أخرى ليتم أخذها في الاعتبار.
           proposal_limit:
             description: يمكنك إنشاء ما يصل إلى %{limit} مقترحات.
