@@ -199,8 +199,6 @@ ja:
           new: 新しい管理者
         verify: 確認する
       admin_terms_of_use:
-        accept:
-          success: ありがとうございます、管理者向け利用規約に同意しました。
         actions:
           accept: 利用規約に同意します
           are_you_sure: 管理者向け利用規約を削除してもよろしいですか？
