@@ -32,7 +32,7 @@ describe "UserTosAcceptance", type: :system do
       end
 
       it "renders an announcement advising that TOS has been updated" do
-        expect(page).to have_content("We've updated our Terms of Service, please review them.")
+        expect(page).to have_content("We have updated our Terms of Service, please review them.")
       end
 
       it "shows a button to Agree the updated Terms" do

@@ -85,7 +85,7 @@ gem install decidim
 decidim decidim_application
 ----
 
-We've set up a guide on how to install, set up and upgrade Decidim.
+We have set up a guide on how to install, set up and upgrade Decidim.
 See the {uri-docs-getting-started}[Getting started guide].
 
 == 🙌 Contribute
