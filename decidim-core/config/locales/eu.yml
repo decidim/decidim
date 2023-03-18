@@ -35,7 +35,6 @@ eu:
       decidim/component_published_event: Osagai erabilgarria
       decidim/demoted_membership: Ez da talde administratzaile gehiagorik
       decidim/gamification/badge_earned_event: Irabazitako dominak
-      decidim/gamification/level_up_event: Berdindu duzu
       decidim/invited_to_group_event: Taldera gonbidatuta
       decidim/join_request_accepted_event: Erregistratu eskaera onartua
       decidim/join_request_rejected_event: Erregistratu eskaera baztertu da
@@ -603,15 +602,9 @@ eu:
         email_subject: '%{resource_title} eguneratzea'
       gamification:
         badge_earned:
-          email_intro: Lan handia! <a href="%{resource_path}">%{badge_name} txapela irabazi duzu</a> ( %{current_level}maila).
           email_outro: Jakinarazpena jaso duzu gure webgunean egin duzun jarduera delako.
-          email_subject: 'Idatzi berri bat irabazi duzu: %{badge_name}!'
-          notification_title: Lan handia! <a href="%{resource_path}">%{badge_name} txapela irabazi duzu</a> ( %{current_level}maila).
         level_up:
-          email_intro: Lan handia! Maila %{current_level} lortu duzu <a href="%{resource_path}">%{badge_name} badge</a>!
           email_outro: Jakinarazpena jaso duzu gure webgunean egin duzun jarduera delako.
-          email_subject: Nik iritsi zara mailan %{current_level} on the %{badge_name} plaka!
-          notification_title: Lan handia! Maila %{current_level} lortu duzu <a href="%{resource_path}">%{badge_name} badge</a>!
       groups:
         demoted_membership:
           email_intro: <a href="%{resource_url}">%{user_group_name}</a> taldeko administratzaileak taldeko administratzaile eskubideak kendu ditu.
@@ -760,7 +753,6 @@ eu:
           description_own: "%{score} erabiltzaile jarraitzen zaituzte."
           name: Jarraitzaileak
           next_level_in: Lortu %{score} erabiltzaile gehiago jarraitzeko hurrengo mailara iristeko!
-          unearned_own: Oraindik ez duzu jarraitzaileik.
         index:
           badge_title: "%{name} txapela"
           how: Nola irabaz dezakezu?
@@ -768,7 +760,6 @@ eu:
           title: Badges
       description: Badiak partaideen ekintzak eta plataforma aurrerapenean aitortzen dira. Plataforman ezagutzeko, parte hartu eta elkarreraginean hasten zarenean, txapak irabazten dituzu.
       level: '%{level}maila'
-      reached_top: Idatzi honen goialdean iritsi zara.
     group_admins:
       actions:
         are_you_sure: Ziur zaude? Honek ez du partaidea taldetik aterako.
@@ -1403,14 +1394,6 @@ eu:
         someone_invited_you_as_admin: Norbaitek %{application} admin gisa gonbidatu zaitu, beheko estekan onartu dezakezu.
         someone_invited_you_as_private_user: Norbaitek %{application}erabiltzaile pribatu gisa gonbidatu zaitu, beheko estekan sar dezakezu.
         subject: Gonbidapenaren argibideak
-      invite_admin:
-        subject: 'Gonbita jaso duzu erakunde hau kudeatzeko: %{organization}'
-      invite_collaborator:
-        subject: 'Gonbita jaso duzu erakunde honekin lankidetzan aritzeko: %{organization}'
-      invite_private_user:
-        subject: Parte hartzaile prozesu pribatu batera gonbidatu zaituzte %{organization} helbidean
-      organization_admin_invitation_instructions:
-        subject: 'Gonbita jaso duzu erakunde hau kudeatzeko: %{organization}'
       password_change:
         greeting: Kaixo %{recipient}!
         subject: Pasahitza aldatu da
