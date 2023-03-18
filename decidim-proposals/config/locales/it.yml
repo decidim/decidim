@@ -231,7 +231,6 @@ it:
           follower:
             email_intro: 'La proposta "%{resource_title}" è stata accettata. Puoi leggere la risposta in questa pagina:'
             email_outro: Hai ricevuto questa notifica perché stai seguendo "%{resource_title}". Puoi smettere di seguirlo dal link precedente.
-            email_subject: Una proposta che stai seguendo è stata accettata
             notification_title: La proposta <a href="%{resource_path}">%{resource_title}</a> è stata accettata.
         proposal_evaluating:
           affected_user:
@@ -242,7 +241,6 @@ it:
           follower:
             email_intro: 'La proposta "%{resource_title}" è attualmente in fase di valutazione. Puoi trovare una risposta in questa pagina:'
             email_outro: Hai ricevuto questa notifica perché stai seguendo "%{resource_title}". Puoi smettere di seguirlo dal link precedente.
-            email_subject: Una proposta che stai seguendo è in corso di valutazione
             notification_title: La proposta <a href="%{resource_path}">%{resource_title}</a> è in fase di valutazione.
         proposal_mentioned:
           email_intro: La tua proposta%{mentioned_proposal_title}" è stata menzionata <a href="%{resource_url}">in questo spazio</a> nei commenti.
@@ -266,7 +264,6 @@ it:
           follower:
             email_intro: 'La proposta "%{resource_title}" è stata respinta. Puoi leggere la risposta in questa pagina:'
             email_outro: Hai ricevuto questa notifica perché stai seguendo "%{resource_title}". Puoi smettere di seguirlo dal link precedente.
-            email_subject: Una proposta che stai seguendo è stata respinta
             notification_title: La proposta <a href="%{resource_path}">%{resource_title}</a> è stata respinta.
         proposal_update_category:
           email_intro: 'Un amministratore ha aggiornato la categoria della tua proposta "%{resource_title}", dai un''occhiata:'
