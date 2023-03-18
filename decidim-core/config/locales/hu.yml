@@ -135,7 +135,6 @@ hu:
         file_no_exists: Fájl nem létezik
         notice: Az adatok letöltése jelenleg folyamatban van. Ha befejeződött, e-mailt fogsz kapni.
       email_change:
-        body1: '%{unconfirmed_email} címre kiküldtük az emailt, hogy az új emailcímed megerősítsd.'
         body2: Újraküldjük a megerősítő emailt? %{resend_link} vagy %{cancel_link}.
         cancel: mégse
         cancel_error: Nem sikerült az email változást jóváhagyni.
@@ -1085,7 +1084,6 @@ hu:
           modal_close: Modal bezárása
           modal_title: Tényleg elutasítod az ÁSZF frissített szövegét?
         required_review:
-          alert: Frissítettük az ÁSZF szövegét. Kérlek, nézd át ezeket.
           title: 'Fontos: ellenőrizd a szolgáltatás feltételeink frissítéseit'
     participatory_space_private_users:
       not_allowed: Nincs jogosultságod a tartalom megtekintésére
