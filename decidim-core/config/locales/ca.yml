@@ -1528,7 +1528,6 @@ ca:
         subject: Instruccions de confirmació
       email_changed:
         greeting: Hola %{recipient}!
-        message: Ens posem en contacte amb tu per avisar-te que el teu correu electrònic es modifica a %{email}.
         subject: El correu electrònic ha canviat
       invitation_instructions:
         accept: Acceptar invitació
@@ -1553,7 +1552,6 @@ ca:
         subject: Has estat convidada a gestionar %{organization}
       password_change:
         greeting: Hola %{recipient}!
-        message: Ens posem en contacte amb tu per notificar-te que la teva contrasenya ha estat canviada correctament.
         subject: Contrasenya modificada
       reset_password_instructions:
         action: Canvia la meva contrasenya
