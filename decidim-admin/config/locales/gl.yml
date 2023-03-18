@@ -769,8 +769,6 @@ gl:
           create: Crear
           title: Novo usuario privado do espazo participativo.
       participatory_space_private_users_csv_imports:
-        create:
-          success: Ficheiro CSV subido con éxito, estamos a enviar un correo de invitación aos participantes. Isto pode levar un pouco de tempo.
         new:
           title: Sube o teu ficheiro CSV
           upload: Subir
@@ -897,7 +895,6 @@ gl:
       user_group:
         csv_verify:
           invalid: Produciuse un erro ao ler o ficheiro CSV.
-          success: O ficheiro CSV cargouse con éxito, verificamos os grupos de usuarios que coinciden cos criterios. Isto pode levar un tempo.
         reject:
           invalid: Produciuse un erro ao rexeitar este grupo de usuarios.
         verify:
