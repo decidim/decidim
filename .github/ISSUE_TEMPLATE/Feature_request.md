@@ -4,7 +4,7 @@ about: Go to Metadecidim :)
 
 ---
 
-We've disabled the feature request's issue creation on this repository. If you want to discuss about a new feature, you can do this through Metadecidim:
+We have disabled the feature request's issue creation on this repository. If you want to discuss about a new feature, you can do this through Metadecidim:
 
 * [Feature Request](https://meta.decidim.org/processes/roadmap)
 
