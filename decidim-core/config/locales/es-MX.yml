@@ -1531,7 +1531,6 @@ es-MX:
         subject: Instrucciones de confirmación
       email_changed:
         greeting: Hola %{recipient}!
-        message: Nos ponemos en contacto contigo para notificarte que tu contraseña ha sido cambiada por %{email}.
         subject: Correo electrónico cambiado
       invitation_instructions:
         accept: Aceptar invitación
@@ -1556,7 +1555,6 @@ es-MX:
         subject: Has sido invitado para gestionar %{organization}
       password_change:
         greeting: '¡Hola %{recipient}!'
-        message: Nos ponemos en contacto contigo para notificarte que tu contraseña ha sido cambiada correctamente.
         subject: Contraseña modificada
       reset_password_instructions:
         action: Cambiar mi contraseña
