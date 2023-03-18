@@ -256,7 +256,6 @@ lv:
           title: Autorizācijas termiņš ir beidzies
         incomplete:
           cancel: Atcelt
-          explanation: 'Pat ja pašlaik esat autorizējies ar "%{authorization}", jums jāautorizējas no jauna, jo mums trūkst šādu datu:'
           reauthorize: Autorizēties vēlreiz
           title: Lūdzu, autorizējieties no jauna
         missing:
@@ -736,7 +735,6 @@ lv:
         title: Dalībnieki
     newsletter_mailer:
       newsletter:
-        note: Jūs saņēmāt šo e-pasta ziņojumu, jo esat abonējis informatīvos biļetenus vietnē %{organization_name}. Iestatījumus var mainīt jūsu <a href="%{link}"> paziņojumu lapā </a>.
         unsubscribe: Lai atteiktos no šāda veida e-pasta saņemšanas, <a href="%{link}" target="_blank" class="unsubscribe"> Anulēt abonementu</a>.
     newsletter_templates:
       basic_only_text:
@@ -994,7 +992,6 @@ lv:
     user_interests:
       show:
         my_interests: Manas intereses
-        select_your_interests: Atlasiet jūs interesējošās tēmas, lai profila cilnē Laika skala saņemtu informāciju par notikumiem, kas ar tām saistīti.
         update_my_interests: Atjaunināt manas intereses
       update:
         error: Jūsu interešu atjaunināšanas laikā radās problēma.
