@@ -988,7 +988,6 @@ de:
             census_verified_with_online_vote: Dieser Teilnehmer hat bereits online abgestimmt. Wenn er persönlich abstimmt, wird die vorherigen Abstimmung ungültig und dies wird die endgültige Abstimmung sein.
             complete_voting: Abstimmung abschliessen
             identify_another: Einen anderen Teilnehmer identifizieren
-            questions_title: 'Er hat das Recht, bei folgenden Anfragen abzustimmen:'
             voted: Der Teilnehmer hat abgestimmt
           create:
             error: Die Stimme wurde nicht registriert. Bitte versuchen Sie es erneut.
