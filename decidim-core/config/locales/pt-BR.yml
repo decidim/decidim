@@ -33,7 +33,6 @@ pt-BR:
       decidim/component_published_event: Componente ativo
       decidim/demoted_membership: Não é mais um administrador de grupo
       decidim/gamification/badge_earned_event: Distintivo ganho
-      decidim/gamification/level_up_event: Você subiu de nível
       decidim/join_request_accepted_event: Solicitação de junção aceita
       decidim/join_request_rejected_event: Solicitação de junção aceita
       decidim/profile_updated_event: Perfil atualizado
@@ -536,15 +535,9 @@ pt-BR:
         email_subject: Uma atualização para %{resource_title}
       gamification:
         badge_earned:
-          email_intro: Bom trabalho! Você ganhou o <a href="%{resource_path}">%{badge_name} badge</a> (nível %{current_level}).
           email_outro: Você recebeu esta notificação porque fez uma atividade em nosso site.
-          email_subject: 'Você ganhou um novo selo: %{badge_name}!'
-          notification_title: Bom trabalho! Você ganhou o <a href="%{resource_path}">%{badge_name} badge</a> (nível %{current_level}).
         level_up:
-          email_intro: Bom trabalho! Você atingiu o nível %{current_level} no emblema <a href="%{resource_path}">%{badge_name}</a>!
           email_outro: Você recebeu esta notificação porque fez uma atividade em nosso site.
-          email_subject: Você atingiu o nível %{current_level} no %{badge_name} crachá!
-          notification_title: Bom trabalho! Você atingiu o nível %{current_level} no emblema <a href="%{resource_path}">%{badge_name}</a>!
       groups:
         demoted_membership:
           email_intro: Um administrador do grupo <a href="%{resource_url}">%{user_group_name}</a> removeu seus direitos de administrador para esse grupo.
@@ -675,7 +668,6 @@ pt-BR:
           description_own: "%{score} usuários estão seguindo você."
           name: Seguidores
           next_level_in: Receba mais %{score} usuários para seguir você para alcançar o próximo nível!
-          unearned_own: Você ainda não tem seguidores.
         index:
           badge_title: "%{name} selo"
           how: Como você pode ganhar
@@ -683,7 +675,6 @@ pt-BR:
           title: Distintivos
       description: Crachás são reconhecimentos para ações dos participantes e progresso na plataforma. Ao começar a descobrir, participar e interagir na plataforma, você ganhará distintivos diferentes.
       level: Nível %{level}
-      reached_top: Você atingiu o nível superior para este selo.
     group_admins:
       actions:
         demote_admin: Remover Administrador
@@ -1283,14 +1274,6 @@ pt-BR:
         someone_invited_you_as_admin: Alguém convidou você como administrador de %{application}, você pode aceitá-lo através do link abaixo.
         someone_invited_you_as_private_user: Alguém convidou você como usuário privado de %{application}, você pode aceitá-lo através do link abaixo.
         subject: Instruções de convite
-      invite_admin:
-        subject: Você foi convidado a gerenciar %{organization}
-      invite_collaborator:
-        subject: Você foi convidado a colaborar em %{organization}
-      invite_private_user:
-        subject: Você foi convidado para um processo participativo privado em %{organization}
-      organization_admin_invitation_instructions:
-        subject: Você foi convidado a gerenciar %{organization}
       password_change:
         greeting: Olá %{recipient}!
         subject: A senha mudou
