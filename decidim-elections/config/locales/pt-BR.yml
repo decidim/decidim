@@ -356,7 +356,6 @@ pt-BR:
       feedback:
         answer:
           invalid: Houve um problema ao enviar seu feedback.
-          spam_detected: Houve algum problema ao responder ao formulário. Talvez você tenha sido rápido demais, pode tentar novamente?
           success: Feedback enviado com sucesso.
       models:
         answer:
@@ -558,18 +557,15 @@ pt-BR:
         trustees:
           new_election:
             email_intro: Você foi adicionado como curador para a eleição %{resource_title}.
-            email_outro: Você recebeu esta notificação porque foi adicionado como curador da eleição %{resource_title}.
             email_subject: Você é um curador às eleições %{resource_title}..
             notification_title: Você é um curador pela eleição de <a href="%{resource_path}">%{resource_title}</a>.
           new_trustee:
             email_intro: Um administrador adicionou você como curador em %{resource_name}. Você deve criar sua chave pública <a href='%{trustee_zone_url}'>na sua zona de curador</a>
-            email_outro: Você recebeu esta notificação porque foi adicionado como curador por %{resource_name}.
             email_subject: Você é um curador por %{resource_name}.
             notification_title: Você é um curador de <a href="%{participatory_space_url}">%{resource_name}</a>.
         votes:
           accepted_votes:
             email_intro: 'Seu voto foi aceito! Usando o seu token de voto: %{encrypted_vote_hash}, você pode verificar seu voto <a href="%{verify_url}">aqui</a>.'
-            email_outro: Você recebeu esta notificação porque votou na eleição %{resource_name}.
             email_subject: Seu voto para %{resource_name} foi aceito.
             notification_title: 'Seu voto foi aceito. Verifique o seu voto <a href="%{verify_url}">aqui</a> usando o seu token de voto: %{encrypted_vote_hash}'
       votings:
