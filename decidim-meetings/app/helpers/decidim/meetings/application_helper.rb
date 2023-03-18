@@ -57,7 +57,7 @@ module Decidim
       end
 
       # If the meeting is official or the rich text editor is enabled on the
-      # frontend, the meeting body is considered as safe content; that's unless
+      # frontend, the meeting body is considered as safe content; that is unless
       # the meeting comes from a collaborative_draft or a participatory_text.
       def safe_content?
         rich_text_editor_in_public_views? || safe_content_admin?
