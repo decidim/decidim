@@ -63,11 +63,9 @@ sv:
           no_data_stored: Ingen data lagrad.
         create:
           error: Det gick inte att skapa auktoriseringen.
-          success: Du har auktoriserats.
           unconfirmed: Du måste bekräfta din e-post för att kunna auktorisera dig själv.
         destroy:
           error: Det gick inte att ta bort auktoriseringen.
-          success: Du har tagit bort auktoriseringen.
         first_login:
           actions:
             another_dummy_authorization_handler: Verifiera med hjälp av ett annat auktoriseringsverktyg
@@ -188,8 +186,6 @@ sv:
           new:
             send: Skicka mig ett SMS
             title: Begär din verifieringskod
-          update:
-            success: Grattis. Du har blivit verifierad.
   errors:
     messages:
       uppercase_only_letters_numbers: får endast innehålla stora bokstäver och/eller siffror
