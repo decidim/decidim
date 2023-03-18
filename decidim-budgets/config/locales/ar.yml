@@ -104,7 +104,6 @@ ar:
           assigned: 'تعيين:'
           cancel_order: احذف صوتك وابدأ من جديد
           checked_out:
-            description: لقد قمت بالتصويت بالفعل على الميزانية. إذا غيرت رأيك ، يمكنك %{cancel_link}.
             title: اكتمال التصويت في الميزانية
           title: عليك أن تقرر الميزانية
         count:
