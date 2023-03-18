@@ -35,7 +35,7 @@ More details: https://github.com/flyerhzm/bullet
 
 == Rack-mini-profiler
 
-This gem can analyze memory, database, and call stack with flamegraphs. It will show up in development on the top left corner and it gives you all sorts of profiling insights about that page. It'll tell you where the response time was spend on in the call stack.
+This gem can analyze memory, database, and call stack with flamegraphs. It will show up in development on the top left corner and it gives you all sorts of profiling insights about that page. It will tell you where the response time was spend on in the call stack.
 
 This gem is further enhanced with the `flamegraph`, `stackprof` and `memory_profiler` gems which provide more detailed analysis. Try out by appending `?pp=flamegraph`, `?pp=profile-gc` or `?pp=analyze-memory` to the URL. You can read more about these options at https://github.com/MiniProfiler/rack-mini-profiler#flamegraphs.
 

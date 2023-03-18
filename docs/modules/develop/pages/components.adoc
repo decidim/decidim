@@ -183,7 +183,7 @@ In both cases, changes are the same:
 
 === Updating the development application
 
-While the component is being developed, it'll be simpler and faster to update Webpacker configuration inside the development app. The new component `app/packs` folder needs to be added to the list of paths that Webpack will use to look for assets.
+While the component is being developed, it will be simpler and faster to update Webpacker configuration inside the development app. The new component `app/packs` folder needs to be added to the list of paths that Webpack will use to look for assets.
 
 Also, components might have one or many entrypoints (for CSSs and javascripts) and images. These entrypoints need to be manually added to `config/webpack/custom.js`. **Any change in both files** requires to restart `webpack-dev-server` process.
 

@@ -841,12 +841,12 @@ After this time the initiative will be moved to discarded state.
 |Name |Value |Default value|Multitenant's System configurable
 
 |RAILS_LOG_TO_STDOUT
-|If defined (value is indifferent) it'll show the log content on the shell Standard Out. It's special relevant on certain hosting providers (for example, Heroku or Docker). It's also part of https://12factor.net/logs[12factor's recommendations].
+|If defined (value is indifferent) it will show the log content on the shell Standard Out. It's special relevant on certain hosting providers (for example, Heroku or Docker). It's also part of https://12factor.net/logs[12factor's recommendations].
 |
 |No
 
 |RAILS_SERVE_STATIC_FILES
-|If defined (value is indifferent) it'll serve static files present in the `public` folder of Rails. It's special relevant on certain hosting providers (for example, Heroku or Docker).
+|If defined (value is indifferent) it will serve static files present in the `public` folder of Rails. It's special relevant on certain hosting providers (for example, Heroku or Docker).
 |
 |No
 
