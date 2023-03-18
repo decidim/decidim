@@ -240,7 +240,6 @@ gl:
           title: A autorización caducou
         incomplete:
           cancel: Cancelar
-          explanation: 'Aínda que actualmente estás autorizado con "%{authorization}", necesitamos que reautoresas porque falta os seguintes datos:'
           invalid_field: "%{field}"
           reauthorize: Reautorizar
           title: Reautoralizar
@@ -689,7 +688,6 @@ gl:
         title: Usuarios
     newsletter_mailer:
       newsletter:
-        note: Recibiches este correo electrónico porque estás subscrito a boletíns en %{organization_name}. Podes cambiar a configuración nas túas <a href="%{link}"> notificacións páxina</a>.
         unsubscribe: Para desactivar a recepción deste tipo de correo electrónico, <a href="%{link}" target="_blank" class="unsubscribe">Subscribe</a>.
     newsletters:
       unsubscribe:
@@ -733,7 +731,6 @@ gl:
         success: A configuración das notificacións actualizouse correctamente.
     offline:
       show:
-        message: Semella que non tes conexión. Por favor, téntao de novo máis tarde.
         retry: Tentar de novo
     open_data:
       not_available_yet: Os ficheiros Open Data aínda non están dispoñibles. Téntao de novo nuns minutos.
@@ -926,7 +923,6 @@ gl:
     user_interests:
       show:
         my_interests: Os meus intereses
-        select_your_interests: Selecciona os temas que che interesan para recibir eventos relacionados con eles na pestana Timeline do teu perfil.
         update_my_interests: Actualiza os meus intereses
       update:
         error: Produciuse un erro ao actualizar os teus intereses.
@@ -1098,8 +1094,6 @@ gl:
         expire_time_html: A túa sesión caducará en <b><span class="minutes">%{minutes}</span> minutos</b>.
       notifications_dashboard:
         mark_all_as_read: Marca todo como lido
-      offline_banner:
-        cache_version_page: Vaites! A túa rede está desconectada. O que estás a ver é unha versión previa da páxina gardada na caché, é podería non estar actualizada.
       upload_modal:
         close_modal: Pechar modal
       user_menu:
