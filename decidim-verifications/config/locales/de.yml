@@ -70,11 +70,9 @@ de:
           no_data_stored: Keine gespeicherten Daten.
         create:
           error: Beim Erstellen der Autorisierung ist ein Fehler aufgetreten.
-          success: Sie wurden erfolgreich autorisiert.
           unconfirmed: Sie müssen Ihre E-Mail bestätigen, um sich zu autorisieren.
         destroy:
           error: Beim Löschen der Berechtigung ist ein Fehler aufgetreten.
-          success: Sie haben die Berechtigung erfolgreich gelöscht.
         first_login:
           actions:
             another_dummy_authorization_handler: Überprüfen Sie anhand eines anderen Beispiels des Autorisierungshandlers
@@ -201,8 +199,6 @@ de:
           new:
             send: Senden Sie mir eine SMS
             title: Fordern Sie Ihren Bestätigungscode an
-          update:
-            success: Herzliche Glückwünsche. Sie wurden erfolgreich verifiziert.
   errors:
     messages:
       uppercase_only_letters_numbers: muss groß geschrieben sein und darf nur Buchstaben und / oder Zahlen enthalten
