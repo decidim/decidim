@@ -29,7 +29,6 @@ tr:
       decidim/component_published_event: Aktif bileşen
       decidim/demoted_membership: Artık bir grup yöneticisi
       decidim/gamification/badge_earned_event: Kazanılan rozet
-      decidim/gamification/level_up_event: Seviye atladın
       decidim/join_request_accepted_event: Katılma isteği kabul edildi
       decidim/join_request_rejected_event: Katılma isteği reddedildi
       decidim/profile_updated_event: Profil güncellendi
@@ -529,15 +528,9 @@ tr:
         email_subject: '%{resource_title} bir güncelleme'
       gamification:
         badge_earned:
-          email_intro: İyi iş! <a href="%{resource_url}">%{badge_name} rozeti</a> (seviye %{current_level}) kazandınız.
           email_outro: Web sitemizde etkinlik yaptığınız için bu bildirimi aldınız.
-          email_subject: 'Yeni bir rozet kazandınız: %{badge_name}!'
-          notification_title: İyi iş! <a href="%{resource_path}">%{badge_name} rozeti</a> (seviye %{current_level}) kazandınız.
         level_up:
-          email_intro: İyi iş! Sen seviyeye ulaşan %{current_level} üzerinde <a href="%{resource_url}">%{badge_name} rozet</a>!
           email_outro: Web sitemizde etkinlik yaptığınız için bu bildirimi aldınız.
-          email_subject: '%{badge_name} rozette seviye %{current_level} ulaştınız!'
-          notification_title: İyi iş! Sen seviyeye ulaşan %{current_level} üzerinde <a href="%{resource_path}">%{badge_name} rozet</a>!
       groups:
         demoted_membership:
           email_intro: <a href="%{resource_url}">%{user_group_name}</a> grubunun yöneticisi, yönetici haklarınızı bu gruba kaldırdı.
@@ -666,7 +659,6 @@ tr:
           description_own: "%{score} kullanıcı sizi takip ediyor."
           name: İzleyiciler
           next_level_in: Bir sonraki seviyeye ulaşmak için sizi takip etmek için %{score} kullanıcı daha alın!
-          unearned_own: Henüz takipçiniz yok.
         index:
           badge_title: "%{name} rozet"
           how: Nasıl kazanabilirsin
@@ -674,7 +666,6 @@ tr:
           title: Rozetler
       description: Rozetler, katılımcı eylemleri ve platformdaki ilerlemeleri tanımaktadır. Platformda keşfetmeye, katılmaya ve etkileşim kurmaya başladığınızda farklı rozetler kazanacaksınız.
       level: Seviye %{level}
-      reached_top: Bu rozetin en üst seviyesine ulaştınız.
     group_admins:
       actions:
         demote_admin: Yönetici kaldır
@@ -1247,14 +1238,6 @@ tr:
         someone_invited_you_as_admin: Birisi sizi %{application}yönetici olarak davet etti, aşağıdaki bağlantıdan kabul edebilirsiniz.
         someone_invited_you_as_private_user: Birisi sizi %{application}private_user olarak davet etti, aşağıdaki bağlantıdan kabul edebilirsiniz.
         subject: Davet talimatları
-      invite_admin:
-        subject: '%{organization}yönetmeye davet edildiniz'
-      invite_collaborator:
-        subject: '%{organization}ortak çalışmaya davet edildiniz'
-      invite_private_user:
-        subject: '%{organization}özel bir katılımcı sürecine davet edildiniz'
-      organization_admin_invitation_instructions:
-        subject: '%{organization}yönetmeye davet edildiniz'
       password_change:
         greeting: Merhaba %{recipient}!
         subject: şifre değişti
