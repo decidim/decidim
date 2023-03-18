@@ -323,14 +323,6 @@ is-IS:
         invited_you_as_admin: "%{invited_by} hefur boðið þér sem admin á %{application}. Þú getur samþykkt það í gegnum tengilinn hér að neðan."
         someone_invited_you: Einhver hefur boðið þér að %{application}. Þú getur samþykkt það í gegnum tengilinn hér að neðan.
         someone_invited_you_as_admin: Einhver hefur boðið þér sem admin á %{application}, þú getur samþykkt það í gegnum tengilinn hér að neðan.
-      invite_admin:
-        subject: Þú hefur verið boðið að stjórna %{organization}
-      invite_collaborator:
-        subject: Þú hefur verið boðið að vinna á %{organization}
-      invite_private_user:
-        subject: Þú hefur verið boðið í einkaþátttökuferli á %{organization}
-      organization_admin_invitation_instructions:
-        subject: Þú hefur verið boðið að stjórna %{organization}
       password_change:
         greeting: Halló %{recipient}!
         subject: Lykilorð breytt
