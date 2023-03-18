@@ -230,7 +230,6 @@ nl:
           follower:
             email_intro: 'Het voorstel "%{resource_title}" is aanvaard. Je kan het antwoord op deze pagina lezen:'
             email_outro: Je hebt deze melding ontvangen omdat je "%{resource_title}" volgt. Ontvolgen kan door te klikken op de voorgaande link.
-            email_subject: Een voorstel dat je volgt, is geaccepteerd
             notification_title: Het voorstel <a href="%{resource_path}">%{resource_title}</a> is geaccepteerd.
         proposal_evaluating:
           affected_user:
@@ -241,7 +240,6 @@ nl:
           follower:
             email_intro: 'Het voorstel "%{resource_title}" is geaccepteerd. Je kan het antwoord op deze pagina lezen:'
             email_outro: Je hebt deze melding ontvangen omdat je "%{resource_title}" volgt. Ontvolgen kan door te klikken op de voorgaande link.
-            email_subject: Een voorstel dat je volgt, wordt geëvalueerd
             notification_title: Het voorstel <a href="%{resource_path}">%{resource_title}</a> wordt beoordeeld.
         proposal_mentioned:
           email_intro: Uw voorstel "%{mentioned_proposal_title}" is in deze ruimte <a href="%{resource_url}"></a> genoemd in de reacties.
@@ -265,7 +263,6 @@ nl:
           follower:
             email_intro: 'Het voorstel "%{resource_title}" is afgewezen. Je kan de reden hier lezen:'
             email_outro: Je hebt deze melding ontvangen omdat je "%{resource_title}" volgt. Ontvolgen kan door te klikken op de voorgaande link.
-            email_subject: Een voorstel dat je volgt, is afgewezen
             notification_title: Het voorstel <a href="%{resource_path}">%{resource_title}</a> is afgewezen.
         proposal_update_category:
           email_intro: 'Een beheerder heeft de categorie van uw voorstel "%{resource_title} bijgewerkt, bekijk het op deze pagina:'
