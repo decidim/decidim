@@ -17,7 +17,7 @@ Depending in the kind of space and module, then you can see or not some of the s
 - For assemblies, it appears when there is some published content by an administrator.
 - For consultations, you need to enable the module and it appears when there is some published content by an administrator.
 - For conferences, you need to enable the module and it appears when there is some published content by an administrator.
-- For initiatives, you need to enable the module. Every participant can see it, as anyone can create one. That's because is a bottom-up kind of mechanism.
+- For initiatives, you need to enable the module. Every participant can see it, as anyone can create one. That is because is a bottom-up kind of mechanism.
 
 Starting with 0.25.dev, Decidim Menu Api has been modified, in order to improve developer and administrators experience.
 The changes on the menu has deprecated the previous `menu.item` call, in favour of `menu.add_item` that has the following structure:

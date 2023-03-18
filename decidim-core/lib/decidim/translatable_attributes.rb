@@ -4,7 +4,7 @@ require "active_support/concern"
 
 module Decidim
   # A set of convenience methods to deal with I18n attributes and validations
-  # in a way that's compatible with AttributeObject and ActiveModel, thus making
+  # in a way that is compatible with AttributeObject and ActiveModel, thus making
   # it easy to integrate into Rails' forms and similar workflows.
   module TranslatableAttributes
     extend ActiveSupport::Concern
