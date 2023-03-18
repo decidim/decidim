@@ -1103,7 +1103,6 @@ ca:
             info_text: Tancament electoral del punt de votació.
           sign:
             cancel: Cancel·lar
-            check_box: Ho he revisat i és idèntic al certificat físic de tancament electoral
             close_modal: Tancar
             confirm: D'acord, continuar
             error: Hi ha hagut un error. Si us plau, torna-ho a provar.
