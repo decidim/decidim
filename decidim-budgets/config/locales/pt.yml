@@ -92,9 +92,7 @@ pt:
         cancel_order:
           more_than_one: apague o seu voto em %{name} e comece de novo
           only_one: apague o seu voto e comece de novo
-        finished_message: Acabou o processo de votação. Obrigado pela participação!
         highlighted_cta: Votar em %{name}
-        if_change_opinion: Se mudou a sua ideia, pode
         my_budgets: Os meus orçamentos
         progress: Finalizar votação
         show: Ver projectos
@@ -135,7 +133,6 @@ pt:
           assigned: 'Atribuído:'
           cancel_order: elimine o seu voto e comece de novo
           checked_out:
-            description: Já votou no orçamento. Se mudou de ideia, pode %{cancel_link}.
             title: Votação do orçamento concluída
           minimum_projects_rule:
             description: Que projectos acha que devemos atribuir orçamento? Seleccione pelo menos %{minimum_number} projectos que você deseja e vote de acordo com suas preferências para definir o orçamento.
