@@ -972,7 +972,6 @@ eu:
             info_text: Bozketa-guneko bozketaren itxiera.
           sign:
             cancel: Utzi
-            check_box: Berrikusi dut eta bozketaren itxieraren ziurtagiri fisikoaren berdina da
             close_modal: Itxi
             confirm: Ados, jarraitu
             error: Arazo bat izan da, mesedez, saiatu berriro.
