@@ -854,7 +854,6 @@ lv:
           modal_close: Aizvērt modal
           modal_title: Vai jūs tiešām atsakāties no atjauninātajiem lietošanas noteikumiem?
         required_review:
-          alert: Mēs esam atjauninājuši mūsu pakalpojumu sniegšanas noteikumus, lūdzu, pārskatiet tos.
           title: 'Obligāti: pārskatiet mūsu atjaunotos pakalpojumu sniegšanas noteikumus.'
     participatory_space_private_users:
       not_allowed: Jums nav atļauts skatīt šo saturu
