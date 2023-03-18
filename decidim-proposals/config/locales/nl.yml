@@ -806,7 +806,6 @@ nl:
             description: Elk voorstel kan meer dan %{limit} stemmen verzamelen
           minimum_votes_per_user:
             description: U moet een minimum van %{votes} stemmen verdelen over verschillende voorstellen.
-            given_enough_votes: U heeft voldoende steun gegeven.
             supports_remaining: U moet %{remaining_votes} meer voorstellen steunen om rekening te houden met uw ondersteuning.
           proposal_limit:
             description: Je kan maximaal %{limit} voorstellen doen.
