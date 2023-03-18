@@ -885,7 +885,6 @@ nl:
             available_answers: 'Beschikbare antwoorden:'
             complete_voting: Voltooi het stemmen
             identify_another: Identificeer een andere deelnemer
-            questions_title: 'Zij/hij heeft het recht om te stemmen op de volgende vragen:'
             voted: De gebruiker heeft gestemd
           create:
             error: De stemming werd niet geregistreerd. Probeer het opnieuw.
