@@ -289,7 +289,6 @@ it:
           title: L'autorizzazione è scaduta
         incomplete:
           cancel: Annulla
-          explanation: 'Nonostante già sei autorizzato con "%{authorization}", abbiamo bisogno che tu richieda una nuova autorizzazione poiché risultano mancanti i seguenti dati:'
           invalid_field: "%{field}"
           reauthorize: Ri-autorizzare
           title: Per favore, occorre una nuova autorizzazione
@@ -855,7 +854,6 @@ it:
         title: utenti
     newsletter_mailer:
       newsletter:
-        note: Hai ricevuto questa email perché ti sei iscritto alla newsletter su %{organization_name}. Puoi modificare le impostazioni sulla tua <a href="%{link}">pagina di notifiche</a>.
         unsubscribe: Per disattivare la ricezione di questo tipo di email, <a href="%{link}" target="_blank" class="unsubscribe">Unsubscribe</a>.
     newsletter_templates:
       basic_only_text:
@@ -917,7 +915,6 @@ it:
         success: OK, le impostazioni per le notifiche sono state modificate.
     offline:
       show:
-        message: Sembra che tu sia attualmente offline. Per favore, riprova più tardi.
         retry: Riprova
     open_data:
       not_available_yet: I file Open Data non sono ancora disponibili, riprova tra qualche minuto.
@@ -1186,7 +1183,6 @@ it:
     user_interests:
       show:
         my_interests: I miei interessi
-        select_your_interests: Seleziona gli argomenti a cui sei interessato per ricevere eventi correlati a loro nella scheda Cronologia del profilo.
         update_my_interests: Aggiorna i miei interessi
       update:
         error: Si è verificato un errore durante l'aggiornamento dei tuoi interessi.
@@ -1404,8 +1400,6 @@ it:
       notifications_dashboard:
         mark_all_as_read: Contrassegnare tutti come letti
         mark_as_read: Segna come già letto
-      offline_banner:
-        cache_version_page: Oooops! La tua rete è offline. Questa è una versione precedentemente memorizzata nella cache della pagina che stai visitando, forse il contenuto non è aggiornato.
       social_media_links:
         facebook: "%{organization} su Facebook"
         github: "%{organization} su GitHub"
