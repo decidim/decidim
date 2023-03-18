@@ -97,6 +97,14 @@ plugins:
           severity: minor
           categories: Style
 
+        no-sing-in-for-system-specs:
+          pattern: \s+sign_in[\s\(]
+          annotation: "Use login_as instead of sign_in at system specs"
+          severity: minor
+          categories: Style
+          path_patterns:
+            - "decidim-*/spec/system/**/*.rb"
+
     exclude_patterns:
       - "decidim_app-design/**/*"
       - "**/*/locales/*.yml"

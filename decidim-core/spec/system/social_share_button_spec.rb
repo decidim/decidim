@@ -55,7 +55,7 @@ describe "Social share button", type: :system do
 
     context "when the user is logged in" do
       before do
-        sign_in resource.author
+        login_as resource.author, scope: :user
         visit resource_path
       end
 

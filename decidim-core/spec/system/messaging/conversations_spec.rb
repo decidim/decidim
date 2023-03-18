@@ -182,7 +182,7 @@ describe "Conversations", type: :system do
         before do
           click_button "Send"
           expect(page).to have_selector(".conversation__message:last-child", text: message_body)
-          relogin_as interlocutor
+          relogin_as interlocutor, scope: :user
           visit_inbox
         end
 
