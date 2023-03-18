@@ -135,7 +135,6 @@ gl:
           assigned: 'Asignado:'
           cancel_order: elimine o seu voto e volva comezar
           checked_out:
-            description: Xa votou polo orzamento. Se mudou de idea, pode %{cancel_link}.
             title: A votación do orzamento completada
           rules:
             title: Regras do orzamento
