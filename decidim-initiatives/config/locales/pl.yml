@@ -171,7 +171,6 @@ pl:
             - Postępuj zgodnie z instrukcjami, aby utworzyć nową inicjatywę
           description: Ta odznaka jest przyznawana, gdy tworzysz nowe inicjatywy, współpracując z innymi, aby je zrealizować.
           description_another: Ten użytkownik posiada %{score} opublikowanych inicjatyw.
-          description_own: Masz opublikowanych %{score} inicjatyw.
           name: Opublikowane inicjatywy
           next_level_in: Uzyskaj %{score} kolejnych opublikowanych inicjatyw, aby awansować na następny poziom!
           unearned_own: Nie ma jeszcze żadnych opublikowanych inicjatyw.
