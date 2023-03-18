@@ -569,7 +569,6 @@ fr-CA:
                 invalid_key: Impossible de charger les clés d'identification à partir du fichier téléchargé.
                 invalid_public_key: Les clés d'identification dans le fichier téléchargé ne correspondent pas à la clé d'identification publique stockée.
               upload_legend: "The server has your public identification keys, but your browser still does not have it. You need to import the file with your identification keys to your computer from the backup you created after generating them.\nLe serveur dispose de vos clés d'identification publiques, mais pas votre navigateur. Vous devez importer le fichier contenant vos clés d'identification sur votre ordinateur à partir de la sauvegarde que vous avez créée après les avoir générées."
-            not_supported_browser_description: "It looks like you are using a web browser that cannot be used to act as a Trustee. Make sure you're using the most recent version of your browser, or try using any of the most popular browsers to be able to complete your tasks.\nIl semblerait que votre navigateur web ne peut pas être utilisé pour agir en tant qu'administrateur. Assurez-vous d'utiliser la dernière version ou essayez d'utiliser l'un des navigateurs les plus populaires afin de réaliser vos tâches."
             not_supported_browser_title: Mettre à niveau le navigateur pour agir en tant que garant
             trustee_role_description: Vous avez été assigné à agir en tant que garant lors de certaines des élections mises en place sur cette plateforme.
           update:
@@ -1122,7 +1121,6 @@ fr-CA:
             census_verified_with_online_vote: Ce participant a déjà voté en ligne. S'il vote en personne, les votes précédents seront invalidés et ce sera le vote définitif.
             complete_voting: Vote terminé
             identify_another: Identifier un autre participant
-            questions_title: 'Elle a le droit de voter sur les questions suivantes:'
             questions_title_voted: 'Le participant a déjà voté en ligne et a le droit de voter dans les questions suivantes :'
             voted: Le participant a voté
           create:
