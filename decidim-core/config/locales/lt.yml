@@ -34,7 +34,6 @@ lt:
       decidim/component_published_event: Aktyvusis komponentas
       decidim/demoted_membership: Nebėra grupės administratorius
       decidim/gamification/badge_earned_event: Ženklas gautas
-      decidim/gamification/level_up_event: Pakilote lygiu
       decidim/invited_to_group_event: Pakvietimas prisijungti prie grupės
       decidim/join_request_accepted_event: Prisijungimo užklausa patvirtinta
       decidim/join_request_rejected_event: Prisijungimo užklausa atmesta
@@ -662,15 +661,9 @@ lt:
         email_subject: '%{resource_title} atnaujinimas'
       gamification:
         badge_earned:
-          email_intro: Sveikiname! Jūs gavote <a href="%{resource_url}">%{badge_name} ženklelį </a> (lygis %{current_level}).
           email_outro: Šį pranešimą gavote dėl to, kad mūsų interneto svetainėje pradėjote veiklą.
-          email_subject: 'Jūs pelnėte naują ženklelį – %{badge_name}!'
-          notification_title: Sveikiname! Jūs pelnėte <a href="%{resource_path}">%{badge_name} ženklelį </a> (lygis %{current_level}).
         level_up:
-          email_intro: Sveikiname! Jūs pasiekėte %{current_level} lygio <a href="%{resource_url}">%{badge_name} ženklelį</a>!
           email_outro: Šį pranešimą gavote dėl to, kad mūsų interneto svetainėje pradėjote veiklą.
-          email_subject: Jūs pasiekėte %{current_level} lygio ženklelį %{badge_name}!
-          notification_title: Sveikiname! Jūs pasiekėte %{current_level} lygio <a href="%{resource_path}">%{badge_name} ženklelį</a>!
       groups:
         demoted_membership:
           email_intro: <a href="%{resource_url}">%{user_group_name}</a> grupės administratorius pašalino jūsų administratoriaus teises, susijusias su šia grupe.
@@ -841,7 +834,6 @@ lt:
           description_own: "Jus seka %{score} žmonės (-ių)."
           name: Sekėjai
           next_level_in: Būkite sekamas %{count} dalyvių, kad pasiekti kitą lygį!
-          unearned_own: Jūs dar neturite sekėjų.
         index:
           badge_title: "%{name} ženklelis"
           how: Kaip jį užsitarnauti
@@ -849,7 +841,6 @@ lt:
           title: Ženkleliai
       description: Ženkleliai – tai dalyvių veiksmų ir veiklos platformoje pripažinimas. Susipažindami su platforma, joje dalyvaudami ir bendraudami, pelnysite įvairių ženklelių.
       level: '%{level} lygis'
-      reached_top: Pasiekėte aukščiausią šio ženklelio lygį.
       title: Kas yra ženkleliai?
     group_admins:
       actions:
@@ -1503,14 +1494,6 @@ lt:
         someone_invited_you_as_admin: Kažkas pakvietė jus kaip %{application} administratorių. Kvietimą galite priimti spustelėję toliau pateikiamą nuorodą.
         someone_invited_you_as_private_user: Kažkas pakvietė jus kaip %{application} privatų dalyvį. Kvietimą galite priimti spustelėję toliau pateikiamą nuorodą.
         subject: Kvietimo nurodymai
-      invite_admin:
-        subject: Esate pakviestas valdyti %{organization}
-      invite_collaborator:
-        subject: Esate pakviestas bendradarbiauti %{organization}
-      invite_private_user:
-        subject: Esate pakviestas į %{organization} uždarą dalyvaujamąjį procesą
-      organization_admin_invitation_instructions:
-        subject: Esate pakviestas valdyti %{organization}
       password_change:
         greeting: Sveiki %{recipient}!
         subject: Slaptažodis pakeistas
