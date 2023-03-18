@@ -180,8 +180,6 @@ ca:
           feedback_form_answers: Feedback de les respostes
         mailers:
           trustee_mailer:
-            body: "<p>Hola %{user_name},</p><p>Se t'ha afegit com a garant a%{resource_name}.</p>"
-            subject: Se t'ha afegit com a garant de %{resource_name}
             trustee_zone: Portant a l'espai de garants
         menu:
           trustees: Garants
@@ -447,7 +445,6 @@ ca:
       feedback:
         answer:
           invalid: S'ha produït un error en enviar els teus comentaris.
-          spam_detected: Hi ha hagut un problema contestant el formulari. Potser has anat massa ràpid, ho pots tornar a intentar?
           success: Comentaris enviats amb èxit.
       models:
         answer:
@@ -675,18 +672,15 @@ ca:
         trustees:
           new_election:
             email_intro: Has estat afegit com a garant de l'elecció %{resource_title}.
-            email_outro: Has rebut aquesta notificació perquè t'han afegit com a garant de l'elecció %{resource_title}.
             email_subject: Ets un garant de l'elecció %{resource_title}..
             notification_title: Ets un garant de l'elecció <a href="%{resource_path}">%{resource_title}</a>.
           new_trustee:
             email_intro: Una administradora t'ha afegit com a garant de %{resource_name}. Hauries de crear la teva clau pública a la teva <a href='%{trustee_zone_url}'>zona de garants</a>
-            email_outro: Has rebut aquesta notificació perquè t'han afegit com a garant de %{resource_name}.
             email_subject: Ets garant de %{resource_name}.
             notification_title: Ets garant de <a href="%{participatory_space_url}">%{resource_name}</a>.
         votes:
           accepted_votes:
             email_intro: 'El teu vot s''ha acceptat! Utilitzant el comprovant de vot: %{encrypted_vote_hash}, pots verificar-lo <a href="%{verify_url}">aquí</a>.'
-            email_outro: Has rebut aquesta notificació perquè has votat a l'elecció %{resource_name}.
             email_subject: El teu vot a %{resource_name} s'ha acceptat.
             notification_title: 'El teu vot s''ha acceptat. Verifica''l <a href="%{verify_url}">aquí</a> utilitzant el comprovant de vot: %{encrypted_vote_hash}'
       votings:
