@@ -1553,7 +1553,6 @@ cs:
         subject: Pokyny pro potvrzení
       email_changed:
         greeting: Dobrý den %{recipient}!
-        message: Kontaktujeme vás, abyste vás upozornili, že váš e-mail je změněn na %{email}.
         subject: E-mail byl změněn
       invitation_instructions:
         accept: Přijmout pozvání
@@ -1576,7 +1575,6 @@ cs:
         subject: Byl jste pozván na správu %{organization}
       password_change:
         greeting: Dobrý den %{recipient}!
-        message: Kontaktujeme vás, abyste vás upozornili, že vaše heslo bylo změněno.
         subject: Heslo změněno
       reset_password_instructions:
         action: Změňte heslo
