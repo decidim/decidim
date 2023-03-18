@@ -759,6 +759,8 @@ cs:
           send_to_participants: Odeslat účastníkům
           title: Vybrat příjemce k doručení
           warning: "<strong> Pozor: </strong> Tento zpravodaj bude zasílán pouze uživatelům, kteří si aktivovali <em> chci dostávat zpravodaj </em> v nastavení oznámení."
+        send:
+          no_recipients: Žádní příjemci pro tento výběr.
         show:
           preview: Náhled
           select_recipients_to_deliver: Vybrat příjemce k doručení
@@ -767,6 +769,13 @@ cs:
           error: Při aktualizaci tohoto zpravodaje došlo k chybě.
           success: Zpravodaj byl úspěšně aktualizován. Před odesláním jej prosím zkontrolujte.
       officializations:
+        block:
+          error: Při blokování účastníka došlo k chybě.
+          success: Účastník byl úspěšně zablokován.
+        create:
+          success: Účastník úspěšně oficiálně zaregistrován.
+        destroy:
+          success: Účastník úspěšně zbaven oficiální registrace.
         index:
           actions: Akce
           badge: Odznak
@@ -795,6 +804,9 @@ cs:
           hidden: skrytý
           show: Zobrazit
           title: Zobrazit e-mailovou adresu účastníka
+        unblock:
+          error: Při odblokování účastníka došlo k chybě.
+          success: Účastník byl úspěšně odblokován.
       organization:
         edit:
           title: Upravit organizaci
@@ -937,6 +949,7 @@ cs:
           error: Při zničení tokenu došlo k chybě.
           success: Token byl úspěšně smazán.
         share_tokens:
+          empty: Nejsou žádné aktivní tokeny.
           help: Tyto tokeny se používají k veřejnému sdílení tohoto nezveřejněného zdroje každému uživateli. Budou skryty, když bude dokument publikován. Klikněte na ikonu sdílení tokenu a navštivte sdílenou URL.
           title: Sdílet tokeny
       shared:
@@ -949,6 +962,8 @@ cs:
         create:
           error: Při vytváření nového tématu došlo k chybě.
           success: Téma vytvořeno úspěšně.
+        destroy:
+          success: Téma úspěšně zničeno.
         edit:
           title: Upravit téma
           update: Aktualizovat téma
@@ -964,6 +979,11 @@ cs:
         content_blocks:
           active_content_blocks: Aktivní bloky obsahu
           add: Přidat blok obsahu
+          create:
+            success: Blok obsahu byl úspěšně vytvořen.
+          destroy:
+            error: Při pokusu o odstranění tohoto bloku obsahu došlo k chybě.
+            success: Blok obsahu byl úspěšně odstraněn.
           destroy_confirmation: Opravdu chcete smazat tento blok obsahu?
           edit:
             update: Aktualizovat
@@ -989,9 +1009,11 @@ cs:
         topic:
           destroy: Odebrat téma
           edit: Upravit téma
+          empty: V tomto tématu nejsou žádné stránky.
           without_topic: Stránky bez tématu
         update:
           error: Při aktualizaci této stránky došlo k chybě.
+          success: Stránka byla úspěšně aktualizována.
       titles:
         admin_log: Správce protokolu
         area_types: Typy oblastí
@@ -1015,8 +1037,10 @@ cs:
           success: CSV soubor byl úspěšně nahrán, ověřujeme skupiny odpovídající kritériím. To může chvíli trvat.
         reject:
           invalid: Při odmítnutí této skupiny došlo k chybě.
+          success: Skupina byla úspěšně zamítnuta.
         verify:
           invalid: Při ověřování této skupiny došlo k chybě.
+          success: Skupina byla úspěšně ověřena.
       user_groups:
         index:
           state:
@@ -1053,8 +1077,13 @@ cs:
           last_day: Poslední den
           last_month: Minulý měsíc
           last_week: Minulý týden
+          no_users_count_statistics_yet: Zatím nejsou žádné statistiky počtu uživatelů.
           participants: Účastníci
       view_public_page: Zobrazit veřejnou stránku
+    forms:
+      errors:
+        impersonate_user:
+          reason: Musíte uvést důvod pro správu neřízeného účastníka.
     metrics:
       blocked_users:
         object: blokovaní uživatelé
