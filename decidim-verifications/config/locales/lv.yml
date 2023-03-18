@@ -62,11 +62,9 @@ lv:
           no_data_stored: Nav saglabāti dati.
         create:
           error: Autorizācijas izveides laikā radās problēma.
-          success: Jūs esat veiksmīgi autorizēts.
           unconfirmed: Lai autorizētos, jums jāapstiprina savs e-pasts.
         destroy:
           error: Autorizācijas dzēšanas laikā radās problēma.
-          success: Jūs esat veiksmīgi izdzēsis autorizāciju.
         first_login:
           actions:
             another_dummy_authorization_handler: Verificēt ar cita autorizācijas apstrādātāja piemēru
@@ -178,8 +176,6 @@ lv:
           new:
             send: Sūtīt man SMS
             title: Pieprasīt jūsu verifikācijas kodu
-          update:
-            success: Apsveicam! Jūs esat veiksmīgi verificēts.
   errors:
     messages:
       uppercase_only_letters_numbers: jābūt visiem lielajiem burtiem un jāsatur tikai burti un/vai cipari
