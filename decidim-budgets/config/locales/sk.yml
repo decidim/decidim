@@ -74,7 +74,6 @@ sk:
           assigned: 'Priradený:'
           cancel_order: vymažte svoj hlas a začnite odznova
           checked_out:
-            description: Už ste hlasovali za rozpočet. Ak ste zmenili názor, môžete %{cancel_link}.
             title: Hlasovanie o rozpočte dokončené
           title: Vy rozhodujete o rozpočte
         count:
