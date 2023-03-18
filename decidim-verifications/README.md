@@ -47,7 +47,7 @@ Decidim implements two type of authorization methods:
   to implement it. "Simple" here means that the authorization can be granted
   with the submission of a single form. For example, to validate a user against
   a census API you will need a form with some fields that your users will use to
-  authenticate against a census (for example, an ID and a Postal Code). You'll
+  authenticate against a census (for example, an ID and a Postal Code). You will
   implement this with a form class. See the documentation for the [parent
   class][authorization handler base class] or have a look at some live examples,
   such as:

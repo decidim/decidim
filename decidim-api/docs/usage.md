@@ -359,7 +359,7 @@ For instance, components in a participatory space are polymorphic, while the con
 
 Another example are the case of linked resources, these are properties that may link objects of different nature between components or participatory spaces.
 
-In a very simplified way (to know more please refer to the official guide), GraphQL polymorphism is handled through the operator `... on`. You'll know when a field is polymorphic because the property `__typename`, which tells you the type of that particular object, will change accordingly.
+In a very simplified way (to know more please refer to the official guide), GraphQL polymorphism is handled through the operator `... on`. You will know when a field is polymorphic because the property `__typename`, which tells you the type of that particular object, will change accordingly.
 
 In the previous examples we've queried for this property:
 

@@ -1,6 +1,6 @@
 = Manual installation tutorial
 
-In order to develop on decidim, you'll need:
+In order to develop on decidim, you will need:
 
 * *Git* 2.34+
 * *PostgreSQL* 14.5+
@@ -91,7 +91,7 @@ should always be careful of not uploading your plain secrets on git or your vers
 
 For a development environment, and if you are using rbenv, we strongly recommend you to use the https://github.com/rbenv/rbenv-vars[rbenv-vars] to facilitate the edition of ENV vars.
 
-First you'll need to install the rbenv-vars plugin:
+First you will need to install the rbenv-vars plugin:
 
 [source,bash]
 ----
@@ -145,7 +145,7 @@ With these steps you would only have an initial installation for trying Decidim,
 
 == Extra notes
 
-Other user accounts that you'll have in the seeds are:
+Other user accounts that you will have in the seeds are:
 
 * To participate as a regular user, with email `user@example.org` and password `decidim123456789`.
 * To manage the Multitenant and being able to log in at `/system`, with email `system@example.org` and password `decidim123456789`.

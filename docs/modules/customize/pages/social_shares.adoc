@@ -38,7 +38,7 @@ image::social-share-modal-default.png[Social share modal]
 
 == Custom services
 
-If you have the need, you can enable your own service. To do that, as an example for a ficticious social service called "Foo", you'll need to follow these steps:
+If you have the need, you can enable your own service. To do that, as an example for a ficticious social service called "Foo", you will need to follow these steps:
 
 . Add the logo of your service to the images' pack at `app/packs/images/`. Following the example, it'd be "foo.svg"
 

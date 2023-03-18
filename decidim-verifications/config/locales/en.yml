@@ -80,7 +80,7 @@ en:
       multistep: Multi-Step
       name: Name
       postal_letter:
-        explanation: We will send you a postal letter with a code that you'll have to enter so we can verify your address.
+        explanation: We will send you a postal letter with a code that you will have to enter so we can verify your address.
         name: Code by postal letter
     events:
       verifications:

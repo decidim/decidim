@@ -974,7 +974,7 @@ Style/SymbolArray:
 
 Style/SymbolProc:
   # A list of method names to be ignored by the check.
-  # The names should be fairly unique, otherwise you'll end up ignoring lots of code.
+  # The names should be fairly unique, otherwise you will end up ignoring lots of code.
   IgnoredMethods:
     - respond_to
     - define_method

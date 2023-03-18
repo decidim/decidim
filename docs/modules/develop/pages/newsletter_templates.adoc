@@ -6,7 +6,7 @@ Code-wise, they use the content blocks system internally, so xref:develop:conten
 
 == Adding a new template
 
-You'll first need to register the template as a content block, but specifying `:newsletter_template` as its scope:
+You will first need to register the template as a content block, but specifying `:newsletter_template` as its scope:
 
 [source,ruby]
 ----
@@ -34,7 +34,7 @@ Decidim.content_blocks.register(:newsletter_template, :my_template) do |content_
 end
 ----
 
-You'll need to add this into an initializer. Note that if you're adding this from a module, then you need to add it from the `engine.rb` file (check the docs for content blocks for more info).
+You will need to add this into an initializer. Note that if you're adding this from a module, then you need to add it from the `engine.rb` file (check the docs for content blocks for more info).
 
 This is the simplest template. It has a single attribute, in this case a translatable chunk of text. We will analyze the example line by line.
 
@@ -50,7 +50,7 @@ Finally, we define the attributes for the newsletter. In this case we define a b
 
 == Interpolating the recipient name
 
-Decidim accepts `+%{name}+` as a placeholder for the recipient name. If you want your template to use it, you'll need to call `parse_interpolations` in your public cell:
+Decidim accepts `+%{name}+` as a placeholder for the recipient name. If you want your template to use it, you will need to call `parse_interpolations` in your public cell:
 
 [source,ruby]
 ----

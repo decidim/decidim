@@ -141,7 +141,7 @@ describe "Account", type: :system do
         end
 
         within_flash_messages do
-          expect(page).to have_content("You'll receive an email to confirm your new email address")
+          expect(page).to have_content("You will receive an email to confirm your new email address")
         end
       end
 

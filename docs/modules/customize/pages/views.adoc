@@ -4,7 +4,7 @@ As usual you should make some tests with the changes that you made and configure
 
 == Overrides
 
-To find what you need to change you'll need to make some detective work to find out which partial or view do you need to change. You can do so by:
+To find what you need to change you will need to make some detective work to find out which partial or view do you need to change. You can do so by:
 
 * looking at your application log and finding the lines that start with "Rendered"
 * inspecting with the web development tools of your browser, copying a special class and using `grep`, github search or your IDE search by multiple files to find out on which file this exists.
@@ -17,7 +17,7 @@ As an example, if I want to change the footer, you'd need to search for the file
 
 == Deface method
 
-You'll need the https://github.com/spree/deface[`deface` gem] installed on your application, and follow their instructions on how to use the different overridign methods that they support.
+You will need the https://github.com/spree/deface[`deface` gem] installed on your application, and follow their instructions on how to use the different overridign methods that they support.
 
 As an example, if you want to change the footer, you can do so by creating the file `app/overrides/layouts/decidim/_main_footer/pre_footer.html.erb.deface` with these contents:
 

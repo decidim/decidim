@@ -384,7 +384,7 @@ en:
           Excel: Excel
           FormPDF: PDF
           JSON: JSON
-        notice: Your export is currently in progress. You'll receive an email when it's complete.
+        notice: Your export is currently in progress. You will receive an email when it's complete.
       filters:
         category_id_eq:
           label: Category

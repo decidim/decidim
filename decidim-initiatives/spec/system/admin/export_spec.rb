@@ -54,7 +54,7 @@ describe "Admin exports initiatives", type: :system do
     it "displays success message" do
       click_link "Initiatives as JSON"
 
-      expect(page).to have_content("Your export is currently in progress. You'll receive an email when it's complete.")
+      expect(page).to have_content("Your export is currently in progress. You will receive an email when it's complete.")
     end
   end
 
@@ -95,7 +95,7 @@ describe "Admin exports initiatives", type: :system do
       it "displays success message" do
         click_link "Initiatives as JSON"
 
-        expect(page).to have_content("Your export is currently in progress. You'll receive an email when it's complete.")
+        expect(page).to have_content("Your export is currently in progress. You will receive an email when it's complete.")
       end
     end
   end
