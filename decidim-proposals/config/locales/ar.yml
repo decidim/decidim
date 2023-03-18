@@ -286,7 +286,6 @@ ar:
           follower:
             email_intro: 'تم قبول الاقتراح "%{resource_title}". يمكنك قراءة الإجابة على هذه الصفحة:'
             email_outro: لقد تلقيت هذا الإشعار لأنك تتابع %{resource_title}. يمكنك إلغاء المتابعة على الرابط السابق.
-            email_subject: تم قبول اقتراح تتابعه
             notification_title: لقد تم قبول المُقتَرح <a href="%{resource_path}">%{resource_title}</a>.
         proposal_evaluating:
           affected_user:
@@ -297,7 +296,6 @@ ar:
           follower:
             email_intro: 'الاقتراح "%{resource_title}" قيد التقييم حاليا. يمكنك التحقق من وجود إجابة على هذه الصفحة:'
             email_outro: لقد تلقيت هذا الإشعار لأنك تتابع %{resource_title}. يمكنك إلغاء المتابعة على الرابط السابق.
-            email_subject: واحد من الاقتراحات التي تتبعها قيد التقييم الآن
             notification_title: الاقتراح <a href="%{resource_path}">%{resource_title}</a> قيد التقييم الآن.
         proposal_mentioned:
           email_intro: تم ذكر اقتراحك "%{mentioned_proposal_title}" <a href="%{resource_url}">في هذا الفضاء</a> في التعليقات.
@@ -322,7 +320,6 @@ ar:
           follower:
             email_intro: 'تم رفض الاقتراح %{resource_title}. يمكنك قراءة الإجابة على ذلك على هذه الصفحة:'
             email_outro: لقد تلقيت هذا الإشعار لأنك تتابع %{resource_title}. يمكنك إلغاء المتابعة على الرابط السابق.
-            email_subject: واحد من الاقتراحات التي تتبعها تم رفضها
             notification_title: تم رفض الاقتراح <a href="%{resource_path}">%{resource_title}</a>.
         proposal_update_category:
           email_intro: 'قام المشرف بتحديث فئة اقتراحك "%{resource_title}" ، تحقق من ذلك في هذه الصفحة:'
