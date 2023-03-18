@@ -62,11 +62,9 @@ sk:
           no_data_stored: Žiadne uložené údaje.
         create:
           error: Pri vytváraní oprávnenia došlo k chybe.
-          success: Bol ste úspešne autorizovaný.
           unconfirmed: Potrebujete potvrdiť svoj e-mail, aby ste sa autorizovali.
         destroy:
           error: Počas rušenia autorizácie nastal problém.
-          success: Úspešne ste vymazali autorizáciu.
         first_login:
           actions:
             another_dummy_authorization_handler: Overte proti inému príkladu poverenia pre autorizáciu
@@ -187,8 +185,6 @@ sk:
           new:
             send: Pošlite mi SMS
             title: Požiadajte o overovací kód
-          update:
-            success: Gratulujeme. Bol ste úspešne overený.
   errors:
     messages:
       uppercase_only_letters_numbers: musia byť všetky veľké a obsahujú iba písmená a / alebo čísla
