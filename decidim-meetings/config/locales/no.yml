@@ -252,7 +252,6 @@
             update: Oppdater
           form:
             address_help: 'Adresse: brukes av Geocoder for å finne lokasjonen'
-            disclaimer: 'Ansvarsfraskrivelse: Ved å bruke et eksternt registreringssystem, er du klar over at opphavspersonene av %{organization} ikke er ansvarlige for dataene som brukerne gir til den eksterne tjenesten.'
             location_help: 'Plassering: melding rettet til brukerne som antyder stedet å møte på'
             location_hints_help: 'Hint: ekstra info. Eksempel: Etasje i bygningen hvis det er et fysisk møte, eller møtepassordet hvis det er et nettmøte med begrenset tilgang.'
             online_meeting_url_help: 'Lenke: tillat deltakere å koble direkte til møtet ditt'
