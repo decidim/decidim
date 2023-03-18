@@ -173,7 +173,6 @@ lt:
             - Sekti žingsnius naujos iniciatyvos sukūrimui
           description: Šis ženklelis suteikiamas, kai pradedate naujas iniciatyvas ir bendradarbiaujate su kitais, kad jas įgyvendintumėte.
           description_another: Šis dalyvis paskelbė %{score} iniciatyvas (-ų).
-          description_own: Jūs paskelbėte %{score} iniciatyvas (-ų).
           name: Paskelbtos iniciatyvos
           next_level_in: Paskelbkite dar %{score} iniciatyvas (-ų) ir pasiekite kitą lygį!
           unearned_own: Jūs nepaskelbėte nė vienos iniciatyvos.
