@@ -278,7 +278,6 @@ tr:
           title: Yetkilendirme süresi doldu
         incomplete:
           cancel: İptal Et
-          explanation: 'Şu anda "%{authorization}" için yetkilendirilmiş olmanıza rağmen, aşağıdaki veriler eksik olduğu için yeniden yetkilendirmeniz gerekiyor:'
           invalid_field: "%{field}"
           reauthorize: Yeniden yetkilendir
           title: Lütfen yeniden yetkilendirin
@@ -832,7 +831,6 @@ tr:
         title: Katılımcılar
     newsletter_mailer:
       newsletter:
-        note: Bu e-postayı, %{organization_name} bültenlere abone olduğunuz için aldınız. Eğer ayarlarınızı değiştirebilirsiniz <a href="%{link}">bildirimleri sayfa</a>.
         unsubscribe: Bu tür bir e-posta almayı iptal etmek için, <a href="%{link}" target="_blank" class="unsubscribe">Abonelikten Ayrıl</a>.
     newsletter_templates:
       basic_only_text:
@@ -1139,7 +1137,6 @@ tr:
     user_interests:
       show:
         my_interests: İlgi alanlarım
-        select_your_interests: Profil Zaman Çizelgesi sekmesinde kendileriyle ilgili etkinlikleri almak için ilgilendiğiniz konuları seçin.
         update_my_interests: İlgi alanlarımı güncelle
       update:
         error: İlgi alanlarınız güncellenirken bir hata oluştu.
