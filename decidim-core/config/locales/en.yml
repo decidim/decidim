@@ -1626,7 +1626,7 @@ en:
         subject: Confirmation instructions
       email_changed:
         greeting: Hello %{recipient}!
-        message: We're contacting you to notify you that your email is being changed to %{email}.
+        message: We are contacting you to notify you that your email is being changed to %{email}.
         subject: Email Changed
       invitation_instructions:
         accept: Accept invitation
@@ -1652,7 +1652,7 @@ en:
         subject: You've been invited to manage %{organization}
       password_change:
         greeting: Hello %{recipient}!
-        message: We're contacting you to notify you that your password has been changed.
+        message: We are contacting you to notify you that your password has been changed.
         subject: Password changed
       reset_password_instructions:
         action: Change my password

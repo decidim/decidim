@@ -104,7 +104,7 @@ If you need to have some features that we do not have yet, we recommend that you
 This is a Ruby on Rails engine with some APIs specific to Decidim (for registering with the menus, integration with spaces like Participatory Processes or Assemblies, with /admin or /api, etc).
 
 As a base you can use these modules, although check first that the version is compatible with your current Decidim version.
-Also, you should know that until v1.0.0 We're under development, and these internal APIs can change.
+Also, you should know that until v1.0.0 we are under development, and these internal APIs can change.
 
 We recommend that you extensively test your module.
 

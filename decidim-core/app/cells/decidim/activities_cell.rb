@@ -8,7 +8,7 @@ module Decidim
     include Decidim::IconHelper
     include Decidim::Core::Engine.routes.url_helpers
 
-    # Since we're rendering each activity separatedly we need to trigger
+    # Since we are rendering each activity separatedly we need to trigger
     # BatchLoader in order to accumulate all the ids to be found later.
     def show
       return if activities.blank?
