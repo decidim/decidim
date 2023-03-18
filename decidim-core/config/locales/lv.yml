@@ -27,7 +27,6 @@ lv:
       decidim/component_published_event: Aktīvs komponents
       decidim/demoted_membership: Vairs nav grupas administratora
       decidim/gamification/badge_earned_event: Žetons nopelnīts
-      decidim/gamification/level_up_event: Jūs esat sasniedzis jaunu līmeni
       decidim/join_request_accepted_event: Pievienošanās pieprasījums ir pieņemts
       decidim/join_request_rejected_event: Pievienošanās pieprasījums ir noraidīts
       decidim/profile_updated_event: Profils ir atjaunināts
@@ -471,15 +470,9 @@ lv:
         email_subject: Atjaunināts %{resource_title}
       gamification:
         badge_earned:
-          email_intro: Apsveicam! Jūs nopelnījāt <a href="%{resource_url}">%{badge_name} žetonu </a> (līmenis %{current_level}).
           email_outro: Jūs saņēmāt šo paziņojumu, jo veicāt darbību mūsu tīmekļvietnē.
-          email_subject: 'Jūs nopelnījāt jaunu žetonu:%{badge_name}!'
-          notification_title: Apsveicam! Jūs nopelnījāt <a href="%{resource_path}">%{badge_name} žetonu </a> (līmenis %{current_level}).
         level_up:
-          email_intro: Apsveicam! Jūs sasniedzāt līmeni %{current_level} <a href="%{resource_url}">%{badge_name} žetonam</a>!
           email_outro: Jūs saņēmāt šo paziņojumu, jo veicāt darbību mūsu tīmekļvietnē.
-          email_subject: Jūs sasniedzāt %{current_level} līmeni %{badge_name} žetonam!
-          notification_title: Apsveicam! Jūs sasniedzāt līmeni %{current_level} <a href="%{resource_path}">%{badge_name} žetonam</a>!
       groups:
         demoted_membership:
           email_intro: Grupas <a href="%{resource_url}">%{user_group_name}</a> administrators ir noņēmis jūsu administratora tiesības šai grupā.
@@ -585,7 +578,6 @@ lv:
           description_own: "%{score} cilvēki seko jums."
           name: Sekotāji
           next_level_in: Piesaistiet vēl %{score} cilvēkus kā sekotājus, lai sasniegtu nākamo līmeni!
-          unearned_own: Jums vēl nav sekotāju.
         index:
           badge_title: "%{name} žetons"
           how: Kā jūs to varat nopelnīt
@@ -593,7 +585,6 @@ lv:
           title: Žetoni
       description: Žetoni ir atzinība par dalībnieku darbībām un progresu platformā. Sākot atklāt platformu, piedaloties un mijiedarbojoties ar to, jūs nopelnīsiet dažādus žetonus.
       level: Līmenis %{level}
-      reached_top: Jūs esat sasniedzis šim žetona nepieciešamo augstāko līmeni.
     group_admins:
       actions:
         demote_admin: Noņemt administratoru
@@ -1093,14 +1084,6 @@ lv:
         someone_invited_you_as_admin: Kāds ir uzaicinājis jūs kā %{application} administratoru. Jūs varat ielūgumu pieņemt, izmantojot zemāk esošo saiti.
         someone_invited_you_as_private_user: Kāds ir uzaicinājis jūs kā %{application} privātu dalībnieku. Jūs varat ielūgumu pieņemt, izmantojot zemāk esošo saiti.
         subject: Ielūgumu norādījumi
-      invite_admin:
-        subject: Jums ir uzaicinājums pārvaldīt %{organization}
-      invite_collaborator:
-        subject: Jums ir uzaicinājums sadarboties ar %{organization}
-      invite_private_user:
-        subject: Jums ir uzaicinājums piedalīties privātas līdzdalības procesā %{organization}
-      organization_admin_invitation_instructions:
-        subject: Jums ir uzaicinājums pārvaldīt %{organization}
       password_change:
         greeting: Sveiki, %{recipient}!
         subject: Parole ir mainīta
