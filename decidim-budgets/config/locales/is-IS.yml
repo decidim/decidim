@@ -55,7 +55,6 @@ is-IS:
           assigned: 'Úthlutað:'
           cancel_order: Eyðu atkvæðagreiðslunni og farðu yfir
           checked_out:
-            description: Þú hefur þegar kosið fyrir fjárhagsáætlunina. Ef þú hefur skipt um skoðun geturðu %{cancel_link}.
             title: Fjárhagsleg atkvæði lokið
           title: Þú ákveður fjárhagsáætlunina
         count:
