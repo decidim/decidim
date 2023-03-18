@@ -1283,7 +1283,6 @@ it:
         subject: Istruzioni di conferma
       email_changed:
         greeting: Ciao %{recipient}!
-        message: Ti stiamo contattando per informarti che la tua email è stata modificata a %{email}.
         subject: Email cambiata
       invitation_instructions:
         accept: Accetta l'invito
@@ -1306,7 +1305,6 @@ it:
         subject: Sei stato invitato a gestire %{organization}
       password_change:
         greeting: Ciao %{recipient}!
-        message: Ti contattiamo per informarti che la tua password è stata modificata.
         subject: Password modificata
       reset_password_instructions:
         action: Cambia la mia password
