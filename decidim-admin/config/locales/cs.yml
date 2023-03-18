@@ -205,6 +205,7 @@ cs:
           accept: Souhlasím s podmínkami
           are_you_sure: Opravdu chcete odmítnout Podmínky použití pro správce?
           refuse: Odmítnout administrátorské podmínky
+          title: Souhlasit s podmínkami používání
         required_review:
           cta: Zkontrolovat je nyní.
         title: Administrátorské podmínky použití
@@ -279,6 +280,7 @@ cs:
         message: Buďte opatrní při práci s přílohami v soukromém prostoru. Každý účastník by mohl sdílet tento dokument s ostatními.
       autocomplete:
         no_results: Nenalezeny žádné výsledky
+        search_prompt: Zadejte alespoň tři znaky pro vyhledávání.
       block_user:
         new:
           action: Blokovat účet a odeslat odůvodnění
@@ -858,6 +860,7 @@ cs:
       participatory_space_private_users_csv_imports:
         create:
           invalid: Při čtení souboru CSV se vyskytl problém. Ujistěte se, že jste dodrželi pokyny.
+          success: CSV soubor byl úspěšně nahrán, posíláme účastníkům e-mail s pozvánkou. To může chvíli trvat.
         new:
           destroy:
             button: Odstranit všechny soukromé účastníky
@@ -1005,6 +1008,7 @@ cs:
       user_group:
         csv_verify:
           invalid: Při čtení souboru CSV došlo k chybě.
+          success: CSV soubor byl úspěšně nahrán, ověřujeme skupiny odpovídající kritériím. To může chvíli trvat.
         reject:
           invalid: Při odmítnutí této skupiny došlo k chybě.
         verify:
