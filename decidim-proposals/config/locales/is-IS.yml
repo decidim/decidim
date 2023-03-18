@@ -59,13 +59,11 @@ is-IS:
           follower:
             email_intro: 'Tillagan "%{resource_title}" hefur verið samþykkt. Þú getur lesið svarið á þessari síðu:'
             email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú fylgist með "%{resource_title}". Þú getur sleppt því frá fyrri tengilinn.
-            email_subject: Tillaga sem þú ert að fylgja hefur verið samþykkt
             notification_title: <a href="%{resource_path}">%{resource_title}</a> tillöguna hefur verið samþykkt.
         proposal_evaluating:
           follower:
             email_intro: 'Tillagan "%{resource_title}" er nú metin. Þú getur leitað að svari á þessari síðu:'
             email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú fylgist með "%{resource_title}". Þú getur sleppt því frá fyrri tengilinn.
-            email_subject: Tillaga sem þú fylgir er metin
             notification_title: <a href="%{resource_path}">%{resource_title}</a> tillögunni er metið.
         proposal_mentioned:
           email_subject: Tillagan þín "%{mentioned_proposal_title}" hefur verið minnst
@@ -79,7 +77,6 @@ is-IS:
           follower:
             email_intro: 'Tillagan "%{resource_title}" hefur verið hafnað. Þú getur lesið svarið á þessari síðu:'
             email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú fylgist með "%{resource_title}". Þú getur sleppt því frá fyrri tengilinn.
-            email_subject: Tillaga sem þú ert að fylgja hefur verið hafnað
             notification_title: <a href="%{resource_path}">%{resource_title}</a> tillöguna hefur verið hafnað.
         proposal_update_category:
           email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú ert höfundur tillögunnar.
