@@ -879,7 +879,6 @@ id:
         subject: Instruksi konfirmasi
       email_changed:
         greeting: Halo %{recipient}!
-        message: Kami menghubungi Anda untuk memberi tahu Anda bahwa email Anda diubah menjadi %{email}.
         subject: Email Diubah
       invitation_instructions:
         accept: Menerima undangan
@@ -902,7 +901,6 @@ id:
         subject: Anda telah diundang untuk mengelola %{organization}
       password_change:
         greeting: Halo %{recipient}!
-        message: Kami menghubungi Anda untuk memberi tahu Anda bahwa kata sandi Anda telah diubah.
         subject: Kata sandi diubah
       reset_password_instructions:
         action: Ubah kata sandi saya
