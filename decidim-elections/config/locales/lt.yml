@@ -171,8 +171,6 @@ lt:
           feedback_form_answers: Atsiliepimų formos atsakymai
         mailers:
           trustee_mailer:
-            body: "<p>Sveiki %{user_name},</p><p>Buvote pridėtas kaip %{resource_name} patikėtinis.</p>"
-            subject: Buvote pridėtas kaip %{resource_name} patikėtinis
             trustee_zone: Eiti į patikėtinių zoną
         menu:
           trustees: Patikėtiniai
@@ -438,7 +436,6 @@ lt:
       feedback:
         answer:
           invalid: Siunčiant atsiliepimą iškilo problema.
-          spam_detected: Atsakant į šios formos klausimus iškilo problema. Galbūt paskubėjote? Ar galite pabandyti dar kartą?
           success: Atsiliepimas sėkmingai išsiųstas.
       models:
         answer:
@@ -657,18 +654,15 @@ lt:
         trustees:
           new_election:
             email_intro: Buvote pridėtas kaip patikėtinis į %{resource_title} rinkimus.
-            email_outro: Gavote šį pranešimą nes buvote pridėtas kaip patikėtinis %{resource_title} rinkimams.
             email_subject: Esate patikėtinis %{resource_title} rinkimuose..
             notification_title: Esate patikėtinis <a href="%{resource_path}">%{resource_title}</a> rinkimuose.
           new_trustee:
             email_intro: Administratorius pridėjo Jus kaip %{resource_name} patikėtinį. Galite sukurti viešą raktą <a href='%{trustee_zone_url}'>patikėtinių zonoje</a>
-            email_outro: Gavote šį pranešimą nes buvote pridėtas kaip patikėtinis %{resource_name} rinkimams.
             email_subject: Esate %{resource_name} patikėtinis.
             notification_title: Esate <a href="%{participatory_space_url}">%{resource_name}</a> patikėtinis.
         votes:
           accepted_votes:
             email_intro: 'Jūsų balsas priimtas. Naudodami balsavimo žetoną: %{encrypted_vote_hash} galite patikrinti savo balsą <a href="%{verify_url}">čia</a>.'
-            email_outro: Gavote šį pranešimą nes balsavote %{resource_name} rinkimuose.
             email_subject: Jūsų balsas %{resource_name} buvo priimtas.
             notification_title: 'Jūsų balsas buvo priimtas. Patikrinkite savo balsą <a href="%{verify_url}">čia</a> naudodami balsavimo žetoną %{encrypted_vote_hash}'
       votings:
