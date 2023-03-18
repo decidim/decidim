@@ -1312,7 +1312,6 @@
         subject: Bekreftelse instruksjoner
       email_changed:
         greeting: Hei %{recipient}!
-        message: Vi kontakter deg for å varsle om at e-postadressen din holder på å bli endret til %{email}.
         subject: Email endret
       invitation_instructions:
         accept: Godta invitasjon
@@ -1335,7 +1334,6 @@
         subject: Du har blitt invitert til å administrere %{organization}
       password_change:
         greeting: Hei %{recipient}!
-        message: Vi kontakter deg for å varsle om at passordet ditt er endret.
         subject: Passord endret
       reset_password_instructions:
         action: Endre passordet mitt
