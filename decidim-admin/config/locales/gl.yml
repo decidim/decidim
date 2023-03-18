@@ -167,8 +167,6 @@ gl:
           new: Novo administrador
         verify: Verifique
       admin_terms_of_use:
-        accept:
-          success: Xenial! Aceptaches os termos de uso do panel de administración.
         actions:
           refuse: Rexeitar os termos de uso
         required_review:
