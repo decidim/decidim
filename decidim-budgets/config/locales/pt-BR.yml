@@ -92,9 +92,7 @@ pt-BR:
         cancel_order:
           more_than_one: exclua seu voto em %{name} e comece de novo
           only_one: exclua seu voto e comece novamente.
-        finished_message: Você terminou o processo de votação. Obrigado por participar!
         highlighted_cta: Votar em %{name}
-        if_change_opinion: Se você mudou de ideia, você pode
         my_budgets: Meus orçamentos
       limit_announcement:
         limit_reached: Você tem votos ativos em %{links}. Para votar neste orçamento você deve <a href="%{landing_path}">excluir seu voto e começar do zero</a>.
@@ -132,7 +130,6 @@ pt-BR:
           assigned: 'Atribuído:'
           cancel_order: exclua seu voto e comece de novo
           checked_out:
-            description: Você já votou no orçamento. Se você mudou de idéia, você pode %{cancel_link}.
             title: Votação do orçamento concluída
           minimum_projects_rule:
             description: Em que projetos julga que devemos alocar o orçamento? Selecione pelo menos %{minimum_number} projeto que você deseja e vote de acordo com suas preferências para definir o orçamento.
