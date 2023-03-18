@@ -799,7 +799,6 @@ gl:
           modal_close: Pechar modal
           modal_title: '¿Realmente rexeita os Termos e condicións actualizados?'
         required_review:
-          alert: Actualizamos as nosas Condicións de servizo, por favor revíselas.
           title: 'Requirido: repasa as actualizacións dos nosos termos de servizo'
     participatory_space_private_users:
       not_allowed: Non tes permiso para ver este contido
