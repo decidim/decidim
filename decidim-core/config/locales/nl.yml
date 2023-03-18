@@ -1275,7 +1275,6 @@ nl:
         subject: Instructies ter bevestiging
       email_changed:
         greeting: Hallo %{recipient}!
-        message: We nemen contact met u op om u te laten weten dat uw e-mailadres wordt gewijzigd in %{email}.
         subject: Email gewijzigd
       invitation_instructions:
         accept: Accepteer uitnodiging
@@ -1298,7 +1297,6 @@ nl:
         subject: U bent uitgenodigd om %{organization} te beheren
       password_change:
         greeting: Hallo %{recipient}!
-        message: Wij informeren u dat uw wachtwoord is gewijzigd.
         subject: Wachtwoord is veranderd
       reset_password_instructions:
         action: Verander mijn wachtwoord
