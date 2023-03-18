@@ -40,8 +40,6 @@ is-IS:
         name: Kóði með póstbréfi
     verifications:
       authorizations:
-        create:
-          success: Þú hefur verið samþykkt með góðum árangri.
         first_login:
           actions:
             dummy_authorization_handler: Staðfestu á móti heimildarmyndinni
