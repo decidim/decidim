@@ -61,5 +61,4 @@ nl:
       surveys:
         answer:
           invalid: Er is een fout opgetreden bij het opslaan van de pagina.
-          spam_detected: Er was een probleem bij het beantwoorden van het formulier. Misschien bent u te snel geweest, kunt u het opnieuw proberen?
           success: Enquête met succes beantwoord.
