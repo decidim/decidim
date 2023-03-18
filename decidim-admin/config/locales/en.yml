@@ -520,8 +520,8 @@ en:
             message:
               one: Missing column %{columns}.
               other: Missing columns %{columns}.
-        error: There was a problem during the import
-        example_error: Could not create an example for the given type
+        error: There was a problem during the import.
+        example_error: Could not create an example for the given type.
         new:
           accepted_mime_types:
             csv: CSV
@@ -533,7 +533,7 @@ en:
           download_example_format: Example as %{name}
           file_legend: Add an import file that will be parsed.
           import: Import
-        notice: "%{count} %{resource_name} successfully imported"
+        notice: "%{count} %{resource_name} successfully imported."
       logs:
         filters:
           participatory_space: Find participatory space

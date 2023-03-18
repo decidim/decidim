@@ -459,8 +459,8 @@ en:
             title: Add document
             upload_document: Upload document
           publish:
-            invalid: Could not publish proposals
-            success: All proposals have been published
+            invalid: Could not publish proposals.
+            success: All proposals have been published.
           sections:
             article: "<em>Article</em>"
             section: "<em>Section:</em> <strong>%{title}</strong>"
@@ -525,7 +525,7 @@ en:
             title: Create proposal
           publish_answers:
             number_of_proposals: Answers for %{number} proposals will be published.
-            select_a_proposal: Please select a proposal
+            select_a_proposal: Please select a proposal.
           show:
             amendments_count: Amendments count
             assigned_valuators: Assigned valuators
@@ -688,17 +688,17 @@ en:
         requests:
           accepted_request:
             error: Could not be accepted as a collaborator, please try again later.
-            success: "@%{user} has been accepted as a collaborator successfully"
+            success: "@%{user} has been accepted as a collaborator successfully."
           access_requested:
             error: Your request could not be completed, please try again later.
-            success: Your request to collaborate has been successfully sent
+            success: Your request to collaborate has been successfully sent.
           collaboration_requests:
             accept_request: Accept
             reject_request: Reject
             title: Collaboration requests
           rejected_request:
             error: Could not be rejected as a collaborator, please try again later.
-            success: "@%{user} has been successfully rejected as a collaborator"
+            success: "@%{user} has been successfully rejected as a collaborator."
         show:
           back: Back
           edit: Edit collaborative draft
