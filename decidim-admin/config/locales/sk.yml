@@ -128,8 +128,6 @@ sk:
         reject: Odmietnuť
         verify: Overiť
       admin_terms_of_use:
-        accept:
-          success: Skvele! Odsúhlasili ste podmienky použitia pre administrátorov.
         actions:
           refuse: "Odmietnuť podmienky použitia pre administrátorov.\n"
         required_review:
