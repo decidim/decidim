@@ -205,6 +205,7 @@ cs:
           refuse: Odmítnout administrátorské podmínky
           title: Souhlasit s podmínkami používání
         required_review:
+          alert: 'Vyžadováno: Zkontrolujte naše admin smluvní podmínky'
           cta: Zkontrolovat je nyní.
         title: Administrátorské podmínky použití
       area_types:
@@ -370,6 +371,9 @@ cs:
       domain_whitelist:
         form:
           domain_too_short: Doména je příliš krátká
+        update:
+          error: Nepodařilo se aktualizovat seznam povolených domén.
+          success: Seznam povolených domén byl úspěšně aktualizován.
       exports:
         export_as: "%{name} jako %{export_format}"
         formats:
@@ -452,8 +456,10 @@ cs:
             message_1: CSV, JSON a Excel (.xlsx) jsou podporovány
             message_2: Pro CSV soubory musí být oddělovač mezi sloupci středníkem (";")
       help_sections:
+        error: Při aktualizaci sekcí nápovědy došlo k chybě.
         form:
           save: Uložit
+        success: Sekce nápovědy byly úspěšně aktualizovány.
       impersonatable_users:
         index:
           filter:
