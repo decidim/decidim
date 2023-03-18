@@ -128,7 +128,7 @@ module Decidim
       end
     end
 
-    # Internal: Since we're using the `images_container` hack to hold the
+    # Internal: Since we are using the `images_container` hack to hold the
     # uploaders, we need to manually trigger it to save the attached images.
     def save_images
       images_container.save

@@ -71,7 +71,7 @@ This is useful to show the resource type in the sentence.
 
 By default, all changed fields are presented in the diff. In order to limit them, overwrite the `diff_fields_mapping` method in your custom presenter. It has to return a `Hash`, where keys are the name of the attributes and values are the presenters that render the attributes. *Limitations*: we can only show diffs for column fields, not dynamic methods, so the `diff_fields_mapping` only accepts column names.
 
-In this example, we're telling our presenter to only present the `start_date` as a date, the `title` as an i18n field, the `decidim_scope_id` with no particular presenter, and `progress` as a percentage:
+In this example, we are telling our presenter to only present the `start_date` as a date, the `title` as an i18n field, the `decidim_scope_id` with no particular presenter, and `progress` as a percentage:
 
 [source,ruby]
 ----
