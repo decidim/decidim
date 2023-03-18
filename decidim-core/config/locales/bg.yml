@@ -1088,7 +1088,6 @@ bg:
         subject: Инструкции за потвърждение
       email_changed:
         greeting: Здравейте %{recipient}!
-        message: Свързваме се с вас за да ви уведомим, че адресът Ви за ел. поща се промени на %{email}.
         subject: Ел. поща е променена
       invitation_instructions:
         accept: Приеми поканата
@@ -1111,7 +1110,6 @@ bg:
         subject: Поканени сте да управлявате %{organization}
       password_change:
         greeting: Здравейте %{recipient}!
-        message: Свързваме се с вас за да ви уведомим, че паролата Ви е променена.
         subject: Паролата е променена
       reset_password_instructions:
         action: Промяна на паролата ми
