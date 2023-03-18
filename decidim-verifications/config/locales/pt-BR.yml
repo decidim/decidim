@@ -70,11 +70,9 @@ pt-BR:
           no_data_stored: Nenhum dado armazenado.
         create:
           error: Ocorreu um erro ao criar a autorização.
-          success: Você foi autorizado com sucesso.
           unconfirmed: Você precisa confirmar seu e-mail para se autorizar.
         destroy:
           error: Ocorreu um erro ao excluir a autorização.
-          success: Você excluiu a autorização com sucesso.
         first_login:
           actions:
             another_dummy_authorization_handler: Verificar contra outro exemplo de manipulador de autorização
@@ -200,8 +198,6 @@ pt-BR:
           new:
             send: Envie-me um SMS
             title: Solicite seu código de verificação
-          update:
-            success: Parabéns. Você foi confirmado com sucesso.
   errors:
     messages:
       uppercase_only_letters_numbers: devem ser todas maiúsculas e conter apenas letras e / ou números
