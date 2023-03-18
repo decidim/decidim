@@ -143,9 +143,7 @@ cs:
         cancel_order:
           more_than_one: smažte svůj hlas na %{name} a začněte znovu
           only_one: smazat váš hlas a začít znovu.
-        finished_message: Dokončili jste hlasovací proces. Děkujeme za účast!
         highlighted_cta: Hlasovat na %{name}
-        if_change_opinion: Pokud jste změnili názor, můžete
         my_budgets: Mé rozpočty
         progress: Dokončit hlasování
         show: Zobrazit projekty
@@ -195,7 +193,6 @@ cs:
           assigned: 'Přiřazeno:'
           cancel_order: smazat váš hlas a začít znovu
           checked_out:
-            description: Už jste hlasovali pro rozpočet. Pokud jste změnili názor, můžete %{cancel_link}.
             title: Hlasování o rozpočtu bylo dokončeno
           minimum_projects_rule:
             description: Na jaké projekty bychom podle vás měli vyčlenit rozpočet? Vyberte alespoň %{minimum_number} projektů, které chcete a hlasujte podle vašich preferencí pro definování rozpočtu.
