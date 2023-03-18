@@ -556,8 +556,6 @@ sk:
           create: Vytvoriť
           title: Nový súkromný účastník participatívneho priestoru.
       participatory_space_private_users_csv_imports:
-        create:
-          success: Súbor CSV nahraný úspešne, posielame pozvánku e-mailom pre používateľov. Môže to chvíľu trvať.
         new:
           title: Nahrať súbor CSV
           upload: Nahrať
@@ -658,7 +656,6 @@ sk:
       user_group:
         csv_verify:
           invalid: Vyskytol sa problém s čítaním súboru CSV.
-          success: Súbor CSV nahraný úspešne, overujeme skupiny, spĺňajúce kritériá. Môže to chvíľu trvať.
         reject:
           invalid: Nastal problém pri odmietaní tejto skupiny.
         verify:
