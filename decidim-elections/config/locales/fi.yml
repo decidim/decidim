@@ -216,8 +216,6 @@ fi:
           feedback_form_answers: Palautelomakkeen vastaukset
         mailers:
           trustee_mailer:
-            body: "<p>Hei %{user_name},</p><p>Sinut on lisätty luottamushenkilöksi kohteeseen %{resource_name}.</p>"
-            subject: Sinut on lisätty luottamushenkilöksi kohteeseen %{resource_name}
             trustee_zone: Siirry luottamusmiesten osioon
         menu:
           trustees: Luottamushenkilöt
@@ -516,7 +514,6 @@ fi:
       feedback:
         answer:
           invalid: Palautteen lähettäminen epäonnistui.
-          spam_detected: Lomakkeeseen vastaaminen epäonnistui. Saatoit toimia liian nopeasti. Yrittäisitkö uudestaan?
           success: Palautteen lähettäminen onnistui.
       models:
         answer:
@@ -745,18 +742,15 @@ fi:
         trustees:
           new_election:
             email_intro: Sinut on lisätty luottamushenkilöksi vaaliin %{resource_title}.
-            email_outro: Tämä ilmoitus on lähetetty sinulle, koska sinulle on myönnettu luottamushenkilön tehtävä kohteessa %{resource_title}.
             email_subject: Sinut on lisätty luottamushenkilöksi vaaliin %{resource_title}..
             notification_title: Olet luottamushenkilö vaalissa <a href="%{resource_path}">%{resource_title}</a>.
           new_trustee:
             email_intro: Hallinnointikäyttäjä on myöntänyt sinulle luottamushenkilön tehtävän kohteessa %{resource_name}. Sinun tulee luoda julkinen tunnistusavain <a href='%{trustee_zone_url}'>omalla luottamushenkilöiden alueellasi</a>
-            email_outro: Tämä ilmoitus on lähetetty sinulle, koska sinulle on myönnettu luottamushenkilön tehtävä kohteessa %{resource_name}.
             email_subject: Olet luottamushenkilö kohteessa %{resource_name}.
             notification_title: Olet luottamushenkilö kohteessa <a href="%{participatory_space_url}">%{resource_name}</a>.
         votes:
           accepted_votes:
             email_intro: 'Äänesi hyväksyttiin! Voit <a href="%{verify_url}">tarkastaa äänesi täältä</a> käyttäen äänestystunnustasi: %{encrypted_vote_hash}.'
-            email_outro: Tämä ilmoitus on lähetetty sinulle, koska äänestit vaaleissa %{resource_name}.
             email_subject: Äänesi vaaleihin %{resource_name} hyväksyttiin.
             notification_title: 'Äänesi hyväksyttiin. Voit <a href="%{verify_url}">tarkastaa äänesi täältä</a> käyttäen äänestystunnustasi: %{encrypted_vote_hash}'
       votings:
