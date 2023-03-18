@@ -1271,7 +1271,6 @@ pt-BR:
         subject: Instruções de confirmação
       email_changed:
         greeting: Olá %{recipient}!
-        message: Estamos entrando em contato para notificá-lo de que seu e-mail está sendo alterado para %{email}.
         subject: E-mail alterado
       invitation_instructions:
         accept: Aceitar convite
@@ -1294,7 +1293,6 @@ pt-BR:
         subject: Você foi convidado a gerenciar %{organization}
       password_change:
         greeting: Olá %{recipient}!
-        message: Estamos nos comunicando com você para notificá-lo de que sua senha foi alterada.
         subject: A senha mudou
       reset_password_instructions:
         action: Mudar minha senha
