@@ -1617,7 +1617,6 @@ fi-pl:
         subject: Vahvistusohjeet
       email_changed:
         greeting: Hei %{recipient}!
-        message: Ilmoitamme sinulle, että  käyttäjätilisi sähköpostiosoitteeksi on vaihdettu %{email}.
         subject: Sähköposti vaihdettu
       invitation_instructions:
         accept: Hyväksy kutsu
@@ -1643,7 +1642,6 @@ fi-pl:
         subject: Sinut on kutsuttu hallitsemaan organisaatiota %{organization}
       password_change:
         greeting: Hei %{recipient}!
-        message: Tämä on ilmoitus siitä, että salasanasi on nyt vaihdettu.
         subject: Salasana vaihdettu
       reset_password_instructions:
         action: Vaihda salasanani
