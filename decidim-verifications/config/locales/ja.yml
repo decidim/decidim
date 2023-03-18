@@ -85,12 +85,10 @@ ja:
           no_data_stored: データが保存されていません。
         create:
           error: 認証の作成に問題がありました。
-          success: 正常に承認されました。
           transferred: '認証に基づき、以下の参加データを復元しました。'
           unconfirmed: 自分自身を承認するには、メールアドレスを確認する必要があります。
         destroy:
           error: 承認の削除中に問題が発生しました。
-          success: 承認の削除に成功しました。
         first_login:
           actions:
             another_dummy_authorization_handler: 認証ハンドラーの別の例に対して検証する
@@ -215,7 +213,6 @@ ja:
             title: 確認コードをリクエストする
           update:
             error: あなたの認証コードが私たちのものと一致しません。私たちがあなたに送ったものを再確認してください。
-            success: おめでとうございます。認証に成功しました。
       sms:
         authorizations:
           destroy:
@@ -230,7 +227,6 @@ ja:
             title: 確認コードをリクエストする
           update:
             error: あなたの認証コードが私たちのものと一致しません。お送りしたSMSを再確認してください。
-            success: おめでとうございます。認証に成功しました。
   errors:
     messages:
       uppercase_only_letters_numbers: はすべて大文字と数字のみでなければなりません
