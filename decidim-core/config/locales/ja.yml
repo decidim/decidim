@@ -365,7 +365,6 @@ ja:
           title: 認証の有効期限が切れました
         incomplete:
           cancel: キャンセル
-          explanation: '現在「%{authorization}」で承認されていますが、以下のデータがないため、再認証が必要です。'
           invalid_field: "%{field}"
           reauthorize: 再承認
           title: 再承認してください
@@ -1005,7 +1004,6 @@ ja:
     newsletter_mailer:
       newsletter:
         no_reply_notice: このメールは、メールを受信できない通知専用メールアドレスから送信されました。このメッセージには返信しないでください。
-        note: '%{organization_name}でニュースレターを購読しているため、このメールを受信しました。 <a href="%{link}">通知ページ</a> で設定を変更できます。'
         see_on_website: このメールは正しく表示されていませんか？ <a href="%{link}" target="_blank" class="see-on-website">ウェブサイト</a> でご確認ください。
         unsubscribe: この種類のメールの受信を拒否するには、 <a href="%{link}" target="_blank" class="unsubscribe">購読解除</a>.
     newsletter_templates:
@@ -1072,7 +1070,6 @@ ja:
     notifications_settings:
       show:
         administrators: 管理者
-        allow_push_notifications: プッシュ通知を取得して、プラットフォームにいないときの動作を確認します。いつでもオフにすることができます。
         direct_messages: ダイレクトメッセージを受信する
         email_on_moderations: 私はモデレーションの報告がなされたたびに毎回メールを受け取りたいです。
         everything_followed: 自分がフォローしているすべて
@@ -1096,7 +1093,6 @@ ja:
         success: 通知設定が正常に更新されました。
     offline:
       show:
-        message: 現在オフラインのようです。後でもう一度お試しください。
         retry: 再試行
     open_data:
       not_available_yet: オープンデータファイルはまだ利用できません。数分後にもう一度お試しください。
@@ -1385,7 +1381,6 @@ ja:
     user_interests:
       show:
         my_interests: 興味のあるもの
-        select_your_interests: 興味のあるトピックを選択すると、プロフィールのタイムラインタブで関連するイベントを受け取ることができます。
         update_my_interests: 興味を更新する
       update:
         error: 更新中に問題が発生しました。
@@ -1680,8 +1675,6 @@ ja:
       notifications_dashboard:
         mark_all_as_read: すべて既読にする
         mark_as_read: 既読にする
-      offline_banner:
-        cache_version_page: あなたのネットワークはオフラインです。以前にアクセスしたページのキャッシュされたバージョンを表示しています。コンテンツは最新ではないかもしれません。
       social_media_links:
         facebook: "Facebook の %{organization}"
         github: "GitHub の %{organization}"
