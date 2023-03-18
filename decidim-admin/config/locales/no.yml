@@ -784,8 +784,6 @@
           create: Opprett
           title: Ny deltaker område privat deltaker.
       participatory_space_private_users_csv_imports:
-        create:
-          success: CSV fil lastet opp. Vi sender en invitasjons email til deltakerne. Dette kan ta en stund.
         new:
           destroy:
             button: Slett alle private deltakere
@@ -917,7 +915,6 @@
       user_group:
         csv_verify:
           invalid: Det oppstod et problem med å lese CSV-filen.
-          success: CSV fil lastet opp, vi bekrefter gruppene som samsvarer med kriteriene. Dette kan ta en stund.
         reject:
           invalid: Det oppstod et problem med å avvise denne gruppen.
         verify:
