@@ -256,7 +256,6 @@ bg:
           title: Идентификацията изтече
         incomplete:
           cancel: Отказ
-          explanation: 'Въпреки че се идентифицирахте чрез "%{authorization}" е необходимо да се идентифицирате отново, защото липсват следните данни:'
           invalid_field: "%{field}"
           reauthorize: Нова идентификация
           title: Моля, направете нова идентификация
@@ -740,7 +739,6 @@ bg:
         title: Участници
     newsletter_mailer:
       newsletter:
-        note: Получихте това писмо, защото сте абонирани за бюлетини на %{organization_name}. Можете да промените вашите настройки на <a href="%{link}">страницата "известия"</a>.
         unsubscribe: За да се откажете от получаването на такъв тип писма <a href="%{link}" target="_blank" class="unsubscribe">Отпишете се</a>.
     newsletter_templates:
       basic_only_text:
@@ -1000,7 +998,6 @@ bg:
     user_interests:
       show:
         my_interests: Моите интереси
-        select_your_interests: Изберете темите, които ви интересуват, за да получавате събития, свързани с тях, в раздела Времева линия на вашия профил.
         update_my_interests: Обнови моите интереси
       update:
         error: Възникна проблем с обновяването на интересите Ви.
