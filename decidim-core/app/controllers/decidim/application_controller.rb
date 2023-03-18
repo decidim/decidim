@@ -79,7 +79,7 @@ module Decidim
 
     # We store whether the user is requesting to toggle the translations or not.
     # We need to store it this way because if we use an instance variable, then
-    # we're not able to access that value from inside the presenters, and we
+    # we are not able to access that value from inside the presenters, and we
     # need it there to translate some attributes.
     def store_machine_translations_toggle
       RequestStore.store[:toggle_machine_translations] = params[:toggle_translations].present?

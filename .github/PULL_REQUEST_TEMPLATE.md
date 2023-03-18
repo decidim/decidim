@@ -1,5 +1,5 @@
 <!--
-NOTE: We're in the middle of a big redesign of the frontend.
+NOTE: We are in the middle of a big redesign of the frontend.
 That could mean that your PR will not get through on the next few months.
 Please see https://github.com/decidim/decidim/discussions/9512
 -->

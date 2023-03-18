@@ -63,7 +63,7 @@ module Decidim
     end
 
     # This is needed to be able to use a cell in an ActionMailer, which is not supported out of the box by cells-rails.
-    # We're are passing the current object as if it was a controller.
+    # We are are passing the current object as if it was a controller.
     # We also need to define a 'current_organization' method, which is expected by Decidim::ViewModel.
     # A similar approach is used in Decidim::NewsletterMailer
     def reported_content_cell

@@ -181,7 +181,7 @@ const initializer = (element = document) => {
       dataset: { dialog }
     } = elem;
 
-    // NOTE: due to some SR bugs we've to set the focus on the title
+    // NOTE: due to some SR bugs we have to set the focus on the title
     // See discussion: https://github.com/decidim/decidim/issues/9760
     // See further info: https://adrianroselli.com/2020/10/dialog-focus-in-screen-readers.html
     const setFocusOnTitle = (content) => {
