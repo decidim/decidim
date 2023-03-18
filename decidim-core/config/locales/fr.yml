@@ -35,7 +35,6 @@ fr:
       decidim/component_published_event: Fonctionnalité active
       decidim/demoted_membership: N'est plus un administrateur de groupe
       decidim/gamification/badge_earned_event: Badge gagné
-      decidim/gamification/level_up_event: Vous avez progressé d'un niveau
       decidim/invited_to_group_event: Invitation à rejoindre un groupe
       decidim/join_request_accepted_event: Demande de participation acceptée
       decidim/join_request_rejected_event: Demande de participation rejetée
@@ -666,15 +665,9 @@ fr:
         email_subject: Mise à jour de %{resource_title}
       gamification:
         badge_earned:
-          email_intro: Bravo ! Vous avez gagné le badge <a href="%{resource_url}">%{badge_name}</a> (niveau %{current_level}).
           email_outro: Vous avez reçu cette notification car vous avez été actif sur notre plateforme. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
-          email_subject: 'Vous avez gagné un nouveau badge : %{badge_name} !'
-          notification_title: Bon travail ! Vous avez gagné le badge <a href="%{resource_path}">%{badge_name}</a> (niveau %{current_level}).
         level_up:
-          email_intro: Bravo ! Vous avez atteint le niveau %{current_level} sur le badge <a href="%{resource_url}">%{badge_name}</a> !
           email_outro: Vous avez reçu cette notification car vous avez été actif sur notre plateforme. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
-          email_subject: Vous avez atteint le niveau %{current_level} sur le badge %{badge_name} !
-          notification_title: Bravo ! Vous avez atteint le niveau %{current_level} sur le badge <a href="%{resource_path}">%{badge_name}</a> !
       groups:
         demoted_membership:
           email_intro: Un administrateur du groupe <a href="%{resource_url}">%{user_group_name}</a> a supprimé vos droits d'administrateur sur ce groupe.
@@ -849,7 +842,6 @@ fr:
           name: Suiveurs
           next_level_in: Obtenez %{score} autres utilisateurs à vous suivre pour atteindre le niveau suivant!
           unearned_another: Ce participant n’a pas encore de followers.
-          unearned_own: Vous n'avez pas encore de followers.
         index:
           badge_title: "%{name} badge"
           how: Comment l'obtenir
@@ -857,7 +849,6 @@ fr:
           title: Insignes
       description: Les badges sont une reconnaissance des actions des participants et des progrès dans la plateforme. Au fur et à mesure que vous commencez à découvrir, à participer et à interagir sur la plateforme, vous gagnez différents badges.
       level: Niveau %{level}
-      reached_top: Vous avez atteint le plus haut niveau pour ce badge.
       title: Que sont les badges ?
     group_admins:
       actions:
@@ -1541,14 +1532,6 @@ fr:
         someone_invited_you_as_admin: Vous avez été invité en tant qu'administrateur de %{application}, vous pouvez l'accepter via le lien ci-dessous.
         someone_invited_you_as_private_user: Vous avez été invité en tant qu'utilisateur privé de %{application}, vous pouvez l'accepter via le lien ci-dessous.
         subject: Instructions d'invitation
-      invite_admin:
-        subject: Vous avez été invité à gérer %{organization}
-      invite_collaborator:
-        subject: Vous avez été invité à collaborer sur %{organization}
-      invite_private_user:
-        subject: Vous avez été invité à une assemblée privée sur %{organization}
-      organization_admin_invitation_instructions:
-        subject: Vous avez été invité à gérer %{organization}
       password_change:
         greeting: Bonjour %{recipient} !
         subject: Mot de passe modifié
