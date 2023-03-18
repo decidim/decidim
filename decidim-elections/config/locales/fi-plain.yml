@@ -638,7 +638,6 @@ fi-pl:
                 invalid_key: Ladatussa tiedostossa olevia tunnistusavaimia ei voida ladata.
                 invalid_public_key: Ladatun tiedoston tunnistusavaimet eivät vastaa tallennettua julkista tunnistusavainta.
               upload_legend: Julkiset tunnistusavaimet ovat palvelimella, mutta eivät selaimessasi. Sinun täytyy tuoda tunnistusavainten tiedosto omalle tietokoneellesi varmuuskopiosta, jonka tallensit avaimia luotaessa.
-            not_supported_browser_description: Näyttää siltä, että käytät selainta, jota ei voi käyttää luottamushenkilönä toimimiseen. Tarkasta, että käytät selaimesi viimeisintä versiota tai yritä käyttää jotain suosituimmista selaimista luottamushenkilön tehtävien suorittamiseksi.
             not_supported_browser_title: Päivitä selaimesi toimiaksesi luottamushenkilönä
             trustee_role_description: Sinulle on annettu luottamushenkilön tehtävä joissain vaaleissa tällä alustalla.
           update:
@@ -1250,7 +1249,6 @@ fi-pl:
             census_verified_with_online_vote: Tämä osallistuja on jo äänestänyt verkossa. Jos hän äänestää fyysisesti, edelliset äänet mitätöidään ja ainoastaan fyysinen ääni lasketaan.
             complete_voting: Viimeistele äänestys
             identify_another: Tunnista toinen osallistuja
-            questions_title: 'Hänellä on oikeus äänestää seuraavista kysymyksistä:'
             questions_title_voted: 'Osallistuja on jo äänestänyt verkossa ja hänellä on oikeus äänestää seuraavista kysymyksistä:'
             voted: Osallistuja on äänestänyt
           create:
