@@ -278,7 +278,6 @@ cs:
           follower:
             email_intro: 'Návrh "%{resource_title}" byl přijat. Odpověď můžete číst na této stránce:'
             email_outro: Toto oznámení jste obdrželi, protože jste sledovali "%{resource_title}". Můžete jej odhlásit od předchozího odkazu.
-            email_subject: Návrh, který sledujete, byl přijat
             notification_title: Návrh <a href="%{resource_path}">%{resource_title}</a> byl přijat.
         proposal_evaluating:
           affected_user:
@@ -289,7 +288,6 @@ cs:
           follower:
             email_intro: 'V současné době se hodnotí návrh "%{resource_title}". V této stránce můžete zkontrolovat odpověď:'
             email_outro: Toto oznámení jste obdrželi, protože jste sledovali "%{resource_title}". Můžete jej odhlásit od předchozího odkazu.
-            email_subject: Návrh, který sledujete, se hodnotí
             notification_title: Návrh <a href="%{resource_path}">%{resource_title}</a> se hodnotí.
         proposal_mentioned:
           email_intro: Váš návrh "%{mentioned_proposal_title}" byl zmíněn <a href="%{resource_url}">v této skupině</a> v komentářích.
@@ -314,7 +312,6 @@ cs:
           follower:
             email_intro: 'Návrh "%{resource_title}" byl zamítnut. Odpověď můžete číst na této stránce:'
             email_outro: Toto oznámení jste obdrželi, protože jste sledovali "%{resource_title}". Můžete jej odhlásit od předchozího odkazu.
-            email_subject: Návrh, který sledujete, byl zamítnut
             notification_title: Návrh <a href="%{resource_path}">%{resource_title}</a> byl zamítnut.
         proposal_update_category:
           email_intro: 'Správce aktualizoval kategorii vašeho návrhu "%{resource_title}", podívejte se na něj:'
