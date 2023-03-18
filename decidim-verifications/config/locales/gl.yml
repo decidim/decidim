@@ -70,11 +70,9 @@ gl:
           no_data_stored: Sen datos almacenados.
         create:
           error: Produciuse un erro ao crear a autorización.
-          success: Autorizouse con éxito.
           unconfirmed: Debes confirmar o teu correo electrónico para autorizarte.
         destroy:
           error: Produciuse un problema ao eliminar a autorización.
-          success: Eliminaches a autorización con éxito.
         first_login:
           actions:
             another_dummy_authorization_handler: Verifique contra outro exemplo de controlador de autorización
@@ -200,8 +198,6 @@ gl:
           new:
             send: Envíame un SMS
             title: Solicita o teu código de verificación
-          update:
-            success: Parabéns. Verificouse con éxito.
   errors:
     messages:
       uppercase_only_letters_numbers: deben ser maiúsculas e só conteñen letras e / ou números
