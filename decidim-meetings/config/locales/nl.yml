@@ -258,7 +258,6 @@ nl:
             update: Bijwerken
           form:
             address_help: 'Adres: gebruikt door Geocoder om de locatie te vinden'
-            disclaimer: 'Disclaimer: Door gebruik te maken van een extern registratiesysteem, ben je op de hoogte dat de organisatoren van %{organization} niet verantwoordelijk zijn voor de gegevens die door gebruikers aan de externe dienst worden verstrekt.'
             location_help: 'Locatie: bericht gericht aan de gebruikers die de locatie op een vergadering plaatsen'
             location_hints_help: 'Locatie hints: aanvullende informatie. Bijvoorbeeld: de verdieping van het gebouw als het een fysieke vergadering is, of het vergaderwachtwoord als het een online vergadering is met beperkte toegang.'
             online_meeting_url_help: 'Link: laat deelnemers direct verbinding maken met je vergadering'
@@ -340,7 +339,6 @@ nl:
         copy_calendar_url_clarification: Kopieer link naar klembord
         copy_calendar_url_copied: Gekopieerd!
         copy_calendar_url_description: Je kunt alle gepubliceerde vergaderingen zien in uw agenda-applicatie. Kopieer en plak deze URL in uw kalender met behulp van de optie "Voeg nieuwe kalender toe van een URL".
-        copy_calendar_url_explanation: Hou er rekening mee dat je een selectie van vergaderingen exporteert, omdat er filters actief zijn. Als je ze allemaal wil exporteren, reset eerst alle filters.
         copy_calendar_url_message: URL met succes gekopieerd naar klembord.
         export_calendar: Kalender exporteren
       close_meeting_reminder_mailer:
@@ -438,7 +436,6 @@ nl:
           address_help: 'Adres: gebruikt door Geocoder om de locatie te vinden'
           available_slots_help: Laat op 0 staan als je onbeperkt aantal tijdsblokken beschikbaar hebt
           create_as: Maak vergadering als
-          disclaimer: 'Disclaimer: Door gebruik te maken van een extern registratiesysteem, ben je op de hoogte dat de organisatoren van %{organization} niet verantwoordelijk zijn voor de gegevens die door gebruikers aan de externe dienst worden verstrekt.'
           location_help: 'Locatie: bericht over de ontmoetingsplek gericht naar de gebruikers'
           location_hints_help: 'Locatie hints: aanvullende informatie. Bijvoorbeeld: de verdieping van het gebouw als het een fysieke vergadering is, of het vergaderwachtwoord als het een online vergadering is met beperkte toegang.'
           online_meeting_url_help: 'Link: laat deelnemers direct verbinding maken met je vergadering'
