@@ -1,6 +1,6 @@
 = GitHub Projects Workflow
 
-This is an internal document on how we're organizing the development of Decidim with external contractors through Github projects.
+This is an internal document on how we are organizing the development of Decidim with external contractors through Github projects.
 
 There are three teams:
 
