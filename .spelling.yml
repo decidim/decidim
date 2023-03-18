@@ -47,8 +47,8 @@ forbidden:
   # "we’re": we are
   "you've": you have
   "you’ve": you have
-  "I've": I have
-  "I’ve": I have
+  # "I've": I have
+  # "I’ve": I have
   # "they've": they have
   # "they’ve": they have
   # "would've": would have
