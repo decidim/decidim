@@ -845,7 +845,6 @@ ro:
             description: Fiecare propunere poate acumula mai mult de %{limit} voturi
           minimum_votes_per_user:
             description: Trebuie să distribui un minim de %{votes} voturi pentru propuneri diferite.
-            given_enough_votes: Ai oferit destule voturi.
             supports_remaining: Trebuie să votezi încă %{remaining_votes} propuneri pentru ca votul tău să fie luat în considerare.
           proposal_limit:
             description: Poți crea până la %{limit} propuneri.
