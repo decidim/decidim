@@ -1270,7 +1270,6 @@ pt:
         subject: Instruções de confirmação
       email_changed:
         greeting: Olá %{recipient}!
-        message: Estamos a contactá-lo(a) para notificá-lo(a) de que o seu e-mail está a ser modificado para %{email}.
         subject: E-mail Modificado
       invitation_instructions:
         accept: Aceitar convite
@@ -1293,7 +1292,6 @@ pt:
         subject: Foi convidado(a) a gerir %{organization}
       password_change:
         greeting: Olá %{recipient}!
-        message: Estamos a contactá-lo(a) para notificá-lo(a) de que a sua palavra-passe foi modificada.
         subject: Palavra-passe modificada
       reset_password_instructions:
         action: Modificar a minha palavra-passe
