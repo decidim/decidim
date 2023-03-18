@@ -126,8 +126,6 @@ lv:
         reject: Noraidīt
         verify: Verificēt
       admin_terms_of_use:
-        accept:
-          success: Lieliski! Jūs esat piekritis administratora lietošanas noteikumiem.
         actions:
           refuse: Nepiekrist administratora noteikumiem
         required_review:
