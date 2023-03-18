@@ -220,7 +220,6 @@ tr:
             update: Güncelle
           form:
             address_help: 'Adres: Geocoder tarafından konumu bulmak için kullanılır'
-            disclaimer: 'Sorumluluk reddi: Harici bir kayıt sistemi kullanarak, %{organization} organizatörlerinin, kullanıcılar tarafından harici hizmete sağlanan verilerden sorumlu olmadığını biliyorsunuz.'
             location_help: 'Konum: kullanıcılara buluşulacak yeri ima eden mesaj'
             location_hints_help: 'Konum ipuçları: ek bilgi. Örnek: Yüz yüze bir toplantıysa binanın katı veya kısıtlı erişime sahip çevrimiçi bir toplantıysa toplantı parolası.'
             online_meeting_url_help: 'Bağlantı: katılımcıların toplantınıza doğrudan bağlanmasına izin verin'
@@ -345,7 +344,6 @@ tr:
           address_help: 'Adres: Geocoder tarafından konumu bulmak için kullanılır'
           available_slots_help: Sınırsız alanınız varsa bunu 0 olarak bırakın
           create_as: Toplantı oluştur
-          disclaimer: 'Sorumluluk reddi: Harici bir kayıt sistemi kullanarak, %{organization} organizatörlerinin, kullanıcılar tarafından harici hizmete sağlanan verilerden sorumlu olmadığını biliyorsunuz.'
           location_help: 'Konum: kullanıcılara buluşulacak yeri ima eden mesaj'
           location_hints_help: 'Konum ipuçları: ek bilgi. Örnek: Yüz yüze bir toplantıysa binanın katı veya kısıtlı erişime sahip çevrimiçi bir toplantıysa toplantı parolası.'
           online_meeting_url_help: 'Bağlantı: katılımcıların toplantınıza doğrudan bağlanmasına izin verin'
