@@ -972,7 +972,6 @@ de:
             info_text: Wahlabschluss des Wahlbüros.
           sign:
             cancel: Abbrechen
-            check_box: Ich habe dies geprüft und es ist dasselbe wie das physische Abschlusszertifikat
             close_modal: Schliessen
             confirm: OK, fortfahren
             error: Es ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.
