@@ -1232,7 +1232,6 @@ fi-pl:
             info_text: Äänestyspaikan äänestyksen päättäminen.
           sign:
             cancel: Peruuta
-            check_box: Olen tarkastanut tämän ja se on sama kuin fyysisen äänestyksen päättämisen todistus
             close_modal: Sulje
             confirm: Ok, jatka
             error: Tapahtui jokin virhe. Yritä uudestaan.
