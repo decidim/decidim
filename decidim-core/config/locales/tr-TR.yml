@@ -954,7 +954,6 @@ tr:
           modal_close: Pencereyi kapat
           modal_title: Güncellenmiş Şartlar ve Koşulları gerçekten reddediyor musunuz?
         required_review:
-          alert: Hizmet Şartlarımızı güncellendi, lütfen inceleyin.
           title: 'Gerekli: Hizmet şartlarımızı güncellemeleri inceleyin'
     participatory_space_private_users:
       not_allowed: Bu içeriği görüntüleme izniniz bulunmuyor
