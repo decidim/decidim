@@ -386,7 +386,6 @@ de:
       feedback:
         answer:
           invalid: Beim Senden Ihrer Meldung ist ein Fehler aufgetreten.
-          spam_detected: Bei der Beantwortung des Fragebogens ist ein Fehler aufgetreten. Möglicherweise waren Sie zu schnell. Versuchen Sie es vielleicht erneut.
           success: Feedback erfolgreich versand.
       models:
         answer:
@@ -587,18 +586,15 @@ de:
         trustees:
           new_election:
             email_intro: Sie sind Wahlhelfer für die %{resource_title} -Wahl.
-            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie als Wahlhelfer bei der Wahl %{resource_title} hinzugefügt wurden.
             email_subject: Sie sind Wahlhelfer für die %{resource_title} -Wahl..
             notification_title: Sie sind Wahlhelfer für die Wahl <a href="%{resource_path}">%{resource_title}</a>.
           new_trustee:
             email_intro: Ein Administrator hat Sie als Wahlhelfer für %{resource_name} hinzugefügt. Sie sollten Ihren öffentlichen Schlüssel <a href='%{trustee_zone_url}'> in Ihrer Wahlhelfer Zone anlegen</a>
-            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie als Wahlhelfer für %{resource_name} hinzugefügt wurden.
             email_subject: Sie sind Wahlhelfer für %{resource_name}.
             notification_title: Sie sind Wahlhelfer für <a href="%{participatory_space_url}">%{resource_name}</a>.
         votes:
           accepted_votes:
             email_intro: 'Deine Stimme wurde angenommen! Benutze deinen Stimm-Token: %{encrypted_vote_hash}, du kannst deine Stimme <a href="%{verify_url}">hier verifizieren</a>.'
-            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie für die %{resource_name} -Wahl gestimmt haben.
             email_subject: Deine Stimme für %{resource_name} wurde angenommen.
             notification_title: 'Deine Stimme wurde akzeptiert. Verifiziere deine Stimme <a href="%{verify_url}">hier</a> mit deinem Voting-Token: %{encrypted_vote_hash}'
       votings:
