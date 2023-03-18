@@ -228,7 +228,6 @@ pt-BR:
             update: Atualizar
           form:
             address_help: 'Endereço: usado pelo Geocodificador para encontrar a localização'
-            disclaimer: 'Aviso: ao usar um sistema de registro externo, você está ciente de que os organizadores do %{organization} não são responsáveis pelos dados fornecidos pelos usuários ao serviço externo.'
             location_help: 'Localização: mensagem direcionada aos usuários que imprimem o local para'
             location_hints_help: 'Dicas de localização: informações adicionais Exemplo: o piso do edifício se é uma reunião presencial, ou a senha da reunião, se é uma reunião online com acesso restrito.'
             online_meeting_url_help: 'Link: permitir que os participantes se conectem diretamente à sua reunião'
@@ -372,7 +371,6 @@ pt-BR:
           address_help: 'Endereço: usado pelo Geocodificador para encontrar a localização'
           available_slots_help: Deixe-o em 0 se você tiver slots ilimitados disponíveis
           create_as: Criar reunião como
-          disclaimer: 'Aviso: ao usar um sistema de registro externo, você está ciente de que os organizadores do %{organization} não são responsáveis pelos dados fornecidos pelos usuários ao serviço externo.'
           location_help: 'Localização: mensagem direcionada aos usuários que imprimem o local para'
           location_hints_help: 'Dicas de localização: informações adicionais Exemplo: o piso do edifício se é uma reunião presencial, ou a senha da reunião, se é uma reunião online com acesso restrito.'
           online_meeting_url_help: 'Link: permitir que os participantes se conectem diretamente à sua reunião'
