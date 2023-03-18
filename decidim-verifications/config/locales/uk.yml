@@ -43,7 +43,6 @@ uk:
       authorizations:
         create:
           error: При спробі створити підтвердження особи сталася помилка.
-          success: Вашу особу успішно підтверджено.
         first_login:
           actions:
             another_dummy_authorization_handler: Підтвердьте, порівнявши з іншим прикладом підтвердження своєї особи
