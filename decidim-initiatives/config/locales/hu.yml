@@ -169,7 +169,6 @@ hu:
             - Kövesse az új kezdeményezés létrehozásához szükséges lépéseket
           description: Ezt a jelvényt akkor kapja meg, ha új kezdeményezéseket indít el, és másokkal partnerséget hajt végre.
           description_another: Ez a résztvevő %{score} kezdeményezést tett közzé.
-          description_own: '%{score} kezdeményezéseid közzétéve.'
           name: Közzétett kezdeményezések
           next_level_in: Szerezz még %{score} kezdeményezéseket a következő szint eléréséhez!
           unearned_own: Még nem tettél közzé kezdeményezéseket.
