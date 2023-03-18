@@ -1373,7 +1373,6 @@ pl:
         subject: Instrukcje potwierdzenia konta
       email_changed:
         greeting: Witaj, %{recipient}!
-        message: Skontaktujemy się z Tobą, aby potwierdzić zmianę adresu e-mail na %{email}.
         subject: Zmieniono e-mail
       invitation_instructions:
         accept: Przyjmij zaproszenie
@@ -1396,7 +1395,6 @@ pl:
         subject: Zaproszono Cię do zarządzania w %{organization}
       password_change:
         greeting: Witaj %{recipient}!
-        message: Kontaktujemy się z Tobą, aby powiadomić Cię, że Twoje hasło zostało zmienione.
         subject: Hasło zostało zmienione
       reset_password_instructions:
         action: Zmień moje hasło
