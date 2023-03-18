@@ -192,8 +192,6 @@ cs:
           feedback_form_answers: Odpovědi na formulář zpětné vazby
         mailers:
           trustee_mailer:
-            body: "<p>Dobrý den %{user_name},</p><p>Byli jste přidáni jako správce k %{resource_name}.</p>"
-            subject: Byli jste přidáni jako důvěrník do %{resource_name}
             trustee_zone: Přejít do zóny důvěrníků
         menu:
           trustees: Volební důvěrníci
@@ -464,7 +462,6 @@ cs:
       feedback:
         answer:
           invalid: Při odesílání vaší zpětné vazby došlo k chybě.
-          spam_detected: Vyskytl se problém s odpovědí na formulář. Možná jste byl příliš rychlý, můžete to zkusit znovu?
           success: Zpětná vazba byla úspěšně odeslána.
       models:
         answer:
@@ -683,18 +680,15 @@ cs:
         trustees:
           new_election:
             email_intro: Přidali jste jako důvěrník pro volby %{resource_title}.
-            email_outro: Obdrželi jste toto oznámení, protože jste byli přidáni jako důvěrník pro %{resource_title} volby.
             email_subject: Jste důvěrníkem pro %{resource_title} volby..
             notification_title: Jste důvěrníkem volby <a href="%{resource_path}">%{resource_title}</a>.
           new_trustee:
             email_intro: Administrátor vás přidal jako důvěrníka pro %{resource_name}. Měli byste vytvořit váš veřejný klíč <a href='%{trustee_zone_url}'>ve vaší zóně důvěrníka</a>
-            email_outro: Obdrželi jste toto oznámení, protože jste byli přidáni jako důvěrník %{resource_name}.
             email_subject: Jste správcem %{resource_name}.
             notification_title: Jste důvěrník pro <a href="%{participatory_space_url}">%{resource_name}</a>.
         votes:
           accepted_votes:
             email_intro: 'Váš hlas byl přijat! Pomocí vašeho hlasovacího tokenu: %{encrypted_vote_hash}, můžete ověřit svůj hlas <a href="%{verify_url}">zde</a>.'
-            email_outro: Obdrželi jste toto oznámení, protože jste hlasovali pro hlasování %{resource_name}.
             email_subject: Váš hlas pro %{resource_name} byl přijat.
             notification_title: 'Váš hlas byl přijat. Ověřte svůj hlas <a href="%{verify_url}">zde</a> pomocí hlasovacího tokenu: %{encrypted_vote_hash}'
       votings:
