@@ -52,7 +52,6 @@ ar:
       authorizations:
         create:
           error: كانت هناك مشكلة في إنشاء الترخيص.
-          success: لقد تم التفويض بنجاح.
           unconfirmed: تحتاج إلى تأكيد بريدك الإلكتروني من أجل تفويض نفسك.
         first_login:
           actions:
@@ -169,8 +168,6 @@ ar:
           new:
             send: ارسل لي رسالة
             title: اطلب رمز التحقق
-          update:
-            success: تهانينا. لقد تم التحقق بنجاح.
   errors:
     messages:
       uppercase_only_letters_numbers: يجب أن تكون جميعها كبيرة وتحتوي فقط على أحرف و / أو أرقام
