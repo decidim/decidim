@@ -209,9 +209,6 @@ hu:
           form:
             census_contact_information_help: Ez a kapcsolatfelvételi információ azoknak a résztvevőknek szól, akik a népszámlálással kapcsolatos problémákat szeretnének jelenteni. Ez lehet e-mail cím, kapcsolatfelvételi űrlap egy másik oldalon, kérdőív a látogatók számára, stb.
       polling_officer_zone:
-        in_person_votes:
-          complete_voting:
-            questions_title: 'A következő kérdésekben jogosultak szavazni:'
         polling_officers:
           index:
             polling_officer_role_description: Szavazóhelyiségi Tisztnek jelöltek (Elnökként vagy Ügyvezetőként) azért, hogy ezen platformon megtartott választásokon intézkedj.
