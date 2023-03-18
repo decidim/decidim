@@ -305,7 +305,6 @@ nl:
           title: Autorisatie is verlopen
         incomplete:
           cancel: annuleren
-          explanation: 'Hoewel u momenteel geautoriseerd bent met "%{authorization}", moeten we u vragen opnieuw autoriseren, omdat we niet beschikken over de volgende gegevens:'
           invalid_field: "%{field}"
           reauthorize: Opnieuw autoriseren
           title: Autoriseert u opnieuw alstublieft
@@ -865,7 +864,6 @@ nl:
     newsletter_mailer:
       newsletter:
         no_reply_notice: Deze e-mail is verzonden vanuit een adres dat geen inkomende e-mail kan accepteren. Reageer niet op dit bericht.
-        note: U ontvangt deze e-mail omdat u bent geabonneerd op nieuwsbrieven van %{organization_name}. U kunt uw instellingen op uw <a href="%{link}">notificatiepagina</a> veranderen.
         unsubscribe: Om je uit te schrijven, <a href="%{link}" target="_blank" class="unsubscribe">Uitschrijven</a>.
     newsletter_templates:
       basic_only_text:
@@ -930,7 +928,6 @@ nl:
         success: Uw notificatie instellingen zijn bijgewerkt.
     offline:
       show:
-        message: Het lijkt erop dat je momenteel offline bent. Probeer het later opnieuw.
         retry: Probeer opnieuw
     open_data:
       not_available_yet: De Open Data-bestanden zijn nog niet beschikbaar. Probeer het over een paar minuten opnieuw.
@@ -1186,7 +1183,6 @@ nl:
     user_interests:
       show:
         my_interests: Mijn interesses
-        select_your_interests: Selecteer de onderwerpen waarin je interesse hebt en ontvang meldingen erover in het tabblad 'Tijdlijn' van 'Mijn profiel'.
         update_my_interests: Update mijn interesses
       update:
         error: Er is een fout opgetreden bij het bijwerken van uw interesses.
@@ -1411,8 +1407,6 @@ nl:
       notifications_dashboard:
         mark_all_as_read: Alles als gelezen markeren
         mark_as_read: Markeren als gelezen
-      offline_banner:
-        cache_version_page: Oeps! Je netwerk is offline. Dit is een eerdere gecachete versie van de pagina die je bezoekt, misschien is de inhoud niet up-to-date.
       social_media_links:
         facebook: "%{organization} op Facebook"
         github: "%{organization} op GitHub"
