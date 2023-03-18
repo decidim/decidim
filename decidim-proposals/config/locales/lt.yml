@@ -884,7 +884,6 @@ lt:
             description: Kiekvienas pasiūlymas gali sukaupti daugiau nei %{limit} balsų
           minimum_votes_per_user:
             description: Turite paskirstyti mažiausiai %{votes} balsų tarp skirtingų pasiūlymų.
-            given_enough_votes: Jūs suteikėte pakankamai paramos.
             supports_remaining: Kad į jūsų balsus būtų atsižvelgta, turite paremti dar %{remaining_votes} pasiūlymus (-ų).
           proposal_limit:
             description: Galite parengti iki %{limit} pasiūlymų.
