@@ -161,7 +161,6 @@ tr:
             - Yeni bir girişim oluşturmak için adımları izleyin
           description: Bu rozet, yeni girişimler başlattığınızda, bunları gerçekleştirmek için başkalarıyla ortaklık kurduğunuzda verilir.
           description_another: Bu katılımcı, yayınlanan %{score} girişimi aldı.
-          description_own: Yayınlanmış %{score} girişiminiz var.
           name: Yayınlanmış girişimler
           next_level_in: Bir sonraki seviyeye ulaşmak için yayınlanan %{score} daha alın!
           unearned_own: Henüz yayınlanan hiçbir girişimin yok.
