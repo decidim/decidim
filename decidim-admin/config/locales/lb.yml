@@ -166,8 +166,6 @@ lb:
         share: Teilen
         verify: Überprüfen
       admin_terms_of_use:
-        accept:
-          success: Super! Sie haben die Admin-Nutzungsbedingungen akzeptiert.
         actions:
           are_you_sure: Sidd Dir sécher datt Dir d'Admin Benotzungsconditioune wëllt refuséieren? Sidd Dir sécher datt Dir d'Admin Notzungsbedéngunge refuséiere wëllt?
           refuse: Die Admin-Nutzungsbedingungen ablehnen
