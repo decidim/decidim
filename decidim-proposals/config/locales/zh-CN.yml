@@ -203,7 +203,6 @@ zh-CN:
           follower:
             email_intro: '提议 "%{resource_title}" 已被接受。您可以在此页面中阅读答案：'
             email_outro: 您收到此通知是因为您正在关注 "%{resource_title}"。您可以从上一个链接取消关注它。
-            email_subject: 您关注的建议已被接受
             notification_title: <a href="%{resource_path}">%{resource_title}</a> 提议已被接受。
         proposal_evaluating:
           affected_user:
@@ -214,7 +213,6 @@ zh-CN:
           follower:
             email_intro: '提议 "%{resource_title}" 目前正在评估。您可以在这个页面检查答案：'
             email_outro: 您收到此通知是因为您正在关注 "%{resource_title}"。您可以从上一个链接取消关注它。
-            email_subject: 正在评估您关注的建议
             notification_title: <a href="%{resource_path}">%{resource_title}</a> 提议正在评估中。
         proposal_mentioned:
           email_outro: 您收到此通知是因为您是"%{resource_title} "的作者。
@@ -236,7 +234,6 @@ zh-CN:
           follower:
             email_intro: '提议 "%{resource_title}" 已被拒绝。您可以在此页中读取答案：'
             email_outro: 您收到此通知是因为您正在关注 "%{resource_title}"。您可以从上一个链接取消关注它。
-            email_subject: 您关注的建议已被拒绝
             notification_title: <a href="%{resource_path}">%{resource_title}</a> 提议已被拒绝。
         proposal_update_category:
           email_intro: '管理员更新了您的提议 "%{resource_title}"的类别，在此页面查看：'
