@@ -13,10 +13,15 @@ cs:
       templates:
         apply:
           error: Při použití této šablony došlo k chybě.
+          success: Šablona byla úspěšně použita.
         copy:
           error: Při kopírování této šablony došlo k chybě.
+          success: Šablona byla úspěšně zkopírována.
         create:
           error: Při vytváření této šablony došlo k chybě.
+          success: Šablona byla úspěšně vytvořena.
+        destroy:
+          success: Šablona byla úspěšně odstraněna.
         empty: Zatím nejsou žádné šablony.
         update:
           error: Při aktualizaci této šablony došlo k chybě.
