@@ -110,9 +110,7 @@
         cancel_order:
           more_than_one: slett stemmen din på %{name} og start på nytt
           only_one: slett stemmen din og begynn på nytt.
-        finished_message: Du har fullført avstemmingen. Takk for at du deltar!
         highlighted_cta: Stem på %{name}
-        if_change_opinion: Hvis du har endret mening, kan du
         my_budgets: Mine budsjetter
         progress: Fullfør stemmegivningen
         show: Se prosjekter
@@ -155,7 +153,6 @@
           assigned: 'Tildelt:'
           cancel_order: slett stemmen din og begynn på nytt
           checked_out:
-            description: Du har allerede stemt for budsjettet. Hvis du har ombestemt deg, kan du %{cancel_link}.
             title: Budtjett avstemning fullført
           minimum_projects_rule:
             description: Hvilke prosjekter mener du vi bør tildele budsjett for? Velg minst %{minimum_number} prosjekter du vil og stem i henhold til dine preferanser for å definere budsjettet.
