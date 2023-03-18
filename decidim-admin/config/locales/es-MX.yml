@@ -189,8 +189,6 @@ es-MX:
           new: Nueva administradora
         verify: Verificar
       admin_terms_of_use:
-        accept:
-          success: '¡Genial! Has aceptado los Términos y Condiciones de Administración.'
         actions:
           accept: Estoy de acuerdo con los términos
           are_you_sure: '¿Seguro que deseas rechazar los términos de uso para administradoras?'
