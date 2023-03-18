@@ -128,8 +128,6 @@ sr:
         reject: Odbaci
         verify: Overi
       admin_terms_of_use:
-        accept:
-          success: Odlično! Prihvatili ste uslove korišćenja za administratore.
         actions:
           refuse: Ne prihvatam uslove korišćenja za administratore
         required_review:
