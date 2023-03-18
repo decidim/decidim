@@ -815,7 +815,6 @@ pl:
             description: Każda propozycja może zebrać więcej niż wynosi limit wsparć %{limit}
           minimum_votes_per_user:
             description: Musisz rozdzielić co najmniej %{votes} wsparć pomiędzy różne propozycje.
-            given_enough_votes: Dałeś dość wsparcia.
             supports_remaining: Musisz wesprzeć %{remaining_votes} dodatkowych propozycji, aby Twoje głosy zostały policzone.
           proposal_limit:
             description: Możesz utworzyć maksymalnie %{limit} propozycji.
