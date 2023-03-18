@@ -35,7 +35,6 @@ ca:
       decidim/component_published_event: Component actiu
       decidim/demoted_membership: Ja no ets una administradora del grup
       decidim/gamification/badge_earned_event: Insígnia obtinguda
-      decidim/gamification/level_up_event: Has pujat de nivell
       decidim/invited_to_group_event: Convidada al grup
       decidim/join_request_accepted_event: Sol·licitud d'incorporació acceptada
       decidim/join_request_rejected_event: Sol·licitud d'incorporació rebutjada
@@ -668,15 +667,9 @@ ca:
         email_subject: S'ha produït una actualització per a %{resource_title}
       gamification:
         badge_earned:
-          email_intro: Enhorabona! Has aconseguit la insígnia "<a href="%{resource_url}">%{badge_name}</a>" (nivell %{current_level}).
           email_outro: Has rebut aquesta notificació perquè has generat activitat al nostre lloc web.
-          email_subject: 'Has aconseguit una nova insígnia: %{badge_name}!'
-          notification_title: Enhorabona! Has aconseguit la <a href="%{resource_path}">insígnia de %{badge_name}</a> (nivell %{current_level}).
         level_up:
-          email_intro: Enhorabona! Has arribat al nivell %{current_level} de la insígnia<a href="%{resource_url}">%{badge_name}</a>!
           email_outro: Has rebut aquesta notificació perquè has generat activitat al nostre lloc web.
-          email_subject: Has arribat al nivell %{current_level} de la insígnia %{badge_name}!
-          notification_title: Enhorabona! Has arribat al nivell %{current_level} de la insígnia<a href="%{resource_path}">%{badge_name}</a>!
       groups:
         demoted_membership:
           email_intro: Una administradora del grup <a href="%{resource_url}">%{user_group_name}</a> ha eliminat els teus drets d'administradora d'aquest grup.
@@ -850,7 +843,6 @@ ca:
           name: Seguidors
           next_level_in: Aconsegueix %{score} que et segueixin més persones per passar al següent nivell!
           unearned_another: Aquesta participant encara no té seguidores.
-          unearned_own: Encara no tens seguidors.
         index:
           badge_title: "Insígnia %{name}"
           how: Com pots aconseguir-la
@@ -858,7 +850,6 @@ ca:
           title: Insígnies
       description: Les insígnies són reconeixements de les accions de les participants i del progrés en la plataforma. A mesura que comencis a descobrir, participar i interactuar amb la plataforma, n'obtindràs de diferents tipus.
       level: Nivell %{level}
-      reached_top: Has arribat al màxim nivell d'aquesta insígnia.
       title: Què són les ensenyes?
     group_admins:
       actions:
@@ -1542,14 +1533,6 @@ ca:
         someone_invited_you_as_admin: Algú t'ha convidat com a administradora de %{application}, pots acceptar-lo a través de l'enllaç següent.
         someone_invited_you_as_private_user: Algú t'ha convidat com a participant privada de %{application}. Pots acceptar a través del següent enllaç.
         subject: Instruccions d'invitació
-      invite_admin:
-        subject: Has estat convidada a gestionar %{organization}
-      invite_collaborator:
-        subject: Has estat convidada a col·laborar a %{organization}
-      invite_private_user:
-        subject: Has estat convidada a un procés participatiu privat a %{organization}
-      organization_admin_invitation_instructions:
-        subject: Has estat convidada a gestionar %{organization}
       password_change:
         greeting: Hola %{recipient}!
         subject: Contrasenya modificada
