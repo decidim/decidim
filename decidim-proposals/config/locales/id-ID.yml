@@ -142,7 +142,6 @@ id:
           follower:
             email_intro: 'Proposal "%{resource_title}" telah diterima. Anda dapat membaca jawabannya di halaman ini:'
             email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti "%{resource_title}". Anda dapat berhenti mengikutinya dari tautan sebelumnya.
-            email_subject: Proposal yang Anda ikuti telah diterima
             notification_title: Proposal <a href="%{resource_path}">%{resource_title}</a> telah diterima.
         proposal_evaluating:
           affected_user:
@@ -153,7 +152,6 @@ id:
           follower:
             email_intro: 'Proposal "%{resource_title}" saat ini sedang dievaluasi. Anda dapat memeriksa jawaban di halaman ini:'
             email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti "%{resource_title}". Anda dapat berhenti mengikutinya dari tautan sebelumnya.
-            email_subject: Proposal yang Anda ikuti sedang dievaluasi
             notification_title: Proposal <a href="%{resource_path}">%{resource_title}</a> sedang dievaluasi.
         proposal_mentioned:
           email_outro: Anda telah menerima pemberitahuan ini karena Anda adalah pengarang "%{resource_title}".
@@ -176,7 +174,6 @@ id:
           follower:
             email_intro: 'Proposal "%{resource_title}" telah ditolak. Anda dapat membaca jawabannya di halaman ini:'
             email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti "%{resource_title}". Anda dapat berhenti mengikutinya dari tautan sebelumnya.
-            email_subject: Proposal yang Anda ikuti telah ditolak
             notification_title: Proposal <a href="%{resource_path}">%{resource_title}</a> telah ditolak.
         proposal_update_category:
           email_intro: 'Admin telah memperbarui kategori proposal Anda "%{resource_title}", periksa ini:'
