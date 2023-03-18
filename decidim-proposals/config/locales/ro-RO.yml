@@ -256,7 +256,6 @@ ro:
           follower:
             email_intro: 'Propunerea "%{resource_title}" a fost acceptată. Poți citi răspunsul în această pagină:'
             email_outro: Ai primit această notificare deoarece urmărești „%{resource_title}”. Poți anula urmărirea de la link-ul anterior.
-            email_subject: O propunere pe care o urmărești a fost acceptată
             notification_title: Propunerea <a href="%{resource_path}">%{resource_title}</a> a fost acceptată.
         proposal_evaluating:
           affected_user:
@@ -267,7 +266,6 @@ ro:
           follower:
             email_intro: 'Propunerea "%{resource_title}" este în curs de evaluare. Poţi verifica răspunsul în această pagină:'
             email_outro: Ai primit această notificare deoarece urmărești „%{resource_title}”. Poți anula urmărirea de la link-ul anterior.
-            email_subject: O propunere pe care o urmărești este în curs de evaluare
             notification_title: Propunerea <a href="%{resource_path}">%{resource_title}</a> este în curs de evaluare.
         proposal_mentioned:
           email_intro: Propunerea ta "%{mentioned_proposal_title}" a fost menționată <a href="%{resource_url}">în acest spațiu</a> în comentarii.
@@ -291,7 +289,6 @@ ro:
           follower:
             email_intro: 'Propunerea "%{resource_title}" a fost respinsă. Poţi citi răspunsul în această pagină:'
             email_outro: Ai primit această notificare deoarece urmărești „%{resource_title}”. Poți anula aceste notificări de la link-ul anterior.
-            email_subject: O propunere pe care o urmărești a fost respinsă
             notification_title: Propunerea <a href="%{resource_path}">%{resource_title}</a> a fost respinsă.
         proposal_update_category:
           email_intro: 'Un administrator a actualizat categoria propunerii tale „%{resource_title}", verifică modificarea în această pagină:'
