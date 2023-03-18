@@ -270,7 +270,6 @@ eu:
           follower:
             email_intro: '"%{resource_title}" proposamena onartu da. Orri honetan erantzun dezakezu:'
             email_outro: Jakinarazpena jaso duzu "%{resource_title}" jarraitzen ari zarelako. Aurrekoestekan jarrai dezakezu.
-            email_subject: Jarraitzen ari zaren proposamen bat onartu da
             notification_title: <a href="%{resource_path}">%{resource_title}</a> proposamena onartu da.
         proposal_evaluating:
           affected_user:
@@ -281,7 +280,6 @@ eu:
           follower:
             email_intro: '"%{resource_title}" proposamena ebaluatzen ari da. Orri honetan erantzun dezakezu:'
             email_outro: Jakinarazpena jaso duzu "%{resource_title}" jarraitzen ari zarelako Aurreko esteka estekan jarrai dezakezu.
-            email_subject: Jarraitzen ari zaren proposamena ebaluatzen ari da
             notification_title: <a href="%{resource_path}">%{resource_title}</a> proposamena ebaluatzen ari da.
         proposal_mentioned:
           email_intro: Zure proposamen hau "%{mentioned_proposal_title}" aipatu da <a href="%{resource_url}"> iruzkinen</a> espazioan.
@@ -306,7 +304,6 @@ eu:
           follower:
             email_intro: '"%{resource_title}" proposamena baztertu egin da. Orri honetan erantzun dezakezu:'
             email_outro: Jakinarazpena jaso duzu "%{resource_title}" jarraitzen ari zarenagatik. Aurreko esteka estekan jarrai dezakezu.
-            email_subject: Jarraitzen ari zaren propposamen bat ukatu egin da
             notification_title: <a href="%{resource_path}">%{resource_title}</a> proposamena baztertu da.
         proposal_update_category:
           email_intro: 'Administratzaileak "%{resource_title}" proposamenaren kategoria eguneratu du, ikus ezazu orri honetan:'
