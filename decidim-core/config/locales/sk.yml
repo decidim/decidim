@@ -266,7 +266,6 @@ sk:
           title: Platnosť oprávnenia vypršala
         incomplete:
           cancel: Zrušiť
-          explanation: 'Hoci ste v súčasnosti autorizovaní s "%{Authorization}", potrebujeme, aby ste sa znovu autorizovali, pretože chýbajú nasledujúce údaje:'
           invalid_field: "%{field}"
           reauthorize: Znovu autorizovať
           title: Znovu autorizujte
@@ -723,7 +722,6 @@ sk:
         title: Účastníci
     newsletter_mailer:
       newsletter:
-        note: Tento e-mail jste obdrželi, protože jste odběrateli bulletinů na %{organization_name}. Můžete změnit nastavení na <a href="%{link}">oznámení straně</a>.
         unsubscribe: Chcete-li odhlásit přijímání tento typ e-mailů, <a href="%{link}" target="_blank" class="unsubscribe">Odhlásit</a>.
     newsletter_templates:
       basic_only_text:
@@ -959,7 +957,6 @@ sk:
     user_interests:
       show:
         my_interests: Moje záujmy
-        select_your_interests: Vyberte témy, ktoré vás zaujímajú, aby ste mohli prijímať udalosti, ktoré s nimi súvisia, na karte Časová os profilu.
         update_my_interests: Aktualizujte svoje záujmy
       update:
         error: Počas aktualizácie vašich záujmov došlo k chybe.
