@@ -329,7 +329,6 @@ hu:
           Excel: Excel
           FormPDF: PDF
           JSON: JSON
-        notice: Az exportálás folyamatban. Amint elkészült, egy emailt fogsz kapni róla.
       filters:
         category_id_eq:
           label: Kategória
