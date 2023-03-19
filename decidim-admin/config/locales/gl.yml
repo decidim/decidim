@@ -323,7 +323,6 @@ gl:
           Excel: Excel
           FormPDF: PDF
           JSON: JSON
-        notice: A súa exportación está en progreso. Recibirás un correo electrónico cando finalice.
       filters:
         category_id_eq:
           label: Categoría
