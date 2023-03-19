@@ -329,7 +329,6 @@
           Excel: Excel
           FormPDF: PDF
           JSON: JSON
-        notice: Eksporten din holder på. Du vil få en e-mail når den er ferdig.
       filters:
         category_id_eq:
           label: Kategori
