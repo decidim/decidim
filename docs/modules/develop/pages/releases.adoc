@@ -1,6 +1,6 @@
 = Releasing new versions
 
-In order to release new version you need to be owner of all the gems at RubyGems, ask one of the owners to add you before releasing. Try `gem owner decidim` to find out the owners of the gem. It's worth making sure you are owner of all gems.
+In order to release new version you need to be owner of all the gems at RubyGems, ask one of the owners to add you before releasing. Try `gem owner decidim` to find out the owners of the gem. It is worth making sure you are owner of all gems.
 
 Remember to follow the Gitflow branching workflow.
 
@@ -146,7 +146,7 @@ git log v0.20.0..v0.20.1 --grep " (#[0-9]\+)" --oneline
 git log <SHA>..HEAD --grep " (#[0-9]\+)" --oneline
 ----
 
-Once you have checked the list of changes, it's time to actually generating the changelog.
+Once you have checked the list of changes, it is time to actually generating the changelog.
 
 [source,bash]
 ----

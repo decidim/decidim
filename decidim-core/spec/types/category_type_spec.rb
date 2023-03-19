@@ -21,7 +21,7 @@ module Decidim
         end
       end
 
-      context "when it's a subcategory" do
+      context "when it is a subcategory" do
         let(:model) { subcategory }
 
         describe "parent" do
@@ -41,7 +41,7 @@ module Decidim
         end
       end
 
-      context "when it's a parent category" do
+      context "when it is a parent category" do
         let(:model) { parent }
 
         describe "parent" do

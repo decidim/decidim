@@ -53,7 +53,7 @@ module Decidim
       #
       # value - the value for the given attribute
       # type - A symbol or String representing the type of the value.
-      #   If it's a String, it should be the name of the presenter that will
+      #   If it is a String, it should be the name of the presenter that will
       #   be in charge of presenting it.
       #
       # Returns an HTML-safe String.
@@ -69,7 +69,7 @@ module Decidim
       # label - the label name
       # value - the value for the given label
       # type - A symbol or String representing the type of the value.
-      #   If it's a String, it should be the name of the presenter that will
+      #   If it is a String, it should be the name of the presenter that will
       #   be in charge of presenting it.
       #
       # Returns an HTML-safe String.
@@ -84,7 +84,7 @@ module Decidim
       #
       # value - the value to be presented, no specific type.
       # type - A symbol or String representing the type of the value.
-      #   If it's a String, it should be the name of the presenter that will
+      #   If it is a String, it should be the name of the presenter that will
       #   be in charge of presenting it.
       #
       # Returns an HTML-safe String.
@@ -95,7 +95,7 @@ module Decidim
       # Private: Finds the presenter class for the given type.
       #
       # type - A symbol or String representing the type of the value.
-      #   If it's a String, it should be the name of the presenter that will
+      #   If it is a String, it should be the name of the presenter that will
       #   be in charge of presenting it.
       #
       # Returns a Class.

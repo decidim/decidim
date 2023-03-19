@@ -610,7 +610,7 @@ describe "Initiative", type: :system do
           end
         end
 
-        context "and it's disabled at the type scope" do
+        context "and it is disabled at the type scope" do
           let(:initiative_type) { create(:initiatives_type, organization:, promoting_committee_enabled: false, signature_type:) }
 
           it "skips the promoting committee settings" do

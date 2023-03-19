@@ -18,7 +18,7 @@ module Decidim
   #       end
   #     end
   #
-  # Content blocks can also register attached images. Here's an example of a
+  # Content blocks can also register attached images. Here is an example of a
   # content block with 4 attached images:
   #
   #     Decidim.content_blocks.register(:homepage, :carousel) do |content_block|

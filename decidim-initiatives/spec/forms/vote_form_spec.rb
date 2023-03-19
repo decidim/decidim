@@ -174,7 +174,7 @@ module Decidim
       end
 
       describe "authorized_scope_candidates" do
-        context "when it's a global scope initiative" do
+        context "when it is a global scope initiative" do
           let(:scoped_type) { global_initiative_type_scope }
 
           it "includes all the scopes of the organization" do
@@ -186,7 +186,7 @@ module Decidim
           end
         end
 
-        context "when it's a fixed scope" do
+        context "when it is a fixed scope" do
           let(:scoped_type) { district_1_initiative_type_scope }
 
           it "returns the scope descendants" do
@@ -216,7 +216,7 @@ module Decidim
         end
 
         context "when the authorization is valid" do
-          context "when it's a global scope initiative" do
+          context "when it is a global scope initiative" do
             let(:scoped_type) { global_initiative_type_scope }
 
             context "when child scope voting is enabled" do
