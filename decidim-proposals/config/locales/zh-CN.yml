@@ -556,7 +556,6 @@ zh-CN:
           final_proposal_help_text: 这个草稿已完成。查看最后建议
           hidden_authors_count:
             other: 和更多 %{count} 人
-          info-message: 这是一个提议的 <strong>协作草案</strong> 。 这意味着你可以帮助他们的作者使用下面的评论部分来塑造建议或通过请求访问来直接改进它。 一旦作者授予您访问权限，您将能够修改此草稿。
           publish: 发布
           publish_info: 发布此版本的草稿或
           published_proposal: 已发布的提案
