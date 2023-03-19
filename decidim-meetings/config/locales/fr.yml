@@ -583,7 +583,6 @@ fr:
       registrations:
         create:
           invalid: Il y a eu un problème lors de votre inscription à cette rencontre.
-          success: Vous avez rejoint la rencontre avec succès.
         decline_invitation:
           invalid: Un problème est survenu lors du refus de l'invitation.
           success: Vous avez refusé l'invitation avec succès.
