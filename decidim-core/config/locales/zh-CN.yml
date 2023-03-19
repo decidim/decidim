@@ -1087,7 +1087,6 @@ zh-CN:
       show:
         version_index: 版本 %{index}
     welcome_notification:
-      default_body: <p>你好， {{name}}，感谢你们加入 {{organization}} 并欢迎你们！</p><ul><li>如果您想要在这里快速了解您可以做些什么。 查看了 <a href="{{help_url}}">帮助</a> 部分。</li><li>阅读完毕后，您将获得第一张徽章。 这里有一个 <a href="{{badges_url}}">所有徽章列表</a> 你可以在参加 {{organization}}</li><li>最后但并非最不重要的。 与其他人一起分享参与和参与 {{organization}}的经验。 提出建议、评论、辩论、思考如何促进共同利益，提出令人信服、倾听和宣读被说服的论据， 以具体和直接的方式表达你的想法，耐心和果断地作出反应， 捍卫你的思想，开诚布公地合作并加入其他人的思想。</li></ul>
       default_subject: 感谢您加入 {{organization}}！
     wizard_step_form:
       wizard_aside:
