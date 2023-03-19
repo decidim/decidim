@@ -102,7 +102,6 @@ gl:
       update:
         error: Produciuse un erro ao actualizar a túa conta.
         success: A túa conta foi actualizada correctamente.
-        success_with_email_confirmation: A túa conta foi actualizada correctamente. Recibirá un correo electrónico para confirmar o seu novo enderezo de correo electrónico.
     admin:
       actions:
         cancel: Cancelar
