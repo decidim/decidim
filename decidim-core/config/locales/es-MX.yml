@@ -150,7 +150,6 @@ es-MX:
       update:
         error: Se ha producido un error al actualizar tu cuenta.
         success: Tu cuenta se ha actualizado correctamente.
-        success_with_email_confirmation: Tu cuenta se ha actualizado correctamente. Recibirás un correo electrónico para confirmar tu nueva dirección de correo electrónico.
     activity:
       time_ago: "Hace %{time}"
     admin:
@@ -1120,7 +1119,6 @@ es-MX:
         notifications_sending_frequency: '¿Con qué frecuencia quieres recibir el correo resumen de notificaciones?'
         own_activity: Mi propia actividad, como cuando alguien comenta en mi propuesta o me menciona.
         push_notifications: Notificaciones emergentes
-        push_notifications_reminder: Para obtener notificaciones de la plataforma, primero tienes que permitirlas en la configuración de tu navegador.
         receive_notifications_about: Quiero recibir notificaciones sobre
         update_notifications_settings: Guardar cambios
       update:
