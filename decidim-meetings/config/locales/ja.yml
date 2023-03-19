@@ -568,7 +568,6 @@ ja:
       registrations:
         create:
           invalid: このミーティングに参加する際に問題がありました。
-          success: ミーティングに正常に参加しました．このミーティングに登録したため，更新がある場合は通知されます．
         decline_invitation:
           invalid: 招待を辞退するのに問題があった。
           success: 招待を拒否しました。
