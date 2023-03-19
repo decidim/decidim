@@ -34,7 +34,7 @@ module Decidim
       attr_reader :form
 
       def find_or_create_moderation!
-        Decidim::UserModeration.where(user: form.user).first_or_create!
+        Decidim::UserModeration.create_or_find_by!(user: form.user)
       end
 
       def register_justification!
