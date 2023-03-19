@@ -600,7 +600,6 @@
           hidden_authors_count:
             one: og %{count} til person
             other: og %{count} flere personer
-          info-message: Dette er et <strong>samarbeids utkast</strong> for et forslag. Dette betyr at du kan hjelpe forfatterne å forme forslaget med bruk av kommentarfeltet nedenfor eller forbedre det direkte med å be om tilgang til å redigere det. Når forfatterne gir deg tilgang, vil du kunne redigere utkastet.
           publish: Publiser
           publish_info: Publiser denne versjonen av utkastet eller
           published_proposal: publisert forslag
