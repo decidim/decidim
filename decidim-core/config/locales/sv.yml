@@ -129,7 +129,6 @@ sv:
         success: Ditt konto har raderats.
       download_your_data_export:
         file_no_exists: Filen finns inte
-        notice: Dina uppgifter hämtas för närvarande. Du får ett e-postmeddelande när det är klart.
       email_change:
         body2: Vill du att vi ska skicka verifieringsmailet igen? %{resend_link} eller %{cancel_link}.
         cancel: avbryt
@@ -1012,7 +1011,6 @@ sv:
         verified: Verifierad
     pad_iframe:
       disclaimer: Innehållet i detta memo är skrivet av registrerade användare och uttrycker deras åsikter. %{organization} kan inte hållas ansvarig för innehållet.
-      explanation: Använd detta memo till att föra gemensamma anteckningar under mötet, så att det är enklare att renskriva protokollet efteråt.
       pad: Memo
     pages:
       home:
