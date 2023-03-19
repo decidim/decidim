@@ -378,7 +378,6 @@ zh-CN:
       registrations:
         create:
           invalid: 加入本次会议时出现问题。
-          success: 您已成功加入会议。由于您已经注册了这次会议，如果有更新，您将收到通知。
         decline_invitation:
           invalid: 有一个问题拒绝邀请。
           success: 您已成功拒绝邀请。
