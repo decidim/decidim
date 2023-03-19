@@ -117,7 +117,6 @@ nl:
         success: Uw account is succesvol verwijderd.
       download_your_data_export:
         file_no_exists: Bestand bestaat niet
-        notice: Uw gegevens worden momenteel verwerkt. Je ontvangt een e-mail als deze is voltooid.
       show:
         change_password: Wachtwoord wijzigen
         update_account: Account bijwerken
@@ -938,7 +937,6 @@ nl:
         verified: Geverifieerd
     pad_iframe:
       disclaimer: De inhoud van dit notitieblok is geschreven door geregistreerde gebruikers en geeft hun mening weer. %{organization} kan niet verantwoordelijk worden gehouden voor de inhoud ervan.
-      explanation: Gebruik dit notitieblok om tijdens de vergadering gezamenlijk notities te maken, om later eenvoudig notulen te kunnen maken.
       pad: Notitieblok
     pages:
       home:
