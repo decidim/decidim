@@ -168,11 +168,14 @@ fi:
         cancel_order:
           more_than_one: poistaa äänesi budjetista %{name} ja aloittaa alusta
           only_one: poistaa äänesi ja aloittaa alusta.
+        finished_message: Olet äänestänyt. Kiitos osallistumisestasi!
         highlighted_cta: Äänestä budjetista %{name}
+        if_change_opinion: Jos olet muuttanut mieltäsi, voit
         my_budgets: Omat budjetit
         progress: Viimeistele äänestys
         show: Näytä hankkeet
         vote: Äänestä
+        voted_on: Äänestit kohdetta %{links}.
       last_activity:
         new_vote_at: Uusi budjetointiääni
       limit_announcement:
@@ -218,6 +221,7 @@ fi:
           assigned: 'Varattu:'
           cancel_order: poista äänesi ja aloita alusta
           checked_out:
+            description: Olet jo äänestänyt tätä budjettia. Jos muutit mieltäsi, %{cancel_link}.
             title: Budjetin äänestys suoritettu
           minimum_projects_rule:
             description: Mille hankkeille budjetin rahaa tulisi jakaa? Valitse vähintään %{minimum_number} toivomaasi suunnitelmaa ja äänestä haluamallasi tavalla vaikuttaaksesi budjetin jakautumiseen.
