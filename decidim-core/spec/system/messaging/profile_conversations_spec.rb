@@ -260,7 +260,7 @@ describe "ProfileConversations", type: :system do
         before do
           click_button "Send"
           expect(page).to have_selector("#messages .conversation-chat:last-child", text: "Please reply!")
-          relogin_as interlocutor
+          relogin_as interlocutor, scope: :user
           visit decidim.conversations_path
         end
 

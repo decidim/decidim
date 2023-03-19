@@ -36,7 +36,7 @@ describe "Postal letter code request", type: :system do
 
     context "and getting it sent" do
       before do
-        relogin_as admin
+        relogin_as admin, scope: :user
         visit decidim_admin_postal_letter.root_path
       end
 
