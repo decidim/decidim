@@ -506,7 +506,6 @@ it:
       registrations:
         create:
           invalid: C'è stato un problema a partecipare a questa riunione.
-          success: L'iscrizione all'evento è stata registrata con successo.
         decline_invitation:
           invalid: C'è stato un problema a rifiutare l'invito.
           success: Hai rifiutato l'invito con successo.
