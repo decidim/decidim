@@ -288,7 +288,7 @@ en:
       block_user:
         new:
           action: Block account and send justification
-          already_reported: The account has already been reported. Continuing with this action you will also hide all the participants contents. If you just want to block the account, <a href="%{link}">click here</a>.
+          already_reported: Continuing with this action you will also hide all the participants contents. If you just want to block the account, <a href="%{link}">click here</a>.
           description: Blocking a user will render their account unusable. You may provide in your justification any guidelines on ways you would consider unblocking the user.
           justification: Justification
           title: Block User %{name}
