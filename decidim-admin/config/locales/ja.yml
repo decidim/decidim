@@ -379,7 +379,6 @@ ja:
           Excel: エクセル
           FormPDF: PDF
           JSON: JSON
-        notice: エクスポートが進行中です。完了するとメールが届きます。
       filters:
         category_id_eq:
           label: カテゴリ
