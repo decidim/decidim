@@ -130,7 +130,6 @@ eu:
       update:
         error: Akats bat gertatu da zure kontua eguneratzean.
         success: Zure kontua zuzen eguneratu da.
-        success_with_email_confirmation: Zure kontua zuzen eguneratu da. Mezu elektroniko bat jasoko duzu zure helbide elektroniko berria baieztatzeko.
     activity:
       time_ago: "duela %{time}"
     admin:
