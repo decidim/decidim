@@ -1212,7 +1212,6 @@ pt-BR:
       show:
         version_index: Versão %{index}
     welcome_notification:
-      default_body: <p>Olá {{name}}, obrigado por se juntar a {{organization}} e seja bem-vindo!</p><ul><li>Se você quiser ter uma idéia rápida do que pode fazer aqui, dê uma olhada na seção <a href="{{help_url}}">Ajuda</a> .</li><li>Depois de ler, você receberá seu primeiro crachá. Aqui está uma <a href="{{badges_url}}">lista de todos os crachás</a> você pode começar como você participar de {{organization}}</li><li>Por último, mas não menos importante, se juntar a outras pessoas, compartilhar com eles a experiência de ser envolvido e participando de {{organization}}. Faça propostas, comentários, debata, pense em como contribuir para o bem comum, forneça argumentos para convencer, escute e leia para ser convencido, expresse suas idéias de maneira concreta e direta, responda com paciência e decisão, defenda suas ideias e mantenha uma mente aberta para colaborar e juntar-se às ideias de outras pessoas.</li></ul>
       default_subject: Obrigado por se juntar a {{organization}}!
     wizard_step_form:
       wizard_aside:
