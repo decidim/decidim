@@ -494,7 +494,6 @@ hu:
       registrations:
         create:
           invalid: Probléma történt a találkozóhoz való csatlakozáskor.
-          success: Sikeresen csatlakoztál a találkozóhoz.
         decline_invitation:
           invalid: Hiba történt a meghívás visszautasítása során.
           success: Meghívás elutasítása sikeres.
