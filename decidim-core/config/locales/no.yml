@@ -1252,7 +1252,6 @@
       show:
         version_index: Versjon %{index}
     welcome_notification:
-      default_body: <p>Hei {{name}}, takk for at du ble med i {{organization}} og velkommen!</p><ul><li>Hvis du vil få et raskt inntrykk av hva du kan gjøre her, ta en titt på <a href="{{help_url}}">Hjelp</a> seksjonen.</li><li>Når du har lest det, får du det første merket ditt. Her er en <a href="{{badges_url}}">liste over alle merkene</a> du kan oppnå når du deltar i {{organization}}</li><li> Sist, men ikke minst, bli med andre mennesker, dele med dem opplevelsen av å være engasjert og delta i {{organization}}. Lag forslag, gi dine innspill, diskuter, tenk på hvordan du kan bidra til felleskapets beste, gi argumenter for å overbevise, lytt og les for å bli overbevist, uttrykk ideene dine på en konkret og direkte måte, svar med tålmodighet og beslutning, forsvar ideene dine og behold et åpent sinn for å samarbeide, og bli med på andres ideer.</li></ul>
       default_subject: Takk for at du ble med {{organization}}!
     wizard_step_form:
       wizard_aside:
