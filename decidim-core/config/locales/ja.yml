@@ -122,7 +122,6 @@ ja:
         success: アカウントが正常に削除されました。
       download_your_data_export:
         file_no_exists: ファイルが存在しません
-        notice: データのダウンロードは現在進行中です。完了するとメールが届きます。
       email_change:
         body2: 確認メールをもう一度送信する必要がありますか？ %{resend_link} または %{cancel_link}
         cancel: キャンセル
@@ -1004,7 +1003,6 @@ ja:
     newsletter_mailer:
       newsletter:
         no_reply_notice: このメールは、メールを受信できない通知専用メールアドレスから送信されました。このメッセージには返信しないでください。
-        see_on_website: このメールは正しく表示されていませんか？ <a href="%{link}" target="_blank" class="see-on-website">ウェブサイト</a> でご確認ください。
         unsubscribe: この種類のメールの受信を拒否するには、 <a href="%{link}" target="_blank" class="unsubscribe">購読解除</a>.
     newsletter_templates:
       basic_only_text:
@@ -1103,7 +1101,6 @@ ja:
         verified: 確認済み
     pad_iframe:
       disclaimer: このパッドの内容は登録ユーザーによって書かれ、意見を表明します。 %{organization} はその内容について責任を負うことはできません。
-      explanation: このパッドを使用すると、ミーティング中にノートを取ることができ、その後すぐにメモを書き留めることができます。
       pad: パッド
     pages:
       home:
