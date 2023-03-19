@@ -552,7 +552,6 @@ de:
       registrations:
         create:
           invalid: Bei diesem Meeting ist ein Problem aufgetreten.
-          success: Sie sind der Sitzung erfolgreich beigetreten. Da sie sich für die Sitzung registriert haben, werden Sie benachrichtigt wenn sich an der Sitzung etwas ändert.
         decline_invitation:
           invalid: Es ist ein Problem aufgetreten, dass die Einladung abgelehnt wurde.
           success: Sie haben die Einladung erfolgreich abgelehnt.
