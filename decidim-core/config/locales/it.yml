@@ -93,7 +93,6 @@ it:
         success: Il tuo account è stato eliminato correttamente.
       download_your_data_export:
         file_no_exists: Il file non esiste
-        notice: Il download dei tuoi dati è in corso. Riceverai un'email non appena completato.
       show:
         change_password: Cambia password
         update_account: Aggiorna l'account
@@ -925,7 +924,6 @@ it:
         verified: Verificato
     pad_iframe:
       disclaimer: I contenuti di questo riquadro sono scritti da utenti registrati ed esprimono le loro opinioni. %{organization} non può essere ritenuto responsabile per il suo contenuto.
-      explanation: Usa questo pad per prendere appunti in modo collaborativo durante la riunione, quindi è più facile scrivere il minuto dopo.
       pad: tampone
     pages:
       home:
