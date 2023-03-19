@@ -96,7 +96,6 @@ gl:
         success: A túa conta eliminouse correctamente.
       download_your_data_export:
         file_no_exists: O ficheiro non existe
-        notice: Os teus datos están en progreso. Recibirás un correo electrónico cando finalice.
       show:
         change_password: Cambie o contrasinal
         update_account: Actualizar a conta
@@ -741,7 +740,6 @@ gl:
         verified: Verificado
     pad_iframe:
       disclaimer: Os contidos deste pad son escritos por usuarios rexistrados e expresan as súas opinións. %{organization} non se responsabiliza dos seus contidos.
-      explanation: Use esta almofada para tomar notas de xeito colaborativo durante a reunión, polo que é máis fácil escribir un minuto despois.
       pad: Pad
     pages:
       home:
