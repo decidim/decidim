@@ -99,7 +99,6 @@ lb:
       update:
         error: Beim Aktualiséieren vum Kont ass e Feeler entstane.
         success: Däin Kont gouf aktualiséiert.
-        success_with_email_confirmation: Däin Kont gouf aktualiséiert. Du kriss en Email fir déi nei Email-Adress. ze bestätegen.
     admin:
       actions:
         cancel: Ofbriechen
