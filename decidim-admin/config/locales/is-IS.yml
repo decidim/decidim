@@ -236,7 +236,6 @@ is-IS:
           view_more_logs: Skoða fleiri logs
       exports:
         export_as: "%{name} sem %{export_format}"
-        notice: Útflutningur þinn er í gangi. Þú færð tölvupóst þegar það er lokið.
       filters:
         category_id_eq:
           label: Flokkur
