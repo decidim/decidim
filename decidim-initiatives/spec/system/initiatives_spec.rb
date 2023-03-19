@@ -72,7 +72,7 @@ describe "Initiatives", type: :system do
       context "when there is a unique initiative type" do
         let!(:unpublished_initiative) { nil }
 
-        it "doesn't display the initiative type filter" do
+        it "does not display the initiative type filter" do
           within ".new_filter[action$='/initiatives']" do
             expect(page).not_to have_content(/Type/i)
           end

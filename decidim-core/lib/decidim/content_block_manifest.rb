@@ -7,7 +7,7 @@ module Decidim
   # registered by Decidim modules, and are configurable and sortable. They are a
   # useful way to customize a given page, without having to rely on overwriting
   # the views files. Also, this system is more powerful than basic view hooks
-  # (see the `ViewHooks` class for reference), as view hooks don't have a way to
+  # (see the `ViewHooks` class for reference), as view hooks do not have a way to
   # explicitly control the order of the hooked views.
   #
   # Content blocks are intended to be used in the home page, for example.

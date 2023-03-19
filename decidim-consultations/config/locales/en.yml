@@ -52,7 +52,7 @@ en:
         decidim/consultations/vote:
           attributes:
             question:
-              invalid_num_votes: Number of votes is invalid
+              invalid_num_votes: Number of votes is invalid.
     models:
       decidim/consultation:
         one: Consultation
@@ -95,7 +95,7 @@ en:
         create:
           error: There was a problem creating a new consultation.
           success: Consultation successfully created.
-        deprecation_warning: Consultations module will be deprecated in the near future. We’re working on the next cryptographically secure version called Votings.
+        deprecation_warning: Consultations module will be deprecated in the near future. We are working on the next cryptographically secure version called Votings.
         edit:
           update: Update
         form:
@@ -154,7 +154,7 @@ en:
             one: Response
             other: Responses
       question_configuration:
-        disable_external_voting: Please disable external voting for advanced configurations
+        disable_external_voting: Please disable external voting for advanced configurations.
         form:
           help: Set up multiple choices questions by increasing the maximum number of responses a participant can choose. Default maximum value is 1, meaning that only one response can be voted.
           title: Advanced configuration
@@ -301,7 +301,7 @@ en:
             votes: Votes
       question_votes:
         create:
-          error: There was a problem voting the question
+          error: There was a problem voting the question.
           success: You can change it until the end of the consultation. Only the last vote will be accepted.
           title_error: Vote error!
           title_success: Vote successfully registered

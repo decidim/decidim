@@ -3,7 +3,7 @@
 module Decidim
   module ActionAuthorizationHelper
     # Public: Emulates a `link_to` but conditionally renders a popup modal
-    # blocking the action in case the user isn't allowed to perform it.
+    # blocking the action in case the user is not allowed to perform it.
     #
     # action     - The name of the action to authorize against.
     # *arguments - A regular set of arguments that would be provided to
@@ -15,7 +15,7 @@ module Decidim
     end
 
     # Public: Emulates a `button_to` but conditionally renders a popup modal
-    # blocking the action in case the user isn't allowed to perform it.
+    # blocking the action in case the user is not allowed to perform it.
     #
     # action     - The name of the action to authorize against.
     # *arguments - A regular set of arguments that would be provided to
@@ -27,7 +27,7 @@ module Decidim
     end
 
     # Public: Emulates a `link_to` but conditionally renders a popup modal
-    # blocking the action in case the user isn't logged id.
+    # blocking the action in case the user is not logged id.
     #
     # *arguments - A regular set of arguments that would be provided to
     #              `link_to`.
@@ -38,7 +38,7 @@ module Decidim
     end
 
     # Public: Emulates a `button_to` but conditionally renders a popup modal
-    # blocking the action in case the user isn't logged id.
+    # blocking the action in case the user is not logged id.
     #
     # *arguments - A regular set of arguments that would be provided to
     #              `button_to`.

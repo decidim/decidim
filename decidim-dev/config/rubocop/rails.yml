@@ -5,6 +5,7 @@ Rails:
 
 Rails/ActionFilter:
   Include:
+    - app/controllers/**/*.rb
     - decidim-*/app/controllers/**/*.rb
 
 Rails/ContentTag:
@@ -15,14 +16,19 @@ Rails/CreateTableWithTimestamps:
 
 Rails/EnumUniqueness:
   Include:
+    - app/models/**/*.rb
     - decidim-*/app/models/**/*.rb
 
 Rails/Exit:
   Include:
+    - app/**/*.rb
+    - config/**/*.rb
+    - lib/**/*.rb
     - decidim-*/app/**/*.rb
     - decidim-*/config/**/*.rb
     - decidim-*/lib/**/*.rb
   Exclude:
+    - lib/**/*.rake
     - decidim-*/lib/**/*.rake
 
 Rails/FindBy:
@@ -31,14 +37,17 @@ Rails/FindBy:
 
 Rails/FindEach:
   Include:
+    - app/models/**/*.rb
     - decidim-*/app/models/**/*.rb
 
 Rails/HasAndBelongsToMany:
   Include:
+    - app/models/**/*.rb
     - decidim-*/app/models/**/*.rb
 
 Rails/HasManyOrHasOneDependent:
   Include:
+    - app/models/**/*.rb
     - decidim-*/app/models/**/*.rb
 
 Rails/InverseOf:
@@ -46,6 +55,7 @@ Rails/InverseOf:
 
 Rails/LexicallyScopedActionFilter:
   Include:
+    - app/controllers/**/*.rb
     - decidim-*/app/controllers/**/*.rb
 
 Rails/NotNullColumn:
@@ -53,17 +63,16 @@ Rails/NotNullColumn:
 
 Rails/Output:
   Include:
+    - app/**/*.rb
+    - config/**/*.rb
+    - db/**/*.rb
+    - lib/**/*.rb
     - decidim-*/app/**/*.rb
     - decidim-*/config/**/*.rb
     - decidim-*/db/**/*.rb
     - decidim-*/lib/**/*.rb
   Exclude:
-    - decidim-core/db/seeds.rb
-    - decidim-core/lib/decidim/core.rb
-    - decidim-core/lib/decidim/component_manifest.rb
-    - decidim-core/lib/decidim/participatory_space_manifest.rb
-    - decidim-system/db/seeds.rb
-    - decidim-templates/db/seeds.rb
+    - "**/db/seeds.rb"
 
 Rails/OutputSafety:
   Enabled: false
@@ -76,6 +85,7 @@ Rails/RakeEnvironment:
 
 Rails/ReadWriteAttribute:
   Include:
+    - app/models/**/*.rb
     - decidim-*/app/models/**/*.rb
 
 Rails/ReversibleMigration:
@@ -83,6 +93,7 @@ Rails/ReversibleMigration:
 
 Rails/ScopeArgs:
   Include:
+    - app/models/**/*.rb
     - decidim-*/app/models/**/*.rb
 
 Rails/SkipsModelValidations:
@@ -90,4 +101,5 @@ Rails/SkipsModelValidations:
 
 Rails/Validation:
   Include:
+    - app/models/**/*.rb
     - decidim-*/app/models/**/*.rb

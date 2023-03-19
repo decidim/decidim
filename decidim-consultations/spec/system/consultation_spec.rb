@@ -44,7 +44,7 @@ describe "Consultation", type: :system do
         let!(:user) { create(:user, :confirmed, organization:) }
 
         before do
-          sign_in user, scope: :user
+          login_as user, scope: :user
         end
 
         it "redirects to root path" do

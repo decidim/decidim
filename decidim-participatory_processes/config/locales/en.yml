@@ -184,11 +184,11 @@ en:
           title: Page contents
       participatory_process_group_landing_page_content_blocks:
         create:
-          error: There was a problem trying to create this content block
-          success: Content block successfully created
+          error: There was a problem trying to create this content block.
+          success: Content block successfully created.
         destroy:
-          error: There was a problem trying to delete this content block
-          success: Content block successfully deleted
+          error: There was a problem trying to delete this content block.
+          success: Content block successfully deleted.
         edit:
           update: Update
       participatory_process_groups:
@@ -230,8 +230,8 @@ en:
         default_title: Introduction
         destroy:
           error:
-            active_step: Can't delete the active phase.
-            last_step: Can't delete the last phase of a process.
+            active_step: Cannot delete the active phase.
+            last_step: Cannot delete the last phase of a process.
           success: Participatory process phase successfully deleted.
         edit:
           title: Edit participatory process phase
@@ -364,7 +364,7 @@ en:
     log:
       value_types:
         participatory_process_type_presenter:
-          not_found: 'The process type was not found on the database (ID: %{id})'
+          not_found: 'The process type was not found on the database (ID: %{id}).'
     menu:
       processes: Processes
     metrics:
@@ -482,8 +482,8 @@ en:
               one: 1 upcoming process
               other: "%{count} upcoming processes"
           explanations:
-            no_active: No active processes
-            no_active_nor_upcoming: No active nor upcoming processes
+            no_active: No active processes.
+            no_active_nor_upcoming: No active nor upcoming processes.
             no_active_nor_upcoming_callout: There are no active nor upcoming processes. Here is a list of the past ones.
           filter_by: Show
           names:

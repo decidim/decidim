@@ -15,19 +15,19 @@ Decidim.register_component(:pages) do |component|
 
   component.on(:create) do |instance|
     Decidim::Pages::CreatePage.call(instance) do
-      on(:invalid) { raise "Can't create page" }
+      on(:invalid) { raise "Cannot create page" }
     end
   end
 
   component.on(:destroy) do |instance|
     Decidim::Pages::DestroyPage.call(instance) do
-      on(:error) { raise "Can't destroy page" }
+      on(:error) { raise "Cannot destroy page" }
     end
   end
 
   component.on(:copy) do |context|
     Decidim::Pages::CopyPage.call(context) do
-      on(:invalid) { raise "Can't duplicate page" }
+      on(:invalid) { raise "Cannot duplicate page" }
     end
   end
 

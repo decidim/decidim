@@ -73,7 +73,7 @@ describe "Explore debates", type: :system do
       end
     end
 
-    context "when there's an announcement set" do
+    context "when there is an announcement set" do
       let(:announcement) do
         { en: "Important announcement" }
       end

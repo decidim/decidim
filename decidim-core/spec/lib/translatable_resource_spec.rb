@@ -79,13 +79,13 @@ module Decidim
           allow(Decidim).to receive(:machine_translation_service_klass).and_return(nil)
         end
 
-        it "doesn't enqueue a job when resource is updated" do
+        it "does not enqueue a job when resource is updated" do
           updated_title = Decidim::Faker::Localized.name
           dummy_resource.update(title: updated_title)
           expect(Decidim::MachineTranslationResourceJob).not_to have_been_enqueued.on_queue("translations")
         end
 
-        it "doesn't enqueue a job when resource is created" do
+        it "does not enqueue a job when resource is created" do
           dummy_resource.save
           expect(Decidim::MachineTranslationResourceJob).not_to have_been_enqueued.on_queue("translations")
         end

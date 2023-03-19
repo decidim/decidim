@@ -21,7 +21,7 @@ module Decidim
 
     describe "POST create" do
       context "when no user is signed in" do
-        it "doesn't create an editor image" do
+        it "does not create an editor image" do
           expect do
             post :create, params: valid_params
           end.not_to(change(Decidim::EditorImage, :count))
@@ -35,7 +35,7 @@ module Decidim
           sign_in user
         end
 
-        it "doesn't create an editor image" do
+        it "does not create an editor image" do
           expect do
             post :create, params: valid_params
           end.not_to(change(Decidim::EditorImage, :count))
@@ -58,7 +58,7 @@ module Decidim
         end
 
         context "when file is not valid" do
-          it "doesn't create an editor image and returns an error message" do
+          it "does not create an editor image and returns an error message" do
             expect do
               post :create, params: invalid_params
             end.not_to(change(Decidim::EditorImage, :count))

@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe Decidim::Comments::UserMentionedEvent do
-  include_context "when it's a comment event"
+  include_context "when it is a comment event"
 
   let(:organization) { create(:organization) }
 
