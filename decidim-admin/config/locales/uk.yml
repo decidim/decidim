@@ -218,7 +218,6 @@ uk:
           view_more_logs: Переглянути інші журнали
       exports:
         export_as: "%{name} як %{export_format}"
-        notice: Зараз відбувається збереження у вигляді файлу. Ви отримаєте електронного листа після його завершення.
       filters:
         category_id_eq:
           label: Категорія
