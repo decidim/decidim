@@ -64,7 +64,6 @@ id:
         success: Akun Anda berhasil dihapus.
       download_your_data_export:
         file_no_exists: File tidak ada
-        notice: Data Anda sedang dalam proses. Anda akan menerima email setelah selesai.
       show:
         change_password: Ganti kata sandi
         update_account: Perbaharui akun
@@ -655,7 +654,6 @@ id:
         verified: Diverifikasi
     pad_iframe:
       disclaimer: Isi pad ini ditulis oleh pengguna terdaftar dan menyatakan pendapat mereka. %{organization} tidak dapat bertanggung jawab atas isinya.
-      explanation: Gunakan pad ini untuk bersama-sama membuat catatan selama pertemuan sehingga lebih mudah untuk menulis menit kemudian.
       pad: Bantalan
     pages:
       home:
