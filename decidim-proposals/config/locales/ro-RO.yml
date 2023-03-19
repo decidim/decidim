@@ -643,7 +643,6 @@ ro:
             one: și încă %{count} persoană
             few: și încă %{count} persoane
             other: și încă %{count} persoane
-          info-message: Acesta este o <strong>ciornă colaborativă</strong> pentru o propunere. Aceasta înseamnă că îi poți ajuta pe autorii săi să modeleze propunerea folosind secțiunea de comentarii de mai jos sau să o îmbunătățească direct prin solicitarea accesului pentru editare. Odată ce autorii îți acordă accesul, vei putea face modificări în această ciornă.
           publish: Publică
           publish_info: Publică această versiune a ciornei sau
           published_proposal: propunere publicată
