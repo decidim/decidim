@@ -8,7 +8,7 @@ module Decidim
   # This class handles all the logic associated to configuring a participatory
   # space, the highest level object of Decidim.
   #
-  # It's normally not used directly but through the API exposed through
+  # It is normally not used directly but through the API exposed through
   # `Decidim.register_participatory_space`.
   class ParticipatorySpaceManifest
     include ActiveModel::Model

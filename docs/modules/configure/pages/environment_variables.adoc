@@ -39,12 +39,12 @@ The next tables show all the default Env Vars available when running a default D
 |No
 
 |*RAILS_ENV*
-|Environment for Ruby on Rails. If it's on your local machine for development, then it should be `development`. If it's on server it should be `production`. Please take care that this has security implications. You DO NOT want to be running a production application on development mode.
+|Environment for Ruby on Rails. If it is on your local machine for development, then it should be `development`. If it is on server it should be `production`. Please take care that this has security implications. You DO NOT want to be running a production application on development mode.
 |development
 |No
 
 |*SECRET_KEY_BASE*
-|Secret key base for the Application. It's specially important that this is kept secret from the outside word; do NOT publish it on GitHub/GitLab/BitBucket.
+|Secret key base for the Application. It is specially important that this is kept secret from the outside word; do NOT publish it on GitHub/GitLab/BitBucket.
 |
 |No
 
@@ -684,7 +684,7 @@ Additional context: This has been revealed as an issue during a security audit o
 |No
 
 |*DECIDIM_SERVICE_WORKER_ENABLED*
-|Enable/Disable the service worker. This is used to enable offline support and to deliver push notifications. In development it's recommended to be disabled because its aggresive cache configuration might cause some issues when submitting forms.
+|Enable/Disable the service worker. This is used to enable offline support and to deliver push notifications. In development it is recommended to be disabled because its aggresive cache configuration might cause some issues when submitting forms.
 |false
 |No
 
@@ -841,12 +841,12 @@ After this time the initiative will be moved to discarded state.
 |Name |Value |Default value|Multitenant's System configurable
 
 |RAILS_LOG_TO_STDOUT
-|If defined (value is indifferent) it will show the log content on the shell Standard Out. It's special relevant on certain hosting providers (for example, Heroku or Docker). It's also part of https://12factor.net/logs[12factor's recommendations].
+|If defined (value is indifferent) it will show the log content on the shell Standard Out. It is special relevant on certain hosting providers (for example, Heroku or Docker). It is also part of https://12factor.net/logs[12factor's recommendations].
 |
 |No
 
 |RAILS_SERVE_STATIC_FILES
-|If defined (value is indifferent) it will serve static files present in the `public` folder of Rails. It's special relevant on certain hosting providers (for example, Heroku or Docker).
+|If defined (value is indifferent) it will serve static files present in the `public` folder of Rails. It is special relevant on certain hosting providers (for example, Heroku or Docker).
 |
 |No
 

@@ -9,7 +9,7 @@ That is all you need to do to get it working, really. We have a default way to p
 
 == The default renderer
 
-The default renderer does not know many things. It knows the author, what action was done, the resource affected and the space where the resource resides. When the resource is updated it shows the diff of all the fields that have been changed, with the old and new values for each field. values are not formatted in any specific way, so you might see some weirdly formatted values on the log diff: that is how it's rendered from the database.
+The default renderer does not know many things. It knows the author, what action was done, the resource affected and the space where the resource resides. When the resource is updated it shows the diff of all the fields that have been changed, with the old and new values for each field. values are not formatted in any specific way, so you might see some weirdly formatted values on the log diff: that is how it is rendered from the database.
 
 == Customizing the logs for your resources
 
@@ -140,4 +140,4 @@ end
 
 == Multiple logs
 
-Although Decidim currently only has a log for the admin section, in the future we might need an activity log for the public part. It's easy to assume we might need to render the same data in different formats, so we need to differentiate the presenters for each log. The current system handles the case for multiple logs, although we only have one.
+Although Decidim currently only has a log for the admin section, in the future we might need an activity log for the public part. It is easy to assume we might need to render the same data in different formats, so we need to differentiate the presenters for each log. The current system handles the case for multiple logs, although we only have one.

@@ -173,7 +173,7 @@ Layout/ParameterAlignment:
 Style/ArrayCoercion:
   Description: >-
     Use Array() instead of explicit Array check or [*var], when dealing
-    with a variable you want to treat as an Array, but you're not certain it's an array.
+    with a variable you want to treat as an Array, but you are not certain it is an array.
   StyleGuide: '#array-coercion'
   Safe: false
   Enabled: false
@@ -481,7 +481,7 @@ Layout/FirstArgumentIndentation:
     # preceding line.
     - consistent
     # The first parameter should normally be indented one step more than the
-    # preceding line, but if it's a parameter for a method call that is itself
+    # preceding line, but if it is a parameter for a method call that is itself
     # a parameter in a method call, then the inner parameter should be indented
     # relative to the inner method.
     - special_for_inner_method_call

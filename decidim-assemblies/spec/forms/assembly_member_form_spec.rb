@@ -70,7 +70,7 @@ module Decidim
           context "when is other" do
             let(:position) { "other" }
 
-            context "and it's not specified" do
+            context "and it is not specified" do
               subject(:form) { described_class.from_params(attributes.merge(position_other: "")).with_context(context) }
 
               it { is_expected.to be_invalid }

@@ -242,7 +242,7 @@ module Decidim
     #
     # name       - The name of the field (usually area_id)
     # collection - A collection of areas or area_types.
-    #              If it's areas, we sort the selectable options alphabetically.
+    #              If it is areas, we sort the selectable options alphabetically.
     #
     # Returns a String.
     def areas_select(name, collection, options = {}, html_options = {})
