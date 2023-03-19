@@ -1,6 +1,6 @@
 = Decidim Developer Documentation
 
-== What's this?
+== What is this?
 
 This is the internal Decidim documentation.
 If you want to see it in a nice UI you can do it at the https://docs.decidim.org[Decidim Documentation Site].

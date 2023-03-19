@@ -1203,7 +1203,7 @@ en:
       show:
         administrators: Administrators
         allow_public_contact: Allow anyone to send me a direct message, even if I do not follow them.
-        allow_push_notifications: Get push notifications to find out what's going on when you are not on the platform. You can turn them off anytime.
+        allow_push_notifications: Get push notifications to find out what is going on when you are not on the platform. You can turn them off anytime.
         direct_messages: Receive direct messages from anyone
         email_on_moderations: I want to receive an email every time something or someone is reported for moderation.
         everything_followed: Everything I follow
