@@ -35,6 +35,7 @@ ja:
       decidim/component_published_event: アクティブなコンポーネント
       decidim/demoted_membership: グループ管理者ではありません
       decidim/gamification/badge_earned_event: バッジを獲得
+      decidim/gamification/level_up_event: レベルアップしました
       decidim/invited_to_group_event: グループに招待しました
       decidim/join_request_accepted_event: 参加リクエストが承認されました
       decidim/join_request_rejected_event: 参加リクエストが拒否されました
@@ -72,6 +73,7 @@ ja:
     'true': 'はい'
   carrierwave:
     errors:
+      file_cannot_be_processed: ファイルを処理できません
       file_resolution_too_large: ファイルの解像度の値が大きすぎます
       file_size_too_large: ファイルサイズが大きすぎます
       not_inside_organization: ファイルはどの組織にも添付されていません
@@ -110,6 +112,7 @@ ja:
     account:
       blocked: このアカウントは利用規約違反によりブロックされています
       delete:
+        alert: この操作は取り消すことができません。アカウントを削除すると、あなたのアカウント情報でログインできなくなります。 アカウントを削除すると、あなたの貢献内容は匿名化されます。 新しいアカウントを作成することはできますが、これらの貢献内容は新しいアカウントと関連付けられません。
         confirm:
           close: ウィンドウを閉じる
           ok: はい、アカウントを削除します
@@ -124,14 +127,17 @@ ja:
         file_no_exists: ファイルが存在しません
         notice: データのダウンロードは現在進行中です。完了するとメールが届きます。
       email_change:
+        body1: 新しいメールアドレスを確認するために、%{unconfirmed_email} 宛にメールを送信しました。
         body2: 確認メールをもう一度送信する必要がありますか？ %{resend_link} または %{cancel_link}
         cancel: キャンセル
         cancel_error: メールの変更をキャンセルできませんでした。
         cancel_successfully: メールの変更が正常にキャンセルされました。
         resend_error: 確認メールを再送信できませんでした。
+        resend_successfully: 確認メールが %{unconfirmed_email} に再送信されました。
         send_again: 再送信
         title: メールアドレスの変更確認
       show:
+        available_locales_helper: プラットフォームで閲覧および通知を受け取るために使用する言語を選択してください。
         change_password: パスワードの変更
         update_account: アカウントを更新
       update:
@@ -144,6 +150,7 @@ ja:
       actions:
         cancel: キャンセル
       password_change:
+        alert: 先に進むにはパスワードを変更する必要があります。
         notification: 管理者ユーザーは、 %{days} 日ごとにパスワードを変更する必要があります。
     admin_log:
       area:
