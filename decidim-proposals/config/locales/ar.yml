@@ -228,7 +228,6 @@ ar:
             endorsements_enabled: تم التصديق
             proposal_answering_enabled: تم تمكين الرد على الاقتراح
             publish_answers_immediately: نشر إجابات الاقتراح على الفور
-            publish_answers_immediately_help_html: 'نشد الانتباه إلى أنه إذا قمت بالرد على أي اقتراح دون تمكين هذا، فستحتاج إلى نشره يدوياً عن طريق اختياره واستخدام الإجراء للنشر. للحصول على مزيد من المعلومات حول كيفية عمل هذا، راجع <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">صفحة توثيق إجابات الاقتراحات</a>.'
             suggested_hashtags: اقترح علامات التصنيف للمشاركين لتقديم مقترحات جديدة
             votes_blocked: يدعم المحظورة
             votes_enabled: يدعم تمكين
@@ -709,7 +708,6 @@ ar:
             few: و %{count} المزيد من الناس
             many: و %{count} المزيد من الناس
             other: و %{count} المزيد من الناس
-          info-message: هذا هو <strong>مشروع تعاوني</strong> لاقتراح. هذا يعني أنه يمكنك مساعدة مؤلفيها في صياغة الاقتراح باستخدام قسم التعليقات أدناه أو تحسينه مباشرةً من خلال طلب الوصول لتحريره. بمجرد أن يمنحك المؤلفون حق الوصول ، ستتمكن من إجراء تغييرات على هذه المسودة.
           publish: نشر
           publish_info: نشر هذا الإصدار من المسودة أو
           published_proposal: الاقتراح المنشور
