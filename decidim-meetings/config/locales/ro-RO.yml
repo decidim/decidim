@@ -562,7 +562,6 @@ ro:
       registrations:
         create:
           invalid: A apărut o problemă la intrarea în ședință.
-          success: Te-ai alăturat cu succes întâlnirii. Deoarece te-ai înregistrat pentru această întâlnire, vei fi anunțat dacă apar noutăți.
         decline_invitation:
           invalid: A existat o problemă la refuzarea invitaţiei.
           success: Ai refuzat invitația cu succes.
