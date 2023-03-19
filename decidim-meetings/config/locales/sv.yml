@@ -556,7 +556,6 @@ sv:
       registrations:
         create:
           invalid: Det gick inte att ansluta till mötet.
-          success: Du har gått med i mötet. Eftersom du har registrerat dig kommer du att få aviseringar om uppdateringar av mötet.
         decline_invitation:
           invalid: Det gick inte att avböja inbjudan.
           success: Du har avböjt inbjudan.
