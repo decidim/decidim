@@ -1022,7 +1022,6 @@ lv:
       show:
         version_index: Versija %{index}
     welcome_notification:
-      default_body: <p> Sveiki, {{name}}, paldies par pievienošanos {{organization}} un laipni lūdzam! </p> <ul> <li>Ja vēlaties ātri iegūt priekšstatu par to, ko šeit varat paveikt, aplūkojiet sadaļu <a href="{{help_url}}"> Palīdzība </a>. </li> <li> Kad to izlasīsiet, jūs saņemsiet savu pirmo žetonu. Šeit ir <a href="{{badges_url}}"> saraksts ar visiem žetoniem </a>, kurus varat iegūt, piedaloties {{organization}}</li> <li> Ne mazāk svarīgi ir pievienoties citiem cilvēkiem, dalīties ar viņiem pieredzē par iesaistīšanos un līdzdalību {{organization}}. Iesniedziet priekšlikumus, komentārus, debatējiet, domājiet par to, kā dot savu ieguldījumu kopējā labuma sasniegšanai, sniedziet argumentus, lai pārliecinātu, uzklausiet un lasiet, lai tiktu pārliecināts, izsakiet savas idejas konkrētā un tiešā veidā, atbildiet ar pacietību un pārliecību, aizstāviet savas idejas un turiet atvērtu prātu sadarbībai, un pievienojieties citu cilvēku idejām.</li> </ul>
       default_subject: Paldies par pievienošanos {{organization}}!
     wizard_step_form:
       wizard_aside:
