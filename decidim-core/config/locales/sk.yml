@@ -89,7 +89,6 @@ sk:
         success: Účet bol úspešne zmazaný.
       download_your_data_export:
         file_no_exists: Súbor neexistuje
-        notice: Sťahovanie Vašich dát momentálne prebieha. Po dokončení dostanete e-mail.
       show:
         change_password: Zmeniť heslo
         update_account: Aktualizovať účet
@@ -786,7 +785,6 @@ sk:
         verified: Overené
     pad_iframe:
       disclaimer: Obsah tejto podložky sú napísané registrovanými užívateľmi a vyjadrujú ich názory. %{Organization} nemôže byť zodpovedný za jeho obsah.
-      explanation: Použite túto podložku k spolupráci pri písaní poznámok počas schôdzky, takže je ľahšie zapísať minúty po tom.
       pad: Podložka
     pages:
       home:
