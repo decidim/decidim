@@ -52,6 +52,7 @@ ja:
           description_own: テストを %{score} 作成しました。
           name: テスト
           next_level_in: '%{score} 個のテストを作成して、次のレベルに到達しましょう！'
+          unearned_another: この参加者はまだテストを作成していません。
           unearned_own: テストはまだ作成されていません。
     resource_links:
       test_link:
