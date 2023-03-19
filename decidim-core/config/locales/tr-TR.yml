@@ -88,7 +88,6 @@ tr:
         success: Hesabınız başarıyla silindi.
       download_your_data_export:
         file_no_exists: Dosya bulunmuyor
-        notice: Verilerinizin indirilmesi şu anda devam ediyor. Tamamlandığında bir e-posta alacaksınız.
       show:
         change_password: Şifre değiştir
         update_account: Hesabı güncelle
@@ -895,7 +894,6 @@ tr:
         verified: Doğrulanmış
     pad_iframe:
       disclaimer: B içerikler kayıtlı kullanıcılar tarafından yazılır ve görüşlerini ifade eder. %{organization}, içeriğinden sorumlu tutulamaz.
-      explanation: Toplantı sırasında notları ortaklaşa almak için bu alanı kullanın, böylece daha sonra yazmak kolay olur.
       pad: Tablet
     pages:
       home:
