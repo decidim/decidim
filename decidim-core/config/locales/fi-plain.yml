@@ -136,7 +136,6 @@ fi-pl:
         success: Tilisi poistaminen onnistui.
       download_your_data_export:
         file_no_exists: Tiedostoa ei ole olemassa
-        notice: Tietojen vienti on käynnissä. Saat sähköpostiviestin, kun se valmistuu.
       email_change:
         body2: Haluatko tilata vahvistussähköpostin uudestaan? %{resend_link} tai %{cancel_link}.
         cancel: peruuta
@@ -791,7 +790,6 @@ fi-pl:
         result: Tulokset
     fingerprint:
       check: Tarkista sormenjälki
-      explanation: Alla oleva teksti on tämän sisällön lyhennetty ja hajautettu esitystapa. Tämä on hyödyllinen varmentaaksesi, että sisältöä ei ole muokattu kenenkään toimesta, koska yksittäinen muutos johtaisi täysin erilaiseen arvoon.
       online_calculator_name: MD5-verkkolaskuri
       replicate_help: Tämä sormenjälki lasketaan käyttäen SHA256-hajautusalgoritmia. Jos haluat tuottaa sormenjäljen itse, voit käyttää %{online_calculator_link} -palvelua ja liittää lähdetiedot kyseiseen palveluun.
       source: Lähde
@@ -1113,7 +1111,6 @@ fi-pl:
     newsletter_mailer:
       newsletter:
         no_reply_notice: Tämä sähköposti on lähetetty sähköpostiosoitteesta, joka ei voi ottaa vastaan sähköpostia. Älä vastaa tähän viestiin.
-        see_on_website: Etkö näe tätä sähköpostia oikein? Avaa sähköposti <a href="%{link}" target="_blank" class="see-on-website">selaimessasi</a>.
         unsubscribe: Voit lopettaa tämäntyyppisten sähköpostien vastaanottamisen <a href="%{link}" target="_blank" class="unsubscribe">poistumalla sähköpostilistalta</a>.
     newsletter_templates:
       basic_only_text:
@@ -1213,7 +1210,6 @@ fi-pl:
         verified: Varmennettu
     pad_iframe:
       disclaimer: Tämän muistion sisällön ovat kirjoittaneet alustan rekisteröityneet käyttäjät, jotka ilmaisevat omia mielipiteitään. %{organization} ei ole vastuussa sisällöstä.
-      explanation: Käytä tätä muistiota yhdessä muiden kanssa tehdäksesi muistiinpanoja kokouksen aikana, jotta pöytäkirja olisi helpompi kirjoittaa myöhemmin.
       pad: Muistio
     pages:
       home:
