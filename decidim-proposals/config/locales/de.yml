@@ -627,7 +627,6 @@ de:
           hidden_authors_count:
             one: und %{count} weitere Person
             other: und %{count} weitere Personen
-          info-message: Dies ist ein <strong>kollaborativen Entwurf</strong> für einen Vorschlag. Dies bedeutet, dass Sie ihren Autoren helfen können, den Vorschlag zu gestalten, indem Sie den unten stehenden Kommentarabschnitt verwenden, oder ihn direkt verbessern, indem Sie den Zugriff anfordern, um ihn zu bearbeiten. Sobald die Autoren Ihnen Zugriff gewähren, können Sie Änderungen an diesem Entwurf vornehmen.
           publish: Veröffentlichen
           publish_info: Veröffentlichen Sie diese Version des Entwurfs oder
           published_proposal: Veröffentlichter Vorschlag
