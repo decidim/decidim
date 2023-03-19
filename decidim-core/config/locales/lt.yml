@@ -1429,7 +1429,6 @@ lt:
       show:
         version_index: Versija %{index}
     welcome_notification:
-      default_body: <p>Sveiki {{name}}, dėkojame, kad prisijungėte prie {{organization}}. Sveikiname!</p><ul><li>Jeigu norite greitai sužinoti, ką čia galite nuveikti, peržiūrėkite <a href="{{help_url}}">Pagalbos</a> skyrelį.</li><li>Jį perskaitę, gausite savo pirmąjį ženklelį. Čia <a href="{{badges_url}}">pateikiamas sąrašas visų ženklelių,</a> kuriuos galite gauti dalyvaudami {{organization}}</li><li>Galiausiai, prisijunkite prie kitų žmonių, dalykitės su jais veiklos ir dalyvavimo {{organization}} patirtimi. Teikite pasiūlymus, komentuokite, diskutuokite, galvokite, kaip prisidėti prie bendros gerovės, teikite argumentus, kad įtikintumėte, klausykitės ir skaitykite, kad įsitikintumėte, reikškite savo idėjas konkrečiai ir tiesiogiai, atsakykite kantriai ir siūlykite sprendimą, ginkite savo idėjas ir likite atviri bendradarbiauti ir paremti kitų žmonių idėjas.</li></ul>
       default_subject: Dėkojame, kad prisijungėte prie {{organization}}!
     wizard_step_form:
       wizard_aside:
