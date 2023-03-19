@@ -552,7 +552,6 @@ sk:
             few: a%{count} ďalších ľudí
             many: a%{count} ďalších ľudí
             other: a%{count} ďalších ľudí
-          info-message: Jedná sa o <strong> kolaboratívne návrh </strong> k návrhu. To znamená, že môžete pomôcť ich autorom formovať návrh pomocou nižšie uvedené poznámky alebo je vylepšiť priamo tým, že požiadate o prístup k jeho úpravám. Akonáhle vám autori udelí prístup, budete môcť tento návrh uskutočniť.
           publish: Publikovať
           publish_info: Publikujte túto verziu konceptu alebo
           published_proposal: zverejnený návrh
