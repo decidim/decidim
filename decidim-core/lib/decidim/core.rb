@@ -253,10 +253,10 @@ module Decidim
       ref = ""
 
       if resource.is_a?(Decidim::HasComponent) && component.present?
-        # It's a component resource
+        # It is a component resource
         ref = component.participatory_space.organization.reference_prefix
       elsif resource.is_a?(Decidim::Participable)
-        # It's a participatory space
+        # It is a participatory space
         ref = resource.organization.reference_prefix
       end
 

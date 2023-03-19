@@ -139,7 +139,7 @@ en:
         success: Your account was successfully deleted.
       download_your_data_export:
         file_no_exists: File does not exist
-        notice: The download of your data is currently in progress. You'll receive an email when it's complete.
+        notice: The download of your data is currently in progress. You'll receive an email when it is complete.
       email_change:
         body1: We have sent an email to %{unconfirmed_email} to verify your new email address.
         body2: Need us to send the verification email again? %{resend_link} or %{cancel_link}.
@@ -810,7 +810,7 @@ en:
         result: Results
     fingerprint:
       check: Check fingerprint
-      explanation: The piece of text below is a shortened, hashed representation of this content. It's useful to ensure the content has not been tampered with, as a single modification would result in a totally different value.
+      explanation: The piece of text below is a shortened, hashed representation of this content. It is useful to ensure the content has not been tampered with, as a single modification would result in a totally different value.
       online_calculator_name: MD5 calculator online
       replicate_help: This fingerprint is calculated using a SHA256 hashing algorithm. In order to replicate it yourself, you can use an %{online_calculator_link} and copy-paste the source data.
       source: Source
@@ -1238,7 +1238,7 @@ en:
         verified: Verified
     pad_iframe:
       disclaimer: The contents of this pad are written by registered users and express their opinions. %{organization} cannot be held responsible for its contents.
-      explanation: Use this pad to collaboratively take notes during the meeting so it's easier to write down the minute afterwards.
+      explanation: Use this pad to collaboratively take notes during the meeting so it is easier to write down the minute afterwards.
       pad: Pad
     pages:
       home:

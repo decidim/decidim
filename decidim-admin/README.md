@@ -6,7 +6,7 @@ organization, participatory processes and all other entities.
 ## Usage
 
 This will add an admin dashboard to manage an organization an all its entities.
-It's included by default with Decidim.
+It is included by default with Decidim.
 
 ## Installation
 

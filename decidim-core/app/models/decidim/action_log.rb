@@ -225,7 +225,7 @@ module Decidim
     # Since ActionLogs are related to many different resources, loading a collection
     # of them would trigger a lot of N+1 queries. We are using BatchLoader to
     # accumulate and group all the resource by their class and only loading them
-    # when it's necessary.
+    # when it is necessary.
     def self.lazy_relation(id_method, klass_name, cache)
       klass = klass_name.constantize
       BatchLoader.for(id_method).batch(cache:, key: klass.name.underscore) do |relation_ids, loader|

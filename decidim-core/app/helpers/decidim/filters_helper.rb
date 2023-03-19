@@ -24,7 +24,7 @@ module Decidim
           remote: true,
           html: { id: nil }.merge(html_options)
         ) do |form|
-          # Cannot use `concat()` here because it's not available in cells
+          # Cannot use `concat()` here because it is not available in cells
           inner = []
           inner << hidden_field_tag("per_page", params[:per_page], id: nil) if params[:per_page]
           inner << capture { yield form }

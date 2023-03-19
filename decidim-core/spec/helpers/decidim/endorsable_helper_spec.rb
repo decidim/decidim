@@ -64,7 +64,7 @@ module Decidim
         # rubocop:enable RSpec/AnyInstance
       end
 
-      context "when it's a user" do
+      context "when it is a user" do
         context "and they have not endorsed yet" do
           it { is_expected.not_to include("is-selected") }
         end
@@ -76,7 +76,7 @@ module Decidim
         end
       end
 
-      context "when it's a user group" do
+      context "when it is a user group" do
         let(:another_user) { create(:user, :confirmed, organization:) }
         let!(:user_group) { create(:user_group, verified_at: Time.current, organization:) }
         let!(:membership) { create(:user_group_membership, user_group:, user:, role: "admin") }

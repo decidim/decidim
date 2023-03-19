@@ -74,7 +74,7 @@ module Decidim
       end
 
       # Private: Calculates the path for the user. Returns the path of the
-      # user profile. It's a public link.
+      # user profile. It is a public link.
       #
       # Returns an HTML-safe String.
       def user_path

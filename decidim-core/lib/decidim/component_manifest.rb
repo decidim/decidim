@@ -8,7 +8,7 @@ module Decidim
   # This class handles all the logic associated to configuring a component
   # associated to a participatory process.
   #
-  # It's normally not used directly but through the API exposed through
+  # It is normally not used directly but through the API exposed through
   # `Decidim.register_component`.
   class ComponentManifest
     include ActiveModel::Model
