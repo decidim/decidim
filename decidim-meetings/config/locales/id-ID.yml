@@ -324,7 +324,6 @@ id:
       registrations:
         create:
           invalid: Ada masalah saat bergabung dengan rapat ini.
-          success: Anda telah berhasil bergabung dengan rapat.
         decline_invitation:
           invalid: Terjadi masalah saat menolak undangan.
           success: Anda berhasil menolak undangan.
