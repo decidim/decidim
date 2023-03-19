@@ -351,7 +351,6 @@ ro:
           Excel: Excel
           FormPDF: PDF
           JSON: JSON
-        notice: Exportul dvs. este în curs de desfășurare. Veți primi un e-mail atunci când este complet.
       filters:
         category_id_eq:
           label: Categorie
