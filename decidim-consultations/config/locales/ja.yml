@@ -90,6 +90,7 @@ ja:
         create:
           error: 新しい議案を作成する際に問題がありました。
           success: 議案を作成しました。
+        deprecation_warning: コンサルテーションモジュールは近い将来、廃止されます。Votingsという次世代の暗号化された安全なバージョンの開発に取り組んでいます。
         edit:
           update: 更新
         form:
