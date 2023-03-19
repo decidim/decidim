@@ -611,7 +611,6 @@ nl:
           hidden_authors_count:
             one: en nog %{count} persoon
             other: en nog %{count} personen
-          info-message: Dit is een <strong>concept</strong> voor een voorstel. Dit betekent dat u hun auteurs kunt helpen om het voorstel vorm te geven door gebruik te maken van de commentaarsectie hieronder of het direct te verbeteren door toegang aan te vragen om het te bewerken. Zodra de auteurs u toegang verlenen, kunt u wijzigingen aanbrengen in dit concept.
           publish: Publiceren
           publish_info: Publiceer deze versie van het concept of
           published_proposal: gepubliceerd voorstel
