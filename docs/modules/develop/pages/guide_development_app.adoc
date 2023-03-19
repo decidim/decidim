@@ -16,7 +16,7 @@ sudo -u postgres psql -c "CREATE USER decidim_development_app_user WITH SUPERUSE
 ----
 
 [start=2]
-. Save the database configuration in your environment variables configuration. If you've followed the xref:install:manual.adoc[Decidim installation manual],
+. Save the database configuration in your environment variables configuration. If you have followed the xref:install:manual.adoc[Decidim installation manual],
 then you should have a working https://github.com/rbenv/rbenv-vars[rbenv-vars] in your environment:
 
 [source,console]
@@ -93,7 +93,7 @@ And restart your rails server (with Ctrl+C to stop it).
 
 == Re-creating the development_app
 
-If you're working with old branches or there were multiple changes in develop, you'll need to re-create your development_app.
+If you are working with old branches or there were multiple changes in develop, you'll need to re-create your development_app.
 
 [source,console]
 ----

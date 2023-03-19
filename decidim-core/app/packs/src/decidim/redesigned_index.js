@@ -181,7 +181,7 @@ const initializer = (element = document) => {
       dataset: { dialog }
     } = elem;
 
-    // NOTE: due to some SR bugs we've to set the focus on the title
+    // NOTE: due to some SR bugs we have to set the focus on the title
     // See discussion: https://github.com/decidim/decidim/issues/9760
     // See further info: https://adrianroselli.com/2020/10/dialog-focus-in-screen-readers.html
     const setFocusOnTitle = (content) => {
@@ -210,7 +210,7 @@ const initializer = (element = document) => {
     });
 
     // NOTE: when a remote modal is open, the contents are empty
-    // once they're in the DOM, we append the ARIA attributes
+    // once they are in the DOM, we append the ARIA attributes
     // otherwise they could not exist yet
     // (this listener must be applied over 'document', not 'element')
     document.addEventListener("remote-modal:loaded", () => {
