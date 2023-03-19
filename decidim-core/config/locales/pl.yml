@@ -153,7 +153,6 @@ pl:
         success: Twoje konto zostało pomyślnie usunięte.
       download_your_data_export:
         file_no_exists: Plik nie istnieje
-        notice: Twoje dane są obecnie w trakcie procesowania w celu pobrania. Otrzymasz e-mail po zakończeniu.
       email_change:
         body2: Wysłać e-mail weryfikacyjny ponownie? %{resend_link} lub %{cancel_link}.
         cancel: anuluj
@@ -1018,7 +1017,6 @@ pl:
         verified: Zweryfikowano
     pad_iframe:
       disclaimer: Zawartość tego pada napisana jest przez zarejestrowanych użytkowników i wyraża ich opinie. %{organization} nie może być pociągnięta do odpowiedzialności za jego zawartość.
-      explanation: Używaj tej podkładki do wspólnego robienia notatek podczas spotkania, więc łatwiej jest zapisać minutę później.
       pad: Podkładka
     pages:
       home:
