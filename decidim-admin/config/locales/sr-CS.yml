@@ -253,7 +253,6 @@ sr:
           view_more_logs: Pogledaj još zapisa iz evidencije
       exports:
         export_as: "%{name} kao %{export_format}"
-        notice: Vaš prenos podataka je u toku. Dobićete e-mail poruku kada bude završen.
       filters:
         category_id_eq:
           label: Kategorija
