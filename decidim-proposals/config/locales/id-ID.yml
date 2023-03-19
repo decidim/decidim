@@ -455,7 +455,6 @@ id:
           final_proposal_help_text: Rancangan ini selesai. Anda dapat melihat proposal selesai akhir
           hidden_authors_count:
             other: dan %{count} lebih banyak orang
-          info-message: Ini adalah <strong>draf kolaboratif</strong> untuk proposal. Ini berarti Anda dapat membantu penulisnya untuk membentuk proposal menggunakan bagian komentar di bawah ini atau meningkatkannya secara langsung dengan meminta akses untuk mengeditnya. Setelah penulis memberi Anda akses, Anda akan dapat membuat perubahan pada draf ini.
           publish: Menerbitkan
           publish_info: Publikasikan versi draf ini atau
           published_proposal: proposal yang dipublikasikan
