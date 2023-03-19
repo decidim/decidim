@@ -382,7 +382,6 @@ fi:
           Excel: Excel
           FormPDF: PDF
           JSON: JSON
-        notice: Tietojen vienti on käynnissä. Saat sähköpostiviestin, kun se valmistuu.
       filters:
         category_id_eq:
           label: Aihepiiri
