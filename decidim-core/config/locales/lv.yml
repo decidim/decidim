@@ -84,7 +84,6 @@ lv:
         success: Jūsu konts tika veiksmīgi dzēsts.
       download_your_data_export:
         file_no_exists: Fails neeksistē
-        notice: Pašlaik notiek jūsu datu lejupielāde. Kad tā būs pabeigta, jūs saņemsiet e-pastu.
       show:
         change_password: Mainīt paroli
         update_account: Atjaunināt kontu
@@ -799,7 +798,6 @@ lv:
         verified: Pārbaudīts
     pad_iframe:
       disclaimer: Šī kopdokumenta saturu veidojuši reģistrēti lietotāji, un tas pauž viņu viedokli. %{organization} nevar būt atbildīga par tās saturu.
-      explanation: Izmantojiet šo kopdokumentu, lai sanāksmes laikā kopā veiktu piezīmes un būtu vieglāk pierakstīt detaļas.
       pad: Kopdokuments
     pages:
       home:
