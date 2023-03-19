@@ -220,7 +220,6 @@ cs:
             endorsements_enabled: Schvalování povoleno
             proposal_answering_enabled: Odpovídání návrhu je povoleno
             publish_answers_immediately: Okamžitě publikovat odpovědi návrhu
-            publish_answers_immediately_help_html: 'Mějte na paměti, že pokud odpovíte na jakýkoli návrh bez tohoto povolení, budete je muset publikovat ručně jejich výběrem a použitím publikační akce. Více informací o tom, jak to funguje, naleznete na <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">stránce odpovědi návrhů</a>.'
             suggested_hashtags: Hashtagy navržené uživatelům pro nové návrhy
             votes_blocked: Hlasování bylo blokováno
             votes_enabled: Hlasování povoleno
@@ -693,7 +692,6 @@ cs:
             few: a %{count} dalších lidí
             many: a %{count} dalších lidí
             other: a %{count} dalších lidí
-          info-message: Toto je <strong>kolaborativní návrh</strong> k návrhu. To znamená, že můžete pomoci jejich autorům formovat návrh pomocí níže uvedené poznámky nebo je vylepšit přímo tím, že požádáte o přístup k jeho úpravám. Jakmile vám autoři udělí přístup, budete moci tento návrh provést.
           publish: Publikovat
           publish_info: Publikujte tuto verzi konceptu nebo
           published_proposal: zveřejněný návrh
