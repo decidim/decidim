@@ -1500,7 +1500,6 @@ cs:
       show:
         version_index: Verze %{index}
     welcome_notification:
-      default_body: <p>Dobrý den, {{name}}, díky za připojení k {{organization}} a vítejte!</p><ul><li>Chcete-li získat rychlou představu o tom, co zde můžete udělat, podívejte se na sekci <a href="{{help_url}}">Nápověda</a>.</li><li>Až si ji přečtete, dostanete svůj první odznak. Zde je <a href="{{badges_url}}">seznam všech odznaků</a> které můžete získat, když se účastníte {{organization}}</li><li>v neposlední řadě se připojte k ostatním lidem, sdílejte s nimi zkušenost z toho, že jste se zapojili a zúčastnili se {{organization}}. Vypracujte návrhy, připomínky, diskusi, přemýšlejte o tom, jak přispívat ke společnému cíli, poskytněte argumenty, abyste přesvědčili, poslouchali a četli, abyste byli přesvědčeni, vyjadřovali své myšlenky konkrétním a přímým způsobem, reagovali trpělivě a rozhodovali, měli otevřenou mysl ke spolupráci a připojili se k jiným lidem.</li></ul>
       default_subject: Děkujeme, že jste se připojili k {{organization}}!
     wizard_step_form:
       wizard_aside:
