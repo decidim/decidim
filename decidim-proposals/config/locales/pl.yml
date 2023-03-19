@@ -614,7 +614,6 @@ pl:
             few: i %{count} więcej osób
             many: i %{count} więcej osób
             other: i %{count} więcej osób
-          info-message: Jest to <strong>wspólny szkic</strong> dla propozycji. Oznacza to, że możesz pomóc autorom w kształtowaniu propozycji za pomocą sekcji komentarzy lub poprawić ją bezpośrednio, prosząc o dostęp do edycji. Gdy autorzy przyznają Ci dostęp, będziesz mógł wprowadzać zmiany w tym szkicu.
           publish: Publikuj
           publish_info: Opublikuj tę wersję szkicu lub
           published_proposal: opublikowana propozycja
