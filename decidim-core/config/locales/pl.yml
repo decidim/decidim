@@ -1314,7 +1314,6 @@ pl:
       show:
         version_index: Wersja %{index}
     welcome_notification:
-      default_body: <p>Cześć {{name}}, dziękuję za dołączenie do {{organization}} i witamy!</p><ul><li>Jeśli chcesz szybko zorientować się, co możesz tutaj zrobić, zapoznaj się z <a href="{{help_url}}">sekcją pomocy</a>.</li><li>Po jej przeczytaniu otrzymasz swoją pierwszą odznakę. Oto <a href="{{badges_url}}">lista wszystkich odznak</a>, które możesz zdobyć będąc aktywnym w {{organization}}</li><li>Ponadto przyłącz się do pozostałych, dziel z nimi doświadczenie zaangażowania i uczestnictwa w {{organization}}. Twórz propozycje, komentuj, debatuj, pomyśl, jak przyczynić się do wspólnego dobra, dostarcz argumentów, aby przekonać innych, słuchaj i czytaj, aby samemu dać się przekonać, wyrażaj swoje pomysły w konkretny i bezpośredni sposób, odpowiadaj z cierpliwością i zdecydowaniem, broń swoich pomysłów i zachowaj otwarty umysł do współpracy i przyłączaj się do pomysłów innych ludzi.</li></ul>
       default_subject: Dzięki za dołączenie do {{organization}}!
     wizard_step_form:
       wizard_aside:
