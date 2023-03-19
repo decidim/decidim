@@ -126,7 +126,6 @@
       update:
         error: Det oppsto et problem med å oppdatere kontoen din.
         success: Kontoen din ble oppdatert.
-        success_with_email_confirmation: Kontoen ble oppdatert. Vi har send deg en email så du kan bekrefte den nye e-postadressen din.
     admin:
       actions:
         cancel: Avbryt
