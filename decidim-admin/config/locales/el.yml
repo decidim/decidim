@@ -324,7 +324,6 @@ el:
           Excel: Excel
           FormPDF: PDF
           JSON: JSON
-        notice: Η εξαγωγή σας είναι σε εξέλιξη. Θα λάβετε email όταν ολοκληρωθεί.
       filters:
         category_id_eq:
           label: Κατηγορία
