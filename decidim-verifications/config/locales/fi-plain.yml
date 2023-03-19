@@ -95,10 +95,12 @@ fi-pl:
           no_data_stored: Tietoja ei ole tallennettu.
         create:
           error: Vahvistuksen luonnissa tapahtui virhe.
+          success: Tilisi vahvistaminen onnistui.
           transferred: 'Seuraavat tiedot palautettiin tunnistautumisesi perusteella:'
           unconfirmed: Sinun on vahvistettava sähköpostisi valtuuttaksesi käyttäjätilisi.
         destroy:
           error: Vahvistuksen poisto epäonnistui.
+          success: Vahvistuksen poisto onnistui.
         first_login:
           actions:
             another_dummy_authorization_handler: Varmista toisen esimerkkivahvistustavan käsittelijällä
@@ -256,6 +258,7 @@ fi-pl:
             title: Pyydä vahvistuskoodia
           update:
             error: Vahvistuskoodi ei vastaa meidän koodiamme. Tarkista uudestaan kirje, jonka olemme lähettäneet sinulle.
+            success: Onnittelut. Käyttäjätilisi vahvistaminen onnistui.
       sms:
         authorizations:
           create:
@@ -274,6 +277,7 @@ fi-pl:
             title: Pyydä vahvistuskoodia
           update:
             error: Vahvistuskoodi on virheellinen. Tarkista uudestaan tekstiviesti, jonka lähetimme sinulle.
+            success: Onnittelut. Käyttäjätilisi vahvistaminen onnistui.
   errors:
     messages:
       uppercase_only_letters_numbers: sisällössä on sallttu ainoastaan isot kirjaimet ja numerot
