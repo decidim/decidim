@@ -315,7 +315,6 @@ ar:
           Excel: مِلَفّ إكسيل Excel
           FormPDF: ملف (PDF)
           JSON: ملفات بصيغة (JSON)
-        notice: التصدير الخاص بك قيد التقدم حاليًا. ستتلقى بريدًا إلكترونيًا عند اكتماله.
       filters:
         category_id_eq:
           label: الفئة
