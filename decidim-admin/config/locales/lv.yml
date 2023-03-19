@@ -251,7 +251,6 @@ lv:
           view_more_logs: Skatīt vairāk ierakstu
       exports:
         export_as: "%{name} kā %{export_format}"
-        notice: Pašlaik notiek jūsu eksportēšana. Jūs saņemsiet e-pastu, kad tā būs pabeigta.
       filters:
         category_id_eq:
           label: Kategorija
