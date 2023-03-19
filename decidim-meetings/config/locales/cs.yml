@@ -596,7 +596,6 @@ cs:
       registrations:
         create:
           invalid: Na schůzi došlo k problému.
-          success: Do schůzky jste se úspěšně připojili.
         decline_invitation:
           invalid: Došlo k potížím s odmítnutím pozvánky.
           success: Odmítli jste pozvánku úspěšně.
