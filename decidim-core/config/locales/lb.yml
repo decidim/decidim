@@ -1208,7 +1208,6 @@ lb:
       show:
         version_index: Versioun %{index}
     welcome_notification:
-      default_body: <p>Moien {{name}}, Merci fir d'Bäitrieden {{organization}} wëllkomm!</p><ul><li>Fir der séier en Androck ze verschafen wat mir hei maachen, kuck den Abschnitt <a href="{{help_url}}">Hilfe</a>.</li><li>Wann s'de dat gelies hues, kriss de däin 1. Ofzeechen. Hei ass eng Lëscht vun all den Ofzeechen<a href="{{badges_url}}">Liste aller Abzeichen</a> déi s'du beim Matmaachen bei {{organization}}</li><li>kanns kréien. Schléiss dech den aneren Persounen un, an deel mat hinnen deng Erfahrung, wéi et ass bei {{organization}} mat ze maachen. Maach Virschléi, kommentéier, diskutéier, wéi een en Beitrag zum Wuel vun en All kann leeschten. Gëff Argumenter un, déi iwwerzeegen, lauschter no an lies, fir der eng Iwwerzeegung ze ginn, dréck deng Iddien konkret an direkt aus, reagéier mat Gedold an Determinatioun, verdeedeg deng Iddien an bleif oppen, fir Zesummenaarbecht an den Zesummeschloss mat den anren an hiren Iddien vun aneren. </li></ul>
       default_subject: Merci, dass du {{organization}} bäigetrueden bass {{organization}}!
     wizard_step_form:
       wizard_aside:
