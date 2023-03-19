@@ -494,7 +494,6 @@
       registrations:
         create:
           invalid: Det oppstod et problem med å bli med på dette møtet.
-          success: Du har blitt med på møtet. Fordi du har registrert deg for dette møtet, vil du bli varslet om det er oppdateringer til det.
         decline_invitation:
           invalid: Det oppstod et problem med å avslå invitasjonen.
           success: Du har avslått invitasjonen.
