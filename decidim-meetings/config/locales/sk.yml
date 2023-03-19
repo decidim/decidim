@@ -345,7 +345,6 @@ sk:
       registrations:
         create:
           invalid: Na schôdzi došlo k problému.
-          success: Pripojili ste sa úspešne ku stretnutiu. Pretože ste sa naň zaregistrovali, pošleme Vám upozornenie v prípade zmien a nových udalostí.
         decline_invitation:
           invalid: Vyskytol sa problém s odmietnutím pozvánky.
           success: Odmietli ste pozvánku úspešne.
