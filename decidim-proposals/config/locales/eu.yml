@@ -212,7 +212,6 @@ eu:
             endorsements_enabled: Onarpen gaituak
             proposal_answering_enabled: Proposamena erantzutea gaituta dago
             publish_answers_immediately: Argitaratu berehala proposamen erantzunak
-            publish_answers_immediately_help_html: 'Kontuz, proposamenen bati erantzuten badiozu hau gabe, eskuz argitaratu beharko dituzu, aukeratuz eta argitaratzeko ekintza erabiliz. Nola funtzionatzen duen jakiteko, ikus <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank"> proposals'' answers documentation page</a>proposamenen erantzunen dokumentazio-orria.'
             suggested_hashtags: Traolek erabiltzaileei proposamen berriak proposatu dizkie
             votes_blocked: Botoak blokeatuta
             votes_enabled: Botoak gaituta
@@ -674,7 +673,6 @@ eu:
           hidden_authors_count:
             one: eta pertsona %{count} gehiago
             other: eta beste %{count} pertsona
-          info-message: "Proposamen baten <strong>zirriborro kolaboratiboa </strong> da. Horrek esan nahi du egileei proposamena taxutzen lagun dakiekeela, jarraian agertzen den iruzkinen atala erabiliz, edo zuzenean hobetu daitekeela editatzeko sarbidea eskatuz. Egileek sarbidea ematen diotenean, zirriborro honetan aldaketak egin ahal izango ditu.\nor."
           publish: Argitaratu
           publish_info: Argitaratu zirriborroaren bertsio hau edo
           published_proposal: argitaratutako proposamena
