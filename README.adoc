@@ -120,7 +120,7 @@ You can easily add any authentication provider to Decidim that is provided by {u
 
 == 📘 License
 
-If you plan to put your application in production, you'll need to publish it using the same license: GPL Affero 3.
+If you plan to put your application in production, you will need to publish it using the same license: GPL Affero 3.
 
 We recommend doing that on GitHub (or any other code hosting platform) before publishing.
 

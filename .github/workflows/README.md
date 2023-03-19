@@ -20,7 +20,7 @@ Individual workflows with changes:
   working-directory: ${{ env.DECIDIM_MODULE }}
 ```
 
-- `ci_javascript.yml`: Runs tests for the JS files. Tests must run from the project root folder. You'll need to install NodeJS and the JS dependencies:
+- `ci_javascript.yml`: Runs tests for the JS files. Tests must run from the project root folder. You will need to install NodeJS and the JS dependencies:
 
 ```yml
 - uses: actions/setup-node@v3

@@ -6,7 +6,7 @@ app (that you can create with `decidim app_name`) but with a Gemfile pre-configu
 We recommend that you first have a xref:install:manual.adoc[working Decidim app] so that you have fullfilled all the necessary
 system and services requirements, like having a working Ruby installation, PostgreSQL, Node.JS, etc.
 
-You'll need to configure the PostgreSQL database before anything. For this,
+You will need to configure the PostgreSQL database before anything. For this,
 
 . Configure postgresql with a super-user. For instance, for a user called `decidim_development_app_user` with password `changeme`, it'd be:
 
@@ -79,7 +79,7 @@ Anyway we recommend re-creating your development_app every once in a while.
 
 == Updating from develop
 
-We recommend that you periodically update your codebase with the last changes from the main repository. For this, you'll need
+We recommend that you periodically update your codebase with the last changes from the main repository. For this, you will need
 to follow these instructions:
 
 [source,console]
@@ -93,7 +93,7 @@ And restart your rails server (with Ctrl+C to stop it).
 
 == Re-creating the development_app
 
-If you are working with old branches or there were multiple changes in develop, you'll need to re-create your development_app.
+If you are working with old branches or there were multiple changes in develop, you will need to re-create your development_app.
 
 [source,console]
 ----

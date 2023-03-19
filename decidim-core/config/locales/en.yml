@@ -139,7 +139,7 @@ en:
         success: Your account was successfully deleted.
       download_your_data_export:
         file_no_exists: File does not exist
-        notice: The download of your data is currently in progress. You'll receive an email when it is complete.
+        notice: The download of your data is currently in progress. You will receive an email when it is complete.
       email_change:
         body1: We have sent an email to %{unconfirmed_email} to verify your new email address.
         body2: Need us to send the verification email again? %{resend_link} or %{cancel_link}.
@@ -157,7 +157,7 @@ en:
       update:
         error: There was a problem updating your account.
         success: Your account was successfully updated.
-        success_with_email_confirmation: Your account was successfully updated. You'll receive an email to confirm your new email address.
+        success_with_email_confirmation: Your account was successfully updated. You will receive an email to confirm your new email address.
     activity:
       time_ago: "%{time} ago"
     admin:
@@ -1219,7 +1219,7 @@ en:
         notifications_sending_frequency: How often do you want to receive the notifications email?
         own_activity: My own activity, like when someone comments in my proposal or mentions me
         push_notifications: Push notifications
-        push_notifications_reminder: To get notifications from the platform, you'll need to allow them in your browser settings first.
+        push_notifications_reminder: To get notifications from the platform, you will need to allow them in your browser settings first.
         receive_notifications_about: I want to get notifications about
         update_notifications_settings: Save changes
       update:

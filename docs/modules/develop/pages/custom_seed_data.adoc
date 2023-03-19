@@ -4,7 +4,7 @@ The seed data is not only useful for local development, but also for staging env
 
 == Customizing seed data via the `db/seeds.rb` file
 
-One way to customize the seed data is to use the `db/seeds.rb` file in your application. You'll see a call to generate the Decidim seeds:
+One way to customize the seed data is to use the `db/seeds.rb` file in your application. You will see a call to generate the Decidim seeds:
 
 [source,ruby]
 ----

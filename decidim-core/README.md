@@ -4,11 +4,11 @@ Core functionality in Decidim. Every single decidim functionality depends on thi
 
 ## Usage
 
-You'll be using indirectly on any decidim application.
+You will be using indirectly on any decidim application.
 
 ## Installation
 
-Add `decidim` to your `Gemfile` and you'll be using it:
+Add `decidim` to your `Gemfile` and you will be using it:
 
 ```ruby
 gem 'decidim'

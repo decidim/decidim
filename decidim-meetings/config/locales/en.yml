@@ -631,7 +631,7 @@ en:
       registrations:
         create:
           invalid: There was a problem joining this meeting.
-          success: You have joined the meeting successfully. Because you have registered for this meeting, you'll be notified if there are updates on it.
+          success: You have joined the meeting successfully. Because you have registered for this meeting, you will be notified if there are updates on it.
         decline_invitation:
           invalid: There was a problem declining the invitation.
           success: You have declined the invitation successfully.
