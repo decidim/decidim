@@ -576,7 +576,6 @@ tr:
           hidden_authors_count:
             one: ve %{count} kişi daha
             other: ve %{count} kişi daha
-          info-message: Bu, bir teklif için <strong> ortak çalışmaya dayalı bir taslaktır </strong>. Bu, yazarlarının aşağıdaki yorum bölümünü kullanarak teklifi şekillendirmesine veya düzenleme erişimi isteyerek doğrudan iyileştirmesine yardımcı olabileceğiniz anlamına gelir. Yazarlar size erişim izni verdikten sonra, bu taslakta değişiklik yapabileceksiniz.
           publish: Yayınla
           publish_info: Taslağın bu sürümünü yayınlayın veya
           published_proposal: yayınlanan teklif
