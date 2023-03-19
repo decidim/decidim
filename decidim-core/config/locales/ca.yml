@@ -136,7 +136,6 @@ ca:
         success: El teu compte s'ha eliminat correctament.
       download_your_data_export:
         file_no_exists: L'arxiu no existeix
-        notice: La descàrrega de les teves dades està en curs. Rebràs un correu electrònic quan estigui completa.
       email_change:
         body2: Cal que et reenviem el correu de verificació? %{resend_link} o %{cancel_link}.
         cancel: cancel·lar
@@ -758,7 +757,6 @@ ca:
         result: Resultats
     fingerprint:
       check: Verifica l'empremta digital
-      explanation: El text següent és una representació abreviada i criptografiada d'aquest contingut. És útil per garantir que el contingut no hagi estat alterat, ja que una única modificació provocaria un valor totalment diferent.
       online_calculator_name: Calculadora MD5 en línia
       replicate_help: Aquesta empremta digital es calcula mitjançant un algoritme de hash SHA256. Per reproduir-lo tu mateix, pots utilitzar una %{online_calculator_link} i copiar-hi les dades d'origen.
       source: Origen
@@ -1038,7 +1036,6 @@ ca:
     newsletter_mailer:
       newsletter:
         no_reply_notice: Aquest correu electrònic s'ha enviat des d'una adreça de correu de notificació que no accepta entrada de correus. Si us plau, no responguis a aquest missatge. Si us plau, no responguis a aquest missatge.
-        see_on_website: No pots veure correctament aquest correu electrònic? Veu la seva <<a href="%{link}" target="_blank" class="see-on-website">versió web</a>.
         unsubscribe: Per desactivar la recepció d'aquest tipus de correu electrònic, <a href="%{link}" target="_blank" class="unsubscribe">dona't de baixa</a>.
     newsletter_templates:
       basic_only_text:
@@ -1138,7 +1135,6 @@ ca:
         verified: Verificada
     pad_iframe:
       disclaimer: Els continguts d'aquest pad han estat escrits per participants registrades i expressen les seves opinions. %{organization} no es fa responsable dels seu contingut.
-      explanation: Utilitzeu aquest pad per prendre notes durant la trobada de manera col·laborativa, així és més fàcil escriure l'acta després.
       pad: Pad
     pages:
       home:
