@@ -108,7 +108,6 @@ ro:
         success: Contul tău a fost șters cu succes.
       download_your_data_export:
         file_no_exists: Fișierul nu există
-        notice: Descărcarea datelor dvs. este în curs de desfășurare. Veți primi un e-mail atunci când este completă.
       email_change:
         cancel: anulare
         send_again: Trimite din nou
@@ -1021,7 +1020,6 @@ ro:
         verified: Verificat
     pad_iframe:
       disclaimer: Conținutul acestui panou este scris de utilizatori înregistrați și își exprimă opiniile. %{organization} nu poate fi considerat responsabil pentru conținutul său.
-      explanation: Folosiți acest panou pentru a lua note împreună în timpul ședinței, astfel încât să fie mai ușor să notați minutul ulterior.
       pad: Târg
     pages:
       home:
