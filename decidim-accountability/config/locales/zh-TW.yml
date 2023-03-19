@@ -52,27 +52,6 @@ zh-TW:
           new:
             download_export: 匯出成 CSV
             import: 匯入
-            info: |
-              <p>建議依照下面步驟：</p>
-              <ol>
-              <li><a href='%{link_new_status}' target='_blank'>為結果建立狀態</a> 到你想要新增的</li>
-              <li>在管理介面匯入前 <a href='%{link_new_result}' target='_blank'>至少手動建立一個結果</a> ，這樣才能確認要填寫的資料格式。</li>
-              <li>%{link_export_csv}</li>
-              <li>在自己電腦編輯，只能夠異動下面欄位：
-                <ul>
-                <li><b>category/id:</b> 類別代號</li>
-                <li><b>scope/id:</b> 範圍代號</li>
-                <li><b>parent/id:</b> 上一層代號 (相關結果)，選擇性的</li>
-                <li><b>title/en:</b> 英文標題，這要看你的平台語言設定。</li>
-                <li><b>description/en:</b> 英文介紹，這要看你的平台語言設定。</li>
-                <li><b>start_date:</b> 結果開始執行的日期 (格式 YYYY-MM-DD)</li>
-                <li><b>end_date:</b> 結果結束執行的日期 (格式 YYYY-MM-DD)</li>
-                <li><b>status/id:</b> 這個結果的狀態代號</li>
-                <li><b>progress:</b> 這次執行的比率 ( 0 到 100) </li>
-                <li><b>proposals_ids:</b> 相關建議的內部代號 (半形逗點分隔)，會自動轉換為 <span class='attribute-name'>proposal_url</span></li>
-                </ul>
-              </li>
-              </ol>
             title: 從 CSV 匯入結果
         models:
           result:
