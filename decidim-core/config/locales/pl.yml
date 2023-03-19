@@ -167,7 +167,6 @@ pl:
       update:
         error: Podczas aktualizowania konta wystąpił błąd.
         success: Twoje konto zostało zaktualizowane.
-        success_with_email_confirmation: Twoje konto zostało pomyślnie zaktualizowane. W celu potwierdzenia nowego adresu e-mail otrzymasz na niego wiadomość.
     admin:
       actions:
         cancel: Anuluj
