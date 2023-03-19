@@ -90,7 +90,6 @@ lv:
       update:
         error: Jūsu konta atjaunināšanas laikā radās problēma.
         success: Jūsu konts tika veiksmīgi atjaunināts.
-        success_with_email_confirmation: Jūsu konts tika veiksmīgi atjaunināts. Jūs saņemsiet e-pasta vēstuli, lai apstiprinātu jauno e-pasta adresi.
     admin:
       actions:
         cancel: Atcelt
