@@ -132,7 +132,6 @@ hu:
         success: Fiók törlése sikeres.
       download_your_data_export:
         file_no_exists: Fájl nem létezik
-        notice: Az adatok letöltése jelenleg folyamatban van. Ha befejeződött, e-mailt fogsz kapni.
       email_change:
         body2: Újraküldjük a megerősítő emailt? %{resend_link} vagy %{cancel_link}.
         cancel: mégse
@@ -1024,7 +1023,6 @@ hu:
         verified: Megerősítve
     pad_iframe:
       disclaimer: A közös dokumentum tartalmát regisztrált felhasználók írják és véleményüket fejezik ki. %{organization} nem tehető felelőssé a tartalmáért.
-      explanation: Ebben a közös dokumentumban együttműködve jegyzeteket készíthet az értekezlet alatt, így később könnyebb leírni a jegyzeteket.
       pad: Közös dokumentum
     pages:
       home:
