@@ -571,7 +571,6 @@ gl:
           hidden_authors_count:
             one: e %{count} persoas máis
             other: e %{count} persoas máis
-          info-message: Este é un <strong>proxecto colaborativo</strong> a proposta. Isto significa que pode axudar aos seus autores a configurar a proposta usando a sección de comentarios a continuación ou mellorala directamente solicitando o acceso para editala. Unha vez que os autores te outorgan acceso, podes realizar cambios neste borrador.
           publish: Publicar
           publish_info: Publica esta versión do borrador ou
           published_proposal: proposta publicada
