@@ -95,7 +95,6 @@ sk:
       update:
         error: Pri aktualizácii účtu došlo k chybe.
         success: Váš účet bol úspešne aktualizovaný.
-        success_with_email_confirmation: Váš účet bol úspešne aktualizovaný. Dostanete e-mail, ktorý potvrdí vašu novú e-mailovú adresu.
     admin:
       actions:
         cancel: Zrušiť
