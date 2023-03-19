@@ -87,7 +87,6 @@ zh-CN:
       update:
         error: 更新您的帐户时出现问题。
         success: 您的帐户已成功更新。
-        success_with_email_confirmation: 您的帐户已成功更新。您将收到一封电子邮件以确认您的新电子邮件地址。
     admin:
       actions:
         cancel: 取消
