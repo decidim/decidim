@@ -196,7 +196,6 @@ ar:
       update:
         error: حدثت مشكلة أثناء تحديث حسابك.
         success: تم تحديث حسابك بنجاح.
-        success_with_email_confirmation: تم تحديث حسابك بنجاح. ستتلقى بريدًا إلكترونيًا لتأكيد عنوان بريدك الإلكتروني الجديد.
     activity:
       time_ago: "منذ %{time}"
     admin:
@@ -1166,7 +1165,6 @@ ar:
         notifications_sending_frequency: كم مرة تريد استلام الإشعارات بالبريد الإلكتروني؟
         own_activity: نشاطي الخاص ، مثلما يعلقني أحدهم في اقتراحي أو يذكرني
         push_notifications: إشعارات الدفع
-        push_notifications_reminder: للحصول على إشعارات من المنصة، ستحتاج إلى اختيار السماح لهم بذلك في إعدادات المتصفح الخاص بك أولاً.
         receive_notifications_about: أريد الحصول على إشعارات حول
         update_notifications_settings: حفظ التغييرات
       update:
