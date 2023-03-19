@@ -1330,7 +1330,6 @@ ro:
       show:
         version_index: Versiunea %{index}
     welcome_notification:
-      default_body: <p>Bună ziua {{name}}, îți mulțumin că te-ai alăturat {{organization}} și bine ai venit!</p><ul><li>Dacă vrei să îți faci o idee despre ceea ce poți face în această platformă, citește secțiunea <a href="{{help_url}}">Ajutor</a>.</li><li>După citirea acesteia vei primi prima insignă. Aici este <a href="{{badges_url}}">lista tuturor insignelor</a> pe care le poți obține pe măsură ce participi în cadrul {{organization}}</li><li>Nu în ultimul rând, poți să te alături altor persoane, să împărtășești cu acestea experiența ta de implicare și participare în cadrul {{organization}}. Formulează propuneri și comentarii, participă la dezbateri, reflectă asupra modului de a contribui la binele comun, oferă argumente pentru a convinge, ascultă și citește pentru a vă forma părerea, exprimă-ți ideile în mod concret și direct, răspunde ferm și cu răbdare, apără-ți ideile și menține o atitudine deschisă pentru a colabora și a participa la ideile altora.</li></ul>
       default_subject: Îți mulțumim că te-ai alăturat {{organization}}!
     wizard_step_form:
       wizard_aside:
