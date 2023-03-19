@@ -159,7 +159,6 @@ cs:
         success: Účet byl úspěšně smazán.
       download_your_data_export:
         file_no_exists: Soubor neexistuje
-        notice: Vaše data jsou momentálně v provozu. Po dokončení e-mailu obdržíte e-mail.
       email_change:
         body1: Poslali jsme e-mail na %{unconfirmed_email} k ověření Vaší nové e-mailové adresy.
         body2: Potřebujete poslat znovu ověřovací e-mail? %{resend_link} nebo %{cancel_link}.
@@ -1077,7 +1076,6 @@ cs:
     newsletter_mailer:
       newsletter:
         no_reply_notice: Tento e-mail byl odeslán z e-mailové adresy, která nemůže přijmout příchozí email. Prosím, neodpovídejte na tuto zprávu.
-        see_on_website: E-mail se nezobrazuje správně? Zobrazit na <a href="%{link}" target="_blank">internetové stránce</a>.
         unsubscribe: Chcete-li se odhlásit z příjmu tohoto typu e-mailu, <a href="%{link}" target="_blank" class="unsubscribe">Odhlásit se</a>.
     newsletter_templates:
       basic_only_text:
@@ -1177,7 +1175,6 @@ cs:
         verified: Ověřeno
     pad_iframe:
       disclaimer: Obsah této podložky jsou napsány registrovanými uživateli a vyjadřují jejich názory. %{organization} nemůže být zodpovědný za jeho obsah.
-      explanation: Použijte tuto podložku ke spolupráci při psaní poznámek během schůzky, takže je snadnější zapsat minuty poté.
       pad: Podložka
     pages:
       home:
