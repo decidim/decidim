@@ -216,7 +216,6 @@ lt:
             endorsements_enabled: Pritarimai aktyvuoti
             proposal_answering_enabled: Atsakymas į pasiūlymą suaktyvintas
             publish_answers_immediately: Skelbti atsakymus į pasiūlymius nedelsiant
-            publish_answers_immediately_help_html: 'Atminkite, kad jei atsakysite į bet kurį pasiūlymą neįjungę šio funkcijos, turėsite atsakymus paskelbti rankiniu būdu, pasirinkdami ir naudodami paskelbimo veiksmą. Norėdami gauti daugiau informacijos apie tai, kaip tai veikia, aplankykite <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">pasiūlymų atsakymų dokumentacijos puslapį</a >.'
             suggested_hashtags: Dalyviams pasiūlytos grotažymės naujiems pasiūlymams
             votes_blocked: Blokuoti balsai
             votes_enabled: Parama aktyvuota
@@ -669,7 +668,6 @@ lt:
             few: ir dar %{count} žmonės (-ių)
             many: ir dar %{count} žmonės (-ių)
             other: ir dar %{count} žmonės (-ių)
-          info-message: Tai bendras pasiūlymo <strong>projektas (juodraštis)</strong>. Tai reiškia, kad galite padėti jo autoriams parengti pasiūlymą naudodamiesi komentarų skirsniu arba tiesiogiai jį patobulinti, prašydami prieigos jį keisti. Kai autoriai jums suteiks prieigą, galėsite keisti šį juodraštį.
           publish: Paskelbti
           publish_info: Skelbti šią juodraščio versiją arba
           published_proposal: paskelbtas pasiūlymas
