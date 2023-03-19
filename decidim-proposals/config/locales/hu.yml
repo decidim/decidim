@@ -565,7 +565,6 @@ hu:
           hidden_authors_count:
             one: és még %{count} személy
             other: és még %{count} személy
-          info-message: Ez egy javaslathoz készülő, úgynevezett <strong>közösen szerkesztett vázlat</strong>, ami azt jelenti, hogy a megjegyzések szekción keresztül, vagy közvetlen hozzáférés segítségével közösen alakíthatjátok a szöveget. Ha a szerző(k) hozzáférést biztosítanak neked, akkor módosíthatod is a vázlatot.
           publish: Közzétesz
           publish_info: Vázlat jelen verziójának közzététele vagy
           published_proposal: közzétett javaslat
