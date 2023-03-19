@@ -363,7 +363,6 @@ de:
           Excel: Excel
           FormPDF: PDF
           JSON: JSON
-        notice: Ihr Export wird gerade ausgeführt. Sie erhalten nach Fertigstellung eine E-Mail.
       filters:
         category_id_eq:
           label: Kategorie
