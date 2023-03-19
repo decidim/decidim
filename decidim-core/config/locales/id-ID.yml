@@ -70,7 +70,6 @@ id:
       update:
         error: Terjadi kesalahan saat memperbarui akun Anda.
         success: Akun Anda telah berhasil diperbarui.
-        success_with_email_confirmation: Akun Anda telah berhasil diperbarui. Anda akan menerima email untuk mengonfirmasi alamat email baru Anda.
     admin:
       actions:
         cancel: Membatalkan
