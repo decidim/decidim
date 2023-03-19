@@ -504,7 +504,6 @@ pt:
       registrations:
         create:
           invalid: Ocorreu um problema ao aderir a esta reunião.
-          success: Aderiu à reunião corretamente. Por se ter registado nesta reunião, será notificado se ocorrerem atualizações à mesma.
         decline_invitation:
           invalid: Ocorreu um problema ao recusar o convite.
           success: Recusou o convite corretamente.
