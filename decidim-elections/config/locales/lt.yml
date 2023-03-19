@@ -563,7 +563,6 @@ lt:
           back: Vėl pradėti balsavimo procesą
           ballot_hash: 'Biuletenio identifikacinis kodas:'
           cast: Užpildykite biuletenį norėdami baigti balsavimą
-          description: Čia galite balsuoti arba patikrinti ar Jūsų balsas buvo teisingai užšifruotas. Saugumo sumetimais audito atlikimas sugadins jūsų balsavimo biuletenį. Tai reiškia, kad, norėdami atiduoti balsą, turėsite iš naujo pradėti balsavimo procesą.
           header: 'Biuletenis užšifruotas: galite jį įskaityti arba audituoti'
         casting:
           header: Biuletenis įskaitomas...
