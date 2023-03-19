@@ -99,7 +99,6 @@ pt-BR:
       update:
         error: Ocorreu um erro ao actualizar a sua conta.
         success: A sua conta foi actualizada com sucesso.
-        success_with_email_confirmation: A sua conta foi actualizada com sucesso. Irá receber um e-mail de confirmação do seu novo endereço.
     admin:
       actions:
         cancel: Cancelar
