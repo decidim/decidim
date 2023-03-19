@@ -1467,7 +1467,6 @@ es-MX:
       show:
         version_index: Versión %{index}
     welcome_notification:
-      default_body: <p>Hola {{name}}, ¡gracias por unirte a {{organization}} y bienvenido/a!</p><ul><li>Si quieres hacerte una idea ràpida de lo que puedes hacer aquí, echa un vistazo a la sección de <a href="{{help_url}}">Ayuda</a>.</li><li>Una vez la hayas leído obtendrás tu primera insignia. Aquí tienes <a href="{{badges_url}}">la lista</a> de todas las que puedes ir consiguiendo a medida que participes en {{organization}}</li><li>Finalmente, pero no por ello menos importante, únete a otras personas, comparte con ellas la experiencia de implicarte y participar en {{organization}}. Haz propuestas, comenta, debate, piensa en cómo contribuir al bien común, aporta argumentos para convencer, escucha y lee para convencerte, expresa tus ideas de manera concreta y directa, responde con paciencia y decisión, defiende tus ideas y mantén la mente abierta a colaborar y sumarte a las ideas de otras personas.</li></ul>
       default_subject: Gracias por unirte a {{organization}}!
     wizard_step_form:
       wizard_aside:
