@@ -93,7 +93,6 @@ lb:
         success: De Kont gouf geläscht.
       download_your_data_export:
         file_no_exists: Datei existéiert net
-        notice: D'Eroflueden ass am Gaang. Du kriss en Email wann et vollstänneg ass.
       show:
         change_password: Passwuert änneren
         update_account: Kont aktualiséieren
@@ -910,7 +909,6 @@ lb:
         verified: Iwwerpréift
     pad_iframe:
       disclaimer: Den Inhalt vun dësem Pad, gouf vun registréierten Benotzer verfaasst an gëtten Auteuren hir Meenung erëm. D'%{organization} kann net fir den Inhalt verantwortlech gemaach ginn.
-      explanation: Verwänn dësen Pad, fir iwwert engem Meeting zesummen un Notizzen ze schaffen Pad, dat vereinfacht d'Ofschrëft vum Versammlungs-Bericht herno.
       pad: Pad
     pages:
       home:
