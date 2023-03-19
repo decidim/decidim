@@ -22,6 +22,8 @@ ja:
             choices:
               missing: は完全ではありません
               too_many: 多すぎます
+        questionnaire:
+          request_invalid: リクエストの処理中にエラーが発生しました。再度お試しください。
   decidim:
     forms:
       admin:
