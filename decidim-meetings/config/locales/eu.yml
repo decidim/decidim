@@ -576,7 +576,6 @@ eu:
       registrations:
         create:
           invalid: Arazo bat izan da topaketa honekin bat egitean.
-          success: Topaketan izena ongi eman duzu.
         decline_invitation:
           invalid: Arazo bat egon da gonbidapenari uko egiten.
           success: Arrakastaz uko egin diozu gonbidapenari.
