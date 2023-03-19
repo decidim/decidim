@@ -965,7 +965,6 @@ sk:
       show:
         deleted: Vymazaný účastník
     welcome_notification:
-      default_body: <p> Dobrý deň, {{name}}, vďaka za pripojenie {{organization}} a vitajte! </ p> <ul> <li> Ak chcete získať rýchlu predstavu o tom, čo tu môžete urobiť, pozrite sa na sekciu <a href="{{help_url}}"> Pomocník </a>. </ li> <li> Až si ju prečítate, dostanete svoj prvý odznak. Tu je <a href="{{badges_url}}"> zoznam všetkých odznakov </a> ktoré môžete získať, keď sa zúčastňujete {{organization}} </ li> <li> v neposlednom rade sa pripojte k ostatným ľuďom, zdieľajte s nimi skúsenosť z toho, že ste sa zapojili a zúčastnili sa {{organization}}. Vypracujte návrhy, pripomienky, diskusiu, premýšľajte o tom, ako prispievať k spoločnému cieľu, poskytnite argumenty, aby ste presvedčili, počúvali a čítali, aby ste boli presvedčení, vyjadrovali svoje myšlienky konkrétnym a priamym spôsobom, reagovali trpezlivo a rozhodovali, mali otvorenú myseľ k spolupráci a pripojili sa k iným ľuďom. </ li> </ ul>
       default_subject: Ďakujeme, že ste sa pripojili k {{organization}}!
     wizard_step_form:
       wizard_aside:
