@@ -156,7 +156,6 @@ lt:
         success: Jūsų paskyra ištrinta.
       download_your_data_export:
         file_no_exists: Failas neegzistuoja
-        notice: Parsisiunčiami jūsų duomenys. Kai procesas bus baigtas, gausite e. laišką.
       email_change:
         body2: Ar reikėtų naujo el. pašto patvirtinimo laiško? %{resend_link} arba %{cancel_link}.
         cancel: atšaukti
@@ -1117,7 +1116,6 @@ lt:
         verified: Patvirtinta
     pad_iframe:
       disclaimer: Šio rinkiklio turinį rašo registruoti naudotojai ir jis atspindi jų nuomonę. %{organization} neatsako už turinį.
-      explanation: Naudokitės šiuo rinkikliu, kad galėtumėte per posėdį užsirašyti informaciją ir po to būtų lengviau parengti protokolą.
       pad: Rinkiklis
     pages:
       home:
