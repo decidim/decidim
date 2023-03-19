@@ -81,7 +81,6 @@ zh-CN:
         success: 您的帐户已成功删除。
       download_your_data_export:
         file_no_exists: 文件不存在
-        notice: 目前正在下载您的数据。完成后，您将收到一封电子邮件。
       show:
         change_password: 更改密码
         update_account: 更新帐户
@@ -826,7 +825,6 @@ zh-CN:
         verified: 已验证
     pad_iframe:
       disclaimer: 这个板块的内容由注册用户撰写并表达他们的意见。 %{organization} 不能对其内容负责。
-      explanation: 使用这个板块来协作在会上留下笔记，所以此后更容易写下笔记。
       pad: 平板
     pages:
       home:
