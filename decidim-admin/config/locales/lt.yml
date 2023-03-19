@@ -329,7 +329,6 @@ lt:
           Excel: Excel
           FormPDF: PDF
           JSON: JSON
-        notice: Jūsų rinkmena šiuo metu eksportuojama. Kai eksportas bus baigtas, gausite el. laišką.
       filters:
         category_id_eq:
           label: Kategorija
