@@ -1136,7 +1136,7 @@ en:
       newsletter:
         no_reply_notice: This email was sent from a notification email address that cannot accept incoming email. Please do not reply to this message.
         note: You received this email because you are subscribed to newsletters on %{organization_name}. You can change your settings on your <a href="%{link}">notifications page</a>.
-        see_on_website: Can’t see this email correctly? View it on the <a href="%{link}" target="_blank" class="see-on-website">website</a>.
+        see_on_website: Cannot see this email correctly? View it on the <a href="%{link}" target="_blank" class="see-on-website">website</a>.
         unsubscribe: To opt out of receiving this type of email, <a href="%{link}" target="_blank" class="unsubscribe">Unsubscribe</a>.
     newsletter_templates:
       basic_only_text:
