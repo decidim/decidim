@@ -329,7 +329,6 @@ nl:
           Excel: Excel
           FormPDF: PDF-bestand
           JSON: JSON
-        notice: Uw export is momenteel aan de gang. U ontvangt een email wanneer het klaar is.
       filters:
         category_id_eq:
           label: Categorie
