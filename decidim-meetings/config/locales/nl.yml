@@ -556,7 +556,6 @@ nl:
       registrations:
         create:
           invalid: Er is een probleem opgetreden bij het deelnemen van deze vergadering.
-          success: Je bent met succes aangemeld als aanwezige bij de vergadering. Omdat je je voor deze vergadering bent geregistreerd, ontvang je een melding als er updates over zijn.
         decline_invitation:
           invalid: Er is een probleem opgetreden bij het afwijzen van de uitnodiging.
           success: U hebt de uitnodiging met succes afgewezen.
