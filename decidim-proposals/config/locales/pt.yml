@@ -618,7 +618,6 @@ pt:
           hidden_authors_count:
             one: e mais %{count} pessoa
             other: e mais %{count} pessoas
-          info-message: Este é um <strong>rascunho colaborativo</strong> para uma proposta. Isto significa que pode ajudar os seus autores a moldar a proposta utilizando a secção de comentários abaixo ou melhorá-la diretamente solicitando acesso para editá-la. Depois dos autores lhe concederem acesso, poderá fazer alterações neste rascunho.
           publish: Publicar
           publish_info: Publicar esta versão do rascunho ou
           published_proposal: proposta publicada
