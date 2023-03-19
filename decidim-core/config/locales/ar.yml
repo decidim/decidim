@@ -182,7 +182,6 @@ ar:
         success: تم حذف حسابك بنجاح.
       download_your_data_export:
         file_no_exists: الملف غير موجود
-        notice: يتم تنزيل بياناتك حاليًا. ستتلقى بريدًا إلكترونيًا عند اكتماله.
       email_change:
         body2: هل تحتاج إلينا لإرسال بريد إلكتروني للتحقق مرة أخرى؟ %{resend_link} أو %{cancel_link}.
         cancel: حذف
@@ -1087,7 +1086,6 @@ ar:
     newsletter_mailer:
       newsletter:
         no_reply_notice: تم إرسال هذا البريد الإلكتروني من عنوان بريد إلكتروني للإشعارات لا يستقبل لا بريد إلكتروني وارد. يرجى عدم الرد على هذه الرسالة.
-        see_on_website: هل لا تستطيع رؤية هذا البريد الإلكتروني بشكل صحيح؟ اطلع عليه على <a href="%{link}" target="_blank">موقع</a>.
         unsubscribe: لإلغاء الاشتراك في تلقي هذا النوع من البريد الإلكتروني ، <a href="%{link}" target="_blank" class="unsubscribe">إلغاء الاشتراك</a>.
     newsletter_templates:
       basic_only_text:
@@ -1186,7 +1184,6 @@ ar:
         verified: التحقق
     pad_iframe:
       disclaimer: تتم كتابة محتويات هذه اللوحة من قبل المستخدمين المسجلين والتعبير عن آرائهم. لا يمكن تحميل %{organization} مسؤولية محتوياته.
-      explanation: استخدم هذه الوسادة لتدوين الملاحظات بشكل تعاوني أثناء الاجتماع بحيث يسهل تدوينها بعد ذلك.
       pad: ضمادة
     pages:
       home:
