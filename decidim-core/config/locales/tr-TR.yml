@@ -1176,7 +1176,6 @@ tr:
       show:
         version_index: Sürüm %{index}
     welcome_notification:
-      default_body: <p>Merhaba {{name}}, {{organization}} katıldığınız için teşekkürler ve hoş geldiniz!</p><ul><li>Burada neler yapabileceğiniz hakkında hızlı bir fikir edinmek istiyorsanız, <a href="{{help_url}}">Yardım</a> bölümüne bakın.</li><li>Okuduktan sonra ilk rozetinizi alacaksınız. İşte bu <a href="{{badges_url}}">tüm rozetlerle listesi</a> size katılmak olarak alabilirsiniz {{organization}}</li><li>onlarla Son ama en az, diğer insanları birleştirmek, paylaşmak yapan ve katılan olma deneyimi {{organization}}. Öneriler, yorumlar, tartışmalar yapın, ortak iyiliğe nasıl katkıda bulunacağınızı düşünün, ikna edeceğiniz argümanlar sunun, ikna olun, ikna olun, fikirlerinizi somut ve doğrudan bir şekilde ifade edin, sabır ve kararla karşılık verin, fikirlerinizi savunun ve saklayın. İşbirliği yapmak ve diğer insanların fikirlerine katılmak için açık bir zihin.</li></ul>
       default_subject: '{{organization}}katıldığınız için teşekkürler!'
     wizard_step_form:
       wizard_aside:
