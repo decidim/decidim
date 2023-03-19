@@ -267,7 +267,6 @@ zh-CN:
           Excel: Excel
           FormPDF: PDF
           JSON: JSON
-        notice: 您的导出正在进行。完成后您将收到一封电子邮件。
       filters:
         category_id_eq:
           label: 类别
