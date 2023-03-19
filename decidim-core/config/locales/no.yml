@@ -120,7 +120,6 @@
         success: Kontoen din ble slettet.
       download_your_data_export:
         file_no_exists: Filen finnes ikke
-        notice: Opplastingen av dataen din pågår. Du vil få en e-mail når den er ferdig.
       show:
         change_password: Endre passord
         update_account: Oppdater konto
@@ -954,7 +953,6 @@
         verified: Verifisert
     pad_iframe:
       disclaimer: Innholdet på denne padden er skrevet av registrerte brukere og uttrykker deres meninger. %{organization} kan ikke holdes ansvarlig for innholdet.
-      explanation: Bruk denne padden til å samarbeide med å ta notater i løpet av møtet, så det blir lettere å skrive ned referatet etterpå.
       pad: Pad
     pages:
       home:
