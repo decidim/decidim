@@ -324,7 +324,6 @@ pt:
           Excel: Excel
           FormPDF: PDF
           JSON: JSON
-        notice: A sua exportação está atualmente em curso. Receberá um e-mail quando estiver completa.
       filters:
         category_id_eq:
           label: Categoria
