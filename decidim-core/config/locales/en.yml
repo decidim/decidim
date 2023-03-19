@@ -402,7 +402,7 @@ en:
           title: Authorization has expired
         incomplete:
           cancel: Cancel
-          explanation: 'Even though you''re currently authorized with "%{authorization}", we need you to reauthorize because we lack the following data:'
+          explanation: 'Even though you are currently authorized with "%{authorization}", we need you to reauthorize because we lack the following data:'
           invalid_field: "%{field}"
           reauthorize: Reauthorize
           title: Please reauthorize
@@ -643,7 +643,7 @@ en:
       not_found:
         back_home: Back home
         content_doesnt_exist: This address is incorrect or has been removed.
-        title: The page you're looking for cannot be found
+        title: The page you are looking for cannot be found
     events:
       amendments:
         amendment_accepted:
@@ -971,7 +971,7 @@ en:
         success: Join request successfully created. An admin will review your request before accepting you to the group.
       leave:
         error: There was a problem leaving the group.
-        last_admin: You cannot remove yourself from this group as you're the last administrator. Make another member an administrator in order to leave the group.
+        last_admin: You cannot remove yourself from this group as you are the last administrator. Make another member an administrator in order to leave the group.
         success: Group successfully abandoned.
       members:
         accept_or_reject_join_requests: 'The following users have applied to join this group. Accept or reject their requests:'
@@ -1135,7 +1135,7 @@ en:
     newsletter_mailer:
       newsletter:
         no_reply_notice: This email was sent from a notification email address that cannot accept incoming email. Please do not reply to this message.
-        note: You received this email because you're subscribed to newsletters on %{organization_name}. You can change your settings on your <a href="%{link}">notifications page</a>.
+        note: You received this email because you are subscribed to newsletters on %{organization_name}. You can change your settings on your <a href="%{link}">notifications page</a>.
         see_on_website: Can’t see this email correctly? View it on the <a href="%{link}" target="_blank" class="see-on-website">website</a>.
         unsubscribe: To opt out of receiving this type of email, <a href="%{link}" target="_blank" class="unsubscribe">Unsubscribe</a>.
     newsletter_templates:
@@ -1203,7 +1203,7 @@ en:
       show:
         administrators: Administrators
         allow_public_contact: Allow anyone to send me a direct message, even if I do not follow them.
-        allow_push_notifications: Get push notifications to find out what's going on when you're not on the platform. You can turn them off anytime.
+        allow_push_notifications: Get push notifications to find out what's going on when you are not on the platform. You can turn them off anytime.
         direct_messages: Receive direct messages from anyone
         email_on_moderations: I want to receive an email every time something or someone is reported for moderation.
         everything_followed: Everything I follow
@@ -1227,7 +1227,7 @@ en:
         success: Your notifications settings were successfully updated.
     offline:
       show:
-        message: It looks like you're currently offline. Please, try again later.
+        message: It looks like you are currently offline. Please, try again later.
         retry: Retry
     open_data:
       not_available_yet: The Open Data files are not yet available, please try again in a few minutes.
@@ -1536,7 +1536,7 @@ en:
       show:
         my_interests: My interests
         no_scopes: This organization does not have any scope yet!
-        select_your_interests: Select the topics you're interested in to receive events related to them in your profile Timeline tab.
+        select_your_interests: Select the topics you are interested in to receive events related to them in your profile Timeline tab.
         update_my_interests: Update my interests
       update:
         error: There was a problem updating your interests.
@@ -1860,7 +1860,7 @@ en:
         mark_all_as_read: Mark all as read
         mark_as_read: Mark as read
       offline_banner:
-        cache_version_page: Oooops! Your network is offline. This is a previously cached version of the page you're visiting, perhaps the content is not up to date.
+        cache_version_page: Oooops! Your network is offline. This is a previously cached version of the page you are visiting, perhaps the content is not up to date.
       social_media_links:
         facebook: "%{organization} at Facebook"
         github: "%{organization} at GitHub"

@@ -10,7 +10,7 @@ In order to develop on decidim, you will need:
 * *ImageMagick*
 * *Chrome* browser and https://sites.google.com/a/chromium.org/chromedriver/[chromedriver].
 
-We are starting with an Ubuntu 22.04.1 LTS. This is an opinionated guide, so you're free to use the technology that you are most comfortable. If you have any doubts and you're blocked you can go and ask on https://matrix.to/#/#decidimdevs:matrix.org[our Matrix.org chat room for developers].
+We are starting with an Ubuntu 22.04.1 LTS. This is an opinionated guide, so you are free to use the technology that you are most comfortable. If you have any doubts and you are blocked you can go and ask on https://matrix.to/#/#decidimdevs:matrix.org[our Matrix.org chat room for developers].
 
 We recommend to have at least some basic proficiency in Ruby on Rails (a good starting point is http://guides.rubyonrails.org/getting_started.html[Getting Started with Ruby on Rails]) and have some knowledge on how gems work.
 
@@ -87,7 +87,7 @@ git commit -m "Initial commit. Generated with Decidim https://decidim.org"
 == 5. Configure the database
 
 Modify your secrets (see `config/database.yml`). For this you can use https://github.com/laserlemon/figaro[figaro], https://github.com/bkeepers/dotenv[dotenv] or https://github.com/rbenv/rbenv-vars[rbenv-vars]. You
-should always be careful of not uploading your plain secrets on git or your version control system. You can also upload the encrypted secrets, using the sekrets gem or if you're on Ruby on Rails greater than 5.1 you can do it natively.
+should always be careful of not uploading your plain secrets on git or your version control system. You can also upload the encrypted secrets, using the sekrets gem or if you are on Ruby on Rails greater than 5.1 you can do it natively.
 
 For a development environment, and if you are using rbenv, we strongly recommend you to use the https://github.com/rbenv/rbenv-vars[rbenv-vars] to facilitate the edition of ENV vars.
 

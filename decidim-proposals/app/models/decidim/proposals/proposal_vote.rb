@@ -16,12 +16,12 @@ module Decidim
 
       # Temporary votes are used when a minimum amount of votes is configured in
       # a component. They are not taken into account unless the amount of votes
-      # exceeds a threshold - meanwhile, they're marked as temporary.
+      # exceeds a threshold - meanwhile, they are marked as temporary.
       def self.temporary
         where(temporary: true)
       end
 
-      # Final votes are votes that will be taken into account, that is, they're
+      # Final votes are votes that will be taken into account, that is, they are
       # not temporary.
       def self.final
         where(temporary: false)

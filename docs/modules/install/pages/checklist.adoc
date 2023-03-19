@@ -18,7 +18,7 @@ As a technopolitical project, Decidim needs several things to work. This is a no
 . Configure your *SMTP* server.
 . Setup the *geolocation* service. We recommend using https://developer.here.com/[Here Maps], but you can use other kind of tiling server compatible with https://www.openstreetmap.org/[Open Street Maps].
 . Setup *backup* on your server. The most important things to save are the `public/uploads` and the database.
-. Decide and implement which kind of *xref:customize:authorizations.adoc[Authorization]* you're going to use.
+. Decide and implement which kind of *xref:customize:authorizations.adoc[Authorization]* you are going to use.
 . Comply with our License (Affero GPL 3) and *publish your code* to http://github.com[GitHub] or wherever you want.
 . Review your *decidim initializer* on your application (config/initializers/decidim.rb).
 . Configure your xref:services:activejob.adoc[*ActiveJob*] background queue.
