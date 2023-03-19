@@ -544,7 +544,6 @@ lv:
             zero: un vēl %{count} personas
             one: un vēl %{count} persona
             other: un vēl %{count} personas
-          info-message: Šis ir <strong> sadarbības projekts </strong> priekšlikuma izveidei. Tas nozīmē, ka jūs varat palīdzēt tā autoriem veidot priekšlikumu, izmantojot turpmāk esošo komentāru sadaļu, vai arī to tieši uzlabot, pieprasot piekļuvi tā rediģēšanai. Kad autori jums piešķirs piekļuvi, jūs varēsiet veikt izmaiņas šajā projektā.
           publish: Publicēt
           publish_info: Publicējiet šo projekta versiju vai
           published_proposal: publicētais priekšlikums
