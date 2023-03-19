@@ -244,7 +244,6 @@ ru:
           view_more_logs: Просмотреть другие журналы
       exports:
         export_as: "%{name} как %{export_format}"
-        notice: Идет сохранение в виде файла. Вы получите электронное письмо, когда оно будет завершено.
       filters:
         category_id_eq:
           label: Категория
