@@ -608,7 +608,6 @@ ar:
       registrations:
         create:
           invalid: حدثت مشكلة أثناء الانضمام إلى هذا الاجتماع.
-          success: لقد انضممت إلى الاجتماع بنجاح.
         decline_invitation:
           invalid: حدثت مشكلة في رفض الدعوة.
           success: لقد رفضت الدعوة بنجاح.
