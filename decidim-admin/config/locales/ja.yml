@@ -199,6 +199,9 @@ ja:
           new: 新しい管理者
         verify: 確認する
       admin_terms_of_use:
+        accept:
+          error: 管理者利用規約への同意中にエラーが発生しました。
+          success: ありがとうございます、管理者利用規約に同意しました。
         actions:
           accept: 利用規約に同意します
           are_you_sure: 管理者向け利用規約を削除してもよろしいですか？
@@ -379,6 +382,7 @@ ja:
           Excel: エクセル
           FormPDF: PDF
           JSON: JSON
+        notice: エクスポートが現在進行中です。完了するとメールが届きます。
       filters:
         category_id_eq:
           label: カテゴリ
@@ -867,6 +871,7 @@ ja:
       participatory_space_private_users_csv_imports:
         create:
           invalid: CSVファイルの読み込み中に問題が発生しました。手順を確認してください。
+          success: CSVファイルは正常にアップロードされました。参加者に招待メールを送信しています。しばらくお待ちください。
         new:
           destroy:
             button: すべてのプライベート参加者を削除
@@ -1024,6 +1029,7 @@ ja:
       user_group:
         csv_verify:
           invalid: CSVファイルの読み込みに問題が発生しました。
+          success: CSVファイルは正常にアップロードされました。条件に一致するグループを確認しています。しばらくお待ちください。
         reject:
           invalid: このグループを拒否する際に問題が発生しました。
           success: グループを却下しました。
