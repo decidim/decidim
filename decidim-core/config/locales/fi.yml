@@ -35,6 +35,7 @@ fi:
       decidim/component_published_event: Aktiivinen komponentti
       decidim/demoted_membership: Ei enää ryhmän ylläpitäjä
       decidim/gamification/badge_earned_event: Kunniamerkki ansaittu
+      decidim/gamification/level_up_event: Olet päässyt seuraavalle tasolle
       decidim/invited_to_group_event: Kutsuttu ryhmään
       decidim/join_request_accepted_event: Liittymispyyntö on hyväksytty
       decidim/join_request_rejected_event: Liittymispyyntö on hylätty
@@ -136,7 +137,9 @@ fi:
         success: Tilisi poistaminen onnistui.
       download_your_data_export:
         file_no_exists: Tiedostoa ei ole olemassa
+        notice: Tietojen vienti on käynnissä. Saat sähköpostiviestin, kun se valmistuu.
       email_change:
+        body1: Olemme lähettäneet viestin osoitteeseen %{unconfirmed_email} vahvistaaksemme uuden sähköpostiosoitteesi.
         body2: Haluatko tilata vahvistussähköpostin uudestaan? %{resend_link} tai %{cancel_link}.
         cancel: peruuta
         cancel_error: Sähköpostin muutosta ei voitu peruuttaa.
@@ -397,6 +400,7 @@ fi:
           title: Vahvistus on vanhentunut
         incomplete:
           cancel: Peruuta
+          explanation: 'Vaikka kirjautumisesi on tällä hetkellä varmennettu varmennustavalla "%{authorization}", tarvitsemme uuden varmennuksen, koska seuraavat tiedot puuttuvat:'
           invalid_field: "%{field}"
           reauthorize: Vahvista uudestaan
           title: Vahvista uudestaan
@@ -404,6 +408,8 @@ fi:
           authorize: Vahvista palvelulla "%{authorization}"
           explanation: Suorittaaksesi tämän toiminnon, sinun tulee vahvistaa tilisi palvelulla "%{authorization}".
           title: Vahvistus vaaditaan
+        ok:
+          title: Sinut on vahvistettu sen aikana, kun olet ollut tällä sivulla. Lataa sivu uudelleen suorittaaksesi toiminnon, jota yritit suorittaa.
         pending:
           explanation: Tämän toiminnon suorittamiseksi sinun vahvistettava itsesi palvelulla "%{authorization}", mutta vahvistuksesi on edelleen kesken.
           resume: Tarkista "%{authorization}" vahvistuksen eteneminen.
@@ -631,6 +637,7 @@ fi:
       not_found:
         back_home: Takaisin kotisivulle
         content_doesnt_exist: Tämä osoite on virheellinen tai käytöstä poistunut.
+        title: Etsimääsi sivua ei löydy
     events:
       amendments:
         amendment_accepted:
@@ -696,9 +703,15 @@ fi:
         email_subject: Kohteen %{resource_title} päivitys
       gamification:
         badge_earned:
+          email_intro: Onnittelut! Olet ansainnut <a href="%{resource_url}">%{badge_name} merkin</a> (taso %{current_level}).
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet osallistunut toimintaan verkkosivustollamme.
+          email_subject: 'Olet ansainnut uuden kunniamerkin: %{badge_name}!'
+          notification_title: Onnittelut! Olet ansainnut <a href="%{resource_path}">kunniamerkin %{badge_name}</a> (taso %{current_level}).
         level_up:
+          email_intro: Onnittelut! Olet saavuttanut <a href="%{resource_url}">kunniamerkin %{badge_name}</a> tason %{current_level}!
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet osallistunut toimintaan verkkosivustollamme.
+          email_subject: Olet saavuttanut kunniamerkin %{badge_name} tason %{current_level}!
+          notification_title: Onnittelut! Olet saavuttanut <a href="%{resource_path}">kunniamerkin %{badge_name}</a> tason %{current_level}!
       groups:
         demoted_membership:
           email_intro: Ryhmän <a href="%{resource_url}">%{user_group_name}</a> ylläpitäjä on poistanut ylläpitäjän oikeutesi kyseiselle ryhmälle.
@@ -790,6 +803,7 @@ fi:
         result: Tulokset
     fingerprint:
       check: Tarkista sormenjälki
+      explanation: Alla oleva teksti on tämän sisällön lyhennetty ja hajautettu esitystapa. Tämä on hyödyllinen varmentaaksesi, että sisältöä ei ole muokattu kenenkään toimesta, koska yksittäinen muutos johtaisi täysin erilaiseen arvoon.
       online_calculator_name: MD5-verkkolaskuri
       replicate_help: Tämä sormenjälki lasketaan käyttäen SHA256-hajautusalgoritmia. Jos haluat tuottaa sormenjäljen itse, voit käyttää %{online_calculator_link} -palvelua ja liittää lähdetiedot kyseiseen palveluun.
       source: Lähde
@@ -873,6 +887,7 @@ fi:
           name: Seuraajat
           next_level_in: Hanki %{score} seuraajaa lisää päätäksesi seuraavalle tasolle!
           unearned_another: Tällä osallistujalla ei ole vielä seuraajia.
+          unearned_own: Sinulla ei ole vielä seuraajia.
         index:
           badge_title: "%{name} kunniamerkki"
           how: Kuinka voit ansaita tämän
@@ -880,6 +895,7 @@ fi:
           title: Kunniamerkit
       description: Kunniamerkit ovat tunnistuksia osallistumisestasi ja toimistasi tällä alustalla. Ansaitset niitä aloittamalla tutustumaan, osallistumaan ja vuorovaikuttamaan tällä alustalla.
       level: Taso %{level}
+      reached_top: Olet saavuttanut tämän kunniamerkin korkeimman tason.
       title: Mitä kunniamerkit ovat?
     group_admins:
       actions:
@@ -948,6 +964,7 @@ fi:
         success: Liittymispyynnön luonti onnistui. Ylläpitäjä tarkistaa pyyntösi ennen hyväksymistäsi ryhmään.
       leave:
         error: Ryhmästä poistuminen epäonnistui.
+        last_admin: Et voi poistaa itseäsi tästä ryhmästä, koska olet sen ainoa hallinnoija. Tee toisesta ryhmän jäsenestä hallinnoija, mikäli haluat poistua ryhmästä.
         success: Ryhmästä poistuminen onnistui.
       members:
         accept_or_reject_join_requests: 'Seuraavat käyttäjät ovat tehneet liittymispyynnön tähän ryhmään. Hyväksy tai hylkää heidän pyyntönsä:'
@@ -1111,6 +1128,8 @@ fi:
     newsletter_mailer:
       newsletter:
         no_reply_notice: Tämä sähköposti on lähetetty sähköpostiosoitteesta, joka ei voi ottaa vastaan sähköpostia. Älä vastaa tähän viestiin.
+        note: Tämä viesti on lähetetty sinulle, koska olet tilannut uutiskirjeet palvelussa %{organization_name}. Voit muuttaa asetuksiasi <a href="%{link}">ilmoitusten sivulla</a>.
+        see_on_website: Etkö näe tätä sähköpostia oikein? Avaa sähköposti <a href="%{link}" target="_blank" class="see-on-website">selaimessasi</a>.
         unsubscribe: Voit lopettaa tämäntyyppisten sähköpostien vastaanottamisen <a href="%{link}" target="_blank" class="unsubscribe">poistumalla sähköpostilistalta</a>.
     newsletter_templates:
       basic_only_text:
@@ -1177,6 +1196,7 @@ fi:
       show:
         administrators: Hallintakäyttäjät
         allow_public_contact: Salli kenen tahansa lähettää minulle yksityisviestejä, vaikka en seuraisi heitä.
+        allow_push_notifications: Vastaanota push-ilmoituksia, mikäli haluat tietää, mitä alustalla tapahtuu, kun et ole paikalla. Voit poistaa ne käytöstä milloin tahansa.
         direct_messages: Vastaanota yksityisviestejä kaikilta
         email_on_moderations: Haluan saada sähköpostia aina, kun jotain tai joku käyttäjä ilmoitetaan moderoitavaksi.
         everything_followed: Kaikki mitä seuraan
@@ -1200,6 +1220,7 @@ fi:
         success: Ilmoitusasetuksesi päivitys onnistui.
     offline:
       show:
+        message: Näyttää, että olet tällä hetkellä offline-tilassa. Yritä myöhemmin uudestaan.
         retry: Yritä uudestaan
     open_data:
       not_available_yet: Avoimet datatiedostot eivät ole vielä käytettävissä, yritä uudelleen muutaman minuutin kuluttua.
@@ -1210,6 +1231,7 @@ fi:
         verified: Varmennettu
     pad_iframe:
       disclaimer: Tämän muistion sisällön ovat kirjoittaneet alustan rekisteröityneet käyttäjät, jotka ilmaisevat omia mielipiteitään. %{organization} ei ole vastuussa sisällöstä.
+      explanation: Tällä muistiolla voitte yhdessä tehdä muistiinpanoja tapaamisen aikana, jotta pöytäkirjan kirjoittaminen sen jälkeen olisi helpompaa.
       pad: Muistio
     pages:
       home:
@@ -1259,6 +1281,7 @@ fi:
           modal_close: Sulje ikkuna
           modal_title: Kieltäydytkö tosiaan hyväksymästä päivitettyjä käyttöehtoja?
         required_review:
+          alert: Olemme päivittäneet käyttöehtojamme. Ole hyvä ja tutustu päivitettyihin ehtoihin.
           body: Ole hyvä ja tutustu päivitetyihin käyttöehtoihimme. Jatkaaksesi palvelun käyttöä sinun on tutustuttava päivitettyihin ehtoihin.
           title: 'Pakollinen: Tarkista päivitetyt käyttöehtomme'
     participatory_space_private_users:
@@ -1506,6 +1529,7 @@ fi:
       show:
         my_interests: Omat kiinnostuksen kohteet
         no_scopes: Tällä organisaatiolla ei ole vielä teemaa!
+        select_your_interests: Valitse ne aiheet, joista olet kiinnostunut vastaanottamaan tietoa profiilisi aikajana-välilehdellä.
         update_my_interests: Päivitä omat kiinnostuksen kohteet
       update:
         error: Kiinnostuksen kohteiden päivitys epäonnistui.
@@ -1547,6 +1571,7 @@ fi:
       show:
         version_index: Versio %{index}
     welcome_notification:
+      default_body: <p>Hei {{name}}, kiitos liittymisestä palveluun {{organization}} ja tervetuloa!</p><ul><li>Jos haluat saada nopean käsityksen siitä, mitä voit tehdä palvelussa, tutustu <a href="{{help_url}}">ohjeisiin</a>.</li><li>Kun olet lukenut ohjeet, saat ensimmäisen kunniamerkkisi. Tässä on <a href="{{badges_url}}">lista kaikista kunniamerkeistä</a>, joita saat osallistuessasi palvelussa {{organization}}</li><li>Viimeisenä, mutta ei vähäisimpänä, yhdistä voimasi muiden ihmisten kanssa, jaa heidän kanssaan kokemuksiasi osallistumisestasi palvelussa {{organization}}. Tee ehdotuksia, kommentoi, keskustele, mieti tapoja edistää yhteistä hyvää, vakuuta argumenteillasi, vakuutu kuuntelemalla ja lukemalla, ilmaise ideasi konkreettisella ja suoraviivaisella tavalla, vastaa kärsivällisesti ja päättäväisesti, puolusta ajatuksiasi, tee yhteistyötä avoimin mielin ja osallistu muiden ihmisten ideoiden kehittämiseen.</li></ul>
       default_subject: Kiitos liittymisestäsi palveluun {{organization}}!
     wizard_step_form:
       wizard_aside:
@@ -1594,6 +1619,7 @@ fi:
         subject: Vahvistusohjeet
       email_changed:
         greeting: Hei %{recipient}!
+        message: Ilmoitamme sinulle, että käyttäjätilisi sähköpostiosoitteeksi on vaihdettu %{email}.
         subject: Sähköposti vaihdettu
       invitation_instructions:
         accept: Hyväksy kutsu
@@ -1609,8 +1635,17 @@ fi:
         someone_invited_you_as_admin: Joku on kutsunut sinut ylläpitämään palvelua %{application}. Voit hyväksyä kutsun alla olevan linkin avulla.
         someone_invited_you_as_private_user: Joku on kutsunut sinut yksityiseksi käyttäjäksi %{application} -nimiseen palveluun. Voit hyväksyä kutsun alla olevan linkin kautta.
         subject: Kutsuohjeet
+      invite_admin:
+        subject: Sinut on kutsuttu hallinnoimaan palvelua %{organization}
+      invite_collaborator:
+        subject: Sinut on kutsuttu osallistumaan palvelussa %{organization}
+      invite_private_user:
+        subject: Sinut on kutsuttu yksityiseen osallistumisprosessiin palvelussa %{organization}
+      organization_admin_invitation_instructions:
+        subject: Sinut on kutsuttu hallinnoimaan palvelua %{organization}
       password_change:
         greeting: Hei %{recipient}!
+        message: Ilmoitamme, että salasanasi on vaihdettu.
         subject: Salasana vaihdettu
       reset_password_instructions:
         action: Vaihda salasanani
@@ -1817,6 +1852,8 @@ fi:
       notifications_dashboard:
         mark_all_as_read: Merkitse kaikki luetuiksi
         mark_as_read: Merkitse luetuiksi
+      offline_banner:
+        cache_version_page: Hups! Verkkoyhteytesi on kytketty pois päältä. Tämä on aiemmin välimuistissa oleva versio vierailemasi sivusta, jonka sisältö ei välttämättä ole ajan tasalla.
       social_media_links:
         facebook: "%{organization} Facebookissa"
         github: "%{organization} GitHubissa"
