@@ -64,6 +64,7 @@ ja:
             attachment:
               file: ファイルが無効です
               needs_to_be_reattached: 再接続が必要
+              title: タイトルは空にできません
   activerecord:
     models:
       decidim/initiative:
@@ -93,6 +94,10 @@ ja:
             label: タイプ
         search_placeholder:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: '%{collection} をタイトル、説明、ID、または著者名で検索します。'
+      initiatives_settings:
+        update:
+          error: エラーが発生しました
+          success: イニシアチブの設定が正常に更新されました。
       menu:
         attachments: 添付ファイル
         committee_members: 委員会メンバー
@@ -181,8 +186,10 @@ ja:
             - 新しいイニシアチブを作成するには、手順に従ってください
           description: このバッジは、新しいイニシアチブを開始し、他の人と提携して実行するときに付与されます。
           description_another: この参加者は %{score} のイニシアチブを公開しました。
+          description_own: '%{score} 件のイニシアチブが公開されました。'
           name: 公開されたイニシアチブ
           next_level_in: 次のレベルに到達するために公開された %{score} 件のイニシアチブを入手しましょう！
+          unearned_another: この参加者はまだイニシアチブを公開していません。
           unearned_own: まだイニシアチブが公開されていません。
     help:
       participatory_spaces:
@@ -208,6 +215,7 @@ ja:
           index:
             approve: 承認
             confirm_revoke: よろしいですか？
+            invite_to_committee_help: 他の参加者をプロモーター委員会に招待するために、このリンクを共有してください。
             revoke: 取り消し
             title: 委員会メンバー
         content_blocks:
