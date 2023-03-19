@@ -477,7 +477,6 @@ pl:
       registrations:
         create:
           invalid: Wystąpił błąd podczas dołączania do spotkania.
-          success: Dołączyłeś do tego spotkanie. Ponieważ zarejestrowałeś się na to spotkanie, będziesz otrzymywał powiadomienia dotyczące aktualizacji tego spotkania.
         decline_invitation:
           invalid: Wystąpił błąd podczas próby odrzucenia zaproszenia.
           success: Zaproszenie zostało odrzucone.
