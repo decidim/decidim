@@ -420,7 +420,6 @@ tr:
       registrations:
         create:
           invalid: Bu toplantıya katılırken bir sorun oluştu.
-          success: Toplantıya başarıyla katıldınız. Bu toplantıya kaydolduğunuz için, onunla ilgili güncellemeler varsa bilgilendirileceksiniz.
         decline_invitation:
           invalid: Davet reddedilirken bir sorun oluştu.
           success: Davetiyeyi başarıyla reddettiniz.
