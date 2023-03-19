@@ -1551,7 +1551,6 @@ fi:
       show:
         version_index: Versio %{index}
     welcome_notification:
-      default_body: <p>Hei {{name}}, kiitos liittymisestä palveluun {{organization}} ja tervetuloa!</p><ul><li>Jos haluat saada nopean käsityksen siitä, mitä voit tehdä palvelussa, tutustu <a href="{{help_url}}">ohjeisiin</a>.</li><li>Kun olet lukenut ohjeet, saat ensimmäisen kunniamerkkisi. Tässä on <a href="{{badges_url}}">lista kaikista kunniamerkeistä</a>, joita saat osallistuessasi palvelussa {{organization}}</li><li>Viimeisenä, mutta ei vähäisimpänä, yhdistä voimasi muiden ihmisten kanssa, jaa heidän kanssaan kokemuksiasi osallistumisestasi palvelussa {{organization}}. Tee ehdotuksia, kommentoi, keskustele, mieti tapoja edistää yhteistä hyvää, vakuuta argumenteillasi, vakuutu kuuntelemalla ja lukemalla, ilmaise ideasi konkreettisella ja suoraviivaisella tavalla, vastaa kärsivällisesti ja päättäväisesti, puolusta ajatuksiasi, tee yhteistyötä avoimin mielin ja osallistu muiden ihmisten ideoiden kehittämiseen.</li></ul>
       default_subject: Kiitos liittymisestäsi palveluun {{organization}}!
     wizard_step_form:
       wizard_aside:
