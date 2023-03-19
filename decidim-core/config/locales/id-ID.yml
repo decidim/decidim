@@ -826,7 +826,6 @@ id:
       show:
         deleted: Pengguna yang dihapus
     welcome_notification:
-      default_body: <p>Hai {{name}}, terima kasih sudah bergabung dengan {{organization}} dan selamat datang!</p><ul><li>Jika Anda ingin mendapatkan ide cepat tentang apa yang dapat Anda lakukan di sini, lihat bagian <a href="{{help_url}}">Bantuan</a> .</li><li>Setelah Anda membacanya, Anda akan mendapatkan lencana pertama Anda. Berikut adalah <a href="{{badges_url}}">daftar dari semua lencana</a> yang dapat Anda peroleh ketika Anda berpartisipasi dalam {{organization}}</li><li>Terakhir tetapi tidak sedikit, bergabunglah dengan orang lain, bagikan kepada mereka pengalaman terlibat dan berpartisipasi dalam {{organization}}. Buatlah proposal, komentar, debat, pikirkan tentang bagaimana berkontribusi terhadap kebaikan bersama, memberikan argumen untuk meyakinkan, mendengarkan dan membaca untuk diyakinkan, mengekspresikan ide Anda dengan cara yang konkrit dan langsung, merespons dengan kesabaran dan keputusan, membela ide-ide Anda dan tetap pikiran terbuka untuk berkolaborasi dan bergabung dengan ide orang lain.</li></ul>
       default_subject: Terima kasih telah bergabung dengan {{organization}}!
   devise:
     confirmations:
