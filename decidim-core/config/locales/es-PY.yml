@@ -136,7 +136,6 @@ es-PY:
         success: Tu cuenta se ha eliminado correctamente.
       download_your_data_export:
         file_no_exists: El archivo no existe
-        notice: Tus datos están actualmente en progreso. Recibirás un correo electrónico cuando se complete.
       email_change:
         body2: '¿Necesitas que te reenviemos el correo de verificación? %{resend_link} o %{cancel_link}.'
         cancel: cancelar
@@ -761,7 +760,6 @@ es-PY:
         result: Resultados
     fingerprint:
       check: Verificar huella digital
-      explanation: La siguiente cadena de texto es una representación abreviada y criptografiada de este contenido. Es útil para garantizar que el contenido no haya sido alterado, ya que una única modificación daría lugar a un valor totalmente diferente.
       online_calculator_name: Calculadora MD5 en línea
       replicate_help: Esta huella digital se calcula utilizando un algoritmo hash SHA256. Para poder replicarlo tú mismo, puedes usar una %{online_calculator_link} y copiar y pegar los datos de origen.
       source: Origen
@@ -1041,7 +1039,6 @@ es-PY:
     newsletter_mailer:
       newsletter:
         no_reply_notice: Este correo electrónico se ha enviado desde una dirección de correo de notificación que no acepta entrada de correos. Por favor, no respondas a este mensaje.
-        see_on_website: '¿No puedes ver este correo electrónico correctamente? Accede a su <a href="%{link}" target="_blank" class="see-on-website">versión web</a>.'
         unsubscribe: Si no quieres recibir este tipo de correo electrónico, <a href="%{link}" target="_blank" class="unsubscribe">unsubscríbete</a>.
     newsletter_templates:
       basic_only_text:
@@ -1141,7 +1138,6 @@ es-PY:
         verified: Verificada
     pad_iframe:
       disclaimer: Los contenidos de este panel están escritos por usuarios registrados y expresan sus opiniones. %{organization} no se hace responsable de su contenido.
-      explanation: Use este teclado para tomar notas de manera colaborativa durante la reunión para que sea más fácil escribir el minuto después.
       pad: Almohadilla
     pages:
       home:
