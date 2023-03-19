@@ -64,4 +64,5 @@ fi:
       surveys:
         answer:
           invalid: Kyselyyn vastaaminen epäonnistui.
+          spam_detected: Lomakkeeseen vastaaminen epäonnistui. Saatoit toimia liian nopeasti. Yrittäisitkö uudestaan?
           success: Kyselyyn vastaaminen onnistui.
