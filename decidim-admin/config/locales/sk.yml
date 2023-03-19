@@ -253,7 +253,6 @@ sk:
           view_more_logs: Zobraziť viac logov
       exports:
         export_as: "%{name} ako %{export_format}"
-        notice: Váš export práve prebieha. Obdržíte e-mail po dokončení.
       filters:
         category_id_eq:
           label: Kategória
