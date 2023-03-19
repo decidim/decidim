@@ -405,7 +405,6 @@ gl:
       registrations:
         create:
           invalid: Produciuse un problema ao unirse a esta reunión.
-          success: Uniches á reunión correctamente.
         decline_invitation:
           invalid: Produciuse un problema ao diminuír a invitación.
           success: Rexeitou con éxito a invitación.
