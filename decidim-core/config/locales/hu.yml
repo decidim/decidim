@@ -146,7 +146,6 @@ hu:
       update:
         error: Hiba történt a fiók frissítése során.
         success: A fiók sikeresen frissült.
-        success_with_email_confirmation: A fiók frissítése sikeres. Az új email cím megerősítéséhez az email címedre küldtünk egy levelet.
     activity:
       time_ago: "%{time} ideje"
     admin:
