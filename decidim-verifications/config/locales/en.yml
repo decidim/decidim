@@ -96,12 +96,12 @@ en:
           no_data_stored: No data stored.
         create:
           error: There was a problem creating the authorization.
-          success: You've been successfully authorized.
+          success: You have been successfully authorized.
           transferred: 'We have recovered the following participation data based on your authorization:'
           unconfirmed: You need to confirm your email in order to authorize yourself.
         destroy:
           error: There was a problem deleting the authorization.
-          success: You've successfully deleted the authorization.
+          success: You have successfully deleted the authorization.
         first_login:
           actions:
             another_dummy_authorization_handler: Verify against another example of authorization handler
@@ -259,7 +259,7 @@ en:
             title: Request your verification code
           update:
             error: Your verification code does not match ours. Please double-check the letter we sent to you.
-            success: Congratulations. You've been successfully verified.
+            success: Congratulations. You have been successfully verified.
       sms:
         authorizations:
           create:
@@ -278,7 +278,7 @@ en:
             title: Request your verification code
           update:
             error: Your verification code does not match ours. Please double-check the SMS we sent you.
-            success: Congratulations. You've been successfully verified.
+            success: Congratulations. You have been successfully verified.
   errors:
     messages:
       uppercase_only_letters_numbers: must be all uppercase and contain only letters and/or numbers

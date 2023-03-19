@@ -60,7 +60,7 @@ describe "Initiative", type: :system do
             visit decidim_initiatives.initiatives_path
           end
 
-          context "and they're verified" do
+          context "and they are verified" do
             it "they are taken to the initiative form" do
               click_link "New initiative"
               expect(page).to have_content("What does the initiative consist of?")
@@ -142,7 +142,7 @@ describe "Initiative", type: :system do
             allow(Decidim::Initiatives.config).to receive(:do_not_require_authorization).and_return(false)
           end
 
-          context "and they're verified" do
+          context "and they are verified" do
             it "they are redirected to the initiative form after log in" do
               click_button "New initiative"
               fill_in "Email", with: authorized_user.email
@@ -209,7 +209,7 @@ describe "Initiative", type: :system do
             allow(Decidim::Initiatives.config).to receive(:do_not_require_authorization).and_return(false)
           end
 
-          context "and they're verified" do
+          context "and they are verified" do
             it "they are taken to the initiative form" do
               click_link "New initiative"
               expect(page).to have_content("Which initiative do you want to launch")
@@ -294,7 +294,7 @@ describe "Initiative", type: :system do
             allow(Decidim::Initiatives.config).to receive(:do_not_require_authorization).and_return(false)
           end
 
-          context "and they're verified" do
+          context "and they are verified" do
             it "they are redirected to the initiative form after log in" do
               click_button "New initiative"
               fill_in "Email", with: authorized_user.email
@@ -566,7 +566,7 @@ describe "Initiative", type: :system do
         end
       end
 
-      context "when there's a promoter committee" do
+      context "when there is a promoter committee" do
         let(:initiative) { build(:initiative, organization:, scoped_type: initiative_type_scope) }
 
         before do

@@ -68,7 +68,7 @@ shared_examples "a proposal form" do |options|
     it { is_expected.to be_valid }
   end
 
-  context "when there's no title" do
+  context "when there is no title" do
     let(:title) { nil }
 
     it { is_expected.to be_invalid }
@@ -121,7 +121,7 @@ shared_examples "a proposal form" do |options|
     end
   end
 
-  context "when there's no body" do
+  context "when there is no body" do
     let(:body) { nil }
 
     it { is_expected.to be_invalid }
@@ -381,7 +381,7 @@ shared_examples "a proposal form with meeting as author" do |options|
     it { is_expected.to be_valid }
   end
 
-  context "when there's no title" do
+  context "when there is no title" do
     let(:title) { nil }
 
     it { is_expected.to be_invalid }
@@ -413,7 +413,7 @@ shared_examples "a proposal form with meeting as author" do |options|
     end
   end
 
-  context "when there's no body" do
+  context "when there is no body" do
     let(:body) { nil }
 
     it { is_expected.to be_invalid }

@@ -122,6 +122,18 @@ module Decidim
         template "LICENSE-AGPLv3.txt", "LICENSE-AGPLv3.txt"
       end
 
+      def rubocop
+        copy_file ".rubocop.yml", ".rubocop.yml"
+      end
+
+      def ruby_version
+        copy_file ".ruby-version", ".ruby-version"
+      end
+
+      def node_version
+        copy_file ".node-version", ".node-version"
+      end
+
       def gemfile
         return if options[:skip_gemfile]
 

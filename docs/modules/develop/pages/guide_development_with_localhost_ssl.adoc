@@ -21,7 +21,7 @@ After that, you can start the development server under SSL at port 3443 (default
 
 Now you are ready to visit your favorite browser at the address `https://localhost:3443/` (note "https" and port 3443). If you would like to test the non-SSL "http" version, it is also running normally at port 3000, so you can access that as you normally would.
 
-Note: Your browser is going to complain as this is a self-signed certificate, that's ok for development, just add an exception and accept the certificate.
+Note: Your browser is going to complain as this is a self-signed certificate, that is ok for development, just add an exception and accept the certificate.
 
 == Testing tenants using lvh.me
 
@@ -31,7 +31,7 @@ Just access your `/system` admin and create new organization with some subdomain
 
 You can combine this with the previously generated certificate (your browser is going to complaint but just tell it to proceed vising the site).
 
-Finally remember to add the port as `lvh.me` do not forwards anything, for instance (use `http` or `https` depending on how you've started Rails):
+Finally remember to add the port as `lvh.me` do not forwards anything, for instance (use `http` or `https` depending on how you have started Rails):
 
 `http://someorg.lvh.me:3000/`
 
@@ -57,7 +57,7 @@ openssl req -x509 -out localhost.crt -keyout localhost.key \
    printf "[dn]\nCN=localhost\n[req]\ndistinguished_name = dn\n[EXT]\nsubjectAltName=DNS:localhost\nkeyUsage=digitalSignature\nextendedKeyUsage=serverAuth")
 ----
 
-This will generate two files: `localhost.crt` and `localhost.key`, you can store them anywhere you want to use them later. In this example we'll suppose we have them in the folder `certs` in our root user home:
+This will generate two files: `localhost.crt` and `localhost.key`, you can store them anywhere you want to use them later. In this example we will suppose we have them in the folder `certs` in our root user home:
 
 [source,bash]
 ----

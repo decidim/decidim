@@ -132,8 +132,8 @@ en:
         validated_eq:
           label: Validated
           values:
-            'false': Validated
-            'true': Not validated
+            'false': Not validated
+            'true': Validated
     components:
       elections:
         actions:
@@ -217,8 +217,8 @@ en:
           feedback_form_answers: Feedback form answers
         mailers:
           trustee_mailer:
-            body: "<p>Hi %{user_name},</p><p>You've been added as a trustee to %{resource_name}.</p>"
-            subject: You've been added as a trustee to %{resource_name}
+            body: "<p>Hi %{user_name},</p><p>You have been added as a trustee to %{resource_name}.</p>"
+            subject: You have been added as a trustee to %{resource_name}
             trustee_zone: Take me to the trustee zone
         menu:
           trustees: Trustees
@@ -519,7 +519,7 @@ en:
       feedback:
         answer:
           invalid: There was a problem submitting your feedback.
-          spam_detected: There was a problem answering the form. Maybe you've been too quick, can you try again?
+          spam_detected: There was a problem answering the form. Maybe you have been too quick, can you try again?
           success: Feedback successfully sent.
       models:
         answer:
@@ -644,7 +644,7 @@ en:
                 invalid_key: The identification keys in the uploaded file cannot be loaded.
                 invalid_public_key: The identification keys in the uploaded file does not match the public identification key stored.
               upload_legend: The server has your public identification keys, but your browser still does not have it. You need to import the file with your identification keys to your computer from the backup you created after generating them.
-            not_supported_browser_description: It looks like you are using a web browser that cannot be used to act as a Trustee. Make sure you're using the most recent version of your browser, or try using any of the most popular browsers to be able to complete your Trustee tasks.
+            not_supported_browser_description: It looks like you are using a web browser that cannot be used to act as a Trustee. Make sure you are using the most recent version of your browser, or try using any of the most popular browsers to be able to complete your Trustee tasks.
             not_supported_browser_title: Upgrade browser to act as a Trustee
             trustee_role_description: You have been assigned to act as a Trustee in some of the elections celebrated in this platform.
           update:
@@ -748,18 +748,18 @@ en:
         trustees:
           new_election:
             email_intro: You got added as a trustee for the %{resource_title} election.
-            email_outro: You have received this notification because you've been added as trustee for the %{resource_title} election.
+            email_outro: You have received this notification because you have been added as trustee for the %{resource_title} election.
             email_subject: You are a trustee for the %{resource_title} election..
             notification_title: You are a trustee for <a href="%{resource_path}">%{resource_title}</a> election.
           new_trustee:
             email_intro: An admin has added you as trustee for %{resource_name}. You should create your public key <a href='%{trustee_zone_url}'>in your trustee zone</a>
-            email_outro: You have received this notification because you've been added as trustee for %{resource_name}.
+            email_outro: You have received this notification because you have been added as trustee for %{resource_name}.
             email_subject: You are a trustee for %{resource_name}.
             notification_title: You are a trustee for <a href="%{participatory_space_url}">%{resource_name}</a>.
         votes:
           accepted_votes:
             email_intro: 'Your vote was accepted! Using your voting token: %{encrypted_vote_hash}, you can verify your vote <a href="%{verify_url}">here</a>.'
-            email_outro: You have received this notification because you've voted for the %{resource_name} election.
+            email_outro: You have received this notification because you have voted for the %{resource_name} election.
             email_subject: Your vote for %{resource_name} was accepted.
             notification_title: 'Your vote was accepted. Verify your vote <a href="%{verify_url}">here</a> using your vote token: %{encrypted_vote_hash}'
       votings:
@@ -1023,7 +1023,7 @@ en:
             location_help: 'Location: message directed to the voters implying the exact place of the polling station'
             location_hints_help: 'Location hints: additional info. Example: the floor of the building where the polling station is located.'
             polling_station_managers_help: 'Polling station managers: the officers that will act as polling station managers. Make sure the officers have already been created in Polling Officers and that they are not already assigned to another polling station'
-            polling_station_president_help: 'Polling station officer: the officer that will act as polling station president. Make sure the officer has already been created in Polling Officers and that (s)he is not already assigned to another polling station'
+            polling_station_president_help: 'Polling station president: the officer that will act as polling station president. Make sure the officer has already been created in Polling Officers and that (s)he is not already assigned to another polling station'
             select_president: Select a polling officer as president of the polling station
           index:
             title: Polling stations
@@ -1241,7 +1241,7 @@ en:
             info_text: Polling station electoral closure.
           sign:
             cancel: Cancel
-            check_box: I've reviewed this and is the same as the physical electoral closure certificate
+            check_box: I have reviewed this and is the same as the physical electoral closure certificate
             close_modal: Close
             confirm: Ok, continue
             error: An error occurred, please try again.
@@ -1260,7 +1260,7 @@ en:
             census_verified_with_online_vote: This participant has already voted online. If they vote in person, the previous votes will be invalidated and this will be the definitive vote.
             complete_voting: Complete voting
             identify_another: Identify another participant
-            questions_title: 'They''re entitled to vote in the following questions:'
+            questions_title: 'They are entitled to vote in the following questions:'
             questions_title_voted: 'This participant has already voted online and is entitled to vote in the following questions:'
             voted: The participant has voted
           create:

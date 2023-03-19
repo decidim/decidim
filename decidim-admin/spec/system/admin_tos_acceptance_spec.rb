@@ -37,7 +37,7 @@ describe "AdminTosAcceptance", type: :system do
         visit decidim_admin.newsletters_path
       end
 
-      it "says that you're not authorized" do
+      it "says that you are not authorized" do
         within ".callout.alert" do
           expect(page).to have_text("You are not authorized to perform this action")
         end

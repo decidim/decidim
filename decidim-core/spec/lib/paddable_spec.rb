@@ -26,7 +26,7 @@ module Decidim
         allow(paddable).to receive(:pad).and_return(pad)
       end
 
-      context "when there's no pad" do
+      context "when there is no pad" do
         let(:pad) { nil }
 
         it "returns nil" do
@@ -44,7 +44,7 @@ module Decidim
         allow(paddable).to receive(:pad).and_return(pad)
       end
 
-      context "when there's no pad" do
+      context "when there is no pad" do
         let(:pad) { nil }
 
         it "returns nil" do
@@ -58,7 +58,7 @@ module Decidim
     end
 
     describe "pad" do
-      context "when there's no Etherpad service configured" do
+      context "when there is no Etherpad service configured" do
         let(:etherpad_config) { nil }
 
         it "returns nil" do

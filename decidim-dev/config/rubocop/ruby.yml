@@ -1,7 +1,3 @@
-require:
-  - rubocop-rspec
-  - rubocop-faker
-
 # Common configuration.
 AllCops:
   Include:
@@ -10,16 +6,16 @@ AllCops:
     - "**/*.rake"
     - "**/*.gemspec"
     - "**/*.ru"
+    - "**/Capfile"
     - "**/Gemfile"
     - "**/Rakefile"
   Exclude:
+    - db/schema.rb
     - "**/node_modules/**/*"
     - "**/vendor/**/*"
-    - "development_app/**/*"
-    - "decidim_app-design/node_modules/**/*"
+    - "development_app*/**/*"
     - "spec/decidim_dummy_app/**/*"
     - "node_modules/**/*"
-    - "decidim-initiatives/lib/gem_overrides/origami/date.rb"
   # Default formatter will be used if no -f/--format option is given.
   DefaultFormatter: progress
   # Cop names are not displayed in offense messages by default. Change behavior
@@ -71,11 +67,6 @@ AllCops:
   # Else if .ruby-version exists and it contains an MRI version it is used.
   # Otherwise we fallback to the oldest officially supported Ruby version (2.0).
   TargetRubyVersion: 3.1
-
-#  RSpec:
-#    Patterns:
-#      - "(?:^|/)spec/"
-#      - "(?:^|/)test/"
 
 # Indent private/protected/public as deep as method definitions
 Layout/AccessModifierIndentation:
@@ -182,7 +173,7 @@ Layout/ParameterAlignment:
 Style/ArrayCoercion:
   Description: >-
     Use Array() instead of explicit Array check or [*var], when dealing
-    with a variable you want to treat as an Array, but you're not certain it's an array.
+    with a variable you want to treat as an Array, but you are not certain it's an array.
   StyleGuide: '#array-coercion'
   Safe: false
   Enabled: false
@@ -426,6 +417,10 @@ Layout/EmptyLineBetweenDefs:
   # need an empty line between them.
   AllowAdjacentOneLineDefs: false
 
+Layout/EmptyLineAfterMagicComment:
+  Exclude:
+    - db/migrate/*.rb
+
 Layout/EmptyLinesAroundBlockBody:
   EnforcedStyle: no_empty_lines
   SupportedStyles:
@@ -460,10 +455,10 @@ Layout/ExtraSpacing:
 
 Naming/FileName:
   Exclude:
+    - "**/Capfile"
     - "**/Gemfile"
     - "**/Rakefile"
     - "**/*.gemspec"
-    - "decidim-dev/lib/decidim-dev.rb"
   # When true, requires that each source file should define a class or module
   # with a name which matches the file name (converted to ... case).
   # It further expects it to be nested inside modules which match the names
@@ -1096,6 +1091,9 @@ Metrics/AbcSize:
   Max: 15
   Enabled: false
 
+Metrics/BlockLength:
+  Enabled: false
+
 Metrics/BlockNesting:
   Max: 3
 
@@ -1114,7 +1112,6 @@ Metrics/CyclomaticComplexity:
   Max: 9
   Exclude:
     - "bin/bundle"
-    - "decidim-admin/app/queries/decidim/admin/newsletter_recipients.rb"
     - "**/*/dummy_authorization_handler.rb"
     - "**/*/permissions.rb"
 
@@ -1126,13 +1123,10 @@ Metrics/MethodLength:
 Metrics/ParameterLists:
   Max: 5
   CountKeywordArgs: true
-  Exclude:
-    - "decidim-core/lib/decidim/filter_form_builder.rb"
 
 Metrics/PerceivedComplexity:
   Max: 10
   Exclude:
-    - "decidim-admin/app/queries/decidim/admin/newsletter_recipients.rb"
     - "**/*/dummy_authorization_handler.rb"
     - "**/*/permissions.rb"
 
@@ -1211,559 +1205,3 @@ Lint/UnusedBlockArgument:
 Lint/UnusedMethodArgument:
   AllowUnusedKeywordArguments: false
   IgnoreEmptyMethods: true
-
-##################### Performance ############################
-
-Metrics/BlockLength:
-  Enabled: false
-
-RSpec/BeforeAfterAll:
-  Enabled: true
-
-RSpec/ContextWording:
-  Enabled: true
-  Prefixes:
-    - when
-    - with
-    - without
-    - and
-
-RSpec/DescribeClass:
-  Exclude:
-    - spec/gemfiles_spec.rb
-    - spec/webpacker_spec.rb
-    - spec/spellcheck_spec.rb
-    - spec/i18n_spec.rb
-    - "**/*/spec/**/*_badge_spec.rb"
-    - decidim-core/spec/lib/global_engines_spec.rb
-    - "**/tasks/**/*"
-
-RSpec/EmptyExampleGroup:
-  Exclude:
-    - decidim-core/spec/lib/participatory_space_manifest_spec.rb
-
-RSpec/ExampleLength:
-  Max: 49
-
-RSpec/ExpectInHook:
-  Enabled: false
-
-RSpec/IteratedExpectation:
-  Enabled: true
-
-RSpec/LetSetup:
-  Enabled: false
-
-RSpec/MessageSpies:
-  Enabled: false
-
-RSpec/MultipleExpectations:
-  Enabled: false
-
-RSpec/MultipleMemoizedHelpers:
-  Max: 35
-  Exclude:
-    - decidim-assemblies/spec/forms/assembly_form_spec.rb
-
-RSpec/NestedGroups:
-  Max: 7
-
-RSpec/NamedSubject:
-  Enabled: false
-
-RSpec/RepeatedExampleGroupDescription:
-  Enabled: true
-
-RSpec/RepeatedExampleGroupBody:
-  Enabled: true
-
-RSpec/VerifiedDoubles:
-  Enabled: false
-
-RSpec/LeakyConstantDeclaration:
-  Enabled: false
-
-RSpec/DescribedClass:
-  Enabled: false
-
-# This is the default configuration file.
-
-Faker/DeprecatedArguments:
-  Description: 'Checks that Faker arguments style is based on Faker 2.'
-  Enabled: true
-  VersionAdded: '0.1'
-  Reference: 'https://github.com/faker-ruby/faker/blob/master/CHANGELOG.md#v20-2019-31-07'
-  ArgumentKeywords:
-    #
-    # FakerClassName:
-    #   method_name:
-    #     - keyword_name_for_first_argument
-    #     - keyword_name_for_second_argument
-    #     - keyword_name_for_third_argument
-    #
-    Faker::Dune:
-      quote:
-        - character
-      saying:
-        - source
-    Faker::Books::Lovecraft:
-      fhtagn:
-        - number
-      sentence:
-        - word_count
-        - random_words_to_add
-      words:
-        - number
-        - spaces_allowed
-      sentences:
-        - number
-      paragraph:
-        - sentence_count
-        - random_sentences_to_add
-      paragraphs:
-        - number
-      paragraph_by_chars:
-        - characters
-    Faker::Address:
-      city:
-        - options
-      street_address:
-        - include_secondary
-      zip_code:
-        - state_abbreviation
-      country_by_code:
-        - code
-      country_name_to_code:
-        - name
-    Faker::Alphanumeric:
-      alpha:
-        - number
-      alphanumeric:
-        - number
-    Faker::App:
-      semantic_version:
-        - major
-        - minor
-        - patch
-    Faker::Avatar:
-      image:
-        - slug
-        - size
-        - format
-        - set
-        - bgset
-    Faker::Bank:
-      account_number:
-        - digits
-      iban:
-        - country_code
-    Faker::Boolean:
-      boolean:
-        - true_ratio
-    Faker::ChileRut:
-      rut:
-        - min_rut
-        - fixed
-      full_rut:
-        - min_rut
-        - fixed
-    Faker::Code:
-      isbn:
-        - base
-      ean:
-        - base
-      nric:
-        - min_age
-        - max_age
-    Faker::Commerce:
-      promotion_code:
-        - digits
-      department:
-        - max
-        - fixed_amount
-      price:
-        - range
-        - as_string
-    Faker::Company:
-      polish_register_of_national_economy:
-        - length
-      brazilian_company_number:
-        - formatted
-    Faker::CryptoCoin:
-      coin_name:
-        - coin
-      acronym:
-        - coin
-      url_logo:
-        - coin
-    Faker::Date:
-      between:
-        - from
-        - to
-      between_except:
-        - from
-        - to
-        - excepted
-      forward:
-        - days
-      backward:
-        - days
-      birthday:
-        - min_age
-        - max_age
-    Faker::Demographic:
-      height:
-        - unit
-    Faker::DrivingLicence:
-      british_driving_licence:
-        - last_name
-        - initials
-        - gender
-        - date_of_birth
-    Faker::File:
-      dir:
-        - segment_count
-        - root
-        - directory_separator
-      file_name:
-        - dir
-        - name
-        - ext
-        - directory_separator
-    Faker::Fillmurray:
-      image:
-        - grayscale
-        - width
-        - height
-    Faker::Finance:
-      vat_number:
-        - country
-    Faker::Hipster:
-      words:
-        - number
-        - supplemental
-        - spaces_allowed
-      sentence:
-        - word_count
-        - supplemental
-        - random_words_to_add
-      sentences:
-        - number
-        - supplemental
-      paragraph:
-        - sentence_count
-        - supplemental
-        - random_sentences_to_add
-      paragraphs:
-        - number
-        - supplemental
-      paragraph_by_chars:
-        - characters
-        - supplemental
-    Faker::IDNumber:
-      brazilian_citizen_number:
-        - formatted
-      brazilian_id:
-        - formatted
-    Faker::Internet:
-      email:
-        - name
-        - separators
-      free_email:
-        - name
-      safe_email:
-        - name
-      username:
-        - specifier
-        - separators
-      password:
-        - min_length
-        - max_length
-        - mix_case
-        - special_characters
-      domain_name:
-        - subdomain
-      fix_umlauts:
-        - string
-      mac_address:
-        - prefix
-      url:
-        - host
-        - path
-        - scheme
-      slug:
-        - words
-        - glue
-      user_agent:
-        - vendor
-    Faker::Invoice:
-      amount_between:
-        - from
-        - to
-      creditor_reference:
-        - ref
-      reference:
-        - ref
-    Faker::Json:
-      shallow_json:
-        - width
-        - options
-      add_depth_to_json:
-        - json
-        - width
-        - options
-    Faker::Lorem:
-      words:
-        - number
-        - supplemental
-      characters:
-        - number
-      sentence:
-        - word_count
-        - supplemental
-        - random_words_to_add
-      sentences:
-        - number
-        - supplemental
-      paragraph:
-        - sentence_count
-        - supplemental
-        - random_sentences_to_add
-      paragraphs:
-        - number
-        - supplemental
-      paragraph_by_chars:
-        - number
-        - supplemental
-      question:
-        - word_count
-        - supplemental
-        - random_words_to_add
-      questions:
-        - number
-        - supplemental
-    Faker::LoremFlickr:
-      image:
-        - size
-        - search_terms
-        - match_all
-      grayscale_image:
-        - size
-        - search_terms
-        - match_all
-      pixelated_image:
-        - size
-        - search_terms
-        - match_all
-      colorized_image:
-        - size
-        - color
-        - search_terms
-        - match_all
-    Faker::LoremPixel:
-      image:
-        - size
-        - is_gray
-        - category
-        - number
-        - text
-        - secure
-    Faker::Markdown:
-      sandwich:
-        - sentences
-        - repeat
-    Faker::Measurement:
-      height:
-        - amount
-      length:
-        - amount
-      volume:
-        - amount
-      weight:
-        - amount
-      metric_height:
-        - amount
-      metric_length:
-        - amount
-      metric_volume:
-        - amount
-      metric_weight:
-        - amount
-    Faker::Name:
-      initials:
-        - number
-    Faker::NationalHealthService:
-      check_digit:
-        - number
-    Faker::Number:
-      number:
-        - digits
-      leading_zero_number:
-        - digits
-      decimal_part:
-        - digits
-      decimal:
-        - l_digits
-        - r_digits
-      hexadecimal:
-        - digits
-      normal:
-        - mean
-        - standard_deviation
-      between:
-        - from
-        - to
-      within:
-        - range
-      positive:
-        - from
-        - to
-      negative:
-        - from
-        - to
-    Faker::Omniauth:
-      google:
-        - name
-        - email
-        - uid
-      facebook:
-        - name
-        - email
-        - username
-        - uid
-      twitter:
-        - name
-        - nickname
-        - uid
-      linkedin:
-        - name
-        - email
-        - uid
-      github:
-        - name
-        - email
-        - uid
-    Faker::PhoneNumber:
-      subscriber_number:
-        - length
-    Faker::Placeholdit:
-      image:
-        - size
-        - format
-        - background_color
-        - text_color
-        - text
-    Faker::Relationship:
-      familial:
-        - connection
-    Faker::Source:
-      hello_world:
-        - lang
-      print:
-        - str
-        - lang
-      print_1_to_10:
-        - lang
-    Faker::String:
-      random:
-        - length
-    Faker::Stripe:
-      valid_card:
-        - card_type
-      valid_token:
-        - card_type
-      invalid_card:
-        - card_error
-      ccv:
-        - card_type
-    Faker::Time:
-      between:
-        - from
-        - to
-        - format
-      between_dates:
-        - from
-        - to
-        - period
-        - format
-      forward:
-        - days
-        - period
-        - format
-      backward:
-        - days
-        - period
-        - format
-    Faker::Twitter:
-      user:
-        - include_status
-        - include_email
-      status:
-        - include_user
-        - include_photo
-      status_entities:
-        - include_photo
-    Faker::Types:
-      rb_string:
-        - words
-      rb_integer:
-        - from
-        - to
-      rb_hash:
-        - number
-        - type
-      complex_rb_hash:
-        - number
-      rb_array:
-        - len
-    Faker::Vehicle:
-      model:
-        - make_of_model
-      mileage:
-        - min
-        - max
-      license_plate:
-        - state_abbreviation
-    Faker::WorldCup:
-      group:
-        - group
-      roster:
-        - country
-        - type
-    Faker::Dota:
-      quote:
-        - hero
-    Faker::Movies::StarWars:
-      quote:
-        - character
-    Decidim::Faker::Localized:
-      words:
-        - number
-        - supplemental
-      characters:
-        - number
-      sentence:
-        - word_count
-        - supplemental
-        - random_words_to_add
-      sentences:
-        - number
-        - supplemental
-      paragraph:
-        - sentence_count
-        - supplemental
-        - random_sentences_to_add
-      paragraphs:
-        - number
-        - supplemental
-      paragraph_by_chars:
-        - number
-        - supplemental
-      question:
-        - word_count
-        - supplemental
-        - random_words_to_add
-      questions:
-        - number
-        - supplemental
-

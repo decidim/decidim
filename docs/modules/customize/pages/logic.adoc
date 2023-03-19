@@ -49,7 +49,7 @@ The benefit of using concerns is that when we update Decidim gems to new version
 
 Concerns should be placed into the `concerns` folder within the top-level folder where you want to apply these concerns. In this case, we are adding a concern for the forms classes, so we should place the concerns related to forms to `app/forms/concerns`. If you do not have this folder available, create it first `mkdir -p app/forms/concerns`.
 
-Now, let's move our modifications from the first copy-paste example into a concern.
+Now, we can move our modifications from the first copy-paste example into a concern.
 
 . Create the file `app/forms/concerns/admin_project_form_extensions.rb`, and make the desired changes in that file as follows:
 [source,ruby]

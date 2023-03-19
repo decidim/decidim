@@ -5,7 +5,7 @@ module Decidim
     # Class uses to retrieve initiatives that have been a long time in validating
     # state
     class SupportPeriodFinishedInitiatives < Decidim::Query
-      # Retrieves the initiatives ready to be evaluated to decide if they've been
+      # Retrieves the initiatives ready to be evaluated to decide if they have been
       # accepted or not.
       def query
         Decidim::Initiative
