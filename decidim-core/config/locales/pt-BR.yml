@@ -93,7 +93,6 @@ pt-BR:
         success: Sua conta foi excluída.
       download_your_data_export:
         file_no_exists: O arquivo não existe
-        notice: Seus dados estão atualmente em andamento. Você receberá um e-mail quando estiver concluído.
       show:
         change_password: Mudar senha
         update_account: Atualizar conta
@@ -914,7 +913,6 @@ pt-BR:
         verified: Verificado
     pad_iframe:
       disclaimer: O conteúdo deste bloco é escrito por usuários registrados e expressa suas opiniões. %{organization} não pode ser responsabilizado pelo seu conteúdo.
-      explanation: Use esse bloco para fazer anotações de forma colaborativa durante a reunião, para que seja mais fácil escrever o minuto depois.
       pad: Almofada
     pages:
       home:
