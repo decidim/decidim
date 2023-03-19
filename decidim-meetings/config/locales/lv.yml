@@ -340,7 +340,6 @@ lv:
       registrations:
         create:
           invalid: Pievienojoties šai sanāksmei, radās problēma
-          success: Jūs veiksmīgi pievienojāties sanāksmei. Tā kā esat reģistrējies šai sanāksmei, jūs tiksiet informēts par jaunumiem, kas ar to saistīti.
         decline_invitation:
           invalid: Noraidot ielūgumu, radās problēma.
           success: Jūs veiksmīgi noraidījāt ielūgumu.
