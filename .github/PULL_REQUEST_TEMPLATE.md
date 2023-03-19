@@ -16,7 +16,7 @@ Please see https://github.com/decidim/decidim/discussions/9512
 *Describe the best way to test or validate your PR.*
 
 ### :camera: Screenshots
-*Please add screenshots of the changes you're proposing*
+*Please add screenshots of the changes you are proposing*
 ![Description](URL)
 
 :hearts: Thank you!

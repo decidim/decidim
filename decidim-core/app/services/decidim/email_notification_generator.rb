@@ -13,9 +13,9 @@ module Decidim
     # event_class - A class that wraps the event.
     # resource - an instance of a class implementing the `Decidim::Resource` concern.
     # followers - a collection of Users that receive the notification because
-    #   they're following it
+    #   they are following it
     # affected_users - a collection of Users that receive the notification because
-    #   they're affected by it
+    #   they are affected by it
     # extra - a Hash with extra information to be included in the notification.
     # rubocop:disable Metrics/ParameterLists
     def initialize(event, event_class, resource, followers, affected_users, extra)
