@@ -136,7 +136,6 @@ fr:
         success: Votre compte a été supprimé avec succès.
       download_your_data_export:
         file_no_exists: Le fichier n'existe pas
-        notice: Votre export est actuellement en cours. Vous recevrez un email quand il sera complet.
       email_change:
         body2: Envoyer à nouveau l'e-mail de vérification ? %{resend_link} ou %{cancel_link}.
         cancel: annuler
@@ -756,7 +755,6 @@ fr:
         result: Réalisations
     fingerprint:
       check: Vérifiez l'empreinte numérique
-      explanation: Le texte ci-dessous est une représentation raccourcie et hachée de ce contenu. Il est utile de s'assurer que le contenu n'a pas été falsifié, car une seule modification entraînerait une valeur totalement différente.
       online_calculator_name: calculateur de hash MD5 en ligne
       replicate_help: Cette empreinte numérique est calculée à l'aide d'un algorithme de hachage SHA256. Pour le reproduire vous-même, vous pouvez utiliser un %{online_calculator_link} et copier-coller les données.
       source: Source
@@ -1037,7 +1035,6 @@ fr:
     newsletter_mailer:
       newsletter:
         no_reply_notice: Cet e-mail a été envoyé à partir d'une adresse automatique qui ne peut pas recevoir d'e-mail. Veuillez ne pas répondre à ce message.
-        see_on_website: Vous ne pouvez pas voir cet email correctement ? Consultez la <a href="%{link}" target="_blank">version web</a>.
         unsubscribe: Pour ne plus recevoir ce type d'email, <a href="%{link}" target="_blank" class="unsubscribe">Désabonnez-vous</a>.
     newsletter_templates:
       basic_only_text:
@@ -1137,7 +1134,6 @@ fr:
         verified: Vérifié
     pad_iframe:
       disclaimer: Le contenu de ce bloc-notes est écrit par les utilisateurs enregistrés et exprime leurs opinions. %{organization} ne peut être tenu responsable de son contenu.
-      explanation: Utilisez ce pavé numérique pour prendre des notes en collaboration pendant la réunion afin de faciliter la rédaction minute après minute.
       pad: Pad
     pages:
       home:
