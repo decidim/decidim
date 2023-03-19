@@ -170,7 +170,6 @@ lt:
       update:
         error: Atnaujinant paskyrą kilo problema.
         success: Paskyra sėkmingai atnaujinta.
-        success_with_email_confirmation: Paskyra sėkmingai atnaujinta. Gausite el. laišką naujo el. pašto patvirtinimui.
     activity:
       time_ago: "Prieš %{time}"
     admin:
@@ -1098,7 +1097,6 @@ lt:
         notifications_sending_frequency: Kaip dažnai norite gauti pranešimus el. paštu?
         own_activity: Mano veikla, pvz., kai kas nors pakomentuoja mano pasiūlymą arba pamini mane
         push_notifications: Pranešimai
-        push_notifications_reminder: Norėdami gauti pranešimus iš platformos, pirmiausia turėsite juos leisti naršyklės nustatymuose.
         receive_notifications_about: Aš noriu gauti pranešimus apie
         update_notifications_settings: Išsaugoti pakeitimus
       update:
