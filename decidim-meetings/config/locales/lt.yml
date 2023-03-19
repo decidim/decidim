@@ -575,7 +575,6 @@ lt:
       registrations:
         create:
           invalid: Jungiantis prie šio susirinkimo iškilo problema.
-          success: Jūs prisijungėte prie susirinkimo. Kadangi užsiregistravote šiame posėdyje, jums bus pranešta, jeigu jo informacija bus atnaujinta.
         decline_invitation:
           invalid: Atmetant kvietimą iškilo problema.
           success: Jūs atmetėte kvietimą.
