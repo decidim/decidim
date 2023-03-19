@@ -936,7 +936,6 @@ gl:
     versions_list_item:
       back: Amosar todas as versións
     welcome_notification:
-      default_body: <p>Hola {{name}}, grazas por unirte a {{organization}} e benvido!</p><ul><li>Se queres ter unha idea rápida do que podes facer aquí, consulta a sección de <a href="{{help_url}}">Axuda</a> .</li><li>Unha vez que o liches, obterás a túa primeira insignia. Aquí tes unha lista de <a href="{{badges_url}}">de todas as insignias</a> que podes obter a medida que participas en {{organization}}</li><li>último pero non menos importante, únete a outras persoas, comparte con eles a experiencia de participar e participar do {{organization}}. Facer propostas, comentarios, debater, pensar como contribuír ao ben común, proporcionar argumentos para convencer, escoitar e ler para convencerse, expresar as túas ideas dun xeito concreto e directo, responder con paciencia e decisión, defender as túas ideas e manter unha mente aberta para colaborar e unirse ás ideas doutras persoas.</li></ul>
       default_subject: Grazas por unirte a {{organization}}!
   devise:
     confirmations:
