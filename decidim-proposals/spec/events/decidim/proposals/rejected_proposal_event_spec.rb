@@ -12,7 +12,7 @@ describe Decidim::Proposals::RejectedProposalEvent do
 
   describe "email_subject" do
     it "is generated correctly" do
-      expect(subject.email_subject).to eq("A proposal you're following has been rejected")
+      expect(subject.email_subject).to eq("A proposal you are following has been rejected")
     end
   end
 

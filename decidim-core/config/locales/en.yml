@@ -36,7 +36,7 @@ en:
       decidim/component_published_event: Active component
       decidim/demoted_membership: No longer a group admin
       decidim/gamification/badge_earned_event: Badge earned
-      decidim/gamification/level_up_event: You've leveled up
+      decidim/gamification/level_up_event: You have leveled up
       decidim/invited_to_group_event: Invited to group
       decidim/join_request_accepted_event: Join request accepted
       decidim/join_request_rejected_event: Join request rejected
@@ -402,7 +402,7 @@ en:
           title: Authorization has expired
         incomplete:
           cancel: Cancel
-          explanation: 'Even though you''re currently authorized with "%{authorization}", we need you to reauthorize because we lack the following data:'
+          explanation: 'Even though you are currently authorized with "%{authorization}", we need you to reauthorize because we lack the following data:'
           invalid_field: "%{field}"
           reauthorize: Reauthorize
           title: Please reauthorize
@@ -411,7 +411,7 @@ en:
           explanation: In order to perform this action, you need to be authorized with "%{authorization}".
           title: Authorization required
         ok:
-          title: You've been authorized while in this page. Please, reload the page to perform your action.
+          title: You have been authorized while in this page. Please, reload the page to perform your action.
         pending:
           explanation: In order to perform this action, you need to be authorized with "%{authorization}", but your authorization is still in progress.
           resume: Check your "%{authorization}" authorization progress.
@@ -643,7 +643,7 @@ en:
       not_found:
         back_home: Back home
         content_doesnt_exist: This address is incorrect or has been removed.
-        title: The page you're looking for cannot be found
+        title: The page you are looking for cannot be found
     events:
       amendments:
         amendment_accepted:
@@ -709,15 +709,15 @@ en:
         email_subject: An update to %{resource_title}
       gamification:
         badge_earned:
-          email_intro: Congratulations! You've earned the <a href="%{resource_url}">%{badge_name} badge</a> (level %{current_level}).
+          email_intro: Congratulations! You have earned the <a href="%{resource_url}">%{badge_name} badge</a> (level %{current_level}).
           email_outro: You have received this notification because you made activity on our website.
-          email_subject: 'You''ve earned a new badge: %{badge_name}!'
-          notification_title: Congratulations! You've earned the <a href="%{resource_path}">%{badge_name} badge</a> (level %{current_level}).
+          email_subject: 'You have earned a new badge: %{badge_name}!'
+          notification_title: Congratulations! You have earned the <a href="%{resource_path}">%{badge_name} badge</a> (level %{current_level}).
         level_up:
-          email_intro: Congratulations! You've reached level %{current_level} on the <a href="%{resource_url}">%{badge_name} badge</a>!
+          email_intro: Congratulations! You have reached level %{current_level} on the <a href="%{resource_url}">%{badge_name} badge</a>!
           email_outro: You have received this notification because you made activity on our website.
-          email_subject: You've reached level %{current_level} on the %{badge_name} badge!
-          notification_title: Congratulations! You've reached level %{current_level} on the <a href="%{resource_path}">%{badge_name} badge</a>!
+          email_subject: You have reached level %{current_level} on the %{badge_name} badge!
+          notification_title: Congratulations! You have reached level %{current_level} on the <a href="%{resource_path}">%{badge_name} badge</a>!
       groups:
         demoted_membership:
           email_intro: An admin of the <a href="%{resource_url}">%{user_group_name}</a> group has removed your admin rights to that group.
@@ -894,7 +894,7 @@ en:
           name: Followers
           next_level_in: Get %{score} more people to follow you to reach the next level!
           unearned_another: This participant does not have any followers yet.
-          unearned_own: You've got no followers yet.
+          unearned_own: You have got no followers yet.
         index:
           badge_title: "%{name} badge"
           how: How can you earn it
@@ -902,7 +902,7 @@ en:
           title: Badges
       description: Badges are recognitions to participant actions and progress in the platform. As you start discovering, participating and interacting in the platform, you will earn different badges.
       level: Level %{level}
-      reached_top: You've reached the top level for this badge.
+      reached_top: You have reached the top level for this badge.
       title: What are the badges?
     group_admins:
       actions:
@@ -971,7 +971,7 @@ en:
         success: Join request successfully created. An admin will review your request before accepting you to the group.
       leave:
         error: There was a problem leaving the group.
-        last_admin: You cannot remove yourself from this group as you're the last administrator. Make another member an administrator in order to leave the group.
+        last_admin: You cannot remove yourself from this group as you are the last administrator. Make another member an administrator in order to leave the group.
         success: Group successfully abandoned.
       members:
         accept_or_reject_join_requests: 'The following users have applied to join this group. Accept or reject their requests:'
@@ -1135,7 +1135,7 @@ en:
     newsletter_mailer:
       newsletter:
         no_reply_notice: This email was sent from a notification email address that cannot accept incoming email. Please do not reply to this message.
-        note: You received this email because you're subscribed to newsletters on %{organization_name}. You can change your settings on your <a href="%{link}">notifications page</a>.
+        note: You received this email because you are subscribed to newsletters on %{organization_name}. You can change your settings on your <a href="%{link}">notifications page</a>.
         see_on_website: Can’t see this email correctly? View it on the <a href="%{link}" target="_blank" class="see-on-website">website</a>.
         unsubscribe: To opt out of receiving this type of email, <a href="%{link}" target="_blank" class="unsubscribe">Unsubscribe</a>.
     newsletter_templates:
@@ -1203,7 +1203,7 @@ en:
       show:
         administrators: Administrators
         allow_public_contact: Allow anyone to send me a direct message, even if I do not follow them.
-        allow_push_notifications: Get push notifications to find out what is going on when you're not on the platform. You can turn them off anytime.
+        allow_push_notifications: Get push notifications to find out what is going on when you are not on the platform. You can turn them off anytime.
         direct_messages: Receive direct messages from anyone
         email_on_moderations: I want to receive an email every time something or someone is reported for moderation.
         everything_followed: Everything I follow
@@ -1227,7 +1227,7 @@ en:
         success: Your notifications settings were successfully updated.
     offline:
       show:
-        message: It looks like you're currently offline. Please, try again later.
+        message: It looks like you are currently offline. Please, try again later.
         retry: Retry
     open_data:
       not_available_yet: The Open Data files are not yet available, please try again in a few minutes.
@@ -1536,7 +1536,7 @@ en:
       show:
         my_interests: My interests
         no_scopes: This organization does not have any scope yet!
-        select_your_interests: Select the topics you're interested in to receive events related to them in your profile Timeline tab.
+        select_your_interests: Select the topics you are interested in to receive events related to them in your profile Timeline tab.
         update_my_interests: Update my interests
       update:
         error: There was a problem updating your interests.
@@ -1643,13 +1643,13 @@ en:
         someone_invited_you_as_private_user: Someone has invited you as private participant of %{application}, you can accept it through the link below.
         subject: Invitation instructions
       invite_admin:
-        subject: You've been invited to manage %{organization}
+        subject: You have been invited to manage %{organization}
       invite_collaborator:
-        subject: You've been invited to collaborate on %{organization}
+        subject: You have been invited to collaborate on %{organization}
       invite_private_user:
-        subject: You've been invited to a private participatory process on %{organization}
+        subject: You have been invited to a private participatory process on %{organization}
       organization_admin_invitation_instructions:
-        subject: You've been invited to manage %{organization}
+        subject: You have been invited to manage %{organization}
       password_change:
         greeting: Hello %{recipient}!
         message: We are contacting you to notify you that your password has been changed.
@@ -1860,7 +1860,7 @@ en:
         mark_all_as_read: Mark all as read
         mark_as_read: Mark as read
       offline_banner:
-        cache_version_page: Oooops! Your network is offline. This is a previously cached version of the page you're visiting, perhaps the content is not up to date.
+        cache_version_page: Oooops! Your network is offline. This is a previously cached version of the page you are visiting, perhaps the content is not up to date.
       social_media_links:
         facebook: "%{organization} at Facebook"
         github: "%{organization} at GitHub"

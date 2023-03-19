@@ -3,7 +3,7 @@
 module Decidim
   # This cell renders a link in the top navbar
   # so admins can easily manage data without having to look for it at the admin
-  # panel when they're at a public page.
+  # panel when they are at a public page.
   # example use:
   #   <%= cell("decidim/navbar_admin_link", { link_url: link_url, link_options: link_options }) %>
   #
