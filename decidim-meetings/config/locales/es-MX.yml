@@ -583,7 +583,6 @@ es-MX:
       registrations:
         create:
           invalid: Ha habido un problema al unirse a este encuentro.
-          success: Te has inscrito al encuentro con éxito.
         decline_invitation:
           invalid: Ha habido un problema al rechazar la invitación.
           success: Has rechazado la invitación con éxito.
