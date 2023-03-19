@@ -1215,7 +1215,6 @@ nl:
       show:
         version_index: Versie %{index}
     welcome_notification:
-      default_body: <p>Hi {{name}}, bedankt om lid te worden van {{organization}} en welkom!</p><ul><li>Als u snel een idee wilt krijgen van wat u hier kunt doen, bekijk dan het gedeelte <a href="{{help_url}}">Help</a>.</li><li>Zodra u het heeft gelezen, krijgt u uw eerste badge. Hier is een <a href="{{badges_url}}">lijst van alle badges</a> die je kunt krijgen als je deelneemt {{organization}}</li><li>Last but not least, voeg je bij andere mensen, deel met hen de ervaring van betrokkenheid en deelname aan {{organization}}. Doe voorstellen, reageer, debatteer, denk na over hoe je een bijdrage kunt leveren aan het algemeen belang, lever argumenten aan om te overtuigen, luister en lees om overtuigd te worden, vertel je ideeën op een concrete en directe manier, reageer met geduld en vastbeslotenheid, verdedig je ideeën en houd een open geest om samen te werken en zich aan te sluiten bij de ideeën van andere mensen.</li></ul>
       default_subject: Bedankt dat je lid bent geworden van {{organization}}!
     wizard_step_form:
       wizard_aside:
