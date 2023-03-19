@@ -94,7 +94,6 @@ tr:
       update:
         error: Hesabınız güncellenirken bir hata oluştu.
         success: Hesabınız başarıyla güncellendi.
-        success_with_email_confirmation: Hesabınız başarıyla güncellendi. Yeni e-posta adresinizi onaylamak için bir e-posta alacaksınız.
     admin:
       actions:
         cancel: İptal Et
