@@ -291,7 +291,6 @@ tr:
           Excel: Excel
           FormPDF: PDF
           JSON: JSON
-        notice: İhracatınız şu anda devam ediyor. Tamamlandığında bir e-posta alacaksınız.
       filters:
         category_id_eq:
           label: Kategori
