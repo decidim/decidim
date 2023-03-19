@@ -381,7 +381,6 @@ cs:
           Excel: Excel
           FormPDF: PDF
           JSON: JSON
-        notice: Váš export právě probíhá. Po jeho dokončení obdržíte e-mail.
       filters:
         category_id_eq:
           label: Kategorie
