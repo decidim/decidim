@@ -521,7 +521,7 @@ en:
               one: Missing column %{columns}.
               other: Missing columns %{columns}.
         error: There was a problem during the import.
-        example_error: Could not create an example for the given type.
+        example_error: There was a problem creating an example for the given type.
         new:
           accepted_mime_types:
             csv: CSV

@@ -1167,7 +1167,7 @@ en:
     newsletters_opt_in:
       unathorized: Sorry, this link is no longer available.
       update:
-        error: Something wrong happened.
+        error: There was a problem saving the newsletter settings.
         success: Newsletter settings successfully updated.
     newsletters_opt_in_mailer:
       notify:
