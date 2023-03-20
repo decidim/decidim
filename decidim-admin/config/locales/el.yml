@@ -558,8 +558,6 @@ el:
           blocked: Αποκλεισμένος
           unblocked: Δεν έχει μπλοκαριστεί
       moderations:
-        index:
-          title: Εποπτεύσεις
         report:
           reasons:
             does_not_belong: Δεν ανήκει
