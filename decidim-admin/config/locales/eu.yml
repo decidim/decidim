@@ -617,8 +617,6 @@ eu:
           blocked: Blokeatuta
           unblocked: Ez blokeatuta
       moderations:
-        index:
-          title: ' Salaketak'
         report:
           reasons:
             does_not_belong: Ez du zer ikusirik
