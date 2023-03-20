@@ -440,8 +440,6 @@ zh-CN:
             state: 状态
             users_count: 参与者数量
       moderations:
-        index:
-          title: 版面
         report:
           reasons:
             does_not_belong: 不属于哪个国家
