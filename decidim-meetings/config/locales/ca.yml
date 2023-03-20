@@ -583,6 +583,7 @@ ca:
       registrations:
         create:
           invalid: S'ha produït un error en inscriure's a aquesta trobada.
+          success: T'has inscrit a la trobada amb èxit. Per estar inscrita, rebràs notificacions si s'hi produeixen actualitzacions.
         decline_invitation:
           invalid: S'ha produït un error en declinar la invitació.
           success: Has declinat la invitació amb èxit.
