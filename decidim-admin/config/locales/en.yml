@@ -667,7 +667,7 @@ en:
           nickname: Nickname
           reason: Reason
           reports: Reports count
-          title: Listing participants
+          title: Reported participants
         report:
           reasons:
             does_not_belong: Does not belong
