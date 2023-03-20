@@ -387,6 +387,7 @@ ca:
           verifiable_results:
             checksum: 'Suma de comprovació SHA256 de l''arxiu:'
             description:
+              not_ready: L'arxiu verificable de l'elecció i la suma de comprovació SHA256 encara no estan disponibles. Quan es publiquin els resultats, podràs verificar aquesta elecció.
               ready: 'Aquí tens l''opció de verificar l''elecció. En primer lloc, has de descarregar l''arxiu i assegurar-te que no s''ha corromput. Per a això, executa el següent comando i comprova que la sortida coincideix amb la suma de comprovació:'
             how_to_verify: 'Una vegada que hagis descarregat l''arxiu i t''hagis assegurat que està bé, pots procedir a executar el verificador universal. Clona <a href=''https://github.com/decidim/decidim-bulletin-board''>aquest repositori</a> i, des de la carpeta arrel, executa el següent comando:'
             title: Verificar resultats de l'elecció
@@ -568,6 +569,7 @@ ca:
                 invalid_key: Les claus d'identificació a l'arxiu pujat no es poden carregar.
                 invalid_public_key: Les claus d'identificació a l'arxiu pujat no coincideixen amb la clau d'identificació pública emmagatzemada.
               upload_legend: Al servidor hi consten les teves claus d'identificació públiques, però el teu navegador encara no les té. Cal que importis l'arxiu amb les teves claus d'identificació al teu ordinador des de la còpia de seguretat que has creat després de generar-les.
+            not_supported_browser_description: Sembla que estàs usant un navegador web que no pot ser utilitzat per a actuar com a garant. Assegura't que estàs usant la versió més recent del teu navegador, o intenta fer servir qualsevol altre dels navegadors més populars per a poder completar les teves tasques com a garant.
             not_supported_browser_title: Actualitza el navegador per a actuar com a garant
             trustee_role_description: Se t'ha assignat com a garant en algunes de les eleccions celebrades en aquesta plataforma.
           update:
@@ -578,6 +580,7 @@ ca:
           back: Començar de nou el procés de votació
           ballot_hash: 'L''identificador de la teva papereta és:'
           cast: Dipositar la papereta per a finalitzar el teu vot
+          description: Aquí tens les opcions per emetre la teva papereta perquè sigui degudament comptada o, alternativament, pots auditar que la teva papereta hagi estat xifrada correctament. Per raons de seguretat, l'auditoria de la teva papereta s'invalidarà. Això vol dir, que per a emetre el teu vot hauràs de reiniciar el procés de votació.
           header: 'La papereta està xifrada: pots dipositar-la o auditar-la'
         casting:
           header: El vot s'està dipositant...
@@ -1100,6 +1103,7 @@ ca:
             info_text: Tancament electoral del punt de votació.
           sign:
             cancel: Cancel·lar
+            check_box: Ho he revisat i és idèntic al certificat físic de tancament electoral
             close_modal: Tancar
             confirm: D'acord, continuar
             error: Hi ha hagut un error. Si us plau, torna-ho a provar.
@@ -1118,6 +1122,7 @@ ca:
             census_verified_with_online_vote: Aquesta participant ja ha votat en línia. Si vota presencialment, la votació prèvia serà invalidada i aquest serà el seu vot definitiu.
             complete_voting: Completar el vot
             identify_another: Identificar una altra participant
+            questions_title: 'Tenen dret a vot a les següents preguntes:'
             questions_title_voted: 'Aquesta participant ja ha votat en línia i té dret a votar a les següents preguntes:'
             voted: La participant ha votat
           create:
