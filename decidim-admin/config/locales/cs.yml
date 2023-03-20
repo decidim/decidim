@@ -562,7 +562,6 @@ cs:
         area_types: Typy oblastí
         areas: Oblasti
         configuration: Konfigurace
-        content: Obsah
         dashboard: Ovládací panel
         external_domain_whitelist: Povolené externí domény
         help_sections: Sekce nápovědy
@@ -671,7 +670,6 @@ cs:
           nickname: Přezdívka
           reason: Důvod
           reports: Počet zpráv
-          title: Výpis účastníků
         report:
           reasons:
             does_not_belong: Nepatří
@@ -681,8 +679,6 @@ cs:
           blocked: Blokováno
           unblocked: Neblokováno
       moderations:
-        index:
-          title: Moderování
         report:
           reasons:
             does_not_belong: Nepatří
@@ -1142,8 +1138,6 @@ cs:
   layouts:
     decidim:
       admin:
-        global_moderations:
-          title: Moderování obsahu
         newsletters:
           title: Zpravodaje
         settings:
