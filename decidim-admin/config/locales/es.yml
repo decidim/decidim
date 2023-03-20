@@ -528,7 +528,6 @@ es:
         area_types: Tipos de área
         areas: Áreas
         configuration: Configuración
-        content: Contenido
         dashboard: Panel de control
         external_domain_whitelist: Dominios externos permitidos
         help_sections: Secciones de ayuda
@@ -637,7 +636,6 @@ es:
           nickname: Alias
           reason: Motivo
           reports: Cantidad de veces reportado
-          title: Listado de participantes
         report:
           reasons:
             does_not_belong: No pertenece
@@ -647,8 +645,6 @@ es:
           blocked: Bloqueado
           unblocked: No bloqueado
       moderations:
-        index:
-          title: Moderaciones
         report:
           reasons:
             does_not_belong: No pertenece
@@ -1070,8 +1066,6 @@ es:
   layouts:
     decidim:
       admin:
-        global_moderations:
-          title: Moderaciones de contenido
         newsletters:
           title: Boletines
         settings:
