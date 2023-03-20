@@ -186,6 +186,9 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
 
       context "when publishing as a proposal" do
         before do
+          within ".view-header" do
+            expect(page).to have_content(collaborative_draft.title)
+          end
           login_as author, scope: :user
           visit current_path
           within ".header .title-bar .topbar__user__logged" do
@@ -226,6 +229,9 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
 
       context "when visits an non author user" do
         before do
+          within ".view-header" do
+            expect(page).to have_content(collaborative_draft.title)
+          end
           login_as user, scope: :user
           visit current_path
           within ".header .title-bar .topbar__user__logged" do
@@ -338,6 +344,9 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
 
       context "when the author visits the collaborative draft" do
         before do
+          within ".view-header" do
+            expect(page).to have_content(collaborative_draft.title)
+          end
           login_as author, scope: :user
           visit current_path
           within ".header .title-bar .topbar__user__logged" do
