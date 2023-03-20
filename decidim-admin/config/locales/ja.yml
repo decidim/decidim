@@ -552,7 +552,6 @@ ja:
         area_types: エリア種別
         areas: エリア
         configuration: 設定
-        content: コンテンツ
         dashboard: ダッシュボード
         external_domain_whitelist: 許可された外部ドメイン
         help_sections: ヘルプセクション
@@ -661,7 +660,6 @@ ja:
           nickname: ニックネーム
           reason: 理由
           reports: レポート数
-          title: 参加者一覧
         report:
           reasons:
             does_not_belong: 所属していない
@@ -671,8 +669,6 @@ ja:
           blocked: ブロック済
           unblocked: 未ブロック
       moderations:
-        index:
-          title: モデレーション
         report:
           reasons:
             does_not_belong: 属していません
@@ -1133,8 +1129,6 @@ ja:
   layouts:
     decidim:
       admin:
-        global_moderations:
-          title: コンテンツモデレーション
         newsletters:
           title: ニュースレター
         settings:
