@@ -136,6 +136,7 @@ ca:
         success: El teu compte s'ha eliminat correctament.
       download_your_data_export:
         file_no_exists: L'arxiu no existeix
+        notice: La descàrrega de les teves dades està en curs. Rebràs un correu electrònic quan estigui completa.
       email_change:
         body2: Cal que et reenviem el correu de verificació? %{resend_link} o %{cancel_link}.
         cancel: cancel·lar
@@ -150,6 +151,7 @@ ca:
       update:
         error: S'ha produït un error en actualitzar el teu compte.
         success: El teu compte s'ha actualitzat correctament.
+        success_with_email_confirmation: El teu compte s'ha actualitzat correctament. Rebràs un correu electrònic per confirmar la teva nova adreça de correu electrònic.
     activity:
       time_ago: "Fa %{time}"
     admin:
@@ -1116,6 +1118,7 @@ ca:
         notifications_sending_frequency: Amb quina freqüència vols rebre el correu de notificacions?
         own_activity: La meva pròpia activitat, com quan algú fa comentaris a la meva proposta o em menciona
         push_notifications: Notificacions emergents
+        push_notifications_reminder: Per rebre notificacions de la plataforma, primer les has de permetre a la configuració del teu navegador.
         receive_notifications_about: Vull rebre notificacions
         update_notifications_settings: Guardar canvis
       update:
