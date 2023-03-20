@@ -830,6 +830,7 @@ ca:
       participatory_space_private_users_csv_imports:
         create:
           invalid: S'ha produït un error llegint el fitxer CSV. Si us plau, assegura't d'haver seguit les instruccions.
+          success: L'arxiu CSV s'ha carregat amb èxit, estem enviant un correu d'invitació a les participants. Això pot trigar una estona.
         new:
           destroy:
             button: Esborrar totes les participants privades
@@ -975,6 +976,7 @@ ca:
       user_group:
         csv_verify:
           invalid: S'ha produït un error en llegir el fitxer CSV.
+          success: L'arxiu CSV s'ha pujat correctament, estem verificant que els grups coincideixin amb els criteris. Això pot trigar una estona.
         reject:
           invalid: S'ha produït un error al rebutjar aquest grup.
         verify:
