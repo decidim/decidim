@@ -387,6 +387,7 @@ es:
           verifiable_results:
             checksum: 'Suma de comprobación SHA256 del archivo:'
             description:
+              not_ready: El archivo verificable de la elección y la suma de comprobación SHA256 aún no están disponibles. En cuanto se publiquen los resultados, podrás verificar esta elección.
               ready: 'Aquí tienes la opción de verificar la elección. En primer lugar, tienes que descargar el archivo y asegurarte de que no se ha corrompido. Para ello, ejecuta el siguiente comando y comprueba que la salida coincide con la suma de comprobación:'
             how_to_verify: 'Una vez que hayas descargado el archivo y te hayas asegurado de que está bien, puedes proceder a ejecutar el verificador universal. Clona <a href=''https://github.com/decidim/decidim-bulletin-board''>este repositorio</a> y, desde la carpeta raíz, ejecuta el siguiente comando:'
             title: Verificar resultados de la elección
@@ -568,6 +569,7 @@ es:
                 invalid_key: Las claves de identificación en el archivo subido no se pueden cargar.
                 invalid_public_key: Las claves de identificación en el archivo subido no coinciden con la clave pública de identificación almacenada.
               upload_legend: En el servidor constan tus claves públicas de identificación, pero tu navegador todavía no las tiene. Necesitas importar el archivo con tus claves de identificación a tu ordenador desde la copia de seguridad que creaste después de generarlas.
+            not_supported_browser_description: Parece que estás usando un navegador que no puede ser utilizado para actuar como garante. Asegúrate de que estás usando la versión más reciente de tu navegador, o intenta utilizar cualquier otro de los navegadores más populares para poder completar tus tareas como garante.
             not_supported_browser_title: Actualiza el navegador para actuar como garante
             trustee_role_description: Se le ha asignado como garante en algunas de las elecciones celebradas en esta plataforma.
           update:
@@ -578,6 +580,7 @@ es:
           back: Comenzar de nuevo el proceso de votación
           ballot_hash: 'El indentificador de la papeleta es:'
           cast: Deposita la papeleta para terminar tu voto
+          description: Aquí tienes las opciones de emitir tu papeleta para que sea debidamente contada o, alternativamente, puedes auditar que tu papeleta fue cifrada correctamente. Por razones de seguridad, la auditoría de tu papeleta se invalidará. Esto quiere decir que, para emitir tu voto tendrás que reiniciar el proceso de votación.
           header: 'La papeleta se ha cifrado: envíala o audítala'
         casting:
           header: Se está emitiendo el voto...
@@ -1100,6 +1103,7 @@ es:
             info_text: Cierre electoral del punto de votación.
           sign:
             cancel: Cancelar
+            check_box: Lo he revisado y es idéntico al certificado físico de cierre electoral
             close_modal: Cerrar
             confirm: Ok, continuar
             error: Se ha producido un error, por favor inténtalo de nuevo.
@@ -1118,6 +1122,7 @@ es:
             census_verified_with_online_vote: Esta participante ya ha votado en línea. Si vota en persona, los votos anteriores serán invalidados y este será su voto definitivo.
             complete_voting: Completar votación
             identify_another: Identificar a otra participante
+            questions_title: 'Tienen derecho a votar en las siguientes preguntas:'
             questions_title_voted: 'Esta participante ya ha votado en línea y tiene derecho a votar en las siguientes preguntas:'
             voted: La participante ha votado
           create:
