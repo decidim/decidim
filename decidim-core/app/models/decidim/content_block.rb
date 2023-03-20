@@ -47,8 +47,8 @@ module Decidim
 
     # Public: Holds access to the images related to the content block. This
     # method generates a dynamic class that encapsulates the uploaders for the
-    # content block images, and eases the access to them. It's a little bit
-    # hacky, but it's the only way I could come up with in order to let content
+    # content block images, and eases the access to them. It is a little bit
+    # hacky, but it is the only way I could come up with in order to let content
     # block images have different uploaders.
     #
     # Examples:
@@ -128,7 +128,7 @@ module Decidim
       end
     end
 
-    # Internal: Since we're using the `images_container` hack to hold the
+    # Internal: Since we are using the `images_container` hack to hold the
     # uploaders, we need to manually trigger it to save the attached images.
     def save_images
       images_container.save

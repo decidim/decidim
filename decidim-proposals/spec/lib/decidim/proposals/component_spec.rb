@@ -166,7 +166,7 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
         visit edit_component_path
       end
 
-      context "when it's enabled" do
+      context "when it is enabled" do
         before do
           component.update(settings: { participatory_texts_enabled: true })
           visit edit_component_path

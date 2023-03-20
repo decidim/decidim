@@ -208,7 +208,7 @@ Devise.setup do |config|
 
   # ==> Configuration for :validatable
   # Range for password length.
-  # NOTE: this will not be used as we're using our own PasswordValidator
+  # NOTE: this will not be used as we are using our own PasswordValidator
   # config.password_length = 6..128
 
   # Email regex used to validate email formats. It simply asserts that
@@ -268,11 +268,11 @@ Devise.setup do |config|
 
   # ==> Scopes configuration
   # Turn scoped views on. Before rendering "sessions/new", it will first check for
-  # "users/sessions/new". It's turned off by default because it's slower if you
+  # "users/sessions/new". It is turned off by default because it is slower if you
   # are using only default views.
   config.scoped_views = true
 
-  # Configure the default scope given to Warden. By default it's the first
+  # Configure the default scope given to Warden. By default it is the first
   # devise role declared in your routes (usually :user).
   # config.default_scope = :user
 

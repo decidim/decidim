@@ -226,7 +226,7 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
 
       context "when visits an non author user" do
         before do
-          sign_in user, scope: :user
+          login_as user, scope: :user
           visit current_path
           within ".header .title-bar .topbar__user__logged" do
             expect(page).to have_content(user.name)
@@ -262,7 +262,7 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
             expect(page).not_to have_css("[data-alert-box].secondary")
           end
 
-          it "shows that acces has been requested" do
+          it "shows that access has been requested" do
             within ".view-side" do
               expect(page).to have_css(".button.expanded.button--sc.mt-s", text: "ACCESS REQUESTED")
             end
@@ -336,7 +336,7 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
 
       context "when the author visits the collaborative draft" do
         before do
-          sign_in author, scope: :user
+          login_as author, scope: :user
           visit current_path
           within ".header .title-bar .topbar__user__logged" do
             expect(page).to have_content(author.name)
@@ -366,7 +366,7 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
       visit main_component_path(component)
     end
 
-    it "does not show the Collaborative drafts acces button" do
+    it "does not show the Collaborative drafts access button" do
       expect(page).to have_no_content("Access collaborative drafts")
     end
   end

@@ -120,7 +120,7 @@ $(() => {
       return new Dialogs(`[data-dialog="${dialog}"]`, {
         openingSelector: `[data-dialog-open="${dialog}"]`,
         closingSelector: `[data-dialog-close="${dialog}"]`,
-        // optional parameters (whenever exists the id, it'll add the tagging)
+        // optional parameters (whenever exists the id, it will add the tagging)
         ...(Boolean(elem.querySelector(`#dialog-title-${dialog}`)) && { labelledby: `dialog-title-${dialog}` }),
         ...(Boolean(elem.querySelector(`#dialog-desc-${dialog}`)) && { describedby: `dialog-desc-${dialog}` })
       })

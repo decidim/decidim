@@ -91,7 +91,7 @@ jobs:
           token: ${{ env.CODECOV_TOKEN }}
           name: decidim-elections-system-admin
           flags: decidim-elections-system-admin
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v3
         if: always()
         with:
           name: screenshots

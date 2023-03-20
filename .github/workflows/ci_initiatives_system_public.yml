@@ -78,7 +78,7 @@ jobs:
           token: ${{ env.CODECOV_TOKEN }}
           name: decidim-initiatives-system-public
           flags: decidim-initiatives-system-public
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v3
         if: always()
         with:
           name: screenshots

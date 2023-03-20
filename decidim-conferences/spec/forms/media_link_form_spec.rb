@@ -65,7 +65,7 @@ module Decidim
             end
           end
 
-          context "when it's not a valid URL" do
+          context "when it is not a valid URL" do
             let(:link) { "foobar, aa" }
 
             it { is_expected.to be_invalid }

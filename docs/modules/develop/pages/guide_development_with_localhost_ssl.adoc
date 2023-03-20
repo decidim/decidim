@@ -25,13 +25,13 @@ Note: Your browser is going to complain as this is a self-signed certificate, th
 
 == Testing tenants using lvh.me
 
-You can also test the multi-tenant capabilities of Decidim by using alternative domains or subdomains that points to your local machine. `lvh.me` is a service that does just that without configuring anything in your machine (an alternative is to add entries in your `/etc/hosts` with a testing domain of your choice). Just point your browser to any subdomain of `lvh.me` and you'll be in your own machine.
+You can also test the multi-tenant capabilities of Decidim by using alternative domains or subdomains that points to your local machine. `lvh.me` is a service that does just that without configuring anything in your machine (an alternative is to add entries in your `/etc/hosts` with a testing domain of your choice). Just point your browser to any subdomain of `lvh.me` and you will be in your own machine.
 
 Just access your `/system` admin and create new organization with some subdomain of `lvh.me`: `organization.lvh.me`, `tenant2.lvh.me`, etc.
 
 You can combine this with the previously generated certificate (your browser is going to complaint but just tell it to proceed vising the site).
 
-Finally remember to add the port as `lvh.me` do not forwards anything, for instance (use `http` or `https` depending on how you've started Rails):
+Finally remember to add the port as `lvh.me` do not forwards anything, for instance (use `http` or `https` depending on how you have started Rails):
 
 `http://someorg.lvh.me:3000/`
 

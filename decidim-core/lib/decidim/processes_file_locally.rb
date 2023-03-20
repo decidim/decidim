@@ -4,7 +4,7 @@ require "active_support/concern"
 
 module Decidim
   # A concern to help when the file needs to be available locally.
-  # For example, we need to download file first if it's in AWS S3 bucket
+  # For example, we need to download file first if it is in AWS S3 bucket
   # or somewhere else than locally in the server.
   module ProcessesFileLocally
     extend ActiveSupport::Concern

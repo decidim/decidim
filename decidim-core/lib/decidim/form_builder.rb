@@ -242,7 +242,7 @@ module Decidim
     #
     # name       - The name of the field (usually area_id)
     # collection - A collection of areas or area_types.
-    #              If it's areas, we sort the selectable options alphabetically.
+    #              If it is areas, we sort the selectable options alphabetically.
     #
     # Returns a String.
     def areas_select(name, collection, options = {}, html_options = {})
@@ -689,7 +689,7 @@ module Decidim
     # Private: Override method from FoundationRailsHelper to render the text of the
     # label before the input, instead of after.
     #
-    # attribute - The String name of the attribute we're build the label.
+    # attribute - The String name of the attribute we are build the label.
     # text      - The String text to use as label.
     # options   - A Hash to build the label.
     #

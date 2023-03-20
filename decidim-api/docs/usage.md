@@ -127,7 +127,7 @@ Finally, note that the returned object is an array, each item of which is a repr
 >
 > We can say we have some searchable object with a multi-language field called *title*, and we have a filter that allows us to search through this field. How should it work? Should we look up content for every language in the field? or should we stick to a specific language?
 >
-> In our case, we've decided to search only one particular language of a multi-language field but we let you choose which language to search.
+> In our case, we have decided to search only one particular language of a multi-language field but we let you choose which language to search.
 > If no language is specified, the configured as default in the organization will be used. The keyword to specify the language is `locale`, and it should be provided in the 2 letters ISO 639-1 format (en = English, es = Spanish, ...).
 >
 > Example (this is not a real Decidim query):
@@ -188,7 +188,7 @@ And the response will be:
 }
 ```
 
-#### What's different?
+#### What is different?
 
 First, note that we are querying, in singular, the type `participatoryProcess`, with a different parameter, `slug`\*, (a String). We can use the `id` instead if we know it.
 
@@ -359,9 +359,9 @@ For instance, components in a participatory space are polymorphic, while the con
 
 Another example are the case of linked resources, these are properties that may link objects of different nature between components or participatory spaces.
 
-In a very simplified way (to know more please refer to the official guide), GraphQL polymorphism is handled through the operator `... on`. You'll know when a field is polymorphic because the property `__typename`, which tells you the type of that particular object, will change accordingly.
+In a very simplified way (to know more please refer to the official guide), GraphQL polymorphism is handled through the operator `... on`. You will know when a field is polymorphic because the property `__typename`, which tells you the type of that particular object, will change accordingly.
 
-In the previous examples we've queried for this property:
+In the previous examples we have queried for this property:
 
 Response fragment:
 
@@ -491,7 +491,7 @@ The response:
 }
 ```
 
-#### What's going on?
+#### What is going on?
 
 Until the `... on Proposals` line, there is nothing new. We are requesting the *Assembly* participatory space identified by the `id=3`, then listing all its components with the type "Proposals". All the components share the *id* and *name* properties, so we can just add them at the query.
 
