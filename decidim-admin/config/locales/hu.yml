@@ -612,8 +612,6 @@ hu:
           blocked: Letiltva
           unblocked: Nincs letiltva
       moderations:
-        index:
-          title: Moderálás
         report:
           reasons:
             does_not_belong: Nem tartozik hozzá
