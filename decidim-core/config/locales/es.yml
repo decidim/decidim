@@ -378,6 +378,7 @@ es:
           title: La autorización ha expirado
         incomplete:
           cancel: Cancelar
+          explanation: 'A pesar de que actualmente estás autorizada con "%{authorization}", necesitamos que te vuelvas a autorizar porque nos faltan los datos siguientes:'
           invalid_field: "%{field}"
           reauthorize: Reautorizarse
           title: Por favor, reautorízate
@@ -600,6 +601,7 @@ es:
       not_found:
         back_home: Volver al inicio
         content_doesnt_exist: Esta dirección es incorrecta o ha sido eliminada.
+        title: No se ha encontrado la página que buscas
     events:
       amendments:
         amendment_accepted:
@@ -758,6 +760,7 @@ es:
         result: Resultados
     fingerprint:
       check: Verificar huella digital
+      explanation: La siguiente cadena de texto es una representación abreviada y criptografiada de este contenido. Es útil para garantizar que el contenido no haya sido alterado, ya que una única modificación daría lugar a un valor totalmente diferente.
       online_calculator_name: Calculadora MD5 en línea
       replicate_help: Esta huella digital se calcula utilizando un algoritmo hash SHA256. Para poder replicarlo tú mismo, puedes usar una %{online_calculator_link} y copiar y pegar los datos de origen.
       source: Origen
@@ -890,6 +893,7 @@ es:
       join:
         success: La solicitud para formar parte se ha enviado correctamente. Una administradora revisará tu solicitud antes de aceptarte en el grupo.
       leave:
+        last_admin: No puedes abandonar este grupo porque eres la última administradora. Haz administradora a otra miembro para poder abandonar el grupo.
         success: Has dejado el grupo correctamente.
       members:
         accept_or_reject_join_requests: 'Las siguientes participantes han solicitado unirse a este grupo. Acepta o rechaza sus solicitudes:'
@@ -1037,6 +1041,8 @@ es:
     newsletter_mailer:
       newsletter:
         no_reply_notice: Este correo electrónico se ha enviado desde una dirección de correo de notificación que no acepta entrada de correos. Por favor, no respondas a este mensaje.
+        note: Has recibido este correo electrónico porque estás suscrita a boletines de noticias en %{organization_name}. Puedes cambiar esta opción en la <a href="%{link}">configuración de las notificaciones</a>.
+        see_on_website: '¿No puedes ver este correo electrónico correctamente? Accede a su <a href="%{link}" target="_blank" class="see-on-website">versión web</a>.'
         unsubscribe: Para desactivar la recepción este tipo de correo electrónico, <a href="%{link}" target="_blank" class="unsubscribe">unsubscríbete</a>.
     newsletter_templates:
       basic_only_text:
@@ -1103,6 +1109,7 @@ es:
       show:
         administrators: Administradoras
         allow_public_contact: Permitir que cualquier participante me envíe un mensaje directo, incluso si no la sigo.
+        allow_push_notifications: Mostrar notificaciones emergentes para saber qué pasa cuando no estás en la plataforma. Puedes desactivarlas en cualquier momento.
         direct_messages: Recibir mensajes directos de cualquiera
         email_on_moderations: Quiero recibir un correo electrónico cada vez que se reporta algo o a alguien para moderación.
         everything_followed: Todo lo que sigo
@@ -1126,6 +1133,7 @@ es:
         success: La configuración de las notificaciones se ha actualizado correctamente.
     offline:
       show:
+        message: Parece que estás desconectada. Por favor, inténtalo de nuevo más tarde.
         retry: Reintentar
     open_data:
       not_available_yet: Los ficheros Open Data aún no están disponibles, inténtalo de nuevo en unos minutos.
@@ -1136,6 +1144,7 @@ es:
         verified: Verificada
     pad_iframe:
       disclaimer: Los contenidos de este pad están escritos por usuarios registrados y expresan sus opiniones. %{organization} no se hace responsable de su contenido.
+      explanation: Usa este bloc para tomar notas de manera colaborativa durante el encuentro, para que sea más fácil escribir el acta después.
       pad: Pad
     pages:
       home:
@@ -1420,6 +1429,7 @@ es:
       show:
         my_interests: Mis intereses
         no_scopes: '¡Esta organización aún no tiene ningún ámbito!'
+        select_your_interests: Selecciona los temas de tu interés para recibir notificaciones relacionadas con estos en la pestaña de Línea de tiempo dentro de tu perfil público.
         update_my_interests: Actualiza mis intereses
       update:
         error: Se ha producido un error al actualizar tus intereses.
@@ -1461,6 +1471,7 @@ es:
       show:
         version_index: Versión %{index}
     welcome_notification:
+      default_body: <p>¡Hola {{name}}, gracias por unirte a {{organization}} te damos la bienvenida!</p><ul><li>Si quieres hacerte una idea rápida de que puedes hacer, echa un vistazo a la <a href="{{help_url}}">Sección de ayuda</a>.</li><li>Una vez la hayas leído recibirás tu primera insignia. Aquí encontrarás un <a href="{{badges_url}}">listado de todas las insignias</a>que puedes conseguir participando en {{organization}}</li><li>. Para terminar, pero no por ello menos importante, únete a otras personas, comparte con ellas de estar comprometida y de participar en {{organization}}. Haz propuestas, comentarios, debate, piensa en cómo contribuir a un bien común, aporta argumentos para tratar de convencer, escucha y lee para convencerte, expresa tus ideas de manera concreta y directa, responde con paciencia y decisión, defiende tus ideas y permanece abierta de mente para colaborar y unirte a las ideas de otra gente.</li></ul>
       default_subject: Gracias por unirte a {{organization}}!
     wizard_step_form:
       wizard_aside:
@@ -1508,6 +1519,7 @@ es:
         subject: Instrucciones de confirmación
       email_changed:
         greeting: Hola %{recipient}!
+        message: Nos ponemos en contacto contigo para notificarte que tu correo electrónico se modifica por %{email}.
         subject: El correo electrónico ha cambiado
       invitation_instructions:
         accept: Aceptar invitación
@@ -1524,6 +1536,7 @@ es:
         subject: Instrucciones de invitación
       password_change:
         greeting: '¡Hola %{recipient}!'
+        message: Nos ponemos en contacto contigo para notificarte que tu contraseña ha sido cambiada.
         subject: Contraseña modificada
       reset_password_instructions:
         action: Cambiar mi contraseña
@@ -1730,6 +1743,8 @@ es:
       notifications_dashboard:
         mark_all_as_read: Marcar todo como leído
         mark_as_read: Marcar como leído
+      offline_banner:
+        cache_version_page: '¡Ups! Tu red está desconectada. Esta es una versión previa en caché de la página que estás visitando, quizás el contenido no está actualizado.'
       social_media_links:
         facebook: "%{organization} en Facebook"
         github: "%{organization} en GitHub"
