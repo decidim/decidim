@@ -185,6 +185,7 @@ ca:
             - Segueix les passes per crear una nova iniciativa
           description: Aquest distintiu es concedeix quan promous noves iniciatives, unint-te amb altres per dur-les a terme.
           description_another: Aquesta participant ha publicat %{score} iniciatives.
+          description_own: Tens %{score} iniciatives publicades.
           name: Iniciatives publicades
           next_level_in: Publica %{score} iniciatives més per arribar al següent nivell!
           unearned_another: Aquesta participant encara no ha publicat cap iniciativa.
