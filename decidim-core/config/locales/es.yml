@@ -35,6 +35,7 @@ es:
       decidim/component_published_event: Componente activo
       decidim/demoted_membership: Ya no eres una administradora de grupo
       decidim/gamification/badge_earned_event: Insignia obtenida
+      decidim/gamification/level_up_event: Has subido de nivel
       decidim/invited_to_group_event: Invitada al grupo
       decidim/join_request_accepted_event: Solicitud de incorporación aceptada
       decidim/join_request_rejected_event: Solicitud de incorporación rechazada
@@ -138,6 +139,7 @@ es:
         file_no_exists: El archivo no existe
         notice: La descarga de tus datos está en curso. Recibirás un correo electrónico cuando se complete.
       email_change:
+        body1: Hemos enviado un correo electrónico a %{unconfirmed_email} para verificar tu nueva dirección de correo electrónico.
         body2: '¿Necesitas que te reenviemos el correo de verificación? %{resend_link} o %{cancel_link}.'
         cancel: cancelar
         cancel_error: No se ha podido cancelar el cambio de Correo electrónico.
@@ -386,6 +388,8 @@ es:
           authorize: Autorizar con "%{authorization}"
           explanation: Para llevar a cabo esta acción, tienes que disponer de la autorización "%{authorization}".
           title: Autorización requerida
+        ok:
+          title: Has sido autorizada mientras estás en esta página. Por favor, vuelve a cargar la página para realizar tu acción.
         pending:
           title: La autorización aún está en progreso
         unauthorized:
@@ -667,9 +671,15 @@ es:
         email_subject: Se ha producido una actualización para %{resource_title}
       gamification:
         badge_earned:
+          email_intro: '¡Enhorabuena! Has obtenido la insignia "<a href="%{resource_url}">%{badge_name}</a>"  (nivel %{current_level}).'
           email_outro: Has recibido esta notificación porque has realizado actividad en nuestro sitio web.
+          email_subject: '¡Has obtenido una nueva insignia: %{badge_name}!'
+          notification_title: '¡Enhorabuena! Has obtenido la insignia <a href="%{resource_path}">%{badge_name}</a> (nivel %{current_level}).'
         level_up:
+          email_intro: '¡Enhorabuena! ¡Has alcanzado el nivel %{current_level} de la insignia "<a href="%{resource_url}">%{badge_name}</a>"!'
           email_outro: Has recibido esta notificación porque has generado actividad en nuestro sitio web.
+          email_subject: '¡Has conseguido el nivel %{current_level} en la insignia "%{badge_name}"!'
+          notification_title: "¡Enhorabuena! ¡Has alcanzado el nivel %{current_level} de la insignia \n <a href=\"%{resource_path}\">%{badge_name}</a> \"!"
       groups:
         demoted_membership:
           email_intro: Una administradora del grupo <a href="%{resource_url}">%{user_group_name}</a> ha eliminado tus permisos de administración para ese grupo.
@@ -716,6 +726,8 @@ es:
           email_outro: Has recibido esta notificación porque eres una de las administradoras de la plataforma.
           email_subject: Un grupo ha actualizado su perfil
           notification_title: El grupo %{user_group_name} ha actualizado su perfil perdiendo la verificación. Puedes volver a verificarlo a través del <a href="%{groups_admin_path}">panel de administración</a>.
+      nickname_event:
+        notification_body: Hemos corregido la forma en que se utilizan los alias para que no haya duplicados, para hacerlo ya no se distingue entre mayúsculas y minúsculas.<br/>Tu alias fue creado después de otro igual, así que lo hemos renombrado automáticamente. Puedes modificarlo desde la <a href="%{link_to_account_settings}">configuración de tu cuenta</a>.
       notification_event:
         notification_title: Se ha producido un evento a <a href="%{resource_path}">%{resource_title}</a>.
       reports:
@@ -790,6 +802,7 @@ es:
         decidim/user:
           password: La contraseña es demasiado corta.
           password_confirmation: La confirmación de la contraseña debe coincidir con tu contraseña.
+        error: Hay un error en este campo.
       file_help:
         file:
           explanation: 'Instrucciones para el archivo:'
@@ -843,6 +856,7 @@ es:
           name: Seguidores
           next_level_in: '¡Consigue que te sigan %{score} personas más para alcanzar el siguiente nivel!'
           unearned_another: Esta participante todavía no tiene seguidoras.
+          unearned_own: Aún no te sigue nadie.
         index:
           badge_title: "Insignia %{name}"
           how: Como puedes conseguirla
@@ -850,6 +864,7 @@ es:
           title: Insignias
       description: Las insignias son reconocimientos de las acciones de las participantes y el progreso en la plataforma. A medida que comienzas a descubrir, participar e interactuar en la plataforma, ganarás diferentes insignias.
       level: Nivel %{level}
+      reached_top: Has alcanzado el nivel superior para esta insignia.
       title: '¿Qué son las insignias?'
     group_admins:
       actions:
@@ -1193,6 +1208,7 @@ es:
           modal_close: Cerrar el modal
           modal_title: '¿Confirmas que no aceptas los Términos y Condiciones actualizados?'
         required_review:
+          alert: Hemos actualizado nuestros Términos de Servicio, por favor, revísalos.
           body: Por favor dedica un momento a revisar la actualización de nuestros Términos de Servicio. De lo contrario, no podrás usar la plataforma.
           title: 'Obligatorio: revisa las actualizaciones de nuestros Términos de Servicio'
     participatory_space_private_users:
@@ -1534,6 +1550,14 @@ es:
         someone_invited_you_as_admin: Alguien te ha invitado como administradora de %{application}, puedes aceptar a través del siguiente enlace.
         someone_invited_you_as_private_user: Alguien te ha invitado como participante privada de %{application}, puedes aceptar a través del siguiente enlace.
         subject: Instrucciones de invitación
+      invite_admin:
+        subject: Te han invitado a administrar %{organization}
+      invite_collaborator:
+        subject: Te han invitado a colaborar en %{organization}
+      invite_private_user:
+        subject: Te han invitado a participar en un proceso participativo privado en %{organization}
+      organization_admin_invitation_instructions:
+        subject: Te han invitado a administrar %{organization}
       password_change:
         greeting: '¡Hola %{recipient}!'
         message: Nos ponemos en contacto contigo para notificarte que tu contraseña ha sido cambiada.
