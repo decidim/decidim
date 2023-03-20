@@ -615,8 +615,6 @@ nl:
           blocked: Geblokkeerd
           unblocked: Niet geblokkeerd
       moderations:
-        index:
-          title: Moderaties
         report:
           reasons:
             does_not_belong: Hoort niet
