@@ -46,6 +46,12 @@ cs:
         decidim_consultations_response_id:
           not_found: Odpověď nebyla nalezena.
   activerecord:
+    errors:
+      models:
+        decidim/consultations/vote:
+          attributes:
+            question:
+              invalid_num_votes: Počet hlasů je neplatný.
     models:
       decidim/consultation:
         one: Konzultace
@@ -313,6 +319,7 @@ cs:
             votes: Hlasů
       question_votes:
         create:
+          error: Při hlasování o otázce došlo k chybě.
           success: Můžete to změnit až do konce konzultace, pouze poslední hlasování bude přijato.
           title_error: Chyba hlasování!
           title_success: Hlas úspěšně zapsán
