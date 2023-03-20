@@ -555,7 +555,6 @@ fr:
         area_types: Types de périmètre d'assemblée
         areas: Périmètres d'assemblée
         configuration: Configuration
-        content: Contenu
         dashboard: Tableau de bord
         external_domain_whitelist: Domaines externes autorisés
         help_sections: Sections d'aide
@@ -664,7 +663,6 @@ fr:
           nickname: Pseudonyme
           reason: Raison du signalement
           reports: Nombre de signalements
-          title: Liste des participants
         report:
           reasons:
             does_not_belong: N'appartient pas
@@ -674,8 +672,6 @@ fr:
           blocked: Bloqué
           unblocked: Non bloqué
       moderations:
-        index:
-          title: Modérations
         report:
           reasons:
             does_not_belong: N'appartient pas
@@ -1122,8 +1118,6 @@ fr:
   layouts:
     decidim:
       admin:
-        global_moderations:
-          title: Modération de contenu
         newsletters:
           title: Newsletters
         settings:
