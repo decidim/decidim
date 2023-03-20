@@ -305,7 +305,7 @@ ja:
         error: 修正案を公表する際に問題が発生しました。
         success: 修正に成功しました。
       rejected:
-        error: この修正を却下する際に問題が発生しました。後でもう一度お試しください。
+        error: この修正を却下する際に問題が発生しました。後ほどもう一度お試しください。
         success: 修正案を却下しました。
       review:
         back: 戻る
@@ -557,6 +557,13 @@ ja:
             check: 確認して続ける
             close_modal: モーダルを閉じる
             uncheck: チェックを外してください
+          notice: |-
+            <p>本当にニュースレターを購読しなくて良いでしょうか？<br>
+            ニュースレターのチェックボックスを是非オンにしてください。<br>
+            重要なお知らせメールを受け取っていただくことは重要なことです。通知設定ページでいつでもこの設定を変更することができます。</p>
+            <p>チェックボックスにチェックを入れない場合、プラットフォーム内での新しい参加機会についての重要な情報を見逃してしまう可能性があります。<br>
+            それでもニュースレターの受信を避けたい場合は、私たちはその決定を尊重します。 </p>
+            <p>お読みいただきありがとうございます。</p>
           title: ニュースレター通知
         omniauth_buttons:
           or: または
@@ -566,6 +573,7 @@ ja:
           authorize: アプリケーションを承認する
           by_organization_link_html: <small class="heading-small">by %{link}</small>
           cancel: キャンセル
+          connect_your_account_html: <strong>%{organization}</strong> に登録し、アカウントを接続します。
           publish_content: コンテンツを公開する
           see_email: メールを見る
           see_name: 名前を確認してください
@@ -614,6 +622,7 @@ ja:
       not_found:
         back_home: ホームに戻る
         content_doesnt_exist: このアドレスは正しくないか削除されています。
+        title: お探しのページが見つかりません。
     events:
       amendments:
         amendment_accepted:
@@ -679,9 +688,15 @@ ja:
         email_subject: '%{resource_title} への更新'
       gamification:
         badge_earned:
+          email_intro: おめでとうございます！ <a href="%{resource_url}">%{badge_name} のバッジ</a> （レベル %{current_level}）を獲得しました。
           email_outro: サイトでの活動によって、この通知を受け取りました。
+          email_subject: '新しいバッジ： %{badge_name} を獲得しました！'
+          notification_title: おめでとうございます！ <a href="%{resource_path}">%{badge_name} のバッジ</a> （レベル %{current_level}）を獲得しました。
         level_up:
+          email_intro: おめでとうございます！ <a href="%{resource_url}">%{badge_name} バッジ</a>のレベル %{current_level} に到達しました！
           email_outro: サイトでの活動によって、この通知を受け取りました。
+          email_subject: '%{current_level} バッジのレベル %{badge_name} に達しました！'
+          notification_title: おめでとうございます！ <a href="%{resource_path}">%{badge_name} バッジ</a>のレベル %{current_level} に到達しました！
       groups:
         demoted_membership:
           email_intro: <a href="%{resource_url}">%{user_group_name}</a> グループの管理者が、そのグループの管理者権限を削除しました。
@@ -728,6 +743,8 @@ ja:
           email_outro: あなたはプラットフォームの管理者であるため、この通知を受け取りました。
           email_subject: ユーザーグループがプロファイルを更新しました
           notification_title: '%{user_group_name} ユーザーグループがプロファイルを更新し、未検証のままにしました。 <a href="%{groups_admin_path}">管理画面</a> で確認できるようになりました。'
+      nickname_event:
+        notification_body: ニックネームの使用方法を修正し、重複をなくすために大文字小文字を区別しないようにしました。<br/> あなたのニックネームは他の人と同じだったため、自動的にリネームされました。<a href="%{link_to_account_settings}">アカウント設定</a>から変更することができます。
       notification_event:
         notification_title: <a href="%{resource_path}">%{resource_title}</a> にイベントが発生しました。
       reports:
@@ -785,6 +802,7 @@ ja:
     following:
       following_count:
         other: "{{count}} フォロワー"
+      no_followings: まだ何もフォローしていません
       non_public_followings: フォローしているリソースのいくつかは公開されていません。
     follows:
       create:
@@ -799,6 +817,7 @@ ja:
         decidim/user:
           password: パスワードが短すぎます。
           password_confirmation: パスワードの確認はパスワードと一致する必要があります。
+        error: このフィールドにはエラーがあります。
       file_help:
         file:
           explanation: 'ファイルのガイダンス:'
@@ -851,6 +870,8 @@ ja:
           description_own: "%{score} 人があなたをフォローしています。"
           name: フォロワー
           next_level_in: '%{score} 人があなたをフォローして次のレベルに到達しましょう！'
+          unearned_another: この参加者にはまだフォロワーがいません。
+          unearned_own: まだフォロワーがいません。
         index:
           badge_title: "%{name} バッジ"
           how: どうやって稼ぐことができますか？
@@ -858,9 +879,11 @@ ja:
           title: バッジ
       description: バッジは、プラットフォームの参加者の行動と進行状況を認識します。 プラットフォームで発見し、参加し、交流し始めると、異なるバッジを獲得できます。
       level: レベル %{level}
+      reached_top: このバッジの最高レベルに達しました。
       title: バッジとは？
     group_admins:
       actions:
+        are_you_sure: 本当によろしいですか？この操作はグループから参加者を削除しません。
         demote_admin: 管理者を削除
       demote:
         error: この参加者を管理者リストから削除する際に問題が発生しました
@@ -877,8 +900,17 @@ ja:
       index:
         invite: 招待
         invite_user: 参加者を招待
+      invite:
+        error: 参加者を招待する際に問題が発生しました。
+        success: 参加者の招待に成功しました。
+      reject:
+        error: この招待を却下する際に問題が発生しました。
+        success: 招待を却下しました。
       reject_invitation: 拒否
     group_members:
+      accept:
+        error: この参加リクエストを承認する際に問題が発生しました。
+        success: 参加リクエストを承認しました。
       actions:
         are_you_sure: よろしいですか？
         promote_to_admin: 管理者にする
@@ -886,20 +918,37 @@ ja:
       index:
         current_members_without_admins: '現在のメンバー (管理者なし):'
         manage_members: メンバーの管理
+      promote:
+        error: この参加者を昇格する際に問題が発生しました。
+        success: 参加者は正常に昇格しました。
+      reject:
+        error: この参加リクエストを却下する際に問題が発生しました。
+        success: 参加リクエストは却下されました。
+      remove:
+        error: この参加者をグループから削除する際に問題が発生しました。
+        success: 参加者がグループから削除されました。
     groups:
       actions:
         are_you_sure: よろしいですか？
+      create:
+        error: グループの作成中に問題が発生しました。
+        success: グループを作成しました。
       edit:
         edit_user_group: グループを編集
         update_user_group: グループを更新
       form:
+        document_number_help: ダッシュやスペースは使用しないでください。
         email_help: 組織、団体、集団、グループなどのEメールアドレスです。
         fill_in_for_verification: 'グループを認証させたい場合は、以下の項目を入力してください。'
         name_help: 組織名、団体名、団体名、グループ名など。
         nickname_help: 団体名、団体名、団体名、団体名などスペースやアクセントは使用しないでください。
+        phone_help: ダッシュやスペースは使用しないでください。
       join:
+        error: グループに参加する際に問題が発生しました。
         success: 参加リクエストは正常に作成されました。管理者はあなたをグループに承認する前にリクエストを確認します。
       leave:
+        error: グループを離れる際に問題が発生しました。
+        last_admin: あなたが唯一の管理者であるため、このグループから自分自身を削除することはできません。グループから離脱するには他のメンバーを管理者にしてください。
         success: グループを放棄しました。
       members:
         accept_or_reject_join_requests: '次のユーザーがこのグループに参加するために申請しました。リクエストを承認または拒否します。'
@@ -909,15 +958,20 @@ ja:
         create_user_group: グループを作成
         new_user_group: 新しいグループ
         subtitle: グループを作成し、グループレベルに参加するために他のユーザーを招待します。
+      no_user_groups: どのグループにも属していません。
       roles:
         admin: 管理者
         creator: 管理者
         member: メンバー
+      update:
+        error: グループを更新する際に問題が発生しました。
+        success: グループを更新しました。
     help:
       main_topic:
         default_page:
           content: "<p>%{organization} では、トップメニューにあるスペース（参加型プロセスや参加スペース、取り組み、議案）から、さまざまなトピックに参加したり、決定したりすることができます。</p> <p>それぞれのスペースには、参加するためのさまざまなオプションが用意されています: （個人または他の人と一緒に）提案をする 、ディベートに参加する、実施するプロジェクトの優先順位を決める、対面ミーティングに出席する、その他のアクションを行う等。</p>\n"
           title: '%{organization} で何ができますか？'
+        description: '%{organization} についてもっと読む'
         title: 一般的なヘルプ
     last_activities:
       activities:
@@ -965,6 +1019,8 @@ ja:
       static:
         latlng_text: '緯度: %{latitude}, 経度: %{longitude}'
         map_service_brand: OpenStreetMap
+    members:
+      no_members: このグループにはまだメンバーがいません。
     menu:
       help: ヘルプ
       home: ホーム
@@ -974,29 +1030,35 @@ ja:
           admin_in_group: あなたは %{group}の管理者であるため、これを受け取っています。
           greeting: こんにちは、%{recipient}。
           intro: "%{manager} が %{group}という名前で新しい会話を開始しました。こちらをクリックしてください:"
+          outro: どうぞご利用ください
           subject: "%{manager} が %{group} として新しい会話を開始しました"
         comanagers_new_message:
           admin_in_group: あなたは %{group}の管理者であるため、これを受け取っています。
           greeting: こんにちは、%{recipient}。
           intro: "%{manager} は、 %{group}という名前の新しいメッセージを会話に投稿しました。それらを表示するにはここをクリックしてください："
+          outro: どうぞご利用ください
           subject: "%{manager} は %{group} として新しいメッセージを送信しました"
         new_conversation:
           greeting: こんにちは、%{recipient}。
           intro: "%{sender} があなたと新しい会話を開始しました。こちらをクリックしてください:"
+          outro: どうぞご利用ください
           subject: "%{sender} があなたと会話を開始しました"
         new_group_conversation:
           admin_in_group: あなたは %{group}の管理者であるため、これを受け取っています。
           greeting: こんにちは、%{recipient}。
           intro: "%{sender} がグループ %{group}との新しい会話を開始しました。こちらをクリックしてください:"
+          outro: どうぞご利用ください
           subject: "%{sender} が %{group} と会話を開始しました"
         new_group_message:
           admin_in_group: あなたは %{group}の管理者であるため、これを受け取っています。
           greeting: こんにちは、%{recipient}。
           intro: "%{sender} がグループ %{group}との会話に新しいメッセージを投稿しました。こちらをクリックしてください:"
+          outro: どうぞご利用ください
           subject: "%{group} に %{sender} からの新しいメッセージがあります"
         new_message:
           greeting: こんにちは、%{recipient}。
           intro: "%{sender} さんがあなたの会話に新しいメッセージを投稿しました。こちらをクリックしてください："
+          outro: どうぞご利用ください
           subject: '%{sender} からの新しいメッセージがあります'
       conversations:
         add_conversation_users:
@@ -1004,6 +1066,9 @@ ja:
           add_users_placeholder: 検索...
           modal_title: 新しい会話
           no_results: 結果がありません
+          participant_with_disabled_message_reception: この参加者はプライベートメッセージの受信を希望していません．
+        create:
+          error: 会話が開始されませんでした。後ほど改めてお試しください。
         error_modal:
           close: ウィンドウを閉じる
           correct_errors: エラーを修正して、再度お試しください
@@ -1013,6 +1078,7 @@ ja:
           ago: 前
           new_conversation: 新しい会話
           next: 次へ
+          no_conversations: まだ会話がありません。
           title: 会話
         reply_form:
           placeholder: あなたの返信...
@@ -1132,6 +1198,7 @@ ja:
         success: 通知設定が正常に更新されました。
     offline:
       show:
+        message: 現在オフラインのようです。後ほど改めてお試しください。
         retry: 再試行
     open_data:
       not_available_yet: オープンデータファイルはまだ利用できません。数分後にもう一度お試しください。
@@ -1390,6 +1457,7 @@ ja:
     user_contact_disabled: この参加者はダイレクトメッセージを受け付けません。
     user_conversations:
       create:
+        error: メッセージを作成できませんでした。後ほど改めてお試しください。
         existing_error: メッセージを作成できませんでした。会話はすでに存在します。今すぐやり直してください。
         success: 会話が正常に開始されました！
       index:
@@ -1614,13 +1682,19 @@ ja:
     messages:
       allowed_file_content_types: '次の拡張子を持つファイルのみが許可されています: %{types}'
       already_confirmed: が確認されました。ログインしてみてください
+      blank: 空白にできません
+      cannot_be_blank: 空白にできません
+      confirmation: '%{attribute} と一致しません'
       confirmation_period_expired: '%{period}以内に確認する必要があります。新しいものをリクエストしてください'
       content_type_allowlist_error: ファイルの種類が無効です
+      cycle_detected: スコープの親は子孫の一人ではありえません
+      empty: 空にできません
       expired: 有効期限が切れています。新しいものをリクエストしてください
       file_size_is_less_than_or_equal_to: ファイルサイズは %{count} 以下でなければなりません
       invalid_time_zone: 有効なタイムゾーンではありません
       long_words: には長すぎる単語が含まれています（35文字以上）
       must_start_with_caps: 先頭は大文字でなければなりません
+      nesting_too_deep: サブカテゴリ内にすることはできません
       not_found: 見つかりませんでした。以前に登録しましたか？
       not_locked: ロックされていません
       not_saved:
@@ -1713,6 +1787,8 @@ ja:
       notifications_dashboard:
         mark_all_as_read: すべて既読にする
         mark_as_read: 既読にする
+      offline_banner:
+        cache_version_page: 注意：あなたのネットワークはオフラインです。これは以前にアクセスしているページのキャッシュされたバージョンです。おそらくコンテンツが最新ではありません。
       social_media_links:
         facebook: "Facebook の %{organization}"
         github: "GitHub の %{organization}"
