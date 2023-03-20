@@ -35,6 +35,7 @@ ca:
       decidim/component_published_event: Component actiu
       decidim/demoted_membership: Ja no ets una administradora del grup
       decidim/gamification/badge_earned_event: Insígnia obtinguda
+      decidim/gamification/level_up_event: Has pujat de nivell
       decidim/invited_to_group_event: Convidada al grup
       decidim/join_request_accepted_event: Sol·licitud d'incorporació acceptada
       decidim/join_request_rejected_event: Sol·licitud d'incorporació rebutjada
@@ -387,6 +388,8 @@ ca:
           authorize: Autoritzar amb "%{authorization}"
           explanation: Per dur a terme aquesta acció, has de disposar de l'autorització "%{authorization}".
           title: Es requereix autorització
+        ok:
+          title: Has estat autoritzada mentre estàs a aquesta pàgina. Si us plau, torna a carregar la pàgina per a realitzar la teva acció.
         pending:
           title: L'autorització encara està en progrés
         unauthorized:
@@ -668,9 +671,15 @@ ca:
         email_subject: S'ha produït una actualització per a %{resource_title}
       gamification:
         badge_earned:
+          email_intro: Enhorabona! Has aconseguit l'ensenya "<a href="%{resource_url}">%{badge_name}</a>" (nivell %{current_level}).
           email_outro: Has rebut aquesta notificació perquè has generat activitat al nostre lloc web.
+          email_subject: 'Has aconseguit una nova ensenya: %{badge_name}!'
+          notification_title: Enhorabona! Has aconseguit l'ensenya "<a href="%{resource_path}">%{badge_name}</a>" (nivell %{current_level}).
         level_up:
+          email_intro: Enhorabona! Has arribat al nivell %{current_level} de l'ensenya "<a href="%{resource_url}">%{badge_name}</a>"!
           email_outro: Has rebut aquesta notificació perquè has generat activitat al nostre lloc web.
+          email_subject: Has arribat al nivell %{current_level} de l'enseya "%{badge_name}"!
+          notification_title: Enhorabona! Has arribat al nivell %{current_level} de l'ensenya "<a href="%{resource_path}">%{badge_name}</a>"!
       groups:
         demoted_membership:
           email_intro: Una administradora del grup <a href="%{resource_url}">%{user_group_name}</a> ha eliminat els teus drets d'administradora d'aquest grup.
@@ -717,6 +726,8 @@ ca:
           email_outro: Has rebut aquesta notificació perquè ets una de les administradores de la plataforma.
           email_subject: Un grup d'usuàries ha actualitzat el seu perfil
           notification_title: El grup d'usuàries %{user_group_name} ha actualitzat el seu perfil perdent-ne la verificació. Pots tornar a verificar-lo a través del <a href="%{groups_admin_path}"> taulell d'administració</a>.
+      nickname_event:
+        notification_body: S'ha corregit la manera en que es fan servir els àlies per a que no n'hi hagi de duplicats, per fer-ho ja no es distingueix entre majúscules i minúscules.<br/>El teu àlies es va crear més tard que un altre d'igual, així que se t'ha renombrat automàticament. Pots modificar el teu àlies des de la <a href="%{link_to_account_settings}">configuració del teu compte</a>.
       notification_event:
         notification_title: S'ha produït un esdeveniment a <a href="%{resource_path}">%{resource_title}</a>.
       reports:
@@ -791,6 +802,7 @@ ca:
         decidim/user:
           password: La contrasenya és massa curta.
           password_confirmation: La confirmació de la contrasenya no coincideix amb la contrasenya.
+        error: Hi ha un error en aquest camp.
       file_help:
         file:
           explanation: 'Instruccions per a l''arxiu:'
@@ -844,6 +856,7 @@ ca:
           name: Seguidors
           next_level_in: Aconsegueix %{score} que et segueixin més persones per passar al següent nivell!
           unearned_another: Aquesta participant encara no té seguidores.
+          unearned_own: Encara no et segueix ningú.
         index:
           badge_title: "Insígnia %{name}"
           how: Com pots aconseguir-la
@@ -851,6 +864,7 @@ ca:
           title: Insígnies
       description: Les insígnies són reconeixements de les accions de les participants i del progrés en la plataforma. A mesura que comencis a descobrir, participar i interactuar amb la plataforma, n'obtindràs de diferents tipus.
       level: Nivell %{level}
+      reached_top: Has arribat al màxim nivell d'aquesta ensenya.
       title: Què són les ensenyes?
     group_admins:
       actions:
@@ -1194,6 +1208,7 @@ ca:
           modal_close: Tanca el modal
           modal_title: Confirmes que no acceptes els Termes i Condicions actualitzats?
         required_review:
+          alert: Hem actualitzat els nostres Termes de Servei, si us plau, revisa'ls.
           body: Si us plau, dedica un moment a revisar l'actualització dels nostres Termes de Servei. En cas contrari, no podràs utilitzar la plataforma.
           title: 'Obligatori: revisa l''actualització dels nostres Termes de Servei'
     participatory_space_private_users:
@@ -1535,6 +1550,14 @@ ca:
         someone_invited_you_as_admin: Algú t'ha convidat com a administradora de %{application}, pots acceptar-lo a través de l'enllaç següent.
         someone_invited_you_as_private_user: Algú t'ha convidat com a participant privada de %{application}. Pots acceptar a través del següent enllaç.
         subject: Instruccions d'invitació
+      invite_admin:
+        subject: T'han convidat a administrar %{organization}
+      invite_collaborator:
+        subject: T'han convidat a col·laborar a %{organization}
+      invite_private_user:
+        subject: T'han convidat a participar en un procés participatiu privat a%{organization}
+      organization_admin_invitation_instructions:
+        subject: T'han convidat a administrar %{organization}
       password_change:
         greeting: Hola %{recipient}!
         message: Ens posem en contacte amb tu per notificar-te que la teva contrasenya ha estat canviada.
