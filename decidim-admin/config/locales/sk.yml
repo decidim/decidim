@@ -416,8 +416,6 @@ sk:
             state: Štát
             users_count: Počet účastníkov
       moderations:
-        index:
-          title: Moderovanie
         report:
           reasons:
             does_not_belong: Nehodí sa
