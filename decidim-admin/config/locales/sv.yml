@@ -635,8 +635,6 @@ sv:
           blocked: Blockerad
           unblocked: Icke blockerade
       moderations:
-        index:
-          title: Moderering
         report:
           reasons:
             does_not_belong: Hör inte hemma
