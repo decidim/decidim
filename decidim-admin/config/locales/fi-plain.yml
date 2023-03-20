@@ -557,7 +557,6 @@ fi-pl:
         area_types: Aluetyypit
         areas: Alueet
         configuration: Asetukset
-        content: Sisältö
         dashboard: Hallintapaneeli
         external_domain_whitelist: Sallitut ulkoiset verkko-osoitteet
         help_sections: Ohjeosiot
@@ -666,7 +665,6 @@ fi-pl:
           nickname: Nimimerkki
           reason: Syy
           reports: Ilmoitusten määrä
-          title: Osallistujat
         report:
           reasons:
             does_not_belong: Ei kuulu
@@ -676,8 +674,6 @@ fi-pl:
           blocked: Estetty
           unblocked: Ei estetty
       moderations:
-        index:
-          title: Moderoinnit
         report:
           reasons:
             does_not_belong: Ei kuulu
@@ -1139,8 +1135,6 @@ fi-pl:
   layouts:
     decidim:
       admin:
-        global_moderations:
-          title: Sisällön moderointi
         newsletters:
           title: Uutiskirjeet
         settings:
