@@ -57,25 +57,19 @@ end
 
 shared_context "with frontend map elements" do
   let(:html_head) { "" }
-  let(:builder_snippets) do
-    builder = subject
-    <<~HTML.strip
-      #{builder.append_assets}
-    HTML
-  end
   let(:html_document) do
     document_inner = html_body
     head_extra = html_head
-    snippets = builder_snippets
+    builder_snippets = subject.append_assets
     template.instance_eval do
       <<~HTML.strip
         <!doctype html>
         <html lang="en">
         <head>
           <title>Map Test</title>
+          #{builder_snippets}
           #{stylesheet_pack_tag "decidim_core"}
           #{javascript_pack_tag "decidim_core", defer: false}
-          #{snippets}
           #{head_extra}
         </head>
         <body>
