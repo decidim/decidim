@@ -71,6 +71,7 @@ ca:
       multistep: Amb múltiples passos
       name: Nom
       postal_letter:
+        explanation: T'enviarem una carta postal amb un codi que hauràs d'introduir perquè puguem verificar la teva adreça.
         name: Codi per carta postal
     events:
       verifications:
