@@ -71,6 +71,7 @@ es:
       multistep: Con varios pasos
       name: Nombre
       postal_letter:
+        explanation: Te enviaremos una carta postal con un código que deberás introducir para que podamos verificar tu dirección.
         name: Código por carta postal
     events:
       verifications:
