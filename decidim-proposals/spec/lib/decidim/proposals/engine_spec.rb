@@ -8,7 +8,7 @@ describe Decidim::Proposals::Engine do
     let(:valuator) { create :user, organization: }
     let(:proposal) { create(:proposal, component:) }
 
-    context "Remove participatory_space admin" do
+    context "when removing participatory_space admin" do
       let(:space) { valuator_role.participatory_process }
       let(:valuator_role) { create(:participatory_process_user_role) }
       let!(:assignment) { create :valuation_assignment, proposal:, valuator_role: }
@@ -20,7 +20,7 @@ describe Decidim::Proposals::Engine do
       end
     end
 
-    context "Remove assembly admin" do
+    context "when removing assembly admin" do
       let(:space) { valuator_role.assembly }
       let(:valuator_role) { create(:assembly_user_role) }
       let!(:assignment) { create :valuation_assignment, proposal:, valuator_role: }
@@ -32,7 +32,7 @@ describe Decidim::Proposals::Engine do
       end
     end
 
-    context "Remove conference admin" do
+    context "when removing conference admin" do
       let(:space) { valuator_role.conference }
       let(:valuator_role) { create(:conference_user_role) }
       let!(:assignment) { create :valuation_assignment, proposal:, valuator_role: }
