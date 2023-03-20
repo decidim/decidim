@@ -830,6 +830,7 @@ es:
       participatory_space_private_users_csv_imports:
         create:
           invalid: Hubo un problema al leer el archivo CSV. Por favor, asegúrate de haber seguido las instrucciones.
+          success: El archivo CSV se ha cargado correctamente, estamos enviando un correo de invitación a las participantes. Este proceso puede tardar un poco.
         new:
           destroy:
             button: Borrar todas las participantes privadas
@@ -975,6 +976,7 @@ es:
       user_group:
         csv_verify:
           invalid: Se produjo un error al leer el archivo CSV.
+          success: El archivo CSV cargado correctamente, estamos verificando los grupos que coinciden con los criterios. Esto puede tardar un poco.
         reject:
           invalid: Se ha producido un error al rechazar este grupo.
         verify:
