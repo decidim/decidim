@@ -357,6 +357,7 @@ ca:
           Excel: Excel
           FormPDF: PDF
           JSON: JSON
+        notice: La teva exportació està actualment en curs. Rebràs un correu electrònic quan hagi finalitzat.
       filters:
         category_id_eq:
           label: Categoria
@@ -528,6 +529,7 @@ ca:
         area_types: Tipus d'àrees
         areas: Àrees
         configuration: Configuració
+        content: Contingut reportat
         dashboard: Tauler de control
         external_domain_whitelist: Dominis externs permesos
         help_sections: Seccions d'ajuda
@@ -636,6 +638,7 @@ ca:
           nickname: Àlies
           reason: Raó
           reports: Número de denúncies
+          title: Participants reportades
         report:
           reasons:
             does_not_belong: No pertany
@@ -645,6 +648,8 @@ ca:
           blocked: Bloquejat
           unblocked: No bloquejat
       moderations:
+        index:
+          title: Contingut reportat
         report:
           reasons:
             does_not_belong: No pertany
@@ -1066,6 +1071,8 @@ ca:
   layouts:
     decidim:
       admin:
+        global_moderations:
+          title: Moderacions globals
         newsletters:
           title: Butlletins
         settings:
