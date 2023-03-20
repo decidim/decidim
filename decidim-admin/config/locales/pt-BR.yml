@@ -555,8 +555,6 @@ pt-BR:
           blocked: Bloqueado
           unblocked: Não bloqueado
       moderations:
-        index:
-          title: Moderação
         report:
           reasons:
             does_not_belong: Não pertence
