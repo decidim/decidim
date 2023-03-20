@@ -416,8 +416,6 @@ sr:
             state: Država
             users_count: Broj učesnika
       moderations:
-        index:
-          title: Moderacije
         report:
           reasons:
             does_not_belong: Ne pripada
