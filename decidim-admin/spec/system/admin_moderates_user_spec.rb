@@ -59,7 +59,7 @@ describe "Admin reports user", type: :system do
       end
 
       expect(page).to have_current_path(decidim_admin.new_user_block_path(user_id: reportable.id), ignore_query: true)
-      expect(page).to have_content("The account has already been reported. Continuing with this action you ")
+      expect(page).to have_content("Continuing with this action you will also hide all the participants contents")
     end
   end
 
