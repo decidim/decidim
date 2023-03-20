@@ -40,11 +40,41 @@ These are one time actions that need to be done after the code is updated in the
 
 Decidim redesign has introduced Tailwind CSS framework to compile CSS. It integrates with Webpacker, which generates Tailwind configuration dynamically when Webpacker is invoked.
 
-You'll need to add `tailwind.config.js` to your app `.gitignore`. If you generate a new Decidim app from scratch, that entry will already be included in the `.gitignore`.
+You will need to add `tailwind.config.js` to your app `.gitignore`. If you generate a new Decidim app from scratch, that entry will already be included in the `.gitignore`.
 
 You can read more about this change on PR [\#9480](https://github.com/decidim/decidim/pull/9480).
 
-### 3.2 Change Webpacker to Shakapacker
+### 3.2. Added Procfile support
+
+In [\#10519](https://github.com/decidim/decidim/pull/10519) we have added Procfile support to ease up the development of Decidim instances. In order to install `foreman` and the `Procfile.dev`, you need to run the following command:
+
+```console
+bundle exec rake decidim:procfile:install
+```
+
+After this command has been ran, a new command will be available in your `bin/`, so in order to boot up your application you will just need to run
+
+```console
+bin/dev
+```
+
+Additional notes on Procfile:
+
+In some cases, when running in a containerized environment, you may need to manually edit the `config/webpacker.yml` to edit the host parameter from `host: localhost` to `host: 0.0.0.0`
+
+In some other cases when you run your application on a custom port (other than 3000), you will need to edit the `Procfile`, and add the parameter. `web: bin/rails server -b 0.0.0.0 -p 3000`
+
+### 3.3 User moderation panel changes
+
+In older Decidim installations, when blocking an user directly from the participants menu, without being previously reported, it will hide that user, making it unavailable in the Reported Participants section. You will need to run this command once to make sure there are no users or entities that got blocked but are not visible in the participants listing.
+
+```console
+bundle exec rake decidim:upgrade:moderation:fix_blocked_user_panel
+```
+
+You can read more about this change on PR [\#10521](https://github.com/decidim/decidim/pull/10521).
+
+### 3.3 Change Webpacker to Shakapacker
 
 Since the Rails team has retired the Webpacker in favour or importmap-rails or js-bundling, we got ouserlves in a situation where performance improvements could not be performed.
 In order to continue having support for Webpacker like syntax, we have switched to Shakapacker.
@@ -110,7 +140,7 @@ You can read more about this change on PR [\#9026](https://github.com/decidim/de
 
 ### 4.2. Social Share Button change
 
-As the gem that we were using for sharing to Social Network don't support Webpacker, we have implemented the same functionality in `decidim-core`.
+As the gem that we were using for sharing to Social Network do not support Webpacker, we have implemented the same functionality in `decidim-core`.
 
 If you want to have the default social share services enabled (Twitter, Facebook, WhatsApp and Telegram), then you can just remove the initializer in your application:
 
@@ -118,7 +148,7 @@ If you want to have the default social share services enabled (Twitter, Facebook
 rm config/initializers/social_share_button.rb
 ```
 
-If you want to change the default social share services, you'll need to remove this initializer and add it to the Decidim initializer. We recommend doing it with the environment variables and secrets to be consistent with the rest of configurations.
+If you want to change the default social share services, you will need to remove this initializer and add it to the Decidim initializer. We recommend doing it with the environment variables and secrets to be consistent with the rest of configurations.
 
 ```console
 rm config/initializers/social_share_button.rb

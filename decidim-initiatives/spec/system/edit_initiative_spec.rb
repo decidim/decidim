@@ -44,7 +44,7 @@ describe "Edit initiative", type: :system do
 
     it_behaves_like "manage update"
 
-    it "doesn't show the header's edit link" do
+    it "does not show the header's edit link" do
       visit initiative_path
 
       within ".topbar" do
@@ -55,7 +55,7 @@ describe "Edit initiative", type: :system do
     context "when initiative is published" do
       let(:initiative) { create(:initiative, author: user, scoped_type:, organization:) }
 
-      it "can't be updated" do
+      it "cannot be updated" do
         visit decidim_initiatives.initiative_path(initiative)
 
         expect(page).not_to have_content "Edit initiative"

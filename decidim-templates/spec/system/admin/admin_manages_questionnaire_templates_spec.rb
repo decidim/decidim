@@ -240,7 +240,7 @@ describe "Admin manages questionnaire templates", type: :system do
       end
     end
 
-    it "doesn't show preview or answers buttons" do
+    it "does not show preview or answers buttons" do
       within ".layout-content" do
         click_link("Edit")
       end

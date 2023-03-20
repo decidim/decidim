@@ -11,7 +11,7 @@ namespace :decidim do
       # Install turbo
       Rake::Task["turbo:install"].invoke
 
-      # Removing bin/yarn makes assets:precompile task to don't execute `yarn install`
+      # Removing bin/yarn makes assets:precompile task to do not execute `yarn install`
       remove_file_from_application "bin/yarn"
       remove_file_from_application "yarn.lock"
       remove_file_from_application "node_modules/.yarn-integrity"

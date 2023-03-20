@@ -70,7 +70,7 @@ module Decidim
           describe "when the email already exists" do
             let(:email) { user_email }
 
-            it "doesn't create a new user" do
+            it "does not create a new user" do
               expect { subject.call }.to broadcast(:ok)
 
               monitoring_committee_members = Decidim::Votings::MonitoringCommitteeMember.where(user: existing_user)
@@ -78,7 +78,7 @@ module Decidim
               expect(monitoring_committee_members.count).to eq 1
             end
 
-            it "resends the invitation if the user hasn't accepted it yet" do
+            it "resends the invitation if the user has not accepted it yet" do
               existing_user.invite!
 
               expect { subject.call }.to have_enqueued_job(ActionMailer::MailDeliveryJob)

@@ -253,10 +253,10 @@ module Decidim
       ref = ""
 
       if resource.is_a?(Decidim::HasComponent) && component.present?
-        # It's a component resource
+        # It is a component resource
         ref = component.participatory_space.organization.reference_prefix
       elsif resource.is_a?(Decidim::Participable)
-        # It's a participatory space
+        # It is a participatory space
         ref = resource.organization.reference_prefix
       end
 
@@ -328,7 +328,7 @@ module Decidim
     30.minutes
   end
 
-  # If set to true, users have option to "remember me". Notice that expire_session_after won't take
+  # If set to true, users have option to "remember me". Notice that expire_session_after will not take
   # effect when the user wants to be remembered.
   config_accessor :enable_remember_me do
     true

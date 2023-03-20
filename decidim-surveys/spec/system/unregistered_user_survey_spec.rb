@@ -28,7 +28,7 @@ describe "Answer a survey", type: :system do
 
   include_context "with a component"
 
-  context "when the survey doesn't allow answers" do
+  context "when the survey does not allow answers" do
     it "does not allow answering the survey" do
       visit_component
 
@@ -71,7 +71,7 @@ describe "Answer a survey", type: :system do
         expect(page).to have_content("successfully")
       end
 
-      # Unregistered users are tracked with their session_id so they won't be allowed to repeat easily
+      # Unregistered users are tracked with their session_id so they will not be allowed to repeat easily
       expect(page).to have_content("You have already answered this form.")
       expect(page).to have_no_i18n_content(question.body)
 

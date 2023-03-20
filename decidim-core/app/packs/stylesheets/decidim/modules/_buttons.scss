@@ -123,6 +123,10 @@
     }
   }
 
+  &.primary{
+    @include button-hollow-variant(var(--primary));
+  }
+
   &.secondary{
     @include button-hollow-variant(var(--secondary));
   }
@@ -496,7 +500,7 @@
       /*
        * This is a hack to comply with google guidelines
        * https://developers.google.com/identity/branding-guidelines
-       * Currently the icons.svg file have the wrong google icon, until that's fixed
+       * Currently the icons.svg file have the wrong google icon, until that is fixed
        * google icon can be specified in secrets.yml with icon_path: decidim/brands/google.svg
        * however to facilitate upgrades this provides a fallback
        */

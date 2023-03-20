@@ -15,7 +15,7 @@ module Decidim
     # text    - The String text to be truncated.
     # options - A Hash with the options to truncate the text (default: {}):
     #           :length - An Integer number with the max length of the text.
-    #           :separator - A String to append to the text when it's being
+    #           :separator - A String to append to the text when it is being
     #           truncated.
     #
     # Returns a String.
@@ -46,7 +46,7 @@ module Decidim
 
     # Generates a link to be added to the global Edit link so admins
     # can easily manage data without having to look for it at the admin
-    # panel when they're at a public page.
+    # panel when they are at a public page.
     #
     # link_url      - The String with the URL.
     # action        - The Symbol action to check the permissions for.
@@ -69,7 +69,7 @@ module Decidim
 
     # Generates a second link to be added to the global admin action link so admins
     # can easily manage data without having to look for it at the admin
-    # panel when they're at a public page.
+    # panel when they are at a public page.
     #
     # link_url       - The String with the URL.
     # action         - The Symbol action to check the permissions for.

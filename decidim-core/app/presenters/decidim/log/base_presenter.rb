@@ -15,8 +15,8 @@ module Decidim
     # See `Decidim::ActionLog#render_log` for more info on the log types and
     # presenters.
     #
-    # Usage should be automatic and you shouldn't need to call this class
-    # directly, but here's an example:
+    # Usage should be automatic and you should not need to call this class
+    # directly, but here is an example:
     #
     #    action_log = Decidim::ActionLog.last
     #    view_helpers # => this comes from the views

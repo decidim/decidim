@@ -12,11 +12,11 @@ module Decidim
   #
   # It also sets two default attributes, `user` and `handler_name`.
   class AuthorizationHandler < Form
-    # The user that is trying to authorize, it's initialized with the
+    # The user that is trying to authorize, it is initialized with the
     # `current_user` from the controller.
     attribute :user, Decidim::User
 
-    # The String name of the handler, should not be modified since it's used to
+    # The String name of the handler, should not be modified since it is used to
     # infer the class name of the authorization handler.
     attribute :handler_name, String
 
@@ -92,7 +92,7 @@ module Decidim
     end
 
     # Any data that the developer would like to inject to the `metadata` field
-    # of an authorization when it's created. Can be useful if some of the
+    # of an authorization when it is created. Can be useful if some of the
     # params the user sent with the authorization form want to be persisted for
     # future use.
     #
@@ -107,7 +107,7 @@ module Decidim
 
     #
     # Any data to be injected in the `verification_metadata` field of an
-    # authorization when it's created. This data will be used for multi-step
+    # authorization when it is created. This data will be used for multi-step
     # verificaton workflows in order to confirm the authorization.
     #
     # Returns a Hash.

@@ -40,7 +40,7 @@ export default function backspaceBindingsRangeAny(quill) {
     quill.focus();
   })
 
-  // Put this backspace binding to second (after backspce_offset1 it's going to be third)
+  // Put this backspace binding to second (after backspce_offset1 it is going to be third)
   quill.keyboard.bindings[8].splice(1, 0, quill.keyboard.bindings[8].pop());
 }
 

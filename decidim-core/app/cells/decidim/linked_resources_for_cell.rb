@@ -2,7 +2,7 @@
 
 module Decidim
   # This cell is used to render a collection of linked resources for a
-  # resource. It's based on the equivalent helper method
+  # resource. It is based on the equivalent helper method
   # linked_resources_for.
   #
   # The `model` must be a resource to get the links from.

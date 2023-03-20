@@ -50,7 +50,7 @@ module Decidim
     end
 
     describe "sibling_scope" do
-      context "when there's a resource manifest" do
+      context "when there is a resource manifest" do
         context "when there are no component for the sibling" do
           it "returns a none relation" do
             expect(resource.sibling_scope(:foo)).to be_none
@@ -87,7 +87,7 @@ module Decidim
             target_component.unpublish!
           end
 
-          it "doesn't return anything from that component" do
+          it "does not return anything from that component" do
             expect(resource.sibling_scope(:dummy)).to be_empty
           end
         end
@@ -101,13 +101,13 @@ module Decidim
           let!(:target_resource) { create(:dummy_resource, component: target_component) }
           let!(:moderation) { create(:moderation, reportable: target_resource, hidden_at: Time.current) }
 
-          it "doesn't return anything from that component" do
+          it "does not return anything from that component" do
             expect(resource.sibling_scope(:dummy)).to be_empty
           end
         end
       end
 
-      context "when there's no resource manifest" do
+      context "when there is no resource manifest" do
         it "returns a none relation" do
           expect(resource.sibling_scope(:foo)).to be_none
         end

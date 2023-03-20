@@ -132,7 +132,7 @@ shared_examples "a page with dynamic map" do
       builder = subject
       template.instance_eval do
         # Create two separate map elements to make sure generating multiple
-        # map elements won't produce any HTML or accessibility validation
+        # map elements will not produce any HTML or accessibility validation
         # errors.
         content = builder.map_element(id: "map1", class: "google-map") do
           content_tag(:span, "", id: "map1_inner")

@@ -35,7 +35,7 @@ module Decidim
             expect { subject.call }.to broadcast(:invalid)
           end
 
-          it "doesn't update the post" do
+          it "does not update the post" do
             expect(post).not_to receive(:update!)
             subject.call
           end

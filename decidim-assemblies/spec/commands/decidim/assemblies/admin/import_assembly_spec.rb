@@ -96,7 +96,7 @@ module Decidim::Assemblies::Admin
         expect { subject.call }.to broadcast(:invalid)
       end
 
-      it "doesn't create any assembly" do
+      it "does not create any assembly" do
         expect do
           subject.call
         end.not_to change(::Decidim::Assembly, :count)

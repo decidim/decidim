@@ -198,7 +198,7 @@ module Decidim
       return true if managed
       return false if accepted_tos_version.nil?
 
-      # For some reason, if we don't use `#to_i` here we get some
+      # For some reason, if we do not use `#to_i` here we get some
       # cases where the comparison returns false, but calling `#to_i` returns
       # the same number :/
       accepted_tos_version.to_i >= organization.tos_version.to_i
@@ -263,7 +263,7 @@ module Decidim
     def needs_password_update?
       return false unless admin?
       return false unless Decidim.config.admin_password_strong
-      return true if password_updated_at.blank?
+      return identities.none? if password_updated_at.blank?
 
       password_updated_at < Decidim.config.admin_password_expiration_days.days.ago
     end
@@ -322,7 +322,7 @@ module Decidim
       return unless admin?
       return unless Decidim.config.admin_password_strong
 
-      # We don't want to run validations here because that could lead to an endless validation loop.
+      # We do not want to run validations here because that could lead to an endless validation loop.
       # rubocop:disable Rails/SkipsModelValidations
       update_column(:password_updated_at, Time.current)
       update_column(:previous_passwords, [encrypted_password_was, *previous_passwords].first(Decidim.config.admin_password_repetition_times))

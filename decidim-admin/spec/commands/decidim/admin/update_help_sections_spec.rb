@@ -48,7 +48,7 @@ module Decidim::Admin
         expect { command.call }.to broadcast(:invalid)
       end
 
-      it "doesn't update help sections" do
+      it "does not update help sections" do
         expect(Decidim::ContextualHelpSection.find_by("id" => "assembly")).to be_nil
       end
     end

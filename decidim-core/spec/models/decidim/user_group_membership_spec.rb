@@ -26,7 +26,7 @@ module Decidim
         expect(membership).not_to be_valid
       end
 
-      it "can't have multiple creators for the same user group" do
+      it "cannot have multiple creators for the same user group" do
         membership = create :user_group_membership, role: :creator
         failing_membership = build :user_group_membership, role: :creator, user_group: membership.user_group
 

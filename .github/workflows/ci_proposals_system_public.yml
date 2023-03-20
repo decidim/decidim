@@ -37,7 +37,7 @@ concurrency:
 jobs:
   main:
     name: Tests
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     if: "!startsWith(github.head_ref, 'chore/l10n')"
     timeout-minutes: 60
     services:
@@ -61,7 +61,7 @@ jobs:
       RUBYOPT: '-W:no-deprecated'
       VALIDATOR_HTML_URI: http://localhost:8888/
     steps:
-      - uses: actions/checkout@v2.0.0
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 1
       - uses: ./.github/actions/module-rspec
@@ -82,7 +82,7 @@ jobs:
           token: ${{ env.CODECOV_TOKEN }}
           name: decidim-proposals-system-public
           flags: decidim-proposals-system-public
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v3
         if: always()
         with:
           name: screenshots

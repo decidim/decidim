@@ -339,7 +339,7 @@
                         target = unescape( target );
                         args = args ? ("," + unescape( args ) + ")") : (parens ? ")" : "");
                         // Support for target being things like a.toLowerCase();
-                        // In that case don't call with template item as 'this' pointer. Just evaluate...
+                        // In that case do not call with template item as 'this' pointer. Just evaluate...
                         expr = parens ? (target.indexOf(".") > -1 ? target + parens : ("(" + target + ").call($item" + args)) : target;
                         exprAutoFnDetect = parens ? expr : "(typeof(" + target + ")==='function'?(" + target + ").call($item):(" + target + "))";
                     } else {
