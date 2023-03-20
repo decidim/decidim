@@ -138,6 +138,7 @@ ca:
         file_no_exists: L'arxiu no existeix
         notice: La descàrrega de les teves dades està en curs. Rebràs un correu electrònic quan estigui completa.
       email_change:
+        body1: Hem enviat un correu a %{unconfirmed_email} per a verificar la teva nova adreça de correu electrònic.
         body2: Cal que et reenviem el correu de verificació? %{resend_link} o %{cancel_link}.
         cancel: cancel·lar
         cancel_error: No s'ha pogut cancel·lar el canvi de correu electrònic.
@@ -378,6 +379,7 @@ ca:
           title: L'autorització ha caducat
         incomplete:
           cancel: Cancel·lar
+          explanation: 'Tot i que actualment estàs autoritzada amb "%{authorization}", necessitem que et tornis a autoritzar perquè no tenim les dades següents:'
           invalid_field: "%{field}"
           reauthorize: Reautoritzar-se
           title: Si us plau, reautoritza't
@@ -600,6 +602,7 @@ ca:
       not_found:
         back_home: Torna a l'inici
         content_doesnt_exist: Aquesta adreça és incorrecta o ha estat eliminada.
+        title: No s'ha trobat la pàgina que busques
     events:
       amendments:
         amendment_accepted:
@@ -758,6 +761,7 @@ ca:
         result: Resultats
     fingerprint:
       check: Verifica l'empremta digital
+      explanation: El text següent és una representació abreviada i criptografiada d'aquest contingut. És útil per garantir que el contingut no hagi estat alterat, ja que una única modificació provocaria un valor totalment diferent.
       online_calculator_name: Calculadora MD5 en línia
       replicate_help: Aquesta empremta digital es calcula mitjançant un algoritme de hash SHA256. Per reproduir-lo tu mateix, pots utilitzar una %{online_calculator_link} i copiar-hi les dades d'origen.
       source: Origen
@@ -890,6 +894,7 @@ ca:
       join:
         success: La sol·licitud per a formar-ne part s'ha enviat correctament. Una administradora revisarà la teva sol·licitud abans d'acceptar-te al grup.
       leave:
+        last_admin: No et pots esborrar d'aquest grup perquè n'ets la darrera administradora. Fes administradora a un altre membre per a poder abandonar el grup.
         success: El grup s'ha abandonat correctament.
       members:
         accept_or_reject_join_requests: 'Les següents participants han sol·licitat unir-se a aquest grup. Accepta o rebutja les seves sol·licituds:'
@@ -1037,6 +1042,8 @@ ca:
     newsletter_mailer:
       newsletter:
         no_reply_notice: Aquest correu electrònic s'ha enviat des d'una adreça de correu de notificació que no accepta entrada de correus. Si us plau, no responguis a aquest missatge. Si us plau, no responguis a aquest missatge.
+        note: Has rebut aquest correu electrònic perquè estàs subscrita a butlletins de notícies a %{organization_name}. Pots canviar esta opció a la <a href="%{link}">configuració de les notificacions</a>.
+        see_on_website: No pots veure correctament aquest correu electrònic? Consulta la seva <a href="%{link}" target="_blank" class="see-on-website">versió web</a>.
         unsubscribe: Per desactivar la recepció d'aquest tipus de correu electrònic, <a href="%{link}" target="_blank" class="unsubscribe">dona't de baixa</a>.
     newsletter_templates:
       basic_only_text:
@@ -1103,6 +1110,7 @@ ca:
       show:
         administrators: Administradores
         allow_public_contact: Permetre que qualsevol participant m'enviï missatges directes, encara que no la segueixi.
+        allow_push_notifications: Mostrar notificacions emergents per a saber que passa mentre no estàs a la plataforma. Pots deshabilitar-les en qualsevol moment.
         direct_messages: Rebre missatges directes de qualsevol
         email_on_moderations: Vull rebre un correu electrònic cada cop que es reporti algo o a algú per moderació.
         everything_followed: Tot el que segueixo
@@ -1126,6 +1134,7 @@ ca:
         success: La configuració de les notificacions s'ha actualitzat correctament.
     offline:
       show:
+        message: Sembla que estàs desconnectada. Si us plau, torna a intentar-ho més tard.
         retry: Torna-ho a provar
     open_data:
       not_available_yet: Els fitxers Open Data encara no estan disponibles, torna-ho a provar d'aquí a uns minuts.
@@ -1136,6 +1145,7 @@ ca:
         verified: Verificada
     pad_iframe:
       disclaimer: Els continguts d'aquest pad han estat escrits per participants registrades i expressen les seves opinions. %{organization} no es fa responsable dels seu contingut.
+      explanation: Utilitzeu aquest bloc per prendre notes durant la trobada de manera col·laborativa, així és més fàcil escriure l'acta després.
       pad: Pad
     pages:
       home:
@@ -1420,6 +1430,7 @@ ca:
       show:
         my_interests: Els meus interessos
         no_scopes: Aquesta organització encara no té cap àmbit!
+        select_your_interests: Selecciona els temes del teu interès per rebre notificacions relacionades amb aquests a la pestanya de la Línia de temps dins del teu perfil públic.
         update_my_interests: Actualitza els meus interessos
       update:
         error: S'ha produït un error en actualitzar els teus interessos.
@@ -1461,6 +1472,7 @@ ca:
       show:
         version_index: Versió %{index}
     welcome_notification:
+      default_body: <p>Hola {{name}}, gràcies per unir-te a {{organization}} et donem la benvinguda!</p><ul><li>Si vole fer-te una idea ràpida de que pots fer-hi, fes una ullada a la <a href="{{help_url}}">Secció d'ajuda</a>.</li><li>Una vegada l'hagis llegit rebràs la teva primera ensenya. Aquí trobaràs un <a href="{{badges_url}}">llistat de totes les ensenyes</a>que pots aconsegui participant a {{organization}}</li><li>. Per acabar, però no per això menys important, uneix-te a d'altres persones, comparteix amb elles d'estar compromesa i de participar a {{organization}}. Fes propostes, comentaris, debat, pensa en com contribuir a un bé comú, aporta arguments per mirar de convèncer, escolta i llegeix per convèncer-te, expressa les teves idees de manera concreta i directa, respon amb paciència i decisió, defensa les teves idees i resta oberta de ment per a col·laborar i unir-te a les idees d'altra gent.</li></ul>
       default_subject: Gràcies per unir-te a {{organization}}!
     wizard_step_form:
       wizard_aside:
@@ -1508,6 +1520,7 @@ ca:
         subject: Instruccions de confirmació
       email_changed:
         greeting: Hola %{recipient}!
+        message: Ens posem en contacte amb tu per avisar-te que el teu correu electrònic es modifica per %{email}.
         subject: El correu electrònic ha canviat
       invitation_instructions:
         accept: Acceptar invitació
@@ -1524,6 +1537,7 @@ ca:
         subject: Instruccions d'invitació
       password_change:
         greeting: Hola %{recipient}!
+        message: Ens posem en contacte amb tu per notificar-te que la teva contrasenya ha estat canviada.
         subject: Contrasenya modificada
       reset_password_instructions:
         action: Canvia la meva contrasenya
@@ -1730,6 +1744,8 @@ ca:
       notifications_dashboard:
         mark_all_as_read: Marcar tot com a llegit
         mark_as_read: Marcar com a llegit
+      offline_banner:
+        cache_version_page: Ostres! La teva xarxa està desconnectada. El que estàs veient és una versió prèvia de la pàgina desada a la memòria cau i podria ser que el contingut no estigui actualitzat.
       social_media_links:
         facebook: "%{organization} a Facebook"
         github: "%{organization} a GitHub"
