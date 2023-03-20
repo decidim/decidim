@@ -7,6 +7,7 @@ module Decidim
 
       validates :role, presence: true
       validates :role, inclusion: { in: ParticipatorySpaceUser::ROLES }
+
       def roles
         ParticipatorySpaceUser::ROLES.map { |role| [I18n.t(role, scope:), role] }
       end

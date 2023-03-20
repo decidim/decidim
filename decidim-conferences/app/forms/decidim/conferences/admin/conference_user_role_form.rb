@@ -7,6 +7,7 @@ module Decidim
       #
       class ConferenceUserRoleForm < Decidim::Admin::ParticipatorySpaceAdminUserForm
         mimic :conference_user_role
+
         def scope = "decidim.admin.models.conference_user_role.roles"
       end
     end
