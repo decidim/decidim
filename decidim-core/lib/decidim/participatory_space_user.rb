@@ -38,6 +38,7 @@ module Decidim
       end
 
       private
+
       # Private: check if the process and the user have the same organization
       def user_and_space_same_organization
         return if !send(target_space_association) || !user
