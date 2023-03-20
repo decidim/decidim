@@ -170,3 +170,6 @@ cs:
         description: Počet komentářů generovaných uživateli
         object: komentáře
         title: Komentáře
+  errors:
+    messages:
+      cannot_have_comments: nelze komentovat
