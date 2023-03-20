@@ -623,8 +623,6 @@ lt:
           blocked: Užblokuota
           unblocked: Neužblokuota
       moderations:
-        index:
-          title: Moderavimai
         report:
           reasons:
             does_not_belong: Nepriklauso
