@@ -526,7 +526,6 @@ ro:
         area_types: Tipuri de zone
         areas: Zone
         configuration: Configurare
-        content: Conținut
         dashboard: Panou de administrare
         external_domain_whitelist: Domenii externe permise
         help_sections: Secțiuni de ajutor
@@ -634,7 +633,6 @@ ro:
           nickname: Pseudonim
           reason: Motiv
           reports: Număr de raportări
-          title: Listarea participanţilor
         report:
           reasons:
             does_not_belong: Nu aparține
@@ -644,8 +642,6 @@ ro:
           blocked: Blocat
           unblocked: Nu este blocat
       moderations:
-        index:
-          title: Moderări
         report:
           reasons:
             does_not_belong: Nu aparține
@@ -1059,8 +1055,6 @@ ro:
   layouts:
     decidim:
       admin:
-        global_moderations:
-          title: Moderări de conținut
         newsletters:
           title: Buletine informative
         settings:
