@@ -20,7 +20,7 @@ fi
 
 exec foreman start -f Procfile.dev "$@")
 
-      actions :chmod, "bin/dev", 755
+      actions :chmod, "bin/dev", 0o755
     end
 
     private
