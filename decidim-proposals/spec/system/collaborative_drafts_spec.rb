@@ -249,6 +249,7 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
         context "when the user requests access" do
           before do
             click_button "Request access"
+            expect(page).to have_button("Access requested")
           end
 
           it "renders an flash informing about the request" do
