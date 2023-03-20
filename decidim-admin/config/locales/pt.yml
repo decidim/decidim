@@ -567,8 +567,6 @@ pt:
           blocked: Bloqueado
           unblocked: Não bloqueado
       moderations:
-        index:
-          title: Moderações
         report:
           reasons:
             does_not_belong: Não pertence
