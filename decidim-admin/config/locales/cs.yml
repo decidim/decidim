@@ -199,6 +199,8 @@ cs:
           new: Nový administrátor
         verify: Ověřit
       admin_terms_of_use:
+        accept:
+          error: Při přijímání správcovských podmínek použití došlo k chybě.
         actions:
           accept: Souhlasím s podmínkami
           are_you_sure: Opravdu chcete odmítnout Podmínky použití pro správce?
@@ -562,6 +564,7 @@ cs:
         area_types: Typy oblastí
         areas: Oblasti
         configuration: Konfigurace
+        content: Nahlášený obsah
         dashboard: Ovládací panel
         external_domain_whitelist: Povolené externí domény
         help_sections: Sekce nápovědy
@@ -670,6 +673,7 @@ cs:
           nickname: Přezdívka
           reason: Důvod
           reports: Počet zpráv
+          title: Nahlášení účastníci
         report:
           reasons:
             does_not_belong: Nepatří
@@ -679,6 +683,8 @@ cs:
           blocked: Blokováno
           unblocked: Neblokováno
       moderations:
+        index:
+          title: Nahlášený obsah
         report:
           reasons:
             does_not_belong: Nepatří
@@ -852,6 +858,7 @@ cs:
             success: Blok obsahu byl úspěšně vytvořen.
           destroy:
             error: Při pokusu o odstranění tohoto bloku obsahu došlo k chybě.
+            success: Blok obsahu byl úspěšně odstraněn.
           edit:
             update: Aktualizovat
         edit:
@@ -930,6 +937,8 @@ cs:
         create:
           error: Při vytváření nové oblasti působnosti došlo k chybě.
           success: Oblast působnosti byla úspěšně vytvořena.
+        destroy:
+          success: Oblast působnosti úspěšně zničena.
         edit:
           title: Upravit oblast působnosti
           update: Aktualizace
