@@ -114,9 +114,10 @@ module Decidim
     #
     # @return ActiveSupport::SafeBuffer
     def render_sanitized_content(resource, method)
-      content = present(resource).send(method, links: true, strip_tags: !safe_content?)
+      content = present(resource).send(method, links: true, strip_tags: !try(:safe_content?))
 
-      return decidim_sanitize(content, {}) unless safe_content?
+      return decidim_sanitize(content, {}) unless try(:safe_content?)
+      return decidim_sanitize_editor_admin(content, {}) if try(:safe_content_admin?)
 
       decidim_sanitize_editor(content)
     end

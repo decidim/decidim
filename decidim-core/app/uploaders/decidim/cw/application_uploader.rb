@@ -43,7 +43,7 @@ module Decidim::Cw
     protected
 
     # Checks if the file is an image based on the content type. We need this so
-    # we only create different versions of the file when it's an image.
+    # we only create different versions of the file when it is an image.
     #
     # new_file - The uploaded file.
     #

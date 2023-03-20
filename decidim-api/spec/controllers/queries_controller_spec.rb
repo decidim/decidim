@@ -21,7 +21,7 @@ module Decidim
           )
         end
 
-        it "doesn't accept queries" do
+        it "does not accept queries" do
           post :create, params: { query: "{ __schema { queryType { name } } }" }
 
           expect(response).to redirect_to("/users/sign_in")

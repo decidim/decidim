@@ -28,7 +28,7 @@ module TranslationHelpers
     have_content(i18n_content(field, upcase:, strip_tags:))
   end
 
-  # Checks that the current page doesn't have some translated content. It strips
+  # Checks that the current page does not have some translated content. It strips
   # the HTML tags from the field (in case there are any).
   #
   # field - the field that holds the translations

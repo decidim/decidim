@@ -35,6 +35,15 @@ describe "Admin manages organization", type: :system do
       expect(page).to have_content("updated successfully")
     end
 
+    it "marks the comments_max_length as required" do
+      visit decidim_admin.edit_organization_path
+      expect(find("#organization_comments_max_length")[:required]).to eq("true")
+
+      expect(page).not_to have_content("There is an error in this field.")
+      fill_in :organization_comments_max_length, with: ""
+      expect(page).to have_content("There is an error in this field.")
+    end
+
     context "when using the rich text editor" do
       before do
         visit decidim_admin.edit_organization_path
@@ -215,7 +224,7 @@ describe "Admin manages organization", type: :system do
           )["innerHTML"]).to eq('<p>foo<br><br><a target="_blank" href="https://www.decidim.org">link</a></p>')
         end
 
-        it "doesnt create br tag inside a tag" do
+        it "does not create br tag inside a tag" do
           find('div[contenteditable="true"].ProseMirror').native.send_keys([:left, :left, :left, :left])
           find('div[contenteditable="true"].ProseMirror').native.send_keys([:shift, :enter])
           expect(find(
@@ -394,7 +403,7 @@ describe "Admin manages organization", type: :system do
           )["innerHTML"]).to eq("<p>Paragraph</p><ul><li><p>List item 1</p></li><li><p>List item 2</p></li><li><p>List item 3</p></li><li><p>abcd</p></li></ul>".to_s.gsub("\n", ""))
         end
 
-        it "doesnt delete characters below when pressing backspace" do
+        it "does not delete characters below when pressing backspace" do
           find('div[contenteditable="true"].ProseMirror').native.send_keys [:up, :up, :up, :home, "a", :backspace]
           find('div[contenteditable="true"].ProseMirror').native.send_keys [:enter, :enter, :enter, :backspace, :backspace, :backspace]
           expect(find(
@@ -413,7 +422,7 @@ describe "Admin manages organization", type: :system do
 
         let(:clipboard_content_html) do
           # The pasted content contains always all styles for the elements, so
-          # this is just to test that the styles don't interfere with the pasted
+          # this is just to test that the styles do not interfere with the pasted
           # content handling.
           styles = {
             p: {
@@ -509,7 +518,7 @@ describe "Admin manages organization", type: :system do
 
   describe "welcome message" do
     context "when not customizing it" do
-      it "doesn't show the customization fields" do
+      it "does not show the customization fields" do
         visit decidim_admin.edit_organization_path
         check "Send welcome notification"
         expect(page).not_to have_content("Welcome notification subject")

@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe Decidim::Comments::UserGroupMentionedEvent do
-  include_context "when it's a comment event"
+  include_context "when it is a comment event"
   let(:organization) { create(:organization) }
   let(:event_name) { "decidim.events.comments.user_group_mentioned" }
   let(:ca_comment_content) { "<div><p>Un commentaire pour #{author_link}</p></div>" }

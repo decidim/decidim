@@ -22,12 +22,12 @@ module Decidim::Budgets
       context "when a order for the current user does exist" do
         let!(:order) { create(:order, user:, budget:) }
 
-        it "doesn't create a new order" do
+        it "does not create a new order" do
           expect { subject.call }.not_to change(Order, :count)
         end
       end
 
-      context "when a order for the current user doesn't exist" do
+      context "when a order for the current user does not exist" do
         it "creates an order" do
           expect { subject.call }.to change(Order, :count).by(1)
         end

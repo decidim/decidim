@@ -82,7 +82,7 @@ shared_examples "manage registrations" do
       expect(page).to have_admin_callout("Registration code successfully validated")
     end
 
-    it "can't validate an invalid registration code" do
+    it "cannot validate an invalid registration code" do
       visit_edit_registrations_page
 
       within ".validate_meeting_registration_code" do

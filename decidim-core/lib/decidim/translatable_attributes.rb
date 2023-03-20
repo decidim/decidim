@@ -4,7 +4,7 @@ require "active_support/concern"
 
 module Decidim
   # A set of convenience methods to deal with I18n attributes and validations
-  # in a way that's compatible with AttributeObject and ActiveModel, thus making
+  # in a way that is compatible with AttributeObject and ActiveModel, thus making
   # it easy to integrate into Rails' forms and similar workflows.
   module TranslatableAttributes
     extend ActiveSupport::Concern
@@ -102,7 +102,7 @@ module Decidim
       # field, or not.
       #
       # It uses `RequestStore` so that the method works from inside presenter
-      # classes, which don't have access to controller instance variables.
+      # classes, which do not have access to controller instance variables.
       def machine_translation_value(attribute, organization, override_machine_translation_settings = nil)
         return unless organization
         return unless organization.enable_machine_translations?

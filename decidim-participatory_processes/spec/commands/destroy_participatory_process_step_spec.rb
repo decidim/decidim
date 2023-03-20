@@ -14,7 +14,7 @@ module Decidim::ParticipatoryProcesses
     end
     let(:step) { active_step }
 
-    context "when there's more than one step" do
+    context "when there is more than one step" do
       let!(:inactive_step) do
         create(:participatory_process_step, participatory_process:, active: false)
       end
@@ -24,7 +24,7 @@ module Decidim::ParticipatoryProcesses
           expect { subject.call }.to broadcast(:invalid, :active_step)
         end
 
-        it "doesn't delete the step" do
+        it "does not delete the step" do
           subject.call
           expect(active_step).to be_persisted
         end

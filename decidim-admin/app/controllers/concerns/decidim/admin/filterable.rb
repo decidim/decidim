@@ -103,7 +103,7 @@ module Decidim
         # Hash values are used to build nested dropdown submenus with many levels.
         # By default, uses the Symbols in `filters` as keys and injects an Array
         # with true and false as values. If these values fit your filtering needs,
-        # you won't have to declare a `filters_with_values` method in your concern.
+        # you will not have to declare a `filters_with_values` method in your concern.
         def filters_with_values
           filters.index_with { [true, false] }
         end

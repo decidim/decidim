@@ -25,7 +25,7 @@ module Decidim
       # @param attribute [Decidim::SettingsManifest::Attribute] The Settings::Attribute instance with the
       #   description of the attribute.
       # @param name [Symbol] The name of the field.
-      # @param i18n_scope [String] The scope where it'll find all the texts for the internationalization (locales)
+      # @param i18n_scope [String] The scope where it will find all the texts for the internationalization (locales)
       # @param options [Hash] Extra options to be passed to the field helper.
       # @option options [String] :tabs_prefix The type of the setting.
       #   It can be "global-settings" or "step-N-settings", where N is the number of the step.
@@ -115,7 +115,7 @@ module Decidim
       end
 
       # Get the translation for a given attribute
-      # Returns a translation or nil. If nil, ZURB Foundation won't add the help_text.
+      # Returns a translation or nil. If nil, ZURB Foundation will not add the help_text.
       #
       # @param name (see #settings_attribute_input)
       # @param suffix [String] What suffix the i18n key has

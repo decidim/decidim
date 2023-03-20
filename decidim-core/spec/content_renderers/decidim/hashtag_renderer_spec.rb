@@ -21,7 +21,7 @@ module Decidim
       it { is_expected.to eq(result) }
     end
 
-    context "when parsed hashtag doesn't include the casing part" do
+    context "when parsed hashtag does not include the casing part" do
       let(:content) { "This text contains a valid Decidim::Hashtag Global ID: #{hashtag.to_global_id}" }
 
       it { is_expected.to eq(result) }

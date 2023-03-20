@@ -75,7 +75,7 @@ en:
         conference_registration_invite:
           attributes:
             email:
-              already_invited: This email has already been invited
+              already_invited: This email has already been invited.
   activerecord:
     models:
       decidim/conference:
@@ -456,7 +456,7 @@ en:
           main_promotors: Organizers
         show:
           login_as: You are logged in as %{name} <%{email}>
-          make_conference_registration: Make your registration in the conference
+          make_conference_registration: Register for the conference
           register: Register
       content_blocks:
         highlighted_conferences:
@@ -466,9 +466,9 @@ en:
       mailer:
         conference_registration_mailer:
           confirmation:
-            subject: Your conference's registration has been confirmed
+            subject: Your conference's registration has been confirmed.
           pending_validation:
-            subject: Your conference's registration is pending confirmation
+            subject: Your conference's registration is pending confirmation.
         invite_join_conference_mailer:
           invite:
             subject: Invitation to join a conference
@@ -555,7 +555,7 @@ en:
     log:
       value_types:
         conference_presenter:
-          not_found: 'The conference was not found on the database (ID: %{id})'
+          not_found: 'The conference was not found on the database (ID: %{id}).'
     media:
       index:
         description: Links about this conference
