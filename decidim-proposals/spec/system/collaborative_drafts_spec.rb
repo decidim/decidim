@@ -299,6 +299,7 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
             context "when the request is accepted and the contributor visits the draft" do
               before do
                 click_button "Accept"
+                expect(page).to have_content("@#{user.nickname} has been accepted as a collaborator successfully")
                 relogin_as user, scope: :user
                 visit current_path
                 within ".header .title-bar .topbar__user__logged" do
