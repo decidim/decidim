@@ -989,6 +989,7 @@ cs:
           active_content_blocks: Aktivní bloky obsahu
           add: Přidat blok obsahu
           create:
+            error: Při pokusu o vytvoření tohoto bloku obsahu se vyskytl problém.
             success: Blok obsahu byl úspěšně vytvořen.
           destroy:
             error: Při pokusu o odstranění tohoto bloku obsahu došlo k chybě.
@@ -1147,6 +1148,8 @@ cs:
   layouts:
     decidim:
       admin:
+        global_moderations:
+          title: Globální moderace
         newsletters:
           title: Zpravodaje
         settings:
