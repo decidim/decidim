@@ -356,8 +356,6 @@ uk:
             state: Стан
             users_count: Кількість учасників
       moderations:
-        index:
-          title: Дії з модерації
         report:
           reasons:
             does_not_belong: Неприйнятно
