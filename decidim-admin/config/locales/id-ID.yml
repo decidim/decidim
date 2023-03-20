@@ -383,8 +383,6 @@ id:
             state: Negara
             users_count: Jumlah pengguna
       moderations:
-        index:
-          title: Moderasi
         report:
           reasons:
             does_not_belong: Bukan milik
