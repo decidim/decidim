@@ -87,10 +87,12 @@ es:
           no_data_stored: No hay datos almacenados.
         create:
           error: Se ha producido un error al crear la autorización.
+          success: Se te ha autorizado correctamente.
           transferred: 'Se han recuperado los siguientes datos de participación a partir de tu autorización:'
           unconfirmed: Necesitas confirmar tu correo electrónico para poder autorizarte.
         destroy:
           error: Se ha producido un error al borrar la autorización.
+          success: Has borrado la autorización correctamente.
         first_login:
           actions:
             another_dummy_authorization_handler: Verificar contra otro ejemplo de controlador de autorización
@@ -212,6 +214,8 @@ es:
           new:
             send: Mándame una carta
             title: Solicita tu código de verificación
+          update:
+            success: Felicidades. Te has verificado con éxito.
       sms:
         authorizations:
           destroy:
@@ -227,6 +231,7 @@ es:
             title: Solicita tu código de verificación
           update:
             error: El código de verificación no coincide con el nuestro. Por favor, vuelve a revisar el SMS que te enviamos.
+            success: Felicidades. Te has verificado con éxito.
   errors:
     messages:
       uppercase_only_letters_numbers: debe ser todo en mayúsculas y contener solo letras y/o números
