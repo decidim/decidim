@@ -113,14 +113,19 @@ cs:
           update_category:
             invalid: 'Tyto projekty již mají kategorii %{subject_name}: %{projects}.'
             select_a_category: Vyberte prosím kategorii.
+            select_a_project: Vyberte projekt.
             success: 'Projekty byly úspěšně aktualizovány do kategorie %{subject_name}: %{projects}.'
           update_scope:
             invalid: 'Tyto projekty již mají rozsah %{subject_name}: %{projects}.'
+            select_a_project: Vyberte projekt.
+            select_a_scope: Vyberte prosím rozsah.
             success: 'Projekty byly úspěšně aktualizovány na rozsah %{subject_name}: %{projects}.'
           update_selected:
             invalid:
               selected: 'Tyto projekty již byly vybrány pro implementaci: %{projects}.'
               unselected: 'Tyto projekty již byly odebrány z implementace: %{projects}.'
+            select_a_project: Vyberte projekt.
+            select_a_selection: Vyberte prosím stav implementace.
             success:
               selected: 'Tyto projekty byly úspěšně vybrány pro implementaci: %{projects}.'
               unselected: 'Tyto projekty byly úspěšně odebrány z implementace: %{projects}.'
@@ -166,6 +171,7 @@ cs:
         progress: Dokončit hlasování
         show: Zobrazit projekty
         vote: Hlasovat
+        voted_on: Hlasovali jste na %{links}.
       last_activity:
         new_vote_at: Nový rozpočtový hlas v
       limit_announcement:
@@ -211,6 +217,7 @@ cs:
           assigned: 'Přiřazeno:'
           cancel_order: smazat váš hlas a začít znovu
           checked_out:
+            description: Už jste pro rozpočet hlasovali. Pokud jste změnili názor, můžete %{cancel_link}.
             title: Hlasování o rozpočtu bylo dokončeno
           minimum_projects_rule:
             description: Na jaké projekty bychom podle vás měli vyčlenit rozpočet? Vyberte alespoň %{minimum_number} projektů, které chcete a hlasujte podle vašich preferencí pro definování rozpočtu.
