@@ -357,6 +357,7 @@ es:
           Excel: Excel
           FormPDF: PDF
           JSON: JSON
+        notice: Tu exportación está actualmente en curso. Recibirás un correo electrónico cuando haya finalizado.
       filters:
         category_id_eq:
           label: Categoría
@@ -528,6 +529,7 @@ es:
         area_types: Tipos de área
         areas: Áreas
         configuration: Configuración
+        content: Contenido reportado
         dashboard: Panel de control
         external_domain_whitelist: Dominios externos permitidos
         help_sections: Secciones de ayuda
@@ -636,6 +638,7 @@ es:
           nickname: Alias
           reason: Motivo
           reports: Cantidad de veces reportado
+          title: Participantes reportadas
         report:
           reasons:
             does_not_belong: No pertenece
@@ -645,6 +648,8 @@ es:
           blocked: Bloqueado
           unblocked: No bloqueado
       moderations:
+        index:
+          title: Contenido reportado
         report:
           reasons:
             does_not_belong: No pertenece
@@ -1066,6 +1071,8 @@ es:
   layouts:
     decidim:
       admin:
+        global_moderations:
+          title: Moderaciones globales
         newsletters:
           title: Boletines
         settings:
