@@ -452,7 +452,6 @@ it:
         area_types: Tipi di ambito territoriale
         areas: Ambiti territoriali
         configuration: Configurazione
-        content: Contenuto
         dashboard: Cruscotto (Dashboard)
         external_domain_whitelist: Consenti l'uso di domini esterni
         help_sections: Sezioni di Aiuto
@@ -560,7 +559,6 @@ it:
           nickname: Nickname
           reason: Motivazione
           reports: Numero di segnalazioni
-          title: Lista dei partecipanti
         report:
           reasons:
             does_not_belong: Non appartiene
@@ -570,8 +568,6 @@ it:
           blocked: Bloccato
           unblocked: Non Bloccato
       moderations:
-        index:
-          title: Moderazione
         report:
           reasons:
             does_not_belong: Non appartiene
@@ -950,8 +946,6 @@ it:
   layouts:
     decidim:
       admin:
-        global_moderations:
-          title: Moderazione dei contenuti
         newsletters:
           title: Newsletters
         settings:
