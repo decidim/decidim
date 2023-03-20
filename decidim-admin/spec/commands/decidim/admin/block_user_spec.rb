@@ -26,6 +26,10 @@ module Decidim::Admin
           expect { subject.call }.to broadcast(:ok, user_to_block)
         end
 
+        it "Creates a User Moderation" do
+          expect { subject.call }.to change(Decidim::UserModeration, :count)
+        end
+
         it "user is notified" do
           subject.call
           expect(Decidim::BlockUserJob).to have_been_enqueued.on_queue("block_user")

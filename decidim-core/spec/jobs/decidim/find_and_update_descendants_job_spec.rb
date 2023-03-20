@@ -18,8 +18,8 @@ describe Decidim::FindAndUpdateDescendantsJob do
   end
 
   describe "#perform" do
-    shared_examples_for "doesn't update search indexes" do
-      it "doesn't update search indexes" do
+    shared_examples_for "does not update search indexes" do
+      it "does not update search indexes" do
         expect do
           Decidim::FindAndUpdateDescendantsJob.perform_now(participatory_process)
         end.not_to have_enqueued_job(Decidim::UpdateSearchIndexesJob)
@@ -45,16 +45,16 @@ describe Decidim::FindAndUpdateDescendantsJob do
       let(:proposal) { nil }
       let(:post) { nil }
 
-      it_behaves_like "doesn't update search indexes"
+      it_behaves_like "does not update search indexes"
     end
 
-    context "when participatory process descendant doesn't respond to components" do
+    context "when participatory process descendant does not respond to components" do
       before do
         allow(participatory_process).to receive(:respond_to?).with(:components).and_return(false)
         allow(participatory_process).to receive(:respond_to?).with(:comments).and_return(false)
       end
 
-      it_behaves_like "doesn't update search indexes"
+      it_behaves_like "does not update search indexes"
     end
 
     context "when participatory process descendants has no components" do
@@ -64,7 +64,7 @@ describe Decidim::FindAndUpdateDescendantsJob do
         allow(participatory_process).to receive(:respond_to?).with(:comments).and_return(false)
       end
 
-      it_behaves_like "doesn't update search indexes"
+      it_behaves_like "does not update search indexes"
     end
   end
 end

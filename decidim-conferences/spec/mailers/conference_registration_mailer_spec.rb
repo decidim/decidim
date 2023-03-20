@@ -16,7 +16,7 @@ module Decidim::Conferences
     let(:mail) { described_class.confirmation(user, conference, registration_type) }
 
     describe "pending validation" do
-      let(:default_subject) { "Your conference's registration is pending confirmation" }
+      let(:default_subject) { "Your conference's registration is pending confirmation." }
 
       let(:default_body) { "You will receive the confirmation shortly" }
 
@@ -27,7 +27,7 @@ module Decidim::Conferences
     end
 
     describe "confirmation" do
-      let(:default_subject) { "Your conference's registration has been confirmed" }
+      let(:default_subject) { "Your conference's registration has been confirmed." }
 
       let(:default_body) { "You will find the conference" }
 

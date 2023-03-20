@@ -23,22 +23,18 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - uses: rokroskar/workflow-run-cleanup-action@v0.3.3
-      if: "github.ref != 'refs/heads/develop'"
-      env:
-        GITHUB_TOKEN: " ${{ inputs.github_token }}"
     - uses: ruby/setup-ruby@v1
       with:
         ruby-version: ${{ inputs.ruby_version }}
         bundler-cache: true
-    - uses: actions/setup-node@v1
+    - uses: actions/setup-node@v3
       with:
         node-version: ${{ inputs.node_version }}
     - name: Get npm cache directory path
       id: npm-cache-dir-path
-      run: echo "::set-output name=dir::$(npm get cache)-${{ inputs.name }}"
+      run: echo "dir=$(npm get cache)-${{ inputs.name }}" >> $GITHUB_OUTPUT
       shell: "bash"
-    - uses: actions/cache@v2
+    - uses: actions/cache@v3
       id: npm-cache
       with:
         path: ${{ steps.npm-cache-dir-path.outputs.dir }}
@@ -51,7 +47,7 @@ runs:
     - run: mkdir -p ./spec/decidim_dummy_app/tmp/screenshots
       name: Create the screenshots folder
       shell: "bash"
-    - uses: nanasess/setup-chromedriver@v1.0.1
+    - uses: nanasess/setup-chromedriver@v1
     - run: RAILS_ENV=test bundle exec rails assets:precompile
       name: Precompile assets
       working-directory: ./spec/decidim_dummy_app/

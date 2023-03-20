@@ -44,7 +44,7 @@ describe Decidim::EventPublisherJob do
           resource.published_at = nil
         end
 
-        it "doesn't enqueue the jobs" do
+        it "does not enqueue the jobs" do
           expect(Decidim::EmailNotificationGeneratorJob).not_to receive(:perform_later)
           expect(Decidim::NotificationGeneratorJob).not_to receive(:perform_later)
 
@@ -66,7 +66,7 @@ describe Decidim::EventPublisherJob do
       end
     end
 
-    context "when there's a component" do
+    context "when there is a component" do
       let(:resource) { build(:dummy_resource) }
 
       context "when it is published" do
@@ -89,7 +89,7 @@ describe Decidim::EventPublisherJob do
           resource.component.published_at = nil
         end
 
-        it "doesn't enqueue the jobs" do
+        it "does not enqueue the jobs" do
           expect(Decidim::EmailNotificationGeneratorJob).not_to receive(:perform_later)
           expect(Decidim::NotificationGeneratorJob).not_to receive(:perform_later)
 
@@ -98,7 +98,7 @@ describe Decidim::EventPublisherJob do
       end
     end
 
-    context "when there's a participatory space" do
+    context "when there is a participatory space" do
       let(:resource) { build(:dummy_resource) }
 
       context "when it is published" do
@@ -121,7 +121,7 @@ describe Decidim::EventPublisherJob do
           resource.component.participatory_space.published_at = nil
         end
 
-        it "doesn't enqueue the jobs" do
+        it "does not enqueue the jobs" do
           expect(Decidim::EmailNotificationGeneratorJob).not_to receive(:perform_later)
           expect(Decidim::NotificationGeneratorJob).not_to receive(:perform_later)
 
@@ -143,7 +143,7 @@ describe Decidim::EventPublisherJob do
       context "when it is not published" do
         let(:resource) { build(:component, :unpublished) }
 
-        it "doesn't enqueue the jobs" do
+        it "does not enqueue the jobs" do
           expect(Decidim::EmailNotificationGeneratorJob).not_to receive(:perform_later)
           expect(Decidim::NotificationGeneratorJob).not_to receive(:perform_later)
 
@@ -165,7 +165,7 @@ describe Decidim::EventPublisherJob do
       context "when it is not published" do
         let(:resource) { build(:participatory_process, :unpublished) }
 
-        it "doesn't enqueue the jobs" do
+        it "does not enqueue the jobs" do
           expect(Decidim::EmailNotificationGeneratorJob).not_to receive(:perform_later)
           expect(Decidim::NotificationGeneratorJob).not_to receive(:perform_later)
 

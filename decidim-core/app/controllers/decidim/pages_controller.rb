@@ -31,6 +31,8 @@ module Decidim
     end
 
     def page_content_blocks
+      return [] unless Decidim.page_blocks.include?(@page.slug)
+
       @page_content_blocks ||= Decidim::ContentBlock.published
                                                     .for_scope(:static_page, organization: current_organization)
                                                     .where(scoped_resource_id: @page.id)

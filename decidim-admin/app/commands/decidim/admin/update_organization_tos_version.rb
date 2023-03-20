@@ -19,7 +19,7 @@ module Decidim
       # Executes the command. Broadcasts these events:
       #
       # - :ok when everything is valid.
-      # - :invalid if the form wasn't valid or not the TOS page.
+      # - :invalid if the form was not valid or not the TOS page.
       #
       # Returns nothing.
       def call

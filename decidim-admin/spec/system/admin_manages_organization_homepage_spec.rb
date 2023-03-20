@@ -17,9 +17,10 @@ describe "Admin manages organization homepage", type: :system do
 
       expect(Decidim::ContentBlock.count).to eq 0
 
-      within ".js-list-availables" do
-        within find("li", text: "Hero image") do
-          find("svg.icon--pencil").click
+      within ".edit_content_blocks" do
+        find("button", text: "Add content block").click
+        within ".add-components" do
+          find("a", text: "Hero image").click
         end
       end
 
@@ -31,7 +32,7 @@ describe "Admin manages organization homepage", type: :system do
     let!(:content_block) { create :content_block, organization:, manifest_name: :hero, scope_name: :homepage }
 
     it "updates the settings of the content block" do
-      visit decidim_admin.edit_organization_homepage_content_block_path(:hero)
+      visit decidim_admin.edit_organization_homepage_content_block_path(content_block)
 
       fill_in(
         :content_block_settings_welcome_text_en,
@@ -44,7 +45,7 @@ describe "Admin manages organization homepage", type: :system do
     end
 
     it "updates the images of the content block" do
-      visit decidim_admin.edit_organization_homepage_content_block_path(:hero)
+      visit decidim_admin.edit_organization_homepage_content_block_path(content_block)
 
       dynamically_attach_file(:content_block_images_background_image, Decidim::Dev.asset("city2.jpeg"))
 

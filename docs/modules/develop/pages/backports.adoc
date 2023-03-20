@@ -1,0 +1,37 @@
+= Backports
+
+We only offer support for the last two mayor version.
+
+For instance, if we are on the version `0.28.0.dev`, we make backports for `v0.26.x` and `v0.27.x`. We only backport fixes and not features, as we want to respect xref:develop:guide_conventions.adoc[Semantic Versioning].
+
+The idea of a backport is to bring a given fix from the last development version to an older release.
+
+The process for making backports is the following:
+
+. Check in the git commit history what was the latest backports on the branch that you are working with. https://github.com/decidim/decidim/commits/release/0.27-stable[Example for v0.27]. Copy the number of the last PR backported.
+. Search in GitHub for the this PR in the list of merged PRs of the `type: fix`. https://github.com/decidim/decidim/pulls?page=1&q=is%3Apr+sort%3Aupdated-desc+label%3A%22type%3A+fix%22+is%3Amerged[Example URL].
+. Check the PRs merged just before and after this one. You need to find the last ones that were not backported already to start with the backport process. A fast way for checking this out is to open the PRs and see the mentions from the backports in the GitHub references.
+. Once you have the list of the PRs that you want to backport, you can start with the process by using the https://github.com/decidim/decidim/blob/develop/bin/backporter[backporter script]. This script mostly handles the branch creation, cherrypicking, labeling and pushing of the fix. For using it you will need to have a GitHub Personal Access Token.
+
+This is an example on how this command is called:
+
+```shell
+$ backporter --github-token=GITHUB_TOKEN --pull-request-id=10248 --version-number=0.27
+```
+
+And this is the current full documentation for this script:
+
+```shell
+$ ./bin/backporter --help
+Usage:
+  backporter --github-token=GITHUB_TOKEN --pull-request-id=PULL_REQUEST_ID --version-number=VERSION_NUMBER
+
+Options:
+  --github-token=GITHUB_TOKEN                                        # Required. Github Personal Access Token (PAT). It can be obtained from https://github.com/settings/tokens/new. You will need to create one with `public_repo` access.
+  --version-number=VERSION_NUMBER                                    # Required. The version number that you want to do the backport to. It must have the format MAJOR.MINOR.
+  --pull-request-id=PULL_REQUEST_ID                                  # Required. The ID of the pull request that you want to make the backport from. It should have the "type: fix" label.
+  [--exit-with-unstaged-changes], [--no-exit-with-unstaged-changes]  # Optional. Whether the script should exit with an error if there are unstaged changes in the current project.
+                                                                     # Default: true
+
+Backport a pull request to another branch
+```

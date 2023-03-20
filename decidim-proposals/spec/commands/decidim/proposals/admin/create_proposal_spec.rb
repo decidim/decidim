@@ -61,7 +61,7 @@ module Decidim
               expect { command.call }.to broadcast(:invalid)
             end
 
-            it "doesn't create a proposal" do
+            it "does not create a proposal" do
               expect do
                 command.call
               end.not_to change(Decidim::Proposals::Proposal, :count)
@@ -135,13 +135,11 @@ module Decidim
               expect(action_log.version).to be_present
             end
 
-            it "notifies the space followers" do
-              follower = create(:user, organization: component.participatory_space.organization)
-              create(:follow, followable: component.participatory_space, user: follower)
-
-              expect(Decidim::EventsManager)
-                .to receive(:publish)
-                .with(
+            context "when followers" do
+              let(:follower) { create(:user, organization: component.participatory_space.organization) }
+              let!(:follow) { create(:follow, followable: component.participatory_space, user: follower) }
+              let(:data) do
+                {
                   event: "decidim.events.proposals.proposal_published",
                   event_class: Decidim::Proposals::PublishProposalEvent,
                   resource: kind_of(Decidim::Proposals::Proposal),
@@ -149,9 +147,28 @@ module Decidim
                   extra: {
                     participatory_space: true
                   }
-                )
+                }
+              end
 
-              command.call
+              it "notifies the space followers" do
+                expect(Decidim::EventsManager).to receive(:publish).with(data)
+
+                command.call
+              end
+
+              context "when active record is slow" do
+                let(:proposal) { build :proposal, component: }
+
+                before do
+                  allow(command).to receive(:proposal).and_return(nil)
+                end
+
+                it "does not notifies the space followers" do
+                  expect(Decidim::EventsManager).not_to receive(:publish).with(data)
+
+                  command.call
+                end
+              end
             end
 
             context "when geocoding is enabled" do
@@ -180,10 +197,17 @@ module Decidim
 
             context "when attachments are allowed" do
               let(:component) { create(:proposal_component, :with_attachments_allowed) }
+              let(:blob) do
+                ActiveStorage::Blob.create_and_upload!(
+                  io: File.open(Decidim::Dev.test_file("city.jpeg", "image/jpeg"), "rb"),
+                  filename: "city.jpeg",
+                  content_type: "image/jpeg" # Or figure it out from `name` if you have non-JPEGs
+                )
+              end
               let(:attachment_params) do
                 {
                   title: "My attachment",
-                  file: Decidim::Dev.test_file("city.jpeg", "image/jpeg")
+                  file: blob.signed_id
                 }
               end
 

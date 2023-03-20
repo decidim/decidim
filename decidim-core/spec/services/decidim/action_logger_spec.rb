@@ -143,7 +143,7 @@ describe Decidim::ActionLogger do
         end
 
         context "when the space has no scope" do
-          it "doesn't save any scope" do
+          it "does not save any scope" do
             subject
             expect(action_log.scope).to be_nil
           end
@@ -164,7 +164,7 @@ describe Decidim::ActionLogger do
         end
 
         context "when the space has no area" do
-          it "doesn't save any area" do
+          it "does not save any area" do
             subject
             expect(action_log.area).to be_nil
           end

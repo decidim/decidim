@@ -65,12 +65,12 @@ en:
             attachment:
               file: File is invalid
               needs_to_be_reattached: Needs to be reattached
-              title: Title shouldn't be empty
+              title: Title should not be empty
   activerecord:
     models:
       decidim/initiative:
-        one: Initative
-        other: Initatives
+        one: Initiative
+        other: Initiatives
       decidim/initiative_comittee:
         one: Comittee
         other: Comittees
@@ -100,8 +100,8 @@ en:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Search %{collection} by title, description, ID or author name.
       initiatives_settings:
         update:
-          error: An error has occured
-          success: The initiatives settings have been successfully updated
+          error: An error has occured.
+          success: The initiatives settings have been successfully updated.
       menu:
         attachments: Attachments
         committee_members: Committee members
@@ -190,10 +190,10 @@ en:
           - Follow the steps to create a new initiative
           description: This badge is granted when you launch new initiatives, partnering with others to carry them out.
           description_another: This participant has gotten %{score} initiatives published.
-          description_own: You've got %{score} initiatives published.
+          description_own: You have got %{score} initiatives published.
           name: Published initiatives
           next_level_in: Get %{score} more initiatives published to reach the next level!
-          unearned_another: This participant hasn't gotten any initiatives published yet.
+          unearned_another: This participant has not gotten any initiatives published yet.
           unearned_own: You got no initiatives published yet.
     help:
       participatory_spaces:
@@ -219,8 +219,8 @@ en:
           index:
             approve: Approve
             confirm_revoke: Are you sure?
-            invite_to_committee_help: Share this link to invite other participants to the promoter committee
-            no_members_yet: There are no members in the promoter committee
+            invite_to_committee_help: Share this link to invite other participants to the promoter committee.
+            no_members_yet: There are no members in the promoter committee.
             revoke: Revoke
             title: Committee members
         content_blocks:
@@ -242,7 +242,7 @@ en:
             export_votes: Export signatures
             reject: Reject initiative
             send_to_technical_validation: Send to technical validation
-            success: The initiative has been sent to technical validation
+            success: The initiative has been sent to technical validation.
             update: Update
           form:
             attachments: Attachments
@@ -258,8 +258,8 @@ en:
             new: New
             photos: Photos
           update:
-            error: An error has occurred
-            success: The initiative has been successfully updated
+            error: An error has occurred.
+            success: The initiative has been successfully updated.
         initiatives_settings:
           edit:
             update: Update
@@ -272,8 +272,8 @@ en:
             title: Settings for initiatives
         initiatives_type_scopes:
           create:
-            error: An error has occurred
-            success: A new scope for the given initiative type has been created
+            error: An error has occurred.
+            success: A new scope for the given initiative type has been created.
           destroy:
             success: The scope has been successfully removed
           edit:
@@ -287,14 +287,14 @@ en:
             create: Create
             title: Create initiative type scope
           update:
-            error: An error has occurred
-            success: The scope has been successfully updated
+            error: An error has occurred.
+            success: The scope has been successfully updated.
         initiatives_types:
           create:
-            error: An error has occurred
-            success: A new initiative type has been successfully created
+            error: An error has occurred.
+            success: A new initiative type has been successfully created.
           destroy:
-            success: The initiative type has been successfully removed
+            success: The initiative type has been successfully removed.
           edit:
             confirm_destroy: Are you sure?
             destroy: Delete
@@ -311,8 +311,8 @@ en:
             create: Create
             title: New initiative type
           update:
-            error: An error has occurred
-            success: The initiative type has been successfully updated
+            error: An error has occurred.
+            success: The initiative type has been successfully updated.
       admin_log:
         initiative:
           publish: "%{user_name} published the %{resource_name} initiative"
@@ -351,7 +351,7 @@ en:
           success: Request has been approved.
         new:
           continue: Continue
-          help_text: You are about to request becoming a member of the promoter committee of this initiative
+          help_text: You are about to request becoming a member of the promoter committee of this initiative.
         revoke:
           success: Request has been revoked.
         spawn:
@@ -453,7 +453,7 @@ en:
             day: Day
             month: Month
             year: Year
-          help: Please, fill the following fields with your personal data to sign the initiative
+          help: Please, fill the following fields with your personal data to sign the initiative.
         finish:
           back_to_initiative: Back to initiative
         sms_code:
@@ -461,16 +461,16 @@ en:
           help: Check the SMS received at your phone
         sms_phone_number:
           continue: Send me an SMS
-          help: Fill the form with your verified phone number to request your verification code
+          help: Fill the form with your verified phone number to request your verification code.
       initiative_votes:
         create:
           error: There was a problem signing the initiative.
-          invalid: The data provided to sign the initiative is not valid
-          success_html: Congratulations! The <strong> %{title}</strong> initiative has been successfully signed
+          invalid: The data provided to sign the initiative is not valid.
+          success_html: Congratulations! The <strong> %{title}</strong> initiative has been successfully signed.
         personal_data:
           invalid: Personal data is not consistent with data provided for authorization.
         sms_code:
-          invalid: Your verification code doesn't match ours. Please double-check the SMS we sent you.
+          invalid: Your verification code does not match ours. Please double-check the SMS we sent you.
         sms_phone:
           invalid: The phone number is invalid or pending of authorization. Please, check your authorizations.
       initiatives:
@@ -483,8 +483,8 @@ en:
         committee_members:
           approve: Approve
           confirm_revoke: Are you sure?
-          invite_to_committee_help: Share this link to invite other participants to the promoter committee
-          no_members_yet: There are no members in the promoter committee
+          invite_to_committee_help: Share this link to invite other participants to the promoter committee.
+          no_members_yet: There are no members in the promoter committee.
           revoke: Revoke
           title: Committee members
         count:
@@ -545,7 +545,7 @@ en:
           section: 'If requested by the organization, please print and fill out this form to submit where indicated:'
           signature: Signature
         result:
-          answer_title: This initiative has been answered
+          answer_title: This initiative has been answered.
           initiative_rejected_reason: This initiative has been rejected due to its lack of signatures.
         show:
           any_vote_method: This initiative collects both online and in-person signatures.
@@ -609,8 +609,8 @@ en:
         expired: Expired
       unavailable_scope: Unavailable scope
       update:
-        error: An error has occurred
-        success: The initiative has been successfully updated
+        error: An error has occurred.
+        success: The initiative has been successfully updated.
       versions:
         shared:
           back_to_resource: Go back to initiative

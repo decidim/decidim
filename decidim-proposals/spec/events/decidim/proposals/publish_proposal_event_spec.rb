@@ -23,7 +23,7 @@ module Decidim
 
       describe "email_subject" do
         context "when resource title contains apostrophes" do
-          let(:resource) { create :proposal, title: "It's a nice proposal" }
+          let(:resource) { create :proposal, title: "It is a nice proposal" }
 
           it "is generated correctly" do
             expect(subject.email_subject).to eq("New proposal \"#{resource_title}\" by @#{author.nickname}")
@@ -100,7 +100,7 @@ module Decidim
         describe "notification_title" do
           it "is generated correctly" do
             expect(subject.notification_title)
-              .to eq("The proposal <a href=\"#{resource_path}\">A nice proposal</a> has been added to #{participatory_space_title} by #{author.name} <a href=\"/profiles/#{author.nickname}\">@#{author.nickname}</a>")
+              .to eq("The proposal <a href=\"#{resource_path}\">A nice proposal</a> has been added to #{participatory_space_title} by #{author.name} <a href=\"/profiles/#{author.nickname}\">@#{author.nickname}</a>.")
           end
         end
       end

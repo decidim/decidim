@@ -53,7 +53,7 @@ module Decidim
 
         # Private: Returns the id of the target component.
         #
-        # We receive this as ["id"] since it's from a select in a form.
+        # We receive this as ["id"] since it is from a select in a form.
         def clean_target_component_id
           target_component_id.first
         end

@@ -29,13 +29,7 @@ module Decidim
         read_admin_dashboard_action?
         apply_newsletter_permissions_for_admin!
 
-        if permission_action.subject == :global_moderation && admin_terms_accepted?
-          if user_valuator?
-            disallow!
-          else
-            allow!
-          end
-        end
+        apply_global_moderations_permission_for_admin!
 
         if user.admin? && admin_terms_accepted?
           allow! if read_admin_log_action?
@@ -45,10 +39,10 @@ module Decidim
           allow! if templates_action?
           allow! if organization_action?
           allow! if user_action?
+          allow! if admin_user_action?
 
           allow! if permission_action.subject == :category
           allow! if permission_action.subject == :component
-          allow! if permission_action.subject == :admin_user
           allow! if permission_action.subject == :attachment
           allow! if permission_action.subject == :editor_image
           allow! if permission_action.subject == :attachment_collection
@@ -72,10 +66,6 @@ module Decidim
 
       private
 
-      def user_valuator?
-        user && !user.admin? && Decidim::ParticipatoryProcessUserRole.exists?(user: , role: "valuator")
-      end
-
       def user_manager?
         user && !user.admin? && user.role?("user_manager")
       end
@@ -87,6 +77,35 @@ module Decidim
         return user_manager_permissions if user_manager?
 
         toggle_allow(user.admin? || space_allows_admin_access_to_current_action?)
+      end
+
+      def apply_global_moderations_permission_for_admin!
+        return unless admin_terms_accepted?
+        return unless permission_action.subject == :global_moderation
+        return allow! if user.admin?
+        return disallow! if user_valuator?
+
+        return allow! if Decidim.participatory_space_manifests.flat_map.any? do |manifest|
+          Decidim
+                         .find_participatory_space_manifest(manifest.name)
+                         .participatory_spaces
+                         .call(user.organization)&.any? do |space|
+            space.respond_to?(:user_roles) && space.user_roles(:admin).where(user:).or(space.user_roles(:moderator).where(user:)).any?
+          end
+        end
+
+        disallow!
+      end
+
+      def user_valuator?
+        user && !user.admin? && Decidim.participatory_space_manifests.flat_map.any? do |manifest|
+          Decidim
+            .find_participatory_space_manifest(manifest.name)
+            .participatory_spaces
+            .call(user.organization)&.any? do |space|
+            space.respond_to?(:user_roles) && space.user_roles(:valuator).where(user:).any?
+          end
+        end
       end
 
       def apply_newsletter_permissions_for_admin!
@@ -189,6 +208,19 @@ module Decidim
             Decidim::ImpersonationLog.active.where(admin: user).empty?
         when :destroy
           subject_user != user
+        else
+          true
+        end
+      end
+
+      def admin_user_action?
+        return unless permission_action.subject == :admin_user
+
+        target_user = context.fetch(:user, nil)
+
+        case permission_action.action
+        when :destroy, :block
+          target_user != user
         else
           true
         end

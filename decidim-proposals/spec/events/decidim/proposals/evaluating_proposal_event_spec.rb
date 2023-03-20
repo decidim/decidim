@@ -11,7 +11,7 @@ describe Decidim::Proposals::EvaluatingProposalEvent do
 
   describe "email_subject" do
     it "is generated correctly" do
-      expect(subject.email_subject).to eq("A proposal you're following is being evaluated")
+      expect(subject.email_subject).to eq("A proposal you are following is being evaluated")
     end
   end
 

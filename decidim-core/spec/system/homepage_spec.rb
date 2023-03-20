@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe "Homepage", type: :system do
-  context "when there's no organization" do
+  context "when there is no organization" do
     before do
       visit decidim.root_path
     end
@@ -14,7 +14,7 @@ describe "Homepage", type: :system do
     end
   end
 
-  context "when there's an organization" do
+  context "when there is an organization" do
     let(:official_url) { "http://mytesturl.me" }
     let(:organization) do
       create(:organization, official_url:,
@@ -288,7 +288,7 @@ describe "Homepage", type: :system do
           )
         end
 
-        context "when organization doesn't have the stats content block" do
+        context "when organization does not have the stats content block" do
           let(:organization) { create(:organization) }
 
           it "does not show the statistics block" do
@@ -325,7 +325,7 @@ describe "Homepage", type: :system do
       end
 
       describe "includes metrics" do
-        context "when organization doesn't have the metrics content block" do
+        context "when organization does not have the metrics content block" do
           let(:organization) { create(:organization) }
 
           it "does not show the statistics block" do

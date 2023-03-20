@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 shared_examples_for "emits an upcoming notificaton" do
-  context "when it's a future meeting" do
+  context "when it is a future meeting" do
     let(:future_start_date) { 3.days.from_now }
 
     before do
@@ -21,14 +21,14 @@ shared_examples_for "emits an upcoming notificaton" do
     end
   end
 
-  context "when it's a past meeting" do
+  context "when it is a past meeting" do
     let(:past_start_date) { 1.day.ago }
 
     before do
       meeting.start_time = past_start_date
     end
 
-    it "doesn't schedule an upcoming meeting notification" do
+    it "does not schedule an upcoming meeting notification" do
       expect(Decidim::Meetings::UpcomingMeetingNotificationJob).not_to receive(:generate_checksum)
       expect(Decidim::Meetings::UpcomingMeetingNotificationJob).not_to receive(:set)
       expect(Decidim::Meetings::UpcomingMeetingNotificationJob).not_to receive(:perform_later)

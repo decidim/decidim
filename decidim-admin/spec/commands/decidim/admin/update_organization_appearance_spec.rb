@@ -15,7 +15,7 @@ module Decidim::Admin
             description_ca: "La meva descripció",
             enable_omnipresent_banner: false,
             header_snippets: '<script>alert("Hello");</script>',
-            favicon: upload_test_file(Decidim::Dev.test_file("city.jpeg", "image/jpeg"))
+            favicon: upload_test_file(Decidim::Dev.test_file("icon.png", "image/png"))
           }
         }
       end
@@ -39,7 +39,7 @@ module Decidim::Admin
           expect { command.call }.to broadcast(:invalid)
         end
 
-        it "doesn't update the organization" do
+        it "does not update the organization" do
           command.call
           organization.reload
 
@@ -112,7 +112,7 @@ module Decidim::Admin
           end
         end
 
-        context "when there's a favicon in the params" do
+        context "when there is a favicon in the params" do
           it "does set a favicon for the organization" do
             command.call
             organization.reload

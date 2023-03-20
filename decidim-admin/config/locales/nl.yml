@@ -539,7 +539,6 @@ nl:
         moderation: Algemene moderatie
         newsletters: Nieuwsbrieven
         participants: Deelnemers
-        reported_users: Gerapporteerde gebruikers
         scope_types: Scope types
         scopes: Scopes
         settings: Instellingen
@@ -638,7 +637,6 @@ nl:
           nickname: Bijnaam
           reason: Reden
           reports: Aantal rapporteringen
-          title: Gerapporteerde gebruikers weergeven
         report:
           reasons:
             does_not_belong: Hoort niet bij
@@ -820,9 +818,6 @@ nl:
         edit:
           active_content_blocks: Actieve inhoudsblokken
           inactive_content_blocks: Inactieve inhoudsblokken
-      organization_homepage_content_blocks:
-        edit:
-          update: Bijwerken
       participatory_space_private_users:
         create:
           error: Er is een probleem opgetreden bij het toevoegen van een privédeelnemer aan deze deelruimte.
@@ -1057,14 +1052,11 @@ nl:
       models:
         moderation:
           fields:
-            created_at: Aanmaakdatum
             hidden_at: Verborgen op
             participatory_space: Participatieve ruimte
-            report_count: Aantal
             reportable_id: ID
             reportable_type: Type
             reported_content_url: Gerapporteerde inhouds-URL
-            reports: Meldingen
             visit_url: Bezoek URL
         report:
           fields:
@@ -1077,8 +1069,6 @@ nl:
   layouts:
     decidim:
       admin:
-        global_moderations:
-          title: Algemene moderatie
         newsletters:
           title: Nieuwsbrieven
         settings:

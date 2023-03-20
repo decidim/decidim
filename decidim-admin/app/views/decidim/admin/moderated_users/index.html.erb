@@ -22,6 +22,7 @@
           <th><%= t(".name") %></th>
           <th><%= t(".nickname") %></th>
           <th><%= t(".reason") %></th>
+          <th><%= sort_link(query, :created_at, t("models.moderation.fields.created_at", scope: "decidim.moderations")) %></th>
           <th><%= sort_link(query, :report_count, t(".reports"), default_order: :desc) %></th>
           <th class="actions"><%= t(".actions.title") %></th>
         </tr>
@@ -39,6 +40,9 @@
             <td> <%#= moderation.reason %>
               <% reports = moderation.reports.map { |report| render "report", report: report } %>
               <%= safe_join(reports, ",") %>
+            </td>
+            <td>
+              <%= l moderation.created_at, format: :decidim_short %>
             </td>
             <td>
               <%= moderation.report_count %>

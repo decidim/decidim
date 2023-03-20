@@ -56,7 +56,7 @@ module Decidim
       end
 
       # Add labels to an issue or a pull request
-      # GitHub doesn't support adding labels while creating the PR, so we need to do it afterwards
+      # GitHub does not support adding labels while creating the PR, so we need to do it afterwards
       #
       # @see https://docs.github.com/en/rest/issues/labels#add-labels-to-an-issue GitHub API documentation
       # @param issue_id [String] String of the issue to add the labels to

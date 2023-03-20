@@ -21,7 +21,7 @@ class MySMSGatewayService
 end
 ....
 
-Then you'll need to configure it in the Decidim initializer:
+Then you will need to configure it in the Decidim initializer:
 
 [source,ruby]
 ....

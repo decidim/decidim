@@ -92,7 +92,7 @@ shared_examples "manage moderations" do
       moderations_ordered_by_report_count_asc = moderations.sort_by(&:report_count)
 
       within "table" do
-        click_link "Count"
+        click_link "Reports count"
 
         all("tbody tr").each_with_index do |row, index|
           reportable_id = moderations_ordered_by_report_count_asc[index].reportable.id
@@ -179,7 +179,7 @@ shared_examples "manage moderations" do
       end
     end
 
-    it "user can't unreport them" do
+    it "user cannot unreport them" do
       expect(page).not_to have_css(".action-icon--unreport")
     end
 

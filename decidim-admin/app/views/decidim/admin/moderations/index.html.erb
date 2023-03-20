@@ -21,10 +21,10 @@
             <% if !respond_to?(:current_participatory_space) %>
               <th><%= t("models.moderation.fields.participatory_space", scope: "decidim.moderations") %></th>
             <% end %>
-            <th><%= sort_link(query, :report_count, t("models.moderation.fields.report_count", scope: "decidim.moderations")) %></th>
             <th><%= t("models.moderation.fields.reported_content_url", scope: "decidim.moderations") %></th>
             <th><%= t("models.moderation.fields.reports", scope: "decidim.moderations") %></th>
             <th><%= sort_link(query, :created_at, t("models.moderation.fields.created_at", scope: "decidim.moderations")) %></th>
+            <th><%= sort_link(query, :report_count, t("models.moderation.fields.report_count", scope: "decidim.moderations")) %></th>
             <% if params[:hidden] %>
               <th><%= t("models.moderation.fields.hidden_at", scope: "decidim.moderations") %></th>
             <% end %>
@@ -45,9 +45,6 @@
                 </td>
               <% end %>
               <td>
-                <%= moderation.report_count %>
-              </td>
-              <td>
                 <% if (reportable_url = moderation.reportable.reported_content_url) %>
                   <%=
                     link_to t("models.moderation.fields.visit_url", scope: "decidim.moderations"), reportable_url, data: { tooltip: true }, title: strip_tags(reported_content_excerpt_for(moderation.reportable, limit: 250))
@@ -62,6 +59,9 @@
               </td>
               <td>
                 <%= l(moderation.created_at, format: :long) %>
+              </td>
+              <td>
+                <%= moderation.report_count %>
               </td>
               <% if params[:hidden] %>
                 <td>

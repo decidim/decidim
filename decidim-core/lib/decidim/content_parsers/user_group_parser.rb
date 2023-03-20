@@ -20,7 +20,7 @@ module Decidim
 
       # Replaces found mentions matching a nickname of an existing
       # group in the current organization with a global id. Other
-      # mentions found that doesn't match an existing group are
+      # mentions found that does not match an existing group are
       # returned as is.
       #
       # @return [String] the content with the valid mentions replaced by a global id

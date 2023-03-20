@@ -26,7 +26,7 @@ describe "ExternalDomainWarning", type: :system do
     expect(page).to have_content("Open external link")
   end
 
-  it "doesnt show warning on whitelisted links" do
+  it "does not show warning on whitelisted links" do
     expect(page).to have_link("Another link", href: "http://www.example.org")
   end
 
@@ -36,6 +36,33 @@ describe "ExternalDomainWarning", type: :system do
     it "shows invalid url alert" do
       visit invalid_url
       expect(page).to have_content("Invalid URL")
+    end
+  end
+
+  context "when the url is malformed" do
+    let(:invalid_url) do
+      "http://#{organization.host}/link?external_url=javascript:alert(document.location.host)//%0ahttps://www.example.org"
+    end
+    let!(:invalid_url2) do
+      %W(
+        http://#{organization.host}/link?external_url=javascript:fetch%28%22%2Fprocesses%2Fconsequuntur%2Daperiam%2Ff%2F12%2F
+        proposals%2F8%2Fproposal%5Fvote%22%2C%20%7B%22headers%22%3A%7B%22x%2Dcsrf%2Dtoken%22%3Adocument%2EquerySelectorAll%28
+        %27%5Bname%3D%22csrf%2Dtoken%22%5D%27%29%5B0%5D%2EgetAttribute%28%22content%22%29%2C%22x%2Drequested%2Dwith%22%3A%20
+        %22XMLHttpRequest%22%7D%2C%22method%22%3A%20%22POST%22%2C%22mode%22%3A%20%22cors%22%2C%22credentials%22%3A%20%22
+        include%22%7D%29//%0ahttps://www.example.org
+      ).join
+    end
+
+    it "shows invalid url alert when using simple scenario" do
+      visit invalid_url
+      expect(page).to have_content("Invalid URL")
+      expect(page).to have_current_path(decidim.root_path, ignore_query: true)
+    end
+
+    it "shows invalid url alert when using complex scenario" do
+      visit invalid_url2
+      expect(page).to have_content("Invalid URL")
+      expect(page).to have_current_path(decidim.root_path, ignore_query: true)
     end
   end
 

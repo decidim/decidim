@@ -33,7 +33,7 @@ export default class InputCharacterCounter {
     this.$target = $(this.$input.data("remaining-characters"));
     this.minCharacters = parseInt(this.$input.attr("minlength"), 10);
     this.maxCharacters = parseInt(this.$input.attr("maxlength"), 10);
-    this.describeByCounter = typeof this.$input.attr("aria-describedby") === "undefined";
+    this.describeByCounter = this.$input.attr("type") !== "hidden" && typeof this.$input.attr("aria-describedby") === "undefined";
 
     // Define the closest length for the input "gaps" defined by the threshold.
     if (this.maxCharacters > 10) {
@@ -81,7 +81,7 @@ export default class InputCharacterCounter {
     }
 
     if (this.$target.length > 0 && (this.maxCharacters > 0 || this.minCharacters > 0)) {
-      // Create the screen reader target element. We don't want to constantly
+      // Create the screen reader target element. We do not want to constantly
       // announce every change to screen reader, only occasionally.
       this.$srTarget = $(
         `<span role="status" id="${targetId}_sr" class="show-for-sr remaining-character-count-sr" />`

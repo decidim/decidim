@@ -269,7 +269,9 @@ cs:
         unblock: "%{user_name} odblokoval uživatele %{resource_name}"
         unofficialize: "%{user_name} neoficiální uživatel %{resource_name}"
       user_group:
+        block: "%{user_name} zablokoval uživatelskou skupinu %{resource_name}"
         reject: "%{user_name} odmítl ověření skupiny %{resource_name} uživatelů"
+        unblock: "%{user_name} odblokoval uživatelskou skupinu %{resource_name}"
         verify: "%{user_name} ověřilo %{resource_name} uživatelskou skupinu"
         verify_via_csv: "%{user_name} ověřilo %{resource_name} skupinu uživatelů prostřednictvím souboru CSV"
       user_moderation:
@@ -359,18 +361,15 @@ cs:
           '4': Zveřejněte svůj pozměňovací návrh
     anonymous_user: Anonymní
     application:
-      collection:
-        documents:
-          one: Dokument
-          few: Dokumenty
-          many: Dokumenty
-          other: Dokumenty
       document:
         download: Stáhnout soubor
       documents:
         related_documents: Související dokumenty
       geocoding:
         geocoded_address: Adresa
+      photo:
+        alt: Obrázek médií
+        title: Obrázek
       photos:
         related_photos: Související fotografie
     author:
@@ -415,13 +414,13 @@ cs:
           foo: Foo
         name: Foo autorizace
       granted_at: Udělené v %{timestamp}
-      renew: Obnovit ověření
       sms:
         explanation: Pošlete číslo mobilního telefonu, abychom mohli ověřit vaši totožnost.
         name: Kód přes SMS
       started_at: Začal v %{timestamp}
     authorization_modals:
       content:
+        close_modal: Zavřít modal
         expired:
           authorize: Znovu autorizujte s "%{authorization}"
           explanation: Platnost vašeho oprávnění vypršela. Chcete-li provést tuto akci, musíte být znovu autorizován s "%{authorization}".
@@ -452,8 +451,6 @@ cs:
           explanation_html: Abyste mohli provést tuto akci, musíte být autorizováni, před tím musíte potvrdit svůj e-mail <strong>%{email}</strong>.
           request_confirmation_instructions: Požádejte o pokyny pro potvrzení
           title: Potvrdit svůj email
-      show:
-        close_modal: Zavřít okno
     block_user_mailer:
       notify:
         body_1: Váš účet byl zablokován.
@@ -544,6 +541,17 @@ cs:
         view_all: Zobrazit vše
       metrics:
         name: Organizační metriky
+      static_page:
+        section:
+          name: Sekce
+          section_content: Obsah
+        summary:
+          name: Shrnutí
+          summary_content: Obsah
+        two_pane_section:
+          left_column: Levý sloupec
+          name: Sekce se dvěma deskami
+          right_column: Pravý sloupec
       stats:
         name: Statistika organizace
       sub_hero:
@@ -638,14 +646,13 @@ cs:
       endorsements: Schválení
       endorsements_count: Počet schvalování
     endorsement_buttons_cell:
-      already_endorsed: Schváleno
-      endorse: Schválit
+      already_endorsed: Nelíbí se mi
+      endorse: Líbí se mi
     endorsements:
       identities:
         done: Hotovo
         select_identity: Vybrat identitu
     endorsers_list:
-      close: Zavřít‏
       endorsed_by: Líbí se…
     errors:
       internal_server_error:
@@ -860,8 +867,6 @@ cs:
         button: Ukončit sledování
         error: Při sledování tohoto zdroje došlo k chybě.
     forms:
-      current_image: Aktuální obrázek
-      default_image: Výchozí obrázek
       errors:
         decidim/user:
           password: Heslo je příliš krátké.
@@ -895,6 +900,7 @@ cs:
           edit_image: Upravit obrázek
           error: Chyba!
           file_size_too_large: 'Velikost souboru je příliš velká! Maximální velikost souboru: %{megabytes}MB'
+          filename: Název souboru
           remove: Odebrat
           replace: Nahradit
           save: Uložit
@@ -903,8 +909,9 @@ cs:
           uploaded: Nahráno
           validating: Probíhá ověřování...
           validation_error: Chyba ověření!
+        select_file: Vyberte soubor
       upload_help:
-        dropzone: Přetáhněte soubory sem nebo klikněte pro nahrání
+        dropzone: Přetáhněte soubory sem nebo klikněte na tlačítko pro nahrání
         explanation: Návod pro %{attribute}
     gamification:
       all_badges_link: Zobrazit všechny dostupné odznaky.
@@ -1033,7 +1040,6 @@ cs:
         body_1: Chystáte se navštívit externí odkaz a chtěli bychom, abyste byli opatrní, pokud jde o obsah na externím webu.
         body_2: Zkontrolujte prosím odkaz, který se chystáte navštívit, a než budete pokračovat, ujistěte se, že jste jej rozpoznali jako bezpečný web.
         cancel: Zrušit
-        close_modal: Zavřít modal
         proceed: Pokračovat
         title: Otevřít externí odkaz
     log:
@@ -1042,8 +1048,10 @@ cs:
         create_with_space: "%{user_name} vytvořil %{resource_name} v %{space_name}"
         delete: "%{user_name} odstraněno %{resource_name}"
         delete_with_space: "%{user_name} smazán %{resource_name} v %{space_name}"
+        publish_with_space: "%{user_name} publikoval %{resource_name} v %{space_name}"
         unknown_action: "%{user_name} provedla nějakou akci na %{resource_name}"
         unknown_action_with_space: "%{user_name} provedlo nějakou akci na %{resource_name} v %{space_name}"
+        unpublish_with_space: "%{user_name} zrušil publikaci %{resource_name} v %{space_name}"
         update: "%{user_name} aktualizováno %{resource_name}"
         update_permissions_with_space: "%{user_name} aktualizoval oprávnění k %{resource_name} v %{space_name}"
         update_with_space: "%{user_name} aktualizováno %{resource_name} v %{space_name}"
@@ -1159,7 +1167,6 @@ cs:
       newsletter:
         no_reply_notice: Tento e-mail byl odeslán z e-mailové adresy, která nemůže přijmout příchozí email. Prosím, neodpovídejte na tuto zprávu.
         note: Tento e-mail jste obdrželi, protože jste odběrateli zpravodajů na %{organization_name}. Můžete změnit nastavení na <a href="%{link}">oznámení straně</a>.
-        see_on_website: Nelze vidět tento e-mail správně? Zobrazte jej na webu <a href="%{link}" target="_blank"></a>.
         unsubscribe: Chcete-li se odhlásit z příjmu tohoto typu e-mailu, <a href="%{link}" target="_blank" class="unsubscribe">Odhlásit se</a>.
     newsletter_templates:
       basic_only_text:
@@ -1451,11 +1458,14 @@ cs:
         close: Zavřít
         description: Je tento obsah nevhodný?
         does_not_belong: Obsahuje nezákonnou činnost, sebevražedné hrozby, osobní informace nebo něco jiného, o kterém si myslíte, že nepatří na %{organization_name}.
+        hide: Skrýt
+        hide_content: Skrýt tento obsah
         offensive: Obsahuje rasismus, sexismus, podvody, osobní útoky, hrozby smrti, žádosti o sebevraždu nebo jakoukoli formu projevy nenávisti.
         reason: Důvod
         report: Zpráva
         spam: Obsahuje clickbait, reklama, podvody nebo skripty.
         title: Nahlásit problém
+        visit_profile: Pokud chcete také zablokovat účastníka a zbytek jeho obsahu, přejděte na stránku profilu %{user_link}.
       flag_user_modal:
         already_reported: Tento obsah je již nahlášen a bude přezkoumán administrátorem.
         close: Zavřít
@@ -1482,6 +1492,9 @@ cs:
           select_an_area: Vyberte oblast
       public_participation:
         public_participation: Ukázat svou účast veřejně
+      redesigned_login_modal:
+        please_sign_in: Přihlaste se prosím
+        sign_up: Zaregistrovat se
       reference:
         reference: 'Odkaz: %{reference}'
       represent_user_group:
@@ -1977,6 +1990,7 @@ cs:
             accept_until_format: "%B %d, %Y %I:%M %p"
       long: "%B %d, %Y %H:%M"
       long_dashed: "%Y-%m-%d %H:%M:%S"
+      long_with_particles: "%B %d, %Y v %H:%M"
       short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
   versions:
