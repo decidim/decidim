@@ -607,8 +607,6 @@
           blocked: Blokkert
           unblocked: Ikke blokkert
       moderations:
-        index:
-          title: Moderering
         report:
           reasons:
             does_not_belong: Tilhører ikke
