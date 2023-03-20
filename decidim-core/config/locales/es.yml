@@ -136,6 +136,7 @@ es:
         success: Tu cuenta se ha eliminado correctamente.
       download_your_data_export:
         file_no_exists: El archivo no existe
+        notice: La descarga de tus datos está en curso. Recibirás un correo electrónico cuando se complete.
       email_change:
         body2: '¿Necesitas que te reenviemos el correo de verificación? %{resend_link} o %{cancel_link}.'
         cancel: cancelar
@@ -150,6 +151,7 @@ es:
       update:
         error: Se ha producido un error al actualizar tu cuenta.
         success: Tu cuenta se ha actualizado correctamente.
+        success_with_email_confirmation: Tu cuenta se ha actualizado correctamente. Recibirás un correo electrónico para confirmar tu nueva dirección de correo electrónico.
     activity:
       time_ago: "Hace %{time}"
     admin:
@@ -1116,6 +1118,7 @@ es:
         notifications_sending_frequency: '¿Con qué frecuencia quieres recibir el correo resumen de notificaciones?'
         own_activity: Mi propia actividad, como cuando alguien comenta en mi propuesta o me menciona
         push_notifications: Notificaciones emergentes
+        push_notifications_reminder: Para obtener notificaciones de la plataforma, primero tienes que permitirlas en la configuración de tu navegador.
         receive_notifications_about: Quiero recibir notificaciones
         update_notifications_settings: Guardar cambios
       update:
