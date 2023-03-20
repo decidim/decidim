@@ -382,6 +382,7 @@ ja:
           Excel: エクセル
           FormPDF: PDF
           JSON: JSON
+        notice: 現在エクスポートが進行中です。完了した際にはメールでお知らせします。
       filters:
         category_id_eq:
           label: カテゴリ
