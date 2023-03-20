@@ -60,14 +60,12 @@ shared_context "with frontend map elements" do
   let(:html_document) do
     document_inner = html_body
     head_extra = html_head
-    builder_snippets = subject.append_assets
     template.instance_eval do
       <<~HTML.strip
         <!doctype html>
         <html lang="en">
         <head>
           <title>Map Test</title>
-          #{builder_snippets}
           #{stylesheet_pack_tag "decidim_core"}
           #{javascript_pack_tag "decidim_core", defer: false}
           #{head_extra}
