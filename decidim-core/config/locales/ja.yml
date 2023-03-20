@@ -125,6 +125,7 @@ ja:
         success: アカウントが正常に削除されました。
       download_your_data_export:
         file_no_exists: ファイルが存在しません
+        notice: データのダウンロードは現在進行中です。完了した際にはメールでお知らせします。
       email_change:
         body1: 新しいメールアドレスを確認するために、%{unconfirmed_email} 宛にメールを送信しました。
         body2: 確認メールをもう一度送信する必要がありますか？ %{resend_link} または %{cancel_link}
@@ -142,6 +143,7 @@ ja:
       update:
         error: アカウントの更新に問題が発生しました。
         success: アカウントが正常に更新されました。
+        success_with_email_confirmation: アカウントを更新しました。新しいメールアドレスを確認するためのメールが届きます。
     activity:
       time_ago: "%{time} 前"
     admin:
@@ -251,8 +253,10 @@ ja:
         amended_by: 修正者
         button: '%{model_name} を修正'
         error: リソースの修正中にエラーが発生しました。
+        help_text: '%{model_name} を変更することで、この %{amendable_fields} を改善します。'
         promote_button: '%{model_name} に昇格'
         promote_confirm_text: この修正を承認してもよろしいですか？
+        promote_help_text: この修正を促進し、独立した%{model_name} として公開できます。
         section_heading: 修正履歴 (%{count})
       compare_draft:
         continue: 続ける
@@ -268,7 +272,7 @@ ja:
         discard: この下書きを破棄する
         discard_confirmation: この修正案を破棄してもよろしいですか？
         send: プレビュー
-        title: 修正ドラフトを編集
+        title: 修正案を編集
       emendation:
         actions:
           button_accept: 同意する
@@ -285,25 +289,35 @@ ja:
           rejected: この %{amendable_type} %{proposal_link} の修正は <strong>%{date}</strong> で拒否されました。
           withdrawn: |-
             %{amendable_type} %{proposal_link}
-            のこの修正は著者によって取り消されました。
+            のこの修正は著者によって撤回されました。
       new:
         amendment_author: 著者の変更
         send: 作成
-        title: 修正ドラフトを作成
+        title: 修正案を作成
       preview_draft:
         modify: 変更
         publish: 公開
         title: 修正案を公開
+      promoted:
+        error: 修正案を新しい提案として公開する際に問題がありました。
+        success: 修正案は新しい提案として正常に公開されました。
       publish_draft:
         error: 修正案を公表する際に問題が発生しました。
         success: 修正に成功しました。
+      rejected:
+        error: この修正を却下する際に問題が発生しました。後でもう一度お試しください。
+        success: 修正案を却下しました。
       review:
         back: 戻る
         heading: 修正を確認する
+        help_text: '%{model_name} の修正を確認しています。'
         send: 修正を承認する
       update_draft:
         error: 修正案の更新中に問題が発生しました。
         success: 修正の下書きが正常に更新されました。
+      withdraw:
+        error: 修正の撤回中にエラーが発生しました。
+        success: 修正を撤回しました。
       wizard_step_form:
         steps:
           '1': 修正を作成する
@@ -333,11 +347,13 @@ ja:
       official_author: 公式
     authorization_handlers:
       another_dummy_authorization_handler:
+        explanation: '「A」で始まるパスポート番号を入力して確認します'
         fields:
           passport_number: パスポート番号
           postal_code: 郵便番号
         name: 別の例の承認
       dummy_authorization_handler:
+        explanation: '「X」で終わるドキュメント番号を入力して確認します'
         fields:
           allowed_postal_codes: 許可する郵便番号 (コンマで区切る)
           allowed_scope_id: 許可されたスコープ
@@ -370,6 +386,7 @@ ja:
           title: 認証の有効期限が切れました
         incomplete:
           cancel: キャンセル
+          explanation: '現在 "%{authorization}" で認証されていますが、以下のデータが不足しているため、再度認証する必要があります:'
           invalid_field: "%{field}"
           reauthorize: 再承認
           title: 再承認してください
@@ -377,9 +394,15 @@ ja:
           authorize: '"%{authorization}" で認証'
           explanation: このアクションを実行するには、"%{authorization}" で認証する必要があります。
           title: 認証が必要です
+        ok:
+          title: このページ内で認証されています。アクションを実行するため、ページをリロードしてください。
         pending:
+          explanation: このアクションを実行するには"%{authorization}" で認証されている必要がありますが、認証はまだ進行中です。
+          resume: '"%{authorization}" 認証の進行状況を確認してください。'
           title: 認証はまだ進行中です
         unauthorized:
+          explanation: 一部の認証データが一致しないため、この操作は実行できません。
+          invalid_field: "%{field} の値 %{value} は無効です。"
           ok: OK
           title: 権限がありません
         unconfirmed:
@@ -401,6 +424,7 @@ ja:
       see_more: "(続きを参照)"
     components:
       component_order_selector:
+        no_content: この基準では何も見つかりませんでした。
         order:
           all_types: すべてのタイプ
           collaborative_draft: 共同草案
@@ -482,15 +506,22 @@ ja:
           summary_content: コンテンツ
         two_pane_section:
           left_column: 左カラム
+          name: 2カラムセクション
           right_column: 右カラム
       stats:
         name: 組織の統計
       sub_hero:
         name: サブヒーローバナー
+    core:
+      actions:
+        login_before_access: アクセスする前に、あなたのアカウントでログインしてください。
+        unauthorized: この操作を実行する権限がありません。
     datepicker:
       help_text: '期待されるフォーマット: %{datepicker_format}'
     devise:
       omniauth_registrations:
+        create:
+          email_already_exists: 別のアカウントで同じメールアドレスを使用しています。
         new:
           complete_profile: プロファイルを完了
           nickname_help: '%{organization} でのニックネームです。文字、数字、''-'' および ''_'' のみを使用できます。'
@@ -516,6 +547,8 @@ ja:
         new:
           are_you_new?: プラットフォームは初めてですか？
           register: アカウントを作成
+          sign_in_disabled: 外部アカウントでアクセスできます。
+          sign_up_disabled: 新規登録は無効になっています。既存のアカウントを使用してアクセスすることができます。
         user:
           timed_out: 長時間非アクティブだったため、自動的にサービスからログアウトされました。 引き続きサービスをご利用になる場合、改めてログインしてください。
       shared:
