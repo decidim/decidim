@@ -43,7 +43,7 @@ module Decidim
       validates :default_locale, :reference_prefix, presence: true
       validates :default_locale, inclusion: { in: :available_locales }
       validates :admin_terms_of_use_body, translatable_presence: true
-      validates :comments_max_length, presence: true, numericality: { greater_than: 0 }, if: ->(form) { form.comments_max_length.present? }
+      validates :comments_max_length, presence: true, numericality: { greater_than: 0 }
       validates :machine_translation_display_priority,
                 inclusion: { in: Decidim::Organization::AVAILABLE_MACHINE_TRANSLATION_DISPLAY_PRIORITIES },
                 if: :machine_translation_enabled?
