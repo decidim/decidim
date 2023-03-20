@@ -20,9 +20,10 @@ module Decidim
       # Returns Boolean
       def can_be_administred_by?(user)
         return false if user.blank?
+        return true if user.admin?
+        return false if participatory_space.respond_to?(:user_roles) && participatory_space.user_roles(:valuator).where(user:).any?
 
         [
-          user.admin?,
           participatory_space.moderators.exists?(id: user.id),
           participatory_space.admins.exists?(id: user.id)
         ].any?
