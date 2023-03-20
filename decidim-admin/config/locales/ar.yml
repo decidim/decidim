@@ -565,8 +565,6 @@ ar:
         tabs:
           blocked: محظور
       moderations:
-        index:
-          title: الإشراف
         report:
           reasons:
             does_not_belong: لا ينتمي
