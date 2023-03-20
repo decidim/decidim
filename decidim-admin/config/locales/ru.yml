@@ -388,8 +388,6 @@ ru:
             state: Cостояние
             users_count: Количество участников
       moderations:
-        index:
-          title: Действия по модерации
         report:
           reasons:
             does_not_belong: Неприемлемо
