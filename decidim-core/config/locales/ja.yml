@@ -1086,11 +1086,14 @@ ja:
         show:
           back: すべての会話に戻る
           chat_with: 会話
+          deleted_accounts: 削除されたアカウントとは会話できません。
           not_allowed: この参加者はダイレクトメッセージを受け付けません。
           title: '%{usernames} との会話'
         start:
           placeholder: あなたのメッセージ...
           send: 送信
+        update:
+          error: エラーが発生したため、メッセージは送信されませんでした。
     metrics:
       download:
         csv: ダウンロードデータ(CSV)
@@ -1109,6 +1112,7 @@ ja:
     newsletter_mailer:
       newsletter:
         no_reply_notice: このメールは、メールを受信できない通知専用メールアドレスから送信されました。このメッセージには返信しないでください。
+        note: '%{organization_name} のニュースレターを購読者されているため、このメールを受け取りました。通知設定は<a href="%{link}">通知ページ</a>で変更できます。'
         see_on_website: このメールを正しく見ることができない場合は <a href="%{link}" target="_blank" class="see-on-website">ウェブサイト</a> で確認してください。
         unsubscribe: この種類のメールの受信を拒否するには、 <a href="%{link}" target="_blank" class="unsubscribe">購読解除</a>.
     newsletter_templates:
@@ -1175,6 +1179,7 @@ ja:
     notifications_settings:
       show:
         administrators: 管理者
+        allow_public_contact: 私をフォローしていないユーザーからでもダイレクトメッセージを送信できます
         allow_push_notifications: プラットフォーム上にいないときに何が起きているかを知るためにプッシュ通知を受け取ります。いつでもオフにできます。
         direct_messages: ダイレクトメッセージを受信する
         email_on_moderations: 私はモデレーションの報告がなされたたびに毎回メールを受け取りたいです。
@@ -1191,6 +1196,7 @@ ja:
         notifications_sending_frequency: 通知メールを受信する頻度は？
         own_activity: 誰かが提案にコメントしたり、私に言及したりした時など、自分自身の活動
         push_notifications: プッシュ通知
+        push_notifications_reminder: プラットフォームから通知を受け取るには、まずブラウザの設定で通知を許可する必要があります。
         receive_notifications_about: 通知を受け取りたい
         update_notifications_settings: 変更を保存
       update:
@@ -1250,20 +1256,31 @@ ja:
           success: 利用規約に同意しました。
         form:
           agreement: 上記の規約に同意する
+          legend: 利用規約に同意する
         refuse:
+          modal_body: 拒否するとプラットフォームを使用できなくなりますが、 <a href="%{download_your_data_path}">データ</a> をダウンロードしたり、 <a href="%{delete_path}">アカウントを削除</a> できます。
           modal_btn_continue: 利用規約に同意して続ける
           modal_btn_exit: 後で確認する
           modal_button: 同意しない
           modal_close: モーダルを閉じる
           modal_title: 更新された利用規約を本当に拒否しますか?
         required_review:
+          alert: 利用規約を更新しました。ご確認ください。
+          body: 利用規約の更新内容を確認してください。確認しない場合、プラットフォームを使用できません。
           title: '必須：サービス利用規約の更新を確認する'
     participatory_space_private_users:
       not_allowed: このコンテンツを表示する権限がありません
+    passwords:
+      update:
+        error: パスワードの更新中に問題が発生しました。
+        success: パスワードを更新しました。
     profile:
+      deleted: 参加者を削除しました
       inaccessible_message: このプロファイルは利用規約違反によりアクセスできません
       view: 表示
     profiles:
+      default_officialization_text_for_user_groups: このグループは公的に検証されており、その名前が実際の名前に対応していることが検証されています。
+      default_officialization_text_for_users: この参加者は公的に検証されます。彼/彼女の名前または役割が実名・実際の役割に対応していることが確認されています。
       show:
         activity: アクティビティ
         badges: バッジ
@@ -1289,9 +1306,11 @@ ja:
           manage_user_group_admins: 管理者の管理
           manage_user_group_users: メンバーの管理
           message: メッセージ
+        confirmation_instructions_sent: メール確認の手順を送信しました。
         create_user_group: グループを作成
         edit_profile: プロフィールを編集
         edit_user_group: グループプロファイルを編集
+        fill_in_email_to_confirm_it: グループのメールアドレスを入力して確認してください。
         invite_user: 参加者の招待
         join_user_group: グループに参加するリクエスト
         leave_user_group: グループから退出する
@@ -1382,6 +1401,7 @@ ja:
         already_reported: このコンテンツはすでに報告されており、管理者が確認します。
         close: 閉じる
         description: このコンテンツは不適切ですか？
+        does_not_belong: 違法行為、自殺の脅威、個人情報、または %{organization_name} に属していないと思われる何かが含まれています。
         hide: 非表示
         hide_content: このコンテンツを非表示
         offensive: 差別的な内容、誹謗中傷などの不適切な内容が含まれています。
@@ -1394,6 +1414,7 @@ ja:
         already_reported: このコンテンツはすでに報告されており、管理者が確認します。
         close: 閉じる
         description: ユーザーに不適切なのはどの点ですか？
+        does_not_belong: 違法行為、自殺の脅威、個人情報、または %{organization_name} に属していないと思われる何かが含まれています。
         offensive: 人種差別、性差別、中傷、個人攻撃、死の脅威、自殺要求や何かしらの形態のヘイトスピーチが含まれています。
         report: 報告
         spam: 虚偽情報、広告、詐欺やスクリプトボットが含まれています。
@@ -1472,6 +1493,7 @@ ja:
         next: 次へ
         no_conversations_warning: 会話はまだありません。
         no_results: 結果がありません
+        participant_with_disabled_message_reception: この参加者はメッセージの受信を無効にしています。
         time_ago: "%{time} 前"
       new:
         title: 会話を開始
@@ -1481,6 +1503,7 @@ ja:
         title_reply: 返信
       show:
         back: すべての会話を表示
+        deleted_accounts: 削除されたアカウントと会話をすることはできません。
         not_allowed: このユーザーはこれ以上のダイレクトメッセージを受け付けません。
         title: '%{usernames} との会話'
       update:
@@ -1488,6 +1511,8 @@ ja:
     user_interests:
       show:
         my_interests: 興味のあるもの
+        no_scopes: この組織にはスコープが設定されていません
+        select_your_interests: プロフィールのタイムラインタブに関連するイベントを受け取るために、興味のあるトピックを選択してください。
         update_my_interests: 興味を更新する
       update:
         error: 更新中に問題が発生しました。
@@ -1529,6 +1554,7 @@ ja:
       show:
         version_index: バージョン %{index}
     welcome_notification:
+      default_body: <p>{{name}} さん、{{organization}} への参加ありがとうございます！</p><ul><li>このサイトで何ができるかを概観したい場合は、<a href="{{help_url}}">ヘルプ</a>セクションをご覧ください。</li><li>目を通していただけると、最初のバッジを手に入れることができます。こちらは{{organization}} で参加することで手に入るすべてのバッジの<a href="{{badges_url}}">リスト</a>です。</li><li>そして、他の人々と一緒に{{organization}} に参加した経験を共有しましょう。提案を行い、コメントをし、議論を行い、共通の利益に貢献する方法を考え、説得するための根拠を提供し、読んで説得され、具体的かつ直接的に自分の意見を表現し、忍耐強く決定的に応答し、自分の考えを守り、協力して他の人々のアイデアに参加するために心を開いてください。</li></ul>
       default_subject: '{{organization}} に参加していただきありがとうございます！'
     wizard_step_form:
       wizard_aside:
