@@ -482,8 +482,6 @@ tr:
             offensive: Saldırgan
             spam: İstenmeyen
       moderations:
-        index:
-          title: Denetimler
         report:
           reasons:
             does_not_belong: Ait değil
