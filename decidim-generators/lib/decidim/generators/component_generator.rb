@@ -46,8 +46,8 @@ module Decidim
         template "README.md.erb", "#{component_folder}/README.md"
         template "gitignore", "#{component_folder}/.gitignore"
         template "github/ci.yml.erb", "#{component_folder}/.github/workflows/ci_#{component_name}.yml"
-        template ".ruby-version", "#{component_folder}/.ruby-version"
-        template ".node-version", "#{component_folder}/.node-version"
+        copy_file ".ruby-version", "#{component_folder}/.ruby-version"
+        copy_file ".node-version", "#{component_folder}/.node-version"
         copy_file ".rubocop.yml", "#{component_folder}/.rubocop.yml"
 
         app_folder = "#{component_folder}/app"

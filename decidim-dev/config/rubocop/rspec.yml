@@ -20,6 +20,7 @@ RSpec/DescribeClass:
   Exclude:
     - spec/gemfiles_spec.rb
     - spec/webpacker_spec.rb
+    - spec/version_files_spec.rb
     - spec/spellcheck_spec.rb
     - spec/i18n_spec.rb
     - "**/*/spec/**/*_badge_spec.rb"

@@ -20,6 +20,7 @@ module Decidim
         return broadcast(:invalid) unless form.valid?
 
         transaction do
+          find_or_create_moderation!
           register_justification!
           block!
           notify_user!
@@ -40,6 +41,10 @@ module Decidim
                                                justification: current_blocking.justification,
                                                current_user: current_blocking.blocking_user
                                              })
+      end
+
+      def find_or_create_moderation!
+        Decidim::UserModeration.create_or_find_by!(user: form.user)
       end
 
       def register_justification!

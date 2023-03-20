@@ -64,6 +64,16 @@ In some cases, when running in a containerized environment, you may need to manu
 
 In some other cases when you run your application on a custom port (other than 3000), you will need to edit the `Procfile`, and add the parameter. `web: bin/rails server -b 0.0.0.0 -p 3000`
 
+### 3.3 User moderation panel changes
+
+In older Decidim installations, when blocking an user directly from the participants menu, without being previously reported, it will hide that user, making it unavailable in the Reported Participants section. You will need to run this command once to make sure there are no users or entities that got blocked but are not visible in the participants listing.
+
+```console
+bundle exec rake decidim:upgrade:moderation:fix_blocked_user_panel
+```
+
+You can read more about this change on PR [\#10521](https://github.com/decidim/decidim/pull/10521).
+
 ## 4. Scheduled tasks
 
 Implementers need to configure these changes it in your scheduler task system in the production server. We give the examples

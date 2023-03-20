@@ -559,7 +559,7 @@ en:
         area_types: Area types
         areas: Areas
         configuration: Configuration
-        content: Content
+        content: Reported content
         dashboard: Dashboard
         external_domain_whitelist: Allowed external domains
         help_sections: Help sections
@@ -668,7 +668,7 @@ en:
           nickname: Nickname
           reason: Reason
           reports: Reports count
-          title: Listing participants
+          title: Reported participants
         report:
           reasons:
             does_not_belong: Does not belong
@@ -679,7 +679,7 @@ en:
           unblocked: Not Blocked
       moderations:
         index:
-          title: Moderations
+          title: Reported content
         report:
           reasons:
             does_not_belong: Does not belong
@@ -1143,7 +1143,7 @@ en:
     decidim:
       admin:
         global_moderations:
-          title: Content moderations
+          title: Global moderations
         newsletters:
           title: Newsletters
         settings:
