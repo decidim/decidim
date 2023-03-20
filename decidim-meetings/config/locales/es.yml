@@ -583,6 +583,7 @@ es:
       registrations:
         create:
           invalid: Se ha producido un error al inscribirte a este encuentro.
+          success: Te has inscrito al encuentro con éxito. Por estar inscrita recibirás una notificación si se producen actualizaciones.
         decline_invitation:
           invalid: Se ha producido un error al declinar la invitación.
           success: Has rechazado la invitación con éxito.
