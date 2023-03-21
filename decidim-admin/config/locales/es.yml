@@ -39,6 +39,7 @@ es:
         body: Cuerpo
         subject: Asunto
       organization:
+        admin_terms_of_use_body: Texto de los términos y condiciones de uso
         alert_color: Alerta
         available_authorizations: Autorizaciones disponibles
         badges_enabled: Habilitar insignias
@@ -133,6 +134,10 @@ es:
         file: Archivo
     errors:
       models:
+        newsletter:
+          attributes:
+            base:
+              at_least_one_space: Seleccione al menos un espacio participativo.
         organization:
           attributes:
             official_img_footer:
@@ -147,6 +152,11 @@ es:
           attributes:
             file:
               malformed: Archivo de importación mal formateado, por favor lea las instrucciones cuidadosamente y asegúrese de que el archivo está codificado en UTF-8.
+      new_import:
+        attributes:
+          file:
+            invalid_file: El archivo proporcionado no es válido, por favor comprueba que el archivo está correctamente formateado.
+            invalid_mime_type: Tipo MIME inválido.
   activerecord:
     attributes:
       decidim/static_page:
@@ -196,12 +206,18 @@ es:
           accept: Estoy de acuerdo con los términos
           are_you_sure: '¿Seguro que deseas rechazar los términos de uso para administradoras?'
           refuse: Rechazar los Términos y Condiciones de Administración
+          title: Acepto las condiciones de uso
         required_review:
+          alert: 'Necesario: Revisar nuestros términos y condiciones de administración'
+          callout: Por favor dedica un momento a revisar los términos y condiciones de administración. En caso contrario, no podrás administrar la plataforma.
           cta: Revísalos ahora.
+        title: Términos y condiciones de uso de administración
       area_types:
         create:
           error: Se ha producido un error al crear un nuevo tipo de área.
           success: El tipo de área ha sido creado correctamente.
+        destroy:
+          success: El tipo de área se ha eliminado correctamente.
         edit:
           title: Editar tipo de área
           update: Actualizar
@@ -210,6 +226,7 @@ es:
           title: Nuevo tipo de área
         update:
           error: Se ha producido un error al actualizar este tipo de área.
+          success: El tipo de área se actualizó correctamente.
       areas:
         create:
           error: Se ha producido un error al crear una nueva área.
