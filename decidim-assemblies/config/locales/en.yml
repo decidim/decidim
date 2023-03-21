@@ -347,6 +347,8 @@ en:
         participatory: Participatory
         working_group: Working group
       content_blocks:
+        children_assemblies:
+          name: Assemblies
         highlighted_assemblies:
           name: Highlighted assemblies
         related_assemblies:

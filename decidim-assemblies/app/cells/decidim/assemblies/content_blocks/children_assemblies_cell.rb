@@ -14,6 +14,10 @@ module Decidim
 
         private
 
+        def title
+          t("name", scope: "decidim.assemblies.content_blocks.children_assemblies")
+        end
+
         def limit
           model.settings.try(:max_results)
         end
