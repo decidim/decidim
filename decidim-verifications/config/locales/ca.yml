@@ -130,6 +130,7 @@ ca:
             confirm: L'eliminació del cens no es pot desfer. Segur que vols continuar?
             title: Eliminar totes les dades del cens
           index:
+            data: Hi ha %{count} registres carregats en total. La darrera data de pujada va ser el dia %{due_date}.
             empty: No hi ha dades del cens. Utilitza el formulari següent per importar-lo mitjançant un fitxer CSV.
             title: Dades censals actuals
           instructions:
@@ -165,12 +166,19 @@ ca:
               update: Actualitzar
             update:
               error: S'ha produït un error en actualitzar la configuració.
+              success: La configuració s'ha actualitzat correctament.
           confirmations:
+            create:
+              error: La verificació no coincideix. Si us plau, torna-ho a provar o rebutja la verificació perquè la participant pugui modificar-la.
+              success: Participant convidada correctament.
             new:
               introduce_user_data: Introdueix les dades de la imatge
               reject: Rebutjar
               verify: Verificar
           offline_confirmations:
+            create:
+              error: La verificació no coincideix. Si us plau, torna-ho a provar o digues-li a la participant que la modifiqui.
+              success: Participant verificada correctament.
             new:
               cancel: Cancel·lar
               introduce_user_data: Introdueix el correu electrònic de la participant i les dades del document
@@ -181,19 +189,32 @@ ca:
               offline_verification: Verificació presencial
               title: Verificacions online pendents
               verification_number: 'Verificació #%{n}'
+          rejections:
+            create:
+              success: S'ha rebutjat la verificació. Es demanarà a la participant que modifiqui els seus documents.
         authorizations:
           choose:
             choose_a_type: 'Si us plau selecciona com et vols verificar:'
             offline: Presencial
             online: Online
             title: Verifica't utilitzant el teu document d'identitat
+          create:
+            error: S'ha produït un problema en pujar el teu document.
+            success: El document s'ha carregat correctament.
           edit:
+            being_reviewed: Estem revisant els teus documents. Seràs verificada en breu.
             offline: Utilitzar la verificació presencial
             online: Utilitzar la verificació online
+            rejection_clarity: Assegura't que la informació sigui clarament visible a la imatge carregada.
+            rejection_correctness: Assegura't que la informació introduïda sigui correcta.
+            rejection_notice: S'ha produït un problema amb la teva verificació. Si us plau, torna-ho a provar.
             send: Sol·licita la verificació de nou
           new:
             send: Sol·licita la verificació
             title: Puja el document d'identitat
+          update:
+            error: S'ha produït un problema en tornar a carregar el document.
+            success: El document s'ha tornat a carregar correctament.
         dni: DNI
         nie: NIE
         passport: Passaport
