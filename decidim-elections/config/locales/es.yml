@@ -348,7 +348,9 @@ es:
             success: La solicitud para finalizar el período de votación se ha enviado correctamente al "Bulletin Board".
             title: Periodo de votación
           vote_ended:
+            invalid: Hubo un problema al iniciar el recuento.
             submit: Comenzar recuento
+            success: La solicitud de inicio del recuento se envió correctamente al "Bulletin Board".
             text: La votación ha terminado. Puedes iniciar el recuento ahora.
             title: Periodo de votación finalizado
           vote_stats:
@@ -360,6 +362,13 @@ es:
           actions:
             disable: Deshabilitar
             enable: Considerar
+          create:
+            exists: Existe garante para este espacio participativo.
+            invalid: Se ha producido un error al crear una garante.
+            success: Garante creada correctamente.
+          delete:
+            invalid: Se ha producido un error al eliminar esta garanta.
+            success: Garante eliminada correctamente.
           form:
             select_user: Seleccionar usuario
           index:
@@ -367,6 +376,9 @@ es:
           new:
             create: Crear garante
             title: Nuevo garante
+          update:
+            invalid: Se ha producido un error al actualizar a %{trustee} como garante.
+            success: Garante %{trustee} actualizada correctamente.
       admin_log:
         election:
           create: "%{user_name} creó la elección %{resource_name} de %{space_name}"
@@ -716,6 +728,7 @@ es:
             title: Verifica tu voto
           success:
             header: '¡Voto localizado!'
+            info: Tu voto cifrado está en la urna de %{link}.
         voting_step:
           back: Atrás
           continue: Siguiente
@@ -770,12 +783,20 @@ es:
     votings:
       admin:
         ballot_styles:
+          create:
+            error: Ha habido un problema al crear el estilo de papeleta.
+            success: Se ha creado correctamente el estilo de papeleta.
+          destroy:
+            invalid: Ha habido un problema al suprimir el estilo de papeleta.
+            success: Se ha eliminado correctamente el estilo de papeleta.
           edit:
             title: Editar el estilo de papeleta
             update: Actualizar
           form:
+            code_help: 'Pista: el código es el vínculo entre el censo y el estilo de papeleta. Al actualizar los datos del censo, a cada entrada se le asigna un estilo de papeleta que coincida con el código.'
             election: Elección
             questions: Preguntas para el estilo de papeleta
+            questions_help: 'Pista: selecciona las preguntas del componente de elecciones para presentarlas a las votantes asignadas a este estilo de papeleta.'
           index:
             actions:
               confirm_destroy: '¿Estás segura?'
@@ -823,6 +844,12 @@ es:
           published: Publicada
         landing_page:
           content_blocks:
+            create:
+              error: Se ha producido un error al intentar crear este bloque de contenido.
+              success: El bloque de contenido se ha creado correctamente.
+            destroy:
+              error: Se ha producido un error al intentar eliminar este bloque de contenido.
+              success: Bloque de contenido eliminado correctamente.
             edit:
               update: Actualizar
           edit:
@@ -902,8 +929,16 @@ es:
             publish_results: Publicar resultados
             publishing: Publicando resultados...
           update:
+            invalid: Se ha producido un error al publicar los resultados.
             rejected: La publicación de los resultados fue rechazada por el Bulletin Board. Inténtalo de nuevo o ponte en contacto con el administrador del sistema.
+            success: Los resultados se han publicado correctamente.
         monitoring_committee_members:
+          create:
+            invalid: Hubo un problema al crear esta miembro de la comisión de seguimiento.
+            success: Miembro del comisión de seguimiento creada con éxito.
+          destroy:
+            invalid: Hubo un problema al eliminar esta miembro de la comisión de seguimiento.
+            success: Miembro de la comisión de seguimiento eliminada con éxito.
           form:
             existing_user: Participante existente
             non_user: Invitar nueva participante
@@ -934,6 +969,9 @@ es:
           show:
             change_polling_station: Volver a los puntos de votación
             monitoring_committee_notes: Observaciones del Comité de Seguimiento
+          validate:
+            error: Se ha producido un error al validar el cierre.
+            success: El cierre se ha validado correctamente.
         monitoring_committee_verify_elections:
           index:
             download: Descargar
@@ -944,6 +982,12 @@ es:
             not_available: No disponible todavía
             title: Elecciones
         polling_officers:
+          create:
+            invalid: Hubo un problema al crear esta oficial de votación.
+            success: Oficial de votación creada con éxito.
+          destroy:
+            invalid: Hubo un problema al eliminar esta oficial de votación.
+            success: Oficial de votación eliminada con éxito.
           form:
             existing_user: Participante existente
             non_user: Invitar nueva participante
@@ -962,6 +1006,12 @@ es:
             more_polling_officers: Hay %{number} gestores de mesa más. Refina tu búsqueda para localizarlos.
             no_polling_officers: Ninguna gestora de mesa coincide con tus criterios de búsqueda o no hay ninguna.
         polling_stations:
+          create:
+            invalid: Hubo un problema al crear este punto de votación.
+            success: Punto de votación creado correctamente.
+          destroy:
+            invalid: Hubo un problema al eliminar este punto de votación.
+            success: Punto de votación eliminado correctamente.
           edit:
             title: Editar punto de votación
             update: Actualizar punto de votación
@@ -978,6 +1028,7 @@ es:
             create: Crear
             title: Crear punto de votación
           update:
+            invalid: Hubo un problema al actualizar este punto de votación.
             success: Punto de votación actualizado correctamente.
         titles:
           votings: Votaciones
