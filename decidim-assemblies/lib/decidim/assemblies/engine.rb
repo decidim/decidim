@@ -136,6 +136,52 @@ module Decidim
           content_block.public_name_key = "decidim.content_blocks.participatory_space_stats.name"
           content_block.default!
         end
+
+        Decidim.content_blocks.register(:assembly_homepage, :highlighted_results) do |content_block|
+          content_block.cell = "decidim/accountability/content_blocks/highlighted_results"
+          content_block.settings_form_cell = "decidim/content_blocks/highlighted_elements_for_component_settings_form"
+          content_block.public_name_key = "decidim.accountability.content_blocks.highlighted_results.results"
+          content_block.component_manifest_name = "accountability"
+
+          content_block.settings do |settings|
+            settings.attribute :order, type: :enum, default: "random", choices: %w(random recent)
+            settings.attribute :component_id, type: :select, default: nil
+          end
+        end
+
+        Decidim.content_blocks.register(:assembly_homepage, :highlighted_meetings) do |content_block|
+          content_block.cell = "decidim/meetings/content_blocks/highlighted_meetings"
+          content_block.settings_form_cell = "decidim/content_blocks/highlighted_elements_for_component_settings_form"
+          content_block.public_name_key = "decidim.meetings.content_blocks.upcoming_meetings.name"
+          content_block.component_manifest_name = "meetings"
+
+          content_block.settings do |settings|
+            settings.attribute :component_id, type: :select, default: nil
+          end
+        end
+
+        Decidim.content_blocks.register(:assembly_homepage, :highlighted_proposals) do |content_block|
+          content_block.cell = "decidim/proposals/content_blocks/highlighted_proposals"
+          content_block.settings_form_cell = "decidim/content_blocks/highlighted_elements_for_component_settings_form"
+          content_block.public_name_key = "decidim.proposals.content_blocks.highlighted_proposals.name"
+          content_block.component_manifest_name = "proposals"
+
+          content_block.settings do |settings|
+            settings.attribute :order, type: :enum, default: "recent", choices: %w(random recent)
+            settings.attribute :component_id, type: :select, default: nil
+          end
+        end
+
+        Decidim.content_blocks.register(:assembly_homepage, :highlighted_posts) do |content_block|
+          content_block.cell = "decidim/blogs/content_blocks/highlighted_posts"
+          content_block.settings_form_cell = "decidim/content_blocks/highlighted_elements_for_component_settings_form"
+          content_block.public_name_key = "decidim.blogs.content_blocks.highlighted_posts.name"
+          content_block.component_manifest_name = "blogs"
+
+          content_block.settings do |settings|
+            settings.attribute :component_id, type: :select, default: nil
+          end
+        end
       end
 
       initializer "decidim_assemblies.register_metrics" do
