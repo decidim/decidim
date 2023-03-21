@@ -100,21 +100,6 @@ bundle exec rake decidim:webpacker:install
 
 This will make the necessary changes in the `config/webpacker.yml`, but also in the `config/webpack/` folder.
 
-#### Note for development
-
-Compiling the JS and CSS at the runtime is a very slow process. Additionally, compiling JS and CSS in the test suite will cause your pipeline to timeout.
-To avoid that, you could export the following env variable:
-
-```console
-export WEBPACKER_RUNTIME_COMPILE="false"
-```
-
-Then use the command to watch and compile the javascript and css upon changes:
-
-```console
-bundle exec bin/webpacker-dev-server
-```
-
 You can read more about this change on PR [\#10389](https://github.com/decidim/decidim/pull/10389).
 
 ## 4. Scheduled tasks
