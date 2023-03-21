@@ -459,7 +459,7 @@ en:
             title: Add document
             upload_document: Upload document
           publish:
-            invalid: Could not publish proposals.
+            invalid: There was a problem publishing proposals.
             success: All proposals have been published.
           sections:
             article: "<em>Article</em>"
