@@ -209,7 +209,7 @@ en:
           refuse: Refuse the admin terms
           title: Agree to the terms of use
         required_review:
-          alert: 'Required: Review our admin terms terms and conditions'
+          alert: 'Required: Review our admin terms of use'
           callout: Please take a moment to review the admin terms of use. Otherwise you will not be able to manage the platform.
           cta: Review them now.
         title: Admin terms of use
