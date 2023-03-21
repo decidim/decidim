@@ -69,6 +69,12 @@ ca:
         email: Correu electrònic
         name: Nom
         role: Rol
+    errors:
+      models:
+        conference_registration_invite:
+          attributes:
+            email:
+              already_invited: Ja s'havia convidat a aquest correu electrònic.
   activerecord:
     models:
       decidim/conference:
@@ -449,6 +455,7 @@ ca:
           main_promotors: Organitzadores
         show:
           login_as: Has iniciat la sessió com a %{name} <%{email}>
+          make_conference_registration: Inscriu-te a la jornada
           register: Inscripcions
       content_blocks:
         highlighted_conferences:
@@ -456,6 +463,11 @@ ca:
       index:
         title: Jornades
       mailer:
+        conference_registration_mailer:
+          confirmation:
+            subject: S'ha confirmat la teva inscripció a la jornada.
+          pending_validation:
+            subject: La teva inscripció a la jornada està pendent de confirmació.
         invite_join_conference_mailer:
           invite:
             subject: Invitació per a unir-se a una jornada
@@ -539,6 +551,10 @@ ca:
           contextual: "<p>Una <strong>conferència</strong> és un conjunt de trobades organitzades en un programa, amb un grup de persones convidades com a ponents, i altres camps d'informació típics dels grans congressos o esdeveniments socials (inscripció, llista d'organitzacions que secunden o patrocinen l'esdeveniment, etc.).</p> <p>Exemples: Una conferència pot ser un esdeveniment rellevant per a una organització i els seus membres, o pot tenir lloc com a part d'un procés participatiu o després d'una consulta.</p>"
           page: "<p>Una <strong>conferència</strong> és un conjunt de trobades organitzades en un programa, amb un grup de persones convidades com a ponents, i altres camps d'informació típics dels grans congressos o esdeveniments socials (inscripció, llista d'organitzacions que secunden o patrocinen l'esdeveniment, etc.).</p> <p>Exemples: Una conferència pot ser un esdeveniment rellevant per a una organització i els seus membres, o pot tenir lloc com a part d'un procés participatiu o després d'una consulta.</p>"
           title: Què són les conferències?
+    log:
+      value_types:
+        conference_presenter:
+          not_found: 'La jornada no s''ha trobat a la base de dades (ID: %{id}).'
     media:
       index:
         description: Enllaços sobre aquesta jornada
