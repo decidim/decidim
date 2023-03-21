@@ -64,6 +64,18 @@ In some cases, when running in a containerized environment, you may need to manu
 
 In some other cases when you run your application on a custom port (other than 3000), you will need to edit the `Procfile`, and add the parameter. `web: bin/rails server -b 0.0.0.0 -p 3000`
 
+### 3.3. Added task to clean orphaned valuator assignements
+
+In [\#10607](https://github.com/decidim/decidim/pull/10607) we have added a new task that helps you clean the valuator assignements records of roles that have been deleted.
+
+You can run the task with the following command:
+
+```console
+bundle exec rake decidim:proposals:upgrade:remove_valuator_orphan_records
+```
+
+You can see more details about this change on PR [\#10607](https://github.com/decidim/decidim/pull/10607)
+
 ## 4. Scheduled tasks
 
 Implementers need to configure these changes it in your scheduler task system in the production server. We give the examples

@@ -4,7 +4,7 @@ namespace :decidim do
   namespace :proposals do
     namespace :upgrade do
       desc "Removes all proposal valuator records of which the role assignment does not exists"
-      task remove_orphan_records: :environment do
+      task remove_valuator_orphan_records: :environment do
         Decidim::Proposals::ValuationAssignment
           .where(valuator_role_type: "Decidim::ParticipatoryProcessUserRole")
           .where
