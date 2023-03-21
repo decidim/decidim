@@ -59,21 +59,21 @@ module Decidim
         html.html_safe
       end
 
-      # Items to display in the navigation of a process
-      def assembly_nav_items
-        components = current_participatory_space.components.published.or(Decidim::Component.where(id: try(:current_component)))
+      # Items to display in the navigation of an assembly
+      def assembly_nav_items(participatory_space)
+        components = participatory_space.components.published.or(Decidim::Component.where(id: try(:current_component)))
 
         [
           {
             name: t("assembly_menu_item", scope: "layouts.decidim.assembly_navigation"),
-            url: decidim_assemblies.assembly_path(current_participatory_space),
-            active: is_active_link?(decidim_assemblies.assembly_path(current_participatory_space), :exclusive)
+            url: decidim_assemblies.assembly_path(participatory_space),
+            active: is_active_link?(decidim_assemblies.assembly_path(participatory_space), :exclusive)
           },
-          *(if current_participatory_space.members.not_ceased.any?
+          *(if participatory_space.members.not_ceased.any?
               [{
                 name: t("assembly_member_menu_item", scope: "layouts.decidim.assembly_navigation"),
-                url: decidim_assemblies.assembly_assembly_members_path(current_participatory_space),
-                active: is_active_link?(decidim_assemblies.assembly_assembly_members_path(current_participatory_space), :inclusive)
+                url: decidim_assemblies.assembly_assembly_members_path(participatory_space),
+                active: is_active_link?(decidim_assemblies.assembly_assembly_members_path(participatory_space), :inclusive)
               }]
             end
            )

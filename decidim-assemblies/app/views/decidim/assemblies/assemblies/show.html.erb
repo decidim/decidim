@@ -57,7 +57,7 @@ edit_link(
         <%= icon "arrow-up-s-line" %>
       </button>
       <ul id="dropdown-menu" class="assembly__nav">
-        <%= render partial: "layouts/decidim/assembly_nav_item", collection: assembly_nav_items, as: :item %>
+        <%= render partial: "layouts/decidim/assembly_nav_item", collection: assembly_nav_items(current_participatory_space), as: :item %>
       </ul>
     </div>
 
