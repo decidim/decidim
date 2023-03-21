@@ -145,9 +145,11 @@ ca:
         cancel_error: No s'ha pogut cancel·lar el canvi de correu electrònic.
         cancel_successfully: Canvi de correu electrònic cancel·lat amb èxit.
         resend_error: No s'ha pogut reenviar el correu de confirmació.
+        resend_successfully: Correu de confirmació reenviat amb èxit a %{unconfirmed_email}.
         send_again: Tornar a enviar
         title: Verificació del canvi de correu electrònic
       show:
+        available_locales_helper: Tria l'idioma que en què vols navegar i rebre notificacions de la plataforma.
         change_password: Canvia la contrasenya
         update_account: Actualitzar compte
       update:
@@ -160,6 +162,7 @@ ca:
       actions:
         cancel: Cancel·lar
       password_change:
+        alert: Has de canviar la teva contrasenya per a poder seguir endavant.
         notification: Les usuàries amb rol d'administració han de canviar la seva contrasenya cada %{days} dies.
     admin_log:
       area:
@@ -262,8 +265,10 @@ ca:
         amended_by: Esmenat per
         button: Esmenar %{model_name}
         error: S'ha produït un error en modificar aquest recurs.
+        help_text: Millora aquest %{model_name} modificant la seva %{amendable_fields}.
         promote_button: Promocionar a %{model_name}
         promote_confirm_text: Segur que vols promoure aquesta esmena?
+        promote_help_text: Pots promocionar aquesta esmena com a una %{model_name} independent.
         section_heading: Esmenes (%{count})
       compare_draft:
         continue: Continua
@@ -302,16 +307,26 @@ ca:
         modify: Modificar
         publish: Publicar
         title: Publicar l'esborrany d'esmena
+      promoted:
+        error: S'ha produït un error en publicar l'esmena com una nova proposta.
+        success: L'esmena s'ha publicat correctament com una nova proposta.
       publish_draft:
         error: S'ha produït un error en publicar aquesta esmena.
         success: Esmena publicada correctament.
+      rejected:
+        error: S'ha produït un error en rebutjar aquesta esmena, si us plau, torna-ho a provar més tard.
+        success: L'esmena s'ha rebutjat correctament.
       review:
         back: Torna
         heading: Revisa l'esmena
+        help_text: Esteu revisant una esmena al %{model_name}.
         send: Accepta l'esmena
       update_draft:
         error: S'ha produït un error en actualitzar l'esborrany de l'esmena.
         success: Esborrany d'esmena actualitzat correctament.
+      withdraw:
+        error: S'ha produït un error en retirar l'esmena.
+        success: L'esmena s'ha retirat correctament.
       wizard_step_form:
         steps:
           '1': Crea la teva esmena
@@ -1413,6 +1428,7 @@ ca:
     user_contact_disabled: Aquesta participant no accepta missatges directes.
     user_conversations:
       create:
+        error: El missatge no s'ha pogut crear. Torna a intentar-ho més tard.
         existing_error: El missatge no s'ha pogut crear. La conversa ja existeix, si us plau torna-ho a provar ara.
         success: Conversa iniciada correctament!
       index:
@@ -1427,6 +1443,7 @@ ca:
         next: Següent
         no_conversations_warning: Encara no hi ha cap conversa.
         no_results: No hi ha resultats
+        participant_with_disabled_message_reception: Aquesta participant ha desactivat la recepció de missatges.
         time_ago: "Fa %{time}"
       new:
         title: Iniciar una conversa
