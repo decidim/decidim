@@ -97,6 +97,10 @@ ca:
             label: Tipus
         search_placeholder:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Cercar %{collection} per títol, descripció, ID o autoria.
+      initiatives_settings:
+        update:
+          error: S'ha produït un error.
+          success: La configuració de les iniciatives s'ha actualitzat correctament.
       menu:
         attachments: Adjunts
         committee_members: Membres de la comissió
@@ -214,6 +218,8 @@ ca:
           index:
             approve: Aprova
             confirm_revoke: Segur?
+            invite_to_committee_help: Comparteix aquest enllaç per convidar altres participants a la comissió promotora.
+            no_members_yet: La comissió promotora no té membres.
             revoke: Revocar
             title: Membres del comitè
         content_blocks:
@@ -235,6 +241,7 @@ ca:
             export_votes: Exportar signatures
             reject: Rebutja la iniciativa
             send_to_technical_validation: Enviar a validació tècnica
+            success: La iniciativa s'ha enviat a validació tècnica.
             update: Actualitzar
           form:
             attachments: Adjunts
@@ -249,6 +256,9 @@ ca:
             edit: Edita
             new: Nou
             photos: Fotografies
+          update:
+            error: S'ha produït un error.
+            success: La iniciativa s'ha actualitzat correctament.
         initiatives_settings:
           edit:
             update: Actualitzar
@@ -260,6 +270,9 @@ ca:
             signatures: Més signades
             title: Configuració d'iniciatives
         initiatives_type_scopes:
+          create:
+            error: S'ha produït un error.
+            success: S'ha creat un nou àmbit per al tipus d'iniciativa donat.
           destroy:
             success: L'àmbit s'ha eliminat correctament
           edit:
@@ -272,7 +285,15 @@ ca:
             back: Torna
             create: Crear
             title: Crea l'àmbit del tipus d'iniciativa
+          update:
+            error: S'ha produït un error.
+            success: L'àmbit s'ha actualitzat correctament.
         initiatives_types:
+          create:
+            error: S'ha produït un error.
+            success: S'ha creat correctament un nou tipus d'iniciativa.
+          destroy:
+            success: S'ha eliminat correctament el tipus d'iniciativa.
           edit:
             confirm_destroy: Segur?
             destroy: Suprimeix
@@ -288,6 +309,9 @@ ca:
           new:
             create: Crear
             title: Nou tipus d'iniciativa
+          update:
+            error: S'ha produït un error.
+            success: El tipus d'iniciativa s'ha actualitzat correctament.
       admin_log:
         initiative:
           publish: "%{user_name} ha publicat la iniciativa %{resource_name}"
@@ -326,6 +350,7 @@ ca:
           success: S'ha aprovat la sol·licitud.
         new:
           continue: Continua
+          help_text: Estàs a punt de sol·licitar formar part de la comissió promotora d'aquesta iniciativa.
         revoke:
           success: S'ha revocat la sol·licitud.
         spawn:
@@ -427,6 +452,7 @@ ca:
             day: Dia
             month: Mes
             year: Any
+          help: Si us plau, omple els següents camps amb les teves dades personals per signar la iniciativa.
         finish:
           back_to_initiative: Torna a la iniciativa
         sms_code:
@@ -434,9 +460,12 @@ ca:
           help: Consulta el SMS rebut al teu mòbil
         sms_phone_number:
           continue: Envia'm un SMS
+          help: Omple el formulari amb el teu número de telèfon mòbil verificat per sol·licitar el teu codi de verificació.
       initiative_votes:
         create:
           error: S'ha produït un error en signar la iniciativa.
+          invalid: Les dades proporcionades per signar la iniciativa no són vàlides.
+          success_html: Enhorabona! Has signat la iniciativa <strong> %{title}</strong> correctament.
         personal_data:
           invalid: Les dades personals no són coherents amb les dades proporcionades per a l'autorització.
         sms_code:
@@ -453,6 +482,8 @@ ca:
         committee_members:
           approve: Aprova
           confirm_revoke: Segur?
+          invite_to_committee_help: Comparteix aquest enllaç per convidar altres participants a la comissió promotora.
+          no_members_yet: La comissió promotora no té membres.
           revoke: Revocar
           title: Membres de la comissió
         count:
@@ -513,6 +544,7 @@ ca:
           section: 'Si l''organització ho demana, imprimeix i omple aquest formulari per presentar-lo quan s''indiqui:'
           signature: Signatura
         result:
+          answer_title: S'ha respost aquesta iniciativa.
           initiative_rejected_reason: Aquesta iniciativa ha estat rebutjada per falta de signatures.
         show:
           any_vote_method: Aquesta iniciativa recull signatures digitals i presencials.
@@ -575,6 +607,9 @@ ca:
         accepted: Acceptat
         expired: Vençut
       unavailable_scope: Àmbit no disponible
+      update:
+        error: S'ha produït un error.
+        success: La iniciativa s'ha actualitzat correctament.
       versions:
         shared:
           back_to_resource: Torna a la iniciativa
