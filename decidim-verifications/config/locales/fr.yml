@@ -87,10 +87,12 @@ fr:
           no_data_stored: Aucune donnée enregistrée.
         create:
           error: Une erreur s'est produite lors de la création de l'autorisation.
+          success: Vous avez été autorisé(e) avec succès.
           transferred: 'Nous avons récupéré les données de participation suivantes basées sur votre autorisation :'
           unconfirmed: Vous devez confirmer votre email pour vous autoriser.
         destroy:
           error: Un problème est survenu lors de la destruction de l'autorisation.
+          success: Vous avez supprimé avec succès l'autorisation.
         first_login:
           actions:
             another_dummy_authorization_handler: Vérifier avec un autre exemple de gestionnaire d'autorisation
@@ -212,6 +214,8 @@ fr:
           new:
             send: Envoyez-moi une lettre
             title: Demandez votre code de vérification
+          update:
+            success: Félicitations, votre identité a été vérifiée avec succès.
       sms:
         authorizations:
           destroy:
@@ -227,6 +231,7 @@ fr:
             title: Demander votre code de vérification
           update:
             error: Votre code de vérification ne correspond pas au nôtre. Veuillez revérifier le SMS que nous vous avons envoyé.
+            success: Félicitations, votre identité a été vérifiée avec succès.
   errors:
     messages:
       uppercase_only_letters_numbers: à saisir en majuscule avec uniquement des lettres et / ou des chiffres
