@@ -40,7 +40,7 @@ fi:
         subject: Otsikko
       organization:
         admin_terms_of_use_body: Käyttöehtojen sisältö
-        alert_color: Ilmoitus
+        alert_color: Virhe
         available_authorizations: Käytettävissä olevat tunnistautumistavat
         badges_enabled: Ota kunniamerkit käyttöön
         comments_max_length: Kommenttien maksimipituus (jätä arvoksi 0 käyttääksesi oletusarvoa)
@@ -557,6 +557,7 @@ fi:
         area_types: Aluetyypit
         areas: Alueet
         configuration: Asetukset
+        content: Ilmoitettu sisältö
         dashboard: Hallintapaneeli
         external_domain_whitelist: Sallitut ulkoiset verkko-osoitteet
         help_sections: Ohjeosiot
@@ -665,6 +666,7 @@ fi:
           nickname: Nimimerkki
           reason: Syy
           reports: Ilmoitusten määrä
+          title: Ilmoitetut osallistujat
         report:
           reasons:
             does_not_belong: Ei kuulu
@@ -674,6 +676,8 @@ fi:
           blocked: Estetty
           unblocked: Ei estetty
       moderations:
+        index:
+          title: Ilmoitettu sisältö
         report:
           reasons:
             does_not_belong: Ei kuulu
@@ -1135,6 +1139,8 @@ fi:
   layouts:
     decidim:
       admin:
+        global_moderations:
+          title: Yleiset moderoinnit
         newsletters:
           title: Uutiskirjeet
         settings:
