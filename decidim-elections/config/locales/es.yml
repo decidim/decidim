@@ -65,6 +65,18 @@ es:
             voting_type:
               inclusion: "%{value} no es un tipo de votación válido"
   activerecord:
+    errors:
+      models:
+        decidim/votings/polling_officer:
+          attributes:
+            presided_polling_station:
+              president_and_manager: El gestor electoral ya es presidente/gestor del punto de votación.
+            voting:
+              different_organization: La votación debe estar en la misma organización que la participante.
+        decidim/votings/polling_station:
+          attributes:
+            polling_station_president:
+              different_voting: La oficial de votación debe estar en la misma votación que el punto de votación.
     models:
       decidim/elections/answer:
         one: Respuesta
@@ -148,10 +160,17 @@ es:
         unpublish: Despublicar
       admin:
         answers:
+          create:
+            invalid: Se ha producido un error al crear esta respuesta.
+            success: Respuesta creada con éxito.
+          destroy:
+            invalid: Se ha producido un error al eliminar esta respuesta.
+            success: Respuesta eliminada con éxito.
           edit:
             title: Editar respuesta
             update: Actualizar respuesta
           index:
+            invalid_max_selections: Necesitas %{missing_answers} respuesta/s más para coincidir con la selección máxima.
             title: Respuestas
           new:
             create: Crear respuesta
@@ -160,8 +179,22 @@ es:
           select:
             disable: Deseleccionar respuesta
             enable: Marcar respuesta como seleccionada
+            invalid: Hubo un problema al seleccionar esta respuesta.
+            success: Respuesta seleccionada con éxito.
           selected: Seleccionada
+          unselect:
+            invalid: Hubo un problema al deseleccionar esta respuesta.
+            success: Respuesta deseleccionada correctamente.
+          update:
+            invalid: Se ha producido un error al actualizar esta respuesta.
+            success: Respuesta actualizada correctamente.
         elections:
+          create:
+            invalid: Se ha producido un error al crear esta elección.
+            success: La elección se ha creado correctamente.
+          destroy:
+            invalid: Se ha producido un error al eliminar la elección.
+            success: La elección se ha eliminado correctamente.
           edit:
             title: Editar la elección
             update: Actualizar la elección
@@ -175,6 +208,9 @@ es:
             success: La votación se ha publicado correctamente.
           unpublish:
             success: La votación se ha despublicado correctamente.
+          update:
+            invalid: Se ha producido un error al actualizar esta votación.
+            success: La votación se ha actualizado correctamente.
         exports:
           elections: Elecciones
           feedback_form_answers: Retorno de las respuestas
@@ -195,12 +231,22 @@ es:
           trustee:
             name: Garante
         proposals_imports:
+          create:
+            invalid: Se ha producido un error al importar las propuestas como respuestas.
+            success: "%{number} propuestas importadas a respuestas correctamente."
           new:
             create: Importar propuestas como respuestas
             no_components: No hay otros componentes de propuestas en este espacio participativo desde los que importar propuestas como respuestas.
             select_component: Por favor selecciona un componente
             title: Importar propuestas
         questions:
+          create:
+            election_started: La elección ya ha comenzado.
+            invalid: Se ha producido un error al crear esta pregunta.
+            success: Se ha creado la pregunta correctamente.
+          destroy:
+            invalid: Se ha producido un error al eliminar esta pregunta.
+            success: Se ha eliminado la pregunta correctamente.
           edit:
             title: Editar la pregunta
             update: Actualizar la pregunta
@@ -209,6 +255,9 @@ es:
           new:
             create: Crear una pregunta
             title: Nueva pregunta
+          update:
+            invalid: Se ha producido un error al actualizar esta pregunta.
+            success: La pregunta se ha actualizado correctamente.
         steps:
           create_election:
             census: Censo
@@ -245,7 +294,9 @@ es:
             title: Configurar elección
             trustees: Garantes de la elección
           created:
+            invalid: Hubo un problema al iniciar la ceremonia de claves.
             submit: Iniciar la ceremonia de claves
+            success: La solicitud para iniciar la ceremonia de claves fue enviada con éxito al "Bulletin Board".
             title: Elección creada
             trustees: Garantes
           key_ceremony:
@@ -254,9 +305,11 @@ es:
           key_ceremony_ended:
             errors:
               time_before: La elección está lista para comenzar. Tienes que esperar hasta %{hours} horas antes de la hora de inicio (%{start_time}) para comenzar el periodo de votación.
+            invalid: Hubo un problema al iniciar el período de votación.
             requirements:
               time_before: La elección comenzará pronto. Puede iniciar el periodo de votación manualmente, o se iniciará automáticamente antes de la hora de inicio, a las %{start_time}.
             submit: Empezar período de votación
+            success: La solicitud de período de votación se ha enviado correctamente al "Bulletin Board".
             title: Listo para empezar
           processing: Procesando...
           results_published:
@@ -274,9 +327,11 @@ es:
             result: Resultado
             selected: Seleccionado
             submit: Publicar resultados
+            success: La solicitud de publicación de resultados se envió correctamente al "Bulletin Board".
             title: Resultados calculados
           tally_started:
             continue: Continuar
+            invalid: Hubo un problema al reportar la ausencia de la garante.
             mark_as_missing: Marcar como ausente
             mark_as_missing_description: Todos los garantes deberían participar en este proceso, pero si uno de ellos no puede tomar parte en él, puedes marcarlo como ausente.
             success: El reporte del garante que falta fue enviado con éxito al Bulletin Board
@@ -286,9 +341,11 @@ es:
           vote:
             errors:
               time_after: La elección aún está en curso. Tienes que esperar hasta la hora de finalización (%{end_time}) para terminar el periodo de votación.
+            invalid: Hubo un problema al terminar el período de votación.
             requirements:
               time_after: La elección ha terminado. Puedes terminar el período de votación manualmente, o terminará automáticamente en unos minutos.
             submit: Finalizar período de votación
+            success: La solicitud para finalizar el período de votación se ha enviado correctamente al "Bulletin Board".
             title: Periodo de votación
           vote_ended:
             submit: Comenzar recuento
@@ -920,6 +977,8 @@ es:
           new:
             create: Crear
             title: Crear punto de votación
+          update:
+            success: Punto de votación actualizado correctamente.
         titles:
           votings: Votaciones
         votings:
@@ -929,7 +988,12 @@ es:
             new_voting: Nuevo espacio de votación
             publish: Publicar
             unpublish: Despublicar
+          create:
+            invalid: Hubo un problema al crear esta votación.
+            success: Votación creada con éxito.
           edit:
+            add_election_component: No tienes ninguna elección configurada para esta votación. Por favor añádela en la sección de componentes.
+            assign_missing_officers: Hay puntos de votación sin presidencia y/o administradoras. Asígnalas desde la sección de puntos de votación.
             update: Actualizar
           form:
             banner_image: Imagen de cabecera
@@ -938,6 +1002,7 @@ es:
             introductory_image: Imagen de presentación
             promoted: Destacada
             select_a_voting_type: Por favor, selecciona un tipo de votación
+            show_check_census_help: Especifica si mostrar el enlace "¿Puedo votar?" en el menú público de votaciones.
             slug: Nombre corto de URL
             slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a esta votación. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
             title: Título
@@ -949,6 +1014,13 @@ es:
           new:
             create: Crear
             title: Nueva votación
+          publish:
+            success: Votación publicada correctamente.
+          unpublish:
+            success: Votación despublicada correctamente.
+          update:
+            invalid: Hubo un problema al actualizar esta votación.
+            success: Votación actualizada correctamente.
       admin_log:
         ballot_style:
           create: "%{user_name} creó un estilo de papeleta con código %{ballot_style_code} en el espacio %{space_name}"
@@ -977,6 +1049,7 @@ es:
           census:
             create:
               invalid: Se ha producido un error al subir el censo, por favor inténtalo de nuevo más tarde.
+              invalid_csv_header: Los encabezados CSV faltan o no son correctos - por favor lee las instrucciones cuidadosamente.
             creating_data:
               info_message: "<strong>Por favor espera</strong>, procesadas %{processed_count} de %{raw_count} filas del fichero %{file} (esto puede tardar algunos minutos)."
             delete:
@@ -984,10 +1057,14 @@ es:
               confirm: Eliminar todo el censo no se puede deshacer. ¿Seguro que quieres continuar?
             destroy:
               error: Se ha producido un error al eliminar el censo, por favor inténtalo de nuevo más tarde.
+              success: Datos del censo eliminados.
             export_access_codes:
               button: Exportar códigos de acceso de la votación
               callout: Ahora puedes exportar los códigos de acceso. Esto sólo se puede hacer una vez. Una vez que inicies la exportación, recibirás un correo electrónico con las instrucciones en <strong>%{email}</strong>
               confirm: Solo puedes exportar los códigos de acceso una vez. Asegúrate de tener acceso a la cuenta de correo electrónico <strong>%{email}</strong>.
+              file_not_exist: Este archivo no existe.
+              launch_error: Problema al iniciar la exportación de códigos de acceso.
+              launch_success: Se ha iniciado la exportación de los códigos de acceso. En breve recibirás un correo en %{email}.
             exporting_access_codes:
               info_message: "<strong>Por favor, espera</strong>, se está preparando la exportación, la recibirás en breve en %{email} (esto puede tardar unos minutos)."
             freeze:
@@ -1219,6 +1296,7 @@ es:
           check_status: Comprobar estado
           description: Aquí, tienes la opción de comprobar tus datos del censo para saber si tienes derecho a participar en esta votación. Deberías tener ya un código de acceso, pero si lo has perdido, puedes solicitarlo de nuevo, si tus datos son correctos.
           error:
+            info: 'Por favor, inténtalo de nuevo. Si crees que los datos del sistema son incorrectos, puedes reportarlo aquí: %{census_contact_information}.'
             title: Los datos que ha introducido no están en el censo de esta votación
           form_title: 'Rellena el siguiente formulario para comprobar tus datos del censo:'
           invalid: Hubo un problema al comprobar el censo.
@@ -1276,10 +1354,14 @@ es:
           start_voting: Empezar a votar
           step: Identificación
           title: Identificarme con mis datos del censo
+        no_census_contact_information: Aún no hay ninguna información de contacto.
         orders:
           label: 'Ordenar votaciones por:'
           random: Aleatorio
           recent: Más recientes
+        send_access_code:
+          invalid: Hubo un problema al enviar el código de acceso.
+          success: Tu código de acceso se ha enviado correctamente.
         show:
           dates: Fechas
       votings_m:
