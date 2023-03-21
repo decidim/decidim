@@ -358,11 +358,13 @@ es:
       official_author: Oficial
     authorization_handlers:
       another_dummy_authorization_handler:
+        explanation: Verifícate introduciendo un número de pasaporte que empiece por "A".
         fields:
           passport_number: Número de pasaporte
           postal_code: Código postal
         name: Otro ejemplo de autorización
       dummy_authorization_handler:
+        explanation: Verifícate introduciendo un número de documento que termine con "X".
         fields:
           allowed_postal_codes: Códigos postales permitidos (separados por comas)
           allowed_scope_id: Ámbito permitido
@@ -406,6 +408,8 @@ es:
         ok:
           title: Has sido autorizada mientras estás en esta página. Por favor, vuelve a cargar la página para realizar tu acción.
         pending:
+          explanation: Para realizar esta acción, debes estar autorizada con "%{authorization}", pero tu autorización todavía está en progreso.
+          resume: Comprueba el progreso de tu autorización "%{authorization}".
           title: La autorización aún está en progreso
         unauthorized:
           explanation: Lo sentimos, no puedes realizar esta acción porque algunos de tus datos de autorización no coinciden.
@@ -432,6 +436,7 @@ es:
       see_more: "(ver más)"
     components:
       component_order_selector:
+        no_content: No hemos podido encontrar ningún contenido con este criterio.
         order:
           all_types: Todos los tipos
           collaborative_draft: Borrador colaborativo
@@ -519,10 +524,16 @@ es:
         name: Estadísticas de la organización
       sub_hero:
         name: Banner de sub-hero
+    core:
+      actions:
+        login_before_access: Por favor, inicia sesión con tu cuenta antes de acceder.
+        unauthorized: No tienes autorización para realizar esta acción.
     datepicker:
       help_text: 'Formato esperado: %{datepicker_format}'
     devise:
       omniauth_registrations:
+        create:
+          email_already_exists: Otra cuenta utiliza la misma dirección de correo electrónico.
         new:
           complete_profile: Completa el perfil
           nickname_help: Tu alias en %{organization}. Solo puede contener letras, números, '-' y '_'.
@@ -548,6 +559,8 @@ es:
         new:
           are_you_new?: '¿Eres nueva en la plataforma?'
           register: Créate una cuenta
+          sign_in_disabled: Puedes acceder con una cuenta externa.
+          sign_up_disabled: El registro está deshabilitado, puedes usar una cuenta existente para acceder.
         user:
           timed_out: Has estado sin actividad durante demasiado tiempo y se te ha cerrado automáticamente la sesión del servicio. Si quieres seguir utilizando el servicio, vuelve a iniciar sesión.
       shared:
@@ -572,6 +585,7 @@ es:
           authorize: Autoriza la aplicación
           by_organization_link_html: <small class="heading-small">por %{link}</small>
           cancel: Cancelar
+          connect_your_account_html: Conecte tu cuenta iniciando sesión en <strong>%{organization}</strong>.
           publish_content: Publique contenido para tí
           see_email: Consulta tu correo electrónico
           see_name: Consulta tu nombre
@@ -900,8 +914,17 @@ es:
       index:
         invite: Invitación
         invite_user: Invitar a una participante
+      invite:
+        error: Se ha producido un error al invitar a esta participante.
+        success: Participante invitada correctamente.
+      reject:
+        error: Se ha producido un error al rechazar esta invitación.
+        success: Invitación rechazada correctamente.
       reject_invitation: Rechazar
     group_members:
+      accept:
+        error: Se ha producido un error al aceptar esta solicitud de incorporación al grupo.
+        success: Solicitud de unirse correctamente aceptada.
       actions:
         are_you_sure: '¿Seguro?'
         promote_to_admin: Hacer administrador
@@ -909,20 +932,36 @@ es:
       index:
         current_members_without_admins: 'Miembros actuales (sin administradores):'
         manage_members: Gestionar los miembros
+      promote:
+        error: Se ha producido un error al promocionar a esta participante.
+        success: Participante promocionada correctamente.
+      reject:
+        error: Se ha producido un error al rechazar esta solicitud de incorporación al grupo.
+        success: Solicitud de unirse rechazada correctamente.
+      remove:
+        error: Se ha producido un error al eliminar a esta participante del grupo.
+        success: Participante eliminada correctamente del grupo.
     groups:
       actions:
         are_you_sure: '¿Seguro?'
+      create:
+        error: Se ha producido un error al crear el grupo.
+        success: Grupo creado correctamente.
       edit:
         edit_user_group: Editar el grupo
         update_user_group: Actualizar el grupo
       form:
+        document_number_help: No utilices guiones ni espacios.
         email_help: Correo electrónico de tu organización, asociación, colectivo, grupo, etc.
         fill_in_for_verification: 'Rellena estos campos si deseas que tu grupo sea verificado:'
         name_help: Nombre de tu organización, asociación, colectivo, grupo, etc.
         nickname_help: Alias de tu organización, asociación, colectivo, grupo, etc. No uses espacios ni tildes.
+        phone_help: No utilices guiones ni espacios.
       join:
+        error: Se ha producido un error al unirte al grupo.
         success: La solicitud para formar parte se ha enviado correctamente. Una administradora revisará tu solicitud antes de aceptarte en el grupo.
       leave:
+        error: Se ha producido un error al dejar el grupo.
         last_admin: No puedes abandonar este grupo porque eres la última administradora. Haz administradora a otra miembro para poder abandonar el grupo.
         success: Has dejado el grupo correctamente.
       members:
@@ -938,11 +977,15 @@ es:
         admin: Administradora
         creator: Administradora
         member: Miembro
+      update:
+        error: Se ha producido un error al actualizar el grupo.
+        success: El grupo se ha actualizado correctamente.
     help:
       main_topic:
         default_page:
           content: "<p>En %{organization} puedes participar y decidir sobre diferentes temas, a través de los espacios que ves en el menú superior: Procesos, Asambleas, Iniciativas, Consultas.</p> <p>Dentro de cada uno encontrarás diferentes opciones para participar: hacer propuestas (individualmente o con otras personas), tomar parte en debates, priorizar proyectos a ejecutar, asistir a encuentros presenciales y otras acciones.</p>\n"
           title: '¿Qué puedo hacer en %{organization}?'
+        description: Lee más sobre %{organization}.
         title: Ayuda general
     last_activities:
       activities:
@@ -1001,29 +1044,35 @@ es:
           admin_in_group: Recibes esta notificación porque eres administradora de %{group}.
           greeting: '¡Hola, %{recipient}!'
           intro: "%{manager} ha iniciado una nueva conversación en nombre de %{group}. Haz clic aquí para verla:"
+          outro: '¡Disfruta Decidim!'
           subject: "%{manager} ha iniciado una nueva conversación como %{group}"
         comanagers_new_message:
           admin_in_group: Recibes esta notificación porque eres administradora de %{group}.
           greeting: Hola, %{recipient}!
           intro: "%{manager} ha publicado nuevos mensajes en una conversación en nombre de %{group}. Haz clic aquí para verla:"
+          outro: '¡Disfruta Decidim!'
           subject: "%{manager} ha enviado nuevos mensajes como %{group}"
         new_conversation:
           greeting: Hola, %{recipient}!
           intro: "%{sender} ha iniciado una nueva conversación contigo. Haz click aquí para verla:"
+          outro: '¡Disfruta Decidim!'
           subject: "%{sender} ha iniciado una conversación contigo"
         new_group_conversation:
           admin_in_group: Recibes esta notificación porque eres administradora de %{group}.
           greeting: '¡Hola, %{recipient}!'
           intro: "%{sender} ha iniciado una nueva conversación con el grupo %{group}. Haz clic aquí para verla:"
+          outro: '¡Disfruta Decidim!'
           subject: "%{sender} ha iniciado una nueva conversación con %{group}"
         new_group_message:
           admin_in_group: Recibes esta notificación porque eres administradora de %{group}.
           greeting: '¡Hola, %{recipient}!'
           intro: "%{sender} ha iniciado una nueva conversación con el grupo %{group}. Haz clic aquí para verla:"
+          outro: '¡Disfruta Decidim!'
           subject: "%{group} tiene nuevos mensajes de %{sender}"
         new_message:
           greeting: '¡Hola, %{recipient}!'
           intro: "%{sender} ha publicado nuevos mensajes en tu conversación. Haz clic aquí para verlos:"
+          outro: '¡Disfruta Decidim!'
           subject: Tienes nuevos mensajes de %{sender}
       conversations:
         add_conversation_users:
@@ -1031,6 +1080,9 @@ es:
           add_users_placeholder: Buscar...
           modal_title: Nueva conversación
           no_results: No hay resultados
+          participant_with_disabled_message_reception: Esta participante no quiere recibir mensajes privados.
+        create:
+          error: No se ha iniciado la conversación. Vuelve a intentarlo más tarde.
         error_modal:
           close: Cerrar modal
           correct_errors: Por favor, corrige los errores e inténtalo de nuevo.
@@ -1040,6 +1092,7 @@ es:
           ago: hace
           new_conversation: Nueva conversación
           next: Siguiente
+          no_conversations: Aún no tienes ninguna conversarción.
           title: Conversaciones
         reply_form:
           placeholder: Tu respuesta...
@@ -1053,6 +1106,8 @@ es:
         start:
           placeholder: Tu mensaje...
           send: Enviar
+        update:
+          error: El mensaje no se ha enviado debido a un error.
     metrics:
       download:
         csv: Descargar datos (CSV)
@@ -1215,6 +1270,7 @@ es:
           success: '¡Estupendo! Has aceptado los Términos y Condiciones.'
         form:
           agreement: Estoy de acuerdo con estos términos
+          legend: Acepto los términos y condiciones de uso
         refuse:
           modal_body: Si no aceptas, no podrás utilizar la plataforma, puedes <a href="%{download_your_data_path}">descargar tus datos</a> y/o <a href="%{delete_path}">eliminar tu cuenta</a>.
           modal_btn_continue: Aceptar los términos y continuar
@@ -1228,10 +1284,17 @@ es:
           title: 'Obligatorio: revisa las actualizaciones de nuestros Términos de Servicio'
     participatory_space_private_users:
       not_allowed: No tienes permiso para visualizar este contenido
+    passwords:
+      update:
+        error: Ha habido un problema al actualizar la contraseña.
+        success: La contraseña se ha actualizado correctamente.
     profile:
+      deleted: Participante eliminada
       inaccessible_message: '¡Este perfil es inaccesible debido a la violación de Términos y Condiciones de uso!'
       view: Ver
     profiles:
+      default_officialization_text_for_user_groups: Este grupo está verificado públicamente, su nombre se ha verificado para que se corresponda con su nombre real.
+      default_officialization_text_for_users: Esta participante está verificada públicamente. Se ha verificado que su nombre o cargo corresponde con su nombre y función reales.
       show:
         activity: Actividad
         badges: Insignias
@@ -1257,9 +1320,11 @@ es:
           manage_user_group_admins: Gestionar administradoras
           manage_user_group_users: Gestionar miembros
           message: Mensaje
+        confirmation_instructions_sent: Instrucciones de confirmación enviadas por correo electrónico.
         create_user_group: Crea un grupo
         edit_profile: Edita el perfil
         edit_user_group: Edita el perfil del grupo
+        fill_in_email_to_confirm_it: Por favor, introduce el correo electrónico de tu grupo para confirmarlo.
         invite_user: Invita a la participante
         join_user_group: Solicita unirse al grupo
         leave_user_group: Deja el grupo
