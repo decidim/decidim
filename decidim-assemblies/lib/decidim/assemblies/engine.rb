@@ -114,6 +114,12 @@ module Decidim
           content_block.cell = "decidim/content_blocks/participatory_space_images"
           content_block.public_name_key = "decidim.application.photos.related_photos"
         end
+
+        Decidim.content_blocks.register(:assembly_homepage, :announcement) do |content_block|
+          content_block.cell = "decidim/content_blocks/participatory_space_announcement"
+          content_block.public_name_key = "decidim.content_blocks.announcement.name"
+          content_block.default!
+        end
       end
 
       initializer "decidim_assemblies.register_metrics" do
