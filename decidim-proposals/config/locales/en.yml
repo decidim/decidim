@@ -730,7 +730,7 @@ en:
           title: Create your collaborative draft
       content_blocks:
         highlighted_proposals:
-          proposals: Proposals
+          name: Proposals
       create:
         error: There was a problem saving the proposal.
         success: Proposal successfully created. Saved as a Draft.
@@ -959,12 +959,8 @@ en:
         error: There was a problem saving the collaborative draft.
         success: Proposal draft successfully updated.
       versions:
-        collaborative_drafts:
-          back_to_resource: Go back to collaborative draft
         index:
           title: Versions
-        proposals:
-          back_to_resource: Go back to proposal
       withdraw:
         errors:
           has_supports: This proposal can not be withdrawn because it already has supports.

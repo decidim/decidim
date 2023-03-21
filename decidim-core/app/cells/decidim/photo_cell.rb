@@ -17,12 +17,16 @@ module Decidim
       @options[:index]
     end
 
+    def image_alt
+      model.description || model.title || t("alt", scope: "decidim.application.photo")
+    end
+
     def image_thumb
-      image_tag model.thumbnail_url, alt: t("alt", scope: "decidim.application.photo")
+      image_tag model.thumbnail_url, alt: image_alt
     end
 
     def image_big
-      image_tag model.big_url, alt: t("alt", scope: "decidim.application.photo")
+      image_tag model.big_url, alt: image_alt
     end
 
     def title
