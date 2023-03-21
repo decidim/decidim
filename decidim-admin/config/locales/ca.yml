@@ -981,6 +981,10 @@ ca:
           add: Afegir bloc de contingut
           create:
             error: S'ha produït un error en intentar crear aquest bloc de contingut.
+            success: El bloc de contingut s'ha creat correctament.
+          destroy:
+            error: S'ha produït un error en intentar eliminar aquest bloc de contingut.
+            success: Bloc de contingut eliminat correctament.
           destroy_confirmation: Segur que vols esborrar aquest bloc de contingut?
           edit:
             update: Actualitzar
@@ -1006,9 +1010,11 @@ ca:
         topic:
           destroy: Elimina el tema
           edit: Edita el tema
+          empty: No hi ha cap pàgina sobre aquest tema.
           without_topic: Pàgines sense tema
         update:
           error: S'ha produït un error en l'actualització d'aquesta pàgina.
+          success: La pàgina s'ha actualitzat correctament.
       titles:
         admin_log: Registre d'administració
         area_types: Tipus d'àrees
@@ -1032,8 +1038,10 @@ ca:
           success: L'arxiu CSV s'ha pujat correctament, estem verificant que els grups coincideixin amb els criteris. Això pot trigar una estona.
         reject:
           invalid: S'ha produït un error al rebutjar aquest grup.
+          success: El grup s'ha rebutjat correctament.
         verify:
           invalid: S'ha produït un error al verificar aquest grup.
+          success: Grup verificat correctament.
       user_groups:
         index:
           state:
@@ -1070,8 +1078,13 @@ ca:
           last_day: El darrer dia
           last_month: El darrer mes
           last_week: La darrera setmana
+          no_users_count_statistics_yet: Encara no hi ha estadístiques de recompte d’usuàries.
           participants: Participants
       view_public_page: Mostra la pàgina pública
+    forms:
+      errors:
+        impersonate_user:
+          reason: Has d'indicar un motiu per a la gestió d'una participant no gestionada.
     metrics:
       blocked_users:
         object: usuàries bloquejades
