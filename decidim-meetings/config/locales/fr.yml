@@ -583,6 +583,7 @@ fr:
       registrations:
         create:
           invalid: Il y a eu un problème lors de votre inscription à cette rencontre.
+          success: "You have joined the meeting successfully. Because you have registered for this meeting, you will be notified if there are updates on it.\nVous avez rejoint la rencontre avec succès. En tant que parciticpant à cette rencontre, vous serez avisé \ndes éventuelles mises à jour."
         decline_invitation:
           invalid: Un problème est survenu lors du refus de l'invitation.
           success: Vous avez refusé l'invitation avec succès.
