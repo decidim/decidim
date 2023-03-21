@@ -130,6 +130,7 @@ es:
             confirm: La eliminación de todo el censo no se puede deshacer. ¿Seguro que quieres continuar?
             title: Borrar todos los datos del censo
           index:
+            data: Hay %{count} registros cargados en total. La última fecha de carga fue en %{due_date}.
             empty: No hay datos del censo. Utiliza el siguiente formulario para importarlo usando un archivo CSV.
             title: Datos censales actuales
           instructions:
@@ -165,12 +166,19 @@ es:
               update: Actualizar
             update:
               error: Se ha producido un error al actualizar la configuración.
+              success: Configuración actualizada correctamente.
           confirmations:
+            create:
+              error: La verificación no coincide. Por favor inténtalo de nuevo o rechaza la verificación para que la participante pueda modificarla.
+              success: Participante verificada correctamente.
             new:
               introduce_user_data: Introduce los datos de la imagen
               reject: Rechazar
               verify: Verificar
           offline_confirmations:
+            create:
+              error: La verificación no coincide. Por favor inténtalo de nuevo o dile a la participante que la modifique.
+              success: Participante verificada correctamente.
             new:
               cancel: Cancelar
               introduce_user_data: Introduce el correo electrónico de la participante y los datos del documento
@@ -181,19 +189,31 @@ es:
               offline_verification: Verificación presencial
               title: Verificaciones online pendientes
               verification_number: 'Verificación #%{n}'
+          rejections:
+            create:
+              success: Verificación rechazada. Se pedirá a la participante que modifique sus documentos.
         authorizations:
           choose:
             choose_a_type: 'Por favor selecciona como te quieres verificar:'
             offline: Presencial
             online: Online
             title: Verifícate utilizando tu documento de identidad
+          create:
+            error: Hubo un problema al subir tu documento.
+            success: El documento se ha cargado correctamente.
           edit:
+            being_reviewed: Estamos revisando tus documentos. Serás verificada en breve.
             offline: Utiliza la verificación presencial
             online: Utiliza la verificación online
+            rejection_clarity: Asegúrate de que la información sea claramente visible en la imagen cargada.
+            rejection_correctness: Asegúrate de que la información introducida sea correcta.
+            rejection_notice: Hubo un problema con tu verificación. Por favor, inténtalo de nuevo.
             send: Solicitar verificación de nuevo
           new:
             send: Solicitar verificación
             title: Sube tu documento de Identidad
+          update:
+            error: Se ha producido un error al volver a cargar tu documento.
         dni: DNI
         nie: NIE
         passport: Pasaporte
