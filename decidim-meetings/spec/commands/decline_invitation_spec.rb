@@ -32,7 +32,7 @@ module Decidim::Meetings
       end
     end
 
-    context "when the invitation doesn't exists" do
+    context "when the invitation does not exists" do
       let(:invitation) { nil }
 
       it "broadcasts invalid" do

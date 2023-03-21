@@ -28,22 +28,23 @@ cs:
         show_statistics: Zobrazit statistiky
         sign_date: Datum podpisu
         signature: Podpis
-        signature_name: podpisové jméno
+        signature_name: Podpisové jméno
         slogan: Motto
         slug: URL slug
         start_date: Datum zahájení
         title: Titul
+        weight: Pozice v řazení
       conference_media_link:
         date: Datum
         link: Odkaz
         title: Název
-        weight: Váha
+        weight: Pozice v řazení
       conference_partner:
         link: Odkaz
         logo: Logo
         name: Název
         partner_type: Typ partnera
-        weight: Váha
+        weight: Pozice v řazení
       conference_registration_invite:
         email: E-mail
         name: Jméno
@@ -53,7 +54,7 @@ cs:
         description: Popis
         price: Cena
         title: Oslovení
-        weight: Váha
+        weight: Pozice v řazení
       conference_speaker:
         affiliation: Příslušnost
         avatar: Avatar
@@ -140,7 +141,7 @@ cs:
           title: Aktualizovat uživatele konference.
           update: Aktualizace
         index:
-          conference_admins_title: administrátoři konference
+          conference_admins_title: Administrátoři konference
         new:
           create: Vytvořit
           title: Nový administrátor konference.
@@ -318,6 +319,7 @@ cs:
           update: "%{user_name} aktualizoval partnera %{resource_name} na konferenci %{space_name}"
         registration_type:
           create: "%{user_name} vytvořil typ registrace %{resource_name} na konferenci %{space_name}"
+          delete: "%{user_name} odstranil typ registrace %{resource_name} z konference %{space_name}"
           publish: "%{user_name} publikoval %{resource_name} typ registrace na %{space_name} konferencích"
           unpublish: "%{user_name} nepublikováno %{resource_name} typ registrace na %{space_name} konferencích"
           update: "%{user_name} aktualizoval typ registrace %{resource_name} na konferenci %{space_name}"
@@ -413,18 +415,11 @@ cs:
           cancel: Zrušit
           confirm: Potvrdit
         show:
-          free: Volný, uvolnit
           going: Chystáte se
           no_slots_available: Žádné sloty nejsou k dispozici
           registration: Registrace
       conference_program:
-        program_meeting:
-          content: Obsah
-          location: Umístění
-          speakers: Řečníci
-          streaming: Streamování
         show:
-          day: Den
           program: Program
       conference_registration_mailer:
         confirmation:
@@ -457,18 +452,20 @@ cs:
       conference_speaker_cell:
         personal_url:
           personal_website: Osobní web
-        twitter_handle:
-          go_to_twitter: Přejděte na Twitter
       conference_speakers:
         index:
-          speakers: Řečníci
+          speakers:
+            one: Řečník
+            few: Řečníci
+            many: Řečníků
+            other: Řečníků
       conferences:
         partners:
           collaborators: Partneři
           main_promotors: Organizátoři
         show:
           login_as: Jste přihlášeni jako %{name} <%{email}>
-          make_conference_registration: 'Zaregistrujte se na konferenci:'
+          make_conference_registration: Zaregistrujte se na konferenci
           register: Registrovat
       content_blocks:
         highlighted_conferences:
@@ -514,29 +511,12 @@ cs:
             active_conferences: Aktivní konference
             conferences_button_title: Odkaz na stránku Konference zobrazující všechny konference
             see_all_conferences: Podívejte se na všechny konference
-      photo:
-        image:
-          attributes:
-            alt: Obrázek médií
-        show:
-          close_modal: Zavřít modální
-          photo: Fotografie
-      photos_list:
-        show:
-          related_photos: Fotky
       registration_types:
         index:
           choose_an_option: 'Vyberte možnost registrace:'
-          login_as: Jste přihlášeni jako %{name} <%{email}>
           no_registrations: Žádné registrace
           register: Registrovat
           title: Typy registrace
-      shared:
-        conference_user_login:
-          already_account: Máte již účet v decidimu?
-          new_user: Nový uživatel?
-          sign_in: Přihlaste se pro registraci do konference
-          sign_up: Vytvořte účet v decidim a zaregistrujte se pro tuto konferenci
       show:
         details: Podrobnosti
         introduction: Úvod

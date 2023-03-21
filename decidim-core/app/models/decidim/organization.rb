@@ -35,10 +35,10 @@ module Decidim
 
     has_many :templates, foreign_key: "decidim_organization_id", class_name: "Decidim::Templates::Template", dependent: :destroy if defined? Decidim::Templates
 
-    # Users registration mode. Whether users can register or access the system. Doesn't affect users that access through Omniauth integrations.
+    # Users registration mode. Whether users can register or access the system. Does not affect users that access through Omniauth integrations.
     #  enabled: Users registration and sign in are enabled (default value).
-    #  existing: Users can't be registered in the system. Only existing users can sign in.
-    #  disable: Users can't register or sign in.
+    #  existing: Users cannot be registered in the system. Only existing users can sign in.
+    #  disable: Users cannot register or sign in.
     enum users_registration_mode: [:enabled, :existing, :disabled], _prefix: true
 
     validates :name, :host, uniqueness: true
@@ -151,6 +151,15 @@ module Decidim
 
     def static_pages_accessible_for(user)
       static_pages.accessible_for(self, user)
+    end
+
+    def favicon_ico
+      return unless favicon.attached?
+      return favicon if favicon.content_type == "image/vnd.microsoft.icon"
+
+      uploader = attached_uploader(:favicon)
+      variant = uploader.variant(:favicon)
+      variant.processed.image
     end
 
     private

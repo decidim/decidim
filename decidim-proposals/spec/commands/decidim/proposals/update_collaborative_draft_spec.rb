@@ -57,7 +57,7 @@ module Decidim
             expect { command.call }.to broadcast(:invalid)
           end
 
-          it "doesn't update the proposal" do
+          it "does not update the proposal" do
             expect do
               command.call
             end.not_to change(collaborative_draft, :title)
@@ -73,7 +73,7 @@ module Decidim
             expect { command.call }.to broadcast(:invalid)
           end
 
-          it "doesn't update the collaborative draft" do
+          it "does not update the collaborative draft" do
             expect do
               command.call
             end.not_to change(collaborative_draft, :title)

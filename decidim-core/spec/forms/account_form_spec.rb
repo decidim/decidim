@@ -156,7 +156,7 @@ module Decidim
     end
 
     describe "personal_url" do
-      context "when it doesn't start with http" do
+      context "when it does not start with http" do
         let(:personal_url) { "example.org" }
 
         it "adds it" do

@@ -33,7 +33,7 @@ module Decidim
       context "with a blocked user" do
         let!(:user) { create(:user, :confirmed, :blocked, nickname: "Nick", organization:) }
 
-        it "doesn't return the page" do
+        it "does not return the page" do
           expect { get :show, params: { nickname: "Nick" } }.to raise_error(ActionController::RoutingError)
         end
       end
@@ -51,7 +51,7 @@ module Decidim
       context "with a blocked user group" do
         let!(:user) { create(:user_group, nickname: "acme", organization:) }
 
-        it "doesn't return the page" do
+        it "does not return the page" do
           expect { get :show, params: { nickname: "blocked" } }.to raise_error(ActionController::RoutingError)
         end
       end

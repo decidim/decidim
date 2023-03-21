@@ -28,7 +28,7 @@ module Decidim
 
       class_option :skip_gemfile, type: :boolean,
                                   default: false,
-                                  desc: "Don't generate a Gemfile for the application"
+                                  desc: "Do not generate a Gemfile for the application"
 
       class_option :profiling, type: :boolean,
                                default: false,
@@ -40,7 +40,7 @@ module Decidim
 
       def add_seeds
         append_file "db/seeds.rb", <<~RUBY
-          # You can remove the 'faker' gem if you don't want Decidim seeds.
+          # You can remove the 'faker' gem if you do not want Decidim seeds.
           Decidim.seed!
         RUBY
       end
@@ -184,7 +184,7 @@ module Decidim
         rails "db:test:prepare"
       end
 
-      # Runs rails commands in a subprocess, and aborts if it doesn't suceeed
+      # Runs rails commands in a subprocess, and aborts if it does not suceeed
       def rails(*args)
         abort unless system("bin/rails", *args)
       end

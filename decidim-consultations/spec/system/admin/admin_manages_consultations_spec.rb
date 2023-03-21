@@ -269,7 +269,7 @@ describe "Admin manages consultations", type: :system do
       visit decidim_admin_consultations.consultations_path
     end
 
-    it "doesn't let the admin manage assemblies form other organizations" do
+    it "does not let the admin manage assemblies form other organizations" do
       within "table" do
         expect(page).not_to have_content(external_consultation.title["en"])
       end

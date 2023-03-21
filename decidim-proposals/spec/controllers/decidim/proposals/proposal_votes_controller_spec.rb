@@ -45,7 +45,7 @@ module Decidim
             create(:proposal_component)
           end
 
-          it "doesn't allow voting" do
+          it "does not allow voting" do
             expect do
               post :create, format: :js, params:
             end.not_to change(ProposalVote, :count)
@@ -60,7 +60,7 @@ module Decidim
             create(:proposal_component, :with_votes_blocked)
           end
 
-          it "doesn't allow voting" do
+          it "does not allow voting" do
             expect do
               post :create, format: :js, params:
             end.not_to change(ProposalVote, :count)

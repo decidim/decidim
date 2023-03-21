@@ -110,7 +110,7 @@ describe "Admin manages moderated users", type: :system do
       visit decidim_admin.moderated_users_path(blocked: true)
     end
 
-    it "user can't unreport them" do
+    it "user cannot unreport them" do
       expect(page).not_to have_css(".action-icon--unreport")
     end
 

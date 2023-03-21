@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Decidim
-  # A Helper that reimplements the SocialShareButton gem helpers, so that we don't depend on it anymore.
+  # A Helper that reimplements the SocialShareButton gem helpers, so that we do not depend on it anymore.
   module SocialShareButtonHelper
     def social_share_button_tag(title, args)
       return unless enabled_services.length.positive?
