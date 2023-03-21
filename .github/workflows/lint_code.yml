@@ -14,6 +14,7 @@ env:
   SIMPLECOV: "true"
   RUBY_VERSION: 3.1.1
   NODE_VERSION: 16.9.1
+  WEBPACKER_RUNTIME_COMPILE: "false"
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
@@ -38,7 +39,7 @@ jobs:
           node-version: ${{ env.NODE_VERSION }}
       - name: Get npm cache directory path
         id: npm-cache-dir-path
-        run: echo "::set-output name=dir::$(npm get cache)-lint"
+        run: echo "dir=$(npm get cache)-lint" >> $GITHUB_OUTPUT
       - uses: actions/cache@v3
         id: npm-cache
         with:

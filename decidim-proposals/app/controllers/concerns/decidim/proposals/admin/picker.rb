@@ -9,6 +9,7 @@ module Decidim
         extend ActiveSupport::Concern
 
         included do
+          include ::Webpacker::Helper
           helper Decidim::Proposals::Admin::ProposalsPickerHelper
         end
 

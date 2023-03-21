@@ -311,7 +311,7 @@ en:
             update: Update
           form:
             address_help: 'Address: used by Geocoder to find the location'
-            disclaimer: 'Disclaimer: By using an external registration system, you''re aware that the organizers of %{organization} are not responsible for the data provided by the users to the external service.'
+            disclaimer: 'Disclaimer: By using an external registration system, you are aware that the organizers of %{organization} are not responsible for the data provided by the users to the external service.'
             location_help: 'Location: message directed to the users implying the spot to meet at'
             location_hints_help: 'Location hints: additional info. Example: the floor of the building if it is an in-person meeting, or the meeting password if it is an online meeting with restricted access.'
             online_meeting_url_help: 'Link: allow participants to connect directly to your meeting'
@@ -406,7 +406,7 @@ en:
         copy_calendar_url_clarification: Copy calendar URL to clipboard
         copy_calendar_url_copied: Copied!
         copy_calendar_url_description: You can see all the published meetings in your calendar application or provider. Copy and paste this URL in your calendar using the "Add new calendar from an URL" option.
-        copy_calendar_url_explanation: Please note that you're exporting a selection of meetings, as there are active filters. If you wish to export them all, reset all filters first.
+        copy_calendar_url_explanation: Please note that you are exporting a selection of meetings, as there are active filters. If you wish to export them all, reset all filters first.
         copy_calendar_url_message: The URL was successfully copied to clipboard.
         export_calendar: Export calendar
       close_meeting_reminder_mailer:
@@ -509,7 +509,7 @@ en:
           address_help: 'Address: used by Geocoder to find the location'
           available_slots_help: Leave it to 0 if you have unlimited slots available
           create_as: Create meeting as
-          disclaimer: 'Disclaimer: By using an external registration system, you''re aware that the organizers of %{organization} are not responsible for the data provided by the users to the external service.'
+          disclaimer: 'Disclaimer: By using an external registration system, you are aware that the organizers of %{organization} are not responsible for the data provided by the users to the external service.'
           location_help: 'Location: message directed to the users implying the spot to meet at'
           location_hints_help: 'Location hints: additional info. Example: the floor of the building if it is an in-person meeting, or the meeting password if it is an online meeting with restricted access.'
           online_meeting_url_help: 'Link: allow participants to connect directly to your meeting'
@@ -631,7 +631,7 @@ en:
       registrations:
         create:
           invalid: There was a problem joining this meeting.
-          success: You have joined the meeting successfully. Because you have registered for this meeting, you'll be notified if there are updates on it.
+          success: You have joined the meeting successfully. Because you have registered for this meeting, you will be notified if there are updates on it.
         decline_invitation:
           invalid: There was a problem declining the invitation.
           success: You have declined the invitation successfully.

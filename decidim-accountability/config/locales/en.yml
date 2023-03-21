@@ -58,7 +58,7 @@ en:
               <p>We recommend that you follow these steps:</p>
               <ol>
               <li><a href='%{link_new_status}' target='_blank'>Create the Statuses for the Results</a> that you want to add</li>
-              <li><a href='%{link_new_result}' target='_blank'>Create at least one Result manually</a> through this Admin panel before using Import, for having a better understanding of the format and what you'll need to fill out.</li>
+              <li><a href='%{link_new_result}' target='_blank'>Create at least one Result manually</a> through this Admin panel before using Import, for having a better understanding of the format and what you will need to fill out.</li>
               <li>%{link_export_csv}</li>
               <li>Make the changes locally. You can only change the following columns of the CSV:
                 <ul>

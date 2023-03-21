@@ -214,7 +214,7 @@ en:
             endorsements_enabled: Endorsements enabled
             proposal_answering_enabled: Proposal answering enabled
             publish_answers_immediately: Publish proposal answers immediately
-            publish_answers_immediately_help_html: Mind that if you answer any proposal without this enabled, you'll need to publish them manually by selecting them and using the action for publication. For more info on how this works, see <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">proposals' answers documentation page</a>.
+            publish_answers_immediately_help_html: Mind that if you answer any proposal without this enabled, you will need to publish them manually by selecting them and using the action for publication. For more info on how this works, see <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">proposals' answers documentation page</a>.
             suggested_hashtags: Hashtags suggested to participants for new proposals
             votes_blocked: Supports blocked
             votes_enabled: Supports enabled
@@ -276,7 +276,7 @@ en:
           follower:
             email_intro: 'The proposal "%{resource_title}" has been accepted. You can read the answer in this page:'
             email_outro: You have received this notification because you are following "%{resource_title}". You can unfollow it from the previous link.
-            email_subject: A proposal you're following has been accepted
+            email_subject: A proposal you are following has been accepted
             notification_title: The <a href="%{resource_path}">%{resource_title}</a> proposal has been accepted.
         proposal_evaluating:
           affected_user:
@@ -287,7 +287,7 @@ en:
           follower:
             email_intro: 'The proposal "%{resource_title}" is currently being evaluated. You can check for an answer in this page:'
             email_outro: You have received this notification because you are following "%{resource_title}". You can unfollow it from the previous link.
-            email_subject: A proposal you're following is being evaluated
+            email_subject: A proposal you are following is being evaluated
             notification_title: The <a href="%{resource_path}">%{resource_title}</a> proposal is being evaluated.
         proposal_mentioned:
           email_intro: Your proposal "%{mentioned_proposal_title}" has been mentioned <a href="%{resource_url}">in this space</a> in the comments.
@@ -314,7 +314,7 @@ en:
           follower:
             email_intro: 'The proposal "%{resource_title}" has been rejected. You can read the answer in this page:'
             email_outro: You have received this notification because you are following "%{resource_title}". You can unfollow it from the previous link.
-            email_subject: A proposal you're following has been rejected
+            email_subject: A proposal you are following has been rejected
             notification_title: The <a href="%{resource_path}">%{resource_title}</a> proposal has been rejected.
         proposal_update_category:
           email_intro: 'An admin has updated the category of your proposal "%{resource_title}", check it out in this page:'
@@ -707,7 +707,7 @@ en:
           hidden_authors_count:
             one: and %{count} more person
             other: and %{count} more people
-          info-message: This is a <strong>collaborative draft</strong> for a proposal. This means that you can help their authors to shape the proposal using the comment section below or improve it directly by requesting access to edit it. Once the authors grant you access, you'll be able to make changes to this draft.
+          info-message: This is a <strong>collaborative draft</strong> for a proposal. This means that you can help their authors to shape the proposal using the comment section below or improve it directly by requesting access to edit it. Once the authors grant you access, you will be able to make changes to this draft.
           publish: Publish
           publish_info: Publish this version of the draft or
           published_proposal: published proposal
@@ -761,7 +761,7 @@ en:
             valuators: Valuators
             votes: Votes
       new:
-        limit_reached: You cannot create new proposals since you've exceeded the limit.
+        limit_reached: You cannot create new proposals since you have exceeded the limit.
       participatory_text_proposal:
         alternative_title: There are no participatory texts at the moment
         buttons:
@@ -914,7 +914,7 @@ en:
             description: Each proposal can accumulate more than %{limit} supports
           minimum_votes_per_user:
             description: You must distribute a minimum of %{votes} supports among different proposals.
-            given_enough_votes: You've given enough supports.
+            given_enough_votes: You have given enough supports.
             supports_remaining: You have to support %{remaining_votes} more proposals for your supports to be taken into account.
           proposal_limit:
             description: You can create up to %{limit} proposals.

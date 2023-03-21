@@ -201,8 +201,8 @@ en:
         verify: Verify
       admin_terms_of_use:
         accept:
-          error: There's been an error while accepting the admin terms of use.
-          success: Great! You've accepted the admin terms of use.
+          error: There is been an error while accepting the admin terms of use.
+          success: Great! You have accepted the admin terms of use.
         actions:
           accept: I agree with the terms
           are_you_sure: Are you sure you want to refuse the admin terms of use?
@@ -384,7 +384,7 @@ en:
           Excel: Excel
           FormPDF: PDF
           JSON: JSON
-        notice: Your export is currently in progress. You'll receive an email when it's complete.
+        notice: Your export is currently in progress. You will receive an email when it is complete.
       filters:
         category_id_eq:
           label: Category
@@ -558,7 +558,7 @@ en:
         area_types: Area types
         areas: Areas
         configuration: Configuration
-        content: Content
+        content: Reported content
         dashboard: Dashboard
         external_domain_whitelist: Allowed external domains
         help_sections: Help sections
@@ -667,7 +667,7 @@ en:
           nickname: Nickname
           reason: Reason
           reports: Reports count
-          title: Listing participants
+          title: Reported participants
         report:
           reasons:
             does_not_belong: Does not belong
@@ -678,7 +678,7 @@ en:
           unblocked: Not Blocked
       moderations:
         index:
-          title: Moderations
+          title: Reported content
         report:
           reasons:
             does_not_belong: Does not belong
@@ -877,7 +877,7 @@ en:
       participatory_space_private_users_csv_imports:
         create:
           invalid: There was a problem reading the CSV file. Please make sure you have followed the instructions.
-          success: CSV file uploaded successfully, we're sending an invitation email to participants. This might take a while.
+          success: CSV file uploaded successfully, we are sending an invitation email to participants. This might take a while.
         new:
           destroy:
             button: Delete all private participants
@@ -1036,7 +1036,7 @@ en:
       user_group:
         csv_verify:
           invalid: There was a problem reading the CSV file.
-          success: CSV file uploaded successfully, we're verifying the groups matching the criteria. This might take a while.
+          success: CSV file uploaded successfully, we are verifying the groups matching the criteria. This might take a while.
         reject:
           invalid: There was a problem rejecting this group.
           success: Group successfully rejected.
@@ -1141,7 +1141,7 @@ en:
     decidim:
       admin:
         global_moderations:
-          title: Content moderations
+          title: Global moderations
         newsletters:
           title: Newsletters
         settings:

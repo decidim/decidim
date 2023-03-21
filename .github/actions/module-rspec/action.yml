@@ -32,7 +32,7 @@ runs:
         node-version: ${{ inputs.node_version }}
     - name: Get npm cache directory path
       id: npm-cache-dir-path
-      run: echo "::set-output name=dir::$(npm get cache)-${{ inputs.name }}"
+      run: echo "dir=$(npm get cache)-${{ inputs.name }}" >> $GITHUB_OUTPUT
       shell: "bash"
     - uses: actions/cache@v3
       id: npm-cache
@@ -47,7 +47,7 @@ runs:
     - run: mkdir -p ./spec/decidim_dummy_app/tmp/screenshots
       name: Create the screenshots folder
       shell: "bash"
-    - uses: nanasess/setup-chromedriver@v1.0.1
+    - uses: nanasess/setup-chromedriver@v1
     - run: RAILS_ENV=test bundle exec rails assets:precompile
       name: Precompile assets
       working-directory: ./spec/decidim_dummy_app/

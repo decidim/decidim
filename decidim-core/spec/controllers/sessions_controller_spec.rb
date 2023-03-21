@@ -37,7 +37,7 @@ module Decidim
 
                 it { is_expected.to eq("/authorizations/first_login") }
 
-                context "when there's a pending redirection" do
+                context "when there is a pending redirection" do
                   before do
                     controller.store_location_for(user, account_path)
                   end
@@ -79,7 +79,7 @@ module Decidim
               end
             end
 
-            context "and it's not the first time to log in" do
+            context "and it is not the first time to log in" do
               let(:user) { build(:user, sign_in_count: 2) }
 
               it { is_expected.to eq("/") }

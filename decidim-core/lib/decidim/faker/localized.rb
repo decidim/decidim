@@ -4,7 +4,7 @@ begin
   require "faker"
 rescue LoadError => e
   msg = <<~ERROR
-    You're trying to use decidim's faker-based seeds but you're not using `faker`.
+    You are trying to use decidim's faker-based seeds but you are not using `faker`.
     Make sure you add the `faker` gem to your `Gemfile` and try again
   ERROR
 

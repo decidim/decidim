@@ -85,6 +85,16 @@ module Decidim
             expect(user.valid_password?("decidim123456789")).to be(true)
           end
 
+          # NOTE: This is important so that the users who are only
+          # authenticating using omniauth will not need to update their
+          # passwords.
+          it "leaves password_updated_at nil" do
+            expect { command.call }.to broadcast(:ok)
+
+            user = User.find_by(email: form.email)
+            expect(user.password_updated_at).to be_nil
+          end
+
           it "notifies about registration with oauth data" do
             user = create(:user, email:, organization:)
             identity = Decidim::Identity.new(id: 1234)

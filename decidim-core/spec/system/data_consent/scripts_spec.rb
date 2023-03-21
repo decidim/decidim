@@ -27,9 +27,8 @@ describe "Data consent scripts", type: :system do
         <head>
           <title>Accessibility Test</title>
           #{stylesheet_pack_tag "decidim_core"}
-          #{javascript_pack_tag "decidim_core", defer: false}
           #{stylesheet_pack_tag "decidim_dev"}
-          #{javascript_pack_tag "decidim_dev", defer: false}
+          #{javascript_pack_tag "decidim_core", "decidim_dev", defer: false}
         </head>
         <!-- Add some line breaks so that the "WAI WCAG" notification does not block screenshots -->
         <br><br><br><br><br>

@@ -190,7 +190,7 @@ en:
           - Follow the steps to create a new initiative
           description: This badge is granted when you launch new initiatives, partnering with others to carry them out.
           description_another: This participant has gotten %{score} initiatives published.
-          description_own: You've got %{score} initiatives published.
+          description_own: You have got %{score} initiatives published.
           name: Published initiatives
           next_level_in: Get %{score} more initiatives published to reach the next level!
           unearned_another: This participant has not gotten any initiatives published yet.

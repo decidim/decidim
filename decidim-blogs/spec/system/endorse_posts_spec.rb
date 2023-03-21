@@ -12,7 +12,7 @@ describe "endorse posts", type: :system do
   before do
     allow(Decidim).to receive(:redesign_active).and_return(true)
 
-    sign_in author
+    login_as author, scope: :user
     visit_component
     click_link "Blog post title"
   end

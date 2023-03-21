@@ -6,7 +6,7 @@ module Decidim
   # this.
   #
   module AriaSelectedLinkToHelper
-    # Adds the `aria-selected` attribute to a link when it's pointing to the
+    # Adds the `aria-selected` attribute to a link when it is pointing to the
     # current path. The API is the same than the `link_to` one, and uses this
     # helper internally.
     #

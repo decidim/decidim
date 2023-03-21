@@ -23,6 +23,7 @@ env:
   DECIDIM_SERVICE_WORKER_ENABLED: true
   TEST_SSL: true
   CODECOV_TOKEN: bc15b944-6b42-420a-b3f9-a5a8fb214326
+  WEBPACKER_RUNTIME_COMPILE: "false"
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
@@ -79,7 +80,7 @@ jobs:
           token: ${{ env.CODECOV_TOKEN }}
           name: decidim-core-system-ssl
           flags: decidim-core-system-ssl
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v3
         if: always()
         with:
           name: screenshots
