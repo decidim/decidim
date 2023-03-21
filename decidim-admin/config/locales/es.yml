@@ -981,6 +981,10 @@ es:
           add: Añadir bloque de contenido
           create:
             error: Se ha producido un error al intentar crear este bloque de contenido.
+            success: El bloque de contenido se ha creado correctamente.
+          destroy:
+            error: Se ha producido un error al intentar eliminar este bloque de contenido.
+            success: Bloque de contenido eliminado correctamente.
           destroy_confirmation: '¿Seguro que quieres borrar este bloque de contenido?'
           edit:
             update: Actualizar
@@ -1006,9 +1010,11 @@ es:
         topic:
           destroy: Eliminar tema
           edit: Editar tema
+          empty: No hay ninguna página sobre este tema.
           without_topic: Páginas sin tema
         update:
           error: Se ha producido un error en la actualización de ésta página.
+          success: La página se ha actualizado correctamente.
       titles:
         admin_log: Registro de actividad de administradores
         area_types: Tipos de área
@@ -1032,8 +1038,10 @@ es:
           success: El archivo CSV cargado correctamente, estamos verificando los grupos que coinciden con los criterios. Esto puede tardar un poco.
         reject:
           invalid: Se ha producido un error al rechazar este grupo.
+          success: Grupo rechazado correctamente.
         verify:
           invalid: Se ha producido un error al verificar este grupo.
+          success: Grupo verificado correctamente.
       user_groups:
         index:
           state:
@@ -1070,8 +1078,13 @@ es:
           last_day: Último día
           last_month: Último mes
           last_week: Última semana
+          no_users_count_statistics_yet: Aún no hay estadísticas de recuento de usuarias.
           participants: Participantes
       view_public_page: Ver página pública
+    forms:
+      errors:
+        impersonate_user:
+          reason: Debes indicar un motivo para la gestión de una participante no gestionada.
     metrics:
       blocked_users:
         object: usuarias bloqueadas
