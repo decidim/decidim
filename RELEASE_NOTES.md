@@ -55,7 +55,7 @@ bundle exec rake decidim:procfile:install
 After this command has been ran, a new command will be available in your `bin/`, so in order to boot up your application you will just need to run
 
 ```console
-bin/dev
+./bin/dev
 ```
 
 Additional notes on Procfile:
@@ -111,7 +111,7 @@ webpacker: ./bin/webpacker-dev-server
 In order to run your development server, you will need to run the following command:
 
 ```console
-bin/dev
+./bin/dev
 ```
 
 You can read more about this change on PR [\#10389](https://github.com/decidim/decidim/pull/10389).
