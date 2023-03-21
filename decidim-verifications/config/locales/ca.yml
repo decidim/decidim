@@ -229,7 +229,13 @@ ca:
               title: Verificacions en curs
               username: Àlies
               verification_code: Codi de verificació
+          postages:
+            create:
+              error: S'ha produït un error en marcar la carta com a enviada.
+              success: La carta s'ha marcat correctament com a enviada.
         authorizations:
+          create:
+            error: S'ha produït un problema amb la teva sol·licitud.
           edit:
             send: Confirmar
           new:
