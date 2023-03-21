@@ -13,13 +13,19 @@ es:
       templates:
         apply:
           error: Se ha producido un error al aplicar esta plantilla.
+          success: Plantilla aplicada correctamente.
         copy:
           error: Se ha producido un error al copiar esta plantilla.
+          success: Plantilla copiada correctamente.
         create:
           error: Se ha producido un error al crear esta plantilla.
+          success: Plantilla creada correctamente.
+        destroy:
+          success: Plantilla eliminada correctamente.
         empty: Todavía no hay plantillas.
         update:
           error: Se ha producido un error al actualizar esta plantilla.
+          success: Plantilla actualizada correctamente.
       titles:
         template_types:
           questionnaires: Plantillas de cuestionario
@@ -53,6 +59,7 @@ es:
             skip_template: Omitir
           edit:
             edit: Editar
+            empty: Aún no hay preguntas.
             questionnaire: Cuestionario
           form:
             save: Guardar
