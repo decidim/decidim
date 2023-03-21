@@ -39,8 +39,10 @@ ca:
           destroy:
             confirm: La revocació d'autoritzacions anteriors a aquesta data no es pot desfer. Segur que vols continuar?
             confirm_all: La revocació de totes les autoritzacions no es pot desfer. Segur que vols continuar?
+          destroy_nok: S'ha produït un error en revocar les autoritzacions.
           destroy_ok: Totes les autoritzacions coincidents s'han revocat correctament.
           info: Hi ha un total de %{count} participants verificades.
+          no_data: No hi ha participants verificades.
           title: Revocació d'autoritzacions
         authorization_workflows: Autoritzacions
     admin_log:
@@ -50,6 +52,10 @@ ca:
         grant_id_documents_offline_verification: "%{user_name} ha verificat %{resource_name} utilitzant una autorització offline de Documents d'identitat"
     authorization_handlers:
       admin:
+        csv_census:
+          help:
+            - Les administradores carreguen un CSV amb els correus electrònics de les participants acceptades.
+            - Només es poden verificar les participants amb un correu electrònic que consti en aquest arxiu CSV.
         id_documents:
           help:
             - Les participants omplen la informació de la seva identitat i carreguen una còpia del seu document.
@@ -63,10 +69,12 @@ ca:
             - Marcar la carta com a enviada.
             - Una vegada la carta estigui marcada com a enviada, la participant podrà introduir el codi i verificar-se.
       csv_census:
+        explanation: Verifica't mitjançant el cens de l'organització.
         name: Cens de l'organització
       direct: Directe
       help: Ajuda
       id_documents:
+        explanation: Puja els teus documents d'identitat perquè puguem comprovar-la.
         name: Documents d'identitat
       multistep: Amb múltiples passos
       name: Nom
@@ -118,6 +126,7 @@ ca:
         renew_modal:
           cancel: Cancel·lar
           continue: Continua
+          info_renew: Si vols actualitzar les dades, continua amb la renovació.
           title: Renova la verificació
         skip_verification: Pots ometre-ho per ara i %{link}
         start_exploring: comença a explorar
@@ -126,6 +135,9 @@ ca:
           census:
             create:
               error: S'ha produït un error en la importació del cens.
+              success: S'han importat correctament %{count} elements (%{errors} errors).
+            destroy_all:
+              success: S'han eliminat totes les dades del cens.
           destroy:
             confirm: L'eliminació del cens no es pot desfer. Segur que vols continuar?
             title: Eliminar totes les dades del cens
@@ -236,15 +248,22 @@ ca:
         authorizations:
           create:
             error: S'ha produït un problema amb la teva sol·licitud.
+            success: Gràcies! Enviarem un codi de verificació a la teva adreça.
           edit:
             send: Confirmar
+            title: Introdueix el codi de verificació que has rebut.
+            waiting_for_letter: Ben aviat enviarem una carta a la teva adreça amb el teu codi de verificació.
           new:
             send: Envia'm una carta
             title: Sol·licita el teu codi de verificació
           update:
+            error: El teu codi de verificació no coincideix amb el nostre. Si us plau, revisa la carta que t'hem enviat.
             success: Felicitats. T'has verificat correctament.
       sms:
         authorizations:
+          create:
+            error: S'ha produït un problema amb la teva sol·licitud.
+            success: Gràcies! Hem enviat un SMS al teu telèfon.
           destroy:
             success: S'ha restablert el codi de verificació amb correctament. Torna a introduir el teu número de telèfon.
           edit:
