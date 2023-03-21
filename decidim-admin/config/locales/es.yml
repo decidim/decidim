@@ -233,6 +233,7 @@ es:
           success: Área creada correctamente.
         destroy:
           has_spaces: Esta área tiene espacios dependientes. Asegúrate de que no hace referencia a ningún espacio de participación antes de eliminarla.
+          success: Área eliminada correctamente.
         edit:
           title: Editar área
           update: Actualizar
@@ -242,6 +243,7 @@ es:
         no_areas: Sin áreas
         update:
           error: Se ha producido un error al actualizar esta área.
+          success: Área actualizada correctamente.
       attachment_collections:
         create:
           error: Se ha producido un error al crear una nueva carpeta.
@@ -281,6 +283,7 @@ es:
         message: Por favor ten cuidado al trabajar con archivos adjuntos en un espacio privado. Cualquier participante puede compartir este documento con otras.
       autocomplete:
         no_results: No se han encontrado resultados
+        search_prompt: Escriba al menos tres caracteres para buscar.
       block_user:
         new:
           action: Bloquear cuenta y enviar justificación
@@ -370,6 +373,9 @@ es:
       domain_whitelist:
         form:
           domain_too_short: Dominio demasiado corto
+        update:
+          error: Error al actualizar la lista de dominios autorizados.
+          success: Se ha actualizado correctamente el listado de dominios autorizados.
       exports:
         export_as: "%{name} como %{export_format}"
         formats:
@@ -452,8 +458,10 @@ es:
             message_1: Los archivos CSV, JSON y Excel (.xlsx) están soportados
             message_2: Para archivos CSV, el separador entre columnas debe ser un punto y coma (";")
       help_sections:
+        error: Hubo un problema al actualizar las secciones de ayuda.
         form:
           save: Guardar
+        success: Las secciones de ayuda se han actualizado correctamente.
       impersonatable_users:
         index:
           filter:
@@ -745,6 +753,8 @@ es:
           send_to_participants: Enviar a los participantes
           title: Selecciona los destinatarios
           warning: "<strong>Atención:</strong> Este boletín sólo será enviado a participantes que hayan activado <em>Quiero recibir boletines de noticias</em> en sus ajustes de notificaciones."
+        send:
+          no_recipients: No hay destinatarias para esta selección.
         show:
           preview: Previsualizar
           select_recipients_to_deliver: Selecciona los destinatarios
@@ -753,6 +763,13 @@ es:
           error: Se ha producido un error al actualizar este boletín.
           success: Boletín actualizado correctamente. Por favor revísalo antes de enviarlo.
       officializations:
+        block:
+          error: Se ha producido un error al bloquear a la participante.
+          success: Participante bloqueada correctamente.
+        create:
+          success: Participante oficializada correctamente.
+        destroy:
+          success: Se ha retirado correctamente la oficialización de la participante.
         index:
           actions: Acciones
           badge: Insignias
@@ -781,6 +798,9 @@ es:
           hidden: oculto
           show: Mostrar
           title: Mostrar dirección de correo de la participante
+        unblock:
+          error: Se ha producido un error al desbloquear a la participante.
+          success: Participante desbloqueada correctamente.
       organization:
         edit:
           title: Editar organización
@@ -826,6 +846,12 @@ es:
           title: Lista blanca de dominios externos
       organization_homepage:
         content_blocks:
+          create:
+            error: Se ha producido un error al intentar crear este bloque de contenido.
+            success: Bloque de contenido creado correctamente.
+          destroy:
+            error: Se ha producido un error al tratar de eliminar este bloque de contenido.
+            success: Bloque de contenido eliminado correctamente.
           edit:
             update: Actualizar
         edit:
@@ -902,6 +928,8 @@ es:
         create:
           error: Se ha producido un error al crear un nuevo ámbito.
           success: Ámbito creado correctamente.
+        destroy:
+          success: Ámbito eliminado correctamente.
         edit:
           title: Editar alcance
           update: Actualizar
@@ -921,6 +949,7 @@ es:
           error: Se ha producido un error al eliminar este token.
           success: Token eliminado correctamente.
         share_tokens:
+          empty: No hay tokens activos.
           help: Estos tokens se utilizan para compartir públicamente este recurso no publicado a cualquier usuario. Se ocultarán cuando se publique el recurso. Haz clic en el icono de compartir el token para visitar la URL compartible.
           title: Compartir tokens
       shared:
@@ -933,6 +962,8 @@ es:
         create:
           error: Se ha producido un error al crear un nuevo tema.
           success: Tema creado correctamente.
+        destroy:
+          success: Tema eliminado correctamente.
         edit:
           title: Editar tema
           update: Actualizar tema
@@ -948,6 +979,8 @@ es:
         content_blocks:
           active_content_blocks: Bloques de contenido activos
           add: Añadir bloque de contenido
+          create:
+            error: Se ha producido un error al intentar crear este bloque de contenido.
           destroy_confirmation: '¿Seguro que quieres borrar este bloque de contenido?'
           edit:
             update: Actualizar
