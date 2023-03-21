@@ -50,6 +50,21 @@ ca:
         name: Nom
       validate_registration_code:
         code: Codi
+    errors:
+      models:
+        meeting:
+          attributes:
+            iframe_embed_type:
+              not_embeddable: Aquesta URL no es pot incrustar a la pàgina de la trobada o de l'esdeveniment en directe.
+        meeting_agenda:
+          attributes:
+            base:
+              too_many_minutes: La durada dels ítems supera la durada de la trobada per %{count} minuts.
+              too_many_minutes_child: La durada del sub-ítem supera la durada del punt "%{parent_title}" del programa per %{count} minuts.
+        meeting_registration_invite:
+          attributes:
+            email:
+              already_invited: Ja s'havia convidat a aquest correu electrònic.
     models:
       decidim/meetings/close_meeting_event: Trobada tancada
       decidim/meetings/create_meeting_event: Trobada
@@ -224,6 +239,9 @@ ca:
             down: Baixar
             remove: Eliminar
             up: Pujar
+          create:
+            invalid: S'ha produït un error en crear aquest ordre del dia.
+            success: L'ordre del dia s'ha creat correctament.
           edit:
             title: Edita ordre del dia
             update: Actualitzar
@@ -235,6 +253,9 @@ ca:
           new:
             create: Crear
             title: Nou ordre del dia
+          update:
+            invalid: S'ha produït un error en actualitzar aquest ordre del dia.
+            success: L'ordre del dia s'ha actualitzat correctament.
         exports:
           answers: Respostes
           meeting_comments: Comentaris
@@ -272,7 +293,11 @@ ca:
             close: Tancar
             title: Tancar trobada
         meetings:
+          close:
+            invalid: Hi ha hagut un problema en tancar aquesta trobada.
+            success: Trobada tancada amb èxit.
           create:
+            invalid: S'ha produït un error en crear aquesta trobada.
             success: Trobada creada correctament. Tingues en compte que encara no s'ha publicat, hauràs de publicar-la manualment.
           destroy:
             success: La trobada s'ha eliminat correctament
@@ -295,6 +320,9 @@ ca:
           new:
             create: Crear
             title: Crear trobada
+          publish:
+            invalid: S'ha produït un error en publicar la trobada.
+            success: La trobada s'ha publicat correctament.
           service:
             description: Descripció
             down: Baixar
@@ -305,9 +333,18 @@ ca:
           services:
             add_service: Afegeix servei
             services: Serveis
+          unpublish:
+            invalid: Hi ha hagut un problema en despublicar la trobada.
+            success: La trobada s'ha despublicat correctament.
+          update:
+            invalid: Hi ha hagut un problema en actualitzar aquesta trobada.
+            success: Trobada actualitzada correctament.
         meetings_poll:
           form:
             title: Editar qüestionari d'enquesta per a %{questionnaire_for}
+          update:
+            invalid: Hi ha hagut un problema en actualitzar aquesta enquesta.
+            success: Enquesta actualitzada correctament.
         models:
           meeting:
             name: Trobada
@@ -325,6 +362,7 @@ ca:
             registrations_count:
               one: Hi ha hagut %{count} inscripció.
               other: Hi ha hagut %{count} inscripcions.
+            reserved_slots_help: Deixar a 0 si no hi ha espais reservats.
             reserved_slots_less_than: Ha de ser inferior o igual que %{count}
             title: Inscripcions
           update:
