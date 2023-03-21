@@ -1,6 +1,6 @@
 const path = require("path");
 const miniCssExtractPlugin = require("mini-css-extract-plugin");
-const { inliningCss } = require("@rails/webpacker");
+const { inliningCss } = require("shakapacker");
 
 const overrideSassRule = (modifyConfig) => {
   const sassLoaderPath = path.resolve(__dirname, "loaders/decidim-sass-loader") // eslint-disable-line no-undef

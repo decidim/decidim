@@ -11,11 +11,10 @@ module Decidim
             let(:options) { { url: "https://photon.example.org/api/" } }
           end
 
-          describe "#javascript_snippets" do
+          describe "#append_assets" do
             it "returns the expected JavaScript assets" do
-              expect(subject.javascript_snippets).to match(
-                %r{<script src="/packs-test/js/decidim_geocoding_provider_photon(-[^.]*)?\.js"></script>}
-              )
+              expect(subject.send(:template)).to receive(:append_javascript_pack_tag).with("decidim_geocoding_provider_photon")
+              subject.append_assets
             end
           end
         end

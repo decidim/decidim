@@ -1,10 +1,5 @@
-<% content_for :js_content do %>
-  <%= javascript_pack_tag "decidim_accountability" %>
-<% end %>
-
-<% content_for :css_content do %>
-  <%= stylesheet_pack_tag "decidim_accountability", media: "all" %>
-<% end %>
+<%= append_javascript_pack_tag "decidim_accountability" %>
+<%= append_stylesheet_pack_tag "decidim_accountability" %>
 
 <% content_for :aside do %>
   <h1 class="h3 md:h1 decorator"><%= component_name %></h1>

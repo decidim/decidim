@@ -185,8 +185,9 @@ module Decidim
           # the JavaScript asset which is used to initialize the geocoding
           # autocompletion functionality in the front-end:
           class Builder < Decidim::Map::Autocomplete::Builder
-            def javascript_snippets
-              template.javascript_pack_tag("decidim/geocoding/provider/your_provider")
+            def append_assets
+              template.append_stylesheet_pack_tag("decidim/geocoding/provider/your_provider")
+              template.append_javascript_pack_tag("decidim/geocoding/provider/your_provider")
             end
           end
         end

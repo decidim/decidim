@@ -55,7 +55,7 @@ bundle exec rake decidim:procfile:install
 After this command has been ran, a new command will be available in your `bin/`, so in order to boot up your application you will just need to run
 
 ```console
-bin/dev
+./bin/dev
 ```
 
 Additional notes on Procfile:
@@ -73,6 +73,48 @@ bundle exec rake decidim:upgrade:moderation:fix_blocked_user_panel
 ```
 
 You can read more about this change on PR [\#10521](https://github.com/decidim/decidim/pull/10521).
+
+### 3.3 Change Webpacker to Shakapacker
+
+Since the Rails team has retired the Webpacker in favour or importmap-rails or js-bundling, we got ouserlves in a situation where performance improvements could not be performed.
+In order to continue having support for Webpacker like syntax, we have switched to Shakapacker.
+
+In order to perform the update, you will need to make sure that you **do not have webpacker in your Gemfile**.
+If you have it, please remove it, adn allow Decidim to handle the webpacker / shackapacker dependency.
+
+In order to perform the migration to shakapacker, please backup the following files, to make sure that you save any customizations you may have done to webpacker:
+
+```console
+config/webpacker.yml
+config/webpack/*
+package.json
+postcss.config.js
+```
+
+After all the backups and changes mentioned above have been completed, follow the default upgrade steps, as mentioned above in the document.
+Then run the below command, and replace all the configuration with the one that Decidim is providing by default:
+
+```console
+bundle exec rake decidim:webpacker:install
+```
+
+This will make the necessary changes in the `config/webpacker.yml`, but also in the `config/webpack/` folder.
+
+#### Note for development
+
+If you are using the `Procfile.dev` file, you will need to make sure that you have the following line in your configuration. If you have not altered the `Procfile.dev` file, you will not need to do anything, as we covered that part:
+
+```console
+webpacker: ./bin/webpacker-dev-server
+```
+
+In order to run your development server, you will need to run the following command:
+
+```console
+./bin/dev
+```
+
+You can read more about this change on PR [\#10389](https://github.com/decidim/decidim/pull/10389).
 
 ## 4. Scheduled tasks
 
