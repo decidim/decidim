@@ -214,6 +214,7 @@ es:
             title: Sube tu documento de Identidad
           update:
             error: Se ha producido un error al volver a cargar tu documento.
+            success: El documento se ha vuelto a cargar correctamente.
         dni: DNI
         nie: NIE
         passport: Pasaporte
@@ -228,7 +229,13 @@ es:
               title: Verificaciones en curso
               username: Alias
               verification_code: Código de verificación
+          postages:
+            create:
+              error: Se ha producido un error al marcar la carta como enviada.
+              success: Carta marcada correctamente como enviada.
         authorizations:
+          create:
+            error: Se ha producido un problema con tu solicitud.
           edit:
             send: Confirmar
           new:
