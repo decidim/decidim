@@ -233,6 +233,7 @@ ca:
           success: Àrea creada correctament.
         destroy:
           has_spaces: Aquesta àrea té espais dependents. Assegura't que no fa referència a cap espai de participació abans d'eliminar-la.
+          success: Àrea eliminada correctament.
         edit:
           title: Editar àrea
           update: Actualitzar
@@ -242,6 +243,7 @@ ca:
         no_areas: Sense àrees
         update:
           error: S'ha produït un error en actualitzar aquesta àrea.
+          success: Àrea actualitzada correctament.
       attachment_collections:
         create:
           error: S'ha produït un error en crear una nova carpeta.
@@ -281,6 +283,7 @@ ca:
         message: Tingues cura quan treballis amb adjunts en un espai privat. Qualsevol participant pot compartir aquest document amb tercers.
       autocomplete:
         no_results: No s'han trobat resultats
+        search_prompt: Escriu com a mínim tres caràcters per cercar.
       block_user:
         new:
           action: Bloquejar compte i enviar justificació
@@ -370,6 +373,9 @@ ca:
       domain_whitelist:
         form:
           domain_too_short: El domini és massa curt
+        update:
+          error: Hi ha hagut un error en actualitzar el llistat de dominis autoritzats.
+          success: S'ha actualitzat correctament el llistat de dominis autoritzats.
       exports:
         export_as: "%{name} com a %{export_format}"
         formats:
@@ -452,8 +458,10 @@ ca:
             message_1: Estan suportats els arxius CSV, JSON i Excel (.xlsx)
             message_2: Pels arxius CSV, el separador entre columnes ha de ser un punt i coma (";")
       help_sections:
+        error: Hi ha hagut un problema en actualitzar les seccions d'ajuda.
         form:
           save: Desa
+        success: Les seccions d'ajuda s'han actualitzat correctament.
       impersonatable_users:
         index:
           filter:
@@ -745,6 +753,8 @@ ca:
           send_to_participants: Envia a totes les participants
           title: Selecciona les destinatàries a lliurar
           warning: "<strong>Atenció:</strong> Aquest butlletí només s'enviarà a les participants que hagin activat <em>Vull rebre butlletins</em> a la configuració de les notificacions."
+        send:
+          no_recipients: No hi ha destinatàries per a aquesta selecció.
         show:
           preview: Previsualitzar
           select_recipients_to_deliver: Selecciona les destinatàries a lliurar
@@ -753,6 +763,13 @@ ca:
           error: S'ha produït un error en actualitzar aquest butlletí.
           success: Butlletí actualitzat correctament. Si us plau, revisa'l abans d'enviar-lo.
       officializations:
+        block:
+          error: S'ha produït un error en bloquejar a la participant.
+          success: Participant bloquejada correctament.
+        create:
+          success: Participant oficialitzada correctament.
+        destroy:
+          success: S'ha retirat correctament l'oficialització de la participant.
         index:
           actions: Accions
           badge: Insígnia
@@ -781,6 +798,9 @@ ca:
           hidden: ocult
           show: Mostra
           title: Mostra l'adreça de correu electrònic de la participant
+        unblock:
+          error: S'ha produït un error en desbloquejar a la participant.
+          success: Participant desbloquejada correctament.
       organization:
         edit:
           title: Edita organització
@@ -826,6 +846,12 @@ ca:
           title: Llista blanca de dominis externs
       organization_homepage:
         content_blocks:
+          create:
+            error: S'ha produït un error en intentar crear aquest bloc de contingut.
+            success: Bloc de contingut creat correctament.
+          destroy:
+            error: S'ha produït un error en intentar eliminar aquest bloc de contingut.
+            success: Bloc de contingut eliminat correctament.
           edit:
             update: Actualitzar
         edit:
@@ -902,6 +928,8 @@ ca:
         create:
           error: S'ha produït un error en crear un nou àmbit.
           success: Àmbit creat correctament.
+        destroy:
+          success: Àmbit eliminat correctament.
         edit:
           title: Edita àmbit
           update: Actualitzar
@@ -921,6 +949,7 @@ ca:
           error: S'ha produït un error en eliminar aquest token.
           success: El token s'ha eliminat correctament.
         share_tokens:
+          empty: No hi ha tokens actius.
           help: Aquests tokens s'utilitzen per a compartir públicament aquest recurs no publicat a qualsevol usuari. S'ocultaran quan es publiqui el recurs. Fes clic en la icona de compartir el token per a visitar la URL compartible.
           title: Compartir tokens
       shared:
@@ -933,6 +962,8 @@ ca:
         create:
           error: S'ha produït un error en crear un tema nou.
           success: S'ha creat el tema correctament.
+        destroy:
+          success: Tema eliminat correctament.
         edit:
           title: Edita el tema
           update: Actualitza el tema
@@ -948,6 +979,8 @@ ca:
         content_blocks:
           active_content_blocks: Blocs de contingut actius
           add: Afegir bloc de contingut
+          create:
+            error: S'ha produït un error en intentar crear aquest bloc de contingut.
           destroy_confirmation: Segur que vols esborrar aquest bloc de contingut?
           edit:
             update: Actualitzar
