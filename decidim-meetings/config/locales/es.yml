@@ -449,6 +449,8 @@ es:
         registration_mailer:
           confirmation:
             subject: Tu inscripción al encuentro ha sido confirmada
+      meeting:
+        not_allowed: No tienes permiso para ver este encuentro.
       meeting_closes:
         edit:
           back: Volver
@@ -645,6 +647,9 @@ es:
         withdraw: Retirado
       versions:
         back_to_resource: Volver al encuentro
+      withdraw:
+        error: Se ha producido un error al retirar el encuentro.
+        success: El encuentro se ha retirado con éxito.
     metrics:
       meetings:
         description: Número de encuentros creados
