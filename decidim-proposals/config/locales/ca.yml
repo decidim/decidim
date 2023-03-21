@@ -917,6 +917,8 @@ ca:
             supports_remaining: Has de donar %{remaining_votes} suport/s més a propostes per a que els teus suports siguin tinguts en compte.
           proposal_limit:
             description: Pots crear fins a %{limit} propostes.
+          threshold_per_proposal:
+            description: Perquè les propostes siguin validades han d'arribar a un mínim de %{limit} suports.
           title: 'La selecció de propostes es regeix per les següents normes:'
           vote_limit:
             description: Pots donar suport a %{limit} propostes.
