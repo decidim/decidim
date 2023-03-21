@@ -182,6 +182,12 @@ module Decidim
             settings.attribute :component_id, type: :select, default: nil
           end
         end
+
+        Decidim.content_blocks.register(:assembly_homepage, :hero) do |content_block|
+          content_block.cell = "decidim/content_blocks/participatory_space_hero"
+          content_block.public_name_key = "decidim.content_blocks.hero.name"
+          content_block.default!
+        end
       end
 
       initializer "decidim_assemblies.register_metrics" do
