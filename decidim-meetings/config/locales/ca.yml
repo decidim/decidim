@@ -445,6 +445,8 @@ ca:
         registration_mailer:
           confirmation:
             subject: La teva inscripció a la trobada ha estat confirmada
+      meeting:
+        not_allowed: No tens permís per veure aquesta trobada.
       meeting_closes:
         edit:
           back: Tornar
@@ -641,6 +643,9 @@ ca:
         withdraw: Cancel·lada
       versions:
         back_to_resource: Tornar a la trobada
+      withdraw:
+        error: S'ha produït un error en retirar la trobada.
+        success: La trobada s'ha retirat amb èxit.
     metrics:
       meetings:
         description: Nombre de trobades creades
