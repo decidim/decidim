@@ -145,9 +145,11 @@ es:
         cancel_error: No se ha podido cancelar el cambio de Correo electrónico.
         cancel_successfully: Cambio de correo electrónico cancelado con éxito.
         resend_error: No se ha podido reenviar el correo de confirmación.
+        resend_successfully: Correo de confirmación reenviado con éxito a %{unconfirmed_email}.
         send_again: Volver a enviar
         title: Verificación del cambio de correo electrónico
       show:
+        available_locales_helper: Elige el idioma que deseas utilizar para navegar y recibir notificaciones de la plataforma.
         change_password: Cambia la contraseña
         update_account: Actualizar cuenta
       update:
@@ -160,6 +162,7 @@ es:
       actions:
         cancel: Cancelar
       password_change:
+        alert: Tienes que cambiar tu contraseña para poder seguir adelante.
         notification: Las usuarias con rol de administración tienen que cambiar su contraseña cada %{days} días.
     admin_log:
       area:
@@ -262,8 +265,10 @@ es:
         amended_by: Enmendado por
         button: Enmendar %{model_name}
         error: Se ha producido un error al modificar este recurso.
+        help_text: Mejora este %{model_name} modificando su %{amendable_fields}.
         promote_button: Promocionar a %{model_name}
         promote_confirm_text: '¿Seguro que quieres promocionar esta enmienda?'
+        promote_help_text: Puedes promocionar esta enmienda y publicarla como una %{model_name} independiente.
         section_heading: Enmiendas (%{count})
       compare_draft:
         continue: Continuar
@@ -302,16 +307,26 @@ es:
         modify: Modificar
         publish: Publicar
         title: Publicar borrador de enmienda
+      promoted:
+        error: Se ha producido un error al publicar la enmienda como una nueva propuesta.
+        success: La enmienda se ha publicado correctamente como una nueva propuesta.
       publish_draft:
         error: Se ha producido un error al publicar la enmienda.
         success: La enmienda se ha publicado correctamente.
+      rejected:
+        error: Se ha producido un error al rechazar esta enmienda, por favor inténtalo de nuevo más tarde.
+        success: La enmienda se ha rechazado correctamente.
       review:
         back: Volver
         heading: Revisar la enmienda
+        help_text: Estás revisando una enmienda al %{model_name}.
         send: Acepta la enmienda
       update_draft:
         error: Se ha producido un error al actualizar el borrador de enmienda.
         success: Borrador de enmienda actualizado correctamente.
+      withdraw:
+        error: Se ha producido un error al retirar la enmienda.
+        success: La enmienda se ha retirado correctamente.
       wizard_step_form:
         steps:
           '1': Crea tu enmienda
@@ -1413,6 +1428,7 @@ es:
     user_contact_disabled: Esta participante no acepta mensajes directos.
     user_conversations:
       create:
+        error: El mensaje no se ha podido crear. Vuelve a intentarlo más tarde.
         existing_error: El mensaje no se ha podido crear. La conversación ya existe, por favor inténtalo de nuevo ahora.
         success: '¡Conversación iniciada correctamente!'
       index:
@@ -1427,6 +1443,7 @@ es:
         next: Siguiente
         no_conversations_warning: Aún no hay ninguna conversación.
         no_results: No hay resultados
+        participant_with_disabled_message_reception: Esta participante ha desactivado la recepción de mensajes.
         time_ago: "Hace %{time}"
       new:
         title: Iniciar una conversación
