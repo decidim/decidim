@@ -105,19 +105,27 @@ module Decidim
           content_block.default!
         end
 
-        Decidim.content_blocks.register(:assembly_homepage, :related_documents) do |content_block|
-          content_block.cell = "decidim/content_blocks/participatory_space_documents"
-          content_block.public_name_key = "decidim.application.documents.related_documents"
-        end
-
-        Decidim.content_blocks.register(:assembly_homepage, :related_images) do |content_block|
-          content_block.cell = "decidim/content_blocks/participatory_space_images"
-          content_block.public_name_key = "decidim.application.photos.related_photos"
+        Decidim.content_blocks.register(:assembly_homepage, :hero) do |content_block|
+          content_block.cell = "decidim/content_blocks/participatory_space_hero"
+          content_block.public_name_key = "decidim.content_blocks.hero.name"
+          content_block.default!
         end
 
         Decidim.content_blocks.register(:assembly_homepage, :announcement) do |content_block|
           content_block.cell = "decidim/content_blocks/participatory_space_announcement"
           content_block.public_name_key = "decidim.content_blocks.announcement.name"
+          content_block.default!
+        end
+
+        Decidim.content_blocks.register(:assembly_homepage, :main_data) do |content_block|
+          content_block.cell = "decidim/assemblies/content_blocks/main_data"
+          content_block.public_name_key = "decidim.content_blocks.main_data.name"
+          content_block.default!
+        end
+
+        Decidim.content_blocks.register(:assembly_homepage, :metadata) do |content_block|
+          content_block.cell = "decidim/assemblies/content_blocks/metadata"
+          content_block.public_name_key = "decidim.content_blocks.metadata.name"
           content_block.default!
         end
 
@@ -172,6 +180,36 @@ module Decidim
           end
         end
 
+        Decidim.content_blocks.register(:assembly_homepage, :related_processes) do |content_block|
+          content_block.cell = "decidim/participatory_processes/content_blocks/related_processes"
+          content_block.settings_form_cell = "decidim/participatory_processes/content_blocks/highlighted_processes_settings_form"
+          content_block.public_name_key = "decidim.participatory_processes.content_blocks.related_processes.name"
+
+          content_block.settings do |settings|
+            settings.attribute :max_results, type: :integer, default: 4
+          end
+        end
+
+        Decidim.content_blocks.register(:assembly_homepage, :related_assemblies) do |content_block|
+          content_block.cell = "decidim/assemblies/content_blocks/children_assemblies"
+          content_block.settings_form_cell = "decidim/assemblies/content_blocks/highlighted_assemblies_settings_form"
+          content_block.public_name_key = "decidim.assemblies.content_blocks.related_assemblies.name"
+
+          content_block.settings do |settings|
+            settings.attribute :max_results, type: :integer, default: 4
+          end
+        end
+
+        Decidim.content_blocks.register(:assembly_homepage, :related_documents) do |content_block|
+          content_block.cell = "decidim/content_blocks/participatory_space_documents"
+          content_block.public_name_key = "decidim.application.documents.related_documents"
+        end
+
+        Decidim.content_blocks.register(:assembly_homepage, :related_images) do |content_block|
+          content_block.cell = "decidim/content_blocks/participatory_space_images"
+          content_block.public_name_key = "decidim.application.photos.related_photos"
+        end
+
         Decidim.content_blocks.register(:assembly_homepage, :highlighted_posts) do |content_block|
           content_block.cell = "decidim/blogs/content_blocks/highlighted_posts"
           content_block.settings_form_cell = "decidim/content_blocks/highlighted_elements_for_component_settings_form"
@@ -181,24 +219,6 @@ module Decidim
           content_block.settings do |settings|
             settings.attribute :component_id, type: :select, default: nil
           end
-        end
-
-        Decidim.content_blocks.register(:assembly_homepage, :hero) do |content_block|
-          content_block.cell = "decidim/content_blocks/participatory_space_hero"
-          content_block.public_name_key = "decidim.content_blocks.hero.name"
-          content_block.default!
-        end
-
-        Decidim.content_blocks.register(:assembly_homepage, :main_data) do |content_block|
-          content_block.cell = "decidim/assemblies/content_blocks/main_data"
-          content_block.public_name_key = "decidim.content_blocks.main_data.name"
-          content_block.default!
-        end
-
-        Decidim.content_blocks.register(:assembly_homepage, :metadata) do |content_block|
-          content_block.cell = "decidim/assemblies/content_blocks/metadata"
-          content_block.public_name_key = "decidim.content_blocks.metadata.name"
-          content_block.default!
         end
       end
 
