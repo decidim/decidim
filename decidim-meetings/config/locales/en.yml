@@ -639,8 +639,6 @@ en:
         private_meeting: Private meeting
         transparent: Transparent
         withdraw: Withdrawn
-      versions:
-        back_to_resource: Go back to meeting
       withdraw:
         error: An error ocurred while withdrawing the meeting
         success: The meeting has been withdrawn successfully
