@@ -382,6 +382,7 @@ fr:
           title: Autorisation expirée
         incomplete:
           cancel: Annuler
+          explanation: "Even though you are currently authorized with \"%{authorization}\", we need you to reauthorize because we lack the following data:\nBien que vous soyez actuellement autorisé avec \"%{autorisation}\", nous avons besoin de vous réautoriser suite aux données manquantes suivantes :"
           invalid_field: "%{field}"
           reauthorize: Autoriser de nouveau
           title: Veuillez autoriser de nouveau
@@ -599,6 +600,7 @@ fr:
       not_found:
         back_home: Retour à l'accueil
         content_doesnt_exist: Cette adresse web est incorrecte ou n'existe plus.
+        title: La page que vous cherchez est introuvable
     events:
       amendments:
         amendment_accepted:
@@ -893,6 +895,7 @@ fr:
       join:
         success: Demande de jointure créée avec succès. Un administrateur examinera votre demande avant de vous accepter au groupe.
       leave:
+        last_admin: "You cannot remove yourself from this group as you're the last administrator. Make another member an administrator in order to leave the group.\n\nVous ne pouvez pas vous retirer de ce groupe car vous êtes le dernier administrateur. Pour quitter le groupe, vous devez nommer un autre membre administrateur."
         success: Le groupe est parti avec succès.
       members:
         accept_or_reject_join_requests: 'Les utilisateurs suivants ont demandé à rejoindre ce groupe. Accepter ou rejeter leurs demandes:'
@@ -1040,6 +1043,7 @@ fr:
     newsletter_mailer:
       newsletter:
         no_reply_notice: Cet e-mail a été envoyé à partir d'une adresse automatique qui ne peut pas recevoir d'e-mail. Veuillez ne pas répondre à ce message.
+        note: Vous avez reçu ce courrier électronique parce que vous êtes abonné aux bulletins d'information de %{organization_name}. Vous pouvez modifier vos paramètres sur votre <a href="%{link}">page de notifications</a>.
         see_on_website: "Cannot see this email correctly? View it on the <a href=\"%{link}\" target=\"_blank\" class=\"see-on-website\">website</a>.\nCet email ne s'affiche pas correctement ? Affichez-le dans un navigateur <a href=\"%{link}\" target=\"_blank\" class=\"see-on-website\">website</a>."
         unsubscribe: Pour ne plus recevoir ce type d'email, <a href="%{link}" target="_blank" class="unsubscribe">Désabonnez-vous</a>.
     newsletter_templates:
@@ -1131,6 +1135,7 @@ fr:
         success: Vos paramètres de notifications ont été mis à jour avec succès.
     offline:
       show:
+        message: Il semble que vous êtes actuellement hors ligne. Veuillez réessayer plus tard.
         retry: Réessayer
     open_data:
       not_available_yet: Les fichiers Open Data ne sont pas encore disponibles. Veuillez réessayer dans quelques minutes.
@@ -1427,6 +1432,7 @@ fr:
       show:
         my_interests: Mes intérêts
         no_scopes: Cette organisation n'a pas encore de secteurs !
+        select_your_interests: Sélectionnez les sujets qui vous intéressent pour recevoir les événements qui y sont liés dans l'onglet Chronologie de votre profil.
         update_my_interests: Mettre à jour mes intérêts
       update:
         error: Une erreur s'est produite lors de la mise à jour de vos centres d'intérêt.
