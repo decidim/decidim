@@ -39,6 +39,7 @@ ca:
         body: Cos
         subject: Assumpte
       organization:
+        admin_terms_of_use_body: Text pels termes i condicions d'ús
         alert_color: Alerta
         available_authorizations: Autoritzacions disponibles
         badges_enabled: Habilitar les ensenyes
@@ -133,6 +134,10 @@ ca:
         file: Fitxer
     errors:
       models:
+        newsletter:
+          attributes:
+            base:
+              at_least_one_space: Selecciona com a mínim un espai de participació.
         organization:
           attributes:
             official_img_footer:
@@ -147,6 +152,11 @@ ca:
           attributes:
             file:
               malformed: Arxiu d'importació mal formatat, si us plau, llegeix les instruccions curosament i assegura't que l'arxiu està codificat en UTF-8.
+      new_import:
+        attributes:
+          file:
+            invalid_file: L'arxiu proporcionat no és vàlid, si us plau comprova que l'arxiu està formatat correctament.
+            invalid_mime_type: Tipus MINE invàlid.
   activerecord:
     attributes:
       decidim/static_page:
@@ -196,12 +206,18 @@ ca:
           accept: Estic d'acord amb els termes
           are_you_sure: Segur que vols rebutjar els termes i condicions del panell d'administració?
           refuse: Rebutjar els termes
+          title: Accepto les condicions d'ús
         required_review:
+          alert: 'Necessari: Revisa els nostres termes i condicions d''administació'
+          callout: Si us plau, dedica un moment a revisar els nostres termes i condicions d'administració. En cas contrari, no podràs administrar la plataforma.
           cta: Revisa-les ara.
+        title: Termes i condicions d'ús d'administració
       area_types:
         create:
           error: S'ha produït un error en crear un tipus d'àrea nova.
           success: El tipus d'àrea ha estat creat correctament.
+        destroy:
+          success: El tipus d'àrea s'ha eliminat correctament.
         edit:
           title: Editar el tipus d'àrea
           update: Actualitzar
@@ -210,6 +226,7 @@ ca:
           title: Nou tipus d'àrea
         update:
           error: S'ha produït un error en actualitzar aquest tipus d'àrea.
+          success: El tipus d'àrea s'ha actualitzat correctament.
       areas:
         create:
           error: S'ha produït un error en crear una nova àrea.
