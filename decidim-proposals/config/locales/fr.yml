@@ -271,6 +271,7 @@ fr:
           follower:
             email_intro: 'La proposition "%{resource_title}" a été acceptée. Vous pouvez lire la réponse sur cette page :'
             email_outro: Vous venez de recevoir cette notification parce que vous suivez "%{resource_title}". Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
+            email_subject: Une proposition que vous suivez a été acceptée
             notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> a été acceptée.
         proposal_evaluating:
           affected_user:
@@ -281,6 +282,7 @@ fr:
           follower:
             email_intro: 'La proposition "%{resource_title}" est en cours d''évaluation. Vous pouvez consulter cette page pour voir si une réponse a été formulée :'
             email_outro: Vous venez de recevoir cette notification parce que vous suivez "%{resource_title}". Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
+            email_subject: Une proposition que vous suivez est en cours d'évaluation
             notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> est en cours d'évaluation.
         proposal_mentioned:
           email_intro: Votre proposition "%{mentioned_proposal_title}" a été mentionnée <a href="%{resource_url}">dans cet espace</a> dans les commentaires.
@@ -305,6 +307,7 @@ fr:
           follower:
             email_intro: 'La proposition "%{resource_title}" n''a pas été retenue. Vous pouvez lire le commentaire ici :'
             email_outro: Vous venez de recevoir cette notification parce que vous suivez "%{resource_title}". Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
+            email_subject: Une proposition que vous suivez a été rejetée
             notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> n'a pas été retenue.
         proposal_update_category:
           email_intro: 'Un administrateur a mis à jour la catégorie de votre proposition "%{resource_title}". Vous pouvez y accéder ici :'
@@ -731,6 +734,8 @@ fr:
             valuator: Évaluateur
             valuators: Évaluateurs
             votes: Votes
+      new:
+        limit_reached: "You cannot create new proposals since you have exceeded the limit.\nVous ne pouvez plus créer de nouvelles propositions car vous avez atteint la limite autorisée."
       participatory_text_proposal:
         alternative_title: Il n'y a pas de textes participatifs pour le moment
         buttons:
@@ -880,6 +885,7 @@ fr:
             description: Chaque proposition doit rassembler plus de %{limit} votes
           minimum_votes_per_user:
             description: Vous devez répartir un minimum de %{votes} voix entre différentes propositions.
+            given_enough_votes: Vous avez donné suffisamment de soutien.
             supports_remaining: Vous devez voter %{remaining_votes} proposition supplémentaire pour que vos votes soient pris en compte.
           proposal_limit:
             description: Vous pouvez créer jusqu'à %{limit} propositions.
