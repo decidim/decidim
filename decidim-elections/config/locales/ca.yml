@@ -348,7 +348,9 @@ ca:
             success: La sol·licitud per finalitzar el període de votació s'ha enviat correctament al "Bulletin Board".
             title: Període de votació
           vote_ended:
+            invalid: S'ha produït un error en començar el recompte.
             submit: Començar recompte
+            success: La sol·licitud per iniciar el recompte s'ha enviat correctament al "Bulletin Board".
             text: La votació ha finalitzat. Pots iniciar el recompte ara.
             title: Període de votació finalitzat
           vote_stats:
@@ -360,6 +362,13 @@ ca:
           actions:
             disable: Desactivar
             enable: Considerar
+          create:
+            exists: Existeix garant per aquest espai participatiu.
+            invalid: S'ha produït un error en crear una garant.
+            success: Garant creada correctament.
+          delete:
+            invalid: S'ha produït un error en eliminar aquesta garant.
+            success: Garant eliminada correctament.
           form:
             select_user: Seleccionar usuari
           index:
@@ -367,6 +376,9 @@ ca:
           new:
             create: Crear garant
             title: Nou garant
+          update:
+            invalid: S'ha produït un error en actualitzar a %{trustee} com a garant.
+            success: Garant %{trustee} actualitzada correctament.
       admin_log:
         election:
           create: "%{user_name} ha creat l'elecció %{resource_name} a %{space_name}"
@@ -716,6 +728,7 @@ ca:
             title: Verifica el teu vot
           success:
             header: Vot localitzat!
+            info: El teu vot encriptat es troba a l'urna %{link}.
         voting_step:
           back: Enrere
           continue: Següent
@@ -770,12 +783,20 @@ ca:
     votings:
       admin:
         ballot_styles:
+          create:
+            error: Hi ha hagut un error en crear l'estil de papereta.
+            success: L'estil de papereta s'ha creat correctament.
+          destroy:
+            invalid: Hi ha hagut un error en esborrar l'estil de papereta.
+            success: S'ha esborrat correctament l'estil de papereta.
           edit:
             title: Editar estil de papereta
             update: Actualitzar
           form:
+            code_help: 'Pista: El codi és l''enllaç entre el cens i l''estil de papereta. Quan puges les dades del cens, a cada entrada s''assigna un estil de papereta que coincideixi amb el codi.'
             election: Elecció
             questions: Preguntes per a l'estil de papereta
+            questions_help: 'Pista: selecciona les preguntes en el component d''elecció per presentar-les a les votants assignades a aquest estil de papereta.'
           index:
             actions:
               confirm_destroy: N'estàs segura?
@@ -823,6 +844,12 @@ ca:
           published: Publicada
         landing_page:
           content_blocks:
+            create:
+              error: S'ha produït un error en intentar crear aquest bloc de contingut.
+              success: El bloc de contingut s'ha creat correctament.
+            destroy:
+              error: S'ha produït un error en intentar eliminar aquest bloc de contingut.
+              success: Bloc de contingut eliminat correctament.
             edit:
               update: Actualitzar
           edit:
@@ -902,8 +929,16 @@ ca:
             publish_results: Publicar resultats
             publishing: Publicant resultats...
           update:
+            invalid: Hi ha hagut un problema en publicar els resultats.
             rejected: El Bulletin Board ha rebutjat la publicació dels resultats. Prova-ho de nou, o contacta amb l'administrador del sistema.
+            success: Els resultats s'han publicat correctament.
         monitoring_committee_members:
+          create:
+            invalid: Hi ha hagut un problema en crear aquesta membre de la comissió de seguiment.
+            success: Membre de la comissió de seguiment creada amb èxit.
+          destroy:
+            invalid: Hi ha hagut un problema en eliminar aquesta membre de la comissió de seguiment.
+            success: Membre de la comissió de seguiment eliminada amb èxit.
           form:
             existing_user: Participant existent
             non_user: Convidar una nova participant
@@ -934,6 +969,9 @@ ca:
           show:
             change_polling_station: Tornar als punts de votació
             monitoring_committee_notes: Annotacions del Comitè de Seguiment
+          validate:
+            error: Hi ha hagut un problema en validar el tancament.
+            success: El tancament s'ha validat correctament.
         monitoring_committee_verify_elections:
           index:
             download: Descarregar
@@ -944,6 +982,12 @@ ca:
             not_available: Encara no està disponible
             title: Eleccions
         polling_officers:
+          create:
+            invalid: S'ha produït un error en crear aquesta oficial de votació.
+            success: Oficial de votació creada amb èxit.
+          destroy:
+            invalid: S'ha produït un error en eliminar aquesta oficial de votació.
+            success: Oficial de votació eliminada amb èxit.
           form:
             existing_user: Participant existent
             non_user: Convidar una nova participant
@@ -962,6 +1006,12 @@ ca:
             more_polling_officers: Hi ha %{number} gestors de mesa més. Refina la teva cerca per localitzar-los.
             no_polling_officers: No hi ha gestores de mesa que coincideixin amb els teus criteris de cerca o no existeix cap gestora de mesa.
         polling_stations:
+          create:
+            invalid: S'ha produït un error en crear aquest punt de votació.
+            success: Punt de votació creat correctament.
+          destroy:
+            invalid: S'ha produït un error en eliminar aquest punt de votació.
+            success: Punt de votació eliminat correctament.
           edit:
             title: Editar punt de votació
             update: Actualitzar punt de votació
@@ -978,6 +1028,7 @@ ca:
             create: Crear
             title: Crear punt de votació
           update:
+            invalid: S'ha produït un error en actualitzar aquest punt de votació.
             success: Punt de votació actualitzat correctament.
         titles:
           votings: Votacions
