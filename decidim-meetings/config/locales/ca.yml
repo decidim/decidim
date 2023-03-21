@@ -300,6 +300,10 @@ ca:
             invalid: S'ha produït un error en crear aquesta trobada.
             success: Trobada creada correctament. Tingues en compte que encara no s'ha publicat, hauràs de publicar-la manualment.
           destroy:
+            invalid:
+              proposals_count:
+                one: No es pot esborrar la trobada perquè té %{count} proposta relacionada.
+                other: No es pot esborrar la trobada perquè té %{count} propostes relacionades.
             success: La trobada s'ha eliminat correctament
           edit:
             title: Editar la trobada
