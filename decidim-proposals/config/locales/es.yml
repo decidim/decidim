@@ -917,6 +917,8 @@ es:
             supports_remaining: Debes apoyar %{remaining_votes} propuestas más para que tus apoyos sean tenidos en cuenta.
           proposal_limit:
             description: Puedes crear hasta %{limit} propuestas.
+          threshold_per_proposal:
+            description: Para que las propuestas sean validadas necesitan alcanzar un mínimo de %{limit} apoyos.
           title: 'La recogida de apoyos se rige por las siguientes normas:'
           vote_limit:
             description: Puedes apoyar hasta %{limit} propuestas.
