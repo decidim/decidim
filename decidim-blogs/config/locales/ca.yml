@@ -27,16 +27,23 @@ ca:
           post:
             name: Publicar
         posts:
+          create:
+            invalid: S'ha produït un error en crear aquesta publicació.
+            success: Publicació creada correctament.
+          destroy:
+            success: La publicació s'ha eliminat correctament.
           edit:
             save: Actualitza
             title: Editar publicació
           index:
+            not_published_yet: No publicada encara.
             title: Publicacions
           new:
             create: Crear
             title: Crea una publicació
           update:
             invalid: S'ha produït un error en guardar la publicació.
+            success: S'ha desat la publicació correctament.
       admin_log:
         post:
           create: "%{user_name} ha creat el post %{resource_name} al blog de %{space_name}"
