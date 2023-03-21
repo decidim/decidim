@@ -35,6 +35,7 @@ fr:
       decidim/component_published_event: Fonctionnalité active
       decidim/demoted_membership: N'est plus un administrateur de groupe
       decidim/gamification/badge_earned_event: Badge gagné
+      decidim/gamification/level_up_event: Vous avez atteint un niveau supérieur
       decidim/invited_to_group_event: Invitation à rejoindre un groupe
       decidim/join_request_accepted_event: Demande de participation acceptée
       decidim/join_request_rejected_event: Demande de participation rejetée
@@ -390,6 +391,8 @@ fr:
           authorize: Autoriser avec "%{authorization}"
           explanation: Pour effectuer cette action, vous devez être autorisé avec "%{authorization}".
           title: Autorisation requise
+        ok:
+          title: "You have been authorized while in this page. Please, reload the page to perform your action.\nVous avez été autorisé à accéder à cette page. Veuillez recharger celle-ci pour effectuer votre action."
         pending:
           title: L'autorisation est toujours en cours de validation
         unauthorized:
@@ -666,9 +669,15 @@ fr:
         email_subject: Mise à jour de %{resource_title}
       gamification:
         badge_earned:
+          email_intro: Félicitations! Vous avez obtenu le <a href="%{resource_url}">badge %{badge_name}</a> (niveau %{current_level}).
           email_outro: Vous avez reçu cette notification car vous avez été actif sur notre plateforme. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
+          email_subject: 'Vous avez gagné un nouveau badge : %{badge_name} !'
+          notification_title: Félicitations! Vous avez obtenu le <a href="%{resource_path}">badge %{badge_name}</a> (niveau %{current_level}).
         level_up:
+          email_intro: Félicitations! Vous avez atteint le niveau %{current_level} sur le <a href="%{resource_url}">badge %{badge_name} </a>!
           email_outro: Vous avez reçu cette notification car vous avez été actif sur notre plateforme. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
+          email_subject: Vous avez atteint le niveau %{current_level} sur le badge %{badge_name} !
+          notification_title: Félicitations! Vous avez atteint le niveau %{current_level} sur le <a href="%{resource_path}">badge %{badge_name} </a>!
       groups:
         demoted_membership:
           email_intro: Un administrateur du groupe <a href="%{resource_url}">%{user_group_name}</a> a supprimé vos droits d'administrateur sur ce groupe.
@@ -845,6 +854,7 @@ fr:
           name: Suiveurs
           next_level_in: Obtenez %{score} autres utilisateurs à vous suivre pour atteindre le niveau suivant!
           unearned_another: Ce participant n’a pas encore de followers.
+          unearned_own: Vous n'avez pas encore de followers.
         index:
           badge_title: "%{name} badge"
           how: Comment l'obtenir
@@ -852,6 +862,7 @@ fr:
           title: Insignes
       description: Les badges sont une reconnaissance des actions des participants et des progrès dans la plateforme. Au fur et à mesure que vous commencez à découvrir, à participer et à interagir sur la plateforme, vous gagnez différents badges.
       level: Niveau %{level}
+      reached_top: Vous avez atteint le plus haut niveau pour ce badge.
       title: Que sont les badges ?
     group_admins:
       actions:
@@ -1522,6 +1533,7 @@ fr:
         subject: Instructions de confirmation
       email_changed:
         greeting: Bonjour %{recipient}!
+        message: Nous vous contactons pour vous informer que votre adresse e-mail a été modifiée à %{email}.
         subject: Courriel modifié
       invitation_instructions:
         accept: Accepter l'invitation
@@ -1536,8 +1548,17 @@ fr:
         someone_invited_you_as_admin: Vous avez été invité en tant qu'administrateur de %{application}, vous pouvez l'accepter via le lien ci-dessous.
         someone_invited_you_as_private_user: Vous avez été invité en tant qu'utilisateur privé de %{application}, vous pouvez l'accepter via le lien ci-dessous.
         subject: Instructions d'invitation
+      invite_admin:
+        subject: Vous avez été invité(e) à gérer %{organization}
+      invite_collaborator:
+        subject: Vous avez été invité(e) à gérer %{organization}
+      invite_private_user:
+        subject: Vous avez été invité(e) à un processus participatif privé à %{organization}
+      organization_admin_invitation_instructions:
+        subject: Vous avez été invité(e) à gérer %{organization}
       password_change:
         greeting: Bonjour %{recipient} !
+        message: Nous vous contactons pour vous informer que votre mot de passe a été modifié.
         subject: Mot de passe modifié
       reset_password_instructions:
         action: Changer mon mot de passe
@@ -1744,6 +1765,8 @@ fr:
       notifications_dashboard:
         mark_all_as_read: Marquer tout comme lu
         mark_as_read: Marquer comme lu
+      offline_banner:
+        cache_version_page: "Oooops! Your network is offline. This is a previously cached version of the page you are visiting, perhaps the content is not up to date.\nDésolé ! Votre réseau est hors ligne. Il s'agit d'une version antérieurement mise en cache de la page que vous visitez, dont le contenu n'est peut-être pas à jour."
       social_media_links:
         facebook: "%{organization} sur Facebook"
         github: "%{organization} sur GitHub"
