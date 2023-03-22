@@ -32,6 +32,7 @@ it:
         body: Testo
         subject: Oggetto
       organization:
+        admin_terms_of_use_body: Testo dei termini di utilizzo dell'admin
         alert_color: Notifica
         available_authorizations: Autorizzazioni disponibili
         badges_enabled: Abilita badge
@@ -170,6 +171,7 @@ it:
           are_you_sure: Sei sicuro di voler rifiutare i termini di utilizzo dell'amministratore?
           refuse: Rifiuta i termini di amministrazione
         required_review:
+          alert: 'Richiesto: Rivedi i nostri termini di utilizzo dell''amministratrice/tore'
           cta: Rivedili ora.
       area_types:
         create:
@@ -425,7 +427,6 @@ it:
           impersonate_existing_user: Gestisci partecipante %{name}"
           impersonate_new_managed_user: Gestisci nuovo partecipante
       imports:
-        error: Si è verificato un errore durante l'importazione
         new:
           accepted_mime_types:
             csv: csv
@@ -435,7 +436,6 @@ it:
             back: Indietro
           file_legend: Aggiungi un file da importare che verrà analizzato.
           import: Importazione
-        notice: "%{number} %{resource_name} importati con successo"
       managed_users:
         promotion:
           error: Si è verificato un problema nella promozione del partecipante gestito.
