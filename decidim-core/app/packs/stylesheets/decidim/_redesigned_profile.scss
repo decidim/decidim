@@ -70,6 +70,11 @@
 
       [data-target*="dropdown"]{
         @apply [&>svg]:h-auto [&>svg]:w-auto last-of-type:[&>svg]:block;
+
+        &:hover > svg,
+        &:hover > span{
+          @apply text-white;
+        }
       }
     }
 
@@ -195,11 +200,19 @@
     }
   }
 
-  &__group-pending{
+  &__group{
     @apply pb-12 mb-14 border-b-2 border-gray-3;
 
     p{
       @apply mt-4 text-md text-gray-2;
+    }
+
+    &__description{
+      @apply my-8 pt-8 border-t-2 border-gray-3 text-gray-2 font-semibold uppercase;
+    }
+
+    &__back{
+      @apply grid place-items-center absolute top-6 md:top-12 right-6 md:-left-12 rounded-full w-6 h-6 bg-background [&>svg]:text-secondary;
     }
 
     &__list{
@@ -243,7 +256,7 @@
       @apply border-t-2 border-gray-3 -mt-0.5;
 
       &-content{
-        @apply lg:w-2/3 mx-auto py-6 md:py-12 min-h-[200px] mb-32;
+        @apply lg:w-2/3 mx-auto py-6 md:py-12 min-h-[200px] mb-32 relative;
       }
     }
   }

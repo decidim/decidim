@@ -3,7 +3,7 @@
   <p><%= t("decidim.group_invites.accept_or_reject_group_invitations") %></p>
 
   <% invitations.each do |invitation| %>
-    <div class="profile__group-pending__list">
+    <div class="profile__group__list">
       <%= card_for present(invitation.user_group) %>
 
       <%= link_to(

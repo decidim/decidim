@@ -2,7 +2,7 @@
   <p><%= t("decidim.groups.members.accept_or_reject_join_requests") %></p>
 
   <% requests.each do |request| %>
-    <div class="profile__group-pending__list">
+    <div class="profile__group__list">
       <%= card_for present(request.user) %>
 
       <%= link_to(
