@@ -356,9 +356,6 @@ tr:
             document_legend: '2 Mb''tan küçük bir belge ekleyin, 3 düzey derinliğe kadar her bölüm tekliflere ayrıştırılacaktır. Desteklenen biçimler şunlardır: %{valid_mime_types}'
             title: BELGE EKLE
             upload_document: Belge yükle
-          publish:
-            invalid: Teklifler yayınlanamadı
-            success: Tüm teklifler yayınlandı
           sections:
             article: "<em>Madde</em>"
             section: "<em>Bölüm:</em> <strong>%{title}</strong>"
@@ -412,7 +409,6 @@ tr:
             title: Teklif oluştur
           publish_answers:
             number_of_proposals: '%{number} teklifleri için cevaplar yayınlanacak.'
-            select_a_proposal: Lütfen bir teklif seçin
           show:
             amendments_count: Değişikliklerin sayısı
             assigned_valuators: Atanan bilirkişiler
@@ -442,13 +438,9 @@ tr:
             votes_ranking: Desteklere göre sıralama
           update_category:
             invalid: 'Bu teklifler zaten %{subject_name} kategorisine sahipti: %{proposals}.'
-            select_a_category: Lütfen bir kategori seçin
-            select_a_proposal: Lütfen bir teklif seçin
             success: 'Teklifler, %{subject_name} kategorisine başarıyla güncellendi: %{proposals}.'
           update_scope:
             invalid: 'Bu teklifler zaten %{subject_name} kapsamına sahipti: %{proposals}.'
-            select_a_proposal: Lütfen bir teklif seçin
-            select_a_scope: Lütfen bir kapsam seçin
             success: 'Teklifler, %{subject_name} kapsamına başarıyla güncellendi: %{proposals}.'
         proposals_imports:
           new:
@@ -557,17 +549,14 @@ tr:
         requests:
           accepted_request:
             error: Ortak çalışan olarak kabul edilemedi, lütfen daha sonra tekrar deneyin.
-            success: "@%{user} , ortak çalışan olarak başarıyla kabul edildi"
           access_requested:
             error: İsteğiniz tamamlanamadı, lütfen daha sonra tekrar deneyin.
-            success: Ortak çalışma isteğiniz başarıyla gönderildi
           collaboration_requests:
             accept_request: Kabul Et
             reject_request: Reddet
             title: İşbirliği istekleri
           rejected_request:
             error: Ortak çalışan olarak reddedilemedi, lütfen daha sonra tekrar deneyin.
-            success: "@%{user}, ortak çalışan olarak başarıyla reddedildi"
         show:
           back: Geri
           edit: Ortak taslak düzenle
