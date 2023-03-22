@@ -273,6 +273,8 @@ ca:
           create:
             error: S'ha produït un error.
             success: S'ha creat un nou àmbit per al tipus d'iniciativa donat.
+          destroy:
+            success: L'àmbit s'ha eliminat correctament.
           edit:
             back: Torna
             confirm_destroy: Segur?
