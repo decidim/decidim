@@ -450,7 +450,7 @@ hu:
             votes_ranking: Támogatások szerinti rangsorolás
           update_category:
             invalid: 'Ezeknek a javaslatoknak már megvolt a(z) %{subject_name} kategóriája: %{proposals}.'
-            select_a_category: Kérlek, válassz kategóriát
+            select_a_category: Válassz kategóriát
             select_a_proposal: Kérlek, válassz javaslatot
             success: 'A javaslatokat sikeresen frissítették a(z) %{subject_name} kategóriához: %{proposals}.'
           update_scope:
