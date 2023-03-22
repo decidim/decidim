@@ -39,6 +39,15 @@ describe "ExternalDomainWarning", type: :system do
     end
   end
 
+  context "when url has missing protocols" do
+    let(:invalid_url) { "http://#{organization.host}/link?external_url=//example.org/some/path" }
+
+    it "shows invalid url alert" do
+      visit invalid_url
+      expect(page).not_to have_content("Invalid URL")
+    end
+  end
+
   context "when url has invalid protocols" do
     let(:invalid_url) { "http://#{organization.host}/link?external_url=javascript://example.org%250aalert(document.location.host)" }
 
@@ -50,6 +59,15 @@ describe "ExternalDomainWarning", type: :system do
 
   context "when url is double encoded" do
     let(:invalid_url) { "http://#{organization.host}/link?external_url=http://example.org%250aalert(document.location.host)" }
+
+    it "shows invalid url alert" do
+      visit invalid_url
+      expect(page).to have_content("Invalid URL")
+    end
+  end
+
+  context "when url is not HTTP" do
+    let(:invalid_url) { "http://#{organization.host}/link?external_url=ftp://example.org/some/path" }
 
     it "shows invalid url alert" do
       visit invalid_url
