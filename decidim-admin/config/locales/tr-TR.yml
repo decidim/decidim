@@ -144,6 +144,7 @@ tr:
         actions:
           refuse: Yönetici şartlarını reddedin
         required_review:
+          alert: 'Gerekli: Yönetici kullanım şartlarımızı inceleyin'
           cta: Şimdi gözden geçirin.
       area_types:
         create:
