@@ -325,9 +325,6 @@ el:
             bottom_hint: "(Θα μπορείτε να κάνετε προεπισκόπηση και ταξινόμηση ενοτήτων εγγράφων)"
             title: Προσθήκη εγγράφου
             upload_document: Αποστολή εγγράφου
-          publish:
-            invalid: Δεν ήταν δυνατή η δημοσίευση προτάσεων
-            success: Όλες οι προτάσεις έχουν δημοσιευτεί
           sections:
             article: "<em>Άρθρο</em>"
             section: "<em>Ενότητα:</em> <strong>%{title}</strong>"
@@ -381,7 +378,6 @@ el:
             title: Δημιουργία πρότασης
           publish_answers:
             number_of_proposals: Θα δημοσιευτούν απαντήσεις για %{number} προτάσεις.
-            select_a_proposal: Επιλέξτε μια πρόταση
           show:
             amendments_count: Πλήθος τροποποιήσεων
             assigned_valuators: Εκχωρημένοι εκτιμητές
@@ -411,13 +407,9 @@ el:
             votes_ranking: Κατάταξη βάσει υποστηρίξεων
           update_category:
             invalid: 'Αυτές οι προτάσεις είχαν ήδη την κατηγορία %{subject_name}: %{proposals}.'
-            select_a_category: Επιλέξτε μια κατηγορία
-            select_a_proposal: Επιλέξτε μια πρόταση
             success: 'Οι προτάσεις ενημερώθηκαν με επιτυχία στην κατηγορία %{subject_name}: %{proposals}.'
           update_scope:
             invalid: 'Αυτές οι προτάσεις είχαν ήδη το πεδίο εφαρμογής %{subject_name}: %{proposals}.'
-            select_a_proposal: Επιλέξτε μια πρόταση
-            select_a_scope: Επιλέξτε πεδίο εφαρμογής
             success: 'Οι προτάσεις ενημερώθηκαν με επιτυχία στο πεδίο εφαρμογής %{subject_name}: %{proposals}.'
         proposals_imports:
           new:
@@ -525,17 +517,14 @@ el:
         requests:
           accepted_request:
             error: Δεν ήταν δυνατή η αποδοχή ως συνεργάτη. Δοκιμάστε ξανά αργότερα.
-            success: "Ο χρήστης @%{user} έγινε δεκτός ως συνεργάτης με επιτυχία"
           access_requested:
             error: Δεν ήταν δυνατή η ολοκλήρωση του αιτήματός σας. Δοκιμάστε ξανά αργότερα.
-            success: Το αίτημά σας για συνεργασία στάλθηκε με επιτυχία
           collaboration_requests:
             accept_request: Αποδοχή
             reject_request: Απόρριψη
             title: Αιτήματα συνεργασίας
           rejected_request:
             error: Δεν ήταν δυνατή η απόρριψη ως συνεργάτη. Δοκιμάστε ξανά αργότερα.
-            success: "Ο χρήστης @%{user} απορρίφθηκε ως συνεργάτης με επιτυχία"
         show:
           back: Πίσω
           edit: Επεξεργασία προσχεδίου συνεργασίας
