@@ -571,6 +571,9 @@ fr:
         download_data_description: Un fichier contenant toutes les informations associées à votre compte sera envoyé à <strong>%{user_email}</strong>. Cet e-mail contiendra un fichier .zip et un mot de passe pour l'ouvrir.<br/><br/>Pour décompresser le fichier, vous aurez besoin de <a href="https://www.7-zip.org/">7-Zip</a> (pour Windows) ou <a href="https://www.keka.io/">Keka</a> (pour MacOS). Si vous utilisez Linux, la plupart du temps, vous l'aurez installé par défaut. Sinon, vous pouvez utiliser <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> ou <a href="https://peazip.github.io">PeaZip</a>.
         request_data: Demander les données
     editor_images:
+      create:
+        error: "Error uploading image.\nUne erreur est survenue lors du chargement de l'image."
+        success: "Image uploaded successfully.\nL'image a été téléchargée avec succès."
       drag_and_drop_help: Ajoutez des images en les glissant - déposant ou en les collant depuis votre presse-papier.
     endorsable:
       endorsements: Soutiens
@@ -865,10 +868,16 @@ fr:
       actions:
         are_you_sure: Êtes-vous sûr? Cela ne supprimera pas l'utilisateur du groupe.
         demote_admin: Supprimer admin
+      demote:
+        error: Une erreur s'est produite lors de la suppression de cet utilisateur de la liste des administrateurs.
+        success: Le participant a été supprimé avec succès de l’administration.
       index:
         current_admins: 'Administrateurs actuels:'
         manage_admins: Gérer les administrateurs
     group_invites:
+      accept:
+        error: Une erreur s'est produite lors de l'acceptation de cette invitation.
+        success: L’invitation a été acceptée avec succès.
       accept_invitation: Acceptez
       accept_or_reject_group_invitations: 'Les groupes suivants vous ont invité à les rejoindre. Accepter ou rejeter leurs demandes:'
       index:
@@ -1069,9 +1078,16 @@ fr:
         main_image: Image principale
     newsletters:
       unsubscribe:
+        check_subscription: Si vous souhaitez modifier vos préférences, vous pouvez le faire dans la page des <a href="%{link}" target="_blank">paramètres des notifications</a>.
+        error: Un problème est survenu lors de la désinscription.
         success: Vous vous êtes désabonné avec succès.
         token_error: Le lien a expiré.
         unsubscribe: Se désabonner
+    newsletters_opt_in:
+      unathorized: Désolé, ce lien n'est plus disponible.
+      update:
+        error: Un problème est survenu lors de l'enregistrement des paramètres de la newsletter.
+        success: Les paramètres de la lettre d’information ont été mis à jour avec succès.
     newsletters_opt_in_mailer:
       notify:
         body_1: Le traitement des données personnelles et leur protection deviennent de plus en plus importants pour nous tous. Avec le nouveau règlement général sur la protection des données (RGPD) du 25 mai 2018, les individus contrôlent mieux leurs données personnelles. Pour cette raison, nous avons besoin de votre accord pour continuer à vous envoyer des informations pertinentes sur les activités de %{organization_name}.
