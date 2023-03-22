@@ -39,7 +39,7 @@ fi:
         body: Runko
         subject: Otsikko
       organization:
-        admin_terms_of_use_body: Käyttöehtojen sisältö
+        admin_terms_of_use_body: Hallintakäyttäjien käyttöehtojen sisältöteksti
         alert_color: Virhe
         available_authorizations: Käytettävissä olevat tunnistautumistavat
         badges_enabled: Ota kunniamerkit käyttöön
@@ -208,7 +208,7 @@ fi:
           refuse: Kieltäydy hyväksymästä hallintakäyttäjän ehtoja
           title: Käyttöehtojen hyväksyntä
         required_review:
-          alert: 'Vaaditaan: Tarkista hallintakäyttäjän käyttöehdot'
+          alert: 'Vaadittu: tutustu hallintakäyttäjän ehtoihimme'
           callout: Ole hyvä ja tutustu hallintakäyttäjän käyttöehtoihin. Ehtojen hyväksyminen vaaditaan, jotta saat oikeudet järjestelmän hallintatoimintoihin.
           cta: Tutustu nyt.
         title: Hallintakäyttäjän käyttöehdot
@@ -519,8 +519,6 @@ fi:
             message:
               one: Puuttuva sarake %{columns}.
               other: Puuttuvia sarakkeita %{columns}.
-        error: Tuonti epäonnistui
-        example_error: Esimerkkitiedoston luonti epäonnistui annetulle tiedostotyypille
         new:
           accepted_mime_types:
             csv: CSV
@@ -532,7 +530,6 @@ fi:
           download_example_format: Esimerkki muodossa %{name}
           file_legend: Lisää tuontitiedosto, josta tiedot luetaan.
           import: Tuo
-        notice: "%{count} %{resource_name} tuotu onnistuneesti"
       logs:
         filters:
           participatory_space: Etsi osallistumistila
