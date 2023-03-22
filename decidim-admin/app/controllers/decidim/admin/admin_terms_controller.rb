@@ -3,7 +3,7 @@
 module Decidim
   module Admin
     # The controller to handle the Admin
-    # Terms of use agreement.
+    # Terms of service agreement.
     class AdminTermsController < Decidim::Admin::ApplicationController
       def accept
         current_user.admin_terms_accepted_at = Time.current

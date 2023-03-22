@@ -32,7 +32,7 @@ As a technopolitical project, Decidim needs several things to work. This is a no
 == Contents
 
 . Ideally you will have a *Team* formed with experts on IT, Communication, Participation, Design and Law.
-. Texts for at least, *terms of use, privacy policy and frequently asked questions*. To show the "Terms of service" body text in the "Sign Up Form", it is a requirement that the slug of this page to be equal `terms-of-service`.
+. Texts for at least, *terms of service, privacy policy and frequently asked questions*. To show the "Terms of service" body text in the "Sign Up Form", it is a requirement that the slug of this page to be equal `terms-of-service`.
 . Comply with your current *legal requirements*, like to registrate your privacy policy with the autorities (eg LOPD on Spain).
 . Fill the *Participatory Processes Configuration Form* to prepare your Participatory Process for Decidim.
 . Read the *xref:admin:index.adoc[Administration manual]*.

@@ -220,7 +220,7 @@ describe "Admin manages organization", type: :system do
         end
       end
 
-      context "when adding br tags to terms of use content" do
+      context "when adding br tags to terms of service content" do
         let(:another_organization) { create(:organization) }
         let(:image) { create(:attachment, attached_to: another_organization) }
         let(:organization) do

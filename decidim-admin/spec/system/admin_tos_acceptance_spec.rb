@@ -50,7 +50,7 @@ describe "AdminTosAcceptance", type: :system do
       end
 
       it "renders the TOS page" do
-        expect(page).to have_text("Agree to the terms of use")
+        expect(page).to have_text("Agree to the terms of service")
       end
 
       it "allows accepting the terms" do
