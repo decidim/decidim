@@ -32,6 +32,7 @@ lb:
         body: Haupttext
         subject: Betreff
       organization:
+        admin_terms_of_use_body: Körper für die Admin-Nutzungsbedingungen
         alert_color: Benachrichtigung
         available_authorizations: Verfügbare Autorisierungen
         badges_enabled: Abzeichen aktivieren
@@ -170,6 +171,7 @@ lb:
           are_you_sure: Sidd Dir sécher datt Dir d'Admin Benotzungsconditioune wëllt refuséieren? Sidd Dir sécher datt Dir d'Admin Notzungsbedéngunge refuséiere wëllt?
           refuse: Die Admin-Nutzungsbedingungen ablehnen
         required_review:
+          alert: 'Erforderlich: Überprüfen Sie unsere Admin-Nutzungsbedingungen'
           cta: Lesen Sie sie jetzt.
       area_types:
         create:
@@ -425,7 +427,6 @@ lb:
           impersonate_existing_user: Imitieren von Benutzer "%{name}"
           impersonate_new_managed_user: Sich als neuer verwalteter Benutzer ausgeben
       imports:
-        error: Beim Importieren ist ein Fehler aufgetreten
         new:
           accepted_mime_types:
             xlsx: xlsx
@@ -433,7 +434,6 @@ lb:
             back: Zurück
           file_legend: Datei zum Importieren hinzufügen.
           import: Importieren
-        notice: "%{number}%{resource_name} erfolgreich importiert"
       managed_users:
         promotion:
           error: Es ist ein Fehler aufgetreten, der den verwalteten Benutzer unterstützt.
