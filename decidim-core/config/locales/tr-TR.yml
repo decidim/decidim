@@ -666,16 +666,10 @@ tr:
     group_admins:
       actions:
         demote_admin: Yönetici kaldır
-      demote:
-        error: Bu kullanıcıyı yönetici listesinden kaldırırken bir hata oluştu
-        success: Kullanıcı yönetici tarafından başarıyla kaldırıldı
       index:
         current_admins: 'Mevcut yöneticiler:'
         manage_admins: Yöneticileri yönet
     group_invites:
-      accept:
-        error: Bu daveti kabul eden bir hata oluştu
-        success: Davetiye başarıyla kabul edildi
       accept_invitation: Kabul Et
       accept_or_reject_group_invitations: 'Aşağıdaki gruplar, onlara katılmaları için sizi davet etti. İsteklerini kabul etme veya reddetme:'
       index:
@@ -851,16 +845,9 @@ tr:
         main_image: Ana resim
     newsletters:
       unsubscribe:
-        check_subscription: Tercihlerinizi değiştirmek isterseniz, bunu <a href="%{link}" target="_blank">Yapılandırma Sayfasında</a> yapabilirsiniz
-        error: Abonelik iptal edildiğinde bir hata oluştu
         success: Abonelikten başarıyla çıktınız.
         token_error: Bağlantının süresi doldu.
         unsubscribe: Abonelikten ayrıl
-    newsletters_opt_in:
-      unathorized: Üzgünüz, bu bağlantı artık mevcut değil
-      update:
-        error: Üzgünüm, bir şeyler ters gitti
-        success: Bülten ayarları başarıyla güncellendi
     newsletters_opt_in_mailer:
       notify:
         body_1: Kişisel verilerin işlenmesi ve korunması, hepimiz için giderek daha önemli hale gelmektedir. 25 Mayıs 2018 tarihli yeni Genel Veri Koruma Yönetmeliği (GDPR) ile bireyler kişisel verileri üzerinde daha iyi bir kontrole sahiptir. Bu nedenle, %{organization_name}faaliyetleri hakkında ilgili bilgileri göndermeye devam etmek için "OK" e ihtiyacımız var.
