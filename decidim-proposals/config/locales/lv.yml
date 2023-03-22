@@ -322,9 +322,6 @@ lv:
               md: Marķējums
             bottom_hint: "(Jūs varēsiet priekšskatīt un kārtot dokumentu sadaļas)"
             upload_document: Augšupielādēt dokumentu
-          publish:
-            invalid: Nevarēja publicēt priekšlikumus
-            success: Visi priekšlikumi ir publicēti
           sections:
             article: "<em>Raksts</em>"
             section: "<em>Sadaļa:</em> <strong>%{title}</strong>"
@@ -378,7 +375,6 @@ lv:
             title: Izveidot priekšlikumu
           publish_answers:
             number_of_proposals: Tiks publicētas atbildes uz %{number} priekšlikumiem.
-            select_a_proposal: Lūdzu, izvēlieties priekšlikumu
           show:
             amendments_count: Grozījumu skaits
             assigned_valuators: Piešķirtie vērtētāji
@@ -409,13 +405,9 @@ lv:
             votes_ranking: Sarindot pēc atbalstiem
           update_category:
             invalid: 'Šiem priekšlikumiem jau bija %{subject_name} kategorija: %{proposals}.'
-            select_a_category: Lūdzu, izvēlieties kategoriju
-            select_a_proposal: Lūdzu, izvēlieties priekšlikumu
             success: 'Priekšlikumi ir veiksmīgi atjaunināti kategorijā %{subject_name} kategorija: %{proposals}.'
           update_scope:
             invalid: 'Šiem priekšlikumiem jau bija %{subject_name} tvērums: %{proposals}.'
-            select_a_proposal: Lūdzu, izvēlieties priekšlikumu
-            select_a_scope: Lūdzu, atlasiet tvērumu
             success: 'Priekšlikumi ir veiksmīgi atjaunināti %{subject_name} tvērumam: %{proposals}.'
         proposals_imports:
           new:
@@ -524,17 +516,14 @@ lv:
         requests:
           accepted_request:
             error: Nevarēja pieņemt par līdzautoru, lūdzu, vēlāk mēģiniet vēlreiz.
-            success: "@%{user} ir veiksmīgi pieņemts par līdzautoru"
           access_requested:
             error: Jūsu pieprasījumu nevarēja izpildīt, lūdzu, vēlāk mēģiniet vēlreiz.
-            success: Jūsu sadarbības pieprasījums ir veiksmīgi nosūtīts
           collaboration_requests:
             accept_request: Pieņemt
             reject_request: Noraidīt
             title: Sadarbības pieprasījumi
           rejected_request:
             error: Nevarēja noraidīt sadarbības pieprasījumu, lūdzu, vēlāk mēģiniet vēlreiz.
-            success: "@%{user} ir veiksmīgi noraidīts kā līdzautors"
         show:
           back: Atpakaļ
           edit: Rediģēt sadarbības projektu
