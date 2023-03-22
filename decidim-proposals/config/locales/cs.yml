@@ -456,9 +456,6 @@ cs:
             document_legend: 'Přidejte dokument o velikosti menší než 2 Mb, každá sekce do tří úrovní bude rozdělena do návrhů. Podporované formáty jsou: %{valid_mime_types}'
             title: Přidat dokument
             upload_document: Nahrát dokument
-          publish:
-            invalid: Nelze publikovat návrhy
-            success: Všechny návrhy byly zveřejněny
           sections:
             article: "<em>Článek</em>"
             section: "<em>Sekce:</em> <strong>%{title}</strong>"
@@ -514,7 +511,6 @@ cs:
             title: Vytvořte návrh
           publish_answers:
             number_of_proposals: Odpovědi na %{number} návrhů budou publikovány.
-            select_a_proposal: Vyberte prosím návrh
           show:
             amendments_count: Počet pozměňovacích návrhů
             assigned_valuators: Přiřazení hodnotitelé
@@ -546,13 +542,9 @@ cs:
             votes_ranking: Hodnocení podle podpory
           update_category:
             invalid: 'Tyto návrhy se již jmenují %{subject_name} v kategorii: %{proposals}.'
-            select_a_category: Vyberte kategorii
-            select_a_proposal: Vyberte prosím návrh
             success: 'Návrhy úspěšně aktualizovány do kategorie %{subject_name}: %{proposals}.'
           update_scope:
             invalid: 'Tyto návrhy již měly rozsah %{subject_name}: %{proposals}.'
-            select_a_proposal: Vyberte prosím návrh
-            select_a_scope: Vyberte prosím rozsah
             success: 'Návrhy byly úspěšně aktualizovány v rozsahu %{subject_name}: %{proposals}.'
         proposals_imports:
           new:
@@ -671,17 +663,14 @@ cs:
         requests:
           accepted_request:
             error: Nelze přijmout jako spolupracovník, zkuste to znovu později.
-            success: "@%{user} byl úspěšně přijat jako spolupracovník"
           access_requested:
             error: Vaše žádost nebyla dokončena, zkuste to znovu později.
-            success: Vaše žádost o spolupráci byla úspěšně odeslána
           collaboration_requests:
             accept_request: Akceptovat
             reject_request: Odmítnout
             title: Žádosti o spolupráci
           rejected_request:
             error: Nemohl být odmítnut jako spolupracovník, zkuste to znovu později.
-            success: "@%{user} byl úspěšně odmítnut jako spolupracovník"
         show:
           back: Zadní
           edit: Úprava konceptu spolupráce
