@@ -173,17 +173,10 @@ ru:
           new:
             create: Внести
             title: Создать предложение
-          publish_answers:
-            select_a_proposal: Пожалуйста, выберите предложение
           show:
             created_at: Дата создания
             proposals: Предложения
             votes_count: Количество голосов
-          update_category:
-            select_a_category: Пожалуйста, выберите категорию
-            select_a_proposal: Пожалуйста, выберите предложение
-          update_scope:
-            select_a_proposal: Пожалуйста, выберите предложение
         proposals_imports:
           new:
             create: Позаимствовать предложения
