@@ -613,6 +613,7 @@ shared_examples "comments" do
         end
 
         expect(page).to have_selector("#comment_#{comment.id} .add-comment")
+
         within "form#new_comment_for_#{comment.commentable_type.demodulize}_#{comment.id}" do
           field = find("#add-comment-#{comment.commentable_type.demodulize}-#{comment.id}")
           field.set " "
@@ -620,14 +621,9 @@ shared_examples "comments" do
           click_button "Publish reply"
         end
 
-        # TODO: review
         expect(page).to have_reply_to(comment, content)
         expect(page).to have_selector("span.comments-count", text: "#{commentable.comments.count} comments")
-
-        # expect(page).to have_selector(".comment-thread .comment--nested", wait: 20)
-        # expect(page).to have_selector(".comment__additionalreply")
-        # expect(page).to have_reply_to(comment, "This is a reply")
-        # expect(page).to have_selector("span.comments-count", text: "#{commentable.comments.count} COMMENTS")
+        expect(page).to have_reply_to(comment, "This is a reply")
       end
     end
 
@@ -641,8 +637,8 @@ shared_examples "comments" do
         visit current_path
 
         within "#comments #comment_#{parent.id}" do
-          expect(page).to have_selector(".comment__reply")
-          expect(page).not_to have_selector(".comment__additionalreply")
+          expect(page).to have_selector("#comment-#{parent.id}-replies")
+          expect(page.find("#comment-#{parent.id}-replies").text).to be_blank
         end
       end
     end
