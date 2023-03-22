@@ -246,8 +246,6 @@ lt:
             signatures: Surinko daugiausia parašų
             title: Nustatymai iniciatyvoms
         initiatives_type_scopes:
-          destroy:
-            success: Sritis sėkmingai pašalinta
           edit:
             back: Atgal
             confirm_destroy: Ar esate tikri?
