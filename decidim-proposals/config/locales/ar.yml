@@ -468,9 +468,6 @@ ar:
             document_legend: 'يمكن إضافة وثيقة أقل من 2MB، سيتم تحليل كل قسم حتى 3 مستويات عميقة في مقترحات. الصيغ المدعومة هي: %{valid_mime_types}'
             title: إضافة وثيقة
             upload_document: تحميل المستند
-          publish:
-            invalid: لا يمكن نشر المقترحات
-            success: تم نشر جميع المقترحات
           sections:
             article: "<em>المادة</em>"
             section: "<em>القسم:</em> <strong>%{title}</strong>"
@@ -526,7 +523,6 @@ ar:
             title: إنشاء اقتراح
           publish_answers:
             number_of_proposals: سيتم نشر إجابات %{number} الاقتراحات.
-            select_a_proposal: يرجى اختيار الاقتراح
           show:
             amendments_count: تعداد التعديلات
             assigned_valuators: المقيِّمون الذين تم تعيينهم
@@ -560,13 +556,9 @@ ar:
             votes_ranking: ترتيب حسب الدّعم المتلقّى
           update_category:
             invalid: 'هذه الاقتراحات تحتوي بالفعل على فئة %{subject_name}: %{proposals}.'
-            select_a_category: الرجاء تحديد الفئة
-            select_a_proposal: يرجى اختيار الاقتراح
             success: 'تم تحديث الاقتراحات بنجاح إلى فئة %{subject_name}: %{proposals}.'
           update_scope:
             invalid: 'تحتوي الاقتراحات مسبقاً على نطاق %{subject_name}: %{proposals}.'
-            select_a_proposal: يرجى اختيار الاقتراح
-            select_a_scope: يرجى اختيار نطاق
             success: 'تم تحديث الاقتراحات بنجاح إلى نطاق %{subject_name}: %{proposals}.'
         proposals_imports:
           new:
@@ -685,17 +677,14 @@ ar:
         requests:
           accepted_request:
             error: لا يمكن قبول كمتعاون ، يرجى المحاولة مرة أخرى في وقت لاحق.
-            success: "تم قبول @%{user} كمتعاون بنجاح"
           access_requested:
             error: تعذر إكمال طلبك ، يرجى إعادة المحاولة لاحقًا.
-            success: تم إرسال طلبك للتعاون بنجاح
           collaboration_requests:
             accept_request: قبول
             reject_request: رفض
             title: طلبات التعاون
           rejected_request:
             error: لا يمكن الرفض كمتعاون ، يرجى المحاولة مرة أخرى لاحقًا.
-            success: "تم رفض @%{user} بنجاح كمتعاون"
         show:
           back: الى الخلف
           edit: تحرير المسودة التعاونية
