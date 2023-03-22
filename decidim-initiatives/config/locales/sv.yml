@@ -236,8 +236,6 @@ sv:
             comments: Mest kommenterade
             random: Slumpmässigt
         initiatives_type_scopes:
-          destroy:
-            success: Omfånget har tagits bort
           edit:
             back: Tillbaka
             confirm_destroy: Är du säker?
