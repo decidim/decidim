@@ -342,9 +342,6 @@ hu:
             bottom_hint: "(Megtekintheted és rendezheted a dokumentumokat)"
             title: DOKUMENTUM hozzáadása
             upload_document: Dokumentum feltöltése
-          publish:
-            invalid: Nem sikerült közzé tenni a javaslatokat
-            success: Minden pályázat megjelent
           sections:
             article: "<em>Cikk</em>"
             section: "<em>szakasz:</em> <strong>%{title}</strong>"
@@ -399,7 +396,6 @@ hu:
             title: Javaslat létrehozása
           publish_answers:
             number_of_proposals: A %{number} -s számú javaslatra adott válaszokat közzétesszük.
-            select_a_proposal: Kérlek, válassz javaslatot
           show:
             amendments_count: Módosítás száma (%{count}
             assigned_valuators: Hozzárendelt értékelők
@@ -429,13 +425,9 @@ hu:
             votes_ranking: Támogatások szerinti rangsorolás
           update_category:
             invalid: 'Ezeknek a javaslatoknak már megvolt a(z) %{subject_name} kategóriája: %{proposals}.'
-            select_a_category: Kérlek, válassz kategóriát
-            select_a_proposal: Kérlek, válassz javaslatot
             success: 'A javaslatokat sikeresen frissítették a(z) %{subject_name} kategóriához: %{proposals}.'
           update_scope:
             invalid: 'Ezeknek a javaslatoknak már megvolt a(z) %{subject_name} hatásköre: %{proposals}.'
-            select_a_proposal: Kérlek, válassz javaslatot
-            select_a_scope: Kérlek válassz hatáskört
             success: 'A javaslatok frissítése a(z) %{subject_name} hatáskörben sikeres: %{proposals}.'
         proposals_imports:
           new:
@@ -546,17 +538,14 @@ hu:
         requests:
           accepted_request:
             error: Nem lehetsz közreműködő partner, próbáld újra később.
-            success: "@%{user} elfogadva, mint közreműködő"
           access_requested:
             error: Nem sikerült befejezni a műveletet, próbáld újra később.
-            success: A közreműködés iránti kérelmedet sikeresen elküldtük
           collaboration_requests:
             accept_request: Elfogad
             reject_request: Elutasít
             title: Közreműködési kérelmek
           rejected_request:
             error: Nem lehetett elutasítani a közreműködőt, próbálkozz később.
-            success: "@%{user} elutasítva, mint közreműködő"
         show:
           back: Vissza
           edit: Közös vázlat szerkesztése
