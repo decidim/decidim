@@ -35,6 +35,7 @@ es-PY:
       decidim/component_published_event: Componente activo
       decidim/demoted_membership: Ya no es un administrador de grupo.
       decidim/gamification/badge_earned_event: Insignia obtenida
+      decidim/gamification/level_up_event: Has subido de nivel
       decidim/invited_to_group_event: Invitada al grupo
       decidim/join_request_accepted_event: Solicitud de incorporación aceptada
       decidim/join_request_rejected_event: Solicitud de incorporación rechazada
@@ -136,26 +137,32 @@ es-PY:
         success: Tu cuenta se ha eliminado correctamente.
       download_your_data_export:
         file_no_exists: El archivo no existe
+        notice: La descarga de tus datos está en curso. Recibirás un correo electrónico cuando se complete.
       email_change:
+        body1: Hemos enviado un correo electrónico a %{unconfirmed_email} para verificar tu nueva dirección de correo electrónico.
         body2: '¿Necesitas que te reenviemos el correo de verificación? %{resend_link} o %{cancel_link}.'
         cancel: cancelar
         cancel_error: No se ha podido cancelar el cambio de Correo electrónico.
         cancel_successfully: Cambio de correo electrónico cancelado con éxito.
         resend_error: No se ha podido reenviar el correo de confirmación.
+        resend_successfully: Correo de confirmación reenviado con éxito a %{unconfirmed_email}.
         send_again: Volver a enviar
         title: Verificación del cambio de correo electrónico
       show:
+        available_locales_helper: Elige el idioma que deseas utilizar para navegar y recibir notificaciones de la plataforma.
         change_password: Cambia la contraseña
         update_account: Actualizar cuenta
       update:
         error: Se ha producido un error al actualizar tu cuenta.
         success: Tu cuenta se ha actualizado correctamente.
+        success_with_email_confirmation: Tu cuenta se ha actualizado correctamente. Recibirás un correo electrónico para confirmar tu nueva dirección de correo electrónico.
     activity:
       time_ago: "Hace %{time}"
     admin:
       actions:
         cancel: Cancelar
       password_change:
+        alert: Tienes que cambiar tu contraseña para poder seguir adelante.
         notification: Las usuarias con rol de administración tienen que cambiar su contraseña cada %{days} días.
     admin_log:
       area:
@@ -258,8 +265,10 @@ es-PY:
         amended_by: Enmendado por
         button: Enmendar %{model_name}
         error: Se ha producido un error al modificar este recurso.
+        help_text: Mejora este %{model_name} modificando su %{amendable_fields}.
         promote_button: Promocionar a %{model_name}
         promote_confirm_text: '¿Seguro que quieres promocionar esta enmienda?'
+        promote_help_text: Puedes promocionar esta enmienda y publicarla como una %{model_name} independiente.
         section_heading: Enmiendas (%{count})
       compare_draft:
         continue: Continuar
@@ -301,16 +310,26 @@ es-PY:
         modify: Modificar
         publish: Publicar
         title: Publicar borrador de enmienda
+      promoted:
+        error: Se ha producido un error al publicar la enmienda como una nueva propuesta.
+        success: La enmienda se ha publicado correctamente como una nueva propuesta.
       publish_draft:
         error: Hubo un problema al publicar la enmienda.
         success: La enmienda se ha publicado correctamente.
+      rejected:
+        error: Se ha producido un error al rechazar esta enmienda, por favor inténtalo de nuevo más tarde.
+        success: La enmienda se ha rechazado correctamente.
       review:
         back: Volver
         heading: Revisar la enmienda
+        help_text: Estás revisando una enmienda al %{model_name}.
         send: Aceptar enmienda
       update_draft:
         error: Se ha producido un error al actualizar el borrador de enmienda.
         success: Borrador de enmienda actualizado correctamente.
+      withdraw:
+        error: Se ha producido un error al retirar la enmienda.
+        success: La enmienda se ha retirado correctamente.
       wizard_step_form:
         steps:
           '1': Crea tu enmienda
@@ -342,11 +361,13 @@ es-PY:
       official_author: Oficial
     authorization_handlers:
       another_dummy_authorization_handler:
+        explanation: Verifícate introduciendo un número de pasaporte que empiece por "A".
         fields:
           passport_number: Número de pasaporte
           postal_code: Código postal
         name: Otro ejemplo de autorización
       dummy_authorization_handler:
+        explanation: Verifícate introduciendo un número de documento que termine con "X".
         fields:
           allowed_postal_codes: Códigos postales permitidos (separados por comas)
           allowed_scope_id: Ámbito permitido
@@ -379,6 +400,7 @@ es-PY:
           title: La autorización ha expirado
         incomplete:
           cancel: Cancelar
+          explanation: 'A pesar de que actualmente estás autorizada con "%{authorization}", necesitamos que te vuelvas a autorizar porque nos faltan los datos siguientes:'
           invalid_field: "%{field}"
           reauthorize: Reautorizarse
           title: Por favor, re-autorízate
@@ -386,7 +408,11 @@ es-PY:
           authorize: Autorizar con "%{authorization}"
           explanation: Para llevar a cabo esta acción, tiene que disponer de la autorización "%{authorization}".
           title: Autorización requerida
+        ok:
+          title: Has sido autorizada mientras estás en esta página. Por favor, vuelve a cargar la página para realizar tu acción.
         pending:
+          explanation: Para realizar esta acción, debes estar autorizada con "%{authorization}", pero tu autorización todavía está en progreso.
+          resume: Comprueba el progreso de tu autorización "%{authorization}".
           title: La autorización aún está en progreso
         unauthorized:
           explanation: Lo sentimos, no puedes realizar esta acción porque algunos de tus datos de autorización no coinciden.
@@ -413,6 +439,7 @@ es-PY:
       see_more: "(ver más)"
     components:
       component_order_selector:
+        no_content: No hemos podido encontrar ningún contenido con este criterio.
         order:
           all_types: Todos los tipos
           collaborative_draft: Borrador colaborativo
@@ -500,10 +527,16 @@ es-PY:
         name: Estadísticas de la organización
       sub_hero:
         name: Banner de sub-hero
+    core:
+      actions:
+        login_before_access: Por favor, inicia sesión con tu cuenta antes de acceder.
+        unauthorized: No tienes autorización para realizar esta acción.
     datepicker:
       help_text: 'Formato esperado: %{datepicker_format}'
     devise:
       omniauth_registrations:
+        create:
+          email_already_exists: Otra cuenta utiliza la misma dirección de correo electrónico.
         new:
           complete_profile: Completar perfil
           nickname_help: Tu alias en %{organization}. Solo puede contener letras, números, '-' y '_'.
@@ -529,6 +562,8 @@ es-PY:
         new:
           are_you_new?: '¿Eres nuevo en la plataforma?'
           register: Créate una cuenta
+          sign_in_disabled: Puedes acceder con una cuenta externa.
+          sign_up_disabled: El registro está deshabilitado, puedes usar una cuenta existente para acceder.
         user:
           timed_out: Has estado sin actividad durante demasiado tiempo y se te ha cerrado automáticamente la sesión del servicio. Si quieres seguir utilizando el servicio, vuelve a iniciar sesión.
       shared:
@@ -553,6 +588,7 @@ es-PY:
           authorize: Autorice la aplicación
           by_organization_link_html: <small class="heading-small">por %{link}</small>
           cancel: Cancelar
+          connect_your_account_html: Conecte tu cuenta iniciando sesión en <strong>%{organization}</strong>.
           publish_content: Publique contenido para usted
           see_email: Ver tu correo electrónico
           see_name: Ver tu nombre
@@ -569,9 +605,6 @@ es-PY:
         download_data_description: Se enviará un archivo con toda la información asociada a tu cuenta a <strong>%{user_email}</strong>. Este correo electrónico contendrá un archivo .zip y una contraseña para abrirlo.<br/><br/>Para descomprimir el archivo, necesitarás <a href="https://www.7-zip.org/">7-Zip</a> (para Windows) o <a href="https://www.keka.io/">Keka</a> (para MacOS). Si usas Linux, la mayoría de las veces lo tendrás instalado por defecto. Si no, puedes utilizar <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> o <a href="https://peazip.github.io">PeaZip</a>).
         request_data: Solicitar datos
     editor_images:
-      create:
-        error: Error al subir la imagen
-        success: Imagen subida con éxito
       drag_and_drop_help: Puedes añadir imágenes arrastrando y soltándolas o también pegándolas.
     endorsable:
       endorsements: Adhesiones
@@ -601,6 +634,7 @@ es-PY:
       not_found:
         back_home: Volver al inicio
         content_doesnt_exist: Esta dirección es incorrecta o ha sido eliminada.
+        title: No se ha encontrado la página que buscas
     events:
       amendments:
         amendment_accepted:
@@ -666,9 +700,15 @@ es-PY:
         email_subject: Una actualización de %{resource_title}
       gamification:
         badge_earned:
+          email_intro: '¡Enhorabuena! Has obtenido la insignia "<a href="%{resource_url}">%{badge_name}</a>"  (nivel %{current_level}).'
           email_outro: Has recibido esta notificación porque has realizado actividad en nuestro sitio web.
+          email_subject: '¡Has obtenido una nueva insignia: %{badge_name}!'
+          notification_title: '¡Enhorabuena! Has obtenido la insignia <a href="%{resource_path}">%{badge_name}</a> (nivel %{current_level}).'
         level_up:
+          email_intro: '¡Enhorabuena! ¡Has alcanzado el nivel %{current_level} de la insignia "<a href="%{resource_url}">%{badge_name}</a>"!'
           email_outro: Has recibido esta notificación porque has generado actividad en nuestro sitio web.
+          email_subject: '¡Has conseguido el nivel %{current_level} en la insignia "%{badge_name}"!'
+          notification_title: "¡Enhorabuena! ¡Has alcanzado el nivel %{current_level} de la insignia \n <a href=\"%{resource_path}\">%{badge_name}</a> \"!"
       groups:
         demoted_membership:
           email_intro: Un administrador del grupo <a href="%{resource_url}">%{user_group_name}</a> ha eliminado sus derechos de administrador para ese grupo.
@@ -715,6 +755,8 @@ es-PY:
           email_outro: Has recibido esta notificación porque eres una de las administradoras de la plataforma.
           email_subject: Un grupo de usuarias ha actualizado su perfil
           notification_title: El grupo de usuarias %{user_group_name} ha actualizado su perfil perdiendo la verificación. Puedes volver a verificarlo a través del <a href="%{groups_admin_path}">panel de administración</a>.
+      nickname_event:
+        notification_body: Hemos corregido la forma en que se utilizan los alias para que no haya duplicados, para hacerlo ya no se distingue entre mayúsculas y minúsculas.<br/>Tu alias fue creado después de otro igual, así que lo hemos renombrado automáticamente. Puedes modificarlo desde la <a href="%{link_to_account_settings}">configuración de tu cuenta</a>.
       notification_event:
         notification_title: Un evento ha ocurrido en <a href="%{resource_path}">%{resource_title}</a>.
       reports:
@@ -759,6 +801,7 @@ es-PY:
         result: Resultados
     fingerprint:
       check: Verificar huella digital
+      explanation: La siguiente cadena de texto es una representación abreviada y criptografiada de este contenido. Es útil para garantizar que el contenido no haya sido alterado, ya que una única modificación daría lugar a un valor totalmente diferente.
       online_calculator_name: Calculadora MD5 en línea
       replicate_help: Esta huella digital se calcula utilizando un algoritmo hash SHA256. Para poder replicarlo tú mismo, puedes usar una %{online_calculator_link} y copiar y pegar los datos de origen.
       source: Origen
@@ -788,6 +831,7 @@ es-PY:
         decidim/user:
           password: La contraseña es demasiado corta.
           password_confirmation: La confirmación de la contraseña debe coincidir con tu contraseña.
+        error: Hay un error en este campo.
       file_help:
         file:
           explanation: 'Instrucciones para el archivo:'
@@ -841,6 +885,7 @@ es-PY:
           name: Seguidores
           next_level_in: '¡Consigue %{score} usuarios más para seguirte y alcanzar el siguiente nivel!'
           unearned_another: Esta participante todavía no tiene seguidoras.
+          unearned_own: Aún no te sigue nadie.
         index:
           badge_title: "Distintivo %{name}"
           how: Como puedes conseguirlo
@@ -848,28 +893,32 @@ es-PY:
           title: Distintivos
       description: Las insignias son reconocimientos de las acciones de los participantes y el progreso en la plataforma. A medida que comienzas a descubrir, participar e interactuar en la plataforma, ganarás diferentes insignias.
       level: Nivel %{level}
+      reached_top: Has alcanzado el nivel superior para esta insignia.
       title: '¿Qué son las insignias?'
     group_admins:
       actions:
         are_you_sure: '¿Seguro? Esto no eliminará a la participante del grupo.'
         demote_admin: Quitar admin
-      demote:
-        error: Se ha producido un error al eliminar este usuario de la lista de administradores.
-        success: Usuario eliminado de administrador con éxito
       index:
         current_admins: 'Administradores actuales:'
         manage_admins: Administrar administradores
     group_invites:
-      accept:
-        error: Hubo un error al aceptar esta invitación.
-        success: Invitación aceptada exitosamente
       accept_invitation: Aceptar
       accept_or_reject_group_invitations: 'Los siguientes grupos te han invitado a unirte a ellos. Aceptar o rechazar sus solicitudes:'
       index:
         invite: Invitación
         invite_user: Invitar a un usuario
+      invite:
+        error: Se ha producido un error al invitar a esta participante.
+        success: Participante invitada correctamente.
+      reject:
+        error: Se ha producido un error al rechazar esta invitación.
+        success: Invitación rechazada correctamente.
       reject_invitation: Rechazar
     group_members:
+      accept:
+        error: Se ha producido un error al aceptar esta solicitud de incorporación al grupo.
+        success: Solicitud de unirse correctamente aceptada.
       actions:
         are_you_sure: '¿Estás seguro?'
         promote_to_admin: Hacer administrador
@@ -877,20 +926,37 @@ es-PY:
       index:
         current_members_without_admins: 'Miembros actuales (sin administradores):'
         manage_members: Administrar miembros
+      promote:
+        error: Se ha producido un error al promocionar a esta participante.
+        success: Participante promocionada correctamente.
+      reject:
+        error: Se ha producido un error al rechazar esta solicitud de incorporación al grupo.
+        success: Solicitud de unirse rechazada correctamente.
+      remove:
+        error: Se ha producido un error al eliminar a esta participante del grupo.
+        success: Participante eliminada correctamente del grupo.
     groups:
       actions:
         are_you_sure: '¿Estás seguro?'
+      create:
+        error: Se ha producido un error al crear el grupo.
+        success: Grupo creado correctamente.
       edit:
         edit_user_group: Editar grupo
         update_user_group: Grupo de actualización
       form:
+        document_number_help: No utilices guiones ni espacios.
         email_help: Correo electrónico de su organización, asociación, colectivo, grupo, etc.
         fill_in_for_verification: 'Rellene estos campos si desea que se verifique su grupo:'
         name_help: Nombre de su organización, asociación, colectivo, grupo, etc.
         nickname_help: Nombre de usuario de su organización, asociación, colectivo, grupo, etc. No use espacios ni acentos.
+        phone_help: No utilices guiones ni espacios.
       join:
+        error: Se ha producido un error al unirte al grupo.
         success: Únete a la solicitud creada con éxito. Un administrador revisará su solicitud antes de aceptarlo en el grupo.
       leave:
+        error: Se ha producido un error al dejar el grupo.
+        last_admin: No puedes abandonar este grupo porque eres la última administradora. Haz administradora a otra miembro para poder abandonar el grupo.
         success: Grupo salió con éxito.
       members:
         accept_or_reject_join_requests: 'Los siguientes usuarios han solicitado unirse a este grupo. Aceptar o rechazar sus solicitudes:'
@@ -905,11 +971,15 @@ es-PY:
         admin: Administrador
         creator: Administradora
         member: Miembro
+      update:
+        error: Se ha producido un error al actualizar el grupo.
+        success: El grupo se ha actualizado correctamente.
     help:
       main_topic:
         default_page:
           content: "<p>En %{organization} puede participar y decidir sobre diferentes temas, a través de los espacios que ve en el menú superior: Procesos, Asambleas, Iniciativas, Consultas.</p> <p>Dentro de cada una encontrará diferentes opciones para participar: hacer propuestas, individualmente o con otras personas, participar en debates, priorizar proyectos para implementar, asistir a reuniones cara a cara y otras acciones.</p>\n"
           title: '¿Qué puedo hacer en %{organization}?'
+        description: Lee más sobre %{organization}.
         title: Ayuda general
     last_activities:
       activities:
@@ -968,29 +1038,35 @@ es-PY:
           admin_in_group: Recibes esta notificación porque eres administradora de %{group}.
           greeting: '¡Hola, %{recipient}!'
           intro: "%{manager} ha iniciado una nueva conversación en nombre de %{group}. Haz clic aquí para verla:"
+          outro: '¡Disfruta Decidim!'
           subject: "%{manager} ha iniciado una nueva conversación como %{group}"
         comanagers_new_message:
           admin_in_group: Recibes esta notificación porque eres administradora de %{group}.
           greeting: Hola, %{recipient}!
           intro: "%{manager} ha publicado nuevos mensajes en una conversación en nombre de %{group}. Haz clic aquí para verla:"
+          outro: '¡Disfruta Decidim!'
           subject: "%{manager} ha enviado nuevos mensajes como %{group}"
         new_conversation:
           greeting: Hola, %{recipient}!
           intro: "%{sender} ha iniciado una nueva conversación contigo. Haz click aquí para verla:"
+          outro: '¡Disfruta Decidim!'
           subject: "%{sender} ha iniciado una conversación contigo"
         new_group_conversation:
           admin_in_group: Recibes esta notificación porque eres administradora de %{group}.
           greeting: '¡Hola, %{recipient}!'
           intro: "%{sender} ha iniciado una nueva conversación con el grupo %{group}. Haz clic aquí para verla:"
+          outro: '¡Disfruta Decidim!'
           subject: "%{sender} ha iniciado una nueva conversación con %{group}"
         new_group_message:
           admin_in_group: Recibes esta notificación porque eres administradora de %{group}.
           greeting: '¡Hola, %{recipient}!'
           intro: "%{sender} ha iniciado una nueva conversación con el grupo %{group}. Haz clic aquí para verla:"
+          outro: '¡Disfruta Decidim!'
           subject: "%{group} tiene nuevos mensajes de %{sender}"
         new_message:
           greeting: '¡Hola, %{recipient}!'
           intro: "%{sender} ha publicado nuevos mensajes en tu conversación. Haz clic aquí para verlos:"
+          outro: '¡Disfruta Decidim!'
           subject: Tienes nuevos mensajes de %{sender}
       conversations:
         add_conversation_users:
@@ -998,6 +1074,9 @@ es-PY:
           add_users_placeholder: Buscar...
           modal_title: Nueva conversación
           no_results: No hay resultados
+          participant_with_disabled_message_reception: Esta participante no quiere recibir mensajes privados.
+        create:
+          error: No se ha iniciado la conversación. Vuelve a intentarlo más tarde.
         error_modal:
           close: Cerrar modal
           correct_errors: Por favor, corrige los errores e inténtalo de nuevo.
@@ -1007,6 +1086,7 @@ es-PY:
           ago: anteriores
           new_conversation: Nueva conversación
           next: Siguente
+          no_conversations: Aún no tienes ninguna conversarción.
           title: Conversaciones
         reply_form:
           placeholder: Tu respuesta...
@@ -1020,6 +1100,8 @@ es-PY:
         start:
           placeholder: Tu mensaje...
           send: Enviar
+        update:
+          error: El mensaje no se ha enviado debido a un error.
     metrics:
       download:
         csv: Descargar datos (CSV)
@@ -1038,6 +1120,8 @@ es-PY:
     newsletter_mailer:
       newsletter:
         no_reply_notice: Este correo electrónico se ha enviado desde una dirección de correo de notificación que no acepta entrada de correos. Por favor, no respondas a este mensaje.
+        note: Has recibido este correo electrónico porque estás suscrita a boletines de noticias en %{organization_name}. Puedes cambiar esta opción en la <a href="%{link}">configuración de las notificaciones</a>.
+        see_on_website: '¿No puedes ver este correo electrónico correctamente? Accede a su <a href="%{link}" target="_blank" class="see-on-website">versión web</a>.'
         unsubscribe: Si no quieres recibir este tipo de correo electrónico, <a href="%{link}" target="_blank" class="unsubscribe">unsubscríbete</a>.
     newsletter_templates:
       basic_only_text:
@@ -1060,16 +1144,9 @@ es-PY:
         main_image: Imagen principal
     newsletters:
       unsubscribe:
-        check_subscription: Si deseas cambiar tus preferencias, puedes hacerlo en la <a href="%{link}" target="_blank">página de configuración</a>
-        error: Ha habido un error al cancelar la suscripción
         success: Te has dado de baja exitosamente.
         token_error: El enlace ha expirado.
         unsubscribe: Darse de baja
-    newsletters_opt_in:
-      unathorized: Lo sentimos, este enlace ya no está disponible
-      update:
-        error: Algo malo ha sucedido
-        success: Configuración del boletín de noticias actualizada
     newsletters_opt_in_mailer:
       notify:
         body_1: El procesamiento de datos personales y su protección es cada vez más importante para todos nosotros. Con el nuevo Reglamento General de Protección de Datos (RGPD) del 25 de mayo de 2018, las personas tienen un mejor control sobre sus datos personales. Por este motivo, necesitamos tu "OK" para seguir enviando información relevante sobre las actividades del %{organization_name}.
@@ -1104,6 +1181,7 @@ es-PY:
       show:
         administrators: Administradoras
         allow_public_contact: Permitir que cualquier participante me envíe un mensaje directo, incluso si no la sigo.
+        allow_push_notifications: Mostrar notificaciones emergentes para saber qué pasa cuando no estás en la plataforma. Puedes desactivarlas en cualquier momento.
         direct_messages: Recibir mensajes directos de cualquiera
         email_on_moderations: Quiero recibir un correo electrónico cada vez que se reporta algo o a alguien para moderación.
         everything_followed: Todo lo que sigo
@@ -1119,6 +1197,7 @@ es-PY:
         notifications_sending_frequency: '¿Con qué frecuencia quieres recibir el correo resumen de notificaciones?'
         own_activity: Mi propia actividad, como cuando alguien comenta en mi propuesta o me menciona.
         push_notifications: Notificaciones emergentes
+        push_notifications_reminder: Para obtener notificaciones de la plataforma, primero tienes que permitirlas en la configuración de tu navegador.
         receive_notifications_about: Quiero recibir notificaciones sobre
         update_notifications_settings: Guardar cambios
       update:
@@ -1126,6 +1205,7 @@ es-PY:
         success: La configuración de las notificaciones se han actualizado correctamente.
     offline:
       show:
+        message: Parece que estás desconectada. Por favor, inténtalo de nuevo más tarde.
         retry: Reintentar
     open_data:
       not_available_yet: Los ficheros de datos abiertos aún no están disponibles, inténtalo de nuevo en unos minutos.
@@ -1136,6 +1216,7 @@ es-PY:
         verified: Verificada
     pad_iframe:
       disclaimer: Los contenidos de este panel están escritos por usuarios registrados y expresan sus opiniones. %{organization} no se hace responsable de su contenido.
+      explanation: Usa este bloc para tomar notas de manera colaborativa durante el encuentro, para que sea más fácil escribir el acta después.
       pad: Almohadilla
     pages:
       home:
@@ -1176,6 +1257,7 @@ es-PY:
           success: '¡Estupendo! Has aceptado los Términos y Condiciones.'
         form:
           agreement: Estoy de acuerdo con estos términos
+          legend: Acepto los términos y condiciones de uso
         refuse:
           modal_body: Si no aceptas, no podrás utilizar la plataforma, puedes <a href="%{download_your_data_path}">descargar tus datos</a> y/o <a href="%{delete_path}">eliminar tu cuenta</a>.
           modal_btn_continue: Aceptar los términos y continuar
@@ -1184,14 +1266,22 @@ es-PY:
           modal_close: Cerrar modal
           modal_title: '¿Confirmas que no aceptas los Términos y Condiciones actualizados?'
         required_review:
+          alert: Hemos actualizado nuestros Términos de Servicio, por favor, revísalos.
           body: Por favor dedica un momento a revisar la actualización de nuestros Términos de Servicio. De lo contrario, no podrás usar la plataforma.
           title: 'Obligatorio: revisa las actualizaciones de nuestros Términos de Servicio'
     participatory_space_private_users:
       not_allowed: No puedes ver este contenido
+    passwords:
+      update:
+        error: Ha habido un problema al actualizar la contraseña.
+        success: La contraseña se ha actualizado correctamente.
     profile:
+      deleted: Participante eliminada
       inaccessible_message: '¡Este perfil es inaccesible debido a la violación de Términos y Condiciones de uso!'
       view: Ver
     profiles:
+      default_officialization_text_for_user_groups: Este grupo está verificado públicamente, su nombre se ha verificado para que se corresponda con su nombre real.
+      default_officialization_text_for_users: Esta participante está verificada públicamente. Se ha verificado que su nombre o cargo corresponde con su nombre y función reales.
       show:
         activity: Actividad
         badges: Insignias
@@ -1217,9 +1307,11 @@ es-PY:
           manage_user_group_admins: Gestionar administradoras
           manage_user_group_users: Gestionar miembros
           message: Mensaje
+        confirmation_instructions_sent: Instrucciones de confirmación enviadas por correo electrónico.
         create_user_group: Crea un grupo
         edit_profile: Editar perfil
         edit_user_group: Editar perfil de grupo
+        fill_in_email_to_confirm_it: Por favor, introduce el correo electrónico de tu grupo para confirmarlo.
         invite_user: Invitar al usuario
         join_user_group: Solicitud para unirse al grupo
         leave_user_group: Dejar grupo
@@ -1388,6 +1480,7 @@ es-PY:
     user_contact_disabled: Esta participante no acepta mensajes directos.
     user_conversations:
       create:
+        error: El mensaje no se ha podido crear. Vuelve a intentarlo más tarde.
         existing_error: El mensaje no se ha podido crear. La conversación ya existe, por favor inténtalo de nuevo ahora.
         success: '¡Conversación iniciada correctamente!'
       index:
@@ -1402,6 +1495,7 @@ es-PY:
         next: Siguente
         no_conversations_warning: Aún no hay ninguna conversación.
         no_results: No hay resultados
+        participant_with_disabled_message_reception: Esta participante ha desactivado la recepción de mensajes.
         time_ago: "Hace %{time}"
       new:
         title: Iniciar una conversación
@@ -1420,6 +1514,7 @@ es-PY:
       show:
         my_interests: Mis intereses
         no_scopes: '¡Esta organización aún no tiene ningún ámbito!'
+        select_your_interests: Selecciona los temas de tu interés para recibir notificaciones relacionadas con estos en la pestaña de Línea de tiempo dentro de tu perfil público.
         update_my_interests: Actualizar mis intereses
       update:
         error: Hubo un error al actualizar tus intereses.
@@ -1461,6 +1556,7 @@ es-PY:
       show:
         version_index: Versión %{index}
     welcome_notification:
+      default_body: <p>¡Hola {{name}}, gracias por unirte a {{organization}} te damos la bienvenida!</p><ul><li>Si quieres hacerte una idea rápida de que puedes hacer, echa un vistazo a la <a href="{{help_url}}">Sección de ayuda</a>.</li><li>Una vez la hayas leído recibirás tu primera insignia. Aquí encontrarás un <a href="{{badges_url}}">listado de todas las insignias</a>que puedes conseguir participando en {{organization}}</li><li>. Para terminar, pero no por ello menos importante, únete a otras personas, comparte con ellas de estar comprometida y de participar en {{organization}}. Haz propuestas, comentarios, debate, piensa en cómo contribuir a un bien común, aporta argumentos para tratar de convencer, escucha y lee para convencerte, expresa tus ideas de manera concreta y directa, responde con paciencia y decisión, defiende tus ideas y permanece abierta de mente para colaborar y unirte a las ideas de otra gente.</li></ul>
       default_subject: Gracias por unirte a {{organization}}!
     wizard_step_form:
       wizard_aside:
@@ -1508,6 +1604,7 @@ es-PY:
         subject: Instrucciones de confirmación
       email_changed:
         greeting: Hola %{recipient}!
+        message: Nos ponemos en contacto contigo para notificarte que tu correo electrónico se modifica por %{email}.
         subject: Correo electrónico cambiado
       invitation_instructions:
         accept: Aceptar invitación
@@ -1522,8 +1619,17 @@ es-PY:
         someone_invited_you_as_admin: Alguien te ha invitado como administrador de %{application}, puedes aceptar a través del siguiente enlace.
         someone_invited_you_as_private_user: Alguien te ha invitado como usuario_privado de %{application}, puedes aceptarlo a través del siguiente enlace.
         subject: Instrucciones de invitación
+      invite_admin:
+        subject: Te han invitado a administrar %{organization}
+      invite_collaborator:
+        subject: Te han invitado a colaborar en %{organization}
+      invite_private_user:
+        subject: Te han invitado a participar en un proceso participativo privado en %{organization}
+      organization_admin_invitation_instructions:
+        subject: Te han invitado a administrar %{organization}
       password_change:
         greeting: '¡Hola %{recipient}!'
+        message: Nos ponemos en contacto contigo para notificarte que tu contraseña ha sido cambiada.
         subject: Contraseña modificada
       reset_password_instructions:
         action: Cambiar mi contraseña
@@ -1730,6 +1836,8 @@ es-PY:
       notifications_dashboard:
         mark_all_as_read: Marcar todo como leído
         mark_as_read: Marcar como leído
+      offline_banner:
+        cache_version_page: '¡Ups! Tu red está desconectada. Esta es una versión previa en caché de la página que estás visitando, quizás el contenido no está actualizado.'
       social_media_links:
         facebook: "%{organization} en Facebook"
         github: "%{organization} en GitHub"
