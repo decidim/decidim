@@ -70,6 +70,10 @@ module Decidim
         mandatory? && !multiple_choice? && !has_attachments?
       end
 
+      def sorting?
+        question_type == "sorting"
+      end
+
       def mandatory_choices?
         mandatory? && multiple_choice? && !has_attachments?
       end

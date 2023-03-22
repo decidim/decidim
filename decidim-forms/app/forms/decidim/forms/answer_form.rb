@@ -18,7 +18,7 @@ module Decidim
       validates :selected_choices, presence: true, if: :mandatory_choices?
 
       validate :max_choices, if: -> { question.max_choices }
-      validate :all_choices, if: -> { question.question_type == "sorting" }
+      validate :all_choices, if: -> { question.sorting? && question.mandatory? }
       validate :min_choices, if: -> { question.matrix? && question.mandatory? }
       validate :documents_present, if: -> { question.question_type == "files" && question.mandatory? }
       validate :max_characters, if: -> { question.max_characters.positive? }
