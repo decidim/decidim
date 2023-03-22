@@ -264,8 +264,6 @@ cs:
             signatures: S nejvíce podpisy
             title: Nastavení pro iniciativy
         initiatives_type_scopes:
-          destroy:
-            success: Oblast působnosti byla úspěšně odstraněna
           edit:
             back: Zpět
             confirm_destroy: Jste si jisti?
