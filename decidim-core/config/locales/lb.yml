@@ -671,16 +671,10 @@ lb:
     group_admins:
       actions:
         demote_admin: Admin läschen
-      demote:
-        error: Et gouf e Problem beim Läschen vun engem Teilnehmer aus der Lëscht vun den Administrateuren
-        success: Den Teilnehmer gouf aus der Lëscht vun den Administrateuren geläscht
       index:
         current_admins: 'Aktuell Admins:'
         manage_admins: Admins verwalten
     group_invites:
-      accept:
-        error: Et gouf e Problem beim Unhuelen vun dëser Aluedung
-        success: D'Aluedung gouf ugeholl
       accept_invitation: Unhuelen
       accept_or_reject_group_invitations: 'Dës Gruppen hunn dech agelueden dech hinnen unzeschléissen. Hir Ufroen unhuelen oder refuséieren:'
       index:
@@ -865,16 +859,9 @@ lb:
         main_image: Haapt-Bild
     newsletters:
       unsubscribe:
-        check_subscription: Du kanns deng Astellungen hei <a href="%{link}" target="_blank">- Konfiguration Seite</a> änneren
-        error: Et gouf e Problem beim Ofbestellen
         success: Du bass ofgemellt.
         token_error: De Link ass ofgelaf.
         unsubscribe: Ofbestellen
-    newsletters_opt_in:
-      unathorized: Pardon, dësen Link ass net méi verfügbar
-      update:
-        error: Et ass eppes schif gelaf
-        success: D'Astellungen fir den Newsletter goufen aktualiséiert
     newsletters_opt_in_mailer:
       notify:
         body_1: D'Verschaffen vun perséinlechen Daten an hire Schutz, ginn fir ons all ëmmer méi wichteg. Mat der neier RGPD Reglementatioun hunn Eenzelpersounen eng besser Kontroll iwwer hir perséinlech Daten. Aus dem Grond brauchen mir däin "OK" fir dir weiderhin relevant Informatiounen vun %{organization_name} zoukommen ze loossen.
