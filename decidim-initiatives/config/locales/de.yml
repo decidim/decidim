@@ -248,8 +248,6 @@ de:
             signatures: Am häufigsten unterzeichnet
             title: Einstellungen für Initiativen
         initiatives_type_scopes:
-          destroy:
-            success: Der Bereich wurde erfolgreich entfernt
           edit:
             back: Zurück
             confirm_destroy: Bist du sicher?
