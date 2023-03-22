@@ -1,0 +1,25 @@
+.process-about{
+  &__text{
+    @apply py-10 max-w-2xl;
+  }
+
+  &__aside{
+    @apply md:pl-10 text-gray-2 w-full;
+
+    &-title{
+      @apply flex items-center gap-1 mb-6;
+    }
+  }
+
+  &__data{
+    @apply py-4 first:pt-0 last:pb-0 font-normal text-md;
+
+    &-container{
+      @apply divide-y-2 divide-background-3 w-full;
+    }
+
+    &-title{
+      @apply font-semibold uppercase text-sm block;
+    }
+  }
+}

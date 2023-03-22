@@ -5,12 +5,22 @@
   description: translated_attribute(current_participatory_space.short_description),
 ) %>
 
+<% content_for :js_content do %>
+  <%= javascript_pack_tag "decidim_participatory_processes" %>
+<% end %>
+
+<% content_for :css_content do %>
+  <%= stylesheet_pack_tag "decidim_participatory_processes", media: "all" %>
+<% end %>
+
 <%= content_for :participatory_space_actions do %>
   <%= render partial: "layouts/decidim/header/redesigned_menu_buttons", locals: { participatory_space: current_participatory_space } %>
 <% end %>
 
 <%= render "layouts/decidim/redesigned_application" do %>
-  <%= yield %>
+  <main>
+    <%= yield %>
+  </main>
 <% end %>
 
 <% provide :meta_image_url, current_participatory_space.attached_uploader(:banner_image).path %>

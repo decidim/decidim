@@ -466,14 +466,16 @@ describe "Explore meetings", :slow, type: :system do
       expect(page).to have_i18n_content(meeting.title)
       expect(page).to have_i18n_content(meeting.description, strip_tags: true)
       expect(page).to have_i18n_content(meeting.location)
-      # expect(page).to have_i18n_content(meeting.location, upcase: !redesign_enabled_by_configuration?)
+      expect(page).to have_i18n_content(meeting.location)
       expect(page).to have_i18n_content(meeting.location_hints)
       expect(page).to have_content(meeting.address)
       expect(page).to have_content(meeting.reference)
 
-      within "#meetings__meeting_#{meeting.id}" do
+      within ".meeting__calendar-day" do
         expect(page).to have_content(date.day)
-        # expect(page).to have_content(redesign_enabled_by_configuration? ? "00:00\n-\n23:59" : "00:00 - 23:59")
+      end
+      within ".meeting__calendar-time" do
+        expect(page).to have_content("00:00 - 23:59")
       end
     end
 
@@ -535,8 +537,6 @@ describe "Explore meetings", :slow, type: :system do
       end
 
       it "shows related proposals" do
-        skip_unless_redesign_enabled("this test pass with drawers enabled")
-
         visit_component
         click_link translated(meeting.title)
         proposals.each do |proposal|
@@ -558,8 +558,6 @@ describe "Explore meetings", :slow, type: :system do
       end
 
       it "shows related resources" do
-        skip_unless_redesign_enabled("this test pass with drawers enabled")
-
         visit_component
         click_link translated(meeting.title)
         results.each do |result|
@@ -568,19 +566,17 @@ describe "Explore meetings", :slow, type: :system do
       end
     end
 
-    it_behaves_like "has drawer attachments" do
+    it_behaves_like "has redesigned attachments" do
       let(:attached_to) { meeting }
     end
 
     shared_examples_for "a closing report page" do
       it "shows the closing report" do
-        skip_unless_redesign_enabled
-
         visit_component
         click_link translated(meeting.title)
         expect(page).to have_i18n_content(meeting.closing_report)
 
-        within "#drawer_content_frame" do
+        within "[data-content]" do
           expect(page).to have_css(".meeting__aside-block", text: "Attendees count\n#{meeting.attendees_count}")
           expect(page).to have_css(".meeting__aside-block", text: "Attending organizations\n#{meeting.attending_organizations}")
         end
@@ -593,7 +589,7 @@ describe "Explore meetings", :slow, type: :system do
       it_behaves_like "a closing report page"
 
       it "does not show contributions count" do
-        within "#drawer_content_frame" do
+        within "[data-content]" do
           expect(page).to have_no_css(".meeting__aside-block", text: "Contributions count\n0")
         end
       end
@@ -605,7 +601,7 @@ describe "Explore meetings", :slow, type: :system do
       it_behaves_like "a closing report page"
 
       it "shows contributions count" do
-        within "#drawer_content_frame" do
+        within "[data-content]" do
           expect(page).to have_css(".meeting__aside-block", text: "Contributions count\n1")
         end
       end

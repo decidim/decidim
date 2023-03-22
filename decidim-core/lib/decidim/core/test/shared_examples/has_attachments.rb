@@ -45,7 +45,7 @@ shared_examples_for "has attachments" do
   end
 end
 
-shared_examples_for "has drawer attachments" do
+shared_examples_for "has redesigned attachments" do
   context "when it has attachments" do
     let!(:document) { create(:attachment, :with_pdf, attached_to:) }
 
@@ -56,14 +56,12 @@ shared_examples_for "has drawer attachments" do
     end
 
     it "shows them" do
-      skip_unless_redesign_enabled
-
-      find("li[data-controls='panel-documents']").click
+      find("li [data-controls='panel-documents']").click
       within "#panel-documents" do
         expect(page).to have_content(/#{translated(document.title, locale: :en)}/i)
       end
 
-      find("li[data-controls='panel-images']").click
+      find("li [data-controls='panel-images']").click
       within "#panel-images" do
         expect(page).to have_css("img")
       end
@@ -81,14 +79,12 @@ shared_examples_for "has drawer attachments" do
     end
 
     it "shows them ordered" do
-      skip_unless_redesign_enabled
-
-      find("li[data-controls='panel-documents']").click
+      find("li [data-controls='panel-documents']").click
       within "#panel-documents" do
         expect(translated(first_document.title, locale: :en)).to appear_before(translated(last_document.title, locale: :en))
       end
 
-      find("li[data-controls='panel-images']").click
+      find("li [data-controls='panel-images']").click
       within "#panel-images" do
         expect(strip_tags(translated(fist_image.title, locale: :en))).to appear_before(strip_tags(translated(last_image.title, locale: :en)))
       end

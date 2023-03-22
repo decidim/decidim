@@ -55,26 +55,6 @@
     &__container{
       @apply divide-y divide-gray-3;
     }
-
-    &__item{
-      @apply flex flex-col-reverse md:flex-row gap-2 md:gap-12 py-4 first:pt-0 last:pb-0;
-
-      &-time{
-        @apply w-full md:w-1/6 flex-none text-gray-2 text-sm md:text-md;
-      }
-
-      &-content{
-        @apply space-y-2;
-
-        > span:first-child a{
-          @apply text-secondary font-semibold;
-        }
-
-        > span:last-child{
-          @apply flex items-center gap-1 text-gray-2 text-sm;
-        }
-      }
-    }
   }
 
   &__badge{

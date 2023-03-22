@@ -2,7 +2,8 @@
 
 require "spec_helper"
 
-# REDESIGN_PENDING - Enable the examples once integrated the follow button in drawers
+# REDESIGN_PENDING - Enable the examples once integrated the follow button in
+# redesigned layout
 # describe "Follow meetings", type: :system do
 #   let(:manifest_name) { "meetings" }
 

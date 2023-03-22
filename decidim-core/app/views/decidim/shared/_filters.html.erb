@@ -1,0 +1,32 @@
+<%# REDESIGN_PENDING: Same logic as Meetings %>
+
+<%= redesigned_filter_form_for filter, url_for, class: "self-stretch", data: { filters: "", component: "accordion" } do |form| %>
+
+  <%
+    # REDESIGN_PENDIGN: fetch the process filters
+    filters = [];
+  %>
+
+  <% filters.each do |f| %>
+    <div class="filter-container">
+      <button data-controls="panel-dropdown-menu-<%= f[0] %>" data-open="true">
+        <%= icon "arrow-down-s-line" %>
+        <%= icon "arrow-up-s-line" %>
+        <span><%= t(f[0], scope: f[4]) %></span>
+      </button>
+      <div id="panel-dropdown-menu-<%= f[0] %>">
+        <%= form.send(
+            f[1] == "radio" ? "collection_radio_buttons" : "collection_check_boxes",
+            f[2],
+            f[3],
+            :first,
+            :last
+        ) do |builder|
+              builder.label {
+                builder.send(f[1] == "radio" ? "radio_button" : "check_box", class: "reset-defaults" , hidden: true ) + content_tag(:div, builder.text, class: "filter" ) }
+          end %>
+      </div>
+    </div>
+  <% end %>
+
+<% end %>

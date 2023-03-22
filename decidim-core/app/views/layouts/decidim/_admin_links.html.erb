@@ -2,7 +2,7 @@
   <div id="admin-bar" class="admin-bar__container">
     <div class="admin-bar">
       <span class="admin-bar__title"><%= t("decidim.admin.titles.panel") %></span>
-      <%= link_to decidim_admin.root_path, class: "admin-bar__button", data: { turbo: false } do %>
+      <%= link_to decidim_admin.root_path, class: "admin-bar__button" do %>
         <span><%= t("layouts.decidim.user_menu.admin_dashboard") %></span>
         <%= icon "equalizer-line" %>
       <% end %>

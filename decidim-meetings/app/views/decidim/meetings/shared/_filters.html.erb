@@ -13,7 +13,7 @@
     f.append(method: :activity, collection: activity_filter_values, label_scope: "decidim.meetings.meetings.filters", id: "activity", type: :radio_buttons) if filter_options[:activity]
   end %>
 
-<%= redesigned_filter_form_for filter, url_for, class: "new_filter meeting__filter-container", data: { filters: "", component: "accordion", turbo: false } do |form| %>
+<%= redesigned_filter_form_for filter, url_for, class: "new_filter meeting__filter-container", data: { filters: "", component: "accordion" } do |form| %>
   <div class="filter-search filter-container">
     <%= form.search_field search_variable,
       label: false,

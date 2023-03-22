@@ -6,5 +6,9 @@ module Decidim
     def floating_help(id, &)
       render partial: "decidim/shared/floating_help", locals: { content: capture(&), id: }
     end
+
+    def redesigned_floating_help(id, &)
+      render partial: "decidim/shared/redesigned_floating_help", locals: { content: capture(&), id: }
+    end
   end
 end

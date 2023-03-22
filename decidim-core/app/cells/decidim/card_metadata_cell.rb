@@ -5,6 +5,9 @@ module Decidim
   # so other cells only have to customize a few methods or overwrite views.
   class CardMetadataCell < Decidim::ViewModel
     include Decidim::IconHelper
+    include Decidim::ApplicationHelper
+    include Decidim::SanitizeHelper
+    include ActionView::Helpers::DateHelper
 
     alias resource model
 
@@ -22,6 +25,93 @@ module Decidim
     end
 
     private
+
+    def space_item
+      return unless show_space?
+
+      {
+        text: decidim_html_escape(translated_attribute(participatory_space.title)),
+        icon: resource_type_icon_key(participatory_space.class),
+        url: Decidim::ResourceLocatorPresenter.new(participatory_space).path
+      }
+    end
+
+    def comments_count_item
+      return unless model.is_a?(Decidim::Comments::Commentable) && model.commentable?
+      return if (count = model.comments_count).zero?
+
+      {
+        text: count,
+        icon: resource_type_icon_key(:comments_count)
+      }
+    end
+
+    def endorsements_count_item
+      return unless resource.respond_to?(:endorsements_count)
+
+      {
+        text: resource.endorsements_count,
+        icon: resource_type_icon_key(:like)
+      }
+    end
+
+    def author_item
+      return unless authorable?
+
+      {
+        cell: "decidim/redesigned_author",
+        args: [present(resource.author), { from: resource, skip_profile_link: true }]
+      }
+    end
+
+    def coauthors_item
+      # REDESIGN_PENDING - Define a cell to deal with coauthors of a resource.
+      # For the moment this item only shows first coauthor
+      return unless coauthorable?
+
+      presented_author = official? ? "#{resource.class.module_parent}::OfficialAuthorPresenter".constantize.new : present(resource.identities.first)
+
+      {
+        cell: "decidim/redesigned_author",
+        args: [presented_author, { from: resource, skip_profile_link: true }]
+      }
+    end
+
+    def emendation_item
+      # REDESIGN_DETAILS - Maybe this item should be moved to another part of
+      # the card instead of the metadata list
+      return unless resource.try(:emendation?)
+
+      {
+        icon: resource_type_icon_key("other"),
+        text: t("decidim/amendment", scope: "activerecord.models", count: 1)
+      }
+    end
+
+    def dates_item
+      return if dates_blank?
+
+      format = [start_date.year, end_date.year].any? { |year| year != Date.current.year } ? :decidim_short_with_month_name_short : :decidim_with_month_name_short
+      text = if start_date.to_date == end_date.to_date
+               "#{l(start_date.to_date, format:)} #{l(start_date, format: :time_of_day)} - #{l(end_date, format: :time_of_day)}"
+             else
+               "#{l(start_date.to_date, format:)} - #{l(end_date.to_date, format:)}"
+             end
+
+      {
+        text:,
+        icon: "timer-2-line"
+      }
+    end
+
+    def duration_item
+      return if dates_blank?
+
+      {
+        text: distance_of_time_in_words(start_date, end_date, scope: "datetime.distance_in_words.short"),
+        icon: "time-line"
+      }
+    end
 
     def enable_links?
       return true unless options.has_key?(:links)
@@ -43,14 +133,16 @@ module Decidim
       @items.compact
     end
 
-    def space_item
-      return unless show_space?
+    def official?
+      resource.respond_to?(:official?) && resource.official?
+    end
 
-      {
-        text: translated_attribute(participatory_space.title),
-        icon: resource_type_icon_key(participatory_space.class),
-        url: Decidim::ResourceLocatorPresenter.new(participatory_space).path
-      }
+    def authorable?
+      @authorable ||= resource.is_a?(Decidim::Authorable)
+    end
+
+    def coauthorable?
+      @coauthorable ||= resource.is_a?(Decidim::Coauthorable)
     end
 
     def start_date
@@ -80,7 +172,7 @@ module Decidim
     def progress_value
       return if dates_blank?
 
-      @progress_value ||= (end_date - current_date).to_f / (end_date - start_date).to_i if current_date <= end_date
+      @progress_value ||= (end_date - current_date).to_f / (end_date - start_date) if current_date <= end_date
     end
 
     def progress_span
@@ -101,20 +193,6 @@ module Decidim
                          else
                            t("finished", scope: "decidim.metadata.progress")
                          end
-    end
-
-    def official?
-      model.respond_to?(:official?) && model.official?
-    end
-
-    def comments_count_item
-      return unless model.is_a?(Decidim::Comments::Commentable) && model.commentable?
-      return if (count = model.comments_count).zero?
-
-      {
-        text: count,
-        icon: resource_type_icon_key(:comments_count)
-      }
     end
   end
 end

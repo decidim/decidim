@@ -6,7 +6,6 @@ module Decidim
   # This cell renders the diff between `:old_data` and `:new_data`.
   class DiffCell < Decidim::ViewModel
     include Cell::ViewModel::Partial
-    include Turbo::FramesHelper
     include LayoutHelper
     include ActionView::Helpers::FormOptionsHelper
 

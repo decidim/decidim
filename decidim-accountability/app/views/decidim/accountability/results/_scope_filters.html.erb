@@ -18,7 +18,7 @@
       <ul id="dropdown-menu" data-scope-filters>
         <% items.each do |item| %>
           <li>
-            <%= link_to item[:url], class: "filter#{ ' is-active' if item[:active]}", data: { turbo_action: "replace" } do %>
+            <%= link_to item[:url], class: "filter#{ ' is-active' if item[:active]}" do %>
               <span class="sr-only"><%= item[:sr_text] %></span>
               <%= icon item[:icon] %>
               <span><%= item[:text] %></span>

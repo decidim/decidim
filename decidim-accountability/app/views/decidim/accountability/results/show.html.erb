@@ -21,9 +21,4 @@ edit_link(
   <%= stylesheet_pack_tag "decidim_accountability", media: "all" %>
 <% end %>
 
-<%= turbo_frame_tag "main_frame", src: results_path(refresh_filter: false) %>
-
-<%= turbo_frame_tag "project_frame" do %>
-  <%= render partial: "project", locals: { result: result } %>
-  <%= turbo_stream_action_tag :open_drawer, frame_id: :project_frame %>
-<% end %>
+<%= render partial: "project", locals: { result: result } %>

@@ -1,0 +1,25 @@
+<%= link_to resource_path, class: "card__grid" do %>
+  <% if resource_image_path.present? %>
+    <div class="card__grid-img">
+      <%= image_tag resource_image_path, alt: title %>
+    </div>
+  <% end %>
+
+  <div class="card__grid-text">
+    <h3 class="h4 text-secondary">
+      <%= title %>
+    </h3>
+    <%# REDESIGN_PENDING: replace static fields %>
+    <div class="card__grid-metadata">
+      <div>
+        <%= icon "group-2-line" %>
+        <%= translated_attribute(model.meta_scope) %>
+      </div>
+      <div>
+        <%# REDESIGN_PENDING: replace static fields %>
+        <%= icon "bubble-chart-line" %>
+        8 assemblies
+      </div>
+    </div>
+  </div>
+<% end %>

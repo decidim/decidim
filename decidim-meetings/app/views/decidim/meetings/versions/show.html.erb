@@ -1,27 +1,20 @@
-<%= turbo_frame_tag "main_frame",  src: meetings_path %>
+<% content_for :aside do %>
+  <%= cell(
+    "decidim/versions_list",
+    versioned_resource,
+    version_path: proc { |version_index| url_for(action: :show, id: version_index) },
+    i18n_scope: "decidim.meetings.versions"
+  ) %>
+<% end %>
 
-<%= turbo_frame_tag "meeting_frame" do %>
-  <% content_for :drawer_aside do %>
-    <%= cell(
-      "decidim/versions_list",
-      versioned_resource,
-      version_path: proc { |version_index| url_for(action: :show, id: version_index) },
-      i18n_scope: "decidim.meetings.versions",
-      turbo_frame: :drawer_content_frame
-    ) %>
-  <% end %>
-
-  <%= render layout: "layouts/decidim/shared/drawer", locals: { close_url: meetings_path } do %>
-    <%= cell(
-      "decidim/version",
-      current_version,
-      index: params[:id],
-      versioned_resource: versioned_resource,
-      path: proc { |extra_params| url_for(action: :show, id: params[:id], **extra_params) },
-      versions_path: proc { url_for(action: :index) },
-      i18n_scope: "decidim.meetings.versions",
-      turbo_frame: :drawer_content_frame
-    ) %>
-  <% end %>
-  <%= turbo_stream_action_tag :open_drawer, frame_id: :meeting_frame %>
+<%= render layout: "layouts/decidim/shared/layout_item", locals: { back_path: meeting_path(versioned_resource) } do %>
+  <%= cell(
+    "decidim/version",
+    current_version,
+    index: params[:id],
+    versioned_resource: versioned_resource,
+    path: proc { |extra_params| url_for(action: :show, id: params[:id], **extra_params) },
+    versions_path: proc { url_for(action: :index) },
+    i18n_scope: "decidim.meetings.versions"
+  ) %>
 <% end %>

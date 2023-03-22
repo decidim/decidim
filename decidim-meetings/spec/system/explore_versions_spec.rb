@@ -55,20 +55,11 @@ describe "Explore versions", versioning: true, type: :system do
     # it_behaves_like "accessible page"
 
     it "allows going back to the meeting" do
-      click_link "Go back to meeting"
+      click_link "Back"
       expect(page).to have_current_path meeting_path
     end
 
-    it "allows going back to the versions list" do
-      skip "REDESIGN_PENDING: Once redesigned this page will contain a call to the versions_list cell with links to each one"
-
-      click_link "Show all versions"
-      expect(page).to have_current_path "#{meeting_path}/versions"
-    end
-
     it "shows the version author and creation date" do
-      skip_unless_redesign_enabled("this test pass using redesigned version_author cell")
-
       within ".version__author" do
         expect(page).to have_content("test suite")
         expect(page).to have_content(Time.zone.today.strftime("%d/%m/%Y"))

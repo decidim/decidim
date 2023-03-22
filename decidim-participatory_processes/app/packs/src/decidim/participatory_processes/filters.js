@@ -1,3 +1,6 @@
+/**
+ * @deprecated since feature/redesign
+ */
 $(() => {
   const $processesGrid = $("#processes-grid");
   const $loading = $processesGrid.find(".loading");

@@ -1,0 +1,34 @@
+<%
+  # REDESIGN_PENDING: Integrate this
+
+  items = []
+
+  items << { icon: "group-2-line", title: t("assembly_type", scope: "decidim.assemblies.show"), method: :content_tag, args: [:span, translated_attribute(current_participatory_space.meta_scope)] }
+  items << { icon: "calendar-line", title: t("duration", scope: "decidim.assemblies.show"), method: :content_tag, args: [:span, current_participatory_space.duration] }
+
+  # items << { icon: "archive-line", title: t("belongs_to_group", scope: "decidim.participatory_processes.show"), method: :link_to, args: [translated_attribute(participatory_process_group.title), participatory_process_group_path(participatory_process_group)] } if participatory_process_group.present?
+%>
+
+<div class="assembly__metadata">
+  <% items.each_with_object({}) do |item| %>
+    <div class="assembly__metadata-item">
+      <div class="assembly__metadata-item-title">
+        <%= icon item[:icon] %>
+        <span><%= item[:title] %></span>
+      </div>
+      <%= send(item[:method], *item[:args]).to_s.html_safe %>
+    </div>
+  <% end %>
+
+  <%# REDESIGN_PENDING: fix path %>
+  <a href="<%= "last_activities_path" %>" class="assembly__metadata-link">
+    <div class="assembly__metadata-link-endorsers">
+      <% Decidim::User.take(6).each do |user| %>
+        <span class="endorsers-list__avatar">
+          <%= cell "decidim/author", present(user), layout: :avatar, skip_profile_link: true %>
+        </span>
+      <% end %>
+    </div>
+    <span><%= t("see_all_activity", scope: "decidim.content_blocks.last_activity") %></span>
+  </a>
+</div>

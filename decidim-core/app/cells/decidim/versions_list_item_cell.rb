@@ -3,7 +3,6 @@
 module Decidim
   class VersionsListItemCell < Decidim::ViewModel
     include Decidim::LayoutHelper
-    include Decidim::TurboHelper
 
     def version
       model
@@ -42,7 +41,7 @@ module Decidim
     end
 
     def html_options
-      @html_options ||= (options[:html_options] || {}).deep_merge(turbo_frame_options(options[:turbo_frame]))
+      @html_options ||= options[:html_options] || {}
     end
   end
 end

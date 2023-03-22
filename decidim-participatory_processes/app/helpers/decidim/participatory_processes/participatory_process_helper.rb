@@ -56,6 +56,26 @@ module Decidim
           image_url: block.images_container.attached_uploader(:background_image).path(variant: :big)
         )
       end
+
+      # Items to display in the navigation of a process
+      def process_nav_items(participatory_space)
+        components = participatory_space.components.published.or(Decidim::Component.where(id: try(:current_component)))
+
+        [
+          {
+            name: t("process_menu_item", scope: "layouts.decidim.process_navigation"),
+            url: decidim_participatory_processes.participatory_process_path(participatory_space),
+            active: is_active_link?(decidim_participatory_processes.participatory_process_path(participatory_space), :exclusive) ||
+              is_active_link?(decidim_participatory_processes.all_metrics_participatory_process_path(participatory_space), :exclusive)
+          }
+        ] + components.map do |component|
+          {
+            name: translated_attribute(component.name),
+            url: main_component_path(component),
+            active: is_active_link?(main_component_path(component), :inclusive)
+          }
+        end
+      end
     end
   end
 end

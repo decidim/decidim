@@ -1,7 +1,7 @@
-<%= render layout: "layouts/decidim/shared/drawer", locals: { close_url: meetings_path } do %>
+<%= render layout: "layouts/decidim/shared/layout_item", locals: nav_paths do %>
   <div class="meeting__container">
 
-    <h1 class="h2 decorator" data-heading-tag><%= present(meeting).title(links: true, html_escape: true ) %></h1>
+    <h1 class="h2 decorator"><%= present(meeting).title(links: true, html_escape: true ) %></h1>
 
     <%= cell "decidim/meetings/dates_and_map", meeting %>
 
@@ -54,7 +54,7 @@
     <div class="mt-8">
       <ul class="drawer-metadata__container" data-metadata-footer>
         <%= content_tag :li, resource_reference(meeting), class: "drawer-metadata__item" %>
-        <%= content_tag :li, resource_version(meeting, versions_path: meeting_version_path(meeting, meeting.versions.count), **turbo_frame_options(:drawer_content_frame)), class: "drawer-metadata__item" %>
+        <%= content_tag :li, resource_version(meeting, versions_path: meeting_version_path(meeting, meeting.versions.count)), class: "drawer-metadata__item" %>
         <%= content_tag :li, link_to(t("add_to_calendar", scope: "decidim.meetings.meetings.calendar_modal"), nil, remote: true, data: { dialog_open: "calendarShare_#{meeting.id}" }), class: "drawer-metadata__item" %>
       </ul>
     </div>
@@ -63,7 +63,7 @@
     <%#= cell("decidim/flag_modal", meeting) %>
   </div>
 
-  <% content_for :drawer_aside do %>
+  <% content_for :aside do %>
 
     <div class="space-y-4">
       <% if allowed_to?(:update, :meeting, meeting: meeting) %>

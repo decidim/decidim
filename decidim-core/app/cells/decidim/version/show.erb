@@ -3,11 +3,4 @@
   <%= render_resource_editor(current_version) %>
 </div>
 
-<turbo-frame id="version_diff_frame">
-  <%= cell("decidim/diff", current_version, path:) %>
-</turbo-frame>
-
-<%= link_to resource_path, class: "button button__sm button__text-secondary", **html_options do %>
-  <%= icon "arrow-left-line", class: "fill-current" %>
-  <span><%= i18n_back_to_resource %></span>
-<% end %>
+<%= cell("decidim/diff", current_version, path:) %>

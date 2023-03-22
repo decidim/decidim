@@ -15,15 +15,17 @@ module Decidim
       "Decidim::Blogs::Post" => "pen-nib-line",
       "Decidim::Proposals::Proposal" => "chat-new-line",
       "Decidim::Consultations::Question" => "question-mark",
+      "Decidim::Consultation" => "question-mark",
       "Decidim::Budgets::Order" => "check-double-line",
+      "Decidim::Budgets::Budget" => "coin-line",
       "Decidim::Assembly" => "government-line",
       "Decidim::ParticipatoryProcess" => "treasure-map-line",
       "Decidim::Category" => "price-tag-3-line",
       "Decidim::Scope" => "scan-line",
-      "Decidim::Conference" => "question-mark", # REDESIGN_PENDING: icon unknown
-      "Decidim::Consultation" => "question-mark", # REDESIGN_PENDING: icon unknown
+      "Decidim::Conference" => "mic-line",
       "Decidim::Votings::Voting" => "check-double-fill",
-      "Decidim::Accountability::Result" => "treasure-map-line",
+      "Decidim::User" => "user-line",
+      "Decidim::UserGroup" => "group-line",
       "comments_count" => "wechat-line",
       "upcoming" => "calendar-2-line",
       "past" => "calendar-check-line",
@@ -98,6 +100,13 @@ module Decidim
 
     def resource_type_icon_key(resource_type)
       DEFAULT_RESOURCE_TYPE_ICONS[resource_type.to_s] || DEFAULT_RESOURCE_TYPE_ICONS["other"]
+    end
+
+    def text_with_resource_icon(resource_name, text)
+      output = ""
+      output += resource_type_icon resource_name
+      output += content_tag :span, text
+      output.html_safe
     end
   end
 end

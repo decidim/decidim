@@ -6,6 +6,7 @@ module Decidim
     #
     module ApplicationHelper
       include Decidim::ResourceHelper
+      include PaginateHelper
     end
   end
 end

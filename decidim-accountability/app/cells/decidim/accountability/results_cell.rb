@@ -9,10 +9,6 @@ module Decidim
       include Decidim::CardHelper
 
       alias results model
-
-      def turbo_frame
-        @turbo_frame ||= options[:turbo_frame] || "project_frame"
-      end
     end
   end
 end
