@@ -35,6 +35,7 @@ fr-CA:
       decidim/component_published_event: Fonctionnalité active
       decidim/demoted_membership: N'est plus un administrateur de groupe
       decidim/gamification/badge_earned_event: Badge gagné
+      decidim/gamification/level_up_event: Vous avez atteint un niveau supérieur
       decidim/invited_to_group_event: Invitation à rejoindre un groupe
       decidim/join_request_accepted_event: Demande de participation acceptée
       decidim/join_request_rejected_event: Demande de participation rejetée
@@ -136,6 +137,7 @@ fr-CA:
         success: Votre compte a été supprimé avec succès.
       download_your_data_export:
         file_no_exists: Le fichier n'existe pas
+        notice: "The download of your data is currently in progress. You will receive an email when it is complete.\nLe téléchargement de vos données est en cours. Vous recevrez un email lorsque celui-ci sera terminé."
       email_change:
         body1: Nous avons envoyé un e-mail à %{unconfirmed_email} pour vérifier votre nouvelle adresse e-mail.
         body2: Envoyer à nouveau l'e-mail de vérification ? %{resend_link} ou %{cancel_link}.
@@ -151,6 +153,7 @@ fr-CA:
       update:
         error: Une erreur s'est produite lors de la mise à jour de votre compte.
         success: Votre compte a été mis à jour avec succès.
+        success_with_email_confirmation: Votre compte a été mis à jour avec succès. Vous recevrez un email pour confirmer votre nouvelle adresse.
     activity:
       time_ago: "il y a %{time}"
     admin:
@@ -380,6 +383,7 @@ fr-CA:
           title: Autorisation expirée
         incomplete:
           cancel: Annuler
+          explanation: "Even though you are currently authorized with \"%{authorization}\", we need you to reauthorize because we lack the following data:\nBien que vous soyez actuellement autorisé avec \"%{autorisation}\", nous avons besoin de vous réautoriser suite aux données manquantes suivantes :"
           invalid_field: "%{field}"
           reauthorize: Autoriser de nouveau
           title: Veuillez autoriser de nouveau
@@ -387,6 +391,8 @@ fr-CA:
           authorize: Autoriser avec "%{authorization}"
           explanation: Pour effectuer cette action, vous devez être autorisé avec "%{authorization}".
           title: Autorisation requise
+        ok:
+          title: "You have been authorized while in this page. Please, reload the page to perform your action.\nVous avez été autorisé à accéder à cette page. Veuillez recharger celle-ci pour effectuer votre action."
         pending:
           title: L'autorisation est toujours en cours de validation
         unauthorized:
@@ -565,9 +571,6 @@ fr-CA:
         download_data_description: Un fichier contenant toutes les informations associées à votre compte sera envoyé à <strong>%{user_email}</strong>. Cet e-mail contiendra un fichier .zip et un mot de passe pour l'ouvrir.<br/><br/>Pour décompresser le fichier, vous aurez besoin de <a href="https://www.7-zip.org/">7-Zip</a> (pour Windows) ou <a href="https://www.keka.io/">Keka</a> (pour MacOS). Si vous utilisez Linux, la plupart du temps, vous l'aurez installé par défaut. Sinon, vous pouvez utiliser <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> ou <a href="https://peazip.github.io">PeaZip</a>.
         request_data: Demander les données
     editor_images:
-      create:
-        error: Erreur lors de l'envoi de l'image
-        success: Image envoyée avec succès
       drag_and_drop_help: Ajoutez des images en les glissant - déposant ou en les collant depuis votre presse-papier.
     endorsable:
       endorsements: Soutiens
@@ -597,6 +600,7 @@ fr-CA:
       not_found:
         back_home: Retour à l'accueil
         content_doesnt_exist: Cette adresse web est incorrecte ou n'existe plus.
+        title: La page que vous cherchez est introuvable
     events:
       amendments:
         amendment_accepted:
@@ -662,9 +666,15 @@ fr-CA:
         email_subject: Mise à jour de %{resource_title}
       gamification:
         badge_earned:
+          email_intro: Félicitations! Vous avez obtenu le <a href="%{resource_url}">badge %{badge_name}</a> (niveau %{current_level}).
           email_outro: Vous avez reçu cette notification car vous avez été actif sur notre plateforme.
+          email_subject: 'Vous avez gagné un nouveau badge : %{badge_name} !'
+          notification_title: Félicitations! Vous avez obtenu le <a href="%{resource_path}">badge %{badge_name}</a> (niveau %{current_level}).
         level_up:
+          email_intro: Félicitations! Vous avez atteint le niveau %{current_level} sur le <a href="%{resource_url}">badge %{badge_name} </a>!
           email_outro: Vous avez reçu cette notification car vous avez été actif sur notre plateforme.
+          email_subject: Vous avez atteint le niveau %{current_level} sur le badge %{badge_name} !
+          notification_title: Félicitations! Vous avez atteint le niveau %{current_level} sur le <a href="%{resource_path}">badge %{badge_name} </a>!
       groups:
         demoted_membership:
           email_intro: Un administrateur du groupe <a href="%{resource_url}">%{user_group_name}</a> a supprimé vos droits d'administrateur sur ce groupe.
@@ -757,6 +767,7 @@ fr-CA:
         result: Réalisations
     fingerprint:
       check: Vérifiez l'empreinte numérique
+      explanation: "The piece of text below is a shortened, hashed representation of this content. It is useful to ensure the content has not been tampered with, as a single modification would result in a totally different value.\nLe texte ci-dessous est une représentation abrégée et hachée de ce contenu. Il est utile de s'assurer que le contenu n'a pas été altéré, car une seule modification donnerait une valeur totalement différente."
       online_calculator_name: calculateur de hash MD5 en ligne
       replicate_help: Cette empreinte numérique est calculée à l'aide d'un algorithme de hachage SHA256. Pour le reproduire vous-même, vous pouvez utiliser un %{online_calculator_link} et copier-coller les données.
       source: Source
@@ -840,6 +851,7 @@ fr-CA:
           name: Suiveurs
           next_level_in: Obtenez %{score} autres utilisateurs à vous suivre pour atteindre le niveau suivant!
           unearned_another: Ce participant n’a pas encore de followers.
+          unearned_own: Vous n'avez pas encore de followers.
         index:
           badge_title: "%{name} badge"
           how: Comment l'obtenir
@@ -847,21 +859,16 @@ fr-CA:
           title: Insignes
       description: Les badges sont une reconnaissance des actions des participants et des progrès dans la plateforme. Au fur et à mesure que vous commencez à découvrir, à participer et à interagir sur la plateforme, vous gagnez différents badges.
       level: Niveau %{level}
+      reached_top: Vous avez atteint le plus haut niveau pour ce badge.
       title: Que sont les badges ?
     group_admins:
       actions:
         are_you_sure: Êtes-vous sûr? Cela ne supprimera pas l'utilisateur du groupe.
         demote_admin: Supprimer admin
-      demote:
-        error: Une erreur s'est produite lors de la suppression de cet utilisateur de la liste des administrateurs.
-        success: Utilisateur retiré de l'administrateur avec succès
       index:
         current_admins: 'Administrateurs actuels:'
         manage_admins: Gérer les administrateurs
     group_invites:
-      accept:
-        error: Une erreur s'est produite lors de l'acceptation de cette invitation.
-        success: Invitation acceptée avec succès
       accept_invitation: Acceptez
       accept_or_reject_group_invitations: 'Les groupes suivants vous ont invité à les rejoindre. Accepter ou rejeter leurs demandes:'
       index:
@@ -890,6 +897,7 @@ fr-CA:
       join:
         success: Demande de jointure créée avec succès. Un administrateur examinera votre demande avant de vous accepter au groupe.
       leave:
+        last_admin: "You cannot remove yourself from this group as you're the last administrator. Make another member an administrator in order to leave the group.\n\nVous ne pouvez pas vous retirer de ce groupe car vous êtes le dernier administrateur. Pour quitter le groupe, vous devez nommer un autre membre administrateur."
         success: Le groupe est parti avec succès.
       members:
         accept_or_reject_join_requests: 'Les utilisateurs suivants ont demandé à rejoindre ce groupe. Accepter ou rejeter leurs demandes:'
@@ -1037,6 +1045,8 @@ fr-CA:
     newsletter_mailer:
       newsletter:
         no_reply_notice: Cet e-mail a été envoyé à partir d'une adresse automatique qui ne peut pas recevoir d'e-mail. Veuillez ne pas répondre à ce message.
+        note: Vous avez reçu ce courrier électronique parce que vous êtes abonné aux bulletins d'information de %{organization_name}. Vous pouvez modifier vos paramètres sur votre <a href="%{link}">page de notifications</a>.
+        see_on_website: "Cannot see this email correctly? View it on the <a href=\"%{link}\" target=\"_blank\" class=\"see-on-website\">website</a>.\nCet email ne s'affiche pas correctement ? Affichez-le dans un navigateur <a href=\"%{link}\" target=\"_blank\" class=\"see-on-website\">website</a>."
         unsubscribe: Pour ne plus recevoir ce type d'email, <a href="%{link}" target="_blank" class="unsubscribe">Désabonnez-vous</a>.
     newsletter_templates:
       basic_only_text:
@@ -1059,16 +1069,9 @@ fr-CA:
         main_image: Image principale
     newsletters:
       unsubscribe:
-        check_subscription: Si vous souhaitez modifier vos préférences, vous pouvez le faire dans la page des <a href="%{link}" target="_blank">paramètres des notifications</a>
-        error: Un problème est survenu lors de la désinscription
         success: Vous vous êtes désabonné avec succès.
         token_error: Le lien a expiré.
         unsubscribe: Se désabonner
-    newsletters_opt_in:
-      unathorized: Désolé, ce lien n'est plus disponible
-      update:
-        error: Désolé, un problème est survenu
-        success: Paramètres de newsletter mis à jour avec succès
     newsletters_opt_in_mailer:
       notify:
         body_1: Le traitement des données personnelles et leur protection deviennent de plus en plus importants pour nous tous. Avec le nouveau règlement général sur la protection des données (RGPD) du 25 mai 2018, les individus contrôlent mieux leurs données personnelles. Pour cette raison, nous avons besoin de votre accord pour continuer à vous envoyer des informations pertinentes sur les activités de %{organization_name}.
@@ -1103,6 +1106,7 @@ fr-CA:
       show:
         administrators: Administrateurs
         allow_public_contact: "Allow anyone to send me a direct message, even if I do not follow them.\nAutoriser tout le monde à m'envoyer un message direct même si je ne les suis pas."
+        allow_push_notifications: Recevez des notifications push pour savoir ce qui se passe lorsque vous n'êtes pas sur la plateforme. Vous pouvez les désactiver à tout moment.
         direct_messages: Recevoir des messages directs de n'importe qui
         email_on_moderations: Je veux recevoir un email chaque fois que quelqu'un ou qu'une ressource a été signalé à des fins de modérations.
         everything_followed: Tout ce que je suis
@@ -1118,6 +1122,7 @@ fr-CA:
         notifications_sending_frequency: À quelle fréquence voulez-vous recevoir les notifications par e-mail ?
         own_activity: Ma propre activité, comme quand quelqu'un commente dans ma proposition ou me mentionne
         push_notifications: Notifications push
+        push_notifications_reminder: Pour recevoir des notifications de la plateforme, vous devez d'abord les autoriser dans les paramètres de votre navigateur.
         receive_notifications_about: Je veux recevoir des notifications sur
         update_notifications_settings: Enregistrer les modifications
       update:
@@ -1125,6 +1130,7 @@ fr-CA:
         success: Vos paramètres de notifications ont été mis à jour avec succès.
     offline:
       show:
+        message: Il semble que vous êtes actuellement hors ligne. Veuillez réessayer plus tard.
         retry: Réessayer
     open_data:
       not_available_yet: Les fichiers Open Data ne sont pas encore disponibles. Veuillez réessayer dans quelques minutes.
@@ -1135,6 +1141,7 @@ fr-CA:
         verified: Vérifié
     pad_iframe:
       disclaimer: Le contenu de ce bloc-notes est écrit par les utilisateurs enregistrés et exprime leurs opinions. %{organization} ne peut être tenu responsable de son contenu.
+      explanation: Utilisez ce pavé numérique pour prendre des notes en collaboration pendant la réunion afin de faciliter la rédaction minute après minute.
       pad: Pad
     pages:
       home:
@@ -1420,6 +1427,7 @@ fr-CA:
       show:
         my_interests: Mes intérêts
         no_scopes: Cette organisation n'a pas encore de secteurs !
+        select_your_interests: Sélectionnez les sujets qui vous intéressent pour recevoir les événements qui y sont liés dans l'onglet Chronologie de votre profil.
         update_my_interests: Mettre à jour mes intérêts
       update:
         error: Une erreur s'est produite lors de la mise à jour de vos centres d'intérêt.
@@ -1461,6 +1469,7 @@ fr-CA:
       show:
         version_index: Version %{index}
     welcome_notification:
+      default_body: <p>Bonjour {{name}}, merci d'avoir rejoint {{organization}} et bienvenue!</p><ul><li>Si vous souhaitez avoir une idée rapide de ce que vous pouvez faire ici, consultez la section <a href="{{help_url}}">Aide</a> .</li><li>En somme, rejoignez d'autres personnes, partagez avec eux l'expérience d'être engagés et participer à {{organization}}. Faites des propositions, des commentaires, lancez des débats, réfléchissez à la manière de contribuer au bien commun, fournissez des arguments pour convaincre, écoutez et lisez pour être convaincu, exprimez vos idées de manière concrète et directe, répondez avec patience et décision, défendez vos idées dans un esprit ouvert pour collaborer et enrichir les idées des autres.</li></ul>
       default_subject: Merci d'avoir rejoint {{organization}}!
     wizard_step_form:
       wizard_aside:
@@ -1508,6 +1517,7 @@ fr-CA:
         subject: Instructions de confirmation
       email_changed:
         greeting: Bonjour %{recipient}!
+        message: Nous vous contactons pour vous informer que votre adresse e-mail a été modifiée à %{email}.
         subject: Courriel modifié
       invitation_instructions:
         accept: Accepter l'invitation
@@ -1522,8 +1532,17 @@ fr-CA:
         someone_invited_you_as_admin: Vous avez été invité en tant qu'administrateur de %{application}, vous pouvez l'accepter via le lien ci-dessous.
         someone_invited_you_as_private_user: Vous avez été invité en tant qu'utilisateur privé de %{application}, vous pouvez l'accepter via le lien ci-dessous.
         subject: Instructions d'invitation
+      invite_admin:
+        subject: Vous avez été invité(e) à gérer %{organization}
+      invite_collaborator:
+        subject: Vous avez été invité(e) à gérer %{organization}
+      invite_private_user:
+        subject: Vous avez été invité(e) à un processus participatif privé à %{organization}
+      organization_admin_invitation_instructions:
+        subject: Vous avez été invité(e) à gérer %{organization}
       password_change:
         greeting: Bonjour %{recipient} !
+        message: Nous vous contactons pour vous informer que votre mot de passe a été modifié.
         subject: Mot de passe modifié
       reset_password_instructions:
         action: Changer mon mot de passe
@@ -1730,6 +1749,8 @@ fr-CA:
       notifications_dashboard:
         mark_all_as_read: Marquer tout comme lu
         mark_as_read: Marquer comme lu
+      offline_banner:
+        cache_version_page: "Oooops! Your network is offline. This is a previously cached version of the page you are visiting, perhaps the content is not up to date.\nDésolé ! Votre réseau est hors ligne. Il s'agit d'une version antérieurement mise en cache de la page que vous visitez, dont le contenu n'est peut-être pas à jour."
       social_media_links:
         facebook: "%{organization} sur Facebook"
         github: "%{organization} sur GitHub"
