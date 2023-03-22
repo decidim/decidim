@@ -131,6 +131,7 @@ sk:
         actions:
           refuse: "Odmietnuť podmienky použitia pre administrátorov.\n"
         required_review:
+          alert: 'Vyžaduje sa: oboznámiť sa s administrátorskými podmienkami použitia'
           cta: Oboznámte sa s nimi teraz.
       area_types:
         create:
