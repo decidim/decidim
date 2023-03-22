@@ -206,8 +206,6 @@ nl:
             new: Nieuw
             photos: Foto's
         initiatives_type_scopes:
-          destroy:
-            success: De scope is succesvol verwijderd
           edit:
             back: Terug
             confirm_destroy: Weet je het zeker?
