@@ -270,8 +270,6 @@ ja:
           create:
             error: エラーが発生しました。
             success: 指定されたイニシアチブタイプの新しいスコープが作成されました。
-          destroy:
-            success: スコープを削除しました
           edit:
             back: 戻る
             confirm_destroy: よろしいですか？
