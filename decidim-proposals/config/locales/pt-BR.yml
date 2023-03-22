@@ -473,7 +473,7 @@ pt-BR:
             votes_ranking: Classificação por votos
           update_category:
             invalid: 'Estas propostas já tinham a categoria %{subject_name}: %{proposals}.'
-            select_a_category: Selecione uma categoria
+            select_a_category: Por favor, selecione uma categoria
             select_a_proposal: Selecione uma proposta
             success: 'Propostas atualizadas com sucesso para a categoria %{subject_name}: %{proposals}.'
           update_scope:
