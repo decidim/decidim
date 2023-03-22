@@ -180,6 +180,8 @@ fr-CA:
           feedback_form_answers: Feedbacks des répondants
         mailers:
           trustee_mailer:
+            body: "<p>Hi %{user_name},</p><p>You have been added as a trustee to %{resource_name}.</p>\n<p>Bonjour %{nom_utilisateur},</p><p>Vous avez été ajouté(e) en tant qu'administrateur à %{nom_ressource}.</p>"
+            subject: "You have been added as a trustee to %{resource_name}\nVous avez été ajouté(e) comme administrateur à %{nom_de_la_ressource}"
             trustee_zone: Emmenez-moi dans la zone des garants
         menu:
           trustees: Garants
@@ -239,7 +241,6 @@ fr-CA:
               time_before: La configuration est réalisée <strong>au moins %{hours} heures</strong> avant le début de l'élection.
               trustees_number: L'espace participatif <strong>doit avoir au moins %{number} garants avec une clé publique</strong>.
             submit: Configurer l'élection
-            success: Élection envoyée avec succès au Tableau de Bord
             title: Configurer l'élection
             trustees: Garants de l'élection
           created:
@@ -277,7 +278,6 @@ fr-CA:
             continue: Continuer
             mark_as_missing: Marquer comme absent
             mark_as_missing_description: "All the trustees should participate in this process, but if a trustee cannot take part in the process, you can mark it as missing.\nTous les garants doivent participer à ce processus, toutefois, si l'un deux ne peut pas y participer, vous pouvez le marquer comme manquant."
-            success: Le signalement du garant absent a été envoyé avec succès sur le Tableau d'Affichage
             tally_completion: Le processus sera terminé lorsque tout les garants seront marqués comme actif ou absent. Au moins %{quorum} garants sont requis pour compléter le processus.
             title: Dépouillement
             undo_mark_as_missing: Un garant marqué comme absent par erreur sera capable de participer avant l'achèvement du processus. Ils peuvent procéder comme d'habitude et le signalement d'absence sera ignoré.
@@ -387,6 +387,7 @@ fr-CA:
           verifiable_results:
             checksum: 'Somme de contrôle SHA256:'
             description:
+              not_ready: Le fichier de vérification électoral et la somme de contrôle SHA256 ne sont pas encore disponibles. Dès que les résultats seront publiés, vous serez en mesure de vérifier cette élection.
               ready: 'Ici, vous avez la possibilité de vérifier l''élection. D''abord, vous devez télécharger le fichier et vous assurer qu''il n''a pas été corrompu. Pour ce faire, exécutez la commande suivante et vérifiez que la sortie correspond à la somme de contrôle :'
             how_to_verify: 'Une fois le fichier téléchargé et vérifié qu''il est correct, vous pouvez exécuter le vérificateur universel. Clonez <a href=''https://github.com/decidim/decidim-bulletin-board''>ce dépôt</a> et, depuis le dossier racine, exécutez la commande suivante :'
             title: Vérifier les résultats de l'élection
@@ -444,6 +445,7 @@ fr-CA:
       feedback:
         answer:
           invalid: Un problème est survenu lors de l'envoi de votre commentaire.
+          spam_detected: "There was a problem answering the form. Maybe you have been too quick, can you try again?\nUne erreur est survenue lorsque vous avez répondu au questionnaire. Pouvez-vous réessayer ?"
           success: Votre avis a bien été envoyé.
       models:
         answer:
@@ -530,7 +532,6 @@ fr-CA:
             title: Dépouillement pour %{election}
           update:
             error: Le statut de l'élection n'a pas été mis à jour.
-            success: 'Le statut de l''élection est : %{status}'
         menu:
           trustee_zone: Espace de garant
         no_bulletin_board:
@@ -568,6 +569,7 @@ fr-CA:
                 invalid_key: Impossible de charger les clés d'identification à partir du fichier téléchargé.
                 invalid_public_key: Les clés d'identification dans le fichier téléchargé ne correspondent pas à la clé d'identification publique stockée.
               upload_legend: "The server has your public identification keys, but your browser still does not have it. You need to import the file with your identification keys to your computer from the backup you created after generating them.\nLe serveur dispose de vos clés d'identification publiques, mais pas votre navigateur. Vous devez importer le fichier contenant vos clés d'identification sur votre ordinateur à partir de la sauvegarde que vous avez créée après les avoir générées."
+            not_supported_browser_description: "It looks like you are using a web browser that cannot be used to act as a Trustee. Make sure you're using the most recent version of your browser, or try using any of the most popular browsers to be able to complete your tasks.\nIl semblerait que votre navigateur web ne peut pas être utilisé pour agir en tant qu'administrateur. Assurez-vous d'utiliser la dernière version ou essayez d'utiliser l'un des navigateurs les plus populaires afin de réaliser vos tâches."
             not_supported_browser_title: Mettre à niveau le navigateur pour agir en tant que garant
             trustee_role_description: Vous avez été assigné à agir en tant que garant lors de certaines des élections mises en place sur cette plateforme.
           update:
@@ -578,6 +580,7 @@ fr-CA:
           back: Recommencer le processus de vote
           ballot_hash: 'L''identifiant de votre bulletin est:'
           cast: Remplir le bulletin pour terminer votre vote
+          description: Ici, vous pouvez valider votre vote de sorte qu'il soit correctement comptabilisé ou alternativement vous pouvez vérifier que votre bulletin a bien été chiffré. Pour des raisons de sécurité, l’audit de votre bulletin révélera son contenu. Si vous souhaitez valider votre vote, vous devrez donc recommencer le processus de vote.
           header: 'Le bulletin est chiffré: validez-le ou auditez-le'
         casting:
           header: Vote en cours...
@@ -669,15 +672,18 @@ fr-CA:
         trustees:
           new_election:
             email_intro: Vous avez été ajouté en tant que garant pour l'élection %{resource_title}.
+            email_outro: "You have received this notification because you have been added as trustee for the %{resource_title} election.\nVous avez reçu cette notification parce que vous avez été ajouté(e) comme administrateur de l'élection \"%{resource_title}\". Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”."
             email_subject: Vous avez été ajouté en tant que garant pour l'élection %{resource_title}.
             notification_title: Vous êtes garant de l'élection <a href="%{resource_path}">%{resource_title}</a>.
           new_trustee:
             email_intro: Un administrateur vous a ajouté en tant que garant de %{resource_name}. Vous devriez créer votre clé publique <a href='%{trustee_zone_url}'>dans votre espace de garant</a>
+            email_outro: "You have received this notification because you have been added as trustee for %{resource_name}.\nVous avez reçu cette notification parce que vous avez été ajouté(s) en tant qu'administrateur pour %{nom_de_la_ressource}."
             email_subject: Vous avez été ajouté en tant que garant pour l'élection %{resource_name}.
             notification_title: Vous êtes garant de <a href="%{participatory_space_url}">%{resource_name}</a>.
         votes:
           accepted_votes:
             email_intro: 'Votre vote a été accepté ! En utilisant votre jeton de vote : %{encrypted_vote_hash}, vous pouvez vérifier votre vote <a href="%{verify_url}">ici</a>.'
+            email_outro: "You have received this notification because you have voted for the %{resource_name} election.\nVous avez reçu cette notification parce que vous avez voté pour l'élection %{nom_de_la_ressource}.\n"
             email_subject: Votre vote pour %{resource_name} a été accepté.
             notification_title: 'Votre vote a été accepté. Vérifiez votre vote <a href="%{verify_url}">ici</a> en utilisant votre jeton de vote : %{encrypted_vote_hash}'
       votings:
@@ -723,9 +729,6 @@ fr-CA:
           new:
             create: Créer
             title: Créer un style de bulletin
-          update:
-            invalid: Il y a eu un problème lors de la création de ce style de bulletin
-            success: Style de bulletin mis à jour avec succès
         content_blocks:
           highlighted_votings:
             max_results: Nombre maximum d'éléments à afficher
@@ -1101,6 +1104,7 @@ fr-CA:
             info_text: Fermeture électorale du bureau de vote.
           sign:
             cancel: Annuler
+            check_box: "I have reviewed this and is the same as the physical electoral closure certificate\nAprès vérification, ce certificat est identique au certificat physique de clôture des élections"
             close_modal: Clore
             confirm: Ok, continuer
             error: Une erreur est survenue, veuillez réessayer.
@@ -1119,6 +1123,7 @@ fr-CA:
             census_verified_with_online_vote: Ce participant a déjà voté en ligne. S'il vote en personne, les votes précédents seront invalidés et ce sera le vote définitif.
             complete_voting: Vote terminé
             identify_another: Identifier un autre participant
+            questions_title: "They are entitled to vote in the following questions:\nIls/elles ont le droit de voter sur les questions suivantes :"
             questions_title_voted: 'Le participant a déjà voté en ligne et a le droit de voter dans les questions suivantes :'
             voted: Le participant a voté
           create:
