@@ -39,6 +39,15 @@ describe "ExternalDomainWarning", type: :system do
     end
   end
 
+  context "when url has invalid protocols" do
+    let(:invalid_url) { "http://#{organization.host}/link?external_url=javascript://example.org%250aalert(document.location.host)" }
+
+    it "shows invalid url alert" do
+      visit invalid_url
+      expect(page).to have_content("Invalid URL")
+    end
+  end
+
   context "when the url is malformed" do
     let(:invalid_url) do
       "http://#{organization.host}/link?external_url=javascript:alert(document.location.host)//%0ahttps://www.example.org"

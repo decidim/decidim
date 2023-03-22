@@ -38,7 +38,10 @@ module Decidim
     end
 
     def external_url
-      @external_url ||= URI.parse(params[:external_url]).to_s
+      @external_url ||= begin
+        uri = URI.parse(params[:external_url])
+        uri.is_a?(URI::HTTP) ? uri.to_s : ""
+      end
     end
   end
 end
