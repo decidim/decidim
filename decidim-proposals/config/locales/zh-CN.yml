@@ -341,9 +341,6 @@ zh-CN:
             bottom_hint: "(您将能够预览和排序文档部分)"
             title: 添加文档
             upload_document: 上传文档
-          publish:
-            invalid: 无法发布提案
-            success: 所有建议已经发布
           sections:
             article: "<em>文章</em>"
             sub-section: "<em>子部分：</em> %{title}"
@@ -396,7 +393,6 @@ zh-CN:
             title: 创建提案
           publish_answers:
             number_of_proposals: '%{number} 建议的答案将被发布。'
-            select_a_proposal: 请选择一个提议
           show:
             amendments_count: 修改计数
             assigned_valuators: 分配给值者
@@ -425,13 +421,9 @@ zh-CN:
             votes_ranking: 支持排序方式
           update_category:
             invalid: '这些建议已经有 %{subject_name} 分类: %{proposals}。'
-            select_a_category: 请选择一个类别
-            select_a_proposal: 请选择一个提议
             success: '建议已成功更新到 %{subject_name} 类别： %{proposals}。'
           update_scope:
             invalid: '这些建议已经有 %{subject_name} 范围： %{proposals}。'
-            select_a_proposal: 请选择一个提议
-            select_a_scope: 请选择范围
             success: '建议已成功更新到 %{subject_name} 范围： %{proposals}。'
         proposals_imports:
           new:
@@ -538,17 +530,14 @@ zh-CN:
         requests:
           accepted_request:
             error: 无法接受为协作者，请稍后再试。
-            success: "@%{user} 已被成功接受为合作者"
           access_requested:
             error: 您的请求无法完成，请稍后再试。
-            success: 您的合作请求已成功发送
           collaboration_requests:
             accept_request: 接受
             reject_request: 拒绝
             title: 协作请求
           rejected_request:
             error: 无法以协作者身份拒绝，请稍后再试。
-            success: "@%{user} 已被成功拒绝为合作者"
         show:
           back: 后退
           edit: 编辑协作草稿
