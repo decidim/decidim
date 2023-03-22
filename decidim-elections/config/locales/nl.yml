@@ -168,7 +168,6 @@ nl:
               time_before: Alles wordt klaargezet <strong>minstens %{hours} uur</strong> voor de stemronde begint.
               trustees_number: De participatieve ruimte <strong>moet minstens %{number} trustees met publieke sleutel</strong> hebben.
             submit: Nieuwe stemronde instellen
-            success: Stemronde succesvol verzonden naar het Bulletin Board
             title: Nieuwe stemronde
             trustees: Verkiezing Trustees
           key_ceremony:
@@ -191,7 +190,6 @@ nl:
             title: Berekende resultaten
           tally_started:
             mark_as_missing: Als ontbrekend markeren
-            success: Het rapport met de ontbrekende trustees is met succes verzonden naar het Bulletin Board
             tally_completion: Het proces zal worden voltooid wanneer alle trustees actief zijn of als ontbrekend zijn aangeduid. Tenminste %{quorum} trustees zijn vereist om het proces te voltooien.
             undo_mark_as_missing: Zolang het proces niet is voltooid zal een trustee die per ongeluk is gemarkeerd als ontbrekend kunnen deelnemen. Ze kunnen doorgaan zoals gebruikelijk en de aanduiding als 'ontbrekend' wordt genegeerd.
           vote:
@@ -370,8 +368,6 @@ nl:
             upload_icon: Icoon dat een downloadactie aangeeft
           tally_started_steps:
             description: De resultaten voor deze verkiezingen worden berekend in de Bulletin Board. Om dit proces te voltooien, is uw deelname als Trustee nodig.
-          update:
-            success: 'De verkiezingsstatus is: %{status}'
         menu:
           trustee_zone: Trustee zone
         no_bulletin_board:
@@ -538,9 +534,6 @@ nl:
           new:
             create: Creëren
             title: Maak stembriefstijl
-          update:
-            invalid: Er is een probleem opgetreden bij het bijwerken van deze stembriefstijl
-            success: Stembriefstijl succesvol bijgewerkt
         content_blocks:
           highlighted_votings:
             max_results: Maximum aantal elementen dat kan worden weergegeven
