@@ -230,8 +230,6 @@ it:
             new: Nuovo
             photos: Foto
         initiatives_type_scopes:
-          destroy:
-            success: L'ambito è stato rimosso con successo
           edit:
             back: Indietro
             confirm_destroy: Sei sicuro?
