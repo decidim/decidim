@@ -39,7 +39,7 @@ ja:
         body: 本文
         subject: 件名
       organization:
-        admin_terms_of_use_body: 利用規約本文
+        admin_terms_of_use_body: 管理者向け利用規約の本文
         alert_color: アラート
         available_authorizations: 利用可能な認証方式
         badges_enabled: バッジを有効にする
@@ -208,7 +208,7 @@ ja:
           refuse: 同意しない
           title: 利用規約に同意する
         required_review:
-          alert: '必須：管理者の利用規約を確認してください'
+          alert: '必須：管理者向け利用規約を確認してください'
           callout: 管理者の利用規約を確認してください。そうでなければ、プラットフォームを管理することはできません。
           cta: 今すぐレビューしましょう。
         title: 管理者の利用規約
@@ -514,8 +514,6 @@ ja:
             detail: ファイルに必要な列が含まれていることを確認してください。
             message:
               other: 列 %{columns} が見つかりません。
-        error: インポート中に問題が発生しました
-        example_error: 指定された型の例を作成できませんでした
         new:
           accepted_mime_types:
             csv: csv
@@ -527,7 +525,6 @@ ja:
           download_example_format: '%{name} の例'
           file_legend: 解析されるインポート ファイルを追加します。
           import: インポート
-        notice: "%{number} %{resource_name} を正常にインポートしました"
       logs:
         filters:
           participatory_space: 参加型スペースを探す
