@@ -357,9 +357,6 @@ gl:
         download_data: Descarga os datos
         request_data: Solicitar datos
     editor_images:
-      create:
-        error: Erro ó subir a imaxe
-        success: Imaxe subida con éxito
       drag_and_drop_help: Engade imaxes arrastrándoas ou pegándoas aquí.
     endorsable:
       endorsements: Aprobacións
@@ -559,16 +556,10 @@ gl:
     group_admins:
       actions:
         demote_admin: Eliminar administrador
-      demote:
-        error: Produciuse un erro ao eliminar este usuario da lista de administradores
-        success: Usuario eliminado do administrador con éxito
       index:
         current_admins: 'Administradores actuais:'
         manage_admins: Xestionar os administradores
     group_invites:
-      accept:
-        error: Houbo un erro ao aceptar esta invitación
-        success: Invitación aceptada con éxito
       accept_invitation: Aceptar
       accept_or_reject_group_invitations: 'Os seguintes grupos convidáronlle a unirse a eles. Aceptar ou rexeitar as súas solicitudes:'
       index:
@@ -689,16 +680,9 @@ gl:
         unsubscribe: Para desactivar a recepción deste tipo de correo electrónico, <a href="%{link}" target="_blank" class="unsubscribe">Subscribe</a>.
     newsletters:
       unsubscribe:
-        check_subscription: Se queres cambiar as túas preferencias, podes facelo na <a href="%{link}" target="_blank">configuración páxina</a>
-        error: Produciuse un erro ao cancelar a subscrición
         success: Estás desubscrito con éxito.
         token_error: A ligazón caducou.
         unsubscribe: Anular a suscripción
-    newsletters_opt_in:
-      unathorized: Esta ligazón xa non está dispoñible
-      update:
-        error: Aconteceu algo mal
-        success: Configuracións do boletín informativo actualizáronse con éxito
     newsletters_opt_in_mailer:
       notify:
         body_1: O procesamento de datos persoais ea súa protección é cada vez máis importante para todos. Coa nova norma xeral de protección de datos (GDPR) do 25 de maio de 2018, os individuos teñen un mellor control sobre os seus datos persoais. Por este motivo necesitamos o "OK" para seguir enviando información relevante sobre as actividades do %{organization_name}.
