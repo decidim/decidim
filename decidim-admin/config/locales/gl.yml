@@ -32,6 +32,7 @@ gl:
         body: Corpo
         subject: Asunto
       organization:
+        admin_terms_of_use_body: Corpo para o texto das condicións de uso do administrador/a
         alert_color: Alerta
         available_authorizations: Autorizacións dispoñíbeis
         badges_enabled: Activar emblemas
@@ -170,6 +171,7 @@ gl:
         actions:
           refuse: Rexeitar os termos de uso
         required_review:
+          alert: 'Requirido: Revisa os nosos termos de uso do panel de administración'
           cta: Revísaos agora.
       area_types:
         create:
@@ -456,8 +458,6 @@ gl:
             message:
               one: Falta a columna %{columns}.
               other: Faltan as columnas %{columns}.
-        error: Produciuse un problema durante a importación
-        example_error: Non foi posíbel crear un exemplo para o tipo dado
         new:
           accepted_mime_types:
             csv: csv
@@ -469,7 +469,6 @@ gl:
           download_example_format: Exemplo com %{name}
           file_legend: Engadir un ficheiro de importación para o análise.
           import: Importar
-        notice: "%{number}%{resource_name} importados con éxito"
       managed_users:
         promotion:
           error: Produciuse un erro ao promover o usuario xestor.
