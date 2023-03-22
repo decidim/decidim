@@ -241,8 +241,6 @@
             signatures: Flest signeringer
             title: Innstillinger for initiativer
         initiatives_type_scopes:
-          destroy:
-            success: Temaet ble fjernet
           edit:
             back: Tilbake
             confirm_destroy: Er du sikker?
