@@ -194,8 +194,6 @@ lv:
             new: Jauns
             photos: Fotogrāfijas
         initiatives_type_scopes:
-          destroy:
-            success: Darbības tvērums ir veiksmīgi noņemts
           edit:
             back: Atpakaļ
             confirm_destroy: Vai esat pārliecināts?
