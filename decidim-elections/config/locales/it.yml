@@ -184,7 +184,6 @@ it:
               time_before: La configurazione viene eseguita <strong>almeno %{hours} ore</strong> prima dell'inizio delle elezioni.
               trustees_number: Lo spazio partecipativo ha <strong>almeno %{number} fiduciari con chiave pubblica</strong>.
             submit: Imposta elezione
-            success: Elezione inviata con successo al Bollettino
             title: Imposta elezione
             trustees: Fiduciari Delle Elezioni
           created:
@@ -445,8 +444,6 @@ it:
                 cast: Invio del conteggio
                 share: Condivisione del conteggio
             title: Conteggio di %{election}
-          update:
-            success: 'Lo stato delle elezioni è: %{status}'
         menu:
           trustee_zone: Zona Garanti
         no_bulletin_board:
@@ -625,9 +622,6 @@ it:
           new:
             create: Crea
             title: Crea stile di voto
-          update:
-            invalid: Si è verificato un errore durante l'aggiornamento di questo stile di voto
-            success: Stile di voto aggiornato con successo
         content_blocks:
           highlighted_votings:
             max_results: Quantità massima di elementi da mostrare
