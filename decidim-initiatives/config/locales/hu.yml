@@ -242,8 +242,6 @@ hu:
             signatures: Legtöbb aláírással rendelkező
             title: Kezdeményezések beállításai
         initiatives_type_scopes:
-          destroy:
-            success: A hatáskör eltávolítása sikeres volt
           edit:
             back: Vissza
             confirm_destroy: Biztos vagy benne?
