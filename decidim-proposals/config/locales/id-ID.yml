@@ -276,9 +276,6 @@ id:
             bottom_hint: "(Anda akan dapat melihat dan menyortir bagian dokumen)"
             title: TAMBAHKAN DOKUMEN
             upload_document: Unggah dokumen
-          publish:
-            invalid: Tidak dapat memublikasikan proposal
-            success: Semua proposal telah dipublikasikan
           sections:
             article: "<em>Pasal</em>"
             section: "<em>Bagian:</em> <strong>%{title}</strong>"
@@ -323,19 +320,12 @@ id:
           new:
             create: Membuat
             title: Buat proposal
-          publish_answers:
-            select_a_proposal: Silakan pilih proposal
           show:
             authors: Penulis
             body: Tubuh
             created_at: Tanggal pembuatan
             proposals: Proposal
             votes_count: Suara menghitung
-          update_category:
-            select_a_category: Silakan pilih kategori
-            select_a_proposal: Silakan pilih proposal
-          update_scope:
-            select_a_proposal: Silakan pilih proposal
         proposals_imports:
           new:
             create: Mengimpor proposal
@@ -437,17 +427,14 @@ id:
         requests:
           accepted_request:
             error: Tidak dapat diterima sebagai kolaborator, coba lagi nanti.
-            success: "@%{user} telah diterima sebagai kolaborator dengan sukses"
           access_requested:
             error: Permintaan Anda tidak dapat diselesaikan, coba lagi nanti.
-            success: Permintaan Anda untuk berkolaborasi telah berhasil dikirim
           collaboration_requests:
             accept_request: Menerima
             reject_request: Menolak
             title: Permintaan kolaborasi
           rejected_request:
             error: Tidak dapat ditolak sebagai kolaborator, coba lagi nanti.
-            success: "@%{user} telah ditolak sebagai kolaborator dengan sukses"
         show:
           back: Kembali
           edit: Edit draf kolaboratif
