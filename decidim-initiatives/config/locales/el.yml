@@ -194,8 +194,6 @@ el:
             new: Νέα
             photos: Φωτογραφίες
         initiatives_type_scopes:
-          destroy:
-            success: Το πεδίο εφαρμογής καταργήθηκε με επιτυχία
           edit:
             back: Πίσω
             confirm_destroy: Είστε βέβαιοι;
