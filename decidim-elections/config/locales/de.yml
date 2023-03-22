@@ -198,7 +198,6 @@ de:
               time_before: Die Wahl wird <strong>mindestens %{hours} Stunden</strong> vor Beginn eingerichtet.
               trustees_number: <strong>Mindestens %{number} Wahlhelfer mit Public Key</strong> sind vorhanden.
             submit: Wahl einrichten
-            success: Wahl erfolgreich an das Bulletin Board gesendet
             title: Wahl einrichten
             trustees: Wahlhelfer
           created:
@@ -235,7 +234,6 @@ de:
           tally_started:
             continue: Fortfahren
             mark_as_missing: Als fehlend markieren
-            success: Eine Meldung über das Fehlen des Wahlhelfers wurde erfolgreich ans Forum gesendet
             tally_completion: Der Prozess wird abgeschlossen, wenn alle Wahlhelfer aktiv sind oder als fehlend markiert wurden. Mindestens %{quorum} Wahlhelfer sind erforderlich, um den Prozess abzuschließen.
             title: Stimmenzähl-Prozess
             undo_mark_as_missing: Ein Wahlhelfer, der versehentlich als fehlend markiert wurde, kann vor Abschluss des Prozesses teilnehmen. Sie können wie gewohnt fortfahren und die fehlend-Markierung wird ignoriert.
@@ -467,8 +465,6 @@ de:
               completed: Abgeschlossen
               pending: Ausstehend
             title: Stimmenzählung für %{election}
-          update:
-            success: 'Der Wahlstatus ist: %{status}'
         menu:
           trustee_zone: Wahlhelfer Zone
         no_bulletin_board:
@@ -637,9 +633,6 @@ de:
           new:
             create: Erstellen
             title: Wahlkategorie erstellen
-          update:
-            invalid: Beim Aktualisieren dieser Wahlkategorie ist ein Problem aufgetreten
-            success: Wahlkategorie erfolgreich aktualisiert
         content_blocks:
           highlighted_votings:
             max_results: Maximale Anzahl angezeigte Elemente
