@@ -44,7 +44,7 @@ describe "ExternalDomainWarning", type: :system do
 
     it "shows invalid url alert" do
       visit invalid_url
-      expect(page).not_to have_content("Invalid URL")
+      expect(page).to have_content("Invalid URL")
     end
   end
 
