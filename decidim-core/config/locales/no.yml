@@ -479,9 +479,6 @@
         download_data_description: En fil som inneholder all informasjon tilknyttet kontoen din vil bli sendt til <strong>%{user_email}</strong>. Denne e-posten inneholder en .zip-fil og et passord for å åpne den.<br/><br/>For å pakke ut filen vil du trenge <a href="https://www.7-zip.org/">7-Zip</a> (for Windows) eller <a href="https://www.keka.io/">Keka</a> (for MacOS). Hvis du bruker Linux vil du i de fleste tilfeller ha den installert som standard. Dersom dette ikke stemmer, kan du bruke <a href="https://gitlab.gnome.org/GNOME/file-roller">filroller</a> eller <a href="https://peazip.github.io">PeaZip</a>).
         request_data: Etterspør informasjonen
     editor_images:
-      create:
-        error: Feil ved opplasting av bilde
-        success: Opplasting fullført
       drag_and_drop_help: Legg til bilder ved å dra og slippe eller lime dem inn.
     endorsable:
       endorsements: Påtegnelser
@@ -706,16 +703,10 @@
     group_admins:
       actions:
         demote_admin: Fjern admin
-      demote:
-        error: Det oppstod et problem med å fjerne denne deltakeren fra administrator listen
-        success: Deltakeren ble fjernet fra administrator
       index:
         current_admins: 'Nåværende administratorer:'
         manage_admins: Administrer administrator
     group_invites:
-      accept:
-        error: Det oppstod et problem med å godta denne invitasjonen
-        success: Invitasjonen ble godtatt
       accept_invitation: Aksepter
       accept_or_reject_group_invitations: 'Følgende grupper har invitert deg til å bli med dem. Godta eller avvis forespørslene:'
       index:
@@ -900,16 +891,9 @@
         main_image: Hovedbilde
     newsletters:
       unsubscribe:
-        check_subscription: Hvis du vil endre preferansene dine, kan du gjøre det på <a href="%{link}" target="_blank">konfigurasjons siden</a>
-        error: Det oppstod et problem med å avslutte abonnementet
         success: Du har avsluttet ditt abonnement.
         token_error: Lenken er utløpt.
         unsubscribe: Avslutt abonnement
-    newsletters_opt_in:
-      unathorized: Beklager, denne lenken er ikke lenger tilgjengelig
-      update:
-        error: Det oppstod en feil
-        success: Innstillinger for nyhetsbrev ble oppdatert
     newsletters_opt_in_mailer:
       notify:
         body_1: Behandlingen av personopplysninger og deres beskyttelse blir stadig viktigere for oss alle. Med den nye General Data Protection Regulation (GDPR) av 25. mai 2018, har enkeltpersoner bedre kontroll over personopplysningene sine. Av denne grunn trenger vi din "OK" for å fortsette å sende relevant informasjon om aktivitetene til %{organization_name}.
