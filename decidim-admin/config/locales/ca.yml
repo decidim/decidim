@@ -39,7 +39,7 @@ ca:
         body: Cos
         subject: Assumpte
       organization:
-        admin_terms_of_use_body: Text pels termes i condicions d'ús
+        admin_terms_of_use_body: Cos del text de condicions d'ús per als administradors
         alert_color: Alerta
         available_authorizations: Autoritzacions disponibles
         badges_enabled: Habilitar les ensenyes
@@ -208,7 +208,7 @@ ca:
           refuse: Rebutjar els termes
           title: Accepto les condicions d'ús
         required_review:
-          alert: 'Necessari: Revisa els nostres termes i condicions d''administació'
+          alert: 'Requerit: Revisa els nostres Termes i Condicions del panell d''administració'
           callout: Si us plau, dedica un moment a revisar els nostres termes i condicions d'administració. En cas contrari, no podràs administrar la plataforma.
           cta: Revisa-les ara.
         title: Termes i condicions d'ús d'administració
@@ -519,8 +519,6 @@ ca:
             message:
               one: Falta la columna %{columns}.
               other: Falten les columnes %{columns}.
-        error: S'ha produït un error durant la importació
-        example_error: No s'ha pogut crear un exemple per al tipus facilitat
         new:
           accepted_mime_types:
             csv: CSV
@@ -532,7 +530,6 @@ ca:
           download_example_format: Exemple de %{name}
           file_legend: Afegir un arxiu d'importació que serà processat.
           import: Importar
-        notice: "%{count} %{resource_name} importat correctament"
       logs:
         filters:
           participatory_space: Trobar espai de participació
