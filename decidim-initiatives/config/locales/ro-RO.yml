@@ -236,8 +236,6 @@ ro:
             new: Nou
             photos: Poze
         initiatives_type_scopes:
-          destroy:
-            success: Domeniul de interes a fost eliminat cu succes
           edit:
             back: Înapoi
             confirm_destroy: Sigur dorești asta?
