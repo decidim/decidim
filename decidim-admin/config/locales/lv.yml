@@ -129,6 +129,7 @@ lv:
         actions:
           refuse: Nepiekrist administratora noteikumiem
         required_review:
+          alert: 'Obligāti: pārskatiet mūsu administratora lietošanas noteikumus'
           cta: Pārskatiet tos tagad.
       area_types:
         create:
