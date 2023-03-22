@@ -4,6 +4,10 @@ module Decidim
   module ParticipatoryProcesses
     module ContentBlocks
       class RelatedProcessesCell < Decidim::ContentBlocks::BaseCell
+        def show
+          render if total_count.positive?
+        end
+
         def related_processes
           @related_processes ||=
             resource

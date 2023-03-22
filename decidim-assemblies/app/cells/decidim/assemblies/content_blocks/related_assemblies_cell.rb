@@ -4,6 +4,10 @@ module Decidim
   module Assemblies
     module ContentBlocks
       class RelatedAssembliesCell < Decidim::ContentBlocks::BaseCell
+        def show
+          render if total_count.positive?
+        end
+
         def related_assemblies
           @related_assemblies ||=
             resource
