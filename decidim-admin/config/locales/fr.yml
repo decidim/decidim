@@ -39,7 +39,7 @@ fr:
         body: Corps de texte
         subject: Objet
       organization:
-        admin_terms_of_use_body: Accepter les conditions générales
+        admin_terms_of_use_body: Corps du texte pour les conditions d'utilisation de l'admin
         alert_color: Alerte
         available_authorizations: Autorisations disponibles
         badges_enabled: Activer les badges
@@ -208,7 +208,7 @@ fr:
           refuse: Refuser les conditions d'utilisation administrateur
           title: Accepter les conditions d’utilisation
         required_review:
-          alert: 'Obligatoire : Consultez nos conditions générales d''administration'
+          alert: 'Obligatoire: Consultez nos conditions d''utilisation administrateur'
           callout: Veuillez prendre un moment pour examiner les conditions d'utilisation de l'administrateur. Sinon, vous ne serez pas en mesure de gérer la plateforme.
           cta: Consultez les maintenant.
         title: Conditions d'utilisation administrateur
@@ -519,8 +519,6 @@ fr:
             message:
               one: Colonne %{columns} manquante.
               other: Colonnes %{columns} manquantes.
-        error: Un problème est survenu lors de l'import
-        example_error: Impossible de créer un exemple pour le type donné
         new:
           accepted_mime_types:
             csv: csv
@@ -532,7 +530,6 @@ fr:
           download_example_format: Exemple comme %{name}
           file_legend: Ajouter un fichier d'import qui sera analysé.
           import: Importer
-        notice: "%{count} %{resource_name} importées avec succès"
       logs:
         filters:
           participatory_space: Trouver un espace participatif
