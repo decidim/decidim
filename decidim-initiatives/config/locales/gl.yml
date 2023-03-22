@@ -167,8 +167,6 @@ gl:
             preview: Vista previa
             print: Imprimir
         initiatives_type_scopes:
-          destroy:
-            success: O alcance foi eliminado con éxito
           edit:
             back: De volta
             confirm_destroy: Estás seguro?
