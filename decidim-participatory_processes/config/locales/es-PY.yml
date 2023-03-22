@@ -182,6 +182,12 @@ es-PY:
           inactive_content_blocks: Bloques de contenido inactivos
           title: Contenidos de la página
       participatory_process_group_landing_page_content_blocks:
+        create:
+          error: Se ha producido un error al intentar crear este bloque de contenido.
+          success: El bloque de contenido se ha creado correctamente.
+        destroy:
+          error: Se ha producido un error al intentar eliminar este bloque de contenido.
+          success: Bloque de contenido eliminado correctamente.
         edit:
           update: Actualizar
       participatory_process_groups:
@@ -354,6 +360,10 @@ es-PY:
           contextual: "<p>A <strong>proceso participativo</strong> es una secuencia de actividades de participación (por ejemplo, primero llenar una encuesta, a continuación, hacer propuestas, discutirlos en reuniones cara a cara o virtuales, y, finalmente, dar prioridad a ellos) con el objetivo de definir y tomar una decisión sobre un tema específico.</p> <p>Ejemplos de procesos participativos son: un proceso de elección de los miembros del comité (donde las candidaturas se presentan primero, luego se debate y finalmente se elige una candidatura), los presupuestos participativos (donde se hacen las propuestas, se valoran económicamente y se vota con el dinero disponible) un proceso de planificación estratégica, la redacción colaborativa de un reglamento o norma, el diseño de un espacio urbano o la producción de un plan de política pública.</p>\n"
           page: "<p>A <strong>proceso participativo</strong> es una secuencia de actividades de participación (por ejemplo, primero llenar una encuesta, a continuación, hacer propuestas, discutirlos en reuniones cara a cara o virtuales, y, finalmente, dar prioridad a ellos) con el objetivo de definir y tomar una decisión sobre un tema específico.</p> <p>Ejemplos de procesos participativos son: un proceso de elección de los miembros del comité (donde las candidaturas se presentan primero, luego se debate y finalmente se elige una candidatura), los presupuestos participativos (donde se hacen las propuestas, se valoran económicamente y se vota con el dinero disponible) un proceso de planificación estratégica, la redacción colaborativa de un reglamento o norma, el diseño de un espacio urbano o la producción de un plan de política pública.</p>\n"
           title: '¿Qué es un proceso participativo?'
+    log:
+      value_types:
+        participatory_process_type_presenter:
+          not_found: 'Este tipo de proceso no se encontró en la base de datos (ID: %{id}).'
     menu:
       processes: Procesos
     metrics:
@@ -471,6 +481,8 @@ es-PY:
               one: 1 proceso futuro
               other: "%{count} próximos procesos"
           explanations:
+            no_active: Sin procesos activos.
+            no_active_nor_upcoming: No hay procesos activos ni futuros.
             no_active_nor_upcoming_callout: No hay procesos activos ni futuros. Aquí hay una lista de los pasados.
           filter_by: Mostrar
           names:
