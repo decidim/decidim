@@ -39,6 +39,7 @@ ro:
         body: Conținut
         subject: Titlu
       organization:
+        admin_terms_of_use_body: Coținut pentru termenii de utilizare ai administratorului
         alert_color: Alertă
         available_authorizations: Autorizații disponibile
         badges_enabled: Activează insigne
@@ -192,6 +193,7 @@ ro:
           are_you_sure: Sigur dorești să refuzi termenii de utilizare ai adiminstratorului?
           refuse: Refuz termenii
         required_review:
+          alert: 'Obligatoriu: Revizuiți termenii de utilizare ai administratorului'
           cta: Revizuiește acum.
       area_types:
         create:
@@ -488,8 +490,6 @@ ro:
               one: Coloană lipsă %{columns}.
               few: Coloane lipsă %{columns}.
               other: Coloane lipsă %{columns}.
-        error: A apărut o problemă în timpul importului
-        example_error: Nu am putut crea un exemplu pentru tipul dat
         new:
           accepted_mime_types:
             csv: CSV
@@ -501,7 +501,6 @@ ro:
           download_example_format: Exemplu ca %{name}
           file_legend: Adaugă un fișier de import care va fi analizat.
           import: Importă
-        notice: "%{number} %{resource_name} importate cu succes"
       logs:
         filters:
           participatory_space: Găsește spațiul participativ
