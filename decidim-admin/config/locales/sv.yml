@@ -39,6 +39,7 @@ sv:
         body: Innehåll
         subject: Ämne
       organization:
+        admin_terms_of_use_body: Innehåll för administratörsvillkoren
         alert_color: Larm
         available_authorizations: Tillgängliga auktoriseringar
         badges_enabled: Aktivera märken
@@ -192,6 +193,7 @@ sv:
           are_you_sure: Är du säker på att du vill avvisa administratörsvillkoren?
           refuse: Avvisa villkoren för administratörer
         required_review:
+          alert: 'Krav: granska villkoren för administratörer'
           cta: Granska dem nu.
       area_types:
         create:
@@ -482,8 +484,6 @@ sv:
             message:
               one: 'Saknad kolumn: %{columns}.'
               other: 'Saknade kolumner: %{columns}.'
-        error: Ett fel uppstod under importeringsprocessen
-        example_error: Kunde inte skapa ett exempel för följande typ
         new:
           accepted_mime_types:
             csv: csv
@@ -495,7 +495,6 @@ sv:
           download_example_format: Exempel som %{name}
           file_legend: Lägg till en fil som kommer importeras.
           import: Importera
-        notice: "%{number} %{resource_name} har importerats"
       logs:
         filters:
           participatory_space: Hitta deltagarutrymme
