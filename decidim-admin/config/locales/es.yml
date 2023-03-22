@@ -39,7 +39,7 @@ es:
         body: Cuerpo
         subject: Asunto
       organization:
-        admin_terms_of_use_body: Texto de los términos y condiciones de uso
+        admin_terms_of_use_body: Cuerpo para los términos de uso del administrador
         alert_color: Alerta
         available_authorizations: Autorizaciones disponibles
         badges_enabled: Habilitar insignias
@@ -208,7 +208,7 @@ es:
           refuse: Rechazar los Términos y Condiciones de Administración
           title: Acepto las condiciones de uso
         required_review:
-          alert: 'Necesario: Revisar nuestros términos y condiciones de administración'
+          alert: 'Requerido: revisa nuestros Términos y Condiciones de Administración'
           callout: Por favor dedica un momento a revisar los términos y condiciones de administración. En caso contrario, no podrás administrar la plataforma.
           cta: Revísalos ahora.
         title: Términos y condiciones de uso de administración
@@ -519,8 +519,6 @@ es:
             message:
               one: Falta la columna %{columns}.
               other: Faltan las columnas %{columns}.
-        error: Se ha producido un error durante la importación
-        example_error: No se pudo crear un ejemplo para el tipo dado
         new:
           accepted_mime_types:
             csv: CSV
@@ -532,7 +530,6 @@ es:
           download_example_format: Ejemplo como %{name}
           file_legend: Añadir un archivo de importación que será procesado.
           import: Importar
-        notice: "%{count} %{resource_name} importado correctamente"
       logs:
         filters:
           participatory_space: Encontrar espacio de participación
