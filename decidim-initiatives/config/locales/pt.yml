@@ -230,8 +230,6 @@ pt:
             new: Novo
             photos: Fotos
         initiatives_type_scopes:
-          destroy:
-            success: O âmbito foi removido corretamente
           edit:
             back: Retroceder
             confirm_destroy: Tem a certeza?
