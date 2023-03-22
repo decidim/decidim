@@ -590,9 +590,6 @@ ja:
         download_data_description: あなたのアカウントに関連付けられたすべての情報を含むファイルを<strong>%{user_email}</strong> に送信します。このメールは.zipファイルとパスワードが添付されています。<br/><br/>ファイルを展開するには、 <a href="https://www.7-zip.org/">7-Zip</a> (Windowsユーザー向け) か <a href="https://www.keka.io/">Keka</a> (MacOSユーザー向け)が必要です。Linuxをお使いの場合、すでにツールがインストールされているはずです。インストールされていない場合、 <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> や <a href="https://peazip.github.io">PeaZip</a> が利用できます。
         request_data: データを要求する
     editor_images:
-      create:
-        error: アップロード画像のエラー
-        success: 画像が正常にアップロードされました
       drag_and_drop_help: ドラッグ&ドロップまたは貼り付けることで画像を追加できます。
     endorsable:
       endorsements: オススメ
@@ -885,16 +882,10 @@ ja:
       actions:
         are_you_sure: 本当によろしいですか？この操作はグループから参加者を削除しません。
         demote_admin: 管理者を削除
-      demote:
-        error: この参加者を管理者リストから削除する際に問題が発生しました
-        success: 参加者を管理者から削除しました
       index:
         current_admins: '現在の管理者:'
         manage_admins: 管理者の管理
     group_invites:
-      accept:
-        error: この招待を受け入れる際に問題が発生しました
-        success: 招待を承認しました
       accept_invitation: 同意する
       accept_or_reject_group_invitations: '以下のグループがあなたを招待しています。リクエストを承認または拒否します。'
       index:
@@ -1136,16 +1127,9 @@ ja:
         main_image: メイン画像
     newsletters:
       unsubscribe:
-        check_subscription: 設定を変更したい場合は、 <a href="%{link}" target="_blank">設定ページ</a> で設定できます。
-        error: 購読解除中に問題が発生しました
         success: 購読解除に成功しました。
         token_error: リンクの有効期限が切れました。
         unsubscribe: 購読解除
-    newsletters_opt_in:
-      unathorized: 申し訳ありませんが、このリンクは使用できません。
-      update:
-        error: 問題が発生しました
-        success: ニュースレターの設定を更新しました
     newsletters_opt_in_mailer:
       notify:
         body_1: 個人データの処理とその保護は、私たち全員にとってますます重要になっています。 2018年5月25日の新しい一般データ保護規則(GDPR)により、個人は個人データをより良く管理できます。 このため、 %{organization_name} の活動に関する関連情報を送信し続けるには、お客様の "OK" が必要です。
