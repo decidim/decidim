@@ -509,9 +509,6 @@ eu:
         download_data: Deskargatu datuak
         request_data: Eskaera datuak
     editor_images:
-      create:
-        error: Arazoa irudia eguneratzean
-        success: Irudia zuzen eguneratu da
       drag_and_drop_help: Gehitu irudiak arrastatuz edo itsatsiz.
     endorsable:
       endorsements: Oniritziak
@@ -761,16 +758,10 @@ eu:
       actions:
         are_you_sure: Ziur zaude? Honek ez du partaidea taldetik aterako.
         demote_admin: Kendu kudeatzailea
-      demote:
-        error: Errore bat gertatu da erabiltzaile hau administratzaileen zerrendatik ezabatzean
-        success: Erabiltzailea administratzaileari behar bezala kendu zaio
       index:
         current_admins: 'Uneko administratzaileak:'
         manage_admins: Kudeatu kudeatzaileak
     group_invites:
-      accept:
-        error: Errore bat gertatu da gonbidapen hau onartzea
-        success: Gonbidapena arrakastaz onartu da
       accept_invitation: Onartu
       accept_or_reject_group_invitations: 'Talde hauek gonbidatu zaituzte. Eskaerak onartu edo ukatu:'
       index:
@@ -961,16 +952,9 @@ eu:
         main_image: Irudi nagusia
     newsletters:
       unsubscribe:
-        check_subscription: Zure hobespenak aldatu nahi badituzu, <a href="%{link}" target="_blank">configurazio orriko 1233_4_1_321 orrian egin dezakezu.
-        error: Errore bat gertatu da harpidetza kentzean
         success: Harpidetuta zaude ondo.
         token_error: Lotura iraungi da.
         unsubscribe: Baja eman
-    newsletters_opt_in:
-      unathorized: Esteka hau jada ez dago erabilgarri
-      update:
-        error: Zerbait gaizki gertatu zen
-        success: Buletinaren ezarpenak behar bezala eguneratu dira
     newsletters_opt_in_mailer:
       notify:
         body_1: Datu pertsonalen tratamendua eta babesak gero eta garrantzi handiagoa hartzen ari dira guztiontzat. 2018ko maiatzaren 25eko Datuen Babeserako Datu Orokor berriaren (GDPR) datu pertsonalak hobeto kontrolatzen ditu. Horregatik, "OK" behar dugu, %{organization_name}jardueren inguruko informazio garrantzitsua bidaltzen jarraitzeko.
