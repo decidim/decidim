@@ -184,7 +184,6 @@ pt-BR:
               time_before: A instalação está sendo feita <strong>pelo menos %{hours} horas</strong> antes do início da eleição.
               trustees_number: O espaço participativo tem <strong> pelo menos %{number} agentes fiduciários com chave pública</strong>.
             submit: Configurar eleição
-            success: Eleição enviada com sucesso para o Quadro de Notas
             title: Configurar eleição
             trustees: Agentes fiduciários da Eleição
           created:
@@ -429,8 +428,6 @@ pt-BR:
                 cast: Transmissão de apuração
                 share: Compartilhar apuração
             title: Apuração para %{election}
-          update:
-            success: 'O status da eleição é: %{status}'
         menu:
           trustee_zone: Zona dos curadores
         no_bulletin_board:
@@ -609,9 +606,6 @@ pt-BR:
           new:
             create: Criar
             title: Criar estilo de cédula
-          update:
-            invalid: Ocorreu um erro ao atualizar este estilo de cédula
-            success: Estilo de cédula atualizado com sucesso
         content_blocks:
           highlighted_votings:
             max_results: Quantidade máxima de elementos para mostrar
