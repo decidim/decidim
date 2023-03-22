@@ -251,7 +251,6 @@ cs:
               time_before: Nastavení se provádí <strong>alespoň %{hours} hodin</strong> před zahájením voleb.
               trustees_number: Participační prostor má <strong>alespoň %{number} důvěrníků s veřejným klíčem</strong>.
             submit: Nastavení voleb
-            success: Volby byly úspěšně odeslány do Vývěsky
             title: Nastavení voleb
             trustees: Volební důvěrníci
           created:
@@ -288,7 +287,6 @@ cs:
           tally_started:
             continue: Pokračovat
             mark_as_missing: Označit jako chybějící
-            success: Zpráva o chybějícím důvěrníkovi byla úspěšně odeslána na vývěsku
             tally_completion: Proces bude dokončen, jakmile budou všichni důvěrníci aktivní nebo budou označeni jako chybějící. K dokončení procesu je zapotřebí alespoň %{quorum} důvěrníků.
             title: Proces volebního přepočítání
             undo_mark_as_missing: Správce, který byl omylem označen jako chybějící, se bude moci zúčastnit před dokončením procesu. Může postupovat jako obvykle a chybějící označení bude ignorováno.
@@ -545,8 +543,6 @@ cs:
               pending: Čekající
               processing: Zpracovávání
             title: Volební přepočítání pro %{election}
-          update:
-            success: 'Stav voleb je: %{status}'
         menu:
           trustee_zone: Zóna důvěrníků
         no_bulletin_board:
@@ -732,9 +728,6 @@ cs:
           new:
             create: Vytvořit
             title: Vytvořit styl hlasování
-          update:
-            invalid: Při aktualizaci tohoto stylu hlasování došlo k chybě
-            success: Styl hlasování byl úspěšně aktualizován
         content_blocks:
           highlighted_votings:
             max_results: Maximální počet prvků k zobrazení
