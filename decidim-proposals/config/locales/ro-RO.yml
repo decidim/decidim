@@ -416,9 +416,6 @@ ro:
             document_legend: 'Adaugă un document mai mic de 2MB. Fiecare secțiune din document, până la al treilea nivel de subtitluri, va fi convertită în propunere. Formatele acceptate sunt: %{valid_mime_types}'
             title: Adaugă document
             upload_document: Încărcă document
-          publish:
-            invalid: Propunerile nu au putut fi publicate
-            success: Toate propunerile au fost publicate
           sections:
             article: "<em>Articolul</em>"
             section: "<em>Secțiunea:</em> <strong>%{title}</strong>"
@@ -473,7 +470,6 @@ ro:
             title: Creează propunere
           publish_answers:
             number_of_proposals: Vor fi publicate răspunsuri pentru %{number} propuneri.
-            select_a_proposal: Te rugăm selectează o propunere
           show:
             amendments_count: Număr de amendamente
             assigned_valuators: Evaluatori atribuiți
@@ -504,13 +500,9 @@ ro:
             votes_ranking: Clasament după voturi
           update_category:
             invalid: 'Aceste propuneri aveau deja categoria %{subject_name} : %{proposals}.'
-            select_a_category: Te rugăm selectează o categorie
-            select_a_proposal: Te rugăm selectează o propunere
             success: 'Propuneri actualizate cu succes la categoria %{subject_name} : %{proposals}.'
           update_scope:
             invalid: 'Aceste propuneri aveau deja domeniul %{subject_name} : %{proposals}.'
-            select_a_proposal: Te rugăm selectează o propunere
-            select_a_scope: Te rugăm selectează un domeniu
             success: 'Propuneri actualizate cu succes în domeniul %{subject_name} : %{proposals}.'
         proposals_imports:
           new:
@@ -623,17 +615,14 @@ ro:
         requests:
           accepted_request:
             error: Nu ai putut fi acceptat drept colaborator, te rugăm să încerci din nou mai târziu.
-            success: "@%{user} a fost acceptat ca și colaborator"
           access_requested:
             error: Cererea ta nu a putut fi finalizată, te rugăm să încerci din nou mai târziu.
-            success: Cererea ta de colaborare a fost trimisă cu succes
           collaboration_requests:
             accept_request: Acceptă
             reject_request: Respinge
             title: Cereri de colaborare
           rejected_request:
             error: Nu ai putut fi respins drept colaborator, te rugăm să încerci din nou mai târziu.
-            success: "@%{user} a fost respins ca și colaborator"
         show:
           back: Înapoi
           edit: Editează ciorna colaborativă
