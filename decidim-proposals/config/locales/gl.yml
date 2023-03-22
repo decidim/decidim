@@ -370,9 +370,6 @@ gl:
             bottom_hint: "(Poderá ver e ordenar as seccións do documento)"
             title: AGREGAR DOCUMENTOS
             upload_document: Cargar documento
-          publish:
-            invalid: Non se puideron publicar propostas
-            success: Todas as propostas foron publicadas
           sections:
             article: "<em>artigo</em>"
             section: "<em>Sección:</em> <strong>%{title}</strong>"
@@ -417,8 +414,6 @@ gl:
           new:
             create: Crear
             title: Crear proposta
-          publish_answers:
-            select_a_proposal: Selecciona unha proposta
           show:
             authors: Autores
             body: Corpo
@@ -438,12 +433,6 @@ gl:
             valuators: Avaliadores/as
             votes_count: Reconto de votos
             votes_ranking: Clasificación por apoios
-          update_category:
-            select_a_category: Selecciona unha categoría
-            select_a_proposal: Selecciona unha proposta
-          update_scope:
-            select_a_proposal: Selecciona unha proposta
-            select_a_scope: Por favor, escolle un ámbito
         proposals_imports:
           new:
             create: Propostas de importación
@@ -552,17 +541,14 @@ gl:
         requests:
           accepted_request:
             error: Non se puido aceptar como colaborador, téntao de novo máis tarde.
-            success: "@%{user} foi aceptado como colaborador con éxito"
           access_requested:
             error: Non se puido completar a túa solicitude, téntao de novo máis tarde.
-            success: A túa solicitude de colaboración foi enviada con éxito
           collaboration_requests:
             accept_request: Aceptar
             reject_request: Rexeitar
             title: Solicitudes de colaboración
           rejected_request:
             error: Non se puido rexeitar como colaborador, téntao de novo máis tarde.
-            success: "O @%{user} foi rexeitado correctamente como colaborador"
         show:
           back: De volta
           edit: Editar borrador colaborativo
