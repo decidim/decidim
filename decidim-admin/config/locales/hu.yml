@@ -32,6 +32,7 @@ hu:
         body: Szöveg
         subject: Tárgy
       organization:
+        admin_terms_of_use_body: A szövegtörzse az admin felhasználási feltételeinek
         alert_color: Figyelmeztetés
         available_authorizations: Elérhető authorizációk
         badges_enabled: Jelvények engedélyezése
@@ -172,6 +173,7 @@ hu:
           are_you_sure: Biztosan visszautasítod az adminokra vonatkozó feltételek elfogadását?
           refuse: Admin feltételek elutasítása
         required_review:
+          alert: 'Szükséges: az admin felhasználási feltételek áttekintése'
           cta: Áttekintés most.
       area_types:
         create:
@@ -459,8 +461,6 @@ hu:
                 other: Hibát találtam az importfájlban a rendelésszámmal rendelkező rekordoknál %{indexes}.
           missing_headers:
             detail: Kérjük, ellenőrizze, hogy a fájl tartalmazza-e a szükséges oszlopokat.
-        error: Hiba történt az importálás során
-        example_error: Nem sikerült példát létrehozni a megadott típusra
         new:
           accepted_mime_types:
             csv: csv
@@ -472,7 +472,6 @@ hu:
           download_example_format: Példa mint %{name}
           file_legend: Adjon hozzá egy importált fájlt, amelyet elemezni fog.
           import: Import
-        notice: "%{count} %{resource_name} sikeresen importálva"
       logs:
         filters:
           participatory_space: Részvételi tér keresése
