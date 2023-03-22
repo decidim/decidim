@@ -244,7 +244,6 @@ is-IS:
         unsubscribe: Til að hætta við að fá þessa tegund af tölvupósti, <a href="%{link}" target="_blank" class="unsubscribe">Afskráðu</a>.
     newsletters:
       unsubscribe:
-        check_subscription: Ef þú vilt breyta stillingum þínum getur þú gert það á <a href="%{link}" target="_blank">stillingar síðu</a>
         success: Þú ert með áskrift að góðum árangri.
         token_error: Tengillinn er liðinn.
         unsubscribe: Afskráðu þig
