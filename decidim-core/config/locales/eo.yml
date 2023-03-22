@@ -67,9 +67,6 @@ eo:
         error: Okazis eraro ŝanĝante ĉi tiun rimedon.
       edit_draft:
         send: Antaŭvido
-    group_admins:
-      demote:
-        success: Partoprenanto sukcese forigita de administranto
   devise:
     sessions:
       new:
