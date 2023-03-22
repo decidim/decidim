@@ -139,6 +139,7 @@ zh-CN:
         actions:
           refuse: 拒绝管理条款
         required_review:
+          alert: '要求：审查我们的管理员使用条件'
           cta: 现在审查它们。
       area_types:
         create:
