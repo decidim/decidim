@@ -438,9 +438,6 @@ ja:
             document_legend: '2MB未満のドキュメントを追加してください。セクションの深さが3レベルになるまで、各セクションは提案にパースされます。提案書式は次のとおりです: %{valid_mime_types}'
             title: ドキュメントを追加
             upload_document: ドキュメントをアップロード
-          publish:
-            invalid: 提案を公開できませんでした
-            success: すべての提案が公開されました
           sections:
             article: "<em>記事</em>"
             section: "<em>セクション:</em> <strong>%{title}</strong>"
@@ -496,7 +493,6 @@ ja:
             title: 提案を作成
           publish_answers:
             number_of_proposals: '%{number} の提案の回答が公開されます。'
-            select_a_proposal: 提案を選択してください
           show:
             amendments_count: 修正数
             assigned_valuators: 割り当てられた評価者
@@ -525,13 +521,9 @@ ja:
             votes_ranking: サポートによるランキング
           update_category:
             invalid: 'これらの提案は既に %{subject_name} カテゴリ: %{proposals} を持っています。'
-            select_a_category: カテゴリを選択してください
-            select_a_proposal: 提案を選択してください
             success: '%{subject_name} カテゴリ: %{proposals} に提案を更新しました。'
           update_scope:
             invalid: 'これらの提案は既に %{subject_name} スコープを持っています: %{proposals}。'
-            select_a_proposal: 提案を選択してください
-            select_a_scope: スコープを選択してください
             success: '提案が %{subject_name} スコープ: %{proposals} に更新されました。'
         proposals_imports:
           new:
@@ -645,17 +637,14 @@ ja:
         requests:
           accepted_request:
             error: コラボレーターとして受け入れることができませんでした。後でもう一度お試しください。
-            success: "@%{user} はコラボレーターとして正常に承認されました"
           access_requested:
             error: リクエストを完了できませんでした。後でもう一度お試しください。
-            success: 共同作業のリクエストが正常に送信されました
           collaboration_requests:
             accept_request: 同意する
             reject_request: 拒否
             title: コラボレーションリクエスト
           rejected_request:
             error: コラボレーターとして拒否できませんでした。後でもう一度やり直してください。
-            success: "@%{user} はコラボレーターとして正常に拒否されました"
         show:
           back: 戻る
           edit: 共同草案を編集
