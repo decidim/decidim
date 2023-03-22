@@ -675,16 +675,10 @@ pt-BR:
     group_admins:
       actions:
         demote_admin: Remover Administrador
-      demote:
-        error: Ocorreu um erro ao remover este usuário da lista de administradores
-        success: Usuário removido com sucesso da organização
       index:
         current_admins: 'Administradores atuais:'
         manage_admins: Gerenciar administradores
     group_invites:
-      accept:
-        error: Houve um erro ao aceitar este convite
-        success: Convite aceito com sucesso
       accept_invitation: Aceitar
       accept_or_reject_group_invitations: 'Os seguintes grupos convidaram você para se juntar a eles. Aceite ou rejeite seus pedidos:'
       index:
@@ -869,16 +863,9 @@ pt-BR:
         main_image: Imagem principal
     newsletters:
       unsubscribe:
-        check_subscription: Se você deseja alterar suas preferências, você pode fazê-lo na seção <a href="%{link}" target="_blank">configuration</a>
-        error: Ocorreu um erro ao se desinscrever
         success: Você está inscrito com sucesso.
         token_error: O link expirou.
         unsubscribe: Cancelar subscrição
-    newsletters_opt_in:
-      unathorized: Desculpe, este link não está mais disponível
-      update:
-        error: Aconteceu algo de errado
-        success: Configurações de boletim informativo atualizadas com sucesso
     newsletters_opt_in_mailer:
       notify:
         body_1: O processamento de dados pessoais e sua proteção estão se tornando cada vez mais importantes para todos nós. Com o novo Regulamento Geral de Proteção de Dados (GDPR) de 25 de maio de 2018, os indivíduos têm melhor controle sobre seus dados pessoais. Por esse motivo, precisamos que seu "OK" continue enviando informações relevantes sobre as atividades do %{organization_name}.
