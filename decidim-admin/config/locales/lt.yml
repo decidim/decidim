@@ -32,6 +32,7 @@ lt:
         body: Pagrindinė dalis
         subject: Tema
       organization:
+        admin_terms_of_use_body: Vieta administratorių naudotojų sąlygoms
         alert_color: Įspėjimas
         available_authorizations: Leidžiamos autorizacijos
         badges_enabled: Aktyvinti ženklelius
@@ -172,6 +173,7 @@ lt:
           are_you_sure: Ar tikrai norite nesutikti su administratoriaus naudojimosi sąlygomis?
           refuse: Nesutikti su administratoriaus nustatytomis sąlygomis
         required_review:
+          alert: 'Reikalavimas: peržiūrėkite mūsų administratoriaus nustatytas naudojimosi sąlygas'
           cta: Peržiūrėkite jas dabar.
       area_types:
         create:
@@ -470,8 +472,6 @@ lt:
               few: Trūksta stulpelių %{columns}.
               many: Trūksta stulpelių %{columns}.
               other: Trūksta stulpelių %{columns}.
-        error: Importuojant iškilo problema
-        example_error: Nepavyko sukurti pavyzdžio duotajam tipui
         new:
           accepted_mime_types:
             csv: CSV
@@ -483,7 +483,6 @@ lt:
           download_example_format: Pavyzdys kaip %{name}
           file_legend: Pridėkite importo failą, kuris bus analizuojamas.
           import: Importuoti
-        notice: "%{count} %{resource_name} sėkmingai importuotas"
       logs:
         filters:
           participatory_space: Rasti dalyvaujamąją erdvę
