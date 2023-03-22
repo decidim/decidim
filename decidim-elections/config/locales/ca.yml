@@ -290,7 +290,6 @@ ca:
               time_before: La configuració s'està fent <strong>almenys %{hours} hores</strong> abans de que comenci l'elecció.
               trustees_number: L'espai de participació té <strong>almenys %{number} garants amb clau pública</strong>.
             submit: Configurar elecció
-            success: L'elecció s'ha enviat correctament al Bulletin Board
             title: Configurar elecció
             trustees: Garants de l'elecció
           created:
@@ -334,7 +333,6 @@ ca:
             invalid: S'ha produït un error en notificar l'absència de la garant.
             mark_as_missing: Marcar com absent
             mark_as_missing_description: Totes les garants haurien de participar en aquest procés, però si una garant no en pot prendre part, la pots marcar com a absent.
-            success: La notificació d'absència de la garant ha estat enviada correctament
             tally_completion: El procés es completarà quan totes les garants estiguin actives o marcades com a absents. Fan falta com un mínim de %{quorum} garant per a completar el procés.
             title: Procés de recompte
             undo_mark_as_missing: Una garant marcada com a absent per error podrà participar abans de la finalització del procés. Pot actuar com de costum i la seva absència serà ignorada.
@@ -603,7 +601,6 @@ ca:
             title: Recompte per %{election}
           update:
             error: L'estat de l'elecció no s'havia actualitzat.
-            success: 'L''estat de l''elecció és: %{status}'
         menu:
           trustee_zone: Zona de garants
         no_bulletin_board:
@@ -810,9 +807,6 @@ ca:
           new:
             create: Crear
             title: Crear un estil de papereta
-          update:
-            invalid: Hi ha hagut un error en actualitzar l'estil de papereta
-            success: L'estil de papereta s'ha actualitzat correctament
         content_blocks:
           highlighted_votings:
             max_results: Quantitat màxima d'elements per mostrar
