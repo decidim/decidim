@@ -331,7 +331,7 @@ FactoryBot.define do
     end
 
     trait :tos do
-      slug { "terms-and-conditions" }
+      slug { "terms-of-service" }
       after(:create) do |tos_page|
         tos_page.organization.tos_version = tos_page.updated_at
         tos_page.organization.save!
