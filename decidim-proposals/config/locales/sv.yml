@@ -410,9 +410,6 @@ sv:
             document_legend: 'Lägg till ett dokument som är mindre än 2MB, varje avsnitt upp till 3 nivåers djup kommer läsas in till förslagen. Möjliga format är: %{valid_mime_types}'
             title: LÄGG TILL DOKUMENT
             upload_document: Skicka in dokument
-          publish:
-            invalid: Kunde inte publicera förslag
-            success: Alla förslag har publicerats
           sections:
             article: "<em>Artikel</em>"
             section: "<em>Avsnitt:</em> <strong>%{title}</strong>"
@@ -468,7 +465,6 @@ sv:
             title: Skapa förslag
           publish_answers:
             number_of_proposals: Svar på %{number} förslag kommer att publiceras.
-            select_a_proposal: Välj ett förslag
           show:
             amendments_count: Antal ändringsförslag
             assigned_valuators: Tilldelade värderare
@@ -498,13 +494,9 @@ sv:
             votes_ranking: Sortera efter stöd
           update_category:
             invalid: 'Dessa förslag var redan i kategorin %{subject_name}: %{proposals}.'
-            select_a_category: Välj en kategori
-            select_a_proposal: Välj ett förslag
             success: 'Förslag som har uppdaterats till kategorin %{subject_name}: %{proposals}.'
           update_scope:
             invalid: 'Dessa förslag hade redan omfånget %{subject_name}: %{proposals}.'
-            select_a_proposal: Välj ett förslag
-            select_a_scope: Välj ett omfång
             success: 'Förslag som har uppdaterats till omfånget %{subject_name}: %{proposals}.'
         proposals_imports:
           new:
@@ -617,17 +609,14 @@ sv:
         requests:
           accepted_request:
             error: Kunde inte godkännas som samarbetspartner, försök igen senare.
-            success: "@%{user} har godkänts som bidragsgivare"
           access_requested:
             error: Din begäran kunde inte behandlas, försök igen senare.
-            success: Din begäran om samarbete har skickats
           collaboration_requests:
             accept_request: Godkänn
             reject_request: Avvisa
             title: Förfrågningar om samarbete
           rejected_request:
             error: Kunde inte avvisas som samarbetspartner, försök igen senare.
-            success: "@%{user} har avvisats som samarbetspartner"
         show:
           back: Tillbaka
           edit: Redigera gemensamt utkast
