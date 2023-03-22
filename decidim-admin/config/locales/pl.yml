@@ -32,6 +32,7 @@ pl:
         body: Treść
         subject: Temat
       organization:
+        admin_terms_of_use_body: Warunki korzystania z serwisu dla administratora
         alert_color: Powiadomienie
         available_authorizations: Dostępne formy uwierzytelniania
         badges_enabled: Włącz odznaki
@@ -172,6 +173,7 @@ pl:
           are_you_sure: Czy na pewno nie wyrażasz zgody na warunki użytkowania dla administratorów?
           refuse: Nie akceptuję warunków dla administratorów
         required_review:
+          alert: 'Wymagane: Zapoznaj się z warunkami użytkowania dla administratorów'
           cta: Zapoznaj się teraz.
       area_types:
         create:
@@ -466,8 +468,6 @@ pl:
               few: Brakujące kolumny %{columns}.
               many: Brakujące kolumny %{columns}.
               other: Brakujące kolumny %{columns}.
-        error: Podczas importowania wystąpił błąd
-        example_error: Nie można utworzyć przykładu dla podanego typu
         new:
           accepted_mime_types:
             csv: csv
@@ -479,7 +479,6 @@ pl:
           download_example_format: Przykład jako %{name}
           file_legend: Zaimportuj plik, który zostanie przetworzony.
           import: Importuj
-        notice: "Zaimportowano %{resource_name} %{number}"
       logs:
         filters:
           user: Użytkownik
