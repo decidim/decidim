@@ -199,7 +199,6 @@ eu:
               time_before: Konfigurazioa egiten ari da <strong>aukeraketa hasi baino gutxienez %{hours} ordu</strong>.
               trustees_number: Espazio parte-hartzaileak badu <strong>gutxienez %{number} bermatzaile gako publikoarekin</strong>.
             submit: Konfiguratu bozketa
-            success: 'Aukeraketa zuzen bidali da hona: Iragarki Taula'
             title: Konfiguratu bozketa
             trustees: Hautaketaren bermatzaileak
           created:
@@ -447,8 +446,6 @@ eu:
                 cast: Zenbaketa bidaltzea
                 share: Zenbaketa partekatzea
             title: Zenbaketa %{election} aukerarako
-          update:
-            success: 'Aukeraren egoera hauxe da: %{status}'
         menu:
           trustee_zone: Bermatzailearen gunea
         no_bulletin_board:
@@ -625,9 +622,6 @@ eu:
           new:
             create: Sortu
             title: Sortu boto-paper mota
-          update:
-            invalid: Arazo bat izan da boto-papera sortzean
-            success: Boto-papera zuzen sortu da
         content_blocks:
           highlighted_votings:
             max_results: Erakusteko gehieneko elementu kopurua
