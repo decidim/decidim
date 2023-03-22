@@ -40,7 +40,7 @@ en:
         body: Body
         subject: Subject
       organization:
-        admin_terms_of_use_body: Body for the terms and conditions
+        admin_terms_of_use_body: Body for the admin terms of use
         alert_color: Alert
         available_authorizations: Available authorizations
         badges_enabled: Enable badges
@@ -209,7 +209,7 @@ en:
           refuse: Refuse the admin terms
           title: Agree to the terms of use
         required_review:
-          alert: 'Required: Review our admin terms terms and conditions'
+          alert: 'Required: Review our admin terms of use'
           callout: Please take a moment to review the admin terms of use. Otherwise you will not be able to manage the platform.
           cta: Review them now.
         title: Admin terms of use
@@ -520,8 +520,8 @@ en:
             message:
               one: Missing column %{columns}.
               other: Missing columns %{columns}.
-        error: There was a problem during the import
-        example_error: Could not create an example for the given type
+        error: There was a problem during the import.
+        example_error: There was a problem creating an example for the given type.
         new:
           accepted_mime_types:
             csv: CSV
@@ -533,7 +533,7 @@ en:
           download_example_format: Example as %{name}
           file_legend: Add an import file that will be parsed.
           import: Import
-        notice: "%{count} %{resource_name} successfully imported"
+        notice: "%{count} %{resource_name} successfully imported."
       logs:
         filters:
           participatory_space: Find participatory space

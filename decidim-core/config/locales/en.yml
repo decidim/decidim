@@ -612,8 +612,8 @@ en:
         request_data: Request data
     editor_images:
       create:
-        error: Error uploading image
-        success: Image uploaded successfully
+        error: Error uploading image.
+        success: Image uploaded successfully.
       drag_and_drop_help: Add images by dragging & dropping or pasting them.
     endorsable:
       endorsements: Endorsements
@@ -909,15 +909,15 @@ en:
         are_you_sure: Are you sure? This will not remove the participant from the group.
         demote_admin: Remove admin
       demote:
-        error: There was a problem removing this participant from the admins list
-        success: Participant successfully removed from admin
+        error: There was a problem removing this participant from the admins list.
+        success: Participant successfully removed from admin.
       index:
         current_admins: 'Current admins:'
         manage_admins: Manage admins
     group_invites:
       accept:
-        error: There was a problem accepting this invitation
-        success: Invitation successfully accepted
+        error: There was a problem accepting this invitation.
+        success: Invitation successfully accepted.
       accept_invitation: Accept
       accept_or_reject_group_invitations: 'The following groups have invited you to join them. Accept or reject their requests:'
       index:
@@ -1159,16 +1159,16 @@ en:
         main_image: Main image
     newsletters:
       unsubscribe:
-        check_subscription: If you want to change your preferences, you can do so in the <a href="%{link}" target="_blank">configuration page</a>
-        error: There was a problem unsubscribing
+        check_subscription: If you want to change your preferences, you can do so in the <a href="%{link}" target="_blank">configuration page</a>.
+        error: There was a problem unsubscribing.
         success: You are unsubscribed successfully.
         token_error: The link has expired.
         unsubscribe: Unsubscribe
     newsletters_opt_in:
-      unathorized: Sorry, this link is no longer available
+      unathorized: Sorry, this link is no longer available.
       update:
-        error: Something wrong happened
-        success: Newsletter settings successfully updated
+        error: There was a problem saving the newsletter settings.
+        success: Newsletter settings successfully updated.
     newsletters_opt_in_mailer:
       notify:
         body_1: The processing of personal data and its protection is becoming increasingly important for all of us. With the new General Data Protection Regulation (GDPR) of May 25, 2018, individuals have better control over their personal data. For this reason we need your "OK" to continue sending relevant information about the activities of the %{organization_name}.
