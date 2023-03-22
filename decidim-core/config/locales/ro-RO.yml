@@ -498,9 +498,6 @@ ro:
         download_data_description: Un fișier care conține toate informațiile asociate contului tău va fi trimis la <strong>%{user_email}</strong>. Acest e-mail va conține un fișier .zip și o parolă pentru a-l deschide.<br/><br/>Pentru a dezarhiva fişierul, aveţi nevoie de <a href="https://www.7-zip.org/">7-Zip</a> (pentru Windows) sau <a href="https://www.keka.io/">Keka</a> (pentru MacOS). Dacă utilizați Linux, de cele mai multe ori îl veți instala în mod implicit. Dacă nu, puteți utiliza <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> sau <a href="https://peazip.github.io">PeaZip</a>).
         request_data: Cere date
     editor_images:
-      create:
-        error: Eroare la încărcarea imaginii
-        success: Imaginea a fost încărcată cu succes
       drag_and_drop_help: Adaugă imagini prin tragere & plasare sau lipirea lor.
     endorsable:
       endorsements: Susținători
@@ -753,16 +750,10 @@ ro:
     group_admins:
       actions:
         demote_admin: Elimină administratorul
-      demote:
-        error: A apărut o eroare la eliminarea acestui participant din lista de administratori
-        success: Participantul a fost șters din administrator
       index:
         current_admins: 'Administratori curenți:'
         manage_admins: Gestionare administratori
     group_invites:
-      accept:
-        error: A apărut o eroare la acceptarea acestei invitații
-        success: Invitație acceptată cu succes
       accept_invitation: Acceptă
       accept_or_reject_group_invitations: 'Următoarele grupuri te-au invitat să te alături. Acceptă sau respinge cererile lor:'
       index:
@@ -952,16 +943,9 @@ ro:
         main_image: Imaginea principală
     newsletters:
       unsubscribe:
-        check_subscription: Dacă doriți să vă schimbați preferințele, puteți face acest lucru în pagina de configurare <a href="%{link}" target="_blank"></a>
-        error: A apărut o problemă la dezabonare
         success: Sunteți dezabonat cu succes.
         token_error: Link-ul a expirat.
         unsubscribe: Dezabonare
-    newsletters_opt_in:
-      unathorized: Ne pare rău, acest link nu mai este disponibil
-      update:
-        error: S-a întâmplat ceva greșit
-        success: Setările newsletter-ului au fost actualizate
     newsletters_opt_in_mailer:
       notify:
         body_1: Prelucrarea datelor cu caracter personal şi protecţia acesteia devin din ce în ce mai importante pentru noi toţi. Prin noul Regulament general privind protecția datelor (RGDP) din 25 mai 2018, persoanele fizice dețin un control mai bun asupra datelor lor cu caracter personal. Din acest motiv avem nevoie de "OK-ul tău" pentru a continua să trimiți informații relevante despre activitățile %{organization_name}.
