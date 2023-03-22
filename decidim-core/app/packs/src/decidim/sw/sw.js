@@ -17,7 +17,7 @@ self.__WB_DISABLE_DEV_LOGS = true
  *
  * The InjectManifest function requires the __WB_MANIFEST somewhere in this file,
  * however, we cannot add precacheAndRoute as the issue suggests,
- * as the other workbox-recipes won't work properly
+ * as the other workbox-recipes will not work properly
  *
  * See more: https://github.com/GoogleChrome/workbox/issues/2519#issuecomment-634164566
  */

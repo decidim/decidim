@@ -123,6 +123,10 @@
     }
   }
 
+  &.primary{
+    @include button-hollow-variant(var(--primary));
+  }
+
   &.secondary{
     @include button-hollow-variant(var(--secondary));
   }
@@ -257,12 +261,12 @@
 
 .button--shadow{
   $shadows: (
-    primary: shade($primary, 50),
-    secondary: shade($secondary, 50),
-    success: shade($success, 50),
-    warning: shade($warning, 50),
-    alert: shade($alert, 50),
-    muted: shade($muted, 50),
+    primary: shade($primary, 50%),
+    secondary: shade($secondary, 50%),
+    success: shade($success, 50%),
+    warning: shade($warning, 50%),
+    alert: shade($alert, 50%),
+    muted: shade($muted, 50%),
   );
 
   @include modifiers(background-color, $shadows){

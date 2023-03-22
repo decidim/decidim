@@ -5,7 +5,7 @@
   newsletter: newsletter,
   recipient_user: @user
 ) %>
-<%= decidim_sanitize_editor @cell.to_s %>
+<%= decidim_sanitize_newsletter @cell.to_s %>
 
 <% content_for :note do %>
   <%== t "note", scope: "decidim.newsletter_mailer.newsletter", organization_name: h(@organization.name), link: decidim.notifications_settings_url(host: @organization.host) %>

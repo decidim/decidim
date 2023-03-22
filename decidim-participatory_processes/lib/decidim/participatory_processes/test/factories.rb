@@ -183,6 +183,7 @@ FactoryBot.define do
     end
 
     organization { participatory_process.organization }
+    admin_terms_accepted_at { Time.current }
 
     after(:create) do |user, evaluator|
       create :participatory_process_user_role,
@@ -198,6 +199,7 @@ FactoryBot.define do
     end
 
     organization { participatory_process.organization }
+    admin_terms_accepted_at { Time.current }
 
     after(:create) do |user, evaluator|
       create :participatory_process_user_role,
@@ -213,6 +215,7 @@ FactoryBot.define do
     end
 
     organization { participatory_process.organization }
+    admin_terms_accepted_at { Time.current }
 
     after(:create) do |user, evaluator|
       create :participatory_process_user_role,

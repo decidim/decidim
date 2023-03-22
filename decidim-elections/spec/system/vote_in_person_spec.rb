@@ -90,7 +90,7 @@ describe "Polling Officer zone", type: :system do
       ret
     end
 
-    it "doesn't allow them to vote" do
+    it "does not allow them to vote" do
       click_link "Identify a person"
 
       fill_person_data

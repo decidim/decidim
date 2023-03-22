@@ -35,6 +35,17 @@ module Decidim
       it { is_expected.to be_valid }
     end
 
+    context "when a process is attached to a scope type" do
+      let!(:participatory_process) { create(:participatory_process, :with_scope, slug: "my-slug", scope_type_max_depth: scope_type, organization:) }
+      let(:organization) { create(:organization) }
+      let(:scope_type) { create(:scope_type, organization:) }
+
+      it "allows destroying the scope type" do
+        scope_type.destroy!
+        expect(participatory_process.reload.scope_type_max_depth).to be_nil
+      end
+    end
+
     describe "#active?" do
       context "when it ends in the past" do
         it "returns false" do
@@ -74,7 +85,7 @@ module Decidim
         end
       end
 
-      context "when it doesn't have an end date" do
+      context "when it does not have an end date" do
         it "returns false" do
           participatory_process.end_date = nil
           expect(participatory_process).not_to be_past
@@ -97,7 +108,7 @@ module Decidim
         end
       end
 
-      context "when it doesn't have an end date" do
+      context "when it does not have an end date" do
         it "returns false" do
           participatory_process.end_date = nil
           expect(participatory_process).not_to be_past

@@ -21,7 +21,7 @@ module Decidim
             expect { command.call }.to broadcast(:invalid)
           end
 
-          it "doesn't create a new membership" do
+          it "does not create a new membership" do
             expect do
               command.call
             end.not_to change(Decidim::UserGroupMembership, :count)
