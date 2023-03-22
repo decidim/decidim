@@ -230,8 +230,6 @@ pt-BR:
             new: Novo
             photos: Fotos
         initiatives_type_scopes:
-          destroy:
-            success: O âmbito foi removido com sucesso
           edit:
             back: Costas
             confirm_destroy: Você tem certeza?
