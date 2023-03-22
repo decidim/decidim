@@ -555,7 +555,7 @@ ca:
             votes_ranking: Classificació per suports
           update_category:
             invalid: 'Aquestes propostes ja tenien la categoria %{subject_name}: %{proposals}.'
-            select_a_category: Selecciona una categoria
+            select_a_category: Si us plau, selecciona una categoria
             select_a_proposal: Selecciona una proposta
             success: 'Les propostes s''han actualitzat correctament a la categoria %{subject_name}: %{proposals}.'
           update_scope:
