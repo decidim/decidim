@@ -387,9 +387,6 @@ pl:
             document_legend: 'Dodaj dokument mniejszy niż 2MB, każda sekcja, aż do 3 poziomu, zostanie przekowertowana w propozycję. Wspierane formaty to: %{valid_mime_types}'
             title: Dodaj dokument
             upload_document: Prześlij dokument
-          publish:
-            invalid: Nie udało się opublikować propozycji
-            success: Wszystkie propozycje zostały opublikowane
           sections:
             article: "<em>Artykuł</em>"
             section: "<em>Sekcja:</em> <strong>%{title}</strong>"
@@ -444,7 +441,6 @@ pl:
             title: Utwórz propozycję
           publish_answers:
             number_of_proposals: Odpowiedzi dla %{number} propozycji zostaną opublikowane.
-            select_a_proposal: Wybierz propozycję
           show:
             amendments_count: Liczba poprawek
             assigned_valuators: Przypisani weryfikatorzy
@@ -476,13 +472,9 @@ pl:
             votes_ranking: Ranking wg wsparć
           update_category:
             invalid: 'Następujące propozycje miały już kategorię %{subject_name}: %{proposals}.'
-            select_a_category: Wybierz kategorię
-            select_a_proposal: Wybierz propozycję
             success: 'Zaktualizowano kategorię nad %{subject_name} dla następujących propozycji: %{proposals}.'
           update_scope:
             invalid: 'Następujące propozycje miały już zakres %{subject_name}: %{proposals}.'
-            select_a_proposal: Wybierz propozycję
-            select_a_scope: Wybierz zakres
             success: 'Zaktualizowano zakres na %{subject_name} dla następujących propozycji: %{proposals}.'
         proposals_imports:
           new:
@@ -593,17 +585,14 @@ pl:
         requests:
           accepted_request:
             error: Nie można zaakceptować jako współtwórcy, spróbuj ponownie później.
-            success: "Zaakceptowano użytkownika @%{user} jako współtwórcę"
           access_requested:
             error: Twoje żądanie nie może zostać zrealizowanie, spróbuj ponownie później.
-            success: Twoja prośba o współpracę została wysłana
           collaboration_requests:
             accept_request: Akceptuj
             reject_request: Odrzuć
             title: Prośby współpracy
           rejected_request:
             error: Nie można odrzucić, spróbuj ponownie później.
-            success: "Użytkownik @%{user} został odrzucony jako współtwórca"
         show:
           back: Wróć
           edit: Edytuj wspólny szkic
