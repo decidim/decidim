@@ -39,7 +39,7 @@ cs:
         body: Tělo
         subject: Předmět
       organization:
-        admin_terms_of_use_body: Tělo podmínek
+        admin_terms_of_use_body: Tělo zprávy správcovských podmínek použití
         alert_color: Upozornění
         available_authorizations: Dostupná oprávnění
         badges_enabled: Povolit odznaky
@@ -207,7 +207,7 @@ cs:
           refuse: Odmítnout administrátorské podmínky
           title: Souhlasit s podmínkami používání
         required_review:
-          alert: 'Vyžadováno: Zkontrolujte naše admin smluvní podmínky'
+          alert: 'Vyžadováno: Zkontrolujte naše administrátorské podmínky použití'
           cta: Zkontrolovat je nyní.
         title: Administrátorské podmínky použití
       area_types:
@@ -526,8 +526,6 @@ cs:
               few: Chybí sloupce %{columns}.
               many: Chybí sloupce %{columns}.
               other: Chybí sloupce %{columns}.
-        error: Při importu došlo k chybě
-        example_error: Nelze vytvořit příklad pro daný typ
         new:
           accepted_mime_types:
             csv: CSV
@@ -539,7 +537,6 @@ cs:
           download_example_format: Příklad jako %{name}
           file_legend: Přidat importovaný soubor, který bude analyzován.
           import: Importovat
-        notice: "%{number} %{resource_name} úspěšně importováno"
       logs:
         filters:
           participatory_space: Najít participační prostor
