@@ -41,7 +41,7 @@ fi:
         subject: Otsikko
       organization:
         admin_terms_of_use_body: Hallintakäyttäjien käyttöehtojen sisältöteksti
-        alert_color: Ilmoitus
+        alert_color: Virhe
         available_authorizations: Käytettävissä olevat tunnistautumistavat
         badges_enabled: Ota kunniamerkit käyttöön
         comments_max_length: Kommenttien maksimipituus (jätä arvoksi 0 käyttääksesi oletusarvoa)
