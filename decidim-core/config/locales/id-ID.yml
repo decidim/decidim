@@ -490,16 +490,10 @@ id:
     group_admins:
       actions:
         demote_admin: Hapus admin
-      demote:
-        error: Terjadi kesalahan saat menghapus pengguna ini dari daftar admin
-        success: Pengguna dihapus dari admin dengan sukses
       index:
         current_admins: 'Admin saat ini:'
         manage_admins: Kelola admin
     group_invites:
-      accept:
-        error: Terjadi kesalahan saat menerima undangan ini
-        success: Undangan diterima dengan sukses
       accept_invitation: Menerima
       accept_or_reject_group_invitations: 'Grup berikut telah mengundang Anda untuk bergabung dengan mereka. Terima atau tolak permintaan mereka:'
       index:
@@ -612,16 +606,9 @@ id:
         unsubscribe: Untuk memilih tidak menerima jenis email ini, <a href="%{link}" target="_blank" class="unsubscribe">Berhenti Berlangganan</a>.
     newsletters:
       unsubscribe:
-        check_subscription: Jika Anda ingin mengubah preferensi Anda, Anda dapat melakukannya di <a href="%{link}" target="_blank">halaman konfigurasi</a>
-        error: Terjadi kesalahan saat berhenti berlangganan
         success: Anda berhasil berhenti berlangganan.
         token_error: Tautan telah kedaluwarsa.
         unsubscribe: Berhenti berlangganan
-    newsletters_opt_in:
-      unathorized: Maaf, tautan ini tidak lagi tersedia
-      update:
-        error: Terjadi kesalahan
-        success: Pengaturan buletin berhasil diperbarui
     newsletters_opt_in_mailer:
       notify:
         body_1: Pengolahan data pribadi dan perlindungannya menjadi semakin penting bagi kita semua. Dengan Peraturan Perlindungan Data Umum yang baru (GDPR) 25 Mei 2018, individu memiliki kontrol yang lebih baik atas data pribadi mereka. Untuk alasan ini kami memerlukan "OK" Anda untuk terus mengirim informasi yang relevan tentang kegiatan %{organization_name}.
