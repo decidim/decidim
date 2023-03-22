@@ -32,6 +32,7 @@ pt-BR:
         body: Corpo
         subject: Assunto
       organization:
+        admin_terms_of_use_body: Corpo para os termos de uso do administrador
         alert_color: Alerta
         available_authorizations: Autorizações disponíveis
         badges_enabled: Ativar emblemas
@@ -168,6 +169,7 @@ pt-BR:
         actions:
           refuse: Recusar os termos do admin
         required_review:
+          alert: 'Obrigatório: Revise os termos de uso de nosso administrador'
           cta: Reveja eles agora.
       area_types:
         create:
@@ -414,7 +416,6 @@ pt-BR:
           impersonate_existing_user: Representar usuário "%{name}"
           impersonate_new_managed_user: Representar novo usuário gerenciado
       imports:
-        error: Houve um problema durante a importação
         new:
           accepted_mime_types:
             csv: csv
@@ -424,7 +425,6 @@ pt-BR:
             back: Voltar
           file_legend: Adicionar um arquivo de importação que será analisado.
           import: Importar
-        notice: "%{number} %{resource_name} importado com sucesso"
       managed_users:
         promotion:
           error: Ocorreu um erro ao promover o usuário gerenciado.
