@@ -396,9 +396,6 @@
             bottom_hint: "(Du vil kunne forhåndsvise og sortere dokument seksjoner)"
             title: LEGG TIL DOKUMENT
             upload_document: Last opp dokument
-          publish:
-            invalid: Kunne ikke publisere forslag
-            success: Alle forslagene er publisert
           sections:
             article: "<em>Artikkel</em>"
             section: "<em>Seksjon:</em> <strong>%{title}</strong>"
@@ -449,8 +446,6 @@
           new:
             create: Opprett
             title: Opprett forslag
-          publish_answers:
-            select_a_proposal: Vennligst velg et forslag
           show:
             amendments_count: Endringer teller
             authors: Forfattere
@@ -474,11 +469,6 @@
             related_meetings: Relaterte møter
             votes_count: Støtter antall
             votes_ranking: Rangering etter støttere
-          update_category:
-            select_a_category: Velg en kategori
-            select_a_proposal: Vennligst velg et forslag
-          update_scope:
-            select_a_proposal: Vennligst velg et forslag
         proposals_imports:
           new:
             create: Importer forslag
@@ -581,17 +571,14 @@
         requests:
           accepted_request:
             error: Kunne ikke aksepteres som en samarbeidspartner, Prøv igjen senere.
-            success: "@%{user} har blitt godtatt som en samarbeidspartner"
           access_requested:
             error: Forespørselen din kunne ikke fullføres. Prøv igjen senere.
-            success: Forespørselen din om å samarbeide har blitt sendt
           collaboration_requests:
             accept_request: Aksepter
             reject_request: Avvis
             title: Forespørsler om samarbeid
           rejected_request:
             error: Kunne ikke bli avvist som en samarbeidspartner, Prøv igjen senere.
-            success: "@%{user} har blitt avvist som samarbeidspartner"
         show:
           back: Tilbake
           edit: Rediger samarbeids utkastet
