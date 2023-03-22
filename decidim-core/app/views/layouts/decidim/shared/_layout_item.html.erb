@@ -23,5 +23,12 @@
 
     <%= yield %>
   </main>
-  <aside class="layout-item__aside"><%= yield :aside %></aside>
+  <aside class="layout-item__aside">
+    <%= yield :aside %>
+  </aside>
+  <% if local_assigns.has_key?(:commentable) %>
+    <aside class="layout-item__main layout-item__aside--coments">
+      <%= comments_for commentable %>
+    </aside>
+  <% end %>
 </div>
