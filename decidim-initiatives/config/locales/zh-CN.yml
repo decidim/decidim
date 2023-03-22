@@ -212,8 +212,6 @@ zh-CN:
             new: 新的
             photos: 照片
         initiatives_type_scopes:
-          destroy:
-            success: 范围已成功删除
           edit:
             back: 后退
             confirm_destroy: 您确定吗？
