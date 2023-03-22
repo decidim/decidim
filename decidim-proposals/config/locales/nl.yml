@@ -499,7 +499,7 @@ nl:
             votes_ranking: Rangschikking door ondersteuning
           update_category:
             invalid: 'Deze voorstellen hadden al de %{subject_name} categorie: %{proposals}.'
-            select_a_category: Gelieve een categorie te selecteren
+            select_a_category: Selecteer een categorie
             select_a_proposal: Selecteer een voorstel
             success: 'Voorstellen zijn succesvol bijgewerkt naar de %{subject_name} categorie: %{proposals}.'
           update_scope:
