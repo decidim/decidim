@@ -43,6 +43,9 @@ es-MX:
       admins:
         create:
           error: Se ha producido un error al crear un nuevo administrador.
+          success: Administradora creada correctamente.
+        destroy:
+          success: Administradora eliminada correctamente.
         edit:
           title: Editar administrador
           update: Actualizar
@@ -53,6 +56,7 @@ es-MX:
           title: Nuevo administrador
         update:
           error: Se ha producido un error al actualizar este administrador.
+          success: Administradora actualizada correctamente.
       dashboard:
         show:
           current_organizations: Organizaciones actuales
@@ -141,6 +145,8 @@ es-MX:
         index:
           title: Organizaciones
         new:
+          reference_prefix_hint: El prefijo de referencia se utiliza para identificar de forma única los recursos del conjunto de la organización.
+          secondary_hosts_hint: Introduce cada uno de ellos en una nueva línea.
           title: Nueva organización
         omniauth_settings:
           decidim:
@@ -163,6 +169,8 @@ es-MX:
         smtp_settings:
           fieldsets:
             sender: Remitente
+          instructions:
+            from_label: 'El remitente de correo electrónico será: "nombre-de-tu-organizacion <your-organization@example.org>". Déjalo en blanco para usar la ''dirección de correo electrónico'' como etiqueta.'
           placeholder:
             from_email: tu-organizacion@example.org
             from_label: el-nombre-de-tu-organizacion
