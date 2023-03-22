@@ -457,6 +457,9 @@ ca:
             document_legend: 'Afegeix un document de menys de 2 Mb, cadascuna de les seccions (fins a 3 nivells de profunditat) es convertiran a propostes. Els formats suportats són: %{valid_mime_types}'
             title: Afegir document
             upload_document: Puja el document
+          publish:
+            invalid: Hi ha hagut un error en publicar les propostes.
+            success: S'han publicat totes les propostes.
           sections:
             article: "<em>Article</em>"
             section: "<em>Secció:</em> <strong>%{title}</strong>"
@@ -521,6 +524,7 @@ ca:
             title: Crea proposta
           publish_answers:
             number_of_proposals: Es publicaran les respostes per a %{number} propostes.
+            select_a_proposal: Si us plau, selecciona una proposta.
           show:
             amendments_count: Número d'esmenes
             assigned_valuators: Avaluadores assignades
@@ -550,9 +554,13 @@ ca:
             votes_ranking: Classificació per suports
           update_category:
             invalid: 'Aquestes propostes ja tenien la categoria %{subject_name}: %{proposals}.'
+            select_a_category: Si us plau, selecciona una categoria.
+            select_a_proposal: Si us plau, selecciona una proposta.
             success: 'Les propostes s''han actualitzat correctament a la categoria %{subject_name}: %{proposals}.'
           update_scope:
             invalid: 'Aquestes propostes ja tenien l''àmbit %{subject_name}: %{proposals}.'
+            select_a_proposal: Si us plau, selecciona una proposta.
+            select_a_scope: Si us plau, selecciona un àmbit.
             success: 'Les propostes s''han actualitzat correctament a l''àmbit %{subject_name}: %{proposals}.'
         proposals_imports:
           create:
@@ -679,14 +687,17 @@ ca:
         requests:
           accepted_request:
             error: No has pogut ser acceptada com a contribuïdora. Si us plau, torna-ho a provar més tard.
+            success: "S'ha acceptat amb èxit a @%{user} com a col·laboradora."
           access_requested:
             error: No s'ha pogut completar la teva sol·licitud, si us plau torna-ho a provar més tard.
+            success: La teva sol·licitud de contribució s'ha enviat correctament.
           collaboration_requests:
             accept_request: Accepta
             reject_request: Rebutja
             title: Sol·licituds de col·laboració
           rejected_request:
             error: No s'ha pogut rebutjar com a contribuïdora, si us plau tornau-ho a provar més tard.
+            success: "S'ha rebutjat amb èxit a @%{user} com a col·laboradora."
         show:
           back: Torna
           edit: Edita l'esborrany col·laboratiu
