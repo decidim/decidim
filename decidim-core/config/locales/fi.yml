@@ -605,6 +605,9 @@ fi:
         download_data_description: Tiedosto sisältää kaikki tiliisi liitetyt tiedot ja se lähetetään osoitteeseen <strong>%{user_email}</strong>. Kyseinen sähköposti sisältää .zip-tiedoston ja salasanan, jolla kyseisen tiedoston voi avata.<br/><br/>Purkaaksesi tiedoston, tarvitset <a href="https://www.7-zip.org/">7-Zip-ohjelmiston</a> (Windows-käyttöjärjestelmille) tai <a href="https://www.keka.io/">Keka-ohjelmiston</a> (MacOS-käyttöjärjestelmille). Jos käytät Linux-käyttöjärjestelmää, useimmiten paketin avaamiseen tarvittava ohjelmisto on valmiiksi asennettuna järjestelmääsi. Jos näin ei kuitenkaan ole, voit käyttää <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller -ohjelmistoa</a> tai <a href="https://peazip.github.io">PeaZip-ohjelmistoa</a> paketin avaamiseen.
         request_data: Pyydä tietoja
     editor_images:
+      create:
+        error: Kuvan lähettäminen epäonnistui.
+        success: Kuvan lähettäminen onnistui.
       drag_and_drop_help: Lisää kuvia raahaamalla ja pudottamalla tai liittämällä niitä leikepöydältä.
     endorsable:
       endorsements: Suositukset
@@ -898,10 +901,16 @@ fi:
       actions:
         are_you_sure: Oletko varma? Tämä ei poista osallistujaa ryhmästä.
         demote_admin: Poista ylläpitäjä
+      demote:
+        error: Osallistujan poistaminen hallintakäyttäjien luettelosta epäonnistui.
+        success: Osallistuja poistettiin hallintakäyttäjien luettelosta onnistuneesti.
       index:
         current_admins: 'Nykyiset ylläpitäjät:'
         manage_admins: Hallinnoi ylläpitäjiä
     group_invites:
+      accept:
+        error: Kutsun hyväksyminen epäonnistui.
+        success: Kutsun hyväksyminen onnistui.
       accept_invitation: Hyväksy
       accept_or_reject_group_invitations: 'Seuraavat ryhmät ovat kutsuneet sinut liittymään niihin. Hyväksy tai hylkää heidän pyyntönsä:'
       index:
@@ -1143,9 +1152,16 @@ fi:
         main_image: Pääkuva
     newsletters:
       unsubscribe:
+        check_subscription: Jos haluat muuttaa asetuksiasi, voit tehdä sen <a href="%{link}" target="_blank">asetussivulla</a>.
+        error: Tilauksen peruuttaminen epäonnistui.
         success: Tilauksen peruuttaminen onnistui.
         token_error: Linkki on vanhentunut.
         unsubscribe: Peruuta tilaus
+    newsletters_opt_in:
+      unathorized: Valitettavasti tämä linkki ei ole enää käytettävissä.
+      update:
+        error: Uutiskirjeasetusten päivitys epäonnistui.
+        success: Uutiskirjeasetusten päivitys onnistui.
     newsletters_opt_in_mailer:
       notify:
         body_1: Henkilötietojen käsittely ja niiden suojaaminen ovat yhä tärkeämpiä meille kaikille. Uuden yleisen tietosuoja-asetuksen (GDPR) 25.5.2018 voimaan tultua yksilöillä on paremmat mahdollisuudet hallinnoida henkilötietojaan. Tästä syystä tarvitsemme suostumuksesi lähettääksemme sinulle olennaista tietoa koskien organisaatiota %{organization_name}.
