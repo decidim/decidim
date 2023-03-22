@@ -184,7 +184,6 @@
               time_before: Oppsettet gjøres <strong>minst %{hours} timer</strong> før valget starter.
               trustees_number: Deltakerområdet har <strong>minst %{number} tillitsmenn med offentlig nøkkel</strong>.
             submit: Oppsett av valg
-            success: Valget ble sendt til oppslagstavlen
             title: Oppsett valg
             trustees: Valgets tillitsmenn
           created:
@@ -220,7 +219,6 @@
             title: Beregnet resultat
           tally_started:
             mark_as_missing: Marker som manglende
-            success: Manglende tillitsmannrapport ble sendt til oppslagstavle
             tally_completion: Prosessen vil bli fullført når alle tillitsmenn er aktive eller merket som manglende. Minst %{quorum} tillitsmenn er nødvendig for å fullføre prosessen.
             undo_mark_as_missing: En tillitsmann merket som feilaktig merkes som manglende vil kunne delta før prosessen fullføres. De kan fortsette som vanlig og merket for "manglende" vil bli ignorert.
           vote:
@@ -383,8 +381,6 @@
                 cast: Opptelling ferdig
                 share: Opptellingsandel
             title: Opptelling for %{election}
-          update:
-            success: 'Valgstatus er: %{status}'
         menu:
           trustee_zone: Område for tillitsmenn
         no_bulletin_board:
