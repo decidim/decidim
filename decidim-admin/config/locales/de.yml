@@ -39,7 +39,7 @@ de:
         body: Haupttext
         subject: Betreff
       organization:
-        admin_terms_of_use_body: Inhalt für die Allgemeinen Geschäftsbedingungen
+        admin_terms_of_use_body: Inhalt für die Admin-Nutzungsbedingungen
         alert_color: Benachrichtigung
         available_authorizations: Verfügbare Autorisierungen
         badges_enabled: Abzeichen aktivieren
@@ -194,7 +194,7 @@ de:
           refuse: Die Admin-Nutzungsbedingungen ablehnen
           title: Den Nutzungsbedingungen zustimmen
         required_review:
-          alert: 'Erforderlich: Überprüfen Sie unsere Geschäftsbedingungen für Administratoren'
+          alert: 'Erforderlich: Überprüfen Sie unsere Admin-Nutzungsbedingungen'
           callout: Bitte nehmen Sie sich einen Moment Zeit, um die Admin-Nutzungsbedingungen zu lesen. Ansonsten können Sie die Plattform nicht verwalten.
           cta: Lesen Sie sie jetzt.
         title: Admin-Nutzungsbedingungen
@@ -498,8 +498,6 @@ de:
             message:
               one: Fehlende Spalte %{columns}.
               other: Fehlende Spalten %{columns}.
-        error: Beim Importieren ist ein Fehler aufgetreten
-        example_error: Konnte kein Beispiel für den angegebenen Typ erstellen
         new:
           accepted_mime_types:
             csv: CSV
@@ -511,7 +509,6 @@ de:
           download_example_format: Beispiel als %{name}
           file_legend: Datei zum Importieren hinzufügen.
           import: Importieren
-        notice: "%{number}%{resource_name} erfolgreich importiert"
       managed_users:
         promotion:
           error: Es ist ein Fehler aufgetreten, der den verwalteten Benutzer unterstützt.
