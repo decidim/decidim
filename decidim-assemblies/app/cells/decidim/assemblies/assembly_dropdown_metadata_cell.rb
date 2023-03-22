@@ -22,7 +22,7 @@ module Decidim
       end
 
       def nav_items
-        return super unless (nav_items = try(:assembly_nav_items, assembly)).blank?
+        return super if (nav_items = try(:assembly_nav_items, assembly)).blank?
 
         nav_items
       end
