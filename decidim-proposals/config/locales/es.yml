@@ -457,6 +457,9 @@ es:
             document_legend: 'Añade un documento menor de 2MB, cada sección hasta 3 niveles de profundidad serán analizados en propuestas. Los formatos soportados son: %{valid_mime_types}'
             title: Añadir documento
             upload_document: Subir documento
+          publish:
+            invalid: Se ha producido un error al publicar las propuestas.
+            success: Se han publicado todas las propuestas.
           sections:
             article: "<em>Artículo</em>"
             section: "<em>Sección:</em> <strong>%{title}</strong>"
@@ -521,6 +524,7 @@ es:
             title: Crear propuesta
           publish_answers:
             number_of_proposals: Se publicarán las respuestas para %{number} propuestas.
+            select_a_proposal: Por favor, selecciona una propuesta.
           show:
             amendments_count: Número de enmiendas
             assigned_valuators: Evaluadoras asignadas
@@ -550,9 +554,13 @@ es:
             votes_ranking: Clasificación por apoyos
           update_category:
             invalid: 'Estas propuestas ya tenían la categoría %{subject_name}: %{proposals}.'
+            select_a_category: Por favor, selecciona una categoría.
+            select_a_proposal: Por favor, selecciona una propuesta.
             success: 'Propuestas actualizadas correctamente a la categoría %{subject_name}: %{proposals}.'
           update_scope:
             invalid: 'Estas propuestas ya tenían el ámbito %{subject_name}: %{proposals}.'
+            select_a_proposal: Por favor, selecciona una propuesta.
+            select_a_scope: Por favor, selecciona un ámbito.
             success: 'Propuestas actualizadas correctamente al ámbito %{subject_name}: %{proposals}.'
         proposals_imports:
           create:
@@ -679,14 +687,17 @@ es:
         requests:
           accepted_request:
             error: No has podido ser aceptada como contribuidora. Por favor, inténtalo de nuevo más tarde.
+            success: "Se ha acceptado con éxito a @%{user} como colaboradora."
           access_requested:
             error: Tu solicitud no pudo ser completada, por favor inténtalo de nuevo más tarde.
+            success: Tu solicitud para colaborar ha sido enviada correctamente.
           collaboration_requests:
             accept_request: Aceptar
             reject_request: Rechazar
             title: Solicitudes de contribuciones
           rejected_request:
             error: No se ha podido rechazar como colaboradora, por favor inténtalo de nuevo más tarde.
+            success: "Se ha rechazado con éxito @%{user} como colaboradora."
         show:
           back: Volver
           edit: Editar borrador colaborativo
