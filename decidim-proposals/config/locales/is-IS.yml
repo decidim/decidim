@@ -125,16 +125,9 @@ is-IS:
           new:
             create: Búa til
             title: Búðu tillögu
-          publish_answers:
-            select_a_proposal: Vinsamlegast veldu tillögu
           show:
             created_at: Sköpunardegi
             proposals: Tillögur
-          update_category:
-            select_a_category: Vinsamlegast veldu flokk
-            select_a_proposal: Vinsamlegast veldu tillögu
-          update_scope:
-            select_a_proposal: Vinsamlegast veldu tillögu
         proposals_imports:
           new:
             create: Innflutningur tillögur
