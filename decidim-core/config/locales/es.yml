@@ -602,6 +602,9 @@ es:
         download_data_description: Se enviará un archivo con toda la información asociada a tu cuenta a <strong>%{user_email}</strong>. Este correo electrónico contendrá un archivo .zip y una contraseña para abrirlo.<br/><br/>Para descomprimir el archivo, necesitarás <a href="https://www.7-zip.org/">7-Zip</a> (para Windows) o <a href="https://www.keka.io/">Keka</a> (para MacOS). Si usas Linux, la mayoría de las veces lo tendrás instalado por defecto. Si no, puedes utilizar <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> o <a href="https://peazip.github.io">PeaZip</a>).
         request_data: Solicita datos
     editor_images:
+      create:
+        error: Error al cargar la imagen.
+        success: Imagen cargada correctamente.
       drag_and_drop_help: Puedes añadir imágenes arrastrando y soltándolas o también pegándolas.
     endorsable:
       endorsements: Adhesiones
@@ -896,10 +899,16 @@ es:
       actions:
         are_you_sure: '¿Seguro? Esto no eliminará a la participante del grupo.'
         demote_admin: Eliminar permisos de administración
+      demote:
+        error: Se ha producido un error al eliminar esta participante de la lista de administradoras.
+        success: Permisos de administración eliminados correctamente.
       index:
         current_admins: 'Administradoras actuales:'
         manage_admins: Gestionar administradoras
     group_invites:
+      accept:
+        error: Se ha producido un error al aceptar esta invitación.
+        success: Se ha aceptado la invitación correctamente.
       accept_invitation: Aceptar
       accept_or_reject_group_invitations: 'Los siguientes grupos te han invitado a unirte a ellos. Acepta o rechaza las invitaciones:'
       index:
@@ -1141,9 +1150,16 @@ es:
         main_image: Imagen principal
     newsletters:
       unsubscribe:
+        check_subscription: Si quieres cambiar tus preferencias, puedes hacerlo en la <a href="%{link}" target="_blank">página de configuración</a>.
+        error: Se ha producido un error al cancelar la suscripción.
         success: Has cancelado la subscripción correctamente.
         token_error: El enlace ha caducado.
         unsubscribe: Anula la subscripción
+    newsletters_opt_in:
+      unathorized: Lo sentimos, este enlace ya no está disponible.
+      update:
+        error: Se ha producido un error al guardar la configuración del boletín de noticias.
+        success: La configuración del boletín de noticias se ha actualizado correctamente.
     newsletters_opt_in_mailer:
       notify:
         body_1: El procesamiento de datos personales y su protección es cada vez más importante para todas nosotras. Con el nuevo Reglamento General de Protección de Datos (RGPD) del 25 de mayo de 2018, las personas tienen un mayor control sobre sus datos personales. Por este motivo, necesitamos tu autorización para seguir enviándote información relevante sobre las actividades del %{organization_name}.
