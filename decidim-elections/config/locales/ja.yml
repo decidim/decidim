@@ -221,7 +221,6 @@ ja:
               time_before: 選挙開始の <strong>少なくとも %{hours} 時間前</strong> までに準備を完了させます。
               trustees_number: 参加スペースには <strong>少なくとも %{number} 人の公開鍵を持つ受託者</strong>がいます。
             submit: 選挙を設定
-            success: 選挙は正常に掲示板に送信されました
             title: 選挙を設定する
             trustees: 選挙受託者
           created:
@@ -258,7 +257,6 @@ ja:
           tally_started:
             continue: 続ける
             mark_as_missing: missing としてマーク
-            success: 不足していた受託者の報告は正しく掲示板に送信されました
             tally_completion: すべての受託者がアクティブまたは missing とマークされた場合、プロセスは完了します。少なくとも %{quorum} 人の受託者がプロセスを完了する必要があります。
             title: 集計処理
             undo_mark_as_missing: 受託者は、プロセスが完了する前に、間違ってmissingとマークされていることができます。 その場合、通常通りに進行することができ、missingのマークは無視されます。
@@ -506,8 +504,6 @@ ja:
               pending: 保留
               processing: 処理中
             title: '%{election} の合計'
-          update:
-            success: '選挙の状態: %{status}'
         menu:
           trustee_zone: Trusteeゾーン
         no_bulletin_board:
@@ -693,9 +689,6 @@ ja:
           new:
             create: 作成
             title: 投票スタイルを作成
-          update:
-            invalid: 投票スタイルの更新中に問題が発生しました
-            success: 投票スタイルが正常に更新されました
         content_blocks:
           highlighted_votings:
             max_results: 表示する要素の最大量
