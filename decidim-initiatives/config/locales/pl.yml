@@ -234,8 +234,6 @@ pl:
             new: Nowy
             photos: Zdjęcia
         initiatives_type_scopes:
-          destroy:
-            success: Zakres został pomyślnie usunięty
           edit:
             back: Wróć
             confirm_destroy: Jesteś pewny?
