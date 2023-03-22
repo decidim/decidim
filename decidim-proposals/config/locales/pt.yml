@@ -395,9 +395,6 @@ pt:
             document_legend: 'Adicionar um documento com menos de 2MB, cada secção até 3 níveis de profundidade será introduzida nas propostas. Os formatos suportados são: %{valid_mime_types}'
             title: ADICIONAR DOCUMENTO
             upload_document: Enviar documento
-          publish:
-            invalid: Não foi possível publicar propostas
-            success: Todas as propostas foram publicadas
           sections:
             article: "<em>Artigo</em>"
             section: "<em>Secção:</em> <strong>%{title}</strong>"
@@ -452,7 +449,6 @@ pt:
             title: Criar proposta
           publish_answers:
             number_of_proposals: Serão publicadas respostas para %{number} propostas.
-            select_a_proposal: Selecione uma proposta
           show:
             amendments_count: Contagem de modificações
             assigned_valuators: Avaliadores atribuídos
@@ -482,13 +478,9 @@ pt:
             votes_ranking: Classificação por votos
           update_category:
             invalid: 'Estas propostas já possuíam a categoria %{subject_name}: %{proposals}.'
-            select_a_category: Por favor selecione uma categoria
-            select_a_proposal: Por favor selecione uma proposta
             success: 'Propostas atualizadas corretamente para a categoria %{subject_name}: %{proposals}.'
           update_scope:
             invalid: 'Estas propostas já possuíam o âmbito %{subject_name}: %{proposals}.'
-            select_a_proposal: Selecione uma proposta
-            select_a_scope: Selecione um âmbito
             success: 'Propostas atualizadas corretamente para o âmbito %{subject_name}: %{proposals}.'
         proposals_imports:
           new:
@@ -599,17 +591,14 @@ pt:
         requests:
           accepted_request:
             error: Não foi possível ser aceite como colaborador, por favor tente novamente mais tarde.
-            success: "@%{user} foi aceite como colaborador corretamente"
           access_requested:
             error: O seu pedido não pode ser concluído, por favor tente novamente mais tarde.
-            success: O seu pedido para colaborar foi enviado corretamente
           collaboration_requests:
             accept_request: Aceitar
             reject_request: Rejeitar
             title: Pedidos de colaboração
           rejected_request:
             error: Não foi possível rejeitá-lo como colaborador, por favor tente novamente mais tarde.
-            success: "@%{user} foi rejeitado como colaborador corretamente"
         show:
           back: Retroceder
           edit: Editar rascunho colaborativo
