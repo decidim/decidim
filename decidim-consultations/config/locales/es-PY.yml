@@ -46,6 +46,12 @@ es-PY:
         decidim_consultations_response_id:
           not_found: Respuesta no encontrada
   activerecord:
+    errors:
+      models:
+        decidim/consultations/vote:
+          attributes:
+            question:
+              invalid_num_votes: El número de votos no es válido.
     models:
       decidim/consultation:
         one: Consulta
@@ -88,6 +94,7 @@ es-PY:
         create:
           error: Hubo un error al crear una nueva consulta.
           success: Consulta creada con éxito.
+        deprecation_warning: El módulo de consultas estará obsoleto en un futuro cercano. Estamos trabajando en la próxima versión criptográficamente segura llamada Votaciones.
         edit:
           update: Actualizar
         form:
@@ -146,6 +153,7 @@ es-PY:
             one: Respuesta
             other: Respuestas
       question_configuration:
+        disable_external_voting: Por favor, desactiva la votación externa para acceder a las configuraciones avanzadas.
         form:
           help: Configura preguntas con opciones de respuesta múltiples aumentando el número máximo de respuestas que puede elegir un participante. El valor máximo predeterminado es 1, lo que significa que sólo se puede seleccionar una respuesta.
           title: Configuración avanzada
@@ -292,6 +300,7 @@ es-PY:
             votes: Votos
       question_votes:
         create:
+          error: Se ha producido un error al votar la pregunta.
           success: Puedes cambiarlo hasta el final de la consulta. Sólo se aceptará el último voto.
           title_error: '¡Error de voto!'
           title_success: Voto registrado correctamente
