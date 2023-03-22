@@ -501,9 +501,6 @@ sv:
         download_data_description: En fil som innehåller all information kopplad till ditt konto kommer att skickas till <strong>%{user_email}</strong>. Detta e-postmeddelande kommer att innehålla en .zip-fil och ett lösenord för att öppna den.<br/><br/>För att packa upp filen behöver du <a href="https://www.7-zip.org/">7-Zip</a> (för Windows) eller <a href="https://www.keka.io/">Keka</a> (för MacOS). Om du använder Linux, för det mesta kommer du att ha den installerad som standard. Om inte, kan du använda <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> eller <a href="https://peazip.github.io">PeaZip</a>).
         request_data: Begär data
     editor_images:
-      create:
-        error: Fel vid uppladdning av bild
-        success: Bilden har laddats upp
       drag_and_drop_help: Lägg till bilder genom att dra och släppa eller klistra in dem.
     endorsable:
       endorsements: Instämmanden
@@ -753,16 +750,10 @@ sv:
     group_admins:
       actions:
         demote_admin: Ta bort administratör
-      demote:
-        error: Det gick inte att ta bort den här deltagaren från administratörslistan
-        success: Användaren är inte längre administratör
       index:
         current_admins: 'Nuvarande administratörer:'
         manage_admins: Hantera administratörer
     group_invites:
-      accept:
-        error: Det gick inte att godkänna den här inbjudan
-        success: Inbjudan har godkänts
       accept_invitation: Godkänn
       accept_or_reject_group_invitations: 'Du har blivit inbjuden till följande grupper. Godkänn eller avvisa deras förfrågningar:'
       index:
@@ -951,16 +942,9 @@ sv:
         main_image: Huvudbilden
     newsletters:
       unsubscribe:
-        check_subscription: Om du vill ändra dina inställningar kan du göra det på <a href="%{link}" target="_blank">konfigurationssidan</a>
-        error: Det gick inte att avsluta prenumerationen
         success: Prenumerationen har avslutats.
         token_error: Länken är inte längre giltig.
         unsubscribe: Avprenumerera
-    newsletters_opt_in:
-      unathorized: Länken är tyvärr inte längre tillgänglig
-      update:
-        error: Ett fel uppstod
-        success: Inställningarna för nyhetsbrevet har ändrats
     newsletters_opt_in_mailer:
       notify:
         body_1: Behandlingen och skyddet av personuppgifter blir allt viktigare för oss alla. Med den nya dataskyddsförordningen (GDPR) per den 25 maj 2018 har individer större kontroll över sina personuppgifter. Därför behöver vi ett "OK" från dig för att fortsätta att skicka relevant information om aktiviteterna i %{organization_name}.
