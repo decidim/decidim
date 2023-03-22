@@ -585,16 +585,10 @@ lv:
     group_admins:
       actions:
         demote_admin: Noņemt administratoru
-      demote:
-        error: Noņemot šo dalībnieku no administratoru saraksta, radās problēma
-        success: Dalībnieks veiksmīgi noņemts no administratora posteņa
       index:
         current_admins: 'Pašreizējie administratori:'
         manage_admins: Pārvaldīt administratorus
     group_invites:
-      accept:
-        error: Apstiprinot šo ielūgumu, radās problēma
-        success: Ielūgums tika veiksmīgi apstiprināts
       accept_invitation: Pieņemt
       accept_or_reject_group_invitations: 'Šīs grupas ir uzaicinājušas jūs pievienoties. Pieņemiet vai noraidiet to pieprasījumus:'
       index:
@@ -755,16 +749,9 @@ lv:
         main_image: Galvenais attēls
     newsletters:
       unsubscribe:
-        check_subscription: Ja vēlaties mainīt iestatījumus, varat to izdarīt <a href="%{link}" target="_blank"> konfigurācijas lapā</a>.
-        error: Radās problēma ar abonementa anulēšanu.
         success: Jūsu abonements ir veiksmīgi anulēts.
         token_error: Saitei ir beidzies derīguma termiņš.
         unsubscribe: Anulēt abonementu
-    newsletters_opt_in:
-      unathorized: Piedodiet, šī saite vairs nav pieejama
-      update:
-        error: Kaut kas notika nepareizi
-        success: Informatīvo biļetenu iestatījumi ir veiksmīgi atjaunināti
     newsletters_opt_in_mailer:
       notify:
         body_1: Personas datu apstrāde un to aizsardzība kļūst arvien nozīmīgāka mums visiem. Ievērojot jauno Vispārīgo datu aizsardzības regulu (VDAR) (2018. gada 25. maijs), indivīdi var efektīvāk kontrolēt savu personas datu izmantošanu. Šī iemesla dēļ mums ir nepieciešams jūsu „OK”, lai turpinātu sūtīt būtisku informāciju par %{organisation_name} darbībām.
