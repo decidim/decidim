@@ -565,9 +565,6 @@ lt:
         download_data_description: Rinkmena su visais su Jūsų paskyra susijusiais duomenimis bus išsiųsta į <strong>%{user_email}</strong>. Šis el. laiškas turės .zip rinkmeną ir slaptažodį, su kuriuo reikės jį atidaryti.<br/><br/>Norėdami jį atidaryti, Jums reikės <a href="https://www.7-zip.org/">7-Zip</a>(Windows) arba <a href="https://www.keka.io/">Keka</a>(MacOS). Jei naudojate Linux, dažniausiai viskas bus paruošta iš anksto. Jei ne, galite naudoti <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> arba <a href="https://peazip.github.io">PeaZip</a>).
         request_data: Prašyti duomenų
     editor_images:
-      create:
-        error: Klaida įkeliant paveikslėlį
-        success: Paveikslėlis įkeltas sėkmingai
       drag_and_drop_help: Pridėkite paveikslėlius juos užvesdami ant lango arba juos įklijuodami.
     endorsable:
       endorsements: Palaikymai
@@ -842,16 +839,10 @@ lt:
     group_admins:
       actions:
         demote_admin: Pašalinti administratorių
-      demote:
-        error: Šalinant šį dalyvį iš administratorių sąrašo iškilo problema
-        success: Dalyvis pašalintas iš administratorių
       index:
         current_admins: 'Dabartiniai administratoriai:'
         manage_admins: Valdyti administratorių duomenis
     group_invites:
-      accept:
-        error: Priimant šį kvietimą iškilo problema
-        success: Kvietimas priimtas
       accept_invitation: Sutikti
       accept_or_reject_group_invitations: 'Šios grupės jus pakvietė prie jų prisijungti. Priimkite arba atmeskite jų prašymus:'
       index:
@@ -1039,16 +1030,9 @@ lt:
         main_image: Pagrindinis atvaizdas
     newsletters:
       unsubscribe:
-        check_subscription: Jei norite pakeisti savo parinktis, galite tai padaryti <a href="%{link}" target="_blank">konfigūracijos puslapyje</a>
-        error: Atsisakant prenumeratos iškilo problema
         success: Jūs atsisakėte prenumeratos.
         token_error: Nuorodos galiojimo laikas baigėsi.
         unsubscribe: Atsisakyti prenumeratos
-    newsletters_opt_in:
-      unathorized: Atsiprašome, šios nuorodos nebėra
-      update:
-        error: Kažkas ne taip
-        success: Naujienlaiškio nuostatos atnaujintos
     newsletters_opt_in_mailer:
       notify:
         body_1: Asmens duomenų tvarkymas ir jų apsauga mums visiems tampa vis svarbesni. 2018 m. gegužės 25 d. priėmus naują Bendrąjį duomenų apsaugos reglamentą (BDAR), asmenys geriau kontroliuoja savo asmens duomenis. Dėl šios priežasties jums reikia spustelėti „Gerai“, kad galėtume ir toliau siųsti reikiamą informaciją apie %{organization_name} veiklą.
