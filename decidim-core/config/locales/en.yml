@@ -255,7 +255,7 @@ en:
         verify_via_csv: "%{user_name} verified the group %{resource_name} via a CSV file"
       user_moderation:
         unreport: "%{user_name} unreported an %{resource_type} - %{unreported_user_name}"
-    admin_terms_of_use:
+    admin_terms_of_service:
       default_body: "<h2>ADMIN TERMS OF SERVICE</h2><p>We trust you have received the usual lecture from the local System Administrator. It usually boils down to these three things:</p><ol><li>Respect the privacy of others.</li><li>Think before you click.</li><li>With great power comes great responsibility.</li></ol>"
     alert:
       dismiss: Dismiss notification
