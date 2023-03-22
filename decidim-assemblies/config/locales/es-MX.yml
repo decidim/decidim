@@ -76,6 +76,12 @@ es-MX:
         email: Correo electrónico
         name: Nombre
         role: Rol de usuario
+    errors:
+      models:
+        assembly:
+          attributes:
+            document:
+              allowed_file_content_types: 'Tipo de documento no válido. Sólo se permiten archivos con las siguientes extensiones: %{types}.'
   activerecord:
     models:
       decidim/assembly:
