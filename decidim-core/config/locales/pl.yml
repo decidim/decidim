@@ -779,16 +779,10 @@ pl:
     group_admins:
       actions:
         demote_admin: Usuń administratora
-      demote:
-        error: Wystąpił błąd podczas usuwania tego użytkownika z listy administratorów
-        success: Użytkownik został pomyślnie usunięty z listy administratorów
       index:
         current_admins: 'Obecni administratorzy:'
         manage_admins: Zarządzaj administratorami
     group_invites:
-      accept:
-        error: Wystąpił błąd podczas akceptowania tego zaproszenia
-        success: Zaproszenie zostało zaakceptowane
       accept_invitation: Akceptuj
       accept_or_reject_group_invitations: 'Następujące grupy zaprosiły Cię do dołączenia do nich. Zaakceptuj lub odrzuć ich zaproszenia:'
       index:
@@ -969,16 +963,9 @@ pl:
         main_image: Obraz główny
     newsletters:
       unsubscribe:
-        check_subscription: Jeśli chcesz zmienić swoje preferencje, możesz to zrobić na <a href="%{link}" target="_blank">stronie konfiguracji</a>
-        error: Wystąpił błąd podczas anulowania subskrypcji
         success: Subskrypcja została anulowana.
         token_error: Link wygasł.
         unsubscribe: Anuluj subskrypcję
-    newsletters_opt_in:
-      unathorized: Przepraszamy, ten link nie jest już dostępny
-      update:
-        error: Wystąpił błąd
-        success: Ustawienia newslettera zostały pomyślnie zaktualizowane
     newsletters_opt_in_mailer:
       notify:
         body_1: Przetwarzanie danych osobowych i ich ochrona stają się coraz ważniejsze dla nas wszystkich. Wraz z nowym ogólnym rozporządzeniem o ochronie danych (GDPR) z 25 maja 2018 r. Osoby fizyczne mają lepszą kontrolę nad swoimi danymi osobowymi. Z tego powodu potrzebujemy twojego "OK", aby kontynuować wysyłanie odpowiednich informacji o działaniach %{organization_name}.
