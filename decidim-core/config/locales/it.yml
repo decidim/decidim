@@ -455,9 +455,6 @@ it:
         download_data_description: Un file contenente tutte le informazioni associate al tuo account verrà inviato a <strong>%{user_email}</strong>. Questa email conterrà un file .zip e una password per aprirlo.<br/><br/>Per decomprimere il file, avrai bisogno di <a href="https://www.7-zip.org/">7-Zip</a> (per Windows) o <a href="https://www.keka.io/">Keka</a> (per MacOS). Se si utilizza Linux, la maggior parte delle volte il software predefinito è sufficiente. In caso contrario, è possibile utilizzare <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> o <a href="https://peazip.github.io">PeaZip</a>).
         request_data: Richiedi dati
     editor_images:
-      create:
-        error: Errore nel caricamento dell'immagine
-        success: Immagine caricata con successo
       drag_and_drop_help: Aggiungi immagini trascinandole o incollandole.
     endorsable:
       endorsements: Mi piace
@@ -680,16 +677,10 @@ it:
     group_admins:
       actions:
         demote_admin: Rimuovi l'amministratore
-      demote:
-        error: Si è verificato un errore durante la rimozione di questo utente dall'elenco degli amministratori
-        success: Utente rimosso correttamente dall'amministratore
       index:
         current_admins: 'Amministratori attuali:'
         manage_admins: Gestisci amministratori
     group_invites:
-      accept:
-        error: Si è verificato un errore durante l'accettazione di questo invito
-        success: Invito accettato con successo
       accept_invitation: Accettare
       accept_or_reject_group_invitations: 'I seguenti gruppi ti hanno invitato a unirti a loro. Accetta o rifiuta le loro richieste:'
       index:
@@ -874,16 +865,9 @@ it:
         main_image: Immagine principale
     newsletters:
       unsubscribe:
-        check_subscription: Se desideri modificare le tue preferenze, puoi farlo nella pagina di configurazione <a href="%{link}" target="_blank"></a>
-        error: Si è verificato un errore durante l'annullamento dell'iscrizione
         success: Hai annullato l'iscrizione.
         token_error: Il link è scaduto.
         unsubscribe: Annulla l'iscrizione
-    newsletters_opt_in:
-      unathorized: Spiacenti, questo link non è più disponibile
-      update:
-        error: C'è stato un problema
-        success: Impostazioni della newsletter aggiornate correttamente
     newsletters_opt_in_mailer:
       notify:
         body_1: Il trattamento dei dati personali e la sua protezione stanno diventando sempre più importanti per tutti noi. Con il nuovo regolamento generale sulla protezione dei dati (GDPR) del 25 maggio 2018, gli individui hanno un migliore controllo sui propri dati personali. Per questo motivo abbiamo bisogno del tuo "OK" per continuare a inviare informazioni rilevanti sulle attività di %{organization_name}.
