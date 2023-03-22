@@ -39,7 +39,7 @@ fi-pl:
         body: Runko
         subject: Otsikko
       organization:
-        admin_terms_of_use_body: Käyttöehtojen sisältö
+        admin_terms_of_use_body: Hallintakäyttäjien käyttöehtojen sisältöteksti
         alert_color: Ilmoitus
         available_authorizations: Käytettävissä olevat tunnistautumistavat
         badges_enabled: Ota kunniamerkit käyttöön
@@ -208,7 +208,7 @@ fi-pl:
           refuse: Kieltäydy hyväksymästä hallintakäyttäjän ehtoja
           title: Käyttöehtojen hyväksyntä
         required_review:
-          alert: 'Vaaditaan: Tarkista hallintakäyttäjän käyttöehdot'
+          alert: 'Vaadittu: tutustu hallintakäyttäjän ehtoihimme'
           callout: Ole hyvä ja tutustu hallintakäyttäjän käyttöehtoihin. Ehtojen hyväksyminen vaaditaan, jotta saat oikeudet järjestelmän hallintatoimintoihin.
           cta: Tutustu nyt.
         title: Hallintakäyttäjän käyttöehdot
@@ -519,8 +519,6 @@ fi-pl:
             message:
               one: Puuttuva sarake %{columns}.
               other: Puuttuvia sarakkeita %{columns}.
-        error: Tuonti epäonnistui
-        example_error: Esimerkkitiedoston luonti epäonnistui annetulle tiedostotyypille
         new:
           accepted_mime_types:
             csv: csv
@@ -532,7 +530,6 @@ fi-pl:
           download_example_format: Esimerkki muodossa %{name}
           file_legend: Lisää tuontitiedosto, josta tiedot luetaan.
           import: Tuo
-        notice: "%{number} kpl kohteita %{resource_name} tuotu onnistuneesti"
       logs:
         filters:
           participatory_space: Etsi osallistumistila
@@ -557,6 +554,7 @@ fi-pl:
         area_types: Aluetyypit
         areas: Alueet
         configuration: Asetukset
+        content: Ilmoitettu sisältö
         dashboard: Hallintapaneeli
         external_domain_whitelist: Sallitut ulkoiset verkko-osoitteet
         help_sections: Ohjeosiot
@@ -665,6 +663,7 @@ fi-pl:
           nickname: Nimimerkki
           reason: Syy
           reports: Ilmoitusten määrä
+          title: Ilmoitetut osallistujat
         report:
           reasons:
             does_not_belong: Ei kuulu
@@ -674,6 +673,8 @@ fi-pl:
           blocked: Estetty
           unblocked: Ei estetty
       moderations:
+        index:
+          title: Ilmoitettu sisältö
         report:
           reasons:
             does_not_belong: Ei kuulu
@@ -1135,6 +1136,8 @@ fi-pl:
   layouts:
     decidim:
       admin:
+        global_moderations:
+          title: Yleiset moderoinnit
         newsletters:
           title: Uutiskirjeet
         settings:
