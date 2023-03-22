@@ -106,8 +106,6 @@ ru:
             preview: Предпросмотр
             print: Распечатать
         initiatives_type_scopes:
-          destroy:
-            success: Охват успешно удален
           edit:
             back: Вернуться
             confirm_destroy: Вы уверены?
