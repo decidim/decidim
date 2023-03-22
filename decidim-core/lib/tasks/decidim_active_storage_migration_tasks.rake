@@ -79,7 +79,7 @@ namespace :decidim do
         "Decidim::Assembly" => %w(short_description description purpose_of_action composition internal_organisation announcement closing_date_reason special_features),
         "Decidim::Forms::Questionnaire" => %w(description tos),
         "Decidim::Forms::Question" => %w(description),
-        "Decidim::Organization" => %w(welcome_notification_body admin_terms_of_use_body description highlighted_content_banner_short_description id_documents_explanation_text),
+        "Decidim::Organization" => %w(welcome_notification_body admin_terms_of_use_body admin_terms_of_service_body description highlighted_content_banner_short_description id_documents_explanation_text),
         "Decidim::StaticPage" => %w(content),
         "Decidim::ContextualHelpSection" => %w(content),
         "Decidim::Category" => %w(description),

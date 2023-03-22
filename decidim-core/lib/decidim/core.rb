@@ -518,7 +518,7 @@ module Decidim
 
   # List of static pages' slugs that can include content blocks
   config_accessor :page_blocks do
-    %w(terms-and-conditions)
+    %w(terms-of-service)
   end
 
   # Public: Registers a global engine. This method is intended to be used

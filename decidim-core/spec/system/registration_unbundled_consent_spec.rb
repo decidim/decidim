@@ -4,7 +4,7 @@ require "spec_helper"
 
 describe "TOS", type: :system do
   let(:organization) { create(:organization) }
-  let!(:terms_and_conditions_page) { Decidim::StaticPage.find_by(slug: "terms-and-conditions", organization:) }
+  let!(:terms_and_conditions_page) { Decidim::StaticPage.find_by(slug: "terms-of-service", organization:) }
 
   before do
     switch_to_host(organization.host)

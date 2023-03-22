@@ -2,7 +2,7 @@
 
 module Decidim
   # The controller to handle the current user's
-  # Terms and Conditions agreement.
+  # Terms of service agreement.
   class TosController < Decidim::ApplicationController
     skip_before_action :store_current_location
 

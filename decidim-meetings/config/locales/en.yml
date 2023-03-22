@@ -141,7 +141,7 @@ en:
             resources_permissions_enabled: Actions permissions can be set for each meeting
             scope_id: Scope
             scopes_enabled: Scopes enabled
-            terms_and_conditions_url_for_meeting_creators: Terms and conditions URL for meeting creators
+            terms_and_conditions_url_for_meeting_creators: Terms of service URL for meeting creators
           step:
             announcement: Announcement
             comments_blocked: Comments blocked

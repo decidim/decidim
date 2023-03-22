@@ -22,7 +22,7 @@ module Decidim
     end
 
     def terms_and_conditions_page
-      @terms_and_conditions_page ||= Decidim::StaticPage.find_by(slug: "terms-and-conditions", organization: current_organization)
+      @terms_and_conditions_page ||= Decidim::StaticPage.find_by(slug: "terms-of-service", organization: current_organization)
     end
 
     def terms_and_conditions_summary_content_blocks

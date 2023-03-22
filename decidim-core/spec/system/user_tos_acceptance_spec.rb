@@ -5,7 +5,7 @@ require "spec_helper"
 describe "UserTosAcceptance", type: :system do
   let!(:organization) { create(:organization) }
   let!(:user) { create(:user, :confirmed, organization:) }
-  let!(:tos_page) { Decidim::StaticPage.find_by(slug: "terms-and-conditions", organization:) }
+  let!(:tos_page) { Decidim::StaticPage.find_by(slug: "terms-of-service", organization:) }
   let(:btn_accept) { "I agree with these terms" }
   let(:btn_refuse) { "Refuse the terms" }
 
@@ -50,7 +50,7 @@ describe "UserTosAcceptance", type: :system do
       end
 
       it "renders a success announcement" do
-        expect(page).to have_content("Great! You have accepted the terms and conditions.")
+        expect(page).to have_content("Great! You have accepted the terms of service.")
         expect(page).to have_css(".flash.success")
       end
     end
@@ -62,7 +62,7 @@ describe "UserTosAcceptance", type: :system do
 
       it "renders a modal" do
         expect(page).to have_css("#tos-refuse-modal")
-        expect(page).to have_content("Do you really refuse the updated Terms and Conditions?")
+        expect(page).to have_content("Do you really refuse the updated terms of service?")
       end
 
       context "with the refuse modal has different options" do

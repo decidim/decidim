@@ -2,7 +2,7 @@
 
 module Decidim
   # A page is used to add static content to the website, it can be useful so
-  # organization can add their own terms and conditions, privacy policy or
+  # organization can add their own terms of service, privacy policy or
   # other pages they might need from an admin panel.
   #
   # Pages with a default slug cannot be destroyed and its slug cannot be
@@ -22,7 +22,7 @@ module Decidim
 
     # These pages will be created by default when registering an organization
     # and cannot be deleted.
-    DEFAULT_PAGES = %w(terms-and-conditions).freeze
+    DEFAULT_PAGES = %w(terms-of-service).freeze
 
     after_create :update_organization_tos_version
     before_destroy :can_be_destroyed?
@@ -74,10 +74,10 @@ module Decidim
 
     private
 
-    # When creating a terms-and-conditions page
+    # When creating a terms-of-service page
     # set the organization tos_version
     def update_organization_tos_version
-      return unless slug == "terms-and-conditions"
+      return unless slug == "terms-of-service"
 
       organization.update!(tos_version: created_at)
     end
