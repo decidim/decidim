@@ -327,9 +327,6 @@ sk:
             bottom_hint: "(Budete mať možnosť zobraziť a triediť sekcie dokumentov)"
             title: PRIDAŤ DOKUMENT
             upload_document: Nahrať dokument
-          publish:
-            invalid: Nemožno publikovať návrhy
-            success: Všetky návrhy boli zverejnené
           sections:
             article: "<em>Článok</em>"
             section: "<em> Sekcia: </ em> <strong>%{title} </strong>"
@@ -383,7 +380,6 @@ sk:
             title: Vytvorte návrh
           publish_answers:
             number_of_proposals: Odpovede pre %{number} návrhov budú zverejnené.
-            select_a_proposal: Vyberte návrh
           show:
             amendments_count: Počet zmien
             assigned_valuators: Priradení hodnotitelia
@@ -415,13 +411,9 @@ sk:
             votes_ranking: Umiestnenie podľa hlasov
           update_category:
             invalid: 'Tieto návrhy už majú kategóriu %{subject_name}: %{proposals}.'
-            select_a_category: Vyberte kategóriu
-            select_a_proposal: Vyberte návrh
             success: 'Návrhy úspešne pridané do kategórie %{subject_name}: %{proposals}.'
           update_scope:
             invalid: 'Tieto návrhy už mali %{subject_name} rozsah: %{proposals}.'
-            select_a_proposal: Vyberte návrh
-            select_a_scope: Prosím, zvoľte rozsah
             success: 'Návrhy úspešne pridané do kategórie %{subject_name}: %{proposals}.'
         proposals_imports:
           new:
@@ -531,17 +523,14 @@ sk:
         requests:
           accepted_request:
             error: Nemožno prijať ako spolupracovník, skúste to znova neskôr.
-            success: "@%{user} bol úspešne prijatý ako spolupracovník"
           access_requested:
             error: Vaša žiadosť nebola dokončená, skúste to znova neskôr.
-            success: Vaša žiadosť o spolupráci bola úspešne odoslaná
           collaboration_requests:
             accept_request: Akceptovať
             reject_request: Odmietnuť
             title: Žiadosti o spolupráci
           rejected_request:
             error: Nemohol byť odmietnutý ako spolupracovník, skúste to znova neskôr.
-            success: "@%{user} bol úspešne odmietnutý ako spolupracovník"
         show:
           back: Zadná
           edit: Úprava konceptu spolupráce
