@@ -201,7 +201,6 @@ pl:
               time_before: Konfiguracja odbywa się <strong>co najmniej %{hours} godzin(y)</strong> przed rozpoczęciem wyborów.
               trustees_number: Przestrzeń partycypacyjna <strong>musi mieć co najmniej %{number} mężów (osób) zaufania z kluczem publicznym</strong>.
             submit: Ustaw wybory
-            success: Wybory pomyślnie wysłano do tablicy danych wyborczych
             title: Skonfiguruj wybory
             trustees: Mężowie (osoby) zaufania
           created:
@@ -237,7 +236,6 @@ pl:
             title: Obliczone wyniki
           tally_started:
             mark_as_missing: Oznacz jako brakujący
-            success: Brakująca uwaga męża zaufania została pomyślnie wysłana do Tablicy
             tally_completion: 'Proces zostanie zakończony, gdy wszyscy mężowie zaufania będą aktywni lub zostaną oznaczeni jako brakujący. Wymagana ilość mężów zaufania: %{quorum}.'
             undo_mark_as_missing: Przed zakończeniem procesu będzie mógł uczestniczyć mąż zaufania oznaczony jako brakujący omyłkowo. Mężowie zaufania mogą postępować jak zwykle, a oznaczenie jako "brakujący" zostanie zignorowane.
           vote:
@@ -463,8 +461,6 @@ pl:
                 cast: Suma oddanych głosów
                 share: Udostępnij ustalony wynik głosowania
             title: Wynik głosowania dla %{election}
-          update:
-            success: 'Status wyborów to: %{status}'
         menu:
           trustee_zone: Strefa mężów (osób) zaufania
         no_bulletin_board:
@@ -643,9 +639,6 @@ pl:
           new:
             create: Utwórz
             title: Utwórz rodzaj kart wyborczych
-          update:
-            invalid: Wystąpił błąd podczas aktualizowania tego rodzaju kart wyborczych
-            success: Pomyślnie zaktualizowano ten rodzaj kart wyborczych
         content_blocks:
           highlighted_votings:
             max_results: Maksymalna ilość elementów do wyświetlenia
