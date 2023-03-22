@@ -32,6 +32,7 @@ pt:
         body: Corpo
         subject: Assunto
       organization:
+        admin_terms_of_use_body: Corpo para os termos de utilização do administrador
         alert_color: Alerta
         available_authorizations: Autorizações disponíveis
         badges_enabled: Ativar distintivos
@@ -170,6 +171,7 @@ pt:
           are_you_sure: Tem a certeza que quer rejeitar os termos de utilização de administrador?
           refuse: Recusar os termos de administrador
         required_review:
+          alert: 'Necessário: Rever os nossos termos de utilização de administrador'
           cta: Reveja-os agora.
       area_types:
         create:
@@ -425,7 +427,6 @@ pt:
           impersonate_existing_user: Gerir participante "%{name}"
           impersonate_new_managed_user: Gerir novo participante
       imports:
-        error: Houve um problema durante a importação
         new:
           accepted_mime_types:
             csv: CSV
@@ -435,7 +436,6 @@ pt:
             back: Voltar
           file_legend: Adicionar ficheiro para importar a analisar.
           import: Importar
-        notice: "%{number} %{resource_name} importado(s) com êxito"
       managed_users:
         promotion:
           error: Ocorreu um problema ao promover o participante gerido.
