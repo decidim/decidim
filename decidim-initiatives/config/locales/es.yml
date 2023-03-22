@@ -273,6 +273,8 @@ es:
           create:
             error: Se ha producido un error.
             success: Se ha creado un nuevo ámbito para el tipo de iniciativa dado.
+          destroy:
+            success: El ámbito ha sido eliminado con éxito.
           edit:
             back: Volver
             confirm_destroy: '¿Estás seguro?'
