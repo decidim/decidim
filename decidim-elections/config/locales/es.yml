@@ -290,6 +290,7 @@ es:
               time_before: La configuración se está realizando <strong>al menos %{hours} horas</strong> antes de que comience la elección.
               trustees_number: El espacio participativo tiene <strong>al menos %{number} garantes con clave pública</strong>.
             submit: Configurar elección
+            success: La elección se ha enviado con éxito al "Bulletin Board".
             title: Configurar elección
             trustees: Garantes de la elección
           created:
@@ -333,6 +334,7 @@ es:
             invalid: Hubo un problema al reportar la ausencia de la garante.
             mark_as_missing: Marcar como ausente
             mark_as_missing_description: Todos los garantes deberían participar en este proceso, pero si uno de ellos no puede tomar parte en él, puedes marcarlo como ausente.
+            success: La notificación de ausencia de la garante se ha enviado con éxito al "Bulletin Board".
             tally_completion: El proceso se completará cuando todos los garantes estén activos o marcados como ausentes. Se requiere al menos %{quorum} garantes para completar el proceso.
             title: Proceso de recuento
             undo_mark_as_missing: Un garante marcado como ausente por error podrá participar antes de completar el proceso. Pueden proceder como de costumbre y la marca de ausente será ignorada.
@@ -601,6 +603,7 @@ es:
             title: Recuento para %{election}
           update:
             error: El estado de la elección no se había actualizado.
+            success: 'El estado de la elección es: %{status}.'
         menu:
           trustee_zone: Zona del garante
         no_bulletin_board:
@@ -807,6 +810,9 @@ es:
           new:
             create: Crear
             title: Crear estilo de papeleta
+          update:
+            invalid: Ha habido un problema al actualizar el estilo de papeleta.
+            success: Se ha creado correctamente el estilo de papeleta.
         content_blocks:
           highlighted_votings:
             max_results: Cantidad máxima de elementos a mostrar
