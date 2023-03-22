@@ -67,8 +67,6 @@ is-IS:
             preview: Preview
             print: Prenta
         initiatives_type_scopes:
-          destroy:
-            success: Umfangið hefur verið fjarlægt
           edit:
             back: Til baka
             confirm_destroy: Ertu viss?
