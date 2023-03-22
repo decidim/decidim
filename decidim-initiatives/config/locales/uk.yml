@@ -106,8 +106,6 @@ uk:
             preview: Попередній перегляд
             print: Друк
         initiatives_type_scopes:
-          destroy:
-            success: Обсяг було успішно видалено
           edit:
             back: Повернутись
             confirm_destroy: Ви впевнені?
