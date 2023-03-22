@@ -32,6 +32,7 @@ el:
         body: Σώμα
         subject: Θέμα
       organization:
+        admin_terms_of_use_body: Σώμα για τους όρους χρήσης του διαχειριστή
         alert_color: Ειδοποίηση
         available_authorizations: Διαθέσιμες εγκρίσεις
         badges_enabled: Ενεργοποίηση εμβλημάτων
@@ -170,6 +171,7 @@ el:
           are_you_sure: Είστε σίγουρος ότι θέλετε να αρνηθείτε τους όρους χρήσης του διαχειριστή;
           refuse: Απόρριψη των όρων διαχειριστή
         required_review:
+          alert: 'Απαιτείται: Διαβάστε τους όρους χρήσης διαχειριστή'
           cta: Διαβάστε τους τώρα.
       area_types:
         create:
@@ -420,13 +422,11 @@ el:
           impersonate_existing_user: Διαχείριση συμμετέχοντα «%{name}»
           impersonate_new_managed_user: Διαχείριση νέου συμμετέχοντα
       imports:
-        error: Υπήρξε πρόβλημα κατά την εισαγωγή
         new:
           actions:
             back: Πίσω
           file_legend: Προσθέστε ένα αρχείο εισαγωγής που θα αναλυθεί.
           import: Εισαγωγή
-        notice: "%{number} %{resource_name} επιτυχώς εισαχθείσα"
       managed_users:
         promotion:
           error: Υπήρξε ένα πρόβλημα κατά την προώθηση του διαχειριζόμενου συμμετέχοντα.
