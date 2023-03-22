@@ -39,6 +39,10 @@ module Decidim
 
     def external_url
       @external_url ||= begin
+        raise Decidim::InvalidUrlError if params[:external_url].blank?
+
+        # Simple way to avoid double encoded URI issues
+        URI.parse(CGI.unescape(params[:external_url]))
         uri = URI.parse(params[:external_url])
         uri.is_a?(URI::HTTP) ? uri.to_s : ""
       end
