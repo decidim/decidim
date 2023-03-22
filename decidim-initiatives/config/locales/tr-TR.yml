@@ -220,8 +220,6 @@ tr:
             new: Yeni
             photos: Resimler
         initiatives_type_scopes:
-          destroy:
-            success: Kapsam başarıyla kaldırıldı
           edit:
             back: Geri
             confirm_destroy: Emin misin?
