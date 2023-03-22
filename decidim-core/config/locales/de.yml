@@ -531,9 +531,6 @@ de:
         download_data_description: Eine Datei, die alle mit Ihrem Konto verknüpften Informationen enthält, wird an <strong>%{user_email}</strong> gesendet. Diese E-Mail enthält eine .zip-Datei und ein Passwort, um sie zu öffnen.<br/><br/>Um die Datei zu entpacken, benötigen Sie <a href="https://www.7-zip.org/">7-Zip</a> (für Windows) oder <a href="https://www.keka.io/">Keka</a> (für MacOS). Wenn Sie Linux verwenden, wird es meistens standardmäßig installiert. Wenn nicht, können Sie <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> oder <a href="https://peazip.github.io">PeaZip</a> verwenden.
         request_data: Daten anfordern
     editor_images:
-      create:
-        error: Fehler beim Hochladen des Bildes
-        success: Bild erfolgreich hochgeladen
       drag_and_drop_help: Sie können Bilder per Drag & Drop hinzufügen oder per Copy & Paste.
     endorsable:
       endorsements: Empfehlungen
@@ -796,16 +793,10 @@ de:
     group_admins:
       actions:
         demote_admin: Entferne Admin
-      demote:
-        error: Beim Entfernen dieses Benutzers aus der Administratorliste ist ein Fehler aufgetreten
-        success: Benutzer wurde vom Administrator erfolgreich entfernt
       index:
         current_admins: 'Aktuelle Admins:'
         manage_admins: Admins verwalten
     group_invites:
-      accept:
-        error: Bei der Annahme dieser Einladung ist ein Fehler aufgetreten
-        success: Einladung wurde erfolgreich angenommen
       accept_invitation: Akzeptieren
       accept_or_reject_group_invitations: 'Die folgenden Gruppen haben Sie eingeladen, sich ihnen anzuschließen. Akzeptieren oder ablehnen ihrer Anfragen:'
       index:
@@ -993,16 +984,9 @@ de:
         main_image: Hauptbild
     newsletters:
       unsubscribe:
-        check_subscription: Wenn Sie Ihre Einstellungen ändern möchten, können Sie dies in der <a href="%{link}" target="_blank">- Konfiguration Seite</a>
-        error: Beim Abbestellen ist ein Fehler aufgetreten
         success: Sie haben sich erfolgreich abgemeldet.
         token_error: Der Link ist abgelaufen.
         unsubscribe: Abmelden
-    newsletters_opt_in:
-      unathorized: Entschuldigung, dieser Link ist nicht mehr verfügbar
-      update:
-        error: Etwas ist schiefgelaufen
-        success: Newslettereinstellungen wurden erfolgreich aktualisiert
     newsletters_opt_in_mailer:
       notify:
         body_1: Die Verarbeitung personenbezogener Daten und deren Schutz wird für uns alle immer wichtiger. Mit der neuen Datenschutz-Grundverordnung (DSGV) vom 25. Mai 2018 haben Einzelpersonen eine bessere Kontrolle über ihre personenbezogenen Daten. Aus diesem Grund benötigen wir Ihr "OK" um weiterhin relevante Informationen über die Aktivitäten der %{organization_name}zu senden.
