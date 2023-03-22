@@ -519,6 +519,8 @@ ca:
             message:
               one: Falta la columna %{columns}.
               other: Falten les columnes %{columns}.
+        error: S'ha produït un error durant la importació.
+        example_error: S'ha produït un error en crear un exemple pel tipus seleccionat.
         new:
           accepted_mime_types:
             csv: CSV
@@ -530,6 +532,7 @@ ca:
           download_example_format: Exemple de %{name}
           file_legend: Afegir un arxiu d'importació que serà processat.
           import: Importar
+        notice: "%{count} %{resource_name} importat correctament."
       logs:
         filters:
           participatory_space: Trobar espai de participació
