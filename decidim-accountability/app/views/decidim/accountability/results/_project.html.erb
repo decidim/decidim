@@ -1,4 +1,4 @@
-<%= render layout: "layouts/decidim/shared/layout_item", locals: nav_paths do %>
+<%= render layout: "layouts/decidim/shared/layout_item", locals: nav_paths.merge(commentable: result) do %>
   <%= cell("decidim/accountability/project", result) %>
 
   <div class="mt-8 accountability__project-actions">
@@ -11,7 +11,6 @@
   </div>
 
   <%# REDESIGN_PENDING: Both comments and attachments sections are pending %>
-  <%= comments_for result %>
   <%= attachments_for result %>
 
   <div class="mt-8">

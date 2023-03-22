@@ -1,4 +1,4 @@
-<%= render layout: "layouts/decidim/shared/layout_item", locals: nav_paths do %>
+<%= render layout: "layouts/decidim/shared/layout_item", locals: nav_paths.merge(commentable: meeting) do %>
   <div class="meeting__container">
 
     <h1 class="h2 decorator"><%= present(meeting).title(links: true, html_escape: true ) %></h1>
@@ -48,7 +48,6 @@
       <%= cell "decidim/tags", meeting %>
     </div>
 
-    <%= comments_for meeting %>
     <%= pad_iframe_for meeting %>
 
     <div class="mt-8">
