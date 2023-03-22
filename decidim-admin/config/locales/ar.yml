@@ -39,6 +39,7 @@ ar:
         body: النص
         subject: الموضوع
       organization:
+        admin_terms_of_use_body: نص شروط الاستخدام للمدير
         alert_color: تنبيه
         available_authorizations: التراخيص المتاحة
         badges_enabled: تمكين الشارات
@@ -442,7 +443,6 @@ ar:
           download_example_format: مثال كـ %{name}
           file_legend: إضافة ملف استيراد سيتم تحليله.
           import: استيراد
-        notice: "تم استيراد %{count} %{resource_name} بنجاح"
       managed_users:
         promotion:
           error: كانت هناك مشكلة في تعزيز المشارك المُدار.
