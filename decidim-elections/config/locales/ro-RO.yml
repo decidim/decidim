@@ -184,7 +184,6 @@ ro:
               minimum_answers: Fiecare întrebare are <strong>cel puţin 2 răspunsuri</strong>.
               trustees_number: Spațiul participativ are <strong>cel puțin %{number} împuterniciți cu chei publice</strong>.
             submit: Configurează alegerile
-            success: Alegerile au fost trimise cu succes către Panoul de afișare
             title: Configurează alegerile
             trustees: Împuterniciți pentru alegeri
           created:
@@ -211,7 +210,6 @@ ro:
             title: Calculează rezultatele
           tally_started:
             mark_as_missing: Marcheză drept absent
-            success: Raportul privind împuternicitul absent a fost trimis cu succes către Panoul de afișare
             tally_completion: Procesul va fi finalizat cânt toți împuternicții sunt activi sau marcați drept absenți. Pentru a finaliza procesul sunt necesari cel puțin %{quorum} împuterniciți.
             undo_mark_as_missing: Un împuternicit marcat din greșeală drept absent va putea participa înainte de finalizarea procesului. Acesta poate proceda ca de obicei, iar marcarea drept absent va fi ingnorată.
           vote:
@@ -400,8 +398,6 @@ ro:
                 cast: Anunțarea rezultatului votului
                 share: Împărtășirea rezultatului votului
             title: Numărarea voturilor pentru %{election}
-          update:
-            success: 'Statutul alegerilor este: %{status}'
         menu:
           trustee_zone: Zonă împuternicit
         no_bulletin_board:
