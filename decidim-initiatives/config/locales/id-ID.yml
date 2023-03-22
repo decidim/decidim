@@ -162,8 +162,6 @@ id:
             preview: Preview
             print: Mencetak
         initiatives_type_scopes:
-          destroy:
-            success: Ruang lingkup telah berhasil dihapus
           edit:
             back: Kembali
             confirm_destroy: Apakah kamu yakin?
