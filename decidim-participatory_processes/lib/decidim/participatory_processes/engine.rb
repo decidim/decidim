@@ -74,7 +74,7 @@ module Decidim
           content_block.settings_form_cell = "decidim/participatory_processes/content_blocks/highlighted_processes_settings_form"
 
           content_block.settings do |settings|
-            settings.attribute :max_results, type: :integer, default: 4
+            settings.attribute :max_results, type: :integer, default: 6
           end
         end
 
@@ -195,7 +195,7 @@ module Decidim
           content_block.public_name_key = "decidim.participatory_processes.content_blocks.related_processes.name"
 
           content_block.settings do |settings|
-            settings.attribute :max_results, type: :integer, default: 4
+            settings.attribute :max_results, type: :integer, default: 6
           end
         end
 
@@ -205,7 +205,7 @@ module Decidim
           content_block.public_name_key = "decidim.assemblies.content_blocks.related_assemblies.name"
 
           content_block.settings do |settings|
-            settings.attribute :max_results, type: :integer, default: 4
+            settings.attribute :max_results, type: :integer, default: 6
           end
         end
 
