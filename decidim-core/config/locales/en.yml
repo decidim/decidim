@@ -1273,7 +1273,7 @@ en:
         metrics:
           headline: Metrics
           link: Show all metrics
-      terms_and_conditions:
+      terms_of_service:
         accept:
           error: There was a problem accepting the terms of service.
           success: Great! You have accepted the terms of service.

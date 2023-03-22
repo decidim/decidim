@@ -9,10 +9,10 @@ module Decidim
     def accept_tos
       current_user.accepted_tos_version = Time.current
       if current_user.save!
-        flash[:notice] = t("accept.success", scope: "decidim.pages.terms_and_conditions")
+        flash[:notice] = t("accept.success", scope: "decidim.pages.terms_of_service")
         redirect_to after_sign_in_path_for current_user
       else
-        flash[:alert] = t("accept.error", scope: "decidim.pages.terms_and_conditions")
+        flash[:alert] = t("accept.error", scope: "decidim.pages.terms_of_service")
         redirect_to decidim.page_path tos_page
       end
     end

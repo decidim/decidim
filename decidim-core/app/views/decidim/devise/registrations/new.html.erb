@@ -48,7 +48,7 @@
       <h4 class="h4"><%= t("decidim.devise.registrations.new.tos_title") %></h4>
 
       <div class="tos-text">
-        <% terms_and_conditions_summary_content_blocks.each do |content_block| %>
+        <% terms_of_service_summary_content_blocks.each do |content_block| %>
           <%= cell content_block.manifest.cell, content_block %>
         <% end %>
       </div>
