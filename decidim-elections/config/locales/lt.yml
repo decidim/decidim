@@ -226,7 +226,6 @@ lt:
               time_before: Konfigūracija atliekama <strong>bent %{hours} valandas</strong> prieš rinkimų pradžią.
               trustees_number: Dalyvaujomi erdvė <strong>turi bent %{number} patikėtinių su viešų raktu</strong>.
             submit: Konfigūruoti rinkimus
-            success: Rinkimai sėkmingai nusiųsti į Skelbimų Lentą
             title: Konfigūruoti rinkimus
             trustees: Rinkimų patikėtiniai
           created:
@@ -263,7 +262,6 @@ lt:
           tally_started:
             continue: Tęsti
             mark_as_missing: Pažymėti neesančiu
-            success: Trūkstančio patikėtinio ataskaita išsiųsta į Skelbimų Lentą
             tally_completion: Šis procesas bus įvykdytas kai visi patikėtiniai bus aktyvūs arba pažymėti kaip trūkstantys. Reikia bent %{quorum} patikėtinių, kad įvykdyti šį procesą.
             title: Perskaičiavimo procesas
             undo_mark_as_missing: Patikėtinis netyčia pažymėtas kaip trūkstantis gali dalyvauti prieš pasibaigiant procesui. Jis gali atlikti savo užduotis kaip įprasta.
@@ -520,8 +518,6 @@ lt:
               pending: Laukiama
               processing: Apdorojama
             title: Balsai %{election}
-          update:
-            success: 'Rinkimų būsena yra: %{status}'
         menu:
           trustee_zone: Patikėtinių zona
         no_bulletin_board:
@@ -706,9 +702,6 @@ lt:
           new:
             create: Sukurti
             title: Sukurti biuletenio tipą
-          update:
-            invalid: Atnaujinant šį biuletenio tipą iškilo problema
-            success: Biuletenio tipas atnaujintas sėkmingai
         content_blocks:
           highlighted_votings:
             max_results: Didžiausias rodomų elementų skaičius
