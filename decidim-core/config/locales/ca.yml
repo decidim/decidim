@@ -602,9 +602,6 @@ ca:
         download_data_description: S'enviarà un arxiu amb tota la informació associada al teu compte a <strong>%{user_email}</strong>. Aquest correu electrònic contindrà un arxiu .zip i una contrasenya per obrir-lo.<br/><br/>Per a descomprimir l'arxiu, necessitaràs <a href="https://www.7-zip.org/">7-Zip</a> (per a Windows) o <a href="https://www.keka.io/">Keka</a> (per a MacOS). Si uses Linux, la majoria de les vegades ho tindràs instal·lat per defecte. Si no, pots utilitzar <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> o <a href="https://peazip.github.io">PeaZip</a>).
         request_data: Sol·licita dades
     editor_images:
-      create:
-        error: S'ha produït un error en pujar la imatge
-        success: La imatge s'ha pujat correctament
       drag_and_drop_help: Afegeix imatges arrossegant-les i deixant-les anar o bé enganxant-les.
     endorsable:
       endorsements: Adhesions
@@ -899,16 +896,10 @@ ca:
       actions:
         are_you_sure: Segur? Això no eliminarà la participant del grup.
         demote_admin: Elimina l'administradora
-      demote:
-        error: S'ha produït un error en eliminar aquesta participant de la llista d'administradores
-        success: Permisos d'administració eliminats correctament
       index:
         current_admins: 'Administradores actuals:'
         manage_admins: Gestionar administradores
     group_invites:
-      accept:
-        error: S'ha produït un error en acceptar aquesta invitació
-        success: S'ha acceptat la invitació correctament
       accept_invitation: Acceptar
       accept_or_reject_group_invitations: 'Els grups següents t''han convidat a unir-te a ells. Accepta o rebutja les seves sol·licituds:'
       index:
@@ -1150,16 +1141,9 @@ ca:
         main_image: Imatge principal
     newsletters:
       unsubscribe:
-        check_subscription: Si vols canviar les teves preferències, pots fer-ho a la <a href="%{link}" target="_blank">pàgina de configuració</a>
-        error: S'ha produït un error en cancel·lar la subscripció
         success: Has cancel·lat la subscripció correctament.
         token_error: L'enllaç ha caducat.
         unsubscribe: Anul·la la subscripció
-    newsletters_opt_in:
-      unathorized: Ho sentim, aquest enllaç ja no està disponible
-      update:
-        error: S'ha produït un error
-        success: La configuració del butlletí de notícies s'ha actualitzat correctament
     newsletters_opt_in_mailer:
       notify:
         body_1: El processament de les dades personals i la seva protecció cada vegada és més important per a totes nosaltres. Amb el nou Reglament General de Protecció de Dades (GDPR) del 25 de maig de 2018, les persones tenen un major control sobre les seves dades personals. Per aquest motiu, necessitem la teva autorització per continuar enviant informació rellevant sobre les activitats del %{organization_name}.
