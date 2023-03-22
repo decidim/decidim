@@ -17,9 +17,6 @@ export default class ExternalLink {
       externalLink: "External link"
     };
 
-    /* REDESIGN_PENDING: this is done to avoid duplication due to the polling,
-    once the addComment (decidim-comments/app/packs/src/decidim/comments/comments.component.js)
-    function dispatches an event, this conditional will be no longer necessary */
     if (!node.querySelector("span[data-external-link]")) {
       this.setup(node);
     }

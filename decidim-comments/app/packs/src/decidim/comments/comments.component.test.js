@@ -25,7 +25,7 @@ jest.useFakeTimers();
 import { createCharacterCounter } from "../../../../../../decidim-core/app/packs/src/decidim/redesigned_input_character_counter";
 import Configuration from "../../../../../../decidim-core/app/packs/src/decidim/configuration";
 // Component is loaded with require because using import loads it before $ has been mocked
-// so tests aren't able to check the spied behaviours
+// so tests are not able to check the spied behaviours
 const CommentsComponent = require("./comments.component_for_testing.js");
 
 // Create a dummy foundation jQuery method for the comments component to call

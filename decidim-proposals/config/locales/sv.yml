@@ -435,6 +435,7 @@ sv:
             accepted: Accepterat
             answer_proposal: Svara
             evaluating: Utvärderas
+            not_answered: Ej besvarade
             rejected: Avvisat
             title: Svar på förslaget %{title}
         proposal_notes:
@@ -696,6 +697,9 @@ sv:
       destroy_draft:
         error: Det gick inte att radera det gemensamma utkastet.
         success: Utkastet till förslag har tagits bort.
+      last_activity:
+        new_proposal: 'Nytt förslag:'
+        proposal_updated: 'Förslag uppdaterades:'
       models:
         collaborative_draft:
           fields:

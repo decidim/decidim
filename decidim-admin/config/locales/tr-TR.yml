@@ -77,6 +77,8 @@ tr:
         welcome_notification_body: Karşılama bildirimi gövdesi
         welcome_notification_subject: Karşılama bildirimi konusu
         youtube_handler: YouTube işleyici
+      participatory_space_private_user:
+        name: Adı
       scope:
         code: kod
         name: isim
@@ -395,7 +397,6 @@ tr:
         moderation: Küresel denetimler
         newsletters: Haber bültenleri
         participants: Katılımcılar
-        reported_users: Raporlanan Kullanıcı
         scope_types: Kapsam türleri
         scopes: kapsamları
         settings: Ayarlar
@@ -491,7 +492,6 @@ tr:
           name: Adı
           nickname: Rumuz
           reason: Nedeni
-          title: Bildirilen kullanıcılar listesi
         report:
           reasons:
             does_not_belong: Ait değil
@@ -652,9 +652,21 @@ tr:
             preview: Önizleme
           omnipresent_banner_appearance_title: Her yerde bulunan banner'ı düzenle
       organization_homepage:
+        content_blocks:
+          create:
+            error: Bu içerik bloğu oluşturulurken bir sorun oluştu
+            success: Içerik bloğu başarıyla oluşturuldu
+          destroy:
+            error: Bu içerik bloğunu silmeye çalişirken bir sorun oluştu.
+            success: İçerik bloğu başariyla silindi
+          edit:
+            update: Güncellemeler
         edit:
           active_content_blocks: Aktif içerik blokları
+          add: Içerik bloğu ekle
+          destroy_confirmation: Bu içerik bloğunu silmek istediğnizeden emin misiniz
           inactive_content_blocks: Etkin olmayan içerik blokları
+          title: Sayfa içeriği
       participatory_space_private_users:
         create:
           error: Bu katılımcı alan için özel bir kullanıcı eklenirken bir hata oluştu.
@@ -750,6 +762,17 @@ tr:
       static_pages:
         actions:
           view: Genel sayfayı görüntüle
+        content_blocks:
+          add: Içerik bloğu ekle
+          create:
+            error: Bu içerik bloğu oluşturulurken bir sorun oluştu
+            success: Içerik bloğu başarıyla oluşturuldu
+          destroy:
+            error: Bu içerik bloğunu silmeye çalişirken bir sorun oluştu.
+            success: İçerik bloğu başariyla silindi
+          destroy_confirmation: Bu içerik bloğunu silmek istediğnizeden emin misiniz
+          edit:
+            update: Güncellemeler
         create:
           error: Yeni bir sayfa oluşturulurken bir hata oluştu.
           success: Sayfa başarıyla oluşturuldu.
@@ -858,13 +881,10 @@ tr:
       models:
         moderation:
           fields:
-            created_at: Oluşturulma tarihi
             hidden_at: Gizli
             participatory_space: Katılımcı alanı
-            report_count: saymak
             reportable_type: Türü
             reported_content_url: Raporlanan içerik URL'si
-            reports: Raporlar
             visit_url: URL'yi ziyaret et
         report:
           fields:
@@ -877,8 +897,6 @@ tr:
   layouts:
     decidim:
       admin:
-        global_moderations:
-          title: Küresel denetimler
         newsletters:
           title: Haber bültenleri
         settings:

@@ -297,7 +297,8 @@
     }
   }
 
-  &__deleted{
+  &__deleted,
+  &__moderated{
     @apply font-bold;
   }
 }

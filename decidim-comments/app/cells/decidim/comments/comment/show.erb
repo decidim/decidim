@@ -42,8 +42,6 @@
                   <span><%= t("decidim.components.comment.edit") %></span>
                 </button>
               </li>
-            <% end %>
-            <% if model.authored_by?(current_user) %>
               <li>
                 <%= link_to comment_path, remote: true, method: :delete, class: "dropdown__item", data: { confirm: t("decidim.components.comment.confirm_destroy") }, tabindex: 3 do %>
                   <%= icon "delete-bin-line" %>

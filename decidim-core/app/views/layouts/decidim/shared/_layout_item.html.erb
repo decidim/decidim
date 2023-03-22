@@ -1,0 +1,27 @@
+<div class="layout-item">
+  <main class="layout-item__main">
+    <% if local_assigns.has_key?(:back_path) %>
+      <%= link_to back_path, class: "layout-item__back button button__text-secondary" do %>
+        <%= icon "arrow-left-line" %>
+        <span><%= t("back", scope: "devise.shared.links") %></span>
+      <% end %>
+    <% end %>
+
+    <% if local_assigns.has_key?(:prev_path) %>
+      <%= link_to prev_path, class: "layout-item__arrow prev" do %>
+        <%= icon "arrow-left-s-line" %>
+        <span class="sr-only">prev item</span>
+      <% end %>
+    <% end %>
+
+    <% if local_assigns.has_key?(:next_path) %>
+      <%= link_to next_path, class: "layout-item__arrow next" do %>
+        <%= icon "arrow-right-s-line" %>
+        <span class="sr-only">next item</span>
+      <% end %>
+    <% end %>
+
+    <%= yield %>
+  </main>
+  <aside class="layout-item__aside"><%= yield :aside %></aside>
+</div>

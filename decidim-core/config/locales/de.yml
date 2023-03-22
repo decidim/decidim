@@ -326,10 +326,6 @@ de:
           '4': Veröffentlichen Sie Ihren Änderungsvorschlag
     anonymous_user: Anonym
     application:
-      collection:
-        documents:
-          one: Dokument
-          other: Unterlagen
       document:
         download: Datei herunterladen
       documents:
@@ -376,7 +372,6 @@ de:
           foo: Foo
         name: Foo Berechtigung
       granted_at: Zugelassen am %{timestamp}
-      renew: Verifizierung erneuern
       sms:
         explanation: Geben Sie Ihre Handynummer ein, damit wir Ihre Identität überprüfen können.
         name: Code per SMS
@@ -411,8 +406,6 @@ de:
           explanation_html: Um diese Aktion auszuführen, müssen Sie autorisiert sein, bevor Sie dies tun müssen, müssen Sie Ihre E-Mail bestätigen <strong>%{email}</strong>.
           request_confirmation_instructions: Bestätigungsanleitungen anfordern
           title: Bestätige deine E-Mail
-      show:
-        close_modal: Modal schließen
     block_user_mailer:
       notify:
         body_1: Ihr Account wurde gesperrt.
@@ -589,15 +582,10 @@ de:
     endorsable:
       endorsements: Empfehlungen
       endorsements_count: Anzahl Befürworter
-    endorsement_buttons_cell:
-      already_endorsed: Befürwortet
-      endorse: Befürworten
     endorsements:
       identities:
         done: Erledigt
         select_identity: Identität auswählen
-    endorsers_list:
-      close: Schliessen
     errors:
       internal_server_error:
         copied: Text Kopiert!
@@ -797,8 +785,6 @@ de:
         button: Entfolgen
         error: Beim Entfolgen dieser Ressource ist ein Fehler aufgetreten.
     forms:
-      current_image: Aktuelles Bild
-      default_image: Standardbild
       errors:
         decidim/user:
           password: Das Passwort ist zu kurz.
@@ -830,6 +816,7 @@ de:
           edit_image: Bild bearbeiten
           error: Fehler!
           file_size_too_large: 'Datei ist zu groß! Maximale Dateigröße: %{megabytes}MB'
+          filename: Dateiname
           remove: Entfernen
           replace: Ersetzen
           save: Speichern
@@ -838,8 +825,9 @@ de:
           uploaded: Hochgeladen
           validating: Wird validiert...
           validation_error: Validierungsfehler!
+        select_file: Datei auswählen
       upload_help:
-        dropzone: Zum Hochladen hier klicken oder Dateien hierher ziehen
+        dropzone: Dateien hier ablegen oder die Schaltfläche zum Hochladen benutzen
         explanation: Anleitung für %{attribute}
     gamification:
       all_badges_link: Sieh dir alle verfügbaren Abzeichen an.
@@ -967,7 +955,6 @@ de:
         body_1: Sie sind dabei einen externen Link zu besuchen und wir möchten, dass Sie hinsichtlich der Inhalte auf der externen Seite vorsichtig sind.
         body_2: Bitte überprüfen Sie den Link und stellen Sie sicher, dass es sich um eine vertrauenswürdige Seite handelt, bevor Sie fortfahren.
         cancel: Abbrechen
-        close_modal: Dialog schließen
         proceed: Fortfahren
         title: Externen Link öffnen
     log:
@@ -976,6 +963,7 @@ de:
         create_with_space: "%{user_name} hat %{resource_name} in %{space_name} erstellt"
         delete: "%{user_name} hat %{resource_name} gelöscht"
         delete_with_space: "%{user_name} hat %{resource_name} in %{space_name} gelöscht"
+        publish_with_space: "%{user_name} veröffentlichte %{resource_name} in %{space_name}"
         unknown_action: "%{user_name} hat eine Aktion an %{resource_name} ausgeführt"
         unknown_action_with_space: "%{user_name} hat eine Aktion an %{resource_name} in %{space_name} ausgeführt"
         update: "%{user_name} hat %{resource_name} aktualisiert"
@@ -1088,7 +1076,6 @@ de:
     newsletter_mailer:
       newsletter:
         note: Sie haben diese E-Mail erhalten, weil Sie Newsletter auf %{organization_name}abonniert haben. Sie können Ihre Einstellungen auf Ihrer ändern <a href="%{link}">Benachrichtigungen Seite</a>.
-        see_on_website: Kann diese E-Mail nicht korrekt angezeigt werden? Klicken Sie bitte hier <a href="%{link}" target="_blank">website</a>.
         unsubscribe: Um den Empfang dieser Art von E-Mail zu deaktivieren, <a href="%{link}" target="_blank" class="unsubscribe">Abbestellen</a>.
     newsletter_templates:
       basic_only_text:

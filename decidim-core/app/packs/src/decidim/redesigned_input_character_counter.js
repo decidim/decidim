@@ -87,7 +87,7 @@ export default class InputCharacterCounter {
     }
 
     if (this.$target.length > 0 && (this.maxCharacters > 0 || this.minCharacters > 0)) {
-      // Create the screen reader target element. We don't want to constantly
+      // Create the screen reader target element. We do not want to constantly
       // announce every change to screen reader, only occasionally.
       const screenReaderId = `${targetId}_sr`;
       this.$srTarget = $(`#${screenReaderId}`);

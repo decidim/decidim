@@ -497,7 +497,7 @@ shared_examples "comments" do
       context "when the comment is not authored by user" do
         let!(:comment_author) { create(:user, :confirmed, organization:) }
 
-        it "the context menu of the comment doesn't show a delete link" do
+        it "the context menu of the comment does not show a delete link" do
           within "#comment_#{comment.id}" do
             page.find("[id^='dropdown-trigger']").click
             expect(page).to have_no_link("Delete")
@@ -553,7 +553,7 @@ shared_examples "comments" do
       context "when the comment is not authored by user" do
         let!(:comment_author) { create(:user, :confirmed, organization:) }
 
-        it "the context menu of the comment doesn't show an edit button" do
+        it "the context menu of the comment does not show an edit button" do
           within "#comment_#{comment.id}" do
             # Toolbar
             page.find("[id^='dropdown-trigger']").click
@@ -620,8 +620,30 @@ shared_examples "comments" do
           click_button "Publish reply"
         end
 
+        # TODO: review
         expect(page).to have_reply_to(comment, content)
         expect(page).to have_selector("span.comments-count", text: "#{commentable.comments.count} comments")
+
+        # expect(page).to have_selector(".comment-thread .comment--nested", wait: 20)
+        # expect(page).to have_selector(".comment__additionalreply")
+        # expect(page).to have_reply_to(comment, "This is a reply")
+        # expect(page).to have_selector("span.comments-count", text: "#{commentable.comments.count} COMMENTS")
+      end
+    end
+
+    context "when a comment has been moderated" do
+      let!(:parent) { create(:comment, commentable:) }
+      let!(:reply) { create(:comment, commentable: parent, root_commentable: commentable) }
+
+      it "does not show additional reply" do
+        Decidim::Moderation.create!(reportable: reply, participatory_space: reply.participatory_space, hidden_at: 1.day.ago)
+
+        visit current_path
+
+        within "#comments #comment_#{parent.id}" do
+          expect(page).to have_selector(".comment__reply")
+          expect(page).not_to have_selector(".comment__additionalreply")
+        end
       end
     end
 

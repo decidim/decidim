@@ -44,7 +44,7 @@ AllCops:
   # true, all cops in the default configuration are disabled, and and only cops
   # in user configuration are enabled. This makes cops opt-in instead of
   # opt-out. Note that when DisabledByDefault is true, cops in user
-  # configuration will be enabled even if they don't set the Enabled parameter.
+  # configuration will be enabled even if they do not set the Enabled parameter.
   DisabledByDefault: false
   # Enables the result cache if true. Can be overridden by the --cache command
   # line option.
@@ -254,7 +254,7 @@ Style/BlockDelimiters:
     #   let(:foo) { Foo.new }
     #
     # Here, the return value of `Foo.new` is used to define a `foo` helper but
-    # doesn't appear to be used from the return value of `let`.
+    # does not appear to be used from the return value of `let`.
     - let
     - let!
     - subject
@@ -422,7 +422,7 @@ Style/EmptyElse:
 
 # Use empty lines between defs.
 Layout/EmptyLineBetweenDefs:
-  # If true, this parameter means that single line method definitions don't
+  # If true, this parameter means that single line method definitions do not
   # need an empty line between them.
   AllowAdjacentOneLineDefs: false
 
@@ -1018,7 +1018,7 @@ Style/TrailingCommaInHashLiteral:
   # non-empty array and hash literals.
   EnforcedStyleForMultiline: no_comma
 
-# TrivialAccessors requires exact name matches and doesn't allow
+# TrivialAccessors requires exact name matches and does not allow
 # predicated methods by default.
 Style/TrivialAccessors:
   # When set to false the cop will suggest the use of accessor methods
@@ -1031,7 +1031,7 @@ Style/TrivialAccessors:
   # This way you can uncover "hidden" attributes in your code.
   ExactNameMatch: true
   AllowPredicates: true
-  # Allows trivial writers that don't end in an equal sign. e.g.
+  # Allows trivial writers that do not end in an equal sign. e.g.
   #
   # def on_exception(action)
   #   @on_exception=action

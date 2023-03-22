@@ -46,7 +46,7 @@ module Decidim::Meetings
         expect { subject.call }.to broadcast(:invalid)
       end
 
-      it "doesn't perform any other action" do
+      it "does not perform any other action" do
         expect(meeting).not_to receive(:update!)
         expect(Decidim::ResourceLink).not_to receive(:create!)
 

@@ -40,7 +40,7 @@ describe "Filter Assemblies", type: :system do
       visit decidim_assemblies.assemblies_path
     end
 
-    it "doesn't show the assemblies types filter" do
+    it "does not show the assemblies types filter" do
       within("#assemblies-filter") do
         expect(page).to have_no_content("All types")
       end

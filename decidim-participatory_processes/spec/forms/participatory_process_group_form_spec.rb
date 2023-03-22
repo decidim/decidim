@@ -98,7 +98,7 @@ module Decidim
           it { is_expected.to be_invalid }
         end
 
-        context "when group_url doesn't start with http" do
+        context "when group_url does not start with http" do
           let(:group_url) { "example.org" }
 
           it "adds it" do

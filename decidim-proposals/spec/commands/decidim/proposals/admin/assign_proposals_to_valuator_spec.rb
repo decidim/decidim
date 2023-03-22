@@ -33,7 +33,7 @@ module Decidim
               expect { command.call }.to broadcast(:invalid)
             end
 
-            it "doesn't create the assignments" do
+            it "does not create the assignments" do
               expect do
                 command.call
               end.not_to change(ValuationAssignment, :count)

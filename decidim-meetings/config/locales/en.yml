@@ -56,7 +56,7 @@ en:
         meeting:
           attributes:
             iframe_embed_type:
-              not_embeddable: This URL can't be embedded in meeting or live event page
+              not_embeddable: This URL cannot be embedded in meeting or live event page
         meeting_agenda:
           attributes:
             base:
@@ -195,7 +195,7 @@ en:
           notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting will start in less than 48h.
     forms:
       meetings:
-        attendees_count_help_text: Don't forget to include the total number of attendees at your meeting, whether in person, online or hybrid.
+        attendees_count_help_text: Do not forget to include the total number of attendees at your meeting, whether in person, online or hybrid.
     gamification:
       badges:
         attended_meetings:
@@ -206,8 +206,8 @@ en:
           description_own: You have attended %{score} meetings.
           name: Attended meetings
           next_level_in: Attend %{score} more meetings to reach the next level!
-          unearned_another: This participant hasn't attended any meeting yet.
-          unearned_own: You haven't attended any meeting yet.
+          unearned_another: This participant has not attended any meeting yet.
+          unearned_own: You have not attended any meeting yet.
     meetings:
       actions:
         agenda: Agenda
@@ -287,7 +287,7 @@ en:
             filter_by: Filter by
             invite_attendee: Invite attendee
             invites: Invites
-            registrations_disabled: You can't invite an attendee because the registrations are disabled.
+            registrations_disabled: You cannot invite an attendee because the registrations are disabled.
             search: Search
         meeting_closes:
           edit:
@@ -367,7 +367,7 @@ en:
             registrations_count:
               one: There has been %{count} registration.
               other: There has been %{count} registrations.
-            reserved_slots_help: Leave it to 0 if you don't have reserved slots
+            reserved_slots_help: Leave it to 0 if you do not have reserved slots
             reserved_slots_less_than: Must be less than or equal to %{count}
             title: Registrations
           update:
@@ -527,7 +527,7 @@ en:
         meeting_minutes:
           related_information: Related Information
         meetings:
-          no_meetings_warning: No meetings match your search criteria or there isn't any meeting scheduled.
+          no_meetings_warning: No meetings match your search criteria or there is not any meeting scheduled.
           upcoming_meetings_warning: Currently, there are no scheduled meetings, but here you can find all the past meetings listed.
         new:
           back: Back
@@ -639,8 +639,6 @@ en:
         private_meeting: Private meeting
         transparent: Transparent
         withdraw: Withdrawn
-      versions:
-        back_to_resource: Go back to meeting
       withdraw:
         error: An error ocurred while withdrawing the meeting
         success: The meeting has been withdrawn successfully

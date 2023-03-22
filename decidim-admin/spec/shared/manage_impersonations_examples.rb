@@ -12,7 +12,7 @@ shared_examples "manage impersonations examples" do
     login_as user, scope: :user
   end
 
-  context "when the organization doesn't have any authorization available" do
+  context "when the organization does not have any authorization available" do
     let(:available_authorizations) { [] }
 
     it "the managed users page displays a warning and creation is disabled" do
