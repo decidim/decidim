@@ -26,9 +26,8 @@ module Decidim
 
     def parse_url
       raise Decidim::InvalidUrlError if params[:external_url].blank?
-      raise Decidim::InvalidUrlError unless params[:external_url].match %r{\A(([a-z]+):)?//([^/]+)(/.*)?\z}
+      raise Decidim::InvalidUrlError unless params[:external_url].match %r{\A(https?:)?//([^/]+)(/.*)?\z}
       raise Decidim::InvalidUrlError unless external_url
-      raise Decidim::InvalidUrlError unless %w(http https).include?(external_url.scheme) || external_url.scheme.blank?
 
       @url_parts = {
         protocol: (external_url.scheme ? "#{external_url.scheme}:" : ""),
