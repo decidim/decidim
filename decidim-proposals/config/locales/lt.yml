@@ -435,9 +435,6 @@ lt:
             document_legend: 'Pridėkite mažesnį nei 2MB dokumentą, kiekvienas ne didesnio kaip 3 lygių gylio skirsnis bus išanalizuotas ir įkeltas į „Pasiūlymus“. Priimtini formatai: %{valid_mime_types}'
             title: Pridėti dokumentą
             upload_document: Įkelti dokumentą
-          publish:
-            invalid: Nepavyko paskelbti pasiūlymų
-            success: Visi pasiūlymai paskelbti
           sections:
             article: "<em>Straipsnis</em>"
             section: "<em>Skirsnis:</em> <strong>%{title}</strong>"
@@ -493,7 +490,6 @@ lt:
             title: Sukurti pasiūlymą
           publish_answers:
             number_of_proposals: Bus paskelbti atsakymai į %{number} pasiūlymus (-ų).
-            select_a_proposal: Pasirinkite pasiūlymą
           show:
             amendments_count: Pakeitimų skaičius
             assigned_valuators: Paskirti vertintojai
@@ -525,13 +521,9 @@ lt:
             votes_ranking: Reitingavimas pagal balsų skaičių
           update_category:
             invalid: 'Šie pasiūlymai jau priskirti kategorijai %{subject_name}: %{proposals}.'
-            select_a_category: Pasirinkite kategoriją
-            select_a_proposal: Pasirinkite pasiūlymą
             success: 'Pasiūlymas atnaujintas ir priskirtas kategorijai %{subject_name}: %{proposals}.'
           update_scope:
             invalid: 'Šie pasiūlymai jau turi %{subject_name} apimtį: %{proposals}.'
-            select_a_proposal: Pasirinkite pasiūlymą
-            select_a_scope: Pasirinkite apimtį
             success: 'Pasiūlymai sėkmingai atnaujinti į %{subject_name} sritį: %{proposals}.'
         proposals_imports:
           new:
@@ -647,17 +639,14 @@ lt:
         requests:
           accepted_request:
             error: Nepavyko patvirtinti bendraautoriumi. Bandykite dar kartą vėliau.
-            success: "@%{user} patvirtintas bendraautoriumi"
           access_requested:
             error: Jūsų užklausos įvykdyti nepavyko. Bandykite dar kartą vėliau.
-            success: Jūsų bendradarbiavimo užklausa išsiųsta
           collaboration_requests:
             accept_request: Sutikti
             reject_request: Atmesti
             title: Bendradarbiavimo užklausos
           rejected_request:
             error: Nepavyko atmesti kaip bendraautoriaus. Bandykite dar kartą vėliau.
-            success: "@%{user} atmestas kaip bendraautorius"
         show:
           back: Atgal
           edit: Redaguoti bendrąjį juodraštį
