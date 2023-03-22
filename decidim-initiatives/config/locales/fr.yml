@@ -260,6 +260,8 @@ fr:
             signatures: Les plus signées
             title: Paramètres des initiatives
         initiatives_type_scopes:
+          destroy:
+            success: Le secteur a été supprimé avec succès.
           edit:
             back: Retour
             confirm_destroy: Êtes-vous certain ?
