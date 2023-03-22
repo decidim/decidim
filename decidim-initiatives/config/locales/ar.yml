@@ -173,8 +173,6 @@ ar:
             preview: معاينة
             print: طباعة
         initiatives_type_scopes:
-          destroy:
-            success: تمت إزالة النطاق بنجاح
           edit:
             back: الى الخلف
             confirm_destroy: هل أنت واثق؟
