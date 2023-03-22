@@ -184,7 +184,6 @@ pt:
               time_before: A configuração está a ser feita <strong>pelo menos %{hours} horas</strong> antes do início da eleição.
               trustees_number: O espaço participativo tem <strong>pelo menos %{número} curadores com chave pública</strong>.
             submit: Configurar eleição
-            success: Eleição enviada com sucesso para o Quadro Informativo
             title: Configurar eleição
             trustees: Curadores da eleição
           created:
@@ -220,7 +219,6 @@ pt:
             title: Resultados calculados
           tally_started:
             mark_as_missing: Assinalar como ausente
-            success: O curador ausente foi denunciado com êxito e enviado para o Quadro Informativo
             tally_completion: O processo será completo quando todos os curadores estiverem activos ou assinalados como ausentes. São necessários pelo menos %{quorum} curadores para completar o processo.
             undo_mark_as_missing: Um curador assinalado como ausente poderá participar antes do processo estar completo. Pode proceder como usualmente e o assinalar da ausência será ignorado.
           vote:
@@ -450,8 +448,6 @@ pt:
                 cast: Registar a contagem
                 share: Partilhar a contagem
             title: Contagem para %{election}
-          update:
-            success: 'O estado da eleição é: %{status}'
         menu:
           trustee_zone: Área de curadores
         no_bulletin_board:
@@ -630,9 +626,6 @@ pt:
           new:
             create: Criar
             title: Criar estilo de boletim de voto
-          update:
-            invalid: Ocorreu um problema ao actualizar este estilo de boletim de voto
-            success: Estilo do boletim de voto actualizado com êxito
         content_blocks:
           highlighted_votings:
             max_results: Montante máximo dos projectos a mostrar
