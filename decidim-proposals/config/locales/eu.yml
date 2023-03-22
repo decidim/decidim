@@ -445,9 +445,6 @@ eu:
             document_legend: 'Gehitu 2MB baino gutxiagoko dokumentu bat. Atal bakoitza 3 sakontasun-mailaraino, proposamenetan aztertuko da.. Formatu suportatuak hauek dira: %{valid_mime_types}'
             title: ADD DOCUMENT
             upload_document: Kargatu dokumentua
-          publish:
-            invalid: Ezin izan dira proposamenik argitaratu
-            success: Proposamen guztiak argitaratu dira
           sections:
             article: "<em>Artikulua</em>"
             section: "<em>Atala:</em> <strong>%{title}</strong>"
@@ -503,7 +500,6 @@ eu:
             title: Sortu proposamena
           publish_answers:
             number_of_proposals: '%{number} proposamenetarako erantzunak argitaratuko dira.'
-            select_a_proposal: Aukeratu proposamen bat
           show:
             amendments_count: Zuzenketa kopurua
             assigned_valuators: Ebaluatzaileak esleituta
@@ -533,13 +529,9 @@ eu:
             votes_ranking: Sailkapena aldekoen arabera
           update_category:
             invalid: 'Proposamen hauek bazuten %{subject_name}: %{proposals} kategoria.'
-            select_a_category: Hautatu kategoria bat
-            select_a_proposal: Aukeratu proposamen bat
             success: 'Proposamenak zuzen eguneratuta %{subject_name}: %{proposals} kategoriara.'
           update_scope:
             invalid: 'Proposamen hauek bazuten %{subject_name}: %{proposals} eremua.'
-            select_a_proposal: Aukeratu proposamen bat
-            select_a_scope: Mesedez, hautatu eremu bat
             success: 'Proposamenak zuzen eguneratuta %{subject_name}: %{proposals} eremuan.'
         proposals_imports:
           new:
@@ -654,17 +646,14 @@ eu:
         requests:
           accepted_request:
             error: Ezin izan da kolaboratzaile gisa onartu, saiatu berriro geroago.
-            success: "@%{user} behar bezala onartu da kolaboratzaile gisa"
           access_requested:
             error: Zure eskaera ezin da amaitu, saiatu berriro geroago.
-            success: Zure lankidetzarako eskaera ongi bidali da
           collaboration_requests:
             accept_request: Onartu
             reject_request: Ukatu
             title: Lankidetza eskaerak
           rejected_request:
             error: Ezin izan da laguntzailea baztertu, saiatu berriro geroago.
-            success: "@%{user} behar bezala baztertu da kolaboratzaile gisa"
         show:
           back: Atzera
           edit: Editatu lankidetza zirriborroa
