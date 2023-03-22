@@ -68,7 +68,7 @@ module Decidim
             # do not change string; URL is already linked
             href
           else
-            # don't include trailing punctuation character as part of the URL
+            # do not include trailing punctuation character as part of the URL
             while href.sub!(PUNCTUATION_RE, "")
               punctuation.push Regexp.last_match(0)
               if (opening = BRACKETS[punctuation.last]) && href.scan(opening).size > href.scan(punctuation.last).size

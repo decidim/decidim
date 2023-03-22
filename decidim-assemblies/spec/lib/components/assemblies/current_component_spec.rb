@@ -24,8 +24,8 @@ module Decidim
           params["assembly_slug"] = current_assembly.id.to_s
         end
 
-        context "when the params don't contain a component id" do
-          it "doesn't match" do
+        context "when the params do not contain a component id" do
+          it "does not match" do
             expect(subject.matches?(request)).to be(false)
           end
         end
@@ -35,7 +35,7 @@ module Decidim
             params["component_id"] = component.id.to_s
           end
 
-          context "when the component doesn't belong to the assembly" do
+          context "when the component does not belong to the assembly" do
             let(:component) { create(:component, participatory_space: other_assembly) }
 
             it "matches" do
@@ -53,8 +53,8 @@ module Decidim
         end
       end
 
-      context "when the params don't contain an assembly id" do
-        it "doesn't match" do
+      context "when the params do not contain an assembly id" do
+        it "does not match" do
           expect { subject.matches?(request) }.to raise_error(ActiveRecord::RecordNotFound)
         end
       end
@@ -65,7 +65,7 @@ module Decidim
         end
 
         context "when there's no component" do
-          it "doesn't match" do
+          it "does not match" do
             expect { subject.matches?(request) }.to raise_error(ActiveRecord::RecordNotFound)
           end
         end
@@ -75,7 +75,7 @@ module Decidim
             params["component_id"] = "1"
           end
 
-          it "doesn't match" do
+          it "does not match" do
             expect { subject.matches?(request) }.to raise_error(ActiveRecord::RecordNotFound)
           end
         end

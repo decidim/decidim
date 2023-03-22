@@ -474,7 +474,6 @@ pt-BR:
         moderation: Moderadores globais
         newsletters: Newsletters
         participants: Participantes
-        reported_users: Usuários Reportados
         scope_types: Tipos de âmbito
         scopes: Âmbitos
         settings: Configurações
@@ -573,7 +572,6 @@ pt-BR:
           nickname: Apelido
           reason: Motivo
           reports: Número de denúncias
-          title: Listando usuários reportados
         report:
           reasons:
             does_not_belong: Não pertence
@@ -964,13 +962,10 @@ pt-BR:
       models:
         moderation:
           fields:
-            created_at: Data de criação
             hidden_at: Escondido em
             participatory_space: Espaço participativo
-            report_count: Contagem
             reportable_type: Tipo
             reported_content_url: URL de conteúdo relatado
-            reports: Denúncias
             visit_url: URL de visita
         report:
           fields:
@@ -983,8 +978,6 @@ pt-BR:
   layouts:
     decidim:
       admin:
-        global_moderations:
-          title: Moderações globais
         newsletters:
           title: Boletins informativos
         settings:

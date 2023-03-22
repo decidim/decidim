@@ -4,7 +4,7 @@ module Decidim
   # Components inside a component can expose different Resources, these resources
   # will be used to be linked between each other and other possible components.
   #
-  # This class sets a scheme to expose these resources. It shouldn't be
+  # This class sets a scheme to expose these resources. It should not be
   # used directly, you should use `register_resource` inside a component.
   #
   # Example:

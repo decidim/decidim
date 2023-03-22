@@ -197,7 +197,7 @@ describe "Assemblies", type: :system do
       context "and the process statistics are not enabled" do
         let(:show_statistics) { false }
 
-        it "doesn't render the stats for those components that are not visible" do
+        it "does not render the stats for those components that are not visible" do
           expect(page).to have_no_css("h2.h2", text: "Statistics")
           expect(page).to have_no_css(".statistic__title", text: "Proposals")
           expect(page).to have_no_css(".statistic__number", text: "3")
@@ -223,6 +223,34 @@ describe "Assemblies", type: :system do
         it "shows the children assemblies by weigth" do
           expect(page).to have_selector("#assemblies-grid .row .column:first-child", text: child_assembly.title[:en])
           expect(page).to have_selector("#assemblies-grid .row .column:last-child", text: second_child_assembly.title[:en])
+        end
+
+        context "when child assembly has a meeting" do
+          let(:meetings_component) { create(:meeting_component, :published, participatory_space: child_assembly) }
+
+          context "with unpublished meeting" do
+            let!(:meeting) { create(:meeting, :upcoming, component: meetings_component) }
+
+            it "is not displaying the widget" do
+              visit decidim_assemblies.assembly_path(assembly)
+
+              within("#assemblies-grid") do
+                expect(page).not_to have_content("Upcoming meeting")
+              end
+            end
+          end
+
+          context "with published meeting" do
+            let!(:meeting) { create(:meeting, :upcoming, :published, component: meetings_component) }
+
+            it "is displaying the widget" do
+              visit decidim_assemblies.assembly_path(assembly)
+
+              within("#assemblies-grid") do
+                expect(page).to have_content("Upcoming meeting")
+              end
+            end
+          end
         end
       end
 

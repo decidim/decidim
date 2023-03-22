@@ -15,7 +15,7 @@ module Decidim
   #     Decidim::MyModule.view_hooks # => an instance of this class
   #     <%= Decidim::MyModule.view_hooks.render(:my_hook, self) %>
   #
-  # If you want to hide that call, you can wrap this in a helper method so you don't need
+  # If you want to hide that call, you can wrap this in a helper method so you do not need
   # to call `self` from the views directly.
   #
   # In order to add more partials to this view hook, you can register as in the

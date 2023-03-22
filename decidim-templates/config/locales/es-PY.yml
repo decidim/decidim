@@ -41,6 +41,15 @@ es-PY:
         name: Plantilla
     templates:
       admin:
+        block_user_templates:
+          form:
+            save: Guardar
+            template_title: Información de la plantilla
+          index:
+            confirm_delete: '¿Seguro que quieres eliminar esta plantilla?'
+            title: Bloquear los mensajes de la usuaria
+          template_chooser:
+            select_template: Selecciona una plantilla de respuesta
         questionnaire_templates:
           choose:
             create_from_template: Crear desde plantilla
@@ -70,4 +79,5 @@ es-PY:
           duplicate: "%{user_name} ha duplicado la plantilla del cuestionario %{resource_name}"
           update: "%{user_name} ha actualizado la platilla del cuestionario %{resource_name}"
       template_types:
+        block_user: Bloquear los mensajes de la usuaria
         questionnaires: Cuestionarios

@@ -177,7 +177,7 @@ module Decidim::Admin
             create_list(:user, 3, :confirmed, organization:, newsletter_notifications_at: Time.current, extended_data: { "interested_scopes" => user_interset.id })
           end
 
-          it "don't return recipients" do
+          it "do not return recipients" do
             expect(subject.query).to match_array []
           end
         end

@@ -98,8 +98,8 @@ ca:
             origin_component_id: Component d'origen
             select_component: Selecciona un component
             success:
-              one: Hi ha 1 projecte a la cua d'importació. Seràs notificat per correu electrònic, quan es completi la importació
-              other: "Hi ha %{count} projectes a la cua per ser importats. Seràs notificat per correu electrònic, quan es completi la importació"
+              one: Hi ha 1 projecte a la cua per ser importat. Es notificarà per correu electrònic, quan es completi la importació
+              other: "Hi ha %{count} a la cua per ser importats. Es notificarà per correu electrònic, quan es completi la importació"
             title: Importar Projectes a Seguiment
         results:
           create:

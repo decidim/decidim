@@ -47,6 +47,7 @@ es-PY:
         import: Importar propuestas a proyectos
         new: Nuevo %{name}
         preview: Previsualizar
+        send_voting_reminders: Enviar recordatorios de votación
         title: Acciones
       admin:
         budgets:
@@ -92,6 +93,7 @@ es-PY:
             cancel: Cancelar
             change_category: Cambiar categoría
             change_scope: Cambiar ámbito
+            change_selected: Cambiar estado seleccionado
             deselect_implementation: No seleccionado para implementar
             finished_orders: Votos terminados
             pending_orders: Votos pendientes
@@ -119,8 +121,9 @@ es-PY:
           update_selected:
             invalid:
               selected: 'Estos proyectos ya han sido seleccionados para ser implementados: %{projects}.'
-              unselected: 'Estos proyectos han sido fueron deseleccionados de ser implementados: %{projects}.'
+              unselected: 'Estos proyectos ya han sido deseleccionados de ser implementados: %{projects}.'
             select_a_project: Por favor, selecciona un proyecto
+            select_a_selection: Por favor, seleccione un estado de implementación
             success:
               selected: 'Estos proyectos fueron seleccionados con éxito para ser implementados: %{projects}.'
               unselected: 'Estos proyectos fueron deseleccionados con éxito para ser implementados: %{projects}.'

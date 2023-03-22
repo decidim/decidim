@@ -219,7 +219,7 @@ describe "User creates meeting", type: :system do
           end
         end
 
-        context "when the user isn't authorized" do
+        context "when the user is not authorized" do
           before do
             permissions = {
               create: {

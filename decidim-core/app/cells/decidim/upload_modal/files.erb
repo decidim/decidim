@@ -1,6 +1,6 @@
 <div class="upload-modal__files-container upload-container-for-<%= attribute %> <%= with_title %>">
   <div>
-    <%= tag.label label %>
+    <%= label %>
 
     <%# NOTE: this block is about wrapping a default image for the avatar with the new styles,
               when there's nothing uploaded yet. It's removed via javascript
@@ -21,8 +21,8 @@
 
         <div class="attachment-details" data-title="<%= title_for(attachment) %>" data-filename="<%= file_name_for(attachment) %>" data-state="uploaded">
           <div>
-            <% if file_attachment_path(attachments.first) && blob(attachments.first).image? %>
-              <%= image_tag(file_attachment_path(attachments.first), alt: attribute) %>
+            <% if file_attachment_path(attachment) && blob(attachment).image? %>
+              <%= image_tag(file_attachment_path(attachment), alt: title_for(attachment) || file_name_for(attachment)) %>
             <% elsif uploader_default_image_path(attribute).present? %>
               <%= image_tag uploader_default_image_path(attribute) %>
             <% end %>
@@ -53,7 +53,7 @@
         add_attribute: add_attribute,
         resource_name: resource_name,
         resource_class: resource_class,
-        optional: optional,
+        required: required?,
         max_file_size: max_file_size,
         multiple: multiple,
         titled: has_title?,
@@ -61,5 +61,5 @@
       }.transform_keys { |key| key.to_s.camelize(:lower) }
     } %>
 
-  <%= input_validation_field unless optional %>
+  <%= input_validation_field if required? %>
 </div>

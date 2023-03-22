@@ -19,7 +19,7 @@ Decidim.register_component(:budgets) do |component|
   component.actions = %w(vote comment)
 
   component.on(:before_destroy) do |instance|
-    raise StandardError, "Can't remove this component" if Decidim::Budgets::Budget.where(component: instance).any?
+    raise StandardError, "Cannot remove this component" if Decidim::Budgets::Budget.where(component: instance).any?
   end
 
   component.register_resource(:budget) do |resource|

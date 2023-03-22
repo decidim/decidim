@@ -8,7 +8,7 @@ module Decidim
   #
   # A Searchable should include this concern and declare its `searchable_fields`.
   # You'll also need to define it as `searchable` in its resource manifest,
-  # otherwise it won't appear as possible results.
+  # otherwise it will not appear as possible results.
   #
   # The indexing of Searchables is managed through:
   # - after_create callback configurable via `index_on_create`.

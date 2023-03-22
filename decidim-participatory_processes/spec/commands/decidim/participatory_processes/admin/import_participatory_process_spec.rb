@@ -81,7 +81,7 @@ module Decidim::ParticipatoryProcesses
         expect { subject.call }.to broadcast(:invalid)
       end
 
-      it "doesn't create any proces" do
+      it "does not create any proces" do
         expect do
           subject.call
         end.not_to change(::Decidim::ParticipatoryProcess, :count)

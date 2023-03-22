@@ -35,7 +35,7 @@ module Decidim
             expect { command.call }.to broadcast(:invalid)
           end
 
-          it "doesn't update the response group" do
+          it "does not update the response group" do
             command.call
             response_group.reload
 
