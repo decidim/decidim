@@ -153,8 +153,6 @@ sk:
             preview: Náhľad
             print: Tlač
         initiatives_type_scopes:
-          destroy:
-            success: Rozsah bol úspešne odstránený
           edit:
             back: Späť
             confirm_destroy: Si si istý?
