@@ -375,9 +375,6 @@ it:
             document_legend: 'Aggiungi un documento di dimensione inferiore a 2MB. Ciascuna sezione contenente fino a 3 livelli di profondità sarà suddivisa in proposte. I formati accettati sono i seguenti: %{valid_mime_types}'
             title: AGGIUNGI DOCUMENTO
             upload_document: Carica il documento
-          publish:
-            invalid: Impossibile pubblicare proposte
-            success: Tutte le proposte sono state pubblicate
           sections:
             article: "<em>Articolo</em>"
             section: "<em>Sezione:</em> <strong>%{title}</strong>"
@@ -432,7 +429,6 @@ it:
             title: Crea una proposta
           publish_answers:
             number_of_proposals: Le risposte per %{number} proposte saranno pubblicate.
-            select_a_proposal: Si prega di selezionare una proposta
           show:
             amendments_count: Numero di emendamenti
             assigned_valuators: Valutatori assegnati
@@ -462,13 +458,9 @@ it:
             votes_ranking: Ordina per numero di supporti
           update_category:
             invalid: 'Queste proposte avevano già la categoria %{subject_name} %{proposals}.'
-            select_a_category: Si prega di selezionare una categoria
-            select_a_proposal: Si prega di selezionare una proposta
             success: 'Proposte aggiornate con successo alla categoria %{subject_name}: %{proposals}.'
           update_scope:
             invalid: 'Queste proposte avevano già il campo di applicazione %{subject_name} %{proposals}.'
-            select_a_proposal: Si prega di selezionare una proposta
-            select_a_scope: Seleziona un ambito
             success: 'Proposte aggiornate con successo all''ambito %{subject_name}: %{proposals}.'
         proposals_imports:
           new:
@@ -578,17 +570,14 @@ it:
         requests:
           accepted_request:
             error: Non può essere accettato come collaboratore, riprova più tardi.
-            success: "@%{user} è stato accettato con successo come collaboratore"
           access_requested:
             error: La tua richiesta non può essere completata, riprova più tardi.
-            success: La tua richiesta di collaborazione è stata inviata con successo
           collaboration_requests:
             accept_request: Accettare
             reject_request: Rifiutare
             title: Richieste di collaborazione
           rejected_request:
             error: Non può essere rifiutato come collaboratore, riprova più tardi.
-            success: "@%{user} è stato rifiutato come collaboratore con successo"
         show:
           back: Indietro
           edit: Modifica bozza collaborativa
