@@ -232,8 +232,6 @@ eu:
             new: Berria
             photos: Argazkiak
         initiatives_type_scopes:
-          destroy:
-            success: Eranskina kendu egin da
           edit:
             back: Back
             confirm_destroy: Ziur zaude?
