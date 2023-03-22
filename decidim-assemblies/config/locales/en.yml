@@ -382,7 +382,6 @@ en:
             member_of: Member of
       show:
         assembly_type: Assembly type
-        children: Assemblies
         duration: Duration
         is_transparent:
           'false': opaque
