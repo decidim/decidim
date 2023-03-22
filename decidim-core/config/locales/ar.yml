@@ -616,9 +616,6 @@ ar:
         download_data_description: سيتم إرسال ملف يحتوي على جميع المعلومات المرتبطة بحسابك إلى <strong>%{user_email}</strong>. سوف يحتوي هذا البريد الإلكتروني على ملف .zip وكلمة مرور لفتحه.<br/><br/>لفك الملف ، ستحتاج إلى <a href="https://www.7-zip.org/">7-Zip</a> (للويندوز) أو <a href="https://www.keka.io/">Keka</a> (لماكوس). إذا كنت تستخدم لينوكس، في معظم الأحيان سيتم تثبيته بشكل افتراضي. إذا لم يكن الأمر كذلك، يمكنك استخدام <a href="https://gitlab.gnome.org/GNOME/file-roller">ملف Roller</a> أو <a href="https://peazip.github.io">PeaZip</a>).
         request_data: طلب البيانات
     editor_images:
-      create:
-        error: خطأ خلال تحميل الصورة
-        success: تم تحميل الصورة بنجاح
       drag_and_drop_help: يمكن إضافة صور عن طريق سحبها وإسقاطها أو لصقها.
     endorsable:
       endorsements: موافقات
@@ -904,16 +901,10 @@ ar:
     group_admins:
       actions:
         demote_admin: إزالة المشرف
-      demote:
-        error: حدثت مشكلة أثناء إزالة هذا المشارك من قائمة المسؤولين
-        success: تمت إزالة المشارك بنجاح من المشرف
       index:
         current_admins: 'المشرفون الحاليون:'
         manage_admins: إدارة المشرفين
     group_invites:
-      accept:
-        error: حدثت مشكلة في قبول هذه الدعوة
-        success: تم قبول الدعوة بنجاح
       accept_invitation: قبول
       accept_or_reject_group_invitations: 'لقد دَعتك المجموعات التالية للانضمام إليهم. يمكنك قبول أو رفض طلباتهم:'
       index:
@@ -1107,16 +1098,9 @@ ar:
         main_image: الصورة الرئيسية
     newsletters:
       unsubscribe:
-        check_subscription: إذا كنت ترغب في تغيير تفضيلاتك ، يمكنك القيام بذلك في صفحة التكوين <a href="%{link}" target="_blank"></a>
-        error: كانت هناك مشكلة إلغاء الاشتراك
         success: أنت غير مشترك بنجاح.
         token_error: انتهت صلاحية الرابط.
         unsubscribe: إلغاء الاشتراك
-    newsletters_opt_in:
-      unathorized: عذرًا ، هذا الرابط لم يعد متاحًا
-      update:
-        error: حدث شيء خطأ
-        success: تم تحديث إعدادات النشرة الإخبارية بنجاح
     newsletters_opt_in_mailer:
       notify:
         body_1: تزداد أهمية معالجة البيانات الشخصية وحمايتها بالنسبة لنا جميعًا. مع اللائحة العامة الجديدة لحماية البيانات (GDPR) المؤرخة 25 مايو 2018 ، أصبح للأفراد سيطرة أفضل على بياناتهم الشخصية. لهذا السبب نحتاج إلى "موافق" لمواصلة إرسال المعلومات ذات الصلة حول أنشطة %{organization_name}.
