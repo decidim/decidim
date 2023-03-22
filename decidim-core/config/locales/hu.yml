@@ -536,9 +536,6 @@ hu:
         download_data_description: Minden, a fiókodhoz kapcsolód információt összesítő fájl elküldésre kerül a <strong>%{user_email}</strong> címre. Ez az email egy zip fájlt fog tartalmazni és egy jelszót a megnyitásához <br/><br/> A fájl kibontásához szükséged lesz egy programra pl <a href="https://www.7-zip.org/">7-Zip</a> Windowson vagy <a href="https://www.keka.io/">Keka</a> Macen. Ha Linuxot használsz, akkor biztos telepítve van egy megfelelő program. Ha nincs, akkor használni tudod a következőt <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> vagy ezt <a href="https://peazip.github.io">PeaZip</a>).
         request_data: Adatkérés
     editor_images:
-      create:
-        error: Hiba történt a kép feltöltése közben
-        success: Kép sikeresen feltöltve
       drag_and_drop_help: Képek hozzáadása húzással és ejtéssel vagy beillesztéssel.
     endorsable:
       endorsements: Jóváhagyások
@@ -762,16 +759,10 @@ hu:
     group_admins:
       actions:
         demote_admin: Admin eltávolítása
-      demote:
-        error: Hiba történt a felhasználó eltávolításakor az adminisztrátorok listáján
-        success: A felhasználó az admin-ból sikeresen eltávolításra került
       index:
         current_admins: 'Jelenlegi adminisztrátorok:'
         manage_admins: Adminisztrátorok kezelése
     group_invites:
-      accept:
-        error: Hiba történt a meghívás elfogadásakor
-        success: A meghívó sikeresen elfogadva
       accept_invitation: Elfogad
       accept_or_reject_group_invitations: 'A következő csoportok meghívtak, hogy csatlakozz hozzájuk. A kérelmek elfogadása vagy elutasítása:'
       index:
@@ -949,16 +940,9 @@ hu:
         main_image: Fő kép
     newsletters:
       unsubscribe:
-        check_subscription: Ha szeretnéd módosítani a beállításokat, akkor a <a href="%{link}" target="_blank">konfigurációs oldalon</a> teheted meg
-        error: Hiba történt a leiratkozás során
         success: A leiratkozásod sikeres volt.
         token_error: A link sajnos lejárt.
         unsubscribe: Leiratkozás
-    newsletters_opt_in:
-      unathorized: Sajnos ez a link már nem elérhető
-      update:
-        error: Valami hiba történt
-        success: Hírlevél beállításainak frissítése sikeres
     newsletters_opt_in_mailer:
       notify:
         body_1: A személyes adatok védelme és feldolgozása egyre fontosabbá válik mindannyiunk számára. A 2018. május 25-én kiadott új általános adatvédelmi rendelet (GDPR) lehetővé teszi, hogy személyes adatainkat jobban ellenőrizhessük. Emiatt van szükségünk a jóváhagyásodra a %{organization_name} nevű szervezettel kapcsolatban.
