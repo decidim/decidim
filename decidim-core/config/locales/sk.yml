@@ -593,16 +593,10 @@ sk:
     group_admins:
       actions:
         demote_admin: Odstrániť admin
-      demote:
-        error: Pri odobratí tohto užívateľa zo skupiny administrátorov došlo k chybe
-        success: Užívateľ bol zo skupiny administrátorov úspešne odstránený
       index:
         current_admins: 'Aktuálni administrátori:'
         manage_admins: Správa administrátorov
     group_invites:
-      accept:
-        error: Pri prijatí tejto pozvánky sa vyskytla chyba
-        success: Pozvánka bola úspešne prijatá
       accept_invitation: Akceptovať
       accept_or_reject_group_invitations: 'Nasledujúce skupiny vás pozvali, aby ste sa k nim pripojili. Prijať alebo odmietnuť ich požiadavky: '
       index:
@@ -742,16 +736,9 @@ sk:
         main_image: Hlavný obrázok
     newsletters:
       unsubscribe:
-        check_subscription: Ak chcete zmeniť nastavenia, môžete tak urobiť v <a href="%{link}" target="_blank"> konfiguračnej stránke </a>
-        error: Došlo k chybe pri odhlásení
         success: Úspešne ste odhlásení.
         token_error: Platnosť odkazu vypršala.
         unsubscribe: Odhlásiť odber
-    newsletters_opt_in:
-      unathorized: Je nám ľúto, tento odkaz už nie je k dispozícii
-      update:
-        error: Niečo sa stalo
-        success: Nastavenie newsletteru bolo úspešne aktualizované
     newsletters_opt_in_mailer:
       notify:
         body_1: Spracovanie osobných údajov a ich ochrana sú pre nás všetkých stále dôležitejšie. S novým všeobecným nariadením o ochrane osobných údajov (GDPR) z 25. mája 2018 majú jednotlivci lepšiu kontrolu nad svojimi osobnými údajmi. Z tohto dôvodu potrebujeme vaše "OK" pre pokračovanie v zasielanie relevantných informácií o aktivitách%{organization_name}.
