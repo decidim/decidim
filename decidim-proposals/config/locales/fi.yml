@@ -456,6 +456,9 @@ fi:
             document_legend: 'Lisää alle 2 Mt:n kokoinen tiedosto, josta jokainen osio kolmannelle tasolle saakka lisätään uusiksi ehdotuksiksi. Tuetut tiedostomuodot ovat: %{valid_mime_types}'
             title: Lisää aineisto
             upload_document: Lataa aineisto
+          publish:
+            invalid: Ehdotusten julkaisu epäonnistui.
+            success: Kaikki ehdotukset on julkaistu.
           sections:
             article: "<em>Kappalesisältö</em>"
             section: "<em>Osio:</em> <strong>%{title}</strong>"
@@ -520,6 +523,7 @@ fi:
             title: Luo ehdotus
           publish_answers:
             number_of_proposals: Julkaistaan %{number} vastausta ehdotuksille.
+            select_a_proposal: Valitse ehdotus.
           show:
             amendments_count: Muutosten lukumäärä
             assigned_valuators: Arvioijat
@@ -549,9 +553,13 @@ fi:
             votes_ranking: Luokittelu kannatusten mukaan
           update_category:
             invalid: 'Näillä ehdotuksilla oli jo aihepiiri %{subject_name}: %{proposals}.'
+            select_a_category: Valitse aihepiiri.
+            select_a_proposal: Valitse ehdotus.
             success: 'Seuraavien ehdotusten aihepiirin päivitys onnistui %{subject_name}: %{proposals}.'
           update_scope:
             invalid: 'Näillä ehdotuksilla oli jo teema %{subject_name}: %{proposals}.'
+            select_a_proposal: Valitse ehdotus.
+            select_a_scope: Valitse teema.
             success: 'Seuraavien ehdotusten teeman päivitys onnistui %{subject_name}: %{proposals}.'
         proposals_imports:
           create:
@@ -678,14 +686,17 @@ fi:
         requests:
           accepted_request:
             error: Osallistujaa ei voitu hyväksyä, yritä myöhemmin uudelleen.
+            success: "Käyttäjän @%{user} hyväksyminen muokkaajaksi onnistui."
           access_requested:
             error: Pyyntöäsi ei voitu suorittaa, yritä myöhemmin uudelleen.
+            success: Osallistumispyyntösi lähetys onnistui.
           collaboration_requests:
             accept_request: Hyväksy
             reject_request: Hylkää
             title: Yhteistyöpyynnöt
           rejected_request:
             error: Osallistujaa ei voitu hylätä, yritä myöhemmin uudelleen.
+            success: "Käyttäjän @%{user} osallistumispyynnön hylkäys onnistui."
         show:
           back: Takaisin
           edit: Muokkaa yhteistyöluonnosta
