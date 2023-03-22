@@ -39,7 +39,7 @@ fr-CA:
         body: Corps de texte
         subject: Objet
       organization:
-        admin_terms_of_use_body: Accepter les conditions générales
+        admin_terms_of_use_body: Corps du texte pour les conditions d'utilisation de l'admin
         alert_color: Alerte
         available_authorizations: Autorisations disponibles
         badges_enabled: Activer les badges
@@ -201,13 +201,14 @@ fr-CA:
       admin_terms_of_use:
         accept:
           error: Une erreur s'est produite lorsque vous avez accepté les conditions d'utilisation administrateur.
+          success: "Great! You have accepted the admin terms of use.\nVous avez accepté les conditions d'utilisation d'administrateur."
         actions:
           accept: J'accepte les conditions d'utilisation
           are_you_sure: Êtes-vous sûr de vouloir refuser les conditions d'utilisation de l'administrateur?
           refuse: Refuser les conditions d'utilisation administrateur
           title: Accepter les conditions d’utilisation
         required_review:
-          alert: 'Obligatoire : Consultez nos conditions générales d''administration'
+          alert: 'Obligatoire: Consultez nos conditions d''utilisation administrateur'
           callout: Veuillez prendre un moment pour examiner les conditions d'utilisation de l'administrateur. Sinon, vous ne serez pas en mesure de gérer la plateforme.
           cta: Consulter les maintenant.
         title: Conditions d'utilisation administrateur
@@ -382,6 +383,7 @@ fr-CA:
           Excel: Excel
           FormPDF: PDF
           JSON: JSON
+        notice: Votre exportation est en cours. Vous recevrez un email quand elle sera terminée.
       filters:
         category_id_eq:
           label: Catégorie
@@ -517,8 +519,6 @@ fr-CA:
             message:
               one: Colonne %{columns} manquante.
               other: Colonnes %{columns} manquantes.
-        error: Un problème est survenu lors de l'import
-        example_error: Impossible de créer un exemple pour le type donné
         new:
           accepted_mime_types:
             csv: csv
@@ -530,7 +530,6 @@ fr-CA:
           download_example_format: Exemple comme %{name}
           file_legend: Ajouter un fichier d'import qui sera analysé.
           import: Importer
-        notice: "%{number} %{resource_name} importées avec succès"
       logs:
         filters:
           participatory_space: Trouver un espace participatif
@@ -555,6 +554,7 @@ fr-CA:
         area_types: Types de périmètre d'assemblée
         areas: Zones d'application
         configuration: Configuration
+        content: Contenu signalé
         dashboard: Tableau de bord
         external_domain_whitelist: Domaines externes autorisés
         help_sections: Sections d'aide
@@ -663,6 +663,7 @@ fr-CA:
           nickname: Pseudonyme
           reason: Raison du signalement
           reports: Nombre de signalements
+          title: Participants signalés
         report:
           reasons:
             does_not_belong: N'appartient pas
@@ -672,6 +673,8 @@ fr-CA:
           blocked: Bloqué
           unblocked: Non bloqué
       moderations:
+        index:
+          title: Contenu signalé
         report:
           reasons:
             does_not_belong: N'appartient pas
@@ -870,6 +873,7 @@ fr-CA:
       participatory_space_private_users_csv_imports:
         create:
           invalid: Un problème est survenu lors de la lecture du fichier CSV. Veuillez vous assurer que vous avez suivi les instructions.
+          success: "CSV file uploaded successfully, we are sending an invitation email to participants. This might take a while.\nLe fichier CSV a été téléchargé avec succès. Une invitation par courriel sera envoyée sous peu à chaque participant."
         new:
           destroy:
             button: Supprimer tous les utilisateurs privés
@@ -1022,6 +1026,7 @@ fr-CA:
       user_group:
         csv_verify:
           invalid: Une erreur s'est produite lors de la lecture du fichier CSV.
+          success: "CSV file uploaded successfully, we are verifying the groups matching the criteria. This might take a while.\nLe fichier CSV a été téléchargé avec succès, une vérification des groupes correspondant aux critères est en cours. Un délai d'attente peut survenir."
         reject:
           invalid: Une erreur s'est produite lors du refus de ce groupe d'utilisateurs.
         verify:
@@ -1118,6 +1123,8 @@ fr-CA:
   layouts:
     decidim:
       admin:
+        global_moderations:
+          title: Modération globale
         newsletters:
           title: Newsletters
         settings:
