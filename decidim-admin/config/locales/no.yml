@@ -32,6 +32,7 @@
         body: Tekst
         subject: Emne
       organization:
+        admin_terms_of_use_body: Innholdet i de administrative vilkårene for bruk av plattformen
         alert_color: Varsel
         available_authorizations: Tilgjengelige autorisasjoner
         badges_enabled: Aktiver utmerkelse
@@ -172,6 +173,7 @@
           are_you_sure: Er du sikker på at du vil avslå administratorvilkårene for bruk?
           refuse: Avslå administratorvilkårene
         required_review:
+          alert: 'Påkrevd: Gå gjennom administrasjons vilkårene våre'
           cta: Se over dem nå.
       area_types:
         create:
@@ -462,8 +464,6 @@
             message:
               one: Mangler kolonne %{columns}.
               other: Manglende kolonner %{columns}.
-        error: Det oppstod et problem under importen
-        example_error: Kunne ikke opprette et eksempel for den angitte typen
         new:
           accepted_mime_types:
             csv: CSV
@@ -475,7 +475,6 @@
           download_example_format: Eksempel som %{name}
           file_legend: Legg til en importfil som vil bli analysert.
           import: Importer
-        notice: "%{count} %{resource_name} ble importert"
       managed_users:
         promotion:
           error: Det oppstod et problem med å promotere den administrerte deltakeren.
