@@ -89,7 +89,6 @@ sr:
             success: 'Predlozi uspešno dodati u kategoriju %{subject_name}: %{proposals}.'
           update_scope:
             invalid: 'Ovi predlozi već imaju %{subject_name} opseg: %{proposals}.'
-            select_a_scope: Molimo izaberite opseg
             success: 'Predlozi kojima je uspešno dodat opseg %{subject_name}: %{proposals}.'
       admin_log:
         proposal:
