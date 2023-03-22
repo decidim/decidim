@@ -468,9 +468,6 @@ nl:
         download_data_description: Een bestand met alle gegevens van uw account zal worden verzonden naar <strong>%{user_email}</strong>. Deze e-mail bevat een .zip-bestand en een wachtwoord om het te openen.<br/><br/>Om het bestand uit te pakken heeft u <a href="https://www.7-zip.org/">7-Zip</a> (voor Windows) of <a href="https://www.keka.io/">Keka</a> nodig (voor MacOS). Als u Linux gebruikt, zal deze meestal standaard geïnstalleerd worden. Als dit niet het geval is, kan je <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> of <a href="https://peazip.github.io">PeaZip</a> gebruiken).
         request_data: Gegevens aanvragen
     editor_images:
-      create:
-        error: Fout bij het uploaden van een afbeelding
-        success: Afbeelding met succes geüploaded
       drag_and_drop_help: Voeg afbeeldingen toe door ze te slepen of te plakken.
     endorsable:
       endorsements: Aanbevelingen
@@ -689,16 +686,10 @@ nl:
     group_admins:
       actions:
         demote_admin: Verwijder admin
-      demote:
-        error: Er is een probleem opgetreden bij het verwijderen van deze deelnemer uit de beheerderslijst
-        success: Deelnemer succesvol verwijderd uit admin
       index:
         current_admins: 'Huidige beheerders:'
         manage_admins: Beheer beheerders
     group_invites:
-      accept:
-        error: Er is een fout opgetreden bij het accepteren van deze uitnodiging
-        success: Uitnodiging met succes geaccepteerd
       accept_invitation: Aanvaarden
       accept_or_reject_group_invitations: 'De volgende groepen hebben je uitgenodigd om mee te doen. Aanvaard of verwerp hun verzoeken:'
       index:
@@ -884,16 +875,9 @@ nl:
         main_image: Hoofd afbeelding
     newsletters:
       unsubscribe:
-        check_subscription: Als je jouw voorkeuren wil wijzigen, kan je dat doen op de <a href="%{link}" target="_blank">configuratiepagina</a>
-        error: Er is een probleem opgetreden met het opzeggen van het abonnement
         success: Je bent succesvol uitgeschreven.
         token_error: De link is verlopen.
         unsubscribe: Uitschrijven
-    newsletters_opt_in:
-      unathorized: Sorry, deze link is niet langer beschikbaar
-      update:
-        error: Sorry, er is iets misgelopen
-        success: Nieuwsbriefinstellingen succesvol bijgewerkt
     newsletters_opt_in_mailer:
       notify:
         body_1: De verwerking van persoonlijke gegevens en de bescherming ervan worden steeds belangrijker voor ons allemaal. Met de nieuwe Algemene Verordening Gegevensbescherming (GDPR) van 25 mei 2018 hebben individuen betere controle over hun persoonlijke gegevens. Om deze reden hebben we uw "OK" nodig om relevante informatie over de activiteiten van de %{organization_name}te blijven verzenden.
