@@ -11,7 +11,7 @@ This means that:
 . Decidim is a https://rubygems.org/gems/decidim[gem], available in rubygems.org. You can install it with the command `gem install decidim`
 . Decidim is a command line generator of Ruby on Rails applications. After you've install it you can generate a new RoR app with `decidim HelloWorld`
 . This app has a dependency the gem itself. You can see this in the Gemfile of the generated app.
-. This app can be extended by making changes in the app (see xref:customize:index.adoc[Customising]) and by working with https://decidim.org/modules[Modules].
+. This app can be extended by making changes in the app (see Customising) and by working with https://decidim.org/modules[Modules].
 
 == Examples
 
