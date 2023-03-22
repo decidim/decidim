@@ -599,16 +599,10 @@ zh-CN:
     group_admins:
       actions:
         demote_admin: 删除管理员
-      demote:
-        error: 从管理员列表中删除此参与者时出错
-        success: 成功地从管理员中删除参与者
       index:
         current_admins: '当前管理员：'
         manage_admins: 管理管理员
     group_invites:
-      accept:
-        error: 接受此邀请时出现问题
-        success: 邀请已被接受
       accept_invitation: 接受
       accept_or_reject_group_invitations: '以下群组邀请您加入他们。接受或拒绝他们的请求：'
       index:
@@ -782,16 +776,9 @@ zh-CN:
         main_image: 主图像
     newsletters:
       unsubscribe:
-        check_subscription: 如果您想要更改您的偏好设置，您可以在 <a href="%{link}" target="_blank">配置页面</a> 中做到这一点。
-        error: 有一个取消订阅的问题
         success: 您已成功取消订阅。
         token_error: 链接已过期。
         unsubscribe: 取消订阅
-    newsletters_opt_in:
-      unathorized: 对不起，此链接不再可用
-      update:
-        error: 发生错误
-        success: 通讯设置已成功更新
     newsletters_opt_in_mailer:
       notify:
         body_1: 个人数据的处理和对数据的保护对我们大家都越来越重要。 根据2018年5月25日新的《一般数据保护条例》，个人可以更好地控制自己的个人数据。 为此原因，我们需要您的“确定”继续发送有关 %{organization_name} 活动的信息。
