@@ -602,9 +602,6 @@ cs:
         download_data_description: Soubor obsahující všechny informace spojené s vaším účtem bude odeslán na adresu <strong>%{user_email}</strong>. Tento e-mail bude obsahovat .zip soubor a heslo pro jeho otevření.<br/><br/>Pro rozbalení souboru budete potřebovat <a href="https://www.7-zip.org/">7-Zip</a> (pro Windows) nebo <a href="https://www.keka.io/">Keku</a> (pro MacOS). Pokud používáte Linux, většinou jej budete mít nainstalovaný ve výchozím nastavení. Pokud ne, můžete použít <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> nebo <a href="https://peazip.github.io">PeaZip</a>).
         request_data: Vyžádat data
     editor_images:
-      create:
-        error: Chyba při nahrávání obrázku
-        success: Obrázek byl úspěšně nahrán
       drag_and_drop_help: Přidejte obrázky přetažením nebo vložením.
     endorsable:
       endorsements: Schválení
@@ -887,16 +884,10 @@ cs:
     group_admins:
       actions:
         demote_admin: Odstranit admin
-      demote:
-        error: Při odebrání tohoto uživatele ze seznamu administrátorů došlo k chybě
-        success: Uživatel byl úspěšně odstraněn z administrátora
       index:
         current_admins: 'Aktuální administrátoři:'
         manage_admins: Správa administrátorů
     group_invites:
-      accept:
-        error: Při přijetí této pozvánky došlo k chybě
-        success: Pozvánka byla úspěšně přijata
       accept_invitation: Akceptovat
       accept_or_reject_group_invitations: 'Následující skupiny vás pozvaly, abyste se k nim připojili. Přijmout nebo odmítnout jejich požadavky:'
       index:
@@ -1097,16 +1088,9 @@ cs:
         main_image: Hlavní obrázek
     newsletters:
       unsubscribe:
-        check_subscription: Chcete-li změnit nastavení, můžete tak učinit v <a href="%{link}" target="_blank">konfigurační stránce</a>
-        error: Došlo k chybě při odhlášení
         success: Úspěšně jste odhlášeni.
         token_error: Platnost odkazu vypršela.
         unsubscribe: Odhlásit odběr
-    newsletters_opt_in:
-      unathorized: Je nám líto, tento odkaz již není k dispozici
-      update:
-        error: Došlo k chybě
-        success: Nastavení Zpravodaje bylo úspěšně aktualizováno
     newsletters_opt_in_mailer:
       notify:
         body_1: Zpracování osobních údajů a jejich ochrana jsou pro nás všechny stále důležitější. S novým obecným nařízením o ochraně osobních údajů (GDPR) ze dne 25. května 2018 mají jednotlivci lepší kontrolu nad svými osobními údaji. Z tohoto důvodu potřebujeme vaše "OK" pro pokračování v zasílání relevantních informací o aktivitách %{organization_name}.
