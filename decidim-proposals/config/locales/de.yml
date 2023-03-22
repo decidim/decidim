@@ -402,9 +402,6 @@ de:
             document_legend: 'Fügen Sie ein Dokument hinzu, das kleiner als 2MB ist. Für alle Abschnitte bis 3 Ebenen tief werden Vorschläge erstellt. Unterstützte Formate sind: %{valid_mime_types}'
             title: DOKUMENT HINZUFÜGEN
             upload_document: Dokument hochladen
-          publish:
-            invalid: Vorschläge konnten nicht veröffentlicht werden
-            success: Alle Vorschläge wurden veröffentlicht
           sections:
             article: "<em>Artikel</em>"
             section: "<em>Abschnitt:</em> <strong>%{title}</strong>"
@@ -460,7 +457,6 @@ de:
             title: Vorschlag erstellen
           publish_answers:
             number_of_proposals: Die Antworten für %{number} Vorschläge werden veröffentlicht.
-            select_a_proposal: Bitte wählen Sie einen Vorschlag
           show:
             amendments_count: Anzahl der Ergänzungen
             assigned_valuators: Zugewiesene Schätzer
@@ -490,13 +486,9 @@ de:
             votes_ranking: Nach Unterstützungen sortieren
           update_category:
             invalid: 'Diese Vorschläge gehörten bereits zur Kategorie %{subject_name}: %{proposals}.'
-            select_a_category: Bitte wählen Sie eine Kategorie
-            select_a_proposal: Bitte wählen Sie einen Vorschlag
             success: 'Die Vorschlag wurde erfolgreich zur Kategorie %{subject_name} aktualisiert: %{proposals}.'
           update_scope:
             invalid: 'Diese Vorschläge gehörten bereits um Umfang %{subject_name}: %{proposals}.'
-            select_a_proposal: Bitte wählen Sie einen Vorschlag
-            select_a_scope: Bitte wählen Sie einen Umfang
             success: 'Die Vorschläge wurden erfolgreich zum Umfang %{subject_name} aktualisiert: %{proposals}.'
         proposals_imports:
           new:
@@ -608,17 +600,14 @@ de:
         requests:
           accepted_request:
             error: Könnte nicht als Mitarbeiter akzeptiert werden, versuchen Sie es später erneut.
-            success: "@%{user} wurde erfolgreich als Partner akzeptiert"
           access_requested:
             error: Ihre Anfrage konnte nicht abgeschlossen werden. Versuchen Sie es später erneut.
-            success: Ihre Anfrage zur Zusammenarbeit wurde erfolgreich gesendet
           collaboration_requests:
             accept_request: Akzeptieren
             reject_request: Ablehnen
             title: Zusammenarbeit Anfragen
           rejected_request:
             error: Konnte nicht als Mitarbeiter abgelehnt werden, versuche es später erneut.
-            success: "@%{user} wurde als Collaborator erfolgreich abgelehnt"
         show:
           back: Zurück
           edit: Bearbeiten Sie den gemeinsamen Entwurf
