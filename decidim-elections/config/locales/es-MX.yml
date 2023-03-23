@@ -290,6 +290,7 @@ es-MX:
               time_before: La configuración se está realizando <strong>al menos %{hours} horas</strong> antes de que comience la elección.
               trustees_number: El espacio participativo tiene <strong>al menos %{number} garantes con clave pública</strong>.
             submit: Configurar elección
+            success: La elección se ha enviado con éxito al "Bulletin Board".
             title: Configurar elección
             trustees: Garantes de la elección
           created:
@@ -333,6 +334,7 @@ es-MX:
             invalid: Hubo un problema al reportar la ausencia de la garante.
             mark_as_missing: Marcar como ausente
             mark_as_missing_description: Todos los garantes deberían participar en este proceso, pero si uno de ellos no puede tomar parte en él, puedes marcarlo como ausente.
+            success: La notificación de ausencia de la garante se ha enviado con éxito al "Bulletin Board".
             tally_completion: El proceso estará completo cuando todas las personas garantes estén registradas como activas o reportadas como ausentes. Se requiere un quorum de %{quorum} personas garantes para completar el proceso.
             title: Proceso de recuento
             undo_mark_as_missing: Una persona garante reportada como ausente por error podrá participar hasta antes de la finalización del proceso. Puede realizar sus actividades normales y el reporte de ausencia será ignorado.
@@ -601,6 +603,7 @@ es-MX:
             title: Recuento para %{election}
           update:
             error: El estado de la elección no se había actualizado.
+            success: 'El estado de la elección es: %{status}.'
         menu:
           trustee_zone: Zona del garante
         no_bulletin_board:
@@ -807,6 +810,9 @@ es-MX:
           new:
             create: Crear
             title: Crear estilo de papeleta
+          update:
+            invalid: Ha habido un problema al actualizar el estilo de papeleta.
+            success: Se ha creado correctamente el estilo de papeleta.
         content_blocks:
           highlighted_votings:
             max_results: Cantidad máxima de elementos a mostrar
