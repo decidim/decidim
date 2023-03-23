@@ -241,6 +241,7 @@ fr-CA:
               time_before: La configuration est réalisée <strong>au moins %{hours} heures</strong> avant le début de l'élection.
               trustees_number: L'espace participatif <strong>doit avoir au moins %{number} garants avec une clé publique</strong>.
             submit: Configurer l'élection
+            success: "Election successfully sent to the Bulletin Board.\nL' élection a été envoyée avec succès au Bulletin d'information."
             title: Configurer l'élection
             trustees: Garants de l'élection
           created:
@@ -278,6 +279,7 @@ fr-CA:
             continue: Continuer
             mark_as_missing: Marquer comme absent
             mark_as_missing_description: "All the trustees should participate in this process, but if a trustee cannot take part in the process, you can mark it as missing.\nTous les garants doivent participer à ce processus, toutefois, si l'un deux ne peut pas y participer, vous pouvez le marquer comme manquant."
+            success: "Missing trustee report was successfully sent to the Bulletin Board.\nLe rapport manquant a été envoyé avec succès au Panneau d''Affichage."
             tally_completion: Le processus sera terminé lorsque tout les garants seront marqués comme actif ou absent. Au moins %{quorum} garants sont requis pour compléter le processus.
             title: Dépouillement
             undo_mark_as_missing: Un garant marqué comme absent par erreur sera capable de participer avant l'achèvement du processus. Ils peuvent procéder comme d'habitude et le signalement d'absence sera ignoré.
@@ -532,6 +534,7 @@ fr-CA:
             title: Dépouillement pour %{election}
           update:
             error: Le statut de l'élection n'a pas été mis à jour.
+            success: 'Le statut de l''élection est : %{status}.'
         menu:
           trustee_zone: Espace de garant
         no_bulletin_board:
@@ -729,6 +732,9 @@ fr-CA:
           new:
             create: Créer
             title: Créer un style de bulletin
+          update:
+            invalid: "There was a problem updating this ballot style.\nUn problème est survenu lors de la mise à jour de ce mode de scrutin."
+            success: "Ballot style successfully updated.\nMise à jour réussie du mode de scrutin."
         content_blocks:
           highlighted_votings:
             max_results: Nombre maximum d'éléments à afficher
