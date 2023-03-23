@@ -158,7 +158,7 @@ module Decidim
         ).first
       end
 
-      # Private: Checks if the authorization hasn't expired or is invalid.
+      # Private: Checks if the authorization has not expired or is invalid.
       def authorized?
         authorization_status&.first == :ok
       end

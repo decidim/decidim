@@ -39,7 +39,7 @@ shared_examples "create amendment draft" do
       expect { command.call }.to broadcast(:invalid)
     end
 
-    it "doesn't create an amendment and the emendation" do
+    it "does not create an amendment and the emendation" do
       expect { command.call }
         .to change(Decidim::Amendment, :count)
         .by(0)

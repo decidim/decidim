@@ -31,7 +31,7 @@ shared_examples "update an initiative type scope" do
         expect { command.call }.to broadcast(:invalid)
       end
 
-      it "doesn't update an initiative type scope" do
+      it "does not update an initiative type scope" do
         command.call
         expect(initiatives_type_scope.supports_required).not_to eq(form_params[:supports_required])
         expect(initiatives_type_scope.decidim_scopes_id).not_to eq(form_params[:decidim_scopes_id])

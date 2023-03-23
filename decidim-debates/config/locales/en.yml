@@ -166,13 +166,6 @@ en:
         update:
           invalid: There was a problem updating the debate.
           success: Debate successfully updated.
-        versions:
-          debates:
-            back_to_resource: Go back to debate
-          index:
-            title: Versions
-        versions_list:
-          back_to_resource: Go back to debate
       last_activity:
         debate_updated: 'Debate updated:'
         new_debate: 'New debate:'
@@ -232,7 +225,7 @@ en:
           name: Debates
           next_level_in: Participate in %{score} more debates to reach the next level!
           unearned_another: This participant has not yet taken part in any debate.
-          unearned_own: You haven't participated in any debates yet.
+          unearned_own: You have not participated in any debates yet.
     metrics:
       debates:
         description: Number of debates created

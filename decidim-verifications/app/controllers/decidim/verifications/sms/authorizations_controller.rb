@@ -47,11 +47,7 @@ module Decidim
             on(:ok) do
               flash[:notice] = t("authorizations.update.success", scope: "decidim.verifications.sms")
 
-              if redirect_url
-                redirect_to redirect_url
-              else
-                redirect_to decidim_verifications.authorizations_path
-              end
+              redirect_to redirect_url || decidim_verifications.authorizations_path
             end
 
             on(:invalid) do

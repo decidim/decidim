@@ -4,7 +4,7 @@ module Decidim
   # This class handles system events affecting resources and generates a
   # notification for each recipient by scheduling a new
   # `Decidim::NotificationGeneratorForRecipientJob` job for each of them. This way
-  # we can easily control which jobs fail and retry them, so that we don't have
+  # we can easily control which jobs fail and retry them, so that we do not have
   # duplicated notifications.
   class NotificationGenerator
     # Initializes the class.

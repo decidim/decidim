@@ -1,4 +1,4 @@
-<% content_for :drawer_aside do %>
+<% content_for :aside do %>
   <%= cell(
     "decidim/versions_list",
     versioned_resource,
@@ -7,8 +7,7 @@
   ) %>
 <% end %>
 
-<%# REDESIGN_PENDING - Replace this layout with other not using drawers %>
-<%= render layout: "layouts/decidim/shared/drawer", locals: { close_url: meetings_path } do %>
+<%= render layout: "layouts/decidim/shared/layout_item", locals: { back_path: meeting_path(versioned_resource) } do %>
   <%= cell(
     "decidim/version",
     current_version,

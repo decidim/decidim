@@ -115,7 +115,7 @@ module Decidim
       end
 
       # Get the translation for a given attribute
-      # Returns a translation or nil. If nil, ZURB Foundation won't add the help_text.
+      # Returns a translation or nil. If nil, ZURB Foundation will not add the help_text.
       #
       # @param name (see #settings_attribute_input)
       # @param suffix [String] What suffix the i18n key has

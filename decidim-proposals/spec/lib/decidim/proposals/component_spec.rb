@@ -135,6 +135,19 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
       login_as current_user, scope: :user
     end
 
+    context "when proposal limit is empty" do
+      before do
+        visit edit_component_path
+        component.update(settings: { proposal_limit: "" })
+        visit edit_component_path
+      end
+
+      it "does NOT allow updating proposal component" do
+        click_button "Update"
+        expect(page).to have_content("There's an error in this field")
+      end
+    end
+
     describe "participatory_texts_enabled" do
       let(:participatory_texts_enabled_container) { page.find(".participatory_texts_enabled_container") }
 
@@ -203,7 +216,7 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
         visit edit_component_path
       end
 
-      it "doesn't show the amendments dependent settings" do
+      it "does not show the amendments dependent settings" do
         fields.each do |field|
           expect(page).not_to have_content(field)
           expect(page).to have_css(".#{field.parameterize.underscore}_container", visible: :all)

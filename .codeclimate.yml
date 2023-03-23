@@ -87,13 +87,13 @@ plugins:
       patterns:
         no-trailing-whitespace:
           pattern: \s*$
-          annotation: "Don't leave trailing whitespace"
+          annotation: "Do not leave trailing whitespace"
           severity: minor
           categories: Style
 
         no-tabs:
           pattern: "	"
-          annotation: "Don't use hard tabs"
+          annotation: "Do not use hard tabs"
           severity: minor
           categories: Style
 
@@ -127,3 +127,4 @@ exclude_patterns:
   - "coverage/"
   - "webpack.report.html"
   - "decidim_app-design/public/sw.js"
+  - "decidim_app-design/public/sw.js.map"

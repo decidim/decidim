@@ -29,7 +29,7 @@ module Decidim
           expect { command.call }.to broadcast(:invalid)
         end
 
-        it "doesn't create the report" do
+        it "does not create the report" do
           expect { command.call }.not_to change(Report, :count)
         end
       end
@@ -80,7 +80,7 @@ module Decidim
             .with(admin, last_report)
         end
 
-        it "doesnt send an email to the admin when he/she doesnt allow it" do
+        it "does not send an email to the admin when he/she does not allow it" do
           allow(ReportedMailer).to receive(:report).and_call_original
           command.call
           last_report = Report.last
@@ -97,7 +97,7 @@ module Decidim
             end
           end
 
-          it "doesn't create an additional moderation" do
+          it "does not create an additional moderation" do
             expect { command.call }.not_to change(Moderation, :count)
 
             last_moderation = Moderation.last

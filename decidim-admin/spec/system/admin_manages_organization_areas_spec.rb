@@ -87,7 +87,7 @@ describe "Organization Areas", type: :system do
       context "when a participatory space associated to a given area exist" do
         let!(:process) { create(:participatory_process, organization: area.organization, area:) }
 
-        it "can not be deleted" do
+        it "cannot be deleted" do
           click_delete_area
           expect(area.reload.destroyed?).to be false
           expect(page).to have_admin_callout("This area has dependent spaces")

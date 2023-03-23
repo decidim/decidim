@@ -27,7 +27,7 @@ class EmptyTokenError < RuntimeError
 
       This script will generate the sections needed for the changelog, using the
       labels of the merged PRs as a source of truth. It will add a section at the
-      end, "Unsorted", with the list of PRs that couldn't be classified.
+      end, "Unsorted", with the list of PRs that could not be classified.
 
       It ignores any Crowdin PR.
     HELP
