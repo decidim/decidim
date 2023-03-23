@@ -7,7 +7,9 @@
     <button id="dropdown-trigger" data-component="dropdown" data-target="dropdown-menu-filters">
       <%= icon "arrow-down-s-line" %>
       <%= icon "arrow-up-s-line" %>
-      <span><%= t("decidim.searches.filters_small_view.filter") %></span>
+      <span>
+        <%= t(local_assigns.has_key?(:search_variable) ? "filter_and_search" : "filter", scope: "decidim.searches.filters_small_view") %>
+      </span>
     </button>
 
     <div id="dropdown-menu-filters">

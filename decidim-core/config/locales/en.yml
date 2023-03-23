@@ -1432,6 +1432,7 @@ en:
       filters_small_view:
         close_modal: Close modal
         filter: Filter
+        filter_and_search: Filter and Search
         filter_by: Filter by
         unfold: Unfold
       results:
