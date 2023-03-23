@@ -978,7 +978,6 @@
           agreement: Jeg godtar vilkårene
         refuse:
           modal_btn_continue: Aksepter vilkår og fortsett
-          modal_btn_exit: Jeg vil vurdere det senere
           modal_button: Avslå vilkårene
           modal_close: Lukk modal
           modal_title: Nekter du virkelig de oppdaterte vilkårene?
