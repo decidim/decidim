@@ -201,6 +201,7 @@ cs:
       admin_terms_of_use:
         accept:
           error: Při přijímání správcovských podmínek použití došlo k chybě.
+          success: Skvělé! Přijali jste administrátorské podmínky použití.
         actions:
           accept: Souhlasím s podmínkami
           are_you_sure: Opravdu chcete odmítnout Podmínky použití pro správce?
@@ -208,6 +209,7 @@ cs:
           title: Souhlasit s podmínkami používání
         required_review:
           alert: 'Vyžadováno: Zkontrolujte naše administrátorské podmínky použití'
+          callout: Věnujte prosím chvíli a zkontrolujte podmínky používání administrátora. V opačném případě nebudete moci platformu spravovat.
           cta: Zkontrolovat je nyní.
         title: Administrátorské podmínky použití
       area_types:
@@ -383,6 +385,7 @@ cs:
           Excel: Excel
           FormPDF: PDF
           JSON: JSON
+        notice: Váš export právě probíhá. Po dokončení obdržíte e-mail.
       filters:
         category_id_eq:
           label: Kategorie
