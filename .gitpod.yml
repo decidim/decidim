@@ -2,19 +2,16 @@ image:
   file: .gitpod.Dockerfile
 
 tasks:
-  - name: Setup & Build
-    init: sudo service postgresql start
-    command: |
+  - name: Development app
+    init: |
+      sudo service postgresql start &&
+      echo 'RAILS_DEVELOPMENT_HOSTS="3000-${GITPOD_WORKSPACE_ID}.${GITPOD_WORKSPACE_CLUSTER_HOST}"' > .rbenv-vars &&
       bundle &&
       bundle exec rake development_app &&
-      gp sync-done decidim
-  - name: Development server
-    init: |
-      gp sync-await decidim &&
-      echo 'Rails.application.config.hosts << ENV.fetch("RAILS_DEVELOPMENT_HOSTS", /.*\.gitpod\.io/)' > development_app/config/initializers/gitpod.rb
+      echo 'Rails.application.config.hosts << ENV.fetch("RAILS_DEVELOPMENT_HOSTS", "")' > development_app/config/initializers/gitpod.rb
     command: |
       cd development_app &&
-      export RAILS_DEVELOPMENT_HOSTS="3000-${GITPOD_WORKSPACE_ID}.${GITPOD_WORKSPACE_CLUSTER_HOST}" &&
+      ./bin/rails runner 'Decidim::Organization.first.update!(host: ENV.fetch("RAILS_DEVELOPMENT_HOSTS", "localhost"))' &&
       ./bin/dev
 
 ports:
