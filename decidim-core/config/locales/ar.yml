@@ -1208,7 +1208,6 @@ ar:
           agreement: أوافق على هذه الشروط
         refuse:
           modal_btn_continue: قبول الشروط والمتابعة
-          modal_btn_exit: سأراجعها لاحقًا
           modal_button: رفض الشروط
           modal_close: إغلاق مشروط
           modal_title: هل ترفض حقًا الأحكام والشروط المحدثة؟
