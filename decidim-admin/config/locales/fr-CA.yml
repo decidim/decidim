@@ -519,6 +519,8 @@ fr-CA:
             message:
               one: Colonne %{columns} manquante.
               other: Colonnes %{columns} manquantes.
+        error: Un problème est survenu lors de l'import.
+        example_error: "There was a problem creating an example for the given type.\nUne erreur est survenue lors de la création d'un exemple pour le type donné."
         new:
           accepted_mime_types:
             csv: csv
@@ -530,6 +532,7 @@ fr-CA:
           download_example_format: Exemple comme %{name}
           file_legend: Ajouter un fichier d'import qui sera analysé.
           import: Importer
+        notice: "%{count} %{resource_name} successfully imported.\nImportation réussie de %{count} %{resource_name}."
       logs:
         filters:
           participatory_space: Trouver un espace participatif
