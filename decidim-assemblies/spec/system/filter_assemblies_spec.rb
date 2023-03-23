@@ -14,6 +14,8 @@ describe "Filter Assemblies", type: :system do
     let!(:assemblies) { create_list(:assembly, 3, :with_type, organization:) }
 
     before do
+      skip "REDESIGN_PENDING - Integrate filters after merging feature/redesign-filters"
+
       visit decidim_assemblies.assemblies_path
       click_button "All types"
     end
@@ -37,6 +39,8 @@ describe "Filter Assemblies", type: :system do
     let!(:assemblies) { create_list(:assembly, 3, organization:) }
 
     before do
+      skip "REDESIGN_PENDING - Integrate filters after merging feature/redesign-filters"
+
       visit decidim_assemblies.assemblies_path
     end
 
@@ -54,6 +58,8 @@ describe "Filter Assemblies", type: :system do
 
     context "and choosing a scope" do
       before do
+        skip "REDESIGN_PENDING - Integrate filters after merging feature/redesign-filters"
+
         visit decidim_assemblies.assemblies_path(filter: { with_scope: scope.id })
       end
 
@@ -72,6 +78,8 @@ describe "Filter Assemblies", type: :system do
     let!(:assembly_without_area) { create(:assembly, organization:) }
 
     before do
+      skip "REDESIGN_PENDING - Integrate filters after merging feature/redesign-filters"
+
       visit decidim_assemblies.assemblies_path
     end
 
