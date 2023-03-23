@@ -359,6 +359,7 @@ cs:
             invites: Pozvánky
             search: Vyhledávání
           new:
+            explanation: Uživatel bude pozván, aby se připojil k konferenci. Pokud není jeho e-mail registrován, bude také pozván do organizace.
             invite: Pozvat
             new_invite: Pozvat uživatele
         conference_registrations:
