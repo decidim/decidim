@@ -117,6 +117,7 @@ ignore_missing:
   - decidim.debates.debate_m.footer.commented_time_ago
   - date.abbr_day_names
   - date.month_names
+  - explanation
 
 # Consider these keys used:
 ignore_unused:
@@ -330,6 +331,7 @@ ignore_unused:
   - ransack.predicates.*
   - decidim.profiles.user.actions.*
   - decidim.forms.questionnaires.show.answer_questionnaire.*
+  - decidim.forms.upload_help.explanation
   - versions.dropdown.option_*
   - decidim.meetings.meetings.filters.*
   - decidim.meetings.directory.meetings.index.space_type
@@ -345,7 +347,7 @@ ignore_unused:
 # ignore:
 #   - kaminari.*
 
-## Sometimes, it isn't possible for i18n-tasks to match the key correctly,
+## Sometimes, it is not possible for i18n-tasks to match the key correctly,
 ## e.g. in case of a relative key defined in a helper method.
 ## In these cases you can use the built-in PatternMapper to map patterns to keys, e.g.:
 #

@@ -94,13 +94,11 @@ tr:
           expired_verification: Doğrulamanın süresi doldu
           pending_verification: Doğrulama beklemede
           show_renew_info: Doğrulamayı yenilemek için tıklayın
-          unauthorized_verification: Yeni doğrulama
         new:
           authorize: göndermek
           authorize_with: '%{authorizer} ile doğrulayın'
         renew_modal:
           cancel: İptal Et
-          close: kapat
           continue: Devam et
           info_renew: Verileri güncellemek istiyorsanız, yenilemeye devam edin
           title: Doğrulamayı yenile

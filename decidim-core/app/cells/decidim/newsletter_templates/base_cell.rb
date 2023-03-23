@@ -25,6 +25,14 @@ module Decidim
       def recipient_user
         options[:recipient_user]
       end
+
+      def custom_url_for_mail_root
+        options[:custom_url_for_mail_root]
+      end
+
+      def decidim
+        @decidim ||= EngineRouter.new("decidim", {})
+      end
     end
   end
 end

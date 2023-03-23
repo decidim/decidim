@@ -4,8 +4,8 @@ eu:
       assemblies_setting:
         enable_organization_chart: Gaitu organigrama
       assembly:
-        area_id: Area
-        assembly_type: Muntatze-mota
+        area_id: Arloa
+        assembly_type: Batzar mota
         assembly_type_other: Batzar mota beste
         banner_image: Bannerra
         closing_date: Amaiera data
@@ -22,6 +22,7 @@ eu:
         decidim_scope_id: esparrua
         description: Deskribapena
         developer_group: Sustatzailearen taldea
+        document: Dokumentua
         domain: Domeinua
         duration: Iraupena
         facebook: Facebook
@@ -66,7 +67,7 @@ eu:
         user_id: Parte-hartzailea edo taldea
       assembly_user_role:
         email: Emaila
-        name: izena
+        name: Izena
         role: Role
     errors:
       models:
@@ -77,7 +78,7 @@ eu:
   activerecord:
     models:
       decidim/assembly:
-        one: Batzar
+        one: Batzarra
         other: Batzar
       decidim/assembly_member:
         one: Batzar kidea
@@ -149,12 +150,12 @@ eu:
           success: Kidea muntaia honekin batera ezabatu da.
         edit:
           title: Eguneratu muntaia kidea.
-          update: eguneratzearen
+          update: Eguneratu
         index:
-          assembly_members_title: Batzar kideak
+          assembly_members_title: Batzarraen kideak
         new:
           create: Sortu
-          title: Batzar berria kide.
+          title: Batzarkide berria.
         update:
           error: Errore bat gertatu da kidea bistaratzeko muntaia honetarako.
           success: Batzar hau behar bezala eguneratu da.
@@ -173,7 +174,7 @@ eu:
           success: Erabiltzailea behar bezala kendu da muntaia honetatik.
         edit:
           title: Eguneratu muntaia erabiltzailea.
-          update: eguneratzearen
+          update: Eguneratu
         index:
           assembly_admins_title: Batzar erabiltzaileak
         new:
@@ -217,22 +218,22 @@ eu:
           fields:
             ceased_date: Data amaitua
             designation_date: Deuseztapen data
-            full_name: izena
+            full_name: Izena
             position: Kargua
           name: kidea
           positions:
             other: Beste
             president: Lehendakaria
-            secretary: idazkari
+            secretary: Idazkaritza
             vice_president: Lehendakariordea
         assembly_user_role:
           fields:
-            email: Emaila
-            name: izena
-            role: Role
+            email: Helbide elektronikoa
+            name: Izena
+            role: Rola
           name: Batzar Erabiltzailea
           roles:
-            admin: Administrator
+            admin: Administratzailea
             collaborator: Kolaboratzaile
             moderator: Moderatzaile
             valuator: Ebaluatzailea

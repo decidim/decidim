@@ -14,7 +14,7 @@ Surveys will be available as a Component for a Participatory Process.
 
 ## Installation
 
-This is on the default Decidim installation so you shouldn't change anything to use this component.
+This is on the default Decidim installation so you should not change anything to use this component.
 
 ## Screenshots
 

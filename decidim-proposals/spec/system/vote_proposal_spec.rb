@@ -18,7 +18,7 @@ describe "Support Proposal", type: :system, slow: true do
 
   context "when votes are not enabled" do
     context "when the user is not logged in" do
-      it "doesn't show the vote proposal button and counts" do
+      it "does not show the vote proposal button and counts" do
         skip "REDESIGN PENDING - Vote proposals from index is not defined yet"
 
         visit_component
@@ -34,7 +34,7 @@ describe "Support Proposal", type: :system, slow: true do
         login_as user, scope: :user
       end
 
-      it "doesn't show the vote proposal button and counts" do
+      it "does not show the vote proposal button and counts" do
         skip "REDESIGN PENDING - Vote proposals from index is not defined yet"
 
         visit_component
@@ -164,9 +164,8 @@ describe "Support Proposal", type: :system, slow: true do
                      participatory_space: participatory_process)
             end
 
-            it "doesn't show the remaining votes counter" do
+            it "does not show the remaining votes counter" do
               skip "REDESIGN PENDING - Vote proposals from index is not defined yet"
-
               visit_component
 
               expect(page).to have_css("#voting-rules")
@@ -212,7 +211,7 @@ describe "Support Proposal", type: :system, slow: true do
           end
         end
 
-        context "when the proposal is not voted yet but the user isn't authorized" do
+        context "when the proposal is not voted yet but the user is not authorized" do
           before do
             permissions = {
               vote: {
@@ -344,9 +343,8 @@ describe "Support Proposal", type: :system, slow: true do
         login_as user, scope: :user
       end
 
-      it "doesn't allow users to vote to a proposal that's reached the limit" do
+      it "does not allow users to vote to a proposal that's reached the limit" do
         skip "REDESIGN PENDING - Vote proposals from index is not defined yet"
-
         create(:proposal_vote, proposal:)
         visit_component
 
@@ -419,9 +417,8 @@ describe "Support Proposal", type: :system, slow: true do
         login_as user, scope: :user
       end
 
-      it "doesn't count votes unless the minimum is achieved" do
+      it "does not count votes unless the minimum is achieved" do
         skip "REDESIGN PENDING - Vote proposals from index is not defined yet"
-
         visit_component
 
         proposal_elements = proposals.map do |proposal|

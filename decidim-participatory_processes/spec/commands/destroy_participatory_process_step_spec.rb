@@ -24,7 +24,7 @@ module Decidim::ParticipatoryProcesses
           expect { subject.call }.to broadcast(:invalid, :active_step)
         end
 
-        it "doesn't delete the step" do
+        it "does not delete the step" do
           subject.call
           expect(active_step).to be_persisted
         end

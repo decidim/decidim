@@ -4,6 +4,7 @@ namespace :decidim do
   desc "Install migrations from Decidim to the app."
   task upgrade: [
     :choose_target_plugins,
+    :"decidim:upgrade_app",
     :"railties:install:migrations",
     :"decidim:webpacker:upgrade",
     :"decidim_api:generate_docs"
@@ -35,5 +36,13 @@ namespace :decidim do
       decidim_templates
       decidim_verifications
     ).join(",")
+  end
+
+  desc "Applies upgrade modifications to the already installed application."
+  task upgrade_app: [:"decidim:remove_default_favicon"]
+
+  desc "Removes the default favicon from the application."
+  task :remove_default_favicon do
+    FileUtils.rm("public/favicon.ico", force: true)
   end
 end

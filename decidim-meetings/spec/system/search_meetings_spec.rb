@@ -30,8 +30,8 @@ describe "Search meetings", type: :system do
 
         expect(page).to have_current_path decidim.search_path, ignore_query: true
         expect(page).to have_content(/results for the search: "#{term}"/i)
-        expect(page).to have_selector(".filters__section")
-        expect(page.find("#search-count .section-heading").text.to_i).to eq(0)
+        expect(page).to have_selector(".filter-search.filter-container")
+        expect(page.find("#search-count h1").text.to_i).to eq(0)
       end
     end
   end

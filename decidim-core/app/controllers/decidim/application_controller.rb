@@ -104,7 +104,7 @@ module Decidim
       :public
     end
 
-    # Make sure Chrome doesn't use the cache from a different format. This
+    # Make sure Chrome does not use the cache from a different format. This
     # prevents a bug where clicking the back button of the browser
     # displays the JS response instead of the HTML one.
     def add_vary_header
