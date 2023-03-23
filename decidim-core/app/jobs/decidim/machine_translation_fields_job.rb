@@ -6,7 +6,7 @@ module Decidim
   class MachineTranslationFieldsJob < ApplicationJob
     queue_as :translations
 
-    # Performs the job. It won't perform anything if the
+    # Performs the job. It will not perform anything if the
     # `Decidim.machine_translation_service` config is not set.
     #
     # resource - Any kind of `Decidim::TranslatableResource` model instance

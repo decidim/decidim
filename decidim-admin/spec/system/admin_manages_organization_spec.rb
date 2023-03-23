@@ -175,7 +175,7 @@ describe "Admin manages organization", type: :system do
           )["innerHTML"]).to eq('<p>foo<br><br><a href="https://www.decidim.org" rel="noopener noreferrer" target="_blank">link</a></p>')
         end
 
-        it "doesnt create br tag inside a tag" do
+        it "does not create br tag inside a tag" do
           find('div[contenteditable="true"].ql-editor').native.send_keys([:left, :left, :left, :left], [:shift, :enter])
           expect(find(
             "#organization-admin_terms_of_use_body-tabs-admin_terms_of_use_body-panel-0 .editor .ql-editor"
@@ -346,7 +346,7 @@ describe "Admin manages organization", type: :system do
           )["innerHTML"]).to eq("<p>Paragraph</p><ul><li>List item 1</li><li>List item 2</li><li>List item 3</li><li>abcd</li></ul>".to_s.gsub("\n", ""))
         end
 
-        it "doesnt delete characters below when pressing backspace" do
+        it "does not delete characters below when pressing backspace" do
           find('div[contenteditable="true"].ql-editor').native.send_keys [:up, :up, :up, :home, :enter, :enter, :enter, :backspace, :backspace, :backspace]
           expect(find(
             "#organization-admin_terms_of_use_body-tabs-admin_terms_of_use_body-panel-0 .editor .ql-editor"
@@ -364,7 +364,7 @@ describe "Admin manages organization", type: :system do
 
         let(:clipboard_content_html) do
           # The pasted content contains always all styles for the elements, so
-          # this is just to test that the styles don't interfere with the pasted
+          # this is just to test that the styles do not interfere with the pasted
           # content handling.
           styles = {
             p: {
@@ -459,7 +459,7 @@ describe "Admin manages organization", type: :system do
 
   describe "welcome message" do
     context "when not customizing it" do
-      it "doesn't show the customization fields" do
+      it "does not show the customization fields" do
         visit decidim_admin.edit_organization_path
         check "Send welcome notification"
         expect(page).not_to have_content("Welcome notification subject")

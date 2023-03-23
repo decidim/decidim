@@ -23,7 +23,7 @@ module Decidim
             expect { command.call }.to broadcast(:invalid)
           end
 
-          it "doesn't create a comment vote" do
+          it "does not create a comment vote" do
             expect do
               command.call
             end.not_to change(CommentVote, :count)
@@ -115,7 +115,7 @@ module Decidim
                 expect { command.call }.to broadcast(:invalid)
               end
 
-              it "doesn't create a comment vote" do
+              it "does not create a comment vote" do
                 expect do
                   command.call
                 end.not_to change(CommentVote, :count)

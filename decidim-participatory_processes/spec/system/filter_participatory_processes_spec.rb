@@ -166,7 +166,7 @@ describe "Filter Participatory Processes", type: :system do
         visit decidim_participatory_processes.participatory_processes_path
       end
 
-      it "doesnt show filters" do
+      it "does not show filters" do
         expect(page).not_to have_css(".with_area_areas_select_filter")
         expect(page).not_to have_css(".with_scope_scopes_picker_filter")
       end
@@ -182,9 +182,8 @@ describe "Filter Participatory Processes", type: :system do
           visit decidim_participatory_processes.participatory_processes_path
         end
 
-        it "doesn't show the participatory process types filter" do
+        it "does not show the participatory process types filter" do
           skip "REDESIGN PENDING - Filter integration in processes index pending"
-
           expect(page).to have_no_css("#process-type-filter")
         end
       end

@@ -21,20 +21,20 @@ header{
   }
 
   .main-bar{
-    @apply container grid grid-cols-4 md:grid-cols-8 xl:grid-cols-12 gap-4 items-center py-5;
+    @apply container grid grid-cols-4 md:grid-cols-8 lg:grid-cols-12 gap-4 items-center py-5;
 
     &__container{
       @apply relative w-full;
     }
 
     &__logo{
-      @apply col-span-3 lg:col-span-2 prose prose-img:max-h-16 prose-img:my-0;
+      @apply col-span-3 xl:col-span-2 prose prose-img:max-h-16 prose-img:my-0;
     }
 
     &__search{
-      @apply hidden md:block col-span-3 lg:col-span-2 lg:col-start-4;
+      @apply hidden md:block col-span-2 col-start-5 xl:col-start-4;
 
-      span{
+      form{
         @apply block relative rounded text-md bg-background;
       }
 
@@ -49,17 +49,17 @@ header{
 
     &__links-desktop,
     > *:last-child{
-      @apply col-span-1 xl:col-end-13 md:col-start-8 justify-self-end;
+      @apply col-span-1 md:col-start-8 lg:col-start-8 lg:col-span-5 justify-self-end;
     }
 
     &__links-desktop{
-      @apply hidden xl:flex items-center justify-between text-center divide-x-2 divide-gray-3 ml-auto [&>*]:px-6 first:[&>*]:pl-0 last:[&>*]:pr-0;
+      @apply hidden lg:flex items-center justify-between text-center divide-x-2 divide-gray-3 ml-auto [&>*]:px-4 xl:[&>*]:px-6 first:[&>*]:pl-0 last:[&>*]:pr-0;
 
       &__item{
         @apply flex flex-col items-center text-secondary px-2 py-1 rounded hover:underline hover:bg-background;
 
         &-wrapper{
-          @apply flex gap-x-6;
+          @apply flex gap-x-4 xl:gap-x-6;
         }
       }
 
@@ -73,7 +73,7 @@ header{
     }
 
     &__links-mobile{
-      @apply fixed bottom-0 left-0 z-20 bg-white w-full px-4 py-3 grid grid-cols-4 text-secondary shadow-[0_-4px_6px_rgba(198,198,198,0.25)];
+      @apply fixed bottom-0 left-0 z-20 bg-white w-full px-4 py-3 flex justify-center gap-10 text-secondary shadow-[0_-4px_6px_rgba(198,198,198,0.25)];
 
       &__trigger{
         @apply flex flex-col items-center text-secondary cursor-pointer;

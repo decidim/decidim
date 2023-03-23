@@ -22,7 +22,7 @@ describe Decidim::Votings::VotingsController, type: :controller do
       end
     end
 
-    context "when there isn't a voting" do
+    context "when there is not a voting" do
       it "returns 404" do
         expect { get :show, params: { slug: "invalid-voting" } }
           .to raise_error(ActionController::RoutingError)
@@ -40,7 +40,7 @@ describe Decidim::Votings::VotingsController, type: :controller do
       end
     end
 
-    context "when there isn't a voting" do
+    context "when there is not a voting" do
       it "returns 404" do
         expect { get :elections_log, params: { voting_slug: "invalid-voting" } }
           .to raise_error(ActionController::RoutingError)

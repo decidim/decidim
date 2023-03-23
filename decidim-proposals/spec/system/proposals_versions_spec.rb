@@ -71,7 +71,7 @@ describe "Explore versions", versioning: true, type: :system do
     # it_behaves_like "accessible page"
 
     it "allows going back to the proposal" do
-      click_link "Go back to proposal"
+      click_link "Back"
       expect(page).to have_current_path proposal_path
     end
 

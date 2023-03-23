@@ -45,7 +45,7 @@ etc.
 
 == Optional: Create your own self-signed certificate for localhost
 
-If you don't want to rely on the dummy certificate shipped with the `decidim-dev` gem, you can also create the certificates yourself.
+If you do not want to rely on the dummy certificate shipped with the `decidim-dev` gem, you can also create the certificates yourself.
 
 First you need a SSL certificate for the `localhost` domain (you only need to execute this command once):
 

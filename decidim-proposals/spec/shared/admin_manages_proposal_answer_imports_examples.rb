@@ -33,7 +33,7 @@ shared_examples "admin manages proposal answer imports" do
       end
     end
 
-    it "doesnt accept file without required headers" do
+    it "does not accept file without required headers" do
       File.write(json_file, JSON.pretty_generate(missing_answers))
       dynamically_attach_file(:import_file, json_file)
       click_button "Import"

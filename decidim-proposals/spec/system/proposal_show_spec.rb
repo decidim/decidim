@@ -58,7 +58,7 @@ describe "Show a Proposal", type: :system do
           visit current_path
         end
 
-        context "when author doesn't restrict messaging" do
+        context "when author does not restrict messaging" do
           it "includes a link to message the proposal author" do
             skip "REDESIGN_PENDING: This author cell behavior is not implemented yet"
 

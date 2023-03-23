@@ -59,7 +59,7 @@ describe Decidim::Debates::Debate do
       it { is_expected.to be_ama }
     end
 
-    context "when it doesn't have both start_time and end_time set" do
+    context "when it does not have both start_time and end_time set" do
       let(:debate) { build :debate, :open_ama, end_time: nil }
 
       it { is_expected.not_to be_ama }

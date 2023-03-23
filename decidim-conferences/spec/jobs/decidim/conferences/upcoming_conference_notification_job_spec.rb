@@ -31,7 +31,7 @@ describe Decidim::Conferences::UpcomingConferenceNotificationJob do
   context "when the checksum is not correct" do
     let(:checksum) { "1234" }
 
-    it "doesn't notify the upcoming conference" do
+    it "does not notify the upcoming conference" do
       expect(Decidim::EventsManager)
         .not_to receive(:publish)
 

@@ -629,9 +629,7 @@ ru:
         moderation:
           fields:
             hidden_at: 'Скрыто:'
-            report_count: Количество
             reported_content_url: Веб-адрес обжалованного содержимого
-            reports: Жалобы
             visit_url: Посетите веб-адрес
   errors:
     messages:

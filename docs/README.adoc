@@ -56,7 +56,7 @@ Then the result would be:
      branches: develop
 ----
 
-If building locally doesn't show any change, then check also that the branch corresponds with the one that you're working locally.
+If building locally does not show any change, then check also that the branch corresponds with the one that you're working locally.
 
 == Add a new link in the sidebar
 

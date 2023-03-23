@@ -7,7 +7,7 @@ module Decidim
   class MenuRegistry
     class << self
       #
-      # Finds a menu by name or creates it if it doesn't exist. Optionally,
+      # Finds a menu by name or creates it if it does not exist. Optionally,
       # registers a MenuItem DSL block for the menu.
       #
       # @param name [Symbol] Name of the menu

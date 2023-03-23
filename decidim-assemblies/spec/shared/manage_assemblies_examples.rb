@@ -138,7 +138,7 @@ shared_examples "manage assemblies" do
   context "when there are multiple organizations in the system" do
     let!(:external_assembly) { create(:assembly, parent: parent_assembly) }
 
-    it "doesn't let the admin manage assemblies form other organizations" do
+    it "does not let the admin manage assemblies form other organizations" do
       within "table" do
         expect(page).not_to have_content(external_assembly.title["en"])
       end

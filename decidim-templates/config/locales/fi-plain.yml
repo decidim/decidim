@@ -41,6 +41,15 @@ fi-pl:
         name: Mallipohja
     templates:
       admin:
+        block_user_templates:
+          form:
+            save: Tallenna
+            template_title: Mallipohjan tiedot
+          index:
+            confirm_delete: Haluatko varmasti poistaa tämän mallipohjan?
+            title: Käyttäjien eston viestit
+          template_chooser:
+            select_template: Valitse mallivastaus
         questionnaire_templates:
           choose:
             create_from_template: Luo mallipohjasta
@@ -70,4 +79,5 @@ fi-pl:
           duplicate: "%{user_name} kopioi kyselymallin %{resource_name}"
           update: "%{user_name} päivitti kyselymallia %{resource_name}"
       template_types:
+        block_user: Käyttäjien eston viestit
         questionnaires: Kyselyt

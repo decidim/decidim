@@ -18,7 +18,7 @@ module Decidim
       add_decidim_meta_image_url(add_base_url_to(tags[:image_url]))
     end
 
-    # Public: Add base url to path if path doesn't include host.
+    # Public: Add base url to path if path does not include host.
     # path - A String containing path (e.g. "/proposals/1" )
     # Returns a String of URL including base URL and path, or path if it's blank.
     def add_base_url_to(path)

@@ -18,7 +18,7 @@ export default class FocusGuard {
     this.enable();
     this.guardedElement = element;
 
-    // Call the release focus first so that we don't accidentally add the
+    // Call the release focus first so that we do not accidentally add the
     // keyboard trap twice. Note that the Foundation methods expect the elements
     // to be jQuery elements which is why we pass them through jQuery.
     Keyboard.releaseFocus($(element));

@@ -91,7 +91,7 @@ module Decidim
       end
 
       describe "link is not seperated with spaces" do
-        it "doesnt render a tag" do
+        it "does not render a tag" do
           urls.each do |url|
             before_text = ::Faker::Lorem.sentence
             after_text = ::Faker::Lorem.paragraph
