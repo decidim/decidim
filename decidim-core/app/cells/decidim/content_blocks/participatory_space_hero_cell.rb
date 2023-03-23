@@ -7,6 +7,8 @@ module Decidim
       include Decidim::TranslationsHelper
       include Decidim::TwitterSearchHelper
 
+      attr_reader :cta_text, :cta_path
+
       delegate :title, :subtitle, :attached_uploader, :hashtag, to: :resource
 
       def title_text
@@ -23,6 +25,10 @@ module Decidim
 
       def has_hashtag?
         @has_hashtag ||= hashtag.present?
+      end
+
+      def has_cta?
+        [cta_text, cta_path].all?
       end
 
       def escaped_hashtag
