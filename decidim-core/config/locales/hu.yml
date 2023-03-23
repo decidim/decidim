@@ -1048,7 +1048,6 @@ hu:
           agreement: Elfogadom a feltételeket
         refuse:
           modal_btn_continue: Elfogadom és tovább lépek
-          modal_btn_exit: Később átnézem
           modal_button: Elutasítom a feltételeket
           modal_close: Modal bezárása
           modal_title: Tényleg elutasítod az ÁSZF frissített szövegét?
