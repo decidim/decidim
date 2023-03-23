@@ -1206,6 +1206,7 @@ cs:
           success: Skvělý! Souhlasíte s podmínkami.
         form:
           agreement: Souhlasím s těmito podmínkami
+          legend: Souhlasím s podmínkami používání
         refuse:
           modal_btn_continue: Přijměte termíny a pokračujte
           modal_btn_exit: Později to přezkoumám
@@ -1218,9 +1219,11 @@ cs:
     participatory_space_private_users:
       not_allowed: Nemáte oprávnění k zobrazení tohoto obsahu
     profile:
+      deleted: Vymazaný účastník
       inaccessible_message: Tento profil je nedostupný z důvodu porušení smluvních podmínek!
       view: Zobrazit
     profiles:
+      default_officialization_text_for_user_groups: Tato skupina uživatelů je veřejně ověřena a její název byl ověřen tak, aby odpovídal skutečnému názvu.
       show:
         activity: Aktivita
         badges: Odznaky
@@ -1650,13 +1653,17 @@ cs:
     messages:
       allowed_file_content_types: 'jsou povoleny pouze soubory s následujícími příponami: %{types}'
       already_confirmed: bylo již potvrzeno, zkuste prosím přihlásit
+      blank: nemůže být prázdné
+      cannot_be_blank: nemůže být prázdné
       confirmation_period_expired: musí být potvrzeno v rámci %{period}, požádejte o nový
       content_type_allowlist_error: typ souboru není platný
+      empty: nemůže být prázdný
       expired: uplynula, požádejte o novou
       file_size_is_less_than_or_equal_to: velikost souboru musí být menší nebo rovna %{count}
       invalid_time_zone: není platné časové pásmo
       long_words: obsahuje slova, která jsou příliš dlouhá (přes 35 znaků)
       must_start_with_caps: musí začínat velkým písmenem
+      nesting_too_deep: nemůže být uvnitř podkategorie
       not_found: nemůže být nalezeno. Zaregistrovali jste se dříve?
       not_locked: nebyl uzamčen
       not_saved:
