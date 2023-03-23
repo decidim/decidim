@@ -519,6 +519,8 @@ fi-pl:
             message:
               one: Puuttuva sarake %{columns}.
               other: Puuttuvia sarakkeita %{columns}.
+        error: Tuonti epäonnistui.
+        example_error: Esimerkin luonti valitulle tiedostotyypille epäonnistui.
         new:
           accepted_mime_types:
             csv: csv
@@ -530,6 +532,7 @@ fi-pl:
           download_example_format: Esimerkki muodossa %{name}
           file_legend: Lisää tuontitiedosto, josta tiedot luetaan.
           import: Tuo
+        notice: "%{count} kpl kohteita %{resource_name} tuotu onnistuneesti."
       logs:
         filters:
           participatory_space: Etsi osallistumistila
