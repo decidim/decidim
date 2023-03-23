@@ -2,21 +2,22 @@ image:
   file: .gitpod.Dockerfile
 
 tasks:
-  - name: Start the database server
+  - name: Database server
     init: sudo service postgresql start
     command: |
-      while ! sudo -u postgres psql -c "SELECT 1" > /dev/null; do sleep 1; done &&
-      gp sync-done database-ready
+      export PGPASSWORD="$DATABASE_PASSWORD" &&
+      while ! psql -h localhost -d postgres -U $DATABASE_USERNAME -c "SELECT 1" > /dev/null; do sleep 1; done &&
+      gp sync-done database
   - name: Setup & Build
-    init: gp sync-await database-ready
+    init: gp sync-await database
     command: |
       bundle &&
       bundle exec rake development_app &&
       cd development_app &&
       bundle exec rails assets:precompile &&
-      gp sync-done decidim-ready
-  - name: Run development server
-    init: gp sync-await decidim-ready
+      gp sync-done decidim
+  - name: Development server
+    init: gp sync-await decidim
     command: cd development_app && bundle exec rails s
 
 ports:
