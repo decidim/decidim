@@ -1244,7 +1244,6 @@ ja:
         refuse:
           modal_body: 拒否するとプラットフォームを使用できなくなりますが、 <a href="%{download_your_data_path}">データ</a> をダウンロードしたり、 <a href="%{delete_path}">アカウントを削除</a> できます。
           modal_btn_continue: 利用規約に同意して続ける
-          modal_btn_exit: 後で確認する
           modal_button: 同意しない
           modal_close: モーダルを閉じる
           modal_title: 更新された利用規約を本当に拒否しますか?
