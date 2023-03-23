@@ -6,7 +6,7 @@ module Decidim
     def highlight_domain
       tag.div do
         content_tag(:span, "#{@url_parts[:protocol]}//") +
-          content_tag(:span, @url_parts[:domain], class: "alert") +
+          content_tag(:span, @url_parts[:domain] + @url_parts[:port], class: "alert") +
           content_tag(:span, @url_parts[:path])
       end
     end

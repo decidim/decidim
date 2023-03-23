@@ -49,12 +49,14 @@ describe "ExternalDomainWarning", type: :system do
   end
 
   context "when url has a port" do
-    let(:invalid_url) { "http://#{organization.host}/link?external_url=http://example.org:3000/some/path" }
+    let(:destination) { "http://example.org:3000/some/path" }
+    let(:invalid_url) { "http://#{organization.host}/link?external_url=#{destination}" }
 
     it "shows invalid url alert" do
       visit invalid_url
       expect(page).not_to have_content("Invalid URL")
-      expect(page).to have_content("http://example.org:3000/some/path")
+      expect(page).to have_content("#{destination}")
+      expect(page).to have_link("Proceed", href: destination)
     end
   end
 
@@ -85,11 +87,19 @@ describe "ExternalDomainWarning", type: :system do
     end
   end
 
-  context "when the url is malformed" do
-    let(:invalid_url) do
-      "http://#{organization.host}/link?external_url=javascript:alert(document.location.host)//%0ahttps://www.example.org"
+  context "when the url is malformed using a simple scenario" do
+    let(:invalid_url) { "http://#{organization.host}/link?external_url=javascript:alert(document.location.host)//%0ahttps://www.example.org" }
+
+    it "shows invalid url alert when using simple scenario" do
+      visit invalid_url
+      expect(page).to have_content("Invalid URL")
+      expect(page).to have_current_path(decidim.root_path, ignore_query: true)
     end
-    let!(:invalid_url2) do
+
+  end
+
+  context "when the url is malformed using a complex scenario" do
+    let(:invalid_url) do
       %W(
         http://#{organization.host}/link?external_url=javascript:fetch%28%22%2Fprocesses%2Fconsequuntur%2Daperiam%2Ff%2F12%2F
         proposals%2F8%2Fproposal%5Fvote%22%2C%20%7B%22headers%22%3A%7B%22x%2Dcsrf%2Dtoken%22%3Adocument%2EquerySelectorAll%28
@@ -99,24 +109,18 @@ describe "ExternalDomainWarning", type: :system do
       ).join
     end
 
-    it "shows invalid url alert when using simple scenario" do
-      visit invalid_url
-      expect(page).to have_content("Invalid URL")
-      expect(page).to have_current_path(decidim.root_path, ignore_query: true)
-    end
-
     it "shows invalid url alert when using complex scenario" do
-      visit invalid_url2
+      visit invalid_url
       expect(page).to have_content("Invalid URL")
       expect(page).to have_current_path(decidim.root_path, ignore_query: true)
     end
   end
 
   context "without param" do
-    let(:no_param) { "http://#{organization.host}/link" }
+    let(:invalid_url) { "http://#{organization.host}/link" }
 
     it "shows invalid url alert" do
-      visit no_param
+      visit invalid_url
       expect(page).to have_content("Invalid URL")
       expect(page).to have_current_path decidim.root_path
     end

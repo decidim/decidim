@@ -6,7 +6,7 @@
     <%= render partial: "warning" %>
     <code class="mt-5 block break-all">
       <span><%= @url_parts[:protocol].to_s + "//" %></span>
-      <span class="text-alert"><%= @url_parts[:domain] %></span>
+      <span class="text-alert"><%= @url_parts[:domain] + @url_parts[:port] %></span>
       <span><%= @url_parts[:path] %></span>
     </code>
   </div>

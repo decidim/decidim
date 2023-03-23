@@ -31,6 +31,7 @@ module Decidim
 
       @url_parts = {
         protocol: (external_url.scheme ? "#{external_url.scheme}:" : ""),
+        port: (external_url.port && [80, 443].include?(external_url.port) ? "" : ":#{external_url.port}"),
         domain: external_url.host,
         path: [
           external_url.path,
@@ -49,7 +50,7 @@ module Decidim
     end
 
     def target_url
-      [@url_parts[:domain], @url_parts[:path], @url_parts[:path]].join
+      [@url_parts[:protocol], @url_parts[:domain], @url_parts[:port], @url_parts[:path]].join
     end
   end
 end
