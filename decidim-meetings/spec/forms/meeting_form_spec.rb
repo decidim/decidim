@@ -188,7 +188,7 @@ module Decidim::Meetings
       end
     end
 
-    describe "when online meeting url is present and the meeting is embedded and the url can't be embedded" do
+    describe "when online meeting url is present and the meeting is embedded and the url cannot be embedded" do
       let(:online_meeting_url) { "https://example.org/decidim" }
       let(:iframe_embed_type) { "embed_in_meeting_page" }
 

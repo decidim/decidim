@@ -40,7 +40,7 @@ module Decidim
         end
       end
 
-      context "when a page doesn't exist" do
+      context "when a page does not exist" do
         it "redirects to the 404" do
           expect { get :show, params: { id: "some-page" } }
             .to raise_error(ActiveRecord::RecordNotFound)

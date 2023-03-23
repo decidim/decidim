@@ -74,22 +74,22 @@ describe "Vote online in an election", type: :system do
   context "when the election is not published" do
     let(:election) { create :election, :upcoming, :complete, component: }
 
-    it_behaves_like "doesn't allow to vote"
+    it_behaves_like "does not allow to vote"
     it_behaves_like "allows admins to preview the voting booth"
   end
 
   context "when the election has not started yet" do
     let(:election) { create :election, :upcoming, :published, :complete, component: }
 
-    it_behaves_like "doesn't allow to vote"
+    it_behaves_like "does not allow to vote"
     it_behaves_like "allows admins to preview the voting booth"
   end
 
   context "when the election has finished" do
     let(:election) { create :election, :finished, :published, :complete, component: }
 
-    it_behaves_like "doesn't allow to vote"
-    it_behaves_like "doesn't allow admins to preview the voting booth"
+    it_behaves_like "does not allow to vote"
+    it_behaves_like "does not allow admins to preview the voting booth"
   end
 
   context "when the component requires permissions to vote" do

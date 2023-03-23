@@ -44,7 +44,7 @@ module Decidim
           expect { command.call }.to broadcast(:invalid)
         end
 
-        it "doesn't create questionnaire answers" do
+        it "does not create questionnaire answers" do
           expect do
             command.call
           end.not_to change(Answer, :count)

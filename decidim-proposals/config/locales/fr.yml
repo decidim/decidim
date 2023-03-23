@@ -405,7 +405,7 @@ fr:
             answers: |
               Le document d'importation doit contenir les noms de colonnes suivants en cas de fichiers CSV ou Excel ou noms de clés suivants dans le cas de fichiers JSON :
               <ul>
-              <li><b>id:</b> ID de la proposition auquel on répond</li>
+              <li><b>id:</b> ID de la proposition à laquelle on répond</li>
               <li><b>state:</b>"accepted", "evaluating", ou "rejected"</li>
               <li><b>answer/en:</b> Réponse en langue anglaise. Cela dépendra de la configuration de langue de votre plateforme.</li>
               </ul>

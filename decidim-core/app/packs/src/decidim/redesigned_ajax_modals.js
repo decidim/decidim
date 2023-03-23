@@ -40,7 +40,7 @@ export default class RemoteModal {
     // create a fake div to wrap the response, and then, iterate over its children
     const div = document.createElement("div")
     div.innerHTML = response
-    // in this way we don't append the parent element, useless
+    // in this way we do not append the parent element, useless
     Array.from(div.children).forEach((child) => node.appendChild(child))
 
     document.dispatchEvent(new CustomEvent("remote-modal:loaded", { detail: node }));

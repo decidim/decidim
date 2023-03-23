@@ -291,7 +291,7 @@ describe "Homepage", type: :system do
           )
         end
 
-        context "when organization doesn't have the stats content block" do
+        context "when organization does not have the stats content block" do
           let(:organization) { create(:organization) }
 
           it "does not show the statistics block" do
@@ -328,7 +328,7 @@ describe "Homepage", type: :system do
       end
 
       describe "includes metrics" do
-        context "when organization doesn't have the metrics content block" do
+        context "when organization does not have the metrics content block" do
           let(:organization) { create(:organization) }
 
           it "does not show the statistics block" do

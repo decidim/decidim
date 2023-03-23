@@ -3,7 +3,10 @@ fr:
     attributes:
       assemblies_setting:
         enable_organization_chart: Activer le schéma d'assemblée
+      assemblies_type:
+        title: Titre
       assembly:
+        announcement: Message d'annonce
         area_id: Périmètre d'assemblée
         assembly_type: Type d'assemblée
         assembly_type_other: Autre type d'assemblée
@@ -22,12 +25,16 @@ fr:
         decidim_scope_id: Périmètre d'application
         description: Description
         developer_group: Organisateur
+        document: Document
         domain: Domaine
         duration: Durée
         facebook: Facebook
         github: GitHub
         hashtag: Hashtag
         hero_image: Image de la page d'accueil
+        import_attachments: Importer les pièces jointes
+        import_categories: Importer les catégories
+        import_components: Importer les fonctionnalités
         included_at: Intégrée à cette plateforme le
         instagram: Instagram
         internal_organisation: Organisation interne
@@ -64,6 +71,7 @@ fr:
         non_user_avatar: Avatar
         position: Statut
         user_id: Utilisateur ou groupe
+        weight: Rang d'affichage
       assembly_user_role:
         email: E-mail
         name: "Nom\n"

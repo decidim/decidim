@@ -63,7 +63,7 @@ describe "Admin views proposal details from admin", type: :system do
     context "when it has an organization as an author" do
       let!(:proposal) { create :proposal, :official, component: current_component }
 
-      it "doesn't show a link to the organization" do
+      it "does not show a link to the organization" do
         go_to_admin_proposal_page(proposal)
 
         within "#proposal-authors-list" do

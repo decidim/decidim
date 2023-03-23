@@ -36,13 +36,13 @@ module Decidim
 
         let(:newsletter) { create(:newsletter) }
 
-        it { is_expected.to eq(decidim.root_url(host: organization.host) + utm_codes(organization.host, newsletter.id.to_s)) }
+        it { is_expected.to eq(decidim.root_url(host: organization.host, port: Capybara.server_port) + utm_codes(organization.host, newsletter.id.to_s)) }
       end
 
       describe "when newsletter not present" do
         subject { helper.custom_url_for_mail_root(organization) }
 
-        it { is_expected.to eq(decidim.root_url(host: organization.host)) }
+        it { is_expected.to eq(decidim.root_url(host: organization.host, port: Capybara.server_port)) }
       end
     end
   end

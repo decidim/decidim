@@ -67,7 +67,7 @@ module Decidim::ParticipatoryProcesses
           expect { command.call }.to broadcast(:invalid)
         end
 
-        it "doesn't update the participatory process" do
+        it "does not update the participatory process" do
           command.call
           my_process.reload
 

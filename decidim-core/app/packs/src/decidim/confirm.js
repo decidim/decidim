@@ -93,7 +93,7 @@ const allowAction = (ev, element) => {
       $(element).data("confirm", null);
       $(element).removeAttr("data-confirm");
 
-      // The submit button click events won't do anything if they are
+      // The submit button click events will not do anything if they are
       // dispatched as is. In these cases, just submit the underlying form.
       if (ev.type === "click" &&
         (

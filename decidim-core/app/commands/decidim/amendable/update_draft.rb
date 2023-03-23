@@ -20,7 +20,7 @@ module Decidim
       #
       # - :ok when everything is valid, together with the amend.
       # - :invalid if the amendment is not a draft.
-      # - :invalid if the form isn't valid or the amender is not the current user.
+      # - :invalid if the form is not valid or the amender is not the current user.
       #
       # Returns nothing.
       def call

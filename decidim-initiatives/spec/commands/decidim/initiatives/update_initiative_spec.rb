@@ -51,7 +51,7 @@ module Decidim
             expect { command.call }.to broadcast(:invalid)
           end
 
-          it "doesn't update the initiative" do
+          it "does not update the initiative" do
             expect do
               command.call
             end.not_to change(initiative, :title)
