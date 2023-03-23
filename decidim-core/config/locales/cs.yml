@@ -35,6 +35,7 @@ cs:
       decidim/component_published_event: Aktivní součást
       decidim/demoted_membership: Již není správcem skupiny
       decidim/gamification/badge_earned_event: Získaný odznak
+      decidim/gamification/level_up_event: Zvýšil jste si úroveň
       decidim/invited_to_group_event: Pozván do skupiny
       decidim/join_request_accepted_event: Připojit žádost přijatou
       decidim/join_request_rejected_event: Připojit žádost zamítnuta
