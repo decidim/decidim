@@ -22,7 +22,7 @@ RUN curl -fsSL https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh |
     && bash -c ". .nvm/nvm.sh \
         && nvm install v${NODE_VERSION} \
         && nvm alias default v${NODE_VERSION} \
-        && npm install -g npm node-gyp" \
+        && npm install -g npm yarn node-gyp" \
     && echo ". ~/.nvm/nvm.sh"  >> ~/.bashrc.d/50-node
 
 # Install rbenv and Ruby
