@@ -519,6 +519,8 @@ es-MX:
             message:
               one: Falta la columna %{columns}.
               other: Faltan las columnas %{columns}.
+        error: Se ha producido un error durante la importación.
+        example_error: Hubo un problema al crear un ejemplo para el tipo seleccionado.
         new:
           accepted_mime_types:
             csv: csv
@@ -530,6 +532,7 @@ es-MX:
           download_example_format: Ejemplo como %{name}
           file_legend: Añadir un archivo de importación que será procesado.
           import: Importar
+        notice: "%{count} %{resource_name} importado correctamente."
       logs:
         filters:
           participatory_space: Encontrar espacio de participación
