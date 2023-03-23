@@ -49,6 +49,7 @@ cs:
           body:
             label: Komentář
             placeholder: Co si o tom myslíš?
+          form_error: Text je povinný a nemůže být delší než %{length} znaků.
           submit: Odeslat
           user_group_id:
             label: Komentovat jako
