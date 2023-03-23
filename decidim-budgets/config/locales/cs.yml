@@ -130,6 +130,9 @@ cs:
               selected: 'Tyto projekty byly úspěšně vybrány pro implementaci: %{projects}.'
               unselected: 'Tyto projekty byly úspěšně odebrány z implementace: %{projects}.'
         proposals_imports:
+          create:
+            invalid: Při importu návrhů do projektů došlo k chybě.
+            success: "%{number} návrhů bylo úspěšně importováno do projektů."
           new:
             create: Návrhy na projekty
             default_budget: Výchozí rozpočet
@@ -162,10 +165,14 @@ cs:
         close_modal: Zavřít okno
         continue: Pokračovat
         more_information: Více informací
+      budget_list_item:
+        voting_finished: Hlasovali jste v tomto rozpočtu.
+        voting_started: Začali jste hlasovat v tomto rozpočtu.
       budgets_list:
         cancel_order:
           more_than_one: smažte svůj hlas na %{name} a začněte znovu
           only_one: smazat váš hlas a začít znovu.
+        finished_message: Dokončili jste hlasovací proces. Děkujeme za účast!
         highlighted_cta: Hlasovat na %{name}
         my_budgets: Mé rozpočty
         progress: Dokončit hlasování
@@ -282,6 +289,8 @@ cs:
           random: Náhodné pořadí
           selected: Vybrané
         project:
+          add: Přidat k hlasování projekt %{resource_name}.
+          remove: Odebrat projekt %{resource_name} z vašeho hlasování.
           selected: Vybrané
           view: Zobrazit
           votes:
@@ -292,7 +301,9 @@ cs:
           you_voted: Hlasoval jste pro toto
         project_budget_button:
           add: Přidat do vašeho hlasování
+          add_descriptive: Přidat k hlasování projekt %{resource_name}.
           added: Přidáno k vašemu hlasování
+          added_descriptive: Projekt %{resource_name} přidán k vašemu hlasování.
         projects_for: Projekty pro %{name}
         show:
           budget: Rozpočet
@@ -319,6 +330,10 @@ cs:
             announcement: Oznámení
             comments_enabled: Komentáře povoleny
             comments_max_length: Maximální délka komentáře (ponechte 0 pro výchozí hodnotu)
+            form:
+              errors:
+                budget_voting_rule_only_one: Pouze jedno hlasovací pravidlo musí být povoleno.
+                budget_voting_rule_required: Je vyžadováno jedno pravidlo hlasování.
             geocoding_enabled: Geokódování aktivováno
             landing_page_content: Úvodní stránka rozpočtů
             more_information_modal: Více informací
@@ -360,6 +375,13 @@ cs:
           email_outro: Obdrželi jste toto oznámení, protože sledujete %{participatory_space_title}. Můžete přestat přijímat oznámení na předchozím odkazu.
           email_subject: Rozpočet %{resource_title} je nyní aktivní pro %{participatory_space_title}.
           notification_title: Rozpočet <a href="%{resource_path}">%{resource_title}</a> je nyní aktivní pro %{participatory_space_title}.
+    orders:
+      checkout:
+        error: Při zpracování vašeho hlasování nastal problém.
+        success: Váš hlas byl úspěšně přijat.
+      destroy:
+        error: Při rušení vašeho hlasování došlo k chybě.
+        success: Váš hlas byl úspěšně zrušen.
     resource_links:
       included_proposals:
         project_proposal: Návrhy zahrnuté do tohoto projektu
