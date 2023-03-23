@@ -212,11 +212,11 @@
     }
 
     &__back{
-      @apply grid place-items-center absolute top-6 md:top-12 right-6 md:-left-12 rounded-full w-6 h-6 bg-background [&>svg]:text-secondary;
+      @apply grid place-items-center absolute top-6 md:top-12 right-0 md:-left-12 rounded-full w-6 h-6 bg-background [&>svg]:text-secondary [&>svg]:fill-current;
     }
 
     &__list{
-      @apply my-6 md:my-10 first:mt-0 last:mb-0 flex justify-between items-center gap-4 [&>*:nth-child(2)]:ml-auto;
+      @apply my-6 md:my-10 first:mt-0 last:mb-0 flex flex-wrap md:flex-nowrap justify-between items-center gap-4 [&>*:nth-child(1)]:w-full md:[&>*:nth-child(1)]:w-auto md:[&>*:nth-child(2)]:ml-auto;
     }
   }
 
@@ -237,7 +237,7 @@
           }
 
           &:nth-child(3){
-            @apply max-w-full w-1/5 flex-none inline-flex flex-col gap-4;
+            @apply max-w-full md:w-1/5 flex-none inline-flex flex-col gap-4;
           }
         }
       }
