@@ -20,6 +20,10 @@ pl:
         other: Głosy
   decidim:
     comments:
+      admin:
+        shared:
+          availability_fields:
+            start_time: Komentowanie możliwe od
       comments:
         create:
           error: Wystąpił błąd podczas tworzenia komentarza.

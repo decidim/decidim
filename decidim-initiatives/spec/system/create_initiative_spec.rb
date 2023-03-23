@@ -47,7 +47,7 @@ describe "Initiative", type: :system do
       let!(:other_initiative_type_scope) { nil }
 
       context "when the user is logged in" do
-        context "and they don't need to be verified" do
+        context "and they do not need to be verified" do
           it "they are taken to the initiative form" do
             click_link "New initiative"
             expect(page).to have_content("What does the initiative consist of")
@@ -67,7 +67,7 @@ describe "Initiative", type: :system do
             end
           end
 
-          context "and they aren't verified" do
+          context "and they are not verified" do
             let(:authorization) { nil }
 
             it "they need to verify" do
@@ -118,7 +118,7 @@ describe "Initiative", type: :system do
         end
       end
 
-      context "when they aren't logged in" do
+      context "when they are not logged in" do
         let(:login) { false }
 
         it "they need to login in" do
@@ -126,7 +126,7 @@ describe "Initiative", type: :system do
           expect(page).to have_content("Please sign in")
         end
 
-        context "when they don't need to be verified" do
+        context "when they do not need to be verified" do
           it "they are redirected to the initiative form after log in" do
             click_button "New initiative"
             fill_in "Email", with: authorized_user.email
@@ -153,7 +153,7 @@ describe "Initiative", type: :system do
             end
           end
 
-          context "and they aren't verified" do
+          context "and they are not verified" do
             let(:authorization) { nil }
 
             it "they are shown an error" do
@@ -197,7 +197,7 @@ describe "Initiative", type: :system do
 
     context "when there are multiples initiative type" do
       context "when the user is logged in" do
-        context "and they don't need to be verified" do
+        context "and they do not need to be verified" do
           it "they are taken to the initiative form" do
             click_link "New initiative"
             expect(page).to have_content("Which initiative do you want to launch")
@@ -216,7 +216,7 @@ describe "Initiative", type: :system do
             end
           end
 
-          context "and they aren't verified" do
+          context "and they are not verified" do
             let(:authorization) { nil }
 
             it "they need to verify" do
@@ -270,7 +270,7 @@ describe "Initiative", type: :system do
         end
       end
 
-      context "when they aren't logged in" do
+      context "when they are not logged in" do
         let(:login) { false }
 
         it "they need to login in" do
@@ -278,7 +278,7 @@ describe "Initiative", type: :system do
           expect(page).to have_content("Please sign in")
         end
 
-        context "when they don't need to be verified" do
+        context "when they do not need to be verified" do
           it "they are redirected to the initiative form after log in" do
             click_button "New initiative"
             fill_in "Email", with: authorized_user.email
@@ -305,7 +305,7 @@ describe "Initiative", type: :system do
             end
           end
 
-          context "and they aren't verified" do
+          context "and they are not verified" do
             let(:authorization) { nil }
 
             it "they are shown an error" do
@@ -414,11 +414,11 @@ describe "Initiative", type: :system do
         let!(:other_initiative_type) { nil }
         let!(:other_initiative_type_scope) { nil }
 
-        it "doesn't displays initiative types" do
+        it "does not displays initiative types" do
           expect(page).not_to have_current_path(decidim_initiatives.create_initiative_path(id: :select_initiative_type))
         end
 
-        it "doesn't display the 'choose' step" do
+        it "does not display the 'choose' step" do
           within ".wizard__steps" do
             expect(page).not_to have_content("Choose")
           end
@@ -527,7 +527,7 @@ describe "Initiative", type: :system do
             end
           end
 
-          context "when the scope isn't selected" do
+          context "when the scope is not selected" do
             it "shows an error" do
               select("Online", from: "Signature collection type")
               find_button("Continue").click

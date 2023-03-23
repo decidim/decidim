@@ -56,7 +56,7 @@ module Decidim
         expect(controller.helpers.redirect_url).to eq("/@example.org")
       end
 
-      it "doesn't allow other URLs" do
+      it "does not allow other URLs" do
         get :show, params: { redirect_url: "http://www.example.org" }
 
         expect(controller.helpers.redirect_url).to be_nil

@@ -66,7 +66,7 @@ module Decidim
           indexes = humanize_indexes(invalid_indexes, reader.first_data_index)
           message =
             if reader.first_data_index.zero?
-              # If the data starts from index zero we don't want to say to the
+              # If the data starts from index zero we do not want to say to the
               # user that there are errors on "rows". We want to refer to record
               # numbers instead. This is the case e.g. with JSON data format.
               [
@@ -148,7 +148,7 @@ module Decidim
         #
         # Returns a String.
         def humanize_indexes(indexes, start_index)
-          # Humans don't start counting from zero and this message is shown
+          # Humans do not start counting from zero and this message is shown
           # for humans. This also takes the data start index into account.
           indexes = indexes.map { |i| i + start_index + 1 }
 

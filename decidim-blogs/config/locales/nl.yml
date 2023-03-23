@@ -18,8 +18,6 @@ nl:
         title: acties
       admin:
         models:
-          components:
-            body: Tekstgedeelte
           post:
             name: Post
         posts:
@@ -50,10 +48,8 @@ nl:
             author: Auteur
             body: Tekstgedeelte
             official_blog_post: Officiële blogpost
-            title: titel
       posts:
         show:
-          comments: Reacties
           view: Bekijk
     components:
       blogs:

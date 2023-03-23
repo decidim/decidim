@@ -141,7 +141,7 @@ module Decidim
         context "when a handler is configured" do
           it { is_expected.to eq(user_scope) }
 
-          context "when the authorization metadata doesn't match" do
+          context "when the authorization metadata does not match" do
             before do
               authorization.metadata["scope_id"] = nil
               authorization.save!

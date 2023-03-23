@@ -14,7 +14,7 @@ Decidim.register_component(:debates) do |component|
   component.newsletter_participant_entities = ["Decidim::Debates::Debate"]
 
   component.on(:before_destroy) do |instance|
-    raise StandardError, "Can't remove this component" if Decidim::Debates::Debate.where(component: instance).any?
+    raise StandardError, "Cannot remove this component" if Decidim::Debates::Debate.where(component: instance).any?
   end
 
   component.settings(:global) do |settings|

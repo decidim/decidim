@@ -88,7 +88,7 @@ module Decidim::Conferences
             create :conference_registration, conference:
           end
 
-          it "doesn't notify it twice to the process admins" do
+          it "does not notify it twice to the process admins" do
             expect(Decidim::EventsManager).not_to receive(:publish).with(admin_notification)
 
             subject.call
@@ -115,7 +115,7 @@ module Decidim::Conferences
             create_list :conference_registration, (available_slots * 0.8).round, conference:
           end
 
-          it "doesn't notify it twice to the process admins" do
+          it "does not notify it twice to the process admins" do
             expect(Decidim::EventsManager).not_to receive(:publish).with(admin_notification)
 
             subject.call

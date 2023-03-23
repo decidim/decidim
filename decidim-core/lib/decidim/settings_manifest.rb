@@ -82,7 +82,7 @@ module Decidim
     end
 
     # Semi-private: Attributes are an abstraction used by SettingsManifest
-    # to encapsulate behavior related to each individual settings field. Shouldn't
+    # to encapsulate behavior related to each individual settings field. Should not
     # be used from the outside.
     class Attribute
       include Decidim::AttributeObject::Model

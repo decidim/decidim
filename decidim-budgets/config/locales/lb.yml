@@ -209,7 +209,6 @@ lb:
           votes:
             one: Abstimmung
             other: Abstimmungen
-          you_voted: Du hast für dieses gestimmt
         project_budget_button:
           add: Zur Abstimmung hinzufügen
           add_descriptive: Projekt %{resource_name} Ihrer Stimme hinzufügen

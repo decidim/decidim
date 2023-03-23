@@ -44,7 +44,7 @@ module Decidim
               expect { command.call }.to broadcast(:invalid)
             end
 
-            it "doesn't create the answer" do
+            it "does not create the answer" do
               expect do
                 command.call
               end.not_to change(Decidim::Elections::Answer, :count)
@@ -70,7 +70,7 @@ module Decidim
                 second_proposal
               end
 
-              it "doesn't import it again" do
+              it "does not import it again" do
                 expect do
                   command.call
                 end.not_to(change { Decidim::Elections::Answer.where(question:).count })
@@ -85,7 +85,7 @@ module Decidim
               context "and the current component was not published" do
                 before { component.unpublish! }
 
-                it "doesn't import it again" do
+                it "does not import it again" do
                   expect do
                     command.call
                   end.not_to(change { Decidim::Elections::Answer.where(question:).count })

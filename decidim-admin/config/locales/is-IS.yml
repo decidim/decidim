@@ -528,9 +528,7 @@ is-IS:
         moderation:
           fields:
             hidden_at: Falinn á
-            report_count: Telja
             reported_content_url: Tilkynnt efni vefslóð
-            reports: Skýrslur
             visit_url: Heimsókn vefslóð
   errors:
     messages:

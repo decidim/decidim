@@ -65,7 +65,7 @@ describe "Private Assemblies", type: :system do
             visit decidim_assemblies.assemblies_path
           end
 
-          it "doesn't show the privacy warning in attachments admin" do
+          it "does not show the privacy warning in attachments admin" do
             visit decidim_admin_assemblies.assembly_attachments_path(private_assembly)
             within "#attachments" do
               expect(page).to have_no_content("Any participant could share this document to others")
@@ -84,7 +84,7 @@ describe "Private Assemblies", type: :system do
           visit decidim_assemblies.assemblies_path
         end
 
-        it "doesn't list the private assembly" do
+        it "does not list the private assembly" do
           within "#assemblies-grid" do
             within "#assemblies-grid h2" do
               expect(page).to have_content("1")
@@ -99,14 +99,14 @@ describe "Private Assemblies", type: :system do
       end
 
       context "when user is logged in and is not an assembly private user" do
-        context "when the user isn't admin" do
+        context "when the user is not admin" do
           before do
             switch_to_host(organization.host)
             login_as user, scope: :user
             visit decidim_assemblies.assemblies_path
           end
 
-          it "doesn't list the private assembly" do
+          it "does not list the private assembly" do
             within "#assemblies-grid" do
               within "#assemblies-grid h2" do
                 expect(page).to have_content("1")

@@ -15,14 +15,23 @@ module Decidim
       # If the debate is official or the rich text editor is enabled on the
       # frontend, the debate description is considered as safe content.
       def safe_content?
-        debate&.official? || rich_text_editor_in_public_views?
+        rich_text_editor_in_public_views? || safe_content_admin?
+      end
+
+      # For admin entered content, the debate body can contain certain extra
+      # tags, such as iframes.
+      def safe_content_admin?
+        debate&.official?
       end
 
       # If the content is safe, HTML tags are sanitized, otherwise, they are stripped.
       def render_debate_description(debate)
-        description = present(debate).description(strip_tags: !safe_content?, links: true)
-
-        safe_content? ? decidim_sanitize_editor(description) : simple_format(description)
+        sanitized = render_sanitized_content(debate, :description)
+        if safe_content?
+          Decidim::ContentProcessor.render_without_format(sanitized).html_safe
+        else
+          Decidim::ContentProcessor.render(sanitized, "div")
+        end
       end
 
       # Returns :text_area or :editor based on current_component settings.

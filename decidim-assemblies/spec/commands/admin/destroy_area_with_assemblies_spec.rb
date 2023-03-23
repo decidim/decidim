@@ -13,7 +13,7 @@ module Decidim::Admin
     context "when an assembly associated to a given area exist" do
       let!(:assembly) { create(:assembly, organization:, area:) }
 
-      it "can not be deleted" do
+      it "cannot be deleted" do
         expect { subject.call }.to broadcast(:has_spaces)
         expect(area.reload.destroyed?).to be false
       end
