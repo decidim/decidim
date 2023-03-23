@@ -273,6 +273,8 @@ fi-pl:
           create:
             error: Tapahtui virhe.
             success: Aloitetyypille on luotu uusi teema.
+          destroy:
+            success: Teeman poisto onnistui.
           edit:
             back: Takaisin
             confirm_destroy: Oletko varma?
