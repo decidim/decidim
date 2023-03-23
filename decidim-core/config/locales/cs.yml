@@ -1224,6 +1224,7 @@ cs:
       view: Zobrazit
     profiles:
       default_officialization_text_for_user_groups: Tato skupina uživatelů je veřejně ověřena a její název byl ověřen tak, aby odpovídal skutečnému názvu.
+      default_officialization_text_for_users: Tento účastník byl veřejně ověřen, jeho jméno a role byly ověřeny a souhlasí se skutečným jménem a rolí.
       show:
         activity: Aktivita
         badges: Odznaky
@@ -1249,9 +1250,11 @@ cs:
           manage_user_group_admins: Spravovat správce
           manage_user_group_users: Spravovat členy
           message: Zpráva
+        confirmation_instructions_sent: Pokyny pro potvrzení e-mailu byly odeslány.
         create_user_group: Vytvořit skupinu
         edit_profile: Editovat profil
         edit_user_group: Upravit profil skupiny
+        fill_in_email_to_confirm_it: Pro potvrzení vyplňte e-mailovou adresu skupiny.
         invite_user: Pozvat uživatele
         join_user_group: Žádost o připojení ke skupině
         leave_user_group: Opustit skupinu
