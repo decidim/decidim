@@ -853,7 +853,6 @@ zh-CN:
           agreement: 我同意这些条款
         refuse:
           modal_btn_continue: 接受并继续
-          modal_btn_exit: 我稍后再查看
           modal_button: 拒绝条款
           modal_close: 关闭模式
           modal_title: 您真的拒绝更新的条款和条件吗？
