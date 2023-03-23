@@ -125,7 +125,7 @@
     <% if proposal.photos.any? %>
       <div class="row column">
         <strong><%= t(".photos") %>:</strong>
-        <div id="photos" class="gallery row">
+        <div id="photos" class="gallery row" data-gallery>
           <% proposal.photos.each do |photo| %>
             <%= link_to photo.big_url, target: "_blank", rel: "noopener" do %>
               <%= image_tag photo.thumbnail_url, class:"thumbnail", alt: strip_tags(translated_attribute(photo.title)) %>

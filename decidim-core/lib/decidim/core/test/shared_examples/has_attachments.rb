@@ -17,8 +17,8 @@ shared_examples_for "has attachments" do
         expect(page).to have_content(/#{translated(document.title, locale: :en)}/i)
       end
 
-      within "[data-content] .gallery" do
-        expect(page).to have_css("img.thumbnail")
+      within "[data-content] [data-gallery]" do
+        expect(page).to have_css("img")
       end
     end
   end
@@ -38,7 +38,7 @@ shared_examples_for "has attachments" do
         expect(translated(first_document.title, locale: :en)).to appear_before(translated(last_document.title, locale: :en))
       end
 
-      within "[data-content] .gallery" do
+      within "[data-content] [data-gallery]" do
         expect(strip_tags(translated(fist_image.title, locale: :en))).to appear_before(strip_tags(translated(last_image.title, locale: :en)))
       end
     end
