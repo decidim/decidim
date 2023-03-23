@@ -167,6 +167,7 @@ cs:
             many: Odpovědi
             other: Odpovědi
       question_configuration:
+        disable_external_voting: Prosím, zakažte externí hlasování pro pokročilé konfigurace.
         form:
           help: Nastavení mnoha otázek při výběru maximálním počtem reakcí, které si může účastník vybrat, je 1, což znamená, že lze hlasovat pouze o jedné odpovědi.
           title: Pokročilé nastavení
