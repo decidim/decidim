@@ -48,6 +48,16 @@ describe "ExternalDomainWarning", type: :system do
     end
   end
 
+  context "when url has a port" do
+    let(:invalid_url) { "http://#{organization.host}/link?external_url=http://example.org:3000/some/path" }
+
+    it "shows invalid url alert" do
+      visit invalid_url
+      expect(page).not_to have_content("Invalid URL")
+      expect(page).to have_content("http://example.org:3000/some/path")
+    end
+  end
+
   context "when url has invalid protocols" do
     let(:invalid_url) { "http://#{organization.host}/link?external_url=javascript://example.org%250aalert(document.location.host)" }
 
