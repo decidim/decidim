@@ -4,10 +4,19 @@ module Decidim
   module Assemblies
     # This cell renders the assembly metadata for g card
     class AssemblyMetadataGCell < Decidim::CardMetadataCell
+      alias current_participatory_space model
+
       private
 
       def items
-        [type_item, children_item].compact
+        [type_item, children_item, upcoming_meeting_item].compact
+      end
+
+      def upcoming_meeting_item
+        {
+          hook: :upcoming_meeting_for_card,
+          icon: resource_type_icon_key("Decidim::Meetings::Meeting")
+        }
       end
 
       def type_item
