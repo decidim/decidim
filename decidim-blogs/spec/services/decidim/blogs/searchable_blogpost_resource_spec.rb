@@ -73,7 +73,7 @@ module Decidim
             :post,
             component: current_component,
             title: Decidim::Faker::Localized.name,
-            body: Decidim::Faker::Localized.prefixed("Chewie, I'll be waiting for your signal. Take care, you two. May the Force be with you. Ow!", test_locales)
+            body: Decidim::Faker::Localized.prefixed("Chewie, I will be waiting for your signal. Take care, you two. May the Force be with you. Ow!", test_locales)
           )
         end
 
