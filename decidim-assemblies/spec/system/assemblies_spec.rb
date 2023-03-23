@@ -11,12 +11,16 @@ describe "Assemblies", type: :system do
     create(
       :assembly,
       :with_type,
+      :with_content_blocks,
       organization:,
       description: base_description,
       short_description: { en: "Short description", ca: "Descripció curta", es: "Descripción corta" },
-      show_statistics:
+      show_statistics:,
+      blocks_manifests:
     )
   end
+  let(:blocks_manifests) { [] }
+  let(:titles) { page.all(".card__grid-text h3") }
 
   before do
     switch_to_host(organization.host)
@@ -108,23 +112,20 @@ describe "Assemblies", type: :system do
       end
 
       it "lists the parent assemblies" do
-        within "#assemblies-grid" do
-          within "#assemblies-grid h2" do
-            expect(page).to have_content("2")
-          end
-
-          expect(page).to have_content(translated(assembly.title, locale: :en))
-          expect(page).to have_content(translated(promoted_assembly.title, locale: :en))
-          expect(page).to have_selector(".card", count: 2)
-          expect(page).to have_selector(".card.card--stack", count: 1)
-
-          expect(page).not_to have_content(translated(child_assembly.title, locale: :en))
-          expect(page).not_to have_content(translated(unpublished_assembly.title, locale: :en))
+        within "#assemblies-grid h2" do
+          expect(page).to have_content("2")
         end
+
+        expect(page).to have_content(translated(assembly.title, locale: :en))
+        expect(page).to have_content(translated(promoted_assembly.title, locale: :en))
+        expect(page).to have_selector("a.card__grid", count: 2)
+        expect(page).to have_css(".card__grid-metadata", text: "1 assembly")
+        expect(page).not_to have_content(translated(child_assembly.title, locale: :en))
+        expect(page).not_to have_content(translated(unpublished_assembly.title, locale: :en))
       end
 
       it "links to the individual assembly page" do
-        first(".card__link", text: translated(assembly.title, locale: :en)).click
+        first("a.card__grid", text: translated(assembly.title, locale: :en)).click
 
         expect(page).to have_current_path decidim_assemblies.assembly_path(assembly)
       end
@@ -145,44 +146,55 @@ describe "Assemblies", type: :system do
       let(:target_path) { decidim_assemblies.assembly_path(assembly) }
     end
 
-    context "and requesting the assembly path" do
+    context "and requesting the assembly path with main data and metadata blocks active" do
       before do
         visit decidim_assemblies.assembly_path(assembly)
       end
 
-      it "shows the details of the given assembly" do
-        within "[data-content]" do
-          expect(page).to have_content(translated(assembly.title, locale: :en))
-          expect(page).to have_content(translated(assembly.subtitle, locale: :en))
-          expect(page).to have_content(translated(assembly.description, locale: :en))
-          expect(page).to have_content(translated(assembly.short_description, locale: :en))
-          expect(page).to have_content(translated(assembly.meta_scope, locale: :en))
-          expect(page).to have_content(translated(assembly.developer_group, locale: :en))
-          expect(page).to have_content(translated(assembly.local_area, locale: :en))
-          expect(page).to have_content(translated(assembly.target, locale: :en))
-          expect(page).to have_content(translated(assembly.participatory_scope, locale: :en))
-          expect(page).to have_content(translated(assembly.participatory_structure, locale: :en))
-          expect(page).to have_content(assembly.hashtag)
+      context "when hero, main_data and metadata blocks are enabled" do
+        let(:blocks_manifests) { [:hero, :main_data, :metadata] }
+
+        before do
+          visit decidim_assemblies.assembly_path(assembly)
         end
-      end
 
-      it_behaves_like "has attachments" do
-        let(:attached_to) { assembly }
-      end
-
-      it_behaves_like "has embedded video in description", :base_description
-
-      context "when the assembly has some components" do
-        it "shows the components" do
-          within ".process-nav" do
-            expect(page).to have_content(translated(proposals_component.name, locale: :en).upcase)
-            expect(page).to have_no_content(translated(meetings_component.name, locale: :en).upcase)
+        it "shows the details of the given assembly" do
+          within "[data-content]" do
+            expect(page).to have_content(translated(assembly.title, locale: :en))
+            expect(page).to have_content(translated(assembly.subtitle, locale: :en))
+            expect(page).to have_content(translated(assembly.short_description, locale: :en))
+            expect(page).to have_content(translated(assembly.meta_scope, locale: :en))
+            expect(page).to have_content(assembly.hashtag)
           end
         end
       end
 
-      context "and the process statistics are enabled" do
+      context "when attachments blocks enabled" do
+        let(:blocks_manifests) { [:related_documents, :related_images] }
+
+        it_behaves_like "has attachments" do
+          let(:attached_to) { assembly }
+        end
+      end
+
+      # REDESIGN_PENDING - These examples have to be moved to the details
+      # page
+      # it_behaves_like "has embedded video in description", :base_description
+
+      context "when the assembly has some components and main data block is active" do
+        let(:blocks_manifests) { [:main_data] }
+
+        it "shows the components" do
+          within ".participatory-space__nav-container" do
+            expect(page).to have_content(translated(proposals_component.name, locale: :en))
+            expect(page).to have_no_content(translated(meetings_component.name, locale: :en))
+          end
+        end
+      end
+
+      context "and the process statistics are enabled with stats block active" do
         let(:show_statistics) { true }
+        let(:blocks_manifests) { [:stats] }
 
         it "renders the stats for those components are visible" do
           within "[data-statistic]" do
@@ -194,8 +206,9 @@ describe "Assemblies", type: :system do
         end
       end
 
-      context "and the process statistics are not enabled" do
+      context "and the process statistics are not enable with stats block actived" do
         let(:show_statistics) { false }
+        let(:blocks_manifests) { [:stats] }
 
         it "doesn't render the stats for those components that are not visible" do
           expect(page).to have_no_css("h2.h2", text: "Statistics")
@@ -204,38 +217,40 @@ describe "Assemblies", type: :system do
         end
       end
 
-      context "when the assembly has children assemblies" do
+      context "when the assembly has children assemblies and related assemblies block is active" do
         let!(:child_assembly) { create :assembly, organization:, parent: assembly, weight: 0 }
         let!(:second_child_assembly) { create :assembly, organization:, parent: assembly, weight: 1 }
         let!(:unpublished_child_assembly) { create :assembly, :unpublished, organization:, parent: assembly }
+        let(:blocks_manifests) { [:related_assemblies] }
 
         before do
           visit decidim_assemblies.assembly_path(assembly)
         end
 
         it "shows only the published children assemblies" do
-          within("#assemblies-grid") do
+          within(".assembly__block-grid") do
             expect(page).to have_link translated(child_assembly.title)
             expect(page).not_to have_link translated(unpublished_child_assembly.title)
           end
         end
 
         it "shows the children assemblies by weigth" do
-          expect(page).to have_selector("#assemblies-grid .row .column:first-child", text: child_assembly.title[:en])
-          expect(page).to have_selector("#assemblies-grid .row .column:last-child", text: second_child_assembly.title[:en])
+          expect(titles.first.text).to eq translated(child_assembly.title)
+          expect(titles.last.text).to eq translated(second_child_assembly.title)
         end
       end
 
-      context "when the assembly has children private and transparent assemblies" do
+      context "when the assembly has children private and transparent assemblies and related assemblies block is active" do
         let!(:private_transparent_child_assembly) { create :assembly, organization:, parent: assembly, private_space: true, is_transparent: true }
         let!(:private_transparent_unpublished_child_assembly) { create :assembly, :unpublished, organization:, parent: assembly, private_space: true, is_transparent: true }
+        let(:blocks_manifests) { [:related_assemblies] }
 
         before do
           visit decidim_assemblies.assembly_path(assembly)
         end
 
         it "shows only the published, private and transparent children assemblies" do
-          within("#assemblies-grid") do
+          within(".assembly__block-grid") do
             expect(page).to have_link translated(private_transparent_child_assembly.title)
             expect(page).not_to have_link translated(private_transparent_unpublished_child_assembly.title)
           end
@@ -251,7 +266,7 @@ describe "Assemblies", type: :system do
         end
 
         it "not shows any children assemblies" do
-          expect(page).not_to have_css("div#assemblies-grid")
+          expect(page).not_to have_css(".assembly__block-grid")
         end
       end
     end
