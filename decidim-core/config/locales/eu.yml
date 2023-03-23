@@ -798,7 +798,7 @@ eu:
           badge_title: "%{name} txapela"
           how: Nola irabaz dezakezu?
           page_description: Badiak partaideen ekintzak eta plataforma aurrerapenean aitortzen dira. Plataforman ezagutzeko, parte hartu eta elkarreraginean hasten zarenean, txapak irabazten dituzu. Hona hemen txapak eta irabazi ditzakezun modu batzuk.
-          title: Badges
+          title: Intsigniak
       description: Badiak partaideen ekintzak eta plataforma aurrerapenean aitortzen dira. Plataforman ezagutzeko, parte hartu eta elkarreraginean hasten zarenean, txapak irabazten dituzu.
       level: '%{level}maila'
       reached_top: Idatzi honen goialdean iritsi zara.
@@ -1182,10 +1182,10 @@ eu:
       default_officialization_text_for_users: Partehartzaile hau publikoki egiaztatua dago, bere izena edo rol egiaztatua dago bere benetako izena eta rolarekin bat etorriz
       show:
         activity: Jarduera
-        badges: Badges
+        badges: Intsigniak
         conversations: Elkarrizketak
         followers: Jarraitzaileak
-        following: honako hau
+        following: Jarraitu
         groups: Taldeak
         members: Bazkideek
         officialized: Parte-hartzaile ofiziala
@@ -1195,7 +1195,7 @@ eu:
       sidebar:
         badges:
           info: Plataforman jarduera espezifikoak burutzeko doikuntzak lortzen dira.
-          title: Badges
+          title: Intsigniak
       user:
         confirmation_instructions_sent: Posta elektroniko bidezko berrespena bidalitako argibideak
         create_user_group: Sortu taldea
