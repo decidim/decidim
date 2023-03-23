@@ -62,7 +62,7 @@ this value for that specific organization.
 == Content Processors
 
 Defines a list of custom content processors. They are used to parse and
-render specific tags inside some user-provided content. Check the xref:develop:content_processor.adoc[Content Processor]
+render specific tags inside some user-provided content. Check the Content Processor
 docs for more info.
 
 [source,ruby]
@@ -97,7 +97,7 @@ Please refer to:
 
 == Geocoder configuration
 
-Allows to make geographical mapping in some components, like Proposals or Meetings. It must be configured against a OpenStreetMap provider. See xref:services:geocoder.adoc[Geocoder service documentation].
+Allows to make geographical mapping in some components, like Proposals or Meetings. It must be configured against a OpenStreetMap provider.
 
 [source,ruby]
 ....
@@ -109,7 +109,7 @@ Allows to make geographical mapping in some components, like Proposals or Meetin
 
 == Custom resource reference
 
-Custom resource reference generator method. See the See xref:admin:system_panel.adoc[System panel docs] for more information.
+Custom resource reference generator method.
 
 [source,ruby]
 ....

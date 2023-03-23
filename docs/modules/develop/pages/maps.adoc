@@ -1,6 +1,6 @@
 = Custom map providers
 
-Decidim can be configured to use multiple different xref:/docs/services/maps.adoc[map service providers] but it can be also extended to use any possible service provider out there.
+Decidim can be configured to use multiple different map service providers but it can be also extended to use any possible service provider out there.
 
 If you want to create your own provider integration, you will need to find a service provider that provides all the following services:
 
@@ -496,4 +496,4 @@ In this case, the static map utility can be empty as you won't need any customiz
 
 After you have finished all the steps shown above, you will need to configure your service provider for Decidim.
 The configuration key for the example service provider referred to in this documentation would be `:your_provider`.
-For configuration, refer to the xref:/docs/services/maps.adoc[maps and geocoding configuration] documentation.
+For configuration, refer to the maps and geocoding configuration documentation.
