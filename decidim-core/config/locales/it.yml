@@ -949,7 +949,6 @@ it:
           agreement: Accetto le condizioni
         refuse:
           modal_btn_continue: Accetta i termini e continua
-          modal_btn_exit: Lo esaminerò più tardi
           modal_button: Rifiuta i termini
           modal_close: Chiudi modale
           modal_title: Rifiutate davvero i Termini e condizioni aggiornati?
