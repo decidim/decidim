@@ -37,7 +37,7 @@ Decidim.register_component(:my_component) do |component|
 
   # A component's admin engine will get rendered on the admin panel and follows
   # the same principles as the engine. It's isolated from the outside and
-  # doesn't care about external dependencies. It only needs to care about its
+  # does not care about external dependencies. It only needs to care about its
   # underlying `component`.
   component.admin_engine = MyComponent::AdminEngine
 
@@ -111,7 +111,7 @@ Decidim.register_component(:my_component) do |component|
 end
 ----
 
-Every model in a component doesn't have to (and should not) know about its parent participatory space, but instead should be scoped to the components.
+Every model in a component does not have to (and should not) know about its parent participatory space, but instead should be scoped to the components.
 
 == Settings
 

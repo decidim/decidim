@@ -14,17 +14,24 @@ sv:
         description: Beskrivning
         file: Fil
         title: Bilaga eller bildnamn
+        weight: Ordning
       attachment_collection:
         description: Beskrivning
         name: Namn
+        weight: Ordning
       category:
         description: Beskrivning
         name: Namn
         parent_id: Överordnad
+        weight: Ordning
       component:
         name: Namn
         published_at: Publicerad
-        weight: Vikt
+        weight: Ordning
+      external_domain:
+        value: Värde
+      help_section:
+        content: Innehåll
       id: ID
       import:
         user_group_id: Skapa import som
@@ -92,6 +99,9 @@ sv:
         welcome_notification_body: Välkomstmeddelandets brödtext
         welcome_notification_subject: Välkomstmeddelandets ämnesrad
         youtube_handler: YouTube-hanterare
+      participatory_space_private_user:
+        email: E-post
+        name: Namn
       scope:
         code: Kod
         name: Namn
@@ -113,12 +123,13 @@ sv:
         show_in_footer: Visa i sidfoten
         slug: URL slug
         title: Titel
-        weight: Vikt
+        topic_id: Ämne
+        weight: Ordning
       static_page_topic:
         description: Beskrivning
         show_in_footer: Visa i sidfoten
         title: Titel
-        weight: Vikt
+        weight: Ordning
       user_group_csv_verification:
         file: Fil
     errors:
@@ -133,6 +144,14 @@ sv:
               allowed_file_content_types: Ogiltig bildfil
             official_img_header:
               allowed_file_content_types: Ogiltig bildfil
+        participatory_space_private_user_csv_import:
+          attributes:
+            file:
+              malformed: Fel format, läs igenom instruktionerna noga och se till att filen är UTF-8 kodad.
+        user_group_csv_verification:
+          attributes:
+            file:
+              malformed: Fel format, läs igenom instruktionerna noga och se till att filen är UTF-8 kodad.
       new_import:
         attributes:
           file:
@@ -184,6 +203,7 @@ sv:
           error: Ett fel inträffade när användarvillkoren för administratörer skulle godkännas.
           success: Du har godkänt användarvillkoren för administratörer.
         actions:
+          accept: Jag godkänner villkoren
           are_you_sure: Är du säker på att du vill avvisa administratörsvillkoren?
           refuse: Avvisa villkoren för administratörer
           title: Godkänn användarvillkoren
@@ -507,6 +527,14 @@ sv:
           file_legend: Lägg till en fil som kommer importeras.
           import: Importera
         notice: "%{number} %{resource_name} har importerats"
+      logs:
+        filters:
+          participatory_space: Hitta deltagarutrymme
+          text: Sök efter e-post, namn eller användarnamn.
+          user: Användare
+        logs_list:
+          no_logs_yet: Det finns inga loggar än.
+          no_matching_logs: Det finns inga loggar med de angivna sökkriterierna. Försök att ändra dem.
       managed_users:
         promotion:
           error: Det gick inte att befordra den hanterade användaren.
@@ -531,7 +559,6 @@ sv:
         moderation: Global moderering
         newsletters: Nyhetsbrev
         participants: Deltagare
-        reported_users: Rapporterade användare
         scope_types: Omfattningstyper
         scopes: Omfattningar
         settings: Inställningar
@@ -630,7 +657,6 @@ sv:
           nickname: Användarnamn
           reason: Anledning
           reports: Antal anmälningar
-          title: Rapporterade användare
         report:
           reasons:
             does_not_belong: Tillhör inte
@@ -827,6 +853,7 @@ sv:
           title: Ny privat deltagare i deltagarutrymme.
       participatory_space_private_users_csv_imports:
         create:
+          invalid: Det gick inte att läsa CSV-filen. Kontrollera att du har följt instruktionerna.
           success: CSV-filen har skickats in och vi skickar inbjudningar via e-brev till deltagarna. Det kan ta en stund.
         new:
           destroy:
@@ -835,6 +862,11 @@ sv:
             empty: Det finns inga privata deltagare.
             explanation: Det finns %{count} privata deltagare.
             title: Radera privata deltagare
+          example_file: 'Exempel fil:'
+          explanation: 'Skicka in din CSV-fil. Den måste ha två kolumner över de användare som du vill lägga till deltagarutrymmet, utan rubriker, med e-postadressen i den första kolumnen i filen och namnet i den sista kolumnen i filen. Undvik olämpliga karaktärer som `<>?%&^*#@()[]=+:;"{}\|` i användarnamn.'
+          explanation_example: |
+            jon.andersson@example.org%{csv_col_sep}Jon Andersson
+            jenny.andersson@example.org%{csv_col_sep}Jenny Andersson
           title: Skicka CSV-fil
           upload: Skicka
       reminders:
@@ -922,6 +954,10 @@ sv:
       static_pages:
         actions:
           view: Visa offentlig sida
+        content_blocks:
+          active_content_blocks: Aktiva innehållsblock
+          inactive_content_blocks: Inactiva innehållsblock
+          title: Sidans innehåll
         create:
           error: Det gick inte att skapa en ny sida.
           success: Sidan har skapats.
@@ -983,7 +1019,11 @@ sv:
           verify_via_csv: Verifiera via CSV
       user_groups_csv_verifications:
         new:
+          example_file: 'Exempel fil:'
           explanation: Skicka in CSV-filen. Den måste innehålla de officiella e-postadresserna till grupperna i organisationen i den första kolumnen i filen, utan kolumnrubriker. Endast grupper som har bekräftar sin e-postadress och som har en e-postadress i CSV-filen kommer att valideras.
+          explanation_example: |
+            acme@exempel.org
+            bubba.gump@exempel.org
           title: Skicka CSV-fil
           upload: Skicka
       users:
@@ -1046,14 +1086,12 @@ sv:
       models:
         moderation:
           fields:
-            created_at: Skapandedatum
+            deleted_resource: Borttagen resurs
             hidden_at: Dold
             participatory_space: Deltagarutrymme
-            report_count: Antal
             reportable_id: ID
             reportable_type: Typ
             reported_content_url: Rapporterad innehållsadress
-            reports: Rapporter
             visit_url: Besök URL
         report:
           fields:
@@ -1066,8 +1104,6 @@ sv:
   layouts:
     decidim:
       admin:
-        global_moderations:
-          title: Global moderering
         newsletters:
           title: Nyhetsbrev
         settings:

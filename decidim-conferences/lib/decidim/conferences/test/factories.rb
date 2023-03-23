@@ -59,6 +59,7 @@ FactoryBot.define do
     end
 
     organization { conference.organization }
+    admin_terms_accepted_at { Time.current }
 
     after(:create) do |user, evaluator|
       create :conference_user_role,
@@ -74,6 +75,7 @@ FactoryBot.define do
     end
 
     organization { conference.organization }
+    admin_terms_accepted_at { Time.current }
 
     after(:create) do |user, evaluator|
       create :conference_user_role,
@@ -89,6 +91,7 @@ FactoryBot.define do
     end
 
     organization { conference.organization }
+    admin_terms_accepted_at { Time.current }
 
     after(:create) do |user, evaluator|
       create :conference_user_role,
@@ -104,6 +107,7 @@ FactoryBot.define do
     end
 
     organization { conference.organization }
+    admin_terms_accepted_at { Time.current }
 
     after(:create) do |user, evaluator|
       create :conference_user_role,

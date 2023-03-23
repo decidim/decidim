@@ -33,7 +33,7 @@ module Decidim
         end
       end
 
-      context "when it isn't pointing to the current path" do
+      context "when it is not pointing to the current path" do
         before do
           allow(helper)
             .to receive(:is_active_link?)

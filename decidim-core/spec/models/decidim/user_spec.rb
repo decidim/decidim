@@ -41,7 +41,7 @@ module Decidim
         end
       end
 
-      context "when it doesn't have a name" do
+      context "when it does not have a name" do
         let(:user) { build(:user, name: nil) }
 
         it "returns anonymous" do
@@ -74,10 +74,10 @@ module Decidim
 
         it "is not valid" do
           expect(user).not_to be_valid
-          expect(user.errors[:nickname]).to include("can't be blank")
+          expect(user.errors[:nickname]).to include("cannot be blank")
         end
 
-        it "can't be empty backed by an index" do
+        it "cannot be empty backed by an index" do
           expect { user.save(validate: false) }.not_to raise_error
         end
 
@@ -139,7 +139,7 @@ module Decidim
           expect(user.save).to be(true)
         end
 
-        it "can't have duplicates even when skipping validations" do
+        it "cannot have duplicates even when skipping validations" do
           user.save!
 
           expect do
@@ -178,7 +178,7 @@ module Decidim
           ["<", ">", "?", "%", "&", "^", "*", "#", "@", "(", ")", "[", "]", "=", "+", ":", ";", '"', "{", "}", " |"]
         end
 
-        it "doesn't allow them" do
+        it "does not allow them" do
           weird_characters.each do |character|
             user = build(:user)
             user.name.insert(rand(0..user.name.length), character)
@@ -241,7 +241,7 @@ module Decidim
         end
       end
 
-      context "when user didn't accepted ToS" do
+      context "when user did not accepted ToS" do
         let(:accepted_tos_version) { nil }
 
         it { is_expected.to be_falsey }

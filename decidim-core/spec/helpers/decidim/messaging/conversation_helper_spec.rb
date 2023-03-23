@@ -21,7 +21,7 @@ module Decidim
           end
         end
 
-        context "when user doesn't restrict private messaging" do
+        context "when user does not restrict private messaging" do
           let(:user) { create(:user, :confirmed) }
           let(:message_link) do
             "<a title=\"Send private message\" href=\"/conversations/new?recipient_id=#{user.id}\">Send private message</a>"
@@ -48,7 +48,7 @@ module Decidim
         context "when user is deleted" do
           let(:user) { create :user, :deleted }
 
-          it "doesn't include the user name" do
+          it "does not include the user name" do
             expect(helper.conversation_label_for(participants)).to eq "Conversation with Participant deleted"
           end
         end
@@ -69,7 +69,7 @@ module Decidim
         context "when user is deleted" do
           let(:user) { create :user, :deleted }
 
-          it "doesn't include the user name" do
+          it "does not include the user name" do
             expect(helper.username_list(participants)).to eq "Participant deleted"
           end
         end
@@ -91,7 +91,7 @@ module Decidim
         context "when user is deleted" do
           let(:user) { create :user, :deleted }
 
-          it "doesn't include the user name" do
+          it "does not include the user name" do
             expect(helper.conversation_name_for(participants)).to eq "<span class=\"label label--small label--basic\">Participant deleted</span>"
           end
         end

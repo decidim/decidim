@@ -11,8 +11,8 @@ module Decidim
   class SendPushNotification
     include ActionView::Helpers::UrlHelper
 
-    # Send the push notification. Returns `nil` if the user didn't allowed push notifications
-    # or if the subscription to push notifications doesn't exist
+    # Send the push notification. Returns `nil` if the user did not allowed push notifications
+    # or if the subscription to push notifications does not exist
     #
     # Returns the result of the dispatch or nil if user or subscription are empty
     def perform(notification)

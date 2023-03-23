@@ -81,7 +81,7 @@ module Decidim::Meetings
       context "when registrations are already enabled and something else changes" do
         let(:meeting) { create(:meeting, :with_registrations_enabled) }
 
-        it "doesn't notify the change" do
+        it "does not notify the change" do
           expect(Decidim::EventsManager)
             .not_to receive(:publish)
 

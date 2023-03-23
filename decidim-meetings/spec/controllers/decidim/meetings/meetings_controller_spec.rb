@@ -101,7 +101,7 @@ describe Decidim::Meetings::MeetingsController, type: :controller do
         expect(flash[:alert]).to be_blank
       end
 
-      it "can NOT access private and non transparent meetings" do
+      it "cannot access private and non transparent meetings" do
         meeting.update(private_meeting: true, transparent: false)
 
         get :show, params: { id: meeting.id }

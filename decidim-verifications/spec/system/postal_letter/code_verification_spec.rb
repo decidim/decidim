@@ -71,7 +71,7 @@ describe "Postal letter code verification", type: :system do
         end
 
         it "shows an error message" do
-          expect(page).to have_content("Your verification code doesn't match ours. Please double-check the letter we sent to you")
+          expect(page).to have_content("Your verification code does not match ours. Please double-check the letter we sent to you")
         end
       end
 

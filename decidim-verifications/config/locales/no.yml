@@ -102,13 +102,11 @@
           expired_verification: Verifikasjon utløpt
           pending_verification: Venter på verifisering
           show_renew_info: Klikk for å fornye verifisering
-          unauthorized_verification: Forny verifisering
         new:
           authorize: Send
           authorize_with: Verifiser med %{authorizer}
         renew_modal:
           cancel: Avbryt
-          close: lukk
           continue: Fortsett
           info_renew: Hvis du ønsker å oppdatere dataene, fortsetter du med fornyelsen
           title: Forny verifisering

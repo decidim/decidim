@@ -354,12 +354,6 @@ lt:
           '4': Paskalbkite savo pataisą
     anonymous_user: Anonimas
     application:
-      collection:
-        documents:
-          one: Dokumentas
-          few: Dokumentai
-          many: Dokumentai
-          other: Dokumentai
       document:
         download: Atsisiųsti dokumentą
       documents:
@@ -410,7 +404,6 @@ lt:
           foo: Foo
         name: Foo leidimas
       granted_at: Suteikta %{timestamp}
-      renew: Atnaujinti tapatybės patikrinimą
       sms:
         explanation: Įveskite telefono numerį tam, kad patikrinti Jūsų tapatybę.
         name: SMS žinute siunčiamas kodas
@@ -447,8 +440,6 @@ lt:
           explanation_html: Kad galėtumėte atlikti šį veiksmą, turite gauti leidimą, o prieš atlikdami šį veiksmą turite patvirtinti savo el. pašto adresą <strong>%{email}</strong>.
           request_confirmation_instructions: Paprašyti patvirtinimo instrukcijų
           title: Patvirtinkite savo el. pašto adresą
-      show:
-        close_modal: Uždaryti modalinį langą
     block_user_mailer:
       notify:
         body_1: Jūsų paskyra užblokuota.
@@ -626,15 +617,11 @@ lt:
     endorsable:
       endorsements: Palaikymai
       endorsements_count: Palaikymų skaičius
-    endorsement_buttons_cell:
-      already_endorsed: Palaikyta
-      endorse: Palaikyti
     endorsements:
       identities:
         done: Atlikta
         select_identity: Pasirinkite tapatybę
     endorsers_list:
-      close: Uždaryti
       endorsed_by: Mėgiama…
     errors:
       internal_server_error:
@@ -849,8 +836,6 @@ lt:
         button: Nebesekti
         error: Nutraukiant šio ištekliaus sekimą iškilo problema.
     forms:
-      current_image: Dabartinis paveikslėlis
-      default_image: Numatytas atvaizdas
       errors:
         decidim/user:
           password: Slaptažodis yra per trumpas.
@@ -891,7 +876,6 @@ lt:
           validating: Tvirtinama...
           validation_error: Tvirtinimo klaida!
       upload_help:
-        dropzone: Numeskite rinkmeną čia arba spauskite įkėlimo mygtuką
         explanation: Instrukcijos %{attribute}
     gamification:
       all_badges_link: Žiūrėti visus prieinamus ženklelius.
@@ -1020,7 +1004,6 @@ lt:
         body_1: Ketinate apsilankyti išoriniame tinklapyje tad norėtume, kad būtumėte apdairūs dėl išorinės svetainės turinio.
         body_2: Prieš tęsdami patikrinkite nuorodą, kurią ketinate aplankyti, ir įsitikinkite, kad ją atpažįstate kaip saugią.
         cancel: Atšaukti
-        close_modal: Uždaryti modalinį langą
         proceed: Tęsti
         title: Atverti išorinę nuorodą
     log:
@@ -1142,7 +1125,6 @@ lt:
       newsletter:
         no_reply_notice: Šis el. laiškas išsiųstas iš pranešimų el. pašto adreso, kuris negali priimti gaunamų el. laiškų. Prašome neatsakyti į šį pranešimą.
         note: Šį el. laišką gavote, nes užsiprenumeravote %{organization_name} naujienlaiškius. Galite pakeisti nuostatas savo <a href="%{link}">pranešimų puslapyje</a>.
-        see_on_website: Negalite teisingai matyti šio el. laiško? Peržiūrėkite jį <a href="%{link}" target="_blank">interneto svetainėje</a>.
         unsubscribe: Jei nenorite gauti tokio tipo el. laiško, <a href="%{link}" target="_blank" class="unsubscribe">Atsisakykite prenumeratos</a>.
     newsletter_templates:
       basic_only_text:

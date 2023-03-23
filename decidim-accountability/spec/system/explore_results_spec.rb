@@ -59,7 +59,7 @@ describe "Explore results", versioning: true, type: :system do
         component.update!(settings: { display_progress_enabled: false })
       end
 
-      it "doesn't show progress" do
+      it "does not show progress" do
         visit path
 
         expect(page).to have_no_content("Global execution status")
