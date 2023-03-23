@@ -93,6 +93,11 @@ module Decidim
                              default: false,
                              desc: "Do not add Puma development SSL configuration options"
 
+      # we disable the webpacker installation as we will use shakapacker
+      def webpacker_gemfile_entry
+        []
+      end
+
       def database_yml
         template "database.yml.erb", "config/database.yml", force: true
       end
@@ -124,6 +129,14 @@ module Decidim
 
       def rubocop
         copy_file ".rubocop.yml", ".rubocop.yml"
+      end
+
+      def ruby_version
+        copy_file ".ruby-version", ".ruby-version"
+      end
+
+      def node_version
+        copy_file ".node-version", ".node-version"
       end
 
       def gemfile

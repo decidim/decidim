@@ -23,18 +23,20 @@ module Decidim
               # further inspection in the rspec expectations.
               <<~HEAD
                 <script type="text/javascript">
-                window.mapIndex = 1;
-                  L.tileLayer.here = function(config) {
-                    var configId = "tile_layer_config" + window.mapIndex;
+                  document.addEventListener("DOMContentLoaded", function() {
+                    window.mapIndex = 1;
+                    L.tileLayer.here = function(config) {
+                      var configId = "tile_layer_config" + window.mapIndex;
 
-                    $("#content").append('<div id="' + configId + '"></div>');
-                    $("#" + configId).text(JSON.stringify(config));
+                      $("#content").append('<div id="' + configId + '"></div>');
+                      $("#" + configId).text(JSON.stringify(config));
 
-                    window.mapIndex++;
+                      window.mapIndex++;
 
-                    var mockLayer = { addTo: function(target) {} };
-                    return mockLayer;
-                  };
+                      var mockLayer = { addTo: function(target) {} };
+                      return mockLayer;
+                    };
+                  });
                 </script>
               HEAD
             end

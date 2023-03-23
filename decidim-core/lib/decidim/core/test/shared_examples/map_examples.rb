@@ -58,7 +58,6 @@ end
 shared_context "with frontend map elements" do
   let(:html_head) { "" }
   let(:html_document) do
-    builder = subject
     document_inner = html_body
     head_extra = html_head
     template.instance_eval do
@@ -69,8 +68,6 @@ shared_context "with frontend map elements" do
           <title>Map Test</title>
           #{stylesheet_pack_tag "decidim_core"}
           #{javascript_pack_tag "decidim_core", defer: false}
-          #{builder.stylesheet_snippets}
-          #{builder.javascript_snippets}
           #{head_extra}
         </head>
         <body>
@@ -84,7 +81,7 @@ shared_context "with frontend map elements" do
           <script type="text/javascript">
             // This is just to indicate to Capybara that the page has fully
             // finished loading.
-            window.$(document).ready(function() {
+            document.addEventListener("DOMContentLoaded", function() {
               setTimeout(function() {
                 window.$("body").append('<div id="ready_indicator">Document ready</div>');
               }, 1000);
@@ -162,9 +159,16 @@ shared_examples "a page with geocoding input" do
     end
   end
 
+  let(:html_body) do
+    builder = subject
+    template.instance_eval do
+      builder.geocoding_field(:test, :address)
+    end
+  end
+
   it "displays the geocoding field element" do
     config = ERB::Util.html_escape(js_options.to_json)
-    expect(subject.geocoding_field(:test, :address)).to eq(
+    expect(html_body).to eq(
       %(<input autocomplete="off" data-decidim-geocoding="#{config}" type="text" name="test[address]" id="test_address" />)
     )
   end

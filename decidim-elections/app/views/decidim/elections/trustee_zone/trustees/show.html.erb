@@ -1,5 +1,3 @@
-<%= stylesheet_pack_tag "decidim_elections_trustee_zone", media: "all" %>
-
 <div id="not_supported_browser" class="callout alert">
   <p><strong><%= t(".not_supported_browser_title") %></strong></p>
   <p><%= t(".not_supported_browser_description") %></p>
@@ -64,33 +62,34 @@
     <% if trustee.elections.any? %>
       <div class="table-scroll">
         <table class="table-list">
-        <thead>
-          <tr>
-            <th><%= t(".elections.list.election") %></th>
-            <th><%= t(".elections.list.voting_period") %></th>
-            <th><%= t(".elections.list.bb_status") %></th>
-            <th><%= t(".elections.list.action_required.name") %></th>
-          </tr>
-        </thead>
-        <tbody>
-          <% trustee.elections.each do |election| %>
+          <thead>
             <tr>
-              <td><%= present(election).title %></td>
-              <td><%= l(election.start_time, format: :decidim_short) %> - <%= l(election.end_time, format: :decidim_short) %></td>
-              <td><%= election.bb_status %></td>
-              <td>
-                <% if election.trustee_action_required? %>
-                  <%= link_to trustee_election_elections_path(election) do %>
-                    <%= t(".elections.list.action_required.true") %>
-                  <% end %>
-                <% else %>
-                  <%= t(".elections.list.action_required.false") %>
-                <% end %>
-              </td>
+              <th><%= t(".elections.list.election") %></th>
+              <th><%= t(".elections.list.voting_period") %></th>
+              <th><%= t(".elections.list.bb_status") %></th>
+              <th><%= t(".elections.list.action_required.name") %></th>
             </tr>
-          <% end %>
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            <% trustee.elections.each do |election| %>
+              <tr>
+                <td><%= present(election).title %></td>
+                <td><%= l(election.start_time, format: :decidim_short) %> - <%= l(election.end_time, format: :decidim_short) %></td>
+                <td><%= election.bb_status %></td>
+                <td>
+                  <% if election.trustee_action_required? %>
+                    <%= link_to trustee_election_elections_path(election) do %>
+                      <%= t(".elections.list.action_required.true") %>
+                    <% end %>
+                  <% else %>
+                    <%= t(".elections.list.action_required.false") %>
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
     <% else %>
       <div class="callout warning">
         <%= t(".elections.no_elections") %>
@@ -99,6 +98,5 @@
   <% end %>
 </div>
 
-<% content_for :js_content do %>
-  <%= javascript_pack_tag "decidim_elections_trustee_trustee_zone" %>
-<% end %>
+<%= append_javascript_pack_tag "decidim_elections_trustee_trustee_zone" %>
+<%= append_stylesheet_pack_tag "decidim_elections_trustee_zone" %>
