@@ -156,7 +156,7 @@ module Decidim
                         datetime: :published_at
                       },
                       index_on_create: ->(_initiative) { false },
-                      # is Resourceable instead of ParticipatorySpaceResourceable so we can't use `visible?`
+                      # is Resourceable instead of ParticipatorySpaceResourceable so we cannot use `visible?`
                       index_on_update: ->(initiative) { initiative.published? })
 
     def self.log_presenter_class_for(_log)
@@ -240,14 +240,14 @@ module Decidim
     end
 
     # Public: Overrides scopes enabled flag available in other models like
-    # participatory space or assemblies. For initiatives it won't be directly
+    # participatory space or assemblies. For initiatives it will not be directly
     # managed by the user and it will be enabled by default.
     def scopes_enabled?
       true
     end
 
     # Public: Overrides scopes enabled attribute value.
-    # For initiatives it won't be directly
+    # For initiatives it will not be directly
     # managed by the user and it will be enabled by default.
     def scopes_enabled
       true
@@ -445,7 +445,7 @@ module Decidim
 
     # Public: Checks if the type the initiative belongs to enables SMS code
     # verification step. Tis configuration is ignored if the organization
-    # doesn't have the sms authorization available
+    # does not have the sms authorization available
     #
     # Returns a Boolean
     def validate_sms_code_on_votes?
@@ -475,7 +475,7 @@ module Decidim
     private
 
     # Private: This is just an alias because the naming on InitiativeTypeScope
-    # is very confusing. The `scopes` method doesn't return Decidim::Scope but
+    # is very confusing. The `scopes` method does not return Decidim::Scope but
     # Decidim::InitiativeTypeScopes.
     #
     # ¯\_(ツ)_/¯

@@ -2,7 +2,10 @@ es:
   activemodel:
     attributes:
       post:
+        body: Cuerpo del texto
+        decidim_author_id: Autoria
         published_at: Hora de publicación
+        title: Título
     models:
       decidim/blogs/create_post_event: Nueva publicación en el blog
   activerecord:
@@ -14,15 +17,13 @@ es:
     blogs:
       actions:
         author_id: Crear publicación como
-        confirm_destroy: '¿Estás segura que quieres eliminar esta publicación?'
+        confirm_destroy: '¿Seguro que quieres eliminar esta publicación?'
         destroy: Borrar
         edit: Editar
         new: Nueva publicación
         title: Acciones
       admin:
         models:
-          components:
-            body: Cuerpo
           post:
             name: Publicar
         posts:
@@ -57,16 +58,17 @@ es:
             body: Cuerpo
             official_blog_post: Post oficial
             published_at: Hora de publicación
-            title: título
+            title: Título
       posts:
         show:
-          comments: Comentarios
           view: Ver
     components:
       blogs:
         actions:
+          comment: Comentar
           create: Crear
           destroy: Borrar
+          endorse: Adherirse
           update: Actualizar
         name: Blog
         settings:

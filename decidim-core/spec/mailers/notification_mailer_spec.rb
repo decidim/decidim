@@ -45,7 +45,7 @@ module Decidim
         expect(mail.body).to include(event_instance.resource_url)
       end
 
-      context "when the user doesn't have an email" do
+      context "when the user does not have an email" do
         let(:user) { create(:user, :deleted) }
 
         it "does nothing" do

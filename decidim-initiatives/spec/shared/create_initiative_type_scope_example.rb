@@ -32,7 +32,7 @@ shared_examples "create an initiative type scope" do
         expect { command.call }.to broadcast(:invalid)
       end
 
-      it "doesn't create an initiative type scope" do
+      it "does not create an initiative type scope" do
         expect do
           command.call
         end.not_to change(Decidim::InitiativesTypeScope, :count)

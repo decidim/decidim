@@ -50,7 +50,7 @@ module Decidim
             expect { subject.call }.to broadcast(:invalid)
           end
 
-          it "doesn't update the polling station" do
+          it "does not update the polling station" do
             subject.call
             polling_station.reload
 

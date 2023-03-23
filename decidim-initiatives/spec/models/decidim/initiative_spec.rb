@@ -190,7 +190,7 @@ module Decidim
           expect(initiative).not_to be_supports_goal_reached
         end
 
-        it "can't be greater than 100" do
+        it "cannot be greater than 100" do
           initiative.update(online_votes: { scope_id => initiative.scoped_type.supports_required, "total" => initiative.scoped_type.supports_required * 2 })
           expect(initiative.percentage).to eq(100)
           expect(initiative).to be_supports_goal_reached
@@ -209,7 +209,7 @@ module Decidim
           expect(initiative).not_to be_supports_goal_reached
         end
 
-        it "can't be greater than 100" do
+        it "cannot be greater than 100" do
           online_votes = initiative.scoped_type.supports_required * 4
           offline_votes = initiative.scoped_type.supports_required * 4
           initiative.update(offline_votes: { scope_id => offline_votes, "total" => offline_votes },

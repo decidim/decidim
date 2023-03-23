@@ -18,7 +18,7 @@ describe Decidim::Conferences::ContentBlocks::HighlightedConferencesCell, type: 
     allow(controller).to receive(:current_organization).and_return(organization)
   end
 
-  # Conferences don't have a max_results settings number selector yet, we might want this back when they do
+  # Conferences do not have a max_results settings number selector yet, we might want this back when they do
   # context "when the content block has no settings" do
   #   it "shows 4 processes" do
   #     expect(highlighted_conferences).to have_selector("a.card--conference", count: 4)

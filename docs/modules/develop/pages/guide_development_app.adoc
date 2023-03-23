@@ -38,7 +38,7 @@ bundle install
 bin/rake development_app
 ----
 
-A development_app/ entry appears in the .gitignore file, so you don't have to worry about committing the development app by mistake.
+A development_app/ entry appears in the .gitignore file, so you do not have to worry about committing the development app by mistake.
 
 [NOTE]
 ====
@@ -51,14 +51,14 @@ On creation, these steps are automatically invoked by the generator:
 * `bin/rails db:migrate`
 * `bin/rails db:seed`
 
-Mind that if everything went well you shouldn't need to run these commands manually.
+Mind that if everything went well you should not need to run these commands manually.
 ====
 
 If the default database.yml does not suit your needs you can always configure it at your will and run these steps manually, although
-we recommend that you make the database configurations with environment variables (ENV VARs) so it's easy for you to regenerate the database. 
+we recommend that you make the database configurations with environment variables (ENV VARs) so it's easy for you to regenerate the database.
 
 The last command will set your database and add some example data (called "seed data") so that you can start trying Decidim.
-We don't recommend using seed data for production environments, but it's useful for local development and staging environments.
+We do not recommend using seed data for production environments, but it's useful for local development and staging environments.
 
 Once the app is created you are ready to start the server:
 

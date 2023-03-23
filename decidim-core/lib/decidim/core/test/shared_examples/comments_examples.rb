@@ -484,7 +484,7 @@ shared_examples "comments" do
       context "when the comment is not authored by user" do
         let!(:comment_author) { create(:user, :confirmed, organization:) }
 
-        it "the context menu of the comment doesn't show a delete link" do
+        it "the context menu of the comment does not show a delete link" do
           within "#comment_#{comment.id}" do
             within ".comment__header__context-menu" do
               page.find("label").click
@@ -546,7 +546,7 @@ shared_examples "comments" do
       context "when the comment is not authored by user" do
         let!(:comment_author) { create(:user, :confirmed, organization:) }
 
-        it "the context menu of the comment doesn't show an edit button" do
+        it "the context menu of the comment does not show an edit button" do
           within "#comment_#{comment.id}" do
             within ".comment__header__context-menu" do
               page.find("label").click
@@ -625,7 +625,7 @@ shared_examples "comments" do
       let!(:parent) { create(:comment, commentable:) }
       let!(:reply) { create(:comment, commentable: parent, root_commentable: commentable) }
 
-      it "doesn't show additional reply" do
+      it "does not show additional reply" do
         Decidim::Moderation.create!(reportable: reply, participatory_space: reply.participatory_space, hidden_at: 1.day.ago)
 
         visit current_path

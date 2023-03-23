@@ -231,7 +231,7 @@ describe "Orders", type: :system do
       end
     end
 
-    context "and isn't authorized" do
+    context "and is not authorized" do
       before do
         permissions = {
           vote: {
@@ -322,7 +322,7 @@ describe "Orders", type: :system do
         end
       end
 
-      context "and in project show page cant exceed the budget" do
+      context "and in project show page cannot exceed the budget" do
         let!(:expensive_project) { create(:project, budget:, budget_amount: 250_000_000) }
 
         it "cannot add the project" do
@@ -377,7 +377,7 @@ describe "Orders", type: :system do
           end
         end
 
-        context "when the order total budget doesn't exceed the threshold" do
+        context "when the order total budget does not exceed the threshold" do
           it "cannot vote" do
             within "#order-progress" do
               expect(page).to have_button("Vote", disabled: true)
@@ -452,7 +452,7 @@ describe "Orders", type: :system do
           end
         end
 
-        context "when the order total budget doesn't reach the minimum" do
+        context "when the order total budget does not reach the minimum" do
           it "cannot vote" do
             visit_budget
 

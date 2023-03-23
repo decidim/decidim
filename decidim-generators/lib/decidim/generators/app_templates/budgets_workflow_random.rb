@@ -5,7 +5,7 @@
 # Note: random selection should be deterministic for the same user and the same budgets component.
 # As the budget resources list could change and affect the random selection, it also allows to finish orders created on other budgets.
 class BudgetsWorkflowRandom < Decidim::Budgets::Workflows::Base
-  # Highlight the resource if the user didn't vote and is allowed to vote on it.
+  # Highlight the resource if the user did not vote and is allowed to vote on it.
   def highlighted?(resource)
     vote_allowed?(resource)
   end

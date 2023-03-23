@@ -57,7 +57,7 @@ module Decidim
             expect { command.call }.to broadcast(:invalid)
           end
 
-          it "doesn't create a user" do
+          it "does not create a user" do
             expect do
               command.call
             end.not_to change(User, :count)
@@ -129,14 +129,14 @@ module Decidim
             context "with an unverified email" do
               let(:verified_email) { nil }
 
-              it "doesn't link a previously existing user" do
+              it "does not link a previously existing user" do
                 user = create(:user, email:, organization:)
                 expect { command.call }.to broadcast(:error)
 
                 expect(user.identities.length).to eq(0)
               end
 
-              it "doesn't confirm a previously existing user" do
+              it "does not confirm a previously existing user" do
                 create(:user, email:, organization:)
                 expect { command.call }.to broadcast(:error)
 
@@ -186,7 +186,7 @@ module Decidim
           context "with another email than in the one reported by the identity" do
             let(:verified_email) { "other@email.com" }
 
-            it "doesn't confirm the user" do
+            it "does not confirm the user" do
               command.call
 
               user = User.find_by(email:)

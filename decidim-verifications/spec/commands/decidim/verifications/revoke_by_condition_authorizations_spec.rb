@@ -117,7 +117,7 @@ module Decidim::Verifications
       end
 
       context "when before date, week ago. When destroy impersonated_only auths" do
-        it "doesn't destroy any ungranted auth" do
+        it "does not destroy any ungranted auth" do
           expect do
             subject.call
           end.not_to change(no_granted_authorizations, :count)
@@ -161,7 +161,7 @@ module Decidim::Verifications
       context "when before date, year ago. When destroy impersonated_only auths" do
         let(:before_date) { prev_year }
 
-        it "doesn't destroy any ungranted auth. None" do
+        it "does not destroy any ungranted auth. None" do
           expect do
             subject.call
           end.not_to change(no_granted_authorizations, :count)

@@ -78,7 +78,7 @@ $(() => {
       openExitNotification($link.attr("href"), $link.data("method"));
     }
   });
-  // Custom handling for the header sign out so that it won't trigger the
+  // Custom handling for the header sign out so that it will not trigger the
   // logout form submit and so that it changes the exit link text. This does
   // not trigger the document link click listener because it has the
   // data-method attribute to trigger a form submit event.

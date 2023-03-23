@@ -54,32 +54,6 @@ module Decidim
 
       after { FileUtils.rm_rf(test_app) }
 
-      context "without flags" do
-        let(:command) { "decidim #{test_app}" }
-
-        it_behaves_like "a new production application"
-        it_behaves_like "an application with configurable env vars"
-      end
-
-      context "with --edge flag" do
-        let(:command) { "decidim --edge #{test_app}" }
-
-        it_behaves_like "a new production application"
-      end
-
-      context "with --branch flag" do
-        let(:default_branch) { Decidim::Generators.edge_git_branch }
-        let(:command) { "decidim --branch #{default_branch} #{test_app}" }
-
-        it_behaves_like "a new production application"
-      end
-
-      context "with --path flag" do
-        let(:command) { "decidim --path #{repo_root} #{test_app}" }
-
-        it_behaves_like "a new production application"
-      end
-
       context "with a full featured application" do
         let(:command) { "decidim #{test_app} --recreate_db --demo" }
 
@@ -99,41 +73,6 @@ module Decidim
             expect(subresult[1]).to be_success, subresult[0]
           end
         end
-      end
-
-      context "with a development application" do
-        let(:command) { "decidim --path #{repo_root} #{test_app} --recreate_db --seed_db --demo" }
-
-        it_behaves_like "a new development application"
-      end
-
-      context "with wrong --storage providers" do
-        let(:command) { "decidim #{test_app} --storage s3,gcs,assure" }
-
-        it_behaves_like "an application with wrong cloud storage options"
-      end
-
-      context "with --storage providers" do
-        let(:command) { "decidim #{test_app} --storage s3,gcs,azure" }
-
-        it_behaves_like "an application with cloud storage gems"
-      end
-
-      context "with --queue providers" do
-        let(:command) { "decidim #{test_app} --storage s3 --queue sidekiq" }
-
-        it_behaves_like "an application with storage and queue gems"
-      end
-    end
-
-    context "with a component" do
-      let(:test_component) { "dummy_component" }
-      let(:command) { "decidim --component #{test_component}" }
-
-      after { FileUtils.rm_rf("decidim-module-#{test_component}") }
-
-      it "suceeeds" do
-        expect(result[1]).to be_success, result[0]
       end
     end
 

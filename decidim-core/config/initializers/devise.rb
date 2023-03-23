@@ -107,7 +107,7 @@ Devise.setup do |config|
   # When false, Devise will not attempt to reload routes on eager load.
   # This can reduce the time taken to boot the app but if your application
   # requires the Devise mappings to be loaded during boot time the application
-  # won't boot properly.
+  # will not boot properly.
   # config.reload_routes = true
 
   # ==> Configuration for :database_authenticatable
@@ -129,14 +129,14 @@ Devise.setup do |config|
 
   # ==> Configuration for :invitable
   # The period the generated invitation token is valid, after
-  # this period, the invited resource won't be able to accept the invitation.
-  # When invite_for is 0 (the default), the invitation won't expire.
+  # this period, the invited resource will not be able to accept the invitation.
+  # When invite_for is 0 (the default), the invitation will not expire.
   config.invite_for = 2.weeks
 
   # Number of invitations users can send.
   # - If invitation_limit is nil, there is no limit for invitations, users can
   # send unlimited invitations, invitation_limit column is not used.
-  # - If invitation_limit is 0, users can't send invitations by default.
+  # - If invitation_limit is 0, users cannot send invitations by default.
   # - If invitation_limit n > 0, users can send n invitations.
   # You can change invitation_limit column for some users so they can send more
   # or less invitations, even with global invitation_limit = 0
@@ -178,7 +178,7 @@ Devise.setup do |config|
   # A period that the user is allowed to confirm their account before their
   # token becomes invalid. For example, if set to 3.days, the user can confirm
   # their account within 3 days after the mail was sent, but on the fourth day
-  # their account can't be confirmed with the token any more.
+  # their account cannot be confirmed with the token any more.
   # Default is nil, meaning there is no restriction on how long a user can take
   # before confirming their account.
   # config.confirm_within = 3.days
@@ -248,7 +248,7 @@ Devise.setup do |config|
   # config.reset_password_keys = [:email]
 
   # Time interval you can reset your password with a reset password key.
-  # Don't put a too small interval or your users won't have the time to
+  # Do not put a too small interval or your users will not have the time to
   # change their passwords.
   config.reset_password_within = 6.hours
 

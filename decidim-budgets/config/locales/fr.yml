@@ -47,6 +47,7 @@ fr:
         import: Importer des propositions dans des projets
         new: Nouveau %{name}
         preview: Aperçu
+        send_voting_reminders: Envoyer des rappels de vote
         title: Actions
       admin:
         budgets:
@@ -93,10 +94,10 @@ fr:
             change_category: Modifier la catégorie
             change_scope: Changer le secteur
             change_selected: Changer l'état sélectionné
-            deselect_implementation: Retirer de la sélection pour une implémentation
+            deselect_implementation: Retirer de la sélection pour implémentation
             finished_orders: Votes terminés
             pending_orders: Votes en cours
-            select_for_implementation: Sélectionner pour une implémentation
+            select_for_implementation: Sélectionné pour implémentation
             selected: Sélectionné
             title: Projets
             update: Mettre à jour
@@ -288,7 +289,7 @@ fr:
           votes:
             one: vote
             other: votes
-          you_voted: Vous avez voté pour
+          you_voted: Vous avez voté pour ceci
         project_budget_button:
           add: Ajouter à votre vote
           add_descriptive: Ajouter le projet %{resource_name} à votre vote

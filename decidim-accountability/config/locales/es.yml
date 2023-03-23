@@ -60,18 +60,18 @@ es:
               <li><a href='%{link_new_result}' target='_blank'> Crea por lo menos un resultado manualmente</a> a través del panel de administración antes de importar, para entender mejor el formato y cómo rellenarlo.</li>
               <li>%{link_export_csv}</li>
               <li>Haz los cambios en local. Sólo puedes modificar las siguientes columnas del CSV:
-              <ul>
-              <li><b> id category /id:</b> ID para la categoría</li>
-              <li><b>scope /id:</b> ID para el ámbito</li>
-              <li><b>parent /id:</b> ID para el padre (para resultados relacionados). Opcional</li> 
-              <li><b>title /I18N:</b> título en el idioma X</li>
-              <li><b>description /I18N:</b> descripción en el idioma X</li>
-              <li><b>start_date:</b> fecha en la que se inicia la ejecución del resultado (formato AAAA-MM-DD)</li>
-              <li><b>end_date:</b> fecha en la que finaliza la ejecución del resultado (formato AAAA-MM-DD) </li>
-              <li><b> status /id:</b> ID del estado para este resultado</li>
-              <li><b>progress:</b> Tanto por ciento (de 0 a 100) de ejecución</li>
-              <li><b>proposals_ids:</b> ID interno de las propuestas relacionadas (separadas por comas). Se convertirá automáticamente en <span class = 'attribute-name'>proposal_url</span></li>
-              </ul>
+                <ul>
+                <li><b> id category/id:</b> ID para la categoría</li>
+                <li><b>scope/id:</b> ID para el ámbito</li>
+                <li><b>parent/id:</b> ID para el padre (para resultados relacionados). Opcional</li>
+                <li><b>title/I18N:</b> título en el idioma X</li>
+                <li><b>description/I18N:</b> descripción en el idioma X</li>
+                <li><b>start_date:</b> fecha en la que se inicia la ejecución del resultado (formato AAAA-MM-DD)</li>
+                <li><b>end_date:</b> fecha en la que finaliza la ejecución del resultado (formato AAAA-MM-DD) </li>
+                <li><b> status/id:</b> ID del estado para este resultado</li>
+                <li><b>progress:</b> Tanto por ciento (de 0 a 100) de ejecución</li>
+                <li><b>proposals_ids:</b> ID interno de las propuestas relacionadas (separadas por comas). Se convertirá automáticamente en <span class = 'attribute-name'>proposal_url</span></li>
+                </ul>
               </li>
               </ol>
             title: Importar resultados vía CSV
@@ -98,8 +98,8 @@ es:
             origin_component_id: Componente de origen
             select_component: Selecciona un componente
             success:
-              one: Hay 1 proyecto en la cola de importación. Serás notificado por correo electrónico, cuando se complete la importación
-              other: "Hay %{count} proyectos para ser importado. Serás notificado por correo electrónico, cuando se complete la importación"
+              one: Hay un proyecto para ser importado. Se notificará por correo electrónico, cuando se complete la importación
+              other: "Hay %{count} proyectos para ser importados. Se notificará por correo electrónico, cuando se complete la importación"
             title: Importar Proyectos a Seguimiento
         results:
           create:
@@ -186,7 +186,7 @@ es:
       import_projects_mailer:
         import:
           added_projects:
-            one: Se ha importado un proyecto desde proyectos.
+            one: Se ha importado un resultado desde proyectos.
             other: "Se han importado %{count} resultados desde proyectos."
           subject: Los proyectos se han importado correctamente
           success: Los proyectos importados como resultados con éxito al componente %{component_name}. Puedes revisar los resultados en el tablero de administración.
