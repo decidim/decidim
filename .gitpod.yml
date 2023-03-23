@@ -5,18 +5,28 @@ tasks:
   - name: Development app
     init: |
       sudo service postgresql start &&
-      echo 'RAILS_DEVELOPMENT_HOSTS="3000-${GITPOD_WORKSPACE_ID}.${GITPOD_WORKSPACE_CLUSTER_HOST}"' > .rbenv-vars &&
+      echo 'RAILS_DEVELOPMENT_HOST="3000-${GITPOD_WORKSPACE_ID}.${GITPOD_WORKSPACE_CLUSTER_HOST}"' > .rbenv-vars &&
       bundle &&
       bundle exec rake development_app &&
-      echo 'Rails.application.config.hosts << ENV.fetch("RAILS_DEVELOPMENT_HOSTS", "")' > development_app/config/initializers/gitpod.rb
+      echo 'Rails.application.config.hosts << ENV.fetch("RAILS_DEVELOPMENT_HOST", "").gsub(/\A"|"\Z/, "")' > development_app/config/initializers/gitpod.rb
     command: |
       cd development_app &&
-      ./bin/rails runner 'Decidim::Organization.first.update!(host: ENV.fetch("RAILS_DEVELOPMENT_HOSTS", "localhost"))' &&
+      ./bin/rails runner 'Decidim::Organization.first.update!(host: ENV.fetch("RAILS_DEVELOPMENT_HOST", "localhost").gsub(/\A"|"\Z/, ""))' &&
       ./bin/dev
 
 ports:
-  - port: 5432
+  - name: Web App
+    description: The main application web server
+    port: 3000
+    onOpen: open-browser
+    visibility: public
+  - name: Webpacker
+    description: The webpacker dev server for asset reloading
+    port: 3035
+    onOpen: ignore
+    visibility: public
+  - name: Database
+    description: PostgreSQL database server
+    port: 5432
     onOpen: ignore
     visibility: private
-  - port: 3000
-    onOpen: open-browser
