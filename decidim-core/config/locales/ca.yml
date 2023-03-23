@@ -1274,7 +1274,7 @@ ca:
         refuse:
           modal_body: Si no acceptes, no podràs utilitzar la plataforma, pots <a href="%{download_your_data_path}">descarregar les teves dades</a> i/o <a href="%{delete_path}">esborrar el teu compte de</a>.
           modal_btn_continue: Acceptar els termes i continuar
-          modal_btn_exit: Ho revisaré més tard
+          modal_btn_exit: Els revisaré més tard
           modal_button: Rebutjar els termes
           modal_close: Tanca el modal
           modal_title: Confirmes que no acceptes els Termes i Condicions actualitzats?
