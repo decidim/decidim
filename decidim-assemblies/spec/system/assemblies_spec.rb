@@ -248,8 +248,8 @@ describe "Assemblies", type: :system do
             it "is not displaying the widget" do
               visit decidim_assemblies.assembly_path(assembly)
 
-              within("#assemblies-grid") do
-                expect(page).not_to have_content("Upcoming meeting")
+              within(".assembly__block-grid") do
+                expect(page).to have_no_css("[data-upcoming-meeting]")
               end
             end
           end
@@ -260,8 +260,8 @@ describe "Assemblies", type: :system do
             it "is displaying the widget" do
               visit decidim_assemblies.assembly_path(assembly)
 
-              within("#assemblies-grid") do
-                expect(page).to have_content("Upcoming meeting")
+              within(".assembly__block-grid") do
+                expect(page).to have_css("[data-upcoming-meeting]")
               end
             end
           end
