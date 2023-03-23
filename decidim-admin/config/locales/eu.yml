@@ -43,7 +43,7 @@ eu:
         admin_terms_of_use_body: Administratzailearen erabilera-terminoetarako testu-atala
         alert_color: Alerta
         available_authorizations: Baimen erabilgarriak
-        badges_enabled: Gaitu txapak
+        badges_enabled: Intsigniak gaitu
         comments_max_length: Iruzkinen gehieneko luzera (utzi 0 defektuz konfigurazioa mantendu nahi baduzu)
         cta_button_path: Deitu ekintza botoiaren bideora
         cta_button_text: Deitu ekintza botoiaren testura
