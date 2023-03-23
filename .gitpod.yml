@@ -1,0 +1,27 @@
+image:
+  file: .gitpod.Dockerfile
+
+tasks:
+  - name: Start the database server
+    init: sudo service postgresql start
+    command: |
+      while ! sudo -u postgres psql -c "SELECT 1" > /dev/null; do sleep 1; done &&
+      gp sync-done database-ready
+  - name: Setup & Build
+    init: gp sync-await database-ready
+    command: |
+      bundle &&
+      bundle exec rake development_app &&
+      cd development_app &&
+      bundle exec rails assets:precompile &&
+      gp sync-done decidim-ready
+  - name: Run development server
+    init: gp sync-await decidim-ready
+    command: cd development_app && bundle exec rails s
+
+ports:
+  - port: 5432
+    onOpen: ignore
+    visibility: private
+  - port: 3000
+    onOpen: open-browser
