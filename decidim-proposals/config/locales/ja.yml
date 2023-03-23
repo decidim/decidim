@@ -31,6 +31,7 @@ ja:
         cost_report: コストレポート
         execution_period: 実行期間
       proposals_copy:
+        copy_proposals: この操作は選択したコンポーネントにあるすべての提案を現在のコンポーネントにインポートし、元に戻せないことを理解しています。
         origin_component_id: 提案をコピーするコンポーネント
       proposals_import:
         import_proposals: 提案をインポート
@@ -216,6 +217,7 @@ ja:
       proposals:
         admin:
           proposal_note_created:
+            email_intro: 誰かが提案 "%{resource_title}" にメモを残しました。 <a href="%{admin_proposal_info_url}">管理者パネル</a>で確認してください。
             email_outro: 提案を評価できるため、この通知を受け取りました。
             email_subject: 誰かが提案 %{resource_title} にメモを残しました。
         collaborative_draft_access_accepted:
@@ -299,6 +301,7 @@ ja:
           follower:
             email_intro: '提案 "%{resource_title}" は拒否されました。このページで回答を読むことができます:'
             email_outro: '「%{resource_title}」をフォローしているため、この通知を受け取りました。前のリンクからこの通知をアンフォローすることができます。'
+            email_subject: あなたがフォローしている提案が却下されました
             notification_title: <a href="%{resource_path}">%{resource_title}</a> の提案は拒否されました。
         proposal_update_category:
           email_intro: '管理者があなたの提案 "%{resource_title}" のカテゴリを更新しました。このページでチェックしてください：'
@@ -337,6 +340,7 @@ ja:
           description_own: '%{score} の提案をサポートしました。'
           name: 提案サポート
           next_level_in: さらに %{score} の提案をサポートして次のレベルに到達しましょう！
+          unearned_another: この参加者はまだどの提案にもサポートしていません。
           unearned_own: まだ提案がありません。
         proposals:
           conditions:
@@ -347,6 +351,7 @@ ja:
           description_own: '%{score} 件の提案を作成しました。'
           name: 提案
           next_level_in: '%{score} 個の提案を作成して、次のレベルに到達しましょう！'
+          unearned_another: この参加者はまだ提案を作成していません．
           unearned_own: 提案はまだ作成されていません。
     metrics:
       accepted_proposals:
@@ -438,6 +443,9 @@ ja:
             document_legend: '2MB未満のドキュメントを追加してください。セクションの深さが3レベルになるまで、各セクションは提案にパースされます。提案書式は次のとおりです: %{valid_mime_types}'
             title: ドキュメントを追加
             upload_document: ドキュメントをアップロード
+          publish:
+            invalid: 提案を公開する際に問題が発生しました。
+            success: すべての提案が公開されました。
           sections:
             article: "<em>記事</em>"
             section: "<em>セクション:</em> <strong>%{title}</strong>"
@@ -453,12 +461,20 @@ ja:
             rejected: 拒否
             title: 提案 %{title} の回答
         proposal_notes:
+          create:
+            error: 提案ノートの作成中に問題が発生しました。
+            success: 提案メモを作成しました。
           form:
             note: メモ
             submit: 送信
           leave_your_note: メモを残してください
           title: プライベートノート
         proposals:
+          answer:
+            invalid: 提案に回答する際に問題が発生しました。
+            success: 提案に回答しました。
+          create:
+            invalid: 提案の作成中に問題が発生しました。
           edit:
             title: 提案を更新
             update: 更新
