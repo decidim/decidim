@@ -81,7 +81,7 @@ describe "UserTosAcceptance", type: :system do
 
         it "shows an option to logout" do
           within "#tos-refuse-modal" do
-            expect(page).to have_button("I'll review it later")
+            expect(page).to have_button("I will review it later")
             expect(page).to have_tag("form", action: decidim.destroy_user_session_path)
           end
         end
