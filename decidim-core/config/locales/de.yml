@@ -1086,7 +1086,6 @@ de:
           agreement: Ich stimme diesen Bedingungen zu
         refuse:
           modal_btn_continue: Bedingungen akzeptieren und fortfahren
-          modal_btn_exit: Ich werde es später überprüfen
           modal_button: Bedingungen ablehnen
           modal_close: Modal schließen
           modal_title: Lehnen Sie die aktualisierten Geschäftsbedingungen wirklich ab?
