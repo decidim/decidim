@@ -451,6 +451,9 @@ fr-CA:
             document_legend: 'Ajoutez un document inférieur à 2 Mo. Chaque section jusqu’à 3 niveaux de titre sera convertie en propositions. Les formats supportés sont : %{valid_mime_types}'
             title: AJOUTER UN DOCUMENT
             upload_document: Télécharger le document
+          publish:
+            invalid: Un problème est survenu lors de la publication des propositions.
+            success: Toutes les propositions ont été publiées.
           sections:
             article: "<em>article</em>"
             section: "<em>Section:</em> <strong>%{title}</strong>"
@@ -506,6 +509,7 @@ fr-CA:
             title: Créer une proposition
           publish_answers:
             number_of_proposals: Les réponses pour %{number} propositions seront publiées.
+            select_a_proposal: Veuillez sélectionner une proposition.
           show:
             amendments_count: Nombre d'amendements
             assigned_valuators: Évaluateurs assignés
@@ -535,9 +539,13 @@ fr-CA:
             votes_ranking: Classement par supports
           update_category:
             invalid: 'Ces propositions avaient déjà la catégorie %{subject_name} : %{proposals}.'
+            select_a_category: Veuillez sélectionner une catégorie.
+            select_a_proposal: Veuillez sélectionner une proposition.
             success: 'Les propositions ont été mises à jour avec succès vers la catégorie %{subject_name} : %{proposals}.'
           update_scope:
             invalid: 'Ces propositions avaient déjà la portée de %{subject_name} : %{proposals}.'
+            select_a_proposal: Veuillez sélectionner une proposition.
+            select_a_scope: Veuillez sélectionner un secteur.
             success: 'Les propositions ont été mises à jour avec succès vers le périmètre %{subject_name} : %{proposals}.'
         proposals_imports:
           new:
@@ -654,14 +662,17 @@ fr-CA:
         requests:
           accepted_request:
             error: Ne peut être accepté en tant que collaborateur, réessayez plus tard.
+            success: "@%{user} a été accepté comme collaborateur avec succès."
           access_requested:
             error: Votre demande n'a pas pu être complétée, réessayez plus tard.
+            success: Votre demande de collaboration a été envoyée avec succès.
           collaboration_requests:
             accept_request: Accepté
             reject_request: Rejeté
             title: Demandes de collaboration
           rejected_request:
             error: Ne peut être rejeté en tant que collaborateur, réessayez plus tard.
+            success: "@%{user} a été rejeté en tant que collaborateur avec succès."
         show:
           back: Retour
           edit: Modifier un brouillon collaboratif
