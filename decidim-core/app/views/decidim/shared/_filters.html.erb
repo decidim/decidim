@@ -29,6 +29,8 @@
       <% filter_sections.each do |f| %>
         <%= form.collection_filter(**f) %>
       <% end %>
+
+      <%= yield %>
     </div>
 
   <% end %>
