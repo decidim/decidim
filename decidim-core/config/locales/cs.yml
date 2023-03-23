@@ -1211,7 +1211,6 @@ cs:
           legend: Souhlasím s podmínkami používání
         refuse:
           modal_btn_continue: Přijměte termíny a pokračujte
-          modal_btn_exit: Později to přezkoumám
           modal_button: Odmítněte podmínky
           modal_close: Zavřít modální
           modal_title: Opravdu odmítáte aktualizované smluvní podmínky?
