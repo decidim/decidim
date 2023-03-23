@@ -19,6 +19,10 @@ module Decidim
         "meeting-list"
       end
 
+      def image
+        render
+      end
+
       private
 
       def metadata_cell

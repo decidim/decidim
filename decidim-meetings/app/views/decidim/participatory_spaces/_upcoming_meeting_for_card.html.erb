@@ -1,4 +1,10 @@
-<div class="card__block">
-  <strong class="text-small"><%= t("upcoming_meeting", scope: "decidim.participatory_spaces.upcoming_meeting_for_card") %></strong>
-  <%= cell("decidim/meetings/meeting_m", upcoming_meeting).date %>
-</div>
+<span data-upcoming-meeting>
+  <% if redesign_enabled? %>
+    <%= cell("decidim/meetings/meeting_l", upcoming_meeting).image %>
+  <% else %>
+    <div class="card__block">
+      <strong class="text-small"><%= t("upcoming_meeting", scope: "decidim.participatory_spaces.upcoming_meeting_for_card") %></strong>
+      <%= cell("decidim/meetings/meeting_m", upcoming_meeting).date %>
+    </div>
+  <% end %>
+</span>
