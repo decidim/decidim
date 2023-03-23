@@ -1,17 +1,17 @@
-<%= link_to root_url do %>
+<%= link_to decidim.root_url do %>
   <%= icon "home-2-line" %><span><%= t("decidim.menu.home") %></span>
 <% end %>
 
-<%= link_to search_path do %>
+<%= link_to decidim.search_path do %>
   <%= icon "search-line" %><span><%= t("decidim.search.term_input_placeholder") %></span>
 <% end %>
 
-<%= link_to last_activities_path do %>
+<%= link_to decidim.last_activities_path do %>
   <%= icon "bubble-chart-line" %><span><%= t("decidim.profiles.show.activity") %></span>
 <% end %>
 
 <% if current_user %>
-  <%= link_to profile_path(current_user.nickname) do %>
+  <%= link_to decidim.profile_path(current_user.nickname) do %>
     <% if current_user.notifications.any? %>
       <span class="main-bar__notification"></span>
     <% end %>
@@ -30,7 +30,7 @@
     <span><%= t("layouts.decidim.user_profile.account") %></span>
   <% end %>
 <% else %>
-  <%= link_to new_user_session_path do %>
+  <%= link_to decidim.new_user_session_path do %>
     <%= icon "login-box-line" %><span><%= t("layouts.decidim.header.sign_in") %></span>
   <% end %>
 <% end %>
