@@ -54,6 +54,12 @@ cs:
           attributes:
             attachment:
               needs_to_be_reattached: Potřebuje být znovu připojen
+        trustee:
+          attributes:
+            name:
+              cant_be_changed: nelze změnit
+            public_key:
+              cant_be_changed: nelze změnit
         voting:
           attributes:
             voting_type:
@@ -211,6 +217,8 @@ cs:
             select_component: Vyberte komponentu
             title: Importovat návrhy
         questions:
+          destroy:
+            success: Úloha byla úspěšně odstraněna.
           edit:
             title: Upravit otázku
             update: Aktualizovat otázku
@@ -219,6 +227,8 @@ cs:
           new:
             create: Vytvořit otázku
             title: Nová otázka
+          update:
+            success: Úloha byla úspěšně aktualizována.
         steps:
           create_election:
             census: Rejstřík obyvatel
@@ -980,6 +990,7 @@ cs:
               button: Generovat hlasovací přístupové kódy
               callout: Nyní můžete pokračovat v exportu přístupových kódů. Lze to provést pouze jednou. Jakmile zahájíte export, obdržíte e-mail s pokyny pro <strong>%{email}</strong>
               confirm: Exportovat přístupové kódy můžete pouze jednou. Ujistěte se, že máte přístup k e-mailovému účtu <strong>%{email}</strong>.
+              file_not_exist: Tento soubor neexistuje.
             exporting_access_codes:
               info_message: "<strong>Počkejte prosím</strong>, export se připravuje, obdržíte ho brzy na %{email} (to může trvat několik minut)."
             freeze:
