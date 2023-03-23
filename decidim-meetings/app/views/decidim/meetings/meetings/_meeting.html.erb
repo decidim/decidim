@@ -1,8 +1,7 @@
-<%# REDESIGN_PENDING - Replace this layout with other not using drawers %>
-<%= render layout: "layouts/decidim/shared/drawer", locals: { close_url: meetings_path } do %>
+<%= render layout: "layouts/decidim/shared/layout_item", locals: nav_paths do %>
   <div class="meeting__container">
 
-    <h1 class="h2 decorator" data-heading-tag><%= present(meeting).title(links: true, html_escape: true ) %></h1>
+    <h1 class="h2 decorator"><%= present(meeting).title(links: true, html_escape: true ) %></h1>
 
     <%= cell "decidim/meetings/dates_and_map", meeting %>
 
@@ -64,7 +63,7 @@
     <%#= cell("decidim/flag_modal", meeting) %>
   </div>
 
-  <% content_for :drawer_aside do %>
+  <% content_for :aside do %>
 
     <div class="space-y-4">
       <% if allowed_to?(:update, :meeting, meeting: meeting) %>

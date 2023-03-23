@@ -27,6 +27,20 @@ describe "ProfileConversations", type: :system do
     end
   end
 
+  context "when visiting blocked profile page" do
+    let(:profile) { create(:user_group, :confirmed, :blocked, organization:, users: [user, extra_user]) }
+    let!(:admin) { create(:user, :admin, :confirmed, organization:) }
+
+    before do
+      login_as admin, scope: :user
+      visit decidim.profile_path(nickname: profile.nickname)
+    end
+
+    it "does not have a contact link" do
+      expect(page).not_to have_link(title: "Contact", href: decidim.new_conversation_path(recipient_id: profile.id))
+    end
+  end
+
   context "when profile has no conversations" do
     before { visit_profile_inbox }
 
@@ -305,7 +319,7 @@ describe "ProfileConversations", type: :system do
       context "when someone direct messages disabled" do
         let!(:interlocutor2) { create(:user, :confirmed, organization:, direct_message_types: "followed-only") }
 
-        it "can't be selected on the mentioned list", :slow do
+        it "cannot be selected on the mentioned list", :slow do
           skip "REDESIGN_PENDING: The profile conversations functionality is going to be removed and it's not necessary to fix this because the modal used here will be deprecated" do
             visit_profile_inbox
             expect(page).to have_content("New conversation")

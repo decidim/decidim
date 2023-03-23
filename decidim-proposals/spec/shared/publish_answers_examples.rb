@@ -35,7 +35,7 @@ shared_examples "publish answers" do
       expect(page).to have_content("Accepted", count: 3)
     end
 
-    it "can't publish answers for non answered proposals" do
+    it "cannot publish answers for non answered proposals" do
       page.find("#proposals_bulk.js-check-all").set(true)
       page.all("[data-published-state=false] .js-proposal-list-check").each { |c| c.set(false); }
 

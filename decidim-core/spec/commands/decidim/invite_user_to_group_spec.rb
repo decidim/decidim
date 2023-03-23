@@ -29,12 +29,12 @@ module Decidim
             expect { command.call }.to broadcast(:ok)
           end
 
-          it "doesn't send a notification" do
+          it "does not send a notification" do
             expect(Decidim::EventsManager).not_to receive(:publish)
             command.call
           end
 
-          it "doesn't modify the membership" do
+          it "does not modify the membership" do
             expect do
               command.call
               membership.reload

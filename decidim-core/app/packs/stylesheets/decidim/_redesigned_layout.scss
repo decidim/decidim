@@ -47,3 +47,35 @@
     @apply pl-0 md:pr-16;
   }
 }
+
+.layout-item{
+  @apply container grid grid-cols-1 md:grid-cols-12 py-4 md:py-24 gap-12 md:gap-0;
+
+  &__main{
+    @apply lg:col-start-2 md:col-span-8 lg:col-span-7 relative;
+  }
+
+  &__aside{
+    @apply md:col-start-10 lg:col-start-10 md:col-span-3 lg:col-span-2;
+  }
+
+  &__back{
+    @apply md:absolute md:-left-[1em] md:-top-8 md:-translate-y-full;
+  }
+
+  &__arrow{
+    @apply fixed top-1/2 py-2 bg-background before:content-[''] before:block before:absolute before:-translate-y-1/2 before:top-1/2 before:left-1/2 before:w-16 md:before:w-96 before:h-16 md:before:h-96 before:rounded-full;
+
+    &.prev{
+      @apply -translate-x-1/2 md:translate-x-0 pl-4 pr-0 md:pr-1 left-0 rounded-r before:-translate-x-1/2 md:before:-translate-x-3/4 hover:-translate-x-1/4 transition;
+    }
+
+    &.next{
+      @apply translate-x-1/2 md:translate-x-0 pr-4 pl-0 md:pl-1 right-0 rounded-l before:-translate-x-1/2 md:before:-translate-x-1/4 hover:translate-x-1/4 transition;
+    }
+
+    svg{
+      @apply w-8 h-8 text-secondary fill-current;
+    }
+  }
+}

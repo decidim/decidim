@@ -57,7 +57,7 @@ module Decidim
             it { is_expected.to be_invalid }
           end
 
-          context "when it doesn't start with http" do
+          context "when it does not start with http" do
             let(:link) { "example.org" }
 
             it "adds it" do

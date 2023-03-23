@@ -16,6 +16,7 @@ pl:
         min_selections: Żadna z powyższych opcji
         title: Tytuł
       voting:
+        banner_image: Banner
         end_time: Głosowanie kończy się
         start_time: Głosowanie rozpoczyna się
     errors:

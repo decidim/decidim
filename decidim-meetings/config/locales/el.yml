@@ -1,10 +1,6 @@
 el:
   activemodel:
     attributes:
-      agenda:
-        description: Περιγραφή
-        duration: Διάρκεια
-        title: Τίτλος
       close_meeting:
         attendees_count: Αριθμός συμμετεχόντων
         attending_organizations: Λίστα οργανισμών που συμμετείχαν
@@ -18,7 +14,6 @@ el:
         decidim_category_id: Κατηγορία
         decidim_scope_id: Πεδίο εφαρμογής
         description: Περιγραφή
-        end_time: Ώρα λήξης
         location: Τοποθεσία
         location_hints: Υποδείξεις τοποθεσίας
         organizer_id: Διοργανωτής
@@ -26,7 +21,6 @@ el:
         registration_form_enabled: Η φόρμα εγγραφής ενεργοποιήθηκε
         registration_terms: Όροι εγγραφής
         registrations_enabled: Οι εγγραφές ενεργοποιήθηκαν
-        start_time: Ώρα έναρξης
         title: Τίτλος
         transparent: Διαφανής
     errors:

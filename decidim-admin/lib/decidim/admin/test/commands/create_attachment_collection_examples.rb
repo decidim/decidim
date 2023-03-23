@@ -39,7 +39,7 @@ module Decidim
             expect { command.call }.to broadcast(:invalid)
           end
 
-          it "doesn't create an attachment collection" do
+          it "does not create an attachment collection" do
             expect do
               command.call
             end.not_to change(AttachmentCollection, :count)

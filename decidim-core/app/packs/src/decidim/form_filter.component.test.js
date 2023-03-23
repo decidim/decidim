@@ -120,7 +120,7 @@ describe("FormFilterComponent", () => {
 
   describe("when mounted", () => {
     beforeEach(() => {
-      // Jest doesn't implement listening on the form submit event so we need
+      // Jest does not implement listening on the form submit event so we need
       // to hack it.
       const originalOn = subject.$form.on.bind(subject.$form);
       jest.spyOn(subject.$form, "on").mockImplementation((...args) => {

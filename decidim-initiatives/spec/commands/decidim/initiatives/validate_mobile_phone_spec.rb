@@ -12,8 +12,8 @@ module Decidim
       let(:command) { described_class.new(form, current_user) }
 
       describe "User validates phone number" do
-        context "when the user doesn't have a sms authorization" do
-          context "when the user doesn't have any authorization" do
+        context "when the user does not have a sms authorization" do
+          context "when the user does not have any authorization" do
             it "broadcasts invalid" do
               expect { command.call }.to broadcast :invalid
             end

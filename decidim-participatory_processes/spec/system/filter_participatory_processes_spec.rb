@@ -161,7 +161,7 @@ describe "Filter Participatory Processes", type: :system do
         visit decidim_participatory_processes.participatory_processes_path
       end
 
-      it "doesnt show filters" do
+      it "does not show filters" do
         expect(page).not_to have_css(".with_area_areas_select_filter")
         expect(page).not_to have_css(".with_scope_scopes_picker_filter")
       end

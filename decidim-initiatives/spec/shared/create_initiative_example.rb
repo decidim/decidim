@@ -40,7 +40,7 @@ shared_examples "create an initiative" do
         expect { command.call }.to broadcast(:invalid)
       end
 
-      it "doesn't create an initiative" do
+      it "does not create an initiative" do
         expect do
           command.call
         end.not_to change(Decidim::Initiative, :count)

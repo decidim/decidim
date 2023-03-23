@@ -231,8 +231,8 @@ en:
         default_title: Introduction
         destroy:
           error:
-            active_step: Can't delete the active phase.
-            last_step: Can't delete the last phase of a process.
+            active_step: Cannot delete the active phase.
+            last_step: Cannot delete the last phase of a process.
           success: Participatory process phase successfully deleted.
         edit:
           title: Edit participatory process phase

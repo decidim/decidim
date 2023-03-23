@@ -223,10 +223,6 @@ bg:
           '4': Публикувайте Вашите поправки
     anonymous_user: Анонимен
     application:
-      collection:
-        documents:
-          one: Документ
-          other: Документи
       document:
         download: Изтегли файл
       documents:
@@ -434,9 +430,6 @@ bg:
         request_data: Заяви данни
     endorsable:
       endorsements: Одобрявания
-    endorsement_buttons_cell:
-      already_endorsed: Одобрен
-      endorse: Одобрявам
     endorsements:
       identities:
         done: Готово
@@ -616,8 +609,6 @@ bg:
         button: Спри следването
         error: Възникна проблем с отказа от следване на този ресурс.
     forms:
-      current_image: Текущо изображение
-      default_image: Изображение по подразбиране
       errors:
         decidim/user:
           password: Паролата е твърде къса.
@@ -839,7 +830,6 @@ bg:
     newsletter_mailer:
       newsletter:
         note: Получихте това писмо, защото сте абонирани за бюлетини на %{organization_name}. Можете да промените вашите настройки на <a href="%{link}">страницата "известия"</a>.
-        see_on_website: Не виждате това писмо правилно? Вижте го на <a href="%{link}" target="_blank">сайта</a>.
         unsubscribe: За да се откажете от получаването на такъв тип писма <a href="%{link}" target="_blank" class="unsubscribe">Отпишете се</a>.
     newsletter_templates:
       basic_only_text:

@@ -21,7 +21,7 @@ describe "Admin manages participatory space private users via csv import", type:
   end
 
   context "when there are no existing users" do
-    it "doesn't propose to delete" do
+    it "does not propose to delete" do
       expect(page).to have_content("You have no private participants.")
     end
   end

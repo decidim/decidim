@@ -56,7 +56,7 @@ module Decidim::ParticipatoryProcesses
         expect { subject.call }.to broadcast(:invalid)
       end
 
-      it "doesn't update the participatory group process" do
+      it "does not update the participatory group process" do
         subject.call
         participatory_process_group.reload
 
