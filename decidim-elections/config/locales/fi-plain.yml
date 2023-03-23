@@ -290,6 +290,7 @@ fi-pl:
               time_before: Vaalin määritys tulee tapahtua <strong>vähintään %{hours} tuntia</strong> ennen sen alkamista.
               trustees_number: Osallistumistilassa <strong>on oltava vähintään %{number} luottamushenkilöä, joilla on julkinen avain</strong>.
             submit: Määritä vaali
+            success: Vaalin lähetys sähköiselle ääniuurnalle onnistui.
             title: Määritä vaali
             trustees: Vaalin luottamushenkilöt
           created:
@@ -333,6 +334,7 @@ fi-pl:
             invalid: Poissaolevan luottamushenkilön ilmoittaminen epäonnistui.
             mark_as_missing: Merkitse poissaolevaksi
             mark_as_missing_description: Kaikkien luottamushenkilöiden pitäisi osallistua tähän prosessiin, mutta jos luottamushenkilö ei voi osallistua prosessiin, voit merkitä kyseisen henkilön poissaolevaksi.
+            success: Poissaolevan luottamushenkilön merkitseminen sähköiselle ääniuurnalle onnistui.
             tally_completion: Prosessi valmistuu, kun kaikki luottamushenkilöt ovat aktiivisia tai merkitty poissaoleviksi. Vähintään %{quorum} luottamushenkilöä tarvitaan prosessin loppuun saattamiseksi.
             title: Ääntenlasku
             undo_mark_as_missing: Poissaoleva luottamushenkilö voi osallistua prosessiin ennen sen päättymistä. He voivat jatkaa normaalisti ja heidän poissaolonsa jätetään huomioimatta.
@@ -601,6 +603,7 @@ fi-pl:
             title: Ääntenlaskenta vaaleille %{election}
           update:
             error: Vaalin tilaa ei päivitetty.
+            success: 'Vaalin tila on: %{status}.'
         menu:
           trustee_zone: Luottamushenkilön alue
         no_bulletin_board:
@@ -807,6 +810,9 @@ fi-pl:
           new:
             create: Luo
             title: Luo äänestystyyli
+          update:
+            invalid: Äänestystyylin päivitys epäonnistui.
+            success: Äänestystyylin päivitys onnistui.
         content_blocks:
           highlighted_votings:
             max_results: Näytettävien elementtien enimmäismäärä
