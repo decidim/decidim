@@ -680,7 +680,6 @@ id:
           success: Besar! Anda telah menyetujui persyaratan dan ketentuan.
         refuse:
           modal_btn_continue: Terima persyaratan dan lanjutkan
-          modal_btn_exit: Saya akan memeriksanya nanti
           modal_button: Menolak persyaratan
           modal_close: Tutup modal
           modal_title: Apakah Anda benar-benar menolak Syarat dan Ketentuan yang diperbarui?
