@@ -1044,7 +1044,6 @@ ro:
           agreement: Sunt de acord cu acești termeni și condiţii
         refuse:
           modal_btn_continue: Acceptați termenii și continuați
-          modal_btn_exit: O voi revizui mai târziu
           modal_button: Refuza termenii
           modal_close: Închide fereastra
           modal_title: Chiar refuzați termenii și condițiile actualizate?
