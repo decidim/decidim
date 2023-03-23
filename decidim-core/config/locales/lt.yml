@@ -1140,7 +1140,6 @@ lt:
           agreement: Aš sutinku su šiomis sąlygomis
         refuse:
           modal_btn_continue: Sutikti su sąlygomis ir tęsti
-          modal_btn_exit: Peržiūrėsiu vėliau
           modal_button: Nesutikti su sąlygomis
           modal_close: Uždaryti modalinį langą
           modal_title: Ar iš tikrųjų nesutinkate su atnaujintomis naudojimo sąlygomis?
