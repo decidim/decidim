@@ -27,8 +27,8 @@ RUN curl -fsSL https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh |
 
 # Install rbenv and Ruby
 ENV RUBY_VERSION=3.1.1
-RUN sudo apt-get install -y --force-yes build-essential curl git zlib1g-dev \
-  libssl-dev libreadline-dev libyaml-dev libxml2-dev libxslt-dev
+RUN sudo apt-get install -y build-essential curl git zlib1g-dev libssl-dev \
+  libreadline-dev libyaml-dev libxml2-dev libxslt-dev
 RUN git clone https://github.com/rbenv/rbenv.git ~/.rbenv \
   && echo 'eval "$(~/.rbenv/bin/rbenv init - sh)"' >> ~/.bashrc.d/60-ruby \
   && eval "$(~/.rbenv/bin/rbenv init - sh)" \
