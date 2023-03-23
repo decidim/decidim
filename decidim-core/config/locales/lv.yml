@@ -822,7 +822,6 @@ lv:
           success: Lieliski! Jūs esat piekritis lietošanas noteikumiem.
         refuse:
           modal_btn_continue: Pieņemt noteikumus un turpināt
-          modal_btn_exit: Es tos pārskatīšu vēlāk
           modal_button: Atteikties no noteikumu pieņemšanas
           modal_close: Aizvērt modal
           modal_title: Vai jūs tiešām atsakāties no atjauninātajiem lietošanas noteikumiem?
