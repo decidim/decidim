@@ -14,7 +14,7 @@ module Decidim
         private
 
         def content_block_scope
-          current_participatory_space_manifest.content_blocks_scope_name
+          :participatory_process_group_homepage
         end
 
         def scoped_resource
