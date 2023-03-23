@@ -46,7 +46,7 @@ module Decidim
     end
 
     # Switch to the develop branch
-    # In case that it can't do that, exits
+    # In case that it cannot do that, exits
     #
     # @return [void]
     def self.checkout_develop
@@ -54,7 +54,7 @@ module Decidim
 
       error_message = <<-EOERROR
       Could not checkout the develop branch.
-      Please make sure you don't have any uncommitted changes in the current branch.
+      Please make sure you do not have any uncommitted changes in the current branch.
       EOERROR
       exit_with_errors(error_message) unless $CHILD_STATUS.exitstatus.zero?
     end
@@ -64,7 +64,7 @@ module Decidim
     attr_reader :pull_request_id, :release_branch, :backport_branch, :working_dir
 
     # Create the backport branch based on a release branch
-    # Checks that this branch doesn't exist already, if it does then exits
+    # Checks that this branch does not exist already, if it does then exits
     #
     # @return [void]
     def create_backport_branch!

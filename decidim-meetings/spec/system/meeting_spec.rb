@@ -128,7 +128,7 @@ describe "Meeting", type: :system, download: true do
   context "when the meeting is the same as the current year" do
     let(:meeting) { create(:meeting, :published, component:, start_time: Time.current) }
 
-    it "doesn't show the year" do
+    it "does not show the year" do
       visit_meeting
 
       within ".meeting__calendar-container .meeting__calendar" do
@@ -171,9 +171,8 @@ describe "Meeting", type: :system, download: true do
           component.settings[:comments_enabled] = true
         end
 
-        it "fetching comments doesnt prevent timeout" do
+        it "fetching comments does not prevent timeout" do
           skip_unless_redesign_enabled("This test pass using comments for drawers")
-
           visit_meeting
           comment
           expect(page).to have_content(translated(comment.body), wait: 30)

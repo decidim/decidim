@@ -11,15 +11,22 @@ es-PY:
         decidim_area_id: Área
         description: Descripción
         developer_group: Grupo promotor
+        document: Documento
         domain: Dominio
         end_date: Fecha de finalización
         hashtag: Hashtag
         hero_image: Imagen de portada
+        import_attachments: Importar archivos adjuntos
+        import_categories: Importar categorias
+        import_components: Importar componentes
+        import_steps: Importar fases
         local_area: Área de organización
         meta_scope: 'Metadatos: ámbito'
         participatory_process_group_id: Grupo de procesos
+        participatory_process_type_id: Tipo de proceso
         participatory_scope: Qué se decide
         participatory_structure: Cómo se decide
+        private_space: Proceso privado
         promoted: Destacado
         published_at: Publicado en
         related_process_ids: Procesos relacionados
@@ -170,8 +177,17 @@ es-PY:
       participatory_process_group_landing_page:
         edit:
           active_content_blocks: Bloques de contenido activos
+          add: Añadir bloque de contenido
+          destroy_confirmation: '¿Seguro que quieres borrar este bloque de contenido?'
           inactive_content_blocks: Bloques de contenido inactivos
+          title: Contenidos de la página
       participatory_process_group_landing_page_content_blocks:
+        create:
+          error: Se ha producido un error al intentar crear este bloque de contenido
+          success: Bloque de contenido creado con éxito
+        destroy:
+          error: Se ha producido un error al intentar crear este bloque de contenido
+          success: Bloque de contenido eliminado con éxito
         edit:
           update: Actualizar
       participatory_process_groups:

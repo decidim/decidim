@@ -1,6 +1,6 @@
 = Views (HTML)
 
-As usual you should make some tests with the changes that you made and configure a Continuous Integration environment for checking that your overrides doesn't get removed with new decidim versions.
+As usual you should make some tests with the changes that you made and configure a Continuous Integration environment for checking that your overrides does not get removed with new decidim versions.
 
 == Overrides
 

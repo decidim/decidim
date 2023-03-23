@@ -192,7 +192,7 @@ describe "Admin manages participatory process groups", type: :system do
       visit decidim_admin_participatory_processes.participatory_processes_path
     end
 
-    it "doesn't show the participatory process group link" do
+    it "does not show the participatory process group link" do
       within ".main-nav" do
         expect(page).not_to have_selector(:link_or_button, "Process groups")
       end

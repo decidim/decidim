@@ -39,7 +39,7 @@ module Decidim
           expect(email_body(mail)).to match(report.details)
         end
 
-        it "doesn't include the report details if they are not present" do
+        it "does not include the report details if they are not present" do
           report.details = nil
 
           expect(email_body(mail)).not_to match("<b>Details</b>")

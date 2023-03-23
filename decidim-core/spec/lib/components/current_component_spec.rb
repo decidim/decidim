@@ -41,12 +41,12 @@ module Decidim
         end
 
         context "when there's no component" do
-          it "doesn't match" do
+          it "does not match" do
             expect(subject.matches?(request)).to be(false)
           end
         end
 
-        context "when the component doesn't belong to the participatory space" do
+        context "when the component does not belong to the participatory space" do
           before do
             params["component_id"] = component.id.to_s
           end
@@ -71,8 +71,8 @@ module Decidim
         end
       end
 
-      context "when the env doesn't contain a current participatory space" do
-        it "doesn't match" do
+      context "when the env does not contain a current participatory space" do
+        it "does not match" do
           expect(subject.matches?(request)).to be(false)
         end
       end

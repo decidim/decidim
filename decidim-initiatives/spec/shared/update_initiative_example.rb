@@ -44,7 +44,7 @@ shared_examples "update an initiative" do
         expect { command.call }.to broadcast(:invalid)
       end
 
-      it "doesn't updates the initiative" do
+      it "does not updates the initiative" do
         expect do
           command.call
         end.not_to change(initiative, :title)
@@ -135,7 +135,7 @@ shared_examples "update an initiative" do
 
         before { form.signature_type = "offline" }
 
-        it "doesn't update signature type" do
+        it "does not update signature type" do
           expect { command.call }.not_to change(initiative, :signature_type)
         end
       end

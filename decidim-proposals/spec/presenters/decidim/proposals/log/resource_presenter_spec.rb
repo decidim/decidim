@@ -24,7 +24,7 @@ describe Decidim::Proposals::Log::ResourcePresenter, type: :helper do
     end
   end
 
-  context "when the resource doesn't exist" do
+  context "when the resource does not exist" do
     let(:resource) { nil }
     let(:extra) do
       {
@@ -32,7 +32,7 @@ describe Decidim::Proposals::Log::ResourcePresenter, type: :helper do
       }
     end
 
-    it "doesn't link to its public page but renders its name" do
+    it "does not link to its public page but renders its name" do
       expect(presenter.present).not_to have_link("My title")
     end
   end

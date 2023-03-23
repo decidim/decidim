@@ -180,7 +180,7 @@ en:
       last_activity:
         new_vote_at: New budgeting vote at
       limit_announcement:
-        cant_vote: You can't vote on this budget. <a href="%{landing_path}">Try on another budget</a>.
+        cant_vote: You cannot vote on this budget. <a href="%{landing_path}">Try on another budget</a>.
         limit_reached: You have active votes in %{links}. To vote on this budget you must <a href="%{landing_path}">delete your vote and start over</a>.
       models:
         budget:
@@ -209,10 +209,10 @@ en:
           title: Confirm vote
         budget_excess:
           budget_excess:
-            description: This project exceeds the maximum budget and can not be added. If you want, you can delete a project you have already selected, in order to be able to vote again according to your preferences.
+            description: This project exceeds the maximum budget and cannot be added. If you want, you can delete a project you have already selected, in order to be able to vote again according to your preferences.
             title: Maximum budget exceeded
           close: Close
-          description: This project exceeds the maximum budget and can not be added. If you want, you can delete a project you have already selected, in order to be able to vote again according to your preferences.
+          description: This project exceeds the maximum budget and cannot be added. If you want, you can delete a project you have already selected, in order to be able to vote again according to your preferences.
           ok: OK
           projects_excess:
             description: This project exceeds the maximum number of projects and cannot be added. If you want, you can delete a project you have already selected, in order to be able to vote again according to your preferences.

@@ -34,7 +34,7 @@ header{
     &__search{
       @apply hidden md:block col-span-2 col-start-5 xl:col-start-4;
 
-      span{
+      form{
         @apply block relative rounded text-md bg-background;
       }
 

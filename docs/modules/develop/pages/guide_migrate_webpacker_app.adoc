@@ -244,7 +244,7 @@ In some case it might be that some packages are not well resolved when installin
 ...
 ----
 
-These might be due some kind of corruption in your `package-json.lock` file, you can try either to remove this file and recreate it with `npm install` or to add the package `@rails/webpacker` manually in your `package.json` file next to the `@decidim/webpacker` package:
+These might be due some kind of corruption in your `package-lock.json` file, you can try either to remove this file and recreate it with `npm install` or to add the package `@rails/webpacker` manually in your `package.json` file next to the `@decidim/webpacker` package:
 
 [source,json]
 ----

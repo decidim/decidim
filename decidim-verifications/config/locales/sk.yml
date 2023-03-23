@@ -98,7 +98,6 @@ sk:
           authorize_with: Overte pomocou %{authorizer}
         renew_modal:
           cancel: zrušenie
-          close: zavrieť
           continue: Pokračovať
           info_renew: Ak chcete nahrať údaje, pokračujte s obnovou
           title: Obnoviť verifikáciu

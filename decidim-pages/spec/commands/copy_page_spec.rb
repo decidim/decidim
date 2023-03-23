@@ -21,7 +21,7 @@ module Decidim
             expect { command.call }.to broadcast(:invalid)
           end
 
-          it "doesn't duplicate the page" do
+          it "does not duplicate the page" do
             expect do
               command.call
             end.not_to change(Page, :count)

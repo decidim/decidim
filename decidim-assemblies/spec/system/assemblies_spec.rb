@@ -210,7 +210,7 @@ describe "Assemblies", type: :system do
         let(:show_statistics) { false }
         let(:blocks_manifests) { [:stats] }
 
-        it "doesn't render the stats for those components that are not visible" do
+        it "does not render the stats for those components that are not visible" do
           expect(page).to have_no_css("h2.h2", text: "Statistics")
           expect(page).to have_no_css(".statistic__title", text: "Proposals")
           expect(page).to have_no_css(".statistic__number", text: "3")
@@ -237,6 +237,34 @@ describe "Assemblies", type: :system do
         it "shows the children assemblies by weigth" do
           expect(titles.first.text).to eq translated(child_assembly.title)
           expect(titles.last.text).to eq translated(second_child_assembly.title)
+        end
+
+        context "when child assembly has a meeting" do
+          let(:meetings_component) { create(:meeting_component, :published, participatory_space: child_assembly) }
+
+          context "with unpublished meeting" do
+            let!(:meeting) { create(:meeting, :upcoming, component: meetings_component) }
+
+            it "is not displaying the widget" do
+              visit decidim_assemblies.assembly_path(assembly)
+
+              within("#assemblies-grid") do
+                expect(page).not_to have_content("Upcoming meeting")
+              end
+            end
+          end
+
+          context "with published meeting" do
+            let!(:meeting) { create(:meeting, :upcoming, :published, component: meetings_component) }
+
+            it "is displaying the widget" do
+              visit decidim_assemblies.assembly_path(assembly)
+
+              within("#assemblies-grid") do
+                expect(page).to have_content("Upcoming meeting")
+              end
+            end
+          end
         end
       end
 

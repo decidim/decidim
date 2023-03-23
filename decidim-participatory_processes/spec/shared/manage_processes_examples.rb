@@ -168,7 +168,7 @@ shared_examples "manage processes examples" do
       visit decidim_admin_participatory_processes.participatory_processes_path
     end
 
-    it "doesn't let the admin manage processes form other organizations" do
+    it "does not let the admin manage processes form other organizations" do
       within "table" do
         expect(page).to have_no_content(external_participatory_process.title["en"])
       end

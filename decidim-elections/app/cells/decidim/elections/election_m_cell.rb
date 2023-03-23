@@ -25,7 +25,7 @@ module Decidim
         icon "elections", class: "icon--big"
       end
 
-      # Even though we need to render the badge, we can't do it in the normal
+      # Even though we need to render the badge, we cannot do it in the normal
       # way, because the paragraph comes from a user input and contains HTML.
       # This causes the badge and the paragraph to appear in different lines.
       # In order to fix it, check the `description` method.

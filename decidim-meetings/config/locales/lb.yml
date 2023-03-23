@@ -1,10 +1,6 @@
 lb:
   activemodel:
     attributes:
-      agenda:
-        description: Beschreibung
-        duration: Dauer
-        title: Titel
       close_meeting:
         attendees_count: Anzahl der Teilnehmer
         attending_organizations: Liste der Organisationen, die teilgenommen haben
@@ -22,7 +18,6 @@ lb:
         decidim_scope_id: Ëmfang
         decidim_user_group_id: Benutzergruppe
         description: Beschreiwung
-        end_time: Endzeit
         id: ID
         location: Standuert
         location_hints: Standorthinweise
@@ -35,7 +30,6 @@ lb:
         registration_terms: Registrierungsbedingungen
         registration_url: Registrierungs-URL
         registrations_enabled: Registrierungen aktiviert
-        start_time: Startzeit
         title: Titel
         transparent: Transparent
         type_of_meeting: Zort

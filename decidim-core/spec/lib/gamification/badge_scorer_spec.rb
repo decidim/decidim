@@ -48,7 +48,7 @@ module Decidim
 
       describe "#decrement" do
         context "when there's no previous score" do
-          it "doesn't do anything" do
+          it "does not do anything" do
             subject.decrement
             status = BadgeStatus.new(user, badge)
             expect(status.score).to eq(0)
@@ -151,7 +151,7 @@ module Decidim
               user.organization.update(badges_enabled: false)
             end
 
-            it "doesn't send a notification" do
+            it "does not send a notification" do
               expect(Decidim::EventsManager).not_to receive(:publish).with(anything)
               subject.increment
             end

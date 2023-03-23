@@ -121,6 +121,7 @@ FactoryBot.define do
     end
 
     organization { assembly.organization }
+    admin_terms_accepted_at { Time.current }
 
     after(:create) do |user, evaluator|
       create :assembly_user_role,
@@ -136,6 +137,7 @@ FactoryBot.define do
     end
 
     organization { assembly.organization }
+    admin_terms_accepted_at { Time.current }
 
     after(:create) do |user, evaluator|
       create :assembly_user_role,
@@ -151,6 +153,7 @@ FactoryBot.define do
     end
 
     organization { assembly.organization }
+    admin_terms_accepted_at { Time.current }
 
     after(:create) do |user, evaluator|
       create :assembly_user_role,
@@ -166,6 +169,7 @@ FactoryBot.define do
     end
 
     organization { assembly.organization }
+    admin_terms_accepted_at { Time.current }
 
     after(:create) do |user, evaluator|
       create :assembly_user_role,
