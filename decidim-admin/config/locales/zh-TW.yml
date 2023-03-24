@@ -1,1 +1,39 @@
 zh-TW:
+  activemodel:
+    attributes:
+      area:
+        area_type: 區域類型
+        name: 名稱
+        organization: 組織
+      area_type:
+        name: 名稱
+        organization: 組織
+        plural: 複數
+      attachment:
+        attachment_collection_id: 資料夾
+        description: 說明
+        file: 檔案
+        title: 附加檔案或圖片名稱
+        weight: 排序位置
+      attachment_collection:
+        description: 說明
+        name: 名稱
+        weight: 排序位置
+      category:
+        description: 說明
+      organization:
+        host: 主機
+        instagram_handler: Instagram 處理器
+        logo: 標誌
+        machine_translation_display_priority: 機器翻譯顯示順序
+        machine_translation_display_priority_original: 原始文字優先
+        machine_translation_display_priority_translation: 翻譯文字優先
+        name: 名稱
+        official_img_footer: 官方標誌頁尾
+        official_img_header: 官方標誌頁首
+        official_url: 官方組織網址
+        omnipresent_banner_short_description: 簡介
+        omnipresent_banner_title: 標題
+        omnipresent_banner_url: 網址
+        organization_admin_email: 組織管理員信箱
+        organization_admin_name: 組織管理員名稱
