@@ -252,3 +252,5 @@ zh-TW:
           email_intro: '提案 "%{proposal_title}" 已經包含在結果，可以在這個頁面檢視：'
           email_outro: 收到這個提醒是因為訂閱了 "%{proposal_title}" ，透過上面連結可以停止訂閱。
           email_subject: '%{proposal_title} 的更新'
+    statistics:
+      results_count: 結果
