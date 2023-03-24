@@ -21,7 +21,9 @@ module Decidim
     private
 
     def frontend_administrable?
-      model.can_be_administred_by?(current_user) && (model.respond_to?(:official?) && !model.official?)
+      author.respond_to?(:nickname) &&
+        model.can_be_administred_by?(current_user) &&
+        (model.respond_to?(:official?) && !model.official?)
     end
 
     def link_to_profile
