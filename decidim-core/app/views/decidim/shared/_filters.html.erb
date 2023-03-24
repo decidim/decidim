@@ -8,7 +8,7 @@
       <%= icon "arrow-down-s-line" %>
       <%= icon "arrow-up-s-line" %>
       <span>
-        <%= t(local_assigns.has_key?(:search_variable) ? "filter_and_search" : "filter", scope: "decidim.searches.filters_small_view") %>
+        <%= local_assigns.has_key?(:search_variable) ? t("filter_and_search", scope: "decidim.searches.filters_small_view") : t("filter", scope: "decidim.searches.filters_small_view") %>
       </span>
     </button>
 
