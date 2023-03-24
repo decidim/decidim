@@ -4,7 +4,7 @@
     <%= description %>
   </div>
 
-  <div class="mt-8" data-component="accordion" data-multiselectable="false" data-collapsible="false">
+  <div class="mt-8" data-component="accordion" data-multiselectable="false" data-collapsible="false" id="accordion-<%= model.id %>">
     <ul class="tab-x-container">
       <% tabs.each_with_index do |tab, i| %>
         <% next unless panel_contents.has_key?(tab[:id]) %>
