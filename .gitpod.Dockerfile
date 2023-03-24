@@ -28,6 +28,7 @@ RUN curl -fsSL https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh |
 
 # Install rbenv and Ruby
 ENV RUBY_VERSION=3.1.1
+ENV WORKSPACE_GEM_HOME=/workspace/.gem
 RUN sudo apt-get install -y build-essential curl git zlib1g-dev libssl-dev \
   libreadline-dev libyaml-dev libxml2-dev libxslt-dev
 RUN git clone https://github.com/rbenv/rbenv.git ~/.rbenv \
@@ -35,4 +36,6 @@ RUN git clone https://github.com/rbenv/rbenv.git ~/.rbenv \
   && eval "$(~/.rbenv/bin/rbenv init - sh)" \
   && git clone https://github.com/rbenv/ruby-build.git "$(rbenv root)"/plugins/ruby-build \
   && git clone https://github.com/rbenv/rbenv-vars.git "$(rbenv root)"/plugins/rbenv-vars \
-  && rbenv install $RUBY_VERSION && rbenv global $RUBY_VERSION
+  && rbenv install $RUBY_VERSION && rbenv global $RUBY_VERSION \
+  && echo "export GEM_PATH=\"${WORKSPACE_GEM_HOME}:$(gem env home)\"" >> ~/.bashrc.d/60-ruby \
+  && echo "export GEM_HOME=\"${WORKSPACE_GEM_HOME}\"" >> ~/.bashrc.d/60-ruby
