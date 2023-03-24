@@ -11,6 +11,8 @@ tasks:
       bundle &&
       bundle exec rake development_app &&
       echo 'Rails.application.config.hosts << ENV.fetch("RAILS_DEVELOPMENT_HOST", "").gsub(/\A"|"\Z/, "")' > development_app/config/initializers/gitpod.rb &&
+      echo "Compiling assets, please wait a moment..." &&
+      ./bin/webpacker &&
       gp sync-done dev-app-ready &&
       exit
   - name: Development server
@@ -18,8 +20,6 @@ tasks:
       gp sync-await dev-app-ready &&
       cd development_app &&
       ./bin/rails runner 'Decidim::Organization.first.update!(host: ENV.fetch("RAILS_DEVELOPMENT_HOST", "localhost").gsub(/\A"|"\Z/, ""))' &&
-      echo "Compiling assets, please wait a moment..." &&
-      ./bin/webpacker &&
       (sleep 10 && gp preview $(gp url 3000) --external &) &&
       ./bin/rails s
     openMode: split-right
