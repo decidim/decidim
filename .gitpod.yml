@@ -25,7 +25,7 @@ tasks:
       bundle &&
       ./bin/rails runner 'Decidim::Organization.first.update!(host: ENV.fetch("RAILS_DEVELOPMENT_HOST", "localhost").gsub(/\A"|"\Z/, ""))' &&
       (sleep 10 && gp preview $(gp url 3000) --external &) &&
-      ./bin/rails s
+      ./bin/rails s -b 0.0.0.0
 
 ports:
   - name: Web App
