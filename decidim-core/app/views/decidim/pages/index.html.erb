@@ -23,7 +23,7 @@ edit_link(
       <div class="space-y-6">
         <h2 class="h2 decorator"><%= t "decidim.pages.index.topics" %></h2>
 
-        <div class="space-y-6" data-component="accordion">
+        <div class="space-y-6" data-component="accordion" id="topics-accordion">
           <% @topics.each_with_index do |topic, ix| %>
             <% if topic.pages.any? %>
               <div class="page__accordion">
