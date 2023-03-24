@@ -5,10 +5,14 @@ USER root
 ENV PGVERSION=14
 RUN apt-get install -y postgresql postgresql-client postgresql-server-dev-${PGVERSION} libpq-dev
 
-# Setup the database user
+# Move the database data directory to the workspace folder and setup the database user
 ENV DATABASE_USERNAME=decidim
 ENV DATABASE_PASSWORD=development
-RUN service postgresql start \
+RUN pg_dropcluster $PGVERSION main \
+  && mkdir -p /workspace/postgresql/data \
+  && chown -R postgres:postgres /workspace/postgresql \
+  && pg_createcluster -d /workspace/postgresql/data $PGVERSION main \
+  && service postgresql start \
   && sudo -u postgres psql -c "CREATE USER $DATABASE_USERNAME SUPERUSER" \
   && sudo -u postgres psql -c "ALTER ROLE $DATABASE_USERNAME WITH PASSWORD '${DATABASE_PASSWORD}'" \
   && service postgresql stop
