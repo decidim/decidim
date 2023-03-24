@@ -12,8 +12,12 @@ tasks:
         ) || echo "Database exists"
       ) &&
       sudo service postgresql start &&
-      sudo su postgres -c "psql -c 'CREATE USER $DATABASE_USERNAME SUPERUSER'" &&
-      sudo su postgres -c "psql -c \"ALTER ROLE $DATABASE_USERNAME WITH PASSWORD '${DATABASE_PASSWORD}'\"" &&
+      (
+        [ $(sudo su postgres -c "psql -At -c \"SELECT COUNT(usename) FROM pg_user WHERE usename = '${DATABASE_USERNAME}'\"") -eq 0 ] && (
+          sudo su postgres -c "psql -c 'CREATE USER $DATABASE_USERNAME SUPERUSER'" &&
+          sudo su postgres -c "psql -c \"ALTER ROLE $DATABASE_USERNAME WITH PASSWORD '${DATABASE_PASSWORD}'\""
+        ) || echo "Database user exists"
+      ) &&
       mkdir -p .vscode &&
       echo '{"workbench.startupEditor": "none"}' > .vscode/settings.json &&
       echo 'RAILS_DEVELOPMENT_HOST="3000-${GITPOD_WORKSPACE_ID}.${GITPOD_WORKSPACE_CLUSTER_HOST}"' > .rbenv-vars &&
