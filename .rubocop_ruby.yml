@@ -1429,7 +1429,7 @@ Faker/DeprecatedArguments:
         - name
         - ext
         - directory_separator
-    Faker::Fillmurray:
+    Faker::LoremFlickr:
       image:
         - grayscale
         - width
