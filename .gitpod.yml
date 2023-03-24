@@ -11,6 +11,7 @@ tasks:
       bundle &&
       bundle exec rake development_app &&
       echo 'Rails.application.config.hosts << ENV.fetch("RAILS_DEVELOPMENT_HOST", "").gsub(/\A"|"\Z/, "")' > development_app/config/initializers/gitpod.rb &&
+      cd development_app &&
       echo "Compiling assets, please wait a moment..." &&
       ./bin/webpacker &&
       gp sync-done dev-app-ready &&
