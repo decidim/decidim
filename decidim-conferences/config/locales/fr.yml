@@ -347,6 +347,7 @@ fr:
             invites: Invite
             search: Chercher
           new:
+            explanation: "The participant will be invited to join a conference. If their email is not registered, they will be invited to the organization as well.\nLe participant sera invité à se joindre à une conférence. Si son adresse électronique n'est pas enregistrée, il sera également invité à s'inscrire sur la plateforme."
             invite: Inviter
             new_invite: Inviter un utilisateur
         conference_registrations:
