@@ -18,7 +18,7 @@ ports:
   - name: Web App
     description: The main application web server
     port: 3000
-    onOpen: open-browser
+    onOpen: open-preview
     visibility: public
   - name: Webpacker
     description: The webpacker dev server for asset reloading
