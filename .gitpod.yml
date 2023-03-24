@@ -4,7 +4,6 @@ image:
 tasks:
   - name: Prepare development app
     init: |
-      sudo service postgresql start &&
       mkdir -p .vscode &&
       echo '{"workbench.startupEditor": "none"}' > .vscode/settings.json &&
       echo 'RAILS_DEVELOPMENT_HOST="3000-${GITPOD_WORKSPACE_ID}.${GITPOD_WORKSPACE_CLUSTER_HOST}"' > .rbenv-vars &&
@@ -15,9 +14,9 @@ tasks:
       echo "Compiling assets, please wait a moment..." &&
       ./bin/webpacker
     command:
+      sudo service postgresql start &&
       cd development_app &&
       bundle &&
-      while ! test -f public/decidim-packs/manifest.json; do sleep 1 ; done &&
       gp sync-done dev-app-ready &&
       exit
   - name: Development server
