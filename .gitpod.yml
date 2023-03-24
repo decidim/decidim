@@ -3,8 +3,13 @@ image:
 
 tasks:
   - name: Development app
-    before: sudo service postgresql start
     init: |
+      sudo mkdir -p /workspace/postgresql/data /workspace/etc/postgresql &&
+      sudo chown -R postgres:postgres /workspace/postgresql /workspace/etc/postgresql &&
+      sudo pg_createcluster -d /workspace/postgresql/data $PGVERSION main &&
+      sudo service postgresql start &&
+      sudo -u postgres psql -c "CREATE USER $DATABASE_USERNAME SUPERUSER" &&
+      sudo -u postgres psql -c "ALTER ROLE $DATABASE_USERNAME WITH PASSWORD '${DATABASE_PASSWORD}'" &&
       mkdir -p .vscode &&
       echo '{"workbench.startupEditor": "none"}' > .vscode/settings.json &&
       echo 'RAILS_DEVELOPMENT_HOST="3000-${GITPOD_WORKSPACE_ID}.${GITPOD_WORKSPACE_CLUSTER_HOST}"' > .rbenv-vars &&
@@ -15,6 +20,7 @@ tasks:
       echo "Compiling assets, please wait a moment..." &&
       ./bin/webpacker
     command: |
+      sudo service postgresql start &&
       cd development_app &&
       bundle &&
       ./bin/rails runner 'Decidim::Organization.first.update!(host: ENV.fetch("RAILS_DEVELOPMENT_HOST", "localhost").gsub(/\A"|"\Z/, ""))' &&

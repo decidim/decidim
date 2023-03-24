@@ -5,17 +5,14 @@ USER root
 ENV PGVERSION=14
 RUN apt-get install -y postgresql postgresql-client postgresql-server-dev-${PGVERSION} libpq-dev
 
-# Move the database data directory to the workspace folder and setup the database user
+# Setup the database user env vars, drop the default database cluster and change the folders to the workspace
+# This makes it possible to persist the database within the workspace
 ENV DATABASE_USERNAME=decidim
 ENV DATABASE_PASSWORD=development
 RUN pg_dropcluster $PGVERSION main \
-  && mkdir -p /workspace/postgresql/data \
-  && chown -R postgres:postgres /workspace/postgresql \
-  && pg_createcluster -d /workspace/postgresql/data $PGVERSION main \
-  && service postgresql start \
-  && sudo -u postgres psql -c "CREATE USER $DATABASE_USERNAME SUPERUSER" \
-  && sudo -u postgres psql -c "ALTER ROLE $DATABASE_USERNAME WITH PASSWORD '${DATABASE_PASSWORD}'" \
-  && service postgresql stop
+  && rm -rf /etc/postgresql \
+  && ln -s /workspace/etc/postgresql /etc/postgresql \
+  && chown -h postgres:postgres /etc/postgresql
 
 #### User space ####
 USER gitpod
