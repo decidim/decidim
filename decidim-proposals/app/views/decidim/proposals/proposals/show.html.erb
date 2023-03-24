@@ -90,8 +90,6 @@ extra_admin_link(
       <%= cell("decidim/proposals/cost_report", @proposal) %>
     <% end %>
 
-    <%= cell "decidim/tags", @proposal %>
-
     <%= cell("decidim/announcement", proposal_reason_callout_announcement, callout_class: proposal_reason_callout_class) if @proposal.answered? && @proposal.published_state? %>
 
     <div class="mt-8" data-component="accordion" data-multiselectable="false" data-collapsible="false">
@@ -114,8 +112,40 @@ extra_admin_link(
 
     <%# REDESIGN_PENDING: the next two resources are a simple list of users, as the decidim/meetings/public_participants_list_cell does.
                            It would be useful to move such list to the core, in order to reuse it elsewhere %>
-    <%= cell "decidim/endorsers_list", @proposal %>
-    <%= amendments_for @proposal %>
+    <%#= cell "decidim/endorsers_list", @proposal %>
+    <%#= amendments_for @proposal %>
+
+    <%#= render partial: "actions" %>
+
+    <div class="mt-8">
+      <ul class="drawer-metadata__container" data-metadata-footer>
+        <%= content_tag :li, resource_reference(@proposal), class: "drawer-metadata__item" %>
+        <%= content_tag :li, resource_version(proposal_presenter, versions_path: proposal_versions_path(@proposal)), class: "drawer-metadata__item" %>
+
+        <% fingerprint_id = dom_id(@proposal, :fingerprint_dialog) %>
+        <%= content_tag :li, class: "drawer-metadata__item" do %>
+          <%= content_tag :button, t("decidim.fingerprint.check"), data: { dialog_open: fingerprint_id } %>
+        <% end %>
+        <%= decidim_modal id: fingerprint_id, class: "fingerprint-modal" do %>
+          <div data-dialog-container>
+            <%= icon "fingerprint-line" %>
+            <h2 id="dialog-title-<%= fingerprint_id %>" tabindex="-1" data-dialog-title><%= t "decidim.fingerprint.title" %></h2>
+            <div class="fingerprint-modal__container">
+              <p id="dialog-desc-<%= fingerprint_id %>"><%= t "decidim.fingerprint.explanation" %></p>
+              <div>
+                <span class="fingerprint-modal__span"><%= t "decidim.fingerprint.value" %>:</span>
+                <code class="fingerprint-modal__code"><%= decidim_html_escape @proposal.fingerprint.value %></code>
+              </div>
+              <div>
+                <span class="fingerprint-modal__span"><%= t "decidim.fingerprint.source" %>:</span>
+                <code class="fingerprint-modal__code"><%= decidim_html_escape @proposal.fingerprint.source %></code>
+              </div>
+              <p><%= t("decidim.fingerprint.replicate_help", online_calculator_link: link_to(t("decidim.fingerprint.online_calculator_name"), "http://www.md5calc.com/sha256", target: "_blank", rel: "noopener")).html_safe %>
+            </div>
+          </div>
+        <% end %>
+      </ul>
+    </div>
 
     <%# REDESIGN_PENDING: include in the content_for once merged https://github.com/decidim/decidim/pull/10620 %>
     <%= comments_for @proposal %>

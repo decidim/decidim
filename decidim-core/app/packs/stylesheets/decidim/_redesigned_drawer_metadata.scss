@@ -10,8 +10,9 @@
       @apply font-bold text-black;
     }
 
+    button,
     a{
-      @apply underline text-secondary inline-block first-letter:uppercase;
+      @apply underline text-sm text-secondary inline-block first-letter:uppercase;
     }
   }
 }
