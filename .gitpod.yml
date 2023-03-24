@@ -13,7 +13,11 @@ tasks:
       echo 'Rails.application.config.hosts << ENV.fetch("RAILS_DEVELOPMENT_HOST", "").gsub(/\A"|"\Z/, "")' > development_app/config/initializers/gitpod.rb &&
       cd development_app &&
       echo "Compiling assets, please wait a moment..." &&
-      ./bin/webpacker &&
+      ./bin/webpacker
+    command:
+      cd development_app &&
+      bundle &&
+      while ! test -f public/decidim-packs/manifest.json; do sleep 1 ; done &&
       gp sync-done dev-app-ready &&
       exit
   - name: Development server
