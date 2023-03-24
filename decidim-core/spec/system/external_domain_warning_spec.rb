@@ -55,7 +55,7 @@ describe "ExternalDomainWarning", type: :system do
     it "shows invalid url alert" do
       visit invalid_url
       expect(page).not_to have_content("Invalid URL")
-      expect(page).to have_content("#{destination}")
+      expect(page).to have_content(destination)
       expect(page).to have_link("Proceed", href: destination)
     end
   end
@@ -95,7 +95,6 @@ describe "ExternalDomainWarning", type: :system do
       expect(page).to have_content("Invalid URL")
       expect(page).to have_current_path(decidim.root_path, ignore_query: true)
     end
-
   end
 
   context "when the url is malformed using a complex scenario" do
