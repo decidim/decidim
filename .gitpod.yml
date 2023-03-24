@@ -2,7 +2,7 @@ image:
   file: .gitpod.Dockerfile
 
 tasks:
-  - name: Prepare development app
+  - name: Development app
     before: sudo service postgresql start
     init: |
       mkdir -p .vscode &&
@@ -14,19 +14,12 @@ tasks:
       cd development_app &&
       echo "Compiling assets, please wait a moment..." &&
       ./bin/webpacker
-    command:
+    command: |
       cd development_app &&
       bundle &&
-      gp sync-done dev-app-ready &&
-      exit
-  - name: Development server
-    command: |
-      gp sync-await dev-app-ready &&
-      cd development_app &&
       ./bin/rails runner 'Decidim::Organization.first.update!(host: ENV.fetch("RAILS_DEVELOPMENT_HOST", "localhost").gsub(/\A"|"\Z/, ""))' &&
       (sleep 10 && gp preview $(gp url 3000) --external &) &&
       ./bin/rails s
-    openMode: split-right
 
 ports:
   - name: Web App
