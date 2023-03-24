@@ -4,6 +4,8 @@ image:
 tasks:
   - init: |
       sudo service postgresql start &&
+      mkdir -p .vscode &&
+      echo '{"workbench.startupEditor": "none"}' > .vscode/settings.json &&
       echo 'RAILS_DEVELOPMENT_HOST="3000-${GITPOD_WORKSPACE_ID}.${GITPOD_WORKSPACE_CLUSTER_HOST}"' > .rbenv-vars &&
       bundle &&
       bundle exec rake development_app &&
