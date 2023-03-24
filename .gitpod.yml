@@ -4,9 +4,13 @@ image:
 tasks:
   - name: Development app
     init: |
-      sudo mkdir -p /workspace/postgresql/data /workspace/etc/postgresql &&
-      sudo chown -R postgres:postgres /workspace/postgresql /workspace/etc/postgresql &&
-      sudo pg_createcluster -d /workspace/postgresql/data $PGVERSION main &&
+      (
+        [ $(sudo pg_lsclusters -h | wc -l) -eq 0 ] && (
+          sudo mkdir -p /workspace/postgresql/data /workspace/etc/postgresql &&
+          sudo chown -R postgres:postgres /workspace/postgresql /workspace/etc/postgresql &&
+          sudo pg_createcluster -d /workspace/postgresql/data $PGVERSION main
+        ) || echo "Database exists"
+      ) &&
       sudo service postgresql start &&
       sudo su postgres -c "psql -c 'CREATE USER $DATABASE_USERNAME SUPERUSER'" &&
       sudo su postgres -c "psql -c \"ALTER ROLE $DATABASE_USERNAME WITH PASSWORD '${DATABASE_PASSWORD}'\"" &&
