@@ -18,6 +18,7 @@ tasks:
       gp sync-await dev-app-ready &&
       cd development_app &&
       ./bin/rails runner 'Decidim::Organization.first.update!(host: ENV.fetch("RAILS_DEVELOPMENT_HOST", "localhost").gsub(/\A"|"\Z/, ""))' &&
+      (sleep 60 && gp preview $(gp url 3000) && gp preview $(gp url 3000) --external) & &&
       ./bin/dev
     openMode: split-right
 
@@ -25,7 +26,7 @@ ports:
   - name: Web App
     description: The main application web server
     port: 3000
-    onOpen: open-preview
+    onOpen: ignore
     visibility: public
   - name: Webpacker
     description: The webpacker dev server for asset reloading
