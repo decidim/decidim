@@ -20,7 +20,7 @@ tasks:
       gp sync-await dev-app-ready &&
       cd development_app &&
       ./bin/rails runner 'Decidim::Organization.first.update!(host: ENV.fetch("RAILS_DEVELOPMENT_HOST", "localhost").gsub(/\A"|"\Z/, ""))' &&
-      (sleep 10 && gp preview $(gp url 3000) --external &) &&
+      (sleep 5 && gp preview $(gp url 3000) --external &) &&
       ./bin/rails s
     openMode: split-right
 
