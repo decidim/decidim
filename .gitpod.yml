@@ -20,7 +20,7 @@ tasks:
       ./bin/rails runner 'Decidim::Organization.first.update!(host: ENV.fetch("RAILS_DEVELOPMENT_HOST", "localhost").gsub(/\A"|"\Z/, ""))' &&
       echo "Compiling assets, please wait a moment..." &&
       ./bin/webpacker &&
-      (sleep 10 && gp preview $(gp url 3000) && gp preview $(gp url 3000) --external &) &&
+      (sleep 10 && gp preview $(gp url 3000) --external &) &&
       ./bin/rails s
     openMode: split-right
 
@@ -28,7 +28,7 @@ ports:
   - name: Web App
     description: The main application web server
     port: 3000
-    onOpen: ignore
+    onOpen: open-preview
     visibility: public
   - name: Webpacker
     description: The webpacker dev server for asset reloading
