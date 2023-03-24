@@ -12,6 +12,9 @@ $(() => {
   });
   $commentReply.remove();
   $content.replaceWith(deleteDataHtml);
+  Rails.fire(document, "comments:loaded", {
+    commentsIds: [commentId]
+  });
 
   $(".comments-count", $(`#${rootCommentableId}`)).text(<%== t("decidim.components.comments.title", count: @comment.root_commentable.comments_count).to_json %>);
 });
