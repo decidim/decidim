@@ -1,0 +1,13 @@
+<div class="proposal__actions">
+  <div>
+    <% if endorsements_enabled? %>
+      <%= endorsement_buttons_cell(@proposal) %>
+    <% end %>
+
+    <%= cell "decidim/comments_button", nil %>
+  </div>
+
+  <%= cell "decidim/tags", @proposal %>
+</div>
+
+<%= cell "decidim/endorsers_list", @proposal, layout: :full %>

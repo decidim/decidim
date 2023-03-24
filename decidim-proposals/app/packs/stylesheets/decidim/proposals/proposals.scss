@@ -40,4 +40,12 @@
       @apply text-gray-2 uppercase text-sm;
     }
   }
+
+  &__actions{
+    @apply flex flex-col md:flex-row justify-between items-center md:items-start gap-4;
+
+    > :first-child{
+      @apply flex items-center gap-2;
+    }
+  }
 }
