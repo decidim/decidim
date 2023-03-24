@@ -115,6 +115,8 @@ $(() => {
   scrollToLastChild()
 
   // NOTE: new libraries required to give functionality to redesigned views
+  const screens = {md: "768px"};
+  Object.keys(screens).forEach((key) => (window.matchMedia(`(min-width: ${screens[key]})`).matches) && document.querySelectorAll(`[data-controls][data-open-${key}]`).forEach((elem) => (elem.dataset.open = elem.dataset[`open-${key}`.replace(/-([a-z])/g, (str) => str[1].toUpperCase())])))
   Accordions.init();
   Dropdowns.init();
   document.querySelectorAll("[data-dialog]").forEach(
