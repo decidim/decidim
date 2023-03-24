@@ -37,16 +37,7 @@
       <%= render "meeting_agenda" %>
     <% end %>
 
-    <div class="meeting__actions">
-      <div>
-        <%# REDESING_PENDING: Usually this action block comes together, maybe a wrapper cell? %>
-        <%# REDESING_PENDING: Uncomment when available: https://github.com/decidim/decidim/pull/9852 %>
-        <%#= cell "decidim/endorsers_list_button", meeting %>
-        <%#= endorsement_buttons_cell(post) %>
-        <%#= cell "decidim/comments_button", nil %>
-      </div>
-      <%= cell "decidim/tags", meeting %>
-    </div>
+    <%= render partial: "actions" %>
 
     <%= comments_for meeting %>
     <%= pad_iframe_for meeting %>
