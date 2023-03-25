@@ -195,6 +195,7 @@ cs:
             - Postupujte podle kroků k vytvoření nové iniciativy
           description: Tento odznak se uděluje, když zahájíte nové iniciativy, spolupracujete s ostatními a provádíte je.
           description_another: Tento uživatel zveřejnil %{score} iniciativ.
+          description_own: Máte zveřejněno %{score} iniciativ.
           name: Publikované iniciativy
           next_level_in: Získejte %{score} dalších publikovaných iniciativ, abyste dosáhli další úrovně!
           unearned_another: Tento uživatel zatím neobdržel žádné publikované iniciativy.
@@ -223,6 +224,8 @@ cs:
           index:
             approve: Schvalovat
             confirm_revoke: Jste si jisti?
+            invite_to_committee_help: Sdílejte tento odkaz pro pozvání ostatních účastníků do propagačního výboru.
+            no_members_yet: Ve výboru promotérů nejsou žádní členové.
             revoke: Zrušit
             title: Členové výboru
         content_blocks:
@@ -244,6 +247,7 @@ cs:
             export_votes: Exportovat podpisy
             reject: Odmítnout iniciativu
             send_to_technical_validation: Odeslání k technickému ověření
+            success: Iniciativa byla odeslána na technické potvrzení.
             update: Aktualizovat
           form:
             attachments: Přílohy
@@ -258,6 +262,9 @@ cs:
             edit: Upravit
             new: Nový
             photos: Fotky
+          update:
+            error: Došlo k chybě.
+            success: Tato iniciativa byla úspěšně aktualizována.
         initiatives_settings:
           edit:
             update: Aktualizovat
@@ -269,6 +276,11 @@ cs:
             signatures: S nejvíce podpisy
             title: Nastavení pro iniciativy
         initiatives_type_scopes:
+          create:
+            error: Došlo k chybě.
+            success: Byla vytvořena nová oblast působnosti pro daný typ iniciativy.
+          destroy:
+            success: Oblast působnosti byla úspěšně odstraněna.
           edit:
             back: Zpět
             confirm_destroy: Jste si jisti?
@@ -279,7 +291,15 @@ cs:
             back: Zpět
             create: Vytvořit
             title: Vytvořit rozsah typů iniciativy
+          update:
+            error: Došlo k chybě.
+            success: Rozsah působnosti byl úspěšně aktualizován
         initiatives_types:
+          create:
+            error: Došlo k chybě.
+            success: Nový druh iniciativy byl úspěšně vytvořen
+          destroy:
+            success: Druh iniciativy byl úspěšně odstraněn.
           edit:
             confirm_destroy: Jste si jisti?
             destroy: Odstranit
@@ -295,6 +315,9 @@ cs:
           new:
             create: Vytvořit
             title: Nový typ iniciativy
+          update:
+            error: Došlo k chybě.
+            success: Druh iniciativy byl úspěšně aktualizován.
       admin_log:
         initiative:
           publish: "%{user_name} zveřejnil iniciativu %{resource_name}"
@@ -333,6 +356,7 @@ cs:
           success: Žádost byla schválena.
         new:
           continue: Pokračovat
+          help_text: Chystáte se požádat o členství ve výboru promotéra této iniciativy.
         revoke:
           success: Žádost byla zrušena.
         spawn:
@@ -434,6 +458,7 @@ cs:
             day: Den
             month: Měsíc
             year: Rok
+          help: Chcete-li iniciativu podepsat, vyplňte své osobní údaje do následujících polí.
         finish:
           back_to_initiative: Zpět na iniciativu
         sms_code:
@@ -590,6 +615,9 @@ cs:
         accepted: Přijato
         expired: Platnost vypršela
       unavailable_scope: Nedostupný rozsah
+      update:
+        error: Došlo k chybě.
+        success: Tato iniciativa byla úspěšně aktualizována.
       versions:
         shared:
           back_to_resource: Přejít zpět na iniciativu
