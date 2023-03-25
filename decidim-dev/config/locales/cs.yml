@@ -52,6 +52,7 @@ cs:
           description_own: Vytvořili jste %{score} testů.
           name: Testy
           next_level_in: Vytvořte %{score} dalších testů, abyste dosáhli další úrovně!
+          unearned_another: Tento uživatel zatím nevytvořil žádné testy.
           unearned_own: Dosud jste nevytvořili žádné testy.
     resource_links:
       test_link:
