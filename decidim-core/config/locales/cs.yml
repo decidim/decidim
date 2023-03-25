@@ -975,6 +975,7 @@ cs:
         manage_members: Správa členů
       promote:
         error: Při propagaci tohoto účastníka došlo k chybě.
+        success: Účastník byl úspěšně povýšen.
       reject:
         error: Při odmítnutí této žádosti o připojení došlo k chybě.
         success: Žádost o připojení byla úspěšně zamítnuta.
@@ -986,17 +987,23 @@ cs:
         are_you_sure: Jste si jisti?
       create:
         error: Při vytváření skupiny došlo k chybě.
+        success: Skupina úspěšně vytvořena.
       edit:
         edit_user_group: Upravit skupinu
         update_user_group: Aktualizovat skupinu
       form:
+        document_number_help: Nepoužívejte pomlčky ani mezery.
         email_help: E-mail vaší organizace, asociace, kolektivu, skupiny atd.
         fill_in_for_verification: 'Pokud chcete ověřit vaši skupinu, vyplňte tato pole:'
         name_help: Název vaší organizace, sdružení, kolektivu, skupiny atd.
         nickname_help: Uživatelské jméno vaší organizace, asociace, kolektivní skupiny, atd. Nepoužívejte mezery ani diakritické znaménka.
+        phone_help: Nepoužívejte pomlčky ani mezery.
       join:
+        error: Při připojení ke skupině došlo k chybě.
         success: Žádost o připojení byla úspěšně vytvořena. Před přijetím do skupiny administrátor váš požadavek zkontroluje.
       leave:
+        error: Při opuštění skupiny došlo k chybě.
+        last_admin: Nemůžete se odebrat z této skupiny, protože jste poslední správce. Udělejte jiného člena administrátorem asbyste mohl opustit skupinu.
         success: Skupina úspěšně opustila.
       members:
         accept_or_reject_join_requests: 'Následující uživatelé se připojili k této skupině. Přijmout nebo odmítnout jejich požadavky:'
@@ -1006,15 +1013,20 @@ cs:
         create_user_group: Vytvořit skupinu
         new_user_group: Nová skupina
         subtitle: Vytvořte skupinu a pozvěte ostatní uživatele, aby se připojili, abyste se mohli podílet na kolektivní úrovni.
+      no_user_groups: Zatím nepatří do žádné skupiny.
       roles:
         admin: Správce
         creator: Administrátor
         member: Člen
+      update:
+        error: Při aktualizaci skupiny došlo k problému.
+        success: Skupina byla úspěšně aktualizována.
     help:
       main_topic:
         default_page:
           content: "<p>v %{organization} se můžete zúčastnit a rozhodnout se o různých tématech přes místa, která vidíte v horním menu: procesy, shromáždění, iniciativy, konzultace.</p> <p>V rámci každé z nich najdete různé možnosti účasti: učinit návrhy - jednotlivě nebo s jinými lidmi -, účastnit se debat, upřednostňovat realizaci projektů, účastnit se osobních setkání a dalších akcí.</p>\n"
           title: Co mohu udělat v %{organization}?
+        description: Přečtěte si více o %{organization}.
         title: Obecná nápověda
     last_activities:
       activities:
@@ -1062,6 +1074,8 @@ cs:
       static:
         latlng_text: 'zeměpisná šířka: %{latitude}, zeměpisná délka: %{longitude}'
         map_service_brand: OpenStreetMap
+    members:
+      no_members: Tato skupina zatím nemá žádné členy.
     menu:
       help: Pomoc
       home: Úvod
@@ -1108,6 +1122,8 @@ cs:
           modal_title: Nová konverzace
           no_results: Žádné výsledky
           participant_with_disabled_message_reception: Tento uživatel nechce přijímat soukromé zprávy.
+        create:
+          error: Konverzace nebyla zahájena. Zkuste to znovu později.
         error_modal:
           close: Zavřít okno
           correct_errors: Opravte chyby a zkuste to znovu.
@@ -1117,6 +1133,7 @@ cs:
           ago: před
           new_conversation: Nová konverzace
           next: Další
+          no_conversations: Zatím nemáte žádné konverzace.
           title: Konverzace
         reply_form:
           placeholder: Vaše odpověď...
@@ -1124,11 +1141,14 @@ cs:
         show:
           back: Zpět ke všem konverzacím
           chat_with: Konverzace s
+          deleted_accounts: Nemůžete mít konverzaci s odstraněnými účty.
           not_allowed: Tento uživatel nepřijímá přímé zprávy.
           title: Konverzace s číslem %{usernames}
         start:
           placeholder: Vaše zpráva...
           send: Poslat
+        update:
+          error: Zpráva nebyla odeslána z důvodu chyby.
     metrics:
       download:
         csv: Stáhnout data (CSV)
@@ -1147,6 +1167,8 @@ cs:
     newsletter_mailer:
       newsletter:
         no_reply_notice: Tento e-mail byl odeslán z e-mailové adresy, která nemůže přijmout příchozí email. Prosím, neodpovídejte na tuto zprávu.
+        note: Tento e-mail jste obdrželi, protože jste odběrateli zpravodajů na %{organization_name}. Můžete změnit nastavení na <a href="%{link}">straně oznámení </a>.
+        see_on_website: Tento e-mail nelze vidět správně? Zobrazit ho na <a href="%{link}" target="_blank" class="see-on-website">webových stránkách</a>.
         unsubscribe: Chcete-li se odhlásit z příjmu tohoto typu e-mailu, <a href="%{link}" target="_blank" class="unsubscribe">Odhlásit se</a>.
     newsletter_templates:
       basic_only_text:
@@ -1169,9 +1191,16 @@ cs:
         main_image: Hlavní obrázek
     newsletters:
       unsubscribe:
+        check_subscription: Pokud chcete změnit své předvolby, můžete tak učinit na <a href="%{link}" target="_blank">konfigurační stránce</a>.
+        error: Při odhlášení došlo k chybě.
         success: Úspěšně jste odhlášeni.
         token_error: Platnost odkazu vypršela.
         unsubscribe: Odhlásit odběr
+    newsletters_opt_in:
+      unathorized: Je nám líto, tento odkaz již není k dispozici.
+      update:
+        error: Při ukládání nastavení zpravodaje došlo k chybě.
+        success: Nastavení Zpravodaje bylo úspěšně aktualizováno.
     newsletters_opt_in_mailer:
       notify:
         body_1: Zpracování osobních údajů a jejich ochrana jsou pro nás všechny stále důležitější. S novým obecným nařízením o ochraně osobních údajů (GDPR) ze dne 25. května 2018 mají jednotlivci lepší kontrolu nad svými osobními údaji. Z tohoto důvodu potřebujeme vaše "OK" pro pokračování v zasílání relevantních informací o aktivitách %{organization_name}.
@@ -1206,6 +1235,7 @@ cs:
       show:
         administrators: Správci
         allow_public_contact: Umožnit komukoli poslat mi přímou zprávu, i když je nesleduji.
+        allow_push_notifications: Získejte oznámení a zjistěte, co se děje, když nejste na platformě. Kdykoliv je můžete vypnout.
         direct_messages: Přijímat přímé zprávy od kohokoli
         email_on_moderations: Chci dostávat e-mail pokaždé, když je něco nahlášeno k moderování.
         everything_followed: Všechno, co sleduji
@@ -1221,6 +1251,7 @@ cs:
         notifications_sending_frequency: Jak často chcete dostávat e-mail s oznámením?
         own_activity: Moje vlastní činnost, jako kdyby někdo komentoval ve svém návrhu nebo mě zmínil
         push_notifications: Push oznámení
+        push_notifications_reminder: Chcete-li dostávat oznámení z platformy, musíte je nejdříve povolit v nastavení prohlížeče.
         receive_notifications_about: Chci dostávat oznámení
         update_notifications_settings: Uložit změny
       update:
@@ -1228,6 +1259,7 @@ cs:
         success: Nastavení oznámení bylo úspěšně aktualizováno.
     offline:
       show:
+        message: Vypadá to, že jste momentálně v režimu offline. Opakujte akci později.
         retry: Zkusit znovu
     open_data:
       not_available_yet: Soubory Open Data nejsou dosud k dispozici. Zkuste to prosím znovu za pár minut.
@@ -1238,6 +1270,7 @@ cs:
         verified: Ověřeno
     pad_iframe:
       disclaimer: Obsah této podložky jsou napsány registrovanými uživateli a vyjadřují jejich názory. %{organization} nemůže být zodpovědný za jeho obsah.
+      explanation: Do poznámkového bloku můžete během schůze společně psát poznámky, vytvořit zápis ze schůze pak bude snazší.
       pad: Podložka
     pages:
       home:
@@ -1280,6 +1313,7 @@ cs:
           agreement: Souhlasím s těmito podmínkami
           legend: Souhlasím s podmínkami používání
         refuse:
+          modal_body: Pokud odmítnete, nebudete moci platformu používat, můžete <a href="%{download_your_data_path}">stáhnout svá data</a> a/nebo <a href="%{delete_path}">smazat svůj účet</a>.
           modal_btn_continue: Přijměte termíny a pokračujte
           modal_button: Odmítněte podmínky
           modal_close: Zavřít modální
