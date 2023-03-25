@@ -918,6 +918,7 @@ cs:
             success: Volební komisař byla úspěšně vytvořen.
           destroy:
             invalid: Při mazání tohoto volebního komisaře došlo k chybě.
+            success: Volební komisař byla úspěšně smazán.
           form:
             existing_user: Existující účastník
             non_user: Pozvat nového účastníka
@@ -934,7 +935,14 @@ cs:
             choose_polling_officers: Vybrat volební komisaře
             close: Zavřít
             more_polling_officers: Existuje ještě %{number} volebních komisařů. Upřesněte vyhledávání a najděte je.
+            no_polling_officers: Žádní volební komisaři neodpovídají vašim kritériím vyhledávání, nebo zde není žádný volební komisař.
         polling_stations:
+          create:
+            invalid: Při vytváření této volební místnosti došlo k chybě.
+            success: Volební místnost byla úspěšně vytvořena.
+          destroy:
+            invalid: Při mazání této volební místnosti došlo k chybě.
+            success: Volební místnost byla úspěšně odstraněna.
           edit:
             title: Upravit volební místnost
             update: Aktualizovat volební místnost
@@ -950,6 +958,9 @@ cs:
           new:
             create: Vytvořit
             title: Vytvořit volební místnost
+          update:
+            invalid: Při aktualizaci této volební místnosti došlo k chybě.
+            success: Volební místnost byla úspěšně aktualizována.
         titles:
           votings: Hlasování
         votings:
@@ -959,7 +970,12 @@ cs:
             new_voting: Nové hlasovací místo
             publish: Publikovat
             unpublish: Zrušit publikování
+          create:
+            invalid: Při vytváření tohoto hlasování došlo k chybě.
+            success: Hlasování bylo úspěšně vytvořeno.
           edit:
+            add_election_component: Pro toto hlasování nemáte nakonfigurovány žádné volby. Přidejte jej prosím do sekce Komponenty.
+            assign_missing_officers: Existují volební místnosti bez předsedy a/nebo manažerů. Prosím, přiřaďte je ze sekce volebních místností.
             update: Aktualizovat
           form:
             banner_image: Obrázek banneru
@@ -1014,11 +1030,14 @@ cs:
               confirm: Odstranění všech dat z rejstříku osob nelze vrátit zpět. Opravdu chcete pokračovat?
             destroy:
               error: Došlo k chybě při odstraňování seznamu osob, opakujte akci později.
+              success: Seznam členů byl smazán.
             export_access_codes:
               button: Generovat hlasovací přístupové kódy
               callout: Nyní můžete pokračovat v exportu přístupových kódů. Lze to provést pouze jednou. Jakmile zahájíte export, obdržíte e-mail s pokyny pro <strong>%{email}</strong>
               confirm: Exportovat přístupové kódy můžete pouze jednou. Ujistěte se, že máte přístup k e-mailovému účtu <strong>%{email}</strong>.
               file_not_exist: Tento soubor neexistuje.
+              launch_error: Problém se spuštěním exportu přístupových kódů.
+              launch_success: Export přístupových kódů byl spuštěn. Brzy obdržíte e-mail na %{email}.
             exporting_access_codes:
               info_message: "<strong>Počkejte prosím</strong>, export se připravuje, obdržíte ho brzy na %{email} (to může trvat několik minut)."
             freeze:
@@ -1066,6 +1085,7 @@ cs:
             subject: Export hlasovacích kódů pro %{voting_title} je k dispozici
         vote_flow:
           already_voted_in_person: Tento uživatel již hlasoval osobně a nemá právo hlasovat.
+          datum_not_found: Poskytnutá data neodpovídají žádnému voliči.
       content_blocks:
         highlighted_votings:
           name: Zvýrazněné hlasování
@@ -1110,6 +1130,7 @@ cs:
             info_text: Uveďte celkový počet odpovědí na každou otázku.
             modal_ballots_results_count_error:
               close_modal: Zavřít
+              info_text: Celkový počet hlasovacích lístků neodpovídá celkovému počtu obálek. Zkontrolujte prosím celkový počet hlasovacích lístků.
               title: Součet hlasovacích lístků se nesčítá
             save_recount: Uložit přepočet
             total_ballots: Celkový počet hlasovacích lístků
@@ -1124,6 +1145,7 @@ cs:
               btn_validate_total: Ověření celkového přepočtu hlasovacích lístků
               close_modal: Zavřít
               info_explanation_text: 'Zkontrolujte celkový počet hlasovacích lístků. Pokud je celkové číslo nesprávné, musíte monitorovacímu výboru poskytnout vysvětlení:'
+              info_text: Celkový počet vložených hlasovacích lístků (obálek) neodpovídá počtu osob, které v této volební místnosti hlasovaly.
               message_for_monitoring_committee: Zpráva pro monitorovací výbor
               review_recount: Zkontrolovat přepočet
               text_area_placeholder: Zadejte prosím vaši zprávu
@@ -1138,6 +1160,7 @@ cs:
             info_text: Uzavření hlasovací stanice voleb.
           sign:
             cancel: Zrušit
+            check_box: Přezkoumal jsem to a je to stejné jako fyzický certifikát o ukončení voleb
             close_modal: Zavřít
             confirm: Ok, pokračovat
             error: Došlo k chybě. Prosím zkuste to znovu.
