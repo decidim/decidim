@@ -1472,6 +1472,7 @@ cs:
         already_reported: Tento obsah je již nahlášen a bude přezkoumán administrátorem.
         close: Zavřít
         description: Co je s uživatelem nevhodné?
+        does_not_belong: Obsahuje nezákonnou činnost, hrozby sebevraždou, osobní informaci nebo cokoliv jiného, o čem si myslíte, že nepatří do %{organization_name}.
         offensive: Obsahuje rasismus, sexismus, urážky, osobní útoky, hrozby smrti, sebevražedné žádosti nebo jakoukoliv formu nenávistného projevu.
         report: Nahlásit
         spam: Obsahuje clickbait, reklamu, podvody nebo škodlivé skripty.
@@ -1535,6 +1536,7 @@ cs:
     user_contact_disabled: Tento uživatel nepřijímá přímé zprávy.
     user_conversations:
       create:
+        error: Zprávu nelze vytvořit. Zkuste to znovu později.
         existing_error: Zprávu nelze vytvořit. Konverzace již existuje, zkuste to prosím znovu.
         success: Konverzace byla úspěšně spuštěna!
       index:
@@ -1549,6 +1551,7 @@ cs:
         next: Další
         no_conversations_warning: Zatím nejsou žádné konverzace.
         no_results: Žádné výsledky
+        participant_with_disabled_message_reception: Tento uživatel zakázal příjem zpráv.
         time_ago: "před %{time}"
       new:
         title: Zahájit konverzaci
@@ -1558,6 +1561,7 @@ cs:
         title_reply: Odpovědět
       show:
         back: Zobrazit všechny konverzace
+        deleted_accounts: Nemůžete mít konverzaci s odstraněnými účty.
         not_allowed: Tento uživatel již nepřijímá žádné přímé zprávy.
         title: Konverzace s %{usernames}
       update:
@@ -1565,6 +1569,8 @@ cs:
     user_interests:
       show:
         my_interests: Mé zájmy
+        no_scopes: Tato organizace zatím nemá žádnou oblast působnosti!
+        select_your_interests: Vyberte témata, která vás zajímají, abyste v záložce Harmonogram ve svém profilu viděli události, které s nimi souvisejí.
         update_my_interests: Aktualizujte své zájmy
       update:
         error: Během aktualizace vašich zájmů došlo k chybě.
@@ -1606,6 +1612,7 @@ cs:
       show:
         version_index: Verze %{index}
     welcome_notification:
+      default_body: <p>Dobrý den, {{name}}, díky za připojení k {{organization}} a vítejte!</p><ul><li>Chcete-li získat rychlou představu o tom, co zde můžete udělat, podívejte se na sekci <a href="{{help_url}}">Nápověda</a>.</li><li>Až si ji přečtete, dostanete svůj první odznak. Zde je <a href="{{badges_url}}">seznam všech odznaků</a> které můžete získat, když se účastníte {{organization}}</li><li>v neposlední řadě se připojte k ostatním lidem, sdílejte s nimi zkušenost z toho, že jste se zapojili a zúčastnili se {{organization}}. Vypracujte návrhy, připomínky, diskusi, přemýšlejte o tom, jak přispívat ke společnému cíli, poskytněte argumenty, abyste přesvědčili, poslouchali a četli, abyste byli přesvědčeni, vyjadřovali své myšlenky konkrétním a přímým způsobem, reagovali trpělivě a rozhodovali, měli otevřenou mysl ke spolupráci a připojili se k jiným lidem.</li></ul>
       default_subject: Děkujeme, že jste se připojili k {{organization}}!
     wizard_step_form:
       wizard_aside:
@@ -1660,12 +1667,23 @@ cs:
         accept_until: Této pozvánce vyprší platnost v %{due_date}.
         decline: Odmítnout pozvánku
         hello: Dobrý den %{email},
+        ignore: |-
+          Pokud pozvánku nechcete přijmout, ignorujte tento e-mail.<br />
+          Váš účet nebude vytvořen, dokud nekliknete na odkaz výše a nenastavíte si uživatelské jméno a heslo.
         invited_you_as_admin: "%{invited_by} vás pozval jako administrátora z %{application}. Můžete jej přijmout prostřednictvím níže uvedeného odkazu."
         invited_you_as_private_user: "%{invited_by} vás pozval jako soukromého uživatele %{application}. Můžete jej přijmout prostřednictvím níže uvedeného odkazu."
         someone_invited_you: Někdo vás pozval na %{application}. Můžete jej přijmout prostřednictvím níže uvedeného odkazu.
         someone_invited_you_as_admin: Někdo Vás pozval jako administrátora %{application}, můžete jej přijmout pomocí níže uvedeného odkazu.
         someone_invited_you_as_private_user: Někdo vás pozval jako private_user %{application}, můžete jej přijmout pomocí níže uvedeného odkazu.
         subject: Pokyny k pozvánkám
+      invite_admin:
+        subject: Byli jste pozváni ke spravování organizace %{organization}
+      invite_collaborator:
+        subject: Byli jste pozváni ke spolupráci na organizaci %{organization}
+      invite_private_user:
+        subject: Byli jste pozváni k soukromé účasti na organizaci %{organization}
+      organization_admin_invitation_instructions:
+        subject: Byli jste pozváni ke spravování organizace %{organization}
       password_change:
         greeting: Dobrý den %{recipient}!
         message: Tímto vás informujeme, že vaše heslo bylo změněno.
@@ -1675,6 +1693,7 @@ cs:
         greeting: Dobrý den %{recipient}!
         instruction: Někdo požádal o odkaz na změnu hesla a můžete to provést pomocí níže uvedeného odkazu.
         instruction_2: Pokud jste o změnu hesla nežádali, prosím ignorujte tento e-mail.
+        instruction_3: Vaše heslo nebude změněno, dokud nekliknete na odkaz výše a nevytvoříte si nové heslo.
         subject: Resetujte pokyny k zadání hesla
       unlock_instructions:
         action: Odemkněte svůj účet
@@ -1696,6 +1715,7 @@ cs:
       new:
         forgot_your_password: Zapomněli jste heslo?
         send_me_reset_password_instructions: Pošlete mi pokyny k resetování hesla
+      no_token: Na tuto stránku nemáte přístup bez e-mailu pro obnovení hesla. Pokud pocházíte z e-mailu pro obnovení hesla, ujistěte se, že jste použili celou URL adresu.
       send_instructions: Obdržíte e-mail s pokyny, jak obnovit heslo během několika minut.
       send_paranoid_instructions: Pokud vaše e-mailová adresa existuje v naší databázi, obdržíte odkaz na obnovení hesla na vaši e-mailovou adresu během několika minut.
       updated: Vaše heslo bylo úspěšně změněno. Nyní jste přihlášeni.
@@ -1770,8 +1790,10 @@ cs:
       already_confirmed: bylo již potvrzeno, zkuste prosím přihlásit
       blank: nemůže být prázdné
       cannot_be_blank: nemůže být prázdné
+      confirmation: nesouhlasí s %{attribute}
       confirmation_period_expired: musí být potvrzeno v rámci %{period}, požádejte o nový
       content_type_allowlist_error: typ souboru není platný
+      cycle_detected: nadřazený prvek rozsahu nemůže být jeden z jeho podřazených prvků
       empty: nemůže být prázdný
       expired: uplynula, požádejte o novou
       file_size_is_less_than_or_equal_to: velikost souboru musí být menší nebo rovna %{count}
@@ -1877,6 +1899,8 @@ cs:
       notifications_dashboard:
         mark_all_as_read: Označit vše jako přečtené
         mark_as_read: Označit jako přečtené
+      offline_banner:
+        cache_version_page: Jejda! Vaše síť je offline. Toto je dříve uložená verze stránky, kterou navštívíte, možná není aktualizovaná.
       social_media_links:
         facebook: "%{organization} na Facebooku"
         github: "%{organization} na GitHubu"
