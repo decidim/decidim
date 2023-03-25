@@ -477,6 +477,8 @@ cs:
           leave_your_note: Nechte svou poznámku
           title: Soukromé poznámky
         proposals:
+          create:
+            success: Návrh byl úspěšně vytvořen.
           edit:
             title: Návrh aktualizace
             update: Aktualizace
@@ -511,6 +513,7 @@ cs:
             title: Vytvořte návrh
           publish_answers:
             number_of_proposals: Odpovědi na %{number} návrhů budou publikovány.
+            select_a_proposal: Vyberte návrh.
           show:
             amendments_count: Počet pozměňovacích návrhů
             assigned_valuators: Přiřazení hodnotitelé
@@ -542,9 +545,13 @@ cs:
             votes_ranking: Hodnocení podle podpory
           update_category:
             invalid: 'Tyto návrhy se již jmenují %{subject_name} v kategorii: %{proposals}.'
+            select_a_category: Vyberte kategorii.
+            select_a_proposal: Vyberte návrh.
             success: 'Návrhy úspěšně aktualizovány do kategorie %{subject_name}: %{proposals}.'
           update_scope:
             invalid: 'Tyto návrhy již měly rozsah %{subject_name}: %{proposals}.'
+            select_a_proposal: Vyberte návrh.
+            select_a_scope: Vyberte prosím rozsah.
             success: 'Návrhy byly úspěšně aktualizovány v rozsahu %{subject_name}: %{proposals}.'
         proposals_imports:
           new:
