@@ -39,4 +39,7 @@ RUN git clone https://github.com/rbenv/rbenv.git ~/.rbenv \
   && git clone https://github.com/rbenv/rbenv-vars.git "$(rbenv root)"/plugins/rbenv-vars \
   && rbenv install $RUBY_VERSION && rbenv global $RUBY_VERSION \
   && echo "export GEM_PATH=\"${WORKSPACE_GEM_HOME}:$(gem env home)\"" >> ~/.bashrc.d/60-ruby \
-  && echo "export GEM_HOME=\"${WORKSPACE_GEM_HOME}\"" >> ~/.bashrc.d/60-ruby
+  && echo "export GEM_HOME=\"${WORKSPACE_GEM_HOME}\"" >> ~/.bashrc.d/60-ruby \
+  && echo 'export RAILS_DEVELOPMENT_HOST="3000-${GITPOD_WORKSPACE_ID}.${GITPOD_WORKSPACE_CLUSTER_HOST}"' >> ~/.bashrc.d/70-decidim \
+  && echo 'export DECIDIM_FORCE_SSL=true' >> ~/.bashrc.d/70-decidim \
+  && echo 'export DECIDIM_SERVICE_WORKER_ENABLED=true' >> ~/.bashrc.d/70-decidim
