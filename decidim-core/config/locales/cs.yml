@@ -173,17 +173,20 @@ cs:
         send_again: Znovu odeslat
         title: Ověření změny e-mailu
       show:
+        available_locales_helper: Vyberte jazyk, který chcete použít k procházení a přijímání oznámení na platformě.
         change_password: Změnit heslo
         update_account: Aktualizovat účet
       update:
         error: Při aktualizaci účtu došlo k chybě.
         success: Váš účet byl úspěšně aktualizován.
+        success_with_email_confirmation: Váš účet byl úspěšně aktualizován. Pro potvrzení vaší nové e-mailové adresy obdržíte e-mail.
     activity:
       time_ago: "před %{time}"
     admin:
       actions:
         cancel: Zrušit
       password_change:
+        alert: Musíte změnit své heslo, abyste mohli pokračovat dále.
         notification: Uživatelé správce si musí měnit heslo každých %{days} dní.
     admin_log:
       area:
@@ -286,8 +289,10 @@ cs:
         amended_by: Pozměněno
         button: Změna %{model_name}
         error: Při změně tohoto zdroje došlo k chybě.
+        help_text: Zlepšete tento %{model_name} upravením jeho %{amendable_fields}.
         promote_button: Propagujte na %{model_name}
         promote_confirm_text: Opravdu chcete tuto emisi podpořit?
+        promote_help_text: Můžete podpořit tuto opravu a publikovat ji jako nezávislý %{model_name}.
         section_heading: Změny (%{count})
       compare_draft:
         continue: Pokračovat
@@ -329,9 +334,14 @@ cs:
         modify: Změnit
         publish: Publikovat
         title: Publikovat pozměňovací návrh
+      promoted:
+        error: Při zveřejňování pozměňovacího návrhu jako nového návrhu došlo k chybě.
+        success: Pozměňovací návrh byl úspěšně zveřejněn jako nový návrh.
       publish_draft:
         error: Při publikování pozměňovacího návrhu došlo k chybě.
         success: Pozměňovací návrh úspěšně publikován.
+      rejected:
+        error: Při odmítnutí tohoto pozměňovacího návrhu došlo k chybě, zkuste to prosím později.
       review:
         back: Zadní
         heading: Přezkoumejte pozměňovací návrh
