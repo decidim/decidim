@@ -25,6 +25,7 @@ cs:
         empty: Zatím nejsou žádné šablony.
         update:
           error: Při aktualizaci této šablony došlo k chybě.
+          success: Šablona byla úspěšně aktualizována.
       titles:
         template_types:
           questionnaires: Šablony dotazníků
