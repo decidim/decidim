@@ -745,6 +745,7 @@ cs:
           email_intro: Gratulujeme! Dosáhli jste úrovně %{current_level} na <a href="%{resource_url}">%{badge_name} odznaku</a>!
           email_outro: Toto oznámení jste obdrželi, protože jste aktivovali činnost na našich webových stránkách.
           email_subject: Dosáhli jste úrovně %{current_level} na %{badge_name} odznaku!
+          notification_title: Gratulujeme! Dosáhli jste úrovně %{current_level} na <a href="%{resource_path}">%{badge_name} odznaku</a>!
       groups:
         demoted_membership:
           email_intro: Administrátor skupiny <a href="%{resource_url}">%{user_group_name}</a> odebral vaše práva administrátora do této skupiny.
@@ -791,6 +792,8 @@ cs:
           email_outro: Toto oznámení jste obdrželi, protože jste administrátor platformy.
           email_subject: Skupina uživatelů aktualizovala svůj profil
           notification_title: Uživatelská skupina %{user_group_name} aktualizovala svůj profil, ponechala jej neověřený. Nyní jej můžete ověřit v <a href="%{groups_admin_path}">admin panelu</a>.
+      nickname_event:
+        notification_body: Opravili jsme způsob, jakým jsou přezdívky používány, aby nedocházelo k duplicitám, a proto jsme odstranili pravidlo rozlišení velkých a malých písmen. <br/> Vaše přezdívka byla vytvořena po jiné, se stejným jménem, takže jsme ji automaticky přejmenovali. Můžete to změnit z <a href="%{link_to_account_settings}">nastavení účtu</a>.
       notification_event:
         notification_title: Došlo k události <a href="%{resource_path}">%{resource_title}</a>.
       reports:
@@ -835,6 +838,7 @@ cs:
         result: Výsledky
     fingerprint:
       check: Kontrola jedinečnosti
+      explanation: Část textu níže je zkrácená, hashovaná reprezentace tohoto obsahu. Je užitečné zajistit, aby obsah nebyl zmanipulován, neboť jediná úprava by vedla k naprosto jiné hodnotě.
       online_calculator_name: MD5 kalkulačka online
       replicate_help: Tato digitální identifikace se vypočítá algoritmem SHA256. Abyste ji mohli replikovat sami, můžete použít %{online_calculator_link} a zkopírovat a vložit zdrojová data.
       source: Zdroj
@@ -853,6 +857,7 @@ cs:
         few: "%{count} sledují"
         many: "%{count} sleduje"
         other: "%{count} sledujících"
+      no_followings: Zatím nikoho nesleduje.
       non_public_followings: Některé z uvedených zdrojů nejsou veřejné.
     follows:
       create:
@@ -867,6 +872,7 @@ cs:
         decidim/user:
           password: Heslo je příliš krátké.
           password_confirmation: Potvrzení hesla se musí shodovat s heslem.
+        error: V tomto poli je chyba.
       file_help:
         file:
           explanation: 'Pokyny pro soubor:'
@@ -919,6 +925,8 @@ cs:
           description_own: "Uživatelé vás sledují %{score} uživatelů."
           name: Sledující
           next_level_in: Získejte %{score} dalších uživatelů, kteří vás budou následovat, abyste se dostali na další úroveň!
+          unearned_another: Tento uživatel zatím nemá žádné následovatele.
+          unearned_own: Zatím nemáte žádné sledujíící.
         index:
           badge_title: "%{name} odznak"
           how: Jak ho můžete získat
@@ -926,9 +934,11 @@ cs:
           title: Odznaky
       description: Odznaky jsou uznání akcí účastníků a pokrok v platformě. Jakmile začnete objevovat, účastnit se a spolupracovat v platformě, získáte různé odznaky.
       level: Úroveň %{level}
+      reached_top: Dosáhli jste nejvyšší úrovně tohoto odznaku.
       title: Jaké jsou odznaky?
     group_admins:
       actions:
+        are_you_sure: Jste si jisti? Toto uživatele ze skupiny neodstraní.
         demote_admin: Odstranit admin
       demote:
         error: Při odebrání tohoto účastníka ze seznamu administrátorů došlo k chybě.
@@ -945,8 +955,17 @@ cs:
       index:
         invite: Pozvat
         invite_user: Pozvat uživatele
+      invite:
+        error: Při pozvání tohoto účastníka došlo k chybě.
+        success: Účastník úspěšně pozván.
+      reject:
+        error: Při odmítnutí této pozvánky došlo k chybě.
+        success: Pozvánka byla úspěšně zamítnuta.
       reject_invitation: Odmítnout
     group_members:
+      accept:
+        error: Při přijímání této žádosti o připojení došlo k chybě.
+        success: Žádost o připojení byla úspěšně přijata.
       actions:
         are_you_sure: Jste si jisti?
         promote_to_admin: Udělat adminem
@@ -954,6 +973,10 @@ cs:
       index:
         current_members_without_admins: 'Aktuální členové (bez administrátorů):'
         manage_members: Správa členů
+      promote:
+        error: Při propagaci tohoto účastníka došlo k chybě.
+      reject:
+        error: Při odmítnutí této žádosti o připojení došlo k chybě.
     groups:
       actions:
         are_you_sure: Jste si jisti?
