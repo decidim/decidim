@@ -166,6 +166,8 @@ cs:
         unpublish: Zrušit publikování
       admin:
         answers:
+          create:
+            success: Odpověď byla úspěšně vytvořena.
           edit:
             title: Upravit odpověď
             update: Aktualizovat odpověď
@@ -179,7 +181,16 @@ cs:
             disable: Zrušit výběr odpovědi
             enable: Označit odpověď jako vybranou
           selected: Vybráno
+          update:
+            invalid: Při aktualizaci této odpovědi došlo k chybě.
+            success: Odpověď byla úspěšně aktualizována.
         elections:
+          create:
+            invalid: Při vytváření těchto voleb došlo k chybě.
+            success: Volba byla úspěšně vytvořena.
+          destroy:
+            invalid: Při mazání této volby došlo k chybě.
+            success: Volba byla úspěšně odstraněna.
           edit:
             title: Upravit volbu
             update: Aktualizovat volby
@@ -193,11 +204,16 @@ cs:
             success: Volba byla úspěšně publikována.
           unpublish:
             success: Volba byla úspěšně odebrána ze zveřejnění.
+          update:
+            invalid: Při aktualizaci těchto voleb došlo k chybě.
+            success: Volba byla úspěšně aktualizována.
         exports:
           elections: Volby
           feedback_form_answers: Odpovědi na formulář zpětné vazby
         mailers:
           trustee_mailer:
+            body: "<p>Dobrý den %{user_name},</p><p>Byli jste přidáni jako správce k %{resource_name}.</p>"
+            subject: Byli jste přidáni jako důvěrník do %{resource_name}
             trustee_zone: Přejít do zóny důvěrníků
         menu:
           trustees: Volební důvěrníci
@@ -211,13 +227,21 @@ cs:
           trustee:
             name: Důvěrník
         proposals_imports:
+          create:
+            invalid: Při importu návrhů do odpovědí došlo k potížím.
+            success: "%{number} návrhů bylo úspěšně importováno do odpovědí."
           new:
             create: Importovat návrhy na odpovědi
             no_components: V tomto participačním prostoru nejsou žádné další prvky návrhu, které by mohly do odpovědí importovat návrhy.
             select_component: Vyberte komponentu
             title: Importovat návrhy
         questions:
+          create:
+            election_started: Volby již byly zahájeny.
+            invalid: Při vytváření této otázky došlo k chybě.
+            success: Otázka byla úspěšně vytvořena.
           destroy:
+            invalid: Při odstraňování této otázky došlo k chybě.
             success: Úloha byla úspěšně odstraněna.
           edit:
             title: Upravit otázku
@@ -228,6 +252,7 @@ cs:
             create: Vytvořit otázku
             title: Nová otázka
           update:
+            invalid: Při aktualizaci této otázky došlo k chybě.
             success: Úloha byla úspěšně aktualizována.
         steps:
           create_election:
@@ -261,10 +286,13 @@ cs:
               time_before: Nastavení se provádí <strong>alespoň %{hours} hodin</strong> před zahájením voleb.
               trustees_number: Participační prostor má <strong>alespoň %{number} důvěrníků s veřejným klíčem</strong>.
             submit: Nastavení voleb
+            success: Volby byly úspěšně odeslány do Vývěsky.
             title: Nastavení voleb
             trustees: Volební důvěrníci
           created:
+            invalid: Vyskytl se problém při zahájení ceremoniálu.
             submit: Zahájit ceremoniál
+            success: Žádost o Úvodní ceremoniál byla úspěšně odeslána do Vývěsky.
             title: Volba vytvořena
             trustees: Důvěrníci
           key_ceremony:
@@ -273,9 +301,11 @@ cs:
           key_ceremony_ended:
             errors:
               time_before: Volby jsou připraveny k zahájení. Musíte počkat %{hours} hodin před začátkem období hlasování (%{start_time}).
+            invalid: Vyskytl se problém při zahájení hlasovacího období.
             requirements:
               time_before: Volba začne brzy. Hlasovací období můžete začít ručně, nebo bude spuštěna automaticky před časem začátku v %{start_time}.
             submit: Začátek doby hlasování
+            success: Žádost o Počátek voleb byla úspěšně odeslána do Vývěsky.
             title: Připraveno k zahájení
           processing: Zpracovávání...
           results_published:
@@ -293,22 +323,30 @@ cs:
             result: Výsledek
             selected: Vybráno
             submit: Publikovat výsledky
+            success: Žádost o Zveřejnění výsledků bylo úspěšně odesláno na Vývěsku.
             title: Vypočítané výsledky
           tally_started:
             continue: Pokračovat
+            invalid: Došlo k problému s nahlášením chybějícího důvěrníka.
             mark_as_missing: Označit jako chybějící
+            mark_as_missing_description: Tohoto procesu by se měli účastnit všichni důvěrníci, ale pokud se některý důvěrník nemůže procesu účastnit, můžete ho označit jako chybějícího.
+            success: Zpráva o chybějícím důvěrníkovi byla úspěšně odeslána na vývěsku.
             tally_completion: Proces bude dokončen, jakmile budou všichni důvěrníci aktivní nebo budou označeni jako chybějící. K dokončení procesu je zapotřebí alespoň %{quorum} důvěrníků.
             title: Proces volebního přepočítání
             undo_mark_as_missing: Správce, který byl omylem označen jako chybějící, se bude moci zúčastnit před dokončením procesu. Může postupovat jako obvykle a chybějící označení bude ignorováno.
           vote:
             errors:
               time_after: Volby stále probíhají. Musíte počkat na ukončení hlasovacího období (%{end_time}).
+            invalid: Při ukončení hlasovacího období došlo k chybě.
             requirements:
               time_after: Volba skončila. Hlasovací dobu můžete ukončit ručně, nebo bude automaticky ukončena za několik minut.
             submit: Konec doby hlasování
+            success: Žádost o ukončení voleb byla úspěšně odeslána do Vývěsky.
             title: Období hlasování
           vote_ended:
+            invalid: Vyskytl se problém při spuštění volebního přepočítávání.
             submit: Začít Volební přepočítání
+            success: Požadavek zahájení Volebního přepočítání byl úspěšně odeslán do Vývěsky.
             text: Hlasování bylo ukončeno. Nyní můžete začít volební přepočítání.
             title: Období hlasování skončilo
           vote_stats:
@@ -320,6 +358,13 @@ cs:
           actions:
             disable: Zakázat
             enable: Zvážit
+          create:
+            exists: Důvěrník pro tento participační prostor existuje.
+            invalid: Při vytváření důvěrníka došlo k chybě.
+            success: Důvěrník úspěšně vytvořen.
+          delete:
+            invalid: Při odstraňování tohoto důvěrníka došlo k chybě.
+            success: Důvěrník byl úspěšně odstraněn.
           form:
             select_user: Vybrat uživatele
           index:
@@ -327,6 +372,9 @@ cs:
           new:
             create: Vytvořit důvěrníka
             title: Nový důvěrník
+          update:
+            invalid: Při aktualizaci důvěrníka %{trustee} došlo k chybě.
+            success: Důvěrník %{trustee} úspěšně aktualizován.
       admin_log:
         election:
           create: "%{user_name} vytvořil volby %{resource_name} z %{space_name}"
@@ -410,6 +458,7 @@ cs:
           verifiable_results:
             checksum: 'Kontrolní součet SHA256 souboru:'
             description:
+              not_ready: Ověřitelný volební soubor a kontrolní součet SHA256 ještě nejsou k dispozici. Jakmile budou výsledky zveřejněny, budete moci tuto volbu ověřit.
               ready: 'Zde máte možnost ověřit volby. Nejprve musíte stáhnout soubor a ujistěte se, že nebyl poškozen. Chcete-li tak učinit, spusťte následující příkaz a zkontrolujte, zda se výstup shoduje s kontrolním součtem:'
             how_to_verify: 'Jakmile stáhnete soubor a ujistíte se, že je v pořádku, můžete pokračovat ve spuštění univerzálního ověřovače. Klonujte <a href=''https://github.com/decidim/decidim-bulletin-board''>tento repozitář</a> a z kořenové složky spusťte následující příkaz:'
             title: Ověřit výsledky voleb
@@ -1165,8 +1214,10 @@ cs:
             confirm: Ok, pokračovat
             error: Došlo k chybě. Prosím zkuste to znovu.
             heading: Přepočet hlasů - uzavření podpisu
+            info_text: Pokud budete pokračovat, již nemůžete upravovat žádné informace, tuto akci nelze vrátit zpět.
             submit: Podepsat uzavření
             success: Uzavření úspěšně podepsáno.
+            title: Akci nelze vrátit zpět
           update:
             error: Při aktualizaci výsledků uzávěrky došlo k chybě, zkuste to prosím později.
             success: Výsledky uzávěrky byly úspěšně aktualizovány.
@@ -1177,6 +1228,7 @@ cs:
             census_verified_with_online_vote: Tento uživatel již hlasoval online. Pokud hlasují osobně, předchozí hlasy budou zneplatněny a bude to konečné hlasování.
             complete_voting: Dokončené hlasování
             identify_another: Identifikovat jiného účastníka
+            questions_title: 'Jsou oprávněni hlasovat v těchto otázkách:'
             questions_title_voted: 'Tento uživatel již hlasoval on-line a je oprávněn hlasovat v následujících otázkách:'
             voted: Uživatel hlasoval
           create:
@@ -1267,6 +1319,7 @@ cs:
           check_status: Zkontrolovat stav
           description: Zde máte možnost zkontrolovat údaje ze seznamu osob, abyste věděli, zda máte právo účastnit se tohoto hlasování. Měli byste mít přístupový kód již k dispozici, ale pokud ho ztratíte, můžete ho znovu vyžádat, až budou vaše údaje správné.
           error:
+            info: 'Zkuste to prosím znovu. Pokud si myslíte, že data v systému jsou nesprávná, můžete je nahlásit zde: %{census_contact_information}.'
             title: Údaje, které jste zadali, nejsou v rejstříku členů pro toto hlasování
           form_title: 'Vyplňte následující formulář pro kontrolu dat ze seznamu osob:'
           invalid: Při kontrole seznamu osob došlo k chybě.
@@ -1326,10 +1379,14 @@ cs:
           start_voting: Zahájit hlasování
           step: Identifikace
           title: Identifikujte se podle dat mého seznamu osob
+        no_census_contact_information: Zatím nejsou žádné kontaktní informace.
         orders:
           label: 'Seřadit hlasy podle:'
           random: Náhodně
           recent: Nejnovější
+        send_access_code:
+          invalid: Při odesílání přístupového kódu došlo k chybě.
+          success: Váš přístupový kód byl úspěšně odeslán.
         show:
           dates: Data
       votings_m:
