@@ -30,7 +30,7 @@ tasks:
       ./bin/webpacker
     command: |
       sudo service postgresql start &&
-      [ $(basename $PWD) != "development_app" ] && cd development_app &&
+      { [ $(basename $PWD) == "development_app" ] || cd development_app ; } &&
       ./bin/rails runner 'Decidim::Organization.first.update!(host: ENV.fetch("RAILS_DEVELOPMENT_HOST", "localhost"))' &&
       ./bin/rails s -b 0.0.0.0
 
