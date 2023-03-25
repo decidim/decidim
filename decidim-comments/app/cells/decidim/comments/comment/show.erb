@@ -1,4 +1,4 @@
-<%= content_tag :div, id: "comment_#{model.id}", class: comment_classes, data: { comment_id: model.id, toggler: ".no-comments" } do %>
+<%= content_tag :div, id: "comment_#{model.id}", class: comment_classes, data: { depth: model.depth, comment_id: model.id, toggler: ".no-comments" } do %>
   <% if model.hidden? %>
     <%= render :moderation_data %>
   <% elsif model.deleted? %>

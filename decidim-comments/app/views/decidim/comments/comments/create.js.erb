@@ -7,6 +7,10 @@
   var component = $comments.data("comments");
   if (inReplyTo) {
     component.addReply(inReplyTo, commentHtml, true);
+
+    var hideButton = $("#comment_" + <%= root_comment.id %>).find(".comment__hide").first();
+    hideButton.find(".show-comment-replies").first().html('<%= t("decidim.components.comment.show_replies", count: Decidim::Comments::SortedComments.for(root_comment.reload).size) %>');
+    hideButton.removeClass("hide");
   } else {
     component.addThread(commentHtml, true);
   }
