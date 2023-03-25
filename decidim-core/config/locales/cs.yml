@@ -977,9 +977,15 @@ cs:
         error: Při propagaci tohoto účastníka došlo k chybě.
       reject:
         error: Při odmítnutí této žádosti o připojení došlo k chybě.
+        success: Žádost o připojení byla úspěšně zamítnuta.
+      remove:
+        error: Při odebrání tohoto uživatele ze skupiny došlo k chybě.
+        success: Uživatel byl úspěšně odstraněn ze skupiny.
     groups:
       actions:
         are_you_sure: Jste si jisti?
+      create:
+        error: Při vytváření skupiny došlo k chybě.
       edit:
         edit_user_group: Upravit skupinu
         update_user_group: Aktualizovat skupinu
