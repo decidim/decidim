@@ -103,6 +103,10 @@ cs:
             label: Typ
         search_placeholder:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Hledat %{collection} podle názvu, popisu, ID nebo jména autora.
+      initiatives_settings:
+        update:
+          error: Došlo k chybě.
+          success: Nastavení iniciativ bylo úspěšně aktualizováno.
       menu:
         attachments: Přílohy
         committee_members: Členové výboru
@@ -193,6 +197,7 @@ cs:
           description_another: Tento uživatel zveřejnil %{score} iniciativ.
           name: Publikované iniciativy
           next_level_in: Získejte %{score} dalších publikovaných iniciativ, abyste dosáhli další úrovně!
+          unearned_another: Tento uživatel zatím neobdržel žádné publikované iniciativy.
           unearned_own: Dosud jste nezveřejnili žádné iniciativy.
     help:
       participatory_spaces:
