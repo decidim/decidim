@@ -16,7 +16,7 @@ const updateActiveUploads = (modal) => {
   // fastest way to clean children nodes
   files.textContent = ""
 
-  // divide the items between those'll gonna be removed, and added
+  // divide the items between those will gonna be removed, and added
   const [removeFiles, addFiles] = [modal.items.filter(({ removable }) => removable), modal.items.filter(({ removable }) => !removable)]
 
   addFiles.forEach((file) => {

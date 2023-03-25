@@ -50,7 +50,7 @@ module Decidim
             expect { command.call }.to broadcast(:invalid)
           end
 
-          it "doesn't update the user group" do
+          it "does not update the user group" do
             expect do
               command.call
               user_group.reload

@@ -50,11 +50,11 @@ describe PasswordValidator do
       end
     end
 
-    context "when there is blacklisted passwords" do
+    context "when there is a list of denied passwords" do
       let(:example_password) { "examplepassword123456" }
 
       before do
-        allow(Decidim).to receive(:password_blacklist).and_return(
+        allow(Decidim).to receive(:denied_passwords).and_return(
           [
             example_password,
             /[a-z]*foobar\w*/
@@ -65,18 +65,18 @@ describe PasswordValidator do
       describe "example password" do
         let(:value) { example_password }
 
-        it "is blacklisted" do
+        it "is denied" do
           expect(validator).to be(false)
-          expect(record.errors[attribute]).to eq(["is blacklisted"])
+          expect(record.errors[attribute]).to eq(["is denied"])
         end
       end
 
-      describe "regex blacklist" do
+      describe "regex denied" do
         let(:value) { "bazfoobar123456" }
 
         it "does not validate" do
           expect(validator).to be(false)
-          expect(record.errors[attribute]).to eq(["is blacklisted"])
+          expect(record.errors[attribute]).to eq(["is denied"])
         end
       end
 

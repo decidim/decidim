@@ -20,7 +20,7 @@ module Decidim
         context "when the response_group is not empty" do
           let!(:response) { create :response, response_group: }
 
-          it "doesn't destroy the response_group" do
+          it "does not destroy the response_group" do
             expect do
               command.call
             end.not_to change(ResponseGroup, :count)
