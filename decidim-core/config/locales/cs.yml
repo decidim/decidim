@@ -1315,14 +1315,20 @@ cs:
         refuse:
           modal_body: Pokud odmítnete, nebudete moci platformu používat, můžete <a href="%{download_your_data_path}">stáhnout svá data</a> a/nebo <a href="%{delete_path}">smazat svůj účet</a>.
           modal_btn_continue: Přijměte termíny a pokračujte
+          modal_btn_exit: Později to přezkoumám
           modal_button: Odmítněte podmínky
           modal_close: Zavřít modální
           modal_title: Opravdu odmítáte aktualizované smluvní podmínky?
         required_review:
           alert: Aktualizovali jsme naše smluvní podmínky, prosím zkontrolujte je.
+          body: Věnujte prosím chvilku a přečtěte si aktualizace našich smluvních podmínek. V opačném případě nebudete moci platformu používat.
           title: 'Požadováno: Zkontrolujte aktualizace našich smluvních podmínek'
     participatory_space_private_users:
       not_allowed: Nemáte oprávnění k zobrazení tohoto obsahu
+    passwords:
+      update:
+        error: Došlo k problému s aktualizací hesla.
+        success: Heslo bylo úspěšně změněno.
     profile:
       deleted: Vymazaný účastník
       inaccessible_message: Tento profil je nedostupný z důvodu porušení smluvních podmínek!
@@ -1453,6 +1459,7 @@ cs:
         already_reported: Tento obsah je již nahlášen a bude kontrolován administrátorem.
         close: Zavřít
         description: Je tento obsah nevhodný?
+        does_not_belong: Obsahuje nezákonnou činnost, hrozby sebevraždou, osobní informaci nebo cokoliv jiného, o čem si myslíte, že nepatří do %{organization_name}.
         hide: Skrýt
         hide_content: Skrýt tento obsah
         offensive: Obsahuje rasismus, sexismus, podvody, osobní útoky, hrozby smrti, žádosti o sebevraždu nebo jakoukoli formu projevy nenávisti.
