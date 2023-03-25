@@ -58,6 +58,7 @@ cs:
             skip_template: Přeskočit
           edit:
             edit: Upravit
+            empty: Zatím nejsou žádné otázky.
             questionnaire: Dotazník
           form:
             save: Uložit
