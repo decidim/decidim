@@ -592,6 +592,8 @@ cs:
         new:
           are_you_new?: Jste na platformě poprvé?
           register: Vytvořit účet
+          sign_in_disabled: Můžete přistupovat pomocí externího účtu.
+          sign_up_disabled: Registrace je zakázána, můžete použít existující účet k přístupu.
         user:
           timed_out: Byli jste příliš dlouho neaktivní a byli jste automaticky odhlášeni ze služby. Pokud chcete pokračovat v používání služby, přihlaste se znovu.
       shared:
@@ -620,6 +622,7 @@ cs:
           authorize: Autorizovat aplikaci
           by_organization_link_html: <small class="heading-small">podle %{link}</small>
           cancel: Zrušit
+          connect_your_account_html: Připojte svůj účet přihlášením k <strong>%{organization}</strong>.
           publish_content: Publikujte obsah pro vás
           see_email: Podívejte se na svůj e-mail
           see_name: Zobrazte své jméno
@@ -668,6 +671,7 @@ cs:
       not_found:
         back_home: Zpět na úvodní stránku
         content_doesnt_exist: Tato adresa je nesprávná nebo byla odstraněna.
+        title: Stránka, kterou hledáte, nebyla nalezena
     events:
       amendments:
         amendment_accepted:
@@ -733,9 +737,14 @@ cs:
         email_subject: Aktualizace na %{resource_title}
       gamification:
         badge_earned:
+          email_intro: Gratulujeme! Získali jste <a href="%{resource_url}">%{badge_name} odznak</a> (úroveň %{current_level}).
           email_outro: Toto oznámení jste obdrželi, protože jste aktivovali činnost na našich webových stránkách.
+          email_subject: 'Získali jste nový odznak: %{badge_name}!'
+          notification_title: Gratulujeme! Získali jste <a href="%{resource_path}">%{badge_name} odznak</a> (úroveň %{current_level}).
         level_up:
+          email_intro: Gratulujeme! Dosáhli jste úrovně %{current_level} na <a href="%{resource_url}">%{badge_name} odznaku</a>!
           email_outro: Toto oznámení jste obdrželi, protože jste aktivovali činnost na našich webových stránkách.
+          email_subject: Dosáhli jste úrovně %{current_level} na %{badge_name} odznaku!
       groups:
         demoted_membership:
           email_intro: Administrátor skupiny <a href="%{resource_url}">%{user_group_name}</a> odebral vaše práva administrátora do této skupiny.
