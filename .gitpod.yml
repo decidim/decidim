@@ -6,9 +6,9 @@ tasks:
     init: |
       (
         [ $(sudo pg_lsclusters -h | wc -l) -eq 0 ] && (
-          sudo mkdir -p /workspace/postgresql/data /workspace/etc/postgresql &&
-          sudo chown -R postgres:postgres /workspace/postgresql /workspace/etc/postgresql &&
-          sudo pg_createcluster -d /workspace/postgresql/data $PGVERSION main
+          sudo mkdir -p /workspace/etc/postgresql /workspace/var/lib/postgresql &&
+          sudo chown -R postgres:postgres /workspace/etc/postgresql /workspace/var/lib/postgresql &&
+          sudo pg_createcluster $PGVERSION main
         ) || echo "Database exists"
       ) &&
       sudo service postgresql start &&

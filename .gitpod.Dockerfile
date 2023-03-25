@@ -10,9 +10,10 @@ RUN apt-get install -y postgresql postgresql-client postgresql-server-dev-${PGVE
 ENV DATABASE_USERNAME=decidim
 ENV DATABASE_PASSWORD=development
 RUN pg_dropcluster $PGVERSION main \
-  && rm -rf /etc/postgresql \
+  && rm -rf /etc/postgresql /var/lib/postgresql \
   && ln -s /workspace/etc/postgresql /etc/postgresql \
-  && chown -h postgres:postgres /etc/postgresql
+  && ln -s /workspace/var/lib/postgresql /var/lib/postgresql \
+  && chown -h postgres:postgres /etc/postgresql /var/lib/postgresql
 
 #### User space ####
 USER gitpod
