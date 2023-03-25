@@ -439,9 +439,12 @@ cs:
         ok:
           title: Byli jste autorizováni, zatímco jste na této stránce. Pro provedení akce prosím znovu načtěte stránku.
         pending:
+          explanation: Chcete-li provést tuto akci, musíte být autorizováni pomocí "%{authorization}", ale Vaše autorizace stále probíhá.
+          resume: Zkontrolujte postup autorizace "%{authorization}.
           title: Autorizace stále probíhá
         unauthorized:
           explanation: Omlouváme se, tuto akci nelze provést, protože některá z vašich autorizačních dat se neshodují.
+          invalid_field: "%{field} hodnota %{value} není platná."
           ok: OK
           title: Neautorizovaný
         unconfirmed:
@@ -466,6 +469,7 @@ cs:
       see_more: "(viz další)"
     components:
       component_order_selector:
+        no_content: S těmito kritérii jsme nenašli žádný obsah.
         order:
           all_types: Všechny typy
           collaborative_draft: Koordinační návrh
@@ -553,10 +557,16 @@ cs:
         name: Statistika organizace
       sub_hero:
         name: Pruh pod hlavním pruhem
+    core:
+      actions:
+        login_before_access: Před přístupem se prosím přihlaste pomocí svého účtu.
+        unauthorized: Nemáte oprávnění k provedení této akce.
     datepicker:
       help_text: 'Očekávaný formát: %{datepicker_format}'
     devise:
       omniauth_registrations:
+        create:
+          email_already_exists: Stejnou e-mailovou adresu používá jiný účet.
         new:
           complete_profile: Dokončit profil
           nickname_help: Váš alias v %{organization}. Může obsahovat pouze písmena, číslice, '-' a '_'.
