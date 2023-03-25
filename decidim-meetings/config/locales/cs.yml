@@ -50,6 +50,21 @@ cs:
         name: Jméno
       validate_registration_code:
         code: Kód
+    errors:
+      models:
+        meeting:
+          attributes:
+            iframe_embed_type:
+              not_embeddable: Tato adresa URL nemůže být vložena do stránky schůzky nebo živé události.
+        meeting_agenda:
+          attributes:
+            base:
+              too_many_minutes: 'Počet minut, o které doba trvání položek přesahuje dobu trvání schůze: %{count}.'
+              too_many_minutes_child: Délka podřazené položky přesahuje dobu o %{count} minut z nadřazené položku programu "%{parent_title}".
+        meeting_registration_invite:
+          attributes:
+            email:
+              already_invited: Tento e-mail již byl pozván.
     models:
       decidim/meetings/close_meeting_event: Setkání bylo uzavřeno
       decidim/meetings/create_meeting_event: Setkání
@@ -196,6 +211,7 @@ cs:
           description_own: Zúčastnili jste se %{score} setkání.
           name: Účastnily se setkání
           next_level_in: Zúčastněte se dalších %{score} setkání, abyste dosáhli další úrovně!
+          unearned_another: Tento uživatel se zatím neúčastnil žádné schůzky.
           unearned_own: Zatím jste se nezúčastnili žádné schůze.
     meetings:
       actions:
@@ -231,6 +247,9 @@ cs:
             down: Dolů
             remove: Odstranit
             up: Nahoru
+          create:
+            invalid: Při vytváření této agendy došlo k problému.
+            success: Program schůze byl úspěšně vytvořen.
           edit:
             title: Upravit agendu
             update: Aktualizace
@@ -242,6 +261,9 @@ cs:
           new:
             create: Vytvořit
             title: Nová agenda
+          update:
+            invalid: Při aktualizaci této agendy došlo k problému.
+            success: Program schůze byl úspěšně aktualizován.
         exports:
           answers: Odpovědi
           meeting_comments: Komentáře
@@ -272,13 +294,18 @@ cs:
             filter_by: Filtrovat podle
             invite_attendee: Pozvat účastníka
             invites: Pozvánky
+            registrations_disabled: Nemůžete pozvat účastníka, protože registrace jsou blokovány.
             search: Vyhledávání
         meeting_closes:
           edit:
             close: Zavřít
             title: Zavřete schůzku
         meetings:
+          close:
+            invalid: Při uzavření této schůzky došlo k chybě.
+            success: Schůzka byla úspěšně uzavřena.
           create:
+            invalid: Při vytváření této schůzky došlo k chybě.
             success: Schůze byla úspěšně vytvořena. Všimněte si, že není publikována, musíte ji publikovat ručně.
           destroy:
             success: Setkání bylo úspěšně smazáno
@@ -287,6 +314,7 @@ cs:
             update: Aktualizace
           form:
             address_help: 'Adresa: použita Geocoderem k nalezení polohy'
+            disclaimer: 'Prohlášení o zřeknutí: Použitím externího registračního systému jste si vědomi toho, že organizátoři %{organization} nejsou odpovědní za data poskytovaná uživateli externí službě.'
             location_help: 'Poloha: zpráva určená uživatelům, kteří předávají místo, aby se setkali'
             location_hints_help: 'Upřesnění k místu: dodatečné informace. Příklad: patro budovy, pokud se jedná o osobní schůzku, nebo vstupní heslo pro schůzku, pokud se jedná o schůzku s omezeným přístupem.'
             online_meeting_url_help: 'Odkaz: Umožnit účastníkům připojení přímo k vaší schůzce'
@@ -300,6 +328,9 @@ cs:
           new:
             create: Vytvořit
             title: Vytvořte schůzku
+          publish:
+            invalid: Při publikování této schůzky došlo k chybě.
+            success: Schůze byla úspěšně zveřejněna.
           service:
             description: Popis
             down: Dolů
