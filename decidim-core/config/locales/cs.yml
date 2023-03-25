@@ -342,13 +342,18 @@ cs:
         success: Pozměňovací návrh úspěšně publikován.
       rejected:
         error: Při odmítnutí tohoto pozměňovacího návrhu došlo k chybě, zkuste to prosím později.
+        success: Pozměňovací návrh byl úspěšně zamítnut.
       review:
         back: Zadní
         heading: Přezkoumejte pozměňovací návrh
+        help_text: Přezkoumáváte pozměňovací návrh k %{model_name}.
         send: Přijmout pozměňovací návrh
       update_draft:
         error: Při aktualizaci pozměňovacího návrhu došlo k potížím.
         success: Pozměňovací návrh byl úspěšně aktualizován.
+      withdraw:
+        error: Došlo k chybě při odebrání pozměňovacího návrhu.
+        success: Pozměňovací návrh byl úspěšně stažen.
       wizard_step_form:
         steps:
           '1': Vytvořte svůj pozměňovací návrh
@@ -384,11 +389,13 @@ cs:
       official_author: Oficiální
     authorization_handlers:
       another_dummy_authorization_handler:
+        explanation: Ověřte se uvedením čísla cestovního pasu začínajícího písmenem „A“.
         fields:
           passport_number: Číslo pasu
           postal_code: Poštovní směrovací číslo
         name: Další příklad oprávnění
       dummy_authorization_handler:
+        explanation: Ověřte se zavedením čísla dokumentu končícího "X".
         fields:
           allowed_postal_codes: Povolené poštovní směrovací kódy (oddělené čárkami)
           allowed_scope_id: Povolená oblast působnosti
@@ -421,6 +428,7 @@ cs:
           title: Platnost oprávnění vypršela
         incomplete:
           cancel: Zrušit
+          explanation: 'I když jste v současné době autorizováni pomocí "%{authorization}", potřebujeme vás znovu autorizovat, protože nám chybí následující údaje:'
           invalid_field: "%{field}"
           reauthorize: Znovu autorizovat
           title: Znovu autorizujte
@@ -428,6 +436,8 @@ cs:
           authorize: Autorizujte s "%{authorization}"
           explanation: Chcete-li provést tuto akci, musíte být autorizováni pomocí "%{authorization}".
           title: Je potřebná autorizace
+        ok:
+          title: Byli jste autorizováni, zatímco jste na této stránce. Pro provedení akce prosím znovu načtěte stránku.
         pending:
           title: Autorizace stále probíhá
         unauthorized:
