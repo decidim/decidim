@@ -50,3 +50,10 @@ ports:
     port: 5432
     onOpen: ignore
     visibility: private
+
+github:
+  prebuilds:
+    addCheck: true
+    master: false
+    pullRequests: true
+    pullRequestsFromForks: true
