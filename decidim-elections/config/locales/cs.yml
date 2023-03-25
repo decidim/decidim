@@ -469,6 +469,7 @@ cs:
       feedback:
         answer:
           invalid: Při odesílání vaší zpětné vazby došlo k chybě.
+          spam_detected: Vyskytl se problém s odpovědí na formulář. Možná jste byl příliš rychlý, můžete to zkusit znovu?
           success: Zpětná vazba byla úspěšně odeslána.
       models:
         answer:
@@ -553,6 +554,9 @@ cs:
               pending: Čekající
               processing: Zpracovávání
             title: Volební přepočítání pro %{election}
+          update:
+            error: Stav voleb nebyl aktualizován.
+            success: 'Stav voleb je: %{status}.'
         menu:
           trustee_zone: Zóna důvěrníků
         no_bulletin_board:
@@ -578,12 +582,19 @@ cs:
               generate_legend: Musíte vytvořit pár identifikačních klíčů pro účast ve volbách jako důvěrník.
               generate_legend_1: Po stisknutí tlačítka byste měli stáhnout soubor s vygenerovanými identifikačními klíči.
               generate_legend_2: Kopírovat stažený soubor do čistého USB zařízení
+              generate_legend_3: Ujistěte se, že váš počítač nemá kopii souboru (např. zkontrolujte složky Stahování a plocha).
               generate_legend_4: Vytvořit další kopii souboru na jiném externím zařízení a uložit jej na velmi bezpečném místě.
               submit: Odeslat
               submit_legend: Po splnění všech výše uvedených kroků dokončete proces odesílání veřejného identifikačního klíče na server.
               submit_title: Odeslat veřejný identifikační klíč
               title: Identifikační klíče důvěrníka
               upload: Nahrajte své identifikační klíče
+              upload_error:
+                invalid_format: Nahraný soubor neobsahuje žádný identifikační klíč.
+                invalid_key: Identifikační klíče v nahraném souboru nelze načíst.
+                invalid_public_key: Identifikační klíče v nahraném souboru neodpovídají uloženému veřejnému identifikačnímu klíči.
+              upload_legend: Server má vaše veřejné identifikační klíče, ale váš prohlížeč jej stále nemá. Je třeba importovat soubor s identifikačními klíči do počítače ze zálohy, kterou jste vytvořili po jejich vygenerování.
+            not_supported_browser_description: Vypadá to, že používáte webový prohlížeč, který nelze použít jako správce. Ujistěte se, že používáte nejnovější verzi prohlížeče, nebo zkuste použít některý z nejpopulárnějších prohlížečů, abyste mohli dokončit své úkoly správce.
             not_supported_browser_title: Upgradujte prohlížeč abyste mohl fungovat jako důvěrník
             trustee_role_description: Byl jste pověřen, abyste v některých volbách, které na této platformě probíhají, jednal jako důvěrník.
           update:
@@ -594,6 +605,7 @@ cs:
           back: Zahájit proces hlasování znovu
           ballot_hash: 'Identifikátor vašeho hlasování:'
           cast: Uložte hlasování, abyste dokončili vaše hlasování
+          description: Zde máte možnost volby, aby bylo hlasování řádně započteno, nebo alternativně můžete kontrolovat, že vaše hlasování bylo správně zašifrováno. Z bezpečnostních důvodů to zkazí audit vašich voleb. To znamená, že abyste mohli hlasovat, budete muset znovu zahájit hlasovací proces.
           header: 'Hlasovací lístek je šifrovaný: zahlasujte s ním nebo jej auditujte'
         casting:
           header: Hlasování...
@@ -669,10 +681,12 @@ cs:
             title: Ověřte svůj hlas
           success:
             header: Hlas lokalizován!
+            info: Váš zašifrovaný hlas je v %{link} volebních urnách.
         voting_step:
           back: Zpět
           continue: Další
       warnings:
+        no_elections_warning: Žádné volby neodpovídají vašim kritériím vyhledávání nebo nejsou naplánovány žádné volby.
         no_scheduled_elections_warning: V současné době nejsou žádné plánované volby, ale zde najdete všechny minulé volby na seznamu.
     events:
       elections:
@@ -684,15 +698,18 @@ cs:
         trustees:
           new_election:
             email_intro: Přidali jste jako důvěrník pro volby %{resource_title}.
+            email_outro: Obdrželi jste toto oznámení, protože jste byli přidáni jako správce pro %{resource_title} volby.
             email_subject: Jste důvěrníkem pro %{resource_title} volby..
             notification_title: Jste důvěrníkem volby <a href="%{resource_path}">%{resource_title}</a>.
           new_trustee:
             email_intro: Administrátor vás přidal jako důvěrníka pro %{resource_name}. Měli byste vytvořit váš veřejný klíč <a href='%{trustee_zone_url}'>ve vaší zóně důvěrníka</a>
+            email_outro: Obdrželi jste toto oznámení, protože jste byli přidáni jako správce pro %{resource_name}.
             email_subject: Jste správcem %{resource_name}.
             notification_title: Jste důvěrník pro <a href="%{participatory_space_url}">%{resource_name}</a>.
         votes:
           accepted_votes:
             email_intro: 'Váš hlas byl přijat! Pomocí vašeho hlasovacího tokenu: %{encrypted_vote_hash}, můžete ověřit svůj hlas <a href="%{verify_url}">zde</a>.'
+            email_outro: Obdrželi jste toto oznámení, protože jste hlasovali pro %{resource_name} volby.
             email_subject: Váš hlas pro %{resource_name} byl přijat.
             notification_title: 'Váš hlas byl přijat. Ověřte svůj hlas <a href="%{verify_url}">zde</a> pomocí hlasovacího tokenu: %{encrypted_vote_hash}'
       votings:
@@ -719,10 +736,17 @@ cs:
     votings:
       admin:
         ballot_styles:
+          create:
+            error: Při vytváření tohoto stylu hlasování došlo k chybě.
+            success: Styl hlasování byl úspěšně vytvořen.
+          destroy:
+            invalid: Při mazání tohoto stylu hlasování došlo k chybě.
+            success: Styl hlasování byl úspěšně smazán.
           edit:
             title: Upravit styl hlasování
             update: Aktualizovat
           form:
+            code_help: 'Tip: kód je spojitost mezi seznamem členů a stylem hlasování. Při nahrávání dat ze seznamu členů bude každému záznamu přiřazen styl hlasovacích lístků podle odpovídajícího kódu.'
             election: Volby
             questions: Otázky pro tento styl voleb
           index:
@@ -890,6 +914,10 @@ cs:
             not_available: Ještě není k dispozici
             title: Volby
         polling_officers:
+          create:
+            success: Volební komisař byla úspěšně vytvořen.
+          destroy:
+            invalid: Při mazání tohoto volebního komisaře došlo k chybě.
           form:
             existing_user: Existující účastník
             non_user: Pozvat nového účastníka
