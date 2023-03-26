@@ -68,4 +68,5 @@ cs:
       surveys:
         answer:
           invalid: Při odpovědi na průzkum došlo k chybám.
+          spam_detected: Vyskytl se problém s odpovědí na formulář. Možná jste byl příliš rychlý, můžete to zkusit znovu?
           success: Průzkum úspěšně odpověděl.
