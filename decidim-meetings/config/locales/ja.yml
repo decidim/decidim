@@ -520,6 +520,7 @@ ja:
         meeting_minutes:
           related_information: 関連情報
         meetings:
+          no_meetings_warning: 検索条件に一致するミーティングがないか，予定されているミーティングがありません．
           upcoming_meetings_warning: 現在、スケジュールされたミーティングはありませんが、ここではリストされた過去のミーティングをすべて見つけることができます。
         new:
           back: 戻る
@@ -620,6 +621,7 @@ ja:
       registrations:
         create:
           invalid: このミーティングに参加する際に問題がありました。
+          success: ミーティングに正常に参加しました．このミーティングに登録したため，更新がある場合は通知されます．
         decline_invitation:
           invalid: 招待を辞退するのに問題があった。
           success: 招待を拒否しました。
@@ -636,6 +638,9 @@ ja:
         withdraw: 取り消し
       versions:
         back_to_resource: ミーティングに戻る
+      withdraw:
+        error: ミーティングを取り上げる際にエラーが発生しました。
+        success: ミーティングは正常に取り下げられました。
     metrics:
       meetings:
         description: 作成されたミーティング数
