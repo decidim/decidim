@@ -466,11 +466,16 @@ cs:
           help: Zkontrolujte SMS přijaté v telefonu
         sms_phone_number:
           continue: Pošlete mi SMS
+          help: Vyplňte formulář s ověřeným telefonním číslem a vyžádejte si ověřovací kód.
       initiative_votes:
         create:
           error: Při podpisu iniciativy došlo k chybám.
+          invalid: Údaje poskytnuté k podpisu iniciativy nejsou platné.
+          success_html: Gratulujeme! Iniciativa <strong> %{title}</strong> byla úspěšně podepsána.
         personal_data:
           invalid: Osobní údaje nejsou v souladu s údaji poskytnutými k autorizaci.
+        sms_code:
+          invalid: Váš ověřovací kód se neshoduje s naším. Zkontrolujte prosím SMS, kterou jsme vám poslali.
         sms_phone:
           invalid: Telefonní číslo je neplatné nebo čeká na autorizaci. Zkontrolujte prosím vaše oprávnění.
       initiatives:
@@ -485,6 +490,7 @@ cs:
         committee_members:
           approve: Schválit
           confirm_revoke: Jste si jist?
+          invite_to_committee_help: Sdílejte tento odkaz pro pozvání ostatních účastníků do propagačního výboru.
           revoke: Odvolat
           title: Členové výboru
         count:
