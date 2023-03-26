@@ -410,6 +410,7 @@ cs:
         copy_calendar_url_clarification: Kopírovat URL kalendáře do schránky
         copy_calendar_url_copied: Zkopírováno!
         copy_calendar_url_description: Všechny zveřejněné schůzky můžete vidět v aplikaci nebo poskytovateli kalendáře. Zkopírujte a vložte tuto URL do kalendáře pomocí možnosti "Přidat nový kalendář z URL".
+        copy_calendar_url_explanation: Vezměte prosím na vědomí, že exportujete výběr schůzek, protože existují aktivní filtry. Pokud si přejete exportovat všechny, resetujte nejprve všechny filtry.
         copy_calendar_url_message: URL byla úspěšně zkopírována do schránky.
         export_calendar: Exportovat kalendář
       close_meeting_reminder_mailer:
@@ -453,6 +454,8 @@ cs:
         registration_mailer:
           confirmation:
             subject: Registrace schůzky byla potvrzena
+      meeting:
+        not_allowed: Nemáte povoleno zobrazit si tuto schůzi.
       meeting_closes:
         edit:
           back: Zpět
@@ -512,6 +515,7 @@ cs:
           address_help: 'Adresa: použita Geocoderem k nalezení polohy'
           available_slots_help: Ponechte 0, pokud máte k dispozici neomezený počet slotů
           create_as: Vytvořit schůzku jako
+          disclaimer: 'Prohlášení o zřeknutí: použitím externího registračního systému, jste si vědomi toho, že organizátoři %{organization} nejsou odpovědní za data poskytovaná uživateli externí službě.'
           location_help: 'Poloha: zpráva určená uživatelům, kteří navrhují místo ke schůzce na'
           location_hints_help: 'Upřesnění k místu: dodatečné informace. Příklad: patro budovy, pokud se jedná o osobní schůzku, nebo vstupní heslo pro schůzku, pokud se jedná o schůzku s omezeným přístupem.'
           online_meeting_url_help: 'Odkaz: Umožnit účastníkům připojení přímo k vaší schůzce'
@@ -530,6 +534,7 @@ cs:
         meeting_minutes:
           related_information: Související informace
         meetings:
+          no_meetings_warning: Žádná schůzka neodpovídá vašim kritériím nebo není naplánována žádná schůzka.
           upcoming_meetings_warning: V současné době neexistují žádné plánované schůzky, ale naleznete zde všechny minulé schůzky.
         new:
           back: Zpět
@@ -636,6 +641,7 @@ cs:
       registrations:
         create:
           invalid: Na schůzi došlo k problému.
+          success: Připojili jste se k schůzce úspěšně. Protože jste se na tuto schůzku zaregistrovali, budete upozorněni, pokud se na ní objeví aktualizace.
         decline_invitation:
           invalid: Došlo k potížím s odmítnutím pozvánky.
           success: Odmítli jste pozvánku úspěšně.
@@ -652,6 +658,9 @@ cs:
         withdraw: Staženo
       versions:
         back_to_resource: Přejít zpět na schůzku
+      withdraw:
+        error: Došlo k chybě při stahování schůzky.
+        success: Schůzka byla úspěšně stažena.
     metrics:
       meetings:
         description: Počet vytvořených schůzek
