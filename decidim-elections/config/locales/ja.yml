@@ -1036,6 +1036,8 @@ ja:
               callout: これで、アクセスコードのエクスポートに進むことができます。これは一度だけ行うことができます。 エクスポートを開始すると、指示が記載されたメールが <strong>%{email}</strong> に届きます。
               confirm: アクセスコードは一度だけエクスポートできます。メールアカウント <strong>%{email}</strong> へのアクセス権があることを確認してください.
               file_not_exist: このファイルは存在しません。
+              launch_error: アクセスコードのエクスポートを起動する際に問題が発生しました。
+              launch_success: アクセスコードのエクスポートが開始されました。まもなく %{email} にメールが届きます。
             exporting_access_codes:
               info_message: "<strong>しばらくお待ち下さい</strong>, エクスポートを準備しており, 間もなく %{email} に送信されます (数分かかる場合があります)"
             freeze:
@@ -1082,6 +1084,7 @@ ja:
             subject: '%{voting_title} の投票アクセスコードのエクスポートが可能です'
         vote_flow:
           already_voted_in_person: この参加者はすでに対面で投票を行っており、投票権がありません。
+          datum_not_found: 指定されたデータが投票者と一致しません。
       content_blocks:
         highlighted_votings:
           name: 注目の投票
@@ -1126,6 +1129,7 @@ ja:
             info_text: 各質問の回答総数を入力してください。
             modal_ballots_results_count_error:
               close_modal: 閉じる
+              info_text: 投票数が封筒の合計数と一致しません。投票数の合計を確認してください。
               title: 投票数の合計が足りません
             save_recount: 再集計を保存
             total_ballots: 総投票数
@@ -1140,6 +1144,7 @@ ja:
               btn_validate_total: 投票の再集計を検証します。
               close_modal: 閉じる
               info_explanation_text: '投票の合計数を確認してください。合計数が正しくない場合は、監視委員会に説明する必要があります。'
+              info_text: 投票所で投票した人数の記録と、投票の（封筒の）総数が一致しません。
               message_for_monitoring_committee: 監視委員会へのメッセージ
               review_recount: 再集計を確認する
               text_area_placeholder: メッセージを入力してください
@@ -1154,6 +1159,7 @@ ja:
             info_text: 投票所の選挙閉鎖。
           sign:
             cancel: キャンセル
+            check_box: 私はこれを確認し、物理的な選挙閉鎖証明書と同じであることを確認しました。
             close_modal: 閉じる
             confirm: はい、続行します
             error: エラーが発生しました。もう一度やり直してください。
