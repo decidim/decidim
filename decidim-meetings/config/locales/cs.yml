@@ -341,9 +341,17 @@ cs:
           services:
             add_service: Přidat službu
             services: Služby
+          unpublish:
+            success: Zveřejnění schůze byla úspěšně zrušeno.
+          update:
+            invalid: Při aktualizaci této schůze došlo k chybě.
+            success: Schůze byla úspěšně aktualizována.
         meetings_poll:
           form:
             title: Upravit anketní dotazník pro %{questionnaire_for}
+          update:
+            invalid: Při aktualizaci této schůze došlo k chybě.
+            success: Anketa ke schůzi byla úspěšně aktualizována.
         models:
           meeting:
             name: Setkání
@@ -363,6 +371,7 @@ cs:
               few: Bylo zde %{count} registrací.
               many: Bylo zde %{count} registrací.
               other: Bylo zde %{count} registrací.
+            reserved_slots_help: Ponechte 0, pokud nemáte vyhrazené sloty.
             reserved_slots_less_than: Musí být menší nebo rovno %{count}
             title: Registrace
           update:
