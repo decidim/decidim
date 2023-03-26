@@ -24,7 +24,7 @@ ja:
         location: 場所
         location_hints: 位置情報のヒント
         polling_station_managers: マネージャー
-        polling_station_president_id: 投票管理者
+        polling_station_president_id: 投票責任者
         title: タイトル
       question:
         max_selections: 選択範囲の最大数
@@ -54,11 +54,23 @@ ja:
           attributes:
             attachment:
               needs_to_be_reattached: 再接続が必要
+        trustee:
+          attributes:
+            name:
+              cant_be_changed: 変更できません
+            public_key:
+              cant_be_changed: 変更できません
         voting:
           attributes:
             voting_type:
               inclusion: "%{value} は有効な投票タイプではありません"
   activerecord:
+    errors:
+      models:
+        decidim/votings/polling_officer:
+          attributes:
+            presided_polling_station:
+              president_and_manager: 投票委員はすでに投票所の責任者/マネージャーです。
     models:
       decidim/elections/answer:
         other: 回答
@@ -90,7 +102,7 @@ ja:
           label: ロール
           values:
             manager: マネージャー
-            president: 投票管理者
+            president: 投票責任者
             unassigned: 未割り当て
         search_placeholder:
           name_or_email_or_nickname_or_presided_station_title_or_managed_station_title_cont: '%{collection} を名前/メールアドレス/ニックネーム/投票所で検索します。'
@@ -766,7 +778,7 @@ ja:
             fields:
               address: 住所
               polling_station_managers: マネージャー
-              polling_station_president: 投票管理者
+              polling_station_president: 投票責任者
               title: タイトル
             name: 投票所
           voting:
@@ -866,7 +878,7 @@ ja:
             location_help: '場所: 投票所の正確な場所を知らせるための投票者向けメッセージ'
             location_hints_help: '場所のヒント: 追加情報。例：投票所がある建物のフロア。'
             polling_station_managers_help: '投票所管理者: 投票所の管理を行う担当者。担当者がすでに投票委員として作成されていること、および他の投票所に割り当てられていないことを確認してください'
-            select_president: 投票所の投票管理者として投票委員を選択してください
+            select_president: 投票所の投票責任者として投票委員を選択してください
           index:
             title: 投票所
           new:
@@ -1113,7 +1125,7 @@ ja:
           polling_officer_zone: 投票委員ゾーン
         polling_officers:
           index:
-            polling_officer_role_description: あなたは、このプラットフォームで行われるいくつかの選挙で、投票所の責任者(長またはマネージャー) として行動するように割り当てられています。
+            polling_officer_role_description: あなたは、このプラットフォームで行われるいくつかの選挙で、投票所の責任者(またはマネージャー) として行動するように割り当てられています。
             polling_station:
               address: 住所
               count_votes: 投票数の集計
