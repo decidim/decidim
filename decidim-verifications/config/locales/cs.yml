@@ -120,9 +120,13 @@ cs:
           census:
             create:
               error: Při importu členů organizace došlo k chybě.
+            destroy_all:
+              success: Všechna data seznamu členů byly smazány.
           destroy:
+            confirm: Odstranění veškerých seznamů členů nelze vrátit zpět. Opravdu chcete pokračovat?
             title: Smazat všechna data členství organizace
           index:
+            data: Celkem je načteno %{count} záznamů. Poslední datum nahrávání bylo %{due_date}.
             empty: Nejsou data o členech organizace. Pomocí níže uvedeného formuláře je importujte souborem CSV.
             title: Aktuální údaje o členech organizace
           instructions:
@@ -162,12 +166,19 @@ cs:
               update: Aktualizace
             update:
               error: Při aktualizaci konfigurace došlo k chybě.
+              success: Konfigurace úspěšně aktualizována.
           confirmations:
+            create:
+              error: Ověření neodpovídá. Ověřte znovu nebo odmítněte ověření, aby jej uživatel mohl změnit.
+              success: Uživatel byl úspěšně ověřen.
             new:
               introduce_user_data: Vložte data do obrázku
               reject: Odmítnout
               verify: Ověřte
           offline_confirmations:
+            create:
+              error: Ověření neodpovídá vloženým údajům. Zkuste to znovu, nebo řekněte uživateli, ať si je změní.
+              success: Uživatel byl úspěšně ověřen.
             new:
               cancel: Zrušit
               introduce_user_data: Zadejte e-mail uživatele a data dokumentu
@@ -178,6 +189,9 @@ cs:
               offline_verification: Ověření offline
               title: Čekající ověření online
               verification_number: 'Ověření #%{n}'
+          rejections:
+            create:
+              success: Ověření bylo zamítnuto. Uživatel bude vyzván, aby změnil své dokumenty.
         authorizations:
           choose:
             choose_a_type: 'Vyberte, jak chcete ověřit:'
@@ -185,14 +199,22 @@ cs:
             online: Online
             title: Ověřte svou identitu
           create:
+            error: Při nahrávání Vašeho dokladu došlo k chybě.
             success: Dokument byl úspěšně nahrán.
           edit:
+            being_reviewed: Ověřujeme Vaše dokumenty. Brzy budete ověřeni.
             offline: Použijte ověření offline
             online: Používejte ověření online
+            rejection_clarity: Ujistěte se, že informace jsou v nahraném obrázku zřetelně vidět.
+            rejection_correctness: Ujistěte se, že zadané informace jsou správné.
+            rejection_notice: Vyskytl se problém s vaším ověřením. Zkuste to prosím znovu.
             send: Znovu požádejte o ověření
           new:
             send: Požádejte o ověření
             title: Nahrajte svůj doklad totožnosti
+          update:
+            error: Při nahrávání Vašeho dokladu došlo k chybě.
+            success: Dokument byl úspěšně znovu nahrán.
         dni: Občanský průkaz
         nie: Daňové identifikační číslo
         passport: Cestovní pas
@@ -207,14 +229,29 @@ cs:
               title: Probíhající ověřování
               username: Uživatelské jméno
               verification_code: Ověřovací kód
+          postages:
+            create:
+              error: Chyba při označování dopisu jako odeslaného.
+              success: Dopis byl úspěšně označen jako odeslán.
         authorizations:
+          create:
+            error: U vašeho požadavku došlo k problému.
+            success: Děkujeme! Na vaši adresu zašleme ověřovací kód.
           edit:
             send: Potvrdit
+            title: Zadejte ověřovací kód, který vám přišel.
+            waiting_for_letter: Brzy pošleme dopis na Vaši adresu s Vaším ověřovacím kódem.
           new:
             send: Pošlete mi dopis
             title: Požádejte o ověřovací kód
+          update:
+            error: Váš ověřovací kód se neshoduje s naším. Zkontrolujte prosím Sms, kterou jsme vám poslali.
+            success: Blahopřejeme. Byli jste úspěšně ověřeni.
       sms:
         authorizations:
+          create:
+            error: U vašeho požadavku došlo k problému.
+            success: Děkujeme! Poslali jsme SMS na váš telefon.
           destroy:
             success: Ověřovací kód úspěšně resetovat. Opět zadejte své telefonní číslo.
           edit:
@@ -228,6 +265,7 @@ cs:
             title: Požádejte o ověřovací kód
           update:
             error: Váš ověřovací kód se neshoduje s naším. Zkontrolujte prosím SMS, kterou jsme vám poslali.
+            success: Blahopřejeme. Byli jste úspěšně ověřeni.
   errors:
     messages:
       uppercase_only_letters_numbers: musí být všechny velké a obsahují pouze písmena a / nebo čísla
