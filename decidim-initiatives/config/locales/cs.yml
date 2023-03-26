@@ -491,6 +491,7 @@ cs:
           approve: Schválit
           confirm_revoke: Jste si jist?
           invite_to_committee_help: Sdílejte tento odkaz pro pozvání ostatních účastníků do propagačního výboru.
+          no_members_yet: V předkladatelském výboru nejsou žádní členové.
           revoke: Odvolat
           title: Členové výboru
         count:
@@ -555,6 +556,7 @@ cs:
           section: 'Pokud o to organizace požádá, vytiskněte a vyplňte tento formulář pro odeslání, pokud je uvedeno:'
           signature: Podpis
         result:
+          answer_title: Tato iniciativa byla zodpovězena.
           initiative_rejected_reason: Tato iniciativa byla zamítnuta z důvodu nedostatečné podpory.
         show:
           any_vote_method: Tato iniciativa shromažďuje online i osobní podpisy.
