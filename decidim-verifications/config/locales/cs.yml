@@ -184,6 +184,8 @@ cs:
             offline: Offline
             online: Online
             title: Ověřte svou identitu
+          create:
+            success: Dokument byl úspěšně nahrán.
           edit:
             offline: Použijte ověření offline
             online: Používejte ověření online
