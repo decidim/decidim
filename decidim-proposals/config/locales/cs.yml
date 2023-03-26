@@ -31,6 +31,7 @@ cs:
         cost_report: Přehled nákladů
         execution_period: Období provádění
       proposals_copy:
+        copy_proposals: Rozumím, že tento krok naimportuje všechny návrhy z vybraného prvku do toho současného a že tuto akci nelze vrátit zpět.
         origin_component_id: Komponenta pro kopírování návrhů z
       proposals_import:
         import_proposals: Návrhy na dovoz
@@ -220,6 +221,7 @@ cs:
             endorsements_enabled: Schvalování povoleno
             proposal_answering_enabled: Odpovídání návrhu je povoleno
             publish_answers_immediately: Okamžitě publikovat odpovědi návrhu
+            publish_answers_immediately_help_html: 'Mějte na paměti, že pokud odpovíte na jakýkoli návrh bez tohoto povolení, budete je muset publikovat ručně jejich výběrem a použitím publikační akce. Více informací o tom, jak to funguje, naleznete na <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">stránce odpovědi návrhů</a>.'
             suggested_hashtags: Hashtagy navržené uživatelům pro nové návrhy
             votes_blocked: Hlasování bylo blokováno
             votes_enabled: Hlasování povoleno
@@ -228,8 +230,10 @@ cs:
       proposals:
         admin:
           proposal_note_created:
+            email_intro: Někdo zanechal poznámku k návrhu "%{resource_title}". Podívejte se na <a href="%{admin_proposal_info_url}">admin panel</a>.
             email_outro: Obdrželi jste toto oznámení, protože můžete návrh ohodnotit.
             email_subject: Někdo zanechal poznámku na návrh %{resource_title}.
+            notification_title: Někdo zanechal poznámku k návrhu <a href="%{resource_path}">%{resource_title}</a>. Podívejte se na <a href="%{admin_proposal_info_path}">admin panel</a>.
         collaborative_draft_access_accepted:
           email_intro: '%{requester_name} byl přijat k přístupu jako přispěvatel konceptu spolupráce <a href="%{resource_url}">%{resource_title}</a>.'
           email_outro: Obdrželi jste toto oznámení, protože jste spolupracovníkem <a href="%{resource_url}">%{resource_title}</a>.
@@ -264,10 +268,12 @@ cs:
           email_intro: 'Nyní můžete vytvořit nové návrhy v %{participatory_space_title}! Začněte se účastnit této stránky:'
           email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{participatory_space_title}. Po předchozím propojení můžete přestat přijímat oznámení.
           email_subject: Návrhy jsou nyní k dispozici v %{participatory_space_title}
+          notification_title: Nyní můžete předložit <a href="%{resource_path}">nové návrhy</a> v <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
         endorsing_enabled:
           email_intro: 'Můžete schválit návrhy v %{participatory_space_title}! Začněte se účastnit této stránky:'
           email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{participatory_space_title}. Po předchozím propojení můžete přestat přijímat oznámení.
           email_subject: Schválení návrhů bylo zahájeno po dobu %{participatory_space_title}
+          notification_title: Nyní můžete začít <a href="%{resource_path}">schvalovat návrhy</a> v <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
         proposal_accepted:
           affected_user:
             email_intro: 'Váš návrh "%{resource_title}" byl přijat. Odpověď můžete číst na této stránce:'
@@ -277,6 +283,7 @@ cs:
           follower:
             email_intro: 'Návrh "%{resource_title}" byl přijat. Odpověď můžete číst na této stránce:'
             email_outro: Toto oznámení jste obdrželi, protože jste sledovali "%{resource_title}". Můžete jej odhlásit od předchozího odkazu.
+            email_subject: Návrh, který sledujete, byl přijat
             notification_title: Návrh <a href="%{resource_path}">%{resource_title}</a> byl přijat.
         proposal_evaluating:
           affected_user:
@@ -287,6 +294,7 @@ cs:
           follower:
             email_intro: 'V současné době se hodnotí návrh "%{resource_title}". V této stránce můžete zkontrolovat odpověď:'
             email_outro: Toto oznámení jste obdrželi, protože jste sledovali "%{resource_title}". Můžete jej odhlásit od předchozího odkazu.
+            email_subject: Návrh, který předkládáte, se posuzuje
             notification_title: Návrh <a href="%{resource_path}">%{resource_title}</a> se hodnotí.
         proposal_mentioned:
           email_intro: Váš návrh "%{mentioned_proposal_title}" byl zmíněn <a href="%{resource_url}">v této skupině</a> v komentářích.
@@ -302,6 +310,8 @@ cs:
           email_intro: Návrh "%{resource_title}" byl přidán k "%{participatory_space_title}", který sledujete.
           email_outro: Toto oznámení jste obdrželi, protože jste sledovali "%{participatory_space_title}". Můžete jej odhlásit od předchozího odkazu.
           email_subject: Nový návrh "%{resource_title}" byl přidán k %{participatory_space_title}
+          notification_title: Návrh <a href="%{resource_path}">%{resource_title}</a> byl přidán do %{participatory_space_title} uživatelem %{author}.
+          notification_title_official: Oficiální návrh <a href="%{resource_path}">%{resource_title}</a> byl přidán do %{participatory_space_title}.
         proposal_rejected:
           affected_user:
             email_intro: 'Váš návrh "%{resource_title}" byl zamítnut. Odpověď můžete číst na této stránce:'
