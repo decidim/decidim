@@ -350,6 +350,7 @@ ja:
             invites: 招待
             search: 検索
           new:
+            explanation: 参加者はカンファレンスに参加するように招待されます。参加者のメールアドレスが組織に登録されていない場合は、組織にも招待されます。
             invite: 招待
             new_invite: 参加者の招待
         conference_registrations:
