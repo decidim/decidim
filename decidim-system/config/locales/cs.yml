@@ -43,6 +43,9 @@ cs:
       admins:
         create:
           error: Při vytváření nového administrátora došlo k chybě.
+          success: Správce byl úspěšně vytvořen.
+        destroy:
+          success: Správce byl úspěšně smazán.
         edit:
           title: Upravit admin
           update: Aktualizace
@@ -53,6 +56,7 @@ cs:
           title: Nový admin
         update:
           error: Při aktualizaci tohoto administrátora došlo k chybě.
+          success: Správce byl úspěšně aktualizován.
       dashboard:
         show:
           current_organizations: Aktuální organizace
@@ -141,6 +145,8 @@ cs:
         index:
           title: Organizace
         new:
+          reference_prefix_hint: Předpona reference se používá k jednoznačné identifikaci zdrojů ve všech organizacích.
+          secondary_hosts_hint: Každou vložte do nového řádku.
           title: Nová organizace
         omniauth_settings:
           decidim:
@@ -163,6 +169,8 @@ cs:
         smtp_settings:
           fieldsets:
             sender: Odesilatel
+          instructions:
+            from_label: 'Odesílatel e-mailu bude: "Název vaší organizace <your-organization@example.org>". Ponechte prázdné pro použití ''E-mailové adresy'' jako popisku.'
           placeholder:
             from_email: vaše-organizace@example.org
             from_label: jméno vaší organizace
