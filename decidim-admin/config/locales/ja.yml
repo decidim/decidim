@@ -514,6 +514,8 @@ ja:
             detail: ファイルに必要な列が含まれていることを確認してください。
             message:
               other: 列 %{columns} が見つかりません。
+        error: インポート中に問題が発生しました。
+        example_error: 指定されたタイプのサンプルを作成する際に問題が発生しました。
         new:
           accepted_mime_types:
             csv: csv
@@ -525,6 +527,7 @@ ja:
           download_example_format: '%{name} の例'
           file_legend: 解析されるインポート ファイルを追加します。
           import: インポート
+        notice: "%{count} %{resource_name} が正常にインポートされました。"
       logs:
         filters:
           participatory_space: 参加型スペースを探す
@@ -549,6 +552,7 @@ ja:
         area_types: エリア種別
         areas: エリア
         configuration: 設定
+        content: 報告されたコンテンツ
         dashboard: ダッシュボード
         external_domain_whitelist: 許可された外部ドメイン
         help_sections: ヘルプセクション
@@ -657,6 +661,7 @@ ja:
           nickname: ニックネーム
           reason: 理由
           reports: レポート数
+          title: 報告された参加者
         report:
           reasons:
             does_not_belong: 所属していない
@@ -666,6 +671,8 @@ ja:
           blocked: ブロック済
           unblocked: 未ブロック
       moderations:
+        index:
+          title: 報告されたコンテンツ
         report:
           reasons:
             does_not_belong: 属していません
@@ -1126,6 +1133,8 @@ ja:
   layouts:
     decidim:
       admin:
+        global_moderations:
+          title: グローバルモデレーション
         newsletters:
           title: ニュースレター
         settings:
