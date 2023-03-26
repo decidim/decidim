@@ -321,6 +321,7 @@ cs:
           follower:
             email_intro: 'Návrh "%{resource_title}" byl zamítnut. Odpověď můžete číst na této stránce:'
             email_outro: Toto oznámení jste obdrželi, protože jste sledovali "%{resource_title}". Můžete jej odhlásit od předchozího odkazu.
+            email_subject: Návrh, který sledujete, byl zamítnut
             notification_title: Návrh <a href="%{resource_path}">%{resource_title}</a> byl zamítnut.
         proposal_update_category:
           email_intro: 'Správce aktualizoval kategorii vašeho návrhu "%{resource_title}", podívejte se na něj:'
@@ -359,6 +360,7 @@ cs:
           description_own: Podpořili jste %{score} návrhů.
           name: Podpora návrhů
           next_level_in: Poskytněte podporu %{score} dalších návrhů, abyste dosáhli další úrovně!
+          unearned_another: Tento uživatel zatím nepodpořil žádné návrhy.
           unearned_own: Zatím jste nepodpořili žádné návrhy.
         proposals:
           conditions:
@@ -369,6 +371,7 @@ cs:
           description_own: Vytvořili jste %{score} návrhů.
           name: Návrhy
           next_level_in: Vytvořte %{score} dalších návrhů, abyste dosáhli další úrovně!
+          unearned_another: Tento uživatel zatím nevytvořil žádné návrhy.
           unearned_own: Dosud jste nevytvořili žádné návrhy.
     metrics:
       accepted_proposals:
@@ -466,6 +469,9 @@ cs:
             document_legend: 'Přidejte dokument o velikosti menší než 2 Mb, každá sekce do tří úrovní bude rozdělena do návrhů. Podporované formáty jsou: %{valid_mime_types}'
             title: Přidat dokument
             upload_document: Nahrát dokument
+          publish:
+            invalid: Při publikování návrhů došlo k chybě.
+            success: Všechny návrhy byly zveřejněny.
           sections:
             article: "<em>Článek</em>"
             section: "<em>Sekce:</em> <strong>%{title}</strong>"
@@ -481,13 +487,20 @@ cs:
             rejected: Odmítnuto
             title: Odpověď na návrh %{title}
         proposal_notes:
+          create:
+            error: Při vytváření poznámky k tomuto návrhu došlo k chybě.
+            success: Poznámka návrhu byla úspěšně vytvořena.
           form:
             note: Poznámka
             submit: Předložit
           leave_your_note: Nechte svou poznámku
           title: Soukromé poznámky
         proposals:
+          answer:
+            invalid: Při odpovědi na tento návrh se vyskytl problém.
+            success: Návrh byl úspěšně zodpovězen.
           create:
+            invalid: Při vytváření tohoto návrhu došlo k chybě.
             success: Návrh byl úspěšně vytvořen.
           edit:
             title: Návrh aktualizace
@@ -564,6 +577,9 @@ cs:
             select_a_scope: Vyberte prosím rozsah.
             success: 'Návrhy byly úspěšně aktualizovány v rozsahu %{subject_name}: %{proposals}.'
         proposals_imports:
+          create:
+            invalid: Při importu návrhů došlo k chybě.
+            success: "%{number} návrhů bylo úspěšně importováno."
           new:
             create: Návrhy na dovoz
             no_components: V tomto účastnickém prostoru neexistují žádné jiné komponenty návrhu, které by mohly importovat návrhy.
@@ -578,6 +594,13 @@ cs:
           create:
             invalid: 'Vyskytl se problém s rozdělením vybraných návrhů, protože některé z nich:'
             success: Úspěšně rozdělil návrhy na nové.
+        valuation_assignments:
+          create:
+            invalid: Při přiřazování návrhů hodnotiteli došlo k chybě.
+            success: Návrhy byly úspěšně přiřazené hodnotiteli.
+          delete:
+            invalid: Došlo k chybě při odebírání návrhů od hodnotitele.
+            success: Hodnotitel byl úspěšně odebrán z návrhů.
       admin_log:
         proposal:
           answer: "%{user_name} odpovídalo %{resource_name} návrh na %{space_name} prostoru"
@@ -680,6 +703,7 @@ cs:
         requests:
           accepted_request:
             error: Nelze přijmout jako spolupracovník, zkuste to znovu později.
+            success: "@%{user} byl úspěšně přijat jako spolupracovník."
           access_requested:
             error: Vaše žádost nebyla dokončena, zkuste to znovu později.
           collaboration_requests:
