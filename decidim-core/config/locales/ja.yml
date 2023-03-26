@@ -887,10 +887,14 @@ ja:
         demote_admin: 管理者を削除
       demote:
         error: この参加者を管理者リストから削除する際に問題が発生しました。
+        success: 参加者が管理者から削除されました。
       index:
         current_admins: '現在の管理者:'
         manage_admins: 管理者の管理
     group_invites:
+      accept:
+        error: 招待を承認する際に問題が発生しました。
+        success: 招待を承認しました。
       accept_invitation: 同意する
       accept_or_reject_group_invitations: '以下のグループがあなたを招待しています。リクエストを承認または拒否します。'
       index:
@@ -1132,9 +1136,16 @@ ja:
         main_image: メイン画像
     newsletters:
       unsubscribe:
+        check_subscription: 設定を変更したい場合は、 <a href="%{link}" target="_blank">設定ページ</a> で設定できます。
+        error: 購読解除中に問題が発生しました。
         success: 購読解除に成功しました。
         token_error: リンクの有効期限が切れました。
         unsubscribe: 購読解除
+    newsletters_opt_in:
+      unathorized: 申し訳ありませんが、このリンクは使用できません。
+      update:
+        error: ニュースレター設定の保存中に問題が発生しました。
+        success: ニュースレター設定を更新しました。
     newsletters_opt_in_mailer:
       notify:
         body_1: 個人データの処理とその保護は、私たち全員にとってますます重要になっています。 2018年5月25日の新しい一般データ保護規則(GDPR)により、個人は個人データをより良く管理できます。 このため、 %{organization_name} の活動に関する関連情報を送信し続けるには、お客様の "OK" が必要です。
@@ -1249,6 +1260,7 @@ ja:
         refuse:
           modal_body: 拒否するとプラットフォームを使用できなくなりますが、 <a href="%{download_your_data_path}">データ</a> をダウンロードしたり、 <a href="%{delete_path}">アカウントを削除</a> できます。
           modal_btn_continue: 利用規約に同意して続ける
+          modal_btn_exit: 後で確認する
           modal_button: 同意しない
           modal_close: モーダルを閉じる
           modal_title: 更新された利用規約を本当に拒否しますか?
@@ -1590,25 +1602,39 @@ ja:
         subject: 登録のご案内（メールアドレスの確認）
       email_changed:
         greeting: こんにちは、 %{recipient} さん!
+        message: あなたのメールアドレスが %{email} に変更されていることをお知らせします。
         subject: メールアドレスを変更しました
       invitation_instructions:
         accept: 招待を承認する
         accept_until: この招待は %{due_date}後に期限が切れます。
         decline: 招待を拒否
         hello: こんにちは、 %{email} さん。
+        ignore: |-
+          招待を受け取りたくない場合は、このメールを無視してください。<br />上記のリンクにアクセスし、ニックネームとパスワードを設定するまで、アカウントは作成されません。
         invited_you_as_admin: "%{invited_by} さんが %{application}の管理者としてあなたを招待しました。以下のリンクから承認できます。"
         invited_you_as_private_user: "%{invited_by} が %{application}の非公開参加者としてあなたを招待しました。以下のリンクから承認できます。"
         someone_invited_you: 誰かが %{application}にあなたを招待しました。以下のリンクから受け入れることができます。
         someone_invited_you_as_admin: 誰かが %{application}の管理者としてあなたを招待しました。以下のリンクから承認できます。
         someone_invited_you_as_private_user: '%{application}の非公開参加者としてあなたを招待しました。以下のリンクから承認できます。'
         subject: 招待の説明
+      invite_admin:
+        subject: '%{organization} を管理するために招待されています'
+      invite_collaborator:
+        subject: あなたは %{organization} で共同作業に招待されています
+      invite_private_user:
+        subject: あなたは %{organization} のプライベート参加プロセスに招待されています
+      organization_admin_invitation_instructions:
+        subject: '%{organization} を管理するために招待されています'
       password_change:
         greeting: こんにちは、 %{recipient} さん!
+        message: パスワードが変更されたことをお知らせします。
         subject: パスワードの変更
       reset_password_instructions:
         action: パスワードを変更する
         greeting: こんにちは、 %{recipient} さん!
         instruction: 誰かがあなたのパスワードを変更するためのリンクを要求しています、そしてあなたは下のリンクを介してこれを行うことができます。
+        instruction_2: あなた自身がこのリクエストを行っていない場合は、このメールは無視していただいて構いません。
+        instruction_3: 上記のリンクにアクセスして新しいパスワードを作成するまで、現在のパスワードは変更されません。
         subject: パスワードリセットの手順
       unlock_instructions:
         action: アカウントのロックを解除
@@ -1630,6 +1656,7 @@ ja:
       new:
         forgot_your_password: パスワードをお忘れですか？
         send_me_reset_password_instructions: パスワードリセット手順を送信してください
+      no_token: パスワードリセットメールからのアクセスでない場合、このページにアクセスすることはできません。パスワードリセットメールからのアクセスの場合は、提供された完全なURLを使用したことを確認してください。
       send_instructions: 数分でパスワードをリセットする方法が記載されたメールが届きます。
       send_paranoid_instructions: 当社のデータベースにあなたのメールアドレスが存在する場合、数分後にあなたのメールアドレスにパスワード回復リンクが届きます。
       updated: パスワードが正常に変更されました。ログインしています。
@@ -1653,6 +1680,8 @@ ja:
     shared:
       links:
         back: 戻る
+        didn_t_receive_confirmation_instructions: 確認の指示を受信しませんでしたか？
+        didn_t_receive_unlock_instructions: ロック解除の指示を受け取れませんでしたか？
         forgot_your_password: パスワードをお忘れですか？
         sign_in: ログイン
         sign_in_with_provider: '%{provider} でログイン'
@@ -1686,6 +1715,7 @@ ja:
       load: 絵文字の読み込みに失敗しました
     recents:
       clear: 最近の絵文字を消去
+      none: 絵文字がまだ選択されていません。
     retry: やり直す
     search:
       _: 絵文字を検索...
