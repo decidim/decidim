@@ -188,6 +188,12 @@ cs:
           inactive_content_blocks: Neaktivní bloky obsahu
           title: Obsah stránky
       participatory_process_group_landing_page_content_blocks:
+        create:
+          error: Při pokusu o vytvoření tohoto obsahu došlo k chybě.
+          success: Blok obsahu byl úspěšně vytvořen.
+        destroy:
+          error: Při pokusu o odstranění tohoto obsahu došlo k chybě.
+          success: Blok obsahu byl úspěšně odstraněn.
         edit:
           update: Aktualizovat
       participatory_process_groups:
@@ -228,6 +234,9 @@ cs:
           success: Úspěšný krok procesu byl úspěšně vytvořen.
         default_title: Úvod
         destroy:
+          error:
+            active_step: Nelze odstranit aktivní fázi.
+            last_step: Nelze odstranit poslední fázi procesu.
           success: Úspěšný krok procesu byl úspěšně smazán.
         edit:
           title: Úprava kroku procesu participace
@@ -357,6 +366,10 @@ cs:
           contextual: "<p> <strong>Participační proces</strong> je sled aktivit participativního charakteru (např. Nejprve vyplnění průzkumu, následné předkládání návrhů, diskuse o nich v rámci osobních nebo virtuálních schůzek a nakonec jejich prioritizace) s cílem definovat a rozhodnout na konkrétní téma.</p> <p>Příklady participačních procesů jsou: <strong>proces volby členů výboru</strong> (kde jsou kandidatury poprvé představeny, pak diskutovány a nakonec je vybrána kandidatura), <strong>participační rozpočty</strong> (kde jsou návrhy předloženy, ekonomicky oceňovány a hlasovány s dostupnými prostředky); <strong>proces strategického plánování</strong>, společné vypracování nařízení nebo normy, návrh městského prostoru nebo vypracování plánu veřejného pořádku.</p>\n"
           page: "<p> <strong>participační proces</strong> je sled aktivit participativního charakteru (např. Nejprve vyplnění průzkumu, následné předkládání návrhů, diskuse o nich v rámci osobních nebo virtuálních schůzek a nakonec jejich prioritizace) s cílem definovat a rozhodnout na konkrétní téma.</p> <p>Příklady participačních procesů jsou: proces volby členů výboru (kde jsou kandidatury poprvé představeny, pak diskutovány a nakonec je vybrána kandidatura), participační rozpočty (kde jsou návrhy předloženy, ekonomicky oceňovány a hlasovány s dostupnými prostředky); proces strategického plánování, společné vypracování nařízení nebo normy, návrh městského prostoru nebo vypracování plánu veřejného pořádku.</p>\n"
           title: Co je participační proces?
+    log:
+      value_types:
+        participatory_process_type_presenter:
+          not_found: 'Typ procesu nebyl v databázi nalezen (ID: %{id}).'
     menu:
       processes: Procesy
     metrics:
@@ -484,6 +497,8 @@ cs:
               many: "%{count} nadcházejících procesů"
               other: "%{count} nadcházejících procesů"
           explanations:
+            no_active: Žádné aktivní procesy.
+            no_active_nor_upcoming: Žádné aktivní ani nadcházející procesy.
             no_active_nor_upcoming_callout: Neexistují žádné aktivní ani nadcházející procesy. Zde je seznam minulých.
           filter_by: Zobrazit
           names:
