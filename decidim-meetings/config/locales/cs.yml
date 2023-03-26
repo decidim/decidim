@@ -342,6 +342,7 @@ cs:
             add_service: Přidat službu
             services: Služby
           unpublish:
+            invalid: Při rušení publikování této schůzky došlo k chybě.
             success: Zveřejnění schůze byla úspěšně zrušeno.
           update:
             invalid: Při aktualizaci této schůze došlo k chybě.
