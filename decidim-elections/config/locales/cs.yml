@@ -180,7 +180,11 @@ cs:
           select:
             disable: Zrušit výběr odpovědi
             enable: Označit odpověď jako vybranou
+            success: Odpověď byla úspěšně vybrána.
           selected: Vybráno
+          unselect:
+            invalid: Při zrušení výběru této odpovědi došlo k chybě.
+            success: Odpovědi byl úspěšně zrušen výběr.
           update:
             invalid: Při aktualizaci této odpovědi došlo k chybě.
             success: Odpověď byla úspěšně aktualizována.
@@ -798,6 +802,7 @@ cs:
             code_help: 'Tip: kód je spojitost mezi seznamem členů a stylem hlasování. Při nahrávání dat ze seznamu členů bude každému záznamu přiřazen styl hlasovacích lístků podle odpovídajícího kódu.'
             election: Volby
             questions: Otázky pro tento styl voleb
+            questions_help: 'Tip: vyberte otázky z volebních složek, které budou předloženy voličům přiřazeným k tomuto stylu hlasování.'
           index:
             actions:
               confirm_destroy: Jste si jist?
@@ -811,6 +816,9 @@ cs:
           new:
             create: Vytvořit
             title: Vytvořit styl hlasování
+          update:
+            invalid: Při aktualizaci tohoto stylu hlasování došlo k chybě.
+            success: Styl hlasování byl úspěšně aktualizován.
         content_blocks:
           highlighted_votings:
             max_results: Maximální počet prvků k zobrazení
@@ -842,6 +850,12 @@ cs:
           published: Zveřejněno
         landing_page:
           content_blocks:
+            create:
+              error: Při pokusu o vytvoření tohoto bloku obsahu došlo k chybě.
+              success: Blok obsahu byl úspěšně vytvořen.
+            destroy:
+              error: Při pokusu o odstranění tohoto bloku obsahu došlo k chybě.
+              success: Blok obsahu byl úspěšně odstraněn.
             edit:
               update: Aktualizovat
           edit:
@@ -921,8 +935,12 @@ cs:
             publish_results: Zveřejnit výsledky
             publishing: Zveřejňování výsledků...
           update:
+            invalid: Při publikování výsledků došlo k chybě.
             rejected: Zveřejnění výsledků bylo výborem Vývěsky zamítnuto. Zkuste to znovu nebo se obraťte na správce systému.
+            success: Výsledky byly úspěšně publikovány.
         monitoring_committee_members:
+          create:
+            invalid: Při vytváření tohoto člena monitorovacího výboru došlo k chybě.
           form:
             existing_user: Existující účastník
             non_user: Pozvat nového účastníka
