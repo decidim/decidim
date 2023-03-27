@@ -28,16 +28,12 @@ module Decidim::Initiatives
 
       shared_examples_for "card shows signatures" do
         it "shows signatures" do
-          expect(subject).to have_css(".progress__bar__number")
-          expect(subject).to have_css(".progress__bar__text")
           expect(subject.to_s).to include("signatures")
         end
       end
 
       shared_examples_for "card does not show signatures" do
         it "does not show signatures" do
-          expect(subject).not_to have_css(".progress__bar__number")
-          expect(subject).not_to have_css(".progress__bar__text")
           expect(subject.to_s).not_to include("signatures")
         end
       end

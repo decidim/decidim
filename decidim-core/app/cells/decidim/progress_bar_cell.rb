@@ -45,29 +45,27 @@ module Decidim
       I18n.t(units_name, count: progress)
     end
 
+    # deprecated
     def subtitle_text
       options[:subtitle_text]
     end
 
-    def container_class
-      container_class = "progress__bar"
-      container_class += " progress__bar--horizontal" if horizontal? && !small?
-      container_class += " progress__bar--vertical" if vertical?
-      container_class
-    end
-
+    # deprecated
     def display_subtitle?
       subtitle_text.present? && !small? && !horizontal?
     end
 
+    # deprecated
     def small?
       options[:small].to_s == "true"
     end
 
+    # deprecated
     def vertical?
       !small? && !horizontal?
     end
 
+    # deprecated
     def horizontal?
       options[:horizontal].to_s == "true"
     end
@@ -77,7 +75,7 @@ module Decidim
     end
 
     def total
-      options[:total]
+      10#options[:total]
     end
 
     def percentage

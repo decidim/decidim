@@ -33,9 +33,8 @@ module Decidim::Accountability
       end
 
       it "renders the progress value and bar" do
-        expect(subject).to have_css(".progress__bar")
         expect(subject).to have_content(/#{progress.to_i}%\s*Executed/)
-        expect(subject).to have_css(".progress__bar__bar")
+        expect(subject).to have_css('[role="progressbar"]')
       end
 
       context "when start and end dates are blank" do
@@ -51,7 +50,7 @@ module Decidim::Accountability
         let(:progress) { nil }
 
         it "hides progress value and bar" do
-          expect(subject).to have_no_css(".progress__bar")
+          expect(subject).to have_no_css('[role="progressbar"]')
         end
       end
     end
