@@ -39,7 +39,6 @@ ca:
         body: Cos
         subject: Assumpte
       organization:
-        admin_terms_of_use_body: Cos del text de condicions d'ús per als administradors
         alert_color: Alerta
         available_authorizations: Autoritzacions disponibles
         badges_enabled: Habilitar les ensenyes
@@ -198,20 +197,6 @@ ca:
         user:
           new: Nova administradora
         verify: Verificar
-      admin_terms_of_use:
-        accept:
-          error: S'ha produït un error en acceptar els Termes i Condicions d'administració.
-          success: Genial! Has acceptat els termes i condicions d'ús d'administració.
-        actions:
-          accept: Estic d'acord amb els termes
-          are_you_sure: Segur que vols rebutjar els termes i condicions del panell d'administració?
-          refuse: Rebutjar els termes
-          title: Accepto les condicions d'ús
-        required_review:
-          alert: 'Requerit: Revisa els nostres Termes i Condicions del panell d''administració'
-          callout: Si us plau, dedica un moment a revisar els nostres termes i condicions d'administració. En cas contrari, no podràs administrar la plataforma.
-          cta: Revisa-les ara.
-        title: Termes i condicions d'ús d'administració
       area_types:
         create:
           error: S'ha produït un error en crear un tipus d'àrea nova.
@@ -996,7 +981,6 @@ ca:
         destroy:
           success: La pàgina s'ha eliminat correctament.
         edit:
-          changed_notably_help: Si està marcada, les participants seran notificades per a que acceptin els nous Termes i Condicions.
           title: Editar pàgina
           update: Actualitzar
         form:
