@@ -28,8 +28,6 @@ edit_link(
     <% end %>
   </div>
 
-
-
   <div class="editor-content">
     <%= render_debate_description(debate) %>
     <% if debate.closed? %>
@@ -46,8 +44,6 @@ edit_link(
       </div>
     <% end %>
   </div>
-
-
 
   <%= render partial: "decidim/shared/tags", locals: { resource: debate, tags_class_extra: "tags--debate" } %>
 
