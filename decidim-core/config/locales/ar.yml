@@ -29,7 +29,6 @@ ar:
         password_confirmation: أكد كلمتك السرية
         personal_url: العنوان الشبكي الشخصي
         remove_avatar: إزالة الصورة الرمزية
-        tos_agreement: شروط وأحكام اتفاقية الاستخدام
     models:
       decidim/attachment_created_event: المرفق
       decidim/component_published_event: العنصر النشط
@@ -168,7 +167,6 @@ ar:
       logo: "شعار %{organization} الرسمي"
       skip_button: تخطي إلى المحتوى الرئيسي
     account:
-      blocked: تم حظر هذا الحساب بسبب مخالفة الشروط والأحكام
       delete:
         confirm:
           close: أغلق النافذة
@@ -292,8 +290,6 @@ ar:
         verify_via_csv: "%{user_name} التحقق من المجموعة %{resource_name} عبر ملف CSV"
       user_moderation:
         unreport: "%{user_name} تراجع عن الإبلاغ عن %{resource_type} - %{unreported_user_name}"
-    admin_terms_of_use:
-      default_body: "<h2>شروط الاستخدام الخاصة بالمدراء</h2><p>نحن متأكدون من أنك تلقيت المحاضرة المعتادة من مدير النظام المحلي. وعادة فإن الأمر يخص الأشياء الثلاثة التالية:</p><ol><li>احترام خصوصية الآخرين.</li><li>فكر قبل النقر.</li><li>تترتب على امتلاك القوة مسؤولية كبيرة.</li></ol>"
     alert:
       dismiss: تجاهل الإشعار
     amendments:
@@ -575,7 +571,6 @@ ar:
           sign_up_as:
             legend: الاشتراك باسم
           subtitle: اشترك للمشاركة في المناقشات ودعم المقترحات.
-          terms: شروط وشروط الاستخدام
           tos_agreement: بالتسجيل فإنك توافق على %{link}.
           tos_title: شروط الخدمة
           username_help: الاسم العام الذي يظهر في مشاركاتك. بهدف ضمان عدم الكشف عن هويته ، يمكن أن يكون أي اسم.
@@ -1200,23 +1195,9 @@ ar:
         metrics:
           headline: المشاركة في الأرقام
           link: عرض جميع الإحصاءات
-      terms_and_conditions:
-        accept:
-          error: كانت هناك مشكلة في قبول الشروط والأحكام.
-          success: عظيم! لقد قبلت الشروط والأحكام.
-        form:
-          agreement: أوافق على هذه الشروط
-        refuse:
-          modal_btn_continue: قبول الشروط والمتابعة
-          modal_button: رفض الشروط
-          modal_close: إغلاق مشروط
-          modal_title: هل ترفض حقًا الأحكام والشروط المحدثة؟
-        required_review:
-          title: 'مطلوب: مراجعة التحديثات لشروط الخدمة لدينا'
     participatory_space_private_users:
       not_allowed: غير مسموح لك بمشاهدة هذا المحتوى
     profile:
-      inaccessible_message: لا يمكن الوصول إلى هذا الملف الشخصي بسبب انتهاك الشروط والأحكام!
       view: رأي
     profiles:
       show:
