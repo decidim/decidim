@@ -195,14 +195,11 @@ fr-CA:
           error: Une erreur s'est produite lorsque vous avez accepté les conditions d'utilisation administrateur.
           success: Super! Vous avez accepté les conditions d'utilisation administrateur.
         actions:
-          accept: J'accepte les conditions d'utilisation
           are_you_sure: Êtes-vous sûr de vouloir refuser les conditions d'utilisation de l'administrateur?
-          refuse: Refuser les conditions d'utilisation administrateur
           title: Accepter les conditions d'utilisation
         required_review:
           alert: 'Obligatoire: Consultez nos conditions d''utilisation administrateur'
           callout: Veuillez prendre un moment pour consulter les conditions d'utilisation de l'administration. Sinon, vous ne pourrez pas gérer la plateforme.
-          cta: Consulter les maintenant.
         title: Conditions d'utilisation administrateur
       area_types:
         create:
