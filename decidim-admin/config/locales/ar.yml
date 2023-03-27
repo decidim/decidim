@@ -39,7 +39,6 @@ ar:
         body: النص
         subject: الموضوع
       organization:
-        admin_terms_of_use_body: نص شروط الاستخدام للمدير
         alert_color: تنبيه
         available_authorizations: التراخيص المتاحة
         badges_enabled: تمكين الشارات
@@ -162,11 +161,6 @@ ar:
         user:
           new: مدير جديد
         verify: التحقق
-      admin_terms_of_use:
-        actions:
-          refuse: ارفض شروط المدير
-        required_review:
-          cta: راجِعها الآن.
       area_types:
         create:
           error: حدثت مشكلة أثناء إنشاء نوع منطقة جديد.
@@ -791,7 +785,6 @@ ar:
         destroy:
           success: تم تدمير الصفحة بنجاح
         edit:
-          changed_notably_help: في حالة تحديده ، سيتم إخطار المشاركين بقبول البنود والشروط الجديدة.
           title: تعديل الصفحة
           update: تحديث
         form:
