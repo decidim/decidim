@@ -127,12 +127,6 @@ sr:
         permissions: Dozvole
         reject: Odbaci
         verify: Overi
-      admin_terms_of_use:
-        actions:
-          refuse: Ne prihvatam uslove korišćenja za administratore
-        required_review:
-          alert: 'Obavezno: Pročitajte naše uslove korišćenja za administratore'
-          cta: Proučite uslove sada.
       area_types:
         create:
           error: Nastao je problem pri stvaranju novog tipa oblasti.
