@@ -320,7 +320,6 @@ gl:
           sign_up_as:
             legend: Rexístrate como
           subtitle: Rexístrate para participar en discusións e propostas de apoio.
-          terms: os termos e condicións de uso
           tos_agreement: Ao rexistrarte, aceptas %{link}.
           tos_title: Condicións de servicio
           username_help: Nome público que aparece nas túas publicacións. Co obxectivo de garantir o anonimato, pode ser calquera nome.
@@ -757,17 +756,6 @@ gl:
         metrics:
           headline: Participación en números
           link: Mostrar todas as estatísticas
-      terms_and_conditions:
-        accept:
-          error: Produciuse un erro ao aceptar os termos e condicións.
-          success: Grande! Aceptou os termos e condicións.
-        refuse:
-          modal_btn_continue: Aceptar termos e continuar
-          modal_button: Rexeitar os termos
-          modal_close: Pechar modal
-          modal_title: '¿Realmente rexeita os Termos e condicións actualizados?'
-        required_review:
-          title: 'Requirido: repasa as actualizacións dos nosos termos de servizo'
     participatory_space_private_users:
       not_allowed: Non tes permiso para ver este contido
     profile:
