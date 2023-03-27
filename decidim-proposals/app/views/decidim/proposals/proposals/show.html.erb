@@ -107,6 +107,7 @@ extra_admin_link(
                           In any case, these blocks should go inside the tabs-panels structure  %>
     <%#= cell "decidim/endorsers_list", @proposal %>
     <%#= amendments_for @proposal %>
+    <%#= amenders_list_for(@proposal) %>
 
     <%= render partial: "actions" %>
 
