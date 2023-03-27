@@ -32,22 +32,22 @@ edit_link(
 
   <div class="editor-content">
     <%= render_debate_description(debate) %>
+    <% if debate.closed? %>
+      <%= cell("decidim/announcement", { title: t("debate_conclusions_are", scope: "decidim.debates.debates.show", date: l(debate.closed_at, format: :decidim_short)), body: simple_format(translated_attribute(debate.conclusions)) }, callout_class: "success") %>
+    <% end %>
+    <% if translated_attribute(debate.instructions).present? %>
+      <div class="callout secondary">
+        <%= decidim_sanitize_editor(simple_format(translated_attribute(debate.instructions), {}, sanitize: false)) %>
+      </div>
+    <% end %>
+    <% if translated_attribute(debate.information_updates).present? %>
+      <div class="callout success">
+        <%= decidim_sanitize_editor(simple_format(translated_attribute(debate.information_updates), {}, sanitize: false)) %>
+      </div>
+    <% end %>
   </div>
 
-  <% if debate.closed? %>
-    <%= cell("decidim/announcement", { title: t("debate_conclusions_are", scope: "decidim.debates.debates.show", date: l(debate.closed_at, format: :decidim_short)), body: simple_format(translated_attribute(debate.conclusions)) }, callout_class: "success") %>
-  <% end %>
 
-  <% if translated_attribute(debate.instructions).present? %>
-    <div class="callout secondary">
-      <%= decidim_sanitize_editor(simple_format(translated_attribute(debate.instructions), {}, sanitize: false)) %>
-    </div>
-  <% end %>
-  <% if translated_attribute(debate.information_updates).present? %>
-    <div class="callout success">
-      <%= decidim_sanitize_editor(simple_format(translated_attribute(debate.information_updates), {}, sanitize: false)) %>
-    </div>
-  <% end %>
 
   <%= render partial: "decidim/shared/tags", locals: { resource: debate, tags_class_extra: "tags--debate" } %>
 
