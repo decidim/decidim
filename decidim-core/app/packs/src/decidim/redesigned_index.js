@@ -15,6 +15,7 @@ import morphdom from "morphdom"
 import Accordions from "a11y-accordion-component";
 import Dropdowns from "a11y-dropdown-component";
 import Dialogs from "a11y-dialog-component";
+import { screens } from "tailwindcss/defaultTheme"
 
 // vendor customizated scripts (bad practice: these ones should be removed eventually)
 import "./vendor/foundation-datepicker"
@@ -108,7 +109,12 @@ Rails.start()
  */
 const initializer = (element = document) => {
   window.theDataPicker = new DataPicker($(".data-picker"));
-  window.focusGuard = new FocusGuard(element.querySelector("body"));
+
+  let focusContainer = element;
+  if (element === document) {
+    focusContainer = document.querySelector("body");
+  }
+  window.focusGuard = new FocusGuard(focusContainer);
 
   $(element).foundation();
   $(element).on("open.zf.reveal", (ev) => {
@@ -172,9 +178,41 @@ const initializer = (element = document) => {
   scrollToLastChild()
 
   // https://github.com/jonathanlevaillant/a11y-accordion-component
-  Accordions.init();
+  element.querySelectorAll('[data-component="accordion"]').forEach((component) => {
+    const accordionOptions = {};
+    accordionOptions.isMultiSelectable = component.dataset.multiselectable !== "false";
+    accordionOptions.isCollapsible = component.dataset.collapsible !== "false";
+
+    // This snippet allows to change a data-attribute based on the current viewport
+    // Just include the breakpoint where the different value will be applied from.
+    // Ex:
+    // data-open="false" data-open-md="true"
+    Object.keys(screens).forEach((key) => (window.matchMedia(`(min-width: ${screens[key]})`).matches) && component.querySelectorAll(`[data-controls][data-open-${key}]`).forEach((elem) => (elem.dataset.open = elem.dataset[`open-${key}`.replace(/-([a-z])/g, (str) => str[1].toUpperCase())])))
+
+    if (!component.id) {
+      // when component has no id, we enforce to have it one
+      component.id = `accordion-${Math.random().toString(36).substring(7)}`
+    }
+
+    Accordions.render(component.id, accordionOptions);
+  });
+
   // https://github.com/jonathanlevaillant/a11y-dropdown-component
-  Dropdowns.init();
+  element.querySelectorAll('[data-component="dropdown"]').forEach((component) => {
+    const dropdownOptions = {};
+    dropdownOptions.dropdown = component.dataset.target;
+    dropdownOptions.hover = component.dataset.hover === "true";
+    dropdownOptions.isOpen = component.dataset.open === "true";
+    dropdownOptions.autoClose = component.dataset.autoClose === "true";
+
+    if (!component.id) {
+      // when component has no id, we enforce to have it one
+      component.id = `dropdown-${Math.random().toString(36).substring(7)}`
+    }
+
+    Dropdowns.render(component.id, dropdownOptions);
+  });
+
   // https://github.com/jonathanlevaillant/a11y-dialog-component
   element.querySelectorAll("[data-dialog]").forEach((elem) => {
     const {
@@ -246,3 +284,16 @@ $(() => initializer());
 // Run initializer action over the new DOM elements
 document.addEventListener("remote-modal:loaded", ({ detail }) => initializer(detail));
 document.addEventListener("ajax:loaded", ({ detail }) => initializer(detail));
+
+// Run initializer action over the new DOM elements (for example after comments polling)
+document.addEventListener("comments:loaded", (event) => {
+  const commentsIds = event.detail.commentsIds;
+  if (commentsIds) {
+    commentsIds.forEach((commentId) => {
+      const commentsContainer = document.getElementById(`comment_${commentId}`);
+      if (commentsContainer) {
+        initializer(commentsContainer)
+      }
+    });
+  }
+});

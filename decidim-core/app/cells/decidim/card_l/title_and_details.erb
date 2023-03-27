@@ -1,0 +1,5 @@
+<%= content_tag title_tag, class: "h4 card__list-title" do %>
+  <%= title %>
+<% end %>
+<%= render :description if has_description? %>
+<%= render details_template if details_template.present? %>

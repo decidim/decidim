@@ -10,9 +10,17 @@ module Decidim
       def comments_for(resource, options = {})
         return unless resource.commentable?
 
-        content_for :expanded do
-          inline_comments_for(resource, options)
+        content_for :css_content do
+          stylesheet_pack_tag "decidim_comments"
         end
+
+        content_for :js_content do
+          # This script can't be deferred, otherwise the DOMReady and turbo:load listeners are not
+          # executed from a Turbo Frame call
+          javascript_pack_tag "decidim_comments", defer: false
+        end
+
+        inline_comments_for(resource, options)
       end
 
       # Creates a Comments component through the comments cell.
