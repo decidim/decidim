@@ -1,4 +1,4 @@
-<%= render layout: "layouts/decidim/shared/layout_item", locals: nav_paths.merge(commentable: result) do %>
+<%= render layout: "layouts/decidim/shared/layout_item", locals: nav_paths do %>
   <%= cell("decidim/accountability/project", result) %>
 
   <div class="mt-8 accountability__project-actions">
@@ -13,10 +13,6 @@
   <%# REDESIGN_PENDING: Both comments and attachments sections are pending %>
   <%= attachments_for result %>
 
-  <div class="mt-8">
-    <%= cell "decidim/accountability/result_metadata", result, template: :show_footer %>
-  </div>
-
   <% content_for :aside do %>
     <div class="accountability__project-aside">
       <% if component_settings.display_progress_enabled? %>
@@ -30,5 +26,9 @@
 
     <%= cell("decidim/accountability/result_metadata", result, template: :project_aside) %>
     </div>
+  <% end %>
+  <% content_for :item_footer do %>
+    <%= comments_for result %>
+    <%= cell "decidim/accountability/result_metadata", result, template: :show_footer %>
   <% end %>
 <% end %>

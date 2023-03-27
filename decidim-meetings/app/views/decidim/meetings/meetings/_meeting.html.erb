@@ -1,4 +1,4 @@
-<%= render layout: "layouts/decidim/shared/layout_item", locals: nav_paths.merge(commentable: meeting) do %>
+<%= render layout: "layouts/decidim/shared/layout_item", locals: nav_paths do %>
   <div class="meeting__container">
 
     <h1 class="h2 decorator"><%= present(meeting).title(links: true, html_escape: true ) %></h1>
@@ -49,14 +49,6 @@
     </div>
 
     <%= pad_iframe_for meeting %>
-
-    <div class="mt-8">
-      <ul class="drawer-metadata__container" data-metadata-footer>
-        <%= content_tag :li, resource_reference(meeting), class: "drawer-metadata__item" %>
-        <%= content_tag :li, resource_version(meeting, versions_path: meeting_version_path(meeting, meeting.versions.count)), class: "drawer-metadata__item" %>
-        <%= content_tag :li, link_to(t("add_to_calendar", scope: "decidim.meetings.meetings.calendar_modal"), nil, remote: true, data: { dialog_open: "calendarShare_#{meeting.id}" }), class: "drawer-metadata__item" %>
-      </ul>
-    </div>
 
     <%# REDESIGN_PENDING: deprecated, now it's always in the layout %>
     <%#= cell("decidim/flag_modal", meeting) %>
@@ -137,6 +129,17 @@
         <% end %>
       <% end %>
     <% end %>
+  <% end %>
+
+  <% content_for :item_footer do %>
+    <%= comments_for meeting %>
+    <div class="mt-8">
+      <ul class="drawer-metadata__container" data-metadata-footer>
+        <%= content_tag :li, resource_reference(meeting), class: "drawer-metadata__item" %>
+        <%= content_tag :li, resource_version(meeting, versions_path: meeting_version_path(meeting, meeting.versions.count)), class: "drawer-metadata__item" %>
+        <%= content_tag :li, link_to(t("add_to_calendar", scope: "decidim.meetings.meetings.calendar_modal"), nil, remote: true, data: { dialog_open: "calendarShare_#{meeting.id}" }), class: "drawer-metadata__item" %>
+      </ul>
+    </div>
   <% end %>
 <% end %>
 
