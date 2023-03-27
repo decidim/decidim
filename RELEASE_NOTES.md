@@ -78,7 +78,7 @@ In some cases, when running in a containerized environment, you may need to manu
 
 In some other cases when you run your application on a custom port (other than 3000), you will need to edit the `Procfile`, and add the parameter. `web: bin/rails server -b 0.0.0.0 -p 3000`
 
-### 3.3 User moderation panel changes
+### 3.3. User moderation panel changes
 
 In older Decidim installations, when blocking an user directly from the participants menu, without being previously reported, it will hide that user, making it unavailable in the Reported Participants section. You will need to run this command once to make sure there are no users or entities that got blocked but are not visible in the participants listing.
 
@@ -88,7 +88,7 @@ bundle exec rake decidim:upgrade:moderation:fix_blocked_user_panel
 
 You can read more about this change on PR [\#10521](https://github.com/decidim/decidim/pull/10521).
 
-### 3.3 Change Webpacker to Shakapacker
+### 3.4. Change Webpacker to Shakapacker
 
 Since the Rails team has retired the Webpacker in favour or importmap-rails or js-bundling, we got ouserlves in a situation where performance improvements could not be performed.
 In order to continue having support for Webpacker like syntax, we have switched to Shakapacker.
@@ -129,6 +129,12 @@ In order to run your development server, you will need to run the following comm
 ```
 
 You can read more about this change on PR [\#10389](https://github.com/decidim/decidim/pull/10389).
+
+### 3.5. Graphql upgrade
+
+In [\#10606](https://github.com/decidim/decidim/pull/10606) we have upgraded the GraphQL gem to version 2.0.19. This upgrade introduces some breaking changes, so you will need to update your GraphQL queries to match the new API. This change should be transparent for most of the users, but if you have custom GraphQL queries, you will need to update them. Also, please note, there might be some issues with community plugins that offer support for GraphQL, so you might need to update them as well.
+
+Please see the [change log](https://github.com/rmosolgo/graphql-ruby/blob/master/CHANGELOG.md) for graphql gem for more information.
 
 ## 4. Scheduled tasks
 
