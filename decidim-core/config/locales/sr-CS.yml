@@ -12,8 +12,6 @@ sr:
     admin_log:
       user:
         show_email: "%{user_name} je pribavio e-mail adresu učesnika %{resource_name}"
-    admin_terms_of_use:
-      default_body: "<h2>USLOVI KORIŠĆENJA ZA ADMINISTRATORE</h2><p> Verujemo da si već čuo uobičajeno predavanje od svog lokalnog Administratora Sistema. Obično se svodi na ove tri stvari </p><ol><li>Poštuj privatnost drugih</li><li>Razmisli pre nego što klikneš</li><li>Sa velikom moći dolazi velika odgovornost</li></ol>"
     application:
       document:
         download: Preuzmi datoteku
