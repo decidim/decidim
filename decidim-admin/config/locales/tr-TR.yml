@@ -140,12 +140,6 @@ tr:
         reject: reddetmek
         share: Paylaş
         verify: DOĞRULAYIN
-      admin_terms_of_use:
-        actions:
-          refuse: Yönetici şartlarını reddedin
-        required_review:
-          alert: 'Gerekli: Yönetici kullanım şartlarımızı inceleyin'
-          cta: Şimdi gözden geçirin.
       area_types:
         create:
           error: Yeni alan türü oluştururken bir hata oluştu.
@@ -731,7 +725,6 @@ tr:
         destroy:
           success: Sayfa başarıyla yok edildi
         edit:
-          changed_notably_help: İşaretlenirse, kullanıcılar yeni şartlar ve koşulları kabul etmek için bilgilendirileceklerdir.
           title: Sayfayı düzenle
           update: Güncelleştirme
         form:
