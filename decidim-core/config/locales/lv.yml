@@ -972,15 +972,12 @@ lv:
           legend: Piekrist lietošanas noteikumiem
         refuse:
           modal_body: Ja atteiksieties, nevarēsiet izmantot platformu, varat <a href="%{data_portability_path}"> lejupielādēt savus datus </a> un/vai <a href="%{delete_path}"> izdzēst savu kontu </a>.
-          modal_btn_continue: Pieņemt noteikumus un turpināt
           modal_btn_exit: Es tos pārskatīšu vēlāk
-          modal_button: Atteikties no noteikumu pieņemšanas
           modal_close: Aizvērt modal
           modal_title: Vai jūs tiešām atsakāties no atjauninātajiem lietošanas noteikumiem?
         required_review:
           alert: Mēs esam atjauninājuši mūsu pakalpojumu sniegšanas noteikumus, lūdzu, pārskatiet tos.
           body: Lūdzu, atvēliet laiku, lai pārskatītu atjauninātos pakalpojumu sniegšanas noteikumus administratoriem. Pretējā gadījumā jūs nevarēsiet izmantot platformu.
-          title: 'Obligāti: pārskatiet mūsu atjaunotos pakalpojumu sniegšanas noteikumus.'
     participatory_space_private_users:
       not_allowed: Jums nav atļauts skatīt šo saturu
     profile:
