@@ -180,12 +180,10 @@ it:
           success: Ottimo! Hai accettato i termini d'uso dell'amministratrice/tore.
         actions:
           are_you_sure: Sei sicuro di voler rifiutare i termini di utilizzo dell'amministratore?
-          refuse: Rifiuta i termini di amministrazione
           title: Accetta i termini e le condizioni di utilizzo
         required_review:
           alert: 'Richiesto: Rivedi i nostri termini di utilizzo dell''amministratrice/tore'
           callout: Ti preghiamo di prendere un momento per rivedere i Termini di utilizzo dell'amministratore. Altrimenti non sarai in grado di gestire la piattaforma.
-          cta: Rivedili ora.
         title: Termini di utilizzo dell'amministratore
       area_types:
         create:
