@@ -1107,19 +1107,15 @@ it:
           error: Si è verificato un errore durante l'accettazione dei termini e delle condizioni.
           success: Grande! Hai accettato i termini e le condizioni.
         form:
-          agreement: Accetto le condizioni
           legend: Accetta i termini e le condizioni d'uso
         refuse:
           modal_body: Se rifiuti, non sarai in grado di utilizzare la piattaforma, puoi <a href="%{data_portability_path}">scaricare i tuoi dati</a> e / o <a href="%{delete_path}">cancellare il tuo account</a>.
-          modal_btn_continue: Accetta i termini e continua
           modal_btn_exit: Lo esaminerò più tardi
-          modal_button: Rifiuta i termini
-          modal_close: Chiudi modale
+          modal_close: Chiudi modalità
           modal_title: Rifiutate davvero i Termini e condizioni aggiornati?
         required_review:
           alert: Abbiamo aggiornato i nostri Termini di servizio, per favore controllali.
           body: Si prega di prendere un momento per rivedere gli aggiornamenti ai nostri Termini di servizio. Altrimenti non sarai in grado di utilizzare la piattaforma.
-          title: 'Obbligatorio: controlla gli aggiornamenti dei nostri termini di servizio'
     participatory_space_private_users:
       not_allowed: Non sei autorizzato a visualizzare questo contenuto
     profile:
