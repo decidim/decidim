@@ -32,7 +32,6 @@ gl:
         body: Corpo
         subject: Asunto
       organization:
-        admin_terms_of_use_body: Corpo para o texto das condicións de uso do administrador/a
         alert_color: Alerta
         available_authorizations: Autorizacións dispoñíbeis
         badges_enabled: Activar emblemas
@@ -167,12 +166,6 @@ gl:
         user:
           new: Novo administrador
         verify: Verifique
-      admin_terms_of_use:
-        actions:
-          refuse: Rexeitar os termos de uso
-        required_review:
-          alert: 'Requirido: Revisa os nosos termos de uso do panel de administración'
-          cta: Revísaos agora.
       area_types:
         create:
           error: Produciuse un erro ao crear un novo tipo de área.
@@ -852,7 +845,6 @@ gl:
         destroy:
           success: Páxina destruída con éxito
         edit:
-          changed_notably_help: Se está marcado, os usuarios serán notificados para aceptar os novos termos e condicións.
           title: Editar páxina
           update: Actualización
         form:
