@@ -141,8 +141,6 @@ lv:
         reject: "%{user_name} noraidīja %{resource_name} grupas verifikāciju"
         verify: "%{user_name} verificēja grupu %{resource_name}"
         verify_via_csv: "%{user_name} verificēja grupu %{resource_name}, izmantojot CSV failu"
-    admin_terms_of_use:
-      default_body: "<h2> ADMINISTRATORU LIETOŠANAS NOTEIKUMI </h2> <p> Mēs ticam, ka esat saņēmis parasto lekciju no vietējā sistēmas administratora. Parasti svarīgākās ir trīs lietas </p> <ol> <li> Cieniet citu cilvēku privātumu! </li> <li> Padomājiet, pirms klikšķiniet! </li> <li> Liela vara nozīmē lielu atbildību.</li></ol>"
     amendments:
       accepted:
         error: Grozījumu apstiprināšanas laikā radās kļūda.
@@ -354,7 +352,6 @@ lv:
           sign_up_as:
             legend: Reģistrēties kā
           subtitle: Reģistrēties, lai piedalītos diskusijās un atbalstītu priekšlikumus.
-          terms: lietošanas noteikumi
           tos_agreement: Reģistrējoties jūs piekrītat %{link}.
           tos_title: Pakalpojumu sniegšanas noteikumi
           username_help: Publiski redzamais vārds, kas parādās pie jūsu ierakstiem. Lai garantētu anonimitāti, tas var būt jebkurš vārds.
@@ -816,17 +813,6 @@ lv:
         metrics:
           headline: Rādītāji
           link: Rādīt visus rādītājus
-      terms_and_conditions:
-        accept:
-          error: Piekrītot lietošanas noteikumiem, radās problēma.
-          success: Lieliski! Jūs esat piekritis lietošanas noteikumiem.
-        refuse:
-          modal_btn_continue: Pieņemt noteikumus un turpināt
-          modal_button: Atteikties no noteikumu pieņemšanas
-          modal_close: Aizvērt modal
-          modal_title: Vai jūs tiešām atsakāties no atjauninātajiem lietošanas noteikumiem?
-        required_review:
-          title: 'Obligāti: pārskatiet mūsu atjaunotos pakalpojumu sniegšanas noteikumus.'
     participatory_space_private_users:
       not_allowed: Jums nav atļauts skatīt šo saturu
     profile:
