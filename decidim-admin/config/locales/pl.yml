@@ -185,12 +185,10 @@ pl:
           success: Świetnie! Zaakceptowano warunki użytkowania dla administratorów.
         actions:
           are_you_sure: Czy na pewno nie wyrażasz zgody na warunki użytkowania dla administratorów?
-          refuse: Nie akceptuję warunków dla administratorów
           title: Akceptuję warunki użytkowania
         required_review:
           alert: 'Wymagane: Zapoznaj się z warunkami użytkowania dla administratorów'
           callout: Poświęć chwilę, aby zapoznać się z Warunkami użytkowania dla administratorów. W przeciwnym razie nie uzyskasz dostępu do administrowania platformą.
-          cta: Zapoznaj się teraz.
         title: Warunki użytkowania dla administratorów
       area_types:
         create:
