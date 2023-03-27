@@ -196,12 +196,10 @@ de:
           success: Super! Sie haben die Admin-Nutzungsbedingungen akzeptiert.
         actions:
           are_you_sure: Sind Sie sicher, dass Sie die Admin-Nutzungsbedingungen ablehnen möchten?
-          refuse: Die Admin-Nutzungsbedingungen ablehnen
           title: Den Admin-Nutzungsbedingungen zustimmen
         required_review:
           alert: 'Erforderlich: Überprüfen Sie unsere Admin-Nutzungsbedingungen'
           callout: Bitte nehmen Sie sich einen Moment Zeit, um die Admin-Nutzungsbedingungen zu lesen. Ansonsten können Sie die Plattform nicht verwalten.
-          cta: Lesen Sie sie jetzt.
         title: Admin-Nutzungsbedingungen
       area_types:
         create:
