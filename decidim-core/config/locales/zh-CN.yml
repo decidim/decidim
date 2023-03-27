@@ -992,19 +992,15 @@ zh-CN:
           error: 接受条款和条件时出现问题。
           success: 太棒了！您已接受条款和条件。
         form:
-          agreement: 我同意这些条款
           legend: 同意使用条款
         refuse:
           modal_body: 如果您拒绝，您将无法使用平台，您可以 <a href="%{data_portability_path}">下载您的数据</a> 和/或 <a href="%{delete_path}">删除您的帐户</a>。
-          modal_btn_continue: 接受并继续
           modal_btn_exit: 我稍后再查看
-          modal_button: 拒绝条款
           modal_close: 关闭模式
           modal_title: 您真的拒绝更新的条款和条件吗？
         required_review:
           alert: 我们已更新我们的服务条款，请查看。
           body: 请花一点时间来审查我们服务条款的更新。否则您将无法使用该平台。
-          title: '需要：审查我们服务条款的更新'
     participatory_space_private_users:
       not_allowed: 您无权查看此内容
     profile:
