@@ -1190,19 +1190,15 @@ cs:
           error: Při přijímání smluvních podmínek došlo k chybě.
           success: Skvělý! Souhlasíte s podmínkami.
         form:
-          agreement: Souhlasím s těmito podmínkami
           legend: Souhlasíte s podmínkami používání
         refuse:
           modal_body: Pokud odmítnete, nebudete moci používat platformu, můžete <a href="%{data_portability_path}">stahovat data</a> a / nebo <a href="%{delete_path}">smazat svůj účet</a>.
-          modal_btn_continue: Přijměte termíny a pokračujte
           modal_btn_exit: Později to přezkoumám
-          modal_button: Odmítněte podmínky
-          modal_close: Zavřít modální
+          modal_close: Zavřít okno
           modal_title: Opravdu odmítáte aktualizované smluvní podmínky?
         required_review:
           alert: Aktualizovali jsme Smluvní podmínky, přečtěte si je.
           body: Věnujte prosím pozornost aktualizaci našich smluvních podmínek. V opačném případě nebudete moci platformu používat.
-          title: 'Požadováno: Zkontrolujte aktualizace našich smluvních podmínek'
     participatory_space_private_users:
       not_allowed: Nemáte oprávnění k zobrazení tohoto obsahu
     profile:
