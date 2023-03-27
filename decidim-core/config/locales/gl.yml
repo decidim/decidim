@@ -874,15 +874,12 @@ gl:
           legend: Concorda cos termos e condicións de uso
         refuse:
           modal_body: Rexeitar, non será capaz de utilizar a plataforma, pode <a href="%{data_portability_path}">Descargar seus datos</a> e / ou <a href="%{delete_path}">eliminar a súa conta</a>.
-          modal_btn_continue: Aceptar termos e continuar
           modal_btn_exit: Vou revisalo máis tarde
-          modal_button: Rexeitar os termos
           modal_close: Pechar modal
           modal_title: '¿Realmente rexeita os Termos e condicións actualizados?'
         required_review:
           alert: Actualizamos as nosas Condicións de servizo, por favor revíselas.
           body: Leve un momento para revisar as actualizacións das nosas Condicións de servizo. Se non, non poderás usar a plataforma.
-          title: 'Requirido: repasa as actualizacións dos nosos termos de servizo'
     participatory_space_private_users:
       not_allowed: Non tes permiso para ver este contido
     profile:
