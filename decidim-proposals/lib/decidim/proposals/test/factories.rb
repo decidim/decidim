@@ -254,14 +254,14 @@ FactoryBot.define do
       if skip_injection
         Decidim::Faker::Localized.localized { generate(:title) }
       else
-        Decidim::Faker::Localized.localized { "<script>alert(\"TITLE\");</script> #{generate(:title)}" }
+        Decidim::Faker::Localized.localized { "<script>alert(\"Proposal TITLE\");</script> #{generate(:title)}" }
       end
     end
     body do
       if skip_injection
         Decidim::Faker::Localized.localized { Faker::Lorem.sentences(number: 3).join("\n") }
       else
-        Decidim::Faker::Localized.localized { "<script>alert(\"TITLE\");</script> #{Faker::Lorem.sentences(number: 3).join("\n")}" }
+        Decidim::Faker::Localized.localized { "<script>alert(\"Proposal BODY\");</script> #{Faker::Lorem.sentences(number: 3).join("\n")}" }
       end
     end
     component { create(:proposal_component) }
