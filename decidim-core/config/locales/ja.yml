@@ -29,7 +29,6 @@ ja:
         password_confirmation: パスワードの確認
         personal_url: 個人用URL
         remove_avatar: アバターを削除
-        tos_agreement: ユーザー利用規約
     models:
       decidim/attachment_created_event: 添付ファイル
       decidim/component_published_event: アクティブなコンポーネント
@@ -110,7 +109,6 @@ ja:
       logo: "%{organization}の公式ロゴ"
       skip_button: メインコンテンツにスキップ
     account:
-      blocked: このアカウントは利用規約違反によりブロックされています
       delete:
         alert: この操作は取り消すことができません。アカウントを削除すると、あなたのアカウント情報でログインできなくなります。 アカウントを削除すると、あなたの貢献内容は匿名化されます。 新しいアカウントを作成することはできますが、これらの貢献内容は新しいアカウントと関連付けられません。
         confirm:
@@ -241,8 +239,6 @@ ja:
         verify_via_csv: "%{user_name} がCSVファイルを介してグループ %{resource_name} を確認しました"
       user_moderation:
         unreport: "%{user_name} が %{resource_type} - %{unreported_user_name} の報告を解除しました"
-    admin_terms_of_use:
-      default_body: "<h2>管理者向け利用規約</h2><p>システム管理者からレクチャーを受けたと思います。通常、以下の3つのことに集約されます。</p><ol><li>他社のプライバシーを尊重する</li><li>クリックする前に考える</li><li>大きな力には大きな責任が伴う</li></ol>"
     alert:
       dismiss: 通知を消去
     amendments:
@@ -539,7 +535,6 @@ ja:
           sign_up_as:
             legend: として登録
           subtitle: 参加するにはユーザ登録をしてください。
-          terms: 利用規約
           tos_agreement: ユーザ登録することで、 %{link} に同意したことになります。
           tos_title: 利用規約
           username_help: 投稿に表示される公表名。匿名性を保証する目的で、任意の名前にすることができます。
@@ -1250,24 +1245,6 @@ ja:
         metrics:
           headline: 指標
           link: すべての指標を表示
-      terms_and_conditions:
-        accept:
-          error: 利用規約を受け入れる際に問題が発生しました。
-          success: 利用規約に同意しました。
-        form:
-          agreement: 上記の規約に同意する
-          legend: 利用規約に同意する
-        refuse:
-          modal_body: 拒否するとプラットフォームを使用できなくなりますが、 <a href="%{download_your_data_path}">データ</a> をダウンロードしたり、 <a href="%{delete_path}">アカウントを削除</a> できます。
-          modal_btn_continue: 利用規約に同意して続ける
-          modal_btn_exit: 後で確認する
-          modal_button: 同意しない
-          modal_close: モーダルを閉じる
-          modal_title: 更新された利用規約を本当に拒否しますか?
-        required_review:
-          alert: 利用規約を更新しました。ご確認ください。
-          body: 利用規約の更新内容を確認してください。確認しない場合、プラットフォームを使用できません。
-          title: '必須：サービス利用規約の更新を確認する'
     participatory_space_private_users:
       not_allowed: このコンテンツを表示する権限がありません
     passwords:
@@ -1276,7 +1253,6 @@ ja:
         success: パスワードを更新しました。
     profile:
       deleted: 参加者を削除しました
-      inaccessible_message: このプロファイルは利用規約違反によりアクセスできません
       view: 表示
     profiles:
       default_officialization_text_for_user_groups: このグループは公的に検証されており、その名前が実際の名前に対応していることが検証されています。
