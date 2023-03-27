@@ -1150,19 +1150,15 @@ pl:
           error: Wystąpił błąd podczas akceptowania warunków.
           success: Wspaniale! Zaakceptowałeś warunki i zasady.
         form:
-          agreement: Akceptuję Regulamin
           legend: Zgadzam się z warunkami użytkowania
         refuse:
           modal_body: Jeśli odmówisz, nie będziesz mógł korzystać z platformy, możesz <a href="%{data_portability_path}">pobrać swoje dane</a> i/lub <a href="%{delete_path}">usunąć konto</a>.
-          modal_btn_continue: Zaakceptuj warunki i kontynuuj
           modal_btn_exit: Sprawdzę to później
-          modal_button: Odrzuć warunki
           modal_close: Zamknij okno
           modal_title: Czy rzeczywiście odmawiasz zaakceptowania zaktualizowanego regulaminu?
         required_review:
           alert: Zaktualizowaliśmy nasze Warunki korzystania z usługi, zapoznaj się z nimi.
           body: Poświęć chwilę, aby przejrzeć aktualizacje naszych Warunków korzystania z Platformy. W przeciwnym razie nie będziesz mógł korzystać z platformy.
-          title: 'Wymagane: sprawdź aktualizacje naszych warunków korzystania z platformy'
     participatory_space_private_users:
       not_allowed: Nie możesz wyświetlać tych treści
     profile:
