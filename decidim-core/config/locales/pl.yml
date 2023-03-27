@@ -140,7 +140,6 @@ pl:
       logo: "Oficjalne logo %{organization}"
       skip_button: Przejdź do głównej zawartości
     account:
-      blocked: To konto zostało zablokowane z powodu naruszenia Regulaminu
       delete:
         confirm:
           close: Zamknij okno
@@ -256,8 +255,6 @@ pl:
         verify_via_csv: "%{user_name} zweryfikował(a) grupę %{resource_name} za pomocą pliku CSV"
       user_moderation:
         unreport: "%{user_name} cofnął/cofnęła zgłoszenie %{resource_type} - %{unreported_user_name}"
-    admin_terms_of_use:
-      default_body: "<h2>WARUNKI UŻYTKOWANIA DLA ADMINISTRATORÓW</h2><p>Mamy nadzieję, że lokalny Administrator systemu poinformował Cię o podstawowych zasadach korzystania z platformy. Zwykle sprowadza się to do trzech rzeczy: </p><ol><li>Szanuj prywatność innych.</li><li>Pomyśl, zanim klikniesz.</li><li>Z wielką mocą wiąże się wielka odpowiedzialność.</li></ol>"
     alert:
       dismiss: Odrzuć powiadomienie
     amendments:
@@ -516,7 +513,6 @@ pl:
           sign_up_as:
             legend: Zarejestruj się jako
           subtitle: Zarejestruj się, aby brać udział w dyskusjach i wspierać propozycje.
-          terms: warunki i zasady korzystania
           tos_agreement: Rejestrując się, zgadzasz się na %{link}.
           tos_title: Warunki korzystania z Platformy
           username_help: Publiczne imię wyświetlane przy Twoich wpisach. W celu zagwarantowania anonimowości może być dowolna nazwa.
@@ -1037,23 +1033,9 @@ pl:
         metrics:
           headline: Partycypacja w liczbach
           link: Pokaż wszystkie statystyki
-      terms_and_conditions:
-        accept:
-          error: Wystąpił błąd podczas akceptowania warunków.
-          success: Wspaniale! Zaakceptowałeś warunki i zasady.
-        form:
-          agreement: Akceptuję Regulamin
-        refuse:
-          modal_btn_continue: Zaakceptuj warunki i kontynuuj
-          modal_button: Odrzuć warunki
-          modal_close: Zamknij okno
-          modal_title: Czy rzeczywiście odmawiasz zaakceptowania zaktualizowanego regulaminu?
-        required_review:
-          title: 'Wymagane: sprawdź aktualizacje naszych warunków korzystania z platformy'
     participatory_space_private_users:
       not_allowed: Nie możesz wyświetlać tych treści
     profile:
-      inaccessible_message: Ten profil jest niedostępny z powodu naruszenia Regulaminu!
       view: Zobacz
     profiles:
       show:
