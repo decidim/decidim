@@ -475,6 +475,18 @@ en:
         index:
           back_to_process: Back to the process page
       participatory_processes:
+        description:
+          area_name: Area
+          data: Process data
+          developer_group: Promoter group
+          end_date: End date
+          local_area: Organization Area
+          meta_scope: Scope
+          participatory_scope: What is decided
+          participatory_structure: How is it decided
+          start_date: Start date
+          target: Who participates
+          title: About this process
         filters:
           all_types: All types
           counters:

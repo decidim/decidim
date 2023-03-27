@@ -15,42 +15,19 @@
 %>
 
 <% content_for :aside do %>
-
-  <%
-  # REDESIGN_PENDING: move logic to controller
-
-  data = []
-
-  data << ["participatory_scope", translated_attribute(current_participatory_space.participatory_scope)] if translated_attribute(current_participatory_space.participatory_scope).present?
-  data << ["target", translated_attribute(current_participatory_space.target)] if translated_attribute(current_participatory_space.target).present?
-  data << ["participatory_structure", translated_attribute(current_participatory_space.participatory_structure)] if translated_attribute(current_participatory_space.participatory_structure).present?
-
-  if translated_attribute(current_participatory_space.area&.name).present?
-    area_text = []
-    area_text << translated_attribute(current_participatory_space.area.area_type.name) if translated_attribute(current_participatory_space.area.area_type&.name).present?
-    area_text << translated_attribute(current_participatory_space.area.name)
-
-    data << ["area", area_text.join(" - ")]
-  end
-
-  data << ["scope", translated_attribute(current_participatory_space.meta_scope)] if translated_attribute(current_participatory_space.meta_scope).present?
-  data << ["local_area", translated_attribute(current_participatory_space.local_area)] if translated_attribute(current_participatory_space.local_area).present?
-  data << ["developer_group", translated_attribute(current_participatory_space.developer_group)] if translated_attribute(current_participatory_space.developer_group).present?
-  data << ["start_date", l(current_participatory_space.start_date, format: :long)] if current_participatory_space.start_date.present?
-  data << ["end_date", l(current_participatory_space.end_date, format: :long)] if current_participatory_space.end_date.present?
-  %>
-
   <div class="process-about__aside">
     <div class="process-about__aside-title">
       <%= icon "apps-line", class: "text-gray fill-current" %>
-      <span class="h6">Dades del process</span>
+      <span class="h6"><%= t("data", scope: "decidim.participatory_processes.participatory_processes.description") %></span>
     </div>
 
     <div class="process-about__data-container">
-      <% data.each do |item| %>
+      <% @about_items.each do |item| %>
+        <% next if (value = translated_attribute(@presented_space.send(item))).blank? %>
+
         <div class="process-about__data">
-          <span class="process-about__data-title"><%= t(item[0], scope: "decidim.participatory_processes.show") %></span>
-          <%= item[1] %>
+          <span class="process-about__data-title"><%= t(item, scope: "decidim.participatory_processes.participatory_processes.description") %></span>
+          <%= value %>
         </div>
       <% end %>
     </div>
@@ -60,8 +37,8 @@
 
 <%= render layout:"layouts/decidim/shared/layout_two_col", locals: { reverse: true } do %>
   <h1 class="h1 decorator">
-    <span><%= t("title", scope: "decidim.participatory_processes.participatory_processes.show") %></span>
-    <span class="sr-only"><%= t("title", scope: "decidim.participatory_processes.participatory_processes.show") %> (<%= translated_attribute(current_participatory_space.title) %>)</span>
+    <span><%= t("title", scope: "decidim.participatory_processes.participatory_processes.description") %></span>
+    <span class="sr-only"><%= t("title", scope: "decidim.participatory_processes.participatory_processes.description") %> (<%= translated_attribute(current_participatory_space.title) %>)</span>
   </h1>
 
   <div class="process-about__text">
