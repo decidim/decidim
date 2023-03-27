@@ -245,3 +245,4 @@ $(() => initializer());
 
 // Run initializer action over the new DOM elements
 document.addEventListener("remote-modal:loaded", ({ detail }) => initializer(detail));
+document.addEventListener("ajax:loaded", ({ detail }) => initializer(detail));
