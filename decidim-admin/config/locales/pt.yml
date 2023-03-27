@@ -180,12 +180,10 @@ pt:
           success: Excelente! Aceitou os termos de utilização de administrador.
         actions:
           are_you_sure: Tem a certeza que quer rejeitar os termos de utilização de administrador?
-          refuse: Recusar os termos de administrador
           title: Concordar com os termos e condições de utilização
         required_review:
           alert: 'Necessário: Rever os nossos termos de utilização de administrador'
           callout: Por favor reserve um momento para rever os termos de utilização de administrador. Caso contrário não lhe será possível gerir a plataforma.
-          cta: Reveja-os agora.
         title: Termos de Utilização de Administrador
       area_types:
         create:
