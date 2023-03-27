@@ -180,12 +180,10 @@ lb:
           success: Super! Sie haben die Admin-Nutzungsbedingungen akzeptiert.
         actions:
           are_you_sure: Sidd Dir sécher datt Dir d'Admin Benotzungsconditioune wëllt refuséieren? Sidd Dir sécher datt Dir d'Admin Notzungsbedéngunge refuséiere wëllt?
-          refuse: Die Admin-Nutzungsbedingungen ablehnen
           title: Den Admin-Nutzungsbedingungen zustimmen
         required_review:
           alert: 'Erforderlich: Überprüfen Sie unsere Admin-Nutzungsbedingungen'
           callout: Huelt e Moment fir d'Admin Benotzungsconditiounen ze iwwerpréiwen. Soss kënnt Dir d'Plattform net managen
-          cta: Lesen Sie sie jetzt.
         title: Admin-Nutzungsbedingungen
       area_types:
         create:
