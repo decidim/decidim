@@ -29,7 +29,6 @@ ca:
         password_confirmation: Confirma la teva contrasenya
         personal_url: URL personal
         remove_avatar: Elimina la imatge de perfil
-        tos_agreement: Acord de termes i condicions d'ús
     models:
       decidim/attachment_created_event: Arxiu adjunt
       decidim/component_published_event: Component actiu
@@ -122,7 +121,6 @@ ca:
       logo: "Logo oficial de %{organization}"
       skip_button: Vés al contingut principal
     account:
-      blocked: Aquest compte ha estat bloquejat degut a una violació dels Termes i Condicions d'ús
       delete:
         alert: Aquesta acció no es pot desfer. Si esborres el teu compte no podràs iniciar sessió amb les teves credencials. L'eliminació del teu compte tindrà com a resultat l'anonimització de les teves contribucions. Continuaràs podent crear un nou compte, però aquestes contribucions no estaran associades a ell.
         confirm:
@@ -253,8 +251,6 @@ ca:
         verify_via_csv: "%{user_name} ha verificat el grup %{resource_name} a través d'un fitxer CSV"
       user_moderation:
         unreport: "%{user_name} ha desfet el report %{resource_type} - %{unreported_user_name}"
-    admin_terms_of_use:
-      default_body: "<h2>TERMES D'ÚS PER ADMINS</h2><p>Donem per fet que has rebut l'habitual explicació de l'administrador del sistema local. En general es redueix a aquestes tres coses:</p><ol><li>Respectar la privadesa dels altres.</li><li>Penseu abans de fer clic.</li><li>A un gran poder l'hi correspon gran responsabilitat.</li></ol>"
     alert:
       dismiss: Descartar notificació
     amendments:
@@ -551,7 +547,6 @@ ca:
           sign_up_as:
             legend: Inscriure's com a
           subtitle: Crea un compte per poder participar en els debats i donar suport a les propostes.
-          terms: els termes i condicions d'ús
           tos_agreement: En registrar-te acceptes %{link}.
           tos_title: Termes del servei
           username_help: Nom públic que apareixerà en les teves publicacions. Amb l'objectiu de garantir l'anonimat pot ser qualsevol nom.
@@ -1264,24 +1259,6 @@ ca:
         metrics:
           headline: Mètriques
           link: Mostra totes les mètriques
-      terms_and_conditions:
-        accept:
-          error: S'ha produït un error en acceptar els Termes i Condicions.
-          success: Genial! Has acceptat els Termes i Condicions.
-        form:
-          agreement: Estic d'acord amb aquests termes
-          legend: Accepto els termes i condicions d'ús
-        refuse:
-          modal_body: Si no acceptes, no podràs utilitzar la plataforma, pots <a href="%{download_your_data_path}">descarregar les teves dades</a> i/o <a href="%{delete_path}">esborrar el teu compte de</a>.
-          modal_btn_continue: Acceptar els termes i continuar
-          modal_btn_exit: Els revisaré més tard
-          modal_button: Rebutjar els termes
-          modal_close: Tanca el modal
-          modal_title: Confirmes que no acceptes els Termes i Condicions actualitzats?
-        required_review:
-          alert: Hem actualitzat els nostres Termes de Servei, si us plau, revisa'ls.
-          body: Si us plau, dedica un moment a revisar l'actualització dels nostres Termes de Servei. En cas contrari, no podràs utilitzar la plataforma.
-          title: 'Obligatori: revisa l''actualització dels nostres Termes de Servei'
     participatory_space_private_users:
       not_allowed: No tens permís per visualitzar aquest contingut
     passwords:
@@ -1290,7 +1267,6 @@ ca:
         success: La contrasenya s'ha actualitzat correctament.
     profile:
       deleted: Participant eliminada
-      inaccessible_message: Aquest perfil és inaccessible degut a la violació dels Termes i Condicions d'ús!
       view: Veure
     profiles:
       default_officialization_text_for_user_groups: Aquest grup està verificat públicament, el seu nom s'ha verificat per correspondre amb el seu nom real.
