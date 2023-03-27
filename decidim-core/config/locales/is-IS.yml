@@ -134,7 +134,6 @@ is-IS:
           sign_up_as:
             legend: Skráðu þig sem
           subtitle: Skráðu þig til að taka þátt í umræðum og stuðningsatriðum.
-          terms: Skilmálar og skilyrði fyrir notkun
           tos_agreement: Með því að skrá þig samþykkir þú %{link}.
           username_help: Almennt nafn sem birtist á færslunum þínum. Með það að markmiði að tryggja nafnleyndina getur verið nafn.
       sessions:
