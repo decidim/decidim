@@ -143,7 +143,6 @@ lt:
       logo: "%{organization} oficialus logotipas"
       skip_button: Perieti į pagrindinį turinį
     account:
-      blocked: Ši paskyra užblokuota dėl sąlygų pažeidimų
       delete:
         confirm:
           close: Uždaryti langą
@@ -264,8 +263,6 @@ lt:
         verify_via_csv: "%{user_name} patvirtino %{resource_name} grupę per CSV rinkmeną"
       user_moderation:
         unreport: "%{user_name} panaikino pranešimą dėl %{resource_type} publikuotą %{unreported_user_name}"
-    admin_terms_of_use:
-      default_body: "<h2>ADMIN TERMS OF USE</h2><p>Tikimės, kad gavote įprastą pamokymą iš vietos Sistemos Administratoriaus. Paprastai apsiribojama trimis dalykais:</p><ol><li>Gerbkite kitų privatumą.</li><li>Prieš spustelėdami pagalvokite.</li><li>Didelė galia – didelė atsakomybė.</li></ol>"
     alert:
       dismiss: Atmesti pranešimą
     amendments:
@@ -524,7 +521,6 @@ lt:
           sign_up_as:
             legend: Užsiregistruoti kaip
           subtitle: Užsiregistruokite, kad galėtumėte dalyvauti diskusijose ir paremti pasiūlymus.
-          terms: naudojimosi sąlygos
           tos_agreement: Užsiregistruodami jūs sutinkate su %{link}.
           tos_title: Paslaugų teikimo sąlygos
           username_help: Viešas vardas, kuris bus rodomas jūsų įrašuose. Tai gali būti bet koks vardas, nes siekame užtikrinti anonimiškumą.
@@ -1132,23 +1128,9 @@ lt:
         metrics:
           headline: Rodikliai
           link: Rodyti visus rodiklius
-      terms_and_conditions:
-        accept:
-          error: Sutinkant su sąlygomis iškilo problema.
-          success: Puiku! Jūs sutikote su sąlygomis.
-        form:
-          agreement: Aš sutinku su šiomis sąlygomis
-        refuse:
-          modal_btn_continue: Sutikti su sąlygomis ir tęsti
-          modal_button: Nesutikti su sąlygomis
-          modal_close: Uždaryti modalinį langą
-          modal_title: Ar iš tikrųjų nesutinkate su atnaujintomis naudojimo sąlygomis?
-        required_review:
-          title: 'Būtina: Peržiūrėkite naudojimo sąlygų atnaujinimus'
     participatory_space_private_users:
       not_allowed: Jūs negalite peržiūrėti šio turinio
     profile:
-      inaccessible_message: Profilis neprieinamas dėl naudojimo sąlygų pažeidimų!
       view: Rodyti
     profiles:
       show:
