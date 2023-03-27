@@ -788,7 +788,7 @@ ja:
           discard: この下書きを破棄する
           discard_confirmation: この提案の下書きを破棄してもよろしいですか？
           send: プレビュー
-          title: 提案ドラフトを編集
+          title: 提案の草案を編集
         filters:
           activity: 参加したもの
           all: すべて
@@ -940,7 +940,7 @@ ja:
         success: 提案が正常に更新されました。
       update_draft:
         error: 共同草案を保存する際に問題が発生しました。
-        success: 提案ドラフトが正常に更新されました。
+        success: 提案の草案が正常に更新されました。
       versions:
         collaborative_drafts:
           back_to_resource: 共同草案に戻る
