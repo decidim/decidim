@@ -63,10 +63,10 @@ en:
             title: Cancellation of the sortition
           create:
             error: There was a problem creating a new sortition.
-            success: Sortition successfully created
+            success: Sortition successfully created.
           destroy:
-            error: Can not cancel the sortition.
-            success: Sortition successfully cancelled
+            error: Cannot cancel the sortition.
+            success: Sortition successfully cancelled.
           edit:
             title: Update the information about the sortition
             update: Update
@@ -77,14 +77,14 @@ en:
           index:
             title: Sortitions
           new:
-            confirm: By pressing the next button the platform will record the date and time (with precision of seconds) and together with the dice roll, this information will be used to generate a random selection. The action will be irreversible, once the button is clicked the result of this draw will be published, together with the data entered in this form and can not be modified, please check the content carefully
+            confirm: By pressing the next button the platform will record the date and time (with precision of seconds) and together with the dice roll, this information will be used to generate a random selection. The action will be irreversible, once the button is clicked the result of this draw will be published, together with the data entered in this form and cannot be modified, please check the content carefully.
             create: Create
             title: New sortition
           show:
             selected_proposals: Proposals selected for draw
           update:
             error: There was a problem updating the sortition.
-            success: Sortition successfully updated
+            success: Sortition successfully updated.
       admin_log:
         sortition:
           create: "%{user_name} created the %{resource_name} sortition in %{space_name}"

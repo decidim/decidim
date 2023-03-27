@@ -21,7 +21,8 @@ module Decidim
       let(:github_handler) { "My github awesome handler" }
       let(:default_locale) { :en }
       let(:translation_priority) { "original" }
-      let(:admin_terms_of_use_body) do
+      let(:comments_max_length) { 100 }
+      let(:admin_terms_of_service_body) do
         {
           ca: "",
           en: "<p>Dummy admin terms body en</p>",
@@ -42,10 +43,11 @@ module Decidim
             "instagram_handler" => instagram_handler,
             "youtube_handler" => youtube_handler,
             "github_handler" => github_handler,
+            "comments_max_length" => comments_max_length,
             "machine_translation_display_priority" => translation_priority,
-            "admin_terms_of_use_body_ca" => admin_terms_of_use_body[:ca],
-            "admin_terms_of_use_body_en" => admin_terms_of_use_body[:en],
-            "admin_terms_of_use_body_es" => admin_terms_of_use_body[:es]
+            "admin_terms_of_service_body_ca" => admin_terms_of_service_body[:ca],
+            "admin_terms_of_service_body_en" => admin_terms_of_service_body[:en],
+            "admin_terms_of_service_body_es" => admin_terms_of_service_body[:es]
           }
         }
       end
@@ -66,8 +68,8 @@ module Decidim
         it { is_expected.to be_invalid }
       end
 
-      context "when admin_terms_of_use_body is missing" do
-        let(:admin_terms_of_use_body) do
+      context "when admin_terms_of_service_body is missing" do
+        let(:admin_terms_of_service_body) do
           {
             ca: nil,
             en: nil,
@@ -78,8 +80,8 @@ module Decidim
         it { is_expected.to be_invalid }
       end
 
-      context "when default language in admin_terms_of_use_body is missing" do
-        let(:admin_terms_of_use_body) do
+      context "when default language in admin_terms_of_service_body is missing" do
+        let(:admin_terms_of_service_body) do
           {
             ca: "Termes i condicions de l'administrador (ca)"
           }

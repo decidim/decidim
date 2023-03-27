@@ -21,7 +21,7 @@ module Decidim
         end
       end
 
-      context "when it's a subscope" do
+      context "when it is a subscope" do
         let(:model) { subscope }
 
         describe "parent" do
@@ -41,7 +41,7 @@ module Decidim
         end
       end
 
-      context "when it's a parent scope" do
+      context "when it is a parent scope" do
         let(:model) { parent }
 
         describe "parent" do

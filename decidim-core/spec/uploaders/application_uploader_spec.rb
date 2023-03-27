@@ -15,6 +15,28 @@ module Decidim
       allow(ENV).to receive(:fetch).with("HOSTNAME", nil).and_return(hostname) if respond_to?(:hostname)
     end
 
+    describe "#variant" do
+      subject { test_class.new(model, mounted_as) }
+
+      let(:test_class) do
+        Class.new(described_class) do
+          set_variants do
+            { testing: { resize_to_fit: [200, 100] } }
+          end
+        end
+      end
+
+      context "when the provided file is invariable" do
+        before do
+          allow(ActiveStorage).to receive(:variable_content_types).and_return(%w(image/bmp))
+        end
+
+        it "returns the non-variant" do
+          expect(subject.variant(:testing)).to be(model.official_img_header)
+        end
+      end
+    end
+
     describe "#variant_url" do
       shared_context "with force_ssl enabled" do
         before do
@@ -66,6 +88,16 @@ module Decidim
 
           it "returns a URL to the variant" do
             expect(subject.variant_url(:testing)).to match(%r{^http://localhost:#{default_port}/rails/active_storage/representations/redirect/.*/avatar.jpg$})
+          end
+
+          context "when the provided file is invariable" do
+            before do
+              allow(ActiveStorage).to receive(:variable_content_types).and_return(%w(image/bmp))
+            end
+
+            it "returns the original URL" do
+              expect(subject.variant_url(:testing)).to match(%r{^http://localhost:#{default_port}/rails/active_storage/blobs/redirect/.*/avatar.jpg$})
+            end
           end
         end
 

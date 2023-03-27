@@ -47,7 +47,7 @@ describe "show", type: :system do
         end
       end
 
-      it "shows the last comment author when it's a user group" do
+      it "shows the last comment author when it is a user group" do
         group = create(:user_group, organization: debate.organization)
         create(:comment, commentable: debate, author: group)
 

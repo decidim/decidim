@@ -32,7 +32,7 @@ module Decidim
     context "when invalid" do
       let(:valid) { false }
 
-      it "Doesn't update anything" do
+      it "Does not update anything" do
         expect { command.call }.to broadcast(:invalid)
       end
     end

@@ -54,7 +54,7 @@ module Decidim::Verifications
 
     describe "With 4 granted auths and 2 ungranted auths" do
       context "when destroy all granted auths" do
-        it "doesn't destroy any ungranted auth" do
+        it "does not destroy any ungranted auth" do
           expect do
             subject.call
           end.not_to change(no_granted_authorizations, :count)

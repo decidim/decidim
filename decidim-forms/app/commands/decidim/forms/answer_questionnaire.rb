@@ -36,7 +36,7 @@ module Decidim
 
       private
 
-      # This method will add an error to the `add_documents` field only if there's
+      # This method will add an error to the `add_documents` field only if there is
       # any error in any other field or an error in another answer in the
       # questionnaire. This is needed because when the form has
       # an error, the attachments are lost, so we need a way to inform the user

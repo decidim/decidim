@@ -5,13 +5,13 @@
     <div class="cell medium-12">
 
       <div class="content">
-        <%= admin_terms_of_use_body %>
+        <%= admin_terms_of_service_body %>
       </div>
     </div>
 
     <% unless current_user.admin_terms_accepted? %>
       <h4 class="cell medium-12 text-center">
-        <%= t("decidim.admin.admin_terms_of_use.actions.title") %>
+        <%= t("decidim.admin.admin_terms_of_service.actions.title") %>
       </h4>
 
       <div class="cell medium-6 small-order-2 medium-order-1 text-center">

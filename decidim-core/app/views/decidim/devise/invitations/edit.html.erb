@@ -41,13 +41,13 @@
             <h3><%= t("tos_title", scope: "decidim.devise.registrations.new") %></h3>
 
             <div class="tos-text">
-              <% terms_and_conditions_summary_content_blocks.each do |content_block| %>
+              <% terms_of_service_summary_content_blocks.each do |content_block| %>
                 <%= cell content_block.manifest.cell, content_block %>
               <% end %>
             </div>
 
             <div class="field">
-              <% link = link_to t("terms", scope: "decidim.devise.registrations.new"), page_path("terms-and-conditions"), target: "_blank" %>
+              <% link = link_to t("terms", scope: "decidim.devise.registrations.new"), page_path("terms-of-service"), target: "_blank" %>
               <% label = t("tos_agreement", scope: "decidim.devise.registrations.new", link: link) %>
               <%= f.check_box :tos_agreement, label: label, required: "required" %>
             </div>

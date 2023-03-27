@@ -137,7 +137,7 @@ module Decidim
             component:,
             scope: scope1,
             title: Decidim::Faker.name,
-            body: "Chewie, I'll be waiting for your signal. Take care, you two. May the Force be with you. Ow!"
+            body: "Chewie, I will be waiting for your signal. Take care, you two. May the Force be with you. Ow!"
           )
         end
 

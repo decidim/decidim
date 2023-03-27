@@ -20,7 +20,7 @@ module Decidim
     # * Appls thi commit to another brach and push it to the remote repository
     # * Creates the pull request on GitHub
     #
-    # @raise [InvalidMetadataError] if we couldn't get the information of this pull quest
+    # @raise [InvalidMetadataError] if we could not get the information of this pull quest
     # @return [void]
     def call
       metadata = pull_request_metadata

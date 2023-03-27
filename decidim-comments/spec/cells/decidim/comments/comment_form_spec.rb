@@ -16,6 +16,19 @@ module Decidim::Comments
     let(:comment) { create(:comment, commentable:) }
 
     context "when rendering" do
+      context "when component comments_max_length is malformed" do
+        let(:component) { create(:component, participatory_space: participatory_process, settings: { comments_max_length: "" }) }
+
+        it { expect { subject }.not_to raise_error }
+      end
+
+      context "when organization comments_max_length is malformed" do
+        let(:component) { create(:component, participatory_space: participatory_process, settings: { comments_max_length: "" }) }
+        let(:organization) { create(:organization, comments_max_length: "") }
+
+        it { expect { subject }.not_to raise_error }
+      end
+
       it "renders the form" do
         expect(subject).to have_css(".hashtags__container textarea#add-comment-DummyResource-#{commentable.id}[maxlength='1000']")
         expect(subject).to have_css("#add-comment-DummyResource-#{commentable.id}-remaining-characters")

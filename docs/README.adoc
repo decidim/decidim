@@ -1,6 +1,6 @@
 = Decidim Developer Documentation
 
-== What's this?
+== What is this?
 
 This is the internal Decidim documentation.
 If you want to see it in a nice UI you can do it at the https://docs.decidim.org[Decidim Documentation Site].
@@ -10,7 +10,7 @@ Some of the sections are available on https://github.com/decidim/documentation[D
 
 This is made with https://antora.org/[Antora].
 It uses https://asciidoc.org/[AsciiDoc] mark-up document format.
-It's pretty similar to Markdown, although is more standarized and can do more complex things.
+It is pretty similar to Markdown, although is more standarized and can do more complex things.
 Read more about https://asciidoctor.org/docs/asciidoc-vs-markdown/[Markdown vs AsciiDoc].
 
 If you want to convert from Markdown to AsciiDoc:
@@ -56,7 +56,7 @@ Then the result would be:
      branches: develop
 ----
 
-If building locally doesn't show any change, then check also that the branch corresponds with the one that you're working locally.
+If building locally does not show any change, then check also that the branch corresponds with the one that you are working locally.
 
 == Add a new link in the sidebar
 

@@ -2,13 +2,8 @@
 <% content_for(:subtitle) { t("authorizations", scope: "layouts.decidim.user_profile") } %>
 <% url_params = (redirect_url.present? ? { redirect_url: redirect_url } : {}) %>
 
-<% content_for :js_content do %>
-  <%= javascript_pack_tag "decidim_verifications" %>
-<% end %>
-
-<% content_for :css_content do %>
-  <%= stylesheet_pack_tag "decidim_verifications", media: "all" %>
-<% end %>
+<%= append_javascript_pack_tag "decidim_verifications" %>
+<%= append_stylesheet_pack_tag "decidim_verifications" %>
 
 <%= render layout: "layouts/decidim/shared/layout_user_profile" do %>
   <section class="authorizations-list">

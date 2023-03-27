@@ -66,7 +66,7 @@ Gem::Specification.new do |s|
   # Also note that we need Rails 6.1.5+,
   # see https://gist.github.com/yahonda/2776d8d7b6ea7045359f38c10449937b
   s.add_dependency "psych", "~> 4.0"
-  s.add_dependency "rack", "~> 2.2", ">= 2.2.3"
+  s.add_dependency "rack", "~> 2.2", ">= 2.2.6.3"
   s.add_dependency "rack-attack", "~> 6.0"
   s.add_dependency "rails", "~> 6.1.7"
   s.add_dependency "rails-i18n", "~> 6.0"
@@ -76,9 +76,9 @@ Gem::Specification.new do |s|
   s.add_dependency "rubyXL", "~> 3.4"
   s.add_dependency "rubyzip", "~> 2.0"
   s.add_dependency "seven_zip_ruby", "~> 1.3"
+  s.add_dependency "shakapacker", "~> 6.6.0"
   s.add_dependency "turbo-rails", "~> 1.3.0"
   s.add_dependency "valid_email2", "~> 4.0"
-  s.add_dependency "webpacker", "= 6.0.0.rc.5"
   s.add_dependency "web-push", "~> 3.0"
   s.add_dependency "wisper", "~> 2.0"
 

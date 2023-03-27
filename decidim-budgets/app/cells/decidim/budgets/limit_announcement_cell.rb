@@ -2,7 +2,7 @@
 
 module Decidim
   module Budgets
-    # This cell renders information when current user can't create more budgets orders.
+    # This cell renders information when current user cannot create more budgets orders.
     class LimitAnnouncementCell < BaseCell
       alias budget model
       delegate :voted?, :vote_allowed?, :discardable, :limit_reached?, to: :current_workflow

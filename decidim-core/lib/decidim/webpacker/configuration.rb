@@ -32,7 +32,8 @@ module Decidim
           config[environment] = env_config.merge(
             "additional_paths" => all_additional_paths,
             "entrypoints" => all_entrypoints,
-            "stylesheet_imports" => all_stylesheet_imports
+            "stylesheet_imports" => all_stylesheet_imports,
+            "compile" => (ENV.fetch("WEBPACKER_RUNTIME_COMPILE", "false") == "true")
           )
         end
 

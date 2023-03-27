@@ -265,8 +265,8 @@ ignore_unused:
   - decidim.proposals.proposals.filters.*
   - decidim.admin.filters.*
   - decidim.proposals.models.proposal.fields.*
-  - decidim.admin_terms_of_use.default_body
-  - decidim.admin.admin_terms_of_use.required_review.alert
+  - decidim.admin_terms_of_service.default_body
+  - decidim.admin.admin_terms_of_service.required_review.alert
   - decidim.budgets.projects.orders.*
   - forms.length_validator.*
   - layouts.decidim.widget.*
@@ -346,7 +346,7 @@ ignore_unused:
 # ignore:
 #   - kaminari.*
 
-## Sometimes, it isn't possible for i18n-tasks to match the key correctly,
+## Sometimes, it is not possible for i18n-tasks to match the key correctly,
 ## e.g. in case of a relative key defined in a helper method.
 ## In these cases you can use the built-in PatternMapper to map patterns to keys, e.g.:
 #

@@ -252,7 +252,7 @@ module Decidim
             it "is not able to withdraw the proposal" do
               put :withdraw, params: params.merge(id: proposal.id)
 
-              expect(flash[:alert]).to eq("This proposal can not be withdrawn because it already has supports.")
+              expect(flash[:alert]).to eq("This proposal cannot be withdrawn because it already has supports.")
               expect(response).to have_http_status(:found)
               proposal.reload
               expect(proposal.withdrawn?).to be false
@@ -270,7 +270,7 @@ module Decidim
 
               put :withdraw, params: params.merge(id: proposal.id)
 
-              expect(flash[:alert]).to eq("You are not authorized to perform this action")
+              expect(flash[:alert]).to eq("You are not authorized to perform this action.")
               expect(response).to have_http_status(:found)
               proposal.reload
               expect(proposal.withdrawn?).to be false

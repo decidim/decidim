@@ -12,7 +12,7 @@ describe Decidim::Consultations::ConsultationsController, type: :controller do
     request.env["decidim.current_organization"] = organization
   end
 
-  context "when there's a consultation" do
+  context "when there is a consultation" do
     it "can access it" do
       get :show, params: { slug: consultation.slug }
 
@@ -22,7 +22,7 @@ describe Decidim::Consultations::ConsultationsController, type: :controller do
     end
   end
 
-  context "when there isn't a consultation" do
+  context "when there is not a consultation" do
     it "returns 404" do
       expect { get :show, params: { slug: "invalid-consultation" } }
         .to raise_error(ActiveRecord::RecordNotFound)
