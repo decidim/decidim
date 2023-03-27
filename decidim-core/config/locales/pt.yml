@@ -80,7 +80,6 @@ pt:
       logo: "Logótipo oficial de %{organization}"
       skip_button: Avançar para o conteúdo principal
     account:
-      blocked: Esta conta foi bloqueada por violação dos Termos e Condições
       delete:
         confirm:
           close: Fechar janela
@@ -159,8 +158,6 @@ pt:
         verify_via_csv: "%{user_name} verificou o grupo %{resource_name} através de um ficheiro CSV"
       user_moderation:
         unreport: "%{user_name} retirou denuncia a %{resource_type} - %{unreported_user_name}"
-    admin_terms_of_use:
-      default_body: "<h2>TERMOS DE UTILIZAÇÃO DE ADMINISTRADOR</h2><p>Confiamos que recebeu as instruções habituais por parte do Administrador de Sistema local. Normalmente resume-se a estes três fatores:</p><ol><li>Respeitar a privacidade dos outros.</li><li>Pensar antes de clicar.</li><li>Um grande poder acarreta uma grande responsabilidade.</li></ol>"
     alert:
       dismiss: Descartar notificação
     amendments:
@@ -413,7 +410,6 @@ pt:
           sign_up_as:
             legend: Inscreva-se como
           subtitle: Inscreva-se para participar em discussões e propostas de suporte.
-          terms: os termos e condições de uso
           tos_agreement: Ao se inscrever, aceita %{link}.
           tos_title: Termos de Serviço
           username_help: Nome público que aparece nas suas publicações. Com o objetivo de garantir o anonimato, pode ser qualquer nome.
@@ -932,23 +928,9 @@ pt:
         metrics:
           headline: Métricas
           link: Mostrar todas as métricas
-      terms_and_conditions:
-        accept:
-          error: Ocorreu um problema ao aceitar os termos e condições.
-          success: Ótimo! Aceitou os termos e condições.
-        form:
-          agreement: Concordo com estes termos
-        refuse:
-          modal_btn_continue: Aceitar os termos e continuar
-          modal_button: Recusar os termos
-          modal_close: Fechar modal
-          modal_title: Recusa realmente os Termos e Condições atualizados?
-        required_review:
-          title: 'Obrigatório: reveja as atualizações dos nossos termos de serviço'
     participatory_space_private_users:
       not_allowed: Não tem permissão para visualizar este conteúdo
     profile:
-      inaccessible_message: Esta conta foi bloqueada por violação dos Termos e Condições!
       view: Visualizar
     profiles:
       show:
