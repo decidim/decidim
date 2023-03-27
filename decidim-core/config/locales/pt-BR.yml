@@ -1091,19 +1091,15 @@ pt-BR:
           error: Houve um erro ao aceitar os termos e condições.
           success: Ótimo! Você aceitou os termos e condições.
         form:
-          agreement: Concordo com estes termos
           legend: Concorde com os termos e condições de uso
         refuse:
           modal_body: Se recusar, você não será capaz de usar a plataforma, você pode <a href="%{data_portability_path}">baixar seus dados</a> e / ou <a href="%{delete_path}">excluir sua conta</a>.
-          modal_btn_continue: Aceite os termos e continue
           modal_btn_exit: Vou revisá-lo mais tarde
-          modal_button: Recuse os termos
           modal_close: Fechar modal
           modal_title: Você realmente recusa os Termos e Condições atualizados?
         required_review:
           alert: Atualizamos nossos Termos de Serviço, revise-os.
           body: Por favor, dedique um momento para rever as atualizações dos nossos Termos de Serviço. Caso contrário, você não poderá usar a plataforma.
-          title: 'Obrigatório: revise as atualizações dos nossos Termos de Serviço'
     participatory_space_private_users:
       not_allowed: Você não tem permissão para visualizar este conteúdo
     profile:
