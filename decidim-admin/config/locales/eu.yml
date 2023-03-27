@@ -195,14 +195,11 @@ eu:
           error: Errorea gertatu da Administrazioaren Gaiak eta Baldintzak onartzean.
           success: Ederto! Onartu dituzu Administrazioaren Gaiak eta Baldintzak.
         actions:
-          accept: Ados nago
           are_you_sure: Ziur zaude ez dituzula onartu nahi administratzaileentzako erabilera-irizpideak?
-          refuse: Ez onartu Administrazio-irizpideak eta baldintzak
           title: Onartzen ditut Administrazio-irizpideak eta baldintzak
         required_review:
           alert: 'Eskatuta: berrikusi gure Administrazio-irizpideak eta baldintzak'
           callout: Mesedez, hartu tarte bat administratzaileentzako erabilera-irizpideak erabiltzeko. Bestela, ezin izango duzu plataforma administratu.
-          cta: Berrikusi orain.
         title: Administrazioaren Irizpideak eta Baldintzak
       area_types:
         create:
