@@ -32,7 +32,6 @@ it:
         body: Testo
         subject: Oggetto
       organization:
-        admin_terms_of_use_body: Testo dei termini di utilizzo dell'admin
         alert_color: Notifica
         available_authorizations: Autorizzazioni disponibili
         badges_enabled: Abilita badge
@@ -166,13 +165,6 @@ it:
         reject: Rifiuta
         share: Condividi
         verify: Verifica
-      admin_terms_of_use:
-        actions:
-          are_you_sure: Sei sicuro di voler rifiutare i termini di utilizzo dell'amministratore?
-          refuse: Rifiuta i termini di amministrazione
-        required_review:
-          alert: 'Richiesto: Rivedi i nostri termini di utilizzo dell''amministratrice/tore'
-          cta: Rivedili ora.
       area_types:
         create:
           error: Si è verificato un errore durante la creazione di un nuovo tipo di area.
@@ -824,7 +816,6 @@ it:
         destroy:
           success: OK, la pagina è stata eliminata.
         edit:
-          changed_notably_help: Se selezionato, gli utenti saranno avvisati di accettare i nuovi termini e condizioni.
           title: Modifica la pagina
           update: Aggiorna
         form:
