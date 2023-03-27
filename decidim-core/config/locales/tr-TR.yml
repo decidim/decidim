@@ -75,7 +75,6 @@ tr:
       logo: "%{organization} resmi logosu"
       skip_button: Ana içeriğe geç
     account:
-      blocked: Bu hesap, Şartlar ve Koşullar ihlali nedeniyle engellendi
       delete:
         confirm:
           close: Pencereyi kapat
@@ -154,8 +153,6 @@ tr:
         verify_via_csv: "%{user_name}, bir CSV dosyası aracılığıyla %{resource_name} kullanıcı grubunu doğruladı"
       user_moderation:
         unreport: "%{user_name}, bir %{resource_type} - %{unreported_user_name} raporunu bildirdi"
-    admin_terms_of_use:
-      default_body: "<h2> YÖNETİCİ KULLANIM ŞARTLARI </h2> <p> Yerel Sistem Yöneticinizden olağan dersi almış olduğunuza güveniyoruz. Genellikle şu üç şeye indirgenir: </p> <ol> <li> Başkalarının mahremiyetine saygı gösterin. </li> <li> Tıklamadan önce düşünün. </li> <li> Büyük güç, büyük sorumluluk getirir. </li> </ol>"
     alert:
       dismiss: Bildirimleri yoksay
     amendments:
@@ -410,7 +407,6 @@ tr:
           sign_up_as:
             legend: Olarak kaydol
           subtitle: Tartışmalara katılmak ve teklifleri desteklemek için kaydolun.
-          terms: kullanım şartları ve koşulları
           tos_agreement: Kaydolarak %{link}kabul ediyorsunuz.
           tos_title: Kullanım Şartları
           username_help: Yayınlarınızda görünen genel ad. Anonimlik garantilemek amacıyla herhangi bir isim olabilir.
@@ -914,23 +910,9 @@ tr:
         metrics:
           headline: Metrikler
           link: Bütün istatistikleri göster
-      terms_and_conditions:
-        accept:
-          error: Şartları ve koşulları kabul ederken bir hata oluştu.
-          success: Harika! Şartları ve koşulları kabul ettiniz.
-        form:
-          agreement: Bu koşulları kabul ediyorum
-        refuse:
-          modal_btn_continue: Şartları kabul et ve devam et
-          modal_button: Şartları reddet
-          modal_close: Pencereyi kapat
-          modal_title: Güncellenmiş Şartlar ve Koşulları gerçekten reddediyor musunuz?
-        required_review:
-          title: 'Gerekli: Hizmet şartlarımızı güncellemeleri inceleyin'
     participatory_space_private_users:
       not_allowed: Bu içeriği görüntüleme izniniz bulunmuyor
     profile:
-      inaccessible_message: Bu profile, Şartlar ve Koşullar ihlali nedeniyle erişilemez!
       view: Görünüm
     profiles:
       show:
