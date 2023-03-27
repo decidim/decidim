@@ -39,7 +39,6 @@ es-PY:
         body: Cuerpo
         subject: Asunto
       organization:
-        admin_terms_of_use_body: Cuerpo para los términos de uso del administrador
         alert_color: Alerta
         available_authorizations: Autorizaciones disponibles
         badges_enabled: Habilitar insignias
@@ -198,20 +197,6 @@ es-PY:
         user:
           new: Nueva administradora
         verify: Verificar
-      admin_terms_of_use:
-        accept:
-          error: Ha habido un error al aceptar los Términos y Condiciones de administración.
-          success: '¡Perfecto! Has aceptado los términos y condiciones de uso de administración.'
-        actions:
-          accept: Estoy de acuerdo con los términos
-          are_you_sure: '¿Seguro que deseas rechazar los términos de uso para administradoras?'
-          refuse: Rechazar los Términos y Condiciones de Administración
-          title: Acepto las condiciones de uso
-        required_review:
-          alert: 'Requerido: revisa nuestros Términos y Condiciones de Administración'
-          callout: Por favor dedica un momento a revisar los términos y condiciones de administración. En caso contrario, no podrás administrar la plataforma.
-          cta: Revísalos ahora.
-        title: Términos y condiciones de uso de administración
       area_types:
         create:
           error: Hubo un error al crear un nuevo tipo de área.
@@ -996,7 +981,6 @@ es-PY:
         destroy:
           success: La página se ha eliminado correctamente.
         edit:
-          changed_notably_help: Si se marca, se notificará a los usuarios que acepten los nuevos Términos y Condiciones.
           title: Editar página
           update: Actualizar
         form:
