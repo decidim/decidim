@@ -29,7 +29,6 @@ cs:
         password_confirmation: Potvrzení hesla
         personal_url: Osobní URL
         remove_avatar: Odstranit avatara
-        tos_agreement: Smluvní podmínky užití
     models:
       decidim/attachment_created_event: Příloha
       decidim/component_published_event: Aktivní součást
@@ -146,7 +145,6 @@ cs:
       logo: "Oficiální logo %{organization}"
       skip_button: Přeskočit na hlavní obsah
     account:
-      blocked: Tento účet byl zablokován kvůli porušení smluvních podmínek
       delete:
         alert: Tuto akci nelze vrátit zpět. Pokud smažete svůj účet, nebudete se moci přihlásit pomocí přihlašovacích údajů. Odstranění vašeho účtu povede k anonymizaci vašich příspěvků. Stále budete moci vytvořit nový účet, ale tyto příspěvky s ním nebudou spojeny.
         confirm:
@@ -277,8 +275,6 @@ cs:
         verify_via_csv: "%{user_name} ověřilo %{resource_name} skupinu uživatelů prostřednictvím souboru CSV"
       user_moderation:
         unreport: "%{user_name} vyjmut z nahlášení v %{resource_type} - %{unreported_user_name}"
-    admin_terms_of_use:
-      default_body: "<h2>ADMINISTRÁTORSKÉ ZÁSADY POUŽITÍ</h2><p>Věříme, že jste obdrželi obvyklou lekci od místního správce systému. Obvykle se zredukuje na tyto tři věci:</p><ol><li>Respektujte soukromí ostatních.</li><li>Zamysleme se před kliknutím.</li><li>S velkou mocí přichází velká odpovědnost.</li></ol>"
     alert:
       dismiss: Odmítnout oznámení
     amendments:
@@ -584,7 +580,6 @@ cs:
           sign_up_as:
             legend: Zaregistrovat se jako
           subtitle: Registrujte se, abyste se mohli účastnit Diskusí a podpořit Návrhy.
-          terms: podmínky používání
           tos_agreement: Přihlášením souhlasíte s %{link}.
           tos_title: Smluvní podmínky
           username_help: Veřejné jméno, které se zobrazí ve vašich příspěvcích. S cílem zaručit anonymitu může být jakékoliv jméno.
@@ -1305,24 +1300,6 @@ cs:
         metrics:
           headline: Metriky
           link: Zobrazit všechny metriky
-      terms_and_conditions:
-        accept:
-          error: Při přijímání smluvních podmínek došlo k chybě.
-          success: Skvělý! Souhlasíte s podmínkami.
-        form:
-          agreement: Souhlasím s těmito podmínkami
-          legend: Souhlasím s podmínkami používání
-        refuse:
-          modal_body: Pokud odmítnete, nebudete moci platformu používat, můžete <a href="%{download_your_data_path}">stáhnout svá data</a> a/nebo <a href="%{delete_path}">smazat svůj účet</a>.
-          modal_btn_continue: Přijměte termíny a pokračujte
-          modal_btn_exit: Později to přezkoumám
-          modal_button: Odmítněte podmínky
-          modal_close: Zavřít modální
-          modal_title: Opravdu odmítáte aktualizované smluvní podmínky?
-        required_review:
-          alert: Aktualizovali jsme naše smluvní podmínky, prosím zkontrolujte je.
-          body: Věnujte prosím chvilku a přečtěte si aktualizace našich smluvních podmínek. V opačném případě nebudete moci platformu používat.
-          title: 'Požadováno: Zkontrolujte aktualizace našich smluvních podmínek'
     participatory_space_private_users:
       not_allowed: Nemáte oprávnění k zobrazení tohoto obsahu
     passwords:
@@ -1331,7 +1308,6 @@ cs:
         success: Heslo bylo úspěšně změněno.
     profile:
       deleted: Vymazaný účastník
-      inaccessible_message: Tento profil je nedostupný z důvodu porušení smluvních podmínek!
       view: Zobrazit
     profiles:
       default_officialization_text_for_user_groups: Tato skupina uživatelů je veřejně ověřena a její název byl ověřen tak, aby odpovídal skutečnému názvu.
