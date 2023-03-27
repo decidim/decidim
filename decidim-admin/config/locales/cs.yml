@@ -39,7 +39,6 @@ cs:
         body: Tělo
         subject: Předmět
       organization:
-        admin_terms_of_use_body: Tělo zprávy správcovských podmínek použití
         alert_color: Upozornění
         available_authorizations: Dostupná oprávnění
         badges_enabled: Povolit odznaky
@@ -198,20 +197,6 @@ cs:
         user:
           new: Nový administrátor
         verify: Ověřit
-      admin_terms_of_use:
-        accept:
-          error: Při přijímání správcovských podmínek použití došlo k chybě.
-          success: Skvělé! Přijali jste administrátorské podmínky použití.
-        actions:
-          accept: Souhlasím s podmínkami
-          are_you_sure: Opravdu chcete odmítnout Podmínky použití pro správce?
-          refuse: Odmítnout administrátorské podmínky
-          title: Souhlasit s podmínkami používání
-        required_review:
-          alert: 'Vyžadováno: Zkontrolujte naše administrátorské podmínky použití'
-          callout: Věnujte prosím chvíli a zkontrolujte podmínky používání administrátora. V opačném případě nebudete moci platformu spravovat.
-          cta: Zkontrolovat je nyní.
-        title: Administrátorské podmínky použití
       area_types:
         create:
           error: Při vytváření nového typu oblasti došlo k chybě.
@@ -1008,7 +993,6 @@ cs:
         destroy:
           success: Stránka byla úspěšně zničena
         edit:
-          changed_notably_help: Pokud je zaškrtnuto, účastníci budou upozorněni, aby přijali nové smluvní podmínky.
           title: Upravit stránku
           update: Aktualizace
         form:
