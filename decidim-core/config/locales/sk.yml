@@ -146,8 +146,6 @@ sk:
         reject: "%{user_name} odmietol overenie skupiny %{resource_name}"
         verify: "%{user_name} overil skupinu %{resource_name}"
         verify_via_csv: "%{user_name} overil skupinu %{resource_name} cez CSV súbor"
-    admin_terms_of_use:
-      default_body: "<h2>Administrátorské podmienky použitia</h2><p>Veríme, že ste obdržali obvyklý úvod od miestneho systémového administrátora. Zvyčajne sú v jadre tieto tri veci:</p><ol><li>Rešpektujte súkromie iných.</li><li>Myslite skôr, než kliknete.</li><li>S veľkou mocou prichádza veľká zodpovednosť.</li></ol>"
     amendments:
       accepted:
         error: Pri prijímaní zmeny došlo k chybe.
@@ -369,7 +367,6 @@ sk:
           sign_up_as:
             legend: Zaregistrovať sa ako
           subtitle: Registrujte sa, aby ste sa zúčastnili diskusií a návrhov podpory.
-          terms: podmienky používania
           tos_agreement: Prihlásením súhlasíte s%{link}.
           tos_title: Podmienky používania
           username_help: Verejné meno, ktoré sa zobrazí vo vašich príspevkoch. S cieľom zaručiť anonymitu to môže byť akékoľvek meno.
@@ -805,17 +802,6 @@ sk:
         metrics:
           headline: Metriky
           link: Zobraziť všetky metriky
-      terms_and_conditions:
-        accept:
-          error: Pri prijímaní zmluvných podmienok došlo k chybe.
-          success: Skvelý! Súhlasíte s podmienkami.
-        refuse:
-          modal_btn_continue: Prijmite termíny a pokračujte
-          modal_button: Odmietnite podmienky
-          modal_close: Zatvoriť modálne
-          modal_title: Naozaj odmietate aktualizované zmluvné podmienky?
-        required_review:
-          title: 'Vyžaduje: Skontrolujte aktualizácie našich zmluvných podmienok'
     participatory_space_private_users:
       not_allowed: Nemáte povolenie na zobrazenie tohto obsahu
     profile:
