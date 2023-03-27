@@ -24,6 +24,7 @@ module Decidim
         }, constraints: { assembly_id: /[0-9]+/ }
 
         resources :assemblies, only: [:index, :show], param: :slug, path: "assemblies" do
+          get "description", on: :member
           resources :assembly_members, only: :index, path: "members"
           resource :widget, only: :show, path: "embed"
         end

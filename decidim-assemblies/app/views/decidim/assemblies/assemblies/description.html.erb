@@ -1,0 +1,47 @@
+<% add_decidim_meta_tags({
+  image_url: current_participatory_space.attached_uploader(:hero_image).path,
+  description: translated_attribute(current_participatory_space.short_description),
+  url: assembly_url(current_participatory_space),
+  twitter_handler: current_organization.twitter_handler
+}) %>
+
+<%
+edit_link(
+  resource_locator(current_participatory_space).edit,
+  :update,
+  :assembly,
+  assembly: current_participatory_space
+)
+%>
+
+<% content_for :aside do %>
+  <div class="process-about__aside">
+    <div class="process-about__aside-title">
+      <%= icon "apps-line", class: "text-gray fill-current" %>
+      <span class="h6"><%= t("data", scope: "decidim.assemblies.assemblies.description") %></span>
+    </div>
+
+    <div class="process-about__data-container">
+      <% @about_items.each do |item| %>
+        <% next if (value = translated_attribute(@presented_space.send(item))).blank? %>
+
+        <div class="process-about__data">
+          <span class="process-about__data-title"><%= t(item, scope: "decidim.assemblies.assemblies.description") %></span>
+          <%= value %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+<% end %>
+
+<%= render layout:"layouts/decidim/shared/layout_two_col", locals: { reverse: true } do %>
+  <h1 class="h1 decorator">
+    <span><%= t("title", scope: "decidim.assemblies.assemblies.description") %></span>
+    <span class="sr-only"><%= t("title", scope: "decidim.assemblies.assemblies.description") %> (<%= translated_attribute(current_participatory_space.title) %>)</span>
+  </h1>
+
+  <div class="process-about__text">
+    <%= decidim_sanitize_editor translated_attribute(current_participatory_space.description) %>
+  </div>
+<% end %>

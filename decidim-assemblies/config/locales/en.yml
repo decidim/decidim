@@ -337,6 +337,16 @@ en:
           names:
             all: All
           type: Type
+        description:
+          area_name: Area
+          data: Assembly data
+          developer_group: Promoter group
+          local_area: Organization Area
+          meta_scope: Scope
+          participatory_scope: What is decided
+          participatory_structure: How is it decided
+          target: Who participates
+          title: About this assembly
         show:
           title: About this assembly
       assembly_members:

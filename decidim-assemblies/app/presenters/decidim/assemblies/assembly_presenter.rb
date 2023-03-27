@@ -11,6 +11,12 @@ module Decidim
         assembly.attached_uploader(:banner_image).url(host: assembly.organization.host)
       end
 
+      def area_name
+        return if assembly.area.blank?
+
+        Decidim::AreaPresenter.new(assembly.area).translated_name_with_type
+      end
+
       def assembly
         __getobj__
       end

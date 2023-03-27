@@ -24,6 +24,10 @@ module Decidim
           decidim_sanitize_editor_admin translated_attribute(short_description)
         end
 
+        def details_path
+          decidim_assemblies.description_assembly_path(resource)
+        end
+
         def nav_items
           assembly_nav_items(resource)
         end
