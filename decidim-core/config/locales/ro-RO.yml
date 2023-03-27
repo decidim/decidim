@@ -1128,19 +1128,15 @@ ro:
           error: A apărut o problemă la acceptarea termenilor şi a condiţiilor.
           success: Minunat! Ați acceptat termenii și condițiile.
         form:
-          agreement: Sunt de acord cu acești termeni și condiţii
           legend: Sunt de acord cu termenii și condițiile de utilizare
         refuse:
           modal_body: Dacă refuzați, nu veți putea utiliza platforma, puteți <a href="%{data_portability_path}">descărca datele</a> și/sau <a href="%{delete_path}">șterge contul dvs</a>.
-          modal_btn_continue: Acceptați termenii și continuați
           modal_btn_exit: O voi revizui mai târziu
-          modal_button: Refuza termenii
           modal_close: Închide fereastra
           modal_title: Chiar refuzați termenii și condițiile actualizate?
         required_review:
           alert: Am actualizat termenii și condițiile noastre de utilizare, te rugăm să le revizuiești.
           body: Vă rugăm să treceți un moment pentru a revizui actualizările Termenilor și Condițiilor noastre. Altfel, nu veți putea utiliza platforma.
-          title: 'Necesar: Revizuiește actualizările termenilor noștri de serviciu'
     participatory_space_private_users:
       not_allowed: Nu aveţi permisiunea să vizualizaţi acest conţinut
     profile:
