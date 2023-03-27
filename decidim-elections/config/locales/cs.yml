@@ -65,6 +65,18 @@ cs:
             voting_type:
               inclusion: "%{value} není platný typ hlasování"
   activerecord:
+    errors:
+      models:
+        decidim/votings/polling_officer:
+          attributes:
+            presided_polling_station:
+              president_and_manager: Volební komisař je již prezident/manažer volební místnosti.
+            voting:
+              different_organization: Hlasování musí být ve stejné organizaci jako je uživatel.
+        decidim/votings/polling_station:
+          attributes:
+            polling_station_president:
+              different_voting: Volební komisař musí být ve stejném hlasování jako volební místnost.
     models:
       decidim/elections/answer:
         one: Odpověď
@@ -167,11 +179,16 @@ cs:
       admin:
         answers:
           create:
+            invalid: Při vytváření této odpovědi došlo k chybě.
             success: Odpověď byla úspěšně vytvořena.
+          destroy:
+            invalid: Při odstraňování této odpovědi došlo k potížím.
+            success: Odpověď byla úspěšně odstraněna.
           edit:
             title: Upravit odpověď
             update: Aktualizovat odpověď
           index:
+            invalid_max_selections: Potřebujete ještě %{missing_answers} odpověd/í, aby počet odpovídal maximálnímu počtu výběrů.
             title: Odpovědi
           new:
             create: Vytvořit odpověď
@@ -180,6 +197,7 @@ cs:
           select:
             disable: Zrušit výběr odpovědi
             enable: Označit odpověď jako vybranou
+            invalid: Při výběru této odpovědi došlo k potížím.
             success: Odpověď byla úspěšně vybrána.
           selected: Vybráno
           unselect:
@@ -941,6 +959,10 @@ cs:
         monitoring_committee_members:
           create:
             invalid: Při vytváření tohoto člena monitorovacího výboru došlo k chybě.
+            success: Člen monitorovacího výboru byl úspěšně vytvořen.
+          destroy:
+            invalid: Při mazání tohoto člena monitorovacího výboru došlo k potížím.
+            success: Člen monitorovacího výboru byl úspěšně odstraněn.
           form:
             existing_user: Existující účastník
             non_user: Pozvat nového účastníka
@@ -971,6 +993,9 @@ cs:
           show:
             change_polling_station: Zpět do volebních místností
             monitoring_committee_notes: Poznámky monitorovacího výboru
+          validate:
+            error: Při ověřování uzavření došlo k chybě.
+            success: Uzavření bylo správně ověřeno.
         monitoring_committee_verify_elections:
           index:
             download: Stáhnout
@@ -982,6 +1007,7 @@ cs:
             title: Volby
         polling_officers:
           create:
+            invalid: Při vytváření tohoto volebního komisaře došlo k chybě.
             success: Volební komisař byla úspěšně vytvořen.
           destroy:
             invalid: Při mazání tohoto volebního komisaře došlo k chybě.
@@ -1051,6 +1077,7 @@ cs:
             introductory_image: Úvodní obrázek
             promoted: Propagováno
             select_a_voting_type: Vyberte prosím typ hlasování
+            show_check_census_help: Zda zobrazit odkaz "Mohu hlasovat?" v nabídce veřejného hlasování.
             slug: Slug
             slug_help: 'URL slug se používá k generování URL, které odkazují na toto hlasování. přijímá pouze písmena, čísla a pomlčky a musí začínat písmenem. Příklad: %{url}'
             title: Název
@@ -1062,6 +1089,13 @@ cs:
           new:
             create: Vytvořit
             title: Nové hlasování
+          publish:
+            success: Hlasování bylo úspěšně publikováno.
+          unpublish:
+            success: Hlasování bylo úspěšně nezveřejněno.
+          update:
+            invalid: Při aktualizaci tohoto hlasování došlo k chybě.
+            success: Hlasování bylo úspěšně aktualizováno.
       admin_log:
         ballot_style:
           create: "%{user_name} vytvořil styl voleb s kódem %{ballot_style_code} ve %{space_name}"
@@ -1090,6 +1124,7 @@ cs:
           census:
             create:
               invalid: Při nahrávání seznamu osob došlo k chybě, opakujte akci později.
+              invalid_csv_header: Hlavičky CSV chybí nebo nejsou správné - přečtěte si prosím pečlivě pokyny.
             creating_data:
               info_message: "<strong>Počkejte prosím</strong>, zpracováno %{processed_count} z %{raw_count} řádků ze souboru %{file} (to může trvat několik minut)."
             delete:
