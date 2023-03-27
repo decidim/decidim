@@ -147,7 +147,7 @@ module Decidim
         when :update_slug, :destroy
           static_page.present? && !StaticPage.default?(static_page.slug)
         when :update_notable_changes
-          static_page.slug == "terms-and-conditions" && static_page.persisted?
+          static_page.slug == "terms-of-service" && static_page.persisted?
         else
           true
         end

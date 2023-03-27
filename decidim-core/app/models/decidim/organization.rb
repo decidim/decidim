@@ -18,7 +18,7 @@ module Decidim
     translatable_fields :description, :cta_button_text, :omnipresent_banner_title, :omnipresent_banner_short_description,
                         :highlighted_content_banner_title, :highlighted_content_banner_short_description, :highlighted_content_banner_action_title,
                         :highlighted_content_banner_action_subtitle, :welcome_notification_subject, :welcome_notification_body, :id_documents_explanation_text,
-                        :admin_terms_of_use_body
+                        :admin_terms_of_service_body
 
     has_many :static_pages, foreign_key: "decidim_organization_id", class_name: "Decidim::StaticPage", inverse_of: :organization, dependent: :destroy
     has_many :static_page_topics, class_name: "Decidim::StaticPageTopic", inverse_of: :organization, dependent: :destroy
@@ -111,9 +111,9 @@ module Decidim
         multi_translation("decidim.welcome_notification.default_body", available_locales)
     end
 
-    def admin_terms_of_use_body
-      self[:admin_terms_of_use_body] ||
-        multi_translation("decidim.admin_terms_of_use.default_body", available_locales)
+    def admin_terms_of_service_body
+      self[:admin_terms_of_service_body] ||
+        multi_translation("decidim.admin_terms_of_service.default_body", available_locales)
     end
 
     def sign_up_enabled?

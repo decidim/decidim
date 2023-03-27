@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Decidim
-  # This cell renders specific _partials_ for the `terms_and_conditions` StaticPage
+  # This cell renders specific _partials_ for the `terms_of_service` StaticPage
   # the `model` is the partial to render
   # - :announcement, the TOS updated announcement when redirected to the TOS page.
   # - :sticky_form, the Accept updated TOS form in the TOS page.
@@ -24,8 +24,8 @@ module Decidim
 
     def announcement
       {
-        title: t("required_review.title", scope: "decidim.pages.terms_and_conditions"),
-        body: t("required_review.body", scope: "decidim.pages.terms_and_conditions")
+        title: t("required_review.title", scope: "decidim.pages.terms_of_service"),
+        body: t("required_review.body", scope: "decidim.pages.terms_of_service")
       }
     end
 

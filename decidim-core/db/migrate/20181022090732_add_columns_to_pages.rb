@@ -13,7 +13,7 @@ class AddColumnsToPages < ActiveRecord::Migration[5.2]
     end
 
     Decidim::StaticPage.where(
-      slug: ["faq", "terms-and-conditions", "accessibility"]
+      slug: ["faq", "terms-and-conditions", "terms-of-service", "accessibility"]
     ).update_all(show_in_footer: true)
     # rubocop:enable Rails/SkipsModelValidations
   end
