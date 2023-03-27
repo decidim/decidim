@@ -104,7 +104,6 @@ nl:
       logo: "Logo van %{organization}"
       skip_button: Ga naar de hoofdinhoud
     account:
-      blocked: Dit account is geblokkeerd vanwege schending van de Algemene Voorwaarden
       delete:
         confirm:
           close: Sluit venster
@@ -177,8 +176,6 @@ nl:
         reject: "%{user_name} heeft de %{resource_name} gebruikersgroepverificatie geweigerd"
         verify: "%{user_name} heeft de %{resource_name} gebruikersgroep geverifieerd"
         verify_via_csv: "%{user_name} heeft de %{resource_name} gebruikersgroep geverifieerd via een CSV-bestand"
-    admin_terms_of_use:
-      default_body: "<h2>ADMIN VOOR GEBRUIK</h2><p>We vertrouwen erop dat u de gebruikelijke les heeft ontvangen van de lokale systeembeheerder. Het komt meestal neer op deze drie zaken:</p><ol><li>de privacy van anderen eerbiedigen.</li><li>Bedenk voordat u klikt.</li><li>Met grote kracht komt een grote verantwoordelijkheid.</li></ol>"
     alert:
       dismiss: Negeer notificatie
     amendments:
@@ -429,7 +426,6 @@ nl:
           sign_up_as:
             legend: Aanmelden als
           subtitle: Meld je aan om deel te nemen aan discussies en om voorstellen te steunen.
-          terms: de bepalingen en voorwaarden van gebruik
           tos_agreement: Door het aanmelden gaat u akkoord met %{link}.
           tos_title: Servicevoorwaarden
           username_help: Publieke naam die op uw berichten verschijnt. Met het oog op het waarborgen van de anonimiteit hoeft dit niet uw echte naam te zijn.
@@ -954,23 +950,9 @@ nl:
         metrics:
           headline: Deelname in cijfers
           link: Toon alle statistieken
-      terms_and_conditions:
-        accept:
-          error: Er is een fout opgetreden bij het accepteren van de algemene voorwaarden.
-          success: Geweldig! U hebt de algemene voorwaarden geaccepteerd.
-        form:
-          agreement: Ik ga akkoord met deze voorwaarden
-        refuse:
-          modal_btn_continue: Voorwaarden accepteren en doorgaan
-          modal_button: Weigeren de voorwaarden
-          modal_close: Modal sluiten
-          modal_title: Weig je de bijgewerkte Algemene voorwaarden echt af?
-        required_review:
-          title: 'Vereist: bekijk updates van onze servicevoorwaarden'
     participatory_space_private_users:
       not_allowed: Je hebt geen toestemming om deze inhoud te bekijken
     profile:
-      inaccessible_message: Dit profiel is niet toegankelijk vanwege schending van de Algemene Voorwaarden!
       view: Bekijk
     profiles:
       show:
