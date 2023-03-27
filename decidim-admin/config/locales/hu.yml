@@ -32,7 +32,6 @@ hu:
         body: Szöveg
         subject: Tárgy
       organization:
-        admin_terms_of_use_body: A szövegtörzse az admin felhasználási feltételeinek
         alert_color: Figyelmeztetés
         available_authorizations: Elérhető authorizációk
         badges_enabled: Jelvények engedélyezése
@@ -168,13 +167,6 @@ hu:
         user:
           new: Új adminisztrátor
         verify: Ellenőrzés
-      admin_terms_of_use:
-        actions:
-          are_you_sure: Biztosan visszautasítod az adminokra vonatkozó feltételek elfogadását?
-          refuse: Admin feltételek elutasítása
-        required_review:
-          alert: 'Szükséges: az admin felhasználási feltételek áttekintése'
-          cta: Áttekintés most.
       area_types:
         create:
           error: Hiba történt az új területtípus létrehozásakor.
@@ -877,7 +869,6 @@ hu:
         destroy:
           success: Oldal törlése sikeres
         edit:
-          changed_notably_help: Ha be van jelölve, a felhasználók értesítést kapnak az új felhasználási feltételekről.
           title: Oldal szerkesztése
           update: Frissítés
         form:
