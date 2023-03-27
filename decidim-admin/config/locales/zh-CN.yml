@@ -140,11 +140,9 @@ zh-CN:
           error: 接受管理员使用条款时出错。
           success: 太棒了！您已经接受了管理员使用条款。
         actions:
-          refuse: 拒绝管理条款
           title: 同意使用条款
         required_review:
           alert: '要求：审查我们的管理员使用条件'
-          cta: 现在审查它们。
         title: 管理员使用条款
       area_types:
         create:
