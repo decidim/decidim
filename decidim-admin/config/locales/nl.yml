@@ -185,12 +185,10 @@ nl:
           success: Geweldig! Je hebt de admin gebruiksvoorwaarden geaccepteerd.
         actions:
           are_you_sure: Weet je zeker dat je de Admin gebruiksvoorwaarden wil resetten?
-          refuse: Weiger de admin gebruiksvoorwaarden
           title: Ga akkoord met de gebruiksvoorwaarden
         required_review:
           alert: 'Vereist: neem onze admin gebruiksvoorwaarden door'
           callout: Neem even de tijd om de Admin Gebruiksvoorwaarden door te nemen. Anders kan je het platform niet beheren.
-          cta: Bekijk ze nu.
         title: Admin gebruiksvoorwaarden
       area_types:
         create:
