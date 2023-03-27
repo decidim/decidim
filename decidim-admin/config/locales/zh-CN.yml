@@ -135,12 +135,6 @@ zh-CN:
         reject: 拒绝
         share: 分享
         verify: 验证
-      admin_terms_of_use:
-        actions:
-          refuse: 拒绝管理条款
-        required_review:
-          alert: '要求：审查我们的管理员使用条件'
-          cta: 现在审查它们。
       area_types:
         create:
           error: 创建新区域类型时出现问题。
@@ -658,7 +652,6 @@ zh-CN:
         destroy:
           success: 页面已成功删除
         edit:
-          changed_notably_help: 如果选中，将通知参与者接受新的条款和条件。
           title: 编辑页面
           update: 更新
         form:
