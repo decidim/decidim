@@ -19,7 +19,7 @@ extra_admin_link(
   :create,
   :proposal_answer,
   { proposal: @proposal },
-  { name: t(".answer"), icon: "question-answer-line" }
+  { name: t("answer", scope: "decidim.proposals.proposals.show"), icon: "question-answer-line" }
 )
 %>
 
@@ -36,24 +36,16 @@ extra_admin_link(
 <% end %>
 
 <%# REDESIGN_PENDING: define nav_paths %>
-<%= render layout: "layouts/decidim/shared/layout_item", locals: { back_path: proposals_path } do %>
+<%= render layout: "layouts/decidim/shared/layout_item", locals: { back_path: component_settings.participatory_texts_enabled? ? main_component_path(current_component) : proposals_path } do %>
 
   <div class="proposal__container">
 
     <%= render partial: "voting_rules" %>
 
-    <% if component_settings.participatory_texts_enabled? %>
-      <div class="row column">
-        <div class="section text-medium">
-          <%= t(".back_to") %> <u><%= link_to translated_attribute(@participatory_text.title), main_component_path(current_component) %></u>
-        </div>
-      </div>
-    <% end %>
-
     <%= emendation_announcement_for @proposal %>
 
     <% if @proposal.emendation? %>
-      <h1 class="h2 decorator"><%= t(".changes_at_title", title: present(@proposal.amendable).title(links: true, html_escape: true)) %></h1>
+      <h1 class="h2 decorator"><%= t("changes_at_title", scope: "decidim.proposals.proposals.show", title: present(@proposal.amendable).title(links: true, html_escape: true)) %></h1>
     <% else %>
       <h1 class="h2 decorator"><%= present(@proposal).title(links: true, html_escape: true) %></h1>
     <% end %>
@@ -111,44 +103,47 @@ extra_admin_link(
     </div>
 
     <%# REDESIGN_PENDING: the next two resources are a simple list of users, as the decidim/meetings/public_participants_list_cell does.
-                           It would be useful to move such list to the core, in order to reuse it elsewhere %>
+                          It would be useful to move such list to the core, in order to reuse it elsewhere
+                          In any case, these blocks should go inside the tabs-panels structure  %>
     <%#= cell "decidim/endorsers_list", @proposal %>
     <%#= amendments_for @proposal %>
 
     <%= render partial: "actions" %>
 
-    <div class="mt-8">
-      <ul class="drawer-metadata__container" data-metadata-footer>
-        <%= content_tag :li, resource_reference(@proposal), class: "drawer-metadata__item" %>
-        <%= content_tag :li, resource_version(proposal_presenter, versions_path: proposal_versions_path(@proposal)), class: "drawer-metadata__item" %>
+    <%# REDESIGN_PENDING: uncomment the "item_footer" content_for block once merged https://github.com/decidim/decidim/pull/10620 %>
+    <%# content_for :item_footer do %>
+      <%= comments_for @proposal %>
 
-        <% fingerprint_id = dom_id(@proposal, :fingerprint_dialog) %>
-        <%= content_tag :li, class: "drawer-metadata__item" do %>
-          <%= content_tag :button, t("decidim.fingerprint.check"), data: { dialog_open: fingerprint_id } %>
-        <% end %>
-        <%= decidim_modal id: fingerprint_id, class: "fingerprint-modal" do %>
-          <div data-dialog-container>
-            <%= icon "fingerprint-line" %>
-            <h2 id="dialog-title-<%= fingerprint_id %>" tabindex="-1" data-dialog-title><%= t "decidim.fingerprint.title" %></h2>
-            <div class="fingerprint-modal__container">
-              <p id="dialog-desc-<%= fingerprint_id %>"><%= t "decidim.fingerprint.explanation" %></p>
-              <div>
-                <span class="fingerprint-modal__span"><%= t "decidim.fingerprint.value" %>:</span>
-                <code class="fingerprint-modal__code"><%= decidim_html_escape @proposal.fingerprint.value %></code>
+      <div class="mt-8">
+        <ul class="drawer-metadata__container" data-metadata-footer>
+          <%= content_tag :li, resource_reference(@proposal), class: "drawer-metadata__item" %>
+          <%= content_tag :li, resource_version(proposal_presenter, versions_path: proposal_versions_path(@proposal)), class: "drawer-metadata__item" %>
+
+          <% fingerprint_id = dom_id(@proposal, :fingerprint_dialog) %>
+          <%= content_tag :li, class: "drawer-metadata__item" do %>
+            <%= content_tag :button, t("decidim.fingerprint.check"), data: { dialog_open: fingerprint_id } %>
+          <% end %>
+          <%= decidim_modal id: fingerprint_id, class: "fingerprint-modal" do %>
+            <div data-dialog-container>
+              <%= icon "fingerprint-line" %>
+              <h2 id="dialog-title-<%= fingerprint_id %>" tabindex="-1" data-dialog-title><%= t "decidim.fingerprint.title" %></h2>
+              <div class="fingerprint-modal__container">
+                <p id="dialog-desc-<%= fingerprint_id %>"><%= t "decidim.fingerprint.explanation" %></p>
+                <div>
+                  <span class="fingerprint-modal__span"><%= t "decidim.fingerprint.value" %>:</span>
+                  <code class="fingerprint-modal__code"><%= decidim_html_escape @proposal.fingerprint.value %></code>
+                </div>
+                <div>
+                  <span class="fingerprint-modal__span"><%= t "decidim.fingerprint.source" %>:</span>
+                  <code class="fingerprint-modal__code"><%= decidim_html_escape @proposal.fingerprint.source %></code>
+                </div>
+                <p><%= t("decidim.fingerprint.replicate_help", online_calculator_link: link_to(t("decidim.fingerprint.online_calculator_name"), "http://www.md5calc.com/sha256", target: "_blank", rel: "noopener")).html_safe %>
               </div>
-              <div>
-                <span class="fingerprint-modal__span"><%= t "decidim.fingerprint.source" %>:</span>
-                <code class="fingerprint-modal__code"><%= decidim_html_escape @proposal.fingerprint.source %></code>
-              </div>
-              <p><%= t("decidim.fingerprint.replicate_help", online_calculator_link: link_to(t("decidim.fingerprint.online_calculator_name"), "http://www.md5calc.com/sha256", target: "_blank", rel: "noopener")).html_safe %>
             </div>
-          </div>
-        <% end %>
-      </ul>
-    </div>
-
-    <%# REDESIGN_PENDING: include in the content_for once merged https://github.com/decidim/decidim/pull/10620 %>
-    <%= comments_for @proposal %>
+          <% end %>
+        </ul>
+      </div>
+    <%# end %>
   </div>
 
 <% end %>
