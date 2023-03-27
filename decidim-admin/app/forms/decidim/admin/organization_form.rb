@@ -33,7 +33,7 @@ module Decidim
       translatable_attribute :welcome_notification_subject, String
       translatable_attribute :welcome_notification_body, String
 
-      translatable_attribute :admin_terms_of_use_body, String
+      translatable_attribute :admin_terms_of_service_body, String
 
       validates :welcome_notification_subject, :welcome_notification_body, translatable_presence: true, if: proc { |form| form.customize_welcome_notification }
 
@@ -42,7 +42,7 @@ module Decidim
       validates :time_zone, time_zone: true
       validates :default_locale, :reference_prefix, presence: true
       validates :default_locale, inclusion: { in: :available_locales }
-      validates :admin_terms_of_use_body, translatable_presence: true
+      validates :admin_terms_of_service_body, translatable_presence: true
       validates :comments_max_length, presence: true, numericality: { greater_than_or_equal_to: 0 }
       validates :machine_translation_display_priority,
                 inclusion: { in: Decidim::Organization::AVAILABLE_MACHINE_TRANSLATION_DISPLAY_PRIORITIES },

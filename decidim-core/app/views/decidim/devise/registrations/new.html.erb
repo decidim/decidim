@@ -48,12 +48,12 @@
       <h4 class="h4"><%= t("decidim.devise.registrations.new.tos_title") %></h4>
 
       <div class="tos-text">
-        <% terms_and_conditions_summary_content_blocks.each do |content_block| %>
+        <% terms_of_service_summary_content_blocks.each do |content_block| %>
           <%= cell content_block.manifest.cell, content_block %>
         <% end %>
       </div>
 
-      <%= f.check_box :tos_agreement, label: t("decidim.devise.registrations.new.tos_agreement", link: link_to(t("decidim.devise.registrations.new.terms"), page_path("terms-and-conditions"))), label_options: { class: "form__wrapper-checkbox-label" } %>
+      <%= f.check_box :tos_agreement, label: t("decidim.devise.registrations.new.tos_agreement", link: link_to(t("decidim.devise.registrations.new.terms"), page_path("terms-of-service"))), label_options: { class: "form__wrapper-checkbox-label" } %>
     </div>
 
     <div id="card__newsletter" class="form__wrapper-block">

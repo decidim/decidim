@@ -40,7 +40,7 @@ en:
         body: Body
         subject: Subject
       organization:
-        admin_terms_of_use_body: Body for the admin terms of use
+        admin_terms_of_service_body: Body for the admin terms of service
         alert_color: Alert
         available_authorizations: Available authorizations
         badges_enabled: Enable badges
@@ -199,20 +199,20 @@ en:
         user:
           new: New admin
         verify: Verify
-      admin_terms_of_use:
+      admin_terms_of_service:
         accept:
-          error: There is been an error while accepting the admin terms of use.
-          success: Great! You have accepted the admin terms of use.
+          error: There is been an error while accepting the admin terms of service.
+          success: Great! You have accepted the admin terms of service.
         actions:
           accept: I agree with the terms
-          are_you_sure: Are you sure you want to refuse the admin terms of use?
+          are_you_sure: Are you sure you want to refuse the admin terms of service?
           refuse: Refuse the admin terms
-          title: Agree to the terms of use
+          title: Agree to the terms of service
         required_review:
-          alert: 'Required: Review our admin terms of use'
-          callout: Please take a moment to review the admin terms of use. Otherwise you will not be able to manage the platform.
+          alert: 'Required: Review our admin terms of service'
+          callout: Please take a moment to review the admin terms of service. Otherwise you will not be able to manage the platform.
           cta: Review them now.
-        title: Admin terms of use
+        title: Admin terms of service
       area_types:
         create:
           error: There was a problem creating a new area type.
@@ -997,7 +997,7 @@ en:
         destroy:
           success: Page successfully destroyed
         edit:
-          changed_notably_help: If checked, participants will be notified to accept the new terms and conditions.
+          changed_notably_help: If checked, participants will be notified to accept the new terms of service.
           title: Edit page
           update: Update
         form:

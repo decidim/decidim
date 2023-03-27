@@ -6,7 +6,7 @@ module Decidim
   describe ApplicationController, type: :controller do
     let!(:organization) { create :organization }
     let!(:user) { create :user, :confirmed, organization: }
-    let(:tos_path) { "/pages/terms-and-conditions" }
+    let(:tos_path) { "/pages/terms-of-service" }
 
     controller Decidim::ApplicationController do
       def show
@@ -26,7 +26,7 @@ module Decidim
       request.env["decidim.current_organization"] = organization
       routes.draw do
         get "show" => "decidim/application#show"
-        get "pages/terms-and-conditions" => "decidim/application#tos"
+        get "pages/terms-of-service" => "decidim/application#tos"
         get "unauthorized" => "decidim/application#unauthorized"
       end
     end
