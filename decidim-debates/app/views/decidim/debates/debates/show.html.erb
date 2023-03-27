@@ -19,13 +19,16 @@ edit_link(
   </h2>
 
   <% debate_presenter = Decidim::Debates::DebatePresenter.new(debate) %>
-  <%= cell "decidim/author", debate_presenter.author, skip_profile_link: true %>
+  <div class="flex flex-nowrap gap-4">
+    <%= cell "decidim/author", debate_presenter.author, skip_profile_link: true %>
+    <% if debate.closed? %>
+      <span class="success label proposal-status">
+        <%= t("debate_closed", scope: "decidim.debates.debates.show") %>
+      </span>
+    <% end %>
+  </div>
 
-  <% if debate.closed? %>
-    <span class="success label proposal-status">
-      <%= t("debate_closed", scope: "decidim.debates.debates.show") %>
-    </span>
-  <% end %>
+
 
   <div class="editor-content">
     <%= render_debate_description(debate) %>
