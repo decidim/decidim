@@ -127,12 +127,6 @@ sk:
         permissions: Práva
         reject: Odmietnuť
         verify: Overiť
-      admin_terms_of_use:
-        actions:
-          refuse: "Odmietnuť podmienky použitia pre administrátorov.\n"
-        required_review:
-          alert: 'Vyžaduje sa: oboznámiť sa s administrátorskými podmienkami použitia'
-          cta: Oboznámte sa s nimi teraz.
       area_types:
         create:
           error: Pri tvorbe nového typu oblasti nastala chyba.
@@ -617,7 +611,6 @@ sk:
         destroy:
           success: Stránka úspešne vymazaná
         edit:
-          changed_notably_help: Ak je zaškrtnuté, účastníci dostanú oznámenie o zmene Podmienok použitia.
           title: Upraviť stránku
           update: Aktualizovať
         form:
