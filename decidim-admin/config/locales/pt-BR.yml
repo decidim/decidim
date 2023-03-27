@@ -32,7 +32,6 @@ pt-BR:
         body: Corpo
         subject: Assunto
       organization:
-        admin_terms_of_use_body: Corpo para os termos de uso do administrador
         alert_color: Alerta
         available_authorizations: Autorizações disponíveis
         badges_enabled: Ativar emblemas
@@ -165,12 +164,6 @@ pt-BR:
         reject: Negar
         share: Compartilhar
         verify: Verificar
-      admin_terms_of_use:
-        actions:
-          refuse: Recusar os termos do admin
-        required_review:
-          alert: 'Obrigatório: Revise os termos de uso de nosso administrador'
-          cta: Reveja eles agora.
       area_types:
         create:
           error: Ocorreu um erro ao criar um novo tipo de área.
@@ -803,7 +796,6 @@ pt-BR:
         destroy:
           success: Página excluída com sucesso
         edit:
-          changed_notably_help: Se marcado, os usuários serão notificados para aceitar os novos termos e condições.
           title: Editar página
           update: Atualizar
         form:
