@@ -32,7 +32,6 @@ lt:
         body: Pagrindinė dalis
         subject: Tema
       organization:
-        admin_terms_of_use_body: Vieta administratorių naudotojų sąlygoms
         alert_color: Įspėjimas
         available_authorizations: Leidžiamos autorizacijos
         badges_enabled: Aktyvinti ženklelius
@@ -168,13 +167,6 @@ lt:
         user:
           new: Naujas administratorius
         verify: Patikrinti
-      admin_terms_of_use:
-        actions:
-          are_you_sure: Ar tikrai norite nesutikti su administratoriaus naudojimosi sąlygomis?
-          refuse: Nesutikti su administratoriaus nustatytomis sąlygomis
-        required_review:
-          alert: 'Reikalavimas: peržiūrėkite mūsų administratoriaus nustatytas naudojimosi sąlygas'
-          cta: Peržiūrėkite jas dabar.
       area_types:
         create:
           error: Kuriant naujos erdvės tipą iškilo problema.
@@ -890,7 +882,6 @@ lt:
         destroy:
           success: Puslapis panaikintas
         edit:
-          changed_notably_help: Pažymėjus šį langelį, dalyviai gaus paraginimą sutikti su naujomis sąlygomis.
           title: Redaguoti puslapį
           update: Atnaujinti
         form:
