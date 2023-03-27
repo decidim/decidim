@@ -29,7 +29,6 @@ fi-pl:
         password_confirmation: Vahvista salasanasi
         personal_url: Henkilökohtainen URL-osoite
         remove_avatar: Poista profiilikuva
-        tos_agreement: Käyttöehdot
     models:
       decidim/attachment_created_event: Liite
       decidim/component_published_event: Aktiivinen komponentti
@@ -122,7 +121,6 @@ fi-pl:
       logo: "Organisaation %{organization} virallinen logo"
       skip_button: Siirry sisältöön
     account:
-      blocked: Tämä käyttäjätili on estetty, koska käyttäjä ei noudattanut käyttöehtoja
       delete:
         alert: Tätä toimintoa ei voi peruuttaa. Jos poistat tilisi, et voi enää kirjautua sisään tunnuksillasi. Tilisi poiston yhteydessä nimesi ja tietosi poistuvat kaikkien laatimiesi asioiden yhteydestä. Voit kuitenkin aina luoda uuden tilin, mutta näitä aikaisemmin laadittuja asioita ei voida enää jälkikäteen liittää uuteen tiliisi.
         confirm:
@@ -253,8 +251,6 @@ fi-pl:
         verify_via_csv: "%{user_name} vahvisti käyttäjäryhmän %{resource_name} CSV-tiedoston avulla"
       user_moderation:
         unreport: "%{user_name} poisti ilmoituksen kohteelta %{resource_type} - %{unreported_user_name}"
-    admin_terms_of_use:
-      default_body: "<h2>HALLINTAKÄYTTÄJÄN KÄYTTÖEHDOT</h2><p>Oletamme, että olet saanut järjestelmänvalvojalta koulutuksen järjestelmän turvalliseen hallintakäyttöön. Usein siinä korostuu seuraavat asiat:</p><ol><li>Kunnioita muiden käyttäjien yksityisyyttä ja tietosuojaa.</li><li>Mieti hetki ennen kuin klikkaat painikkeita.</li><li>Mitä enemmän sinulla on valtaa, sitä enemmän sinulla on vastuuta tekemisistäsi.</li></ol>"
     alert:
       dismiss: Piilota ilmoitus
     amendments:
@@ -554,7 +550,6 @@ fi-pl:
           sign_up_as:
             legend: Rekisteröidy
           subtitle: Rekisteröidy osallistuaksesi keskusteluihin ja kannattaaksesi ehdotuksia.
-          terms: käyttöehdot
           tos_agreement: Rekisteröitymällä palveluun hyväksyt %{link}.
           tos_title: Käyttöehdot
           username_help: Julkinen nimi, joka näytetään viestiesi yhteydessä. Anonyymiteetin taataksemme, voi olla mikä tahansa nimi.
@@ -1266,24 +1261,6 @@ fi-pl:
         metrics:
           headline: Osallistuminen lukuina
           link: Näytä kaikki tilastot
-      terms_and_conditions:
-        accept:
-          error: Ehtojen hyväksymisessä tapahtui virhe.
-          success: Hienoa! Olet hyväksynyt käyttöehdot.
-        form:
-          agreement: Hyväksyn nämä ehdot
-          legend: Käyttöehtojen hyväksyminen
-        refuse:
-          modal_body: Jos kieltäydyt hyväksymästä ehtoja, et voi käyttää palvelua. Voit <a href="%{download_your_data_path}">ladata omat tietosi</a> ja/tai <a href="%{delete_path}">poistaa tilisi</a>.
-          modal_btn_continue: Hyväksy ehdot ja jatka
-          modal_btn_exit: Tarkastan ne myöhemmin
-          modal_button: Kieltäydy hyväksymästä ehtoja
-          modal_close: Sulje ikkuna
-          modal_title: Kieltäydytkö tosiaan hyväksymästä päivitettyjä käyttöehtoja?
-        required_review:
-          alert: Olemme päivittäneet käyttöehtojamme. Ole hyvä ja tutustu päivitettyihin ehtoihin.
-          body: Ole hyvä ja tutustu päivitetyihin käyttöehtoihimme. Jatkaaksesi palvelun käyttöä sinun on tutustuttava päivitettyihin ehtoihin.
-          title: 'Pakollinen: Tarkista päivitetyt käyttöehtomme'
     participatory_space_private_users:
       not_allowed: Et voi katsoa tätä sisältöä
     passwords:
@@ -1292,7 +1269,6 @@ fi-pl:
         success: Salasanan päivitys onnistui.
     profile:
       deleted: Poistettu osallistuja
-      inaccessible_message: Tämä käyttäjäprofiili ei ole käytettävissä, koska käyttäjä on rikkonut käyttöehtoja!
       view: Näytä
     profiles:
       default_officialization_text_for_user_groups: Tämä ryhmä on julkisesti varmennettu, ja sen nimen on varmennettu vastaavan todellista nimeä.
