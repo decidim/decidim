@@ -466,7 +466,7 @@ describe "Proposals", type: :system do
         # REDESIGN_PENDING - Voting from index is deprecated in proposals. Remove this test if this is correct
         # expect(page).to have_no_button("Supports disabled", disabled: true)
         # expect(page).to have_no_button("Vote")
-        expect(page).to have_css("div.card__list-title a", count: 2)
+        expect(page).to have_css("div.card-grid a.card__list", count: 2)
       end
     end
 

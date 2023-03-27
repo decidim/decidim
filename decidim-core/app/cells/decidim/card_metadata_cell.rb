@@ -60,7 +60,7 @@ module Decidim
 
       {
         cell: "decidim/redesigned_author",
-        args: [present(resource.author), { from: resource, skip_profile_link: true }]
+        args: [present(resource.author), { from: resource, skip_profile_link: true, context_actions: [] }]
       }
     end
 
@@ -73,7 +73,7 @@ module Decidim
 
       {
         cell: "decidim/redesigned_author",
-        args: [presented_author, { from: resource, skip_profile_link: true }]
+        args: [presented_author, { from: resource, skip_profile_link: true, context_actions: [] }]
       }
     end
 
@@ -114,7 +114,7 @@ module Decidim
     end
 
     def enable_links?
-      return true unless options.has_key?(:links)
+      return false unless options.has_key?(:links)
 
       options[:links]
     end
