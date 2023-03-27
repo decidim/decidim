@@ -80,7 +80,6 @@ lb:
       logo: "Offiziellen Logo vun %{organization}"
       skip_button: Zum Haapt-Inhalt eriwwergoen
     account:
-      blocked: Dësen Kont gouf gespaart wéinst dem Net-Respekt vun den allgemengen Bestëmmungen
       delete:
         confirm:
           close: Fënster zou maachen
@@ -159,8 +158,6 @@ lb:
         verify_via_csv: "%{user_name} huet de Grupp %{resource_name} via eng CSV-Datei iwwerpréift"
       user_moderation:
         unreport: "%{user_name} huet de Meldung vun %{resource_type} - %{unreported_user_name} opgehuewen"
-    admin_terms_of_use:
-      default_body: "<h2>ADMIN-KONDITIOUNEN VUM BENOTZEN </h2><p>Du hues bestëmmt schonn eng Aféierung duerch den lokalen Admin kritt. 3 Punkten sinn wichteg:</p><ol><li>respektéier den aneren hir Privatsphär </li><li>Denk no éiers de klicks.</li><li>Vill Muecht ass och vill Verantwortung.</li></ol>"
     alert:
       dismiss: Noriicht zou maachen
     amendments:
@@ -414,7 +411,6 @@ lb:
           sign_up_as:
             legend: Registréieren als
           subtitle: Registréier dech fir bei Diskussiounen mat ze maachen an Virschléi ze ënnerstëtzen.
-          terms: Konditiounen vum Benotzen
           tos_agreement: Mat der Umeldung erkläers du dech mat %{link} averstane.
           tos_title: Konditiounen vum Service
           username_help: Den ëffentlechen Numm gëtt an dengen Beiträg ugewisen. Fir d'Anonymat ze garantéieren, kann s'de der och en belibegen Numm eraussichen.
@@ -929,23 +925,9 @@ lb:
         metrics:
           headline: Statistiken
           link: All Statistiken uweisen
-      terms_and_conditions:
-        accept:
-          error: Et gouf e Problem beim Unhuelen vun den Konditiounen vum Benotzen.
-          success: Wonnerbar! Du hues d'Konditiounen vum Benotzen akzeptéiert.
-        form:
-          agreement: Ech sinn mat dësen Konditiounen averstane
-        refuse:
-          modal_btn_continue: Konditiounen akzeptéieren an weiderfueren
-          modal_button: Konditiounen net unhuelen
-          modal_close: Modal zou maachen
-          modal_title: Bass du wierklech wëlles d'Konditiounen vum Benotzen net unzehuelen?
-        required_review:
-          title: 'Erfuerderlech: Iwwerpréif Aktualiséierungen vun eisen Konditiounen vum Benotzen'
     participatory_space_private_users:
       not_allowed: Dir ass et net erlaabt dësen Inhalt ze gesinn
     profile:
-      inaccessible_message: Dësen Profil ass wéinst der Verletzung vun den Konditiounen vum Benotzen net zougänglech!
       view: Uweisen
     profiles:
       show:
