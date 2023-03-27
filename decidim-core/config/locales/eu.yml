@@ -1125,19 +1125,15 @@ eu:
           error: Errore bat gertatu da terminoak eta baldintzak onartzen dituzunean.
           success: Great! Baldintzak eta baldintzak onartu dituzu.
         form:
-          agreement: Ados nago irizpide hauekin
           legend: Erabiltzeko baldintzak eta baldintzak onartzen dituzu
         refuse:
           modal_body: Uko egiten baduzu, ezin izango duzu plataforman erabiltzeko gai, ezin duzu <a href="%{data_portability_path}">deskargatu zure datu</a> edo / <a href="%{delete_path}">zure kontua ezabatu</a>.
-          modal_btn_continue: Baldintzak onartu eta jarraitu
           modal_btn_exit: Berriro berrikusiko dut geroago
-          modal_button: Ezetsi terminoak
-          modal_close: Itxi leihoa
+          modal_close: Itxi modal
           modal_title: Baldintza eta baldintza eguneratuak uko dituzu benetan?
         required_review:
           alert: Zerbitzu-baldintzak eguneratu ditugu, mesedez, berrikusi.
           body: Jarri une bat gure Zerbitzu Baldintzak eguneratzeak berrikusteko. Bestela, ezin izango duzu plataforma erabili.
-          title: 'Beharrezkoa: berrikusi gure zerbitzu-baldintzen eguneratzeak'
     participatory_space_private_users:
       not_allowed: Ez duzu edukia ikusteko baimenik
     profile:
