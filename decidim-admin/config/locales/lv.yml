@@ -125,12 +125,6 @@ lv:
         permissions: Atļaujas
         reject: Noraidīt
         verify: Verificēt
-      admin_terms_of_use:
-        actions:
-          refuse: Nepiekrist administratora noteikumiem
-        required_review:
-          alert: 'Obligāti: pārskatiet mūsu administratora lietošanas noteikumus'
-          cta: Pārskatiet tos tagad.
       area_types:
         create:
           error: Jauna jomas veida radīšanas laikā radās problēma.
@@ -610,7 +604,6 @@ lv:
         destroy:
           success: Lapa ir veiksmīgi dzēsta
         edit:
-          changed_notably_help: Ja atzīmēts, dalībnieki tiks informēti, lai viņi varētu pieņemt jaunos lietošanas noteikumus.
           title: Rediģēt lapu
           update: Atjaunināt
         form:
