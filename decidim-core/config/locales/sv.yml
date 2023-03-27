@@ -116,7 +116,6 @@ sv:
       logo: "%{organization}s logotyp"
       skip_button: Gå till innehåll
     account:
-      blocked: Detta konto har blockerats på grund av överträdelse av användarvillkoren
       delete:
         confirm:
           close: Stäng fönster
@@ -204,8 +203,6 @@ sv:
         verify_via_csv: "%{user_name} verifierade gruppen %{resource_name} via en CSV-fil"
       user_moderation:
         unreport: "%{user_name} avrapporterade en %{resource_type} - %{unreported_user_name}"
-    admin_terms_of_use:
-      default_body: "<h2>ANVÄNDARVILLKOR FÖR ADMINISTRATÖRER</h2><p>Vi förutsätter att du har fått den vanliga föreläsningen från den lokala systemadministratören. Det brukar bygga på tre saker:</p><ol><li>Respektera andras integritet.</li><li>Tänk innan du klickar.</li><li>Med stora krafter följer stort ansvar.</li></ol>"
     alert:
       dismiss: Avfärda avisering
     amendments:
@@ -460,7 +457,6 @@ sv:
           sign_up_as:
             legend: Registrera dig som
           subtitle: Registrera dig för att delta i diskussioner och stödja förslag.
-          terms: användarvillkoren
           tos_agreement: Genom att registrera dig godkänner du %{link}.
           tos_title: Användarvillkor
           username_help: Offentligt namn som visas på dina inlägg. I syfte att garantera anonymiteten kan det vara vilket namn som helst.
@@ -1028,23 +1024,9 @@ sv:
         metrics:
           headline: Metrik
           link: Visa alla metrik
-      terms_and_conditions:
-        accept:
-          error: Det uppstod ett problem med att godkänna villkoren.
-          success: Tack! Du har godkänt användarvillkoren.
-        form:
-          agreement: Jag godkänner villkoren
-        refuse:
-          modal_btn_continue: Acceptera villkoren och fortsätt
-          modal_button: Avvisa villkoren
-          modal_close: Stäng fönstret
-          modal_title: Avvisar du de uppdaterade användarvillkoren?
-        required_review:
-          title: 'Obligatoriskt: Granska uppdateringarna av våra användarvillkor'
     participatory_space_private_users:
       not_allowed: Du har inte rätt att se det här innehållet
     profile:
-      inaccessible_message: Denna profil kan inte ses på grund av överträdelse av användarvillkoren!
       view: Visa
     profiles:
       show:
