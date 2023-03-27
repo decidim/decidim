@@ -29,7 +29,6 @@ es:
         password_confirmation: Confirma tu contraseña
         personal_url: URL personal
         remove_avatar: Eliminar imagen de perfil
-        tos_agreement: Acuerdo de términos y condiciones de uso
     models:
       decidim/attachment_created_event: Archivo adjunto
       decidim/component_published_event: Componente activo
@@ -122,7 +121,6 @@ es:
       logo: "Logo oficial de %{organization}"
       skip_button: Saltar al contenido principal
     account:
-      blocked: Esta cuenta ha sido bloqueada por una violación de los Términos y Condiciones de uso
       delete:
         alert: Esta acción no se puede deshacer. Si eliminas tu cuenta no podrás iniciar sesión con tus credenciales. La eliminación de tu cuenta resultará en la anonimización de tus contribuciones. Aún podrás crear una nueva cuenta, pero estas contribuciones no se asociarán a ella.
         confirm:
@@ -253,8 +251,6 @@ es:
         verify_via_csv: "%{user_name} verificó el grupo %{resource_name} través de un archivo CSV"
       user_moderation:
         unreport: "%{user_name} ha deshecho el reporte %{resource_type} - %{unreported_user_name}"
-    admin_terms_of_use:
-      default_body: "<h2>TÉRMINOS ADMIN DE USO</h2><p>Confiamos en que has recibido la explicación habitual del administrador local del sistema. Generalmente se reduce a estas tres cosas:</p><ol><li>Respetar la privacidad de los demás.</li><li>Piensa antes de hacer clic.</li><li>Un gran poder conlleva una gran responsabilidad.</li></ol>"
     alert:
       dismiss: Descartar notificación
     amendments:
@@ -551,7 +547,6 @@ es:
           sign_up_as:
             legend: Inscribirse como
           subtitle: Crea una cuenta para poder participar en los debates y apoyar las propuestas.
-          terms: los términos y condiciones de uso
           tos_agreement: Al registrarte aceptas %{link}.
           tos_title: Términos de servicio
           username_help: Nombre público que aparecerá en tus publicaciones. Con el objetivo de garantizar el anonimato puede ser cualquier nombre.
@@ -1264,24 +1259,6 @@ es:
         metrics:
           headline: Métricas
           link: Muestra todas las métricas
-      terms_and_conditions:
-        accept:
-          error: Se ha producido un error al aceptar los Términos y Condiciones.
-          success: '¡Estupendo! Has aceptado los Términos y Condiciones.'
-        form:
-          agreement: Estoy de acuerdo con estos términos
-          legend: Acepto los términos y condiciones de uso
-        refuse:
-          modal_body: Si no aceptas, no podrás utilizar la plataforma, puedes <a href="%{download_your_data_path}">descargar tus datos</a> y/o <a href="%{delete_path}">eliminar tu cuenta</a>.
-          modal_btn_continue: Aceptar los términos y continuar
-          modal_btn_exit: Los revisaré más tarde
-          modal_button: Rechazar los términos
-          modal_close: Cerrar el modal
-          modal_title: '¿Confirmas que no aceptas los Términos y Condiciones actualizados?'
-        required_review:
-          alert: Hemos actualizado nuestros Términos de Servicio, por favor, revísalos.
-          body: Por favor dedica un momento a revisar la actualización de nuestros Términos de Servicio. De lo contrario, no podrás usar la plataforma.
-          title: 'Obligatorio: revisa las actualizaciones de nuestros Términos de Servicio'
     participatory_space_private_users:
       not_allowed: No tienes permiso para visualizar este contenido
     passwords:
@@ -1290,7 +1267,6 @@ es:
         success: La contraseña se ha actualizado correctamente.
     profile:
       deleted: Participante eliminada
-      inaccessible_message: '¡Este perfil es inaccesible debido a la violación de Términos y Condiciones de uso!'
       view: Ver
     profiles:
       default_officialization_text_for_user_groups: Este grupo está verificado públicamente, su nombre se ha verificado para que se corresponda con su nombre real.
