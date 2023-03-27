@@ -107,7 +107,6 @@
       logo: "%{organization} s offisielle logo"
       skip_button: Gå til hovedinnhold
     account:
-      blocked: Denne kontoen er sperret på grunn av brudd på vilkår og betingelser
       delete:
         confirm:
           close: Lukk vindu
@@ -186,8 +185,6 @@
         verify_via_csv: "%{user_name} verifiserte gruppen %{resource_name} via en CSV fil"
       user_moderation:
         unreport: "%{user_name} urapporterte en %{resource_type} – %{unreported_user_name}"
-    admin_terms_of_use:
-      default_body: "<h2>ADMINISTRATOR BRUKERVILKÅR</h2><p>Vi stoler på at du har mottatt det vanlige foredraget fra den lokale systemadministratoren. Det handlet vanligvis om disse tre tingene:</p><ol><li>Respekter andres privatliv.</li><li>Tenk før du klikker.</li><li>Med stor makt kommer stort ansvar.</li></ol>"
     alert:
       dismiss: Avvis varsling
     amendments:
@@ -438,7 +435,6 @@
           sign_up_as:
             legend: Registrer deg som
           subtitle: Registrer deg for å delta i diskusjoner og medvirkningsprosesser.
-          terms: vilkårene for bruk
           tos_agreement: Ved å registrere deg godtar du til %{link}.
           tos_title: Vilkår for bruk
           username_help: Navnet du skriver her vil vises i alle innleggene dine. Du kan enten skrive både fornavn og etternavn, eller bare fore fornavnet ditt, hvis du ikke har lyst til å oppgi fullt navn.
@@ -970,23 +966,9 @@
         metrics:
           headline: Deltakelse i tall
           link: Vis all statistikk
-      terms_and_conditions:
-        accept:
-          error: Det oppstod et problem med å godta vilkårene.
-          success: Flott! Du har godtatt vilkårene for bruk.
-        form:
-          agreement: Jeg godtar vilkårene
-        refuse:
-          modal_btn_continue: Aksepter vilkår og fortsett
-          modal_button: Avslå vilkårene
-          modal_close: Lukk modal
-          modal_title: Nekter du virkelig de oppdaterte vilkårene?
-        required_review:
-          title: 'Påkrevd: Se gjennom oppdateringer til våre vilkår for bruk'
     participatory_space_private_users:
       not_allowed: Du er ikke tillatt å se dette innholdet
     profile:
-      inaccessible_message: Denne profilen er utilgjengelig på grunn av brudd på vilkår og betingelser!
       view: Vis
     profiles:
       show:
