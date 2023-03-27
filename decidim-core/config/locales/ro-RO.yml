@@ -95,7 +95,6 @@ ro:
       logo: "Sigla oficială a %{organization}"
       skip_button: Salt la conținutul principal
     account:
-      blocked: Acest cont a fost blocat din cauza încălcării termenilor și condițiilor
       delete:
         confirm:
           close: Închide fereastra
@@ -184,8 +183,6 @@ ro:
         verify_via_csv: "%{user_name} a verificat grupul %{resource_name} printr-un fișier CSV"
       user_moderation:
         unreport: "%{user_name} a anulat raportarea pentru %{resource_type} - %{unreported_user_name}"
-    admin_terms_of_use:
-      default_body: "<h2>ADMIN TERMENI DE UTILIZARE</h2><p>Avem încredere că ai primit prelegerea obișnuită de la Administratorul de Sistem local. De obicei se reduce la aceste trei lucruri:</p><ol><li>Respectă confidențialitatea altora.</li><li>Gândesște-te înainte de a da click.</li><li>Cu o mare putere vine o mare responsabilitate.</li></ol>"
     alert:
       dismiss: Anulare notificare
     amendments:
@@ -457,7 +454,6 @@ ro:
           sign_up_as:
             legend: Înregistrează-te ca
           subtitle: Înscrie-te pentru a participa la discuții și pentru a vota propuneri.
-          terms: termenii și condițiile de utilizare
           tos_agreement: Prin înregistrare ești de acord cu %{link}.
           tos_title: Condiții de utilizare
           username_help: Numele public care apare pe postări. Pentru a garanta anonimitatea, poate fi orice nume.
@@ -1036,23 +1032,9 @@ ro:
         metrics:
           headline: Indicatori
           link: Arată toate măsurătorile
-      terms_and_conditions:
-        accept:
-          error: A apărut o problemă la acceptarea termenilor şi a condiţiilor.
-          success: Minunat! Ați acceptat termenii și condițiile.
-        form:
-          agreement: Sunt de acord cu acești termeni și condiţii
-        refuse:
-          modal_btn_continue: Acceptați termenii și continuați
-          modal_button: Refuza termenii
-          modal_close: Închide fereastra
-          modal_title: Chiar refuzați termenii și condițiile actualizate?
-        required_review:
-          title: 'Necesar: Revizuiește actualizările termenilor noștri de serviciu'
     participatory_space_private_users:
       not_allowed: Nu aveţi permisiunea să vizualizaţi acest conţinut
     profile:
-      inaccessible_message: Acest profil este inaccesibil din cauza încălcării Termenilor și Condițiilor!
       view: Vizualizare
     profiles:
       show:
