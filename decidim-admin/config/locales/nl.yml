@@ -32,7 +32,6 @@ nl:
         body: Body
         subject: Onderwerp
       organization:
-        admin_terms_of_use_body: Body voor de admin gebruiksvoorwaarden
         alert_color: Alarm
         available_authorizations: Beschikbare autorisaties
         badges_enabled: Schakel badges in
@@ -168,13 +167,6 @@ nl:
         user:
           new: Nieuwe admin
         verify: Verifiëren
-      admin_terms_of_use:
-        actions:
-          are_you_sure: Weet je zeker dat je de Admin gebruiksvoorwaarden wil resetten?
-          refuse: Weiger de admin gebruiksvoorwaarden
-        required_review:
-          alert: 'Vereist: neem onze admin gebruiksvoorwaarden door'
-          cta: Bekijk ze nu.
       area_types:
         create:
           error: Er is een fout opgetreden bij het maken van een nieuwe pagina.
@@ -880,7 +872,6 @@ nl:
         destroy:
           success: Pagina succesvol vernietigd
         edit:
-          changed_notably_help: Indien aangevinkt, zullen deelnemers op de hoogte worden gesteld van de nieuwe algemene voorwaarden.
           title: Pagina bewerken
           update: Bijwerken
         form:
