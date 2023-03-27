@@ -80,7 +80,6 @@ it:
       logo: "Logo ufficiale di %{organization}"
       skip_button: Vai al contenuto principale
     account:
-      blocked: Questo account è stato bloccato a causa della violazione di Termini e Condizioni
       delete:
         confirm:
           close: Chiudere finestra
@@ -159,8 +158,6 @@ it:
         verify_via_csv: "%{user_name} verificato il %{resource_name} gruppo di utenti tramite un file CSV"
       user_moderation:
         unreport: "%{user_name} ha de-segnalato un %{resource_type} - %{unreported_user_name}"
-    admin_terms_of_use:
-      default_body: "<h2>TERMINI DI UTILIZZO DELL' AMMINISTRATORE</h2><p>Ci auguriamo che tu abbia ricevuto la usuale raccomandazione dall'amministratore del sistema locale. Solitamente si riduce a queste tre cose:</p><ol><li>Rispetta la privacy degli altri.</li><li>Pensa prima di cliccare.</li><li>Da grande potenzialità derivano grandi responsabilità.</li></ol>"
     alert:
       dismiss: Rimuovi notifica
     amendments:
@@ -414,7 +411,6 @@ it:
           sign_up_as:
             legend: Registrati come
           subtitle: Registrati per partecipare alle discussioni e sostenere le proposte.
-          terms: Termini e condizioni di utilizzo del servizio
           tos_agreement: Iscrivendoti accetti i %{link} e dichiari di aver preso visione della privacy policy.
           tos_title: Termini di servizio
           username_help: Nome "pubblico" che comparirà a firma di tutti i tuoi contributi e che sarà accessibile a tutti i navigatori, anche non iscritti alla piattaforma. Ti invitiamo a utilizzare un nome di fantasia per una maggiore tutela della riservatezza.
@@ -941,23 +937,9 @@ it:
         metrics:
           headline: Partecipazione in cifre
           link: Mostra tutte le statistiche
-      terms_and_conditions:
-        accept:
-          error: Si è verificato un errore durante l'accettazione dei termini e delle condizioni.
-          success: Grande! Hai accettato i termini e le condizioni.
-        form:
-          agreement: Accetto le condizioni
-        refuse:
-          modal_btn_continue: Accetta i termini e continua
-          modal_button: Rifiuta i termini
-          modal_close: Chiudi modale
-          modal_title: Rifiutate davvero i Termini e condizioni aggiornati?
-        required_review:
-          title: 'Obbligatorio: controlla gli aggiornamenti dei nostri termini di servizio'
     participatory_space_private_users:
       not_allowed: Non sei autorizzato a visualizzare questo contenuto
     profile:
-      inaccessible_message: Questo profilo è inaccessibile a causa della violazione di Termini e Condizioni!
       view: vista
     profiles:
       show:
