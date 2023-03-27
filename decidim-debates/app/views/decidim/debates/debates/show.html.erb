@@ -45,7 +45,7 @@ edit_link(
     <% end %>
   </div>
 
-  <div class="my-4 flex gap-x-1">
+  <div class="my-4 flex gap-x-1 items-center">
     <% if endorsements_enabled? && allowed_to?(:endorse, :debate, debate: debate) %>
       <%= endorsement_buttons_cell(debate) %>
     <% end %>
