@@ -1153,19 +1153,15 @@ fi-pl:
           error: Ehtojen hyväksymisessä tapahtui virhe.
           success: Hienoa! Olet hyväksynyt käyttöehdot.
         form:
-          agreement: Hyväksyn nämä ehdot
           legend: Hyväksy käyttöehdot
         refuse:
           modal_body: Jos kieltäydyt, et voi käyttää palvelua. Voit <a href="%{data_portability_path}">ladata omat tietosi</a> ja/tai <a href="%{delete_path}">poistaa tilisi</a>.
-          modal_btn_continue: Hyväksy ehdot ja jatka
           modal_btn_exit: Tarkastan ne myöhemmin
-          modal_button: Kieltäydy hyväksymästä ehtoja
           modal_close: Sulje ikkuna
           modal_title: Kieltäydytkö tosiaan hyväksymästä päivitettyjä käyttöehtoja?
         required_review:
           alert: Olemme päivittäneet käyttöehtojamme. Ole hyvä ja tutustu päivitettyihin ehtoihin.
           body: Ole hyvä ja tutustu päivitetyihin käyttöehtoihimme. Jatkaaksesi palvelun käyttöä sinun on tutustuttava päivitettyihin ehtoihin.
-          title: 'Pakollinen: Tarkista päivitetyt käyttöehtomme'
     participatory_space_private_users:
       not_allowed: Et voi katsoa tätä sisältöä
     profile:
