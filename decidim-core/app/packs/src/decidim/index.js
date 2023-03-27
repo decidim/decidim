@@ -35,6 +35,9 @@ window.Decidim.DataPicker = DataPicker;
 window.Decidim.addInputEmoji = addInputEmoji;
 window.Decidim.EmojiButton = EmojiButton;
 
+window.Decidim.Accordions = Accordions;
+window.Decidim.Dropdowns = Dropdowns;
+
 /**
  * Initializer event for those script who require to be triggered
  * when the page is loaded

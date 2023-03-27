@@ -35,13 +35,25 @@
 
 /* REDESIGN_PENDING: this .dropdown class will be very likely deprecated */
 .dropdown{
-  @apply absolute bg-white border-2 border-gray-3 rounded min-w-max drop-shadow-md text-left;
+  @apply absolute bg-white border-2 border-gray-3 rounded min-w-max p-4 drop-shadow-md text-left z-10;
 
   & > *{
-    @apply relative z-10;
+    @apply relative z-10 p-3.5 first:pt-1.5 last:pb-1.5;
   }
 
-  &.bottom{
+  &__item{
+    @apply gap-x-2 flex items-center text-sm text-secondary;
+
+    > svg{
+      @apply w-4 h-4 flex-none text-gray fill-current ;
+    }
+
+    &:hover{
+      @apply underline [&>svg]:text-secondary;
+    }
+  }
+
+  &__bottom{
     @apply top-full right-0 mt-3 before:content-[''] before:absolute before:right-[20%] before:-top-2 before:w-6 before:h-6 before:rotate-45 before:bg-white before:rounded before:border-2 before:border-gray-3 after:content-[''] after:absolute after:left-0 after:top-0 after:w-full after:h-full after:bg-white;
   }
 }

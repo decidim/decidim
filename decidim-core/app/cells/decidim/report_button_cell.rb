@@ -59,7 +59,7 @@ module Decidim
     end
 
     def html_options
-      { data: { "dialog-open": current_user ? "flagModal" : "loginModal" } }
+      { data: { "dialog-open": current_user ? modal_id : "loginModal" } }
     end
   end
 end
