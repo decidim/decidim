@@ -536,7 +536,6 @@ id:
         destroy:
           success: Halaman berhasil dihancurkan
         edit:
-          changed_notably_help: Jika dicentang, pengguna akan diberi tahu untuk menerima persyaratan dan ketentuan baru.
           title: Edit halaman
           update: Memperbarui
         form:
