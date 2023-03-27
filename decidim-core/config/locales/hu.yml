@@ -119,7 +119,6 @@ hu:
       logo: "%{organization} hivatalos logója"
       skip_button: Ugrás a fő tartalomra
     account:
-      blocked: Ezt a fiókot az Általános Szerződési Feltételek megsértése miatt blokkoltuk
       delete:
         confirm:
           close: Ablak bezárása
@@ -240,8 +239,6 @@ hu:
         verify_via_csv: "%{user_name} az %{resource_name} felhasználói csoportot CSV-fájlon keresztül ellenőrizte"
       user_moderation:
         unreport: "%{user_name} visszavonta a %{resource_type} - %{unreported_user_name}"
-    admin_terms_of_use:
-      default_body: "<h2>ADMIN FELHASZNÁLÓI FELTÉTELEK</h2><p>Bízunk benne, hogy a szokásos előadást megkaptad a helyi rendszergazdától. Ez rendszerint e három dologra bontható le:</p><ol><li>Tiszteld mások magánéletét.</li><li>Gondolkodj, mielőtt kattintasz.</li><li>A nagy hatalommal, nagy felelősségvállalás is jár!</li></ol>"
     alert:
       dismiss: Értesítés elvetése
     amendments:
@@ -495,7 +492,6 @@ hu:
           sign_up_as:
             legend: Regisztrálj mint
           subtitle: Jelentkezz be, hogy javaslatokat tudj megvitatni és támogatni.
-          terms: a használati feltételek
           tos_agreement: A feliratkozással elfogadod a %{link}.
           tos_title: ÁSZF
           username_help: Bejegyzésekben megjelenő nyilvános megnevezés. Az anonimitás megőrzése érdekében bármilyen név lehet.
@@ -1040,19 +1036,6 @@ hu:
         metrics:
           headline: Részvétel számokban
           link: Az összes statisztika megjelenítése
-      terms_and_conditions:
-        accept:
-          error: Hiba történt az általános szerződési feltételek elfogadása során.
-          success: Remek! Elfogadtad a feltételeket.
-        form:
-          agreement: Elfogadom a feltételeket
-        refuse:
-          modal_btn_continue: Elfogadom és tovább lépek
-          modal_button: Elutasítom a feltételeket
-          modal_close: Modal bezárása
-          modal_title: Tényleg elutasítod az ÁSZF frissített szövegét?
-        required_review:
-          title: 'Fontos: ellenőrizd a szolgáltatás feltételeink frissítéseit'
     participatory_space_private_users:
       not_allowed: Nincs jogosultságod a tartalom megtekintésére
     profile:
