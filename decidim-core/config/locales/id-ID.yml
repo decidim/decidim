@@ -282,7 +282,6 @@ id:
           sign_up_as:
             legend: Mendaftar sebagai
           subtitle: Mendaftarlah untuk berpartisipasi dalam diskusi dan dukung proposal.
-          terms: syarat dan ketentuan penggunaan
           tos_agreement: Dengan mendaftar Anda menyetujui %{link}.
           tos_title: Ketentuan Layanan
           username_help: Nama publik yang muncul di pos Anda. Dengan tujuan menjamin anonimitas, dapat berupa nama apa pun.
@@ -674,17 +673,6 @@ id:
         metrics:
           headline: Partisipasi dalam angka
           link: Tampilkan semua statistik
-      terms_and_conditions:
-        accept:
-          error: Terjadi kesalahan saat menerima persyaratan dan ketentuan.
-          success: Besar! Anda telah menyetujui persyaratan dan ketentuan.
-        refuse:
-          modal_btn_continue: Terima persyaratan dan lanjutkan
-          modal_button: Menolak persyaratan
-          modal_close: Tutup modal
-          modal_title: Apakah Anda benar-benar menolak Syarat dan Ketentuan yang diperbarui?
-        required_review:
-          title: 'Diperlukan: Tinjau pembaruan untuk persyaratan layanan kami'
     participatory_space_private_users:
       not_allowed: Anda tidak diizinkan untuk melihat konten ini
     profile:
