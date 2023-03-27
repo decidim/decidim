@@ -118,7 +118,6 @@ de:
       logo: "Offizielles Logo von %{organization}"
       skip_button: Zu Hauptinhalten überspringen
     account:
-      blocked: Dieses Konto wurde wegen Verletzung der Allgemeinen Geschäftsbedingungen gesperrt
       delete:
         confirm:
           close: Fenster schließen
@@ -233,8 +232,6 @@ de:
         verify_via_csv: "%{user_name} hat die Gruppe %{resource_name} über eine CSV-Datei verifiziert"
       user_moderation:
         unreport: "%{user_name} hat die Meldung auf %{resource_type} - %{unreported_user_name} aufgehoben"
-    admin_terms_of_use:
-      default_body: "<h2>ADMIN-NUTZUNGSBEDINGUNGEN</h2><p>Wahrscheinlich haben Sie bereits vom lokalen Systemadministrator gehört. Meist lässt das sich auf die folgenden drei Punkte konzentrieren:</p><ol><li>Respektieren Sie die Privatsphäre anderer.</li><li>Denken Sie nach, bevor Sie klicken.</li><li>Große Macht erfordert große Verantwortung.</li></ol>"
     alert:
       dismiss: Benachrichtigung schließen
     amendments:
@@ -490,7 +487,6 @@ de:
           sign_up_as:
             legend: Registrieren als
           subtitle: Registrieren Sie sich, um an Diskussionen teilzunehmen und Vorschläge zu unterstützen.
-          terms: Nutzungsbedingungen
           tos_agreement: Mit der Anmeldung stimmen Sie %{link} zu.
           tos_title: Nutzungsbedingungen
           username_help: Öffentlich sichtbarer Name, der in Ihren Beiträgen angezeigt wird. Um Anonymität zu gewährleisten, kann es sich um einen beliebigen Namen handeln.
@@ -1078,23 +1074,9 @@ de:
         metrics:
           headline: Teilnahme an Zahlen
           link: Alle Statistiken anzeigen
-      terms_and_conditions:
-        accept:
-          error: Beim Akzeptieren der Nutzungsbedingungen ist ein Fehler aufgetreten.
-          success: Groß! Sie haben die Allgemeinen Geschäftsbedingungen akzeptiert.
-        form:
-          agreement: Ich stimme diesen Bedingungen zu
-        refuse:
-          modal_btn_continue: Bedingungen akzeptieren und fortfahren
-          modal_button: Bedingungen ablehnen
-          modal_close: Modal schließen
-          modal_title: Lehnen Sie die aktualisierten Geschäftsbedingungen wirklich ab?
-        required_review:
-          title: 'Erforderlich: Überprüfen Sie die Aktualisierungen unserer Nutzungsbedingungen'
     participatory_space_private_users:
       not_allowed: Sie dürfen diesen Inhalt nicht sehen
     profile:
-      inaccessible_message: Dieses Profil ist wegen Verletzung der Nutzungsbedingungen nicht zugänglich!
       view: Anzeigen
     profiles:
       show:
