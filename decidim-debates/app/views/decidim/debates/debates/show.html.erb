@@ -57,10 +57,6 @@ edit_link(
   </div>
   <%= cell "decidim/endorsers_list", debate, layout: :full %>
 
-  <div class="my-4">
-    <%= comments_for debate %>
-  </div>
-
   <% content_for :aside do %>
 
     <% if allowed_to?(:edit, :debate, debate: debate) %>
@@ -115,6 +111,14 @@ edit_link(
       <%= cell "decidim/report_button", debate %>
     </div>
 
+  <% end %>
+
+  <% content_for :item_footer do %>
+    <%= comments_for debate %>
+    <ul class="drawer-metadata__container">
+      <%= content_tag :li, resource_reference(debate), class: "drawer-metadata__item" %>
+      <%= content_tag :li, resource_version(debate, versions_path: debate_versions_path(debate)), class: "drawer-metadata__item" %>
+    </ul>
   <% end %>
 
 <% end %>
