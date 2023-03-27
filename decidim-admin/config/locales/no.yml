@@ -32,7 +32,6 @@
         body: Tekst
         subject: Emne
       organization:
-        admin_terms_of_use_body: Innholdet i de administrative vilkårene for bruk av plattformen
         alert_color: Varsel
         available_authorizations: Tilgjengelige autorisasjoner
         badges_enabled: Aktiver utmerkelse
@@ -168,13 +167,6 @@
         user:
           new: Ny admin
         verify: Verifiser
-      admin_terms_of_use:
-        actions:
-          are_you_sure: Er du sikker på at du vil avslå administratorvilkårene for bruk?
-          refuse: Avslå administratorvilkårene
-        required_review:
-          alert: 'Påkrevd: Gå gjennom administrasjons vilkårene våre'
-          cta: Se over dem nå.
       area_types:
         create:
           error: Det oppstod et problem med å lage en ny områdetype.
@@ -872,7 +864,6 @@
         destroy:
           success: Siden ble ødelagt
         edit:
-          changed_notably_help: Hvis avkrysset, vil deltakerne bli varslet om å godta de nye vilkårene og betingelsene.
           title: Rediger side
           update: Oppdater
         form:
