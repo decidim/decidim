@@ -29,22 +29,22 @@ en:
             name: Post
         posts:
           create:
-            invalid: There was a problem creating this post
-            success: Post successfully created
+            invalid: There was a problem creating this post.
+            success: Post successfully created.
           destroy:
-            success: Post successfully deleted
+            success: Post successfully deleted.
           edit:
             save: Update
             title: Edit post
           index:
-            not_published_yet: Not published yet
+            not_published_yet: Not published yet.
             title: Posts
           new:
             create: Create
             title: Create post
           update:
             invalid: There was a problem saving the post.
-            success: Post successfully saved
+            success: Post successfully saved.
       admin_log:
         post:
           create: "%{user_name} created the %{resource_name} blog post in %{space_name}"

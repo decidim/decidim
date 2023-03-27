@@ -1,9 +1,8 @@
 = Empty database installation
 
-You may want to setup your decidim with an empty database.
-In this case, please follow the steps bellow:
+You may want to setup your Decidim installation with an empty database to take full control of all aspects of the Decidim organization. Please follow the steps bellow to start with an empty database:
 
-. Follow steps 1 through 5 of previous section(xref:install:manual.adoc[Manual Installation] section).
+. Follow steps 1 through 5 of the xref:install:manual.adoc[Manual installation tutorial].
 
 . Run the migrations from the root of your project in the terminal.
 [source,bash]
@@ -11,22 +10,25 @@ In this case, please follow the steps bellow:
 bin/rails db:create db:migrate
 ----
 [start=3]
-. Now you need to create your admin user, in order to be able to login to the system. in the terminal type the following:
+. Create a system admin account to log in to the system panel with the following command and follow the instructions shown in the terminal:
+[source,bash]
+  * For the sake of conformity with the rest of documentation, you can create a user with email `system@example.org` and password `decidim123456789`. Of course this is not recommended for a production environment as it is not secure.
+----
+bin/rails decidim_system:create_admin
+----
+[start=4]
+. To create your organization's admin user, start the server and configure the organization from the system panel:
 [source,bash]
 ----
 bundle exec rails s
 ----
-[start=4]
-. Then you can create a system admin account to log in to the system panel with the following command:
-[source,bash]
-----
-bin/rails decidim_system:create_admin
-----
 
-Follow the CLI to create your admin user. For the sake of conformity with the rest of documentation, you may create a user with email `system@example.org` and password `decidim123456789`. Of course this is not recommended for a production environment as it isn't secure.
+Now, you will be able to login to the system panel with the provided credentials. The application automatically redirects you to the system panel when you do not have any organizations configured and when you enter the system's URL in your browser. The default URL for development is `http://localhost:3000`.
 
-Now, you will be able to login to the system panel with the provided credentials.
+After you have configured the organization from the system panel, log out of the system panel and type in the URL of the organization to the browser after which you should see a rather empty home page of your organization. You can now login with the admin user you created when configuring the organization. Note that you will need to set a password for the admin user before being able to login with that user.
+
+At the development environment, you have https://github.com/ryanb/letter_opener[Letter opener] available for viewing the emails that the system sends. You can access it through the `/letter_opener` URL within the domain where your Rails server is running at (typically `http://localhost:3000`).
 
 == Extra notes
 
-The objective of decidim is to define an organizational and representation system capable of transforming into an autonomous entity or association from which the whole community participate. Therefore, creating the organizational account is centric part of the process (refer to xref:admin:system.adoc[System panel] for more information).
+Decidim is a https://en.wikipedia.org/wiki/Multitenancy[multitenant] application that allows you to host multiple different Decidim-based websites within the same system. Organizations are isolated from each other and users in those organizations cannot see any data from other organizations. Therefore, creating the organization is a key part of the process when setting up Decidim. To learn more about the system panel and organizations, refer to the xref:admin:system.adoc[System] panel documentation.

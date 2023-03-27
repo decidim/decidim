@@ -69,19 +69,16 @@ module Decidim
 
           content = template.capture { yield }.html_safe if block_given?
 
+          append_assets
           template.content_tag(:div, map_html_options) do
             (content || "")
           end
         end
 
-        # @see Decidim::Map::View::Builder#stylesheet_snippets
-        def stylesheet_snippets
-          template.stylesheet_pack_tag("decidim_map")
-        end
-
-        # @see Decidim::Map::View::Builder#javascript_snippets
-        def javascript_snippets
-          template.javascript_pack_tag("decidim_map_provider_default", defer: false)
+        # @see Decidim::Map::View::Builder#append_assets
+        def append_assets
+          template.append_stylesheet_pack_tag("decidim_map")
+          template.append_javascript_pack_tag("decidim_map_provider_default")
         end
       end
     end

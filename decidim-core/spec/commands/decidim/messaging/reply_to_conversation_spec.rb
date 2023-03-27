@@ -68,7 +68,7 @@ module Decidim::Messaging
     end
 
     shared_examples "send emails" do |num_emails|
-      context "and the receiver didn't have unread messages in the conversation" do
+      context "and the receiver did not have unread messages in the conversation" do
         it "sends a notification to the recipient" do
           expect do
             perform_enqueued_jobs { command.call }

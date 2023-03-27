@@ -14,17 +14,24 @@ es:
         description: Descripción
         file: Archivo
         title: Nombre del adjunto o imagen
+        weight: Orden de posición
       attachment_collection:
         description: Descripción
         name: Nombre
+        weight: Orden de posición
       category:
         description: Descripción
         name: Nombre
         parent_id: Superior
+        weight: Orden de posición
       component:
         name: Nombre
         published_at: Publicado en
         weight: Orden de posición
+      external_domain:
+        value: Valor
+      help_section:
+        content: Contenido
       id: ID
       import:
         user_group_id: Importar como
@@ -92,6 +99,9 @@ es:
         welcome_notification_body: Cuerpo del mensaje de notificación de bienvenida
         welcome_notification_subject: Asunto del mensaje de notificación de bienvenida
         youtube_handler: Nombre de YouTube
+      participatory_space_private_user:
+        email: Correo electrónico
+        name: Nombre
       scope:
         code: Código
         name: Nombre
@@ -113,6 +123,7 @@ es:
         show_in_footer: Mostrar en el pie de página
         slug: Texto corto de URL
         title: Título
+        topic_id: Asunto
         weight: Orden de posición
       static_page_topic:
         description: Descripción
@@ -350,6 +361,12 @@ es:
         'true': 'Sí'
         user_name: Usuaria
       dashboard:
+        pending_moderations:
+          anouncement:
+            one: Hay %{count} moderación pendiente
+            other: Hay %{count} moderaciones pendientes
+          goto_moderation: Ir a moderaciones globales
+          title: Moderaciones pendientes
         show:
           view_more_logs: Ver más registros
           welcome: Bienvenida al panel de administración.
@@ -540,6 +557,7 @@ es:
         area_types: Tipos de área
         areas: Áreas
         configuration: Configuración
+        content: Contenido
         dashboard: Panel de control
         external_domain_whitelist: Dominios externos permitidos
         help_sections: Secciones de ayuda
@@ -548,7 +566,7 @@ es:
         moderation: Moderaciones globales
         newsletters: Boletines
         participants: Participantes
-        reported_users: Usuarias reportadas
+        reported_users: Participantes reportadas
         scope_types: Tipos de ámbito
         scopes: Ámbitos
         settings: Configuración
@@ -633,6 +651,7 @@ es:
             created_at: Fecha de creación
             document_number: Número del documento
             name: Nombre
+            nickname: Alias
             phone: Teléfono
             state: Estado
             users_count: Número de participantes
@@ -647,7 +666,7 @@ es:
           nickname: Alias
           reason: Motivo
           reports: Cantidad de veces reportado
-          title: Listando usuarios reportados
+          title: Listado de participantes
         report:
           reasons:
             does_not_belong: No pertenece
@@ -704,7 +723,7 @@ es:
           all: todos
           all_users: 'Todos los usuarios '
           and: 'y '
-          confirm_delete: '¿Estás seguro de que quieres eliminar este boletín?'
+          confirm_delete: '¿Seguro que quieres eliminar este boletín?'
           followers: 'seguidores '
           has_been_sent_to: 'Se ha enviado a: '
           no_scopes: Sin ámbitos
@@ -719,7 +738,7 @@ es:
         select_recipients_to_deliver:
           all_spaces: Todos
           all_users_help: Envía el boletín de noticias a todos las participantes confirmadas.
-          confirm_deliver: '¿Estás segura de que quieres enviar este boletín? Esta acción no se puede deshacer.'
+          confirm_deliver: '¿Seguro que quieres enviar este boletín? Esta acción no se puede deshacer.'
           deliver: Enviar boletín
           followers_help: Envía el boletín de noticias a todas las participantes confirmadas que sigan cualquier espacio participativo seleccionado en la lista.
           none: Ninguno
@@ -826,9 +845,21 @@ es:
           add: Añadir a la lista blanca
           title: Lista blanca de dominios externos
       organization_homepage:
+        content_blocks:
+          create:
+            error: Hubo un problema al intentar crear este bloque de contenido
+            success: Bloque de contenido creado correctamente
+          destroy:
+            error: Se ha producido un error al tratar de eliminar este bloque de contenido
+            success: Bloque de contenido eliminado con éxito
+          edit:
+            update: Actualizar
         edit:
           active_content_blocks: Bloques de contenido activos
+          add: Añadir bloque de contenido
+          destroy_confirmation: '¿Seguro que quieres borrar este bloque de contenido?'
           inactive_content_blocks: Bloques de contenido inactivos
+          title: Contenidos de la página
       participatory_space_private_users:
         create:
           error: Se ha producido un error al agregar una participante privada a este espacio participativo.
@@ -844,17 +875,17 @@ es:
           title: Nueva participante de espacio de participación privado.
       participatory_space_private_users_csv_imports:
         create:
-          invalid: Hubo un problema al leer el archivo CSV. Por favor, asegúrese de haber seguido las instrucciones.
+          invalid: Hubo un problema al leer el archivo CSV. Por favor, asegúrate de haber seguido las instrucciones.
           success: Archivo CSV subido correctamente, estamos enviando un correo electrónico de invitación a las participantes. Esto puede tardar un tiempo.
         new:
           destroy:
             button: Borrar todas las participantes privadas
-            confirm: '¿Estás segura que quieres eliminar todas las participantes privadas? Esta acción no se puede deshacer, no podrás recupararlas.'
+            confirm: '¿Seguro que quieres eliminar todas las participantes privadas? Esta acción no se puede deshacer, no podrás recuperarlas.'
             empty: No hay participantes privadas.
             explanation: Hay %{count} participante/s privada/s.
             title: Borrar las participantes privadas
           example_file: 'Fichero de ejemplo:'
-          explanation: 'Sube tu archivo CSV. Debe tener dos columnas con correo electrónico en la primera columna del archivo y el nombre en la última columna del archivo de las participantes que deseas añadir al espacio participativo, sin encabezados. Evitar usar caracteres no válidos como `<>?%&^*#@()[]=+:;"{}\|` en el nombre de usuaria.'
+          explanation: 'Sube tu archivo CSV. Debe tener dos columnas con correo electrónico en la primera columna del archivo y el nombre en la última columna del archivo de las participantes que deseas añadir al espacio participativo, sin encabezados. Evita usar caracteres no válidos como `<>?%&^*#@()[]=+:;"{}\|` en el nombre de usuaria.'
           explanation_example: |
             john.doe@example.org%{csv_col_sep}John Doe
             jane.doe@example.org%{csv_col_sep}Jane Doe
@@ -945,6 +976,20 @@ es:
       static_pages:
         actions:
           view: Ver la página pública
+        content_blocks:
+          active_content_blocks: Bloques de contenido activos
+          add: Añadir bloque de contenido
+          create:
+            error: Se ha producido un error al intentar crear este bloque de contenido
+            success: Bloque de contenido creado con éxito
+          destroy:
+            error: Se ha producido un error al intentar crear este bloque de contenido
+            success: Bloque de contenido eliminado con éxito
+          destroy_confirmation: '¿Seguro que quieres borrar este bloque de contenido?'
+          edit:
+            update: Actualizar
+          inactive_content_blocks: Bloques de contenido inactivos
+          title: Contenido de la página
         create:
           error: Se ha producido un error al crear una nueva página.
           success: La página se ha creado correctamente. Sigue ahora con la configuración de las fases.
@@ -1073,15 +1118,15 @@ es:
       models:
         moderation:
           fields:
-            created_at: Fecha de creación
-            deleted_resource: Eliminar recurso
+            created_at: Denunciado el
+            deleted_resource: Recurso eliminado
             hidden_at: Fecha de ocultación
             participatory_space: Espacio participativo
-            report_count: Recuento
+            report_count: Número de denuncias
             reportable_id: ID
             reportable_type: Tipo
             reported_content_url: URL del contenido reportado
-            reports: Denuncias
+            reports: Motivo
             visit_url: Visita la URL
         report:
           fields:
@@ -1095,7 +1140,7 @@ es:
     decidim:
       admin:
         global_moderations:
-          title: Moderaciones globales
+          title: Moderaciones de contenido
         newsletters:
           title: Boletines
         settings:

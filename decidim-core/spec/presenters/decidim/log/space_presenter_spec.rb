@@ -25,7 +25,7 @@ describe Decidim::Log::SpacePresenter, type: :helper do
     end
   end
 
-  context "when the space doesn't exist" do
+  context "when the space does not exist" do
     let(:space) { nil }
     let(:extra) do
       {
@@ -35,7 +35,7 @@ describe Decidim::Log::SpacePresenter, type: :helper do
       }
     end
 
-    it "doesn't link to its public page" do
+    it "does not link to its public page" do
       expect(subject).not_to have_link(title)
       expect(subject).to include(title)
     end

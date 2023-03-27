@@ -1,10 +1,6 @@
 pt-BR:
   activemodel:
     attributes:
-      agenda:
-        description: Descrição
-        duration: Duração
-        title: Título
       close_meeting:
         attendees_count: Número de Participantes
         attending_organizations: Lista de organizações que participaram
@@ -22,7 +18,6 @@ pt-BR:
         decidim_scope_id: Âmbito
         decidim_user_group_id: Grupo de usuários
         description: Descrição
-        end_time: Fim do tempo
         location: Localização
         location_hints: Dicas de localização
         online_meeting_url: URL da reunião on-line
@@ -34,7 +29,6 @@ pt-BR:
         registration_terms: Termos de registro
         registration_url: URL de Registro
         registrations_enabled: Registos habilitados
-        start_time: Hora de início
         title: Título
         transparent: Transparente
         type_of_meeting: Tipo

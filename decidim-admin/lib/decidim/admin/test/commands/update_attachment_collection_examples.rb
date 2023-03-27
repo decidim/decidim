@@ -40,7 +40,7 @@ module Decidim
             expect { command.call }.to broadcast(:invalid)
           end
 
-          it "doesn't update the attachment collection" do
+          it "does not update the attachment collection" do
             command.call
             attachment_collection.reload
 

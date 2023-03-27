@@ -53,7 +53,7 @@ shared_examples_for "update questions" do
       expand_all_questions
 
       expect(page).to have_admin_callout("There was a problem saving")
-      expect(page).to have_content("can't be blank", count: 5) # emtpy question, 2 empty default answer options, 2 empty default matrix rows
+      expect(page).to have_content("cannot be blank", count: 5) # emtpy question, 2 empty default answer options, 2 empty default matrix rows
       expect(page).to have_content("must be greater than or equal to 0", count: 1)
 
       expect(page).to have_selector("input[value='']")
@@ -157,7 +157,7 @@ shared_examples_for "update questions" do
       expand_all_questions
 
       expect(page).to have_admin_callout("There was a problem saving")
-      expect(page).to have_content("can't be blank", count: 1)
+      expect(page).to have_content("cannot be blank", count: 1)
       expect(page).to have_selector("input[value='']")
       expect(page).to have_no_selector("input[value='This is the first title and description']")
     end

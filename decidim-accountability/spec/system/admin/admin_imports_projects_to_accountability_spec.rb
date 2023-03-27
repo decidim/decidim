@@ -14,7 +14,7 @@ describe "Admin imports projects to accountability", type: :system do
 
   before do
     switch_to_host(organization.host)
-    login_as user
+    login_as user, scope: :user
     visit_component_admin
   end
 

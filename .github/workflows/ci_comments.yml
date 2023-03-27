@@ -22,6 +22,8 @@ env:
   NODE_VERSION: 16.9.1
   DECIDIM_MODULE: decidim-comments
   PARALLEL_TEST_PROCESSORS: 2
+  CODECOV_TOKEN: bc15b944-6b42-420a-b3f9-a5a8fb214326
+  WEBPACKER_RUNTIME_COMPILE: "false"
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
@@ -30,7 +32,7 @@ concurrency:
 jobs:
   main:
     name: Tests
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     if: "!startsWith(github.head_ref, 'chore/l10n')"
     timeout-minutes: 60
     services:
@@ -54,7 +56,7 @@ jobs:
       RUBYOPT: "-W:no-deprecated"
       VALIDATOR_HTML_URI: http://localhost:8888/
     steps:
-      - uses: actions/checkout@v2.0.0
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 1
       - uses: ./.github/actions/module-rspec
@@ -69,9 +71,13 @@ jobs:
         working-directory: ${{ env.DECIDIM_MODULE }}
         env:
           SIMPLECOV: "true"
-      - run: ./.github/upload_coverage.sh $DECIDIM_MODULE $GITHUB_EVENT_PATH
+      - uses: codecov/codecov-action@v3
         name: Upload coverage
-      - uses: actions/upload-artifact@v2
+        with:
+          token: ${{ env.CODECOV_TOKEN }}
+          name: ${{ env.DECIDIM_MODULE }}
+          flags: ${{ env.DECIDIM_MODULE }}
+      - uses: actions/upload-artifact@v3
         if: always()
         with:
           name: screenshots

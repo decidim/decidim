@@ -18,8 +18,6 @@ el:
         title: Ενέργειες
       admin:
         models:
-          components:
-            body: Σώμα
           post:
             name: Δημοσίευση
         posts:
@@ -44,10 +42,8 @@ el:
           fields:
             author: Συντάκτης
             body: Σώμα
-            title: τίτλος
       posts:
         show:
-          comments: Σχόλια
           view: Προβολή
     components:
       blogs:

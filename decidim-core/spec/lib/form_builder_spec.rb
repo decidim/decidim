@@ -12,7 +12,7 @@ module Decidim
     let(:redesign_enabled?) { false }
 
     let(:resource) do
-      klass = Class.new do
+      class DummyClass
         cattr_accessor :current_organization
 
         def self.model_name
@@ -68,8 +68,10 @@ module Decidim
           current_organization
         end
       end
+
+      klass = DummyClass.new
       klass.current_organization = organization
-      klass.new
+      klass
     end
 
     let(:builder) { FormBuilder.new(:resource, resource, helper, {}) }
@@ -306,7 +308,7 @@ module Decidim
         end
       end
 
-      context "when a category doesn't have the translation in the current locale" do
+      context "when a category does not have the translation in the current locale" do
         before do
           I18n.locale = "zh"
           create(:category, name: { "en" => "Subcategory 2", "zh" => "Something" }, parent: category, participatory_space: component.participatory_space)
@@ -473,7 +475,7 @@ module Decidim
           subject { parsed.css("span.form-error").first.text }
 
           context "with no translations for the field" do
-            it { is_expected.to eq("There's an error in this field.") }
+            it { is_expected.to eq("There is an error in this field.") }
           end
 
           context "with custom I18n for the class and attribute" do
@@ -690,10 +692,10 @@ module Decidim
           )
         )
       end
-      let(:optional) { true }
+      let(:required) { false }
       let(:attributes) do
         {
-          optional:
+          required:
         }
       end
       let(:output) do
@@ -762,7 +764,7 @@ module Decidim
             expect(output).to include(%(<a href="#{url}">#{filename}</a>))
           end
 
-          it "doesn't render an image tag" do
+          it "does not render an image tag" do
             expect(parsed.css("img[src=\"#{url}\"]")).to be_empty
           end
 
@@ -821,7 +823,8 @@ module Decidim
 
         it "renders calls I18n.t() with the correct scope" do
           # Upload help messages
-          expect(I18n).to receive(:t).with("explanation", scope: "custom.scope", attribute: :image)
+          allow(I18n).to receive(:t).with(:image, scope: "activemodel.attributes.dummy").and_return("Image")
+          expect(I18n).to receive(:t).with("explanation", scope: "custom.scope", attribute: "Image")
           expect(I18n).to receive(:t).with("decidim.forms.upload.labels.add_image")
           expect(I18n).to receive(:t).with("decidim.forms.upload.labels.replace")
           expect(I18n).to receive(:t).with("message_1", scope: "custom.scope")
@@ -838,7 +841,8 @@ module Decidim
           # Upload help messages
           expect(I18n).to receive(:t).with("decidim.forms.upload.labels.add_image")
           expect(I18n).to receive(:t).with("decidim.forms.upload.labels.replace")
-          expect(I18n).to receive(:t).with("explanation", scope: "decidim.forms.upload_help", attribute: :image)
+          allow(I18n).to receive(:t).with(:image, scope: "activemodel.attributes.dummy").and_return("Image")
+          expect(I18n).to receive(:t).with("explanation", scope: "decidim.forms.upload_help", attribute: "Image")
           expect(I18n).to receive(:t).with("message_1", scope: "decidim.forms.file_help.file")
           expect(I18n).to receive(:t).with("message_2", scope: "decidim.forms.file_help.file")
           expect(I18n).to receive(:t).with("message_3", scope: "decidim.forms.file_help.file")
@@ -852,7 +856,8 @@ module Decidim
           it "renders calls I18n.t() with the correct messages" do
             # Upload help messages
 
-            expect(I18n).to receive(:t).with("explanation", scope: "decidim.forms.upload_help", attribute: :image)
+            allow(I18n).to receive(:t).with(:image, scope: "activemodel.attributes.dummy").and_return("Image")
+            expect(I18n).to receive(:t).with("explanation", scope: "decidim.forms.upload_help", attribute: "Image")
             expect(I18n).to receive(:t).with("message_1", scope: "decidim.forms.file_help.file")
             expect(I18n).not_to receive(:t).with("message_2", scope: "decidim.forms.file_help.file")
             output

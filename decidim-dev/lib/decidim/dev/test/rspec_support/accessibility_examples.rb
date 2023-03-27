@@ -125,7 +125,7 @@ shared_examples_for "accessible page" do
 
   it "passes HTML validation" do
     # Capybara is stripping the doctype out of the HTML which is required for
-    # the validation. If it doesn't exist, add it there.
+    # the validation. If it does not exist, add it there.
     html = page.source
     html = "<!DOCTYPE html>\n#{html}" unless html.strip.match?(/^<!DOCTYPE/i)
 

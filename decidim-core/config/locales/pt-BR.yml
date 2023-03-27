@@ -248,10 +248,6 @@ pt-BR:
           '4': Publique sua alteração
     anonymous_user: Anônimo
     application:
-      collection:
-        documents:
-          one: Documento
-          other: Documentos
       document:
         download: Baixar arquivo
       documents:
@@ -297,7 +293,6 @@ pt-BR:
           foo: Foo
         name: Autorização Foo
       granted_at: Concedido em %{timestamp}
-      renew: Renovar Verificação
       sms:
         explanation: Envie seu número de celular para que possamos verificar sua identidade.
         name: Código por SMS
@@ -334,8 +329,6 @@ pt-BR:
           explanation_html: A fim de executar esta ação que você precisa ser autorizado, antes de fazer isso você precisa confirmar o seu e-mail <strong>%{email}</strong>.
           request_confirmation_instructions: Reenviar instruções de confirmação
           title: Confirme seu e-mail
-      show:
-        close_modal: Fechar modal
     block_user_mailer:
       notify:
         body_1: Sua conta está bloqueada.
@@ -507,9 +500,6 @@ pt-BR:
     endorsable:
       endorsements: Avais
       endorsements_count: Contagem de endossos
-    endorsement_buttons_cell:
-      already_endorsed: Endossado
-      endorse: Endossar
     endorsements:
       identities:
         done: Concluído
@@ -702,8 +692,6 @@ pt-BR:
         button: Parar de seguir
         error: Ocorreu um erro ao seguir esse recurso.
     forms:
-      current_image: Imagem actual
-      default_image: Imagem por defeito
       errors:
         decidim/user:
           password: Senha muito curta.
@@ -844,7 +832,6 @@ pt-BR:
         body_1: Você está prestes a visitar um link externo e gostaríamos que fosse cauteloso com o conteúdo do site externo.
         body_2: Verifique o link que está prestes a visitar e certifique-se de reconhecê-lo como um site seguro antes de prosseguir.
         cancel: Cancelar
-        close_modal: Fechar modal
         proceed: Prosseguir
         title: Abrir Link Externo
     log:
@@ -963,7 +950,6 @@ pt-BR:
     newsletter_mailer:
       newsletter:
         note: Você recebeu este e-mail porque está inscrito em boletins informativos em %{organization_name}. Você pode alterar suas configurações em suas <a href="%{link}">notifications page</a>.
-        see_on_website: Não é possível ver este email corretamente? Visualize-o no <a href="%{link}" target="_blank">website</a>.
         unsubscribe: Para optar por não receber esse tipo de email, <a href="%{link}" target="_blank" class="unsubscribe">Unsubscribe</a>.
     newsletter_templates:
       basic_only_text:

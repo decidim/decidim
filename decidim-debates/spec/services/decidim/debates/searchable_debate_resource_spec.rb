@@ -78,7 +78,7 @@ module Decidim
             :debate,
             component: current_component,
             title: Decidim::Faker::Localized.name,
-            description: { en: "Chewie, I'll be waiting for your signal. Take care, you two. May the Force be with you. Ow!" }
+            description: { en: "Chewie, I will be waiting for your signal. Take care, you two. May the Force be with you. Ow!" }
           )
         end
 

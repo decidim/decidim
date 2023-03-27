@@ -126,7 +126,7 @@ module Decidim
             it { is_expected.not_to be_valid }
           end
 
-          context "and it hasn't the expected type" do
+          context "and it has not the expected type" do
             let(:banner_image) { Decidim::Dev.test_file("Exampledocument.pdf", "application/pdf") }
 
             it { is_expected.not_to be_valid }
@@ -145,7 +145,7 @@ module Decidim
             it { is_expected.not_to be_valid }
           end
 
-          context "and it hasn't the expected type" do
+          context "and it has not the expected type" do
             let(:hero_image) { upload_test_file(Decidim::Dev.test_file("Exampledocument.pdf", "application/pdf")) }
 
             it { is_expected.not_to be_valid }

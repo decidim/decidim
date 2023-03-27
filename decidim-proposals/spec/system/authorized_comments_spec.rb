@@ -20,7 +20,7 @@ describe "Authorized comments", type: :system do
 
   before do
     switch_to_host(organization.host)
-    sign_in user
+    login_as user, scope: :user
   end
 
   shared_examples_for "allowed to comment" do

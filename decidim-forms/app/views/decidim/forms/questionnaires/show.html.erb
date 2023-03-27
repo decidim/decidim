@@ -3,13 +3,8 @@
   description: translated_attribute(questionnaire.description),
 }) %>
 
-<% content_for :css_content do %>
-  <%= stylesheet_pack_tag "decidim_forms", media: "all" %>
-<% end %>
-
-<% content_for :js_content do %>
-  <%= javascript_pack_tag "decidim_forms" %>
-<% end %>
+<%= append_stylesheet_pack_tag "decidim_forms" %>
+<%= append_javascript_pack_tag "decidim_forms" %>
 
 <%= render layout: "layouts/decidim/shared/layout_center" do %>
 

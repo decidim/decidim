@@ -33,7 +33,7 @@ module Decidim
       # This happens when all the arguments needed for the `format()` call are
       # not provided in the `formatted_args` array. E.g. the URL of the page
       # can be nil in some dummy views during the tests when they do not define
-      # the meta URL, i.e. `add_decidim_meta_tags` hasn't been called in these
+      # the meta URL, i.e. `add_decidim_meta_tags` has not been called in these
       # views or it has been called with an empty URL.
       nil
     end

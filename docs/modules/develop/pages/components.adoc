@@ -1,6 +1,6 @@
 = Components
 
-Components are the core contract between external xref:develop:modules.adoc[modules] and the core. They're used to define pieces of functionality that are pluggable to participatory spaces and can be enabled or disabled by the administrator.
+Components are the core contract between external xref:develop:modules.adoc[modules] and the core. They are used to define pieces of functionality that are pluggable to participatory spaces and can be enabled or disabled by the administrator.
 
 == Creating a new component
 
@@ -17,13 +17,13 @@ Components are just gems with one or more Rails engines included in it. You can 
 
 Check out the `lib/decidim/pages` folder: It includes several files, the most important of which is `component.rb`.
 
-Upload the component to GitHub with the naming *decidim-module-engine_name*, so it's easier to find on the https://github.com/decidim/decidim/network/dependents[dependency graph].
+Upload the component to GitHub with the naming *decidim-module-engine_name*, so it is easier to find on the https://github.com/decidim/decidim/network/dependents[dependency graph].
 
 == Defining a component manifest
 
 Components are defined in a manifest, along with its engine and admin engine counterpart.
 
-There's a DSL available to describe all this:
+There is a DSL available to describe all this:
 
 [source,ruby]
 ----
@@ -36,8 +36,8 @@ Decidim.register_component(:my_component) do |component|
   component.engine = MyComponent::Engine
 
   # A component's admin engine will get rendered on the admin panel and follows
-  # the same principles as the engine. It's isolated from the outside and
-  # doesn't care about external dependencies. It only needs to care about its
+  # the same principles as the engine. It is isolated from the outside and
+  # does not care about external dependencies. It only needs to care about its
   # underlying `component`.
   component.admin_engine = MyComponent::AdminEngine
 
@@ -70,7 +70,7 @@ Decidim.register_component(:my_component) do |component|
   # Import definitions allow data to be imported into a component.
   #
   # For now supported formats for imports are CSV, JSON and Excel (.xlsx).
-  # Every resource type needs it's own creator, which creates resource from
+  # Every resource type needs it is own creator, which creates resource from
   # parsed data. You also need to define specific messages for the importer and
   # can provide some extra options, too.
   component.imports :component_resources do |imports|
@@ -111,7 +111,7 @@ Decidim.register_component(:my_component) do |component|
 end
 ----
 
-Every model in a component doesn't have to (and should not) know about its parent participatory space, but instead should be scoped to the components.
+Every model in a component does not have to (and should not) know about its parent participatory space, but instead should be scoped to the components.
 
 == Settings
 
@@ -183,11 +183,11 @@ In both cases, changes are the same:
 
 === Updating the development application
 
-While the component is being developed, it'll be simpler and faster to update Webpacker configuration inside the development app. The new component `app/packs` folder needs to be added to the list of paths that Webpack will use to look for assets.
+While the component is being developed, it will be simpler and faster to update Webpacker configuration inside the development app. The new component `app/packs` folder needs to be added to the list of paths that Webpack will use to look for assets.
 
 Also, components might have one or many entrypoints (for CSSs and javascripts) and images. These entrypoints need to be manually added to `config/webpack/custom.js`. **Any change in both files** requires to restart `webpack-dev-server` process.
 
-Take into account that generating a new development application **overwrites** Webpacker configuration so these changes might be overwriten. That's why it's necessary, once the changes are stable enough, to update the generators files.
+Take into account that generating a new development application **overwrites** Webpacker configuration so these changes might be overwriten. That is why it is necessary, once the changes are stable enough, to update the generators files.
 
 === Updating Webpacker configuration for the generators
 

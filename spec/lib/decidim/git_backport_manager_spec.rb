@@ -60,7 +60,7 @@ describe Decidim::GitBackportManager do
       FileUtils.rm_rf(remote_repository_dir)
     end
 
-    context "when there's a branch already with that name" do
+    context "when there is a branch already with that name" do
       it "exits" do
         `
           git branch #{backport_branch}
@@ -123,7 +123,7 @@ describe Decidim::GitBackportManager do
   end
 
   describe ".push_backport_branch!" do
-    # Add /decidim/decidim in the path so it thinks it's in the decidim repository
+    # Add /decidim/decidim in the path so it thinks it is in the decidim repository
     let(:remote_repository_dir) { "#{tmp_repository_dir}/fake-remote/decidim/decidim/repository.git" }
 
     before do
@@ -138,7 +138,7 @@ describe Decidim::GitBackportManager do
       FileUtils.rm_rf(remote_repository_dir)
     end
 
-    it "exits when there's nothing to push" do
+    it "exits when there is nothing to push" do
       `
         git checkout -b #{backport_branch}
       `
@@ -146,7 +146,7 @@ describe Decidim::GitBackportManager do
       expect { manager.send(:push_backport_branch!) }.to raise_error(SystemExit).and output(/Nothing to push to remote server/).to_stdout
     end
 
-    it "is pushed when there's a branch to push" do
+    it "is pushed when there is a branch to push" do
       `
         git checkout -b #{backport_branch}
         touch another_file.txt

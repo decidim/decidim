@@ -136,6 +136,9 @@ ro:
             start_date: Data de început
             title: Titlu
           name: Etapa procesului participativ
+        participatory_process_type:
+          fields:
+            title: Titlu
         participatory_process_user_role:
           fields:
             email: E-mail
@@ -218,6 +221,9 @@ ro:
         update:
           error: A apărut o problemă la actualizarea acestei etape a procesului participativ.
           success: Etapa procesul participativ a fost actualizată cu succes.
+      participatory_process_types:
+        form:
+          title: Titlu
       participatory_process_user_roles:
         create:
           error: A apărut o problemă la adăugarea unui participant pentru acest proces participativ.

@@ -539,7 +539,6 @@ pl:
         moderation: Globalne moderacje
         newsletters: Newslettery
         participants: Użytkownicy
-        reported_users: Zgłoszeni użytkownicy
         scope_types: Typy zakresów
         scopes: Zakresy
         settings: Ustawienia
@@ -638,7 +637,6 @@ pl:
           nickname: Pseudonim
           reason: Powód
           reports: Liczba zgłoszeń
-          title: Lista zgłoszonych użytkowników
         report:
           reasons:
             does_not_belong: Nie należy
@@ -1055,15 +1053,12 @@ pl:
       models:
         moderation:
           fields:
-            created_at: Data utworzenia
             deleted_resource: Usunięty zasób
             hidden_at: Ukryto
             participatory_space: Przestrzeń partycypacyjna
-            report_count: Liczba
             reportable_id: ID
             reportable_type: Typ
             reported_content_url: URL zgłoszonej treści
-            reports: Zgłoszenia
             visit_url: Odwiedź adres URL
         report:
           fields:
@@ -1076,8 +1071,6 @@ pl:
   layouts:
     decidim:
       admin:
-        global_moderations:
-          title: Globalne moderacje
         newsletters:
           title: Newslettery
         settings:
