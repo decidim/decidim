@@ -39,7 +39,6 @@ ja:
         body: 本文
         subject: 件名
       organization:
-        admin_terms_of_use_body: 管理者向け利用規約の本文
         alert_color: アラート
         available_authorizations: 利用可能な認証方式
         badges_enabled: バッジを有効にする
@@ -198,20 +197,6 @@ ja:
         user:
           new: 新しい管理者
         verify: 確認する
-      admin_terms_of_use:
-        accept:
-          error: 管理者利用規約への同意中にエラーが発生しました。
-          success: ありがとうございます、管理者利用規約に同意しました。
-        actions:
-          accept: 同意する
-          are_you_sure: 管理者向け利用規約を削除してもよろしいですか？
-          refuse: 同意しない
-          title: 利用規約に同意する
-        required_review:
-          alert: '必須：管理者向け利用規約を確認してください'
-          callout: 管理者の利用規約を確認してください。そうでなければ、プラットフォームを管理することはできません。
-          cta: 今すぐレビューしましょう。
-        title: 管理者の利用規約
       area_types:
         create:
           error: 新しいエリア種別の作成中に問題が発生しました。
@@ -990,7 +975,6 @@ ja:
         destroy:
           success: ページを削除しました
         edit:
-          changed_notably_help: チェックした場合、参加者に新しい利用規約に同意するよう通知されます。
           title: ページを編集
           update: 更新
         form:
