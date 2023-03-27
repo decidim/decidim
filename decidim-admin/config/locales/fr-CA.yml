@@ -39,7 +39,6 @@ fr-CA:
         body: Corps de texte
         subject: Objet
       organization:
-        admin_terms_of_use_body: Corps du texte pour les conditions d'utilisation de l'admin
         alert_color: Alerte
         available_authorizations: Autorisations disponibles
         badges_enabled: Activer les badges
@@ -198,20 +197,6 @@ fr-CA:
         user:
           new: Nouvel administrateur
         verify: Vérifier
-      admin_terms_of_use:
-        accept:
-          error: Une erreur s'est produite lorsque vous avez accepté les conditions d'utilisation administrateur.
-          success: "Great! You have accepted the admin terms of use.\nVous avez accepté les conditions d'utilisation d'administrateur."
-        actions:
-          accept: J'accepte les conditions d'utilisation
-          are_you_sure: Êtes-vous sûr de vouloir refuser les conditions d'utilisation de l'administrateur?
-          refuse: Refuser les conditions d'utilisation administrateur
-          title: Accepter les conditions d’utilisation
-        required_review:
-          alert: 'Obligatoire: Consultez nos conditions d''utilisation administrateur'
-          callout: Veuillez prendre un moment pour examiner les conditions d'utilisation de l'administrateur. Sinon, vous ne serez pas en mesure de gérer la plateforme.
-          cta: Consulter les maintenant.
-        title: Conditions d'utilisation administrateur
       area_types:
         create:
           error: Une erreur s'est produite lors de la création d'un nouveau périmètre d'assemblée.
@@ -992,7 +977,6 @@ fr-CA:
         destroy:
           success: La page a été détruite avec succès
         edit:
-          changed_notably_help: Si cette case est cochée, les utilisateurs devront accepter les nouvelles conditions d'utilisation.
           title: Modifier la page
           update: Mettre à jour
         form:
