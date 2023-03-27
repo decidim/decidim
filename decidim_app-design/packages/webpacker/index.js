@@ -1,4 +1,4 @@
-const { webpackConfig, ...restOpts } = require("@rails/webpacker");
+const { webpackConfig, ...restOpts } = require("shakapacker");
 const overrideConfig = require("./src/override-config");
 
 module.exports = {

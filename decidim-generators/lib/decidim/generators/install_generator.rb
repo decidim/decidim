@@ -97,6 +97,9 @@ module Decidim
 
         # Run Decidim custom webpacker installation
         rails "decidim:webpacker:install"
+
+        # Run Decidim custom procfile installation
+        rails "decidim:procfile:install"
       end
 
       def build_api_docs
