@@ -185,12 +185,10 @@ hu:
           success: Nagyszerű! Elfogadtad az admin felhasználási feltételeket.
         actions:
           are_you_sure: Biztosan visszautasítod az adminokra vonatkozó feltételek elfogadását?
-          refuse: Admin feltételek elutasítása
           title: Elfogadom a felhasználási feltételeket
         required_review:
           alert: 'Szükséges: az admin felhasználási feltételek áttekintése'
           callout: Kérünk nézz rá az adminokra vonatkozó felhasználási feltételekre. Máskülönben nem fogod tudni adminisztrálni a platformot.
-          cta: Áttekintés most.
         title: Admin felhasználási feltételek
       area_types:
         create:
