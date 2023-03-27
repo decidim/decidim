@@ -42,4 +42,48 @@ describe Decidim::Proposals::RejectedProposalEvent do
       expect(subject.resource_text).to eq translated(resource.answer)
     end
   end
+
+  context "when proposal event rejected" do
+    let!(:organization) { create(:organization) }
+    let!(:user) { create(:user, organization:, notifications_sending_frequency: "daily") }
+    let!(:proposal) { create(:proposal, title: "Rejected proposal") }
+    let!(:notification) do
+      create(
+        :notification,
+        user:,
+        resource: proposal,
+        created_at: 1.day.ago,
+        event_name: "decidim.events.proposals.proposal_rejected",
+        event_class: Decidim::Proposals::RejectedProposalEvent
+      )
+    end
+    let!(:form) do
+      Decidim::Proposals::Admin::ProposalAnswerForm.from_params(form_params).with_context(
+        current_user: user,
+        current_component: proposal.component,
+        current_organization: organization
+      )
+    end
+    let(:form_params) do
+      {
+        internal_state: "rejected",
+        answer: { en: "Foo" },
+        cost: 2000,
+        cost_report: { en: "Cost report" },
+        execution_period: { en: "Execution period" }
+      }
+    end
+    let!(:command) { Decidim::Proposals::Admin::AnswerProposal.new(form, proposal) }
+    let!(:follow) { create(:follow, followable: proposal, user:) }
+
+    it "sends a notification email to user" do
+
+      command.call
+      perform_enqueued_jobs do
+        Decidim::EmailNotificationsDigestGeneratorJob.perform_now(user.id, "daily")
+      end
+
+      expect(last_email_body).to include("testi")
+    end
+  end
 end
