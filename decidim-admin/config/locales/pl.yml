@@ -32,7 +32,6 @@ pl:
         body: Treść
         subject: Temat
       organization:
-        admin_terms_of_use_body: Warunki korzystania z serwisu dla administratora
         alert_color: Powiadomienie
         available_authorizations: Dostępne formy uwierzytelniania
         badges_enabled: Włącz odznaki
@@ -168,13 +167,6 @@ pl:
         user:
           new: Nowy administrator
         verify: Zweryfikuj
-      admin_terms_of_use:
-        actions:
-          are_you_sure: Czy na pewno nie wyrażasz zgody na warunki użytkowania dla administratorów?
-          refuse: Nie akceptuję warunków dla administratorów
-        required_review:
-          alert: 'Wymagane: Zapoznaj się z warunkami użytkowania dla administratorów'
-          cta: Zapoznaj się teraz.
       area_types:
         create:
           error: Wystąpił błąd podczas tworzenia nowego typu kategorii.
@@ -880,7 +872,6 @@ pl:
         destroy:
           success: Strona została usunięta
         edit:
-          changed_notably_help: Jeśli ta opcja jest zaznaczona, użytkownicy zostaną powiadomieni o konieczności zaakceptowaniu nowych warunków użytkowania.
           title: Edytuj stronę
           update: Aktualizuj
         form:
