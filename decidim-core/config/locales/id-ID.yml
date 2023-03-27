@@ -813,15 +813,12 @@ id:
           legend: Setujui persyaratan dan ketentuan penggunaan
         refuse:
           modal_body: Jika Anda menolak, Anda tidak akan dapat menggunakan platform, Anda dapat <a href="%{data_portability_path}">mengunduh data Anda</a> dan / atau <a href="%{delete_path}">menghapus akun Anda</a>.
-          modal_btn_continue: Terima persyaratan dan lanjutkan
           modal_btn_exit: Saya akan memeriksanya nanti
-          modal_button: Menolak persyaratan
           modal_close: Tutup modal
           modal_title: Apakah Anda benar-benar menolak Syarat dan Ketentuan yang diperbarui?
         required_review:
           alert: Kami telah memperbarui Persyaratan Layanan, harap tinjau.
           body: Harap luangkan waktu untuk meninjau pembaruan pada Ketentuan Layanan kami. Jika tidak, Anda tidak akan dapat menggunakan platform.
-          title: 'Diperlukan: Tinjau pembaruan untuk persyaratan layanan kami'
     participatory_space_private_users:
       not_allowed: Anda tidak diizinkan untuk melihat konten ini
     profile:
