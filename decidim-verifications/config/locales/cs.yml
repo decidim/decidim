@@ -55,13 +55,13 @@ cs:
         csv_census:
           help:
             - Administrátoři nahrávají CSV s e-maily přijatých účastníků.
-            - Only participants with an email in that CSV file can get verified.
+            - Pouze účastníci s e-mailem v souboru CSV mohou být ověřeni.
         id_documents:
           help:
             - Uživatelé vyplňují údaje o své totožnosti a nahrávají kopii svého dokladu.
             - Vyplníte informace obsažené v nahraném obrázku.
             - Informace by se měly shodovat s tím, co uživatel vyplní.
-            - If you cannot clearly see the information or you cannot get it verified, you can reject the request and the user will be able to fix it.
+            - Pokud informace nemůžete jasně vidět nebo je nemůžete ověřit, můžete odmítnout požadavek a uživatel jej bude moci opravit.
         postal_letter:
           help:
             - Účastníci požádají o zaslání ověřovacího kódu na jejich poštovní adresu.
@@ -69,14 +69,17 @@ cs:
             - Označte dopis jako odeslaný.
             - Jakmile označíte dopis jako odeslaný, uživatel bude schopen kód zadat a tím se ověřit.
       csv_census:
+        explanation: Získejte ověření pomocí členství v organizaci.
         name: Členství organizace
       direct: Přímo
       help: Pomoc
       id_documents:
+        explanation: Nahrajte své doklady totožnosti, abychom mohli ověřit vaši totožnost.
         name: Doklady totožnosti
       multistep: Více kroků
       name: název
       postal_letter:
+        explanation: Zašleme vám poštou dopis s kódem, který budete muset zadat, abychom mohli ověřit vaši adresu.
         name: Kód v listovní zásilce
     events:
       verifications:
@@ -92,10 +95,12 @@ cs:
           no_data_stored: Žádná data nebyla uložena.
         create:
           error: Při vytváření oprávnění došlo k chybě.
+          success: Vaše autorizace byla úspěšná.
           transferred: 'Na základě Vašeho povolení jsme získali následující údaje o účasti:'
           unconfirmed: Potřebujete potvrdit svůj e-mail, abyste se autorizovali.
         destroy:
           error: Při odstraňování autorizace došlo k chybě.
+          success: Autorizace byla úspěšně odstraněna.
         first_login:
           actions:
             another_dummy_authorization_handler: Ověřte proti jinému příkladu pověření pro autorizaci
@@ -121,6 +126,7 @@ cs:
         renew_modal:
           cancel: Zrušit
           continue: Pokračovat
+          info_renew: Pokud chcete aktualizovat data, pokračujte obnovením.
           title: Obnovit ověření
         skip_verification: Můžete to přeskočit nyní a %{link}
         start_exploring: začít zkoumat
@@ -129,6 +135,7 @@ cs:
           census:
             create:
               error: Při importu členů organizace došlo k chybě.
+              success: 'Počet úspěšně importovaných položek: %{count} (počet chyb: %{errors}).'
             destroy_all:
               success: Všechna data seznamu členů byly smazány.
           destroy:
