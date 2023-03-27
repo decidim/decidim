@@ -29,7 +29,6 @@ eu:
         password_confirmation: Berretsi pasahitza
         personal_url: URL pertsonala
         remove_avatar: Kendu avatar-a
-        tos_agreement: Erabilera-baldintzak eta -baldintzak
     models:
       decidim/attachment_created_event: eranskina
       decidim/component_published_event: Osagai erabilgarria
@@ -106,7 +105,6 @@ eu:
       logo: "%{organization} aren logo ofiziala"
       skip_button: Joan eduki nagusira
     account:
-      blocked: Kontu hau blokeatu da erabilera-irizpideak eta baldintzak urratzeagatik
       delete:
         confirm:
           close: Itxi leihoa
@@ -200,8 +198,6 @@ eu:
         verify_via_csv: "%{user_name} egiaztatu du %{resource_name} erabiltzaile talde CSV fitxategi baten bidez"
       user_moderation:
         unreport: "%{user_name} desegin du %{resource_type} - %{unreported_user_name} erreportea"
-    admin_terms_of_use:
-      default_body: "<h2>TERABILTZEKO ADMINISTRAZIOAREN BALDINTZAK</h2><p>Sistemaren tokiko administratzailearen ohiko azalpena jaso duzulakoan gaude. Oro har, hiru gauza hauetara mugatzen da:</p><ol><li>Besteen pribatutasuna errespetatzea.</li><li>Klikatu aurretik pentsatu.</li><li>Botere handiak erantzukizun handia dakar.</li></ol>"
     alert:
       dismiss: Baztertu jakinarazpena
     amendments:
@@ -469,7 +465,6 @@ eu:
           sign_up_as:
             legend: Izena eman honako hau gisa
           subtitle: Sortu kontu bat eztabaidetan parte hartzeko eta proposamenen alde egiteko
-          terms: erabilera-baldintzak
           tos_agreement: 'Erregistratzean hau onartzen duzu: %{link}.'
           tos_title: Zerbitzu-baldintzak
           username_help: Zure mezuetan agertuko den izen publikoa. Anonimatua bermatze aldera, edozein izen izan daiteke.
@@ -1039,23 +1034,9 @@ eu:
         metrics:
           headline: Zifretan parte hartzea
           link: Erakutsi estatistiken guztiak
-      terms_and_conditions:
-        accept:
-          error: Errore bat gertatu da terminoak eta baldintzak onartzen dituzunean.
-          success: Great! Baldintzak eta baldintzak onartu dituzu.
-        form:
-          agreement: Ados nago irizpide hauekin
-        refuse:
-          modal_btn_continue: Baldintzak onartu eta jarraitu
-          modal_button: Ezetsi terminoak
-          modal_close: Itxi leihoa
-          modal_title: Baldintza eta baldintza eguneratuak uko dituzu benetan?
-        required_review:
-          title: 'Beharrezkoa: berrikusi gure zerbitzu-baldintzen eguneratzeak'
     participatory_space_private_users:
       not_allowed: Ez duzu edukia ikusteko baimenik
     profile:
-      inaccessible_message: Profil hau eskuraezina da Erabilera-irizpideak eta baldintzak urratzeagatik!
       view: Bistaratu
     profiles:
       show:
