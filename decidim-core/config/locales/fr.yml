@@ -29,7 +29,6 @@ fr:
         password_confirmation: Confirmez votre mot de passe
         personal_url: Site internet personnel
         remove_avatar: Supprimer l'avatar
-        tos_agreement: Conditions générales d'utilisation
     models:
       decidim/attachment_created_event: Document lié
       decidim/component_published_event: Fonctionnalité active
@@ -122,7 +121,6 @@ fr:
       logo: "Logo officiel de %{organization}"
       skip_button: Passer au contenu principal
     account:
-      blocked: Ce compte a été bloqué en raison d'une violation des Conditions Générales d'Utilisation
       delete:
         alert: Cette action ne peut être annulée. Si vous supprimez votre compte, vous ne pourrez plus vous connecter avec vos identifiants. La suppression de votre compte entraînera l'anonymisation de vos contributions. Vous serez toujours en mesure de créer un nouveau compte, mais vos anciennes contributions n'y seront pas associées.
         confirm:
@@ -250,8 +248,6 @@ fr:
         verify_via_csv: "%{user_name} vérifié le groupe %{resource_name} utilisateur via un fichier CSV"
       user_moderation:
         unreport: "%{user_name} a annulé le signalement de %{resource_type} - %{unreported_user_name}"
-    admin_terms_of_use:
-      default_body: "<h2>CONDITIONS D'UTILISATION ADMINISTRATEUR</h2><p>Nous espérons que vous avez reçu les instructions de l'administrateur système de la plateforme. Ils se résument généralement à ces trois choses :</p><ol><li>Respecter la vie privée des autres.</li><li>Réfléchissez avant de cliquer.</li><li>Un grand pouvoir implique de grandes responsabilités.</li></ol>"
     alert:
       dismiss: Rejeter la notification
     amendments:
@@ -528,7 +524,6 @@ fr:
           sign_up_as:
             legend: Créer un compte en tant que
           subtitle: Créez un compte pour participer aux discussions et pour exprimer votre soutien aux propositions de votre choix.
-          terms: les termes et conditions d'utilisation
           tos_agreement: En vous créant un compte, vous acceptez %{link}.
           tos_title: Conditions d'utilisation
           username_help: Le nom est public et apparaît dans votre profil et sur vos messages. Dans le but de garantir l'anonymat, vous pouvez choisir n'importe quel nom.
@@ -1192,27 +1187,9 @@ fr:
         metrics:
           headline: Participation en chiffres
           link: Afficher toutes les statistiques
-      terms_and_conditions:
-        accept:
-          error: Une erreur s'est produite lorsque vous avez accepté les conditions d'utilisation.
-          success: Génial ! Vous avez accepté les conditions d'utilisations.
-        form:
-          agreement: J'accepte ces conditions d'utilisation
-        refuse:
-          modal_body: Si vous refusez, vous ne pourrez pas utiliser la plateforme. Vous pouvez <a href="%{download_your_data_path}">télécharger vos données</a> ainsi que <a href="%{delete_path}">supprimer votre compte</a>.
-          modal_btn_continue: Accepter les conditions et continuer
-          modal_btn_exit: Je l'examinerai plus tard
-          modal_button: Refuser les conditions d'utilisation
-          modal_close: Fermer la fenêtre
-          modal_title: Refusez-vous vraiment les conditions d'utilisation mises à jour ?
-        required_review:
-          alert: Nous avons mis à jour nos conditions d'utilisation, veuillez les consulter.
-          body: Veuillez prendre un moment pour examiner nos conditions d'utilisation mises à jour. Sinon, vous ne pourrez pas utiliser la plateforme.
-          title: 'Obligatoire : consultez les conditions d''utilisation mises à jour'
     participatory_space_private_users:
       not_allowed: Vous n'êtes pas autorisé à voir ce contenu
     profile:
-      inaccessible_message: Ce profil est inaccessible en raison d'une violation des Conditions Générales d'Utilisation !
       view: Voir
     profiles:
       show:
