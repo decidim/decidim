@@ -39,7 +39,6 @@ sv:
         body: Innehåll
         subject: Ämne
       organization:
-        admin_terms_of_use_body: Innehåll för administratörsvillkoren
         alert_color: Larm
         available_authorizations: Tillgängliga auktoriseringar
         badges_enabled: Aktivera märken
@@ -187,14 +186,6 @@ sv:
         user:
           new: Ny admin
         verify: Kontrollera
-      admin_terms_of_use:
-        actions:
-          accept: Jag godkänner villkoren
-          are_you_sure: Är du säker på att du vill avvisa administratörsvillkoren?
-          refuse: Avvisa villkoren för administratörer
-        required_review:
-          alert: 'Krav: granska villkoren för administratörer'
-          cta: Granska dem nu.
       area_types:
         create:
           error: Det gick inte att skapa en ny områdestyp.
@@ -911,7 +902,6 @@ sv:
         destroy:
           success: Sidan har tagits bort
         edit:
-          changed_notably_help: Om markerad kommer deltagarna att bli ombedda att godkänna de nya villkoren.
           title: Redigera sida
           update: Uppdatera
         form:
