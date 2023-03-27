@@ -114,11 +114,11 @@ describe "Explore versions", versioning: true, type: :system do
         expect(page).to have_content("TITLE")
 
         within ".diff > ul > .del" do
-          expect(page).to have_content(translated(proposal.title))
+          expect(page).to have_content(translated(proposal.title).dump)
         end
 
         within ".diff > ul > .ins" do
-          expect(page).to have_content(translated(emendation.title))
+          expect(page).to have_content(translated(emendation.title).dump)
         end
       end
 

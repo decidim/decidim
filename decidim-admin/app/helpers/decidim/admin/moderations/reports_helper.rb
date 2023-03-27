@@ -7,6 +7,7 @@ module Decidim
       module ReportsHelper
         include Decidim::Messaging::ConversationHelper
         include Decidim::ResourceHelper
+        include Decidim::SanitizeHelper
         include Decidim::TranslationsHelper
 
         # Public: Returns the reportable's author names separated by commas.
@@ -24,7 +25,7 @@ module Decidim
               when Decidim::Meetings::Meeting
                 content_tag :li do
                   link_to resource_locator(author).path, target: "_blank", rel: "noopener" do
-                    translated_attribute(author.title)
+                    decidim_sanitize(translated_attribute(author.title))
                   end
                 end
               else

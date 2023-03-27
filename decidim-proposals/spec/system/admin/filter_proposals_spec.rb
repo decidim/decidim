@@ -91,8 +91,8 @@ describe "Admin filters proposals", type: :system do
   context "when searching by ID or title" do
     let!(:proposal1) { create(:proposal, component:) }
     let!(:proposal2) { create(:proposal, component:) }
-    let!(:proposal1_title) { translated(proposal1.title) }
-    let!(:proposal2_title) { translated(proposal2.title) }
+    let!(:proposal1_title) { ActionView::Base.full_sanitizer.sanitize(translated(proposal1.title)) }
+    let!(:proposal2_title) { ActionView::Base.full_sanitizer.sanitize(translated(proposal2.title)) }
 
     before { visit_component_admin }
 

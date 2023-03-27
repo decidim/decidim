@@ -65,7 +65,7 @@ describe "Conference program", type: :system do
         end
 
         it "displays the correct title" do
-          expect(page.html).to include("Meeting &lt;strong&gt;title&lt;/strong&gt;")
+          expect(page).to have_content("Meeting title")
         end
       end
     end
@@ -75,7 +75,7 @@ describe "Conference program", type: :system do
         expect(page).to have_selector("[data-conference-program-title]", count: 3)
 
         meetings.each do |meeting|
-          expect(page).to have_content(Decidim::ConferenceMeetingPresenter.new(meeting).title)
+          expect(page).to have_content(ActionView::Base.full_sanitizer.sanitize(Decidim::ConferenceMeetingPresenter.new(meeting).title))
         end
       end
     end
