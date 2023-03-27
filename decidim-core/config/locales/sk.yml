@@ -947,15 +947,12 @@ sk:
           legend: Souhlasíte s podmínkami používání
         refuse:
           modal_body: Ak odmietnete, nebudete môcť používať platformu, môžete <a href="%{data_portability_path}"> sťahovať dáta </a> a / alebo <a href="%{delete_path}"> zmazať svoj účet </a>.
-          modal_btn_continue: Prijmite termíny a pokračujte
           modal_btn_exit: Neskôr to preskúmam
-          modal_button: Odmietnite podmienky
-          modal_close: Zatvoriť modálne
+          modal_close: Zatvoriť okno
           modal_title: Naozaj odmietate aktualizované zmluvné podmienky?
         required_review:
           alert: Aktualizovali sme Zmluvné podmienky, prečítajte si ich.
           body: Venujte prosím prosím pozornosť aktualizácii našich zmluvných podmienok. V opačnom prípade nebudete môcť platformu používať.
-          title: 'Vyžaduje: Skontrolujte aktualizácie našich zmluvných podmienok'
     participatory_space_private_users:
       not_allowed: Nemáte povolenie na zobrazenie tohto obsahu
     profile:
