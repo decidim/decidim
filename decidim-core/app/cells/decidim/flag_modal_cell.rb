@@ -22,7 +22,7 @@ module Decidim
 
     def frontend_administrable?
       author.respond_to?(:nickname) &&
-        model.can_be_administred_by?(current_user) &&
+        model.can_be_administered_by?(current_user) &&
         (model.respond_to?(:official?) && !model.official?)
     end
 
@@ -48,7 +48,7 @@ module Decidim
 
     def report_form
       @report_form ||= begin
-        context = { can_hide: model.try(:can_be_administred_by?, current_user) }
+        context = { can_hide: model.try(:can_be_administered_by?, current_user) }
         Decidim::ReportForm.new(reason: "spam").with_context(context)
       end
     end
