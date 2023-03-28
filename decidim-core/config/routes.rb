@@ -136,7 +136,6 @@ Decidim::Core::Engine.routes.draw do
     get "members", to: "profiles#members", as: "profile_members"
     get "group_members", to: "profiles#group_members", as: "profile_group_members"
     get "group_admins", to: "profiles#group_admins", as: "profile_group_admins"
-    get "group_invites", to: "profiles#group_invites", as: "profile_group_invites"
     get "activity", to: "user_activities#index", as: "profile_activity"
     resources :conversations, except: [:destroy], controller: "user_conversations", as: "profile_conversations"
   end
