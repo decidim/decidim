@@ -39,6 +39,7 @@ cs:
         body: Tělo
         subject: Předmět
       organization:
+        admin_terms_of_service_body: Tělo zprávy správcovských podmínek použití
         alert_color: Upozornění
         available_authorizations: Dostupná oprávnění
         badges_enabled: Povolit odznaky
@@ -197,6 +198,9 @@ cs:
         user:
           new: Nový administrátor
         verify: Ověřit
+      admin_terms_of_service:
+        accept:
+          error: Při přijímání správcovských podmínek použití došlo k chybě.
       area_types:
         create:
           error: Při vytváření nového typu oblasti došlo k chybě.
