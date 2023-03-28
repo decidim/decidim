@@ -75,7 +75,7 @@ module Decidim
     end
 
     def total
-      10#options[:total]
+      options[:total]
     end
 
     def percentage

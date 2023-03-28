@@ -1,5 +1,16 @@
 .progress-bar{
-  @apply w-full h-1.5 mt-1 rounded overflow-hidden bg-gray [&>*]:bg-success [&>*]:h-full;
+  @apply w-full h-1.5 mt-1 rounded overflow-hidden bg-gray translate-x-0 [&>*]:bg-success [&>*]:h-full;
+
+  > *{
+    animation-name: slideInLeft;
+    animation-duration: 500ms;
+
+    @keyframes slideInLeft{
+      from{
+        transform: translateX(-100%);
+      }
+    }
+  }
 
   &__container{
     @apply flex flex-col items-center;
