@@ -39,6 +39,7 @@ ca:
         body: Cos
         subject: Assumpte
       organization:
+        admin_terms_of_service_body: Cos del text per les condicions del servei d'administració
         alert_color: Alerta
         available_authorizations: Autoritzacions disponibles
         badges_enabled: Habilitar les ensenyes
@@ -197,6 +198,19 @@ ca:
         user:
           new: Nova administradora
         verify: Verificar
+      admin_terms_of_service:
+        accept:
+          error: S'ha produït un error en acceptar les condicions del servei d'administració.
+          success: Genial! Has acceptat les condicions del servei d'administració.
+        actions:
+          accept: Estic d'acord amb les condicions
+          are_you_sure: Segur que vols rebutjar les condicions del servei d'administració?
+          refuse: Rebutjar les condicions del servei d'administració
+          title: Acceptar les condicions del servei
+        required_review:
+          alert: 'Necessari: revisa les nostres condicions del servei d''administració'
+          callout: Si us plau, dedica un moment a revisar les condicions del servei d'administració. En cas contrari, no podràs administrar la plataforma.
+          cta: Revisar-les ara.
       area_types:
         create:
           error: S'ha produït un error en crear un tipus d'àrea nova.
