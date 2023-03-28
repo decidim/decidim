@@ -39,6 +39,7 @@ es:
         body: Cuerpo
         subject: Asunto
       organization:
+        admin_terms_of_service_body: Cuerpo de texto para los términos de servicio de administración
         alert_color: Alerta
         available_authorizations: Autorizaciones disponibles
         badges_enabled: Habilitar insignias
@@ -197,6 +198,19 @@ es:
         user:
           new: Nueva administradora
         verify: Verificar
+      admin_terms_of_service:
+        accept:
+          error: Ha habido un error al aceptar los términos del servicio de administración.
+          success: '¡Genial! Has aceptado los términos del servicio de administración.'
+        actions:
+          accept: Estoy de acuerdo con los términos
+          are_you_sure: '¿Seguro que quieres rechazar los términos del servicio de administración?'
+          refuse: Rechazar los términos del servicio de administración
+          title: Aceptar los términos del servicio
+        required_review:
+          alert: 'Requerido: Revisa nuestros términos del servicio de administración'
+          callout: Por favor dedica un momento a revisar los términos del servicio de administración. En caso contrario, no podrás administrar la plataforma.
+          cta: Revisarlos ahora.
       area_types:
         create:
           error: Se ha producido un error al crear un nuevo tipo de área.
