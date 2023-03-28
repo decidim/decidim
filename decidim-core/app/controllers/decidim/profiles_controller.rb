@@ -58,7 +58,7 @@ module Decidim
     end
 
     def group_admins
-      enforce_user_groups_enabled
+      enforce_permission_to :manage, :user_group, user_group: profile_holder
 
       @content_cell = "decidim/group_admins"
       @title_key = "group_admins"
@@ -66,7 +66,7 @@ module Decidim
     end
 
     def group_members
-      enforce_user_groups_enabled
+      enforce_permission_to :manage, :user_group, user_group: profile_holder
 
       @content_cell = "decidim/group_members"
       @title_key = "group_members"
@@ -74,7 +74,7 @@ module Decidim
     end
 
     def group_invites
-      enforce_user_groups_enabled
+      enforce_permission_to :manage, :user_group, user_group: profile_holder
 
       @content_cell = "decidim/group_invites"
       @title_key = "group_invites"
