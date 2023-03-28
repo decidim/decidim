@@ -13,7 +13,7 @@ module Decidim
       if model.respond_to?(:followers_count)
         model.followers_count
       else
-        model.followers.count
+        model.followers.size
       end
     end
 
