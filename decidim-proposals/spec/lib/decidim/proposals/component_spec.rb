@@ -295,7 +295,7 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
         expect(subject).to include(unassigned_proposal, assigned_proposal)
       end
 
-      it "excludes hidden comments" do
+      it "excludes the hidden proposals" do
         expect(subject).not_to include(hidden_proposal)
       end
     end
