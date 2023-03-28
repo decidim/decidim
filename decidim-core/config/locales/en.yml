@@ -30,7 +30,7 @@ en:
         password_confirmation: Confirm your password
         personal_url: Personal URL
         remove_avatar: Remove avatar
-        tos_agreement: Terms and conditions of use agreement
+        tos_agreement: Terms of service agreement
     models:
       decidim/attachment_created_event: Attachment
       decidim/component_published_event: Active component
@@ -124,7 +124,7 @@ en:
       logo: "%{organization}'s official logo"
       skip_button: Skip to main content
     account:
-      blocked: This account has been blocked due to Terms and Conditions violation
+      blocked: This account has been blocked due to terms of service violation
       delete:
         alert: This action cannot be undone. If you delete your account you will not be able to log in with your credentials. The deletion of your account will result in the anonymization of your contributions. You will still be able to create a new account, but these contributions will not be associated with it.
         confirm:
@@ -255,8 +255,8 @@ en:
         verify_via_csv: "%{user_name} verified the group %{resource_name} via a CSV file"
       user_moderation:
         unreport: "%{user_name} unreported an %{resource_type} - %{unreported_user_name}"
-    admin_terms_of_use:
-      default_body: "<h2>ADMIN TERMS OF USE</h2><p>We trust you have received the usual lecture from the local System Administrator. It usually boils down to these three things:</p><ol><li>Respect the privacy of others.</li><li>Think before you click.</li><li>With great power comes great responsibility.</li></ol>"
+    admin_terms_of_service:
+      default_body: "<h2>ADMIN TERMS OF SERVICE</h2><p>We trust you have received the usual lecture from the local System Administrator. It usually boils down to these three things:</p><ol><li>Respect the privacy of others.</li><li>Think before you click.</li><li>With great power comes great responsibility.</li></ol>"
     alert:
       dismiss: Dismiss notification
     amendments:
@@ -556,7 +556,7 @@ en:
           sign_up_as:
             legend: Sign up as
           subtitle: Sign up to participate in discussions and support proposals.
-          terms: the terms and conditions of use
+          terms: the terms of service
           tos_agreement: By signing up you agree to %{link}.
           tos_title: Terms of Service
           username_help: Public name that appears on your posts. With the aim of guaranteeing the anonymity, can be any name.
@@ -1273,20 +1273,20 @@ en:
         metrics:
           headline: Metrics
           link: Show all metrics
-      terms_and_conditions:
+      terms_of_service:
         accept:
-          error: There was a problem accepting the terms and conditions.
-          success: Great! You have accepted the terms and conditions.
+          error: There was a problem accepting the terms of service.
+          success: Great! You have accepted the terms of service.
         form:
           agreement: I agree with these terms
-          legend: Agree to the terms and conditions
+          legend: Agree to the terms of service
         refuse:
           modal_body: If you refuse, you will not be able to use the platform, you can <a href="%{download_your_data_path}">download your data</a> and/or <a href="%{delete_path}">delete your account</a>.
           modal_btn_continue: Accept terms and continue
           modal_btn_exit: I will review it later
           modal_button: Refuse the terms
           modal_close: Close modal
-          modal_title: Do you really refuse the updated Terms and Conditions?
+          modal_title: Do you really refuse the updated terms of service?
         required_review:
           alert: We have updated our Terms of Service, please review them.
           body: Please take a moment to review updates to our Terms of Services. Otherwise you will not be able to use the platform.
@@ -1299,7 +1299,7 @@ en:
         success: Password successfully updated.
     profile:
       deleted: Deleted participant
-      inaccessible_message: This profile is inaccessible due to Terms and Conditions violation!
+      inaccessible_message: This profile is inaccessible due to terms of service violation!
       view: View
     profiles:
       default_officialization_text_for_user_groups: This group is publicly verified, its name has been verified to correspond with its real name.
