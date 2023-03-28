@@ -211,6 +211,7 @@ ca:
           alert: 'Necessari: revisa les nostres condicions del servei d''administració'
           callout: Si us plau, dedica un moment a revisar les condicions del servei d'administració. En cas contrari, no podràs administrar la plataforma.
           cta: Revisar-les ara.
+        title: Termes i condicions del servei d'administració
       area_types:
         create:
           error: S'ha produït un error en crear un tipus d'àrea nova.
@@ -995,6 +996,7 @@ ca:
         destroy:
           success: La pàgina s'ha eliminat correctament.
         edit:
+          changed_notably_help: Si està marcada, les participants seran notificades perquè acceptin els nous termes i condicions d'ús.
           title: Editar pàgina
           update: Actualitzar
         form:
