@@ -1,4 +1,4 @@
-<%= decidim_modal id: "flagModal", class: "flag-modal" do %>
+<%= decidim_modal id: modal_id, class: "flag-modal" do %>
   <%= form_for report_form, builder:, url: report_path, method: :post do |f| %>
     <div data-dialog-container>
       <%= icon "flag-line" %>
