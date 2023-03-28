@@ -29,6 +29,7 @@ fr:
         password_confirmation: Confirmez votre mot de passe
         personal_url: Site internet personnel
         remove_avatar: Supprimer l'avatar
+        tos_agreement: Contrat de service
     models:
       decidim/attachment_created_event: Document lié
       decidim/component_published_event: Fonctionnalité active
@@ -121,6 +122,7 @@ fr:
       logo: "Logo officiel de %{organization}"
       skip_button: Passer au contenu principal
     account:
+      blocked: Ce compte a été bloqué en raison d'une violation des conditions d'utilisation
       delete:
         alert: Cette action ne peut être annulée. Si vous supprimez votre compte, vous ne pourrez plus vous connecter avec vos identifiants. La suppression de votre compte entraînera l'anonymisation de vos contributions. Vous serez toujours en mesure de créer un nouveau compte, mais vos anciennes contributions n'y seront pas associées.
         confirm:
@@ -248,6 +250,8 @@ fr:
         verify_via_csv: "%{user_name} vérifié le groupe %{resource_name} utilisateur via un fichier CSV"
       user_moderation:
         unreport: "%{user_name} a annulé le signalement de %{resource_type} - %{unreported_user_name}"
+    admin_terms_of_service:
+      default_body: "<h2>ADMIN TERMS OF SERVICE</h2><p>We trust you have received the usual lecture from the local System Administrator. It usually boils down to these three things:</p><ol><li>Respect the privacy of others.</li><li>Think before you click.</li><li>With great power comes great responsibility.</li></ol>\n<h2>CONDITION D'UTILISATION ADMINISTRATEUR</h2><p>En espérant que vous ayez bien reçu les instrcutions de l'administrateur système de la plateforme, celles-ci se résument généralement en trois parties :</p><ol><li>Respectez la vie privée des autres.</li><li>Réfléchissez avant de cliquer.</li><li>De grands pouvoirs impliquent de grandes responsabilités.</li></ol>"
     alert:
       dismiss: Rejeter la notification
     amendments:
@@ -524,6 +528,7 @@ fr:
           sign_up_as:
             legend: Créer un compte en tant que
           subtitle: Créez un compte pour participer aux discussions et pour exprimer votre soutien aux propositions de votre choix.
+          terms: Conditions d'Utilisation
           tos_agreement: En vous créant un compte, vous acceptez %{link}.
           tos_title: Conditions d'utilisation
           username_help: Le nom est public et apparaît dans votre profil et sur vos messages. Dans le but de garantir l'anonymat, vous pouvez choisir n'importe quel nom.
