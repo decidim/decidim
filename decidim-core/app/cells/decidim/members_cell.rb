@@ -13,13 +13,6 @@ module Decidim
       render :show
     end
 
-    # deprecated
-    def membership_cell_name
-      return "decidim/user_group_admin_membership_profile" if options[:from_admin].presence
-
-      "decidim/user_group_membership_profile"
-    end
-
     def memberships
       @memberships ||= case role
                        when "member"
