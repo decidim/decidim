@@ -20,6 +20,8 @@ module Decidim
       # from_proposals_list - A boolean to indicate if the template is rendered from the proposals list page
       #
       # Returns a string with the value of the css classes.
+      #
+      # deprecated
       def vote_button_classes(from_proposals_list)
         return "card__button" if from_proposals_list
 

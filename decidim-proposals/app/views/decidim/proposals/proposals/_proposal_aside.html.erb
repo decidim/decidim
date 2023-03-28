@@ -1,23 +1,25 @@
-<% if @proposal.amendable? && allowed_to?(:edit, :proposal, proposal: @proposal) %>
-  <%= link_to t("edit_proposal", scope: "decidim.proposals.proposals.show"), edit_proposal_path(@proposal), class: "button button__xl button__secondary w-full" %>
-<% else %>
-  <%= amend_button_for @proposal %>
-<% end %>
+<div class="proposal__aside-container">
+  <% if @proposal.amendable? && allowed_to?(:edit, :proposal, proposal: @proposal) %>
+    <%= link_to t("edit_proposal", scope: "decidim.proposals.proposals.show"), edit_proposal_path(@proposal), class: "button button__lg md:button__xl button__secondary w-full" %>
+  <% else %>
+    <%= amend_button_for @proposal %>
+  <% end %>
 
-<%# REDESIGN_PENDING: try to show the elements in the legacy design %>
-<%= emendation_actions_for @proposal %>
+  <%= emendation_actions_for @proposal %>
 
-<% if current_settings.votes_enabled? && (show_endorsements_card? || current_user) %>
-  <%= render partial: "votes_count", locals: { proposal: @proposal, from_proposals_list: false } %>
-  <%= render partial: "vote_button", locals: { proposal: @proposal, from_proposals_list: false } unless @proposal.withdrawn? %>
-<% end %>
+  <% if current_settings.votes_enabled? && (show_endorsements_card? || current_user) %>
+    <div class="proposal__aside-vote">
+      <%= render partial: "vote_button", locals: { proposal: @proposal, from_proposals_list: false } unless @proposal.withdrawn? %>
+      <%= render partial: "votes_count", locals: { proposal: @proposal, from_proposals_list: false } %>
+    </div>
+  <% end %>
 
-<div class="flex flex-wrap justify-center gap-x-1">
-  <%= follow_button_for(@proposal) %>
-  <%= cell "decidim/share_button", nil %>
-  <%= cell "decidim/report_button", @proposal %>
+  <div class="proposal__aside-actions">
+    <%= follow_button_for(@proposal) %>
+    <%= cell "decidim/share_button", nil %>
+    <%= cell "decidim/report_button", @proposal %>
+  </div>
+
+  <%= cell "decidim/proposals/proposal_link_to_collaborative_draft", @proposal %>
+  <%= cell "decidim/proposals/proposal_link_to_rejected_emendation", @proposal %>
 </div>
-
-<%# REDESIGN_PENDING: try to show the elements in the legacy design %>
-<%= cell "decidim/proposals/proposal_link_to_collaborative_draft", @proposal %>
-<%= cell "decidim/proposals/proposal_link_to_rejected_emendation", @proposal %>

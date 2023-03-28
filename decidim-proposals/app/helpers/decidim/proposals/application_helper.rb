@@ -138,10 +138,12 @@ module Decidim
         ).count
       end
 
+      # deprecated
       def votes_count_for(model, from_proposals_list)
         render partial: "decidim/proposals/proposals/participatory_texts/proposal_votes_count.html", locals: { proposal: model, from_proposals_list: }
       end
 
+      # deprecated
       def vote_button_for(model, from_proposals_list)
         render partial: "decidim/proposals/proposals/participatory_texts/proposal_vote_button.html", locals: { proposal: model, from_proposals_list: }
       end

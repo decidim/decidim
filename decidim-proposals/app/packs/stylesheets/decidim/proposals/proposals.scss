@@ -48,4 +48,18 @@
       @apply flex items-center gap-2;
     }
   }
+
+  &__aside{
+    &-container{
+      @apply space-y-6;
+    }
+
+    &-vote{
+      @apply flex flex-row-reverse md:flex-col gap-6 items-center md:items-stretch justify-between last:[&>*]:grow;
+    }
+
+    &-actions{
+      @apply flex flex-wrap justify-center gap-x-2;
+    }
+  }
 }
