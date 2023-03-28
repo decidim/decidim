@@ -318,7 +318,7 @@ describe "Amend Proposal", versioning: true, type: :system do
             # is first scrolled to the amend button...?
             # Got the idea from:
             # https://stackoverflow.com/a/39103252
-            page.scroll_to(find(".card__amend-button"))
+            page.scroll_to(find("#amend-button"))
             click_link "Accept"
           end
 
@@ -353,7 +353,7 @@ describe "Amend Proposal", versioning: true, type: :system do
             # is first scrolled to the amend button...?
             # Got the idea from:
             # https://stackoverflow.com/a/39103252
-            page.scroll_to(find(".card__amend-button"))
+            page.scroll_to(find("#amend-button"))
             click_link "Reject"
           end
 

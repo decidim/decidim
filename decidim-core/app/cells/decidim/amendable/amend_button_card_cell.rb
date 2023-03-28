@@ -22,6 +22,7 @@ module Decidim
         t("button", scope: "decidim.amendments.amendable", model_name:)
       end
 
+      # deprecated
       def new_amend_help_text
         content_tag :small do
           t("help_text",
@@ -29,10 +30,6 @@ module Decidim
             model_name: model_name.downcase,
             amendable_fields: model.amendable_fields.to_sentence)
         end
-      end
-
-      def button_classes
-        "amend_button_card_cell button hollow expanded button--icon button--sc"
       end
     end
   end

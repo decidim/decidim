@@ -1,9 +1,10 @@
 <% if @proposal.amendable? && allowed_to?(:edit, :proposal, proposal: @proposal) %>
-  <%= link_to t("edit_proposal", scope: "decidim.proposals.proposals.show"), edit_proposal_path(@proposal), class: "button hollow expanded button--sc" %>
+  <%= link_to t("edit_proposal", scope: "decidim.proposals.proposals.show"), edit_proposal_path(@proposal), class: "button button__xl button__secondary w-full" %>
 <% else %>
   <%= amend_button_for @proposal %>
 <% end %>
 
+<%# REDESIGN_PENDING: try to show the elements in the legacy design %>
 <%= emendation_actions_for @proposal %>
 
 <% if current_settings.votes_enabled? && (show_endorsements_card? || current_user) %>
