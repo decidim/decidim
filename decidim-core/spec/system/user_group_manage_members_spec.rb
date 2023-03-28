@@ -74,7 +74,7 @@ describe "User group manage members", type: :system do
         expect(page).to have_no_css("#list-request")
         expect(page).to have_content("Join request successfully accepted")
         expect(page).to have_content(requested_user.name)
-        expect(page).to have_content("Role: Member")
+        expect(page).to have_content("Member")
       end
 
       it "allows rejecting a join request" do
