@@ -7,7 +7,7 @@ module Decidim::Meetings::Calendar
     subject { described_class.for(component) }
 
     let!(:meeting) do
-      create :meeting, :published, title: Decidim::Faker::Localized.localized { "<script>alert(\"fooo\")</script> #{generate(:title)}"}
+      create :meeting, :published, title: Decidim::Faker::Localized.localized { "<script>alert(\"fooo\")</script> #{generate(:title)}" }
     end
     let!(:component) { meeting.component }
     let!(:another_meeting) { create :meeting, :published, component: }
