@@ -26,9 +26,7 @@ module Decidim
   #      7,
   #      element_id: "my-id",
   #      units_name: "my.i18n.key",
-  #      small: true,
   #      total: 10,
-  #      subtitle_text: I18n.t("my.subtitle.key")
   #    )
   class ProgressBarCell < Decidim::ViewModel
     private
