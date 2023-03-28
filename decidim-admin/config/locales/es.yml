@@ -211,6 +211,7 @@ es:
           alert: 'Requerido: Revisa nuestros términos del servicio de administración'
           callout: Por favor dedica un momento a revisar los términos del servicio de administración. En caso contrario, no podrás administrar la plataforma.
           cta: Revisarlos ahora.
+        title: Términos y condiciones del servicio de administración
       area_types:
         create:
           error: Se ha producido un error al crear un nuevo tipo de área.
@@ -995,6 +996,7 @@ es:
         destroy:
           success: La página se ha eliminado correctamente.
         edit:
+          changed_notably_help: Si se marca, se notificará a las participantes para que acepten los nuevos términos y condiciones de uso.
           title: Editar página
           update: Actualizar
         form:
