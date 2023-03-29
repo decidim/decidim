@@ -9,10 +9,18 @@ module Decidim
       render
     end
 
+    def followers_count
+      if model.respond_to?(:followers_count)
+        model.followers_count
+      else
+        model.followers.size
+      end
+    end
+
     private
 
     def button_classes
-      "button button__sm button__text-secondary only:m-auto"
+      options[:button_classes] || "button button__sm button__text-secondary only:m-auto"
     end
 
     def text
@@ -24,7 +32,7 @@ module Decidim
     end
 
     def req_params
-      { follow: { followable_gid: model.to_sgid.to_s } }
+      { follow: { followable_gid: model.to_sgid.to_s, button_classes: } }
     end
 
     def method
