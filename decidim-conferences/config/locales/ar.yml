@@ -28,6 +28,7 @@ ar:
         show_statistics: عرض الإحصائيات
         sign_date: تاريخ التوقيع
         signature: التوقيع
+        signature_name: اسم التوقيع
         slogan: شعار
         slug: سبيكة العنوان الشبكي
         start_date: تاريخ البداية
