@@ -86,18 +86,6 @@ describe "Participatory Process Groups", type: :system do
         expect(page).to have_i18n_content(participatory_process_group.description)
       end
 
-      it "shows the meta scope name" do
-        expect(page).to have_i18n_content(participatory_process_group.meta_scope)
-      end
-
-      it "shows the hashtag" do
-        expect(page).to have_content("#my_awesome_hashtag")
-      end
-
-      it "has a link to the group url" do
-        expect(page).to have_link("www.example.org/external", href: "https://www.example.org/external")
-      end
-
       it_behaves_like "has embedded video in description", :description do
         before do
           participatory_process_group.update!(description:)
@@ -120,6 +108,10 @@ describe "Participatory Process Groups", type: :system do
 
       it "shows metadata attributes" do
         within "#participatory_process_group-metadata" do
+          expect(page).to have_content(2)
+          expect(page).to have_link("www.example.org/external", href: "https://www.example.org/external")
+          expect(page).to have_content("#my_awesome_hashtag")
+          expect(page).to have_i18n_content(participatory_process_group.meta_scope)
           expect(page).to have_i18n_content(participatory_process_group.developer_group)
           expect(page).to have_i18n_content(participatory_process_group.target)
           expect(page).to have_i18n_content(participatory_process_group.participatory_scope)
