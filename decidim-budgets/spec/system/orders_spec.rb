@@ -126,7 +126,7 @@ describe "Orders", type: :system do
         end
 
         it "displays total budget" do
-          expect(page).to have_css(".budget-progress_right_mark", text: "€100,000,000")
+          expect(page).to have_css(".budget-summary__progressbar-marks_right", text: "€100,000,000")
         end
       end
 
@@ -159,7 +159,7 @@ describe "Orders", type: :system do
         end
 
         it "displays total budget" do
-          expect(page).to have_css(".budget-progress_right_mark", text: "€100,000,000")
+          expect(page).to have_css(".budget-summary__progressbar-marks_right", text: "€100,000,000")
         end
       end
 
@@ -193,7 +193,7 @@ describe "Orders", type: :system do
         end
 
         it "displays total budget" do
-          expect(page).to have_css(".budget-progress_right_mark", text: "6")
+          expect(page).to have_css(".budget-summary__progressbar-marks_right", text: "6")
         end
       end
 
@@ -226,7 +226,7 @@ describe "Orders", type: :system do
         end
 
         it "displays total budget" do
-          expect(page).to have_css(".budget-progress_right_mark", text: "6")
+          expect(page).to have_css(".budget-summary__progressbar-marks_right", text: "6")
         end
       end
     end

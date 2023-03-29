@@ -17,7 +17,7 @@ describe "Explore projects", :slow, type: :system do
     it "shows all resources for the given component" do
       visit_budget
       within "#projects" do
-        expect(page).to have_selector(".budget-list__item", count: projects_count)
+        expect(page).to have_selector(".card__list", count: projects_count)
       end
 
       projects.each do |project|
@@ -35,7 +35,7 @@ describe "Explore projects", :slow, type: :system do
         end
 
         within "#projects" do
-          expect(page).to have_css(".budget-list__item", count: 1)
+          expect(page).to have_css(".card__list", count: 1)
           expect(page).to have_content(translated(project.title))
         end
       end
@@ -70,7 +70,7 @@ describe "Explore projects", :slow, type: :system do
         end
 
         within "#projects" do
-          expect(page).to have_css(".budget-list__item", count: 1)
+          expect(page).to have_css(".card__list", count: 1)
           expect(page).to have_content(translated(project.title))
         end
       end
@@ -88,7 +88,7 @@ describe "Explore projects", :slow, type: :system do
         end
 
         within "#projects" do
-          expect(page).to have_css(".budget-list__item", count: 1)
+          expect(page).to have_css(".card__list", count: 1)
           expect(page).to have_content(translated(project.title))
         end
       end
@@ -106,16 +106,16 @@ describe "Explore projects", :slow, type: :system do
         end
 
         within "#projects" do
-          expect(page).to have_css(".budget-list__item", count: 1)
+          expect(page).to have_css(".card__list", count: 1)
           expect(page).to have_content(translated(project.title))
         end
 
-        page.find(".budget-list__item .card__link", match: :first).click
+        page.find(".card__list .card__link", match: :first).click
         click_link "View all projects"
 
         take_screenshot
         within "#projects" do
-          expect(page).to have_css(".budget-list__item", count: 1)
+          expect(page).to have_css(".card__list", count: 1)
           expect(page).to have_content(translated(project.title))
         end
       end
@@ -139,7 +139,7 @@ describe "Explore projects", :slow, type: :system do
           end
 
           within "#projects" do
-            expect(page).to have_css(".budget-list__item", count: 1)
+            expect(page).to have_css(".card__list", count: 1)
             expect(page).to have_content(translated(project.title))
           end
         end
