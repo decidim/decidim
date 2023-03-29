@@ -34,7 +34,7 @@ describe "Initiative signing", type: :system do
 
           visit decidim_initiatives.initiative_path(initiative)
 
-          expect(page).to have_content("1357/1000\nSIGNATURES")
+          expect(page).to have_content("1357 1000\nSignatures")
         end
       end
     end
