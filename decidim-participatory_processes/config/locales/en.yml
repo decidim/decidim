@@ -386,6 +386,8 @@ en:
           name: Second HTML block
         html_3:
           name: Third HTML block
+        main_data:
+          name: Title and description
         metadata:
           developer_group: Promoted by
           name: Metadata
