@@ -369,7 +369,8 @@ describe "Participatory Process Groups", type: :system do
         :past,
         scope:,
         organization:,
-        participatory_process_group:
+        participatory_process_group:,
+        weight: 4
       )
     end
     let!(:active_process) do
@@ -379,7 +380,8 @@ describe "Participatory Process Groups", type: :system do
         :active,
         start_date: 1.year.ago,
         organization:,
-        participatory_process_group:
+        participatory_process_group:,
+        weight: 5
       )
     end
     let!(:active_process_with_scope) do
@@ -390,7 +392,8 @@ describe "Participatory Process Groups", type: :system do
         start_date: 1.month.ago,
         scope:,
         organization:,
-        participatory_process_group:
+        participatory_process_group:,
+        weight: 6
       )
     end
     let!(:active_process_with_area) do
@@ -401,7 +404,8 @@ describe "Participatory Process Groups", type: :system do
         start_date: 1.week.ago,
         area:,
         organization:,
-        participatory_process_group:
+        participatory_process_group:,
+        weight: 3
       )
     end
     let!(:upcoming_process_with_area) do
@@ -411,7 +415,8 @@ describe "Participatory Process Groups", type: :system do
         :upcoming,
         area:,
         organization:,
-        participatory_process_group:
+        participatory_process_group:,
+        weight: 2
       )
     end
     let!(:other_group_process) do
@@ -422,26 +427,11 @@ describe "Participatory Process Groups", type: :system do
         scope:,
         area:,
         organization:,
-        participatory_process_group: create(:participatory_process_group, organization:)
+        participatory_process_group: create(:participatory_process_group, organization:),
+        weight: 1
       )
     end
     let(:titles) { page.all("a.card__grid h3") }
-
-    shared_examples "showing all processes counts" do
-      it "shows count of all group processes" do
-        within "#processes-grid h3.section-heading" do
-          expect(page).to have_content(/ALL\s+\(5\)/)
-        end
-      end
-    end
-
-    shared_examples "not showing processes belonging to other group" do
-      it "does not list process of other group" do
-        within("#processes-grid") do
-          expect(page).to have_no_content(translated(other_group_process.title, locale: :en))
-        end
-      end
-    end
 
     before do
       create(
@@ -458,132 +448,25 @@ describe "Participatory Process Groups", type: :system do
         visit decidim_participatory_processes.participatory_process_group_path(participatory_process_group)
       end
 
-      it "lists active processes ordered by start_date" do
-        within "#processes-grid" do
-          expect(titles.count).to eq(3)
-          expect(titles[0].text).to eq(translated(active_process_with_area.title, locale: :en))
-          expect(titles[1].text).to eq(translated(active_process_with_scope.title, locale: :en))
-          expect(titles[2].text).to eq(translated(active_process.title, locale: :en))
+      it "lists active processes ordered by weigtht" do
+        within "section.content-block" do
+          expect(titles[0].text).to eq(translated(upcoming_process_with_area.title, locale: :en))
+          expect(titles[1].text).to eq(translated(active_process_with_area.title, locale: :en))
+          expect(titles[2].text).to eq(translated(past_process_with_scope.title, locale: :en))
+          expect(titles[3].text).to eq(translated(active_process.title, locale: :en))
+          expect(titles[4].text).to eq(translated(active_process_with_scope.title, locale: :en))
         end
       end
 
-      it_behaves_like "showing all processes counts"
-      it_behaves_like "not showing processes belonging to other group"
-
-      it "shows counts of other processes" do
-        within "#processes-grid h3.section-heading" do
-          expect(page).to have_content("3 ACTIVE PROCESSES")
-          expect(page).to have_content(/UPCOMING\s+\(1\)/)
-          expect(page).to have_content(/PAST\s+\(1\)/)
-        end
-      end
-    end
-
-    context "when filtering by date" do
-      context "and choosing past processes" do
-        before do
-          visit decidim_participatory_processes.participatory_process_group_path(participatory_process_group)
-          within ".order-by__tabs" do
-            click_link "Past"
-
-            sleep 2
-          end
-        end
-
-        it "lists past process" do
-          within "#processes-grid" do
-            expect(titles.count).to eq(1)
-            expect(titles.first.text).to eq(translated(past_process_with_scope.title, locale: :en))
-          end
-        end
-
-        it_behaves_like "showing all processes counts"
-        it_behaves_like "not showing processes belonging to other group"
-
-        it "shows counts of processes" do
-          within "#processes-grid h3.section-heading" do
-            expect(page).to have_content("1 PAST PROCESS")
-            expect(page).to have_content(/UPCOMING\s+\(1\)/)
-            expect(page).to have_content(/ACTIVE\s+\(3\)/)
-          end
+      it "does not list process of other group" do
+        within "section.content-block" do
+          expect(page).to have_no_content(translated(other_group_process.title, locale: :en))
         end
       end
 
-      context "and choosing upcoming processes" do
-        before do
-          visit decidim_participatory_processes.participatory_process_group_path(participatory_process_group)
-          within ".order-by__tabs" do
-            click_link "Upcoming"
-            sleep 2
-          end
-        end
-
-        it "lists ucpoming process" do
-          within "#processes-grid" do
-            expect(titles.count).to eq(1)
-            expect(titles.first.text).to eq(translated(upcoming_process_with_area.title, locale: :en))
-          end
-        end
-
-        it_behaves_like "showing all processes counts"
-        it_behaves_like "not showing processes belonging to other group"
-
-        it "shows counts of processes" do
-          within "#processes-grid h3.section-heading" do
-            expect(page).to have_content("1 UPCOMING PROCESS")
-            expect(page).to have_content(/PAST\s+\(1\)/)
-            expect(page).to have_content(/ACTIVE\s+\(3\)/)
-          end
-        end
-      end
-    end
-
-    context "when filtering processes by scope" do
-      context "and choosing a scope" do
-        before do
-          visit decidim_participatory_processes.participatory_process_group_path(participatory_process_group, filter: { with_scope: scope.id })
-        end
-
-        it "lists active process belonging to that scope" do
-          within "#processes-grid" do
-            expect(titles.count).to eq(1)
-            expect(titles.first.text).to eq(translated(active_process_with_scope.title, locale: :en))
-          end
-        end
-
-        it_behaves_like "not showing processes belonging to other group"
-
-        it "shows counts of processes belonging to that scope" do
-          within "#processes-grid h3.section-heading" do
-            expect(page).to have_content("1 ACTIVE PROCESS")
-            expect(page).to have_content(/PAST\s+\(1\)/)
-            expect(page).to have_content(/ALL\s+\(2\)/)
-          end
-        end
-      end
-    end
-
-    context "when filtering processes by area" do
-      context "and choosing a area" do
-        before do
-          visit decidim_participatory_processes.participatory_process_group_path(participatory_process_group, filter: { with_area: area.id })
-        end
-
-        it "lists active process belonging to that area" do
-          within "#processes-grid" do
-            expect(titles.count).to eq(1)
-            expect(titles.first.text).to eq(translated(active_process_with_area.title, locale: :en))
-          end
-        end
-
-        it_behaves_like "not showing processes belonging to other group"
-
-        it "shows counts of processes belonging to that area" do
-          within "#processes-grid h3.section-heading" do
-            expect(page).to have_content("1 ACTIVE PROCESS")
-            expect(page).to have_content(/UPCOMING\s+\(1\)/)
-            expect(page).to have_content(/ALL\s+\(2\)/)
-          end
+      it "shows counts of processes" do
+        within "div.content-block__title" do
+          expect(page).to have_content("5")
         end
       end
     end
