@@ -204,6 +204,8 @@ cs:
           success: Skvělé! Přijali jste administrátorské podmínky použití.
         actions:
           accept: Souhlasím s podmínkami
+          refuse: Odmítnout administrátorské podmínky
+          title: Souhlasit s podmínkami služby
         required_review:
           cta: Zkontrolovat je nyní.
         title: Administrátorské podmínky použití
