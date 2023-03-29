@@ -197,6 +197,7 @@ cs:
         actions:
           accept: Souhlasím s podmínkami
           are_you_sure: Opravdu chcete odmítnout Podmínky použití pro správce?
+          refuse: Odmítnout administrátorské podmínky
           title: Souhlasit s podmínkami používání
         required_review:
           alert: 'Vyžadováno: Zkontrolujte naše administrátorské podmínky použití'
