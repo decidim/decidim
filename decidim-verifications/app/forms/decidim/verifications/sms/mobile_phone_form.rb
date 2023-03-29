@@ -22,7 +22,7 @@ module Decidim
           )
         end
 
-        # When there's a phone number, sanitize it allowing only numbers and +.
+        # When there is a phone number, sanitize it allowing only numbers and +.
         def mobile_phone_number
           return unless super
 

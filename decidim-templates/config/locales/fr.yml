@@ -41,6 +41,15 @@ fr:
         name: Modèle
     templates:
       admin:
+        block_user_templates:
+          form:
+            save: Enregistrer
+            template_title: Informations sur le modèle
+          index:
+            confirm_delete: Êtes-vous sûr(e) de vouloir supprimer ce modèle ?
+            title: Bloquer les messages de l'utilisateur
+          template_chooser:
+            select_template: Sélectionnez un modèle de réponse
         questionnaire_templates:
           choose:
             create_from_template: Créer depuis un modèle
@@ -70,4 +79,5 @@ fr:
           duplicate: "%{user_name} a dupliqué le modèle de questionnaire %{resource_name}"
           update: "%{user_name} a modifié le modèle de questionnaire %{resource_name}"
       template_types:
+        block_user: Bloquer les messages de l'utilisateur
         questionnaires: Questionnaires

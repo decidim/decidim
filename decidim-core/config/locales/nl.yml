@@ -266,10 +266,6 @@ nl:
           '4': Publiceer uw amendement
     anonymous_user: Anoniem
     application:
-      collection:
-        documents:
-          one: Document
-          other: Documenten
       document:
         download: Bestand downloaden
       documents:
@@ -313,7 +309,6 @@ nl:
           foo: Foo
         name: Foo machtiging
       granted_at: Toegekend op %{timestamp}
-      renew: Vernieuw verificatie
       sms:
         explanation: Dien uw mobiele nummer in, zodat wij uw identiteit kunnen controleren.
         name: Code per sms
@@ -350,8 +345,6 @@ nl:
           explanation_html: Om deze actie uit te voeren moet je geautoriseerd zijn, daarvoor moet je je e-mail bevestigen <strong>%{email}</strong>.
           request_confirmation_instructions: Bevestigingsinstructies aanvragen
           title: bevestig je email
-      show:
-        close_modal: Sluit venster
     block_user_mailer:
       notify:
         body_1: Je account werd geblokkeerd
@@ -525,15 +518,11 @@ nl:
     endorsable:
       endorsements: Aanbevelingen
       endorsements_count: Aantal suggesties
-    endorsement_buttons_cell:
-      already_endorsed: Aangekleed
-      endorse: Aanbevelen
     endorsements:
       identities:
         done: Voltooid
         select_identity: Selecteer identiteit
     endorsers_list:
-      close: Sluiten
       endorsed_by: Geliket door...
     errors:
       internal_server_error:
@@ -716,8 +705,6 @@ nl:
         button: Stop met volgen
         error: Er is een fout opgetreden bij het stoppen met volgen van deze bron.
     forms:
-      current_image: Huidige afbeelding
-      default_image: Standaard afbeelding
       errors:
         decidim/user:
           password: Het wachtwoord is te kort.
@@ -858,7 +845,6 @@ nl:
         body_1: Je staat op het punt om een externe link te bezoeken, wees voorzichtig met de inhoud van de externe site.
         body_2: Controleer de link, zorg ervoor dat je deze herkent als een veilige site voor je verdergaat.
         cancel: Annuleer
-        close_modal: Sluit venster
         proceed: Doorgaan
         title: Externe link openen
     log:
@@ -979,7 +965,6 @@ nl:
       newsletter:
         no_reply_notice: Deze e-mail is verzonden vanuit een adres dat geen inkomende e-mail kan accepteren. Reageer niet op dit bericht.
         note: U ontvangt deze e-mail omdat u bent geabonneerd op nieuwsbrieven van %{organization_name}. U kunt uw instellingen op uw <a href="%{link}">notificatiepagina</a> veranderen.
-        see_on_website: Wordt deze e-mail niet correct worden weergegeven? Bekijk hem via deze link <a href="%{link}" target="_blank">website</a>.
         unsubscribe: Om je uit te schrijven, <a href="%{link}" target="_blank" class="unsubscribe">Uitschrijven</a>.
     newsletter_templates:
       basic_only_text:

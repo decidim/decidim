@@ -339,7 +339,7 @@ const renderOrgCharts = () => {
 
         // -------------------- handle drag end event ---------------
         function dragended() {
-          // we are doing nothing, here , aren't we?
+          // we are doing nothing, here , are not we?
         }
 
         // -------------------------- node mouse hover handler ---------------
@@ -534,7 +534,7 @@ const renderOrgCharts = () => {
           node.proportion = (_max + min) / 2
           if (!node.x) {
 
-            // if node has parent, match entered node positions to it's parent
+            // if node has parent, match entered node positions to it is parent
             if (node.parent) {
               node.x = node.parent.x
             } else {
@@ -542,7 +542,7 @@ const renderOrgCharts = () => {
             }
           }
 
-          // if node had parent, match entered node positions to it's parent
+          // if node had parent, match entered node positions to it is parent
           if (!node.y) {
             if (node.parent) {
               node.y = node.parent.y

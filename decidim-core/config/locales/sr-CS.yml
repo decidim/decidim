@@ -28,9 +28,6 @@ sr:
         welcome_text: Tekst dobrodošlice
       stats:
         name: Statistika organizacije
-    endorsement_buttons_cell:
-      already_endorsed: Podržano
-      endorse: Podrži
     endorsements:
       identities:
         done: Gotovo

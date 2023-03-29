@@ -1,10 +1,6 @@
 ro:
   activemodel:
     attributes:
-      agenda:
-        description: Descriere
-        duration: Durată
-        title: Titlu
       close_meeting:
         attendees_count: Număr de participanți
         attending_organizations: Lista organizaţiilor care au participat
@@ -22,7 +18,6 @@ ro:
         decidim_scope_id: Domeniu de interes
         decidim_user_group_id: Grup de utilizatori
         description: Descriere
-        end_time: Ora de încheiere
         id: ID
         location: Locaţie
         location_hints: Sugestii de localizare
@@ -35,11 +30,14 @@ ro:
         registration_terms: Termeni de înregistrare
         registration_url: URL înregistrare
         registrations_enabled: Înregistrări activate
-        show_embedded_iframe: Arată iframe încorporat pentru acest URL
-        start_time: Ora de începere
         title: Titlu
         transparent: Transparentă
         type_of_meeting: Tip
+      meeting_agenda:
+        title: Titlu
+      meeting_agenda_items:
+        duration: Durată
+        title: Titlu
     errors:
       models:
         meeting:

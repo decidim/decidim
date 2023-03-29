@@ -114,15 +114,17 @@ ja:
           verify_with_these_options: '本人確認には以下のオプションがあります。'
         index:
           expired_verification: 認証の有効期限が切れました
+          granted_verification: 許可された検証
+          introduce_code: コードの紹介
           pending_verification: 保留中の検証
           show_renew_info: クリックして確認を更新します
-          unauthorized_verification: 新しい検証
+          subscribe: 購読
+          unauthorized_methods: 検証方法
         new:
           authorize: 送信
           authorize_with: '%{authorizer} で認証'
         renew_modal:
           cancel: キャンセル
-          close: 閉じる
           continue: 続ける
           info_renew: データを更新したい場合は、更新を続けてください
           title: 確認を更新

@@ -6,15 +6,32 @@ fr:
         image: Image
         proposals: Propositions associées
         title: Titre
+      ballot_style:
+        code: Code
       election:
         description: Description
         end_time: Le vote se termine à
         start_time: Le vote commence à
         title: Titre
+      monitoring_committee_member:
+        email: Email
+        name: Nom
+      polling_officer:
+        email: Email
+        name: Nom
+      polling_station:
+        address: Adresse
+        location: Lieu
+        location_hints: Indication de lieu
+        polling_station_managers: Gestionnaires
+        polling_station_president_id: Président
+        title: Titre
       question:
         max_selections: Nombre maximum de sélections
         min_selections: Aucune des options ci-dessus
         title: Titre
+      trustees_participatory_space:
+        user_id: Participant
       voting:
         banner_image: Image de bannière
         census_contact_information: Informations de contact du recensement
@@ -22,7 +39,7 @@ fr:
         end_time: Le vote prend fin le
         introductory_image: Image d'introduction
         promoted: Mis en avant
-        scope: Secteur
+        scope_id: Périmètre d'application
         show_check_census: Afficher la page "Vérifier le recensement"
         start_time: Le vote commence le
         title: Titre
@@ -827,11 +844,20 @@ fr:
           published: Publié
         landing_page:
           content_blocks:
+            create:
+              error: Un problème est survenu lors de la création de ce bloc de contenu
+              success: Le bloc de contenu a été créé avec succès
+            destroy:
+              error: Un problème est survenu lors de la suppression de ce bloc de contenu
+              success: Le bloc de contenu a été supprimé avec succès
             edit:
               update: Mettre à jour
           edit:
             active_content_blocks: Blocs de contenu actifs
+            add: Ajouter un bloc de contenu
+            destroy_confirmation: Êtes-vous sûr(e) de vouloir supprimer ce bloc de contenu ?
             inactive_content_blocks: Blocs de contenu inactifs
+            title: Contenus de la page
         menu:
           votings: Élections
           votings_submenu:

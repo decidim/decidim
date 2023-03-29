@@ -217,7 +217,6 @@ el:
           votes:
             one: ψήφος
             other: ψήφοι
-          you_voted: Το ψηφίσατε
         project_budget_button:
           add: Προσθέστε στην ψήφο σας
           add_descriptive: Προσθήκη του έργου %{resource_name} στην ψήφο σας

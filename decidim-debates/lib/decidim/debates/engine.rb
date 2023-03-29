@@ -45,7 +45,7 @@ module Decidim
           badge.reset = lambda do |user|
             debates = Decidim::Comments::Comment.where(
               author: user,
-              decidim_root_commentable_type: "Decidim::Debates::Debate"\
+              decidim_root_commentable_type: "Decidim::Debates::Debate"
             )
             debates.pluck(:decidim_root_commentable_id).uniq.count
           end

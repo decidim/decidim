@@ -57,7 +57,7 @@ ca:
               other: Sortejos
         sortitions:
           confirm_destroy:
-            confirm_destroy: Estàs segura que vols cancel·lar aquest sorteig?
+            confirm_destroy: Segur que vols cancel·lar aquest sorteig?
             destroy: Cancel·lar el sorteig
             title: Cancel·lació del sorteig
           create:

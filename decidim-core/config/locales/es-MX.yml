@@ -245,7 +245,9 @@ es-MX:
         unblock: "%{user_name} desoficializó a la usuaria %{resource_name}"
         unofficialize: "%{user_name} desoficializó al usuario %{resource_name}"
       user_group:
+        block: "%{user_name} ha bloqueado al grup de usuarias %{resource_name}"
         reject: "%{user_name} rechazó la verificación del grupo de usuarios %{resource_name}"
+        unblock: "%{user_name} ha desbloqueado el grupo de usuarias %{resource_name}"
         verify: "%{user_name} verificó al grupo de usuarios %{resource_name}"
         verify_via_csv: "%{user_name} verificó el grupo de %{resource_name} usuario a través de un archivo CSV"
       user_moderation:
@@ -335,16 +337,15 @@ es-MX:
           '4': Publicar tu enmienda
     anonymous_user: Anónimo
     application:
-      collection:
-        documents:
-          one: Documento
-          other: Documentos
       document:
         download: Descargar archivo
       documents:
         related_documents: Documentos relacionados
       geocoding:
         geocoded_address: Dirección
+      photo:
+        alt: Imagen para los medios
+        title: Imagen
       photos:
         related_photos: Fotos relacionadas
     author:
@@ -385,13 +386,13 @@ es-MX:
           foo: Foo
         name: Autorización foo
       granted_at: Concedida el %{timestamp}
-      renew: Renovar la verificación
       sms:
         explanation: Introduce tu número de teléfono móvil para que podamos verificar tu identidad.
         name: Código por SMS
       started_at: Comenzó el %{timestamp}
     authorization_modals:
       content:
+        close_modal: Cerrar la ventana
         expired:
           authorize: Volver a autorizar con "%{authorization}"
           explanation: Tu autorización ha expirado. Para realizar esta acción, tienes que volver a obtener la autorización con "%{authorization}".
@@ -422,8 +423,6 @@ es-MX:
           explanation_html: Para realizar esta acción, debes estar autorizado, antes de hacerlo, confirma tu correo electrónico <strong>%{email}</strong>.
           request_confirmation_instructions: Solicitar instrucciones de confirmación
           title: Confirma tu email
-      show:
-        close_modal: Cerrar el modal
     block_user_mailer:
       notify:
         body_1: Tu cuenta ha sido bloqueda.
@@ -512,6 +511,17 @@ es-MX:
         view_all: Ver todo
       metrics:
         name: Métricas de la organización
+      static_page:
+        section:
+          name: Sección
+          section_content: Contenido
+        summary:
+          name: Resumen
+          summary_content: Contenido
+        two_pane_section:
+          left_column: Columna izquierda
+          name: Sección de dos paneles
+          right_column: Columna derecha
       stats:
         name: Estadísticas de la organización
       sub_hero:
@@ -602,14 +612,13 @@ es-MX:
       endorsements: Adhesiones
       endorsements_count: Número de adhesiones
     endorsement_buttons_cell:
-      already_endorsed: Adherido
-      endorse: Adherirse
+      already_endorsed: No me gusta
+      endorse: Me gusta
     endorsements:
       identities:
         done: Hecho
         select_identity: Seleccionar identidad
     endorsers_list:
-      close: Cerrar
       endorsed_by: Le gusta a…
     errors:
       internal_server_error:
@@ -620,7 +629,7 @@ es-MX:
         reference: Referencia
         request_method: Método de solicitud
         title: Ha habido un problema con nuestro servidor
-        try_later: Inténtalo de nuevo más tarde. Si el error persiste, por favor copia la siguiente información y envíala a los mantenedores de la plataforma con cualquier otra información que quieras compartir.
+        try_later: Inténtalo de nuevo más tarde. Si el error persiste, por favor copia la siguiente información y envíala a las mantenedoras de la plataforma con cualquier otra información que quieras compartir.
         unknown: Desconocido
         url: URL
         user: ID de participante
@@ -820,8 +829,6 @@ es-MX:
         button: Dejar de seguir
         error: Ha habido un error dejando de seguir este recurso.
     forms:
-      current_image: Imagen actual
-      default_image: Imagen predeterminada
       errors:
         decidim/user:
           password: La contraseña es demasiado corta.
@@ -855,6 +862,7 @@ es-MX:
           edit_image: Editar imagen
           error: '¡Error!'
           file_size_too_large: '¡El archivo es demasiado grande! Peso de archivo máximo: %{megabytes}MB'
+          filename: Nombre del archivo
           remove: Eliminar
           replace: Reemplazar
           save: Guardar
@@ -863,8 +871,9 @@ es-MX:
           uploaded: Subido
           validating: Validando...
           validation_error: '¡Error de validación!'
+        select_file: Seleccione un archivo
       upload_help:
-        dropzone: Arrastrar archivos aquí o haz clic para subirlos
+        dropzone: Arrastra los archivos aquí o haz clic en el botón para subirlos
         explanation: Guía para %{attribute}
     gamification:
       all_badges_link: Ver todas los distintivos disponibles.
@@ -993,7 +1002,6 @@ es-MX:
         body_1: Estás a punto de visitar un enlace externo y te recomendamos que seas prudente respecto al contenido de páginas externas.
         body_2: Por favor, antes de seguir, comprueba que el enlace que estás a punto de visitar pertenece a un sitio seguro.
         cancel: Cancelar
-        close_modal: Cerrar ventana
         proceed: Continuar
         title: Abrir enlace externo
     log:
@@ -1002,8 +1010,10 @@ es-MX:
         create_with_space: "%{user_name} creó %{resource_name} en %{space_name}"
         delete: "%{user_name} eliminó %{resource_name}"
         delete_with_space: "%{user_name} eliminó %{resource_name} en %{space_name}"
+        publish_with_space: "%{user_name} ha publicado %{resource_name} en %{space_name}"
         unknown_action: "%{user_name} realizó una acción en %{resource_name}"
         unknown_action_with_space: "%{user_name} realizó una acción en %{resource_name} en %{space_name}"
+        unpublish_with_space: "%{user_name} ha despublicado %{resource_name} en %{space_name}"
         update: "%{user_name} actualizó %{resource_name}"
         update_permissions_with_space: "%{user_name} ha actualizado los permisos de %{resource_name} en %{space_name}"
         update_with_space: "%{user_name} actualizó %{resource_name} en %{space_name}"
@@ -1117,9 +1127,9 @@ es-MX:
         title: Usuarios
     newsletter_mailer:
       newsletter:
-        no_reply_notice: Este correo electrónico se ha enviado des de una dirección de notificación que no acepta entrada de correos. Por favor, no respondas a este mensaje.
+        no_reply_notice: Este correo electrónico se ha enviado desde una dirección de correo de notificación que no acepta entrada de correos. Por favor, no respondas a este mensaje.
         note: Has recibido este mensaje porque estás suscrito a boletines de noticias en %{organization_name}. Puedes cambiar la configuración en tu <a href="%{link}">página de notificaciones</a>.
-        see_on_website: '¿No puedes ver este correo electrónico correctamente? Accede a su <a href="%{link}" target="_blank">versión web</a>.'
+        see_on_website: '¿No puedes ver este correo electrónico correctamente? Accede a su <a href="%{link}" target="_blank" class="see-on-website">versión web</a>.'
         unsubscribe: Si no quieres recibir este tipo de correo electrónico, <a href="%{link}" target="_blank" class="unsubscribe">unsubscríbete</a>.
     newsletter_templates:
       basic_only_text:
@@ -1309,8 +1319,8 @@ es-MX:
           edit_user_group: Editar el perfil del grupo
           invite_user: Invitar a una participante
           join_user_group: Solicitar unirse al grupo
-          manage_user_group_admins: Gestionar las administradoras
-          manage_user_group_users: Gestionar las miembros
+          manage_user_group_admins: Gestionar administradoras
+          manage_user_group_users: Gestionar miembros
           message: Mensaje
         confirmation_instructions_sent: Instrucciones de confirmación por correo electrónico enviadas
         create_user_group: Crear un grupo
@@ -1409,11 +1419,14 @@ es-MX:
         close: Cerrar
         description: Es inapropiado este contenido?
         does_not_belong: Contiene actividad ilegal, amenazas de suicidio, información personal o cualquier otra cosa que usted piense que no pertenece en %{organization_name}.
+        hide: Esconder
+        hide_content: Esconder este contenido
         offensive: Contiene racismo, sexismo, insultos, ataques personales, amenazas de muerte, solicitudes de suicidio o cualquier forma de discurso de odio.
         reason: Motivo
         report: Denunciar
         spam: Contiene clickbait, publicidad o estafas.
         title: Denunciar un problema
+        visit_profile: Si también quieres bloquear al participante y el resto de sus contenidos, ve a la página de perfil de %{user_link}.
       flag_user_modal:
         already_reported: Este contenido ya ha sido reportado y será revisado por una administradora.
         close: Cerrar
@@ -1440,6 +1453,9 @@ es-MX:
           select_an_area: Seleccione un area
       public_participation:
         public_participation: Mostrar mi asistencia públicamente
+      redesigned_login_modal:
+        please_sign_in: Por favor, inicia la sesión
+        sign_up: Registrarse
       reference:
         reference: 'Referencia: %{reference}'
       represent_user_group:
@@ -1727,7 +1743,7 @@ es-MX:
       not_found: No se han encontrado resultados
   errors:
     messages:
-      allowed_file_content_types: 'Sólo se permiten archivos con las siguientes extensiones: %{types}'
+      allowed_file_content_types: 'solo se permiten archivos con las siguientes extensiones: %{types}'
       already_confirmed: Ya fuiste confirmado, intenta iniciar sesión
       confirmation_period_expired: Necesitas ser confirmado dentro de %{period}, por favor solicita uno nuevo.
       content_type_allowlist_error: el tipo de archivo no es válido
@@ -1745,7 +1761,7 @@ es-MX:
         other: 'Hubo varios errores al procesar tu solicitud:'
       too_many_marks: Estás usando demasiados signos de puntuación consecutivos (por ejemplo,! y?)
       too_much_caps: Está usando demasiadas letras mayúsculas (más del 25% del texto)
-      too_short: Es demasiado corto (menos %{count} caracteres)
+      too_short: es demasiado corto (menos %{count} caracteres)
   forms:
     correct_errors: Hay errores en el formulario, por favor corrígelos para continuar.
     length_validator:
@@ -1929,6 +1945,7 @@ es-MX:
             accept_until_format: "%B %d, %Y %I:%M %p"
       long: "%B %d, %Y %H:%M"
       long_dashed: "%d-%m-%Y %H:%M:%S"
+      long_with_particles: "%d de %B del %Y a las %Hh%M"
       short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
   versions:

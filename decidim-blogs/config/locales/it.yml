@@ -18,8 +18,6 @@ it:
         title: Azioni
       admin:
         models:
-          components:
-            body: Corpo
           post:
             name: Inviare
         posts:
@@ -44,10 +42,8 @@ it:
           fields:
             author: Autore
             body: Corpo
-            title: titolo
       posts:
         show:
-          comments: Commenti
           view: vista
     components:
       blogs:

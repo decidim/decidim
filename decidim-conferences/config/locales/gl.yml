@@ -28,7 +28,6 @@ gl:
         show_statistics: Amosar estatísticas
         sign_date: Data de sinatura
         signature: Sinatura
-        signature_name: nome da sinatura
         slogan: Eslogan
         slug: URL slug
         start_date: Data de inicio
@@ -37,13 +36,11 @@ gl:
         date: Data
         link: Ligazón
         title: Título
-        weight: Peso
       conference_partner:
         link: Ligazón
         logo: Logotipo
         name: Nome
         partner_type: Tipo de socio
-        weight: Peso
       conference_registration_invite:
         email: Correo electrónico
         name: Nome
@@ -53,7 +50,6 @@ gl:
         description: Descrición
         price: Prezo
         title: Título
-        weight: Peso
       conference_speaker:
         affiliation: Afiliación
         avatar: Avatar
@@ -131,8 +127,6 @@ gl:
         edit:
           title: Actualiza o usuario da conferencia.
           update: Actualización
-        index:
-          conference_admins_title: usuarios de conferencias
         new:
           create: Crear
           title: Novo usuario da conferencia.
@@ -398,18 +392,11 @@ gl:
           cancel: Cancelar
           confirm: Confirmar
         show:
-          free: Gratis
           going: Indo
           no_slots_available: Non hai slots dispoñibles
           registration: Rexistro
       conference_program:
-        program_meeting:
-          content: Contido
-          location: Localización
-          speakers: Ponentes
-          streaming: Transmisión
         show:
-          day: Día
           program: Programa
       conference_registration_mailer:
         confirmation:
@@ -440,18 +427,12 @@ gl:
       conference_speaker_cell:
         personal_url:
           personal_website: Sitio web persoal
-        twitter_handle:
-          go_to_twitter: Ir a Twitter
-      conference_speakers:
-        index:
-          speakers: Ponentes
       conferences:
         partners:
           collaborators: Socios
           main_promotors: Organizadores
         show:
           login_as: Estás conectado como %{name} <%{email}>
-          make_conference_registration: 'Fai a túa inscrición na conferencia:'
           register: Rexistrarse
       content_blocks:
         highlighted_conferences:
@@ -497,29 +478,12 @@ gl:
             active_conferences: Conferencias activas
             conferences_button_title: Ligazón á páxina de Conferencias que amosa todas as conferencias
             see_all_conferences: Ver todas as conferencias
-      photo:
-        image:
-          attributes:
-            alt: Imaxe
-        show:
-          close_modal: Pechar modal
-          photo: Foto
-      photos_list:
-        show:
-          related_photos: Fotos
       registration_types:
         index:
           choose_an_option: 'Elixe a túa opción de rexistro:'
-          login_as: Estás conectado como %{name} <%{email}>
           no_registrations: Sen rexistros
           register: Rexistrarse
           title: Tipos de rexistro
-      shared:
-        conference_user_login:
-          already_account: Xa tes unha conta en decidir?
-          new_user: Novo usuario?
-          sign_in: Iniciar sesión para rexistrarse na conferencia
-          sign_up: Crea unha conta na que decidimos rexistrarte para a conferencia
       show:
         details: Detalles
         introduction: Introdución

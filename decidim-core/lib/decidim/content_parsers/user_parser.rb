@@ -20,7 +20,7 @@ module Decidim
 
       # Replaces found mentions matching a nickname of an existing
       # user in the current organization with a global id. Other
-      # mentions found that doesn't match an existing user are
+      # mentions found that does not match an existing user are
       # returned as is.
       #
       # @return [String] the content with the valid mentions replaced by a global id

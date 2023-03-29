@@ -103,7 +103,7 @@ module Decidim
         end
 
         describe "and the resource is NOT completely translated" do
-          it "doesn't send emails" do
+          it "does not send emails" do
             allow(ReportedMailer).to receive(:report).and_call_original
 
             proposal.save
@@ -123,7 +123,7 @@ module Decidim
       describe "and the target language is NOT the organization's default" do
         let(:target_locale) { "fi" }
 
-        it "doesn't send emails" do
+        it "does not send emails" do
           allow(ReportedMailer).to receive(:report).and_call_original
 
           proposal.save

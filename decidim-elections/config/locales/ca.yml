@@ -6,15 +6,32 @@ ca:
         image: Imatge
         proposals: Propostes relacionades
         title: Títol
+      ballot_style:
+        code: Codi
       election:
         description: Descripció
         end_time: La votació finalitza el
         start_time: La votació comença el
         title: Títol
+      monitoring_committee_member:
+        email: Correu electrònic
+        name: Nom
+      polling_officer:
+        email: Correu electrònic
+        name: Nom
+      polling_station:
+        address: Adreça
+        location: Ubicació
+        location_hints: Detalls d'ubicació
+        polling_station_managers: Gestores
+        polling_station_president_id: Presidència
+        title: Títol
       question:
         max_selections: Número màxim d'opcions
         min_selections: Cap de les opcions anteriors
         title: Títol
+      trustees_participatory_space:
+        user_id: Participant
       voting:
         banner_image: Imatge de capçalera
         census_contact_information: Dades de contacte del cens
@@ -22,7 +39,7 @@ ca:
         end_time: La votació finalitza
         introductory_image: Imatge de presentació
         promoted: Destacada
-        scope: Àmbit
+        scope_id: Àmbit
         show_check_census: Mostrar la pàgina de "comprovar el cens"
         start_time: La votació comença
         title: Títol
@@ -827,11 +844,20 @@ ca:
           published: Publicada
         landing_page:
           content_blocks:
+            create:
+              error: S'ha produït un error en intentar crear aquest bloc de contingut
+              success: Bloc de contingut creat amb èxit
+            destroy:
+              error: S'ha produït un error en intentar eliminar aquest bloc de contingut
+              success: Bloc de contingut eliminat amb èxit
             edit:
               update: Actualitzar
           edit:
             active_content_blocks: Blocs de contingut actius
+            add: Afegir bloc de contingut
+            destroy_confirmation: Segur que vols esborrar aquest bloc de contingut?
             inactive_content_blocks: Blocs de contingut inactius
+            title: Continguts de la pàgina
         menu:
           votings: Votacions
           votings_submenu:
@@ -1105,7 +1131,7 @@ ca:
               info_message_warn: Si us plau, comprova que no s'hagi perdut cap dada, s'han creat %{data_count} registres i el fitxer pujat %{file} té %{raw_count} fileres.
               launch_error: Hi ha hagut un error en generar els codis d'accés
               launch_success: S'ha iniciat la generació dels codis.
-              start_over: Si us plau, elimineu el cens actual i tornar a començar amb un arxiu CSV apropiat amb files vàlides.
+              start_over: Si us plau, elimina el cens actual i torna a començar amb un arxiu CSV apropiat amb files vàlides.
             generating_access_codes:
               info_message: "<strong>Si us plau, espera</strong>, els codis d'accés a la votació s'estan generant (això pot trigar uns minuts)..."
             new:

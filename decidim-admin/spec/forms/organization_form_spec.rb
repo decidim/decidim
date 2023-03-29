@@ -21,6 +21,7 @@ module Decidim
       let(:github_handler) { "My github awesome handler" }
       let(:default_locale) { :en }
       let(:translation_priority) { "original" }
+      let(:comments_max_length) { 100 }
       let(:admin_terms_of_use_body) do
         {
           ca: "",
@@ -42,6 +43,7 @@ module Decidim
             "instagram_handler" => instagram_handler,
             "youtube_handler" => youtube_handler,
             "github_handler" => github_handler,
+            "comments_max_length" => comments_max_length,
             "machine_translation_display_priority" => translation_priority,
             "admin_terms_of_use_body_ca" => admin_terms_of_use_body[:ca],
             "admin_terms_of_use_body_en" => admin_terms_of_use_body[:en],

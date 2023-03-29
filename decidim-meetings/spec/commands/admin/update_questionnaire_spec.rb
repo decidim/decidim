@@ -91,7 +91,7 @@ module Decidim
               expect { command.call }.to broadcast(:invalid)
             end
 
-            it "doesn't update the questionnaire" do
+            it "does not update the questionnaire" do
               expect(questionnaire).not_to receive(:update!)
               command.call
             end
@@ -184,7 +184,7 @@ module Decidim
               expect { command.call }.to broadcast(:invalid)
             end
 
-            it "doesn't update the questionnaire" do
+            it "does not update the questionnaire" do
               expect(questionnaire).not_to receive(:update!)
               command.call
             end

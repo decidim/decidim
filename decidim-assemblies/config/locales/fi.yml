@@ -3,7 +3,10 @@ fi:
     attributes:
       assemblies_setting:
         enable_organization_chart: Ota organisaatiokaavio käyttöön
+      assemblies_type:
+        title: Otsikko
       assembly:
+        announcement: Ilmoitus
         area_id: Alue
         assembly_type: Ryhmän tyyppi
         assembly_type_other: Muu ryhmän tyyppi
@@ -22,12 +25,16 @@ fi:
         decidim_scope_id: Teema
         description: Kuvaus
         developer_group: Edistäjäryhmä
+        document: Asiakirja
         domain: Toimintaympäristö
         duration: Kesto
         facebook: Facebook
         github: GitHub
         hashtag: Aihetunniste (hashtag)
         hero_image: Etusivun kuva
+        import_attachments: Tuo liitteitä
+        import_categories: Tuo aihepiirejä
+        import_components: Tuo komponentteja
         included_at: Lisäysaika
         instagram: Instagram
         internal_organisation: Sisäinen organisaatio
@@ -64,6 +71,7 @@ fi:
         non_user_avatar: Avatar
         position: Asema
         user_id: Käyttäjä tai ryhmä
+        weight: Järjestysnumero
       assembly_user_role:
         email: Sähköposti
         name: Nimi

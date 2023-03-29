@@ -217,9 +217,6 @@ zh-CN:
           '4': 发布您的修改
     anonymous_user: 匿名的
     application:
-      collection:
-        documents:
-          other: www.un.org/webcast
       document:
         download: 下载文件
       documents:
@@ -257,7 +254,6 @@ zh-CN:
           foo: Foo
         name: Foo 授权
       granted_at: 在 %{timestamp} 授权
-      renew: 更新验证
       sms:
         explanation: 提交您的手机号码，以便我们可以检查您的身份。
         name: 短信代码
@@ -292,8 +288,6 @@ zh-CN:
           explanation_html: 要执行此操作，您需要获得授权，然后才能确认您的电子邮件 <strong>%{email}</strong>
           request_confirmation_instructions: 请求确认说明
           title: 确认您的电子邮件
-      show:
-        close_modal: 关闭模式
     collapsible_list:
       hidden_elements_count:
         other: 和 %{count} 更多
@@ -433,9 +427,6 @@ zh-CN:
     endorsable:
       endorsements: 授权
       endorsements_count: 批准次数
-    endorsement_buttons_cell:
-      already_endorsed: 已批准
-      endorse: 批准
     endorsements:
       identities:
         done: 完成
@@ -615,8 +606,6 @@ zh-CN:
         button: 停止关注
         error: 出现了一个不关注此资源的问题。
     forms:
-      current_image: 当前图像
-      default_image: 默认图像
       errors:
         decidim/user:
           password: 密码太短。
@@ -864,7 +853,6 @@ zh-CN:
     newsletter_mailer:
       newsletter:
         note: 您收到这封邮件是因为您订阅了 %{organization_name}的新闻通讯。您可以在您的 <a href="%{link}">通知页面</a> 更改您的设置。
-        see_on_website: 找不到正确的电子邮件？在 <a href="%{link}" target="_blank">网站</a> 上查看。
         unsubscribe: 选择不接收这种类型的电子邮件， <a href="%{link}" target="_blank" class="unsubscribe">取消订阅</a>。
     newsletter_templates:
       basic_only_text:

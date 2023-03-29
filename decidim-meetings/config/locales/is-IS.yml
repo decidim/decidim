@@ -14,13 +14,11 @@ is-IS:
         decidim_category_id: Flokkur
         decidim_scope_id: Umfang
         description: Lýsing
-        end_time: Lokatími
         location: Staðsetning
         location_hints: Staðsetningarmöguleikar
         private_meeting: Einkafundur
         registration_terms: Skráningarskilmálar
         registrations_enabled: Skráningar virkt
-        start_time: Byrjunartími
         title: Titill
         transparent: Gegnsætt
   decidim:

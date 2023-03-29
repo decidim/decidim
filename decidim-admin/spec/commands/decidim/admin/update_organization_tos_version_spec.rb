@@ -31,7 +31,7 @@ module Decidim::Admin
           expect { command.call }.to broadcast(:invalid)
         end
 
-        it "doesn't update the organization's terms-and-conditions updated at setting" do
+        it "does not update the organization's terms-and-conditions updated at setting" do
           previous_tos_version = organization.tos_version.strftime("%F %T.%L")
           command.call
           organization.reload

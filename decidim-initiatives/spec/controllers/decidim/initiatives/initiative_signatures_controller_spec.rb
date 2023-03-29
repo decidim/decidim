@@ -19,7 +19,7 @@ module Decidim
       context "when POST create" do
         context "and authorized user" do
           context "and initiative with user extra fields required" do
-            it "can't vote" do
+            it "cannot vote" do
               sign_in initiative_with_user_extra_fields.author, scope: :user
               post :create, params: { initiative_slug: initiative_with_user_extra_fields.slug, format: :js }
               expect(response).to have_http_status(:unprocessable_entity)

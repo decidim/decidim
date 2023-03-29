@@ -28,22 +28,22 @@ de:
         show_statistics: Zeige Statistiken
         sign_date: Unterzeichnungsdatum
         signature: Unterschrift
-        signature_name: Signaturname
         slogan: Slogan
         slug: URL-Block
         start_date: Startdatum
         title: Titel
+        weight: Reihenfolge
       conference_media_link:
         date: Datum
         link: Link
         title: Titel
-        weight: Gewicht
+        weight: Reihenfolge
       conference_partner:
         link: Link
         logo: Logo
         name: Name
         partner_type: Partnertyp
-        weight: Gewicht
+        weight: Reihenfolge
       conference_registration_invite:
         email: E-Mail
         name: Name
@@ -53,7 +53,7 @@ de:
         description: Beschreibung
         price: Preis
         title: Titel
-        weight: Gewicht
+        weight: Reihenfolge
       conference_speaker:
         affiliation: Zugehörigkeit
         avatar: Profilbild
@@ -133,8 +133,6 @@ de:
         edit:
           title: Aktualisieren Sie den Konferenzbenutzer.
           update: Aktualisieren
-        index:
-          conference_admins_title: Konferenzbenutzer
         new:
           create: Erstellen
           title: Neuer Konferenzbenutzer
@@ -246,7 +244,7 @@ de:
             price: Preis
             registrations_count: Registrierungen zählen
             title: Titel
-            weight: Bestellposition
+            weight: Reihenfolge
           name: Registrierungstyp
       partners:
         create:
@@ -404,18 +402,11 @@ de:
           cancel: Stornieren
           confirm: Bestätigen
         show:
-          free: Kostenlos
           going: Gehen
           no_slots_available: Keine Steckplätze verfügbar
           registration: Anmeldung
       conference_program:
-        program_meeting:
-          content: Inhalt
-          location: Ort
-          speakers: Lautsprecher
-          streaming: Streaming
         show:
-          day: Tag
           program: Programm
       conference_registration_mailer:
         confirmation:
@@ -446,18 +437,12 @@ de:
       conference_speaker_cell:
         personal_url:
           personal_website: Persönliche Webseite
-        twitter_handle:
-          go_to_twitter: Gehe zu Twitter
-      conference_speakers:
-        index:
-          speakers: Lautsprecher
       conferences:
         partners:
           collaborators: Partner
           main_promotors: Organisatoren
         show:
           login_as: Sie sind als %{name} <%{email}> angemeldet
-          make_conference_registration: 'Machen Sie Ihre Registrierung in der Konferenz:'
           register: Registrieren
       content_blocks:
         highlighted_conferences:
@@ -503,29 +488,12 @@ de:
             active_conferences: Aktive Konferenzen
             conferences_button_title: Link zur Konferenz-Seite die alle Konferenzen anzeigt
             see_all_conferences: Alle Konferenzen anzeigen
-      photo:
-        image:
-          attributes:
-            alt: Pressebild
-        show:
-          close_modal: Modal schließen
-          photo: Bild
-      photos_list:
-        show:
-          related_photos: Bilder
       registration_types:
         index:
           choose_an_option: 'Wählen Sie Ihre Registrierungsoption:'
-          login_as: Sie sind als %{name} <%{email}> angemeldet
           no_registrations: Keine Registrierungen
           register: Registrieren
           title: Registrierungsarten
-      shared:
-        conference_user_login:
-          already_account: Haben Sie schon einen Account in Decidim?
-          new_user: Neuer Benutzer?
-          sign_in: Melden Sie sich an, um sich für die Konferenz zu registrieren
-          sign_up: Erstellen Sie ein Konto in decidim, um sich für die Konferenz anzumelden
       show:
         details: Einzelheiten
         introduction: Einführung

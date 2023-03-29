@@ -226,7 +226,6 @@ it:
           votes:
             one: voto
             other: voti
-          you_voted: Hai votato
         project_budget_button:
           add: Aggiungi al tuo voto
           add_descriptive: Aggiungi progetto %{resource_name} al tuo voto

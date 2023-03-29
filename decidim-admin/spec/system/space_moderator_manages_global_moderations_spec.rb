@@ -25,12 +25,12 @@ describe "Space moderator manages global moderations", type: :system do
     login_as user, scope: :user
   end
 
-  context "when the user hasn't accepted the Terms of Use" do
+  context "when the user has not accepted the Terms of Use" do
     before do
       user.update(admin_terms_accepted_at: nil)
     end
 
-    it "doesn't have the menu item in the main navigation" do
+    it "does not have the menu item in the main navigation" do
       visit participatory_space_path
 
       within ".main-nav" do
@@ -38,7 +38,7 @@ describe "Space moderator manages global moderations", type: :system do
       end
     end
 
-    it "can't access to the Global moderations page" do
+    it "cannot access to the Global moderations page" do
       visit decidim_admin.moderations_path
 
       within ".callout.alert" do
@@ -63,11 +63,11 @@ describe "Space moderator manages global moderations", type: :system do
       create :participatory_process, organization:
     end
 
-    it "can't see any moderation" do
+    it "cannot see any moderation" do
       visit decidim_admin.moderations_path
 
       within ".container" do
-        expect(page).to have_content("Moderations")
+        expect(page).to have_content("Reported content")
 
         expect(page).to have_no_selector("table.table-list tbody tr")
       end

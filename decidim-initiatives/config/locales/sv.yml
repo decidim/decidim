@@ -2,8 +2,12 @@ sv:
   activemodel:
     attributes:
       initiative:
+        answer: Svar
+        area_id: Område
+        decidim_scope_id: Omfång
         decidim_user_group_id: Författare
         description: Beskrivning
+        hashtag: Hashtag
         offline_votes: Fysiska underskrifter
         scope_id: Omfång
         signature_end_date: Insamling av underskrifter avslutas
@@ -15,8 +19,11 @@ sv:
           online: Online
         state: Status
         title: Titel
+        type_id: Typ
       initiatives_committee_member:
         user: Kommittémedlem
+      initiatives_settings:
+        initiatives_order: Ordning
       initiatives_type:
         area_enabled: Gör det möjligt för författare att välja området för deras initiativ
         attachments_enabled: Aktivera bilagor
@@ -33,6 +40,8 @@ sv:
         title: Titel
         undo_online_signatures_enabled: Tillåt deltagare att ångra sina online-underskrifter
         validate_sms_code_on_votes: Lägg till SMS-validering till signeringsprocessen
+      initiatives_type_scope:
+        decidim_scopes_id: Omfång
       initiatives_vote:
         date_of_birth: Födelsedatum
         document_number: Dokumentnummer
@@ -87,6 +96,7 @@ sv:
         components: Komponenter
         information: Information
         initiatives: Initiativ
+        initiatives_settings: Inställningar
         initiatives_types: Initiativtyper
         moderations: Moderering
       models:
@@ -199,6 +209,7 @@ sv:
             max_results: Högsta antal element att visa
             order:
               default: Standard (Äldste)
+              label: 'Sortera efter:'
               most_recent: Senaste
         exports:
           initiatives: Initiativ
@@ -539,6 +550,7 @@ sv:
           comment: Kommentera
       initiatives_type:
         actions:
+          create: Skapa
           title: Åtgärder
           vote: Underteckna
   layouts:

@@ -34,7 +34,7 @@ module Decidim
         def birthdate
           return unless [year, month, day].all? { |part| part.is_a? Numeric }
 
-          format("%04d%02d%02d", year, month, day) # rubocop:disable Style/FormatStringToken
+          format("%04d%02d%02d", year, month, day)
         end
       end
     end

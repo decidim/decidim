@@ -1,10 +1,6 @@
 tr:
   activemodel:
     attributes:
-      agenda:
-        description: Açıklama
-        duration: süre
-        title: Başlık
       close_meeting:
         attendees_count: Katılımcı sayısı
         attending_organizations: Katılan kuruluşların listesi
@@ -21,7 +17,6 @@ tr:
         decidim_scope_id: kapsam
         decidim_user_group_id: Kullanıcı grubu
         description: Açıklama
-        end_time: Bitiş zamanı
         location: yer
         location_hints: Yer ipuçları
         online_meeting_url: Çevrimiçi Toplantı URL
@@ -32,7 +27,6 @@ tr:
         registration_terms: Kayıt şartları
         registration_url: Kayıt URL
         registrations_enabled: Kayıtlar etkinleştirildi
-        start_time: Başlama zamanı
         title: Başlık
         transparent: Şeffaf
         type_of_meeting: Tür

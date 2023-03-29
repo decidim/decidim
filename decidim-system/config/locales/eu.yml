@@ -72,7 +72,7 @@ eu:
       models:
         admin:
           fields:
-            created_at: Tan sortua
+            created_at: Sortze-data
             email: Helbide elektronikoa
           name: Administratzailea
           validations:

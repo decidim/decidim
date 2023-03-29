@@ -13,8 +13,11 @@ eu:
         decidim_scope_id: Esparrua
         description: Descripción
         proposal_ids: Honekin lotutako proposamenak
-        selected: Hautatua inplementatzeko
+        proposals: Proposamenak
+        selected: Ezarpenerako hautatuak
         title: Titulua
+      proposals_import:
+        scope_id: Eremua
   activerecord:
     models:
       decidim/budgets/project:
@@ -26,6 +29,8 @@ eu:
         projects:
           category_id_eq:
             label: Kategoria
+          scope_id_eq:
+            label: Eremua
           selected_at_null:
             label: Hautatua
             values:
@@ -42,6 +47,7 @@ eu:
         import: Inportatu proposamenak proiektuetarako
         new: '%{name} berria'
         preview: Aurreikusi
+        send_voting_reminders: Botoa gogorarazi
         title: Ekintzak
       admin:
         budgets:
@@ -83,6 +89,10 @@ eu:
             title: Editatu proiektua
             update: Eguneratu
           index:
+            actions: Ekintzak
+            cancel: Ezeztatu
+            change_category: Kategoria aldatu
+            change_scope: Aldatu eremua
             change_selected: Aldatu hautatutako eremua
             deselect_implementation: Gauzatzekoetatik kendu
             finished_orders: Bukatutako botoak
@@ -90,12 +100,17 @@ eu:
             select_for_implementation: Gauzatzeko hautatua
             selected: Hautatua
             title: Proiektuak
+            update: Eguneratu
+            update_scope_button: Eguneratu eremua
           new:
             create: Sortu
             title: Proiektu berria
           update:
             invalid: Arazo bat izan da proiektu hau eguneratzean
             success: Proiektua zuzen eguneratu da
+          update_category:
+            select_a_category: Mesedez, hautatu kategoria bat
+            select_a_project: Mesedez, hautatu proiektu bat
           update_selected:
             invalid:
               selected: 'Honako proiektu hauek dagoeneko gauzatzeko hautatu dira: %{projects}.'
@@ -247,7 +262,7 @@ eu:
           votes:
             one: Botoa
             other: botoak
-          you_voted: Hau bozkatu duzu
+          you_voted: Honen aldeko botoa eman duzu
         project_budget_button:
           add: Gehitu zure botoari
           add_descriptive: Gehitu %{resource_name} proiektua zure botoari

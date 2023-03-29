@@ -57,7 +57,7 @@ describe "Admin manages global moderations", type: :system do
     let!(:reportables) { create(:user_report, moderation:, user:, reason: "spam") }
 
     context "when displaying the user counter" do
-      it "can not see user menu counter for resources" do
+      it "cannot see user menu counter for resources" do
         visit decidim_admin.moderations_path
 
         within ".secondary-nav" do

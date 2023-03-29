@@ -209,7 +209,7 @@ en:
           email_intro: 'You can now start new debates in %{participatory_space_title}! Start participating in this page:'
           email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
           email_subject: Debates now available in %{participatory_space_title}
-          notification_title: You can now start <a href="%{resource_path}">new debates</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          notification_title: You can now start <a href="%{resource_path}">new debates</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
         debate_closed:
           affected_user:
             email_intro: 'The "%{resource_title}" debate was closed. You can read the conclusions from its page:'
@@ -232,7 +232,7 @@ en:
           name: Debates
           next_level_in: Participate in %{score} more debates to reach the next level!
           unearned_another: This participant has not yet taken part in any debate.
-          unearned_own: You haven't participated in any debates yet.
+          unearned_own: You have not participated in any debates yet.
     metrics:
       debates:
         description: Number of debates created

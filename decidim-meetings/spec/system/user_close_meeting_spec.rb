@@ -121,7 +121,7 @@ describe "User edit meeting", type: :system do
       login_as another_user, scope: :user
     end
 
-    it "doesn't show the button" do
+    it "does not show the button" do
       visit_component
 
       click_link translated(meeting.title)

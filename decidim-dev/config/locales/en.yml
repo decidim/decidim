@@ -53,7 +53,7 @@ en:
           description_own: You have created %{score} tests.
           name: Tests
           next_level_in: Create %{score} more tests to reach the next level!
-          unearned_another: This participant hasn't created any tests yet.
+          unearned_another: This participant has not created any tests yet.
           unearned_own: You have created no tests yet.
     resource_links:
       test_link:

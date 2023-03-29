@@ -41,6 +41,15 @@ ja:
         name: テンプレート
     templates:
       admin:
+        block_user_templates:
+          form:
+            save: 保存
+            template_title: テンプレート情報
+          index:
+            confirm_delete: このテンプレートを削除してもよろしいですか？
+            title: ユーザーメッセージをブロック
+          template_chooser:
+            select_template: テンプレート回答を選択
         questionnaire_templates:
           choose:
             create_from_template: テンプレートから作る
@@ -70,4 +79,5 @@ ja:
           duplicate: "%{user_name} が %{resource_name} アンケートテンプレートを複製しました"
           update: "%{user_name} が %{resource_name} アンケートテンプレートを更新しました"
       template_types:
+        block_user: ユーザーメッセージをブロック
         questionnaires: アンケート

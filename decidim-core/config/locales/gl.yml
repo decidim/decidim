@@ -205,10 +205,6 @@ gl:
           '4': Publish your amendment
     anonymous_user: Anónimo
     application:
-      collection:
-        documents:
-          one: Documento
-          other: Documentos
       documents:
         related_documents: Documentos relacionados
       geocoding:
@@ -568,8 +564,6 @@ gl:
         button: Deixar de seguir
         error: Houbo un erro ao seguir este recurso.
     forms:
-      current_image: Imaxe actual
-      default_image: Imaxe predeterminada
       errors:
         error: Hai un erro neste campo.
       upload:
@@ -589,7 +583,6 @@ gl:
           validating: Validando...
           validation_error: Erro de validación!
       upload_help:
-        dropzone: Solta os ficheiros aquí ou preme para cargar
         explanation: Guía para %{attribute}
     gamification:
       all_badges_link: Consulta todas as insignias dispoñibles.
@@ -715,7 +708,6 @@ gl:
         body_1: Estás a punto de visitar unha ligazón externa e gustaríanos ser cautelosos canto ao contido deste sitio externo.
         body_2: Por favor, verifica a ligazón a punto de visitar e asegúrate de que é un sitio seguro antes de continuar.
         cancel: Cancelar
-        close_modal: Pechar modal
         proceed: Continuar
         title: Abrir ligazón externa
     log:
@@ -783,7 +775,6 @@ gl:
     newsletter_mailer:
       newsletter:
         note: Recibiches este correo electrónico porque estás subscrito a boletíns en %{organization_name}. Podes cambiar a configuración nas túas <a href="%{link}"> notificacións páxina</a>.
-        see_on_website: Non se pode ver este correo electrónico correctamente? Vénseo no <a href="%{link}" target="_blank"> sitio web</a>.
         unsubscribe: Para desactivar a recepción deste tipo de correo electrónico, <a href="%{link}" target="_blank" class="unsubscribe">Subscribe</a>.
     newsletters:
       unsubscribe:

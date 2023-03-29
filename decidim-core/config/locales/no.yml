@@ -272,10 +272,6 @@
           '4': Publiser endringen din
     anonymous_user: Anonym
     application:
-      collection:
-        documents:
-          one: Dokument
-          other: Dokumenter
       document:
         download: Last ned fil
       documents:
@@ -321,7 +317,6 @@
           foo: Foo
         name: Foo autorisering
       granted_at: Godkjent på %{timestamp}
-      renew: Forny verifisering
       sms:
         explanation: Send inn ditt telefonnummer så vi kan sjekke din identitet.
         name: Kode via SMS
@@ -358,8 +353,6 @@
           explanation_html: For å utføre denne handlingen må du være autorisert, før du gjør det må du å bekrefte e-postadressen din <strong>%{email}</strong>.
           request_confirmation_instructions: Be om bekreftels instruksjoner
           title: Bekreft e-posten din
-      show:
-        close_modal: Lukk vinduet
     block_user_mailer:
       notify:
         body_1: Kontoen din ble blokkert.
@@ -540,9 +533,6 @@
     endorsable:
       endorsements: Påtegnelser
       endorsements_count: Antall tilslutninger
-    endorsement_buttons_cell:
-      already_endorsed: Tilsluttet
-      endorse: Tilslutte
     endorsements:
       identities:
         done: Ferdig
@@ -736,8 +726,6 @@
         button: Stopp å følge
         error: Det oppstod et problem med å slutte å følge denne ressursen.
     forms:
-      current_image: Nåværende bilde
-      default_image: Standard bilde
       errors:
         decidim/user:
           password: Dette passordet er for kort.
@@ -878,7 +866,6 @@
         body_1: Du er i ferd med å besøke en ekstern lenke, og vi vil at du skal være forsiktig med hensyn til innholdet på det eksterne nettstedet.
         body_2: Vennligst sjekk linken du er i ferd med å besøke og sørg for at du anser den som et sikkert nettsted før du fortsetter.
         cancel: Avbryt
-        close_modal: Lukk dialogboks
         proceed: Fortsett
         title: Åpne ekstern lenke
     log:
@@ -998,7 +985,6 @@
     newsletter_mailer:
       newsletter:
         note: Du mottok denne e-posten fordi du abonnerer på nyhetsbrev for %{organization_name}. Du kan endre innstillingene dine på <a href="%{link}">varslings siden din</a>.
-        see_on_website: Kan ikke se denne e-posten riktig? Se den på <a href="%{link}" target="_blank">nettsiden</a>.
         unsubscribe: For å velge bort å motta denne typen e-mailer, <a href="%{link}" target="_blank" class="unsubscribe">Avslutt abonnementet</a>.
     newsletter_templates:
       basic_only_text:

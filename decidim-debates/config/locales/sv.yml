@@ -10,6 +10,7 @@ sv:
         end_time: Slutar vid
         information_updates: Informationsuppdateringar
         instructions: Deltagaranvisningar
+        scope_id: Omfång
         start_time: Börjar vid
         title: Titel
         user_group_id: Skapa debatt som

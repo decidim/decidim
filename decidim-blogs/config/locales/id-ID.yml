@@ -16,8 +16,6 @@ id:
         title: Tindakan
       admin:
         models:
-          components:
-            body: Tubuh
           post:
             name: Pos
         posts:
@@ -41,7 +39,6 @@ id:
           fields:
             author: Penulis
             body: Tubuh
-            title: judul
       posts:
         show:
           view: Melihat

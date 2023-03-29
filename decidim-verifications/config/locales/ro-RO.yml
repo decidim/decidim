@@ -83,6 +83,7 @@ ro:
         create:
           error: A apărut o eroare la crearea autorizației.
           success: Ai fost autorizat cu succes.
+          transferred: 'Am recuperat următoarele date de participare pe baza autorizației dumneavoastră:'
           unconfirmed: Trebuie să îți confirmi adresa de e-mail pentru a te autoriza singur.
         destroy:
           error: A apărut o eroare la ștergerea autorizației.
@@ -100,15 +101,16 @@ ro:
           verify_with_these_options: 'Acestea sunt opțiunile disponibile pentru a îți verifica identitatea:'
         index:
           expired_verification: Verificarea a expirat
+          introduce_code: Introducere cod
           pending_verification: Verificare în așteptare
           show_renew_info: Apăsați pentru a reînnoi verificarea
-          unauthorized_verification: Verificare nouă
+          subscribe: Abonare
+          unauthorized_methods: Metode de verificare
         new:
           authorize: Trimite
           authorize_with: Verifică cu %{authorizer}
         renew_modal:
           cancel: Anulează
-          close: închide
           continue: Continuă
           info_renew: Dacă dorești să actualizezi datele, continuă cu reînnoirea
           title: Reînnoiește verificarea

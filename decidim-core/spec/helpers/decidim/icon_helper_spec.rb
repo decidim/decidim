@@ -45,7 +45,7 @@ module Decidim
         end
 
         context "with no role attribute specified" do
-          it "doesn't implement role attribute" do
+          it "does not implement role attribute" do
             result = helper.component_icon(component)
             expect(result).to eq <<~SVG.strip
               <svg class="icon external-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36.02 36.02"><circle cx="18.01" cy="18.01" r="15.75" fill="none" stroke="#2ecc71" stroke-width="4"/><circle cx="18.01" cy="18.01" r="11.25" fill="none" stroke="#08BCD0" stroke-width="4"/></svg>

@@ -789,9 +789,7 @@ zh-CN:
         moderation:
           fields:
             hidden_at: 隐藏于
-            report_count: 计数
             reported_content_url: 报告的内容 URL
-            reports: 报告
             visit_url: 访问 URL
   errors:
     messages:

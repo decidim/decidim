@@ -3,6 +3,7 @@ sv:
     models:
       decidim/comments/comment_by_followed_user_event: Kommentar
       decidim/comments/comment_created_event: Kommentar
+      decidim/comments/comment_upvoted_event: Kommentar uppröstad
       decidim/comments/reply_created_event: Svar till en kommentar
       decidim/comments/user_group_mentioned_event: Nämn
       decidim/comments/user_mentioned_event: Nämn
@@ -70,6 +71,7 @@ sv:
         edit: Redigera
         edited: Redigerad
         hide_replies: Göm svar
+        moderated_at: Kommentar modererad den %{date}
         reply: Svara
         report:
           action: Rapportera

@@ -48,7 +48,7 @@ ca:
     debates:
       actions:
         close: Tanca
-        confirm_destroy: N'estàs segura?
+        confirm_destroy: Segur?
         destroy: Suprimeix
         edit: Edita
         new: Nou %{name}

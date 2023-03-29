@@ -175,7 +175,7 @@ module Decidim
         end
         let(:user) { create :user, organization: }
 
-        it "returns false when user isnt a moderator" do
+        it "returns false when user is not a moderator" do
           expect(subject.user_is_moderator?(user)).to be false
         end
 
@@ -206,7 +206,7 @@ module Decidim
         end
       end
 
-      context "when the notifications requirements aren't met" do
+      context "when the notifications requirements are not met" do
         before do
           Rails.application.secrets[:vapid] = { enabled: false }
         end

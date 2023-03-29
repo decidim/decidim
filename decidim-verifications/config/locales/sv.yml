@@ -95,13 +95,11 @@ sv:
           expired_verification: Verifieringen har gått ut
           pending_verification: Väntar på verifiering
           show_renew_info: Klicka för att förnya verifieringen
-          unauthorized_verification: Ny verifiering
         new:
           authorize: Skicka
           authorize_with: Verifiera med %{authorizer}
         renew_modal:
           cancel: Avbryt
-          close: stäng
           continue: Fortsätt
           info_renew: Om du vill uppdatera data får du fortsätta med förnyelsen
           title: Förnya verifiering

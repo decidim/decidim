@@ -181,7 +181,7 @@ ca:
           upload_file: Puja un arxiu
       step_navigation:
         show:
-          are_you_sure: Aquesta acció no es pot desfer i no podràs editar les teves respostes. Estàs segura?
+          are_you_sure: Aquesta acció no es pot desfer i no podràs editar les teves respostes. Segur?
           back: Enrere
           continue: Continuar
           submit: Enviar respostes

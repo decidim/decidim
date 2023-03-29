@@ -6,7 +6,7 @@ require "decidim/rails"
 # Add the frameworks used by your app that are not loaded by Decidim.
 
 # Require the gems listed in Gemfile, including any gems
-# you've limited to :test, :development, or :production.
+# you have limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
 module DecidimDesign

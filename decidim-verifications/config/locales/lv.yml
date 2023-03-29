@@ -98,7 +98,6 @@ lv:
           authorize_with: Verificēt, izmantojot %{authorizer}
         renew_modal:
           cancel: Atcelt
-          close: aizvērt
           continue: Turpināt
           info_renew: Ja vēlaties atjaunināt datus, turpiniet atjaunošanu
           title: Atjaunot verifikāciju

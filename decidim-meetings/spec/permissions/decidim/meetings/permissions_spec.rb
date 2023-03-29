@@ -95,7 +95,7 @@ describe Decidim::Meetings::Permissions do
         .and_return(can_be_joined)
     end
 
-    context "when meeting can't be joined" do
+    context "when meeting cannot be joined" do
       let(:can_be_joined) { false }
 
       it { is_expected.to be false }
@@ -120,7 +120,7 @@ describe Decidim::Meetings::Permissions do
         .and_return(can_be_registered)
     end
 
-    context "when meeting can't be joined" do
+    context "when meeting cannot be joined" do
       let(:can_be_registered) { false }
 
       it { is_expected.to be false }
@@ -318,7 +318,7 @@ describe Decidim::Meetings::Permissions do
         context "when meeting is not closed" do
           let(:closed_at) { nil }
 
-          context "when meeting didn't finish" do
+          context "when meeting did not finish" do
             before do
               allow(meeting).to receive(:past?).and_return(false)
             end

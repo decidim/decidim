@@ -70,7 +70,7 @@ shared_examples "manage diplomas" do
           conference.reload
         end
 
-        it "can't send the diplomas" do
+        it "cannot send the diplomas" do
           within find("tr", text: translated(conference.title)) do
             click_link "Configure"
           end
@@ -86,7 +86,7 @@ shared_examples "manage diplomas" do
     context "and registration has not been confirmed" do
       let!(:conference_registrations) { create_list :conference_registration, 10, :unconfirmed, conference: }
 
-      it "can't send the diplomas" do
+      it "cannot send the diplomas" do
         within find("tr", text: translated(conference.title)) do
           click_link "Configure"
         end

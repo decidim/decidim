@@ -48,7 +48,7 @@ describe "Explore meetings", :slow, type: :system do
         expect(page).to have_content(translated(upcoming_meeting.title))
       end
 
-      it "doesn't show past meetings" do
+      it "does not show past meetings" do
         visit_component
         within "#meetings" do
           expect(page).not_to have_content(translated(past_meeting.title))
@@ -66,7 +66,7 @@ describe "Explore meetings", :slow, type: :system do
         end
 
         it "shows an empty page with a message" do
-          expect(page).to have_content("No meetings match your search criteria or there isn't any meeting scheduled.")
+          expect(page).to have_content("No meetings match your search criteria or there is not any meeting scheduled.")
           within ".callout.warning", match: :first do
             expect(page).to have_content("You are viewing the list of meetings withdrawn by their authors.")
           end
@@ -210,12 +210,12 @@ describe "Explore meetings", :slow, type: :system do
       it "allows searching by text", :slow do
         visit_component
         within ".filters" do
-          # It seems that there's another field with the same name in another form on page.
+          # It seems that there is another field with the same name in another form on page.
           # Because of that we try to select the correct field to set the value and submit the right form
           find(:css, "#content form.new_filter [name='filter[search_text_cont]']").set(translated(meetings.first.title))
 
           # The form should be auto-submitted when filter box is filled up, but
-          # somehow it's not happening. So we workaround that be explicitly
+          # somehow it is not happening. So we workaround that be explicitly
           # clicking on "Search" until we find out why.
           find("#content form.new_filter .icon--magnifying-glass").click
         end

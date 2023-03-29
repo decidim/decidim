@@ -346,12 +346,6 @@ pl:
           '4': Opublikuj poprawkę
     anonymous_user: Anonim
     application:
-      collection:
-        documents:
-          one: Dokument
-          few: Dokumenty
-          many: Dokumenty
-          other: Dokumenty
       document:
         download: Pobierz plik
       documents:
@@ -401,7 +395,6 @@ pl:
           foo: Foo
         name: Autoryzacja Foo
       granted_at: Przyznano %{timestamp}
-      renew: Odnów weryfikację
       sms:
         explanation: Wprowadź swój numer telefonu komórkowego, abyśmy mogli potwierdzić Twoją tożsamość.
         name: Kod przez SMS
@@ -436,8 +429,6 @@ pl:
           explanation_html: Aby wykonać tę akcję, musisz mieć autoryzację, zanim to zrobisz, musisz potwierdzić swój adres e-mail <strong>%{email}</strong>.
           request_confirmation_instructions: Poproś o instrukcje uwierzytelniające
           title: Potwierdź swój adres e-mail
-      show:
-        close_modal: Zamknij okno
     block_user_mailer:
       notify:
         body_1: Twoje konto zostało zablokowane.
@@ -463,6 +454,7 @@ pl:
           debate: Debata
           initiative: Inicjatywa
           meeting: Spotkanie
+          order: Głosy w budżecie
           post: Wpis
           proposal: Propozycja
           question: Pytanie
@@ -611,9 +603,6 @@ pl:
     endorsable:
       endorsements: Rekomendacje
       endorsements_count: Liczba rekomendacji
-    endorsement_buttons_cell:
-      already_endorsed: Rekomendowano
-      endorse: Rekomenduj
     endorsements:
       identities:
         done: Gotowe
@@ -803,13 +792,11 @@ pl:
       create:
         button: Obserwuj
         error: Wystąpił błąd podczas próby obserwowania tego zasobu.
-        participatory_space: Obserwujesz <span class="show-for-sr">%{resource_name}</span>
+        participatory_space: Obserwuj <span class="show-for-sr">%{resource_name}</span>
       destroy:
         button: Przestań obserwować
         error: Nastąpił błąd podczas cofania obserwowania tego zasobu.
     forms:
-      current_image: Bieżący obraz
-      default_image: Domyślny obraz
       errors:
         decidim/user:
           password: Hasło jest za krótkie.
@@ -946,7 +933,6 @@ pl:
         resource_type: Typ
     links:
       warning:
-        close_modal: Zamknij okno
         proceed: Dalej
         title: Otwórz zewnętrzny link
     log:
@@ -1065,7 +1051,6 @@ pl:
     newsletter_mailer:
       newsletter:
         note: Otrzymujesz ten e-mail, ponieważ subskrybujesz newslettery %{organization_name}. Możesz zmienić swoje ustawienia na <a href="%{link}">stronie powiadomień</a>.
-        see_on_website: Nie widzisz tego e-maila poprawnie? Wyświetl go w <a href="%{link}" target="_blank">przeglądarce</a>.
         unsubscribe: Aby zrezygnować z otrzymywania tego typu wiadomości e-mail, <a href="%{link}" target="_blank" class="unsubscribe">cofnij subskrypcję</a>.
     newsletter_templates:
       basic_only_text:
@@ -1690,8 +1675,10 @@ pl:
     email_included_in_password: jest zbyt podobne do twojego adresu e-mail
     fallback: nie jest poprawne
     name_included_in_password: jest zbyt podobne do twojego imienia
+    nickname_included_in_password: jest zbyt podobne do twojego nicka
     not_enough_unique_characters: nie ma wystarczającej liczby unikalnych znaków
     password_not_allowed: nie jest dozwolone
+    password_repeated: nie można ustawić ponownie starego hasła
     password_too_common: jest zbyt powszechne
     password_too_long: jest zbyt długie
     password_too_short: jest za krótkie

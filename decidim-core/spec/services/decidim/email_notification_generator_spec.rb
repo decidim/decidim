@@ -87,12 +87,12 @@ describe Decidim::EmailNotificationGenerator do
           end
         end
 
-        context "and the user can't participate" do
+        context "and the user cannot participate" do
           before do
             allow(resource).to receive(:can_participate?).with(kind_of(Decidim::User)).and_return(false)
           end
 
-          it "doesn't schedule a job" do
+          it "does not schedule a job" do
             expect(Decidim::NotificationMailer)
               .not_to receive(:event_received)
 
@@ -107,7 +107,7 @@ describe Decidim::EmailNotificationGenerator do
         allow(event_class).to receive(:types).and_return([])
       end
 
-      it "doesn't schedule a job for each recipient" do
+      it "does not schedule a job for each recipient" do
         expect(Decidim::NotificationMailer)
           .not_to receive(:event_received)
 

@@ -3,14 +3,14 @@ eu:
     attributes:
       participatory_process:
         announcement: Anuntzio
-        area_id: Area
+        area_id: Arloa
         banner_image: Bannerra
         copy_categories: Kopiatu kategoriak
         copy_components: Kopiatu osagaiak
         copy_steps: Kopiatu faseak
-        decidim_area_id: Area
+        decidim_area_id: Arloa
         description: Deskribapena
-        developer_group: Sustatzailearen taldea
+        developer_group: Talde sustatzailea
         domain: Domeinua
         end_date: Bukaera-data
         hashtag: Traola
@@ -18,10 +18,10 @@ eu:
         local_area: Antolakuntza eremua
         meta_scope: 'Metadatuak: esparrua'
         participatory_process_group_id: Prozesu-multzoa
-        participatory_scope: Zer erabaki
+        participatory_scope: Zer erabakitzen da
         participatory_structure: Nola erabakitzen da?
         promoted: Nabarmendua
-        published_at: Argitaratu at
+        published_at: Argitaratze-data
         related_process_ids: Elkarrekin lotutako prozesuak
         scope_id: Esparrua
         scope_type_max_depth_id: Eremuaren iragazkiaren sakonera
@@ -34,7 +34,7 @@ eu:
         subtitle: Azpititulua
         target: Nor parte hartzen du
         title: Titulua
-        weight: Kokapenaren hurrenkera
+        weight: Ordena
       participatory_process_group:
         description: Deskribapena
         developer_group: Talde sustatzailea
@@ -46,7 +46,7 @@ eu:
         participatory_process_ids: Elkarrekin lotutako prozesuak
         participatory_scope: Zer erabakitzen den
         participatory_structure: Nola erabakitzen den
-        target: Nork hartzen duen parte
+        target: Nork hartzen due parte
         title: Izenburua
       participatory_process_step:
         cta_path: Deitu ekintza bideari
@@ -290,7 +290,7 @@ eu:
       participatory_process:
         role_assigned:
           email_intro: '%{role} rola esleitu zaizu <a href="%{resource_title}"> prozesu parte-hartzailean.'
-          email_outro: Jakinarazpen hau jaso duzu %{role} rola esleitu zaizu "%{resource_title}" jardunaldian.
+          email_outro: Jakinarazpen hau jaso duzu %{role} rola esleitu zaizu "%{resource_title}" espazioan.
           email_subject: '%{role} rola esleitu zaizu hemen "%{resource_title}".'
           notification_title: '%{role} rola esleitu zaizu <a href="%{resource_url}">%{resource_title}</a> prozesu parte-hartzailean.'
         step_activated:
@@ -331,8 +331,8 @@ eu:
           developer_group: Nork sustatua
           name: Metadatuak
           participatory_scope: Zer erabakitzen den
-          participatory_structure: Nola erabakitzen den
-          target: Nork hartzen duen parte
+          participatory_structure: Nola erabakitzen da
+          target: Nork hartzen du parte
         participatory_processes:
           name: Prozesu parte-hartzaileak
         stats:
@@ -399,7 +399,7 @@ eu:
             more_information: Informazio gehiago
             participate: Parte hartu
             participate_in: Parte hartu %{resource_name} prozesuan
-            processes_button_title: Lotura prozesu guztiak erakusten dituen Prozesuen orrialdera
+            processes_button_title: Esteka prozesu guztiak erakusten dituen Prozesuen orrialdera
             see_all_processes: Ikusi prozesu guztiak
       participatory_process_steps:
         index:

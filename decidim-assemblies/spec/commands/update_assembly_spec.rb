@@ -98,7 +98,7 @@ module Decidim::Assemblies
           expect { command.call }.to broadcast(:invalid)
         end
 
-        it "doesn't update the assembly" do
+        it "does not update the assembly" do
           command.call
           my_assembly.reload
 

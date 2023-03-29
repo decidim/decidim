@@ -24,10 +24,10 @@ describe "Import proposals", type: :system do
 
     it "returns error without a file" do
       click_button "Import"
-      expect(page).to have_content("There's an error in this field")
+      expect(page).to have_content("There is an error in this field")
     end
 
-    it "doesnt change proposal amount if one imported row fails" do
+    it "does not change proposal amount if one imported row fails" do
       dynamically_attach_file(:proposals_file_import_file, Decidim::Dev.asset("import_proposals_broken.csv"))
 
       click_button "Import"

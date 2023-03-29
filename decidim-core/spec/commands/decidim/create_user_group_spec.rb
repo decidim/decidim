@@ -49,7 +49,7 @@ module Decidim
             expect { command.call }.to broadcast(:invalid)
           end
 
-          it "doesn't create a user group" do
+          it "does not create a user group" do
             expect do
               command.call
             end.not_to change(UserGroup, :count)

@@ -2,13 +2,13 @@
 
 module Decidim
   # This job is used by machine translation services to store the result of
-  # a field translation. This way services don't need to care about how to
+  # a field translation. This way services do not need to care about how to
   # save it and also enables storing translations asynchronously when the
   # translation service returns the translated text in a webhook.
   class MachineTranslationSaveJob < ApplicationJob
     queue_as :translations
 
-    # Performs the job. It won't perform anything if the
+    # Performs the job. It will not perform anything if the
     # `Decidim.machine_translation_service` config is not set.
     #
     # resource - Any kind of `Decidim::TranslatableResource` model instance

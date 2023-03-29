@@ -14,17 +14,24 @@ ca:
         description: Descripció
         file: Arxiu
         title: Nom de l'adjunt o imatge
+        weight: Ordre de posició
       attachment_collection:
         description: Descripció
         name: Nom
+        weight: Ordre de posició
       category:
         description: Descripció
         name: Nom
         parent_id: Pare
+        weight: Ordre de posició
       component:
         name: Nom
         published_at: Publicat el
         weight: Ordre de posició
+      external_domain:
+        value: Valor
+      help_section:
+        content: Contingut
       id: ID
       import:
         user_group_id: Importar com
@@ -92,6 +99,9 @@ ca:
         welcome_notification_body: Cos de la notificació de benvinguda
         welcome_notification_subject: Assumpte de la notificació de benvinguda
         youtube_handler: Nom d'usuària de YouTube
+      participatory_space_private_user:
+        email: Correu electrònic
+        name: Nom
       scope:
         code: Codi
         name: Nom
@@ -113,6 +123,7 @@ ca:
         show_in_footer: Mostra al peu de pàgina
         slug: Nom curt d'URL
         title: Títol
+        topic_id: Assumpte
         weight: Ordre de posició
       static_page_topic:
         description: Descripció
@@ -350,6 +361,12 @@ ca:
         'true': 'Sí'
         user_name: Usuària
       dashboard:
+        pending_moderations:
+          anouncement:
+            one: Hi ha %{count} moderació pendent
+            other: Hi ha %{count} moderacions pendents
+          goto_moderation: Anar a moderacions globals
+          title: Moderacions pendents
         show:
           view_more_logs: Veure més registres
           welcome: Benvinguda al Tauler d'Aministració.
@@ -540,6 +557,7 @@ ca:
         area_types: Tipus d'àrees
         areas: Àrees
         configuration: Configuració
+        content: Contingut
         dashboard: Tauler de control
         external_domain_whitelist: Dominis externs permesos
         help_sections: Seccions d'ajuda
@@ -548,7 +566,7 @@ ca:
         moderation: Moderacions globals
         newsletters: Butlletins
         participants: Participants
-        reported_users: Usuàries reportades
+        reported_users: Participants reportades
         scope_types: Tipus d'àmbit
         scopes: Àmbits
         settings: Configuració
@@ -633,6 +651,7 @@ ca:
             created_at: Data de creació
             document_number: Número de document
             name: Nom
+            nickname: Àlies
             phone: Telèfon
             state: Estat
             users_count: Nombre de participants
@@ -647,7 +666,7 @@ ca:
           nickname: Àlies
           reason: Raó
           reports: Número de denúncies
-          title: Llistant usuàries reportades
+          title: Llistat de participants
         report:
           reasons:
             does_not_belong: No pertany
@@ -719,7 +738,7 @@ ca:
         select_recipients_to_deliver:
           all_spaces: Totes
           all_users_help: Envia el butlletí a tots els usuaris confimats.
-          confirm_deliver: Estàs segura que vols enviar aquest butlletí? Aquesta acció no es pot desfer.
+          confirm_deliver: Segur que vols enviar aquest butlletí? Aquesta acció no es pot desfer.
           deliver: Enviar butlletí
           followers_help: Envia el butlletí a tots els usuaris confirmats que segueixin qualsevol dels espais participatius seleccionats a la llista.
           none: Cap
@@ -826,9 +845,21 @@ ca:
           add: Afegir a la llista blanca
           title: Llista blanca de dominis externs
       organization_homepage:
+        content_blocks:
+          create:
+            error: S'ha produït un error en intentar crear aquest bloc de contingut
+            success: Bloc de contingut creat correctament
+          destroy:
+            error: S'ha produït un error en intentar eliminar aquest bloc de contingut
+            success: Bloc de contingut eliminat amb èxit
+          edit:
+            update: Actualitzar
         edit:
           active_content_blocks: Blocs de contingut actiu
+          add: Afegir bloc de contingut
+          destroy_confirmation: Segur que vols esborrar aquest bloc de contingut?
           inactive_content_blocks: Blocs de contingut inactiu
+          title: Continguts de la pàgina
       participatory_space_private_users:
         create:
           error: S'ha produït un error en afegir una participant privada a aquest espai de participació.
@@ -849,7 +880,7 @@ ca:
         new:
           destroy:
             button: Esborrar totes les participants privades
-            confirm: Estàs segura que vols esborrar totes les participants privades? Aquesta acció no es pot desfer, no podràs recuperar-les.
+            confirm: Segur que vols esborrar totes les participants privades? Aquesta acció no es pot desfer, no podràs recuperar-les.
             empty: No hi ha participants privades.
             explanation: Hi ha %{count} participant/s privada/ades.
             title: Esborrar les participants privades
@@ -945,6 +976,20 @@ ca:
       static_pages:
         actions:
           view: Visualitzar la pàgina pública
+        content_blocks:
+          active_content_blocks: Blocs de contingut actius
+          add: Afegir bloc de contingut
+          create:
+            error: S'ha produït un error en intentar crear aquest bloc de contingut
+            success: Bloc de contingut creat amb èxit
+          destroy:
+            error: S'ha produït un error en intentar eliminar aquest bloc de contingut
+            success: Bloc de contingut eliminat amb èxit
+          destroy_confirmation: Segur que vols esborrar aquest bloc de contingut?
+          edit:
+            update: Actualitzar
+          inactive_content_blocks: Blocs de contingut inactius
+          title: Contingut de la pàgina
         create:
           error: S'ha produït un error en crear una nova pàgina.
           success: La pàgina s'ha creat correctament.
@@ -1073,15 +1118,15 @@ ca:
       models:
         moderation:
           fields:
-            created_at: Data de creació
-            deleted_resource: Elimina el recurs
+            created_at: Denunciat el
+            deleted_resource: Recurs eliminat
             hidden_at: Data d'ocultació
             participatory_space: Espai de participació
-            report_count: Recompte
+            report_count: Número de denúncies
             reportable_id: ID
             reportable_type: Tipus
             reported_content_url: URL contingut del contingut reportat
-            reports: Denúncies
+            reports: Motiu
             visit_url: Visiteu l'URL
         report:
           fields:
@@ -1095,7 +1140,7 @@ ca:
     decidim:
       admin:
         global_moderations:
-          title: Moderacions globals
+          title: Moderacions de contingut
         newsletters:
           title: Butlletins
         settings:

@@ -6,15 +6,32 @@ ja:
         image: 画像
         proposals: 関連する提案
         title: タイトル
+      ballot_style:
+        code: コード
       election:
         description: 説明
         end_time: 投票が終了します：
         start_time: 投票開始
         title: タイトル
+      monitoring_committee_member:
+        email: Eメールアドレス
+        name: 名前
+      polling_officer:
+        email: Eメールアドレス
+        name: 名前
+      polling_station:
+        address: 住所
+        location: 場所
+        location_hints: 位置情報のヒント
+        polling_station_managers: マネージャー
+        polling_station_president_id: 投票管理者
+        title: タイトル
       question:
         max_selections: 選択範囲の最大数
         min_selections: 上記のどれでもない
         title: タイトル
+      trustees_participatory_space:
+        user_id: 参加者
       voting:
         banner_image: バナー画像
         census_contact_information: センサスの連絡先情報
@@ -22,7 +39,7 @@ ja:
         end_time: 投票終了
         introductory_image: 導入画像
         promoted: プロモート
-        scope: スコープ
+        scope_id: スコープ
         show_check_census: '「センサスの確認」ページを表示'
         start_time: 投票開始
         title: タイトル
@@ -815,11 +832,20 @@ ja:
           published: 公開済み
         landing_page:
           content_blocks:
+            create:
+              error: コンテンツブロックの作成中に問題が発生しました
+              success: コンテンツブロックを作成しました
+            destroy:
+              error: コンテンツブロックの削除中に問題が発生しました
+              success: コンテンツブロックを削除しました
             edit:
               update: 更新
           edit:
             active_content_blocks: アクティブコンテンツブロック
+            add: コンテンツブロックを追加
+            destroy_confirmation: このコンテンツブロックを削除してもよろしいですか？
             inactive_content_blocks: 非アクティブコンテンツブロック
+            title: ページコンテンツ
         menu:
           votings: 投票
           votings_submenu:

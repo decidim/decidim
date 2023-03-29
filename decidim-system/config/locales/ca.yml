@@ -34,7 +34,7 @@ ca:
   decidim:
     system:
       actions:
-        confirm_destroy: Segur que ho vols eliminar?
+        confirm_destroy: Segur que ho vols eliminar això?
         destroy: Suprimeix
         edit: Edita
         new: Nou

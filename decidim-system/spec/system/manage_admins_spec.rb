@@ -105,4 +105,10 @@ describe "Manage admins", type: :system do
       expect(page).to have_no_content(admin2.email)
     end
   end
+
+  it "cannot delete admin rights from self" do
+    within find("tr", text: admin.email) do
+      expect(page).not_to have_link("Delete", visible: :hidden)
+    end
+  end
 end

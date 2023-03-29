@@ -25,7 +25,7 @@ This module provides:
 
 ## Installation
 
-This is on the default Decidim installation so you shouldn't change anything to use this participatory space.
+This is on the default Decidim installation so you should not change anything to use this participatory space.
 
 ## Screenshots
 

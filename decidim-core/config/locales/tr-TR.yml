@@ -240,10 +240,6 @@ tr:
           '4': Değişikliğinizi yayınlayın
     anonymous_user: Anonim
     application:
-      collection:
-        documents:
-          one: Doküman
-          other: Dokümanlar
       document:
         download: Dosyayı indir
       documents:
@@ -285,7 +281,6 @@ tr:
           foo: Sahte
         name: Sahte yetkilendirme
       granted_at: '%{timestamp} tarihinde verildi'
-      renew: Doğrulamayı yenile
       sms:
         explanation: Cep telefon numaranızı gönderin, böylece kimliğinizi kontrol edebiliriz.
         name: SMS ile kod
@@ -320,8 +315,6 @@ tr:
           explanation_html: Bu eylemi gerçekleştirmek için yetkilendirilmeniz gerekir, bunu yapmadan önce e-postanızı doğrulamanız gerekir <strong>%{email}</strong>.
           request_confirmation_instructions: Onaylama talimatlarını tekrar gönder
           title: E-posta adresinizi doğrulayın
-      show:
-        close_modal: Pencereyi kapat
     block_user_mailer:
       notify:
         body_1: Hesabınız kilitlendi.
@@ -409,6 +402,14 @@ tr:
         view_all: Tümünü görüntüle
       metrics:
         name: Organizasyon metrikleri
+      static_page:
+        section:
+          name: Bölüm
+          section_content: İçerik
+        two_pane_section:
+          left_column: Sol Sütun
+          name: Iki bölme bölümü
+          right_column: Sağ sütun
       stats:
         name: Organizasyon istatistikleri
       sub_hero:
@@ -494,9 +495,6 @@ tr:
     endorsable:
       endorsements: Cirolar
       endorsements_count: Onay sayısı
-    endorsement_buttons_cell:
-      already_endorsed: Onaylanan
-      endorse: Onaylama
     endorsements:
       identities:
         done: Bitti
@@ -687,8 +685,6 @@ tr:
         button: Takibi bırak
         error: Bu kaynağı takip etmekten bir hata oluştu.
     forms:
-      current_image: Geçerli resim
-      default_image: Varsayılan görüntü
       errors:
         decidim/user:
           password: Bu şifre çok kısa.
@@ -938,7 +934,6 @@ tr:
     newsletter_mailer:
       newsletter:
         note: Bu e-postayı, %{organization_name} bültenlere abone olduğunuz için aldınız. Eğer ayarlarınızı değiştirebilirsiniz <a href="%{link}">bildirimleri sayfa</a>.
-        see_on_website: Bu e-postayı doğru göremiyor musunuz? Onu <a href="%{link}" target="_blank">web sitesinde görüntüle</a>.
         unsubscribe: Bu tür bir e-posta almayı iptal etmek için, <a href="%{link}" target="_blank" class="unsubscribe">Abonelikten Ayrıl</a>.
     newsletter_templates:
       basic_only_text:

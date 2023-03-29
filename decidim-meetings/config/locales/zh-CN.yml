@@ -1,10 +1,6 @@
 zh-CN:
   activemodel:
     attributes:
-      agenda:
-        description: 描述
-        duration: 期限
-        title: 标题
       close_meeting:
         attendees_count: 参与者人数
         attending_organizations: 与会组织名单
@@ -19,7 +15,6 @@ zh-CN:
         decidim_scope_id: 范围
         decidim_user_group_id: 用户组
         description: 描述
-        end_time: 结束时间
         location: 地点
         location_hints: 位置提示
         organizer_gid: 创建为
@@ -28,7 +23,6 @@ zh-CN:
         registration_form_enabled: 注册表单已启用
         registration_terms: 注册条款
         registrations_enabled: 注册已启用
-        start_time: 开始时间
         title: 标题
         transparent: 透明的
     errors:

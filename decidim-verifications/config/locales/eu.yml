@@ -7,10 +7,10 @@ eu:
         offline_explanation: Lineaz kanpoko egiaztapenaren jarraibideak
         online: Online
       id_document_information:
-        document_number: Dokumentuaren zenbakia (letra batekin)
+        document_number: Dokumentu zenbakia
         document_type: Dokumentu mota
       id_document_upload:
-        document_number: Dokumentuaren zenbakia (letra batekin)
+        document_number: Dokumentu zenbakia
         document_type: Zure dokumentuaren mota
         user: Erabiltzaileak
         verification_attachment: Zure dokumentuaren eskaneatutako kopia
@@ -116,13 +116,11 @@ eu:
           expired_verification: Egiaztapena iraungi egin da
           pending_verification: Egiaztatzeke
           show_renew_info: Egin klik hemen egiaztapena berritzeko
-          unauthorized_verification: Egiaztapen berri bat
         new:
           authorize: Bidali
           authorize_with: Egiaztatu %{authorizer} rekin
         renew_modal:
           cancel: Utzi
-          close: itxi
           continue: Jarraitu
           info_renew: Datuak eguneratu nahi badituzu, jarraitu berriztatzen
           title: Berritu egiaztapena

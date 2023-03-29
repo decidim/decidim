@@ -43,6 +43,32 @@ module Decidim
               HTML
             )
           end
+
+          context "when the description includes images and iframes" do
+            let(:description) do
+              <<~HTML.strip
+                <p><img src="/path/to/image.jpg" alt="Image"></p>
+                <div class="editor-content-videoEmbed">
+                  <div>
+                    <iframe src="https://example.org/video/xyz" title="Video" frameborder="0" allowfullscreen="true"></iframe>
+                  </div>
+                </div>
+              HTML
+            end
+
+            it "renders the image and iframe embed" do
+              expect(subject).to eq(
+                <<~HTML.strip
+                  <div class="ql-editor-display"><p><img src="/path/to/image.jpg" alt="Image"></p>
+                  <div class="editor-content-videoEmbed">
+                    <div>
+                      <div class="disabled-iframe"><!-- <iframe src="https://example.org/video/xyz" title="Video" frameborder="0" allowfullscreen="true"></iframe> --></div>
+                    </div>
+                  </div></div>
+                HTML
+              )
+            end
+          end
         end
       end
     end

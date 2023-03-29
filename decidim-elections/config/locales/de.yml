@@ -21,6 +21,7 @@ de:
         description: Beschreibung
         end_time: Abstimmung endet
         promoted: Hervorgehoben
+        scope_id: Themenbereich
         start_time: Abstimmung beginnt
         title: Titel
         voting_type: Art der Abstimmung

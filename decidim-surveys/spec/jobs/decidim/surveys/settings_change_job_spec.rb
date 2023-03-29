@@ -56,11 +56,11 @@ module Decidim
         end
       end
 
-      context "when there aren't relevant changes" do
+      context "when there are not relevant changes" do
         let(:previously_allowing_answers) { true }
         let(:currently_allowing_answers) { true }
 
-        it "doesn't notify the upcoming meeting" do
+        it "does not notify the upcoming meeting" do
           expect(Decidim::EventsManager)
             .not_to receive(:publish)
 

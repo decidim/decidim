@@ -6,17 +6,18 @@ describe Decidim::UploadModalCell, type: :cell do
   subject { my_cell.call }
 
   let(:my_cell) { cell("decidim/upload_modal", form, options) }
-  let(:form) do
-    double(
-      object:,
-      object_name: "object",
-      file_field:,
-      abide_error_element: "",
-      error_and_help_text: ""
-    )
-  end
+  let(:form) { Decidim::FormBuilder.new(:object, object, view, {}) }
+  let(:view) { Class.new(ActionView::Base).new(ActionView::LookupContext.new(ActionController::Base.view_paths), {}, []) }
   let(:object) do
-    double
+    Class.new do
+      def self.model_name
+        ActiveModel::Name.new(self, nil, "dummy")
+      end
+
+      def model_name
+        self.class.model_name
+      end
+    end.new
   end
   let(:file_field) { double }
   let(:file_validation_humanizer) do
@@ -29,7 +30,7 @@ describe Decidim::UploadModalCell, type: :cell do
       attribute:,
       resource_name:,
       attachments:,
-      optional:,
+      required:,
       titled:,
       redesigned:
     }
@@ -37,7 +38,7 @@ describe Decidim::UploadModalCell, type: :cell do
   let(:attribute) { "dummy_attribute" }
   let(:resource_name) { "dummy" }
   let(:attachments) { [] }
-  let(:optional) { true }
+  let(:required) { false }
   let(:titled) { false }
   let(:redesigned) { false }
 
@@ -79,7 +80,7 @@ describe Decidim::UploadModalCell, type: :cell do
         attribute:,
         resource_name:,
         attachments:,
-        optional:,
+        required:,
         titled:
       }
     end
@@ -98,18 +99,14 @@ describe Decidim::UploadModalCell, type: :cell do
   end
 
   context "when file is required" do
-    let(:optional) { false }
-    let(:object) do
-      double(
-        model_name: double(
-          param_key:
-        )
-      )
-    end
-    let(:param_key) { "dummy_param_key" }
+    let(:required) { true }
 
     it "renders hidden checkbox" do
-      expect(subject).to have_css("input[name='#{param_key}[#{attribute}_validation]']")
+      expect(subject).to have_css("input[name='dummy[#{attribute}_validation]']")
+    end
+
+    it "renders the required field indicator" do
+      expect(subject).to have_css("label .label-required", text: "Required field")
     end
   end
 
@@ -125,9 +122,10 @@ describe Decidim::UploadModalCell, type: :cell do
 
     context "when attachment is image" do
       let(:filename) { "city.jpeg" }
+      let(:file) { Decidim::Dev.test_file(filename, "image/jpeg") }
 
       it "renders preview" do
-        expect(subject).to have_selector("img[alt='#{attribute}']")
+        expect(subject.find("img")["src"]).to match(%r{/city.jpeg$})
       end
     end
 
@@ -147,6 +145,32 @@ describe Decidim::UploadModalCell, type: :cell do
 
         details = subject.find(".attachment-details")
         expect(details).to have_content("#{attachments[0].title["en"]} (#{filename})")
+      end
+    end
+  end
+
+  context "when multiple attachments are present" do
+    let(:file1) { Decidim::Dev.test_file("Exampledocument.pdf", "application/pdf") }
+    let(:file2) { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
+    let(:attachments) { [upload_test_file(file1), upload_test_file(file2)] }
+
+    it "renders the attachments" do
+      expect(subject).to have_css(".attachment-details", count: 2)
+      expect(subject).to have_selector("[data-filename='Exampledocument.pdf']")
+      expect(subject).to have_selector("[data-filename='city.jpeg']")
+      expect(subject).to have_css("img")
+      expect(subject.find("img")["src"]).to match(%r{/city.jpeg$})
+    end
+
+    context "when all attachments are images" do
+      let(:file1) { Decidim::Dev.test_file("city.jpeg", "application/pdf") }
+      let(:file2) { Decidim::Dev.test_file("city2.jpeg", "image/jpeg") }
+
+      it "renders preview" do
+        images = subject.all("img")
+        expect(images.count).to be(2)
+        expect(images[0]["src"]).to match(%r{/city.jpeg$})
+        expect(images[1]["src"]).to match(%r{/city2.jpeg$})
       end
     end
   end

@@ -4,6 +4,7 @@ pl:
       assemblies_setting:
         enable_organization_chart: Włącz wykres dla organizacji
       assembly:
+        announcement: Powiadomienie
         area_id: Kategoria
         assembly_type: Typ zespołu
         assembly_type_other: Typ zespołu inny

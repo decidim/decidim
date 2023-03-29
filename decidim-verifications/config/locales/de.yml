@@ -102,13 +102,11 @@ de:
           expired_verification: Verifizierung abgelaufen
           pending_verification: Ausstehende Verifizierung
           show_renew_info: Klicken Sie, um die Verifizierung zu erneuern
-          unauthorized_verification: Neue Verifizierung
         new:
           authorize: Senden
           authorize_with: Bestätigen Sie mit %{authorizer}
         renew_modal:
           cancel: Stornieren
-          close: Schließen
           continue: Weiter
           info_renew: Fahren Sie mit der Erneuerung fort, wenn Sie die Daten aktualisieren möchten
           title: Verifizierung erneuern

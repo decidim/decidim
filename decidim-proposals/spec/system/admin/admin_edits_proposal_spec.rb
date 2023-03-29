@@ -48,7 +48,7 @@ describe "Admin edits proposals", type: :system do
         create :proposal_vote, proposal:
       end
 
-      it "doesn't let the user edit it" do
+      it "does not let the user edit it" do
         visit_component_admin
 
         expect(page).to have_content(translated(proposal.title))

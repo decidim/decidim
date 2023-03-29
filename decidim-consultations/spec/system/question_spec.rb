@@ -36,7 +36,7 @@ describe "Question", type: :system do
     end
 
     context "when is the only published question" do
-      it "doesn't show the previous/next question button" do
+      it "does not show the previous/next question button" do
         expect(page).not_to have_content("Previous question")
         expect(page).not_to have_content("Next question")
       end

@@ -26,7 +26,7 @@ describe Decidim::Admin::Permissions do
       it { is_expected.to be true }
     end
 
-    context "when admin hasn't accepted Terms of Use" do
+    context "when admin has not accepted Terms of Use" do
       let(:user) { build :user, :admin, admin_terms_accepted_at: nil, organization: }
 
       it_behaves_like "permission is not set"
@@ -333,6 +333,24 @@ describe Decidim::Admin::Permissions do
 
     context "when any other action" do
       it { is_expected.to be true }
+    end
+  end
+
+  describe "admins" do
+    let(:action_subject) { :admin_user }
+
+    context "when trying to delete admin rights from self" do
+      let(:action_name) { :destroy }
+      let(:context) { { user: } }
+
+      it_behaves_like "permission is not set"
+    end
+
+    context "when trying to block self" do
+      let(:action_name) { :block }
+      let(:context) { { user: } }
+
+      it_behaves_like "permission is not set"
     end
   end
 

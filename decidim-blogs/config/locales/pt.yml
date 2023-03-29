@@ -18,8 +18,6 @@ pt:
         title: Ações
       admin:
         models:
-          components:
-            body: Corpo
           post:
             name: Publicação
         posts:
@@ -44,10 +42,8 @@ pt:
           fields:
             author: Autor
             body: Corpo
-            title: título
       posts:
         show:
-          comments: Comentários
           view: Visão
     components:
       blogs:

@@ -75,6 +75,7 @@ pl:
             title: Edytuj projekt
             update: Aktualizuj
           index:
+            change_selected: Zmień wybrany status
             finished_orders: Ukończone głosowania
             pending_orders: Głosowania oczekujące
             selected: Wybrano
@@ -85,6 +86,8 @@ pl:
           update:
             invalid: Wystąpił błąd podczas aktualizowania tego projektu
             success: Zaktualizowano projekt
+          update_selected:
+            select_a_selection: Wybierz status implementacji
         proposals_imports:
           create:
             invalid: Wystąpił błąd podczas importowania propozycji do projektów
@@ -226,7 +229,6 @@ pl:
             few: głosów
             many: głosów
             other: głosów
-          you_voted: Zagłosowałeś na
         project_budget_button:
           add: Dodaj do swojego głosu
           add_descriptive: Dodaj projekt %{resource_name} do swojego głosu

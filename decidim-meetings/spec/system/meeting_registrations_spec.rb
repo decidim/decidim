@@ -57,7 +57,7 @@ describe "Meeting registrations", type: :system do
     context "and registration form is also enabled" do
       let(:registration_form_enabled) { true }
 
-      it "can't answer the registration form" do
+      it "cannot answer the registration form" do
         visit questionnaire_public_path
 
         expect(page).to have_i18n_content(questionnaire.title)
@@ -94,7 +94,7 @@ describe "Meeting registrations", type: :system do
           login_as user, scope: :user
         end
 
-        it "can't answer the registration form" do
+        it "cannot answer the registration form" do
           visit questionnaire_public_path
 
           expect(page).to have_i18n_content(questionnaire.title)
@@ -477,7 +477,7 @@ describe "Meeting registrations", type: :system do
       context "and registration form is enabled" do
         let(:registration_form_enabled) { true }
 
-        it "can't answer the registration again" do
+        it "cannot answer the registration again" do
           visit questionnaire_public_path
 
           expect(page).to have_i18n_content(questionnaire.title)

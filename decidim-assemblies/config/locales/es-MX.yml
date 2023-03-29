@@ -3,7 +3,10 @@ es-MX:
     attributes:
       assemblies_setting:
         enable_organization_chart: Habilitar organigrama
+      assemblies_type:
+        title: Título
       assembly:
+        announcement: Aviso
         area_id: Área
         assembly_type: Tipo de montaje
         assembly_type_other: Tipo de montaje otro
@@ -22,12 +25,16 @@ es-MX:
         decidim_scope_id: Ámbito
         description: Descripción
         developer_group: Grupo promotor
+        document: Documento
         domain: Dominio
         duration: Duración
         facebook: Facebook
         github: GitHub
         hashtag: Hashtag
         hero_image: Imagen de portada
+        import_attachments: Importar archivos adjuntos
+        import_categories: Importar categorias
+        import_components: Importar componentes
         included_at: Incluido en
         instagram: Instagram
         internal_organisation: Organización interna
@@ -64,6 +71,7 @@ es-MX:
         non_user_avatar: Avatar
         position: Posición
         user_id: Usuaria
+        weight: Orden de posición
       assembly_user_role:
         email: Correo electrónico
         name: Nombre

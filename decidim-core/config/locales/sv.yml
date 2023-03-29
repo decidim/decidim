@@ -41,6 +41,7 @@ sv:
       decidim/promote_to_admin: Befordrad till gruppadministratör
       decidim/removed_from_group: Borttagen från gruppen
       decidim/resource_endorsed_event: Resurs instämd
+      decidim/user_group_created_event: Användargrupp skapad
       decidim/welcome_notification_event: Välkomstmeddelande
   activerecord:
     attributes:
@@ -147,6 +148,8 @@ sv:
     admin:
       actions:
         cancel: Avbryt
+      password_change:
+        alert: Du måste ändra ditt lösenord för att kunna fortsätta
     admin_log:
       area:
         create: "%{user_name} skapade området %{resource_name}"
@@ -293,10 +296,6 @@ sv:
           '4': Publicera ändringsförslaget
     anonymous_user: Anonym
     application:
-      collection:
-        documents:
-          one: Dokument
-          other: Dokument
       document:
         download: Hämta fil
       documents:
@@ -314,6 +313,7 @@ sv:
       endorsements:
         one: instämmande
         other: instämmanden
+      official_author: Officiella
     authorization_handlers:
       another_dummy_authorization_handler:
         explanation: Bli bekräftad genom att ange ett passnummer som inleds med "A"
@@ -342,7 +342,6 @@ sv:
           foo: Foo
         name: Foo godkännande
       granted_at: Beviljades vid %{timestamp}
-      renew: Förnya verifiering
       sms:
         explanation: Ange ditt mobilnummer så att vi kan kontrollera din identitet.
         name: Kod via SMS
@@ -379,8 +378,6 @@ sv:
           explanation_html: För att kunna utföra denna åtgärd måste du vara auktoriserad, innan du gör det måste du bekräfta din e-postadress <strong>%{email}</strong>.
           request_confirmation_instructions: Begär bekräftelseanvisningar
           title: Bekräfta din e-postadress
-      show:
-        close_modal: Stäng modal
     block_user_mailer:
       notify:
         body_1: Ditt konto har spärrats.
@@ -404,6 +401,7 @@ sv:
           debate: Debatt
           initiative: Initiativ
           meeting: Möte
+          order: Röster
           post: Inlägg
           proposal: Förslag
           question: Fråga
@@ -557,16 +555,18 @@ sv:
     endorsable:
       endorsements: Instämmanden
       endorsements_count: Antal Endorsements
-    endorsement_buttons_cell:
-      already_endorsed: Instämt
-      endorse: Instäm
     endorsements:
       identities:
         done: Klar
         select_identity: Välj identitet
     errors:
       internal_server_error:
+        copied: Text kopierad!
+        date_and_time: Datum och tid
         title: Det uppstod ett problem med vår server
+        unknown: Okänd
+        url: URL
+        user: Användar-ID
       not_found:
         back_home: Tillbaka hem
         content_doesnt_exist: Den här adressen är felaktig eller har tagits bort.
@@ -754,8 +754,6 @@ sv:
         button: Sluta följa
         error: Det gick inte att sluta följa den här resursen.
     forms:
-      current_image: Nuvarande bild
-      default_image: Förvald bild
       errors:
         decidim/user:
           password: Lösenordet är för kort.
@@ -765,6 +763,8 @@ sv:
         file:
           explanation: 'Vägledning för fil:'
           message_1: Måste vara en bild eller ett dokument.
+        icon:
+          explanation: 'Vägledning för ikon:'
         image:
           explanation: 'Vägledning för bild:'
           message_1: Helst en landskapsbild som inte har någon text.
@@ -780,6 +780,7 @@ sv:
           cancel: Avbryta
           edit_image: Redigera bild
           error: Fel!
+          filename: Filnamn
           remove: Ta bort
           replace: Ersätt
           save: Spara
@@ -876,6 +877,7 @@ sv:
         success: Förfrågan att gå med har skickats. En administratör granskar din förfrågan innan du blir godkänd i gruppen.
       leave:
         error: Det gick inte att lämna gruppen
+        last_admin: Du kan inte ta bort dig själv från denna grupp eftersom du är den sista administratören. Gör en annan medlem till administratör för att lämna gruppen.
         success: Du har lämnat gruppen.
       members:
         accept_or_reject_join_requests: 'Följande användare har ansökt om att få gå med i den här gruppen. Godkänn eller avvisa deras förfrågningar:'
@@ -913,7 +915,6 @@ sv:
         body_1: Du är på väg att besöka en extern länk och vi vill att du ska vara försiktig med innehållet på den externa webbplatsen.
         body_2: Kontrollera länken du är på väg att besöka och se till att den är säker innan du fortsätter.
         cancel: Avbryt
-        close_modal: Stäng fönster
         proceed: Fortsätt
         title: Öppna extern länk
     log:
@@ -1005,6 +1006,9 @@ sv:
           next: Nästa
           no_conversations: Du har inga konversationer än
           title: Samtal
+        reply_form:
+          placeholder: Ditt svar...
+          send: Skicka
         show:
           back: Tillbaka till alla konversationer
           chat_with: Konversation med
@@ -1033,7 +1037,6 @@ sv:
     newsletter_mailer:
       newsletter:
         note: Du har fått det här e-brevet eftersom du prenumererar på nyhetsbrev från %{organization_name}. Du kan ändra dina inställningar på <a href="%{link}">meddelandesidan</a>.
-        see_on_website: Visa inte e-brevet som det ska? Läs det på <a href="%{link}" target="_blank">webbplatsen</a>.
         unsubscribe: Välj att <a href="%{link}" target="_blank" class="unsubscribe">Avprenumerera</a> om du inte vill få denna typ av brev.
     newsletter_templates:
       basic_only_text:
@@ -1098,6 +1101,7 @@ sv:
           none: Ingen
           weekly: Veckovis
         own_activity: Min egen verksamhet, som när någon kommenterar mitt förslag eller nämner mig
+        push_notifications: Push-meddelanden
         receive_notifications_about: Jag vill få notiser om
         update_notifications_settings: Spara ändringar
       update:
@@ -1193,6 +1197,14 @@ sv:
           info: Man får märken genom att utföra olika aktiviteter på plattformen.
           title: Märken
       user:
+        actions:
+          create_user_group: Skapa grupp
+          edit_profile: Redigera profil
+          edit_user_group: Redigera grupprofil
+          invite_user: Bjud in deltagare
+          manage_user_group_admins: Hantera administratörer
+          manage_user_group_users: Hantera medlemmar
+          message: Meddelande
         confirmation_instructions_sent: Skickat e-brev med anvisningar om bekräftelse
         create_user_group: Skapa grupp
         edit_profile: Redigera profil
@@ -1575,6 +1587,17 @@ sv:
   doorkeeper:
     scopes:
       public: Din offentliga information.
+  emojis:
+    categories:
+      custom: Anpassad
+      flags: Flaggor
+      food-drink: Mat & Dryck
+      objects: Objekt
+      people-body: Personer & kropp
+      recents: Nyligen använd
+      symbols: Symboler
+    search:
+      clear: Rensa sök
   errors:
     messages:
       already_confirmed: var redan bekräftat, försök att logga in
@@ -1610,13 +1633,25 @@ sv:
       data_consent:
         details:
           columns:
+            name: Namn
             service: Tjänst
+            type: Typ
+          items:
+            _session_id:
+              service: Denna webbplats
+            decidim-consent:
+              service: Denna webbplats
+            pwaInstallPromptSeen:
+              service: Denna webbplats
           types:
             cookie: Cookie
+            local_storage: Lokal lagring
         dialog:
           settings: Inställningar
         modal:
           save_settings: Spara inställningar
+        warning:
+          consent_required: Du måste aktivera %{categories} för att kunna se innehållet.
       edit_link:
         edit: Redigera
       footer:
@@ -1690,6 +1725,10 @@ sv:
     password_too_common: är för vanligt
     password_too_long: är för långt
     password_too_short: är för kort
+  ransack:
+    predicates:
+      dtgt: efter
+      dtlt: före
   social_share_button:
     delicious: Delicious
     douban: Douban
@@ -1745,8 +1784,10 @@ sv:
       option_unified: Sammanslagen
   views:
     pagination:
+      next: Nästa
       next_title: Länk till nästa sida
       pagination: Sidnumrering
+      previous: Föreg
       previous_title: Länk till föregående sida
       title: 'Sidnummer: '
       truncate: "&hellip;"
