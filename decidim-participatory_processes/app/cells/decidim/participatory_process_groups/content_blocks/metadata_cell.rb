@@ -47,7 +47,7 @@ module Decidim
           return if (text = translated_attribute(meta_scope)).blank?
 
           {
-            title: t("decidim.participatory_process_groups.content_blocks.title.meta_scope"),
+            title: t("decidim.participatory_process_groups.content_blocks.metadata.meta_scope"),
             icon: "question-line",
             text:
           }
