@@ -93,6 +93,9 @@ ar:
         welcome_notification_body: محتوى إشعار الترحيب
         welcome_notification_subject: موضوع إشعار الترحيب
         youtube_handler: مُعرّف حساب يوتيوب
+      participatory_space_private_user:
+        email: البريد الإلكتروني
+        name: الإسم
       scope:
         code: الشفرة
         name: الاسم
@@ -161,6 +164,9 @@ ar:
         user:
           new: مدير جديد
         verify: التحقق
+      admin_terms_of_service:
+        actions:
+          accept: أوافق على هذه الشروط
       area_types:
         create:
           error: حدثت مشكلة أثناء إنشاء نوع منطقة جديد.
@@ -761,6 +767,7 @@ ar:
           share: مشاركة
       shared:
         gallery:
+          add_images: إضافة صور
           delete_image: احذف الصورة
           edit_images: تعديل الصورة
       static_page_topics:
@@ -779,6 +786,8 @@ ar:
       static_pages:
         actions:
           view: عرض الصفحة العامة
+        content_blocks:
+          title: محتوى الصفحة
         create:
           error: كانت هناك مشكلة في إنشاء صفحة جديدة.
           success: تم إنشاء الصفحة بنجاح.
