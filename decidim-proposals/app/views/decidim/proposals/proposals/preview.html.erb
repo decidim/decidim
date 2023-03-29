@@ -1,41 +1,48 @@
 <% add_decidim_page_title(proposal_wizard_step_title(action_name)) %>
 
-<div class="row">
+<% content_for :css_content do %>
+  <%= stylesheet_pack_tag "decidim_proposals", media: "all" %>
+<% end %>
+
+<% content_for :js_content do %>
+  <%= javascript_pack_tag "decidim_proposals" %>
+<% end %>
+
+<%= render layout: "layouts/decidim/shared/layout_center" do %>
+
   <%= render partial: "wizard_aside" %>
 
-  <div class="columns large-9">
-    <%= render partial: "wizard_header", locals: { callout_help_text_class: "warning" } %>
-    <div class="card card__content">
-      <div class="row column view-header">
-        <h3 class="heading3"><%= present(@proposal).title(links: true, html_escape: true) %></h3>
-        <% unless component_settings.participatory_texts_enabled? %>
-          <%= cell("decidim/coauthorships", @proposal, has_actions: false, size: 3, context: { current_user: current_user }) %>
-        <% end %>
+  <%= render partial: "wizard_header", locals: { callout_help_text_class: "warning" } %>
 
-        <%= render_proposal_body(@proposal) %>
-      </div>
-      <div class="row column">
-        <%= cell "decidim/proposals/proposal_tags", @proposal %>
-      </div>
-    </div>
-    <% if component_settings.geocoding_enabled? %>
-      <% if has_position?(@proposal) %>
-      <div class="row column">
-        <h3 class="section-heading"><%= t("decidim.application.geocoding.geocoded_address") %></h3>
-            <%= render partial: "decidim/shared/static_map", locals: { icon_name: "proposals", geolocalizable: @proposal } %>
-      </div>
+  <div class="card card__content">
+    <div class="row column view-header">
+      <h3 class="heading3"><%= present(@proposal).title(links: true, html_escape: true) %></h3>
+      <% unless component_settings.participatory_texts_enabled? %>
+        <%= cell("decidim/coauthorships", @proposal, has_actions: false, size: 3, context: { current_user: current_user }) %>
       <% end %>
-    <% end %>
-    <div class="row column">
-      <%= attachments_for @proposal %>
-    </div>
 
-    <div class="p-l">
-      <div class="row column flex-center">
-        <%= link_to t(".modify"), edit_draft_proposal_path(@proposal) %>
-        <%= button_to t(".publish"), publish_proposal_path(@proposal), method: :post, class: "button button--nomargin small" %>
-      </div>
+      <%= render_proposal_body(@proposal) %>
+    </div>
+    <div class="row column">
+      <%= cell "decidim/proposals/proposal_tags", @proposal %>
     </div>
   </div>
-  <div class="columns large-3"></div>
-</div>
+  <% if component_settings.geocoding_enabled? %>
+    <% if has_position?(@proposal) %>
+    <div class="row column">
+      <h3 class="section-heading"><%= t("decidim.application.geocoding.geocoded_address") %></h3>
+          <%= render partial: "decidim/shared/static_map", locals: { icon_name: "proposals", geolocalizable: @proposal } %>
+    </div>
+    <% end %>
+  <% end %>
+  <div class="row column">
+    <%= attachments_for @proposal %>
+  </div>
+
+  <div class="p-l">
+    <div class="row column flex-center">
+      <%= link_to t("modify", scope: "decidim.proposals.proposals.preview"), edit_draft_proposal_path(@proposal) %>
+      <%= button_to t("publish", scope: "decidim.proposals.proposals.preview"), publish_proposal_path(@proposal), method: :post, class: "button button--nomargin small" %>
+    </div>
+  </div>
+<% end %>

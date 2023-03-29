@@ -1,23 +1,28 @@
 <% add_decidim_page_title(proposal_wizard_step_title(action_name)) %>
 
-<div class="row">
+<% content_for :css_content do %>
+  <%= stylesheet_pack_tag "decidim_proposals", media: "all" %>
+<% end %>
+
+<% content_for :js_content do %>
+  <%= javascript_pack_tag "decidim_proposals" %>
+<% end %>
+
+<%= render layout: "layouts/decidim/shared/layout_center" do %>
+
   <%= render partial: "wizard_aside" %>
 
-  <div class="columns large-6">
-    <%= render partial: "wizard_header", locals: { callout_step_help_text_class: "warning" } %>
+  <%= render partial: "wizard_header", locals: { callout_step_help_text_class: "warning" } %>
 
-    <% if @similar_proposals.presence %>
-      <div class="row small-up-1 card-grid">
-        <% @similar_proposals.each do |proposal| %>
-          <%= render partial: "proposal_similar", locals: { proposal: proposal } %>
-        <% end %>
-      </div>
-    <% end %>
-
-    <div class="row column text-center">
-      <%= link_to t(".continue"), complete_proposal_path(@proposal), class: "button small" %>
+  <% if @similar_proposals.presence %>
+    <div class="row small-up-1 card-grid">
+      <% @similar_proposals.each do |proposal| %>
+        <%= render partial: "proposal_similar", locals: { proposal: proposal } %>
+      <% end %>
     </div>
-  </div>
+  <% end %>
 
-  <div class="columns large-3"></div>
-</div>
+  <div class="row column text-center">
+    <%= link_to t("continue", scope: "decidim.proposals.proposals.compare"), complete_proposal_path(@proposal), class: "button small" %>
+  </div>
+<% end %>
