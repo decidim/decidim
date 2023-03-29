@@ -43,27 +43,27 @@ module Decidim
       I18n.t(units_name, count: progress)
     end
 
-    # deprecated
+    # REDESIGN_PENDING: deprecated
     def subtitle_text
       options[:subtitle_text]
     end
 
-    # deprecated
+    # REDESIGN_PENDING: deprecated
     def display_subtitle?
       subtitle_text.present? && !small? && !horizontal?
     end
 
-    # deprecated
+    # REDESIGN_PENDING: deprecated
     def small?
       options[:small].to_s == "true"
     end
 
-    # deprecated
+    # REDESIGN_PENDING: deprecated
     def vertical?
       !small? && !horizontal?
     end
 
-    # deprecated
+    # REDESIGN_PENDING: deprecated
     def horizontal?
       options[:horizontal].to_s == "true"
     end
