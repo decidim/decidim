@@ -29,6 +29,7 @@ cs:
         password_confirmation: Potvrzení hesla
         personal_url: Osobní URL
         remove_avatar: Odstranit avatara
+        tos_agreement: Podmínky smlouvy o poskytování služeb
     models:
       decidim/attachment_created_event: Příloha
       decidim/component_published_event: Aktivní součást
@@ -145,6 +146,7 @@ cs:
       logo: "Oficiální logo %{organization}"
       skip_button: Přeskočit na hlavní obsah
     account:
+      blocked: Tento účet byl zablokován kvůli porušení smluvních podmínek
       delete:
         alert: Tuto akci nelze vrátit zpět. Pokud smažete svůj účet, nebudete se moci přihlásit pomocí přihlašovacích údajů. Odstranění vašeho účtu povede k anonymizaci vašich příspěvků. Stále budete moci vytvořit nový účet, ale tyto příspěvky s ním nebudou spojeny.
         confirm:
@@ -1300,6 +1302,10 @@ cs:
         metrics:
           headline: Metriky
           link: Zobrazit všechny metriky
+      terms_of_service:
+        refuse:
+          modal_btn_exit: Přečtu si je později
+          modal_close: Zavřít modal
     participatory_space_private_users:
       not_allowed: Nemáte oprávnění k zobrazení tohoto obsahu
     passwords:
