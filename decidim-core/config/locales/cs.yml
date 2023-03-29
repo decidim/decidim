@@ -1318,7 +1318,10 @@ cs:
           modal_btn_exit: Přečtu si je později
           modal_button: Odmítnout podmínky
           modal_close: Zavřít modal
+          modal_title: Skutečně odmítáte aktualizované podmínky použití?
         required_review:
+          alert: Aktualizovali jsme Podmínky služeb, přečtěte si je, prosím.
+          body: Věnujte prosím chvilku a přečtěte si aktualizace našich smluvních podmínek. V opačném případě nebudete moci platformu používat.
           title: 'Povinné: Přečtěte si aktualizaci našich podmínek poskytování služeb'
     participatory_space_private_users:
       not_allowed: Nemáte oprávnění k zobrazení tohoto obsahu
