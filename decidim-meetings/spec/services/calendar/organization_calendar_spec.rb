@@ -6,7 +6,9 @@ module Decidim::Meetings::Calendar
   describe OrganizationCalendar do
     subject { described_class.for(organization) }
 
-    let!(:meeting) { create :meeting, :published }
+    let!(:meeting) do
+      create :meeting, :published, title: Decidim::Faker::Localized.localized { "<script>alert(\"fooo\")</script> #{generate(:title)}" }
+    end
     let!(:component) { meeting.component }
     let!(:component2) { create :meeting_component, participatory_space: component.participatory_space }
     let!(:organization) { component.organization }
