@@ -499,8 +499,6 @@ en:
             past: Past
             upcoming: Upcoming
           see: See
-        index:
-          loading: Loading results...
         show:
           title: About this process
       show:

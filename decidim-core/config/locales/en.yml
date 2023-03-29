@@ -1487,10 +1487,6 @@ en:
         sign_up: Sign up
       mentions_modal:
         remove_recipient: Remove recipient %{name}
-      participatory_space_filters:
-        filters:
-          areas: Areas
-          select_an_area: Select an area
       public_participation:
         public_participation: Show my attendance publicly
       redesigned_login_modal:
