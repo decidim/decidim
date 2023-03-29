@@ -2,19 +2,19 @@
   @apply inline-flex items-center justify-center font-semibold border border-transparent rounded transition cursor-pointer [&>svg]:flex-none [&>svg]:fill-current first-letter:[&>span]:uppercase [&>span]:text-center [&>span]:break-words;
 
   &__xs{
-    @apply text-sm px-3 py-1 gap-1;
+    @apply text-sm [&:not([class*="button\\_\\_text"])]:px-3 py-1 gap-1;
   }
 
   &__sm{
-    @apply text-sm px-4 py-1.5 gap-1.5;
+    @apply text-sm [&:not([class*="button\\_\\_text"])]:px-4 py-1.5 gap-1.5;
   }
 
   &__lg{
-    @apply text-lg px-6 py-3 gap-2;
+    @apply text-lg [&:not([class*="button\\_\\_text"])]:px-6 py-3 gap-2;
   }
 
   &__xl{
-    @apply text-xl px-8 py-4 gap-4;
+    @apply text-xl [&:not([class*="button\\_\\_text"])]:px-8 py-4 gap-4;
   }
 
   &__primary{
