@@ -51,8 +51,5 @@
     "webpack-sources": "^3.2.3",
     "workbox-recipes": "^6.5.4",
     "workbox-webpack-plugin": "^6.5.4"
-  },
-  "devDependencies": {
-    "jest": "^29.5.0"
   }
 }
