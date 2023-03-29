@@ -13,10 +13,20 @@
   <%= render partial: "wizard_header" %>
 
   <%= decidim_form_for(@form, url: update_draft_proposal_path(@proposal), method: :patch) do |form| %>
-    <%= render partial: "edit_form_fields", locals: { form: form } %>
 
-    <div class="actions">
-      <%= form.submit t("send", scope: "decidim.proposals.proposals.complete"), class: "button expanded mt-s mb-none", data: { disable: true } %>
+    <%= form_required_explanation %>
+
+    <div class="form__wrapper">
+      <%= render partial: "edit_form_fields", locals: { form: form } %>
+    </div>
+
+    <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
+      <%= link_to proposal_wizard_aside_link_to_back(@step), class: "button button__sm md:button__lg button__text-secondary" do %>
+        <%= icon "arrow-left-line" %>
+        <%= wizard_aside_back_text(@step) %>
+      <% end %>
+
+      <%= form.submit t("send", scope: "decidim.proposals.proposals.complete"), class: "button button__sm md:button__lg button__secondary", data: { disable: true } %>
     </div>
   <% end %>
 

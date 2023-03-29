@@ -1,43 +1,31 @@
-<%= form_required_explanation %>
+<%= form.text_field :title, class: "js-hashtags", value: form_presenter.title %>
 
-<div class="field hashtags__container">
-  <%= form.text_field :title, class: "js-hashtags", value: form_presenter.title %>
-</div>
-
-<div class="field hashtags__container">
-  <%= text_editor_for_proposal_body(form) %>
-</div>
+<%= text_editor_for_proposal_body(form) %>
 
 <% if @form.component_automatic_hashtags.any? %>
-  <div class="field">
-    <%= form.label :automatic_hashtags %>
-    <div class="checkboxes hashtags">
-      <% @form.component_automatic_hashtags.each do |hashtag| %>
-        <label>
-          <%= check_box_tag "", "", { checked: true }, { disabled: true } %>#<%= hashtag %>
-        </label>
-      <% end %>
-    </div>
+  <%= form.label :automatic_hashtags %>
+  <div class="checkboxes hashtags">
+    <% @form.component_automatic_hashtags.each do |hashtag| %>
+      <label>
+        <%= check_box_tag "", "", { checked: true }, { disabled: true } %>#<%= hashtag %>
+      </label>
+    <% end %>
   </div>
 <% end %>
 
 <% if @form.component_suggested_hashtags.any? %>
-  <div class="field">
-    <%= form.label :suggested_hashtags, nil, for: nil %>
-    <div class="checkboxes hashtags">
-      <%= form.collection_check_boxes :suggested_hashtags, @form.component_suggested_hashtags.map { |hashtag| [hashtag.downcase, "##{hashtag}"] }, :first, :last do |option|
-        option.label { option.check_box(checked: @form.suggested_hashtag_checked?(option.value)) + option.text }
-      end %>
-    </div>
+  <%= form.label :suggested_hashtags, nil, for: nil %>
+  <div class="checkboxes hashtags">
+    <%= form.collection_check_boxes :suggested_hashtags, @form.component_suggested_hashtags.map { |hashtag| [hashtag.downcase, "##{hashtag}"] }, :first, :last do |option|
+      option.label { option.check_box(checked: @form.suggested_hashtag_checked?(option.value)) + option.text }
+    end %>
   </div>
 <% end %>
 
 <% if @form.geocoding_enabled? %>
-  <div class="field">
-    <%= form.check_box :has_address, checked: form_has_address? %>
-  </div>
+  <%= form.check_box :has_address, checked: form_has_address? %>
 
-  <div class="field" id="address_input">
+  <div id="address_input">
     <%= form.geocoding_field :address, placeholder: t("decidim.proposals.proposals.placeholder.address") %>
     <div class="map" id="address_map">
       <%= render partial: "dynamic_map_instructions" %>
@@ -47,21 +35,15 @@
 <% end %>
 
 <% if @form.categories&.any? %>
-  <div class="field">
-    <%= form.categories_select :category_id, @form.categories, include_blank: t("decidim.proposals.proposals.edit.select_a_category") %>
-  </div>
+  <%= form.categories_select :category_id, @form.categories, include_blank: t("decidim.proposals.proposals.edit.select_a_category") %>
 <% end %>
 
 <% if current_component.has_subscopes? %>
-  <div class="field">
-    <%= scopes_picker_field form, :scope_id, root: current_component.scope %>
-  </div>
+  <%= scopes_picker_field form, :scope_id, root: current_component.scope %>
 <% end %>
 
 <% if current_organization.user_groups_enabled? && Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.any? %>
-  <div class="field">
-    <%= user_group_select_field form, :user_group_id %>
-  </div>
+  <%= user_group_select_field form, :user_group_id %>
 <% end %>
 
 <% if component_settings.attachments_allowed? && @proposal %>

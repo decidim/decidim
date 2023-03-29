@@ -13,13 +13,19 @@
   <%= render partial: "wizard_header" %>
 
   <%= decidim_form_for(@form, url: update_draft_proposal_path(@proposal), method: :patch) do |form| %>
-    <%= render partial: "edit_form_fields", locals: { form: form } %>
 
-    <div class="row column flex-center">
-      <%= link_to t("discard", scope: "decidim.proposals.proposals.edit_draft"), destroy_draft_proposal_path(@proposal), method: :delete, data: { confirm: t("discard_confirmation", scope: "decidim.proposals.proposals.edit_draft") } %>
+    <%= form_required_explanation %>
 
-      <%= form.submit t("send", scope: "decidim.proposals.proposals.edit_draft"), class: "button  button--nomargin small", data: { disable: true } %>
+    <div class="form__wrapper">
+      <%= render partial: "edit_form_fields", locals: { form: form } %>
     </div>
+
+    <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
+      <%= link_to t("discard", scope: "decidim.proposals.proposals.edit_draft"), destroy_draft_proposal_path(@proposal), method: :delete, class: "button button__sm md:button__lg button__text-secondary", data: { confirm: t("discard_confirmation", scope: "decidim.proposals.proposals.edit_draft") } %>
+
+      <%= form.submit t("send", scope: "decidim.proposals.proposals.edit_draft"), class: "button button__sm md:button__lg button__secondary", data: { disable: true } %>
+    </div>
+
   <% end %>
 
 <% end %>
