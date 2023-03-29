@@ -10,6 +10,8 @@ module Decidim
       # current_step - A symbol of the current step
       #
       # Returns a string with the css classes for the desired step
+      #
+      # REDESIGN_PENDING: deprecated
       def proposal_wizard_step_classes(step, current_step)
         step_i = step.to_s.split("_").last.to_i
         if step_i == proposal_wizard_step_number(current_step)
@@ -24,6 +26,8 @@ module Decidim
       # Returns the number of the step
       #
       # step - A symbol of the target step
+      #
+      # REDESIGN_PENDING: deprecated
       def proposal_wizard_step_number(step)
         step.to_s.split("_").last.to_i
       end
@@ -31,6 +35,8 @@ module Decidim
       # Returns the name of the step, translated
       #
       # step - A symbol of the target step
+      #
+      # REDESIGN_PENDING: deprecated
       def proposal_wizard_step_name(step)
         t("decidim.proposals.proposals.wizard_steps.#{step}")
       end
@@ -55,6 +61,8 @@ module Decidim
       #
       # step - A symbol of the target step
       # current_step - A symbol of the current step
+      #
+      # REDESIGN_PENDING: deprecated
       def proposal_wizard_stepper_step(step, current_step)
         attributes = { class: proposal_wizard_step_classes(step, current_step).to_s }
         step_title = proposal_wizard_step_name(step)
@@ -70,6 +78,8 @@ module Decidim
       # Returns the list with all the steps, in html
       #
       # current_step - A symbol of the current step
+      #
+      # REDESIGN_PENDING: deprecated
       def proposal_wizard_stepper(current_step)
         content_tag :ol, class: "wizard__steps" do
           %(
@@ -83,6 +93,7 @@ module Decidim
 
       # Returns a string with the current step number and the total steps number
       #
+      # REDESIGN_PENDING: deprecated
       def proposal_wizard_current_step_of(step)
         current_step_num = proposal_wizard_step_number(step)
         see_steps = content_tag(:span, class: "hide-for-large") do
@@ -96,6 +107,7 @@ module Decidim
         end
       end
 
+      # REDESIGN_PENDING: deprecated
       def proposal_wizard_steps_title
         t("title", scope: "decidim.proposals.proposals.wizard_steps")
       end
@@ -107,12 +119,17 @@ module Decidim
         translated_attribute(component_settings.try("proposal_wizard_#{step}_help_text")).present?
       end
 
+      def proposal_wizard_steps
+        [ProposalsController::STEP1, ProposalsController::STEP2, ProposalsController::STEP3, ProposalsController::STEP4]
+      end
+
       private
 
       def total_steps
         4
       end
 
+      # REDESIGN_PENDING: deprecated
       def wizard_aside_info_text
         t("info", scope: "decidim.proposals.proposals.wizard_aside").html_safe
       end

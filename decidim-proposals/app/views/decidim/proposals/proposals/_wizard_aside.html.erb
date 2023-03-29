@@ -1,20 +1,15 @@
-<div class="columns large-3">
-  <div class="m-bottom">
-    <% unless @step == :step_2 %>
-      <%= link_to proposal_wizard_aside_link_to_back(@step) do %>
-        <%= icon "chevron-left", class: "icon--small", role: "img", "aria-hidden": true %>
-        <%= wizard_aside_back_text(@step) %>
-      <% end %>
-    <% end %>
-  </div>
-  <div class="section">
-    <p>
-      <%= wizard_aside_info_text %>
-    </p>
-  </div>
-  <div class="show-for-large">
-    <div><%= proposal_wizard_steps_title %></div>
-    <div><%= proposal_wizard_current_step_of(@step) %></div>
-    <%= proposal_wizard_stepper(@step) %>
-  </div>
+<div class="flex justify-center">
+  <h1 class="h1 decorator my-12">
+    <%= proposal_wizard_step_title action_name %>
+    <%= "(#{@similar_proposals.count})" if @similar_proposals.present? %>
+  </h1>
 </div>
+
+<ol id="wizard-steps" class="proposal__wizard">
+  <% proposal_wizard_steps.each do |wizard_step| %>
+    <%
+      scope = "decidim.proposals.proposals.wizard_steps"
+      attributes = @step == wizard_step ? { "aria-current": "step", "aria-label": "#{t("current_step", scope:)}: #{t(wizard_step, scope:)}" } : {} %>
+    <%= content_tag :li, t(wizard_step, scope:), attributes %>
+  <% end %>
+</ol>

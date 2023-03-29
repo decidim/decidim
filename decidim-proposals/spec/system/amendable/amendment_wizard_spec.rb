@@ -24,7 +24,7 @@ describe "Amendment Wizard", type: :system do
 
     context "and in step_1: Create your amendment" do
       it "shows the current step_1 highlighted" do
-        within ".wizard__steps" do
+        within "#wizard-steps" do
           expect(page).to have_css(".step--active", count: 1)
           expect(page).to have_css(".step--past", count: 0)
           expect(page).to have_css(".step--active.step_1")
@@ -70,7 +70,7 @@ describe "Amendment Wizard", type: :system do
         end
 
         it "show previous and current step_2 highlighted" do
-          within ".wizard__steps" do
+          within "#wizard-steps" do
             expect(page).to have_css(".step--active", count: 1)
             expect(page).to have_css(".step--past", count: 1)
             expect(page).to have_css(".step--active.step_2")
@@ -134,7 +134,7 @@ describe "Amendment Wizard", type: :system do
       end
 
       it "show previous and current step_3 highlighted" do
-        within ".wizard__steps" do
+        within "#wizard-steps" do
           expect(page).to have_css(".step--active", count: 1)
           expect(page).to have_css(".step--past", count: 2)
           expect(page).to have_css(".step--active.step_3")
@@ -236,7 +236,7 @@ describe "Amendment Wizard", type: :system do
       end
 
       it "show current step_4 highlighted" do
-        within ".wizard__steps" do
+        within "#wizard-steps" do
           expect(page).to have_css(".step--active", count: 1)
           expect(page).to have_css(".step--past", count: 3)
           expect(page).to have_css(".step--active.step_4")

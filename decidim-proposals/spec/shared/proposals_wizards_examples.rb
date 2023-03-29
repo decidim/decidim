@@ -28,7 +28,7 @@ shared_examples "proposals wizards" do |options|
   shared_examples_for "without address" do
     context "when in step_1: Create your proposal" do
       it "show current step_1 highlighted" do
-        within ".wizard__steps" do
+        within "#wizard-steps" do
           expect(page).to have_css(".step--active", count: 1)
           expect(page).to have_css(".step--past", count: 0)
           expect(page).to have_css(".step--active.step_1")
@@ -71,7 +71,7 @@ shared_examples "proposals wizards" do |options|
         end
 
         it "show previous and current step_2 highlighted" do
-          within ".wizard__steps" do
+          within "#wizard-steps" do
             expect(page).to have_css(".step--active", count: 1)
             expect(page).to have_css(".step--past", count: 1)
             expect(page).to have_css(".step--active.step_2")
@@ -133,7 +133,7 @@ shared_examples "proposals wizards" do |options|
       end
 
       it "show previous and current step_3 highlighted" do
-        within ".wizard__steps" do
+        within "#wizard-steps" do
           expect(page).to have_css(".step--active", count: 1)
           expect(page).to have_css(".step--past", count: 2)
           expect(page).to have_css(".step--active.step_3")
@@ -166,7 +166,7 @@ shared_examples "proposals wizards" do |options|
       end
 
       it "show current step_4 highlighted" do
-        within ".wizard__steps" do
+        within "#wizard-steps" do
           expect(page).to have_css(".step--active", count: 1)
           expect(page).to have_css(".step--past", count: 3)
           expect(page).to have_css(".step--active.step_4")
@@ -215,7 +215,7 @@ shared_examples "proposals wizards" do |options|
         end
 
         it "show current step_4 highlighted" do
-          within ".wizard__steps" do
+          within "#wizard-steps" do
             expect(page).to have_css(".step--active", count: 1)
             expect(page).to have_css(".step--past", count: 2)
             expect(page).to have_css(".step--active.step_3")
@@ -287,7 +287,7 @@ shared_examples "proposals wizards" do |options|
       end
 
       it "show current step_4 highlighted" do
-        within ".wizard__steps" do
+        within "#wizard-steps" do
           expect(page).to have_css(".step--active", count: 1)
           expect(page).to have_css(".step--past", count: 3)
           expect(page).to have_css(".step--active.step_4")
