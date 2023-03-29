@@ -1,6 +1,6 @@
 $(() => {
   const $projects = $("#projects, #project");
-  const $budgetSummaryTotal = $(".budget-progress_right_mark");
+  const $budgetSummaryTotal = $(".budget-summary__progressbar-marks_right");
   const $budgetExceedModal = $("#budget-excess");
   const $budgetSummary = $(".budget-summary__progressbox");
   const $voteButton = $(".budget-vote-button");
