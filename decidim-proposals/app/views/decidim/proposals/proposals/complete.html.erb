@@ -10,8 +10,6 @@
 
 <%= render layout: "layouts/decidim/shared/layout_center" do %>
 
-  <%= render partial: "wizard_aside" %>
-
   <%= render partial: "wizard_header" %>
 
   <%= decidim_form_for(@form, url: update_draft_proposal_path(@proposal), method: :patch) do |form| %>
