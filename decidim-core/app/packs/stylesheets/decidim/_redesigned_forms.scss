@@ -41,6 +41,10 @@
   }
 
   select{
+    &:not(.reset-defaults){
+      @apply pr-8;
+    }
+
     @apply appearance-none;
 
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 12 8'%3e%3cpath fill='%233E4C5C' d='M5.99962 4.97656L10.1246 0.851562L11.303 2.0299L5.99962 7.33323L0.696289 2.0299L1.87462 0.851562L5.99962 4.97656Z'/%3e%3c/svg%3e");
@@ -101,7 +105,7 @@
 }
 
 .input-character-counter{
-  @apply relative mt-4;
+  @apply relative mt-4 block;
 
   input[type="text"],
   input[type="email"],

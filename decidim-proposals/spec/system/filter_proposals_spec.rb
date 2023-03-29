@@ -724,7 +724,7 @@ describe "Filter Proposals", :slow, type: :system do
 
       expect(page).to have_css(".card__list.proposal-list-item", count: 8)
 
-      page.find(".card__list.proposal-list-item a", match: :first).click
+      page.find("a.card__list.proposal-list-item", match: :first).click
       click_link "Back to list"
 
       expect(page).to have_css(".card__list.proposal-list-item", count: 8)

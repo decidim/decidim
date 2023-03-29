@@ -17,11 +17,11 @@ module Decidim::Comments
 
     context "when rendering" do
       it "renders the form" do
-        expect(subject).to have_css(".hashtags__container textarea#add-comment-DummyResource-#{commentable.id}[maxlength='1000']")
+        expect(subject).to have_css(".form__wrapper textarea#add-comment-DummyResource-#{commentable.id}[maxlength='1000']")
         expect(subject).to have_css("#add-comment-DummyResource-#{commentable.id}-remaining-characters")
         expect(subject).to have_css("input.alignment-input[name='comment[alignment]'][value='0']", visible: :hidden)
         expect(subject).to have_css("input[name='comment[commentable_gid]']", visible: :hidden)
-        expect(subject).to have_css("button", text: "Send")
+        expect(subject).to have_css("button", text: "Publish comment")
 
         expect(subject).not_to have_css("#add-comment-DummyResource-#{commentable.id}-user-group-id")
       end
@@ -49,7 +49,7 @@ module Decidim::Comments
           let(:organization) { create(:organization, comments_max_length: 350) }
 
           it "renders the comment input with correct maxlength" do
-            expect(subject).to have_css(".hashtags__container textarea#add-comment-DummyResource-#{commentable.id}[maxlength='350']")
+            expect(subject).to have_css(".form__wrapper textarea#add-comment-DummyResource-#{commentable.id}[maxlength='350']")
           end
         end
 
@@ -57,7 +57,7 @@ module Decidim::Comments
           let(:component) { create(:component, participatory_space: participatory_process, settings: { comments_max_length: 350 }) }
 
           it "renders the comment input with correct maxlength" do
-            expect(subject).to have_css(".hashtags__container textarea#add-comment-DummyResource-#{commentable.id}[maxlength='350']")
+            expect(subject).to have_css(".form__wrapper textarea#add-comment-DummyResource-#{commentable.id}[maxlength='350']")
           end
         end
 

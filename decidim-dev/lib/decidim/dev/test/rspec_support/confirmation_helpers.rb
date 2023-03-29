@@ -13,7 +13,9 @@ module ConfirmationHelpers
     # The test can already be "within", so find the body using xpath
     message = nil
     body = find(:xpath, "/html/body")
-    within(body.find(".confirm-reveal")) do
+    confirm_selector = Decidim.redesign_active ? "[data-dialog='confirm-modal']" : ".confirm-reveal"
+
+    within(body.find(confirm_selector)) do
       message = find(".confirm-modal-content").text
       find("a.button[data-confirm-ok]").click
     end

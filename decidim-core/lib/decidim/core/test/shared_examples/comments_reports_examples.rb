@@ -3,17 +3,15 @@
 shared_examples "comments_reports" do
   context "when the user is not logged in" do
     it "gives the option to sign in" do
+      skip_unless_redesign_enabled("this test pass with redesign enabled because this modal is not working in the old design")
+
       visit reportable_path
 
-      expect(page).to have_no_css("html.is-reveal-open")
-
-      within ".comment__header__context-menu" do
-        page.find("label").click
-      end
-
+      # Open toolbar
+      page.find("[id^='dropdown-trigger']").click
       click_button "Report"
 
-      expect(page).to have_css("html.is-reveal-open")
+      expect(page).to have_css("#loginModal", visible: :visible)
     end
   end
 
@@ -24,18 +22,19 @@ shared_examples "comments_reports" do
 
     context "and the user has not reported the resource yet" do
       it "reports the resource" do
+        skip_unless_redesign_enabled("this test pass with redesign enabled because this modal is not working in the old design")
+
         visit reportable_path
 
-        expect(page).to have_selector(".comment__header__context-menu")
-
-        within ".comment__header__context-menu" do
-          page.find("label").click
+        # Open toolbar
+        page.find("[id^='dropdown-trigger']").click
+        within "details" do
           click_button "Report"
         end
 
-        expect(page).to have_css(".flag-modal", visible: :visible)
+        expect(page).to have_css(".modal__report", visible: :visible)
 
-        within ".flag-modal" do
+        within ".modal__report" do
           click_button "Report"
         end
 
@@ -50,16 +49,15 @@ shared_examples "comments_reports" do
       end
 
       it "cannot report it twice" do
+        skip_unless_redesign_enabled("this test pass with redesign enabled because this modal is not working in the old design")
+
         visit reportable_path
 
-        expect(page).to have_selector(".comment__header__context-menu")
+        # Open toolbar
+        page.find("[id^='dropdown-trigger']").click
+        click_button "Report"
 
-        within ".comment__header__context-menu" do
-          page.find("label").click
-          click_button "Report"
-        end
-
-        expect(page).to have_css(".flag-modal", visible: :visible)
+        expect(page).to have_css(".modal__report", visible: :visible)
 
         expect(page).to have_content "already reported"
       end

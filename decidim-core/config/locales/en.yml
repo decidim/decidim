@@ -962,6 +962,7 @@ en:
       invite:
         error: There was a problem inviting this participant
         success: Participant successfully invited
+      pending_invitations: Pending requests
       reject:
         error: There was a problem rejecting this invitation
         success: Invitation successfully rejected
@@ -1352,7 +1353,6 @@ en:
         members: Members
         officialized: Official participant
         send_private_message: Send private message
-        view_full_profile: View full profile
       sidebar:
         badges:
           info: Badges are earned by performing specific activity in the platform.
@@ -1364,6 +1364,8 @@ en:
           edit_user_group: Edit group profile
           invite_user: Invite participant
           join_user_group: Request to join group
+          leave_user_group: Leave group
+          manage_user_group: Manage group
           manage_user_group_admins: Manage admins
           manage_user_group_users: Manage members
           message: Message
@@ -1459,15 +1461,12 @@ en:
         already_reported: This content is already reported and it will be reviewed by an admin.
         close: Close
         description: Is this content inappropriate?
-        does_not_belong: Contains illegal activity, suicide threats, personal information, or something else you think does not belong on %{organization_name}.
-        hide: Hide
-        hide_content: Hide this content
+        does_not_belong: Contains illegal activity, suicide threats, personal information, or something else you think doesn't belong on %{organization_name}.
         offensive: Contains racism, sexism, slurs, personal attacks, death threats, suicide requests or any form of hate speech.
         reason: Reason
         report: Report
         spam: Contains clickbait, advertising, scams or script bots.
         title: Report inappropriate content
-        visit_profile: If you want to also block the participant and the rest of its contents, go to %{user_link} profile page.
       flag_user_modal:
         already_reported: This content is already reported and it will be reviewed by an admin.
         close: Close

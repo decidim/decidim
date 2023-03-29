@@ -11,8 +11,10 @@
     component.addThread(commentHtml, true);
   }
 
+  Rails.fire(document, "comments:loaded", {
+    commentsIds: [<%= @comment.id %>, <%= @comment.commentable.id %>]
+  });
+
   // Update the comments count
   $(".comments-count", $comments).text(<%== t("decidim.components.comments.title", count: @comments_count).to_json %>);
-
-  Decidim.addInputEmoji();
 }());
