@@ -22,6 +22,10 @@ module Decidim
     def resource_cell
       @resource_cell ||= if resource_card
                            resource_card
+                         elsif group_membership?
+                           # Use redesigned version which is prepared to
+                           # display group memberships instances
+                           "decidim/redesigned_user_profile"
                          elsif official_author? || user_or_user_group?
                            "decidim/author"
                          end
@@ -45,6 +49,10 @@ module Decidim
 
     def official_author?
       ["Decidim::Proposals::OfficialAuthorPresenter", "Decidim::Debates::OfficialAuthorPresenter"].include? model.class.to_s
+    end
+
+    def group_membership?
+      model.instance_of?(::Decidim::UserGroupMembership)
     end
 
     def user_or_user_group?

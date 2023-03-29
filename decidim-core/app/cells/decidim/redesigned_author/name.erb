@@ -1,1 +1,5 @@
-<span><%= display_name %></span>
+<% if profile_path? %>
+  <%= link_to display_name, profile_path, class: "author__name" %>
+<% else %>
+  <%= content_tag :span, display_name, class: "author__name" %>
+<% end %>

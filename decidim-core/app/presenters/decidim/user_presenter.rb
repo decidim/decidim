@@ -74,6 +74,8 @@ module Decidim
     end
 
     def has_tooltip?
+      return if respond_to?(:deleted?) && deleted?
+
       true
     end
 
