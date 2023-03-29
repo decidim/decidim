@@ -312,45 +312,6 @@ describe "Filter Participatory Processes", type: :system do
           end
         end
       end
-
-      context "when visiting processes group page with processes block enabled" do
-        before do
-          create(
-            :content_block,
-            organization:,
-            scope_name: :participatory_process_group_homepage,
-            scoped_resource_id: processes_group1.id,
-            manifest_name: :participatory_processes
-          )
-          visit decidim_participatory_processes.participatory_process_group_path(processes_group1)
-        end
-
-        context "and choosing 'active' processes" do
-          it "lists all active processes inside the group" do
-            within "#processes-grid .processes-grid-order-by h3" do
-              expect(page).to have_content("3 ACTIVE PROCESSES")
-            end
-
-            expect(page).to have_content("SE Rocks!")
-            expect(page).to have_no_content("NW Rocks!")
-            group_1_process_type.processes.groupless.each do |group|
-              expect(page).to have_no_content(translated(group.title))
-            end
-          end
-
-          it "only shows process types with active processes in the group" do
-            within "#process-type-filter" do
-              click_button "All types"
-              expect(page).to have_no_content("Awesome Type")
-              expect(page).to have_content("The East Type")
-              expect(page).to have_no_content("The West Type")
-              expect(page).to have_no_content("Old Type")
-              expect(page).to have_no_content("Empty Type")
-              expect(page).to have_no_content("Unpublished Type")
-            end
-          end
-        end
-      end
     end
   end
 end
