@@ -274,5 +274,19 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
         expect(subject).to match_array([unassigned_proposal, assigned_proposal])
       end
     end
+
+    context "when proposal is moderated" do
+      let(:hidden_proposal) { create :proposal, component: component }
+      let!(:moderation) { create(:moderation, hidden_at: 6.hours.ago, reportable: hidden_proposal) }
+      let!(:user) { create :user, admin: true, organization: organization }
+
+      it "exports all proposals from the component" do
+        expect(subject).to include(unassigned_proposal, assigned_proposal)
+      end
+
+      it "excludes the hidden proposals" do
+        expect(subject).not_to include(hidden_proposal)
+      end
+    end
   end
 end
