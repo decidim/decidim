@@ -277,6 +277,8 @@ cs:
         verify_via_csv: "%{user_name} ověřilo %{resource_name} skupinu uživatelů prostřednictvím souboru CSV"
       user_moderation:
         unreport: "%{user_name} vyjmut z nahlášení v %{resource_type} - %{unreported_user_name}"
+    admin_terms_of_service:
+      default_body: "<h2>ADMINISTRÁTORSKÉ ZÁSADY POUŽITÍ</h2><p>Věříme, že jste obdrželi obvyklou lekci od místního správce systému. Obvykle se zredukuje na tyto tři věci:</p><ol><li>Respektujte soukromí ostatních.</li><li>Zamysleme se před kliknutím.</li><li>S velkou mocí přichází velká odpovědnost.</li></ol>"
     alert:
       dismiss: Odmítnout oznámení
     amendments:
@@ -582,6 +584,7 @@ cs:
           sign_up_as:
             legend: Zaregistrovat se jako
           subtitle: Registrujte se, abyste se mohli účastnit Diskusí a podpořit Návrhy.
+          terms: podmínky poskytování služeb
           tos_agreement: Přihlášením souhlasíte s %{link}.
           tos_title: Smluvní podmínky
           username_help: Veřejné jméno, které se zobrazí ve vašich příspěvcích. S cílem zaručit anonymitu může být jakékoliv jméno.
@@ -1303,9 +1306,20 @@ cs:
           headline: Metriky
           link: Zobrazit všechny metriky
       terms_of_service:
+        accept:
+          error: Při přijímání podmínek služby došlo k chybě.
+          success: Skvělé! Přijali jste podmínky služby.
+        form:
+          agreement: Souhlasím s těmito podmínkami
+          legend: Souhlasit s podmínkami služby
         refuse:
+          modal_body: Pokud odmítnete, nebudete moci platformu používat, můžete <a href="%{download_your_data_path}">stáhnout svá data</a> a/nebo <a href="%{delete_path}">smazat svůj účet</a>.
+          modal_btn_continue: Přijmout podmínky a pokračovat
           modal_btn_exit: Přečtu si je později
+          modal_button: Odmítnout podmínky
           modal_close: Zavřít modal
+        required_review:
+          title: 'Povinné: Přečtěte si aktualizaci našich podmínek poskytování služeb'
     participatory_space_private_users:
       not_allowed: Nemáte oprávnění k zobrazení tohoto obsahu
     passwords:
@@ -1314,6 +1328,7 @@ cs:
         success: Heslo bylo úspěšně změněno.
     profile:
       deleted: Vymazaný účastník
+      inaccessible_message: Tento profil je nedostupný z důvodu porušení smluvních podmínek!
       view: Zobrazit
     profiles:
       default_officialization_text_for_user_groups: Tato skupina uživatelů je veřejně ověřena a její název byl ověřen tak, aby odpovídal skutečnému názvu.
