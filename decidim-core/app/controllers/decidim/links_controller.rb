@@ -26,31 +26,12 @@ module Decidim
 
     def parse_url
       raise Decidim::InvalidUrlError if params[:external_url].blank?
-      raise Decidim::InvalidUrlError unless params[:external_url].match %r{\Ahttps?://([^/]+)(/.*)?\z}
       raise Decidim::InvalidUrlError unless external_url
-
-      @url_parts = {
-        protocol: (external_url.scheme ? "#{external_url.scheme}:" : ""),
-        port: (external_url.port && [80, 443].include?(external_url.port) ? "" : ":#{external_url.port}"),
-        domain: external_url.host,
-        path: [
-          external_url.path,
-          (external_url.query ? "?#{external_url.query}" : ""),
-          (external_url.fragment ? "##{external_url.fragment}" : "")
-        ].join
-      }
+      raise Decidim::InvalidUrlError unless external_url.scheme&.starts_with?("http")
     end
 
     def external_url
-      @external_url ||= begin
-        # Simple way to avoid double encoded URI issues
-        URI.parse(CGI.unescape(params[:external_url]))
-        URI.parse(params[:external_url])
-      end
-    end
-
-    def target_url
-      [@url_parts[:protocol], @url_parts[:domain], @url_parts[:port], @url_parts[:path]].join
+      @external_url ||= URI.parse(CGI.unescape(params[:external_url]))
     end
   end
 end
