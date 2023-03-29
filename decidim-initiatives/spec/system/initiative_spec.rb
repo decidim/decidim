@@ -42,9 +42,7 @@ describe "Initiative", type: :system do
 
       shared_examples_for "initiative does not show signatures" do
         it "does not show signatures for the state" do
-          within "[data-progress-bar]" do
-            expect(page).to have_css("span", count: 2)
-          end
+          expect(page).to have_no_css("[data-progress-bar]")
         end
       end
 

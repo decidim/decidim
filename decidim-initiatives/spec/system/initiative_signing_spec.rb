@@ -202,8 +202,8 @@ describe "Initiative signing", type: :system do
   end
 
   def signature_text(number)
-    return "1/#{initiative.supports_required}\nSIGNATURE" if number == 1
+    return "1 #{initiative.supports_required}\nSignature" if number == 1
 
-    "#{number}/#{initiative.supports_required}\nSIGNATURES"
+    "#{number} #{initiative.supports_required}\nSignatures"
   end
 end
