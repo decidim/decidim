@@ -75,6 +75,10 @@
 
   &-checkbox-label{
     @apply text-md text-gray-2 font-normal prose-a:text-secondary prose-a:underline cursor-pointer;
+
+    & + &{
+      @apply block;
+    }
   }
 
   & label:not(&-checkbox-label),
@@ -101,6 +105,11 @@
   select,
   textarea{
     @apply w-full block mt-4;
+  }
+
+  input[type="checkbox"],
+  input[type="radio"]{
+    @apply mt-4;
   }
 }
 
