@@ -29,7 +29,7 @@ describe "Explore debates", type: :system do
     it "lists all debates for the given process" do
       visit_component
 
-      expect(page).to have_selector(".card--debate", count: debates_count)
+      expect(page).to have_selector("a.card__list", count: debates_count)
 
       debates.each do |debate|
         expect(page).to have_content(translated(debate.title))
@@ -44,13 +44,13 @@ describe "Explore debates", type: :system do
       it "paginates them" do
         visit_component
 
-        expect(page).to have_css(".card--debate", count: Decidim::Paginable::OPTIONS.first)
+        expect(page).to have_css("a.card__list", count: Decidim::Paginable::OPTIONS.first)
 
         click_link "Next"
 
         expect(page).to have_selector("[data-pages] [data-page][aria-current='page']", text: "2")
 
-        expect(page).to have_css(".card--debate", count: 5)
+        expect(page).to have_css("a.card__list", count: 5)
       end
     end
 
@@ -140,7 +140,7 @@ describe "Explore debates", type: :system do
               check "Official"
             end
 
-            expect(page).to have_css(".card--debate", count: 2)
+            expect(page).to have_css("a.card__list", count: 2)
             expect(page).to have_content("2 DEBATES")
           end
         end
@@ -157,7 +157,7 @@ describe "Explore debates", type: :system do
               check "Participants"
             end
 
-            expect(page).to have_css(".card--debate", count: 2)
+            expect(page).to have_css("a.card__list", count: 2)
             expect(page).to have_content("2 DEBATES")
           end
         end
@@ -177,7 +177,7 @@ describe "Explore debates", type: :system do
           check translated(scope.name)
         end
 
-        expect(page).to have_css(".card--debate", count: 1)
+        expect(page).to have_css("a.card__list", count: 1)
       end
 
       context "when filtering by category" do
@@ -196,7 +196,7 @@ describe "Explore debates", type: :system do
             check category.name[I18n.locale.to_s]
           end
 
-          expect(page).to have_css(".card--debate", count: 1)
+          expect(page).to have_css("a.card__list", count: 1)
         end
 
         it "works with 'back to list' link" do
@@ -205,13 +205,13 @@ describe "Explore debates", type: :system do
             check category.name[I18n.locale.to_s]
           end
 
-          expect(page).to have_css(".card--debate", count: 1)
+          expect(page).to have_css("a.card__list", count: 1)
 
-          page.find(".card--debate .card__link").click
+          page.find("a.card__list .card__link").click
 
           click_link "Back to list"
 
-          expect(page).to have_css(".card--debate", count: 1)
+          expect(page).to have_css("a.card__list", count: 1)
         end
       end
     end
@@ -225,7 +225,7 @@ describe "Explore debates", type: :system do
       end
 
       it "does not list the hidden debates" do
-        expect(page).to have_selector(".card--debate", count: debates_count - 1)
+        expect(page).to have_selector("a.card__list", count: debates_count - 1)
         expect(page).to have_no_content(translated(debate.title))
       end
     end
