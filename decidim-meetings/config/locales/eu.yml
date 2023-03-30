@@ -148,7 +148,7 @@ eu:
           button_text: Eman izena topaketan
           email_intro: Topaketa "%{resource_title}" jarraitzen duzun "%{participatory_space_title}" espazioan gehitu da.
           email_outro: Jakinarazpena jaso duzu "%{participatory_space_title}" prozesua jarraitzen ari zarelako. Ez jarraitu aurreko loturatik.
-          email_subject: Toopaketa berria %{participatory_space_title}-an
+          email_subject: Topaketa berria %{participatory_space_title}-an
           notification_title: <a href="%{resource_path}">%{resource_title}</a> topaketa gehitu da %{participatory_space_title}
         meeting_registration_confirmed:
           notification_title: <a href="%{resource_url}">%{resource_title}</a> topaketarako izen-ematea baieztatu da. Zure izena emateko kodea %{registration_code} da.
