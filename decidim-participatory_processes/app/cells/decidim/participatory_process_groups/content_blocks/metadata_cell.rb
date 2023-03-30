@@ -28,7 +28,7 @@ module Decidim
 
           {
             title: t("group_url", scope: "activemodel.attributes.participatory_process_group"),
-            icon: "question-line",
+            icon: "external-link-line",
             text: link_to(group_url_text, group_url, target: "_blank", rel: "noopener")
           }
         end
@@ -38,7 +38,7 @@ module Decidim
 
           {
             title: t("hashtag", scope: "activemodel.attributes.participatory_process_group"),
-            icon: "hashtag",
+            icon: "twitter-line",
             text: link_to("##{hashtag_text}", twitter_hashtag_url(hashtag_text), target: "_blank", rel: "noopener")
           }
         end
@@ -48,7 +48,7 @@ module Decidim
 
           {
             title: t("decidim.participatory_process_groups.content_blocks.metadata.meta_scope"),
-            icon: "question-line",
+            icon: "globe-line",
             text:
           }
         end
