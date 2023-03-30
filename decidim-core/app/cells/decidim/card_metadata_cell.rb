@@ -42,7 +42,8 @@ module Decidim
 
       {
         text: count,
-        icon: resource_type_icon_key(:comments_count)
+        icon: resource_type_icon_key(:comments_count),
+        data_attributes: { comments_count: "" }
       }
     end
 
