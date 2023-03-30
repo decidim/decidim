@@ -353,7 +353,7 @@ describe "Explore debates", type: :system do
     context "when debate is official" do
       let!(:debate) { create(:debate, author: organization, description: { en: content }, component:, skip_injection: true) }
 
-      it_behaves_like "rendering safe content", ".columns.mediumlarge-8.mediumlarge-pull-4"
+      it_behaves_like "rendering safe content", ".editor-content"
     end
 
     context "when rich text editor is enabled for participants" do
@@ -364,13 +364,13 @@ describe "Explore debates", type: :system do
         visit path
       end
 
-      it_behaves_like "rendering safe content", ".columns.mediumlarge-8.mediumlarge-pull-4"
+      it_behaves_like "rendering safe content", ".editor-content"
     end
 
     context "when rich text editor is NOT enabled on the frontend" do
       let!(:debate) { create(:debate, author: user, description: { en: content }, component:, skip_injection: true) }
 
-      it_behaves_like "rendering unsafe content", ".columns.mediumlarge-8.mediumlarge-pull-4"
+      it_behaves_like "rendering unsafe content", ".editor-content"
     end
   end
 end
