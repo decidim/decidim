@@ -27,7 +27,7 @@ module Decidim
       end
 
       def title
-        decidim_html_escape(translated_attribute(model.title))
+        presenter.title(html_escape: true)
       end
 
       def description
@@ -38,6 +38,10 @@ module Decidim
       end
 
       private
+
+      def presenter
+        present(model)
+      end
 
       def metadata_cell
         "decidim/debates/debate_card_metadata"
