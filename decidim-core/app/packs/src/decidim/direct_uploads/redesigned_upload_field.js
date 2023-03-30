@@ -12,12 +12,12 @@ const updateModalTitle = (modal) => {
 
 const updateActiveUploads = (modal) => {
   // remove the default image block, if exists
-  const defaultFile = document.getElementById("default-active-upload")
+  const defaultFile = document.getElementById(`default-active-${modal.modal.id}`)
   if (defaultFile) {
     defaultFile.remove()
   }
 
-  const files = document.querySelector("[data-active-uploads]")
+  const files = document.querySelector(`[data-active-uploads=${modal.modal.id}]`)
 
   // fastest way to clean children nodes
   files.textContent = ""
@@ -81,7 +81,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const modal = new UploadModal(attachmentButton);
 
     // append to the modal items array those files already validated (only in first pageload)
-    const files = document.querySelector("[data-active-uploads]");
+    const files = document.querySelector(`[data-active-uploads=${modal.modal.id}]`);
     [...files.children].forEach((child) => modal.preloadFiles(child));
 
     // whenever the input fields changes, process the files
