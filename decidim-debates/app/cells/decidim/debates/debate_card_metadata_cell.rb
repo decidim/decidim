@@ -32,10 +32,14 @@ module Decidim
       end
 
       def duration
-        return if [start_time, end_time].any?(&:blank?)
+        text = if [start_time, end_time].any?(&:blank?)
+                 t("decidim.debates.debates.show.open")
+               else
+                 distance_of_time_in_words(start_time, end_time, scope: "datetime.distance_in_words.short")
+               end
 
         {
-          text: distance_of_time_in_words(start_time, end_time, scope: "datetime.distance_in_words.short"),
+          text:,
           icon: "time-line"
         }
       end

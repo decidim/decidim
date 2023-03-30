@@ -67,8 +67,8 @@ describe "Explore debates", type: :system do
 
       it "the card informs that they are open" do
         visit_component
-        within "#debate_#{open_debate.id}" do
-          expect(page).to have_content "OPEN DEBATE"
+        within "#debates__debate_#{open_debate.id}" do
+          expect(page).to have_content "Open debate"
         end
       end
     end
