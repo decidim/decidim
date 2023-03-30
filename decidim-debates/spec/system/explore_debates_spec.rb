@@ -280,7 +280,7 @@ describe "Explore debates", type: :system do
       expect(page).to have_i18n_content(debate.information_updates, strip_tags: true)
       expect(page).to have_i18n_content(debate.instructions, strip_tags: true)
 
-      within ".section.view-side" do
+      within ".layout-item__aside" do
         expect(page).to have_content(13)
         expect(page).to have_content(/December/i)
         expect(page).to have_content("14:15 - 16:17")
