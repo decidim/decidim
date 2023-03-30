@@ -14,8 +14,6 @@ Decidim has built-in support for the following map service providers:
  ** As an alternative, you may also want to use your own self-hosted map servers (see <<hosting-your-own-map-services,Hosting your own map services>> for more information)
  ** <<configuring-open-street-maps-based-service-providers,Configuring Open Street Maps based service providers>>
 
-If you want to integrate Decidim to some other map service provider, read how to xref:/docs/customization/maps.adoc[write your own integration code] for that.
-
 == Configuring maps and geocoding
 
 After generating your app, you'll see that your `config/initializers/decidim.rb` file includes commented code about map services:
@@ -220,10 +218,6 @@ config.maps = {
   }
 }
 ----
-
-=== Integrating with a new service provider
-
-If you want to integrate the map functionality with a new service provider, take a look at the xref:/docs/customization/maps.adoc[Custom map providers] documentation.
 
 == Enabling maps and geocoding
 
