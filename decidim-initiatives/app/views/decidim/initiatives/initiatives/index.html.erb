@@ -14,32 +14,48 @@ edit_link(
 )
 %>
 
-<% provide :meta_title, t("initiatives.index.title", scope: "decidim") %>
 
 <% content_for :aside do %>
   <h1 class="h1 decorator">
-    test
+    <% provide :meta_title, t("initiatives.index.title", scope: "decidim") %>
   </h1>
+
+  <% if Decidim::Initiatives.creation_enabled %>
+    <% if current_user && available_initiative_types.size > 1 %>
+      <%= link_to create_initiative_path(:select_initiative_type), class: "title-action__action button button__xl button__secondary w-full" do %>
+        <%= icon "add-fill" %>
+        <%= t("new_initiative", scope: "decidim.initiatives.initiatives.index_header") %>
+      <% end %>
+    <% elsif current_user %>
+      <% if allowed_to?(:create, :initiative, { initiative_type: available_initiative_types.first }) %>
+        <%= link_to create_initiative_path(:select_initiative_type), class: "title-action__action button button__xl button__secondary w-full" do %>
+          <%= icon "add-fill" %>
+          <%= t("new_initiative", scope: "decidim.initiatives.initiatives.index_header") %>
+        <% end %>
+      <% else %>
+        <%= authorized_create_modal_button(available_initiative_types.first, remote: true, class: "title-action__action button button__xl button__secondary w-full") do %>
+          <%= icon "add-fill" %>
+          <%= t("new_initiative", scope: "decidim.initiatives.initiatives.index_header") %>
+        <% end %>
+      <% end %>
+    <% else %>
+      <% content_for(:redirect_after_login) { create_initiative_url(:select_initiative_type) } %>
+      <button type="button" class="title-action__action button button__xl button__secondary w-full" data-open="loginModal" aria-controls="loginModal" aria-haspopup="dialog" tabindex="0">
+        <%= icon "add-fill" %>
+        <%= t("new_initiative", scope: "decidim.initiatives.initiatives.index_header") %>
+      </button>
+    <% end %>
+  <% end %>
+
+  <%= render partial: "filters_small_view" %>
+  <%= render partial: "filters" %>
 <% end %>
 
 <%= render layout: "layouts/decidim/shared/layout_two_col" do %>
   <%= participatory_space_wrapper do %>
-    <div class="row columns">
-      <div class="title-action">
-        <%= render partial: "index_header" %>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="columns mediumlarge-4 large-3">
-        <%= render partial: "filters_small_view" %>
-        <div class="card card--secondary show-for-mediumlarge">
-          <%= render partial: "filters" %>
-        </div>
-      </div>
-      <div id="initiatives" class="columns mediumlarge-8 large-9">
-        <%= render partial: "initiatives" %>
-      </div>
+    <%= render partial: "index_header" %>
+    <div id="initiatives">
+      <%= render partial: "initiatives" %>
     </div>
   <% end %>
 <% end %>
