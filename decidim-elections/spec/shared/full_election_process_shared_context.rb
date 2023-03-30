@@ -58,7 +58,7 @@ module Decidim
       end
 
       def access_trustee_zone(trustee_index, upload_keys = true) # rubocop:disable Style/OptionalBooleanParameter
-        trustee = election.trustees[trustee_index]
+        trustee = election.trustees.order(:id)[trustee_index]
 
         relogin_as trustee.user, scope: :user
         visit decidim.decidim_elections_trustee_zone_path
