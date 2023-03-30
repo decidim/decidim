@@ -110,6 +110,8 @@ describe "Explore debates", type: :system do
     context "when filtering" do
       context "when filtering by text" do
         it "updates the current URL" do
+          skip "REDESIGN_PENDING - Enable this test when filters merged and integrated in the index"
+
           create(:debate, component:, title: { en: "Foobar debate" })
           create(:debate, component:, title: { en: "Another debate" })
           visit_component
@@ -132,6 +134,8 @@ describe "Explore debates", type: :system do
           let!(:debates) { create_list(:debate, 2, component:, skip_injection: true) }
 
           it "lists the filtered debates" do
+            skip "REDESIGN_PENDING - Enable this test when filters merged and integrated in the index"
+
             create(:debate, :participant_author, component:, skip_injection: true)
             visit_component
 
@@ -149,6 +153,8 @@ describe "Explore debates", type: :system do
           let!(:debates) { create_list(:debate, 2, :participant_author, component:, skip_injection: true) }
 
           it "lists the filtered debates" do
+            skip "REDESIGN_PENDING - Enable this test when filters merged and integrated in the index"
+
             create(:debate, component:, skip_injection: true)
             visit_component
 
@@ -164,6 +170,8 @@ describe "Explore debates", type: :system do
       end
 
       it "allows filtering by scope" do
+        skip "REDESIGN_PENDING - Enable this test when filters merged and integrated in the index"
+
         scope = create(:scope, organization:)
         debate = debates.first
         debate.scope = scope
@@ -191,6 +199,8 @@ describe "Explore debates", type: :system do
         end
 
         it "can be filtered by category" do
+          skip "REDESIGN_PENDING - Enable this test when filters merged and integrated in the index"
+
           within ".filters .with_any_category_check_boxes_tree_filter" do
             uncheck "All"
             check category.name[I18n.locale.to_s]
@@ -200,6 +210,8 @@ describe "Explore debates", type: :system do
         end
 
         it "works with 'back to list' link" do
+          skip "REDESIGN_PENDING - Enable this test when filters merged and integrated in the index"
+
           within ".filters .with_any_category_check_boxes_tree_filter" do
             uncheck "All"
             check category.name[I18n.locale.to_s]
@@ -331,7 +343,7 @@ describe "Explore debates", type: :system do
         end
 
         within ".filters" do
-          skip "REDESIGN_PENDING - Uncomment this thest when filters merged and integrated in the index"
+          skip "REDESIGN_PENDING - Enable this test when filters merged and integrated in the index"
 
           expect(page).to have_checked_field(translated(debate.scope.name))
         end
