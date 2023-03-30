@@ -26,7 +26,10 @@
         <%= wizard_aside_back_text(@step) %>
       <% end %>
 
-      <%= form.submit t("send", scope: "decidim.proposals.proposals.complete"), class: "button button__sm md:button__lg button__secondary", data: { disable: true } %>
+      <button type="submit" class="button button__sm md:button__lg button__secondary">
+        <span><%= t("send", scope: "decidim.proposals.proposals.complete") %></span>
+        <%= icon "arrow-right-line" %>
+      </button>
     </div>
   <% end %>
 

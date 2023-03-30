@@ -21,9 +21,15 @@
     </div>
 
     <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
-      <%= link_to t("discard", scope: "decidim.proposals.proposals.edit_draft"), destroy_draft_proposal_path(@proposal), method: :delete, class: "button button__sm md:button__lg button__text-secondary", data: { confirm: t("discard_confirmation", scope: "decidim.proposals.proposals.edit_draft") } %>
+      <%= link_to destroy_draft_proposal_path(@proposal), method: :delete, class: "button button__sm md:button__lg button__text-secondary", data: { confirm: t("discard_confirmation", scope: "decidim.proposals.proposals.edit_draft") } do %>
+        <%= icon "arrow-left-line" %>
+        <span><%= t("discard", scope: "decidim.proposals.proposals.edit_draft") %></span>
+      <% end %>
 
-      <%= form.submit t("send", scope: "decidim.proposals.proposals.edit_draft"), class: "button button__sm md:button__lg button__secondary", data: { disable: true } %>
+      <button type="submit" class="button button__sm md:button__lg button__secondary">
+        <span><%= t("send", scope: "decidim.proposals.proposals.edit_draft") %></span>
+        <%= icon "arrow-right-line" %>
+      </button>
     </div>
 
   <% end %>
