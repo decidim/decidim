@@ -234,11 +234,11 @@ describe "Explore debates", type: :system do
       let!(:comment) { create(:comment, commentable: debates) }
       let!(:debates) { create(:debate, :open_ama, component:, skip_injection: true) }
 
-      it "shows the last comment author and the time" do
+      it "shows the comments count" do
         visit_component
 
-        within ".card__footer" do
-          expect(page).to have_content("Commented")
+        within ".card__list-metadata [data-comments-count]" do
+          expect(page).to have_content("1")
         end
       end
     end
