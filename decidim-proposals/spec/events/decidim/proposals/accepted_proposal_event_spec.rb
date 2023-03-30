@@ -42,4 +42,31 @@ describe Decidim::Proposals::AcceptedProposalEvent do
       expect(subject.resource_text).to eq translated(resource.answer)
     end
   end
+
+  describe "proposal event accepted" do
+    let!(:component_name) { :proposal_component }
+    let!(:resource) { :proposal }
+
+    let!(:form) do
+      Decidim::Proposals::Admin::ProposalAnswerForm.from_params(form_params).with_context(
+        current_user: user,
+        current_component: record.component,
+        current_organization: organization
+      )
+    end
+
+    let(:form_params) do
+      {
+        internal_state: "accepted",
+        answer: { en: "Foo" },
+        cost: 2000,
+        cost_report: { en: "Cost report" },
+        execution_period: { en: "Execution period" }
+      }
+    end
+
+    let!(:command) { Decidim::Proposals::Admin::AnswerProposal.new(form, record) }
+
+    it_behaves_like "event notification"
+  end
 end

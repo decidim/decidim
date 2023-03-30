@@ -35,4 +35,31 @@ describe Decidim::Proposals::EvaluatingProposalEvent do
         .to include("The <a href=\"#{resource_path}\">#{translated(resource.title)}</a> proposal is being evaluated")
     end
   end
+
+  describe "proposal event evaluating" do
+    let!(:component_name) { :proposal_component }
+    let!(:resource) { :proposal }
+
+    let!(:form) do
+      Decidim::Proposals::Admin::ProposalAnswerForm.from_params(form_params).with_context(
+        current_user: user,
+        current_component: record.component,
+        current_organization: organization
+      )
+    end
+
+    let(:form_params) do
+      {
+        internal_state: "evaluating",
+        answer: { en: "Foo" },
+        cost: 2000,
+        cost_report: { en: "Cost report" },
+        execution_period: { en: "Execution period" }
+      }
+    end
+
+    let!(:command) { Decidim::Proposals::Admin::AnswerProposal.new(form, record) }
+
+    it_behaves_like "event notification"
+  end
 end

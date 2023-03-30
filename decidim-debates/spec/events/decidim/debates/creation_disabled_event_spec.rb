@@ -42,6 +42,20 @@ module Decidim
             .to eq("Debate creation is now disabled in <a href=\"#{participatory_space_url}\">#{participatory_space_title}</a>")
         end
       end
+
+      describe "debate disabled event" do
+        let!(:component_name) { :debates_component }
+        let!(:resource) { :debate }
+        let(:params) do
+          {
+            conclusions: { en: "testi testi" }
+          }
+        end
+        let!(:form) { Decidim::Debates::CloseDebateForm.from_params(params) }
+        let!(:command) { Decidim::Debates::CloseDebate.new(form) }
+
+        it_behaves_like "event notification"
+      end
     end
   end
 end
