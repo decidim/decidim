@@ -10,7 +10,7 @@ describe "show", type: :system do
 
   before do
     visit_component
-    click_link debate.title[I18n.locale.to_s], class: "card__link"
+    click_link debate.title[I18n.locale.to_s], class: "card__list"
   end
 
   context "when shows the debate component" do
