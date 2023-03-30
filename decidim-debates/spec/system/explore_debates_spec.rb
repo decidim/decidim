@@ -331,6 +331,8 @@ describe "Explore debates", type: :system do
         end
 
         within ".filters" do
+          skip "REDESIGN_PENDING - Uncomment this thest when filters merged and integrated in the index"
+
           expect(page).to have_checked_field(translated(debate.scope.name))
         end
       end
