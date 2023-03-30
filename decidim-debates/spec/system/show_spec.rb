@@ -42,9 +42,9 @@ describe "show", type: :system do
       end
 
       it "shows the number of participants" do
-        within ".definition-data" do
-          expect(page).to have_content("PARTICIPANTS\n1")
-          expect(page).to have_content("GROUPS\n1")
+        within ".layout-item__aside" do
+          expect(page).to have_content("Participants\n1")
+          expect(page).to have_content("Groups\n1")
         end
       end
     end
