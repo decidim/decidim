@@ -24,8 +24,8 @@ describe "show", type: :system do
   describe "comments metadata" do
     context "when there are no comments" do
       it "shows default values" do
-        within ".definition-data" do
-          expect(page).to have_content("No comments yet")
+        within "#comments" do
+          expect(page).to have_content("0 comments")
         end
       end
     end
