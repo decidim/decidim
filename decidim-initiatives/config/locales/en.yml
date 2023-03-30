@@ -275,7 +275,7 @@ en:
             error: An error has occurred.
             success: A new scope for the given initiative type has been created.
           destroy:
-            success: The scope has been successfully removed
+            success: The scope has been successfully removed.
           edit:
             back: Back
             confirm_destroy: Are you sure?

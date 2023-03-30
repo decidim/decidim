@@ -18,7 +18,7 @@ module Decidim
       # Public: Check if the supplied user can administrate the resource
       #
       # Returns Boolean
-      def can_be_administred_by?(user)
+      def can_be_administered_by?(user)
         return false if user.blank?
 
         [
