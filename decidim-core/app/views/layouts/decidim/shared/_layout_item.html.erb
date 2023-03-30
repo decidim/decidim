@@ -23,5 +23,12 @@
 
     <%= yield %>
   </main>
-  <aside class="layout-item__aside"><%= yield :aside %></aside>
+  <aside class="layout-item__aside">
+    <%= yield :aside %>
+  </aside>
+  <% if content_for?(:item_footer) %>
+    <aside class="layout-item__main layout-item__aside--footer">
+      <%= yield(:item_footer) %>
+    </aside>
+  <% end %>
 </div>

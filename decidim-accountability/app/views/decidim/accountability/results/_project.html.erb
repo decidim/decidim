@@ -14,10 +14,6 @@
   <%= comments_for result %>
   <%= attachments_for result %>
 
-  <div class="mt-8">
-    <%= cell "decidim/accountability/result_metadata", result, template: :show_footer %>
-  </div>
-
   <% content_for :aside do %>
     <div class="accountability__project-aside">
       <% if component_settings.display_progress_enabled? %>
@@ -31,5 +27,9 @@
 
     <%= cell("decidim/accountability/result_metadata", result, template: :project_aside) %>
     </div>
+  <% end %>
+  <% content_for :item_footer do %>
+    <%= comments_for result %>
+    <%= cell "decidim/accountability/result_metadata", result, template: :show_footer %>
   <% end %>
 <% end %>
