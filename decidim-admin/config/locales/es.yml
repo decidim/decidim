@@ -872,7 +872,7 @@ es:
           title: Participante de espacio de participación privado
         new:
           create: Crear
-          title: Nueva participante de espacio de participación privado.
+          title: Nueva participante del espacio privado.
       participatory_space_private_users_csv_imports:
         create:
           invalid: Hubo un problema al leer el archivo CSV. Por favor, asegúrate de haber seguido las instrucciones.
