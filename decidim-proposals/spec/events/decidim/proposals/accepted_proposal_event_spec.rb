@@ -44,8 +44,8 @@ describe Decidim::Proposals::AcceptedProposalEvent do
   end
 
   describe "proposal event accepted" do
-    let!(:component_name) { :proposal_component }
-    let!(:resource) { :proposal }
+    let!(:component) { create(:proposal_component, organization:) }
+    let!(:record) { create(:proposal, component:, users: [user], title: { en: "Event notifier" }) }
 
     let!(:form) do
       Decidim::Proposals::Admin::ProposalAnswerForm.from_params(form_params).with_context(

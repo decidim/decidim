@@ -22,4 +22,30 @@ describe Decidim::Meetings::CloseMeetingEvent do
       expect(subject.resource_text).to eq translated(resource.description)
     end
   end
+
+  describe "meeting closed event" do
+    let!(:component) { create(:meeting_component, organization:) }
+    let!(:proposal) { create(:proposal) }
+    let!(:record) do
+      create(
+        :meeting,
+        :published,
+        component:,
+        author: user,
+        title: { en: "Event notifier" },
+        description: { en: "This debate is for testing purposes" }
+      )
+    end
+    let(:params) do
+      {
+        proposals: proposal,
+        closing_report: "This meeting is closed for testing purposes",
+        attendees_count: 1
+      }
+    end
+    let(:form) { Decidim::Meetings::CloseMeetingForm.from_params(params) }
+    let(:command) { Decidim::Meetings::Admin::CloseMeeting.new(form, record) }
+
+    it_behaves_like "event notification"
+  end
 end

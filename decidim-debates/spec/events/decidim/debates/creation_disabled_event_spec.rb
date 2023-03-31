@@ -45,14 +45,25 @@ module Decidim
 
       describe "debate disabled event" do
         let!(:component_name) { :debates_component }
-        let!(:resource) { :debate }
+        let!(:record) do
+          create(
+            :debate,
+            :open_ama,
+            component:,
+            author: user,
+            title: { en: "Event notifier" },
+            description: { en: "This debate is for testing purposes" },
+            instructions: { en: "Use this debate for testing" }
+          )
+        end
         let(:params) do
           {
-            conclusions: { en: "testi testi" }
+            conclusions: "testi testi",
+            debate_id: record.id
           }
         end
-        let!(:form) { Decidim::Debates::CloseDebateForm.from_params(params) }
-        let!(:command) { Decidim::Debates::CloseDebate.new(form) }
+        let(:form) { Decidim::Debates::CloseDebateForm.from_params(params) }
+        let!(:command) { Decidim::Debates::Admin::CloseDebate.new(form) }
 
         it_behaves_like "event notification"
       end
