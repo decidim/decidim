@@ -91,6 +91,7 @@ ro:
   decidim:
     accessibility:
       external_link: Link extern
+      front_page_link: Du-te la prima pagină
       logo: "Sigla oficială a %{organization}"
       skip_button: Salt la conținutul principal
     account:
@@ -111,7 +112,11 @@ ro:
         notice: Descărcarea datelor dvs. este în curs de desfășurare. Veți primi un e-mail atunci când este completă.
       email_change:
         cancel: anulare
+        cancel_error: Nu s-a putut anula schimbarea de e-mail.
+        cancel_successfully: Modificare e-mail anulată cu succes.
+        resend_error: Nu s-a putut retrimite e-mailul de confirmare.
         send_again: Trimite din nou
+        title: Verificarea adresei de e-mail
       show:
         change_password: Schimbă parola
         update_account: Actualizați contul
