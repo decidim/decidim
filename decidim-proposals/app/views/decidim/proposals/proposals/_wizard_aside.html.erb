@@ -9,7 +9,8 @@
   <% proposal_wizard_steps.each do |wizard_step| %>
     <%
       scope = "decidim.proposals.proposals.wizard_steps"
-      attributes = @step == wizard_step ? { "aria-current": "step", "aria-label": "#{t("current_step", scope:)}: #{t(wizard_step, scope:)}" } : {} %>
+      attributes = @step == wizard_step ? { "aria-current": "step", "aria-label": "#{t("current_step", scope:)}: #{t(wizard_step, scope:)}" } : {}
+    %>
     <%= content_tag :li, t(wizard_step, scope:), attributes %>
   <% end %>
 </ol>

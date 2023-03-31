@@ -61,8 +61,7 @@ extra_admin_link(
                         "#{@proposal.class.module_parent}::OfficialAuthorPresenter".constantize.new
                       else
                         @proposal.identities.first&.presenter
-                      end
-        %>
+                      end %>
 
         <%= cell "decidim/author", author, from: @proposal, context_actions: nil, layout: :compact %>
 

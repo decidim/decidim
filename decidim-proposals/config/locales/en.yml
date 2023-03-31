@@ -780,10 +780,6 @@ en:
         complete:
           send: Send
           title: Complete your proposal
-        count:
-          proposals_count:
-            one: "%{count} proposal"
-            other: "%{count} proposals"
         dynamic_map_instructions:
           description: The coordinates will be updated when clicking on 'preview' button. However, the address does not change.
           instructions: You can move the point on the map.
@@ -828,7 +824,6 @@ en:
           see_all: See all proposals
           see_all_withdrawn: See all withdrawn proposals
           text_banner: You are viewing the list of proposals withdrawn by their authors. %{go_back_link}.
-          view_proposal: View proposal
         linked_proposals:
           proposal_votes:
             one: support
@@ -869,10 +864,7 @@ en:
           empty_filters: There is not any proposal with this criteria
         show:
           answer: Answer
-          back_to: Back to
-          back_to_list: Back to list
           changes_at_title: Amendment to "%{title}"
-          comments: Comments
           edit_proposal: Edit proposal
           estimated_cost: Estimated cost
           hidden_endorsers_count:
@@ -887,14 +879,10 @@ en:
           proposal_accepted_reason: 'This proposal has been accepted because:'
           proposal_in_evaluation_reason: This proposal is being evaluated
           proposal_rejected_reason: 'This proposal has been rejected because:'
-          read_less: Read less
-          read_more: Read more
           report: Report
           withdraw_btn_hint: You can withdraw your proposal if you change your mind, as long as you have not received any support. The proposal is not deleted, it will appear in the list of withdrawn proposals.
           withdraw_confirmation_html: Are you sure you want to withdraw this proposal?<br><br><strong>This action cannot be cancelled!</strong>
           withdraw_proposal: Withdraw proposal
-        tags:
-          changed_from: "(changed from <u>%{previous_name}</u> by an administrator)"
         update:
           title: Update proposal
         vote_button:
@@ -924,7 +912,6 @@ en:
           title: 'Supports are subject to the following rules:'
           vote_limit:
             description: You can support up to %{limit} proposals.
-            votes: Remaining %{number} supports
         wizard_aside:
           back: Back
           back_from_step_1: Back to proposals

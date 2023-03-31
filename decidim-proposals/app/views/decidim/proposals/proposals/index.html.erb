@@ -37,8 +37,7 @@
       f.append(method: :related_to, collection: linked_classes_filter_values_for(Decidim::Proposals::Proposal), label_scope: "decidim.proposals.proposals.filters", id: "related_to", type: :radio_buttons) if linked_classes_for(Decidim::Proposals::Proposal).any?
     end
 
-    search_variable = :search_text_cont
-    %>
+    search_variable = :search_text_cont %>
 
   <%= render partial: "decidim/shared/filters", locals: { filter_sections:, search_variable: } %>
 <% end %>
