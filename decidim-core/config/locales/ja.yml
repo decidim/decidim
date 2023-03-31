@@ -223,7 +223,7 @@ ja:
         discard: この下書きを破棄する
         discard_confirmation: この修正案を破棄してもよろしいですか？
         send: プレビュー
-        title: 修正ドラフトを編集
+        title: 修正案を編集
       emendation:
         actions:
           button_accept: 同意する
@@ -240,11 +240,11 @@ ja:
           rejected: この %{amendable_type} %{proposal_link} の修正は <strong>%{date}</strong> で拒否されました。
           withdrawn: |-
             %{amendable_type} %{proposal_link}
-            のこの修正は著者によって取り消されました。
+            のこの修正は著者によって撤回されました。
       new:
         amendment_author: 著者の変更
         send: 作成
-        title: 修正ドラフトを作成
+        title: 修正案を作成
       preview_draft:
         modify: 変更
         publish: 公開
@@ -1138,19 +1138,15 @@ ja:
           error: 利用規約を受け入れる際に問題が発生しました。
           success: 利用規約に同意しました。
         form:
-          agreement: 上記の規約に同意する
           legend: 利用規約に同意する
         refuse:
           modal_body: 拒否した場合は、プラットフォームを使用できなくなります。 <a href="%{data_portability_path}">データをダウンロード</a> または <a href="%{delete_path}">アカウントを削除</a> することができます。
-          modal_btn_continue: 利用規約に同意して続ける
           modal_btn_exit: 後で確認する
-          modal_button: 同意しない
           modal_close: モーダルを閉じる
           modal_title: 更新された利用規約を本当に拒否しますか?
         required_review:
           alert: サービス利用規約を更新しました。ご確認ください。
           body: サービス利用規約の更新を確認してください。そうでなければ、プラットフォームを使用することはできません。
-          title: '必須：サービス利用規約の更新を確認する'
     participatory_space_private_users:
       not_allowed: このコンテンツを表示する権限がありません
     profile:

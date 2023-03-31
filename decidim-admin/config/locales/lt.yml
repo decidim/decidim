@@ -185,12 +185,10 @@ lt:
           success: Puiku! Jūs sutikote su administratoriaus naudojimosi sąlygomis.
         actions:
           are_you_sure: Ar tikrai norite nesutikti su administratoriaus naudojimosi sąlygomis?
-          refuse: Nesutikti su administratoriaus nustatytomis sąlygomis
           title: Sutikti su naudojimosi sąlygomis
         required_review:
           alert: 'Reikalavimas: peržiūrėkite mūsų administratoriaus nustatytas naudojimosi sąlygas'
           callout: Kviečiame peržiūrėti administratoriaus nustatytas naudojimosi sąlygas. Priešingu atveju šios platformos administruoti negalėsite.
-          cta: Peržiūrėkite jas dabar.
         title: Administratoriaus nustatytos naudojimosi sąlygos
       area_types:
         create:

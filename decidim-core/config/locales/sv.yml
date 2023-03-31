@@ -1138,19 +1138,15 @@ sv:
           error: Det uppstod ett problem med att godkänna villkoren.
           success: Tack! Du har godkänt användarvillkoren.
         form:
-          agreement: Jag godkänner villkoren
           legend: Godkänn användarvillkoren
         refuse:
           modal_body: Om du vägrar kan du inte använda plattformen, men du kan <a href="%{data_portability_path}">hämta dina data</a> eller <a href="%{delete_path}">radera ditt konto</a>.
-          modal_btn_continue: Acceptera villkoren och fortsätt
           modal_btn_exit: Jag granskar dem senare
-          modal_button: Avvisa villkoren
-          modal_close: Stäng fönstret
+          modal_close: Stäng modal
           modal_title: Avvisar du de uppdaterade användarvillkoren?
         required_review:
           alert: Vi har uppdaterat våra användarvillkor, var god och granska dem.
           body: Var snäll och granska uppdateringarna i våra användarvillkor. Annars kommer du inte att kunna använda plattformen.
-          title: 'Obligatoriskt: Granska uppdateringarna av våra användarvillkor'
     participatory_space_private_users:
       not_allowed: Du har inte rätt att se det här innehållet
     profile:

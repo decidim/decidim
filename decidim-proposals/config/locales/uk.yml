@@ -195,7 +195,6 @@ uk:
             proposals: Пропозиції
             votes_count: Кількість голосів
           update_category:
-            select_a_category: Будь ласка, виберіть категорію
             select_a_proposal: Будь ласка, оберіть пропозицію
           update_scope:
             select_a_proposal: Будь ласка, оберіть пропозицію

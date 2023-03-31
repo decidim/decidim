@@ -195,14 +195,14 @@ ca:
           error: S'ha produït un error en acceptar els Termes i Condicions dell panell d'administració.
           success: Genial! Has acceptat els Termes i Condicions del panell d'administració.
         actions:
-          accept: Estic d'acord amb els termes
+          accept: Estic d'acord amb les condicions
           are_you_sure: Segur que vols rebutjar els termes i condicions del panell d'administració?
-          refuse: Rebutjar els termes
+          refuse: Rebutjar les condicions del servei d'administració
           title: Accepto els Termes i Condicions d'Administració
         required_review:
           alert: 'Requerit: Revisa els nostres Termes i Condicions del panell d''administració'
           callout: Si us plau dedica un moment a revisar l'actualització dels nostres termes i condicions del panell d'administració. En cas contrari, no podràs utilitzar la plataforma.
-          cta: Revisa-les ara.
+          cta: Revisar-les ara.
         title: Termes i Condicions del panell d'administració
       area_types:
         create:

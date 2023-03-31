@@ -485,7 +485,7 @@ ca:
           fields:
             email: Correu electrònic
             name: Nom
-            registration_type: Tipus de registre
+            registration_type: Tipus d'inscripció
             sent_at: Enviat a
             status: Estat
           status:

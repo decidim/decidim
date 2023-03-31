@@ -1151,19 +1151,19 @@ es:
           error: Se ha producido un error al aceptar los Términos y Condiciones.
           success: '¡Estupendo! Has aceptado los Términos y Condiciones.'
         form:
-          agreement: Estoy de acuerdo con estos términos
+          agreement: Estoy de acuerdo con estos términos y condiciones de uso
           legend: Acepto los Términos y Condiciones de uso
         refuse:
           modal_body: Si no aceptas, no podrás utilizar la plataforma, puedes <a href="%{data_portability_path}">descargar tus datos</a> y / o <a href="%{delete_path}">eliminar tu cuenta</a>.
-          modal_btn_continue: Aceptar los términos y continuar
+          modal_btn_continue: Aceptar los términos y condiciones de uso, y continuar
           modal_btn_exit: Lo revisaré más tarde
-          modal_button: Rechazar los términos
-          modal_close: Cerrar el modal
+          modal_button: Rechazar los términos y condiciones de uso
+          modal_close: Cierra modal
           modal_title: '¿Confirmas que no aceptas los Términos y Condiciones actualizados?'
         required_review:
           alert: Hemos actualizado nuestros Términos de Servicio, por favor revísalos.
           body: Por favor dedica un momento a revisar la actualización de nuestras Términos de Servicio. De lo contrario, no podrás usar la plataforma.
-          title: 'Obligatorio: revisa las actualizaciones de nuestros Términos de Servicio'
+          title: 'Requerido: Revisa las actualizaciones en nuestros términos y condiciones de uso'
     participatory_space_private_users:
       not_allowed: No tienes permiso para visualizar este contenido
     profile:

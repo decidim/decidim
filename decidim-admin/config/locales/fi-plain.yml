@@ -195,14 +195,11 @@ fi-pl:
           error: Hallintakäyttäjän ehtojen hyväksymisessä tapahtui virhe.
           success: Hienoa! Olet hyväksynyt hallintakäyttäjän ehdot.
         actions:
-          accept: Hyväksyn ehdot
           are_you_sure: Oletko varma, että haluat kieltäytyä hyväksymästä hallintakäyttäjien käyttöehtoja?
-          refuse: Kieltäydy hyväksymästä hallintakäyttäjän ehtoja
           title: Hyväksy käyttöehdot
         required_review:
           alert: 'Vaadittu: tutustu hallintakäyttäjän ehtoihimme'
           callout: Ole hyvä ja tutustu hallintakäyttäjän käyttöehtoihin. Ehtojen hyväksyminen vaaditaan, jotta saat oikeudet järjestelmän hallintatoimintoihin.
-          cta: Tutustu nyt.
         title: Hallintakäyttäjän käyttöehdot
       area_types:
         create:

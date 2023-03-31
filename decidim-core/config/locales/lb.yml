@@ -1088,19 +1088,15 @@ lb:
           error: Et gouf e Problem beim Unhuelen vun den Konditiounen vum Benotzen.
           success: Wonnerbar! Du hues d'Konditiounen vum Benotzen akzeptéiert.
         form:
-          agreement: Ech sinn mat dësen Konditiounen averstane
           legend: Akzeptéier d'Konditiounen vum Benotzen
         refuse:
           modal_body: Wann s'du refuséiers, wàert et dir net méiglech sinn dës Plattform ze benotzen, du kanns <a href="%{data_portability_path}">lDaten eroflueden</a> an / oder <a href="%{delete_path}">Konto läschen</a>.
-          modal_btn_continue: Konditiounen akzeptéieren an weiderfueren
           modal_btn_exit: Ech iwwerpréiwen dat méi spéit
-          modal_button: Konditiounen net unhuelen
           modal_close: Modal zou maachen
           modal_title: Bass du wierklech wëlles d'Konditiounen vum Benotzen net unzehuelen?
         required_review:
           alert: Mir hunn eis Konditiounen vum Benotzen aktualiséiert, iwwerpréif se w. e. g.
           body: Huel dir e Moment Zäit fir d' Konditiounen vum Benotzen ze iwwerpréiwen. Soss kanns du d'Plattform net benotzen.
-          title: 'Erfuerderlech: Iwwerpréif Aktualiséierungen vun eisen Konditiounen vum Benotzen'
     participatory_space_private_users:
       not_allowed: Dir ass et net erlaabt dësen Inhalt ze gesinn
     profile:

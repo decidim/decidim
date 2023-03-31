@@ -555,7 +555,7 @@ eu:
             votes_ranking: Sailkapena aldekoen arabera
           update_category:
             invalid: 'Proposamen hauek bazuten %{subject_name}: %{proposals} kategoria.'
-            select_a_category: Hautatu kategoria bat
+            select_a_category: Mesedez, hautatu kategoria bat
             select_a_proposal: Aukeratu proposamen bat
             success: 'Proposamenak zuzen eguneratuta %{subject_name}: %{proposals} kategoriara.'
           update_scope:

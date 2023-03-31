@@ -99,7 +99,6 @@ pt:
           label: Validado
           values:
             'false': Validado
-            'true': Não validado
     components:
       elections:
         actions:

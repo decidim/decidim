@@ -178,11 +178,9 @@ pt-BR:
           error: Ocorreu um erro ao aceitar os termos de uso do administrador.
           success: Ótimo! Você aceitou os termos de uso do administrador.
         actions:
-          refuse: Recusar os termos do admin
           title: Concorde com os termos e condições de uso
         required_review:
           alert: 'Obrigatório: Revise os termos de uso de nosso administrador'
-          cta: Reveja eles agora.
         title: Termos de Uso do Administrador
       area_types:
         create:

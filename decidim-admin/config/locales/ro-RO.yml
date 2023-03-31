@@ -195,14 +195,11 @@ ro:
           error: A apărut o eroare la acceptarea termenilor de utilizare ai administratorului.
           success: Super! Ai acceptat termenii de utilizare ai administratorului.
         actions:
-          accept: Sunt de acord cu acești termeni și condiţii
           are_you_sure: Sigur dorești să refuzi termenii de utilizare ai adiminstratorului?
-          refuse: Refuz termenii
           title: Acceptă termenii și condițiile de utilizare
         required_review:
           alert: 'Obligatoriu: Revizuiți termenii de utilizare ai administratorului'
           callout: Te rugăm acordă un moment pentru a revizui Termenii de utilizare ai administratorului. În caz contrar, nu vei putea administra platforma.
-          cta: Revizuiește acum.
         title: Termeni de Utilizare ai Administratorului
       area_types:
         create:

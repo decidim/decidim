@@ -1135,19 +1135,15 @@
           error: Det oppstod et problem med å godta vilkårene.
           success: Flott! Du har godtatt vilkårene for bruk.
         form:
-          agreement: Jeg godtar vilkårene
           legend: Godta vilkårene for bruk
         refuse:
           modal_body: Hvis du nekter, vil du ikke kunne bruke platformen, du kan <a href="%{data_portability_path}"> laste ned dataen din</a> og/eller <a href="%{delete_path}">slette brukeren din</a>.
-          modal_btn_continue: Aksepter vilkår og fortsett
           modal_btn_exit: Jeg vil vurdere det senere
-          modal_button: Avslå vilkårene
           modal_close: Lukk modal
           modal_title: Nekter du virkelig de oppdaterte vilkårene?
         required_review:
           alert: Vi har oppdatert våre vilkår for bruk, vennligst se gjennom dem.
           body: Vennligst ta deg tid til å se gjennom oppdateringer til våres Vilkår for Bruk. Ellers vil du ikke kunne bruke plattformen.
-          title: 'Påkrevd: Se gjennom oppdateringer til våre vilkår for bruk'
     participatory_space_private_users:
       not_allowed: Du er ikke tillatt å se dette innholdet
     profile:

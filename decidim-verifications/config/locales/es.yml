@@ -239,7 +239,7 @@ es:
             success: '¡Gracias! Te enviaremos un código de verificación a tu dirección'
           edit:
             send: Confirmar
-            title: Introduce el código de verificación que recibiste
+            title: Introduce el código de verificación que has recibido
             waiting_for_letter: Pronto enviaremos una carta a tu dirección con tu código de verificación
           new:
             send: Mándame una carta

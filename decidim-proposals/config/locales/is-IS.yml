@@ -144,7 +144,6 @@ is-IS:
             created_at: Sköpunardegi
             proposals: Tillögur
           update_category:
-            select_a_category: Vinsamlegast veldu flokk
             select_a_proposal: Vinsamlegast veldu tillögu
           update_scope:
             select_a_proposal: Vinsamlegast veldu tillögu

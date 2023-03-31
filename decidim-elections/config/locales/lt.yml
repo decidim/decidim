@@ -123,7 +123,6 @@ lt:
           label: Patvirtinta
           values:
             'false': Patvirtinta
-            'true': Nepatvirtinta
     components:
       elections:
         actions:

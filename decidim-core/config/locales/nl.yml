@@ -1108,19 +1108,15 @@ nl:
           error: Er is een fout opgetreden bij het accepteren van de algemene voorwaarden.
           success: Geweldig! U hebt de algemene voorwaarden geaccepteerd.
         form:
-          agreement: Ik ga akkoord met deze voorwaarden
           legend: Ga akkoord met de gebruiksvoorwaarden
         refuse:
           modal_body: Als u weigert, kunt u het platform niet gebruiken, kunt u <a href="%{data_portability_path}">uw gegevens downloaden</a> en / of <a href="%{delete_path}">uw account verwijderen</a>.
-          modal_btn_continue: Voorwaarden accepteren en doorgaan
           modal_btn_exit: Ik zal het later bekijken
-          modal_button: Weigeren de voorwaarden
-          modal_close: Modal sluiten
+          modal_close: Sluit venster
           modal_title: Weig je de bijgewerkte Algemene voorwaarden echt af?
         required_review:
           alert: We hebben onze Servicevoorwaarden bijgewerkt. Bekijk ze alstublieft.
           body: Neem even de tijd om updates van onze Servicevoorwaarden door te nemen. Anders kunt u het platform niet gebruiken.
-          title: 'Vereist: bekijk updates van onze servicevoorwaarden'
     participatory_space_private_users:
       not_allowed: Je hebt geen toestemming om deze inhoud te bekijken
     profile:

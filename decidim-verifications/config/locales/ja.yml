@@ -27,9 +27,9 @@ ja:
     admin:
       menu:
         authorization_revocation:
-          before_date_info: 参加型プロセスがすでに開始されており、前のプロセスの権限を取り消したい場合に便利です。
+          before_date_info: 参加型プロセスがすでに開始されており、以前のプロセスでの許可を取り消したい場合に便利です。
           button: すべて取り消し
-          button_before: 日付の前に取り消し
+          button_before: 指定日以前の認証を失効させる
           destroy:
             confirm: 前の日付の権限を取り消すことはできません。続行してもよろしいですか？
             confirm_all: すべての権限を取り消すことはできません。続行してもよろしいですか？

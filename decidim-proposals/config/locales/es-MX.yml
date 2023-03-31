@@ -554,7 +554,7 @@ es-MX:
             votes_ranking: Clasificación por apoyos
           update_category:
             invalid: 'Estas propuestas ya tenían la categoría %{subject_name}: %{proposals}.'
-            select_a_category: Por favor selecciona una categoría
+            select_a_category: Por favor seleccione una categoría
             select_a_proposal: Por favor selecciona una propuesta
             success: 'Propuestas actualizadas correctamente a la categoría %{subject_name}: %{proposals}.'
           update_scope:

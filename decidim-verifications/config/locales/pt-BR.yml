@@ -232,7 +232,7 @@ pt-BR:
             success: Obrigado! Enviaremos um código de verificação ao seu endereço
           edit:
             send: confirme
-            title: Introduza o código de verificação que você recebeu
+            title: Introduza o código de verificação recebido
             waiting_for_letter: Em breve enviaremos uma carta ao seu endereço com seu código de verificação
           new:
             send: Envie-me uma carta

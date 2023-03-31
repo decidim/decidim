@@ -132,11 +132,9 @@ sr:
           error: Greška u postupku prihvatanja uslova korišćenja za administratore.
           success: Odlično! Prihvatili ste uslove korišćenja za administratore.
         actions:
-          refuse: Ne prihvatam uslove korišćenja za administratore
           title: Prihvatam propisane načine i uslove korišćenja
         required_review:
           alert: 'Obavezno: Pročitajte naše uslove korišćenja za administratore'
-          cta: Proučite uslove sada.
         title: Uslovi korišćenja za administratore
       area_types:
         create:

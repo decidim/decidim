@@ -1151,19 +1151,19 @@ ca:
           error: S'ha produït un error en acceptar els Termes i Condicions.
           success: Genial! Has acceptat els Termes i Condicions.
         form:
-          agreement: Estic d'acord amb aquests termes
+          agreement: Estic d'acord amb aquests termes i condicions d'ús
           legend: Accepto els termes i condicions
         refuse:
           modal_body: Si no acceptes, no podràs utilitzar la plataforma, pots <a href="%{data_portability_path}">descarregar les teves dades</a> i / o <a href="%{delete_path}">esborrar el teu compte de</a>.
-          modal_btn_continue: Acceptar els termes i continuar
+          modal_btn_continue: Acceptar els termes i condicions d'ús, i continuar
           modal_btn_exit: Ho revisaré més tard
-          modal_button: Rebutjar els termes
-          modal_close: Tanca el modal
+          modal_button: Rebutjar els termes i condicions d'ús
+          modal_close: Tanca modal
           modal_title: Confirmes que no acceptes els Termes i Condicions actualitzats?
         required_review:
           alert: Hem actualitzat els nostres Termes de Servei, si us plau revisa'ls.
           body: Si us plau dedica un moment a revisar l'actualització dels nostres Termes de Servei. En cas contrari, no podràs utilitzar la plataforma.
-          title: 'Obligatori: revisa l''actualització dels nostres Termes de Servei'
+          title: 'Obligatori: revisa les actualitzacions als nostres termes i condicions d''ús'
     participatory_space_private_users:
       not_allowed: No tens permís per visualitzar aquest contingut
     profile:

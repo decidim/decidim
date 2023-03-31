@@ -48,7 +48,7 @@ es-MX:
           results: Resultados
         import_results:
           new:
-            download_export: Descargar la exportación con formato CSV
+            download_export: Descargar la exportación en formato CSV
             import: Importar
             info: |
               <p>Te recomendamos que sigas los siguientes pasos:</p>

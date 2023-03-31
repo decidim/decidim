@@ -1176,19 +1176,15 @@ lt:
           error: Sutinkant su sąlygomis iškilo problema.
           success: Puiku! Jūs sutikote su sąlygomis.
         form:
-          agreement: Aš sutinku su šiomis sąlygomis
           legend: Sutikti su naudojimosi nuostatomis ir sąlygomis
         refuse:
           modal_body: Jeigu nesutiksite, negalėsite naudotis platforma, <a href="%{data_portability_path}">pasisiųsti savo duomenų</a> ir (arba) <a href="%{delete_path}">pašalinti savo paskyros</a>.
-          modal_btn_continue: Sutikti su sąlygomis ir tęsti
           modal_btn_exit: Peržiūrėsiu vėliau
-          modal_button: Nesutikti su sąlygomis
           modal_close: Uždaryti modalinį langą
           modal_title: Ar iš tikrųjų nesutinkate su atnaujintomis naudojimo sąlygomis?
         required_review:
           alert: Mes atnaujinome naudojimo sąlygas, kviečiame jas peržiūrėti.
           body: Kviečiame peržiūrėti naujimo sąlygu atnaujinimus. Kitu atveju negalėsite naudotis platforma.
-          title: 'Būtina: Peržiūrėkite naudojimo sąlygų atnaujinimus'
     participatory_space_private_users:
       not_allowed: Jūs negalite peržiūrėti šio turinio
     profile:
