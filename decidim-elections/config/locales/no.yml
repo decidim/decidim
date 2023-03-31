@@ -100,7 +100,6 @@
           label: Godkjent
           values:
             'false': Godkjent
-            'true': Ikke godkjent
     components:
       elections:
         actions:

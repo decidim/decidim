@@ -1294,15 +1294,15 @@ cs:
           legend: Souhlasíte s podmínkami používání
         refuse:
           modal_body: Pokud odmítnete, nebudete moci platformu používat, můžete <a href="%{download_your_data_path}">stáhnout svá data</a> a/nebo <a href="%{delete_path}">smazat svůj účet</a>.
-          modal_btn_continue: Přijměte termíny a pokračujte
+          modal_btn_continue: Přijmout podmínky a pokračovat
           modal_btn_exit: Později to přezkoumám
-          modal_button: Odmítněte podmínky
-          modal_close: Zavřít modální
+          modal_button: Odmítnout podmínky
+          modal_close: Zavřít okno
           modal_title: Opravdu odmítáte aktualizované smluvní podmínky?
         required_review:
           alert: Aktualizovali jsme Smluvní podmínky, přečtěte si je.
           body: Věnujte prosím pozornost aktualizaci našich smluvních podmínek. V opačném případě nebudete moci platformu používat.
-          title: 'Požadováno: Zkontrolujte aktualizace našich smluvních podmínek'
+          title: 'Povinné: Přečtěte si aktualizaci našich podmínek poskytování služeb'
     participatory_space_private_users:
       not_allowed: Nemáte oprávnění k zobrazení tohoto obsahu
     passwords:

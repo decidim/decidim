@@ -153,6 +153,9 @@ ar:
         show:
           budget: ميزانية
           view_all_projects: عرض جميع المشاريع
+      vote_reminder_mailer:
+        vote_reminder:
+          email_link: الذهاب لمتابعة التصويت
     components:
       budgets:
         actions:

@@ -95,6 +95,9 @@ ar:
         welcome_notification_body: محتوى إشعار الترحيب
         welcome_notification_subject: موضوع إشعار الترحيب
         youtube_handler: مُعرّف حساب يوتيوب
+      participatory_space_private_user:
+        email: البريد الإلكتروني
+        name: الإسم
       scope:
         code: الشفرة
         name: الاسم
@@ -167,10 +170,8 @@ ar:
         accept:
           success: رائع! لقد قمت بالموافقة على شروط الإستخدام للمدير.
         actions:
-          refuse: ارفض شروط المدير
+          accept: أوافق على هذه الشروط
           title: وافق على شروط وأحكام الإستخدام
-        required_review:
-          cta: راجِعها الآن.
         title: شروط الاستخدام الخاصة بالمدير
       area_types:
         create:
@@ -810,6 +811,7 @@ ar:
           share: مشاركة
       shared:
         gallery:
+          add_images: إضافة صور
           delete_image: احذف الصورة
           edit_images: تعديل الصورة
       static_page_topics:

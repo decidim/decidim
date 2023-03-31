@@ -204,14 +204,11 @@ ja:
           error: 管理者向け利用規約に同意中にエラーが発生しました。
           success: ありがとうございます、管理者向け利用規約に同意しました。
         actions:
-          accept: 利用規約に同意します
           are_you_sure: 管理者向け利用規約を削除してもよろしいですか？
-          refuse: 同意しない
           title: 利用規約に同意する
         required_review:
           alert: '必須：管理者向け利用規約を確認してください'
           callout: 管理者向け利用規約を確認してください。そうでなければ、プラットフォームを管理することはできません。
-          cta: 今すぐレビューしましょう。
         title: 管理者向け利用規約
       area_types:
         create:
@@ -349,7 +346,7 @@ ja:
       conflicts:
         attempts: 試行回数
         'false': 'いいえ'
-        managed_user_name: 管理ユーザー
+        managed_user_name: 管理対象ユーザー
         solved: 解決済み
         title: 確認の競合
         transfer:
@@ -466,7 +463,7 @@ ja:
           filter_by: フィルター
           impersonate: なりすまし
           impersonate_new_managed_user: 新規参加者の管理
-          managed: 管理
+          managed: 管理対象
           name: 名前
           needs_authorization_warning: この組織に対して少なくとも1つの承認が有効になっている必要があります。
           not_managed: 非管理対象
