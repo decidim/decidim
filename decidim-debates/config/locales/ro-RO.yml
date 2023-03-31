@@ -210,6 +210,7 @@ ro:
           email_intro: 'Acum poți începe noi dezbateri în %{participatory_space_title}! Participă acum:'
           email_outro: Ai primit această notificare deoarece urmărești %{participatory_space_title}. Poți opri notificările accesând linkul anterior.
           email_subject: Dezbaterile sunt acum disponibile în %{participatory_space_title}
+          notification_title: Acum poți începe <a href="%{resource_path}">noi dezbateri</a> în <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
         debate_closed:
           affected_user:
             email_intro: 'Dezbaterea pentru "%{resource_title}” a fost închisă. Poți citi concluziile pe pagina dezbaterii:'
@@ -232,6 +233,7 @@ ro:
           name: Dezbateri
           next_level_in: Participați la încă %{score} dezbateri pentru a ajunge la următorul nivel!
           unearned_another: Acest participant nu a luat încă parte la nicio dezbatere.
+          unearned_own: Încă nu ai luat parte la nicio dezbatere.
     metrics:
       debates:
         description: Numărul de dezbateri create
