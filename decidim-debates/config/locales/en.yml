@@ -97,10 +97,9 @@ en:
           invalid: There was a problem closing the debate.
           success: Debate successfully closed.
         close_debate_modal:
-          close: Close
+          cancel: Cancel
           description: What is the summary or conclusion of this debate?
           send: Close debate
-          cancel: Cancel
         closed: Closed
         count:
           debates_count:
