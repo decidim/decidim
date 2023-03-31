@@ -181,14 +181,15 @@ module Decidim
       end
 
       def filter_origin_values
+        scope = "decidim.proposals.application_helper.filter_origin_values"
         origin_values = []
-        origin_values << TreePoint.new("official", filter_text_for(t("decidim.proposals.application_helper.filter_origin_values.official"))) if component_settings.official_proposals_enabled
-        origin_values << TreePoint.new("participants", filter_text_for(t("decidim.proposals.application_helper.filter_origin_values.participants")))
-        origin_values << TreePoint.new("user_group", filter_text_for(t("decidim.proposals.application_helper.filter_origin_values.user_groups"))) if current_organization.user_groups_enabled?
-        origin_values << TreePoint.new("meeting", filter_text_for(t("decidim.proposals.application_helper.filter_origin_values.meetings")))
+        origin_values << TreePoint.new("official", filter_text_for(t("official", scope:))) if component_settings.official_proposals_enabled
+        origin_values << TreePoint.new("participants", filter_text_for(t("participants", scope:)))
+        origin_values << TreePoint.new("user_group", filter_text_for(t("user_groups", scope:))) if current_organization.user_groups_enabled?
+        origin_values << TreePoint.new("meeting", filter_text_for(t("meetings", scope:)))
 
         TreeNode.new(
-          TreePoint.new("", filter_text_for(t("decidim.proposals.application_helper.filter_origin_values.all"))),
+          TreePoint.new("", filter_text_for(t("all", scope:))),
           origin_values
         )
       end
