@@ -7,6 +7,7 @@ module Decidim
     include Decidim::IconHelper
     include Decidim::ApplicationHelper
     include Decidim::SanitizeHelper
+    include Decidim::DateRangeHelper
     include ActionView::Helpers::DateHelper
 
     alias resource model
@@ -92,15 +93,8 @@ module Decidim
     def dates_item
       return if dates_blank?
 
-      format = [start_date.year, end_date.year].any? { |year| year != Date.current.year } ? :decidim_short_with_month_name_short : :decidim_with_month_name_short
-      text = if start_date.to_date == end_date.to_date
-               "#{l(start_date.to_date, format:)} #{l(start_date, format: :time_of_day)} - #{l(end_date, format: :time_of_day)}"
-             else
-               "#{l(start_date.to_date, format:)} - #{l(end_date.to_date, format:)}"
-             end
-
       {
-        text:,
+        text: format_date_range(start_date, end_date),
         icon: "timer-2-line"
       }
     end

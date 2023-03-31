@@ -11,6 +11,7 @@ module Decidim
       include Decidim::EndorsableHelper
       include Decidim::FollowableHelper
       include Decidim::CheckBoxesTreeHelper
+      include Decidim::DateRangeHelper
 
       # If the debate is official or the rich text editor is enabled on the
       # frontend, the debate description is considered as safe content.

@@ -166,8 +166,10 @@ en:
       models:
         debate:
           fields:
+            end: End
             end_time: End date
             official_debate: Official debate
+            start: Start
             start_time: Start date
             title: Title
     events:

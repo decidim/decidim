@@ -77,14 +77,12 @@ edit_link(
       <div class="text-gray-2 space-y-1.5">
         <div class="text-sm flex items-center gap-1">
           <%= icon "calendar-line", class: "inline-block" %>
-          <span class="text-gray-2 space-y-1.5"><%= t("start_time", scope: "decidim.debates.models.debate.fields") %> / <%= t("end_time", scope: "decidim.debates.models.debate.fields") %></span>
+          <span class="text-gray-2 space-y-1.5"><%= t("start", scope: "decidim.debates.models.debate.fields") %> - <%= t("end", scope: "decidim.debates.models.debate.fields") %></span>
         </div>
 
-        <%# REDESIGN_PENDING - This range can include time ranges for the same day. Redesign the date_range cell %>
         <div class="text-md font-semibold">
-          <%= cell("decidim/date_range", start: debate.start_time, end: debate.end_time) %>
+          <%= format_date_range(debate.start_time, debate.end_time) || t("open", scope: "decidim.debates.debates.show") %>
         </div>
-        <div class="text-md font-semibold">25 Oct 2022 / 28 Oct 2022</div>
       </div>
       <div class="text-gray-2 space-y-1.5">
         <div class="text-sm grid grid-cols-2 gap-1">
