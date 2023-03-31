@@ -7,7 +7,7 @@ module Decidim
     skip_before_action :store_current_location
 
     helper Decidim::ExternalDomainHelper
-    helper_method :external_url, :target_url
+    helper_method :external_url
 
     before_action :parse_url
     rescue_from Decidim::InvalidUrlError, with: :invalid_url

@@ -17,7 +17,7 @@ module Decidim
 
       tag.div do
         content_tag(:span, "#{external_url.scheme}://") +
-          content_tag(:span, highlighted_domain, class: "alert") +
+          content_tag(:span, highlighted_domain, class: "text-alert") +
           content_tag(:span, path)
       end
     end
