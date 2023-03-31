@@ -291,6 +291,7 @@ en:
           total_participants: A total of %{count} people participated in the vote.
           vote_limit:
             description: Participants could vote up to %{limit} options.
+            votes: Remaining %{number} supports
         voting_rules:
           minimum_votes_per_user:
             description: You must distribute a minimum of %{votes} votes among different options.
