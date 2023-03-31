@@ -342,9 +342,9 @@ describe "Explore debates", type: :system do
           click_link translated(debate.scope.name)
         end
 
-        within ".filters" do
-          skip "REDESIGN_PENDING - Enable this test when filters merged and integrated in the index"
+        skip "REDESIGN_PENDING - Enable this test when filters merged and integrated in the index"
 
+        within ".filters" do
           expect(page).to have_checked_field(translated(debate.scope.name))
         end
       end
