@@ -851,7 +851,7 @@ ca:
           title: Participant de l'espai participatiu privat
         new:
           create: Crear
-          title: Nova participant de l'espai de participació privat.
+          title: Nova participant de l'espai privat.
       participatory_space_private_users_csv_imports:
         create:
           invalid: S'ha produït un error en llegir el fitxer CSV.
