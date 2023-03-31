@@ -42,6 +42,8 @@ module Decidim
             announcement: attributes["announcement"],
             private_space: attributes["private_space"],
             scopes_enabled: attributes["scopes_enabled"],
+            show_metrics: attributes["show_metrics"],
+            show_statistics: attributes["show_statistics"],
             participatory_process_group: import_process_group(attributes["participatory_process_group"])
           )
           @imported_process.attached_uploader(:hero_image).remote_url = attributes["remote_hero_image_url"] if attributes["remote_hero_image_url"].present?
