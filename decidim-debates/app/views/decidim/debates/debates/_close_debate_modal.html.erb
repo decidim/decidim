@@ -1,13 +1,26 @@
-<div class="reveal close-debate-modal" id="closeDebateModal" data-reveal role="dialog" aria-modal="true" aria-labelledby="closeDebateModal-label">
-  <div class="reveal__header">
-    <h3 id="closeDebateModal-label" class="reveal__title"><%= t("decidim.debates.debates.show.close_debate") %></h3>
-    <button class="close-button" data-close aria-label="<%= t(".close") %>" type="button">
-      <span aria-hidden="true">&times;</span>
-    </button>
+<%= decidim_modal id: "close-debate", class:"close-debate-modal" do %>
+  <div data-dialog-container>
+    <%= icon "information-line" %>
+    <h3 class="h3" id="dialog-title-budget-confirm" data-dialog-title>
+      <%= t("close_debate", scope: "decidim.debates.debates.show") %>
+    </h3>
+    <div class="my-8" id="close-debate">
+      <p><%= t("description", scope: "decidim.debates.debates.close_debate_modal") %></p>
+      <div class="form__wrapper">
+        <%= decidim_form_for form, url: close_debate_path(debate), method: :post do |f| %>
+          <%= f.text_area :conclusions, rows: 10 %>
+        <% end %>
+      </div>
+    </div>
   </div>
-  <p><%= t(".description") %></p>
-  <%= decidim_form_for form, url: close_debate_path(debate), method: :post do |f| %>
-    <%= f.text_area :conclusions, rows: 10 %>
-    <%= f.submit t(".send") %>
-  <% end %>
-</div>
+  <div data-dialog-actions>
+    <button data-dialog-close="close-debate" class="button button__sm md:button__lg button__secondary">
+        <%= t("cancel", scope: "decidim.debates.debates.close_debate_modal") %>
+    </button>
+    <%= decidim_form_for form, url: close_debate_path(debate), method: :post do |f| %>
+      <button class="button button__sm md:button__lg button__secondary">
+        <%= t("send", scope: "decidim.debates.debates.close_debate_modal") %>
+      </button>
+    <% end %>
+  </div>
+<% end %>
