@@ -83,7 +83,7 @@ describe("FormFilterComponent", () => {
         </fieldset>
       </form>
     `;
-    $("body").append(form);
+    $("body").html(form);
 
     const $form = $(document).find("form");
 
@@ -267,7 +267,7 @@ describe("FormFilterComponent", () => {
       });
 
       it("does not save the state", () => {
-        jest.spyOn(window.history, "pushState");
+        expect(window.history.pushState).toHaveBeenCalledTimes(2);
 
         window.onpopstate({ isTrusted: true, state: scopesPickerState});
 
