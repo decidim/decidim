@@ -23,8 +23,10 @@
 
   <%= form.geocoding_field :address, placeholder: t("decidim.proposals.proposals.placeholder.address") %>
 
-  <div class="map" id="address_map">
-    <%= render partial: "dynamic_map_instructions" %>
+  <div id="address_map" class="proposal__container">
+    <p class="help-text">
+      <%= t("instructions", scope: "decidim.proposals.proposals.dynamic_map_instructions") %> <%= t("description", scope: "decidim.proposals.proposals.dynamic_map_instructions") %>
+    </p>
     <%= dynamic_map_for proposal_preview_data_for_map(@proposal) %>
   </div>
 <% end %>
