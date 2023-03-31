@@ -1,11 +1,11 @@
 <div class="space-y-4">
   <div class="flex justify-between items-center gap-4">
-    <%= action_authorized_link_to :amend, review_amend_path, resource: model, data: { "redirect_url" => review_amend_path }, class: "button button__lg md:button__xl button__secondary" do %>
+    <%= action_authorized_link_to :amend, review_amend_path, resource: model, data: { "redirect_url" => review_amend_path }, class: "button button__lg button__secondary" do %>
       <%= icon "thumb-up-line" %>
       <span class="md:sr-only"><%= t(:button_accept, scope: "decidim.amendments.emendation.actions") %></span>
     <% end %>
 
-    <%= action_authorized_link_to :amend, reject_amend_path, method: :patch, resource: model, data: { "redirect_url" => reject_amend_path }, class: "button button__lg md:button__xl button__transparent-secondary" do %>
+    <%= action_authorized_link_to :amend, reject_amend_path, method: :patch, resource: model, data: { "redirect_url" => reject_amend_path }, class: "button button__lg button__transparent-secondary" do %>
       <%= icon "thumb-down-line" %>
       <span class="md:sr-only"><%= t(:button_reject, scope: "decidim.amendments.emendation.actions") %></span>
     <% end %>
