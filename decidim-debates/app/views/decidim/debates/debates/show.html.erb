@@ -73,14 +73,12 @@ edit_link(
     <% end %>
     <% close_debate_action_text = (debate.closed? ? "decidim.debates.debates.show.edit_conclusions" : "decidim.debates.debates.show.close_debate" ) %>
     <% if allowed_to?(:close, :debate, debate: debate) %>
-
+      <button type="button" data-dialog-open="close-debate" title="<%= t(close_debate_action_text) %>" aria-controls="closeDebateModal" aria-haspopup="dialog" tabindex="0" class="button button__secondary button__xl w-full mb-4">
+        <%= t(close_debate_action_text) %>
+      </button>
     <% elsif admin_allowed_to?(:close, :debate, debate: debate) %>
       <%= link_to t(close_debate_action_text), Decidim::EngineRouter.admin_proxy(debate.component).edit_debate_debate_close_path(debate_id: debate.id, id: debate.id), class: "button button__secondary button__xl w-full mb-4" %>
     <% end %>
-
-    <button type="button" data-dialog-open="close-debate" title="<%= t(close_debate_action_text) %>" aria-controls="closeDebateModal" aria-haspopup="dialog" tabindex="0" class="button button__secondary button__xl w-full mb-4">
-      <%= t(close_debate_action_text) %>
-    </button>
 
     <div class="rounded p-4 bg-background mb-4 divide-y divide-gray-3 [&>*]:py-4 first:[&>*]:pt-0 last:[&>*]:pb-0">
       <div class="text-gray-2 space-y-1.5">
