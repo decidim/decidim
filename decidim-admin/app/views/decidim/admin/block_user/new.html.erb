@@ -11,7 +11,7 @@
       <br>
       <% if @form.hide %>
         <div class="callout alert">
-          <%= raw t(".already_reported", link: new_user_block_path(user_id: user.id)) %>
+          <%= t(".already_reported_html", link: new_user_block_path(user_id: user.id)) %>
         </div>
       <% end %>
 

@@ -24,8 +24,8 @@ module Decidim
           register_justification!
           block!
           notify_user!
-          publish_hide_event if form.hide?
         end
+        publish_hide_event if form.hide?
 
         broadcast(:ok, form.user)
       end
@@ -44,7 +44,7 @@ module Decidim
       end
 
       def find_or_create_moderation!
-        Decidim::UserModeration.create_or_find_by!(user: form.user)
+        Decidim::UserModeration.find_or_create_by!(user: form.user)
       end
 
       def register_justification!

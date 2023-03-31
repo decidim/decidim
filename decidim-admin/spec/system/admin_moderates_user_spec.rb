@@ -2,9 +2,6 @@
 
 require "spec_helper"
 
-# this is the admin panel interaction of the tests already implemented in
-# decidim/decidim-core/spec/system/user_report_spec.rb
-# Please note the actual tests that
 describe "Admin reports user", type: :system do
   let(:admin) { create(:user, :confirmed, :admin) }
   let(:reportable) { create(:user, :confirmed, organization: admin.organization) }
