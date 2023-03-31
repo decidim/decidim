@@ -2,6 +2,7 @@
 
   <%= render partial: "order_progress", locals: { include_heading: include_heading, project_item: project_item } %>
 
+  <%= cell("decidim/budgets/budget_information_modal", budget) %>
   <%= render partial: "order_selected_projects" %>
 </div>
 

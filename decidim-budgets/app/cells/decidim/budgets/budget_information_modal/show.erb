@@ -1,17 +1,16 @@
 <%= decidim_modal id: "budget-modal-info" do %>
   <div data-dialog-container>
-    <h3 id="budget-modal-info-label" class="reveal__title"><%= decidim_sanitize(component_name) %></h3>
-    <%= content_tag(:p, more_information) if more_information %>
-
-    <% unless current_workflow.single? %>
-      <p>
-        <%= link_to t(:back_to, scope: i18n_scope, component_name: component_name), budgets_path %>
-      </p>
-    <% end %>
+    <%= icon "information-line" %>
+    <h3 class="h3" id="dialog-title-budget-modal-info" tabindex="-1" data-dialog-title>
+      <%= decidim_sanitize(component_name) %>
+    </h3>
+    <p id="dialog-desc-budget-modal-info">
+      <%= content_tag(:p, more_information) if more_information %>
+    </p>
   </div>
   <div data-dialog-actions>
     <button class="button button__sm md:button__lg button__secondary" data-dialog-close="budget-modal-info">
-      <%= t(:continue, scope: i18n_scope) %>
+      <%= t("continue", scope: "decidim.budgets.budget_information_modal") %>
     </button>
   </div>
 <% end %>
