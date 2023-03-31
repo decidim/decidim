@@ -21,7 +21,11 @@ module Decidim
 
     def invalid_url
       flash[:alert] = I18n.t("decidim.links.invalid_url")
-      redirect_to decidim.root_path
+      if request.xhr?
+        render "invalid_url"
+      else
+        redirect_to decidim.root_path
+      end
     end
 
     def parse_url
