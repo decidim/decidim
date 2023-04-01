@@ -10,7 +10,7 @@ module Decidim
     def create
       enforce_permission_to :create, :user_report
 
-      @form = form(Decidim::ReportForm).from_params(params).with_context(can_hide: current_user&.admin?)
+      @form = form(Decidim::ReportForm).from_params(params)
 
       CreateUserReport.call(@form, reportable, current_user) do
         on(:ok) do
