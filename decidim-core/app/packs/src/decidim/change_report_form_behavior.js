@@ -4,7 +4,7 @@
  * to either report or hide.
  * Given the behavior is similar for report content and report user, we have the
  * functionality grouped in one single function.
- * It's important to note that the report user modal has a checkbox that allows
+ * It is important to note that the report user modal has a checkbox that allows
  * the admin to block the user in the report user modal.
  */
 

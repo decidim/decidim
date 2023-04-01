@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # This class contains all the domain logic associated to Decidim's moderation
-# system. It's meant to be used both from the admin and the public areas. It
+# system. It is meant to be used both from the admin and the public areas. It
 # provides a set of methods to create reports, hide resources, etc.
 # Basic usage:
 # moderation = Decidim::ModerationTools.new(resource, current_user)
