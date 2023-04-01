@@ -52,10 +52,10 @@ ja:
         budgets:
           create:
             invalid: 予算の作成中に問題が発生しました。
-            success: 予算が正常に作成されました
+            success: 予算が正常に作成されました。
           destroy:
-            invalid: 予算を削除中に問題が発生しました。
-            success: 予算が正常に削除されました。
+            invalid: 予算の削除中に問題が発生しました。
+            success: 予算を削除しました。
           edit:
             title: 予算の編集
             update: 予算を更新
@@ -70,7 +70,7 @@ ja:
             title: 新しい予算
           update:
             invalid: 予算の更新中に問題が発生しました。
-            success: 予算が正常に更新されました。
+            success: 予算を更新しました。
         exports:
           projects: プロジェクト
         models:
@@ -80,10 +80,10 @@ ja:
             name: プロジェクト
         projects:
           create:
-            invalid: このプロジェクトの作成中に問題が発生しました
-            success: プロジェクトを作成しました
+            invalid: プロジェクトの作成中に問題が発生しました。
+            success: プロジェクトが正常に作成されました。
           destroy:
-            success: プロジェクトを削除しました
+            success: プロジェクトを削除しました。
           edit:
             title: プロジェクトを編集
             update: 更新
@@ -105,31 +105,31 @@ ja:
             create: 作成
             title: 新規プロジェクト
           update:
-            invalid: このプロジェクトの更新中に問題が発生しました
-            success: プロジェクトを更新しました
+            invalid: プロジェクトの更新中に問題が発生しました。
+            success: プロジェクトを更新しました。
           update_category:
             invalid: 'これらのプロジェクトは既に %{subject_name} カテゴリを持っています: %{projects}'
-            select_a_category: カテゴリを選択してください
-            select_a_project: プロジェクトを選択してください
+            select_a_category: カテゴリを選択してください。
+            select_a_project: プロジェクトを選択してください。
             success: 'プロジェクトは %{subject_name} カテゴリに更新されました: %{projects}'
           update_scope:
             invalid: 'これらのプロジェクトは既に %{subject_name} スコープを持っています: %{projects}'
-            select_a_project: プロジェクトを選択してください
-            select_a_scope: スコープを選択してください
+            select_a_project: プロジェクトを選択してください。
+            select_a_scope: スコープを選択してください。
             success: 'プロジェクトは %{subject_name} スコープに正常に更新されました: %{projects}'
           update_selected:
             invalid:
               selected: 'これらのプロジェクトはすでに実装のために選択されています: %{projects}。'
               unselected: 'これらのプロジェクトは既に実装から選択解除されています: %{projects}。'
-            select_a_project: プロジェクトを選択してください
-            select_a_selection: 実装の状態を選択してください
+            select_a_project: プロジェクトを選択してください。
+            select_a_selection: 実装状態を選択してください。
             success:
               selected: 'これらのプロジェクトは、実装のために正常に選択されました: %{projects}。'
               unselected: 'これらのプロジェクトは、実装から正常に選択解除されました: %{projects}。'
         proposals_imports:
           create:
-            invalid: 提案をプロジェクトにインポートする際に問題が発生しました
-            success: "%{number} 件の提案がプロジェクトにインポートされました"
+            invalid: 提案をプロジェクトにインポートする際に問題が発生しました。
+            success: "%{number} 件の提案をプロジェクトにインポートしました。"
           new:
             create: プロジェクトへの提案をインポート
             default_budget: 既定の予算
@@ -160,24 +160,24 @@ ja:
         continue: 続行
         more_information: 詳細情報
       budget_list_item:
-        voting_finished: この予算に投票しました
-        voting_started: この予算に投票し始めました
+        voting_finished: あなたはこの予算で投票しました。
+        voting_started: この予算に投票を開始しました。
       budgets_list:
         cancel_order:
           more_than_one: '%{name} への投票を削除してからやり直してください'
           only_one: 投票を削除してやり直してください
         finished_message: 投票プロセスが終了しました。ご参加ありがとうございます！
         highlighted_cta: '%{name} に投票'
-        if_change_opinion: 気が変わった場合は、
+        if_change_opinion: 'もし気が変わった場合は、以下を行うことができます:'
         my_budgets: 私の予算
         progress: 投票を終了
         show: プロジェクトを表示
         vote: 投票
-        voted_on: '%{links} に投票しました'
+        voted_on: '%{links} に投票しました。'
       last_activity:
         new_vote_at: 新しい予算投票日時
       limit_announcement:
-        cant_vote: この予算に投票することはできません。 <a href="%{landing_path}">別の予算を試してみてください</a>。
+        cant_vote: この予算に投票することはできません。<a href="%{landing_path}">別の予算をお試しください</a>。
         limit_reached: '%{links} に有効な投票があります。この予算に投票するには、 <a href="%{landing_path}">投票を削除し、</a> やり直す必要があります。'
       models:
         budget:
@@ -206,10 +206,10 @@ ja:
           title: 投票の確認
         budget_excess:
           budget_excess:
-            description: 予算上限を超えているため、このプロジェクトは追加できません。 追加したい場合、選択済みのプロジェクトを削除すると、再び投票できるようにすることができます。
+            description: このプロジェクトは予算上限を超えているため、追加できません。もし希望する場合、既に選択したプロジェクトを削除すれば、好みに応じた再投票が可能になります。
             title: 最大予算を超えました
           close: 閉じる
-          description: 予算上限を超えているため、このプロジェクトは追加できません。 追加したい場合、選択済みのプロジェクトを削除すると、再び投票できるようにすることができます。
+          description: このプロジェクトは予算上限を超えているため、追加できません。もし希望する場合、既に選択したプロジェクトを削除すれば、好みに応じた再投票が可能になります。
           ok: OK
           projects_excess:
             description: プロジェクトの最大数を超えているため、このプロジェクトは追加できません。 追加したい場合、選択済みのプロジェクトを削除すると、再び投票できるようになります。
@@ -219,7 +219,7 @@ ja:
           assigned: 'アサイン済み:'
           cancel_order: 投票を削除してやり直してください
           checked_out:
-            description: すでに予算に投票しています。気が変わった場合は、 %{cancel_link} することができます。
+            description: 予算にすでに投票しています。もし考えが変わった場合は、%{cancel_link} できます。
             title: 予算投票が完了しました
           minimum_projects_rule:
             description: どのプロジェクトに予算を割り当てるべきだと思いますか？ 希望するプロジェクトを %{minimum_number} 件以上選択し、好ましいと思う予算を決めて投票します。
@@ -278,8 +278,8 @@ ja:
           random: ランダムな注文
           selected: 選択済
         project:
-          add: プロジェクト %{resource_name} をあなたの投票に追加
-          remove: プロジェクト %{resource_name} を投票から削除する
+          add: プロジェクト %{resource_name} を投票に追加します。
+          remove: プロジェクト %{resource_name} を投票から削除します。
           selected: 選択済
           view: 表示
           votes:
@@ -287,9 +287,9 @@ ja:
           you_voted: あなたの投票
         project_budget_button:
           add: 投票に追加
-          add_descriptive: プロジェクト %{resource_name} をあなたの投票に追加
+          add_descriptive: プロジェクト %{resource_name} を投票に追加します。
           added: 投票に追加しました
-          added_descriptive: プロジェクト %{resource_name} が投票に追加されました
+          added_descriptive: プロジェクト %{resource_name} が投票に追加されました。
         projects_for: '%{name} のプロジェクト'
         show:
           budget: 予算
@@ -315,8 +315,8 @@ ja:
             comments_max_length: コメント最大長 (デフォルト値は 0 のまま)
             form:
               errors:
-                budget_voting_rule_only_one: 1つの投票ルールを有効にする必要があります
-                budget_voting_rule_required: 1つの投票ルールが必要です
+                budget_voting_rule_only_one: 有効にできる投票ルールは1つのみです。
+                budget_voting_rule_required: 投票ルールが1つ必要です。
             geocoding_enabled: ジオコーディングを有効にする
             landing_page_content: 予算ランディングページ
             more_information_modal: 詳しい情報
@@ -360,11 +360,11 @@ ja:
           notification_title: <a href="%{resource_path}">%{resource_title}</a> の予算が %{participatory_space_title} に有効になりました。
     orders:
       checkout:
-        error: 投票処理中に問題が発生しました
-        success: 投票は正常に承認されました
+        error: 投票処理中に問題が発生しました。
+        success: 投票が正常に受け付けられました。
       destroy:
-        error: 投票のキャンセル中に問題が発生しました
-        success: 投票は正常にキャンセルされました
+        error: 投票の取り消し中に問題が発生しました。
+        success: 投票をキャンセルしました。
     resource_links:
       included_proposals:
         project_proposal: このプロジェクトに含まれる提案

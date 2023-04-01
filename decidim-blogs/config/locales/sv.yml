@@ -25,11 +25,6 @@ sv:
           post:
             name: Publicera
         posts:
-          create:
-            invalid: Det gick inte att skapa inlägget
-            success: Inlägget har skapats
-          destroy:
-            success: Inlägget har raderats
           edit:
             save: Uppdatera
             title: Redigera inlägg
@@ -40,7 +35,6 @@ sv:
             title: Skapa inlägg
           update:
             invalid: Det gick inte att spara inlägget.
-            success: Inlägget har sparats
       models:
         post:
           fields:

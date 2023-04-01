@@ -27,12 +27,9 @@ pl:
       comments:
         create:
           error: Wystąpił błąd podczas tworzenia komentarza.
-        delete:
-          error: Komentarz nie może zostać usunięty.
         update:
           error: Wystąpił błąd podczas aktualizowania komentarza.
       comments_count: Liczba komentarzy
-      comments_title: Komentarze
       last_activity:
         new_comment_at_html: "<span>Nowy komentarz do %{link}</span>"
       view: Zobacz
@@ -46,7 +43,6 @@ pl:
           body:
             label: Komentarz
             placeholder: Co o tym myślisz?
-          form_error: 'Tekst jest wymagany. Maksymalna liczba znaków to: %{length}.'
           submit: Skomentuj
           user_group_id:
             label: Komentuj jako
@@ -80,7 +76,6 @@ pl:
           description: Czy ta treść jest nieodpowiednia?
           details: Dodatkowe komentarze
           reasons:
-            does_not_belong: Promuje nielegalną działalność, groźby samobójcze, informacje osobiste lub coś innego, co według Ciebie nie powinno pojawić się w %{organization_name}.
             offensive: Promuje rasizm, seksizm, nienawiść, ataki osobiste, groźby śmierci, groźby samobójcze jakąkolwiek formę mowy nienawiści.
             spam: Zawiera clickbaity, reklamy, oszustwa lub skrypty botów.
           title: Zgłoś niewłaściwą treść
@@ -166,6 +161,3 @@ pl:
         description: Liczba komentarzy wygenerowanych przez użytkowników
         object: komentarze
         title: Komentarze
-  errors:
-    messages:
-      cannot_have_comments: nie może mieć komentarzy

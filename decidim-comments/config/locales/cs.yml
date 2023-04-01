@@ -35,7 +35,7 @@ cs:
         update:
           error: Při aktualizaci komentáře došlo k chybě.
       comments_count: Počet komentářů
-      comments_title: Komentáře
+      comments_title: Komentář
       last_activity:
         new_comment_at_html: "<span>Nový komentář v %{link}</span>"
       view: Zobrazit
@@ -49,7 +49,7 @@ cs:
           body:
             label: Komentář
             placeholder: Co si o tom myslíš?
-          form_error: Text je povinný a nesmí být delší než %{length} znaků.
+          form_error: Text je povinný a nemůže být delší než %{length} znaků.
           submit: Odeslat
           user_group_id:
             label: Komentovat jako
@@ -84,7 +84,7 @@ cs:
           description: Je tento obsah nevhodný?
           details: Další komentáře
           reasons:
-            does_not_belong: Obsahuje nezákonnou činnost, sebevražedné hrozby, osobní informace nebo něco jiného, o kterém si myslíte, že nepatří na %{organization_name}.
+            does_not_belong: Obsahuje nezákonnou činnost, hrozby sebevraždou, osobní informaci nebo cokoliv jiného, o čem si myslíte, že nepatří do %{organization_name}.
             offensive: Obsahuje rasismus, sexismus, podvody, osobní útoky, hrozby smrti, žádosti o sebevraždu nebo jakoukoli formu projevy nenávisti.
             spam: Obsahuje clickbait, reklamu, podvody nebo škodlivé skripty.
           title: Nahlásit nevhodný obsah
@@ -173,4 +173,4 @@ cs:
         title: Komentáře
   errors:
     messages:
-      cannot_have_comments: nemohou mít připomínky
+      cannot_have_comments: nelze komentovat

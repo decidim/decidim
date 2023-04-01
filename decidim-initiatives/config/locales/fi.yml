@@ -99,8 +99,8 @@ fi:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Etsi kohteita %{collection} otsikon, kuvauksen, ID-numeron tai laatijan nimellä.
       initiatives_settings:
         update:
-          error: Tapahtui virhe
-          success: Aloitteiden asetusten päivitys onnistui
+          error: Tapahtui virhe.
+          success: Aloitteiden asetusten päivitys onnistui.
       menu:
         attachments: Liitteet
         committee_members: Komitean jäsenet
@@ -198,7 +198,7 @@ fi:
       participatory_spaces:
         initiatives:
           contextual: "<p><strong>Aloite</strong> on ehdotus, jota kuka tahansa voi itsenäisesti edistää ​​(muista kanavista tai osallistumistiloista riippumatta) kokoamalla (digitaaliset) tarvittavat allekirjoitukset organisaatiolle tietyn toimen toteuttamiseksi (asetuksen muuttaminen, hankkeen käynnistys, alueen tai kadun nimen muuttaminen, jne.).</p> <p>Aloitteen edistäjät voivat määritellä tavoitteet, kerätä tukijoukkoja, järjestää keskustelua, levittää aloitetta ja määritellä kohtaamispaikkoja, joissa allekirjoituksia voidaan kerätä osallistujilta tai keskustella avoimesti muiden osallistujien kanssa.</p> <p>Esimerkiksi, aloite voi: kerätä allekirjoituksia kutsuakseen koolle tietyn joukon organisaation edustajia, panna aluilleen ryhmän tai käynnistää prosessin määrärahojen lisäämisestä alueelle tai organisaatiolle. Allekirjoitusten keräysprosessin aikana useammat ihmiset voivat antaa panoksensa aloitteen vaatimuksille ja viedä sitä eteenpäin organisaatiossa.</p>\n"
-          page: "<p><strong>Aloite</strong> on ehdotus, jota kuka tahansa voi itsenäisesti edistää ​​(muista kanavista tai osallistumistiloista riippumatta) kokoamalla (digitaaliset) tarvittavat allekirjoitukset organisaatiolle tietyn toimen toteuttamiseksi (asetuksen muuttaminen, hankkeen käynnistys, alueen tai kadun nimen muuttaminen, jne.).</p> <p>Aloitteen edistäjät voivat määritellä tavoitteet, kerätä tukea, järjestää keskustelua, levittää aloitetta ja määritellä kohtaamispaikkoja, joissa allekirjoituksia voidaan kerätä osallistujilta tai keskustella avoimesti muiden osallistujien kanssa.</p> <p>Esimerkiksi, aloite voi: kerätä allekirjoituksia kutsuakseen koolle tietyn joukon organisaation edustajia, panna aluilleen ryhmän tai käynnistää prosessin määrärahojen lisäämisestä alueelle tai organisaatiolle. Allekirjoitusten keräysprosessin aikana useammat ihmiset voivat antaa panoksensa aloitteen vaatimuksille ja viedä sitä eteenpäin organisaatiossa.</p>\n"
+          page: "<p><strong>Aloite</strong> on ehdotus, jota kuka tahansa voi itsenäisesti edistää ​​(muista kanavista tai osallistumistiloista riippumatta) kokoamalla (digitaaliset) tarvittavat allekirjoitukset organisaatiolle tietyn toimen toteuttamiseksi (asetuksen muuttaminen, hankkeen käynnistys, alueen tai kadun nimen muuttaminen, jne.).</p> <p>Aloitteen edistäjät voivat määritellä tavoitteet, kerätä tukijoukkoja, järjestää keskustelua, levittää aloitetta ja määritellä kohtaamispaikkoja, joissa allekirjoituksia voidaan kerätä osallistujilta tai keskustella avoimesti muiden osallistujien kanssa.</p> <p>Esimerkiksi, aloite voi: kerätä allekirjoituksia kutsuakseen koolle tietyn joukon organisaation edustajia, panna aluilleen ryhmän tai käynnistää prosessin määrärahojen lisäämisestä alueelle tai organisaatiolle. Allekirjoitusten keräysprosessin aikana useammat ihmiset voivat antaa panoksensa aloitteen vaatimuksille ja viedä sitä eteenpäin organisaatiossa.</p>\n"
           title: Mitkä ovat aloitteet?
     initiatives:
       actions:
@@ -218,8 +218,8 @@ fi:
           index:
             approve: Hyväksy
             confirm_revoke: Oletko varma?
-            invite_to_committee_help: Jaa tämä linkki ja kutsu muita käyttäjiä kannatuskomiteaan
-            no_members_yet: Kannatuskomiteassa ei ole jäseniä
+            invite_to_committee_help: Jaa tämä linkki ja kutsu muita käyttäjiä kannatuskomiteaan.
+            no_members_yet: Kannatuskomiteassa ei ole jäseniä.
             revoke: Kumoa
             title: Komitean jäsenet
         content_blocks:
@@ -241,7 +241,7 @@ fi:
             export_votes: Lataa allekirjoitukset
             reject: Torju aloite
             send_to_technical_validation: Lähetä tekniseen tarkastukseen
-            success: Aloite on lähetetty tekniseen tarkastukseen
+            success: Aloite on lähetetty tekniseen tarkastukseen.
             update: Päivitä
           form:
             attachments: Liitteet
@@ -257,8 +257,8 @@ fi:
             new: Uusi
             photos: Kuvat
           update:
-            error: Tapahtui virhe
-            success: Aloitteen päivitys onnistui
+            error: Tapahtui virhe.
+            success: Aloitteen päivitys onnistui.
         initiatives_settings:
           edit:
             update: Päivitä
@@ -271,10 +271,10 @@ fi:
             title: Aloitteiden asetukset
         initiatives_type_scopes:
           create:
-            error: Tapahtui virhe
-            success: Uusi teema aloitetyypille luotu
+            error: Tapahtui virhe.
+            success: Aloitetyypille on luotu uusi teema.
           destroy:
-            success: Teeman poisto onnistui
+            success: Teeman poisto onnistui.
           edit:
             back: Takaisin
             confirm_destroy: Oletko varma?
@@ -286,14 +286,14 @@ fi:
             create: Luo
             title: Luo aloitetyypin teema
           update:
-            error: Tapahtui virhe
-            success: Teeman päivitys onnistui
+            error: Tapahtui virhe.
+            success: Teeman päivitys onnistui.
         initiatives_types:
           create:
-            error: Tapahtui virhe
-            success: Uuden aloitetyypin luonti onnistui
+            error: Tapahtui virhe.
+            success: Uuden aloitetyypin luonti onnistui.
           destroy:
-            success: Aloitetyypin poisto onnistui
+            success: Aloitetyypin poisto onnistui.
           edit:
             confirm_destroy: Oletko varma?
             destroy: Poista
@@ -310,8 +310,8 @@ fi:
             create: Luo
             title: Uusi aloitetyyppi
           update:
-            error: Tapahtui virhe
-            success: Aloitetyypin päivitys onnistui
+            error: Tapahtui virhe.
+            success: Aloitetyypin päivitys onnistui.
       admin_log:
         initiative:
           publish: "%{user_name} julkaisi aloitteen %{resource_name}"
@@ -350,7 +350,7 @@ fi:
           success: Pyyntö on hyväksytty.
         new:
           continue: Jatka
-          help_text: Olet hakemassa jäsenyyttä tämän aloitteen kannatuskomiteasta
+          help_text: Olet hakemassa jäsenyyttä tämän aloitteen kannatuskomiteasta.
         revoke:
           success: Pyyntöä ei hyväksytty.
         spawn:
@@ -452,7 +452,7 @@ fi:
             day: Päivä
             month: Kuukausi
             year: Vuosi
-          help: Täytä seuraavat kentät henkilötietojesi kanssa allekirjoittaaksesi aloitteen
+          help: Täytä henkilötietosi seuraaviin kohtiin allekirjoittaaksesi aloitteen.
         finish:
           back_to_initiative: Takaisin aloitteeseen
         sms_code:
@@ -460,16 +460,16 @@ fi:
           help: Tarkista vastaanotetut tekstiviestit puhelimestasi
         sms_phone_number:
           continue: Lähetä minulle tekstiviesti
-          help: Täytä lomake vahvistetun puhelinnumerosi avulla pyytääksesi vahvistuskoodin
+          help: Pyydä varmennuskoodia täyttämällä vahvistettu puhelinnumerosi lomakkeeseen.
       initiative_votes:
         create:
           error: Aloitteen allekirjoitus epäonnistui.
-          invalid: Aloitteen allekirjoittamiseen annetut tiedot ovat virheelliset
-          success_html: Onnittelut! Aloitteen <strong>%{title}</strong> allekirjoitus onnistui
+          invalid: Aloitteen allekirjoittamiseksi annetut tiedot eivät kelpaa.
+          success_html: Onnittelut! Aloite <strong> %{title}</strong> on allekirjoitettu.
         personal_data:
           invalid: Henkilötiedot eivät täsmää vahvistusta varten annettujen tietojen kanssa.
         sms_code:
-          invalid: Vahvistuskoodi ei vastaa meidän koodiamme. Tarkista uudestaan lähettämämme tekstiviesti.
+          invalid: Vahvistuskoodi on virheellinen. Tarkista uudestaan tekstiviesti, jonka lähetimme sinulle.
         sms_phone:
           invalid: Puhelinnumero on virheellinen tai odottaa tarkastusta. Tarkista vahvistuksesi.
       initiatives:
@@ -482,8 +482,8 @@ fi:
         committee_members:
           approve: Hyväksy
           confirm_revoke: Oletko varma?
-          invite_to_committee_help: Jaa tämä linkki ja kutsu muita käyttäjiä kannatuskomiteaan
-          no_members_yet: Kannatuskomiteassa ei ole jäseniä
+          invite_to_committee_help: Jaa tämä linkki ja kutsu muita käyttäjiä kannatuskomiteaan.
+          no_members_yet: Kannatuskomiteassa ei ole jäseniä.
           revoke: Peruuta
           title: Komitean jäsenet
         count:
@@ -544,7 +544,7 @@ fi:
           section: 'Pyydettäessä tulostakaa ja täyttäkää tämä lomake lähettääksenne sen osoitettuun paikkaan:'
           signature: Allekirjoitus
         result:
-          answer_title: Tähän aloitteeseen on vastattu
+          answer_title: Tähän aloitteeseen on vastattu.
           initiative_rejected_reason: Tämä aloite on hylätty, koska se ei kerännyt tarpeeksi allekirjoituksia.
         show:
           any_vote_method: Tämä aloite kerää allekirjoituksia verkossa ja palvelun ulkopuolella.
@@ -608,8 +608,8 @@ fi:
         expired: Vanhentuneet
       unavailable_scope: Teema ei ole saatavilla
       update:
-        error: Tapahtui virhe
-        success: Aloitteen päivitys onnistui
+        error: Tapahtui virhe.
+        success: Aloitteen päivitys onnistui.
       versions:
         shared:
           back_to_resource: Takaisin aloitteeseen

@@ -51,12 +51,8 @@ pt-BR:
             attachment:
               file: O arquivo é inválido
               needs_to_be_reattached: Precisa ser reanexado
-              title: O título não pode ficar vazio
   activerecord:
     models:
-      decidim/initiative:
-        one: Iniciativa
-        other: Iniciativas
       decidim/initiative_comittee:
         one: Comissão
         other: Comissões
@@ -171,10 +167,8 @@ pt-BR:
             - Siga os passos para criar uma nova iniciativa
           description: Esse selo é concedido quando você lança novas iniciativas, estabelecendo parcerias com outras pessoas para realizá-las.
           description_another: Este usuário obteve %{score} iniciativas publicadas.
-          description_own: Você tem %{score} iniciativas publicadas.
           name: Iniciativas publicadas
           next_level_in: Obtenha mais %{score} iniciativas publicadas para alcançar o próximo nível!
-          unearned_another: Este usuário ainda não publicou nenhuma iniciativa.
           unearned_own: Você não tem iniciativas publicadas ainda.
     help:
       participatory_spaces:
@@ -200,8 +194,6 @@ pt-BR:
           index:
             approve: Aprovar
             confirm_revoke: Você tem certeza?
-            invite_to_committee_help: Compartilhe este link para convidar outros usuários para o comitê de promoção
-            no_members_yet: Não há membros no comitê de promotores
             revoke: Revogar
             title: membros do Comitê
         content_blocks:
@@ -223,7 +215,6 @@ pt-BR:
             export_votes: Suporta Exportação
             reject: Rejeitar iniciativa
             send_to_technical_validation: Enviar para validação técnica
-            success: A iniciativa foi enviada para validação técnica
             update: Atualizar
           form:
             attachments: Anexos
@@ -238,15 +229,7 @@ pt-BR:
             edit: Editar
             new: Novo
             photos: Fotos
-          update:
-            error: ocorreu um erro
-            success: A iniciativa do cidadão foi atualizada com sucesso
         initiatives_type_scopes:
-          create:
-            error: ocorreu um erro
-            success: Um novo âmbito para o tipo de iniciativa determinado foi criado
-          destroy:
-            success: O âmbito foi removido com sucesso
           edit:
             back: Costas
             confirm_destroy: Você tem certeza?
@@ -257,15 +240,7 @@ pt-BR:
             back: Costas
             create: Criar
             title: Criar âmbito de tipo de iniciativa
-          update:
-            error: ocorreu um erro
-            success: O âmbito foi atualizado com sucesso
         initiatives_types:
-          create:
-            error: ocorreu um erro
-            success: Um novo tipo de iniciativa foi criado com sucesso
-          destroy:
-            success: O tipo de iniciativa foi removido com sucesso
           edit:
             confirm_destroy: Você tem certeza?
             destroy: Excluir
@@ -279,9 +254,6 @@ pt-BR:
           new:
             create: Criar
             title: Novo tipo de iniciativa
-          update:
-            error: ocorreu um erro
-            success: O tipo de iniciativa foi atualizado com sucesso
       admin_log:
         initiative:
           publish: "%{user_name} publicou a iniciativa %{resource_name}"
@@ -314,7 +286,6 @@ pt-BR:
           success: A Publicação foi aprovada.
         new:
           continue: Continuar
-          help_text: Você está prestes a pedir para se tornar membro do comitê de promotores desta iniciativa
         revoke:
           success: Pedido foi revogado.
         spawn:
@@ -414,7 +385,6 @@ pt-BR:
             day: Dia
             month: Mês
             year: Ano
-          help: Por favor, preencha os seguintes campos com seus dados pessoais para assinar a iniciativa
         finish:
           back_to_initiative: De volta à iniciativa
         sms_code:
@@ -422,16 +392,11 @@ pt-BR:
           help: Verifique o SMS recebido no seu telefone
         sms_phone_number:
           continue: Envie-me um SMS
-          help: Preencha o formulário com seu número de telefone confirmado para solicitar seu código de verificação
       initiative_votes:
         create:
           error: Houve erros ao assinar a iniciativa.
-          invalid: Os dados fornecidos para assinar a iniciativa não são válidos
-          success_html: Parabéns! A iniciativa <strong> %{title}</strong> foi assinada corretamente
         personal_data:
           invalid: Os dados pessoais não são consistentes com os dados fornecidos para autorização.
-        sms_code:
-          invalid: Seu código de verificação não corresponde ao nosso. Por favor, verifique novamente o SMS que lhe enviamos.
         sms_phone:
           invalid: O número de telefone é inválido ou está pendente de autorização. Por favor, verifique suas autorizações.
       initiatives:
@@ -444,8 +409,6 @@ pt-BR:
         committee_members:
           approve: Aprovar
           confirm_revoke: Você tem certeza?
-          invite_to_committee_help: Compartilhe este link para convidar outros participantes para o comitê de promotores
-          no_members_yet: Não há membros no comitê de promotores
           revoke: Revogar
           title: Membros do Comitê
         count:
@@ -505,7 +468,6 @@ pt-BR:
           section: 'Se solicitado pela organização, por favor imprima e preencha este formulário para enviar quando indicado:'
           signature: Assinatura
         result:
-          answer_title: Esta iniciativa foi respondida
           initiative_rejected_reason: Esta iniciativa foi rejeitada devido à falta de suporte.
         show:
           any_vote_method: Essa iniciativa coleta assinaturas on-line e presencial.
@@ -564,9 +526,6 @@ pt-BR:
         accepted: Aceitaram
         expired: Expirado
       unavailable_scope: Escopo não disponível
-      update:
-        error: Ocorreu um erro
-        success: A iniciativa foi atualizada com sucesso
       versions:
         shared:
           back_to_resource: Voltar à iniciativa

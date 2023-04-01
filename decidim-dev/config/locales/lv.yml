@@ -38,7 +38,6 @@ lv:
           description_own: Jūs esat izveidojis %{score} testus.
           name: Testi
           next_level_in: Izveidojiet vēl dažus %{score} testus, lai sasniegtu nākamo līmeni!
-          unearned_another: Šis dalībnieks vēl nav izveidojis nevienu testu.
           unearned_own: Jūs vēl neesat izveidojis nevienu testu.
     resource_links:
       test_link:
