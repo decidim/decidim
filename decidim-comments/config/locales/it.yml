@@ -25,12 +25,9 @@ it:
       comments:
         create:
           error: Ci sono stati problemi durante la creazione del commento.
-        delete:
-          error: Il commento non può essere eliminato.
         update:
           error: Si è verificato un errore durante l'aggiornamento del commento.
       comments_count: Conteggio dei Commenti
-      comments_title: Commenti
       last_activity:
         new_comment_at_html: "<span>Nuovo commento al %{link}</span>"
       view: Visualizza
@@ -44,7 +41,6 @@ it:
           body:
             label: Commenta
             placeholder: Cosa ne pensi?
-          form_error: Il testo è necessario, deve essere obbligatoriamente indicato (max %{length} caratteri).
           submit: Invia
           user_group_id:
             label: Commenta come
@@ -78,7 +74,6 @@ it:
           description: Trovi questo contenuto inappropriato?
           details: motivazione
           reasons:
-            does_not_belong: Contiene un'attività illegale, istigazioni al suicidio, minacce, informazioni personali o riservate, oppure vi sono dei contenuti che reputi inappropriati per %{organization_name}.
             offensive: Vi sono contenuti razzisti, sessisti, offensivi, attacchi di carattere personale, minacce di morte o altro tipo di minacci, istigazioni al suicidio o altre forme d'odio verbale.
             spam: Contiene pubblicità, truffe, clickbait ("esca da click") o altro contenuto mirato ad attrarre traffico internet.
           title: Segnala contenuti inappropriati
@@ -163,6 +158,3 @@ it:
         description: Numero di commenti generati dagli utenti
         object: Commenti
         title: Commenti
-  errors:
-    messages:
-      cannot_have_comments: non si possono fare commenti

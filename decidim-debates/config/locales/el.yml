@@ -130,7 +130,6 @@ el:
           email_intro: 'Τώρα μπορείτε να ξεκινήσετε νέες συζητήσεις στον χώρο συμμετοχής %{participatory_space_title}! Ξεκινήστε να συμμετέχετε σε αυτήν τη σελίδα:'
           email_outro: Λάβατε αυτήν την ειδοποίηση επειδή ακολουθείτε τον χώρο συμμετοχής %{participatory_space_title}. Μπορείτε να διακόψετε τη λήψη ειδοποιήσεων ακολουθώντας τον προηγούμενο σύνδεσμο.
           email_subject: Οι συζητήσεις είναι πλέον διαθέσιμες στον χώρο συμμετοχής %{participatory_space_title}
-          notification_title: Μπορείτε τώρα να ξεκινήσετε <a href="%{resource_path}">νέες συζητήσεις</a> στον χώρο συμμετοχής <a href="%{participatory_space_url}">%{participatory_space_title}</a>
     gamification:
       badges:
         commented_debates:
@@ -142,7 +141,6 @@ el:
           name: Συζητήσεις
           next_level_in: Συμμετάσχετε σε %{score} ακόμη συζητήσεις για να φτάσετε στο επόμενο επίπεδο!
           unearned_another: Αυτός ο συμμετέχων δεν έχει λάβει ακόμα μέρος σε καμία συζήτηση.
-          unearned_own: Δεν έχετε συμμετάσχει ακόμα σε καμία συζήτηση.
     metrics:
       debates:
         description: Αριθμός συζητήσεων που δημιουργήθηκαν

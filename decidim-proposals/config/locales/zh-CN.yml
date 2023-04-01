@@ -28,7 +28,6 @@ zh-CN:
       proposal_answer:
         answer: 答案
       proposals_copy:
-        copy_proposals: 我的理解是，这将从选定的组件导入所有建议到当前的组件，这个操作不能被撤销。
         origin_component_id: 复制提议的构成部分
       proposals_import:
         import_proposals: 导入提议
@@ -169,10 +168,8 @@ zh-CN:
       proposals:
         admin:
           proposal_note_created:
-            email_intro: 有人在提议 "%{resource_title}"上留下了一条笔记。请在管理面板 <a href="%{admin_proposal_info_url}">上查看</a>
             email_outro: 您收到此通知是因为您可以评估提案。
             email_subject: 有人在建议 %{resource_title} 留下了一条笔记。
-            notification_title: 有人在提议 <a href="%{resource_path}">%{resource_title}</a>留下了一条笔记。请在 <a href="%{admin_proposal_info_path}">管理面板</a>
         collaborative_draft_access_accepted:
           email_subject: "%{requester_name} 已被接受作为贡献者访问 %{resource_title}。"
         collaborative_draft_access_rejected:
@@ -206,7 +203,6 @@ zh-CN:
           follower:
             email_intro: '提议 "%{resource_title}" 已被接受。您可以在此页面中阅读答案：'
             email_outro: 您收到此通知是因为您正在关注 "%{resource_title}"。您可以从上一个链接取消关注它。
-            email_subject: 您关注的建议已被接受
             notification_title: <a href="%{resource_path}">%{resource_title}</a> 提议已被接受。
         proposal_evaluating:
           affected_user:
@@ -217,7 +213,6 @@ zh-CN:
           follower:
             email_intro: '提议 "%{resource_title}" 目前正在评估。您可以在这个页面检查答案：'
             email_outro: 您收到此通知是因为您正在关注 "%{resource_title}"。您可以从上一个链接取消关注它。
-            email_subject: 正在评估您关注的建议
             notification_title: <a href="%{resource_path}">%{resource_title}</a> 提议正在评估中。
         proposal_mentioned:
           email_outro: 您收到此通知是因为您是"%{resource_title} "的作者。
@@ -239,7 +234,6 @@ zh-CN:
           follower:
             email_intro: '提议 "%{resource_title}" 已被拒绝。您可以在此页中读取答案：'
             email_outro: 您收到此通知是因为您正在关注 "%{resource_title}"。您可以从上一个链接取消关注它。
-            email_subject: 您关注的建议已被拒绝
             notification_title: <a href="%{resource_path}">%{resource_title}</a> 提议已被拒绝。
         proposal_update_category:
           email_intro: '管理员更新了您的提议 "%{resource_title}"的类别，在此页面查看：'
@@ -277,7 +271,6 @@ zh-CN:
           description_own: 您已经对 %{score} 的建议给予了支持。
           name: 建议支持
           next_level_in: 支持更多 %{score} 个建议以达到下一级！
-          unearned_another: 此参与者尚未支持任何建议。
           unearned_own: 您还没有对任何建议给予支持。
         proposals:
           conditions:
@@ -288,7 +281,6 @@ zh-CN:
           description_own: 您已创建了 %{score} 个建议。
           name: 建议
           next_level_in: 再创建 %{score} 个建议以达到下一关！
-          unearned_another: 此参与者尚未创建任何提案。
           unearned_own: 您尚未创建任何提案。
     metrics:
       accepted_proposals:
@@ -349,9 +341,6 @@ zh-CN:
             bottom_hint: "(您将能够预览和排序文档部分)"
             title: 添加文档
             upload_document: 上传文档
-          publish:
-            invalid: 无法发布提案
-            success: 所有建议已经发布
           sections:
             article: "<em>文章</em>"
             sub-section: "<em>子部分：</em> %{title}"
@@ -365,21 +354,12 @@ zh-CN:
             rejected: 已拒绝
             title: 对提议 %{title} 的答案
         proposal_notes:
-          create:
-            error: 创建此建议说明时出现问题
-            success: 提案备注创建成功
           form:
             note: 说明
             submit: 提交
           leave_your_note: 留下您的便笺
           title: 私人笔记
         proposals:
-          answer:
-            invalid: 回答此建议时出现问题
-            success: 已成功回复建议
-          create:
-            invalid: 创建此建议时出现问题
-            success: 建议已成功创建
           edit:
             title: 更新提议
             update: 更新
@@ -413,7 +393,6 @@ zh-CN:
             title: 创建提案
           publish_answers:
             number_of_proposals: '%{number} 建议的答案将被发布。'
-            select_a_proposal: 请选择一个提议
           show:
             amendments_count: 修改计数
             assigned_valuators: 分配给值者
@@ -442,18 +421,11 @@ zh-CN:
             votes_ranking: 支持排序方式
           update_category:
             invalid: '这些建议已经有 %{subject_name} 分类: %{proposals}。'
-            select_a_category: 请选择一个类别
-            select_a_proposal: 请选择一个提议
             success: '建议已成功更新到 %{subject_name} 类别： %{proposals}。'
           update_scope:
             invalid: '这些建议已经有 %{subject_name} 范围： %{proposals}。'
-            select_a_proposal: 请选择一个提议
-            select_a_scope: 请选择范围
             success: '建议已成功更新到 %{subject_name} 范围： %{proposals}。'
         proposals_imports:
-          create:
-            invalid: 导入提案时出现问题
-            success: "%{number} 个建议已成功导入"
           new:
             create: 导入提议
             no_components: 在这个参与性空间中，没有其他提案组成部分可以从中导入。
@@ -465,13 +437,6 @@ zh-CN:
         proposals_splits:
           create:
             success: 成功地将建议分成新的建议。
-        valuation_assignments:
-          create:
-            invalid: 分配建议给值者时出错
-            success: 分配给估值者的建议
-          delete:
-            invalid: 有一个错误，未分配来自一个值的建议
-            success: 已成功从建议中删除值
       admin_log:
         proposal:
           answer: "%{user_name} 回答了 %{resource_name} 在 %{space_name} 空间的建议"
@@ -514,7 +479,6 @@ zh-CN:
           publish:
             error: 发布合作草案时出现问题。
             irreversible_action_modal:
-              body: 在将草案作为提案发表之后，草案将不再被编辑。该提案不会接受新的作者或贡献。
               cancel: 取消
               ok: 发布为提案
               title: 以下操作是不可逆的
@@ -523,7 +487,6 @@ zh-CN:
           withdraw:
             error: 在结束合作草案时遇到了问题。
             irreversible_action_modal:
-              body: 草案结束后，草案将不会再被编辑。草案将不会接受新的作者或贡献。
               cancel: 取消
               ok: 撤回协作草稿
               title: 以下操作是不可逆的
@@ -567,17 +530,14 @@ zh-CN:
         requests:
           accepted_request:
             error: 无法接受为协作者，请稍后再试。
-            success: "@%{user} 已被成功接受为合作者"
           access_requested:
             error: 您的请求无法完成，请稍后再试。
-            success: 您的合作请求已成功发送
           collaboration_requests:
             accept_request: 接受
             reject_request: 拒绝
             title: 协作请求
           rejected_request:
             error: 无法以协作者身份拒绝，请稍后再试。
-            success: "@%{user} 已被成功拒绝为合作者"
         show:
           back: 后退
           edit: 编辑协作草稿
@@ -585,7 +545,6 @@ zh-CN:
           final_proposal_help_text: 这个草稿已完成。查看最后建议
           hidden_authors_count:
             other: 和更多 %{count} 人
-          info-message: 这是一个提议的 <strong>协作草案</strong> 。 这意味着你可以帮助他们的作者使用下面的评论部分来塑造建议或通过请求访问来直接改进它。 一旦作者授予您访问权限，您将能够修改此草稿。
           publish: 发布
           publish_info: 发布此版本的草稿或
           published_proposal: 已发布的提案
@@ -632,8 +591,6 @@ zh-CN:
             valuator: 值者
             valuators: 估价器
             votes: 所得票数
-      new:
-        limit_reached: 您不能创建新的建议，因为您已经超过了限制。
       participatory_text_proposal:
         alternative_title: 目前没有参与性文本
         buttons:
@@ -717,9 +674,6 @@ zh-CN:
         proposal:
           creation_date: '创建: %{date}'
           view_proposal: 查看提案
-        proposals:
-          empty: 还没有提案
-          empty_filters: 没有任何符合此标准的提案
         show:
           answer: 答案
           back_to: 返回到
@@ -766,12 +720,9 @@ zh-CN:
             description: 每个建议都可以积累超过 %{limit} 个支持
           minimum_votes_per_user:
             description: 您必须在不同的建议中至少分配 %{votes} 支持。
-            given_enough_votes: 您已经提供了足够的支持。
             supports_remaining: 您必须支持 %{remaining_votes} 个更多的建议以便您的支持被考虑。
           proposal_limit:
             description: 您最多可以创建 %{limit} 个建议。
-          threshold_per_proposal:
-            description: 为了被验证的建议需要达到 %{limit} 支持
           title: '支持受以下规则约束：'
           vote_limit:
             description: 您可以最多支持 %{limit} 个建议。
@@ -797,7 +748,6 @@ zh-CN:
         choose_proposals: 选择建议
         close: 关闭
         more_proposals: 还有 %{number} 个建议。请仔细搜索以找到它们。
-        no_proposals: 没有符合您搜索条件的建议或没有任何建议。
       publish:
         error: 发布建议时出现问题。
         success: 建议发布成功。
@@ -816,9 +766,6 @@ zh-CN:
           title: 版本
         proposals:
           back_to_resource: 返回提案
-      withdraw:
-        errors:
-          has_supports: 这项建议不能被撤回，因为它已经得到支持。
     resource_links:
       copied_from_component:
         proposal_proposal: 有关提议

@@ -183,11 +183,11 @@ ca:
           title: Continguts de la pàgina
       participatory_process_group_landing_page_content_blocks:
         create:
-          error: S'ha produït un error en intentar crear aquest bloc de contingut
-          success: Bloc de contingut creat amb èxit
+          error: S'ha produït un error en intentar crear aquest bloc de contingut.
+          success: El bloc de contingut s'ha creat correctament.
         destroy:
-          error: S'ha produït un error en intentar eliminar aquest bloc de contingut
-          success: Bloc de contingut eliminat amb èxit
+          error: S'ha produït un error en intentar eliminar aquest bloc de contingut.
+          success: Bloc de contingut eliminat correctament.
         edit:
           update: Actualitzar
       participatory_process_groups:
@@ -363,7 +363,7 @@ ca:
     log:
       value_types:
         participatory_process_type_presenter:
-          not_found: 'Aquest tipus de procés no s''ha trobat a la base de dades (ID: %{id})'
+          not_found: 'Aquest tipus de procés no s''ha trobat a la base de dades (ID: %{id}).'
     menu:
       processes: Processos
     metrics:
@@ -481,8 +481,8 @@ ca:
               one: Un procés proper
               other: "%{count} processos propers"
           explanations:
-            no_active: Sense processos actius
-            no_active_nor_upcoming: No hi ha processos actius ni futurs
+            no_active: Sense processos actius.
+            no_active_nor_upcoming: No hi ha processos actius ni futurs.
             no_active_nor_upcoming_callout: No hi ha processos actius ni futurs. Aquí hi ha una llista dels anteriors.
           filter_by: Mostrar
           names:

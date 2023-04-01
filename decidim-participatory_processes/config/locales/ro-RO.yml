@@ -204,9 +204,6 @@ ro:
           success: Etapa procesul participativ a fost creată cu succes.
         default_title: Introducere
         destroy:
-          error:
-            active_step: Nu se poți șterge etapa activă.
-            last_step: Nu se poți șterge ultima etapă a unui proces.
           success: Etapa procesului participativ a fost ştearsă cu succes.
         edit:
           title: Editează etapa procesului participativ
@@ -434,8 +431,6 @@ ro:
               few: "%{count} procese viitoare"
               other: "%{count} procese viitoare"
           explanations:
-            no_active: Niciun proces activ
-            no_active_nor_upcoming: Nici un proces activ sau viitor
             no_active_nor_upcoming_callout: Nu există procese active sau viitoare. Aici este o listă a celor anterioare.
           names:
             active: Active

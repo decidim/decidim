@@ -43,9 +43,6 @@ fr-CA:
       admins:
         create:
           error: Une erreur s'est produite lors de la création d'un nouvel administrateur.
-          success: Admin créé avec succès
-        destroy:
-          success: Administrateur supprimé avec succès
         edit:
           title: Modifier l'administrateur
           update: Mettre à jour
@@ -56,13 +53,13 @@ fr-CA:
           title: Nouvel administrateur
         update:
           error: Une erreur s'est produite lors de la mise à jour de cet administrateur.
-          success: Administrateur mis à jour avec succès
       dashboard:
         show:
           current_organizations: Organisations actuelles
       default_pages:
         placeholders:
           content: Ajoutez un contenu pertinent à la page %{page} en allant sur l'interface d'administration.
+          summary: Veuillez ajouter un contenu significatif à la page statique %{page} du tableau de bord de l’administrateur.
           title: Titre par défaut pour %{page}
       menu:
         admins: Administrateurs
@@ -144,8 +141,6 @@ fr-CA:
         index:
           title: Organisations
         new:
-          reference_prefix_hint: Le préfixe de référence est utilisé pour identifier de manière unique les ressources pour toutes les organisations
-          secondary_hosts_hint: Entrez chacun d'eux dans une nouvelle ligne
           title: Nouvelle organisation
         omniauth_settings:
           decidim:
@@ -168,8 +163,6 @@ fr-CA:
         smtp_settings:
           fieldsets:
             sender: Expéditeur
-          instructions:
-            from_label: 'L''expéditeur du mail sera "nom-de-votre-organisation <your-organization@example.org>". Laissez le champ vide pour utiliser la valeur de ''from_email'' comme label'
           placeholder:
             from_email: votre-organisation@exemple.org
             from_label: nom-de-votre-organisation
@@ -179,7 +172,7 @@ fr-CA:
         users_registration_mode:
           disabled: L'accès n'est possible qu'avec des comptes externes
           enabled: Autoriser les utilisateurs à s'inscrire et à se connecter
-          existing: Ne pas autoriser les utilisateurs à s'inscrire, mais autoriser les utilisateurs existants à se connecter
+          existing: Ne pas autoriser les participants à s'inscrire, mais autoriser les participants existants à se connecter
       shared:
         notices:
           no_organization_warning_html: Vous devez créer une organisation pour démarrer. Assurez-vous de lire %{guide} avant de continuer.

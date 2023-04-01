@@ -78,7 +78,7 @@ ja:
           description: このコンテンツは不適切ですか？
           details: 追加コメント
           reasons:
-            does_not_belong: 違法行為、個人情報、または %{organization_name} に属していないと思われる内容が含まれています。
+            does_not_belong: 違法行為、自殺予告、個人情報、または %{organization_name} にふさわしくないと思われる何かが含まれています。
             offensive: 差別的な内容、誹謗中傷などの不適切な内容が含まれています。
             spam: 本来の内容に関係が無い広告、詐欺や悪意のある処理などが含まれています。
           title: 不適切なコンテンツを報告する

@@ -64,12 +64,6 @@ lt:
         email: El. paštas
         name: Vardas
         role: Rolė
-    errors:
-      models:
-        conference_registration_invite:
-          attributes:
-            email:
-              already_invited: Šio el. laiško adresatas jau buvo pakviestas
   activerecord:
     models:
       decidim/conference:
@@ -351,7 +345,6 @@ lt:
             invites: Pakvietimai
             search: Ieškoti
           new:
-            explanation: Dalyvis bus pakviestas dalyvauti konferencijoje. Jei e. laiškas nebus užregistruotas, dalyvis bus taip pat pakviestas būti organizacijos dalimi.
             invite: Pakviesti
             new_invite: Kviesti dalyvį
         conference_registrations:
@@ -454,11 +447,6 @@ lt:
       index:
         title: Konferencijos
       mailer:
-        conference_registration_mailer:
-          confirmation:
-            subject: Jūsų registracija į konferenciją buvo patvirtinta
-          pending_validation:
-            subject: Jūsų registracija į konferenciją dar nepatvirtinta
         invite_join_conference_mailer:
           invite:
             subject: Kvietimas dalyvauti konferencijoje
@@ -542,10 +530,6 @@ lt:
           contextual: "<p> <strong>Konferencija</strong> yra susitikimų, surengtų pagal programą, rinkinys, į kurį pakviečiama daug kalbėtojų. Konferencijoms, kaip ir kitiems dideliems susirinkimams ar socialiniams renginiams, būdingi ypatumai yra registracijos, renginį remiančių ar kitaip padedančių organizacijų sąrašas ir kt.</p><p>Pavyzdžiui, konferencija gali būti svarbus įvykis organizacijai ir jos nariams, vykti kaip dalyvaujamojo proceso dalis arba tai gali būti renginys po konsultacijos.</p>\n"
           page: "<p> <strong>Konferencija</strong> yra susitikimų, surengtų pagal programą, rinkinys, į kurį pakviečiama daug kalbėtojų. Konferencijoms, kaip ir kitiems dideliems susirinkimams ar socialiniams renginiams, būdingi ypatumai yra registracijos, renginį remiančių ar kitaip padedančių organizacijų sąrašas ir kt.</p><p>Pavyzdžiui, konferencija gali būti svarbus įvykis organizacijai ir jos nariams, vykti kaip dalyvaujamojo proceso dalis arba tai gali būti renginys po konsultacijos.</p>\n"
           title: Kas yra konferencijos?
-    log:
-      value_types:
-        conference_presenter:
-          not_found: 'Konferencija duomenų bazėje nerasta (ID: %{id})'
     media:
       index:
         description: Nuorodos apie šią konferenciją

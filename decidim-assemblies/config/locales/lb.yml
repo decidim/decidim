@@ -358,9 +358,6 @@ lb:
         related_assemblies: Ähnliche Versammlungen
     statistics:
       assemblies_count: Gremien
-  errors:
-    messages:
-      cannot_be_blank: darf nicht leer sein
   layouts:
     decidim:
       assemblies:

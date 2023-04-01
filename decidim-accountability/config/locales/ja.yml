@@ -55,28 +55,28 @@ ja:
             info: |
               <p>以下の手順をお勧めします:</p>
               <ol>
-              <li><a href='%{link_new_status}' target='_blank'>追加したい結果のステータスを作成する</a></li>
-              <li><a href='%{link_new_result}' target='_blank'>インポートを使用する前に、この管理パネルから少なくとも1つの結果を手動で作成し、フォーマットと必要事項をよりよく理解できるようにしてください。</a></li>
+              <li>追加したい<a href='%{link_new_status}' target='_blank'>結果のステータスを作成</a>してください。</li>
+              <li>インポートを使用する前に、この管理画面を通じて<a href='%{link_new_result}' target='_blank'>少なくとも1つの結果を手動で作成</a>し、フォーマットと必要な入力内容をより理解してください。</li>
               <li>%{link_export_csv}</li>
-              <li>ローカルで変更します。変更できるのは、CSVの以下の列のみです:
+              <li>ローカルで変更を加えてください。次の列のみ変更可能です。
                 <ul>
                 <li><b>category/id:</b> カテゴリのID</li>
                 <li><b>scope/id:</b> スコープのID</li>
-                <li><b>parent/id:</b> 関連する結果の親ID. (オプション)</li>
-                <li><b>title/en:</b> 英語のタイトル これはプラットフォームの言語設定に依存します.</li>
-                <li><b>description/en:</b> 英語の説明. これはプラットフォームの言語設定に依存します.</li>
-                <li><b>start_date:</b> 結果の実行開始日 (YYYY-MM-DD形式)</li>
-                <li><b>end_date:</b> 結果の実行終了日 (YYYY-MM-DD形式)</li>
-                <li><b>status/id:</b> 結果のステータスID</li>
-                <li><b>progress:</b> 進行のパーセンテージ(0 〜 100)</li>
-                <li><b>proposals_ids:</b> 関連する提案の内部ID（カンマ区切り）. 自動的に<span class='attribute-name'>proposal_url</span>に変換されます</li>
+                <li><b>parent/id:</b> 関連する結果のID（オプション）</li>
+                <li><b>title/en:</b> 英語のタイトル。プラットフォームの言語設定に依存します。</li>
+                <li><b>description/en:</b> 英語の説明。プラットフォームの言語設定に依存します。</li>
+                <li><b>start_date:</b> 結果が実行を開始する日付（形式：YYYY-MM-DD）</li>
+                <li><b>end_date:</b> 結果が実行を終了する日付（形式：YYYY-MM-DD）</li>
+                <li><b>status/id:</b> この結果のステータスのID</li>
+                <li><b>progress:</b> 実行の進捗率（0〜100のパーセント）</li>
+                <li><b>proposals_ids:</b> 関連する提案の内部ID（コンマで区切られています）。自動的に<span class='attribute-name'>proposal_url</span>に変換されます。</li>
                 </ul>
               </li>
               </ol>
             title: CSVから結果をインポート
         imports:
           create:
-            success: ファイルのインポートが開始されました。インポートの結果、数分後にメールが届きます。
+            success: ファイルのインポートが開始されました。インポートの結果は、数分後にメールで届きます。
         models:
           result:
             name: 結果
@@ -96,14 +96,14 @@ ja:
             origin_component_id: 元のコンポーネント
             select_component: コンポーネントを選択
             success:
-              other: "%{count} 件のプロジェクトをインポートする準備を行いました。完了するとメールで通知されます。"
+              other: "%{count} 件のプロジェクトがインポートする準備を行いました。完了次第、メールで通知します。"
             title: アカウンタビリティコンポーネントにプロジェクトをインポート
         results:
           create:
-            invalid: この結果を作成する際に問題が発生しました
-            success: 結果を作成しました
+            invalid: 結果の作成中に問題がありました。
+            success: 結果が正常に作成されました。
           destroy:
-            success: 結果を削除しました
+            success: 結果を削除しました。
           edit:
             title: 結果を編集
             update: 結果を更新
@@ -113,17 +113,17 @@ ja:
             create: 結果を作成
             title: 新しい結果
           update:
-            invalid: この結果の更新中に問題が発生しました
-            success: 結果を更新しました
+            invalid: 結果の更新中に問題が発生しました。
+            success: 結果を更新しました。
         shared:
           subnav:
             statuses: ステータス
         statuses:
           create:
-            invalid: ステータスの作成中に問題が発生しました
-            success: ステータスが正常に作成されました
+            invalid: ステータスの作成中に問題が発生しました。
+            success: ステータスが正常に作成されました。
           destroy:
-            success: ステータスが削除されました
+            success: ステータスを削除しました。
           edit:
             title: ステータスの編集
             update: ステータスを更新
@@ -133,14 +133,14 @@ ja:
             create: ステータスを作成
             title: 新しいステータス
           update:
-            invalid: ステータスの更新中に問題が発生しました
-            success: ステータスが正常に更新されました
+            invalid: ステータスの更新中に問題が発生しました。
+            success: ステータスが正常に更新されました。
         timeline_entries:
           create:
-            invalid: このエントリの作成中に問題が発生しました
+            invalid: エントリの作成中に問題が発生しました。
             success: エントリが正常に作成されました。
           destroy:
-            success: エントリが正常に削除されました。
+            success: エントリを削除しました。
           edit:
             title: エントリを編集
             update: エントリを更新
@@ -150,8 +150,8 @@ ja:
             create: エントリを作成
             title: 新しい項目
           update:
-            invalid: このエントリの更新中に問題が発生しました
-            success: エントリが正常に更新されました。
+            invalid: エントリの更新中に問題が発生しました。
+            success: エントリを更新しました。
       admin_log:
         result:
           create: "%{user_name} が結果 %{resource_name} を %{space_name} に作成しました"
@@ -176,7 +176,7 @@ ja:
       import_mailer:
         import:
           errors: エラー
-          errors_present: 結果のインポート中に問題が発生しました
+          errors_present: 結果のインポート中に問題が発生しました。
           row_number: 行
           subject: 結果のインポートに成功しました
           success: 結果のインポートに成功しました。管理画面で結果を確認できます。
