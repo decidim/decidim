@@ -57,7 +57,7 @@ describe Decidim::Elections::Admin::VotePeriodForm do
                                      })
     end
 
-    context "when the election didn't finish yet" do
+    context "when the election did not finish yet" do
       let(:end_time) { 1.day.from_now }
 
       it { is_expected.to be_invalid }

@@ -49,7 +49,7 @@ describe "Admin manages questions", type: :system do
   context "when the election has already started" do
     let(:election) { create :election, :started, component: current_component }
 
-    it "doesn't create a new question" do
+    it "does not create a new question" do
       click_on "New Question"
 
       within ".new_question" do

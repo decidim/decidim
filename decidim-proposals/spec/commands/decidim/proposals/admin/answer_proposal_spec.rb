@@ -70,7 +70,7 @@ module Decidim
             expect { subject }.to broadcast(:invalid)
           end
 
-          it "doesn't change the proposal state" do
+          it "does not change the proposal state" do
             expect { subject }.not_to(change { proposal.reload.state })
           end
         end
@@ -107,11 +107,11 @@ module Decidim
             expect { subject }.to change { proposal.reload.internal_state }.to("rejected")
           end
 
-          it "doesn't publish the proposal answer" do
+          it "does not publish the proposal answer" do
             expect { subject }.not_to change { proposal.reload.published_state? }.from(false)
           end
 
-          it "doesn't notify the proposal answer" do
+          it "does not notify the proposal answer" do
             expect(NotifyProposalAnswer)
               .not_to receive(:call)
 

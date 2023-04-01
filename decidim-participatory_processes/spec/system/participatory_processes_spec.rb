@@ -452,7 +452,7 @@ describe "Participatory Processes", type: :system do
             end
           end
 
-          context "and the process doesn't have hashtag" do
+          context "and the process does not have hashtag" do
             let(:hashtag) { false }
 
             it "the hashtags for those components are not visible" do

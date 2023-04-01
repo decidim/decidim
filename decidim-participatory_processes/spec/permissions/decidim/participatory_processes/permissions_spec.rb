@@ -121,7 +121,7 @@ describe Decidim::ParticipatoryProcesses::Permissions do
         let(:user) { create :user, organization: }
         let(:process) { create :participatory_process, :unpublished, organization: }
 
-        context "when the user doesn't have access to it" do
+        context "when the user does not have access to it" do
           it { is_expected.to be false }
         end
 

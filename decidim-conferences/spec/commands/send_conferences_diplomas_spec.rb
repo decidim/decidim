@@ -23,7 +23,7 @@ module Decidim::Conferences
         end
       end
 
-      describe "when diplomas wasn't sent" do
+      describe "when diplomas was not sent" do
         it "broadcasts ok" do
           expect { command.call }.to broadcast(:ok)
         end

@@ -37,7 +37,7 @@ describe Decidim::Debates::UpdateDebate do
       expect { subject.call }.to broadcast(:invalid)
     end
 
-    it "doesn't update the debate" do
+    it "does not update the debate" do
       expect do
         subject.call
         debate.reload
@@ -52,7 +52,7 @@ describe Decidim::Debates::UpdateDebate do
       expect { subject.call }.to broadcast(:invalid)
     end
 
-    it "doesn't update the debate" do
+    it "does not update the debate" do
       expect do
         subject.call
         debate.reload

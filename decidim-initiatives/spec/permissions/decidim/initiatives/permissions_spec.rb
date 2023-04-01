@@ -444,7 +444,7 @@ describe Decidim::Initiatives::Permissions do
       end
     end
 
-    context "when initiative signature doesn't have steps" do
+    context "when initiative signature does not have steps" do
       let(:organization) { create(:organization, available_authorizations: authorizations) }
       let(:authorizations) { %w(dummy_authorization_handler another_dummy_authorization_handler) }
       let(:initiative) { create(:initiative, organization:) }

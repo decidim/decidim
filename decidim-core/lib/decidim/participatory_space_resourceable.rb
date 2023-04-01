@@ -13,7 +13,7 @@ module Decidim
   # therefore depend on a `Component`.
   #
   # The second one, `ParticipatorySpaceResourceable`, it is used for linking
-  # `ParticipatorySpaces` to each other, and therefore don't depend on a
+  # `ParticipatorySpaces` to each other, and therefore do not depend on a
   # `Component` but rather that they depend to the `Organization`.
 
   module ParticipatorySpaceResourceable

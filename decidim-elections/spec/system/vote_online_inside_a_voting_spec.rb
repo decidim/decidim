@@ -100,7 +100,7 @@ describe "Vote online in an election inside a Voting", type: :system do
     end
 
     context "when questionnaire has no questions" do
-      let!(:questionnaire) { create :questionnaire } # by default questionnaire doesn't have any questions
+      let!(:questionnaire) { create :questionnaire } # by default questionnaire does not have any questions
 
       it "can vote and sign up without feedback" do
         vote_with_census_data
@@ -125,12 +125,12 @@ describe "Vote online in an election inside a Voting", type: :system do
   context "when the voting is not published" do
     let(:election) { create :election, :upcoming, :complete, component: }
 
-    it_behaves_like "doesn't allow to vote"
+    it_behaves_like "does not allow to vote"
     it_behaves_like "allows admins to preview the voting booth"
   end
 
   context "when the census data is not right" do
-    it "can't vote", :slow do
+    it "cannot vote", :slow do
       visit_component
       click_link translated(election.title)
       click_link "Start voting"
@@ -147,7 +147,7 @@ describe "Vote online in an election inside a Voting", type: :system do
       end
 
       expect(page).to have_content("Document number")
-      expect(page).to have_content("The given data doesn't match any voter.")
+      expect(page).to have_content("The given data does not match any voter.")
     end
   end
 
@@ -162,7 +162,7 @@ describe "Vote online in an election inside a Voting", type: :system do
       ret
     end
 
-    it "doesn't allow to vote again" do
+    it "does not allow to vote again" do
       visit_component
       click_link translated(election.title)
       click_link "Start voting"

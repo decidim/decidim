@@ -3,7 +3,7 @@
 module Decidim
   module Importers
     # For importing data from files to components. Every resource type should
-    # specify it's own creator, which will be responsible for producing (creating)
+    # specify it is own creator, which will be responsible for producing (creating)
     # and finishing (saving) the imported resource.
     class ImportManifest
       include Decidim::AttributeObject::Model

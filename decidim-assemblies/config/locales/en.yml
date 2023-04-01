@@ -82,7 +82,7 @@ en:
         assembly:
           attributes:
             document:
-              allowed_file_content_types: 'Invalid document type. Only files with the following extensions are allowed: %{types}'
+              allowed_file_content_types: 'Invalid document type. Only files with the following extensions are allowed: %{types}.'
   activerecord:
     models:
       decidim/assembly:
@@ -445,9 +445,6 @@ en:
         related_assemblies: Related assemblies
     statistics:
       assemblies_count: Assemblies
-  errors:
-    messages:
-      cannot_be_blank: can not be blank
   layouts:
     decidim:
       assemblies:

@@ -34,7 +34,7 @@ module Decidim
       end
     end
 
-    context "when it's a blog post" do
+    context "when it is a blog post" do
       let(:event_class) { Decidim::Blogs::CreatePostEvent }
       let(:event_name) { "decidim.events.blogs.post_created" }
       let(:resource) { create(:post) }

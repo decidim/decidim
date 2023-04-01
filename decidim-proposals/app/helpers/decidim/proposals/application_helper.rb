@@ -91,11 +91,17 @@ module Decidim
       end
 
       # If the proposal is official or the rich text editor is enabled on the
-      # frontend, the proposal body is considered as safe content; that's unless
+      # frontend, the proposal body is considered as safe content; that is unless
       # the proposal comes from a collaborative_draft or a participatory_text.
       def safe_content?
         (rich_text_editor_in_public_views? && not_from_collaborative_draft(@proposal)) ||
-          ((@proposal.official? || @proposal.official_meeting?) && not_from_participatory_text(@proposal))
+          safe_content_admin?
+      end
+
+      # For admin entered content, the proposal body can contain certain extra
+      # tags, such as iframes.
+      def safe_content_admin?
+        (@proposal.official? || @proposal.official_meeting?) && not_from_participatory_text(@proposal)
       end
 
       # If the content is safe, HTML tags are sanitized, otherwise, they are stripped.

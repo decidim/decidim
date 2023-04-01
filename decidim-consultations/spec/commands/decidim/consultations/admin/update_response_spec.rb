@@ -35,7 +35,7 @@ module Decidim
             expect { command.call }.to broadcast(:invalid)
           end
 
-          it "doesn't update the response" do
+          it "does not update the response" do
             command.call
             response.reload
 

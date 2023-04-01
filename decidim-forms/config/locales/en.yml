@@ -24,7 +24,7 @@ en:
               missing: are not complete
               too_many: are too many
         questionnaire:
-          request_invalid: There's been an error handling the request. Please try again
+          request_invalid: There is been an error handling the request. Please try again.
   decidim:
     forms:
       admin:
@@ -129,7 +129,7 @@ en:
           update: "%{user_name} updated the %{resource_name} questionnaire"
       errors:
         answer:
-          body: Body can't be blank
+          body: Body cannot be blank
       images:
         dimensions: "%{width} x %{height} px"
         processors:

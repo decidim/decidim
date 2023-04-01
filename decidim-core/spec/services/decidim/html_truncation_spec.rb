@@ -135,7 +135,7 @@ describe Decidim::HtmlTruncation do
     end
   end
 
-  describe "dont change quotation marks inside the tags" do
+  describe "do not change quotation marks inside the tags" do
     let(:max_length) { 19 }
     let(:text) { %(<p>some <b>"content"</b> here, cut at comma") }
 

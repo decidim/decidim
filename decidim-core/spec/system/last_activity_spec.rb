@@ -58,7 +58,7 @@ describe "Last activity", type: :system do
     context "when there is a deleted comment" do
       let(:comment) { create(:comment, :deleted, body: "This is deleted") }
 
-      it "isn't shown" do
+      it "is not shown" do
         within "#last_activity" do
           expect(page).not_to have_content("This is deleted")
         end
@@ -114,7 +114,7 @@ describe "Last activity", type: :system do
           visit current_path
         end
 
-        it "doesn't show the old activities at the top of the list" do
+        it "does not show the old activities at the top of the list" do
           expect(page).not_to have_content(translated(old_comment.commentable.title))
         end
       end
@@ -127,7 +127,7 @@ describe "Last activity", type: :system do
           visit current_path
         end
 
-        it "doesn't show the activities" do
+        it "does not show the activities" do
           expect(page).to have_css("[data-activity]", count: 0)
         end
       end

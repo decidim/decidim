@@ -209,7 +209,7 @@ module Decidim
             sign_in user, scope: :user
           end
 
-          it "doesn't delete the comment" do
+          it "does not delete the comment" do
             expect do
               delete :destroy, xhr: true, params: { id: comment.id }
             end.not_to(change { Decidim::Comments::Comment.not_deleted.count })

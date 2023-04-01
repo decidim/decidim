@@ -66,7 +66,7 @@ describe "Edit proposals", type: :system do
           visit current_path
 
           # REDESIGN_PENDING: the documents partial now comes with no title,
-          # that's is something will be added in the proposal view
+          # that is something will be added in the proposal view
           # expect(page).to have_content("Related documents")
           expect(page).to have_content("RELATED IMAGES")
           click_link "Edit proposal"
@@ -267,12 +267,12 @@ describe "Edit proposals", type: :system do
           click_link proposal_title
         end
 
-        it "doesnt change the href" do
+        it "does not change the href" do
           click_link "Edit proposal"
           expect(page).to have_link("this is a link", href: link)
         end
 
-        it "doesnt add external link container inside the editor" do
+        it "does not add external link container inside the editor" do
           click_link "Edit proposal"
           editor = page.find(".editor-container")
           expect(editor).to have_selector("a[href='#{link}']")

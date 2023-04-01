@@ -72,7 +72,7 @@ describe "Notifications", type: :system do
       page.visit decidim.notifications_path
     end
 
-    it "doesn't show any notification" do
+    it "does not show any notification" do
       expect(page).not_to have_content("Mark all as read")
       expect(page).to have_content("No notifications yet")
     end

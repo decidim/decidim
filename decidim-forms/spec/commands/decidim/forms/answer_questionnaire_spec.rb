@@ -77,7 +77,7 @@ module Decidim
           expect { command.call }.to broadcast(:invalid)
         end
 
-        it "doesn't create questionnaire answers" do
+        it "does not create questionnaire answers" do
           expect do
             command.call
           end.not_to change(Answer, :count)
@@ -184,7 +184,7 @@ module Decidim
           context "when the user has answered the survey" do
             let!(:answer) { create(:answer, questionnaire:, question: question1, user: current_user) }
 
-            it "doesn't create questionnaire answers" do
+            it "does not create questionnaire answers" do
               expect { command.call }.not_to change(Answer, :count)
             end
 
@@ -272,7 +272,7 @@ module Decidim
         context "and visitor has answered the survey" do
           let!(:answer) { create(:answer, questionnaire:, question: question1, session_token: tokenize(session_id)) }
 
-          it "doesn't create questionnaire answers" do
+          it "does not create questionnaire answers" do
             expect { command.call }.not_to change(Answer, :count)
           end
 
@@ -288,7 +288,7 @@ module Decidim
             expect { command.call }.to broadcast(:invalid)
           end
 
-          it "doesn't create questionnaire answers" do
+          it "does not create questionnaire answers" do
             expect do
               command.call
             end.not_to change(Answer, :count)

@@ -17,7 +17,7 @@ class PasswordValidator < ActiveModel::EachValidator
     :email_included_in_password?,
     :domain_included_in_password?,
     :password_too_common?,
-    :blacklisted?,
+    :denied?,
     :password_repeated?
   ].freeze
 
@@ -130,8 +130,8 @@ class PasswordValidator < ActiveModel::EachValidator
     false
   end
 
-  def blacklisted?
-    Array(Decidim.password_blacklist).each do |expression|
+  def denied?
+    Array(Decidim.denied_passwords).each do |expression|
       return true if expression.is_a?(Regexp) && value.match?(expression)
       return true if expression.to_s == value
     end

@@ -35,7 +35,7 @@ shared_examples "update an initiative answer" do
         expect { command.call }.to broadcast(:invalid)
       end
 
-      it "doesn't updates the initiative" do
+      it "does not updates the initiative" do
         command.call
 
         form_params.each do |key, value|

@@ -172,7 +172,7 @@ describe "Conferences", type: :system do
       context "when the conference stats are not enabled" do
         let(:show_statistics) { false }
 
-        it "doesn't render the stats for those components that are not visible" do
+        it "does not render the stats for those components that are not visible" do
           expect(page).to have_no_css(".statistic__title", text: "Proposals")
           expect(page).to have_no_css(".statistic__number", text: "3")
         end

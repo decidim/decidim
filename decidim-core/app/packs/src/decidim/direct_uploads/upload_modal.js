@@ -16,14 +16,13 @@ export default class UploadModal {
       // - addAttribute - Field name / attribute of resource (e.g. avatar)
       // - resourceName - The resource to which the attribute belongs (e.g. user)
       // - resourceClass - Ruby class of the resource (e.g. Decidim::User)
-      // - optional - Defines if file is optional
       // - multiple - Defines if multiple files can be uploaded
       // - titled - Defines if file(s) can have titles
       // - maxFileSize - Defines maximum file size in bytes
       // - formObjectClass - Class of the current form object (e.g. Decidim::AccountForm)
       providedOptions = JSON.parse(button.dataset.upload);
     } catch (_e) {
-      // Don't care about the parse errors, just skip the provided options.
+      // Do not care about the parse errors, just skip the provided options.
     }
 
     this.options = Object.assign(providedOptions, options)

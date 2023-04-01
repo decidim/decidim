@@ -110,8 +110,8 @@ describe "Account", type: :system do
         end
       end
 
-      context "when passwords don't match" do
-        it "doesn't update the password" do
+      context "when passwords do not match" do
+        it "does not update the password" do
           within "form.edit_user" do
             page.find(".change-password").click
 
@@ -141,7 +141,7 @@ describe "Account", type: :system do
         end
 
         within_flash_messages do
-          expect(page).to have_content("You'll receive an email to confirm your new email address")
+          expect(page).to have_content("You will receive an email to confirm your new email address")
         end
       end
 
@@ -152,7 +152,7 @@ describe "Account", type: :system do
       it "tells user to confirm new email" do
         expect(page).to have_content("Email change verification")
         expect(page).to have_selector("#user_email[disabled='disabled']")
-        expect(page).to have_content("We've sent an email to #{pending_email} to verify your new email address")
+        expect(page).to have_content("We have sent an email to #{pending_email} to verify your new email address")
       end
 
       it "resend confirmation" do
@@ -232,9 +232,9 @@ describe "Account", type: :system do
         visit decidim.user_interests_path
       end
 
-      it "doesn't find any scopes" do
+      it "does not find any scopes" do
         expect(page).to have_content("My interests")
-        expect(page).to have_content("This organization doesn't have any scope yet")
+        expect(page).to have_content("This organization does not have any scope yet")
       end
 
       context "when scopes are defined" do

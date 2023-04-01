@@ -43,7 +43,7 @@ module Decidim
             expect(mail.body.encoded).to match(initiative.title["en"])
           end
 
-          it "doesn't render the promoter committee help" do
+          it "does not render the promoter committee help" do
             expect(mail.body).not_to match("Forward the following link to invite people to the promoter committee")
           end
         end

@@ -12,7 +12,7 @@ describe "endorse posts", type: :system do
   before do
     allow(Decidim).to receive(:redesign_active).and_return(true)
 
-    sign_in author
+    login_as author, scope: :user
     visit_component
     click_link "Blog post title"
   end
@@ -64,7 +64,7 @@ describe "endorse posts", type: :system do
     end
 
     context "when like cancelled as a user" do
-      it "doesn't cancel group like" do
+      it "does not cancel group like" do
         add_likes
         find(".is-selected", match: :first).click
         click_button "Done"
@@ -81,7 +81,7 @@ describe "endorse posts", type: :system do
     end
 
     context "when like cancelled as a group" do
-      it "doesn't cancel user like" do
+      it "does not cancel user like" do
         add_likes
         page.all(".is-selected")[1].click
         click_button "Done"

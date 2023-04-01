@@ -32,7 +32,7 @@ module Decidim
                 proposal.update!(category:)
               end
 
-              it "doesn't update the proposal" do
+              it "does not update the proposal" do
                 expect(proposal).not_to receive(:update!)
                 described_class.call(proposal.category.id, proposal.id)
               end

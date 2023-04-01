@@ -43,7 +43,7 @@ module Decidim
             expect { command.call }.to broadcast(:invalid)
           end
 
-          it "doesn't cancel the sortition" do
+          it "does not cancel the sortition" do
             command.call
             sortition.reload
             expect(sortition).not_to be_cancelled

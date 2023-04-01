@@ -26,7 +26,7 @@ module Decidim
         context "with an invalid youtube URL" do
           let(:url) { "https://www.youtube.com/watch/foo/bar" }
 
-          it "isn't transformed" do
+          it "is not transformed" do
             expect(subject.embed_transformed_url(request_host)).to eq(url)
           end
         end
@@ -42,7 +42,7 @@ module Decidim
         context "with an invalid Twitch URL" do
           let(:url) { "https://www.twitch.tv/foo/bar" }
 
-          it "isn't transformed" do
+          it "is not transformed" do
             expect(subject.embed_transformed_url(request_host)).to eq(url)
           end
         end
@@ -50,7 +50,7 @@ module Decidim
         context "with a not recognized streaming URL" do
           let(:url) { "https://meet.jit.si/decidim-meeting" }
 
-          it "isn't transformed" do
+          it "is not transformed" do
             expect(subject.embed_transformed_url(request_host)).to eq(url)
           end
         end

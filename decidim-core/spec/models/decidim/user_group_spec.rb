@@ -115,7 +115,7 @@ module Decidim
           ["<", ">", "?", "%", "&", "^", "*", "#", "@", "(", ")", "[", "]", "=", "+", ":", ";", '"', "{", "}", " |"]
         end
 
-        it "doesn't allow them" do
+        it "does not allow them" do
           weird_characters.each do |character|
             user = build(:user)
             user.name.insert(rand(0..user.name.length), character)

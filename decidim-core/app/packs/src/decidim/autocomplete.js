@@ -2,7 +2,7 @@
 
 import AutoCompleteJS from "@tarekraafat/autocomplete.js";
 // Styles from node_modules/@tarekraafat/autocomplete.js
-// It needs to be done in JS because postcss-import doesn't find files in node_modules/
+// It needs to be done in JS because postcss-import does not find files in node_modules/
 import "@tarekraafat/autocomplete.js/dist/css/autoComplete.02.css";
 
 export default class AutoComplete {
@@ -75,7 +75,7 @@ export default class AutoComplete {
     this.autocomplete = new AutoCompleteJS({
       selector: () => this.element,
       placeHolder: options.placeholder,
-      // Delay (milliseconds) before autocomplete engine starts. It's preventing many queries when user is typing fast.
+      // Delay (milliseconds) before autocomplete engine starts. It is preventing many queries when user is typing fast.
       debounce: 200,
       threshold: this.options.threshold,
       data: {

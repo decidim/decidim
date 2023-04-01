@@ -27,11 +27,10 @@ describe "Data consent scripts", type: :system do
         <head>
           <title>Accessibility Test</title>
           #{stylesheet_pack_tag "decidim_core"}
-          #{javascript_pack_tag "decidim_core", defer: false}
           #{stylesheet_pack_tag "decidim_dev"}
-          #{javascript_pack_tag "decidim_dev", defer: false}
+          #{javascript_pack_tag "decidim_core", "decidim_dev", defer: false}
         </head>
-        <!-- Add some line breaks so that the "WAI WCAG" notification doesnt block screenshots -->
+        <!-- Add some line breaks so that the "WAI WCAG" notification does not block screenshots -->
         <br><br><br><br><br>
         <body>
           #{cookie_modal}
@@ -94,7 +93,7 @@ describe "Data consent scripts", type: :system do
       let(:analytics_cookies_accepted) { "analytics cookies accepted" }
       let(:marketing_cookies_accepted) { "marketing cookies accepted" }
 
-      it "doesnt run scripts" do
+      it "does not run scripts" do
         expect(page).to have_content("Hello cookies")
         expect(page).not_to have_content("cookies accepted")
       end
