@@ -1,10 +1,10 @@
-body{
+body {
   max-width: 1200px;
 }
 
-.version{
+.version {
   display: inline-block;
-  font-size: .8rem;
+  font-size: 0.8rem;
   margin-right: 1rem;
   padding: 3px 7px;
   background: #f33;
@@ -14,31 +14,31 @@ body{
 }
 
 ol,
-ul{
+ul {
   list-style: none;
   padding-left: 15px;
 }
 
 blockquote,
-q{
+q {
   quotes: none;
 }
 
 blockquote::before,
 blockquote::after,
 q::before,
-q::after{
-  content: '';
+q::after {
+  content: "";
   content: none;
 }
 
-table{
+table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-body{
-  font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+body {
+  font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 16px;
@@ -46,11 +46,11 @@ body{
   color: #444;
 }
 
-em{
+em {
   font-style: italic;
 }
 
-#sidebar{
+#sidebar {
   background-color: #fff;
   position: fixed;
   z-index: 2;
@@ -68,53 +68,53 @@ em{
   line-height: 1.1em;
 }
 
-#sidebar::-webkit-scrollbar{
+#sidebar::-webkit-scrollbar {
   width: 0 !important;
 }
 
-#sidebar li{
-  margin-bottom: .6em;
+#sidebar li {
+  margin-bottom: 0.6em;
 }
 
-#sidebar a{
+#sidebar a {
   color: #444;
   text-decoration: none;
 }
 
-#sidebar a:hover{
+#sidebar a:hover {
   color: #de4f4f;
 }
 
-#sidebar a.current{
+#sidebar a.current {
   color: #de4f4f;
 }
 
-#sidebar a.H2{
+#sidebar a.H2 {
   font-weight: bold;
 }
 
-#sidebar .categories > li > p{
+#sidebar .categories > li > p {
   margin-top: 1.5em;
   border-top: 1px solid #eee;
   text-transform: uppercase;
   padding-top: 1.2em;
   margin-bottom: 1em;
   color: #999;
-  font-size: .8em;
+  font-size: 0.8em;
 }
 
-#sidebar .sub-menu{
+#sidebar .sub-menu {
   padding-left: 20px;
-  margin: .6em 0;
+  margin: 0.6em 0;
   font-size: 14px;
 }
 
-#sidebar .sub-menu .active{
+#sidebar .sub-menu .active {
   position: relative;
   color: #de4f4f;
 }
 
-#sidebar .sub-menu .active::before{
+#sidebar .sub-menu .active::before {
   content: "";
   position: absolute;
   top: 2px;
@@ -127,28 +127,28 @@ em{
   border-left: 6px solid #de4f4f;
 }
 
-#sidebar-mobile{
+#sidebar-mobile {
   display: none;
   margin-bottom: 20px;
 }
 
-#sidebar-mobile .search-box{
+#sidebar-mobile .search-box {
   width: 200px;
   margin-bottom: 20px;
 }
 
-.content{
+.content {
   padding: 20px 30px;
   max-width: 760px;
   margin-left: 300px;
   -webkit-text-size-adjust: 100%;
 }
 
-.content em{
+.content em {
   font-style: italic;
 }
 
-.content h1{
+.content h1 {
   margin: 15px 0;
   line-height: 1.4em;
   font-size: 2em;
@@ -156,7 +156,7 @@ em{
   margin-bottom: 30px;
 }
 
-.content h2{
+.content h2 {
   margin: 15px 0;
   line-height: 1.4em;
   font-size: 1.5em;
@@ -166,7 +166,7 @@ em{
   position: relative;
 }
 
-.content h2 .anchor{
+.content h2 .anchor {
   opacity: 0;
   position: absolute;
   font-size: 16px;
@@ -174,11 +174,11 @@ em{
   left: -21px;
 }
 
-.content h2:hover .anchor{
+.content h2:hover .anchor {
   opacity: 1;
 }
 
-.content h3{
+.content h3 {
   margin: 15px 0;
   line-height: 1.4em;
   font-size: 1.2em;
@@ -186,7 +186,7 @@ em{
   position: relative;
 }
 
-.content h3 .anchor{
+.content h3 .anchor {
   opacity: 0;
   position: absolute;
   font-size: 16px;
@@ -194,124 +194,124 @@ em{
   left: -21px;
 }
 
-.content h3:hover .anchor{
+.content h3:hover .anchor {
   opacity: 1;
 }
 
-.content h4{
+.content h4 {
   margin: 15px 0;
   line-height: 1.4em;
 }
 
-.content h5{
+.content h5 {
   margin: 15px 0;
   line-height: 1.4em;
 }
 
-.content h6{
+.content h6 {
   margin: 15px 0;
   line-height: 1.4em;
 }
 
-.content p{
+.content p {
   margin: 15px 0;
   line-height: 1.4em;
 }
 
-.content ul{
+.content ul {
   margin: 15px 0;
   line-height: 1.4em;
   padding-left: 1.5em;
   list-style-type: disc;
 }
 
-.content ul li{
+.content ul li {
   margin-bottom: 5px;
 }
 
-.content ol{
+.content ol {
   margin: 15px 0;
   line-height: 1.4em;
   padding-left: 1.5em;
   list-style-type: decimal;
 }
 
-.content ol li{
+.content ol li {
   margin-bottom: 5px;
 }
 
-.content figure{
+.content figure {
   margin: 15px 0;
   line-height: 1.4em;
 }
 
-.content a{
+.content a {
   color: #de4f4f;
 }
 
-.content img{
+.content img {
   max-width: 100%;
 }
 
-.content code{
+.content code {
   font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
-  font-size: .8em;
+  font-size: 0.8em;
   line-height: 1.6em;
   padding: 1px 4px;
   background-color: #eee;
   margin: 0 2px;
 }
 
-.content blockquote{
+.content blockquote {
   padding-left: 1.3em;
-  border-left: #eee solid .2em;
+  border-left: #eee solid 0.2em;
   font-style: italic;
 }
 
-.content blockquote.warning{
+.content blockquote.warning {
   border-color: #f00;
   color: #f00;
 }
 
-.content dl{
+.content dl {
   margin-left: 1.5em;
 }
 
-.content dl dt .name{
+.content dl dt .name {
   font-family: monospace;
 }
 
-.content dl dt .type{
-  margin-left: .5em;
+.content dl dt .type {
+  margin-left: 0.5em;
 }
 
-.content dl dd{
+.content dl dd {
   margin-left: 1.5em;
 }
 
-.content .edit-discuss-links{
+.content .edit-discuss-links {
   margin-top: -25px;
   margin-bottom: 40px;
 }
 
-.content table{
+.content table {
   margin-top: 10px;
 }
 
-.content table th{
+.content table th {
   text-align: left;
   padding: 0 25px;
 }
 
-.content table thead th:first-child{
+.content table thead th:first-child {
   padding: 0;
 }
 
-.content table td p{
+.content table td p {
   padding: 0 25px;
 }
 
-.content pre{
+.content pre {
   font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
   line-height: 1.6em;
   margin: 20px 0;
@@ -320,46 +320,46 @@ em{
   padding: 20px 30px;
 }
 
-.content pre table{
+.content pre table {
   width: 100%;
   border-collapse: collapse;
   padding: 0;
   margin: 0;
 }
 
-.content pre tr{
+.content pre tr {
   width: 100%;
   border-collapse: collapse;
   padding: 0;
   margin: 0;
 }
 
-.content pre td{
+.content pre td {
   width: 100%;
   border-collapse: collapse;
   padding: 0;
   margin: 0;
 }
 
-.content pre code{
+.content pre code {
   background-color: #272822;
   padding: 0;
   margin: 0;
 }
 
-.content pre .gutter{
+.content pre .gutter {
   user-select: none;
   width: 1.5em;
   padding-right: 30px;
 }
 
-.content .highlight.html .code::after{
+.content .highlight.html .code::after {
   position: absolute;
   top: 0;
   right: 0;
   color: #ccc;
   text-align: right;
-  font-size: .75em;
+  font-size: 0.75em;
   padding: 5px 10px 0;
   letter-spacing: 1.5px;
   line-height: 15px;
@@ -367,13 +367,13 @@ em{
   font-weight: 600;
 }
 
-.content .highlight.js .code::after{
+.content .highlight.js .code::after {
   position: absolute;
   top: 0;
   right: 0;
   color: #ccc;
   text-align: right;
-  font-size: .75em;
+  font-size: 0.75em;
   padding: 5px 10px 0;
   letter-spacing: 1.5px;
   line-height: 15px;
@@ -381,13 +381,13 @@ em{
   font-weight: 600;
 }
 
-.content .highlight.bash .code::after{
+.content .highlight.bash .code::after {
   position: absolute;
   top: 0;
   right: 0;
   color: #ccc;
   text-align: right;
-  font-size: .75em;
+  font-size: 0.75em;
   padding: 5px 10px 0;
   letter-spacing: 1.5px;
   line-height: 15px;
@@ -395,13 +395,13 @@ em{
   font-weight: 600;
 }
 
-.content .highlight.css .code::after{
+.content .highlight.css .code::after {
   position: absolute;
   top: 0;
   right: 0;
   color: #ccc;
   text-align: right;
-  font-size: .75em;
+  font-size: 0.75em;
   padding: 5px 10px 0;
   letter-spacing: 1.5px;
   line-height: 15px;
@@ -409,13 +409,13 @@ em{
   font-weight: 600;
 }
 
-.content .highlight.jsx .code::after{
+.content .highlight.jsx .code::after {
   position: absolute;
   top: 0;
   right: 0;
   color: #ccc;
   text-align: right;
-  font-size: .75em;
+  font-size: 0.75em;
   padding: 5px 10px 0;
   letter-spacing: 1.5px;
   line-height: 15px;
@@ -423,180 +423,180 @@ em{
   font-weight: 600;
 }
 
-.content .highlight.html.html .code::after{
-  content: 'HTML';
+.content .highlight.html.html .code::after {
+  content: "HTML";
 }
 
-.content .highlight.js.html .code::after{
-  content: 'HTML';
+.content .highlight.js.html .code::after {
+  content: "HTML";
 }
 
-.content .highlight.bash.html .code::after{
-  content: 'HTML';
+.content .highlight.bash.html .code::after {
+  content: "HTML";
 }
 
-.content .highlight.css.html .code::after{
-  content: 'HTML';
+.content .highlight.css.html .code::after {
+  content: "HTML";
 }
 
-.content .highlight.jsx.html .code::after{
-  content: 'HTML';
+.content .highlight.jsx.html .code::after {
+  content: "HTML";
 }
 
-.content .highlight.html.js .code::after{
-  content: 'JS';
+.content .highlight.html.js .code::after {
+  content: "JS";
 }
 
-.content .highlight.js.js .code::after{
-  content: 'JS';
+.content .highlight.js.js .code::after {
+  content: "JS";
 }
 
-.content .highlight.bash.js .code::after{
-  content: 'JS';
+.content .highlight.bash.js .code::after {
+  content: "JS";
 }
 
-.content .highlight.css.js .code::after{
-  content: 'JS';
+.content .highlight.css.js .code::after {
+  content: "JS";
 }
 
-.content .highlight.jsx.js .code::after{
-  content: 'JS';
+.content .highlight.jsx.js .code::after {
+  content: "JS";
 }
 
-.content .highlight.html.bash .code::after{
-  content: 'Shell';
+.content .highlight.html.bash .code::after {
+  content: "Shell";
 }
 
-.content .highlight.js.bash .code::after{
-  content: 'Shell';
+.content .highlight.js.bash .code::after {
+  content: "Shell";
 }
 
-.content .highlight.bash.bash .code::after{
-  content: 'Shell';
+.content .highlight.bash.bash .code::after {
+  content: "Shell";
 }
 
-.content .highlight.css.bash .code::after{
-  content: 'Shell';
+.content .highlight.css.bash .code::after {
+  content: "Shell";
 }
 
-.content .highlight.jsx.bash .code::after{
-  content: 'Shell';
+.content .highlight.jsx.bash .code::after {
+  content: "Shell";
 }
 
-.content .highlight.html.css .code::after{
-  content: 'CSS';
+.content .highlight.html.css .code::after {
+  content: "CSS";
 }
 
-.content .highlight.js.css .code::after{
-  content: 'CSS';
+.content .highlight.js.css .code::after {
+  content: "CSS";
 }
 
-.content .highlight.bash.css .code::after{
-  content: 'CSS';
+.content .highlight.bash.css .code::after {
+  content: "CSS";
 }
 
-.content .highlight.css.css .code::after{
-  content: 'CSS';
+.content .highlight.css.css .code::after {
+  content: "CSS";
 }
 
-.content .highlight.jsx.css .code::after{
-  content: 'CSS';
+.content .highlight.jsx.css .code::after {
+  content: "CSS";
 }
 
-.content .highlight.html.jsx .code::after{
-  content: 'JSX';
+.content .highlight.html.jsx .code::after {
+  content: "JSX";
 }
 
-.content .highlight.js.jsx .code::after{
-  content: 'JSX';
+.content .highlight.js.jsx .code::after {
+  content: "JSX";
 }
 
-.content .highlight.bash.jsx .code::after{
-  content: 'JSX';
+.content .highlight.bash.jsx .code::after {
+  content: "JSX";
 }
 
-.content .highlight.css.jsx .code::after{
-  content: 'JSX';
+.content .highlight.css.jsx .code::after {
+  content: "JSX";
 }
 
-.content .highlight.jsx.jsx .code::after{
-  content: 'JSX';
+.content .highlight.jsx.jsx .code::after {
+  content: "JSX";
 }
 
-.content > table{
+.content > table {
   width: 100%;
   margin: 20px 0;
 }
 
-.content > table tr{
+.content > table tr {
   border-top: 1px solid #eee;
 }
 
-.content > table tr:nth-child(2n){
+.content > table tr:nth-child(2n) {
   background-color: #f8f8f8;
 }
 
-.content > table th{
+.content > table th {
   padding: 12px 13px;
   border: 1px solid #eee;
   vertical-align: middle;
   text-align: left;
 }
 
-.content > table td{
+.content > table td {
   border: 1px solid #eee;
   vertical-align: middle;
   padding: 6px 13px;
   font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
-  font-size: .8em;
+  font-size: 0.8em;
   line-height: 1.6em;
 }
 
-.content .bottom-nav{
+.content .bottom-nav {
   height: 44px;
   margin: 30px 0 25px;
   border-bottom: 1px solid #eee;
   padding-bottom: 25px;
 }
 
-.content .bottom-nav a{
+.content .bottom-nav a {
   margin: 0 5px;
 }
 
-.content .edit-link{
+.content .edit-link {
   text-align: center;
 }
 
-.content .edit-link a{
+.content .edit-link a {
   color: #aaa;
 }
 
-.content .edit-link a::before{
-  content: '';
+.content .edit-link a::before {
+  content: "";
   display: inline-block;
   width: 16px;
   height: 16px;
   background-size: 16px;
-  opacity: .3;
+  opacity: 0.3;
   margin-right: 8px;
   position: relative;
   top: 2px;
 }
 
-.content .field-name{
+.content .field-name {
   font-weight: bold;
 }
 
-.content .field-entry{
+.content .field-entry {
   margin-bottom: 4rem;
 }
 
-.content .description-wrapper > p{
+.content .description-wrapper > p {
   padding-left: 1rem;
   margin-bottom: 1rem;
 }
 
-#mobile-header{
+#mobile-header {
   z-index: 3;
   position: fixed;
   top: 0;
@@ -606,7 +606,7 @@ em{
   display: none;
 }
 
-#mobile-header .menu-button{
+#mobile-header .menu-button {
   color: #333;
   position: absolute;
   top: 0;
@@ -614,129 +614,129 @@ em{
   height: 24px;
   font-size: 40px;
   cursor: pointer;
-  opacity: .4;
+  opacity: 0.4;
 }
 
-@media screen and (max-width: 560px){
-  body{
+@media screen and (max-width: 560px) {
+  body {
     font-size: 14px;
   }
 
-  body.sidebar-open #sidebar{
+  body.sidebar-open #sidebar {
     transform: translate3d(0, 0, 0);
   }
 
-  body.sidebar-open #mobile-shade{
+  body.sidebar-open #mobile-shade {
     opacity: 1;
     pointer-events: auto;
   }
 
-  .content{
+  .content {
     margin-left: 0;
   }
 
-  #mobile-header{
+  #mobile-header {
     display: block;
   }
 
-  #mobile-shade{
+  #mobile-shade {
     display: block;
   }
 
-  #sidebar-mobile{
+  #sidebar-mobile {
     display: block;
   }
 
-  #wrap{
+  #wrap {
     padding-top: 40px;
     padding-left: 0;
   }
 
-  #sidebar{
+  #sidebar {
     top: 0;
     left: 0;
     border-right: none;
-    box-shadow: 0 0 4px rgba(0, 0, 0, .25);
-    transition: transform .3s ease;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
+    transition: transform 0.3s ease;
     transform: translate3d(-120%, 0, 0);
     display: block;
   }
 }
 
-.api{
+.api {
   background: #fafafa;
 }
 
-.api h3{
+.api h3 {
   padding: 5px 10px;
 }
 
-.api h3.api-title{
+.api h3.api-title {
   margin: 0;
   overflow: auto;
 }
 
-.api h4{
+.api h4 {
   font-weight: normal;
   font-style: italic;
-  margin-bottom: .25em;
+  margin-bottom: 0.25em;
   text-decoration: underline;
   margin-left: 20px;
 }
 
-.api dl{
-  margin-top: .25em;
+.api dl {
+  margin-top: 0.25em;
 }
 
-.api dl.args{
+.api dl.args {
   margin-left: 40px;
 }
 
-.api dl.constants{
+.api dl.constants {
   margin-left: 20px;
 }
 
-.api dt{
+.api dt {
   margin-top: 1em;
 }
 
-.api dt .name{
+.api dt .name {
   font-weight: bold;
 }
 
-.api dt .type{
+.api dt .type {
   margin-left: 15px;
-  font-size: .9em;
+  font-size: 0.9em;
   font-weight: 200;
   color: #000;
 }
 
-.api dd{
+.api dd {
   margin-bottom: 1em;
   margin-left: 0;
 }
 
-.api .desc{
+.api .desc {
   margin: 1em;
 }
 
-.api pre{
+.api pre {
   margin-right: 10px;
 }
 
-h3.api-title{
+h3.api-title {
   padding: 5px 10px;
   margin-top: 2em;
 }
 
-.api-title .locus{
+.api-title .locus {
   float: right;
   font-weight: normal;
   padding-right: 5px;
   font-style: italic;
 }
 
-.api-title .subtext{
+.api-title .subtext {
   font-size: 11px;
   text-align: left;
   clear: both;
@@ -744,575 +744,575 @@ h3.api-title{
   font-weight: normal;
 }
 
-.api-title .subtext > code{
+.api-title .subtext > code {
   font-size: 11px;
   margin-right: 12px;
 }
 
-.api-title .src-code{
+.api-title .src-code {
   color: #20338a !important;
   border-bottom: none !important;
 }
 
-.gutter pre{
+.gutter pre {
   color: #999;
 }
 
-pre{
+pre {
   color: #525252;
 }
 
-pre .function .keyword{
+pre .function .keyword {
   color: #0092db;
 }
 
-pre .constant{
+pre .constant {
   color: #0092db;
 }
 
-pre .keyword{
+pre .keyword {
   color: #e96900;
 }
 
-pre .attribute{
+pre .attribute {
   color: #e96900;
 }
 
-pre .number{
+pre .number {
   color: #ae81ff;
 }
 
-pre .literal{
+pre .literal {
   color: #ae81ff;
 }
 
-pre .tag{
+pre .tag {
   color: #2973b7;
 }
 
-pre .tag .title{
+pre .tag .title {
   color: #2973b7;
 }
 
-pre .tag .value{
+pre .tag .value {
   color: #90a959;
 }
 
-pre .change{
+pre .change {
   color: #2973b7;
 }
 
-pre .winutils{
+pre .winutils {
   color: #2973b7;
 }
 
-pre .flow{
+pre .flow {
   color: #2973b7;
 }
 
-pre .lisp .title{
+pre .lisp .title {
   color: #2973b7;
 }
 
-pre .clojure .built_in{
+pre .clojure .built_in {
   color: #2973b7;
 }
 
-pre .nginx .title{
+pre .nginx .title {
   color: #2973b7;
 }
 
-pre .tex .special{
+pre .tex .special {
   color: #2973b7;
 }
 
-pre .tex .command{
+pre .tex .command {
   color: #90a959;
 }
 
-pre .tex .formula{
+pre .tex .formula {
   color: #b3b3b3;
-  opacity: .5;
+  opacity: 0.5;
 }
 
-pre .class .title{
+pre .class .title {
   color: #4077bf;
 }
 
-pre .symbol{
+pre .symbol {
   color: #90a959;
 }
 
-pre .symbol .string{
+pre .symbol .string {
   color: #90a959;
 }
 
-pre .value{
+pre .value {
   color: #90a959;
 }
 
-pre .regexp{
+pre .regexp {
   color: #90a959;
 }
 
-pre .title{
+pre .title {
   color: #a6e22e;
 }
 
-pre .string{
+pre .string {
   color: #90a959;
 }
 
-pre .subst{
+pre .subst {
   color: #90a959;
 }
 
-pre .haskell .type{
+pre .haskell .type {
   color: #90a959;
 }
 
-pre .preprocessor{
+pre .preprocessor {
   color: #90a959;
 }
 
-pre .ruby .class .parent{
+pre .ruby .class .parent {
   color: #90a959;
 }
 
-pre .built_in{
+pre .built_in {
   color: #90a959;
 }
 
-pre .sql .aggregate{
+pre .sql .aggregate {
   color: #90a959;
 }
 
-pre .django .template_tag{
+pre .django .template_tag {
   color: #90a959;
 }
 
-pre .django .variable{
+pre .django .variable {
   color: #90a959;
 }
 
-pre .django .filter .argument{
+pre .django .filter .argument {
   color: #90a959;
 }
 
-pre .smalltalk .class{
+pre .smalltalk .class {
   color: #90a959;
 }
 
-pre .smalltalk .localvars{
+pre .smalltalk .localvars {
   color: #90a959;
 }
 
-pre .smalltalk .array{
+pre .smalltalk .array {
   color: #90a959;
 }
 
-pre .javadoc{
+pre .javadoc {
   color: #90a959;
 }
 
-pre .attr_selector{
+pre .attr_selector {
   color: #90a959;
 }
 
-pre .pseudo{
+pre .pseudo {
   color: #90a959;
 }
 
-pre .addition{
+pre .addition {
   color: #90a959;
 }
 
-pre .stream{
+pre .stream {
   color: #90a959;
 }
 
-pre .envvar{
+pre .envvar {
   color: #90a959;
 }
 
-pre .apache .tag{
+pre .apache .tag {
   color: #90a959;
 }
 
-pre .apache .cbracket{
+pre .apache .cbracket {
   color: #90a959;
 }
 
-pre .apache .sqbracket{
+pre .apache .sqbracket {
   color: #b3b3b3;
 }
 
-pre .prompt{
+pre .prompt {
   color: #90a959;
 }
 
-pre .comment{
+pre .comment {
   color: #b3b3b3;
 }
 
-pre .java .annotation{
+pre .java .annotation {
   color: #b3b3b3;
 }
 
-pre .python .decorator{
+pre .python .decorator {
   color: #b3b3b3;
 }
 
-pre .template_comment{
+pre .template_comment {
   color: #b3b3b3;
 }
 
-pre .pi{
+pre .pi {
   color: #b3b3b3;
 }
 
-pre .doctype{
+pre .doctype {
   color: #b3b3b3;
 }
 
-pre .deletion{
+pre .deletion {
   color: #b3b3b3;
 }
 
-pre .shebang{
+pre .shebang {
   color: #b3b3b3;
 }
 
-pre .coffeescript .javascript{
-  opacity: .5;
+pre .coffeescript .javascript {
+  opacity: 0.5;
 }
 
-pre .javascript .xml{
-  opacity: .5;
+pre .javascript .xml {
+  opacity: 0.5;
 }
 
-pre .xml .javascript{
-  opacity: .5;
+pre .xml .javascript {
+  opacity: 0.5;
 }
 
-pre .xml .vbscript{
-  opacity: .5;
+pre .xml .vbscript {
+  opacity: 0.5;
 }
 
-pre .xml .css{
-  opacity: .5;
+pre .xml .css {
+  opacity: 0.5;
 }
 
-pre .xml .cdata{
-  opacity: .5;
+pre .xml .cdata {
+  opacity: 0.5;
 }
 
-.highlight .hll{
+.highlight .hll {
   background-color: #49483e;
 }
 
-pre{
+pre {
   background: #272822;
   color: #f8f8f2;
 }
 
-.highlight .c{
+.highlight .c {
   color: #75715e;
 }
 
 /* Comment */
-.highlight .err{
+.highlight .err {
   color: #960050;
   background-color: #1e0010;
 }
 
 /* Error */
-.highlight .k{
+.highlight .k {
   color: #66d9ef;
 }
 
 /* Keyword */
-.highlight .l{
+.highlight .l {
   color: #ae81ff;
 }
 
 /* Literal */
-.highlight .n{
+.highlight .n {
   color: #f8f8f2;
 }
 
 /* Name */
-.highlight .o{
+.highlight .o {
   color: #f92672;
 }
 
 /* Operator */
-.highlight .p{
+.highlight .p {
   color: #f8f8f2;
 }
 
 /* Punctuation */
-.highlight .cm{
+.highlight .cm {
   color: #75715e;
 }
 
 /* Comment.Multiline */
-.highlight .cp{
+.highlight .cp {
   color: #75715e;
 }
 
 /* Comment.Preproc */
-.highlight .c1{
+.highlight .c1 {
   color: #75715e;
 }
 
 /* Comment.Single */
-.highlight .cs{
+.highlight .cs {
   color: #75715e;
 }
 
 /* Comment.Special */
-.highlight .ge{
+.highlight .ge {
   font-style: italic;
 }
 
 /* Generic.Emph */
-.highlight .gs{
+.highlight .gs {
   font-weight: bold;
 }
 
 /* Generic.Strong */
-.highlight .kc{
+.highlight .kc {
   color: #66d9ef;
 }
 
 /* Keyword.Constant */
-.highlight .kd{
+.highlight .kd {
   color: #66d9ef;
 }
 
 /* Keyword.Declaration */
-.highlight .kn{
+.highlight .kn {
   color: #f92672;
 }
 
 /* Keyword.Namespace */
-.highlight .kp{
+.highlight .kp {
   color: #66d9ef;
 }
 
 /* Keyword.Pseudo */
-.highlight .kr{
+.highlight .kr {
   color: #66d9ef;
 }
 
 /* Keyword.Reserved */
-.highlight .kt{
+.highlight .kt {
   color: #66d9ef;
 }
 
 /* Keyword.Type */
-.highlight .ld{
+.highlight .ld {
   color: #e6db74;
 }
 
 /* Literal.Date */
-.highlight .m{
+.highlight .m {
   color: #ae81ff;
 }
 
 /* Literal.Number */
-.highlight .s{
+.highlight .s {
   color: #e6db74;
 }
 
 /* Literal.String */
-.highlight .na{
+.highlight .na {
   color: #a6e22e;
 }
 
 /* Name.Attribute */
-.highlight .nb{
+.highlight .nb {
   color: #f8f8f2;
 }
 
 /* Name.Builtin */
-.highlight .nc{
+.highlight .nc {
   color: #a6e22e;
 }
 
 /* Name.Class */
-.highlight .no{
+.highlight .no {
   color: #66d9ef;
 }
 
 /* Name.Constant */
-.highlight .nd{
+.highlight .nd {
   color: #a6e22e;
 }
 
 /* Name.Decorator */
-.highlight .ni{
+.highlight .ni {
   color: #f8f8f2;
 }
 
 /* Name.Entity */
-.highlight .ne{
+.highlight .ne {
   color: #a6e22e;
 }
 
 /* Name.Exception */
-.highlight .nf{
+.highlight .nf {
   color: #a6e22e;
 }
 
 /* Name.Function */
-.highlight .nl{
+.highlight .nl {
   color: #f8f8f2;
 }
 
 /* Name.Label */
-.highlight .nn{
+.highlight .nn {
   color: #f8f8f2;
 }
 
 /* Name.Namespace */
-.highlight .nx{
+.highlight .nx {
   color: #a6e22e;
 }
 
 /* Name.Other */
-.highlight .py{
+.highlight .py {
   color: #f8f8f2;
 }
 
 /* Name.Property */
-.highlight .nt{
+.highlight .nt {
   color: #f92672;
 }
 
 /* Name.Tag */
-.highlight .nv{
+.highlight .nv {
   color: #f8f8f2;
 }
 
 /* Name.Variable */
-.highlight .ow{
+.highlight .ow {
   color: #f92672;
 }
 
 /* Operator.Word */
-.highlight .w{
+.highlight .w {
   color: #f8f8f2;
 }
 
 /* Text.Whitespace */
-.highlight .mf{
+.highlight .mf {
   color: #ae81ff;
 }
 
 /* Literal.Number.Float */
-.highlight .mh{
+.highlight .mh {
   color: #ae81ff;
 }
 
 /* Literal.Number.Hex */
-.highlight .mi{
+.highlight .mi {
   color: #ae81ff;
 }
 
 /* Literal.Number.Integer */
-.highlight .mo{
+.highlight .mo {
   color: #ae81ff;
 }
 
 /* Literal.Number.Oct */
-.highlight .sb{
+.highlight .sb {
   color: #e6db74;
 }
 
 /* Literal.String.Backtick */
-.highlight .sc{
+.highlight .sc {
   color: #e6db74;
 }
 
 /* Literal.String.Char */
-.highlight .sd{
+.highlight .sd {
   color: #e6db74;
 }
 
 /* Literal.String.Doc */
-.highlight .s2{
+.highlight .s2 {
   color: #e6db74;
 }
 
 /* Literal.String.Double */
-.highlight .se{
+.highlight .se {
   color: #ae81ff;
 }
 
 /* Literal.String.Escape */
-.highlight .sh{
+.highlight .sh {
   color: #e6db74;
 }
 
 /* Literal.String.Heredoc */
-.highlight .si{
+.highlight .si {
   color: #e6db74;
 }
 
 /* Literal.String.Interpol */
-.highlight .sx{
+.highlight .sx {
   color: #e6db74;
 }
 
 /* Literal.String.Other */
-.highlight .sr{
+.highlight .sr {
   color: #e6db74;
 }
 
 /* Literal.String.Regex */
-.highlight .s1{
+.highlight .s1 {
   color: #e6db74;
 }
 
 /* Literal.String.Single */
-.highlight .ss{
+.highlight .ss {
   color: #e6db74;
 }
 
 /* Literal.String.Symbol */
-.highlight .bp{
+.highlight .bp {
   color: #f8f8f2;
 }
 
 /* Name.Builtin.Pseudo */
-.highlight .vc{
+.highlight .vc {
   color: #f8f8f2;
 }
 
 /* Name.Variable.Class */
-.highlight .vg{
+.highlight .vg {
   color: #f8f8f2;
 }
 
 /* Name.Variable.Global */
-.highlight .vi{
+.highlight .vi {
   color: #f8f8f2;
 }
 
 /* Name.Variable.Instance */
-.highlight .il{
+.highlight .il {
   color: #ae81ff;
 }
 
 /* Literal.Number.Integer.Long */
-.deprecation-notice{
+.deprecation-notice {
   padding-left: 5px;
   border-left: 2px solid #e8400d;
   background: #fdf2ec;
 }
 
-.deprecation-notice span{
+.deprecation-notice span {
   font-weight: bold;
 }

@@ -1,21 +1,21 @@
-header{
-  .admin-bar{
+header {
+  .admin-bar {
     @apply container flex flex-wrap items-center justify-start gap-y-2 gap-x-4;
 
-    &__container{
+    &__container {
       @apply bg-tertiary py-2;
     }
 
-    &__title{
+    &__title {
       @apply hidden md:block text-sm font-bold text-black;
     }
 
-    &__button{
+    &__button {
       @apply button button__xs bg-white/[0.15] text-black font-normal;
     }
 
     // fake justify-content: space-between as of 3rd item
-    &__title + .admin-bar__button + .admin-bar__button{
+    &__title + .admin-bar__button + .admin-bar__button {
       @apply ml-0 md:ml-auto;
     }
   }

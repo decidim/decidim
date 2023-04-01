@@ -2,7 +2,7 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-:root{
+:root {
   --primary: #e02d2d;
   --primary-rgb: 224 45 45;
   --secondary: #155abf;
@@ -17,14 +17,14 @@
   --alert-rgb: 237 28 36;
 }
 
-@layer base{
+@layer base {
   @import "stylesheets/decidim/redesigned_fonts.scss";
   @import "stylesheets/decidim/redesigned_typography.scss";
 }
 
 // The CSS components must work identically all along the application,
 // no matter which view are being displayed in.
-@layer components{
+@layer components {
   @import "stylesheets/decidim/redesigned_layout.scss";
   @import "stylesheets/decidim/redesigned_buttons.scss";
   @import "stylesheets/decidim/redesigned_labels.scss";
