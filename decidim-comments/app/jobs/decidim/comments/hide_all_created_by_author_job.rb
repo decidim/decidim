@@ -6,7 +6,7 @@ module Decidim
       protected
 
       def base_query
-        Decidim::Comments::Comment.not_hidden.where(author: @author)
+        Decidim::Comments::Comment.not_hidden.where(author:)
       end
     end
   end

@@ -6,14 +6,11 @@ module Decidim
       protected
 
       def perform(author:, justification:, current_user:)
-        @author = author.reload
-        @justification = justification
-
-        Decidim::Proposals::Proposal.not_hidden.from_author(@author).find_each do |content|
-          hide_content(content, current_user)
+        Decidim::Proposals::Proposal.not_hidden.from_author(author).find_each do |content|
+          hide_content(content, current_user, justification)
         end
-        Decidim::Proposals::CollaborativeDraft.not_hidden.from_author(@author).find_each do |content|
-          hide_content(content, current_user)
+        Decidim::Proposals::CollaborativeDraft.not_hidden.from_author(author).find_each do |content|
+          hide_content(content, current_user, justification)
         end
       end
     end

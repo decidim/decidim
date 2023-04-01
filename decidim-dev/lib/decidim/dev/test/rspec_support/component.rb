@@ -83,7 +83,7 @@ module Decidim
       protected
 
       def base_query
-        DummyResource.not_hidden.where(author: @author)
+        DummyResource.not_hidden.where(author:)
       end
     end
 

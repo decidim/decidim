@@ -12,13 +12,12 @@ module Decidim
     let(:report_params) { { reason: "hidden_during_block", details: justification } }
 
     describe "#create_report!" do
-
       it "creates a new report for the given resource" do
-        expect { subject.create_report!(report_params) }.to change { Decidim::Report.count }.by(1)
+        expect { subject.create_report!(report_params) }.to change(Decidim::Report, :count).by(1)
       end
 
       it "creates a new moderation for the given resource" do
-        expect { subject.create_report!(report_params) }.to change { Decidim::Moderation.count }.by(1)
+        expect { subject.create_report!(report_params) }.to change(Decidim::Moderation, :count).by(1)
       end
     end
 

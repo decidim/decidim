@@ -6,7 +6,7 @@ module Decidim
       protected
 
       def base_query
-        Decidim::Meetings::Meeting.not_hidden.where(author: @author)
+        Decidim::Meetings::Meeting.not_hidden.where(author:)
       end
     end
   end

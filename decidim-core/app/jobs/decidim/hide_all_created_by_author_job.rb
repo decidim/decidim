@@ -6,28 +6,22 @@ module Decidim
 
     def perform(author:, justification:, current_user:)
       @author = author.reload
-      @justification = justification
 
       base_query.find_each do |content|
-        hide_content(content, current_user)
+        hide_content(content, current_user, justification)
       end
     end
 
     protected
 
-    def user_params
-      {
-        reason: "hidden_during_block",
-        details: @justification
-      }
-    end
+    attr_reader :author
 
     private
 
-    def hide_content(content, current_user)
+    def hide_content(content, current_user, justification)
       tool = Decidim::ModerationTools.new(content, current_user)
       tool.update_reported_content!
-      tool.create_report!(user_params)
+      tool.create_report!(reason: "hidden_during_block", details: justification)
       tool.update_report_count!
       tool.hide!
     end
