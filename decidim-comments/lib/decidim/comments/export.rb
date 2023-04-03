@@ -13,6 +13,8 @@ module Decidim
       def comments_for_resource(resource_class, component)
         Comment
           .where(decidim_root_commentable_id: resource_class.where(component: component))
+          .not_deleted
+          .not_hidden
           .where(decidim_root_commentable_type: resource_class.to_s)
       end
 
