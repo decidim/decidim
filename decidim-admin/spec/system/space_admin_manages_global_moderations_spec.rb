@@ -63,7 +63,7 @@ describe "Space admin manages global moderations", type: :system do
       visit decidim_admin.moderations_path
 
       within "body", wait: 2 do
-        expect(page).to have_content("Moderations")
+        expect(page).to have_content("Reported content")
         expect(page).to have_link("Visit URL")
 
         find_link("Visit URL").hover
@@ -94,7 +94,7 @@ describe "Space admin manages global moderations", type: :system do
       visit decidim_admin.moderations_path
 
       within ".container" do
-        expect(page).to have_content("Moderations")
+        expect(page).to have_content("Reported content")
 
         expect(page).to have_no_selector("table.table-list tbody tr")
       end
