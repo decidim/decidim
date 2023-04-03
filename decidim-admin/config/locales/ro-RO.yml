@@ -644,7 +644,6 @@ ro:
           nickname: Pseudonim
           reason: Motiv
           reports: Număr de raportări
-          title: Listarea utilizatorilor raportați
         report:
           reasons:
             does_not_belong: Nu aparține
@@ -654,8 +653,6 @@ ro:
           blocked: Blocat
           unblocked: Nu este blocat
       moderations:
-        index:
-          title: Moderări
         report:
           reasons:
             does_not_belong: Nu aparține
