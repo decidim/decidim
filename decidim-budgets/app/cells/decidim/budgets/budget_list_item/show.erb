@@ -1,22 +1,18 @@
 <div class="<%= card_class %> card__highlight">
-  <div class="card__highlight-text w-[70%]">
-    <%= link_to budget_path(budget), class: link_class do %>
-      <h3 class="h3 text-secondary inline-block align-middle">
-        <%= translated_attribute(title) %>
-      </h3>
-      <% if voted? %>
-        <%= icon "check-double-line", class: "inline-block align-middle fill-success ml-2 h-[1.5em] w-[1.5em]" %>
-      <% end %>
+  <%= link_to budget_path(budget), class: 'card__highlight-text w-[70%]' do %>
+    <h3 class="h3 text-secondary inline-block align-middle">
+      <%= translated_attribute(title) %>
+    </h3>
+    <% if voted? %>
+      <%= icon "check-double-line", class: "inline-block align-middle fill-success ml-2 h-[1.5em] w-[1.5em]" %>
     <% end %>
-
     <%= decidim_sanitize html_truncate(translated_attribute(description), length: 70) %>
 
     <div class="divide-x-2 divide-gray-3">
       <%= render :projects_count %>
       <%= render :vote_action %>
     </div>
-  </div>
-
+  <% end %>
   <div class="budget__card__highlight-vote">
     <div class="budget__card__highlight-vote__header">
       <span class="budget__card__highlight-vote__text">
