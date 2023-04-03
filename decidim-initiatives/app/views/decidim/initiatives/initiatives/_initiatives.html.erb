@@ -1,20 +1,18 @@
 <% if @forced_closed_initiatives %>
-  <div class="callout warning">
+  <div class="callout warning mt-4">
     <%= t ".closed_initiatives_warning" %>
   </div>
 <% elsif initiatives.blank? %>
-  <div class="callout warning">
+  <div class="callout warning mt-4">
     <%= t ".no_initiatives_warning" %>
   </div>
 <% end %>
 
-<div class="collection-sort-controls ">
+<div class="mb-4">
   <%= order_selector available_orders, i18n_scope: "decidim.initiatives.initiatives.orders" %>
 </div>
 
-<div class="row">
-  <%= render initiatives %>
-</div>
+<%= render initiatives %>
 
 <%= decidim_paginate initiatives %>
 <%= render partial: "decidim/shared/results_per_page" %>

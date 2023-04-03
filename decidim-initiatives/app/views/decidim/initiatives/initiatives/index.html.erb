@@ -17,7 +17,7 @@ edit_link(
 
 <% content_for :aside do %>
   <h1 class="h1 decorator">
-    <% provide :meta_title, t("initiatives.index.title", scope: "decidim") %>
+    <%= t("title", scope: "decidim.admin.models.initiatives.fields") %>
   </h1>
   <%= render partial: "new_initiative_button" %>
 
