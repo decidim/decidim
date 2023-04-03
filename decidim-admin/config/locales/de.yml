@@ -640,7 +640,6 @@ de:
           nickname: Spitzname
           reason: Grund
           reports: Anzahl Meldungen
-          title: Liste der gemeldeten Benutzer
         report:
           reasons:
             does_not_belong: Gehört nicht zu
@@ -650,8 +649,6 @@ de:
           blocked: Blockiert
           unblocked: Nicht blockiert
       moderations:
-        index:
-          title: Moderationen
         report:
           reasons:
             does_not_belong: Gehört nicht
