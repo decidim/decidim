@@ -148,7 +148,6 @@ Decidim::Core::Engine.routes.draw do
   resources :pages, only: [:index, :show], format: false
 
   get "/search", to: "searches#index", as: :search
-  get "/cards_debug", to: "searches#cards_debug", as: :cards_debug
 
   get "/link", to: "links#new", as: :link
 
