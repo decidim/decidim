@@ -39,6 +39,7 @@ fr-CA:
         body: Corps de texte
         subject: Objet
       organization:
+        admin_terms_of_service_body: "Body for the admin terms of service\nTermes et conditions d'utilisation administrateur"
         alert_color: Alerte
         available_authorizations: Autorisations disponibles
         badges_enabled: Activer les badges
@@ -197,6 +198,20 @@ fr-CA:
         user:
           new: Nouvel administrateur
         verify: Vérifier
+      admin_terms_of_service:
+        accept:
+          error: "There is been an error while accepting the admin terms of service.\nUne erreur s'est produite lors de l'acceptation des conditions d'utilisation de l'administrateur."
+          success: "Great! You have accepted the admin terms of service.\nFélicitation ! Vous avez accepté les conditions d'utilisation de l'administrateur."
+        actions:
+          accept: J'accepte les conditions d'utilisation
+          are_you_sure: Êtes-vous sûr de vouloir refuser les conditions d'utilisation de l'administrateur ?
+          refuse: Refuser les conditions d'utilisation administrateur
+          title: Accepter les conditions d’utilisation
+        required_review:
+          alert: 'Requis: Consultez nos conditions d’utilisation administrateur'
+          callout: "Please take a moment to review the admin terms of service. Otherwise you will not be able to manage the platform.\nVeuillez prendre le temps de lire les conditions d'utilisation de l'administrateur. Dans le cas contraire, vous ne serrez pas en mesure de gérer la plateforme."
+          cta: Consultez les maintenant.
+        title: Conditions d'utilisation administrateur
       area_types:
         create:
           error: Une erreur s'est produite lors de la création d'un nouveau périmètre d'assemblée.
@@ -977,6 +992,7 @@ fr-CA:
         destroy:
           success: La page a été détruite avec succès
         edit:
+          changed_notably_help: Si cette case est cochée, les utilisateurs devront accepter les nouvelles conditions d'utilisation.
           title: Modifier la page
           update: Mettre à jour
         form:
