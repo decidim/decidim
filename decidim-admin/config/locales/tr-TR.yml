@@ -495,15 +495,12 @@ tr:
           name: Adı
           nickname: Rumuz
           reason: Nedeni
-          title: Bildirilen kullanıcılar listesi
         report:
           reasons:
             does_not_belong: Ait değil
             offensive: Saldırgan
             spam: İstenmeyen
       moderations:
-        index:
-          title: Denetimler
         report:
           reasons:
             does_not_belong: Ait değil
