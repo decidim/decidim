@@ -9,18 +9,70 @@
           </span>
           /
           <%= translated_attribute(budget.title) %>
-        <p class="budget-summary__content__header--description">
-          <%= t("description", scope: "decidim.budgets.projects.budget_summary.checked_out") %>
-        </p>
+          <p class="budget-summary__content__header--description">
+            <%= t("description", scope: "decidim.budgets.projects.budget_summary.checked_out") %>
+          </p>
         </div>
       <% end %>
     <% end %>
     <% if include_heading && !current_order_checked_out? %>
-    <p>
-      <%= current_rule_description %>
-    </p>
+      <p>
+        <%= current_rule_description %>
+      </p>
     <% end %>
     <div class="budget-summary__progressbar">
+      <div class="progress budget-progress" role="progressbar" aria-valuenow="<%= current_order_budget_percent %>" aria-valuetext="<%= current_order_budget_percent %>%" aria-valuemin="0" aria-valuemax="100">
+        <div class="progress-meter budget-summary__progressbar--minimum" style="width: <%= current_order_budget_percent_minimum %>%">
+          <span class="progress-meter--minimum-mark"></span>
+        </div>
+        <div class="progress-meter budget-summary__progressbar--meter" style="width: <%= current_order_budget_percent %>%">
+        </div>
+      </div>
+      <div class="budget-summary__progressbar-marks">
+        <span class="budget-summary__progressbar-legend" style="width: <%= current_order_budget_percent_minimum %>%;">
+          <%= t("assigned", scope: "decidim.budgets.projects.order_progress") %>
+          <strong id="order-total-budget" class="budget-summary__progressbar-legend-strong">
+            <% if current_order.projects_rule? %>
+            <%= current_order.projects.count %> /
+            <%= current_order.maximum_projects %>
+            <% else %>
+            <%= budget_to_currency current_order&.total_budget.to_f %>
+            <% end %>
+          </strong>
+        </span>
+        <% if current_order.minimum_budget > 0 %>
+          <span class="budget-summary__progressbar-legend budget-summary__progressbar-marks_center">
+            <%= t("minimum", scope: "decidim.budgets.projects.order_progress") %>
+            <strong class="budget-summary__progressbar-legend-strong">
+              <%= budget_to_currency(current_order.minimum_budget) %>
+            </strong>
+          </span>
+        <% end %>
+        <span class="budget-summary__progressbar-legend budget-summary__progressbar-marks_right" data-total-allocation="<%= current_order.available_allocation %>">
+          <%= t("budget", scope: "decidim.budgets.projects.order_progress") %>
+          <strong class="budget-summary__progressbar-legend-strong">
+            <% if current_order.projects_rule? %>
+            <%= current_order.maximum_projects %>
+            <% else %>
+            <%= budget_to_currency(budget.total_budget) %>
+            <% end %>
+          </strong>
+        </span>
+      </div>
+    </div>
+  </div>
+  <% if !current_order_checked_out? && voting_open? %>
+    <button class="button button__secondary button__xl" data-dialog-open="budget-confirm" <%= budget_confirm_disabled_attr %>>
+      <span>
+        <%= t("vote", scope: "decidim.budgets.projects.budget_summary") %>
+      </span>
+      <%= icon "check-line" %>
+    </button>
+  <% end %>
+</div>
+<div class="layout-1col progressbox-fixed-wrapper" data-progressbox-fixed>
+  <div class="budget-summary__content">
+    <div class="justify-self-center justify-items-center" >
       <div class="progress budget-progress" role="progressbar" aria-valuenow="<%= current_order_budget_percent %>" aria-valuetext="<%= current_order_budget_percent %>%" aria-valuemin="0" aria-valuemax="100">
         <div class="progress-meter budget-summary__progressbar--minimum" style="width: <%= current_order_budget_percent_minimum %>%">
           <span class="progress-meter--minimum-mark"></span>
@@ -60,8 +112,6 @@
         </span>
       </div>
     </div>
-  </div>
-  <div class="progressbox-fixed-wrapper justify-self-center justify-items-center" data-progressbox-fixed>
     <% if !current_order_checked_out? && voting_open? %>
       <button class="button button__secondary button__xl" data-dialog-open="budget-confirm" <%= budget_confirm_disabled_attr %>>
         <span>
@@ -70,13 +120,13 @@
         <%= icon "check-line" %>
       </button>
     <% end %>
-    <% if include_heading %>
-      <% if current_order_checked_out? %>
-        <%= link_to budget_order_path(return_to: "budget"), method: :delete, class: "button button__lg button__secondary cancel-order", data: { confirm: t("are_you_sure", scope: "decidim.budgets.projects.budget_confirm") } do %>
-          <span><%= t("cancel_order", scope: "decidim.budgets.projects.budget_summary") %></span>
-          <%= icon "delete-bin-line" %>
-        <% end %>
-      <% end %>
-    <% end %>
   </div>
 </div>
+<% if include_heading %>
+  <% if current_order_checked_out? %>
+    <%= link_to budget_order_path(return_to: "budget"), method: :delete, class: "button button__lg button__secondary cancel-order", data: { confirm: t("are_you_sure", scope: "decidim.budgets.projects.budget_confirm") } do %>
+      <span><%= t("cancel_order", scope: "decidim.budgets.projects.budget_summary") %></span>
+      <%= icon "delete-bin-line" %>
+    <% end %>
+  <% end %>
+<% end %>

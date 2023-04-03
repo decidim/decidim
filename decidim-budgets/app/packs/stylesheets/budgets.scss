@@ -193,3 +193,13 @@
 #budgets.card__highlight-container{
   @apply mb-0;
 }
+
+.progressbox-fixed-wrapper {
+  @apply bg-tertiary fixed hidden inset-x-0 inset-y-0 h-max z-10;
+
+  box-shadow: 0 4px 6px 0 rgba(211, 211, 211, .25);
+}
+
+.progressbox-fixed-wrapper.is-progressbox-visible {
+  display: block;
+}
