@@ -44,7 +44,8 @@ module Decidim
             scopes_enabled: attributes["scopes_enabled"],
             show_metrics: attributes["show_metrics"],
             show_statistics: attributes["show_statistics"],
-            participatory_process_group: import_process_group(attributes["participatory_process_group"])
+            participatory_process_group: import_process_group(attributes["participatory_process_group"]),
+            participatory_process_type: import_participatory_process_type(attributes["participatory_process_type"])
           )
           @imported_process.attached_uploader(:hero_image).remote_url = attributes["remote_hero_image_url"] if attributes["remote_hero_image_url"].present?
           @imported_process.attached_uploader(:banner_image).remote_url = attributes["remote_banner_image_url"] if attributes["remote_banner_image_url"].present?
@@ -66,6 +67,12 @@ module Decidim
           group.save!
           group
         end
+      end
+
+      def import_participatory_process_type(participatory_process_type)
+        return if participatory_process_type.blank?
+
+        Decidim::ParticipatoryProcessType.find_by(id: participatory_process_type["id"])
       end
 
       def import_participatory_process_steps(steps)
