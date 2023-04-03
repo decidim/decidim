@@ -786,6 +786,9 @@ ja:
           new:
             create: 作成
             title: 投票スタイルを作成
+          update:
+            invalid: この投票スタイルの更新中に問題が発生しました。
+            success: 投票スタイルが正常に更新されました。
         content_blocks:
           highlighted_votings:
             max_results: 表示する要素の最大量
