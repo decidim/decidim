@@ -662,7 +662,7 @@ cs:
           nickname: Přezdívka
           reason: Důvod
           reports: Počet zpráv
-          title: Seznam nahlášených uživatelů
+          title: Nahlášení účastníci
         report:
           reasons:
             does_not_belong: Nepatří
@@ -673,7 +673,7 @@ cs:
           unblocked: Neblokováno
       moderations:
         index:
-          title: Moderování
+          title: Nahlášený obsah
         report:
           reasons:
             does_not_belong: Nepatří
