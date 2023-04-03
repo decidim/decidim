@@ -43,13 +43,15 @@ edit_link(
   <div class="editor-content">
     <%= decidim_sanitize_editor translated_attribute project.description %>
   </div>
-  <%= cell "decidim/budgets/project_tags", project, context: { extra_classes: ["tags--project"] } %>
   <%= attachments_for project %>
   <%= linked_resources_for project, :proposals, "included_proposals" %>
   <%= linked_resources_for project, :results, "included_projects" %>
 
-  <div class="my-4 flex gap-x-1">
+  <div class="my-4 flex gap-x-1 items-center">
     <%= cell "decidim/comments_button", nil %>
+    <div class="ml-auto">
+      <%= cell "decidim/budgets/project_tags", project %>
+    </div>
   </div>
 
   <%= comments_for project, polymorphic: [project.budget] %>
@@ -57,7 +59,6 @@ edit_link(
     <ul class="drawer-metadata__container" data-metadata-footer>
       <%= content_tag :li, resource_reference(project), class: "drawer-metadata__item" %>
       <%= content_tag :li, resource_version(project, versions_path: budget_projects_path(project)), class: "drawer-metadata__item" %>
-      <%= content_tag :li, link_to(t("add_to_calendar", scope: "decidim.meetings.meetings.calendar_modal"), nil, remote: true, data: { dialog_open: "calendarShare_#{project.id}" }), class: "drawer-metadata__item" %>
     </ul>
   </div>
   <% content_for :aside do %>
