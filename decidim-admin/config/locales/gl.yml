@@ -615,7 +615,6 @@ gl:
           nickname: Alcume
           reason: Motivo
           reports: Número de denuncias
-          title: Listando os usuarios reportados
         report:
           reasons:
             does_not_belong: Non pertence
@@ -625,8 +624,6 @@ gl:
           blocked: Bloqueados
           unblocked: Sen bloquear
       moderations:
-        index:
-          title: Moderacións
         report:
           reasons:
             does_not_belong: Non pertence
