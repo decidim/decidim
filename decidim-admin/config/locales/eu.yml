@@ -635,7 +635,6 @@ eu:
           nickname: Ezizena
           reason: Arrazoia
           reports: Salaketa kopurua
-          title: Informatutako erabiltzaileen zerrenda
         report:
           reasons:
             does_not_belong: Ez da bidezkoa
@@ -645,8 +644,6 @@ eu:
           blocked: Blokeatuta
           unblocked: Ez blokeatuta
       moderations:
-        index:
-          title: ' Salaketak'
         report:
           reasons:
             does_not_belong: Ez du zer ikusirik
