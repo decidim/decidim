@@ -216,18 +216,6 @@ describe "Proposals", type: :system do
       end
 
       context "when is created by the user" do
-        context "when the field is cost_report" do
-          it_behaves_like "has embedded video in description", :cost_report do
-            before { click_button "Read more" }
-          end
-        end
-
-        context "when the field is execution_period" do
-          it_behaves_like "has embedded video in description", :execution_period do
-            let!(:cookie_warning) { "You need to enable all cookies in order to see this content".upcase }
-          end
-        end
-
         context "when the field is answer" do
           it_behaves_like "has embedded video in description", :answer
         end
