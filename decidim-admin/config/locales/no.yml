@@ -632,7 +632,6 @@
           nickname: Kallenavn
           reason: Årsak
           reports: Antall rapporter
-          title: Oppføring rapporterte brukere
         report:
           reasons:
             does_not_belong: Tilhører ikke
@@ -642,8 +641,6 @@
           blocked: Blokkert
           unblocked: Ikke blokkert
       moderations:
-        index:
-          title: Moderering
         report:
           reasons:
             does_not_belong: Tilhører ikke
