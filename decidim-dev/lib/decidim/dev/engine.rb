@@ -7,6 +7,15 @@ module Decidim
       isolate_namespace Decidim::Dev
       engine_name "decidim_dev"
 
+      initializer "decidim_admin.mount_routes" do |_app|
+        Decidim::Core::Engine.routes do
+          namespace :design do
+            get "forms", to: "forms#index"
+            get "cards", to: "cards#index"
+          end
+        end
+      end
+
       initializer "decidim_dev.tools" do
         ActiveSupport.on_load :action_controller do
           ActionController::Base.include Decidim::Dev::NeedsDevelopmentTools
