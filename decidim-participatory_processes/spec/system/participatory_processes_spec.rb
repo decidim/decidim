@@ -16,7 +16,7 @@ describe "Participatory Processes", type: :system do
       :active,
       organization:,
       description: base_description,
-      short_description: ,
+      short_description:,
       show_metrics:,
       show_statistics:
     )

@@ -6,7 +6,6 @@ describe "show", type: :system do
   include_context "with a component"
   let(:manifest_name) { "debates" }
 
-
   let(:description) { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_debate_title } }
   let(:information_updates) { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_debate_title } }
   let(:instructions) { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_debate_title } }
@@ -23,9 +22,11 @@ describe "show", type: :system do
     context "when the field is decription" do
       it_behaves_like "has embedded video in description", :description
     end
+
     context "when the field is information_updates" do
       it_behaves_like "has embedded video in description", :information_updates
     end
+
     context "when the field is instructions" do
       it_behaves_like "has embedded video in description", :instructions
     end
@@ -37,14 +38,19 @@ describe "show", type: :system do
 
     context "when the field is decription" do
       let(:description) { { en: %(Description <iframe class="ql-video" allowfullscreen="true" src="#{iframe_src}" frameborder="0"></iframe>) } }
+
       it { expect(page).not_to have_selector("iframe") }
     end
+
     context "when the field is information_updates" do
       let(:information_updates) { { en: %(Description <iframe class="ql-video" allowfullscreen="true" src="#{iframe_src}" frameborder="0"></iframe>) } }
+
       it { expect(page).not_to have_selector("iframe") }
     end
+
     context "when the field is instructions" do
       let(:instructions) { { en: %(Description <iframe class="ql-video" allowfullscreen="true" src="#{iframe_src}" frameborder="0"></iframe>) } }
+
       it { expect(page).not_to have_selector("iframe") }
     end
   end
@@ -55,7 +61,6 @@ describe "show", type: :system do
     end
 
     it_behaves_like "going back to list button"
-
   end
 
   describe "comments metadata" do

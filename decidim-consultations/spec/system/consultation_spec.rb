@@ -6,7 +6,7 @@ describe "Consultation", type: :system do
   let!(:organization) { create(:organization) }
   let(:description) { { en: "Short description", ca: "Descripció curta", es: "Descripción corta" } }
   let(:introductory_video_url) { "https://www.youtube.com/watch?v=1234567890" }
-  let!(:consultation) { create(:consultation, :published, organization:, description:, introductory_video_url: ) }
+  let!(:consultation) { create(:consultation, :published, organization:, description:, introductory_video_url:) }
   let!(:user) { create :user, :confirmed, organization: }
 
   before do

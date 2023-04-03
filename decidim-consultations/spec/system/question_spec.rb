@@ -4,7 +4,7 @@ require "spec_helper"
 
 describe "Question", type: :system do
   let(:organization) { create(:organization) }
-  let!(:consultation) { create(:consultation, :published, organization: ) }
+  let!(:consultation) { create(:consultation, :published, organization:) }
   let(:question_context) { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
   let(:what_is_decided) { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
   let(:previous_question) { create :question, consultation: }

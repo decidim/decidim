@@ -23,8 +23,8 @@ describe "Explore projects", :slow, type: :system do
     end
 
     it_behaves_like "has embedded video in description", :description
-
   end
+
   describe "index" do
     it "shows all resources for the given component" do
       visit_budget

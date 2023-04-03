@@ -90,7 +90,7 @@ describe "Answer a survey", type: :system do
         component.update!(
           step_settings: {
             component.participatory_space.active_step.id => {
-              allow_answers: true,
+              allow_answers: true
             }
           },
           settings: { starts_at: 1.week.ago, ends_at: 1.day.from_now }
@@ -99,7 +99,6 @@ describe "Answer a survey", type: :system do
 
       it_behaves_like "has questionnaire"
     end
-
 
     context "when displaying questionnaire rich content" do
       before do
@@ -114,9 +113,11 @@ describe "Answer a survey", type: :system do
         )
         visit_component
       end
+
       context "when displaying questionnaire description" do
         it_behaves_like "has embedded video in description", :description
       end
+
       context "when displaying question description" do
         it_behaves_like "has embedded video in description", :question_description
       end

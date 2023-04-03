@@ -68,7 +68,7 @@ describe "Explore posts", type: :system do
     let(:posts_count) { 1 }
     let(:author) { organization }
     let(:body) { { en: "Short description", ca: "Descripció curta", es: "Descripción corta" } }
-    let!(:post) { create(:post, component:, author:, body: ) }
+    let!(:post) { create(:post, component:, author:, body:) }
 
     before do
       visit resource_locator(post).path

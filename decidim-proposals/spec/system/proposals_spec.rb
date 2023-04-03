@@ -195,6 +195,7 @@ describe "Proposals", type: :system do
           execution_period:
         )
       end
+
       before do
         component.update!(
           step_settings: {
@@ -213,6 +214,7 @@ describe "Proposals", type: :system do
           it_behaves_like "has embedded video in description", :body
         end
       end
+
       context "when is created by the user" do
         context "when the field is cost_report" do
           it_behaves_like "has embedded video in description", :cost_report do
