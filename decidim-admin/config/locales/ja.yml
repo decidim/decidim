@@ -636,7 +636,7 @@ ja:
           nickname: ニックネーム
           reason: 理由
           reports: レポート数
-          title: 報告されたユーザー一覧
+          title: 報告された参加者
         report:
           reasons:
             does_not_belong: 所属していない
@@ -647,7 +647,7 @@ ja:
           unblocked: 未ブロック
       moderations:
         index:
-          title: モデレーション
+          title: 報告されたコンテンツ
         report:
           reasons:
             does_not_belong: 属していません
