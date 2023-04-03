@@ -79,7 +79,7 @@ PATH
       hashdiff (>= 0.4.0, < 2.0.0)
       invisible_captcha (~> 0.12)
       kaminari (~> 1.2, >= 1.2.1)
-      loofah (>= 2.19.1)
+      loofah (~> 2.19, >= 2.19.1)
       mime-types (>= 1.16, < 4.0)
       mini_magick (~> 4.9)
       mustache (~> 1.1.0)
