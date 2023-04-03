@@ -55,7 +55,7 @@
 }
 
 .form-error{
-  @apply mt-2 hidden font-normal text-sm text-primary;
+  @apply mt-2 hidden font-normal text-sm text-alert;
 }
 
 *:invalid ~ .form-error{
