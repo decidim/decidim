@@ -26,7 +26,7 @@ describe Decidim::Meetings::CloseMeetingEvent do
   describe "meeting closed event" do
     let!(:component) { create(:meeting_component, organization:, participatory_space:) }
     let(:admin) { create(:user, :admin, organization:, notifications_sending_frequency: "daily", locale: "en") }
-    let!(:user) { create(:user, organization:, notifications_sending_frequency: "daily", locale: "en") }
+    let(:user) { create(:user, organization:, notifications_sending_frequency: "daily", locale: "en") }
     let!(:record) do
       create(
         :meeting,

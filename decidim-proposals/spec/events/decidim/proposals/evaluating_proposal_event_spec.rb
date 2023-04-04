@@ -36,7 +36,7 @@ describe Decidim::Proposals::EvaluatingProposalEvent do
     end
   end
 
-  describe "proposal event evaluating" do
+  describe "proposal evaluating event" do
     let!(:component) { create(:proposal_component, organization:) }
     let!(:record) { create(:proposal, component:, users: [user], title: { en: "Event notifier" }) }
     let(:user) { create(:user, :admin, organization:, notifications_sending_frequency: "daily", locale: "en") }
@@ -52,10 +52,10 @@ describe Decidim::Proposals::EvaluatingProposalEvent do
     let(:form_params) do
       {
         internal_state: "evaluating",
-        answer: { en: "Foo" },
+        answer: { en: "Example answer" },
         cost: 2000,
-        cost_report: { en: "Cost report" },
-        execution_period: { en: "Execution period" }
+        cost_report: { en: "Example report" },
+        execution_period: { en: "Example execution period" }
       }
     end
 

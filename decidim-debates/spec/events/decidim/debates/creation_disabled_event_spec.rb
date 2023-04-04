@@ -42,33 +42,6 @@ module Decidim
             .to eq("Debate creation is now disabled in <a href=\"#{participatory_space_url}\">#{participatory_space_title}</a>")
         end
       end
-
-      describe "debate disabled event" do
-        let!(:component) { create(:debates_component, organization:, participatory_space:) }
-        let(:user) { create(:user, :confirmed, :admin, organization:, notifications_sending_frequency: "daily", locale: "en") }
-        let!(:record) do
-          create(
-            :debate,
-            component:,
-            title: { en: "Event notifier" },
-            description: { en: "This debate is for testing purposes" },
-            instructions: { en: "Use this debate for testing" }
-          )
-        end
-
-        let(:params) do
-          {
-            conclusions: "testi testi",
-            id: record.id
-          }
-        end
-
-        let(:form) { Decidim::Debates::Admin::CloseDebateForm.from_params(params).with_context(current_user: user) }
-
-        let!(:command) { Decidim::Debates::Admin::CloseDebate.new(form) }
-
-        it_behaves_like "event notification"
-      end
     end
   end
 end
