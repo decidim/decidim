@@ -11,7 +11,7 @@ module Decidim
       let!(:follow) { create(:follow, followable: record, user:) }
       let(:params) do
         {
-          conclusions: "testi testi",
+          conclusions: "Example conclusion",
           id: record.id
         }
       end
