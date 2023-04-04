@@ -1,4 +1,4 @@
-FROM gitpod/workspace-base:2023-03-21-19-31-17
+FROM gitpod/workspace-base:latest
 USER root
 
 # Install PostgreSQL
