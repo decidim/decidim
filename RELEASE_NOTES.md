@@ -80,7 +80,7 @@ Since the Rails team has retired the Webpacker in favour or importmap-rails or j
 In order to continue having support for Webpacker like syntax, we have switched to Shakapacker.
 
 In order to perform the update, you will need to make sure that you **do not have webpacker in your Gemfile**.
-If you have it, please remove it, adn allow Decidim to handle the webpacker / shackapacker dependency.
+If you have it, please remove it, and allow Decidim to handle the webpacker / shakapacker dependency.
 
 In order to perform the migration to shakapacker, please backup the following files, to make sure that you save any customizations you may have done to webpacker:
 
