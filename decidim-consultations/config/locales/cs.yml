@@ -51,7 +51,7 @@ cs:
         decidim/consultations/vote:
           attributes:
             question:
-              invalid_num_votes: Počet hlasů je neplatný
+              invalid_num_votes: Počet hlasů je neplatný.
     models:
       decidim/consultation:
         one: Konzultace
@@ -167,7 +167,7 @@ cs:
             many: Odpovědi
             other: Odpovědi
       question_configuration:
-        disable_external_voting: Prosím, zakažte externí hlasování pro pokročilé konfigurace
+        disable_external_voting: Prosím, zakažte externí hlasování pro pokročilé konfigurace.
         form:
           help: Nastavení mnoha otázek při výběru maximálním počtem reakcí, které si může účastník vybrat, je 1, což znamená, že lze hlasovat pouze o jedné odpovědi.
           title: Pokročilé nastavení
@@ -320,7 +320,7 @@ cs:
             votes: Hlasů
       question_votes:
         create:
-          error: Během hlasování se vyskytly chyby
+          error: Při hlasování o otázce došlo k chybě.
           success: Můžete to změnit až do konce konzultace, pouze poslední hlasování bude přijato.
           title_error: Chyba hlasování!
           title_success: Hlas úspěšně zapsán

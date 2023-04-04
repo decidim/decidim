@@ -39,7 +39,6 @@ fr-CA:
         body: Corps de texte
         subject: Objet
       organization:
-        admin_terms_of_use_body: Corps du texte pour les conditions d'utilisation de l'admin
         alert_color: Alerte
         available_authorizations: Autorisations disponibles
         badges_enabled: Activer les badges
@@ -137,7 +136,7 @@ fr-CA:
         newsletter:
           attributes:
             base:
-              at_least_one_space: Sélectionnez au moins une concertation
+              at_least_one_space: Sélectionnez au moins un espace participatif.
         organization:
           attributes:
             official_img_footer:
@@ -155,8 +154,8 @@ fr-CA:
       new_import:
         attributes:
           file:
-            invalid_file: Fichier fourni invalide , veuillez vérifier que le fichier est correctement formaté
-            invalid_mime_type: Type MIME invalide
+            invalid_file: Fichier fourni invalide , veuillez vérifier que le fichier est correctement formaté.
+            invalid_mime_type: Type de MIME invalide.
   activerecord:
     attributes:
       decidim/static_page:
@@ -198,26 +197,12 @@ fr-CA:
         user:
           new: Nouvel administrateur
         verify: Vérifier
-      admin_terms_of_use:
-        accept:
-          error: Une erreur s'est produite lorsque vous avez accepté les conditions d'utilisation administrateur.
-          success: Super! Vous avez accepté les conditions d'utilisation administrateur.
-        actions:
-          accept: J'accepte les conditions d'utilisation
-          are_you_sure: Êtes-vous sûr de vouloir refuser les conditions d'utilisation de l'administrateur?
-          refuse: Refuser les conditions d'utilisation administrateur
-          title: Accepter les conditions d'utilisation
-        required_review:
-          alert: 'Obligatoire: Consultez nos conditions d''utilisation administrateur'
-          callout: Veuillez prendre un moment pour consulter les conditions d'utilisation de l'administration. Sinon, vous ne pourrez pas gérer la plateforme.
-          cta: Consulter les maintenant.
-        title: Conditions d'utilisation administrateur
       area_types:
         create:
           error: Une erreur s'est produite lors de la création d'un nouveau périmètre d'assemblée.
           success: Le type de périmètre d'assemblée a été créé avec succès.
         destroy:
-          success: Le type de périmètre d'assemblée a bien été supprimé
+          success: Le type de secteur a été supprimé avec succès.
         edit:
           title: Modifier le type de périmètre d'assemblée
           update: Mettre à jour
@@ -226,14 +211,14 @@ fr-CA:
           title: Nouveau type de périmètre d'assemblée
         update:
           error: Une erreur s'est produite lors de la mise à jour de ce type de périmètre d'assemblée.
-          success: Le type de périmètre d'assemblée a été mis à jour avec succès
+          success: "Area type updated successfully.\nLe type de la zone a été mis à jour avec succès."
       areas:
         create:
           error: Une erreur s'est produite lors de la création d'une nouvelle zone d'application.
           success: Zone d'application créée avec succès.
         destroy:
           has_spaces: Cette zone a des espaces dépendants. Veuillez vous assurer qu'aucun espace participatif ne référence cette zone avant de la supprimer.
-          success: La zone d'application a bien été supprimée
+          success: "Area successfully destroyed.\nLe périmètre a été supprimé avec succès."
         edit:
           title: Modifier la zone d'application
           update: Mettre à jour
@@ -243,7 +228,7 @@ fr-CA:
         no_areas: Aucune zone d'application
         update:
           error: Une erreur s'est produite lors de la mise à jour de cette zone d'application.
-          success: Zone d'application mise à jour avec succès
+          success: Périmètre d'assemblée mise à jour avec succès.
       attachment_collections:
         create:
           error: Une erreur s'est produite lors de la création d'un nouveau dossier.
@@ -283,7 +268,7 @@ fr-CA:
         message: Soyez prudent lorsque vous travaillez avec des pièces jointes dans un espace privé. Tout participant pourrait partager ce document à d'autres.
       autocomplete:
         no_results: Aucun résultat trouvé
-        search_prompt: Renseignez au moins trois caractères pour lancer la recherche
+        search_prompt: Renseignez au moins trois caractères pour lancer la recherche.
       block_user:
         new:
           action: Bloquer le compte et envoyer la justification
@@ -374,8 +359,8 @@ fr-CA:
         form:
           domain_too_short: Le nom de domaine est trop court
         update:
-          error: Échec lors de la mise à jour de la liste blanches du domaine
-          success: Liste blanche du domaine mise à jour avec succès
+          error: Échec lors de la mise à jour de la liste blanche du domaine.
+          success: Liste blanche du domaine mise à jour avec succès.
       exports:
         export_as: "%{name} en format %{export_format}"
         formats:
@@ -383,7 +368,7 @@ fr-CA:
           Excel: Excel
           FormPDF: PDF
           JSON: JSON
-        notice: Votre exportation est en cours. Vous recevrez un e-mail quand elle sera terminée.
+        notice: Votre exportation est en cours. Vous recevrez un email quand elle sera terminée.
       filters:
         category_id_eq:
           label: Catégorie
@@ -458,10 +443,10 @@ fr-CA:
             message_1: Les fichiers CSV, JSON et Excel (.xlsx) sont supportés
             message_2: Pour les fichiers CSV, le séparateur entre les colonnes doit être un point-virgule (";")
       help_sections:
-        error: Une erreur s'est produite lors de la mise à jour des sections d'aide.
+        error: Un problème est survenu lors de la mise à jour des sections d’aide.
         form:
           save: sauvegarder
-        success: Les sections d'aide ont été mises à jour avec succès
+        success: Les sections d'aide ont été mises à jour avec succès.
       impersonatable_users:
         index:
           filter:
@@ -519,8 +504,8 @@ fr-CA:
             message:
               one: Colonne %{columns} manquante.
               other: Colonnes %{columns} manquantes.
-        error: Un problème est survenu lors de l'import
-        example_error: Impossible de créer un exemple pour le type donné
+        error: Un problème est survenu lors de l'import.
+        example_error: "There was a problem creating an example for the given type.\nUne erreur est survenue lors de la création d'un exemple pour le type donné."
         new:
           accepted_mime_types:
             csv: csv
@@ -532,7 +517,7 @@ fr-CA:
           download_example_format: Exemple comme %{name}
           file_legend: Ajouter un fichier d'import qui sera analysé.
           import: Importer
-        notice: "%{number} %{resource_name} importées avec succès"
+        notice: "%{count} %{resource_name} successfully imported.\nImportation réussie de %{count} %{resource_name}."
       logs:
         filters:
           participatory_space: Trouver un espace participatif
@@ -557,7 +542,7 @@ fr-CA:
         area_types: Types de périmètre d'assemblée
         areas: Zones d'application
         configuration: Configuration
-        content: Contenu
+        content: Contenu signalé
         dashboard: Tableau de bord
         external_domain_whitelist: Domaines externes autorisés
         help_sections: Sections d'aide
@@ -666,7 +651,7 @@ fr-CA:
           nickname: Pseudonyme
           reason: Raison du signalement
           reports: Nombre de signalements
-          title: Liste des participants
+          title: Participants signalés
         report:
           reasons:
             does_not_belong: N'appartient pas
@@ -677,7 +662,7 @@ fr-CA:
           unblocked: Non bloqué
       moderations:
         index:
-          title: Modérations
+          title: Contenu signalé
         report:
           reasons:
             does_not_belong: N'appartient pas
@@ -754,7 +739,7 @@ fr-CA:
           title: Sélectionner les destinataires
           warning: "<strong>Attention :</strong> Cette newsletter ne sera envoyée qu'aux utilisateurs qui ont activé <em>Je veux recevoir newsletters</em> dans leurs paramètres de notifications."
         send:
-          no_recipients: Aucun destinataire pour cette sélection
+          no_recipients: "No recipients for this selection.\nVous n'avez aucun destinataire pour cette sélection."
         show:
           preview: Aperçu
           select_recipients_to_deliver: Sélectionner les destinataires
@@ -764,12 +749,12 @@ fr-CA:
           success: Newsletter mise à jour avec succès. Veuillez la vérifier avant de l'envoyer.
       officializations:
         block:
-          error: Une erreur s'est produite lors du blocage du participant
-          success: Participant bloqué avec succès
+          error: Une erreur s'est produite lors du blocage du participant.
+          success: Participant bloqué avec succès.
         create:
-          success: Utilisateur validé avec succès
+          success: Utilisateur validé avec succès.
         destroy:
-          success: Validation de l'utilisateur supprimée avec succès
+          success: Validation de l'utilisateur supprimée avec succès.
         index:
           actions: Actions
           badge: Badge
@@ -799,8 +784,8 @@ fr-CA:
           show: Afficher
           title: Afficher l'adresse e-mail du participant
         unblock:
-          error: Une erreur s'est produite lors du déblocage du participant
-          success: Participant débloqué avec succès
+          error: Une erreur s'est produite lors du déblocage du participant.
+          success: Participant débloqué avec succès.
       organization:
         edit:
           title: Modifier l'organisation
@@ -847,11 +832,11 @@ fr-CA:
       organization_homepage:
         content_blocks:
           create:
-            error: Un problème est survenu lors de la création de ce bloc de contenu
-            success: Le bloc de contenu a été créé avec succès
+            error: Un problème est survenu lors de la création de ce bloc de contenu.
+            success: Le contenu a été créé avec succès.
           destroy:
-            error: Un problème est survenu lors de la suppression de ce bloc de contenu
-            success: Le bloc de contenu a été supprimé avec succès
+            error: "There was a problem trying to delete this content block.\nUne erreur est survenue lors de la suppression de ce contenu."
+            success: Le bloc de contenu a été supprimé avec succès.
           edit:
             update: Mettre à jour
         edit:
@@ -876,11 +861,11 @@ fr-CA:
       participatory_space_private_users_csv_imports:
         create:
           invalid: Un problème est survenu lors de la lecture du fichier CSV. Veuillez vous assurer que vous avez suivi les instructions.
-          success: Fichier CSV a été transféré avec succès, nous envoyons un courriel d'invitation aux participants. Cela peut prendre un certain temps.
+          success: "CSV file uploaded successfully, we are sending an invitation email to participants. This might take a while.\nLe fichier CSV a été téléchargé avec succès. Une invitation par courriel sera envoyée sous peu à chaque participant."
         new:
           destroy:
             button: Supprimer tous les utilisateurs privés
-            confirm: Êtes-vous sûr de vouloir supprimer tous les utilisateurs privés ? Cette action ne peut pas être annulée, vous ne pourrez pas les récupérer.
+            confirm: "Are you sure you want to delete all private participants? This action cannot be undone, you will not be able to recover them.\n\nÊtes-vous sûr de vouloir supprimer tous les utilisateurs privés ? Cette action est irréversible, vous ne pourrez pas les récupérer."
             empty: Vous n'avez aucun utilisateur privé.
             explanation: Vous avez %{count} utilisateurs privés.
             title: Supprimer les utilisateurs privés
@@ -929,7 +914,7 @@ fr-CA:
           error: Une erreur s'est produite lors de la création d'un nouveau périmètre d’application.
           success: Périmètre d'application créé avec succès.
         destroy:
-          success: Périmètre d'application supprimé avec succès
+          success: Le périmètre d’application a été supprimé avec succès.
         edit:
           title: Modifier le périmètre d'application
           update: Mettre à jour
@@ -949,7 +934,7 @@ fr-CA:
           error: Une erreur s'est produite lors de la destruction du jeton.
           success: Jeton détruit avec succès.
         share_tokens:
-          empty: Il n'y a pas de jeton actif
+          empty: Il n'y a pas de jeton actif.
           help: Ces jetons sont utilisés pour partager cette ressource non publiée à n'importe quel utilisateur. Ils seront cachés dès que la ressource sera publiée. Cliquez sur l'icône du jeton pour visiter l'URL partageable.
           title: Partager les jetons
       shared:
@@ -963,7 +948,7 @@ fr-CA:
           error: Une erreur s'est produite lors de la création d'un nouveau sujet.
           success: Sujet créé avec succès.
         destroy:
-          success: Sujet détruit avec succès
+          success: "Topic successfully destroyed.\nLe sujet a été détruit avec succès."
         edit:
           title: Modifier le sujet
           update: Mettre à jour le sujet
@@ -980,11 +965,7 @@ fr-CA:
           active_content_blocks: Blocs de contenu actifs
           add: Ajouter un bloc de contenu
           create:
-            error: Un problème est survenu lors de la création de ce bloc de contenu
-            success: Le bloc de contenu a été créé avec succès
-          destroy:
-            error: Un problème est survenu lors de la suppression de ce bloc de contenu
-            success: Le bloc de contenu a été supprimé avec succès
+            error: Un problème est survenu lors de la création de ce bloc de contenu.
           destroy_confirmation: Êtes-vous sûr(e) de vouloir supprimer ce bloc de contenu ?
           edit:
             update: Mettre à jour
@@ -996,7 +977,6 @@ fr-CA:
         destroy:
           success: La page a été détruite avec succès
         edit:
-          changed_notably_help: Si cette case est cochée, les utilisateurs devront accepter les nouvelles conditions d'utilisation.
           title: Modifier la page
           update: Mettre à jour
         form:
@@ -1010,11 +990,9 @@ fr-CA:
         topic:
           destroy: Supprimer le sujet
           edit: Modifier le sujet
-          empty: Il n'y a pas de page dans cette thématique
           without_topic: Pages sans sujet
         update:
           error: Une erreur s'est produite lors de la mise à jour de cette page.
-          success: Page mise à jour avec succès
       titles:
         admin_log: Journal d'administration
         area_types: Types de périmètre d'assemblée
@@ -1035,13 +1013,11 @@ fr-CA:
       user_group:
         csv_verify:
           invalid: Une erreur s'est produite lors de la lecture du fichier CSV.
-          success: Le fichier CSV a été chargé avec succès, nous vérifions les groupes d'utilisateurs correspondant aux critères. Cela pourrait prendre un moment.
+          success: "CSV file uploaded successfully, we are verifying the groups matching the criteria. This might take a while.\nLe fichier CSV a été téléchargé avec succès, une vérification des groupes correspondant aux critères est en cours. Un délai d'attente peut survenir."
         reject:
           invalid: Une erreur s'est produite lors du refus de ce groupe d'utilisateurs.
-          success: Groupe d'utilisateurs refusé avec succès
         verify:
           invalid: Une erreur s'est produite lors de la vérification de ce groupe d'utilisateurs.
-          success: Groupe d'utilisateurs vérifié avec succès
       user_groups:
         index:
           state:
@@ -1078,13 +1054,8 @@ fr-CA:
           last_day: Hier
           last_month: Le mois dernier
           last_week: La semaine dernière
-          no_users_count_statistics_yet: Il n'y a pas encore de statistiques du nombre d'utilisateurs
           participants: Participants
       view_public_page: Voir la page publique
-    forms:
-      errors:
-        impersonate_user:
-          reason: Vous devez fournir une raison si vous modérer un participant actuellement non-modéré
     metrics:
       blocked_users:
         object: utilisateurs bloqués
@@ -1140,7 +1111,7 @@ fr-CA:
     decidim:
       admin:
         global_moderations:
-          title: Modération de contenu
+          title: Modération globale
         newsletters:
           title: Newsletters
         settings:

@@ -46,12 +46,6 @@ pl:
         decidim_consultations_response_id:
           not_found: Nie znaleziono odpowiedzi.
   activerecord:
-    errors:
-      models:
-        decidim/consultations/vote:
-          attributes:
-            question:
-              invalid_num_votes: Nieprawidłowa liczba głosów
     models:
       decidim/consultation:
         one: Konsultacja
@@ -102,7 +96,6 @@ pl:
         create:
           error: Wystąpił błąd podczas tworzenia nowej konsultacji.
           success: Konsultacja została pomyślnie utworzona.
-        deprecation_warning: Moduł konsultacji zostanie wycofany w najbliższej przyszłości. Pracujemy nad następną kryptograficznie bezpieczną wersją nazywaną Głosowania.
         edit:
           update: Aktualizuj
         form:
@@ -167,7 +160,6 @@ pl:
             many: Odpowiedzi
             other: Odpowiedzi
       question_configuration:
-        disable_external_voting: Wyłącz głosowanie zewnętrzne dla ustawień zaawansowanych
         form:
           help: Skonfiguruj pytania wielokrotnego wyboru, zwiększając maksymalną liczbę odpowiedzi, jakiej może udzielić użytkownik. Domyślna wartość maksymalna to 1, co oznacza, że można głosować tylko na jedną odpowiedź.
           title: Ustawienia zaawansowane
@@ -316,7 +308,6 @@ pl:
             votes: Głosy
       question_votes:
         create:
-          error: Wystąpił błąd podczas głosowania
           success: Możesz zmienić swoją odpowiedź do końca trwania konsultacji. Tylko ostatni głos zostanie zapisany.
           title_error: Błąd głosowania!
           title_success: Głos został pomyślnie zarejestrowany

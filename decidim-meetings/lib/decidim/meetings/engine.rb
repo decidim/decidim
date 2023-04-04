@@ -141,6 +141,12 @@ module Decidim
           transfer.move_records(Decidim::Meetings::Answer, :decidim_user_id)
         end
       end
+
+      initializer "decidim_meetings.moderation_content" do
+        ActiveSupport::Notifications.subscribe("decidim.system.events.hide_user_created_content") do |_event_name, data|
+          Decidim::Meetings::HideAllCreatedByAuthorJob.perform_later(**data)
+        end
+      end
     end
   end
 end
