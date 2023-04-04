@@ -31,11 +31,11 @@ module Decidim
     def parse_url
       raise Decidim::InvalidUrlError if params[:external_url].blank?
       raise Decidim::InvalidUrlError unless external_url
-      raise Decidim::InvalidUrlError unless external_url.scheme&.starts_with?("http")
+      raise Decidim::InvalidUrlError unless %w(http https).include?(external_url.scheme)
     end
 
     def external_url
-      @external_url ||= URI.parse(CGI.unescape(params[:external_url]))
+      @external_url ||= URI.parse(params[:external_url])
     end
   end
 end
