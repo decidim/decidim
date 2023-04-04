@@ -4,12 +4,11 @@ shared_examples_for "event notification" do
   describe "event" do
     context "when a notificable event takes place" do
       let!(:organization) { create(:organization) }
-      let(:user) { create(:user, organization:, notifications_sending_frequency: "daily", locale: "en") }
+      let!(:participatory_space) { create(:participatory_process, organization:) }
 
       it "sends a notification to the user's email" do
         perform_enqueued_jobs do
           expect(command.call).to broadcast(:ok)
-          # raise Decidim::Notification.all.inspect
           Decidim::Notification.last.update(created_at: 1.day.ago)
           Decidim::EmailNotificationsDigestGeneratorJob.perform_now(user.id, "daily")
         end

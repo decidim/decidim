@@ -39,6 +39,7 @@ describe Decidim::Proposals::EvaluatingProposalEvent do
   describe "proposal event evaluating" do
     let!(:component) { create(:proposal_component, organization:) }
     let!(:record) { create(:proposal, component:, users: [user], title: { en: "Event notifier" }) }
+    let(:user) { create(:user, :admin, organization:, notifications_sending_frequency: "daily", locale: "en") }
 
     let!(:form) do
       Decidim::Proposals::Admin::ProposalAnswerForm.from_params(form_params).with_context(

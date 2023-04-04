@@ -24,26 +24,41 @@ describe Decidim::Meetings::CloseMeetingEvent do
   end
 
   describe "meeting closed event" do
-    let!(:component) { create(:meeting_component, organization:) }
-    let!(:proposal) { create(:proposal) }
+    let!(:component) { create(:meeting_component, organization:, participatory_space:) }
+    let(:admin) { create(:user, :admin, organization:, notifications_sending_frequency: "daily", locale: "en") }
+    let!(:user) { create(:user, organization:, notifications_sending_frequency: "daily", locale: "en") }
     let!(:record) do
       create(
         :meeting,
         :published,
         component:,
-        author: user,
+        author: admin,
         title: { en: "Event notifier" },
-        description: { en: "This debate is for testing purposes" }
+        description: { en: "This meeting is for testing purposes" }
       )
     end
+
+    let!(:follow) { create(:follow, followable: record, user:) }
+
     let(:params) do
       {
-        proposals: proposal,
-        closing_report: "This meeting is closed for testing purposes",
-        attendees_count: 1
+        closing_report: { en: "This meeting is closed" },
+        video_url: "",
+        audio_url: "",
+        closing_visible: true,
+        attendees_count: 1,
+        contributions_count: 1,
+        attending_organizations: ""
       }
     end
-    let(:form) { Decidim::Meetings::CloseMeetingForm.from_params(params) }
+
+    let(:form) do
+      Decidim::Meetings::Admin::CloseMeetingForm.from_params(params).with_context(
+        current_component: component,
+        current_user: admin,
+        current_organization: organization
+      )
+    end
     let(:command) { Decidim::Meetings::Admin::CloseMeeting.new(form, record) }
 
     it_behaves_like "event notification"
