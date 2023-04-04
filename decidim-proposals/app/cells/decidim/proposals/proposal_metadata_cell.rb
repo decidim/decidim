@@ -3,7 +3,7 @@
 module Decidim
   module Proposals
     # This cell renders metadata for an instance of a Proposal
-    class ProposalCardMetadataCell < Decidim::CardMetadataCell
+    class ProposalMetadataCell < Decidim::CardMetadataCell
       include Decidim::Proposals::ApplicationHelper
 
       delegate :state, to: :model
@@ -23,7 +23,7 @@ module Decidim
       def state_item
         return if state.blank?
 
-        { text: content_tag(:span, humanize_proposal_state(state), class: state_class) }
+        { text: content_tag(:span, humanize_proposal_state(state), class: "label #{state_class}") }
       end
 
       def state_class

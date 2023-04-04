@@ -1,7 +1,7 @@
 <%= link_to resource_path, class: "profile__user" do %>
   <div class="profile__user-avatar-container">
     <div class="profile__user-avatar">
-      <%= image_tag avatar, alt: t("decidim.author.avatar", name: decidim_sanitize(name)), class: "w-full h-full object-cover" %>
+      <%= image_tag avatar, alt: t("decidim.author.avatar", name: decidim_sanitize(name)) %>
     </div>
     <%= render :badge if show_badge? %>
   </div>
