@@ -24,6 +24,10 @@
       @apply grid grid-cols-[67.6%_30%] items-center gap-x-20 pt-8;
     }
 
+    &__content__fixed{
+      @apply grid grid-cols-12 items-center gap-x-20;
+    }
+
     &__content__header{
       @apply col-span-2 text-2xl mb-2;
 
@@ -190,6 +194,14 @@
   @apply col-span-10 grid-cols-[57.6%_30%];
 }
 
+.voting-wrapper .budget-summary__content__fixed--progressbar{
+  @apply col-start-4 col-span-5;
+}
+
+.budget-summary__content__fixed--progressbar{
+  @apply col-start-2 col-span-8;
+}
+
 #budgets.card__highlight-container{
   @apply mb-0;
 }
@@ -201,5 +213,7 @@
 }
 
 .progressbox-fixed-wrapper.is-progressbox-visible {
-  display: block;
+  @apply block;
 }
+
+

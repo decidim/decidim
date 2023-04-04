@@ -71,10 +71,10 @@
   <% end %>
 </div>
 <div class="w-full progressbox-fixed-wrapper" data-progressbox-fixed>
-  <div class="layout-1col">
-    <div class="budget-summary__content py-4 budget-summary__progressbar">
-      <div class="justify-self-center justify-items-center" >
-        <div class="progress budget-progress" role="progressbar" aria-valuenow="<%= current_order_budget_percent %>" aria-valuetext="<%= current_order_budget_percent %>%" aria-valuemin="0" aria-valuemax="100">
+  <div class="layout-1col mb-0">
+    <div class="budget-summary__content__fixed py-4 budget-summary__progressbar col-span-12">
+      <div class="budget-summary__content__fixed--progressbar">
+        <div class="progress budget-progress relative" role="progressbar" aria-valuenow="<%= current_order_budget_percent %>" aria-valuetext="<%= current_order_budget_percent %>%" aria-valuemin="0" aria-valuemax="100">
           <div class="progress-meter budget-summary__progressbar--minimum" style="width: <%= current_order_budget_percent_minimum %>%">
             <span class="progress-meter--minimum-mark"></span>
           </div>
@@ -114,7 +114,7 @@
         </div>
       </div>
       <% if !current_order_checked_out? && voting_open? %>
-        <button class="button button__secondary button__lg" data-dialog-open="budget-confirm" <%= budget_confirm_disabled_attr %>>
+        <button class="button button__secondary button__lg col-span-3" data-dialog-open="budget-confirm" <%= budget_confirm_disabled_attr %>>
           <span>
             <%= t("vote", scope: "decidim.budgets.projects.budget_summary") %>
           </span>
