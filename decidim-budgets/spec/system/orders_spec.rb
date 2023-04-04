@@ -697,7 +697,7 @@ describe "Orders", type: :system do
 
         let(:proposals) { create_list(:proposal, 1, :with_votes, component: proposal_component) }
 
-        it "doesn't show supports" do
+        it "does not show supports" do
           visit_budget
           click_link translated(project.title)
 
