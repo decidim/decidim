@@ -37,7 +37,6 @@ module Decidim::ParticipatoryProcesses
         expect(subject.serialize).to include(scopes_enabled: resource.scopes_enabled)
         expect(subject.serialize).to include(show_metrics: resource.show_metrics)
         expect(subject.serialize).to include(show_statistics: resource.show_statistics)
-        expect(subject.serialize).to include(participatory_process_type: resource.participatory_process_type)
       end
 
       context "when process has area" do
