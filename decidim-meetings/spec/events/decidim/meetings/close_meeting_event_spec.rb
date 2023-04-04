@@ -23,10 +23,9 @@ describe Decidim::Meetings::CloseMeetingEvent do
     end
   end
 
-  describe "meeting closed event" do
+  describe "notification digest mail" do
     let!(:component) { create(:meeting_component, organization:, participatory_space:) }
-    let(:admin) { create(:user, :admin, organization:, notifications_sending_frequency: "daily", locale: "en") }
-    let(:user) { create(:user, organization:, notifications_sending_frequency: "daily", locale: "en") }
+    let(:admin) { create(:user, :admin, organization:, notifications_sending_frequency: "daily") }
     let!(:record) do
       create(
         :meeting,
@@ -61,6 +60,16 @@ describe Decidim::Meetings::CloseMeetingEvent do
     end
     let(:command) { Decidim::Meetings::Admin::CloseMeeting.new(form, record) }
 
-    it_behaves_like "event notification"
+    context "when daily notification mail" do
+      let(:user) { create(:user, organization:, notifications_sending_frequency: "daily") }
+
+      it_behaves_like "notification digest mail"
+    end
+
+    context "when weekly notification mail" do
+      let(:user) { create(:user, organization:, notifications_sending_frequency: "weekly") }
+
+      it_behaves_like "notification digest mail"
+    end
   end
 end

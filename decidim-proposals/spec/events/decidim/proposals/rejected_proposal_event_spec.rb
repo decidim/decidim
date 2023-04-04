@@ -43,10 +43,9 @@ describe Decidim::Proposals::RejectedProposalEvent do
     end
   end
 
-  describe "proposal rejected event" do
+  describe "notification digest mail" do
     let!(:component) { create(:proposal_component, organization:) }
     let!(:record) { create(:proposal, component:, users: [user], title: { en: "Event notifier" }) }
-    let(:user) { create(:user, :admin, organization:, notifications_sending_frequency: "daily", locale: "en") }
 
     let!(:form) do
       Decidim::Proposals::Admin::ProposalAnswerForm.from_params(form_params).with_context(
@@ -68,6 +67,16 @@ describe Decidim::Proposals::RejectedProposalEvent do
 
     let!(:command) { Decidim::Proposals::Admin::AnswerProposal.new(form, record) }
 
-    it_behaves_like "event notification"
+    context "when daily notification mail" do
+      let(:user) { create(:user, :admin, organization:, notifications_sending_frequency: "daily") }
+
+      it_behaves_like "notification digest mail"
+    end
+
+    context "when weekly notification mail" do
+      let(:user) { create(:user, :admin, organization:, notifications_sending_frequency: "weekly") }
+
+      it_behaves_like "notification digest mail"
+    end
   end
 end

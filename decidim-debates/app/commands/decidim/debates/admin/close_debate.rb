@@ -22,7 +22,6 @@ module Decidim
           return broadcast(:invalid) if form.invalid?
 
           close_debate
-
           broadcast(:ok, debate)
         end
 
