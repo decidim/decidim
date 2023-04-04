@@ -1,3 +1,13 @@
+<% if !voting_finished? && voted? %>
+  <div class="section">
+    <h2 class="h5 md:h3 decorator mb-8">
+      <%= t("voted_budgets", scope: "decidim.budgets.budgets_list") %>
+    </h2>
+
+    <%= render :voted %>
+  </div>
+<% end %>
+
 <% if budgets.where.not(id: voted.map(&:id)).exists? %>
   <div class="section" id="budgets-to-vote">
     <h2 class="h5 md:h3 decorator my-8">
@@ -10,14 +20,3 @@
 <% end %>
 
 <%= decidim_paginate budget_paginate %>
-
-<% if !voting_finished? && voted? %>
-  <div class="section">
-    <h2 class="h5 md:h3 decorator mb-8">
-      <%= t("voted_budgets", scope: "decidim.budgets.budgets_list") %>
-    </h2>
-
-    <%= render :voted %>
-    </div>
-  </div>
-<% end %>
