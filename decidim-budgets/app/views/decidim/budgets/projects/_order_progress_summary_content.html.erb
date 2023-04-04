@@ -69,6 +69,15 @@
       <%= icon "check-line" %>
     </button>
   <% end %>
+  <% if include_heading %>
+    <% if current_order_checked_out? %>
+      <%= link_to budget_order_path(return_to: "budget"), method: :delete, class: "button button__lg button__secondary cancel-order", data: { confirm: t("are_you_sure", scope: "decidim.budgets.projects.budget_confirm") } do %>
+        <span><%= t("cancel_order", scope: "decidim.budgets.projects.budget_summary") %></span>
+        <%= icon "delete-bin-line" %>
+      <% end %>
+    <% end %>
+  <% end %>
+
 </div>
 <div class="w-full progressbox-fixed-wrapper" data-progressbox-fixed>
   <div class="layout-1col mb-0">
@@ -121,14 +130,14 @@
           <%= icon "check-line" %>
         </button>
       <% end %>
+      <% if include_heading %>
+        <% if current_order_checked_out? %>
+          <%= link_to budget_order_path(return_to: "budget"), method: :delete, class: "button button__lg button__secondary cancel-order col-span-3", data: { confirm: t("are_you_sure", scope: "decidim.budgets.projects.budget_confirm") } do %>
+            <span><%= t("cancel_order", scope: "decidim.budgets.projects.budget_summary") %></span>
+            <%= icon "delete-bin-line" %>
+          <% end %>
+        <% end %>
+      <% end %>
     </div>
   </div>
 </div>
-<% if include_heading %>
-  <% if current_order_checked_out? %>
-    <%= link_to budget_order_path(return_to: "budget"), method: :delete, class: "button button__lg button__secondary cancel-order", data: { confirm: t("are_you_sure", scope: "decidim.budgets.projects.budget_confirm") } do %>
-      <span><%= t("cancel_order", scope: "decidim.budgets.projects.budget_summary") %></span>
-      <%= icon "delete-bin-line" %>
-    <% end %>
-  <% end %>
-<% end %>
