@@ -22,21 +22,38 @@ export default function createQuillEditor(container) {
 
   let addImage = $(container).data("editorImages");
 
-  if (toolbar === "full") {
+  /**
+   * - basic = only basic controls without titles
+   * - content = basic + headings
+   * - multimedia = basic + image + video
+   * - full = basic + headings + image + video
+   */
+  if (toolbar === "basic") {
+    // nothing to do
+  } else if (toolbar === "content") {
+    quillToolbar = [
+      [{ header: [2, 3, 4, 5, 6, false] }],
+      ...quillToolbar
+    ];
+  } else if (toolbar === "multimedia") {
+    quillToolbar = [
+      ...quillToolbar,
+      ["video"]
+    ];
+
+    if (addImage) {
+      quillToolbar.push(["image"]);
+    }
+  } else if (toolbar === "full") {
     quillToolbar = [
       [{ header: [2, 3, 4, 5, 6, false] }],
       ...quillToolbar,
       ["video"]
     ];
-  } else if (toolbar === "basic") {
-    quillToolbar = [
-      ...quillToolbar,
-      ["video"]
-    ];
-  }
 
-  if (addImage) {
-    quillToolbar.push(["image"]);
+    if (addImage) {
+      quillToolbar.push(["image"]);
+    }
   }
 
   let modules = {
