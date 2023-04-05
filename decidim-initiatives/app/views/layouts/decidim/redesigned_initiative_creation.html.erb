@@ -6,6 +6,10 @@
   <%= stylesheet_pack_tag "decidim_initiatives", media: "all" %>
 <% end %>
 
+<% content_for :css_content do %>
+  <%= stylesheet_pack_tag "decidim_verifications", media: "all" %>
+<% end %>
+
 <%= render "layouts/decidim/redesigned_application" do %>
   <% if wizard_steps.first == step %>
     <%= yield %>
