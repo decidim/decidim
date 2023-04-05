@@ -1,37 +1,37 @@
 /* Callout foundation overwrites */
 
-.callout{
-  &.primary{
+.callout {
+  &.primary {
     background: $light-gray;
     border-color: $medium-gray;
     border-left: 8px solid var(--primary);
   }
 
-  &.secondary{
+  &.secondary {
     border-color: $medium-gray;
     border-left: 8px solid var(--secondary);
   }
 
-  &.success{
+  &.success {
     border-color: $medium-gray;
     border-left: 8px solid var(--success);
   }
 
-  &.warning{
+  &.warning {
     border-color: $medium-gray;
     border-left: 8px solid var(--warning);
   }
 
-  &.alert{
+  &.alert {
     border-color: $medium-gray;
     border-left: 8px solid var(--alert);
   }
 
-  a{
+  a {
     text-decoration: underline;
   }
 }
 
-.callout.flash{
+.callout.flash {
   margin-bottom: 0;
 }

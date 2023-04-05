@@ -1,5 +1,5 @@
-.meeting-polls{
-  &__header{
+.meeting-polls {
+  &__header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -8,7 +8,7 @@
     border: 1px solid #e8e8e8;
   }
 
-  &__button{
+  &__button {
     @extend .button;
     @extend .button--nomargin;
     @extend .hollow;
@@ -17,36 +17,36 @@
     background-color: $white;
     font-weight: 600;
 
-    &.is-open{
+    &.is-open {
       background-color: var(--primary);
       color: $white;
     }
 
-    & + &{
-      margin-left: $global-margin * .25;
+    & + & {
+      margin-left: $global-margin * 0.25;
     }
   }
 
-  &__close{
+  &__close {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-left: 2 * $global-margin;
     cursor: pointer;
 
-    a{
+    a {
       display: flex;
       align-items: baseline;
     }
 
-    span{
+    span {
       font-size: 2em;
-      margin-left: $global-margin * .5;
-      line-height: .5;
+      margin-left: $global-margin * 0.5;
+      line-height: 0.5;
     }
 
-    svg{
-      margin-left: .2rem;
+    svg {
+      margin-left: 0.2rem;
     }
   }
 }

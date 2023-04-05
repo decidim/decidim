@@ -1,75 +1,75 @@
-.filter{
+.filter {
   @apply flex items-center gap-2 p-1.5 rounded cursor-pointer;
 
-  &-container{
+  &-container {
     @apply sticky top-0 md:top-2 rounded border-4 border-background md:border-0;
 
-    [id*="dropdown-menu"]{
+    [id*="dropdown-menu"] {
       @apply gap-2;
     }
 
-    [data-controls*="panel"]{
+    [data-controls*="panel"] {
       @apply flex items-center justify-start gap-2 p-2 first-of-type:[&>svg]:block last-of-type:[&>svg]:hidden;
 
-      & > span{
+      & > span {
         @apply text-gray-2 font-bold;
       }
 
-      > svg{
+      > svg {
         @apply w-4 h-4 text-gray fill-current;
       }
 
       &[aria-expanded="false"] > svg:last-of-type,
-      &[aria-expanded="true"] > svg:first-of-type{
+      &[aria-expanded="true"] > svg:first-of-type {
         @apply hidden;
       }
 
       &[aria-expanded="true"] > svg:last-of-type,
-      &[aria-expanded="false"] > svg:first-of-type{
+      &[aria-expanded="false"] > svg:first-of-type {
         @apply block;
       }
     }
 
     // nesting cases
-    [id*="panel"] [id*="panel"]{
+    [id*="panel"] [id*="panel"] {
       @apply ml-6;
     }
 
-    & + &{
+    & + & {
       @apply mt-4 md:mt-8;
     }
   }
 
-  &-search{
+  &-search {
     @apply w-full relative;
 
-    input{
+    input {
       @apply w-full;
     }
 
-    button{
+    button {
       @apply absolute right-2 inset-y-2;
     }
   }
 
-  svg{
+  svg {
     @apply w-4 h-4 flex-none text-gray fill-current;
   }
 
-  span{
+  span {
     @apply text-sm text-gray-2 whitespace-nowrap first-letter:uppercase;
   }
 
-  [data-controls*="panel"]{
+  [data-controls*="panel"] {
     @apply ml-auto p-0 first-of-type:[&>svg]:block last-of-type:[&>svg]:hidden;
 
     &[aria-expanded="false"] > svg:last-of-type,
-    &[aria-expanded="true"] > svg:first-of-type{
+    &[aria-expanded="true"] > svg:first-of-type {
       @apply hidden;
     }
 
     &[aria-expanded="true"] > svg:last-of-type,
-    &[aria-expanded="false"] > svg:first-of-type{
+    &[aria-expanded="false"] > svg:first-of-type {
       @apply block;
     }
   }
@@ -77,14 +77,14 @@
   &-container [type="radio"]:checked + &,
   &-container [type="checkbox"]:checked + &,
   &-container [id*="dropdown-menu"] .is-active,
-  &:hover{
+  &:hover {
     @apply bg-background-4;
 
-    svg{
+    svg {
       @apply text-secondary;
     }
 
-    span{
+    span {
       @apply text-secondary font-semibold;
     }
   }
