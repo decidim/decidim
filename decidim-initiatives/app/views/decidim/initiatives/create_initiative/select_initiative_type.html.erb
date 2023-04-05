@@ -1,8 +1,9 @@
 <% default_type = available_initiative_types.first %>
-<h1 class="h1 decorator my-8">
-  <%= t("new", scope: "decidim.initiatives.create_initiative.select_initiative_type") %>
-</h1>
-
+<div class="text-center py-10">
+  <h1 class="h3 md:h1 decorator inline-block text-left">
+    <%= t("new", scope: "decidim.initiatives.create_initiative.select_initiative_type") %>
+  </h1>
+</div>
 <div class="callout secondary mt-8">
   <%= t("select_initiative_type_help", scope: "decidim.initiatives.create_initiative.select_initiative_type") %>
   <%= link_to t("more_information", scope: "decidim.initiatives.create_initiative.select_initiative_type"), decidim.page_path("initiatives"), target: "_blank", class: 'button button__sm button__text-secondary block' %>
@@ -17,7 +18,7 @@
             <span><%= raw translated_attribute type.description %></span>
           </div>
           <%= icon "arrow-right-s-line", class: "fill-primary verification__icon" %>
-          <%= decidim_form_for(@form, url: next_wizard_path, method: :put, html: { id: "new_initiative_#{type.id}", class: "form select-initiative_type-form" }) do |f| %>
+          <%= decidim_form_for(@form, url: next_wizard_path, method: :put, html: { id: "new_initiative_#{type.id}", class: "form-defaults" }) do |f| %>
             <%= f.hidden_field :type_id, value: type.id, id: "initiative_type_id_#{ type.id }" %>
             <%= f.submit t("select", scope: "decidim.initiatives.create_initiative.select_initiative_type"), class: "button" %>
           <% end %>

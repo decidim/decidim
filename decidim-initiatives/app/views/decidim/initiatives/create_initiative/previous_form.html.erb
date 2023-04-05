@@ -1,29 +1,28 @@
-<% content_for :back_link do %>
-  <%= link_to :back do %>
-    <%= icon "chevron-left", class: "icon--small", role: "img", "aria-hidden": true %>
-    <%= t("back", scope: "decidim.initiatives.create_initiative.previous_form") %>
-  <% end %>
-<% end %>
 <div class="callout secondary">
   <%= t("help", scope: "decidim.initiatives.create_initiative.previous_form") %>
   <%= link_to t("more_information", scope: "decidim.initiatives.create_initiative.previous_form"), decidim.page_path("initiatives"), target: "_blank", class: 'button button__sm button__text-secondary block' %>
 </div>
 <div class="card">
   <div class="card__content">
-    <%= decidim_form_for(@form, url: next_wizard_path, method: :put, html: { class: "form new_initiative_previous_form" }) do |f| %>
-      <%= form_required_explanation %>
-      <%= f.hidden_field :type_id %>
+    <%= decidim_form_for(@form, url: next_wizard_path, method: :put, html: { class: "form-defaults" }) do |f| %>
+      <div class="form__wrapper">
+        <%= form_required_explanation %>
+        <%= f.hidden_field :type_id %>
 
-      <div class="field">
         <%= f.text_field :title, autofocus: true %>
-      </div>
 
-      <div class="field">
         <%= text_editor_for(f, :description, lines: 8, toolbar: :full) %>
-      </div>
 
-      <div class="actions">
-        <%= f.submit t("continue", scope: "decidim.initiatives.create_initiative.previous_form"), class: "button" %>
+        <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
+          <% content_for :back_link do %>
+            <%= link_to :back, class: "button button__sm md:button__lg button__text-secondary" do %>
+              <%= icon "arrow-left-line", class: "fill-current" %>
+              <%= t("back", scope: "decidim.initiatives.create_initiative.previous_form") %>
+            <% end %>
+          <% end %>
+          <%= f.submit t("continue", scope: "decidim.initiatives.create_initiative.previous_form"), class: "button button__sm md:button__lg button__secondary" %>
+          </div>
+        </div>
       </div>
     <% end %>
   </div>

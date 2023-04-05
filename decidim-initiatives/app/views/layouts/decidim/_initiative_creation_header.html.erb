@@ -1,29 +1,15 @@
-<div class="columns large-3">
-  <div class="m-bottom">
-    <%= link_to :back do %>
-      <%= icon "chevron-left", class: "icon--small", role: "img", "aria-hidden": true %> <%= t(".back") %>
+<ol class="wizard__steps">
+  <% wizard_steps.each do |wizard_step| %>
+    <% next if wizard_step.to_s == "promotal_committee" && !promotal_committee_required? %>
+    <% next if wizard_step.to_s == "select_initiative_type" && single_initiative_type? %>
+    <% if step == wizard_step %>
+      <li class="step--active">
+        <%= t(".#{wizard_step}") %>
+      </li>
+    <% else %>
+      <li>
+        <%= t(".#{wizard_step}") %>
+      </li>
     <% end %>
-  </div>
-  <div class="section">
-    <p>
-      <%= t(".title") %>
-    </p>
-  </div>
-  <div class="show-for-large">
-    <ol class="wizard__steps">
-      <% wizard_steps.each do |wizard_step| %>
-        <% next if wizard_step.to_s == "promotal_committee" && !promotal_committee_required? %>
-        <% next if wizard_step.to_s == "select_initiative_type" && single_initiative_type? %>
-        <% if step == wizard_step %>
-          <li class="step--active">
-            <%= t(".#{wizard_step}") %>
-          </li>
-        <% else %>
-          <li>
-            <%= t(".#{wizard_step}") %>
-          </li>
-        <% end %>
-      <% end %>
-    </ol>
-  </div>
-</div>
+  <% end %>
+</ol>
