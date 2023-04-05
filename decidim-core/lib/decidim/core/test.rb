@@ -77,5 +77,5 @@ require "decidim/core/test/shared_examples/resource_endorsed_event_examples"
 require "decidim/core/test/shared_examples/versions_controller_examples"
 require "decidim/core/test/shared_examples/mcell_examples"
 
-require "#{Gem.loaded_specs["decidim-core"].full_gem_path}/app/jobs/decidim/application_job"
-require "#{Gem.loaded_specs["decidim-core"].full_gem_path}/app/jobs/decidim/hide_all_created_by_author_job"
+# require "#{Gem.loaded_specs["decidim-core"].full_gem_path}/app/jobs/decidim/application_job"
+# require "#{Gem.loaded_specs["decidim-core"].full_gem_path}/app/jobs/decidim/hide_all_created_by_author_job"
