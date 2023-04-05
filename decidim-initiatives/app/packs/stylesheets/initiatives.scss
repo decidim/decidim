@@ -1,3 +1,41 @@
 .initiatives{
   @apply block;
 }
+
+.wizard__steps{
+  @apply text-center my-8 text-center list-none;
+
+  font-size: 0;
+
+  li{
+    @apply p-4 relative inline-block cursor-default text-sm text-success;
+
+    border: none;
+    color: green;
+  }
+
+  li::before{
+    @apply h-[10px] bg-success inline-block text-center w-[10px] absolute mt-4 top-[-10px] right-[35%] rounded-full;
+
+    content: "";
+  }
+
+  li::after{
+    @apply h-[2px] bg-success inline-block w-full absolute top-[20%] right-0 rounded-full;
+
+    content: "";
+  }
+
+  .step--active{
+    @apply font-bold;
+
+    & ~ li{
+      @apply text-gray-2;
+
+      &::before,
+      &::after{
+        @apply bg-gray-2;
+      }
+    }
+  }
+}

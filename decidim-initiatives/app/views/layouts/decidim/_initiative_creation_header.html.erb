@@ -1,3 +1,9 @@
+<div class="text-center py-10">
+  <h1 class="h3 md:h1 decorator inline-block text-left">
+    <%= t("new", scope: "decidim.initiatives.create_initiative.select_initiative_type") %>
+  </h1>
+</div>
+
 <ol class="wizard__steps">
   <% wizard_steps.each do |wizard_step| %>
     <% next if wizard_step.to_s == "promotal_committee" && !promotal_committee_required? %>
