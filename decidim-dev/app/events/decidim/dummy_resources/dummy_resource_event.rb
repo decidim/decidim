@@ -2,7 +2,7 @@
 
 module Decidim
   module DummyResources
-    class DummyResourceEvent < Events::BaseEvent
+    class DummyResourceEvent < Decidim::Events::BaseEvent
       include Decidim::Events::EmailEvent
       include Decidim::Events::NotificationEvent
     end
