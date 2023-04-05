@@ -2,23 +2,23 @@
 
 module Decidim
   module Blogs
-    # This cell renders the Grid (:g) post card
+    # This cell renders the List (:l) post card
     # for an given instance of a Post
-    class PostGCell < Decidim::CardGCell
+    class PostLCell < Decidim::CardLCell
       delegate :photo, to: :model
 
       private
 
       def has_image?
-        resource_image_path.present?
+        true
       end
 
-      def show_description?
+      def has_description?
         true
       end
 
       def metadata_cell
-        "decidim/blogs/post_metadata_g"
+        "decidim/blogs/post_metadata"
       end
 
       def resource_image_path

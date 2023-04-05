@@ -63,7 +63,7 @@
     }
 
     &-image{
-      @apply w-1/4 flex-none rounded overflow-hidden aspect-[1.5] -ml-[calc(1rem+4px)];
+      @apply w-1/5 flex-none rounded overflow-hidden aspect-[1.5] -ml-[calc(1rem+4px)];
 
       img{
         @apply w-full h-full object-cover;
