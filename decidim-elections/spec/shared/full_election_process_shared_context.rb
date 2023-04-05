@@ -58,16 +58,19 @@ module Decidim
       end
 
       def access_trustee_zone(trustee_index, upload_keys = true) # rubocop:disable Style/OptionalBooleanParameter
-        trustee = election.trustees[trustee_index]
+        trustee = election.trustees.order(:id)[trustee_index]
 
         relogin_as trustee.user, scope: :user
         visit decidim.decidim_elections_trustee_zone_path
+        expect(page).to have_content("Participant settings")
+        expect(page).to have_css("#user-settings-tabs li a[aria-current='page']", text: "Trustee zone")
 
         if upload_keys
           expect(page).to have_content("Upload your identification keys")
           attach_file(private_keys[trustee_index]) do
             click_button "Upload your identification keys"
           end
+          expect(page).to have_content("You have been assigned to act as a Trustee in some of the elections celebrated in this platform.")
         end
 
         expect(page).not_to have_content("Upload your identification keys")
