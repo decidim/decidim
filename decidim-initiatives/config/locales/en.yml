@@ -391,6 +391,7 @@ en:
           more_information: "(More information)"
         select_initiative_type:
           back: Back
+          new: Create a new initiative
           choose_html: I want to create a <strong>%{title}</strong>
           more_information: "More information"
           select: I want to promote this initiative

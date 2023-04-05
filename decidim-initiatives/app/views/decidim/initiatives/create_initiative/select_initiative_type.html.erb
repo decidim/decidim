@@ -1,5 +1,8 @@
 <% default_type = available_initiative_types.first %>
 <%= render layout: "layouts/decidim/shared/layout_center", locals: { back_path: initiatives_path } do %>
+  <h1 class="h1 decorator my-8">
+    <%= t("new", scope: "decidim.initiatives.create_initiative.select_initiative_type") %>
+  </h1>
 
   <div class="callout secondary mt-8">
     <%= t("select_initiative_type_help", scope: "decidim.initiatives.create_initiative.select_initiative_type") %>
