@@ -8,84 +8,65 @@ module Decidim
       class ConferenceUserRolesController < Decidim::Conferences::Admin::ApplicationController
         include Concerns::ConferenceAdmin
         include Decidim::Admin::Officializations::Filterable
+        include Decidim::Admin::ParticipatorySpace::UserRoleController
+
+        def authorization_scope = :conference_user_role
+
+        def resource_form = form(ConferenceUserRoleForm)
+
+        def space_index_path = conference_user_roles_path(current_conference)
+
+        def i18n_scope = "decidim.admin"
 
         def index
-          enforce_permission_to :index, :conference_user_role
-          @conference_user_roles = filtered_collection
-        end
-
-        def new
-          enforce_permission_to :create, :conference_user_role
-          @form = form(ConferenceUserRoleForm).instance
+          enforce_permission_to :index, authorization_scope
+          @user_roles = filtered_collection
         end
 
         def create
-          enforce_permission_to :create, :conference_user_role
-          @form = form(ConferenceUserRoleForm).from_params(params)
+          enforce_permission_to :create, authorization_scope
+          @form = resource_form.from_params(params)
 
           CreateConferenceAdmin.call(@form, current_user, current_conference) do
             on(:ok) do
-              flash[:notice] = I18n.t("conference_user_roles.create.success", scope: "decidim.admin")
+              flash[:notice] = I18n.t("conference_user_roles.create.success", scope: i18n_scope)
             end
 
             on(:invalid) do
-              flash[:alert] = I18n.t("conference_user_roles.create.error", scope: "decidim.admin")
+              flash[:alert] = I18n.t("conference_user_roles.create.error", scope: i18n_scope)
             end
-            redirect_to conference_user_roles_path(current_conference)
+            redirect_to space_index_path
           end
-        end
-
-        def edit
-          @user_role = collection.find(params[:id])
-          enforce_permission_to :update, :conference_user_role, user_role: @user_role
-          @form = form(ConferenceUserRoleForm).from_model(@user_role.user)
         end
 
         def update
           @user_role = collection.find(params[:id])
-          enforce_permission_to :update, :conference_user_role, user_role: @user_role
-          @form = form(ConferenceUserRoleForm).from_params(params)
+          enforce_permission_to :update, authorization_scope, user_role: @user_role
+          @form = resource_form.from_params(params)
 
           UpdateConferenceAdmin.call(@form, @user_role) do
             on(:ok) do
-              flash[:notice] = I18n.t("conference_user_roles.update.success", scope: "decidim.admin")
-              redirect_to conference_user_roles_path(current_conference)
+              flash[:notice] = I18n.t("conference_user_roles.update.success", scope: i18n_scope)
+              redirect_to space_index_path
             end
 
             on(:invalid) do
-              flash.now[:alert] = I18n.t("conference_user_roles.update.error", scope: "decidim.admin")
+              flash.now[:alert] = I18n.t("conference_user_roles.update.error", scope: i18n_scope)
               render :edit
             end
           end
         end
 
         def destroy
-          @conference_user_role = collection.find(params[:id])
-          enforce_permission_to :destroy, :conference_user_role, user_role: @conference_user_role
-
-          DestroyConferenceAdmin.call(@conference_user_role, current_user) do
-            on(:ok) do
-              flash[:notice] = I18n.t("conference_user_roles.destroy.success", scope: "decidim.admin")
-              redirect_to conference_user_roles_path(current_conference)
-            end
-          end
-        end
-
-        def resend_invitation
           @user_role = collection.find(params[:id])
-          enforce_permission_to :invite, :conference_user_role, user_role: @user_role
+          enforce_permission_to :destroy, authorization_scope, user_role: @user_role
 
-          InviteUserAgain.call(@user_role.user, "invite_admin") do
+          DestroyConferenceAdmin.call(@user_role, current_user) do
             on(:ok) do
-              flash[:notice] = I18n.t("users.resend_invitation.success", scope: "decidim.admin")
-            end
-
-            on(:invalid) do
-              flash[:alert] = I18n.t("users.resend_invitation.error", scope: "decidim.admin")
+              flash[:notice] = I18n.t("conference_user_roles.destroy.success", scope: i18n_scope)
+              redirect_to space_index_path
             end
           end
-
-          redirect_to conference_user_roles_path(current_conference)
         end
 
         private
