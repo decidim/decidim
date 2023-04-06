@@ -17,8 +17,6 @@ module Decidim
 
         def i18n_scope = "decidim.admin.assembly_user_roles"
 
-        def destroy_command = Decidim::Assemblies::Admin::DestroyAssemblyAdmin
-
         def create_command = Decidim::Assemblies::Admin::CreateAssemblyAdmin
 
         def update_command = Decidim::Assemblies::Admin::UpdateAssemblyAdmin

@@ -17,8 +17,6 @@ module Decidim
 
         def i18n_scope = "decidim.admin.participatory_process_user_roles"
 
-        def destroy_command = Decidim::ParticipatoryProcesses::Admin::DestroyParticipatoryProcessAdmin
-
         def create_command = Decidim::ParticipatoryProcesses::Admin::CreateParticipatoryProcessAdmin
 
         def update_command = Decidim::ParticipatoryProcesses::Admin::UpdateParticipatoryProcessAdmin

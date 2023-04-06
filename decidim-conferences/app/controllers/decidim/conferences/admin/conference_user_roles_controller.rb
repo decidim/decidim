@@ -17,8 +17,6 @@ module Decidim
 
         def i18n_scope = "decidim.admin.conference_user_roles"
 
-        def destroy_command = Decidim::Conferences::Admin::DestroyConferenceAdmin
-
         def create_command = Decidim::Conferences::Admin::CreateConferenceAdmin
 
         def update_command = Decidim::Conferences::Admin::UpdateConferenceAdmin

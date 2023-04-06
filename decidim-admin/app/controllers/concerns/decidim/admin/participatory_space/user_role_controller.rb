@@ -95,6 +95,8 @@ module Decidim
 
           private
 
+          def destroy_command = Decidim::Admin::ParticipatorySpace::DestroyAdmin
+
           def search_field_predicate
             :name_or_nickname_or_email_cont
           end
