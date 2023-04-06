@@ -199,8 +199,12 @@ ja:
           new: 新しい管理者
         verify: 確認する
       admin_terms_of_service:
+        accept:
+          error: 管理者向け利用規約に同意する際にエラーが発生しました。
+          success: 素晴らしい！あなたは管理者向け利用規約に同意しました。
         actions:
           accept: 利用規約に同意する
+          are_you_sure: 管理者向け利用規約を本当に拒否しますか？
           refuse: 管理者規約を拒否する
           title: 利用規約に同意する
         required_review:
@@ -283,6 +287,7 @@ ja:
       block_user:
         new:
           action: アカウントをブロックして理由を送信
+          already_reported_html: この操作を続けると、参加者のコンテンツは全て非表示になります。 <a href="%{link}">アカウントをブロック</a>。
           description: ユーザーをブロックすると、そのアカウントは利用できなくなります。ユーザーのブロックを解除することを検討する方法に関するガイドラインを判定通知に含めることができます。
           justification: 判定理由
           title: ユーザー %{name} をブロックする
@@ -672,6 +677,7 @@ ja:
         report:
           reasons:
             does_not_belong: 属していません
+            hidden_during_block: ユーザーのブロック中は非表示
             offensive: 攻撃的
             spam: スパム
         reports:
