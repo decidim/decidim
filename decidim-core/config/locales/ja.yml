@@ -1401,7 +1401,7 @@ ja:
         already_reported: このコンテンツはすでに報告されており、管理者が確認します。
         close: 閉じる
         description: このコンテンツは不適切ですか？
-        does_not_belong: 違法行為、自殺の脅威、個人情報、または %{organization_name} に属していないと思われる何かが含まれています。
+        does_not_belong: 違法行為、自殺予告、個人情報、または %{organization_name} に属していないと思われる内容が含まれています。
         hide: 非表示
         hide_content: このコンテンツを非表示
         offensive: 差別的な内容、誹謗中傷などの不適切な内容が含まれています。
