@@ -9,6 +9,8 @@ module Decidim
         extend ActiveSupport::Concern
 
         included do
+          include Decidim::Admin::Officializations::Filterable
+
           def index
             enforce_permission_to :index, authorization_scope
             @user_roles = filtered_collection
@@ -40,6 +42,16 @@ module Decidim
             end
 
             redirect_to space_index_path
+          end
+
+          private
+
+          def search_field_predicate
+            :name_or_nickname_or_email_cont
+          end
+
+          def filters
+            [:invitation_accepted_at_present, :last_sign_in_at_present]
           end
         end
       end

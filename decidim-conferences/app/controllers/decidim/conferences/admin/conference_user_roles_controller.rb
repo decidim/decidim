@@ -7,7 +7,6 @@ module Decidim
       #
       class ConferenceUserRolesController < Decidim::Conferences::Admin::ApplicationController
         include Concerns::ConferenceAdmin
-        include Decidim::Admin::Officializations::Filterable
         include Decidim::Admin::ParticipatorySpace::UserRoleController
 
         def authorization_scope = :conference_user_role
@@ -65,14 +64,6 @@ module Decidim
         end
 
         private
-
-        def search_field_predicate
-          :name_or_nickname_or_email_cont
-        end
-
-        def filters
-          [:invitation_accepted_at_present, :last_sign_in_at_present]
-        end
 
         def collection
           @collection ||= Decidim::ConferenceUserRole
