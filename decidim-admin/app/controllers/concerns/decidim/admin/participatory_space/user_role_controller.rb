@@ -11,6 +11,8 @@ module Decidim
         included do
           include Decidim::Admin::Officializations::Filterable
 
+          helper_method :filtered_collection
+
           def index
             enforce_permission_to :index, authorization_scope
             @user_roles = filtered_collection
