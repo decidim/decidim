@@ -16,7 +16,7 @@ module Decidim
 
         def space_index_path = assembly_user_roles_path(current_assembly)
 
-        def i18n_scope = "decidim.admin"
+        def i18n_scope = "decidim.admin.assembly_user_roles"
 
         def create
           enforce_permission_to :create, authorization_scope
@@ -24,12 +24,12 @@ module Decidim
 
           CreateAssemblyAdmin.call(@form, current_user, current_assembly) do
             on(:ok) do
-              flash[:notice] = I18n.t("assembly_user_roles.create.success", scope: i18n_scope)
+              flash[:notice] = I18n.t("create.success", scope: i18n_scope)
               redirect_to space_index_path
             end
 
             on(:invalid) do
-              flash[:alert] = I18n.t("assembly_user_roles.create.error", scope: i18n_scope)
+              flash[:alert] = I18n.t("create.error", scope: i18n_scope)
               render :new
             end
           end
@@ -42,12 +42,12 @@ module Decidim
 
           UpdateAssemblyAdmin.call(@form, @user_role) do
             on(:ok) do
-              flash[:notice] = I18n.t("assembly_user_roles.update.success", scope: i18n_scope)
+              flash[:notice] = I18n.t("update.success", scope: i18n_scope)
               redirect_to space_index_path
             end
 
             on(:invalid) do
-              flash.now[:alert] = I18n.t("assembly_user_roles.update.error", scope: i18n_scope)
+              flash.now[:alert] = I18n.t("update.error", scope: i18n_scope)
               render :edit
             end
           end
@@ -59,7 +59,7 @@ module Decidim
 
           DestroyAssemblyAdmin.call(@user_role, current_user) do
             on(:ok) do
-              flash[:notice] = I18n.t("assembly_user_roles.destroy.success", scope: i18n_scope)
+              flash[:notice] = I18n.t("destroy.success", scope: i18n_scope)
               redirect_to space_index_path
             end
           end

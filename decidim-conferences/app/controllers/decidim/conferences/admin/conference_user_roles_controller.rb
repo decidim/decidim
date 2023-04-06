@@ -16,7 +16,7 @@ module Decidim
 
         def space_index_path = conference_user_roles_path(current_conference)
 
-        def i18n_scope = "decidim.admin"
+        def i18n_scope = "decidim.admin.conference_user_roles"
 
         def create
           enforce_permission_to :create, authorization_scope
@@ -24,11 +24,11 @@ module Decidim
 
           CreateConferenceAdmin.call(@form, current_user, current_conference) do
             on(:ok) do
-              flash[:notice] = I18n.t("conference_user_roles.create.success", scope: i18n_scope)
+              flash[:notice] = I18n.t("create.success", scope: i18n_scope)
             end
 
             on(:invalid) do
-              flash[:alert] = I18n.t("conference_user_roles.create.error", scope: i18n_scope)
+              flash[:alert] = I18n.t("create.error", scope: i18n_scope)
             end
             redirect_to space_index_path
           end
@@ -41,12 +41,12 @@ module Decidim
 
           UpdateConferenceAdmin.call(@form, @user_role) do
             on(:ok) do
-              flash[:notice] = I18n.t("conference_user_roles.update.success", scope: i18n_scope)
+              flash[:notice] = I18n.t("update.success", scope: i18n_scope)
               redirect_to space_index_path
             end
 
             on(:invalid) do
-              flash.now[:alert] = I18n.t("conference_user_roles.update.error", scope: i18n_scope)
+              flash.now[:alert] = I18n.t("update.error", scope: i18n_scope)
               render :edit
             end
           end
@@ -58,7 +58,7 @@ module Decidim
 
           DestroyConferenceAdmin.call(@user_role, current_user) do
             on(:ok) do
-              flash[:notice] = I18n.t("conference_user_roles.destroy.success", scope: i18n_scope)
+              flash[:notice] = I18n.t("destroy.success", scope: i18n_scope)
               redirect_to space_index_path
             end
           end
