@@ -1612,11 +1612,11 @@ ja:
         decline: 招待を拒否
         hello: こんにちは、 %{email} さん。
         ignore: |-
-          招待を受け取りたくない場合は、このメールを無視してください。<br />上記のリンクにアクセスし、ニックネームとパスワードを設定するまで、アカウントは作成されません。
+          招待を受け入れたくない場合は、このメールを無視してください。<br />上記のリンクにアクセスし、アカウントIDとパスワードを設定するまで、あなたのアカウントは作成されません。
         invited_you_as_admin: "%{invited_by} さんが %{application}の管理者としてあなたを招待しました。以下のリンクから承認できます。"
         invited_you_as_private_user: "%{invited_by} が %{application}の非公開参加者としてあなたを招待しました。以下のリンクから承認できます。"
-        someone_invited_you: 誰かが %{application}にあなたを招待しました。以下のリンクから受け入れることができます。
-        someone_invited_you_as_admin: 誰かが %{application}の管理者としてあなたを招待しました。以下のリンクから承認できます。
+        someone_invited_you: '%{application} にあなたを招待しました。以下のリンクから受け入れることができます。'
+        someone_invited_you_as_admin: '%{application} の管理者としてあなたを招待しました。以下のリンクから承認できます。'
         someone_invited_you_as_private_user: '%{application}の非公開参加者としてあなたを招待しました。以下のリンクから承認できます。'
         subject: 招待の説明
       invite_admin:
@@ -1682,8 +1682,8 @@ ja:
     shared:
       links:
         back: 戻る
-        didn_t_receive_confirmation_instructions: 確認の指示を受信しませんでしたか？
-        didn_t_receive_unlock_instructions: ロック解除の指示を受け取れませんでしたか？
+        didn_t_receive_confirmation_instructions: ユーザ登録確認メールが届かない方はこちら
+        didn_t_receive_unlock_instructions: ロック解除の手順を送信したい方はこちら
         forgot_your_password: パスワードをお忘れですか？
         sign_in: ログイン
         sign_in_with_provider: '%{provider} でログイン'
@@ -1831,7 +1831,7 @@ ja:
       language_chooser:
         choose_language: 言語を選択
       notifications_dashboard:
-        mark_all_as_read: すべて既読にする
+        mark_all_as_read: すべての通知を削除する
         mark_as_read: 既読にする
       offline_banner:
         cache_version_page: 注意：あなたのネットワークはオフラインです。これは以前にアクセスしているページのキャッシュされたバージョンです。おそらくコンテンツが最新ではありません。
