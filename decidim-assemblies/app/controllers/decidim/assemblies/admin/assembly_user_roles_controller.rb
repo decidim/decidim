@@ -18,11 +18,6 @@ module Decidim
 
         def i18n_scope = "decidim.admin"
 
-        def index
-          enforce_permission_to :index, authorization_scope
-          @user_roles = filtered_collection
-        end
-
         def create
           enforce_permission_to :create, authorization_scope
           @form = resource_form.from_params(params)

@@ -9,6 +9,11 @@ module Decidim
         extend ActiveSupport::Concern
 
         included do
+          def index
+            enforce_permission_to :index, authorization_scope
+            @user_roles = filtered_collection
+          end
+
           def new
             enforce_permission_to :create, authorization_scope
             @form = resource_form.instance
