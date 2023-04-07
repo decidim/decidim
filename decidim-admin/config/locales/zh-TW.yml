@@ -83,6 +83,7 @@ zh-TW:
         organization_admin_name: 組織管理員名稱
         organization_locales: 組織語言
         primary_color: 主要
+        reference_prefix: 參考前置字元
   activerecord:
     attributes:
       decidim/static_page:
