@@ -2,9 +2,13 @@
 
 require "spec_helper"
 
-module Decidim::Assemblies
-  describe Admin::CreateAssemblyAdmin do
-    subject { described_class.new(form, my_assembly) }
+module Decidim::Admin
+  describe ParticipatorySpace::CreateAdmin, versioning: true do
+    subject { described_class.new(form, my_assembly, event_class:, event:, role_class:) }
+
+    let(:role_class) { Decidim::AssemblyUserRole }
+    let(:event) { "decidim.events.assembly.role_assigned" }
+    let(:event_class) { Decidim::RoleAssignedToAssemblyEvent }
 
     let(:my_assembly) { create :assembly }
     let!(:email) { "my_email@example.org" }
@@ -25,8 +29,8 @@ module Decidim::Assemblies
     let(:invalid) { false }
     let(:user_notification) do
       {
-        event: "decidim.events.assembly.role_assigned",
-        event_class: Decidim::RoleAssignedToAssemblyEvent,
+        event:,
+        event_class:,
         resource: my_assembly,
         affected_users: [user],
         extra: { role: kind_of(String) }
@@ -59,7 +63,7 @@ module Decidim::Assemblies
 
       it "creates the user role" do
         subject.call
-        roles = Decidim::AssemblyUserRole.where(user:)
+        roles = role_class.where(user:)
 
         expect(roles.count).to eq 1
         expect(roles.first.role).to eq "admin"
@@ -88,7 +92,7 @@ module Decidim::Assemblies
       it "traces the action", versioning: true do
         expect(Decidim.traceability)
           .to receive(:create!)
-          .with(Decidim::AssemblyUserRole, current_user, role_params, log_info)
+          .with(role_class, current_user, role_params, log_info)
           .and_call_original
 
         expect { subject.call }.to change(Decidim::ActionLog, :count)
@@ -127,7 +131,7 @@ module Decidim::Assemblies
         it "does not get created twice" do
           expect { subject.call }.to broadcast(:ok)
 
-          roles = Decidim::AssemblyUserRole.where(user:)
+          roles = role_class.where(user:)
 
           expect(roles.count).to eq 1
           expect(roles.first.role).to eq "admin"

@@ -87,10 +87,10 @@ shared_examples "manage assembly admins examples" do
           role: "admin"
         ).with_context(current_user: user)
 
-        Decidim::Assemblies::Admin::CreateAssemblyAdmin.call(
-          form,
-          assembly
-        )
+        Decidim::Admin::ParticipatorySpace::CreateAdmin.call(form, assembly,
+                                                             event_class: Decidim::RoleAssignedToAssemblyEvent,
+                                                             event: "decidim.events.assembly.role_assigned",
+                                                             role_class: Decidim::AssemblyUserRole)
 
         visit current_path
       end

@@ -2,9 +2,13 @@
 
 require "spec_helper"
 
-module Decidim::ParticipatoryProcesses
-  describe Admin::CreateParticipatoryProcessAdmin, versioning: true do
-    subject { described_class.new(form, my_process) }
+module Decidim::Admin
+  describe ParticipatorySpace::CreateAdmin, versioning: true do
+    subject { described_class.new(form, my_process, event_class:, event:, role_class:) }
+
+    let(:role_class) { Decidim::ParticipatoryProcessUserRole }
+    let(:event) { "decidim.events.participatory_process.role_assigned" }
+    let(:event_class) { Decidim::ParticipatoryProcessRoleAssignedEvent }
 
     let(:my_process) { create :participatory_process }
     let!(:email) { "my_email@example.org" }
@@ -25,8 +29,8 @@ module Decidim::ParticipatoryProcesses
     let(:invalid) { false }
     let(:user_notification) do
       {
-        event: "decidim.events.participatory_process.role_assigned",
-        event_class: Decidim::ParticipatoryProcessRoleAssignedEvent,
+        event:,
+        event_class:,
         resource: my_process,
         affected_users: [user],
         extra: { role: kind_of(String) }
@@ -59,7 +63,7 @@ module Decidim::ParticipatoryProcesses
 
       it "creates the user role" do
         subject.call
-        roles = Decidim::ParticipatoryProcessUserRole.where(user:)
+        roles = role_class.where(user:)
 
         expect(roles.count).to eq 1
         expect(roles.first.role).to eq "admin"
@@ -74,7 +78,7 @@ module Decidim::ParticipatoryProcesses
       it "traces the action", versioning: true do
         expect(Decidim.traceability)
           .to receive(:create!)
-          .with(Decidim::ParticipatoryProcessUserRole, current_user, role_params, log_info)
+          .with(role_class, current_user, role_params, log_info)
           .and_call_original
 
         expect { subject.call }.to change(Decidim::ActionLog, :count)
@@ -127,7 +131,7 @@ module Decidim::ParticipatoryProcesses
         it "does not get created twice" do
           expect { subject.call }.to broadcast(:ok)
 
-          roles = Decidim::ParticipatoryProcessUserRole.where(user:)
+          roles = role_class.where(user:)
 
           expect(roles.count).to eq 1
           expect(roles.first.role).to eq "admin"

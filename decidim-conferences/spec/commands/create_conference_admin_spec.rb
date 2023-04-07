@@ -2,9 +2,13 @@
 
 require "spec_helper"
 
-module Decidim::Conferences
-  describe Admin::CreateConferenceAdmin do
-    subject { described_class.new(form, my_conference) }
+module Decidim::Admin
+  describe ParticipatorySpace::CreateAdmin, versioning: true do
+    subject { described_class.new(form, my_conference, event_class:, event:, role_class:) }
+
+    let(:role_class) { Decidim::ConferenceUserRole }
+    let(:event) { "decidim.events.conferences.role_assigned" }
+    let(:event_class) { Decidim::ConferenceRoleAssignedEvent }
 
     let(:my_conference) { create :conference }
     let!(:email) { "my_email_conference@example.org" }
@@ -25,8 +29,8 @@ module Decidim::Conferences
     let(:invalid) { false }
     let(:user_notification) do
       {
-        event: "decidim.events.conferences.role_assigned",
-        event_class: ConferenceRoleAssignedEvent,
+        event:,
+        event_class:,
         resource: my_conference,
         affected_users: [user],
         extra: { role: kind_of(String) }
@@ -60,7 +64,7 @@ module Decidim::Conferences
 
       it "creates the user role" do
         subject.call
-        roles = Decidim::ConferenceUserRole.where(user:)
+        roles = role_class.where(user:)
 
         expect(roles.count).to eq 1
         expect(roles.first.role).to eq "admin"
@@ -89,7 +93,7 @@ module Decidim::Conferences
       it "traces the action", versioning: true do
         expect(Decidim.traceability)
           .to receive(:create!)
-          .with(Decidim::ConferenceUserRole, current_user, role_params, log_info)
+          .with(role_class, current_user, role_params, log_info)
           .and_call_original
 
         expect { subject.call }.to change(Decidim::ActionLog, :count)
@@ -121,7 +125,7 @@ module Decidim::Conferences
         it "does not get created twice" do
           expect { subject.call }.to broadcast(:ok)
 
-          roles = Decidim::ConferenceUserRole.where(user:)
+          roles = role_class.where(user:)
 
           expect(roles.count).to eq 1
           expect(roles.first.role).to eq "admin"

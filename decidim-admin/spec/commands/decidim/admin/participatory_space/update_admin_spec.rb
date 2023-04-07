@@ -2,9 +2,12 @@
 
 require "spec_helper"
 
-module Decidim::ParticipatoryProcesses
-  describe Admin::UpdateParticipatoryProcessAdmin, versioning: true do
-    subject { described_class.new(form, role) }
+module Decidim::Admin
+  describe ParticipatorySpace::UpdateAdmin, versioning: true do
+    subject { described_class.new(form, role, event_class:, event:) }
+
+    let(:event) { "decidim.events.participatory_process.role_assigned" }
+    let(:event_class) { Decidim::ParticipatoryProcessRoleAssignedEvent }
 
     let(:my_process) { create :participatory_process }
     let(:role) { create :participatory_process_user_role, user:, participatory_process: my_process, role: :admin }
@@ -22,8 +25,8 @@ module Decidim::ParticipatoryProcesses
     let(:invalid) { false }
     let(:user_notification) do
       {
-        event: "decidim.events.participatory_process.role_assigned",
-        event_class: Decidim::ParticipatoryProcessRoleAssignedEvent,
+        event:,
+        event_class:,
         resource: my_process,
         affected_users: [user],
         extra: { role: kind_of(String) }
