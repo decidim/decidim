@@ -85,6 +85,69 @@ zh-TW:
         organization_locales: 組織語言
         primary_color: 主要
         reference_prefix: 參考前置字元
+        rich_text_editor_in_public_views: 為參與者啟用多功能編輯器
+        secondary_color: 次要
+        secondary_hosts: 次要主機
+        send_welcome_notification: 發送歡迎通知
+        success_color: 成功
+        time_zone: 時區
+        tos_version: 服務條款版本
+        twitter_handler: Twitter 處理器
+        user_groups_enabled: 啟用群組功能
+        users_registration_mode: 使用者註冊模式
+        warning_color: 警告
+        welcome_notification_body: 歡迎通知內容
+        welcome_notification_subject: 歡迎通知主旨
+        youtube_handler: YouTube 處理器
+      participatory_space_private_user:
+        email: 電子郵件
+        name: 名稱
+      scope:
+        code: 代碼
+        name: 名稱
+        organization: 組織
+        parent_id: 上層
+        scope_type: 範圍類型
+        scope_type_id: 範圍類型
+      scope_type:
+        name: 名稱
+        organization: 組織
+        plural: 複數
+      settings:
+        scope_id: 範圍
+      static_page:
+        allow_public_access: 允許未登入使用者操作
+        changed_notably: 已經有很多異動
+        content: 內容
+        organization: 組織
+        show_in_footer: 在頁尾顯示
+        slug: URL 固定連結
+        title: 標題
+        topic_id: 主題
+        weight: 排序位置
+      static_page_topic:
+        description: 說明
+        show_in_footer: 在頁尾顯示
+        title: 標題
+        weight: 排序位置
+      user_group_csv_verification:
+        file: 檔案
+    errors:
+      models:
+        organization:
+          attributes:
+            official_img_footer:
+              allowed_file_content_types: 圖片有誤
+            official_img_header:
+              allowed_file_content_types: 圖片有誤
+        participatory_space_private_user_csv_import:
+          attributes:
+            file:
+              malformed: 匯入檔案格式有誤，請小心閱讀教學並且確認檔案是使用 UTF-8 編碼
+        user_group_csv_verification:
+          attributes:
+            file:
+              malformed: 匯入檔案格式有誤，請小心閱讀教學並且確認檔案是使用 UTF-8 編碼
   activerecord:
     attributes:
       decidim/static_page:
@@ -117,3 +180,20 @@ zh-TW:
           new: 新電子報
         participatory_space_private_user:
           new: 新參與空間私有使用者
+        per_page: 每頁
+        permissions: 權限
+        reject: 拒絕
+        share: 分享
+      attachments:
+        new:
+          title: 新增附件
+        update:
+          error: 更新這個附件時發生錯誤.
+          success: 已成功更新附件
+      attachments_privacy_warning:
+        message: 在操作私有空間的附加檔案時請注意，任何參與者可以把文件分享給其他人
+      autocomplete:
+        no_results: 找不到結果
+      block_user:
+        new:
+          action: 封鎖帳號並且發送理由
