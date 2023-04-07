@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim::ParticipatoryProcesses
   describe Admin::CreateParticipatoryProcessAdmin, versioning: true do
-    subject { described_class.new(form, current_user, my_process) }
+    subject { described_class.new(form, my_process) }
 
     let(:my_process) { create :participatory_process }
     let!(:email) { "my_email@example.org" }
@@ -18,6 +18,7 @@ module Decidim::ParticipatoryProcesses
         email:,
         role:,
         name:,
+        current_user:,
         current_participatory_space: my_process
       )
     end

@@ -89,7 +89,6 @@ shared_examples "manage assembly admins examples" do
 
         Decidim::Assemblies::Admin::CreateAssemblyAdmin.call(
           form,
-          user,
           assembly
         )
 

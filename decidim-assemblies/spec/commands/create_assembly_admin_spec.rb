@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim::Assemblies
   describe Admin::CreateAssemblyAdmin do
-    subject { described_class.new(form, current_user, my_assembly) }
+    subject { described_class.new(form, my_assembly) }
 
     let(:my_assembly) { create :assembly }
     let!(:email) { "my_email@example.org" }
@@ -18,6 +18,7 @@ module Decidim::Assemblies
         email:,
         role:,
         name:,
+        current_user:,
         current_participatory_space: my_assembly
       )
     end

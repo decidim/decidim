@@ -54,7 +54,7 @@ module Decidim
 
           @existing_user = User.find_by(
             email: form.email,
-            organization: conference.organization
+            organization: participatory_space.organization
           )
 
           InviteUserAgain.call(@existing_user, invitation_instructions) if @existing_user&.invitation_pending?
@@ -73,7 +73,7 @@ module Decidim
         def user_form
           OpenStruct.new(name: form.name,
                          email: form.email.downcase,
-                         organization: conference.organization,
+                         organization: participatory_space.organization,
                          admin: false,
                          invited_by: current_user,
                          invitation_instructions:)

@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim::Conferences
   describe Admin::CreateConferenceAdmin do
-    subject { described_class.new(form, current_user, my_conference) }
+    subject { described_class.new(form, my_conference) }
 
     let(:my_conference) { create :conference }
     let!(:email) { "my_email_conference@example.org" }
@@ -18,7 +18,8 @@ module Decidim::Conferences
         email:,
         role:,
         name:,
-        current_participatory_space: my_conference
+        current_participatory_space: my_conference,
+        current_user:
       )
     end
     let(:invalid) { false }
