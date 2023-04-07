@@ -21,13 +21,8 @@ module Decidim
 
         def update_command = Decidim::Conferences::Admin::UpdateConferenceAdmin
 
-        private
+        def role_class = Decidim::ConferenceUserRole
 
-        def collection
-          @collection ||= Decidim::ConferenceUserRole
-                          .joins(:user)
-                          .where(conference: current_conference)
-        end
       end
     end
   end

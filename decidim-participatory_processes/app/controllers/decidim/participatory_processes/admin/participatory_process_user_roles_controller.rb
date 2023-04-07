@@ -21,13 +21,8 @@ module Decidim
 
         def update_command = Decidim::ParticipatoryProcesses::Admin::UpdateParticipatoryProcessAdmin
 
-        private
+        def role_class = Decidim::ParticipatoryProcessUserRole
 
-        def collection
-          @collection ||= Decidim::ParticipatoryProcessUserRole
-                          .joins(:user)
-                          .where(participatory_process: current_participatory_process)
-        end
       end
     end
   end

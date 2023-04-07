@@ -95,6 +95,10 @@ module Decidim
 
           private
 
+          def collection
+            @collection ||= role_class.joins(:user).for_space(current_participatory_space)
+          end
+
           def destroy_command = Decidim::Admin::ParticipatorySpace::DestroyAdmin
 
           def search_field_predicate

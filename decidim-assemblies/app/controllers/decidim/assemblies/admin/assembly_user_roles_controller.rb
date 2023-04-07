@@ -21,13 +21,7 @@ module Decidim
 
         def update_command = Decidim::Assemblies::Admin::UpdateAssemblyAdmin
 
-        private
-
-        def collection
-          @collection ||= Decidim::AssemblyUserRole
-                          .joins(:user)
-                          .where(assembly: current_assembly)
-        end
+        def role_class = Decidim::AssemblyUserRole
       end
     end
   end
