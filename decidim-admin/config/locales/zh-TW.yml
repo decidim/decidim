@@ -82,6 +82,9 @@ zh-TW:
         omnipresent_banner_url: 網址
         organization_admin_email: 組織管理員信箱
         organization_admin_name: 組織管理員名稱
+        organization_locales: 組織語言
+        primary_color: 主要
+        reference_prefix: 參考前置字元
     errors:
       new_import:
         attributes:
