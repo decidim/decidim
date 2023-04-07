@@ -17,8 +17,6 @@ module Decidim
 
         def i18n_scope = "decidim.admin.participatory_process_user_roles"
 
-        def create_command = Decidim::ParticipatoryProcesses::Admin::CreateParticipatoryProcessAdmin
-
         def role_class = Decidim::ParticipatoryProcessUserRole
 
         def event = "decidim.events.participatory_process.role_assigned"

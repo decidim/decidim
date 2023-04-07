@@ -17,8 +17,6 @@ module Decidim
 
         def i18n_scope = "decidim.admin.conference_user_roles"
 
-        def create_command = Decidim::Conferences::Admin::CreateConferenceAdmin
-
         def role_class = Decidim::ConferenceUserRole
 
         def event = "decidim.events.conferences.role_assigned"

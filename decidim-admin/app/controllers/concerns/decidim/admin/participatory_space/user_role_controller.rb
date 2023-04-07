@@ -107,6 +107,8 @@ module Decidim
 
           def update_command = Decidim::Admin::ParticipatorySpace::UpdateAdmin
 
+          def create_command = Decidim::Admin::ParticipatorySpace::CreateAdmin
+
           def search_field_predicate
             :name_or_nickname_or_email_cont
           end

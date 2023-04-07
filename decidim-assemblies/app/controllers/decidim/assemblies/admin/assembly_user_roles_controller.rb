@@ -17,8 +17,6 @@ module Decidim
 
         def i18n_scope = "decidim.admin.assembly_user_roles"
 
-        def create_command = Decidim::Assemblies::Admin::CreateAssemblyAdmin
-
         def role_class = Decidim::AssemblyUserRole
 
         def event = "decidim.events.assembly.role_assigned"
