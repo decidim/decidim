@@ -9,10 +9,13 @@ module Decidim
         # form - A form object with the params.
         # participatory_space - The ParticipatoryProcess that will hold the
         #   user role
-        def initialize(form, participatory_space)
+        def initialize(form, participatory_space, options = {})
           @form = form
           @current_user = form.current_user
           @participatory_space = participatory_space
+          @event_class = options.delete(:event_class)
+          @event = options.delete(:event)
+          @role_class = options.delete(:role_class)
         end
 
         # Executes the command. Broadcasts these events:
@@ -40,9 +43,11 @@ module Decidim
 
         attr_reader :form, :participatory_space, :current_user, :user
 
-        def event = raise NotImplementedError, "Event method must be implemented for #{self.class.name}"
+        def event_class = @event_class || (raise NotImplementedError, "You must define an event_class")
 
-        def event_class = raise NotImplementedError, "Event class method must be implemented for #{self.class.name}"
+        def event = @event || (raise NotImplementedError, "You must define an event")
+
+        def role_class = @role_class || (raise NotImplementedError, "You must define a role_class")
 
         # This is command specific
         # It is expected to
@@ -52,8 +57,6 @@ module Decidim
           Decidim.traceability.create!(role_class, current_user, role_params, extra_info)
           send_notification user
         end
-
-        def role_class = raise NotImplementedError
 
         # This is command specific
         # It is expected to find if a UserRole for the same user, role and participatory_process already exist

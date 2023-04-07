@@ -19,10 +19,11 @@ module Decidim
 
         def create_command = Decidim::Conferences::Admin::CreateConferenceAdmin
 
-        def update_command = Decidim::Conferences::Admin::UpdateConferenceAdmin
-
         def role_class = Decidim::ConferenceUserRole
 
+        def event = "decidim.events.conferences.role_assigned"
+
+        def event_class = Decidim::Conferences::ConferenceRoleAssignedEvent
       end
     end
   end

@@ -19,9 +19,11 @@ module Decidim
 
         def create_command = Decidim::Assemblies::Admin::CreateAssemblyAdmin
 
-        def update_command = Decidim::Assemblies::Admin::UpdateAssemblyAdmin
-
         def role_class = Decidim::AssemblyUserRole
+
+        def event = "decidim.events.assembly.role_assigned"
+
+        def event_class = Decidim::RoleAssignedToAssemblyEvent
       end
     end
   end

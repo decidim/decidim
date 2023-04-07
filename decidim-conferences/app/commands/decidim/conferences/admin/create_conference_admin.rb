@@ -10,12 +10,6 @@ module Decidim
 
         attr_reader :form, :participatory_space, :current_user, :user
 
-        def event = "decidim.events.conferences.role_assigned"
-
-        def event_class = Decidim::Conferences::ConferenceRoleAssignedEvent
-
-        def role_class = Decidim::ConferenceUserRole
-
         def role_params = super.merge(conference: participatory_space)
       end
     end

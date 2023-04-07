@@ -19,10 +19,11 @@ module Decidim
 
         def create_command = Decidim::ParticipatoryProcesses::Admin::CreateParticipatoryProcessAdmin
 
-        def update_command = Decidim::ParticipatoryProcesses::Admin::UpdateParticipatoryProcessAdmin
-
         def role_class = Decidim::ParticipatoryProcessUserRole
 
+        def event = "decidim.events.participatory_process.role_assigned"
+
+        def event_class = Decidim::ParticipatoryProcessRoleAssignedEvent
       end
     end
   end

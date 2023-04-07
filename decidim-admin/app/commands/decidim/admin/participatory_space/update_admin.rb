@@ -8,9 +8,13 @@ module Decidim
         #
         # form - A form object with the params.
         # user_role - The UserRole to update
-        def initialize(form, user_role)
+        # event_class - The event class to be used when notifying the user
+        # event - The event name to be used when notifying the user
+        def initialize(form, user_role, options = {})
           @form = form
           @user_role = user_role
+          @event_class = options.delete(:event_class)
+          @event = options.delete(:event)
         end
 
         # Executes the command. Broadcasts these events:
@@ -31,9 +35,9 @@ module Decidim
 
         attr_reader :form, :user_role
 
-        def event = raise NotImplementedError, "Event method must be implemented for #{self.class.name}"
+        def event_class = @event_class || (raise NotImplementedError, "You must define an event_class")
 
-        def event_class = raise NotImplementedError, "Event class method must be implemented for #{self.class.name}"
+        def event = @event || (raise NotImplementedError, "You must define an event")
 
         def update_role!
           log_info = {

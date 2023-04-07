@@ -33,7 +33,7 @@ module Decidim
             enforce_permission_to :create, authorization_scope
             @form = resource_form.from_params(params)
 
-            create_command.call(@form, current_participatory_space) do
+            create_command.call(@form, current_participatory_space, event_class:, event:, role_class:) do
               on(:ok) do
                 flash[:notice] = I18n.t("create.success", scope: i18n_scope)
                 redirect_to space_index_path
@@ -51,7 +51,7 @@ module Decidim
             enforce_permission_to :update, authorization_scope, user_role: @user_role
             @form = resource_form.from_params(params)
 
-            update_command.call(@form, @user_role) do
+            update_command.call(@form, @user_role, event_class:, event:) do
               on(:ok) do
                 flash[:notice] = I18n.t("update.success", scope: i18n_scope)
                 redirect_to space_index_path
@@ -95,11 +95,17 @@ module Decidim
 
           private
 
+          def event = raise NotImplementedError, "Event method must be implemented for #{self.class.name}"
+
+          def event_class = raise NotImplementedError, "Event class method must be implemented for #{self.class.name}"
+
           def collection
             @collection ||= role_class.joins(:user).for_space(current_participatory_space)
           end
 
           def destroy_command = Decidim::Admin::ParticipatorySpace::DestroyAdmin
+
+          def update_command = Decidim::Admin::ParticipatorySpace::UpdateAdmin
 
           def search_field_predicate
             :name_or_nickname_or_email_cont
