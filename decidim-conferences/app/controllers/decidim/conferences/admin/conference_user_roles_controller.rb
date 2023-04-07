@@ -5,9 +5,8 @@ module Decidim
     module Admin
       # Controller that allows managing conference user roles.
       #
-      class ConferenceUserRolesController < Decidim::Conferences::Admin::ApplicationController
+      class ConferenceUserRolesController < Decidim::Admin::ParticipatorySpace::UserRoleController
         include Concerns::ConferenceAdmin
-        include Decidim::Admin::ParticipatorySpace::UserRoleController
 
         def authorization_scope = :conference_user_role
 

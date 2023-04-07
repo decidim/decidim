@@ -5,9 +5,8 @@ module Decidim
     module Admin
       # Controller that allows managing participatory process user roles.
       #
-      class ParticipatoryProcessUserRolesController < Decidim::Admin::ApplicationController
+      class ParticipatoryProcessUserRolesController < Decidim::Admin::ParticipatorySpace::UserRoleController
         include Concerns::ParticipatoryProcessAdmin
-        include Decidim::Admin::ParticipatorySpace::UserRoleController
 
         def authorization_scope = :process_user_role
 
