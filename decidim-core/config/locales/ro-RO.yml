@@ -135,11 +135,31 @@ ro:
         create: "%{user_name} a creat zona %{resource_name}"
         delete: "%{user_name} a șters zona %{resource_name}"
         update: "%{user_name} a actualizat zona %{resource_name}"
+      area_type:
+        create: "%{user_name} a creat tipul de zonă %{resource_name}"
+        delete: "%{user_name} a șters tipul de zonă %{resource_name}"
+        update: "%{user_name} a actualizat tipul de zonă %{resource_name}"
+      attachment:
+        create: "%{user_name} a creat ataşamentul %{resource_name}"
+        delete: "%{user_name} a șters atașamentul %{resource_name}"
+        update: "%{user_name} a actualizat atașamentul %{resource_name}"
+      attachment_collection:
+        create: "%{user_name} a creat colecția de atașamente %{resource_name}"
+        delete: "%{user_name} a șters colecția de atașamente %{resource_name}"
+        update: "%{user_name} a actualizat colecția de atașamente %{resource_name}"
+      category:
+        create: "%{user_name} a adăugat categoria %{resource_name} în spațiul %{space_name}"
+        delete: "%{user_name} a șters categoria %{resource_name} din spațiul %{space_name}"
+        update: "%{user_name} a actualizat categoria %{resource_name} în spațiul %{space_name}"
       component:
         create: "%{user_name} a adăugat componenta %{resource_name} la spațiul %{space_name}"
         delete: "%{user_name} a eliminat componenta %{resource_name} din spațiul %{space_name}"
+        export_component: "%{user_name} a exportat %{resource_name} %{component_name} în %{space_name} ca %{format_name}"
         publish: "%{user_name} a publicat componenta %{resource_name} în spațiul %{space_name}"
         unpublish: "%{user_name} a anulat publicarea componentei %{resource_name} din spațiul %{space_name}"
+        update_permissions_with_space: "%{user_name} a actualizat permisiunile %{resource_name} în %{space_name}"
+      contextual_help_section:
+        update: "%{user_name} a actualizat secțiunea de ajutor în %{resource_name}"
       helpers:
         answers: răspunsuri
         comments: comentarii
@@ -161,6 +181,7 @@ ro:
         update: "%{user_name} a actualizat aplicația OAuth %{resource_name}"
       organization:
         update: "%{user_name} a actualizat setările organizației"
+        update_external_domain: "%{user_name} a actualizat domeniile externe ale organizației"
       participatory_space_private_user:
         create: "%{user_name} a invitat pe %{resource_name} să fie un participant privat"
         create_via_csv: "%{user_name} a invitat pe %{resource_name} prin CSV să fie un participant privat"
@@ -172,6 +193,10 @@ ro:
         delete_with_parent: "%{user_name} a şters subdomeniul %{resource_name} în cadrul domeniului %{parent_scope}"
         update: "%{user_name} a actualizat domeniul de interes %{resource_name}"
         update_with_parent: "%{user_name} a actualizat subdomeniul %{resource_name} în cadrul domeniului %{parent_scope}"
+      scope_type:
+        create: "%{user_name} a creat tipul de domeniu %{resource_name}"
+        delete: "%{user_name} a șters tipul de domeniu %{resource_name}"
+        update: "%{user_name} a actualizat tipul de domeniu %{resource_name}"
       static_page:
         create: "%{user_name} a creat pagina statică %{resource_name}"
         delete: "%{user_name} a șters pagina statică %{resource_name}"
@@ -187,7 +212,9 @@ ro:
         unblock: "%{user_name} utilizator deblocat %{resource_name}"
         unofficialize: "%{user_name} a revocat validarea pentru participantul %{resource_name}"
       user_group:
+        block: "%{user_name} a blocat grupul de utilizatori %{resource_name}"
         reject: "%{user_name} a respins verificarea grupului %{resource_name}"
+        unblock: "%{user_name} a deblocat grupul de utilizatori %{resource_name}"
         verify: "%{user_name} a verificat grupul %{resource_name}"
         verify_via_csv: "%{user_name} a verificat grupul %{resource_name} printr-un fișier CSV"
       user_moderation:
