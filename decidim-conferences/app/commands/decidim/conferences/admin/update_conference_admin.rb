@@ -5,60 +5,10 @@ module Decidim
     module Admin
       # A command with all the business logic when updated a participatory
       # process admin in the system.
-      class UpdateConferenceAdmin < Decidim::Command
-        # Public: Initializes the command.
-        #
-        # form - A form object with the params.
-        # user_role - The ConferenceUSerRole to update
-        def initialize(form, user_role)
-          @form = form
-          @user_role = user_role
-        end
+      class UpdateConferenceAdmin < Decidim::Admin::ParticipatorySpace::UpdateAdmin
+        def event = "decidim.events.conferences.role_assigned"
 
-        # Executes the command. Broadcasts these events:
-        #
-        # - :ok when everything is valid.
-        # - :invalid if the form was not valid and we could not proceed.
-        #
-        # Returns nothing.
-        def call
-          return broadcast(:invalid) if form.invalid?
-          return broadcast(:invalid) unless user_role
-
-          update_role!
-          broadcast(:ok)
-        end
-
-        private
-
-        attr_reader :form, :user_role
-
-        def update_role!
-          log_info = {
-            resource: {
-              title: user_role.user.name
-            }
-          }
-          Decidim.traceability.update!(
-            user_role,
-            form.current_user,
-            { role: form.role },
-            log_info
-          )
-          send_notification user_role.user
-        end
-
-        def send_notification(user)
-          Decidim::EventsManager.publish(
-            event: "decidim.events.conferences.role_assigned",
-            event_class: Decidim::Conferences::ConferenceRoleAssignedEvent,
-            resource: form.current_participatory_space,
-            affected_users: [user],
-            extra: {
-              role: form.role
-            }
-          )
-        end
+        def event_class = Decidim::Conferences::ConferenceRoleAssignedEvent
       end
     end
   end
