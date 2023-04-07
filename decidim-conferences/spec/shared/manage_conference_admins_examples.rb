@@ -92,7 +92,7 @@ shared_examples "manage conference admins examples" do
           conference,
           role_class: Decidim::ConferenceUserRole,
           event: "decidim.events.conferences.role_assigned",
-          event_class: Decidim::ConferenceRoleAssignedEvent
+          event_class: Decidim::Conferences::ConferenceRoleAssignedEvent
         )
 
         visit current_path

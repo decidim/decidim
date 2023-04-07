@@ -6,7 +6,7 @@ module Decidim::Admin
     subject { described_class.new(form, user_role, event_class:, event:) }
 
     let(:event) { "decidim.events.conferences.role_assigned" }
-    let(:event_class) { ConferenceRoleAssignedEvent }
+    let(:event_class) { Decidim::Conferences::ConferenceRoleAssignedEvent }
 
     let(:my_conference) { create :conference }
     let!(:new_role) { "collaborator" }

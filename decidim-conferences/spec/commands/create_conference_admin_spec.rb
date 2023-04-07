@@ -8,7 +8,7 @@ module Decidim::Admin
 
     let(:role_class) { Decidim::ConferenceUserRole }
     let(:event) { "decidim.events.conferences.role_assigned" }
-    let(:event_class) { Decidim::ConferenceRoleAssignedEvent }
+    let(:event_class) { Decidim::Conferences::ConferenceRoleAssignedEvent }
 
     let(:my_conference) { create :conference }
     let!(:email) { "my_email_conference@example.org" }

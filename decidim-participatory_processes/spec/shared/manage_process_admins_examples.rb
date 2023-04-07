@@ -88,9 +88,12 @@ shared_examples "manage process admins examples" do
           role: "admin"
         ).with_context(current_user: user)
 
-        Decidim::ParticipatoryProcesses::Admin::CreateParticipatoryProcessAdmin.call(
+        Decidim::Admin::ParticipatorySpace::CreateAdmin.call(
           form,
-          participatory_process
+          participatory_process,
+          role_class: Decidim::ParticipatoryProcessUserRole,
+          event: "decidim.events.participatory_process.role_assigned",
+          event_class: Decidim::ParticipatoryProcessRoleAssignedEvent
         )
 
         visit current_path
