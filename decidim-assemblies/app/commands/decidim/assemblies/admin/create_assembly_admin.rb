@@ -14,30 +14,9 @@ module Decidim
 
         def event_class = Decidim::RoleAssignedToAssemblyEvent
 
-        def existing_role
-          Decidim::AssemblyUserRole.exists?(
-            role: form.role.to_sym,
-            user:,
-            assembly: participatory_space
-          )
-        end
+        def role_class = Decidim::AssemblyUserRole
 
-        # existing
-        def create_role
-          extra_info = {
-            resource: {
-              title: user.name
-            }
-          }
-          role_params = {
-            role: form.role.to_sym,
-            user:,
-            assembly: participatory_space
-          }
-
-          Decidim.traceability.create!(Decidim::AssemblyUserRole, current_user, role_params, extra_info)
-          send_notification user
-        end
+        def role_params = super.merge(assembly: participatory_space)
       end
     end
   end

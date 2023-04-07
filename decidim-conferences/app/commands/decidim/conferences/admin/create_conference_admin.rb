@@ -14,30 +14,9 @@ module Decidim
 
         def event_class = Decidim::Conferences::ConferenceRoleAssignedEvent
 
-        def existing_role
-          Decidim::ConferenceUserRole.exists?(
-            role: form.role.to_sym,
-            user:,
-            conference: participatory_space
-          )
-        end
+        def role_class = Decidim::ConferenceUserRole
 
-        def create_role
-          extra_info = {
-            resource: {
-              title: user.name
-            }
-          }
-          role_params = {
-            role: form.role.to_sym,
-            user:,
-            conference: participatory_space
-          }
-
-          Decidim.traceability.create!(Decidim::ConferenceUserRole, current_user, role_params, extra_info)
-
-          send_notification user
-        end
+        def role_params = super.merge(conference: participatory_space)
       end
     end
   end

@@ -14,34 +14,9 @@ module Decidim
 
         def event_class = Decidim::ParticipatoryProcessRoleAssignedEvent
 
-        def create_role
-          extra_info = {
-            resource: {
-              title: user.name
-            }
-          }
-          role_params = {
-            role: form.role.to_sym,
-            user:,
-            participatory_process: participatory_space
-          }
+        def role_class = Decidim::ParticipatoryProcessUserRole
 
-          Decidim.traceability.create!(
-            Decidim::ParticipatoryProcessUserRole,
-            current_user,
-            role_params,
-            extra_info
-          )
-          send_notification user
-        end
-
-        def existing_role
-          Decidim::ParticipatoryProcessUserRole.exists?(
-            role: form.role.to_sym,
-            user:,
-            participatory_process: participatory_space
-          )
-        end
+        def role_params = super.merge(participatory_process: participatory_space)
       end
     end
   end

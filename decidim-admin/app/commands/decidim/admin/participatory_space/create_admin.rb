@@ -45,15 +45,26 @@ module Decidim
         def event_class = raise NotImplementedError, "Event class method must be implemented for #{self.class.name}"
 
         # This is command specific
-        # It is expected to find if a UserRole for the same user, role and participatory_process already exist
-        # Return a boolean, or some object equally evaluable
-        def existing_role = raise NotImplementedError
-
-        # This is command specific
         # It is expected to
         # - create a XxxUserRole using `Decidim.traceability`
         # - send a notification to the user telling she has been invited to manage the participatory space
-        def create_role = raise NotImplementedError
+        def create_role
+          Decidim.traceability.create!(role_class, current_user, role_params, extra_info)
+          send_notification user
+        end
+
+        def role_class = raise NotImplementedError
+
+        # This is command specific
+        # It is expected to find if a UserRole for the same user, role and participatory_process already exist
+        # Return a boolean, or some object equally evaluable
+        def existing_role
+          role_class.for_space(participatory_space).exists?(role: form.role.to_sym, user:)
+        end
+
+        def extra_info = { resource: { title: user.name } }
+
+        def role_params = { role: form.role.to_sym, user: }
 
         def send_notification(user)
           Decidim::EventsManager.publish(
