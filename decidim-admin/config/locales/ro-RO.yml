@@ -211,6 +211,7 @@ ro:
         required_review:
           alert: 'Obligatoriu: Revizuiți termenii de utilizare ai administratorului'
           callout: Te rugăm acordă un moment pentru a revizui Termenii de utilizare ai administratorului. În caz contrar, nu vei putea administra platforma.
+          cta: Revizuiți-le acum.
         title: Termeni de Utilizare ai Administratorului
       area_types:
         create:
@@ -657,6 +658,7 @@ ro:
           nickname: Pseudonim
           reason: Motiv
           reports: Număr de raportări
+          title: Participanți raportați
         report:
           reasons:
             does_not_belong: Nu aparține
@@ -666,6 +668,8 @@ ro:
           blocked: Blocat
           unblocked: Nu este blocat
       moderations:
+        index:
+          title: Conținut raportat
         report:
           reasons:
             does_not_belong: Nu aparține
