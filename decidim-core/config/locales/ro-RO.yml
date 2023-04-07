@@ -34,10 +34,12 @@ ro:
       decidim/demoted_membership: Nu mai este un administrator de grup
       decidim/gamification/badge_earned_event: Insignă câștigată
       decidim/gamification/level_up_event: Ai crescut în nivel
+      decidim/invited_to_group_event: Invitat în grup
       decidim/join_request_accepted_event: Cerere de înscriere acceptată
       decidim/join_request_rejected_event: Cerere de înscriere respinsă
       decidim/profile_updated_event: Profil actualizat
       decidim/promote_to_admin: Promovat ca administrator
+      decidim/promoted_to_admin_event: Promovat ca administrator
       decidim/removed_from_group: Eliminat din grup
       decidim/resource_endorsed_event: Resursă susținută
       decidim/resource_hidden_event: Resursă ascunsă
