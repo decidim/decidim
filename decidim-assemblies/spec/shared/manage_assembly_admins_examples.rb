@@ -85,7 +85,7 @@ shared_examples "manage assembly admins examples" do
           name: "test",
           email: "test@example.org",
           role: "admin"
-        )
+        ).with_context(current_user: user)
 
         Decidim::Assemblies::Admin::CreateAssemblyAdmin.call(
           form,

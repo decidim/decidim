@@ -5,18 +5,7 @@ module Decidim
     module Admin
       # A command with all the business logic when creating a new conference
       # admin in the system.
-      class CreateConferenceAdmin < NotifyRoleAssignedToConference
-        # Public: Initializes the command.
-        #
-        # form - A form object with the params.
-        # conference - The Conference that will hold the
-        #   user role
-        def initialize(form, current_user, conference)
-          @form = form
-          @current_user = current_user
-          @conference = conference
-        end
-
+      class CreateConferenceAdmin < Decidim::Admin::ParticipatorySpace::CreateAdmin
         # Executes the command. Broadcasts these events:
         #
         # - :ok when everything is valid.
@@ -40,7 +29,7 @@ module Decidim
 
         private
 
-        attr_reader :form, :conference, :current_user, :user
+        attr_reader :form, :participatory_space, :current_user, :user
 
         def create_role
           Decidim.traceability.perform_action!(
@@ -54,7 +43,7 @@ module Decidim
             Decidim::ConferenceUserRole.find_or_create_by!(
               role: form.role.to_sym,
               user:,
-              conference: @conference
+              conference: participatory_space
             )
           end
           send_notification user
@@ -97,16 +86,28 @@ module Decidim
         end
 
         def add_admin_as_follower
-          return if user.follows?(conference)
+          return if user.follows?(participatory_space)
 
           form = Decidim::FollowForm
-                 .from_params(followable_gid: conference.to_signed_global_id.to_s)
+                 .from_params(followable_gid: participatory_space.to_signed_global_id.to_s)
                  .with_context(
-                   current_organization: conference.organization,
+                   current_organization: participatory_space.organization,
                    current_user: user
                  )
 
           Decidim::CreateFollow.new(form, user).call
+        end
+
+        def send_notification(user)
+          Decidim::EventsManager.publish(
+            event: "decidim.events.conferences.role_assigned",
+            event_class: Decidim::Conferences::ConferenceRoleAssignedEvent,
+            resource: form.current_participatory_space,
+            affected_users: [user],
+            extra: {
+              role: form.role
+            }
+          )
         end
       end
     end

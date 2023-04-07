@@ -85,11 +85,10 @@ shared_examples "manage conference admins examples" do
           name: "test",
           email: "test@example.org",
           role: "admin"
-        )
+        ).with_context(current_user: user)
 
         Decidim::Conferences::Admin::CreateConferenceAdmin.call(
           form,
-          user,
           conference
         )
 

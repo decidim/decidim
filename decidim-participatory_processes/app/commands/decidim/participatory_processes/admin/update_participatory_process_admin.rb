@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # A command with all the business logic when updated a participatory
       # process admin in the system.
-      class UpdateParticipatoryProcessAdmin < NotifyRoleAssignedToParticipatoryProcess
+      class UpdateParticipatoryProcessAdmin < Decidim::Command
         # Public: Initializes the command.
         #
         # form - A form object with the params.
@@ -49,6 +49,18 @@ module Decidim
           )
 
           send_notification user_role.user
+        end
+
+        def send_notification(user)
+          Decidim::EventsManager.publish(
+            event: "decidim.events.participatory_process.role_assigned",
+            event_class: Decidim::ParticipatoryProcessRoleAssignedEvent,
+            resource: form.current_participatory_space,
+            affected_users: [user],
+            extra: {
+              role: form.role
+            }
+          )
         end
       end
     end

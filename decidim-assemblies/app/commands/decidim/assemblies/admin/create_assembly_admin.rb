@@ -5,19 +5,8 @@ module Decidim
     module Admin
       # A command with all the business logic when creating a new participatory
       # process admin in the system.
-      class CreateAssemblyAdmin < NotifyRoleAssignedToAssembly
+      class CreateAssemblyAdmin < Decidim::Admin::ParticipatorySpace::CreateAdmin
         include ::Decidim::Admin::CreateParticipatorySpaceAdminUserActions
-
-        # Public: Initializes the command.
-        #
-        # form - A form object with the params.
-        # assembly - The Assembly that will hold the
-        #   user role
-        def initialize(form, current_user, assembly)
-          @form = form
-          @current_user = current_user
-          @participatory_space = assembly
-        end
 
         private
 
@@ -47,6 +36,18 @@ module Decidim
             )
           end
           send_notification user
+        end
+
+        def send_notification(user)
+          Decidim::EventsManager.publish(
+            event: "decidim.events.assembly.role_assigned",
+            event_class: Decidim::RoleAssignedToAssemblyEvent,
+            resource: form.current_participatory_space,
+            affected_users: [user],
+            extra: {
+              role: form.role
+            }
+          )
         end
       end
     end

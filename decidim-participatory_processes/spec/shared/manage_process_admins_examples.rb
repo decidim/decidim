@@ -86,11 +86,10 @@ shared_examples "manage process admins examples" do
           name: "test",
           email: "test@example.org",
           role: "admin"
-        )
+        ).with_context(current_user: user)
 
         Decidim::ParticipatoryProcesses::Admin::CreateParticipatoryProcessAdmin.call(
           form,
-          user,
           participatory_process
         )
 

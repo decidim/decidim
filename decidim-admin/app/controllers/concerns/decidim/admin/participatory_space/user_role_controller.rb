@@ -33,7 +33,7 @@ module Decidim
             enforce_permission_to :create, authorization_scope
             @form = resource_form.from_params(params)
 
-            create_command.call(@form, current_user, current_participatory_space) do
+            create_command.call(@form, current_participatory_space) do
               on(:ok) do
                 flash[:notice] = I18n.t("create.success", scope: i18n_scope)
                 redirect_to space_index_path
