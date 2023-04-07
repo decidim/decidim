@@ -42,6 +42,21 @@ module Decidim::Assemblies
     end
 
     context "when everything is ok" do
+      let(:log_info) do
+        hash_including(
+          resource: hash_including(
+            title: kind_of(String)
+          )
+        )
+      end
+      let(:role_params) do
+        {
+          role: role.to_sym,
+          user:,
+          assembly: my_assembly
+        }
+      end
+
       it "creates the user role" do
         subject.call
         roles = Decidim::AssemblyUserRole.where(user:)
@@ -72,13 +87,15 @@ module Decidim::Assemblies
 
       it "traces the action", versioning: true do
         expect(Decidim.traceability)
-          .to receive(:perform_action!)
-          .with(:create, Decidim::AssemblyUserRole, current_user, resource: hash_including(:title))
+          .to receive(:create!)
+          .with(Decidim::AssemblyUserRole, current_user, role_params, log_info)
           .and_call_original
 
         expect { subject.call }.to change(Decidim::ActionLog, :count)
+
         action_log = Decidim::ActionLog.last
         expect(action_log.version).to be_present
+        expect(action_log.version.event).to eq "create"
       end
 
       it "does not invite the user again" do

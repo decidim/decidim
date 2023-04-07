@@ -6,11 +6,13 @@ module Decidim
       # A command with all the business logic when creating a new participatory
       # process admin in the system.
       class CreateParticipatoryProcessAdmin < Decidim::Admin::ParticipatorySpace::CreateAdmin
-        include ::Decidim::Admin::CreateParticipatorySpaceAdminUserActions
-
         private
 
         attr_reader :form, :participatory_space, :current_user, :user
+
+        def event = "decidim.events.participatory_process.role_assigned"
+
+        def event_class = Decidim::ParticipatoryProcessRoleAssignedEvent
 
         def create_role
           extra_info = {
@@ -38,18 +40,6 @@ module Decidim
             role: form.role.to_sym,
             user:,
             participatory_process: participatory_space
-          )
-        end
-
-        def send_notification(user)
-          Decidim::EventsManager.publish(
-            event: "decidim.events.participatory_process.role_assigned",
-            event_class: Decidim::ParticipatoryProcessRoleAssignedEvent,
-            resource: form.current_participatory_space,
-            affected_users: [user],
-            extra: {
-              role: form.role
-            }
           )
         end
       end
