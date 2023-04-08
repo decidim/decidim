@@ -142,7 +142,7 @@ module Decidim
         end
 
         def template
-          @template ||= Template.find_by(id: params[:id])
+          @template ||= collection.find(params[:id])
         end
 
         def search(term)

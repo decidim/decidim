@@ -79,7 +79,7 @@ module Decidim
         private
 
         def collection
-          @collection ||= Decidim::AssemblyMember.where(assembly: current_assembly)
+          @collection ||= current_assembly.members
         end
       end
     end

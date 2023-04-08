@@ -8,7 +8,7 @@ module Decidim
       private
 
       def model
-        @model ||= Assembly.find_by(slug: params[:assembly_slug])
+        @model ||= OrganizationAssemblies.new(current_organization).query.find_by(slug: params[:assembly_slug])
       end
 
       def current_participatory_space

@@ -18,7 +18,7 @@ module Decidim
         end
 
         def scoped_resource
-          @scoped_resource ||= Voting.find_by(slug: params[:voting_slug])
+          @scoped_resource ||= Voting.where(organization: current_organization).find_by(slug: params[:voting_slug])
         end
 
         def enforce_permission_to_update_resource

@@ -72,7 +72,7 @@ module Decidim
         private
 
         def trustee_participatory_space
-          @trustee_participatory_space ||= TrusteesParticipatorySpace.find_by(id: params[:id])
+          @trustee_participatory_space ||= TrusteesParticipatorySpace.where(participatory_space: current_participatory_space).find_by(id: params[:id])
         end
 
         def trustees

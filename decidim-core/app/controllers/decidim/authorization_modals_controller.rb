@@ -20,6 +20,7 @@ module Decidim
                     end
     end
 
+    # @todo This should check for organization
     def current_component
       @current_component ||= Decidim::Component.find(params[:component_id])
     end

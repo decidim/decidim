@@ -165,15 +165,15 @@ module Decidim
       end
 
       def current_initiative
-        Initiative.find(session_initiative[:id]) if session_initiative.has_key?(:id)
+        Initiative.where(organization: current_organization).find(session_initiative[:id]) if session_initiative.has_key?(:id)
       end
 
       def initiative_type
-        @initiative_type ||= InitiativesType.find(initiative_type_id)
+        @initiative_type ||= InitiativesType.where(organization: current_organization).find(initiative_type_id)
       end
 
       def initiative_type_from_params
-        @initiative_type ||= Decidim::InitiativesType.find_by(id: params["initiative"]["type_id"])
+        @initiative_type ||= Decidim::InitiativesType.where(organization: current_organization).find_by(id: params["initiative"]["type_id"])
       end
 
       def initiative_type_id

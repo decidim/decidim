@@ -15,10 +15,6 @@ module Decidim
         def collection_for
           project
         end
-
-        def project
-          @project ||= Decidim::Budgets::Project.find(params[:project_id])
-        end
       end
     end
   end

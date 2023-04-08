@@ -14,7 +14,7 @@ module Decidim
       private
 
       def allowed_signature_types_for_initiatives
-        @allowed_signature_types_for_initiatives ||= InitiativesType.find(params[:type_id]).allowed_signature_types_for_initiatives
+        @allowed_signature_types_for_initiatives ||= InitiativesType.where(organization: current_organization).find(params[:type_id]).allowed_signature_types_for_initiatives
       end
     end
   end

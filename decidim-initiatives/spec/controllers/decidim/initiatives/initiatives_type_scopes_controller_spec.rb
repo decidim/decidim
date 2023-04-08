@@ -37,6 +37,10 @@ module Decidim
       end
 
       describe "GET search" do
+        before do
+          request.env["decidim.current_organization"] = organization
+        end
+
         it "Returns only scoped types for the given type" do
           expect(other_initiative_type.scopes).not_to be_empty
 
