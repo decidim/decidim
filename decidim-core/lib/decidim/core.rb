@@ -522,6 +522,16 @@ module Decidim
     %w(terms-of-service)
   end
 
+  config_accessor :csp_media_src
+  config_accessor :csp_frame_src
+  config_accessor :csp_font_src
+  config_accessor :csp_style_src
+  config_accessor :csp_connect_src do
+    "ws://localhost:3035/ws"
+  end
+  config_accessor :csp_default_src
+  config_accessor :csp_script_src
+
   # Public: Registers a global engine. This method is intended to be used
   # by component engines that also offer unscoped functionality
   #
