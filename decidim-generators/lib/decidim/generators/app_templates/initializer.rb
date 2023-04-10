@@ -377,6 +377,12 @@ Decidim.configure do |config|
   #   }
   # ]
 
+  # Defines additional content security policies following the structure
+  # keys are the CSP directives and the values are arrays of allowed sources
+  # See https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy
+  # for more information
+  config.additional_content_security_policies = {}
+
   # Admin admin password configurations
   Rails.application.secrets.dig(:decidim, :admin_password, :strong).tap do |strong_pw|
     # When the strong password is not configured, default to true
