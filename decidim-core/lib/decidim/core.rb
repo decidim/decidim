@@ -120,6 +120,7 @@ module Decidim
   autoload :DependencyResolver, "decidim/dependency_resolver"
   autoload :ParticipatorySpaceUser, "decidim/participatory_space_user"
   autoload :ModerationTools, "decidim/moderation_tools"
+  autoload :ContentSecurityPolicy, "decidim/content_security_policy"
 
   include ActiveSupport::Configurable
   # Loads seeds from all engines.

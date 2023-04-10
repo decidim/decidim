@@ -112,7 +112,7 @@ module Decidim
         embedded = MeetingIframeEmbedder.new(meeting.online_meeting_url).embed_transformed_url(request.host)
         return if embedded.blank?
 
-        append_csp_directive("frame-src", embedded)
+        content_security_policy.append_csp_directive("frame-src", embedded)
       end
 
       def meeting

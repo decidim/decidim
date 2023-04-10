@@ -14,7 +14,7 @@ module Decidim
     include HasStoredPath
     include NeedsTosAccepted
     include HttpCachingDisabler
-    include ContentSecurityPolicy
+    include ContentSecurityPolicyHeaders
     include ActionAuthorization
     include ForceAuthentication
     include SafeRedirect

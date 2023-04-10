@@ -13,7 +13,7 @@ module Decidim
       include UseOrganizationTimeZone
       include PayloadInfo
       include HttpCachingDisabler
-      include ContentSecurityPolicy
+      include ContentSecurityPolicyHeaders
       include DisableRedirectionToExternalHost
 
       include DisabledRedesignLayout
