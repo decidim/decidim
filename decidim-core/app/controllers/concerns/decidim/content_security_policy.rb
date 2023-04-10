@@ -7,57 +7,48 @@ module Decidim
     extend ActiveSupport::Concern
 
     included do
-      before_action :set_content_security_policy
+      after_action :set_content_security_policy
     end
 
     private
 
     def set_content_security_policy
-      # return unless current_organization
-      #
-      # policy = current_organization.content_security_policy
-      # return unless policy
+      return unless respond_to?(:current_organization)
+      return unless current_organization
 
       policy = [
-        "default-src #{csp_default_src}",
-        "img-src *",
-        "media-src #{csp_media_src}",
-        "script-src #{csp_script_src}",
-        "style-src #{csp_style_src}",
-        "frame-src #{csp_frame_src}",
-        "font-src #{csp_font_src}",
-        "connect-src #{csp_connect_src}",
-      ]
-
+        ["default-src", csp_default_src],
+        ["img-src", csp_img_src],
+        ["media-src", csp_media_src],
+        ["script-src", csp_script_src],
+        ["style-src", csp_style_src],
+        ["frame-src", csp_frame_src],
+        ["font-src", csp_font_src],
+        ["connect-src", csp_connect_src],
+      ].map do |directive, value|
+        value = value.split(" ").uniq.join(" ")
+        "#{directive} #{value}"
+      end
       response.headers["Content-Security-Policy"] = policy.join("; ")
     end
 
-    def csp_media_src
-      Decidim.csp_media_src
+    def csp
+      current_organization.content_security_policy
     end
 
-    def csp_frame_src
-      "'self' #{Decidim.csp_frame_src}"
+    %w(img_src media_src frame_src font_src style_src connect_src default_src script_src).each do |csp_type|
+      define_method "csp_#{csp_type}" do
+        "#{Decidim.send("csp_#{csp_type}")} #{csp.fetch(csp_type, '')} #{additional_csp.fetch(csp_type, []).join(" ")}"
+      end
+
+      define_method "add_csp_#{csp_type}" do |value|
+        additional_csp[csp_type] ||= []
+        additional_csp[csp_type] << value
+      end
     end
 
-    def csp_font_src
-      "'self' #{Decidim.csp_font_src}"
-    end
-
-    def csp_style_src
-      "'self' #{Decidim.csp_style_src}"
-    end
-
-    def csp_connect_src
-      "'self' #{Decidim.csp_connect_src}"
-    end
-
-    def csp_default_src
-      "'self' 'unsafe-inline' #{Decidim.csp_default_src}"
-    end
-
-    def csp_script_src
-      "'self' 'unsafe-inline' #{Decidim.csp_script_src}"
+    def additional_csp
+      @additional_csp ||= {}
     end
   end
 end

@@ -7,7 +7,6 @@ module Decidim
       include FormFactory
       include PayloadInfo
       include HttpCachingDisabler
-      include ContentSecurityPolicy
       include DisableRedirectionToExternalHost
       include DisabledRedesignLayout
 

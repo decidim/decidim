@@ -29,6 +29,18 @@ module Decidim
         [:authentication, String],
         [:enable_starttls_auto, Boolean]
       ]
+
+      jsonb_attribute :content_security_policy, [
+        [:default_src, String],
+        [:img_src, String],
+        [:media_src, String],
+        [:script_src, String],
+        [:style_src, String],
+        [:frame_src, String],
+        [:font_src, String],
+        [:connect_src,String]
+      ]
+
       attribute :password, String
       attribute :file_upload_settings, FileUploadSettingsForm
 

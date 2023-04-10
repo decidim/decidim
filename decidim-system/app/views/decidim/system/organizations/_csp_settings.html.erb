@@ -1,0 +1,39 @@
+<div class="fieldset">
+  <h4><%= t("decidim.system.models.organization.fields.content_security_policy") %></h4>
+
+  <%= f.fields_for :content_security_policy do %>
+  <% i18n_scope = "decidim.system.models.organization.fields.content_security_policies" %>
+    <div class="field">
+      <%= f.text_field :default_src, label: t("default_src", scope: i18n_scope), default: Decidim.csp_default_src %>
+      <p class="help-text"><%= t("default_src_hint", scope: i18n_scope) %></p>
+    </div>
+    <div class="field">
+      <%= f.text_field :img_src, label: t("img_src", scope: i18n_scope), default: Decidim.csp_frame_src %>
+      <p class="help-text"><%= t("img_src_hint", scope: i18n_scope) %></p>
+    </div>
+    <div class="field">
+      <%= f.text_field :media_src, label: t("media_src", scope: i18n_scope), default: Decidim.csp_media_src %>
+      <p class="help-text"><%= t("media_src_hint", scope: i18n_scope) %></p>
+    </div>
+    <div class="field">
+      <%= f.text_field :script_src, label: t("script_src", scope: i18n_scope), default: Decidim.csp_script_src %>
+      <p class="help-text"><%= t("script_src_hint", scope: i18n_scope) %></p>
+    </div>
+    <div class="field">
+      <%= f.text_field :style_src, label: t("style_src", scope: i18n_scope), default: Decidim.csp_style_src %>
+      <p class="help-text"><%= t("style_src_hint", scope: i18n_scope) %></p>
+    </div>
+    <div class="field">
+      <%= f.text_field :frame_src, label: t("frame_src", scope: i18n_scope), default: Decidim.csp_frame_src %>
+      <p class="help-text"><%= t("frame_src_hint", scope: i18n_scope) %></p>
+    </div>
+    <div class="field">
+      <%= f.text_field :font_src, label: t("font_src", scope: i18n_scope), default: Decidim.csp_font_src %>
+      <p class="help-text"><%= t("font_src_hint", scope: i18n_scope) %></p>
+    </div>
+    <div class="field">
+      <%= f.text_field :connect_src, label: t("connect_src", scope: i18n_scope), default: Decidim.csp_connect_src %>
+      <p class="help-text"><%= t("connect_src_hint", scope: i18n_scope) %></p>
+    </div>
+  <% end %>
+</div>
