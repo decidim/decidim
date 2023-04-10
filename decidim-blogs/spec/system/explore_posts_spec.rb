@@ -12,11 +12,13 @@ describe "Explore posts", type: :system do
   let!(:image) { create(:attachment, attached_to: old_post) }
 
   describe "index" do
+    include ActionView::RecordIdentifier
+
     it "shows all posts for the given process" do
       visit_component
-      expect(page).to have_selector("div[data-post]", count: 2)
-      expect(page).to have_selector("div[data-post]", text: translated(new_post.title))
-      expect(page).to have_selector("div[data-post]", text: translated(old_post.title))
+      expect(page).to have_selector("[id^='#{dom_class(new_post)}']", count: 2)
+      expect(page).to have_selector("##{dom_id(new_post)}", text: translated(new_post.title))
+      expect(page).to have_selector("##{dom_id(old_post)}", text: translated(old_post.title))
     end
 
     it "shows comment counts" do
@@ -33,13 +35,13 @@ describe "Explore posts", type: :system do
 
     it "shows images" do
       visit_component
-      expect(page).to have_selector("div[data-post] img")
+      expect(page).to have_selector("##{dom_id(old_post)} img")
     end
 
     context "when paginating" do
       let(:collection_size) { 15 }
       let!(:collection) { create_list :post, collection_size, component: }
-      let!(:resource_selector) { "div[data-post]" }
+      let!(:resource_selector) { "[id^='#{dom_class(old_post)}']" }
 
       before do
         visit_component
@@ -53,7 +55,7 @@ describe "Explore posts", type: :system do
 
     context "with some unpublished posts" do
       let!(:unpublished) { create(:post, component:, published_at: 2.days.from_now) }
-      let!(:resource_selector) { "div[data-post]" }
+      let!(:resource_selector) { "[id^='#{dom_class(old_post)}']" }
 
       before { visit_component }
 
