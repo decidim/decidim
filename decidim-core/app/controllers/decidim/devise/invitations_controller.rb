@@ -21,6 +21,7 @@ module Decidim
       # invitation. Using the param `invite_redirect` we can redirect the user
       # to a custom path after it has accepted the invitation.
       def after_accept_path_for(resource)
+        byebug
         invite_redirect_path || after_sign_in_path_for(resource)
       end
 
