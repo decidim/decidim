@@ -109,7 +109,7 @@ module Decidim
       attribute = resource.try(:short_description) || resource.try(:body) || resource.description
       text = translated_attribute(attribute)
 
-      decidim_sanitize_editor(html_truncate(text, length: 100))
+      decidim_sanitize_editor(html_truncate(text, length: 100), strip_tags: true)
     end
 
     def has_authors?
