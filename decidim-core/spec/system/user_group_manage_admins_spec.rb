@@ -21,11 +21,15 @@ describe "User group manage admins", type: :system do
     end
 
     it "does not show the link to edit" do
-      expect(page).to have_no_content("Manage admins")
+      if Decidim.redesign_active
+        expect(page).to have_no_content("Manage group")
+      else
+        expect(page).to have_no_content("Manage admins")
+      end
     end
 
     it "rejects the user that accesses manually" do
-      visit decidim.group_manage_admins_path(user_group.nickname)
+      visit decidim.profile_group_admins_path(user_group.nickname)
       expect(page).to have_content("You are not authorized to perform this action")
     end
   end
@@ -35,6 +39,7 @@ describe "User group manage admins", type: :system do
       login_as creator, scope: :user
       visit decidim.profile_path(user_group.nickname)
 
+      click_button "Manage group" if Decidim.redesign_active
       click_link "Manage admins"
     end
 

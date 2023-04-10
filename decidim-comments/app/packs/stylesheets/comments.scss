@@ -61,7 +61,11 @@
   @apply rounded-lg border-2 border-background p-4 pl-6;
 
   &__header{
-    @apply flex items-center gap-x-2 mb-2 -ml-[calc(1.5rem+.75rem)] relative first:[&_a[href^="/profile"]>span]:z-10;
+    @apply flex items-center gap-x-2 mb-2 -ml-[calc(1.5rem+.75rem)] relative;
+
+    a[href^='/profile'] > span:first-child{
+      @apply z-10;
+    }
 
     &--edited{
       @apply text-sm font-semibold;
