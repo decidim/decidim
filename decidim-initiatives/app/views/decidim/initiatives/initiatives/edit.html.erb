@@ -1,6 +1,8 @@
 <% add_decidim_page_title(action_name) %>
 
-<h2 class="h2 decorator"><%= t("title", scope: "decidim.initiatives.edit") %></h2>
+<div class="text-center py-10">
+  <h1 class="h3 md:h1 decorator inline-block text-left"><%= t("title", scope: "decidim.initiatives.edit") %></h1>
+</div>
 
 <%= decidim_form_for @form, html: { class: "form__wrapper edit_initiative" } do |f| %>
     <%= render partial: "form", object: f %>

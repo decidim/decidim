@@ -8,9 +8,9 @@
 
 <%= render "layouts/decidim/redesigned_application" do %>
   <%= render layout: "layouts/decidim/shared/layout_center" do %>
-    <div class="wrapper">
+    <main>
       <%= yield %>
-    </div>
+    </main>
     <% if content_for? :expanded %>
       <div class="expanded">
         <div class="wrapper wrapper--inner">
