@@ -17,7 +17,7 @@ module Decidim
 
       helper_method :meetings, :meeting, :registration, :search
 
-      before_action :append_csp_directive
+      before_action :add_addtional_csp_directives
 
       def new
         enforce_permission_to :create, :meeting
@@ -106,10 +106,13 @@ module Decidim
 
       private
 
-      def append_csp_directive
+      def add_addtional_csp_directives
         return unless meeting
 
-        add_csp_frame_src(MeetingIframeEmbedder.new(meeting.online_meeting_url).embed_transformed_url(request.host))
+        embedded = MeetingIframeEmbedder.new(meeting.online_meeting_url).embed_transformed_url(request.host)
+        return if embedded.blank?
+
+        append_csp_directive("frame-src", embedded)
       end
 
       def meeting

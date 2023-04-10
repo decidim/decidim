@@ -31,14 +31,14 @@ module Decidim
       ]
 
       jsonb_attribute :content_security_policy, [
-        [:default_src, String],
-        [:img_src, String],
-        [:media_src, String],
-        [:script_src, String],
-        [:style_src, String],
-        [:frame_src, String],
-        [:font_src, String],
-        [:connect_src,String]
+        ["default-src".to_sym, String],
+        ["img-src".to_sym, String],
+        ["media-src".to_sym, String],
+        ["script-src".to_sym, String],
+        ["style-src".to_sym, String],
+        ["frame-src".to_sym, String],
+        ["font-src".to_sym, String],
+        ["connect-src".to_sym,String],
       ]
 
       attribute :password, String

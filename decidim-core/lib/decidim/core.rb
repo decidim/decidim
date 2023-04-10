@@ -522,36 +522,17 @@ module Decidim
     %w(terms-of-service)
   end
 
-  config_accessor :csp_media_src do
-    "'self'"
-  end
-
-  config_accessor :csp_img_src do
-    "'self'"
-  end
-
-  config_accessor :csp_frame_src do
-    "'self'"
-  end
-
-  config_accessor :csp_font_src do
-    "'self'"
-  end
-
-  config_accessor :csp_style_src do
-    "'self' 'unsafe-inline'"
-  end
-
-  config_accessor :csp_connect_src do
-    "'self'"
-  end
-
-  config_accessor :csp_default_src do
-    "'self' 'unsafe-inline' "
-  end
-
-  config_accessor :csp_script_src do
-    "'self' 'unsafe-inline' 'unsafe-eval'"
+  config_accessor :content_security_policy do
+    {
+      "default-src" => %w('self' 'unsafe-inline'),
+      "script-src" => %w('self' 'unsafe-inline' 'unsafe-eval'),
+      "style-src" => %w('self' 'unsafe-inline'),
+      "img-src" => %w('self'),
+      "font-src" => %w('self'),
+      "connect-src" => %w('self'),
+      "frame-src" => %w('self'),
+      "media-src" => %w('self')
+    }
   end
 
   # Public: Registers a global engine. This method is intended to be used
