@@ -2,7 +2,6 @@
 
 module Decidim
   class ContentSecurityPolicy
-
     def initialize(organization = nil)
       @organization = organization
       @policy = Decidim.content_security_policy
@@ -31,8 +30,8 @@ module Decidim
       return unless organization
 
       organization.content_security_policy.each do |directive, value|
-        value.split(" ").each do |v|
-          append_csp_directive(directive, v) unless v.blank?
+        value.split.each do |v|
+          append_csp_directive(directive, v) if v.present?
         end
       end
     end
@@ -44,6 +43,5 @@ module Decidim
         end
       end
     end
-
   end
 end

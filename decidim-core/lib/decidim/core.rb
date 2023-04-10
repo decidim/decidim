@@ -523,6 +523,7 @@ module Decidim
     %w(terms-of-service)
   end
 
+  # rubocop:disable Lint/PercentStringArray
   config_accessor :content_security_policy do
     {
       "default-src" => %w('self' 'unsafe-inline'),
@@ -535,6 +536,7 @@ module Decidim
       "media-src" => %w('self')
     }
   end
+  # rubocop:enable Lint/PercentStringArray
 
   # Public: Registers a global engine. This method is intended to be used
   # by component engines that also offer unscoped functionality
