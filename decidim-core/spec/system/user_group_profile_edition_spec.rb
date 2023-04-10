@@ -24,7 +24,7 @@ describe "User group profile edition", type: :system do
     end
 
     it "rejects the user that accesses manually" do
-      visit decidim.group_manage_users_path(user_group.nickname)
+      visit decidim.profile_group_members_path(user_group.nickname)
       expect(page).to have_content("You are not authorized to perform this action")
     end
   end
