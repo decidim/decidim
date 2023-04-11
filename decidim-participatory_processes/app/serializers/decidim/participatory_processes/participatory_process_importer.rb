@@ -53,6 +53,11 @@ module Decidim
       end
 
       def import_process_group(attributes)
+        title = compact_translation(attributes["title"] || attributes["name"])
+        description = compact_translation(attributes["description"])
+
+        return if title.blank? && description.blank?
+
         Decidim.traceability.perform_action!("create", ParticipatoryProcessGroup, @user) do
           group = ParticipatoryProcessGroup.find_or_initialize_by(
             title: attributes["title"] || attributes["name"],
@@ -151,6 +156,11 @@ module Decidim
       end
 
       private
+
+      def compact_translation(translation)
+        translation["machine_translations"] = translation["machine_translations"].reject { |_k, v| v.blank? } if translation["machine_translations"].present?
+        translation.reject { |_k, v| v.blank? }
+      end
 
       def create_attachment_collection(attributes)
         return unless attributes.compact.any?
