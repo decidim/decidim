@@ -9,7 +9,7 @@ const isSafeUrl = (exitUrl) => {
   }
 
   const safeUrls = [
-    $(".budget-summary").attr("data-safe-url").split("?")[0],
+    $(".budget-summary").attr("data-safe-url").replace(location.origin, ""),
     `${location.pathname}#`,
     `${location.href}#`,
     "#"
@@ -18,7 +18,7 @@ const isSafeUrl = (exitUrl) => {
   let safe = false;
   safeUrls.forEach((url) => {
     if (exitUrl.startsWith(url)) {
-      safe =  true
+      safe = true
     }
   });
 
