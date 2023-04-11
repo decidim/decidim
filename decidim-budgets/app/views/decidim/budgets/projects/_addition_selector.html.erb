@@ -9,12 +9,8 @@
       <span>
         <%= builder.text[:text] %>
       </span>
-      <% if builder.text[:count].present? %>
-        <span class="button__pill--count">
-          <%= builder.text[:count] %>
-        </span>
-      <% end %>
-      <button class="w-0">
+      <%= render partial: "projects_count", locals: { count: builder.text[:count] } %>
+     <button class="w-0">
         <%= builder.radio_button(class: "appearance-none") %>
       </button>
     <% end %>
