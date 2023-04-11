@@ -55,6 +55,12 @@ module Decidim
       announcement[:body].presence
     end
 
+    def clean?
+      return true unless options.has_key? :clean
+
+      options[:clean]
+    end
+
     def clean_body
       return unless body
 
