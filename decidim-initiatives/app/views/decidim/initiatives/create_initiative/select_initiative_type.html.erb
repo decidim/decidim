@@ -11,22 +11,23 @@
 <div class="verification__container">
   <% initiative_types_each do |type| %>
     <div class="verification">
-        <% if allowed_to?(:create, :initiative, { initiative_type: type }) %>
-          <%= icon "lightbulb-flash-line", class: "verification__icon " %>
-          <div class="verification__text">
-            <h2 class="h5 text-secondary"><%= translated_attribute(type.title) %></h2>
-            <span><%= raw translated_attribute type.description %></span>
-          </div>
-          <%= icon "arrow-right-s-line", class: "fill-primary verification__icon" %>
-          <%= decidim_form_for(@form, url: next_wizard_path, method: :put, html: { id: "new_initiative_#{type.id}", class: "form-defaults" }) do |f| %>
-            <%= f.hidden_field :type_id, value: type.id, id: "initiative_type_id_#{ type.id }" %>
-            <%= f.submit t("select", scope: "decidim.initiatives.create_initiative.select_initiative_type"), class: "button" %>
-          <% end %>
-        <% else %>
-          <%= authorized_create_modal_button(type, remote: true, class: "button") do %>
-          <%= t("verification_required", scope: "decidim.initiatives.create_initiative.select_initiative_type") %>
-          <% end %>
+      <% if allowed_to?(:create, :initiative, { initiative_type: type }) %>
+        <%= decidim_form_for(@form, url: next_wizard_path, method: :put, html: { id: "new_initiative_#{type.id}", class: "form-defaults" }) do |f| %>
+          <%= f.hidden_field :type_id, value: type.id, id: "initiative_type_id_#{ type.id }" %>
+          <button>
+            <%= icon "lightbulb-flash-line", class: "verification__icon " %>
+            <div class="verification__text">
+              <h2 class="h5 text-secondary"><%= translated_attribute(type.title) %></h2>
+              <span><%= raw translated_attribute type.description %></span>
+            </div>
+            <%= icon "arrow-right-s-line", class: "fill-primary verification__icon" %>
+          </button>
         <% end %>
+      <% else %>
+        <%= authorized_create_modal_button(type, remote: true, class: "button") do %>
+        <%= t("verification_required", scope: "decidim.initiatives.create_initiative.select_initiative_type") %>
+        <% end %>
+      <% end %>
     </div>
   <% end %>
 </div>
