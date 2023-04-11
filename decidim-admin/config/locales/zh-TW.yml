@@ -184,6 +184,9 @@ zh-TW:
         permissions: 權限
         reject: 拒絕
         share: 分享
+        user:
+          new: 新增管理員
+        verify: 驗證
       attachments:
         new:
           title: 新增附件
