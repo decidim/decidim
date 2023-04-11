@@ -6,5 +6,4 @@ $projects.html('<%= j(render partial: "projects").strip.html_safe %>');
 $projectsCount.html('<%= j(render partial: "count").strip.html_safe %>');
 $orderFilterInput.val('<%= order %>');
 
-var $dropdownMenu = $('.dropdown.menu', $projects);
-$dropdownMenu.foundation();
+document.dispatchEvent(new CustomEvent("ajax:loaded", { detail: $projects[0] }));
