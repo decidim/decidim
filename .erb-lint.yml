@@ -38,12 +38,6 @@ linters:
       Style/StringLiterals:
         EnforcedStyle: double_quotes
 
-      Style/ParenthesesAroundCondition:
-        Enabled: false
-
-      Style/TernaryParentheses:
-        Enabled: false
-
       Layout/FirstHashElementIndentation:
         Enabled: false
 
@@ -59,9 +53,6 @@ linters:
       Layout/SpaceInsideStringInterpolation:
         Enabled: false
 
-      Layout/SpaceInsideBlockBraces:
-        Enabled: false
-
       Layout/MultilineHashBraceLayout:
         Enabled: false
 
@@ -75,12 +66,6 @@ linters:
         Enabled: false
 
       Layout/FirstArrayElementIndentation:
-        Enabled: false
-
-      Layout/SpaceBeforeBlockBraces:
-        Enabled: false
-
-      Layout/SpaceAroundOperators:
         Enabled: false
 
       Style/StringLiteralsInInterpolation:
@@ -101,9 +86,6 @@ linters:
       Rails/TimeZone:
         Enabled: false
 
-      Style/HashSyntax:
-        Enabled: true
-
       Style/NumericPredicate:
         Enabled: false
 
@@ -117,9 +99,6 @@ linters:
         Enabled: false
 
       Layout/ExtraSpacing:
-        Enabled: false
-
-      Layout/HashAlignment:
         Enabled: false
 
       Rails/Present:
