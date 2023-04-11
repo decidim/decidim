@@ -29,21 +29,26 @@
   <% end %>
   <% current_initiative.committee_members.each do |request| %>
     <div class="author" data-id="<%= request.id %>">
-      <%= link_to request.user.name, "mailto:#{request.user.email}" %>
-      <% if allowed_to? :approve, :initiative_committee_member, initiative: current_initiative, request: request %>
-        <%= icon_link_to "check",
-                        approve_initiative_committee_request_path(current_initiative, request),
-                        t(".approve"),
-                        class: "action-icon--check" %>
-      <% end %>
-      <% if allowed_to? :revoke, :initiative_committee_member, initiative: current_initiative, request: request %>
-        <%= icon_link_to "circle-x",
-                        revoke_initiative_committee_request_path(current_initiative, request),
-                        t(".revoke"),
-                        class: "action-icon--remove",
-                        method: :delete,
-                        data: { confirm: t(".confirm_revoke") } %>
-      <% end %>
+      <div class="profile__group__list">
+        <%= card_for request.user %>
+        <% if allowed_to? :approve, :initiative_committee_member, initiative: current_initiative, request: request %>
+          <%= icon_link_to "forbid-line",
+                          approve_initiative_committee_request_path(current_initiative, request),
+                          t(".approve"),
+                          class: "action-icon--check" %>
+        <% end %>
+        <% if allowed_to? :revoke, :initiative_committee_member, initiative: current_initiative, request: request %>
+          <%= link_to(
+                  revoke_initiative_committee_request_path(current_initiative, request),
+                  method: :delete,
+                  data: { confirm: t(".confirm_revoke") },
+                  class: "button button__sm button__transparent-secondary"
+                ) do %>
+                  <span><%= t("decidim.group_admins.actions.demote_admin") %></span>
+                  <%= icon "forbid-line" %>
+                <% end %>
+        <% end %>
+      </div>
     </div>
   <% end %>
 </div>
