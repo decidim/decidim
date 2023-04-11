@@ -1,10 +1,10 @@
 <% provide(:title, present(meeting).title) %>
 
 <% add_decidim_meta_tags({
-  title: present(meeting).title,
-  description: present(meeting).description,
-  url: meeting_url(meeting.id)
-}) %>
+                           title: present(meeting).title,
+                           description: present(meeting).description,
+                           url: meeting_url(meeting.id)
+                         }) %>
 
 <%
 edit_link(
@@ -46,7 +46,7 @@ edit_link(
         <%= cell("decidim/date_range", { start: meeting.start_time, end: meeting.end_time }) %>
 
         <%= cell "decidim/meetings/join_meeting_button", meeting, big_button: true, show_remaining_slots: true %>
-        <%= render partial: "decidim/shared/follow_button", locals: { followable: meeting, large: false  } %>
+        <%= render partial: "decidim/shared/follow_button", locals: { followable: meeting, large: false } %>
       </div>
       <% if meeting.closed? && meeting.closing_visible? %>
         <% double = meeting.has_contributions? && meeting.has_attendees? %>

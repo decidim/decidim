@@ -1,8 +1,8 @@
 <% add_decidim_meta_tags({
-  description: decidim_sanitize_editor(translated_attribute(sortition.additional_info)),
-  title: decidim_html_escape(translated_attribute(sortition.title)),
-  url: sortition_url(sortition.to_param)
-}) %>
+                           description: decidim_sanitize_editor(translated_attribute(sortition.additional_info)),
+                           title: decidim_html_escape(translated_attribute(sortition.title)),
+                           url: sortition_url(sortition.to_param)
+                         }) %>
 
 <div class="row column">
   <div class="callout success">

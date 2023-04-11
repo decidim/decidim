@@ -31,7 +31,7 @@
     <% end %>
 
     <% if collection.node.present? %>
-      <div id="<%= data_checkboxes_tree_id %>" class="filters__subfilters <%= "hide" if hide_node %>" <%= %{data-toggler=.hide} unless is_root_check_box %>>
+      <div id="<%= data_checkboxes_tree_id %>" class="filters__subfilters <%= "hide" if hide_node %>" <%= %(data-toggler=.hide) unless is_root_check_box %>>
         <% collection.node.each do |item| %>
           <% if item.tree_node? %>
             <%= render "decidim/shared/check_boxes_tree",

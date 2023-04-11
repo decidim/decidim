@@ -1,7 +1,7 @@
 <div class="email-notifications-digest">
   <div>
     <p class="email-header"> <%= @notifications_digest.header %> </p>
-    <p class="email-header email-header--right"> <%= @notifications_digest.formated_date(Date.today) %> </p>
+    <p class="email-header email-header--right"> <%= @notifications_digest.formated_date(Time.zone.today) %> </p>
   </div>
 
   <p class="email-greeting"><%= @notifications_digest.greeting %></p>

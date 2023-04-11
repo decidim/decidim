@@ -38,8 +38,6 @@ linters:
       Style/StringLiterals:
         EnforcedStyle: double_quotes
 
-      Layout/FirstHashElementIndentation:
-        Enabled: false
 
       Layout/LineLength:
         Enabled: false
@@ -50,19 +48,10 @@ linters:
       Layout/SpaceInsideHashLiteralBraces:
         Enabled: true
 
-      Layout/SpaceInsideStringInterpolation:
-        Enabled: false
-
-      Layout/MultilineHashBraceLayout:
-        Enabled: false
-
       Layout/BlockAlignment:
         Enabled: false
 
       Layout/MultilineMethodCallBraceLayout:
-        Enabled: false
-
-      Layout/IndentationConsistency:
         Enabled: false
 
       Layout/FirstArrayElementIndentation:
@@ -75,9 +64,6 @@ linters:
         Enabled: false
 
       Naming/FileName:
-        Enabled: false
-
-      Rails/Date:
         Enabled: false
 
       Rails/LinkToBlank:
@@ -95,20 +81,9 @@ linters:
       Style/NumericLiterals:
         Enabled: false
 
-      Style/PercentLiteralDelimiters:
-        Enabled: false
-
-      Layout/ExtraSpacing:
-        Enabled: false
-
-      Rails/Present:
-        Enabled: false
-
       Style/LambdaCall:
         Enabled: false
 
-      Layout/EndAlignment:
-        Enabled: false
 
       Layout/MultilineMethodCallIndentation:
         Enabled: false
@@ -117,9 +92,6 @@ linters:
         Enabled: false
 
       Layout/SpaceBeforeFirstArg:
-        Enabled: false
-
-      Style/SymbolProc:
         Enabled: false
 
       Layout/MultilineAssignmentLayout:
