@@ -8,16 +8,7 @@ module Decidim
     # Note that it inherits from `Decidim::Components::BaseController`, which
     # override its layout and provide all kinds of useful methods.
     class ApplicationController < Decidim::Components::BaseController
-      before_action :append_csp_directives
-
-      private
-
-      def append_csp_directives
-        return if Decidim::Elections.bulletin_board.nil?
-        return if Decidim::Elections.bulletin_board.bulletin_board_server.blank?
-
-        content_security_policy.append_csp_directive("connect-src", Decidim::Elections.bulletin_board.bulletin_board_server)
-      end
+      include Decidim::Elections::ContentSecurityPolicy
     end
   end
 end
