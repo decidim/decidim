@@ -187,6 +187,10 @@ zh-TW:
         user:
           new: 新增管理員
         verify: 驗證
+      admin_terms_of_use:
+        actions:
+          accept: 我同意這些條款
+          refuse: 拒絕管理員條款
       attachments:
         new:
           title: 新增附件
