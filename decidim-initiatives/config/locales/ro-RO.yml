@@ -2,6 +2,8 @@ ro:
   activemodel:
     attributes:
       initiative:
+        answer: Răspuns
+        area_id: Zonă
         decidim_scope_id: Domeniu de interes
         decidim_user_group_id: Autor
         description: Descriere
@@ -17,8 +19,11 @@ ro:
           online: Online
         state: Status
         title: Titlu
+        type_id: Tip
       initiatives_committee_member:
         user: Membru al Comitetului
+      initiatives_settings:
+        initiatives_order: Ordine
       initiatives_type:
         area_enabled: Permite autorilor să aleagă zona pentru inițiativa lor
         attachments_enabled: Activare atașamente
@@ -33,6 +38,7 @@ ro:
         online_signature_enabled: Semnătură online activată
         only_global_scope_enabled: Permiteți crearea de inițiative aferente doar domeniilor generale de interes
         promoting_committee_enabled: Activați comitetul de promovare
+        signature_type: Tip semnătură
         title: Titlu
         undo_online_signatures_enabled: Permite participanților să își anuleze semnăturile online
         validate_sms_code_on_votes: Adaugă etapa validării codului SMS la procesul de semnare

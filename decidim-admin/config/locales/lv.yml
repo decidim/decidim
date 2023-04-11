@@ -431,8 +431,6 @@ lv:
             state: Stāvoklis
             users_count: Dalībnieku skaits
       moderations:
-        index:
-          title: Moderācijas
         report:
           reasons:
             does_not_belong: Neattiecas

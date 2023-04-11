@@ -11,15 +11,22 @@ ro:
         decidim_area_id: Zonă
         description: Descriere
         developer_group: Grup promotor
+        document: Document
         domain: Domeniu
         end_date: Data de încheiere
         hashtag: Hashtag
         hero_image: Imagine pentru pagina principală
+        import_attachments: Importă atașamente
+        import_categories: Importă categorii
+        import_components: Importă componente
+        import_steps: Importă etapele
         local_area: Zona organizației
         meta_scope: Metadate privind domeniul de interes
         participatory_process_group_id: Grupul proceselor
+        participatory_process_type_id: Tip proces
         participatory_scope: Ce se decide
         participatory_structure: Cum se decide
+        private_space: Proces privat
         promoted: Promovat
         published_at: Publicat la
         related_process_ids: Procese asociate
@@ -443,6 +450,8 @@ ro:
           see: Vezi
         index:
           loading: Se încarcă rezultatele...
+        show:
+          title: Despre acest proces
       show:
         area: Zonă
         belongs_to_group: Acest proces aparține de

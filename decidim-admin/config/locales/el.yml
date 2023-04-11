@@ -580,7 +580,6 @@ el:
           nickname: Ψευδώνυμο
           reason: Αιτία
           reports: Πλήθος αναφορών
-          title: Λίστα αναφερόμενων χρηστών
         report:
           reasons:
             does_not_belong: Δεν ανήκει
@@ -590,8 +589,6 @@ el:
           blocked: Αποκλεισμένος
           unblocked: Δεν έχει μπλοκαριστεί
       moderations:
-        index:
-          title: Εποπτεύσεις
         report:
           reasons:
             does_not_belong: Δεν ανήκει

@@ -195,11 +195,14 @@ es-PY:
           error: Ha habido un error al aceptar los Términos y Condiciones de Administración.
           success: '¡Genial! Has aceptado los Términos y Condiciones de Administración.'
         actions:
+          accept: Estoy de acuerdo con los términos
           are_you_sure: '¿Seguro que deseas rechazar los términos de uso para administradoras?'
+          refuse: Rechazar los términos del servicio de administración
           title: Acepto los Términos y Condiciones de Administración
         required_review:
           alert: 'Requerido: revisa nuestros Términos y Condiciones de Administración'
           callout: Por favor dedica un momento a familiarizarte con los términos de uso para administradoras. En caso contrario, no podrás administrar la plataforma.
+          cta: Revisarlos ahora.
         title: Términos y Condiciones de Administración
       area_types:
         create:
@@ -640,7 +643,7 @@ es-PY:
           nickname: Alias
           reason: Motivo
           reports: Cantidad de veces reportado
-          title: Listando usuarios reportados
+          title: Participantes reportadas
         report:
           reasons:
             does_not_belong: No pertenece
@@ -651,7 +654,7 @@ es-PY:
           unblocked: No bloqueado
       moderations:
         index:
-          title: Moderaciones
+          title: Contenido reportado
         report:
           reasons:
             does_not_belong: No pertenece

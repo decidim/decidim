@@ -626,7 +626,6 @@ hu:
           nickname: Felhasználónév
           reason: Indok
           reports: Jelentések száma
-          title: Jelentett felhasználók listája
         report:
           reasons:
             does_not_belong: Nem tartozik hozzá
@@ -636,8 +635,6 @@ hu:
           blocked: Letiltva
           unblocked: Nincs letiltva
       moderations:
-        index:
-          title: Moderálás
         report:
           reasons:
             does_not_belong: Nem tartozik hozzá

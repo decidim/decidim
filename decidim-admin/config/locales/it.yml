@@ -589,7 +589,6 @@ it:
           nickname: Nickname
           reason: Motivazione
           reports: Numero di segnalazioni
-          title: Elencando gli utenti segnalati
         report:
           reasons:
             does_not_belong: Non appartiene
@@ -599,8 +598,6 @@ it:
           blocked: Bloccato
           unblocked: Non Bloccato
       moderations:
-        index:
-          title: Moderazione
         report:
           reasons:
             does_not_belong: Non appartiene
