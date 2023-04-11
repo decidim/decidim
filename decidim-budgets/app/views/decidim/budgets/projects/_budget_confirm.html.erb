@@ -10,7 +10,7 @@
         <p class="mb-4"><%= t(".description") %></p>
         <div class="card card--secondary">
           <% current_order.projects.each do |project| %>
-            <div class="card__list">
+            <div class="card__list card__list__project-voted">
               <div class="card__list__content">
                 <div class="card__list-text">
                   <%= link_to translated_attribute(project.title), resource_locator([budget, project]).path, class: "card__list-title" %>

@@ -215,3 +215,11 @@
 .progressbox-fixed-wrapper.is-progressbox-visible{
   @apply block;
 }
+
+#budget-confirm .card__list__project-voted{
+  @apply hover:border-background cursor-default;
+
+  .card__list-title{
+    @apply cursor-default no-underline;
+  }
+}
