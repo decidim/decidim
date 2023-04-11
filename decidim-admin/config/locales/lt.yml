@@ -640,7 +640,6 @@ lt:
           nickname: Slapyvardis
           reason: Priežastis
           reports: Raportavimų skaičius
-          title: Raportuotų dalyvių sąrašas
         report:
           reasons:
             does_not_belong: Nepriklauso
@@ -650,8 +649,6 @@ lt:
           blocked: Užblokuota
           unblocked: Neužblokuota
       moderations:
-        index:
-          title: Moderavimai
         report:
           reasons:
             does_not_belong: Nepriklauso

@@ -637,7 +637,6 @@ pl:
           nickname: Pseudonim
           reason: Powód
           reports: Liczba zgłoszeń
-          title: Lista zgłoszonych użytkowników
         report:
           reasons:
             does_not_belong: Nie należy
@@ -647,8 +646,6 @@ pl:
           blocked: Zablokowany
           unblocked: Niezablokowany
       moderations:
-        index:
-          title: Moderacje
         report:
           reasons:
             does_not_belong: Nie należy

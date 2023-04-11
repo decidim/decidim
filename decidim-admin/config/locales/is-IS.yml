@@ -369,8 +369,6 @@ is:
             phone: Sími
             state: Ríki
       moderations:
-        index:
-          title: Moderations
         report:
           reasons:
             does_not_belong: Tilheyrir ekki

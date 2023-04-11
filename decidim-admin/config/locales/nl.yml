@@ -632,7 +632,6 @@ nl:
           nickname: Bijnaam
           reason: Reden
           reports: Aantal rapporteringen
-          title: Gerapporteerde gebruikers weergeven
         report:
           reasons:
             does_not_belong: Hoort niet bij
@@ -642,8 +641,6 @@ nl:
           blocked: Geblokkeerd
           unblocked: Niet geblokkeerd
       moderations:
-        index:
-          title: Moderaties
         report:
           reasons:
             does_not_belong: Hoort niet

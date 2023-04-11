@@ -654,7 +654,7 @@ es:
           nickname: Alias
           reason: Motivo
           reports: Cantidad de veces reportado
-          title: Listando usuarios reportados
+          title: Participantes reportadas
         report:
           reasons:
             does_not_belong: No pertenece
@@ -665,7 +665,7 @@ es:
           unblocked: No bloqueado
       moderations:
         index:
-          title: Moderaciones
+          title: Contenido reportado
         report:
           reasons:
             does_not_belong: No pertenece
@@ -851,7 +851,7 @@ es:
           title: Participante de espacio de participación privado
         new:
           create: Crear
-          title: Nueva participante de espacio de participación privado.
+          title: Nueva participante del espacio privado.
       participatory_space_private_users_csv_imports:
         create:
           invalid: Se produjo un error al leer el archivo CSV.
