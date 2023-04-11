@@ -26,6 +26,10 @@ module Decidim
         @current_order ||= controller.try(:current_order)
       end
 
+      def show_only_added
+        options[:show_only_added]
+      end
+
       def resource_id = "project-#{project.id}-item"
 
       def metadata_cell = "decidim/budgets/project_metadata"

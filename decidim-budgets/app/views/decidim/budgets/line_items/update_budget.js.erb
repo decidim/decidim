@@ -14,7 +14,11 @@ $("#order-progress").foundation();
 $(".budget-summary__selected").foundation();
 
 if ($projectItem.length > 0) {
-  morphdom($projectItem[0], '<%= j(render partial: "decidim/budgets/projects/project", locals: { project: project }).strip.html_safe %>');
+  <% if params[:action] == "destroy" && params[:show_only_added] == "true" %>
+    $projectItem[0].remove();
+  <% else %>
+    morphdom($projectItem[0], '<%= j(render partial: "decidim/budgets/projects/project", locals: { project: project }).strip.html_safe %>');
+  <% end %>
 }
 
 if ($projectBudgetButton.length > 0) {
