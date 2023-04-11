@@ -1,7 +1,7 @@
   <% if collection.leaf %>
     <% options = options.map { |k, v| [k.to_sym, v] }.to_h if options.is_a?(Hash) %>
     <% data_checkboxes_tree_id = "#{check_boxes_tree_id}-#{collection.leaf.value}" %>
-    <% hide_node = (hide_node.present? and hide_node == "true") ? true : false %>
+    <% hide_node = (hide_node.present? && (hide_node == "true")) ? true : false %>
     <% is_root_check_box = (collection.leaf.value == "") ? true : false %>
     <% if is_root_check_box %>
       <%= hidden_field_tag "#{form.object_name}[#{attribute}][]", "", id: "#{form.options[:namespace] rescue 'default'}_filter_#{attribute}_all" %>

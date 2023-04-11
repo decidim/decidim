@@ -149,28 +149,16 @@ linters:
       Layout/EndAlignment:
         Enabled: false
 
-      Lint/UnusedBlockArgument:
-        Enabled: false
-
       Layout/MultilineMethodCallIndentation:
         Enabled: false
 
       Layout/IndentationWidth:
         Enabled: false
 
-      Style/AndOr:
-        Enabled: false
-
       Layout/SpaceBeforeFirstArg:
         Enabled: false
 
-      Style/TrailingCommaInHashLiteral:
-        Enabled: false
-
       Style/SymbolProc:
-        Enabled: false
-
-      Rails/Presence:
         Enabled: false
 
       Layout/MultilineAssignmentLayout:

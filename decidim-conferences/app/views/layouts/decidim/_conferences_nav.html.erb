@@ -26,7 +26,7 @@
   end + [
     current_participatory_space.partners.any? ? {
       name: t(".conference_partners_menu_item"),
-      url: decidim_conferences.conference_path(current_participatory_space, anchor: "conference-partners-main_promotor"),
+      url: decidim_conferences.conference_path(current_participatory_space, anchor: "conference-partners-main_promotor")
     } : nil,
     meeting_components.any? ? {
       name: t(".venues"),
