@@ -13,6 +13,28 @@
 <% end %>
 
 <%= render layout: "layouts/decidim/shared/layout_two_col" do %>
+  <% announcement_body = capture do %>
+    <div data-component="accordion">
+      <button class="button button__sm button__text-secondary" data-controls="panel-view-more">
+        <span>
+          <%= t("view_more", scope: "layouts.decidim.announcements") %>
+        </span>
+        <%= icon "arrow-down-s-line" %>
+        <span>
+          <%= t("close", scope: "layouts.decidim.announcements") %>
+        </span>
+        <%= icon "arrow-up-s-line" %>
+      </button>
+      <div id="panel-view-more">
+        <% if translated_attribute(current_settings.announcement).present? %>
+         <%= translated_attribute(current_settings.announcement).html_safe %>
+        <% elsif translated_attribute(component_settings.announcement).present? %>
+          <%= translated_attribute(component_settings.announcement).html_safe %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+  <%= cell("decidim/announcement", announcement_body, clean: false) %>
   <%= cell("decidim/budgets/budgets_header", current_workflow) %>
   <%= cell("decidim/budgets/budgets_list", current_workflow) %>
 

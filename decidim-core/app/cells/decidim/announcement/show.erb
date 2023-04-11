@@ -1,9 +1,10 @@
 <%= content_tag :div, class: "callout #{callout_class}", data: { announcement: "" } do %>
   <% if has_title? %>
-    <div class="h4"><%= clean_title %></div>
-
-    <%= clean_body %>
+    <div class="h4">
+      <%= clean? ? clean_title : title %>
+    </div>
+    <%= clean? ? clean_body : body %>
   <% else %>
-    <%= clean_announcement %>
+    <%= clean? ? clean_announcement : announcement %>
   <% end %>
 <% end %>
