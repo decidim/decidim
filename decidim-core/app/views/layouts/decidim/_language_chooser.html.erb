@@ -18,7 +18,7 @@
         <% end %>
         <ul class="menu is-dropdown-submenu" id="language-chooser-menu" role="menu" aria-labelledby="language-chooser-control">
           <% (available_locales - [I18n.locale.to_s]).each do |locale| %>
-            <li role="presentation"><%= link_to locale_name(locale), decidim.locale_path(locale: locale), method: :post, role: "menuitem", lang: locale %></li>
+            <li role="presentation"><%= link_to locale_name(locale), decidim.locale_path(locale:), method: :post, role: "menuitem", lang: locale %></li>
           <% end %>
         </ul>
       </li>

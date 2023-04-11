@@ -9,7 +9,7 @@ edit_link(
   resource_locator(debate).edit,
   :update,
   :debate,
-  debate: debate
+  debate:
 )
 %>
 
@@ -129,7 +129,7 @@ edit_link(
 <%= cell("decidim/flag_modal", debate) %>
 <%=
   render partial: "close_debate_modal", locals: {
-    debate: debate,
+    debate:,
     form: close_debate_form
   }
 %>

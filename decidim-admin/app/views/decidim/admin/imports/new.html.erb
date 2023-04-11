@@ -13,8 +13,8 @@
                 <ul class="vertical menu add-components">
                   <% mime_types.each do |format, name| %>
                     <li class="examples--format--<%= format.downcase %> examples--<%= import_manifest.name %>">
-                      <%= link_to t(".download_example_format", name: name),
-                        admin_imports_example_path(@current_component, name: import_manifest.name, format: format) %>
+                      <%= link_to t(".download_example_format", name:),
+                        admin_imports_example_path(@current_component, name: import_manifest.name, format:) %>
                     </li>
                   <% end %>
                 </ul>
@@ -27,7 +27,7 @@
       </div>
     </div>
     <div class="card-section">
-      <%= render partial: import_manifest.form_view, locals: { form: form } if import_manifest.form_view %>
+      <%= render partial: import_manifest.form_view, locals: { form: } if import_manifest.form_view %>
       <div class="grid-x">
         <div class="cell">
           <fieldset>

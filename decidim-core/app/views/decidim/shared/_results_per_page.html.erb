@@ -14,7 +14,7 @@
           <li class="text-gray-2 px-4 hover:bg-secondary hover:text-white transition" role="presentation">
             <%= link_to per_page_option,
                         url_for(params.to_unsafe_h.merge(page: nil, per_page: per_page_option)),
-                        data: { per_page_option: per_page_option },
+                        data: { per_page_option: },
                         title: t("decidim.shared.results_per_page.title"),
                         role: "menuitem" %>
           </li>

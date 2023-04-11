@@ -12,7 +12,7 @@
         <%= partial "author_data--avatar" %>
         <div>
           <div class="author__name--container">
-            <%= partial "author_data--name", { tooltip: tooltip } %>
+            <%= partial "author_data--name", { tooltip: } %>
 
             <% if verified %>
               <%= icon "verified-badge", class: "author__verified" %>
@@ -29,7 +29,7 @@
     <% else %>
       <div class="author author--inline">
         <%= partial "author_data--avatar" %>
-        <%= partial "author_data--name", { tooltip: tooltip } %>
+        <%= partial "author_data--name", { tooltip: } %>
 
         <% if nick %>
           <a href="user-profile" class="author__nickname">

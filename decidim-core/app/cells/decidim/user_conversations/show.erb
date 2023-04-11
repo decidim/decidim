@@ -46,7 +46,7 @@
       <div class="row">
         <div class="tabs-panel is-active conversations" id="conversations" role="tabpanel" aria-labelledby="conversations-label">
         <% conversations.each do |conversation| %>
-          <%= render view: :conversation_item, locals: { conversation: conversation } %>
+          <%= render view: :conversation_item, locals: { conversation: } %>
         <% end %>
         </div>
       </div>
