@@ -3,7 +3,9 @@
   <%= link_to t(".more_information"), decidim.page_path("initiatives"), target: "_blank", class: 'button button__sm button__text-secondary block' %>
 </div>
 
-<%= render partial: "share_committee_link" %>
+<div class="form__wrapper">
+  <%= render partial: "share_committee_link" %>
+</div>
 
 <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
   <%= link_to :back, class: "button button__sm md:button__lg button__text-secondary" do %>

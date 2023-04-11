@@ -9,23 +9,18 @@
 <% add_decidim_page_title(translated_attribute(current_initiative.title)) %>
 <% provide :meta_image_url, current_initiative.type.attached_uploader(:banner_image).path %>
 
-<br><br>
-<div class="row column">
-  <h2 class="heading2"><%= translated_attribute(current_initiative.title) %></h2>
-  <%= render partial: "decidim/initiatives/initiatives/author", locals: { initiative: current_initiative } %>
-</div>
 
-<div class="row">
-  <div class="columns large-12">
-    <div class="section">
+<main class="layout-1col">
+  <div class="cols-8">
+    <h2 class="h2 decorator"><%= translated_attribute(current_initiative.title) %></h2>
+    <%= render partial: "decidim/initiatives/initiatives/author", locals: { initiative: current_initiative } %>
+
+    <div class="editor-content">
       <%= decidim_sanitize_editor translated_attribute(current_initiative.description) %>
     </div>
-
     <div class="section">
       <p><%= t ".help_text" %></p>
-      <%= logged_link_to t(".continue"),
-                         spawn_initiative_committee_requests_path(current_initiative),
-                         class: "title-action__action button small hollow" %>
+      <%= logged_link_to t(".continue"), spawn_initiative_committee_requests_path(current_initiative), class: "title-action__action button small hollow" %>
     </div>
   </div>
-</div>
+</main>
