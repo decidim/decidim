@@ -8,8 +8,15 @@
   </div>
 <% end %>
 
-<div class="mb-4">
-  <%= order_selector available_orders, i18n_scope: "decidim.initiatives.initiatives.orders" %>
+<div class="collection-sort-controls row small-up-1 medium-up-2 card-grid">
+  <div class="column">
+    <%= order_selector available_orders, i18n_scope: "decidim.initiatives.initiatives.orders" %>
+  </div>
+
+<div class="card__grid-container">
+  <div class="card__grid-grid">
+    <%= render initiatives %>
+  </div>
 </div>
 
 <%= render initiatives %>
