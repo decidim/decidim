@@ -91,3 +91,6 @@ Rails/SkipsModelValidations:
 Rails/Validation:
   Include:
     - decidim-*/app/models/**/*.rb
+
+Rails/CompactBlank:
+  Enabled: false
