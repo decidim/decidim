@@ -195,6 +195,13 @@ zh-TW:
         permissions: 權限
         reject: 拒絕
         share: 分享
+        user:
+          new: 新增管理員
+        verify: 驗證
+      admin_terms_of_service:
+        accept:
+          error: 點選同意管理員服務條款時發生錯誤
+          success: 太好了，已經同意管理員服務條款！
       attachments:
         new:
           title: 新增附件
