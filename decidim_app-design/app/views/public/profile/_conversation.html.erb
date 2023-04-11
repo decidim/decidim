@@ -25,7 +25,7 @@
       <% Faker::Number.between(from: 1, to: 3).times do %>
       <article class="card">
         <div class="p-s">
-          <%= Faker::Lorem.sentence(Faker::Number.between(from: 5, to: 20)) %>
+          <%= Faker::Lorem.sentence(word_count: Faker::Number.between(from: 5, to: 20)) %>
         </div>
       </article>
       <% end %>

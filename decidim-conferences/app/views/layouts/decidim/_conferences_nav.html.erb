@@ -31,7 +31,7 @@
     meeting_components.any? ? {
       name: t(".venues"),
       url: decidim_conferences.conference_path(current_participatory_space, anchor: "venues")
-    } : nil,
+    } : nil
   ] + components.map do |component|
     {
       name: translated_attribute(component.name),

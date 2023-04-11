@@ -35,7 +35,7 @@
           <% if i.even? && u===0 %>
             <strong><%= Faker::Name.name %></strong><br>
           <% end %>
-          <%= Faker::Lorem.sentence(Faker::Number.between(from: 5, to: 20)) %>
+          <%= Faker::Lorem.sentence(word_count: Faker::Number.between(from: 5, to: 20)) %>
         </div>
       </article>
       <% end %>
