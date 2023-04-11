@@ -4,7 +4,7 @@
     <% hide_node = hide_node.present? && (hide_node == "true") ? true : false %>
     <% is_root_check_box = collection.leaf.value == "" ? true : false %>
     <% if is_root_check_box %>
-      <%= hidden_field_tag "#{form.object_name}[#{attribute}][]", "", id: "#{form.options[:namespace] rescue 'default'}_filter_#{attribute}_all" %>
+      <%= hidden_field_tag "#{form.object_name}[#{attribute}][]", "", id: "#{form.options[:namespace] rescue "default"}_filter_#{attribute}_all" %>
     <% else %>
       <div class="filters__has-subfilters">
     <% end %>

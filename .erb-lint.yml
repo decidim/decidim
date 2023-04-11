@@ -38,7 +38,6 @@ linters:
       Style/StringLiterals:
         EnforcedStyle: double_quotes
 
-
       Layout/LineLength:
         Enabled: false
 
@@ -57,9 +56,6 @@ linters:
       Layout/FirstArrayElementIndentation:
         Enabled: false
 
-      Style/StringLiteralsInInterpolation:
-        Enabled: false
-
       Layout/TrailingEmptyLines:
         Enabled: false
 
@@ -69,29 +65,13 @@ linters:
       Rails/LinkToBlank:
         Enabled: false
 
-      Rails/TimeZone:
-        Enabled: false
-
-      Style/NumericPredicate:
-        Enabled: false
-
       Naming/VariableName:
         Enabled: false
-
-      Style/NumericLiterals:
-        Enabled: false
-
-      Style/LambdaCall:
-        Enabled: false
-
 
       Layout/MultilineMethodCallIndentation:
         Enabled: false
 
       Layout/IndentationWidth:
-        Enabled: false
-
-      Layout/SpaceBeforeFirstArg:
         Enabled: false
 
       Layout/MultilineAssignmentLayout:
