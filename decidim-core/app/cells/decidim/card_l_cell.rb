@@ -73,6 +73,8 @@ module Decidim
     end
 
     def link_whole_card?
+      return true unless options.has_key?(:link_whole_card)
+
       options[:link_whole_card]
     end
 

@@ -14,24 +14,22 @@
 </div>
 <% end %>
 
-<div class="mb-24">
-  <%= decidim_form_for(@form, url: authorization_path, method: :put) do |form| %>
-    <%= render partial: "form", locals: { form: form } %>
+<%= decidim_form_for(@form, url: authorization_path, method: :put) do |form| %>
+  <%= render partial: "form", locals: { form: form } %>
 
-    <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
-      <%= link_to decidim_verifications.authorizations_path, class: "button button__sm md:button__lg button__text-secondary" do %>
-        <%= icon "arrow-left-line", class: "fill-current" %>
-        <span><%= t("decidim.wizard_step_form.wizard_aside.back") %></span>
-      <% end %>
-      <button type="submit" class="button button__sm md:button__lg button__secondary">
-        <span><%= t("decidim.verifications.id_documents.authorizations.edit.send") %></span>
-        <%= icon "arrow-right-line", class: "fill-current" %>
-      </button>
-    </div>
-
-    <% if available_methods.count > 1 %>
-      <%= link_to t("decidim.verifications.id_documents.authorizations.edit.offline"), { action: :edit, using: :offline }, class: "text-secondary" if using_online? %>
-      <%= link_to t("decidim.verifications.id_documents.authorizations.edit.online"), { action: :edit, using: :online }, class: "text-secondary" if using_offline? %>
+  <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
+    <%= link_to decidim_verifications.authorizations_path, class: "button button__sm md:button__lg button__text-secondary" do %>
+      <%= icon "arrow-left-line", class: "fill-current" %>
+      <span><%= t("decidim.wizard_step_form.wizard_aside.back") %></span>
     <% end %>
+    <button type="submit" class="button button__sm md:button__lg button__secondary">
+      <span><%= t("decidim.verifications.id_documents.authorizations.edit.send") %></span>
+      <%= icon "arrow-right-line", class: "fill-current" %>
+    </button>
+  </div>
+
+  <% if available_methods.count > 1 %>
+    <%= link_to t("decidim.verifications.id_documents.authorizations.edit.offline"), { action: :edit, using: :offline }, class: "text-secondary" if using_online? %>
+    <%= link_to t("decidim.verifications.id_documents.authorizations.edit.online"), { action: :edit, using: :online }, class: "text-secondary" if using_offline? %>
   <% end %>
-</div>
+<% end %>

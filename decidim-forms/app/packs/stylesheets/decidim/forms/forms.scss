@@ -1,5 +1,5 @@
 .answer-questionnaire{
-  @apply border-t-4 border-background py-10;
+  @apply border-t-4 border-background pt-10;
 
   &__step{
     @apply space-y-10;
@@ -97,7 +97,7 @@
   }
 
   &__footer{
-    @apply flex flex-col gap-10 py-10 border-t-4 border-background text-gray-2 only:border-t-0;
+    @apply flex flex-col gap-10 pt-10 border-t-4 border-background text-gray-2 only:border-t-0;
   }
 
   &__tos{

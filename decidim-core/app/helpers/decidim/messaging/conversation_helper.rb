@@ -63,6 +63,7 @@ module Decidim
       #
       # Links to the conversation between the current user and another user
       #
+      # deprecated ?
       def text_link_to_current_or_new_conversation_with(user, body = t("decidim.profiles.show.send_private_message"))
         conversation_path = current_or_new_conversation_path_with(user)
         link_to body, conversation_path, title: body if conversation_path

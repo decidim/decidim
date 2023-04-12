@@ -22,7 +22,7 @@ module Decidim
       private
 
       def metadata_cell
-        "decidim/proposals/proposal_card_metadata"
+        "decidim/proposals/proposal_metadata"
       end
     end
   end
