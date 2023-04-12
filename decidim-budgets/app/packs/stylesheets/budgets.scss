@@ -177,7 +177,18 @@
     }
 
     .card__list-content{
-      @apply w-[60%] cursor-pointer pr-24;
+      @apply w-full cursor-pointer pr-24 ;
+    }
+
+    .project-test{
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1rem;
+
+      .card__list{
+        display: inline-block;
+        width: 60%;
+      }
     }
   }
 }
