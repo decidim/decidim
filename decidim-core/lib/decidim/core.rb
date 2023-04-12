@@ -119,6 +119,7 @@ module Decidim
   autoload :BlockRegistry, "decidim/block_registry"
   autoload :DependencyResolver, "decidim/dependency_resolver"
   autoload :ParticipatorySpaceUser, "decidim/participatory_space_user"
+  autoload :ModerationTools, "decidim/moderation_tools"
 
   include ActiveSupport::Configurable
   # Loads seeds from all engines.
@@ -518,7 +519,7 @@ module Decidim
 
   # List of static pages' slugs that can include content blocks
   config_accessor :page_blocks do
-    %w(terms-and-conditions)
+    %w(terms-of-service)
   end
 
   # Public: Registers a global engine. This method is intended to be used

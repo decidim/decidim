@@ -1,7 +1,7 @@
-.consultations-nav{
+.consultations-nav {
   margin-bottom: $margin-s;
 
-  @include breakpoint(medium){
+  @include breakpoint(medium) {
     margin-bottom: $margin-sm;
   }
 }

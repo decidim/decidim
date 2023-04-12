@@ -40,11 +40,6 @@ sk:
         name: Kompletné meno
   activerecord:
     models:
-      decidim/initiative:
-        one: Iniciatíva
-        few: Iniciatívy
-        many: Iniciatívy
-        other: Iniciatívy
       decidim/initiative_comittee:
         one: Komisia
         few: Komisie
@@ -136,8 +131,6 @@ sk:
           index:
             approve: Schvaľovať
             confirm_revoke: Si si istý?
-            invite_to_committee_help: Zdieľajte tento odkaz, aby ste mohli pozvať ostatných užívateľov do propagačného výboru
-            no_members_yet: V komisii promotérov nie sú žiadni členovia
             revoke: Zrušiť
             title: členovia komisie
         content_blocks:
@@ -152,7 +145,6 @@ sk:
             export_votes: Podpora exportu
             reject: Odmietnuť iniciatívu
             send_to_technical_validation: Odoslanie k technickému overeniu
-            success: Iniciatíva bola odoslaná k technickému overeniu
             update: Aktualizovať
           form:
             title: Všeobecná informácia
@@ -160,15 +152,7 @@ sk:
             actions_title: Akcia
             preview: Náhľad
             print: Tlač
-          update:
-            error: Došlo k chybe
-            success: Iniciatíva občanov bola úspešne aktualizovaná
         initiatives_type_scopes:
-          create:
-            error: Došlo k chybe
-            success: Bola vytvorená nová oblasť pre daný typ iniciatívy
-          destroy:
-            success: Rozsah bol úspešne odstránený
           edit:
             back: Späť
             confirm_destroy: Si si istý?
@@ -179,15 +163,7 @@ sk:
             back: Späť
             create: Vytvoriť
             title: Vytvoriť rozsah typov iniciatívy
-          update:
-            error: Došlo k chybe
-            success: Rozsah bol úspešne aktualizovaný
         initiatives_types:
-          create:
-            error: Došlo k chybe
-            success: Nový typ iniciatívy bol úspešne vytvorený
-          destroy:
-            success: Typ iniciatívy bol úspešne odstránený
           edit:
             confirm_destroy: Ste si istý?
             destroy: Odstrániť
@@ -199,9 +175,6 @@ sk:
           new:
             create: Vytvoriť
             title: Nový typ iniciatívy
-          update:
-            error: Došlo k chybe
-            success: Typ iniciatívy bol úspešne aktualizovaný
       admin_log:
         initiative:
           publish: "% {USER_NAME} zverejnil iniciatívu% {resource_name}"
@@ -218,7 +191,6 @@ sk:
       committee_requests:
         new:
           continue: Pokračovať
-          help_text: Chystáte sa požiadať o členstvo vo výbore promotéra tejto iniciatívy
         spawn:
           success: Vaša žiadosť bola zaslaná autorovi iniciatívy.
       content_blocks:
@@ -277,7 +249,6 @@ sk:
             day: Deň
             month: Mesiac
             year: Rok
-          help: Vyplňte prosím nasledujúce polia s osobnými údajmi, aby ste podpísali iniciatívu
         finish:
           back_to_initiative: Späť na iniciatívu
         sms_code:
@@ -285,16 +256,11 @@ sk:
           help: Skontrolujte SMS prijaté v telefóne
         sms_phone_number:
           continue: Pošlite mi SMS
-          help: Vyplňte formulár s overeným telefónnym číslom a vyžiadajte si overovací kód
       initiative_votes:
         create:
           error: Pri podpise iniciatívy došlo k chybám.
-          invalid: Údaje poskytnuté na podpis iniciatívy nie sú platné
-          success_html: Gratulujeme! Iniciatíva <strong>%{title} </strong> bola správne podpísaná
         personal_data:
           invalid: Osobné údaje nie sú v súlade s údajmi poskytnutými na autorizáciu.
-        sms_code:
-          invalid: Váš overovací kód nezodpovedá nášmu. Prosím, skontrolujte SMS, ktorý sme vám poslali.
         sms_phone:
           invalid: Telefónne číslo je neplatné alebo čaká na autorizáciu. Skontrolujte prosím vaše oprávnenie.
       initiatives:

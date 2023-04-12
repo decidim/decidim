@@ -65,5 +65,4 @@ pl:
       surveys:
         answer:
           invalid: Podczas wypełniania ankiety wystąpił błąd.
-          spam_detected: Wystąpił błąd podczas wypełniania formularza. Być może zostało to zrobione zbyt szybko, czy możesz spróbować ponownie?
           success: Twoja ankieta została wypełniona.

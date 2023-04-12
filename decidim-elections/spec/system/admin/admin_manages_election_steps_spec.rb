@@ -311,5 +311,16 @@ describe "Admin manages election steps", :slow, type: :system do
     within find("tr", text: translated(election.title)) do
       page.find(".action-icon--manage-steps").click
     end
+
+    # Ensure the correct page is loaded before proceeding further
+    if election.bb_status.nil?
+      within ".form.step.create_election .card .card-divider", match: :first do
+        expect(page).to have_css(".card-title", text: "Setup election")
+      end
+    else
+      within ".process-content .card .card-divider", match: :first do
+        expect(page).to have_css(".card-title", text: translated(election.title))
+      end
+    end
   end
 end

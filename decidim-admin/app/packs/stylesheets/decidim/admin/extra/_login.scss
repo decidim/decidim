@@ -1,35 +1,35 @@
-body.login{
+body.login {
   background: $light-gray;
   position: relative;
 
-  .login-form-wrapper{
+  .login-form-wrapper {
     @include grid-row;
     @include flex;
 
     height: 100vh;
 
-    .login-form{
+    .login-form {
       @include grid-column(12);
       @include grid-column-position(center);
 
-      @include breakpoint(medium){
+      @include breakpoint(medium) {
         @include grid-column(8);
         @include grid-column-position(center);
       }
 
-      @include breakpoint(large){
+      @include breakpoint(large) {
         @include grid-column(6);
         @include grid-column-position(center);
       }
     }
 
-    @include breakpoint(medium){
+    @include breakpoint(medium) {
       @include flex-align(center, middle);
 
       transform: translateY(-8%);
     }
 
-    .login-form-inner{
+    .login-form-inner {
       background-color: $white;
       padding: $global-padding;
     }

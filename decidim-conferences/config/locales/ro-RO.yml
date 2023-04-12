@@ -74,7 +74,7 @@ ro:
         conference_registration_invite:
           attributes:
             email:
-              already_invited: Acest e-mail a fost deja invitat
+              already_invited: Această adresă a fost deja invitată.
   activerecord:
     models:
       decidim/conference:
@@ -460,7 +460,7 @@ ro:
           main_promotors: Organizatori
         show:
           login_as: Ești contectat ca %{name} <%{email}>
-          make_conference_registration: Înscrieți-vă la conferință
+          make_conference_registration: Înregistrați-vă la conferință
           register: Inregistrare
       content_blocks:
         highlighted_conferences:
@@ -470,9 +470,9 @@ ro:
       mailer:
         conference_registration_mailer:
           confirmation:
-            subject: Înregistrarea conferinței dvs. a fost confirmată
+            subject: Înregistrarea la conferință a fost confirmată.
           pending_validation:
-            subject: Înregistrarea conferinței dvs. este în curs de confirmare
+            subject: Înregistrarea la conferință este în curs de confirmare.
         invite_join_conference_mailer:
           invite:
             subject: Invitație de a participa la o conferință
@@ -559,7 +559,7 @@ ro:
     log:
       value_types:
         conference_presenter:
-          not_found: 'Conferința nu a fost găsită în baza de date (ID: %{id})'
+          not_found: 'Conferința nu a fost găsită în baza de date (ID: %{id}).'
     media:
       index:
         description: Legături despre această conferință

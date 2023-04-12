@@ -1,33 +1,33 @@
 @use "sass:math";
 
-.conference-media{
-  .media-links{
-    li{
+.conference-media {
+  .media-links {
+    li {
       color: $secondary;
       margin-bottom: $global-margin;
       align-items: baseline;
 
       @include flexgap($global-margin);
 
-      > :first-child{
+      > :first-child {
         flex-shrink: 0;
       }
     }
 
-    a{
+    a {
       font-size: rem-calc(18);
     }
   }
 
-  .media-pictures{
-    article{
+  .media-pictures {
+    article {
       cursor: pointer;
     }
 
-    .picture__content{
+    .picture__content {
       padding: $global-padding;
 
-      img{
+      img {
         margin-bottom: $global-margin;
         object-fit: cover;
 
@@ -37,8 +37,8 @@
   }
 }
 
-[data-reveal].picture__modal{
-  img{
+[data-reveal].picture__modal {
+  img {
     margin-bottom: $global-margin;
 
     @include square(100%);

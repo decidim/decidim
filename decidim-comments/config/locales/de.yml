@@ -27,11 +27,11 @@ de:
         create:
           error: Beim Erstellen des Kommentars ist ein Fehler aufgetreten.
         delete:
-          error: Die Sendung konnte nicht gelöscht werden.
+          error: Der Kommentar konnte nicht gelöscht werden.
         update:
           error: Beim Erstellen des Kommentars ist ein Fehler aufgetreten.
       comments_count: Kommentaranzahl
-      comments_title: Kommentare
+      comments_title: Kommentar
       last_activity:
         new_comment_at_html: "<span>Neuer Kommentar unter %{link}</span>"
       view: Ansicht
@@ -45,7 +45,6 @@ de:
           body:
             label: Kommentar
             placeholder: Was denken Sie darüber?
-          form_error: Der Text ist erforderlich und darf nicht länger als %{length} Zeichen sein.
           submit: Senden
           user_group_id:
             label: Kommentieren als
@@ -80,7 +79,6 @@ de:
           description: Ist dieser Inhalt unangemessen?
           details: Zusätzliche Kommentare
           reasons:
-            does_not_belong: Enthält illegale Aktivitäten, Selbstmorddrohungen, persönliche Informationen oder etwas anderes, von dem Sie denken, dass es nicht auf %{organization_name} gehört.
             offensive: Enthält Rassismus, Sexismus, Verleumdungen, persönliche Angriffe, Morddrohungen, Selbstmordanträge oder jegliche Form von Hassreden.
             spam: Enthält Clickbait, Werbung, Scams oder Script Bots.
           title: Ungeeigneten Inhalt melden
@@ -165,6 +163,3 @@ de:
         description: Anzahl der von Benutzern generierten Kommentare
         object: Bemerkungen
         title: Bemerkungen
-  errors:
-    messages:
-      cannot_have_comments: kann keine Kommentare haben

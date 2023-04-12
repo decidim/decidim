@@ -61,5 +61,4 @@ it:
       surveys:
         answer:
           invalid: Ci sono stati errori nel rispondere al sondaggio.
-          spam_detected: C'è stato un problema nelle risposte ai quesiti. Forse sei stato troppo veloce, puoi riprovare?
           success: Le risposte sono state registrate correttamente.

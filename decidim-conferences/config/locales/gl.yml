@@ -62,12 +62,6 @@ gl:
         email: Correo electrónico
         name: Nome
         role: Rol
-    errors:
-      models:
-        conference_registration_invite:
-          attributes:
-            email:
-              already_invited: Este correo electrónico xa foi convidado
   activerecord:
     models:
       decidim/conference:
@@ -339,7 +333,6 @@ gl:
             invites: Invitacións
             search: Busca
           new:
-            explanation: Invitarase ao usuario a participar nunha conferencia. Se o correo electrónico non está rexistrado, tamén serán invitados á organización.
             invite: Invitar
             new_invite: Invitar ao usuario
         conference_registrations:
@@ -440,11 +433,6 @@ gl:
       index:
         title: Conferencias
       mailer:
-        conference_registration_mailer:
-          confirmation:
-            subject: O rexistro da túa conferencia foi confirmado
-          pending_validation:
-            subject: A inscrición da túa conferencia está pendente de confirmación
         invite_join_conference_mailer:
           invite:
             subject: Invitación para participar nunha conferencia
@@ -525,10 +513,6 @@ gl:
       participatory_spaces:
         conferences:
           title: Que son as conferencias?
-    log:
-      value_types:
-        conference_presenter:
-          not_found: 'Non se atopou a conferencia na base de datos (ID: %{id})'
     media:
       index:
         description: Ligazóns sobre esta conferencia

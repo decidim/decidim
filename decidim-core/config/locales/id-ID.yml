@@ -19,7 +19,6 @@ id:
       decidim/component_published_event: Komponen aktif
       decidim/demoted_membership: Bukan lagi admin grup
       decidim/gamification/badge_earned_event: Lencana diperoleh
-      decidim/gamification/level_up_event: Anda sudah naik level
       decidim/join_request_accepted_event: Permintaan bergabung diterima
       decidim/join_request_rejected_event: Permintaan bergabung ditolak
       decidim/profile_updated_event: Profil diperbarui
@@ -65,14 +64,12 @@ id:
         success: Akun Anda berhasil dihapus.
       download_your_data_export:
         file_no_exists: File tidak ada
-        notice: Data Anda sedang dalam proses. Anda akan menerima email setelah selesai.
       show:
         change_password: Ganti kata sandi
         update_account: Perbaharui akun
       update:
         error: Terjadi kesalahan saat memperbarui akun Anda.
         success: Akun Anda telah berhasil diperbarui.
-        success_with_email_confirmation: Akun Anda telah berhasil diperbarui. Anda akan menerima email untuk mengonfirmasi alamat email baru Anda.
     admin:
       actions:
         cancel: Membatalkan
@@ -131,10 +128,8 @@ id:
         amended_by: Diubah oleh
         button: Ubah %{model_name}
         error: Terjadi kesalahan saat mengubah sumber daya ini.
-        help_text: Tingkatkan %{model_name} ini dengan memodifikasi %{amendable_fields}
         promote_button: Promosikan ke %{model_name}
         promote_confirm_text: Anda yakin ingin mempromosikan perbaikan ini?
-        promote_help_text: Anda dapat mempromosikan emendasi ini dan mempublikasikannya sebagai %{model_name}independen
         section_heading: Amandemen (%{count})
       emendation:
         actions:
@@ -154,16 +149,9 @@ id:
             telah ditarik oleh penulis.
       new:
         amendment_author: Pengarang perubahan
-      promoted:
-        error: Sudah ada kesalahan saat mempromosikan emendasi
-        success: Emendasi berhasil dipromosikan
-      rejected:
-        error: Terjadi kesalahan saat menolak perubahan ini, silakan coba lagi nanti
-        success: Amendemen tersebut telah ditolak dengan sukses
       review:
         back: Kembali
         heading: Tinjau amandemennya
-        help_text: Anda sedang meninjau amandemen ke %{model_name}
         send: Terima amandemen
       wizard_step_form:
         steps:
@@ -182,13 +170,11 @@ id:
         other: komentar
     authorization_handlers:
       another_dummy_authorization_handler:
-        explanation: Dapatkan verifikasi dengan memperkenalkan nomor paspor dimulai dengan "A"
         fields:
           passport_number: Nomor paspor
           postal_code: Kode Pos
         name: Contoh otorisasi lain
       dummy_authorization_handler:
-        explanation: Dapatkan verifikasi dengan memperkenalkan nomor dokumen yang diakhiri dengan "X"
         fields:
           document_number: Nomor dokumen
           postal_code: Kode Pos
@@ -215,7 +201,6 @@ id:
           title: Otorisasi telah kedaluwarsa
         incomplete:
           cancel: Membatalkan
-          explanation: 'Meskipun saat ini Anda diotorisasi dengan "%{authorization}", kami meminta Anda untuk mengotorisasi ulang karena kami tidak memiliki data berikut:'
           invalid_field: "%{field}"
           reauthorize: Otorisasi ulang
           title: Harap beri otorisasi ulang
@@ -224,16 +209,11 @@ id:
           explanation: Untuk melakukan tindakan ini, Anda harus diotorisasi dengan "%{authorization}".
           title: Dibutuhkan otorisasi
         pending:
-          explanation: Untuk melakukan tindakan ini, Anda harus diotorisasi dengan "%{authorization}", tetapi otorisasi Anda masih dalam proses
-          resume: Periksa kemajuan otorisasi "%{authorization}" Anda
           title: Otorisasi masih berlangsung
         unauthorized:
-          explanation: Maaf, Anda tidak dapat melakukan tindakan ini karena sebagian data otorisasi Anda tidak cocok.
-          invalid_field: "%{field} nilai %{value} tidak valid."
           ok: Baik
           title: Tidak diizinkan
         unconfirmed:
-          confirmation_instructions: 'Jika Anda belum menerima instruksi konfirmasi, Anda dapat meminta mereka lagi:'
           explanation_html: Untuk melakukan tindakan ini Anda harus diotorisasi, sebelum melakukan itu Anda perlu mengkonfirmasi email Anda <strong>%{email}</strong>.
           request_confirmation_instructions: Meminta instruksi konfirmasi
           title: Konfirmasikan email Anda
@@ -283,15 +263,10 @@ id:
         name: Statistik organisasi
       sub_hero:
         name: Spanduk sub hero
-    core:
-      actions:
-        unauthorized: Anda tidak berwenang untuk melakukan tindakan ini
     datepicker:
       help_text: 'Format yang diharapkan: %{datepicker_format}'
     devise:
       omniauth_registrations:
-        create:
-          email_already_exists: Akun lain menggunakan alamat email yang sama
         new:
           complete_profile: Profil lengkap
           sign_up: Silakan lengkapi profil Anda
@@ -307,7 +282,6 @@ id:
           sign_up_as:
             legend: Mendaftar sebagai
           subtitle: Mendaftarlah untuk berpartisipasi dalam diskusi dan dukung proposal.
-          terms: syarat dan ketentuan penggunaan
           tos_agreement: Dengan mendaftar Anda menyetujui %{link}.
           tos_title: Ketentuan Layanan
           username_help: Nama publik yang muncul di pos Anda. Dengan tujuan menjamin anonimitas, dapat berupa nama apa pun.
@@ -315,24 +289,11 @@ id:
         new:
           are_you_new?: Baru ke platform?
           register: Buat sebuah akun
-          sign_in_disabled: Anda dapat mengakses dengan akun eksternal
-          sign_up_disabled: Daftar dinonaktifkan, Anda dapat menggunakan pengguna yang ada untuk mengakses
       shared:
         newsletter_modal:
           buttons:
             check: Periksa dan lanjutkan
             close_modal: Tutup modal
-          notice: |-
-            <p>Hai, apakah Anda yakin tidak ingin menerima buletin?<br>
-            Harap pertimbangkan lagi mencentang kotak nawala di bawah ini.<br>
-            Sangat penting bagi kami bahwa Anda dapat menerima email sesekali
-            untuk membuat pengumuman penting, Anda selalu dapat mengubah ini di
-            halaman pengaturan pemberitahuan Anda.</p>
-            <p>Jika Anda tidak mencentang kotak Anda mungkin kehilangan informasi yang relevan
-            tentang peluang partisipatif baru dalam platform.<br>
-            Jika Anda masih ingin menghindari menerima buletin, kami dengan sempurna
-            memahami keputusan Anda.</p>
-            <p>Terima kasih telah membaca ini!</p>
           title: Notifikasi buletin
         omniauth_buttons:
           or: Atau
@@ -342,7 +303,6 @@ id:
           authorize: Otorisasi aplikasi
           by_organization_link_html: <small class="heading-small">per %{link}</small>
           cancel: Membatalkan
-          connect_your_account_html: Hubungkan akun Anda dengan masuk ke <strong>%{organization}</strong>
           publish_content: Publikasikan konten untuk Anda
           see_email: Lihat email Anda
           see_name: Lihat namamu
@@ -365,7 +325,6 @@ id:
       not_found:
         back_home: Kembali ke rumah
         content_doesnt_exist: Alamat ini salah atau telah dihapus.
-        title: Halaman yang Anda cari tidak dapat ditemukan
     events:
       amendments:
         amendment_accepted:
@@ -431,15 +390,9 @@ id:
         email_subject: Pembaruan ke %{resource_title}
       gamification:
         badge_earned:
-          email_intro: Kerja bagus! Anda memperoleh lencana <a href="%{resource_url}">%{badge_name}</a> (tingkat %{current_level}).
           email_outro: Anda telah menerima pemberitahuan ini karena Anda melakukan aktivitas di situs web kami.
-          email_subject: 'Anda telah memperoleh lencana baru: %{badge_name}!'
-          notification_title: Kerja bagus! Anda memperoleh lencana <a href="%{resource_path}">%{badge_name}</a> (tingkat %{current_level}).
         level_up:
-          email_intro: Kerja bagus! Anda telah mencapai level %{current_level} pada lencana <a href="%{resource_url}">%{badge_name}</a>!
           email_outro: Anda telah menerima pemberitahuan ini karena Anda melakukan aktivitas di situs web kami.
-          email_subject: Anda telah mencapai level %{current_level} pada %{badge_name} lencana!
-          notification_title: Kerja bagus! Anda telah mencapai level %{current_level} pada lencana <a href="%{resource_path}">%{badge_name}</a>!
       groups:
         demoted_membership:
           email_intro: Admin grup <a href="%{resource_url}">%{user_group_name}</a> telah menghapus hak admin Anda ke grup itu.
@@ -501,7 +454,6 @@ id:
         result: Hasil
     fingerprint:
       check: Periksa sidik jari
-      explanation: Bagian teks di bawah ini adalah representasi singkat, berciri dari konten ini. Ini berguna untuk memastikan konten belum dirusak, karena satu modifikasi akan menghasilkan nilai yang sangat berbeda.
       online_calculator_name: Kalkulator MD5 online
       replicate_help: Sidik jari ini dihitung menggunakan algoritma hashing SHA256. Untuk mereplikasi sendiri, Anda dapat menggunakan %{online_calculator_link} dan copy-paste data sumber.
       source: Sumber
@@ -509,8 +461,6 @@ id:
       value: Nilai
     followers:
       no_followers: Belum ada pengikut.
-    following:
-      no_followings: Tidak mengikuti siapa pun atau apa pun.
     follows:
       create:
         button: Mengikuti
@@ -518,9 +468,6 @@ id:
       destroy:
         button: Berhenti mengikuti
         error: Terjadi kesalahan saat berhenti mengikuti sumber daya ini.
-    forms:
-      errors:
-        error: Ada kesalahan di bidang ini.
     gamification:
       all_badges_link: Lihat semua lencana yang tersedia.
       badges:
@@ -532,8 +479,6 @@ id:
           description_own: "%{score} pengguna mengikuti Anda."
           name: Pengikut
           next_level_in: Dapatkan %{score} lebih banyak pengguna untuk mengikuti Anda untuk mencapai level berikutnya!
-          unearned_another: Pengguna ini belum memiliki pengikut.
-          unearned_own: Anda belum punya pengikut.
         index:
           badge_title: "%{name} lencana"
           how: Bagaimana Anda bisa mendapatkannya
@@ -541,37 +486,20 @@ id:
           title: Lencana
       description: Lencana adalah pengakuan untuk tindakan dan kemajuan peserta dalam platform. Ketika Anda mulai menemukan, berpartisipasi, dan berinteraksi di platform, Anda akan mendapatkan lencana yang berbeda.
       level: Level %{level}
-      reached_top: Anda telah mencapai level teratas untuk lencana ini.
     group_admins:
       actions:
-        are_you_sure: Apakah kamu yakin? Ini tidak akan menghapus pengguna dari grup.
         demote_admin: Hapus admin
-      demote:
-        error: Terjadi kesalahan saat menghapus pengguna ini dari daftar admin
-        success: Pengguna dihapus dari admin dengan sukses
       index:
         current_admins: 'Admin saat ini:'
         manage_admins: Kelola admin
     group_invites:
-      accept:
-        error: Terjadi kesalahan saat menerima undangan ini
-        success: Undangan diterima dengan sukses
       accept_invitation: Menerima
       accept_or_reject_group_invitations: 'Grup berikut telah mengundang Anda untuk bergabung dengan mereka. Terima atau tolak permintaan mereka:'
       index:
         invite: Undang
         invite_user: Undang pengguna
-      invite:
-        error: Terjadi kesalahan saat mengundang pengguna ini
-        success: Pengguna berhasil diundang
-      reject:
-        error: Terjadi kesalahan saat menolak undangan ini
-        success: Undangan ditolak dengan sukses
       reject_invitation: Menolak
     group_members:
-      accept:
-        error: Terjadi kesalahan saat menerima permintaan bergabung ini
-        success: Permintaan bergabung diterima dengan sukses
       actions:
         are_you_sure: Apakah kamu yakin?
         promote_to_admin: Membuat admin
@@ -579,36 +507,20 @@ id:
       index:
         current_members_without_admins: 'Anggota saat ini (tanpa admin):'
         manage_members: Kelola anggota
-      promote:
-        error: Terjadi kesalahan saat mempromosikan pengguna ini
-        success: Pengguna berhasil dipromosikan
-      reject:
-        error: Terjadi kesalahan saat menolak permintaan bergabung ini
-        success: Gabung permintaan ditolak dengan sukses
-      remove:
-        error: Terjadi kesalahan saat menghapus pengguna ini dari grup
-        success: Pengguna dihapus dari grup dengan sukses
     groups:
       actions:
         are_you_sure: Apakah kamu yakin?
-      create:
-        error: Ada masalah saat membuat grup
-        success: Grup berhasil dibuat
       edit:
         edit_user_group: Edit grup
         update_user_group: Perbarui grup
       form:
-        document_number_help: Jangan gunakan tanda hubung atau spasi
         email_help: Email dari organisasi Anda, asosiasi, kolektif, grup, dll.
         fill_in_for_verification: 'Isi bidang-bidang ini jika Anda ingin grup Anda diverifikasi:'
         name_help: Nama organisasi Anda, asosiasi, kolektif, grup, dll.
         nickname_help: Nama pengguna organisasi Anda, asosiasi, kolektif, grup, dll. Jangan menggunakan spasi atau aksen.
-        phone_help: Jangan gunakan tanda hubung atau spasi
       join:
-        error: Ada masalah saat bergabung dengan grup
         success: Gabung permintaan berhasil dibuat. Admin akan meninjau permintaan Anda sebelum menerima Anda ke grup.
       leave:
-        error: Ada masalah saat keluar dari grup
         success: Grup berhasil dibiarkan.
       members:
         accept_or_reject_join_requests: 'Pengguna berikut telah mendaftar untuk bergabung dengan grup ini. Terima atau tolak permintaan mereka:'
@@ -618,19 +530,14 @@ id:
         create_user_group: Membuat grup
         new_user_group: Grup baru
         subtitle: Buat grup dan undang pengguna lain untuk bergabung untuk berpartisipasi dalam tingkat kolektif.
-      no_user_groups: Belum menjadi anggota grup apa pun.
       roles:
         admin: Administrator
         member: Anggota
-      update:
-        error: Terjadi masalah saat memperbarui grup
-        success: Grup berhasil diperbarui
     help:
       main_topic:
         default_page:
           content: "<p>Dalam %{organization} Anda dapat berpartisipasi dan memutuskan topik yang berbeda, melalui ruang yang Anda lihat di menu atas: Proses, Rakitan, Inisiatif, Konsultasi.</p> <p>Di dalam masing-masing Anda akan menemukan berbagai opsi untuk berpartisipasi: membuat proposal - secara individu atau dengan orang lain-, ambil bagian dalam perdebatan, memprioritaskan proyek untuk dilaksanakan, menghadiri pertemuan tatap muka dan tindakan lainnya.</p>\n"
           title: Apa yang bisa saya lakukan di %{organization}?
-        description: Baca lebih lanjut tentang %{organization}
         title: Bantuan umum
     last_activities:
       activities:
@@ -660,8 +567,6 @@ id:
           not_found: 'Jenis ruang lingkup tidak ditemukan di database (ID: %{id})'
     managed_users:
       expired_session: Sesi peniruan saat ini telah kedaluwarsa.
-    members:
-      no_members: Kelompok pengguna ini belum memiliki anggota.
     menu:
       help: Membantu
       home: Rumah
@@ -670,18 +575,13 @@ id:
         new_conversation:
           greeting: Hai, %{recipient}!
           intro: "%{sender} telah memulai percakapan baru dengan Anda. Klik di sini untuk melihatnya:"
-          outro: Selamat menikmati decidim!
           subject: "%{sender} telah memulai percakapan dengan Anda"
         new_message:
           greeting: Hai, %{recipient}!
           intro: "%{sender} telah memposting pesan baru di percakapan Anda. Klik di sini untuk melihatnya:"
-          outro: Selamat menikmati decidim!
           subject: Anda memiliki pesan baru dari %{sender}
       conversations:
-        create:
-          error: Percakapan tidak dimulai. Coba lagi nanti
         index:
-          no_conversations: Anda belum memiliki percakapan
           title: Percakapan
         show:
           title: Percakapan dengan %{usernames}
@@ -702,20 +602,12 @@ id:
         title: Pengguna
     newsletter_mailer:
       newsletter:
-        note: Anda menerima email ini karena Anda berlangganan nawala pada %{organization_name}. Anda dapat mengubah pengaturan Anda pada <a href="%{link}">halaman pemberitahuan</a>.
         unsubscribe: Untuk memilih tidak menerima jenis email ini, <a href="%{link}" target="_blank" class="unsubscribe">Berhenti Berlangganan</a>.
     newsletters:
       unsubscribe:
-        check_subscription: Jika Anda ingin mengubah preferensi Anda, Anda dapat melakukannya di <a href="%{link}" target="_blank">halaman konfigurasi</a>
-        error: Terjadi kesalahan saat berhenti berlangganan
         success: Anda berhasil berhenti berlangganan.
         token_error: Tautan telah kedaluwarsa.
         unsubscribe: Berhenti berlangganan
-    newsletters_opt_in:
-      unathorized: Maaf, tautan ini tidak lagi tersedia
-      update:
-        error: Terjadi kesalahan
-        success: Pengaturan buletin berhasil diperbarui
     newsletters_opt_in_mailer:
       notify:
         body_1: Pengolahan data pribadi dan perlindungannya menjadi semakin penting bagi kita semua. Dengan Peraturan Perlindungan Data Umum yang baru (GDPR) 25 Mei 2018, individu memiliki kontrol yang lebih baik atas data pribadi mereka. Untuk alasan ini kami memerlukan "OK" Anda untuk terus mengirim informasi yang relevan tentang kegiatan %{organization_name}.
@@ -747,7 +639,6 @@ id:
         verified: Diverifikasi
     pad_iframe:
       disclaimer: Isi pad ini ditulis oleh pengguna terdaftar dan menyatakan pendapat mereka. %{organization} tidak dapat bertanggung jawab atas isinya.
-      explanation: Gunakan pad ini untuk bersama-sama membuat catatan selama pertemuan sehingga lebih mudah untuk menulis menit kemudian.
       pad: Bantalan
     pages:
       home:
@@ -782,30 +673,11 @@ id:
         metrics:
           headline: Partisipasi dalam angka
           link: Tampilkan semua statistik
-      terms_and_conditions:
-        accept:
-          error: Terjadi kesalahan saat menerima persyaratan dan ketentuan.
-          success: Besar! Anda telah menyetujui persyaratan dan ketentuan.
-        form:
-          legend: Setujui persyaratan dan ketentuan penggunaan
-        refuse:
-          modal_btn_continue: Terima persyaratan dan lanjutkan
-          modal_btn_exit: Saya akan memeriksanya nanti
-          modal_button: Menolak persyaratan
-          modal_close: Tutup modal
-          modal_title: Apakah Anda benar-benar menolak Syarat dan Ketentuan yang diperbarui?
-        required_review:
-          alert: Kami telah memperbarui Persyaratan Layanan, harap tinjau.
-          body: Harap luangkan waktu untuk meninjau pembaruan pada Ketentuan Layanan kami. Jika tidak, Anda tidak akan dapat menggunakan platform.
-          title: 'Diperlukan: Tinjau pembaruan untuk persyaratan layanan kami'
     participatory_space_private_users:
       not_allowed: Anda tidak diizinkan untuk melihat konten ini
     profile:
-      deleted: Pengguna yang dihapus
       view: Melihat
     profiles:
-      default_officialization_text_for_user_groups: Kelompok pengguna ini diverifikasi secara publik, namanya telah diverifikasi untuk sesuai dengan nama aslinya
-      default_officialization_text_for_users: Peserta ini diverifikasi secara publik, nama atau perannya telah diverifikasi untuk sesuai dengan nama dan peran aslinya
       show:
         activity: Aktivitas
         badges: Lencana
@@ -819,11 +691,9 @@ id:
           info: Lencana diperoleh dengan melakukan aktivitas tertentu di platform.
           title: Lencana
       user:
-        confirmation_instructions_sent: Instruksi konfirmasi email terkirim
         create_user_group: Membuat grup
         edit_profile: Edit profil
         edit_user_group: Edit profil grup
-        fill_in_email_to_confirm_it: Silakan isi email grup Anda untuk mengonfirmasi
         invite_user: Undang pengguna
         join_user_group: Permintaan untuk bergabung dengan grup
         leave_user_group: Meninggalkan grup
@@ -885,7 +755,6 @@ id:
         already_reported: Konten ini sudah dilaporkan dan akan ditinjau oleh admin.
         close: Dekat
         description: Apakah konten ini tidak pantas?
-        does_not_belong: Berisi aktivitas ilegal, ancaman bunuh diri, informasi pribadi, atau hal lain yang menurut Anda bukan milik %{organization_name}.
         offensive: Berisi rasisme, seksisme, penghinaan, serangan pribadi, ancaman pembunuhan, permintaan bunuh diri atau segala bentuk pidato kebencian.
         report: Melaporkan
         spam: Berisi clickbait, iklan, penipuan, atau bot skrip.
@@ -914,17 +783,12 @@ id:
         share_link: Membagikan tautan
     statistics:
       comments_count: Komentar
-    user_activity:
-      index:
-        no_activities_warning: Pengguna ini belum memiliki aktivitas apa pun.
     user_conversations:
       update:
         error: Pesan tidak terkirim. Coba lagi nanti
     user_interests:
       show:
         my_interests: Minat saya
-        no_scopes: Organisasi ini belum memiliki ruang lingkup!
-        select_your_interests: Pilih topik yang Anda minati untuk menerima acara yang terkait dengan mereka di tab Kronologi profil Anda.
         update_my_interests: Perbarui minat saya
       update:
         error: Terjadi kesalahan saat memperbarui minat Anda.
@@ -933,7 +797,6 @@ id:
       show:
         deleted: Pengguna yang dihapus
     welcome_notification:
-      default_body: <p>Hai {{name}}, terima kasih sudah bergabung dengan {{organization}} dan selamat datang!</p><ul><li>Jika Anda ingin mendapatkan ide cepat tentang apa yang dapat Anda lakukan di sini, lihat bagian <a href="{{help_url}}">Bantuan</a> .</li><li>Setelah Anda membacanya, Anda akan mendapatkan lencana pertama Anda. Berikut adalah <a href="{{badges_url}}">daftar dari semua lencana</a> yang dapat Anda peroleh ketika Anda berpartisipasi dalam {{organization}}</li><li>Terakhir tetapi tidak sedikit, bergabunglah dengan orang lain, bagikan kepada mereka pengalaman terlibat dan berpartisipasi dalam {{organization}}. Buatlah proposal, komentar, debat, pikirkan tentang bagaimana berkontribusi terhadap kebaikan bersama, memberikan argumen untuk meyakinkan, mendengarkan dan membaca untuk diyakinkan, mengekspresikan ide Anda dengan cara yang konkrit dan langsung, merespons dengan kesabaran dan keputusan, membela ide-ide Anda dan tetap pikiran terbuka untuk berkolaborasi dan bergabung dengan ide orang lain.</li></ul>
       default_subject: Terima kasih telah bergabung dengan {{organization}}!
   devise:
     confirmations:
@@ -974,40 +837,25 @@ id:
         subject: Instruksi konfirmasi
       email_changed:
         greeting: Halo %{recipient}!
-        message: Kami menghubungi Anda untuk memberi tahu Anda bahwa email Anda diubah menjadi %{email}.
         subject: Email Diubah
       invitation_instructions:
         accept: Menerima undangan
         accept_until: Undangan ini akan jatuh tempo dalam %{due_date}.
         decline: Tolak undangan
         hello: Halo %{email},
-        ignore: |-
-          Jika Anda tidak ingin menerima undangan, silakan abaikan email ini.<br />
-          Akun Anda tidak akan dibuat sampai Anda mengakses tautan di atas dan mengatur nama panggilan dan kata sandi Anda.
         invited_you_as_admin: "%{invited_by} telah mengundang Anda sebagai admin %{application}. Anda dapat menerimanya melalui tautan di bawah ini."
         invited_you_as_private_user: "%{invited_by} telah mengundang Anda sebagai pengguna pribadi dari %{application}. Anda dapat menerimanya melalui tautan di bawah ini."
         someone_invited_you: Seseorang telah mengundang Anda ke %{application}. Anda dapat menerimanya melalui tautan di bawah ini.
         someone_invited_you_as_admin: Seseorang telah mengundang Anda sebagai admin %{application}, Anda dapat menerimanya melalui tautan di bawah.
         someone_invited_you_as_private_user: Seseorang telah mengundang Anda sebagai pengguna pribadi %{application}, Anda dapat menerimanya melalui tautan di bawah ini.
         subject: Instruksi undangan
-      invite_admin:
-        subject: Anda telah diundang untuk mengelola %{organization}
-      invite_collaborator:
-        subject: Anda telah diundang untuk berkolaborasi pada %{organization}
-      invite_private_user:
-        subject: Anda telah diundang ke proses partisipasi pribadi di %{organization}
-      organization_admin_invitation_instructions:
-        subject: Anda telah diundang untuk mengelola %{organization}
       password_change:
         greeting: Halo %{recipient}!
-        message: Kami menghubungi Anda untuk memberi tahu Anda bahwa kata sandi Anda telah diubah.
         subject: Kata sandi diubah
       reset_password_instructions:
         action: Ubah kata sandi saya
         greeting: Halo %{recipient}!
         instruction: Seseorang telah meminta tautan untuk mengubah kata sandi Anda, dan Anda dapat melakukannya melalui tautan di bawah ini.
-        instruction_2: Jika Anda tidak meminta ini, silakan abaikan email ini.
-        instruction_3: Kata sandi Anda tidak akan berubah sampai Anda mengakses tautan di atas dan membuat yang baru.
         subject: Setel ulang instruksi kata sandi
       unlock_instructions:
         action: Buka kunci akun saya
@@ -1026,7 +874,6 @@ id:
       new:
         forgot_your_password: lupa kata sandi Anda?
         send_me_reset_password_instructions: Kirimi saya ulang instruksi kata sandi
-      no_token: Anda tidak dapat mengakses halaman ini tanpa datang dari email pengaturan ulang kata sandi. Jika Anda datang dari email pengaturan ulang kata sandi, pastikan Anda menggunakan URL lengkap yang disediakan.
       send_instructions: Anda akan menerima email berisi instruksi tentang cara mereset kata sandi Anda dalam beberapa menit.
       send_paranoid_instructions: Jika alamat email Anda ada di basis data kami, Anda akan menerima tautan pemulihan kata sandi di alamat email Anda dalam beberapa menit.
       updated: Kata sandi Anda telah berhasil diubah. Anda sekarang masuk.
@@ -1050,8 +897,6 @@ id:
     shared:
       links:
         back: Kembali
-        didn_t_receive_confirmation_instructions: Tidak menerima instruksi konfirmasi?
-        didn_t_receive_unlock_instructions: Tidak menerima instruksi buka kunci?
         forgot_your_password: lupa kata sandi Anda?
         sign_in: Masuk
         sign_in_with_provider: Masuk dengan %{provider}
@@ -1072,12 +917,10 @@ id:
       already_confirmed: sudah dikonfirmasi, silakan coba masuk
       confirmation_period_expired: perlu dikonfirmasi dalam %{period}, silakan minta yang baru
       content_type_allowlist_error: jenis file tidak valid
-      cycle_detected: orang tua ruang lingkup tidak bisa menjadi salah satu keturunannya
       expired: telah kedaluwarsa, silakan minta yang baru
       file_size_is_less_than_or_equal_to: ukuran file harus kurang dari atau sama dengan %{count}
       long_words: mengandung kata-kata yang terlalu panjang (lebih dari 35 karakter)
       must_start_with_caps: harus dimulai dengan huruf kapital
-      nesting_too_deep: tidak dapat berada di dalam suatu subkategori
       not_locked: tidak terkunci
       too_many_marks: menggunakan terlalu banyak tanda baca (misalnya! dan?)
       too_much_caps: menggunakan terlalu banyak huruf besar (lebih dari 25% dari teks)

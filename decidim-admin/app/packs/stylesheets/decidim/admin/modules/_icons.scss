@@ -1,68 +1,68 @@
 $icon-size: 14px;
 
-.icon{
+.icon {
   width: $icon-size;
   height: $icon-size;
   fill: currentColor;
 }
 
-.icon--outline{
+.icon--outline {
   fill: transparent;
   stroke: currentColor;
-  stroke-width: .5px;
+  stroke-width: 0.5px;
 }
 
-.icon--small{
+.icon--small {
   width: 10px;
   height: 10px;
 }
 
-.icon--action{
-  fill: rgba(black, .2);
+.icon--action {
+  fill: rgba(black, 0.2);
 }
 
 .icon--action:hover,
-a:hover .icon--action{
+a:hover .icon--action {
   fill: currentColor;
 }
 
-.icon--after{
-  margin-left: .3rem;
+.icon--after {
+  margin-left: 0.3rem;
 }
 
-.icon--before{
-  margin-right: .3rem;
+.icon--before {
+  margin-right: 0.3rem;
 }
 
-.icon--share{
+.icon--share {
   margin-bottom: -2px;
   width: 12px;
   height: 12px;
 }
 
-.icon-highlight{
+.icon-highlight {
   color: $warning-color;
-  margin-right: .3rem;
+  margin-right: 0.3rem;
 }
 
-.icon-unpublished{
+.icon-unpublished {
   color: $alert-color;
 }
 
-.icon-active{
+.icon-active {
   background-color: $success-color;
   display: inline-block;
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  margin-right: .5rem;
+  margin-right: 0.5rem;
   vertical-align: middle;
 }
 
-.icon--component{
+.icon--component {
   width: 1.5em;
   height: 1.5em;
-  vertical-align: -.45em;
-  margin-right: .2em;
+  vertical-align: -0.45em;
+  margin-right: 0.2em;
   color: $medium-gray;
 }

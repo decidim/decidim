@@ -1,4 +1,4 @@
-.decidim-accessibility-badge{
+.decidim-accessibility-badge {
   position: fixed;
   display: flex;
   z-index: 9999;
@@ -10,35 +10,35 @@
   user-select: none;
   cursor: pointer;
 
-  &.decidim-accessibility-success{
-    .decidim-accessibility-info{
+  &.decidim-accessibility-success {
+    .decidim-accessibility-info {
       color: #339833;
     }
   }
 
-  &.decidim-accessibility-violation{
-    .decidim-accessibility-info{
+  &.decidim-accessibility-violation {
+    .decidim-accessibility-info {
       color: #f00;
     }
   }
 
-  > *{
+  > * {
     border-left: 1px solid #888;
     padding: 2px 10px;
 
-    &:first-child{
+    &:first-child {
       border-left: 0;
     }
   }
 
-  .decidim-accessibility-info{
+  .decidim-accessibility-info {
     display: flex;
     text-align: center;
     align-items: center;
   }
 }
 
-.decidim-accessibility-report{
+.decidim-accessibility-report {
   position: fixed;
   z-index: 99999;
   display: none;
@@ -47,31 +47,31 @@
   background-color: #fff;
   border-right: 1px solid #888;
 
-  .decidim-accessibility-report-item{
+  .decidim-accessibility-report-item {
     background-color: #fff;
     border-top: 1px solid #888;
     padding: 10px 20px;
     transition: background-color 1s;
 
-    &:first-child{
+    &:first-child {
       border-top: 0;
     }
 
-    &.decidim-accessibility-report-item-blink{
+    &.decidim-accessibility-report-item-blink {
       background-color: #fff9d5;
     }
 
-    .decidim-accessibility-report-item-title{
+    .decidim-accessibility-report-item-title {
       font-size: 18px;
       font-weight: bold;
     }
 
-    .decidim-accessibility-report-item-nodes{
-      a{
+    .decidim-accessibility-report-item-nodes {
+      a {
         background-color: rgba(255, 255, 255, 0);
         transition: background-color 1s;
 
-        &.decidim-accessibility-report-item-nodes-item-blink{
+        &.decidim-accessibility-report-item-nodes-item-blink {
           background-color: #ffbdad;
         }
       }
@@ -79,7 +79,7 @@
   }
 }
 
-.decidim-accessibility-indicator{
+.decidim-accessibility-indicator {
   position: absolute;
   z-index: 9999;
   display: none;
@@ -96,15 +96,15 @@
   user-select: none;
   cursor: pointer;
 
-  &.decidim-accessibility-indicator-blink{
+  &.decidim-accessibility-indicator-blink {
     border-color: #f19d00;
     background-color: #f19d00;
     color: #fff;
   }
 }
 
-body.decidim-accessibility-report-open{
-  .decidim-accessibility-report{
+body.decidim-accessibility-report-open {
+  .decidim-accessibility-report {
     display: block;
     width: 240px;
     height: 100%;
@@ -112,21 +112,21 @@ body.decidim-accessibility-report-open{
 
   .decidim-accessibility-badge,
   .off-canvas-wrapper,
-  .profiler-results.profiler-top.profiler-left{
+  .profiler-results.profiler-top.profiler-left {
     left: 240px;
   }
 
-  .decidim-accessibility-indicator{
+  .decidim-accessibility-indicator {
     display: flex;
     opacity: 1;
   }
 
-  [data-accessibility-violation]{
+  [data-accessibility-violation] {
     outline: 5px dashed #f00 !important;
     outline-offset: 3px !important;
     transition: outline-color 1s;
 
-    &[data-accessibility-violation="blink"]{
+    &[data-accessibility-violation="blink"] {
       outline-color: #f19d00 !important;
     }
   }

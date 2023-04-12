@@ -1,16 +1,16 @@
-.drawer-metadata{
-  &__container{
+.drawer-metadata {
+  &__container {
     @apply mx-auto flex items-center justify-center;
   }
 
-  &__item{
+  &__item {
     @apply px-6 border-background border-x first:pl-0 last:pr-0 first:border-l-0 last:border-r-0 text-sm text-gray-2;
 
-    strong{
+    strong {
       @apply font-bold text-black;
     }
 
-    a{
+    a {
       @apply underline text-secondary inline-block first-letter:uppercase;
     }
   }

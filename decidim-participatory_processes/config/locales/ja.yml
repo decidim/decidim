@@ -180,11 +180,11 @@ ja:
           title: ページコンテンツ
       participatory_process_group_landing_page_content_blocks:
         create:
-          error: コンテンツブロックの作成中に問題が発生しました
-          success: コンテンツブロックを作成しました
+          error: コンテンツブロックの作成中に問題が発生しました。
+          success: コンテンツブロックを作成しました。
         destroy:
-          error: このコンテンツブロックの削除中に問題が発生しました
-          success: コンテンツブロックを削除しました
+          error: コンテンツブロックの削除中に問題が発生しました。
+          success: コンテンツブロックを削除しました。
         edit:
           update: 更新
       participatory_process_groups:
@@ -226,8 +226,8 @@ ja:
         default_title: はじめに
         destroy:
           error:
-            active_step: アクティブなフェーズは削除できません。
-            last_step: 参加型プロセスの最後のフェーズは削除できません。
+            active_step: 有効なフェーズは削除できません。
+            last_step: プロセスの最後のフェーズを削除できません。
           success: 参加型プロセスのフェーズが正常に削除されました。
         edit:
           title: 参加型プロセスのフェーズを編集
@@ -360,7 +360,7 @@ ja:
     log:
       value_types:
         participatory_process_type_presenter:
-          not_found: 'プロセス種別がデータベース上に見つかりませんでした (ID: %{id})'
+          not_found: 'プロセス種別がデータベース上に見つかりませんでした (ID: %{id})。'
     menu:
       processes: 参加型プロセス
     metrics:
@@ -473,8 +473,8 @@ ja:
             upcoming:
               other: "%{count} 件の今後の参加型プロセス"
           explanations:
-            no_active: アクティブな参加型プロセスはありません
-            no_active_nor_upcoming: アクティブな参加型プロセスも今後の参加型プロセスもありません
+            no_active: 有効なプロセスがありません。
+            no_active_nor_upcoming: アクティブなプロセスも今後のプロセスもありません。
             no_active_nor_upcoming_callout: アクティブな参加型プロセスも今後の参加型プロセスもありません。ここでは過去の参加型プロセスのリストを示します。
           filter_by: 表示
           names:
