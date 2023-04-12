@@ -12,56 +12,66 @@ describe "Explore posts", type: :system do
   let!(:image) { create(:attachment, attached_to: old_post) }
 
   describe "index" do
-    include ActionView::RecordIdentifier
+    let!(:old_post_id) { "[id$='#{old_post.id}']" }
+    let!(:new_post_id) { "[id$='#{new_post.id}']" }
+
+    before do
+      create(:comment, commentable: old_post)
+      create(:endorsement, resource: old_post, author: build(:user, organization: old_post.participatory_space.organization))
+
+      visit_component
+    end
 
     it "shows all posts for the given process" do
-      visit_component
-      expect(page).to have_selector("[id^='#{dom_class(new_post)}']", count: 2)
-      expect(page).to have_selector("##{dom_id(new_post)}", text: translated(new_post.title))
-      expect(page).to have_selector("##{dom_id(old_post)}", text: translated(old_post.title))
+      skip_unless_redesign_enabled
+
+      expect(page).to have_selector("#blogs > a", count: 2)
+      expect(page).to have_selector(new_post_id, text: translated(new_post.title))
+      expect(page).to have_selector(old_post_id, text: translated(old_post.title))
     end
 
     it "shows comment counts" do
-      visit_component
-      expect(page).to have_selector('a[title="comments"]', text: "comment".pluralize(new_post.comments.count))
-      expect(page).to have_selector('a[title="comments"]', text: "comment".pluralize(old_post.comments.count))
+      skip_unless_redesign_enabled
+
+      expect(page).to have_no_selector("#{new_post_id} [data-comments-count]")
+      expect(page).to have_selector("#{old_post_id} [data-comments-count]", text: old_post.comments.count)
     end
 
     it "shows endorsement counts" do
-      visit_component
-      expect(page).to have_selector('a[title="endorsements"]', text: "endorsement".pluralize(new_post.endorsements.count))
-      expect(page).to have_selector('a[title="endorsements"]', text: "endorsement".pluralize(old_post.endorsements.count))
+      skip_unless_redesign_enabled
+
+      expect(page).to have_no_selector("#{new_post_id} [data-endorsements-count]")
+      expect(page).to have_selector("#{old_post_id} [data-endorsements-count]", text: old_post.endorsements.count)
     end
 
     it "shows images" do
-      visit_component
-      expect(page).to have_selector("##{dom_id(old_post)} img")
+      expect(page).to have_selector("#{old_post_id} img")
     end
 
     context "when paginating" do
       let(:collection_size) { 15 }
       let!(:collection) { create_list :post, collection_size, component: }
-      let!(:resource_selector) { "[id^='#{dom_class(old_post)}']" }
 
       before do
         visit_component
       end
 
       it "lists 10 resources per page by default" do
-        expect(page).to have_css(resource_selector, count: 10)
+        skip_unless_redesign_enabled
+
+        expect(page).to have_selector("#blogs > a", count: 10)
         expect(page).to have_css("[data-pages] [data-page]", count: 2)
       end
     end
 
     context "with some unpublished posts" do
       let!(:unpublished) { create(:post, component:, published_at: 2.days.from_now) }
-      let!(:resource_selector) { "[id^='#{dom_class(old_post)}']" }
-
-      before { visit_component }
 
       it "shows only published blogs" do
+        skip_unless_redesign_enabled
+
         expect(Decidim::Blogs::Post.count).to eq(3)
-        expect(page).to have_css(resource_selector, count: 2)
+        expect(page).to have_selector("#blogs > a", count: 2)
       end
     end
   end
