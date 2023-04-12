@@ -390,7 +390,6 @@ en:
           name: Title and description
         metadata:
           developer_group: Promoted by
-          meta_scope: Scope
           name: Metadata
           participatory_scope: What is decided
           participatory_structure: How is it decided
@@ -399,6 +398,11 @@ en:
           name: Participatory processes
         stats:
           name: Statistics
+        title:
+          meta_scope: Scope
+          participatory_processes:
+            one: 1 process
+            other: "%{count} processes"
       show:
         title: Participatory process groups
     participatory_process_steps:
