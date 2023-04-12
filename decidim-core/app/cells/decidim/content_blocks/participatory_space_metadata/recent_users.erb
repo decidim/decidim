@@ -1,8 +1,5 @@
-<%#= REDESIGN_DETAILS: a link and a route to last_activity inside the space should be added? %>
-<%# <%= link_to "last_activities_path", class: "participatory-space__metadata-link" do %1> %>
 <div class="participatory-space__metadata-link">
   <div class="participatory-space__metadata-link-endorsers">
     <%= cell("decidim/content_blocks/participatory_space_last_activity", model, base_model:).render_recent_avatars %>
   </div>
 </div>
-<%# <% end %1> %>
