@@ -32,6 +32,7 @@ PATH
       devise-i18n (~> 1.2)
       devise_invitable (~> 2.0)
     decidim-api (0.28.0.dev)
+      commonmarker (~> 0.23.0, >= 0.23.9)
       graphql (~> 2.0)
       graphql-docs (~> 3.0.1)
       rack-cors (~> 1.0)
@@ -314,7 +315,7 @@ GEM
     charlock_holmes (0.7.7)
     childprocess (4.1.0)
     colorize (0.8.1)
-    commonmarker (0.23.8)
+    commonmarker (0.23.9)
     concurrent-ruby (1.2.2)
     crack (0.4.5)
       rexml
