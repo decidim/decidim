@@ -117,11 +117,13 @@
 
   &__card__highlight-vote__button{
     @apply mt-auto;
+
     &.button__secondary:hover{
       @apply text-white #{!important};
 
       background: rgb(var(--secondary-rgb) / var(--tw-bg-opacity)) !important;
     }
+
     &.button__transparent-secondary:hover{
       @apply border-secondary text-secondary #{!important};
 
@@ -181,13 +183,14 @@
     }
 
     .project-test{
-      display: flex;
-      gap: 1rem;
-      margin-bottom: 1rem;
+      @apply flex gap-4;
 
       .card__list{
-        display: inline-block;
-        width: 60%;
+        @apply inline-block w-[60%];
+      }
+
+      + .project-test{
+        @apply mt-6;
       }
     }
   }
