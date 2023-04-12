@@ -208,7 +208,6 @@ module Decidim
       end
     end
 
-
     # Public: Generates a select field with the categories. Only leaf categories can be set as selected.
     #
     # name       - The name of the field (usually category_id)

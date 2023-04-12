@@ -101,14 +101,16 @@ export default function createQuillEditor(container) {
 
   if (addImage === false) {
     quill.root.addEventListener("drop", (ev) => ev.preventDefault());
-    quill.clipboard.addMatcher('IMG', (node, delta) => {
-      const Delta = Quill.import('delta')
-      return new Delta().insert('')
+    /* eslint-disable no-unused-vars */
+    quill.clipboard.addMatcher("IMG", (node, delta) => {
+      const Delta = Quill.import("delta");
+      return new Delta().insert("")
     })
-    quill.clipboard.addMatcher('PICTURE', (node, delta) => {
-      const Delta = Quill.import('delta')
-      return new Delta().insert('')
+    quill.clipboard.addMatcher("PICTURE", (node, delta) => {
+      const Delta = Quill.import("delta")
+      return new Delta().insert("")
     });
+    /* eslint-enable no-unused-vars */
   }
 
   if (disabled) {
