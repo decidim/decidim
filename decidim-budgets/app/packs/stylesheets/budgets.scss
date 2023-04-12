@@ -1,27 +1,4 @@
 .budget{
-  /* overwrite default accordion styles */
-  &__view-more[data-component="accordion"]{
-    @apply space-y-2;
-
-    [id*="panel"][aria-hidden="true"]{
-      @apply block max-h-14 overflow-hidden;
-    }
-
-    [aria-expanded="false"] > svg:last-of-type,
-    [aria-expanded="false"] > span:last-of-type,
-    [aria-expanded="true"] > span:first-of-type,
-    [aria-expanded="true"] > svg:first-of-type{
-      @apply hidden;
-    }
-
-    [aria-expanded="true"] > svg:last-of-type,
-    [aria-expanded="true"] > span:last-of-type,
-    [aria-expanded="false"] > span:first-of-type,
-    [aria-expanded="false"] > svg:first-of-type{
-      @apply block;
-    }
-  }
-
   &-list__map{
     @apply md:-ml-16 -mt-6 md:-mt-12 mb-6 aspect-square md:aspect-[21/9] [&>*]:h-full [&+*]:mt-6 md:[&+*]:mt-12;
   }
