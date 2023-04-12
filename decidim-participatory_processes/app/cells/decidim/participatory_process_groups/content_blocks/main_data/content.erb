@@ -7,10 +7,16 @@
     </div>
   <% end %>
 
-  <% [processes_count_item, meta_scope_item, hashtag_item, external_link_item].each do |item| %>
-    <% next if item.blank? %>
+  <% if group_attributes.length %>
+    <div class="card__list-metadata mt-10 [&>span]:text-md">
+      <% group_attributes.each do |item| %>
+        <% next if item.blank? %>
 
-    <%= icon item[:icon] %>
-    <%= content_tag :span, item[:text] %>
+        <span>
+          <%= icon item[:icon] %>
+          <%= item[:text] %>
+        </span>
+      <% end %>
+    </div>
   <% end %>
 </div>

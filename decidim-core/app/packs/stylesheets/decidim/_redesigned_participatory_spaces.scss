@@ -24,11 +24,11 @@
   &__content-block{
     @apply flex flex-col-reverse md:flex-row justify-between items-start [&>*]:w-full;
 
-    & > :first-child{
+    & > :first-child:not(:only-child){
       @apply md:w-3/4;
     }
 
-    & > :last-child{
+    & > :last-child:not(:only-child){
       @apply md:w-1/4;
     }
   }
