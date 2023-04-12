@@ -5,7 +5,7 @@ import "src/decidim/editor/clipboard_override"
 import "src/decidim/vendor/image-resize.min"
 import "src/decidim/vendor/image-upload.min"
 
-const quillFormats = ["bold", "italic", "link", "underline", "header", "list", "video", "image", "alt", "break", "width", "style", "code", "blockquote", "indent"];
+const quillFormats = ["bold", "italic", "link", "underline", "header", "list", "video", "alt", "break", "width", "style", "code", "blockquote", "indent"];
 
 export default function createQuillEditor(container) {
   const toolbar = $(container).data("toolbar");
@@ -20,7 +20,7 @@ export default function createQuillEditor(container) {
     [{ "indent": "-1"}, { "indent": "+1" }]
   ];
 
-  let addImage = $(container).data("editorImages");
+  let addImage = false;
 
   /**
    * - basic = only basic controls without titles
@@ -28,32 +28,25 @@ export default function createQuillEditor(container) {
    * - multimedia = basic + image + video
    * - full = basic + headings + image + video
    */
-  if (toolbar === "basic") {
-    // nothing to do
-  } else if (toolbar === "content") {
+  if (toolbar === "content") {
     quillToolbar = [
       [{ header: [2, 3, 4, 5, 6, false] }],
       ...quillToolbar
     ];
   } else if (toolbar === "multimedia") {
+    addImage = true;
     quillToolbar = [
       ...quillToolbar,
-      ["video"]
+      ["video"], ["image"]
     ];
 
-    if (addImage) {
-      quillToolbar.push(["image"]);
-    }
   } else if (toolbar === "full") {
+    addImage = true;
     quillToolbar = [
       [{ header: [2, 3, 4, 5, 6, false] }],
       ...quillToolbar,
-      ["video"]
+      ["video"], ["image"]
     ];
-
-    if (addImage) {
-      quillToolbar.push(["image"]);
-    }
   }
 
   let modules = {
@@ -69,6 +62,11 @@ export default function createQuillEditor(container) {
   container.innerHTML = $input.val() || "";
   const token = $('meta[name="csrf-token"]').attr("content");
   if (addImage) {
+
+    // Attempt to allow images only if the image support is enabled at editor support.
+    // see: https://github.com/quilljs/quill/issues/1108
+    quillFormats.push("image");
+
     modules.imageResize = {
       modules: ["Resize", "DisplaySize"]
     }
@@ -91,12 +89,27 @@ export default function createQuillEditor(container) {
         next(file);
       }
     }
+
+    const text = $(container).data("dragAndDropHelpText");
+    $(container).after(`<p class="help-text" style="margin-top:-1.5rem;">${text}</p>`);
   }
   const quill = new Quill(container, {
     modules: modules,
     formats: quillFormats,
     theme: "snow"
   });
+
+  if (addImage === false) {
+    quill.root.addEventListener("drop", (ev) => ev.preventDefault());
+    quill.clipboard.addMatcher('IMG', (node, delta) => {
+      const Delta = Quill.import('delta')
+      return new Delta().insert('')
+    })
+    quill.clipboard.addMatcher('PICTURE', (node, delta) => {
+      const Delta = Quill.import('delta')
+      return new Delta().insert('')
+    });
+  }
 
   if (disabled) {
     quill.disable();
@@ -123,14 +136,6 @@ export default function createQuillEditor(container) {
       $input.val(cleanHTML);
     }
   });
-  // After editor is ready, linebreak_module deletes two extraneous new lines
-  quill.emitter.emit("editor-ready");
-
-  if (addImage) {
-    const text = $(container).data("dragAndDropHelpText");
-    $(container).after(`<p class="help-text" style="margin-top:-1.5rem;">${text}</p>`);
-  }
-
   // After editor is ready, linebreak_module deletes two extraneous new lines
   quill.emitter.emit("editor-ready");
 

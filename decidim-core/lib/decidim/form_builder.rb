@@ -200,7 +200,6 @@ module Decidim
         template += content_tag(:div, nil, class: "editor-container #{"js-hashtags" if hashtaggable}", data: {
                                   toolbar:,
                                   disabled: options[:disabled],
-                                  editor_images: true,
                                   upload_images_path: Decidim::Core::Engine.routes.url_helpers.editor_images_path,
                                   drag_and_drop_help_text: I18n.t("drag_and_drop_help", scope: "decidim.editor_images")
                                 }, style: "height: #{lines}rem")
@@ -208,6 +207,7 @@ module Decidim
         template.html_safe
       end
     end
+
 
     # Public: Generates a select field with the categories. Only leaf categories can be set as selected.
     #
