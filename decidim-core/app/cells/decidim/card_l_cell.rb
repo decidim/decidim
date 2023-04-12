@@ -34,6 +34,10 @@ module Decidim
       ""
     end
 
+    def wrapper_class
+      options[:wrapper_class] || ""
+    end
+
     def html_options
       @html_options ||= options[:html_options] || {}
     end

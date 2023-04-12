@@ -1,2 +1,2 @@
 <% show_only_added ||= params.dig(:filter, :addition_type) == "added" %>
-<%= card_for project, render_extra_data: false, link_whole_card: false, show_only_added: %>
+<%= card_for project, render_extra_data: true, link_whole_card: false, wrapper_class: "project-item", show_only_added: %>
