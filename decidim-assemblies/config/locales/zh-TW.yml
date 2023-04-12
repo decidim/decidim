@@ -1,1 +1,13 @@
 zh-TW:
+  activemodel:
+    attributes:
+      assemblies_setting:
+        enable_organization_chart: 啟用組織圖
+      assemblies_type:
+        title: 標題
+      assembly:
+        announcement: 公告
+        area_id: 區域
+        assembly_type: 組合類型
+        assembly_type_other: 其他組合類型
+        banner_image: 橫幅圖片
