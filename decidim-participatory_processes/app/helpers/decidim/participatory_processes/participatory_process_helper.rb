@@ -81,8 +81,8 @@ module Decidim
       def filter_sections
         [
           { method: :with_date, collection: filter_dates_values, label_scope: "decidim.participatory_processes.participatory_processes.filters", id: "date" },
-          { method: :with_scope, collection: filter_global_scopes_values, label_scope: "decidim.meetings.meetings.filters", id: "scope" },
-          { method: :with_area, collection: filter_areas_values, label_scope: "decidim.initiatives.initiatives.filters", id: "area" },
+          { method: :with_scope, collection: filter_global_scopes_values, label_scope: "decidim.shared.participatory_space_filters.filters", id: "scope" },
+          { method: :with_area, collection: filter_areas_values, label_scope: "decidim.shared.participatory_space_filters.filters", id: "area" },
           { method: :with_type, collection: filter_types_values, label_scope: "decidim.participatory_processes.participatory_processes.filters", id: "type" }
         ].reject { |item| item[:collection].blank? }
       end
@@ -95,7 +95,7 @@ module Decidim
         return if process_types.blank?
 
         type_values = process_types.map { |type| [type.id.to_s, filter_text_for(translated_attribute(type.title))] }
-        type_values.prepend(["", filter_text_for(t("decidim.meetings.meetings.filters.type_values.all"))])
+        type_values.prepend(["", filter_text_for(t("decidim.participatory_processes.participatory_processes.filters.names.all"))])
 
         filter_tree_from_array(type_values)
       end

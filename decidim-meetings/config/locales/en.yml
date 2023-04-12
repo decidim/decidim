@@ -490,7 +490,6 @@ en:
             official: Official
             participants: Participants
             user_group: Groups
-          scope: Scope
           search: Search
           type: Type
           type_values:
