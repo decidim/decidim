@@ -8,8 +8,19 @@ zh-TW:
       assembly:
         announcement: 公告
         area_id: 區域
-        assembly_type: 組合類型
-        assembly_type_other: 其他組合類型
+        assembly_type: 組件類型
+        assembly_type_other: 其他組件類型
         banner_image: 橫幅圖片
         closing_date: 截止日期
         closing_date_reason: 截止日期原因
+        composition: 組成
+        copy_categories: 複製類別
+        copy_components: 複製組件
+        copy_features: 複製功能
+        created_by: 創建者
+        created_by_other: 由其他人創建
+        creation_date: 創建日期
+        decidim_area_id: 區域
+        decidim_assemblies_type_id: 組件類型
+        decidim_scope_id: 範圍
+        description: 說明
