@@ -1,0 +1,16 @@
+<div>
+  <h2 class="h2 decorator"><%= title_text %></h2>
+
+  <% if description_text.present? %>
+    <div class="content-block__description">
+      <%= description_text %>
+    </div>
+  <% end %>
+
+  <% [processes_count_item, meta_scope_item, hashtag_item, external_link_item].each do |item| %>
+    <% next if item.blank? %>
+
+    <%= icon item[:icon] %>
+    <%= content_tag :span, item[:text] %>
+  <% end %>
+</div>
