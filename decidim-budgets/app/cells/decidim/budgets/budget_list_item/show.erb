@@ -1,14 +1,15 @@
 <div class="<%= card_class %> card__highlight">
-  <div class="card__highlight-text w-[70%]">
-    <%= link_to budget_path(budget) do %>
+  <div class="card__highlight-text w-[70%] p-0">
+    <%= link_to budget_path(budget), class: "p-4" do %>
       <h3 class="h3 text-secondary inline-block align-middle">
         <%= translated_attribute(title) %>
       </h3>
       <% if voted? %>
         <%= icon "check-double-line", class: "inline-block align-middle fill-success ml-2 h-[1.5em] w-[1.5em]" %>
       <% end %>
-      <%= decidim_sanitize html_truncate(translated_attribute(description), length: 70) %>
-
+      <div class="my-2">
+        <%= decidim_sanitize html_truncate(translated_attribute(description), length: 70) %>
+      </div>
       <% if voted? %>
       <% else %>
         <div class="divide-x-2 divide-gray-3">
@@ -18,13 +19,13 @@
       <% end %>
     <% end %>
     <% if voted? %>
-      <div class="divide-x-2 divide-gray-3">
+      <div class="divide-x-2 divide-gray-3 p-4 pt-0">
         <%= render :projects_count %>
         <%= render :vote_action %>
       </div>
     <% end %>
   </div>
-  <div class="budget__card__highlight-vote">
+  <%= link_to budget_path(budget), class: "budget__card__highlight-vote p-4" do %>
     <div class="budget__card__highlight-vote__header">
       <span class="budget__card__highlight-vote__text">
         <%= t("name", scope: "decidim.budgets.admin.models.budget") %>
@@ -33,9 +34,9 @@
         <%= budget_to_currency(total_budget) %>
       </span>
     </div>
-    <%= link_to budget_path(budget), class: "button button__sm text-left mt-2 #{button_class} #{!voted? ? 'button__secondary' : 'button__transparent-secondary'} budget__card__highlight-vote__button" do %>
+    <%= button_tag class: "button button__sm text-left mt-2 #{button_class} #{!voted? ? 'button__secondary' : 'button__transparent-secondary'} budget__card__highlight-vote__button" do %>
       <span><%= button_text %></span>
       <%= icon "arrow-right-line" %>
     <% end %>
-  </div>
+  <% end %>
 </div>

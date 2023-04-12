@@ -117,6 +117,16 @@
 
   &__card__highlight-vote__button{
     @apply mt-auto;
+    &.button__secondary:hover{
+      @apply text-white #{!important};
+
+      background: rgb(var(--secondary-rgb) / var(--tw-bg-opacity)) !important;
+    }
+    &.button__transparent-secondary:hover{
+      @apply border-secondary text-secondary #{!important};
+
+      background: #fff !important;
+    }
   }
 
   &__definition-project__title .ql-editor{
