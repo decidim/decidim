@@ -118,6 +118,26 @@ module Decidim
             subject
           end
         end
+
+        context "when proposal answered" do
+          include_context "with correct user scoping in notification digest mail" do
+            let(:internal_state) { "accepted" }
+
+            it_behaves_like "when sends the notification digest"
+          end
+
+          include_context "with correct user scoping in notification digest mail" do
+            let(:internal_state) { "rejected" }
+
+            it_behaves_like "when sends the notification digest"
+          end
+
+          include_context "with correct user scoping in notification digest mail" do
+            let(:internal_state) { "evaluating" }
+
+            it_behaves_like "when sends the notification digest"
+          end
+        end
       end
     end
   end

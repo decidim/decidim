@@ -1,5 +1,44 @@
 # frozen_string_literal: true
 
+shared_context "with correct user scoping in notification digest mail" do
+  let!(:component) { create(:proposal_component, organization:) }
+  let!(:record) { create(:proposal, component:, users: [user], title: { en: "Event notifier" }) }
+
+  let!(:form) do
+    Decidim::Proposals::Admin::ProposalAnswerForm.from_params(form_params).with_context(
+      current_user: user,
+      current_component: record.component,
+      current_organization: organization
+    )
+  end
+
+  let(:form_params) do
+    {
+      internal_state:,
+      answer: { en: "Example answer" },
+      cost: 2000,
+      cost_report: { en: "Example report" },
+      execution_period: { en: "Example execution period" }
+    }
+  end
+
+  let!(:command) { Decidim::Proposals::Admin::AnswerProposal.new(form, record) }
+end
+
+shared_context "when sends the notification digest" do
+  context "when daily notification mail" do
+    let(:user) { create(:user, :admin, organization:, notifications_sending_frequency: "daily") }
+
+    it_behaves_like "notification digest mail"
+  end
+
+  context "when weekly notification mail" do
+    let(:user) { create(:user, :admin, organization:, notifications_sending_frequency: "weekly") }
+
+    it_behaves_like "notification digest mail"
+  end
+end
+
 shared_examples_for "notification digest mail" do
   context "when a notificable event takes place" do
     let!(:organization) { create(:organization) }
