@@ -1,7 +1,7 @@
 <div id="project-<%= project.id %>-budget-button">
   <% if current_user.blank? %>
       <button class="button button__lg w-full button__secondary"
-        data-toggle="loginModal"
+        data-dialog-open="loginModal"
         aria-label="<%= t(".added_descriptive", resource_name: translated_attribute(project.title)) %>">
         <%= t("add", scope: "decidim.budgets.projects.project_budget_button") %>
       </button>
