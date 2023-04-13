@@ -1,17 +1,17 @@
-.card--process__column .consultations-card__image{
+.card--process__column .consultations-card__image {
   min-height: 0;
 
-  &::after{
+  &::after {
     display: none;
   }
 
-  > div{
+  > div {
     height: 100%;
     display: flex;
     align-items: center;
   }
 
-  .button{
+  .button {
     margin-bottom: 0;
   }
 }

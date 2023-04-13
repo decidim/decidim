@@ -1,35 +1,35 @@
-.accordion{
+.accordion {
   background: transparent;
 
-  .accordion-title{
+  .accordion-title {
     font-size: $global-font-size;
     color: inherit;
     border: 0;
     border-radius: 0;
 
-    span{
+    span {
       cursor: move;
     }
 
-    &:focus{
+    &:focus {
       background: transparent;
     }
   }
 
-  .accordion-item{
+  .accordion-item {
     // Override Foundation
     &:first-child > :first-child,
-    &:last-child:not(.is-active) > .accordion-title{
+    &:last-child:not(.is-active) > .accordion-title {
       border: 0;
       border-radius: 0;
     }
   }
 
-  .accordion-content{
+  .accordion-content {
     border: 0;
 
     .tabs-title > a[aria-selected="true"],
-    .tabs-content{
+    .tabs-content {
       background: transparent;
     }
   }

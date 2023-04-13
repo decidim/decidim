@@ -1,9 +1,9 @@
 //Generic toggle expand
 
-.toggle-show{
+.toggle-show {
   display: none;
 
-  &.is-expanded{
+  &.is-expanded {
     display: block;
   }
 }

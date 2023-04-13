@@ -1,47 +1,47 @@
 // Helpers
 
-.list-reset{
+.list-reset {
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-.list-inline{
-  > li{
+.list-inline {
+  > li {
     display: inline-block;
     vertical-align: top;
   }
 
-  > dt{
+  > dt {
     clear: both;
-    margin-right: .3em;
+    margin-right: 0.3em;
   }
 
   > dt,
-  > dd{
+  > dd {
     float: left;
     margin-bottom: 0;
   }
 }
 
-.flex-center{
+.flex-center {
   display: flex;
   justify-content: center;
   align-items: center;
 
-  > :first-child{
-    margin-right: .5rem;
+  > :first-child {
+    margin-right: 0.5rem;
   }
 
-  > :last-child{
-    margin-left: .5rem;
+  > :last-child {
+    margin-left: 0.5rem;
   }
 }
 
 // flex--cc:
 // justify-content: center;
 // align-items: center;
-.flex--cc{
+.flex--cc {
   @include flex;
   @include flex-align($x: center, $y: middle);
 }
@@ -49,7 +49,7 @@
 // flex--sbc:
 // justify-content: space-between;
 // align-items: center;
-.flex--sbc{
+.flex--sbc {
   @include flex;
   @include flex-align($x: justify, $y: middle);
 }
@@ -57,7 +57,7 @@
 // flex--sbe:
 // justify-content: space-between;
 // align-items: flex-end;
-.flex--sbe{
+.flex--sbe {
   @include flex;
   @include flex-align($x: justify, $y: bottom);
 }
@@ -65,7 +65,7 @@
 // flex--sc:
 // justify-content: flex-start;
 // align-items: center;
-.flex--fsc{
+.flex--fsc {
   @include flex;
   @include flex-align($x: left, $y: middle);
 }
@@ -73,7 +73,7 @@
 // flex--fsb:
 // justify-content: flex-start;
 // align-items: baseline;
-.flex--fsb{
+.flex--fsb {
   @include flex;
   @include flex-align($x: left, $y: null);
 
@@ -83,74 +83,74 @@
 // flex--cb:
 // justify-content: center;
 // align-items: baseline;
-.flex--cb{
+.flex--cb {
   @include flex;
   @include flex-align($x: center, $y: null);
 
   align-items: baseline;
 }
 
-.scroll{
+.scroll {
   max-height: 50vh;
   overflow-y: scroll;
 }
 
 // Make parent relative to absolute positioning children
-.absolutes{
+.absolutes {
   position: relative;
 
   .left,
   .right,
   .top,
-  .bottom{
+  .bottom {
     position: absolute;
   }
 
-  .left{
+  .left {
     left: 0;
   }
 
-  .right{
+  .right {
     right: 0;
   }
 
-  .top{
+  .top {
     top: 0;
   }
 
-  .bottom{
+  .bottom {
     bottom: 0;
   }
 
   .left,
-  .right{
-    &.center{
+  .right {
+    &.center {
       @include vertical-center;
     }
   }
 
   .top,
-  .bottom{
-    &.center{
+  .bottom {
+    &.center {
       @include horizontal-center;
     }
   }
 }
 
-.pull-left{
+.pull-left {
   float: left;
 }
 
-.pull-right{
+.pull-right {
   float: right;
 }
 
-.aspect-ratio-16-9{
+.aspect-ratio-16-9 {
   @extend .absolutes;
 
   padding-bottom: 56.25%;
 
-  > *{
+  > * {
     @extend .left;
     @extend .top;
     @extend .bottom;
