@@ -1,25 +1,23 @@
-<div class="container py-20">
-  <figure class="rounded-xl inline-block p-4 bg-background">
-    <figcaption>Table of contents</figcaption>
-    <ul class="mt-4">
-      <% @sections.each do |title, results| %>
-        <li>
-          <a href="#<%= title %>" class="text-secondary hover:underline"><%= title %></a>
-        </li>
-      <% end %>
-    </ul>
-  </figure>
+<%= render layout: "decidim/design/layout" do %>
+
+  <% content_for :toc do %>
+    <% @sections.each do |title, results| %>
+      <a href="#<%= title %>"><%= title %></a>
+    <% end %>
+  <% end %>
+
+  <h1 class="h1">Cards</h1>
 
   <% @sections.each do |title, results| %>
     <section id="<%= title %>">
-      <h1 class="h1 mt-20"><%= title %></h1>
+      <h2 class="h2"><%= title %></h2>
 
-      <h2 class="h3 my-8">Cards L</h2>
+      <h3 class="h3 my-8">Cards L</h3>
       <% results.each do |result| %>
         <%= card_for result, size: :l, link_whole_card: true %>
       <% end %>
 
-      <h2 class="h3 my-8">Cards G</h2>
+      <h3 class="h3 my-8">Cards G</h3>
       <div class="card__grid-grid">
         <% results.each do |result| %>
           <%= card_for result, size: :g %>
@@ -27,4 +25,5 @@
       </div>
     </section>
   <% end %>
-</div>
+
+<% end %>

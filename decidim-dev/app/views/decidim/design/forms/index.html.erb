@@ -16,212 +16,221 @@
 
   options_types = [ "checkbox", "radio" ]
 %>
-<div class="container py-20 [&>h2:not(:first-child)]:mt-8" data-component="accordion" data-multiselectable="false">
-  <h2 class="h3 flex items-center justify-between bg-background p-6 -mx-8" data-controls="common-panel">
-    HTML regular inputs <%= icon "arrow-down-s-line", class: "w-10 h-10 fill-current" %></h2>
 
-  <div id="common-panel" class="form__wrapper border-background border-8 p-6 -mx-8">
-    <%= cell "decidim/announcement", "Only displays common types, full available list: date, datetime-local, email, month, number, password, search, tel, text, time, url, week" %>
+<%= render layout: "decidim/design/layout" do %>
 
-    <% text_types.each do |element| %>
-      <label>
-        input type="<%= element %>"
-        <input type="<%= element %>">
-      </label>
-    <% end %>
-
-    <% options_types.each do |element| %>
-      <fieldset>
-        <legend>fieldset [legend]</legend>
-
-        <% 3.times do |i| %>
-          <label class="form__wrapper-checkbox-label">
-            <input type="<%= element %>">
-            input type="<%= element %>"
-          </label>
-        <% end %>
-      </fieldset>
-    <% end %>
-
-    <label>
-      textarea
-      <textarea cols="30" rows="10"></textarea>
-    </label>
-
-    <label>
-      select
-      <select>
-        <% 3.times do |i| %>
-          <option value="<%= i %>">option <%= i %></option>
-        <% end %>
-      </select>
-    </label>
-  </div>
-
-  <h2 class="h3 flex items-center justify-between bg-background p-6 -mx-8" data-controls="helps-panel">
-    Help texts <%= icon "arrow-down-s-line", class: "w-10 h-10 fill-current" %></h2>
-
-  <div id="helps-panel" class="form__wrapper border-background border-8 p-6 -mx-8">
-    <% text_types.each do |element| %>
-      <label>
-        input type="<%= element %>"
-        <span class="help-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos hic quos omnis vero aspernatur architecto!</span>
-        <input type="<%= element %>">
-      </label>
-    <% end %>
-
-    <% options_types.each do |element| %>
-      <fieldset>
-        <legend>fieldset [legend]</legend>
-        <span class="help-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos hic quos omnis vero aspernatur architecto!</span>
-
-        <% 3.times do |i| %>
-          <label class="form__wrapper-checkbox-label">
-            <input type="<%= element %>">
-            input type="<%= element %>"
-          </label>
-        <% end %>
-      </fieldset>
-    <% end %>
-
-    <label>
-      textarea
-      <span class="help-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos hic quos omnis vero aspernatur architecto!</span>
-      <textarea cols="30" rows="10"></textarea>
-    </label>
-
-    <label>
-      select
-      <span class="help-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos hic quos omnis vero aspernatur architecto!</span>
-      <select>
-        <% 3.times do |i| %>
-          <option value="<%= i %>">option <%= i %></option>
-        <% end %>
-      </select>
-    </label>
-  </div>
-
-  <h2 class="h3 flex items-center justify-between bg-background p-6 -mx-8" data-controls="disabled-panel">
-    Disabled <%= icon "arrow-down-s-line", class: "w-10 h-10 fill-current" %></h2>
-
-  <div id="disabled-panel" class="form__wrapper border-background border-8 p-6 -mx-8">
-    <% text_types.each do |element| %>
-      <label>
-        input type="<%= element %>" disabled
-        <input type="<%= element %>" disabled>
-      </label>
-    <% end %>
-
-    <% options_types.each do |element| %>
-      <fieldset>
-        <legend>fieldset [legend]</legend>
-
-        <% 3.times do |i| %>
-          <label class="form__wrapper-checkbox-label">
-            <input type="<%= element %>" disabled>
-            input type="<%= element %>" disabled
-          </label>
-        <% end %>
-      </fieldset>
-    <% end %>
-
-    <label>
-      textarea disabled
-      <textarea cols="30" rows="10" disabled></textarea>
-    </label>
-
-    <label>
-      select disabled
-      <select disabled>
-        <% 3.times do |i| %>
-          <option value="<%= i %>">option <%= i %></option>
-        <% end %>
-      </select>
-    </label>
-  </div>
-
-  <h2 class="h3 flex items-center justify-between bg-background p-6 -mx-8" data-controls="error-panel">
-    Errors <%= icon "arrow-down-s-line", class: "w-10 h-10 fill-current" %></h2>
-
-  <div id="error-panel" class="form__wrapper border-background border-8 p-6 -mx-8">
-    <%= cell "decidim/announcement", "Does not apply for select" %>
-
-    <% text_types.each do |element| %>
-      <label>
-        input type="<%= element %>" required
-        <input type="<%= element %>" required>
-        <div class="form-error">Lorem ipsum dolor sit amet.</div>
-      </label>
-    <% end %>
-
-    <% options_types.each do |element| %>
-      <fieldset>
-        <legend>fieldset [legend]</legend>
-        <div class="form-error">Lorem ipsum dolor sit amet.</div>
-
-        <% 3.times do |i| %>
-          <label class="form__wrapper-checkbox-label">
-            <input type="<%= element %>">
-            input type="<%= element %>"
-          </label>
-        <% end %>
-      </fieldset>
-    <% end %>
-
-    <label>
-      textarea required
-      <textarea cols="30" rows="10" required></textarea>
-      <div class="form-error">Lorem ipsum dolor sit amet.</div>
-    </label>
-  </div>
-
-  <h2 class="h3 flex items-center justify-between bg-background p-6 -mx-8" data-controls="length-panel">
-    Min/Max length <%= icon "arrow-down-s-line", class: "w-10 h-10 fill-current" %></h2>
-
-  <div id="length-panel" class="form__wrapper border-background border-8 p-6 -mx-8">
-    <%= cell "decidim/announcement", "Only works for input type='text' and textarea" %>
-
-    <label>
-      input type="text" maxlength="20"
-      <input type="text" maxlength="20">
-    </label>
-
-    <label>
-      textarea maxlength="20"
-      <textarea cols="30" rows="10" maxlength="20"></textarea>
-    </label>
-
-    <label>
-      input type="text" minlength="5" maxlength="20"
-      <input type="text" minlength="5" maxlength="20">
-    </label>
-
-    <label>
-      textarea minlength="5" maxlength="20"
-      <textarea cols="30" rows="10" minlength="5" maxlength="20"></textarea>
-    </label>
-  </div>
-
-  <h2 class="h3 flex items-center justify-between bg-background p-6 -mx-8" data-controls="emoji-panel">
-    Emojis <%= icon "arrow-down-s-line", class: "w-10 h-10 fill-current" %></h2>
-
-  <div id="emoji-panel" class="form__wrapper border-background border-8 p-6 -mx-8">
-    <%= cell "decidim/announcement", "Only works for textarea" %>
-
-    <label>
-      textarea data-input-emoji="true"
-      <textarea cols="30" rows="10" data-input-emoji="true"></textarea>
-    </label>
-  </div>
-
-  <% if false %>
-    <h2 class="h3 flex items-center justify-between bg-background p-6 -mx-8" data-controls="custom-panel">
-      Custom types <%= icon "arrow-down-s-line", class: "w-10 h-10 fill-current" %></h2>
-
-    <div id="custom-panel" class="form__wrapper border-background border-8 p-6 -mx-8">
-      <%#= form.geocoding_field :address, placeholder: t("decidim.proposals.proposals.placeholder.address") %>
-      <%#= scopes_picker_field nil, "" %>
-      <%#= cell "decidim/upload_modal", Decidim::Meetings::Meeting.first %>
-    </div>
+  <% content_for :toc do %>
+    <a href="#common">HTML regular inputs</a>
+    <a href="#helps">Help texts</a>
+    <a href="#disabled">Disabled</a>
+    <a href="#error">Errors</a>
+    <a href="#length">Min/Max length</a>
+    <a href="#emoji">Emojis</a>
   <% end %>
-</div>
+
+  <h1 class="h1">Forms</h1>
+
+  <section id="common-panel">
+    <h2 class="h2">HTML regular inputs</h2>
+
+    <div class="form__wrapper">
+      <%= cell "decidim/announcement", "Only displays common types, full available list: date, datetime-local, email, month, number, password, search, tel, text, time, url, week" %>
+
+      <% text_types.each do |element| %>
+        <label>
+          input type="<%= element %>"
+          <input type="<%= element %>">
+        </label>
+      <% end %>
+
+      <% options_types.each do |element| %>
+        <fieldset>
+          <legend>fieldset [legend]</legend>
+
+          <% 3.times do |i| %>
+            <label class="form__wrapper-checkbox-label">
+              <input type="<%= element %>">
+              input type="<%= element %>"
+            </label>
+          <% end %>
+        </fieldset>
+      <% end %>
+
+      <label>
+        textarea
+        <textarea cols="30" rows="10"></textarea>
+      </label>
+
+      <label>
+        select
+        <select>
+          <% 3.times do |i| %>
+            <option value="<%= i %>">option <%= i %></option>
+          <% end %>
+        </select>
+      </label>
+    </div>
+  </section>
+
+  <section id="helps">
+    <h2 class="h2">Help texts</h2>
+
+    <div class="form__wrapper">
+      <% text_types.each do |element| %>
+        <label>
+          input type="<%= element %>"
+          <span class="help-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos hic quos omnis vero aspernatur architecto!</span>
+          <input type="<%= element %>">
+        </label>
+      <% end %>
+
+      <% options_types.each do |element| %>
+        <fieldset>
+          <legend>fieldset [legend]</legend>
+          <span class="help-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos hic quos omnis vero aspernatur architecto!</span>
+
+          <% 3.times do |i| %>
+            <label class="form__wrapper-checkbox-label">
+              <input type="<%= element %>">
+              input type="<%= element %>"
+            </label>
+          <% end %>
+        </fieldset>
+      <% end %>
+
+      <label>
+        textarea
+        <span class="help-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos hic quos omnis vero aspernatur architecto!</span>
+        <textarea cols="30" rows="10"></textarea>
+      </label>
+
+      <label>
+        select
+        <span class="help-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos hic quos omnis vero aspernatur architecto!</span>
+        <select>
+          <% 3.times do |i| %>
+            <option value="<%= i %>">option <%= i %></option>
+          <% end %>
+        </select>
+      </label>
+    </div>
+  </section>
+
+  <section id="disabled">
+    <h2 class="h2">Disabled</h2>
+
+    <div class="form__wrapper">
+      <% text_types.each do |element| %>
+        <label>
+          input type="<%= element %>" disabled
+          <input type="<%= element %>" disabled>
+        </label>
+      <% end %>
+
+      <% options_types.each do |element| %>
+        <fieldset>
+          <legend>fieldset [legend]</legend>
+
+          <% 3.times do |i| %>
+            <label class="form__wrapper-checkbox-label">
+              <input type="<%= element %>" disabled>
+              input type="<%= element %>" disabled
+            </label>
+          <% end %>
+        </fieldset>
+      <% end %>
+
+      <label>
+        textarea disabled
+        <textarea cols="30" rows="10" disabled></textarea>
+      </label>
+
+      <label>
+        select disabled
+        <select disabled>
+          <% 3.times do |i| %>
+            <option value="<%= i %>">option <%= i %></option>
+          <% end %>
+        </select>
+      </label>
+    </div>
+  </section>
+
+  <section id="error">
+    <h2 class="h2">Errors</h2>
+
+    <div class="form__wrapper">
+      <%= cell "decidim/announcement", "Does not apply for select" %>
+
+      <% text_types.each do |element| %>
+        <label>
+          input type="<%= element %>" required
+          <input type="<%= element %>" required>
+          <div class="form-error">Lorem ipsum dolor sit amet.</div>
+        </label>
+      <% end %>
+
+      <% options_types.each do |element| %>
+        <fieldset>
+          <legend>fieldset [legend]</legend>
+          <div class="form-error">Lorem ipsum dolor sit amet.</div>
+
+          <% 3.times do |i| %>
+            <label class="form__wrapper-checkbox-label">
+              <input type="<%= element %>">
+              input type="<%= element %>"
+            </label>
+          <% end %>
+        </fieldset>
+      <% end %>
+
+      <label>
+        textarea required
+        <textarea cols="30" rows="10" required></textarea>
+        <div class="form-error">Lorem ipsum dolor sit amet.</div>
+      </label>
+    </div>
+  </section>
+
+  <section id="length">
+    <h2 class="h2">Min/Max length</h2>
+
+    <div class="form__wrapper">
+      <%= cell "decidim/announcement", "Only works for input type='text' and textarea" %>
+
+      <label>
+        input type="text" maxlength="20"
+        <input type="text" maxlength="20">
+      </label>
+
+      <label>
+        textarea maxlength="20"
+        <textarea cols="30" rows="10" maxlength="20"></textarea>
+      </label>
+
+      <label>
+        input type="text" minlength="5" maxlength="20"
+        <input type="text" minlength="5" maxlength="20">
+      </label>
+
+      <label>
+        textarea minlength="5" maxlength="20"
+        <textarea cols="30" rows="10" minlength="5" maxlength="20"></textarea>
+      </label>
+    </div>
+  </section>
+
+  <section id="emoji">
+    <h2 class="h2">Emojis</h2>
+
+    <div class="form__wrapper">
+      <%= cell "decidim/announcement", "Only works for textarea" %>
+
+      <label>
+        textarea data-input-emoji="true"
+        <textarea cols="30" rows="10" data-input-emoji="true"></textarea>
+      </label>
+    </div>
+  </section>
+
+<% end %>
