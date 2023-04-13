@@ -67,3 +67,35 @@ zh-TW:
         ceased_date: 終止日期
         designation_date: 指定日期
         full_name: 全名
+        gender: 性別
+        non_user_avatar: 頭像
+        position: 位置
+        user_id: 使用者或群組
+        weight: 訂單位置
+      assembly_user_role:
+        email: 電子郵件
+        name: 姓名
+        role: 角色
+    errors:
+      models:
+        assembly:
+          attributes:
+            document:
+              allowed_file_content_types: '無效文件類型。僅允許以下擴展名的文件：'
+  activerecord:
+    models:
+      decidim/assembly:
+        other: 組件
+      decidim/assembly_member:
+        other: 組裝成員
+      decidim/assembly_user_role:
+        other: 組裝用戶角色
+  decidim:
+    admin:
+      actions:
+        import_assembly: 匯入
+        new_assembly: 新組裝
+        new_assembly_type: 新組裝類型
+      assemblies:
+        create:
+          error: 建立新組件時發生問題
