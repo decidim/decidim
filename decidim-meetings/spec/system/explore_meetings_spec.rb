@@ -372,8 +372,6 @@ describe "Explore meetings", :slow, type: :system do
       end
 
       it "works with 'back to list' link" do
-        skip "REDESIGN_PENDING - Adapt this test after merging https://github.com/decidim/decidim/pull/10376 which implements the back link"
-
         scope = create(:scope, organization:)
         meeting = meetings.first
         meeting.scope = scope
@@ -390,9 +388,7 @@ describe "Explore meetings", :slow, type: :system do
 
         find("a.meeting-list").click
 
-        # REDESIGN_PENDING - Replace this interaction with a click on back link
-        # when available
-        find("div[data-drawer-close]").click
+        click_link "Back"
 
         expect(page).to have_css(".meeting-list", count: 1)
       end
