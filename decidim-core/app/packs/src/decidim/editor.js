@@ -5,7 +5,7 @@ import "src/decidim/editor/clipboard_override"
 import "src/decidim/vendor/image-resize.min"
 import "src/decidim/vendor/image-upload.min"
 
-const quillFormats = ["bold", "italic", "link", "underline", "header", "list", "video", "alt", "break", "width", "style", "code", "blockquote", "indent"];
+const quillFormats = ["bold", "italic", "link", "underline", "header", "list", "alt", "break", "width", "style", "code", "blockquote", "indent"];
 
 export default function createQuillEditor(container) {
   const toolbar = $(container).data("toolbar");
@@ -21,6 +21,7 @@ export default function createQuillEditor(container) {
   ];
 
   let addImage = false;
+  let addVideo = false;
 
   /**
    * - basic = only basic controls without titles
@@ -35,6 +36,7 @@ export default function createQuillEditor(container) {
     ];
   } else if (toolbar === "multimedia") {
     addImage = true;
+    addVideo = true;
     quillToolbar = [
       ...quillToolbar,
       ["video"], ["image"]
@@ -42,6 +44,7 @@ export default function createQuillEditor(container) {
 
   } else if (toolbar === "full") {
     addImage = true;
+    addVideo = true;
     quillToolbar = [
       [{ header: [2, 3, 4, 5, 6, false] }],
       ...quillToolbar,
@@ -61,8 +64,12 @@ export default function createQuillEditor(container) {
   const $input = $(container).siblings('input[type="hidden"]');
   container.innerHTML = $input.val() || "";
   const token = $('meta[name="csrf-token"]').attr("content");
-  if (addImage) {
 
+  if (addVideo) {
+    quillFormats.push("video");
+  }
+
+  if (addImage) {
     // Attempt to allow images only if the image support is enabled at editor support.
     // see: https://github.com/quilljs/quill/issues/1108
     quillFormats.push("image");
@@ -101,16 +108,6 @@ export default function createQuillEditor(container) {
 
   if (addImage === false) {
     quill.root.addEventListener("drop", (ev) => ev.preventDefault());
-    /* eslint-disable no-unused-vars */
-    quill.clipboard.addMatcher("IMG", (node, delta) => {
-      const Delta = Quill.import("delta");
-      return new Delta().insert("")
-    })
-    quill.clipboard.addMatcher("PICTURE", (node, delta) => {
-      const Delta = Quill.import("delta")
-      return new Delta().insert("")
-    });
-    /* eslint-enable no-unused-vars */
   }
 
   if (disabled) {
