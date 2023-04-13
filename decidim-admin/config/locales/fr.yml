@@ -39,7 +39,7 @@ fr:
         body: Corps de texte
         subject: Objet
       organization:
-        admin_terms_of_service_body: "Body for the admin terms of service\nTermes et conditions d'utilisation administrateur"
+        admin_terms_of_service_body: Termes et conditions d'utilisation administrateur
         alert_color: Alerte
         available_authorizations: Autorisations disponibles
         badges_enabled: Activer les badges
@@ -156,7 +156,7 @@ fr:
         attributes:
           file:
             invalid_file: Fichier fourni invalide , veuillez vérifier que le fichier est correctement formaté.
-            invalid_mime_type: Type de MIME invalide.
+            invalid_mime_type: Type MIME invalide.
   activerecord:
     attributes:
       decidim/static_page:
@@ -200,16 +200,16 @@ fr:
         verify: Vérifier
       admin_terms_of_service:
         accept:
-          error: "There is been an error while accepting the admin terms of service.\nUne erreur s'est produite lors de l'acceptation des conditions d'utilisation de l'administrateur."
-          success: "Great! You have accepted the admin terms of service.\nFélicitation ! Vous avez accepté les conditions d'utilisation de l'administrateur."
+          error: Une erreur s'est produite lors de l'acceptation des conditions d'utilisation de l'administrateur.
+          success: Félicitations ! Vous avez accepté les conditions d'utilisation administrateur.
         actions:
           accept: J'accepte les conditions d'utilisation
-          are_you_sure: Êtes-vous sûr de vouloir refuser les conditions d'utilisation de l'administrateur ?
+          are_you_sure: Êtes-vous sûr de vouloir refuser les conditions d'utilisation administrateur ?
           refuse: Refuser les conditions d'utilisation administrateur
           title: Accepter les conditions d’utilisation
         required_review:
           alert: 'Requis: Consultez nos conditions d’utilisation administrateur'
-          callout: "Please take a moment to review the admin terms of service. Otherwise you will not be able to manage the platform.\nVeuillez prendre le temps de lire les conditions d'utilisation de l'administrateur. Dans le cas contraire, vous ne serrez pas en mesure de gérer la plateforme."
+          callout: Veuillez prendre le temps de lire les conditions d'utilisation administrateur. Dans le cas contraire, vous ne serrez pas en mesure d'administrer la plateforme.
           cta: Consultez les maintenant.
         title: Conditions d'utilisation administrateur
       area_types:
@@ -217,7 +217,7 @@ fr:
           error: Une erreur s'est produite lors de la création d'un nouveau périmètre d'assemblée.
           success: Le type de périmètre d'assemblée a été créé avec succès.
         destroy:
-          success: Le type de secteur a été supprimé avec succès.
+          success: Le type de périmètre d'assemblée a été supprimé avec succès.
         edit:
           title: Modifier le type de périmètre d'assemblée
           update: Mettre à jour
@@ -226,14 +226,14 @@ fr:
           title: Nouveau type de périmètre d'assemblée
         update:
           error: Une erreur s'est produite lors de la mise à jour de ce type de périmètre d'assemblée.
-          success: "Area type updated successfully.\nLe type de la zone a été mis à jour avec succès."
+          success: Le type de périmètre d'assemblée a été mis à jour avec succès.
       areas:
         create:
           error: Une erreur s'est produite lors de la création d'un nouveau périmètre d'assemblée.
           success: Périmètre d'assemblée créé avec succès.
         destroy:
           has_spaces: Des espaces dépendent de ce périmètre d'assemblée. Veuillez vous assurer qu'aucun espace participatif n'est lié à périmètre avant de la supprimer.
-          success: "Area successfully destroyed.\nLe périmètre a été supprimé avec succès."
+          success: Le périmètre d'assemblée a été supprimé avec succès.
         edit:
           title: Modifier le périmètre d'assemblée
           update: Mettre à jour
@@ -243,7 +243,7 @@ fr:
         no_areas: Aucun périmètre d'assemblée
         update:
           error: Une erreur s'est produite lors de la mise à jour de ce périmètre d'assemblée.
-          success: Périmètre d'assemblée mise à jour avec succès.
+          success: Le périmètre d'assemblée mise à jour avec succès.
       attachment_collections:
         create:
           error: Une erreur s'est produite lors de la création d'un nouveau dossier.
