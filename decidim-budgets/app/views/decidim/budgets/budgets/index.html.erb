@@ -18,8 +18,7 @@
               translated_attribute(current_settings.announcement).html_safe
             elsif translated_attribute(component_settings.announcement).present?
               translated_attribute(component_settings.announcement).html_safe
-            end
-  %>
+            end %>
 
   <%= cell("decidim/announcement", announcement_body, truncate: true) if translated_attribute(current_settings.announcement).present? || translated_attribute(component_settings.announcement).present? %>
 
