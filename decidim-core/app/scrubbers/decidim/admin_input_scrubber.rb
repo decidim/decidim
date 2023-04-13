@@ -19,7 +19,7 @@ module Decidim
     end
 
     def custom_allowed_tags
-      super + %w(script img iframe video audio source comment iframe)
+      super + %w(img iframe video audio source comment iframe)
     end
   end
 end
