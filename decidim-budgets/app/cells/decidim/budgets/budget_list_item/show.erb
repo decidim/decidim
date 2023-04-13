@@ -25,7 +25,7 @@
       </div>
     <% end %>
   </div>
-  <%= link_to budget_path(budget), class: "budget__card__highlight-vote p-4" do %>
+  <%= link_to budget_path(budget), class: "budget__card__highlight-vote" do %>
     <div class="budget__card__highlight-vote__header">
       <span class="budget__card__highlight-vote__text">
         <%= t("name", scope: "decidim.budgets.admin.models.budget") %>
@@ -34,7 +34,7 @@
         <%= budget_to_currency(total_budget) %>
       </span>
     </div>
-    <%= button_tag class: "button button__sm text-left mt-2 #{button_class} #{!voted? ? 'button__secondary' : 'button__transparent-secondary'} budget__card__highlight-vote__button" do %>
+    <%= button_tag class: "button button__sm #{button_class} #{!voted? ? 'button__secondary' : 'button__transparent-secondary'} budget__card__highlight-vote__button" do %>
       <span><%= button_text %></span>
       <%= icon "arrow-right-line" %>
     <% end %>

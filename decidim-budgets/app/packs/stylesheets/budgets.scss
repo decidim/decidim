@@ -21,7 +21,7 @@
     }
 
     &__content{
-      @apply grid grid-cols-[67.6%_30%] items-center gap-x-20 pt-8;
+      @apply grid grid-cols-1 md:grid-cols-[67.6%_30%] items-center gap-x-20 pt-8;
     }
 
     &__content__fixed{
@@ -92,15 +92,15 @@
   }
 
   &__card__list-project{
-    @apply ml-auto rounded py-3 px-6 bg-background w-[40%] min-w-[120px] grid grid-cols-2 place-items-center justify-items-end;
+    @apply ml-auto rounded py-3 px-6 bg-background w-[40%] min-w-[120px] grid grid-cols-1 md:grid-cols-2 md:place-items-center md:justify-items-end;
   }
 
   &__card__list-project__amount{
-    @apply font-semibold text-gray-2 text-xl inline-block;
+    @apply font-semibold text-gray-2 text-xl inline-block text-center mb-2 md:mb-0;
   }
 
   &__card__highlight-vote{
-    @apply justify-center flex flex-col w-1/4 bg-background px-8 py-4 bg-background font-bold text-gray-2 ml-auto;
+    @apply justify-center flex flex-col w-full md:w-1/4 bg-background p-4 bg-background font-bold text-gray-2 ml-auto;
   }
 
   &__card__highlight-vote__header{
@@ -116,7 +116,7 @@
   }
 
   &__card__highlight-vote__button{
-    @apply mt-auto;
+    @apply mt-auto text-left mt-2;
 
     &.button__secondary:hover{
       @apply text-white #{!important};
@@ -198,7 +198,7 @@
 
 #budgets-to-vote{
   .card__highlight-text{
-    @apply w-[70%];
+    @apply w-full md:w-[70%] p-0;
   }
 
   .card__highlight-container{
@@ -215,7 +215,7 @@
 }
 
 .voting-wrapper .budget-summary .budget-summary__content{
-  @apply col-span-10 grid-cols-[57.6%_30%];
+  @apply col-span-10 grid-cols-1 md:grid-cols-[57.6%_30%] pr-4 md:pr-0;
 }
 
 .voting-wrapper .budget-summary__content__fixed--progressbar{
