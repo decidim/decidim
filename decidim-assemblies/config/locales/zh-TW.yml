@@ -99,3 +99,23 @@ zh-TW:
       assemblies:
         create:
           error: 建立新組件時發生問題
+      assembly_copies:
+        new:
+          select: 請選擇您想要複製的資料
+          title: 重複組件
+      assembly_imports:
+        create:
+          error: 這個組件匯入時發生了問題
+          success: 組件匯入成功
+        new:
+          import: 匯入
+          select: 請選擇您想匯入的資料
+          title: 匯入組件
+      assembly_members:
+        create:
+          error: 這個組裝中添加成員時出現了問題
+          success: 已成功建立此組件的成員
+        destroy:
+          success: 該組件的成員已成功刪除
+        edit:
+          title: 更新程序集成員
