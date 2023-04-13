@@ -235,20 +235,6 @@ describe "Filter Participatory Processes", type: :system do
               expect(page).to have_content("8 active processes")
             end
           end
-
-          it "only shows process types with active processes" do
-            skip "REDESIGN_PENDING - This feature is deprecated with current filters. Remove if it's correct"
-
-            within "#panel-dropdown-menu-type" do
-              click_filter_item "All types"
-              expect(page).to have_content("Awesome Type")
-              expect(page).to have_content("The East Type")
-              expect(page).to have_content("The West Type")
-              expect(page).to have_no_content("Old Type")
-              expect(page).to have_no_content("Empty Type")
-              expect(page).to have_no_content("Unpublished Type")
-            end
-          end
         end
 
         context "and choosing 'past' processes" do
@@ -262,20 +248,6 @@ describe "Filter Participatory Processes", type: :system do
           it "lists past processes" do
             within "#processes-grid h2" do
               expect(page).to have_content("2 past processes")
-            end
-          end
-
-          it "only shows process types with past processes" do
-            skip "REDESIGN_PENDING - This feature is deprecated with current filters. Remove if it's correct"
-
-            within "#panel-dropdown-menu-type" do
-              click_filter_item "All"
-              expect(page).to have_no_content("Awesome Type")
-              expect(page).to have_no_content("The East Type")
-              expect(page).to have_no_content("The West Type")
-              expect(page).to have_content("Old Type")
-              expect(page).to have_no_content("Empty Type")
-              expect(page).to have_no_content("Unpublished Type")
             end
           end
         end
