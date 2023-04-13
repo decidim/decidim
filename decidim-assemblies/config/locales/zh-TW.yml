@@ -25,3 +25,8 @@ zh-TW:
         decidim_scope_id: 範圍
         description: 說明
         developer_group: 促銷團隊
+        document: 文件
+        domain: 網域
+        duration: 持續時間
+        facebook: 臉書
+        github: GitHub
