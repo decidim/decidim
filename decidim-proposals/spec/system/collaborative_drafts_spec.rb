@@ -90,7 +90,8 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
         end
       end
 
-      let(:stripped_body) { %Q(alert("BODY"); ) + strip_tags(collaborative_draft.body).gsub(/\n/," ").strip }
+      let(:html_body) { strip_tags(collaborative_draft.body).gsub(/\n/, " ").strip }
+      let(:stripped_body) { %(alert("BODY"); #{html_body}) }
 
       it "shows the title" do
         expect(page).to have_content(collaborative_draft.title)
