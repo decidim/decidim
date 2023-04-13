@@ -93,6 +93,9 @@ zh-TW:
       assemblies:
         create:
           error: 建立新組件時發生問題
+      assembly_copies:
+        new:
+          select: 請選擇您想要複製的資料
     assemblies:
       last_activity:
         new_assembly: 新組裝
