@@ -983,6 +983,10 @@ fr:
           add: Ajouter un bloc de contenu
           create:
             error: Un problème est survenu lors de la création de ce bloc de contenu.
+            success: Le bloc de contenu a été créé avec succès.
+          destroy:
+            error: Un problème est survenu lors de la suppression de ce bloc de contenu.
+            success: Le bloc de contenu a été supprimé avec succès.
           destroy_confirmation: Êtes-vous sûr(e) de vouloir supprimer ce bloc de contenu ?
           edit:
             update: Mettre à jour
@@ -1008,9 +1012,11 @@ fr:
         topic:
           destroy: Supprimer le sujet
           edit: Modifier le sujet
+          empty: Il n'y a aucune page dans ce sujet.
           without_topic: Pages sans sujet
         update:
           error: Une erreur s'est produite lors de la mise à jour de cette page.
+          success: Page mise à jour avec succès.
       titles:
         admin_log: Journal d'administration
         area_types: Types de périmètre d'assemblée
@@ -1034,8 +1040,10 @@ fr:
           success: "CSV file uploaded successfully, we are verifying the groups matching the criteria. This might take a while.\nLe fichier CSV a été téléchargé avec succès, une vérification des groupes correspondant aux critères est en cours. Un délai d'attente peut survenir."
         reject:
           invalid: Une erreur s'est produite lors du refus de ce groupe d'utilisateurs.
+          success: Groupe d'utilisateurs refusé avec succès.
         verify:
           invalid: Une erreur s'est produite lors de la vérification de ce groupe d'utilisateurs.
+          success: Groupe d'utilisateurs vérifié avec succès.
       user_groups:
         index:
           state:
@@ -1072,8 +1080,13 @@ fr:
           last_day: Hier
           last_month: Le mois dernier
           last_week: La semaine dernière
+          no_users_count_statistics_yet: Il n'y a pas encore de statistiques du nombre d'utilisateurs.
           participants: Participants
       view_public_page: Voir la page publique
+    forms:
+      errors:
+        impersonate_user:
+          reason: Vous devez fournir une raison lorsque vous représentez un participant non représenté.
     metrics:
       blocked_users:
         object: utilisateurs bloqués
