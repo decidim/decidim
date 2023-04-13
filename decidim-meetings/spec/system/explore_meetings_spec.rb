@@ -372,6 +372,8 @@ describe "Explore meetings", :slow, type: :system do
       end
 
       it "works with 'back to list' link" do
+        skip_unless_redesign_enabled
+
         scope = create(:scope, organization:)
         meeting = meetings.first
         meeting.scope = scope
