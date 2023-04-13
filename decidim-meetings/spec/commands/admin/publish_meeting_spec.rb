@@ -61,6 +61,22 @@ module Decidim
 
             subject.call
           end
+
+          context "when the meeting is being republished" do
+            let(:user) { create(:user, organization: organization) }
+            let!(:follower) { create :follow, followable: participatory_process, user: user }
+
+            it "does not fire an event", versioning: true do
+              subject.call
+              meeting.unpublish!
+              meeting.reload
+
+              expect(meeting.previously_published?).to be true
+              expect(Decidim::EventsManager).not_to receive(:publish)
+
+              subject.call
+            end
+          end
         end
       end
     end
