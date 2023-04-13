@@ -51,6 +51,12 @@ fr:
         title: Actions
       admin:
         budgets:
+          create:
+            invalid: Un problème est survenu lors de la création de ce budget.
+            success: Budget créé avec succès.
+          destroy:
+            invalid: Un problème est survenu lors de la suppression de ce budget.
+            success: Budget supprimé avec succès.
           edit:
             title: Modifier le budget
             update: Mettre à jour le budget
@@ -63,6 +69,9 @@ fr:
           new:
             create: Créer un budget
             title: Nouveau budget
+          update:
+            invalid: Un problème est survenu lors de la mise à jour de ce budget.
+            success: Budget mis à jour avec succès.
         exports:
           projects: Projets
         models:
@@ -71,6 +80,11 @@ fr:
           project:
             name: Projet
         projects:
+          create:
+            invalid: Il y a eu un problème lors de la création de ce projet.
+            success: Projet créé avec succès.
+          destroy:
+            success: Projet supprimé avec succès.
           edit:
             title: Éditer un projet
             update: Mettre à jour
@@ -91,16 +105,24 @@ fr:
           new:
             create: Créer
             title: Nouveau projet
+          update:
+            invalid: Il y a eu un problème lors de la mise à jour de ce projet.
+            success: Projet mis à jour avec succès.
           update_category:
             invalid: 'Ces projets avaient déjà la catégorie %{subject_name} : %{projects}.'
+            select_a_category: Veuillez sélectionner une catégorie.
+            select_a_project: Veuillez selectionner un projet.
             success: 'Les projets ont été mis à jour avec succès avec la catégorie %{subject_name} : %{projects}.'
           update_scope:
             invalid: 'Ces projets avaient déjà le secteur %{subject_name} : %{projects}.'
+            select_a_project: Veuillez selectionner un projet.
+            select_a_scope: Veuillez sélectionner un secteur.
             success: 'Les projets ont été mis à jour avec succès avec le secteur %{subject_name} : %{projects}.'
           update_selected:
             invalid:
               selected: 'Ces projets ont déjà été sélectionnés pour une implémentation : %{projects}.'
               unselected: 'Ces projets ont déjà été retirés de la sélection pour une implémentation : %{projects}.'
+            select_a_project: Veuillez selectionner un projet.
             success:
               selected: 'Ces projets ont été bien été sélectionnés pour une implémentation : %{projects}.'
               unselected: 'Ces projets ont été retirés de la sélection pour une implémentation : %{projects}.'
