@@ -18,32 +18,34 @@ module Decidim
 
     private
 
-    RESTRICTED_TAGS = %w(form
-                         fieldset
-                         label
-                         input
-                         textarea
-                         select
-                         option
-                         optgroup
-                         output
-                         button
-                         menu
-                         map
-                         area
-                         main
-                         legend
-                         img
-                         video
-                         audio
-                         header
-                         footer
-                         article
-                         aside
-                         font
-                         canvas
-                         figure
-                         figcaption).freeze
+    RESTRICTED_TAGS = %w(
+      area
+      article
+      aside
+      audio
+      button
+      canvas
+      fieldset
+      figcaption
+      figure
+      font
+      footer
+      form
+      header
+      img
+      input
+      label
+      legend
+      main
+      map
+      menu
+      optgroup
+      option
+      output
+      select
+      textarea
+      video
+    ).freeze
 
     def custom_allowed_attributes
       Loofah::HTML5::SafeList::ALLOWED_ATTRIBUTES
