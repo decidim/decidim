@@ -54,3 +54,17 @@ zh-TW:
         short_description: 簡短說明
         show_statistics: 顯示統計資料
         slug: URL名稱
+        special_features: 特殊功能
+        subtitle: 子標題
+        target: 誰參加
+        title: 標題
+        twitter: Twitter
+        weight: 訂單位置
+        youtube: YouTube
+      assembly_member:
+        birthday: 生日
+        birthplace: 出生地
+        ceased_date: 終止日期
+        designation_date: 指定日期
+        full_name: 全名
+        gender: 性別
