@@ -124,7 +124,7 @@
           </div>
         </div>
         <% if !current_order_checked_out? && voting_open? %>
-          <button class="button button__secondary button__lg col-span-3" data-dialog-open="budget-confirm" <%= budget_confirm_disabled_attr %>>
+          <button class="button button__secondary button__lg col-span-3 mt-2 md:mt-0" data-dialog-open="budget-confirm" <%= budget_confirm_disabled_attr %>>
             <span>
               <%= t("vote", scope: "decidim.budgets.projects.budget_summary") %>
             </span>

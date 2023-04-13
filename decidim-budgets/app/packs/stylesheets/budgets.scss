@@ -25,7 +25,7 @@
     }
 
     &__content__fixed{
-      @apply grid grid-cols-12 items-center gap-x-20;
+      @apply grid grid-cols-1 md:grid-cols-12 items-center md:gap-x-20;
     }
 
     &__content__header{
@@ -219,11 +219,11 @@
 }
 
 .voting-wrapper .budget-summary__content__fixed--progressbar{
-  @apply col-start-4 col-span-5;
+  @apply md:col-start-4 md:col-span-5;
 }
 
 .budget-summary__content__fixed--progressbar{
-  @apply col-start-2 col-span-8;
+  @apply md:col-start-2 md:col-span-8;
 }
 
 #budgets.card__highlight-container{
