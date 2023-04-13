@@ -11,8 +11,8 @@ module Decidim
 
         private
 
-        def group_attributes
-          [processes_count_item, meta_scope_item, hashtag_item, external_link_item]
+        def extra_classes
+          "participatory-space-group__content-block"
         end
 
         def title_text

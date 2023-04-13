@@ -33,6 +33,22 @@
     }
   }
 
+  &-group__content-block{
+    @apply grid md:grid-cols-4 gap-4 items-start [&>*]:col-span-3 md:first:[&>*]:col-span-4 md:last:[&>*]:col-span-1 grid-flow-row-dense;
+
+    &-metadata{
+      @apply inline-flex flex-wrap gap-x-12 gap-y-4;
+
+      & > span{
+        @apply inline-flex items-center gap-1 text-md text-gray-2;
+
+        & > svg{
+          @apply w-3.5 h-3.5 fill-current text-gray;
+        }
+      }
+    }
+  }
+
   &__nav{
     @apply divide-y divide-white [&>li]:py-3.5 first:[&>li]:pt-0 last:[&>li]:pb-0;
 
