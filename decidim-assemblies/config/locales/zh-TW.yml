@@ -29,3 +29,18 @@ zh-TW:
         domain: 網域
         duration: 持續時間
         facebook: 臉書
+        github: GitHub
+        hashtag: 主題標籤
+        hero_image: 首頁圖片
+        import_attachments: 匯入附件
+        import_categories: 匯入類別
+        import_components: 導入組件
+        included_at: 包含於
+        instagram: Instagram
+        internal_organisation: 內部組織
+        is_transparent: 透明
+        local_area: 組織區域
+        meta_scope: 元數據範圍
+        parent_id: 母體組件
+        participatory_processes_ids: 相關參與程序
+        participatory_scope: 決定了什麼
