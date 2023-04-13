@@ -3,28 +3,30 @@
 $action-icon-height: 24px;
 $action-icon-width: $icon-size;
 
-.action-icon{
+.action-icon {
   height: $action-icon-height;
 }
 
-.action-icon:not(:last-child){
+.action-icon:not(:last-child) {
   margin-right: 1rem;
 }
 
-.action-icon.action-icon--remove{
+.action-icon.action-icon--remove {
   color: $alert-color;
 }
 
-.action-icon--hide{
+.action-icon--hide {
   position: relative;
 
-  &::before{
+  &::before {
     border-left: 1px solid;
     bottom: 0;
     content: "";
     left: 50%;
     position: absolute;
     top: 0;
-    transform: rotate(rad-to-deg(atan2($action-icon-width, $action-icon-height)));
+    transform: rotate(
+      rad-to-deg(atan2($action-icon-width, $action-icon-height))
+    );
   }
 }

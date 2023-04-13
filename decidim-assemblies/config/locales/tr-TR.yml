@@ -76,12 +76,6 @@ tr:
         email: E-posta
         name: Adı
         role: Rol
-    errors:
-      models:
-        assembly:
-          attributes:
-            document:
-              allowed_file_content_types: 'Geçersiz belge. Yalnizca şu uzantılara sahip dosyalara izin verilir: %{types}'
   activerecord:
     models:
       decidim/assembly:
@@ -428,9 +422,6 @@ tr:
     participatory_processes:
       show:
         related_assemblies: İlgili kurullar
-  errors:
-    messages:
-      cannot_be_blank: boş bırakılamaz
   layouts:
     decidim:
       assemblies:

@@ -1,203 +1,203 @@
-.profile{
-  &__avatar{
+.profile {
+  &__avatar {
     @apply w-full h-full rounded-full overflow-hidden drop-shadow-md border-2 border-white;
 
-    &-container{
+    &-container {
       @apply w-24 h-24 relative;
     }
 
-    &-badge{
+    &-badge {
       @apply absolute top-full right-0 -translate-y-full grid place-items-center w-6 h-6 rounded-full overflow-hidden bg-primary border border-white;
     }
   }
 
-  &__details{
+  &__details {
     @apply pb-3 space-y-2;
 
-    &-data{
+    &-data {
       @apply flex flex-wrap gap-x-6 gap-y-4;
     }
 
-    &-item{
+    &-item {
       @apply flex items-center space-x-1.5 whitespace-nowrap;
     }
   }
 
-  &__description{
+  &__description {
     @apply pt-3 text-sm text-gray-2;
   }
 
-  &__actions{
-    &-main{
+  &__actions {
+    &-main {
       @apply w-fit grid grid-cols-2 md:grid-cols-1 mx-auto gap-x-4 gap-y-6 md:gap-4;
     }
 
-    &-secondary{
+    &-secondary {
       @apply flex justify-center md:justify-between text-xs;
     }
   }
 
-  &__tab{
+  &__tab {
     @apply grow rounded-t;
 
-    &.is-active{
+    &.is-active {
       @apply bg-white z-10 text-secondary font-semibold;
     }
 
-    &-item{
+    &-item {
       @apply w-full h-full p-2.5 flex flex-col md:flex-row items-center justify-center gap-2;
     }
   }
 
-  &__activity{
+  &__activity {
     @apply grid md:grid-cols-8 items-start gap-4 md:gap-12 md:first:[&>*]:col-span-2 md:last:[&>*]:col-span-6;
 
-    &__container{
+    &__container {
       @apply divide-y divide-gray-3;
     }
 
-    &__item{
+    &__item {
       @apply flex flex-col-reverse md:flex-row gap-2 md:gap-12 py-4 first:pt-0 last:pb-0;
 
-      &-time{
+      &-time {
         @apply w-full md:w-1/6 flex-none text-gray-2 text-sm md:text-md;
       }
 
-      &-content{
+      &-content {
         @apply space-y-2;
 
-        > span:first-child a{
+        > span:first-child a {
           @apply text-secondary font-semibold;
         }
 
-        > span:last-child{
+        > span:last-child {
           @apply flex items-center gap-1 text-gray-2 text-sm;
         }
       }
     }
   }
 
-  &__badge{
+  &__badge {
     @apply relative;
 
-    &-banner{
+    &-banner {
       @apply flex gap-3 bg-background rounded p-4 [&>*:last-child]:space-y-2;
 
-      svg{
+      svg {
         @apply w-5 h-5 text-tertiary fill-current flex-none;
       }
 
-      p{
+      p {
         @apply text-md text-gray-2;
       }
     }
 
-    &-grid{
+    &-grid {
       @apply grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-12 py-6 md:py-12;
     }
 
-    &-outline{
+    &-outline {
       --color: var(--tertiary);
 
       @apply w-32 h-32 mx-auto grid place-items-center rounded-full overflow-hidden bg-[radial-gradient(farthest-side,#F3F4F7_90%,transparent_0_100%),conic-gradient(var(--color)_calc(var(--value)*100%),transparent_0)];
     }
 
-    &-circle{
+    &-circle {
       @apply rounded-full overflow-hidden w-[90%] h-[90%] m-[5%_auto];
     }
 
-    &-title{
+    &-title {
       @apply absolute rounded text-primary bg-white top-full left-1/2 -translate-y-1/2 -translate-x-1/2 z-10 px-1.5 font-semibold;
 
       box-shadow: 0 4px 6px 0 rgba(211, 211, 211, 0.25);
     }
 
-    &-name{
+    &-name {
       @apply text-gray-2 text-center font-semibold mt-4;
     }
 
-    &-description{
+    &-description {
       @apply text-gray-2 text-center mt-2;
     }
   }
 
-  &__user{
+  &__user {
     @apply flex items-center space-x-1.5;
 
-    &-grid{
+    &-grid {
       @apply grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-10;
     }
 
-    &-avatar{
+    &-avatar {
       @apply w-full h-full rounded-full overflow-hidden drop-shadow-md border-2 border-white;
 
-      &-container{
+      &-container {
         @apply w-12 h-12 relative flex-none;
       }
 
-      &-badge{
+      &-badge {
         @apply absolute top-full right-0 -translate-y-full grid place-items-center w-4 h-4 rounded-full overflow-hidden bg-primary border border-white;
       }
     }
 
-    &-name{
+    &-name {
       @apply h5 text-secondary;
     }
 
-    &-nick{
+    &-nick {
       @apply text-gray-2 lowercase;
     }
 
-    &-role{
+    &-role {
       /* stylelint-disable-next-line number-leading-zero */
       @apply inline-block ml-1 px-2 py-0.5 font-normal rounded text-xs text-primary bg-primary/25;
     }
 
-    &:hover &-avatar{
+    &:hover &-avatar {
       @apply border-tertiary;
     }
 
-    &:hover &-name{
+    &:hover &-name {
       @apply underline;
     }
   }
 
-  &__scaffold{
-    &__top{
+  &__scaffold {
+    &__top {
       @apply bg-background;
 
-      &-content{
+      &-content {
         @apply lg:w-2/3 mx-auto flex flex-col items-center md:items-start md:flex-row justify-between py-6 md:py-12 gap-6;
 
-        & > *{
-          &:nth-child(1){
+        & > * {
+          &:nth-child(1) {
             @apply flex-none;
           }
 
-          &:nth-child(2){
+          &:nth-child(2) {
             @apply w-full md:w-fit grow divide-y divide-gray-3;
           }
 
-          &:nth-child(3){
+          &:nth-child(3) {
             @apply max-w-full w-fit inline-flex flex-col gap-4;
           }
         }
       }
     }
 
-    &__middle{
+    &__middle {
       @apply bg-background overflow-x-auto;
 
-      &-content{
+      &-content {
         @apply lg:w-2/3 mx-auto flex justify-between text-gray-2;
       }
     }
 
-    &__bottom{
+    &__bottom {
       /* stylelint-disable-next-line number-leading-zero */
       @apply border-t-2 border-gray-3 -mt-0.5;
 
-      &-content{
+      &-content {
         @apply lg:w-2/3 mx-auto py-6 md:py-12 min-h-[200px] mb-32;
       }
     }

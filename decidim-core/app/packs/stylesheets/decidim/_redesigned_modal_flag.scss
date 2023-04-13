@@ -1,20 +1,20 @@
-.flag-modal{
-  &__form{
+.flag-modal {
+  &__form {
     @apply gap-1 pt-8 pb-10;
 
-    &-description{
+    &-description {
       @apply text-xl font-semibold text-gray-2;
     }
 
-    &-reason{
+    &-reason {
       @apply text-lg text-gray-2 mt-6;
     }
 
-    &-reasons{
+    &-reasons {
       @apply mt-6;
     }
 
-    &-textarea-label{
+    &-textarea-label {
       @apply text-gray-2 mt-8;
     }
   }

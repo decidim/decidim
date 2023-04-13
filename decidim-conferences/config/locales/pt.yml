@@ -62,12 +62,6 @@ pt:
         email: E-mail
         name: Nome
         role: Função
-    errors:
-      models:
-        conference_registration_invite:
-          attributes:
-            email:
-              already_invited: Este e-mail já foi convidado
   activerecord:
     models:
       decidim/conference:
@@ -343,7 +337,6 @@ pt:
             invites: Convites
             search: Pesquisar
           new:
-            explanation: O participante será convidado a participar numa conferência. Se o seu e-mail não estiver registado, será convidado para a organização também.
             invite: Convidar
             new_invite: Convidar participante
         conference_registrations:
@@ -444,11 +437,6 @@ pt:
       index:
         title: Conferências
       mailer:
-        conference_registration_mailer:
-          confirmation:
-            subject: O seu registo da conferência foi confirmado
-          pending_validation:
-            subject: O seu registo da conferência está pendente de confirmação
         invite_join_conference_mailer:
           invite:
             subject: Convite para se juntar a uma conferência
@@ -532,10 +520,6 @@ pt:
           contextual: "<p>Uma <strong>conferência</strong> é uma colecção de reuniões organizadas num programa, com um número de pessoas convidadas como oradores, e outras áreas de informação típicas a congressos ou eventos sociais de grande dimensão (registo, lista de organizações que apoiam ou patrocinam o evento, etc.).</p><p>Exemplos: A conferência pode ser um evento relevante para uma organização e para os seus membros, ou ter lugar como parte dum processo participativo ou seguir uma consultação.</p>"
           page: "<p>Uma <strong>conferência</strong> é uma colecção de reuniões organizadas num programa, com um número de pessoas convidadas como oradores, e outras áreas de informação típicas a congressos ou eventos sociais de grande dimensão (registo, lista de organizações que apoiam ou patrocinam o evento, etc.).</p><p>Exemplos: A conferência pode ser um evento relevante para uma organização e para os seus membros, ou ter lugar como parte dum processo participativo ou seguir uma consultação.</p>"
           title: O que são as conferências?
-    log:
-      value_types:
-        conference_presenter:
-          not_found: 'A conferência não foi encontrada na base de dados (ID: %{id})'
     media:
       index:
         description: Hiperligações sobre esta conferência

@@ -64,12 +64,12 @@ fr-CA:
             attachment:
               file: Le fichier n'est pas valide
               needs_to_be_reattached: Doit être téléchargé de nouveau
-              title: Le titre ne doit pas être vide
+              title: Le titre doit être non vide
   activerecord:
     models:
       decidim/initiative:
-        one: Initiative
-        other: Initiatives
+        one: Pétition
+        other: Pétitions
       decidim/initiative_comittee:
         one: Comité
         other: Comités
@@ -97,10 +97,6 @@ fr-CA:
             label: Type d'initiative
         search_placeholder:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Rechercher %{collection} par titre, description, ID ou nom de l'auteur.
-      initiatives_settings:
-        update:
-          error: Une erreur s'est produite
-          success: Les paramètres des initiatives ont bien été mis à jour
       menu:
         attachments: Pièces jointes
         committee_members: Membres de comité
@@ -189,10 +185,10 @@ fr-CA:
             - Suivez les étapes pour créer une nouvelle initiative
           description: Ce badge vous est attribué lorsque vous lancez de nouvelles initiatives, en partenariat avec d’autres pour les mener à bien.
           description_another: Ce participant a publié %{score} initiatives.
-          description_own: Vous avez publié %{score} initiatives.
+          description_own: Vous avez publié %{score} initiative(s).
           name: Initiatives publiées
           next_level_in: Obtenez %{score} autres initiatives publiées pour atteindre le niveau supérieur!
-          unearned_another: Cet utilisateur n'a pas encore publié d'initiative.
+          unearned_another: Cet utilisateur n'a pas encore publié de pétition.
           unearned_own: Vous n'avez pas encore publié d'initiative.
     help:
       participatory_spaces:
@@ -218,8 +214,6 @@ fr-CA:
           index:
             approve: Approuver
             confirm_revoke: Êtes-vous certain ?
-            invite_to_committee_help: Partagez ce lien pour inviter d'autres utilisateurs au Comité de promotion
-            no_members_yet: Il n'y a pas encore de membres dans le Comité de promotion
             revoke: Révoquer
             title: Membres du comité de promotion
         content_blocks:
@@ -241,7 +235,6 @@ fr-CA:
             export_votes: Exporter la liste des votes
             reject: Rejeter l'initiative
             send_to_technical_validation: Envoyer à la validation technique
-            success: L'initiative a été envoyée à la validation technique
             update: Mettre à jour
           form:
             attachments: Pièces jointes
@@ -256,9 +249,6 @@ fr-CA:
             edit: Modifier
             new: Nouvelle
             photos: Photos
-          update:
-            error: Une erreur est survenue
-            success: L'initiative a été mise à jour avec succès
         initiatives_settings:
           edit:
             update: Mettre à jour
@@ -270,11 +260,8 @@ fr-CA:
             signatures: Les plus signées
             title: Paramètres des initiatives
         initiatives_type_scopes:
-          create:
-            error: Une erreur s'est produite
-            success: Un nouveau secteur a été créé pour ce type d'initiative
           destroy:
-            success: Le secteur a été supprimé avec succès
+            success: Le secteur a été supprimé avec succès.
           edit:
             back: Retour
             confirm_destroy: Êtes-vous certain ?
@@ -285,15 +272,7 @@ fr-CA:
             back: Retour
             create: Créer
             title: Créer un type de secteur pour les initiatives
-          update:
-            error: Une erreur s'est produite
-            success: Le secteur a été mis à jour avec succès
         initiatives_types:
-          create:
-            error: Une erreur s'est produite
-            success: Un nouveau type d'initiative a été créé avec succès
-          destroy:
-            success: Le type d'initiative a été supprimé avec succès
           edit:
             confirm_destroy: Êtes-vous certain ?
             destroy: Supprimer
@@ -309,9 +288,6 @@ fr-CA:
           new:
             create: Créer
             title: Nouveau type d'initiative
-          update:
-            error: Une erreur s'est produite
-            success: Le type d'initiative a été mis à jour avec succès
       admin_log:
         initiative:
           publish: "%{user_name} a publié l'initiative %{resource_name}"
@@ -350,7 +326,6 @@ fr-CA:
           success: La demande a été approuvée.
         new:
           continue: Continuer
-          help_text: Vous êtes sur le point de demander à devenir membre du Comité de promotion de cette initiative
         revoke:
           success: La demande a été révoquée.
         spawn:
@@ -452,7 +427,6 @@ fr-CA:
             day: journée
             month: Mois
             year: Année
-          help: S'il vous plaît, remplissez les champs suivants avec vos données personnelles pour signer l'initiative
         finish:
           back_to_initiative: Retour à l'initiative
         sms_code:
@@ -460,16 +434,13 @@ fr-CA:
           help: Vérifiez les SMS reçus sur votre téléphone
         sms_phone_number:
           continue: Envoyez moi un SMS
-          help: Remplissez le formulaire avec votre numéro de téléphone vérifié pour demander votre code de vérification
       initiative_votes:
         create:
           error: Il y a eu des erreurs lors de la signature de l'initiative.
-          invalid: Les données fournies pour signer l'initiative ne sont pas valides
-          success_html: Toutes nos félicitations! L'initiative <strong> %{title}</strong> a été signée correctement
         personal_data:
           invalid: Les données personnelles ne correspondent pas aux données fournies pour autorisation.
         sms_code:
-          invalid: Votre code de vérification ne correspond pas au nôtre. Veuillez vérifier le SMS que nous vous avons envoyé.
+          invalid: Votre code de vérification ne correspond pas au nôtre. Veuillez revérifier le SMS que nous vous avons envoyé.
         sms_phone:
           invalid: Le numéro de téléphone est invalide ou en attente d'autorisation. S'il vous plaît, vérifiez vos autorisations.
       initiatives:
@@ -482,8 +453,6 @@ fr-CA:
         committee_members:
           approve: Accepter
           confirm_revoke: Êtes-vous sûr(e) ?
-          invite_to_committee_help: Partagez ce lien pour inviter d'autres utilisateurs au Comité de promotion
-          no_members_yet: Il n'y a pas encore de membres dans le Comité de promotion
           revoke: Révoquer
           title: Membres du Comité de promotion
         count:
@@ -544,7 +513,6 @@ fr-CA:
           section: 'Si l''organisme le demande, veuillez imprimer et remplir ce formulaire pour soumettre si indiqué:'
           signature: Signature
         result:
-          answer_title: Cette initiative a reçu une réponse
           initiative_rejected_reason: Cette initiative a été rejetée car elle n'a pas atteint le nombre de signatures requis dans le délai de collecte.
         show:
           any_vote_method: Cette pétition recueille des signatures en ligne ainsi qu'en présentiel.
@@ -607,9 +575,6 @@ fr-CA:
         accepted: Acceptées
         expired: Expirées
       unavailable_scope: Portée indisponible
-      update:
-        error: Une erreur est survenue
-        success: La pétition a été mise à jour avec succès
       versions:
         shared:
           back_to_resource: Retour à l'initiative

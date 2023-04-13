@@ -7,16 +7,16 @@ $timeline-padding: 1rem;
 
 /* Timeline */
 
-.timeline{
+.timeline {
   list-style: none;
   margin: 2rem 0 0;
 }
 
-.timeline__item{
+.timeline__item {
   padding-bottom: 2em;
   position: relative;
 
-  &::before{
+  &::before {
     content: "";
     width: 3px;
     height: 100%;
@@ -26,19 +26,19 @@ $timeline-padding: 1rem;
     position: absolute;
   }
 
-  &::after{
+  &::after {
     content: "";
     clear: both;
     display: table;
     width: 100%;
   }
 
-  &:last-of-type::before{
+  &:last-of-type::before {
     width: 0;
   }
 }
 
-.timeline__phase{
+.timeline__phase {
   width: 30px;
   height: 30px;
   margin-left: -13px;
@@ -54,7 +54,7 @@ $timeline-padding: 1rem;
   box-shadow: 0 0 0 1px $medium-gray;
 }
 
-.timeline__phase__number{
+.timeline__phase__number {
   display: block;
   text-align: center;
   line-height: 1;
@@ -66,91 +66,91 @@ $timeline-padding: 1rem;
   margin-top: -1px;
 }
 
-.timeline__info{
+.timeline__info {
   width: 90%;
   width: calc(100% - 45px);
   float: right;
   background-color: $white;
   border: $border;
 
-  .timeline__item--current &{
+  .timeline__item--current & {
     border-color: $timeline-color;
   }
 }
 
-.timeline__header{
+.timeline__header {
   background: $medium-gray;
-  padding: $timeline-padding*.5 $timeline-padding;
+  padding: $timeline-padding * 0.5 $timeline-padding;
 
-  .timeline__item--current &{
+  .timeline__item--current & {
     background-color: $timeline-color;
     color: $white;
   }
 }
 
-.timeline__date{
+.timeline__date {
   color: $dark-gray;
 
-  .timeline__item--current &{
+  .timeline__item--current & {
     color: $white;
   }
 }
 
-.timeline__title{
+.timeline__title {
   margin-bottom: 0;
 }
 
-.timeline__content{
+.timeline__content {
   padding: $timeline-padding;
 
-  :last-child{
+  :last-child {
     margin-bottom: 0;
   }
 }
 
-.timeline__footer{
+.timeline__footer {
   list-style: none;
   margin: 0;
   border-top: $border;
 
-  @include breakpoint(medium){
+  @include breakpoint(medium) {
     display: flex;
     flex-wrap: wrap;
   }
 }
 
-.timeline__footer-item{
+.timeline__footer-item {
   flex-grow: 1;
   text-align: center;
-  padding: .5em;
+  padding: 0.5em;
   border-bottom: $border;
 
-  &:last-child{
+  &:last-child {
     border-bottom: 0;
   }
 
-  @include breakpoint(medium){
+  @include breakpoint(medium) {
     border-bottom: 0;
     border-right: $border;
 
-    &:last-child{
+    &:last-child {
       border-right: 0;
     }
   }
 }
 
-.timeline__footer-inner{
+.timeline__footer-inner {
   display: block;
 }
 
-.timeline__item-icon{
+.timeline__item-icon {
   width: 1.5em;
   height: 1.5em;
 }
 
-.timeline__item-text{
+.timeline__item-text {
   display: block;
-  letter-spacing: .03em;
+  letter-spacing: 0.03em;
   text-transform: uppercase;
   font-size: 90%;
   color: $body-font-color;
@@ -160,22 +160,22 @@ $timeline-padding: 1rem;
 
 /* Inactive timeline */
 
-.timeline__item--current{
-  &::before{
+.timeline__item--current {
+  &::before {
     background: $timeline-inactive-color;
   }
 }
 
-.timeline__item--inactive{
-  &::before{
+.timeline__item--inactive {
+  &::before {
     background: $timeline-inactive-color;
   }
 
-  .timeline__phase{
+  .timeline__phase {
     background: $timeline-inactive-color;
   }
 
-  .timeline__phase__number{
-    text-shadow: 0 1px 2px rgba(black, .1);
+  .timeline__phase__number {
+    text-shadow: 0 1px 2px rgba(black, 0.1);
   }
 }

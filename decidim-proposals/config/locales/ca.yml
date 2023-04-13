@@ -222,10 +222,10 @@ ca:
       proposals:
         admin:
           proposal_note_created:
-            email_intro: Algú ha deixat una nota a la proposta "%{resource_title}". Revisa-la ara a través del <a href="%{admin_proposal_info_url}">taulell d'admistració</a>
+            email_intro: Algú ha deixat una nota a la proposta "%{resource_title}". Revisa-la ara a través del <a href="%{admin_proposal_info_url}">taulell d'administració</a>.
             email_outro: Reps aquesta notificació perquè pots avaluar la proposta.
             email_subject: Algú ha deixat una nota a la proposta %{resource_title}.
-            notification_title: Algú ha deixat una nota a la proposta <a href="%{resource_path}">%{resource_title}</a>. Revisa-la ara a través del <a href="%{admin_proposal_info_path}">taulell d'admistració</a>
+            notification_title: Algú ha deixat una nota a la proposta <a href="%{resource_path}">%{resource_title}</a>. Revisa-la ara a través del <a href="%{admin_proposal_info_path}">taulell d'administració</a>.
         collaborative_draft_access_accepted:
           email_intro: 'S''ha acceptat %{requester_name} per accedir com a contribuidora de l''esborrany col·laboratiu <a href="%{resource_url}">%{resource_title}</a>.'
           email_outro: Has rebut aquesta notificació perquè ets una contribuïdora de <a href="%{resource_url}">%{resource_title}</a>.
@@ -260,12 +260,12 @@ ca:
           email_intro: 'Ara pots crear noves propostes a %{participatory_space_title}! Comença a participar a aquesta pàgina:'
           email_outro: Has rebut aquesta notificació perquè estàs seguint %{participatory_space_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
           email_subject: Les propostes ja estan disponibles a %{participatory_space_title}
-          notification_title: Ara pots presentar <a href="%{resource_path}">noves propostes</a> a <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          notification_title: Ara pots presentar <a href="%{resource_path}">noves propostes</a> a <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
         endorsing_enabled:
           email_intro: 'Pots adherir-te a les propostes a %{participatory_space_title}. Comença a participar en aquesta pàgina:'
           email_outro: Has rebut aquesta notificació perquè estàs seguint %{participatory_space_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
           email_subject: L'adhesió a les propostes de %{participatory_space_title} ha començat
-          notification_title: Ara ja pots començar a <a href="%{resource_path}">adherir-te a propostes</a> a <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          notification_title: Ara ja pots començar a <a href="%{resource_path}">adherir-te a propostes</a> a <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
         proposal_accepted:
           affected_user:
             email_intro: 'S''ha acceptat la teva proposta "%{resource_title}". Pots llegir la resposta en aquesta pàgina:'
@@ -275,7 +275,7 @@ ca:
           follower:
             email_intro: 'S''ha acceptat la proposta "%{resource_title}". Pots llegir la resposta des d''aquesta pàgina:'
             email_outro: Has rebut aquesta notificació perquè que segueixes "%{resource_title}". El pots deixar de seguir al link anterior.
-            email_subject: Una proposta que segueixes ha estat acceptada
+            email_subject: S'ha acceptat una proposta que segueixes
             notification_title: S'ha acceptat la proposta <a href="%{resource_path}">%{resource_title}</a>.
         proposal_evaluating:
           affected_user:
@@ -302,8 +302,8 @@ ca:
           email_intro: La proposta "%{resource_title}" s'ha afegit a "%{participatory_space_title}", que segueixes.
           email_outro: Has rebut aquesta notificació perquè estàs seguint "%{participatory_space_title}". Pots deixar de rebre notificacions seguint l'enllaç anterior.
           email_subject: Nova proposta "%{resource_title}" afegida a %{participatory_space_title}
-          notification_title: '%{author} ha afegit la proposta <a href="%{resource_path}">%{resource_title}</a> a %{participatory_space_title}'
-          notification_title_official: S'ha afegit la proposta oficial <a href="%{resource_path}">%{resource_title}</a> a %{participatory_space_title}
+          notification_title: '%{author} ha afegit la proposta <a href="%{resource_path}">%{resource_title}</a> a %{participatory_space_title}.'
+          notification_title_official: S'ha afegit la proposta oficial <a href="%{resource_path}">%{resource_title}</a> a %{participatory_space_title}.
         proposal_rejected:
           affected_user:
             email_intro: 'La teva proposta "%{resource_title}" ha estat rebutjada. Pots llegir la resposta en aquesta pàgina:'
@@ -458,8 +458,8 @@ ca:
             title: Afegir document
             upload_document: Puja el document
           publish:
-            invalid: No s'han pogut publicar propostes
-            success: S'han publicat totes les propostes
+            invalid: Hi ha hagut un error en publicar les propostes.
+            success: S'han publicat totes les propostes.
           sections:
             article: "<em>Article</em>"
             section: "<em>Secció:</em> <strong>%{title}</strong>"
@@ -476,8 +476,8 @@ ca:
             title: Respondre a la proposta %{title}
         proposal_notes:
           create:
-            error: S'ha produït un error en crear aquesta nota de la proposta
-            success: La nota de la proposta s'ha creat correctament
+            error: S'ha produït un error en crear aquesta nota a la proposta.
+            success: La nota a la proposta s'ha creat amb èxit.
           form:
             note: Nota
             submit: Enviar
@@ -485,11 +485,11 @@ ca:
           title: Notes privades
         proposals:
           answer:
-            invalid: Hi ha hagut un problema en respondre a aquesta proposta
-            success: Proposta resposta amb èxit
+            invalid: Hi ha hagut un problema en respondre a aquesta proposta.
+            success: Proposta resposta amb èxit.
           create:
-            invalid: Hi ha hagut un problema en crear aquesta proposta
-            success: Proposta creada correctament
+            invalid: Hi ha hagut un problema en crear aquesta proposta.
+            success: Proposta creada correctament.
           edit:
             title: Actualitza la proposta
             update: Actualizar
@@ -524,7 +524,7 @@ ca:
             title: Crea proposta
           publish_answers:
             number_of_proposals: Es publicaran les respostes per a %{number} propostes.
-            select_a_proposal: Selecciona una proposta
+            select_a_proposal: Si us plau, selecciona una proposta.
           show:
             amendments_count: Número d'esmenes
             assigned_valuators: Avaluadores assignades
@@ -554,18 +554,18 @@ ca:
             votes_ranking: Classificació per suports
           update_category:
             invalid: 'Aquestes propostes ja tenien la categoria %{subject_name}: %{proposals}.'
-            select_a_category: Selecciona una categoria
-            select_a_proposal: Selecciona una proposta
+            select_a_category: Si us plau, selecciona una categoria.
+            select_a_proposal: Si us plau, selecciona una proposta.
             success: 'Les propostes s''han actualitzat correctament a la categoria %{subject_name}: %{proposals}.'
           update_scope:
             invalid: 'Aquestes propostes ja tenien l''àmbit %{subject_name}: %{proposals}.'
-            select_a_proposal: Selecciona una proposta
-            select_a_scope: Si us plau, selecciona un àmbit
+            select_a_proposal: Si us plau, selecciona una proposta.
+            select_a_scope: Si us plau, selecciona un àmbit.
             success: 'Les propostes s''han actualitzat correctament a l''àmbit %{subject_name}: %{proposals}.'
         proposals_imports:
           create:
-            invalid: S'ha produït un error en importar les propostes
-            success: "%{number} propostes importades correctament"
+            invalid: S'ha produït un error en importar les propostes.
+            success: "%{number} propostes importades correctament."
           new:
             create: Importa propostes
             no_components: No hi ha cap altre component de propostes en aquest espai participatiu des d'on importar-les.
@@ -582,11 +582,11 @@ ca:
             success: Les propostes s'han dividit en d'altres de noves correctament.
         valuation_assignments:
           create:
-            invalid: S'ha produït un error en assignar propostes a una avaluadora
-            success: Propostes assignades a avaluadora correctament
+            invalid: S'ha produït un error en assignar propostes a una avaluadora.
+            success: Propostes assignades correctament a una avaluadora.
           delete:
-            invalid: S'ha produït un error en desfer l'assignació de propostes a una avaluadora
-            success: Avaluadora desassignada correctament
+            invalid: S'ha produït un error en desfer l'assignació de propostes d'una avaluadora.
+            success: Avaluadora desassignada correctament.
       admin_log:
         proposal:
           answer: "%{user_name} ha respost a la proposta %{resource_name} a l'espai %{space_name}"
@@ -687,17 +687,17 @@ ca:
         requests:
           accepted_request:
             error: No has pogut ser acceptada com a contribuïdora. Si us plau, torna-ho a provar més tard.
-            success: "S'ha acceptat amb èxit @%{user} com a contribuïdora"
+            success: "S'ha acceptat amb èxit a @%{user} com a col·laboradora."
           access_requested:
             error: No s'ha pogut completar la teva sol·licitud, si us plau torna-ho a provar més tard.
-            success: La teva sol·licitud de col·laboració s'ha enviat correctament
+            success: La teva sol·licitud de contribució s'ha enviat correctament.
           collaboration_requests:
             accept_request: Accepta
             reject_request: Rebutja
             title: Sol·licituds de col·laboració
           rejected_request:
             error: No s'ha pogut rebutjar com a contribuïdora, si us plau tornau-ho a provar més tard.
-            success: "@%{user} s'ha rebutjat correctament com a col·laboradora"
+            success: "S'ha rebutjat amb èxit a @%{user} com a col·laboradora."
         show:
           back: Torna
           edit: Edita l'esborrany col·laboratiu
@@ -863,8 +863,8 @@ ca:
           creation_date: 'Data de creació: %{date}'
           view_proposal: Veure proposta
         proposals:
-          empty: Encara no hi ha cap proposta
-          empty_filters: No hi ha cap proposta amb aquest criteri
+          empty: Encara no hi ha cap proposta.
+          empty_filters: No hi ha cap proposta amb aquest criteri.
         show:
           answer: Resposta
           back_to: Torna
@@ -913,12 +913,12 @@ ca:
             description: Cada proposta pot acumular més de %{limit} suports
           minimum_votes_per_user:
             description: Has de distribuir un mínim de %{votes} suports entre diferents propostes.
-            given_enough_votes: Has donat suficients suports.
+            given_enough_votes: Has donat suports suficients.
             supports_remaining: Has de donar %{remaining_votes} suport/s més a propostes per a que els teus suports siguin tinguts en compte.
           proposal_limit:
             description: Pots crear fins a %{limit} propostes.
           threshold_per_proposal:
-            description: Per ser validades, les propostes han d'arribar a un quòrum mínim de %{limit} suports
+            description: Perquè les propostes siguin validades han d'arribar a un mínim de %{limit} suports.
           title: 'La selecció de propostes es regeix per les següents normes:'
           vote_limit:
             description: Pots donar suport a %{limit} propostes.

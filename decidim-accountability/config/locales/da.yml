@@ -47,9 +47,6 @@ da:
           new:
             import: Import
             title: Importresultater fra CSV
-        imports:
-          create:
-            success: Import af filen er begyndt. Du vil inden for de næste få minutter modtage en e-mail med resultatet af importen
         models:
           result:
             name: Resultat
@@ -58,11 +55,6 @@ da:
           timeline_entry:
             name: Indførsel på tidslinje
         results:
-          create:
-            invalid: Der opstod et problem med oprettelsen af dette resultat
-            success: Resultat oprettet
-          destroy:
-            success: Resultat slettet
           edit:
             title: Rediger resultat
             update: Opdater resultat
@@ -71,18 +63,10 @@ da:
           new:
             create: Opret resultat
             title: Nyt resultat
-          update:
-            invalid: Der opstod et problem med opdateringen af dette resultat
-            success: Resultat opdateret
         shared:
           subnav:
             statuses: Statusser
         statuses:
-          create:
-            invalid: Der opstod et problem med oprettelsen af denne status
-            success: Status oprettet
-          destroy:
-            success: Status slettet
           edit:
             title: Rediger status
             update: Opdater status
@@ -91,15 +75,7 @@ da:
           new:
             create: Opret status
             title: Ny status
-          update:
-            invalid: Der opstod et problem med oprettelsen af denne status
-            success: Status opdateret
         timeline_entries:
-          create:
-            invalid: Der opstod et problem med at oprette dette indlæg
-            success: Indlægget blev oprettet
-          destroy:
-            success: Indlægget blev slettet
           edit:
             title: Rediger Indlæg
             update: Opdater indlæg
@@ -108,9 +84,6 @@ da:
           new:
             create: Opret indlæg
             title: Nyt indlæg
-          update:
-            invalid: Der opstod et problem med at opdatere dette indlæg
-            success: Indlæg opdateret
       admin_log:
         result:
           create: "%{user_name} oprettede resultat %{resource_name} i %{space_name}"
@@ -122,7 +95,6 @@ da:
       import_mailer:
         import:
           errors: Fejl
-          errors_present: Der opstod et problem med at importere resultater
           row_number: Række
           subject: Succesfuld import af resultater
           success: Succesfuld import af resultater. Du kan gennemgå resultaterne i administrator interfacet.

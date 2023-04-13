@@ -1,66 +1,66 @@
-.blogs__list{
-  &-container{
+.blogs__list {
+  &-container {
     @apply space-y-12;
   }
 
-  &-item{
+  &-item {
     @apply flex gap-4 px-4 rounded overflow-hidden border-l-4 border-background hover:border-tertiary;
 
-    &__image{
+    &__image {
       @apply w-1/4 flex-none rounded overflow-hidden aspect-[1.5] -ml-[calc(1rem+4px)];
 
-      img{
+      img {
         @apply w-full h-full object-cover;
       }
     }
 
-    &__content{
+    &__content {
       @apply flex flex-col;
     }
 
-    &__title{
+    &__title {
       @apply text-secondary mb-3;
     }
 
-    &__text{
+    &__text {
       @apply text-gray-2 mb-3;
     }
 
-    &__author{
+    &__author {
       @apply mt-auto;
     }
 
-    &:hover &__title{
+    &:hover &__title {
       @apply underline;
     }
   }
 }
 
-.blog{
-  &__image{
+.blog {
+  &__image {
     @apply grow rounded overflow-hidden mb-8 aspect-[3];
 
-    img{
+    img {
       @apply w-full h-full object-cover;
     }
   }
 
-  &__container{
+  &__container {
     @apply flex flex-col gap-8 mb-24;
   }
 
-  &__text{
+  &__text {
     @apply prose max-w-full text-black text-lg;
   }
 
-  &__actions{
+  &__actions {
     @apply flex flex-col md:flex-row justify-between items-center md:items-start gap-4;
 
-    &-left{
+    &-left {
       @apply flex items-center gap-2;
     }
 
-    &-right{
+    &-right {
       @apply flex items-center gap-1;
     }
   }

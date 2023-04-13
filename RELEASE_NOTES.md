@@ -94,7 +94,7 @@ Since the Rails team has retired the Webpacker in favour or importmap-rails or j
 In order to continue having support for Webpacker like syntax, we have switched to Shakapacker.
 
 In order to perform the update, you will need to make sure that you **do not have webpacker in your Gemfile**.
-If you have it, please remove it, adn allow Decidim to handle the webpacker / shackapacker dependency.
+If you have it, please remove it, and allow Decidim to handle the webpacker / shakapacker dependency.
 
 In order to perform the migration to shakapacker, please backup the following files, to make sure that you save any customizations you may have done to webpacker:
 
@@ -467,3 +467,71 @@ Rake::Task["decidim:upgrade:migrate_wysiwyg_content"].enhance ["decidim_yourmodu
 ```
 
 Note that the component settings are already automatically handled by the core as long as you have defined `editor: true` on the component attribute. This marks those attributes to be editable through the rich text editor. There is nothing you need to do regarding the components to get their content migrated to the new format.
+
+### 5.4 Ability to hide content of a user from the public interface
+
+As of [\#10111](https://github.com/decidim/decidim/pull/10111), the administrators have the ability of blocking the user from the public interface.
+In order to do so, the administrator needs to go to the user's profile and click on the "Report user" button. If the reporting user is a system wide admin, a new "Block this participant" checkbox will appear. If the checkbox is checked, then the reporting user will have the ability as well to check "Hide all their contents". The first checkbox will force the reporting user to admin area where he can add a justification for blocking the offending Participant. The second checkbox will hide all the content of the user from the public interface.
+
+In order to hide all the Participant resources, keeping a separation of concerns, we have started to use `ActiveSupport::Notifications.publish` to notify the modules that the admin user has chosen to hide all the Participant's contributions.
+
+We are dispatching the following event:
+
+```ruby
+event_name = "decidim.system.events.hide_user_created_content"
+ActiveSupport::Notifications.publish(event_name, {
+  author: current_blocking.user, # user to be blocked
+  justification: current_blocking.justification, # reason for blocking the user
+  current_user: current_blocking.blocking_user # admin user that is blocking the other user
+})
+```
+
+The plugin creators could subscribe to this event and hide the content of the user. For example, in order to hide the content of a user in the `decidim-comments` module, you could add the following in your engine initializer file:
+
+```ruby
+initializer "decidim_comments.moderation_content" do
+  ActiveSupport::Notifications.subscribe("decidim.system.events.hide_user_created_content") do |_event_name, data|
+    Decidim::Comments::HideAllCreatedByAuthorJob.perform_later(**data)
+  end
+end
+```
+
+The `Decidim::Comments::HideAllCreatedByAuthorJob` is a job that uses the base `Decidim::HideAllCreatedByAuthorJob` job, having the following content:
+
+```ruby
+module Decidim
+  module Comments
+    class HideAllCreatedByAuthorJob < ::Decidim::HideAllCreatedByAuthorJob
+      protected
+
+      def base_query
+        Decidim::Comments::Comment.not_hidden.where(author: )
+      end
+    end
+  end
+end
+```
+
+For more complex scenarios, you could override the `perform` method of the job and add your own logic, following the patern:
+
+```ruby
+module Decidim
+  module YourModule
+    class HideAllCreatedByAuthorJob < ::Decidim::HideAllCreatedByAuthorJob
+      protected
+
+      def perform(author:, justification:, current_user:)
+        Decidim::YourModule::YourModel.not_hidden.from_author(author).find_each do |content|
+          hide_content(content, current_user, justification)
+        end
+
+        Decidim::YourModule::YourSecondModel.not_hidden.from_author(author).find_each do |content|
+          hide_content(content, current_user, justification)
+        end
+      end
+    end
+  end
+end
+```
+
+You can read more about this change at PR [\#10111](https://github.com/decidim/decidim/pull/10111).
