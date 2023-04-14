@@ -120,6 +120,8 @@ zh-TW:
         create:
           error: 創建新組件類型時出現問題
           success: 組件類型創建成功
+        destroy:
+          success: 組件類型已成功刪除
       assembly_copies:
         new:
           select: 請選擇您想要複製的資料
