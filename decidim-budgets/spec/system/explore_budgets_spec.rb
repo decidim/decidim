@@ -91,7 +91,7 @@ describe "Explore Budgets", :slow, type: :system do
         it "shows the check icon" do
           visit_component
 
-          expect(item).to have_selector(".budget-list__icon span.success")
+          expect(item).to have_selector("div.card__highlight-text svg.fill-success")
           expect(item).to have_link("See projects", href: budget_path(budget))
         end
 
