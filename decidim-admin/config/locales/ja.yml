@@ -39,6 +39,7 @@ ja:
         body: 本文
         subject: 件名
       organization:
+        admin_terms_of_service_body: 管理者向け利用規約本文
         alert_color: アラート
         available_authorizations: 利用可能な認証方式
         badges_enabled: バッジを有効にする
@@ -197,6 +198,20 @@ ja:
         user:
           new: 新しい管理者
         verify: 確認する
+      admin_terms_of_service:
+        accept:
+          error: 管理者向け利用規約に同意する際にエラーが発生しました。
+          success: 素晴らしい！あなたは管理者向け利用規約に同意しました。
+        actions:
+          accept: 利用規約に同意する
+          are_you_sure: 管理者向け利用規約を本当に拒否しますか？
+          refuse: 管理者規約を拒否する
+          title: 利用規約に同意する
+        required_review:
+          alert: '必須：管理者の利用規約を確認してください'
+          callout: 管理者向け利用規約を確認してください。確認しない場合、プラットフォームを管理することはできません。
+          cta: 今すぐ確認する
+        title: 管理者向け利用規約
       area_types:
         create:
           error: 新しいエリア種別の作成中に問題が発生しました。
@@ -272,6 +287,7 @@ ja:
       block_user:
         new:
           action: アカウントをブロックして理由を送信
+          already_reported_html: この操作を続けると、参加者のコンテンツは全て非表示になります。 <a href="%{link}">アカウントをブロック</a>。
           description: ユーザーをブロックすると、そのアカウントは利用できなくなります。ユーザーのブロックを解除することを検討する方法に関するガイドラインを判定通知に含めることができます。
           justification: 判定理由
           title: ユーザー %{name} をブロックする
@@ -661,6 +677,7 @@ ja:
         report:
           reasons:
             does_not_belong: 属していません
+            hidden_during_block: ユーザーのブロック中は非表示
             offensive: 攻撃的
             spam: スパム
         reports:
@@ -975,6 +992,7 @@ ja:
         destroy:
           success: ページを削除しました
         edit:
+          changed_notably_help: チェックした場合、参加者に新しい利用規約に同意するよう通知されます。
           title: ページを編集
           update: 更新
         form:
