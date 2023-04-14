@@ -23,6 +23,8 @@ module Decidim
       helper_method :initiative_type
       helper_method :promotal_committee_required?
 
+      before_action :authenticate_user!
+
       steps :select_initiative_type,
             :previous_form,
             :show_similar_initiatives,

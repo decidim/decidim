@@ -4,6 +4,7 @@ require "spec_helper"
 
 describe "Initiative", type: :system do
   let(:organization) { create(:organization, available_authorizations: authorizations) }
+  let(:do_not_require_authorization) { true }
   let(:authorizations) { %w(dummy_authorization_handler) }
   let!(:authorized_user) { create(:user, :confirmed, organization:) }
   let!(:authorization) { create(:authorization, user: authorized_user) }
@@ -38,7 +39,50 @@ describe "Initiative", type: :system do
     switch_to_host(organization.host)
     login_as(authorized_user, scope: :user) if authorized_user && login
     visit decidim_initiatives.initiatives_path
-    allow(Decidim::Initiatives.config).to receive(:do_not_require_authorization).and_return(true)
+    allow(Decidim::Initiatives.config).to receive(:do_not_require_authorization).and_return(do_not_require_authorization)
+  end
+
+  context "when user visits the initiatives wizard and is not logged in" do
+    let(:login) { false }
+    let(:do_not_require_authorization) { false }
+    let(:signature_type) { "online" }
+
+    context "when there is only one initiative type" do
+      let!(:other_initiative_type) { nil }
+      let!(:other_initiative_type_scope) { nil }
+
+      [
+        :select_initiative_type,
+        :previous_form,
+        :show_similar_initiatives,
+        :fill_data,
+        :promotal_committee,
+        :finish
+      ].each do |step|
+        it "redirects to the login page when landing on #{step}" do
+          expect(Decidim::InitiativesType.count).to eq(1)
+          visit decidim_initiatives.create_initiative_path(step)
+          expect(page).to have_current_path("/users/sign_in")
+        end
+      end
+    end
+
+    context "when there are more initiative types" do
+      [
+        :select_initiative_type,
+        :previous_form,
+        :show_similar_initiatives,
+        :fill_data,
+        :promotal_committee,
+        :finish
+      ].each do |step|
+        it "redirects to the login page when landing on #{step}" do
+          expect(Decidim::InitiativesType.count).to eq(2)
+          visit decidim_initiatives.create_initiative_path(step)
+          expect(page).to have_current_path("/users/sign_in")
+        end
+      end
+    end
   end
 
   describe "create initiative verification" do
