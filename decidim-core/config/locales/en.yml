@@ -1154,7 +1154,7 @@ en:
     metadata:
       progress:
         active: Active
-        finished: "Finished: %{end_date}"
+        finished: 'Finished: %{end_date}'
         not_started: Not started yet
         remaining: "%{time_distance} remaining"
     metrics:
