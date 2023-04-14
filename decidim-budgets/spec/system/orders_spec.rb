@@ -569,7 +569,7 @@ describe "Orders", type: :system do
       it "renders selected projects" do
         visit_budget
 
-        expect(page).to have_selector(".card__list-content .text-success", count: 2)
+        expect(page).to have_selector(".card__list-metadata .success", count: 2)
       end
     end
   end
