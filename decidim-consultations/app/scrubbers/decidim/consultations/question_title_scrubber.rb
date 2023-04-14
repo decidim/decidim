@@ -6,7 +6,11 @@ module Decidim
       private
 
       def custom_allowed_tags
-        Loofah::HTML5::SafeList::ACCEPTABLE_ELEMENTS - RESTRICTED_TAGS
+        %w(strong em u b i br ul ol li p a code)
+      end
+
+      def custom_allowed_attributes
+        %w(class href target rel)
       end
     end
   end
