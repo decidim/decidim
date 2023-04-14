@@ -348,20 +348,20 @@ describe "Orders", type: :system do
 
           expect(page).to have_selector ".budget-list__data--added", count: 2
 
-          within "#order-progress .budget-summary__progressbox:not(.budget-summary__progressbox--fixed)" do
-            page.find(".button.small").click
+          within "#order-progress .budget-summary__content" do
+            page.find(".button").click
           end
 
           expect(page).to have_css("#budget-confirm", visible: :visible)
 
           within "#budget-confirm" do
-            page.find(".button.expanded").click
+            page.find(".button").click
           end
 
           expect(page).to have_content("successfully")
 
-          within "#order-progress .budget-summary__progressbox" do
-            expect(page).to have_no_selector("button.small")
+          within "#order-progress .budget-summary__content" do
+            expect(page).to have_selector("button[disabled]")
           end
         end
       end
@@ -372,7 +372,7 @@ describe "Orders", type: :system do
         end
 
         it "shows the rule description" do
-          within ".card.budget-summary" do
+          within ".budget-summary" do
             expect(page).to have_content("Assign at least €70,000,000 to the projects you want and vote")
           end
         end
@@ -491,17 +491,17 @@ describe "Orders", type: :system do
       it "can cancel the order" do
         visit_budget
 
-        within ".budget-summary" do
+        within ".budget-summary__content" do
           accept_confirm { page.find(".cancel-order").click }
         end
 
         expect(page).to have_content("successfully")
 
         within "#order-progress .budget-summary__progressbox" do
-          expect(page).to have_selector("button.small:disabled")
+          expect(page).to have_selector("button:disabled")
         end
 
-        within ".budget-summary" do
+        within ".budget-summary__content" do
           expect(page).to have_no_selector(".cancel-order")
         end
       end
@@ -551,7 +551,7 @@ describe "Orders", type: :system do
       it "displays the number of votes for a project" do
         visit_budget
 
-        within "#project-#{project.id}-item .budget__card__list-project__amount" do
+        within "#project-#{project.id}-item .card__list" do
           expect(page).to have_selector(".project-votes", text: "1 VOTE")
         end
       end
@@ -569,7 +569,7 @@ describe "Orders", type: :system do
       it "renders selected projects" do
         visit_budget
 
-        expect(page).to have_selector(".card__text--status.success", count: 2)
+        expect(page).to have_selector(".card__list-content .text-success", count: 2)
       end
     end
   end

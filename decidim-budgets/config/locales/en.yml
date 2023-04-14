@@ -270,7 +270,7 @@ en:
             one: project selected
             other: projects selected
         orders:
-          highest_cost: Budget
+          highest_cost: Highest cost
           label: Order projects by
           lowest_cost: Lowest cost
           most_voted: Most voted
