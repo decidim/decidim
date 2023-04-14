@@ -24,7 +24,7 @@
   }
 
   &__grid{
-    @apply ring-4 ring-background hover:ring-tertiary rounded hover:cursor-pointer;
+    @apply block ring-4 ring-background hover:ring-tertiary rounded hover:cursor-pointer;
 
     &-container{
       @apply space-y-12 mb-16;
