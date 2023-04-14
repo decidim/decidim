@@ -117,7 +117,7 @@ extra_admin_link(
       <div class="mt-8">
         <ul class="drawer-metadata__container" data-metadata-footer>
           <%= content_tag :li, resource_reference(@proposal), class: "drawer-metadata__item" %>
-          <%= content_tag :li, resource_version(proposal_presenter, versions_path: proposal_versions_path(@proposal)), class: "drawer-metadata__item" %>
+          <%= content_tag :li, resource_version(proposal_presenter, versions_path: proposal_version_path(@proposal, @proposal.versions.count)), class: "drawer-metadata__item" %>
 
           <% fingerprint_id = dom_id(@proposal, :fingerprint_dialog) %>
           <%= content_tag :li, class: "drawer-metadata__item" do %>

@@ -34,7 +34,7 @@ module Decidim
             post :withdraw
             post :publish
           end
-          resources :versions, only: [:show, :index]
+          resources :versions, only: [:show]
         end
         root to: "proposals#index"
       end
