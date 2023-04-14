@@ -37,13 +37,13 @@ describe "Sorting projects", type: :system do
     end
 
     it "lists the projects ordered by selected option" do
-      within "#projects div.order-by" do
+      within "#projects div.collection-sort-controls" do
         expect(page).to have_no_selector("a.underline.font-bold", text: "Random order")
         expect(page).to have_selector("a.underline.font-bold", text: selected_option)
       end
 
-      expect(page).to have_selector("#projects .budget-list .card__list:first-child", text: translated(first_project.title))
-      expect(page).to have_selector("#projects .budget-list .card__list:last-child", text: translated(last_project.title))
+      expect(page).to have_selector("#projects .budget-list .project-item:first-child", text: translated(first_project.title))
+      expect(page).to have_selector("#projects .budget-list .project-item:last-child", text: translated(last_project.title))
     end
   end
 
@@ -85,7 +85,7 @@ describe "Sorting projects", type: :system do
       it "automatically sorts by votes" do
         visit_budget
 
-        within "#projects div.order-by" do
+        within "#projects div.collection-sort-controls" do
           expect(page).to have_selector("a.underline.font-bold", text: "Most voted")
         end
 
