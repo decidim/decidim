@@ -110,7 +110,7 @@ export default Link.extend({
     const editor = this.editor;
 
     return [
-      ...this.parent?.(),
+      ...(this.parent?.() || {}),
       new Plugin({
         props: {
           handleDoubleClick() {
