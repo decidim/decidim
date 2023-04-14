@@ -351,19 +351,19 @@ describe "Orders", type: :system do
           expect(page).to have_selector ".budget-list__data--added", count: 2
 
           within "#order-progress .budget-summary__content" do
-            page.find(".button").click
+            page.find(".button", match: :first).click
           end
 
           expect(page).to have_css("#budget-confirm", visible: :visible)
 
           within "#budget-confirm" do
-            page.find(".button").click
+            page.find(".button", text: "Confirm").click
           end
 
           expect(page).to have_content("successfully")
 
           within "#order-progress .budget-summary__content" do
-            expect(page).to have_selector("button[disabled]")
+            expect(page).to have_selector(".button", text: "delete your vote")
           end
         end
       end
@@ -409,7 +409,7 @@ describe "Orders", type: :system do
             let(:another_user) { create(:user, :confirmed, organization:) }
 
             before do
-              find("[data-dialog-open='budget-confirm']").click
+              find("[data-dialog-open='budget-confirm']", match: :first).click
               click_button "Confirm"
               expect(page).to have_css(".flash.success")
             end
@@ -499,12 +499,12 @@ describe "Orders", type: :system do
 
         expect(page).to have_content("successfully")
 
-        within "#order-progress .budget-summary__progressbox" do
+        within "#order-progress .budget-summary__content" do
           expect(page).to have_selector("button:disabled")
         end
 
         within ".budget-summary__content" do
-          expect(page).to have_no_selector(".cancel-order")
+          expect(page).to have_no_selector(".button", text: "delete your vote")
         end
       end
 
