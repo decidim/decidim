@@ -21,7 +21,7 @@ zh-TW:
         created_by_other: 由其他人創建
         creation_date: 創建日期
         decidim_area_id: 區域
-        decidim_assemblies_type_id: 組件類型
+        decidim_assemblies_type_id: 程序集類型
         decidim_scope_id: 範圍
         description: 說明
         developer_group: 促銷團隊
@@ -79,20 +79,30 @@ zh-TW:
   activerecord:
     models:
       decidim/assembly:
-        other: 組件
+        other: 程序集
       decidim/assembly_member:
-        other: 組裝成員
+        other: 程序集成員
       decidim/assembly_user_role:
-        other: 組裝用戶角色
+        other: 程序集用戶角色
   decidim:
     admin:
       actions:
         import_assembly: 匯入
-        new_assembly: 新組裝
-        new_assembly_type: 新組裝類型
+        new_assembly: 新程序集
+        new_assembly_type: 新程序集類型
       assemblies:
         create:
-          error: 建立新組件時發生問題
+          error: 建立新程序集時發生問題
+          success: 程序集創建成功
+        edit:
+          update: 更新
+        index:
+          not_published: 未發佈
+          private: 不公開
+          public: 公開
+          published: 已發佈
+        new:
+          create: 創建
       assembly_copies:
         new:
           select: 請選擇您想要複製的資料
@@ -115,4 +125,4 @@ zh-TW:
           title: 更新程序集成員
     assemblies:
       last_activity:
-        new_assembly: 新組裝
+        new_assembly: 新程序集
