@@ -121,6 +121,9 @@ zh-TW:
           success: 組件類型創建成功
         destroy:
           success: 組件類型已成功刪除
+        new:
+          create: 創建
+          title: 新組件類型
       assembly_copies:
         new:
           select: 請選擇您想要複製的資料
