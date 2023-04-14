@@ -25,7 +25,9 @@
       <% end %>
     </div>
 
-    <%= render_meeting_body(@meeting) %>
+    <div class="editor-content">
+      <%= render_meeting_body(@meeting) %>
+    </div>
 
     <% unless meeting.in_person_meeting? || meeting.withdrawn? %>
       <%= cell "decidim/meetings/online_meeting_link", meeting %>
