@@ -31,7 +31,7 @@
       <%= cell "decidim/meetings/online_meeting_link", meeting %>
     <% end %>
 
-    <%= cell "decidim/meetings/redesigned_meeting", meeting %>
+    <%= cell "decidim/meetings/redesigned_meeting_data", meeting %>
 
     <% if meeting.agenda.present? && meeting.agenda.visible? %>
       <%= render "meeting_agenda" %>

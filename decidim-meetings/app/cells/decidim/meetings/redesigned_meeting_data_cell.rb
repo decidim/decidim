@@ -5,7 +5,7 @@ require "cell/partial"
 module Decidim
   module Meetings
     # This cell renders a meeting
-    class RedesignedMeetingCell < Decidim::ViewModel
+    class RedesignedMeetingDataCell < Decidim::ViewModel
       include ApplicationHelper
       include Decidim::ResourceHelper
       include Decidim::TranslationsHelper

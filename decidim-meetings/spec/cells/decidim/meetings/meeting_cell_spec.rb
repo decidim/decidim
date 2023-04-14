@@ -8,7 +8,7 @@ module Decidim::Meetings
 
     let!(:meeting) { create(:meeting, :published) }
 
-    let(:the_cell) { cell("decidim/meetings/meeting", meeting) }
+    let(:the_cell) { cell("decidim/meetings/redesigned_meeting_data", meeting) }
     let(:cell_html) { the_cell.call }
 
     context "when rendering" do
