@@ -95,6 +95,33 @@
     }
   }
 
+  &__calendar{
+    @apply w-14 flex flex-col justify-start rounded overflow-hidden bg-background text-center;
+
+    /* overwrite defaults */
+    &-list__reset{
+      @apply border-0 px-0;
+    }
+
+    &-month{
+      @apply bg-primary uppercase text-white text-xs rounded-t md:rounded-tr-none;
+    }
+
+    &-day{
+      @apply text-black text-2xl font-bold;
+    }
+
+    &-time{
+      @apply text-black text-xs;
+    }
+
+    &-month,
+    &-day,
+    &-time{
+      @apply inline-flex items-center justify-evenly empty:[&>span]:hidden;
+    }
+  }
+
   /* shared styles */
   &__highlight-metadata,
   &__grid-metadata{
