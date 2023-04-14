@@ -62,10 +62,6 @@ eu:
             title: Itzaltzeen baliogabetzea
           create:
             error: Errore bat gertatu da sortzapen berri bat sortzean.
-            success: Sortu arrakastaz sortu da
-          destroy:
-            error: Ezin da irtenbidea bertan behera utzi.
-            success: Antolaketa behar bezala bertan behera utzi da
           edit:
             title: Eguneratu kokapenari buruzko informazioa
             update: eguneratzearen
@@ -82,7 +78,6 @@ eu:
             selected_proposals: Aukeratutako proposamenak zozketan
           update:
             error: Errore bat gertatu da sortzapena eguneratzean.
-            success: Antolaketa eguneratu da
       admin_log:
         sortition:
           create: "%{user_name} %{resource_name} sortzea %{space_name} urtean sortu da"
@@ -99,7 +94,7 @@ eu:
           cancelled: Bertan behera
           category: Kategoria
           category_prompt: Aukeratu kategoria bat
-          search: Search
+          search: Bilatu
           state: Estatu
         filters_small_view:
           close_modal: Itxi modal

@@ -58,8 +58,8 @@ describe "Conference program", type: :system do
     end
 
     it "lists all conference meetings" do
-      within ".programme-day" do
-        expect(page).to have_selector(".programme-title", count: 3)
+      within "[data-conference-program-day]" do
+        expect(page).to have_selector("[data-conference-program-title]", count: 3)
 
         meetings.each do |meeting|
           expect(page).to have_content(Decidim::ConferenceMeetingPresenter.new(meeting).title)

@@ -78,7 +78,7 @@ module Decidim
               it "does not persist modifications and broadcasts invalid" do
                 failures = {}
                 proposals.each do |proposal|
-                  failures[proposal.id] = ["Title can't be blank"]
+                  failures[proposal.id] = ["Title cannot be blank"]
                 end
                 expect { command.call }.to broadcast(:invalid, failures)
               end

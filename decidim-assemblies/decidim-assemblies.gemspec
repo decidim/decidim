@@ -29,4 +29,6 @@ Gem::Specification.new do |s|
 
   s.add_development_dependency "decidim-admin", Decidim::Assemblies.version
   s.add_development_dependency "decidim-dev", Decidim::Assemblies.version
+  s.add_development_dependency "decidim-meetings", Decidim::Assemblies.version
+  s.add_development_dependency "decidim-proposals", Decidim::Assemblies.version
 end

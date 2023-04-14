@@ -10,10 +10,10 @@ module Decidim
     #         * class: A string of extra css classes
     #
     # Returns a String.
-    def resource_reference(resource, options = {})
+    def resource_reference(resource)
       return unless resource.respond_to?(:reference) && resource.reference.present?
 
-      "<div class='tech-info #{options[:class]}'>#{localized_reference(resource.reference)}</div>".html_safe
+      localized_reference(resource.reference)
     end
 
     private

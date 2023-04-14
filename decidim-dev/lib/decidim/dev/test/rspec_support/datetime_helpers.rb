@@ -7,7 +7,7 @@ module DateTimeHelpers
   # it can be set to any date.
   def fill_in_datetime(field_id, value)
     # The value needs to be passed without the timezone to the view for it to
-    # work properly. Otherwise it is selecting the GMT time and the specs won't
+    # work properly. Otherwise it is selecting the GMT time and the specs will not
     # work if the browser environment is running in some other timezone.
     formatted_value = value.strftime("%Y-%m-%dT%H:%M")
     page.execute_script(

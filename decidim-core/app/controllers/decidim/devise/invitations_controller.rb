@@ -11,7 +11,7 @@ module Decidim
 
       before_action :configure_permitted_parameters
 
-      # We don't users to create invitations, so we just redirect them to the
+      # We do not users to create invitations, so we just redirect them to the
       # homepage.
       def authenticate_inviter!
         redirect_to root_path
@@ -32,7 +32,6 @@ module Decidim
           resource.update!(newsletter_notifications_at: Time.current) if update_resource_params[:newsletter_notifications]
           resource.update!(managed: false) if resource.managed?
           resource.update!(accepted_tos_version: resource.organization.tos_version)
-          Decidim::Gamification.increment_score(resource.invited_by, :invitations) if resource.invited_by
         end
 
         resource

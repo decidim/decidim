@@ -44,7 +44,6 @@ bg:
           description_own: Вие създадохте %{score} теста.
           name: Тестове
           next_level_in: Създайте още %{score} теста за да достигнете следващо ниво!
-          unearned_another: Този участник все още не е създал тест.
           unearned_own: Вие все още не сте създали тест.
     resource_links:
       test_link:

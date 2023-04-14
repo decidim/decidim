@@ -19,7 +19,7 @@ module Decidim
           impersonation_log.update!(ended_at: Time.current)
         end
 
-        it "doesn't expires it" do
+        it "does not expires it" do
           ExpireImpersonationJob.perform_now(user, current_user)
           expect(impersonation_log.reload).not_to be_expired
         end

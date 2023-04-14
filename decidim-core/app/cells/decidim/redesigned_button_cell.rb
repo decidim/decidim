@@ -4,14 +4,15 @@ module Decidim
   # This cell renders a generic redesigned button.
   class RedesignedButtonCell < Decidim::ViewModel
     include LayoutHelper
+    include IconHelper
     include Decidim::SanitizeHelper
     include Decidim::ResourceHelper
 
     DEFAULT_ATTRIBUTES = {
       button_classes: "button button__sm button__transparent-secondary",
-      text_classes: "inline-flex first-letter:uppercase",
-      icon_classes: "fill-current flex-none",
-      method: :get,
+      text_classes: nil,
+      icon_classes: nil,
+      method: nil,
       remote: false,
       html_options: {}
     }.freeze

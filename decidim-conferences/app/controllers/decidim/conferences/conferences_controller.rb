@@ -6,7 +6,8 @@ module Decidim
     # public layout.
     class ConferencesController < Decidim::Conferences::ApplicationController
       include ParticipatorySpaceContext
-      participatory_space_layout only: :show
+
+      redesign_participatory_space_layout only: :show
 
       helper Decidim::AttachmentsHelper
       helper Decidim::IconHelper

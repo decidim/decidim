@@ -54,6 +54,7 @@ describe AxeMatchers, type: :system do
       end
 
       let(:simplified_html) { html_document.sub(/<!DOCTYPE html>/, "").gsub(/\n\s*/, "") }
+      let(:axe_version) { AxeMatchers.axe_mainline_version }
 
       it "formats the message correctly" do
         message = <<~MSG
@@ -61,7 +62,7 @@ describe AxeMatchers, type: :system do
           Found 3 accessibility violations:
 
           1) landmark-one-main: Document should have one main landmark (moderate)
-              https://dequeuniversity.com/rules/axe/4.4/landmark-one-main?application=axeAPI
+              https://dequeuniversity.com/rules/axe/#{axe_version}/landmark-one-main?application=axeAPI
               The following 1 node violate this rule:
 
                   Selector: html
@@ -71,7 +72,7 @@ describe AxeMatchers, type: :system do
 
 
           2) page-has-heading-one: Page should contain a level-one heading (moderate)
-              https://dequeuniversity.com/rules/axe/4.4/page-has-heading-one?application=axeAPI
+              https://dequeuniversity.com/rules/axe/#{axe_version}/page-has-heading-one?application=axeAPI
               The following 1 node violate this rule:
 
                   Selector: html
@@ -81,7 +82,7 @@ describe AxeMatchers, type: :system do
 
 
           3) region: All page content should be contained by landmarks (moderate)
-              https://dequeuniversity.com/rules/axe/4.4/region?application=axeAPI
+              https://dequeuniversity.com/rules/axe/#{axe_version}/region?application=axeAPI
               The following 1 node violate this rule:
 
                   Selector: div

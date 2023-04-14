@@ -21,7 +21,7 @@ module Decidim
              foreign_key: :decidim_user_id,
              source: :user
 
-    validates :name, presence: true, uniqueness: { scope: :decidim_organization_id }
+    validates :name, presence: true, uniqueness: { scope: :decidim_organization_id }, unless: -> { blocked? }
 
     validate :correct_state
     validate :unique_document_number, if: :has_document_number?
@@ -131,7 +131,7 @@ module Decidim
     # Currently, groups always accept conversations from anyone.
     # This may change in the future in case the desired behaviour
     # is to check if all (or any) of the administrators accepts conversations
-    # or there's simply and option for this in the group preferences.
+    # or there is simply and option for this in the group preferences.
     def accepts_conversation?(_user)
       true
     end
@@ -202,13 +202,13 @@ module Decidim
       document_number.present?
     end
 
-    # Overwites method in `Decidim::Validatable`, as user groups don't have a
+    # Overwites method in `Decidim::Validatable`, as user groups do not have a
     # password.
     def password_required?
       false
     end
 
-    # Overwites method in `Decidim::Validatable`, as user groups don't have a
+    # Overwites method in `Decidim::Validatable`, as user groups do not have a
     # password.
     def password
       nil

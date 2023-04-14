@@ -41,7 +41,7 @@ module Decidim::Budgets
       before do
         # Reset the project IDs to start from 1 in order to get possibly
         # "conflicting" ID sequences for the `.ordered_ids` call. In the past,
-        # e.g. IDs such as "2", and "23" (containing "2") would've caused the
+        # e.g. IDs such as "2", and "23" (containing "2") would have caused the
         # wrong order in case "23" comes first in the ordered IDs list.
         ActiveRecord::Base.connection.reset_pk_sequence!(described_class.table_name)
 

@@ -11,7 +11,7 @@
         <div class="tech-info tech-info--text-left">
           <%= t("decidim.proposals.proposals.proposal.creation_date", date: l(emendation.created_at, format: :decidim_short)) %>
         </div>
-        <%= resource_reference(emendation, class: "tech-info--text-left") %>
+        <%= resource_reference(emendation) %>
       </div>
 
       <%== cell("decidim/proposals/proposal_m", emendation).badge %>

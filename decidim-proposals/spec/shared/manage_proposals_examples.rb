@@ -27,6 +27,19 @@ shared_examples "manage proposals" do
     end
   end
 
+  describe "listing" do
+    context "with enriched content" do
+      before do
+        proposal.update!(title: { en: "Proposal <strong>title</strong>" })
+        visit current_path
+      end
+
+      it "displays the correct title" do
+        expect(page.html).to include("Proposal &lt;strong&gt;title&lt;/strong&gt;")
+      end
+    end
+  end
+
   describe "creation" do
     context "when official_proposals setting is enabled" do
       before do
@@ -326,7 +339,7 @@ shared_examples "manage proposals" do
           fill_in_i18n_editor(
             :proposal_answer_answer,
             "#proposal_answer-answer-tabs",
-            en: "The proposal doesn't make any sense",
+            en: "The proposal does not make any sense",
             es: "La propuesta no tiene sentido",
             ca: "La proposta no te sentit"
           )
@@ -387,7 +400,7 @@ shared_examples "manage proposals" do
         proposal.update!(
           state: "rejected",
           answer: {
-            "en" => "I don't like it"
+            "en" => "I do not like it"
           },
           answered_at: Time.current
         )
@@ -414,7 +427,7 @@ shared_examples "manage proposals" do
         proposal.update!(
           state: "rejected",
           answer: {
-            "en" => "I don't like it"
+            "en" => "I do not like it"
           },
           answered_at: Time.current
         )
@@ -500,7 +513,7 @@ shared_examples "manage proposals" do
       )
     end
 
-    it "doesn't show the votes column" do
+    it "does not show the votes column" do
       visit current_path
 
       within "thead" do

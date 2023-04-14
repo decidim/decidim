@@ -1,0 +1,28 @@
+.share-modal {
+  @apply md:pb-16 md:pr-16;
+
+  &__list {
+    @apply mt-8 grid grid-cols-1 md:grid-cols-4 gap-3 md:gap-6;
+
+    > * {
+      @apply button button__lg border border-gray hover:border-tertiary shadow-[0_4px_6px_rgba(211,211,211,0.25)] text-md text-gray-2 gap-2;
+
+      img,
+      svg {
+        @apply flex-none w-6 h-6 fill-current;
+      }
+    }
+  }
+
+  &__input {
+    @apply mt-8 w-full relative;
+
+    #urlShareLink {
+      @apply w-full truncate pr-10;
+    }
+
+    > button {
+      @apply absolute right-2 inset-y-2 text-secondary [&>svg]:fill-current;
+    }
+  }
+}

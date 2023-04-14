@@ -132,10 +132,11 @@ export class EmojiButton {
 /**
  * Adds the input emojis to the input elements that are defined to have them.
  *
+ * @param {HTMLElement} element target node
  * @returns {void}
  */
-export default function addInputEmoji() {
-  const containers = document.querySelectorAll("[data-input-emoji]");
+export default function addInputEmoji(element = document) {
+  const containers = element.querySelectorAll("[data-input-emoji]");
 
   if (containers.length) {
     containers.forEach((elem) => new EmojiButton(elem))

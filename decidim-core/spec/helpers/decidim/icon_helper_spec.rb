@@ -45,7 +45,7 @@ module Decidim
         end
 
         context "with no role attribute specified" do
-          it "doesn't implement role attribute" do
+          it "does not implement role attribute" do
             result = helper.component_icon(component)
             expect(result).to eq <<~SVG.strip
               <svg class="icon external-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36.02 36.02"><circle cx="18.01" cy="18.01" r="15.75" fill="none" stroke="#2ecc71" stroke-width="4"/><circle cx="18.01" cy="18.01" r="11.25" fill="none" stroke="#08BCD0" stroke-width="4"/></svg>
@@ -82,6 +82,30 @@ module Decidim
 
           it "renders a person icon" do
             expect(result).to include("svg#icon-person")
+          end
+        end
+
+        context "when the resource component and manifest are nil" do
+          let(:resource) { build :dummy_resource }
+
+          before do
+            allow(resource).to receive(:component).and_return(nil)
+          end
+
+          it "renders a generic icon" do
+            expect(result).to include("svg#icon-bell")
+          end
+        end
+
+        context "when the manifest icon is nil" do
+          let(:resource) { build(:component, manifest_name: :dummy) }
+
+          before do
+            allow(resource.manifest).to receive(:icon).and_return(nil)
+          end
+
+          it "renders a generic icon" do
+            expect(result).to include("svg#icon-question-mark")
           end
         end
 

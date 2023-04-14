@@ -70,7 +70,7 @@ module Decidim
             expect { subject }.to broadcast(:invalid)
           end
 
-          it "doesn't change the proposal state" do
+          it "does not change the proposal state" do
             expect { subject }.not_to(change { proposal.reload.state })
           end
         end
@@ -107,15 +107,60 @@ module Decidim
             expect { subject }.to change { proposal.reload.internal_state }.to("rejected")
           end
 
-          it "doesn't publish the proposal answer" do
+          it "does not publish the proposal answer" do
             expect { subject }.not_to change { proposal.reload.published_state? }.from(false)
           end
 
-          it "doesn't notify the proposal answer" do
+          it "does not notify the proposal answer" do
             expect(NotifyProposalAnswer)
               .not_to receive(:call)
 
             subject
+          end
+        end
+
+        context "when proposal answered" do
+          shared_context "with correct user scoping in notification digest mail" do
+            let!(:component) { create(:proposal_component, organization:) }
+            let!(:record) { create(:proposal, component:, users: [user], title: { en: "Event notifier" }) }
+
+            let!(:form) do
+              Decidim::Proposals::Admin::ProposalAnswerForm.from_params(form_params).with_context(
+                current_user: user,
+                current_component: record.component,
+                current_organization: organization
+              )
+            end
+
+            let(:form_params) do
+              {
+                internal_state:,
+                answer: { en: "Example answer" },
+                cost: 2000,
+                cost_report: { en: "Example report" },
+                execution_period: { en: "Example execution period" }
+              }
+            end
+
+            let!(:command) { Decidim::Proposals::Admin::AnswerProposal.new(form, record) }
+          end
+
+          include_context "with correct user scoping in notification digest mail" do
+            let(:internal_state) { "accepted" }
+
+            it_behaves_like "when sends the notification digest"
+          end
+
+          include_context "with correct user scoping in notification digest mail" do
+            let(:internal_state) { "rejected" }
+
+            it_behaves_like "when sends the notification digest"
+          end
+
+          include_context "with correct user scoping in notification digest mail" do
+            let(:internal_state) { "evaluating" }
+
+            it_behaves_like "when sends the notification digest"
           end
         end
       end

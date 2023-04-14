@@ -24,7 +24,7 @@ module Decidim
     end
 
     def update_attachment_title_for(photo)
-      Decidim::Attachment.find(photo[:id]).update(title: title_for(photo))
+      Decidim::Attachment.find(photo[:id]).update(title: photos_title(photo))
     end
 
     def image?(signed_id)

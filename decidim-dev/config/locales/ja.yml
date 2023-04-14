@@ -14,6 +14,12 @@ ja:
       dummy:
         settings:
           global:
+            guided: ガイド付き入力
+            guided_help: ヘルプテキスト
+            guided_readonly: 無効化された入力
+            guided_rich: ガイド付きリッチ入力
+            guided_rich_help_html: HTML <strong>ヘルプ</strong> のテキスト
+            guided_rich_readonly_html: HTML <strong>ヘルプ</strong> の入力を無効にする
             readonly_attribute: 読み取り専用属性
             test: テスト
             test_choices:

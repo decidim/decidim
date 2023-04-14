@@ -3,21 +3,21 @@ $share-border: $border;
 $share-color: $muted;
 
 //Styles
-.share{
+.share {
   text-align: center;
 
-  ul{
+  ul {
     display: inline-block;
     list-style: none;
-    margin: 0 0 0 .5rem;
+    margin: 0 0 0 0.5rem;
   }
 
-  li{
+  li {
     display: inline-block;
   }
 }
 
-.share__icon{
+.share__icon {
   color: $share-color;
   border: $share-border;
   border-radius: 50%;
@@ -25,10 +25,10 @@ $share-color: $muted;
   width: 1.8em;
   height: 1.8em;
   text-align: center;
-  padding: .1em 0 0;
-  margin-right: .5em;
+  padding: 0.1em 0 0;
+  margin-right: 0.5em;
 }
 
-.share-link.calendar{
+.share-link.calendar {
   float: right;
 }

@@ -5,7 +5,7 @@
 </div>
 
 <div class="field">
-  <%= form.editor :description, toolbar: :full, lines: 8, disabled: !allowed_to?(:update, :initiative, initiative: current_initiative), value: translated_attribute(@form.description) %>
+  <%= text_editor_for(form, :description, toolbar: :full, lines: 8, disabled: !allowed_to?(:update, :initiative, initiative: current_initiative), value: translated_attribute(@form.description)) %>
 </div>
 
 <div class="field">
@@ -109,6 +109,4 @@
   <%= render partial: "committee_members" %>
 <% end %>
 
-<% content_for :js_content do %>
-  <%= javascript_pack_tag "decidim_initiatives" %>
-<% end %>
+<%= append_javascript_pack_tag "decidim_initiatives" %>

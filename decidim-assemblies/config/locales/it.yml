@@ -345,8 +345,6 @@ it:
         working_group: Gruppo di lavoro
       index:
         title: assemblee
-      last_activity:
-        new_assembly: Nuova assemblea
       pages:
         home:
           highlighted_assemblies:
@@ -424,9 +422,6 @@ it:
         related_assemblies: Assemblee collegate
     statistics:
       assemblies_count: Assemblee
-  errors:
-    messages:
-      cannot_be_blank: non può essere vuoto
   layouts:
     decidim:
       assemblies:

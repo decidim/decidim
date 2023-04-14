@@ -43,6 +43,7 @@ shared_examples "manage conferences" do
           ca: "Descripció més llarga"
         )
 
+        fill_in :conference_weight, with: 1
         fill_in :conference_slug, with: "slug"
         fill_in :conference_hashtag, with: "#hashtag"
       end
@@ -193,7 +194,7 @@ shared_examples "manage conferences" do
   context "when there are multiple organizations in the system" do
     let!(:external_conference) { create(:conference) }
 
-    it "doesn't let the admin manage conferences form other organizations" do
+    it "does not let the admin manage conferences form other organizations" do
       within "table" do
         expect(page).not_to have_content(external_conference.title["en"])
       end

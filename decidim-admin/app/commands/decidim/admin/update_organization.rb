@@ -17,7 +17,7 @@ module Decidim
       # Executes the command. Broadcasts these events:
       #
       # - :ok when everything is valid.
-      # - :invalid if the form wasn't valid and we couldn't proceed.
+      # - :invalid if the form was not valid and we could not proceed.
       #
       # Returns nothing.
       def call
@@ -55,7 +55,7 @@ module Decidim
           user_groups_enabled: form.user_groups_enabled,
           comments_max_length: form.comments_max_length,
           enable_machine_translations: form.enable_machine_translations,
-          admin_terms_of_use_body: form.admin_terms_of_use_body,
+          admin_terms_of_service_body: form.admin_terms_of_service_body,
           rich_text_editor_in_public_views: form.rich_text_editor_in_public_views,
           enable_participatory_space_filters: form.enable_participatory_space_filters
         }.merge(welcome_notification_attributes)

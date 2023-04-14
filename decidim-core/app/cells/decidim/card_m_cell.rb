@@ -57,7 +57,7 @@ module Decidim
     end
 
     def title
-      translated_attribute model.title
+      decidim_html_escape(translated_attribute(model.title))
     end
 
     def description

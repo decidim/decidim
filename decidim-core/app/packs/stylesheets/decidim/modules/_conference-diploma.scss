@@ -1,7 +1,7 @@
-.conference-diploma{
+.conference-diploma {
   text-align: center;
 
-  .diploma__border{
+  .diploma__border {
     margin: 4 * $global-margin;
 
     /* Border ../images/pattern */
@@ -24,13 +24,13 @@
     border-style: solid;
     border-width: 1rem;
 
-    .diploma__content{
+    .diploma__content {
       padding: 3 * $global-padding;
     }
   }
 
-  .diploma__attendance{
-    > *{
+  .diploma__attendance {
+    > * {
       display: block;
     }
 
@@ -38,31 +38,31 @@
     font-size: rem-calc(14);
   }
 
-  .diploma__name{
+  .diploma__name {
     margin-top: 4 * $global-margin;
     font-size: rem-calc(18);
 
-    p{
+    p {
       margin-top: $global-margin;
     }
   }
 
-  .diploma__logo{
+  .diploma__logo {
     border: $border;
     padding: 2 * $global-padding;
   }
 }
 
-@media print{
-  @page{
+@media print {
+  @page {
     size: A4 landscape;
     max-height: 100%;
     max-width: 100%;
     margin: 0;
   }
 
-  .conference-diploma{
-    .diploma__border{
+  .conference-diploma {
+    .diploma__border {
       margin: 0;
       -moz-border-image: url("../images/decidim/pattern.png") 20 repeat;
       -webkit-border-image: url("../images/decidim/pattern.png") 20 repeat;

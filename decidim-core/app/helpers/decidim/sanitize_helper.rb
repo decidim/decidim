@@ -37,7 +37,7 @@ module Decidim
     end
 
     def decidim_sanitize_editor(html, options = {})
-      content_tag(:div, decidim_sanitize(html, options), class: %w(ql-editor ql-reset-decidim))
+      content_tag(:div, decidim_sanitize(html, options), class: %w(ql-editor-display))
     end
 
     def decidim_sanitize_editor_admin(html, options = {})
@@ -112,9 +112,10 @@ module Decidim
     #
     # @return ActiveSupport::SafeBuffer
     def render_sanitized_content(resource, method)
-      content = present(resource).send(method, links: true, strip_tags: !safe_content?)
+      content = present(resource).send(method, links: true, strip_tags: !try(:safe_content?))
 
-      return decidim_sanitize(content, {}) unless safe_content?
+      return decidim_sanitize(content, {}) unless try(:safe_content?)
+      return decidim_sanitize_editor_admin(content, {}) if try(:safe_content_admin?)
 
       decidim_sanitize_editor(content)
     end

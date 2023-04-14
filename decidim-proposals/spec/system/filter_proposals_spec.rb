@@ -31,6 +31,25 @@ describe "Filter Proposals", :slow, type: :system do
     end
   end
 
+  context "when filtering proposals by TEXT" do
+    it "updates the current URL" do
+      create(:proposal, component:, title: { en: "Foobar proposal" })
+      create(:proposal, component:, title: { en: "Another proposal" })
+      visit_component
+
+      within "form.new_filter" do
+        fill_in("filter[search_text_cont]", with: "foobar")
+        click_button "Search"
+      end
+
+      expect(page).not_to have_content("Another proposal")
+      expect(page).to have_content("Foobar proposal")
+
+      filter_params = CGI.parse(URI.parse(page.current_url).query)
+      expect(filter_params["filter[search_text_cont]"]).to eq(["foobar"])
+    end
+  end
+
   context "when filtering proposals by ORIGIN" do
     context "when official_proposals setting is enabled" do
       before do

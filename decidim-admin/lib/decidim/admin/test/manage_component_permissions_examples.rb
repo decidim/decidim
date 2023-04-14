@@ -205,7 +205,7 @@ shared_examples "Managing component permissions" do
     context "when resources permissions are disabled" do
       let(:component_settings) { { resources_permissions_enabled: false } }
 
-      it "doesn't show the resource permissions settings" do
+      it "does not show the resource permissions settings" do
         expect(page).not_to have_content(resource.title)
       end
     end

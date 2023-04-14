@@ -48,7 +48,7 @@ describe "Admin edits proposals", type: :system do
         create :proposal_vote, proposal:
       end
 
-      it "doesn't let the user edit it" do
+      it "does not let the user edit it" do
         visit_component_admin
 
         expect(page).to have_content(translated(proposal.title))
@@ -59,7 +59,7 @@ describe "Admin edits proposals", type: :system do
       end
     end
 
-    context "when the proposal has attachement" do
+    context "when the proposal has attachment" do
       let!(:component) do
         create(:proposal_component,
                :with_creation_enabled,
@@ -89,6 +89,24 @@ describe "Admin edits proposals", type: :system do
         visit_component_admin
         find("a.action-icon--edit-proposal").click
         expect(page).to have_no_content("Current file")
+      end
+
+      it "can attach a file" do
+        visit_component_admin
+        find("a.action-icon--edit-proposal").click
+        fill_in :proposal_attachment_title, with: "FOO BAR"
+
+        find("input#proposal_attachment_delete_file").set(true)
+        click_button("Replace")
+        click_button("× Remove")
+        click_button("Save")
+        dynamically_attach_file(:proposal_attachment_file, Decidim::Dev.asset("city.jpeg"))
+
+        click_button("Update")
+        find("a.action-icon--edit-proposal").click
+
+        expect(page).to have_content("city.jpeg")
+        expect(page).to have_content("FOO BAR")
       end
     end
   end

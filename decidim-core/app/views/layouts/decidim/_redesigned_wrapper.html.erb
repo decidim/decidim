@@ -1,15 +1,13 @@
-<div class="flex flex-col min-h-screen">
+<div class="layout-container">
   <header>
     <%= render partial: "layouts/decidim/admin_links" if current_user&.admin %>
     <%= render partial: "layouts/decidim/header/redesigned_main" %>
     <%= render partial: "layouts/decidim/header/redesigned_menu" %>
   </header>
 
-  <% unless content_for? :flash_messages %>
-    <div class="container">
-      <%= display_flash_messages %>
-    </div>
-  <% end %>
+  <div class="container">
+    <%= display_flash_messages %>
+  </div>
 
   <div data-content>
     <%= yield %>

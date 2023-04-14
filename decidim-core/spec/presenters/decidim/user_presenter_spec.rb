@@ -22,6 +22,24 @@ module Decidim
       end
     end
 
+    describe "#can_be_contacted?" do
+      subject { described_class.new(user).can_be_contacted? }
+
+      context "when user is not blocked" do
+        it "can be contacted" do
+          expect(subject).to be(true)
+        end
+      end
+
+      context "when user is blocked" do
+        it "cannot be contacted" do
+          user.blocked = true
+
+          expect(subject).to be_nil
+        end
+      end
+    end
+
     describe "#profile_url" do
       subject { described_class.new(user).profile_url }
 
@@ -31,7 +49,7 @@ module Decidim
     describe "#default_avatar_url" do
       subject { described_class.new(user).default_avatar_url }
 
-      it { is_expected.to eq(ActionController::Base.helpers.asset_pack_path("media/images/default-avatar.svg")) }
+      it { is_expected.to eq("//#{user.organization.host}:#{Capybara.server_port}#{ActionController::Base.helpers.asset_pack_path("media/images/default-avatar.svg")}") }
     end
 
     context "when user is not officialized" do
@@ -93,6 +111,24 @@ module Decidim
         let(:host) { user.organization.host }
 
         it { is_expected.to eq("http://#{host}:#{Capybara.server_port}/profiles/#{user.nickname}") }
+      end
+
+      describe "#can_be_contacted?" do
+        subject { described_class.new(user).can_be_contacted? }
+
+        context "when group is not blocked" do
+          it "can be contacted" do
+            expect(subject).to be(true)
+          end
+        end
+
+        context "when group is blocked" do
+          it "cannot be contacted" do
+            user.blocked = true
+
+            expect(subject).to be_nil
+          end
+        end
       end
     end
   end

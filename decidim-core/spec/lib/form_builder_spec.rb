@@ -9,9 +9,10 @@ module Decidim
     let(:available_locales) { %w(ca en de-CH) }
     let(:uploader) { Decidim::ApplicationUploader }
     let(:organization) { create(:organization) }
+    let(:redesign_enabled?) { false }
 
     let(:resource) do
-      klass = Class.new do
+      class DummyClass
         cattr_accessor :current_organization
 
         def self.model_name
@@ -67,8 +68,10 @@ module Decidim
           current_organization
         end
       end
+
+      klass = DummyClass.new
       klass.current_organization = organization
-      klass.new
+      klass
     end
 
     let(:builder) { FormBuilder.new(:resource, resource, helper, {}) }
@@ -77,6 +80,7 @@ module Decidim
     before do
       allow(Decidim).to receive(:available_locales).and_return available_locales
       allow(I18n.config).to receive(:enforce_available_locales).and_return(false)
+      allow(helper).to receive(:redesign_enabled?).and_return(redesign_enabled?)
     end
 
     describe "#editor" do
@@ -304,7 +308,7 @@ module Decidim
         end
       end
 
-      context "when a category doesn't have the translation in the current locale" do
+      context "when a category does not have the translation in the current locale" do
         before do
           I18n.locale = "zh"
           create(:category, name: { "en" => "Subcategory 2", "zh" => "Something" }, parent: category, participatory_space: component.participatory_space)
@@ -471,7 +475,7 @@ module Decidim
           subject { parsed.css("span.form-error").first.text }
 
           context "with no translations for the field" do
-            it { is_expected.to eq("There's an error in this field.") }
+            it { is_expected.to eq("There is an error in this field.") }
           end
 
           context "with custom I18n for the class and attribute" do
@@ -688,10 +692,10 @@ module Decidim
           )
         )
       end
-      let(:optional) { true }
+      let(:required) { false }
       let(:attributes) do
         {
-          optional:
+          required:
         }
       end
       let(:output) do
@@ -720,7 +724,10 @@ module Decidim
           let(:file) { nil }
           let(:uploader) { Decidim::AvatarUploader }
 
+          # REDESIGN_PENDING: Merge this with upload-modal in another branch
+          # and remove if necessary
           it "renders the 'Default image' label" do
+            skip "This example will be deprecated once merged the feature/redesign-upload-modal branch"
             expect(output).to include("Default image")
           end
         end
@@ -728,7 +735,10 @@ module Decidim
         context "and it is present" do
           let(:present?) { true }
 
+          # REDESIGN_PENDING: Merge this with upload-modal in another branch
+          # and remove if necessary
           it "renders the 'Current image' label" do
+            skip "This example will be deprecated once merged the feature/redesign-upload-modal branch"
             expect(output).to include("Current image")
           end
 
@@ -754,7 +764,7 @@ module Decidim
             expect(output).to include(%(<a href="#{url}">#{filename}</a>))
           end
 
-          it "doesn't render an image tag" do
+          it "does not render an image tag" do
             expect(parsed.css("img[src=\"#{url}\"]")).to be_empty
           end
 
@@ -768,7 +778,7 @@ module Decidim
         let(:present?) { true }
 
         it "renders the add file button" do
-          expect(parsed.css("button.add-file")).not_to be_empty
+          expect(parsed.css("button[data-upload]")).not_to be_empty
         end
       end
 
@@ -780,6 +790,31 @@ module Decidim
           html = output
           expect(html).to include("<li>This image will be resized to fit 100 x 100 px.</li>")
         end
+
+        context "and it contains multiple values incorrectly ordered" do
+          let(:attributes) do
+            {
+              dimensions_info: {
+                medium: { processor: :resize_to_fit, dimensions: [100, 100] },
+                smaller: { processor: :resize_and_pad, dimensions: [99, 99] },
+                small: { processor: :resize_to_fit, dimensions: [32, 32] },
+                tiny: { processor: :resize_and_pad, dimensions: [33, 33] }
+              }
+            }
+          end
+
+          it "renders the correctly sorted values" do
+            html = output
+            expect(html).to include(
+              [
+                "<li>This image will be resized and padded to 33 x 33 px.</li>",
+                "<li>This image will be resized and padded to 99 x 99 px.</li>",
+                "<li>This image will be resized to fit 32 x 32 px.</li>",
+                "<li>This image will be resized to fit 100 x 100 px.</li>"
+              ].join("\n      \n        ")
+            )
+          end
+        end
       end
 
       context "when :help_i18n_scope is passed as option" do
@@ -788,7 +823,8 @@ module Decidim
 
         it "renders calls I18n.t() with the correct scope" do
           # Upload help messages
-          expect(I18n).to receive(:t).with("explanation", scope: "custom.scope", attribute: :image)
+          allow(I18n).to receive(:t).with(:image, scope: "activemodel.attributes.dummy").and_return("Image")
+          expect(I18n).to receive(:t).with("explanation", scope: "custom.scope", attribute: "Image")
           expect(I18n).to receive(:t).with("decidim.forms.upload.labels.add_image")
           expect(I18n).to receive(:t).with("decidim.forms.upload.labels.replace")
           expect(I18n).to receive(:t).with("message_1", scope: "custom.scope")
@@ -805,7 +841,8 @@ module Decidim
           # Upload help messages
           expect(I18n).to receive(:t).with("decidim.forms.upload.labels.add_image")
           expect(I18n).to receive(:t).with("decidim.forms.upload.labels.replace")
-          expect(I18n).to receive(:t).with("explanation", scope: "decidim.forms.upload_help", attribute: :image)
+          allow(I18n).to receive(:t).with(:image, scope: "activemodel.attributes.dummy").and_return("Image")
+          expect(I18n).to receive(:t).with("explanation", scope: "decidim.forms.upload_help", attribute: "Image")
           expect(I18n).to receive(:t).with("message_1", scope: "decidim.forms.file_help.file")
           expect(I18n).to receive(:t).with("message_2", scope: "decidim.forms.file_help.file")
           expect(I18n).to receive(:t).with("message_3", scope: "decidim.forms.file_help.file")
@@ -819,7 +856,8 @@ module Decidim
           it "renders calls I18n.t() with the correct messages" do
             # Upload help messages
 
-            expect(I18n).to receive(:t).with("explanation", scope: "decidim.forms.upload_help", attribute: :image)
+            allow(I18n).to receive(:t).with(:image, scope: "activemodel.attributes.dummy").and_return("Image")
+            expect(I18n).to receive(:t).with("explanation", scope: "decidim.forms.upload_help", attribute: "Image")
             expect(I18n).to receive(:t).with("message_1", scope: "decidim.forms.file_help.file")
             expect(I18n).not_to receive(:t).with("message_2", scope: "decidim.forms.file_help.file")
             output

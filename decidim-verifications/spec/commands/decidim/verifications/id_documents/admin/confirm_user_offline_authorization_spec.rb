@@ -61,7 +61,7 @@ describe Decidim::Verifications::IdDocuments::Admin::ConfirmUserOfflineAuthoriza
   end
 
   context "when the authorization is not found" do
-    let(:email) { "this@doesnt.exist" }
+    let(:email) { "this@doesnot.exist" }
     let(:secret_code) { "XX42YY" }
 
     it "broadcasts invalid" do

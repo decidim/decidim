@@ -37,7 +37,7 @@ module Decidim
           expect(encryptor.decrypt(encrypted_hash_data)).to eq(hash_payload)
         end
 
-        it "invalid data can't be decrypted" do
+        it "invalid data cannot be decrypted" do
           expect { encryptor.decrypt("wadus") }.to raise_error(ActiveSupport::MessageEncryptor::InvalidMessage)
         end
       end

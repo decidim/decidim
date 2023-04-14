@@ -7,7 +7,7 @@ module Decidim
       helper Decidim::Conferences::MediaAttachmentsHelper
       helper Decidim::SanitizeHelper
 
-      participatory_space_layout only: :index
+      redesign_participatory_space_layout only: :index
 
       helper_method :collection, :conference
 

@@ -20,7 +20,7 @@ module Decidim
 
           # Executes the command. Broadcast this events:
           # - :ok when everything is valid
-          # - :invalid when the form wasn't valid and couldn't proceed-
+          # - :invalid when the form was not valid and could not proceed-
           #
           # Returns nothing.
           def call
@@ -36,7 +36,7 @@ module Decidim
               end
 
               if dataset
-                CSV.foreach(file_path, col_sep: ";", headers: true, converters: ->(f) { f&.strip }) do |row|
+                CSV.foreach(file_path, col_sep: Decidim.default_csv_col_sep, headers: true, converters: ->(f) { f&.strip }) do |row|
                   CreateDatumJob.perform_later(current_user, dataset, row.fields)
                 end
               end

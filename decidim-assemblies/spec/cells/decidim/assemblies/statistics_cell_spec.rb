@@ -17,15 +17,15 @@ module Decidim::Assemblies
 
     context "when rendering" do
       it "renders the statistics wrapper" do
-        expect(subject).to have_css(".section-statistics")
+        expect(subject).to have_css("[data-statistics]")
       end
 
       it "renders the title" do
-        expect(subject).to have_css("h3.section-heading", text: "Statistics")
+        expect(subject).to have_css("h2.h2", text: "Statistics")
       end
 
       it "renders each stat" do
-        expect(subject).to have_css(".statistic__data", count: 2)
+        expect(subject).to have_css("[data-statistic]", count: 2)
       end
     end
   end

@@ -9,7 +9,7 @@ describe "Index proposals", type: :system do
   context "when there are proposals" do
     let!(:proposals) { create_list(:proposal, 3, component:) }
 
-    it "doesn't display empty message" do
+    it "does not display empty message" do
       visit_component
 
       expect(page).to have_no_content("There is no proposal yet")
@@ -26,9 +26,9 @@ describe "Index proposals", type: :system do
       end
 
       it "shows an empty page with a message" do
-        expect(page).to have_content("There isn't any proposal with this criteria")
+        expect(page).to have_content("There are no proposals with this criteria.")
         within ".callout.warning" do
-          expect(page).to have_content("You are viewing the list of proposals withdrawn by their authors. ")
+          expect(page).to have_content("You are viewing the list of proposals withdrawn by their authors.")
         end
       end
     end
@@ -56,7 +56,7 @@ describe "Index proposals", type: :system do
       it "shows generic empty message" do
         visit_component
 
-        expect(page).to have_content("There is no proposal yet")
+        expect(page).to have_content("There are no proposals yet.")
       end
     end
 
@@ -68,7 +68,7 @@ describe "Index proposals", type: :system do
 
         uncheck "Accepted"
 
-        expect(page).to have_content("There isn't any proposal with this criteria")
+        expect(page).to have_content("There are no proposals with this criteria.")
       end
     end
   end

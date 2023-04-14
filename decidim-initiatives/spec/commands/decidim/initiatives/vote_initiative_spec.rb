@@ -173,7 +173,7 @@ module Decidim
               create(:initiative_user_vote, initiative:)
             end
 
-            it "doesn't notifies the admins" do
+            it "does not notifies the admins" do
               expect(Decidim::EventsManager).to receive(:publish)
                 .with(kind_of(Hash)).once
 
@@ -208,7 +208,7 @@ module Decidim
           let(:invalid_command) { described_class.new(form) }
           let(:command_with_personal_data) { described_class.new(form_with_personal_data) }
 
-          it "broadcasts invalid when form doesn't contain personal data" do
+          it "broadcasts invalid when form does not contain personal data" do
             expect { invalid_command.call }.to broadcast :invalid
           end
 
@@ -240,7 +240,7 @@ module Decidim
               initiative.type.update(document_number_authorization_handler: handler_name)
             end
 
-            context "when current_user doesn't have any authorization for the handler" do
+            context "when current_user does not have any authorization for the handler" do
               it "broadcasts invalid" do
                 expect { command_with_personal_data.call }.to broadcast :invalid
               end

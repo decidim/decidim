@@ -40,8 +40,8 @@ shared_examples "manage assembly private users examples" do
       find(".card-title a.import").click
 
       # The CSV has no headers
-      expect(Decidim::Admin::ImportParticipatorySpacePrivateUserCsvJob).to receive(:perform_later).once.ordered.with("my_user@example.org", "My User Name", assembly, user)
-      expect(Decidim::Admin::ImportParticipatorySpacePrivateUserCsvJob).to receive(:perform_later).once.ordered.with("my_private_user@example.org", "My Private User Name", assembly, user)
+      expect(Decidim::Admin::ImportParticipatorySpacePrivateUserCsvJob).to receive(:perform_later).once.ordered.with("john.doe@example.org", "John Doe", assembly, user)
+      expect(Decidim::Admin::ImportParticipatorySpacePrivateUserCsvJob).to receive(:perform_later).once.ordered.with("jane.doe@example.org", "Jane Doe", assembly, user)
       dynamically_attach_file(:participatory_space_private_user_csv_import_file, Decidim::Dev.asset("import_participatory_space_private_users.csv"))
       perform_enqueued_jobs { click_button "Upload" }
 

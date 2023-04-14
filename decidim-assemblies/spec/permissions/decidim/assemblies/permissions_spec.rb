@@ -74,6 +74,23 @@ describe Decidim::Assemblies::Permissions do
       )
     end
 
+    context "when accessing global moderation" do
+      subject { Decidim::Admin::Permissions.new(user, permission_action, context).permissions.allowed? }
+
+      let(:action) do
+        { scope: :admin, action: :read, subject: :global_moderation }
+      end
+
+      it_behaves_like(
+        "access for roles",
+        org_admin: true,
+        admin: true,
+        collaborator: false,
+        moderator: true,
+        valuator: false
+      )
+    end
+
     context "when reading a assembly" do
       let(:action) do
         { scope: :public, action: :read, subject: :assembly }
@@ -96,7 +113,7 @@ describe Decidim::Assemblies::Permissions do
         let(:user) { create :user, organization: }
         let(:assembly) { create :assembly, :unpublished, organization: }
 
-        context "when the user doesn't have access to it" do
+        context "when the user does not have access to it" do
           it { is_expected.to be false }
         end
 

@@ -307,7 +307,7 @@ describe Decidim::Comments::NewCommentNotificationCreator do
         )
       end
 
-      it "does not notify comment author even if it's following the commentable" do
+      it "does not notify comment author even if it is following the commentable" do
         expect(Decidim::EventsManager)
           .to receive(:publish)
           .twice

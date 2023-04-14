@@ -3,7 +3,7 @@
 /* eslint no-unused-expressions: ["error", { "allowTernary": true }] */
 /* eslint no-unused-vars: 0 */
 
-import { select, selectAll, event } from "d3-selection";
+import { select, selectAll } from "d3-selection";
 import { max } from "d3-array";
 import { hierarchy } from "d3-hierarchy";
 import { forceManyBody, forceCollide, forceCenter, forceX, forceY, forceSimulation, forceLink } from "d3-force";
@@ -305,7 +305,7 @@ const renderOrgCharts = () => {
         // }
 
         // tick handler
-        function ticked() {
+        function ticked(event) {
           const fakeBorderWidth = attrs.fakeBorderWidth
           const maxXValueAvailable = (value) => Math.max(Math.min(calc.chartWidth - fakeBorderWidth, value), fakeBorderWidth)
           const maxYValueAvailable = (value) => Math.max(Math.min(calc.chartHeight - fakeBorderWidth, value), fakeBorderWidth)
@@ -322,7 +322,7 @@ const renderOrgCharts = () => {
         }
 
         // handler drag start event
-        function dragstarted() {
+        function dragstarted(event) {
           // disable node fixing
           nodes.each((d) => {
             d.fx = null
@@ -331,19 +331,19 @@ const renderOrgCharts = () => {
         }
 
         // handle dragging event
-        function dragged(d) {
+        function dragged(event, d) {
           // make dragged node fixed
           d.fx = event.x
           d.fy = event.y
         }
 
         // -------------------- handle drag end event ---------------
-        function dragended() {
-          // we are doing nothing, here , aren't we?
+        function dragended(event) {
+          // we are doing nothing, here , are not we?
         }
 
         // -------------------------- node mouse hover handler ---------------
-        function nodeMouseEnter(d) {
+        function nodeMouseEnter(event, d) {
           // get links
           let _links = _hierarchy.root.links()
 
@@ -369,7 +369,7 @@ const renderOrgCharts = () => {
         }
 
         // --------------- handle mouseleave event ---------------
-        function nodeMouseLeave() {
+        function nodeMouseLeave(event) {
           // return things back to normal
           nodesWrapper.selectAll(".node")
             .attr("opacity", 1)
@@ -378,7 +378,7 @@ const renderOrgCharts = () => {
         }
 
         // --------------- handle node click event ---------------
-        function nodeClick(d) {
+        function nodeClick(event, d) {
           // free fixed nodes
           nodes.each((di) => {
             di.fx = null
@@ -534,7 +534,7 @@ const renderOrgCharts = () => {
           node.proportion = (_max + min) / 2
           if (!node.x) {
 
-            // if node has parent, match entered node positions to it's parent
+            // if node has parent, match entered node positions to it is parent
             if (node.parent) {
               node.x = node.parent.x
             } else {
@@ -542,7 +542,7 @@ const renderOrgCharts = () => {
             }
           }
 
-          // if node had parent, match entered node positions to it's parent
+          // if node had parent, match entered node positions to it is parent
           if (!node.y) {
             if (node.parent) {
               node.y = node.parent.y

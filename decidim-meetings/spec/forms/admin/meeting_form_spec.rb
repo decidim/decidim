@@ -53,6 +53,7 @@ module Decidim::Meetings
     let(:online_meeting_url) { "http://decidim.org" }
     let(:registration_url) { "http://decidim.org" }
     let(:registration_type) { "on_this_platform" }
+    let(:registrations_enabled) { true }
     let(:available_slots) { 0 }
     let(:iframe_embed_type) { "none" }
     let(:attributes) do
@@ -73,6 +74,7 @@ module Decidim::Meetings
         registration_type:,
         available_slots:,
         registration_url:,
+        registrations_enabled:,
         type_of_meeting:,
         online_meeting_url:,
         iframe_embed_type:
@@ -224,7 +226,7 @@ module Decidim::Meetings
       it { is_expected.not_to be_valid }
     end
 
-    describe "when online meeting url is present and the meeting is embedded and the url can't be embedded" do
+    describe "when online meeting url is present and the meeting is embedded and the url cannot be embedded" do
       let(:online_meeting_url) { "https://meet.jit.si/decidim" }
       let(:iframe_embed_type) { "embed_in_meeting_page" }
 

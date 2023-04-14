@@ -14,7 +14,7 @@ shared_examples_for "uses questionnaire templates" do |_questionnaire_for|
         )
       end
 
-      it "doesn't show the template selection screen" do
+      it "does not show the template selection screen" do
         expect(page).to have_no_content("Choose template")
       end
     end
@@ -32,7 +32,7 @@ shared_examples_for "uses questionnaire templates" do |_questionnaire_for|
           )
         end
 
-        it "doesn't show the template selection screen" do
+        it "does not show the template selection screen" do
           expect(page).to have_no_content("Choose template")
         end
       end
@@ -90,6 +90,10 @@ shared_examples_for "uses questionnaire templates" do |_questionnaire_for|
       visit questionnaire_edit_path
 
       select(template.name["en"], from: "select-template")
+
+      within ".questionnaire-template-preview" do
+        expect(page).to have_content(template.templatable.title["en"].upcase)
+      end
 
       within ".create-from-template" do
         find("*[type=submit]").click

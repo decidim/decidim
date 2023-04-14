@@ -12,7 +12,7 @@ module Decidim
 
         # Executes the command. Broadcast this events:
         # - :ok when everything is valid
-        # - :invalid when the form wasn't valid and couldn't proceed
+        # - :invalid when the form was not valid and could not proceed
         #
         # Returns nothing.
         def call

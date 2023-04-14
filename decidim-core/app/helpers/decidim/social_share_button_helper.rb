@@ -1,13 +1,19 @@
 # frozen_string_literal: true
 
 module Decidim
-  # A Helper that reimplements the SocialShareButton gem helpers, so that we don't depend on it anymore.
+  # A Helper that reimplements the SocialShareButton gem helpers, so that we do not depend on it anymore.
   module SocialShareButtonHelper
     def social_share_button_tag(title, args)
       return unless enabled_services.length.positive?
 
-      content_tag :div, class: "social-share-button" do
-        render_social_share_buttons(enabled_services, title, args)
+      if redesign_enabled?
+        content_tag :div, class: "share-modal__list", data: { social_share: "" } do
+          render_social_share_buttons(enabled_services, title, args)
+        end
+      else
+        content_tag :div, class: "social-share-button" do
+          render_social_share_buttons(enabled_services, title, args)
+        end
       end
     end
 
@@ -21,14 +27,19 @@ module Decidim
       uri = service.formatted_share_uri(title, args)
       return unless uri
 
+      social_icon = if service.icon.include? ".svg"
+                      image_tag service.icon_path, alt: t("decidim.shared.share_modal.share_to", service: service.name)
+                    else
+                      icon(service.icon, style: "color: #{service.icon_color};")
+                    end
+
       link_to(
         uri,
         rel: "nofollow",
         data: { site: service.name.downcase },
-        class: "ssb-icon ssb-#{service.name.downcase}",
         title: t("decidim.shared.share_modal.share_to", service: service.name)
       ) do
-        image_tag service.icon_path, alt: t("decidim.shared.share_modal.share_to", service: service.name)
+        social_icon + content_tag(:span, service.name)
       end
     end
 

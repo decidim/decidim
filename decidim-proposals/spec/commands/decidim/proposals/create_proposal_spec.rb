@@ -48,7 +48,7 @@ module Decidim
             expect { command.call }.to broadcast(:invalid)
           end
 
-          it "doesn't create a proposal" do
+          it "does not create a proposal" do
             expect do
               command.call
             end.not_to change(Decidim::Proposals::Proposal, :count)
@@ -76,7 +76,7 @@ module Decidim
             expect(proposal.body[I18n.locale.to_s]).to eq form_params[:body]
           end
 
-          it "doesn't create a searchable resource" do
+          it "does not create a searchable resource" do
             command.call
 
             expect { command.call }.not_to change(Decidim::SearchableResource, :count)
@@ -119,7 +119,7 @@ module Decidim
                 create(:proposal_component, settings: { "proposal_limit" => 2 })
               end
 
-              it "checks the author doesn't exceed the amount of proposals" do
+              it "checks the author does not exceed the amount of proposals" do
                 expect { command.call }.to broadcast(:ok)
                 expect { command.call }.to broadcast(:ok)
                 expect { command.call }.to broadcast(:invalid)
@@ -146,7 +146,7 @@ module Decidim
                 create_list(:proposal, 2, component:, users: [author])
               end
 
-              it "checks the user group doesn't exceed the amount of proposals independently of the author" do
+              it "checks the user group does not exceed the amount of proposals independently of the author" do
                 expect { command.call }.to broadcast(:ok)
                 expect { command.call }.to broadcast(:ok)
                 expect { command.call }.to broadcast(:invalid)
@@ -166,7 +166,7 @@ module Decidim
                 create(:proposal, :withdrawn, users: [author], component:)
               end
 
-              it "checks the user doesn't exceed the amount of proposals" do
+              it "checks the user does not exceed the amount of proposals" do
                 expect { command.call }.to broadcast(:ok)
                 expect { command.call }.to broadcast(:invalid)
 
@@ -180,7 +180,7 @@ module Decidim
                 create(:proposal, :withdrawn, users: [author], user_groups: [user_group], component:)
               end
 
-              it "checks the user_group doesn't exceed the amount of proposals" do
+              it "checks the user_group does not exceed the amount of proposals" do
                 expect { command.call }.to broadcast(:ok)
                 expect { command.call }.to broadcast(:invalid)
 

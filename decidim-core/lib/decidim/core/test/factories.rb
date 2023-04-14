@@ -95,7 +95,7 @@ FactoryBot.define do
     user_groups_enabled { true }
     send_welcome_notification { true }
     comments_max_length { 1000 }
-    admin_terms_of_use_body { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
+    admin_terms_of_service_body { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     force_users_to_authenticate_before_access_organization { false }
     machine_translation_display_priority { "original" }
     external_domain_whitelist { ["example.org", "twitter.com", "facebook.com", "youtube.com", "github.com", "mytesturl.me"] }
@@ -117,7 +117,7 @@ FactoryBot.define do
 
     after(:create) do |organization, evaluator|
       if evaluator.create_static_pages
-        tos_page = Decidim::StaticPage.find_by(slug: "terms-and-conditions", organization:)
+        tos_page = Decidim::StaticPage.find_by(slug: "terms-of-service", organization:)
         create(:static_page, :tos, organization:) if tos_page.nil?
       end
     end
@@ -234,13 +234,20 @@ FactoryBot.define do
       confirmed_at { Time.current }
     end
 
+    trait :blocked do
+      blocked { true }
+      blocked_at { Time.current }
+      extended_data { { user_name: generate(:name) } }
+      name { "Blocked user group" }
+    end
+
     after(:build) do |user_group, evaluator|
-      user_group.extended_data = {
-        document_number: evaluator.document_number,
-        phone: evaluator.phone,
-        rejected_at: evaluator.rejected_at,
-        verified_at: evaluator.verified_at
-      }
+      user_group.extended_data = user_group.extended_data.merge({
+                                                                  document_number: evaluator.document_number,
+                                                                  phone: evaluator.phone,
+                                                                  rejected_at: evaluator.rejected_at,
+                                                                  verified_at: evaluator.verified_at
+                                                                })
     end
 
     after(:create) do |user_group, evaluator|
@@ -324,7 +331,7 @@ FactoryBot.define do
     end
 
     trait :tos do
-      slug { "terms-and-conditions" }
+      slug { "terms-of-service" }
       after(:create) do |tos_page|
         tos_page.organization.tos_version = tos_page.updated_at
         tos_page.organization.save!
@@ -385,7 +392,8 @@ FactoryBot.define do
     published_at { Time.current }
     settings do
       {
-        dummy_global_translatable_text: generate_localized_title
+        dummy_global_translatable_text: generate_localized_title,
+        comments_max_length: participatory_space.organization.comments_max_length || organization.comments_max_length
       }
     end
 

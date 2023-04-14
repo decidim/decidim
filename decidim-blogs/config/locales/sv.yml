@@ -1,5 +1,9 @@
 sv:
   activemodel:
+    attributes:
+      post:
+        decidim_author_id: Författare
+        title: Titel
     models:
       decidim/blogs/create_post_event: Nytt blogginlägg
   activerecord:
@@ -18,16 +22,9 @@ sv:
         title: Åtgärder
       admin:
         models:
-          components:
-            body: Innehåll
           post:
             name: Publicera
         posts:
-          create:
-            invalid: Det gick inte att skapa inlägget
-            success: Inlägget har skapats
-          destroy:
-            success: Inlägget har raderats
           edit:
             save: Uppdatera
             title: Redigera inlägg
@@ -38,26 +35,16 @@ sv:
             title: Skapa inlägg
           update:
             invalid: Det gick inte att spara inlägget.
-            success: Inlägget har sparats
-      last_activity:
-        new_post_at_html: "<span>Nytt inlägg på %{link}</span>"
       models:
         post:
           fields:
             author: Författare
             body: Innehåll
-            created_at: Skapad
             official_blog_post: Officiellt inlägg
-            title: titel
+            title: Titel
       posts:
         show:
-          back: Tillbaka till listan
-          comments: Kommentarer
           view: Visa
-        sidebar_blog:
-          comments: kommentarer
-          most_commented_posts: Mest kommenterade inlägg
-      read_more: Läs mer
     components:
       blogs:
         actions:

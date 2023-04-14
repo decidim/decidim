@@ -17,6 +17,7 @@ import Rails from "@rails/ujs";
 import { createCharacterCounter } from "src/decidim/input_character_counter"
 import ExternalLink from "src/decidim/redesigned_external_link"
 import updateExternalDomainLinks from "src/decidim/external_domain_warning"
+import changeReportFormBehavior from "src/decidim/change_report_form_behavior"
 
 export default class CommentsComponent {
   constructor($element, config) {
@@ -139,6 +140,8 @@ export default class CommentsComponent {
         $submit.attr("disabled", "disabled");
         this._stopPolling();
       });
+
+      document.querySelectorAll(".new_report").forEach((container) => changeReportFormBehavior(container))
 
       if ($text.length && $text.get(0) !== null) {
         // Attach event to the DOM node, instead of the jQuery object

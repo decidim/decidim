@@ -1,0 +1,83 @@
+.conference__speaker {
+  &__container {
+    @apply grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-4 md:gap-x-8 lg:gap-x-16 gap-y-10 mb-16 md:mb-36;
+  }
+
+  &__item {
+    @apply flex flex-col gap-4 hover:cursor-pointer text-left focus-visible:outline-none;
+
+    &-image {
+      @apply ring-4 ring-background overflow-hidden rounded aspect-square;
+
+      img {
+        @apply w-full h-full object-cover;
+      }
+    }
+
+    &-name {
+      @apply text-secondary;
+    }
+
+    &-text {
+      @apply mt-2 flex flex-col text-sm text-gray-2;
+    }
+
+    &:hover &-image,
+    &:focus &-image {
+      @apply ring-tertiary;
+    }
+
+    &:hover &-name,
+    &:focus &-name {
+      @apply underline;
+    }
+  }
+
+  &__modal {
+    @apply md:pr-12 md:pb-12;
+
+    &-title {
+      @apply flex gap-2 items-center text-2xl text-black font-semibold;
+    }
+
+    &-img {
+      @apply w-1/4 flex-none rounded overflow-hidden aspect-square;
+
+      img {
+        @apply w-full h-full object-cover;
+      }
+    }
+
+    &-bio {
+      @apply w-full divide-y divide-gray-3 [&>*]:py-4 first:[&>*]:pt-0 last:[&>*]:pb-0;
+
+      &-container {
+        @apply flex flex-col md:flex-row gap-4 md:gap-10 items-start mt-10 w-full;
+      }
+
+      &-name {
+        @apply text-black text-2xl font-semibold;
+      }
+
+      &-roles {
+        @apply mt-4 text-gray-2 text-sm after:[&_span]:content-['_/_'] last:after:[&_span]:content-[''];
+      }
+
+      &-networks {
+        @apply flex flex-wrap mt-4 flex gap-2 md:gap-6 text-secondary text-sm [&>*]:flex [&>*]:items-center [&>*]:gap-1.5;
+      }
+
+      &-description {
+        @apply overflow-y-auto max-h-[50vh] text-gray-2 text-md;
+      }
+
+      &-meetings {
+        @apply overflow-y-auto max-h-[20vh] text-secondary text-md flex flex-col gap-2;
+
+        &-title {
+          @apply text-gray-2 font-bold mb-4;
+        }
+      }
+    }
+  }
+}

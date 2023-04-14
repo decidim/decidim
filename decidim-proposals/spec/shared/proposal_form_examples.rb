@@ -68,7 +68,7 @@ shared_examples "a proposal form" do |options|
     it { is_expected.to be_valid }
   end
 
-  context "when there's no title" do
+  context "when there is no title" do
     let(:title) { nil }
 
     it { is_expected.to be_invalid }
@@ -121,7 +121,7 @@ shared_examples "a proposal form" do |options|
     end
   end
 
-  context "when there's no body" do
+  context "when there is no body" do
     let(:body) { nil }
 
     it { is_expected.to be_invalid }
@@ -289,10 +289,10 @@ shared_examples "a proposal form" do |options|
         expect(subject).not_to be_valid
 
         if options[:i18n]
-          expect(subject.errors.full_messages).to match_array(["Title en can't be blank", "Add photos Needs to be reattached"])
+          expect(subject.errors.full_messages).to match_array(["Title en cannot be blank", "Add photos Needs to be reattached"])
           expect(subject.errors.attribute_names).to match_array([:title_en, :add_photos])
         else
-          expect(subject.errors.full_messages).to match_array(["Title can't be blank", "Title is too short (under 15 characters)", "Add photos Needs to be reattached"])
+          expect(subject.errors.full_messages).to match_array(["Title cannot be blank", "Title is too short (under 15 characters)", "Add photos Needs to be reattached"])
           expect(subject.errors.attribute_names).to match_array([:title, :add_photos])
         end
       end
@@ -381,7 +381,7 @@ shared_examples "a proposal form with meeting as author" do |options|
     it { is_expected.to be_valid }
   end
 
-  context "when there's no title" do
+  context "when there is no title" do
     let(:title) { nil }
 
     it { is_expected.to be_invalid }
@@ -413,7 +413,7 @@ shared_examples "a proposal form with meeting as author" do |options|
     end
   end
 
-  context "when there's no body" do
+  context "when there is no body" do
     let(:body) { nil }
 
     it { is_expected.to be_invalid }

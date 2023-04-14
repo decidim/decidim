@@ -66,7 +66,7 @@ module Decidim
       it "does not validate the record" do
         subject
         expect(record.errors).not_to be_empty
-        expect(record.errors[:description_en]).to eq ["can't be blank"]
+        expect(record.errors[:description_en]).to eq ["cannot be blank"]
       end
     end
 
@@ -93,7 +93,7 @@ module Decidim
       it "does not validate the record" do
         subject
         expect(record.errors).not_to be_empty
-        expect(record.errors[:current_organization]).to eq ["can't be blank"]
+        expect(record.errors[:current_organization]).to eq ["cannot be blank"]
       end
     end
   end

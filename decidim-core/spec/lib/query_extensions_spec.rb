@@ -21,7 +21,7 @@ module Decidim
           end
         end
 
-        context "with a participatory space that doesn't belong to the current organization" do
+        context "with a participatory space that does not belong to the current organization" do
           let!(:component) { create(:dummy_component) }
           let(:id) { component.id }
 

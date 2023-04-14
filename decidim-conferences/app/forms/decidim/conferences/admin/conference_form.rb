@@ -20,6 +20,7 @@ module Decidim
         mimic :conference
 
         attribute :slug, String
+        attribute :weight, Integer, default: 0
         attribute :hashtag, String
         attribute :promoted, Boolean
         attribute :scopes_enabled, Boolean
@@ -38,6 +39,7 @@ module Decidim
         attribute :assemblies_ids, Array[Integer]
         attribute :consultations_ids, Array[Integer]
 
+        validates :weight, presence: true, numericality: { greater_than_or_equal_to: 0 }
         validates :slug, presence: true, format: { with: Decidim::Conference.slug_format }
         validates :title, :slogan, :description, :short_description, translatable_presence: true
 

@@ -48,7 +48,7 @@ describe "Explore meetings", :slow, type: :system do
         expect(page).to have_content(translated(upcoming_meeting.title))
       end
 
-      it "doesn't show past meetings" do
+      it "does not show past meetings" do
         visit_component
         within "#meetings" do
           expect(page).not_to have_content(translated(past_meeting.title))
@@ -66,7 +66,7 @@ describe "Explore meetings", :slow, type: :system do
         end
 
         it "shows an empty page with a message" do
-          expect(page).to have_content("No meetings match your search criteria or there isn't any meeting scheduled.")
+          expect(page).to have_content("No meetings match your search criteria or there is not any meeting scheduled.")
           within ".callout.warning", match: :first do
             expect(page).to have_content("You are viewing the list of meetings withdrawn by their authors.")
           end
@@ -125,6 +125,25 @@ describe "Explore meetings", :slow, type: :system do
     end
 
     context "when filtering" do
+      context "when filtering by text" do
+        it "updates the current URL" do
+          create(:meeting, :published, component:, title: { en: "Foobar meeting" })
+          create(:meeting, :published, component:, title: { en: "Another meeting" })
+          visit_component
+
+          within "form.new_filter" do
+            fill_in("filter[search_text_cont]", with: "foobar")
+            click_button "Search"
+          end
+
+          expect(page).not_to have_content("Another meeting")
+          expect(page).to have_content("Foobar meeting")
+
+          filter_params = CGI.parse(URI.parse(page.current_url).query)
+          expect(filter_params["filter[search_text_cont]"]).to eq(["foobar"])
+        end
+      end
+
       context "when filtering by origin" do
         let!(:component) do
           create(:meeting_component,
@@ -191,12 +210,12 @@ describe "Explore meetings", :slow, type: :system do
       it "allows searching by text", :slow do
         visit_component
         within ".filters" do
-          # It seems that there's another field with the same name in another form on page.
+          # It seems that there is another field with the same name in another form on page.
           # Because of that we try to select the correct field to set the value and submit the right form
           find(:css, "#content form.new_filter [name='filter[search_text_cont]']").set(translated(meetings.first.title))
 
           # The form should be auto-submitted when filter box is filled up, but
-          # somehow it's not happening. So we workaround that be explicitly
+          # somehow it is not happening. So we workaround that be explicitly
           # clicking on "Search" until we find out why.
           find("#content form.new_filter .icon--magnifying-glass").click
         end
@@ -448,7 +467,7 @@ describe "Explore meetings", :slow, type: :system do
 
     context "without category or scope" do
       it "does not show any tag" do
-        expect(page).to have_no_selector("ul.tags.tags--meeting")
+        expect(page).to have_no_selector("ul.tags.tag-container")
       end
     end
 
@@ -461,14 +480,14 @@ describe "Explore meetings", :slow, type: :system do
       end
 
       it "shows tags for category" do
-        expect(page).to have_selector("ul.tags.tags--meeting")
-        within "ul.tags.tags--meeting" do
+        expect(page).to have_selector("ul.tags.tag-container")
+        within "ul.tags.tag-container" do
           expect(page).to have_content(translated(meeting.category.name))
         end
       end
 
       it "links to the filter for this category" do
-        within "ul.tags.tags--meeting" do
+        within "ul.tags.tag-container" do
           click_link translated(meeting.category.name)
         end
 
@@ -485,14 +504,14 @@ describe "Explore meetings", :slow, type: :system do
       end
 
       it "shows tags for scope" do
-        expect(page).to have_selector("ul.tags.tags--meeting")
-        within "ul.tags.tags--meeting" do
+        expect(page).to have_selector("ul.tags.tag-container")
+        within "ul.tags.tag-container" do
           expect(page).to have_content(translated(meeting.scope.name))
         end
       end
 
       it "links to the filter for this scope" do
-        within "ul.tags.tags--meeting" do
+        within "ul.tags.tag-container" do
           click_link translated(meeting.scope.name)
         end
 

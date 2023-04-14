@@ -1,7 +1,7 @@
 /* eslint-disable require-jsdoc */
 
 export default function updateExternalDomainLinks($target) {
-  const whitelist = window.Decidim.config.get("external_domain_whitelist")
+  const whitelist = window.Decidim.config.get("external_domain_whitelist") || []
 
   if (window.location.pathname === "/link") {
     return;
