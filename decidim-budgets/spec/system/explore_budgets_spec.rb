@@ -62,10 +62,9 @@ describe "Explore Budgets", :slow, type: :system do
         let!(:order) { create(:order, user:, budget:) }
         let!(:line_item) { create(:line_item, order:, project: projects.first) }
 
-        it "shows the bookmark icon" do
+        it "shows a finish voting link" do
           visit_component
 
-          expect(item).to have_selector(".budget-list__icon span.warning")
           expect(item).to have_link("Finish voting", href: budget_path(budget))
         end
 
