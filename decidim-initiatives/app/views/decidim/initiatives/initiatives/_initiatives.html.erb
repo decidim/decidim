@@ -8,18 +8,17 @@
   </div>
 <% end %>
 
-<div class="collection-sort-controls row small-up-1 medium-up-2 card-grid">
-  <div class="column">
-    <%= order_selector available_orders, i18n_scope: "decidim.initiatives.initiatives.orders" %>
-  </div>
+<%= render partial: "index_header" %>
+
+<div class="collection-sort-controls mb-4">
+  <%= order_selector available_orders, i18n_scope: "decidim.initiatives.initiatives.orders" %>
+</div>
 
 <div class="card__grid-container">
   <div class="card__grid-grid">
     <%= render initiatives %>
   </div>
 </div>
-
-<%= render initiatives %>
 
 <%= decidim_paginate initiatives %>
 <%= render partial: "decidim/shared/results_per_page" %>
