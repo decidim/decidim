@@ -3,18 +3,18 @@
 require "spec_helper"
 
 describe "Filter Initiatives", :slow, type: :system do
-  let(:organization) { create :organization }
-  let(:type1) { create :initiatives_type, organization: organization }
-  let(:type2) { create :initiatives_type, organization: organization }
-  let(:type3) { create :initiatives_type, organization: organization }
-  let(:scoped_type1) { create :initiatives_type_scope, type: type1 }
-  let(:scoped_type2) { create :initiatives_type_scope, type: type2 }
-  let(:scoped_type3) { create :initiatives_type_scope, type: type3, scope: nil }
-  let(:area_type1) { create(:area_type, organization: organization) }
-  let(:area_type2) { create(:area_type, organization: organization) }
-  let(:area1) { create(:area, area_type: area_type1, organization: organization) }
-  let(:area2) { create(:area, area_type: area_type1, organization: organization) }
-  let(:area3) { create(:area, area_type: area_type2, organization: organization) }
+  let!(:organization) { create :organization }
+  let!(:type1) { create :initiatives_type, organization: organization }
+  let!(:type2) { create :initiatives_type, organization: organization }
+  let!(:type3) { create :initiatives_type, organization: organization }
+  let!(:scoped_type1) { create :initiatives_type_scope, type: type1 }
+  let!(:scoped_type2) { create :initiatives_type_scope, type: type2 }
+  let!(:scoped_type3) { create :initiatives_type_scope, type: type3, scope: nil }
+  let!(:area_type1) { create(:area_type, organization: organization) }
+  let!(:area_type2) { create(:area_type, organization: organization) }
+  let!(:area1) { create(:area, area_type: area_type1, organization: organization) }
+  let!(:area2) { create(:area, area_type: area_type1, organization: organization) }
+  let!(:area3) { create(:area, area_type: area_type2, organization: organization) }
 
   before do
     switch_to_host(organization.host)
