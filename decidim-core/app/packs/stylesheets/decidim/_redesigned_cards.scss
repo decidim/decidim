@@ -109,7 +109,9 @@
   &__highlight-loader,
   &__grid-loader{
     --color: var(--alert);
+    --inner: theme('colors.background.DEFAULT');
+    --outer: theme('colors.gray.3');
 
-    @apply w-3.5 h-3.5 mx-auto grid place-items-center rounded-full overflow-hidden bg-[radial-gradient(farthest-side,#F3F4F7_60%,transparent_0_100%),conic-gradient(var(--color)_calc(var(--value)*100%),transparent_0)];
+    @apply w-3.5 h-3.5 mx-auto grid place-items-center rounded-full overflow-hidden bg-[radial-gradient(farthest-side,var(--inner)_60%,transparent_0_100%),conic-gradient(var(--color)_calc(var(--value)*100%),var(--outer)_0)];
   }
 }
