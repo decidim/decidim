@@ -140,12 +140,15 @@
           [data-image-resizer-control^="top-"] {
             @apply top-0;
           }
+
           [data-image-resizer-control^="bottom-"] {
             @apply bottom-0;
           }
+
           [data-image-resizer-control$="-left"] {
             @apply left-0;
           }
+
           [data-image-resizer-control$="-right"] {
             @apply right-0;
           }
@@ -238,12 +241,15 @@
   ol[data-type="a"] {
     @apply list-[lower-alpha];
   }
+
   ol[data-type="A"] {
     @apply list-[upper-alpha];
   }
+
   ol[data-type="i"] {
     @apply list-[lower-roman];
   }
+
   ol[data-type="I"] {
     @apply list-[upper-roman];
   }
@@ -263,30 +269,39 @@
   .editor-indent-1 {
     @apply ml-4;
   }
+
   .editor-indent-2 {
     @apply ml-8;
   }
+
   .editor-indent-3 {
     @apply ml-12;
   }
+
   .editor-indent-4 {
     @apply ml-16;
   }
+
   .editor-indent-5 {
     @apply ml-20;
   }
+
   .editor-indent-6 {
     @apply ml-24;
   }
+
   .editor-indent-7 {
     @apply ml-28;
   }
+
   .editor-indent-8 {
     @apply ml-32;
   }
+
   .editor-indent-9 {
     @apply ml-36;
   }
+
   .editor-indent-10 {
     @apply ml-40;
   }
