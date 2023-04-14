@@ -407,7 +407,7 @@ describe "Orders", type: :system do
             let(:another_user) { create(:user, :confirmed, organization:) }
 
             before do
-              find("[data-toggle='budget-confirm']").click
+              find("[data-dialog-open='budget-confirm']").click
               click_button "Confirm"
               expect(page).to have_css(".flash.success")
             end
@@ -447,7 +447,7 @@ describe "Orders", type: :system do
         it "shows the rule description" do
           visit_budget
 
-          within ".card.budget-summary" do
+          within ".budget-summary" do
             expect(page).to have_content("Select at least 3 projects you want and vote")
           end
         end
@@ -551,7 +551,7 @@ describe "Orders", type: :system do
       it "displays the number of votes for a project" do
         visit_budget
 
-        within "#project-#{project.id}-item .budget-list__number" do
+        within "#project-#{project.id}-item .budget__card__list-project__amount" do
           expect(page).to have_selector(".project-votes", text: "1 VOTE")
         end
       end

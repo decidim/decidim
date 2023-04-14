@@ -47,7 +47,7 @@ describe "Explore Budgets", :slow, type: :system do
 
     describe "budget list item" do
       let(:budget) { budgets.first }
-      let(:item) { page.find(".budget-list .card--list__item:first-child", match: :first) }
+      let(:item) { page.find("#budgets .card--list__item:first-child", match: :first) }
       let!(:projects) { create_list(:project, 3, budget:, budget_amount: 10_000_000) }
 
       before do

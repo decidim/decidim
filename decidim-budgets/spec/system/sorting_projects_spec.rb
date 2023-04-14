@@ -89,8 +89,8 @@ describe "Sorting projects", type: :system do
           expect(page).to have_selector("a.underline.font-bold", text: "Most voted")
         end
 
-        expect(page).to have_selector("#projects .budget-list .card__list:first-child", text: translated(project2.title))
-        expect(page).to have_selector("#projects .budget-list .card__list:last-child", text: translated(project1.title))
+        expect(page).to have_selector("#projects .budget-list .project-item:first-child", text: translated(project2.title))
+        expect(page).to have_selector("#projects .budget-list .project-item:last-child", text: translated(project1.title))
       end
 
       it "automatically sorts by votes and respect the pagination" do
