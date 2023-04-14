@@ -82,19 +82,19 @@ zh-TW:
       decidim/assembly:
         other: 程序集
       decidim/assembly_member:
-        other: 程序集成員
+        other: 組件成員
       decidim/assembly_user_role:
-        other: 程序集用戶角色
+        other: 組件用戶角色
   decidim:
     admin:
       actions:
         import_assembly: 匯入
-        new_assembly: 新程序集
-        new_assembly_type: 新程序集類型
+        new_assembly: 新組件
+        new_assembly_type: 新組件類型
       assemblies:
         create:
           error: 建立新程序集時發生問題
-          success: 程序集創建成功
+          success: 組件創建成功
         edit:
           update: 更新
         index:
@@ -104,7 +104,18 @@ zh-TW:
           published: 已發佈
         new:
           create: 創建
-          title: 新程序集
+          title: 新組件
+        update:
+          error: 更新此組件時出現問題
+          success: 此組件成功更新
+      assemblies_copies:
+        create:
+          error: 複製此組件時出現問題
+          success: 組件已成功複製
+      assemblies_settings:
+        update:
+          error: 更新設置時出現問題
+          success: 設置更新成功
       assembly_copies:
         new:
           select: 請選擇您想要複製的資料
@@ -127,4 +138,4 @@ zh-TW:
           title: 更新程序集成員
     assemblies:
       last_activity:
-        new_assembly: 新程序集
+        new_assembly: 新組件
