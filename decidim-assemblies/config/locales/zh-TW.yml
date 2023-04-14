@@ -116,6 +116,10 @@ zh-TW:
         update:
           error: 更新設置時出現問題
           success: 設置更新成功
+      assemblies_types:
+        create:
+          error: 創建新組件類型時出現問題
+          success: 組件類型創建成功
       assembly_copies:
         new:
           select: 請選擇您想要複製的資料
