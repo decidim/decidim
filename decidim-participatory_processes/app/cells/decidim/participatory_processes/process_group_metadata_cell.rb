@@ -24,9 +24,7 @@ module Decidim
           icon: "grid-line",
           text: t(
             "decidim.participatory_process_groups.content_blocks.title.participatory_processes",
-            # REDESIGN_PENDING: the model/resource throws an error: undefined method `scope_name' for #<Decidim::ParticipatoryProcessGroup
-            # count: cell("decidim/participatory_process_groups/content_blocks/related_processes", model).total_count
-            count: 2
+            count:
           )
         }
       end
@@ -38,6 +36,13 @@ module Decidim
           icon: "globe-line",
           text: scope_text
         }
+      end
+
+      def count
+        # REDESIGN_PENDING: Use the following call to content block when
+        # available merging https://github.com/decidim/decidim/pull/10491
+        # cell("decidim/participatory_process_groups/content_blocks/related_processes", nil, resource: model).total_count
+        Decidim::ParticipatoryProcesses::GroupPublishedParticipatoryProcesses.new(model, current_user).query.size
       end
     end
   end

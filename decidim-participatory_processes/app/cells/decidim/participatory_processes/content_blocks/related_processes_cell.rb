@@ -18,6 +18,10 @@ module Decidim
 
         private
 
+        def resource
+          options[:resource] || super
+        end
+
         def limit
           model.settings.try(:max_results)
         end
