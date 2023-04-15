@@ -8,8 +8,8 @@ zh-TW:
       assembly:
         announcement: 公告
         area_id: 區域
-        assembly_type: 組件類型
-        assembly_type_other: 其他組件類型
+        assembly_type: 集會類型
+        assembly_type_other: 其他集會類型
         banner_image: 橫幅圖片
         closing_date: 截止日期
         closing_date_reason: 截止日期原因
@@ -21,7 +21,7 @@ zh-TW:
         created_by_other: 由其他人創建
         creation_date: 創建日期
         decidim_area_id: 區域
-        decidim_assemblies_type_id: 程序集類型
+        decidim_assemblies_type_id: 集會類型
         decidim_scope_id: 範圍
         description: 說明
         developer_group: 促銷團隊
@@ -41,7 +41,7 @@ zh-TW:
         is_transparent: 透明
         local_area: 組織區域
         meta_scope: 元數據範圍
-        parent_id: 母體組件
+        parent_id: 母體集會
         participatory_processes_ids: 相關參與程序
         participatory_scope: 決定了什麼
         participatory_structure: 如何決定
@@ -156,3 +156,70 @@ zh-TW:
         new:
           create: 建立
           title: 新組件成員
+        update:
+          error: 更新此組裝的成員時出現問題。
+          success: 此組件的成員已成功更新。
+      assembly_publications:
+        create:
+          error: 發布此組件時出現問題。
+          success: 組件已成功發布
+        destroy:
+          error: 取消發布此組件時出現問題。
+          success: 組件已成功取消發布。
+      assembly_user_roles:
+        create:
+          error: 為該組件添加管理員時出現問題。
+          success: 管理員已成功添加到此組件
+        destroy:
+          success: 管理員已成功從此組件中刪除
+        edit:
+          title: 更新組件管理員。
+          update: 更新
+        index:
+          assembly_admins_title: 組件管理員
+        new:
+          create: 建立
+          title: 新組件管理員
+        update:
+          error: 更新此組件的管理員時出現問題
+          success: 此組件的管理員已成功更新。
+      filters:
+        decidim_assemblies_type_id_eq:
+          label: 組件類型
+      menu:
+        assemblies: 組件
+        assemblies_settings: 設定
+        assemblies_submenu:
+          assembly_admins: 組件管理員
+          assembly_members: 成員
+          attachment_collections: 資料夾
+          attachment_files: 檔案
+          attachments: 附件
+          categories: 類別
+          components: 元件
+          info: 資訊
+          moderations: 版主
+          private_users: 私人使用者
+        assemblies_types: 組件類型
+      models:
+        assemblies_types:
+          fields:
+            created_at: 建立於
+            title: 標題
+        assembly:
+          fields:
+            created_at: 建立於
+            private: 不公開
+            promoted: 高調
+            published: 已發佈
+            title: 標題
+          name: 組件
+        assembly_member:
+          fields:
+            ceased_date: 終止日期
+            designation_date: 指定日期
+            full_name: 姓名
+            position: 位置
+          name: 成員
+          positions:
+            other: 其他
