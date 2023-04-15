@@ -121,6 +121,11 @@ hu:
             create: Javaslatok importálása projektekbe
             no_components: Ebben a részvételi térben nincs más javaslat-összetevő a javaslatok projektekbe való importálásához.
             select_component: Válassz ki egy elemet
+        reminders:
+          orders:
+            title:
+              one: E-mail emlékeztetőt fog küldeni %{count} felhasználó részére
+              other: E-mail emlékeztetőt fog küldeni %{count} felhasználó részére
       admin_log:
         project:
           create: "%{user_name} létrehozta a(z) %{resource_name} nevű projektet itt: %{space_name}"
@@ -232,6 +237,9 @@ hu:
           email_intro: Elkezdte a részvételi költségvetési szavazat leadását, de nem fejezte be.
           email_link: Szavazás folytatása
           email_outro: Kérjük, fejezze be a szavazat leadását. A szavazáshoz előbb ki kell jelölnie azt a javaslatot vagy javaslatokat, amiket támogatni szeretne, majd a "Szavazok" gombra kattintással adhatja le szavazatát.
+          email_subject:
+            one: Nem fejezte be szavazatának leadását a részvételi költségvetéssel kapcsolatban
+            other: Be nem fejezett szavazatai vannak a részvételi költségvetéssel kapcsolatban
     components:
       budgets:
         actions:
@@ -264,11 +272,42 @@ hu:
             vote_selected_projects_minimum: A kiválasztható projektek maximális száma
             vote_threshold_percent: Szavazati küszöb százalékban
             workflow: Munkafolyamat
+            workflow_choices:
+              all: 'Szavazás mindenütt: lehetővé teszi a résztvevők számára, hogy minden költségvetésben szavazzanak.'
+              one: 'Szavazás egyben: lehetővé teszi a résztvevőknek, hogy bármely költségvetésben szavazzanak, de csak egy kiválasztottban.'
           step:
             announcement: Közlemény
             comments_blocked: Megjegyzések letiltva
+            highlighted_heading: Kiemelt fejléc
+            landing_page_content: A költségvetések kezdőlapja
+            list_heading: Listafejléc
+            more_information_modal: További információ modális ablak
             show_votes: Szavazatok megjelenítése
+            title: Cím
+            votes: Szavazás
             votes_choices:
+              disabled: Szavazás letiltva
               enabled: Szavazás engedélyezve
+              finished: A szavazás véget ért
+    events:
+      budgets:
+        budget_published:
+          email_intro: 'A(z) %{resource_title} költségvetés mostantól aktív itt: %{participatory_space_title}. Ezen az oldalon láthatja:'
+          email_outro: Azért kapta ezt az értesítést, mert a %{participatory_space_title}-t követi. Az értesítések küldését leállíthatja az előző linkkel.
+          email_subject: 'A(z) %{resource_title} költségvetés mostantól aktív itt: %{participatory_space_title}.'
+          notification_title: 'A(z)<a href="%{resource_path}">%{resource_title}</a> költségvetés mostantól aktív a következő helyen: %{participatory_space_title}.'
+    orders:
+      checkout:
+        error: Hiba történt a szavazatod feldolgozása során.
+        success: A szavazatodat sikeresen leadtad.
+      destroy:
+        error: Hiba történt a szavazatod visszavonása során.
+        success: A szavazatod visszavonása sikerült.
+    resource_links:
+      included_proposals:
+        project_proposal: A projekt részét képező javaslatok
+    statistics:
+      orders_count: Támogatja
+      projects_count: Projektek
   index:
     confirmed_orders_count: Szavazatok száma
