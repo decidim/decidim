@@ -207,6 +207,29 @@ zh-TW:
           are_you_sure: 確定要拒絕管理員服務條款？
           refuse: 拒絕管理員條款
           title: 我同意服務條款
+        required_review:
+          alert: '必填：請審閱我們的管理者服務條款'
+          callout: 請花點時間審閱管理者服務條款，否則將無法管理平台
+          cta: 現在審閱
+        title: 管理者服務條款
+      area_types:
+        create:
+          error: 新增區域類型時發生錯誤
+          success: 區域類型建立成功
+        destroy:
+          success: 區域類型成功刪除
+        edit:
+          title: 編輯區域類型
+          update: 更新
+        new:
+          create: 建立區域類型
+          title: 新增區域類型
+        update:
+          error: 更新這個區域類型時發生錯誤
+          success: 區域類型更新成功
+      areas:
+        create:
+          error: 新增區域時發生錯誤
       attachments:
         new:
           title: 新增附件
