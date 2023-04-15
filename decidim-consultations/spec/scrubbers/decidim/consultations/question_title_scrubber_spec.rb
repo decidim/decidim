@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe Decidim::UserInputScrubber do
+describe Decidim::Consultations::QuestionTitleScrubber do
   subject { described_class.new }
 
   def scrub(html)
@@ -41,7 +41,7 @@ describe Decidim::UserInputScrubber do
 
   it "does not allow disabled iframes" do
     html = %(<div class="disabled-iframe"><!-- <iframe src="url"></iframe> --></div>)
-    expect(html).to be_scrubbed_as(%(<div class="disabled-iframe"></div>))
+    expect(html).to be_scrubbed_as("")
   end
 
   it "allows most basic tags" do
