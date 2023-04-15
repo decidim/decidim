@@ -198,8 +198,48 @@ zh-TW:
         create:
           error: 新增區域時發生錯誤
           success: 區域建立成功
-      attachments:
+        destroy:
+          has_spaces: 這個區域有相依空間，刪除之前請確認沒有參與空間使用這個區域
+        edit:
+          title: 編輯區域
+          update: 更新
         new:
+          create: 建立區域
+          title: 新增區域
+        no_areas: 沒有區域
+        update:
+          error: 更新這個區域時發生錯誤
+      attachment_collections:
+        create:
+          error: 新增資料夾時發生錯誤
+          success: 資料夾建立成功
+        destroy:
+          success: 資料夾刪除成功
+        edit:
+          title: 編輯資料夾
+          update: 更新
+        index:
+          attachment_collection_used: 這個資料夾使用中無法刪除
+          attachment_collections_title: 附件資料夾
+        new:
+          create: 建立
+          title: 新資料夾
+        update:
+          error: 更新這個資料夾時發生錯誤
+          success: 資料夾更新成功
+      attachments:
+        create:
+          error: 建立新附件時發生錯誤
+          success: 附件建立成功
+        destroy:
+          success: 附件刪除成功
+        edit:
+          title: 編輯附件
+          update: 更新
+        index:
+          attachments_title: 附件
+        new:
+          create: 建立附件
           title: 新增附件
         update:
           error: 更新這個附件時發生錯誤.
