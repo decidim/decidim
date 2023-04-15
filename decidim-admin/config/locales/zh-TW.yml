@@ -191,6 +191,24 @@ zh-TW:
         actions:
           accept: 我同意這些條款
           refuse: 拒絕管理員條款
+        required_review:
+          cta: 現在審閱
+      area_types:
+        create:
+          error: 新增區域類型時發生錯誤
+          success: 區域類型建立成功
+        edit:
+          title: 編輯區域類型
+          update: 更新
+        new:
+          create: 建立區域類型
+          title: 新增區域類型
+        update:
+          error: 更新這個區域類型時發生錯誤
+      areas:
+        create:
+          error: 新增區域時發生錯誤
+          success: 區域建立成功
       attachments:
         new:
           title: 新增附件
@@ -204,3 +222,6 @@ zh-TW:
       block_user:
         new:
           action: 封鎖帳號並且發送理由
+      organization_homepage_content_blocks:
+        edit:
+          update: 更新
