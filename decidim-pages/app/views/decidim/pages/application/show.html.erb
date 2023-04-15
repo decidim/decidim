@@ -14,7 +14,7 @@
     <%= render partial: "decidim/shared/component_announcement" %>
 
     <div class="editor-content">
-      <%= decidim_sanitize_editor translated_attribute(@page.body) %>
+      <%= decidim_sanitize_editor_admin translated_attribute(@page.body) %>
     </div>
   </div>
 <% end %>
