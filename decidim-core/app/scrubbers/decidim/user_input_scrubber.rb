@@ -18,12 +18,41 @@ module Decidim
 
     private
 
+    RESTRICTED_TAGS = %w(
+      area
+      article
+      aside
+      audio
+      button
+      canvas
+      fieldset
+      figcaption
+      figure
+      font
+      footer
+      form
+      header
+      img
+      input
+      label
+      legend
+      main
+      map
+      menu
+      optgroup
+      option
+      output
+      select
+      textarea
+      video
+    ).freeze
+
     def custom_allowed_attributes
       Loofah::HTML5::SafeList::ALLOWED_ATTRIBUTES
     end
 
     def custom_allowed_tags
-      Loofah::HTML5::SafeList::ALLOWED_ELEMENTS_WITH_LIBXML2
+      Loofah::HTML5::SafeList::ACCEPTABLE_ELEMENTS - RESTRICTED_TAGS
     end
   end
 end

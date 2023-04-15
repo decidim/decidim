@@ -44,6 +44,14 @@ describe "Explore Budgets", :slow, type: :system do
     end
 
     describe "budget list item" do
+      let!(:component) do
+        create(:budgets_component,
+               :with_vote_threshold_percent,
+               manifest: manifest,
+               participatory_space: participatory_process,
+               settings: { landing_page_content: description })
+      end
+      let(:description) { { en: "Short description", ca: "Descripció curta", es: "Descripción corta" } }
       let(:budget) { budgets.first }
       let(:item) { page.find(".budget-list .card--list__item:first-child", match: :first) }
       let!(:projects) { create_list(:project, 3, budget: budget, budget_amount: 10_000_000) }
@@ -51,6 +59,8 @@ describe "Explore Budgets", :slow, type: :system do
       before do
         login_as user, scope: :user
       end
+
+      it_behaves_like "has embedded video in description", :description
 
       it "has a clickable title" do
         expect(item).to have_link(translated(budget.title), href: budget_path(budget))

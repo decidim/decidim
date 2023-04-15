@@ -55,7 +55,8 @@ describe "Explore posts", type: :system do
   describe "show" do
     let(:posts_count) { 1 }
     let(:author) { organization }
-    let!(:post) { create(:post, component: component, author: author) }
+    let(:body) { { en: "Short description", ca: "Descripció curta", es: "Descripción corta" } }
+    let!(:post) { create(:post, component: component, author: author, body: body) }
 
     before do
       visit resource_locator(post).path
@@ -95,6 +96,8 @@ describe "Explore posts", type: :system do
       expect(page).to have_content(post.author.name)
       expect(page).to have_content(post.created_at.strftime("%d/%m/%Y %H:%M "))
     end
+
+    it_behaves_like "has embedded video in description", :body
 
     it "shows the back button" do
       expect(page).to have_link(href: "#{main_component_path(component)}posts")
