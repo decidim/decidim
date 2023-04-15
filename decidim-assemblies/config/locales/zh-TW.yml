@@ -145,6 +145,12 @@ zh-TW:
           success: 該組件的成員已成功刪除
         edit:
           title: 更新程序集成員
+          update: 更新
+        index:
+          assembly_members_title: 組件成員
+        new:
+          create: 建立
+          title: 新組件成員
     assemblies:
       last_activity:
         new_assembly: 新組件
