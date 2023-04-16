@@ -399,6 +399,7 @@ hu:
           title: Az engedélyed lejárt
         incomplete:
           cancel: Mégse
+          explanation: 'Bár "%{authorization}" segítségével engedélyezve lett, új engedélyre van szükség, mivel nem rendelkezünk az alábbi adatokkal:'
           invalid_field: "%{field}"
           reauthorize: Újraengedélyezés
           title: Kérjük, engedélyezd újra
@@ -406,12 +407,19 @@ hu:
           authorize: 'Engedélyezés ezzel: "%{authorization}"'
           explanation: 'A művelet végrehajtásához innen kell engedélyt kapnod: "%{authorization}".'
           title: Engedély szükséges
+        ok:
+          title: Az oldal látogatása alatt hitelesítésre került. Kérjük töltse be újra az oldalt a művelet végrehajtásához.
         pending:
+          explanation: 'A művelet végrehajtásához engedélyt kell kapnod innen: "%{authorization}", de az engedélyezés még folyamatban van.'
+          resume: Ellenőrizd a(z) "%{authorization}" engedélyezés folyamatát.
           title: Engedélyezés folyamatban
         unauthorized:
+          explanation: Ez a művelet nem hajtható végre, mivel néhány engedélyezési adat nem egyezik.
+          invalid_field: "A(z) %{field} %{value} érték nem érvényes."
           ok: Rendben
           title: Nem engedélyezett
         unconfirmed:
+          confirmation_instructions: 'Ha még nem kapta meg a megerősítési utasítást, újra kérheti őket:'
           explanation_html: Annak érdekében, hogy ezt a műveletet elvégezhesse, engedélyeznie kell, mielőtt ezt elvégezné, meg kell erősítenie az e-mail címét <strong>%{email}</strong>.
           request_confirmation_instructions: Kérjen megerősítési utasítást
           title: Erősítsd meg az e-mail címed
@@ -430,6 +438,7 @@ hu:
       see_more: "(tovább)"
     components:
       component_order_selector:
+        no_content: Nem találtunk a feltételeknek megfelelő tartalmat.
         order:
           all_types: Minden típus
           collaborative_draft: Közös vázlat
@@ -437,6 +446,7 @@ hu:
           debate: Vita
           initiative: Kezdeményezés
           meeting: Találkozó
+          order: Költségvetési szavazás
           post: Bejegyzés
           proposal: Indítvány
           question: Kérdés
@@ -501,14 +511,31 @@ hu:
         view_all: Összes megtekintése
       metrics:
         name: Szervezeti mutatók
+      static_page:
+        section:
+          name: Szakasz
+          section_content: Tartalom
+        summary:
+          name: Összefoglaló
+          summary_content: Tartalom
+        two_pane_section:
+          left_column: Bal hasáb
+          name: Két hasábos szekció
+          right_column: Jobb hasáb
       stats:
         name: Szervezeti statisztikák
       sub_hero:
         name: Sub hero banner
+    core:
+      actions:
+        login_before_access: Kérjük, a hozzáférés előtt jelentkezzen be.
+        unauthorized: Nem jogosult a művelet végrehajtására.
     datepicker:
       help_text: 'Várható formátum: %{datepicker_format}'
     devise:
       omniauth_registrations:
+        create:
+          email_already_exists: Egy másik fiók ugyanezt az email címet használja.
         new:
           complete_profile: Profil kiegészítése
           nickname_help: A beceneved itt %{organization} csak betűket, számokat '-' és '_' jeleket tartalmazhat.
@@ -526,6 +553,7 @@ hu:
           sign_up_as:
             legend: Regisztrálj mint
           subtitle: Jelentkezz be, hogy javaslatokat tudj megvitatni és támogatni.
+          terms: szolgáltatási feltételek
           tos_agreement: A feliratkozással elfogadod a %{link}.
           tos_title: ÁSZF
           username_help: Bejegyzésekben megjelenő nyilvános megnevezés. Az anonimitás megőrzése érdekében bármilyen név lehet.
@@ -533,6 +561,7 @@ hu:
         new:
           are_you_new?: Új vagy az oldalon?
           register: Hozz létre egy fiókot
+          sign_in_disabled: Külső fiókkal férhet hozzá.
         user:
           timed_out: Túl sokáig volt inaktív, ezért automatikusan kijelentkezett a szolgáltatásból. Ha továbbra is használni szeretné a szolgáltatást, jelentkezzen be újra.
       shared:
@@ -760,6 +789,8 @@ hu:
           cancel: Mégse
           edit_image: Kép szerkesztése
           error: Hiba!
+          file_size_too_large: 'A fájl túl nagy! Maximális méret: %{megabytes}MB'
+          filename: Fájlnév
           remove: Eltávolítás
           replace: Csere
           save: Mentés
@@ -768,6 +799,10 @@ hu:
           uploaded: Feltöltve
           validating: Ellenőrzés...
           validation_error: Hitelesítési hiba!
+        select_file: Fájl kiválasztása
+      upload_help:
+        dropzone: Húzza ide a fájlt vagy használja a gombot a feltöltéshez
+        explanation: '%{attribute} útmutatója'
     gamification:
       all_badges_link: Az összes elérhető jelvény megtekintése.
       badges:
@@ -779,6 +814,8 @@ hu:
           description_own: "%{score} felhasználó követi Önt."
           name: Követő
           next_level_in: Szerezzen %{score} további embert, hogy kövesse Önt, így érheti el a következő szintet!
+          unearned_another: Ennek a résztvevőnek még nincsenek követői.
+          unearned_own: Még nincsenek követőid.
         index:
           badge_title: "%{name} jelvény"
           how: Így lehet megszerezni
@@ -786,20 +823,38 @@ hu:
           title: Jelvények
       description: A jelvények a résztvevők tevékenységét és előmenetelét hívatottak jelezni. Amint elkezded felfedezni a platformot és kapcsolatba kerülsz másokkal, különböző jelvényeket kapsz.
       level: '%{level} szint'
+      reached_top: Elérted a jelvény legmagasabb szintjét.
+      title: Mik a jelvények?
     group_admins:
       actions:
+        are_you_sure: Biztos vagy ebben? Ez nem fogja eltávolítani a felhasználót a csoportból.
         demote_admin: Admin eltávolítása
+      demote:
+        error: Hiba történt a résztvevő adminisztrátori listáról történő eltávolítása során.
+        success: A résztvevő sikeresen eltávolítva az adminisztrátori listáról.
       index:
         current_admins: 'Jelenlegi adminisztrátorok:'
         manage_admins: Adminisztrátorok kezelése
     group_invites:
+      accept:
+        error: Hiba történt a meghívó elfogadásakor.
+        success: A meghívó sikeresen elfogadva.
       accept_invitation: Elfogad
       accept_or_reject_group_invitations: 'A következő csoportok meghívtak, hogy csatlakozz hozzájuk. A kérelmek elfogadása vagy elutasítása:'
       index:
         invite: Meghívás
         invite_user: Résztvevő meghívása
+      invite:
+        error: Hiba történt a résztvevő meghívása során.
+        success: A résztvevő sikeresen meghívásra került.
+      reject:
+        error: Hiba történt a meghívás elutasítása során.
+        success: A meghívó sikeresen elutasítva.
       reject_invitation: Elutasít
     group_members:
+      accept:
+        error: Hiba történt a csatlakozási kérelem elfogadásakor.
+        success: A csatlakozási kérelem sikeresen elfogadva.
       actions:
         are_you_sure: biztos vagy ebben?
         promote_to_admin: Tedd rendszergazdává
@@ -807,20 +862,37 @@ hu:
       index:
         current_members_without_admins: 'A jelenlegi tagok (adminok nélkül):'
         manage_members: Tagok kezelése
+      promote:
+        error: Hiba történt a felhasználó előléptetésekor.
+        success: A felhasználó sikeresen előléptetve.
+      reject:
+        error: Hiba történt a csatlakozási kérelem elutasításakor.
+        success: Csatlakozási kérelem sikeresen elutasítva.
+      remove:
+        error: Probléma adódott a résztvevő csoportból való eltávolítása során.
+        success: Résztvevő sikeresen eltávolítva a csoportból.
     groups:
       actions:
         are_you_sure: biztos vagy ebben?
+      create:
+        error: Hiba történt a csoport létrehozásakor.
+        success: A csoport sikeresen létrejött.
       edit:
         edit_user_group: Csoport szerkesztése
         update_user_group: Csoport frissítése
       form:
+        document_number_help: Ne használjon kötőjeleket és szóközöket.
         email_help: A szervezet, az egyesület, a társaság, a csoport stb. e-mailje.
         fill_in_for_verification: 'Töltsd ki ezeket a mezőket, ha azt szeretnéd, hogy csoportod ellenőrizhető legyen:'
         name_help: A szervezet, az egyesület, a társaság, a csoport stb. neve.
         nickname_help: Adja meg a szervezet, az egyesület, a társaság, a csoport stb. felhasználónevét. Ne használjon szóközöket vagy ékezeteket.
+        phone_help: Ne használjon kötőjeleket és szóközöket.
       join:
+        error: Hiba történt a csoporthoz való csatlakozáskor.
         success: A csatlakozási kérelem sikeresen létrehozva. A csoportgazda felülvizsgálja a kérelmet, mielőtt a csatlakozás elfogadásra kerül.
       leave:
+        error: Hiba történt a csoport elhagyása során.
+        last_admin: Ön nem távolíthatja el magát ebből a csoportból, mivel Ön az utolsó adminisztrátor. A csoportból való kilépéshez egy másik tagot kell adminisztrátorrá tenni.
         success: A csoportot sikeresen elhagytad.
       members:
         accept_or_reject_join_requests: 'A következő felhasználók bejelentették, hogy csatlakozzanak ehhez a csoporthoz. A kérelmek elfogadása vagy elutasítása:'
@@ -830,14 +902,20 @@ hu:
         create_user_group: Csoport létrehozása
         new_user_group: Új csoport
         subtitle: Hozz létre egy csoportot, és hívd meg a többi felhasználót, hogy vegyél részt közöségi szinten.
+      no_user_groups: Még nem tartozik semmiféle csoporthoz.
       roles:
         admin: Adminisztrátor
+        creator: Adminisztrátor
         member: Tag
+      update:
+        error: Hiba történt a csoport frissítése során.
+        success: A csoport sikeresen frissült.
     help:
       main_topic:
         default_page:
           content: "<p>Az %{organization} -ben részt vehetsz és dönthetsz különböző témákban a főmenüben megjelenő mezőkön keresztül: Folyamatok, Gyűlések, Kezdeményezések, Konzultációk.</p> <p>Mindegyikben megtalálja a különböző lehetőségeket a részvételre: készítsen javaslatokat - egyénileg vagy más emberekkel -, vegyél részt vitákban, fontold meg a végrehajtandó projekteket, vegyél részt személyes találkozókon és egyéb tevékenységekben.</p>\n"
           title: Mit tehetek a %{organization} szervezetben?
+        description: További információ a %{organization} szervezetről.
         title: Általános segítség
     last_activities:
       activities:
@@ -846,14 +924,24 @@ hu:
       index:
         last_activity: Utolsó bejelentkezés, utolsó használat
         resource_type: típus
+    links:
+      invalid_url: Érvénytelen URL
+      warning:
+        body_1: Ön most egy külső linket fog meglátogatni, és szeretnénk, ha óvatos lenne a külső oldal tartalmát illetően.
+        body_2: Kérjük, ellenőrizze a meglátogatni kívánt linket, és győződjön meg róla, hogy biztonságos oldalnak ismeri fel, mielőtt továbblépne.
+        cancel: Mégsem
+        proceed: Folytatás
+        title: Külső link megnyitása
     log:
       base_presenter:
         create: "%{user_name} létrehozta ezt: %{resource_name}"
         create_with_space: "%{user_name} létrehozta ezt: %{resource_name} %{space_name}"
         delete: "%{user_name} törölte ezt: %{resource_name}"
         delete_with_space: "%{user_name} törölte ezt: %{resource_name} %{space_name}"
+        publish_with_space: "%{user_name} publikálta ezt: %{resource_name} itt %{space_name}"
         unknown_action: "%{user_name} módosította ezt: %{resource_name}"
         unknown_action_with_space: "%{user_name} valamilyen műveletet hajtott végre itt: %{resource_name} %{space_name}"
+        unpublish_with_space: "%{user_name} visszavonta a %{resource_name} publikációját itt %{space_name}"
         update: "%{user_name} frissítette ezt: %{resource_name}"
         update_permissions_with_space: "%{user_name} frissítette a(z) %{resource_name} engedélyeit itt: %{space_name}"
         update_with_space: "%{user_name} frissítette ezt: %{resource_name} a %{space_name}"
@@ -875,6 +963,8 @@ hu:
       static:
         latlng_text: 'földrajzi szélesség: %{latitude}, földrajzi hosszúság: %{longitude}'
         map_service_brand: OpenStreetMap
+    members:
+      no_members: Ennek a csoportnak még nincs tagja.
     menu:
       help: Segítség
       home: Kezdőlap
@@ -884,15 +974,18 @@ hu:
           admin_in_group: Azért kapta ezt, mert a(z) %{group} csoport adminisztrátora.
           greeting: Kedves %{recipient}!
           intro: "%{manager} egy új beszélgetést indított a(z) %{group} csoport nevében. Kattintson ide a megtekintéshez:"
+          outro: Leld örömedet a Decidimben!
           subject: "%{manager} egy új beszélgetést indított a(z) %{group} nevében"
         comanagers_new_message:
           admin_in_group: Azért kapta ezt, mert a(z) %{group} csoport adminisztrátora.
           greeting: Kedves %{recipient}!
           intro: "%{manager} egy új üzenetet tett közzé egy beszélgetésben a(z) %{group} csoport nevében. Kattintson ide a megtekintéshez:"
+          outro: Leld örömedet a Decidimben!
           subject: "%{manager} új üzeneteket küldött a(z) %{group} nevében"
         new_conversation:
           greeting: Szia %{recipient}!
           intro: "%{sender} új beszélgetést kezdett veled. Ide kattintva elolvashatod:"
+          outro: Leld örömedet a Decidimben!
           subject: "%{sender} beszélgetést kezdett veled"
         new_group_conversation:
           admin_in_group: Azért kapta ezt, mert a(z) %{group} csoport adminisztrátora.
@@ -1089,9 +1182,17 @@ hu:
           info: A jelvények a platformon végzett konkrét tevékenység végrehajtásával érhetők el.
           title: Kitűzők
       user:
+        actions:
+          invite_user: Résztvevő meghívása
+          join_user_group: Csatlakozás kérése a csoporthoz
+          manage_user_group_admins: Adminisztrátorok kezelése
+          manage_user_group_users: Tagok kezelése
+          message: Üzenet
+        confirmation_instructions_sent: A megerősítő email az utasításokkal elküldve.
         create_user_group: Csoport létrehozása
         edit_profile: Profil szerkesztése
         edit_user_group: Csoportprofil szerkesztése
+        fill_in_email_to_confirm_it: Kérjük, töltse ki a csoport e-mailjét a megerősítéshez.
         invite_user: Résztvevő meghívása
         join_user_group: Csatlakozás kérése a csoporthoz
         leave_user_group: Kilépés a csoportból
@@ -1105,9 +1206,17 @@ hu:
         report_html: <p>A következő <a href="%{url}">tartalom</a>automatikusan el volt rejtve.</p>
         subject: Egy erőforrás automatikusan elrejtve
       report:
+        authors: Szerzők
+        content: Jelentett tartalom
+        content_original_language: Tartalom eredeti nyelve
+        date: Jelentés időpontja
+        details: Részletek
         hello: Hello %{name}!
+        id: ID
+        participatory_space: Részvételi tér
         reason: Ok
         report_html: <p>A következő <a href="%{url}">tartalmat</a>korábban jelentették.</p>
+        see_report: Jelentés megtekintése
         subject: Egy erőforrást jelentettek
     reports:
       create:
