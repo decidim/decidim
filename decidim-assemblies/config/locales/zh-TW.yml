@@ -270,5 +270,13 @@ zh-TW:
           form:
             announcement_help: 您在此處輸入的文字將顯示至使用者的正下方集會信息
             duration: 持續時間
+            duration_help: 如果此集會的持續時間有限，請選擇結束日期。 否則，它將顯示為不確定。
+            filters: 篩選條件
+            images: 圖片
+            included_at_help: 選擇此集會添加到平台的日期。 它不一定必須與創建日期相同。
+            metadata: 元資料
+            other: 其他
+            select_a_created_by: 選擇一位創建者
+            select_an_area: 選擇一個地區
       last_activity:
         new_assembly: 新集會
