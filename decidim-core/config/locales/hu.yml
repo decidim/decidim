@@ -863,16 +863,24 @@ hu:
         last_activity: Utolsó bejelentkezés, utolsó használat
         resource_type: típus
     links:
+      invalid_url: Érvénytelen URL
       warning:
+        body_1: Ön most egy külső linket fog meglátogatni, és szeretnénk, ha óvatos lenne a külső oldal tartalmát illetően.
+        body_2: Kérjük, ellenőrizze a meglátogatni kívánt linket, és győződjön meg róla, hogy biztonságos oldalnak ismeri fel, mielőtt továbblépne.
+        cancel: Mégsem
         close_modal: Modal bezárása
+        proceed: Folytatás
+        title: Külső link megnyitása
     log:
       base_presenter:
         create: "%{user_name} létrehozta ezt: %{resource_name}"
         create_with_space: "%{user_name} létrehozta ezt: %{resource_name} %{space_name}"
         delete: "%{user_name} törölte ezt: %{resource_name}"
         delete_with_space: "%{user_name} törölte ezt: %{resource_name} %{space_name}"
+        publish_with_space: "%{user_name} publikálta ezt: %{resource_name} itt %{space_name}"
         unknown_action: "%{user_name} módosította ezt: %{resource_name}"
         unknown_action_with_space: "%{user_name} valamilyen műveletet hajtott végre itt: %{resource_name} %{space_name}"
+        unpublish_with_space: "%{user_name} visszavonta a %{resource_name} publikációját itt %{space_name}"
         update: "%{user_name} frissítette ezt: %{resource_name}"
         update_with_space: "%{user_name} frissítette ezt: %{resource_name} a %{space_name}"
       value_types:
@@ -1161,9 +1169,17 @@ hu:
         report_html: <p>A következő <a href="%{url}">tartalom</a>automatikusan el volt rejtve.</p>
         subject: Egy erőforrás automatikusan elrejtve
       report:
+        authors: Szerzők
+        content: Jelentett tartalom
+        content_original_language: Tartalom eredeti nyelve
+        date: Jelentés időpontja
+        details: Részletek
         hello: Hello %{name}!
+        id: ID
+        participatory_space: Részvételi tér
         reason: Ok
         report_html: <p>A következő <a href="%{url}">tartalmat</a>korábban jelentették.</p>
+        see_report: Jelentés megtekintése
         subject: Egy erőforrást jelentettek
     reports:
       create:
