@@ -317,13 +317,18 @@ hu:
         success: A módosító javaslat közzététele sikeres.
       rejected:
         error: Probléma adódott a módosító javaslat elutasításával, kérjük, próbálja meg később újra.
+        success: A módosítás elutasítása sikeres.
       review:
         back: Vissza
         heading: Tekintse át a módosítást
+        help_text: Ön felülvizsgálja a %{model_name} módosítását.
         send: Módosítás elfogadása
       update_draft:
         error: Probléma merült fel a módosító javaslat frissítésével.
         success: A módosító javaslat sikeresen frissítve.
+      withdraw:
+        error: A módosítás visszavonása során hiba történt.
+        success: A módosítás visszavonása sikeres.
       wizard_step_form:
         steps:
           '1': Készítse el a módosítását
@@ -338,6 +343,9 @@ hu:
         related_documents: Kapcsolódó dokumentumok
       geocoding:
         geocoded_address: Cím
+      photo:
+        alt: Médiakép
+        title: Kép
       photos:
         related_photos: Kapcsolódó képek
     author:
@@ -352,11 +360,13 @@ hu:
       official_author: Hivatalos
     authorization_handlers:
       another_dummy_authorization_handler:
+        explanation: Ellenőriztesd magad egy "A" betűvel kezdődő útlevél számmal.
         fields:
           passport_number: Útlevélszám
           postal_code: Irányítószám
         name: Egy másik példa feljogosításra
       dummy_authorization_handler:
+        explanation: Ellenőriztesd magad egy "X" betűvel végződő dokumentum számmal.
         fields:
           allowed_postal_codes: Engedélyezett irányítószámok (vesszővel elválasztva)
           allowed_scope_id: Engedélyezett hatáskör
@@ -382,6 +392,7 @@ hu:
       started_at: 'Kezdés: %{timestamp}'
     authorization_modals:
       content:
+        close_modal: Ablak bezárás
         expired:
           authorize: 'Újra engedélyezni ezt: "%{authorization}"'
           explanation: 'Az engedélyed lejárt. Ennek a műveletnek a végrehajtásához újra engedélyezni kell a következőt: "%{authorization}".'
