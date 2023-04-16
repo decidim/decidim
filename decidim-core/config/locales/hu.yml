@@ -239,7 +239,9 @@ hu:
         unblock: "%{user_name} megszűntette a felhasználó blokkolását %{resource_name}"
         unofficialize: "%{user_name} visszavonta %{resource_name} hivatalosságát"
       user_group:
+        block: "%{user_name} blokkolt felhasználó itt %{resource_name}"
         reject: "%{user_name} elutasította a(z) %{resource_name} felhasználói csoport ellenőrzését"
+        unblock: "%{user_name} megszűntette a felhasználó blokkolását %{resource_name}"
         verify: "%{user_name} ellenőrizte a(z) %{resource_name} felhasználói csoportot"
         verify_via_csv: "%{user_name} az %{resource_name} felhasználói csoportot CSV-fájlon keresztül ellenőrizte"
       user_moderation:
