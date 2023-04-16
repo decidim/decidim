@@ -137,6 +137,12 @@ hu:
           email_intro: A hozzászólásod itt %{resource_title} leszavazásra került. Most %{upvotes} szavazat van mellette és %{downvotes} ellene.
           email_outro: Ezt az értesítést kaptad, mert te vagy a hozzászólás szerzője.
           email_subject: A hozzászólásod itt %{resource_title} leszavazásra került.
+          notification_title: A hozzászólásod <a href="%{resource_path}"><a href="%{resource_path}"> itt %{resource_title} leszavazásra került. Most %{upvotes} szavazat van mellette és %{downvotes} ellene.
+        comment_upvoted:
+          email_intro: A hozzászólásod itt %{resource_title} felszavazták. Most %{upvotes} szavazat van mellette és %{downvotes} ellene.
+          email_outro: Ezt az értesítést kaptad, mert te vagy a hozzászólás szerzője.
+          email_subject: A hozzászólásod itt %{resource_title} támogató szavazatokat kapott.
+          notification_title: A <a href="%{resource_path}">hozzászólásod</a> itt %{resource_title} támogató szavazatokat kapott. Most %{upvotes} szavazat van mellette és %{downvotes} ellene.
         reply_created:
           email_intro: "%{author_name} megjegyzést fűzött ehhez: %{resource_title}. Ezen az oldalon megtalálod:"
           email_outro: Ezt az értesítést azért kaptad, mert valaki választolt a mejegyzésedre.
