@@ -288,3 +288,19 @@ zh-TW:
         new:
           action: 封鎖帳號並且發送理由
           already_reported_html: 繼續操作也會隱藏所有參與者內容， <a href="%{link}">封鎖這個帳號</a>。
+          description: 封鎖一個使用者會讓他的帳號無法使用，可以在此提供建議說明如何取消封鎖
+          justification: 理由
+          title: 封鎖使用者 %{name}
+      categories:
+        create:
+          error: 建立這個分類時發生錯誤
+          success: 分類建立成功
+        destroy:
+          error: 刪除這個分類時發生錯誤，請先將子類別刪除，確認這個分類沒有其他關聯後重試
+          success: 分類刪除成功
+        edit:
+          title: 編輯分類
+          update: 更新
+        index:
+          categories_title: 分類
+          category_used: 這個分類使用中無法刪除
