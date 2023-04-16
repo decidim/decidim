@@ -340,3 +340,8 @@ zh-TW:
           email_intro: <a href="%{resource_url}">%{resource_name}</a> 集會的管理員已將您添加為其成員之一。
           email_outro: 您收到此通知是因為您受邀參加集會。 查看<a href="%{resource_url}">集會頁面</a>進行貢獻！
           email_subject: 您已被邀請成為 %{resource_name} 集會的成員！
+          notification_title: 您已註冊為集會 <a href="%{resource_path}">%{resource_name}</a> 的成員。 查看<a href="%{resource_path}">集會頁面</a>來貢獻！
+      assembly:
+        role_assigned:
+          email_intro: 您已被分配為集會“%{resource_title}”的 %{role}。
+          email_outro: 您收到此通知是因為您是“%{resource_title}”集會的 %{role}。
