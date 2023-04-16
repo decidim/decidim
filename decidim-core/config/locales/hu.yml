@@ -29,11 +29,13 @@ hu:
         password_confirmation: Jelszó megerősítése
         personal_url: Személyes URL
         remove_avatar: Avatár eltávolítása
+        tos_agreement: A szolgáltatás felhasználási feltételei
     models:
       decidim/attachment_created_event: Melléklet
       decidim/component_published_event: Aktív elem
       decidim/demoted_membership: Már nem egy csoport admin
       decidim/gamification/badge_earned_event: Jelvény megszerezve
+      decidim/gamification/level_up_event: Szintet lépett
       decidim/invited_to_group_event: Meghívva a csoportba
       decidim/join_request_accepted_event: Csatlakozási kérelem elfogadva
       decidim/join_request_rejected_event: Csatlakozási kérelem elutasítva
@@ -75,6 +77,7 @@ hu:
     'true': 'Igen'
   carrierwave:
     errors:
+      file_cannot_be_processed: A fájl nem nyitható meg
       file_resolution_too_large: A fájl felbontása túl nagy
       file_size_too_large: Túl nagy a fájl mérete
       not_inside_organization: A fájl nincs csatolva egyetlen szervezethez sem
@@ -119,38 +122,47 @@ hu:
       logo: "%{organization} hivatalos logója"
       skip_button: Ugrás a fő tartalomra
     account:
+      blocked: Ezt a fiókot az Általános Szerződési Feltételek megsértése miatt blokkoltuk
       delete:
+        alert: Ez a művelet nem visszavonható. Ha törli a fiókot, nem fog tudni bejelentkezni a hitelesítő adataivak. A fiók törlése a hozzájárulásainak anonimizálását eredményezi. Továbbra is létrehozhat új fiókot, de ezek a hozzájárulások nem fognak kapcsolódni hozzá.
         confirm:
           close: Ablak bezárása
           ok: Igen, törölni szeretném a fiókomat
           question: Biztosan törölni szeretnéd a fiókodat?
           title: Fiók törlése
         explanation: Nevezd meg az okot, amiért törölni szeretnéd a fiókod (nem kötelező).
+        leaving_authorizations_behind: Bizonyos, az Ön engedélyéhez kötött adatok a biztonság érdekében el lesznek mentve. Ha létrehoz egy másik fiókot, és újra hitelesíti magát, akkor ezek az adatok az új fiókjához lesznek visszaállítva.
       destroy:
         error: Hiba történt a fiók törlése során.
         success: Fiók törlése sikeres.
       download_your_data_export:
         file_no_exists: Fájl nem létezik
+        notice: Az adatok feldolgozása folyamatban. Amint kész van, emailt küldünk.
       email_change:
+        body1: '%{unconfirmed_email} címre kiküldtük az emailt az új emailcímének megerősítéséhez.'
         body2: Újraküldjük a megerősítő emailt? %{resend_link} vagy %{cancel_link}.
         cancel: mégse
         cancel_error: Nem sikerült az email változást jóváhagyni.
         cancel_successfully: Az email változtatása sikerült.
         resend_error: Nem sikerült a megerősítő emailt újraküldeni.
+        resend_successfully: Sikeresen újraküldtük a megerősítő emailt a %{unconfirmed_email} címre.
         send_again: Újraküldés
         title: Az email változtatás ellenőrzése
       show:
+        available_locales_helper: Válassza ki a nyelvet, amelyet használni szeretné a platform böngészéshez és az értesítéseinek fogadásához.
         change_password: Jelszó módosítása
         update_account: Fiók frissítése
       update:
         error: Hiba történt a fiók frissítése során.
         success: A fiók sikeresen frissült.
+        success_with_email_confirmation: Fiókja sikeresen frissült. Új e-mail címének megerősítéséről emailt küldünk.
     activity:
       time_ago: "%{time} ideje"
     admin:
       actions:
         cancel: Mégse
       password_change:
+        alert: A továbblépéshez a jelszó megváltoztatására van szükség.
         notification: Az admin felhasználóknak minden %{days} napon jelszót kell cserélniük.
     admin_log:
       area:
@@ -234,11 +246,15 @@ hu:
         unblock: "%{user_name} megszűntette a felhasználó blokkolását %{resource_name}"
         unofficialize: "%{user_name} visszavonta %{resource_name} hivatalosságát"
       user_group:
+        block: "%{user_name} blokkolt felhasználó itt %{resource_name}"
         reject: "%{user_name} elutasította a(z) %{resource_name} felhasználói csoport ellenőrzését"
+        unblock: "%{user_name} megszűntette a felhasználó blokkolását %{resource_name}"
         verify: "%{user_name} ellenőrizte a(z) %{resource_name} felhasználói csoportot"
         verify_via_csv: "%{user_name} az %{resource_name} felhasználói csoportot CSV-fájlon keresztül ellenőrizte"
       user_moderation:
         unreport: "%{user_name} visszavonta a %{resource_type} - %{unreported_user_name}"
+    admin_terms_of_service:
+      default_body: "<h2>ADMIN FELHASZNÁLÓI FELTÉTELEK</h2><p>Bízunk benne, hogy a szokásos előadást megkaptad a helyi rendszergazdától. Ez rendszerint e három dologra bontható le:</p><ol><li>Tiszteld mások magánéletét.</li><li>Gondolkodj, mielőtt kattintasz.</li><li>A nagy hatalommal, nagy felelősségvállalás is jár!</li></ol>"
     alert:
       dismiss: Értesítés elvetése
     amendments:
@@ -249,8 +265,10 @@ hu:
         amended_by: Módosította
         button: 'Módosítás: %{model_name}'
         error: Hiba történt az erőforrás módosításakor.
+        help_text: Javítsd ezt a %{model_name} a %{amendable_fields} módosításával.
         promote_button: Kezdeményezze a %{model_name}
         promote_confirm_text: Biztos benne, hogy támogatni kívánja ezt a helyreigazítást?
+        promote_help_text: Támogathatja ezt a helyesbítést, valamint közzéteheti azt független %{model_name} elemként.
         section_heading: Módosítások (%{count})
       compare_draft:
         continue: Tovább
@@ -291,9 +309,14 @@ hu:
         modify: Szerkeszt
         publish: Közzétesz
         title: Módosító javaslat publikálása
+      promoted:
+        error: Hiba történt a módosító javaslat új javaslatként való közzététele során.
+        success: A módosító javaslat sikeresen megjelent új javaslatként.
       publish_draft:
         error: Hiba történt a módosító javaslat közzététele során.
         success: A módosító javaslat közzététele sikeres.
+      rejected:
+        error: Probléma adódott a módosító javaslat elutasításával, kérjük, próbálja meg később újra.
       review:
         back: Vissza
         heading: Tekintse át a módosítást
