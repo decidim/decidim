@@ -299,3 +299,5 @@ zh-TW:
             existing_user: 現有參與者
       last_activity:
         new_assembly: 新集會
+      show:
+        assembly_type: 集會類型
