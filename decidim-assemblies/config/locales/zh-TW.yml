@@ -245,6 +245,30 @@ zh-TW:
         duplicate: "%{user_name} 複製了 %{resource_name} 集會"
         export: "%{user_name} 導出了 %{resource_name} 集會"
         import: "%{user_name} 導入了 %{resource_name} 集會"
+        publish: "%{user_name} 發布 %{resource_name} 集會"
+        unpublish: "%{user_name} 取消發布 %{resource_name} 集會"
+        update: "%{user_name} 更新了 %{resource_name} 集會"
+      assembly_member:
+        create: "%{user_name} 創建了 %{resource_name} 在 %{space_name} 的結果"
+        delete: "%{user_name} 從 %{space_name} 集會中刪除了 %{resource_name} 成員"
+        update: "%{user_name} 更新了 %{space_name} 集會中的 %{resource_name} 成員"
+      assembly_setting:
+        update: "%{user_name} 更新了集會設定"
+      assembly_type:
+        create: "%{user_name} 創建了 %{resource_name} 集會類型"
+        delete: "%{user_name} 刪除了 %{resource_name} 集會類型"
+        publish: "%{user_name} 發布了 %{resource_name} 集會類型"
+        unpublish: "%{user_name} 取消發布 %{resource_name} 集會類型"
+        update: "%{user_name} 更新了 %{resource_name} 集會類型"
+      assembly_user_role:
+        create: "%{user_name} 邀請 %{resource_name} 加入 %{space_name} 集會"
+        delete: "%{user_name} 從 %{space_name} 集會中刪除了參與者 %{resource_name}"
+        update: "%{user_name} 更改了 %{resource_name} 在 %{space_name} 集會中的角色"
     assemblies:
+      admin:
+        assemblies:
+          form:
+            announcement_help: 您在此處輸入的文字將顯示至使用者的正下方集會信息
+            duration: 持續時間
       last_activity:
         new_assembly: 新集會
