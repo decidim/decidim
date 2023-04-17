@@ -1349,10 +1349,15 @@ hu:
       pages_count: Oldalak
       participants_count: Résztvevők
       users_count: Résztvevők
+    tags:
+      filter_results_for_category: 'A kategória találatainak szűrése: %{resource}'
     translation_bar:
       help_text: "<strong>Figyelem:</strong> A tartalmat automatikusan fordíthatták, és nem 100% -ban pontos."
       show_original: Eredeti szöveg mutatása
       show_translated: Automatikusan lefordított szöveg mutatása
+    user_activity:
+      index:
+        no_activities_warning: Ez a résztvevő még nem végzett tevékenységet.
     user_contact_disabled: Ez a résztvevő nem fogad el közvetlen üzeneteket.
     user_conversations:
       create:
@@ -1559,6 +1564,7 @@ hu:
       invalid_time_zone: ez nem érvényes időzóna
       long_words: olyan szavakat tartalmaz, amelyek túl hosszúak (több mint 35 karakter)
       must_start_with_caps: nagybetűvel kell kezdenie
+      nesting_too_deep: nem lehet alkategóriában belüli
       not_found: nem található. Regisztráltál már korábban?
       not_locked: nem volt zárva
       not_saved:
@@ -1582,7 +1588,10 @@ hu:
       data_consent:
         details:
           columns:
+            description: Leírás
+            name: Név
             service: Szolgáltatás
+            type: Típus
           items:
             _session_id:
               description: Lehetővé teszi a weboldalak számára, hogy emlékezzenek a felhasználóra a weboldalon belül, amikor az a weboldalak között mozog.
@@ -1591,9 +1600,11 @@ hu:
               description: Tárolja a felhasználó által a weboldalon engedélyezett sütikre vonatkozó információkat.
               service: Ez a weboldal
             pwaInstallPromptSeen:
+              description: Tárolja az állapotot, ha a felhasználó már látta a progresszív webes alkalmazás (PWA) telepítési értesítését.
               service: Ez a weboldal
           types:
             cookie: Süti
+            local_storage: Helyi tároló
         dialog:
           accept_all: Összes elfogadása
           accept_only_essential: Csak a szükséges elfogadása
@@ -1604,12 +1615,17 @@ hu:
           accept_all: Összes elfogadása
           accept_only_essential: Csak a szükséges elfogadása
           analytics:
+            description: Ezeket a sütiket a weboldal közönségének mérésére és elemzésére használják, hogy segítsenek a weboldal fejlesztésében.
             title: Analitika & statisztika
+          description: Sütiket használunk a weboldal alapvető funkcióinak biztosítása és az Ön online élményének javítása érdekében. A cookie-k használatát bármikor beállíthatja és elfogadhatja, valamint módosíthatja a hozzájárulási opcióit.
           essential:
+            description: Ezek a sütik lehetővé teszik a weboldal kulcsfontosságú funkcióit, és segítenek a felhasználók biztonságban tartásában. Automatikusan tárolódnak a böngészőben, és nem kapcsolhatók ki.
             title: Szükséges
           marketing:
+            description: Ezek a sütik információkat gyűjtenek arról, hogyan használja a weboldalt, és felhasználhatók arra, hogy személyre szabottabb marketinget nyújtsanak az Ön által használt különböző weboldalakon.
             title: Marketing
           preferences:
+            description: Ezek a sütik lehetővé teszik a weboldal számára, hogy emlékezzen az Ön által a weboldalon korábban tett választásokra, hogy személyre szabottabb élményt nyújtson a weboldal felhasználói számára.
             title: Preferenciák
           save_settings: Beállítások mentése
           title: Süti beállítások
@@ -1617,6 +1633,7 @@ hu:
         warning:
           all_categories: összes süti
           change_settings: A süti beállítások módosítása
+          consent_required: A tartalom megtekintéséhez engedályezni kell a %{categories}.
       edit_link:
         edit: Szerkesztés
       footer:
@@ -1641,6 +1658,8 @@ hu:
       notifications_dashboard:
         mark_all_as_read: Összes megjelölése olvasottként
         mark_as_read: Megjelölés olvasottként
+      offline_banner:
+        cache_version_page: Upsz! Nem kapcsolódik az internetre. Most az oldal egy régebbi, eltárolt változatát látja, ami lehet, hogy nem teljesen friss.
       social_media_links:
         facebook: "%{organization} a Facebookon"
         github: "%{organization} a GitHubon"
@@ -1678,6 +1697,7 @@ hu:
     name: Magyar
     name_with_error: Angol (hiba!)
   password_validator:
+    denied: megtagadva
     domain_included_in_password: túl hasonló a domain névhez
     email_included_in_password: túl hasonló az email címhez
     fallback: érvénytelen
@@ -1689,6 +1709,12 @@ hu:
     password_too_common: túl gyakori
     password_too_long: túl hosszú
     password_too_short: túl rövid
+  ransack:
+    predicates:
+      dtgt: után
+      dtgteq: a következő érték után vagy azzal egyenlő
+      dtlt: előtt
+      dtlteq: előtte vagy egyenlő mint
   social_share_button:
     delicious: Delicious
     douban: Douban
@@ -1729,6 +1755,7 @@ hu:
             accept_until_format: "%B %d, %Y %I:%M %p"
       long: "%B %d, %Y %H:%M"
       long_dashed: "%Y-%m-%d %H:%M:%S"
+      long_with_particles: "%Y. %B %d ekkor %H:%M"
       short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
   versions:
