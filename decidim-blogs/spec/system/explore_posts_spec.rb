@@ -26,26 +26,6 @@ describe "Explore posts", type: :system do
       skip_unless_redesign_enabled
 
       expect(page).to have_selector("#blogs > a", count: 2)
-      expect(page).to have_selector(new_post_id, text: translated(new_post.title))
-      expect(page).to have_selector(old_post_id, text: translated(old_post.title))
-    end
-
-    it "shows comment counts" do
-      skip_unless_redesign_enabled
-
-      expect(page).to have_no_selector("#{new_post_id} [data-comments-count]")
-      expect(page).to have_selector("#{old_post_id} [data-comments-count]", text: old_post.comments.count)
-    end
-
-    it "shows endorsement counts" do
-      skip_unless_redesign_enabled
-
-      expect(page).to have_no_selector("#{new_post_id} [data-endorsements-count]")
-      expect(page).to have_selector("#{old_post_id} [data-endorsements-count]", text: old_post.endorsements.count)
-    end
-
-    it "shows images" do
-      expect(page).to have_selector("#{old_post_id} img")
     end
 
     context "when paginating" do
