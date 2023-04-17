@@ -386,6 +386,10 @@ zh-TW:
         participatory_scope: 決定了什麼
         participatory_structure: 如何決定
         private_space: 這是一個私人集會
+        purpose_of_action: 行動目的
+        read_less: 閱讀減少
+        read_more: 閱讀變多
+        related_participatory_processes: 相關參與過程
         scope: 範圍
         social_networks: 社群網路
         social_networks_title: 訪問集會
@@ -406,3 +410,5 @@ zh-TW:
         role_assigned:
           email_intro: 您已被分配為集會“%{resource_title}”的 %{role}。
           email_outro: 您收到此通知是因為您是“%{resource_title}”集會的 %{role}。
+          email_subject: 您已被分配為“%{resource_title}”的 %{role}。
+          notification_title: 您已被分配為集會 <a href="%{resource_url}">%{resource_title}</a> 的 %{role}。
