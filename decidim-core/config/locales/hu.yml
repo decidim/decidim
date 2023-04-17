@@ -1300,6 +1300,8 @@ hu:
       pages_count: Oldalak
       participants_count: Résztvevők
       users_count: Résztvevők
+    tags:
+      filter_results_for_category: 'A kategória találatainak szűrése: %{resource}'
     translation_bar:
       help_text: "<strong>Figyelem:</strong> A tartalmat automatikusan fordíthatták, és nem 100% -ban pontos."
       show_original: Eredeti szöveg mutatása
