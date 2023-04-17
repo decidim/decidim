@@ -105,11 +105,15 @@ module Decidim
       options[:title_tag] || :div
     end
 
+    def description_length
+      100
+    end
+
     def description
       attribute = resource.try(:short_description) || resource.try(:body) || resource.description
       text = translated_attribute(attribute)
 
-      decidim_sanitize_editor(html_truncate(text, length: 100), strip_tags: true)
+      decidim_sanitize_editor(html_truncate(text, length: description_length), strip_tags: true)
     end
 
     def has_authors?

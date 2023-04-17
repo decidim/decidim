@@ -17,6 +17,10 @@ module Decidim
         true
       end
 
+      def description_length
+        500
+      end
+
       def metadata_cell
         "decidim/blogs/post_metadata"
       end
