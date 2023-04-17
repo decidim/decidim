@@ -1390,6 +1390,8 @@ hu:
       pages_count: Oldalak
       participants_count: Résztvevők
       users_count: Résztvevők
+    tags:
+      filter_results_for_category: 'A kategória találatainak szűrése: %{resource}'
     translation_bar:
       help_text: "<strong>Figyelem:</strong> A tartalmat automatikusan fordíthatták, és nem 100% -ban pontos."
       show_original: Eredeti szöveg mutatása
@@ -1648,7 +1650,10 @@ hu:
       data_consent:
         details:
           columns:
+            description: Leírás
+            name: Név
             service: Szolgáltatás
+            type: Típus
           items:
             _session_id:
               description: Lehetővé teszi a weboldalak számára, hogy emlékezzenek a felhasználóra a weboldalon belül, amikor az a weboldalak között mozog.
@@ -1657,9 +1662,11 @@ hu:
               description: Tárolja a felhasználó által a weboldalon engedélyezett sütikre vonatkozó információkat.
               service: Ez a weboldal
             pwaInstallPromptSeen:
+              description: Tárolja az állapotot, ha a felhasználó már látta a progresszív webes alkalmazás (PWA) telepítési értesítését.
               service: Ez a weboldal
           types:
             cookie: Süti
+            local_storage: Helyi tároló
         dialog:
           accept_all: Összes elfogadása
           accept_only_essential: Csak a szükséges elfogadása
@@ -1670,12 +1677,17 @@ hu:
           accept_all: Összes elfogadása
           accept_only_essential: Csak a szükséges elfogadása
           analytics:
+            description: Ezeket a sütiket a weboldal közönségének mérésére és elemzésére használják, hogy segítsenek a weboldal fejlesztésében.
             title: Analitika & statisztika
+          description: Sütiket használunk a weboldal alapvető funkcióinak biztosítása és az Ön online élményének javítása érdekében. A cookie-k használatát bármikor beállíthatja és elfogadhatja, valamint módosíthatja a hozzájárulási opcióit.
           essential:
+            description: Ezek a sütik lehetővé teszik a weboldal kulcsfontosságú funkcióit, és segítenek a felhasználók biztonságban tartásában. Automatikusan tárolódnak a böngészőben, és nem kapcsolhatók ki.
             title: Szükséges
           marketing:
+            description: Ezek a sütik információkat gyűjtenek arról, hogyan használja a weboldalt, és felhasználhatók arra, hogy személyre szabottabb marketinget nyújtsanak az Ön által használt különböző weboldalakon.
             title: Marketing
           preferences:
+            description: Ezek a sütik lehetővé teszik a weboldal számára, hogy emlékezzen az Ön által a weboldalon korábban tett választásokra, hogy személyre szabottabb élményt nyújtson a weboldal felhasználói számára.
             title: Preferenciák
           save_settings: Beállítások mentése
           title: Süti beállítások
@@ -1683,6 +1695,7 @@ hu:
         warning:
           all_categories: összes süti
           change_settings: A süti beállítások módosítása
+          consent_required: A tartalom megtekintéséhez engedályezni kell a %{categories}.
       edit_link:
         edit: Szerkesztés
       footer:
