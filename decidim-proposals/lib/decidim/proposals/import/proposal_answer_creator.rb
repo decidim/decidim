@@ -32,9 +32,10 @@ module Decidim
             resource,
             current_user
           ) do
-            resource.save!
+            resource.try(:save!)
           end
-          notify(resource)
+
+          notify(resource, @initial_state)
         end
 
         private
@@ -55,6 +56,8 @@ module Decidim
 
           proposal.answer = answer
           proposal.answered_at = Time.current
+          @initial_state = proposal.state
+
           if POSSIBLE_ANSWER_STATES.include?(state)
             proposal.state = state
             proposal.state_published_at = Time.current if component.current_settings.publish_answers_immediately?
@@ -88,8 +91,9 @@ module Decidim
           context[:current_user]
         end
 
-        def notify(proposal)
-          ::Decidim::Proposals::Admin::NotifyProposalAnswer.call(proposal, proposal.state)
+        def notify(proposal, initial_state)
+          state = initial_state.presence || proposal.try(:state)
+          ::Decidim::Proposals::Admin::NotifyProposalAnswer.call(proposal, state)
         end
       end
     end
