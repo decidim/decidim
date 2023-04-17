@@ -47,7 +47,7 @@ describe "Orders", type: :system do
       context "when voting by percentage threshold" do
         it "displays description messages" do
           within ".budget-summary" do
-            expect(page).to have_content("You decide the budget\nStart adding projects. Assign at least €70,000,000 to the projects you want and vote according to your preferences to define the budget.")
+            expect(page).to have_content("Start adding projects. Assign at least €70,000,000 to the projects you want and vote according to your preferences to define the budget.")
           end
         end
       end
