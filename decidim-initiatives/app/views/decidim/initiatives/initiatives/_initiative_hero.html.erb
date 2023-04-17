@@ -1,0 +1,16 @@
+<section style="background-image:url('<%= current_initiative.type.attached_uploader(:banner_image).path %>');" data-conference-hero>
+  <div class="initiative__hero">
+    <div class="initiative__hero-text">
+      <h1 class="h1 text-5xl">
+        <%= translated_attribute(current_participatory_space.title) %>
+      </h1>
+      <p class="initiative__hero-slogan">
+        <% if current_participatory_space.hashtag.present? %>
+          <span>
+            <%= link_to "##{current_participatory_space.hashtag}", twitter_hashtag_url(current_participatory_space.hashtag), target: "_blank" %>
+          </span>
+        <% end %>
+      </p>
+    </div>
+  </div>
+</section>

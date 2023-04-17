@@ -14,82 +14,94 @@ edit_link(
 )
 %>
 
+
+
 <%= participatory_space_floating_help %>
 
 <% add_decidim_page_title(translated_attribute(current_initiative.title)) %>
-<% provide :meta_image_url, current_initiative.type.attached_uploader(:banner_image).path %>
-<div class="row">
-  <% unless current_initiative.online_signature_type? %>
-    <div class="column">
-      <div class="callout secondary">
-        <p>
-          <%= t ".any_vote_method" if current_initiative.any_signature_type? %>
-          <%= t ".offline_method" if current_initiative.offline_signature_type? %>
-        </p>
+
+<% unless current_initiative.online_signature_type? %>
+  <div class="column">
+    <div class="callout secondary">
+      <p>
+        <%= t ".any_vote_method" if current_initiative.any_signature_type? %>
+        <%= t ".offline_method" if current_initiative.offline_signature_type? %>
+      </p>
+    </div>
+  </div>
+<% end %>
+
+<%= content_for :aside do %>
+  <%= render partial: "decidim/shared/share_modal" %>
+<% end %>
+
+<div class="columns section view-side mediumlarge-4 mediumlarge-push-8 large-3 large-push-9">
+  <div class="card text-center">
+    <div class="card__content">
+      <% if current_initiative.published? || current_initiative.rejected? || current_initiative.accepted? %>
+        <%= render partial: "progress_bar" %>
+        <% if current_initiative.votes_enabled? %>
+          <div id="initiative-<%= current_initiative.id %>-vote-cabin">
+            <%= render partial: "vote_cabin", locals: { initiative: current_initiative } %>
+          </div>
+        <% end %>
+        <% if current_initiative.commentable? %>
+          <%= render partial: "interactions" %>
+        <% end %>
+      <% else %>
+        <%= link_to t(".edit"),
+            edit_initiative_path(current_initiative),
+            class: "button expanded" %>
+        <%= render partial: "send_to_technical_validation", locals: {
+                                                              title: t(".send_to_technical_validation"),
+                                                              confirm: t(".confirm")
+                                                            } %>
+        <%= link_to t(".print"), print_initiative_path(current_initiative), class: "link action-print" %>
+      <% end %>
+
+    </div>
+  </div>
+  <% if current_user %>
+    <div class="card text-center">
+      <div class="card__content">
+        <%= cell "decidim/follow_button", current_participatory_space, inline: false, large: true %>
+        <small><%= t(".follow_description") %></small>
       </div>
     </div>
   <% end %>
+  <%= embed_modal_for initiative_widget_url(current_initiative, format: :js) %>
+  <%= resource_reference(current_initiative) %>
+  <%= resource_version(current_initiative, versions_path: initiative_versions_path(current_initiative)) %>
+</div>
 
-  <div class="columns section view-side mediumlarge-4 mediumlarge-push-8 large-3 large-push-9">
-    <div class="card text-center">
-      <div class="card__content">
-        <% if current_initiative.published? || current_initiative.rejected? || current_initiative.accepted? %>
-          <%= render partial: "progress_bar" %>
-          <% if current_initiative.votes_enabled? %>
-            <div id="initiative-<%= current_initiative.id %>-vote-cabin">
-              <%= render partial: "vote_cabin", locals: { initiative: current_initiative } %>
-            </div>
-          <% end %>
-          <% if current_initiative.commentable? %>
-            <%= render partial: "interactions" %>
-          <% end %>
-        <% else %>
-          <%= link_to t(".edit"),
-              edit_initiative_path(current_initiative),
-              class: "button expanded" %>
-          <%= render partial: "send_to_technical_validation", locals: {
-                                                                title: t(".send_to_technical_validation"),
-                                                                confirm: t(".confirm")
-                                                              } %>
-          <%= link_to t(".print"), print_initiative_path(current_initiative), class: "link action-print" %>
-        <% end %>
-
-      </div>
+<div class="columns mediumlarge-8 mediumlarge-pull-4">
+  <div class="section">
+    <div class="row column">
+      <h2 class="heading2">
+        <%= translated_attribute(current_initiative.title) %>
+      </h2>
+      <%= render partial: "author", locals: { initiative: current_initiative } %>
     </div>
-    <% if current_user %>
-      <div class="card text-center">
-        <div class="card__content">
-          <%= cell "decidim/follow_button", current_participatory_space, inline: false, large: true %>
-          <small><%= t(".follow_description") %></small>
-        </div>
-      </div>
-    <% end %>
-    <%= render partial: "decidim/shared/share_modal" %>
-    <%= embed_modal_for initiative_widget_url(current_initiative, format: :js) %>
-    <%= resource_reference(current_initiative) %>
-    <%= resource_version(current_initiative, versions_path: initiative_versions_path(current_initiative)) %>
-  </div>
-
-  <div class="columns mediumlarge-8 mediumlarge-pull-4">
-    <div class="section">
-      <div class="row column">
-        <h2 class="heading2">
-          <%= translated_attribute(current_initiative.title) %>
-        </h2>
-        <%= render partial: "author", locals: { initiative: current_initiative } %>
-      </div>
-      <br>
-      <div class="row column">
-        <%= render partial: "initiative_badge", locals: { initiative: current_initiative } %>
-        <%= decidim_sanitize_editor translated_attribute(current_initiative.description) %>
-        <%= render partial: "tags", locals: { resource: current_initiative } %>
-      </div>
-
-      <%= render partial: "result", locals: { initiative: current_initiative } %>
+    <br>
+    <div class="row column">
+      <%= render partial: "initiative_badge", locals: { initiative: current_initiative } %>
+      <%= decidim_sanitize_editor translated_attribute(current_initiative.description) %>
+      <%= render partial: "tags", locals: { resource: current_initiative } %>
     </div>
 
-    <%= attachments_for current_initiative %>
+    <%= render partial: "result", locals: { initiative: current_initiative } %>
   </div>
+
+  <%= attachments_for current_initiative %>
 </div>
 
 <%= comments_for current_initiative if current_initiative.commentable? && current_initiative.published? %>
+
+
+<% content_for :js_content do %>
+  <%= javascript_pack_tag "decidim_initiatives" %>
+<% end %>
+
+<% content_for :css_content do %>
+  <%= stylesheet_pack_tag "decidim_initiatives", media: "all" %>
+<% end %>

@@ -6,8 +6,13 @@
   <%= stylesheet_pack_tag "decidim_initiatives", media: "all" %>
 <% end %>
 
+<% provide :meta_image_url, current_initiative.type.attached_uploader(:banner_image).path %>
+
 <%= render "layouts/decidim/redesigned_application" do %>
-  <main>
-    <%= yield %>
-  </main>
+  <%= render partial: "decidim/initiatives/initiatives/initiative_hero" %>
+  <%= render layout:"layouts/decidim/shared/layout_two_col", locals: { reverse: true, main_enabled: false } do %>
+    <main id="test">
+      <%= yield %>
+    </main>
+  <% end %>
 <% end %>
