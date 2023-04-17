@@ -68,6 +68,18 @@ zh-TW:
             name: 預算
           project:
             name: 專案
+        projects:
+          edit:
+            title: 編輯專案
+            update: 更新
+          index:
+            finished_orders: 已完成投票
+            pending_orders: 待審核投票
+            selected: 已選取
+            title: 專案
+          new:
+            create: 建立
+            title: 新專案
       admin_log:
         project:
           delete: "%{user_name} 刪除了 %{space_name} 空間中的 %{resource_name} 專案。"
