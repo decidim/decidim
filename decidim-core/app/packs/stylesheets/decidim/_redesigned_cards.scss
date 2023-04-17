@@ -52,7 +52,7 @@
   }
 
   &__list{
-    @apply flex flex-col md:flex-row gap-2.5 md:gap-4 px-4 rounded overflow-hidden border-l-4 border-background hover:border-tertiary;
+    @apply flex flex-col md:flex-row items-center gap-2.5 md:gap-4 px-4 rounded overflow-hidden border-l-4 border-background hover:border-tertiary transition;
 
     &-content{
       @apply flex flex-col gap-2.5;
@@ -63,7 +63,7 @@
     }
 
     &-image{
-      @apply w-1/5 flex-none rounded overflow-hidden aspect-[1.5] -ml-[calc(1rem+4px)];
+      @apply w-full md:w-1/5 flex-none rounded overflow-hidden aspect-[1.5] md:-ml-[calc(1rem+4px)];
 
       img{
         @apply w-full h-full object-cover;
