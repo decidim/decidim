@@ -70,6 +70,27 @@ zh-TW:
             name: 預算
           project:
             name: 專案
+        projects:
+          edit:
+            title: 編輯專案
+            update: 更新
+          index:
+            actions: 操作
+            cancel: 撤銷
+            change_category: 變更類別
+            change_scope: 變更範圍
+            change_selected: 更改所選狀態
+            deselect_implementation: 從實施中取消選擇
+            finished_orders: 已完成投票
+            pending_orders: 待審核投票
+            select_for_implementation: 選定實施
+            selected: 已選取
+            title: 專案
+            update: 更新
+            update_scope_button: 更新範圍
+          new:
+            create: 建立
+            title: 新專案
       admin_log:
         project:
           delete: "%{user_name} 刪除了 %{space_name} 空間中的 %{resource_name} 專案。"
