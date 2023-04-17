@@ -10,12 +10,12 @@ describe Decidim::Proposals::Import::ProposalAnswerCreator do
   let(:data) do
     {
       id: proposal.id,
-      state: state,
-      :"answer/en" => Faker::Lorem.paragraph
+      state:,
+      "answer/en": Faker::Lorem.paragraph
     }
   end
   let(:organization) { create(:organization, available_locales: [:en]) }
-  let(:user) { create(:user, organization: organization) }
+  let(:user) { create(:user, organization:) }
   let(:context) do
     {
       current_organization: organization,
@@ -24,7 +24,7 @@ describe Decidim::Proposals::Import::ProposalAnswerCreator do
       current_participatory_space: participatory_process
     }
   end
-  let(:participatory_process) { create :participatory_process, organization: organization }
+  let(:participatory_process) { create :participatory_process, organization: }
   let(:component) { create :component, manifest_name: :proposals, participatory_space: participatory_process }
   let(:state) { %w(evaluating accepted rejected).sample }
 
@@ -38,7 +38,7 @@ describe Decidim::Proposals::Import::ProposalAnswerCreator do
     it "returns the attributes hash" do
       expect(subject.resource_attributes).to eq(
         id: data[:id],
-        :"answer/en" => data[:"answer/en"],
+        "answer/en": data[:"answer/en"],
         state: data[:state]
       )
     end
@@ -56,8 +56,8 @@ describe Decidim::Proposals::Import::ProposalAnswerCreator do
     end
 
     context "with an emendation" do
-      let!(:amendable) { create(:proposal, component: component) }
-      let!(:amendment) { create(:amendment, amendable: amendable, emendation: proposal, state: "evaluating") }
+      let!(:amendable) { create(:proposal, component:) }
+      let!(:amendment) { create(:amendment, amendable:, emendation: proposal, state: "evaluating") }
 
       it "does not produce a record" do
         record = subject.produce
@@ -88,7 +88,7 @@ describe Decidim::Proposals::Import::ProposalAnswerCreator do
       let(:state) { "accepted" }
 
       it "returns broadcast :ok" do
-        expect(subject.finish!).to eq({:ok=>[]})
+        expect(subject.finish!).to eq({ ok: [] })
       end
 
       context "and notifies followers" do
@@ -106,28 +106,28 @@ describe Decidim::Proposals::Import::ProposalAnswerCreator do
     context "when proposal does not exists" do
       let(:data) do
         {
-          id: 99999999,
-          state: state,
-          :"answer/en" => Faker::Lorem.paragraph
+          id: 99_999_999,
+          state:,
+          "answer/en": Faker::Lorem.paragraph
         }
       end
 
       it "broadcasts invalid message" do
-        expect(subject.finish!).to eq({:invalid=>[]})
+        expect(subject.finish!).to eq({ invalid: [] })
       end
     end
 
     context "when state is unknown" do
       let(:data) do
         {
-          id: 99999999,
+          id: 99_999_999,
           state: "fakestate",
-          :"answer/en" => Faker::Lorem.paragraph
+          "answer/en": Faker::Lorem.paragraph
         }
       end
 
       it "broadcasts invalid message" do
-        expect(subject.finish!).to eq({:invalid=>[]})
+        expect(subject.finish!).to eq({ invalid: [] })
       end
     end
   end
