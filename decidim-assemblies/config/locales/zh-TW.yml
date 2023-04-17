@@ -311,10 +311,75 @@ zh-TW:
               not_ceased: 沒有停止
             filter_by: 篩選條件
             search: 搜尋
+        content_blocks:
+          highlighted_assemblies:
+            max_results: 顯示的最大元素數量
+        new_import:
+          accepted_types:
+            json: JSON
+      assemblies:
+        show:
+          title: 關於這個集會
+      assembly_members:
+        index:
+          members: 成員
+      assembly_types:
+        commission: 手續費
+        consultative_advisory: 諮詢/顧問
+        executive: 管理人員
+        government: 政府
+        others: 其他
+        participatory: 參與式
+        working_group: 工作群組
+      content_blocks:
+        highlighted_assemblies:
+          name: 關注的集會
+      created_by:
+        city_council: 市議會
+        others: 其他
+        public: 公開
+      filter:
+        all: 所有類型
+        commission: 手續費
+        consultative_advisory: 諮詢/顧問
+        executive: 管理人員
+        government: 政府
+        help: '顯示'
+        others: 其他
+        participatory: 參與式
+        working_group: 工作群組
+      index:
+        title: 集會
       last_activity:
         new_assembly: 新集會
+      pages:
+        home:
+          highlighted_assemblies:
+            active_assemblies: 活耀集會
+            assemblies_button_title: 鏈接到顯示所有集會的集會頁面
+            see_all_assemblies: 查看所有集會
+        user_profile:
+          member_of:
+            member_of: 的成員
       show:
+        area: 區域
         assembly_type: 集會類型
+        children: 集會
+        closing_date: 截止日期
+        composition: 組成
+        created_by: 創建者
+        creation_date: 創建日期
+        developer_group: 促銷團隊
+        duration: 持續時間
+        included_at: 包含於
+        indefinite_duration: 不確定
+        internal_organisation: 內部組織
+        is_transparent:
+          'false': 不透明
+          'true': 透明
+        local_area: 組織區域
+        participatory_scope: 決定了什麼
+        participatory_structure: 如何決定
         scope: 範圍
         social_networks: 社群網路
         social_networks_title: 訪問集會
