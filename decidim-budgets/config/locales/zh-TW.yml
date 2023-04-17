@@ -103,9 +103,68 @@ zh-TW:
             update_scope_button: 更新範圍
           new:
             create: 建立
+            title: 新專案
+          update:
+            invalid: 更新此專案時出現問題
+            success: 專案更新成功。
+          update_category:
+            invalid: '這些專案已經擁有了 %{subject_name} 類別: %{projects}'
+            select_a_category: 請選擇一個類別。
+            select_a_project: 請選擇一個專案
+            success: '已成功將以下專案更新至 %{subject_name} 類別: %{projects}。'
+          update_scope:
+            invalid: '這些專案已經有了 %{subject_name} 的範圍: %{projects}。'
+            select_a_project: 請選擇一個專案
+            select_a_scope: 請選擇一個範圍。
+            success: '已成功將以下專案更新至 %{subject_name} 範圍: %{projects}。'
+          update_selected:
+            invalid:
+              selected: '這些專案已被選擇以實施：％{projects}。'
+              unselected: '這些專案已從實施中取消選擇: ％{projects}。'
+            select_a_project: 請選擇一個專案
+            select_a_selection: 請選擇實施狀態。
+            success:
+              selected: '這些專案已成功選擇實施：%{projects}。'
+              unselected: '這些專案已經成功從實施中取消選擇: %{projects}。'
+        proposals_imports:
+          create:
+            invalid: 將提案匯入專案時出現問題。
+            success: "%{number} 個提案已成功匯入專案。"
+          new:
+            create: 將提案匯入專案
+            default_budget: 預設預算
+            import_all_accepted_proposals: 導入所有已接受的提案
+            no_components: 在此參與空間中沒有其他提案元件可以將提案匯入到專案中。
+            origin_component_id: 原始元件
+            select_component: 請選擇一個組件
+            title: 導入提案
+        reminders:
+          orders:
+            description: 使用者將會收到一封電子郵件，內含連結至他們有待處理訂單的預算。
+            title:
+              other: 您即將向 %{count} 位使用者發送電子郵件提醒
       admin_log:
+        budget:
+          create: "%{user_name} 在 %{space_name} 空間創建了 %{resource_name} 預算。"
+          delete: "%{user_name} 刪除了 %{space_name} 空間中的 %{resource_name} 預算"
+          update: "%{user_name} 在 %{space_name} 空間更新了 %{resource_name} 預算"
         project:
+          create: "%{user_name} 在 %{space_name} 空間中創建了 %{resource_name} 專案"
           delete: "%{user_name} 刪除了 %{space_name} 空間中的 %{resource_name} 專案。"
           update: "%{user_name} 更新了 %{space_name} 空間中的 %{resource_name} 專案。"
       budget:
         view: 查看所有預算專案
+      projects:
+        budget_summary:
+          projects_rule:
+            instruction: "<li>請至少選擇 %{minimum_number} 個至多 %{maximum_number} 個您想要的項專案，並根據您的喜好進行投票以定義預算。</li>"
+          projects_rule_maximum_only:
+            description: 你認為我們應該為哪些專案分配預算？請選擇最多 %{maximum_number} 個專案，根據你的喜好進行投票，來定義預算。
+            instruction: "\"<li>選擇最多 %{maximum_number} 個您想為其分配預算的專案，並根據您的喜好進行投票，以定義預算。</li>"
+          rules:
+            title: 預算規則
+          title: 你決定預算
+          total_budget: 總預算
+          total_projects: 總票數
+          vote_threshold_percent_rule:
+            description: 您覺得我們應該為哪些專案分配預算？為您想要的專案分配至少 %{minimum_budget} 的預算，並按照您的喜好進行投票以定義預算。
