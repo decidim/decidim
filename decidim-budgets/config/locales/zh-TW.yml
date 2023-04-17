@@ -71,3 +71,6 @@ zh-TW:
       admin_log:
         project:
           delete: "%{user_name} 刪除了 %{space_name} 空間中的 %{resource_name} 專案。"
+          update: "%{user_name} 更新了 %{space_name} 空間中的 %{resource_name} 專案。"
+      budget:
+        view: 查看所有預算專案
