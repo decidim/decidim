@@ -8,19 +8,19 @@
   <%= t("select_initiative_type_help", scope: "decidim.initiatives.create_initiative.select_initiative_type") %>
   <%= link_to t("more_information", scope: "decidim.initiatives.create_initiative.select_initiative_type"), decidim.page_path("initiatives"), target: "_blank", class: 'button button__sm button__text-secondary block' %>
 </div>
-<div class="verification__container">
+<div class="initiatives__selection__container">
   <% initiative_types_each do |type| %>
-    <div class="verification">
+    <div class="initiatives__selection">
       <% if allowed_to?(:create, :initiative, { initiative_type: type }) %>
         <%= decidim_form_for(@form, url: next_wizard_path, method: :put, html: { id: "new_initiative_#{type.id}", class: "form-defaults" }) do |f| %>
           <%= f.hidden_field :type_id, value: type.id, id: "initiative_type_id_#{ type.id }" %>
-          <button>
+          <button class="initiatives__selection__card">
             <%= icon "lightbulb-flash-line", class: "verification__icon " %>
-            <div class="verification__text">
+            <div class="initiatives__selection__text">
               <h2 class="h5 text-secondary"><%= translated_attribute(type.title) %></h2>
               <span><%= raw translated_attribute type.description %></span>
             </div>
-            <%= icon "arrow-right-s-line", class: "fill-primary verification__icon" %>
+            <%= icon "arrow-right-s-line", class: "fill-secondary initiatives__selection__icon" %>
           </button>
         <% end %>
       <% else %>

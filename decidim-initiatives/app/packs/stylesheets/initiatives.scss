@@ -1,5 +1,41 @@
 .initiatives{
   @apply block;
+
+  &__selection{
+    @apply border-[3px] border-background rounded cursor-pointer;
+
+    &__container{
+      @apply space-y-8 mt-10;
+    }
+
+    &__card{
+      @apply flex items-center justify-between gap-4 pl-4 pr-20 py-4;
+    }
+
+    &__icon{
+      @apply flex-none w-8 h-8 text-gray fill-secondary;
+
+      &.is-granted{
+        @apply text-success;
+      }
+    }
+
+    &__text{
+      @apply grow space-y-2.5 text-left;
+
+      span{
+        @apply inline-block text-sm text-gray-2;
+      }
+    }
+
+    &:hover{
+      @apply border-tertiary;
+    }
+
+    &:hover &__text > :first-child{
+      @apply underline;
+    }
+  }
 }
 
 .wizard__steps{
