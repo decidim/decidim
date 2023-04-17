@@ -29,24 +29,22 @@
     <% end %>
   </div>
 
-  <div class="mb-24">
-    <% unless questionnaire_for.try(:component)&.try(:published?) %>
-      <%= cell("decidim/announcement", t("decidim.forms.questionnaires.show.questionnaire_not_published.body"), callout_class: "warning") %>
-    <% end %>
+  <% unless questionnaire_for.try(:component)&.try(:published?) %>
+    <%= cell("decidim/announcement", t("decidim.forms.questionnaires.show.questionnaire_not_published.body"), callout_class: "warning") %>
+  <% end %>
 
-    <% if allow_answers? %>
-      <% if visitor_can_answer? %>
-        <% if visitor_already_answered? %>
-          <%= cell("decidim/announcement", { title: t("decidim.forms.questionnaires.show.questionnaire_answered.title"), body: t("decidim.forms.questionnaires.show.questionnaire_answered.body") }) %>
-        <% else %>
-          <%= render partial: "decidim/forms/questionnaires/questionnaire" %>
-        <% end %>
+  <% if allow_answers? %>
+    <% if visitor_can_answer? %>
+      <% if visitor_already_answered? %>
+        <%= cell("decidim/announcement", { title: t("decidim.forms.questionnaires.show.questionnaire_answered.title"), body: t("decidim.forms.questionnaires.show.questionnaire_answered.body") }) %>
       <% else %>
-        <%= render partial: "decidim/forms/questionnaires/questionnaire_readonly" %>
+        <%= render partial: "decidim/forms/questionnaires/questionnaire" %>
       <% end %>
     <% else %>
-      <%= cell("decidim/announcement", { title: t("decidim.forms.questionnaires.show.questionnaire_closed.title"), body: t("decidim.forms.questionnaires.show.questionnaire_closed.body") }, callout_class: "warning") %>
+      <%= render partial: "decidim/forms/questionnaires/questionnaire_readonly" %>
     <% end %>
-  </div>
+  <% else %>
+    <%= cell("decidim/announcement", { title: t("decidim.forms.questionnaires.show.questionnaire_closed.title"), body: t("decidim.forms.questionnaires.show.questionnaire_closed.body") }, callout_class: "warning") %>
+  <% end %>
 
 <% end %>

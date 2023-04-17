@@ -152,7 +152,7 @@ module Decidim
       end
 
       def nav_paths
-        return if meeting.blank?
+        return {} if meeting.blank?
 
         { prev_path: prev_meeting, next_path: next_meeting }.compact_blank.transform_values { |meeting| meeting_path(meeting) }.merge(back_path: meetings_path)
       end
