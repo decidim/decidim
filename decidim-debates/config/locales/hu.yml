@@ -10,6 +10,7 @@ hu:
         end_time: Lejár ekkor
         information_updates: Információ frissítések
         instructions: Útmutató a részvételhez
+        scope_id: Hatókör
         start_time: Kezdődik
         title: Cím
         user_group_id: Vita létrehozása
@@ -171,6 +172,9 @@ hu:
             title: Verziók
         versions_list:
           back_to_resource: Visszalépés a vitához
+      last_activity:
+        debate_updated: 'Vita frissítve:'
+        new_debate: 'Új vita:'
       models:
         debate:
           fields:
@@ -204,6 +208,7 @@ hu:
           email_intro: 'Indíts új vitákat itt: %{participatory_space_title}! Te is részt vehetsz bennük ezen az oldalon:'
           email_outro: 'Ezt az értesítést azért kaptad, mert ezt követed: "%{participatory_space_title}". Az értesítéseket a következő linkre kattintva kapcsolhatod ki.'
           email_subject: 'Viták létrehozása lehetséges itt: %{participatory_space_title}'
+          notification_title: A href="%{resource_path}">Kezd új vitát</a> a(z) <a href="%{participatory_space_url}">%{participatory_space_title}</a> helyen.
         debate_closed:
           affected_user:
             email_intro: 'A(z) "%{resource_title}" vitát lezárták. A következtetéseket a kapcsolódó oldalon olvashatja el:'
@@ -226,6 +231,7 @@ hu:
           name: Viták
           next_level_in: Vegyen részt még %{score} vitában, hogy elérje a következő szintet!
           unearned_another: Ez a felhasználó még nem vett részt vitában.
+          unearned_own: Még nem vett részt a vitákban.
     metrics:
       debates:
         description: A létrehozott viták száma
