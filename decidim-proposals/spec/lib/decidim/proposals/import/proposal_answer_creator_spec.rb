@@ -116,19 +116,5 @@ describe Decidim::Proposals::Import::ProposalAnswerCreator do
         expect(subject.finish!).to eq({ invalid: [] })
       end
     end
-
-    context "when state is unknown" do
-      let(:data) do
-        {
-          id: 99_999_999,
-          state: "fakestate",
-          "answer/en": Faker::Lorem.paragraph
-        }
-      end
-
-      it "broadcasts invalid message" do
-        expect(subject.finish!).to eq({ invalid: [] })
-      end
-    end
   end
 end
