@@ -52,14 +52,14 @@
   }
 
   &__list{
-    @apply flex flex-col md:flex-row items-center gap-2.5 md:gap-4 px-4 rounded overflow-hidden border-l-4 border-background hover:border-tertiary transition;
+    @apply flex flex-col md:flex-row items-center gap-2.5 md:gap-4 px-4 rounded overflow-hidden border-l-4 border-background hover:border-tertiary focus-visible:border-tertiary focus-visible:outline-none transition;
 
     &-content{
       @apply flex flex-col gap-2.5;
     }
 
     &-title{
-      @apply h4 text-secondary focus-visible:outline-none focus-visible:underline;
+      @apply h4 text-secondary;
     }
 
     &-image{
@@ -95,6 +95,7 @@
       @apply mt-6;
     }
 
+    &:focus &-title,
     &:hover &-title{
       @apply underline;
     }
