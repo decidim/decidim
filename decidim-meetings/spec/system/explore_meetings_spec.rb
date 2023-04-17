@@ -7,6 +7,8 @@ describe "Explore meetings", :slow, type: :system do
   let(:manifest_name) { "meetings" }
 
   let(:meetings_count) { 5 }
+  let(:meetings_selector) { "[id^='meetings__meeting_']" }
+
   let!(:meetings) do
     create_list(:meeting, meetings_count, :not_official, :published, component:)
   end
@@ -23,7 +25,7 @@ describe "Explore meetings", :slow, type: :system do
   describe "index" do
     it "shows all meetings for the given process" do
       visit_component
-      expect(page).to have_selector(".meeting-list", count: meetings_count)
+      expect(page).to have_selector(meetings_selector, count: meetings_count)
 
       meetings.each do |meeting|
         expect(page).to have_content(translated(meeting.title))
@@ -41,7 +43,7 @@ describe "Explore meetings", :slow, type: :system do
         end
 
         within "#meetings" do
-          expect(page).to have_css(".meeting-list", count: 6)
+          expect(page).to have_css(meetings_selector, count: 6)
         end
 
         expect(page).to have_content(translated(upcoming_meeting.title))
@@ -99,7 +101,7 @@ describe "Explore meetings", :slow, type: :system do
       it "does not list the hidden meetings" do
         visit_component
 
-        expect(page).to have_selector(".meeting-list", count: meetings_count - 1)
+        expect(page).to have_selector(meetings_selector, count: meetings_count - 1)
 
         expect(page).to have_no_content(translated(meeting.title))
       end
@@ -164,9 +166,9 @@ describe "Explore meetings", :slow, type: :system do
               click_filter_item "Official"
             end
 
-            expect(page).to have_css(".meeting-list", count: 1)
+            expect(page).to have_css(meetings_selector, count: 1)
 
-            within ".meeting-list" do
+            within meetings_selector do
               expect(page).to have_content("Official meeting")
             end
           end
@@ -183,8 +185,8 @@ describe "Explore meetings", :slow, type: :system do
               click_filter_item "Groups"
             end
 
-            expect(page).to have_css(".meeting-list", count: 1)
-            within ".meeting-list" do
+            expect(page).to have_css(meetings_selector, count: 1)
+            within meetings_selector do
               expect(page).to have_content(translated(user_group_meeting.title))
             end
           end
@@ -201,7 +203,7 @@ describe "Explore meetings", :slow, type: :system do
               click_filter_item "Participants"
             end
 
-            expect(page).to have_css(".meeting-list", count: meetings_count)
+            expect(page).to have_css(meetings_selector, count: meetings_count)
           end
         end
       end
@@ -218,7 +220,7 @@ describe "Explore meetings", :slow, type: :system do
           end
         end
 
-        expect(page).to have_css(".meeting-list", count: 1)
+        expect(page).to have_css(meetings_selector, count: 1)
         expect(page).to have_content(translated(meetings.first.title))
       end
 
@@ -239,7 +241,7 @@ describe "Explore meetings", :slow, type: :system do
             click_filter_item "Past"
           end
 
-          expect(page).to have_css(".meeting-list", count: 3)
+          expect(page).to have_css(meetings_selector, count: 3)
           expect(page).to have_content(translated(past_meeting1.title))
           expect(page).not_to have_content(translated(upcoming_meeting1.title))
 
@@ -250,13 +252,13 @@ describe "Explore meetings", :slow, type: :system do
           expect(page).to have_content(translated(upcoming_meeting1.title))
           expect(page).not_to have_content(translated(past_meeting1.title))
 
-          expect(page).to have_css(".meeting-list", count: 8)
+          expect(page).to have_css(meetings_selector, count: 8)
 
           within "#panel-dropdown-menu-date" do
             click_filter_item "All"
           end
 
-          expect(page).to have_css(".meeting-list", count: 8)
+          expect(page).to have_css(meetings_selector, count: 8)
           expect(page).to have_content(translated(past_meeting1.title))
           expect(page).to have_content(translated(upcoming_meeting1.title))
         end
@@ -326,7 +328,7 @@ describe "Explore meetings", :slow, type: :system do
           click_filter_item "Past"
         end
 
-        expect(page).to have_css(".meeting-list", count: 1)
+        expect(page).to have_css(meetings_selector, count: 1)
         expect(page).to have_content(translated(past_meeting.title))
 
         filter_params = CGI.parse(URI.parse(page.current_url).query)
@@ -345,7 +347,7 @@ describe "Explore meetings", :slow, type: :system do
         end
 
         visit short_url
-        expect(page).to have_css(".meeting-list", count: 1)
+        expect(page).to have_css(meetings_selector, count: 1)
         expect(page).to have_content(translated(past_meeting.title))
         expect(page).to have_current_path(/^#{main_component_path(component)}/)
 
@@ -368,7 +370,7 @@ describe "Explore meetings", :slow, type: :system do
           click_filter_item translated(scope.name)
         end
 
-        expect(page).to have_css(".meeting-list", count: 1)
+        expect(page).to have_css(meetings_selector, count: 1)
       end
 
       it "works with 'back to list' link" do
@@ -386,12 +388,12 @@ describe "Explore meetings", :slow, type: :system do
           click_filter_item translated(scope.name)
         end
 
-        expect(page).to have_css(".meeting-list", count: 1)
+        expect(page).to have_css(meetings_selector, count: 1)
 
         find("a.meeting-list").click
         find("div[data-drawer-close]").click
 
-        expect(page).to have_css(".meeting-list", count: 1)
+        expect(page).to have_css(meetings_selector, count: 1)
       end
     end
 
@@ -402,7 +404,7 @@ describe "Explore meetings", :slow, type: :system do
 
       it "only shows the past meetings" do
         visit_component
-        expect(page).to have_css(".meeting-list", count: 2)
+        expect(page).to have_css(meetings_selector, count: 2)
       end
 
       it "shows the correct warning" do
@@ -430,7 +432,7 @@ describe "Explore meetings", :slow, type: :system do
       end
 
       let!(:collection) { create_list :meeting, collection_size, :published, component: }
-      let!(:resource_selector) { ".meeting-list" }
+      let!(:resource_selector) { meetings_selector }
 
       it_behaves_like "a paginated resource"
     end
