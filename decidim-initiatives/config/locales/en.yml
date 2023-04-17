@@ -1,6 +1,5 @@
 ---
 en:
-
   activemodel:
     attributes:
       initiative:
@@ -382,11 +381,11 @@ en:
           access_reminder: You can access your initiatives through the %{link} filter on the Initiatives page.
           publish_helper_text: Remember that for your initiative to be published you must complete the required information and <strong>send it to technical validation</strong> for an administrator to review it.
         previous_form:
-          select_scope: Select a scope
           back: Back
           continue: Continue
           help: What does the initiative consist of? Write down the title and description. We recommend a short and concise title and a description focused on the proposed solution.
           more_information: "(More information)"
+          select_scope: Select a scope
         promotal_committee:
           back: Back
           individual_help_text: This kind of initiative requires a Promoting Commission consisting of at least %{committee_size} people (attestors). You must share the following link with the other people that are part of this initiative. When your contacts receive this link they will have to follow the indicated steps.
@@ -638,7 +637,6 @@ en:
         promotal_committee: Promoter committee
         select_initiative_type: Choose
         show_similar_initiatives: Compare
-        step: Step %{current} of %{total}
         title: Create new initiative
       initiative_header:
         initiative_menu_item: Initiative

@@ -8,7 +8,6 @@ module Decidim
     class CreateInitiativeController < Decidim::Initiatives::ApplicationController
       layout "layouts/decidim/initiative_creation"
 
-      # include Wicked::Wizard
       include Decidim::FormFactory
       include InitiativeHelper
       include TypeSelectorOptions
@@ -29,13 +28,11 @@ module Decidim
         redirect_to previous_form_create_initiative_index_path if single_initiative_type?
         @form = form(Decidim::Initiatives::SelectInitiativeTypeForm).from_params(params)
 
-        if request.put?
-          if @form.valid?
-            session[:type_id] = @form.type_id
-            redirect_to previous_form_create_initiative_index_path
-          else
-            render :select_initiative_type && return
-          end
+        render :select_initiative_type && return unless request.put?
+
+        if @form.valid?
+          session[:type_id] = @form.type_id
+          redirect_to previous_form_create_initiative_index_path
         end
       end
 
@@ -44,17 +41,13 @@ module Decidim
 
         enforce_permission_to :create, :initiative, { initiative_type: }
 
-        if request.put?
-          @form = form(Decidim::Initiatives::PreviousForm).from_params(params, { initiative_type: })
+        render :previous_form && return unless request.put?
 
-          CreateInitiative.call(@form, current_user) do
-            on(:ok) do |initiative|
-              session[:initiative_id] = initiative.id
-              redirect_to show_similar_initiatives_create_initiative_index_path
-            end
-            on(:invalid) do |_initiative|
-              render :previous_form && return
-            end
+        @form = form(Decidim::Initiatives::PreviousForm).from_params(params, { initiative_type: })
+        CreateInitiative.call(@form, current_user) do
+          on(:ok) do |initiative|
+            session[:initiative_id] = initiative.id
+            redirect_to show_similar_initiatives_create_initiative_index_path
           end
         end
       end
@@ -68,18 +61,16 @@ module Decidim
       def fill_data
         @form = form(Decidim::Initiatives::InitiativeForm).from_model(current_initiative, { initiative_type: })
 
-        if request.put?
-          @form = form(Decidim::Initiatives::InitiativeForm).from_params(params, { initiative_type: })
+        render :fill_data && return unless request.put?
 
-          UpdateInitiative.call(current_initiative, @form, current_user) do
-            on(:ok) do
-              path = promotal_committee_required? ? "promotal_committee" : "finish"
+        enforce_permission_to :create, :initiative, { initiative_type: }
 
-              redirect_to send("#{path}_create_initiative_index_path".to_sym)
-            end
-            on(:invalid) do
-              render :fill_data && return
-            end
+        @form = form(Decidim::Initiatives::InitiativeForm).from_params(params, { initiative_type: })
+        UpdateInitiative.call(current_initiative, @form, current_user) do
+          on(:ok) do
+            path = promotal_committee_required? ? "promotal_committee" : "finish"
+
+            redirect_to send("#{path}_create_initiative_index_path".to_sym)
           end
         end
       end

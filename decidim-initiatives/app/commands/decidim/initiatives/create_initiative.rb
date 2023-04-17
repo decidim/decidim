@@ -63,7 +63,6 @@ module Decidim
           scoped_type:,
           signature_type: form.type.signature_type,
           state: "created",
-          hashtag: form.hashtag
         )
       end
 
