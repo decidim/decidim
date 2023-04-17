@@ -18,7 +18,7 @@
   <div class="medium-centered">
     <div class="card">
       <div class="card__content">
-        <%= decidim_form_for(@form, url: next_wizard_path, method: :put, html: { class: "form new_initiative_previous_form" }) do |f| %>
+        <%= decidim_form_for(@form, url: previous_form_create_initiative_index_path, method: :put, html: { class: "form new_initiative_previous_form" }) do |f| %>
           <%= form_required_explanation %>
           <%= f.hidden_field :type_id %>
 
@@ -29,6 +29,17 @@
           <div class="field">
             <%= text_editor_for(f, :description, lines: 8, toolbar: :full) %>
           </div>
+
+          <% if scopes.length == 1 %>
+            <%= f.hidden_field :scope_id, value: scopes.first.scope&.id %>
+          <% else %>
+            <div class="field">
+              <%= f.select :scope_id,
+                           scopes.map { |scope| [translated_attribute(scope.scope_name), scope&.scope&.id] },
+                           required: true,
+                           include_blank: t(".select_scope") %>
+            </div>
+          <% end %>
 
           <div class="actions">
             <%= f.submit t(".continue"), class: "button expanded" %>

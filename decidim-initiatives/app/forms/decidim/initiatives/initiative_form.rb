@@ -3,16 +3,12 @@
 module Decidim
   module Initiatives
     # A form object used to collect the data for a new initiative.
-    class InitiativeForm < Form
+    class InitiativeForm < PreviousForm
       include TranslatableAttributes
       include AttachmentAttributes
 
       mimic :initiative
 
-      attribute :title, String
-      attribute :description, String
-      attribute :type_id, Integer
-      attribute :scope_id, Integer
       attribute :area_id, Integer
       attribute :decidim_user_group_id, Integer
       attribute :signature_type, String
@@ -24,12 +20,8 @@ module Decidim
       attachments_attribute :photos
       attachments_attribute :documents
 
-      validates :title, :description, presence: true
-      validates :title, length: { maximum: 150 }
       validates :signature_type, presence: true
-      validates :type_id, presence: true
       validates :area, presence: true, if: ->(form) { form.area_id.present? }
-      validate :scope_exists
       validate :notify_missing_attachment_if_errored
       validate :trigger_attachment_errors
       validates :signature_end_date, date: { after: Date.current }, if: lambda { |form|
@@ -53,30 +45,12 @@ module Decidim
         @area_updatable ||= current_user.admin? || context.initiative.created?
       end
 
-      def scope_id
-        return nil if initiative_type.only_global_scope_enabled?
-
-        super.presence
-      end
-
       def area
         @area ||= current_organization.areas.find_by(id: area_id)
       end
 
       def initiative_type
         @initiative_type ||= type_id ? InitiativesType.find(type_id) : context.initiative.type
-      end
-
-      def available_scopes
-        @available_scopes ||= if initiative_type.only_global_scope_enabled?
-                                initiative_type.scopes.where(scope: nil)
-                              else
-                                initiative_type.scopes
-                              end
-      end
-
-      def scope
-        @scope ||= Scope.find(scope_id) if scope_id.present?
       end
 
       def scoped_type_id
@@ -86,16 +60,6 @@ module Decidim
       end
 
       private
-
-      def type
-        @type ||= type_id ? Decidim::InitiativesType.find(type_id) : context.initiative.type
-      end
-
-      def scope_exists
-        return if scope_id.blank?
-
-        errors.add(:scope_id, :invalid) unless InitiativesTypeScope.exists?(type: initiative_type, scope:)
-      end
 
       # This method will add an error to the `attachment` field only if there is
       # any error in any other field. This is needed because when the form has

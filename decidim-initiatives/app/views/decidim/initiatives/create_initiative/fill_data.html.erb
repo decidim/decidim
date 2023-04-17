@@ -18,7 +18,7 @@
   <div class="medium-centered">
     <div class="card">
       <div class="card__content">
-        <%= decidim_form_for(@form, url: next_wizard_path, method: :put, html: { class: "form new_initiative_form", novalidate: false }) do |f| %>
+        <%= decidim_form_for(@form, url: fill_data_create_initiative_index_path, method: :put, html: { class: "form new_initiative_form", novalidate: false }) do |f| %>
           <%= form_required_explanation %>
           <div class=section>
             <% if single_initiative_type? %>
@@ -41,11 +41,11 @@
             <% end %>
 
             <div class="field">
-              <%= f.text_field :title, autofocus: true %>
+              <%= f.text_field :title, autofocus: true, value: translated_attribute(f.object.title) %>
             </div>
 
             <div class="field">
-              <%= text_editor_for(f, :description, lines: 8, toolbar: :full) %>
+              <%= text_editor_for(f, :description, lines: 8, toolbar: :full, value: translated_attribute(f.object.description)) %>
             </div>
 
             <div class="field">

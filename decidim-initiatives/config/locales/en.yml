@@ -1,5 +1,6 @@
 ---
 en:
+
   activemodel:
     attributes:
       initiative:
@@ -381,6 +382,7 @@ en:
           access_reminder: You can access your initiatives through the %{link} filter on the Initiatives page.
           publish_helper_text: Remember that for your initiative to be published you must complete the required information and <strong>send it to technical validation</strong> for an administrator to review it.
         previous_form:
+          select_scope: Select a scope
           back: Back
           continue: Continue
           help: What does the initiative consist of? Write down the title and description. We recommend a short and concise title and a description focused on the proposed solution.

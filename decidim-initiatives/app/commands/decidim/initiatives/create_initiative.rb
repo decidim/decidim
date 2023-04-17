@@ -5,7 +5,6 @@ module Decidim
     # A command with all the business logic that creates a new initiative.
     class CreateInitiative < Decidim::Command
       include CurrentLocale
-      include ::Decidim::MultipleAttachmentsMethods
 
       # Public: Initializes the command.
       #
@@ -24,11 +23,6 @@ module Decidim
       # Returns nothing.
       def call
         return broadcast(:invalid) if form.invalid?
-
-        if process_attachments?
-          build_attachments
-          return broadcast(:invalid) if attachments_invalid?
-        end
 
         initiative = create_initiative
 
@@ -50,8 +44,6 @@ module Decidim
 
         initiative.transaction do
           initiative.save!
-          @attached_to = initiative
-          create_attachments if process_attachments?
 
           create_components_for(initiative)
           send_notification(initiative)
@@ -68,11 +60,8 @@ module Decidim
           title: { current_locale => form.title },
           description: { current_locale => form.description },
           author: current_user,
-          decidim_user_group_id: form.decidim_user_group_id,
           scoped_type:,
-          area:,
-          signature_type: form.signature_type,
-          signature_end_date:,
+          signature_type: form.type.signature_type,
           state: "created",
           hashtag: form.hashtag
         )
@@ -80,7 +69,7 @@ module Decidim
 
       def scoped_type
         InitiativesTypeScope.find_by(
-          type: form.initiative_type,
+          type: form.type,
           scope: form.scope
         )
       end
