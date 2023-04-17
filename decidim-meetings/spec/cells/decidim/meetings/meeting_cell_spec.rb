@@ -14,7 +14,6 @@ module Decidim::Meetings
 
     context "when rendering" do
       it "renders the card" do
-        byebug
         expect(cell_html).to have_css(meetings_selector)
       end
     end
