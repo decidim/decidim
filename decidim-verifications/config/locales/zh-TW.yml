@@ -1,1 +1,9 @@
+---
 zh-TW:
+  decidim:
+    verifications:
+      id_documents:
+        admin:
+          rejections:
+            create:
+              success: 驗證被拒絕。參與者將被提示修改文件
