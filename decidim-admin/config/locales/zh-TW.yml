@@ -281,3 +281,7 @@ zh-TW:
       organization_homepage_content_blocks:
         edit:
           update: 更新
+      participatory_space_private_users_csv_imports:
+        new:
+          destroy:
+            confirm: 您確定要刪除所有私人參與者嗎？此操作無法撤銷，您將無法恢復它們。
