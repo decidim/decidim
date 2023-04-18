@@ -1,1 +1,8 @@
+---
 zh-TW:
+  decidim:
+    admin:
+      initiatives_settings:
+        update:
+          error: 發生一個錯誤
+          success: 提案設定已成功更新
