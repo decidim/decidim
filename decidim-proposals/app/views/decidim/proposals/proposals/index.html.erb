@@ -41,7 +41,9 @@
 
     search_variable = :search_text_cont %>
 
-  <%= render partial: "decidim/shared/filters", locals: { filter_sections: , search_variable: } %>
+  <%= render layout: "decidim/shared/filters", locals: { filter_sections: , search_variable: } do %>
+    <%= hidden_field_tag :order, order, id: nil, class: "order_filter" %>
+  <% end %>
 <% end %>
 
 <%= render layout: "layouts/decidim/shared/layout_two_col" do %>
