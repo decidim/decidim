@@ -1,1 +1,19 @@
 zh-TW:
+  decidim:
+    admin:
+      templates:
+        apply:
+          success: 模板成功應用
+        copy:
+          success: 模板成功複製
+        create:
+          success: 模板建立成功
+        destroy:
+          success: 模板删除成功
+        update:
+          success: 模板更新成功
+    templates:
+      admin:
+        questionnaire_templates:
+          edit:
+            empty: 目前為止還沒有什麼問題
