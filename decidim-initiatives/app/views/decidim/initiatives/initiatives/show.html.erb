@@ -32,38 +32,45 @@ edit_link(
 <%= content_for :aside do %>
   <div class="p-6 w-full">
     <% if current_initiative.published? || current_initiative.rejected? || current_initiative.accepted? %>
-      <%= render partial: "progress_bar" %>
       <% if current_initiative.votes_enabled? %>
-        <div id="initiative-<%= current_initiative.id %>-vote-cabin">
+        <div class="mb-4" id="initiative-<%= current_initiative.id %>-vote-cabin">
           <%= render partial: "vote_cabin", locals: { initiative: current_initiative } %>
         </div>
       <% end %>
-      <% if current_initiative.commentable? %>
-        <%= render partial: "interactions" %>
-      <% end %>
+      <%= render partial: "progress_bar" %>
     <% else %>
       <%= link_to t(".edit"),
           edit_initiative_path(current_initiative),
-          class: "button expanded" %>
+          class: "button button__lg button__secondary" %>
       <%= render partial: "send_to_technical_validation", locals: { title: t(".send_to_technical_validation"), confirm: t(".confirm")} %>
     <% end %>
-    <% if current_user %>
-      <%= cell "decidim/follow_button", current_participatory_space, inline: false, large: true %>
-      <small><%= t(".follow_description") %></small>
-    <% end %>
-    <%= render partial: "decidim/shared/share_modal" %>
+
+    <%= render partial: "initiative_badge", locals: { initiative: current_initiative } %>
+
   </div>
 <% end %>
 
-<h2 class="h2 decorator">
+<h2 class="h2 decorator mb-4">
   <%= translated_attribute(current_initiative.title) %>
 </h2>
 <%= render partial: "author", locals: { initiative: current_initiative } %>
-<%= render partial: "initiative_badge", locals: { initiative: current_initiative } %>
+
 <%= decidim_sanitize_editor translated_attribute(current_initiative.description) %>
-<%= render partial: "tags", locals: { resource: current_initiative } %>
-<%= render partial: "result", locals: { initiative: current_initiative } %>
+
 <%= attachments_for current_initiative %>
+<%= render partial: "result", locals: { initiative: current_initiative } %>
+
+<div class="my-4 flex gap-x-1 items-center">
+  <%= cell "decidim/comments_button", nil %>
+  <div class="ml-auto">
+    <%= render partial: "tags", locals: { resource: current_initiative } %>
+  </div>
+</div>
+
+<%= cell "decidim/share_button", nil %>
+<% if current_user %>
+  <%= render partial: "decidim/shared/follow_button", class: "text-center", locals: { followable: current_participatory_space, large: true } %>
+<% end %>
 
 <%= comments_for current_initiative if current_initiative.commentable? && current_initiative.published? %>
 
