@@ -19,9 +19,11 @@ module Decidim
 
         empty_path = [
           "/",
+          "/users",
           "/users/sign_in",
           "/users/sign_up",
           "/users/password/new",
+          "/users/password/edit",
           "/users/confirmation/new",
           "/users/unlock/new"
         ].any? { |path| is_active_link?(path, :exclusive) }
