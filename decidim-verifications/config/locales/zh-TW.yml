@@ -1,6 +1,11 @@
 ---
 zh-TW:
   decidim:
+    admin:
+      menu:
+        authorization_revocation:
+          destroy:
+            confirm: 撤銷在指定日期之前的授權無法撤消。您確定要繼續嗎？
     verifications:
       id_documents:
         admin:
