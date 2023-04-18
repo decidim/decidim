@@ -150,6 +150,8 @@ zh-TW:
             title: 超過最大專案數量
         budget_summary:
           are_you_sure: 您確定要取消您的投票嗎?
+          assigned: '已指派:'
+          cancel_order: 刪除你的投票並重新開始
           projects_rule:
             instruction: "<li>請至少選擇 %{minimum_number} 個至多 %{maximum_number} 個您想要的項專案，並根據您的喜好進行投票以定義預算。</li>"
           projects_rule_maximum_only:
