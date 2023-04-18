@@ -1,1 +1,5 @@
 zh-TW:
+  activemodel:
+    attributes:
+      user:
+        tos_agreement: 使用協議的條款和條件
