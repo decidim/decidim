@@ -234,3 +234,16 @@ zh-TW:
             workflow: 工作流程
             workflow_choices:
               all: '全部投票：允許參與者投票所有預算。'
+              one: '僅限投一票: 參與者可以在任意預算中投票，但僅限投一票。'
+          step:
+            announcement: 公告
+            comments_blocked: 留言已封鎖
+            highlighted_heading: 突顯標題
+            landing_page_content: 預算網頁首頁
+            list_heading: 標題清單
+            more_information_modal: 更多資訊彈出式視窗
+            show_votes: 顯示投票
+            title: 標題
+            votes: 投票
+            votes_choices:
+              disabled: 投票已停用
