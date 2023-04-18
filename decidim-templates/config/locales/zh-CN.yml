@@ -6,18 +6,11 @@ zh-CN:
       templates:
         apply:
           error: 应用此模板时出现问题。
-          success: 模板应用成功
         copy:
           error: 复制此模板时出现问题。
-          success: 模板复制成功
         create:
           error: 创建此模板时出现问题。
-          success: 模板创建成功
-        destroy:
-          success: 模板删除成功
         empty: 尚无模板。
-        update:
-          success: 模板更新成功
       titles:
         template_types:
           questionnaires: 问卷模板
@@ -42,7 +35,6 @@ zh-CN:
             skip_template: 跳过
           edit:
             edit: 编辑
-            empty: 还没有问题
             questionnaire: Questionnaire
           form:
             save: 保存

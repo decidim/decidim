@@ -32,7 +32,7 @@ describe "Space admin manages global moderations", type: :system do
 
     it "has a message that they need to accept the admin TOS" do
       expect(page).to have_content("You are not authorized")
-      expect(page).to have_content("Please take a moment to review the admin terms of use. Otherwise you will not be able to manage the platform")
+      expect(page).to have_content("Please take a moment to review the admin terms of service. Otherwise you will not be able to manage the platform")
     end
 
     it "has only the Dashboard menu item in the main navigation" do
@@ -63,7 +63,7 @@ describe "Space admin manages global moderations", type: :system do
       visit decidim_admin.moderations_path
 
       within "body", wait: 2 do
-        expect(page).to have_content("Moderations")
+        expect(page).to have_content("Reported content")
         expect(page).to have_link("Visit URL")
 
         find_link("Visit URL").hover
@@ -99,7 +99,7 @@ describe "Space admin manages global moderations", type: :system do
       visit decidim_admin.moderations_path
 
       within ".container" do
-        expect(page).to have_content("Moderations")
+        expect(page).to have_content("Reported content")
 
         expect(page).to have_no_selector("table.table-list tbody tr")
       end

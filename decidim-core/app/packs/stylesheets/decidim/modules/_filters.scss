@@ -5,42 +5,42 @@ $filters-padding-x: 1rem;
 $filters-padding-y: 1rem;
 
 // Styles
-.filters-wrapper{
-  @include breakpoint(medium){
+.filters-wrapper {
+  @include breakpoint(medium) {
     display: flex;
   }
 }
 
-.filters-controls{
+.filters-controls {
   @include clearfix;
 
   margin: 1rem 0 2rem;
 }
 
-.filters-controls__trigger{
+.filters-controls__trigger {
   width: 100%;
   font-weight: 600;
   text-align: left;
   background: $light-gray;
-  padding: .5rem;
+  padding: 0.5rem;
   border: $border;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.filters{
+.filters {
   display: none;
   min-height: 100%;
   padding: $filters-padding;
 
-  @include breakpoint(medium){
+  @include breakpoint(medium) {
     display: block;
     padding: 0;
     margin: 0;
   }
 
-  .reveal &{
+  .reveal & {
     display: block;
     border: none;
     padding: 0;
@@ -48,145 +48,145 @@ $filters-padding-y: 1rem;
   }
 }
 
-.js .filters__content{
+.js .filters__content {
   display: none;
 
-  &.is-active{
+  &.is-active {
     display: block;
   }
 
-  @include breakpoint(medium){
+  @include breakpoint(medium) {
     display: block;
   }
 }
 
-.filters__section{
+.filters__section {
   border-bottom: $border;
   padding: $filters-padding-x $filters-padding-y;
 
-  &:first-of-type{
+  &:first-of-type {
     padding-top: $filters-padding-x * 1.5;
   }
 
-  &:last-of-type{
+  &:last-of-type {
     padding-bottom: $filters-padding-x * 1.5;
     border-bottom: none;
   }
 
-  label{
+  label {
     line-height: 1.2;
-    margin-bottom: .4rem;
+    margin-bottom: 0.4rem;
 
-    &[data-global-checkbox]{
+    &[data-global-checkbox] {
       font-weight: 600;
     }
   }
 
-  .button{
+  .button {
     margin-bottom: 0;
   }
 
-  .section-title{
+  .section-title {
     color: var(--primary);
     text-decoration: underline;
     margin-right: $global-margin;
   }
 }
 
-.filters__subfilters{
-  & > .filters__subfilters{
-    padding-left: $filters-padding-x * .5;
+.filters__subfilters {
+  & > .filters__subfilters {
+    padding-left: $filters-padding-x * 0.5;
   }
 }
 
-.filters__has-subfilters{
+.filters__has-subfilters {
   display: flex;
   justify-content: space-between;
 }
 
 .filters__icon-is-open,
-.filters__icon-is-closed{
-  font-size: .5em;
+.filters__icon-is-closed {
+  font-size: 0.5em;
 }
 
-.filters__icon-is-open{
+.filters__icon-is-open {
   display: none;
 }
 
-.filters__is-open{
-  .filters__icon-is-open{
+.filters__is-open {
+  .filters__icon-is-open {
     display: inline-block;
   }
 
-  .filters__icon-is-closed{
+  .filters__icon-is-closed {
     display: none;
   }
 }
 
-.filters__section--general{
+.filters__section--general {
   @extend .filters__section;
 
   padding: 0;
 
   &:first-of-type,
-  &:last-of-type{
+  &:last-of-type {
     padding: 0;
   }
 
-  > :first-child{
+  > :first-child {
     padding: $filters-padding-x $filters-padding-y;
 
-    &:hover{
+    &:hover {
       background: $light-gray;
     }
   }
 
-  &.no-results{
-    .section-title{
+  &.no-results {
+    .section-title {
       color: $muted;
       text-decoration: none;
     }
 
-    > *{
-      opacity: .25;
+    > * {
+      opacity: 0.25;
     }
   }
 }
 
-.filters__info__title{
+.filters__info__title {
   margin-bottom: 0;
 }
 
-.filters__info__icon{
-  margin-left: .25rem;
+.filters__info__icon {
+  margin-left: 0.25rem;
 }
 
-.filters__search{
-  .input-group{
+.filters__search {
+  .input-group {
     margin-bottom: 0;
   }
 }
 
-.filters__help{
+.filters__help {
   position: relative;
 
-  p:last-of-type{
+  p:last-of-type {
     margin-bottom: 0;
   }
 
-  .skip{
+  .skip {
     @include skip-button;
   }
 }
 
-.filters__left-legend{
-  legend{
+.filters__left-legend {
+  legend {
     float: left;
     padding-top: 10px;
   }
 
   .picker-prompt,
-  select{
+  select {
     width: 75%;
     float: right;
   }

@@ -40,7 +40,7 @@ en:
         body: Body
         subject: Subject
       organization:
-        admin_terms_of_use_body: Body for the terms and conditions
+        admin_terms_of_service_body: Body for the admin terms of service
         alert_color: Alert
         available_authorizations: Available authorizations
         badges_enabled: Enable badges
@@ -199,20 +199,20 @@ en:
         user:
           new: New admin
         verify: Verify
-      admin_terms_of_use:
+      admin_terms_of_service:
         accept:
-          error: There is been an error while accepting the admin terms of use.
-          success: Great! You have accepted the admin terms of use.
+          error: There is been an error while accepting the admin terms of service.
+          success: Great! You have accepted the admin terms of service.
         actions:
           accept: I agree with the terms
-          are_you_sure: Are you sure you want to refuse the admin terms of use?
+          are_you_sure: Are you sure you want to refuse the admin terms of service?
           refuse: Refuse the admin terms
-          title: Agree to the terms of use
+          title: Agree to the terms of service
         required_review:
-          alert: 'Required: Review our admin terms terms and conditions'
-          callout: Please take a moment to review the admin terms of use. Otherwise you will not be able to manage the platform.
+          alert: 'Required: Review our admin terms of service'
+          callout: Please take a moment to review the admin terms of service. Otherwise you will not be able to manage the platform.
           cta: Review them now.
-        title: Admin terms of use
+        title: Admin terms of service
       area_types:
         create:
           error: There was a problem creating a new area type.
@@ -288,6 +288,7 @@ en:
       block_user:
         new:
           action: Block account and send justification
+          already_reported_html: Continuing with this action you will also hide all the participants contents. <a href="%{link}">Block the account</a>.
           description: Blocking a user will render their account unusable. You may provide in your justification any guidelines on ways you would consider unblocking the user.
           justification: Justification
           title: Block User %{name}
@@ -520,8 +521,8 @@ en:
             message:
               one: Missing column %{columns}.
               other: Missing columns %{columns}.
-        error: There was a problem during the import
-        example_error: Could not create an example for the given type
+        error: There was a problem during the import.
+        example_error: There was a problem creating an example for the given type.
         new:
           accepted_mime_types:
             csv: CSV
@@ -533,7 +534,7 @@ en:
           download_example_format: Example as %{name}
           file_legend: Add an import file that will be parsed.
           import: Import
-        notice: "%{count} %{resource_name} successfully imported"
+        notice: "%{count} %{resource_name} successfully imported."
       logs:
         filters:
           participatory_space: Find participatory space
@@ -558,7 +559,7 @@ en:
         area_types: Area types
         areas: Areas
         configuration: Configuration
-        content: Content
+        content: Reported content
         dashboard: Dashboard
         external_domain_whitelist: Allowed external domains
         help_sections: Help sections
@@ -667,7 +668,7 @@ en:
           nickname: Nickname
           reason: Reason
           reports: Reports count
-          title: Listing participants
+          title: Reported participants
         report:
           reasons:
             does_not_belong: Does not belong
@@ -678,10 +679,11 @@ en:
           unblocked: Not Blocked
       moderations:
         index:
-          title: Moderations
+          title: Reported content
         report:
           reasons:
             does_not_belong: Does not belong
+            hidden_during_block: Hidden while blocking user
             offensive: Offensive
             spam: Spam
         reports:
@@ -997,7 +999,7 @@ en:
         destroy:
           success: Page successfully destroyed
         edit:
-          changed_notably_help: If checked, participants will be notified to accept the new terms and conditions.
+          changed_notably_help: If checked, participants will be notified to accept the new terms of service.
           title: Edit page
           update: Update
         form:
@@ -1141,7 +1143,7 @@ en:
     decidim:
       admin:
         global_moderations:
-          title: Content moderations
+          title: Global moderations
         newsletters:
           title: Newsletters
         settings:

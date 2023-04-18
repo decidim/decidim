@@ -20,7 +20,6 @@ tr:
         create:
           error: Yorum oluşturulurken bir sorunla karşılaşıldı.
       comments_count: Yorum sayısı
-      comments_title: Yorumlar
       last_activity:
         new_comment_at_html: "<span> %{link}</span> yeni yorum"
       view: Görünüm
@@ -34,7 +33,6 @@ tr:
           body:
             label: Yorum
             placeholder: Bunun hakkında ne düşünüyorsun?
-          form_error: Metin zorunludur ve %{length} karakterden uzun olamaz.
           submit: Gönder
           user_group_id:
             label: Olarak yorum yap
@@ -57,7 +55,6 @@ tr:
           description: Bu içerik uygunsuz mu?
           details: Ek Yorumlar
           reasons:
-            does_not_belong: Yasadışı faaliyet, intihar tehditleri, kişisel bilgiler veya %{organization_name} kuruluşuna ait olmadığını düşündüğünüz başka bir şey içeriyor.
             offensive: Irkçılık, cinsiyetçilik, hakaretler, kişisel saldırılar, ölüm tehditleri, intihar talepleri veya herhangi bir nefret söylemi içerir.
             spam: Clickbait, reklam, dolandırıcılık veya script botları içerir.
           title: Uygunsuz içerik bildir
@@ -121,6 +118,3 @@ tr:
         description: Katılımcılar tarafından oluşturulan yorum sayısı
         object: yorumlar
         title: Yorumlar
-  errors:
-    messages:
-      cannot_have_comments: yorum alamaz

@@ -33,7 +33,7 @@ ro:
         update:
           error: A apărut o eroare la actualizarea comentariului.
       comments_count: Număr de comentarii
-      comments_title: Comentarii
+      comments_title: Comentariu
       last_activity:
         new_comment_at_html: "<span>Comentariu nou la %{link}</span>"
       view: Vizualizează
@@ -170,4 +170,4 @@ ro:
         title: Comentarii
   errors:
     messages:
-      cannot_have_comments: nu poate fi comentat
+      cannot_have_comments: nu poate avea comentarii

@@ -5,8 +5,8 @@
 //     asin(-1)  // -1.5708
 @use "sass:math";
 
-@function asin ($x){
-  @if $x > 1 or $x < -1{
+@function asin($x) {
+  @if $x > 1 or $x < -1 {
     @warn "Argument for `asin()` must be a number between -1 and 1";
 
     @return null;

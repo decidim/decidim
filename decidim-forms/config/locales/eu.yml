@@ -22,8 +22,6 @@ eu:
             choices:
               missing: ez dira osatu
               too_many: gehiegi dira
-        questionnaire:
-          request_invalid: Arazo bat izan da zure eskaera bidaltzean. Saiatu berriro
   decidim:
     forms:
       admin:
@@ -126,9 +124,6 @@ eu:
       admin_log:
         questionnaire:
           update: "%{user_name} erabiltzaileak %{resource_name} galdetegia eguneratu du"
-      errors:
-        answer:
-          body: Testua ezin da hutsik egon
       images:
         dimensions: "%{width} x %{height} px"
         processors:

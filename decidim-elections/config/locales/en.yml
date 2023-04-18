@@ -291,7 +291,7 @@ en:
               time_before: The setup is being done <strong>at least %{hours} hours</strong> before the election starts.
               trustees_number: The participatory space has <strong>at least %{number} trustees with public key</strong>.
             submit: Setup election
-            success: Election successfully sent to the Bulletin Board
+            success: Election successfully sent to the Bulletin Board.
             title: Setup election
             trustees: Election Trustees
           created:
@@ -335,7 +335,7 @@ en:
             invalid: There was a problem reporting the missing trustee.
             mark_as_missing: Mark as missing
             mark_as_missing_description: All the trustees should participate in this process, but if a trustee cannot take part in the process, you can mark it as missing.
-            success: Missing trustee report was successfully sent to the Bulletin Board
+            success: Missing trustee report was successfully sent to the Bulletin Board.
             tally_completion: The process will be completed when all the trustees are active or marked as missing. At least %{quorum} trustees are required to complete the process.
             title: Tally process
             undo_mark_as_missing: A trustee marked as missing by mistake will be able to participate before the completion of the process. They can proceed as usual and the missing mark will be ignored.
@@ -606,7 +606,7 @@ en:
             title: Tally for %{election}
           update:
             error: The election status was not updated.
-            success: 'The election status is: %{status}'
+            success: 'The election status is: %{status}.'
         menu:
           trustee_zone: Trustee zone
         no_bulletin_board:
@@ -814,8 +814,8 @@ en:
             create: Create
             title: Create ballot style
           update:
-            invalid: There was a problem updating this ballot style
-            success: Ballot style successfully updated
+            invalid: There was a problem updating this ballot style.
+            success: Ballot style successfully updated.
         content_blocks:
           highlighted_votings:
             max_results: Maximum amount of elements to show
