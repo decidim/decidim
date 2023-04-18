@@ -23,7 +23,7 @@
       <% meetings.group_by(&:category).each_with_index do |categories_block, i| %>
         <div id="conference-item-panel-<%= seed %>-tab<%= i %>" class="conference__program-category-content">
           <% categories_block.last.each do |meeting| %>
-            <%= render partial: "program_meeting", locals: { meeting: meeting } %>
+            <%= render partial: "program_meeting", locals: { meeting: } %>
           <% end %>
         </div>
       <% end %>

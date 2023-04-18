@@ -14,7 +14,7 @@
                          collection.leaf.label,
                          **({
                            "data-checkboxes-tree": data_checkboxes_tree_id,
-                           is_root_check_box: is_root_check_box
+                           is_root_check_box:
                          }.merge(options))),
                          collection.leaf.value.to_s, nil %>
 
@@ -35,12 +35,12 @@
         <% collection.node.each do |item| %>
           <% if item.tree_node? %>
             <%= render "decidim/shared/check_boxes_tree",
-                        form: form,
-                        attribute: attribute,
+                        form:,
+                        attribute:,
                         collection: item,
                         check_boxes_tree_id: "#{check_boxes_tree_id}-#{item.leaf.value}",
                         hide_node: "true",
-                        options: options %>
+                        options: %>
           <% else %>
             <%= form.check_box attribute,
                                 check_boxes_tree_options(

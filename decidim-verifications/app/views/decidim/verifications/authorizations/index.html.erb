@@ -1,6 +1,6 @@
 <% add_decidim_page_title(t("authorizations", scope: "layouts.decidim.user_profile")) %>
 <% content_for(:subtitle) { t("authorizations", scope: "layouts.decidim.user_profile") } %>
-<% url_params = (redirect_url.present? ? { redirect_url: redirect_url } : {}) %>
+<% url_params = (redirect_url.present? ? { redirect_url: } : {}) %>
 
 <%= append_javascript_pack_tag "decidim_verifications" %>
 <%= append_stylesheet_pack_tag "decidim_verifications" %>
@@ -30,7 +30,7 @@
       <div class="verification__container-title"><%= subsection[:title] %></div>
       <div class="verification__container">
         <% subsection[:items].each do |locals| %>
-          <%= render partial: "item", locals: locals %>
+          <%= render partial: "item", locals: %>
         <% end %>
       </div>
     <% end %>
