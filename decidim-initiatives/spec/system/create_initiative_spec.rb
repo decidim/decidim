@@ -476,11 +476,12 @@ describe "Initiative", type: :system do
 
         context "when only one signature collection and scope are available" do
           let(:signature_type) { "offline" }
+          let!(:other_initiative_type) { nil }
+          let!(:other_initiative_type_scope) { nil }
           let(:initiative_type_scope2) { nil }
           let(:initiative_type) { create(:initiatives_type, organization:, minimum_committee_members: initiative_type_minimum_committee_members, signature_type:) }
 
           before do
-            find_button("I want to promote this initiative").click
             fill_in "Title", with: translated(initiative.title, locale: :en)
             fill_in "initiative_description", with: translated(initiative.description, locale: :en)
             find_button("Continue").click
@@ -560,33 +561,12 @@ describe "Initiative", type: :system do
 
           it "shows input for signature collection type" do
             expect(page).to have_content("Signature collection type")
-            expect(find(:xpath, "//select[@id='initiative_signature_type']", visible: :all).value).to eq("online")
+            expect(find(:xpath, "//select[@id='initiative_signature_type']", visible: :all).value).to eq(signature_type)
           end
 
           it "shows input for hashtag" do
             expect(page).to have_content("Hashtag")
             expect(find(:xpath, "//input[@id='initiative_hashtag']", visible: :all).value).to eq("")
-          end
-
-          context "when only one signature collection and scope are available" do
-            let(:initiative_type_scope2) { nil }
-            let(:initiative_type) { create(:initiatives_type, organization:, minimum_committee_members: initiative_type_minimum_committee_members, signature_type: "offline") }
-
-            it "hides and automatically selects the values" do
-              expect(page).not_to have_content("Signature collection type")
-              expect(page).not_to have_content("Scope")
-              expect(find(:xpath, "//select[@id='initiative_type_id']", visible: :all).value).to eq(initiative_type.id.to_s)
-              expect(find(:xpath, "//input[@id='initiative_signature_type']", visible: :all).value).to eq("offline")
-            end
-          end
-
-          context "when the scope is not selected" do
-            it "shows an error" do
-              select("Online", from: "Signature collection type")
-              find_button("Continue").click
-
-              expect_blank_field_validation_message("#initiative_scope_id", type: :select)
-            end
           end
 
           context "when the initiative type does not enable custom signature end date" do

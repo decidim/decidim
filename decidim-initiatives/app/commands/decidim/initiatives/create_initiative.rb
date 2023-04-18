@@ -62,7 +62,7 @@ module Decidim
           author: current_user,
           scoped_type:,
           signature_type: form.type.signature_type,
-          state: "created",
+          state: "created"
         )
       end
 
