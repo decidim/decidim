@@ -37,7 +37,7 @@ edit_link(
           <%= render partial: "vote_cabin", locals: { initiative: current_initiative } %>
         </div>
       <% end %>
-      <%= render partial: "progress_bar" %>
+    <%= render partial: "progress_bar" %>
     <% else %>
       <%= link_to t(".edit"),
           edit_initiative_path(current_initiative),
