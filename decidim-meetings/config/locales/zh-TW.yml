@@ -1,1 +1,6 @@
+---
 zh-TW:
+  decidim:
+    meetings:
+      calendar_modal:
+        copy_calendar_url_explanation: 請注意，您正在匯出一個會議的選擇，因為存在有效的篩選器。如果您希望全部匯出，請先重置所有篩選器。
