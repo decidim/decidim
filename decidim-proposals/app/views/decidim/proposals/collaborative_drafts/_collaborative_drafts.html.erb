@@ -10,7 +10,7 @@
 
 <div class="row small-up-1 medium-up-2 card-grid">
   <% @collaborative_drafts.each do |draft| %>
-    <%= card_for draft, context: { label: true } %>
+    <%= card_for draft %>
   <% end %>
 </div>
 <%= decidim_paginate @collaborative_drafts %>
