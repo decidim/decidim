@@ -154,6 +154,23 @@ zh-TW:
           update: "%{user_name} 更新了 %{space_name} 空間中的 %{resource_name} 專案。"
       budget:
         view: 查看所有預算專案
+      budget_information_modal:
+        back_to: 返回 %{component_name}
+        close_modal: 關閉視窗
+        continue: 繼續
+        more_information: 更多資訊
+      budget_list_item:
+        voting_finished: 您已在此預算中投票。
+        voting_started: 你已經開始在這個預算中投票了
+      budgets_list:
+        cancel_order:
+          more_than_one: 刪除您對於 %{name} 的投票並重新開始
+          only_one: 刪除您的投票並重新開始。
+        finished_message: 您已完成投票流程。感謝您的參與！
+        highlighted_cta: 在 %{name} 上投票
+        if_change_opinion: 如果您改變了主意，您可以
+        my_budgets: 我的預算
+        progress: 完成投票
       projects:
         budget_summary:
           projects_rule:
