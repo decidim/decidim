@@ -670,11 +670,6 @@ en:
           search: Search
           state: Status
           withdrawn: Withdrawn
-        filters_small_view:
-          close_modal: Close modal
-          filter: Filter
-          filter_by: Filter by
-          unfold: Unfold
         new:
           add_file: Add file
           edit_file: Edit file
