@@ -11,7 +11,7 @@
     <h3><%= translated_attribute(answer.question.body) %></h3>
     <% if translated_attribute(answer.question.description).present? %>
       <div>
-        <%= decidim_sanitize_editor translated_attribute(answer.question.description) %>
+        <%= decidim_sanitize_editor_admin translated_attribute(answer.question.description) %>
       </div>
     <% end %>
   </div>
@@ -23,10 +23,9 @@
 
   <div class="answer-questionnaire__question">
     <%= label_tag field_id, answer.label, class: "answer-questionnaire__question-label questionnaire-question", data: { "answer-idx": cleaned_answer_idx } %>
-
     <% if translated_attribute(answer.question.description).present? %>
       <div class="answer-questionnaire__question-description">
-        <%= decidim_sanitize_editor translated_attribute(answer.question.description) %>
+        <%= decidim_sanitize_editor_admin translated_attribute(answer.question.description) %>
       </div>
     <% end %>
 
