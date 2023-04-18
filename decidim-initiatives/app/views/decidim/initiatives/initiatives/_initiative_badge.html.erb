@@ -1,5 +1,5 @@
 <% if initiative.rejected? || initiative.accepted? %>
-  <span class="<%= state_badge_css_class(initiative) %> label initiative-status">
+  <span class="<%= state_badge_css_class(initiative) %> label initiative-status rounded px-2">
     <%= humanize_state initiative %>
   </span>
 <% end %>

@@ -8,6 +8,7 @@ module Decidim
 
       alias current_initiative resource
       alias initiative resource
+      alias humanize_state resource
 
       def items
         ["test"]

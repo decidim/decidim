@@ -36,6 +36,43 @@
       @apply underline;
     }
   }
+
+  &__progress-bar{
+
+    .progress-bar__container{
+      @apply w-16;
+    }
+
+    .progress-bar__number{
+      @apply text-gray-2 font-normal text-sm;
+    }
+
+    .progress-bar__units{
+      @apply hidden;
+    }
+  }
+}
+
+.initiative{
+  &__hero{
+    @apply backdrop-brightness-[30%];
+
+    &-text{
+      @apply container text-center text-white space-y-6 md:px-16 pt-10 pb-14 md:[&_a_+_a]:ml-6;
+    }
+
+    &-slogan{
+      @apply text-lg font-semibold;
+    }
+
+    &-location{
+      @apply text-lg;
+    }
+  }
+}
+
+#initiatives .card__grid{
+  @apply relative;
 }
 
 .wizard__steps{
@@ -74,26 +111,4 @@
       }
     }
   }
-}
-
-.initiative{
-  &__hero{
-    @apply backdrop-brightness-[30%];
-
-    &-text{
-      @apply container text-center text-white space-y-6 md:px-16 pt-10 pb-14 md:[&_a_+_a]:ml-6;
-    }
-
-    &-slogan{
-      @apply text-lg font-semibold;
-    }
-
-    &-location{
-      @apply text-lg;
-    }
-  }
-}
-
-#initiatives .card__grid{
-  @apply relative;
 }
