@@ -7,6 +7,7 @@ module Decidim
       include Cell::ViewModel::Partial
 
       alias current_initiative resource
+      alias initiative resource
 
       def items
         ["test"]

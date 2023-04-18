@@ -1,26 +1,9 @@
 <div class="absolute top-4 right-4 bg-background rounded block p-1 border border-white justify-center content-center">
-  <div class="flex">
-    <span class="font-bold text-sm">23 may</span>
-    <%= icon "arrow-right-line", class: "fill-secondary"%>
-    <span class="font-bold text-sm">30 junio</span>
-  </div>
-  <span class="block">22 days left</span>
+  <%= render partial: "layouts/decidim/initiative_header_steps.html" %>
 </div>
 
-<%= render partial: "decidim/initiatives/initiatives/progress_bar.html" %>
-
-<div class="text-gray-2">
-  <div class="text-center">
-    <div class="progress__bar">
-      <div class="progress__bar__title">
-        <span class="progress__bar__number">1</span>/3000
-      </div>
-      <div class="progress progress__bar__bar w-24 rounded h-2 mt-1 relative flex" role="progressbar" tabindex="0" aria-valuenow="0.03333333333333333" aria-valuemin="0" aria-valuetext="0.03333333333333333 percent" aria-valuemax="100">
-        <div class="progress-meter progress__bar__bar--complete bg-success relative h-full rounded-l-xl " style="width: 33.33333333333333%"></div>
-        <div class="progress__bar__bar--incomplete bg-gray relative h-full rounded-r-xl " style="width:calc(100% - 33.33333333333333%);"></div>
-      </div>
-    </div>
-  </div>
+<div class="initiatives__progress_bar">
+  <%= render partial: "decidim/initiatives/initiatives/progress_bar.html" %>
 </div>
 <div class="bg-success/20 text-success rounded px-2">
   <p>Publicada</p>
