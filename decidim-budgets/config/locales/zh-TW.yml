@@ -171,6 +171,29 @@ zh-TW:
         if_change_opinion: 如果您改變了主意，您可以
         my_budgets: 我的預算
         progress: 完成投票
+        show: 檢視專案
+        vote: 投票
+        voted_on: 你已經對 %{links} 投票。
+      last_activity:
+        new_vote_at: 新預算投票於
+      limit_announcement:
+        cant_vote: 你無法在這個預算中進行投票。<a href="%{landing_path}">嘗試在其他預算中投票</a>。
+        limit_reached: 您在 %{links} 上有進行中的投票。若要對此預算進行投票，您必須<a href="%{landing_path}">刪除您目前的投票並重新開始</a>。
+      models:
+        budget:
+          fields:
+            name: 姓名
+            projects_count: 專案數量
+            total_budget: 總預算
+        project:
+          fields:
+            category: 類別
+            id: ID
+            scope: 範圍
+            title: 標題
+      order_summary_mailer:
+        order_summary:
+          selected_projects: '你選擇的專案如下：'
       projects:
         budget_summary:
           projects_rule:
