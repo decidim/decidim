@@ -1,1 +1,10 @@
 zh-TW:
+  decidim:
+    system:
+      admins:
+        create:
+          success: 管理員創建成功
+        destroy:
+          success: 管理員成功刪除
+        update:
+          success: 管理員已成功更新
