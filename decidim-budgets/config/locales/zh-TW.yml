@@ -134,7 +134,22 @@ zh-TW:
           voted_on_space: 您已對「%{space_name}」參與空間的「%{budget_name}」預算進行投票。
           voted_on_space_with_scope: 您已在%{scope_type} 的%{scope_name} 中，對%{space_name} 參與空間的%{budget_name} 預算進行了投票。
       projects:
+        budget_confirm:
+          are_you_sure: 如果您改變了主意，稍後可以更改您的選票。
+          cancel: 撤銷
+          confirm: 確認
+          description: 這些是您選擇納入預算的專案
+          title: 確認投票
+        budget_excess:
+          budget_excess:
+            title: 已超過最高預算
+          close: 關閉
+          ok: 好的
+          projects_excess:
+            description: 這個專案超出了最大項目數限制，無法被添加。如果你想的話，可以刪除你已經選擇的一個專案，以便根據你的偏好再次投票
+            title: 超過最大專案數量
         budget_summary:
+          are_you_sure: 您確定要取消您的投票嗎?
           projects_rule:
             instruction: "<li>請至少選擇 %{minimum_number} 個至多 %{maximum_number} 個您想要的項專案，並根據您的喜好進行投票以定義預算。</li>"
           projects_rule_maximum_only:
