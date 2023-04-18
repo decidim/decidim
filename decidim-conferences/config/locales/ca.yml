@@ -74,7 +74,7 @@ ca:
         conference_registration_invite:
           attributes:
             email:
-              already_invited: Aquest correu electrònic ja ha estat convidat
+              already_invited: Ja s'havia convidat a aquest correu electrònic.
   activerecord:
     models:
       decidim/conference:
@@ -353,7 +353,7 @@ ca:
             invites: Convida
             search: Cercar
           new:
-            explanation: La participant serà convidada a unir-se a una jornada. Si el correu electrònic no està registrat, també se la convidarà a unir-se a l'organització.
+            explanation: La participant serà convidada a unir-se a una jornada. Si el seu correu electrònic no està registrat, també se la convidarà a unir-se a l'organització.
             invite: Convidar
             new_invite: Convidar participant
         conference_registrations:
@@ -465,9 +465,9 @@ ca:
       mailer:
         conference_registration_mailer:
           confirmation:
-            subject: S'ha confirmat la teva inscripció a la jornada
+            subject: S'ha confirmat la teva inscripció a la jornada.
           pending_validation:
-            subject: La teva inscripció a la jornada està pendent de confirmació
+            subject: La teva inscripció a la jornada està pendent de confirmació.
         invite_join_conference_mailer:
           invite:
             subject: Invitació per a unir-se a una jornada
@@ -479,7 +479,7 @@ ca:
           fields:
             email: Correu electrònic
             name: Nom
-            registration_type: Tipus de registre
+            registration_type: Tipus d'inscripció
             sent_at: Enviat a
             status: Estat
           status:
@@ -554,7 +554,7 @@ ca:
     log:
       value_types:
         conference_presenter:
-          not_found: 'La jornada no s''ha trobat a la base de dades (ID: %{id})'
+          not_found: 'La jornada no s''ha trobat a la base de dades (ID: %{id}).'
     media:
       index:
         description: Enllaços sobre aquesta jornada

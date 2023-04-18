@@ -7,6 +7,9 @@ linters:
   FinalNewline:
     enabled: true
 
+  RequireInputAutocomplete:
+    enabled: false
+
   SpaceAroundErbTag:
     enabled: true
 

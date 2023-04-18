@@ -81,7 +81,7 @@ ca:
         assembly:
           attributes:
             document:
-              allowed_file_content_types: 'Tipus de document no vàlid. Només s''accepten arxius amb les següents extensions: %{types}'
+              allowed_file_content_types: 'Tipus de document no vàlid. Només s''accepten arxius amb les següents extensions: %{types}.'
   activerecord:
     models:
       decidim/assembly:
@@ -444,9 +444,6 @@ ca:
         related_assemblies: Assemblees relacionades
     statistics:
       assemblies_count: Assemblees
-  errors:
-    messages:
-      cannot_be_blank: no es pot estar en blanc
   layouts:
     decidim:
       assemblies:

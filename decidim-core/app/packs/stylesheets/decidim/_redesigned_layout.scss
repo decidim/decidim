@@ -1,45 +1,47 @@
-.layout-container{
+.layout-container {
   @apply flex flex-col min-h-screen [&_[data-content]]:min-h-[50vh];
 }
 
-.layout-1col{
+.layout-1col {
   @apply container grid grid-cols-12;
 
-  .cols-6{
+  .cols-6 {
     @apply col-span-12 md:col-start-2 md:col-span-10 lg:col-start-3 lg:col-span-8 grid grid-cols-8 [&>*]:col-span-8 lg:[&>*:not(.grow)]:col-start-2 lg:[&>*:not(.grow)]:col-span-6;
   }
 
-  .cols-8{
+  .cols-8 {
     @apply col-span-12 md:col-start-2 md:col-span-10 lg:col-start-3 lg:col-span-8;
   }
 
-  .cols-10{
+  .cols-10 {
     @apply col-span-12 lg:col-start-2 lg:col-span-10;
   }
 }
 
-.layout-2col{
+.layout-2col {
   @apply md:bg-gradient-to-r md:from-background md:via-background md:to-white md:[&>*]:grid md:[&>*]:grid-cols-12 [&>*]:container;
 
-  --tw-gradient-stops: var(--tw-gradient-from) 0%, var(--tw-gradient-from) 50%, var(--tw-gradient-to) 50%;
+  --tw-gradient-stops: var(--tw-gradient-from) 0%, var(--tw-gradient-from) 50%,
+    var(--tw-gradient-to) 50%;
 
-  &__aside{
+  &__aside {
     @apply col-span-3 md:pr-16 py-6 md:py-12 gap-12 flex flex-col justify-between items-start md:justify-start;
   }
 
-  &__main{
+  &__main {
     @apply col-span-9 bg-white md:pl-16 py-6 md:py-12;
   }
 
-  &__reverse{
-    --tw-gradient-stops: var(--tw-gradient-to) 0%, var(--tw-gradient-to) 50%, var(--tw-gradient-from) 50%;
+  &__reverse {
+    --tw-gradient-stops: var(--tw-gradient-to) 0%, var(--tw-gradient-to) 50%,
+      var(--tw-gradient-from) 50%;
   }
 
-  &__reverse &__aside{
+  &__reverse &__aside {
     @apply order-last pr-0;
   }
 
-  &__reverse &__main{
+  &__reverse &__main {
     @apply pl-0 md:pr-16;
   }
 }

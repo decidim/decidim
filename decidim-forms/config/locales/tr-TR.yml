@@ -17,8 +17,6 @@ tr:
             choices:
               missing: tamamlanmadı
               too_many: çok fazla
-        questionnaire:
-          request_invalid: İsteği işlerken bir hata oluştu. Lütfen tekrar deneyin
   decidim:
     forms:
       admin:
@@ -106,9 +104,6 @@ tr:
           update:
             invalid: Formu kaydederken bir sorun oluştu.
             success: Başarıyla kaydedildi.
-      errors:
-        answer:
-          body: Vücut boş olamaz
       images:
         dimensions: "%{width} x %{height} px"
       question_types:

@@ -1,63 +1,63 @@
-.tabs--lang{
+.tabs--lang {
   background-color: transparent;
   float: right;
 
-  li{
+  li {
     border-right: 1px solid $light-gray;
   }
 
-  li:last-child{
+  li:last-child {
     border-right: 0;
   }
 
-  a{
-    padding: 0 .5rem;
+  a {
+    padding: 0 0.5rem;
     font-weight: normal;
     color: $muted;
 
-    &:hover{
+    &:hover {
       color: $anchor-color-hover;
     }
   }
 
-  .is-active a{
+  .is-active a {
     font-weight: 600;
     color: $anchor-color;
   }
 
-  a.is-tab-error{
+  a.is-tab-error {
     color: $alert-color;
   }
 }
 
-.label--tabs{
+.label--tabs {
   display: flex;
   justify-content: space-between;
   align-items: center;
 
-  label{
+  label {
     display: inline-block;
   }
 }
 
-.form{
-  .language-change{
+.form {
+  .language-change {
     height: 2rem;
     margin-bottom: 1rem;
   }
 }
 
-.tab-custom-error-wrapper{
+.tab-custom-error-wrapper {
   display: flex;
   flex-wrap: wrap;
 }
 
-.tab-custom-error{
+.tab-custom-error {
   @extend .form-error;
 
-  margin-right: .3rem;
+  margin-right: 0.3rem;
 }
 
-.is-tab-custom-error-visible{
+.is-tab-custom-error-visible {
   display: block;
 }

@@ -52,11 +52,11 @@ es-PY:
       admin:
         budgets:
           create:
-            invalid: Se ha producido un error al crear este proyecto
-            success: Presupuesto creado correctamente
+            invalid: Se ha producido un error al crear este proyecto.
+            success: Presupuesto creado correctamente.
           destroy:
-            invalid: Hubo un problema al eliminar este presupuesto
-            success: Presupuesto eliminado correctamente
+            invalid: Hubo un problema al eliminar este presupuesto.
+            success: Presupuesto eliminado correctamente.
           edit:
             title: Editar presupuesto
             update: Actualizar presupuesto
@@ -70,8 +70,8 @@ es-PY:
             create: Crear presupuesto
             title: Nuevo presupuesto
           update:
-            invalid: Se ha producido un problema al actualizar este presupuesto
-            success: Presupuesto actualizado correctamente
+            invalid: Se ha producido un problema al actualizar este presupuesto.
+            success: Presupuesto actualizado correctamente.
         exports:
           projects: Proyectos
         models:
@@ -81,10 +81,10 @@ es-PY:
             name: Proyecto
         projects:
           create:
-            invalid: Ha habido un problema al crear este proyecto
-            success: Proyecto creado con éxito
+            invalid: Se ha producido un error al crear este proyecto.
+            success: Proyecto creado correctamente.
           destroy:
-            success: Proyecto eliminado con éxito
+            success: Proyecto eliminado correctamente.
           edit:
             title: Editar proyecto
             update: Actualizar
@@ -106,31 +106,31 @@ es-PY:
             create: Crear
             title: Nuevo proyecto
           update:
-            invalid: Ha habido un problema al actualizar este proyecto
-            success: Proyecto actualizado correctamente
+            invalid: Se ha producido un error al actualizar este proyecto.
+            success: Proyecto actualizado correctamente.
           update_category:
             invalid: 'Estas propuestas ya tenían la categoría %{subject_name}: %{projects}.'
-            select_a_category: Por favor, selecciona una categoría
-            select_a_project: Selecciona un proyecto
+            select_a_category: Por favor, selecciona una categoría.
+            select_a_project: Por favor, selecciona un proyecto.
             success: 'Los proyectos se han actualizado correctamente a la categoría %{subject_name}: %{projects}.'
           update_scope:
             invalid: 'Estos proyectos ya pertenecían al ámbito %{subject_name}: %{projects}.'
-            select_a_project: Por favor, selecciona un proyecto
-            select_a_scope: Por favor, selecciona un ámbito
+            select_a_project: Por favor, selecciona un proyecto.
+            select_a_scope: Por favor, selecciona un ámbito.
             success: 'Los proyectos se han actualizado correctamente al ámbito %{subject_name}: %{projects}.'
           update_selected:
             invalid:
               selected: 'Estos proyectos ya han sido seleccionados para ser implementados: %{projects}.'
               unselected: 'Estos proyectos ya han sido deseleccionados de ser implementados: %{projects}.'
-            select_a_project: Por favor, selecciona un proyecto
-            select_a_selection: Por favor, seleccione un estado de implementación
+            select_a_project: Por favor, selecciona un proyecto.
+            select_a_selection: Por favor, seleccione un estado de implementación.
             success:
               selected: 'Estos proyectos fueron seleccionados con éxito para ser implementados: %{projects}.'
               unselected: 'Estos proyectos fueron deseleccionados con éxito para ser implementados: %{projects}.'
         proposals_imports:
           create:
-            invalid: Ha habido un problema al importar las propuestas en proyectos
-            success: "%{number} propuestas importadas con éxito en proyectos"
+            invalid: Se ha producido un error al importar las propuestas a proyectos.
+            success: "Se han importado con éxito %{number} propuestas a proyectos."
           new:
             create: Importar propuestas a proyectos
             default_budget: Presupuesto por defecto
@@ -162,20 +162,20 @@ es-PY:
         continue: Continuar
         more_information: Más información
       budget_list_item:
-        voting_finished: Has votado en este presupuesto
-        voting_started: Has empezado a votar en este presupuesto
+        voting_finished: Has votado en este presupuesto.
+        voting_started: Has empezado a votar en este presupuesto.
       budgets_list:
         cancel_order:
           more_than_one: eliminar tu voto en %{name} y empezar de nuevo
           only_one: eliminar tu voto y empezar de nuevo.
         finished_message: Has terminado el proceso de votación. ¡Gracias por participar!
         highlighted_cta: Votar en %{name}
-        if_change_opinion: Si has cambiado de opinión, puedes
+        if_change_opinion: Si has cambiado de opinión, puedes %{cancel_link}.
         my_budgets: Mis presupuestos
         progress: Finalizar votación
         show: Ver proyectos
         vote: Votar
-        voted_on: Has votado en %{links}
+        voted_on: Has votado a %{links}.
       last_activity:
         new_vote_at: Nueva votación presupuestaria en
       limit_announcement:
@@ -208,10 +208,10 @@ es-PY:
           title: Confirmar voto
         budget_excess:
           budget_excess:
-            description: Este proyecto sobrepasa el presupuesto máximo y no se puede añadir. Si lo deseas, puedes eliminar un proyecto que ya hayas seleccionado, o votar de acuerdo a tus preferencias.
+            description: No se puede añadir este proyecto porque sobrepasaría el máximo del presupuesto disponible. Si lo deseas, puedes eliminar alguno de los proyectos que ya hayas seleccionado para poder votar de acuerdo a tus preferencias.
             title: Presupuesto excedido
           close: Cerrar
-          description: Este proyecto sobrepasa el presupuesto máximo y no se puede añadir. Si lo deseas, puedes eliminar un proyecto que ya hayas seleccionado, o votar de acuerdo a tus preferencias.
+          description: No se puede añadir este proyecto porque sobrepasaría el máximo del presupuesto disponible. Si lo deseas, puedes eliminar alguno de los proyectos que ya hayas seleccionado para poder votar de acuerdo a tus preferencias.
           ok: De acuerdo
           projects_excess:
             description: Este proyecto sobrepasa el presupuesto máximo y no se puede añadir. Si lo deseas, puedes eliminar un proyecto que ya hayas seleccionado, o votar de acuerdo a tus preferencias.
@@ -282,8 +282,8 @@ es-PY:
           random: Orden aleatorio
           selected: Seleccionado
         project:
-          add: Añadir proyecto %{resource_name} a tu voto
-          remove: Eliminar el proyecto %{resource_name} de tu voto
+          add: Añadir proyecto %{resource_name} a tu voto.
+          remove: Eliminar el proyecto %{resource_name} de tu voto.
           selected: Seleccionado
           view: Ver
           votes:
@@ -292,9 +292,9 @@ es-PY:
           you_voted: Has votado esto
         project_budget_button:
           add: Añadir a tu voto
-          add_descriptive: Añadir proyecto %{resource_name} a tu voto
+          add_descriptive: Añade el proyecto %{resource_name} a tu voto.
           added: Añadido a tu voto
-          added_descriptive: El proyecto %{resource_name} se ha añadido a tu voto
+          added_descriptive: El proyecto %{resource_name} se ha añadido a tu voto.
         projects_for: Proyectos de %{name}
         show:
           budget: Presupuesto
@@ -321,8 +321,8 @@ es-PY:
             comments_max_length: Longitud máxima de los comentarios (deja 0 si quieres mantener la configuración por defecto)
             form:
               errors:
-                budget_voting_rule_only_one: Hay que activar por lo menos una norma para la votación
-                budget_voting_rule_required: Se requiere una norma para la votación
+                budget_voting_rule_only_one: Solo debe habilitarse una norma de votación.
+                budget_voting_rule_required: Se requiere una norma para la votación.
             geocoding_enabled: Geolocalización habilitada
             landing_page_content: Página de inicio de presupuestos
             more_information_modal: Modal de "Más información"
@@ -366,11 +366,11 @@ es-PY:
           notification_title: El presupuesto <a href="%{resource_path}">%{resource_title}</a> en %{participatory_space_title} ya está activo.
     orders:
       checkout:
-        error: Se ha producido un error al procesar tu voto
-        success: Tu voto se ha tramitado con éxito
+        error: Se ha producido un error al procesar tu voto.
+        success: Tu voto se ha aceptado correctamente.
       destroy:
-        error: Ha habido un error al cancelar tu voto
-        success: Tu voto ha sido cancelado correctamente
+        error: Se ha producido un error al cancelar tu voto.
+        success: Tu voto se ha cancelado correctamente.
     resource_links:
       included_proposals:
         project_proposal: Propuestas incluidas en este proyecto

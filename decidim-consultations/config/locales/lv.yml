@@ -46,12 +46,6 @@ lv:
         decidim_consultations_response_id:
           not_found: Atbilde nav atrasta.
   activerecord:
-    errors:
-      models:
-        decidim/consultations/vote:
-          attributes:
-            question:
-              invalid_num_votes: Balsu skaits nav derīgs
     models:
       decidim/consultation:
         zero: Konsultācijas
@@ -159,7 +153,6 @@ lv:
             one: Atbilde
             other: Atbildes
       question_configuration:
-        disable_external_voting: Lūdzu, atspējojiet ārējo balsojumu uzlabotajām konfigurācijām
         form:
           help: Iestatiet vairāk izvēles jautājumu, palielinot maksimālo atbilžu skaitu, ko dalībnieks var izvēlēties. Noklusējuma maksimālā vērtība ir 1, kas nozīmē, ka var balsot tikai par vienu atbildi.
           title: Papildu konfigurācija
@@ -303,7 +296,6 @@ lv:
             votes: Balsis
       question_votes:
         create:
-          error: Balsojot par jautājumu, radās problēma
           success: To var mainīt līdz konsultācijas beigām. Tiks pieņemts tikai pēdējais balsojums.
           title_error: Balsojuma kļūda!
           title_success: Balsojums ir veiksmīgi reģistrēts

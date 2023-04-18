@@ -31,7 +31,7 @@ fi-pl:
         update:
           error: Kommentin päivittäminen epäonnistui.
       comments_count: Kommenttien määrä
-      comments_title: Kommentit
+      comments_title: Kommentti
       last_activity:
         new_comment_at_html: "<span>Uusi kommentti osoitteessa %{link}</span>"
       view: Näytä
@@ -80,7 +80,7 @@ fi-pl:
           description: Onko tämä sisältö epäasiallista?
           details: Lisätiedot
           reasons:
-            does_not_belong: Sisältää laitonta toimintaa, itsemurhauhkailua, henkilökohtaisia tietoja tai jotain muuta, jonka et usko kuuluvan organisaatioon %{organization_name}.
+            does_not_belong: Sisältää laitonta toimintaa, itsemurhauhkailua, henkilökohtaisia tietoja tai jotain muuta, jonka et usko kuuluvan %{organization_name} -palveluun.
             offensive: Sisältää rasismia, seksismiä, haukkumista, henkilökohtaisia hyökkäyksiä, tappouhkauksia, itsemurhapyyntöjä tai muuta vihapuhetta.
             spam: Sisältää klikkihoukutteita, mainostusta, huijauksia tai bottiskriptejä.
           title: Ilmoita asiatonta sisältöä

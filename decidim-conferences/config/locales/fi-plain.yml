@@ -74,7 +74,7 @@ fi-pl:
         conference_registration_invite:
           attributes:
             email:
-              already_invited: Tämä sähköpostiosoite on jo kutsuttu
+              already_invited: Tämä sähköpostiosoite on jo kutsuttu.
   activerecord:
     models:
       decidim/conference:
@@ -353,7 +353,7 @@ fi-pl:
             invites: Kutsut
             search: Hae
           new:
-            explanation: Käyttäjä kutsutaan mukaan konferenssiin. Jos sähköposti ei ole rekisteröity, käyttäjä kutsutaan myös organisaatioon.
+            explanation: Käyttäjä kutsutaan mukaan konferenssiin. Jos sähköpostiosoitteella ei ole käyttäjätiliä, käyttäjä kutsutaan myös organisaatioon.
             invite: Kutsu
             new_invite: Kutsu käyttäjä
         conference_registrations:
@@ -465,9 +465,9 @@ fi-pl:
       mailer:
         conference_registration_mailer:
           confirmation:
-            subject: Konferenssin ilmoittautuminen on vahvistettu
+            subject: Ilmoittautumisesi konferenssiin on vahvistettu.
           pending_validation:
-            subject: Konferenssin ilmoittautuminen odottaa vahvistusta
+            subject: Ilmoittautumisesi konferenssiin odottaa vahvistusta.
         invite_join_conference_mailer:
           invite:
             subject: Kutsu konferenssiin
@@ -554,7 +554,7 @@ fi-pl:
     log:
       value_types:
         conference_presenter:
-          not_found: 'Konferenssia ei löytynyt tietokannasta (ID: %{id})'
+          not_found: 'Konferenssia ei löytynyt tietokannasta (ID: %{id}).'
     media:
       index:
         description: Tähän konferenssiin liittyvät linkit

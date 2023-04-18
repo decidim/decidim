@@ -34,9 +34,7 @@ module Decidim
       # find the opening `<p>` tag and include the badge right after it. This
       # makes the layout look good.
       def description
-        text = super
-        text.sub!(/<p>/, "<p>#{render :badge}")
-        html_truncate(text, length: 100)
+        render(:badge) + truncate(strip_tags(super), length: 100)
       end
 
       def resource_path

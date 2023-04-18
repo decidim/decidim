@@ -28,7 +28,6 @@ zh-CN:
           body:
             label: 评论
             placeholder: 你对此有什么看法？
-          form_error: 文本是必需的，不能超过 %{length} 个字符。
           submit: 发送
           user_group_id:
             label: 评论为
@@ -51,7 +50,6 @@ zh-CN:
           description: 这个内容是否不适当？
           details: 其他评论
           reasons:
-            does_not_belong: 包含非法活动、自杀威胁、个人信息或你认为不属于 %{organization_name} 的其他东西。
             offensive: 包括种族主义、性别主义、污泥、个人攻击、死亡威胁、自杀请求或任何形式的仇恨言论。
             spam: 包含点击、广告、骗子或脚本机器人。
           title: 报告不恰当的内容
@@ -112,6 +110,3 @@ zh-CN:
         description: 与会者生成的评论数
         object: 评论
         title: 评论
-  errors:
-    messages:
-      cannot_have_comments: 不能有评论

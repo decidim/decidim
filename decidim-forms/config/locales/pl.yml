@@ -22,8 +22,6 @@ pl:
             choices:
               missing: nie są kompletne
               too_many: jest zbyt wiele
-        questionnaire:
-          request_invalid: Wystąpił błąd podczas przetwarzania żądania. Spróbuj ponownie
   decidim:
     forms:
       admin:
@@ -111,9 +109,6 @@ pl:
           update:
             invalid: Podczas zapisywania formularza wystąpił błąd.
             success: Formularz został zapisany.
-      errors:
-        answer:
-          body: Treść nie może być pusta
       images:
         dimensions: "%{width} × %{height} px"
       question_types:
