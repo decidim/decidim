@@ -93,14 +93,20 @@ zh-TW:
             title: 新專案
           update_category:
             invalid: '這些專案已經擁有了 %{subject_name} 類別: %{projects}'
+            select_a_category: 請選擇一個類別
+            select_a_project: 請選擇一個專案
             success: '已成功將以下專案更新至 %{subject_name} 類別: %{projects}。'
           update_scope:
             invalid: '這些專案已經有了 %{subject_name} 的範圍: %{projects}。'
+            select_a_project: 請選擇一個專案
+            select_a_scope: 請選擇一個範圍。
             success: '已成功將以下專案更新至 %{subject_name} 範圍: %{projects}。'
           update_selected:
             invalid:
               selected: '這些專案已被選擇以實施：％{projects}。'
               unselected: '這些專案已從實施中取消選擇: ％{projects}。'
+            select_a_project: 請選擇一個專案
+            select_a_selection: 請選擇實施狀態。
             success:
               selected: '這些專案已成功選擇實施：%{projects}。'
               unselected: '這些專案已經成功從實施中取消選擇: %{projects}。'
@@ -143,6 +149,8 @@ zh-TW:
         progress: 完成投票
         show: 檢視專案
         vote: 投票
+      last_activity:
+        new_vote_at_html: "<span>在%{link} 有新的預算投票</span>"
       limit_announcement:
         limit_reached: 您在 %{links} 上有進行中的投票。若要對此預算進行投票，您必須<a href="%{landing_path}">刪除您目前的投票並重新開始</a>。
       models:
