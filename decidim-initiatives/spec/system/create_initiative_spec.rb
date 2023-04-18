@@ -85,6 +85,47 @@ describe "Initiative", type: :system do
     end
   end
 
+  context "when user requests a page not having all the data required" do
+    let(:do_not_require_authorization) { false }
+    let(:signature_type) { "online" }
+
+    context "when there is only one initiative type" do
+      let!(:other_initiative_type) { nil }
+      let!(:other_initiative_type_scope) { nil }
+
+      [
+        :select_initiative_type,
+        :previous_form,
+        :show_similar_initiatives,
+        :fill_data,
+        :promotal_committee,
+        :finish
+      ].each do |step|
+        it "redirects to the previous_form page when landing on #{step}" do
+          expect(Decidim::InitiativesType.count).to eq(1)
+          visit decidim_initiatives.create_initiative_path(step)
+          expect(page).to have_current_path(decidim_initiatives.create_initiative_path(:previous_form))
+        end
+      end
+    end
+
+    context "when there are more initiative types" do
+      [
+        :previous_form,
+        :show_similar_initiatives,
+        :fill_data,
+        :promotal_committee,
+        :finish
+      ].each do |step|
+        it "redirects to the select_initiative_type page when landing on #{step}" do
+          expect(Decidim::InitiativesType.count).to eq(2)
+          visit decidim_initiatives.create_initiative_path(step)
+          expect(page).to have_current_path(decidim_initiatives.create_initiative_path(:select_initiative_type))
+        end
+      end
+    end
+  end
+
   describe "create initiative verification" do
     context "when there is just one initiative type" do
       let!(:other_initiative_type) { nil }
@@ -633,6 +674,7 @@ describe "Initiative", type: :system do
         let(:initiative) { build(:initiative, organization:, scoped_type: initiative_type_scope) }
 
         before do
+          expect(page).to have_content("I want to promote this initiative")
           find_button("I want to promote this initiative").click
 
           fill_in "Title", with: translated(initiative.title, locale: :en)

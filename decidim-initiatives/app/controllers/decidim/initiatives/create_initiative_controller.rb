@@ -34,6 +34,8 @@ module Decidim
             :promotal_committee,
             :finish
 
+      before_action :ensure_type_exists, only: :show
+
       def show
         send("#{step}_step", initiative: session_initiative)
       end
@@ -44,6 +46,15 @@ module Decidim
       end
 
       private
+
+      def ensure_type_exists
+        destination_step = single_initiative_type? ? :previous_form : :select_initiative_type
+
+        return if step == destination_step
+        return if initiative_type_id.present? && initiative_type.present?
+
+        redirect_to wizard_path(destination_step)
+      end
 
       def select_initiative_type_step(_parameters)
         @form = form(Decidim::Initiatives::SelectInitiativeTypeForm).instance
@@ -162,7 +173,7 @@ module Decidim
       end
 
       def initiative_type_from_params
-        Decidim::InitiativesType.find_by(id: params["initiative"]["type_id"])
+        @initiative_type ||= Decidim::InitiativesType.find_by(id: params["initiative"]["type_id"])
       end
 
       def initiative_type_id
