@@ -182,7 +182,13 @@ zh-TW:
           are_you_sure: 您確定要取消您的投票嗎?
           assigned: '已指派:'
           cancel_order: 刪除你的投票並重新開始
+          checked_out:
+            title: 預算投票完成
+          minimum_projects_rule:
+            description: 您認為我們應該撥款給哪些專案？請選擇至少 %{minimum_number} 個您想要的專案，並根據您的偏好進行投票，以定義預算。
+            instruction: "<li>請選擇至少 %{minimum_number} 個您認為應該分配預算的項目，並根據您的喜好進行投票以定義預算。</li>"
           projects_rule:
+            description: 你認為我們應該為哪些專案分配預算？請至少選擇 %{minimum_number} 個專案，最多可選擇 %{maximum_number} 個項目，並根據你的喜好投票以定義預算。
             instruction: "<li>請至少選擇 %{minimum_number} 個至多 %{maximum_number} 個您想要的項專案，並根據您的喜好進行投票以定義預算。</li>"
           projects_rule_maximum_only:
             description: 你認為我們應該為哪些專案分配預算？請選擇最多 %{maximum_number} 個專案，根據你的喜好進行投票，來定義預算。
@@ -194,3 +200,37 @@ zh-TW:
           total_projects: 總票數
           vote_threshold_percent_rule:
             description: 您覺得我們應該為哪些專案分配預算？為您想要的專案分配至少 %{minimum_budget} 的預算，並按照您的喜好進行投票以定義預算。
+            instruction: "\"<li>指派至少 %{minimum_budget} 的預算給您想支持的專案，然後根據您的喜好進行投票以制定預算。</li>"
+        count:
+          projects_count:
+            other: "%{count} 專案"
+        exit_modal:
+          cancel: 返回投票
+          close_modal: 關閉視窗
+          exit: 退出投票
+          message: 您的投票尚未被註冊，因為您尚未完成投票程序。您確定要退出投票嗎?
+          title: 您尚未投票
+        filters:
+          category: 類別
+          scope: 範圍
+          search: 搜尋
+          status: 狀態
+          status_values:
+            all: 全部
+            not_selected: 未選擇
+            selected: 已選取
+        filters_small_view:
+          close_modal: 關閉視窗
+          filter: 篩選
+          filter_by: 篩選條件
+    components:
+      budgets:
+        settings:
+          global:
+            vote_rule_threshold_percent_enabled: '啟用規則: 最低預算百分比'
+            vote_selected_projects_maximum: 最多可以選擇的專案數量
+            vote_selected_projects_minimum: 最少可以選擇的專案數量
+            vote_threshold_percent: 投票門檻百分比
+            workflow: 工作流程
+            workflow_choices:
+              all: '全部投票：允許參與者投票所有預算。'
