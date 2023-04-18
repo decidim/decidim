@@ -1,1 +1,70 @@
 zh-TW:
+  decidim:
+    admin:
+      menu:
+        authorization_revocation:
+          destroy:
+            confirm: 撤銷在指定日期之前的授權無法撤消。您確定要繼續嗎？
+            confirm_all: 撤銷所有授權後無法還原，確定要繼續嗎？
+          destroy_nok: 撤銷授權時發生問題。
+          no_data: 沒有經過驗證的參與者
+    authorization_handlers:
+      admin:
+        csv_census:
+          help:
+            - 管理員上傳一個包含已接受參與者電子郵件的 CSV 檔案
+            - 只有在 CSV 檔案中的電子郵件被列出的參與者才能取得驗證。
+        id_documents:
+          help:
+            - Users fill in their identity information and upload a copy of their document.
+            - You fill in the information present in the uploaded image.
+            - The information should match whatever the user filled in.
+            - 如果您無法清楚地看到該信息或無法進行驗證，您可以拒絕該請求，用戶將能夠修正它。
+      csv_census:
+        explanation: 使用組織人口普查的方式進行驗證
+      id_documents:
+        explanation: 上傳您的身分證明文件，以便我們可以檢查您的身分證明
+      postal_letter:
+        explanation: 我們將會寄送一封郵寄信件給您，信中包含一個代碼，請在平台上輸入此代碼以驗證您的地址
+    verifications:
+      authorizations:
+        create:
+          success: 你已經成功被授權。
+        destroy:
+          success: 你已經成功刪除授權。
+        index:
+          unauthorized_verification: 新的驗證程序
+        renew_modal:
+          close: 關閉
+          info_renew: 如果您想要更新資料，請繼續進行更新。
+      csv_census:
+        admin:
+          census:
+            create:
+              success: 成功匯入 %{count} 項目(%{errors} 錯誤)
+            destroy_all:
+              success: 所有普查數據都已刪除
+          destroy:
+            confirm: 刪除所有普查資料將無法還原，您確定要繼續嗎？
+          index:
+            data: 總共載入了 %{count} 筆記錄。最後上傳日期為 %{due_date}。
+      id_documents:
+        admin:
+          config:
+            update:
+              success: 設定已成功更新
+          confirmations:
+            create:
+              error: 驗證不符合。請再試一次或拒絕驗證，以便參與者進行修正。
+              success: 參與者驗證成功
+          offline_confirmations:
+            create:
+              error: 驗證不符合。請再試一次或告知參與者進行修改。
+              success: 參與者驗證成功
+          rejections:
+            create:
+              success: 驗證被拒絕。參與者將被提示修改文件
+        authorizations:
+          create:
+            error: 上傳您的文件時出現問題。
+            success: 文件已成功上傳。
