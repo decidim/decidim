@@ -72,3 +72,33 @@ zh-TW:
           edit:
             being_reviewed: 我們正在審核您的文件。您的身份驗證將很快完成。
             rejection_clarity: 請確認上傳的圖片中資訊清晰可見
+            rejection_correctness: 請確認輸入資訊是否正確
+            rejection_notice: '"您的驗證出現問題。請再試一次。'
+          update:
+            error: 重新上傳您的文件時發生問題
+            success: 文件已成功重新上傳
+      postal_letter:
+        admin:
+          postages:
+            create:
+              error: 標記信函寄送時發生錯誤
+              success: 信件已成功標記為已寄出
+        authorizations:
+          create:
+            error: 你的請求有問題
+            success: 謝謝！我們會寄送一個驗證碼到您的地址
+          edit:
+            waiting_for_letter: 我們會盡快寄一封信到你的地址，信裡會有你的驗證碼。
+          update:
+            error: 您的驗證碼與我們的不符。請再次檢查我們寄給您的信件
+            success: 恭喜您！您已成功通過驗證。
+      sms:
+        authorizations:
+          create:
+            error: 您的請求有問題
+            success: 感謝您！我們已經發送了一個SMS簡訊到您的手機。
+          edit:
+            resend: 未收到驗證碼嗎？
+          update:
+            error: 您的驗證碼與我們的不符。請仔細檢查我們發送給您的SMS簡訊。
+            success: 恭喜您！您已成功通過驗證。
