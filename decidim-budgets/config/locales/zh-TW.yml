@@ -162,6 +162,7 @@ zh-TW:
           selected_projects: '你選擇的專案如下：'
           subject: 您已經在 %{space_name} 參與空間投票
           voted_on_space: 您已對「%{space_name}」參與空間的「%{budget_name}」預算進行投票。
+          voted_on_space_with_scope: 您已在%{scope_type} 的%{scope_name} 中，對%{space_name} 參與空間的%{budget_name} 預算進行了投票。
       projects:
         budget_summary:
           projects_rule:
