@@ -1,1 +1,24 @@
+---
 zh-TW:
+  activemodel:
+    attributes:
+      voting:
+        scope_id: 範圍
+  decidim:
+    elections:
+      trustee_zone:
+        trustees:
+          show:
+            identification_keys:
+              upload_error:
+                invalid_public_key: 上傳檔案中的身份識別金鑰與系統儲存的公用識別金鑰不匹配。
+              upload_legend: 伺服器上有您的公開識別金鑰，但您的瀏覽器仍然沒有。您需要從生成金鑰後創建的備份中，將識別金鑰檔案匯入您的電腦中。
+    votings:
+      admin:
+        votings:
+          form:
+            show_check_census_help: 是否在公開投票菜單中顯示「我可以投票嗎？」鏈接
+      polling_officer_zone:
+        in_person_votes:
+          complete_voting:
+            questions_title: '他們有權投票回答以下問題:'
