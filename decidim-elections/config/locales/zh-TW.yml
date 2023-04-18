@@ -1,1 +1,5 @@
 zh-TW:
+  activemodel:
+    attributes:
+      voting:
+        scope_id: 範圍
