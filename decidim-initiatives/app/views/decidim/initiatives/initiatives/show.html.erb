@@ -56,9 +56,10 @@ edit_link(
 <h2 class="h2 decorator mb-4">
   <%= translated_attribute(current_initiative.title) %>
 </h2>
-<%= render partial: "author", locals: { initiative: current_initiative } %>
 
-<%= decidim_sanitize_editor translated_attribute(current_initiative.description) %>
+<div class="editor-content">
+  <%= decidim_sanitize_editor translated_attribute(current_initiative.description) %>
+</div>
 
 <%= attachments_for current_initiative %>
 <%= render partial: "result", locals: { initiative: current_initiative } %>
@@ -77,5 +78,7 @@ edit_link(
 
 <%= comments_for current_initiative if current_initiative.commentable? && current_initiative.published? %>
 
-<%= resource_reference(current_initiative) %>
-<%= resource_version(current_initiative, versions_path: initiative_versions_path(current_initiative)) %>
+<ul class="drawer-metadata__container" data-metadata-footer>
+  <%= content_tag :li, resource_reference(current_initiative), class: "drawer-metadata__item" %>
+  <%= content_tag :li, resource_version(current_initiative, versions_path: initiative_versions_path(current_initiative)), class: "drawer-metadata__item" %>
+</ul>

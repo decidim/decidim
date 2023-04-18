@@ -1,4 +1,4 @@
-<section style="background-image:url('<%= current_initiative.type.attached_uploader(:banner_image).path %>');" data-conference-hero>
+<section style="background-image:url('<%= current_initiative.type.attached_uploader(:banner_image).path %>');">
   <div class="initiative__hero">
     <div class="initiative__hero-text">
       <h1 class="h1 text-5xl">
@@ -6,12 +6,10 @@
       </h1>
       <p class="initiative__hero-slogan">
         <% if current_participatory_space.hashtag.present? %>
-          <span>
-            <%= link_to "##{current_participatory_space.hashtag}", twitter_hashtag_url(current_participatory_space.hashtag), target: "_blank" %>
-          </span>
+          <%= link_to "##{current_participatory_space.hashtag}", twitter_hashtag_url(current_participatory_space.hashtag), target: "_blank" %>
         <% end %>
       </p>
-      <p class="text-white">
+      <p class="initiative__hero-dates">
         <%= render partial: "layouts/decidim/initiative_header_steps", locals: { initiative: current_participatory_space } %>
       </p>
     </div>

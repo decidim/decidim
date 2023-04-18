@@ -58,15 +58,19 @@
     @apply backdrop-brightness-[30%];
 
     &-text{
-      @apply container text-center text-white space-y-6 md:px-16 pt-10 pb-14 md:[&_a_+_a]:ml-6;
+      @apply container text-center text-white md:px-16 pt-10 pb-14 md:[&_a_+_a]:ml-6;
     }
 
     &-slogan{
-      @apply text-lg font-semibold;
+      @apply text-lg font-normal my-1;
     }
 
     &-location{
       @apply text-lg;
+    }
+
+    &-dates{
+      @apply text-white font-normal;
     }
   }
 }
