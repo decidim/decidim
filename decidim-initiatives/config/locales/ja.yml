@@ -360,7 +360,6 @@ ja:
           back: 戻る
           continue: 続ける
           fill_data_help: "<ul> <li>イニシアチブの内容を確認しましょう。タイトルはわかりやすいでしょうか? イニシアチブの目的は明確でしょうか? </li> <li>署名の種別を選択する必要があります。対面署名、オンライン署名、または両方の組み合わせのいずれかです。</li> <li>イニシアチブの地理的範囲はどうなりますか?</li></ul>"
-          initiative_type: イニシアティブの種類
           more_information: "(詳細)"
           select_area: エリアを選択
           select_scope: スコープを選択
