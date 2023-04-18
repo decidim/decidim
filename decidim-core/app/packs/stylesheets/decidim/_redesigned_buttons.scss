@@ -1,74 +1,75 @@
-.button{
+.button {
   @apply inline-flex items-center justify-center font-semibold border border-transparent rounded transition cursor-pointer [&>svg]:flex-none [&>svg]:fill-current first-letter:[&>span]:uppercase [&>span]:text-center [&>span]:break-words;
 
-  &__xs{
+  &__xs {
     @apply text-sm px-3 py-1 gap-1;
   }
 
-  &__sm{
+  &__sm {
     @apply text-sm px-4 py-1.5 gap-1.5;
   }
 
-  &__lg{
+  &__lg {
     @apply text-lg px-6 py-3 gap-2;
   }
 
-  &__xl{
+  &__xl {
     @apply text-xl px-8 py-4 gap-4;
   }
 
-  &__primary{
+  &__primary {
     @apply bg-primary text-white;
   }
 
-  &__secondary{
+  &__secondary {
     @apply bg-secondary text-white;
   }
 
-  &__tertiary{
+  &__tertiary {
     @apply bg-tertiary text-white;
   }
 
-  &__transparent{
+  &__transparent {
     @apply bg-transparent text-white border border-white;
 
-    &-primary{
+    &-primary {
       @apply button__transparent bg-white border-primary text-primary;
     }
 
-    &-secondary{
+    &-secondary {
       @apply button__transparent bg-white border-secondary text-secondary;
     }
 
-    &-tertiary{
+    &-tertiary {
       @apply button__transparent bg-white border-tertiary text-tertiary;
     }
   }
 
-  &__text{
+  &__text {
     @apply bg-transparent text-black border-0;
 
-    &-primary{
+    &-primary {
       @apply button__text text-primary;
     }
 
-    &-secondary{
+    &-secondary {
       @apply button__text text-secondary;
     }
 
-    &-tertiary{
+    &-tertiary {
       @apply button__text text-tertiary;
     }
   }
 
-  &[disabled]{
+  &[disabled] {
     @apply text-gray bg-background-3 border border-gray;
   }
 
   &__transparent:hover,
-  &:hover{
+  &:hover {
     @apply text-white;
 
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), theme('colors.secondary');
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+      theme("colors.secondary");
   }
 }

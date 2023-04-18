@@ -214,9 +214,6 @@ id:
         view_results: Lihat hasil
         votes_out_of:
           other: suara keluar
-      question_votes:
-        create:
-          error: Ada kesalahan saat memilih pertanyaan
       regular_questions:
         title: Pertanyaan untuk konsultasi ini
       show:

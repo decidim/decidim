@@ -27,22 +27,22 @@ ja:
             name: 投稿
         posts:
           create:
-            invalid: この投稿を作成する際に問題が発生しました
-            success: 投稿を作成しました
+            invalid: 投稿の作成中に問題が発生しました。
+            success: 投稿を作成しました。
           destroy:
-            success: 投稿を削除しました
+            success: 投稿を削除しました。
           edit:
             save: 更新
             title: 投稿を編集
           index:
-            not_published_yet: 非公開
+            not_published_yet: まだ公開されていません。
             title: 投稿
           new:
             create: 作成
             title: 投稿を作成
           update:
             invalid: 投稿の保存中に問題が発生しました。
-            success: 投稿を保存しました
+            success: 投稿を保存しました。
       admin_log:
         post:
           create: "%{user_name} が %{space_name} でブログ投稿 %{resource_name} を作成しました"

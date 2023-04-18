@@ -32,7 +32,6 @@ sk:
           body:
             label: Komentár
             placeholder: Čo si myslíte o tomto?
-          form_error: Tento text je požadovaný a nesmie byť dlhší, než %{length} znakov.
           submit: Odoslať
           user_group_id:
             label: Komentovať ako
@@ -55,7 +54,6 @@ sk:
           description: Je tento obsah nevhodný?
           details: Ďalšie komentáre
           reasons:
-            does_not_belong: Obsahuje ilegálnu činnosť, vyhrážky, osobné informácie, alebo niečo ďalšie, o čom si myslíte, že nepatrí na %{organization_name}.
             offensive: Obsahuje rasizmus, sexizmus, urážky, osobné útoky, vyhrážky alebo inú podobu nenávistného prejavu.
             spam: Obsahuje clickbait, reklamy, scam alebo je to skriptovací robot.
         show_replies: Zobraziť %{replies_count} odpovedí
@@ -111,6 +109,3 @@ sk:
         description: Počet komentárov všetkých účastníkov
         object: komentáre
         title: Komentáre
-  errors:
-    messages:
-      cannot_have_comments: nie je možné komentovať

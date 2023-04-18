@@ -1,19 +1,19 @@
 // Overwrite foundation defaults
-.dropdown-pane{
+.dropdown-pane {
   padding: 0;
   background-color: $white;
   border: $card-border;
 
-  ul{
+  ul {
     margin: 0;
     padding: 0;
   }
 
-  li{
+  li {
     padding: $global-padding;
     color: $brand;
 
-    &:not(:last-child){
+    &:not(:last-child) {
       border-bottom: $card-border;
     }
   }

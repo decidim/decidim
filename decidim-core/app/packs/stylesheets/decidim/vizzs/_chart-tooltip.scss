@@ -1,19 +1,19 @@
-.chart-tooltip{
+.chart-tooltip {
   @extend .card;
 
   position: absolute;
   transform: translate(-50%, -119%);
-  box-shadow: 0 0 20px 0 rgba($black, .2);
+  box-shadow: 0 0 20px 0 rgba($black, 0.2);
   overflow: visible;
 
-  .tooltip-content{
+  .tooltip-content {
     @extend .text-medium;
     @extend .p-xs;
 
     position: relative;
 
     &::after,
-    &::before{
+    &::before {
       top: 100%;
       left: 50%;
       border: solid transparent;
@@ -24,7 +24,7 @@
       pointer-events: none;
     }
 
-    &::after{
+    &::after {
       border-color: rgba($white, 0);
       border-top-color: $white;
       border-width: 10px;
@@ -32,7 +32,7 @@
       top: calc(100% - 1px); // webkit
     }
 
-    &::before{
+    &::before {
       border-color: rgba($medium-gray, 0);
       border-top-color: $medium-gray;
       border-width: 11px;

@@ -18,7 +18,7 @@ module Decidim
       # Public: Check if the supplied user can administrate the resource
       #
       # Returns Boolean
-      def can_be_administred_by?(user)
+      def can_be_administered_by?(user)
         return false if user.blank?
         return true if user.admin?
         return false if participatory_space.respond_to?(:user_roles) && participatory_space.user_roles(:valuator).where(user:).any?

@@ -59,7 +59,7 @@ edit_link(
           <%= render partial: "decidim/shared/static_map", locals: { icon_name: "projects", geolocalizable: project } %>
         <% end %>
         <%= cell("decidim/budgets/project_selected_status", project, as_label: true) %>
-        <%= decidim_sanitize_editor translated_attribute project.description %>
+        <%= decidim_sanitize_editor_admin translated_attribute project.description %>
         <%= cell "decidim/budgets/project_tags", project, context: { extra_classes: ["tags--project"] } %>
       </div>
       <%= attachments_for project %>
@@ -71,6 +71,4 @@ edit_link(
 
 <%= comments_for project, polymorphic: [project.budget] %>
 
-<% content_for :js_content do %>
-  <%= javascript_pack_tag "decidim_budgets" %>
-<% end %>
+<%= append_javascript_pack_tag "decidim_budgets" %>
