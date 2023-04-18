@@ -141,6 +141,25 @@ zh-TW:
         highlighted_cta: 在 %{name} 上投票
         my_budgets: 我的預算
         progress: 完成投票
+        show: 檢視專案
+        vote: 投票
+      limit_announcement:
+        limit_reached: 您在 %{links} 上有進行中的投票。若要對此預算進行投票，您必須<a href="%{landing_path}">刪除您目前的投票並重新開始</a>。
+      models:
+        budget:
+          fields:
+            name: 姓名
+            projects_count: 專案數量
+            total_budget: 總預算
+        project:
+          fields:
+            category: 類別
+            id: ID
+            scope: 範圍
+            title: 標題
+      order_summary_mailer:
+        order_summary:
+          selected_projects: '你選擇的專案如下：'
       projects:
         budget_summary:
           projects_rule:
