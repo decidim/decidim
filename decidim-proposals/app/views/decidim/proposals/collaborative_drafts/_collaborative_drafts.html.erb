@@ -1,11 +1,15 @@
 <% if @collaborative_drafts.empty? %>
   <%= cell("decidim/announcement", params[:filter].present? ? t("empty_filters", scope: "decidim.proposals.collaborative_drafts") : t("empty", scope: "decidim.proposals.collaborative_drafts")) %>
 <% else %>
-  <%= order_selector available_orders, i18n_scope: "decidim.proposals.collaborative_drafts.orders" %>
+  <div class="my-8">
+    <%= order_selector available_orders, i18n_scope: "decidim.proposals.collaborative_drafts.orders" %>
+  </div>
 
-  <% @collaborative_drafts.each do |draft| %>
-    <%= card_for draft %>
-  <% end %>
+  <div class="proposal-list__container">
+    <% @collaborative_drafts.each do |draft| %>
+      <%= card_for draft %>
+    <% end %>
+  </div>
 
   <%= decidim_paginate @collaborative_drafts %>
 <% end %>
