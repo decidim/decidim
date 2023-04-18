@@ -30,7 +30,7 @@ module Decidim::Meetings
     end
 
     describe "invalid code" do
-      context "when code doesn't exists" do
+      context "when code does not exists" do
         let!(:registration) { create(:registration, meeting:, code: "ANOT7654") }
 
         it { is_expected.not_to be_valid }

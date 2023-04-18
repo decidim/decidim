@@ -78,7 +78,7 @@ plugins:
       - decidim-core/app/assets/javascripts/decidim/core/bundle.js.map
       - decidim-core/app/assets/javascripts/decidim/core/bundle.js
       - decidim-elections/lib/decidim/elections/jwk_utils.rb
-      - .rubocop_ruby.yml
+      - decidim-dev/config/rubocop/ruby.yml
 
   grep:
     enabled: true
@@ -87,15 +87,23 @@ plugins:
       patterns:
         no-trailing-whitespace:
           pattern: \s*$
-          annotation: "Don't leave trailing whitespace"
+          annotation: "Do not leave trailing whitespace"
           severity: minor
           categories: Style
 
         no-tabs:
           pattern: "	"
-          annotation: "Don't use hard tabs"
+          annotation: "Do not use hard tabs"
           severity: minor
           categories: Style
+
+        no-sing-in-for-system-specs:
+          pattern: \s+sign_in[\s\(]
+          annotation: "Use login_as instead of sign_in at system specs"
+          severity: minor
+          categories: Style
+          path_patterns:
+            - "decidim-*/spec/system/**/*.rb"
 
     exclude_patterns:
       - "decidim_app-design/**/*"
@@ -110,7 +118,7 @@ plugins:
     # > Error: Could not find "@decidim/stylelint-config". Do you need a `configBasedir`?
     # > See our documentation at https://docs.codeclimate.com/docs/stylelint for more information.
     #
-    # Disabling it for the moment, we should enable it as it's useful.
+    # Disabling it for the moment, we should enable it as it is useful.
     #
     enabled: false
     exclude_patterns:

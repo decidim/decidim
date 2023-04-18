@@ -38,11 +38,9 @@ fr-CA:
           button_before: Révoquer avant
           destroy:
             confirm: Révoquer avant la date d'autorisation ne peut pas être annulée. Êtes-vous sûr de vouloir continuer ?
-            confirm_all: Révoquer toutes les autorisations ne peut pas être annulés. Êtes-vous sûr de vouloir continuer ?
-          destroy_nok: Il y a eu un problème lors de la révocation des autorisations.
+            confirm_all: La révocation des autorisations ne peut être annulée. Êtes-vous sur de vouloir continuer?
           destroy_ok: Toutes les autorisations correspondantes ont été annulées avec succès.
           info: Il y a un total de %{count} participants vérifiés.
-          no_data: Aucun participant vérifié
           title: Révocation des autorisations
         authorization_workflows: Autorisations
     admin_log:
@@ -52,16 +50,12 @@ fr-CA:
         grant_id_documents_offline_verification: "%{user_name} a vérifié %{resource_name} au moyen d’une vérification de documents d’identité hors ligne"
     authorization_handlers:
       admin:
-        csv_census:
-          help:
-            - Les administrateurs téléchargent un fichier CSV avec les emails des participants acceptés
-            - Seuls les participants avec un email dans ce fichier CSV peuvent être vérifiés
         id_documents:
           help:
             - Les utilisateurs remplissent leurs informations d'identité et téléchargent une copie de leur document.
             - Vous remplissez les informations présentes dans l'image téléchargée.
             - L'information doit correspondre à tout ce que l'utilisateur a rempli.
-            - Si vous ne pouvez pas voir clairement les informations ou si vous ne pouvez pas les vérifier, vous pouvez rejeter la demande et l'utilisateur sera en mesure de les corriger.
+            - "If you cannot clearly see the information or you cannot get it verified, you can reject the request and the user will be able to fix it.\nSi les informations ne sont pas claires ou si elles sont non vérifiables, vous pouvez rejeter la demande et l'utilisateur sera en mesure de les corriger."
         postal_letter:
           help:
             - Les utilisateurs demandent un code de vérification à envoyer à leur adresse.
@@ -69,17 +63,15 @@ fr-CA:
             - Vous marquez la lettre comme envoyée.
             - Une fois que vous avez coché la lettre, l'utilisateur sera en mesure de présenter le code et d'être vérifié.
       csv_census:
-        explanation: Faites-vous vérifier en utilisant le recensement de l'organisation
         name: Recensement de l'organisation
       direct: Direct
       help: Texte d'aide
       id_documents:
-        explanation: Téléchargez vos documents d'identité afin que nous puissions vérifier votre identité
         name: Documents d'identité
       multistep: En plusieurs étapes
       name: Nom
       postal_letter:
-        explanation: Nous vous enverrons une lettre postale avec un code que vous devrez saisir afin que nous puissions vérifier votre adresse
+        explanation: Nous vous enverrons un courrier postal contenant un code que vous devrez saisir afin de nous permettre de vérifier votre adresse.
         name: Code par lettre postale
     events:
       verifications:
@@ -95,12 +87,12 @@ fr-CA:
           no_data_stored: Aucune donnée enregistrée.
         create:
           error: Une erreur s'est produite lors de la création de l'autorisation.
-          success: Vous avez été autorisé avec succès.
+          success: Vous avez été autorisé(e) avec succès.
           transferred: 'Nous avons récupéré les données de participation suivantes basées sur votre autorisation :'
           unconfirmed: Vous devez confirmer votre email pour vous autoriser.
         destroy:
           error: Un problème est survenu lors de la destruction de l'autorisation.
-          success: Vous avez réussi à détruire l'autorisation.
+          success: Vous avez supprimé avec succès l'autorisation.
         first_login:
           actions:
             another_dummy_authorization_handler: Vérifier avec un autre exemple de gestionnaire d'autorisation
@@ -114,17 +106,18 @@ fr-CA:
           verify_with_these_options: 'Voici les options disponibles pour vérifier votre identité :'
         index:
           expired_verification: Vérification expiré
+          granted_verification: Vérification accordée
+          introduce_code: Introduire le code
           pending_verification: En attente de vérification
           show_renew_info: Cliquez pour renouveler la vérification
-          unauthorized_verification: Nouvelle vérification
+          subscribe: S'abonner
+          unauthorized_methods: Méthodes de vérification
         new:
           authorize: Envoyer
           authorize_with: Vérifier votre identité avec %{authorizer}
         renew_modal:
           cancel: Annuler
-          close: fermer
           continue: Continuer
-          info_renew: Si vous voulez mettre à jour les données, continuez avec le renouvellement
           title: Renouveler la vérification
         skip_verification: Vous pouvez omettre cette étape pour le moment et %{link}
         start_exploring: commencer à explorer
@@ -133,14 +126,10 @@ fr-CA:
           census:
             create:
               error: Une erreur est survenue lors du recensement.
-              success: '%{count} articles importés avec succès (%{errors} erreur)'
-            destroy_all:
-              success: Toutes les données du recensement ont été supprimées
           destroy:
-            confirm: Supprimer tout le recensement ne peut pas être annulé. Es-tu sur de vouloir continuer?
+            confirm: La suppression du recensement est irréversible. Êtes-vous sûr de vouloir continuer ?
             title: Supprimer toutes les données du recensement
           index:
-            data: Il y a %{count} enregistrements chargés au total. La dernière date de mise en ligne était le %{due_date}
             empty: Il n'y a pas de données de recensement. Utilisez le formulaire ci-dessous pour l'importer à l'aide d'un fichier CSV.
             title: Données de recensement actuelles
           instructions:
@@ -176,19 +165,12 @@ fr-CA:
               update: Mettre à jour
             update:
               error: Une erreur s'est produite lors de la mise à jour de la configuration.
-              success: Configuration mise à jour avec succès
           confirmations:
-            create:
-              error: La vérification ne correspond pas. Réessayez ou rejetez la vérification afin que l'utilisateur puisse la modifier
-              success: Utilisateur vérifié avec succès
             new:
               introduce_user_data: Introduire les données dans l'image
               reject: Rejeter
               verify: Vérifier
           offline_confirmations:
-            create:
-              error: La vérification ne correspond pas. Réessayez ou dites à l'utilisateur de le modifier.
-              success: Utilisateur vérifié avec succès
             new:
               cancel: Annuler
               introduce_user_data: Introduire le courrier électronique de l'utilisateur et les données du document
@@ -199,32 +181,19 @@ fr-CA:
               offline_verification: Vérification hors ligne
               title: Vérifications en attente
               verification_number: 'Vérification # %{n}'
-          rejections:
-            create:
-              success: Vérification rejetée. L'utilisateur sera invité à modifier ses documents
         authorizations:
           choose:
             choose_a_type: 'Veuillez sélectionner comment vous souhaitez être vérifié:'
             offline: Hors ligne
             online: En ligne
             title: Vérifiez-vous en utilisant votre pièce d'identité
-          create:
-            error: Un problème est survenu lors du téléchargement de votre document
-            success: Document téléchargé avec succès
           edit:
-            being_reviewed: Nous examinons vos documents et votre autorisation sera bientôt validée
             offline: Utiliser la vérification hors ligne
             online: Utiliser la vérification en ligne
-            rejection_clarity: Assurez-vous que les informations sont clairement visibles dans l'image téléchargée
-            rejection_correctness: Assurez-vous que les informations entrées sont correctes
-            rejection_notice: Il y a eu un problème avec votre vérification. Veuillez essayer à nouveau
             send: Demande de vérification à nouveau
           new:
             send: Demande de vérification
             title: Téléchargez votre document d'identité
-          update:
-            error: Un problème est survenu lors du chargement de votre document
-            success: Document téléchargé avec succès
         dni: Carte nationale d'identité
         nie: Carte de séjour ou de résident
         passport: Passeport
@@ -239,43 +208,30 @@ fr-CA:
               title: Vérifications en cours
               username: Nom d'utilisateur
               verification_code: Code de vérification
-          postages:
-            create:
-              error: Erreur en marquant la lettre comme envoyée
-              success: Lettre marquée avec succès comme envoyée
         authorizations:
-          create:
-            error: Il y a eu un problème avec votre demande
-            success: Merci ! Nous enverrons un code de vérification à votre adresse
           edit:
             send: Confirmer
-            title: Introduisez le code de vérification que vous avez reçu
-            waiting_for_letter: Nous vous enverrons une lettre à votre adresse avec votre code de vérification
           new:
             send: Envoyez-moi une lettre
             title: Demandez votre code de vérification
           update:
-            error: Votre code de vérification ne correspond pas au nôtre. Veuillez vérifier la lettre que nous vous avons envoyée
-            success: Félicitations, votre identité a été vérifiée avec succès
+            success: Félicitations, votre identité a été vérifiée avec succès.
       sms:
         authorizations:
-          create:
-            error: Il y avait un problème avec votre demande
-            success: Merci! Nous avons envoyé un SMS sur votre téléphone.
           destroy:
             success: Le code de vérification a été réinitialisé avec succès. Veuillez ré-entrer votre numéro de téléphone.
           edit:
             confirm_destroy: Êtes-vous sûr de vouloir réinitialiser le code de vérification?
             destroy: Réinitialiser le code de vérification
-            resend: Vous n'avez pas reçu le code de vérification?
+            resend: "Did not receive the verification code?\nVous n'avez pas reçu le code de sécurité ?"
             send: Confirmer
             title: Introduisez le code de vérification que vous avez reçu
           new:
             send: Envoyez moi un SMS
             title: Demander votre code de vérification
           update:
-            error: Votre code de vérification ne correspond pas au nôtre. Veuillez vérifier le SMS que nous vous avons envoyé.
-            success: Toutes nos félicitations. Vous avez été vérifié avec succès.
+            error: Votre code de vérification ne correspond pas au nôtre. Veuillez revérifier le SMS que nous vous avons envoyé.
+            success: Félicitations, votre identité a été vérifiée avec succès.
   errors:
     messages:
       uppercase_only_letters_numbers: à saisir en majuscule avec uniquement des lettres et / ou des chiffres

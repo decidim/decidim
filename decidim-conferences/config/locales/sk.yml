@@ -22,24 +22,12 @@ sk:
         slogan: Slogan
         slug: URL krátky odkaz
         title: Názov
-      conference_media_link:
-        weight: Váha
-      conference_partner:
-        weight: Váha
-      conference_registration_type:
-        weight: Váha
       conference_speaker:
         full_name: Meno a priezvisko
       conference_user_role:
         email: E-mail
         name: Meno
         role: Rola
-    errors:
-      models:
-        conference_registration_invite:
-          attributes:
-            email:
-              already_invited: Tento e-mail už obdržal pozvánku
   activerecord:
     models:
       decidim/conference:
@@ -105,8 +93,6 @@ sk:
         edit:
           title: Aktualizovať administrátora konferencie.
           update: Aktualizovať
-        index:
-          conference_admins_title: administrátori konferencie
         new:
           create: Vytvoriť
           title: Nový administrátor konferencie.
@@ -318,7 +304,6 @@ sk:
             invites: Pozvánky
             search: Hľadať
           new:
-            explanation: Tento účastník bude pozvaný na účasť na konferencii. Ak jeho e-mail ešte nie je registrovaný, bude pozvaný aj k účasti na platforme.
             invite: Pozvať
             new_invite: Pozvať účastníka
         conference_registrations:
@@ -373,18 +358,11 @@ sk:
           cancel: Zrušiť
           confirm: Potvrdiť
         show:
-          free: Zadarmo
           going: Účastníci
           no_slots_available: Žiadne voľné miesta
           registration: Registrácia
       conference_program:
-        program_meeting:
-          content: Obsah
-          location: Miesto
-          speakers: Rečníci
-          streaming: Streamovanie
         show:
-          day: Deň
           program: Program
       conference_registration_mailer:
         confirmation:
@@ -414,18 +392,12 @@ sk:
       conference_speaker_cell:
         personal_url:
           personal_website: Osobná stránka
-        twitter_handle:
-          go_to_twitter: Ísť na Twitter
-      conference_speakers:
-        index:
-          speakers: Rečníci
       conferences:
         partners:
           collaborators: Partneri
           main_promotors: Organizátori
         show:
           login_as: Ste prihlásení ako %{name} %{email} 
-          make_conference_registration: 'Zaregistrujte sa na konferenciu:'
           register: Registrovať
       content_blocks:
         highlighted_conferences:
@@ -433,11 +405,6 @@ sk:
       index:
         title: Konferencie
       mailer:
-        conference_registration_mailer:
-          confirmation:
-            subject: Vaša registrácia na konferenciu bola potvrdená
-          pending_validation:
-            subject: Vaša registrácia na konferenciu čaká na potvrdenie
         invite_join_conference_mailer:
           invite:
             subject: Pozvánka na konferenciu
@@ -470,28 +437,11 @@ sk:
           highlighted_conferences:
             active_conferences: Aktívne konferencie
             see_all_conferences: Zobraziť všetky konferencie
-      photo:
-        image:
-          attributes:
-            alt: Obrázok
-        show:
-          close_modal: Zavrieť okno
-          photo: Obrázok
-      photos_list:
-        show:
-          related_photos: Obrázky
       registration_types:
         index:
           choose_an_option: 'Zvoľte si možnosti registrácie:'
-          login_as: Ste prihlásení ako %{name} %{email} 
           register: Registrovať
           title: Typy registrácie
-      shared:
-        conference_user_login:
-          already_account: Máte už účet na platforme decidim?
-          new_user: Nový užívateľ?
-          sign_in: Prihláste sa pre registráciu na konferencii
-          sign_up: Vytvorte si účet na platforme pre registráciu na konferenciu
       show:
         details: Detaily
         introduction: Úvod
@@ -525,10 +475,6 @@ sk:
           email_outro: Túto notifikáciu ste dostali, pretože sledujete konferenciu "%{resource_title}". Notifikácie môžete zrušiť po kliknutí na predchádzajúci odkaz.
           email_subject: Konferencia "%{resource_title}" je tu!
           notification_title: Konferencia <a href="%{resource_path}">%{resource_title}</a> sa koná o 2 dni.
-    log:
-      value_types:
-        conference_presenter:
-          not_found: 'Konferencia nebola nájdená v databáze (ID: %{id})'
     media:
       index:
         description: Odkazy ku konferencii

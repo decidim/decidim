@@ -23,7 +23,7 @@ ro:
               missing: nu sunt completate
               too_many: sunt prea multe
         questionnaire:
-          request_invalid: A apărut o eroare la procesarea cererii. Te rugăm să încerci din nou
+          request_invalid: A apărut o eroare la procesarea cererii. Te rugăm să încerci din nou.
   decidim:
     forms:
       admin:
@@ -132,6 +132,7 @@ ro:
       images:
         dimensions: "%{width} x %{height} px"
         processors:
+          resize_and_pad: Această imagine va fi redimensionată pentru a se potrivi cu %{dimensions}.
           resize_to_fit: Această imagine va fi redimensionată pentru a se potrivi cu %{dimensions}.
       question_types:
         files: Fișiere

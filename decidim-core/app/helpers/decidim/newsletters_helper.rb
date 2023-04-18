@@ -31,6 +31,7 @@ module Decidim
     # this method is used to generate the root link on mail with the utm_codes
     # If the newsletter_id is nil, it returns the root_url
     def custom_url_for_mail_root(organization, newsletter_id = nil)
+      decidim = EngineRouter.new("decidim", {})
       if newsletter_id.present?
         decidim.root_url(host: organization.host) + utm_codes(organization.host, newsletter_id.to_s)
       else

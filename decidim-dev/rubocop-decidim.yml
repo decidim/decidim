@@ -1,0 +1,13 @@
+# Note that this file's name cannot start with `.rubocop` (with the leading dot)
+# because it is used externally by loading it through `inherit_gem` and that
+# naming would cause the exclude/include rules to break.
+#
+# For further details, see:
+# https://github.com/rubocop/rubocop/issues/4154#issuecomment-316004878
+
+inherit_from:
+  - config/rubocop/ruby.yml
+  - config/rubocop/rails.yml
+  - config/rubocop/rspec.yml
+  - config/rubocop/faker.yml
+  - config/rubocop/disabled.yml

@@ -40,22 +40,23 @@ ca:
       actions:
         attachment_collections: Carpetes
         attachments: Adjunts
-        confirm_destroy: Estàs segura que vols eliminar aquest projecte?
+        confirm_destroy: Segur que vols eliminar aquest projecte?
         destroy: Esborrar
         edit: Editar
         edit_projects: Gestionar projectes
         import: Importa propostes a projectes
         new: Nou %{name}
         preview: Previsualitzar
+        send_voting_reminders: Enviar recordatoris de votació
         title: Accions
       admin:
         budgets:
           create:
-            invalid: S'ha produït un error en crear aquest pressupost
-            success: Pressupost creat correctament
+            invalid: S'ha produït un error en crear aquest pressupost.
+            success: Pressupost creat correctament.
           destroy:
-            invalid: S'ha produït un error en eliminar aquest pressupost
-            success: Pressupost eliminat correctament
+            invalid: S'ha produït un error en eliminar aquest pressupost.
+            success: Pressupost eliminat correctament.
           edit:
             title: Edita el pressupost
             update: Actualitza el pressupost
@@ -69,8 +70,8 @@ ca:
             create: Crea pressupost
             title: Nou pressupost
           update:
-            invalid: S'ha produït un error en actualitzar aquest pressupost
-            success: Pressupost actualitzat correctament
+            invalid: S'ha produït un error en actualitzar aquest pressupost.
+            success: Pressupost actualitzat correctament.
         exports:
           projects: Projectes
         models:
@@ -80,10 +81,10 @@ ca:
             name: Projecte
         projects:
           create:
-            invalid: S'ha produït un error en crear aquest projecte
-            success: Projecte creat correctament
+            invalid: S'ha produït un error en crear aquest projecte.
+            success: Projecte creat correctament.
           destroy:
-            success: El projecte s'ha eliminat correctament
+            success: Projecte eliminat correctament.
           edit:
             title: Editar projecte
             update: Actualitzar
@@ -92,6 +93,7 @@ ca:
             cancel: Cancel·lar
             change_category: Canviar categoria
             change_scope: Canviar àmbit
+            change_selected: Canviar l'estat seleccionat
             deselect_implementation: No s'ha seleccionat per implementar
             finished_orders: Vots finalitzats
             pending_orders: Vots en procés
@@ -104,30 +106,31 @@ ca:
             create: Crear
             title: Nou projecte
           update:
-            invalid: S'ha produït un error en actualitzar aquest projecte
-            success: Projecte actualitzat correctament
+            invalid: S'ha produït un error en actualitzar aquest projecte.
+            success: Projecte actualitzat correctament.
           update_category:
             invalid: 'Aquestes propostes ja tenien la categoria %{subject_name}: %{projects}.'
-            select_a_category: Si us plau, selecciona una categoria
-            select_a_project: Si us plau, selecciona un projecte
+            select_a_category: Si us plau, selecciona una categoria.
+            select_a_project: Si us plau, selecciona un projecte.
             success: 'Els projectes s''han actualitzat correctament a la categoria %{subject_name}: %{projects}.'
           update_scope:
             invalid: 'Aquests projectes ja estaven assignats a l''àmbit %{subject_name}: %{projects}.'
-            select_a_project: Si us plau, selecciona un projecte
-            select_a_scope: Si us plau, selecciona un àmbit
+            select_a_project: Si us plau, selecciona un projecte.
+            select_a_scope: Si us plau, selecciona un àmbit.
             success: 'Els projectes s''han actualitzat correctament a l''àmbit %{subject_name}: %{projects}.'
           update_selected:
             invalid:
               selected: 'Aquests projectes ja han estat seleccionats per a ser implementats: %{projects}.'
               unselected: 'Aquests projectes han estat deseleccionats de ser implementats: %{projects}.'
-            select_a_project: Si us plau, selecciona un projecte
+            select_a_project: Si us plau, selecciona un projecte.
+            select_a_selection: Si us plau, selecciona un estat d'implementació.
             success:
               selected: 'Aquests projectes s''han seleccionat correctament per a ser implementats: %{projects}.'
               unselected: 'Aquests projectes s''han deseleccionat correctament per a ser implementats: %{projects}.'
         proposals_imports:
           create:
-            invalid: S'ha produït un error en importar les propostes en projectes
-            success: "S'ha importat amb èxit %{number} propostes en projectes"
+            invalid: S'ha produït un error en importar les propostes a projectes.
+            success: "S'ha importat amb èxit %{number} propostes a projectes."
           new:
             create: Importa propostes a projectes
             default_budget: Pressupost per defecte
@@ -159,24 +162,24 @@ ca:
         continue: Continuar
         more_information: Més informació
       budget_list_item:
-        voting_finished: Has votat en aquest pressupost
-        voting_started: Has començat a votar en aquest pressupost
+        voting_finished: Has votat en aquest pressupost.
+        voting_started: Has començat a votar en aquest pressupost.
       budgets_list:
         cancel_order:
           more_than_one: eliminar el teu vot a %{name} i començar de nou
           only_one: eliminar el teu vot i començar de nou.
         finished_message: Has finalitzat el procés de votació. Gràcies per participar-hi!
         highlighted_cta: Votar a %{name}
-        if_change_opinion: Si has canviat d'opinió, pots
+        if_change_opinion: Si has canviat d'opinió, pots %{cancel_link}.
         my_budgets: Els meus pressupostos
         progress: Acaba la votació
         show: Mostra els projectes
         vote: Vota
-        voted_on: Has votat a %{links}
+        voted_on: Has votat a %{links}.
       last_activity:
         new_vote_at: Nova votació pressupostària a
       limit_announcement:
-        cant_vote: No pots votar a aquests pressupostos. <a href="%{landing_path}"> Prova amb un altre pressupost </a>.
+        cant_vote: No pots votar a aquest pressupost. <a href="%{landing_path}"> Prova amb un altre pressupost</a>.
         limit_reached: Tens vots actius a %{links}. Per votar en aquest pressupot has d' <a href="%{landing_path}">esborrar el teu vot i començar de nou</a>.
       models:
         budget:
@@ -205,10 +208,10 @@ ca:
           title: Confirmar vot
         budget_excess:
           budget_excess:
-            description: Aquest projecte sobrepassa el pressupost màxim i no es pot afegir. Si ho desitges, pots eliminar un projecte ja seleccionat per afegir aquest o votar d'acord amb les teves preferències.
+            description: No es pot afegir aquest projecte perquè sobrepassaria el màxim del pressupost disponible. Si ho desitges, pots eliminar un projecte ja seleccionat per a poder votar d'acord amb les teves preferències.
             title: Pressupost excedit
           close: Tancar
-          description: Aquest projecte sobrepassa el pressupost màxim i no es pot afegir. Si ho desitges, pots eliminar un projecte ja seleccionat per afegir aquest o votar d'acord amb les teves preferències.
+          description: No es pot afegir aquest projecte perquè sobrepassaria el màxim del pressupost disponible. Si ho desitges, pots eliminar un projecte ja seleccionat per a poder votar d'acord amb les teves preferències.
           ok: D'acord
           projects_excess:
             description: Aquest projecte sobrepassa el pressupost màxim i no es pot afegir. Si ho desitges, pots eliminar un projecte ja seleccionat per afegir aquest o votar d'acord amb les teves preferències.
@@ -279,8 +282,8 @@ ca:
           random: Ordre aleatori
           selected: Seleccionat
         project:
-          add: Afegir el projecte %{resource_name} al teu vot
-          remove: Esborrar el projecte %{resource_name} del teu vot
+          add: Afegir el projecte %{resource_name} al teu vot.
+          remove: Esborrar el projecte %{resource_name} del teu vot.
           selected: Seleccionat
           view: Veure
           votes:
@@ -289,9 +292,9 @@ ca:
           you_voted: Has votat això
         project_budget_button:
           add: Afegir al teu vot
-          add_descriptive: Afegir el projecte %{resource_name} al teu vot
+          add_descriptive: Afegeix el projecte %{resource_name} al teu vot.
           added: Afegit al teu vot
-          added_descriptive: El projecte %{resource_name} s'ha afegit al teu vot
+          added_descriptive: El projecte %{resource_name} s'ha afegit al teu vot.
         projects_for: Projectes per a %{name}
         show:
           budget: Pressupost
@@ -318,8 +321,8 @@ ca:
             comments_max_length: Longitud màxima dels comentaris (deixa 0 si vols mantenir la configuració per defecte)
             form:
               errors:
-                budget_voting_rule_only_one: Cal activar com a mínim una norma per a la votació
-                budget_voting_rule_required: Es requereix una norma per a la votació
+                budget_voting_rule_only_one: Només s'ha d'activar una norma de votació.
+                budget_voting_rule_required: Es requereix una norma per a la votació.
             geocoding_enabled: Geolocalització habilitada
             landing_page_content: Pàgina d'inici de pressupostos
             more_information_modal: Finestra de "Més informació"
@@ -363,11 +366,11 @@ ca:
           notification_title: El pressupost <a href="%{resource_path}">%{resource_title}</a> a %{participatory_space_title} ja està actiu.
     orders:
       checkout:
-        error: S'ha produït un error en processar el teu vot
-        success: El teu vot s'ha tramitat correctament
+        error: S'ha produït un error en processar el teu vot.
+        success: El teu vot s'ha acceptat correctament.
       destroy:
-        error: S'ha produït un error en cancel·lar el teu vot
-        success: El teu vot ha estat cancel·lat correctament
+        error: S'ha produït un error en cancel·lar el teu vot.
+        success: El teu vot ha estat cancel·lat correctament.
     resource_links:
       included_proposals:
         project_proposal: Propostes incloses en aquest projecte

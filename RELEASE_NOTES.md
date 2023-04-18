@@ -23,6 +23,13 @@ bin/rails db:migrate
 
 ### 1.3. Follow the steps and commands detailed in these notes
 
+#### 1.3.1 Config Parameter change
+
+Prior to 0.28, Decidim offered the possibility of configuring the a list of disallowed domains used to restrict user access using either `Decidim.password_blacklist` or environment variable `DECIDIM_PASSWORD_BLACKLIST`. While upgrading to 0.28, those methods have been renamed as follows:
+
+`Decidim.password_blacklist` becomes `Decidim.denied_passwords`
+`DECIDIM_PASSWORD_BLACKLIST` becomes `DECIDIM_DENIED_PASSWORDS`
+
 ## 2. General notes
 
 ## 3. One time actions
@@ -33,9 +40,87 @@ These are one time actions that need to be done after the code is updated in the
 
 Decidim redesign has introduced Tailwind CSS framework to compile CSS. It integrates with Webpacker, which generates Tailwind configuration dynamically when Webpacker is invoked.
 
-You'll need to add `tailwind.config.js` to your app `.gitignore`. If you generate a new Decidim app from scratch, that entry will already be included in the `.gitignore`.
+You will need to add `tailwind.config.js` to your app `.gitignore`. If you generate a new Decidim app from scratch, that entry will already be included in the `.gitignore`.
 
 You can read more about this change on PR [\#9480](https://github.com/decidim/decidim/pull/9480).
+
+### 3.2. Added Procfile support
+
+In [\#10519](https://github.com/decidim/decidim/pull/10519) we have added Procfile support to ease up the development of Decidim instances. In order to install `foreman` and the `Procfile.dev`, you need to run the following command:
+
+```console
+bundle exec rake decidim:procfile:install
+```
+
+After this command has been ran, a new command will be available in your `bin/`, so in order to boot up your application you will just need to run
+
+```console
+./bin/dev
+```
+
+Additional notes on Procfile:
+
+In some cases, when running in a containerized environment, you may need to manually edit the `config/webpacker.yml` to edit the host parameter from `host: localhost` to `host: 0.0.0.0`
+
+In some other cases when you run your application on a custom port (other than 3000), you will need to edit the `Procfile`, and add the parameter. `web: bin/rails server -b 0.0.0.0 -p 3000`
+
+### 3.3. User moderation panel changes
+
+In older Decidim installations, when blocking an user directly from the participants menu, without being previously reported, it will hide that user, making it unavailable in the Reported Participants section. You will need to run this command once to make sure there are no users or entities that got blocked but are not visible in the participants listing.
+
+```console
+bundle exec rake decidim:upgrade:moderation:fix_blocked_user_panel
+```
+
+You can read more about this change on PR [\#10521](https://github.com/decidim/decidim/pull/10521).
+
+### 3.4. Change Webpacker to Shakapacker
+
+Since the Rails team has retired the Webpacker in favour or importmap-rails or js-bundling, we got ouserlves in a situation where performance improvements could not be performed.
+In order to continue having support for Webpacker like syntax, we have switched to Shakapacker.
+
+In order to perform the update, you will need to make sure that you **do not have webpacker in your Gemfile**.
+If you have it, please remove it, and allow Decidim to handle the webpacker / shakapacker dependency.
+
+In order to perform the migration to shakapacker, please backup the following files, to make sure that you save any customizations you may have done to webpacker:
+
+```console
+config/webpacker.yml
+config/webpack/*
+package.json
+postcss.config.js
+```
+
+After all the backups and changes mentioned above have been completed, follow the default upgrade steps, as mentioned above in the document.
+Then run the below command, and replace all the configuration with the one that Decidim is providing by default:
+
+```console
+bundle exec rake decidim:webpacker:install
+```
+
+This will make the necessary changes in the `config/webpacker.yml`, but also in the `config/webpack/` folder.
+
+#### Note for development
+
+If you are using the `Procfile.dev` file, you will need to make sure that you have the following line in your configuration. If you have not altered the `Procfile.dev` file, you will not need to do anything, as we covered that part:
+
+```console
+webpacker: ./bin/webpacker-dev-server
+```
+
+In order to run your development server, you will need to run the following command:
+
+```console
+./bin/dev
+```
+
+You can read more about this change on PR [\#10389](https://github.com/decidim/decidim/pull/10389).
+
+### 3.5. Graphql upgrade
+
+In [\#10606](https://github.com/decidim/decidim/pull/10606) we have upgraded the GraphQL gem to version 2.0.19. This upgrade introduces some breaking changes, so you will need to update your GraphQL queries to match the new API. This change should be transparent for most of the users, but if you have custom GraphQL queries, you will need to update them. Also, please note, there might be some issues with community plugins that offer support for GraphQL, so you might need to update them as well.
+
+Please see the [change log](https://github.com/rmosolgo/graphql-ruby/blob/master/CHANGELOG.md) for graphql gem for more information.
 
 ## 4. Scheduled tasks
 
@@ -60,7 +145,7 @@ You can read more about this change on PR [\#9026](https://github.com/decidim/de
 
 ### 4.2. Social Share Button change
 
-As the gem that we were using for sharing to Social Network don't support Webpacker, we have implemented the same functionality in `decidim-core`.
+As the gem that we were using for sharing to Social Network do not support Webpacker, we have implemented the same functionality in `decidim-core`.
 
 If you want to have the default social share services enabled (Twitter, Facebook, WhatsApp and Telegram), then you can just remove the initializer in your application:
 
@@ -68,7 +153,7 @@ If you want to have the default social share services enabled (Twitter, Facebook
 rm config/initializers/social_share_button.rb
 ```
 
-If you want to change the default social share services, you'll need to remove this initializer and add it to the Decidim initializer. We recommend doing it with the environment variables and secrets to be consistent with the rest of configurations.
+If you want to change the default social share services, you will need to remove this initializer and add it to the Decidim initializer. We recommend doing it with the environment variables and secrets to be consistent with the rest of configurations.
 
 ```console
 rm config/initializers/social_share_button.rb
@@ -92,6 +177,22 @@ decidim_default: &decidim_default
 And define your own services in the environment variable `DECIDIM_SOCIAL_SHARE_SERVICES` with the services that you want.
 
 With this change you can also define your own services. See [documentation for social share services customization](https://docs.decidim.org/en/customize/social_shares/).
+
+### 4.3. Password validator configuration
+
+Decidim implements several password strength checks that ensure the platforms participants and admins are not using weak passwords. One of these validation rules includes checking the user's password against the domain parts of the website, such as `foo.example.org`. The validation ensures that in this case the user's password does not contain the words `foo` or `example`.
+
+This check turned out to be problematic for short subdomains, such as the one in the presented example. Because of this, a new configuration was added to configure the minimum length of a domain part to match against the user's password. The default configuration for this is four characters meaning any domain part shorter than this limit will not be included in this validation rule.
+
+The default value is 4 characters, to change this value you can change the configuration:
+
+```ruby
+# In config/initializers/decidim.org
+
+Decidim.configure do |config|
+  config.password_similarity_length = 4
+end
+```
 
 ## 5. Changes in APIs
 
@@ -228,3 +329,71 @@ end
 Note that when unregistering an authorization transfer handler, the transfers will still work normally for the other transfer handlers and no conflicts are reported for the admin users in case of conflict situation between a new authorization and a previous authorization for a deleted user. In this case, the authorization is transferred to the new user normally but the unregistered transfer handlers are not called which means those records will not be transferred between the user accounts. For conflicts between normal registered users or managed users, the conflicts are still reported as before. The automated authorization transfers only happen in case the previously authorized conflicting user account was deleted.
 
 You can read more about this change at PR [\#9463](https://github.com/decidim/decidim/pull/9463).
+
+### 5.3 Ability to hide content of a user from the public interface
+
+As of [\#10111](https://github.com/decidim/decidim/pull/10111), the administrators have the ability of blocking the user from the public interface.
+In order to do so, the administrator needs to go to the user's profile and click on the "Report user" button. If the reporting user is a system wide admin, a new "Block this participant" checkbox will appear. If the checkbox is checked, then the reporting user will have the ability as well to check "Hide all their contents". The first checkbox will force the reporting user to admin area where he can add a justification for blocking the offending Participant. The second checkbox will hide all the content of the user from the public interface.
+
+In order to hide all the Participant resources, keeping a separation of concerns, we have started to use `ActiveSupport::Notifications.publish` to notify the modules that the admin user has chosen to hide all the Participant's contributions.
+
+We are dispatching the following event:
+
+```ruby
+event_name = "decidim.system.events.hide_user_created_content"
+ActiveSupport::Notifications.publish(event_name, {
+  author: current_blocking.user, # user to be blocked
+  justification: current_blocking.justification, # reason for blocking the user
+  current_user: current_blocking.blocking_user # admin user that is blocking the other user
+})
+```
+
+The plugin creators could subscribe to this event and hide the content of the user. For example, in order to hide the content of a user in the `decidim-comments` module, you could add the following in your engine initializer file:
+
+```ruby
+initializer "decidim_comments.moderation_content" do
+  ActiveSupport::Notifications.subscribe("decidim.system.events.hide_user_created_content") do |_event_name, data|
+    Decidim::Comments::HideAllCreatedByAuthorJob.perform_later(**data)
+  end
+end
+```
+
+The `Decidim::Comments::HideAllCreatedByAuthorJob` is a job that uses the base `Decidim::HideAllCreatedByAuthorJob` job, having the following content:
+
+```ruby
+module Decidim
+  module Comments
+    class HideAllCreatedByAuthorJob < ::Decidim::HideAllCreatedByAuthorJob
+      protected
+
+      def base_query
+        Decidim::Comments::Comment.not_hidden.where(author: )
+      end
+    end
+  end
+end
+```
+
+For more complex scenarios, you could override the `perform` method of the job and add your own logic, following the patern:
+
+```ruby
+module Decidim
+  module YourModule
+    class HideAllCreatedByAuthorJob < ::Decidim::HideAllCreatedByAuthorJob
+      protected
+
+      def perform(author:, justification:, current_user:)
+        Decidim::YourModule::YourModel.not_hidden.from_author(author).find_each do |content|
+          hide_content(content, current_user, justification)
+        end
+
+        Decidim::YourModule::YourSecondModel.not_hidden.from_author(author).find_each do |content|
+          hide_content(content, current_user, justification)
+        end
+      end
+    end
+  end
+end
+```
+
+You can read more about this change at PR [\#10111](https://github.com/decidim/decidim/pull/10111).

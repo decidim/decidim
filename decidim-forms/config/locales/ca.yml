@@ -23,7 +23,7 @@ ca:
               missing: no estan complets
               too_many: en són masses
         questionnaire:
-          request_invalid: Hi ha hagut un problema gestionant la petició. Si us plau torna-ho a provar
+          request_invalid: Hi ha hagut un problema gestionant la petició. Si us plau, torna-ho a provar.
   decidim:
     forms:
       admin:
@@ -181,7 +181,7 @@ ca:
           upload_file: Puja un arxiu
       step_navigation:
         show:
-          are_you_sure: Aquesta acció no es pot desfer i no podràs editar les teves respostes. Estàs segura?
+          are_you_sure: Aquesta acció no es pot desfer i no podràs editar les teves respostes. Segur?
           back: Enrere
           continue: Continuar
           submit: Enviar respostes

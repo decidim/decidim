@@ -47,9 +47,6 @@ id:
             up: Naik
           update:
             invalid: Terjadi masalah saat menyimpan formulir.
-      errors:
-        answer:
-          body: Tubuh tidak boleh kosong
       question_types:
         long_answer: Jawaban panjang
         multiple_option: Opsi berganda

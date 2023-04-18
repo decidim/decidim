@@ -3,7 +3,10 @@ ro:
     attributes:
       assemblies_setting:
         enable_organization_chart: Activează graficul organizatiei
+      assemblies_type:
+        title: Titlu
       assembly:
+        announcement: Anunţ
         area_id: Zonă
         assembly_type: Tipul grupului de lucru
         assembly_type_other: Alt tip de grup de lucru
@@ -22,12 +25,16 @@ ro:
         decidim_scope_id: Domeniu
         description: Descriere
         developer_group: Grup promotor
+        document: Document
         domain: Domeniu
         duration: Durată
         facebook: Facebook
         github: GitHub
         hashtag: Hashtag
         hero_image: Imagine pentru pagina principală
+        import_attachments: Importă atașamente
+        import_categories: Importă categorii
+        import_components: Importă componente
         included_at: Inclus la
         instagram: Instagram
         internal_organisation: Organizare internă
@@ -52,7 +59,7 @@ ro:
         target: Cine participă
         title: Titlu
         twitter: Twitter
-        weight: Ordinea în poziționare
+        weight: Poziție
         youtube: YouTube
       assembly_member:
         birthday: Data nașterii
@@ -64,6 +71,7 @@ ro:
         non_user_avatar: Avatar
         position: Poziție
         user_id: Utilizator sau grup
+        weight: Poziție
       assembly_user_role:
         email: E-mail
         name: Nume
@@ -73,7 +81,7 @@ ro:
         assembly:
           attributes:
             document:
-              allowed_file_content_types: 'Tip de document invalid. Sunt permise numai fișiere cu următoarele extensii: %{types}'
+              allowed_file_content_types: 'Tip de document invalid. Sunt permise numai fișiere cu următoarele extensii: %{types}.'
   activerecord:
     models:
       decidim/assembly:
@@ -276,6 +284,7 @@ ro:
             duration_help: În cazul în care durata acestui grup de lucru este limitată, selectaţi data de încheiere. În caz contrar, va apărea ca nelimitată.
             filters: Filtre
             images: Imagini
+            included_at_help: Selectați data la care acest grup de lucru a fost adăugat în platformă. Nu trebuie să fie neapărat aceeași dată cu data creării.
             metadata: Metadate
             other: Altul
             select_a_created_by: Selectați după persoana care a creat
@@ -405,6 +414,7 @@ ro:
       assemblies:
         create_assembly_member:
           email_intro: Un administrator al grupului de lucru <a href="%{resource_url}">%{resource_name}</a> te-a adăugat ca unul dintre membrii săi.
+          email_outro: Ai primit această notificare deoarece ai fost invitat la un grup de lucru. Verifică <a href="%{resource_url}">pagina grupului de lucru</a> pentru a colabora!
           email_subject: Ai primit invitație drept membru al grupului de lucru %{resource_name}!
           notification_title: Ai fost înregistrat ca membru al grupului de lucru <a href="%{resource_path}">%{resource_name}</a>. Verificați pagina <a href="%{resource_path}">grupului de lucru</a> pentru a accepta!
       assembly:
@@ -437,9 +447,6 @@ ro:
         related_assemblies: Grupuri de lucru asociate
     statistics:
       assemblies_count: Grupuri de lucru
-  errors:
-    messages:
-      cannot_be_blank: nu poate fi gol
   layouts:
     decidim:
       assemblies:

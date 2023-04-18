@@ -6,14 +6,24 @@ require "decidim/core/test/shared_examples/has_contextual_help"
 describe "Assemblies", type: :system do
   let(:organization) { create(:organization) }
   let(:show_statistics) { true }
-  let(:base_description) { { en: "Description", ca: "Descripció", es: "Descripción" } }
+
+  let(:description) { { en: "Description", ca: "Descripció", es: "Descripción" } }
+  let(:short_description) { { en: "Short description", ca: "Descripció curta", es: "Descripción corta" } }
+  let(:purpose_of_action) { { en: "Purpose of action", ca: "Propòsit de l'acció", es: "Propósito de la acción" } }
+  let(:internal_organisation) { { en: "Internal organisation", ca: "Organització interna", es: "Organización interna" } }
+  let(:composition) { { en: "Composition", ca: "Composició", es: "Composición" } }
+  let(:closing_date_reason) { { en: "Closing date reason", ca: "Motiu de la data de tancament", es: "Razón de la fecha de cierre" } }
   let(:base_assembly) do
     create(
       :assembly,
       :with_type,
       organization:,
-      description: base_description,
-      short_description: { en: "Short description", ca: "Descripció curta", es: "Descripción corta" },
+      description:,
+      short_description:,
+      purpose_of_action:,
+      internal_organisation:,
+      composition:,
+      closing_date_reason:,
       show_statistics:
     )
   end
@@ -182,7 +192,35 @@ describe "Assemblies", type: :system do
         let(:attached_to) { assembly }
       end
 
-      it_behaves_like "has embedded video in description", :base_description
+      context "when having rich content" do
+        context "when short_description" do
+          it_behaves_like "has embedded video in description", :short_description
+        end
+
+        context "when description" do
+          before { click_button("Read more") }
+
+          it_behaves_like "has embedded video in description", :description
+        end
+
+        context "when purpose_of_action" do
+          before { click_button("Read more") }
+
+          it_behaves_like "has embedded video in description", :purpose_of_action
+        end
+
+        context "when internal_organisation" do
+          before { click_button("Read more") }
+
+          it_behaves_like "has embedded video in description", :internal_organisation
+        end
+
+        context "when composition" do
+          before { click_button("Read more") }
+
+          it_behaves_like "has embedded video in description", :composition
+        end
+      end
 
       context "when the assembly has some components" do
         it "shows the components" do
@@ -210,7 +248,7 @@ describe "Assemblies", type: :system do
       context "and the process statistics are not enabled" do
         let(:show_statistics) { false }
 
-        it "doesn't render the stats for those components that are not visible" do
+        it "does not render the stats for those components that are not visible" do
           expect(page).to have_no_css("h2.h2", text: "Statistics")
           expect(page).to have_no_css(".statistic__title", text: "Proposals")
           expect(page).to have_no_css(".statistic__number", text: "3")
@@ -236,6 +274,34 @@ describe "Assemblies", type: :system do
         it "shows the children assemblies by weigth" do
           expect(page).to have_selector("#assemblies-grid .row .column:first-child", text: child_assembly.title[:en])
           expect(page).to have_selector("#assemblies-grid .row .column:last-child", text: second_child_assembly.title[:en])
+        end
+
+        context "when child assembly has a meeting" do
+          let(:meetings_component) { create(:meeting_component, :published, participatory_space: child_assembly) }
+
+          context "with unpublished meeting" do
+            let!(:meeting) { create(:meeting, :upcoming, component: meetings_component) }
+
+            it "is not displaying the widget" do
+              visit decidim_assemblies.assembly_path(assembly)
+
+              within("#assemblies-grid") do
+                expect(page).not_to have_content("Upcoming meeting")
+              end
+            end
+          end
+
+          context "with published meeting" do
+            let!(:meeting) { create(:meeting, :upcoming, :published, component: meetings_component) }
+
+            it "is displaying the widget" do
+              visit decidim_assemblies.assembly_path(assembly)
+
+              within("#assemblies-grid") do
+                expect(page).to have_content("Upcoming meeting")
+              end
+            end
+          end
         end
       end
 

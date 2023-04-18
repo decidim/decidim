@@ -7,6 +7,7 @@ de:
         decidim_scope_id: Umfang
         description: Beschreibung
         end_date: Enddatum
+        meetings_ids: Enthaltene Sitzungen
         progress: Fortschritt
         project_ids: Enthaltene Projekte
         proposals: Enthaltene Vorschläge
@@ -38,6 +39,7 @@ de:
         confirm_destroy: Sind Sie sicher, dass Sie diese %{name}löschen möchten?
         destroy: Löschen
         edit: Bearbeiten
+        import: Projekte zu Ergebnissen importieren
         import_csv: CSV importieren
         new: Neu %{name}
         preview: Vorschau
@@ -49,11 +51,12 @@ de:
           results: Ergebnisse
         import_results:
           new:
+            download_export: Export im CSV-Format herunterladen
             import: Importieren
             title: Ergebnisse von CSV importieren
         imports:
           create:
-            success: Die Datei wird importiert. Innerhalb von ein paar Minuten erhalten Sie eine E-Mail mit dem Importergebnis
+            success: Die Datei wird importiert. Innerhalb von ein paar Minuten erhalten Sie eine E-Mail mit dem Importergebnis.
         models:
           result:
             name: Ergebnis
@@ -61,12 +64,27 @@ de:
             name: Status
           timeline_entry:
             name: Zeitachseneintrag
+        projects_import:
+          create:
+            invalid: Es gab ein Problem beim Importieren der Projekte in Ergebnisse, bitte befolgen Sie die Anweisungen sorgfältig und stellen Sie sicher, dass Sie Projekte für die Umsetzung ausgewählt haben.
+          new:
+            create: Importieren
+            import_all_selected_projects: Alle zur Umsetzung ausgewählten Projekte importieren
+            new_items:
+              one: 1 ausgewähltes Projekt wird importiert
+              other: "%{count} ausgewählte Projekte werden importiert"
+            no_components: Es gibt keine weiteren Budgetkomponenten in diesem partizipativen Raum, um die Projekte in Ergebnisse zu importieren.
+            origin_component_id: Ursprungskomponente
+            select_component: Komponente auswählen
+            success:
+              one: Ein Projekt wird importiert. Sie werden per E-Mail benachrichtigt, sobald der Import abgeschlossen ist.
+              other: "%{count} Projekte werden in der Warteschlange importiert. Sie werden per E-Mail benachrichtigt, sobald sie abgeschlossen sind."
         results:
           create:
-            invalid: Beim Erstellen dieses Ergebnisses ist ein Problem aufgetreten
-            success: Ergebnis erfolgreich erstellt
+            invalid: Beim Erstellen dieses Ergebnisses ist ein Problem aufgetreten.
+            success: Ergebnis erfolgreich erstellt.
           destroy:
-            success: Ergebnis erfolgreich gelöscht
+            success: Ergebnis erfolgreich gelöscht.
           edit:
             title: Ergebnis bearbeiten
             update: Ergebnis aktualisieren
@@ -76,17 +94,17 @@ de:
             create: Ergebnis erstellen
             title: Neues Ergebnis
           update:
-            invalid: Beim Aktualisieren dieses Ergebnisses ist ein Problem aufgetreten
-            success: Ergebnis erfolgreich aktualisiert
+            invalid: Beim Aktualisieren dieses Ergebnisses ist ein Problem aufgetreten.
+            success: Ergebnis erfolgreich aktualisiert.
         shared:
           subnav:
             statuses: Status
         statuses:
           create:
-            invalid: Beim Erstellen dieses Status ist ein Problem aufgetreten
-            success: Status erfolgreich erstellt
+            invalid: Beim Erstellen dieses Status ist ein Problem aufgetreten.
+            success: Status erfolgreich erstellt.
           destroy:
-            success: Status erfolgreich gelöscht
+            success: Status erfolgreich gelöscht.
           edit:
             title: Status bearbeiten
             update: Update Status
@@ -96,14 +114,14 @@ de:
             create: Status erstellen
             title: Neuer Status
           update:
-            invalid: Beim Aktualisieren dieses Status ist ein Problem aufgetreten
-            success: Status erfolgreich aktualisiert
+            invalid: Beim Aktualisieren dieses Status ist ein Problem aufgetreten.
+            success: Status erfolgreich aktualisiert.
         timeline_entries:
           create:
-            invalid: Beim Erstellen dieses Eintrags ist ein Problem aufgetreten
-            success: Der Eintrag wurde erfolgreich erstellt
+            invalid: Beim Erstellen dieses Eintrags ist ein Problem aufgetreten.
+            success: Der Eintrag wurde erfolgreich erstellt.
           destroy:
-            success: Der Eintrag wurde erfolgreich gelöscht
+            success: Der Eintrag wurde erfolgreich gelöscht.
           edit:
             title: Eintrag bearbeiten
             update: Eintrag aktualisieren
@@ -113,8 +131,8 @@ de:
             create: Eintrag erstellen
             title: Neuer Eintrag
           update:
-            invalid: Beim Aktualisieren dieses Eintrags ist ein Problem aufgetreten
-            success: Eintrag erfolgreich aktualisiert
+            invalid: Beim Aktualisieren dieses Eintrags ist ein Problem aufgetreten.
+            success: Eintrag erfolgreich aktualisiert.
       admin_log:
         result:
           create: "%{user_name} hat das Ergebnis %{resource_name} in %{space_name} erstellt"
@@ -139,10 +157,19 @@ de:
       import_mailer:
         import:
           errors: Fehler
-          errors_present: Beim Importieren der Ergebnisse ist ein Fehler aufgetreten
+          errors_present: Beim Importieren der Ergebnisse ist ein Fehler aufgetreten.
           row_number: Zeile
           subject: Ergebnisse wurden erfolgreich importiert
           success: Ergebnisse wurden erfolgreich importiert. Sie können die Ergebnisse über die Administrationsoberfläche aufrufen.
+      import_projects_mailer:
+        import:
+          added_projects:
+            one: Ein Ergebnis wurde aus Projekten importiert.
+            other: "%{count} Ergebnisse wurden aus Projekten importiert."
+          subject: Projekte wurden erfolgreich importiert
+          success: Projekte wurden erfolgreich in die Ergebnisse der %{component_name}-Komponente importiert. Sie können die Ergebnisse in der Administrationsoberfläche überprüfen.
+      last_activity:
+        new_result: 'Neues Ergebnis:'
       models:
         result:
           fields:

@@ -152,7 +152,7 @@ describe "Initiative signing", type: :system do
       end
 
       context "when the personal daata is not filled" do
-        it "doesn't allow voting" do
+        it "does not allow voting" do
           visit decidim_initiatives.initiative_path(initiative)
 
           within ".view-side" do

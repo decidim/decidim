@@ -33,7 +33,6 @@
       decidim/component_published_event: Aktive komponent
       decidim/demoted_membership: Ikke lenger en admin for gruppen
       decidim/gamification/badge_earned_event: Merke oppnådd
-      decidim/gamification/level_up_event: Du gikk opp i nivå
       decidim/join_request_accepted_event: Forespørsel godtatt
       decidim/join_request_rejected_event: Forespørsel avslått
       decidim/profile_updated_event: Profilen er oppdatert
@@ -108,9 +107,7 @@
       logo: "%{organization} s offisielle logo"
       skip_button: Gå til hovedinnhold
     account:
-      blocked: Denne kontoen er sperret på grunn av brudd på vilkår og betingelser
       delete:
-        alert: Denne handlingen kan ikke angres. Hvis du sletter kontoen din, vil du ikke kunne logge inn igjen med denne innloggingsinformasjonen. Slettingen av din konto vil resultere i at dine bidrag blir anonymisert. Du vil fortsatt kunne lage en ny konto, men disse bidragene vil ikke bli knyttet til den.
         confirm:
           close: Lukk vindu
           ok: Ja, jeg ønsker å slette kontoen min
@@ -122,14 +119,12 @@
         success: Kontoen din ble slettet.
       download_your_data_export:
         file_no_exists: Filen finnes ikke
-        notice: Opplastingen av dataen din pågår. Du vil få en e-mail når den er ferdig.
       show:
         change_password: Endre passord
         update_account: Oppdater konto
       update:
         error: Det oppsto et problem med å oppdatere kontoen din.
         success: Kontoen din ble oppdatert.
-        success_with_email_confirmation: Kontoen ble oppdatert. Vi har send deg en email så du kan bekrefte den nye e-postadressen din.
     admin:
       actions:
         cancel: Avbryt
@@ -190,8 +185,6 @@
         verify_via_csv: "%{user_name} verifiserte gruppen %{resource_name} via en CSV fil"
       user_moderation:
         unreport: "%{user_name} urapporterte en %{resource_type} – %{unreported_user_name}"
-    admin_terms_of_use:
-      default_body: "<h2>ADMINISTRATOR BRUKERVILKÅR</h2><p>Vi stoler på at du har mottatt det vanlige foredraget fra den lokale systemadministratoren. Det handlet vanligvis om disse tre tingene:</p><ol><li>Respekter andres privatliv.</li><li>Tenk før du klikker.</li><li>Med stor makt kommer stort ansvar.</li></ol>"
     alert:
       dismiss: Avvis varsling
     amendments:
@@ -202,10 +195,8 @@
         amended_by: Endret av
         button: Endre %{model_name}
         error: Det oppsto feil under endringen av denne resurssen.
-        help_text: Forbedre denne %{model_name} med å modifisere %{amendable_fields}
         promote_button: Promoter til %{model_name}
         promote_confirm_text: Er du sikker på at du vil forfremme denne emendasjonen?
-        promote_help_text: Du kan nå promotere denne emendasjonen og publisere den uavhengig %{model_name}
         section_heading: Endringer (%{count})
       compare_draft:
         continue: Fortsett
@@ -244,26 +235,16 @@
         modify: Endre
         publish: Publiser
         title: Publiser endrings utkast
-      promoted:
-        error: Det oppsto et problem under publiseringen av endringen som et nytt forslag
-        success: Endringen ble publisert som et nytt forslag
       publish_draft:
         error: Det oppsto et problem under publiseringen av endringen.
         success: Endringen ble publisert.
-      rejected:
-        error: Det oppsto et problem med å avslå endringen, vennligst prøv igjen senere
-        success: Endringen ble avslått
       review:
         back: Tilbake
         heading: Anmeld endringen
-        help_text: Du andmelder en endring til %{model_name}
         send: Godta endring
       update_draft:
         error: Det oppsto et problem med å oppdatere endrings utkastet.
         success: Endrings utkastet ble oppdatert.
-      withdraw:
-        error: Et problem oppsto under tilbaketrekningen av endringen
-        success: Endringen ble tilbaketrukket
       wizard_step_form:
         steps:
           '1': Opprett endringen din
@@ -272,10 +253,6 @@
           '4': Publiser endringen din
     anonymous_user: Anonym
     application:
-      collection:
-        documents:
-          one: Dokument
-          other: Dokumenter
       document:
         download: Last ned fil
       documents:
@@ -295,13 +272,11 @@
         other: tilslutninger
     authorization_handlers:
       another_dummy_authorization_handler:
-        explanation: Bli verifisert med å introdusere et passnummer som starter med "A"
         fields:
           passport_number: Pass nummer
           postal_code: Postnummer
         name: Et annet eksempel autorisering
       dummy_authorization_handler:
-        explanation: Bli verifisert med å introdusere et dokumentnummer som starter med "X"
         fields:
           allowed_postal_codes: Godkjente postnr (adskilt med komma)
           allowed_scope_id: Tillatt tema
@@ -321,7 +296,6 @@
           foo: Foo
         name: Foo autorisering
       granted_at: Godkjent på %{timestamp}
-      renew: Forny verifisering
       sms:
         explanation: Send inn ditt telefonnummer så vi kan sjekke din identitet.
         name: Kode via SMS
@@ -334,7 +308,6 @@
           title: Autorisasjon har utgått
         incomplete:
           cancel: Avbryt
-          explanation: 'Selv om du er autorisert med "%{authorization}", trenger du å gjen autorisere fordi vi mangler følgene data:'
           invalid_field: "%{field}"
           reauthorize: Gjenautoriser
           title: Vennligst gjenautoriser
@@ -342,24 +315,15 @@
           authorize: Autoriser med "%{authorization}"
           explanation: For å utføre denne handlingen, må du autorisere med "%{authorization}".
           title: Autorisering påkrevet
-        ok:
-          title: Du har blitt autorisert etter du gikk inn på denne siden. Vennligst oppdater siden for å utføre handlingen din
         pending:
-          explanation: For å utføre denne handlingen, må du autorisere med "%{authorization}", men autoriseringen din er fortsatt i gang
-          resume: Sjekk "%{authorization}" autoriseringen din
           title: Autoriseringen pågår fremdeles
         unauthorized:
-          explanation: Beklager, du kan ikke utføre denne handlingen fordi autoriserings informasjonen din er inkorrekt.
-          invalid_field: "%{field} verdi %{value} er ikke gyldig."
           ok: Ok
           title: Ikke autorisert
         unconfirmed:
-          confirmation_instructions: 'Hvis du ikke har mottatt bekreftelse instruksjonene kan du be om de igjen:'
           explanation_html: For å utføre denne handlingen må du være autorisert, før du gjør det må du å bekrefte e-postadressen din <strong>%{email}</strong>.
           request_confirmation_instructions: Be om bekreftels instruksjoner
           title: Bekreft e-posten din
-      show:
-        close_modal: Lukk vinduet
     block_user_mailer:
       notify:
         body_1: Kontoen din ble blokkert.
@@ -375,7 +339,6 @@
       see_more: "(se mer)"
     components:
       component_order_selector:
-        no_content: Vi kan ikke finne noe innhold under de kriteriene
         order:
           all_types: Alle typer
           collaborative_draft: Felles utkast
@@ -451,16 +414,10 @@
         name: Organisasjonsstatistikk
       sub_hero:
         name: Underhelt banner
-    core:
-      actions:
-        login_before_access: Vennligst logg inn med kontoen din før tilgang
-        unauthorized: Du er ikke autorisert til å utføre denne handlingen
     datepicker:
       help_text: 'Forventet format: %{datepicker_format}'
     devise:
       omniauth_registrations:
-        create:
-          email_already_exists: En annen bruker er registrert under samme e-postadresse
         new:
           complete_profile: Fullfør profilen
           nickname_help: Ditt alias i %{organization}, kan bare inneholde bokstaver, tall, '-' og '_'.
@@ -478,7 +435,6 @@
           sign_up_as:
             legend: Registrer deg som
           subtitle: Registrer deg for å delta i diskusjoner og medvirkningsprosesser.
-          terms: vilkårene for bruk
           tos_agreement: Ved å registrere deg godtar du til %{link}.
           tos_title: Vilkår for bruk
           username_help: Navnet du skriver her vil vises i alle innleggene dine. Du kan enten skrive både fornavn og etternavn, eller bare fore fornavnet ditt, hvis du ikke har lyst til å oppgi fullt navn.
@@ -486,8 +442,6 @@
         new:
           are_you_new?: Er du ny på plattformen?
           register: Opprett en konto
-          sign_in_disabled: Du kan få tilgang til med en ekstern konto
-          sign_up_disabled: Registreringen er stoppet, du kan bruke en eksisterende konto for å få tilgang
         user:
           timed_out: Du har vært inaktiv for lenge og du har blitt automatisk logget ut fra tjenesten. Hvis du ønsker å fortsette å bruke tjenesten, vennligst logg på igjen.
       shared:
@@ -496,17 +450,6 @@
             check: Sjekk og fortsett
             close_modal: Lukk modal
             uncheck: Hold usjekket
-          notice: |-
-            <p>Hei, er du sikker på at du ikke ønsker å motta et nyhetsbrev?<br>
-            Vennligst vurder igjen og kryss av avmerkingsboksen for nyhetsbrevet. <br>
-            Det er veldig viktig for oss at du kan motta sporadiske e-poster
-            for å gi viktige kunngjøringer, du kan alltids endre dette på
-            varslingsinnstillinger siden.</p>
-            <p>Hvis du ikke merker av i boksen, mangler du kanskje relevant informasjon
-            om nye deltaker muligheter innen plattformen.<br>
-            Hvis du fortsatt ønsker å unngå å motta nyhetsbrev så forstår vi
-            beslutningen din.</p>
-            <p>Takk for at du leste dette!</p>
           title: Varsler om nyhetsbrev
         omniauth_buttons:
           or: Eller
@@ -516,7 +459,6 @@
           authorize: Autoriser søknad
           by_organization_link_html: <small class="heading-small">av %{link}</small>
           cancel: Avbryt
-          connect_your_account_html: Koble til kontoen din ved å logge på <strong>%{organization}</strong>
           publish_content: Publiser innhold for deg
           see_email: Se din email
           see_name: Se navnet ditt
@@ -533,16 +475,10 @@
         download_data_description: En fil som inneholder all informasjon tilknyttet kontoen din vil bli sendt til <strong>%{user_email}</strong>. Denne e-posten inneholder en .zip-fil og et passord for å åpne den.<br/><br/>For å pakke ut filen vil du trenge <a href="https://www.7-zip.org/">7-Zip</a> (for Windows) eller <a href="https://www.keka.io/">Keka</a> (for MacOS). Hvis du bruker Linux vil du i de fleste tilfeller ha den installert som standard. Dersom dette ikke stemmer, kan du bruke <a href="https://gitlab.gnome.org/GNOME/file-roller">filroller</a> eller <a href="https://peazip.github.io">PeaZip</a>).
         request_data: Etterspør informasjonen
     editor_images:
-      create:
-        error: Feil ved opplasting av bilde
-        success: Opplasting fullført
       drag_and_drop_help: Legg til bilder ved å dra og slippe eller lime dem inn.
     endorsable:
       endorsements: Påtegnelser
       endorsements_count: Antall tilslutninger
-    endorsement_buttons_cell:
-      already_endorsed: Tilsluttet
-      endorse: Tilslutte
     endorsements:
       identities:
         done: Ferdig
@@ -553,7 +489,6 @@
       not_found:
         back_home: Tilbake hjem
         content_doesnt_exist: Denne adressen er feil eller har blitt fjernet.
-        title: Siden du ser etter kan ikke bli funnet
     events:
       amendments:
         amendment_accepted:
@@ -619,15 +554,9 @@
         email_subject: En oppdatering til %{resource_title}
       gamification:
         badge_earned:
-          email_intro: Gratulerer! Du har tjent <a href="%{resource_url}">%{badge_name} merket</a> (Level%{current_level}).
           email_outro: Du har mottatt denne varslingen fordi du gjorde aktivitet på nettstedet vårt.
-          email_subject: 'Du har fått et nytt merke: %{badge_name}!'
-          notification_title: Gratulerer! Du har tjent <a href="%{resource_path}">%{badge_name} merket</a> (Level%{current_level}).
         level_up:
-          email_intro: Gratulerer! Du har nådd nivå %{current_level} på <a href="%{resource_url}">%{badge_name} merket</a>!
           email_outro: Du har mottatt denne varslingen fordi du gjorde aktivitet på nettstedet vårt.
-          email_subject: Du har nådd nivå %{current_level} på %{badge_name} merket!
-          notification_title: Gratulerer! Du har nådd nivå %{current_level} på <a href="%{resource_path}">%{badge_name} merket</a>!
       groups:
         demoted_membership:
           email_intro: En admin av <a href="%{resource_url}">%{user_group_name}</a> gruppen har fjernet admin rettighetene dine fra gruppen.
@@ -713,7 +642,6 @@
         result: Resultater
     fingerprint:
       check: Sjekk fingeravtrykket
-      explanation: Tekststykket nedenfor er en forkortet, hashet fremstilling av dette innholdet. Det er nyttig for å sikre at innholdet ikke har blitt tuklet med, ettersom en enkelt modifisering vil resultere i en helt annen verdi.
       online_calculator_name: MD5 kalkulator online
       replicate_help: Dette fingeravtrykket blir beregnet ved å bruke en SHA256 hashing algoritme. For å gjenskape det selv, kan du bruke en %{online_calculator_link} og kopiere og lime inn kildedataene.
       source: Kilde
@@ -725,7 +653,6 @@
         other: "%{count} følgere"
       no_followers: Ingen følgere ennå.
     following:
-      no_followings: Følger ikke noen eller noe ennå.
       non_public_followings: En del av ressursene som følges er ikke offentlige.
     follows:
       create:
@@ -736,13 +663,10 @@
         button: Stopp å følge
         error: Det oppstod et problem med å slutte å følge denne ressursen.
     forms:
-      current_image: Nåværende bilde
-      default_image: Standard bilde
       errors:
         decidim/user:
           password: Dette passordet er for kort.
           password_confirmation: Passordbekreftelse må samsvare med passordet.
-        error: Det er en feil i dette feltet.
       file_help:
         file:
           explanation: 'Veiledning for fil:'
@@ -765,8 +689,6 @@
           description_own: "%{score} folk følger deg."
           name: Følgere
           next_level_in: Få %{score} flere folk til å følge deg for å nå neste nivå!
-          unearned_another: Denne deltakeren har ikke noen følgere ennå.
-          unearned_own: Du har ingen følgere ennå.
         index:
           badge_title: "%{name} merke"
           how: Hvordan kan du tjene det
@@ -774,37 +696,20 @@
           title: Merker
       description: Merker er anerkjennelser for deltaker handlinger og fremdrift i plattformen. Når du begynner å oppdage, delta og samhandle i plattformen, vil du tjene forskjellige merker.
       level: Nivå %{level}
-      reached_top: Du har nådd det høyeste nivået for dette merket.
     group_admins:
       actions:
-        are_you_sure: Er du sikker? Dette vil ikke fjerne deltakeren fra gruppen.
         demote_admin: Fjern admin
-      demote:
-        error: Det oppstod et problem med å fjerne denne deltakeren fra administrator listen
-        success: Deltakeren ble fjernet fra administrator
       index:
         current_admins: 'Nåværende administratorer:'
         manage_admins: Administrer administrator
     group_invites:
-      accept:
-        error: Det oppstod et problem med å godta denne invitasjonen
-        success: Invitasjonen ble godtatt
       accept_invitation: Aksepter
       accept_or_reject_group_invitations: 'Følgende grupper har invitert deg til å bli med dem. Godta eller avvis forespørslene:'
       index:
         invite: Inviter
         invite_user: Inviter en deltaker
-      invite:
-        error: Det oppstod et problem med å invitere denne deltakeren
-        success: Deltakeren ble invitert
-      reject:
-        error: Det oppstod et problem med å avslå denne invitasjonen
-        success: Invitasjonen ble avvist
       reject_invitation: Avvis
     group_members:
-      accept:
-        error: Det oppstod et problem med å godta denne bli med forespørselen
-        success: Bli med forespørsel godtatt
       actions:
         are_you_sure: Er du sikker?
         promote_to_admin: Lag administrator
@@ -812,36 +717,20 @@
       index:
         current_members_without_admins: 'Nåværende medlemmer (uten administratorer):'
         manage_members: Administrere medlemmer
-      promote:
-        error: Det oppstod et problem med å promotere denne deltakeren
-        success: Deltakeren ble promotert
-      reject:
-        error: Det oppstod et problem med å avvise denne bli med forespørselen
-        success: Bli med forespørsel avvist
-      remove:
-        error: Det oppstod et problem med å fjerne denne deltakeren fra gruppen
-        success: Deltakeren ble fjernet fra gruppen
     groups:
       actions:
         are_you_sure: Er du sikker?
-      create:
-        error: Det oppstod et problem med å opprette gruppen
-        success: Gruppe ble opprettet
       edit:
         edit_user_group: Rediger gruppe
         update_user_group: Oppdater gruppe
       form:
-        document_number_help: Ikke bruk streker eller mellomrom
         email_help: E-post til din organisasjon, forening, kollektiv, gruppe osv.
         fill_in_for_verification: 'Fyll ut disse feltene hvis du vil at gruppen din skal bekreftes:'
         name_help: Navn på din organisasjon, forening, kollektiv, gruppe osv.
         nickname_help: Kallenavn til din organisasjon, forening, kollektiv, gruppe, osv. Ikke bruk mellomrom eller aksenter.
-        phone_help: Ikke bruk streker eller mellomrom
       join:
-        error: Det oppstod et problem med å bli med i gruppen
         success: Bli med forespørsel opprettet. En administrator vil gjennomgå forespørselen din før han godtar deg inn i gruppen.
       leave:
-        error: Det oppstod et problem med å forlate gruppen
         success: Gruppen ble forlatt.
       members:
         accept_or_reject_join_requests: 'Følgende brukere har søkt om å bli med i denne gruppen. Godta eller avvis forespørsler:'
@@ -851,19 +740,14 @@
         create_user_group: Opprett gruppe
         new_user_group: Ny gruppe
         subtitle: Opprett en gruppe og inviter andre brukere til å være med for å delta på et kollektivt nivå.
-      no_user_groups: Tilhører ikke en gruppe ennå.
       roles:
         admin: Administrator
         member: Medlem
-      update:
-        error: Det oppstod et problem med å oppdatere gruppen
-        success: Gruppe oppdatert
     help:
       main_topic:
         default_page:
           content: "<p>I %{organization} kan du delta og bestemme forskjellige temaer gjennom mellomrommene du ser i toppmenyen: Prosesser, Forsamlinger, Initiativer, Konsultasjoner.</p> <p>Innenfor hver enkelt finner du forskjellige alternativer for å delta: lage forslag - hver for seg eller med andre mennesker-, delta i debatter, prioritere prosjekter for å implementere, delta på ansikt-til-ansikt møter og andre handlinger.</p>\n"
           title: Hva kan jeg gjøre i %{organization}?
-        description: Les mer om %{organization}
         title: Generell hjelp
     last_activities:
       activities:
@@ -878,7 +762,6 @@
         body_1: Du er i ferd med å besøke en ekstern lenke, og vi vil at du skal være forsiktig med hensyn til innholdet på det eksterne nettstedet.
         body_2: Vennligst sjekk linken du er i ferd med å besøke og sørg for at du anser den som et sikkert nettsted før du fortsetter.
         cancel: Avbryt
-        close_modal: Lukk dialogboks
         proceed: Fortsett
         title: Åpne ekstern lenke
     log:
@@ -909,8 +792,6 @@
       static:
         latlng_text: 'breddegrad: %{latitude}, lengdegrad: %{longitude}'
         map_service_brand: OpenStreetMap
-    members:
-      no_members: Denne gruppen har ikke noen medlemmer ennå.
     menu:
       help: Hjelp
       home: Hjem
@@ -920,35 +801,29 @@
           admin_in_group: Du mottar dette fordi du er en admin i %{group}.
           greeting: Hei %{recipient}!
           intro: "%{manager} har startet en ny samtale for %{group}. Klikk her for å se den:"
-          outro: Kos deg med decidim!
           subject: "%{manager} har startet en ny samtale som %{group}"
         comanagers_new_message:
           admin_in_group: Du mottar dette fordi du er en admin i %{group}.
           greeting: Hei %{recipient}!
           intro: "%{manager} har postet nye meldinger i en samtale for %{group}. Klikk her for å se dem:"
-          outro: Kos deg med decidim!
           subject: "%{manager} har sendt nye meldinger som %{group}"
         new_conversation:
           greeting: Hei %{recipient}!
           intro: "%{sender} har startet en ny samtale med deg. Klikk her for å se den:"
-          outro: Kos deg med desidim!
           subject: "%{sender} har startet en samtale med deg"
         new_group_conversation:
           admin_in_group: Du mottar dette fordi du er en admin i %{group}.
           greeting: Hei %{recipient}!
           intro: "%{sender} har startet en ny samtale med gruppen %{group}. Klikk her for å se den:"
-          outro: Kos deg med decidim!
           subject: "%{sender} har startet en samtale med %{group}"
         new_group_message:
           admin_in_group: Du mottar dette fordi du er en admin i %{group}.
           greeting: Hei %{recipient}!
           intro: "%{sender} har postet nye meldinger i en samtale med gruppen %{group}. Klikk her for å se den:"
-          outro: Kos deg med decidim!
           subject: "%{group} har nye meldinger fra %{sender}"
         new_message:
           greeting: Hei %{recipient}!
           intro: "%{sender} har lagt ut nye meldinger i samtalen din. Klikk her for å se dem:"
-          outro: Kos deg med desidim!
           subject: Du har nye meldinger fra %{sender}
       conversations:
         add_conversation_users:
@@ -956,9 +831,6 @@
           add_users_placeholder: Søk...
           modal_title: Ny Samtale
           no_results: Ingen resultater
-          participant_with_disabled_message_reception: Denne deltakeren har fjernet muligheten for å sende melding
-        create:
-          error: Samtalen har ikke startet. Prøv igjen senere
         error_modal:
           close: Lukk modal
           correct_errors: Vennligst korriger feilene og prøv på nytt.
@@ -968,18 +840,14 @@
           ago: siden
           new_conversation: Ny samtale
           next: Neste
-          no_conversations: Du har ingen samtaler ennå
           title: Samtaler
         show:
           back: Tilbake til alle samtaler
           chat_with: Samtale med
-          deleted_accounts: Du kan ikke ha en samtale med slettede kontoer.
           not_allowed: Denne deltakeren godtar ikke direktemeldinger.
           title: Samtale med %{usernames}
         start:
           send: Send
-        update:
-          error: Meldingen ble ikke sendt på grunn av en feil
     metrics:
       download:
         csv: Last ned data (CSV)
@@ -997,8 +865,6 @@
         title: Deltakere
     newsletter_mailer:
       newsletter:
-        note: Du mottok denne e-posten fordi du abonnerer på nyhetsbrev for %{organization_name}. Du kan endre innstillingene dine på <a href="%{link}">varslings siden din</a>.
-        see_on_website: Kan ikke se denne e-posten riktig? Se den på <a href="%{link}" target="_blank">nettsiden</a>.
         unsubscribe: For å velge bort å motta denne typen e-mailer, <a href="%{link}" target="_blank" class="unsubscribe">Avslutt abonnementet</a>.
     newsletter_templates:
       basic_only_text:
@@ -1021,16 +887,9 @@
         main_image: Hovedbilde
     newsletters:
       unsubscribe:
-        check_subscription: Hvis du vil endre preferansene dine, kan du gjøre det på <a href="%{link}" target="_blank">konfigurasjons siden</a>
-        error: Det oppstod et problem med å avslutte abonnementet
         success: Du har avsluttet ditt abonnement.
         token_error: Lenken er utløpt.
         unsubscribe: Avslutt abonnement
-    newsletters_opt_in:
-      unathorized: Beklager, denne lenken er ikke lenger tilgjengelig
-      update:
-        error: Det oppstod en feil
-        success: Innstillinger for nyhetsbrev ble oppdatert
     newsletters_opt_in_mailer:
       notify:
         body_1: Behandlingen av personopplysninger og deres beskyttelse blir stadig viktigere for oss alle. Med den nye General Data Protection Regulation (GDPR) av 25. mai 2018, har enkeltpersoner bedre kontroll over personopplysningene sine. Av denne grunn trenger vi din "OK" for å fortsette å sende relevant informasjon om aktivitetene til %{organization_name}.
@@ -1051,7 +910,6 @@
     notifications_settings:
       show:
         administrators: Administratorer
-        allow_public_contact: La hvem som helst sende meg direktemelding, selv om jeg ikke følger dem.
         direct_messages: Motta direktemeldinger fra alle
         everything_followed: Alt jeg følger
         newsletter_notifications: Jeg ønsker å motta nyhetsbrev
@@ -1064,7 +922,6 @@
         success: Varslings innstillingene dine ble oppdatert.
     offline:
       show:
-        message: Det ser ut til at du er frakoblet. Vær så snill, prøv igjen senere.
         retry: Prøv igjen
     open_data:
       not_available_yet: Open Data-filene er ikke tilgjengelige ennå, prøv igjen om noen minutter.
@@ -1075,7 +932,6 @@
         verified: Verifisert
     pad_iframe:
       disclaimer: Innholdet på denne padden er skrevet av registrerte brukere og uttrykker deres meninger. %{organization} kan ikke holdes ansvarlig for innholdet.
-      explanation: Bruk denne padden til å samarbeide med å ta notater i løpet av møtet, så det blir lettere å skrive ned referatet etterpå.
       pad: Pad
     pages:
       home:
@@ -1110,32 +966,11 @@
         metrics:
           headline: Deltakelse i tall
           link: Vis all statistikk
-      terms_and_conditions:
-        accept:
-          error: Det oppstod et problem med å godta vilkårene.
-          success: Flott! Du har godtatt vilkårene for bruk.
-        form:
-          agreement: Jeg godtar vilkårene
-          legend: Godta vilkårene for bruk
-        refuse:
-          modal_btn_continue: Aksepter vilkår og fortsett
-          modal_btn_exit: Jeg vil vurdere det senere
-          modal_button: Avslå vilkårene
-          modal_close: Lukk modal
-          modal_title: Nekter du virkelig de oppdaterte vilkårene?
-        required_review:
-          alert: Vi har oppdatert våre vilkår for bruk, vennligst se gjennom dem.
-          body: Vennligst ta deg tid til å se gjennom oppdateringer til våres Vilkår for Bruk. Ellers vil du ikke kunne bruke plattformen.
-          title: 'Påkrevd: Se gjennom oppdateringer til våre vilkår for bruk'
     participatory_space_private_users:
       not_allowed: Du er ikke tillatt å se dette innholdet
     profile:
-      deleted: Deltakeren slettet
-      inaccessible_message: Denne profilen er utilgjengelig på grunn av brudd på vilkår og betingelser!
       view: Vis
     profiles:
-      default_officialization_text_for_user_groups: Denne gruppen er offentlig bekreftet, navnet er bekreftet for å svare til dets virkelige navn
-      default_officialization_text_for_users: Denne deltakeren er verifisert offentlig, hans/hennes navn eller rolle er verifisert for å samsvare med hans/hennes virkelige navn og rolle
       show:
         activity: Aktivitet
         badges: Merker
@@ -1152,11 +987,9 @@
           info: Merker tjenes med å utføre spesifikke aktivitet i plattformen.
           title: Merker
       user:
-        confirmation_instructions_sent: Email bekreftelse instruksjoner sendt
         create_user_group: Opprett gruppe
         edit_profile: Rediger profil
         edit_user_group: Rediger gruppeprofil
-        fill_in_email_to_confirm_it: Vennligst, fyll ut gruppens email for å bekrefte den
         invite_user: Inviter deltaker
         join_user_group: Forespør om å bli med i gruppen
         leave_user_group: Forlat gruppe
@@ -1248,7 +1081,6 @@
         already_reported: Dette innholdet er allerede rapportert, og det vil bli vurdert av en administrator.
         close: Lukk
         description: Er dette innholdet upassende?
-        does_not_belong: Inneholder ulovlig aktivitet, selvmordstrusler, personlig informasjon eller noe annet du mener ikke hører hjemme på %{organization_name}.
         offensive: Inneholder rasisme, sexisme, banning, persjonangrep, dødstrusler, selvmords forespørsler eller all form for hatefullt språk.
         reason: Årsak
         report: Rapport
@@ -1258,7 +1090,6 @@
         already_reported: Dette innholdet er allerede rapportert og vil bli vurdert av en administrator.
         close: Lukk
         description: Hva er upassende med brukeren?
-        does_not_belong: Inneholder ulovlig aktivitet, selvmordstrusler, personlig informasjon eller noe annet du mener ikke hører hjemme på %{organization_name}.
         offensive: Inneholder rasisme, sexisme, banning, personangrep, dødstrusler, selvmordsforespørsler eller andre former for hatefullt språk.
         report: Rapporter
         spam: Inneholder klikkeagn, reklame, svindel eller skriptbotter.
@@ -1310,13 +1141,9 @@
       help_text: "<strong>Advarsel:</strong> Innhold kan automatisk bli oversatt og ikke alltid være 100 % nøyaktig."
       show_original: Vis originaltekst
       show_translated: Vis automatisk oversatt tekst
-    user_activity:
-      index:
-        no_activities_warning: Denne deltakeren har ikke hatt noe aktivitet ennå.
     user_contact_disabled: Denne deltakeren godtar ikke direktemeldinger.
     user_conversations:
       create:
-        error: Meldingen kunne ikke opprettes. Prøv igjen senere
         existing_error: Meldingen kunne ikke opprettes. Samtalen eksisterer allerede, prøv igjen nå.
         success: Samtalen startet vellykket!
       index:
@@ -1331,7 +1158,6 @@
         next: Neste
         no_conversations_warning: Det er ingen samtaler ennå.
         no_results: Ingen resultater
-        participant_with_disabled_message_reception: Denne deltakeren har fjernet muligheten for å motta melding
         time_ago: "%{time} siden"
       new:
         title: Start en samtale
@@ -1341,7 +1167,6 @@
         title_reply: Svar
       show:
         back: Vis alle samtaler
-        deleted_accounts: Du kan ikke ha en samtale med slettede kontoer.
         not_allowed: Denne brukeren godtar ingen flere direktemeldinger.
         title: Samtale med %{usernames}
       update:
@@ -1349,8 +1174,6 @@
     user_interests:
       show:
         my_interests: Mine interesser
-        no_scopes: Denne organisasjonen har ikke noe tema ennå!
-        select_your_interests: Velg emnene du er interessert i for å motta hendelser relatert til dem i fanen Profilens tidslinje.
         update_my_interests: Oppdater interessene mine
       update:
         error: Det oppstod et problem med å oppdatere interessene dine.
@@ -1391,7 +1214,6 @@
       show:
         version_index: Versjon %{index}
     welcome_notification:
-      default_body: <p>Hei {{name}}, takk for at du ble med i {{organization}} og velkommen!</p><ul><li>Hvis du vil få et raskt inntrykk av hva du kan gjøre her, ta en titt på <a href="{{help_url}}">Hjelp</a> seksjonen.</li><li>Når du har lest det, får du det første merket ditt. Her er en <a href="{{badges_url}}">liste over alle merkene</a> du kan oppnå når du deltar i {{organization}}</li><li> Sist, men ikke minst, bli med andre mennesker, dele med dem opplevelsen av å være engasjert og delta i {{organization}}. Lag forslag, gi dine innspill, diskuter, tenk på hvordan du kan bidra til felleskapets beste, gi argumenter for å overbevise, lytt og les for å bli overbevist, uttrykk ideene dine på en konkret og direkte måte, svar med tålmodighet og beslutning, forsvar ideene dine og behold et åpent sinn for å samarbeide, og bli med på andres ideer.</li></ul>
       default_subject: Takk for at du ble med {{organization}}!
     wizard_step_form:
       wizard_aside:
@@ -1438,40 +1260,25 @@
         subject: Bekreftelse instruksjoner
       email_changed:
         greeting: Hei %{recipient}!
-        message: Vi kontakter deg for å varsle om at e-postadressen din holder på å bli endret til %{email}.
         subject: Email endret
       invitation_instructions:
         accept: Godta invitasjon
         accept_until: Denne invitasjonen forfaller i %{due_date}.
         decline: Avvis invitasjon
         hello: Hei %{email},
-        ignore: |-
-          Hvis du ikke ønsker godta invitasjonen, kan du ignorere denne e-posten.<br />
-          Kontoen din blir ikke opprettet før du åpner lenken ovenfor og angir kallenavnet og passordet ditt.
         invited_you_as_admin: "%{invited_by} har invitert deg som en admin av %{application}. Du kan godta via lenken nedenfor."
         invited_you_as_private_user: "%{invited_by} har invitert deg som en privat deltaker av %{application}. Du kan godta via lenken nedenfor."
         someone_invited_you: Noen har invitert deg til %{application}. Du kan godta det via lenken nedenfor.
         someone_invited_you_as_admin: Noen har invitert deg som en administrator av %{application}, du kan godta det via lenken nedenfor.
         someone_invited_you_as_private_user: Noen har invitert deg som privat deltaker av %{application}, du kan godta det via lenken nedenfor.
         subject: Invitasjonsinstruksjoner
-      invite_admin:
-        subject: Du har blitt invitert til å administrere %{organization}
-      invite_collaborator:
-        subject: Du har blitt invitert til å samarbeide om %{organization}
-      invite_private_user:
-        subject: Du har blitt invitert til en privat deltaker prosess på %{organization}
-      organization_admin_invitation_instructions:
-        subject: Du har blitt invitert til å administrere %{organization}
       password_change:
         greeting: Hei %{recipient}!
-        message: Vi kontakter deg for å varsle om at passordet ditt er endret.
         subject: Passord endret
       reset_password_instructions:
         action: Endre passordet mitt
         greeting: Hei %{recipient}!
         instruction: Noen har bedt om en lenke for å endre passordet ditt, og du kan gjøre dette gjennom lenken nedenfor.
-        instruction_2: Hvis du ikke har bedt om dette, kan du ignorere denne e-posten.
-        instruction_3: Passordet endres ikke før du åpner lenken ovenfor og oppretter et nytt et.
         subject: Tilbakestill passordinstruksjoner
       unlock_instructions:
         action: Lås opp kontoen min
@@ -1491,7 +1298,6 @@
       new:
         forgot_your_password: Glemt ditt passord?
         send_me_reset_password_instructions: Send meg instruksjoner for tilbakestilling av passord
-      no_token: Du får ikke tilgang til denne siden uten å komme i fra en passord tilbakestilling email. Hvis du kommer fra en passord tilbakestilling email. kontroller at du bruker hele URL-adressen.
       send_instructions: Du vil motta en e-post med instruksjoner om hvordan du tilbakestiller passordet ditt om noen minutter.
       send_paranoid_instructions: Hvis din e-postadresse finnes i vår database, vil du motta en gjenopprett passord lenke på din e-postadresse innen et par minutter.
       updated: Passordet ditt er endret. Du er nå logget inn.
@@ -1515,8 +1321,6 @@
     shared:
       links:
         back: Tilbake
-        didn_t_receive_confirmation_instructions: Mottok ikke bekreftelse instruksjonen?
-        didn_t_receive_unlock_instructions: Mottok ikke instruksjoner om opplåsing?
         forgot_your_password: Glemt ditt passord?
         sign_in: Logg inn
         sign_in_with_provider: Logg deg på med %{provider}
@@ -1538,13 +1342,11 @@
       already_confirmed: var allerede bekreftet, vennligst prøv å logge inn
       confirmation_period_expired: må bekreftes innen %{period}, vennligst be om ny en
       content_type_allowlist_error: filtypen er ikke gyldig
-      cycle_detected: forelderen til et tema kan ikke være en av dens etterkommere
       expired: har utløpt, vennligst be om ny
       file_size_is_less_than_or_equal_to: filstørrelse må være mindre enn eller lik %{count}
       invalid_time_zone: er ikke en gyldig tidssone
       long_words: inneholder ord som er for lange (over 35 tegn)
       must_start_with_caps: må starte med en stor bokstav
-      nesting_too_deep: kan ikke være inni en underkategori
       not_found: kunne ikke bli funnet. Har du registrert deg tidligere?
       not_locked: var ikke låst
       not_saved:
@@ -1588,8 +1390,6 @@
       notifications_dashboard:
         mark_all_as_read: Merk alt som lest
         mark_as_read: Merk som lest
-      offline_banner:
-        cache_version_page: Oooops! Nettverket ditt er frakoblet. Dette er en tidligere bufret versjon av siden du besøker, kanskje er innholdet ikke oppdatert.
       social_media_links:
         facebook: "%{organization} på Facebook"
         github: "%{organization} på GitHub"
@@ -1625,7 +1425,6 @@
     name: Engelsk
     name_with_error: Norsk (feil!)
   password_validator:
-    blacklisted: er svartelistet
     domain_included_in_password: er for lik dette domenenavnet
     email_included_in_password: er for lik e-postadressen din
     fallback: er ikke gyldig

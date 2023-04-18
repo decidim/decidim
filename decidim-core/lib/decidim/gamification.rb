@@ -111,7 +111,7 @@ module Decidim
             set_score(user, badge.name, badge.reset.call(user)) if badge.valid_for?(user)
           end
         else
-          Rails.logger.info "Badge can't be reset since it doesn't have a reset method."
+          Rails.logger.info "Badge cannot be reset since it does not have a reset method."
         end
       end
     end

@@ -2,7 +2,10 @@ fr-CA:
   activemodel:
     attributes:
       post:
+        body: Corps du texte
+        decidim_author_id: Auteur
         published_at: Date de publication
+        title: Titre
     models:
       decidim/blogs/create_post_event: Nouvel article
   activerecord:
@@ -21,28 +24,19 @@ fr-CA:
         title: Actions
       admin:
         models:
-          components:
-            body: Corps du texte
           post:
             name: Publier
         posts:
-          create:
-            invalid: Un problème est survenu lors de la création de cet article
-            success: Article créé avec succès
-          destroy:
-            success: Article supprimé avec succès
           edit:
             save: Mettre à jour
             title: Éditer le post
           index:
-            not_published_yet: Pas encore publié
             title: Articles
           new:
             create: Créer
             title: Créer un article
           update:
             invalid: Il y a eu des erreurs lors de l'enregistrement de l'article.
-            success: Article enregistré avec succès
       admin_log:
         post:
           create: "%{user_name} a créé l'article de blog %{resource_name} dans %{space_name}"
@@ -57,16 +51,17 @@ fr-CA:
             body: Corps du texte
             official_blog_post: Article officiel
             published_at: Date de publication
-            title: titre
+            title: Titre
       posts:
         show:
-          comments: Commentaires
           view: Voir
     components:
       blogs:
         actions:
+          comment: Commenter
           create: Créer
           destroy: Supprimer
+          endorse: Soutenir
           update: Mettre à jour
         name: Actualités
         settings:

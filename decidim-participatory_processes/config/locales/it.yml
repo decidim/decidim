@@ -196,9 +196,6 @@ it:
           success: E' stato creato il nuovo processo partecipativo.
         default_title: Introduzione
         destroy:
-          error:
-            active_step: Non è possibile cancellare questa fase poiché è attiva.
-            last_step: Non è possibile cancellare l'ultima fase di un processo.
           success: Fase del processo partecipativo cancellata con successo.
         edit:
           title: Modifica una fase del processo partecipativo.
@@ -418,8 +415,6 @@ it:
               one: 1 processo imminente
               other: "%{count} processi imminenti"
           explanations:
-            no_active: Nessun processo attivo
-            no_active_nor_upcoming: Nessun processo attivo o imminente
             no_active_nor_upcoming_callout: Non ci sono processi attivi o imminenti. Ecco una lista di quelli passati.
           names:
             active: Attivo

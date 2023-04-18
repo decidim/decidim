@@ -38,7 +38,7 @@ module Decidim
           end
         end
 
-        context "when the survey doesn't belong to the component" do
+        context "when the survey does not belong to the component" do
           let!(:survey) { create(:survey, component: create(:surveys_component)) }
 
           it "returns null" do

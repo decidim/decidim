@@ -25,7 +25,7 @@ Gem::Specification.new do |s|
   s.summary = "Decidim dev tools"
   s.description = "Utilities and tools we need to develop Decidim"
 
-  s.files = Dir["{app,config,db,lib,vendor}/**/*", "Rakefile", "README.md"]
+  s.files = Dir["{app,config,db,lib,vendor}/**/*", "Rakefile", "README.md", "rubocop-decidim.yml"]
 
   s.add_dependency "capybara", "~> 3.24"
   s.add_dependency "decidim", Decidim::Dev.version
@@ -33,9 +33,9 @@ Gem::Specification.new do |s|
 
   s.add_dependency "byebug", "~> 11.0"
   s.add_dependency "db-query-matchers", "~> 0.10.0"
-  s.add_dependency "erb_lint", "~> 0.0.35"
+  s.add_dependency "erb_lint", "~> 0.4.0"
   s.add_dependency "i18n-tasks", "~> 0.9.18"
-  s.add_dependency "nokogiri", "~> 1.13"
+  s.add_dependency "nokogiri", "~> 1.14", ">= 1.14.3"
   s.add_dependency "parallel_tests", "~> 3.7"
   s.add_dependency "puma", "~> 5.0"
   s.add_dependency "rails-controller-testing", "~> 1.0"
@@ -44,7 +44,7 @@ Gem::Specification.new do |s|
   s.add_dependency "rspec_junit_formatter", "~> 0.3.0"
   s.add_dependency "rspec-rails", "~> 4.0"
   s.add_dependency "rspec-retry", "~> 0.6.2"
-  s.add_dependency "rubocop", "~> 1.28.0"
+  s.add_dependency "rubocop", "~> 1.33.0"
   s.add_dependency "rubocop-faker", "~> 1.1"
   s.add_dependency "rubocop-rails", "~> 2.14"
   s.add_dependency "rubocop-rspec", "~> 2.10"

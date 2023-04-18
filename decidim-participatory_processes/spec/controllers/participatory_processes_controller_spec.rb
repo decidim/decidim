@@ -36,7 +36,7 @@ module Decidim
           expect(controller.helpers.participatory_processes.to_a).not_to include(unpublished_process)
         end
 
-        it "redirects to 404 if there aren't any" do
+        it "redirects to 404 if there are not any" do
           expect { get :index }.to raise_error(ActionController::RoutingError)
         end
       end

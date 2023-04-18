@@ -2,8 +2,12 @@ sv:
   activemodel:
     attributes:
       initiative:
+        answer: Svar
+        area_id: Område
+        decidim_scope_id: Omfång
         decidim_user_group_id: Författare
         description: Beskrivning
+        hashtag: Hashtag
         offline_votes: Fysiska underskrifter
         scope_id: Omfång
         signature_end_date: Insamling av underskrifter avslutas
@@ -15,8 +19,11 @@ sv:
           online: Online
         state: Status
         title: Titel
+        type_id: Typ
       initiatives_committee_member:
         user: Kommittémedlem
+      initiatives_settings:
+        initiatives_order: Ordning
       initiatives_type:
         area_enabled: Gör det möjligt för författare att välja området för deras initiativ
         attachments_enabled: Aktivera bilagor
@@ -33,6 +40,8 @@ sv:
         title: Titel
         undo_online_signatures_enabled: Tillåt deltagare att ångra sina online-underskrifter
         validate_sms_code_on_votes: Lägg till SMS-validering till signeringsprocessen
+      initiatives_type_scope:
+        decidim_scopes_id: Omfång
       initiatives_vote:
         date_of_birth: Födelsedatum
         document_number: Dokumentnummer
@@ -49,12 +58,8 @@ sv:
             attachment:
               file: Filen är ogiltig
               needs_to_be_reattached: Måste återknytas
-              title: Titeln bör inte vara tom
   activerecord:
     models:
-      decidim/initiative:
-        one: Intitiativ
-        other: Initiativ
       decidim/initiative_comittee:
         one: Kommitté
         other: Kommittéer
@@ -87,6 +92,7 @@ sv:
         components: Komponenter
         information: Information
         initiatives: Initiativ
+        initiatives_settings: Inställningar
         initiatives_types: Initiativtyper
         moderations: Moderering
       models:
@@ -161,10 +167,8 @@ sv:
             - Följ stegen för att skapa ett nytt initiativ
           description: Detta märke beviljas när du startar nya initiativ och samarbetar med andra för att genomföra dem.
           description_another: Användaren har publicerat %{score} initiativ.
-          description_own: Du har publicerat %{score} initiativ.
           name: Publicerade initiativ
           next_level_in: Nå nästa nivå genom att publicera %{score} till initiativ!
-          unearned_another: Deltagaren användaren har inte fått några initiativ publicerade än.
           unearned_own: Du har ännu inte publicerat några initiativ.
     help:
       participatory_spaces:
@@ -190,8 +194,6 @@ sv:
           index:
             approve: Godkänn
             confirm_revoke: Är du säker?
-            invite_to_committee_help: Dela den här länken för att bjuda in andra deltagare till kampanjutskottet
-            no_members_yet: Det finns inga medlemmar i kampanjutskottet
             revoke: Återkalla
             title: Kommittémedlemmar
         content_blocks:
@@ -199,6 +201,7 @@ sv:
             max_results: Högsta antal element att visa
             order:
               default: Standard (Äldste)
+              label: 'Sortera efter:'
               most_recent: Senaste
         exports:
           initiatives: Initiativ
@@ -212,7 +215,6 @@ sv:
             export_votes: Exportera underskrifter
             reject: Avvisa initiativ
             send_to_technical_validation: Skicka till teknisk validering
-            success: Initiativet har skickats till teknisk validering
             update: Uppdatera
           form:
             attachments: Bilagor
@@ -227,9 +229,6 @@ sv:
             edit: Redigera
             new: Ny
             photos: Foton
-          update:
-            error: Ett fel har inträffat
-            success: Initiativet har uppdaterats
         initiatives_settings:
           edit:
             update: Uppdatera
@@ -237,11 +236,6 @@ sv:
             comments: Mest kommenterade
             random: Slumpmässigt
         initiatives_type_scopes:
-          create:
-            error: Ett fel har inträffat
-            success: Ett nytt omfång har skapats för den givna initiativtypen
-          destroy:
-            success: Omfånget har tagits bort
           edit:
             back: Tillbaka
             confirm_destroy: Är du säker?
@@ -252,15 +246,7 @@ sv:
             back: Tillbaka
             create: Skapa
             title: Skapa omfång till initiativtyp
-          update:
-            error: Ett fel har inträffat
-            success: Omfånget har uppdaterats
         initiatives_types:
-          create:
-            error: Ett fel har inträffat
-            success: En ny initiativtyp har skapats
-          destroy:
-            success: Initiativtypen har tagits bort
           edit:
             confirm_destroy: Är du säker?
             destroy: Radera
@@ -274,9 +260,6 @@ sv:
           new:
             create: Skapa
             title: Ny initiativtyp
-          update:
-            error: Ett fel har inträffat
-            success: Initiativtypen har uppdaterats
       admin_log:
         initiative:
           publish: "%{user_name} publicerade initiativet %{resource_name}"
@@ -307,7 +290,6 @@ sv:
       committee_requests:
         new:
           continue: Fortsätta
-          help_text: Du kommer att be att få bli medlem av initiativets kampanjutskott
         spawn:
           success: Din förfrågan har skickats till författaren av initiativet.
       content_blocks:
@@ -381,7 +363,6 @@ sv:
             day: Dag
             month: Månad
             year: År
-          help: Skriv under initiativet genom att fylla i följande fält med dina personuppgifter
         finish:
           back_to_initiative: Tillbaka till initiativet
         sms_code:
@@ -389,16 +370,11 @@ sv:
           help: Se det SMS som skickades till din telefon
         sms_phone_number:
           continue: Skicka mig ett SMS
-          help: Begär en verifieringskod genom att fyll i formuläret med ditt verifierade telefonnummer
       initiative_votes:
         create:
           error: Det gick inte att skriva under initiativet.
-          invalid: Uppgifterna för underskrift av initiativet är ogiltiga
-          success_html: Grattis! Du har skrivit under initiativet <strong> %{title}</strong>
         personal_data:
           invalid: Personuppgifterna överensstämmer inte med de uppgifter som lämnats för godkännande.
-        sms_code:
-          invalid: Verifieringskoden stämmer inte. Kontrollera det SMS som vi skickade till dig igen.
         sms_phone:
           invalid: Telefonnumret är ogiltigt eller har ännu inte godkänts. Kontrollera dina godkännanden.
       initiatives:
@@ -411,7 +387,6 @@ sv:
         committee_members:
           approve: Godkänn
           confirm_revoke: Är du säker?
-          no_members_yet: Det finns inga medlemmar i projektkommittén
           revoke: Återkalla
           title: Kommittémedlemmar
         count:
@@ -468,7 +443,6 @@ sv:
           section: 'Om det begärs av organisationen, skriv ut och fyll i detta formulär för att skicka där det anges:'
           signature: Underskrift
         result:
-          answer_title: Detta initiativ "" har fått ett svar
           initiative_rejected_reason: Detta initiativ har avslagits på grund av bristen på underskrifter.
         show:
           any_vote_method: Detta initiativ samlar in både digitala och fysiska underskrifter.
@@ -525,9 +499,6 @@ sv:
         accepted: Godkända
         expired: Utgångna
       unavailable_scope: Ej tillgängligt omfång
-      update:
-        error: Ett fel har inträffat
-        success: Initiativet har uppdaterats
       versions:
         shared:
           back_to_resource: Gå tillbaka till initiativet
@@ -539,6 +510,7 @@ sv:
           comment: Kommentera
       initiatives_type:
         actions:
+          create: Skapa
           title: Åtgärder
           vote: Underteckna
   layouts:

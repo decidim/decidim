@@ -18,16 +18,9 @@ lb:
         title: Aktionen
       admin:
         models:
-          components:
-            body: Haupttext
           post:
             name: Post
         posts:
-          create:
-            invalid: Beim Erstellen dieses Posts ist ein Problem aufgetreten
-            success: Post erfolgreich erstellt
-          destroy:
-            success: Beitrag wurde erfolgreich gelöscht
           edit:
             save: Aktualisieren
             title: Post bearbeiten
@@ -38,16 +31,13 @@ lb:
             title: Post erstellen
           update:
             invalid: Beim Speichern des Posts sind Fehler aufgetreten.
-            success: Beitrag wurde erfolgreich gespeichert
       models:
         post:
           fields:
             author: Autor
             body: Haupttext
-            title: Titel
       posts:
         show:
-          comments: Kommentare
           view: Anzeigen
     components:
       blogs:

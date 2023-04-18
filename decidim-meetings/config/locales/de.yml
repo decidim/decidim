@@ -1,10 +1,6 @@
 de:
   activemodel:
     attributes:
-      agenda:
-        description: Beschreibung
-        duration: Dauer
-        title: Titel
       close_meeting:
         attendees_count: Anzahl der Teilnehmer
         attending_organizations: Liste der Organisationen, die teilgenommen haben
@@ -22,7 +18,6 @@ de:
         decidim_scope_id: Umfang
         decidim_user_group_id: Benutzergruppe
         description: Beschreibung
-        end_time: Endzeit
         id: ID
         location: Ort
         location_hints: Standorthinweise
@@ -35,22 +30,21 @@ de:
         registration_terms: Registrierungsbedingungen
         registration_url: Registrierungs-URL
         registrations_enabled: Registrierungen aktiviert
-        show_embedded_iframe: Eingebetteten Iframe für diese URL anzeigen
-        start_time: Startzeit
         title: Titel
         transparent: Transparent
         type_of_meeting: Art
-    errors:
-      models:
-        meeting_agenda:
-          attributes:
-            base:
-              too_many_minutes: Die Dauer der Elemente überschreitet die Besprechungsdauer um %{count} Minuten
-              too_many_minutes_child: Die Dauer der Item-Childs überschreitet den Tagesordnungspunkt "%{parent_title}" Elternzeit um %{count} Minute
-        meeting_registration_invite:
-          attributes:
-            email:
-              already_invited: Diese E-Mail wurde bereits eingeladen
+      meeting_agenda:
+        title: Titel
+        visible: Sichtbar
+      meeting_agenda_items:
+        description: Beschreibung
+        duration: Dauer
+        title: Titel
+      meeting_registration_invite:
+        email: E-Mail
+        name: Name
+      validate_registration_code:
+        code: Code
     models:
       decidim/meetings/close_meeting_event: Sitzung geschlossen
       decidim/meetings/create_meeting_event: Sitzung
@@ -178,9 +172,6 @@ de:
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie der Sitzung "%{resource_title}" folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
           email_subject: Die Sitzung "%{resource_title}" beginnt in weniger als 48 Stunden.
           notification_title: Die Sitzung <a href="%{resource_path}">%{resource_title}</a> beginnt in weniger als 48 Stunden.
-    forms:
-      meetings:
-        attendees_count_help_text: Vergessen Sie nicht, die Gesamtzahl der Teilnehmer an Ihrem Meeting anzugeben, egal ob dies persönlich, online oder hybrid stattgefunden hat.
     gamification:
       badges:
         attended_meetings:
@@ -191,8 +182,7 @@ de:
           description_own: Sie haben an %{score} Sitzungen teilgenommen.
           name: Besuchte Sitzungen
           next_level_in: Nimm an %{score} weiteren Sitzungen teil, um das nächste Level zu erreichen!
-          unearned_another: Dieser Benutzer hat noch kein Sitzungen besucht.
-          unearned_own: Sie haben noch keine Sitzung besucht.
+          unearned_own: Sie haben noch kein Meeting besucht.
     meetings:
       actions:
         agenda: Agenda
@@ -225,9 +215,6 @@ de:
             down: Nieder
             remove: Löschen
             up: Oben
-          create:
-            invalid: Beim Erstellen dieser Agenda ist ein Problem aufgetreten
-            success: Agenda erfolgreich erstellt
           edit:
             title: Agenda bearbeiten
             update: Aktualisieren
@@ -239,9 +226,6 @@ de:
           new:
             create: Erstellen
             title: Neue Agenda
-          update:
-            invalid: Beim Aktualisieren dieser Agenda ist ein Problem aufgetreten
-            success: Agenda erfolgreich aktualisiert
         exports:
           answers: Antworten
           meeting_comments: Kommentare
@@ -272,34 +256,21 @@ de:
             filter_by: Filtern nach
             invite_attendee: Teilnehmer einladen
             invites: Lädt ein
-            registrations_disabled: Sie können keinen Teilnehmer einladen, da die Registrierungen deaktiviert sind.
             search: Suche
         meeting_closes:
           edit:
             close: Schließen
             title: Sitzung beenden
-        meeting_copies:
-          form:
-            select_a_meeting_type: Bitte eine Meeting-Typ auswählen
         meetings:
-          close:
-            invalid: Beim Schließen dieses Meetings ist ein Problem aufgetreten
-            success: Sitzung erfolgreich abgeschlossen
           create:
-            invalid: Beim Erstellen dieses Meetings ist ein Problem aufgetreten
             success: Sitzung erfolgreich erstellt. Beachten Sie, dass dies noch nicht veröffentlicht wurde. Sie müssen es manuell veröffentlichen.
           destroy:
-            invalid:
-              proposals_count:
-                one: Die Besprechung kann nicht gelöscht werden, da %{count} Vorschlag mit dieser verbunden ist
-                other: Die Besprechung kann nicht gelöscht werden, da %{count} Vorschläge mit dieser verbunden sind
             success: Das Meeting wurde erfolgreich gelöscht
           edit:
             title: Meeting bearbeiten
             update: Aktualisieren
           form:
             address_help: 'Adresse: wird von Geocoder zur Lokalisierung verwendet'
-            disclaimer: 'Haftungsausschluss: Durch Verwendung eines externen Registrierungssystems wissen Sie, dass die Organisatoren von %{organization} nicht für die Daten verantwortlich sind, welche die Benutzer dem externen Dienst zur Verfügung stellen.'
             location_help: 'Ort: an die Benutzer gerichtete Nachricht mit dem Treffpunkt'
             location_hints_help: 'Hinweise zum Standort: Zusätzliche Informationen. Beispiel: das Stockwerk im Gebäude wenn es eine Sitzung vor Ort ist, oder das Passwort wenn es eine Online-Sitzung mit eingeschränktem Zugriff ist.'
             online_meeting_url_help: 'Link: Erlaubt Teilnehmern, sich direkt mit Ihrem Meeting zu verbinden'
@@ -311,9 +282,6 @@ de:
           new:
             create: Erstellen
             title: Besprechung erstellen
-          publish:
-            invalid: Beim Veröffentlichen dieser Sitzung ist ein Fehler aufgetreten
-            success: Sitzung erfolgreich veröffentlicht
           service:
             description: Beschreibung
             down: Nieder
@@ -324,12 +292,6 @@ de:
           services:
             add_service: Dienst hinzufügen
             services: Dienstleistungen
-          unpublish:
-            invalid: Beim Aufheben der Veröffentlichung dieser Sitzung ist ein Fehler aufgetreten
-            success: Veröffentlichung der Sitzung erfolgreich rückgängig gemacht
-          update:
-            invalid: Beim Aktualisieren dieses Meetings ist ein Problem aufgetreten
-            success: Sitzung erfolgreich aktualisiert
         meetings_poll:
           form:
             title: Fragebogen für %{questionnaire_for} bearbeiten
@@ -350,7 +312,6 @@ de:
             registrations_count:
               one: Es wurde %{count} registriert.
               other: Es wurden %{count} Anmeldungen vorgenommen.
-            reserved_slots_help: Belassen Sie es auf 0, wenn Sie keine reservierten Slots haben
             reserved_slots_less_than: Muss kleiner oder gleich %{count}
             title: Anmeldungen
           update:
@@ -387,7 +348,6 @@ de:
         copy_calendar_url_clarification: Kalender-URL in Zwischenablage kopieren
         copy_calendar_url_copied: Kopiert!
         copy_calendar_url_description: Sie können alle veröffentlichten Meetings in Ihrer Kalenderanwendung oder bei Ihrem Kalender-Anbieter sehen. Kopieren und fügen Sie diese URL mit der Option "Neuen Kalender von einer URL hinzufügen" in Ihren Kalender ein.
-        copy_calendar_url_explanation: Bitte beachten Sie, dass Sie eine Auswahl von Meetings exportieren, da es aktive Filter gibt. Wenn Sie alle exportieren möchten, setzen Sie zuerst alle Filter zurück.
         copy_calendar_url_message: Die URL wurde erfolgreich in die Zwischenablage kopiert.
         export_calendar: Kalender exportieren
       close_meeting_reminder_mailer:
@@ -425,8 +385,6 @@ de:
         registration_mailer:
           confirmation:
             subject: Die Registrierung Ihrer Konferenz wurde bestätigt
-      meeting:
-        not_allowed: Sie dürfen dieses Meeting nicht sehen
       meeting_closes:
         edit:
           back: Zurück
@@ -484,7 +442,6 @@ de:
           address_help: 'Adresse: wird von Geocoder zur Lokalisierung verwendet'
           available_slots_help: Belassen Sie es auf 0, wenn Sie unbegrenzte Plätze zur Verfügung haben
           create_as: Besprechung erstellen als
-          disclaimer: 'Haftungsausschluss: Durch Verwendung eines externen Registrierungssystems wissen Sie, dass die Organisatoren von %{organization} nicht für die Daten verantwortlich sind, welche die Benutzer dem externen Dienst zur Verfügung stellen.'
           location_help: 'Ort: an die Benutzer gerichtete Nachricht mit dem Treffpunkt'
           location_hints_help: 'Standorthinweise: Zusätzliche Informationen. Beispiel: die Etage des Gebäudes, wenn es sich um eine persönliche Sitzung oder das Sitzungspasswort, wenn es sich um ein Online-Meeting mit eingeschränktem Zugriff handelt.'
           online_meeting_url_help: 'Link: Erlaubt Teilnehmern, sich direkt mit Ihrem Meeting zu verbinden'
@@ -500,7 +457,6 @@ de:
         meeting_minutes:
           related_information: Zugehörige Informationen
         meetings:
-          no_meetings_warning: Keine Besprechung entspricht Ihren Suchkriterien oder es ist keine Besprechung geplant.
           upcoming_meetings_warning: Momentan gibt es keine geplanten Besprechungen, aber hier finden Sie alle aufgelisteten Besprechungen.
         new:
           back: Zurück
@@ -596,7 +552,6 @@ de:
       registrations:
         create:
           invalid: Bei diesem Meeting ist ein Problem aufgetreten.
-          success: Sie sind der Sitzung erfolgreich beigetreten. Da sie sich für die Sitzung registriert haben, werden Sie benachrichtigt wenn sich an der Sitzung etwas ändert.
         decline_invitation:
           invalid: Es ist ein Problem aufgetreten, dass die Einladung abgelehnt wurde.
           success: Sie haben die Einladung erfolgreich abgelehnt.
@@ -613,9 +568,6 @@ de:
         withdraw: Zurückgezogen
       versions:
         back_to_resource: Zurück zur Besprechung
-      withdraw:
-        error: Beim Zurückziehen des Meetings ist ein Fehler aufgetreten
-        success: Das Meeting wurde erfolgreich zurückgezogen
     metrics:
       meetings:
         description: Anzahl der erstellten Meetings

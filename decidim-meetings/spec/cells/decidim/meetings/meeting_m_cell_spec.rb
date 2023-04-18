@@ -22,7 +22,7 @@ module Decidim::Meetings
         expect(cell_html).to have_css(".card--meeting")
       end
 
-      it "doesn't show creation date" do
+      it "does not show creation date" do
         expect(cell_html).to have_no_content("Created at")
         expect(cell_html).to have_no_content(I18n.l(meeting.created_at.to_date, format: :decidim_short))
       end

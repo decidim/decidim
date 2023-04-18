@@ -6,7 +6,11 @@ module Decidim
       delegate :scoped_resource, to: :controller
 
       def edit_content_block_path
-        decidim_votings.edit_voting_landing_page_content_block_path(scoped_resource, manifest_name)
+        decidim_votings.edit_voting_landing_page_content_block_path(scoped_resource, model)
+      end
+
+      def content_block_path
+        decidim_votings.voting_landing_page_content_block_path(scoped_resource, model)
       end
 
       def decidim_votings

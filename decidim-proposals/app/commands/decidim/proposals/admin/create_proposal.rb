@@ -19,7 +19,7 @@ module Decidim
         # Executes the command. Broadcasts these events:
         #
         # - :ok when everything is valid, together with the proposal.
-        # - :invalid if the form wasn't valid and we couldn't proceed.
+        # - :invalid if the form was not valid and we could not proceed.
         #
         # Returns nothing.
         def call
@@ -40,8 +40,9 @@ module Decidim
             create_gallery if process_gallery?
             create_attachment(weight: first_attachment_weight) if process_attachments?
             link_author_meeeting if form.created_in_meeting?
-            send_notification
           end
+
+          send_notification
 
           broadcast(:ok, proposal)
         end
@@ -81,11 +82,13 @@ module Decidim
         end
 
         def send_notification
+          return unless proposal
+
           Decidim::EventsManager.publish(
             event: "decidim.events.proposals.proposal_published",
             event_class: Decidim::Proposals::PublishProposalEvent,
             resource: proposal,
-            followers: @proposal.participatory_space.followers,
+            followers: proposal.participatory_space.followers,
             extra: {
               participatory_space: true
             }

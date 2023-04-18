@@ -44,7 +44,7 @@ module Decidim
           expect(controller).to receive(:sign_up).and_call_original
         end
 
-        it "doesn't ask the user to confirm the email" do
+        it "does not ask the user to confirm the email" do
           post :create, params: params
           expect(controller.flash.notice).not_to have_content("confirmation")
         end
@@ -59,7 +59,7 @@ module Decidim
 
         it "adds the flash message" do
           post :create, params: params
-          expect(controller.flash.now[:alert]).to have_content("Your email can't be blank")
+          expect(controller.flash.now[:alert]).to have_content("Your email cannot be blank")
         end
 
         context "when all params are invalid" do
@@ -82,14 +82,14 @@ module Decidim
             post :create, params: params
             expect(controller.flash.now[:alert]).to have_content(
               [
-                "Your name can't be blank",
-                "Nickname can't be blank",
+                "Your name cannot be blank",
+                "Nickname cannot be blank",
                 "Nickname is invalid",
-                "Your email can't be blank",
-                "Confirm your password doesn't match Password",
+                "Your email cannot be blank",
+                "Confirm your password does not match Password",
                 "Password is too short",
                 "Password does not have enough unique characters",
-                "Terms and conditions of use agreement must be accepted"
+                "Terms of service agreement must be accepted"
               ].join(", ")
             )
           end

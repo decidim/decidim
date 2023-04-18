@@ -31,7 +31,7 @@ fr-CA:
         cost_report: Rapport de coût
         execution_period: Période d'exécution
       proposals_copy:
-        copy_proposals: Je comprends que cela va importer toutes les propositions de la fonctionnalité sélectionnée vers la fonctionnalité actuelle et que cette action ne peut pas être inversée.
+        copy_proposals: "I understand that this will import all proposals from the selected component to the current one and that this action cannot be reversed.\nJe comprends que cela importera toutes les propositions du composant sélectionné dans le composant actuel et que cette action ne peut être annulée."
         origin_component_id: Fonctionnalité dont on veut copier les propositions
       proposals_import:
         import_proposals: Importer des propositions
@@ -213,7 +213,7 @@ fr-CA:
             endorsements_enabled: Activer le module de soutiens
             proposal_answering_enabled: Autoriser la réponse officielle aux propositions
             publish_answers_immediately: Publier immédiatement les réponses à la proposition
-            publish_answers_immediately_help_html: 'N''oubliez pas que si vous répondez à une proposition sans cette option, vous devrez la publier manuellement en les sélectionnant et en utilisant l''action de publication. Pour plus d''informations sur comment cela fonctionne, voir la page de documentation de <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">propositions</a>.'
+            publish_answers_immediately_help_html: "Mind that if you answer any proposal without this enabled, you will need to publish them manually by selecting them and using the action for publication. For more info on how this works, see <a href=\"https://docs.decidim.org/en/admin/components/proposals/answers#_publication\" target=\"_blank\">proposals' answers documentation page</a>.\nNotez que si vous répondez à une proposition sans que cela soit activé, vous devrez la publier manuellement en la sélectionnant et en utilisant l'action de publication.\nPour plus d'informations sur le fonctionnement de cette action, voir <a href=\"https://docs.decidim.org/en/admin/components/proposals/answers#_publication\" target=\"_blank\">la page de documentation sur les réponses aux propositions</a>."
             suggested_hashtags: Hashtags suggérés aux utilisateurs pour de nouvelles propositions
             votes_blocked: Bloquer les votes
             votes_enabled: Activer le module de vote simple
@@ -222,10 +222,8 @@ fr-CA:
       proposals:
         admin:
           proposal_note_created:
-            email_intro: Quelqu'un a laissé une note sur la proposition "%{resource_title}". Consultez-la sur <a href="%{admin_proposal_info_url}">le panneau d'administration</a>
             email_outro: Vous avez reçu cette notification car vous pouvez évaluer la proposition.
             email_subject: Quelqu'un a laissé une note sur la proposition %{resource_title}.
-            notification_title: Quelqu'un a laissé une note sur la proposition <a href="%{resource_path}">%{resource_title}</a>. Consultez-la à <a href="%{admin_proposal_info_path}">le panneau d'administration</a>
         collaborative_draft_access_accepted:
           email_intro: '%{requester_name} a été accepté en tant que contributeur du brouillon collaboratif <a href="%{resource_url}">%{resource_title}</a>.'
           email_outro: Vous avez reçu cette notification car vous êtes collaborateur de <a href="%{resource_url}">%{resource_title}</a>. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
@@ -260,12 +258,10 @@ fr-CA:
           email_intro: 'Vous pouvez maintenant créer de nouvelles propositions dans %{participatory_space_title} ! Commencez à participer sur cette page :'
           email_outro: Vous avez reçu cette notification car vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications en cliquant sur le lien précédent.
           email_subject: Les propositions sont maintenant disponibles dans %{participatory_space_title}
-          notification_title: Vous pouvez maintenant créer de <a href="%{resource_path}">nouvelles propositions</a> dans <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         endorsing_enabled:
           email_intro: 'Vous pouvez soutenir les différentes propositions dans %{participatory_space_title} ! Commencez à participer en vous rendant sur cette page :'
           email_outro: Vous avez reçu cette notification car vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications en cliquant sur ce dernier lien.
           email_subject: Vous pouvez désormais soutenir des propositions dans %{participatory_space_title}
-          notification_title: Vous pouvez maintenant commencer à <a href="%{resource_path}">soutenir les propositions</a> dans <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         proposal_accepted:
           affected_user:
             email_intro: 'Votre proposition "%{resource_title}" a été acceptée. Vous pouvez lire la réponse sur cette page:'
@@ -302,8 +298,6 @@ fr-CA:
           email_intro: La proposition "%{resource_title}" a été publiée dans "%{participatory_space_title}" que vous suivez.
           email_outro: Vous avez reçu cette notification parce que vous suivez "%{participatory_space_title}". Vous pouvez cesser de le suivre en cliquant sur le lien précédent.
           email_subject: Nouvelle proposition "%{resource_title}" ajoutée à %{participatory_space_title}
-          notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> a été ajoutée à %{participatory_space_title} par %{author}
-          notification_title_official: La proposition officielle <a href="%{resource_path}">%{resource_title}</a> a été ajoutée à %{participatory_space_title}
         proposal_rejected:
           affected_user:
             email_intro: 'Votre proposition "%{resource_title}" a été rejetée. Vous pouvez lire la réponse sur cette page:'
@@ -313,7 +307,7 @@ fr-CA:
           follower:
             email_intro: 'La proposition "%{resource_title}" n''a pas été retenue. Vous pouvez lire le commentaire ici :'
             email_outro: Vous venez de recevoir cette notification parce que vous suivez "%{resource_title}". Vous pouvez à tout moment arrêter de la suivre en cliquant sur ce dernier lien.
-            email_subject: Une proposition que vous suivez n'a pas été retenue
+            email_subject: Une proposition que vous suivez a été rejetée
             notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> n'a pas été retenue.
         proposal_update_category:
           email_intro: 'Un administrateur a mis à jour la catégorie de votre proposition "%{resource_title}". Vous pouvez y accéder ici :'
@@ -405,7 +399,7 @@ fr-CA:
             answers: |
               Le document d'importation doit contenir les noms de colonnes suivants en cas de fichiers CSV ou Excel ou noms de clés suivants dans le cas de fichiers JSON :
               <ul>
-              <li><b>id:</b> ID de la proposition auquel on répond</li>
+              <li><b>id:</b> ID de la proposition à laquelle on répond</li>
               <li><b>state:</b>"accepted", "evaluating", ou "rejected"</li>
               <li><b>answer/en:</b> Réponse en langue anglaise. Cela dépendra de la configuration de langue de votre plateforme.</li>
               </ul>
@@ -458,8 +452,8 @@ fr-CA:
             title: AJOUTER UN DOCUMENT
             upload_document: Télécharger le document
           publish:
-            invalid: Impossible de publier des propositions
-            success: Toutes les propositions ont été publiées
+            invalid: Un problème est survenu lors de la publication des propositions.
+            success: Toutes les propositions ont été publiées.
           sections:
             article: "<em>article</em>"
             section: "<em>Section:</em> <strong>%{title}</strong>"
@@ -475,21 +469,12 @@ fr-CA:
             rejected: Non retenue
             title: Réponse à la proposition %{title}
         proposal_notes:
-          create:
-            error: Un problème est survenu lors de la création de cette note de proposition
-            success: Note de proposition créée avec succès
           form:
             note: Remarque
             submit: Soumettre
           leave_your_note: Laisser une remarque
           title: Notes privées
         proposals:
-          answer:
-            invalid: Il y a eu un problème concernant la réponse à cette proposition
-            success: La réponse à la proposition a été publiée avec succès
-          create:
-            invalid: Il y a eu un problème lors de la création de cette proposition
-            success: Proposition créée avec succès
           edit:
             title: Mise à jour de la proposition
             update: Mettre à jour
@@ -524,7 +509,7 @@ fr-CA:
             title: Créer une proposition
           publish_answers:
             number_of_proposals: Les réponses pour %{number} propositions seront publiées.
-            select_a_proposal: Veuillez sélectionner une proposition
+            select_a_proposal: Veuillez sélectionner une proposition.
           show:
             amendments_count: Nombre d'amendements
             assigned_valuators: Évaluateurs assignés
@@ -554,18 +539,15 @@ fr-CA:
             votes_ranking: Classement par supports
           update_category:
             invalid: 'Ces propositions avaient déjà la catégorie %{subject_name} : %{proposals}.'
-            select_a_category: Veuillez sélectionner une catégorie
-            select_a_proposal: Veuillez sélectionner une proposition
+            select_a_category: Veuillez sélectionner une catégorie.
+            select_a_proposal: Veuillez sélectionner une proposition.
             success: 'Les propositions ont été mises à jour avec succès vers la catégorie %{subject_name} : %{proposals}.'
           update_scope:
             invalid: 'Ces propositions avaient déjà la portée de %{subject_name} : %{proposals}.'
-            select_a_proposal: Veuillez sélectionner une proposition
-            select_a_scope: Veuillez sélectionner un secteur
+            select_a_proposal: Veuillez sélectionner une proposition.
+            select_a_scope: Veuillez sélectionner un secteur.
             success: 'Les propositions ont été mises à jour avec succès vers le périmètre %{subject_name} : %{proposals}.'
         proposals_imports:
-          create:
-            invalid: Un problème est survenu lors de l'importation des propositions
-            success: "%{number} propositions importées avec succès"
           new:
             create: Importer des propositions
             no_components: Il n'y a pas d'autre fonctionnalité de proposition dans cet espace participatif dans laquelle importer les propositions.
@@ -580,13 +562,6 @@ fr-CA:
           create:
             invalid: 'Une erreur est survenue lors de la division des propositions sélectionnées à cause de certaines d''entre elles:'
             success: Divisé avec succès les propositions en nouvelles.
-        valuation_assignments:
-          create:
-            invalid: Il y a eu une erreur en attribuant des propositions à un évaluateur
-            success: Propositions assignées à un évaluateur avec succès
-          delete:
-            invalid: Il y a eu une erreur lors de la désassignation des propositions d'un évaluateur
-            success: Evaluateur désaffecté aux propositions avec succès
       admin_log:
         proposal:
           answer: "%{user_name} a répondu à la proposition %{resource_name} sur l'espace %{space_name}"
@@ -630,7 +605,7 @@ fr-CA:
           publish:
             error: Il y a eu des erreurs lors de la publication du brouillon collaboratif.
             irreversible_action_modal:
-              body: Après avoir publié le projet en tant que proposition, le projet ne sera plus éditable. La proposition n'acceptera pas de nouveaux auteurs ou contributions.
+              body: Après avoir publié le brouillon en tant que proposition, celui-ci ne sera plus éditable. La proposition n'acceptera pas de nouveaux auteurs ou contributions.
               cancel: Annuler
               ok: Publier en tant que proposition
               title: L'action suivante est irréversible
@@ -639,7 +614,7 @@ fr-CA:
           withdraw:
             error: Il y a eu des erreurs en fermant le brouillon collaboratif.
             irreversible_action_modal:
-              body: Après avoir fermé le brouillon, le brouillon ne sera plus éditable. Le projet n'acceptera pas de nouveaux auteurs ou contributions.
+              body: Après avoir publié le brouillon en tant que proposition, celui-ci ne sera plus éditable. La proposition n'acceptera pas de nouveaux auteurs ou contributions.
               cancel: Annuler
               ok: Retirer le projet collaboratif
               title: L'action suivante est irréversible
@@ -687,17 +662,17 @@ fr-CA:
         requests:
           accepted_request:
             error: Ne peut être accepté en tant que collaborateur, réessayez plus tard.
-            success: "@%{user} a été accepté comme collaborateur avec succès"
+            success: "@%{user} a été accepté comme collaborateur avec succès."
           access_requested:
             error: Votre demande n'a pas pu être complétée, réessayez plus tard.
-            success: Votre demande de collaboration a été envoyée avec succès
+            success: Votre demande de collaboration a été envoyée avec succès.
           collaboration_requests:
             accept_request: Accepté
             reject_request: Rejeté
             title: Demandes de collaboration
           rejected_request:
             error: Ne peut être rejeté en tant que collaborateur, réessayez plus tard.
-            success: "@%{user} a été rejeté en tant que collaborateur avec succès"
+            success: "@%{user} a été rejeté en tant que collaborateur avec succès."
         show:
           back: Retour
           edit: Modifier un brouillon collaboratif
@@ -706,7 +681,7 @@ fr-CA:
           hidden_authors_count:
             one: et %{count} personne de plus
             other: et %{count} autres personnes
-          info-message: Ceci est un <strong>projet collaboratif</strong> pour une proposition. Cela signifie que vous pouvez aider leurs auteurs à façonner la proposition en utilisant la section commentaire ci-dessous ou l'améliorer directement en demandant l'accès pour la modifier. Une fois que les auteurs vous accordent l'accès, vous pourrez apporter des modifications à ce brouillon.
+          info-message: Ceci est un <strong>brouillon collaboratif</strong> pour une question. Cela signifie que vous pouvez aider leurs auteurs à façonner la question en utilisant la section commentaire ci-dessous ou l'améliorer directement en demandant l'accès pour la modifier. Une fois que les auteurs vous accordent l'accès, vous pourrez apporter des modifications à ce brouillon.
           publish: Publier
           publish_info: Publiez cette version du brouillon ou
           published_proposal: proposition publiée
@@ -760,7 +735,7 @@ fr-CA:
             valuators: Évaluateurs
             votes: Votes
       new:
-        limit_reached: Vous ne pouvez pas créer de nouvelles propositions car vous avez dépassé le nombre autorisé.
+        limit_reached: "You cannot create new proposals since you have exceeded the limit.\nVous ne pouvez plus créer de nouvelles propositions car vous avez atteint la limite autorisée."
       participatory_text_proposal:
         alternative_title: Il n'y a pas de textes participatifs pour le moment
         buttons:
@@ -862,9 +837,6 @@ fr-CA:
         proposal:
           creation_date: 'Création : %{date}'
           view_proposal: Voir la proposition
-        proposals:
-          empty: Il n'y a pas encore de proposition
-          empty_filters: Il n'y a aucune proposition avec ce critère
         show:
           answer: Répondre
           back_to: Retour à
@@ -917,8 +889,6 @@ fr-CA:
             supports_remaining: Vous devez voter %{remaining_votes} proposition supplémentaire pour que vos votes soient pris en compte.
           proposal_limit:
             description: Vous pouvez créer jusqu'à %{limit} propositions.
-          threshold_per_proposal:
-            description: Pour être acceptées, les propositions doivent atteindre %{limit} votes
           title: 'Le vote est soumis aux règles suivantes :'
           vote_limit:
             description: Vous pouvez voter pour %{limit} propositions au maximum.
@@ -965,7 +935,7 @@ fr-CA:
           back_to_resource: Retourner à la proposition
       withdraw:
         errors:
-          has_supports: Cette proposition ne peut pas être retirée car elle dispose déjà de supports.
+          has_supports: Cette proposition ne peut pas être retirée car elle dispose déjà de soutiens.
     resource_links:
       copied_from_component:
         proposal_proposal: Propositions associées

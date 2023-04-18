@@ -21,7 +21,7 @@ module Decidim
         allow(Decidim.config).to receive(:follow_http_x_forwarded_host).and_return(true)
       end
 
-      it "doesn't strips the header" do
+      it "does not strips the header" do
         _code, new_env = middleware.call(env)
 
         expect(new_env["HTTP_X_FORWARDED_HOST"]).to eq(forwarded_host)

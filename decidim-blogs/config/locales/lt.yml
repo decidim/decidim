@@ -23,28 +23,19 @@ lt:
         title: Veiksmai
       admin:
         models:
-          components:
-            body: Pagrindinė dalis
           post:
             name: Publikacija
         posts:
-          create:
-            invalid: Kuriant šį įrašą iškilo problema
-            success: Įrašas sukurtas sėkmingai
-          destroy:
-            success: Įrašas pašalintas
           edit:
             save: Atnaujinimas
             title: Redaguoti publikaciją
           index:
-            not_published_yet: Dar nepaskelbta
             title: Publikacijos
           new:
             create: Sukurti
             title: Sukurti publikaciją
           update:
             invalid: Išsaugant šį įrašą iškilo problema.
-            success: Įrašas išsaugotas
       admin_log:
         post:
           create: "%{user_name} sukūrė %{resource_name} tinklaraščio įrašą %{space_name}"
@@ -59,10 +50,8 @@ lt:
             body: Pagrindinė dalis
             official_blog_post: Oficiali publikacija
             published_at: Paskelbimo laikas
-            title: pavadinimas
       posts:
         show:
-          comments: Komentarai
           view: Peržiūrėti
     components:
       blogs:

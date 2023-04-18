@@ -179,7 +179,7 @@ shared_examples "manage moderations" do
       end
     end
 
-    it "user can't unreport them" do
+    it "user cannot unreport them" do
       expect(page).not_to have_css(".action-icon--unreport")
     end
 

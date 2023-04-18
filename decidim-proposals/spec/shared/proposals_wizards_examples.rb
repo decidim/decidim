@@ -187,7 +187,7 @@ shared_examples "proposals wizards" do |options|
         expect(page).to have_selector("a", text: "Modify the proposal")
       end
 
-      it "doesn't show a geocoded address" do
+      it "does not show a geocoded address" do
         expect(page).not_to have_content("ADDRESS")
         expect(page).not_to have_css(".card__content.address")
       end
@@ -324,7 +324,7 @@ shared_examples "proposals wizards" do |options|
       context "when there is no address" do
         let!(:proposal_draft) { create(:proposal, :draft, users: [user], address: nil, component:, title: proposal_title, body: proposal_body) }
 
-        it "doesn't shows a preview" do
+        it "does not shows a preview" do
           expect(page).to have_content(proposal_title)
           expect(page).to have_content(user.name)
           expect(page).to have_content(proposal_body)

@@ -6,15 +6,32 @@ fr:
         image: Image
         proposals: Propositions associées
         title: Titre
+      ballot_style:
+        code: Code
       election:
         description: Description
         end_time: Le vote se termine à
         start_time: Le vote commence à
         title: Titre
+      monitoring_committee_member:
+        email: Email
+        name: Nom
+      polling_officer:
+        email: Email
+        name: Nom
+      polling_station:
+        address: Adresse
+        location: Lieu
+        location_hints: Indication de lieu
+        polling_station_managers: Gestionnaires
+        polling_station_president_id: Président
+        title: Titre
       question:
         max_selections: Nombre maximum de sélections
         min_selections: Aucune des options ci-dessus
         title: Titre
+      trustees_participatory_space:
+        user_id: Participant
       voting:
         banner_image: Image de bannière
         census_contact_information: Informations de contact du recensement
@@ -22,7 +39,7 @@ fr:
         end_time: Le vote prend fin le
         introductory_image: Image d'introduction
         promoted: Mis en avant
-        scope: Secteur
+        scope_id: Périmètre d'application
         show_check_census: Afficher la page "Vérifier le recensement"
         start_time: Le vote commence le
         title: Titre
@@ -40,26 +57,14 @@ fr:
         trustee:
           attributes:
             name:
-              cant_be_changed: ne peut pas être modifié
+              cant_be_changed: "cannot be changed\nCela ne peut-être modifié"
             public_key:
-              cant_be_changed: ne peut être modifiée
+              cant_be_changed: "cannot be changed\nCela ne peut-être modifié"
         voting:
           attributes:
             voting_type:
               inclusion: "%{value} n'est pas un type de vote valide"
   activerecord:
-    errors:
-      models:
-        decidim/votings/polling_officer:
-          attributes:
-            presided_polling_station:
-              president_and_manager: Le responsable de scrutin est déjà président/responsable d'un bureau de vote
-            voting:
-              different_organization: Le vote doit être dans la même organisation que l'utilisateur
-        decidim/votings/polling_station:
-          attributes:
-            polling_station_president:
-              different_voting: Le responsable de scrutin doit être dans la même élection que le bureau de vote
     models:
       decidim/elections/answer:
         one: Réponse
@@ -114,8 +119,8 @@ fr:
         validated_eq:
           label: Validé
           values:
-            'false': Validé
-            'true': Non validé
+            'false': Non validé
+            'true': Validé
     components:
       elections:
         actions:
@@ -143,17 +148,10 @@ fr:
         unpublish: Dépublier
       admin:
         answers:
-          create:
-            invalid: Il y a eu un problème lors de la création de cette réponse
-            success: Réponse créée avec succès
-          destroy:
-            invalid: Un problème est survenu lors de la suppression de cette réponse
-            success: Réponse supprimée avec succès
           edit:
             title: Modifier la réponse
             update: Mettre à jour la réponse
           index:
-            invalid_max_selections: Vous avez besoin de %{missing_answers} réponse(s) de plus pour correspondre aux sélections maximales
             title: Réponses
           new:
             create: Créer une réponse
@@ -162,22 +160,8 @@ fr:
           select:
             disable: Désélectionner la réponse
             enable: Marquer la réponse comme sélectionnée
-            invalid: Un problème est survenu lors de la sélection de cette réponse
-            success: Réponse sélectionnée avec succès
           selected: Sélectionnée
-          unselect:
-            invalid: Une erreur est survenue lors de la désélection de cette réponse
-            success: Réponse désélectionnée avec succès
-          update:
-            invalid: Un problème est survenu lors de la mise à jour de cette réponse
-            success: Réponse mise à jour avec succès
         elections:
-          create:
-            invalid: Il y a eu un problème lors de la création de cette élection
-            success: Élection créée avec succès
-          destroy:
-            invalid: Il y a eu un problème lors de la suppression de cette élection
-            success: Élection supprimée avec succès
           edit:
             title: Modifier l'élection
             update: Mettre à jour l'élection
@@ -191,16 +175,13 @@ fr:
             success: L'élection a été publiée avec succès.
           unpublish:
             success: L'élection a été dépubliée avec succès.
-          update:
-            invalid: Il y a eu un problème lors de la mise à jour de cette élection
-            success: Élection mise à jour avec succès
         exports:
           elections: Élections
           feedback_form_answers: Feedbacks des répondants
         mailers:
           trustee_mailer:
-            body: "<p>Bonjour %{user_name},</p><p>Vous avez été ajouté en tant que garant à %{resource_name}.</p>"
-            subject: Vous avez été ajouté en tant que garant à %{resource_name}
+            body: "<p>Hi %{user_name},</p><p>You have been added as a trustee to %{resource_name}.</p>\n<p>Bonjour %{nom_utilisateur},</p><p>Vous avez été ajouté(e) en tant qu'administrateur à %{nom_ressource}.</p>"
+            subject: "You have been added as a trustee to %{resource_name}\nVous avez été ajouté(e) comme administrateur à %{nom_de_la_ressource}"
             trustee_zone: Emmenez-moi dans la zone des garants
         menu:
           trustees: Garants
@@ -214,22 +195,12 @@ fr:
           trustee:
             name: Garant
         proposals_imports:
-          create:
-            invalid: Un problème est survenu lors de l'importation des propositions en réponses
-            success: "%{number} propositions importées avec succès dans les réponses"
           new:
             create: Importer des propositions dans les réponses
             no_components: Il n'y a pas d'autres fonctionnalités Propositions dans cet espace participatif pour importer des propositions.
             select_component: Veuillez sélectionner une fonctionnalité
             title: Importer des propositions
         questions:
-          create:
-            election_started: L'élection a déjà commencé
-            invalid: Il y a eu un problème lors de la création de cette question
-            success: Question créée avec succès
-          destroy:
-            invalid: Un problème est survenu lors de la suppression de cette question
-            success: Question supprimée avec succès
           edit:
             title: Modifier la question
             update: Mettre à jour la question
@@ -238,9 +209,6 @@ fr:
           new:
             create: Créer une question
             title: Nouvelle question
-          update:
-            invalid: Une erreur s'est produite lors de la mise à jour de cette question
-            success: Question mise à jour avec succès
         steps:
           create_election:
             census: Recensement
@@ -273,13 +241,11 @@ fr:
               time_before: La configuration est réalisée <strong>au moins %{hours} heures</strong> avant le début de l'élection.
               trustees_number: L'espace participatif <strong>doit avoir au moins %{number} garants avec une clé publique</strong>.
             submit: Configurer l'élection
-            success: Élection envoyée avec succès au Tableau de Bord
+            success: "Election successfully sent to the Bulletin Board.\nL' élection a été envoyée avec succès au Bulletin d'information."
             title: Configurer l'élection
             trustees: Garants de l'élection
           created:
-            invalid: Il y a eu un problème lors du démarrage de la cérémonie des clés
             submit: Démarrer la cérémonie des clés
-            success: La demande de lancement de cérémonie des clés a bien été envoyée au Panneau d'Affichage
             title: Élection créée
             trustees: Garants
           key_ceremony:
@@ -288,11 +254,9 @@ fr:
           key_ceremony_ended:
             errors:
               time_before: L'élection est prête à commencer. Vous devez attendre %{hours} heures avant le lancement (%{start_time}) pour démarrer la période de vote.
-            invalid: Il y a eu un problème au démarrage de la période de vote
             requirements:
               time_before: L'élection va bientôt commencer. Vous pouvez démarrer la période de vote manuellement, ou elle sera démarrée automatiquement avant l'heure de départ, à %{start_time}.
             submit: Commencer la période de vote
-            success: La demande de lancement de la période de vote a bien été envoyée au Panneau d'Affichage
             title: Prêt à commencer
           processing: Traitement en cours...
           results_published:
@@ -310,30 +274,24 @@ fr:
             result: Résultat
             selected: Sélectionné
             submit: Publier les résultats
-            success: La demande de publication des résultats a bien été envoyée au Panneau d'Affichage
             title: Résultats du calcul
           tally_started:
             continue: Continuer
-            invalid: Une erreur est survenue lors du signalement du garant absent
             mark_as_missing: Marquer comme absent
-            mark_as_missing_description: Tout les garants doivent participer au processus, mais si un garant ne peut y prendre part, vous pouvez le marquer comme absent.
-            success: Le signalement du garant absent a été envoyé avec succès sur le Tableau d'Affichage
+            mark_as_missing_description: "All the trustees should participate in this process, but if a trustee cannot take part in the process, you can mark it as missing.\nTous les garants doivent participer à ce processus, toutefois, si l'un deux ne peut pas y participer, vous pouvez le marquer comme manquant."
+            success: "Missing trustee report was successfully sent to the Bulletin Board.\nLe rapport manquant a été envoyé avec succès au Panneau d''Affichage."
             tally_completion: Le processus sera terminé lorsque tout les garants seront marqués comme actifs ou absents. Au moins %{quorum} garants sont requis pour compléter le processus.
             title: Dépouillement
             undo_mark_as_missing: Un garant marqué comme absent par erreur sera capable de participer avant l'achèvement du processus. Ils peuvent procéder comme d'habitude et le signalement d'absence sera ignoré.
           vote:
             errors:
               time_after: L'élection est toujours en cours. Vous devez attendre (%{end_time}) pour terminer la période de vote.
-            invalid: Un problème est survenu lors de la clôture de la période de vote
             requirements:
               time_after: L'élection est terminée. Vous pouvez terminer la période de vote manuellement, ou elle se terminera automatiquement dans quelques minutes.
             submit: Fin de la période de vote
-            success: La demande de fin de la période de vote a été envoyée avec succès au Panneau d'Affichage
             title: Période de vote
           vote_ended:
-            invalid: Une erreur s'est produite au lancement du dépouillement
             submit: Démarrer le dépouillement
-            success: La demande de lancement du dépouillement a bien été envoyée au Panneau d'Affichage
             text: Le vote est terminé. Vous pouvez commencer le comptage.
             title: Période de vote terminée
           vote_stats:
@@ -345,13 +303,6 @@ fr:
           actions:
             disable: Désactiver
             enable: Autoriser
-          create:
-            exists: Ce garant existe déjà dans cet espace participatif
-            invalid: Une erreur s'est produite lors de la création du garant
-            success: Le garant a bien été créé
-          delete:
-            invalid: Il y a eu un problème lors de la suppression de ce garant
-            success: Le garant a bien été supprimé
           form:
             select_user: Sélectionner un utilisateur
           index:
@@ -359,9 +310,6 @@ fr:
           new:
             create: Créer un garant
             title: Nouveau garant
-          update:
-            invalid: Une erreur s'est produite lors de la mise à jour du garant %{trustee}
-            success: Le garant %{trustee} a été mis à jour avec succès
       admin_log:
         election:
           create: "%{user_name} a créé l'élection %{resource_name} dans %{space_name}"
@@ -499,7 +447,7 @@ fr:
       feedback:
         answer:
           invalid: Un problème est survenu lors de l'envoi de votre retour utilisateur.
-          spam_detected: Une erreur s'est produite lors de la complétion du formulaire. Peut-être êtes-vous allés trop vite, pouvez-vous réessayer?
+          spam_detected: "There was a problem answering the form. Maybe you have been too quick, can you try again?\nUne erreur est survenue lorsque vous avez répondu au questionnaire. Pouvez-vous réessayer ?"
           success: Votre avis a bien été envoyé.
       models:
         answer:
@@ -586,7 +534,7 @@ fr:
             title: Dépouillement pour %{election}
           update:
             error: Le statut de l'élection n'a pas été mis à jour.
-            success: 'Le statut de l''élection est : %{status}'
+            success: 'Le statut de l''élection est : %{status}.'
         menu:
           trustee_zone: Espace de garant
         no_bulletin_board:
@@ -623,8 +571,8 @@ fr:
                 invalid_format: Le fichier téléchargé ne contient pas de clé d'identification.
                 invalid_key: Impossible de charger les clés d'identification à partir du fichier téléchargé.
                 invalid_public_key: Les clés d'identification dans le fichier téléchargé ne correspondent pas à la clé d'identification publique stockée.
-              upload_legend: Le serveur a vos clés d'identification publiques, mais votre navigateur ne les a toujours pas. Vous devez importer le fichier avec vos clés d'identification sur votre ordinateur à partir de la sauvegarde que vous avez créée après leur génération.
-            not_supported_browser_description: On dirait que vous utilisez un navigateur Web qui ne peut pas être utilisé pour agir en tant que garant. Assurez-vous d'utiliser la version la plus récente de votre navigateur, ou essayez d'utiliser l'un des navigateurs les plus populaires pour accomplir vos tâches de garant.
+              upload_legend: "The server has your public identification keys, but your browser still does not have it. You need to import the file with your identification keys to your computer from the backup you created after generating them.\nLe serveur dispose de vos clés d'identification publiques, mais pas votre navigateur. Vous devez importer le fichier contenant vos clés d'identification sur votre ordinateur à partir de la sauvegarde que vous avez créée après les avoir générées."
+            not_supported_browser_description: "It looks like you are using a web browser that cannot be used to act as a Trustee. Make sure you're using the most recent version of your browser, or try using any of the most popular browsers to be able to complete your tasks.\nIl semblerait que votre navigateur web ne peut pas être utilisé pour agir en tant qu'administrateur. Assurez-vous d'utiliser la dernière version ou essayez d'utiliser l'un des navigateurs les plus populaires afin de réaliser vos tâches."
             not_supported_browser_title: Mettre à niveau le navigateur pour agir en tant que garant
             trustee_role_description: Vous avez été assigné à agir en tant que garant lors de certaines des élections mises en place sur cette plateforme.
           update:
@@ -711,7 +659,6 @@ fr:
             title: Vérifiez votre vote
           success:
             header: Vote trouvé !
-            info: Votre vote chiffré se trouve bien dans %{link} l'urne
         voting_step:
           back: Retour
           continue: Suivant
@@ -728,18 +675,18 @@ fr:
         trustees:
           new_election:
             email_intro: Vous avez été ajouté en tant que garant pour l'élection %{resource_title}.
-            email_outro: Vous avez reçu cette notification parce que vous avez été ajouté comme garant de l'élection "%{resource_title}". Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
+            email_outro: "You have received this notification because you have been added as trustee for the %{resource_title} election.\nVous avez reçu cette notification parce que vous avez été ajouté(e) comme administrateur de l'élection \"%{resource_title}\". Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”."
             email_subject: Vous avez été ajouté en tant que garant pour l'élection %{resource_title}.
             notification_title: Vous êtes garant de l'élection <a href="%{resource_path}">%{resource_title}</a>.
           new_trustee:
             email_intro: Un administrateur vous a ajouté en tant que garant de %{resource_name}. Vous devriez créer votre clé publique <a href='%{trustee_zone_url}'>dans votre espace de garant</a>
-            email_outro: Vous avez reçu cette notification parce que vous avez été ajouté comme garant de l'élection "%{resource_name}". Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
+            email_outro: "You have received this notification because you have been added as trustee for %{resource_name}.\nVous avez reçu cette notification parce que vous avez été ajouté(s) en tant qu'administrateur pour %{nom_de_la_ressource}."
             email_subject: Vous avez été ajouté en tant que garant pour l'élection %{resource_name}.
             notification_title: Vous êtes garant de <a href="%{participatory_space_url}">%{resource_name}</a>.
         votes:
           accepted_votes:
             email_intro: 'Votre vote a été accepté ! En utilisant votre jeton de vote : %{encrypted_vote_hash}, vous pouvez vérifier votre vote <a href="%{verify_url}">ici</a>.'
-            email_outro: Vous avez reçu cette notification parce que vous avez voté pour l'élection %{resource_name}. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
+            email_outro: "You have received this notification because you have voted for the %{resource_name} election.\nVous avez reçu cette notification parce que vous avez voté pour l'élection %{nom_de_la_ressource}.\n"
             email_subject: Votre vote pour %{resource_name} a été accepté.
             notification_title: 'Votre vote a été accepté. Vérifiez votre vote <a href="%{verify_url}">ici</a> en utilisant votre jeton de vote : %{encrypted_vote_hash}'
       votings:
@@ -766,20 +713,12 @@ fr:
     votings:
       admin:
         ballot_styles:
-          create:
-            error: Il y a eu un problème lors de la création de ce style de bulletin
-            success: Style de bulletin créé avec succès
-          destroy:
-            invalid: Un problème est survenu lors de la suppression de ce style de bulletin
-            success: Style de bulletin supprimé avec succès
           edit:
             title: Modifier le style de bulletin
             update: Mettre à jour
           form:
-            code_help: 'Note : le code est le lien entre le recensement et un bulletin de vote. Lors du téléchargement des données de recensement, chaque entrée se verra assignée un style de vote en faisant la correspondance avec le code'
             election: Élection
             questions: Questions pour ce style de bulletin
-            questions_help: 'Note : sélectionnez les questions de la fonctionnalité Élection que vous souhaitez présenter aux électeurs affectés à ce style de bulletin'
           index:
             actions:
               confirm_destroy: Êtes-vous sûr(e) ?
@@ -794,8 +733,8 @@ fr:
             create: Créer
             title: Créer un style de bulletin
           update:
-            invalid: Il y a eu un problème lors de la création de ce style de bulletin
-            success: Style de bulletin mis à jour avec succès
+            invalid: "There was a problem updating this ballot style.\nUn problème est survenu lors de la mise à jour de ce mode de scrutin."
+            success: "Ballot style successfully updated.\nMise à jour réussie du mode de scrutin."
         content_blocks:
           highlighted_votings:
             max_results: Nombre maximum d'éléments à afficher
@@ -831,7 +770,10 @@ fr:
               update: Mettre à jour
           edit:
             active_content_blocks: Blocs de contenu actifs
+            add: Ajouter un bloc de contenu
+            destroy_confirmation: Êtes-vous sûr(e) de vouloir supprimer ce bloc de contenu ?
             inactive_content_blocks: Blocs de contenu inactifs
+            title: Contenus de la page
         menu:
           votings: Élections
           votings_submenu:
@@ -903,16 +845,8 @@ fr:
             publish_results: Publier les résultats
             publishing: Publication en cours ...
           update:
-            invalid: Un problème est survenu lors de la publication des résultats
             rejected: La publication des résultats a été rejetée par le Panneau d'affichage. Réessayez ou contactez l'administrateur système.
-            success: Les résultats ont été publiés avec succès
         monitoring_committee_members:
-          create:
-            invalid: Un problème est survenu lors de la création de ce membre du comité de suivi
-            success: Membre du comité de suivi créé avec succès
-          destroy:
-            invalid: Un problème est survenu lors de la suppression de ce membre du comité de suivi
-            success: Membre du comité de suivi supprimé avec succès
           form:
             existing_user: Utilisateur existant
             non_user: Inviter un nouveau participant
@@ -943,9 +877,6 @@ fr:
           show:
             change_polling_station: Retour aux bureaux de vote
             monitoring_committee_notes: Remarques du comité de suivi
-          validate:
-            error: Un problème est survenu lors de la validation de la fermeture
-            success: La fermeture a été validée correctement
         monitoring_committee_verify_elections:
           index:
             download: Télécharger
@@ -956,12 +887,6 @@ fr:
             not_available: Pas encore disponible
             title: Élections
         polling_officers:
-          create:
-            invalid: Une erreur est survenue lors de la création de ce responsable de scrutin
-            success: Le responsable de scrutin a été créé avec succès
-          destroy:
-            invalid: Une erreur est survenue lors de la suppression de ce responsable de scrutin
-            success: Le responsable de scrutin a été supprimé avec succès
           form:
             existing_user: Participant existant
             non_user: Inviter un nouveau participant
@@ -980,12 +905,6 @@ fr:
             more_polling_officers: Il y a %{number} responsables du scrutin supplémentaires. Affinez votre recherche pour les localiser.
             no_polling_officers: Aucun responsable du scrutin ne correspond à vos critères de recherche ou il n'y a pas de responsable du scrutin.
         polling_stations:
-          create:
-            invalid: Une erreur est survenue lors de la création de ce bureau de vote
-            success: Le bureau de vote a été créée avec succès
-          destroy:
-            invalid: Une erreur est survenue lors de la suppression de ce bureau de vote
-            success: Le bureau de vote a bien été supprimé
           edit:
             title: Modifier le bureau de vote
             update: Mettre à jour le bureau de vote
@@ -994,16 +913,13 @@ fr:
             location_help: 'Lieu : message adressé aux électeurs informant du lieu exact du bureau de vote'
             location_hints_help: 'Indices de localisation : informations complémentaires. Par exemple : l''étage du bâtiment où se trouve le bureau de vote.'
             polling_station_managers_help: 'Directeur du scrutin : les personnes qui seront gestionnaires des bureaux de vote. Assurez-vous que les responsables du scrutin ont déjà été créés dans les bureaux de vote et qu''ils ne sont pas déjà affectés à un autre bureau de vote'
-            polling_station_president_help: 'Président du scrutin : les personnes qui agiront en tant que président du bureau de vote. Assurez-vous que les présidents ont déjà été créés dans les bureaux de vote et qu''ils ne sont pas déjà affectés à un autre bureau de vote'
+            polling_station_president_help: "Polling station president: the officer that will act as polling station president. Make sure the officer has already been created in Polling Officers and that (s)he is not already assigned to another polling station\n\nPrésident du bureau de vote : Agent qui agit en tant que président du bureau de vote. \nAssurez-vous que l'agent soit créé dans \"Bureau de vote\" et qu'il ne soit pas déjà assigné à un autre bureau de vote"
             select_president: Sélectionnez un responsable de scrutin en tant que président du bureau de vote
           index:
             title: Bureaux de vote
           new:
             create: Créer
             title: Créer un bureau de vote
-          update:
-            invalid: Une erreur est survenue lors de la mise à jour de ce bureau de vote
-            success: Le bureau de vote a bien été mis à jour
         titles:
           votings: Élections
         votings:
@@ -1013,12 +929,7 @@ fr:
             new_voting: Nouvel espace de vote
             publish: Publier
             unpublish: Dépublier
-          create:
-            invalid: Une erreur s'est produite lors de la création de cette élection
-            success: Élection créée avec succès
           edit:
-            add_election_component: Vous n'avez aucune élection configurée pour ce vote. Veuillez en créer une dans la section Fonctionnalités
-            assign_missing_officers: Il reste des bureaux de votes sans président et/ou directeurs. Veuillez lier ces derniers à partir de la section Bureaux de votes
             update: Mettre à jour
           form:
             banner_image: Image de la bannière
@@ -1027,7 +938,6 @@ fr:
             introductory_image: Image d'introduction
             promoted: Mis en avant
             select_a_voting_type: Veuillez sélectionner un type de vote
-            show_check_census_help: Si vous voulez afficher le lien "Puis-je voter?" dans le menu des votes publics
             slug: Slug
             slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui renvoient vers cette élection. Ils ne contiennent que des lettres, des chiffres et des tirets et doivent commencer par une lettre. Exemple : %{url}'
             title: Titre
@@ -1039,13 +949,6 @@ fr:
           new:
             create: Créer
             title: Nouveau vote
-          publish:
-            success: Vote publiée avec succès
-          unpublish:
-            success: Vote publié avec succès
-          update:
-            invalid: Une erreur s'est produite lors de la mise à jour de ce vote
-            success: Vote mis à jour avec succès
       admin_log:
         ballot_style:
           create: "%{user_name} a créé un style de bulletin avec le code %{ballot_style_code} dans l'espace %{space_name}"
@@ -1074,7 +977,6 @@ fr:
           census:
             create:
               invalid: Une erreur s'est produite lors de la mise à jour du recensement, veuillez réessayer plus tard.
-              invalid_csv_header: Les en-têtes CSV sont manquants ou incorrects - veuillez lire attentivement les instructions
             creating_data:
               info_message: "<strong>Veuillez patienter</strong>, %{processed_count} traités sur %{raw_count} lignes à partir du fichier %{file} (cela peut prendre plusieurs minutes)."
             delete:
@@ -1082,14 +984,10 @@ fr:
               confirm: La suppression de tout le recensement ne peut pas être annulée. Êtes-vous sûr de vouloir continuer?
             destroy:
               error: Une erreur s'est produite lors de la suppression du recensement, veuillez réessayer plus tard.
-              success: Données de recensement supprimées
             export_access_codes:
               button: Exporter les codes d'accès aux votes
               callout: Vous pouvez maintenant exporter les codes d'accès. Cela ne peut être fait qu'une seule fois. Une fois que vous avez lancé l'exportation, vous recevrez un e-mail avec les instructions sur <strong>%{email}</strong>
               confirm: Vous ne pouvez exporter les codes d'accès qu'une seule fois. Assurez-vous d'avoir accès au compte de messagerie <strong>%{email}</strong>.
-              file_not_exist: Ce fichier n'existe pas
-              launch_error: Problème lors du lancement de l'export des codes d'accès
-              launch_success: L'export des codes d'accès a été lancée. Vous recevrez sous peu un e-mail à %{email}
             exporting_access_codes:
               info_message: "<strong>Veuillez patienter</strong>, l'export est en cours de préparation, vous le recevrez sous peu à %{email} (cela peut prendre plusieurs minutes)."
             freeze:
@@ -1137,7 +1035,7 @@ fr:
             subject: L'export des codes d'accès au vote pour %{voting_title} est disponible
         vote_flow:
           already_voted_in_person: Ce participant a déjà voté en personne et n'a plus le droit de voter.
-          datum_not_found: Les données ne correspondent à aucun électeur.
+          datum_not_found: "The given data does not match any voter.\nLes données fournies ne correspondent à aucun électeur."
       content_blocks:
         highlighted_votings:
           name: Élections mises en avant
@@ -1197,7 +1095,7 @@ fr:
               btn_validate_total: Valider le nombre total de bulletins
               close_modal: Fermer
               info_explanation_text: 'Veuillez examiner le nombre total de bulletins de vote. Si le nombre total est incorrect, vous devez fournir une explication pour le comité de suivi :'
-              info_text: Le nombre total de bulletins de vote introduits ne correspond pas au nombre de personnes qui ont voté dans ce Bureau de vote.
+              info_text: "The total number of ballots (envelopes) introduced does not match the record of people that has voted in this Polling Station.\nLe nombre total de bulletins de vote ne correspond pas au nombre de personnes ayant voté dans ce bureau de vote."
               message_for_monitoring_committee: Message pour le comité de suivi
               review_recount: Revoir le comptage
               text_area_placeholder: Veuillez saisir votre message
@@ -1212,15 +1110,15 @@ fr:
             info_text: Fermeture électorale du bureau de vote.
           sign:
             cancel: Annuler
-            check_box: J'ai passé en revue ce certificat, il est identique à celui de fermeture des élections physiques
+            check_box: "I have reviewed this and is the same as the physical electoral closure certificate\nAprès vérification, ce certificat est identique au certificat physique de clôture des élections"
             close_modal: Clore
             confirm: Ok, continuer
             error: Une erreur est survenue, veuillez réessayer.
             heading: Recomptage des voix - Signer la fermeture
-            info_text: Si vous continuez, vous ne pouvez plus modifier aucune des informations, cette action ne peut pas être annulée.
+            info_text: "If you continue you can no longer modify any of the information, this action cannot be undone.\nCette action est irréversible. Si vous continuez, vous ne pourrez plus modifier les informations."
             submit: Signer la fermeture
             success: Fermeture signée avec succès.
-            title: Cette action ne peut pas être annulée
+            title: "Action cannot be undone\nCette action est irréversible"
           update:
             error: Une erreur s'est produite lors de la mise à jour des résultats de fermeture, veuillez réessayer plus tard.
             success: Résultats de fermeture mis à jour avec succès.
@@ -1231,7 +1129,7 @@ fr:
             census_verified_with_online_vote: Ce participant a déjà voté en ligne. S'il vote en personne, les votes précédents seront invalidés et ce sera le vote définitif.
             complete_voting: Vote terminé
             identify_another: Identifier un autre participant
-            questions_title: 'Ils ont le droit de voter sur les questions suivantes :'
+            questions_title: "They are entitled to vote in the following questions:\nIls/elles ont le droit de voter sur les questions suivantes :"
             questions_title_voted: 'Le participant a déjà voté en ligne et a le droit de voter dans les questions suivantes :'
             voted: Le participant a voté
           create:
@@ -1313,7 +1211,7 @@ fr:
       votings:
         access_code_modal:
           email: Envoyer par e-mail à %{email}
-          info: Vous avez besoin d'un code d'accès pour participer. Si vous n'en avez pas reçu un par courrier, nous pouvons vous en envoyer un nouveau.
+          info: "You need an Access Code to participate. If you did not get one by postal mail, we can send you a new one.\nUn code d'accès est nécessaire pour participer. Si vous ne l'avez pas reçu par courrier, un nouveau code peut vous être envoyé."
           no_email: Aucun email disponible
           no_sms: Aucun numéro de téléphone disponible
           sms: Envoyer par SMS à %{sms}
@@ -1322,14 +1220,13 @@ fr:
           check_status: Vérifiez le statut
           description: Ici, vous avez la possibilité de vérifier vos données de recensement pour savoir si vous avez le droit de participer à ce vote. Vous devriez déjà avoir un code d'accès, mais si vous l'avez perdu, vous pouvez le demander à nouveau, lorsque vos données sont correctes.
           error:
-            info: 'Veuillez réessayer. Si vous pensez que les données du système sont incorrectes, vous pouvez le signaler ici : %{census_contact_information}'
             title: Les données que vous avez saisies ne sont pas dans le recensement pour ce vote
           form_title: 'Remplissez le formulaire suivant pour vérifier vos données de recensement:'
           invalid: Un problème est survenu lors de la vérification du recensement.
           success:
             access_link: par email.
             access_link_with_sms: par SMS ou e-mail.
-            info: Vous devriez déjà avoir reçu votre code d'accès par courrier postal. Si vous ne l'avez pas, vous pouvez le demander ici
+            info: "You should have received your Access Code by postal mail already. In case, you do not have it, you can request it here\nVous devriez avoir reçu votre code d'accès par courrier postal. Si vous ne l'avez pas reçu, vous pouvez le demander ici"
             title: Vos données de recensement sont correctes!
           title: Puis-je voter ?
         check_fields:
@@ -1380,14 +1277,10 @@ fr:
           start_voting: Commencer à voter
           step: Identification
           title: Je m'identifie avec mes données de recensement de vote
-        no_census_contact_information: Il n'y a pas encore d'informations de contact
         orders:
           label: 'Trier les votations par:'
           random: Aléatoire
           recent: Les plus récentes
-        send_access_code:
-          invalid: Un problème est survenu lors de l'envoi du code d'accès
-          success: Votre code d'accès a été envoyé avec succès
         show:
           dates: Dates
       votings_m:

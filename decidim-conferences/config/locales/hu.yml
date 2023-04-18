@@ -22,24 +22,12 @@ hu:
         slogan: Szlogen
         slug: URL slug
         title: Cím
-      conference_media_link:
-        weight: Súly
-      conference_partner:
-        weight: Súly
-      conference_registration_type:
-        weight: Súly
       conference_speaker:
         full_name: Teljes név
       conference_user_role:
         email: Email
         name: Név
         role: Szerep
-    errors:
-      models:
-        conference_registration_invite:
-          attributes:
-            email:
-              already_invited: Ezt az e-mailt már meghívták
   activerecord:
     models:
       decidim/conference:
@@ -99,8 +87,6 @@ hu:
         edit:
           title: A konferencia felhasználó frissítése.
           update: frissítés
-        index:
-          conference_admins_title: konferencia felhasználók számára
         new:
           create: Teremt
           title: Új konferencia felhasználó.
@@ -312,7 +298,6 @@ hu:
             invites: Meghívottak
             search: Keresés
           new:
-            explanation: A felhasználó meghívást kap egy konferenciára. Ha az e-mail nincs regisztrálva, akkor a szervezet is meghívást kap.
             invite: Meghívás
             new_invite: Felhasználó meghívása
         conference_registrations:
@@ -365,18 +350,11 @@ hu:
           cancel: Megszünteti
           confirm: megerősít
         show:
-          free: Ingyenes
           going: Haladó
           no_slots_available: Nincs szabad hely
           registration: Regisztráció
       conference_program:
-        program_meeting:
-          content: Tartalom
-          location: Helyszín
-          speakers: Előadók
-          streaming: Élő közvetítés
         show:
-          day: Nap
           program: Program
       conference_registration_mailer:
         confirmation:
@@ -406,18 +384,12 @@ hu:
       conference_speaker_cell:
         personal_url:
           personal_website: Személyes weboldal
-        twitter_handle:
-          go_to_twitter: Menjen a Twitterre
-      conference_speakers:
-        index:
-          speakers: Hangszórók
       conferences:
         partners:
           collaborators: Partnerek
           main_promotors: Szervezők
         show:
           login_as: '%{name} <%{email}> -ként jelentkeztél be'
-          make_conference_registration: 'Regisztráljon a konferencián:'
           register: Regisztráció
       content_blocks:
         highlighted_conferences:
@@ -425,11 +397,6 @@ hu:
       index:
         title: Konferenciák
       mailer:
-        conference_registration_mailer:
-          confirmation:
-            subject: A konferencia regisztrációja megerősítést nyert
-          pending_validation:
-            subject: A konferencia regisztrációd megerősítése függőben van
         invite_join_conference_mailer:
           invite:
             subject: Meghívás egy konferenciára való belépéshez
@@ -462,28 +429,11 @@ hu:
           highlighted_conferences:
             active_conferences: Aktív konferenciák
             see_all_conferences: Lásd az összes konferenciát
-      photo:
-        image:
-          attributes:
-            alt: Média ké
-        show:
-          close_modal: Modal bezárása
-          photo: Fénykép
-      photos_list:
-        show:
-          related_photos: Fotók
       registration_types:
         index:
           choose_an_option: 'Válassza ki a regisztrációs lehetőséget:'
-          login_as: '%{name} <%{email}> -ként jelentkezett be'
           register: Regisztráció
           title: Regisztrációs típusok
-      shared:
-        conference_user_login:
-          already_account: Van már fiókod a Decidimben?
-          new_user: Új felhasználó?
-          sign_in: Jelentkezz be a konferenciára való regisztrálásához
-          sign_up: Hozz létre egy fiókot a Decidimben, hogy regisztrálni tudja a konferenciára
       show:
         details: Részletek
         introduction: Bevezetés
@@ -517,10 +467,6 @@ hu:
           email_outro: Ezt az értesítést azért kaptad, mert a "%{resource_title}" konferenciát követed. Leiratkozhatsz az értesítésekről az előző linken keresztül.
           email_subject: A "%{resource_title}" konferencia hamarosan indul!
           notification_title: A <a href="%{resource_path}">%{resource_title}</a> konferencia 2 nap múlva kezdődik.
-    log:
-      value_types:
-        conference_presenter:
-          not_found: 'A konferencia nem található az adatbázisban (ID: %{id})'
     media:
       index:
         description: Linkek erről a konferenciáról

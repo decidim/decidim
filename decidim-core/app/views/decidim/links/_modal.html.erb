@@ -5,9 +5,7 @@
   <div>
     <%= render partial: "warning" %>
     <code class="mt-5 block break-all">
-      <span><%= @url_parts[:protocol].to_s + "//" %></span>
-      <span class="text-alert"><%= @url_parts[:domain] %></span>
-      <span><%= @url_parts[:path] %></span>
+      <%= highlight_domain %>
     </code>
   </div>
 </div>
@@ -15,6 +13,6 @@
   <button class="button button__lg button__transparent-secondary" data-dialog-close="external-domain-warning">
     <%= t("decidim.links.warning.cancel") %>
   </button>
-  <%= link_to t("decidim.links.warning.proceed"), @external_url, target: "_blank", data: { close: "" }, class: "button button__lg button__secondary" %>
+  <%= link_to t("decidim.links.warning.proceed"), external_url.to_s , target: "_blank", data: { close: "" }, class: "button button__lg button__secondary" %>
 </div>
 <% end %>

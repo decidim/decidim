@@ -5,7 +5,7 @@ module Decidim
     # The pipeline asset router provides global access to the asset routers for
     # assets that are precompiled through the Rails assets pipeline (or webpack)
     # and stored locally or in a remote CDN. This handles the configuration
-    # options for the asset routes so that they don't have to be always manually
+    # options for the asset routes so that they do not have to be always manually
     # created.
     class Pipeline
       # Initializes the router.
@@ -28,6 +28,8 @@ module Decidim
       #   resolved, the asset path.
       def url(**options)
         path = ActionController::Base.helpers.asset_pack_path(asset, **options)
+        return path if path.match?(%r{\A(https?:)?//})
+
         "#{asset_host}#{path}"
       end
 

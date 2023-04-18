@@ -3,6 +3,7 @@ sv:
     models:
       decidim/comments/comment_by_followed_user_event: Kommentar
       decidim/comments/comment_created_event: Kommentar
+      decidim/comments/comment_upvoted_event: Kommentar uppröstad
       decidim/comments/reply_created_event: Svar till en kommentar
       decidim/comments/user_group_mentioned_event: Nämn
       decidim/comments/user_mentioned_event: Nämn
@@ -25,12 +26,9 @@ sv:
       comments:
         create:
           error: Det gick inte att skapa kommentaren.
-        delete:
-          error: Kommentaren kunde inte tas bort.
         update:
           error: Det gick inte att uppdatera kommentaren.
       comments_count: Antal kommentarer
-      comments_title: Kommentarer
       last_activity:
         new_comment_at_html: "<span>Ny kommentar på %{link}</span>"
       view: Visa
@@ -44,7 +42,6 @@ sv:
           body:
             label: Kommentera
             placeholder: Vad tycker du om detta?
-          form_error: Texten är obligatorisk och den kan inte vara längre än %{length} tecken.
           submit: Skicka
           user_group_id:
             label: Kommentera som
@@ -70,6 +67,7 @@ sv:
         edit: Redigera
         edited: Redigerad
         hide_replies: Göm svar
+        moderated_at: Kommentar modererad den %{date}
         reply: Svara
         report:
           action: Rapportera
@@ -78,7 +76,6 @@ sv:
           description: Är detta innehåll olämpligt?
           details: Ytterligare kommentarer
           reasons:
-            does_not_belong: Innehåller olaglig aktivitet, självmordshot, personlig information eller något annat du tycker inte hör hemma på %{organization_name}.
             offensive: Innehåller rasism, sexism, skällsord, personliga attacker, dödshot, uppmaningar att begå självmord eller någon form av hatpropaganda.
             spam: Innehåller clickbait, reklam, bedrägerier eller skriptrobotar.
           title: Rapportera olämpligt innehåll
@@ -163,6 +160,3 @@ sv:
         description: Antal kommentarer från deltagare
         object: kommentarer
         title: Kommentarer
-  errors:
-    messages:
-      cannot_have_comments: kan inte ha kommentarer

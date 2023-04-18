@@ -36,13 +36,11 @@ pl:
         date: Data
         link: Link
         title: Tytuł
-        weight: Kolejność na stronie
       conference_partner:
         link: Link
         logo: Logo
         name: Imię
         partner_type: Typ partnera
-        weight: Kolejność na stronie
       conference_registration_invite:
         email: Adres e-mail
         name: Imię
@@ -52,7 +50,6 @@ pl:
         description: Opis
         price: Cena
         title: Tytuł
-        weight: Kolejność na stronie
       conference_speaker:
         affiliation: Przynależność
         avatar: Awatar
@@ -64,12 +61,6 @@ pl:
         email: E-mail
         name: Imię
         role: Rola
-    errors:
-      models:
-        conference_registration_invite:
-          attributes:
-            email:
-              already_invited: Ten e-mail został już zaproszony
   activerecord:
     models:
       decidim/conference:
@@ -135,8 +126,6 @@ pl:
         edit:
           title: Zaktualizuj administratora konferencji.
           update: Aktualizuj
-        index:
-          conference_admins_title: administratorzy konferencji
         new:
           create: Utwórz
           title: Nowy administrator konferencji.
@@ -353,7 +342,6 @@ pl:
             invites: Zaproszeni
             search: Szukaj
           new:
-            explanation: Użytkownik zostanie zaproszony do udziału w konferencji. Jeśli e-mail nie został wcześniej zarejestrowany, zostanie również zaproszony do organizacji.
             invite: Zaproś
             new_invite: Zaproś użytkownika
         conference_registrations:
@@ -408,18 +396,11 @@ pl:
           cancel: Anuluj
           confirm: Potwierdź
         show:
-          free: Darmowy
           going: Uczestnictwo
           no_slots_available: Brak dostępnych miejsc
           registration: Rejestracja
       conference_program:
-        program_meeting:
-          content: Zawartość
-          location: Lokalizacja
-          speakers: Prelegenci
-          streaming: Streaming
         show:
-          day: Dzień
           program: Program
       conference_registration_mailer:
         confirmation:
@@ -450,18 +431,12 @@ pl:
       conference_speaker_cell:
         personal_url:
           personal_website: Osobista strona internetowa
-        twitter_handle:
-          go_to_twitter: Idź do Twittera
-      conference_speakers:
-        index:
-          speakers: Prelegenci
       conferences:
         partners:
           collaborators: Partnerzy
           main_promotors: Organizatorzy
         show:
           login_as: Jesteś zalogowany jako %{name} <%{email}>
-          make_conference_registration: 'Zarejestruj się na konferencję:'
           register: Zarejestruj się
       content_blocks:
         highlighted_conferences:
@@ -469,11 +444,6 @@ pl:
       index:
         title: Konferencje
       mailer:
-        conference_registration_mailer:
-          confirmation:
-            subject: Twoja rejestracja na konferencję została potwierdzona
-          pending_validation:
-            subject: Twoja rejestracja na konferencję oczekuje na potwierdzenie
         invite_join_conference_mailer:
           invite:
             subject: Zaproszenie do udziału w konferencji
@@ -506,29 +476,12 @@ pl:
           highlighted_conferences:
             active_conferences: Aktualne konferencje
             see_all_conferences: Zobacz wszystkie konferencje
-      photo:
-        image:
-          attributes:
-            alt: Obraz
-        show:
-          close_modal: Zamknij okno
-          photo: Zdjęcie
-      photos_list:
-        show:
-          related_photos: Zdjęcia
       registration_types:
         index:
           choose_an_option: 'Wybierz opcję rejestracji:'
-          login_as: Jesteś zalogowany jako %{name} <%{email}>
           no_registrations: Brak rejestracji
           register: Zarejestruj się
           title: Typy rejestracji
-      shared:
-        conference_user_login:
-          already_account: Czy masz już konto w Decidim?
-          new_user: Nowy użytkownik?
-          sign_in: Zaloguj się, aby zarejestrować się na konferencję
-          sign_up: Utwórz konto w decidimie, aby zarejestrować się na konferencję
       show:
         details: Szczegóły
         introduction: Wprowadzenie
@@ -573,10 +526,6 @@ pl:
           contextual: "<p> <strong>Konferencja</strong> jest zbiorem spotkań zorganizowanych wedle ułożonego programu, z udziałem osób zaproszonych jako prelegenci, oraz innymi polami informacyjnymi typowymi dla dużych kongresów lub wydarzeń społecznościowych (rejestracja, wykaz organizacji wspierających lub sponsorujących wydarzenie itp.).</p> <p>Przykłady: konferencja może być istotnym wydarzeniem dla organizacji i jej członków, może odbywać się w ramach procesu partycypacyjnego lub być wynikiem konsultacji.</p>\n"
           page: "<p> <strong>Konferencja</strong> jest zbiorem spotkań zorganizowanych wedle ułożonego programu, z udziałem osób zaproszonych jako prelegenci, oraz innymi polami informacyjnymi typowymi dla dużych kongresów lub wydarzeń społecznościowych (rejestracja, wykaz organizacji wspierających lub sponsorujących wydarzenie itp.).</p> <p>Przykłady: konferencja może być istotnym wydarzeniem dla organizacji i jej członków, może odbywać się w ramach procesu partycypacyjnego lub być wynikiem konsultacji.</p>\n"
           title: Czym są konferencje?
-    log:
-      value_types:
-        conference_presenter:
-          not_found: 'Konferencji nie znaleziono w bazie danych (ID: %{id})'
     media:
       index:
         description: Linki do tej konferencji

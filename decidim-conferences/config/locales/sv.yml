@@ -28,7 +28,7 @@ sv:
         show_statistics: Visa statistik
         sign_date: Underskriftsdatum
         signature: Underskrift
-        signature_name: signaturnamn
+        signature_name: Signaturnamn
         slogan: Slogan
         slug: URL-slug
         start_date: Startdatum
@@ -37,13 +37,13 @@ sv:
         date: Datum
         link: Länk
         title: Titel
-        weight: Vikt
+        weight: Ordning
       conference_partner:
         link: Länk
         logo: Logga
         name: Namn
         partner_type: Typ av partner
-        weight: Vikt
+        weight: Ordning
       conference_registration_invite:
         email: E-post
         name: Namn
@@ -53,12 +53,13 @@ sv:
         description: Beskrivning
         price: Pris
         title: Titel
-        weight: Vikt
+        weight: Ordning
       conference_speaker:
         affiliation: Anknytning
         avatar: Avatar
         conference_meeting_ids: Relaterade möten
         full_name: Fullständigt namn
+        personal_url: Personlig URL
         position: Plats
         twitter_handle: Twitternamn
         user_id: Användare
@@ -66,12 +67,6 @@ sv:
         email: E-post
         name: Namn
         role: Roll
-    errors:
-      models:
-        conference_registration_invite:
-          attributes:
-            email:
-              already_invited: Det här e-postadressen har redan blivit inbjuden
   activerecord:
     models:
       decidim/conference:
@@ -131,8 +126,6 @@ sv:
         edit:
           title: Uppdatera konferensadministratör.
           update: Uppdatera
-        index:
-          conference_admins_title: konferensadministratörer
         new:
           create: Skapa
           title: Ny konferensadministratör.
@@ -349,7 +342,6 @@ sv:
             invites: Inbjudningar
             search: Sök
           new:
-            explanation: Deltagaren kommer att bli inbjuden att delta i en konferens. Om dennes e-postadress inte är registrerad kommer de även att bjudas in till organisationen.
             invite: Inbjudan
             new_invite: Bjud in deltagare
         conference_registrations:
@@ -402,18 +394,11 @@ sv:
           cancel: Avbryta
           confirm: Bekräfta
         show:
-          free: Fritt
           going: Närvarande
           no_slots_available: Inga platser tillgängliga
           registration: Registrering
       conference_program:
-        program_meeting:
-          content: Innehåll
-          location: Plats
-          speakers: Talare
-          streaming: Strömning
         show:
-          day: Dag
           program: Program
       conference_registration_mailer:
         confirmation:
@@ -444,18 +429,12 @@ sv:
       conference_speaker_cell:
         personal_url:
           personal_website: Personlig hemsida
-        twitter_handle:
-          go_to_twitter: Gå till Twitter
-      conference_speakers:
-        index:
-          speakers: Talare
       conferences:
         partners:
           collaborators: Partners
           main_promotors: Organisatörer
         show:
           login_as: Du är inloggad som %{name} <%{email}>
-          make_conference_registration: 'Registrera dig på konferensen:'
           register: Registrering
       content_blocks:
         highlighted_conferences:
@@ -463,11 +442,6 @@ sv:
       index:
         title: Konferenser
       mailer:
-        conference_registration_mailer:
-          confirmation:
-            subject: Din konferensregistrering har bekräftats
-          pending_validation:
-            subject: Din konferensregistrering väntar på bekräftelse
         invite_join_conference_mailer:
           invite:
             subject: Inbjudan att delta i en konferens
@@ -501,29 +475,12 @@ sv:
             active_conferences: Pågående konferenser
             conferences_button_title: Länk till sidan över konferenser som visar alla konferenser
             see_all_conferences: Visa alla konferenser
-      photo:
-        image:
-          attributes:
-            alt: Mediabild
-        show:
-          close_modal: Stäng fönstret
-          photo: Bild
-      photos_list:
-        show:
-          related_photos: Bilder
       registration_types:
         index:
           choose_an_option: 'Välj registreringsalternativ:'
-          login_as: Du är inloggad som %{name} <%{email}>
           no_registrations: Inga anmälningar
           register: Registrera
           title: Registreringstyper
-      shared:
-        conference_user_login:
-          already_account: Har du redan ett konto i decidim?
-          new_user: Ny användare?
-          sign_in: Logga in om du vill registrera dig till konferensen
-          sign_up: Skapa ett konto i decidim om du vill registrera dig till konferensen
       show:
         details: Detaljer
         introduction: Introduktion
@@ -568,10 +525,6 @@ sv:
           contextual: "<p>En <strong>konferens</strong> är en samling av möten som arrangeras i ett program, med ett antal personer inbjudna som talare, och andra informationsfält typiska för stora kongresser eller sociala evenemang (registrering, förteckning över organisationer som stöder eller sponsrar evenemanget, etc.).</p> <p>Exempel: En konferens kan vara ett relevant evenemang för en organisation och dess medlemmar, eller äga rum som en del av en deltagarprocess eller följa ett samråd.</p>\n"
           page: "<p>En <strong>konferens</strong> är en samling av möten som arrangeras i ett program, med ett antal personer inbjudna som talare, och andra informationsfält typiska för stora kongresser eller sociala evenemang (registrering, förteckning över organisationer som stöder eller sponsrar evenemanget, etc.).</p> <p>Exempel: En konferens kan vara ett relevant evenemang för en organisation och dess medlemmar, eller äga rum som en del av en deltagarprocess eller följa ett samråd.</p>\n"
           title: Vad är konferenser?
-    log:
-      value_types:
-        conference_presenter:
-          not_found: 'Konferensen hittades inte i databasen (ID: %{id})'
     media:
       index:
         description: Länkar om konferensen

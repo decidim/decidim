@@ -4,8 +4,8 @@ eu:
       assemblies_setting:
         enable_organization_chart: Gaitu organigrama
       assembly:
-        area_id: Area
-        assembly_type: Muntatze-mota
+        area_id: Arloa
+        assembly_type: Batzar mota
         assembly_type_other: Batzar mota beste
         banner_image: Bannerra
         closing_date: Amaiera data
@@ -22,6 +22,7 @@ eu:
         decidim_scope_id: esparrua
         description: Deskribapena
         developer_group: Sustatzailearen taldea
+        document: Dokumentua
         domain: Domeinua
         duration: Iraupena
         facebook: Facebook
@@ -66,18 +67,12 @@ eu:
         user_id: Parte-hartzailea edo taldea
       assembly_user_role:
         email: Emaila
-        name: izena
+        name: Izena
         role: Role
-    errors:
-      models:
-        assembly:
-          attributes:
-            document:
-              allowed_file_content_types: 'Dokumentu mota hau ez da onartzen. Honako hauek onartzen dira: %{types}'
   activerecord:
     models:
       decidim/assembly:
-        one: Batzar
+        one: Batzarra
         other: Batzar
       decidim/assembly_member:
         one: Batzar kidea
@@ -149,12 +144,12 @@ eu:
           success: Kidea muntaia honekin batera ezabatu da.
         edit:
           title: Eguneratu muntaia kidea.
-          update: eguneratzearen
+          update: Eguneratu
         index:
-          assembly_members_title: Batzar kideak
+          assembly_members_title: Batzarraen kideak
         new:
           create: Sortu
-          title: Batzar berria kide.
+          title: Batzarkide berria.
         update:
           error: Errore bat gertatu da kidea bistaratzeko muntaia honetarako.
           success: Batzar hau behar bezala eguneratu da.
@@ -173,7 +168,7 @@ eu:
           success: Erabiltzailea behar bezala kendu da muntaia honetatik.
         edit:
           title: Eguneratu muntaia erabiltzailea.
-          update: eguneratzearen
+          update: Eguneratu
         index:
           assembly_admins_title: Batzar erabiltzaileak
         new:
@@ -190,7 +185,7 @@ eu:
         assemblies_settings: Ezarpenak
         assemblies_submenu:
           assembly_admins: Batzar erabiltzaileak
-          assembly_members: Bazkideek
+          assembly_members: Kideak
           attachment_collections: Karpetak
           attachment_files: Fitxategiak
           attachments: Eranskinak
@@ -217,22 +212,22 @@ eu:
           fields:
             ceased_date: Data amaitua
             designation_date: Deuseztapen data
-            full_name: izena
+            full_name: Izena
             position: Kargua
           name: kidea
           positions:
             other: Beste
             president: Lehendakaria
-            secretary: idazkari
+            secretary: Idazkaritza
             vice_president: Lehendakariordea
         assembly_user_role:
           fields:
-            email: Emaila
-            name: izena
-            role: Role
+            email: Helbide elektronikoa
+            name: Izena
+            role: Rola
           name: Batzar Erabiltzailea
           roles:
-            admin: Administrator
+            admin: Administratzailea
             collaborator: Kolaboratzaile
             moderator: Moderatzaile
             valuator: Ebaluatzailea
@@ -311,7 +306,7 @@ eu:
               ceased: utzi zion
               not_ceased: Ez da gelditu
             filter_by: Iragazi arabera
-            search: Search
+            search: Bilatu
         content_blocks:
           highlighted_assemblies:
             max_results: Erakusteko elementu gehienen kopurua
@@ -320,7 +315,7 @@ eu:
             json: JSON
       assembly_members:
         index:
-          members: Bazkideek
+          members: Kideak
       assembly_types:
         commission: Batzordeak
         consultative_advisory: Aholku / Aholku
@@ -388,7 +383,7 @@ eu:
       assembly_member:
         designated_on: Izendatuta
       index:
-        title: Bazkideek
+        title: Kideak
     events:
       assemblies:
         create_assembly_member:
@@ -425,9 +420,6 @@ eu:
         related_assemblies: Erlazionatutako batzarrak
     statistics:
       assemblies_count: Batzarrak
-  errors:
-    messages:
-      cannot_be_blank: ezin da hutsik egon
   layouts:
     decidim:
       assemblies:
@@ -447,7 +439,7 @@ eu:
           more_info: Informazio gehiago
           take_part: Parte hartu
       assembly_navigation:
-        assembly_member_menu_item: Bazkideak
+        assembly_member_menu_item: Kideak
         assembly_menu_item: Biltzarra
       assembly_widgets:
         show:

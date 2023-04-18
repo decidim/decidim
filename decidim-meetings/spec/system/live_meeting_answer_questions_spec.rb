@@ -55,7 +55,7 @@ describe "Meeting live event poll answer", type: :system do
       visit meeting_live_event_path
     end
 
-    it "doesn't list any question" do
+    it "does not list any question" do
       click_button "Questions (0)"
       expect(page.all(".meeting-polls__question--admin").size).to eq(0)
     end

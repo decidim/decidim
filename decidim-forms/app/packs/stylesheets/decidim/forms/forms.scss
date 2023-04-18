@@ -1,117 +1,117 @@
-.answer-questionnaire{
+.answer-questionnaire {
   @apply border-t-4 border-background py-10;
 
-  &__step{
+  &__step {
     @apply space-y-10;
   }
 
-  &__step-counter{
+  &__step-counter {
     @apply inline-block text-lg text-black font-semibold bg-tertiary;
   }
 
-  &__step-heading{
+  &__step-heading {
     @apply space-y-4;
 
-    h3{
+    h3 {
       @apply h3;
     }
 
-    div{
+    div {
       @apply text-gray-2 text-lg;
     }
   }
 
-  &__question{
+  &__question {
     @apply space-y-4;
   }
 
-  &__question-label{
+  &__question-label {
     @apply text-black text-xl font-semibold relative before:content-[attr(data-answer-idx)] before:w-6 before:h-6 md:before:absolute md:before:-left-4 md:before:-translate-x-full before:inline-flex before:justify-center before:rounded-full before:bg-background before:text-lg before:text-gray-2 before:font-semibold;
   }
 
-  &__question-description{
+  &__question-description {
     @apply text-gray-2;
   }
 
   &__multiple-option,
-  &__single-option{
+  &__single-option {
     @apply text-gray-2 space-y-4;
 
-    label{
+    label {
       @apply flex cursor-pointer;
     }
 
-    label + *{
+    label + * {
       @apply mt-2 w-full;
     }
   }
 
   &__multiple-matrix,
-  &__single-matrix{
+  &__single-matrix {
     @apply text-gray-2 text-sm rounded overflow-x-auto;
 
     th,
-    td{
+    td {
       @apply border border-background px-2 py-2.5;
     }
 
-    th{
+    th {
       @apply bg-background font-normal;
     }
 
-    td:not(:first-child){
+    td:not(:first-child) {
       @apply text-center [&>*]:flex [&>*]:items-center [&>*]:justify-center;
     }
 
-    input[type="text"]{
+    input[type="text"] {
       @apply min-w-[120px] w-full;
     }
   }
 
-  &__sorting{
+  &__sorting {
     @apply flex items-center justify-between relative text-gray-2 pl-8 pr-2 py-2.5 border-2 border-background rounded cursor-pointer before:content-[counter(item)] before:absolute before:left-0 before:top-0 before:bg-background before:w-5 before:h-full before:grid before:place-items-center before:text-gray-2 before:font-bold;
 
     counter-increment: item;
 
-    &-container{
+    &-container {
       @apply space-y-4;
 
       counter-reset: item;
     }
 
-    input{
+    input {
       @apply hidden;
     }
 
-    svg{
+    svg {
       @apply text-gray fill-current w-5 h-5;
     }
   }
 
-  &__file{
+  &__file {
     @apply w-full justify-center;
 
-    & + input[type="file"]{
+    & + input[type="file"] {
       @apply hidden;
     }
   }
 
-  &__footer{
+  &__footer {
     @apply flex flex-col gap-10 py-10 border-t-4 border-background text-gray-2;
   }
 
-  &__tos{
+  &__tos {
     @apply space-y-4 cursor-pointer;
 
-    div{
+    div {
       @apply text-sm;
     }
   }
 
-  &__submit{
+  &__submit {
     @apply flex items-center justify-between;
 
-    > *:only-child{
+    > *:only-child {
       @apply ml-auto;
     }
   }

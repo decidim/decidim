@@ -16,17 +16,17 @@ describe Decidim::Admin::Permissions do
   let(:action_name) { :foo }
   let(:action_subject) { :bar }
 
-  shared_examples "needs to accept Terms of Use for" do |action_subject_name, action_name|
+  shared_examples "needs to accept Terms of Service for" do |action_subject_name, action_name|
     let(:action_subject) { action_subject_name }
     let(:action_name) { action_name }
 
-    context "when admin has accepted Terms of Use" do
+    context "when admin has accepted Terms of Service" do
       let(:user) { build :user, :admin, admin_terms_accepted_at: Time.current, organization: }
 
       it { is_expected.to be true }
     end
 
-    context "when admin hasn't accepted Terms of Use" do
+    context "when admin has not accepted Terms of Service" do
       let(:user) { build :user, :admin, admin_terms_accepted_at: nil, organization: }
 
       it_behaves_like "permission is not set"
@@ -172,7 +172,7 @@ describe Decidim::Admin::Permissions do
   end
 
   describe "global moderation" do
-    it_behaves_like "needs to accept Terms of Use for", :global_moderation, :read
+    it_behaves_like "needs to accept Terms of Service for", :global_moderation, :read
   end
 
   describe "share tokens" do
@@ -228,7 +228,7 @@ describe Decidim::Admin::Permissions do
       context "when organization available authorizations are not empty" do
         let(:authorizations) { [:foo] }
 
-        it_behaves_like "needs to accept Terms of Use for", :managed_user, :create
+        it_behaves_like "needs to accept Terms of Service for", :managed_user, :create
 
         it { is_expected.to be true }
       end
@@ -333,6 +333,24 @@ describe Decidim::Admin::Permissions do
 
     context "when any other action" do
       it { is_expected.to be true }
+    end
+  end
+
+  describe "admins" do
+    let(:action_subject) { :admin_user }
+
+    context "when trying to delete admin rights from self" do
+      let(:action_name) { :destroy }
+      let(:context) { { user: } }
+
+      it_behaves_like "permission is not set"
+    end
+
+    context "when trying to block self" do
+      let(:action_name) { :block }
+      let(:context) { { user: } }
+
+      it_behaves_like "permission is not set"
     end
   end
 

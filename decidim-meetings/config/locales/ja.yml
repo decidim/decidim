@@ -1,10 +1,6 @@
 ja:
   activemodel:
     attributes:
-      agenda:
-        description: 説明
-        duration: 持続期間
-        title: タイトル
       close_meeting:
         attendees_count: 出席者数
         attending_organizations: 参加した組織一覧
@@ -22,8 +18,9 @@ ja:
         decidim_scope_id: スコープ
         decidim_user_group_id: ユーザーグループ
         description: 説明
-        end_time: 終了時刻
+        end_time: 終了時間
         id: ID
+        iframe_embed_type: Iframe 埋め込みタイプ
         location: 場所
         location_hints: 位置情報のヒント
         online_meeting_url: オンラインミーティングURL
@@ -33,28 +30,41 @@ ja:
         registration_email_custom_content: 登録メールのカスタムコンテンツ
         registration_form_enabled: 登録フォームが有効
         registration_terms: 登録条件
+        registration_type: 登録種別
         registration_url: 登録URL
         registrations_enabled: 登録が有効
-        show_embedded_iframe: この URL の埋め込まれた iframe を表示
-        start_time: 開始時刻
+        reserved_slots: この会議の予約済みスロット
+        start_time: 開始日時
         title: タイトル
         transparent: 透明度
         type_of_meeting: 種別
+      meeting_agenda:
+        title: タイトル
+        visible: 表示
+      meeting_agenda_items:
+        description: 説明
+        duration: 期間
+        title: タイトル
+      meeting_registration_invite:
+        email: Eメールアドレス
+        name: 名前
+      validate_registration_code:
+        code: コード
     errors:
       models:
         meeting:
           attributes:
             iframe_embed_type:
-              not_embeddable: このURLはミーティングまたはライブイベントページに埋め込むことができません
+              not_embeddable: このURLは、ミーティングやライブイベントのページに埋め込むことはできません。
         meeting_agenda:
           attributes:
             base:
-              too_many_minutes: 項目の期間はミーティング期間を %{count} 分超えています
-              too_many_minutes_child: アイテムの子の期間は議題項目「%{parent_title}」の親期間を %{count} 分超えています
+              too_many_minutes: この項目の時間は、ミーティングの時間を%{count} 分超過しています。
+              too_many_minutes_child: アイテムの子要素の時間は、アジェンダ「%{parent_title}」の親要素の時間を%{count} 分超過しています。
         meeting_registration_invite:
           attributes:
             email:
-              already_invited: このメールアカウントは既に招待されています
+              already_invited: このメールアカウントは既に招待されています。
     models:
       decidim/meetings/close_meeting_event: ミーティングは終了しました
       decidim/meetings/create_meeting_event: ミーティング
@@ -181,7 +191,7 @@ ja:
           notification_title: <a href="%{resource_path}">%{resource_title}</a> のミーティングは48時間以内に開始されます．
     forms:
       meetings:
-        attendees_count_help_text: 会議に出席者の総数に、対面・オンライン・ハイブリッドを含めることを忘れないでください
+        attendees_count_help_text: 対面、オンライン、ハイブリッドのどの形態でも、ミーティングの参加者の総数を含めることを忘れないでください。
     gamification:
       badges:
         attended_meetings:
@@ -192,8 +202,8 @@ ja:
           description_own: '%{score} 件のミーティングに出席しました．'
           name: 出席したミーティング
           next_level_in: さらに %{score} 件のミーティングに参加して、次のレベルに到達しましょう！
-          unearned_another: この参加者はまだミーティングに出席していません．
-          unearned_own: まだミーティングに出席していません。
+          unearned_another: この参加者はまだどのミーティングにも出席していません．
+          unearned_own: まだミーティングに出席していません．
     meetings:
       actions:
         agenda: 予定
@@ -214,7 +224,7 @@ ja:
       admin:
         agenda:
           agenda_item:
-            add_agenda_item_child: 議題サブ項目を追加
+            add_agenda_item_child: アジェンダのサブ項目を追加
             agenda_item: 予定表の項目
             agenda_item_children: アジェンダサブアイテム
             down: 下
@@ -226,22 +236,22 @@ ja:
             remove: 削除
             up: 上へ
           create:
-            invalid: この議題の作成中に問題が発生しました
-            success: アジェンダを作成しました
+            invalid: このアジェンダを作成する際に問題がありました。
+            success: アジェンダが正常に作成されました。
           edit:
-            title: 議題を編集
+            title: アジェンダを編集
             update: 更新
           form:
-            add_agenda_item: 議題項目を追加
+            add_agenda_item: アジェンダを追加
             agenda_items: 予定表の項目
             end_date: 終了日
             start_date: 開始日
           new:
             create: 作成
-            title: 新しい議題の作成
+            title: 新しいアジェンダの作成
           update:
-            invalid: この議題の更新中に問題が発生しました
-            success: アジェンダを正常に更新しました
+            invalid: アジェンダの更新に問題がありました。
+            success: アジェンダが正常に更新されました。
         exports:
           answers: 回答
           meeting_comments: コメント
@@ -278,27 +288,24 @@ ja:
           edit:
             close: 閉じる
             title: ミーティングを閉じる
-        meeting_copies:
-          form:
-            select_a_meeting_type: ミーティング種別を選択してください
         meetings:
           close:
-            invalid: このミーティングを終了する際に問題が発生しました
-            success: ミーティングが正常に閉じられました
+            invalid: このミーティングを終了する際に問題が発生しました。
+            success: ミーティングは正常に終了しました。
           create:
-            invalid: このミーティングを作成する際に問題が発生しました
+            invalid: このミーティングの作成に問題がありました．
             success: ミーティングが正常に作成されました．これはまだ公開されていません．手動で公開する必要があります．
           destroy:
             invalid:
               proposals_count:
-                other: '%{count} 件の提案が関連付けられているため、ミーティングを削除できません'
+                other: '%{count} 件の提案が関連付けられているため、ミーティングを破壊できません。'
             success: ミーティングを削除しました
           edit:
             title: ミーティングを編集
             update: 更新
           form:
             address_help: 'アドレス: ジオコーダーが場所を見つけるために使用'
-            disclaimer: '免責事項: 外部登録システムを使用する場合、 %{organization} の主催者は、ユーザーが外部サービスに提供したデータについて責任を負いません。'
+            disclaimer: '免責事項: 外部の登録システムを使用する場合、ユーザーが外部サービスに提供したデータについて%{organization} の主催者が責任を負わないことをあらかじめご了承ください。'
             location_help: '場所: ユーザーにメッセージが表示されます。'
             location_hints_help: '位置情報のヒント：追加情報。 例: 対面ミーティングでの建物のフロア、またはアクセス制限のあるオンラインミーティングでのミーティングパスワード。'
             online_meeting_url_help: 'リンク: 参加者があなたのミーティングに直接接続できるようにします'
@@ -313,8 +320,8 @@ ja:
             create: 作成
             title: ミーティングを作成
           publish:
-            invalid: このミーティングの公開中に問題が発生しました
-            success: ミーティングが正常に公開されました
+            invalid: このミーティングを公開する際に問題が発生しました。
+            success: ミーティングを公開しました。
           service:
             description: 説明
             down: 下
@@ -326,17 +333,17 @@ ja:
             add_service: サービスを追加
             services: サービス
           unpublish:
-            invalid: このミーティングを非公開にする際に問題が発生しました
-            success: ミーティングを非公開にしました
+            invalid: このミーティングを非公開にする際に問題が発生しました。
+            success: ミーティングを非公開にしました。
           update:
-            invalid: このミーティングの更新中に問題が発生しました
-            success: ミーティングを更新しました
+            invalid: このミーティングの更新に問題がありました。
+            success: ミーティングを更新しました。
         meetings_poll:
           form:
             title: '%{questionnaire_for} のアンケートを編集'
           update:
-            invalid: このミーティング投票の更新中に問題が発生しました
-            success: ミーティングのアンケートが正常に更新されました
+            invalid: このミーティングの投票の更新に問題がありました．
+            success: ミーティングの投票を更新しました。
         models:
           meeting:
             name: ミーティング
@@ -353,7 +360,7 @@ ja:
             registration_form: 登録フォーム
             registrations_count:
               other: '%{count} 件の登録がありました。'
-            reserved_slots_help: 予約スロットがない場合は0にしてください
+            reserved_slots_help: 予約スロットがない場合は0にしておいてください。
             reserved_slots_less_than: '%{count} 以下にしてください'
             title: 登録
           update:
@@ -392,7 +399,7 @@ ja:
         copy_calendar_url_clarification: カレンダーURLをクリップボードにコピー
         copy_calendar_url_copied: コピーしました
         copy_calendar_url_description: カレンダーアプリケーションまたはプロバイダーで公開されたすべてのミーティングを見ることができます。 「URLから新しいカレンダーを追加」オプションを使用して、このURLをカレンダーにコピーして貼り付けます。
-        copy_calendar_url_explanation: アクティブなフィルターがあるため、ミーティングの一部のみをエクスポートしていることに注意してください。すべてエクスポートしたい場合は、最初にすべてのフィルターをリセットしてください。
+        copy_calendar_url_explanation: アクティブなフィルターがあるため、ミーティングの一部のみをエクスポートしていることに注意してください。すべてをエクスポートする場合は、最初にすべてのフィルターをリセットしてください。
         copy_calendar_url_message: URLをクリップボードにコピーしました。
         export_calendar: カレンダーをエクスポート
       close_meeting_reminder_mailer:
@@ -437,7 +444,7 @@ ja:
           confirmation:
             subject: ミーティングの登録が確認されました
       meeting:
-        not_allowed: このミーティングを表示する権限がありません
+        not_allowed: このミーティングを表示する権限がありません．
       meeting_closes:
         edit:
           back: 戻る
@@ -494,7 +501,7 @@ ja:
           address_help: 'アドレス: ジオコーダーが場所を見つけるために使用'
           available_slots_help: 無制限の場合は0のままにしてください
           create_as: 次のユーザとしてミーティングを作成：
-          disclaimer: '免責事項: 外部登録システムを使用する場合、 %{organization} の主催者は、ユーザーが外部サービスに提供したデータについて責任を負いません。'
+          disclaimer: '免責事項: 外部の登録システムを使用する場合、ユーザーが外部サービスに提供したデータについて%{organization} の主催者が責任を負わないことをあらかじめご了承ください。'
           location_help: '場所: ユーザーにメッセージが表示されます。'
           location_hints_help: '位置情報のヒント：追加情報。 例: 対面ミーティングでの建物のフロア、またはアクセス制限のあるオンラインミーティングでのミーティングパスワード。'
           online_meeting_url_help: 'リンク: 参加者があなたのミーティングに直接接続できるようにします'
@@ -513,7 +520,7 @@ ja:
         meeting_minutes:
           related_information: 関連情報
         meetings:
-          no_meetings_warning: 検索条件に一致するミーティングがないか，スケジュールされたミーティングがありません．
+          no_meetings_warning: 検索条件に一致するミーティングがないか，予定されているミーティングがありません．
           upcoming_meetings_warning: 現在、スケジュールされたミーティングはありませんが、ここではリストされた過去のミーティングをすべて見つけることができます。
         new:
           back: 戻る
@@ -632,8 +639,8 @@ ja:
       versions:
         back_to_resource: ミーティングに戻る
       withdraw:
-        error: ミーティングの取り消し中にエラーが発生しました
-        success: ミーティングは正常に取り消されました
+        error: ミーティングを取り上げる際にエラーが発生しました。
+        success: ミーティングは正常に取り下げられました。
     metrics:
       meetings:
         description: 作成されたミーティング数

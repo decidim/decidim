@@ -28,7 +28,6 @@ lt:
         show_statistics: Rodyti statistiką
         sign_date: Pasirašymo data
         signature: Parašas
-        signature_name: parašo pavadinimas
         slogan: Šūkis
         slug: URL priedas
         start_date: Pradžios data
@@ -37,13 +36,11 @@ lt:
         date: Data
         link: Nuoroda
         title: Pavadinimas
-        weight: Svoris
       conference_partner:
         link: Nuoroda
         logo: Logotipas
         name: Vardas
         partner_type: Partnerio tipas
-        weight: Svoris
       conference_registration_invite:
         email: El. paštas
         name: Vardas
@@ -53,7 +50,6 @@ lt:
         description: Aprašymas
         price: Kaina
         title: Pavadinimas
-        weight: Svoris
       conference_speaker:
         affiliation: Organizacija
         avatar: Avataras
@@ -68,12 +64,6 @@ lt:
         email: El. paštas
         name: Vardas
         role: Rolė
-    errors:
-      models:
-        conference_registration_invite:
-          attributes:
-            email:
-              already_invited: Šio el. laiško adresatas jau buvo pakviestas
   activerecord:
     models:
       decidim/conference:
@@ -139,8 +129,6 @@ lt:
         edit:
           title: Atnaujinti konferencijos administratorių.
           update: Atnaujinti
-        index:
-          conference_admins_title: konferencijos administratoriai
         new:
           create: Sukurti
           title: Naujas konferencijos administratorius.
@@ -357,7 +345,6 @@ lt:
             invites: Pakvietimai
             search: Ieškoti
           new:
-            explanation: Dalyvis bus pakviestas dalyvauti konferencijoje. Jei e. laiškas nebus užregistruotas, dalyvis bus taip pat pakviestas būti organizacijos dalimi.
             invite: Pakviesti
             new_invite: Kviesti dalyvį
         conference_registrations:
@@ -412,18 +399,11 @@ lt:
           cancel: Atšaukti
           confirm: Patvirtinti
         show:
-          free: Nemokama
           going: Dalyvauja
           no_slots_available: Nebėra vietų
           registration: Registracija
       conference_program:
-        program_meeting:
-          content: Turinys
-          location: Vieta
-          speakers: Kalbėtojai
-          streaming: Transliuoti
         show:
-          day: Diena
           program: Programa
       conference_registration_mailer:
         confirmation:
@@ -454,18 +434,12 @@ lt:
       conference_speaker_cell:
         personal_url:
           personal_website: Asmeninė interneto svetainė
-        twitter_handle:
-          go_to_twitter: Eiti į Twitter
-      conference_speakers:
-        index:
-          speakers: Pranešėjai
       conferences:
         partners:
           collaborators: Partneriai
           main_promotors: Organizatoriai
         show:
           login_as: Jūs prisijungėte kaip %{name} <%{email}>
-          make_conference_registration: 'Užsiregistruokite konferencijoje:'
           register: Registruotis
       content_blocks:
         highlighted_conferences:
@@ -473,11 +447,6 @@ lt:
       index:
         title: Konferencijos
       mailer:
-        conference_registration_mailer:
-          confirmation:
-            subject: Jūsų registracija į konferenciją buvo patvirtinta
-          pending_validation:
-            subject: Jūsų registracija į konferenciją dar nepatvirtinta
         invite_join_conference_mailer:
           invite:
             subject: Kvietimas dalyvauti konferencijoje
@@ -511,29 +480,12 @@ lt:
             active_conferences: Aktyvios konferencijos
             conferences_button_title: Nuoroda į puslapį „Konferencijos“, kuriame pateikiamos visos konferencijos
             see_all_conferences: Žiūrėti visas konferencijas
-      photo:
-        image:
-          attributes:
-            alt: Nuotrauka multimedijos formatu
-        show:
-          close_modal: Uždaryti modalinį langą
-          photo: Paveikslėlis
-      photos_list:
-        show:
-          related_photos: Paveikslėliai
       registration_types:
         index:
           choose_an_option: 'Pasirinkite registracijos būdą:'
-          login_as: Jūs prisijungėte kaip %{name} <%{email}>
           no_registrations: Nėra registracijų
           register: Registruotis
           title: Registracijos tipai
-      shared:
-        conference_user_login:
-          already_account: Ar jau turite paskyrą „Decidim“ puslapyje?
-          new_user: Naujas naudotojas?
-          sign_in: Prisijunkite, kad galėtumėte užsiregistruoti į konferenciją
-          sign_up: Susikurkite paskyrą „Decidim“ puslapyje, kad galėtumėte užsiregistruoti į konferenciją
       show:
         details: Išsamiau
         introduction: Įžanga
@@ -578,10 +530,6 @@ lt:
           contextual: "<p> <strong>Konferencija</strong> yra susitikimų, surengtų pagal programą, rinkinys, į kurį pakviečiama daug kalbėtojų. Konferencijoms, kaip ir kitiems dideliems susirinkimams ar socialiniams renginiams, būdingi ypatumai yra registracijos, renginį remiančių ar kitaip padedančių organizacijų sąrašas ir kt.</p><p>Pavyzdžiui, konferencija gali būti svarbus įvykis organizacijai ir jos nariams, vykti kaip dalyvaujamojo proceso dalis arba tai gali būti renginys po konsultacijos.</p>\n"
           page: "<p> <strong>Konferencija</strong> yra susitikimų, surengtų pagal programą, rinkinys, į kurį pakviečiama daug kalbėtojų. Konferencijoms, kaip ir kitiems dideliems susirinkimams ar socialiniams renginiams, būdingi ypatumai yra registracijos, renginį remiančių ar kitaip padedančių organizacijų sąrašas ir kt.</p><p>Pavyzdžiui, konferencija gali būti svarbus įvykis organizacijai ir jos nariams, vykti kaip dalyvaujamojo proceso dalis arba tai gali būti renginys po konsultacijos.</p>\n"
           title: Kas yra konferencijos?
-    log:
-      value_types:
-        conference_presenter:
-          not_found: 'Konferencija duomenų bazėje nerasta (ID: %{id})'
     media:
       index:
         description: Nuorodos apie šią konferenciją

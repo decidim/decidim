@@ -22,24 +22,12 @@ id:
         slogan: Slogan
         slug: Siput URL
         title: Judul
-      conference_media_link:
-        weight: Berat
-      conference_partner:
-        weight: Berat
-      conference_registration_type:
-        weight: Berat
       conference_speaker:
         full_name: Nama lengkap
       conference_user_role:
         email: E-mail
         name: Nama
         role: Peran
-    errors:
-      models:
-        conference_registration_invite:
-          attributes:
-            email:
-              already_invited: Email ini sudah diundang
   activerecord:
     models:
       decidim/conference:
@@ -96,8 +84,6 @@ id:
         edit:
           title: Perbarui pengguna konferensi.
           update: Memperbarui
-        index:
-          conference_admins_title: pengguna konferensi
         new:
           create: Membuat
           title: Pengguna konferensi baru.
@@ -308,7 +294,6 @@ id:
             invites: Undangan
             search: Pencarian
           new:
-            explanation: Pengguna akan diundang untuk bergabung dengan konferensi. Jika email tidak terdaftar mereka akan diundang ke organisasi juga.
             invite: Undang
             new_invite: Undang pengguna
         conference_registrations:
@@ -360,18 +345,11 @@ id:
           cancel: Membatalkan
           confirm: Memastikan
         show:
-          free: Bebas
           going: Pergi
           no_slots_available: Tidak ada slot yang tersedia
           registration: Pendaftaran
       conference_program:
-        program_meeting:
-          content: Konten
-          location: Lokasi
-          speakers: Pembicara
-          streaming: Streaming
         show:
-          day: Hari
           program: Program
       conference_registration_mailer:
         confirmation:
@@ -401,18 +379,12 @@ id:
       conference_speaker_cell:
         personal_url:
           personal_website: Situs web pribadi
-        twitter_handle:
-          go_to_twitter: Pergi ke Twitter
-      conference_speakers:
-        index:
-          speakers: Pembicara
       conferences:
         partners:
           collaborators: Mitra
           main_promotors: Penyelenggara
         show:
           login_as: Anda masuk sebagai %{name} <%{email}>
-          make_conference_registration: 'Buat pendaftaran Anda di konferensi:'
           register: Daftar
       content_blocks:
         highlighted_conferences:
@@ -420,11 +392,6 @@ id:
       index:
         title: Konferensi
       mailer:
-        conference_registration_mailer:
-          confirmation:
-            subject: Pendaftaran konferensi Anda telah dikonfirmasi
-          pending_validation:
-            subject: Pendaftaran konferensi Anda sedang menunggu untuk dikonfirmasi
         invite_join_conference_mailer:
           invite:
             subject: Undangan untuk bergabung dalam konferensi
@@ -457,25 +424,11 @@ id:
           highlighted_conferences:
             active_conferences: Konferensi aktif
             see_all_conferences: Lihat semua konferensi
-      photo:
-        show:
-          close_modal: Tutup modal
-          photo: Foto
-      photos_list:
-        show:
-          related_photos: Foto
       registration_types:
         index:
           choose_an_option: 'Pilih opsi pendaftaran Anda:'
-          login_as: Anda masuk sebagai %{name} <%{email}>
           register: Daftar
           title: Jenis pendaftaran
-      shared:
-        conference_user_login:
-          already_account: Apakah Anda sudah memiliki akun di desidim?
-          new_user: Pengguna baru?
-          sign_in: Login untuk mendaftar konferensi
-          sign_up: Buat akun di desidim untuk mendaftar konferensi
       show:
         details: Detail
         introduction: pengantar
@@ -509,10 +462,6 @@ id:
           email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti konferensi "%{resource_title}". Anda dapat berhenti mengikutinya dari tautan sebelumnya.
           email_subject: Konferensi "%{resource_title}" akan datang!
           notification_title: Konferensi <a href="%{resource_path}">%{resource_title}</a> akan datang dalam 2 hari.
-    log:
-      value_types:
-        conference_presenter:
-          not_found: 'Konferensi tidak ditemukan di database (ID: %{id})'
     media:
       index:
         description: Tautan tentang konferensi ini

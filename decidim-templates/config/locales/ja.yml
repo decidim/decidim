@@ -13,19 +13,19 @@ ja:
       templates:
         apply:
           error: テンプレートの適用に失敗しました。
-          success: テンプレートが正常に適用されました
+          success: テンプレートが適用されました。
         copy:
           error: テンプレートコピー中に問題が発生しました。
-          success: テンプレートを正常にコピーしました
+          success: テンプレートは正常にコピーされました。
         create:
           error: テンプレート作成中に問題が発生しました。
-          success: テンプレートが正常に作成されました
+          success: テンプレートが作成されました。
         destroy:
-          success: テンプレートが正常に削除されました
+          success: テンプレートを削除しました。
         empty: テンプレートはまだありません。
         update:
           error: テンプレートの更新中に問題が発生しました。
-          success: テンプレートが正常に更新されました
+          success: テンプレートが更新されました。
       titles:
         template_types:
           questionnaires: アンケートテンプレート
@@ -41,6 +41,15 @@ ja:
         name: テンプレート
     templates:
       admin:
+        block_user_templates:
+          form:
+            save: 保存
+            template_title: テンプレート情報
+          index:
+            confirm_delete: このテンプレートを削除してもよろしいですか？
+            title: ユーザーメッセージをブロック
+          template_chooser:
+            select_template: テンプレート回答を選択
         questionnaire_templates:
           choose:
             create_from_template: テンプレートから作る
@@ -50,7 +59,7 @@ ja:
             skip_template: スキップ
           edit:
             edit: 編集
-            empty: 質問はありません。
+            empty: 質問はまだありません。
             questionnaire: アンケート
           form:
             save: 保存
@@ -70,4 +79,5 @@ ja:
           duplicate: "%{user_name} が %{resource_name} アンケートテンプレートを複製しました"
           update: "%{user_name} が %{resource_name} アンケートテンプレートを更新しました"
       template_types:
+        block_user: ユーザーメッセージをブロック
         questionnaires: アンケート

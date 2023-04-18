@@ -1,24 +1,5 @@
 <%= form_required_explanation %>
 
-<div class="field">
-  <%= form.text_field :title, autofocus: true, disabled: !allowed_to?(:update, :initiative, initiative: current_initiative), value: translated_attribute(@form.title) %>
-</div>
-
-<div class="field">
-  <%= text_editor_for(form, :description, toolbar: :full, lines: 8, disabled: !allowed_to?(:update, :initiative, initiative: current_initiative), value: translated_attribute(@form.description)) %>
-</div>
-
-<div class="field">
-  <%= form.text_field :hashtag, disabled: !allowed_to?(:update, :initiative, initiative: current_initiative) %>
-</div>
-
-<div class="field">
-  <%= form.select :state,
-                  Decidim::Initiative.states.keys.map { |state| [I18n.t(state, scope: "decidim.initiatives.admin_states"), state] },
-                  {},
-                  { disabled: !@form.state_updatable? } %>
-</div>
-
 <% unless single_initiative_type? %>
   <div class="field">
     <%= form.select :type_id,
@@ -37,16 +18,37 @@
 <% end %>
 
 <div class="field">
-  <%= form.select :scope_id,
-                @form.available_scopes.map { |scope| [translated_attribute(scope.scope_name), scope&.scope&.id] },
-                { disabled: !@form.state_updatable? } %>
+  <%= form.text_field :title, autofocus: true, disabled: !allowed_to?(:update, :initiative, initiative: current_initiative), value: translated_attribute(@form.title) %>
 </div>
+
+<div class="field">
+  <%= text_editor_for(form, :description, toolbar: :full, lines: 8, disabled: !allowed_to?(:update, :initiative, initiative: current_initiative), value: translated_attribute(@form.description)) %>
+</div>
+
+<div class="field">
+  <%= form.text_field :hashtag, disabled: !allowed_to?(:update, :initiative, initiative: current_initiative) %>
+</div>
+
+<% signature_type_options = signature_type_options(form.object) %>
+<% if signature_type_options.length == 1 %>
+  <%= form.hidden_field :signature_type %>
+<% else %>
+  <div class="field">
+    <%= form.select :signature_type, [], {}, { disabled: !@form.signature_type_updatable? } %>
+  </div>
+<% end %>
 
 <% if can_edit_custom_signature_end_date?(current_initiative) %>
   <div class="row column">
     <%= form.date_field :signature_end_date, disabled: !allowed_to?(:update, :initiative, initiative: current_initiative) %>
   </div>
 <% end %>
+
+<div class="field">
+  <%= form.select :scope_id,
+                @form.available_scopes.map { |scope| [translated_attribute(scope.scope_name), scope&.scope&.id] },
+                { disabled: !@form.state_updatable? } %>
+</div>
 
 <% if current_initiative.area_enabled? %>
   <div class="field">
@@ -61,8 +63,12 @@
 <% end %>
 
 <div class="field">
-  <%= form.select :signature_type, [], {}, { disabled: !@form.signature_type_updatable? } %>
+  <%= form.select :state,
+                  Decidim::Initiative.states.keys.map { |state| [I18n.t(state, scope: "decidim.initiatives.admin_states"), state] },
+                  {},
+                  { disabled: !@form.state_updatable? } %>
 </div>
+
 <% if current_initiative.type.attachments_enabled? %>
   <fieldset class="attachments_container">
     <legend><%= t("attachment_legend", scope: "decidim.initiatives.form") %></legend>
@@ -109,6 +115,4 @@
   <%= render partial: "committee_members" %>
 <% end %>
 
-<% content_for :js_content do %>
-  <%= javascript_pack_tag "decidim_initiatives" %>
-<% end %>
+<%= append_javascript_pack_tag "decidim_initiatives" %>

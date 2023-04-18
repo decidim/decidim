@@ -15,9 +15,7 @@
   )
 %>
 
-<% content_for :css_content do %>
-  <%= stylesheet_pack_tag "decidim_blogs", media: "all" %>
-<% end %>
+<%= append_stylesheet_pack_tag "decidim_blogs" %>
 
 <%= render layout: "layouts/decidim/shared/layout_center" do %>
 
@@ -35,7 +33,7 @@
     <%= cell "decidim/author", post_presenter.author, from: post, context_actions: [:date], layout: :compact %>
 
     <div class="blog__text">
-      <%= decidim_sanitize_editor translated_attribute post.body %>
+      <%= decidim_sanitize_editor_admin translated_attribute post.body %>
     </div>
 
     <%= render partial: "actions" %>

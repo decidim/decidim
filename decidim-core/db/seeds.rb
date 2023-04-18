@@ -9,7 +9,7 @@ if !Rails.env.production? || ENV.fetch("SEED", nil)
   seeds_root = File.join(__dir__, "seeds")
 
   # Since we usually migrate and seed in the same process, make sure
-  # that we don't have invalid or cached information after a migration.
+  # that we do not have invalid or cached information after a migration.
   decidim_tables = ActiveRecord::Base.connection.tables.select do |table|
     table.starts_with?("decidim_")
   end

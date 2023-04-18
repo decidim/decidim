@@ -16,7 +16,7 @@ module Decidim
 
         # Executes the command. Broadcasts these events:
         #
-        # - :noop when the answer is not published or the state didn't changed.
+        # - :noop when the answer is not published or the state did not changed.
         # - :ok when everything is valid.
         #
         # Returns nothing.

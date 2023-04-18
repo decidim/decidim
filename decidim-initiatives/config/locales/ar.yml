@@ -40,13 +40,6 @@ ar:
         name: اكمل الاسم
   activerecord:
     models:
-      decidim/initiative:
-        zero: بعض المبادرات
-        one: بالمبادرة
-        two: بعض المبادرات
-        few: بعض المبادرات
-        many: بعض المبادرات
-        other: بعض المبادرات
       decidim/initiative_comittee:
         zero: Comittees
         one: إحداث الهيئة
@@ -131,10 +124,8 @@ ar:
             - اتبع الخطوات لإنشاء مبادرة جديدة
           description: تُمنح هذه الشارة عند إطلاق مبادرات جديدة ، وإقامة شراكة مع الآخرين لتنفيذها.
           description_another: حصل هذا المشارك على %{score} مبادرة تم نشرها.
-          description_own: لديك %{score} مبادرات تم نشرها.
           name: المبادرات المنشورة
           next_level_in: احصل على %{score} مبادرة تم نشرها للوصول إلى المستوى التالي!
-          unearned_another: لم يحصل هذا المشارك على أية مبادرات منشورة حتى الآن.
           unearned_own: لم تحصل على أي مبادرات منشورة بعد.
     help:
       participatory_spaces:
@@ -160,8 +151,6 @@ ar:
           index:
             approve: يوافق
             confirm_revoke: هل أنت واثق؟
-            invite_to_committee_help: شارك هذا الرابط لدعوة مشاركين آخرين إلى لجنة المروجين
-            no_members_yet: لا يوجد أعضاء في لجنة المروجين
             revoke: سحب
             title: أعضاء اللجنة
         content_blocks:
@@ -176,7 +165,6 @@ ar:
             export_votes: توقيعات التصدير
             reject: رفض المبادرة
             send_to_technical_validation: إرسال إلى التحقق الفني
-            success: تم إرسال المبادرة إلى التحقق الفني
             update: تحديث
           form:
             title: معلومات عامة
@@ -184,15 +172,7 @@ ar:
             actions_title: عمل
             preview: معاينة
             print: طباعة
-          update:
-            error: حدث خطأ
-            success: تم تحديث المبادرة بنجاح
         initiatives_type_scopes:
-          create:
-            error: حدث خطأ
-            success: تم إنشاء نطاق جديد لنوع المبادرة المحدد
-          destroy:
-            success: تمت إزالة النطاق بنجاح
           edit:
             back: الى الخلف
             confirm_destroy: هل أنت واثق؟
@@ -203,15 +183,7 @@ ar:
             back: الى الخلف
             create: إنشاء
             title: إنشاء نطاق نوع المبادرة
-          update:
-            error: حدث خطأ
-            success: تم تحديث النطاق بنجاح
         initiatives_types:
-          create:
-            error: حدث خطأ
-            success: تم إنشاء نوع مبادرة جديد بنجاح
-          destroy:
-            success: تمت إزالة نوع المبادرة بنجاح
           edit:
             confirm_destroy: هل أنت واثق؟
             destroy: حذف
@@ -223,9 +195,6 @@ ar:
           new:
             create: إنشاء
             title: نوع المبادرة الجديدة
-          update:
-            error: حدث خطأ
-            success: تم تحديث نوع المبادرة بنجاح
       admin_log:
         initiative:
           publish: "%{user_name} نشرت المبادرة %{resource_name}"
@@ -249,7 +218,6 @@ ar:
       committee_requests:
         new:
           continue: استمر
-          help_text: أنت على وشك أن تصبح عضوًا في لجنة الترويج لهذه المبادرة
         spawn:
           success: تم إرسال طلبك إلى مؤلف المبادرة.
       content_blocks:
@@ -299,6 +267,8 @@ ar:
           email_outro: لقد تلقيت هذا الإشعار لأنك تتابع %{author_nickname}. يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.
           email_subject: المبادرة التي أقرتها %{author_nickname}
           notification_title: تمت الموافقة على مبادرة <a href="%{resource_path}">%{resource_title}</a> من قبل <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+      form:
+        delete_attachment: حذف
       index:
         title: المبادرات
       initiative_signatures:
@@ -308,7 +278,6 @@ ar:
             day: يوم
             month: شهر
             year: عام
-          help: يرجى ملء الحقول التالية ببياناتك الشخصية لتوقيع المبادرة
         finish:
           back_to_initiative: العودة إلى المبادرة
         sms_code:
@@ -316,16 +285,11 @@ ar:
           help: تحقق من الرسائل القصيرة المستلمة على هاتفك
         sms_phone_number:
           continue: ارسل لي رسالة
-          help: املأ النموذج برقم هاتفك الذي تم التحقق منه لطلب رمز التحقق
       initiative_votes:
         create:
           error: كانت هناك مشكلة في توقيع المبادرة.
-          invalid: البيانات المقدمة للتوقيع على المبادرة غير صالحة
-          success_html: تهانينا! و <strong> %{title}</strong> تم توقيع المبادرة بنجاح
         personal_data:
           invalid: البيانات الشخصية لا تتفق مع البيانات المقدمة للترخيص.
-        sms_code:
-          invalid: رمز التحقق الخاص بك لا يطابق رمزنا. يرجى التحقق مرة أخرى من الرسائل القصيرة التي أرسلناها إليك.
         sms_phone:
           invalid: رقم الهاتف غير صالح أو قيد التفويض. من فضلك ، تحقق من التراخيص الخاصة بك.
       initiatives:
@@ -378,6 +342,7 @@ ar:
           recent: الأحدث
         print:
           city: مدينة
+          full_name: الاسم الكامل
           initiative:
             description: 'الوصف:'
         result:
@@ -425,6 +390,7 @@ ar:
             see_all_initiatives: رؤية جميع المبادرات
       show:
         badge_name:
+          accepted: ما يكفي من التوقيعات
           validating: تحقق تقني
       states:
         accepted: وافقت
