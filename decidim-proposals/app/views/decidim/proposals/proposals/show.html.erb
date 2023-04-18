@@ -110,8 +110,7 @@ extra_admin_link(
 
     <%= render partial: "actions" %>
 
-    <%# REDESIGN_PENDING: uncomment the "item_footer" content_for block once merged https://github.com/decidim/decidim/pull/10620 %>
-    <%# content_for :item_footer do %>
+    <% content_for :item_footer do %>
       <%= comments_for @proposal %>
 
       <div class="mt-8">
@@ -143,7 +142,7 @@ extra_admin_link(
           <% end %>
         </ul>
       </div>
-    <%# end %>
+    <% end %>
   </div>
 
 <% end %>

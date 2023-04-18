@@ -3,6 +3,3 @@ var $orderFilterInput = $('.order_filter');
 
 $proposals.html('<%= j(render partial: "proposals").strip.html_safe %>');
 $orderFilterInput.val('<%= order %>');
-
-var $dropdownMenu = $('.dropdown.menu', $proposals);
-$dropdownMenu.foundation();
