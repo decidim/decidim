@@ -37,13 +37,16 @@ edit_link(
           <%= render partial: "vote_cabin", locals: { initiative: current_initiative } %>
         </div>
       <% end %>
-    <%= render partial: "progress_bar" %>
     <% else %>
       <%= link_to t(".edit"),
           edit_initiative_path(current_initiative),
-          class: "button button__lg button__secondary" %>
+          class: "button button__xl w-full button__secondary" %>
       <%= render partial: "send_to_technical_validation", locals: { title: t(".send_to_technical_validation"), confirm: t(".confirm")} %>
     <% end %>
+
+    <div class="my-4">
+      <%= render partial: "progress_bar" %>
+    </div>
 
     <%= render partial: "initiative_badge", locals: { initiative: current_initiative } %>
 
