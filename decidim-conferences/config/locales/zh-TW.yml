@@ -1,1 +1,8 @@
+---
 zh-TW:
+  decidim:
+    conferences:
+      admin:
+        conference_invites:
+          new:
+            explanation: 參加者將被邀請加入會議。如果他們的電子郵件尚未註冊，他們也會被邀請加入該組織。
