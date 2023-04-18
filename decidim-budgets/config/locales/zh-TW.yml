@@ -260,10 +260,75 @@ zh-TW:
           close_modal: 關閉視窗
           filter: 篩選
           filter_by: 篩選條件
+          unfold: 展開
+        index:
+          view_project: 檢視專案
+        order_progress:
+          vote: 投票
+        order_selected_projects:
+          remove: 移除
+          selected_projects:
+            other: 已選擇的專案
+          view: 檢視
+        orders:
+          highest_cost: 最高成本
+          label: 專案排序方式
+          lowest_cost: 最低成本
+          most_voted: 最高票
+          random: 隨機順序
+          selected: 已選取
+        project:
+          add: 將專案 %{resource_name} 添加到您的投票中。
+          remove: 從您的投票中移除專案 %{resource_name}。
+          selected: 已選取
+          view: 檢視
+          votes:
+            other: 投票
+          you_voted: 你已投票支持此
+        project_budget_button:
+          add: 加入您的投票
+          add_descriptive: 將專案 %{resource_name} 加入您的投票。
+          added: 加入您的投票
+          added_descriptive: 將專案 %{resource_name} 加入您的投票。
+        projects_for: 專案 %{name}
+        show:
+          budget: 預算
+          view_all_projects: 檢視所有專案
+      vote_reminder_mailer:
+        vote_reminder:
+          email_budgets: '您有尚未完成投票的領域:'
+          email_intro: 你已開始參與預算投票，但尚未完成。
+          email_link: 繼續投票
+          email_outro: 請記得完成投票。投票前，您必須先選擇要投票的提案，然後按下「投票」按鈕確認投票。
+          email_subject:
+            other: 你在參與式預算投票中有一個未完成的投票。
     components:
       budgets:
+        actions:
+          comment: 評論
+          vote: 投票
+        name: 預算
         settings:
           global:
+            announcement: 公告
+            comments_enabled: 啟用評論功能
+            comments_max_length: 評論字數最大長度(若要使用預設值請輸入0)
+            form:
+              errors:
+                budget_voting_rule_only_one: 僅能啟用一個投票規則。
+                budget_voting_rule_required: 必須啟用一種投票規則
+            geocoding_enabled: 地理編碼已啟用
+            landing_page_content: 預算網頁首頁
+            more_information_modal: 更多資訊彈出式視窗
+            projects_per_page: 每頁顯示專案
+            resources_permissions_enabled: 可為每個專案設定動作權限
+            scope_id: 範圍
+            scopes_enabled: 啟用範圍
+            title: 標題
+            total_budget: 總預算
+            vote_minimum_budget_projects_number: 最少需要投票的專案數量
+            vote_rule_minimum_budget_projects_enabled: '啟用規則：投票時需要投票的最少專案數量'
+            vote_rule_selected_projects_enabled: '啟用規則：最少和最多投票方案數量限制'
             vote_rule_threshold_percent_enabled: '啟用規則: 最低預算百分比'
             vote_selected_projects_maximum: 最多可以選擇的專案數量
             vote_selected_projects_minimum: 最少可以選擇的專案數量
@@ -284,3 +349,27 @@ zh-TW:
             votes: 投票
             votes_choices:
               disabled: 投票已停用
+              enabled: 已啟用投票
+              finished: 投票已結束
+    events:
+      budgets:
+        budget_published:
+          email_intro: '現在 %{participatory_space_title} 的 %{resource_title} 預算已啟動，您可以從此頁面查看:'
+          email_outro: 你收到此通知是因為你正在追蹤 %{participatory_space_title}。你可以透過前面的連結停止接收通知。
+          email_subject: '%{participatory_space_title}」現在啟用了「%{resource_title}」預算。'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> 預算現在已經在 %{participatory_space_title} 上啟動
+    orders:
+      checkout:
+        error: 處理您的投票時出現問題。
+        success: 您的投票已成功接受。
+      destroy:
+        error: 取消您的投票時出現問題
+        success: 您的投票已成功取消。
+    resource_links:
+      included_proposals:
+        project_proposal: 此專案中包括的提案
+    statistics:
+      orders_count: 支援
+      projects_count: 專案
+  index:
+    confirmed_orders_count: 投票數
