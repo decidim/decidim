@@ -130,6 +130,8 @@ zh-TW:
       order_summary_mailer:
         order_summary:
           selected_projects: '你選擇的專案如下：'
+          subject: 您已經在 %{space_name} 參與空間投票
+          voted_on_space: 您已對「%{space_name}」參與空間的「%{budget_name}」預算進行投票。
       projects:
         budget_summary:
           projects_rule:
