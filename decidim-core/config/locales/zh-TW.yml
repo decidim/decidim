@@ -1,1 +1,28 @@
+---
 zh-TW:
+  activemodel:
+    attributes:
+      user:
+        tos_agreement: 使用協議的條款和條件
+  decidim:
+    account:
+      email_change:
+        body1: 我們已經發送了一封郵件到 %{unconfirmed_email}，以驗證您的新電子郵件地址。
+        resend_successfully: 確認郵件已成功重新發送至 %{unconfirmed_email}
+      show:
+        available_locales_helper: 選擇您想要使用的語言來瀏覽平台並接收通知
+    admin:
+      password_change:
+        alert: 你需要更改你的密碼才能繼續進行操作。
+    events:
+      nickname_event:
+        notification_body: 我們已更正暱稱使用的方式，以避免重複，所以我們已經移除了大小寫敏感的規則。<br/>你的暱稱是在已有同名暱稱之後創建的，因此我們已經自動重新命名。你可以從<a href="%{link_to_account_settings}">帳戶設置</a>更改它。
+    forms:
+      upload_help:
+        dropzone: 拖曳文件至此處或點擊上傳
+    groups:
+      leave:
+        last_admin: 你無法從這個群組中移除自己，因為你是唯一的管理員。請先讓另一位成員成為管理員，然後才能離開該群組。
+    notifications_settings:
+      show:
+        allow_push_notifications: 當您不在平台上時，接收推播通知以了解正在發生的事情。您可以隨時關閉。
