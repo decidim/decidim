@@ -22,8 +22,8 @@ edit_link(
   <div class="column">
     <div class="callout secondary">
       <p>
-        <%= t ".any_vote_method" if current_initiative.any_signature_type? %>
-        <%= t ".offline_method" if current_initiative.offline_signature_type? %>
+        <%= t("any_vote_method", scope: "decidim.initiatives.initiatives.show") if current_initiative.any_signature_type? %>
+        <%= t("offline_method", scope: "decidim.initiatives.initiatives.show") if current_initiative.any_signature_type? %>
       </p>
     </div>
   </div>

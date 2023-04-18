@@ -1,4 +1,3 @@
-
 <% if Decidim::Initiatives.creation_enabled %>
   <% if current_user && available_initiative_types.size > 1 %>
     <%= link_to create_initiative_path(:select_initiative_type), class: "title-action__action button button__xl button__secondary w-full" do %>
