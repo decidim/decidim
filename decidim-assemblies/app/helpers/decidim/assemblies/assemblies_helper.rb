@@ -60,8 +60,8 @@ module Decidim
       end
 
       # Items to display in the navigation of a process
-      def assembly_nav_items
-        components = current_participatory_space.components.published.or(Decidim::Component.where(id: try(:current_component)))
+      def assembly_nav_items(participatory_space)
+        components = participatory_space.components.published.or(Decidim::Component.where(id: try(:current_component)))
 
         [
           {
