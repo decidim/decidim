@@ -14,5 +14,6 @@ module Decidim::Assemblies
     let(:hashtag) { nil }
 
     include_examples "participatory space dropdown metadata cell"
+    include_examples "participatory space dropdown metadata cell hashtag"
   end
 end

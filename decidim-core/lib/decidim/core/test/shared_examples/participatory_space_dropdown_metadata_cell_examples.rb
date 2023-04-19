@@ -7,22 +7,6 @@ shared_examples_for "participatory space dropdown metadata cell" do
     expect(subject).to have_content(translated(model.title))
   end
 
-  context "when the hashtag is blank" do
-    let(:hashtag) { nil }
-
-    it "does not render the hashtag symbol" do
-      expect(subject).to have_no_content("#")
-    end
-  end
-
-  context "when the hashtag is present" do
-    let(:hashtag) { "space_is_the_place" }
-
-    it "renders the hashtag" do
-      expect(subject).to have_link("#space_is_the_place")
-    end
-  end
-
   context "when there is a component" do
     let(:manifest_name) { "dummy" }
     let(:manifest) { Decidim.find_component_manifest(manifest_name) }
@@ -92,6 +76,24 @@ shared_examples_for "participatory space dropdown metadata cell" do
       it "renders the activities related with the component" do
         expect(subject).to have_css("div.activity__container")
       end
+    end
+  end
+end
+
+shared_examples_for "participatory space dropdown metadata cell hashtag" do
+  context "when the hashtag is blank" do
+    let(:hashtag) { nil }
+
+    it "does not render the hashtag symbol" do
+      expect(subject).to have_no_content("#")
+    end
+  end
+
+  context "when the hashtag is present" do
+    let(:hashtag) { "space_is_the_place" }
+
+    it "renders the hashtag" do
+      expect(subject).to have_link("#space_is_the_place")
     end
   end
 end
