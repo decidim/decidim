@@ -1,4 +1,5 @@
 module.exports = { // eslint-disable-line
+  "extends": ["stylelint-prettier/recommended"],
   "rules": {
     "at-rule-empty-line-before": [
       "always",
@@ -95,7 +96,7 @@ module.exports = { // eslint-disable-line
     "selector-type-no-unknown": true,
     "shorthand-property-no-redundant-values": true,
     "string-no-newline": true,
-    "unit-no-unknown": true,
+    "unit-no-unknown": true
   },
   "overrides": [
     {
