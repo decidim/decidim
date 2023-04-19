@@ -1180,7 +1180,7 @@ bg:
       widget:
         see_more: Виж още
   locale:
-    name: Английски
+    name: български език
   password_validator:
     domain_included_in_password: е твърде подобно на името на домейна
     email_included_in_password: е твърде подобно на Вашата ел. поща
