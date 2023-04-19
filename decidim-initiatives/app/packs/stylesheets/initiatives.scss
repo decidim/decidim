@@ -73,6 +73,42 @@
       @apply text-white font-normal;
     }
   }
+
+  &__aside{
+    @apply p-6 w-full;
+  }
+
+  &__aside__element{
+    @apply mb-20;
+  }
+
+  &__aside__element__committee{
+    @apply mb-4 flex items-center;
+  }
+
+  &__aside__element__data{
+    @apply ml-2 mb-4 pb-4 border-b border-gray-3;
+  }
+
+  &__aside__element__data-title{
+    @apply text-gray-2 font-semibold text-sm mb-2;
+  }
+
+  &__aside__element__data-text{
+    @apply text-sm font-normal text-gray-2 block;
+  }
+
+  &__aside__element-title{
+    @apply inline-block text-gray-2 font-bold text-md align-middle;
+  }
+
+  &__aside__element__signature{
+    @apply mb-20 bg-white rounded py-4 px-8;
+  }
+
+  &__aside__element__signature-title{
+    @apply text-sm text-gray-2 font-semibold mb-4 block;
+  }
 }
 
 #initiatives .card__grid{

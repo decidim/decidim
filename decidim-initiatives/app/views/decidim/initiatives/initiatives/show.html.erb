@@ -30,7 +30,7 @@ edit_link(
 <% end %>
 
 <%= content_for :aside do %>
-  <div class="p-6 w-full">
+  <div class="initiative__aside">
     <% if current_initiative.published? || current_initiative.rejected? || current_initiative.accepted? %>
       <% if current_initiative.votes_enabled? %>
         <div class="mb-4" id="initiative-<%= current_initiative.id %>-vote-cabin">
@@ -44,12 +44,12 @@ edit_link(
       <%= render partial: "send_to_technical_validation", locals: { title: t(".send_to_technical_validation"), confirm: t(".confirm")} %>
     <% end %>
 
-    <div class="my-20">
+    <div class="initiative__aside__element">
       <%= render partial: "progress_bar" %>
     </div>
 
-    <div class="my-20 bg-white rounded py-4 px-8">
-      <span class="text-sm text-gray-2 font-semibold mb-4 block">
+    <div class="initiative__aside__element__signature">
+      <span class="initiative__aside__element__signature-title">
         <%= t("signature_collection", scope: "decidim.initiatives.initiatives.show") %>
       </span>
       <div class="mb-2">
@@ -62,56 +62,60 @@ edit_link(
       </div>
     </div>
 
-    <div class="my-20">
+    <div class="initiative__aside__element">
       <div class="mb-4">
         <%= icon "apps-line", class: "fill-gray inline-block" %>
-        <span class="inline-block text-gray-2 font-bold text-md align-middle">
+        <span class="initiative__aside__element-title">
           <%= t("initiative_data", scope: "decidim.initiatives.initiatives.show") %>
         </span>
       </div>
 
-      <div class="ml-2 mb-4 pb-4 border-b border-gray-3">
-        <p class="text-gray-2 font-semibold text-sm mb-2">
+      <div class="initiative__aside__element__data">
+        <p class="initiative__aside__element__data-title">
           <%= t("state", scope: "decidim.initiatives.initiatives.show") %>
         </p>
-        <span class="text-sm font-normal text-gray-2 block"><%= render partial: "initiative_badge", locals: { initiative: current_initiative } %></span>
+        <span class="initiative__aside__element__data-text"><%= render partial: "initiative_badge", locals: { initiative: current_initiative } %></span>
       </div>
 
-      <div class="ml-2 mb-4 pb-4 border-b border-gray-3">
-        <p class="text-gray-2 font-semibold text-sm mb-2">
+      <div class="initiative__aside__element__data">
+        <p class="initiative__aside__element__data-title">
           <%= t("scope", scope: "decidim.initiatives.initiatives.show") %>
         </p>
-        <span class="text-sm font-normal text-gray-2 block"><%= render partial: "tags_scope", locals: { resource: current_initiative } %></span>
+        <span class="initiative__aside__element__data-text"><%= render partial: "tags_scope", locals: { resource: current_initiative } %></span>
       </div>
 
-      <div class="ml-2 mb-4 pb-4 border-b border-gray-3">
-        <p class="text-gray-2 font-semibold text-sm mb-2">
+      <div class="initiative__aside__element__data">
+        <p class="initiative__aside__element__data-title">
           <%= t("type", scope: "decidim.initiatives.initiatives.show") %>
         </p>
-        <%= render partial: "tags_type", locals: { resource: current_initiative } %>
+        <span class="initiative__aside__element__data-text">
+          <%= render partial: "tags_type", locals: { resource: current_initiative } %>
+        </span>
       </div>
 
       <% if current_initiative.area %>
-        <div class="ml-2 mb-4 pb-4 border-b border-gray-3">
-          <p class="text-gray-2 font-semibold text-sm mb-2">
+        <div class="initiative__aside__element__data">
+          <p class="initiative__aside__element__data-title">
             <%= t("area", scope: "decidim.initiatives.initiatives.show") %>
           </p>
-          <%= render partial: "tags_area", locals: { resource: current_initiative } %>
+          <span class="initiative__aside__element__data-text">
+            <%= render partial: "tags_area", locals: { resource: current_initiative } %>
+          </span>
         </div>
       <% end %>
     </div>
 
-    <div class="my-20">
-      <div class="mb-4 flex items-center">
+    <div class="initiative__aside__element">
+      <div class="initiative__aside__element__committee">
         <%= icon "account-circle-line", class: "fill-gray inline-block" %>
-        <span class="ml-2 inline-block text-gray-2 font-bold text-md align-middle">
+        <span class="ml-2 initiative__aside__element-title">
           <%= t("title", scope: "decidim.initiatives.admin.committee_requests.index") %>
         </span>
-        <%= icon "file-copy-line", class: "ml-auto fill-secondary inline-block" %>
+        <%= icon_link_to "file-copy-line", decidim_initiatives.new_initiative_committee_request_url(current_initiative), "test", class: "ml-auto fill-secondary inline-block" %>
       </div>
       <% if current_initiative.type.promoting_committee_enabled? %>
         <% if current_initiative.committee_members.empty? %>
-          <span class="text-md font-normal text-gray-2 inline-block align-middle ml–2">
+          <span class="initiative__aside__element__data-text">
             <%= t("no_members_yet", scope: "decidim.initiatives.admin.committee_requests.index") %>
           </span>
         <% end %>
