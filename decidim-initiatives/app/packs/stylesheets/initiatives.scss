@@ -80,6 +80,19 @@
 
   &__aside__element{
     @apply mb-20;
+
+    .profile__user-nick,
+    .profile__user-role{
+      @apply hidden;
+    }
+
+    .profile__user-avatar-container{
+      @apply w-6 h-6;
+    }
+
+    .profile__user-name{
+      @apply text-sm ml-2;
+    }
   }
 
   &__aside__element__committee{

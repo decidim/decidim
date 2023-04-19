@@ -31,18 +31,20 @@ edit_link(
 
 <%= content_for :aside do %>
   <div class="initiative__aside">
-    <% if current_initiative.published? || current_initiative.rejected? || current_initiative.accepted? %>
-      <% if current_initiative.votes_enabled? %>
-        <div class="mb-4" id="initiative-<%= current_initiative.id %>-vote-cabin">
-          <%= render partial: "vote_cabin", locals: { initiative: current_initiative } %>
-        </div>
+    <div class="initiative__aside__element">
+      <% if current_initiative.published? || current_initiative.rejected? || current_initiative.accepted? %>
+        <% if current_initiative.votes_enabled? %>
+          <div class="mb-4" id="initiative-<%= current_initiative.id %>-vote-cabin">
+            <%= render partial: "vote_cabin", locals: { initiative: current_initiative } %>
+          </div>
+        <% end %>
+      <% else %>
+        <%= link_to t(".edit"),
+            edit_initiative_path(current_initiative),
+            class: "button button__xl w-full button__secondary" %>
+        <%= render partial: "send_to_technical_validation", locals: { title: t(".send_to_technical_validation"), confirm: t(".confirm")} %>
       <% end %>
-    <% else %>
-      <%= link_to t(".edit"),
-          edit_initiative_path(current_initiative),
-          class: "button button__xl w-full button__secondary" %>
-      <%= render partial: "send_to_technical_validation", locals: { title: t(".send_to_technical_validation"), confirm: t(".confirm")} %>
-    <% end %>
+    </div>
 
     <div class="initiative__aside__element">
       <%= render partial: "progress_bar" %>
@@ -123,23 +125,6 @@ edit_link(
           <div class="author" data-id="<%= request.id %>">
             <div class="profile__group__list">
               <%= card_for request.user %>
-              <% if allowed_to? :approve, :initiative_committee_member, initiative: current_initiative, request: request %>
-                <%= icon_link_to "forbid-line",
-                                approve_initiative_committee_request_path(current_initiative, request),
-                                t("approve", scope: "decidim.initiatives.admin.committee_requests.index"),
-                                class: "action-icon--check" %>
-              <% end %>
-              <% if allowed_to? :revoke, :initiative_committee_member, initiative: current_initiative, request: request %>
-                <%= link_to(
-                        revoke_initiative_committee_request_path(current_initiative, request),
-                        method: :delete,
-                        data: { confirm: t("confirm_revoke", scope: "decidim.initiatives.admin.committee_requests.index"), },
-                        class: "button button__sm button__transparent-secondary"
-                      ) do %>
-                        <span><%= t("decidim.group_admins.actions.demote_admin") %></span>
-                        <%= icon "forbid-line" %>
-                      <% end %>
-              <% end %>
             </div>
           </div>
         <% end %>
