@@ -86,3 +86,28 @@ zh-TW:
             success: "@%{user} 已經成功被接受為協作者"
           access_requested:
             success: 您的合作請求已成功送出。
+          rejected_request:
+            success: "@%{user} 已被成功拒絕成為協作者。"
+        show:
+          info-message: 這是一份提案的<strong>共同合作稿件</strong>，這表示您可以使用下面的評論區幫助作者們塑造提案，或直接請求編輯權限以對其進行改進。一旦作者們授予您訪問權限，您便可以對此起草稿進行更改。
+      last_activity:
+        new_proposal_at_html: "<span>在 %{link} 有新提案</span>"
+        proposal_updated_at_html: "<span>提案已更新%{link}</span>"
+      new:
+        limit_reached: 你已經超過了提案數量的限制，因此無法創建新的提案。
+      proposals:
+        proposals:
+          empty: 目前沒有提案
+          empty_filters: 沒有符合這個條件的提案
+        show:
+          endorsements_list: 推薦列表
+        voting_rules:
+          minimum_votes_per_user:
+            given_enough_votes: 您已經提供足夠的支持。
+          threshold_per_proposal:
+            description: 為了讓提案被認可，需要達到%{limit} 個支持票數
+      proposals_picker:
+        no_proposals: 沒有符合您的搜尋條件的提案，或者目前沒有任何提案。
+      withdraw:
+        errors:
+          has_supports: 這份提案無法撤回，因為它已經得到支持。
