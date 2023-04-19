@@ -1757,7 +1757,7 @@ hu:
         see_more: Tovább
   locale:
     name: Magyar
-    name_with_error: Angol (hiba!)
+    name_with_error: Magyar (hiba!)
   password_validator:
     blacklisted: tiltólistára került
     domain_included_in_password: túl hasonló a domain névhez
