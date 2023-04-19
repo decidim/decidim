@@ -700,7 +700,6 @@ en:
             error: Could not be rejected as a collaborator, please try again later.
             success: "@%{user} has been successfully rejected as a collaborator"
         show:
-          back: Back
           edit: Edit collaborative draft
           final_proposal: final proposal
           final_proposal_help_text: This draft is finished. Check out the final proposal
@@ -713,7 +712,6 @@ en:
           published_proposal: published proposal
           request_access: Request access
           requested_access: Access requested
-          version_history: see version history for this proposal
           withdraw: withdraw the draft
         states:
           open: Open
@@ -724,7 +722,6 @@ en:
           success: Collaborative draft successfully updated.
         wizard_aside:
           back_from_collaborative_draft: Back to collaborative drafts
-          info: You are creating a <strong>collaborative draft</strong>.
         wizard_header:
           title: Create your collaborative draft
       content_blocks:
@@ -740,11 +737,6 @@ en:
         new_proposal: 'New proposal:'
         proposal_updated: 'Proposal updated:'
       models:
-        collaborative_draft:
-          fields:
-            authors: Authors
-            comments: Comments
-            contributions: Contributions
         proposal:
           fields:
             category: Category
