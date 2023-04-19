@@ -646,9 +646,6 @@ en:
               ok: Withdraw the collaborative draft
               title: The following action is irreversible
             success: Collaborative draft withdrawn successfully.
-        name: Collaborative drafts
-        empty: There is no collaborative drafts yet
-        empty_filters: There is no collaborative draft with this criteria
         create:
           error: There was a problem creating this collaborative draft.
           success: Collaborative draft successfully created.
@@ -658,6 +655,8 @@ en:
           select_a_category: Please select a category
           send: Send
           title: Edit collaborative draft
+        empty: There is no collaborative drafts yet
+        empty_filters: There is no collaborative draft with this criteria
         filters:
           all: All
           amendment: Amendments
@@ -674,6 +673,7 @@ en:
           filter: Filter
           filter_by: Filter by
           unfold: Unfold
+        name: Collaborative drafts
         new:
           add_file: Add file
           edit_file: Edit file
