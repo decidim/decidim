@@ -13,16 +13,7 @@ module Decidim
 
       private
 
-      def nav_items
-        return super unless try(:conference_nav_items)
-
-        # Correct the conference_nav_items to avoid this hack using the correct
-        # keys
-        conference_nav_items.map do |item|
-          item[:url] = item.delete :path
-          item
-        end
-      end
+      def nav_items_method = :conference_nav_items
     end
   end
 end
