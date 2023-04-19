@@ -71,10 +71,14 @@ edit_link(
   </div>
 </div>
 
-<%= cell "decidim/share_button", nil %>
-<% if current_user %>
-  <%= render partial: "decidim/shared/follow_button", class: "text-center", locals: { followable: current_participatory_space, large: true } %>
-<% end %>
+<div class="my-4 flex gap-x-1 items-center">
+  <div class="ml-auto">
+    <%= cell "decidim/share_button", nil %>
+    <% if current_user %>
+      <%= render partial: "decidim/shared/follow_button", class: "text-center", locals: { followable: current_participatory_space, large: true } %>
+    <% end %>
+  </div>
+</div>
 
 <%= comments_for current_initiative if current_initiative.commentable? && current_initiative.published? %>
 
