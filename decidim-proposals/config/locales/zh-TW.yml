@@ -1,1 +1,94 @@
 zh-TW:
+  activemodel:
+    attributes:
+      proposals_copy:
+        copy_proposals: 我明白這將會將選定的元件中的所有提案匯入到目前的元件，而且這個動作是無法撤銷的。
+    errors:
+      models:
+        participatory_text:
+          attributes:
+            document:
+              invalid_document_type: '文件類型無效。接受的格式為： %{valid_mime_types}'
+  decidim:
+    components:
+      proposals:
+        settings:
+          step:
+            publish_answers_immediately_help_html: '請注意，如果您在未啟用此功能的情況下回答任何提案，您將需要手動選擇它們並使用發布操作進行發布。有關此操作的更多信息，請參閱 <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">提案答案文檔頁面</a>。'
+    events:
+      proposals:
+        admin:
+          proposal_note_created:
+            email_intro: 有人在提案「%{resource_title}」上留了一則留言。在<a href="%{admin_proposal_info_url}">管理員面板</a>檢查它。
+            notification_title: 有人在提案「<a href="%{resource_path}">%{resource_title}</a>」上留了一則留言。請至<a href="%{admin_proposal_info_path}">管理面板</a>查看。
+        creation_enabled:
+          notification_title: 現在您可以在<a href="%{participatory_space_url}">%{participatory_space_title}</a>中提出<a href="%{resource_path}">新提案</a>。
+        endorsing_enabled:
+          notification_title: 現在您可以在<a href="%{participatory_space_url}">%{participatory_space_title}</a>中開始<a href="%{resource_path}">支持提案</a>。
+        proposal_accepted:
+          follower:
+            email_subject: 您追蹤的提案已被接受
+        proposal_evaluating:
+          follower:
+            email_subject: 你追蹤的提案正在評估中
+        proposal_published_for_space:
+          notification_title: '%{author} 將提案<a href="%{resource_path}">%{resource_title}</a>新增至%{participatory_space_title}'
+          notification_title_official: 官方提案 <a href="%{resource_path}">%{resource_title}</a> 已經被添加到 %{participatory_space_title}
+        proposal_rejected:
+          follower:
+            email_subject: 您追蹤的提案已被拒絕
+    gamification:
+      badges:
+        proposal_votes:
+          unearned_another: 這位參與者尚未對任何提案表示支持。
+        proposals:
+          unearned_another: 這位參與者還沒有建立任何提案。
+    proposals:
+      admin:
+        participatory_texts:
+          publish:
+            invalid: 無法發佈提案
+            success: 所有提案已經發佈
+        proposal_notes:
+          create:
+            error: 建立提案備註時發生問題
+            success: 提案註記已成功建立
+        proposals:
+          answer:
+            invalid: 回答這個提案時出現了問題
+            success: 提案回覆成功
+          create:
+            invalid: 創建提案時發生問題
+            success: 提案已成功建立
+          publish_answers:
+            select_a_proposal: 請選擇一個提案。
+          update_category:
+            select_a_proposal: 請選擇一個提案。
+          update_scope:
+            select_a_proposal: 請選擇一個提案。
+            select_a_scope: 請選擇一個範圍。
+        proposals_imports:
+          create:
+            invalid: 匯入提案時發生問題
+            success: "%{number} 個提案成功匯入"
+        valuation_assignments:
+          create:
+            invalid: 有一個錯誤在指定提案給評估者。
+            success: 提案已成功分配給評估人員
+          delete:
+            invalid: 取消指派建議書給評估人員時發生錯誤
+            success: 評估員已成功取消分配提案
+      application_helper:
+        filter_origin_values:
+          citizens: 公民
+      collaborative_drafts:
+        collaborative_draft:
+          publish:
+            irreversible_action_modal:
+              body: 將草案發布為提案後，草案將無法再進行編輯。該提案將不再接受新的作者或貢獻。
+          withdraw:
+            irreversible_action_modal:
+              body: 關閉草案後，該草案將無法再進行編輯。草案也不再接受新的作者或貢獻。
+        requests:
+          accepted_request:
+            success: "@%{user} 已經成功被接受為協作者"
