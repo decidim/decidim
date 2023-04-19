@@ -1,1 +1,21 @@
 zh-TW:
+  activemodel:
+    errors:
+      models:
+        participatory_process:
+          attributes:
+            document:
+              invalid_document_type: '文件類型無效。接受的格式為： %{valid_mime_types}'
+  decidim:
+    admin:
+      participatory_process_steps:
+        destroy:
+          error:
+            active_step: 無法刪除進行中的階段。
+            last_step: 無法刪除流程的最後一階段。
+    participatory_processes:
+      participatory_processes:
+        filters:
+          explanations:
+            no_active: '"沒有進行中的流程'
+            no_active_nor_upcoming: 沒有進行中或即將開始的流程
