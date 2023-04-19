@@ -25,7 +25,7 @@
     <%= present(@collaborative_draft).title(links: true, html_escape: true) %>
   </h2>
 
-  <%= cell("decidim/coauthorships", @collaborative_draft, has_actions: true, size: 3, context: { current_user: current_user }) %>
+  <%= cell("decidim/coauthorships", @collaborative_draft, has_actions: true, size: 3, context: { current_user: }) %>
 </div>
 
 <div class="row">

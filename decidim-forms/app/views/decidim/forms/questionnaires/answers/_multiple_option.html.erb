@@ -6,7 +6,7 @@
       <%= label_tag do %>
         <%= check_box_tag "questionnaire[responses][#{answer_idx}][choices][#{idx}][body]",
                           translated_attribute(answer_option.body),
-                          choice.present?, disabled: disabled %>
+                          choice.present?, disabled: %>
 
         <%= translated_attribute(answer_option.body) %>
 
@@ -17,7 +17,7 @@
         <%= text_field_tag "questionnaire[responses][#{answer_idx}][choices][#{idx}][custom_body]",
             choice.try(:custom_body),
             disabled: true,
-            maxlength: maxlength,
+            maxlength:,
             class: "w-full" %>
       <% end %>
     </div>

@@ -30,7 +30,7 @@
             <% end %>
 
             <% if question.results.blank_answers.any? %>
-              <%= render view: :blank_votes, locals: { question: question } %>
+              <%= render view: :blank_votes, locals: { question: } %>
             <% end %>
           </div>
         </li>
