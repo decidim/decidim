@@ -1,1 +1,9 @@
+---
 zh-TW:
+  decidim:
+    surveys:
+      last_activity:
+        new_survey_at_html: "<span>在 %{link} 上有新的調查</span>"
+      surveys:
+        answer:
+          spam_detected: 填寫表單時發生問題。也許您填寫得太快了，可以再試一次嗎?
