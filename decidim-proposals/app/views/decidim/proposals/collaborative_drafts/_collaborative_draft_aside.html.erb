@@ -1,0 +1,41 @@
+<div class="proposal__aside-container">
+  <% if allowed_to?(:publish, :collaborative_draft, collaborative_draft: @collaborative_draft) %>
+    <div>
+      <%= cell "decidim/proposals/irreversible_action_modal", @collaborative_draft, action: :publish %>
+
+      <div class="mt-2 text-center">
+        <%= t("publish_info", scope:"decidim.proposals.collaborative_drafts.show") %>
+        <%= cell "decidim/proposals/irreversible_action_modal", @collaborative_draft, action: :withdraw %>
+      </div>
+    </div>
+  <% end %>
+
+  <% if @collaborative_draft.published? %>
+    <%= cell "decidim/proposals/collaborative_draft_link_to_proposal", @collaborative_draft %>
+  <% else %>
+    <div class="flex flex-col items-center">
+      <%= resource_version_number(@collaborative_draft.versions_count, "h4") %>
+      <span class="text-gray-2"><%= resource_version_of(@collaborative_draft.versions_count) %></span>
+    </div>
+  <% end %>
+
+  <% if allowed_to?(:edit, :collaborative_draft, collaborative_draft: @collaborative_draft) %>
+    <%= link_to t("edit", scope:"decidim.proposals.collaborative_drafts.show"), edit_collaborative_draft_path(@collaborative_draft), class: "button button__lg button__secondary w-full", id: "collaborative_draft_edit" %>
+  <% end %>
+
+  <%= render "request_access_form" %>
+
+  <% if @collaborative_draft.requesters.include? current_user %>
+    <button type="button" class="button button__lg button__secondary" disabled>
+      <%= t("requested_access", scope:"decidim.proposals.collaborative_drafts.show") %>
+    </button>
+  <% end %>
+
+  <%= render partial: "collaborator_requests" %>
+
+  <div class="proposal__aside-actions">
+    <%= follow_button_for(@collaborative_draft) %>
+    <%= cell "decidim/share_button", nil %>
+    <%= cell "decidim/report_button", @collaborative_draft %>
+  </div>
+</div>
