@@ -17,6 +17,15 @@ module Decidim
         )
       end
 
+      def collaborative_drafts_state_class(type)
+        case type
+        when "withdrawn"
+          "alert"
+        when "published"
+          "success"
+        end
+      end
+
       def accept_request_button_label
         t("accept_request", scope: "decidim.proposals.collaborative_drafts.requests.collaboration_requests")
       end

@@ -28,14 +28,10 @@ module Decidim
 
       def state_class
         case state
-        when "accepted"
-          "success"
-        when "rejected", "withdrawn"
+        when "withdrawn"
           "alert"
-        when "evaluating"
-          "warning"
-        else
-          "muted"
+        when "published"
+          "success"
         end
       end
     end
