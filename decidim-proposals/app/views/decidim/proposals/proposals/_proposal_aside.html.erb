@@ -14,12 +14,12 @@
     </div>
   <% end %>
 
+  <%= cell "decidim/proposals/proposal_link_to_collaborative_draft", @proposal %>
+  <%= cell "decidim/proposals/proposal_link_to_rejected_emendation", @proposal %>
+
   <div class="proposal__aside-actions">
     <%= follow_button_for(@proposal) %>
     <%= cell "decidim/share_button", nil %>
     <%= cell "decidim/report_button", @proposal %>
   </div>
-
-  <%= cell "decidim/proposals/proposal_link_to_collaborative_draft", @proposal %>
-  <%= cell "decidim/proposals/proposal_link_to_rejected_emendation", @proposal %>
 </div>
