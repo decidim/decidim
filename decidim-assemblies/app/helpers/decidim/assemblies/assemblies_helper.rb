@@ -59,7 +59,7 @@ module Decidim
         html.html_safe
       end
 
-      # Items to display in the navigation of a process
+      # Items to display in the navigation of an assembly
       def assembly_nav_items(participatory_space)
         components = participatory_space.components.published.or(Decidim::Component.where(id: try(:current_component)))
 
