@@ -1,1 +1,14 @@
 zh-TW:
+  decidim:
+    sortitions:
+      admin:
+        sortitions:
+          create:
+            success: 排序成功建立
+          destroy:
+            error: 無法取消抽籤。
+            success: 隨機抽籤已成功取消
+          new:
+            confirm: 按下「下一步」按鈕後，Decidim 將記錄日期和時間（以秒為精度），並與擲骰子結果一起使用，這些信息將用於生成隨機選擇。此操作是不可逆的，一旦點擊按鈕，這次抽選結果將與此表單中輸入的數據一起發布，並且無法修改，請仔細檢查內容。
+          update:
+            success: 抽籤成功更新
