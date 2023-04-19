@@ -9,7 +9,7 @@
     </div>
 
     <div class="row column">
-      <%= form.translated :editor, :description, toolbar: :full, lines: 8, disabled: !allowed_to?(:update, :initiative, initiative: current_initiative) %>
+      <%= form.translated :editor, :description, lines: 8, disabled: !allowed_to?(:update, :initiative, initiative: current_initiative) %>
     </div>
 
     <div class="row column">
