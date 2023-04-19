@@ -40,15 +40,10 @@ export default function createQuillEditor(container) {
   /**
    * - basic = only basic controls without titles
    * - content = basic + headings
-   * - multimedia = basic + image + video
    * - full = basic + headings + image + video
    */
   if (toolbar === "content") {
     quillToolbar = [[{ header: [2, 3, 4, 5, 6, false] }], ...quillToolbar];
-  } else if (toolbar === "multimedia") {
-    addImage = true;
-    addVideo = true;
-    quillToolbar = [...quillToolbar, ["video"], ["image"]];
   } else if (toolbar === "full") {
     addImage = true;
     addVideo = true;
