@@ -202,7 +202,6 @@ module Decidim
           toolbar: toolbar,
           disabled: options[:disabled]
         }.merge(editor_images_options(options)), style: "height: #{lines}rem")
-        template += error_for(name, options) if error?(name)
         template.html_safe
       end
     end
@@ -930,7 +929,6 @@ module Decidim
       return {} unless options[:editor_images]
 
       {
-        editor_images: true,
         upload_images_path: Decidim::Core::Engine.routes.url_helpers.editor_images_path,
         drag_and_drop_help_text: I18n.t("drag_and_drop_help", scope: "decidim.editor_images")
       }

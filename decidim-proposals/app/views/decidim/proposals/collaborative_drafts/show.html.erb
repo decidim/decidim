@@ -33,7 +33,7 @@
     <div class="section">
       <%== cell("decidim/proposals/collaborative_draft_m", @collaborative_draft, full_badge: true).badge %>
 
-      <%= simple_format(present(@collaborative_draft).body(links: true, strip_tags: true), nil, sanitize: false) %>
+      <%= decidim_sanitize_editor present(@collaborative_draft).body(links: true) %>
 
       <% if component_settings.geocoding_enabled? %>
         <%= render partial: "decidim/shared/static_map", locals: { icon_name: "proposals", geolocalizable: @collaborative_draft } %>

@@ -144,6 +144,14 @@ describe "Content pages", type: :system do
       click_link "Pages"
     end
 
+    context "when displaying the page form" do
+      before do
+        click_link "Create page"
+      end
+
+      it_behaves_like "having a rich text editor", "new_static_page", "full"
+    end
+
     it "can create new pages" do
       within ".secondary-nav" do
         click_link "Create page"
@@ -185,6 +193,16 @@ describe "Content pages", type: :system do
 
       before do
         visit current_path
+      end
+
+      context "when displaying the page form" do
+        before do
+          within find("tr", text: translated(decidim_page.title)) do
+            click_link "Edit"
+          end
+        end
+
+        it_behaves_like "having a rich text editor", "edit_static_page", "full"
       end
 
       it "can edit them" do
