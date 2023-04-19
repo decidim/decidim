@@ -1,6 +1,6 @@
 <div class="proposal__aside-container">
   <% if @proposal.amendable? && allowed_to?(:edit, :proposal, proposal: @proposal) %>
-    <%= link_to t("edit_proposal", scope: "decidim.proposals.proposals.show"), edit_proposal_path(@proposal), class: "button button__lg button__secondary w-full" %>
+    <%= link_to t("edit_proposal", scope: "decidim.proposals.proposals.show"), edit_proposal_path(@proposal), class: "button button__lg button__secondary" %>
   <% else %>
     <%= amend_button_for @proposal %>
   <% end %>
