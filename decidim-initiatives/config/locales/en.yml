@@ -391,9 +391,9 @@ en:
           more_information: "(More information)"
         select_initiative_type:
           back: Back
-          new: Create a new initiative
           choose_html: I want to create a <strong>%{title}</strong>
-          more_information: "More information"
+          more_information: More information
+          new: Create a new initiative
           select: I want to promote this initiative
           select_initiative_type_help: Initiatives are a means by which the participants can intervene so that the organization can undertake actions in defence of the general interest. Which initiative do you want to launch?
           verification_required: Verify your account to promote this initiative
@@ -550,12 +550,18 @@ en:
           initiative_rejected_reason: This initiative has been rejected due to its lack of signatures.
         show:
           any_vote_method: This initiative collects both online and in-person signatures.
+          area: area
           confirm: You are going to send the initiative for an admin to review it and publish it. Once published you will not be able to edit it. Are you sure?
           edit: Edit
           follow_description: Receive a notification when there are news in this initiative
+          initiative_data: Initiative data
           offline_method: This initiative only collects in-person signatures.
           print: Print Initiative
+          scope: Scope
           send_to_technical_validation: Send to technical validation
+          signature_collection: Signature collection
+          state: State
+          type: Type
         signatures_count:
           one: " signature"
           other: " signatures"

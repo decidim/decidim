@@ -49,7 +49,9 @@ edit_link(
     </div>
 
     <div class="my-20 bg-white rounded py-4 px-8">
-      <span class="text-sm text-gray-2 font-semibold mb-4 block">RECOLLIDA DE SIGNATURES</span>
+      <span class="text-sm text-gray-2 font-semibold mb-4 block">
+        <%= t("signature_collection", scope: "decidim.initiatives.initiatives.show") %>
+      </span>
       <div class="mb-2">
         <%= icon "community-line", class: "fill-gray inline-block" %>
         <span class="text-md font-normal text-gray-2 inline-block align-middle ml–2">Presencial</span>
@@ -63,27 +65,37 @@ edit_link(
     <div class="my-20">
       <div class="mb-4">
         <%= icon "apps-line", class: "fill-gray inline-block" %>
-        <span class="inline-block text-gray-2 font-bold text-md align-middle">Datos de la iniciativa</span>
+        <span class="inline-block text-gray-2 font-bold text-md align-middle">
+          <%= t("initiative_data", scope: "decidim.initiatives.initiatives.show") %>
+        </span>
       </div>
 
       <div class="ml-2 mb-4 pb-4 border-b border-gray-3">
-        <p class="text-gray-2 font-semibold text-sm mb-2">ESTADO</p>
+        <p class="text-gray-2 font-semibold text-sm mb-2">
+          <%= t("state", scope: "decidim.initiatives.initiatives.show") %>
+        </p>
         <span class="text-sm font-normal text-gray-2 block"><%= render partial: "initiative_badge", locals: { initiative: current_initiative } %></span>
       </div>
 
       <div class="ml-2 mb-4 pb-4 border-b border-gray-3">
-        <p class="text-gray-2 font-semibold text-sm mb-2">AMBITO</p>
+        <p class="text-gray-2 font-semibold text-sm mb-2">
+          <%= t("scope", scope: "decidim.initiatives.initiatives.show") %>
+        </p>
         <span class="text-sm font-normal text-gray-2 block"><%= render partial: "tags_scope", locals: { resource: current_initiative } %></span>
       </div>
 
       <div class="ml-2 mb-4 pb-4 border-b border-gray-3">
-        <p class="text-gray-2 font-semibold text-sm mb-2">TIPO</p>
+        <p class="text-gray-2 font-semibold text-sm mb-2">
+          <%= t("type", scope: "decidim.initiatives.initiatives.show") %>
+        </p>
         <%= render partial: "tags_type", locals: { resource: current_initiative } %>
       </div>
 
       <% if current_initiative.area %>
         <div class="ml-2 mb-4 pb-4 border-b border-gray-3">
-          <p class="text-gray-2 font-semibold text-sm mb-2">AREA</p>
+          <p class="text-gray-2 font-semibold text-sm mb-2">
+            <%= t("area", scope: "decidim.initiatives.initiatives.show") %>
+          </p>
           <%= render partial: "tags_area", locals: { resource: current_initiative } %>
         </div>
       <% end %>
@@ -92,7 +104,9 @@ edit_link(
     <div class="my-20">
       <div class="mb-4 flex items-center">
         <%= icon "account-circle-line", class: "fill-gray inline-block" %>
-        <span class="ml-2 inline-block text-gray-2 font-bold text-md align-middle">Comissió Promotora</span>
+        <span class="ml-2 inline-block text-gray-2 font-bold text-md align-middle">
+          <%= t("title", scope: "decidim.initiatives.admin.committee_requests.index") %>
+        </span>
         <%= icon "file-copy-line", class: "ml-auto fill-secondary inline-block" %>
       </div>
       <% if current_initiative.type.promoting_committee_enabled? %>
