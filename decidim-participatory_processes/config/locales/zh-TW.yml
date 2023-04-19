@@ -1,7 +1,19 @@
 ---
 zh-TW:
   decidim:
+    admin:
+      participatory_process_steps:
+        destroy:
+          error:
+            active_step: 無法刪除進行中的階段。
+            last_step: 無法刪除流程的最後一階段。
     log:
       value_types:
         participatory_process_type_presenter:
           not_found: '未在資料庫(ID：%{id}) 中找到此流程類型'
+    participatory_processes:
+      participatory_processes:
+        filters:
+          explanations:
+            no_active: '"沒有進行中的流程'
+            no_active_nor_upcoming: 沒有進行中或即將開始的流程
