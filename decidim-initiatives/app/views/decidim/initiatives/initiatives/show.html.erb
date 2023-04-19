@@ -73,13 +73,20 @@ edit_link(
 
       <div class="ml-2 mb-4 pb-4 border-b border-gray-3">
         <p class="text-gray-2 font-semibold text-sm mb-2">AMBITO</p>
-        <span class="text-sm font-normal text-gray-2 block"><%= render partial: "tags", locals: { resource: current_initiative } %></span>
+        <span class="text-sm font-normal text-gray-2 block"><%= render partial: "tags_scope", locals: { resource: current_initiative } %></span>
       </div>
 
       <div class="ml-2 mb-4 pb-4 border-b border-gray-3">
         <p class="text-gray-2 font-semibold text-sm mb-2">TIPO</p>
-        <%= render partial: "initiative_badge", locals: { initiative: current_initiative } %>
+        <%= render partial: "tags_type", locals: { resource: current_initiative } %>
       </div>
+
+      <% if current_initiative.area %>
+        <div class="ml-2 mb-4 pb-4 border-b border-gray-3">
+          <p class="text-gray-2 font-semibold text-sm mb-2">AREA</p>
+          <%= render partial: "tags_area", locals: { resource: current_initiative } %>
+        </div>
+      <% end %>
     </div>
 
     <div class="my-20">
