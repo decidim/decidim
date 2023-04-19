@@ -44,12 +44,43 @@ edit_link(
       <%= render partial: "send_to_technical_validation", locals: { title: t(".send_to_technical_validation"), confirm: t(".confirm")} %>
     <% end %>
 
-    <div class="my-4">
+    <div class="my-20">
       <%= render partial: "progress_bar" %>
     </div>
 
-    <%= render partial: "initiative_badge", locals: { initiative: current_initiative } %>
+    <div class="my-20 bg-white rounded py-4 px-8">
+      <span class="text-sm text-gray-2 font-semibold mb-4 block">RECOLLIDA DE SIGNATURES</span>
+      <div class="mb-2">
+        <%= icon "community-line", class: "fill-gray inline-block" %>
+        <span class="text-md font-normal text-gray-2 inline-block align-middle ml–2">Presencial</span>
+      </div>
+      <div class="mb-2">
+        <%= icon "device-line", class: "fill-gray inline-block" %>
+        <span class="text-md font-normal text-gray-2 inline-block align-middle ml–2">Digital</span>
+      </div>
+    </div>
 
+    <div class="my-20">
+      <div class="mb-4">
+        <%= icon "apps-line", class: "fill-gray inline-block" %>
+        <span class="inline-block text-gray-2 font-bold text-md align-middle">Datos de la iniciativa</span>
+      </div>
+
+      <div class="ml-2 mb-4 pb-4 border-b border-gray-3">
+        <p class="text-gray-2 font-semibold text-sm mb-2">ESTADO</p>
+        <span class="text-sm font-normal text-gray-2 block"><%= render partial: "initiative_badge", locals: { initiative: current_initiative } %></span>
+      </div>
+
+      <div class="ml-2 mb-4 pb-4 border-b border-gray-3">
+        <p class="text-gray-2 font-semibold text-sm mb-2">AMBITO</p>
+        <span class="text-sm font-normal text-gray-2 block"><%= render partial: "tags", locals: { resource: current_initiative } %></span>
+      </div>
+
+      <div class="ml-2 mb-4 pb-4 border-b border-gray-3">
+        <p class="text-gray-2 font-semibold text-sm mb-2">TIPO</p>
+        <%= render partial: "initiative_badge", locals: { initiative: current_initiative } %>
+      </div>
+    </div>
   </div>
 <% end %>
 
@@ -66,12 +97,6 @@ edit_link(
 
 <div class="my-4 flex gap-x-1 items-center">
   <%= cell "decidim/comments_button", nil %>
-  <div class="ml-auto">
-    <%= render partial: "tags", locals: { resource: current_initiative } %>
-  </div>
-</div>
-
-<div class="my-4 flex gap-x-1 items-center">
   <div class="ml-auto">
     <%= cell "decidim/share_button", nil %>
     <% if current_user %>

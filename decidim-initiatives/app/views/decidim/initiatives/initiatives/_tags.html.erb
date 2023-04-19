@@ -1,10 +1,5 @@
-<ul class="tags tag-container">
-  <%= icon "price-tag-3-line", class: "inline-block" %>
-  <li><%= link_to translated_attribute(resource.type.title), initiatives_path(filter: { type: [resource.type.id] }), class: 'tag' %></li>
-  <%= icon "price-tag-3-line", class: "inline-block" %>
-  <li><%= link_to translated_attribute(resource.scope_name), initiatives_path(filter: { scope_id: [resource.scope&.id] }), class: 'tag' %></li>
-  <% if resource.area %>
-    <%= icon "price-tag-3-line", class: "inline-block" %>
-    <li><%= link_to translated_attribute(resource.area_name), initiatives_path(filter: { area_id: [resource.area.id] }), class: 'tag' %></li>
-  <% end %>
-</ul>
+<span class="text-sm font-normal text-gray-2 block"><%= link_to translated_attribute(resource.type.title), initiatives_path(filter: { type: [resource.type.id] }) %></span>
+<span class="text-sm font-normal text-gray-2 block"><%= link_to translated_attribute(resource.scope_name), initiatives_path(filter: { scope_id: [resource.scope&.id] }) %></span>
+<% if resource.area %>
+  <span class="text-sm font-normal text-gray-2 block"><%= link_to translated_attribute(resource.area_name), initiatives_path(filter: { area_id: [resource.area.id] }) %></span>
+<% end %>
