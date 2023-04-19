@@ -1,1 +1,52 @@
 zh-TW:
+  activemodel:
+    attributes:
+      meeting_agenda_items:
+        duration: 持續時間
+    errors:
+      models:
+        meeting:
+          attributes:
+            iframe_embed_type:
+              not_embeddable: 這個URL無法在會議或現場活動頁面中嵌入。
+        meeting_agenda:
+          attributes:
+            base:
+              too_many_minutes: 這些項目的總時長超過了會議時間 %{count} 分鐘
+              too_many_minutes_child: 子項目的持續時間超過議程項目「%{parent_title}」的持續時間 %{count} 分鐘
+        meeting_registration_invite:
+          attributes:
+            email:
+              already_invited: 這個電子郵件帳戶已經被邀請了。
+  decidim:
+    admin:
+      filters:
+        meetings:
+          origin_eq:
+            values:
+              citizen: 市民
+              user_group: 使用者群組
+          type_eq:
+            label: 會議類型
+            values:
+              in_person: 親自
+    forms:
+      meetings:
+        attendees_count_help_text: 別忘了在您的會議中包括所有與會者的總人數，無論是現場、線上還是混合的參與者。
+    gamification:
+      badges:
+        attended_meetings:
+          unearned_another: 這個參與者還沒有參加過任何會議。
+          unearned_own: 你還沒有參加任何會議。
+    meetings:
+      admin:
+        agenda:
+          create:
+            invalid: 建立議程時發生問題
+            success: 議程成功建立
+          update:
+            invalid: 更新議程時發生問題
+            success: 議程已成功更新
+        invites:
+          index:
+            registrations_disabled: 你無法邀請參加者，因為註冊已被禁用。
