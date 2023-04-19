@@ -24,6 +24,10 @@ module Decidim
       helper_method :initiative_type
       helper_method :promotal_committee_required?
 
+      before_action :authenticate_user!
+      before_action :ensure_type_exists, only: [:previous_form, :fill_data, :show_similar_initiatives, :promotal_committee, :finish]
+      before_action :ensure_initiative_exists, only: [:fill_data, :show_similar_initiatives, :promotal_committee, :finish]
+
       def select_initiative_type
         redirect_to previous_form_create_initiative_index_path if single_initiative_type?
         @form = form(Decidim::Initiatives::SelectInitiativeTypeForm).from_params(params)
@@ -75,14 +79,29 @@ module Decidim
         end
       end
 
-      def promotal_committee_step
+      def promotal_committee
         redirect_to finish_create_initiative_index_path unless promotal_committee_required?
       end
+
+      def finish; end
 
       private
 
       def initiative_type_id
         single_initiative_type? ? current_organization_initiatives_type.first.id : session[:type_id]
+      end
+
+      def ensure_initiative_exists
+        redirect_to previous_form_create_initiative_index_path if session[:initiative_id].blank?
+      end
+
+      def ensure_type_exists
+        destination_step = single_initiative_type? ? "previous_form" : "select_initiative_type"
+
+        return if action_name == destination_step
+        return if initiative_type_id.present? && initiative_type.present?
+
+        redirect_to send("#{destination_step}_create_initiative_index_path".to_sym)
       end
 
       def similar_initiatives
