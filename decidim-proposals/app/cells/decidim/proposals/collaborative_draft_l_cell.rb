@@ -6,7 +6,6 @@ module Decidim
   module Proposals
     # This cell renders a proposal with its L-size card.
     class CollaborativeDraftLCell < Decidim::CardLCell
-
       private
 
       def metadata_cell
