@@ -81,6 +81,45 @@ edit_link(
         <%= render partial: "initiative_badge", locals: { initiative: current_initiative } %>
       </div>
     </div>
+
+    <div class="my-20">
+      <div class="mb-4 flex items-center">
+        <%= icon "account-circle-line", class: "fill-gray inline-block" %>
+        <span class="ml-2 inline-block text-gray-2 font-bold text-md align-middle">Comissió Promotora</span>
+        <%= icon "file-copy-line", class: "ml-auto fill-secondary inline-block" %>
+      </div>
+      <% if current_initiative.type.promoting_committee_enabled? %>
+        <% if current_initiative.committee_members.empty? %>
+          <span class="text-md font-normal text-gray-2 inline-block align-middle ml–2">
+            <%= t("no_members_yet", scope: "decidim.initiatives.admin.committee_requests.index") %>
+          </span>
+        <% end %>
+        <% current_initiative.committee_members.each do |request| %>
+          <div class="author" data-id="<%= request.id %>">
+            <div class="profile__group__list">
+              <%= card_for request.user %>
+              <% if allowed_to? :approve, :initiative_committee_member, initiative: current_initiative, request: request %>
+                <%= icon_link_to "forbid-line",
+                                approve_initiative_committee_request_path(current_initiative, request),
+                                t("approve", scope: "decidim.initiatives.admin.committee_requests.index"),
+                                class: "action-icon--check" %>
+              <% end %>
+              <% if allowed_to? :revoke, :initiative_committee_member, initiative: current_initiative, request: request %>
+                <%= link_to(
+                        revoke_initiative_committee_request_path(current_initiative, request),
+                        method: :delete,
+                        data: { confirm: t("confirm_revoke", scope: "decidim.initiatives.admin.committee_requests.index"), },
+                        class: "button button__sm button__transparent-secondary"
+                      ) do %>
+                        <span><%= t("decidim.group_admins.actions.demote_admin") %></span>
+                        <%= icon "forbid-line" %>
+                      <% end %>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
   </div>
 <% end %>
 
