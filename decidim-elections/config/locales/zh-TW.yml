@@ -105,8 +105,93 @@ zh-TW:
             success: 受託人成功創建
           delete:
             invalid: 移除此受託人時發生問題
+            success: 受託人已成功移除
+          update:
+            invalid: 更新 %{trustee} 受託人 時發生問題
+            success: 受託人 %{trustee} 已成功更新
+      election_m:
+        footer:
+          remaining_time:
+            one: "<strong>%{count} 小時 %{minutes} 分鐘</strong> 剩餘投票時間。"
+            other: "<strong>%{count} 小時 %{minutes} 分鐘</strong> 剩餘投票時間。"
+            zero: "<strong>%{minutes} 分鐘</strong> 剩餘投票時間。"
+      elections:
+        election_log:
+          verifiable_results:
+            description:
+              not_ready: 可驗證的選舉檔案和 SHA256 校驗和尚未提供。一旦結果公佈，您將能夠驗證此選舉。
+        results:
+          votes:
+            one: "%{count} 票"
+            other: "%{count} 票"
+            zero: "%{count} 票"
+      feedback:
+        answer:
+          spam_detected: 回答問卷時出現問題。也許您回答得太快了，可以再試一次嗎？
+      trustee_zone:
+        elections:
+          tally_steps:
+            description: 這次選舉的結果正在公告欄中計算中。為了完成這個過程，需要您作為一名受託人進行參與。
+            keys:
+              end_tally: 點票結束
+              tally:
+                cast: 投票計算完成
+                share: 計票分享
+            title: 選舉 %{election} 的點票
+          update:
+            error: 選舉狀態未更新。
+            success: '選舉狀態為: %{status}'
+        trustees:
+          show:
+            identification_keys:
+              generate_legend_3: 請確認您的電腦上沒有該文件的任何副本(例如檢查下載和桌面文件夾)。
+              submit_legend: 在遵循上述所有步驟後，請將公開身份證明金鑰發送到 Decidim 伺服器，以完成此流程。
+              upload_error:
+                invalid_format: 上傳的檔案沒有包含任何識別碼。
+                invalid_key: 上傳的檔案中無法載入身份識別金鑰。
+                invalid_public_key: 上傳檔案中的身份識別碼與 Decidim 存儲的公開身份識別碼不匹配。
+              upload_legend: Decidim已經有您的公開身份識別金鑰，但是您的瀏覽器仍未擁有它。您需要從您生成鑰匙後創建的備份中，將包含您的鑰匙的文件導入您的電腦。
+            not_supported_browser_description: 看起來您使用的網頁瀏覽器無法用作受託人的身份。請確保您使用的是最新版本的瀏覽器，或嘗試使用任何最流行的瀏覽器，以便能夠完成您的受託人任務。
+      votes:
+        ballot_decision:
+          description: 在這裡，您可以選擇選擇投票，以便它被正確計算，或者您可以進行審核，以確認您的選票已正確加密。出於安全原因，審核您的選票將會使其失效。這意味著，為了投票，您需要重新啟動投票過程。
+        onboarding_modal:
+          description: 你想要在 Decidim 創建一個新帳戶嗎？你將能夠參與流程並成為該組織的積極一份子。
+          title: 初次使用 Decidim？
+        verify:
+          form:
+            back: 回到 Decidim
+          success:
+            info: 你的加密投票在 %{link} 投票箱中。
+      warnings:
+        no_elections_warning: 沒有符合您的搜尋條件的選舉，或者目前沒有已安排的選舉。
+    events:
+      elections:
+        trustees:
+          new_election:
+            email_outro: 你收到此通知是因為你已被新增為 %{resource_title} 選舉的受託人。
+          new_trustee:
+            email_outro: 你收到了這個通知，因為你已被新增為 %{resource_name} 的受託人。
+        votes:
+          accepted_votes:
+            email_outro: 您收到此通知是因為您已經投票參與了 %{resource_name} 選舉。
     votings:
       admin:
+        ballot_styles:
+          create:
+            error: 創建此選票樣式時出現問題
+            success: 投票樣式已成功建立
+          destroy:
+            invalid: 刪除此投票樣式時發生問題
+            success: 投票樣式已成功刪除
+          form:
+            code_help: '提示：代碼是調查和投票樣式之間的關聯。在上傳調查數據時，每個條目都會通過匹配代碼來分配投票樣式。'
+            questions_help: '提示：從選舉組件中選擇問題，以呈現給分配給此投票樣式的選民。'
+          index:
+            explanation_callout: 選票樣式指定了選民在投票站將會被提出的問題。在選票樣式中，您可以從此次投票的選舉組件中選擇哪些問題屬於該選票。選票樣式代碼用於將選民從選民名單中與他們將在投票站中展示的選票進行匹配。如果您始終要顯示所有問題，請勿創建任何選票樣式。
+          update:
+            invalid: 更新此選票樣式時出現問題
+            success: 選票樣式更新成功
         monitoring_committee_members:
           destroy:
             invalid: 刪除監察委員會成員時發生問題
