@@ -17,7 +17,7 @@
         <% end %>
       <% end %>
       <% if include_heading && !current_order_checked_out? %>
-        <p>
+        <p class="budget-summary__progressbox--checked_out">
           <%= current_rule_description %>
         </p>
       <% end %>

@@ -89,6 +89,7 @@
     &__progressbar-legend-strong{
       @apply font-bold block;
     }
+
   }
 
   &__card__list-project{
@@ -246,4 +247,8 @@
   .card__list-title{
     @apply cursor-default no-underline;
   }
+}
+
+.budget-summary__progressbox--checked_out{
+  @apply hidden md:block;
 }
