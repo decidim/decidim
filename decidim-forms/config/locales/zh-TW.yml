@@ -1,1 +1,12 @@
+---
 zh-TW:
+  activemodel:
+    errors:
+      models:
+        questionnaire:
+          request_invalid: 處理請求時發生錯誤，請再試一次
+  decidim:
+    forms:
+      errors:
+        answer:
+          body: 內容不能為空
