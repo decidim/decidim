@@ -232,6 +232,9 @@ zh-TW:
           create:
             invalid: 創建此投票時出現問題
             success: 投票已成功創建
+          edit:
+            add_election_component: 您沒有為此次投票配置任何選舉。請在『組件』部分中添加它。
+            assign_missing_officers: 有一些投票站缺少主席和/或管理人員。請從『投票站』部分分配它們。
           publish:
             success: 投票成功發布
           unpublish:
@@ -285,3 +288,9 @@ zh-TW:
             info: '請再試一次。如果您認為系統中的資料不正確，您可以在此處報告： %{census_contact_information}。'
           success:
             info: 您應該已經收到郵寄的存取代碼了。如果您沒有收到，您可以在此處申請。
+        login:
+          dont_have_access_code: 沒有存存取代碼？
+        no_census_contact_information: 目前尚未提供聯繫資訊。
+        send_access_code:
+          invalid: 發送存取代碼時出現問題。
+          success: 您的存取代碼已成功發送。
