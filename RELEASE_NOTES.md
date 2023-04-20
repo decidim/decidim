@@ -27,8 +27,8 @@ bin/rails db:migrate
 
 Prior to 0.28, there was the possibility of configuring a list of disallowed passwords using the configuration parameter `Decidim.password_blacklist` or the environment variable `DECIDIM_PASSWORD_BLACKLIST`. These methods have been renamed as follows:
 
-`Decidim.password_blacklist` becomes `Decidim.denied_passwords`
-`DECIDIM_PASSWORD_BLACKLIST` becomes `DECIDIM_DENIED_PASSWORDS`
+- `Decidim.password_blacklist` becomes `Decidim.denied_passwords`
+- `DECIDIM_PASSWORD_BLACKLIST` becomes `DECIDIM_DENIED_PASSWORDS`
 
 You can read more about this change on PR [\#10288](https://github.com/decidim/decidim/pull/10288).
 
