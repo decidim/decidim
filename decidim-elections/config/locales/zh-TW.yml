@@ -11,3 +11,13 @@ zh-TW:
             mark_as_missing: 標記成遺失
             tally_completion: 當所有受託人都參與或被標記為遺失時，程序將完成。至少需要 %{quorum} 名受託人才能完成程序。
             undo_mark_as_missing: 一個被錯誤標記為缺席的受託人在流程完成之前將能夠參與，他們可以照常進行，且缺席標記將被忽略。
+      trustee_zone:
+        elections:
+          tally_started_steps:
+            description: 這次選舉的結果正在公告欄中計算中。為了完成這個過程，需要您作為一名受託人進行參與。
+            keys:
+              end_tally: 點票結束
+              tally:
+                cast: 投票計算完成
+                share: 計票分享
+            title: 選舉 %{election} 的點票
