@@ -1,1 +1,6 @@
 zh-TW:
+  decidim:
+    gamification:
+      badges:
+        test:
+          unearned_another: 這個參與者尚未創建任何測試。
