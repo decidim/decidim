@@ -1,10 +1,9 @@
-<div id="main-dropdown-summary"
-  class="menu-bar__breadcrumb-desktop__dropdown-trigger"
-  data-component="dropdown"
-  data-target="main-dropdown-menu">
-  <span class="sr-only"><%= t("decidim.menu.home") %></span>
+<button id="main-dropdown-summary" class="menu-bar__breadcrumb-desktop__dropdown-trigger" data-component="dropdown" data-hover="true" data-target="main-dropdown-menu">
+  <span class="sr-only">
+    <%= t("decidim.menu.home") %>
+  </span>
   <%= icon "home-2-line" %>
-</div>
+</button>
 <div id="main-dropdown-menu" class="menu-bar__breadcrumb-desktop__dropdown-content" aria-hidden="true">
   <%= render partial: "layouts/decidim/header/redesigned_menu_breadcrumb_main_dropdown", locals: { id: "breadcrumb-main-dropdown-desktop" } %>
 </div>

@@ -24,7 +24,7 @@
   </div>
 <% else %>
   <div class="main-bar__dropdown-container">
-    <div id="trigger-dropdown-account" class="main-bar__dropdown-trigger" data-component="dropdown" data-target="dropdown-menu-account">
+    <button id="trigger-dropdown-account" class="main-bar__dropdown-trigger" data-component="dropdown" data-hover="true" data-target="dropdown-menu-account">
       <% if current_user.notifications.any? || current_user.unread_conversations.any? %>
         <span class="main-bar__notification" data-unread-items></span>
       <% end %>
@@ -43,7 +43,7 @@
           <span><%= t("layouts.decidim.user_profile.account") %></span>
         </span>
       <% end %>
-    </div>
+    </button>
     <div id="dropdown-menu-account" aria-hidden="true">
       <ul class="dropdown dropdown__bottom main-bar__dropdown">
         <%= render partial: "layouts/decidim/header/redesigned_main_links_dropdown" %>

@@ -3,12 +3,13 @@
   <span>/</span>
   <% if item[:dropdown_cell].present? %>
     <div class="relative">
-      <div id="secondary-dropdown-summary"
+      <button id="secondary-dropdown-summary"
         class="menu-bar__breadcrumb-desktop__dropdown-trigger<%= " font-bold" if item[:active] %>"
         data-component="dropdown"
+        data-hover="true"
         data-target="secondary-dropdown-menu-<%= i %>">
         <%= item_label %>
-      </div>
+      </button>
       <div id="secondary-dropdown-menu-<%= i %>" class="menu-bar__breadcrumb-desktop__dropdown-content-secondary" aria-hidden="true">
         <%= cell item[:dropdown_cell], item[:resource] %>
       </div>
