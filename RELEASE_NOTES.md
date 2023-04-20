@@ -30,6 +30,8 @@ Prior to 0.28, Decidim offered the possibility of configuring the a list of disa
 `Decidim.password_blacklist` becomes `Decidim.denied_passwords`
 `DECIDIM_PASSWORD_BLACKLIST` becomes `DECIDIM_DENIED_PASSWORDS`
 
+You can read more about this change on PR [\#10288](https://github.com/decidim/decidim/pull/10288).
+
 ## 2. General notes
 
 ## 3. One time actions
@@ -46,7 +48,7 @@ You can read more about this change on PR [\#9480](https://github.com/decidim/de
 
 ### 3.2. Added Procfile support
 
-In [\#10519](https://github.com/decidim/decidim/pull/10519) we have added Procfile support to ease up the development of Decidim instances. In order to install `foreman` and the `Procfile.dev`, you need to run the following command:
+We have added Procfile support to ease up the development of Decidim instances. In order to install `foreman` and the `Procfile.dev`, you need to run the following command:
 
 ```console
 bundle exec rake decidim:procfile:install
@@ -63,6 +65,8 @@ Additional notes on Procfile:
 In some cases, when running in a containerized environment, you may need to manually edit the `config/webpacker.yml` to edit the host parameter from `host: localhost` to `host: 0.0.0.0`
 
 In some other cases when you run your application on a custom port (other than 3000), you will need to edit the `Procfile`, and add the parameter. `web: bin/rails server -b 0.0.0.0 -p 3000`
+
+You can read more about this change on PR [\#10519](https://github.com/decidim/decidim/pull/10519).
 
 ### 3.3. User moderation panel changes
 
@@ -193,6 +197,8 @@ Decidim.configure do |config|
   config.password_similarity_length = 4
 end
 ```
+
+You can read more about this change on PR [\#10201](https://github.com/decidim/decidim/pull/10201).
 
 ## 5. Changes in APIs
 
