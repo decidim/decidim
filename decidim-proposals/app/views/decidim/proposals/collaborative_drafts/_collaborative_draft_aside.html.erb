@@ -20,7 +20,7 @@
   <% end %>
 
   <% if allowed_to?(:edit, :collaborative_draft, collaborative_draft: @collaborative_draft) %>
-    <%= link_to t("edit", scope:"decidim.proposals.collaborative_drafts.show"), edit_collaborative_draft_path(@collaborative_draft), class: "button button__lg button__secondary w-full", id: "collaborative_draft_edit" %>
+    <%= link_to t("edit", scope:"decidim.proposals.collaborative_drafts.show"), edit_collaborative_draft_path(@collaborative_draft), class: "button button__lg button__transparent-secondary w-full", id: "collaborative_draft_edit" %>
   <% end %>
 
   <%= render "request_access_form" %>
