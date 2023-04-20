@@ -1,17 +1,23 @@
 <% dropdown_item = breadcrumb_items.select { |item| item[:dropdown_cell].present? }.last %>
 <button id="secondary-dropdown-trigger-mobile" class="menu-bar__breadcrumb-mobile__dropdown-trigger" <%= "data-component=dropdown data-hover=true data-target=secondary-dropdown-menu-mobile" if dropdown_item.present? %>>
   <span>
-    <!-- REDESIGN_PENDING: Only displays two last items -->
-    <% breadcrumb_items.take(2).each_with_index do |item, i| %>
+    <% breadcrumb_items.last(2).each_with_index do |item, i| %>
       <% item_label = decidim_html_escape(translated_attribute(item[:label])) %>
       <% if i > 0 %>
         <span>/</span>
       <% end %>
-      <span class="cursor-pointer <%= "truncate" if i != 0 %> <%= "font-bold" if item[:active] %>"><%= item_label %></span>
+      <span class="cursor-pointer <%= "truncate" if i != 0 %> <%= "font-bold" if item[:active] %>">
+        <% if item[:url].present? && !is_active_link?(item[:url], :exclusive) %>
+          <%= link_to(item_label, item[:url]) %>
+        <% else %>
+          <%= item_label %>
+        <% end %>
+      </span>
     <% end %>
   </span>
-
-  <%= icon "arrow-down-s-line", class: "flex-none w-6 h-6 fill-current" %>
+  <% if dropdown_item.present? %>
+    <%= icon "arrow-down-s-line", class: "flex-none w-6 h-6 fill-current" %>
+  <% end %>
 </button>
 
 <% if dropdown_item.present? %>
