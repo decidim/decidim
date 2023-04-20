@@ -30,7 +30,7 @@ module Decidim
       end
 
       def coauthors_item_for_map
-        presented_author = official? ? "#{resource.class.module_parent}::OfficialAuthorPresenter".constantize.new : present(resource.identities.first)
+        presented_author = official? ? Decidim::Proposals::OfficialAuthorPresenter.new : present(resource.identities.first)
 
         {
           text: presented_author.name,

@@ -19,7 +19,7 @@
       <%#= cell("decidim/coauthorships", @proposal, has_actions: false, size: 3, context: { current_user: current_user }) %>
       <% # REDESIGN_PENDING: Logic copied from decidim-core/app/cells/decidim/coauthorships_cell.rb
       author = if @proposal.respond_to?(:official?) && @proposal.official?
-                  "#{@proposal.class.module_parent}::OfficialAuthorPresenter".constantize.new
+                  Decidim::Proposals::OfficialAuthorPresenter.new
                 else
                   @proposal.identities.first&.presenter
                 end %>
