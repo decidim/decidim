@@ -43,6 +43,43 @@ zh-TW:
           unselect:
             invalid: 取消選取此答案時發生問題
             success: 成功取消選取回答
+          update:
+            invalid: 更新答案時發生問題
+            success: 回答已成功更新
+        elections:
+          create:
+            invalid: 創建此選舉時發生問題
+            success: 選舉成功建立
+          destroy:
+            invalid: 刪除此選舉時出現問題。
+            success: 選舉已成功刪除
+          update:
+            invalid: 更新此選舉時發生問題
+            success: 選舉成功更新。
+        mailers:
+          trustee_mailer:
+            body: "<p>嗨 %{user_name}，</p><p>您已被添加為 %{resource_name} 的受託人。</p>"
+            subject: 你已被添加為%{resource_name} 的受託人。
+        proposals_imports:
+          create:
+            invalid: 匯入提案至答案時發生問題
+            success: "%{number} 個提案已成功匯入答案"
+        questions:
+          create:
+            election_started: 選舉已經開始了
+            invalid: 建立此問題時出現問題。
+            success: 問題創建成功
+          destroy:
+            invalid: 刪除此問題時出現問題
+            success: 問題已成功刪除
+          update:
+            invalid: 更新問題時發生問題
+            success: 問題成功更新
+        steps:
+          create_election:
+            success: 選舉成功發佈到公告欄
+          created:
+            invalid: 啟動金鑰儀式時發生問題
       trustee_zone:
         trustees:
           show:
