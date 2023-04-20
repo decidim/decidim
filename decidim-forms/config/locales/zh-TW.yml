@@ -1,1 +1,18 @@
 zh-TW:
+  activemodel:
+    errors:
+      models:
+        questionnaire:
+          request_invalid: 處理請求時發生錯誤，請再試一次
+  decidim:
+    forms:
+      errors:
+        answer:
+          body: 內容不能為空
+      files:
+        extension_allowlist: '可用格式'
+      images:
+        dimensions_info: '這張圖片會是:'
+        processors:
+          resize_and_pad: 調整大小並填充為
+          resize_to_fit: 重新調整大小以符合
