@@ -350,7 +350,3 @@ describe "Explore meeting directory", type: :system do
     end
   end
 end
-
-def click_filter_item(text)
-  find("div.filter", text:).click
-end
