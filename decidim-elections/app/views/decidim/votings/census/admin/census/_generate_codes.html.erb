@@ -15,7 +15,7 @@
 <% end %>
 
 <div class="card-section">
-  <%= cell("decidim/announcement", info_message, callout_class: callout_class ) %>
+  <%= cell("decidim/announcement", info_message, callout_class: ) %>
 
   <% if current_census.data.size.zero? %>
     <%= cell("decidim/announcement", t("generate_access_codes.start_over", scope: "decidim.votings.census.admin.census"), callout_class: "warning" ) %>

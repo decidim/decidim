@@ -6,7 +6,7 @@
   <p><strong><%= t(".my_interests") %></strong></p>
   <% if @user_interests.scopes.any? %>
     <div class="clearfix m-bottom">
-      <%= render partial: "scopes", locals: { scopes: @user_interests.scopes, f: f } %>
+      <%= render partial: "scopes", locals: { scopes: @user_interests.scopes, f: } %>
     </div>
     <%= f.submit t(".update_my_interests") %>
   <% else %>

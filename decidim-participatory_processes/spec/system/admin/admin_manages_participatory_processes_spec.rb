@@ -29,6 +29,10 @@ describe "Admin manages participatory processes", versioning: true, type: :syste
       click_link "New process"
     end
 
+    %w(short_description description announcement).each do |field|
+      it_behaves_like "having a rich text editor for field", ".tabs-content[data-tabs-content='participatory_process-#{field}-tabs']", "full"
+    end
+
     it "creates a new participatory process" do
       within ".new_participatory_process" do
         fill_in_i18n(
