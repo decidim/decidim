@@ -53,7 +53,7 @@ module Decidim
       return [] unless klass.respond_to?(:linked_classes_for)
 
       klass.linked_classes_for(current_component).map do |k|
-        [k.underscore, filter_text_for(t(k.demodulize.underscore, scope: "decidim.filters.linked_classes"))]
+        [k.underscore, content_tag(:span, t(k.demodulize.underscore, scope: "decidim.filters.linked_classes"))]
       end
     end
 
@@ -70,7 +70,7 @@ module Decidim
     #
     # Returns an Array of Arrays of Strings.
     def linked_classes_filter_values_for(klass)
-      [["", filter_text_for(t("all", scope: "decidim.filters.linked_classes"))]] + linked_classes_for(klass)
+      [["", content_tag(:span, t("all", scope: "decidim.filters.linked_classes"))]] + linked_classes_for(klass)
     end
 
     # Returns an instance of ResourceLocatorPresenter with the given resource
