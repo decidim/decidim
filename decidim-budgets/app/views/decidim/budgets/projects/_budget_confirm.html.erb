@@ -4,7 +4,7 @@
     <h3 class="h3" id="dialog-title-budget-confirm" data-dialog-title>
       <%= t("title", scope: "decidim.budgets.projects.budget_confirm") %>
     </h3>
-    <div class="my-8" id="budget-confirm">
+    <div class="my-8" id="budget-confirm-current-order">
       <% if current_order.present? %>
         <h4 class="h4 mb-4"><%= translated_attribute(budget.title) %></h4>
         <p class="mb-4"><%= t(".description") %></p>

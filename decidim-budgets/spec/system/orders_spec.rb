@@ -47,7 +47,7 @@ describe "Orders", type: :system do
       context "when voting by percentage threshold" do
         it "displays description messages" do
           within ".budget-summary" do
-            expect(page).to have_content("You decide the budget\nStart adding projects. Assign at least €70,000,000 to the projects you want and vote according to your preferences to define the budget.")
+            expect(page).to have_content("Start adding projects. Assign at least €70,000,000 to the projects you want and vote according to your preferences to define the budget.")
           end
         end
       end
@@ -112,16 +112,16 @@ describe "Orders", type: :system do
 
           expect(page).to have_selector ".budget-list__data--added", count: 1
 
-          expect(page).to have_css "#order-total-budget", text: "€25,000,000"
-          expect(page).to have_content "1 project selected"
-
-          within ".budget-summary__selected" do
-            expect(page).to have_selector(".budget-summary__selected-item", text: project.title[I18n.locale.to_s], visible: :hidden)
+          within ".budget-summary__progressbar-marks", match: :first do
+            expect(page).to have_content(/Assigned\s€25,000,000/)
+          end
+          within ".budget__list--header" do
+            expect(page).to have_content(/Added\s1/)
           end
 
-          within "#order-progress .budget-summary__progressbox" do
-            expect(page).to have_content "25%"
-            expect(page).to have_selector("button.small:disabled")
+          within "#order-progress .budget-summary__content" do
+            expect(page).to have_selector ".budget-summary__progressbar--meter", style: "width: 25%"
+            expect(page).to have_selector("button:disabled", text: "Vote budget")
           end
         end
 
@@ -145,16 +145,16 @@ describe "Orders", type: :system do
 
           expect(page).to have_selector ".budget-list__data--added", count: 1
 
-          expect(page).to have_css "#order-total-budget", text: "€25,000,000"
-          expect(page).to have_content "1 project selected"
-
-          within ".budget-summary__selected" do
-            expect(page).to have_selector(".budget-summary__selected-item", text: project.title[I18n.locale.to_s], visible: :hidden)
+          within ".budget-summary__progressbar-marks", match: :first do
+            expect(page).to have_content(/Assigned\s€25,000,000/)
+          end
+          within ".budget__list--header" do
+            expect(page).to have_content(/Added\s1/)
           end
 
-          within "#order-progress .budget-summary__progressbox" do
-            expect(page).to have_content "25%"
-            expect(page).to have_selector("button.small:disabled")
+          within "#order-progress .budget-summary__content" do
+            expect(page).to have_selector ".budget-summary__progressbar--meter", style: "width: 25%"
+            expect(page).to have_selector("button:disabled", text: "Vote budget")
           end
         end
 
@@ -179,16 +179,16 @@ describe "Orders", type: :system do
 
           expect(page).to have_selector ".budget-list__data--added", count: 1
 
-          expect(page).to have_content "1 / 6"
-          expect(page).to have_content "1 project selected"
-
-          within ".budget-summary__selected" do
-            expect(page).to have_selector(".budget-summary__selected-item", text: project.title[I18n.locale.to_s], visible: :hidden)
+          within ".budget-summary__progressbar-marks", match: :first do
+            expect(page).to have_content "1 / 6"
+          end
+          within ".budget__list--header" do
+            expect(page).to have_content(/Added\s1/)
           end
 
-          within "#order-progress .budget-summary__progressbox" do
-            expect(page).to have_content "16%"
-            expect(page).to have_selector("button.small")
+          within "#order-progress .budget-summary__content" do
+            expect(page).to have_selector ".budget-summary__progressbar--meter", style: "width: 16%"
+            expect(page).to have_selector("button", text: "Vote budget")
           end
         end
 
@@ -211,17 +211,16 @@ describe "Orders", type: :system do
           end
 
           expect(page).to have_selector ".budget-list__data--added", count: 1
-
-          expect(page).to have_content "1 / 6"
-          expect(page).to have_content "1 project selected"
-
-          within ".budget-summary__selected" do
-            expect(page).to have_selector(".budget-summary__selected-item", text: project.title[I18n.locale.to_s], visible: :hidden)
+          within ".budget-summary__progressbar-marks", match: :first do
+            expect(page).to have_content "1 / 6"
+          end
+          within ".budget__list--header" do
+            expect(page).to have_content(/Added\s1/)
           end
 
-          within "#order-progress .budget-summary__progressbox" do
-            expect(page).to have_content "16%"
-            expect(page).to have_selector("button.small")
+          within "#order-progress .budget-summary__content" do
+            expect(page).to have_selector ".budget-summary__progressbar--meter", style: "width: 16%"
+            expect(page).to have_selector("button", text: "Vote budget")
           end
         end
 
@@ -262,31 +261,37 @@ describe "Orders", type: :system do
       it "removes a project from the current order" do
         visit_budget
 
-        expect(page).to have_content "€25,000,000"
+        within ".budget-summary__progressbar-marks", match: :first do
+          expect(page).to have_content(/Assigned\s€25,000,000/)
+        end
+        within ".budget__list--header" do
+          expect(page).to have_content(/Added\s1/)
+        end
 
         within "#project-#{project.id}-item" do
           page.find(".budget-list__action").click
         end
 
-        expect(page).to have_content "€0"
-        expect(page).to have_no_content "1 project selected"
-        expect(page).to have_no_selector ".budget-summary__selected"
-
-        within "#order-progress .budget-summary__progressbox" do
-          expect(page).to have_content "0%"
+        within ".budget-summary__progressbar-marks", match: :first do
+          expect(page).to have_content(/Assigned\s€0/)
         end
-
+        within ".budget__list--header" do
+          expect(page).to have_content(/Added\s0/)
+        end
+        expect(page).to have_selector ".budget-summary__progressbar--meter", style: "width: 0%"
         expect(page).to have_no_selector ".budget-list__data--added"
       end
 
       it "is alerted when trying to leave the component before completing" do
+        skip_unless_redesign_enabled "This test pass with redesigned modals enabled"
+
         budget_projects_path = Decidim::EngineRouter.main_proxy(component).budget_projects_path(budget)
 
         visit_budget
 
         expect(page).to have_content "€25,000,000"
 
-        page.find(".logo-wrapper a").click
+        page.find("header a", text: organization.name).click
 
         expect(page).to have_content "You have not yet voted"
 
@@ -349,19 +354,19 @@ describe "Orders", type: :system do
           expect(page).to have_selector ".budget-list__data--added", count: 2
 
           within "#order-progress .budget-summary__content" do
-            page.find(".button").click
+            page.find(".button", match: :first).click
           end
 
           expect(page).to have_css("#budget-confirm", visible: :visible)
 
           within "#budget-confirm" do
-            page.find(".button").click
+            page.find(".button", text: "Confirm").click
           end
 
           expect(page).to have_content("successfully")
 
           within "#order-progress .budget-summary__content" do
-            expect(page).to have_selector("button[disabled]")
+            expect(page).to have_selector(".button", text: "delete your vote")
           end
         end
       end
@@ -407,7 +412,7 @@ describe "Orders", type: :system do
             let(:another_user) { create(:user, :confirmed, organization:) }
 
             before do
-              find("[data-dialog-open='budget-confirm']").click
+              find("[data-dialog-open='budget-confirm']", match: :first).click
               click_button "Confirm"
               expect(page).to have_css(".flash.success")
             end
@@ -497,12 +502,12 @@ describe "Orders", type: :system do
 
         expect(page).to have_content("successfully")
 
-        within "#order-progress .budget-summary__progressbox" do
+        within "#order-progress .budget-summary__content" do
           expect(page).to have_selector("button:disabled")
         end
 
         within ".budget-summary__content" do
-          expect(page).to have_no_selector(".cancel-order")
+          expect(page).to have_no_selector(".button", text: "delete your vote")
         end
       end
 
@@ -569,7 +574,7 @@ describe "Orders", type: :system do
       it "renders selected projects" do
         visit_budget
 
-        expect(page).to have_selector(".card__list-content .text-success", count: 2)
+        expect(page).to have_selector(".card__list-metadata .success", count: 2)
       end
     end
   end

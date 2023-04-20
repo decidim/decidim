@@ -62,10 +62,9 @@ describe "Explore Budgets", :slow, type: :system do
         let!(:order) { create(:order, user:, budget:) }
         let!(:line_item) { create(:line_item, order:, project: projects.first) }
 
-        it "shows the bookmark icon" do
+        it "shows a finish voting link" do
           visit_component
 
-          expect(item).to have_selector(".budget-list__icon span.warning")
           expect(item).to have_link("Finish voting", href: budget_path(budget))
         end
 
@@ -91,7 +90,7 @@ describe "Explore Budgets", :slow, type: :system do
         it "shows the check icon" do
           visit_component
 
-          expect(item).to have_selector(".budget-list__icon span.success")
+          expect(item).to have_selector("div.card__highlight-text svg.fill-success")
           expect(item).to have_link("See projects", href: budget_path(budget))
         end
 
@@ -102,9 +101,9 @@ describe "Explore Budgets", :slow, type: :system do
         it "has a link to remove vote" do
           visit_component
 
-          expect(item).to have_content("Remove vote")
+          expect(item).to have_content("delete your vote")
           within item do
-            accept_confirm { click_link "Remove vote" }
+            accept_confirm { click_link "delete your vote" }
             expect(Decidim::Budgets::Order.where(budget:)).to be_blank
           end
         end

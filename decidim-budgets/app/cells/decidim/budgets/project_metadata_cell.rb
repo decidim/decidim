@@ -6,6 +6,8 @@ module Decidim
     class ProjectMetadataCell < Decidim::CardMetadataCell
       include Decidim::Budgets::ProjectsHelper
 
+      delegate :selected?, to: :model
+
       alias project model
 
       def initialize(*)
@@ -17,7 +19,7 @@ module Decidim
       private
 
       def project_items
-        [voted_item, category_item, scope_item]
+        [voted_item, category_item, scope_item, status_item]
       end
 
       def project_items_for_map
@@ -47,6 +49,16 @@ module Decidim
           cell: "decidim/budgets/project_votes_count",
           args: [model, { layout: :one_line }],
           icon: current_order_checked_out? && resource_added? ? "check-double-line" : "check-line"
+        }
+      end
+
+      def status_item
+        return unless controller.try(:voting_finished?) && selected?
+
+        {
+          cell: "decidim/budgets/project_selected_status",
+          args: model,
+          icon: "question-line"
         }
       end
 

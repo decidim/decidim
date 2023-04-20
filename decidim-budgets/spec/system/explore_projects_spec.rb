@@ -27,6 +27,8 @@ describe "Explore projects", :slow, type: :system do
 
     context "when filtering" do
       it "allows searching by text" do
+        skip "REDESIGN_PENDING - Filters integration pending"
+
         visit_budget
         within ".filters__search" do
           fill_in "filter[search_text_cont]", with: translated(project.title)
@@ -41,6 +43,8 @@ describe "Explore projects", :slow, type: :system do
       end
 
       it "updates the current URL with the text filter" do
+        skip "REDESIGN_PENDING - Filters integration pending"
+
         create(:project, budget:, title: { en: "Foobar project" })
         create(:project, budget:, title: { en: "Another project" })
         visit_budget
@@ -58,6 +62,8 @@ describe "Explore projects", :slow, type: :system do
       end
 
       it "allows filtering by scope" do
+        skip "REDESIGN_PENDING - Filters integration pending"
+
         scope = create(:scope, organization:)
         project.scope = scope
         project.save
@@ -76,6 +82,8 @@ describe "Explore projects", :slow, type: :system do
       end
 
       it "allows filtering by category" do
+        skip "REDESIGN_PENDING - Filters integration pending"
+
         category = categories.first
         project.category = category
         project.save
@@ -94,6 +102,8 @@ describe "Explore projects", :slow, type: :system do
       end
 
       it "works with 'back to list' link" do
+        skip "REDESIGN_PENDING - Filters integration pending"
+
         category = categories.first
         project.category = category
         project.save
@@ -129,6 +139,8 @@ describe "Explore projects", :slow, type: :system do
         end
 
         it "allows filtering by status" do
+          skip "REDESIGN_PENDING - Filters integration pending"
+
           project.selected_at = Time.current
           project.save
 
