@@ -1,1 +1,15 @@
+---
 zh-TW:
+  decidim:
+    debates:
+      last_activity:
+        debate_updated_at_html: "<span>辯論已更新，連結網址為 %{link}</span>"
+        new_debate_at_html: "<span>新的辯論，連結網址為 %{link}</span>"
+    events:
+      debates:
+        creation_enabled:
+          notification_title: 您現在可以在<a href="%{participatory_space_url}">%{participatory_space_title}</a>中<a href="%{resource_path}">開始新的辯論</a>。
+    gamification:
+      badges:
+        commented_debates:
+          unearned_own: 您尚未參與任何辯論。
