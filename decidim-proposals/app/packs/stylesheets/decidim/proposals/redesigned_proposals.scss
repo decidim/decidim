@@ -42,7 +42,7 @@
   }
 
   &__actions{
-    @apply flex flex-col md:flex-row justify-between items-center md:items-start gap-4;
+    @apply flex flex-col md:flex-row justify-between items-start gap-4;
 
     > :first-child{
       @apply flex items-center gap-2;
@@ -55,7 +55,7 @@
     }
 
     &-vote{
-      @apply flex flex-row-reverse md:flex-col gap-6 items-center md:items-stretch justify-between last:[&>*]:grow;
+      @apply flex flex-row-reverse md:flex-col gap-6 items-center md:items-stretch justify-between first:[&>*]:grow last:[&>*]:w-1/4 md:last:[&>*]:w-auto;
     }
 
     &-actions{
