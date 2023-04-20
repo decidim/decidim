@@ -8,10 +8,10 @@
         id: "files-#{modal_id}",
         label: false,
         required: false,
-        multiple: multiple,
+        multiple:,
         direct_upload: true,
         hidden: true,
-        data: { direct_upload_url: direct_upload_url } %>
+        data: { direct_upload_url: } %>
 
       <%= tag.ul id: "dropzone-items", class: "upload-modal__dropzone", hidden: true, data: {
         locales: {

@@ -34,7 +34,7 @@
   <div id="comment-<%= model.id %>-replies">
     <% if has_replies_in_children? %>
       <% replies.each do |reply| %>
-        <%= cell("decidim/comments/comment", reply, root_depth: root_depth, order: order, reloaded: reloaded?) %>
+        <%= cell("decidim/comments/comment", reply, root_depth:, order:, reloaded: reloaded?) %>
       <% end %>
     <% end %>
   </div>
@@ -45,7 +45,7 @@
       </button>
     </div>
     <div class="add-comment hide" id="<%= reply_id %>" data-toggler=".hide">
-      <%== cell("decidim/comments/comment_form", model, root_depth: root_depth, order: order) %>
+      <%== cell("decidim/comments/comment_form", model, root_depth:, order:) %>
     </div>
   <% end %>
 <% end %>

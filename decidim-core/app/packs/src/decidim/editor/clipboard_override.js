@@ -70,7 +70,9 @@ export default class ClipboardOverride extends Clipboard {
     const text = ev.clipboardData.getData("text/plain");
     const files = Array.from(ev.clipboardData.files || []);
     if (!html && files.length > 0) {
-      this.quill.uploader.upload(range, files);
+      if (typeof this.quill.uploader !== "undefined") {
+        this.quill.uploader.upload(range, files);
+      }
       return;
     }
     if (html && files.length > 0) {
@@ -79,7 +81,9 @@ export default class ClipboardOverride extends Clipboard {
         doc.body.childElementCount === 1 &&
         doc.body.firstElementChild.tagName === "IMG"
       ) {
-        this.quill.uploader.upload(range, files);
+        if (typeof this.quill.uploader !== "undefined") {
+          this.quill.uploader.upload(range, files);
+        }
         return;
       }
     }

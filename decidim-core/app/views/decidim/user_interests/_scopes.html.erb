@@ -11,7 +11,7 @@
           <%= form.hidden_field "id", value: scope.id %>
         <% end %>
       </div>
-      <%= render partial: "scopes", locals: { scopes: scope.children, f: f } %>
+      <%= render partial: "scopes", locals: { scopes: scope.children, f: } %>
     </li>
   <% end %>
 </ul>
