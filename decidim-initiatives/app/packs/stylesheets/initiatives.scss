@@ -86,6 +86,10 @@
       @apply hidden;
     }
 
+    .author{
+      @apply mb-6;
+    }
+
     .profile__user-avatar-container{
       @apply w-6 h-6;
     }
@@ -96,7 +100,7 @@
   }
 
   &__aside__element__committee{
-    @apply mb-4 flex items-center;
+    @apply mb-6 flex items-center;
   }
 
   &__aside__element__data{

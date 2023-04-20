@@ -113,7 +113,15 @@ edit_link(
         <span class="ml-2 initiative__aside__element-title">
           <%= t("title", scope: "decidim.initiatives.admin.committee_requests.index") %>
         </span>
-        <%= icon_link_to "file-copy-line", decidim_initiatives.new_initiative_committee_request_url(current_initiative), "test", class: "ml-auto fill-secondary inline-block" %>
+        <div class="ml-auto fill-secondary inline-block">
+          <input id="urlShareLink" type="text" class="!hidden" value="<%= decidim_initiatives.new_initiative_committee_request_url(current_initiative) %>" readonly>
+          <button type="button"
+            class="button button__sm button__text-secondary"
+            data-clipboard-copy="#urlShareLink"
+          >
+            <%= render_committee_tooltip %>
+          </button>
+        </div>
       </div>
       <% if current_initiative.type.promoting_committee_enabled? %>
         <% if current_initiative.committee_members.empty? %>

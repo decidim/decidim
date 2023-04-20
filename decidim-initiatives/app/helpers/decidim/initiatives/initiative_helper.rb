@@ -134,6 +134,12 @@ module Decidim
 
         initiative.created? || initiative.validating?
       end
+
+      def render_committee_tooltip
+        with_tooltip t("decidim.initiatives.create_initiative.share_committee_link.invite_to_committee_help"), class: "left" do
+          icon "file-copy-line"
+        end
+      end
     end
   end
 end
