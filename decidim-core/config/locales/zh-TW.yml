@@ -3,3 +3,5 @@ zh-TW:
     attributes:
       user:
         tos_agreement: 使用協議的條款和條件
+    models:
+      decidim/gamification/level_up_event: 您已經升級了。
