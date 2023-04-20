@@ -12,15 +12,9 @@
     <section id="<%= title %>">
       <h2 class="h2"><%= title %></h2>
 
-      <h3 class="h3 my-8">Cards L</h3>
-      <% results.each do |result| %>
-        <%= card_for result, size: :l, link_whole_card: true %>
-      <% end %>
-
-      <h3 class="h3 my-8">Cards G</h3>
       <div class="card__grid-grid">
         <% results.each do |result| %>
-          <%= card_for result, size: :g %>
+          <%= card_for result %>
         <% end %>
       </div>
     </section>
