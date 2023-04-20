@@ -12,18 +12,7 @@
   <% end %>
 <% end %>
 
-<% [Date.current, Date.current.next_month].each do |start_date| %>
-  <%= cell "decidim/meetings/meeting_month", search.result, start_date: %>
-<% end %>
-
 <%= render partial: "decidim/meetings/shared/filters", locals: {
   search_variable: search_variable,
   filter_options: filter_options || {}
-} %>
-
-<%= render partial: "decidim/meetings/calendar_modal", locals: {
-  path: short_url(
-    route_name: "calendar",
-    params: { filter: params.fetch(:filter, {}).try(:to_unsafe_hash) }
-  )
 } %>
