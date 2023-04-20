@@ -24,7 +24,7 @@ module Decidim
           end
           resource :proposal_vote, only: [:create, :destroy]
           resource :widget, only: :show, path: "embed"
-          resources :versions, only: [:show, :index]
+          resources :versions, only: [:show]
         end
         resources :collaborative_drafts, except: [:destroy] do
           member do
@@ -34,7 +34,7 @@ module Decidim
             post :withdraw
             post :publish
           end
-          resources :versions, only: [:show]
+          resources :versions, only: [:show, :index]
         end
         root to: "proposals#index"
       end
