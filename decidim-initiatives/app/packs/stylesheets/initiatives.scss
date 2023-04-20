@@ -51,6 +51,14 @@
       @apply hidden;
     }
   }
+
+  &__card__grid-metadata-dates{
+    @apply absolute top-4 right-4 bg-background rounded block p-1 border border-white justify-center content-center text-gray-2 font-semibold;
+
+    svg{
+      @apply fill-gray-2;
+    }
+  }
 }
 
 .initiative{
@@ -69,9 +77,6 @@
       @apply text-lg;
     }
 
-    &-dates{
-      @apply text-white font-normal;
-    }
   }
 
   &__aside{

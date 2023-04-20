@@ -9,9 +9,7 @@
           <%= link_to "##{current_participatory_space.hashtag}", twitter_hashtag_url(current_participatory_space.hashtag), target: "_blank" %>
         <% end %>
       </p>
-      <p class="initiative__hero-dates">
-        <%= render partial: "layouts/decidim/initiative_header_steps", locals: { initiative: current_participatory_space } %>
-      </p>
+      <%= render partial: "layouts/decidim/initiative_header_steps", locals: { initiative: current_participatory_space } %>
     </div>
   </div>
 </section>

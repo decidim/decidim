@@ -31,20 +31,22 @@ edit_link(
 
 <%= content_for :aside do %>
   <div class="initiative__aside">
-    <div class="initiative__aside__element">
-      <% if current_initiative.published? || current_initiative.rejected? || current_initiative.accepted? %>
-        <% if current_initiative.votes_enabled? %>
+    <% if current_initiative.published? || current_initiative.rejected? || current_initiative.accepted? %>
+      <% if current_initiative.votes_enabled? %>
+        <div class="initiative__aside__element">
           <div class="mb-4" id="initiative-<%= current_initiative.id %>-vote-cabin">
             <%= render partial: "vote_cabin", locals: { initiative: current_initiative } %>
           </div>
-        <% end %>
-      <% else %>
+        </div>
+      <% end %>
+    <% else %>
+      <div class="initiative__aside__element">
         <%= link_to t(".edit"),
             edit_initiative_path(current_initiative),
             class: "button button__xl w-full button__secondary" %>
         <%= render partial: "send_to_technical_validation", locals: { title: t(".send_to_technical_validation"), confirm: t(".confirm")} %>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
 
     <div class="initiative__aside__element">
       <%= render partial: "progress_bar" %>
