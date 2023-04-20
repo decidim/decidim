@@ -18,7 +18,7 @@
     <% end %>
   <% else %>
     <% content_for(:redirect_after_login) { create_initiative_url(:select_initiative_type) } %>
-    <button type="button" class="title-action__action button button__xl button__secondary w-full" data-open="loginModal" aria-controls="loginModal" aria-haspopup="dialog" tabindex="0">
+    <button type="button" class="title-action__action button button__xl button__secondary w-full" data-dialog-open="loginModal" aria-controls="loginModal" aria-haspopup="dialog" tabindex="0">
       <%= icon "add-fill" %>
       <%= t("new_initiative", scope: "decidim.initiatives.initiatives.index_header") %>
     </button>
