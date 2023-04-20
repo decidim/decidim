@@ -66,3 +66,9 @@ zh-TW:
           publish:
             invalid: 發佈此會議時出現問題。
             success: 會議成功發佈
+          unpublish:
+            invalid: 取消發佈會議時出了問題
+            success: 會議已成功取消發佈。
+          update:
+            invalid: 更新會議時發生問題
+            success: 會議成功更新
