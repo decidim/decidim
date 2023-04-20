@@ -23,7 +23,7 @@ bin/rails db:migrate
 
 ### 1.3. Follow the steps and commands detailed in these notes
 
-#### 1.3.1 Config Parameter change
+#### 1.3.1 Configuration parameter change
 
 Prior to 0.28, Decidim offered the possibility of configuring the a list of disallowed domains used to restrict user access using either `Decidim.password_blacklist` or environment variable `DECIDIM_PASSWORD_BLACKLIST`. While upgrading to 0.28, those methods have been renamed as follows:
 
