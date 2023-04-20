@@ -74,7 +74,7 @@ module Decidim
         context_breadcrumb_items << {
           label: current_component.name,
           url: root_path,
-          active: true,
+          active: false,
           resource: current_component
         }
       end

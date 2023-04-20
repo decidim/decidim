@@ -11,7 +11,7 @@ module Decidim
           items << {
             label: breadcrumb_root_menu.active_item.label,
             url: breadcrumb_root_menu.active_item.url,
-            active: breadcrumb_root_menu.active_item.active?
+            active: breadcrumb_root_menu.active_item.active? && context_breadcrumb_items.blank?
           }
         end
 
