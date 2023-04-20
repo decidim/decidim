@@ -18,26 +18,26 @@ $comment-form-bg: $light-gray;
 .comment-thread {
   @extend .card;
 
-  .show-comment-replies{
+  .show-comment-replies {
     display: none;
   }
 
-  .hide-comment-replies{
+  .hide-comment-replies {
     display: inline;
   }
 
-  .comment__hide{
+  .comment__hide {
     float: left;
     margin-bottom: 0;
   }
 
-  .no-comments{
-    .show-comment-replies{
+  .no-comments {
+    .show-comment-replies {
       display: inline;
     }
 
     .hide-comment-replies,
-    .replies{
+    .replies {
       display: none;
     }
   }
