@@ -304,3 +304,37 @@ zh-TW:
         index:
           categories_title: 分類
           category_used: 這個分類使用中無法刪除
+        new:
+          create: 建立類別
+          title: 新分類
+        update:
+          error: 更新這個分類時發生錯誤
+          success: 更新類別成功。
+      component_permissions:
+        update:
+          error: 更新這個元件的權限時發生錯誤
+          success: 權限更新成功
+      components:
+        create:
+          error: 這個元件創建時出了問題
+          success: 新增元件成功。
+        destroy:
+          error: 刪除這個元件時發生錯誤
+          success: 成功刪除元件
+        edit:
+          title: 編輯組件
+          update: 更新
+        form:
+          default_step_settings: 預設步驟設定
+          global_settings: 全域設定
+          step_settings: 步驟設定
+        index:
+          add: 新增元件
+          headers:
+            actions: 操作
+            name: 組件名稱
+            scope: 組件作用域
+            type: 組件類型
+        new:
+          add: 新增元件
+          title: '新增元件： %{name}'
