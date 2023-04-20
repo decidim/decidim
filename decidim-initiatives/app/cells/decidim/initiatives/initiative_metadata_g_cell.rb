@@ -5,10 +5,10 @@ module Decidim
     # This cell renders the assembly metadata for g card
     class InitiativeMetadataGCell < Decidim::CardMetadataCell
       include Cell::ViewModel::Partial
+      include Decidim::Initiatives::InitiativeHelper
 
       alias current_initiative resource
       alias initiative resource
-      alias humanize_state resource
 
       def items
         ["test"]
