@@ -72,3 +72,30 @@ zh-TW:
           update:
             invalid: 更新會議時發生問題
             success: 會議成功更新
+        meetings_poll:
+          update:
+            invalid: 更新會議投票時出現問題
+            success: 會議投票調查已成功更新"
+        registrations:
+          form:
+            reserved_slots_help: 若您沒有保留名額，請將其設為0。
+      last_activity:
+        meeting_updated_at_html: "<span>會議已更新，請查看連結：%{link}</span>"
+        new_meeting_at_html: "<span>在 %{link} 新增會議</span>"
+      meeting:
+        not_allowed: 你無權查看此會議。
+      meetings:
+        filters:
+          origin_values:
+            citizens: 公民
+        form:
+          disclaimer: '免責聲明：使用外部註冊系統時，您知道%{organization} 的組織者不對使用者提供給外部服務的數據負責。'
+          show_embedded_iframe_help: '"只有少數服務(YouTube、Twitch 和 Jitsi) 允許在會議或直播活動中嵌入影片。'
+        meetings:
+          no_meetings_warning: 沒有符合搜尋條件的會議或者目前沒有任何已排定的會議。
+      registrations:
+        create:
+          success: 您已成功加入會議。因為您已註冊此會議，如果有任何更新，您將收到通知。
+      withdraw:
+        error: 退出會議時發生錯誤
+        success: 會議已成功取消
