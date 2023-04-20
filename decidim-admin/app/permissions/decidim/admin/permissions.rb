@@ -100,7 +100,7 @@ module Decidim
       def user_valuator?
         return unless user
         return unless user.admin?
-        
+
         Decidim.participatory_space_manifests.flat_map.any? do |manifest|
           Decidim
             .find_participatory_space_manifest(manifest.name)
