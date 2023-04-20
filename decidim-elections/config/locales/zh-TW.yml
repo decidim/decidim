@@ -80,6 +80,32 @@ zh-TW:
             success: 選舉成功發佈到公告欄
           created:
             invalid: 啟動金鑰儀式時發生問題
+            success: 啟動金鑰儀式請求已成功發送到公告欄
+          key_ceremony_ended:
+            invalid: 啟動投票期間時發生問題
+            success: 啟動投票期間請求已成功發送到公告欄
+          tally_ended:
+            success: 發布結果的請求已成功發送到公告欄
+          tally_started:
+            invalid: 報告缺失的受託人時出現問題
+            mark_as_missing: 標記成遺失
+            mark_as_missing_description: 所有受託人應參與此過程，但如果有受託人無法參加此過程，您可以將其標記為缺席。
+            success: 缺失受託人報告已成功發送至公告欄
+            tally_completion: 當所有受託人都參與或被標記為遺失時，程序將完成。至少需要 %{quorum} 名受託人才能完成程序。
+            undo_mark_as_missing: 一個被錯誤標記為缺席的受託人在流程完成之前將能夠參與，他們可以照常進行，且缺席標記將被忽略。
+          vote:
+            invalid: 結束投票期間時發生問題
+            success: 結束投票期的請求已成功發送到公告欄
+          vote_ended:
+            invalid: 啟動點票出現問題
+            success: 開始點票的請求已成功傳送到公告欄。
+        trustees_participatory_spaces:
+          create:
+            exists: 此參與空間已存在受託人
+            invalid: 建立受託人時出現問題
+            success: 受託人成功創建
+          delete:
+            invalid: 移除此受託人時發生問題
       trustee_zone:
         trustees:
           show:
@@ -89,6 +115,9 @@ zh-TW:
               upload_legend: 伺服器上有您的公開識別金鑰，但您的瀏覽器仍然沒有。您需要從生成金鑰後創建的備份中，將識別金鑰檔案匯入您的電腦中。
     votings:
       admin:
+        monitoring_committee_members:
+          destroy:
+            invalid: 刪除監察委員會成員時發生問題
         votings:
           form:
             show_check_census_help: 是否在公開投票菜單中顯示「我可以投票嗎？」鏈接
