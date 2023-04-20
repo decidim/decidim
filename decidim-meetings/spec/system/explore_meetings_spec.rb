@@ -389,7 +389,8 @@ describe "Explore meetings", :slow, type: :system do
         expect(page).to have_css(".meeting-list", count: 1)
 
         find("a.meeting-list").click
-        find("div[data-drawer-close]").click
+
+        click_link "Back"
 
         expect(page).to have_css(".meeting-list", count: 1)
       end
@@ -475,7 +476,7 @@ describe "Explore meetings", :slow, type: :system do
         expect(page).to have_content(date.day)
       end
       within ".meeting__calendar-time" do
-        expect(page).to have_content("00:00 - 23:59")
+        expect(page).to have_content(/00:00\s-\s23:59/)
       end
     end
 
@@ -607,8 +608,4 @@ describe "Explore meetings", :slow, type: :system do
       end
     end
   end
-end
-
-def click_filter_item(text)
-  find("div.filter", text:).click
 end
