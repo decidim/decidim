@@ -4,8 +4,45 @@ zh-TW:
     attributes:
       voting:
         scope_id: 範圍
+    errors:
+      models:
+        trustee:
+          attributes:
+            name:
+              cant_be_changed: 無法更改
+            public_key:
+              cant_be_changed: 無法更改
+  activerecord:
+    errors:
+      models:
+        decidim/votings/polling_officer:
+          attributes:
+            presided_polling_station:
+              president_and_manager: 投票站職員已經是一個投票站主席/經理
+            voting:
+              different_organization: 投票必須在使用者所在的組織中進行
+        decidim/votings/polling_station:
+          attributes:
+            polling_station_president:
+              different_voting: 投票站人員必須與投票站在同一個投票中
   decidim:
     elections:
+      admin:
+        answers:
+          create:
+            invalid: 建立這個回覆時出現問題
+            success: 回答成功建立
+          destroy:
+            invalid: 刪除這個回答時發生問題
+            success: 回答成功刪除
+          index:
+            invalid_max_selections: 你需要再填寫 %{missing_answers} 個答案，以符合最大選擇數。
+          select:
+            invalid: 選擇這個回答時出現問題
+            success: 答案成功選擇
+          unselect:
+            invalid: 取消選取此答案時發生問題
+            success: 成功取消選取回答
       trustee_zone:
         trustees:
           show:
