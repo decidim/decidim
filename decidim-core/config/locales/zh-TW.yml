@@ -23,6 +23,10 @@ zh-TW:
       download_your_data_export:
         click_button: '點擊下方鏈接下載您的資料。<br/>檔案將可取得直到 %{date}.<br/>您需要 <a href="https://www.7-zip.org/">7-Zip</a> (Windows)，<a href="https://www.keka.io/en/">Keka</a> (MacOS)，或<a href="https://peazip.github.io">PeaZip</a> (Linux) 來打開它。密碼: %{password}'
         download: 下載
+    forms:
+      file_help:
+        file:
+          message_1: 必須是圖片或文件。
     user_activity:
       index:
         no_activities_warning: 這個參與者還沒有任何活動。
