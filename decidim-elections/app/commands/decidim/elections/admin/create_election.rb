@@ -6,7 +6,6 @@ module Decidim
       # This command is executed when the user creates an Election
       # from the admin panel.
       class CreateElection < Decidim::Command
-        include ::Decidim::AttachmentMethods
         include ::Decidim::GalleryMethods
 
         def initialize(form)
