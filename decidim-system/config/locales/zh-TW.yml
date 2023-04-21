@@ -22,3 +22,6 @@ zh-TW:
           admin: 管理員檔案副檔名
           default: 預設檔案副檔名
           image: 圖片檔案副檔名
+        maximum_file_size:
+          avatar: 頭像檔案大小
+          default: 預設檔案大小
