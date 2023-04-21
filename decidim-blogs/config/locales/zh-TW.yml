@@ -15,6 +15,7 @@ zh-TW:
   decidim:
     blogs:
       actions:
+        author_id: 發佈文章
         confirm_destroy: 您確定要刪除此文章嗎？
         destroy: 刪除
         edit: 編輯
