@@ -62,30 +62,193 @@ zh-TW:
           resume: 檢查您的"%{authorization}"授權進度
         unauthorized:
           explanation: 抱歉，由於您的某些授權資料不符，您無法執行此操作。
+          invalid_field: "%{field} 的值%{value} 無效"
+        unconfirmed:
+          confirmation_instructions: '如果您沒有收到確認指示，您可以再次請求：'
+    components:
+      component_order_selector:
+        no_content: 我們找不到符合這個條件的任何內容
+      dummy:
+        settings:
+          global:
+            dummy_global_attribute1: 虛擬屬性 1
+            dummy_global_attribute2: 虛擬屬性 2
+          step:
+            dummy_step_attribute1: 虛擬步驟屬性1
+            dummy_step_attribute2: 虛擬步驟屬性2
+    core:
+      actions:
+        login_before_access: 請先登入您的帳戶再進行訪問
+        unauthorized: 您無權限執行此操作
+    devise:
+      omniauth_registrations:
+        create:
+          email_already_exists: 另一個帳戶已經使用了相同的電子郵件地址
+      registrations:
+        new:
+          terms: 使用條款和條件
+      sessions:
+        new:
+          sign_in_disabled: 你可以使用外部帳戶登入。
+          sign_up_disabled: 註冊已停用，您可以使用現有帳戶來登入。
+      shared:
+        newsletter_modal:
+          notice: |-
+            <p>嗨，您確定不想收到電子報嗎？<br>
+            請再考慮勾選下面的電子報選項。<br>
+            對我們來說，讓您能收到偶爾的電子郵件，以便發布重要公告非常重要。
+            您可以隨時在通知設置頁面上更改此選項。</p>
+            <p>如果您不勾選此框，您可能會錯過有關平台上新的參與機會的相關信息。<br>
+            如果您仍然想避免收到電子報，我們完全理解您的決定。</p>
+            <p>感謝您閱讀此內容！</p>
+    doorkeeper:
+      authorizations:
+        new:
+          connect_your_account_html: 透過登入<strong>%{organization}</strong>連接您的帳戶
+    download_your_data:
+      export:
+        ready: 準備就緒
+      show:
+        download_data: 下載資料
+        download_data_description: 一個包含所有與您的帳戶相關的資訊的檔案將會寄到 <strong>%{user_email}</strong>。此電子郵件將包含一個 .zip 檔案和一個解壓縮密碼。<br/><br/>若要解壓縮此檔案，您需要使用 <a href="https://www.7-zip.org/">7-Zip</a> (Windows) 或 <a href="https://www.keka.io/">Keka</a> (MacOS)。如果您使用 Linux，大多數情況下您已經預設安裝了解壓縮軟體。如果還沒有，您可以使用 <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> 或 <a href="https://peazip.github.io">PeaZip</a>。
+        request_data: 請求數據
+    editor_images:
+      create:
+        error: 上傳圖片時發生錯誤
+        success: 圖片上傳成功
+    endorsement_buttons_cell:
+      already_endorsed: 已認可
+      endorse: 認可
+    errors:
+      internal_server_error:
+        try_later: 請稍後重試。
+      not_found:
+        title: 找不到您要搜索的頁面
     events:
+      gamification:
+        badge_earned:
+          email_intro: 恭喜！您已經獲得了<a href="%{resource_path}">%{badge_name} 徽章</a>(等級 %{current_level})。
+          email_subject: '您獲得了新的徽章: %{badge_name}!'
+          notification_title: 恭喜！您已經獲得了<a href="%{resource_path}">%{badge_name} 徽章</a>(等級 %{current_level})。
+        level_up:
+          email_intro: 恭喜！您已經達到了 <a href="%{resource_url}">%{badge_name} 徽章</a>的 %{current_level} 級！
+          email_subject: 你已經達到了 %{badge_name} 徽章的 %{current_level} 等級！
+          notification_title: 恭喜！您已經達到了 <a href="%{resource_path}">%{badge_name} 徽章</a>的 %{current_level} 級！
       nickname_event:
         notification_body: 我們已更正暱稱使用的方式，以避免重複，所以我們已經移除了大小寫敏感的規則。<br/>你的暱稱是在已有同名暱稱之後創建的，因此我們已經自動重新命名。你可以從<a href="%{link_to_account_settings}">帳戶設置</a>更改它。
+    export_mailer:
+      download_your_data_export:
+        click_button: '點擊下方鏈接下載您的資料。<br/>檔案將可取得直到 %{date}.<br/>您需要 <a href="https://www.7-zip.org/">7-Zip</a> (Windows)，<a href="https://www.keka.io/en/">Keka</a> (MacOS)，或<a href="https://peazip.github.io">PeaZip</a> (Linux) 來打開它。密碼: %{password}'
+        download: 下載
     forms:
       upload_help:
         dropzone: 拖曳文件至此處或點擊上傳
     groups:
       leave:
         last_admin: 你無法從這個群組中移除自己，因為你是唯一的管理員。請先讓另一位成員成為管理員，然後才能離開該群組。
+      update:
+        success: 成功更新群組
+    help:
+      main_topic:
+        description: 閱讀更多有關 %{organization} 的資訊
+    members:
+      no_members: 這個群組還沒有任何成員。
+    messaging:
+      conversation_mailer:
+        comanagers_new_conversation:
+          outro: 享受Decidim!
+        comanagers_new_message:
+          outro: 享受Decidim!
+        new_conversation:
+          outro: 享受Decidim!
+        new_group_conversation:
+          outro: 享受Decidim!
+        new_group_message:
+          outro: 享受Decidim!
+        new_message:
+          outro: 享受Decidim!
+      conversations:
+        add_conversation_users:
+          participant_with_disabled_message_reception: 此參與者已停用訊息接收功能
+        conversation:
+          show: 顯示和 %{sender} 的對話
+        create:
+          error: 對話未開始。請稍後再試。
+        index:
+          groups: 我的群組
+          no_conversations: 您目前還沒有對話
+          to: 至
+        show:
+          deleted_accounts: 你不能與已刪除的帳戶進行對話。
+        update:
+          error: 由於錯誤，訊息未能傳送
+    newsletter_mailer:
+      newsletter:
+        note: 您收到此電子郵件，是因為您已訂閱了 %{organization_name} 的通訊。您可以在您的<a href="%{link}">通知頁面</a>更改設置。
+        see_on_website: 無法正確顯示此電子郵件？請於 <a href="%{link}" target="_blank" class="see-on-website">網站</a> 查看。
+    newsletters:
+      unsubscribe:
+        check_subscription: 如果您想更改您的偏好設定，您可以在<a href="%{link}" target="_blank">配置頁面</a>進行更改。
+        error: 取消訂閱時發生問題
+    newsletters_opt_in:
+      unathorized: 抱歉，此連結已不再可用。
+      update:
+        error: 出現了錯誤
+        success: 成功更新電子報設定
     notifications_settings:
       show:
+        allow_public_contact: 允許任何人向我發送私信，即使我沒有關注他們。
         allow_push_notifications: 當您不在平台上時，接收推播通知以了解正在發生的事情。您可以隨時關閉。
         push_notifications_reminder: 要從平台獲得通知，您需要先在瀏覽器設定中允許通知。
     offline:
       show:
         message: 看起來您目前處於離線狀態，請稍後再試。
+    pad_iframe:
+      explanation: 使用此區塊共同協作撰寫會議紀錄，以便之後更輕鬆地撰寫會議記錄。
     pages:
+      index:
+        read_more: 閱讀變多
       terms_and_conditions:
+        accept:
+          error: 接受條款和條件時出現問題。
+          success: 太好了！您已經接受了使用條款和條件。
+        form:
+          legend: 同意使用條款和條件
         refuse:
           modal_body: 如果您拒絕，將無法使用該平台，您可以<a href="%{download_your_data_path}">下載您的數據</a>和/或<a href="%{delete_path}">刪除您的帳戶</a>。
+          modal_btn_exit: 我稍後會再查看。
+          modal_title: 您真的要拒絕更新 使用條款和條件嗎？
+        required_review:
+          alert: 我們已更新我們的服務條款，請您查閱。
+          body: 請花一點時間檢閱我們的服務條款更新，否則您將無法使用平台。
     passwords:
       update:
         error: 密碼更新時發生問題
         success: 密碼已成功更新
+    profile:
+      deleted: 參與者已刪除
+      inaccessible_message: 這個帳戶因為違反了使用條款而無法訪問！
+    profiles:
+      default_officialization_text_for_user_groups: 這個社群已公開驗證，其名稱已經被證實符合其真實名稱。
+      default_officialization_text_for_users: 這個參與者已經公開驗證，其名稱或角色已被證實與其真實名稱或角色相符。
+      show:
+        timeline: 時間軸
+      user:
+        confirmation_instructions_sent: 電子郵件確認指示已發送
+        fill_in_email_to_confirm_it: 請填寫您的群組電子郵件以進行確認
+    shared:
+      flag_modal:
+        does_not_belong: 包含非法活動、自殺威脅、個人資訊或其他您認為不適合在%{organization_name} 上的內容。
+      flag_user_modal:
+        does_not_belong: 包含非法活動、自殺威脅、個人資訊或其他您認為不適合在%{organization_name} 上的內容。
+    user_activity:
+      index:
+        no_activities_warning: 這個參與者還沒有任何活動。
+    user_conversations:
+      create:
+        error: 訊息無法建立。請稍後再試。
+      index:
+        participant_with_disabled_message_reception: 此參與者已停用訊息接收功能
   layouts:
     decidim:
       offline_banner:
