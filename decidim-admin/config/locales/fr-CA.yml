@@ -211,7 +211,7 @@ fr-CA:
         required_review:
           alert: 'Obligatoire: Consultez nos conditions d''utilisation administrateur'
           callout: Veuillez prendre un moment pour consulter les conditions d'utilisation de l'administration. Sinon, vous ne pourrez pas gérer la plateforme.
-          cta: Consulter les maintenant.
+          cta: Consultez les maintenant.
         title: Conditions d'utilisation administrateur
       area_types:
         create:
@@ -654,7 +654,7 @@ fr-CA:
           nickname: Pseudonyme
           reason: Raison du signalement
           reports: Nombre de signalements
-          title: Liste des utilisateurs signalés
+          title: Participants signalés
         report:
           reasons:
             does_not_belong: N'appartient pas
@@ -665,7 +665,7 @@ fr-CA:
           unblocked: Non bloqué
       moderations:
         index:
-          title: Modérations
+          title: Contenu signalé
         report:
           reasons:
             does_not_belong: N'appartient pas

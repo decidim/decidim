@@ -51,6 +51,7 @@ module Decidim
             online_meeting_url: form.online_meeting_url,
             registration_type: form.registration_type,
             registration_url: form.registration_url,
+            registrations_enabled: form.registrations_enabled,
             type_of_meeting: form.clean_type_of_meeting,
             address: form.address,
             latitude: form.latitude,

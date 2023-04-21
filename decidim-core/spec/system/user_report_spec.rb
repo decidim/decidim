@@ -12,6 +12,24 @@ describe "Report User", type: :system do
     switch_to_host(user.organization.host)
   end
 
+  context "when the user is blocked" do
+    let(:user) { create(:user, :confirmed, :blocked) }
+    let(:admin) { create(:user, :admin, :confirmed, organization: user.organization) }
+    let(:reportable_path) { decidim.profile_path(user.nickname) }
+
+    before do
+      switch_to_host(user.organization.host)
+      login_as admin, scope: :user
+      visit reportable_path
+    end
+
+    it "cannot be reported" do
+      within ".profile--sidebar", match: :first do
+        expect(page).not_to have_css(".user-report_link")
+      end
+    end
+  end
+
   context "when the user is not logged in" do
     it "gives the option to sign in" do
       page.visit reportable_path

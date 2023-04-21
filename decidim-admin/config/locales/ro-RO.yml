@@ -204,14 +204,14 @@ ro:
           error: A apărut o eroare la acceptarea termenilor de utilizare ai administratorului.
           success: Super! Ai acceptat termenii de utilizare ai administratorului.
         actions:
-          accept: Sunt de acord cu acești termeni și condiţii
+          accept: Sunt de acord cu termenii
           are_you_sure: Sigur dorești să refuzi termenii de utilizare ai adiminstratorului?
           refuse: Refuz termenii
           title: Acceptă termenii și condițiile de utilizare
         required_review:
           alert: 'Obligatoriu: Revizuiți termenii de utilizare ai administratorului'
           callout: Te rugăm acordă un moment pentru a revizui Termenii de utilizare ai administratorului. În caz contrar, nu vei putea administra platforma.
-          cta: Revizuiește acum.
+          cta: Revizuiți-le acum.
         title: Termeni de Utilizare ai Administratorului
       area_types:
         create:
@@ -658,7 +658,7 @@ ro:
           nickname: Pseudonim
           reason: Motiv
           reports: Număr de raportări
-          title: Listarea utilizatorilor raportați
+          title: Participanți raportați
         report:
           reasons:
             does_not_belong: Nu aparține
@@ -669,7 +669,7 @@ ro:
           unblocked: Nu este blocat
       moderations:
         index:
-          title: Moderări
+          title: Conținut raportat
         report:
           reasons:
             does_not_belong: Nu aparține

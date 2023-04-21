@@ -41,6 +41,7 @@ module Decidim
         nickname: form.nickname,
         password: form.password,
         password_confirmation: form.password_confirmation,
+        password_updated_at: Time.current,
         organization: form.current_organization,
         tos_agreement: form.tos_agreement,
         newsletter_notifications_at: form.newsletter_at,

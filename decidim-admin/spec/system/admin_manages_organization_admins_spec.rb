@@ -89,6 +89,16 @@ describe "Organization admins", type: :system do
 
         expect(page).to have_no_content(other_admin.name)
       end
+
+      it "cannot remove admin rights from self" do
+        within "tr[data-user-id=\"#{admin.id}\"]" do
+          expect(page).not_to have_link("Delete")
+        end
+
+        within "tr[data-user-id=\"#{other_admin.id}\"]" do
+          expect(page).to have_link("Delete")
+        end
+      end
     end
   end
 end

@@ -27,7 +27,7 @@
     <%= decidim_form_for(@form, url: participatory_space_private_users_csv_imports_path, html: { class: "form" }) do |form| %>
       <p><%= t(".explanation") %></p>
       <div class="row column">
-        <%= form.upload :file, optional: false %>
+        <%= form.upload :file, required: true %>
       </div>
 
       <div class="button--double form-general-submit">

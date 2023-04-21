@@ -374,6 +374,7 @@ ar:
           recent: الأحدث
         print:
           city: مدينة
+          full_name: الاسم الكامل
           initiative:
             description: 'الوصف:'
         result:
@@ -423,6 +424,7 @@ ar:
             see_all_initiatives: رؤية جميع المبادرات
       show:
         badge_name:
+          accepted: ما يكفي من التوقيعات
           validating: تحقق تقني
       states:
         accepted: وافقت

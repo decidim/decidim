@@ -123,6 +123,10 @@
     }
   }
 
+  &.primary{
+    @include button-hollow-variant(var(--primary));
+  }
+
   &.secondary{
     @include button-hollow-variant(var(--secondary));
   }

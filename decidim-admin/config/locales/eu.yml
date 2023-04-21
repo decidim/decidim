@@ -43,7 +43,7 @@ eu:
         admin_terms_of_use_body: Administratzailearen erabilera-terminoetarako testu-atala
         alert_color: Alerta
         available_authorizations: Baimen erabilgarriak
-        badges_enabled: Gaitu txapak
+        badges_enabled: Intsigniak gaitu
         comments_max_length: Iruzkinen gehieneko luzera (utzi 0 defektuz konfigurazioa mantendu nahi baduzu)
         cta_button_path: Deitu ekintza botoiaren bideora
         cta_button_text: Deitu ekintza botoiaren testura
@@ -204,14 +204,11 @@ eu:
           error: Errorea gertatu da Administrazioaren Gaiak eta Baldintzak onartzean.
           success: Ederto! Onartu dituzu Administrazioaren Gaiak eta Baldintzak.
         actions:
-          accept: Ados nago
           are_you_sure: Ziur zaude ez dituzula onartu nahi administratzaileentzako erabilera-irizpideak?
-          refuse: Ez onartu Administrazio-irizpideak eta baldintzak
           title: Onartzen ditut Administrazio-irizpideak eta baldintzak
         required_review:
           alert: 'Eskatuta: berrikusi gure Administrazio-irizpideak eta baldintzak'
           callout: Mesedez, hartu tarte bat administratzaileentzako erabilera-irizpideak erabiltzeko. Bestela, ezin izango duzu plataforma administratu.
-          cta: Berrikusi orain.
         title: Administrazioaren Irizpideak eta Baldintzak
       area_types:
         create:
@@ -428,7 +425,7 @@ eu:
             'true': Ez da argitaratu
         scope_id_eq:
           label: Esparrua
-        search_label: Search
+        search_label: Bilatu
         search_placeholder:
           name_or_nickname_or_email_cont: Bilatu %{collection} helbide elektroniko, izen edo ezizenaren arabera.
           reported_id_string_or_reported_content_cont: Bilatu %{collection} eduki edo Id erreportablearen arabera.
@@ -467,7 +464,7 @@ eu:
           needs_authorization_warning: Gutxienez baimen gaitu bat behar duzu erakunde honendako.
           not_managed: Ez da kudeatzen
           promote: Sustatu
-          search: Search
+          search: Bilatu
           status: Egoera
           view_logs: Ikusi erregistroak
       impersonations:
@@ -638,7 +635,6 @@ eu:
           nickname: Ezizena
           reason: Arrazoia
           reports: Salaketa kopurua
-          title: Informatutako erabiltzaileen zerrenda
         report:
           reasons:
             does_not_belong: Ez da bidezkoa
@@ -648,8 +644,6 @@ eu:
           blocked: Blokeatuta
           unblocked: Ez blokeatuta
       moderations:
-        index:
-          title: ' Salaketak'
         report:
           reasons:
             does_not_belong: Ez du zer ikusirik

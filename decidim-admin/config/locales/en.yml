@@ -654,7 +654,7 @@ en:
           nickname: Nickname
           reason: Reason
           reports: Reports count
-          title: Listing reported users
+          title: Reported participants
         report:
           reasons:
             does_not_belong: Does not belong
@@ -665,7 +665,7 @@ en:
           unblocked: Not Blocked
       moderations:
         index:
-          title: Moderations
+          title: Reported content
         report:
           reasons:
             does_not_belong: Does not belong

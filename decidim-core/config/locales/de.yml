@@ -1092,6 +1092,7 @@ de:
     newsletter_mailer:
       newsletter:
         note: Sie haben diese E-Mail erhalten, weil Sie Newsletter auf %{organization_name}abonniert haben. Sie können Ihre Einstellungen auf Ihrer ändern <a href="%{link}">Benachrichtigungen Seite</a>.
+        see_on_website: Kann diese E-Mail nicht korrekt angezeigt werden? Klicken Sie bitte hier <a href="%{link}" target="_blank" class="see-on-website">Website</a>.
         unsubscribe: Um den Empfang dieser Art von E-Mail zu deaktivieren, <a href="%{link}" target="_blank" class="unsubscribe">Abbestellen</a>.
     newsletter_templates:
       basic_only_text:
@@ -1226,19 +1227,15 @@ de:
           error: Beim Akzeptieren der Nutzungsbedingungen ist ein Fehler aufgetreten.
           success: Groß! Sie haben die Allgemeinen Geschäftsbedingungen akzeptiert.
         form:
-          agreement: Ich stimme diesen Bedingungen zu
           legend: Stimme den Nutzungsbedingungen zu
         refuse:
           modal_body: Wenn Sie Ihre Zustimmung nicht erteilen, werden Sie nicht in der Lage sein, die Plattform zu nutzen; Sie können <a href="%{download_your_data_path}">Ihre Daten herunterladen</a> und/oder <a href="%{delete_path}">Ihr Konto löschen</a>.
-          modal_btn_continue: Bedingungen akzeptieren und fortfahren
           modal_btn_exit: Ich werde es später überprüfen
-          modal_button: Bedingungen ablehnen
           modal_close: Modal schließen
           modal_title: Lehnen Sie die aktualisierten Geschäftsbedingungen wirklich ab?
         required_review:
           alert: Wir haben unsere Nutzungsbedingungen aktualisiert. Bitte überprüfen Sie sie.
           body: Bitte nehmen Sie sich einen Moment Zeit, um sich über die Aktualisierungen unserer Nutzungsbedingungen zu informieren. Andernfalls können Sie die Plattform nicht nutzen.
-          title: 'Erforderlich: Überprüfen Sie die Aktualisierungen unserer Nutzungsbedingungen'
     participatory_space_private_users:
       not_allowed: Sie dürfen diesen Inhalt nicht sehen
     passwords:
@@ -1429,6 +1426,9 @@ de:
       help_text: "<strong>Warnung:</strong> Inhalt könnte automatisch übersetzt werden und nicht 100% korrekt sein."
       show_original: Originaltext anzeigen
       show_translated: Automatisch übersetzter Text anzeigen
+    user_activity:
+      index:
+        no_activities_warning: Für diesen Teilnehmer gibt es bisher noch keine Aktivität.
     user_contact_disabled: Dieser Teilnehmer akzeptiert keine Direktnachrichten.
     user_conversations:
       create:

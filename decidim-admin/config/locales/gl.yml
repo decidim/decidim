@@ -180,11 +180,9 @@ gl:
           error: Produciuse un erro ao aceptar os termos de uso do panel de administración.
           success: Xenial! Aceptaches os termos de uso do panel de administración.
         actions:
-          refuse: Rexeitar os termos de uso
           title: Concordo cos termos e condicións de uso
         required_review:
           alert: 'Requirido: Revisa os nosos termos de uso do panel de administración'
-          cta: Revísaos agora.
         title: Termos de uso do panel de administración
       area_types:
         create:
@@ -620,7 +618,6 @@ gl:
           nickname: Alcume
           reason: Motivo
           reports: Número de denuncias
-          title: Listando os usuarios reportados
         report:
           reasons:
             does_not_belong: Non pertence
@@ -630,8 +627,6 @@ gl:
           blocked: Bloqueados
           unblocked: Sen bloquear
       moderations:
-        index:
-          title: Moderacións
         report:
           reasons:
             does_not_belong: Non pertence

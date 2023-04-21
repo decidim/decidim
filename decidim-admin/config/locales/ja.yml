@@ -204,14 +204,14 @@ ja:
           error: 管理者向け利用規約に同意中にエラーが発生しました。
           success: ありがとうございます、管理者向け利用規約に同意しました。
         actions:
-          accept: 利用規約に同意します
+          accept: 利用規約に同意する
           are_you_sure: 管理者向け利用規約を削除してもよろしいですか？
-          refuse: 同意しない
+          refuse: 管理者規約を拒否する
           title: 利用規約に同意する
         required_review:
           alert: '必須：管理者向け利用規約を確認してください'
           callout: 管理者向け利用規約を確認してください。そうでなければ、プラットフォームを管理することはできません。
-          cta: 今すぐレビューしましょう。
+          cta: 今すぐ確認する
         title: 管理者向け利用規約
       area_types:
         create:
@@ -349,7 +349,7 @@ ja:
       conflicts:
         attempts: 試行回数
         'false': 'いいえ'
-        managed_user_name: 管理ユーザー
+        managed_user_name: 管理対象ユーザー
         solved: 解決済み
         title: 確認の競合
         transfer:
@@ -466,7 +466,7 @@ ja:
           filter_by: フィルター
           impersonate: なりすまし
           impersonate_new_managed_user: 新規参加者の管理
-          managed: 管理
+          managed: 管理対象
           name: 名前
           needs_authorization_warning: この組織に対して少なくとも1つの承認が有効になっている必要があります。
           not_managed: 非管理対象
@@ -650,7 +650,7 @@ ja:
           nickname: ニックネーム
           reason: 理由
           reports: レポート数
-          title: 報告されたユーザー一覧
+          title: 報告された参加者
         report:
           reasons:
             does_not_belong: 所属していない
@@ -661,7 +661,7 @@ ja:
           unblocked: 未ブロック
       moderations:
         index:
-          title: モデレーション
+          title: 報告されたコンテンツ
         report:
           reasons:
             does_not_belong: 属していません
@@ -764,7 +764,7 @@ ja:
           not_officialized: 公式化されていない
           officialize: 公式化
           officialized: 公式化済み
-          reofficialize: Reofficize
+          reofficialize: 再公式化
           reports: 報告
           show_email: メールアドレスを表示
           status: ステータス
@@ -1054,7 +1054,7 @@ ja:
         hide: 非表示
         not_hidden: 表示
         title: アクション
-        unhide: Unhide
+        unhide: 非表示解除
         unreport: 報告解除
       admin:
         reportable:

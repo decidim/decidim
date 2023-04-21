@@ -135,6 +135,30 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
       login_as current_user, scope: :user
     end
 
+    context "when proposal limit is empty" do
+      it_behaves_like "has mandatory config setting", :proposal_limit
+    end
+
+    context "when support limit per participant is empty" do
+      it_behaves_like "has mandatory config setting", :vote_limit
+    end
+
+    context "when minimum supports per user is empty" do
+      it_behaves_like "has mandatory config setting", :minimum_votes_per_user
+    end
+
+    context "when proposal_edit_before_minutes is empty" do
+      it_behaves_like "has mandatory config setting", :proposal_edit_before_minutes
+    end
+
+    context "when comments_max_length is empty" do
+      it_behaves_like "has mandatory config setting", :comments_max_length
+    end
+
+    context "when threshold_per_proposal is empty" do
+      it_behaves_like "has mandatory config setting", :threshold_per_proposal
+    end
+
     describe "participatory_texts_enabled" do
       let(:participatory_texts_enabled_container) { page.find(".participatory_texts_enabled_container") }
 
@@ -148,7 +172,7 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
           visit edit_component_path
         end
 
-        it "does NOT allow creating new proposals with the proposal form" do
+        it "does not allow creating new proposals with the proposal form" do
           expect(page.find(".creation_enabled_container")[:class]).to include("readonly")
           expect(page).to have_content("This setting is disabled when you activate the Participatory Texts functionality. To upload proposals as participatory text click on the Participatory Texts button and follow the instructions.")
         end
@@ -175,12 +199,12 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
           visit edit_component_path
         end
 
-        it "does NOT allow to check the setting" do
+        it "does not allow to check the setting" do
           expect(participatory_texts_enabled_container[:class]).to include("readonly")
           expect(page).to have_content("Cannot interact with this setting if there are existing proposals. Please, create a new `Proposals component` if you want to enable this feature or discard all imported proposals in the `Participatory Texts` menu if you want to disable it.")
         end
 
-        it "does NOT change the setting value after updating" do
+        it "does not change the setting value after updating" do
           expect do # rubocop:disable Lint/AmbiguousBlockAssociation
             click_button "Update"
           end.not_to change { component.reload.settings.participatory_texts_enabled }
@@ -259,6 +283,20 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
 
       it "exports all proposals from the component" do
         expect(subject).to match_array([unassigned_proposal, assigned_proposal])
+      end
+    end
+
+    context "when proposal is moderated" do
+      let(:hidden_proposal) { create :proposal, component: component }
+      let!(:moderation) { create(:moderation, hidden_at: 6.hours.ago, reportable: hidden_proposal) }
+      let!(:user) { create :user, admin: true, organization: organization }
+
+      it "exports all proposals from the component" do
+        expect(subject).to include(unassigned_proposal, assigned_proposal)
+      end
+
+      it "excludes the hidden proposals" do
+        expect(subject).not_to include(hidden_proposal)
       end
     end
   end

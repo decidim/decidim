@@ -555,7 +555,7 @@ es:
             votes_ranking: Clasificación por apoyos
           update_category:
             invalid: 'Estas propuestas ya tenían la categoría %{subject_name}: %{proposals}.'
-            select_a_category: Selecciona una categoría
+            select_a_category: Por favor, seleccione una categoría
             select_a_proposal: Selecciona una propuesta
             success: 'Propuestas actualizadas correctamente a la categoría %{subject_name}: %{proposals}.'
           update_scope:
@@ -920,7 +920,7 @@ es:
           proposal_limit:
             description: Puedes crear hasta %{limit} propuestas.
           threshold_per_proposal:
-            description: Para ser validadas, las propuestas deben llegar a un cuórum nínimo de %{limit} apoyos
+            description: Para ser validadas, las propuestas deben llegar a un mínimo de %{limit} apoyos
           title: 'La recogida de apoyos se rige por las siguientes normas:'
           vote_limit:
             description: Puedes apoyar hasta %{limit} propuestas.

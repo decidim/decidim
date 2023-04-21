@@ -192,7 +192,7 @@ eu:
         assemblies_settings: Ezarpenak
         assemblies_submenu:
           assembly_admins: Batzar erabiltzaileak
-          assembly_members: Bazkideek
+          assembly_members: Kideak
           attachment_collections: Karpetak
           attachment_files: Fitxategiak
           attachments: Eranskinak
@@ -313,7 +313,7 @@ eu:
               ceased: utzi zion
               not_ceased: Ez da gelditu
             filter_by: Iragazi arabera
-            search: Search
+            search: Bilatu
         content_blocks:
           highlighted_assemblies:
             max_results: Erakusteko elementu gehienen kopurua
@@ -322,7 +322,7 @@ eu:
             json: JSON
       assembly_members:
         index:
-          members: Bazkideek
+          members: Kideak
       assembly_types:
         commission: Batzordeak
         consultative_advisory: Aholku / Aholku
@@ -392,7 +392,7 @@ eu:
       assembly_member:
         designated_on: Izendatuta
       index:
-        title: Bazkideek
+        title: Kideak
     events:
       assemblies:
         create_assembly_member:
@@ -451,7 +451,7 @@ eu:
           more_info: Informazio gehiago
           take_part: Parte hartu
       assembly_navigation:
-        assembly_member_menu_item: Bazkideak
+        assembly_member_menu_item: Kideak
         assembly_menu_item: Biltzarra
       assembly_widgets:
         show:

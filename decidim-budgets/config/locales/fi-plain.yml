@@ -121,13 +121,13 @@ fi-pl:
             success: 'Seuraavien projektien teeman päivitys onnistui %{subject_name}: %{projects}.'
           update_selected:
             invalid:
-              selected: 'Nämä projektit oli jo valittu toteutukseen: %{projects}.'
-              unselected: 'Näitä projekteja ei oltu valittu toteutukseen: %{projects}.'
+              selected: 'Nämä hankkeet oli jo valittu toteutukseen: %{projects}.'
+              unselected: 'Näitä hankkeita ei oltu valittu toteutukseen: %{projects}.'
             select_a_project: Valitse projekti
             select_a_selection: Valitse tila
             success:
-              selected: 'Näiden projektien valinta toteutukseen onnistui: %{projects}.'
-              unselected: 'Näiden projektien toteutukseen valinnan poistaminen onnistui: %{projects}.'
+              selected: 'Näiden hankkeiden valinta toteutukseen onnistui: %{projects}.'
+              unselected: 'Näiden hankkeiden toteutukseen valinnan poistaminen onnistui: %{projects}.'
         proposals_imports:
           create:
             invalid: Ehdotusten tuomisessa suunnitelmiin esiintyi ongelmia
@@ -266,7 +266,7 @@ fi-pl:
           filter_by: Suodata
           unfold: Avaa
         index:
-          view_project: Näytä projekti
+          view_project: Näytä hanke
         order_progress:
           vote: Äänestä
         order_selected_projects:

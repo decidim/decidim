@@ -28,19 +28,19 @@ Decidim.register_component(:proposals) do |component|
   component.settings(:global) do |settings|
     settings.attribute :scopes_enabled, type: :boolean, default: false
     settings.attribute :scope_id, type: :scope
-    settings.attribute :vote_limit, type: :integer, default: 0
-    settings.attribute :minimum_votes_per_user, type: :integer, default: 0
-    settings.attribute :proposal_limit, type: :integer, default: 0
+    settings.attribute :vote_limit, type: :integer, default: 0, required: true
+    settings.attribute :minimum_votes_per_user, type: :integer, default: 0, required: true
+    settings.attribute :proposal_limit, type: :integer, default: 0, required: true
     settings.attribute :proposal_length, type: :integer, default: 500
     settings.attribute :proposal_edit_time, type: :enum, default: "limited", choices: -> { %w(limited infinite) }
-    settings.attribute :proposal_edit_before_minutes, type: :integer, default: 5
-    settings.attribute :threshold_per_proposal, type: :integer, default: 0
+    settings.attribute :proposal_edit_before_minutes, type: :integer, default: 5, required: true
+    settings.attribute :threshold_per_proposal, type: :integer, default: 0, required: true
     settings.attribute :can_accumulate_supports_beyond_threshold, type: :boolean, default: false
     settings.attribute :proposal_answering_enabled, type: :boolean, default: true
     settings.attribute :default_sort_order, type: :select, default: "default", choices: -> { POSSIBLE_SORT_ORDERS }
     settings.attribute :official_proposals_enabled, type: :boolean, default: true
     settings.attribute :comments_enabled, type: :boolean, default: true
-    settings.attribute :comments_max_length, type: :integer, required: false
+    settings.attribute :comments_max_length, type: :integer, required: true
     settings.attribute :geocoding_enabled, type: :boolean, default: false
     settings.attribute :attachments_allowed, type: :boolean, default: false
     settings.attribute :resources_permissions_enabled, type: :boolean, default: true
@@ -131,6 +131,7 @@ Decidim.register_component(:proposals) do |component|
 
       collection = Decidim::Proposals::Proposal
                    .published
+                   .not_hidden
                    .where(component: component_instance)
                    .includes(:scope, :category, :component)
 

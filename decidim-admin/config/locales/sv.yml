@@ -204,14 +204,11 @@ sv:
           error: Ett fel inträffade när användarvillkoren för administratörer skulle godkännas.
           success: Du har godkänt användarvillkoren för administratörer.
         actions:
-          accept: Jag godkänner villkoren
           are_you_sure: Är du säker på att du vill avvisa administratörsvillkoren?
-          refuse: Avvisa villkoren för administratörer
           title: Godkänn användarvillkoren
         required_review:
           alert: 'Krav: granska villkoren för administratörer'
           callout: Granska användarvillkoren för administratörer. Annars kan du inte administrera plattformen.
-          cta: Granska dem nu.
         title: Användarvillkor för administratörer
       area_types:
         create:
@@ -654,7 +651,6 @@ sv:
           nickname: Användarnamn
           reason: Anledning
           reports: Antal anmälningar
-          title: Rapporterade användare
         report:
           reasons:
             does_not_belong: Tillhör inte
@@ -664,8 +660,6 @@ sv:
           blocked: Blockerad
           unblocked: Icke blockerade
       moderations:
-        index:
-          title: Moderering
         report:
           reasons:
             does_not_belong: Hör inte hemma
