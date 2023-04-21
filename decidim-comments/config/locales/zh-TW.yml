@@ -1,1 +1,19 @@
+---
 zh-TW:
+  decidim:
+    comments:
+      comments:
+        delete:
+          error: 該評論無法被刪除。
+    components:
+      add_comment_form:
+        form:
+          form_error: 文字為必填欄位，且不可超過 %{length} 個字元。
+      comment:
+        report:
+          reasons:
+            does_not_belong: 包含非法活動、自殺威脅、個人資訊或其他您認為不適合在%{organization_name} 上的內容。
+        show_replies: 顯示 %{replies_count} 則回覆
+  errors:
+    messages:
+      cannot_have_comments: 無法留言
