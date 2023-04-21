@@ -1,1 +1,44 @@
 zh-TW:
+  activemodel:
+    attributes:
+      config:
+        available_methods: 可用的方法
+        offline: 離線
+        offline_explanation: 離線驗證說明
+        online: 線上
+      id_document_information:
+        document_number: 文件編號(含字母)
+        document_type: 文件類型
+      id_document_upload:
+        document_number: 文件編號(含字母)
+        document_type: 您的文件類型
+        user: 參與者
+        verification_attachment: 您的文件的掃描副本
+      offline_confirmation:
+        email: 參與者電子郵件
+      postal_letter_address:
+        full_address: 完整地址
+      postal_letter_confirmation:
+        verification_code: 驗證碼
+      postal_letter_postage:
+        full_address: 完整地址
+        verification_code: 驗證碼
+    errors:
+      models:
+        census_data:
+          attributes:
+            file:
+              malformed: 匯入檔案格式有誤，請小心閱讀教學並且確認檔案是使用 UTF-8 編碼
+  decidim:
+    admin:
+      menu:
+        authorization_revocation:
+          before_date_info: '"如果程序已經開始進行，且您希望撤銷先前程序的權限，此選項會很有用。'
+          button: 全部撤銷
+          button_before: 撤銷日期之前
+          destroy:
+            confirm: 撤銷在指定日期之前的授權無法撤消。您確定要繼續嗎？
+            confirm_all: 撤銷所有授權後無法還原，確定要繼續嗎？
+          destroy_nok: 撤銷授權時發生問題。
+          destroy_ok: 所有匹配的授權已成功撤銷。
+          info: 總共有 %{count} 名已驗證的參與者。
