@@ -8,9 +8,9 @@ module Decidim
 
       format = [start_date.year, end_date.year].any? { |year| year != Date.current.year } ? :decidim_short_with_month_name_short : :decidim_with_month_name_short
       if start_date.to_date == end_date.to_date
-        "#{l(start_date.to_date, format:)} #{l(start_date, format: :time_of_day)} #{icon("arrow-right-line")} #{l(end_date, format: :time_of_day)}"
+        "#{l(start_date.to_date, format:)} #{l(start_date, format: :time_of_day)} #{icon("arrow-right-line")} #{l(end_date, format: :time_of_day)}".html_safe
       else
-        "#{l(start_date.to_date, format:)} #{icon("arrow-right-line")} #{l(end_date.to_date, format:)}"
+        "#{l(start_date.to_date, format:)} #{icon("arrow-right-line")} #{l(end_date.to_date, format:)}".html_safe
       end
     end
   end
