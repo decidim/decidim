@@ -295,7 +295,7 @@ describe "Explore debates", type: :system do
       within ".layout-item__aside" do
         expect(page).to have_content(13)
         expect(page).to have_content(/Dec/i)
-        expect(page).to have_content("14:15 - 16:17")
+        expect(page).to have_content("14:15 16:17")
       end
     end
 
