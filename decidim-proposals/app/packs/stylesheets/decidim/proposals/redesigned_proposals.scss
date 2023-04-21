@@ -51,11 +51,11 @@
 
   &__aside{
     &-container{
-      @apply space-y-6 flex flex-col;
+      @apply space-y-6 md:space-y-12 flex flex-col;
     }
 
     &-vote{
-      @apply flex flex-row-reverse md:flex-col gap-6 items-center md:items-stretch justify-between first:[&>*]:grow last:[&>*]:w-1/4 md:last:[&>*]:w-auto;
+      @apply flex flex-row-reverse md:flex-col gap-4 items-center md:items-stretch justify-between first:[&>*]:grow last:[&>*]:w-1/4 md:last:[&>*]:w-auto;
     }
 
     &-actions{
