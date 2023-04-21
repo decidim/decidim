@@ -87,29 +87,70 @@ zh-TW:
         verify_with_managed_user:
           email_intro: 該參與者<a href="%{resource_url}">%{resource_title}</a>嘗試使用另一個參與者(<a href="%{managed_user_url}">%{managed_user_name}</a>) 的資料進行驗證。
           email_outro: 請檢查<a href="%{conflicts_url}">驗證衝突清單</a>，並聯繫參與者驗證其詳細資料以解決問題。
+          email_subject: 對其他參與者的驗證嘗試失敗
           notification_title: 該參與者<a href="%{resource_path}">%{resource_title}</a>嘗試使用另一個參與者(<a href="%{managed_user_path}">%{managed_user_name}</a>) 的資料進行驗證。
     verifications:
       authorizations:
+        authorization_metadata:
+          info: '這是目前驗證的資料:'
+          no_data_stored: 沒有存儲任何資料。
         create:
+          error: 創建授權時出現問題。
           success: 你已經成功被授權。
+          unconfirmed: 您需要確認您的電子郵件以授權。
         destroy:
+          error: 刪除授權時出現問題。
           success: 你已經成功刪除授權。
+        first_login:
+          actions:
+            another_dummy_authorization_handler: 使用另一個授權處理器進行驗證
+            csv_census: 根據組織的人口統計進行驗證
+            dummy_authorization_handler: 根據範例授權處理器進行驗證
+            dummy_authorization_workflow: 根據範例授權工作流程進行驗證
+            id_documents: 通過上傳身份證明文件進行驗證
+            postal_letter: 通過郵寄獲得驗證碼進行驗證
+            sms: 通過收到SMS短信驗證碼進行驗證
+          title: 驗證你的身份
+          verify_with_these_options: '這是可以驗證您身份的可用選項:'
         index:
+          expired_verification: 驗證已過期
+          pending_verification: 待驗證
+          show_renew_info: 點擊更新驗證
           unauthorized_verification: 新的驗證程序
+        new:
+          authorize: 發送
+          authorize_with: 使用 %{authorizer} 驗證
         renew_modal:
+          cancel: 取消
           close: 關閉
+          continue: 繼續
           info_renew: 如果您想要更新資料，請繼續進行更新。
+          title: 更新驗證
+        skip_verification: 您現在可以跳過這個步驟，並%{link}
+        start_exploring: 開始探索
       csv_census:
         admin:
           census:
             create:
+              error: 匯入戶籍普查資料時發生錯誤。
               success: 成功匯入 %{count} 項目(%{errors} 錯誤)
             destroy_all:
               success: 所有普查數據都已刪除
           destroy:
             confirm: 刪除所有普查資料將無法還原，您確定要繼續嗎？
+            title: 刪除所有戶籍資料
           index:
             data: 總共載入了 %{count} 筆記錄。最後上傳日期為 %{due_date}。
+            empty: 目前沒有戶籍資料。使用下面的表格，使用 CSV 檔案進行匯入。
+            title: 目前戶籍資料
+          instructions:
+            body: 您需要進入系統管理，並向組織添加 csv_census 授權以進行操作。
+            title: 您需要為此組織啟用 CSV 戶籍調查。
+          new:
+            file: "帶有電子郵件數據的.csv 文件"
+            info: '必須是一個 CSV 格式的文件，僅包含一列電子郵件地址：'
+            submit: 上傳檔案
+            title: 上傳新的調查
         authorizations:
           new:
             error: 我們無法驗證您的帳戶或您不在該組織的人口普查中。
@@ -191,6 +232,8 @@ zh-TW:
               mark_as_sent: 標記為已傳送
               not_yet_sent: 尚未發送
               title: 進行中的驗證
+              username: 暱稱
+              verification_code: 驗證碼
           postages:
             create:
               error: 標記信函寄送時發生錯誤
@@ -200,7 +243,12 @@ zh-TW:
             error: 你的請求有問題
             success: 謝謝！我們會寄送一個驗證碼到您的地址
           edit:
+            send: 確認
+            title: 請輸入您收到的驗證碼。
             waiting_for_letter: 我們會盡快寄一封信到你的地址，信裡會有你的驗證碼。
+          new:
+            send: 寄送信件給我
+            title: 重新申請驗證碼
           update:
             error: 您的驗證碼與我們的不符。請再次檢查我們寄給您的信件
             success: 恭喜您！您已成功通過驗證。
@@ -209,8 +257,20 @@ zh-TW:
           create:
             error: 您的請求有問題
             success: 感謝您！我們已經發送了一個SMS簡訊到您的手機。
+          destroy:
+            success: 驗證碼已成功重設。請重新輸入您的電話號碼。
           edit:
+            confirm_destroy: 您確定要重置驗證碼嗎？
+            destroy: 重置驗證代碼
             resend: 未收到驗證碼嗎？
+            send: 確認
+            title: 請輸入您收到的驗證碼。
+          new:
+            send: 發送簡訊給我
+            title: 重新申請驗證碼
           update:
             error: 您的驗證碼與我們的不符。請仔細檢查我們發送給您的SMS簡訊。
             success: 恭喜您！您已成功通過驗證。
+  errors:
+    messages:
+      uppercase_only_letters_numbers: 必須全為大寫字母和/或數字
