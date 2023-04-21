@@ -1,3 +1,4 @@
+<% if false %>
 <div class="wrapper">
   <div class="row">
     <%= cell("decidim/amendable/wizard_step_form", amendable, view: :wizard_aside ) %>
@@ -29,3 +30,31 @@
     <div class="columns large-3"></div>
   </div>
 </div>
+<% end %>
+
+<%= render layout: "layouts/decidim/shared/layout_center" do %>
+
+  <#= render partial: "wizard_header" %>
+
+  <%= decidim_form_for(@form, url: amends_path, method: :post) do |form| %>
+    <%= form_required_explanation %>
+    <%= form.hidden_field :amendable_gid %>
+
+    <div class="form__wrapper">
+      <%= render partial: "edit_form_fields", locals: { form: form, original: :amendable } %>
+    </div>
+
+    <% if current_organization.user_groups_enabled? && current_user.user_groups.verified.any? %>
+      <%= user_group_select_field form, :user_group_id, label: t("new.amendment_author", scope: "decidim.amendments") %>
+    <% end %>
+
+    <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
+      <%= form.submit t(".send"), class: "button expanded mt-s mb-none", data: { disable: true } %>
+      <button type="submit" class="button button__sm md:button__lg button__secondary">
+        <span><%= t("send", scope: "decidim.amendments.new") %></span>
+        <%= icon "arrow-right-line" %>
+      </button>
+    </div>
+  <% end %>
+
+<% end %>
