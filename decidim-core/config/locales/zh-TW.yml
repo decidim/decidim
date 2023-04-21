@@ -140,8 +140,72 @@ zh-TW:
       data_portability_export:
         click_button: '點擊下方鏈接下載您的資料。<br/>檔案將可取得直到 %{date}.<br/>您需要 <a href="https://www.7-zip.org/">7-Zip</a> (Windows)，<a href="https://www.keka.io/en/">Keka</a> (MacOS)，或<a href="https://peazip.github.io">PeaZip</a> (Linux) 來打開它。密碼: %{password}'
         download: 下載
+    fingerprint:
+      explanation: 以下文字片段是原內容的簡化且經過雜湊處理後的表現方式。這是為了確保內容未被篡改，因為單一修改將導致完全不同的值。
+    following:
+      no_followings: 還沒有追蹤任何人或任何東西。
+    forms:
+      current_file: 當前檔案
+      current_image: 現在的圖片
+      default_image: 預設圖片
+      errors:
+        error: 輸入欄位有誤。
+      file_help:
+        file:
+          message_1: 必須是圖片或文件。
+          message_2: 對於圖片，請使用橫向圖片，因為服務會對圖片進行裁剪。對於 CSV 文件，列之間的分隔符必須是逗號 (",")
+      remove_this_file: 刪除此文件
+    gamification:
+      badges:
+        followers:
+          unearned_another: 這位參與者還沒有任何追蹤者。
+          unearned_own: 您還沒有追隨者。
+      reached_top: 您已經達到此徽章的最高等級。
+    group_admins:
+      actions:
+        are_you_sure: 確定嗎？這將不會將該參與者從該組中移除。
+      demote:
+        error: 刪除此參與者的管理員名單時發生問題。
+        success: 成功從管理員列表中刪除參與者
+    group_invites:
+      accept:
+        error: 這個邀請接受時發生問題。
+        success: 邀請已成功接受
+      invite:
+        error: 邀請參與者加入時發生問題
+        success: 成功邀請參與者
+      reject:
+        error: 拒絕邀請時出現問題
+        success: 邀請已成功拒絕
+    group_members:
+      accept:
+        error: 加入請求接受時發生問題
+        success: 加入申請已成功接受
+      promote:
+        error: 提升這位參與者的權限時發生問題
+        success: 成功提升參與者權限
+      reject:
+        error: 拒絕此加入請求時發生問題
+        success: 加入申請已被拒絕
+      remove:
+        error: 將此參與者從群組中移除時發生問題
+        success: 已成功將參與者從群組中移除
     groups:
+      create:
+        error: 在建立這個群組時發生問題
+        success: 分組已成功創建
+      form:
+        document_number_help: 不要使用破折号或空格
+        phone_help: 不要使用破折号或空格
+      join:
+        error: 加入這個群組時發生問題
+      leave:
+        error: 離開這個群組時發生問題
+      no_user_groups: 尚未加入任何群組。
+      roles:
+        creator: 建立者
       update:
+        error: 更新群組時，發生錯誤。
         success: 成功更新群組
     help:
       main_topic:
@@ -238,3 +302,25 @@ zh-TW:
         error: 訊息無法建立。請稍後再試。
       index:
         participant_with_disabled_message_reception: 此參與者已停用訊息接收功能
+      show:
+        deleted_accounts: 你不能與已刪除的帳戶進行對話。
+  errors:
+    messages:
+      cycle_detected: 一個範圍的父級範圍不能是其後代之一
+      nesting_too_deep: 不能被放置在子類別中。
+  layouts:
+    decidim:
+      cookie_warning:
+        description_html: 本網站使用 cookies。繼續瀏覽本網站即表示您同意我們使用 cookies。%{link}。
+        link_label: 了解更多有關 cookies 的資訊。
+        ok: 我同意
+  password_validator:
+    blacklisted: 已列入黑名单
+  views:
+    pagination:
+      first: "&laquo; 第一"
+      first_title: 鏈接到第一頁
+      last: 最後 &raquo;
+      last_title: 鏈接到最後一頁
+      next: 下一個 &rsaquo;
+      previous: "&lsaquo; 上一篇"
