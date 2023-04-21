@@ -83,7 +83,7 @@ module Decidim
         return unless admin_terms_accepted?
         return unless permission_action.subject == :global_moderation
         return allow! if user.admin?
-        return disallow! if user_valuator?
+        # return disallow! if user_valuator?
 
         return allow! if Decidim.participatory_space_manifests.flat_map.any? do |manifest|
           Decidim
