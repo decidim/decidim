@@ -8,14 +8,24 @@ zh-TW:
       decidim/gamification/level_up_event: 您已經升級了。
   decidim:
     account:
+      blocked: 由於違反條款和條件，此帳戶已被封鎖。
+      delete:
+        alert: 此操作無法撤銷。如果您刪除帳戶，將無法使用您的憑證登錄。刪除帳戶將導致您的貢獻被匿名化。您仍然可以創建一個新帳戶，但這些貢獻將不會與之關聯。
+      download_your_data_export:
+        file_no_exists: 檔案不存在
+        notice: 您的資料正在下載中，完成後將會以電子郵件通知您。
       email_change:
         body1: 我們已經發送了一封郵件到 %{unconfirmed_email}，以驗證您的新電子郵件地址。
         resend_successfully: 確認郵件已成功重新發送至 %{unconfirmed_email}
       show:
         available_locales_helper: 選擇您想要使用的語言來瀏覽平台並接收通知
+      update:
+        success_with_email_confirmation: 您的帳戶已成功更新。您將收到一封電子郵件以確認您的新電子郵件地址。
     admin:
       password_change:
         alert: 你需要更改你的密碼才能繼續進行操作。
+    admin_terms_of_use:
+      default_body: "<h2>管理員使用條款</h2><p>我們相信您已經收到了當地系統管理員的慣例講話。它通常總結為以下三點：</p><ol><li>尊重他人的隱私。</li><li>三思而後行。</li><li>強大的權力伴隨著巨大的責任。</li></ol>"
     events:
       nickname_event:
         notification_body: 我們已更正暱稱使用的方式，以避免重複，所以我們已經移除了大小寫敏感的規則。<br/>你的暱稱是在已有同名暱稱之後創建的，因此我們已經自動重新命名。你可以從<a href="%{link_to_account_settings}">帳戶設置</a>更改它。
