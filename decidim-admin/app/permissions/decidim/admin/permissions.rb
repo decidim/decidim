@@ -83,7 +83,6 @@ module Decidim
         return unless admin_terms_accepted?
         return unless permission_action.subject == :global_moderation
         return allow! if user.admin?
-        # return disallow! if user_valuator?
 
         return allow! if Decidim.participatory_space_manifests.flat_map.any? do |manifest|
           Decidim
@@ -95,20 +94,6 @@ module Decidim
         end
 
         disallow!
-      end
-
-      def user_valuator?
-        return unless user
-        return unless user.admin?
-
-        Decidim.participatory_space_manifests.flat_map.any? do |manifest|
-          Decidim
-            .find_participatory_space_manifest(manifest.name)
-            .participatory_spaces
-            .call(user.organization)&.any? do |space|
-            space.respond_to?(:user_roles) && space.user_roles(:valuator).where(user:).any?
-          end
-        end
       end
 
       def apply_newsletter_permissions_for_admin!
