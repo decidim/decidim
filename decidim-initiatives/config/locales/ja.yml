@@ -419,6 +419,7 @@ ja:
         delete_attachment: 削除
       index:
         title: イニシアチブ
+        uninitialized: イニシアチブは管理者によってまだ設定されていません
       initiative_signatures:
         fill_personal_data:
           continue: 続ける
