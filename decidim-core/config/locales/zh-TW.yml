@@ -5,3 +5,26 @@ zh-TW:
         tos_agreement: 使用協議的條款和條件
     models:
       decidim/gamification/level_up_event: 您已經升級了。
+  carrierwave:
+    errors:
+      image_too_big: 圖片太大了。
+  datetime:
+    distance_in_words:
+      x_seconds:
+        one: 1 秒之前
+        other: "%{count} 秒前"
+        zero: 現在
+  decidim:
+    account:
+      blocked: 由於違反條款和條件，此帳戶已被封鎖。
+      data_portability_export:
+        file_no_exists: 檔案不存在
+        notice: 您的資料正在下載中，完成後將會以電子郵件通知您。
+      delete:
+        alert: 此操作無法撤銷。如果您刪除帳戶，將無法使用您的憑證登錄。刪除帳戶將導致您的貢獻被匿名化。您仍然可以創建一個新帳戶，但這些貢獻將不會與之關聯。
+      show:
+        available_locales_helper: 請選擇您希望在 Decidim 中瀏覽和接收通知的語言
+      update:
+        success_with_email_confirmation: 您的帳戶已成功更新。您將收到一封電子郵件以確認您的新電子郵件地址。
+    admin_terms_of_use:
+      default_body: "<h2>管理員使用條款</h2><p>我們相信您已經收到了當地系統管理員的慣例講話。它通常總結為以下三點：</p><ol><li>尊重他人的隱私。</li><li>三思而後行。</li><li>強大的權力伴隨著巨大的責任。</li></ol>"
