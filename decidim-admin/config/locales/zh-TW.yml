@@ -40,7 +40,7 @@ zh-TW:
         body: 內容
         subject: 主旨
       organization:
-        admin_terms_of_use_body: 管理者使用條款內容
+        admin_terms_of_use_body: 管理員使用條款正文
         alert_color: 警告
         available_authorizations: 可用認證方式
         badges_enabled: 啟用勳章
@@ -396,6 +396,20 @@ zh-TW:
           empty: 這個主題下沒有頁面
         update:
           success: 頁面已更新成功
+      user_group:
+        csv_verify:
+          success: CSV檔案上傳成功，我們正在驗證符合條件的群組。這可能需要一些時間。
+        reject:
+          success: 群組已成功拒絕
+        verify:
+          success: 群組驗證成功
+      users_statistics:
+        users_count:
+          no_users_count_statistics_yet: 目前還沒有使用者統計數據。
+    forms:
+      errors:
+        impersonate_user:
+          reason: 你需要在管理非管理的參與者時提供一個原因
     moderations:
       models:
         moderation:
