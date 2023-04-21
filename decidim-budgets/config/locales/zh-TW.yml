@@ -51,6 +51,12 @@ zh-TW:
         title: 操作
       admin:
         budgets:
+          create:
+            invalid: 建立預算時發生問題
+            success: 預算已成功建立
+          destroy:
+            invalid: 刪除此預算時出現問題
+            success: 預算已成功刪除
           edit:
             title: 編輯預算
             update: 更新預算
@@ -63,6 +69,9 @@ zh-TW:
           new:
             create: 建立預算
             title: 新增預算
+          update:
+            invalid: 此預算更新時出了問題
+            success: 預算已成功更新
         exports:
           projects: 專案
         models:
@@ -71,6 +80,11 @@ zh-TW:
           project:
             name: 專案
         projects:
+          create:
+            invalid: 這個專案創建時出了問題
+            success: 專案建立成功
+          destroy:
+            success: 專案刪除成功
           edit:
             title: 編輯專案
             update: 更新
@@ -91,6 +105,9 @@ zh-TW:
           new:
             create: 建立
             title: 新專案
+          update:
+            invalid: 更新此專案時出現問題
+            success: 專案更新成功
           update_category:
             invalid: '這些專案已經擁有了 %{subject_name} 類別: %{projects}'
             select_a_category: 請選擇一個類別
@@ -111,6 +128,9 @@ zh-TW:
               selected: '這些專案已成功選擇實施：%{projects}。'
               unselected: '這些專案已經成功從實施中取消選擇: %{projects}。'
         proposals_imports:
+          create:
+            invalid: 將提案匯入專案時出現問題
+            success: "%{number} 個提案已成功匯入專案"
           new:
             create: 將提案匯入專案
             default_budget: 預設預算
@@ -140,18 +160,25 @@ zh-TW:
         close_modal: 關閉視窗
         continue: 繼續
         more_information: 更多資訊
+      budget_list_item:
+        voting_finished: 您已在此預算中投票
+        voting_started: 你已經開始在這個預算中投票了
       budgets_list:
         cancel_order:
           more_than_one: 刪除您對於 %{name} 的投票並重新開始
           only_one: 刪除您的投票並重新開始。
+        finished_message: 您已完成投票流程。感謝您的參與！
         highlighted_cta: 在 %{name} 上投票
+        if_change_opinion: 如果您改變了主意，您可以
         my_budgets: 我的預算
         progress: 完成投票
         show: 檢視專案
         vote: 投票
+        voted_on: 你已經對 %{links} 投票
       last_activity:
         new_vote_at_html: "<span>在%{link} 有新的預算投票</span>"
       limit_announcement:
+        cant_vote: 你無法在這個預算中進行投票。<a href="%{landing_path}">嘗試在其他預算中投票</a>。
         limit_reached: 您在 %{links} 上有進行中的投票。若要對此預算進行投票，您必須<a href="%{landing_path}">刪除您目前的投票並重新開始</a>。
       models:
         budget:
@@ -180,8 +207,10 @@ zh-TW:
           title: 確認投票
         budget_excess:
           budget_excess:
+            description: 這個專案超出了預算上限，無法被加入。如果您願意，您可以刪除您已經選擇的一個專案，以便能夠根據您的偏好再次進行投票。
             title: 已超過最高預算
           close: 關閉
+          description: 這個專案超出了預算上限，無法被加入。如果您願意，您可以刪除您已經選擇的一個專案，以便能夠根據您的偏好再次進行投票。
           ok: 好的
           projects_excess:
             description: 這個專案超出了最大項目數限制，無法被添加。如果你想的話，可以刪除你已經選擇的一個專案，以便根據你的偏好再次投票
@@ -191,6 +220,7 @@ zh-TW:
           assigned: '已指派:'
           cancel_order: 刪除你的投票並重新開始
           checked_out:
+            description: 你已經對預算表決投票了。如果你改變了主意，你可以%{cancel_link}。
             title: 預算投票完成
           minimum_projects_rule:
             description: 您認為我們應該撥款給哪些專案？請選擇至少 %{minimum_number} 個您想要的專案，並根據您的偏好進行投票，以定義預算。
@@ -249,6 +279,8 @@ zh-TW:
           random: 隨機順序
           selected: 已選取
         project:
+          add: 將專案 %{resource_name} 加入您的投票
+          remove: 從您的投票中移除專案 %{resource_name}
           selected: 已選取
           view: 檢視
           votes:
@@ -256,7 +288,9 @@ zh-TW:
           you_voted: 你已投票支持此
         project_budget_button:
           add: 加入您的投票
+          add_descriptive: 將專案 %{resource_name} 加入您的投票
           added: 加入您的投票
+          added_descriptive: 將專案 %{resource_name} 加入您的投票
         projects_for: 專案 %{name}
         show:
           budget: 預算
@@ -280,6 +314,10 @@ zh-TW:
             announcement: 公告
             comments_enabled: 啟用評論功能
             comments_max_length: 評論字數最大長度(若要使用預設值請輸入0)
+            form:
+              errors:
+                budget_voting_rule_only_one: 僅能啟用一個投票規則
+                budget_voting_rule_required: 必須啟用一種投票規則
             geocoding_enabled: 地理編碼已啟用
             landing_page_content: 預算網頁首頁
             more_information_modal: 更多資訊彈出式視窗
@@ -321,6 +359,13 @@ zh-TW:
           email_outro: 你收到此通知是因為你正在追蹤 %{participatory_space_title}。你可以透過前面的連結停止接收通知。
           email_subject: '%{participatory_space_title}」現在啟用了「%{resource_title}」預算。'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> 預算現在已經在 %{participatory_space_title} 上啟動
+    orders:
+      checkout:
+        error: 處理您的投票時出現問題。
+        success: 您的投票已成功接受
+      destroy:
+        error: 取消您的投票時出現問題
+        success: 您的投票已成功取消
     resource_links:
       included_proposals:
         project_proposal: 此專案中包括的提案
