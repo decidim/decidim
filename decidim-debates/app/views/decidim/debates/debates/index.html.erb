@@ -9,8 +9,10 @@
       <%= icon "add-fill" %>
     <% end %>
   <% end %>
-  <%= render partial: "filters_small_view" %>
-  <% end %>
+
+  <%= render partial: "decidim/shared/filters", locals: { filter_sections: } %>
+<% end %>
+
 <%= render layout: "layouts/decidim/shared/layout_two_col" do %>
   <div id="debates" aria-live="polite">
     <%= render partial: "debates" %>
