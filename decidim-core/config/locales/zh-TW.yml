@@ -38,3 +38,12 @@ zh-TW:
       rejected:
         error: 拒絕此修改案時發生問題，請稍後再試。
         success: 修正案已成功被拒绝
+      review:
+        help_text: 你正在審查對 %{model_name} 的修正案。
+      withdraw:
+        error: 撤回修正案時發生錯誤
+        success: 修正案已成功撤回
+    application:
+      collection:
+        documents:
+          other: 文件
