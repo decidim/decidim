@@ -36,6 +36,18 @@ zh-TW:
       rejected:
         error: 拒絕此修改案時發生問題，請稍後再試。
         success: 修正案已成功被拒绝
+      review:
+        help_text: 你正在審查對 %{model_name} 的修正案。
+      withdraw:
+        error: 撤回修正案時發生錯誤
+        success: 修正案已成功撤回
+    application:
+      collection:
+        documents:
+          other: 文件
+    authorization_handlers:
+      another_dummy_authorization_handler:
+        explanation: 透過提供以字母“A”開頭的護照號碼進行驗證
     events:
       nickname_event:
         notification_body: 我們已更正暱稱使用的方式，以避免重複，所以我們已經移除了大小寫敏感的規則。<br/>你的暱稱是在已有同名暱稱之後創建的，因此我們已經自動重新命名。你可以從<a href="%{link_to_account_settings}">帳戶設置</a>更改它。
