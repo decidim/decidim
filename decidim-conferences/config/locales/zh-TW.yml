@@ -1,1 +1,52 @@
 zh-TW:
+  activemodel:
+    errors:
+      models:
+        conference_registration_invite:
+          attributes:
+            email:
+              already_invited: 已發出邀請到此電子郵件
+  decidim:
+    conferences:
+      admin:
+        conference_invites:
+          new:
+            explanation: 參與者將會被邀請參加一個會議。如果她的電子郵件未被註冊，她也會被邀請加入該組織。
+      conference:
+        show:
+          free: 免費
+      conference_program:
+        program_meeting:
+          content: 內容
+          streaming: 串流直播
+        show:
+          day: 日
+      conferences:
+        show:
+          make_conference_registration: '請在此會議中完成註冊：'
+      mailer:
+        conference_registration_mailer:
+          confirmation:
+            subject: 您的會議註冊已確認。
+          pending_validation:
+            subject: 您的會議註冊正在等待確認。
+      photo:
+        image:
+          attributes:
+            alt: 媒體圖片
+        show:
+          close_modal: 關閉視窗
+          photo: 圖片
+      photos_list:
+        show:
+          related_photos: 圖片
+      shared:
+        conference_user_login:
+          already_account: 你已經在 Decidim 中擁有帳戶了嗎？
+          new_user: 新用戶?
+          sign_in: 登入以註冊參加會議
+          sign_up: 在 Decidim 建立一個帳號以註冊會議。
+    log:
+      value_types:
+        conference_presenter:
+          not_found: '會議在資料庫中找不到(ID: %{id})。'
