@@ -451,6 +451,7 @@ cs:
         delete_attachment: Smazat
       index:
         title: Iniciativy
+        uninitialized: Iniciativy ještě nejsou nakonfigurovány správcem
       initiative_signatures:
         fill_personal_data:
           continue: Pokračovat
