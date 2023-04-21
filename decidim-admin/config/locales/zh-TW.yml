@@ -40,6 +40,7 @@ zh-TW:
         body: 內容
         subject: 主旨
       organization:
+        admin_terms_of_use_body: 管理者使用條款內容
         alert_color: 警告
         available_authorizations: 可用認證方式
         badges_enabled: 啟用勳章
@@ -134,6 +135,10 @@ zh-TW:
         file: 檔案
     errors:
       models:
+        newsletter:
+          attributes:
+            base:
+              at_least_one_space: 至少選擇一個參與空間
         organization:
           attributes:
             official_img_footer:
@@ -148,6 +153,11 @@ zh-TW:
           attributes:
             file:
               malformed: 匯入檔案格式有誤，請小心閱讀教學並且確認檔案是使用 UTF-8 編碼
+      new_import:
+        attributes:
+          file:
+            invalid_file: 提供檔案有誤，請檢查檔案格式是否正確
+            invalid_mime_type: 無效的 mime 類型
   activerecord:
     attributes:
       decidim/static_page:
@@ -168,6 +178,8 @@ zh-TW:
         add: 新增
         attachment:
           new: 新增附件
+        attachment_collection:
+          new: 新的附件集合
         browse: 瀏覽
         category:
           new: 新分類
@@ -188,15 +200,25 @@ zh-TW:
           new: 新增管理員
         verify: 驗證
       admin_terms_of_use:
+        accept:
+          error: 接受管理者使用條款時發生錯誤。
+          success: 太好了！您已接受管理員使用條款。
         actions:
           accept: 我同意這些條款
+          are_you_sure: 您確定要拒絕管理員使用條款嗎？
           refuse: 拒絕管理員條款
+          title: 同意使用條款和條件
         required_review:
+          alert: '必填：請查閱我們的管理使用條款'
+          callout: 請花些時間審閱管理員使用條款。否則，您將無法管理該平台。
           cta: 現在審閱
+        title: 管理者使用條款
       area_types:
         create:
           error: 新增區域類型時發生錯誤
           success: 區域類型建立成功
+        destroy:
+          success: 區域類型成功刪除
         edit:
           title: 編輯區域類型
           update: 更新
@@ -205,12 +227,14 @@ zh-TW:
           title: 新增區域類型
         update:
           error: 更新這個區域類型時發生錯誤
+          success: 區域類型已更新成功
       areas:
         create:
           error: 新增區域時發生錯誤
           success: 區域建立成功
         destroy:
           has_spaces: 這個區域有相依空間，刪除之前請確認沒有參與空間使用這個區域
+          success: 區域已成功刪除
         edit:
           title: 編輯區域
           update: 更新
@@ -220,6 +244,7 @@ zh-TW:
         no_areas: 沒有區域
         update:
           error: 更新這個區域時發生錯誤
+          success: 區域更新成功
       attachment_collections:
         create:
           error: 新增資料夾時發生錯誤
@@ -259,6 +284,7 @@ zh-TW:
         message: 在操作私有空間的附加檔案時請注意，任何參與者可以把文件分享給其他人
       autocomplete:
         no_results: 找不到結果
+        search_prompt: 請輸入至少三個字元以進行搜尋
       block_user:
         new:
           action: 封鎖帳號並且發送理由
@@ -312,10 +338,66 @@ zh-TW:
         new:
           add: 新增元件
           title: '新增元件： %{name}'
+      domain_whitelist:
+        update:
+          error: 更新域名白名單失敗
+          success: 域名白名單更新成功
+      exports:
+        notice: 您的匯出正在進行中。完成後您將收到一封電子郵件通知。
+      help_sections:
+        error: 更新協助章節時發生問題。
+        success: 協助章節已成功更新
+      imports:
+        error: 匯入過程中發生問題
+        example_error: 無法建立給定類型的範例。
+        notice: "成功匯入%{count} 個%{resource_name}"
+      logs:
+        logs_list:
+          no_logs_yet: 尚未有任何日誌記錄
+      menu:
+        reported_users: 被舉報的使用者
+      newsletters:
+        send:
+          no_recipients: 沒有選擇收件人
+      officializations:
+        block:
+          error: 封鎖參與者時發生錯誤
+          success: 參與者已成功封鎖
+        create:
+          success: 參與者已成功成為正式成員
+        destroy:
+          success: 參與者已成功設為非正式成員
+        unblock:
+          error: 解除參與者封鎖時出現錯誤
+          success: 參與者已成功解除封鎖
       organization_homepage_content_blocks:
         edit:
           update: 更新
       participatory_space_private_users_csv_imports:
+        create:
+          success: CSV檔案上傳成功，我們正在發送邀請電子郵件給參與者。這可能需要一些時間。
         new:
           destroy:
             confirm: 您確定要刪除所有私人參與者嗎？此操作無法撤銷，您將無法恢復它們。
+          explanation: '上傳您的 CSV 檔案。該檔案必須具有兩列，第一列為電子郵件，最後一列為名字，格式為 (電子郵件，名字)，這些使用者將被添加到參與空間中，不包括標題列。在使用者名稱中避免使用無效的字符，如 <>?%&^*#@()[]=+:;"{}\|。'
+      scopes:
+        destroy:
+          success: 範圍已成功刪除
+      share_tokens:
+        share_tokens:
+          empty: 沒有有效的代幣
+      static_page_topics:
+        destroy:
+          success: 主題已成功刪除
+      static_pages:
+        edit:
+          changed_notably_help: 如果勾選，參與者將被通知接受新的條款和條件。
+        topic:
+          empty: 這個主題下沒有頁面
+        update:
+          success: 頁面已更新成功
+    moderations:
+      models:
+        moderation:
+          fields:
+            report_count: 計數
