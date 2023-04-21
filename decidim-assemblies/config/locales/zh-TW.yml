@@ -442,6 +442,9 @@ zh-TW:
         related_assemblies: 相關大會
     statistics:
       assemblies_count: 大會
+  errors:
+    messages:
+      cannot_be_blank: 不能為空白
   layouts:
     decidim:
       assemblies:
