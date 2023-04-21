@@ -202,6 +202,7 @@ module Decidim
           toolbar: toolbar,
           disabled: options[:disabled]
         }.merge(editor_images_options(options)), style: "height: #{lines}rem")
+        template += error_for(name, options) if error?(name)
         template.html_safe
       end
     end
