@@ -501,6 +501,7 @@ en:
             past: Past
             upcoming: Upcoming
           see: See
+          type: Type
         show:
           title: About this process
       show:
