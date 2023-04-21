@@ -26,6 +26,16 @@ zh-TW:
         alert: 你需要更改你的密碼才能繼續進行操作。
     admin_terms_of_use:
       default_body: "<h2>管理員使用條款</h2><p>我們相信您已經收到了當地系統管理員的慣例講話。它通常總結為以下三點：</p><ol><li>尊重他人的隱私。</li><li>三思而後行。</li><li>強大的權力伴隨著巨大的責任。</li></ol>"
+    amendments:
+      amendable:
+        help_text: 透過修改 %{amendable_fields}，來改善這個 %{model_name}
+        promote_help_text: 您可以提升此修正，並將其發布為獨立的 %{model_name}
+      promoted:
+        error: 發布修改案為新提案時出現問題。
+        success: 該修正案已成功作為新提案發布。
+      rejected:
+        error: 拒絕此修改案時發生問題，請稍後再試。
+        success: 修正案已成功被拒绝
     events:
       nickname_event:
         notification_body: 我們已更正暱稱使用的方式，以避免重複，所以我們已經移除了大小寫敏感的規則。<br/>你的暱稱是在已有同名暱稱之後創建的，因此我們已經自動重新命名。你可以從<a href="%{link_to_account_settings}">帳戶設置</a>更改它。
