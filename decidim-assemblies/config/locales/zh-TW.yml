@@ -76,6 +76,12 @@ zh-TW:
         email: 電子郵件
         name: 姓名
         role: 角色
+    errors:
+      models:
+        assembly:
+          attributes:
+            document:
+              invalid_document_type: '文件類型無效。接受的格式為： %{valid_mime_types}'
   activerecord:
     models:
       decidim/assembly:
@@ -269,6 +275,7 @@ zh-TW:
             duration_help: 如果此大會的持續時間有限，請選擇結束日期。 否則，它將顯示為不確定。
             filters: 篩選條件
             images: 圖片
+            included_at_help: 選擇這個議會被加入 Decidim 的日期。這不一定要和創建日期相同。
             metadata: 元資料
             other: 其他
             select_a_created_by: 選擇一位創建者
@@ -431,6 +438,9 @@ zh-TW:
         related_assemblies: 相關大會
     statistics:
       assemblies_count: 大會
+  errors:
+    messages:
+      cannot_be_blank: 不能為空白
   layouts:
     decidim:
       assemblies:
