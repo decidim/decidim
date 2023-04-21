@@ -1,1 +1,24 @@
 zh-TW:
+  activemodel:
+    attributes:
+      oauth_application:
+        name: '"OAuth應用程式名稱'
+        organization_logo: 組織標誌 (方形)
+        organization_name: 組織
+        organization_url: 組織網址 URL
+        redirect_uri: 重新導向 URI
+      organization:
+        address: SMTP 主機名稱
+        from_email: 電子郵件地址
+        from_label: 標籤
+        password: 密碼
+        port: 通訊埠
+        user_name: 使用者名稱
+      organization_file_uploads:
+        allowed_content_types:
+          admin: 管理員 MIME 類型
+          default: 預設 MIME 類型
+        allowed_file_extensions:
+          admin: 管理員檔案副檔名
+          default: 預設檔案副檔名
+          image: 圖片檔案副檔名
