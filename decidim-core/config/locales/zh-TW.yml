@@ -48,6 +48,20 @@ zh-TW:
     authorization_handlers:
       another_dummy_authorization_handler:
         explanation: 透過提供以字母“A”開頭的護照號碼進行驗證
+      dummy_authorization_handler:
+        explanation: 通過輸入以「X」結尾的證件號碼進行驗證
+      renew: 更新驗證
+    authorization_modals:
+      content:
+        incomplete:
+          explanation: '即使您目前已經經過"%{authorization}"的授權，我們需要您重新授權，因為我們缺少以下資料：'
+        ok:
+          title: 您已在此頁面授權。請重新載入頁面以執行您的操作。
+        pending:
+          explanation: 為了執行此操作，您需要使用 "%{authorization}" 進行授權，但您的授權仍在進行中。
+          resume: 檢查您的"%{authorization}"授權進度
+        unauthorized:
+          explanation: 抱歉，由於您的某些授權資料不符，您無法執行此操作。
     events:
       nickname_event:
         notification_body: 我們已更正暱稱使用的方式，以避免重複，所以我們已經移除了大小寫敏感的規則。<br/>你的暱稱是在已有同名暱稱之後創建的，因此我們已經自動重新命名。你可以從<a href="%{link_to_account_settings}">帳戶設置</a>更改它。
