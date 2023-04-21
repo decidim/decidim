@@ -27,6 +27,7 @@ module Decidim
       @event ||= event_class.constantize.new(
         resource: resource,
         user: user,
+        user_role: user_role,
         event_name: event_name,
         extra: extra
       )
