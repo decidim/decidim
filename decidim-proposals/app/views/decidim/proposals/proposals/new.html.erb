@@ -16,13 +16,8 @@
     <%= form_required_explanation %>
 
     <div class="form__wrapper">
-      <div class="hashtags__container">
-        <%= form.text_field :title, class: "js-hashtags" %>
-      </div>
-
-      <div class="hashtags__container">
-        <%= text_editor_for_proposal_body(form) %>
-      </div>
+      <%= form.text_field :title, class: "js-hashtags" %>
+      <%= text_editor_for_proposal_body(form) %>
 
       <% if current_organization.user_groups_enabled? && Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.any? %>
         <%= user_group_select_field form, :user_group_id %>
