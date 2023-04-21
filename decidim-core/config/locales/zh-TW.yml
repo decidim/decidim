@@ -304,6 +304,43 @@ zh-TW:
         participant_with_disabled_message_reception: 此參與者已停用訊息接收功能
       show:
         deleted_accounts: 你不能與已刪除的帳戶進行對話。
+    user_interests:
+      show:
+        no_scopes: 這個組織目前還沒有設定範圍！
+        select_your_interests: 選擇您感興趣的主題，以接收與其相關的活動，並在您的個人檔案時間軸選項卡中查看。
+    welcome_notification:
+      default_body: <p>嗨 {{name}}，感謝您加入 {{organization}}，歡迎！</p><ul><li>如果您想快速了解此處的功能，請查看<a href="{{help_url}}">幫助</a>部分。</li><li>閱讀後，您將獲得第一個徽章。這裡是{{organization}} 中您可以參加的所有徽章的<a href="{{badges_url}}">清單</a></li><li>最後但並非最不重要的，加入其他人，分享與他們參與 {{organization}} 的經驗。提出建議，評論，辯論，考慮如何為共同利益做出貢獻，提供論據以說服，耐心聆聽並閱讀以取得信服，以具體且直接的方式表達您的想法，以耐心和決定力回應，捍衛您的想法，保持開放的態度以協作和加入其他人的想法。</li></ul>
+  devise:
+    invitations:
+      edit:
+        nickname_help: 您在 %{organization} 中的暱稱。
+    mailer:
+      email_changed:
+        message: 我們通知您，您的電子郵件正在更改為 %{email}。
+      invitation_instructions:
+        ignore: |-
+          如果您不想接受邀請，請忽略此電子郵件。<br />在您使用上述連結設置您的暱稱和密碼之前，您的帳戶不會被創建。
+      invite_admin:
+        subject: 你已經被邀請成為 %{organization} 的管理者
+      invite_collaborator:
+        subject: 你已獲邀成為 %{organization} 的協作者
+      invite_private_user:
+        subject: 你已被邀請參與在 %{organization} 的私人參與性流程中。
+      organization_admin_invitation_instructions:
+        subject: 你已經被邀請成為 %{organization} 的管理者
+      password_change:
+        message: 我們通知您，您的密碼已經被更改。
+      reset_password_instructions:
+        instruction_2: 如果您沒有要求這，請忽略此電子郵件。
+        instruction_3: 在您點擊上面的網址和創建一個新的密碼之前，您現在的密碼不會更改。
+    passwords:
+      edit:
+        change_your_password: 變更您的密碼
+      no_token: 您無法在未使用密碼重置電子郵件進入此頁面。如果您確實使用了密碼重置電子郵件，請確認您使用了提供的完整URL。
+    shared:
+      links:
+        didn_t_receive_confirmation_instructions: 沒有收到確認的說明嗎？
+        didn_t_receive_unlock_instructions: 沒有收到解鎖說明？
   errors:
     messages:
       cycle_detected: 一個範圍的父級範圍不能是其後代之一
