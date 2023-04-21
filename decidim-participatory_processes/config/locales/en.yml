@@ -489,6 +489,7 @@ en:
             upcoming:
               one: 1 upcoming process
               other: "%{count} upcoming processes"
+          date: Date
           explanations:
             no_active: No active processes
             no_active_nor_upcoming: No active nor upcoming processes
