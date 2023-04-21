@@ -16,6 +16,7 @@
     <div class="flex flex-col items-center">
       <%= resource_version_number(@collaborative_draft.versions_count, "h4") %>
       <span class="text-gray-2"><%= resource_version_of(@collaborative_draft.versions_count) %></span>
+      <span class="text-sm text-secondary underline"><%= link_to_other_resource_versions(collaborative_draft_version_path(@collaborative_draft, @collaborative_draft.versions.count)) %></span>
     </div>
   <% end %>
 

@@ -701,7 +701,7 @@ en:
             success: "@%{user} has been successfully rejected as a collaborator"
         show:
           edit: Edit collaborative draft
-          final_proposal: final proposal
+          final_proposal: Final proposal
           final_proposal_help_text: This draft is finished. Check out the final proposal
           hidden_authors_count:
             one: and %{count} more person
@@ -709,7 +709,7 @@ en:
           info-message: This is a <strong>collaborative draft</strong> for a proposal. This means that you can help their authors to shape the proposal using the comment section below or improve it directly by requesting access to edit it. Once the authors grant you access, you'll be able to make changes to this draft.
           publish: Publish
           publish_info: Publish this version of the draft or
-          published_proposal: published proposal
+          published_proposal: Published proposal
           request_access: Request access
           requested_access: Access requested
           withdraw: withdraw the draft
