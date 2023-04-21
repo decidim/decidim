@@ -445,6 +445,7 @@ fi-pl:
         delete_attachment: Poista
       index:
         title: Aloitteet
+        uninitialized: Hallintakäyttäjä ei ole vielä määrittänyt aloitteiden asetuksia
       initiative_signatures:
         fill_personal_data:
           continue: Jatka
