@@ -1,13 +1,104 @@
 ---
 zh-TW:
   activemodel:
+    attributes:
+      conference:
+        assemblies_ids: 相關大會
+        available_slots: 可用時段
+        banner_image: 橫幅圖片
+        consultations_ids: 相關咨詢
+        copy_categories: 複製類別
+        copy_components: 複製組件
+        copy_features: 複製功能
+        decidim_scope_id: 範圍
+        description: 說明
+        end_date: 結束日期
+        hashtag: 主題標籤
+        hero_image: 首頁圖片
+        location: 位置
+        main_logo: 主要標誌
+        objectives: 目標
+        participatory_processes_ids: 相關參與過程
+        promoted: 重點顯示
+        published_at: 發佈於
+        registration_terms: 註冊條款
+        registrations_enabled: 啟用註冊
+        scope_id: 範圍
+        scopes_enabled: 啟用範圍
+        short_description: 簡短說明
+        show_statistics: 顯示統計資料
+        sign_date: 簽到日期
+        signature: 簽名
+        signature_name: 簽名檔名稱
+        slogan: 標語
+        slug: URL名稱
+        start_date: 開始日期
+        title: 標題
+      conference_media_link:
+        date: 日期
+        link: 連結
+        title: 標題
+        weight: 排序位置
+      conference_partner:
+        link: 連結
+        logo: 標誌
+        name: 姓名
+        partner_type: 夥伴類型
+        weight: 排序位置
+      conference_registration_invite:
+        email: 電子郵件
+        name: 名稱
+        registration_type_id: 註冊類型
+        user_id: 使用者
+      conference_registration_type:
+        description: 說明
+        price: 價格
+        title: 標題
+        weight: 排序位置
+      conference_speaker:
+        affiliation: 合作關係
+        avatar: 頭像
+        conference_meeting_ids: 相關會議
+        full_name: 全名
+        personal_url: 個人 URL
+        position: 職位
+        short_bio: 簡介
+        twitter_handle: Twitter 處理
+        user_id: 使用者
+      conference_user_role:
+        email: 電子郵件
+        name: 名稱
+        role: 角色
     errors:
       models:
         conference_registration_invite:
           attributes:
             email:
               already_invited: 已發出邀請到此電子郵件
+  activerecord:
+    models:
+      decidim/conference:
+        other: 研討會
   decidim:
+    admin:
+      conferences:
+        exports:
+          registrations: 註冊
+        form:
+          title: 基本資訊
+        index:
+          not_published: 未發佈
+          published: 已發佈
+        new:
+          create: 建立
+          title: 研討會
+        update:
+          error: 更新此研討會時發生問題。
+          success: 研討會更新成功。
+      conferences_copies:
+        create:
+          error: 複製此研討會時發生問題。
+          success: 研討會複製成功。
     conferences:
       admin:
         conference_invites:
@@ -19,6 +110,7 @@ zh-TW:
       conference_program:
         program_meeting:
           content: 內容
+          location: 位置
           streaming: 串流直播
         show:
           day: 日
