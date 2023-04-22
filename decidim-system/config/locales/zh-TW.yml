@@ -60,3 +60,95 @@ zh-TW:
       dashboard:
         show:
           current_organizations: 目前組織
+      default_pages:
+        placeholders:
+          content: 請在管理員儀表板的 %{page} 靜態頁面上新增有意義的內容。
+          summary: 請在管理員儀表板的 %{page} 靜態頁面上新增有意義的摘要
+          title: 預設的 %{page} 標題
+      menu:
+        admins: 管理員
+        dashboard: 儀表板
+        oauth_applications: Oauth 應用程式
+        organizations: 組織
+      models:
+        admin:
+          fields:
+            created_at: 建立於
+            email: 電子郵件
+          name: 管理員
+          validations:
+            email_uniqueness: 已有相同電子郵件的其他管理員存在
+        oauth_application:
+          fields:
+            created_at: 建立於
+            name: OAuth 應用程式名稱
+            organization_name: 組織
+          name: Oauth 應用程式
+        organization:
+          actions:
+            save_and_invite: 建立組織並邀請管理員
+          fields:
+            created_at: 建立於
+            file_upload_settings: 檔案上傳設定
+            name: 姓名
+            omniauth_settings: Omniauth 設置
+            smtp_settings: SMTP設定
+          name: 組織
+      oauth_applications:
+        create:
+          error: 創建應用程序時出現問題。
+          success: 應用程序已成功創建。
+        destroy:
+          error: 刪除應用程式時發生問題。
+          success: 應用程式已成功刪除。
+        edit:
+          save: 儲存
+          title: 編輯應用程式
+        form:
+          select_organization: 選擇一個組織。
+        index:
+          confirm_delete: 你確定要刪除這個應用程式?
+          title: Oauth 應用程式
+        new:
+          save: 儲存
+          title: 新增應用程式
+        update:
+          error: 更新應用程式時發生問題。
+          success: 應用程式已成功更新。
+      organizations:
+        advanced_settings:
+          hide: 隱藏進階設定
+          show: 顯示進階設定
+        create:
+          error: 創建新組織時發生問題。
+          success: 組織創建成功。
+        edit:
+          secondary_hosts_hint: 請在新的一行輸入每一個
+        file_upload_settings:
+          content_types:
+            admin_hint: 這些MIME類型允許管理員部分上傳。管理員用戶應該意識到上傳某些文檔格式的風險，因此您可以期望他們對文件上傳更加謹慎。
+            default_hint: 這些MIME類型默認情況下允許所有用戶使用。
+            intro_html: 您可以使用星號符號添加通配符來匹配 MIME 類型，例如<code>image/*</code>。
+            title: 允許的 MIME 類型
+          file_extensions:
+            admin_hint: 這些檔案副檔名可用於管理員區塊上傳。管理員用戶應該意識到上傳某些文件格式的風險，因此您可以期望他們在文件上傳時更加謹慎。
+            default_hint: 這些檔案副檔名預設是允許所有使用者上傳的。
+            image_hint: 這些檔案副檔名是用於任何類型的圖片上傳。
+            title: 允許的文件擴展名
+          file_sizes:
+            avatar_hint: 以 (MB) 為單位。此檔案大小限制用於頭像圖片上傳。
+            default_hint: 以兆位元組(MB) 為單位。此檔案大小限制是預設的，除非另有指定，否則適用於所有檔案上傳。
+            title: 最大的文件大小
+          intro: |
+            請在考慮更改這些設置時格外小心。允許的內容類型越少越好。
+            允許特定的文件擴展名或MIME類型可能會使系統使用者面臨安全風險，也可能會影響網站的可訪問性。
+        index:
+          title: 組織
+        new:
+          reference_prefix_hint: 參考前綴用於唯一標識所有組織中的資源.
+          secondary_hosts_hint: 請在新的一行輸入每一個.
+          title: 新增組織
+        omniauth_settings:
+          decidim:
+            client_id: 客戶端ID
+            client_secret: 客戶端金鑰
