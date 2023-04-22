@@ -1,1 +1,6 @@
 zh-TW:
+  decidim:
+    components:
+      surveys:
+        actions:
+          answer: 回答
