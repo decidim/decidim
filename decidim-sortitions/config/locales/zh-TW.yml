@@ -1,14 +1,59 @@
 zh-TW:
+  activemodel:
+    attributes:
+      sortition:
+        additional_info: 隨機抽籤資訊
+        decidim_category_id: 你想要在哪些提案類別中進行抽籤
+        decidim_proposals_component_id: 提案集合
+        dice: 擲骰子的結果。擲一顆六面骰子，或尋找其他隨機產生1到6之間的數字的方法，然後在一些證人面前輸入結果的數字。這有助於確保結果的品質和隨機性的保證。
+        target_items: 被選出提案的數量(表示您希望在您之前選擇的提案組中通過抽籤選出的提案數量)
+        title: 標題
+        witnesses: 見證人
+    models:
+      decidim/sortitions/create_sortition_event: 抽籤
+  activerecord:
+    models:
+      decidim/sortitions/sortition:
+        other: 抽籤
   decidim:
+    components:
+      sortitions:
+        actions:
+          comment: 留言
+        name: 抽籤
+        settings:
+          global:
+            comments_enabled: 啟用評論功能
+            comments_max_length: 評論字數最大長度(若要使用預設值請輸入0)
+    events:
+      sortitions:
+        sortition_created:
+          email_intro: 您正在關注的 "%{participatory_space_title}" 中新增了抽籤 "%{resource_title}"
+          email_outro: 您收到了此通知，是因為您正在關注 "%{participatory_space_title}"。您可以通過前面的鏈接取消關注它。
+          email_subject: '%{participatory_space_title}" 中新增了一個新的抽籤。'
+          notification_title: '%{participatory_space_title}」中已新增了<a href="%{resource_path}">%{resource_title}</a>的抽籤。'
     sortitions:
       admin:
+        actions:
+          destroy: 取消選民隨機抽籤
+          edit: 編輯
+        models:
+          sortition:
+            fields:
+              category: 類別
+              title: 標題
         sortitions:
           create:
             success: 排序成功建立
           destroy:
             error: 無法取消抽籤。
             success: 隨機抽籤已成功取消
+          edit:
+            update: 更新
+          form:
+            all_categories: 所有類別
           new:
             confirm: 按下「下一步」按鈕後，Decidim 將記錄日期和時間（以秒為精度），並與擲骰子結果一起使用，這些信息將用於生成隨機選擇。此操作是不可逆的，一旦點擊按鈕，這次抽選結果將與此表單中輸入的數據一起發布，並且無法修改，請仔細檢查內容。
+            create: 建立
           update:
             success: 抽籤成功更新
