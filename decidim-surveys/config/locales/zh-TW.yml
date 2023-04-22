@@ -1,5 +1,9 @@
 zh-TW:
   decidim:
+    components:
+      surveys:
+        actions:
+          answer: 回答
     surveys:
       last_activity:
         new_survey_at_html: "<span>在 %{link} 上有新的調查</span>"
