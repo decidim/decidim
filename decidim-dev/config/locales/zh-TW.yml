@@ -1,1 +1,64 @@
 zh-TW:
+  activemodel:
+    attributes:
+      dummy_resource:
+        created_at: 建立於
+        decidim_scope_id: 範圍
+        field: 我的欄位
+        start_date: 開始日期
+        title: 標題
+        translatable_text: 可翻譯的文字
+        updated_at: 更新於
+  decidim:
+    components:
+      dummy:
+        settings:
+          global:
+            guided: 導引輸入
+            guided_help: 說明文字
+            guided_readonly: 禁用輸入
+            guided_rich: 導引豐富輸入
+            guided_rich_help_html: HTML <strong>說明</strong> 文字
+            guided_rich_readonly_html: 禁用輸入 HTML <strong>說明</strong> 文字
+            readonly_attribute: 唯讀屬性
+            test: A 測試
+            test_choices:
+              a: A選項
+              b: B選項
+              c: C選項
+            test_options:
+              bar: Bar
+              baz: Baz
+              foo: Foo
+          step:
+            endorsements_blocked: 封鎖支持
+            endorsements_enabled: 啟用支持
+            readonly_step_attribute: 唯讀步驟屬性
+            test_options:
+              bar: Bar
+              baz: Baz
+              foo: Foo
+    dummy:
+      admin:
+        exports:
+          dummies: 測試帳戶
+    gamification:
+      badges:
+        test:
+          conditions:
+            - 在Decidim中使用測試環境。
+          description: 參與者通過建立測試可獲得此徽章。
+          description_another: 此參與者已建立了 %{score} 個測試。
+          description_own: 您已建立了 %{score} 個測試。
+          name: 測試
+          next_level_in: 再建立 %{score} 個測試即可達到下一個等級！
+          unearned_another: 這個參與者尚未創建任何測試。
+          unearned_own: 您尚未建立任何測試。
+    resource_links:
+      test_link:
+        dummy_resource_dummy: 相關的測試帳戶
+    statistics:
+      bar: Bar
+      dummies_count_high: 高級測試帳戶
+      dummies_count_medium: 中級測試帳戶
+      foo: Foo
