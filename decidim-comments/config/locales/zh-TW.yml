@@ -1,10 +1,10 @@
 zh-TW:
   activemodel:
     models:
-      decidim/comments/comment_by_followed_user_event: 留言
-      decidim/comments/comment_created_event: 留言
-      decidim/comments/comment_upvoted_event: 留言已獲得讚同
-      decidim/comments/reply_created_event: 留言回覆
+      decidim/comments/comment_by_followed_user_event: 評論
+      decidim/comments/comment_created_event: 評論
+      decidim/comments/comment_upvoted_event: 評論已獲得讚同
+      decidim/comments/reply_created_event: 評論回覆
       decidim/comments/user_group_mentioned_event: 提及
       decidim/comments/user_mentioned_event: 提及
   activerecord:
@@ -133,7 +133,18 @@ zh-TW:
           email_outro: 您收到此通知是因為您正在關注「%{resource_title}」或其作者。您可以從上面的連結取消關注。
           email_subject: '%{resource_title}」有新的評論來自 %{author_name}'
           notification_title: 在 <a href="%{resource_path}">%{resource_title}</a>有新的評論來自 <a href="%{author_path}">%{author_name} %{author_nickname}</a>
+        comment_downvoted:
+          email_intro: 您在「%{resource_title}」的評論已經倒讚。它現在的評分是 %{upvotes} 個讚和 %{downvotes} 個倒讚。
+          email_outro: 您收到此通知是因為您是此評論的作者。
+          email_subject: 您在「%{resource_title}」的評論已經被倒讚。
+          notification_title: 你在「%{resource_title}」的<a href="%{resource_path}">評論</a>已被負評。現在它的評分是 %{upvotes} 個讚和 %{downvotes} 個倒讚。
+        comment_upvoted:
+          email_intro: 你在「%{resource_title}」的評論已收到讚。現在它的評分是 %{upvotes} 個讚和 %{downvotes} 個倒讚。
+          email_outro: 您收到此通知是因為您是此評論的作者。
+          email_subject: 你在 "%{resource_title}" 中的評論已經收到讚。
+          notification_title: 你在 "<a href="%{resource_path}">resource_title</a>" 中的評論已經收到讚，現在它總共有 %{upvotes} 個讚和 %{downvotes} 個倒讚。
         reply_created:
+          email_intro: "%{author_name} 已回覆你在%{resource_title} 中的評論。你可以在此頁面上閱讀:"
           email_outro: 你收到此通知是因為有人回覆了你的評論。
           email_subject: "%{author_name} 回覆了你在 %{resource_title} 中的評論。"
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> 在 <a href="%{resource_path}">%{resource_title}</a> 中回覆了你的評論。
