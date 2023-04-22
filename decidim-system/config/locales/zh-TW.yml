@@ -152,3 +152,38 @@ zh-TW:
           decidim:
             client_id: 客戶端ID
             client_secret: 客戶端金鑰
+            site_url: 網站 URL
+          enabled: 已啟用
+          enabled_by_default: 這個提供者是默認啟用的。它可以被編輯，但不能被禁用。
+          facebook:
+            app_id: 應用程式 ID
+            app_secret: 應用程式密鑰
+          google_oauth2:
+            client_id: 客戶端ID
+            client_secret: 客戶端金鑰
+          icon: 圖示
+          icon_path: 圖示路徑
+          twitter:
+            api_key: API 金鑰
+            api_secret: API 秘密
+        smtp_settings:
+          fieldsets:
+            sender: 寄件者
+          instructions:
+            from_label: '郵件發送者將會是："您的組織名稱 <your-organization@example.org>"。若要使用「電子郵件地址」作為標籤，請留空.'
+          placeholder:
+            from_email: your-organization@example.org
+            from_label: 你的組織名稱
+        update:
+          error: 更新此組織時發生問題。
+          success: 組織已成功更新。
+        users_registration_mode:
+          disabled: 只能使用外部帳戶進行存取
+          enabled: 允許參與者註冊和登錄
+          existing: 不允許參與者註冊，但允許現有參與者登錄
+      shared:
+        notices:
+          no_organization_warning_html: 你必須先建立一個組織才能開始。請確認在繼續前已閱讀 %{guide}。
+          our_getting_started_guide: 我們的入門指南
+      titles:
+        dashboard: 儀表板
