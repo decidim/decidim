@@ -54,9 +54,8 @@ describe "Explore posts", type: :system do
 
   describe "show" do
     let(:posts_count) { 1 }
-    let(:author) { organization }
     let(:body) { { en: "Short description", ca: "Descripció curta", es: "Descripción corta" } }
-    let!(:post) { create(:post, component: component, author: author, body: body) }
+    let!(:post) { create(:post, component: component, body: body) }
 
     before do
       visit resource_locator(post).path
@@ -82,6 +81,8 @@ describe "Explore posts", type: :system do
         expect(page).to have_current_path("#{main_component_path(component)}posts")
       end
     end
+
+    it_behaves_like "has embedded video in description", :body
   end
 
   describe "most commented" do
@@ -102,7 +103,5 @@ describe "Explore posts", type: :system do
         end
       end
     end
-
-    it_behaves_like "has embedded video in description", :body
   end
 end
