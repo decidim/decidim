@@ -268,6 +268,14 @@ zh-TW:
         destroy:
           error: 取消發佈此註冊類型出現問題。
           success: 報名類型已成功取消發佈。
+      registration_types:
+        create:
+          error: 新增此會議的註冊類型時出現問題。
+          success: 成功新增會議註冊類型
+        destroy:
+          success: 此會議的註冊類型成功移除。
+        edit:
+          title: 更新註冊類型。
     admin_log:
       conferences:
         partner:
