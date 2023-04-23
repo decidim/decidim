@@ -381,4 +381,17 @@ zh-TW:
         confirm:
           answer: 回答
           answer_number: 答案 %{number}
+          confirm: 確認
+          edit: 編輯
           header: 確認您的選票
+          intro: 以下是您即將投票的摘要。 <br> 請確認您的選票或編輯您的回答。
+          nota_option: 空白
+          question: 問題 %{count}
+        confirmed:
+          back: 回到選舉
+          experience: 您的經驗如何？
+          feedback: 給我們一些回饋
+          header: 投票已確認
+          lead: 您己投票!
+          text: '你可以使用以下識別碼檢查你的投票是否已成功添加到投票箱中：<strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
+          verify_link: 複製此識別碼，並將其貼到<a href="%{link}">投票驗證頁面</a>以進行檢查。
