@@ -338,3 +338,75 @@ zh-TW:
         new:
           add: 新增元件
           title: '新增元件： %{name}'
+        publish:
+          success: 這個元件已經成功發佈
+        title: 元件
+        unpublish:
+          success: 這個元件已經成功取消發佈
+        update:
+          error: 更新這個元件發生錯誤
+          success: 元件更新成功
+      conflicts:
+        attempts: 嘗試
+        'false': '否'
+        managed_user_name: 管理的使用者
+        solved: 已解決
+        title: 驗證衝突
+        transfer:
+          email: 電子郵件
+          error: 轉移現在參與者到管理參與者時發生錯誤
+          name: 名稱
+          reason: 理由
+          success: 目前的轉換完成
+          title: 轉換
+        'true': '是'
+        user_name: 使用者
+      dashboard:
+        pending_moderations:
+          anouncement:
+            other: 有 %{count} 個操作等待中
+          goto_moderation: 前往全域管理
+          title: 等待的操作
+        show:
+          view_more_logs: 檢視更多記錄
+          welcome: 歡迎來到管理介面
+      domain_whitelist:
+        form:
+          domain_too_short: 網址太短
+        update:
+          error: 網址白名單更新失敗
+          success: 網址白名單更新成功.
+      exports:
+        export_as: "%{name} 成為 %{export_format}"
+        formats:
+          CSV: CSV
+          Excel: Excel
+          FormPDF: PDF
+          JSON: JSON
+        notice: 匯出處理中，完成後會發出通知
+      filters:
+        category_id_eq:
+          label: 類別
+        filter_label: 篩選
+        invitation_accepted_at_present:
+          label: 邀請已接受
+          values:
+            'false': '否'
+            'true': '是'
+        last_sign_in_at_present:
+          label: 曾經登入
+          values:
+            'false': '否'
+            'true': '是'
+        moderated_users:
+          reports_reason_eq:
+            label: 回報原因
+            values:
+              does_not_belong: 不屬於
+              offensive: 攻擊行為
+              spam: 垃圾訊息
+        moderations:
+          reportable_type_string_eq:
+            label: 類別
+        officialized_at_null:
+          label: 狀態
