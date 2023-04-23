@@ -227,6 +227,46 @@ zh-TW:
             link: 連結
             title: 標題
           name: 媒體連結
+        partner:
+          fields:
+            link: 連結
+            logo: 標誌
+            name: 名稱
+            partner_type: 類別
+          name: 夥伴
+          types:
+            collaborator: 合作者
+            main_promotor: 主要推動者
+        registration_type:
+          fields:
+            conference_meetings: 會議議程
+            price: 價格
+            registrations_count: 註冊人數
+            title: 標題
+            weight: 訂單位置
+          name: 註冊類型
+      partners:
+        create:
+          error: 在新增會議夥伴時出現問題。
+          success: 成功新增會議夥伴。
+        destroy:
+          success: 成功移除會議夥伴。
+        edit:
+          title: 更新合作夥伴。
+          update: 更新
+        new:
+          create: 創建
+          title: 新合夥人
+        update:
+          error: 在此會議中更新合作夥伴時出現問題。
+          success: 成功更新會議夥伴。
+      registration_type_publications:
+        create:
+          error: 發佈此註冊類型時出現問題。
+          success: 註冊類型已成功發布。
+        destroy:
+          error: 取消發佈此註冊類型出現問題。
+          success: 報名類型已成功取消發佈。
     admin_log:
       conferences:
         partner:
@@ -386,7 +426,48 @@ zh-TW:
         related_assemblies: 相關大會
         related_consultations: 相關咨詢
         related_participatory_processes: 相關參與過程
+    events:
+      conferences:
+        conference_registration_confirmed:
+          notification_title: 您的 <a href="%{resource_url}">%{resource_title}</a> 會議註冊已確認。
+        conference_registration_validation_pending:
+          notification_title: 您的 <a href="%{resource_url}">%{resource_title}</a> 會議註冊等待確認。
+        conference_registrations_over_percentage:
+          email_intro: '%{resource_title}”會議的佔用席位已滿 %{percentage}%'
+          email_outro: 您收到此通知是因為您是該會議的參與空間的管理員。
+          email_subject: '%{resource_title}”會議的佔用席位已滿 %{percentage}%'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a>」會議的佔用名額已達到 %{percentage}%。
+        conference_updated:
+          email_intro: '%{resource_title} 會議已更新。您可以在該會議頁面上閱讀新版本:'
+          email_outro: 您收到此通知是因為您正在追蹤「%{resource_title}」會議。 您可以從上面的連結取消追蹤。
+          email_subject: '%{resource_title}" 會議已更新。'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> 會議已更新。
+        registrations_enabled:
+          email_intro: '"%{resource_title}" 會議已開啟註冊。您可以在其頁面上註冊:'
+          email_outro: 您收到此通知是因為您正在追蹤「%{resource_title}」會議。 您可以從上面的連結取消追蹤。
+          email_subject: '"%{resource_title}"會議已開放註冊。'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a>會議已開放註冊。
+        role_assigned:
+          email_intro: 你已被指派為"%{resource_title}"會議的%{role}。
+          email_outro: 你收到了此通知，是因為你是"%{resource_title}"會議的%{role}。
+          email_subject: 您已被分配為“%{resource_title}”的 %{role}。
+          notification_title: 你已被指定為<a href="%{resource_url}">%{resource_title}</a>會議的%{role}。
+        upcoming_conference:
+          email_intro: '%{resource_title}」會議將於2天後舉行。您可以從其頁面閱讀會議描述:'
+          email_outro: 您收到此通知是因為您正在追蹤「%{resource_title}」會議。 您可以從上面的連結取消追蹤。
+          email_subject: '%{resource_title}」會議即將開始！'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a>」會議將在2天後舉行。
+    help:
+      participatory_spaces:
+        conferences:
+          contextual: "<p><strong>會議</strong>是一系列按照程序安排的會議集合，邀請了多位演講者和其他典型大型會議或社交活動的信息領域(註冊、支持或贊助該事件的組織列表等)。</p><p>例子：會議可以是一個組織和其成員的重要事件，也可以作為參與過程的一部分或遵循諮詢而發生。</p>\n"
+          page: "<p><strong>會議</strong>是一系列按照程序安排的會議集合，邀請了多位演講者和其他典型大型會議或社交活動的信息領域(註冊、支持或贊助該事件的組織列表等)。</p><p>例子：會議可以是一個組織和其成員的重要事件，也可以作為參與過程的一部分或遵循諮詢而發生。</p>\n"
+          title: 什麼是會議
     log:
       value_types:
         conference_presenter:
           not_found: '會議在資料庫中找不到(ID: %{id})。'
+    menu:
+      conferences: 研討會
+    statistics:
+      conferences_count: 研討會
