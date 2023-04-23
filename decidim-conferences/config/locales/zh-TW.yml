@@ -93,7 +93,58 @@ zh-TW:
         new:
           copy: 複製
           select: 請選擇您想要複製的資料
+          title: 複製研討會
+      conference_publications:
+        create:
+          error: 發布此研討會時出現問題。
+          success: 會議成功發佈。
+        destroy:
+          error: 取消發佈此會議出現問題。
+          success: 會議已成功取消發布。
+      conference_registration:
+        confirm:
+          error: 確認此會議註冊時出現問題。
+          success: 會議註冊已成功確認
+      conference_speakers:
+        create:
+          error: 新增會議講者時發生問題。
+          success: 會議講者已成功建立。
+        destroy:
+          success: 會議講者已成功刪除。
+        edit:
+          title: 更新會議講者。
+          update: 更新
+        index:
+          conference_speakers_title: 會議講者
+        new:
+          create: 建立
+          title: 新的會議講者。
+        update:
+          error: 更新會議講者時發生問題。
+          success: 會議講者成功更新。
+      conference_user_roles:
+        create:
+          error: 添加講者至此會議時發生問題。
+          success: 會議管理員已成功添加。
+        destroy:
+          success: 會議管理員已成功刪除。
+        edit:
+          title: 更新會議管理員。
+          update: 更新
+        index:
+          conference_admins_title: 會議管理員
+        new:
+          create: 創建
+          title: 新增會議管理員。
+        update:
+          error: 更新此會議管理員時發生問題。
+          success: 已成功更新會議管理員。
       conferences:
+        create:
+          error: 建立此會議時發生問題。
+          success: 會議已成功建立。
+        edit:
+          update: 更新
         exports:
           registrations: 註冊
         form:
@@ -111,11 +162,160 @@ zh-TW:
         create:
           error: 複製此研討會時發生問題。
           success: 研討會複製成功。
+      media_links:
+        create:
+          error: 創建新的媒體連結時出現問題。
+          success: 媒體連結創建成功。
+        destroy:
+          success: 媒體連結成功刪除。
+        edit:
+          title: 更新媒體連結。
+          update: 更新
+        index:
+          media_links_title: 媒體連結
+        new:
+          create: 創建
+          title: 媒體連結
+        update:
+          error: 更新此媒體連結時出現問題
+          success: 媒體連結已成功更新。
+      menu:
+        conferences: 研討會
+        conferences_submenu:
+          attachment_collections: 資料夾
+          attachment_files: 檔案
+          attachments: 附件
+          categories: 類別
+          components: 组件
+          conference_admins: 會議管理員
+          conference_invites: 邀請
+          conference_speakers: 講者
+          diploma: 出席證明書
+          info: 資訊
+          media_links: 媒體連結
+          moderations: 版主
+          partners: 夥伴
+          registration_types: 註冊類型
+          registrations: 註冊
+          user_registrations: 使用者註冊
+      models:
+        conference:
+          fields:
+            created_at: 建立於
+            promoted: 重點顯示
+            published: 已發佈
+            title: 標題
+        conference_speaker:
+          fields:
+            affiliation: 合作關係
+            full_name: 全名
+            position: 職位
+          name: 會議講者
+        conference_user_role:
+          fields:
+            email: 電子郵件
+            name: 名稱
+            role: 角色
+          name: 會議管理員
+          roles:
+            admin: 管理員
+            collaborator: 合作者
+            moderator: 版主
+            valuator: 評價者
+        media_link:
+          fields:
+            date: 日期
+            link: 連結
+            title: 標題
+          name: 媒體連結
+    admin_log:
+      conferences:
+        partner:
+          delete: "%{user_name} 移除了合作夥伴%{resource_name} 於%{space_name} 會議中"
+          update: "%{user_name} 在%{space_name} 會議中更新了合作夥伴%{resource_name}"
+        registration_type:
+          create: "%{user_name} 在%{space_name} 會議中建立了%{resource_name} 的註冊類型"
+          delete: "%{user_name} 從%{space_name} 會議中刪除了%{resource_name} 的註冊類型"
+          publish: "%{user_name} 在 %{space_name} 會議中發佈了 %{resource_name} 註冊類型"
+          unpublish: "%{user_name} 在 %{space_name} 會議中取消發佈了 %{resource_name} 註冊類型"
+          update: "%{user_name} 在 %{space_name} 會議中更新了 %{resource_name} 註冊類型"
+      media_link:
+        create: "%{user_name} 在 %{space_name} 會議中創建了 %{resource_name} 媒體連結"
+        delete: "%{user_name} 在 %{space_name} 會議中刪除了 %{resource_name} 媒體連結"
+        update: "%{user_name} 在 %{space_name} 會議中更新了 %{resource_name} 的媒體連結"
+    conference_program:
+      index:
+        title: 節目表
+    conference_speakers:
+      index:
+        title: 講者
     conferences:
       admin:
+        conference_copies:
+          form:
+            slug_help: 'URL 標識符用於生成指向此會議的 URL。僅接受字母、數字和破折號，並且必須以字母開頭。例如：%{url}'
         conference_invites:
+          create:
+            error: 邀請參與者加入會議時發生問題。
+            success: 已成功邀請參與者加入會議。
+          form:
+            attendee_type: 參與者類型
+            existing_user: 現有參與者
+            invite_explanation: 參與者將被邀請加入會議和組織。
+            non_user: 不存在的參與者。
+            select_user: 選擇參與者
+          index:
+            filter:
+              accepted: 已接受
+              all: 全部
+              rejected: 已拒絕
+              sent: 傳送
+            filter_by: 篩選條件
+            invite_attendee: 邀請參與者
+            invites: 邀請
+            search: 搜尋
           new:
             explanation: 參加者將被邀請加入會議。如果他們的電子郵件尚未註冊，他們也會被邀請加入該組織。
+            invite: 邀請
+            new_invite: 邀請參與者
+        conference_registrations:
+          index:
+            registrations: 註冊
+        conference_speakers:
+          form:
+            existing_user: 現有參與者
+            non_user: 非參與者
+            select_user: 選擇參與者
+            user_type: 參與者類型
+          index:
+            search: 搜尋
+        conferences:
+          form:
+            available_slots_help: 如果您有無限的可用名額，請將其設置為0。
+            registrations_count:
+              other: 已有 %{count} 個註冊。
+            slug_help: 'URL 標識符用於生成指向此會議的 URL。僅接受字母、數字和破折號，並且必須以字母開頭。例如：%{url}'
+        diplomas:
+          edit:
+            save: 儲存
+            title: 出席證明書
+        invite_join_conference_mailer:
+          invite:
+            decline: 拒絕邀請 '%{conference_title}'
+            invited_existing_user_to_join_a_conference: "%{invited_by} 邀請您加入 %{application} 的會議。您可以通過以下鏈接拒絕或接受邀請。"
+            invited_user_to_join_a_conference: "%{invited_by} 邀請您加入 %{application} 的會議。您可以通過以下鏈接接受邀請。"
+            registration: 註冊 '%{conference_title}'
+        partners:
+          index:
+            title: 夥伴
+        registration_types:
+          form:
+            select_conference_meetings: 選擇研討會會議
+          index:
+            title: 註冊類型
+        send_conference_diploma_mailer:
+          diploma:
+            diploma_html: 您將在附件中找到會議<a href="%{url}">%{title}</a>的出席證明書。
       conference:
         show:
           free: 免費
@@ -123,9 +323,13 @@ zh-TW:
         program_meeting:
           content: 內容
           location: 位置
+          speakers: 講者
           streaming: 串流直播
         show:
           day: 日
+      conference_speakers:
+        index:
+          speakers: 講者
       conferences:
         show:
           make_conference_registration: '請在此會議中完成註冊：'
@@ -135,6 +339,25 @@ zh-TW:
             subject: 您的會議註冊已確認。
           pending_validation:
             subject: 您的會議註冊正在等待確認。
+      models:
+        conference_invite:
+          status:
+            sent: 傳送
+        conference_registration:
+          fields:
+            email: 電子郵件
+            name: 名稱
+            registration_type: 註冊類型
+            state: 狀態
+            states:
+              confirmed: 已確認：
+              pending: 等待中
+      pages:
+        home:
+          highlighted_conferences:
+            active_conferences: 正在進行的會議
+            conferences_button_title: 顯示所有會議的會議頁面連結
+            see_all_conferences: 查看所有會議
       photo:
         image:
           attributes:
@@ -145,12 +368,25 @@ zh-TW:
       photos_list:
         show:
           related_photos: 圖片
+      registration_types:
+        index:
+          choose_an_option: '選擇您的註冊選項:'
+          no_registrations: 沒有註冊
+          register: 登錄
+          title: 註冊類型
       shared:
         conference_user_login:
           already_account: 你已經在 Decidim 中擁有帳戶了嗎？
           new_user: 新用戶?
           sign_in: 登入以註冊參加會議
           sign_up: 在 Decidim 建立一個帳號以註冊會議。
+      show:
+        details: 詳細資料
+        introduction: 簡介
+        objectives: 目標
+        related_assemblies: 相關大會
+        related_consultations: 相關咨詢
+        related_participatory_processes: 相關參與過程
     log:
       value_types:
         conference_presenter:
