@@ -183,6 +183,9 @@ zh-TW:
             census: 戶籍
             errors:
               census_codes_generated: 戶籍的存取代碼未被產生。
+              census_frozen: 戶籍的存取代碼未被匯出。
+              census_uploaded: 此選舉中沒有上傳戶籍。
+              component_published: 此選舉元件<strong>未被發布</strong>。
             success: 選舉成功發佈到公告欄
           created:
             invalid: 啟動金鑰儀式時發生問題
@@ -198,14 +201,34 @@ zh-TW:
             tally_completion: 當所有受託人都參與或被標記為遺失時，程序將完成。至少需要 %{quorum} 名受託人才能完成程序。
             undo_mark_as_missing: 一個被錯誤標記為缺席的受託人在流程完成之前將能夠參與，他們可以照常進行，且缺席標記將被忽略。
           tally_ended:
+            selected: 已選取
+            submit: 發佈結果
             success: 發布結果的請求已成功發送到公告欄
+            title: 計算結果
           vote:
+            errors:
+              time_after: 選舉仍在進行中。您需要等到結束時間 (%{end_time}) 才能結束投票期程。
             invalid: 結束投票期間時發生問題
+            requirements:
+              time_after: 選舉已經結束。您可以手動結束投票期程，或者在幾分鐘內自動結束。
+            submit: 結束投票期程
             success: 結束投票期的請求已成功發送到公告欄
+            title: 投票期程
           vote_ended:
             invalid: 啟動點票出現問題
+            submit: 開始計票
             success: 開始點票的請求已成功傳送到公告欄。
+            text: 投票已結束。現在您可以開始進行計票。
+            title: 投票期程已結束
+          vote_stats:
+            no_vote_statistics_yet: 目前沒有投票統計資料
+            title: 投票統計
+            voters: 選民
+            votes: 投票
         trustees_participatory_spaces:
+          actions:
+            disable: 停用
+            enable: 考慮
           create:
             exists: 此參與空間已存在受託人
             invalid: 建立受託人時出現問題
@@ -213,9 +236,32 @@ zh-TW:
           delete:
             invalid: 移除此受託人時發生問題
             success: 受託人已成功移除
+          form:
+            select_user: 選擇使用者
+          index:
+            title: 受託人
+          new:
+            create: 創建受託人
+            title: 新建受託人
           update:
             invalid: 更新 %{trustee} 受託人 時發生問題
             success: 受託人 %{trustee} 已成功更新
+      admin_log:
+        election:
+          create: "%{user_name} 創建了 %{space_name} 的選舉 %{resource_name}"
+          delete: "%{user_name} 刪除了 %{space_name} 的選舉 %{resource_name}"
+          end_vote: "%{user_name} 結束了在公告欄上 %{space_name} 的選舉 %{resource_name} 的投票期限"
+          publish: "%{user_name} 在公告欄上發布了 %{space_name} 的選舉 %{resource_name}"
+          publish_results: "%{user_name} 在公告欄上發布了 %{space_name} 的選舉 %{resource_name} 的結果"
+          report_missing_trustee: "%{user_name} 在公告欄報告 %{trustee_name} 在 %{space_name} 中 %{resource_name} 的計票期間中遺失了"
+          setup: "%{user_name} 在公告欄創建了 %{space_name} 中 %{resource_name} 的選舉。"
+          start_key_ceremony: "%{user_name} 在公告板上為選舉 %{resource_name} 於 %{space_name} 開始金鑰儀式。"
+          start_tally: "%{user_name} 開始在公告欄上為選舉 %{resource_name} 於 %{space_name} 進行計票"
+          start_vote: "%{user_name} 在公告欄上%{space_name} 開始了選舉 %{resource_name} 的投票期程。"
+          unpublish: "%{user_name} 取消發布了 %{space_name} 的 %{resource_name} 選舉"
+          update: "%{user_name} 更新了 %{space_name} 的 %{resource_name} 選舉"
+        trustee:
+          create: "%{user_name} 指定使用者 %{trustee_user} 為受託人"
       election_m:
         footer:
           remaining_time:
@@ -227,14 +273,77 @@ zh-TW:
           verifiable_results:
             description:
               not_ready: 可驗證的選舉檔案和 SHA256 校驗和尚未提供。一旦結果公佈，您將能夠驗證此選舉。
+          vote_description:
+            not_started: 投票過程尚未開始。
+            started: 投票過程已開始。
+          vote_title: 投票過程
+        filters:
+          active: 啟用中
+          all: 全部
+          finished: 已完成
+          search: 搜尋
+          upcoming: 即將舉行
+        filters_small_view:
+          close_modal: 關閉視窗
+          filter: 篩選
+          filter_by: 篩選條件
+          unfold: 展開
+        preview:
+          available_answers: '可選答案:'
+          description: '以下是您在投票過程中會遇到的問題:'
+          title: 選舉問題
         results:
+          description: '這是投票結果，針對每個問題的結果:'
+          percentage: "%{count}%"
+          selected: 已選取
+          title: 選舉結果
           votes:
             one: "%{count} 票"
             other: "%{count} 票"
             zero: "%{count} 票"
+        show:
+          action_button:
+            change_vote: 更改您的選票
+            vote: 開始投票
+            vote_again: 再次投票
+          back: 可投票的選舉
+          callout:
+            already_voted: 您已經在此選舉中投票，您可以更改您的選票或進行驗證。
+            pending_vote: 您的投票正在服務器上進行。
+            vote_rejected: 無法驗證您的選票。請重新投票。
+          election_log: 選舉紀錄
+          preview: 預覽
+          verify:
+            already_voted: 已經投票?
+            verify_here: 在此檢查您的投票。
+            will_verify: 在選舉開始後，您將能夠驗證您的投票。
+          voting_period_status:
+            finished: 投票開始時間為 %{start_time}，結束時間為 %{end_time}
+            ongoing: '投票有效期至 %{end_time}'
+            upcoming: 投票於 %{start_time} 開始
       feedback:
         answer:
+          invalid: 提交反饋時出現問題。
           spam_detected: 回答問卷時出現問題。也許您回答得太快了，可以再試一次嗎？
+          success: 反饋成功發送。
+      models:
+        answer:
+          fields:
+            proposals: 提案
+            selected: 已選取
+            title: 標題
+            votes: 投票
+        election:
+          fields:
+            bb_status: 公告板狀態
+            end_time: 結束於
+            start_time: 開始於
+            title: 標題
+            verifiable_results_file_hash: 文件SHA256校驗和
+            verifiable_results_file_url: 可驗證選舉檔案
+        question:
+          fields:
+            answers: 回答
       trustee_zone:
         elections:
           tally_steps:
@@ -250,18 +359,54 @@ zh-TW:
             success: '選舉狀態為: %{status}'
         trustees:
           show:
+            elections:
+              list:
+                action_required:
+                  'true': 執行操作
+                bb_status: 狀態
+                election: 選舉
+                voting_period: 投票期間
+              no_elections: 沒有你擔任受託人的選舉。
+              title: 選舉
             identification_keys:
+              cancel: 取消
+              generate: 生成身份識別金鑰
+              generate_error: 生成身份識別金鑰時發生錯誤。
+              generate_legend: 您需要生成一對身份驗證金鑰，以便作為受託人參與選舉。
+              generate_legend_1: 按下按鈕後，您應該下載生成的身份驗證金鑰文件。
+              generate_legend_2: 將下載的文件複製到一個乾淨的 USB 設備上
               generate_legend_3: 請確認您的電腦上沒有該文件的任何副本(例如檢查下載和桌面文件夾)。
+              generate_legend_4: 在另一個外部設備上製作文件的另一份副本，並將其存儲在非常安全的地方。
+              submit: 提交
               submit_legend: 在遵循上述所有步驟後，請將公開身份證明金鑰發送到 Decidim 伺服器，以完成此流程。
+              submit_title: 提交公共身份證明金鑰
+              title: 受託人身份證明金鑰
+              upload: 上傳您的身分識別金鑰
               upload_error:
                 invalid_format: 上傳的檔案沒有包含任何識別碼。
                 invalid_key: 上傳的檔案中無法載入身份識別金鑰。
                 invalid_public_key: 上傳檔案中的身份識別碼與 Decidim 存儲的公開身份識別碼不匹配。
               upload_legend: Decidim已經有您的公開身份識別金鑰，但是您的瀏覽器仍未擁有它。您需要從您生成鑰匙後創建的備份中，將包含您的鑰匙的文件導入您的電腦。
             not_supported_browser_description: 看起來您使用的網頁瀏覽器無法用作受託人的身份。請確保您使用的是最新版本的瀏覽器，或嘗試使用任何最流行的瀏覽器，以便能夠完成您的受託人任務。
+            not_supported_browser_title: 升級瀏覽器以作為受託人
+            trustee_role_description: 您已被指派在此平台上的某些選舉中擔任受託人。
+          update:
+            success: 您的識別公鑰已成功存儲。
       votes:
         ballot_decision:
+          audit: "（審核選票）"
+          back: 重新開始投票流程
+          ballot_hash: '您的選票識別碼是:'
+          cast: 提交選票以完成投票
           description: 在這裡，您可以選擇選擇投票，以便它被正確計算，或者您可以進行審核，以確認您的選票已正確加密。出於安全原因，審核您的選票將會使其失效。這意味著，為了投票，您需要重新啟動投票過程。
+          header: '選票已加密：請投票或進行選票稽核'
+        casting:
+          header: 正在投票中...
+          text: 您的選票正在投入投票箱中。
+        confirm:
+          answer: 回答
+          answer_number: 答案 %{number}
+          header: 確認您的選票
         onboarding_modal:
           description: 你想要在 Decidim 創建一個新帳戶嗎？你將能夠參與流程並成為該組織的積極一份子。
           title: 初次使用 Decidim？
