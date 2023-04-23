@@ -1,10 +1,54 @@
 zh-TW:
   activemodel:
     attributes:
+      answer:
+        description: 說明
+        image: 圖片
+        proposals: 相關提案
+        title: 標題
+      ballot_style:
+        code: 代碼
+      election:
+        description: 說明
+        end_time: 投票截止時間
+        start_time: 投票開始時間
+        title: 標題
+      monitoring_committee_member:
+        email: 電子郵件
+        name: 名稱
+      polling_officer:
+        email: 電子郵件
+        name: 姓名
+      polling_station:
+        address: 地址
+        location: 位置
+        location_hints: 場所提示
+        polling_station_managers: 管理員
+        polling_station_president_id: 會長
+        title: 標題
+      question:
+        max_selections: 最大選擇數量
+        min_selections: 以上皆非選項
+        title: 標題
+      trustees_participatory_space:
+        user_id: 參與者
       voting:
+        end_time: 投票截止
+        introductory_image: 導入圖片
+        promoted: 推廣
         scope_id: 範圍
+        show_check_census: 顯示「查詢戶籍」頁面
+        start_time: 開始投票
     errors:
       models:
+        answer:
+          attributes:
+            attachment:
+              needs_to_be_reattached: 需要重新附加
+        election:
+          attributes:
+            attachment:
+              needs_to_be_reattached: 需要重新附加
         trustee:
           attributes:
             name:
@@ -24,6 +68,25 @@ zh-TW:
           attributes:
             polling_station_president:
               different_voting: 投票站人員必須與投票站在同一個投票中
+    models:
+      decidim/elections/answer:
+        other: 回答
+      decidim/elections/election:
+        other: 選舉
+      decidim/elections/question:
+        other: 問題
+      decidim/voting:
+        other: 投票
+      decidim/votings/census/dataset:
+        other: 資料集
+      decidim/votings/census/datum:
+        other: 數據
+      decidim/votings/polling_officer:
+        other: 投票事務官
+      decidim/votings/polling_station:
+        other: 投票站
+      decidim/votings/voting:
+        other: 投票
   decidim:
     elections:
       admin:
@@ -52,17 +115,50 @@ zh-TW:
           destroy:
             invalid: 刪除此選舉時出現問題。
             success: 選舉已成功刪除
+          edit:
+            title: 編輯選舉
+            update: 更新選舉
+          index:
+            no_bulletin_board: 沒有配置 <a href="https://github.com/decidim/decidim-bulletin-board">公告牌伺服器</a>，這是使用此模組所必需的。這個任務應由系統管理員完成。
+            title: 選舉
+          new:
+            create: 建立選舉
+            title: 新選舉
+          publish:
+            success: 選舉已成功發布
+          unpublish:
+            success: 選舉已成功取消發布。
           update:
             invalid: 更新此選舉時發生問題
             success: 選舉成功更新。
+        exports:
+          elections: 選舉
+          feedback_form_answers: 反饋表單回答
         mailers:
           trustee_mailer:
             body: "<p>嗨 %{user_name}，</p><p>您已被添加為 %{resource_name} 的受託人。</p>"
             subject: 你已被添加為%{resource_name} 的受託人。
+            trustee_zone: 帶我到受託人區
+        menu:
+          trustees: 受託人
+        models:
+          answer:
+            name: 回答
+          election:
+            name: 選舉
+          question:
+            name: 問題
+          trustee:
+            name: 受託人
         proposals_imports:
           create:
             invalid: 匯入提案至答案時發生問題
             success: "%{number} 個提案已成功匯入答案"
+          new:
+            create: 將提案匯入回應
+            no_components: 在此參與空間中沒有其他提案元件可以將提案匯入回應中。
+            select_component: 請選擇一個組件
+            title: 導入提案
         questions:
           create:
             election_started: 選舉已經開始了
@@ -71,11 +167,22 @@ zh-TW:
           destroy:
             invalid: 刪除此問題時出現問題
             success: 問題已成功刪除
+          edit:
+            title: 編輯問題
+            update: 更新問題
+          index:
+            title: 問題
+          new:
+            create: 新增問題
+            title: 新問題
           update:
             invalid: 更新問題時發生問題
             success: 問題成功更新
         steps:
           create_election:
+            census: 戶籍
+            errors:
+              census_codes_generated: 戶籍的存取代碼未被產生。
             success: 選舉成功發佈到公告欄
           created:
             invalid: 啟動金鑰儀式時發生問題
