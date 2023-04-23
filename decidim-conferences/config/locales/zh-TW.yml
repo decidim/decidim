@@ -79,8 +79,20 @@ zh-TW:
     models:
       decidim/conference:
         other: 研討會
+      decidim/conference_speaker:
+        other: 會議講者
+      decidim/conference_user_role:
+        other: 會議使用者角色
   decidim:
     admin:
+      actions:
+        confirm: 確認
+        new_conference: 新的會議
+        send_diplomas: 發送出席證明書
+      conference_copies:
+        new:
+          copy: 複製
+          select: 請選擇您想要複製的資料
       conferences:
         exports:
           registrations: 註冊
