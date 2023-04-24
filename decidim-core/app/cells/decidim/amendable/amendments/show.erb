@@ -1,0 +1,15 @@
+<div class="section" id="amendments">
+  <div class="amendments__header">
+    <h2 class="h4">
+      <%= resource_icon "Decidim::Amendment", class: "fill-tertiary w-6 h-6 inline-block align-middle" %>
+      <span class="comments-count inline-block align-middle">
+        <%= t("decidim.amendments.amendments.title", count: emendations.count) %>
+      </span>
+    </h2>
+  </div>
+
+  <div class="amendment-list">
+  <% emendations.each do |emendation| %>
+    <%= card_for emendation, context: { current_user: } %>
+  <% end %>
+</div>
