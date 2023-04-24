@@ -952,6 +952,15 @@ zh-TW:
           validate:
             error: 關閉驗證時發生問題
             success: 結束已經正確地驗證
+        monitoring_committee_verify_elections:
+          index:
+            download: 下載
+            how_to_checksum: '為確保您下載的檔案未在下載過程中損壞或被篡改，請在您的控制台中執行以下命令，檢查輸出是否與上面報告的檢查碼相符：'
+            how_to_download: 要驗證一個選舉，請從上面的表格中下載它的可驗證檔案。
+            how_to_run_verifier: '下載並確認檔案正確無誤後，您可以開始執行通用驗證程式。 請複製 <a href=''https://github.com/decidim/decidim-bulletin-board''>此存儲庫</a>，然後從根文件夾運行以下命令：'
+            how_to_title: 如何驗證選舉的有效性
+            not_available: 尚未可用
+            title: 選舉
         polling_officers:
           create:
             invalid: 建立投票工作人員時出現問題。
@@ -959,7 +968,22 @@ zh-TW:
           destroy:
             invalid: 刪除投票管理員時發生問題
             success: 投票站工作人員已成功刪除
+          form:
+            existing_user: 現有參與者
+            non_user: 邀請新的參與者
+            select_user: 以姓名、電子郵件或暱稱搜尋
+            user_type: 參與者類型
+          index:
+            role_manager: 管理員
+            role_president: 主席
+            title: 投票事務官
+          new:
+            create: 創建
+            title: 建立投票站工作人員
           polling_officers_picker:
+            choose_polling_officers: 選擇投票站工作人員
+            close: 關閉
+            more_polling_officers: 還有 %{number} 位投票站工作人員。請進一步優化您的搜尋以找到他們。
             no_polling_officers: 沒有符合您搜尋條件的投票站工作人員或是沒有任何投票站工作人員。
         polling_stations:
           create:
@@ -968,12 +992,33 @@ zh-TW:
           destroy:
             invalid: 刪除此投票站時出現問題
             success: 投票站已成功刪除
+          edit:
+            title: 編輯投票站
+            update: 更新投票站
           form:
+            address_help: '地址：用於地理編碼器找到位置'
+            location_help: '位置：向選民發送的消息，暗示投票站的確切位置。'
+            location_hints_help: '位置提示：額外的資訊。例如：投票站所在建築物的樓層。'
+            polling_station_managers_help: '投票站管理員：擔任投票站管理員的工作人員。請確保這些管理員已經在投票工作人員中被建立，且他們尚未被指派到其他投票站。'
             polling_station_president_help: '投票站官員：將擔任投票站主席的官員。 確保該官員已在 Polling Officers 中創建，並且他 (她) 尚未分配到另一個投票站'
+            select_president: 選擇一位投票事務官擔任投票站主席
+          index:
+            title: 投票站
+          new:
+            create: 創建
+            title: 建立投票站
           update:
             invalid: 更新此投票站時出現問題
             success: 投票站已成功更新
+        titles:
+          votings: 投票
         votings:
+          actions:
+            confirm_destroy: 您確定嗎？
+            destroy: 摧毀
+            new_voting: 新投票空間
+            publish: 發布
+            unpublish: 取消發佈
           create:
             invalid: 創建此投票時出現問題
             success: 投票已成功創建
@@ -1076,10 +1121,55 @@ zh-TW:
               has_ballot_styles_message: 您已設置選票樣式。請確認 CSV 中的「%{ballot_style_code_header}」欄位與所需的選票樣式代碼相對應。
               info_message: "<strong>尚未有選民名單資料。</strong> 請使用下面的表單匯入 CSV 檔案以創建選民名單資料。"
               missing_ballot_styles_message: '尚未設置此投票的選票樣式。如果您希望有條件的問題（例如：根據選民居住的區域/地區提供不同的問題），您需要在導入選民名單之前設置<a href=%{ballot_styles_admin_path}>選票樣式</a>。如果您希望向所有選民提出相同的問題，您可以繼續進行選民名單導入程序。'
+              submit: 提交CSV
+              title: 創建選民名冊
+            show:
+              heading: 投票空間選民名冊
+            upload_info:
+              csv_example_with_ballot_style: '<strong>帶有</strong> 投票樣式的檔案範例：'
+              csv_example_without_ballot_style: '<strong>不帶有</strong> 投票樣式的檔案範例：'
+              csv_header_after: 如果您不需要投票樣式/條件問題，請不要包括最後一個欄位 ("%{ballot_style_code_header}")。
+              csv_header_before: '選民名冊檔案必須是一個帶有以下表頭的CSV檔案：'
+        document_types:
+          dni: DNI
+          nie: NIE
+          passport: 護照
+        export_mailer:
+          access_codes_export:
+            click_button: '點擊下一個連結下載存取代碼數據。<br/>該檔案將可用直到 %{date}。<br/>您需要<a href="https://www.7-zip.org/">7-Zip</a>（Windows）、<a href="https://www.keka.io/en/">Keka</a>（MacOS）或<a href="https://peazip.github.io">PeaZip</a>（Linux）來打開它。密碼：%{password}。'
+            download: 下載
+            subject: 這次投票的訪問代碼導出已經可用。
         vote_flow:
+          already_voted_in_person: 這個參與者已經在現場投票了，不能再行使選舉權利。
           datum_not_found: 提供的資料與任何選民不符。
+      content_blocks:
+        highlighted_votings:
+          name: 重點顯示的投票
+        landing_page:
+          description:
+            title: 關於本次投票
+          metrics:
+            heading: 指標
+          polling_stations:
+            heading: 投票站
+            no_polling_stations: 目前尚未設置投票站。
+          timeline:
+            heading: 時間軸
+      monitoring_committee_members:
+        actions:
+          confirm_destroy: 您確定嗎？
+          destroy: 刪除
+          new: 新成員
+          title: 操作
+      pages:
+        home:
+          highlighted_votings:
+            active_votings: 活躍的投票
+            see_all_votings: 查看所有投票
+            votings_button_title: 鏈接到顯示所有投票的投票頁面
       polling_officer_zone:
         closures:
+          back_to_polling_stations: 返回投票站
           certify:
             add_images: 添加圖案
             error: 附加憑證時發生錯誤，請稍後再試。
@@ -1141,9 +1231,70 @@ zh-TW:
         in_person_votes:
           complete_voting:
             available_answers: '可選答案:'
+            census_verified: 這位參與者尚未進行現場投票。
+            census_verified_with_online_vote: 這位參與者已經線上投票。如果他們進行現場投票，以前的投票將被作廢，現場投票結果將是最終結果。
+            complete_voting: 完成投票
+            identify_another: 辨識另一個投票者
             questions_title: '他們有權投票回答以下問題:'
+            questions_title_voted: '該參與者已經在線上投票，並有權回答以下問題:'
+            voted: 該投票者已經投票
+          create:
+            error: 投票未被註冊，請再試一次。
+          in_person_form:
+            census_not_present: 該投票者未被列入選民名冊中。
+            census_not_present_description: 他們必須前往選民名冊申訴辦公室或聯繫支援中心。
+            date_of_birth: 出生日期
+            day: 日
+            day_placeholder: DD
+            document_number: 文件編號
+            document_number_placeholder: 身分證號
+            month: 月
+            month_placeholder: MM
+            select: 選擇文件類型
+            title: '選擇文件類型並輸入參與者的文件號碼：'
+            validate_document: 驗證文件
+            year: 年
+            year_placeholder: YYYY
+          new:
+            back: 返回投票站
+            title: 識別和驗證參與者
+          show:
+            back: 返回投票站
+            title: 等待現場投票被登記
+          update:
+            error: 登記投票時發生錯誤。請再試一次。
+            success:
+              accepted: 投票已成功登記。
+              rejected: 投票未被公告欄接受。請聯繫系統管理員。
+          verify_document:
+            census_present: 這個參與者在選民名冊中列出。
+            name: 名稱
+            title: '請檢查以下資料是否正確：'
+            verify_document: 驗證文件
+        menu:
+          polling_officer_zone: 投票事務官區域
+        polling_officers:
+          index:
+            polling_officer_role_description: 您已被指派在此平台舉行的某些選舉中擔任投票站官員（主席或管理員）。
+            polling_station:
+              address: 地址
+              count_votes: 計票
+              election: 選舉
+              identify_person: 識別一個人
+              name: 姓名
+              no_polling_stations: 您目前還未被指派到任何投票站。
+              role: 您的角色
+              show_closure: 查看關閉
+              title: 投票站
+              voting: 投票
       polling_officers:
+        actions:
+          confirm_destroy: 您確定嗎？
+          destroy: 刪除
+          new: 新的
+          title: 操作
         roles:
+          manager: 管理員
           president: 主席
           unassigned: 未指定
       polling_station_closure_recount:
@@ -1203,10 +1354,71 @@ zh-TW:
           title:
             other: "%{count} 票"
         elections_log:
+          bb_status: 選舉狀態
+          description: 選舉日誌將顯示有關每次投票的所有相關信息。例如，金鑰儀式或計票的狀態，或者結果是否已經發佈。點擊您想要查看日誌信息的選舉。
           election_log: 選舉紀錄
+          title: 選舉紀錄
+        filters:
+          active: 生效
+          all: 全部
+          date: 日期
+          finished: 已完成
+          search: 搜尋
+          upcoming: 即將舉行
+        filters_small_view:
+          close_modal: 關閉視窗
+          filter: 篩選
+          filter_by: 篩選條件
+          unfold: 展開
+        index:
+          no_votings: 沒有符合您搜尋條件的投票。
+          only_finished: 目前沒有已安排的投票，但您可以在此找到已完成的投票列表。
+          title: 投票
         login:
+          access_code: 存取代碼
+          access_code_placeholder: 存取代碼
+          ask_for_a_new_one: 要求一個新的投票。
           dont_have_access_code: 沒有存存取代碼？
+          form_title: '填寫以下表格以訪問投票：'
+          start_voting: 開始投票
+          step: 識別
+          title: 使用投票選民名單資料進行身分驗證
         no_census_contact_information: 目前尚未提供聯繫資訊。
+        orders:
+          label: '排序投票按:'
+          random: 隨機
+          recent: 最近
         send_access_code:
           invalid: 發送存取代碼時出現問題。
           success: 您的存取代碼已成功發送。
+        show:
+          dates: 日期
+      votings_m:
+        badge_name:
+          finished: 已完成
+          ongoing: 進行中
+          upcoming: 即將舉行
+        footer_button_text:
+          participate: 參與
+          view: 檢視
+          vote: 投票
+        unspecified: 未指定
+        voting_type:
+          hybrid: 混合
+          in_person: 親自
+          online: 線上
+        voting_types_label: 投票類別
+  layouts:
+    decidim:
+      election_votes_header:
+        exit: 退出
+      voting_navigation:
+        check_census: 我可以投票嗎？
+        election_log: 選舉紀錄
+        voting_menu_item: 該投票
+      votings:
+        index:
+          promoted_votings: 重點顯示的投票
+        promoted_voting:
+          more_info: 更多資訊
+          vote: 投票
