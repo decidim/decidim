@@ -130,7 +130,7 @@ module Decidim::ParticipatoryProcesses
       context "when the process type title is defined with the name key" do
         let(:type_data) do
           {
-            "name" => generate_localized_title
+            "title" => generate_localized_title
           }
         end
 
@@ -138,7 +138,7 @@ module Decidim::ParticipatoryProcesses
           expect { subject }.to change(Decidim::ParticipatoryProcessType, :count).by(1)
 
           participatory_process_type = subject.participatory_process_type
-          expect(participatory_process_type.title).to eq(type_data["name"])
+          expect(participatory_process_type.title).to eq(type_data["title"])
         end
       end
 

@@ -76,6 +76,7 @@ module Decidim
 
       def import_participatory_process_type(participatory_process_type)
         return if participatory_process_type.blank?
+
         return if compact_translation(participatory_process_type["title"]).blank?
 
         Decidim.traceability.perform_action!("create", ParticipatoryProcessType, @user) do
