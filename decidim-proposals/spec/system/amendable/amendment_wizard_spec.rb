@@ -24,7 +24,7 @@ describe "Amendment Wizard", type: :system do
 
     context "and in step_1: Create your amendment" do
       it "shows the current step_1 highlighted" do
-        within "#wizard-steps" do
+        within ".wizard__steps" do
           expect(page).to have_css(".step--active", count: 1)
           expect(page).to have_css(".step--past", count: 0)
           expect(page).to have_css(".step--active.step_1")
@@ -51,7 +51,7 @@ describe "Amendment Wizard", type: :system do
 
         it "redirects to the proposal page" do
           expect(page).to have_content(translated(proposal.title))
-          expect(page).to have_content("AMEND PROPOSAL")
+          expect(page).to have_css("#amend-button")
         end
       end
     end
@@ -70,7 +70,7 @@ describe "Amendment Wizard", type: :system do
         end
 
         it "show previous and current step_2 highlighted" do
-          within "#wizard-steps" do
+          within ".wizard__steps" do
             expect(page).to have_css(".step--active", count: 1)
             expect(page).to have_css(".step--past", count: 1)
             expect(page).to have_css(".step--active.step_2")
@@ -134,7 +134,7 @@ describe "Amendment Wizard", type: :system do
       end
 
       it "show previous and current step_3 highlighted" do
-        within "#wizard-steps" do
+        within ".wizard__steps" do
           expect(page).to have_css(".step--active", count: 1)
           expect(page).to have_css(".step--past", count: 2)
           expect(page).to have_css(".step--active.step_3")
@@ -236,7 +236,7 @@ describe "Amendment Wizard", type: :system do
       end
 
       it "show current step_4 highlighted" do
-        within "#wizard-steps" do
+        within ".wizard__steps" do
           expect(page).to have_css(".step--active", count: 1)
           expect(page).to have_css(".step--past", count: 3)
           expect(page).to have_css(".step--active.step_4")
@@ -305,7 +305,9 @@ describe "Amendment Wizard", type: :system do
       end
 
       it "is NOT shown the amendment draft in the amendments list" do
-        expect(page).to have_css("#amendments", text: "AMENDMENTS")
+        within("#amendments") do
+          expect(page).to have_content("1 amendment")
+        end
 
         within ".amendment-list" do
           expect(page).to have_content(translated(emendation.title))
