@@ -19,6 +19,12 @@ describe "Admin manages assemblies", type: :system do
       click_link "New assembly"
     end
 
+    %w(purpose_of_action composition description short_description announcement internal_organisation).each do |field|
+      it_behaves_like "having a rich text editor for field", ".tabs-content[data-tabs-content='assembly-#{field}-tabs']", "full"
+    end
+
+    it_behaves_like "having a rich text editor for field", "#closing_date_reason_div", "content"
+
     it "creates a new assembly" do
       within ".new_assembly" do
         fill_in_i18n(

@@ -71,6 +71,19 @@ describe "Edit collaborative_drafts", type: :system do
       end
     end
 
+    context "when rich text editor is enabled" do
+      before do
+        organization.update(rich_text_editor_in_public_views: true)
+        visit_component
+
+        click_link "Access collaborative drafts"
+        click_link collaborative_draft.title
+        click_link "Edit collaborative draft"
+      end
+
+      it_behaves_like "having a rich text editor", "edit_collaborative_draft", "basic"
+    end
+
     context "when updating with wrong data" do
       it "returns an error message" do
         visit_component

@@ -3,6 +3,7 @@
 require "spec_helper"
 
 describe "Explore Collaborative Drafts", versioning: true, type: :system do
+  include Decidim::Proposals::ApplicationHelper
   include ActionView::Helpers::TextHelper
 
   include_context "with a component"
@@ -89,12 +90,15 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
         end
       end
 
+      let(:html_body) { strip_tags(collaborative_draft.body).gsub(/\n/, " ").strip }
+      let(:stripped_body) { %(alert("BODY"); #{html_body}) }
+
       it "shows the title" do
         expect(page).to have_content(collaborative_draft.title)
       end
 
       it "shows the body" do
-        expect(page).to have_content(strip_tags(collaborative_draft.body))
+        expect(page).to have_content(stripped_body)
       end
 
       it "shows the state" do
@@ -129,7 +133,7 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
         end
 
         it "shows the body" do
-          expect(page).to have_content(strip_tags(collaborative_draft.body))
+          expect(page).to have_content(stripped_body)
         end
 
         it "shows the address" do

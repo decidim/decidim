@@ -5,7 +5,7 @@
 </div>
 
 <div class="field hashtags__container">
-  <%= form.text_area :body, rows: 10, class: "js-hashtags", value: form_presenter.body(extras: false).strip %>
+  <%= text_editor_for_proposal_body(form) %>
 </div>
 
 <% if @form.component_automatic_hashtags.any? %>
