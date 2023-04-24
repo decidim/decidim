@@ -61,6 +61,10 @@ zh-TW:
               cant_be_changed: 無法更改
             public_key:
               cant_be_changed: 無法更改
+        voting:
+          attributes:
+            voting_type:
+              inclusion: "%{value} 不是有效的投票類型"
   activerecord:
     errors:
       models:
@@ -94,7 +98,58 @@ zh-TW:
       decidim/votings/voting:
         other: 投票
   decidim:
+    admin:
+      filters:
+        officers_assigned_eq:
+          label: 管理員
+          values:
+            assigned: 已指派
+            unassigned: 未指定
+        role_eq:
+          label: 角色
+          values:
+            manager: 管理員
+            president: 會長
+            unassigned: 未指定
+        search_placeholder:
+          name_or_email_or_nickname_or_presided_station_title_or_managed_station_title_cont: 按姓名/電子郵件/暱稱或投票站搜索%{collection}。
+          ? title_or_address_or_manager_name_or_manager_email_or_manager_nickname_or_president_name_or_president_email_or_president_nickname_cont
+          : 按職稱、地址或官員姓名/電子郵件/暱稱搜索%{collection}。
+        signed_eq:
+          label: 已簽署
+          values:
+            'false': 已簽署
+            'true': 尚未簽署。
+        validated_eq:
+          label: 已驗證
+          values:
+            'false': 已驗證
+            'true': 未驗證
+    components:
+      elections:
+        actions:
+          vote: 投票
+        name: 選舉
+        settings:
+          global:
+            announcement: 公告
+          step:
+            announcement: 公告
     elections:
+      actions:
+        confirm_destroy: 您確定嗎？
+        destroy: 摧毀
+        edit: 編輯
+        feedback: 投票者回饋
+        import: 將提案匯入回應
+        manage_answers: 管理答案
+        manage_questions: 管理問題
+        manage_steps: 管理步驟
+        new: 新增 %{name}
+        preview: 預覽
+        publish: 發布
+        title: 操作
+        unpublish: 取消發佈
       admin:
         answers:
           create:
@@ -103,11 +158,22 @@ zh-TW:
           destroy:
             invalid: 刪除這個回答時發生問題
             success: 回答成功刪除
+          edit:
+            title: 編輯回答
+            update: 更新了回答
           index:
             invalid_max_selections: 你需要再填寫 %{missing_answers} 個答案，以符合最大選擇數。
+            title: 回答
+          new:
+            create: 更新了回答
+            title: 新回答
+          not_selected: 未選擇
           select:
+            disable: 取消選擇答案
+            enable: 將回答標記為已選擇
             invalid: 選擇這個回答時出現問題
             success: 答案成功選擇
+          selected: 已選取
           unselect:
             invalid: 取消選取此答案時發生問題
             success: 成功取消選取回答
@@ -270,6 +336,28 @@ zh-TW:
           update: "%{user_name} 更新了 %{space_name} 的 %{resource_name} 選舉"
         trustee:
           create: "%{user_name} 指定使用者 %{trustee_user} 為受託人"
+      connection:
+        failed:
+          modal:
+            close: 關閉
+            communication_lost: 抱歉，看起來與投票服務器（公告板）的通信已經中斷。<br>可能是網絡連接出現問題或目標服務器過於繁忙。<br>您可以稍後重試，如果問題仍然存在，請聯繫支持部門。
+            generic_error: 抱歉，發生了未知的錯誤。可能是因為您的瀏覽器不受支援，或者您正在使用不受支援的“隱身”或“私密”模式。
+            title: 出了些問題
+      election_m:
+        badge_name:
+          finished: 已完成
+          ongoing: 生效
+          upcoming: 即將舉行
+        end_date: 結束
+        footer:
+          remaining_time:
+            other: "<strong>%{count} 小時 %{minutes} 分鐘</strong> 剩餘投票時間。"
+          view: 檢視
+          vote: 投票
+        label:
+          date: 日期
+        questions: 問題 %{count}
+        start_date: 開始
       elections:
         election_log:
           verifiable_results:
