@@ -530,16 +530,61 @@ zh-TW:
           fields:
             considered: 考慮
             email: 電子郵件
+            inactive: 未啟動的
             name: 姓名
+            notification: 通知發送時間
+            public_key: 公開金鑰
+            status: 狀態
+      orders:
+        label: 按照選舉排序
+        older: 較舊的
+        recent: 最近
       trustee_zone:
         elections:
+          backup_modal:
+            description: 這次選舉正在公告欄上創建。對於參與其中的每個受託人來說，創建備份並將其存放在安全的地方非常重要。之後，過程將繼續進行。
+            download_election_keys: 下載金鑰
+            download_icon: 下載操作的圖示
+            title: 備份 %{election} 的選舉金鑰
+          key_ceremony_steps:
+            back: 返回
+            description: 此選舉正在公告欄中創建。為了完成此過程，需要您作為受託人的參與。
+            keys:
+              create_election: 產生金鑰
+              key_ceremony:
+                joint_election_key: 聯合金鑰生成
+                step_1: 金鑰發佈
+            list:
+              status: 狀態
+              task: 任務
+            process_warning: 一旦開始此過程，請勿離開此頁面，直到過程結束。所有參與者都應該連接以完成此過程，需要幾分鐘的時間。
+            start: 開始
+            start_icon: 開始選舉密鑰生成的圖示按鈕
+            status:
+              completed: 已完成
+              pending: 等待中
+              processing: 正在處理
+            title: 為 %{election} 創建選舉密鑰
+          restore_modal:
+            description: 選舉公告板已收到您作為受託人在此選舉中的相關資訊。為了繼續進行過程，您需要先上傳上一次備份的檔案。
+            title: 還原 %{election} 的選舉金鑰
+            upload_election_keys: 上傳選舉金鑰
+            upload_icon: 下載操作的圖示
           tally_started_steps:
+            back: 返回
             description: 這次選舉的結果正在公告欄中計算中。為了完成這個過程，需要您作為一名受託人進行參與。
             keys:
               end_tally: 點票結束
               tally:
                 cast: 投票計算完成
                 share: 計票分享
+            list:
+              status: 狀態
+              task: 任務
+            process_warning: 一旦開始此過程，請勿離開此頁面，直到過程結束。所有參與者都應該連接以完成此過程，需要幾分鐘的時間。
+            start: 開始
+            status:
+              completed: 已完成
             title: 選舉 %{election} 的點票
         trustees:
           show:
