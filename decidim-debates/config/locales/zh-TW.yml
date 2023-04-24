@@ -1,12 +1,141 @@
 ---
 zh-TW:
+  activemodel:
+    attributes:
+      debate:
+        category_id: 類別
+        closed_at: 關閉於
+        conclusions: 結論
+        decidim_category_id: 類別
+        description: 說明
+        end_time: 結束於
+        information_updates: 資訊更新
+        instructions: 參加指南
+        scope_id: 範圍
+        start_time: 開始於
+        title: 標題
+        user_group_id: 建立辯論為
+    models:
+      decidim/debates/close_debate_event: 辯論功能已關閉
+      decidim/debates/create_debate_event: 辯論
+      decidim/debates/creation_disabled_event: 辯論功能已禁用
+      decidim/debates/creation_enabled_event: 辯論創建已啟用
+  activerecord:
+    models:
+      decidim/debates/debate:
+        other: 辯論
   decidim:
+    components:
+      debates:
+        actions:
+          comment: 留言
+          create: 建立
+          endorse: 連署
+        name: 辯論
+        settings:
+          global:
+            announcement: 公告
+            comments_enabled: 啟用評論功能
+            comments_max_length: 評論字數最大長度(若要使用預設值請輸入0)
+            scope_id: 範圍
+            scopes_enabled: 啟用範圍
+          step:
+            announcement: 公告
+            comments_blocked: 留言已封鎖
+            creation_enabled: 參與者可以建立辯論
+            endorsements_blocked: 連署已封鎖
+            endorsements_enabled: 連署已封鎖
     debates:
+      actions:
+        close: 關閉
+        confirm_destroy: 您確定嗎？
+        destroy: 刪除
+        edit: 編輯
+        new: 新增 %{name}
+        title: 操作
+      admin:
+        debate_closes:
+          edit:
+            close: 關閉
+            title: 關閉辯論
+        debates:
+          create:
+            invalid: 建立辯論時出現問題。
+            success: 辯論建立成功。
+          destroy:
+            success: 辯論已成功刪除。
+          edit:
+            title: 編輯辯論
+            update: 更新辯論
+          form:
+            debate_type: 辯論類型
+            finite: 有限期 (設定開始和結束時間)
+            open: 開放式 (沒有開始或結束時間)
+          index:
+            title: 辯論
+          new:
+            create: 建立辯論
+            title: 新辯論
+          update:
+            invalid: 更新此辯論時發生問題。
+            success: 辯論已成功更新
+        exports:
+          comments: 評論
+        models:
+          debate:
+            name: 辯論
+      admin_log:
+        debate:
+          close: "%{user_name} 在 %{space_name} 空間關閉了 %{resource_name} 辯論。"
+          create: "%{user_name} 在%{space_name} 空間中創建了%{resource_name} 辯論"
+      debates:
+        show:
+          edit_debate: 編輯辯論
+          groups_count: 群組
+          last_comment_by: 最後評論
+          no_comments_yet: 尚無留言
+          open: 開放性辯論
+          participants_count: 參與者
+        update:
+          invalid: 更新此辯論時發生問題。
+          success: 辯論已成功更新
+        versions:
+          debates:
+            back_to_resource: 返回辯論
+          index:
+            title: 版本
+        versions_list:
+          back_to_resource: 返回辯論
       last_activity:
         debate_updated_at_html: "<span>辯論已更新，連結網址為 %{link}</span>"
         new_debate_at_html: "<span>新的辯論，連結網址為 %{link}</span>"
+      models:
+        debate:
+          fields:
+            end_time: 結束日期
+            official_debate: 正式辯論
+            start_time: 開始日期
+            title: 標題
     events:
       debates:
+        create_debate_event:
+          space_followers:
+            email_intro: |-
+              你好，
+              一個新的辯論「%{resource_title}」已經在 %{space_title} 參與空間中建立，請查看並參與：
+            email_outro: 您收到此通知，是因為您正在追蹤 %{space_title} 參與空間。您可以按照上述連結停止接收通知。
+            email_subject: '%{space_title} 參與空間上有新辯論主題%{resource_title}'
+            notification_title: 在<a href="%{space_path}">%{space_title}</a>上建立了辯論主題<a href="%{resource_path}">%{resource_title}</a>。
+          user_followers:
+            email_intro: |-
+              嗨，
+              你正在追蹤的 %{author_name} %{author_nickname} 創建了一個新辯論主題 "%{resource_title}"。點擊下方連結查看並參與辯論：
+            email_outro: 您收到此通知，是因為您正在關注 %{author_nickname}。您可以使用上面的連結停止接收通知。
+            email_subject: 新辯論主題「%{resource_title}」，由 %{author_nickname} 建立
+            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> 建立了 <a href="%{resource_path}">%{resource_title}</a> 辯論。
+        creation_disabled:
+          email_intro: '在 %{participatory_space_title} 中不再開放建立辯論。您仍可在此頁面參與開放辯論：'
+          email_outro: 你收到此通知是因為你正在追蹤 %{participatory_space_title}。你可以透過前面的連結停止接收通知。
         creation_enabled:
           notification_title: 您現在可以在<a href="%{participatory_space_url}">%{participatory_space_title}</a>中<a href="%{resource_path}">開始新的辯論</a>。
     gamification:
