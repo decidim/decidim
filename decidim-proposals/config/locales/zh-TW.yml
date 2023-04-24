@@ -80,6 +80,10 @@ zh-TW:
     components:
       proposals:
         settings:
+          global:
+            minimum_votes_per_user: 每位使用者最少贊成數量
+            new_proposal_body_template: 新提案正文樣板
+            new_proposal_body_template_help: 您可以定義新提案預先填寫的文字
           step:
             publish_answers_immediately_help_html: '請注意，如果您在未啟用此功能的情況下回答任何提案，您將需要手動選擇它們並使用發布操作進行發布。有關此操作的更多信息，請參閱 <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">提案答案文檔頁面</a>。'
     events:
