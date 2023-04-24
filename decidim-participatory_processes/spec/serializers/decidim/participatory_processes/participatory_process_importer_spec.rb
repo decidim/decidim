@@ -106,6 +106,19 @@ module Decidim::ParticipatoryProcesses
         end
       end
 
+      context "when the process group is empty" do
+        let(:group_data) do
+          {
+            "title" => Decidim::Faker::Localized.localized { "" },
+            "description" => Decidim::Faker::Localized.localized { "" }
+          }
+        end
+
+        it "does not create a process group" do
+          expect { subject }.not_to change(Decidim::ParticipatoryProcessGroup, :count)
+        end
+      end
+
       it "imports the process type correctly" do
         expect { subject }.to change(Decidim::ParticipatoryProcessType, :count).by(1)
 
@@ -126,6 +139,18 @@ module Decidim::ParticipatoryProcesses
 
           participatory_process_type = subject.participatory_process_type
           expect(participatory_process_type.title).to eq(type_data["name"])
+        end
+      end
+
+      context "when the process type is empty" do
+        let(:type_data) do
+          {
+            "title" => Decidim::Faker::Localized.localized { "" }
+          }
+        end
+
+        it "does not create a process type" do
+          expect { subject }.not_to change(Decidim::ParticipatoryProcessType, :count)
         end
       end
     end
