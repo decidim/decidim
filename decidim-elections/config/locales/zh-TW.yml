@@ -34,13 +34,13 @@ zh-TW:
         user_id: 參與者
       voting:
         banner_image: 橫幅圖片
-        census_contact_information: 人口普查聯繫資訊
+        census_contact_information: 選民名單聯繫資訊
         description: 說明
         end_time: 投票截止
         introductory_image: 導入圖片
         promoted: 推廣
         scope_id: 範圍
-        show_check_census: 顯示「查詢戶籍」頁面
+        show_check_census: 顯示「查詢選民名單」頁面
         start_time: 開始投票
         title: 標題
         voting_type: 投票類別
@@ -251,11 +251,11 @@ zh-TW:
             success: 問題成功更新.
         steps:
           create_election:
-            census: 戶籍
+            census: 選民名單
             errors:
-              census_codes_generated: 戶籍的存取代碼未被產生。
-              census_frozen: 戶籍的存取代碼未被匯出。
-              census_uploaded: 此選舉中沒有上傳戶籍。
+              census_codes_generated: 選民名單的存取代碼未被產生。
+              census_frozen: 選民名單的存取代碼未被匯出。
+              census_uploaded: 此選舉中沒有上傳選民名單。
               component_published: 此選舉元件<strong>未被發布</strong>。
               max_selections: 這些問題沒有<strong>正確數量的答案選項</strong>
               minimum_answers: 問題必須至少有<strong>兩個答案選項</strong>。
@@ -272,7 +272,50 @@ zh-TW:
             requirements:
               census_codes_generated: 選民名單的存取代碼已生成。
               census_frozen: 選民名單的存取代碼已匯出並凍結。
+              census_uploaded: 選民名單已經上傳。
+              component_published: 選舉組件已經<strong>發布</strong>。
+              max_selections: 所有問題都有正確的<strong>最大答案數量</strong>。
+              minimum_answers: 每個問題都<strong>至少有 2 個答案</strong>。
+              minimum_questions: 此選舉至少有<strong>1個問題</strong>。
+              published: 選舉已經<strong>發布</strong>。
+              time_before: 設置在選舉開始前<strong>至少 %{hours} 小時</strong>進行。
+              trustees_number: 參與空間中至少有<strong>%{number} 位帶有公鑰的受託人</strong>。
+            submit: 設置選舉
+            success: 選舉成功發佈到公告欄.
+            title: 設置選舉
+            trustees: 選舉受託人
+          created:
+            invalid: 啟動金鑰儀式時發生問題.
+            submit: 啟動金鑰儀式
+            success: 啟動金鑰儀式請求已成功發送到公告欄.
+            title: 選舉已建立。
+            trustees: 受託人
+          key_ceremony:
+            continue: 繼續
+            title: 金鑰儀式
+          key_ceremony_ended:
+            errors:
+              time_before: 選舉已準備好開始，您需要等待到開始時間 (%{start_time}) 的 %{hours} 小時前才能開始投票期程。
+            invalid: 啟動投票期間時發生問題.
+            requirements:
+              time_before: 選舉即將開始。您可以手動開始投票期程，或在開始時間 %{start_time} 之前自動開始。
+            submit: 開始投票期程
+            success: 啟動投票期間請求已成功發送到公告欄.
+            title: 準備開始
+          processing: 處理中...
+          results_published:
+            answer: 回答
+            not_selected: 未選擇
+            question: 問題
+            result: 結果
+            selected: 已選取
+            submit: 提交
+            title: 公佈選舉結果
           tally_ended:
+            answer: 回答
+            not_selected: 未選擇
+            question: 問題
+            result: 結果
             selected: 已選取
             submit: 發佈結果
             success: 發布結果的請求已成功發送到公告欄.
@@ -481,6 +524,13 @@ zh-TW:
         question:
           fields:
             answers: 回答
+            max_selections: 最大選擇數量
+            title: 標題
+        trustees_participatory_space:
+          fields:
+            considered: 考慮
+            email: 電子郵件
+            name: 姓名
       trustee_zone:
         elections:
           tally_started_steps:
