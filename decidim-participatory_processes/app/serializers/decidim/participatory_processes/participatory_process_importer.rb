@@ -71,8 +71,14 @@ module Decidim
 
       def import_participatory_process_type(participatory_process_type)
         return if participatory_process_type.blank?
+        return if (participatory_process_type["title"]).blank?
 
-        Decidim::ParticipatoryProcessType.find_by(id: participatory_process_type["id"])
+        Decidim.traceability.perform_action!("create", ParticipatoryProcessType, @user) do
+          Decidim::ParticipatoryProcessType.find_or_create_by(
+            title: participatory_process_type["title"],
+            organization: @organization
+          )
+        end
       end
 
       def import_participatory_process_steps(steps)

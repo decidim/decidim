@@ -39,13 +39,20 @@ module Decidim::ParticipatoryProcesses
           "scopes_enabled" => false,
           "show_metrics" => false,
           "show_statistics" => false,
-          "participatory_process_group" => group_data
+          "participatory_process_group" => group_data,
+          "participatory_process_type" => type_data
         }
       end
       let(:group_data) do
         {
           "title" => generate_localized_title,
           "description" => Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title }
+        }
+      end
+
+      let(:type_data) do
+        {
+          "title" => generate_localized_title
         }
       end
 
@@ -96,6 +103,29 @@ module Decidim::ParticipatoryProcesses
 
           group = subject.participatory_process_group
           expect(group.title).to eq(group_data["name"])
+        end
+      end
+
+      it "imports the process type correctly" do
+        expect { subject }.to change(Decidim::ParticipatoryProcessType, :count).by(1)
+
+        participatory_process_type = subject.participatory_process_type
+        expect(participatory_process_type.organization).to eq(subject.organization)
+        expect(participatory_process_type.title).to eq(type_data["title"])
+      end
+
+      context "when the process type title is defined with the name key" do
+        let(:type_data) do
+          {
+            "name" => generate_localized_title
+          }
+        end
+
+        it "imports the process type correctly" do
+          expect { subject }.to change(Decidim::ParticipatoryProcessType, :count).by(1)
+
+          participatory_process_type = subject.participatory_process_type
+          expect(participatory_process_type.title).to eq(type_data["name"])
         end
       end
     end
