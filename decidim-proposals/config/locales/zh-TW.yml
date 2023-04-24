@@ -1,14 +1,81 @@
 zh-TW:
   activemodel:
     attributes:
+      collaborative_draft:
+        address: 地址
+        body: 內容
+        category_id: 類別
+        decidim_scope_id: 範圍
+        has_address: 有地址
+        scope_id: 範圍
+        state: 狀態
+        title: 標題
+        user_group_id: 建立協作草稿為
+      proposal:
+        address: 地址
+        answer: 回答
+        answered_at: 回答
+        automatic_hashtags: 已自動添加標籤
+        body: 內容
+        category_id: 類別
+        decidim_scope_id: 範圍
+        has_address: 有地址
+        scope_id: 範圍
+        state: 狀態
+        suggested_hashtags: 建議使用標籤
+        title: 標題
+        user_group_id: 建立提案
+      proposal_answer:
+        answer: 回答
+        cost: 費用
+        cost_report: 成本報告
+        execution_period: 執行期間
       proposals_copy:
         copy_proposals: 我明白這將會將選定的元件中的所有提案匯入到目前的元件，而且這個動作是無法撤銷的。
+        origin_component_id: 從哪個組件複製提案
+      proposals_import:
+        import_proposals: 導入提案
+        keep_answers: 保留狀態和回答
+        keep_authors: 保留原作者
+      valuation_assignment:
+        admin_log:
+          valuator_role_id: 檢核者名稱
     errors:
       models:
         participatory_text:
           attributes:
             document:
               invalid_document_type: '文件類型無效。接受的格式為： %{valid_mime_types}'
+        proposal:
+          attributes:
+            add_documents:
+              needs_to_be_reattached: 需要重新附加
+            add_photos:
+              needs_to_be_reattached: 需要重新附加
+            body:
+              cant_be_equal_to_template: 不能與模板相同
+              identical: 並且標題不能相同
+            title:
+              identical: 並且內容不能相同
+        proposals_merge:
+          attributes:
+            base:
+              not_official: 非正式
+              supported: 已獲得支持或連署
+        proposals_split:
+          attributes:
+            base:
+              not_official: 非正式
+              supported: 已獲得支持或連署
+    models:
+      decidim/proposals/accepted_proposal_event: 提案已接受
+      decidim/proposals/admin/update_proposal_category_event: 提案類別已更改
+      decidim/proposals/admin/update_proposal_scope_event: 提案範圍已更改
+      decidim/proposals/creation_enabled_event: 建立提案已啟用
+      decidim/proposals/endorsing_enabled_event: 提案連署功能已啟用
+      decidim/proposals/evaluating_proposal_event: 提案正在被評估中
+      decidim/proposals/proposal_mentioned_event: 提案已被提及
+      decidim/proposals/publish_proposal_event: 提案已發佈
   decidim:
     components:
       proposals:
