@@ -17,7 +17,7 @@ describe "Admin manages budgets", type: :system do
   describe "admin form" do
     before { click_on "New Budget" }
 
-    it_behaves_like "having a rich text editor", "new_budget", "full"
+    it_behaves_like "having a rich text editor", "new_budget", "content"
   end
 
   it "creates a new budget" do

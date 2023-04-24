@@ -25,6 +25,8 @@ describe "Admin manages votings", type: :system do
       end
     end
 
+    it_behaves_like "having a rich text editor for field", ".tabs-content[data-tabs-content='voting-description-tabs']", "full"
+
     it "creates a new voting" do
       page.execute_script("$('#voting_start_time').focus()")
       page.find(".datepicker-dropdown .day:not(.new)", text: "12").click
