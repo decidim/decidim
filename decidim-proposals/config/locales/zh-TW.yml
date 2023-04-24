@@ -76,3 +76,11 @@ zh-TW:
       decidim/proposals/evaluating_proposal_event: 提案正在被評估中
       decidim/proposals/proposal_mentioned_event: 提案已被提及
       decidim/proposals/publish_proposal_event: 提案已發佈
+  decidim:
+    components:
+      proposals:
+        settings:
+          global:
+            minimum_votes_per_user: 每位使用者最少贊成數量
+            new_proposal_body_template: 新提案正文樣板
+            new_proposal_body_template_help: 您可以定義新提案預先填寫的文字
