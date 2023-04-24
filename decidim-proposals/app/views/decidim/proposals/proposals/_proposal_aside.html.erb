@@ -5,6 +5,8 @@
     <%= amend_button_for @proposal %>
   <% end %>
 
+  <%= amenders_list_for(@proposal) %>
+
   <%= emendation_actions_for @proposal %>
 
   <% if current_settings.votes_enabled? && (show_endorsements_card? || current_user) %>

@@ -106,9 +106,9 @@ extra_admin_link(
     <%# REDESIGN_PENDING: the next two resources are a simple list of users, as the decidim/meetings/public_participants_list_cell does.
                           It would be useful to move such list to the core, in order to reuse it elsewhere
                           In any case, these blocks should go inside the tabs-panels structure  %>
-    <%#= cell "decidim/endorsers_list", @proposal %>
-    <%#= amendments_for @proposal %>
-    <%#= amenders_list_for(@proposal) %>
+
+    <%= cell "decidim/endorsers_list", @proposal %>
+    <%= cell "decidim/amendable/amendments", @proposal %>
 
     <%= render partial: "actions" %>
 
