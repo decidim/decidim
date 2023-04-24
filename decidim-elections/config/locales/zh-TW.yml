@@ -261,6 +261,7 @@ zh-TW:
             mark_as_missing_description: 所有受託人應參與此過程，但如果有受託人無法參加此過程，您可以將其標記為缺席。
             success: 缺失受託人報告已成功發送至公告欄
             tally_completion: 當所有受託人都參與或被標記為遺失時，程序將完成。至少需要 %{quorum} 名受託人才能完成程序。
+            title: 計票過程
             undo_mark_as_missing: 一個被錯誤標記為缺席的受託人在流程完成之前將能夠參與，他們可以照常進行，且缺席標記將被忽略。
           tally_ended:
             selected: 已選取
@@ -348,12 +349,53 @@ zh-TW:
           date: 日期
         questions: 問題 %{count}
         start_date: 開始
+        unspecified: 未指定
       elections:
+        count:
+          elections_count:
+            other: "%{count} 個選舉"
         election_log:
+          chained_hash: 此訊息的鏈式雜湊值
+          complete: 完成
+          creation_description:
+            complete: 該選舉已建立並成功設置在公告欄上。
+            not_created: 該選舉尚未建立。
+          creation_title: 選舉已建立。
+          description: 這是選舉日誌，您可以在其中檢查每個步驟的狀態，例如選舉何時被創建，計票過程是否完成，以及選舉何時關閉。
+          download: 下載
+          key_ceremony_description:
+            complete: 金鑰儀式已完成。每個受託人都有有效的金鑰並已下載必要的備份金鑰。
+            not_started: 金鑰儀式尚未開始。
+            started: 金鑰儀式已經開始但尚未完成。
+          key_ceremony_title: 金鑰儀式
+          not_available: 尚未可用
+          not_created: 未創建
+          not_published: 未發佈
+          not_ready: 未準備好
+          not_started: 尚未啟動
+          published: 已發佈
+          results_description:
+            not_published: 結果尚未公佈。
+            published: 結果已公佈。
+          results_title: 結果
+          started: 已開始
+          tally_description:
+            finished: 計票過程已經完成。
+            not_started: 計票過程尚未開始。
+            started: 計票過程已經開始。
+          tally_title: 計票過程
+          title: 選舉紀錄
           verifiable_results:
+            checksum: '文件SHA256校驗和:'
             description:
               not_ready: 可驗證的選舉檔案和 SHA256 校驗和尚未提供。一旦結果公佈，您將能夠驗證此選舉。
+              ready: '此處您可以驗證選舉結果。首先，您必須下載檔案，確保它沒有被損壞。要這樣做，請運行以下命令，檢查輸出是否與檢查和值匹配：'
+            how_to_verify: '下載並確認檔案正確無誤後，您可以開始執行通用驗證程式。 請複製 <a href=''https://github.com/decidim/decidim-bulletin-board''>此存儲庫</a>，然後從根文件夾運行以下命令：'
+            title: 驗證選舉結果
+            verifiable_file: '可驗證選舉檔案:'
+          verify: 驗證選舉
           vote_description:
+            finished: 投票過程已經完成
             not_started: 投票過程尚未開始。
             started: 投票過程已開始。
           vote_title: 投票過程
@@ -427,6 +469,7 @@ zh-TW:
       trustee_zone:
         elections:
           tally_steps:
+            back: 返回
             description: 這次選舉的結果正在公告欄中計算中。為了完成這個過程，需要您作為一名受託人進行參與。
             keys:
               end_tally: 點票結束
@@ -500,20 +543,70 @@ zh-TW:
           lead: 您己投票!
           text: '你可以使用以下識別碼檢查你的投票是否已成功添加到投票箱中：<strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
           verify_link: 複製此識別碼，並將其貼到<a href="%{link}">投票驗證頁面</a>以進行檢查。
+        create:
+          error: 投票時發生問題，請再試一次。
+        encrypting:
+          header: 正在加密投票...
+          text: 正在加密您的選票，以確保您的投票秘密。
         failed:
+          header: 投票失敗
+          lead: 您的投票尚未完成！
           modal:
+            close: 關閉
             communication_lost: 抱歉，看起來與投票服務器（公告板）的通信已經中斷。<br>可能是網絡連接出現問題或目標服務器過於繁忙。<br>您可以稍後重試，如果問題仍然存在，請聯繫支持部門。
             title: 出了些問題
+          text: 出現錯誤，請再試一次。
+          try_again: 再試一次
+        header:
+          ballot_decision: 投票或查核您的選票
+          casting: 正在投票
+          confirm: 確認您的選票
+          confirmed: 投票已確認
+          encrypting: 正在加密投票
+          failed: 投票失敗
+        messages:
+          invalid_token: 您在投票站的會話無效。請再次嘗試投票。
+          not_allowed: 您目前無法在此選舉中投票。
+        modal:
+          close: 關閉
+          proposal_header: '提案:'
+        new:
+          answer_choices: 您最多可以選擇 %{choices} 項答案
+          more_information: 更多資訊
+          nota_option: 空白/以上皆非
+          preview_alert: 這是投票站的預覽畫面。
+          question_steps: 第 %{current_step} 問題，共 %{total_steps} 題
+          selections: "%{selected} 項已選擇，最多可 %{max_selections} <br>項選擇"
         onboarding_modal:
+          close: 關閉視窗
+          create_account: 建立帳戶
           description: 你想要在 Decidim 創建一個新帳戶嗎？你將能夠參與流程並成為該組織的積極一份子。
+          no_account: 不用了，謝謝。
           title: 初次使用 Decidim？
+        update:
+          error: 更新投票狀態時出現問題，請重新投票。
         verify:
+          content:
+            heading: 驗證您的投票
+            info: 這個驗證程式確認您的投票是否已正確投下並存在選票匣中。這個驗證器會檢查您的投票是否已被正確地投入投票箱中，並使用加密的文字串進行識別。
+          error:
+            header: 找不到投票!
+            info: 投票代碼在 %{link} 選票匣中未找到，請再試一次。
           form:
             back: 回到 Decidim
+            submit: 檢查
+            vote_identifier: '識別碼:'
+          header:
+            title: 驗證您的投票
           success:
+            header: 投票已被找到！
             info: 你的加密投票在 %{link} 投票箱中。
+        voting_step:
+          back: 返回
+          continue: 下一個
       warnings:
         no_elections_warning: 沒有符合您的搜尋條件的選舉，或者目前沒有已安排的選舉。
+        no_scheduled_elections_warning: 目前沒有即將舉行的選舉，但在這裡您可以找到所有過去的選舉列表。
     events:
       elections:
         trustees:
