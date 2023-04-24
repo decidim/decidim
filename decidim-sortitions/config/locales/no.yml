@@ -62,10 +62,6 @@
             title: Avbryting av sorteringen
           create:
             error: Det oppstod et problem med å lage en ny sortering.
-            success: Sorteringen ble opprettet
-          destroy:
-            error: Kan ikke avbryte sorteringen.
-            success: Sorteringen ble avbrutt
           edit:
             title: Oppdater informasjonen om sorteringen
             update: Oppdater
@@ -82,7 +78,6 @@
             selected_proposals: Forslag valgt for trekning
           update:
             error: Det oppstod et problem med å oppdatere sorteringen.
-            success: Sorteringen ble oppdatert
       admin_log:
         sortition:
           create: "%{user_name} opprettet %{resource_name} sorteringen i %{space_name}"

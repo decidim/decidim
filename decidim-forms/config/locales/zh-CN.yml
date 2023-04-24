@@ -17,8 +17,6 @@ zh-CN:
             choices:
               missing: 不完成
               too_many: 太多了
-        questionnaire:
-          request_invalid: 处理请求时出错。请再试一次
   decidim:
     forms:
       admin:
@@ -105,9 +103,6 @@ zh-CN:
           update:
             invalid: 保存表单时出错。
             success: 表单保存成功。
-      errors:
-        answer:
-          body: 主体不能为空
       images:
         dimensions: "%{width} x %{height} px"
       question_types:

@@ -1,5 +1,5 @@
 <% @topics.each do |topic| %>
-  <%= render partial: "topic", locals: { pages: topic.pages, topic: topic } %>
+  <%= render partial: "topic", locals: { pages: topic.pages, topic: } %>
 <% end %>
 
 <% if @orphan_pages.any? %>

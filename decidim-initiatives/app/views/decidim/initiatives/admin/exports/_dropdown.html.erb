@@ -17,7 +17,7 @@
       <li class="exports--format--<%= format.downcase %> exports--initiatives">
         <%= link_to t("decidim.admin.exports.export_as", name: t("decidim.initiatives.admin.exports.initiatives"),
                       export_format: format.upcase),
-                    export_initiatives_path(format: format, collection_ids: collection_ids) %>
+                    export_initiatives_path(format:, collection_ids:) %>
       </li>
     <% end %>
   </ul>

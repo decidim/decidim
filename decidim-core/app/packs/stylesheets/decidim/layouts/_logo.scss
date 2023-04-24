@@ -1,6 +1,6 @@
 // Organization name
 
-.logo-wrapper span{
+.logo-wrapper span {
   color: white;
   font-weight: 600;
   font-size: 1.4em;
@@ -10,12 +10,12 @@
   line-height: 1;
   position: relative;
 
-  &:hover{
+  &:hover {
     text-decoration: underline;
   }
 }
 
-.logo-wrapper span::before{
+.logo-wrapper span::before {
   content: "";
   display: block;
   position: absolute;

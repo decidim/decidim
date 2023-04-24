@@ -62,10 +62,10 @@ es-PY:
             title: Cancelar el sorteo
           create:
             error: Se produjo un error al crear un nuevo sorteo.
-            success: Sorteo creado con éxito.
+            success: Sorteo creado correctamente.
           destroy:
             error: No se puede cancelar el sorteo.
-            success: Orden cancelada con éxito
+            success: Sorteo cancelado correctamente.
           edit:
             title: Actualiza la información sobre el sorteo
             update: Actualizar
@@ -76,14 +76,14 @@ es-PY:
           index:
             title: Sorteos
           new:
-            confirm: Al hacer clic en el siguiente botón, la plataforma registrará la fecha y hora (con una precisión de segundos) y el resultado del dado, y esta información se utilizará para generar una selección aleatoria. Esta acción será irreversible y, una vez que hayas hecho clic en el botón, se publicará el resultado del sorteo junto con los datos facilitados en el presente formulario y no podrán modificarse. Te pedimos que revises el contenido cuidadosamente
+            confirm: Al hacer clic en el siguiente botón, la plataforma registrará la fecha y hora (con una precisión de segundos) y el resultado del dado, esta información se utilizará para generar una selección aleatoria. Esta acción será irreversible y, una vez que hayas hecho clic en el botón, se publicará el resultado del sorteo junto con los datos facilitados en el presente formulario y no podrán modificarse. Te pedimos que revises el contenido cuidadosamente.
             create: Crear
             title: Nuevo sorteo
           show:
             selected_proposals: Propuestas seleccionadas para sorteo
           update:
             error: Se produjo un error al actualizar el sorteo.
-            success: Sorteo actualizado correctamente
+            success: Sorteo actualizado correctamente.
       admin_log:
         sortition:
           create: "%{user_name} creó el sorteo %{resource_name} en %{space_name}"

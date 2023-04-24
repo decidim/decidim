@@ -64,14 +64,14 @@ cs:
             attachment:
               file: Soubor je neplatný
               needs_to_be_reattached: Potřebuje být znovu připojen
-              title: Název nesmí být prázdný
+              title: Název by neměl být prázdný
   activerecord:
     models:
       decidim/initiative:
         one: Iniciativa
         few: Iniciativy
         many: Iniciativ
-        other: Iniciativy
+        other: Iniciativ
       decidim/initiative_comittee:
         one: Výbor
         few: Výbory
@@ -105,8 +105,8 @@ cs:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Hledat %{collection} podle názvu, popisu, ID nebo jména autora.
       initiatives_settings:
         update:
-          error: Došlo k chybě
-          success: Nastavení iniciativ bylo úspěšně aktualizováno
+          error: Došlo k chybě.
+          success: Nastavení iniciativ bylo úspěšně aktualizováno.
       menu:
         attachments: Přílohy
         committee_members: Členové výboru
@@ -195,10 +195,10 @@ cs:
             - Postupujte podle kroků k vytvoření nové iniciativy
           description: Tento odznak se uděluje, když zahájíte nové iniciativy, spolupracujete s ostatními a provádíte je.
           description_another: Tento uživatel zveřejnil %{score} iniciativ.
-          description_own: Máte k dispozici %{score} iniciativ.
+          description_own: Máte zveřejněno %{score} iniciativ.
           name: Publikované iniciativy
           next_level_in: Získejte %{score} dalších publikovaných iniciativ, abyste dosáhli další úrovně!
-          unearned_another: Tento uživatel dosud nezveřejnil žádné iniciativy.
+          unearned_another: Tento uživatel zatím neobdržel žádné publikované iniciativy.
           unearned_own: Dosud jste nezveřejnili žádné iniciativy.
     help:
       participatory_spaces:
@@ -224,8 +224,8 @@ cs:
           index:
             approve: Schvalovat
             confirm_revoke: Jste si jisti?
-            invite_to_committee_help: Sdílejte tento odkaz, abyste mohli pozvat ostatní uživatele do propagačního výboru
-            no_members_yet: Ve výboru promotérů nejsou žádní členové
+            invite_to_committee_help: Sdílejte tento odkaz pro pozvání ostatních účastníků do propagačního výboru.
+            no_members_yet: Ve výboru promotérů nejsou žádní členové.
             revoke: Zrušit
             title: Členové výboru
         content_blocks:
@@ -247,7 +247,7 @@ cs:
             export_votes: Exportovat podpisy
             reject: Odmítnout iniciativu
             send_to_technical_validation: Odeslání k technickému ověření
-            success: Iniciativa byla odeslána k technickému ověření
+            success: Iniciativa byla odeslána na technické potvrzení.
             update: Aktualizovat
           form:
             attachments: Přílohy
@@ -263,8 +263,8 @@ cs:
             new: Nový
             photos: Fotky
           update:
-            error: Došlo k chybě
-            success: Iniciativa občanů byla úspěšně aktualizována
+            error: Došlo k chybě.
+            success: Tato iniciativa byla úspěšně aktualizována.
         initiatives_settings:
           edit:
             update: Aktualizovat
@@ -277,10 +277,10 @@ cs:
             title: Nastavení pro iniciativy
         initiatives_type_scopes:
           create:
-            error: Došlo k chybě
-            success: Byla vytvořena nová oblast působnosti pro daný typ iniciativy
+            error: Došlo k chybě.
+            success: Byla vytvořena nová oblast působnosti pro daný typ iniciativy.
           destroy:
-            success: Oblast působnosti byla úspěšně odstraněna
+            success: Oblast působnosti byla úspěšně odstraněna.
           edit:
             back: Zpět
             confirm_destroy: Jste si jisti?
@@ -292,14 +292,14 @@ cs:
             create: Vytvořit
             title: Vytvořit rozsah typů iniciativy
           update:
-            error: Došlo k chybě
-            success: Rozsah byl úspěšně aktualizován
+            error: Došlo k chybě.
+            success: Rozsah působnosti byl úspěšně aktualizován
         initiatives_types:
           create:
-            error: Došlo k chybě
-            success: Nový typ iniciativy byl úspěšně vytvořen
+            error: Došlo k chybě.
+            success: Nový druh iniciativy byl úspěšně vytvořen
           destroy:
-            success: Typ iniciativy byl úspěšně odstraněn
+            success: Druh iniciativy byl úspěšně odstraněn.
           edit:
             confirm_destroy: Jste si jisti?
             destroy: Odstranit
@@ -316,8 +316,8 @@ cs:
             create: Vytvořit
             title: Nový typ iniciativy
           update:
-            error: Došlo k chybě
-            success: Typ iniciativy byl úspěšně aktualizován
+            error: Došlo k chybě.
+            success: Druh iniciativy byl úspěšně aktualizován.
       admin_log:
         initiative:
           publish: "%{user_name} zveřejnil iniciativu %{resource_name}"
@@ -356,7 +356,7 @@ cs:
           success: Žádost byla schválena.
         new:
           continue: Pokračovat
-          help_text: Chystáte se požádat o členství ve výboru promotéra této iniciativy
+          help_text: Chystáte se požádat o členství ve výboru promotéra této iniciativy.
         revoke:
           success: Žádost byla zrušena.
         spawn:
@@ -458,7 +458,7 @@ cs:
             day: Den
             month: Měsíc
             year: Rok
-          help: Vyplňte prosím následující pole s osobními údaji, abyste podepsali iniciativu
+          help: Chcete-li iniciativu podepsat, vyplňte své osobní údaje do následujících polí.
         finish:
           back_to_initiative: Zpět na iniciativu
         sms_code:
@@ -466,16 +466,16 @@ cs:
           help: Zkontrolujte SMS přijaté v telefonu
         sms_phone_number:
           continue: Pošlete mi SMS
-          help: Vyplňte formulář s ověřeným telefonním číslem a vyžádejte si ověřovací kód
+          help: Vyplňte formulář s ověřeným telefonním číslem a vyžádejte si ověřovací kód.
       initiative_votes:
         create:
           error: Při podpisu iniciativy došlo k chybám.
-          invalid: Údaje poskytnuté k podpisu iniciativy nejsou platné
-          success_html: Gratulujeme! Iniciativa <strong> %{title}</strong> byla správně podepsána
+          invalid: Údaje poskytnuté k podpisu iniciativy nejsou platné.
+          success_html: Gratulujeme! Iniciativa <strong> %{title}</strong> byla úspěšně podepsána.
         personal_data:
           invalid: Osobní údaje nejsou v souladu s údaji poskytnutými k autorizaci.
         sms_code:
-          invalid: Váš ověřovací kód neodpovídá našemu. Prosím, zkontrolujte SMS, který jsme vám poslali.
+          invalid: Váš ověřovací kód se neshoduje s naším. Zkontrolujte prosím SMS, kterou jsme vám poslali.
         sms_phone:
           invalid: Telefonní číslo je neplatné nebo čeká na autorizaci. Zkontrolujte prosím vaše oprávnění.
       initiatives:
@@ -490,8 +490,8 @@ cs:
         committee_members:
           approve: Schválit
           confirm_revoke: Jste si jist?
-          invite_to_committee_help: Sdílejte tento odkaz pro pozvání ostatních účastníků do propagačního výboru
-          no_members_yet: V propagačním výboru nejsou žádní členové
+          invite_to_committee_help: Sdílejte tento odkaz pro pozvání ostatních účastníků do propagačního výboru.
+          no_members_yet: V předkladatelském výboru nejsou žádní členové.
           revoke: Odvolat
           title: Členové výboru
         count:
@@ -556,7 +556,7 @@ cs:
           section: 'Pokud o to organizace požádá, vytiskněte a vyplňte tento formulář pro odeslání, pokud je uvedeno:'
           signature: Podpis
         result:
-          answer_title: Tato iniciativa byla zodpovězena
+          answer_title: Tato iniciativa byla zodpovězena.
           initiative_rejected_reason: Tato iniciativa byla zamítnuta z důvodu nedostatečné podpory.
         show:
           any_vote_method: Tato iniciativa shromažďuje online i osobní podpisy.
@@ -624,8 +624,8 @@ cs:
         expired: Platnost vypršela
       unavailable_scope: Nedostupný rozsah
       update:
-        error: Došlo k chybě
-        success: Tato iniciativa byla úspěšně aktualizována
+        error: Došlo k chybě.
+        success: Tato iniciativa byla úspěšně aktualizována.
       versions:
         shared:
           back_to_resource: Přejít zpět na iniciativu

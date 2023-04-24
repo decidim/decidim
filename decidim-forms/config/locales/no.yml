@@ -22,8 +22,6 @@
             choices:
               missing: er ikke fullstendig
               too_many: er for mange
-        questionnaire:
-          request_invalid: Det har oppstod en feil med håndtering av forespørselen. Prøv på nytt
   decidim:
     forms:
       admin:
@@ -121,9 +119,6 @@
           update:
             invalid: Det oppstod et problem med å lagre dette skjema.
             success: Skjemaet ble lagret.
-      errors:
-        answer:
-          body: Teksten kan ikke være blank
       images:
         dimensions: "%{width} x %{height} px"
       question_types:

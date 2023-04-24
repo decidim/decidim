@@ -46,9 +46,6 @@ lv:
           new:
             import: Importēt
             title: Importēt rezultātus no CSV
-        imports:
-          create:
-            success: Faila importēšana ir sākta. Tuvāko minūšu laikā jūs saņemsiet e-pasta vēstuli ar importēšanas rezultātu
         models:
           result:
             name: Rezultāts
@@ -57,11 +54,6 @@ lv:
           timeline_entry:
             name: Laika grafika ieraksts
         results:
-          create:
-            invalid: Šī rezultāta izveides laikā radās problēma
-            success: Rezultāts ir veiksmīgi izveidots
-          destroy:
-            success: Rezultāts ir veiksmīgi dzēsts
           edit:
             title: Labot rezultātu
             update: Atjaunināt rezultātu
@@ -70,18 +62,10 @@ lv:
           new:
             create: Izveidot rezultātu
             title: Jauns rezultāts
-          update:
-            invalid: Šī rezultāta atjaunināšanas laikā radās problēma
-            success: Rezultāts ir veiksmīgi atjaunināts
         shared:
           subnav:
             statuses: Statusi
         statuses:
-          create:
-            invalid: Šī statusa izveides laikā radās problēma
-            success: Statuss ir veiksmīgi izveidots
-          destroy:
-            success: Statuss ir veiksmīgi izdzēsts
           edit:
             title: Labot statusu
             update: Atjaunināt statusu
@@ -90,15 +74,7 @@ lv:
           new:
             create: Izveidot statusu
             title: Jauns statuss
-          update:
-            invalid: Šī statusa atjaunināšanas laikā radās problēma
-            success: Statuss ir veiksmīgi atjaunināts
         timeline_entries:
-          create:
-            invalid: Šī ieraksta izveides laikā radās problēma
-            success: Ieraksts ir veiksmīgi izveidots
-          destroy:
-            success: Ieraksts ir veiksmīgi izdzēsts
           edit:
             title: Rediģēt ierakstu
             update: Atjaunināt ierakstu
@@ -107,9 +83,6 @@ lv:
           new:
             create: Izveidot ierakstu
             title: Jauns ieraksts
-          update:
-            invalid: Šī ieraksta atjaunināšanas laikā radās problēma
-            success: Ieraksts ir veiksmīgi atjaunināts
       admin_log:
         result:
           create: "%{user_name} izveidoja rezultātu %{resource_name} telpā %{space_name}"
@@ -121,7 +94,6 @@ lv:
       import_mailer:
         import:
           errors: Kļūdas
-          errors_present: Rezultātu importēšanas laikā radās problēma
           row_number: Rinda
           subject: Rezultāti ir veiksmīgi importēti
           success: Rezultāti ir veiksmīgi importēti. Rezultātus varat apskatīt administrēšanas saskarnē.

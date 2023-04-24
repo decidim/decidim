@@ -1,39 +1,39 @@
-[data-dialog]{
+[data-dialog] {
   @apply invisible opacity-0 fixed z-50 inset-0 bg-[rgba(0,0,0,0.25)] transition duration-300;
 
-  & > *{
+  & > * {
     @apply absolute inset-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] lg:max-w-[900px] max-h-screen h-fit overflow-y-auto p-6 bg-white z-50 rounded shadow-[0_4px_6px_rgba(211,211,211,0.25)];
 
-    & > svg:only-child{
+    & > svg:only-child {
       @apply w-8 h-8 mx-auto text-gray-2 fill-current animate-spin;
     }
   }
 
-  &[aria-hidden="false"]{
+  &[aria-hidden="false"] {
     @apply visible opacity-100;
   }
 
-  [data-dialog-closable]{
+  [data-dialog-closable] {
     @apply absolute top-4 right-4 text-2xl text-secondary;
   }
 
-  [data-dialog-container]{
+  [data-dialog-container] {
     @apply grid grid-cols-[auto_1fr] items-center gap-2;
 
-    > svg{
+    > svg {
       @apply w-6 h-6 text-gray fill-current flex-none;
     }
 
-    > :last-child{
+    > :last-child {
       @apply col-span-2 md:col-span-1 md:col-start-2;
     }
   }
 
-  [data-dialog-title]{
+  [data-dialog-title] {
     @apply text-2xl text-black font-semibold;
   }
 
-  [data-dialog-actions]{
+  [data-dialog-actions] {
     @apply flex justify-between items-center mt-10 only:[&>*]:ml-auto;
   }
 }
