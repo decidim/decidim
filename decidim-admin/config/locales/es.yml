@@ -200,7 +200,6 @@ es:
         verify: Verificar
       admin_terms_of_service:
         accept:
-          error: Ha habido un error al aceptar los términos del servicio de administración.
           success: '¡Genial! Has aceptado los términos del servicio de administración.'
         actions:
           accept: Estoy de acuerdo con los términos
