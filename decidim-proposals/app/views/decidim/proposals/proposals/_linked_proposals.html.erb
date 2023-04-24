@@ -22,7 +22,8 @@
           <% end %>
         </div>
       </div>
-      <% if !current_settings.try(:votes_hidden?) && !proposal.component.current_settings.votes_hidden? %>
+      <% if !current_settings.try(:votes_hidden?) && !proposal.component.current_settings.votes_hidden? &&
+      proposal.component.current_settings.votes_enabled? %>
         <div class="card--list__data">
           <span class="card--list__data__number">
             <%= proposal.votes.size %>
