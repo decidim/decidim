@@ -10,12 +10,81 @@ zh-TW:
         question_type: 類別
       questionnaire_question:
         mandatory: 必填的
+        max_characters: 字元限制（如果不需要限制，請設為0）
     errors:
       models:
+        answer:
+          attributes:
+            add_documents:
+              needs_to_be_reattached: 需要重新附加
+            body:
+              too_long: 太長
+            choices:
+              missing: 尚未完成
+              too_many: 太多了
         questionnaire:
           request_invalid: 處理請求時發生錯誤，請再試一次
   decidim:
     forms:
+      admin:
+        models:
+          components:
+            description: 說明
+            tos: 服務條款
+        questionnaires:
+          actions:
+            back: 返回問題
+            show: 顯示回應
+          answer_option:
+            answer_option: 答案選項：
+            free_text: 免費文字
+            remove: 移除
+            statement: 聲明
+          answers:
+            actions:
+              back: 返回回覆
+              export: 匯出
+              show: 顯示答案
+            empty: 目前尚未回答
+            export:
+              answer:
+                title: '回應 #%{number}'
+            export_response:
+              title: 調查問卷使用者回答_%{token}
+            index:
+              title: "%{total} 個回應總數"
+            show:
+              title: '回答#%{number}'
+          display_condition:
+            answer_option: 答案選項
+            condition_question: 問題
+            condition_type: 條件
+            condition_types:
+              answered: 已回答
+              equal: 等於
+              match: 包含文字
+              not_answered: 未回答
+              not_equal: 不等於
+            condition_value: 包含文字
+            display_condition: 顯示條件
+            mandatory: 這個條件必須始終滿足，無論其他條件的狀態如何。
+            remove: 移除
+            save_warning: 在配置顯示條件之前，請記得保存表單。
+            select_answer_option: 選擇答案選項
+            select_condition_question: 選取一個問題
+            select_condition_type: 選擇一個條件類型
+          edit:
+            save: 儲存
+            title: 編輯問卷內容
+          form:
+            add_question: 新增問題
+            add_separator: 新增分隔線
+            add_title_and_description: 新增標題與描述
+            already_answered_warning: 已有使用者回答此表單，因此您無法修改問題。
+            collapse: 收起所有問題
+            expand: 展開所有問題
+            preview: 預覽
+            title: 編輯問卷表單%{questionnaire_for}
       errors:
         answer:
           body: 內容不能為空
@@ -26,3 +95,12 @@ zh-TW:
         processors:
           resize_and_pad: 調整大小並填充為
           resize_to_fit: 重新調整大小以符合
+      questionnaires:
+        show:
+          answer_questionnaire:
+            anonymous_user_message: <a href="%{sign_in_link}">使用現有帳號登入</a> 或 <a href="%{sign_up_link}">註冊新帳戶</a> 以回答此表單。
+            title: 回答表單 
+          current_step: 步驟%{step}
+          of_total_steps: 的%{total_steps}
+          questionnaire_answered:
+            title: 已經回答
