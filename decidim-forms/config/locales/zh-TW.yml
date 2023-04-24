@@ -1,1 +1,12 @@
 zh-TW:
+  activemodel:
+    attributes:
+      answer:
+        body: 回答
+        choices: 選項
+        selected_choices: 已選擇的選項
+      question:
+        max_choices: 選擇的最大數量
+        question_type: 類別
+      questionnaire_question:
+        mandatory: 必填的
