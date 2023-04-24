@@ -187,7 +187,14 @@ fr:
             success: Réponse désélectionnée avec succès.
           update:
             invalid: Un problème est survenu lors de la mise à jour de cette réponse.
+            success: Réponse mise à jour avec succès.
         elections:
+          create:
+            invalid: Il y a eu un problème lors de la création de cette élection.
+            success: Élection créée avec succès.
+          destroy:
+            invalid: Une erreur s'est produite lors de la suppression de cette l'élection.
+            success: Élection supprimée avec succès.
           edit:
             title: Modifier l'élection
             update: Mettre à jour l'élection
@@ -201,6 +208,9 @@ fr:
             success: L'élection a été publiée avec succès.
           unpublish:
             success: L'élection a été dépubliée avec succès.
+          update:
+            invalid: Il y a eu un problème lors de la mise à jour de cette élection.
+            success: Élection mise à jour avec succès.
         exports:
           elections: Élections
           feedback_form_answers: Feedbacks des répondants
@@ -221,12 +231,22 @@ fr:
           trustee:
             name: Garant
         proposals_imports:
+          create:
+            invalid: Un problème est survenu lors de l'importation des propositions en réponses.
+            success: "%{number} propositions importées en réponses."
           new:
             create: Importer des propositions dans les réponses
             no_components: Il n'y a pas d'autres fonctionnalités Propositions dans cet espace participatif pour importer des propositions.
             select_component: Veuillez sélectionner une fonctionnalité
             title: Importer des propositions
         questions:
+          create:
+            election_started: L'élection a déjà commencé.
+            invalid: Il y a eu un problème lors de la création de cette question.
+            success: Question créée avec succès.
+          destroy:
+            invalid: Un problème est survenu lors de la suppression de cette question.
+            success: Question supprimée avec succès.
           edit:
             title: Modifier la question
             update: Mettre à jour la question
@@ -235,6 +255,9 @@ fr:
           new:
             create: Créer une question
             title: Nouvelle question
+          update:
+            invalid: Une erreur s'est produite lors de la mise à jour de cette question.
+            success: Question mise à jour avec succès.
         steps:
           create_election:
             census: Recensement
@@ -271,7 +294,9 @@ fr:
             title: Configurer l'élection
             trustees: Garants de l'élection
           created:
+            invalid: Il y a eu un problème lors du démarrage de la cérémonie des clés.
             submit: Démarrer la cérémonie des clés
+            success: La demande de lancement de cérémonie des clés a bien été envoyée au Panneau d'Affichage.
             title: Élection créée
             trustees: Garants
           key_ceremony:
@@ -280,9 +305,11 @@ fr:
           key_ceremony_ended:
             errors:
               time_before: L'élection est prête à commencer. Vous devez attendre %{hours} heures avant le lancement (%{start_time}) pour démarrer la période de vote.
+            invalid: Il y a eu un problème au démarrage de la période de vote.
             requirements:
               time_before: L'élection va bientôt commencer. Vous pouvez démarrer la période de vote manuellement, ou elle sera démarrée automatiquement avant l'heure de départ, à %{start_time}.
             submit: Commencer la période de vote
+            success: La demande de lancement de la période de vote a bien été envoyée au Panneau d'Affichage.
             title: Prêt à commencer
           processing: Traitement en cours...
           results_published:
@@ -300,9 +327,11 @@ fr:
             result: Résultat
             selected: Sélectionné
             submit: Publier les résultats
+            success: La demande de publication des résultats a bien été envoyée au Panneau d'Affichage.
             title: Résultats du calcul
           tally_started:
             continue: Continuer
+            invalid: Une erreur est survenue lors du signalement du garant absent.
             mark_as_missing: Marquer comme absent
             mark_as_missing_description: "All the trustees should participate in this process, but if a trustee cannot take part in the process, you can mark it as missing.\nTous les garants doivent participer à ce processus, toutefois, si l'un deux ne peut pas y participer, vous pouvez le marquer comme manquant."
             success: "Missing trustee report was successfully sent to the Bulletin Board.\nLe rapport manquant a été envoyé avec succès au Panneau d''Affichage."
@@ -312,12 +341,16 @@ fr:
           vote:
             errors:
               time_after: L'élection est toujours en cours. Vous devez attendre (%{end_time}) pour terminer la période de vote.
+            invalid: Un problème est survenu lors de la clôture de la période de vote.
             requirements:
               time_after: L'élection est terminée. Vous pouvez terminer la période de vote manuellement, ou elle se terminera automatiquement dans quelques minutes.
             submit: Fin de la période de vote
+            success: La demande de fin de la période de vote a été envoyée avec succès au Panneau d'Affichage.
             title: Période de vote
           vote_ended:
+            invalid: Une erreur s'est produite au lancement du dépouillement.
             submit: Démarrer le dépouillement
+            success: La demande de lancement du dépouillement a bien été envoyée au Panneau d'Affichage.
             text: Le vote est terminé. Vous pouvez commencer le comptage.
             title: Période de vote terminée
           vote_stats:
@@ -329,6 +362,13 @@ fr:
           actions:
             disable: Désactiver
             enable: Autoriser
+          create:
+            exists: Ce garant existe déjà dans cet espace participatif.
+            invalid: Une erreur s'est produite lors de la création du garant.
+            success: Le garant a bien été créé.
+          delete:
+            invalid: Il y a eu un problème lors de la suppression de ce garant.
+            success: Le garant a bien été supprimé.
           form:
             select_user: Sélectionner un utilisateur
           index:
@@ -336,6 +376,9 @@ fr:
           new:
             create: Créer un garant
             title: Nouveau garant
+          update:
+            invalid: Une erreur s'est produite lors de la mise à jour du garant %{trustee}.
+            success: Le garant %{trustee} a été mis à jour avec succès.
       admin_log:
         election:
           create: "%{user_name} a créé l'élection %{resource_name} dans %{space_name}"
@@ -685,6 +728,7 @@ fr:
             title: Vérifiez votre vote
           success:
             header: Vote trouvé !
+            info: Votre vote chiffré se trouve bien dans l'urne %{link} .
         voting_step:
           back: Retour
           continue: Suivant
@@ -739,12 +783,20 @@ fr:
     votings:
       admin:
         ballot_styles:
+          create:
+            error: Il y a eu un problème lors de la création de ce style de bulletin.
+            success: Style de bulletin créé avec succès.
+          destroy:
+            invalid: Un problème est survenu lors de la suppression de ce style de bulletin.
+            success: Style de bulletin supprimé avec succès.
           edit:
             title: Modifier le style de bulletin
             update: Mettre à jour
           form:
+            code_help: 'Astuce : le code est le lien entre l''élection et un bulletin de vote. Lors du téléchargement des données de recensement, chaque entrée se verra assignée un style de vote en faisant la correspondance avec le code.'
             election: Élection
             questions: Questions pour ce style de bulletin
+            questions_help: 'Astuce : sélectionnez les questions des fonctionalités Élections à présenter aux électeurs affectés à ce type de vote.'
           index:
             actions:
               confirm_destroy: Êtes-vous sûr(e) ?
@@ -792,6 +844,12 @@ fr:
           published: Publié
         landing_page:
           content_blocks:
+            create:
+              error: Un problème est survenu lors de la création de ce bloc de contenu.
+              success: Le bloc de contenu a été créé avec succès.
+            destroy:
+              error: Un problème est survenu lors de la suppression de ce bloc de contenu.
+              success: Le bloc de contenu a été supprimé avec succès.
             edit:
               update: Mettre à jour
           edit:
@@ -871,8 +929,16 @@ fr:
             publish_results: Publier les résultats
             publishing: Publication en cours ...
           update:
+            invalid: Un problème est survenu lors de la publication des résultats.
             rejected: La publication des résultats a été rejetée par le Panneau d'affichage. Réessayez ou contactez l'administrateur système.
+            success: Les résultats ont été publiés avec succès.
         monitoring_committee_members:
+          create:
+            invalid: Un problème est survenu lors de la création de ce membre du comité de suivi.
+            success: Membre du comité de suivi créé avec succès.
+          destroy:
+            invalid: Un problème est survenu lors de la suppression de ce membre de comité de suivi.
+            success: Membre de comité de suivi supprimé avec succès.
           form:
             existing_user: Utilisateur existant
             non_user: Inviter un nouveau participant
@@ -903,6 +969,9 @@ fr:
           show:
             change_polling_station: Retour aux bureaux de vote
             monitoring_committee_notes: Remarques du comité de suivi
+          validate:
+            error: Un problème est survenu lors de la validation de la fermeture.
+            success: La fermeture a été validée correctement.
         monitoring_committee_verify_elections:
           index:
             download: Télécharger
@@ -913,6 +982,12 @@ fr:
             not_available: Pas encore disponible
             title: Élections
         polling_officers:
+          create:
+            invalid: Une erreur est survenue lors de la création de cet accesseur.
+            success: L'accesseur créé avec succès.
+          destroy:
+            invalid: Une erreur est survenue lors de la suppression de cet accesseur.
+            success: Accesseur supprimé avec succès.
           form:
             existing_user: Participant existant
             non_user: Inviter un nouveau participant
@@ -931,6 +1006,12 @@ fr:
             more_polling_officers: Il y a %{number} responsables du scrutin supplémentaires. Affinez votre recherche pour les localiser.
             no_polling_officers: Aucun responsable du scrutin ne correspond à vos critères de recherche ou il n'y a pas de responsable du scrutin.
         polling_stations:
+          create:
+            invalid: Une erreur est survenue lors de la création de ce bureau de vote.
+            success: Le bureau de vote a été créée avec succès.
+          destroy:
+            invalid: Une erreur est survenue lors de la suppression de ce bureau de vote.
+            success: Le bureau de vote a bien été supprimé.
           edit:
             title: Modifier le bureau de vote
             update: Mettre à jour le bureau de vote
@@ -946,6 +1027,9 @@ fr:
           new:
             create: Créer
             title: Créer un bureau de vote
+          update:
+            invalid: Une erreur est survenue lors de la mise à jour de ce bureau de vote.
+            success: Le bureau de vote a bien été mis à jour.
         titles:
           votings: Élections
         votings:
@@ -955,7 +1039,11 @@ fr:
             new_voting: Nouvel espace de vote
             publish: Publier
             unpublish: Dépublier
+          create:
+            invalid: Une erreur s'est produite lors de la création de cette élection.
+            success: Élection créée avec succès.
           edit:
+            add_election_component: Vous n'avez aucune élection configurée pour ce vote. Veuillez en créer une dans la section Fonctionnalités.
             update: Mettre à jour
           form:
             banner_image: Image de la bannière
