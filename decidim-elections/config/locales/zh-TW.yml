@@ -583,14 +583,27 @@ zh-TW:
               task: 任務
             process_warning: 一旦開始此過程，請勿離開此頁面，直到過程結束。所有參與者都應該連接以完成此過程，需要幾分鐘的時間。
             start: 開始
+            start_icon: 開始選舉密鑰生成的圖示按鈕
             status:
               completed: 已完成
+              pending: 等待中
+              processing: 正在處理
             title: 選舉 %{election} 的點票
+          update:
+            error: 選舉狀態未更新。
+            success: '選舉狀態為: %{status}.'
+        menu:
+          trustee_zone: 受託人區
+        no_bulletin_board:
+          body: 本區域需要配置公告牌。請聯繫管理員以獲取更多詳細信息。
+          title: 對不起，公佈欄尚未配置。
         trustees:
           show:
             elections:
               list:
                 action_required:
+                  'false': '否'
+                  name: 需要採取行動嗎？
                   'true': 執行操作
                 bb_status: 狀態
                 election: 選舉
@@ -719,4 +732,242 @@ zh-TW:
           notification_title: '「%{participatory_space_title}」現在開始進行「<a href="%{resource_path}">%{resource_title}</a>」選舉。'
         trustees:
           new_election:
+            email_intro: 您已被新增為 %{resource_title} 選舉的受託人。
             email_outro: 你收到此通知是因為你已被新增為 %{resource_title} 選舉的受託人。
+            email_subject: 您是 %{resource_title} 選舉的受託人。
+            notification_title: 您是<a href="%{resource_path}">%{resource_title}</a>選舉的受託人。
+          new_trustee:
+            email_intro: 管理員已將您添加為%{resource_name} 的受託人。您應該在<a href='%{trustee_zone_url}'>您的受託人區域</a>中創建您的公鑰。
+            email_outro: 你收到了這個通知，因為你已被新增為 %{resource_name} 的受託人。
+            email_subject: 您是 %{resource_name} 的受託人。
+            notification_title: 您是<a href="%{participatory_space_url}">%{resource_name}</a>的受託人。
+        votes:
+          accepted_votes:
+            email_intro: '您的投票已經被接受！使用您的投票令牌: %{encrypted_vote_hash}，您可以在<a href="%{verify_url}">此處</a>驗證您的投票。'
+            email_outro: 您收到此通知是因為您已經投票參與了 %{resource_name} 選舉。
+            email_subject: 您的選票 %{resource_name} 已被接受。
+            notification_title: '您的選票已被接受。使用您的選票驗證碼 %{encrypted_vote_hash}，您可以在<a href="%{verify_url}">此處</a>驗證您的選票。'
+      votings:
+        polling_officers:
+          polling_station_assigned:
+            email_intro: 您已被指派為 <a href="%{resource_url}">%{resource_title}</a>中選舉站點 %{polling_station_name} 的 %{role}，您可以從專門的 <a href="%{polling_officer_zone_url}">選舉站點工作人員區域</a>進行管理。
+            email_outro: 你收到了此通知，因為你已被指定為 %{polling_station_name} 的 %{role}。
+            email_subject: 你是 %{polling_station_name} 的 %{role}。
+            notification_title: 您是<a href="%{resource_path}">%{resource_title}</a>投票中 %{polling_station_name} 投票站的%{role}。
+        send_access_code:
+          instruction: '這是您所要求的存取代碼：%{access_code}，藉此代碼您將能夠參與 %{voting}。'
+          subject: 參與 %{voting} 的存取代碼
+    help:
+      participatory_spaces:
+        votings:
+          contextual: "<p>一個<strong>投票</strong>是一個空間，讓您向構成一個組織的所有人提出明確的問題，呼籲參與投票，為贊成或反對某個回應引發和整理辯論。當投票日期到來時，您可以投票並發布投票結果。</p> <p>例如：投票可以涉及影響組織的幾乎任何方面：例如更改組織的名稱或標誌，提供幾種替代方案，決定是或否成為更大組織的一部分，驗證或拒絕新的戰略計劃或工作小組的結果，或定義職位是否應該保持最多1、2或3個任期。</p>\n"
+          page: "<p>一個<strong>投票</strong>是一個空間，讓您向構成一個組織的所有人提出明確的問題，呼籲參與投票，為贊成或反對某個回應引發和整理辯論。當投票日期到來時，您可以投票並發布投票結果。</p> <p>例如：投票可以涉及影響組織的幾乎任何方面：例如更改組織的名稱或標誌，提供幾種替代方案，決定是或否成為更大組織的一部分，驗證或拒絕新的戰略計劃或工作小組的結果，或定義職位是否應該保持最多1、2或3個任期。</p>\n"
+          title: 什麼是投票？
+    menu:
+      votings: 投票
+    statistics:
+      elections_count: 選舉
+      votings_count: 投票
+    votings:
+      admin:
+        ballot_styles:
+          create:
+            error: 創建此選票樣式時出現問題.
+            success: 選票樣式已成功建立.
+          destroy:
+            invalid: 刪除此選票樣式時發生問題.
+            success: 選票樣式已成功刪除.
+          edit:
+            title: 編輯選票樣式
+            update: 更新
+          form:
+            code_help: '提示：代碼是調查和投票樣式之間的關聯。在上傳調查數據時，每個條目都會通過匹配代碼來分配投票樣式。'
+            election: 選舉
+            questions: 此投票樣式的問題
+            questions_help: '提示：從選舉組件中選擇問題，以呈現給分配給此投票樣式的選民。'
+          index:
+            actions:
+              confirm_destroy: 您確定嗎？
+              destroy: 刪除
+              edit: 編輯
+              new: 新的
+              title: 操作
+            associated_census_data: 相關的戶籍項目
+            explanation_callout: 選票樣式指定了選民在投票站將會被提出的問題。在選票樣式中，您可以從此次投票的選舉組件中選擇哪些問題屬於該選票。選票樣式代碼用於將選民從選民名單中與他們將在投票站中展示的選票進行匹配。如果您始終要顯示所有問題，請勿創建任何選票樣式。
+            title: 選票樣式
+          new:
+            create: 創建
+            title: 創建選票樣式
+          update:
+            invalid: 更新此選票樣式時出現問題.
+            success: 選票樣式更新成功.
+        content_blocks:
+          highlighted_votings:
+            max_results: 顯示的最大元素數量
+          landing_page:
+            attachments_and_folders:
+              name: 投票附件與資料夾
+            description:
+              name: 投票說明
+        models:
+          polling_station:
+            name: 投票站
+          voting:
+            fields:
+              created_at: 建立於
+              promoted: 重點顯示
+              published: 已發佈
+              title: 標題
+        monitoring_committee_election_results:
+          actions:
+            title: 操作
+            view: 檢視
+          index:
+            title: 選擇您要查看結果的選舉
+          results:
+            bulletin_board: 公佈欄
+            election_totals: 選舉總計
+            polling_stations: 投票站
+            result_types:
+              blank_answers: 空白答案
+              blank_ballots: 空白選票數量
+              null_ballots: 作廢選票數量
+              total_ballots: 總選票數量
+              valid_ballots: 有效選票數量
+            selected: 已選取
+            title: <i>%{election_title}</i> 選舉結果
+            totals: 總計
+          show:
+            change_election: 更改選舉
+            publish_results: 發佈結果
+            publishing: 發佈結果中...
+          update:
+            invalid: 發布結果時出現問題.
+            rejected: 公佈結果被公告欄拒絕。請再試一次或聯繫系統管理員
+            success: 結果已成功發佈。
+        monitoring_committee_members:
+          create:
+            invalid: 在建立監察委員會成員時出現問題.
+            success: 監察委員會成員成功建立。
+          destroy:
+            invalid: 刪除監察委員會成員時發生問題.
+            success: 監察委員會成員已成功刪除.
+          form:
+            existing_user: 現有參與者
+            non_user: 邀請新的參與者
+            select_user: 以姓名、電子郵件或暱稱搜尋
+            user_type: 參與者類型
+          index:
+            title: 監管委員會
+          new:
+            create: 創建
+            title: 創建監察委員會成員
+        monitoring_committee_polling_station_closures:
+          actions:
+            title: 操作
+            validate: 驗證
+            view: 檢視
+          closures:
+            change_election: 更改選舉
+            signed: 已簽署?
+            title: 選舉 <i>%{election_title}</i> 的投票站
+            validated: 已驗證?
+          edit:
+            change_polling_station: 返回投票站
+            monitoring_committee_notes: 註記
+            monitoring_committee_notes_placeholder: 在此處報告任何事件
+            title: 選舉<i>%{election_title}</i>在投票站<i>%{polling_station_title}</i>的結果
+          elections:
+            title: 選擇您想要驗證的選舉
+          show:
+            change_polling_station: 返回投票站
+            monitoring_committee_notes: 監察委員會的備註
+        votings:
+          create:
+            success: 投票已成功創建.
+          edit:
+            add_election_component: 您沒有為此次投票配置任何選舉。請在『組件』部分中添加它。
+            assign_missing_officers: 有一些投票站缺少主席和/或管理人員。請從『投票站』部分分配它們。
+            update: 更新
+          form:
+            banner_image: 橫幅圖片
+            census_contact_information: 選民名單聯繫資訊
+            census_contact_information_help: 此聯絡資訊供欲回報選民清冊問題的投票參與者使用，可填入電子郵件地址、其他網站的聯絡表單、訪客調查等。
+            introductory_image: 導入圖片
+            promoted: 推廣
+            select_a_voting_type: 請選擇一種投票類型。
+            show_check_census_help: 是否在公開投票菜單中顯示「我可以投票嗎？」鏈接.
+            slug: 附址
+            slug_help: 'URL slugs 用於產生指向此投票的網址。它只接受字母、數字和連字符，且必須以字母開頭。例如: %{url}'
+            title: 標題
+            voting_type:
+              hybrid: 混合
+              in_person: 親自
+              online: 線上
+            voting_type_label: 投票類別
+          new:
+            create: 創建
+            title: 新投票
+          publish:
+            success: 投票成功發布.
+          unpublish:
+            success: 投票成功取消發布.
+          update:
+            invalid: 更新此投票時出現問題.
+            success: 投票已成功更新.
+      admin_log:
+        ballot_style:
+          create: "%{user_name} 在%{space_name} 中建立了代碼為%{ballot_style_code} 的選票樣式"
+          delete: "%{user_name} 刪除了在空間 %{space_name} 中代碼為 %{ballot_style_code} 的選票樣式"
+          update: "%{user_name} 更新了在空間 %{space_name} 中代碼為 %{ballot_style_code} 的選票樣式"
+        census:
+          create: "%{user_name} 創建了空間 %{space_name} 的選民名單"
+          delete: "%{user_name} 刪除了空間 %{space_name} 的選民名單"
+          update: "%{user_name} 已更新了 %{space_name} 空間的選民名冊"
+        monitoring_committee_member:
+          create: "%{user_name} 指派使用者 %{monitoring_committee_member_user} 為空間 %{space_name} 的監察委員會成員"
+          delete: "%{user_name} 取消指派使用者 %{monitoring_committee_member_user} 為空間 %{space_name} 的監察委員會成員"
+        polling_officer:
+          create: "%{user_name} 指派使用者 %{polling_officer_user} 為空間 %{space_name} 的投票站管理員"
+          delete: "%{user_name} 取消指派使用者 %{polling_officer_user} 為空間 %{space_name} 的投票站管理員"
+        polling_station:
+          create: "%{user_name} 在空間 %{space_name} 建立投票站 %{resource_name}"
+          delete: "%{user_name} 刪除了空間 %{space_name} 內的投票站 %{resource_name}"
+          update: "%{user_name} 更新了空間 %{space_name} 內的投票站 %{resource_name}"
+        voting:
+          create: "%{user_name} 創建了名為 %{resource_name} 的投票"
+          publish: "%{user_name} 發布了名為 %{resource_name} 的投票"
+          unpublish: "%{user_name} 撤銷了名為 %{resource_name} 的投票的發布"
+      census:
+        admin:
+          census:
+            create:
+              invalid: 上傳選民名單時發生錯誤，請稍後再試。
+              invalid_csv_header: CSV 標題缺失或不正確- 請仔細閱讀說明.
+            creating_data:
+              info_message: "<strong>請稍候</strong>，已處理了 %{processed_count} 條數據中的 %{raw_count} 條，來自檔案 %{file}（這可能需要幾分鐘的時間）"
+            delete:
+              button: 刪除所有戶籍資料
+              confirm: 刪除所有戶籍資料將無法還原，您確定要繼續嗎？
+            destroy:
+              error: 刪除選民名單資料時發生錯誤，請稍後再試。
+              success: 戶籍數據已刪除.
+            export_access_codes:
+              button: 匯出投票存取代碼
+              callout: 你現在可以開始匯出投票存取代碼。這個動作只能執行一次。一旦啟動匯出，你會收到一封電子郵件，其中包含<strong>%{email}</strong>的操作指示。
+              confirm: 你只能匯出投票存取代碼一次。請確保你可以使用<strong>%{email}</strong>的郵箱。
+      polling_officer_zone:
+        closures:
+          certify:
+            add_images: 添加圖案
+            error: 附加憑證時發生錯誤，請稍後再試。
+            form_legend: 上傳選舉結束憑證的照片
+            heading: 投票重新點算 - 上傳憑證
+            info_text: 請上傳選舉結束憑證的照片。
+            submit: 上傳憑證
+            success: 憑證上傳成功
+          create:
+            error: 創建關閉時出現錯誤，請稍後重試。
+            success: 關閉成功創建。
+          edit:
+            info_text: 請輸入每個問題的總票數。
