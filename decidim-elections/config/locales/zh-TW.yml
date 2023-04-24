@@ -807,8 +807,74 @@ zh-TW:
               name: 投票附件與資料夾
             description:
               name: 投票說明
+            elections:
+              name: 投票選舉
+            header:
+              name: 投票標題
+            html_block_1:
+              name: 投票 Html 區塊 1
+            html_block_2:
+              name: 投票 Html 區塊 2
+            html_block_3:
+              name: 投票 Html 區塊 3
+            metrics:
+              name: 投票指標
+            polling_stations:
+              name: 投票的投票站
+            stats:
+              name: 投票統計
+            timeline:
+              name: 投票時間軸
+        index:
+          not_published: 尚未發布
+          published: 已發佈
+        landing_page:
+          content_blocks:
+            edit:
+              update: 更新
+          edit:
+            active_content_blocks: 啟用的內容區塊
+            inactive_content_blocks: 停用的內容區塊
+        menu:
+          votings: 投票
+          votings_submenu:
+            attachment_collections: 資料夾
+            attachment_files: 檔案
+            attachments: 附件
+            ballot_styles: 選票樣式
+            census: 選民名單
+            components: 组件
+            info: 資訊
+            landing_page: 登陸頁面
+            monitoring_committee: 監管委員會
+            monitoring_committee_election_results: 驗證結果
+            monitoring_committee_members: 成員
+            monitoring_committee_polling_station_closures: 驗證憑證
+            monitoring_committee_verify_elections: 驗證選舉
+            polling_officers: 投票事務官
+            polling_stations: 投票站
         models:
+          ballot_style:
+            fields:
+              code: 代碼
+            name: 選票樣式
+          monitoring_committee_member:
+            fields:
+              email: 電子郵件
+              name: 名稱
+            name: 監察委員會成員
+          polling_officer:
+            fields:
+              email: 電子郵件
+              name: 名稱
+              polling_station: 投票站（角色）
+            name: 投票事務官
           polling_station:
+            fields:
+              address: 地址
+              polling_station_managers: 管理員
+              polling_station_president: 主席
+              title: 標題
             name: 投票站
           voting:
             fields:
@@ -983,8 +1049,23 @@ zh-TW:
               launch_success: 已啟動存取代碼匯出。稍後您將收到一封至 %{email} 的電子郵件。
             exporting_access_codes:
               info_message: "<strong>請稍候</strong>，正在準備匯出，您很快就會收到到 %{email} 的郵件。"
+            freeze:
+              callout: 選民名單已凍結，無法修改。
+            generate_access_codes:
+              button: 生成投票存取代碼
+              callout: 您現在可以開始生成存取代碼。請注意，在生成存取代碼之後，您將無法再修改選民名單資料。
+              confirm: 如果繼續，您將無法修改選民名單資料。
+              info_message_all: "<strong>所有列均已成功匯入</strong>自 %{file} 檔案（共 %{data_count} 中的 %{raw_count} ）。"
+              info_message_warn: 請檢查是否有缺失的資料，因為已經建立了 %{data_count} 條記錄，上傳的檔案 %{file} 有 %{raw_count} 行。
+              launch_error: 生成存取代碼時出現問題
+              launch_success: 已啟動代碼生成。
             generating_access_codes:
               info_message: "<strong>請稍候</strong>，正在生成投票存取代碼..."
+            new:
+              file_help:
+                explanation: '檔案指南：'
+                message_1: 僅允許 CSV (.csv) 檔案。
+                message_2: 列之間的分隔符號必須是分號 (";")。
         vote_flow:
           datum_not_found: 提供的資料與任何選民不符。
       polling_officer_zone:
@@ -1001,31 +1082,122 @@ zh-TW:
             error: 創建關閉時出現錯誤，請稍後重試。
             success: 關閉成功創建。
           edit:
+            heading: 選舉重新點票 - 答案重新點票
             info_text: 請輸入每個問題的總票數。
             modal_ballots_results_count_error:
+              close_modal: 關閉
               info_text: 選票總數與信封總數不符。請檢查選票總數。
+              title: 選票總數不相加
+            save_recount: 保存重新計票
+            total_ballots: 總選票數量
+            total_blank_ballots: 空白選票總數
+            total_null_ballots: 無效選票總數
+            total_valid_ballots: 有效選票總數
           new:
+            election: '選舉:'
+            heading: 重新計票
+            info_text: '請輸入在此投票站重新點數的選票總數（信封數）：'
             modal_ballots_count_error:
+              btn_validate_total: 驗證選票總數重新點數
+              close_modal: 關閉
+              info_explanation_text: '請檢查選票總數是否正確。如果總數不正確，您必須向監察委員會提供解釋：'
               info_text: 總票數(信封) 輸入的總數與在此投票站投票的人數記錄不符。
+              message_for_monitoring_committee: 監察委員會留言
+              review_recount: 複查重新點票
+              text_area_placeholder: 請輸入您的留言
+              title: 總記錄不相加
+              total_ballots: '總選票數：'
+              total_people: '總人數:'
+            polling_station: '投票站:'
+            submit: 驗證總數
+            total_ballots_count: 投票數量
+          show:
+            heading: 重新計票
+            info_text: 投票站選舉結束。
           sign:
+            cancel: 取消
             check_box: 我已經檢查過了，與實體選舉結束證明相同。
+            close_modal: 關閉
+            confirm: 好的，繼續
+            error: 發生錯誤，請再試一次
+            heading: 重新點票 - 簽署結束文件
             info_text: 如果您繼續進行，則無法修改任何資訊，此操作無法撤消。
+            submit: 簽署選舉結束
+            success: 選舉結束簽署成功。
             title: 這個操作無法撤銷
+          update:
+            error: 更新選舉結束結果時出錯，請稍後再試。
+            success: 選舉結束結果已成功更新。
         in_person_votes:
           complete_voting:
+            available_answers: '可選答案:'
             census_verified: 該參與者尚未投票。
             questions_title: '她有權回答以下問題：'
             questions_title_voted: '該參與者已經在線上投票，並有權回答以下問題:'
           in_person_form:
             census_not_present_description: 她必須前往人口普查投訴辦公室或聯繫支援中心。
+      polling_officers:
+        roles:
+          president: 主席
+          unassigned: 未指定
+      polling_station_closure_recount:
+        nota_option: 空白/以上皆非
+        polling_officer_notes: '投票事務官筆記：'
+        polling_officer_notes_blank: 沒有筆記。
+        recount_summary: '重新點票摘要：'
+        signed: 已簽署
+        total_ballots: '總選票數量:'
+        total_blank_ballots: '空白選票總數:'
+        total_null_ballots: '無效選票總數:'
+        total_valid_ballots: '有效選票總數:'
+      polling_stations:
+        actions:
+          confirm_destroy: 您確定嗎？
+          destroy: 刪除
+          edit: 編輯
+          new: 新的
+          title: 操作
       votings:
         access_code_modal:
+          email: 發送至 %{email} 的電子郵件
           info: 您需要一個存取代碼才能參與投票。如果您沒有收到郵寄的存取碼，我們可以發送新的存取碼給您。
+          no_email: 沒有可用的電子郵件
+          no_sms: 沒有可用的電話號碼
+          sms: 透過簡訊傳送至 %{sms}
+          title: 獲取存取代碼
         check_census:
+          check_status: 查看狀態
+          description: 在這裡，您可以選擇檢查您的戶籍數據，以知道您是否有權參與此次投票。您應該已經擁有存取代碼，但如果您丟失了它，您可以在數據正確時再次請求它。
           error:
             info: '請再試一次。如果您認為系統中的資料不正確，您可以在此處報告： %{census_contact_information}。'
+            title: 您輸入的資料並未列入此次投票的選民名單資料。
+          form_title: '填寫以下表格以檢查您的選民名單資料：'
+          invalid: 檢查選民名單時出現了問題。
           success:
+            access_link: 透過電子郵件。
+            access_link_with_sms: 透過簡訊或電子郵件。
             info: 您應該已經收到郵寄的存取代碼了。如果您沒有收到，您可以在此處申請。
+            title: 您的選民名單資料是正確的！
+          title: 我可以投票嗎？
+        check_fields:
+          date_of_birth: 出生日期
+          day: 日
+          day_placeholder: DD
+          document_number: 文件編號
+          document_number_placeholder: 身分證號
+          document_type: 文件類型
+          month: 月
+          month_placeholder: MM
+          postal_code: 郵政編碼
+          postal_code_placeholder: 郵遞區號
+          select: 選擇文件類型
+          year: 年
+          year_placeholder: YYYY
+        count:
+          title:
+            other: "%{count} 票"
+        elections_log:
+          election_log: 選舉紀錄
         filters:
           state: 狀態
         login:
