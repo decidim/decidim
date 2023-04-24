@@ -1044,6 +1044,7 @@ fr:
             success: Élection créée avec succès.
           edit:
             add_election_component: Vous n'avez aucune élection configurée pour ce vote. Veuillez en créer une dans la section Fonctionnalités.
+            assign_missing_officers: Il reste des bureaux de votes sans président et/ou gérant. Veuillez lier ces derniers à partir de la section Bureaux de votes.
             update: Mettre à jour
           form:
             banner_image: Image de la bannière
@@ -1052,6 +1053,7 @@ fr:
             introductory_image: Image d'introduction
             promoted: Mis en avant
             select_a_voting_type: Veuillez sélectionner un type de vote
+            show_check_census_help: Si vous voulez afficher le lien "Puis-je voter?" dans le menu des votes publics.
             slug: Slug
             slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui renvoient vers cette élection. Ils ne contiennent que des lettres, des chiffres et des tirets et doivent commencer par une lettre. Exemple : %{url}'
             title: Titre
@@ -1063,6 +1065,13 @@ fr:
           new:
             create: Créer
             title: Nouveau vote
+          publish:
+            success: Vote publié avec succès.
+          unpublish:
+            success: Vote dépublié avec succès.
+          update:
+            invalid: Une erreur s'est produite lors de la mise à jour de ce vote.
+            success: Vote mis à jour avec succès.
       admin_log:
         ballot_style:
           create: "%{user_name} a créé un style de bulletin avec le code %{ballot_style_code} dans l'espace %{space_name}"
@@ -1091,6 +1100,7 @@ fr:
           census:
             create:
               invalid: Une erreur s'est produite lors de la mise à jour du recensement, veuillez réessayer plus tard.
+              invalid_csv_header: Les en-têtes CSV sont manquants ou incorrects - veuillez lire attentivement les instructions.
             creating_data:
               info_message: "<strong>Veuillez patienter</strong>, %{processed_count} traités sur %{raw_count} lignes à partir du fichier %{file} (cela peut prendre plusieurs minutes)."
             delete:
@@ -1098,10 +1108,14 @@ fr:
               confirm: La suppression de tout le recensement ne peut pas être annulée. Êtes-vous sûr de vouloir continuer?
             destroy:
               error: Une erreur s'est produite lors de la suppression du recensement, veuillez réessayer plus tard.
+              success: Données d'élections supprimées.
             export_access_codes:
               button: Exporter les codes d'accès aux votes
               callout: Vous pouvez maintenant exporter les codes d'accès. Cela ne peut être fait qu'une seule fois. Une fois que vous avez lancé l'exportation, vous recevrez un e-mail avec les instructions sur <strong>%{email}</strong>
               confirm: Vous ne pouvez exporter les codes d'accès qu'une seule fois. Assurez-vous d'avoir accès au compte de messagerie <strong>%{email}</strong>.
+              file_not_exist: Ce fichier n'existe pas.
+              launch_error: Problème lors du lancement de l'export des codes d'accès.
+              launch_success: L'export des codes d'accès a été lancée. Vous recevrez sous peu un e-mail à %{email}.
             exporting_access_codes:
               info_message: "<strong>Veuillez patienter</strong>, l'export est en cours de préparation, vous le recevrez sous peu à %{email} (cela peut prendre plusieurs minutes)."
             freeze:
@@ -1334,6 +1348,7 @@ fr:
           check_status: Vérifiez le statut
           description: Ici, vous avez la possibilité de vérifier vos données de recensement pour savoir si vous avez le droit de participer à ce vote. Vous devriez déjà avoir un code d'accès, mais si vous l'avez perdu, vous pouvez le demander à nouveau, lorsque vos données sont correctes.
           error:
+            info: 'Veuillez réessayer. Si vous pensez que les données du système sont incorrectes, vous pouvez les signaler ici : %{census_contact_information}.'
             title: Les données que vous avez saisies ne sont pas dans le recensement pour ce vote
           form_title: 'Remplissez le formulaire suivant pour vérifier vos données de recensement:'
           invalid: Un problème est survenu lors de la vérification du recensement.
@@ -1391,10 +1406,14 @@ fr:
           start_voting: Commencer à voter
           step: Identification
           title: Je m'identifie avec mes données de recensement de vote
+        no_census_contact_information: Il n'y a pas encore d'informations de contact.
         orders:
           label: 'Trier les votations par:'
           random: Aléatoire
           recent: Les plus récentes
+        send_access_code:
+          invalid: Un problème est survenu lors de l'envoi du code d'accès.
+          success: Votre code d'accès a été envoyé avec succès.
         show:
           dates: Dates
       votings_m:
