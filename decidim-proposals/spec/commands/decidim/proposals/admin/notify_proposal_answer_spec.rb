@@ -109,6 +109,14 @@ module Decidim
             expect { subject }.not_to(change { Gamification.status_for(current_user, :accepted_proposals).score })
           end
         end
+
+        context "when the proposal is nil" do
+          let(:command) { described_class.new(nil, initial_state) }
+
+          it "broadcasts invalid" do
+            expect { subject }.to broadcast(:invalid)
+          end
+        end
       end
     end
   end
