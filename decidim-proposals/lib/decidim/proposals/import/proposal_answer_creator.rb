@@ -35,10 +35,12 @@ module Decidim
             resource.try(:save!)
           end
 
-          notify(resource, @initial_state)
+          notify
         end
 
         private
+
+        attr_reader :initial_state
 
         def resource
           @resource ||= fetch_resource
@@ -91,9 +93,9 @@ module Decidim
           context[:current_user]
         end
 
-        def notify(proposal, initial_state)
-          state = initial_state.presence || proposal.try(:state)
-          ::Decidim::Proposals::Admin::NotifyProposalAnswer.call(proposal, state)
+        def notify
+          state = initial_state || resource.try(:state)
+          ::Decidim::Proposals::Admin::NotifyProposalAnswer.call(resource, state)
         end
       end
     end
