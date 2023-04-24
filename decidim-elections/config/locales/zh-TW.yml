@@ -1073,6 +1073,9 @@ zh-TW:
                 explanation: '檔案指南：'
                 message_1: 僅允許 CSV (.csv) 檔案。
                 message_2: 列之間的分隔符號必須是分號 (";")。
+              has_ballot_styles_message: 您已設置選票樣式。請確認 CSV 中的「%{ballot_style_code_header}」欄位與所需的選票樣式代碼相對應。
+              info_message: "<strong>尚未有選民名單資料。</strong> 請使用下面的表單匯入 CSV 檔案以創建選民名單資料。"
+              missing_ballot_styles_message: '尚未設置此投票的選票樣式。如果您希望有條件的問題（例如：根據選民居住的區域/地區提供不同的問題），您需要在導入選民名單之前設置<a href=%{ballot_styles_admin_path}>選票樣式</a>。如果您希望向所有選民提出相同的問題，您可以繼續進行選民名單導入程序。'
         vote_flow:
           datum_not_found: 提供的資料與任何選民不符。
       polling_officer_zone:
