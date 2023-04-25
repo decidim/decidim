@@ -77,11 +77,81 @@ zh-TW:
       decidim/proposals/evaluating_proposal_event: 提案正在被評估中
       decidim/proposals/proposal_mentioned_event: 提案已被提及
       decidim/proposals/publish_proposal_event: 提案已發佈
+      decidim/proposals/rejected_proposal_event: 提案被拒絕
+      decidim/proposals/voting_enabled_event: 提案投票已啟用
+  activerecord:
+    models:
+      decidim/proposals/collaborative_draft:
+        other: 協作草稿
+      decidim/proposals/proposal:
+        other: 提案
+      decidim/proposals/proposal_note:
+        other: 備註
+      decidim/proposals/proposal_vote:
+        other: 支援
   decidim:
+    admin:
+      filters:
+        proposals:
+          category_id_eq:
+            label: 分類
+          is_emendation_true:
+            label: 類別
+            values:
+              'false': 提案
+              'true': 修正案
+          scope_id_eq:
+            label: 範圍
+          state_eq:
+            label: 狀態
+            values:
+              accepted: 已接受
+              evaluating: 評估
+              published: 已發佈
+              rejected: 已拒絕
+              validating: 技術驗證
+              withdrawn: 已撤回
+          state_null:
+            label: 狀態
+            values:
+              'true': 未回答
+          valuator_role_ids_has:
+            label: 已分配給評估人員
+        search_placeholder:
+          id_string_or_title_cont: 透過 ID 或標題搜尋%{collection}
     components:
       proposals:
+        actions:
+          amend: 修訂
+          comment: 評論
+          create: 建立
+          endorse: 連署
+          vote: 支援
+          vote_comment: 投票評論
+          withdraw: 撤回
+        name: 提案
         settings:
           global:
+            amendments_enabled: 修改功能已啟用
+            amendments_enabled_help: 如果啟用，則可以為每個步驟設置修改功能。
+            amendments_wizard_help_text: 修改向導説明文字
+            announcement: 公告
+            attachments_allowed: 允許附檔
+            can_accumulate_supports_beyond_threshold: 能夠累積支持至超過門檻
+            collaborative_drafts_enabled: ' 啟用協作草稿'
+            comments_enabled: 已啟用留言
+            comments_max_length: 評論字數最大長度(若要使用預設值請輸入0)
+            default_sort_order: 預設提案排序
+            default_sort_order_help: 默認意味著如果啟用了支持，則建議將提案按隨機順序排序，如果封鎖了支持，則將按最受支持的順序排序。
+            default_sort_order_options:
+              default: 預設值
+              most_commented: 最多評論
+              most_endorsed: 最多已連署
+              most_followed: 最多追蹤者
+              most_voted: 最受支持的
+              random: 隨機
+              recent: 最近
+            geocoding_enabled: 地理編碼已啟用
             minimum_votes_per_user: 每位使用者最少贊成數量
             new_proposal_body_template: 新提案正文樣板
             new_proposal_body_template_help: 您可以定義新提案預先填寫的文字
