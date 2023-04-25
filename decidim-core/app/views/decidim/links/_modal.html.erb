@@ -13,7 +13,7 @@
       </div>
     </div>
     <div class="row buttons">
-      <%= link_to t("decidim.links.warning.proceed"), params[:external_url], target: "_blank", data: { close: "" }, class: "button primary button--nomargin" %>
+      <%= link_to t("decidim.links.warning.proceed"), external_url.to_s, target: "_blank", data: { close: "" }, class: "button primary button--nomargin" %>
       <button class="button clear" data-close>
         <%= t("decidim.links.warning.cancel") %>
       </button>
