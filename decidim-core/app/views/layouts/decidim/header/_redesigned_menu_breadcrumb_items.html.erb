@@ -5,6 +5,7 @@
     <div class="relative">
       <button id="secondary-dropdown-summary"
         class="menu-bar__breadcrumb-desktop__dropdown-trigger<%= " font-bold" if item[:active] %>"
+        <%== 'aria-current="page"' if item[:active] %>
         data-component="dropdown"
         data-hover="true"
         data-target="secondary-dropdown-menu-<%= i %>">
@@ -15,9 +16,9 @@
       </div>
     </div>
   <% else %>
-    <%= link_to_if(item[:url].present? && !is_active_link?(item[:url], :exclusive), item_label, item[:url], class:"menu-bar__breadcrumb-desktop__dropdown-trigger#{' font-bold' if item[:active]}") do %>
+    <%= link_to_if(item[:url].present? && !is_active_link?(item[:url], :exclusive), item_label, item[:url], class:"menu-bar__breadcrumb-desktop__dropdown-trigger#{' font-bold' if item[:active]}", "aria-current": (item[:active] ? "page" : nil)) do %>
       <%# alternative template %>
-      <%= content_tag :span, item_label, class:"menu-bar__breadcrumb-desktop__dropdown-trigger no-interactive#{' font-bold' if item[:active]}", tabindex: "0" %>
+      <%= content_tag :span, item_label, class:"menu-bar__breadcrumb-desktop__dropdown-trigger no-interactive#{' font-bold' if item[:active]}", tabindex: "0", "aria-current": "page" if item[:active] %>
     <% end %>
   <% end %>
 <% end %>

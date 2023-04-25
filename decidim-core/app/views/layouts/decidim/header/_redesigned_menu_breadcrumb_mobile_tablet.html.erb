@@ -6,7 +6,7 @@
       <% if i > 0 %>
         <span>/</span>
       <% end %>
-      <span class="cursor-pointer <%= "truncate" if i != 0 %> <%= "font-bold" if item[:active] %>">
+      <span class="cursor-pointer <%= "truncate" if i != 0 %> <%= "font-bold" if item[:active] %>" <%== 'aria-current="page"' if item[:active] %>>
         <% if item[:url].present? && !is_active_link?(item[:url], :exclusive) %>
           <%= link_to(item_label, item[:url]) %>
         <% else %>
