@@ -154,3 +154,51 @@ zh-TW:
             minimum_votes_per_user: 每位使用者最少贊成數量
             new_proposal_body_template: 新提案正文樣板
             new_proposal_body_template_help: 您可以定義新提案預先填寫的文字
+          step:
+            publish_answers_immediately: 立即發布提案回答
+            publish_answers_immediately_help_html: '請注意，如果您在未啟用此功能的情況下回答任何提案，您將需要手動選擇它們並使用發布操作進行發布。有關此操作的更多信息，請參閱 <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">提案答案文檔頁面</a>。'
+            suggested_hashtags: 為新提案建議參與者使用的標籤
+            votes_blocked: 封鎖支持
+            votes_enabled: 啟用支持
+            votes_hidden: 隱藏支持（如果支持被啟用，勾選此選項將隱藏支持的數量）
+    events:
+      proposals:
+        admin:
+          proposal_note_created:
+            email_intro: 有人在提案「%{resource_title}」上留了一則留言。在<a href="%{admin_proposal_info_url}">管理員面板</a>檢查它。
+            email_outro: 您收到此通知，因為您可以對提案進行評估。
+            email_subject: 有人在提案 %{resource_title} 上留下了一則註記。
+            notification_title: 有人在提案「<a href="%{resource_path}">%{resource_title}</a>」上留了一則留言。請至<a href="%{admin_proposal_info_path}">管理面板</a>查看。
+        collaborative_draft_access_accepted:
+          email_intro: '%{requester_name} 已經被接受成為 <a href="%{resource_url}">%{resource_title}</a> 協作草稿的貢獻者。'
+          email_outro: 您收到此通知，是因為您是 <a href="%{resource_url}">%{resource_title}</a> 的協作者。
+          email_subject: "%{requester_name} 已被接受為 %{resource_title} 的貢獻者。"
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> 已被<strong>接受為共同編輯者</strong>，可存取<a href="%{resource_path}">%{resource_title}</a>的共同協作草稿。
+        collaborative_draft_access_rejected:
+          email_intro: '%{requester_name} 已被拒絕加入<a href="%{resource_url}">%{resource_title}</a>協作草稿的貢獻者名單。'
+          email_outro: 您收到此通知，是因為您是 <a href="%{resource_url}">%{resource_title}</a> 的協作者。
+          email_subject: "%{requester_name} 已被拒絕加入 %{resource_title} 協作草稿的貢獻者名單。"
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> 被拒絕成為<a href="%{resource_path}">%{resource_title}</a>協作草稿的貢獻者。
+        collaborative_draft_access_requested:
+          email_intro: '%{requester_name} 提出了成為貢獻者的請求。您可以在 <a href="%{resource_url}">%{resource_title}</a> 協作草稿頁面中<strong>接受或拒絕該請求</strong>。'
+          email_outro: 您收到此通知，是因為您是 <a href="%{resource_url}">%{resource_title}</a> 的協作者。
+          email_subject: "%{requester_name} 要求加入以貢獻至 %{resource_title}。"
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> 要求加入以貢獻協作草稿 <a href="%{resource_path}">%{resource_title}</a>，請 <strong>接受或拒絕該請求</strong>。
+        collaborative_draft_access_requester_accepted:
+          email_intro: 您已被允許訪問<a href="%{resource_url}">%{resource_title}</a>協作草稿，以作為貢獻者。
+          email_outro: 您收到此通知是因為您請求成為<a href="%{resource_url}">%{resource_title}</a>的協作者。
+          email_subject: 你已經被接受為 %{resource_title} 的貢獻者。
+          notification_title: 你已被<strong>接受為參與者之一</strong>，可進入<a href="%{resource_path}">%{resource_title}</a>的協作草稿。
+        collaborative_draft_access_requester_rejected:
+          email_intro: 您的參與請求被拒絕，無法成為 <a href="%{resource_url}">%{resource_title}</a> 協作草稿的貢獻者。
+          email_outro: 您收到此通知是因為您請求成為<a href="%{resource_url}">%{resource_title}</a>的協作者。
+          email_subject: 你的協作者申請已被拒絕，無法成為 %{resource_title} 的貢獻者。
+          notification_title: 你的<a href="%{resource_path}">%{resource_title}</a>協作草稿的貢獻者申請已被拒絕。
+        collaborative_draft_withdrawn:
+          email_intro: <a href="%{author_url}">%{author_name} %{author_nickname}</a>已撤回<a href="%{resource_url}">%{resource_title}</a>協作草稿。
+          email_outro: 您收到此通知，是因為您是 <a href="%{resource_url}">%{resource_title}</a> 的協作者。
+          email_subject: "%{author_name} %{author_nickname} 撤回了 %{resource_title} 的協作草稿。"
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>撤回了</strong> <a href="%{resource_path}">%{resource_title}</a> 的協作草稿。
+        creation_enabled:
+          email_intro: '你現在可以在 %{participatory_space_title} 中建立新的提案了！開始參與此頁面：'
+          email_outro: 你收到此通知是因為你正在追蹤 %{participatory_space_title}。你可以透過前面的連結停止接收通知。
