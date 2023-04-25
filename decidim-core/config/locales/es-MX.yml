@@ -29,6 +29,7 @@ es-MX:
         password_confirmation: Confirma tu contraseña
         personal_url: URL personal
         remove_avatar: Eliminar imagen de perfil
+        tos_agreement: Términos y condiciones uso
     models:
       decidim/attachment_created_event: Archivo adjunto
       decidim/component_published_event: Componente activo
@@ -121,6 +122,7 @@ es-MX:
       logo: "Logo oficial de %{organization}"
       skip_button: Saltar al contenido principal
     account:
+      blocked: Esta cuenta ha sido bloqueada por una violación de los términos y condiciones de uso
       delete:
         alert: Esta acción no se puede deshacer. Si eliminas tu cuenta no podrás iniciar sesión con tus credenciales. La eliminación de tu cuenta resultará en la anonimización de tus contribuciones. Aún podrás crear una nueva cuenta, pero estas contribuciones no se asociarán a ella.
         confirm:
@@ -251,6 +253,8 @@ es-MX:
         verify_via_csv: "%{user_name} verificó el grupo de %{resource_name} usuario a través de un archivo CSV"
       user_moderation:
         unreport: "%{user_name} ha deshecho el reporte %{resource_type} - %{unreported_user_name}"
+    admin_terms_of_service:
+      default_body: "<h2>TÉRMINOS Y CONDICIONES DE USO DEL SERVICIO DE ADMINISTRACIÓN</h2><p>Confiamos en que has recibido la explicación habitual del Servicio de Administración general de la plataforma. Generalmente se reduce a estas tres cosas:</p><ol><li>Respeta la privacidad de las demás.</li><li>Piensa antes de hacer clic.</li><li>Un gran poder conlleva una gran responsabilidad.</li></ol>"
     alert:
       dismiss: Descartar notificación
     amendments:
@@ -550,6 +554,7 @@ es-MX:
           sign_up_as:
             legend: Inscribirse como
           subtitle: Crea una cuenta para poder participar en los debates y apoyar las propuestas.
+          terms: los términos y condiciones de uso
           tos_agreement: Al registrarte aceptas %{link}.
           tos_title: Términos de servicio
           username_help: Nombre público que aparecerá en tus publicaciones. Con el objetivo de garantizar el anonimato puede ser cualquier nombre.
@@ -1262,6 +1267,24 @@ es-MX:
         metrics:
           headline: Participación en cifras
           link: Mostrar todas las estadísticas
+      terms_of_service:
+        accept:
+          error: Se ha producido un error al aceptar los términos y condiciones de uso.
+          success: '¡Genial! Has aceptado los términos y condiciones de uso.'
+        form:
+          agreement: Estoy de acuerdo con estos términos y condiciones de uso
+          legend: Aceptar los términos y condiciones de uso
+        refuse:
+          modal_body: Si no aceptas, no podrás participar en la plataforma, puedes <a href="%{download_your_data_path}">descargar tus datos</a> y/o <a href="%{delete_path}">eliminar tu cuenta</a>.
+          modal_btn_continue: Aceptar los términos y condiciones de uso, y continuar
+          modal_btn_exit: Los revisaré más tarde
+          modal_button: Rechazar los términos y condiciones de uso
+          modal_close: Cerrar ventana
+          modal_title: '¿Confirmas que no aceptas los términos y condiciones de uso actualizados?'
+        required_review:
+          alert: Hemos actualizado nuestros Términos y Condiciones, por favor, revísalos.
+          body: Por favor, dedica un momento a revisar la actualización de nuestros Términos y Condiciones de uso. De lo contrario, no podrás participar en la plataforma.
+          title: 'Requerido: Revisa las actualizaciones en nuestros términos y condiciones de uso'
     participatory_space_private_users:
       not_allowed: No puedes ver este contenido
     passwords:
@@ -1270,6 +1293,7 @@ es-MX:
         success: La contraseña se ha actualizado correctamente.
     profile:
       deleted: Participante eliminada
+      inaccessible_message: '¡Este perfil es inaccesible debido a la violación de términos y condiciones de uso!'
       view: Ver
     profiles:
       default_officialization_text_for_user_groups: Este grupo está verificado públicamente, su nombre se ha verificado para que se corresponda con su nombre real.
@@ -1406,9 +1430,11 @@ es-MX:
         visit_profile: Si también quieres bloquear al participante y el resto de sus contenidos, ve a la página de perfil de %{user_link}.
       flag_user_modal:
         already_reported: Este contenido ya ha sido reportado y será revisado por una administradora.
+        block: Eliminar a esta participante
         close: Cerrar
         description: '¿Qué es inapropiado de la usuaria?'
         does_not_belong: Contiene actividad ilegal, amenazas de suicidio, información personal o cualquier otra cosa que creas que no pertenece a %{organization_name}.
+        hide: Esconder todos sus contenidos
         offensive: Contiene el racismo, el sexismo, los golpes personales, las amenazas de muerte, las peticiones de suicidio o cualquier forma de discurso de odio.
         report: Reporte
         spam: Contiene clickbait, publicidad, estafas o robots de guión.

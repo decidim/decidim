@@ -48,8 +48,8 @@
 
             <div class="field">
               <% link = link_to t("terms", scope: "decidim.devise.registrations.new"), page_path("terms-of-service"), target: "_blank" %>
-              <% label = t("tos_agreement", scope: "decidim.devise.registrations.new", link: link) %>
-              <%= f.check_box :tos_agreement, label: label, required: "required" %>
+              <% label = t("tos_agreement", scope: "decidim.devise.registrations.new", link:) %>
+              <%= f.check_box :tos_agreement, label:, required: "required" %>
             </div>
           </div>
         </div>

@@ -29,6 +29,7 @@ fr-CA:
         password_confirmation: Confirmez votre mot de passe
         personal_url: Site internet personnel
         remove_avatar: Supprimer l'avatar
+        tos_agreement: Contrat de service
     models:
       decidim/attachment_created_event: Document lié
       decidim/component_published_event: Fonctionnalité active
@@ -121,6 +122,7 @@ fr-CA:
       logo: "Logo officiel de %{organization}"
       skip_button: Passer au contenu principal
     account:
+      blocked: Ce compte a été bloqué en raison d'une violation des conditions d'utilisation
       delete:
         alert: Cette action ne peut être annulée. Si vous supprimez votre compte, vous ne pourrez plus vous connecter avec vos identifiants. La suppression de votre compte entraînera l'anonymisation de vos contributions. Vous serez toujours en mesure de créer un nouveau compte, mais vos anciennes contributions n'y seront pas associées.
         confirm:
@@ -143,9 +145,11 @@ fr-CA:
         cancel_error: Impossible d'annuler la modification de l'e-mail.
         cancel_successfully: Modification de l'e-mail annulée.
         resend_error: Impossible de renvoyer l'e-mail de confirmation.
+        resend_successfully: E-mail de confirmation renvoyé avec succès à %{unconfirmed_email}.
         send_again: Envoyer à nouveau
         title: Vérification du changement d'adresse e-mail
       show:
+        available_locales_helper: Choisissez la langue que vous souhaitez utiliser pour naviguer et recevoir les notifications sur la plateforme.
         change_password: Changer de mot de passe
         update_account: Mettre à jour votre compte
       update:
@@ -158,6 +162,7 @@ fr-CA:
       actions:
         cancel: Annuler
       password_change:
+        alert: Vous devez changer votre mot de passe pour continuer.
         notification: Les administrateurs doivent changer leur mot de passe tous les %{days} jours.
     admin_log:
       area:
@@ -248,6 +253,8 @@ fr-CA:
         verify_via_csv: "%{user_name} vérifié le groupe %{resource_name} utilisateur via un fichier CSV"
       user_moderation:
         unreport: "%{user_name} a annulé le signalement de %{resource_type} - %{unreported_user_name}"
+    admin_terms_of_service:
+      default_body: "<h2>ADMIN TERMS OF SERVICE</h2><p>We trust you have received the usual lecture from the local System Administrator. It usually boils down to these three things:</p><ol><li>Respect the privacy of others.</li><li>Think before you click.</li><li>With great power comes great responsibility.</li></ol>\n<h2>CONDITION D'UTILISATION ADMINISTRATEUR</h2><p>En espérant que vous ayez bien reçu les instrcutions de l'administrateur système de la plateforme, celles-ci se résument généralement en trois parties :</p><ol><li>Respectez la vie privée des autres.</li><li>Réfléchissez avant de cliquer.</li><li>De grands pouvoirs impliquent de grandes responsabilités.</li></ol>"
     alert:
       dismiss: Rejeter la notification
     amendments:
@@ -258,8 +265,10 @@ fr-CA:
         amended_by: Modifié par
         button: Modifier %{model_name}
         error: Une erreur s'est produite lors de la modification de cette ressource.
+        help_text: Améliorer ce %{model_name} en modifiant ses %{amendable_fields}.
         promote_button: Promouvoir à %{model_name}
         promote_confirm_text: Êtes-vous sûr de vouloir promouvoir cette modification?
+        promote_help_text: Vous pouvez promouvoir cette correction et la publier en tant qu'indépendant %{model_name}.
         section_heading: Amendements (%{count})
       compare_draft:
         continue: Continuer
@@ -301,16 +310,26 @@ fr-CA:
         modify: Modifier
         publish: Publier
         title: Publier le projet d'amendement
+      promoted:
+        error: Un problème est survenu lors de la publication de l'amendement en tant que nouvelle proposition.
+        success: L'amendement a été publié avec succès en tant que nouvelle proposition.
       publish_draft:
         error: Une erreur s'est produite lors de la publication de cet amendement.
         success: Amendement publié avec succès.
+      rejected:
+        error: Un problème est survenu lors du rejet de cet amendement, veuillez réessayer ultérieurement.
+        success: L'amendement a été rejeté avec succès.
       review:
         back: Retour
         heading: Examiner l'amendement
+        help_text: Vous examinez un amendement de %{model_name}.
         send: Accepter l'amendement
       update_draft:
         error: Une erreur s'est produite lors de la modification de ce projet d'amendement.
         success: Le projet d'amendement a été mis à jour avec succès.
+      withdraw:
+        error: Une erreur s'est produite lors du retrait de l'amendement.
+        success: L'amendement a été retiré avec succès.
       wizard_step_form:
         steps:
           '1': Créez votre amendement
@@ -342,11 +361,13 @@ fr-CA:
       official_author: Officiel
     authorization_handlers:
       another_dummy_authorization_handler:
+        explanation: Obtenir une vérification en saisissant un numéro de passeport commençant par "A".
         fields:
           passport_number: Numéro de passeport
           postal_code: Code postal
         name: Un autre exemple d'autorisation
       dummy_authorization_handler:
+        explanation: Obtenir une vérification en saisissant un numéro de document terminant par "X".
         fields:
           allowed_postal_codes: Codes postaux autorisés (séparés par des virgules)
           allowed_scope_id: Portée autorisée
@@ -390,6 +411,8 @@ fr-CA:
         ok:
           title: "You have been authorized while in this page. Please, reload the page to perform your action.\nVous avez été autorisé à accéder à cette page. Veuillez recharger celle-ci pour effectuer votre action."
         pending:
+          explanation: Pour effectuer cette action, vous devez être autorisé avec "%{authorization}", mais votre autorisation est toujours en cours de validation.
+          resume: Vérifiez votre progression d'autorisation pour "%{authorization}".
           title: L'autorisation est toujours en cours de validation
         unauthorized:
           explanation: Désolé, vous ne pouvez pas effectuer cette action car certaines de vos données d'autorisation ne correspondent pas.
@@ -416,6 +439,7 @@ fr-CA:
       see_more: "(voir plus)"
     components:
       component_order_selector:
+        no_content: Nous n'avons trouvé aucun contenu avec ces critères.
         order:
           all_types: Tous types
           collaborative_draft: Brouillon collaboratif
@@ -503,10 +527,16 @@ fr-CA:
         name: Statistiques de l'organisation
       sub_hero:
         name: Bannière en dessous de l'image principale ("hero")
+    core:
+      actions:
+        login_before_access: Veuillez vous connecter avec votre compte avant d'y accéder.
+        unauthorized: Vous n'êtes pas autorisé à effectuer cette action.
     datepicker:
       help_text: 'Format attendu : %{datepicker_format}'
     devise:
       omniauth_registrations:
+        create:
+          email_already_exists: Un autre compte utilise la même adresse de email.
         new:
           complete_profile: Complétez votre profil
           nickname_help: Cet identifiant est public et unique sur %{organization} ; il permet aux autres utilisateurs de vous suivre, de vous contacter ou de vous mentionner dans leurs commentaires. Il s’affichera précédé d’un « @ » ; il ne doit pas contenir d’espace ni de caractère spécial.
@@ -524,6 +554,7 @@ fr-CA:
           sign_up_as:
             legend: S'inscrire en tant que
           subtitle: Inscrivez-vous pour participer aux discussions et pour exprimer votre soutien aux propositions de votre choix.
+          terms: Conditions d'Utilisation
           tos_agreement: En vous inscrivant, vous acceptez %{link}.
           tos_title: Conditions d'utilisation
           username_help: Le nom est public et apparaît dans votre profil et sur vos messages. Dans le but de garantir l'anonymat, vous pouvez choisir n'importe quel nom.
@@ -531,6 +562,8 @@ fr-CA:
         new:
           are_you_new?: Nouveau sur la plateforme ?
           register: Créer un compte
+          sign_in_disabled: Vous pouvez accéder avec un compte externe.
+          sign_up_disabled: La création de compte est désactivée, mais vous pouvez vous identifier avec un compte existant.
         user:
           timed_out: Vous avez été inactif pendant trop longtemps et vous avez été automatiquement déconnecté du service. Si vous souhaitez continuer à utiliser le service, veuillez vous reconnecter.
       shared:
@@ -550,6 +583,7 @@ fr-CA:
           authorize: Autoriser l'application
           by_organization_link_html: <small class="heading-small">par %{link}</small>
           cancel: Annuler
+          connect_your_account_html: Connectez votre compte en vous inscrivant à <strong>%{organization}</strong>.
           publish_content: Publier du contenu pour vous
           see_email: Voir votre email
           see_name: Voir votre nom
@@ -878,8 +912,17 @@ fr-CA:
       index:
         invite: Inviter
         invite_user: Inviter un utilisateur
+      invite:
+        error: Une erreur s'est produite lors de l'invitation de cet utilisateur.
+        success: Utilisateur invité avec succès.
+      reject:
+        error: Une erreur s'est produite lors du rejet de cette invitation.
+        success: Invitation rejetée avec succès.
       reject_invitation: Rejeter
     group_members:
+      accept:
+        error: Une erreur s'est produite lors de l'acceptation de cette demande de participation.
+        success: Demande de participation acceptée avec succès.
       actions:
         are_you_sure: Êtes-vous sûr?
         promote_to_admin: Faire admin
@@ -887,20 +930,36 @@ fr-CA:
       index:
         current_members_without_admins: 'Membres actuels (sans administrateurs):'
         manage_members: Gérer les membres
+      promote:
+        error: Une erreur s'est produite lors de la promotion de cet utilisateur.
+        success: Utilisateur promu avec succès.
+      reject:
+        error: Une erreur s'est produite lors du rejet de cette demande de participation.
+        success: Demande de participation rejetée avec succès.
+      remove:
+        error: Une erreur s'est produite lors de la suppression de cet utilisateur du groupe.
+        success: Utilisateur supprimé du groupe avec succès.
     groups:
       actions:
         are_you_sure: Êtes-vous sûr?
+      create:
+        error: Un problème est survenu lors de la création du groupe.
+        success: Groupe créé avec succès.
       edit:
         edit_user_group: Éditer le groupe
         update_user_group: Mettre à jour le groupe
       form:
+        document_number_help: Ne pas utiliser de tirets ni d'espaces.
         email_help: Email de votre organisation, association, collectif, groupe, etc.
         fill_in_for_verification: 'Remplissez ces champs si vous souhaitez que votre groupe soit vérifié:'
         name_help: Nom de votre organisation, association, collectif, groupe, etc.
         nickname_help: Nom d'utilisateur de votre organisation, association, collectif, groupe, etc. N'utilisez pas d'espaces ni d'accents.
+        phone_help: Ne pas utiliser de tirets ni d'espaces.
       join:
+        error: Un problème est survenu lors de l’adhésion au groupe.
         success: Demande de jointure créée avec succès. Un administrateur examinera votre demande avant de vous accepter au groupe.
       leave:
+        error: Un problème est survenu lors du départ du groupe.
         last_admin: "You cannot remove yourself from this group as you're the last administrator. Make another member an administrator in order to leave the group.\n\nVous ne pouvez pas vous retirer de ce groupe car vous êtes le dernier administrateur. Pour quitter le groupe, vous devez nommer un autre membre administrateur."
         success: Le groupe est parti avec succès.
       members:
@@ -916,11 +975,15 @@ fr-CA:
         admin: Administrateur
         creator: Administrateur
         member: Membre
+      update:
+        error: Un problème est survenu lors de la mise à jour du groupe.
+        success: Groupe mis à jour avec succès.
     help:
       main_topic:
         default_page:
           content: "<p>Sur %{organization} vous pouvez participer et décider sur différents sujets grâce aux espaces que vous voyez dans le menu principal: Processus, Assemblées, Initiatives, Consultations.</p> <p>Au sein de chacune d’elles, vous trouverez différentes options de participation: faites des propositions - individuellement ou avec d’autres personnes -, participez aux débats, accordez la priorité aux projets à mettre en œuvre, participez aux réunions en personne et autres actions.</p>\n"
           title: Que puis-je faire sur la plateforme %{organization} ?
+        description: En savoir plus sur %{organization}.
         title: Aide générale
     last_activities:
       activities:
@@ -979,29 +1042,35 @@ fr-CA:
           admin_in_group: Vous recevez ceci parce que vous êtes un administrateur de %{group}.
           greeting: Bonjour, %{recipient} !
           intro: "%{manager} a commencé une nouvelle conversation au nom de %{group}. Cliquez ici pour la voir :"
+          outro: Profitez de decidim !
           subject: "%{manager} a commencé une nouvelle conversation en tant que %{group}"
         comanagers_new_message:
           admin_in_group: Vous recevez ceci parce que vous êtes un administrateur de %{group}.
           greeting: Bonjour %{recipient} !
           intro: "%{manager} a posté de nouveaux messages dans une conversation au nom de %{group}. Cliquez ici pour les voir:"
+          outro: Profitez de decidim !
           subject: "%{manager} a envoyé de nouveaux messages en tant que %{group}"
         new_conversation:
           greeting: Bonjour, %{recipient} !
           intro: "%{sender} a commencé une nouvelle conversation avec vous. Cliquez ici pour la voir :"
+          outro: Profitez de decidim !
           subject: "%{sender} a commencé une conversation avec vous"
         new_group_conversation:
           admin_in_group: Vous recevez ceci parce que vous êtes un administrateur de %{group}.
           greeting: Bonjour, %{recipient} !
           intro: "%{sender} a commencé une nouvelle conversation avec le groupe %{group}. Cliquez ici pour la voir :"
+          outro: Profitez de decidim !
           subject: "%{sender} a commencé une conversation avec %{group}"
         new_group_message:
           admin_in_group: Vous recevez ceci parce que vous êtes un administrateur de %{group}.
           greeting: Bonjour, %{recipient} !
           intro: "%{sender} a posté de nouveaux messages dans une conversation avec le groupe %{group}. Cliquez ici pour le voir:"
+          outro: Profitez de decidim !
           subject: "%{group} a de nouveaux messages de %{sender}"
         new_message:
           greeting: Bonjour, %{recipient} !
           intro: "%{sender} a posté de nouveaux messages dans votre conversation. Cliquez ici pour les voir :"
+          outro: Profitez de decidim !
           subject: Vous avez de nouveaux messages de %{sender}
       conversations:
         add_conversation_users:
@@ -1009,6 +1078,9 @@ fr-CA:
           add_users_placeholder: Chercher...
           modal_title: Nouvelle conversation
           no_results: Aucun résultat
+          participant_with_disabled_message_reception: Cet utilisateur ne veut pas recevoir de messages privés.
+        create:
+          error: La conversation n'a pas commencé. Réessayez plus tard.
         error_modal:
           close: Fermer la fenêtre de dialogue
           correct_errors: Veuillez corriger les erreurs et réessayer.
@@ -1018,6 +1090,7 @@ fr-CA:
           ago: il y a
           new_conversation: Nouvelle conversation
           next: Suivant
+          no_conversations: Vous n'avez encore aucune conversation.
           title: Conversations
         reply_form:
           placeholder: Votre réponse...
@@ -1031,6 +1104,8 @@ fr-CA:
         start:
           placeholder: Votre message...
           send: Envoyer
+        update:
+          error: 'Erreur : votre message n''a pas pu être envoyé.'
     metrics:
       download:
         csv: Télécharger les données (CSV)
@@ -1187,11 +1262,37 @@ fr-CA:
         metrics:
           headline: Participation en chiffres
           link: Afficher toutes les statistiques
+      terms_of_service:
+        accept:
+          error: Une erreur s'est produite lors de l'acceptation des conditions d'utilisation.
+          success: "Great! You have accepted the admin terms of service.\nFélicitation ! Vous avez accepté les conditions d'utilisation de l'administrateur."
+        form:
+          agreement: J'accepte les conditions d'utilisation
+          legend: Accepter les conditions d’utilisation
+        refuse:
+          modal_body: Si vous refusez, vous ne pourrez pas utiliser la plateforme. Vous pouvez <a href="%{download_your_data_path}">télécharger vos données</a> ainsi que <a href="%{delete_path}">supprimer votre compte</a>.
+          modal_btn_continue: Accepter les conditions et continuer
+          modal_btn_exit: Je l'examinerai plus tard
+          modal_button: Refuser les conditions d'utilisation
+          modal_close: Fermer la boîte de dialogue
+          modal_title: "Do you really refuse the updated terms of service?\nEtes-vous sûr de vouloir refuser les conditions d'utilisation mises à jour ?"
+        required_review:
+          alert: Nous avons mis à jour nos conditions d'utilisation, veuillez les consulter.
+          body: "Please take a moment to review updates to our Terms of Services. Otherwise you will not be able to use the platform.\nVeuillez prendre le temps de consulter nos conditions d'utilisation mises à jour. Dans le cas contraire, vous ne serrez pas en meusre d'utiliser la plateforme."
+          title: "Required: Review updates to our terms of service\nRequis : veuillez consulter la mise à jour des conditions d'utilisation."
     participatory_space_private_users:
       not_allowed: Vous n'êtes pas autorisé à voir ce contenu
+    passwords:
+      update:
+        error: Il y a eu un problème lors de la mise à jour de votre mot de passe.
+        success: Mot de passe mis à jour avec succès.
     profile:
+      deleted: Utilisateur supprimé
+      inaccessible_message: Ce profil est inaccessible en raison d'une violation des conditions d'utilisation !
       view: Voir
     profiles:
+      default_officialization_text_for_user_groups: Ce groupe d'utilisateurs est publiquement vérifié, son nom a été vérifié pour correspondre à son vrai nom.
+      default_officialization_text_for_users: L'identité de ce participant a été vérifiée. Son nom ou son rôle correspondent avec son vrai nom ou son vrai rôle dans le monde réel.
       show:
         activity: Activité
         badges: Badges
@@ -1217,9 +1318,11 @@ fr-CA:
           manage_user_group_admins: Gérer les administrateurs
           manage_user_group_users: Gérer les membres
           message: Message
+        confirmation_instructions_sent: Instructions de confirmation d'email envoyées.
         create_user_group: Créer un groupe
         edit_profile: Mettre à jour le profil
         edit_user_group: Modifier le profil du groupe
+        fill_in_email_to_confirm_it: Veuillez compléter le mail de votre groupe pour confirmer celui-ci.
         invite_user: Inviter un utilisateur
         join_user_group: Demander à rejoindre ce groupe
         leave_user_group: Quitter le groupe
@@ -1322,9 +1425,11 @@ fr-CA:
         visit_profile: Si vous voulez également bloquer le participant et le reste de son contenu, allez sur la page de profil de %{user_link}.
       flag_user_modal:
         already_reported: Ce contenu a déjà été signalé et il sera examiné par un administrateur.
+        block: Bloquer ce participant
         close: Fermer
         description: Qu'est-ce qui est inapproprié à propos de cet utilisateur ?
         does_not_belong: "Contains illegal activity, suicide threats, personal information, or something else you think does not belong on %{organization_name}.\nContenu d'activité illégale, menace de suicide, informations personnelles ou tout autre élément qui, selon vous, n'aurait pas sa place sur %{nom_de_l'organisation}."
+        hide: Masquer tous ses contenus
         offensive: Rédige des contenus racistes, sexistes, contenant des insultes, attaques personnelles, menaces de mort, incitations au suicide ou toute forme de discours de haine.
         report: Signaler
         spam: Rédige des contenus de type publicités, des escroqueries, des pièges à clic (clickbait) ou des robots fonctionnant au script (script bots).
@@ -1388,6 +1493,7 @@ fr-CA:
     user_contact_disabled: Cet utilisateur n'accepte pas les messages directs.
     user_conversations:
       create:
+        error: Le message n'a pas pu être créé. Réessayez plus tard.
         existing_error: Le message n'a pas pu être créé. La conversation existe déjà, veuillez réessayer maintenant.
         success: La conversation a commencé avec succès !
       index:
@@ -1402,6 +1508,7 @@ fr-CA:
         next: Suivant
         no_conversations_warning: Il n'y a pas encore de conversations.
         no_results: Aucun résultat
+        participant_with_disabled_message_reception: Ce participant a désactivé la réception de message.
         time_ago: "il y a %{time}"
       new:
         title: Démarrer une conversation
@@ -1778,8 +1885,8 @@ fr-CA:
       widget:
         see_more: Voir plus
   locale:
-    name: Français
-    name_with_error: Français (erreur !)
+    name: Français canadien
+    name_with_error: Français canadien (erreur !)
   password_validator:
     denied: est refusé
     domain_included_in_password: est trop similaire au nom de domaine de cette plateforme

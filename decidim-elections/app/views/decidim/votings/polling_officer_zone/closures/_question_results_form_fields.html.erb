@@ -5,7 +5,7 @@
 
   <div class="card--secondary">
     <div class="card__content">
-      <%= render partial: "answer_results_form_fields", locals: { form: form, question: question } %>
+      <%= render partial: "answer_results_form_fields", locals: { form:, question: } %>
 
       <% if question.nota_option? %>
         <%= form.fields_for "[question_results][]", question do |question_form| %>

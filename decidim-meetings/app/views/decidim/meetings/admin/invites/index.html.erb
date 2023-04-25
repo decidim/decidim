@@ -4,7 +4,7 @@
   </div>
   <div class="card-section">
     <%= decidim_form_for(@form, url: meeting_registrations_invites_path, method: :post, html: { class: "form new_meeting_registration_invite" }) do |f| %>
-      <% disable_form = !allowed_to?(:invite_attendee, :meeting, meeting: meeting) %>
+      <% disable_form = !allowed_to?(:invite_attendee, :meeting, meeting:) %>
 
       <%= render partial: "form", object: f, locals: { disabled: disable_form } %>
 

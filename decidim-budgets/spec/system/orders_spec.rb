@@ -674,6 +674,36 @@ describe "Orders", type: :system do
           expect(page).to have_content(proposal.votes.size)
         end
       end
+
+      context "with supports enabled" do
+        let(:proposal_component) do
+          create(:proposal_component, :with_votes_enabled, participatory_space: project.component.participatory_space)
+        end
+
+        let(:proposals) { create_list(:proposal, 1, :with_votes, component: proposal_component) }
+
+        it "shows the amount of supports" do
+          visit_budget
+          click_link translated(project.title)
+
+          expect(page.find('span[class="card--list__data__number"]')).to have_content("5")
+        end
+      end
+
+      context "with supports disabled" do
+        let(:proposal_component) do
+          create(:proposal_component, participatory_space: project.component.participatory_space)
+        end
+
+        let(:proposals) { create_list(:proposal, 1, :with_votes, component: proposal_component) }
+
+        it "does not show supports" do
+          visit_budget
+          click_link translated(project.title)
+
+          expect(page).not_to have_selector('span[class="card--list__data__number"]')
+        end
+      end
     end
   end
 

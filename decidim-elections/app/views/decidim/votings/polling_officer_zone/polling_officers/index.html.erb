@@ -7,7 +7,7 @@
   <% if polling_officers_elections.any? %>
     <% polling_officers_elections.each do |election| %>
       <% polling_officer = polling_officers.find_by(voting: election.participatory_space) %>
-      <%= render partial: "polling_station", locals: { polling_officer: polling_officer, election: election } %>
+      <%= render partial: "polling_station", locals: { polling_officer:, election: } %>
     <% end %>
   <% else %>
     <%= cell("decidim/announcement", t("polling_station.no_polling_stations", scope: "decidim.votings.polling_officer_zone.polling_officers.index"), callout_class: "warning") %>

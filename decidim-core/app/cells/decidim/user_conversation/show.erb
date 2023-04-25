@@ -6,7 +6,7 @@
 
       <div id="messages" class="scroll-to-last-message">
         <% user_grouped_messages.each do |sender, messages| %>
-            <%= render view: :messages, locals: { sender: sender, messages: messages } %>
+            <%= render view: :messages, locals: { sender:, messages: } %>
         <% end %>
       </div>
 

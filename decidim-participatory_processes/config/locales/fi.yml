@@ -161,7 +161,7 @@ fi:
             role: Rooli
           name: Osallistumisprosessin käyttäjä
           roles:
-            admin: Hallinnointikäyttäjä
+            admin: Hallintakäyttäjä
             collaborator: Osallistuva käyttäjä
             moderator: Moderoija
             valuator: Arvon arvioija

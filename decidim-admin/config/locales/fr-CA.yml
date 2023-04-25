@@ -39,6 +39,7 @@ fr-CA:
         body: Corps de texte
         subject: Objet
       organization:
+        admin_terms_of_service_body: Termes et conditions d'utilisation administrateur
         alert_color: Alerte
         available_authorizations: Autorisations disponibles
         badges_enabled: Activer les badges
@@ -155,7 +156,7 @@ fr-CA:
         attributes:
           file:
             invalid_file: Fichier fourni invalide , veuillez vérifier que le fichier est correctement formaté.
-            invalid_mime_type: Type de MIME invalide.
+            invalid_mime_type: Type MIME invalide.
   activerecord:
     attributes:
       decidim/static_page:
@@ -197,12 +198,26 @@ fr-CA:
         user:
           new: Nouvel administrateur
         verify: Vérifier
+      admin_terms_of_service:
+        accept:
+          error: Une erreur s'est produite lors de l'acceptation des conditions d'utilisation de l'administrateur.
+          success: Félicitations ! Vous avez accepté les conditions d'utilisation administrateur.
+        actions:
+          accept: J'accepte les conditions d'utilisation
+          are_you_sure: Êtes-vous sûr de vouloir refuser les conditions d'utilisation administrateur ?
+          refuse: Refuser les conditions d'utilisation administrateur
+          title: Accepter les conditions d’utilisation
+        required_review:
+          alert: 'Requis: Consultez nos conditions d’utilisation administrateur'
+          callout: Veuillez prendre le temps de lire les conditions d'utilisation administrateur. Dans le cas contraire, vous ne serrez pas en mesure d'administrer la plateforme.
+          cta: Consultez les maintenant.
+        title: Conditions d'utilisation administrateur
       area_types:
         create:
           error: Une erreur s'est produite lors de la création d'un nouveau périmètre d'assemblée.
           success: Le type de périmètre d'assemblée a été créé avec succès.
         destroy:
-          success: Le type de secteur a été supprimé avec succès.
+          success: Le type de périmètre d'assemblée a été supprimé avec succès.
         edit:
           title: Modifier le type de périmètre d'assemblée
           update: Mettre à jour
@@ -211,14 +226,14 @@ fr-CA:
           title: Nouveau type de périmètre d'assemblée
         update:
           error: Une erreur s'est produite lors de la mise à jour de ce type de périmètre d'assemblée.
-          success: "Area type updated successfully.\nLe type de la zone a été mis à jour avec succès."
+          success: Le type de périmètre d'assemblée a été mis à jour avec succès.
       areas:
         create:
           error: Une erreur s'est produite lors de la création d'une nouvelle zone d'application.
           success: Zone d'application créée avec succès.
         destroy:
           has_spaces: Cette zone a des espaces dépendants. Veuillez vous assurer qu'aucun espace participatif ne référence cette zone avant de la supprimer.
-          success: "Area successfully destroyed.\nLe périmètre a été supprimé avec succès."
+          success: Le périmètre d'assemblée a été supprimé avec succès.
         edit:
           title: Modifier la zone d'application
           update: Mettre à jour
@@ -228,7 +243,7 @@ fr-CA:
         no_areas: Aucune zone d'application
         update:
           error: Une erreur s'est produite lors de la mise à jour de cette zone d'application.
-          success: Périmètre d'assemblée mise à jour avec succès.
+          success: Le périmètre d'assemblée mise à jour avec succès.
       attachment_collections:
         create:
           error: Une erreur s'est produite lors de la création d'un nouveau dossier.
@@ -272,6 +287,7 @@ fr-CA:
       block_user:
         new:
           action: Bloquer le compte et envoyer la justification
+          already_reported_html: En poursuivant cette action, vous masquerez également tous les contenus du participant. <a href="%{link}">Bloquez le compte</a>.
           description: Bloquer un utilisateur rendra son compte inutilisable. Vous devriez fournir dans votre justification des actions à effectuer par ce dernier pour envisager le déblocage.
           justification: Justification
           title: Bloquer l'utilisateur %{name}
@@ -666,6 +682,7 @@ fr-CA:
         report:
           reasons:
             does_not_belong: N'appartient pas
+            hidden_during_block: Masqué en bloquant l'utilisateur
             offensive: Agressif
             spam: Spam
         reports:
@@ -966,6 +983,10 @@ fr-CA:
           add: Ajouter un bloc de contenu
           create:
             error: Un problème est survenu lors de la création de ce bloc de contenu.
+            success: Le bloc de contenu a été créé avec succès.
+          destroy:
+            error: Un problème est survenu lors de la suppression de ce bloc de contenu.
+            success: Le bloc de contenu a été supprimé avec succès.
           destroy_confirmation: Êtes-vous sûr(e) de vouloir supprimer ce bloc de contenu ?
           edit:
             update: Mettre à jour
@@ -977,6 +998,7 @@ fr-CA:
         destroy:
           success: La page a été détruite avec succès
         edit:
+          changed_notably_help: Si cette case est cochée, les utilisateurs devront accepter les nouvelles conditions d'utilisation.
           title: Modifier la page
           update: Mettre à jour
         form:
@@ -990,9 +1012,11 @@ fr-CA:
         topic:
           destroy: Supprimer le sujet
           edit: Modifier le sujet
+          empty: Il n'y a aucune page dans ce sujet.
           without_topic: Pages sans sujet
         update:
           error: Une erreur s'est produite lors de la mise à jour de cette page.
+          success: Page mise à jour avec succès.
       titles:
         admin_log: Journal d'administration
         area_types: Types de périmètre d'assemblée
@@ -1016,8 +1040,10 @@ fr-CA:
           success: "CSV file uploaded successfully, we are verifying the groups matching the criteria. This might take a while.\nLe fichier CSV a été téléchargé avec succès, une vérification des groupes correspondant aux critères est en cours. Un délai d'attente peut survenir."
         reject:
           invalid: Une erreur s'est produite lors du refus de ce groupe d'utilisateurs.
+          success: Groupe d'utilisateurs refusé avec succès.
         verify:
           invalid: Une erreur s'est produite lors de la vérification de ce groupe d'utilisateurs.
+          success: Groupe d'utilisateurs vérifié avec succès.
       user_groups:
         index:
           state:
@@ -1054,8 +1080,13 @@ fr-CA:
           last_day: Hier
           last_month: Le mois dernier
           last_week: La semaine dernière
+          no_users_count_statistics_yet: Il n'y a pas encore de statistiques du nombre d'utilisateurs.
           participants: Participants
       view_public_page: Voir la page publique
+    forms:
+      errors:
+        impersonate_user:
+          reason: Vous devez fournir une raison lorsque vous représentez un participant non représenté.
     metrics:
       blocked_users:
         object: utilisateurs bloqués
