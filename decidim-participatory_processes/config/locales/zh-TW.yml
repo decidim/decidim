@@ -1,7 +1,138 @@
 ---
 zh-TW:
+  activemodel:
+    attributes:
+      participatory_process:
+        announcement: 公告
+        area_id: 區域
+        banner_image: 橫幅圖片
+        copy_categories: 複製類別
+        copy_components: 複製組件
+        copy_steps: 複製步驟
+        decidim_area_id: 區域
+        description: 說明
+        developer_group: 促銷團隊
+        document: 文件
+        domain: 網域
+        end_date: 結束日期
+        hashtag: 主題標籤
+        hero_image: 首頁圖片
+        import_attachments: 匯入附件
+        import_categories: 匯入類別
+        import_components: 匯入組件
+        import_steps: 匯入步驟
+        local_area: 組織區域
+        meta_scope: 元數據範圍
+        participatory_process_group_id: 程序群組
+        participatory_process_type_id: 處理類型
+        participatory_scope: 決定了什麼
+        participatory_structure: 如何決定
+        private_space: 私有程序
+        promoted: 推廣
+        published_at: 發佈於
+        related_process_ids: 相關程序
+        scope_id: 範圍
+        scope_type_max_depth_id: 範圍篩選深度
+        scopes_enabled: 啟用範圍
+        short_description: 簡短說明
+        show_metrics: 顯示度量
+        show_statistics: 顯示統計資料
+        slug: URL網址
+        start_date: 開始日期
+        subtitle: 子標題
+        target: 誰參加
+        title: 標題
+        weight: 排序位置
+      participatory_process_group:
+        description: 說明
+        developer_group: 促銷團隊
+        group_url: 網站
+        hashtag: 主題標籤
+        hero_image: 圖片
+        local_area: 組織區域
+        meta_scope: 元數據範圍
+        participatory_process_ids: 相關程序
+        participatory_scope: 決定了什麼
+        participatory_structure: 如何決定
+        target: 誰參加
+        title: 標題
+      participatory_process_step:
+        description: 說明
+        end_date: 結束日期
+        short_description: 簡短說明
+        start_date: 開始日期
+        title: 標題
+      participatory_process_type:
+        title: 標題
+      participatory_process_user_role:
+        email: 電子郵件
+        name: 名稱
+        role: 角色
   decidim:
     admin:
+      actions:
+        destroy: 刪除
+        duplicate: 重複
+        edit: 編輯
+      menu:
+        participatory_processes_submenu:
+          private_users: 私人參與者
+          process_admins: 程序管理員
+          steps: 分類
+      models:
+        participatory_process:
+          fields:
+            created_at: 建立於
+            private: 隱私模式
+            promoted: 重點顯示
+            published: 已發佈
+            title: 標題
+          name: 參與程序
+        participatory_process_group:
+          fields:
+            title: 標題
+          name: 程序群組
+        participatory_process_step:
+          fields:
+            end_date: 結束日期
+            start_date: 開始日期
+            title: 標題
+          name: 參與式過程階段
+        participatory_process_type:
+          fields:
+            created_at: 建立於
+            title: 標題
+          name: 處理類型
+        participatory_process_user_role:
+          fields:
+            email: 電子郵件
+            name: 名稱
+            role: 角色
+          name: 參與程序管理員
+          roles:
+            admin: 管理員
+            collaborator: 合作者
+            moderator: 版主
+            valuator: 評估者
+        user:
+          fields:
+            invitation_accepted_at: 邀請已接受時間
+            invitation_sent_at: 邀請已發送時間
+      participatory_process_copies:
+        new:
+          copy: 複製
+          select: 請選擇您想要複製的資料
+          title: 重複的參與性流程
+      participatory_process_group_landing_page:
+        edit:
+          active_content_blocks: 啟用的內容區塊
+          inactive_content_blocks: 停用的內容區塊
+      participatory_process_group_landing_page_content_blocks:
+        edit:
+          update: 更新
+      participatory_process_groups:
+        destroy:
+          error: 刪除參與性流程群組時發生錯誤。
       participatory_process_steps:
         destroy:
           error:
