@@ -14,12 +14,14 @@ module Decidim
   class AdminInputScrubber < UserInputScrubber
     private
 
+    DECIDIM_ALLOWED_TAGS = %w(img video audio source comment iframe).freeze
+
     def custom_allowed_attributes
       super + %w(frameborder allowfullscreen) - %w(onerror)
     end
 
     def custom_allowed_tags
-      super + %w(comment iframe)
+      super + DECIDIM_ALLOWED_TAGS
     end
   end
 end
