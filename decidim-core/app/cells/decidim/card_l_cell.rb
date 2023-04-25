@@ -65,7 +65,7 @@ module Decidim
     end
 
     def has_image?
-      false
+      resource_image_path.present?
     end
 
     def has_link_to_resource?
