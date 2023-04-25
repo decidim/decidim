@@ -445,6 +445,7 @@ fr-CA:
         delete_attachment: Supprimer
       index:
         title: Pétitions
+        uninitialized: Les initiatives ne sont pas encore configurées par un administrateur
       initiative_signatures:
         fill_personal_data:
           continue: Continuer

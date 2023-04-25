@@ -1021,7 +1021,7 @@ fi:
           success: Käyttäjän kutsuminen onnistui.
         destroy:
           error: Hallintakäyttäjän poisto epäonnistui.
-          success: Käyttäjä ei ole enää hallinnointikäyttäjä.
+          success: Käyttäjä ei ole enää hallintakäyttäjä.
         form:
           email: Sähköposti
           name: Nimi
