@@ -6,7 +6,7 @@ describe Decidim::Meetings::CalendarsController, type: :controller do
   routes { Decidim::Meetings::Engine.routes }
 
   let(:organization) { create(:organization) }
-  let(:participatory_process) { create :participatory_process, organization: }
+  let(:participatory_process) { create :participatory_process, organization: organization }
   let(:meeting_component) { create(:meeting_component, :with_creation_enabled, participatory_space: participatory_process) }
   let!(:meetings) do
     [].tap do |list|
@@ -35,7 +35,7 @@ describe Decidim::Meetings::CalendarsController, type: :controller do
     before do
       request.env["decidim.current_participatory_space"] = participatory_process
       request.env["decidim.current_component"] = meeting_component
-      get :show, params:
+      get :show, params: params
     end
 
     it { expect(response).to have_http_status(:success) }
