@@ -10,12 +10,12 @@ describe Decidim::Proposals::Import::ProposalAnswerCreator do
   let(:data) do
     {
       id: proposal.id,
-      state:,
+      state: state,
       "answer/en": Faker::Lorem.paragraph
     }
   end
   let(:organization) { create(:organization, available_locales: [:en]) }
-  let(:user) { create(:user, organization:) }
+  let(:user) { create(:user, organization: organization) }
   let(:context) do
     {
       current_organization: organization,
@@ -24,7 +24,7 @@ describe Decidim::Proposals::Import::ProposalAnswerCreator do
       current_participatory_space: participatory_process
     }
   end
-  let(:participatory_process) { create :participatory_process, organization: }
+  let(:participatory_process) { create :participatory_process, organization: organization }
   let(:component) { create :component, manifest_name: :proposals, participatory_space: participatory_process }
   let(:state) { %w(evaluating accepted rejected).sample }
 
@@ -56,8 +56,8 @@ describe Decidim::Proposals::Import::ProposalAnswerCreator do
     end
 
     context "with an emendation" do
-      let!(:amendable) { create(:proposal, component:) }
-      let!(:amendment) { create(:amendment, amendable:, emendation: proposal, state: "evaluating") }
+      let!(:amendable) { create(:proposal, component: component) }
+      let!(:amendment) { create(:amendment, amendable: amendable, emendation: proposal, state: "evaluating") }
 
       it "does not produce a record" do
         record = subject.produce
@@ -84,7 +84,7 @@ describe Decidim::Proposals::Import::ProposalAnswerCreator do
     end
 
     context "when proposal state changes" do
-      let!(:proposal) { create(:proposal, :evaluating, component:) }
+      let!(:proposal) { create(:proposal, :evaluating, component: component) }
       let(:state) { "accepted" }
 
       it "returns broadcast :ok" do
@@ -107,7 +107,7 @@ describe Decidim::Proposals::Import::ProposalAnswerCreator do
       let(:data) do
         {
           id: 99_999_999,
-          state:,
+          state: state,
           "answer/en": Faker::Lorem.paragraph
         }
       end
