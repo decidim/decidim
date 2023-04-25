@@ -301,7 +301,6 @@ en:
         success: Amendment draft was successfully deleted.
       edit_draft:
         discard: Discard this draft
-        discard_confirmation: Are you sure you want to discard this amendment draft?
         send: Preview
         title: Edit Amendment Draft
       emendation:
@@ -341,7 +340,6 @@ en:
       review:
         back: Back
         heading: Review the amendment
-        help_text: You are reviewing an amendment to the %{model_name}
         send: Accept amendment
       update_draft:
         error: There was a problem updating the amendment draft.
