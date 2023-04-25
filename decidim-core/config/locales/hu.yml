@@ -239,7 +239,9 @@ hu:
         unblock: "%{user_name} megszűntette a felhasználó blokkolását %{resource_name}"
         unofficialize: "%{user_name} visszavonta %{resource_name} hivatalosságát"
       user_group:
+        block: "%{user_name} blokkolt felhasználó itt %{resource_name}"
         reject: "%{user_name} elutasította a(z) %{resource_name} felhasználói csoport ellenőrzését"
+        unblock: "%{user_name} megszűntette a felhasználó blokkolását %{resource_name}"
         verify: "%{user_name} ellenőrizte a(z) %{resource_name} felhasználói csoportot"
         verify_via_csv: "%{user_name} az %{resource_name} felhasználói csoportot CSV-fájlon keresztül ellenőrizte"
       user_moderation:
@@ -440,6 +442,7 @@ hu:
           debate: Vita
           initiative: Kezdeményezés
           meeting: Találkozó
+          order: Költségvetési szavazás
           post: Bejegyzés
           proposal: Indítvány
           question: Kérdés
@@ -795,6 +798,7 @@ hu:
           cancel: Mégse
           edit_image: Kép szerkesztése
           error: Hiba!
+          file_size_too_large: 'A fájl túl nagy! Maximális méret: %{megabytes}MB'
           remove: Eltávolítás
           replace: Csere
           save: Mentés
@@ -805,6 +809,7 @@ hu:
           validation_error: Hitelesítési hiba!
       upload_help:
         dropzone: Húzza ide fájlokat vagy kattintson a feltöltéshez
+        explanation: '%{attribute} útmutatója'
     gamification:
       all_badges_link: Az összes elérhető jelvény megtekintése.
       badges:
@@ -905,6 +910,7 @@ hu:
       no_user_groups: Még nem tartozik semmiféle csoporthoz.
       roles:
         admin: Adminisztrátor
+        creator: Adminisztrátor
         member: Tag
       update:
         error: Probléma történt a csoport frissítésével
@@ -924,16 +930,24 @@ hu:
         last_activity: Utolsó bejelentkezés, utolsó használat
         resource_type: típus
     links:
+      invalid_url: Érvénytelen URL
       warning:
+        body_1: Ön most egy külső linket fog meglátogatni, és szeretnénk, ha óvatos lenne a külső oldal tartalmát illetően.
+        body_2: Kérjük, ellenőrizze a meglátogatni kívánt linket, és győződjön meg róla, hogy biztonságos oldalnak ismeri fel, mielőtt továbblépne.
+        cancel: Mégsem
         close_modal: Modal bezárása
+        proceed: Folytatás
+        title: Külső link megnyitása
     log:
       base_presenter:
         create: "%{user_name} létrehozta ezt: %{resource_name}"
         create_with_space: "%{user_name} létrehozta ezt: %{resource_name} %{space_name}"
         delete: "%{user_name} törölte ezt: %{resource_name}"
         delete_with_space: "%{user_name} törölte ezt: %{resource_name} %{space_name}"
+        publish_with_space: "%{user_name} publikálta ezt: %{resource_name} itt %{space_name}"
         unknown_action: "%{user_name} módosította ezt: %{resource_name}"
         unknown_action_with_space: "%{user_name} valamilyen műveletet hajtott végre itt: %{resource_name} %{space_name}"
+        unpublish_with_space: "%{user_name} visszavonta a %{resource_name} publikációját itt %{space_name}"
         update: "%{user_name} frissítette ezt: %{resource_name}"
         update_permissions_with_space: "%{user_name} frissítette a(z) %{resource_name} engedélyeit itt: %{space_name}"
         update_with_space: "%{user_name} frissítette ezt: %{resource_name} a %{space_name}"
@@ -1194,18 +1208,14 @@ hu:
           error: Hiba történt az általános szerződési feltételek elfogadása során.
           success: Remek! Elfogadtad a feltételeket.
         form:
-          agreement: Elfogadom a feltételeket
           legend: Elfogadom a felhasználási feltételeket
         refuse:
-          modal_btn_continue: Elfogadom és tovább lépek
           modal_btn_exit: Később átnézem
-          modal_button: Elutasítom a feltételeket
           modal_close: Modal bezárása
           modal_title: Tényleg elutasítod az ÁSZF frissített szövegét?
         required_review:
           alert: Frissítettük az ÁSZF szövegét. Kérlek, nézd át ezeket.
           body: Kérlek, nézd át a Szolgáltatási feltételek frissített szövegét. Ellenkező esetben nem tudod majd használni a platformot.
-          title: 'Fontos: ellenőrizd a szolgáltatás feltételeink frissítéseit'
     participatory_space_private_users:
       not_allowed: Nincs jogosultságod a tartalom megtekintésére
     profile:
@@ -1247,9 +1257,17 @@ hu:
         report_html: <p>A következő <a href="%{url}">tartalom</a>automatikusan el volt rejtve.</p>
         subject: Egy erőforrás automatikusan elrejtve
       report:
+        authors: Szerzők
+        content: Jelentett tartalom
+        content_original_language: Tartalom eredeti nyelve
+        date: Jelentés időpontja
+        details: Részletek
         hello: Hello %{name}!
+        id: ID
+        participatory_space: Részvételi tér
         reason: Ok
         report_html: <p>A következő <a href="%{url}">tartalmat</a>korábban jelentették.</p>
+        see_report: Jelentés megtekintése
         subject: Egy erőforrást jelentettek
     reports:
       create:
@@ -1262,11 +1280,16 @@ hu:
       global: Globális hatáskör
       picker:
         cancel: Mégse
+        change: Kiválasztott alkalmazási terület módosítása
         choose: Kijelölés
+        currently_selected: Jelenleg kiválasztott alkalmazási terület
         title: '%{field} kijelölése'
       prompt: Válassz hatáskört
       scopes: Hatáskörök
+      scopes_picker_input:
+        select_scope: 'Alkalmazási terület választása (jelenleg: %{current})'
     search:
+      results: Keresési eredmények
       results_found_for_term: '%{count} találat erre a szóra: "%{term}"'
       term_input_placeholder: Keresés
     searches:
@@ -1290,11 +1313,14 @@ hu:
         view_all: Összes megtekintése (%{count})
     security:
       selfxss_warning:
+        description: Ez a böngészőfunkció a fejlesztők számára készült, és nem szabad ide beillesztenie semmit, ha erre felkérték. A tartalom beillesztése ebben az ablakban veszélyeztetheti az adatvédelmét, és hackerek számára hozzáférést biztosíthat a fiókjához.
         title: Stop!
     shared:
       confirm_modal:
         cancel: Mégse
+        close_modal: Felugró ablak bezárása
         ok: OK
+        title: Megerősít
       embed_modal:
         close_window: Ablak bezárása
         embed: Illeszd be ezt a kódot az oldaladba
@@ -1302,20 +1328,34 @@ hu:
       extended_navigation_bar:
         more: Több
         unfold: Kibontás
+      filter_form_help:
+        help: Az alábbi űrlap dinamikusan szűri a keresési eredményeket, amikor a keresési feltételek megváltoznak.
+        skip: Ugrás az eredményekre
       flag_modal:
         already_reported: Ezt a tartalmat már jelentették, az adminisztrátor éppen felülvizsgálja.
         close: Bezárás
         description: Sértő a tartalom?
         does_not_belong: 'Illegális tevékenységet, öngyilkosságra való felhívást, személyes adatokat vagy más olyan dolgot tartalmaz, ami nem tartozik ide: %{organization_name}.'
         offensive: Rasszizmust, szexizmust, gyalázkodást, személyeskedést, halálos fenyegetést, öngyilkosságra való felhívást vagy gyűlöletbeszédet tartalmaz.
+        reason: Indok
         report: Jelentés
         spam: Klikkvadászat, reklám, átverés vagy script bot.
         title: Hibabejelentés
+      flag_user_modal:
+        already_reported: Ezt a tartalmat már jelentették, az adminisztrátor éppen felülvizsgálja.
+        close: Bezár
+        description: Mi nem megfelelő a felhasználóval kapcsolatban?
+        offensive: Rasszizmust, szexizmust, gyalázkodást, személyeskedést, halálos fenyegetést, öngyilkosságra való felhívást vagy gyűlöletbeszédet tartalmaz.
+        report: Jelentés
+        spam: Klikkvadászat, reklám, átverés vagy script bot.
+        title: Nem megfelelően viselkedő felhasználó jelentése
       floating_help:
+        close: Súgó bezárása
         help: Segítség
       follow_button:
         sign_in_before_follow: Kérlek, jelentkezz be ehhez a műveletethez
       login_modal:
+        close_modal: Felugró ablak bezárása
         please_sign_in: Jelentkezz be
         sign_up: Regisztrálj
       mentions_modal:
@@ -1324,6 +1364,8 @@ hu:
         filters:
           areas: Területek
           select_an_area: Válasszon ki egy területet
+      public_participation:
+        public_participation: Nyilvánosan mutassa a részvételemet
       reference:
         reference: 'Hivatkozás: %{reference}'
       represent_user_group:
@@ -1331,10 +1373,13 @@ hu:
         select_user_group: Csoport kiválasztása
       results_per_page:
         label: 'Találatok száma oldalanként:'
+        title: Az oldalankénti találatok számának kiválasztása
       share_modal:
         close_window: Ablak bezárása
         copy_share_link: Másolás
         copy_share_link_clarification: Megosztási hivatkozás másolása vágólapra
+        copy_share_link_copied: Másolva!
+        copy_share_link_message: A hivatkozás vágólapra másolása sikeres.
         share: Megosztás
         share_link: Hivatkozás megosztása
     statistics:
@@ -1345,6 +1390,8 @@ hu:
       pages_count: Oldalak
       participants_count: Résztvevők
       users_count: Résztvevők
+    tags:
+      filter_results_for_category: 'A kategória találatainak szűrése: %{resource}'
     translation_bar:
       help_text: "<strong>Figyelem:</strong> A tartalmat automatikusan fordíthatták, és nem 100% -ban pontos."
       show_original: Eredeti szöveg mutatása
@@ -1603,7 +1650,10 @@ hu:
       data_consent:
         details:
           columns:
+            description: Leírás
+            name: Név
             service: Szolgáltatás
+            type: Típus
           items:
             _session_id:
               description: Lehetővé teszi a weboldalak számára, hogy emlékezzenek a felhasználóra a weboldalon belül, amikor az a weboldalak között mozog.
@@ -1612,9 +1662,11 @@ hu:
               description: Tárolja a felhasználó által a weboldalon engedélyezett sütikre vonatkozó információkat.
               service: Ez a weboldal
             pwaInstallPromptSeen:
+              description: Tárolja az állapotot, ha a felhasználó már látta a progresszív webes alkalmazás (PWA) telepítési értesítését.
               service: Ez a weboldal
           types:
             cookie: Süti
+            local_storage: Helyi tároló
         dialog:
           accept_all: Összes elfogadása
           accept_only_essential: Csak a szükséges elfogadása
@@ -1625,12 +1677,17 @@ hu:
           accept_all: Összes elfogadása
           accept_only_essential: Csak a szükséges elfogadása
           analytics:
+            description: Ezeket a sütiket a weboldal közönségének mérésére és elemzésére használják, hogy segítsenek a weboldal fejlesztésében.
             title: Analitika & statisztika
+          description: Sütiket használunk a weboldal alapvető funkcióinak biztosítása és az Ön online élményének javítása érdekében. A cookie-k használatát bármikor beállíthatja és elfogadhatja, valamint módosíthatja a hozzájárulási opcióit.
           essential:
+            description: Ezek a sütik lehetővé teszik a weboldal kulcsfontosságú funkcióit, és segítenek a felhasználók biztonságban tartásában. Automatikusan tárolódnak a böngészőben, és nem kapcsolhatók ki.
             title: Szükséges
           marketing:
+            description: Ezek a sütik információkat gyűjtenek arról, hogyan használja a weboldalt, és felhasználhatók arra, hogy személyre szabottabb marketinget nyújtsanak az Ön által használt különböző weboldalakon.
             title: Marketing
           preferences:
+            description: Ezek a sütik lehetővé teszik a weboldal számára, hogy emlékezzen az Ön által a weboldalon korábban tett választásokra, hogy személyre szabottabb élményt nyújtson a weboldal felhasználói számára.
             title: Preferenciák
           save_settings: Beállítások mentése
           title: Süti beállítások
@@ -1638,6 +1695,7 @@ hu:
         warning:
           all_categories: összes süti
           change_settings: A süti beállítások módosítása
+          consent_required: A tartalom megtekintéséhez engedályezni kell a %{categories}.
       edit_link:
         edit: Szerkesztés
       footer:
@@ -1699,7 +1757,7 @@ hu:
         see_more: Tovább
   locale:
     name: Magyar
-    name_with_error: Angol (hiba!)
+    name_with_error: Magyar (hiba!)
   password_validator:
     blacklisted: tiltólistára került
     domain_included_in_password: túl hasonló a domain névhez

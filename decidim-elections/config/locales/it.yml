@@ -100,7 +100,6 @@ it:
           label: Convalidato
           values:
             'false': Convalidato
-            'true': Non convalidato
     components:
       elections:
         actions:

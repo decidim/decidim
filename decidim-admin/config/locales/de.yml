@@ -145,6 +145,14 @@ de:
               allowed_file_content_types: Ungültige Bilddatei
             official_img_header:
               allowed_file_content_types: Ungültige Bilddatei
+        participatory_space_private_user_csv_import:
+          attributes:
+            file:
+              malformed: Fehlerhafte Importdatei. Bitte lesen Sie die Anweisungen sorgfältig durch und stellen Sie sicher, dass die Datei UTF-8 kodiert ist.
+        user_group_csv_verification:
+          attributes:
+            file:
+              malformed: Fehlerhafte Importdatei. Bitte lesen Sie die Anweisungen sorgfältig durch und stellen Sie sicher, dass die Datei UTF-8 kodiert ist.
       new_import:
         attributes:
           file:
@@ -196,13 +204,14 @@ de:
           error: Beim Akzeptieren der Nutzungsbedingungen ist ein Fehler aufgetreten.
           success: Super! Sie haben die Admin-Nutzungsbedingungen akzeptiert.
         actions:
+          accept: Ich stimme diesen Bedingungen zu
           are_you_sure: Sind Sie sicher, dass Sie die Admin-Nutzungsbedingungen ablehnen möchten?
-          refuse: Die Admin-Nutzungsbedingungen ablehnen
+          refuse: Admin-Nutzungsbedingungen ablehnen
           title: Den Admin-Nutzungsbedingungen zustimmen
         required_review:
           alert: 'Erforderlich: Überprüfen Sie unsere Admin-Nutzungsbedingungen'
           callout: Bitte nehmen Sie sich einen Moment Zeit, um die Admin-Nutzungsbedingungen zu lesen. Ansonsten können Sie die Plattform nicht verwalten.
-          cta: Lesen Sie sie jetzt.
+          cta: Jetzt überprüfen.
         title: Admin-Nutzungsbedingungen
       area_types:
         create:
@@ -645,7 +654,6 @@ de:
           nickname: Spitzname
           reason: Grund
           reports: Anzahl Meldungen
-          title: Liste der gemeldeten Benutzer
         report:
           reasons:
             does_not_belong: Gehört nicht zu
@@ -655,8 +663,6 @@ de:
           blocked: Blockiert
           unblocked: Nicht blockiert
       moderations:
-        index:
-          title: Moderationen
         report:
           reasons:
             does_not_belong: Gehört nicht

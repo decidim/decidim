@@ -311,7 +311,7 @@ tr:
           back: Geri
           continue: Devam et
           fill_data_help: "<ul> <li> Girişiminizin içeriğini inceleyin. Başlığınızı anlamak kolay mı? Girişiminizin amacı açık mı? </li> <li> İmza türünü seçmeniz gerekiyor. Yüz yüze, çevrimiçi veya her ikisinin kombinasyonu </li> <li> Girişimin coğrafi kapsamı nedir? </li> </ul>"
-          initiative_type: Girişim türü
+          initiative_type: Girişimi türü
           more_information: "(Daha fazla bilgi)"
           select_area: Bir alan seçin
           select_scope: Bir kapsam seçin

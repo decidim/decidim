@@ -1060,18 +1060,14 @@ tr:
           error: Şartları ve koşulları kabul ederken bir hata oluştu.
           success: Harika! Şartları ve koşulları kabul ettiniz.
         form:
-          agreement: Bu koşulları kabul ediyorum
           legend: Kullanım şartlarını ve koşullarını kabul et
         refuse:
-          modal_btn_continue: Şartları kabul et ve devam et
           modal_btn_exit: Daha sonra inceleyeceğim
-          modal_button: Şartları reddet
-          modal_close: Pencereyi kapat
+          modal_close: Yakın kalıcı
           modal_title: Güncellenmiş Şartlar ve Koşulları gerçekten reddediyor musunuz?
         required_review:
           alert: Hizmet Şartlarımızı güncellendi, lütfen inceleyin.
           body: Hizmet Şartlarımıza ait güncellemeleri incelemek için lütfen biraz zaman ayırın. Aksi halde platformu kullanamazsınız.
-          title: 'Gerekli: Hizmet şartlarımızı güncellemeleri inceleyin'
     participatory_space_private_users:
       not_allowed: Bu içeriği görüntüleme izniniz bulunmuyor
     profile:
@@ -1533,8 +1529,8 @@ tr:
       widget:
         see_more: Daha fazla gör
   locale:
-    name: ingilizce
-    name_with_error: İngilizce (hata!)
+    name: Türkçe
+    name_with_error: Türkçe (hata!)
   password_validator:
     domain_included_in_password: bu alan adına çok benzer
     email_included_in_password: e-postanıza çok benzer

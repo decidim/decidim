@@ -199,7 +199,7 @@ fi:
       participatory_spaces:
         initiatives:
           contextual: "<p><strong>Aloite</strong> on ehdotus, jota kuka tahansa voi itsenäisesti edistää ​​(muista kanavista tai osallistumistiloista riippumatta) kokoamalla (digitaaliset) tarvittavat allekirjoitukset organisaatiolle tietyn toimen toteuttamiseksi (asetuksen muuttaminen, hankkeen käynnistys, alueen tai kadun nimen muuttaminen, jne.).</p> <p>Aloitteen edistäjät voivat määritellä tavoitteet, kerätä tukijoukkoja, järjestää keskustelua, levittää aloitetta ja määritellä kohtaamispaikkoja, joissa allekirjoituksia voidaan kerätä osallistujilta tai keskustella avoimesti muiden osallistujien kanssa.</p> <p>Esimerkiksi, aloite voi: kerätä allekirjoituksia kutsuakseen koolle tietyn joukon organisaation edustajia, panna aluilleen ryhmän tai käynnistää prosessin määrärahojen lisäämisestä alueelle tai organisaatiolle. Allekirjoitusten keräysprosessin aikana useammat ihmiset voivat antaa panoksensa aloitteen vaatimuksille ja viedä sitä eteenpäin organisaatiossa.</p>\n"
-          page: "<p><strong>Aloite</strong> on ehdotus, jota kuka tahansa voi itsenäisesti edistää ​​(muista kanavista tai osallistumistiloista riippumatta) kokoamalla (digitaaliset) tarvittavat allekirjoitukset organisaatiolle tietyn toimen toteuttamiseksi (asetuksen muuttaminen, hankkeen käynnistys, alueen tai kadun nimen muuttaminen, jne.).</p> <p>Aloitteen edistäjät voivat määritellä tavoitteet, kerätä tukea, järjestää keskustelua, levittää aloitetta ja määritellä kohtaamispaikkoja, joissa allekirjoituksia voidaan kerätä osallistujilta tai keskustella avoimesti muiden osallistujien kanssa.</p> <p>Esimerkiksi, aloite voi: kerätä allekirjoituksia kutsuakseen koolle tietyn joukon organisaation edustajia, panna aluilleen ryhmän tai käynnistää prosessin määrärahojen lisäämisestä alueelle tai organisaatiolle. Allekirjoitusten keräysprosessin aikana useammat ihmiset voivat antaa panoksensa aloitteen vaatimuksille ja viedä sitä eteenpäin organisaatiossa.</p>\n"
+          page: "<p><strong>Aloite</strong> on ehdotus, jota kuka tahansa voi itsenäisesti edistää ​​(muista kanavista tai osallistumistiloista riippumatta) kokoamalla (digitaaliset) tarvittavat allekirjoitukset organisaatiolle tietyn toimen toteuttamiseksi (asetuksen muuttaminen, hankkeen käynnistys, alueen tai kadun nimen muuttaminen, jne.).</p> <p>Aloitteen edistäjät voivat määritellä tavoitteet, kerätä tukijoukkoja, järjestää keskustelua, levittää aloitetta ja määritellä kohtaamispaikkoja, joissa allekirjoituksia voidaan kerätä osallistujilta tai keskustella avoimesti muiden osallistujien kanssa.</p> <p>Esimerkiksi, aloite voi: kerätä allekirjoituksia kutsuakseen koolle tietyn joukon organisaation edustajia, panna aluilleen ryhmän tai käynnistää prosessin määrärahojen lisäämisestä alueelle tai organisaatiolle. Allekirjoitusten keräysprosessin aikana useammat ihmiset voivat antaa panoksensa aloitteen vaatimuksille ja viedä sitä eteenpäin organisaatiossa.</p>\n"
           title: Mitkä ovat aloitteet?
     initiatives:
       actions:
@@ -364,7 +364,7 @@ fi:
           back: Takaisin
           continue: Jatka
           fill_data_help: "<ul> <li>Tarkasta aloitteesi sisältö. Onko aloitteen otsikko helppo ymmärtää? Onko aloitteen tavoitteet tarpeeksi selkeästi kuvattu?</li> <li>Sinun on valittava allekirjoitustapa. Palvelun ulkopuolella, verkossa tai molemmat.</li> <li>Mikä on aloitteen maantieteellinen laajuus?</li> </ul>"
-          initiative_type: Aloitteen tyyppi
+          initiative_type: Aloitetyyppi
           more_information: "(Lisää tietoa)"
           select_area: Valitse alue
           select_scope: Valitse teema
@@ -445,6 +445,7 @@ fi:
         delete_attachment: Poista
       index:
         title: Aloitteet
+        uninitialized: Hallintakäyttäjä ei ole vielä määrittänyt aloitteiden asetuksia
       initiative_signatures:
         fill_personal_data:
           continue: Jatka

@@ -20,6 +20,7 @@ ro:
         title: Titlu
       voting:
         end_time: Votarea se încheie
+        scope_id: Domeniu de interes
         start_time: Votarea începe
         title: Titlu
     errors:
@@ -103,7 +104,6 @@ ro:
           label: Validat
           values:
             'false': Validat
-            'true': Nevalidat
     components:
       elections:
         actions:

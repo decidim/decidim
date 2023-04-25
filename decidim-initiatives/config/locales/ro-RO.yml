@@ -3,6 +3,8 @@ ro:
   activemodel:
     attributes:
       initiative:
+        answer: Răspuns
+        area_id: Zonă
         decidim_scope_id: Domeniu de interes
         decidim_user_group_id: Autor
         description: Descriere
@@ -18,8 +20,11 @@ ro:
           online: Online
         state: Status
         title: Titlu
+        type_id: Tip
       initiatives_committee_member:
         user: Membru al Comitetului
+      initiatives_settings:
+        initiatives_order: Ordine
       initiatives_type:
         area_enabled: Permite autorilor să aleagă zona pentru inițiativa lor
         attachments_enabled: Activare atașamente
@@ -35,6 +40,7 @@ ro:
         online_signature_enabled: Semnătură online activată
         only_global_scope_enabled: Permiteți crearea de inițiative aferente doar domeniilor generale de interes
         promoting_committee_enabled: Activați comitetul de promovare
+        signature_type: Tip semnătură
         title: Titlu
         undo_online_signatures_enabled: Permite participanților să își anuleze semnăturile online
         validate_sms_code_on_votes: Adaugă etapa validării codului SMS la procesul de semnare
@@ -88,6 +94,10 @@ ro:
             label: Tip
         search_placeholder:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Caută %{collection} după titlu, descriere, ID sau numele autorului.
+      initiatives_settings:
+        update:
+          error: A apărut o eroare
+          success: Setările inițiativei au fost actualizate cu succes
       menu:
         attachments: Atașamente
         committee_members: Membrii comitetului
@@ -245,6 +255,15 @@ ro:
           update:
             error: A apărut o eroare
             success: Inițiativa a fost actualizată cu succes
+        initiatives_settings:
+          edit:
+            update: Actualizare
+          form:
+            comments: Cele mai comentate
+            date: Cele mai recente
+            publication_date: Cel mai recent publicate
+            random: Aleatoriu
+            title: Setări pentru inițiative
         initiatives_type_scopes:
           create:
             error: A apărut o eroare

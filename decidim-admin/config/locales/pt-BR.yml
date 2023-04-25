@@ -177,11 +177,9 @@ pt-BR:
           error: Ocorreu um erro ao aceitar os termos de uso do administrador.
           success: Ótimo! Você aceitou os termos de uso do administrador.
         actions:
-          refuse: Recusar os termos do admin
           title: Concorde com os termos e condições de uso
         required_review:
           alert: 'Obrigatório: Revise os termos de uso de nosso administrador'
-          cta: Reveja eles agora.
         title: Termos de Uso do Administrador
       area_types:
         create:
@@ -577,7 +575,6 @@ pt-BR:
           nickname: Apelido
           reason: Motivo
           reports: Número de denúncias
-          title: Listando usuários reportados
         report:
           reasons:
             does_not_belong: Não pertence
@@ -587,8 +584,6 @@ pt-BR:
           blocked: Bloqueado
           unblocked: Não bloqueado
       moderations:
-        index:
-          title: Moderação
         report:
           reasons:
             does_not_belong: Não pertence

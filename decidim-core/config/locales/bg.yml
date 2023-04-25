@@ -963,15 +963,12 @@ bg:
         form:
           legend: Съгласявам се с общите условия за ползване
         refuse:
-          modal_btn_continue: Приемам условията и продължавам
           modal_btn_exit: Ще ги прегледам по-късно
-          modal_button: Отказвам условията
           modal_close: Затвори прозорчето
           modal_title: Наистина ли отказвате обновените Общи условия?
         required_review:
           alert: Обновихме нашите Общи условия, моля прегледайте ги.
           body: Моля, отделете време за да прегледате обновените Общи условия. В противен случай не може да използвате платформата.
-          title: 'Задължително: Прегледайте обновените Общи условия'
     participatory_space_private_users:
       not_allowed: Нямате права да преглеждате това съдържание
     profile:
@@ -1365,7 +1362,7 @@ bg:
       widget:
         see_more: Виж още
   locale:
-    name: Английски
+    name: български език
   password_validator:
     domain_included_in_password: е твърде подобно на името на домейна
     email_included_in_password: е твърде подобно на Вашата ел. поща

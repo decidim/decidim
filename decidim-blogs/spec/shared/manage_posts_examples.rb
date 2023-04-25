@@ -1,6 +1,14 @@
 # frozen_string_literal: true
 
 shared_examples "manage posts" do
+  it_behaves_like "having a rich text editor for field", ".tabs-content[data-tabs-content='post-body-tabs']", "full" do
+    before do
+      within find("tr", text: translated(post1.title)) do
+        click_link "Edit"
+      end
+    end
+  end
+
   it "updates a post" do
     within find("tr", text: translated(post1.title)) do
       click_link "Edit"

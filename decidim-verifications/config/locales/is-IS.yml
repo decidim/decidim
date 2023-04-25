@@ -105,7 +105,6 @@ is:
             success: Takk! Við sendum staðfestingarkóða á netfangið þitt
           edit:
             send: Staðfesta
-            title: Kynntu staðfestingarkóðann sem þú fékkst
             waiting_for_letter: Við sendum bréf til heimilisfangsins með staðfestingarkóðanum þínum fljótlega
           new:
             send: Sendu mér bréf

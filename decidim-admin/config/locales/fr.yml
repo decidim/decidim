@@ -654,7 +654,7 @@ fr:
           nickname: Pseudonyme
           reason: Raison du signalement
           reports: Nombre de signalements
-          title: Liste des utilisateurs signalés
+          title: Participants signalés
         report:
           reasons:
             does_not_belong: N'appartient pas
@@ -665,7 +665,7 @@ fr:
           unblocked: Non bloqué
       moderations:
         index:
-          title: Modérations
+          title: Contenu signalé
         report:
           reasons:
             does_not_belong: N'appartient pas
@@ -831,7 +831,7 @@ fr:
           up: Monter
         form:
           add: Ajouter à la liste blanche
-          title: Liste blanche du domaine externe
+          title: Liste des domaines externes autorisés
       organization_homepage:
         edit:
           active_content_blocks: Blocs de contenu actif

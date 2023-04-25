@@ -146,11 +146,9 @@ tr:
           error: Yönetici kullanım şartlarını kabul ederken bir hata oluştu.
           success: Harika! Yönetici kullanım şartlarını kabul ettiniz.
         actions:
-          refuse: Yönetici şartlarını reddedin
           title: Kullanım şartlarını ve koşullarını kabul edin
         required_review:
           alert: 'Gerekli: Yönetici kullanım şartlarımızı inceleyin'
-          cta: Şimdi gözden geçirin.
         title: Yönetici Kullanım Koşulları
       area_types:
         create:
@@ -497,15 +495,12 @@ tr:
           name: Adı
           nickname: Rumuz
           reason: Nedeni
-          title: Bildirilen kullanıcılar listesi
         report:
           reasons:
             does_not_belong: Ait değil
             offensive: Saldırgan
             spam: İstenmeyen
       moderations:
-        index:
-          title: Denetimler
         report:
           reasons:
             does_not_belong: Ait değil

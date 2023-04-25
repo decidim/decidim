@@ -5,10 +5,14 @@ require "spec_helper"
 module Decidim
   describe ExternalDomainHelper do
     context "when everything is OK" do
-      before { helper.instance_variable_set(:@url_parts, { protocol: "https:", domain: "decidim.barcelona", path: "/processes" }) }
+      before do
+        # rubocop:disable RSpec/AnyInstance
+        allow_any_instance_of(ActionView::Base).to receive(:external_url).and_return(URI.parse("https://decidim.barcelona/processes"))
+        # rubocop:enable RSpec/AnyInstance
+      end
 
       it "highlights domain" do
-        expect(helper.highlight_domain).to include('class="alert">decidim.barcelona')
+        expect(helper.highlight_domain).to include('class="text-alert">decidim.barcelona')
       end
     end
   end

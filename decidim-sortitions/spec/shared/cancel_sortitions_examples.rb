@@ -15,6 +15,8 @@ shared_examples "cancel sortitions" do
       end
     end
 
+    it_behaves_like "having a rich text editor for field", ".tabs-content[data-tabs-content='sortition-cancel_reason-tabs']", "content"
+
     context "when cancels a sortition" do
       it "Redirects to sortitions view" do
         within ".confirm_destroy_sortition" do

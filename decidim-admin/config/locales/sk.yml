@@ -133,11 +133,9 @@ sk:
           error: Pri odsúhlasení podmienok použitia nastala chyba.
           success: Skvele! Odsúhlasili ste podmienky použitia pre administrátorov.
         actions:
-          refuse: "Odmietnuť podmienky použitia pre administrátorov.\n"
           title: Súhasím s podmienkami použitia.
         required_review:
           alert: 'Vyžaduje sa: oboznámiť sa s administrátorskými podmienkami použitia'
-          cta: Oboznámte sa s nimi teraz.
         title: Administrátorské podmienky použitia
       area_types:
         create:
@@ -436,8 +434,6 @@ sk:
             state: Štát
             users_count: Počet účastníkov
       moderations:
-        index:
-          title: Moderovanie
         report:
           reasons:
             does_not_belong: Nehodí sa

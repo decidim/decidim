@@ -1,1 +1,98 @@
+---
 zh-TW:
+  activemodel:
+    attributes:
+      meeting_agenda_items:
+        duration: 持續時間
+    errors:
+      models:
+        meeting:
+          attributes:
+            iframe_embed_type:
+              not_embeddable: 這個URL無法在會議或現場活動頁面中嵌入。
+        meeting_agenda:
+          attributes:
+            base:
+              too_many_minutes: 這些項目的總時長超過了會議時間 %{count} 分鐘
+              too_many_minutes_child: 子項目的持續時間超過議程項目「%{parent_title}」的持續時間 %{count} 分鐘
+        meeting_registration_invite:
+          attributes:
+            email:
+              already_invited: 這個電子郵件帳戶已經被邀請了。
+  decidim:
+    admin:
+      filters:
+        meetings:
+          with_any_origin:
+            values:
+              user_group: 使用者群組
+          with_any_type:
+            label: 會議類型
+            values:
+              in_person: 親自
+    forms:
+      meetings:
+        attendees_count_help_text: 別忘了在您的會議中包括所有與會者的總人數，無論是現場、線上還是混合的參與者。
+    gamification:
+      badges:
+        attended_meetings:
+          unearned_another: 這個參與者還沒有參加過任何會議。
+          unearned_own: 你還沒有參加任何會議。
+    meetings:
+      admin:
+        agenda:
+          create:
+            invalid: 建立議程時發生問題
+            success: 議程成功建立
+          update:
+            invalid: 更新議程時發生問題
+            success: 議程已成功更新
+        invites:
+          index:
+            registrations_disabled: 你無法邀請參加者，因為註冊已被禁用。
+        meetings:
+          close:
+            invalid: 關閉此會議時出現問題
+            success: 會議已成功關閉
+          create:
+            invalid: 建立會議時發生問題
+          destroy:
+            invalid:
+              proposals_count:
+                other: 該會議因有 %{count} 個相關提案而無法刪除
+          form:
+            disclaimer: '免責聲明：使用外部註冊系統時，您知道%{organization} 的組織者不對使用者提供給外部服務的數據負責。'
+          publish:
+            invalid: 發佈此會議時出現問題。
+            success: 會議成功發佈
+          unpublish:
+            invalid: 取消發佈會議時出了問題
+            success: 會議已成功取消發佈。
+          update:
+            invalid: 更新會議時發生問題
+            success: 會議成功更新
+        meetings_poll:
+          update:
+            invalid: 更新會議投票時出現問題
+            success: 會議投票調查已成功更新"
+        registrations:
+          form:
+            reserved_slots_help: 若您沒有保留名額，請將其設為0。
+      calendar_modal:
+        copy_calendar_url_explanation: 請注意，您正在匯出一個會議的選擇，因為存在有效的篩選器。如果您希望全部匯出，請先重置所有篩選器。
+      last_activity:
+        meeting_updated_at_html: "<span>會議已更新，請查看連結：%{link}</span>"
+        new_meeting_at_html: "<span>在 %{link} 新增會議</span>"
+      meeting:
+        not_allowed: 你無權查看此會議。
+      meetings:
+        form:
+          disclaimer: '免責聲明：使用外部註冊系統時，您知道%{organization} 的組織者不對使用者提供給外部服務的數據負責。'
+        meetings:
+          no_meetings_warning: 沒有符合搜尋條件的會議或者目前沒有任何已排定的會議。
+      registrations:
+        create:
+          success: 您已成功加入會議。因為您已註冊此會議，如果有任何更新，您將收到通知。
+      withdraw:
+        error: 退出會議時發生錯誤
+        success: 會議已成功取消
