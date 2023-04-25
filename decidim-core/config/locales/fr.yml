@@ -29,7 +29,7 @@ fr:
         password_confirmation: Confirmez votre mot de passe
         personal_url: Site internet personnel
         remove_avatar: Supprimer l'avatar
-        tos_agreement: Contrat de service
+        tos_agreement: Conditions d'utilisation
     models:
       decidim/attachment_created_event: Document lié
       decidim/component_published_event: Fonctionnalité active
@@ -77,7 +77,7 @@ fr:
     'true': 'Oui'
   carrierwave:
     errors:
-      file_cannot_be_processed: Impossible d’ouvrir le fichier
+      file_cannot_be_processed: Le fichier n'a pas pu être traité
       file_resolution_too_large: La résolution du fichier est trop grande
       file_size_too_large: Le fichier est trop volumineux
       not_inside_organization: Le fichier n'est relié à aucune organisation
@@ -137,7 +137,7 @@ fr:
         success: Votre compte a été supprimé avec succès.
       download_your_data_export:
         file_no_exists: Le fichier n'existe pas
-        notice: "The download of your data is currently in progress. You will receive an email when it is complete.\nLe téléchargement de vos données est en cours. Vous recevrez un email lorsque celui-ci sera terminé."
+        notice: Le téléchargement de vos données est en cours. Vous recevrez un email lorsque celui-ci sera terminé.
       email_change:
         body1: Nous avons envoyé un e-mail à %{unconfirmed_email} pour vérifier votre nouvelle adresse e-mail.
         body2: Envoyer à nouveau l'e-mail de vérification ? %{resend_link} ou %{cancel_link}.
