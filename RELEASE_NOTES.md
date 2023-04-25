@@ -434,3 +434,5 @@ class MySMSGatewayService
   # ...
 end
 ```
+
+You can read more about this change at PR [\#10760](https://github.com/decidim/decidim/pull/10760).
