@@ -254,7 +254,7 @@ fr:
       user_moderation:
         unreport: "%{user_name} a annulé le signalement de %{resource_type} - %{unreported_user_name}"
     admin_terms_of_service:
-      default_body: "<h2>ADMIN TERMS OF SERVICE</h2><p>We trust you have received the usual lecture from the local System Administrator. It usually boils down to these three things:</p><ol><li>Respect the privacy of others.</li><li>Think before you click.</li><li>With great power comes great responsibility.</li></ol>\n<h2>CONDITION D'UTILISATION ADMINISTRATEUR</h2><p>En espérant que vous ayez bien reçu les instrcutions de l'administrateur système de la plateforme, celles-ci se résument généralement en trois parties :</p><ol><li>Respectez la vie privée des autres.</li><li>Réfléchissez avant de cliquer.</li><li>De grands pouvoirs impliquent de grandes responsabilités.</li></ol>"
+      default_body: "<h2>CONDITION D'UTILISATION ADMINISTRATEUR</h2><p>En espérant que vous ayez bien reçu les instructions de l'administrateur système de la plateforme, celles-ci se résument généralement en trois parties :</p><ol><li>Respectez la vie privée des autres.</li><li>Réfléchissez avant de cliquer.</li><li>De grands pouvoirs impliquent de grandes responsabilités.</li></ol>"
     alert:
       dismiss: Rejeter la notification
     amendments:
@@ -268,7 +268,7 @@ fr:
         help_text: Améliorer ce %{model_name} en modifiant ses %{amendable_fields}.
         promote_button: Promouvoir à %{model_name}
         promote_confirm_text: Êtes-vous sûr de vouloir promouvoir cette modification?
-        promote_help_text: Vous pouvez promouvoir cette correction et la publier en tant qu'indépendant %{model_name}.
+        promote_help_text: Vous pouvez promouvoir cette correction et la publier indépendamment de %{model_name}.
         section_heading: Amendements (%{count})
       compare_draft:
         continue: Continuer
@@ -361,7 +361,7 @@ fr:
       official_author: Officiel
     authorization_handlers:
       another_dummy_authorization_handler:
-        explanation: Obtenir une vérification en saisissant un numéro de passeport commençant par "A".
+        explanation: Obtenir une vérification en saisissant un numéro de pièce d'identité commençant par "A".
         fields:
           passport_number: Numéro de passeport
           postal_code: Code postal
@@ -400,7 +400,7 @@ fr:
           title: Autorisation expirée
         incomplete:
           cancel: Annuler
-          explanation: "Even though you are currently authorized with \"%{authorization}\", we need you to reauthorize because we lack the following data:\nBien que vous soyez actuellement autorisé avec \"%{autorisation}\", nous avons besoin de vous réautoriser suite aux données manquantes suivantes :"
+          explanation: 'Bien que vous soyez actuellement autorisé avec "%{autorisation}", nous avons besoin de vous réautoriser en raison des données manquantes suivantes :'
           invalid_field: "%{field}"
           reauthorize: Autoriser de nouveau
           title: Veuillez autoriser de nouveau
@@ -409,14 +409,14 @@ fr:
           explanation: Pour effectuer cette action, vous devez être autorisé avec "%{authorization}".
           title: Autorisation requise
         ok:
-          title: "You have been authorized while in this page. Please, reload the page to perform your action.\nVous avez été autorisé à accéder à cette page. Veuillez recharger celle-ci pour effectuer votre action."
+          title: Vous avez été autorisé à accéder à cette page. Veuillez recharger celle-ci pour effectuer votre action.
         pending:
           explanation: Pour effectuer cette action, vous devez être autorisé avec "%{authorization}", mais votre autorisation est toujours en cours de validation.
           resume: Vérifiez votre progression d'autorisation pour "%{authorization}".
           title: L'autorisation est toujours en cours de validation
         unauthorized:
           explanation: Désolé, vous ne pouvez pas effectuer cette action car certaines de vos données d'autorisation ne correspondent pas.
-          invalid_field: "La valeur du champ %{field} (%{value}) n'est pas valide."
+          invalid_field: "La valeur %{value} du champ %{field} n'est pas valide."
           ok: D'accord
           title: Non autorisé
         unconfirmed:
@@ -536,7 +536,7 @@ fr:
     devise:
       omniauth_registrations:
         create:
-          email_already_exists: Un autre compte utilise la même adresse de email.
+          email_already_exists: Un autre compte utilise la même adresse email.
         new:
           complete_profile: Complétez votre profil
           nickname_help: Cet identifiant est public et unique sur %{organization} ; il permet aux autres utilisateurs de vous suivre, de vous contacter ou de vous mentionner dans leurs commentaires. Il s’affichera précédé d’un « @ » ; il ne doit pas contenir d’espace ni de caractère spécial.
@@ -1132,8 +1132,8 @@ fr:
     newsletter_mailer:
       newsletter:
         no_reply_notice: Cet e-mail a été envoyé à partir d'une adresse automatique qui ne peut pas recevoir d'e-mail. Veuillez ne pas répondre à ce message.
-        note: Vous avez reçu ce courrier électronique parce que vous êtes abonné aux bulletins d'information de %{organization_name}. Vous pouvez modifier vos paramètres sur votre <a href="%{link}">page de notifications</a>.
-        see_on_website: "Cannot see this email correctly? View it on the <a href=\"%{link}\" target=\"_blank\" class=\"see-on-website\">website</a>.\nCet email ne s'affiche pas correctement ? Affichez-le dans un navigateur <a href=\"%{link}\" target=\"_blank\" class=\"see-on-website\">website</a>."
+        note: Vous avez reçu ce courrier électronique parce que vous êtes abonné aux newsletters de %{organization_name}. Vous pouvez modifier vos paramètres sur votre <a href="%{link}">page de notifications</a>.
+        see_on_website: Cet email ne s'affiche pas correctement ? Affichez-le sur le <a href="%{link}" target="_blank" class="see-on-website">site interne</a>.
         unsubscribe: Pour ne plus recevoir ce type d'email, <a href="%{link}" target="_blank" class="unsubscribe">Désabonnez-vous</a>.
     newsletter_templates:
       basic_only_text:
@@ -1165,7 +1165,7 @@ fr:
       unathorized: Désolé, ce lien n'est plus disponible.
       update:
         error: Un problème est survenu lors de l'enregistrement des paramètres de la newsletter.
-        success: Les paramètres de la lettre d’information ont été mis à jour avec succès.
+        success: Les paramètres de la newsletter ont été mis à jour avec succès.
     newsletters_opt_in_mailer:
       notify:
         body_1: Le traitement des données personnelles et leur protection deviennent de plus en plus importants pour nous tous. Avec le nouveau règlement général sur la protection des données (RGPD) du 25 mai 2018, les individus contrôlent mieux leurs données personnelles. Pour cette raison, nous avons besoin de votre accord pour continuer à vous envoyer des informations pertinentes sur les activités de %{organization_name}.
@@ -1273,21 +1273,21 @@ fr:
       terms_of_service:
         accept:
           error: Une erreur s'est produite lors de l'acceptation des conditions d'utilisation.
-          success: "Great! You have accepted the admin terms of service.\nFélicitation ! Vous avez accepté les conditions d'utilisation de l'administrateur."
+          success: Félicitations ! Vous avez accepté les conditions d'utilisation.
         form:
           agreement: J'accepte les conditions d'utilisation
           legend: Accepter les conditions d’utilisation
         refuse:
           modal_body: Si vous refusez, vous ne pourrez pas utiliser la plateforme. Vous pouvez <a href="%{download_your_data_path}">télécharger vos données</a> ainsi que <a href="%{delete_path}">supprimer votre compte</a>.
           modal_btn_continue: Accepter les conditions et continuer
-          modal_btn_exit: Je l'examinerai plus tard
+          modal_btn_exit: Je les examinerai plus tard
           modal_button: Refuser les conditions d'utilisation
           modal_close: Fermer la boîte de dialogue
-          modal_title: "Do you really refuse the updated terms of service?\nEtes-vous sûr de vouloir refuser les conditions d'utilisation mises à jour ?"
+          modal_title: Êtes-vous sûr de vouloir refuser les conditions d'utilisation mises à jour ?
         required_review:
           alert: Nous avons mis à jour nos conditions d'utilisation, veuillez les consulter.
-          body: "Please take a moment to review updates to our Terms of Services. Otherwise you will not be able to use the platform.\nVeuillez prendre le temps de consulter nos conditions d'utilisation mises à jour. Dans le cas contraire, vous ne serrez pas en meusre d'utiliser la plateforme."
-          title: "Required: Review updates to our terms of service\nRequis : veuillez consulter la mise à jour des conditions d'utilisation."
+          body: Veuillez prendre le temps de consulter nos conditions d'utilisation mises à jour. Dans le cas contraire, vous ne serrez pas en mesure d'utiliser la plateforme.
+          title: 'Requis : veuillez consulter la mise à jour des conditions d''utilisation.'
     participatory_space_private_users:
       not_allowed: Vous n'êtes pas autorisé à voir ce contenu
     passwords:
@@ -1422,7 +1422,7 @@ fr:
         already_reported: Ce contenu a déjà été signalé et il sera examiné par un administrateur.
         close: Fermer
         description: Ce contenu est-il inapproprié ?
-        does_not_belong: "Contains illegal activity, suicide threats, personal information, or something else you think does not belong on %{organization_name}.\nContenu d'activité illégale, menace de suicide, informations personnelles ou tout autre élément qui, selon vous, n'aurait pas sa place sur %{nom_de_l'organisation}."
+        does_not_belong: Contient du contenu illégal, menace de suicide, informations personnelles ou tout autre élément qui, selon vous, n'aurait pas sa place sur %{nom_de_l'organisation}.
         hide: Masquer
         hide_content: Masquer ce contenu
         offensive: Contient des propos contraires à la loi (propos racistes, sexistes, insultes, attaques personnelles, menaces de mort, incitations au suicide ou toute forme de discours de haine,...).
@@ -1436,7 +1436,7 @@ fr:
         block: Bloquer ce participant
         close: Fermer
         description: Qu'est-ce qui est inapproprié à propos de cet utilisateur ?
-        does_not_belong: "Contains illegal activity, suicide threats, personal information, or something else you think does not belong on %{organization_name}.\nContenu d'activité illégale, menace de suicide, informations personnelles ou tout autre élément qui, selon vous, n'aurait pas sa place sur %{nom_de_l'organisation}."
+        does_not_belong: Contient du contenu illégal, menace de suicide, informations personnelles ou tout autre élément qui, selon vous, n'aurait pas sa place sur %{nom_de_l'organisation}.
         hide: Masquer tous ses contenus
         offensive: Rédige des contenus racistes, sexistes, contenant des insultes, attaques personnelles, menaces de mort, incitations au suicide ou toute forme de discours de haine.
         report: Signaler
