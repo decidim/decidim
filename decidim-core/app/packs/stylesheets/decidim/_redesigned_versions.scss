@@ -52,7 +52,7 @@
       > ins,
       > del,
       > *{
-        @apply no-underline;
+        @apply no-underline break-words;
       }
     }
 
