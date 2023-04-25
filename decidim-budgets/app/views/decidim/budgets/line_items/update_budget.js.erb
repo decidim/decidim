@@ -8,7 +8,9 @@ var $budgetConfirm = $('#budget-confirm');
 morphdom($orderTotalBudget[0], '<%= j(render partial: "decidim/budgets/projects/order_total_budget").strip.html_safe %>');
 morphdom($orderProgress[0], '<%= j(render partial: "decidim/budgets/projects/order_progress_summary_content", locals: { include_heading: true }).strip.html_safe %>');
 morphdom($budgetConfirm[0], '<%= j(render partial: "decidim/budgets/projects/budget_confirm").strip.html_safe %>')
-morphdom($orderSelectedProjectsCount[0], '<%= j(render partial: "decidim/budgets/projects/projects_count", locals: { count: current_order.projects.count }).strip.html_safe %>')
+if ($orderSelectedProjectsCount.length > 0) {
+  morphdom($orderSelectedProjectsCount[0], '<%= j(render partial: "decidim/budgets/projects/projects_count", locals: { count: current_order.projects.count }).strip.html_safe %>')
+}
 
 $("#order-progress").foundation();
 $(".budget-summary__selected").foundation();
