@@ -183,7 +183,20 @@ zh-TW:
             amendment_promotion_enabled: 修正提案提升功能啟用
             amendment_promotion_enabled_help: 修正提案的作者將能夠將被拒絕的修正提案提升為提案。
             amendment_reaction_enabled: 啟用修正提案反應
+            amendment_reaction_enabled_help: 提案的作者可以接受或拒絕參與者的修改。
+            amendments_visibility: 修正案的可見性
+            amendments_visibility_choices:
+              all: 所有人都可以看到修正案
+              participants: 修正案僅限作者可見
+            amendments_visibility_help: 若選擇「修正案僅限作者可見」選項，參與者必須登入以查看所做的修正。
+            announcement: 公告
+            answers_with_costs: 啟用提案回答的成本
+            automatic_hashtags: 所有提案都已添加標籤
             comments_blocked: 留言已封鎖
+            creation_enabled: 參與者可以建立提案
+            creation_enabled_readonly: 啟用參與式文本功能後，此設置將被禁用。要將提案上傳為參與式文本，請點擊“參與式文本”按鈕，然後按照說明進行操作。
+            default_sort_order: 預設提案排序
+            default_sort_order_help: 默認意味著如果啟用了支持，則建議將提案按隨機順序排序，如果封鎖了支持，則將按最受支持的順序排序。
             default_sort_order_options:
               default: 預設值
               most_commented: 最多評論
@@ -263,15 +276,54 @@ zh-TW:
             notification_title: <a href="%{resource_path}">%{resource_title}</a>" 提案已經被接受。
         proposal_evaluating:
           affected_user:
+            email_intro: '您的提案“%{resource_title}”正在進行評估。您可以在此頁面上查看答案：'
+            email_outro: 你收到此通知，是因為你是「%{resource_title}」的作者。
             email_subject: 您的提案正在被評估中
+            notification_title: 您的提案<a href="%{resource_path}">%{resource_title}</a>正在評估中。
           follower:
+            email_intro: '該提案“%{resource_title}”正在進行評估。您可以在此頁面上查看答案：'
+            email_outro: 您收到了此通知，是因為您正在關注 "%{resource_title}"。您可以通過前面的鏈接取消關注它。
             email_subject: 你追蹤的提案正在評估中
+            notification_title: <a href="%{resource_path}">%{resource_title}</a> 提案正在評估中。
+        proposal_mentioned:
+          email_intro: 你的提案「%{mentioned_proposal_title}」在評論中被提及，<a href="%{resource_url}">請至此空間查看</a>。
+          email_outro: 你收到此通知，是因為你是「%{resource_title}」的作者。
+          email_subject: 你的提案「%{mentioned_proposal_title}」已被提及。
+          notification_title: 你的提案「%{mentioned_proposal_title}」在評論中被提及，<a href="%{resource_path}">請至此空間查看</a>。
+        proposal_published:
+          email_intro: '%{author_name} %{author_nickname}，你正在關注的用戶，已經發布了一個名為“%{resource_title}”的新提案。快去看看並參與：'
+          email_outro: 您收到此通知，是因為您正在關注 %{author_nickname}。您可以使用上面的連結停止接收通知。
+          email_subject: 新提案「%{resource_title}」由 %{author_nickname} 提交
+          notification_title: 提案 <a href="%{resource_path}">%{resource_title}</a> 由 <a href="%{author_path}">%{author_name} %{author_nickname}</a> 提出。
         proposal_published_for_space:
+          email_intro: 您正在追蹤的「%{participatory_space_title}」中新增了提案「%{resource_title}」。
+          email_outro: 收到這個提醒是因為訂閱了 "%{participatory_space_title}" ，透過上面連結可以停止訂閱。
+          email_subject: 新增提案「%{resource_title}」至「%{participatory_space_title}」。
           notification_title: '%{author} 將提案<a href="%{resource_path}">%{resource_title}</a>新增至%{participatory_space_title}'
           notification_title_official: 官方提案 <a href="%{resource_path}">%{resource_title}</a> 已經被添加到 %{participatory_space_title}
         proposal_rejected:
+          affected_user:
+            email_intro: '您的提案「%{resource_title}」已被駁回。您可以在此頁面中閱讀回覆：'
+            email_outro: 你收到此通知，是因為你是「%{resource_title}」的作者。
+            email_subject: 您的提案已被駁回
+            notification_title: 您的提案<a href="%{resource_path}">%{resource_title}</a>已被拒絕。
           follower:
+            email_intro: '該提案「%{resource_title}」已被駁回。您可以在此頁面中閱讀回覆：'
+            email_outro: 您收到了此通知，是因為您正在關注 "%{resource_title}"。您可以通過前面的鏈接取消關注它。
             email_subject: 您追蹤的提案已被拒絕
+            notification_title: <a href="%{resource_path}">%{resource_title}</a>" 提案已經被拒絕。
+        proposal_update_category:
+          email_intro: '管理員已更新您的提案 "%{resource_title}" 的分類，請前往此頁面查看：'
+          email_outro: 您收到此通知是因為您是該提案的作者。
+          email_subject: '「%{resource_title}」提案的分類已更新'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> 提案類別已由管理員更新。
+        proposal_update_scope:
+          email_intro: '一位管理員已更新您的提案"%{resource_title}" 的範圍，您可以在此頁面檢查：'
+          email_outro: 您收到此通知是因為您是該提案的作者。
+          email_subject: '%{resource_title} 提案範圍已更新'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> 提案範圍已由管理員更新。
+        voting_enabled:
+          email_outro: 你收到此通知是因為你正在追蹤 %{participatory_space_title}。你可以透過前面的連結停止接收通知。
     gamification:
       badges:
         accepted_proposals:
@@ -393,7 +445,18 @@ zh-TW:
           create:
             invalid: 創建提案時發生問題
             success: 提案已成功建立
+          edit:
+            update: 更新
+          form:
+            attachment_legend: "(可選) 新增附件"
+            created_in_meeting: 這個提案來自會議
+            delete_attachment: 刪除附件
+            select_a_category: 選擇一個類別
+            select_a_meeting: 選擇一個會議
           index:
+            actions: 操作
+            assign_to_valuator: 分配給評估人員
+            assign_to_valuator_button: 指派
             cancel: 取消
             change_category: 變更類別
             change_scope: 變更範圍
@@ -451,10 +514,25 @@ zh-TW:
             invalid: '這些提案已經有了 %{subject_name} 的範圍: %{proposals}。'
             select_a_proposal: 請選擇一個提案。
             select_a_scope: 請選擇一個範圍。
+            success: '成功將提案更新到 %{subject_name} 的範圍內： %{proposals}。'
         proposals_imports:
           create:
             invalid: 匯入提案時發生問題
             success: "%{number} 個提案成功匯入"
+          new:
+            create: 匯入提案
+            no_components: 這個參與空間中沒有其他的提案元件可以匯入提案。
+            select_component: 請選擇一個組件
+            select_states: 檢查要匯入的提案狀態。
+            title: 匯入提案
+        proposals_merges:
+          create:
+            invalid: '由於其中一些提案存在問題，因此無法合併所選提案：'
+            success: 已成功合併提案成為新的提案。
+        proposals_splits:
+          create:
+            invalid: '由於其中一些提案存在問題，因此無法分割所選提案：'
+            success: 成功將提案拆分為新的提案。
         valuation_assignments:
           create:
             invalid: 有一個錯誤在指定提案給評估者。
@@ -462,6 +540,40 @@ zh-TW:
           delete:
             invalid: 取消指派建議書給評估人員時發生錯誤
             success: 評估員已成功取消分配提案
+      admin_log:
+        proposal:
+          answer: "%{user_name} 回覆了在 %{space_name} 空間的 %{resource_name} 提案。"
+          create: "%{user_name} 在%{space_name} 空間中創建了官方提案%{resource_name}"
+          publish_answer: "%{user_name} 在%{space_name} 空間中發表了對%{resource_name} 提案的回答"
+          update: "%{user_name} 在%{space_name} 空間中更新了%{resource_name} 官方提案"
+        proposal_note:
+          create: "%{user_name} 在 %{space_name} 空間的 %{resource_name} 提案中留下了私人註記。"
+        valuation_assignment:
+          create: "%{user_name} 將 %{resource_name} 提案指派給了一個評估者。"
+          delete: "%{user_name} 取消了 %{proposal_title} 提案的評估者指派。"
+      answers:
+        accepted: 已接受
+        evaluating: 評估
+        not_answered: 未回答
+        rejected: 已拒絕
+        withdrawn: 已撤回
+      application_helper:
+        filter_category_values:
+          all: 全部
+        filter_origin_values:
+          all: 全部
+          meetings: 會議
+          official: 官方
+          participants: 參與者
+          user_groups: 群組
+        filter_scope_values:
+          all: 全部
+        filter_state_values:
+          accepted: 已接受
+          all: 全部
+          evaluating: 評估
+          not_answered: 未回答
+          rejected: 已拒絕
       collaborative_drafts:
         collaborative_draft:
           publish:
@@ -540,8 +652,22 @@ zh-TW:
         proposal_updated_at_html: "<span>提案已更新%{link}</span>"
       new:
         limit_reached: 你已經超過了提案數量的限制，因此無法創建新的提案。
+      participatory_text_proposal:
+        alternative_title: 目前沒有參與性文字
+        buttons:
+          amend: 修訂
+          comment: 評論
+          comments: 評論
+      proposal_votes:
+        create:
+          error: 支持提案時發生問題。
       proposals:
+        compare:
+          continue: 繼續
+          no_similars_found: 做得好！沒有相似的提案
+          title: 相似的提案
         complete:
+          send: 發送
           title: 完成您的提案
         count:
           proposals_count:
@@ -604,11 +730,61 @@ zh-TW:
           most_followed: 最多追蹤者
           most_voted: 最受支持的
           random: 隨機
+          recent: 最近
+          with_more_authors: 有更多作者
+        participatory_texts:
+          index:
+            document_index: 文件索引
+          view_index:
+            see_index: 查看索引
+        placeholder:
+          address: 37 Homewood Drive Brownsburg, IN 46112
+        preview:
+          announcement_body: 您的提案已被儲存為草案。它需要被發布才能出現在網站上。
+          announcement_title: 您的提案尚未發布
+          modify: 修改提案
+          proposal_edit_before_minutes:
+            other: "One\n提案發布後的前1分鐘內，您可以對其進行編輯。此時間窗口過後，您將無法編輯提案。\nOther\n提案發布後的前 %{count} 分鐘內，您可以對其進行編輯。此時間窗口過後，您將無法編輯提案。"
+          publish: 發布
+          title: 發佈您的提案
+        proposal:
+          creation_date: '創建日期： %{date}"'
+          view_proposal: 檢視提案
         proposals:
           empty: 目前沒有提案
           empty_filters: 沒有符合這個條件的提案
         show:
+          answer: 回答
+          back_to: 返回
+          back_to_list: 返回列表
+          changes_at_title: 修正案 "%{title}"
+          comments: 評論
+          edit_proposal: 編輯提案
           endorsements_list: 推薦列表
+          estimated_cost: 預估成本
+          hidden_endorsers_count:
+            other: "one\n以及其他 %{count} 個人\n\nOther\n以及其他 %{count} 個人"
+          link_to_collaborative_draft_help_text: 這個提案是由協作草稿所產生的。請查看歷史記錄。
+          link_to_collaborative_draft_text: 查看協作草稿
+          link_to_promoted_emendation_help_text: 這份提案是一項推動性的修正案
+          link_to_promoted_emendation_text: 查看被拒絕的修正案。
+          link_to_proposal_from_emendation_help_text: 這是一個被拒絕的修改動議
+          link_to_proposal_from_emendation_text: 查看提案
+          proposal_accepted_reason: '這個提案已經被接受，因為：'
+          proposal_in_evaluation_reason: 這個提案正在被評估中
+          proposal_rejected_reason: '這個提案被拒絕了，因為：'
+          read_less: 顯示較少
+          read_more: 顯示較多
+          report: 報告
+          withdraw_btn_hint: 如果你改變主意，只要你的提案沒有獲得任何支持，你可以撤回你的提案。提案不會被刪除，它會顯示在被撤回的提案清單中。
+          withdraw_confirmation_html: 您確定要撤回此提案嗎？<br><br><strong>此操作無法取消！</strong>
+          withdraw_proposal: 撤回提案
+        tags:
+          changed_from: "(由管理員修改自 <u>%{previous_name}</u>)"
+        update:
+          title: 更新提案
+        vote_button:
+          already_voted: 已得到支持
         voting_rules:
           minimum_votes_per_user:
             description: 你必須在不同的提案之間分配至少 %{votes} 票的支持。
