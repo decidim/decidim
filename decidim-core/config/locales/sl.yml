@@ -67,3 +67,4 @@ sl:
         sign_up: Registracija
   locale:
     name: Slovenščina
+    name_with_error: Slovenščina (napaka!)

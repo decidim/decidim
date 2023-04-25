@@ -1,1 +1,22 @@
 zh-TW:
+  activerecord:
+    errors:
+      models:
+        decidim/consultations/vote:
+          attributes:
+            question:
+              invalid_num_votes: 投票數無效。
+  decidim:
+    admin:
+      consultations:
+        deprecation_warning: 諮詢模組將在不久的將來被棄用。我們正在開發下一個加密安全版本，名為 Votings。
+      question_configuration:
+        disable_external_voting: 請在進階配置中禁用外部投票功能。
+    consultations:
+      filters:
+        state: 狀態
+      last_activity:
+        new_question_at_html: "<span>有新問題，連結網址為 %{link}</span>"
+      question_votes:
+        create:
+          error: 投票此問題時出現問題。

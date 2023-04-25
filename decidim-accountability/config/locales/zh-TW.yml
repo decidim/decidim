@@ -155,6 +155,8 @@ zh-TW:
           row_number: 列
           subject: 結果匯入成功
           success: 結果匯入成功，在管理介面可以檢視。
+      last_activity:
+        new_result_at_html: "<span>在 %{link} 有新的結果</span>"
       models:
         result:
           fields:
@@ -186,6 +188,7 @@ zh-TW:
             other: "%{count} 個結果"
         filters:
           all: 全部
+          scopes: 範圍
         home:
           categories_label: 類別
           subcategories_label: 子類別

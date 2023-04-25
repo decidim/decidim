@@ -10,6 +10,7 @@ hu:
         end_time: Lejár ekkor
         information_updates: Információ frissítések
         instructions: Útmutató a részvételhez
+        scope_id: Hatókör
         start_time: Kezdődik
         title: Cím
         user_group_id: Vita létrehozása
