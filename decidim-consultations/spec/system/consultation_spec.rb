@@ -4,7 +4,9 @@ require "spec_helper"
 
 describe "Consultation", type: :system do
   let!(:organization) { create(:organization) }
-  let!(:consultation) { create(:consultation, :published, organization: organization) }
+  let(:description) { { en: "Short description", ca: "Descripció curta", es: "Descripción corta" } }
+  let(:introductory_video_url) { "https://www.youtube.com/watch?v=1234567890" }
+  let!(:consultation) { create(:consultation, :published, organization: organization, description: description, introductory_video_url: introductory_video_url) }
   let!(:user) { create :user, :confirmed, organization: organization }
 
   before do
@@ -18,6 +20,10 @@ describe "Consultation", type: :system do
   context "when requesting the consultation path" do
     before do
       visit decidim_consultations.consultation_path(consultation)
+    end
+
+    it_behaves_like "has embedded video in description", :description do
+      let(:introductory_video_url) { nil }
     end
 
     it "Shows the basic consultation data" do
