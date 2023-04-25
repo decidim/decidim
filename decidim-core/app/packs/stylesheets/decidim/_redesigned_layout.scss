@@ -64,7 +64,7 @@
   }
 
   &__back{
-    @apply md:absolute md:-left-[1em] md:-top-8 md:-translate-y-full;
+    @apply mb-4 md:mb-0 md:absolute md:-left-[1em] md:-top-8 md:-translate-y-full;
   }
 
   &__arrow{
