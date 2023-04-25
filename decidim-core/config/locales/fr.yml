@@ -562,7 +562,7 @@ fr:
         new:
           are_you_new?: Nouveau sur la plateforme ?
           register: S'inscrire
-          sign_in_disabled: Vous pouvez accéder avec un compte externe.
+          sign_in_disabled: Vous pouvez vous connecter avec un compte externe.
           sign_up_disabled: La création de compte est désactivée, mais vous pouvez vous identifier avec un compte existant.
         user:
           timed_out: Vous avez été inactif pendant trop longtemps et vous avez été automatiquement déconnecté du service. Si vous souhaitez continuer à utiliser le service, veuillez vous reconnecter.
