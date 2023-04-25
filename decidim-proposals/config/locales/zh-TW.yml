@@ -269,8 +269,57 @@ zh-TW:
       votes:
         object: 支持
         title: 支援
+    participatory_spaces:
+      highlighted_proposals:
+        see_all: 檢視所有提案 (%{count})
     proposals:
+      actions:
+        answer_proposal: 回覆提案
+        edit_proposal: 編輯提案
+        import: 從其他元件匯入提案
+        new: 新提案
+        participatory_texts: 參與文字
+        show: 查看提案
+        title: 操作
       admin:
+        actions:
+          preview: 預覽
+        exports:
+          proposal_comments: 評論
+          proposals: 提案
+        imports:
+          help:
+            answers: |
+              匯入文件如果是 CSV 或 Excel 檔案，應包含以下列名，如果是 JSON 檔案，則應包含以下名稱：
+
+              <ul>
+              <li><b>id：</b>要回答的提案的 ID</li>
+              <li><b>state：</b>狀態之一，可以是 "接受"、"評估中" 或 "拒絕"</li>
+              <li><b>answer/en：</b>英文語言的答案。這將取決於您平台的語言設置。</li>
+              </ul>
+            proposals: |
+              在 CSV 或 Excel 文件的情況下，或在 JSON 文件的情況下，文件必須具有以下列名稱：
+
+              <ul>
+              <li><b>title/en：</b>英文標題，這取決於您平台的語言配置。</li>
+              <li><b>body/en：</b>英文正文，這取決於您平台的語言配置。</li>
+              <li><b>scope/id：</b>範圍的 ID。</li>
+              <li><b>category/id：</b>類別的 ID。</li>
+              </ul>
+          label:
+            answers: 從檔案匯入回覆
+            proposals: 從檔案匯入提案
+          resources:
+            answers:
+              other: 提案回應
+            proposals:
+              other: 提案
+          title:
+            answers: 匯入提案回應
+            proposals: 導入提案
+        models:
+          proposal:
+            name: 提案
         participatory_texts:
           publish:
             invalid: 無法發佈提案
@@ -286,6 +335,10 @@ zh-TW:
           create:
             invalid: 創建提案時發生問題
             success: 提案已成功建立
+          index:
+            cancel: 取消
+            change_category: 變更類別
+            change_scope: 變更範圍
           publish_answers:
             select_a_proposal: 請選擇一個提案。
           update_category:
