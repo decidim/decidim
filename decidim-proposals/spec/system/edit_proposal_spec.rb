@@ -29,7 +29,7 @@ describe "Edit proposals", type: :system do
       click_link proposal_title
       click_link "Edit proposal"
 
-      expect(page).to have_content "EDIT PROPOSAL"
+      expect(page).to have_content "Edit proposal"
       expect(page).not_to have_content("You can move the point on the map.")
 
       within "form.edit_proposal" do
@@ -65,10 +65,8 @@ describe "Edit proposals", type: :system do
         it "can delete attachments" do
           visit current_path
 
-          # REDESIGN_PENDING: the documents partial now comes with no title,
-          # that's is something will be added in the proposal view
-          # expect(page).to have_content("Related documents")
-          expect(page).to have_content("RELATED IMAGES")
+          expect(page).to have_content("Documents")
+          expect(page).to have_content("Images")
           click_link "Edit proposal"
 
           click_button "Edit documents"
@@ -84,8 +82,8 @@ describe "Edit proposals", type: :system do
 
           click_button "Send"
 
-          expect(page).to have_no_content("Related documents")
-          expect(page).to have_no_content("Related images")
+          expect(page).to have_no_content("Documents")
+          expect(page).to have_no_content("Images")
         end
 
         context "with attachment titles" do
@@ -130,11 +128,11 @@ describe "Edit proposals", type: :system do
           dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city3.jpeg"))
           click_button "Send"
           expect(page).to have_selector("[data-alert-box].success")
-          expect(page).to have_selector(".thumbnail[alt='city']")
-          expect(page).to have_selector(".thumbnail[alt='icon']")
-          expect(page).to have_selector(".thumbnail[alt='avatar']")
-          expect(page).to have_selector(".thumbnail[alt='city2']")
-          expect(page).to have_selector(".thumbnail[alt='city3']")
+          expect(page).to have_selector("img.object-cover[alt='city']")
+          expect(page).to have_selector("img.object-cover[alt='icon']")
+          expect(page).to have_selector("img.object-cover[alt='avatar']")
+          expect(page).to have_selector("img.object-cover[alt='city2']")
+          expect(page).to have_selector("img.object-cover[alt='city3']")
         end
       end
     end
@@ -213,7 +211,7 @@ describe "Edit proposals", type: :system do
         click_link proposal_title
         click_link "Edit proposal"
 
-        expect(page).to have_content "EDIT PROPOSAL"
+        expect(page).to have_content "Edit proposal"
 
         within "form.edit_proposal" do
           fill_in :proposal_body, with: "A"
@@ -237,7 +235,7 @@ describe "Edit proposals", type: :system do
         click_link proposal_title
         click_link "Edit proposal"
 
-        expect(page).to have_content "EDIT PROPOSAL"
+        expect(page).to have_content "Edit proposal"
 
         within "form.edit_proposal" do
           fill_in :proposal_title, with: "A title with a #hashtag"
