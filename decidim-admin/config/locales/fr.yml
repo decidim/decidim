@@ -831,7 +831,7 @@ fr:
           up: Monter
         form:
           add: Ajouter à la liste blanche
-          title: Liste blanche du domaine externe
+          title: Liste des domaines externes autorisés
       organization_homepage:
         edit:
           active_content_blocks: Blocs de contenu actif
