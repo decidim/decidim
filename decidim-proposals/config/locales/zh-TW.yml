@@ -316,3 +316,223 @@ zh-TW:
             cancel: 取消
             change_category: 變更類別
             change_scope: 變更範圍
+            merge: 合併為新提案
+            merge_button: 合併
+            publish: 發布
+            publish_answers: 發佈回應
+            select_component: 選擇一個元件
+            selected: 已選取
+            split: 拆分提案
+            split_button: 拆分
+            title: 提案
+            unassign_from_valuator: 取消分派給評估者
+            unassign_from_valuator_button: 取消分配
+            update: 更新
+            update_scope_button: 更新範圍
+          new:
+            create: 建立
+            title: 建立提案
+          publish_answers:
+            number_of_proposals: 共 %{number} 份提案的答案將會發佈。
+            select_a_proposal: 請選擇一個提案。
+          show:
+            amendments_count: 修改案數量
+            assigned_valuators: 已分配給評估人員
+            authors: 作者
+            body: 正文
+            comments_count: 評論次數
+            comments_negative_count: 反對
+            comments_neutral_count: 中性
+            comments_positive_count: 喜好
+            created_at: 創建日期
+            documents: 文件
+            endorsements_count: 連署人數
+            endorsements_ranking: 按連署人數排序
+            endorsers: 贊助人
+            link: 連結
+            n_more_endorsers:
+              other: 還有 %{count} 位
+            photos: 圖片
+            proposals: 提案
+            ranking: "%{total} 的%{ranking}"
+            related_meetings: 相關會議
+            remove_assignment: 移除指派
+            remove_assignment_confirmation: 您確定要將評估者從此提案中移除嗎？
+            valuators: 評估者
+            votes_count: 支持數量
+            votes_ranking: 依據支持排名
+          update_category:
+            invalid: '這些提案已經擁有 %{subject_name} 類別: %{proposals}。'
+            select_a_category: 請選擇一個類別。
+            select_a_proposal: 請選擇一個提案。
+            success: '已成功將以下提案更新至 %{subject_name} 類別: %{proposals}。'
+          update_scope:
+            invalid: '這些提案已經有了 %{subject_name} 的範圍: %{proposals}。'
+            select_a_proposal: 請選擇一個提案。
+      collaborative_drafts:
+        collaborative_draft:
+          view_collaborative_draft: 查看協作草稿
+          withdraw:
+            error: 關閉協作草稿時出現問題
+            irreversible_action_modal:
+              body: 關閉草稿後，它將不再可編輯。該草稿將不再接受新的作者或貢獻。
+              cancel: 取消
+              ok: 撤回協作草稿
+              title: 這個動作是不可逆的
+            success: 協作草稿已成功撤回。
+        count:
+          drafts_count:
+            other: "%{count} 個協作草稿"
+        create:
+          error: 建立協作草稿時發生問題。
+          success: 協作草稿建立成功。
+        edit:
+          attachment_legend: "(可選) 新增附件"
+          back: 返回
+          select_a_category: 請選擇一個類別
+          send: 發送
+          title: 編輯協作草稿
+        filters:
+          all: 全部
+          amendment: 修正案
+          category: 類別
+          open: 開啟
+          published: 已發佈
+          related_to: 相關於
+          scope: 範圍
+          search: 搜尋
+          state: 狀態
+          withdrawn: 已撤回
+        filters_small_view:
+          close_modal: 關閉視窗
+          filter: 篩選
+          filter_by: 篩選條件
+          unfold: 展開
+        new:
+          add_file: 添加檔案
+          edit_file: 編輯檔案
+          send: 繼續
+        new_collaborative_draft_button:
+          new_collaborative_draft: 新的協作草稿
+        orders:
+          label: '依序排列草稿：'
+          most_contributed: 最多貢獻度
+          random: 隨機
+          recent: 最近
+        requests:
+          accepted_request:
+            error: 無法接受您的協作者申請，請稍後再試。
+            success: "@%{user} 已經成功被接受為協作者."
+          access_requested:
+            error: 您的請求無法完成，請稍後再試。
+            success: 您的合作請求已成功送出。
+          collaboration_requests:
+            accept_request: 接受
+            reject_request: 拒絕
+            title: 合作邀請
+          rejected_request:
+            error: 無法拒絕作為合作者，請稍後再試。
+            success: "@%{user} 已被成功拒絕成為協作者。"
+        show:
+          back: 返回
+          edit: 編輯協作草稿
+          final_proposal: 最終提案
+          final_proposal_help_text: 此草案已完成。請查看最終提案。
+      proposals:
+        complete:
+          title: 完成您的提案
+        count:
+          proposals_count:
+            other: "%{count} 個提案"
+        dynamic_map_instructions:
+          description: 當點擊“預覽”按鈕時，座標將會更新，但地址不會更改。
+          instructions: 您可以在地圖上移動點。
+        edit:
+          add_documents: 新增文件
+          add_image: 新增圖片
+          attachment_legend: "(可選) 新增附件"
+          back: 返回
+          edit_documents: 編輯文件
+          edit_image: 編輯圖片
+          gallery_legend: "(選填) 在提案卡片上添加圖片"
+          select_a_category: 請選擇一個類別
+          send: 發送
+          title: 編輯提案
+        edit_draft:
+          discard: 放棄此草案
+          discard_confirmation: 您確定要放棄此提案草案嗎？
+          send: 預覽
+          title: 編輯提案草案
+        filters:
+          activity: 我的活動
+          all: 全部
+          amendment_type: 類別
+          category: 分類
+          my_proposals: 我的提案
+          origin: 起源
+          related_to: 相關於
+          scope: 範圍
+          search: 搜尋
+          state: 狀態
+          type: 類別
+          voted: 支持
+        filters_small_view:
+          close_modal: 關閉視窗
+          filter: 篩選
+          filter_by: 篩選條件
+          unfold: 展開
+        index:
+          click_here: 檢視所有提案
+          collaborative_drafts_list: 進入協作草稿
+          new_proposal: 新提案
+          see_all: 檢視所有提案
+          see_all_withdrawn: 查看所有撤回的提案
+          text_banner: 您正在查看由其作者撤回的提案列表。%{go_back_link}。
+          view_proposal: 檢視提案
+        linked_proposals:
+          proposal_votes:
+            other: 支持
+        new:
+          send: 繼續
+          title: 創建你的提案
+        orders:
+          label: '依順序排序提案：'
+          most_commented: 最多評論
+          most_endorsed: 最多已連署
+          most_followed: 最多追蹤者
+          most_voted: 最受支持的
+          random: 隨機
+        voting_rules:
+          minimum_votes_per_user:
+            description: 你必須在不同的提案之間分配至少 %{votes} 票的支持。
+            given_enough_votes: 您已經提供足夠的支持。
+            supports_remaining: 您還需要支持 %{remaining_votes} 個提案，才能讓您的支持被考慮在內。
+          proposal_limit:
+            description: 您最多可以創建 %{limit} 個提案。
+          threshold_per_proposal:
+            description: 為了讓提案被認可，需要達到%{limit} 個支持票數.
+          title: '支持需遵守以下規則：'
+          vote_limit:
+            description: 您最多可以支持 %{limit} 個提案。
+            left: 剩餘
+            votes: 支持
+        wizard_aside:
+          back: 返回
+          back_from_step_1: 返回提案
+          back_from_step_2: 返回提案
+          back_from_step_3: 返回比較提案
+          back_from_step_4: 返回編輯草案
+          info: 你正在建立一個<strong>提案</strong>。
+        wizard_steps:
+          current_step: 當前步驟
+          see_steps: 看步驟
+          step_1: 創建你的提案
+          step_2: 比較
+          step_3: 完成
+          step_4: 發佈您的提案
+          step_of: 第 %{current_step_num} 步，共 %{total_steps} 步
+          title: 提案創建步驟
+      proposals_picker:
+        choose_proposals: 選擇提案
+        close: 關閉
+        no_proposals: 沒有符合您的搜尋條件的提案，或者目前沒有任何提案。
