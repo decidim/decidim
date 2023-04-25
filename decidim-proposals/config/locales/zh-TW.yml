@@ -322,11 +322,23 @@ zh-TW:
           email_subject: '%{resource_title} 提案範圍已更新'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> 提案範圍已由管理員更新。
         voting_enabled:
+          email_intro: '你可以支持 %{participatory_space_title} 的提案！在此頁面開始參與：'
           email_outro: 你收到此通知是因為你正在追蹤 %{participatory_space_title}。你可以透過前面的連結停止接收通知。
+          email_subject: 已開放 %{participatory_space_title} 的提案支持。
+          notification_title: 現在您可以開始<a href="%{resource_path}">支持提案</a>於<a href="%{participatory_space_url}">%{participatory_space_title}</a>
     gamification:
       badges:
         accepted_proposals:
+          conditions:
+            - 選擇您有興趣的參與空間並啟用提交提案功能
+            - 嘗試提出可以實現的提案，這樣它們更有可能被接受。
+          description: 這個徽章是當你積極參與提出新的提案並且這些提案被接受時授予的。
+          description_another: 這個參與者有 %{score} 個被接受的提案。
+          description_own: 您有 %{score} 個提案被接受。
           name: 已通過的提案
+          next_level_in: 再讓 %{score} 個提案被接受就可以升級到下一個等級了！
+          unearned_another: 該參與者目前尚未有任何被接受的提案。
+          unearned_own: 你尚未有任何提案被接受。
         proposal_votes:
           conditions:
             - 瀏覽並花些時間閱讀其他人的提案
@@ -363,6 +375,7 @@ zh-TW:
         object: 提案
         title: 提案
       votes:
+        description: 提案所獲得的支持數
         object: 支持
         title: 支援
     participatory_spaces:
@@ -418,11 +431,37 @@ zh-TW:
             name: 提案
         participatory_texts:
           bulk-actions:
+            are_you_sure: 您確定要放棄整個參與性文本草案嗎？
             discard_all: 捨棄全部
             import_doc: 匯入文件
+          discard:
+            success: 所有的參與性文本草案都已經被放棄。
+          import:
+            invalid: 此表單無效!
+            invalid_file: 檔案內容有誤，請嘗試編輯檔案內容並重新上傳。
+            success: 恭喜，以下部分已轉換為提案。現在您可以在發布之前審查和調整它們。
+          index:
+            info_1: 以下部分已轉換為提案。現在您可以在發布之前審查和調整它們。
+            publish_document: 發佈文件
+            save_draft: 儲存草稿
+            title: 預覽參與性文件
           new_import:
             accepted_mime_types:
+              md: Markdown
               odt: ODT
+            bottom_hint: "(您可以預覽和排序文件章節)"
+            document_legend: '新增一份小於2MB的文件，每個部分最多支援三個層級轉換為提案。支援的格式為：%{valid_mime_types}'
+            title: 新增文件
+            upload_document: 上傳文件
+          publish:
+            invalid: 發佈提案時發生問題。
+            success: 所有提案已經發佈.
+          sections:
+            article: "<em>文章</em>"
+            section: "<em>章節：</em><strong>%{title}</strong>"
+            sub-section: "<em>子章節：</em>%{title}"
+          update:
+            success: 參與式文本已成功更新。
         proposal_answers:
           form:
             accepted: 已接受
@@ -430,8 +469,25 @@ zh-TW:
             evaluating: 評估
             not_answered: 未回答
             rejected: 已拒絕
+            title: 對於提案 %{title} 的回覆
+        proposal_notes:
+          create:
+            error: 建立提案備註時發生問題.
+            success: 提案註記已成功建立.
+          form:
+            note: 附註
+            submit: 提交
+          leave_your_note: 留下您的註記
+          title: 私有注解
         proposals:
+          answer:
+            invalid: 回答這個提案時出現了問題.
+            success: 提案回覆成功.
+          create:
+            invalid: 創建提案時發生問題.
+            success: 提案已成功建立.
           edit:
+            title: 更新提案
             update: 更新
           form:
             attachment_legend: "(可選) 新增附件"
@@ -560,8 +616,20 @@ zh-TW:
           evaluating: 評估
           not_answered: 未回答
           rejected: 已拒絕
+        filter_type_values:
+          all: 全部
+          amendments: 修正案
+          proposals: 提案
       collaborative_drafts:
         collaborative_draft:
+          publish:
+            error: 發布協作草稿時出現問題。
+            irreversible_action_modal:
+              body: 發佈這個草案成為提案後，它將不再可編輯。提案將不會接受新的作者或貢獻。
+              cancel: 取消
+              ok: 作為提案發布
+              title: 這個動作是不可逆的
+            success: 協作草稿已成功發布為提案。
           view_collaborative_draft: 查看協作草稿
           withdraw:
             error: 關閉協作草稿時出現問題
@@ -629,6 +697,63 @@ zh-TW:
           edit: 編輯協作草稿
           final_proposal: 最終提案
           final_proposal_help_text: 此草案已完成。請查看最終提案。
+          hidden_authors_count:
+            other: "one\n以及其他 %{count} 個人\n\nOther\n以及其他 %{count} 個人"
+          info-message: 這是一份提案的<strong>共同合作稿件</strong>，這表示您可以使用下面的評論區幫助作者們塑造提案，或直接請求編輯權限以對其進行改進。一旦作者們授予您訪問權限，您便可以對此起草稿進行更改。
+          publish: 發布
+          publish_info: 發佈這個版本的草案或
+          published_proposal: 發佈提案
+          request_access: 申請權限
+          requested_access: 授權請求
+          version_history: 查看此提案的版本歷史
+          withdraw: 撤回草稿
+        states:
+          open: 開啟
+          published: 已發佈
+          withdrawn: 撤回
+        update:
+          error: 在儲存提案時出現問題
+          success: 協作草稿更新成功。
+        wizard_aside:
+          back_from_collaborative_draft: 回到協作草稿
+          info: 你正在建立一個<strong>協作草案</strong>。
+        wizard_header:
+          title: 建立你的協作草案
+      content_blocks:
+        highlighted_proposals:
+          proposals: 提案
+      create:
+        error: 儲存提案時出現問題。
+        success: 提案已成功建立。儲存為草案。
+      destroy_draft:
+        error: 刪除協作草稿時發生問題。
+        success: 提案草案已成功刪除。
+      last_activity:
+        new_proposal: '新提案:'
+        proposal_updated: '提案更新：'
+      models:
+        collaborative_draft:
+          fields:
+            authors: 作者
+            comments: 評論
+            contributions: 貢獻
+        proposal:
+          fields:
+            category: 分類
+            comments: 評論
+            id: ID
+            notes: 備註
+            official_proposal: 正式提案
+            published_answer: 已發布的回答
+            published_at: 發佈於
+            scope: 範圍
+            state: 狀態
+            title: 標題
+            valuator: 評估者
+            valuators: 評估者
+            votes: 投票
+      new:
+        limit_reached: 你已經超過了提案數量的限制，因此無法創建新的提案。
       participatory_text_proposal:
         alternative_title: 目前沒有參與性文字
         buttons:
@@ -761,7 +886,19 @@ zh-TW:
           title: 更新提案
         vote_button:
           already_voted: 已得到支持
+          already_voted_hover: 撤回支持
+          maximum_votes_reached: 已達支持上限
+          no_votes_remaining: 無剩餘支持次數
+          vote: 支持
+          votes_blocked: 支持已禁用
+        votes_count:
+          count:
+            other: 支持
+          most_popular_proposal: 最受歡迎的提案
+          need_more_votes: 需要更多支持
         voting_rules:
+          can_accumulate_supports_beyond_threshold:
+            description: 每個提案可以累積超過%{limit} 個支持
           minimum_votes_per_user:
             description: 你必須在不同的提案之間分配至少 %{votes} 票的支持。
             given_enough_votes: 您已經提供足夠的支持。
