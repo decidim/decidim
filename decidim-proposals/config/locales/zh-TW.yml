@@ -151,11 +151,51 @@ zh-TW:
               most_voted: 最受支持的
               random: 隨機
               recent: 最近
+              with_more_authors: 有更多作者
             geocoding_enabled: 地理編碼已啟用
             minimum_votes_per_user: 每位使用者最少贊成數量
             new_proposal_body_template: 新提案正文樣板
             new_proposal_body_template_help: 您可以定義新提案預先填寫的文字
+            new_proposal_help_text: 新提案幫助文本
+            official_proposals_enabled: 官方提案已啟用
+            participatory_texts_enabled: 參與式文字已啟用
+            participatory_texts_enabled_readonly: 如果已經存在提案，則無法與此設置互動。如果您想要啟用此功能，請創建一個新的“提案組件”，或者如果要禁用此功能，請在“參與式文字”選單中放棄所有已匯入的提案。
+            proposal_answering_enabled: 提案回答已啟用
+            proposal_edit_before_minutes: 在幾分鐘後，作者可以編輯提案
+            proposal_edit_time: 編輯提案
+            proposal_edit_time_choices:
+              infinite: 允許無限時間編輯提案
+              limited: 允許在特定時間範圍內編輯提案
+            proposal_length: 提案正文的最大長度
+            proposal_limit: 參與者可提出提案的上限
+            proposal_wizard_step_1_help_text: 提案向導「創建」步驟說明文字
+            proposal_wizard_step_2_help_text: 提案向導「比較」步驟說明文字
+            proposal_wizard_step_3_help_text: 提案向導「完成」步驟說明文字
+            proposal_wizard_step_4_help_text: 提案向導「發佈」步驟說明文字
+            resources_permissions_enabled: 每個提案都可以設定行動權限
+            scope_id: 範圍
+            scopes_enabled: 啟用範圍
+            threshold_per_proposal: 每個提案的門檻
+            vote_limit: 每位參與者可支持的數量上限
           step:
+            amendment_creation_enabled: 創建修正案已啟用
+            amendment_creation_enabled_help: 參與者可修改提案
+            amendment_promotion_enabled: 修正提案提升功能啟用
+            amendment_promotion_enabled_help: 修正提案的作者將能夠將被拒絕的修正提案提升為提案。
+            amendment_reaction_enabled: 啟用修正提案反應
+            comments_blocked: 留言已封鎖
+            default_sort_order_options:
+              default: 預設值
+              most_commented: 最多評論
+              most_endorsed: 最多已連署
+              most_followed: 最多追蹤者
+              most_voted: 最受支持的
+              random: 隨機
+              recent: 最近
+              with_more_authors: 有更多作者
+            endorsements_blocked: 連署已封鎖
+            endorsements_enabled: 連署已啟用
+            proposal_answering_enabled: 提案回答已啟用
             publish_answers_immediately: 立即發布提案回答
             publish_answers_immediately_help_html: '請注意，如果您在未啟用此功能的情況下回答任何提案，您將需要手動選擇它們並使用發布操作進行發布。有關此操作的更多信息，請參閱 <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">提案答案文檔頁面</a>。'
             suggested_hashtags: 為新提案建議參與者使用的標籤
@@ -222,6 +262,8 @@ zh-TW:
             email_subject: 您追蹤的提案已被接受
             notification_title: <a href="%{resource_path}">%{resource_title}</a>" 提案已經被接受。
         proposal_evaluating:
+          affected_user:
+            email_subject: 您的提案正在被評估中
           follower:
             email_subject: 你追蹤的提案正在評估中
         proposal_published_for_space:
@@ -232,6 +274,8 @@ zh-TW:
             email_subject: 您追蹤的提案已被拒絕
     gamification:
       badges:
+        accepted_proposals:
+          name: 已通過的提案
         proposal_votes:
           conditions:
             - 瀏覽並花些時間閱讀其他人的提案
@@ -322,9 +366,22 @@ zh-TW:
           proposal:
             name: 提案
         participatory_texts:
+          bulk-actions:
+            discard_all: 捨棄全部
+            import_doc: 匯入文件
+          new_import:
+            accepted_mime_types:
+              odt: ODT
           publish:
             invalid: 無法發佈提案
             success: 所有提案已經發佈
+        proposal_answers:
+          form:
+            accepted: 已接受
+            answer_proposal: 回答
+            evaluating: 評估
+            not_answered: 未回答
+            rejected: 已拒絕
         proposal_notes:
           create:
             error: 建立提案備註時發生問題
@@ -587,6 +644,36 @@ zh-TW:
         close: 關閉
         more_proposals: 還有 %{number} 個提案。請優化您的搜尋條件以查找它們。
         no_proposals: 沒有符合您的搜尋條件的提案，或者目前沒有任何提案。
+      publish:
+        error: 發佈提案時出現問題。
+        success: 提案成功發布。
+      publish_answers:
+        success: 提案回答成功發布。
+      update:
+        error: 儲存提案時出現問題。
+        success: 成功更新提案
+      update_draft:
+        error: 在儲存提案時出現問題
+        success: 成功更新提案草案
+      versions:
+        collaborative_drafts:
+          back_to_resource: 回到協作草稿
+        index:
+          title: 版本
+        proposals:
+          back_to_resource: 返回提案
       withdraw:
         errors:
           has_supports: 這份提案無法撤回，因為它已經得到支持。
+    resource_links:
+      copied_from_component:
+        proposal_proposal: 相關提案
+      included_projects:
+        project_result: '此專案中顯示的結果：'
+      included_proposals:
+        proposal_project: '出現在這些專案中的提案：'
+        proposal_result: '這些結果中出現的提案：'
+    statistics:
+      proposals_accepted: 已通過的提案
+      proposals_count: 提案
+      supports_count: 支持
