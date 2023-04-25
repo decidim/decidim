@@ -573,7 +573,15 @@ fr:
             close_modal: Fermer la fenêtre
             uncheck: Garder décoché
           notice: |-
-            La newsletter vous permet de suivre tous les événements importants sur la plateforme (lancement de nouvelles concertations, annonce des résultats, etc.). Souhaitez-vous vous y inscrire ?
+            <p>Êtes-vous sûr de ne pas vouloir recevoir de newsletter ?<br>
+            Nous vous suggérons de cocher la case pour recevoir la newsletter.<br>
+            Il est très important pour nous que vous puissiez recevoir des e-mails occasionnels
+            pour vous faire part des annonces importantes. Vous pourrez toujours modifier votre choix dans vos paramètres de notifications.</p>
+            <p>Si vous ne cochez pas la case, vous risquez de manquer des informations pertinentes
+            sur les nouvelles opportunités participatives de la plateforme.<br>
+            Si vous voulez toujours ne pas recevoir de newsletters, nous comprenons parfaitement
+            votre décision.</p>
+            <p>Merci de votre lecture !</p>
           title: Inscription à la newsletter
         omniauth_buttons:
           or: Ou
@@ -583,7 +591,7 @@ fr:
           authorize: Autoriser l'application
           by_organization_link_html: <small class="heading-small">par %{link}</small>
           cancel: Annuler
-          connect_your_account_html: Connectez votre compte en vous inscrivant à <strong>%{organization}</strong>.
+          connect_your_account_html: Connectez votre compte en vous connectant à <strong>%{organization}</strong>.
           publish_content: Publier du contenu pour vous
           see_email: Voir votre email
           see_name: Voir votre nom
@@ -601,8 +609,8 @@ fr:
         request_data: Demander les données
     editor_images:
       create:
-        error: "Error uploading image.\nUne erreur est survenue lors du chargement de l'image."
-        success: "Image uploaded successfully.\nL'image a été téléchargée avec succès."
+        error: Une erreur est survenue lors du téléchargement de l'image.
+        success: L'image a été téléchargée avec succès.
       drag_and_drop_help: Ajoutez des images en les glissant - déposant ou en les collant depuis votre presse-papier.
     endorsable:
       endorsements: Soutiens
@@ -698,15 +706,15 @@ fr:
         email_subject: Mise à jour de %{resource_title}
       gamification:
         badge_earned:
-          email_intro: Félicitations! Vous avez obtenu le <a href="%{resource_url}">badge %{badge_name}</a> (niveau %{current_level}).
+          email_intro: Félicitations ! Vous avez obtenu le <a href="%{resource_url}">badge %{badge_name}</a> (niveau %{current_level}).
           email_outro: Vous avez reçu cette notification car vous avez été actif sur notre plateforme. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
           email_subject: 'Vous avez gagné un nouveau badge : %{badge_name} !'
-          notification_title: Félicitations! Vous avez obtenu le <a href="%{resource_path}">badge %{badge_name}</a> (niveau %{current_level}).
+          notification_title: Félicitations ! Vous avez obtenu le <a href="%{resource_path}">badge %{badge_name}</a> (niveau %{current_level}).
         level_up:
-          email_intro: Félicitations! Vous avez atteint le niveau %{current_level} sur le <a href="%{resource_url}">badge %{badge_name} </a>!
+          email_intro: Félicitations ! Vous avez atteint le niveau %{current_level} sur le <a href="%{resource_url}">badge %{badge_name}</a>!
           email_outro: Vous avez reçu cette notification car vous avez été actif sur notre plateforme. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
           email_subject: Vous avez atteint le niveau %{current_level} sur le badge %{badge_name} !
-          notification_title: Félicitations! Vous avez atteint le niveau %{current_level} sur le <a href="%{resource_path}">badge %{badge_name} </a>!
+          notification_title: Félicitations ! Vous avez atteint le niveau %{current_level} sur le <a href="%{resource_path}">badge %{badge_name} </a>!
       groups:
         demoted_membership:
           email_intro: Un administrateur du groupe <a href="%{resource_url}">%{user_group_name}</a> a supprimé vos droits d'administrateur sur ce groupe.
@@ -799,7 +807,7 @@ fr:
         result: Réalisations
     fingerprint:
       check: Vérifiez l'empreinte numérique
-      explanation: "The piece of text below is a shortened, hashed representation of this content. It is useful to ensure the content has not been tampered with, as a single modification would result in a totally different value.\nLe texte ci-dessous est une représentation abrégée et hachée de ce contenu. Il est utile de s'assurer que le contenu n'a pas été altéré, car une seule modification donnerait une valeur totalement différente."
+      explanation: Le texte ci-dessous est une représentation abrégée et hachée de ce contenu. Il est utile de s'assurer que le contenu n'a pas été altéré, car une seule modification donnerait une valeur totalement différente.
       online_calculator_name: calculateur de hash MD5 en ligne
       replicate_help: Cette empreinte numérique est calculée à l'aide d'un algorithme de hachage SHA256. Pour le reproduire vous-même, vous pouvez utiliser un %{online_calculator_link} et copier-coller les données.
       source: Source
@@ -814,7 +822,7 @@ fr:
       following_count:
         one: "%{count} abonné"
         other: "%{count} abonnés"
-      no_followings: Aucun abonnement.
+      no_followings: N'est encore abonné à aucun participant ni aucun contenu.
       non_public_followings: Certaines des ressources suivies ne sont pas publiques.
     follows:
       create:
@@ -882,8 +890,8 @@ fr:
           description_own: "%{score} utilisateurs vous suivent."
           name: Suiveurs
           next_level_in: Obtenez %{score} autres utilisateurs à vous suivre pour atteindre le niveau suivant!
-          unearned_another: Ce participant n’a pas encore de followers.
-          unearned_own: Vous n'avez pas encore de followers.
+          unearned_another: Cet utilisateur n'a pas encore d'abonnés.
+          unearned_own: Vous n'avez pas encore d'abonnés.
         index:
           badge_title: "%{name} badge"
           how: Comment l'obtenir
@@ -895,7 +903,7 @@ fr:
       title: Que sont les badges ?
     group_admins:
       actions:
-        are_you_sure: Êtes-vous sûr? Cela ne supprimera pas l'utilisateur du groupe.
+        are_you_sure: Êtes-vous sûr ? Cela ne supprimera pas l'utilisateur du groupe.
         demote_admin: Supprimer admin
       demote:
         error: Une erreur s'est produite lors de la suppression de cet utilisateur de la liste des administrateurs.
@@ -921,8 +929,8 @@ fr:
       reject_invitation: Rejeter
     group_members:
       accept:
-        error: Une erreur s'est produite lors de l'acceptation de cette demande de participation.
-        success: Demande de participation acceptée avec succès.
+        error: Une erreur s'est produite lors de l'acceptation de cette demande d'adhésion.
+        success: La demande d’adhésion a été acceptée avec succès.
       actions:
         are_you_sure: Êtes-vous sûr?
         promote_to_admin: Faire admin
@@ -934,8 +942,8 @@ fr:
         error: Une erreur s'est produite lors de la promotion de cet utilisateur.
         success: Utilisateur promu avec succès.
       reject:
-        error: Une erreur s'est produite lors du rejet de cette demande de participation.
-        success: Demande de participation rejetée avec succès.
+        error: Une erreur s'est produite lors du rejet de cette demande d'adhésion.
+        success: Demande d'adhésion rejetée avec succès.
       remove:
         error: Une erreur s'est produite lors de la suppression de cet utilisateur du groupe.
         success: Utilisateur supprimé du groupe avec succès.
@@ -959,8 +967,8 @@ fr:
         error: Un problème est survenu lors de l’adhésion au groupe.
         success: Demande de jointure créée avec succès. Un administrateur examinera votre demande avant de vous accepter au groupe.
       leave:
-        error: Un problème est survenu lors du départ du groupe.
-        last_admin: "You cannot remove yourself from this group as you're the last administrator. Make another member an administrator in order to leave the group.\n\nVous ne pouvez pas vous retirer de ce groupe car vous êtes le dernier administrateur. Pour quitter le groupe, vous devez nommer un autre membre administrateur."
+        error: Il y a eu un problème pour quitter le groupe.
+        last_admin: Vous ne pouvez pas vous retirer de ce groupe car vous êtes le dernier administrateur. Pour quitter le groupe, vous devez nommer un autre membre administrateur.
         success: Le groupe est parti avec succès.
       members:
         accept_or_reject_join_requests: 'Les utilisateurs suivants ont demandé à rejoindre ce groupe. Accepter ou rejeter leurs demandes:'
@@ -970,7 +978,7 @@ fr:
         create_user_group: Créer un groupe
         new_user_group: Nouveau groupe
         subtitle: Créez un groupe et invitez d'autres utilisateurs à se joindre pour participer à un niveau collectif.
-      no_user_groups: "Does not belong to any group yet.\nVous n'appartenez à aucun groupe."
+      no_user_groups: Vous n'appartenez pour l'instant à aucun groupe.
       roles:
         admin: Administrateur
         creator: Administrateur
