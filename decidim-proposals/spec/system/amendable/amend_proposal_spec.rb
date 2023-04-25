@@ -305,7 +305,6 @@ describe "Amend Proposal", versioning: true, type: :system do
         before do
           login_as user, scope: :user
           visit emendation_path
-          visit emendation_path
         end
 
         it "is shown the accept and reject button" do
