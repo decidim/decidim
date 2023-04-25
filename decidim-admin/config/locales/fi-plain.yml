@@ -200,7 +200,6 @@ fi-pl:
         verify: Vahvista
       admin_terms_of_service:
         accept:
-          error: Hallintakäyttäjän ehtojen hyväksyminen epäonnistui.
           success: Hienoa! Olet hyväksynyt hallintakäyttäjän ehdot.
         actions:
           accept: Hyväksyn ehdot
@@ -287,6 +286,7 @@ fi-pl:
       block_user:
         new:
           action: Estä tili ja lähetä perustelut
+          already_reported_html: Tämä toiminto piilottaa myös kaiken sisällön, jonka kyseinen osallistuja on luonut. <a href="%{link}">Estä tili</a>.
           description: Estämällä käyttäjän estät kyseisen käyttäjän pääsyn hänen omalle tililleen. Voit antaa perusteluissasi ja ohjeistuksissasi tietoa siitä, mitä kyseinen käyttäjä voi tehdä palauttaakseen pääsyn tililleen.
           justification: Perustelut
           title: Estä käyttäjä %{name}
@@ -681,6 +681,7 @@ fi-pl:
         report:
           reasons:
             does_not_belong: Ei kuulu
+            hidden_during_block: Piilotettu käyttäjän piilotuksen yhteydessä
             offensive: Loukkaava
             spam: Roskaposti
         reports:

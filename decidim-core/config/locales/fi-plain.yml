@@ -1429,9 +1429,11 @@ fi-pl:
         visit_profile: Jos haluat myös estää osallistujan ja hänen lähettämän muun sisällön, siirry profiilisivulle %{user_link}.
       flag_user_modal:
         already_reported: Tämä sisältö on jo ilmoitettu ja se odottaa hallintakäyttäjän tarkastusta.
+        block: Estä tämä osallistuja
         close: Sulje
         description: Mikä tässä käyttäjässä on asiatonta?
         does_not_belong: Sisältää laitonta toimintaa, itsemurhauhkailua, henkilökohtaisia tietoja tai jotain muuta, jonka et usko kuuluvan %{organization_name} -palveluun.
+        hide: Piilota kaikki osallistujan luoma sisältö
         offensive: Sisältää rasismia, seksismiä, haukkumista, henkilökohtaisia hyökkäyksiä, tappouhkauksia, itsemurhapyyntöjä tai muuta vihapuhetta.
         report: Tee ilmoitus
         spam: Sisältää klikkihoukutteita, mainostusta, huijauksia tai bottiskriptejä.
