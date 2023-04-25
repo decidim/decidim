@@ -14,7 +14,7 @@
       <%= decidim_form_for(@form, url: group_path(@user_group.nickname), method: :patch, html: { id: "edit-group" }) do |f| %>
         <div class="card">
           <div class="card__content">
-            <%= render partial: "form", locals: { f: f } %>
+            <%= render partial: "form", locals: { f: } %>
 
             <div class="actions">
               <%= f.submit t(".update_user_group"), class: "button expanded" %>

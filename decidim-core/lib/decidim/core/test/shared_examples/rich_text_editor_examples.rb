@@ -1,11 +1,15 @@
 # frozen_string_literal: true
 
-shared_examples "having a rich text editor" do |css, toolbar|
-  it "has a form with a rich text editor" do
-    within "form.#{css}" do
+shared_examples "having a rich text editor for field" do |selector, toolbar|
+  it "has a rich text editor" do
+    within selector do
       expect(page).to have_selector("div.editor-container[data-toolbar='#{toolbar}']", visible: :all)
     end
   end
+end
+
+shared_examples "having a rich text editor" do |css, toolbar|
+  it_behaves_like "having a rich text editor for field", "form.#{css}", toolbar
 end
 
 shared_context "with rich text editor content" do

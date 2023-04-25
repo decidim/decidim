@@ -28,7 +28,7 @@
                 <div class="card__content">
                   <form>
                     <div>
-                      <%= render partial: "check_fields", locals: { f: f, form: @form } %>
+                      <%= render partial: "check_fields", locals: { f:, form: @form } %>
                     </div>
                     <div>
                       <%= f.text_field :access_code, label: t(".access_code"), placeholder: t(".access_code_placeholder") %>
