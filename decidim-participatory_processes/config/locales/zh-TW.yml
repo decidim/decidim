@@ -223,6 +223,7 @@ zh-TW:
             last_step: 無法刪除流程的最後一階段。
           success: 參與程序階段成功刪除。
         edit:
+          title: 編輯參與式過程階段
           update: 更新
         index:
           steps_title: 階段
@@ -389,6 +390,7 @@ zh-TW:
             other: 其他
             related_processes: 相關程序
             select_an_area: 選擇一個地區
+            title: 基本資訊
             visbility: 可見度
       content_blocks:
         highlighted_processes:
@@ -405,6 +407,9 @@ zh-TW:
             more_information: 更多資訊
             participate: 參與
             see_all_processes: 檢視所有程序
+      participatory_process_steps:
+        index:
+          back_to_process: 返回程序頁
       participatory_processes:
         filters:
           all_types: 所有類型
