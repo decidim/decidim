@@ -1,41 +1,37 @@
 <% if show_voting_rules? %>
-  <div id="voting-rules">
+  <% announcement_body = capture do %>
+    <div class="proposal__voting-rules">
+      <ul>
+        <% if vote_limit_enabled? %>
+          <li><%= t(".vote_limit.description", limit: component_settings.vote_limit) %></li>
+        <% end %>
 
-    <% announcement_body = capture do %>
-      <div class="proposal__voting-rules">
-        <ul>
-          <% if vote_limit_enabled? %>
-            <li><%= t(".vote_limit.description", limit: component_settings.vote_limit) %></li>
-          <% end %>
+        <% if proposal_limit_enabled? %>
+          <li><%= t(".proposal_limit.description", limit: proposal_limit) %></li>
+        <% end %>
 
-          <% if proposal_limit_enabled? %>
-            <li><%= t(".proposal_limit.description", limit: proposal_limit) %></li>
-          <% end %>
+        <% if threshold_per_proposal_enabled? %>
+          <li><%= t(".threshold_per_proposal.description", limit: threshold_per_proposal) %></li>
+        <% end %>
 
-          <% if threshold_per_proposal_enabled? %>
-            <li><%= t(".threshold_per_proposal.description", limit: threshold_per_proposal) %></li>
-          <% end %>
+        <% if can_accumulate_supports_beyond_threshold? %>
+          <li><%= t(".can_accumulate_supports_beyond_threshold.description", limit: threshold_per_proposal) %></li>
+        <% end %>
 
-          <% if can_accumulate_supports_beyond_threshold? %>
-            <li><%= t(".can_accumulate_supports_beyond_threshold.description", limit: threshold_per_proposal) %></li>
-          <% end %>
+        <% if minimum_votes_per_user_enabled? %>
+          <li>
+            <%= t(".minimum_votes_per_user.description", votes: minimum_votes_per_user) %>
+            <% if votes_given >= minimum_votes_per_user %>
+              <%= t(".minimum_votes_per_user.given_enough_votes") %>
+            <% else %>
+              <%= t(".minimum_votes_per_user.supports_remaining", remaining_votes: minimum_votes_per_user - votes_given) %>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+      <%= render partial: "decidim/proposals/proposals/remaining_votes_count" if current_user_can_vote? %>
+    </div>
+  <% end %>
 
-          <% if minimum_votes_per_user_enabled? %>
-            <li>
-              <%= t(".minimum_votes_per_user.description", votes: minimum_votes_per_user) %>
-              <% if votes_given >= minimum_votes_per_user %>
-                <%= t(".minimum_votes_per_user.given_enough_votes") %>
-              <% else %>
-                <%= t(".minimum_votes_per_user.supports_remaining", remaining_votes: minimum_votes_per_user - votes_given) %>
-              <% end %>
-            </li>
-          <% end %>
-        </ul>
-        <%= render partial: "decidim/proposals/proposals/remaining_votes_count" if current_user_can_vote? %>
-      </div>
-    <% end %>
-
-    <%= cell("decidim/announcement", { title: t(".title"), body: announcement_body }) %>
-
-  </div>
+  <%= cell("decidim/announcement", { title: t(".title"), body: announcement_body }, id: "voting-rules") %>
 <% end %>
