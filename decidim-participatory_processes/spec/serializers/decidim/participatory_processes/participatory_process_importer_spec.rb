@@ -94,6 +94,19 @@ module Decidim::ParticipatoryProcesses
           expect(group.title).to eq(group_data["name"])
         end
       end
+
+      context "when the process group is empty" do
+        let(:group_data) do
+          {
+            "title" => Decidim::Faker::Localized.localized { "" },
+            "description" => Decidim::Faker::Localized.localized { "" }
+          }
+        end
+
+        it "does not create a process group" do
+          expect { subject }.not_to change(Decidim::ParticipatoryProcessGroup, :count)
+        end
+      end
     end
   end
 end
