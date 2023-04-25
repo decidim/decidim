@@ -48,19 +48,23 @@ module Decidim
 
     def endorsements_count_item
       return unless resource.respond_to?(:endorsements_count)
+      return if (count = resource.endorsements_count).zero?
 
       {
-        text: resource.endorsements_count,
-        icon: resource_type_icon_key(:like)
+        text: count,
+        icon: resource_type_icon_key(:like),
+        data_attributes: { endorsements_count: "" }
       }
     end
 
     def author_item
       return unless authorable?
 
+      presented_author = official? ? "#{resource.class.module_parent}::OfficialAuthorPresenter".constantize.new : present(resource.author)
+
       {
         cell: "decidim/redesigned_author",
-        args: [present(resource.author), { from: resource, skip_profile_link: true, context_actions: [] }]
+        args: [presented_author, { from: resource, skip_profile_link: true, context_actions: [] }]
       }
     end
 

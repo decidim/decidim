@@ -24,7 +24,7 @@
   }
 
   &__grid{
-    @apply ring-4 ring-background hover:ring-tertiary rounded hover:cursor-pointer;
+    @apply flex flex-col ring-4 ring-background hover:ring-tertiary rounded hover:cursor-pointer;
 
     &-container{
       @apply space-y-12 mb-16;
@@ -43,7 +43,7 @@
     }
 
     &-text{
-      @apply px-4 py-3 flex flex-col gap-y-2 md:gap-y-4 text-gray-2;
+      @apply grow px-4 py-3 flex flex-col gap-y-2 md:gap-y-4 text-gray-2;
     }
 
     &:hover &-text h3{
@@ -59,11 +59,11 @@
     }
 
     &-title{
-      @apply h4 text-secondary focus-visible:outline-none focus-visible:underline;
+      @apply h4 text-secondary;
     }
 
     &-image{
-      @apply w-1/4 flex-none rounded overflow-hidden aspect-[1.5] -ml-[calc(1rem+4px)];
+      @apply w-full md:w-1/5 flex-none rounded overflow-hidden aspect-[1.5] md:-ml-[calc(1rem+4px)];
 
       img{
         @apply w-full h-full object-cover;
@@ -72,6 +72,11 @@
 
     &-text{
       @apply text-gray-2;
+
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 3;
     }
 
     &-metadata{
@@ -90,6 +95,7 @@
       @apply mt-6;
     }
 
+    &:focus &-title,
     &:hover &-title{
       @apply underline;
     }
