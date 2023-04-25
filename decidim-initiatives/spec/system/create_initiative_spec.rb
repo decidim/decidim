@@ -173,9 +173,8 @@ describe "Initiative", type: :system do
       end
 
       context "when they aren't verified" do
-        before do
-          Decidim::Authorization.delete_all
-        end
+        let(:do_not_require_authorization) { false }
+        let(:authorization) { nil }
 
         it "they are shown an error" do
           click_button "New initiative"
