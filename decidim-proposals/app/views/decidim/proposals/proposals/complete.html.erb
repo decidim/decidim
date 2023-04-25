@@ -9,7 +9,7 @@
     <div class="card">
       <div class="card__content">
         <%= decidim_form_for(@form, url: update_draft_proposal_path(@proposal), method: :patch) do |form| %>
-          <%= render partial: "edit_form_fields", locals: { form: form } %>
+          <%= render partial: "edit_form_fields", locals: { form: } %>
 
           <div class="actions">
             <%= form.submit t(".send"), class: "button expanded mt-s mb-none", data: { disable: true } %>

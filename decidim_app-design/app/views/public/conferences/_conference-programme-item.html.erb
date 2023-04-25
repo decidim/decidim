@@ -32,7 +32,7 @@
   <div class="tabs-content" data-tabs-content="conference-row-<%= seed %>-tabs">
     <% speechs.times do |i| %>
     <div class="tabs-panel<%= " is-active" if i == 0 %>" id="conference-row-<%= seed %>-tab<%= i %>">
-      <%= render partial: page_path("conferences") + "/conference-programme-talk", locals: { e: e, s: s } %>
+      <%= render partial: page_path("conferences") + "/conference-programme-talk", locals: { e:, s: } %>
     </div>
     <% end %>
   </div>

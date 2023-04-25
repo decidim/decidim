@@ -6,7 +6,7 @@
     <div class="card-section">
       <h4><%= t("title", scope: "decidim.votings.census.admin.census.new") %></h4>
 
-      <%= render "upload_info", ballot_style_code_header: ballot_style_code_header %>
+      <%= render "upload_info", ballot_style_code_header: %>
 
       <%= decidim_form_for(@form, url: admin_voting_census_path,
                             method: :post,

@@ -7,6 +7,9 @@ linters:
   FinalNewline:
     enabled: true
 
+  RequireInputAutocomplete:
+    enabled: false
+
   SpaceAroundErbTag:
     enabled: true
 
@@ -20,11 +23,155 @@ linters:
     enabled: true
 
     rubocop_config:
+      inherit_from:
+        - .rubocop.yml
+
       AllCops:
         DisabledByDefault: true
+
+      Style/Copyright:
+        Enabled: false
+
+      Style/FrozenStringLiteralComment:
+        Enabled: false
 
       Style/StringLiterals:
         EnforcedStyle: double_quotes
 
+      Style/ParenthesesAroundCondition:
+        Enabled: false
+
+      Style/TernaryParentheses:
+        Enabled: false
+
+      Layout/FirstHashElementIndentation:
+        Enabled: false
+
+      Layout/LineLength:
+        Enabled: false
+
+      Layout/FirstArgumentIndentation:
+        Enabled: false
+
       Layout/SpaceInsideHashLiteralBraces:
         Enabled: true
+
+      Layout/SpaceInsideStringInterpolation:
+        Enabled: false
+
+      Layout/SpaceInsideBlockBraces:
+        Enabled: false
+
+      Layout/MultilineHashBraceLayout:
+        Enabled: false
+
+      Layout/BlockAlignment:
+        Enabled: false
+
+      Layout/MultilineMethodCallBraceLayout:
+        Enabled: false
+
+      Layout/IndentationConsistency:
+        Enabled: false
+
+      Layout/FirstArrayElementIndentation:
+        Enabled: false
+
+      Layout/SpaceBeforeBlockBraces:
+        Enabled: false
+
+      Layout/SpaceAroundOperators:
+        Enabled: false
+
+      Style/StringLiteralsInInterpolation:
+        Enabled: false
+
+      Layout/TrailingEmptyLines:
+        Enabled: false
+
+      Naming/FileName:
+        Enabled: false
+
+      Faker/DeprecatedArguments:
+        Enabled: false
+
+      Rails/Date:
+        Enabled: false
+
+      Rails/LinkToBlank:
+        Enabled: false
+
+      Rails/TimeZone:
+        Enabled: false
+
+      Style/HashSyntax:
+        Enabled: true
+
+      Style/NumericPredicate:
+        Enabled: false
+
+      Style/Semicolon:
+        Enabled: false
+
+      Style/WordArray:
+        Enabled: false
+
+      Style/TrailingCommaInArrayLiteral:
+        Enabled: false
+
+      Naming/VariableName:
+        Enabled: false
+
+      Style/NumericLiterals:
+        Enabled: false
+
+      Style/TrailingCommaInArguments:
+        Enabled: false
+
+      Style/PercentLiteralDelimiters:
+        Enabled: false
+
+      Layout/ExtraSpacing:
+        Enabled: false
+
+      Layout/HashAlignment:
+        Enabled: false
+
+      Rails/Present:
+        Enabled: false
+
+      Style/LambdaCall:
+        Enabled: false
+
+      Style/CollectionMethods:
+        Enabled: false
+
+      Layout/EndAlignment:
+        Enabled: false
+
+      Lint/UnusedBlockArgument:
+        Enabled: false
+
+      Layout/MultilineMethodCallIndentation:
+        Enabled: false
+
+      Layout/IndentationWidth:
+        Enabled: false
+
+      Style/AndOr:
+        Enabled: false
+
+      Layout/SpaceBeforeFirstArg:
+        Enabled: false
+
+      Style/TrailingCommaInHashLiteral:
+        Enabled: false
+
+      Style/SymbolProc:
+        Enabled: false
+
+      Rails/Presence:
+        Enabled: false
+
+      Layout/MultilineAssignmentLayout:
+        Enabled: false

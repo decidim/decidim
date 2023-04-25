@@ -17,7 +17,7 @@
 
       <div class="card__content">
         <%= decidim_form_for(@form) do |form| %>
-          <%= render partial: "edit_form_fields", locals: { form: form } %>
+          <%= render partial: "edit_form_fields", locals: { form: } %>
 
           <div class="actions">
             <%= form.submit t(".send"), class: "button expanded", data: { disable: true } %>

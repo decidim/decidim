@@ -13,7 +13,7 @@ inputs:
     required: false
   node_version:
     description: 'Node version'
-    default: '16.9.1'
+    default: '16.13.0'
     required: false
   processor_count:
     description: "Number or parallel jobs to run"

@@ -25,9 +25,9 @@
   <%= form.hidden_field :election_id %>
   <%= form.hidden_field :polling_station_id %>
 
-  <%= render partial: "ballot_results_form_fields", locals: { form: form } %>
+  <%= render partial: "ballot_results_form_fields", locals: { form: } %>
 
-  <%= render partial: "question_results_form_fields", locals: { form: form } %>
+  <%= render partial: "question_results_form_fields", locals: { form: } %>
 
   <%= form.submit t(".save_recount"), id: "submit-ballot-recount", class: "button button--sc mt-sm" %>
 

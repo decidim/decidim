@@ -4,7 +4,6 @@ module Decidim
   module Proposals
     # A command with all the business logic when a user creates a new proposal.
     class CreateProposal < Decidim::Command
-      include ::Decidim::AttachmentMethods
       include HashtagsMethods
 
       # Public: Initializes the command.
