@@ -1427,9 +1427,11 @@ ca:
         visit_profile: Si també vols bloquejar a la participant i la resta dels seus continguts, ves a la pàgina de perfil de %{user_link}.
       flag_user_modal:
         already_reported: Aquest contingut ja ha estat reportat i serà revisat per una administradora.
+        block: Eliminar aquesta participant
         close: Tancar
         description: Què és inapropiat d'aquesta usuària?
         does_not_belong: Conté activitat il·legal, amenaces de suïcidi, informació personal, o qualsevol altra cosa que creguis que no pertany a %{organization_name}.
+        hide: Amagar tots els seus continguts
         offensive: Conté racisme, sexisme, insults, atacs personals, amenaces de mort, peticions de suïcidi o qualsevol forma de discurs d'odi.
         report: Reportar
         spam: Conté "clickbait", publicitat o estafes.

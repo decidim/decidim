@@ -7,9 +7,7 @@ module Decidim
       include TranslatableAttributes
 
       mimic :initiative
-      #
-      # attribute :title, String
-      # attribute :description, String
+
       translatable_attribute :title, String
       translatable_attribute :description, String
 

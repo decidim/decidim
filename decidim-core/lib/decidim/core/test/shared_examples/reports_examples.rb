@@ -156,6 +156,6 @@ shared_examples "reports by user type" do
   context "When reporting user is process valuator" do
     let!(:user) { create :process_valuator, :confirmed, participatory_process: }
     include_examples "higher user role reports"
-    include_examples "higher user role hides"
+    include_examples "higher user role does not have hide"
   end
 end

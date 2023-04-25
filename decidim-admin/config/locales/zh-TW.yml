@@ -195,8 +195,85 @@ zh-TW:
         permissions: 權限
         reject: 拒絕
         share: 分享
-      attachments:
+        user:
+          new: 新增管理員
+        verify: 驗證
+      admin_terms_of_service:
+        accept:
+          success: 太好了，已經同意管理員服務條款！
+        actions:
+          accept: 我同意這些條款
+          are_you_sure: 確定要拒絕管理員服務條款？
+          refuse: 拒絕管理員條款
+          title: 我同意服務條款
+        required_review:
+          alert: '必填：請審閱我們的管理者服務條款'
+          callout: 請花點時間審閱管理者服務條款，否則將無法管理平台
+          cta: 現在審閱
+        title: 管理者服務條款
+      area_types:
+        create:
+          error: 新增區域類型時發生錯誤
+          success: 區域類型建立成功
+        destroy:
+          success: 區域類型成功刪除
+        edit:
+          title: 編輯區域類型
+          update: 更新
         new:
+          create: 建立區域類型
+          title: 新增區域類型
+        update:
+          error: 更新這個區域類型時發生錯誤
+          success: 區域類型更新成功
+      areas:
+        create:
+          error: 新增區域時發生錯誤
+          success: 區域建立成功
+        destroy:
+          has_spaces: 這個區域有相依空間，刪除之前請確認沒有參與空間使用這個區域
+          success: 區域成功刪除
+        edit:
+          title: 編輯區域
+          update: 更新
+        new:
+          create: 建立區域
+          title: 新增區域
+        no_areas: 沒有區域
+        update:
+          error: 更新這個區域時發生錯誤
+          success: 區域更新成功
+      attachment_collections:
+        create:
+          error: 新增資料夾時發生錯誤
+          success: 資料夾建立成功
+        destroy:
+          success: 資料夾刪除成功
+        edit:
+          title: 編輯資料夾
+          update: 更新
+        index:
+          attachment_collection_used: 這個資料夾使用中無法刪除
+          attachment_collections_title: 附件資料夾
+        new:
+          create: 建立
+          title: 新資料夾
+        update:
+          error: 更新這個資料夾時發生錯誤
+          success: 資料夾更新成功
+      attachments:
+        create:
+          error: 建立新附件時發生錯誤
+          success: 附件建立成功
+        destroy:
+          success: 附件刪除成功
+        edit:
+          title: 編輯附件
+          update: 更新
+        index:
+          attachments_title: 附件
+        new:
+          create: 建立附件
           title: 新增附件
         update:
           error: 更新這個附件時發生錯誤.
@@ -209,3 +286,126 @@ zh-TW:
       block_user:
         new:
           action: 封鎖帳號並且發送理由
+          already_reported_html: 繼續操作也會隱藏所有參與者內容， <a href="%{link}">封鎖這個帳號</a>。
+          description: 封鎖一個使用者會讓他的帳號無法使用，可以在此提供建議說明如何取消封鎖
+          justification: 理由
+          title: 封鎖使用者 %{name}
+      categories:
+        create:
+          error: 建立這個分類時發生錯誤
+          success: 分類建立成功
+        destroy:
+          error: 刪除這個分類時發生錯誤，請先將子類別刪除，確認這個分類沒有其他關聯後重試
+          success: 分類刪除成功
+        edit:
+          title: 編輯分類
+          update: 更新
+        index:
+          categories_title: 分類
+          category_used: 這個分類使用中無法刪除
+        new:
+          create: 建立類別
+          title: 新分類
+        update:
+          error: 更新這個分類時發生錯誤
+          success: 更新類別成功。
+      component_permissions:
+        update:
+          error: 更新這個元件的權限時發生錯誤
+          success: 權限更新成功
+      components:
+        create:
+          error: 這個元件創建時出了問題
+          success: 新增元件成功。
+        destroy:
+          error: 刪除這個元件時發生錯誤
+          success: 成功刪除元件
+        edit:
+          title: 編輯組件
+          update: 更新
+        form:
+          default_step_settings: 預設步驟設定
+          global_settings: 全域設定
+          step_settings: 步驟設定
+        index:
+          add: 新增元件
+          headers:
+            actions: 操作
+            name: 組件名稱
+            scope: 組件作用域
+            type: 組件類型
+        new:
+          add: 新增元件
+          title: '新增元件： %{name}'
+        publish:
+          success: 這個元件已經成功發佈
+        title: 元件
+        unpublish:
+          success: 這個元件已經成功取消發佈
+        update:
+          error: 更新這個元件發生錯誤
+          success: 元件更新成功
+      conflicts:
+        attempts: 嘗試
+        'false': '否'
+        managed_user_name: 管理的使用者
+        solved: 已解決
+        title: 驗證衝突
+        transfer:
+          email: 電子郵件
+          error: 轉移現在參與者到管理參與者時發生錯誤
+          name: 名稱
+          reason: 理由
+          success: 目前的轉換完成
+          title: 轉換
+        'true': '是'
+        user_name: 使用者
+      dashboard:
+        pending_moderations:
+          anouncement:
+            other: 有 %{count} 個操作等待中
+          goto_moderation: 前往全域管理
+          title: 等待的操作
+        show:
+          view_more_logs: 檢視更多記錄
+          welcome: 歡迎來到管理介面
+      domain_whitelist:
+        form:
+          domain_too_short: 網址太短
+        update:
+          error: 網址白名單更新失敗
+          success: 網址白名單更新成功.
+      exports:
+        export_as: "%{name} 成為 %{export_format}"
+        formats:
+          CSV: CSV
+          Excel: Excel
+          FormPDF: PDF
+          JSON: JSON
+        notice: 匯出處理中，完成後會發出通知
+      filters:
+        category_id_eq:
+          label: 類別
+        filter_label: 篩選
+        invitation_accepted_at_present:
+          label: 邀請已接受
+          values:
+            'false': '否'
+            'true': '是'
+        last_sign_in_at_present:
+          label: 曾經登入
+          values:
+            'false': '否'
+            'true': '是'
+        moderated_users:
+          reports_reason_eq:
+            label: 回報原因
+            values:
+              does_not_belong: 不屬於
+              offensive: 攻擊行為
+              spam: 垃圾訊息
+        moderations:
+          reportable_type_string_eq:
+            label: 類別
+        officialized_at_null:
+          label: 狀態
