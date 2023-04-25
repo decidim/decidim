@@ -29,7 +29,7 @@ class UploaderImageDimensionsValidator < ActiveModel::Validations::FileContentTy
     return if (image = extract_image(file)).blank?
 
     record.errors.add attribute, I18n.t("carrierwave.errors.file_resolution_too_large") if image.dimensions.any? { |dimension| dimension > uploader.max_image_height_or_width }
-  rescue MiniMagick::Error
+  rescue MiniMagick::Error, MiniMagick::Invalid
     # The error may happen because of many reasons but most commonly the image
     # exceeds the default maximum dimensions set for ImageMagick when the
     # `identify` command fails to identify the image.
@@ -46,16 +46,24 @@ class UploaderImageDimensionsValidator < ActiveModel::Validations::FileContentTy
   def extract_image(file)
     return unless file.try(:content_type).to_s.start_with?("image")
 
-    if file.is_a?(ActionDispatch::Http::UploadedFile)
+    if uploaded_file?(file)
       MiniMagick::Image.new(file.path)
     elsif file.is_a?(ActiveStorage::Attached) && file.blob.persisted?
       MiniMagick::Image.read(file.blob.download)
     end
-  rescue ActiveStorage::FileNotFoundError
+  rescue ActiveStorage::FileNotFoundError, MiniMagick::Invalid
     # Although the blob is persisted, the file is not available to download and analyze
     # after committing the record
     nil
   end
 
   def check_validity!; end
+
+  private
+
+  def uploaded_file?(file)
+    return true if defined?(Rack::Test::UploadedFile) && file.is_a?(Rack::Test::UploadedFile)
+
+    file.is_a?(ActionDispatch::Http::UploadedFile)
+  end
 end
