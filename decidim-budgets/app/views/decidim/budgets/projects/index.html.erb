@@ -6,6 +6,9 @@
   <%= stylesheet_pack_tag "decidim_budgets", media: "all" %>
 <% end %>
 
+
+<%= render partial: "budget_summary", locals: { include_heading: true, project_item: false, responsive: true } %>
+
 <% content_for :aside do %>
   <h3 class="h3 decorator"><%= t("decidim.budgets.projects.projects_for", name: translated_attribute(budget.title)) %></h3>
 
@@ -22,7 +25,7 @@
           <%= t("decidim.budgets.projects.projects_for", name: translated_attribute(budget.title)) %>
         </h2>
       <% else %>
-        <%= render partial: "budget_summary", locals: { include_heading: true, project_item: false } %>
+        <%= render partial: "budget_summary", locals: { include_heading: true, project_item: false, responsive: false } %>
       <% end %>
     </div>
 

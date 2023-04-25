@@ -9,7 +9,7 @@
     box-shadow: 0 4px 6px 0 rgba(211, 211, 211, .25);
 
     &__cols{
-      @apply col-span-10 lg:col-start-2;
+      @apply col-span-10 lg:col-start-2 px-4 md:px-0;
     }
 
     &__container{
