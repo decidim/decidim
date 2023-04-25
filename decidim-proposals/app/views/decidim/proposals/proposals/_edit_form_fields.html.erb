@@ -19,8 +19,6 @@
 <% end %>
 
 <% if @form.geocoding_enabled? %>
-  <%= form.label :has_address %>
-
   <%= form.geocoding_field :address, placeholder: t("decidim.proposals.proposals.placeholder.address") %>
 
   <div id="address_map" class="proposal__container">

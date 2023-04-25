@@ -156,7 +156,6 @@ describe "Edit proposals", type: :system do
 
         click_link translated(proposal.title)
         click_link "Edit proposal"
-        check "proposal_has_address"
 
         expect(page).to have_field("Title", with: translated(proposal.title))
         expect(page).to have_field("Body", with: translated(proposal.body))
@@ -180,7 +179,7 @@ describe "Edit proposals", type: :system do
           )
         end
 
-        it "allows filling an empty address and unchecking the has address checkbox" do
+        it "allows filling an empty address" do
           visit_component
 
           click_link translated(proposal.title)
@@ -195,7 +194,7 @@ describe "Edit proposals", type: :system do
             fill_in :proposal_body, with: new_body
             fill_in :proposal_address, with: ""
           end
-          uncheck "proposal_has_address"
+
           click_button "Send"
 
           expect(page).to have_content(new_title)
