@@ -1625,7 +1625,7 @@ fr:
         subject: Instructions de confirmation
       email_changed:
         greeting: Bonjour %{recipient}!
-        message: Nous vous contactons pour vous informer que votre adresse e-mail a été modifiée à %{email}.
+        message: Nous vous contactons pour vous informer que votre adresse e-mail a été modifiée pour %{email}.
         subject: Courriel modifié
       invitation_instructions:
         accept: Accepter l'invitation
@@ -1643,9 +1643,9 @@ fr:
       invite_admin:
         subject: Vous avez été invité(e) à gérer %{organization}
       invite_collaborator:
-        subject: Vous avez été invité(e) à gérer %{organization}
+        subject: Vous avez été invité à collaborer sur %{organization}
       invite_private_user:
-        subject: Vous avez été invité(e) à un processus participatif privé à %{organization}
+        subject: Vous avez été invité(e) à une concertation privés sur %{organization}
       organization_admin_invitation_instructions:
         subject: Vous avez été invité(e) à gérer %{organization}
       password_change:
@@ -1703,8 +1703,8 @@ fr:
     shared:
       links:
         back: Retour
-        didn_t_receive_confirmation_instructions: Vous n’avez pas reçu les instructions de confirmation?
-        didn_t_receive_unlock_instructions: Vous n’avez pas reçu les instructions de déverrouillage?
+        didn_t_receive_confirmation_instructions: Vous n’avez pas reçu les instructions de confirmation ?
+        didn_t_receive_unlock_instructions: Vous n’avez pas reçu les instructions de déverrouillage ?
         forgot_your_password: Mot de passe oublié?
         sign_in: S'identifier
         sign_in_with_provider: S'identifier avec %{provider}
@@ -1750,12 +1750,12 @@ fr:
     messages:
       allowed_file_content_types: 'seuls les fichiers avec les extensions suivantes sont autorisés : %{types}'
       already_confirmed: était déjà confirmé, s'il vous plaît essayez de vous connecter
-      blank: "cannot be blank\nChamp obligatoire"
-      cannot_be_blank: "cannot be blank\nChamp obligatoire"
+      blank: ne peut être vide
+      cannot_be_blank: ne peut être vide
       confirmation: ne correspond pas à %{attribute}
       confirmation_period_expired: doit être confirmé dans les %{period}, s'il vous plaît demander un nouveau
       content_type_allowlist_error: le type de fichier n'est pas valide
-      cycle_detected: le parent d'une portée ne peut pas être l'un de ses descendants
+      cycle_detected: un secteur parent ne peut pas être l'un de ses sous-secteurs
       empty: "cannot be empty\nChamp obligatoire"
       expired: a expiré, s'il vous plaît demander un nouveau
       file_size_is_less_than_or_equal_to: la taille du fichier doit être inférieure ou égale à %{count}
