@@ -235,12 +235,14 @@ describe "Amend Proposal", versioning: true, type: :system do
           end
 
           it "is shown the amendment create form" do
-            expect(page).to have_css(".new_amendment", visible: :visible)
             expect(page).to have_content("Create your amendment")
-            expect(page).to have_css(".field", text: "Title", visible: :visible)
-            expect(page).to have_css(".field", text: "Body", visible: :visible)
-            expect(page).to have_css(".field", text: "Amendment author", visible: :visible)
-            expect(page).to have_button("Create")
+
+            within ".new_amendment" do
+              expect(page).to have_content("Title")
+              expect(page).to have_content("Body")
+              expect(page).to have_content("Amendment author")
+              expect(page).to have_button("Create")
+            end
           end
 
           context "when the form is filled correctly" do
@@ -324,7 +326,7 @@ describe "Amend Proposal", versioning: true, type: :system do
 
           it "is shown the amendment review form" do
             expect(page).to have_css(".edit_amendment")
-            expect(page).to have_content("REVIEW THE AMENDMENT")
+            expect(page).to have_content("Review the amendment")
             expect(page).to have_field("Title", with: emendation_title)
             expect(page).to have_field("Body", with: emendation_body)
             expect(page).to have_button("Accept amendment")

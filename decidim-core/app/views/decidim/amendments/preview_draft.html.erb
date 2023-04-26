@@ -21,8 +21,11 @@
   </div>
 
   <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
-    <%= link_to edit_draft_amend_path(amendment), class: "button button__sm md:button__lg button__text-secondary" do %>
+    <%= link_to wizard_aside_back_url(amendable), class: "button button__sm md:button__lg button__text-secondary" do %>
       <%= icon "arrow-left-line" %>
+      <%= t("back", scope: "decidim.wizard_step_form.wizard_aside") %>
+    <% end %>
+    <%= link_to edit_draft_amend_path(amendment), class: "button button__sm md:button__lg button__transparent-secondary" do %>
       <span><%= t("modify", scope: "decidim.amendments.preview_draft") %></span>
     <% end %>
     <%= button_to publish_draft_amend_path(amendment), method: :post, class: "button button__sm md:button__lg button__secondary" do %>
