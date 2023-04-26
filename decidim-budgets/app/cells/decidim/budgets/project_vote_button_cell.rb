@@ -36,7 +36,7 @@ module Decidim
       def modal_params
         return {} if resource_added? || below_maximum?
 
-        { dialog_open: "budget-excess" }
+        { dialog_open: "" }
       end
 
       def remaining_amount
