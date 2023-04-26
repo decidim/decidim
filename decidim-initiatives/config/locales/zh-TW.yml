@@ -341,18 +341,43 @@ zh-TW:
           back_to_initiative: 回到倡議
         sms_code:
           continue: 檢查代碼並繼續
+          help: 請檢查您手機收到的SMS簡訊
         sms_phone_number:
+          continue: 發送簡訊給我
           help: 請填寫您驗證過的手機號碼以申請驗證碼
       initiative_votes:
         create:
+          error: 發起倡議的簽署遇到問題。
           invalid: 提供的資料以簽署此倡議為無效
           success_html: 恭喜！<strong> %{title} </strong> 倡議已成功簽署。
+        personal_data:
+          invalid: 個人資料與授權提供的資料不一致。
         sms_code:
           invalid: 您的驗證碼與我們的不符。請仔細檢查我們發送給您的SMS簡訊。
+        sms_phone:
+          invalid: 電話號碼無效或正在等待授權。請檢查您的授權。
       initiatives:
+        author:
+          deleted: 刪除
+        author_list:
+          hidden_authors_count:
+            other: "one\n以及其他 %{count} 個人\n\nOther\n以及其他 %{count} 個人"
         committee_members:
+          approve: 核准
+          confirm_revoke: 您確定嗎？
           invite_to_committee_help: 透過分享此連結，邀請其他參與者加入推廣委員會。
           no_members_yet: 推廣委員會中沒有成員
+          revoke: 撤銷
+          title: 委員會成員
+        count:
+          title:
+            other: "One\n %{count} 倡議\n\nOther\n %{count} 倡議"
+        filters:
+          any: 任何
+          area: 區域
+          author: 作者
+          myself: 我的倡議
+          scope: 範圍
         index_header:
           not_authorized:
             authorizations_page: 查看授權
@@ -361,6 +386,47 @@ zh-TW:
             title: 需要授權
         result:
           answer_title: 這個倡議已經有回應了。
+        vote_cabin:
+          vote: 簽署
+        votes_count:
+          count:
+            other: 簽名
+      show:
+        badge_name:
+          accepted: 足夠的簽署數
+          created: 已建立
+          published: 已發佈
+      states:
+        accepted: 已接受
+        expired: 已過期
       update:
         error: 出現了一個錯誤
         success: 倡議已成功更新
+      versions:
+        shared:
+          back_to_resource: 回到倡議
+    menu:
+      initiatives: 倡議
+    resources:
+      initiative:
+        actions:
+          comment: 評論
+      initiatives_type:
+        actions:
+          title: 操作
+          vote: 簽署
+  layouts:
+    decidim:
+      initiative_creation_header:
+        back: 返回
+        fill_data: 建立
+        finish: 完成
+        previous_form: 開始
+        select_initiative_type: 選擇
+        show_similar_initiatives: 比較
+        step: 第 %{current} 步，共 %{total} 步
+      initiative_header:
+        initiative_menu_item: 倡議
+      initiative_signature_creation_header:
+        back: 返回
+        finish: 完成
