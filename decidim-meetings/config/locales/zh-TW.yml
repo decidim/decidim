@@ -3,21 +3,37 @@ zh-TW:
     attributes:
       close_meeting:
         attendees_count: 出席者人數
+        attending_organizations: 出席組織列表
+        audio_url: 音頻URL
         closing_report: 分
         closing_visible: 是否可見？
+        contributions_count: 貢獻數量
+        proposal_ids: 在會議中創建的提案
+        video_url: 影片網址
       meeting:
         address: 地址
+        available_slots: 此次會議的可用空位
+        customize_registration_email: 自定訂登記電子郵件
         decidim_category_id: 分類
         decidim_scope_id: 範圍
         decidim_user_group_id: 用戶群組
         description: 說明
         end_time: 結束時間
         id: ID
+        iframe_embed_type: Iframe 嵌入類型
         location: 位置
         location_hints: 場所提示
         online_meeting_url: 線上會議URL
         organizer_gid: 建立為
         organizer_id: 管理員
+        private_meeting: 私人會議
+        registration_email_custom_content: 自訂註冊電子郵件內容
+        registration_form_enabled: 啟用註冊表格
+        registration_terms: 註冊條款
+        registration_type: 註冊類型
+        registration_url: 註冊URL
+        registrations_enabled: 啟用註冊
+        reserved_slots: 此次會議的保留席位
         start_time: 開始時間
         title: 標題
         transparent: 透明
@@ -52,11 +68,26 @@ zh-TW:
     models:
       decidim/meetings/close_meeting_event: 會議關閉
       decidim/meetings/create_meeting_event: 會議
+      decidim/meetings/meeting_registrations_enabled_event: 啟用註冊
+      decidim/meetings/meeting_registrations_over_percentage_event: 註冊超過上限
+      decidim/meetings/upcoming_meeting_event: 即將到來的會議
+      decidim/meetings/update_meeting_event: 會議已更新
+  activerecord:
+    models:
+      decidim/meetings/meeting:
+        other: 會議
+      decidim/meetings/minutes:
+        other: 分
+      decidim/meetings/registration:
+        other: 註冊
   decidim:
     admin:
       filters:
         meetings:
+          category_id_eq:
+            label: 分類
           closed_at_present:
+            label: 狀態
             values:
               'false': 開啟
               'true': 關閉
@@ -80,9 +111,13 @@ zh-TW:
               in_person: 親自
               online: 線上
       meeting_copies:
+        create:
+          error: 複製此會議時發生問題。
+          success: 成功複製會議。
         new:
           copy: 複製
           select: 請選擇您想要複製的資料
+          title: 複製會議
     components:
       meetings:
         actions:
@@ -93,13 +128,27 @@ zh-TW:
           global:
             announcement: 公告
             comments_enabled: 已啟用留言
+            comments_max_length: 評論字數最大長度(若要使用預設值請輸入0)
+            creation_enabled_for_participants: 參與者可以建立會議
+            default_registration_terms: 預設報名條款
+            enable_pads_creation: 啟用平板創建
+            maps_enabled: 啟用地圖
+            registration_code_enabled: 啟用註冊碼
+            resources_permissions_enabled: 可以針對每個會議設定操作權限
             scope_id: 範圍
             scopes_enabled: 啟用範圍
+            terms_and_conditions_url_for_meeting_creators: 會議創建者的使用條款和條件 URL
           step:
             announcement: 公告
             comments_blocked: 留言已封鎖
+            creation_enabled_for_participants: 參與者可以創建會議
+            creation_enabled_for_user_groups: 使用者群組可以創建會議
     events:
       meetings:
+        meeting_closed:
+          affected_user:
+            email_intro: '您的會議「%{resource_title}」已結束。您可以從其頁面閱讀結論：'
+            email_outro: 你收到此通知是因為你組織了"%{resource_title}" 會議。
         meeting_created:
           button_text: 登記參加會議
     forms:
@@ -137,6 +186,7 @@ zh-TW:
             invalid: 建立議程時發生問題
             success: 議程成功建立
           edit:
+            title: 編輯議程
             update: 更新
           form:
             end_date: 結束日期
@@ -159,8 +209,11 @@ zh-TW:
           form:
             attendee_type: 參與者類型
             invite: 邀請
+            non_user: 不存在的參與者。
+            select_user: 選擇參與者
           index:
             filter:
+              accepted: 已接受
               all: 全部
               rejected: 已拒絕
               sent: 傳送
@@ -231,7 +284,16 @@ zh-TW:
               other: 已有 %{count} 個註冊。
             reserved_slots_help: 若您沒有保留名額，請將其設為0。
             title: 註冊
+      application_helper:
+        filter_category_values:
+          all: 全部
+        filter_meeting_space_values:
+          all: 全部
+        filter_scope_values:
+          all: 全部
       calendar_modal:
+        calendar_url: 行事曆 URL
+        close_window: 關閉視窗
         export_calendar: 匯出行事曆
       content_blocks:
         upcoming_meetings:
@@ -274,6 +336,12 @@ zh-TW:
           add_to_calendar: 新增至行事曆
           close_window: 關閉視窗
           google: 新增至 Google 日曆
+          outlook: 添加到Outlook 行事曆
+        count:
+          meetings_count:
+            other: "One\n%{count} 個會議\nOther\n%{count} 個會議 "
+        create:
+          invalid: 建立會議時發生問題.
         edit:
           back: 返回
           update: 更新
@@ -307,9 +375,21 @@ zh-TW:
           unfold: 展開
         form:
           disclaimer: '免責聲明：使用外部註冊系統時，您知道%{organization} 的組織者不對使用者提供給外部服務的數據負責。'
+          select_a_category: 請選擇一個類別
+          select_a_meeting_type: 請選擇一種會議類型。
           show_embedded_iframe_help: '"只有少數服務(YouTube、Twitch 和 Jitsi) 允許在會議或直播活動中嵌入影片。'
+        index:
+          click_here: 查看所有會議
+          new_meeting: 新會議
+          see_all: 查看所有會議
+          see_all_withdrawn: 查看所有撤回的會議
+        meeting_minutes:
+          related_information: 相關信息
         meetings:
           no_meetings_warning: 沒有符合搜尋條件的會議或者目前沒有任何已排定的會議。
+        new:
+          back: 返回
+          create: 建立
         registration_confirm:
           cancel: 取消
           confirm: 確認
@@ -323,6 +403,8 @@ zh-TW:
           meeting_minutes: 會議分鐘
           view: 檢視
           visit_finished: 查看過去的會議
+      meetings_map:
+        view_meeting: 檢視會議
       models:
         invite:
           fields:
@@ -345,6 +427,12 @@ zh-TW:
       polls:
         questions:
           index_admin:
+            question: 問題
+            results: 結果
+            send: 發送
+            sent: 傳送
+          published_question:
+            max_choices_alert: 選擇的項目太多了
             question: 問題
       registrations:
         create:
