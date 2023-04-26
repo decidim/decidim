@@ -29,14 +29,13 @@ shared_examples "proposals wizards" do |options|
     context "when in step_1: Create your proposal" do
       it "show current step_1 highlighted" do
         within "#wizard-steps" do
-          expect(page).to have_css(".step--active", count: 1)
-          expect(page).to have_css(".step--past", count: 0)
-          expect(page).to have_css(".step--active.step_1")
+          expect(page).to have_css("[data-active]", text: "Create your proposal")
+          expect(page).to have_css("[data-past]", count: 0)
         end
       end
 
       it "fill in title and body" do
-        within ".card__content form" do
+        within "form.new_proposal" do
           fill_in :proposal_title, with: proposal_title
           fill_in :proposal_body, with: proposal_body
           find("*[type=submit]").click
@@ -49,7 +48,7 @@ shared_examples "proposals wizards" do |options|
         end
 
         it "redirects to proposals_path" do
-          expect(page).to have_content("PROPOSALS")
+          expect(page).to have_content("Proposals")
           expect(page).to have_content("New proposal")
         end
       end
@@ -72,16 +71,15 @@ shared_examples "proposals wizards" do |options|
 
         it "show previous and current step_2 highlighted" do
           within "#wizard-steps" do
-            expect(page).to have_css(".step--active", count: 1)
-            expect(page).to have_css(".step--past", count: 1)
-            expect(page).to have_css(".step--active.step_2")
+            expect(page).to have_css("[data-active]", text: "Compare")
+            expect(page).to have_css("[data-past]", count: 1)
           end
         end
 
         it "shows similar proposals" do
-          expect(page).to have_content("SIMILAR PROPOSALS (2)")
-          expect(page).to have_css(".card--proposal", text: "More sidewalks and less roads")
-          expect(page).to have_css(".card--proposal", count: 2)
+          expect(page).to have_content("Similar Proposals (2)")
+          expect(page).to have_css(".proposal-list-item", text: "More sidewalks and less roads")
+          expect(page).to have_css(".proposal-list-item", count: 2)
         end
 
         it "show continue button" do
@@ -106,9 +104,7 @@ shared_examples "proposals wizards" do |options|
         end
 
         it "redirects to step_3: complete" do
-          within ".section-heading" do
-            expect(page).to have_content("COMPLETE YOUR PROPOSAL")
-          end
+          expect(page).to have_content("Complete your proposal")
           expect(page).to have_css(".edit_proposal")
         end
 
@@ -134,9 +130,8 @@ shared_examples "proposals wizards" do |options|
 
       it "show previous and current step_3 highlighted" do
         within "#wizard-steps" do
-          expect(page).to have_css(".step--active", count: 1)
-          expect(page).to have_css(".step--past", count: 2)
-          expect(page).to have_css(".step--active.step_3")
+          expect(page).to have_css("[data-active]", text: "Complete")
+          expect(page).to have_css("[data-past]", count: 2)
         end
       end
 
@@ -153,7 +148,7 @@ shared_examples "proposals wizards" do |options|
         end
 
         it "redirects to step_3: complete" do
-          expect(page).to have_content("SIMILAR PROPOSALS (1)")
+          expect(page).to have_content("Similar Proposals (1)")
         end
       end
     end
@@ -167,9 +162,8 @@ shared_examples "proposals wizards" do |options|
 
       it "show current step_4 highlighted" do
         within "#wizard-steps" do
-          expect(page).to have_css(".step--active", count: 1)
-          expect(page).to have_css(".step--past", count: 3)
-          expect(page).to have_css(".step--active.step_4")
+          expect(page).to have_css("[data-active]", text: "Publish your proposal")
+          expect(page).to have_css("[data-past]", count: 3)
         end
       end
 
@@ -198,7 +192,7 @@ shared_examples "proposals wizards" do |options|
         end
 
         it "redirects to edit the proposal draft" do
-          expect(page).to have_content("EDIT PROPOSAL DRAFT")
+          expect(page).to have_content("Edit Proposal Draft")
         end
       end
     end
@@ -216,30 +210,28 @@ shared_examples "proposals wizards" do |options|
 
         it "show current step_4 highlighted" do
           within "#wizard-steps" do
-            expect(page).to have_css(".step--active", count: 1)
-            expect(page).to have_css(".step--past", count: 2)
-            expect(page).to have_css(".step--active.step_3")
+            expect(page).to have_css("[data-active]", text: "Complete")
+            expect(page).to have_css("[data-past]", count: 2)
           end
         end
 
         it "can discard the draft" do
-          within ".card__content" do
-            expect(page).to have_content("Discard this draft")
-            click_link "Discard this draft"
-          end
+          expect(page).to have_link("Discard this draft")
+          click_link "Discard this draft"
 
           accept_confirm
 
           within_flash_messages do
             expect(page).to have_content "successfully"
           end
-          expect(page).to have_css(".step--active.step_1")
+          within "#wizard-steps" do
+            expect(page).to have_css("[data-active]", text: "Create your proposal")
+            expect(page).to have_css("[data-past]", count: 0)
+          end
         end
 
         it "renders a Preview button" do
-          within ".card__content" do
-            expect(page).to have_content("Preview")
-          end
+          expect(page).to have_button("Preview")
         end
       end
     end
@@ -287,9 +279,8 @@ shared_examples "proposals wizards" do |options|
 
       it "show current step_4 highlighted" do
         within "#wizard-steps" do
-          expect(page).to have_css(".step--active", count: 1)
-          expect(page).to have_css(".step--past", count: 3)
-          expect(page).to have_css(".step--active.step_4")
+          expect(page).to have_css("[data-active]", text: "Publish your proposal")
+          expect(page).to have_css("[data-past]", count: 3)
         end
       end
 
@@ -298,7 +289,6 @@ shared_examples "proposals wizards" do |options|
         expect(page).to have_content(user.name)
         expect(page).to have_content(proposal_body)
 
-        expect(page).to have_content("ADDRESS")
         expect(page).to have_css(".static-map__container")
       end
 
@@ -312,11 +302,11 @@ shared_examples "proposals wizards" do |options|
 
       context "when the back button is clicked" do
         before do
-          click_link "Back"
+          click_link "Modify the proposal"
         end
 
         it "redirects to edit the proposal draft" do
-          expect(page).to have_content("EDIT PROPOSAL DRAFT")
+          expect(page).to have_content("Edit Proposal Draft")
         end
       end
 
@@ -328,7 +318,6 @@ shared_examples "proposals wizards" do |options|
           expect(page).to have_content(user.name)
           expect(page).to have_content(proposal_body)
 
-          expect(page).not_to have_content("ADDRESS")
           expect(page).not_to have_css(".card__content.address")
         end
       end
