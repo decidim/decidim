@@ -168,6 +168,42 @@ zh-TW:
           email_intro: '"%{resource_title}"會議的可用名額已經超過 %{percentage}%。'
           email_outro: 您收到此通知是因為您是會議參與空間的管理員。
           email_subject: '"%{resource_title}"會議的可用名額已經超過 %{percentage}%。'
+          notification_title: 該會議的可用預約時段已滿 %{percentage}%。
+        meeting_updated:
+          email_intro: '%{resource_title} 會議已更新。您可以在該會議頁面上閱讀新版本:'
+          email_outro: 您收到此通知是因為您正在追蹤 "%{resource_title}" 會議。您可以透過上方的連結取消追蹤。
+          email_subject: '%{resource_title}" 會議已更新。'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> 會議的可用名額已滿 %{percentage}%。
+        registration_code_validated:
+          email_intro: 您的 "%{resource_title}" 會議註冊代碼"%{registration_code}"已通過驗證。
+          email_outro: 您已收到此通知，因為您的註冊碼已驗證成功，可參加「%{resource_title}」會議。
+          email_subject: 您的 "%{resource_title}" 會議註冊代碼"%{registration_code}"已通過驗證。
+          notification_title: 您的註冊代碼 "%{registration_code}" 已經驗證通過，您可以參加 <a href="%{resource_path}">%{resource_title}</a> 會議了。
+        registrations_enabled:
+          email_intro: '"%{resource_title}" 會議已開啟註冊。您可以在其頁面上註冊:'
+          email_outro: 您收到此通知是因為您正在追蹤 "%{resource_title}" 會議。您可以透過上方的連結取消追蹤。
+          email_subject: '"%{resource_title}"會議已開放註冊。'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a>會議已開放註冊。
+        upcoming_meeting:
+          email_intro: '%{resource_title}" 會議將在不到48小時後開始。'
+          email_outro: 您收到此通知是因為您正在追蹤 "%{resource_title}" 會議。您可以透過上方的連結取消追蹤。
+          email_subject: '%{resource_title}" 會議將在不到48小時後開始。'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> 會議將在 48 小時內開始。
+    forms:
+      meetings:
+        attendees_count_help_text: 別忘了在您的會議中包括所有與會者的總人數，無論是現場、線上還是混合的參與者。
+    gamification:
+      badges:
+        attended_meetings:
+          conditions:
+            - 註冊您想參加的會議
+          description: 這個徽章是當您參加多個面對面會議時獲得的。
+          description_another: 此參與者已經參加了 %{score} 場會議。
+          description_own: 您已經參加了 %{score} 場會議。
+          name: 已參加會議
+          next_level_in: 參加 %{score} 場會議以達到下一個等級！
+          unearned_another: 這個參與者還沒有參加過任何會議。
+          unearned_own: 你還沒有參加任何會議。
     meetings:
       actions:
         agenda: 議程
@@ -177,6 +213,10 @@ zh-TW:
         confirm_destroy: 你確定要刪除此會議？
         destroy: 刪除
         edit: 編輯
+        invalid_destroy:
+          proposals_count:
+            other: '該會議因有 %{count} 個相關提案而無法刪除:'
+        manage_poll: 管理投票
         new: 新會議
         preview: 預覽
         registrations: 註冊
@@ -184,17 +224,26 @@ zh-TW:
       admin:
         agenda:
           agenda_item:
+            add_agenda_item_child: 新增議程子項目
+            agenda_item: 議程項目
+            agenda_item_children: 議程子項目
             down: 向下
             remove: 移除
             up: 往上
           agenda_item_child:
+            agenda_item_child: 議程子項目
             down: 向下
             remove: 移除
             up: 往上
+          create:
+            invalid: 建立議程時發生問題.
+            success: 議程成功建立.
           edit:
             title: 編輯議程
             update: 更新
           form:
+            add_agenda_item: 新增議程項目
+            agenda_items: 議程項目
             end_date: 結束日期
             start_date: 開始日期
           new:
@@ -211,10 +260,17 @@ zh-TW:
         invite_join_meeting_mailer:
           invite:
             decline: 拒絕邀請
+            invited_you_to_join_a_meeting: "%{invited_by} 邀請您加入 %{application} 的會議。您可以通過以下鏈接拒絕或接受邀請。"
+            join: 加入會議 '%{meeting_title}'
         invites:
+          create:
+            error: 邀請參與者加入會議時發生問題。
+            success: 已成功邀請參與者加入會議。
           form:
             attendee_type: 參與者類型
+            existing_user: 現有參與者
             invite: 邀請
+            invite_explanation: 參與者將被邀請加入會議和組織。
             non_user: 不存在的參與者。
             select_user: 選擇參與者
           index:
@@ -234,12 +290,22 @@ zh-TW:
             title: 關閉會議
         meetings:
           close:
+            invalid: 關閉此會議時出現問題.
             success: 會議已成功關閉.
           create:
             invalid: 建立會議時發生問題.
+            success: 會議已成功建立。請注意這仍未發佈，您需要手動發佈。
+          destroy:
+            invalid:
+              proposals_count:
+                other: 該會議因有 %{count} 個相關提案而無法刪除.
+            success: 會議已成功刪除
           edit:
+            title: 編輯會議
             update: 更新
           form:
+            address_help: '地址：用於地理編碼器找到位置'
+            disclaimer: '免責聲明：使用外部註冊系統時，您知道%{organization} 的組織者不對使用者提供給外部服務的數據負責。'
             location_help: '地點：針對使用者的消息，指示會議地點'
             location_hints_help: '地點提示：額外的訊息。例如，如果是面對面的會議，可以提供建築物樓層的資訊；如果是限制存取權限的線上會議，可以提供會議密碼的資訊。'
             online_meeting_url_help: '連結：允許參與者直接連接到您的會議'
@@ -389,6 +455,7 @@ zh-TW:
           add_to_calendar: 新增至行事曆
           apple: 新增至 Apple 日曆
           close_window: 關閉視窗
+          full_details_html: 詳細內容請前往 %{link}
           google: 新增至 Google 日曆
           outlook: 添加到Outlook 行事曆
         count:
@@ -396,8 +463,10 @@ zh-TW:
             other: "One\n%{count} 個會議\nOther\n%{count} 個會議 "
         create:
           invalid: 建立會議時發生問題.
+          success: 您已成功創建會議。
         edit:
           back: 返回
+          title: 編輯您的會議
           update: 更新
         filters:
           activity: 我的活動
@@ -408,6 +477,7 @@ zh-TW:
             all: 全部
             past: 過去
             upcoming: 即將舉行
+          my_meetings: 我的會議
           origin: 起源
           origin_values:
             all: 全部
