@@ -1,8 +1,148 @@
 zh-TW:
+  activemodel:
+    attributes:
+      common:
+        created_at: 建立於
+      conversation:
+        body: 正文
+      group:
+        about: 關於
+        avatar: 頭像
+        document_number: 文件編號
+        email: 電子郵件
+        name: 名稱
+        nickname: 暱稱
+        phone: 電話號碼
+      message:
+        body: 正文
+      report:
+        details: 附加評論
+      user:
+        about: 關於
+        email: 您的電子信箱
+        locale: 地域
+        name: 您的名字
+        nickname: 暱稱
+        password: 密碼
+        password_confirmation: 確認你的密碼
+        personal_url: 個人 URL
+        remove_avatar: 刪除頭像
+        tos_agreement: 同意服務條款
+    models:
+      decidim/attachment_created_event: 附件
+      decidim/component_published_event: 啟用組件
+      decidim/gamification/badge_earned_event: 贏得的徽章
+      decidim/gamification/level_up_event: 你升級了
+      decidim/invited_to_group_event: 邀請至群組
+      decidim/profile_updated_event: 資料已更新。
+      decidim/removed_from_group: 從群組中移除
+      decidim/user_group_created_event: 用戶群組已建立
+      decidim/welcome_notification_event: 歡迎訊息
+  activerecord:
+    attributes:
+      decidim/action_log:
+        created_at: 時間
+        with_participatory_space: 參與空間
+      decidim/user:
+        current_password: 目前密碼
+        email: 電子郵件
+        name: 暱稱
+        password: 密碼
+        password_confirmation: 確認密碼
+        remember_me: 記住密碼
+    models:
+      decidim/amendment:
+        other: 修正案
+      decidim/endorsement:
+        other: 連署
+      decidim/user:
+        other: 參與者
+      decidim/user_group:
+        other: 群組
+  booleans:
+    'false': '否'
+    'true': '是'
+  carrierwave:
+    errors:
+      file_cannot_be_processed: 無法處理檔案
+  date:
+    formats:
+      decidim_short: "%d/%m/%Y"
+      decidim_short_with_month_name_short: "%d %b %Y"
+      decidim_with_day_and_month_name: "%A %d %b %Y"
+      decidim_with_month_name: "%d %B %Y"
+      decidim_with_month_name_short: "%d%b"
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        other: "one\n大約 1 小時\n\nOther\n大約 %{count} 小時"
+      about_x_months:
+        other: "one\n大約 1 月\n\nOther\n大約 %{count} 月"
+      half_a_minute: 半分鐘
+      less_than_x_minutes:
+        other: "one\n少於 1 分鐘\n\n\nOther\n少於 %{count} 分鐘"
+      x_days:
+        other: "One\n1 天前\n\nOther\n%{count} 天前"
+      x_hours:
+        other: "One\n1 小時前\n\nOther\n%{count} 小時前"
+      x_minutes:
+        other: "One\n1 分前\n\nOther\n%{count} 分前"
+      x_seconds:
+        other: "One\n1 秒前\n\nOther\n%{count} 秒前"
   decidim:
+    accessibility:
+      external_link: 外部鏈接
+      skip_button: 跳到主內容
     account:
+      delete:
+        confirm:
+          close: 關閉視窗
+          ok: 是，我想要删除我的帳戶
+          question: 您確定要刪除您的帳戶嗎？
+          title: 刪除我的帳號
+      destroy:
+        error: 刪除您的帳戶時出現問題。
+        success: 您的帳號已經成功刪除.
       download_your_data_export:
         file_no_exists: 檔案不存在
+        notice: 您的資料正在下載中，完成後將會以電子郵件通知您。
+      email_change:
+        body1: 我們已經發送了一封郵件到 %{unconfirmed_email}，以驗證您的新電子郵件地址。
+        body2: 需要我們再次發送驗證電子郵件嗎？%{resend_link} 或%{cancel_link}。
+        cancel: 取消
+        send_again: 再次傳送
+      show:
+        change_password: 更改密碼
+        update_account: 更新帳號
+      update:
+        error: 更新您的帳戶有問題。
+        success: 您的帳號已成功更新
+        success_with_email_confirmation: 您的帳戶已成功更新。您將收到一封電子郵件以確認您的新電子郵件地址。
+    activity:
+      time_ago: "%{time} 之前"
+    admin:
+      actions:
+        cancel: 取消
+      password_change:
+        alert: 你需要更改你的密碼才能繼續進行操作。
+    admin_log:
+      helpers:
+        answers: 回答
+        comments: 評論
+        projects: 專案
+        results: 結果
+    amendments:
+      amendable:
+        amended_by: 修改人
+      compare_draft:
+        continue: 繼續
+      edit_draft:
+        discard: 放棄此草案
+        send: 預覽
+      emendation:
+        actions:
+          button_accept: 接受
+          button_reject: 拒絕
     components:
       dummy:
         settings:
