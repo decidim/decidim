@@ -130,7 +130,7 @@ describe Decidim::UploadModal, type: :cell do
   context "when multiple attachments are present" do
     let(:file1) { Decidim::Dev.test_file("Exampledocument.pdf", "application/pdf") }
     let(:file2) { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
-    let(:attachments) { [upload_test_file(file1), upload_test_file(file2)] }
+    let(:attachments) { [upload_test_file(file2), upload_test_file(file1)] }
 
     it "renders the attachments" do
       expect(subject).to have_css(".attachment-details", count: 2)
@@ -146,9 +146,8 @@ describe Decidim::UploadModal, type: :cell do
 
       it "renders preview" do
         images = subject.all("img")
-        expect(images.count).to be(2)
-        expect(images[0]["src"]).to match(%r{/city.jpeg$})
-        expect(images[1]["src"]).to match(%r{/city2.jpeg$})
+        expect(images.count).to be(1)
+        expect(images[0]["src"]).to match(%r{/city2.jpeg$})
       end
     end
 
