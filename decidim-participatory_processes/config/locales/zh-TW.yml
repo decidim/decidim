@@ -203,6 +203,13 @@ zh-TW:
         create:
           error: 發佈參與流程時出現問題。
           success: 成功發佈參與流程。
+        destroy:
+          error: 解除發布參與程序時發生問題。
+          success: 成功解除發布參與程序。
+      participatory_process_step_activations:
+        create:
+          error: 啟動參與過程階段時發生問題。
+          success: 成功啟用參與程序階段。
       participatory_process_steps:
         create:
           error: 創建新參與程序階段時出現問題。
@@ -221,6 +228,10 @@ zh-TW:
         new:
           create: 建立
           title: 新的參與式過程階段
+        ordering:
+          error: 重新排列這個參與程序階段時出現問題。
+        update:
+          error: 更新參與程序階段時出現問題。
       participatory_process_types:
         create:
           error: 新增程序類型時發生錯誤
