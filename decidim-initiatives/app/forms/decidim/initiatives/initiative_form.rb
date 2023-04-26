@@ -9,8 +9,8 @@ module Decidim
 
       mimic :initiative
 
-      attribute :title, String
-      attribute :description, String
+      translatable_attribute :title, String
+      translatable_attribute :description, String
       attribute :type_id, Integer
       attribute :scope_id, Integer
       attribute :area_id, Integer
@@ -39,6 +39,7 @@ module Decidim
       def map_model(model)
         self.type_id = model.type.id
         self.scope_id = model.scope&.id
+        self.signature_type = model.signature_type
       end
 
       def signature_type_updatable?
