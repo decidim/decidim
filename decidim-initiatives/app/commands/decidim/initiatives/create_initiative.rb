@@ -73,7 +73,8 @@ module Decidim
           area: area,
           signature_type: form.signature_type,
           signature_end_date: signature_end_date,
-          state: "created"
+          state: "created",
+          hashtag: form.hashtag
         )
       end
 
