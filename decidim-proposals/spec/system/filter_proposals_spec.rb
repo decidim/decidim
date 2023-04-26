@@ -33,6 +33,8 @@ describe "Filter Proposals", :slow, type: :system do
 
   context "when filtering proposals by TEXT" do
     it "updates the current URL" do
+      skip_unless_redesign_enabled("Filters update the results when redesign is fully enabled")
+
       create(:proposal, component:, title: { en: "Foobar proposal" })
       create(:proposal, component:, title: { en: "Another proposal" })
       visit_component
@@ -68,6 +70,8 @@ describe "Filter Proposals", :slow, type: :system do
 
       context "with 'official' origin" do
         it "lists the filtered proposals" do
+          skip_unless_redesign_enabled("Filters update the results when redesign is fully enabled")
+
           create_list(:proposal, 2, :official, component:, scope:)
           create(:proposal, component:, scope:)
           visit_component
@@ -83,6 +87,8 @@ describe "Filter Proposals", :slow, type: :system do
 
       context "with 'participants' origin" do
         it "lists the filtered proposals" do
+          skip_unless_redesign_enabled("Filters update the results when redesign is fully enabled")
+
           create_list(:proposal, 2, component:, scope:)
           create(:proposal, :official, component:, scope:)
           visit_component
@@ -131,6 +137,8 @@ describe "Filter Proposals", :slow, type: :system do
 
     context "when selecting the global scope" do
       it "lists the filtered proposals", :slow do
+        skip_unless_redesign_enabled("Filters update the results when redesign is fully enabled")
+
         within "#dropdown-menu-filters div.filter-container", text: "Scope" do
           uncheck "All"
           check "Global"
@@ -142,6 +150,8 @@ describe "Filter Proposals", :slow, type: :system do
 
     context "when selecting one scope" do
       it "lists the filtered proposals", :slow do
+        skip_unless_redesign_enabled("Filters update the results when redesign is fully enabled")
+
         within "#dropdown-menu-filters div.filter-container", text: "Scope" do
           uncheck "All"
           check scope.name[I18n.locale.to_s]
@@ -153,6 +163,8 @@ describe "Filter Proposals", :slow, type: :system do
 
     context "when selecting the global scope and another scope" do
       it "lists the filtered proposals", :slow do
+        skip_unless_redesign_enabled("Filters update the results when redesign is fully enabled")
+
         within "#dropdown-menu-filters div.filter-container", text: "Scope" do
           uncheck "All"
           check "Global"
@@ -165,6 +177,8 @@ describe "Filter Proposals", :slow, type: :system do
 
     context "when unselecting the selected scope" do
       it "lists the filtered proposals" do
+        skip_unless_redesign_enabled("Filters update the results when redesign is fully enabled")
+
         within "#dropdown-menu-filters div.filter-container", text: "Scope" do
           uncheck "All"
           check scope.name[I18n.locale.to_s]
@@ -244,6 +258,8 @@ describe "Filter Proposals", :slow, type: :system do
         end
 
         it "lists the filtered proposals" do
+          skip_unless_redesign_enabled("Filters update the results when redesign is fully enabled")
+
           create(:proposal, :rejected, component:, scope:)
           visit_component
 
@@ -270,6 +286,8 @@ describe "Filter Proposals", :slow, type: :system do
           end
 
           it "shows only accepted proposals with published answers" do
+            skip_unless_redesign_enabled("Filters update the results when redesign is fully enabled")
+
             within "#dropdown-menu-filters div.filter-container", text: "Status" do
               check "All"
               uncheck "All"
@@ -284,6 +302,8 @@ describe "Filter Proposals", :slow, type: :system do
           end
 
           it "shows accepted proposals with not published answers as not answered" do
+            skip_unless_redesign_enabled("Filters update the results when redesign is fully enabled")
+
             within "#dropdown-menu-filters div.filter-container", text: "Status" do
               check "All"
               uncheck "All"
@@ -349,6 +369,8 @@ describe "Filter Proposals", :slow, type: :system do
       end
 
       it "can be filtered by a category" do
+        skip_unless_redesign_enabled("Filters update the results when redesign is fully enabled")
+
         visit_component
 
         within "#dropdown-menu-filters div.filter-container", text: "Category" do
@@ -360,6 +382,8 @@ describe "Filter Proposals", :slow, type: :system do
       end
 
       it "can be filtered by two categories" do
+        skip_unless_redesign_enabled("Filters update the results when redesign is fully enabled")
+
         visit_component
 
         within "#dropdown-menu-filters div.filter-container", text: "Category" do
@@ -399,6 +423,8 @@ describe "Filter Proposals", :slow, type: :system do
       end
 
       it "lists the filtered proposals created by the user" do
+        skip_unless_redesign_enabled("Filters update the results when redesign is fully enabled")
+
         within "form.new_filter" do
           find("input[value='my_proposals']").click
         end
@@ -471,6 +497,8 @@ describe "Filter Proposals", :slow, type: :system do
 
       context "with 'proposals' type" do
         it "lists the filtered proposals" do
+          skip_unless_redesign_enabled("Filters update the results when redesign is fully enabled")
+
           within "#dropdown-menu-filters div.filter-container", text: "Type" do
             choose "Proposals"
           end
@@ -482,6 +510,8 @@ describe "Filter Proposals", :slow, type: :system do
 
       context "with 'amendments' type" do
         it "lists the filtered proposals" do
+          skip_unless_redesign_enabled("Filters update the results when redesign is fully enabled")
+
           within "#dropdown-menu-filters div.filter-container", text: "Type" do
             choose "Amendments"
           end
@@ -525,6 +555,8 @@ describe "Filter Proposals", :slow, type: :system do
               end
 
               it "lists only their amendments" do
+                skip_unless_redesign_enabled("Filters update the results when redesign is fully enabled")
+
                 within "#dropdown-menu-filters div.filter-container", text: "Type" do
                   choose "Amendments"
                 end
@@ -597,6 +629,8 @@ describe "Filter Proposals", :slow, type: :system do
               end
 
               it "lists all the amendments" do
+                skip_unless_redesign_enabled("Filters update the results when redesign is fully enabled")
+
                 within "#dropdown-menu-filters div.filter-container", text: "Type" do
                   choose "Amendments"
                 end
@@ -648,6 +682,8 @@ describe "Filter Proposals", :slow, type: :system do
     end
 
     it "recover filters from initial pages" do
+      skip_unless_redesign_enabled("Filters update the results when redesign is fully enabled")
+
       within "#dropdown-menu-filters div.filter-container", text: "Status" do
         check "Rejected"
       end
@@ -660,6 +696,8 @@ describe "Filter Proposals", :slow, type: :system do
     end
 
     it "recover filters from previous pages" do
+      skip_unless_redesign_enabled("Filters update the results when redesign is fully enabled")
+
       within "#dropdown-menu-filters div.filter-container", text: "Status" do
         check "All"
         uncheck "All"
@@ -703,6 +741,8 @@ describe "Filter Proposals", :slow, type: :system do
     end
 
     it "saves and restores the filtering" do
+      skip_unless_redesign_enabled("Filters update the results when redesign is fully enabled")
+
       expect(page).to have_css(".card__list.proposal-list-item", count: 6)
 
       within "#dropdown-menu-filters div.filter-container", text: "Status" do
