@@ -36,13 +36,23 @@ zh-TW:
         comments_enabled: 啟用評論
         custom_signature_end_date_enabled: 允許作者選擇結束簽名收集期限
         description: 說明
+        document_number_authorization_handler: 授權核准文件編號以驗證簽名
+        extra_fields_legal_information: 關於個人資料蒐集的法律資訊
+        minimum_committee_members: 委員會成員最少人數
         online_signature_enabled: 啟用線上簽名
+        only_global_scope_enabled: 只允許創建全球範圍的倡議
+        promoting_committee_enabled: 啟用推廣委員會
+        signature_type: 簽名類型
         title: 標題
+        undo_online_signatures_enabled: 允許參與者撤銷他們的在線簽名
+        validate_sms_code_on_votes: 在簽名過程中添加SMS 短信代碼驗證步驟
       initiatives_type_scope:
         decidim_scopes_id: 範圍
+        supports_required: 需要支持
       initiatives_vote:
         date_of_birth: 出生日期
         document_number: 文件編號
+        name_and_surname: 名字與姓氏
         postal_code: 郵政編碼
       organization_data:
         address: 地址
@@ -54,17 +64,50 @@ zh-TW:
           attributes:
             attachment:
               file: 這份檔案無效
+              needs_to_be_reattached: 需要重新附加
               title: 標題不能為空白
   activerecord:
     models:
       decidim/initiative:
         other: 倡議
+      decidim/initiative_comittee:
+        other: 委員會
+      decidim/initiative_vote:
+        other: 簽名
   decidim:
     admin:
+      actions:
+        new_initiative_type: 新的倡議類型
+      filters:
+        initiatives:
+          decidim_area_id_eq:
+            label: 區域
+          state_eq:
+            label: 狀態
+            values:
+              accepted: 足夠的簽署數
+              created: 已建立
+              discarded: 已捨棄
+              published: 已發佈
+              rejected: 不足夠的簽署數
+              validating: 技術驗證
+          type_id_eq:
+            label: 類別
+        search_placeholder:
+          title_or_description_or_id_string_or_author_name_or_author_nickname_cont: 透過標題、描述、ID 或作者姓名搜尋 %{collection}
       initiatives_settings:
         update:
           error: 發生一個錯誤
           success: 提案設定已成功更新
+      menu:
+        attachments: 附件
+        committee_members: 委員會成員
+        components: 组件
+        information: 資訊
+        initiatives: 倡議
+        initiatives_settings: 設定
+        initiatives_types: 倡議種類
+        moderations: 版主
       models:
         initiatives:
           fields:
@@ -87,8 +130,18 @@ zh-TW:
         initiatives:
           description_own: 你已經發佈了 %{score} 項倡議。
           unearned_another: 這個參與者尚未有任何倡議被發佈。
+    help:
+      participatory_spaces:
+        initiatives:
+          contextual: "<p> <strong>「倡議」 <strong>是一個提議，由任何人獨立提出（不受其他頻道或參與空間的限制），透過收集(數位) 簽名以便組織進行特定行動(修改法規、啟動項目、更改部門或街道的名稱等) 會議。</p> <p> 倡議的推動者可以定義其目標、集結支持、辯論、傳播並定義會議地點，以在出席者處收集簽名或開放給其他參與者進行辯論。</p> <p>例如，倡議可以收集簽名以便在組織中召開所有人的諮詢，或創建或召開一個集會，或啟動一個增加領土或組織區域預算的程序。在收集簽名的過程中，更多人可以加入這個需求，並在組織中推動它。\n"
+          page: "<p> <strong>「倡議」 <strong>是一個提議，由任何人獨立提出（不受其他頻道或參與空間的限制），透過收集(數位) 簽名以便組織進行特定行動(修改法規、啟動項目、更改部門或街道的名稱等) 會議。</p> <p> 倡議的推動者可以定義其目標、集結支持、辯論、傳播並定義會議地點，以在出席者處收集簽名或開放給其他參與者進行辯論。</p> <p>例如，倡議可以收集簽名以便在組織中召開所有人的諮詢，或創建或召開一個集會，或啟動一個增加領土或組織區域預算的程序。在收集簽名的過程中，更多人可以加入這個需求，並在組織中推動它。\n"
     initiatives:
+      actions:
+        answer: 回答
       admin:
+        answers:
+          edit:
+            answer: 回答
         committee_requests:
           index:
             invite_to_committee_help: 分享此連結以邀請其他參與者加入推廣委員會
