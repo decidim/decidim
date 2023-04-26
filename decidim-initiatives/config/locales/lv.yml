@@ -282,7 +282,6 @@ lv:
         fill_data:
           back: Atpakaļ
           continue: Turpināt
-          initiative_type: Iniciatīvas veids
           more_information: "(Papildu informācija)"
           select_area: Izvēlieties jomu
           select_scope: Izvēlēties darbības tvērumu
