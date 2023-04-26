@@ -33,7 +33,7 @@
     <div class="proposal__author">
       <% # REDESIGN_PENDING: Logic copied from decidim-core/app/cells/decidim/coauthorships_cell.rb
           author = if @collaborative_draft.respond_to?(:official?) && @collaborative_draft.official?
-                      "#{@collaborative_draft.class.module_parent}::OfficialAuthorPresenter".constantize.new
+                      Decidim::Proposals::OfficialAuthorPresenter.new
                     else
                       @collaborative_draft.identities.first&.presenter
                     end %>
