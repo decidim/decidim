@@ -200,6 +200,57 @@ module Decidim
           origin_values
         )
       end
+
+      def filter_proposals_state_values
+        Decidim::CheckBoxesTreeHelper::TreeNode.new(
+          Decidim::CheckBoxesTreeHelper::TreePoint.new("", filter_text_for(t("decidim.proposals.application_helper.filter_state_values.all"))),
+          [
+            Decidim::CheckBoxesTreeHelper::TreePoint.new("accepted", filter_text_for(t("decidim.proposals.application_helper.filter_state_values.accepted"))),
+            Decidim::CheckBoxesTreeHelper::TreePoint.new("evaluating", filter_text_for(t("decidim.proposals.application_helper.filter_state_values.evaluating"))),
+            Decidim::CheckBoxesTreeHelper::TreePoint.new("state_not_published", filter_text_for(t("decidim.proposals.application_helper.filter_state_values.not_answered"))),
+            Decidim::CheckBoxesTreeHelper::TreePoint.new("rejected", filter_text_for(t("decidim.proposals.application_helper.filter_state_values.rejected")))
+          ]
+        )
+      end
+
+      # rubocop:disable Metrics/CyclomaticComplexity
+      # rubocop:disable Metrics/PerceivedComplexity
+      def filter_sections
+        @filter_sections ||= begin
+          items = []
+          if component_settings.proposal_answering_enabled && current_settings.proposal_answering_enabled
+            items.append(method: :with_any_state, collection: filter_proposals_state_values, label_scope: "decidim.proposals.proposals.filters", id: "state")
+          end
+          if current_component.has_subscopes?
+            items.append(method: :with_any_scope, collection: filter_scopes_values, label_scope: "decidim.proposals.proposals.filters", id: "scope")
+          end
+          if current_component.categories.any?
+            items.append(method: :with_any_category, collection: filter_categories_values, label_scope: "decidim.proposals.proposals.filters", id: "category")
+          end
+          if component_settings.official_proposals_enabled
+            items.append(method: :with_any_origin, collection: filter_origin_values, label_scope: "decidim.proposals.proposals.filters", id: "origin")
+          end
+          if current_user
+            items.append(method: :activity, collection: activity_filter_values, label_scope: "decidim.proposals.proposals.filters", id: "activity", type: :radio_buttons)
+          end
+          if @proposals.only_emendations.any?
+            items.append(method: :type, collection: filter_type_values, label_scope: "decidim.proposals.proposals.filters", id: "amendment_type", type: :radio_buttons)
+          end
+          if linked_classes_for(Decidim::Proposals::Proposal).any?
+            items.append(
+              method: :related_to,
+              collection: linked_classes_filter_values_for(Decidim::Proposals::Proposal),
+              label_scope: "decidim.proposals.proposals.filters",
+              id: "related_to",
+              type: :radio_buttons
+            )
+          end
+        end
+        # rubocop:enable Metrics/PerceivedComplexity
+        # rubocop:enable Metrics/CyclomaticComplexity
+
+        items.reject { |item| item[:collection].blank? }
+      end
     end
   end
 end

@@ -29,19 +29,7 @@
     <% end %>
   </div>
 
-  <% filter_sections = [].tap do |f|
-      f.append(method: :with_any_state, collection: filter_proposals_state_values, label_scope: "decidim.proposals.proposals.filters", id: "state") if component_settings.proposal_answering_enabled && current_settings.proposal_answering_enabled
-      f.append(method: :with_any_scope, collection: filter_scopes_values, label_scope: "decidim.proposals.proposals.filters", id: "scope") if current_component.has_subscopes?
-      f.append(method: :with_any_category, collection: filter_categories_values, label_scope: "decidim.proposals.proposals.filters", id: "category") if current_component.categories.any?
-      f.append(method: :with_any_origin, collection: filter_origin_values, label_scope: "decidim.proposals.proposals.filters", id: "origin") if component_settings.official_proposals_enabled
-      f.append(method: :activity, collection: activity_filter_values, label_scope: "decidim.proposals.proposals.filters", id: "activity", type: :radio_buttons) if current_user
-      f.append(method: :type, collection: filter_type_values, label_scope: "decidim.proposals.proposals.filters", id: "amendment_type", type: :radio_buttons) if @proposals.only_emendations.any?
-      f.append(method: :related_to, collection: linked_classes_filter_values_for(Decidim::Proposals::Proposal), label_scope: "decidim.proposals.proposals.filters", id: "related_to", type: :radio_buttons) if linked_classes_for(Decidim::Proposals::Proposal).any?
-    end
-
-    search_variable = :search_text_cont %>
-
-  <%= render layout: "decidim/shared/filters", locals: { filter_sections: , search_variable: } do %>
+  <%= render layout: "decidim/shared/filters", locals: { filter_sections: , search_variable: :search_text_cont } do %>
     <%= hidden_field_tag :order, order, id: nil, class: "order_filter" %>
   <% end %>
 <% end %>
