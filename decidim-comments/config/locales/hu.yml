@@ -82,7 +82,6 @@ hu:
             offensive: Rasszizmust, szexizmust, gyalázkodást, személyeskedést, halálos fenyegetést, öngyilkosságra való felhívást vagy gyűlöletbeszédet tartalmaz.
             spam: Klikkvadászat, reklám, átverés vagy script bot.
           title: Nem megfelelő tartalom bejelentése
-        show_replies: '%{replies_count} válasz mutatása'
         single_comment_link_title: Link megszerzése
       comment_order_selector:
         order:
