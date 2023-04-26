@@ -41,7 +41,6 @@ module Decidim
     end
 
     def decidim_sanitize_editor_admin(html, options = {})
-      html = Decidim::IframeDisabler.new(html, options).perform
       decidim_sanitize_editor(html, { scrubber: Decidim::AdminInputScrubber.new }.merge(options))
     end
 
