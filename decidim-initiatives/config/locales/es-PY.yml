@@ -341,7 +341,6 @@ es-PY:
           back: Volver
           continue: Continuar
           fill_data_help: "<ul> <li>Revisa el contenido de tu iniciativa. ¿Tu título es fácil de entender? ¿Está claro el objetivo de tu iniciativa?</li> <li>Tienes que elegir el tipo de firma. En persona, en línea o una combinación de ambos</li> <li>¿Cuál es el alcance geográfico de la iniciativa?</li> </ul>"
-          initiative_type: Tipo de iniciativa
           more_information: "(Más información)"
           select_area: Selecciona una área
           select_scope: Seleccione un alcance
