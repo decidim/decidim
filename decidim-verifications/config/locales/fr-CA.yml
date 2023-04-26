@@ -226,6 +226,7 @@ fr-CA:
             title: Téléchargez votre document d'identité
           update:
             error: Un problème est survenu lors du rechargement de votre document.
+            success: Document retéléchargé avec succès.
         dni: Carte nationale d'identité
         nie: Carte de séjour ou de résident
         passport: Passeport
@@ -240,16 +241,29 @@ fr-CA:
               title: Vérifications en cours
               username: Nom d'utilisateur
               verification_code: Code de vérification
+          postages:
+            create:
+              error: Une erreur s'est produite lors du marquage de la lettre comme envoyée.
+              success: Lettre marquée avec succès comme envoyée.
         authorizations:
+          create:
+            error: Il y a eu un problème avec votre demande.
+            success: Merci ! Nous enverrons un code de vérification à votre adresse.
           edit:
             send: Confirmer
+            title: Introduisez le code de vérification que vous avez reçu.
+            waiting_for_letter: Nous enverrons bientôt une lettre à votre adresse avec votre code de vérification.
           new:
             send: Envoyez-moi une lettre
             title: Demandez votre code de vérification
           update:
+            error: Votre code de vérification ne correspond pas au nôtre. Veuillez vérifier la lettre que nous vous avons envoyée.
             success: Félicitations, votre identité a été vérifiée avec succès.
       sms:
         authorizations:
+          create:
+            error: Il y avait un problème avec votre demande.
+            success: Merci! Nous avons envoyé un SMS sur votre téléphone.
           destroy:
             success: Le code de vérification a été réinitialisé avec succès. Veuillez ré-entrer votre numéro de téléphone.
           edit:
