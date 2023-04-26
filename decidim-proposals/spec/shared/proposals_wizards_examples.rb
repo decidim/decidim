@@ -261,11 +261,10 @@ shared_examples "proposals wizards" do |options|
         visit "#{component_path.proposal_path(proposal_draft)}/edit_draft"
       end
 
-      it "allows filling an empty address and unchecking the has address checkbox" do
+      it "allows filling an empty address" do
         within "form.edit_proposal" do
           fill_in :proposal_address, with: ""
         end
-        uncheck "proposal_has_address"
         click_button "Preview"
 
         expect(page).to have_content(proposal_title)

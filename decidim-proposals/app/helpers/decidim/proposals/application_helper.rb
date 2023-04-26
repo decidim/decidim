@@ -148,10 +148,6 @@ module Decidim
         render partial: "decidim/proposals/proposals/participatory_texts/proposal_vote_button.html", locals: { proposal: model, from_proposals_list: }
       end
 
-      def form_has_address?
-        @form.address.present? || @form.has_address
-      end
-
       def show_voting_rules?
         return false unless votes_enabled?
 

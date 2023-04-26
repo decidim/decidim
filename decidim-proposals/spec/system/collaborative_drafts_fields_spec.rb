@@ -136,7 +136,6 @@ describe "Collaborative drafts", type: :system do
             visit new_collaborative_draft_path
 
             within ".new_collaborative_draft" do
-              check :collaborative_draft_has_address
               fill_in :collaborative_draft_title, with: "More sidewalks and less roads"
               fill_in :collaborative_draft_body, with: "Cities need more people, not more cars"
               fill_in_geocoding :collaborative_draft_address, with: address
@@ -169,7 +168,6 @@ describe "Collaborative drafts", type: :system do
               visit new_collaborative_draft_path
 
               within ".new_collaborative_draft" do
-                check :collaborative_draft_has_address
                 fill_in :collaborative_draft_title, with: "More sidewalks and less roads"
                 fill_in :collaborative_draft_body, with: "Cities need more people, not more cars"
               end
@@ -267,7 +265,6 @@ describe "Collaborative drafts", type: :system do
               within ".new_collaborative_draft" do
                 fill_in :collaborative_draft_title, with: "More sidewalks and less roads"
                 fill_in :collaborative_draft_body, with: "Cities need more people, not more cars"
-                check :collaborative_draft_has_address
                 fill_in :collaborative_draft_address, with: address
                 select translated(category.name), from: :collaborative_draft_category_id
                 scope_pick scope_picker, scope

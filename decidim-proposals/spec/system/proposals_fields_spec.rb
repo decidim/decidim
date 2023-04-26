@@ -112,7 +112,6 @@ describe "Proposals", type: :system do
             visit complete_proposal_path(component, proposal_draft)
 
             within ".edit_proposal" do
-              check :proposal_has_address
               fill_in :proposal_title, with: "More sidewalks and less roads"
               fill_in :proposal_body, with: "Cities need more people, not more cars"
               fill_in_geocoding :proposal_address, with: address
@@ -156,7 +155,6 @@ describe "Proposals", type: :system do
               # Prepare the view for submission (other than the address field)
               visit complete_proposal_path(component, proposal_draft)
 
-              check :proposal_has_address
               fill_in :proposal_title, with: "More sidewalks and less roads"
               fill_in :proposal_body, with: "Cities need more people, not more cars"
             end
@@ -248,7 +246,6 @@ describe "Proposals", type: :system do
               within ".edit_proposal" do
                 fill_in :proposal_title, with: "More sidewalks and less roads"
                 fill_in :proposal_body, with: "Cities need more people, not more cars"
-                check :proposal_has_address
                 fill_in :proposal_address, with: address
                 select translated(category.name), from: :proposal_category_id
                 scope_pick scope_picker, scope
