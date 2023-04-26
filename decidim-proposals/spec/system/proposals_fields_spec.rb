@@ -316,7 +316,7 @@ describe "Proposals", type: :system do
 
             expect(page).to have_content("successfully")
 
-            within ".section.images" do
+            within "#panel-images" do
               expect(page).to have_selector("img[src*=\"city.jpeg\"]", count: 1)
             end
           end
