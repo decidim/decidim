@@ -188,7 +188,7 @@ shared_examples "proposals wizards" do |options|
 
       context "when the back button is clicked" do
         before do
-          click_link "Back"
+          click_link "Modify the proposal"
         end
 
         it "redirects to edit the proposal draft" do
