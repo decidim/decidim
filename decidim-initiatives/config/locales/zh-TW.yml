@@ -32,7 +32,9 @@ zh-TW:
         attachments_enabled: 啟用附件
         banner_image: 橫幅圖片
         child_scope_threshold_enabled: 啟用子範圍簽名
+        collect_user_extra_fields: 在簽名時收集參與者的個人資料
         comments_enabled: 啟用評論
+        custom_signature_end_date_enabled: 允許作者選擇結束簽名收集期限
         description: 說明
         online_signature_enabled: 啟用線上簽名
         title: 標題
