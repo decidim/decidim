@@ -403,3 +403,36 @@ end
 ```
 
 You can read more about this change at PR [\#10111](https://github.com/decidim/decidim/pull/10111).
+
+### 5.4. Extra context argument added to SMS gateway implementations
+
+If you have integrated any [SMS gateways](https://docs.decidim.org/en/develop/services/sms), there is a small change in the API that needs to be reflected to the SMS integrations. An extra `context` attribute is passed to the SMS gateway's initializer which can be used to pass e.g. the correct organization for the gateway to utilize.
+
+In previous versions your SMS gateway initializer might have looked like the following:
+
+```ruby
+class MySMSGatewayService
+  attr_reader :mobile_phone_number, :code
+  def initialize(mobile_phone_number, code)
+    @mobile_phone_number = mobile_phone_number
+    @code = code
+  end
+  # ...
+end
+```
+
+From now on, you will need to change it as follows (note the extra `context` attribute):
+
+```ruby
+class MySMSGatewayService
+  attr_reader :mobile_phone_number, :code, :context
+  def initialize(mobile_phone_number, code, context = {})
+    @mobile_phone_number = mobile_phone_number
+    @code = code
+    @context = context
+  end
+  # ...
+end
+```
+
+You can read more about this change at PR [\#10760](https://github.com/decidim/decidim/pull/10760).
