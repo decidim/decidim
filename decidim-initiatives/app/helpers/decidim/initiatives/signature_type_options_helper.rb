@@ -3,7 +3,7 @@
 module Decidim
   module Initiatives
     # Helper methods for the create initiative wizard.
-    module CreateInitiativeHelper
+    module SignatureTypeOptionsHelper
       def signature_type_options(initiative_form)
         return all_signature_type_options unless initiative_form.signature_type_updatable?
 
