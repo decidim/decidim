@@ -340,8 +340,8 @@ fi-pl:
         fill_data:
           back: Takaisin
           continue: Jatka
+          decidim_user_group_id_help: Aloitteen laatijan muuttaminen ei ole mahdollista luonnin jälkeen
           fill_data_help: "<ul> <li>Tarkasta aloitteesi sisältö. Onko aloitteen otsikko helppo ymmärtää? Onko aloitteen tavoitteet tarpeeksi selkeästi kuvattu?</li> <li>Sinun on valittava allekirjoitustapa. Palvelun ulkopuolella, verkossa tai molemmat.</li> <li>Mikä on aloitteen maantieteellinen laajuus?</li> </ul>"
-          initiative_type: Aloitetyyppi
           more_information: "(Lisää tietoa)"
           select_area: Valitse alue
           select_scope: Valitse teema
