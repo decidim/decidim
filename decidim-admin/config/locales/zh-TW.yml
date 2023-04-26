@@ -200,6 +200,7 @@ zh-TW:
         verify: 驗證
       admin_terms_of_service:
         accept:
+          error: 點選同意管理員服務條款時發生錯誤
           success: 太好了，已經同意管理員服務條款！
         actions:
           accept: 我同意這些條款
@@ -409,3 +410,30 @@ zh-TW:
             label: 類別
         officialized_at_null:
           label: 狀態
+          values:
+            'false': 官方化
+            'true': 非官方化
+        participatory_space_private_users:
+          user_invitation_accepted_at_not_null:
+            label: 邀請已接受
+            values:
+              'false': 未接受
+              'true': 已接受
+          user_invitation_sent_at_not_null:
+            label: 已發送邀請
+            values:
+              'false': 未發送
+              'true': 已送出
+        private_space_eq:
+          label: 私人的
+          values:
+            'false': 公開的
+            'true': 不公開
+        published_at_null:
+          label: 已發佈
+          values:
+            'false': 已發佈
+            'true': 取消發佈
+        scope_id_eq:
+          label: 範圍
+        search_label: 搜尋
