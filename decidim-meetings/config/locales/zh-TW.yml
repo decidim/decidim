@@ -498,31 +498,70 @@ zh-TW:
           filter_by: 篩選條件
           unfold: 展開
         form:
+          address_help: '地址：用於地理編碼器找到位置'
+          available_slots_help: 如果您有無限的可用名額，請將其設置為0。
+          create_as: 創建會議
+          disclaimer: '免責聲明：使用外部註冊系統時，您知道%{organization} 的組織者不對使用者提供給外部服務的數據負責。'
+          location_help: '地點：針對使用者的消息，指示會議地點'
+          location_hints_help: '地點提示：額外的訊息。例如，如果是面對面的會議，可以提供建築物樓層的資訊；如果是限制存取權限的線上會議，可以提供會議密碼的資訊。'
+          online_meeting_url_help: '連結：允許參與者直接連接到您的會議'
+          registration_url_help: '連結：允許參與者進入您用於註冊的外部服務'
           select_a_category: 請選擇一個類別
           select_a_meeting_type: 請選擇一種會議類型。
+          select_a_registration_type: 請選擇一種註冊類型
+          select_an_iframe_access_level: 請選擇一個 iframe 存取級別
+          show_embedded_iframe_help: '只有以下域名的部分服務允許將會議或直播活動嵌入： %{domains}'
         index:
           click_here: 查看所有會議
           new_meeting: 新會議
           see_all: 查看所有會議
           see_all_withdrawn: 查看所有撤回的會議
+          text_banner: 您正在查看已被其作者撤回的會議列表。 %{go_back_link}。
         meeting_minutes:
           related_information: 相關信息
+        meetings:
+          no_meetings_warning: 沒有符合搜尋條件的會議或者目前沒有任何已排定的會議。
+          upcoming_meetings_warning: 目前沒有安排的會議，但您可以在這裡找到所有過去的會議列表。
         new:
           back: 返回
           create: 建立
+          title: 新增您的會議
         registration_confirm:
           cancel: 取消
           confirm: 確認
         show:
+          attendees: 出席人數
           back: 返回列表
           close_meeting: 關閉會議
+          contributions: 貢獻次數
           date: 日期
+          edit_close_meeting: 編輯會議報告
           edit_meeting: 編輯會議
+          going: 您已經註冊參加此會議
           join: 加入會議
           leave: 取消您的註冊
+          leave_confirmation: 您確定要取消此次會議的註冊嗎？
+          link_available_soon: 連結即將推出
+          link_closed: 會議連結將在開始前幾分鐘提供
+          live_event: 此會議正在進行中
           meeting_minutes: 會議分鐘
+          micro_camera_permissions_warning: 當您點擊下面的按鈕時，系統會要求您授權使用麥克風和/或攝像頭，接著您就可以進入視訊會議。
+          no_slots_available: 無可用時段。
+          organizations: 參加的組織
+          registration_code_help_text: 您的報名代碼
+          registration_state:
+            validated: 已驗證
+            validation_pending: 驗證待處理
+          remaining_slots:
+            other: "剩餘 %{count} 個位置"
           view: 檢視
           visit_finished: 查看過去的會議
+          withdraw_btn_hint: 您可以撤回您的會議，如果您改變了主意。會議不會被刪除，而是會顯示在已撤回的會議列表中。
+          withdraw_confirmation_html: 您確定要撤回此會議嗎？<br><br><strong>此操作無法取消！</strong>
+          withdraw_meeting: 撤回會議
+        update:
+          invalid: 更新會議時發生問題.
+          success: 您已成功更新會議。
       meetings_map:
         view_meeting: 檢視會議
       models:
@@ -542,18 +581,33 @@ zh-TW:
             end_time: 結束日期
             id: ID
             map: 地圖
+            official_meeting: 官方會議
             start_time: 開始日期
             title: 標題
       polls:
         questions:
+          closed_question:
+            question_results: 問題結果
+          index:
+            empty_questions: 在本次會議期間，您將收到一些問題並且您可以回答這些問題。這些問題將會在此顯示。
           index_admin:
+            admin_dashboard: 管理員儀表板
+            edit: 在管理面板中編輯
             question: 問題
+            received_answer: 收到回答
+            received_answers: 收到回答
             results: 結果
             send: 發送
             sent: 傳送
           published_question:
             max_choices_alert: 選擇的項目太多了
             question: 問題
+            question_replied: 問題已回覆
+            reply_question: 回答問題
+      public_participants_list:
+        attending_participants: 參與的參與者
+        hidden_participants_count:
+          other: "one\n以及其他 %{count} 個人\n\nOther\n以及其他 %{count} 個人"
       read_more: "(顯示較多)"
       registration_mailer:
         confirmation:
