@@ -1,16 +1,75 @@
 zh-TW:
   activemodel:
+    attributes:
+      initiative:
+        answer: 回答
+        answer_url: 回答 URL
+        area_id: 區域
+        decidim_scope_id: 範圍
+        decidim_user_group_id: 作者
+        description: 說明
+        hashtag: 主題標籤
+        offline_votes: 親筆簽名
+        offline_votes_for_scope: '%{scope_name} 的親筆簽名'
+        scope_id: 範圍
+        signature_end_date: 簽名收集期限結束
+        signature_start_date: 簽名收集期限開始
+        signature_type: 簽名收集類型
+        signature_type_values:
+          any: 混合
+          offline: 親自
+          online: 線上
+        state: 狀態
+        title: 標題
+        type_id: 類別
+      initiatives_committee_member:
+        user: 委員會成員
+      initiatives_settings:
+        initiatives_order: 順序
+      initiatives_type:
+        attachments_enabled: 啟用附件
+        banner_image: 橫幅圖片
+        title: 標題
+      initiatives_type_scope:
+        decidim_scopes_id: 範圍
+      initiatives_vote:
+        date_of_birth: 出生日期
+        document_number: 文件編號
+        postal_code: 郵政編碼
+      organization_data:
+        address: 地址
+        id_document: ID 文件
+        name: 完整名稱
     errors:
       models:
         initiative:
           attributes:
             attachment:
+              file: 這份檔案無效
               title: 標題不能為空白
   activerecord:
     models:
       decidim/initiative:
         other: 倡議
   decidim:
+    admin:
+      models:
+        initiatives:
+          fields:
+            id: ID
+            published_at: 發佈於
+            state: 狀態
+        initiatives_type_scope:
+          fields:
+            scope: 範圍
+        initiatives_votes:
+          fields:
+            document_number: 文件編號
+            hash: 雜湊
+            initiative_end_date: 結束日期
+            initiative_start_date: 開始日期
+            scope: 範圍
+            time_and_date: 時間與日期
     gamification:
       badges:
         initiatives:
@@ -51,6 +110,11 @@ zh-TW:
       committee_requests:
         new:
           help_text: 你即將要求成為此倡議的推動委員會成員。
+      create_initiative:
+        fill_data:
+          decidim_user_group_id_help: 此計畫創建後，無法更改發起人身份。
+      index:
+        uninitialized: 目前尚未有管理員配置方案
       initiative_signatures:
         fill_personal_data:
           help: 以下請填寫您的個人資料以簽署此倡議。
