@@ -84,7 +84,6 @@ nl:
             offensive: Bevat racisme, seksisme, laster, persoonlijke aanvallen, bedreigingen met de dood, zelfmoord verzoeken of enige vorm van haatzaaien.
             spam: Bevat clickbait, reclame, oplichting of script bots.
           title: Meld ongepaste inhoud
-        show_replies: Toon %{replies_count} reacties
         single_comment_link_title: Haal link op
       comment_order_selector:
         order:
