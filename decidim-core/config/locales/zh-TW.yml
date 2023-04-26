@@ -35,6 +35,9 @@ zh-TW:
       decidim/gamification/level_up_event: 您已經升級了。
       decidim/invited_to_group_event: 邀請至群組
       decidim/profile_updated_event: 資料已更新。
+      decidim/removed_from_group: 從群組中移除
+      decidim/user_group_created_event: 用戶群組已建立
+      decidim/welcome_notification_event: 歡迎訊息
   activerecord:
     attributes:
       decidim/user:
@@ -53,16 +56,42 @@ zh-TW:
         other: 參與者
       decidim/user_group:
         other: 群組
+  booleans:
+    'false': '否'
+    'true': '是'
   carrierwave:
     errors:
       image_too_big: 圖片太大了。
+  date:
+    formats:
+      decidim_short: "%d/%m/%Y"
+      decidim_short_with_month_name_short: "%d %b %Y"
+      decidim_with_day_and_month_name: "%A %d %b %Y"
+      decidim_with_month_name: "%d %B %Y"
+      decidim_with_month_name_short: "%d%b"
   datetime:
     distance_in_words:
+      about_x_hours:
+        other: "one\n大約 1 小時\n\nOther\n大約 %{count} 小時"
+      about_x_months:
+        other: "one\n大約 1 月\n\nOther\n大約 %{count} 月"
+      half_a_minute: 半分鐘
+      less_than_x_minutes:
+        other: "one\n少於 1 分鐘\n\n\nOther\n少於 %{count} 分鐘"
+      x_days:
+        other: "One\n1 天前\n\nOther\n%{count} 天前"
+      x_hours:
+        other: "One\n1 小時前\n\nOther\n%{count} 小時前"
+      x_minutes:
+        other: "One\n1 分前\n\nOther\n%{count} 分前"
       x_seconds:
         one: 1 秒之前
         other: "%{count} 秒前"
         zero: 現在
   decidim:
+    accessibility:
+      external_link: 外部鏈接
+      skip_button: 跳到主內容
     account:
       blocked: 由於違反條款和條件，此帳戶已被封鎖。
       data_portability_export:
@@ -70,6 +99,14 @@ zh-TW:
         notice: 您的資料正在下載中，完成後將會以電子郵件通知您。
       delete:
         alert: 此操作無法撤銷。如果您刪除帳戶，將無法使用您的憑證登錄。刪除帳戶將導致您的貢獻被匿名化。您仍然可以創建一個新帳戶，但這些貢獻將不會與之關聯。
+        confirm:
+          close: 關閉視窗
+          ok: 是，我想要删除我的帳戶
+          question: 您確定要刪除您的帳戶嗎？
+          title: 刪除我的帳號
+      destroy:
+        error: 刪除您的帳戶時出現問題。
+        success: 您的帳號已經成功刪除.
       show:
         available_locales_helper: 請選擇您希望在 Decidim 中瀏覽和接收通知的語言
         change_password: 更改密碼
@@ -85,8 +122,11 @@ zh-TW:
       default_body: "<h2>管理員使用條款</h2><p>我們相信您已經收到了當地系統管理員的慣例講話。它通常總結為以下三點：</p><ol><li>尊重他人的隱私。</li><li>三思而後行。</li><li>強大的權力伴隨著巨大的責任。</li></ol>"
     amendments:
       amendable:
+        amended_by: 修改人
         help_text: 透過修改 %{amendable_fields}，來改善這個 %{model_name}
         promote_help_text: 您可以提升此修正，並將其發布為獨立的 %{model_name}
+      compare_draft:
+        continue: 繼續
       edit_draft:
         discard: 放棄此草案
         send: 預覽
