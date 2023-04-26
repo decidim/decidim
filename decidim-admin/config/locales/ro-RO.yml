@@ -44,7 +44,7 @@ ro:
         available_authorizations: Autorizații disponibile
         badges_enabled: Activează insigne
         comments_max_length: Lungimea maximă a comentariilor (Lasă 0 pentru valoarea implicită)
-        cta_button_path: Calea butonului Apel la acţiune
+        cta_button_path: Calea butonului Apel la acțiune
         cta_button_text: Textul butonului Apel la acțiune
         customize_welcome_notification: Personalizați notificarea de bun venit
         default_locale: Localizare implicită
@@ -224,7 +224,7 @@ ro:
           error: A apărut o problemă la crearea unei zone noi.
           success: Zona a fost creată cu succes.
         destroy:
-          has_spaces: Această zonă are spații participative (procese, grupuri de lucru) dependente. Te rugăm să te asiguri că nu există referințe la spațiul participativ din această zonă înainte de a o șterge.
+          has_spaces: Această zonă are spații participative dependente. Te rugăm să te asiguri că nu există referințe la spațiul participativ din această zonă înainte de a o șterge.
           success: Zona a fost eliminată cu succes
         edit:
           title: Editează zona
@@ -247,7 +247,7 @@ ro:
           update: Actualizează
         index:
           attachment_collection_used: Acest dosar nu poate fi eliminat deoarece este în uz.
-          attachment_collections_title: Dosare ataşate
+          attachment_collections_title: Dosare atașate
         new:
           create: Creează
           title: Dosar nou
@@ -480,7 +480,7 @@ ro:
           impersonate_existing_user: Gestionează participantul "%{name}"
           impersonate_new_managed_user: Gestionează participantul nou
       imports:
-        and: şi
+        and: și
         data_errors:
           duplicate_headers:
             detail: Te rugăm verifică dacă fişierul conţine coloanele sau antetele obligatorii o singură dată.
@@ -490,13 +490,13 @@ ro:
               other: Duplică coloanele %{columns}.
           invalid_indexes:
             lines:
-              detail: Te rugăm verifică dacă aceste linii sunt formatate corect şi conţin înregistrări valide.
+              detail: Te rugăm verifică dacă aceste linii sunt formatate corect și conțin înregistrări valide.
               message:
                 one: Am găsit o eroare în fișierul importat la linia %{indexes}.
                 few: Am găsit erori în documentul importat la liniile %{indexes}.
                 other: Am găsit erori în documentul importat la liniile %{indexes}.
             records:
-              detail: Te rugăm verifică dacă aceste linii sunt formatate corect şi conţin înregistrări valide.
+              detail: Te rugăm verifică dacă aceste linii sunt formatate corect și conțin înregistrări valide.
               message:
                 one: Am găsit erori în fișierul importat pentru înregistrările cu numerele de ordine %{indexes}.
                 few: Am găsit erori în fișierul importat pentru înregistrările cu numerele de ordine %{indexes}.
