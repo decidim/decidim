@@ -175,6 +175,53 @@ describe "Proposals", type: :system do
       end
     end
 
+    context "when a proposal has video embeds" do
+      let(:cost_report) { { en: "My cost report" } }
+      let(:execution_period) { { en: "My execution period" } }
+      let(:body) { Decidim::Faker::Localized.localized { "<script>alert(\"TITLE\");</script> #{Faker::Lorem.sentences(number: 3).join("\n")}" } }
+      let(:answer) { generate_localized_title }
+
+      let!(:proposal) do
+        create(
+          :proposal,
+          :accepted,
+          :official,
+          :with_answer,
+          component: component,
+          body: body,
+          answer: answer,
+          cost: 20_000,
+          cost_report: cost_report,
+          execution_period: execution_period
+        )
+      end
+
+      before do
+        component.update!(
+          step_settings: {
+            component.participatory_space.active_step.id => {
+              answers_with_costs: true
+            }
+          }
+        )
+
+        visit_component
+        click_link proposal_title
+      end
+
+      context "when is created by the admin" do
+        context "when the field is body" do
+          it_behaves_like "has embedded video in description", :body
+        end
+      end
+
+      context "when is created by the user" do
+        context "when the field is answer" do
+          it_behaves_like "has embedded video in description", :answer
+        end
+      end
+    end
+
     context "when a proposal has costs" do
       let!(:proposal) do
         create(

@@ -6,14 +6,24 @@ require "decidim/core/test/shared_examples/has_contextual_help"
 describe "Assemblies", type: :system do
   let(:organization) { create(:organization) }
   let(:show_statistics) { true }
-  let(:base_description) { { en: "Description", ca: "Descripció", es: "Descripción" } }
+
+  let(:description) { { en: "Description", ca: "Descripció", es: "Descripción" } }
+  let(:short_description) { { en: "Short description", ca: "Descripció curta", es: "Descripción corta" } }
+  let(:purpose_of_action) { { en: "Purpose of action", ca: "Propòsit de l'acció", es: "Propósito de la acción" } }
+  let(:internal_organisation) { { en: "Internal organisation", ca: "Organització interna", es: "Organización interna" } }
+  let(:composition) { { en: "Composition", ca: "Composició", es: "Composición" } }
+  let(:closing_date_reason) { { en: "Closing date reason", ca: "Motiu de la data de tancament", es: "Razón de la fecha de cierre" } }
   let(:base_assembly) do
     create(
       :assembly,
       :with_type,
       organization: organization,
-      description: base_description,
-      short_description: { en: "Short description", ca: "Descripció curta", es: "Descripción corta" },
+      description: description,
+      short_description: short_description,
+      purpose_of_action: purpose_of_action,
+      internal_organisation: internal_organisation,
+      composition: composition,
+      closing_date_reason: closing_date_reason,
       show_statistics: show_statistics
     )
   end
@@ -182,7 +192,35 @@ describe "Assemblies", type: :system do
         let(:attached_to) { assembly }
       end
 
-      it_behaves_like "has embedded video in description", :base_description
+      context "when having rich content" do
+        context "when short_description" do
+          it_behaves_like "has embedded video in description", :short_description
+        end
+
+        context "when description" do
+          before { click_button("Read more") }
+
+          it_behaves_like "has embedded video in description", :description
+        end
+
+        context "when purpose_of_action" do
+          before { click_button("Read more") }
+
+          it_behaves_like "has embedded video in description", :purpose_of_action
+        end
+
+        context "when internal_organisation" do
+          before { click_button("Read more") }
+
+          it_behaves_like "has embedded video in description", :internal_organisation
+        end
+
+        context "when composition" do
+          before { click_button("Read more") }
+
+          it_behaves_like "has embedded video in description", :composition
+        end
+      end
 
       context "when the assembly has some components" do
         it "shows the components" do

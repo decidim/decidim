@@ -45,7 +45,7 @@ edit_link(
   <% end %>
   <div class="columns medium-8 mediumlarge-7">
     <div class="section">
-      <p><%= decidim_sanitize_editor(simple_format(translated_attribute(election.description)), strip_tags: true) %></p>
+      <p><%= decidim_sanitize_editor_admin(translated_attribute(election.description)) %></p>
 
       <%= cell("decidim/elections/election_vote_cta", election) %>
 
