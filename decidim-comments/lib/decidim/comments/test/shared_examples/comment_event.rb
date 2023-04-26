@@ -42,4 +42,21 @@ shared_examples_for "a comment event" do
       expect(subject.resource_text).to eq comment.formatted_body
     end
   end
+
+  context "when is deleted" do
+    let(:comment) { create :comment, :deleted }
+
+    it "outputs the comment body" do
+      expect(subject.resource_text).to include("Comment deleted on")
+    end
+  end
+
+  context "when is moderated" do
+    let(:comment) { create :comment, :deleted }
+    let!(:moderation) { create(:moderation, hidden_at: 6.hours.ago, reportable: comment) }
+
+    it "outputs the comment body" do
+      expect(subject.resource_text).to include("Comment moderated on")
+    end
+  end
 end
