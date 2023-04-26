@@ -104,25 +104,87 @@ zh-TW:
       models:
         initiatives:
           fields:
+            created_at: 建立於
             id: ID
             published_at: 發佈於
             state: 狀態
+            supports_count: 簽名
+            title: 倡議
         initiatives_type_scope:
           fields:
             scope: 範圍
+            supports_required: 所需簽名數量
+          name: 倡議類型範圍
+        initiatives_types:
+          fields:
+            created_at: 建立於
+            title: 倡議類型
+          name: 倡議類型
         initiatives_votes:
           fields:
+            date_of_birth: 出生日期
             document_number: 文件編號
             hash: 雜湊
             initiative_end_date: 結束日期
+            initiative_id: 倡議ID
+            initiative_signatures_count: 簽名數量
             initiative_start_date: 開始日期
+            initiative_title: 倡議標題
+            name_and_surname: 名字與姓氏
+            postal_code: 郵政編碼
             scope: 範圍
             time_and_date: 時間與日期
+            timestamp: 時間戳記
+      titles:
+        initiatives: 倡議
+        initiatives_types: 倡議類型
+    events:
+      initiatives:
+        admin:
+          initiative_sent_to_technical_validation:
+            email_intro: 倡議「%{resource_title}」已提交技術驗證。可在<a href="%{admin_initiative_url}">管理面板</a>中查看。
+            email_outro: 你收到了這個通知是因為你是該平台的管理員。
+            email_subject: 倡議「%{resource_title}」已提交技術審核。
+            notification_title: 倡議「%{resource_title}」已提交技術驗證。可在<a href="%{admin_initiative_path}">管理面板</a>中查看。
+        initiative_extended:
+          email_intro: 倡議「%{resource_title}」的簽名截止日期已延長！
+          email_outro: 您收到此通知，是因為您正在關注 %{resource_title}。您可以使用上面的連結停止接收通知。
+          email_subject: 倡議簽名結束日期延長！
+          notification_title: '"<a href="%{resource_path}">%{resource_title}</a> 倡議的簽名結束日期已經延長。'
+        initiative_sent_to_technical_validation:
+          email_intro: 倡議「%{resource_title}」已提交技術驗證。可在<a href="%{admin_initiative_url}">管理面板</a>中查看。
+          email_outro: 你收到了這個通知是因為你是該平台的管理員。
+          email_subject: 倡議「%{resource_title}」已提交技術審核。
+          notification_title: 倡議「%{resource_title}」已提交技術驗證。可在<a href="%{admin_initiative_path}">管理面板</a>中查看。
+        milestone_completed:
+          affected_user:
+            email_intro: 你的倡議 %{resource_title} 已經達到了 %{percentage}% 的簽名數！
+            email_outro: 你收到這個通知是因為你是倡議 %{resource_title} 的作者。
+            email_subject: 新的里程碑已完成！
+            notification_title: 您的<a href="%{resource_path}">%{resource_title}</a>倡議已達成%{percentage}%的簽名。
+          follower:
+            email_intro: 該倡議 %{resource_title} 已經達到了 %{percentage}% 的簽名數！
+            email_outro: 您收到此通知，是因為您正在關注 %{resource_title}。您可以使用上面的連結停止接收通知。
+            email_subject: 新的里程碑已完成！
+            notification_title: <a href="%{resource_path}">%{resource_title}</a> 倡議已達成 %{percentage}% 的簽名。
+        support_threshold_reached:
+          email_intro: 倡議 %{resource_title} 已達到簽名門檻
+          email_outro: 你收到了這個通知是因為你是該平台的管理員。
+          email_subject: 已達成簽名門檻
+          notification_title: 倡議 <a href="%{resource_path}">%{resource_title}</a> 已達到簽名門檻
     gamification:
       badges:
         initiatives:
+          conditions:
+            - 前往倡議參與空間
+            - '"按照以下步驟創建新的倡議'
+          description: 此徽章是當你發起新的倡議，與他人合作進行時所授予的。
+          description_another: 該參與者已成功發佈 %{score} 項倡議。
           description_own: 你已經發佈了 %{score} 項倡議。
+          name: 已發布倡議
+          next_level_in: 發布更多的倡議以達到下一個等級，還需要 %{score} 個！
           unearned_another: 這個參與者尚未有任何倡議被發佈。
+          unearned_own: 您尚未發佈任何倡議。
     help:
       participatory_spaces:
         initiatives:
@@ -172,22 +234,100 @@ zh-TW:
             success: 一個新的方案類型已成功創建
           destroy:
             success: 該倡議類型已成功刪除
+          edit:
+            confirm_destroy: 您確定嗎？
+            destroy: 刪除
+            update: 更新
           form:
+            authorizations: 權限設置
             child_scope_threshold_enabled_help: '此配置選項不支援離線投票，它啟用子範圍並且需要一個授權處理程序將範圍與使用者關聯起來，請確認在授權設置中選擇了該授權。為了使其正常工作，範圍需要以階層方式進行配置：1個父範圍對應N個子範圍。如需了解更多有關此配置如何運作的信息，請參閱此<a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">連結</a>。'
+            only_global_scope_enabled_help: 若您已啟用「子範圍籤章」並將全域範圍配置為父範圍，請勾選此標誌。啟用後，建立倡議的精靈中將跳過倡議類型選擇。如需有關此配置如何運作的詳細信息，請參閱此<a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">鏈接</a>。
+            options: 選項
+            title: 一般資訊
+          new:
+            create: 建立
+            title: 新的倡議類型
           update:
             error: 出現了一個錯誤
             success: 該倡議類型已成功更新
+      admin_log:
+        initiative:
+          publish: "%{user_name} 發佈了 %{resource_name} 倡議"
+          send_to_technical_validation: "%{user_name} 將 %{resource_name} 倡議送到技術審核"
+          unpublish: "%{user_name} 捨棄了 %{resource_name} 倡議"
+          update: "%{user_name} 更新了 %{resource_name} 倡議"
+      admin_states:
+        accepted: 足夠的簽署數
+        created: 已建立
+        discarded: 已捨棄
+        published: 已發佈
+        rejected: 不足夠的簽署數
+        validating: 技術驗證
+      application_helper:
+        filter_area_values:
+          all: 全部
+        filter_scope_values:
+          all: 全部
+        filter_state_values:
+          accepted: 足夠的簽署數
+          all: 全部
+          answered: 已回答
+          closed: 關閉
+          open: 開啟
+          rejected: 不足的簽署數
+        filter_type_values:
+          all: 全部
       committee_requests:
+        approve:
+          success: 請求已被批准。
         new:
+          continue: 繼續
           help_text: 你即將要求成為此倡議的推動委員會成員。
       create_initiative:
         fill_data:
+          back: 返回
+          continue: 繼續
           decidim_user_group_id_help: 此計畫創建後，無法更改發起人身份。
+          more_information: "(更多資訊)"
+      events:
+        create_initiative_event:
+          email_outro: 您收到此通知，是因為您正在關注 %{author_nickname}。您可以使用上面的連結停止接收通知。
+          email_subject: 由 %{author_nickname} 提出的新倡議
+          notification_title: 倡議 <a href="%{resource_path}">%{resource_title}</a> 由 <a href="%{author_path}">%{author_name} %{author_nickname}</a> 提出。
+        endorse_initiative_event:
+          email_intro: "\"%{author_name} %{author_nickname} 正在追蹤，並已連署以下倡議，或許你想參與對話："
+          email_outro: 您收到此通知，是因為您正在關注 %{author_nickname}。您可以使用上面的連結停止接收通知。
+          email_subject: 倡議得到 %{author_nickname} 的連署
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> 倡議已獲 %{author_name} %{author_nickname} 連署。
+        revoke_membership_request:
+          email_intro: "%{author_nickname} 拒絕了您加入 %{resource_title} 倡議發起委員會的申請。"
+          email_outro: '這是您收到的通知，因為您申請參與這個倡議：%{resource_title}。'
+          email_subject: "%{author_nickname} 拒絕了你加入推廣委員會的申請"
+          notification_title: <a href="%{author_profile_url}">%{author_nickname}</a> 拒絕了您加入 %{resource_title} 倡議的推廣委員會成員的申請。
+        spawn_committee_request_event:
+          email_intro: "%{applicant_nickname} 申請加入您的倡議 %{resource_title} 推廣委員會。要接受或拒絕申請，請前往您的倡議編輯表單。"
+          email_outro: '你收到這個通知是因為你是該倡議 %{resource_title} 的作者。'
+          email_subject: "%{applicant_nickname} 想加入你的倡議"
+          notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> 申請加入你的倡議 <a href="%{resource_url}">%{resource_title}</a> 的推動委員會。點擊<a href="%{resource_url}/edit">這裡</a>接受或拒絕申請。
+      form:
+        add_attachments: 文件
+        attachment_legend: "(可選) 新增附件"
+        delete_attachment: 刪除
       index:
+        title: 倡議
         uninitialized: 目前尚未有管理員配置方案
       initiative_signatures:
         fill_personal_data:
+          continue: 繼續
+          date_select:
+            day: 日
+            month: 月
+            year: 年
           help: 以下請填寫您的個人資料以簽署此倡議。
+        finish:
+          back_to_initiative: 回到倡議
+        sms_code:
+          continue: 檢查代碼並繼續
         sms_phone_number:
           help: 請填寫您驗證過的手機號碼以申請驗證碼
       initiative_votes:
