@@ -66,6 +66,7 @@ module Decidim
           else
             proposal.errors.add(:state, :invalid)
           end
+          proposal
         end
 
         def id
