@@ -63,7 +63,7 @@ extra_admin_link(
                         @proposal.identities.first&.presenter
                       end %>
 
-        <%= cell "decidim/author", author, from: @proposal, context_actions: nil, layout: :compact %>
+        <%= cell "decidim/redesigned_author", author, from: @proposal, context_actions: nil, layout: :compact %>
 
         <% if not ["section","subsection"].include? @proposal.participatory_text_level %>
           <%== cell("decidim/proposals/proposal_m", @proposal, full_badge: true).badge %>
