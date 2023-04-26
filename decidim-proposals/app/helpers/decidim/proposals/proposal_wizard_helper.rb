@@ -4,6 +4,19 @@ module Decidim
   module Proposals
     # Simple helpers to handle markup variations for proposal wizard partials
     module ProposalWizardHelper
+      def wizard_steps(current_step)
+        scope = "decidim.proposals.proposals.wizard_steps"
+        inactive_data = { data: { past: "" } }
+        content_tag(:ol, id: "wizard-steps", class: "wizard-steps") do
+          proposal_wizard_steps.map do |wizard_step|
+            active = current_step == wizard_step
+            inactive_data = {} if active
+            attributes = active ? { "aria-current": "step", "aria-label": "#{t("current_step", scope:)}: #{t(wizard_step, scope:)}", data: { active: "" } } : inactive_data
+            content_tag(:li, t(wizard_step, scope:), attributes)
+          end.join.html_safe
+        end
+      end
+
       # Returns the css classes used for the proposal wizard for the desired step
       #
       # step - A symbol of the target step

@@ -5,15 +5,7 @@
   </h1>
 </div>
 
-<ol id="wizard-steps" class="wizard-steps">
-  <% proposal_wizard_steps.each do |wizard_step| %>
-    <%
-      scope = "decidim.proposals.proposals.wizard_steps"
-      attributes = @step == wizard_step ? { "aria-current": "step", "aria-label": "#{t("current_step", scope:)}: #{t(wizard_step, scope:)}" } : {}
-    %>
-    <%= content_tag :li, t(wizard_step, scope:), attributes %>
-  <% end %>
-</ol>
+<%= wizard_steps(@step) %>
 
 <% if @step == :step_4 %>
     <% body_messages = [t("decidim.proposals.proposals.preview.announcement_body")]
