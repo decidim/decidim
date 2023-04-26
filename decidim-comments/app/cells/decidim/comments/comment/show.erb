@@ -1,4 +1,4 @@
-<%= content_tag :div, id: "comment_#{model.id}", class: comment_classes, data: { comment_id: model.id } do %>
+<%= content_tag :div, id: "comment_#{model.id}", class: comment_classes, data: { depth: model.depth, comment_id: model.id, toggler: ".no-comments" } do %>
   <% if model.hidden? %>
     <%= render :moderation_data %>
   <% elsif model.deleted? %>
@@ -31,7 +31,7 @@
       <%= votes %>
     </div>
   <% end %>
-  <div id="comment-<%= model.id %>-replies">
+  <div id="comment-<%= model.id %>-replies" class="replies">
     <% if has_replies_in_children? %>
       <% replies.each do |reply| %>
         <%= cell("decidim/comments/comment", reply, root_depth: root_depth, order: order, reloaded: reloaded?) %>
@@ -39,7 +39,7 @@
     <% end %>
   </div>
   <% if can_reply? %>
-    <div class="comment__additionalreply<%= " hide" unless commentable? %>">
+    <div class="comment__additionalreply<%= " hide" unless commentable? %> replies">
       <button class="comment__reply muted-link" aria-controls="<%= reply_id %>" data-toggle="<%= reply_id %>">
         <%= icon "pencil", class: "icon--small", role: "img", "aria-hidden": true %>&nbsp;<%= t("decidim.components.comment.reply") %>
       </button>
