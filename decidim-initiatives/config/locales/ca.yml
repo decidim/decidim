@@ -341,7 +341,6 @@ ca:
           back: Torna
           continue: Continua
           fill_data_help: "<ul> <li>Revisa el contingut de la teva iniciativa. El títol és fàcil d'entendre? L'objectiu de la teva iniciativa és clar?</li> <li>Has d'escollir el tipus de signatura. Presencial, digital o una combinació de totes dues.</li> <li>Quin és l'àmbit geogràfic de la iniciativa?</li> </ul>"
-          initiative_type: Tipus d'iniciativa
           more_information: "(Més informació)"
           select_area: Selecciona una àrea
           select_scope: Selecciona un àmbit d'aplicació
