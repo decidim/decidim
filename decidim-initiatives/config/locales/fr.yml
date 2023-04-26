@@ -364,7 +364,6 @@ fr:
           back: Retour
           continue: Continuer
           fill_data_help: "<ul> <li>Vérifier le contenu de votre pétition : le titre est-il facile à comprendre ? L'objectif de votre pétition est-il clair ?</li> <li>Vous devez choisir le type de signature : en présentiel, en ligne ou une combinaison des deux</li> <li>Quelle est le secteur géographique de l'initiative ?</li> </ul>"
-          initiative_type: Type de pétition
           more_information: "(Plus d'informations)"
           select_area: Sélectionnez une zone
           select_scope: Sélectionnez une portée
