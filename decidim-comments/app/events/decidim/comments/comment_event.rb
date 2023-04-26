@@ -11,6 +11,8 @@ module Decidim
 
       included do
         def resource_text(override_translation = nil)
+          return I18n.t("decidim.components.comment.moderated_at", date: comment.moderation&.hidden_at) if comment&.hidden?
+
           translated_body = translated_attribute(comment.body, comment.organization, override_translation)
           Decidim::ContentProcessor.render(sanitize_content(render_markdown(translated_body)), "div")
         end
