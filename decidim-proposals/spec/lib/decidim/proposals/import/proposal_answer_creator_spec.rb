@@ -7,12 +7,11 @@ describe Decidim::Proposals::Import::ProposalAnswerCreator do
 
   let(:proposal) { create(:proposal, state: state, component: component) }
   let!(:moment) { Time.current }
-  # rubocop:disable Style/HashSyntax
   let(:data) do
     {
       id: proposal.id,
       state: state,
-      :"answer/en" => Faker::Lorem.paragraph
+      "answer/en": Faker::Lorem.paragraph
     }
   end
   let(:organization) { create(:organization, available_locales: [:en]) }
@@ -39,7 +38,7 @@ describe Decidim::Proposals::Import::ProposalAnswerCreator do
     it "returns the attributes hash" do
       expect(subject.resource_attributes).to eq(
         id: data[:id],
-        :"answer/en" => data[:"answer/en"],
+        "answer/en": data[:"answer/en"],
         state: data[:state]
       )
     end
@@ -83,6 +82,39 @@ describe Decidim::Proposals::Import::ProposalAnswerCreator do
       expect(log.resource).to eq(record)
       expect(log.action).to eq("answer")
     end
+
+    context "when proposal state changes" do
+      let!(:proposal) { create(:proposal, :evaluating, component: component) }
+      let(:state) { "accepted" }
+
+      it "returns broadcast :ok" do
+        expect(subject.finish!).to eq({ ok: [] })
+      end
+
+      context "and notifies followers" do
+        before do
+          allow(::Decidim::Proposals::Admin::NotifyProposalAnswer).to receive(:call).with(proposal, "evaluating")
+        end
+
+        it "notifies followers" do
+          subject.finish!
+          expect(::Decidim::Proposals::Admin::NotifyProposalAnswer).to have_received(:call)
+        end
+      end
+    end
+
+    context "when proposal does not exists" do
+      let(:data) do
+        {
+          id: 99_999_999,
+          state: state,
+          "answer/en": Faker::Lorem.paragraph
+        }
+      end
+
+      it "broadcasts invalid message" do
+        expect(subject.finish!).to eq({ invalid: [] })
+      end
+    end
   end
-  # rubocop:enable Style/HashSyntax
 end
