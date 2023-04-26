@@ -30,6 +30,8 @@ edit_link(
 <% content_for :item_header do %>
   <% unless voting_finished? %>
     <%= render partial: "budget_summary", locals: { include_heading: true, project_item: true, responsive: false } %>
+    <%= render partial: "budget_excess" %>
+    <%= render partial: "budget_confirm" %>
   <% end %>
 <% end %>
 <%= render layout: "layouts/decidim/shared/layout_item", locals: { back_path: budget_path(budget) } do %>

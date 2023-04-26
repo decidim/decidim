@@ -1,4 +1,4 @@
-<div class="budget-summary__content--wrapper">
+<div <%= responsive ? "data-order-progress-responsive=true" : "data-order-progress-responsive=false" %> class="budget-summary__content--wrapper">
   <div class="budget-summary__content">
     <div class="budget-summary__progressbox" data-current-allocation="<%= current_order ? current_order.total : 0 %>">
       <% if include_heading %>
@@ -80,7 +80,7 @@
     <% end %>
 
   </div>
-  <div class="w-full progressbox-fixed-wrapper" <%= responsive ? "data-progressbox-fixed-responsive" : "data-progressbox-fixed" %> >
+  <div class="w-full progressbox-fixed-wrapper" data-progressbox-fixed>
     <div class="layout-1col mb-0">
       <div class="budget-summary__content__fixed py-4 budget-summary__progressbar col-span-12">
         <div class="budget-summary__content__fixed--progressbar">

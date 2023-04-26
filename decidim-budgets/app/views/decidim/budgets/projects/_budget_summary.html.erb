@@ -1,9 +1,8 @@
-<div class="budget-summary <%= responsive ? "block md:hidden" : "hidden md:block" %>" <%= responsive ? "data-progress-reference-responsive" : "data-progress-reference" %>  data-safe-url="<%= budget_url(budget) %>">
+<div class="budget-summary <%= responsive ? "block md:hidden" : "hidden md:block" %>" data-progress-reference data-safe-url="<%= budget_url(budget) %>">
 
   <%= render partial: "order_progress", locals: { include_heading: include_heading, project_item: project_item, responsive: responsive } %>
 
   <%= cell("decidim/budgets/budget_information_modal", budget) %>
 </div>
 
-<%= render partial: "budget_excess" %>
-<%= render partial: "budget_confirm" %>
+
