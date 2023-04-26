@@ -44,7 +44,7 @@ ro:
         available_authorizations: Autorizații disponibile
         badges_enabled: Activează insigne
         comments_max_length: Lungimea maximă a comentariilor (Lasă 0 pentru valoarea implicită)
-        cta_button_path: Calea butonului Apel la acţiune
+        cta_button_path: Calea butonului Apel la acțiune
         cta_button_text: Textul butonului Apel la acțiune
         customize_welcome_notification: Personalizați notificarea de bun venit
         default_locale: Localizare implicită
@@ -147,7 +147,7 @@ ro:
         participatory_space_private_user_csv_import:
           attributes:
             file:
-              malformed: Fişier de import malformat, vă rugăm să citiţi instrucţiunile cu atenţie şi asiguraţi-vă că fişierul este codificat UTF-8.
+              malformed: Fișier de import malformat, vă rugăm să citiți instrucțiunile cu atenție și asigurați-vă că fișierul este codificat UTF-8.
         user_group_csv_verification:
           attributes:
             file:
