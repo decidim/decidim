@@ -237,7 +237,6 @@ id:
         fill_data:
           back: Kembali
           continue: Terus
-          initiative_type: Jenis inisiatif
           more_information: "(Informasi lebih lanjut)"
           select_scope: Pilih cakupan
         finish:
