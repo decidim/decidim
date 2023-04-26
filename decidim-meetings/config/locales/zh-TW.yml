@@ -150,8 +150,21 @@ zh-TW:
           affected_user:
             email_intro: '您的會議「%{resource_title}」已結束。您可以從其頁面閱讀結論：'
             email_outro: 你收到此通知是因為你組織了"%{resource_title}" 會議。
+            email_subject: '"%{resource_title}" 會議已經結束。'
+            notification_title: <a href="%{resource_path}">%{resource_title}</a>」會議已結束。
+          follower:
+            email_intro: '這個 "%{resource_title}" 會議已經結束，您可以從該會議頁面閱讀結論：'
+            email_outro: 您收到此通知是因為您正在追蹤 "%{resource_title}" 會議。您可以透過上方的連結取消追蹤。
+            email_subject: '"%{resource_title}" 會議已經結束。'
+            notification_title: <a href="%{resource_path}">%{resource_title}</a>」會議已結束。
         meeting_created:
           button_text: 登記參加會議
+          email_intro: 您正在關注的 "%{participatory_space_title}" 會議中新增了抽籤 "%{resource_title}"
+          email_outro: 您收到了此通知，是因為您正在關注 "%{participatory_space_title}"。您可以通過前面的鏈接取消關注它。
+          email_subject: 已新增一個新的會議至 %{participatory_space_title}
+          notification_title: 會議 <a href="%{resource_path}">%{resource_title}</a> 已經加入到 %{participatory_space_title} 中。
+        meeting_registration_confirmed:
+          notification_title: 您的<a href="%{resource_url}">%{resource_title}</a> 會議註冊已確認。您的註冊代碼為 %{registration_code}。
     forms:
       meetings:
         attendees_count_help_text: 別忘了在您的會議中包括所有與會者的總人數，無論是現場、線上還是混合的參與者。
