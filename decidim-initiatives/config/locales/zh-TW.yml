@@ -123,12 +123,34 @@ zh-TW:
         initiatives:
           description_own: 你已經發佈了 %{score} 項倡議。
           unearned_another: 這個參與者尚未有任何倡議被發佈。
+    help:
+      participatory_spaces:
+        initiatives:
+          contextual: "<p> <strong>「倡議」 <strong>是一個提議，由任何人獨立提出（不受其他頻道或參與空間的限制），透過收集(數位) 簽名以便組織進行特定行動(修改法規、啟動項目、更改部門或街道的名稱等) 會議。</p> <p> 倡議的推動者可以定義其目標、集結支持、辯論、傳播並定義會議地點，以在出席者處收集簽名或開放給其他參與者進行辯論。</p> <p>例如，倡議可以收集簽名以便在組織中召開所有人的諮詢，或創建或召開一個集會，或啟動一個增加領土或組織區域預算的程序。在收集簽名的過程中，更多人可以加入這個需求，並在組織中推動它。\n"
+          page: "<p> <strong>「倡議」 <strong>是一個提議，由任何人獨立提出（不受其他頻道或參與空間的限制），透過收集(數位) 簽名以便組織進行特定行動(修改法規、啟動項目、更改部門或街道的名稱等) 會議。</p> <p> 倡議的推動者可以定義其目標、集結支持、辯論、傳播並定義會議地點，以在出席者處收集簽名或開放給其他參與者進行辯論。</p> <p>例如，倡議可以收集簽名以便在組織中召開所有人的諮詢，或創建或召開一個集會，或啟動一個增加領土或組織區域預算的程序。在收集簽名的過程中，更多人可以加入這個需求，並在組織中推動它。\n"
+          title: 什麼是倡議？
     initiatives:
+      actions:
+        answer: 回答
       admin:
+        answers:
+          edit:
+            answer: 回答
+          info_initiative:
+            description: 說明
+            initiative_votes_count: 投票數
+            initiatives: 倡議
+            state: 狀態
         committee_requests:
           index:
+            approve: 核准
+            confirm_revoke: 您確定嗎？
             invite_to_committee_help: 分享此連結以邀請其他參與者加入推廣委員會
             no_members_yet: 推廣委員會中沒有成員
+        content_blocks:
+          highlighted_initiatives:
+            order:
+              most_recent: 最近
         initiatives:
           edit:
             success: 這個倡議已經送至技術驗證。
