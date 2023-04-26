@@ -63,6 +63,9 @@ zh-TW:
   date:
     formats:
       decidim_short: "%d/%m/%Y"
+      decidim_short_with_month_name_short: "%d %b %Y"
+      decidim_with_day_and_month_name: "%A %d %b %Y"
+      decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d%b"
   datetime:
     distance_in_words:
@@ -93,13 +96,16 @@ zh-TW:
           close: 關閉視窗
           ok: 是，我想要删除我的帳戶
           question: 您確定要刪除您的帳戶嗎？
+          title: 刪除我的帳號
       destroy:
+        error: 刪除您的帳戶時出現問題。
         success: 您的帳號已經成功刪除.
       download_your_data_export:
         file_no_exists: 檔案不存在
         notice: 您的資料正在下載中，完成後將會以電子郵件通知您。
       email_change:
         body1: 我們已經發送了一封郵件到 %{unconfirmed_email}，以驗證您的新電子郵件地址。
+        body2: 需要我們再次發送驗證電子郵件嗎？%{resend_link} 或%{cancel_link}。
         cancel: 取消
         resend_successfully: 確認郵件已成功重新發送至 %{unconfirmed_email}
         send_again: 再次傳送
@@ -126,8 +132,11 @@ zh-TW:
       default_body: "<h2>管理員使用條款</h2><p>我們相信您已經收到了當地系統管理員的慣例講話。它通常總結為以下三點：</p><ol><li>尊重他人的隱私。</li><li>三思而後行。</li><li>強大的權力伴隨著巨大的責任。</li></ol>"
     amendments:
       amendable:
+        amended_by: 修改人
         help_text: 透過修改 %{amendable_fields}，來改善這個 %{model_name}
         promote_help_text: 您可以提升此修正，並將其發布為獨立的 %{model_name}
+      compare_draft:
+        continue: 繼續
       edit_draft:
         discard: 放棄此草案
         send: 預覽
