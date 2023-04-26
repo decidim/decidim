@@ -130,7 +130,6 @@ is-IS:
         fill_data:
           back: Til baka
           continue: Haltu áfram
-          initiative_type: Frumgerðartegund
           more_information: "(Meiri upplýsingar)"
           select_scope: Veldu umfang
         finish:
