@@ -29,7 +29,7 @@ fr-CA:
         password_confirmation: Confirmez votre mot de passe
         personal_url: Site internet personnel
         remove_avatar: Supprimer l'avatar
-        tos_agreement: Contrat de service
+        tos_agreement: Conditions d'utilisation
     models:
       decidim/attachment_created_event: Document lié
       decidim/component_published_event: Fonctionnalité active
@@ -77,7 +77,7 @@ fr-CA:
     'true': 'Oui'
   carrierwave:
     errors:
-      file_cannot_be_processed: Impossible d’ouvrir le fichier
+      file_cannot_be_processed: Le fichier n'a pas pu être traité
       file_resolution_too_large: La résolution du fichier est trop grande
       file_size_too_large: Le fichier est trop volumineux
       not_inside_organization: Le fichier n'est relié à aucune organisation
@@ -137,7 +137,7 @@ fr-CA:
         success: Votre compte a été supprimé avec succès.
       download_your_data_export:
         file_no_exists: Le fichier n'existe pas
-        notice: "The download of your data is currently in progress. You will receive an email when it is complete.\nLe téléchargement de vos données est en cours. Vous recevrez un email lorsque celui-ci sera terminé."
+        notice: Le téléchargement de vos données est en cours. Vous recevrez un email lorsque celui-ci sera terminé.
       email_change:
         body1: Nous avons envoyé un e-mail à %{unconfirmed_email} pour vérifier votre nouvelle adresse e-mail.
         body2: Envoyer à nouveau l'e-mail de vérification ? %{resend_link} ou %{cancel_link}.
@@ -254,7 +254,7 @@ fr-CA:
       user_moderation:
         unreport: "%{user_name} a annulé le signalement de %{resource_type} - %{unreported_user_name}"
     admin_terms_of_service:
-      default_body: "<h2>ADMIN TERMS OF SERVICE</h2><p>We trust you have received the usual lecture from the local System Administrator. It usually boils down to these three things:</p><ol><li>Respect the privacy of others.</li><li>Think before you click.</li><li>With great power comes great responsibility.</li></ol>\n<h2>CONDITION D'UTILISATION ADMINISTRATEUR</h2><p>En espérant que vous ayez bien reçu les instrcutions de l'administrateur système de la plateforme, celles-ci se résument généralement en trois parties :</p><ol><li>Respectez la vie privée des autres.</li><li>Réfléchissez avant de cliquer.</li><li>De grands pouvoirs impliquent de grandes responsabilités.</li></ol>"
+      default_body: "<h2>CONDITION D'UTILISATION ADMINISTRATEUR</h2><p>En espérant que vous ayez bien reçu les instructions de l'administrateur système de la plateforme, celles-ci se résument généralement en trois parties :</p><ol><li>Respectez la vie privée des autres.</li><li>Réfléchissez avant de cliquer.</li><li>De grands pouvoirs impliquent de grandes responsabilités.</li></ol>"
     alert:
       dismiss: Rejeter la notification
     amendments:
@@ -268,7 +268,7 @@ fr-CA:
         help_text: Améliorer ce %{model_name} en modifiant ses %{amendable_fields}.
         promote_button: Promouvoir à %{model_name}
         promote_confirm_text: Êtes-vous sûr de vouloir promouvoir cette modification?
-        promote_help_text: Vous pouvez promouvoir cette correction et la publier en tant qu'indépendant %{model_name}.
+        promote_help_text: Vous pouvez promouvoir cette correction et la publier indépendamment de %{model_name}.
         section_heading: Amendements (%{count})
       compare_draft:
         continue: Continuer
@@ -361,7 +361,7 @@ fr-CA:
       official_author: Officiel
     authorization_handlers:
       another_dummy_authorization_handler:
-        explanation: Obtenir une vérification en saisissant un numéro de passeport commençant par "A".
+        explanation: Obtenir une vérification en saisissant un numéro de pièce d'identité commençant par "A".
         fields:
           passport_number: Numéro de passeport
           postal_code: Code postal
@@ -400,7 +400,7 @@ fr-CA:
           title: Autorisation expirée
         incomplete:
           cancel: Annuler
-          explanation: "Even though you are currently authorized with \"%{authorization}\", we need you to reauthorize because we lack the following data:\nBien que vous soyez actuellement autorisé avec \"%{autorisation}\", nous avons besoin de vous réautoriser suite aux données manquantes suivantes :"
+          explanation: 'Bien que vous soyez actuellement autorisé avec "%{autorisation}", nous avons besoin de vous réautoriser en raison des données manquantes suivantes :'
           invalid_field: "%{field}"
           reauthorize: Autoriser de nouveau
           title: Veuillez autoriser de nouveau
@@ -409,14 +409,14 @@ fr-CA:
           explanation: Pour effectuer cette action, vous devez être autorisé avec "%{authorization}".
           title: Autorisation requise
         ok:
-          title: "You have been authorized while in this page. Please, reload the page to perform your action.\nVous avez été autorisé à accéder à cette page. Veuillez recharger celle-ci pour effectuer votre action."
+          title: Vous avez été autorisé à accéder à cette page. Veuillez recharger celle-ci pour effectuer votre action.
         pending:
           explanation: Pour effectuer cette action, vous devez être autorisé avec "%{authorization}", mais votre autorisation est toujours en cours de validation.
           resume: Vérifiez votre progression d'autorisation pour "%{authorization}".
           title: L'autorisation est toujours en cours de validation
         unauthorized:
           explanation: Désolé, vous ne pouvez pas effectuer cette action car certaines de vos données d'autorisation ne correspondent pas.
-          invalid_field: "La valeur du champ %{field} (%{value}) n'est pas valide."
+          invalid_field: "La valeur %{value} du champ %{field} n'est pas valide."
           ok: D'accord
           title: Non autorisé
         unconfirmed:
@@ -536,7 +536,7 @@ fr-CA:
     devise:
       omniauth_registrations:
         create:
-          email_already_exists: Un autre compte utilise la même adresse de email.
+          email_already_exists: Un autre compte utilise la même adresse email.
         new:
           complete_profile: Complétez votre profil
           nickname_help: Cet identifiant est public et unique sur %{organization} ; il permet aux autres utilisateurs de vous suivre, de vous contacter ou de vous mentionner dans leurs commentaires. Il s’affichera précédé d’un « @ » ; il ne doit pas contenir d’espace ni de caractère spécial.
@@ -562,7 +562,7 @@ fr-CA:
         new:
           are_you_new?: Nouveau sur la plateforme ?
           register: Créer un compte
-          sign_in_disabled: Vous pouvez accéder avec un compte externe.
+          sign_in_disabled: Vous pouvez vous connecter avec un compte externe.
           sign_up_disabled: La création de compte est désactivée, mais vous pouvez vous identifier avec un compte existant.
         user:
           timed_out: Vous avez été inactif pendant trop longtemps et vous avez été automatiquement déconnecté du service. Si vous souhaitez continuer à utiliser le service, veuillez vous reconnecter.
@@ -573,7 +573,15 @@ fr-CA:
             close_modal: Fermer la fenêtre
             uncheck: Garder décoché
           notice: |-
-            La newsletter vous permet de suivre tous les événements importants sur la plateforme (lancement de nouvelles concertations, annonce des résultats, etc.). Souhaitez-vous vous y inscrire ?
+            <p>Êtes-vous sûr de ne pas vouloir recevoir de newsletter ?<br>
+            Nous vous suggérons de cocher la case pour recevoir la newsletter.<br>
+            Il est très important pour nous que vous puissiez recevoir des e-mails occasionnels
+            pour vous faire part des annonces importantes. Vous pourrez toujours modifier votre choix dans vos paramètres de notifications.</p>
+            <p>Si vous ne cochez pas la case, vous risquez de manquer des informations pertinentes
+            sur les nouvelles opportunités participatives de la plateforme.<br>
+            Si vous voulez toujours ne pas recevoir de newsletters, nous comprenons parfaitement
+            votre décision.</p>
+            <p>Merci de votre lecture !</p>
           title: Inscription à la newsletter
         omniauth_buttons:
           or: Ou
@@ -583,7 +591,7 @@ fr-CA:
           authorize: Autoriser l'application
           by_organization_link_html: <small class="heading-small">par %{link}</small>
           cancel: Annuler
-          connect_your_account_html: Connectez votre compte en vous inscrivant à <strong>%{organization}</strong>.
+          connect_your_account_html: Connectez votre compte en vous connectant à <strong>%{organization}</strong>.
           publish_content: Publier du contenu pour vous
           see_email: Voir votre email
           see_name: Voir votre nom
@@ -601,8 +609,8 @@ fr-CA:
         request_data: Demander les données
     editor_images:
       create:
-        error: "Error uploading image.\nUne erreur est survenue lors du chargement de l'image."
-        success: "Image uploaded successfully.\nL'image a été téléchargée avec succès."
+        error: Une erreur est survenue lors du téléchargement de l'image.
+        success: L'image a été téléchargée avec succès.
       drag_and_drop_help: Ajoutez des images en les glissant - déposant ou en les collant depuis votre presse-papier.
     endorsable:
       endorsements: Soutiens
@@ -698,15 +706,15 @@ fr-CA:
         email_subject: Mise à jour de %{resource_title}
       gamification:
         badge_earned:
-          email_intro: Félicitations! Vous avez obtenu le <a href="%{resource_url}">badge %{badge_name}</a> (niveau %{current_level}).
+          email_intro: Félicitations ! Vous avez obtenu le <a href="%{resource_url}">badge %{badge_name}</a> (niveau %{current_level}).
           email_outro: Vous avez reçu cette notification car vous avez été actif sur notre plateforme.
           email_subject: 'Vous avez gagné un nouveau badge : %{badge_name} !'
-          notification_title: Félicitations! Vous avez obtenu le <a href="%{resource_path}">badge %{badge_name}</a> (niveau %{current_level}).
+          notification_title: Félicitations ! Vous avez obtenu le <a href="%{resource_path}">badge %{badge_name}</a> (niveau %{current_level}).
         level_up:
-          email_intro: Félicitations! Vous avez atteint le niveau %{current_level} sur le <a href="%{resource_url}">badge %{badge_name} </a>!
+          email_intro: Félicitations ! Vous avez atteint le niveau %{current_level} sur le <a href="%{resource_url}">badge %{badge_name}</a>!
           email_outro: Vous avez reçu cette notification car vous avez été actif sur notre plateforme.
           email_subject: Vous avez atteint le niveau %{current_level} sur le badge %{badge_name} !
-          notification_title: Félicitations! Vous avez atteint le niveau %{current_level} sur le <a href="%{resource_path}">badge %{badge_name} </a>!
+          notification_title: Félicitations ! Vous avez atteint le niveau %{current_level} sur le <a href="%{resource_path}">badge %{badge_name} </a>!
       groups:
         demoted_membership:
           email_intro: Un administrateur du groupe <a href="%{resource_url}">%{user_group_name}</a> a supprimé vos droits d'administrateur sur ce groupe.
@@ -799,7 +807,7 @@ fr-CA:
         result: Réalisations
     fingerprint:
       check: Vérifiez l'empreinte numérique
-      explanation: "The piece of text below is a shortened, hashed representation of this content. It is useful to ensure the content has not been tampered with, as a single modification would result in a totally different value.\nLe texte ci-dessous est une représentation abrégée et hachée de ce contenu. Il est utile de s'assurer que le contenu n'a pas été altéré, car une seule modification donnerait une valeur totalement différente."
+      explanation: Le texte ci-dessous est une représentation abrégée et hachée de ce contenu. Il est utile de s'assurer que le contenu n'a pas été altéré, car une seule modification donnerait une valeur totalement différente.
       online_calculator_name: calculateur de hash MD5 en ligne
       replicate_help: Cette empreinte numérique est calculée à l'aide d'un algorithme de hachage SHA256. Pour le reproduire vous-même, vous pouvez utiliser un %{online_calculator_link} et copier-coller les données.
       source: Source
@@ -814,7 +822,7 @@ fr-CA:
       following_count:
         one: "%{count} abonné"
         other: "%{count} abonnés"
-      no_followings: Aucun abonnement.
+      no_followings: N'est encore abonné à aucun participant ni aucun contenu.
       non_public_followings: Certaines des ressources suivies ne sont pas publiques.
     follows:
       create:
@@ -882,8 +890,8 @@ fr-CA:
           description_own: "%{score} utilisateurs vous suivent."
           name: Suiveurs
           next_level_in: Obtenez %{score} autres utilisateurs à vous suivre pour atteindre le niveau suivant!
-          unearned_another: Ce participant n’a pas encore de followers.
-          unearned_own: Vous n'avez pas encore de followers.
+          unearned_another: Cet utilisateur n'a pas encore d'abonnés.
+          unearned_own: Vous n'avez pas encore d'abonnés.
         index:
           badge_title: "%{name} badge"
           how: Comment l'obtenir
@@ -895,7 +903,7 @@ fr-CA:
       title: Que sont les badges ?
     group_admins:
       actions:
-        are_you_sure: Êtes-vous sûr? Cela ne supprimera pas l'utilisateur du groupe.
+        are_you_sure: Êtes-vous sûr ? Cela ne supprimera pas l'utilisateur du groupe.
         demote_admin: Supprimer admin
       demote:
         error: Une erreur s'est produite lors de la suppression de cet utilisateur de la liste des administrateurs.
@@ -921,8 +929,8 @@ fr-CA:
       reject_invitation: Rejeter
     group_members:
       accept:
-        error: Une erreur s'est produite lors de l'acceptation de cette demande de participation.
-        success: Demande de participation acceptée avec succès.
+        error: Une erreur s'est produite lors de l'acceptation de cette demande d'adhésion.
+        success: La demande d’adhésion a été acceptée avec succès.
       actions:
         are_you_sure: Êtes-vous sûr?
         promote_to_admin: Faire admin
@@ -934,8 +942,8 @@ fr-CA:
         error: Une erreur s'est produite lors de la promotion de cet utilisateur.
         success: Utilisateur promu avec succès.
       reject:
-        error: Une erreur s'est produite lors du rejet de cette demande de participation.
-        success: Demande de participation rejetée avec succès.
+        error: Une erreur s'est produite lors du rejet de cette demande d'adhésion.
+        success: Demande d'adhésion rejetée avec succès.
       remove:
         error: Une erreur s'est produite lors de la suppression de cet utilisateur du groupe.
         success: Utilisateur supprimé du groupe avec succès.
@@ -959,8 +967,8 @@ fr-CA:
         error: Un problème est survenu lors de l’adhésion au groupe.
         success: Demande de jointure créée avec succès. Un administrateur examinera votre demande avant de vous accepter au groupe.
       leave:
-        error: Un problème est survenu lors du départ du groupe.
-        last_admin: "You cannot remove yourself from this group as you're the last administrator. Make another member an administrator in order to leave the group.\n\nVous ne pouvez pas vous retirer de ce groupe car vous êtes le dernier administrateur. Pour quitter le groupe, vous devez nommer un autre membre administrateur."
+        error: Il y a eu un problème pour quitter le groupe.
+        last_admin: Vous ne pouvez pas vous retirer de ce groupe car vous êtes le dernier administrateur. Pour quitter le groupe, vous devez nommer un autre membre administrateur.
         success: Le groupe est parti avec succès.
       members:
         accept_or_reject_join_requests: 'Les utilisateurs suivants ont demandé à rejoindre ce groupe. Accepter ou rejeter leurs demandes:'
@@ -970,7 +978,7 @@ fr-CA:
         create_user_group: Créer un groupe
         new_user_group: Nouveau groupe
         subtitle: Créez un groupe et invitez d'autres utilisateurs à se joindre pour participer à un niveau collectif.
-      no_user_groups: "Does not belong to any group yet.\nVous n'appartenez à aucun groupe."
+      no_user_groups: Vous n'appartenez pour l'instant à aucun groupe.
       roles:
         admin: Administrateur
         creator: Administrateur
@@ -1124,8 +1132,8 @@ fr-CA:
     newsletter_mailer:
       newsletter:
         no_reply_notice: Cet e-mail a été envoyé à partir d'une adresse automatique qui ne peut pas recevoir d'e-mail. Veuillez ne pas répondre à ce message.
-        note: Vous avez reçu ce courrier électronique parce que vous êtes abonné aux bulletins d'information de %{organization_name}. Vous pouvez modifier vos paramètres sur votre <a href="%{link}">page de notifications</a>.
-        see_on_website: "Cannot see this email correctly? View it on the <a href=\"%{link}\" target=\"_blank\" class=\"see-on-website\">website</a>.\nCet email ne s'affiche pas correctement ? Affichez-le dans un navigateur <a href=\"%{link}\" target=\"_blank\" class=\"see-on-website\">website</a>."
+        note: Vous avez reçu ce courrier électronique parce que vous êtes abonné aux newsletters de %{organization_name}. Vous pouvez modifier vos paramètres sur votre <a href="%{link}">page de notifications</a>.
+        see_on_website: Cet email ne s'affiche pas correctement ? Affichez-le sur le <a href="%{link}" target="_blank" class="see-on-website">site interne</a>.
         unsubscribe: Pour ne plus recevoir ce type d'email, <a href="%{link}" target="_blank" class="unsubscribe">Désabonnez-vous</a>.
     newsletter_templates:
       basic_only_text:
@@ -1157,7 +1165,7 @@ fr-CA:
       unathorized: Désolé, ce lien n'est plus disponible.
       update:
         error: Un problème est survenu lors de l'enregistrement des paramètres de la newsletter.
-        success: Les paramètres de la lettre d’information ont été mis à jour avec succès.
+        success: Les paramètres de la newsletter ont été mis à jour avec succès.
     newsletters_opt_in_mailer:
       notify:
         body_1: Le traitement des données personnelles et leur protection deviennent de plus en plus importants pour nous tous. Avec le nouveau règlement général sur la protection des données (RGPD) du 25 mai 2018, les individus contrôlent mieux leurs données personnelles. Pour cette raison, nous avons besoin de votre accord pour continuer à vous envoyer des informations pertinentes sur les activités de %{organization_name}.
@@ -1265,21 +1273,21 @@ fr-CA:
       terms_of_service:
         accept:
           error: Une erreur s'est produite lors de l'acceptation des conditions d'utilisation.
-          success: "Great! You have accepted the admin terms of service.\nFélicitation ! Vous avez accepté les conditions d'utilisation de l'administrateur."
+          success: Félicitations ! Vous avez accepté les conditions d'utilisation.
         form:
           agreement: J'accepte les conditions d'utilisation
           legend: Accepter les conditions d’utilisation
         refuse:
           modal_body: Si vous refusez, vous ne pourrez pas utiliser la plateforme. Vous pouvez <a href="%{download_your_data_path}">télécharger vos données</a> ainsi que <a href="%{delete_path}">supprimer votre compte</a>.
           modal_btn_continue: Accepter les conditions et continuer
-          modal_btn_exit: Je l'examinerai plus tard
+          modal_btn_exit: Je les examinerai plus tard
           modal_button: Refuser les conditions d'utilisation
           modal_close: Fermer la boîte de dialogue
-          modal_title: "Do you really refuse the updated terms of service?\nEtes-vous sûr de vouloir refuser les conditions d'utilisation mises à jour ?"
+          modal_title: Êtes-vous sûr de vouloir refuser les conditions d'utilisation mises à jour ?
         required_review:
           alert: Nous avons mis à jour nos conditions d'utilisation, veuillez les consulter.
-          body: "Please take a moment to review updates to our Terms of Services. Otherwise you will not be able to use the platform.\nVeuillez prendre le temps de consulter nos conditions d'utilisation mises à jour. Dans le cas contraire, vous ne serrez pas en meusre d'utiliser la plateforme."
-          title: "Required: Review updates to our terms of service\nRequis : veuillez consulter la mise à jour des conditions d'utilisation."
+          body: Veuillez prendre le temps de consulter nos conditions d'utilisation mises à jour. Dans le cas contraire, vous ne serrez pas en mesure d'utiliser la plateforme.
+          title: 'Requis : veuillez consulter la mise à jour des conditions d''utilisation.'
     participatory_space_private_users:
       not_allowed: Vous n'êtes pas autorisé à voir ce contenu
     passwords:
@@ -1414,7 +1422,7 @@ fr-CA:
         already_reported: Ce contenu a déjà été signalé et il sera examiné par un administrateur.
         close: Fermer
         description: Ce contenu est-il inapproprié ?
-        does_not_belong: "Contains illegal activity, suicide threats, personal information, or something else you think does not belong on %{organization_name}.\nContenu d'activité illégale, menace de suicide, informations personnelles ou tout autre élément qui, selon vous, n'aurait pas sa place sur %{nom_de_l'organisation}."
+        does_not_belong: Contient du contenu illégal, menace de suicide, informations personnelles ou tout autre élément qui, selon vous, n'aurait pas sa place sur %{nom_de_l'organisation}.
         hide: Masquer
         hide_content: Masquer ce contenu
         offensive: Contient des propos contraires à la loi (propos racistes, sexistes, insultes, attaques personnelles, menaces de mort, incitations au suicide ou toute forme de discours de haine,...).
@@ -1428,7 +1436,7 @@ fr-CA:
         block: Bloquer ce participant
         close: Fermer
         description: Qu'est-ce qui est inapproprié à propos de cet utilisateur ?
-        does_not_belong: "Contains illegal activity, suicide threats, personal information, or something else you think does not belong on %{organization_name}.\nContenu d'activité illégale, menace de suicide, informations personnelles ou tout autre élément qui, selon vous, n'aurait pas sa place sur %{nom_de_l'organisation}."
+        does_not_belong: Contient du contenu illégal, menace de suicide, informations personnelles ou tout autre élément qui, selon vous, n'aurait pas sa place sur %{nom_de_l'organisation}.
         hide: Masquer tous ses contenus
         offensive: Rédige des contenus racistes, sexistes, contenant des insultes, attaques personnelles, menaces de mort, incitations au suicide ou toute forme de discours de haine.
         report: Signaler
