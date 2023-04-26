@@ -1,1 +1,5 @@
+---
 et:
+  locale:
+    name: Eesti
+    name_with_error: Eesti (viga!)

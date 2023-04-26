@@ -266,15 +266,16 @@ describe "Edit proposals", type: :system do
           proposal.update!(body: body)
           visit_component
           click_link proposal_title
+          click_link "Edit proposal"
         end
 
+        it_behaves_like "having a rich text editor", "edit_proposal", "basic"
+
         it "doesnt change the href" do
-          click_link "Edit proposal"
           expect(page).to have_link("this is a link", href: link)
         end
 
-        it "doesnt add external link container inside the editor" do
-          click_link "Edit proposal"
+        it "does not add external link container inside the editor" do
           editor = page.find(".editor-container")
           expect(editor).to have_selector("a[href='#{link}']")
           expect(editor).not_to have_selector("a.external-link-container")

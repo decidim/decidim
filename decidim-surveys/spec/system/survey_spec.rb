@@ -19,10 +19,17 @@ describe "Answer a survey", type: :system do
       "es" => "<p>Contenido de la encuesta</p>"
     }
   end
+  let(:question_description) do
+    {
+      "en" => "<p>Survey's content</p>",
+      "ca" => "<p>Contingut de l'enquesta</p>",
+      "es" => "<p>Contenido de la encuesta</p>"
+    }
+  end
   let(:user) { create(:user, :confirmed, organization: component.organization) }
   let!(:questionnaire) { create(:questionnaire, title: title, description: description) }
   let!(:survey) { create(:survey, component: component, questionnaire: questionnaire) }
-  let!(:question) { create(:questionnaire_question, questionnaire: questionnaire, position: 0) }
+  let!(:question) { create(:questionnaire_question, questionnaire: questionnaire, position: 0, description: question_description) }
 
   include_context "with a component"
 
@@ -91,6 +98,29 @@ describe "Answer a survey", type: :system do
       end
 
       it_behaves_like "has questionnaire"
+    end
+
+    context "when displaying questionnaire rich content" do
+      before do
+        component.update!(
+          step_settings: {
+            component.participatory_space.active_step.id => {
+              allow_answers: true,
+              allow_unregistered: true
+            }
+          },
+          settings: { starts_at: 1.week.ago, ends_at: 1.day.from_now }
+        )
+        visit_component
+      end
+
+      context "when displaying questionnaire description" do
+        it_behaves_like "has embedded video in description", :description
+      end
+
+      context "when displaying question description" do
+        it_behaves_like "has embedded video in description", :question_description
+      end
     end
   end
 

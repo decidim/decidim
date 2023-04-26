@@ -1579,8 +1579,8 @@ ja:
           上記のリンクにアクセスし、アカウントIDとパスワードを設定するまで、あなたのアカウントは作成されません。
         invited_you_as_admin: "%{invited_by} さんが %{application}の管理者としてあなたを招待しました。以下のリンクから承認できます。"
         invited_you_as_private_user: "%{invited_by} が %{application}の非公開参加者としてあなたを招待しました。以下のリンクから承認できます。"
-        someone_invited_you: 誰かが %{application}にあなたを招待しました。以下のリンクから受け入れることができます。
-        someone_invited_you_as_admin: 誰かが %{application}の管理者としてあなたを招待しました。以下のリンクから承認できます。
+        someone_invited_you: '%{application} にあなたを招待しました。以下のリンクから受け入れることができます。'
+        someone_invited_you_as_admin: '%{application} の管理者としてあなたを招待しました。以下のリンクから承認できます。'
         someone_invited_you_as_private_user: '%{application}の非公開参加者としてあなたを招待しました。以下のリンクから承認できます。'
         subject: 招待の説明
       invite_admin:
@@ -1766,7 +1766,7 @@ ja:
       language_chooser:
         choose_language: 言語を選択
       notifications_dashboard:
-        mark_all_as_read: すべて既読にする
+        mark_all_as_read: すべての通知を削除する
         mark_as_read: 既読にする
       offline_banner:
         cache_version_page: あなたのネットワークはオフラインです。以前にアクセスしたページのキャッシュされたバージョンを表示しています。コンテンツは最新ではないかもしれません。

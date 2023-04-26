@@ -363,8 +363,8 @@ en:
         fill_data:
           back: Back
           continue: Continue
+          decidim_user_group_id_help: It's not possible to change initiative authorship after creation
           fill_data_help: "<ul> <li>Review the content of your initiative. Is your title easy to understand? Is the objective of your initiative clear?</li> <li>You have to choose the type of signature. In-person, online or a combination of both</li> <li>Which is the geographic scope of the initiative?</li> </ul>"
-          initiative_type: Initiative type
           more_information: "(More information)"
           select_area: Select an area
           select_scope: Select a scope
@@ -445,6 +445,7 @@ en:
         delete_attachment: Delete
       index:
         title: Initiatives
+        uninitialized: Initiatives are not yet configured by an administrator
       initiative_signatures:
         fill_personal_data:
           continue: Continue

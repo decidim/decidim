@@ -14,7 +14,7 @@
               <%= meeting.start_time.strftime("%H:%M") %> - <%= meeting.end_time.strftime("%H:%M") %>
             </div>
           </div>
-          <%= decidim_sanitize_editor(present(meeting).description) %>
+          <%= decidim_sanitize_editor present(meeting).description(strip_tags: true) %>
         </div>
       </div>
     </div>

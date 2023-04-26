@@ -1,1 +1,5 @@
+---
 hr:
+  locale:
+    name: Hrvatski
+    name_with_error: Hrvatski (greška!)
