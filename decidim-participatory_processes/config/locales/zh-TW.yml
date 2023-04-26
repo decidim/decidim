@@ -241,6 +241,7 @@ zh-TW:
           error: 重新排列這個參與程序階段時出現問題。
         update:
           error: 更新參與程序階段時出現問題。
+          success: 參與式階段成功更新。
       participatory_process_types:
         create:
           error: 新增程序類型時發生錯誤
@@ -259,6 +260,11 @@ zh-TW:
           error: 更新這個程序類型時發生錯誤
           success: 程序類型成功更新。
       participatory_process_user_roles:
+        create:
+          error: 新增參與者至此參與式過程時發生問題。
+          success: 管理者已成功加入此參與式過程。
+        destroy:
+          success: 管理員已成功從此參與過程中移除。
         edit:
           title: 更新參與程序管理員
           update: 更新
@@ -267,7 +273,13 @@ zh-TW:
         new:
           create: 建立
           title: 新的參與程序管理員
+        update:
+          error: 更新參與程序管理員時出現問題。
+          success: 管理員已成功更新此參與過程。
       participatory_processes:
+        create:
+          error: 創建新參與程序時出現問題。
+          success: 參與式流程已成功建立。現在請配置其各階段。
         edit:
           update: 更新
         index:
@@ -283,6 +295,7 @@ zh-TW:
           success: 參與程序已成功更新。
       participatory_processes_copies:
         create:
+          error: 複製參與流程時發生問題。
           success: 成功複製參與過程。
       participatory_processes_group:
         create:
@@ -367,6 +380,7 @@ zh-TW:
         html_3:
           name: 第三個 HTML 區塊
         metadata:
+          developer_group: 推廣者：
           name: Metadata
           participatory_scope: 決定了什麼
           participatory_structure: 如何決定
@@ -377,30 +391,53 @@ zh-TW:
           name: 統計資料
         title:
           meta_scope: 範圍
+          name: 標題、描述和標籤
           participatory_processes:
             other: "One\n1 個程序\n\nOther\n%{count} 個程序"
       show:
         title: 參與程序群組
+    participatory_process_steps:
+      index:
+        process_steps: 程序階段
+        title: 參與式過程階段
     participatory_processes:
       admin:
+        content_blocks:
+          highlighted_processes:
+            max_results: 顯示的最大元素數量
         new_import:
           accepted_types:
             json: JSON
+        participatory_process_copies:
+          form:
+            slug_help: 'URL slugs用於生成指向此程序的URL。僅接受字母、數字和破折號，必須以字母開頭。例如：%{url}'
         participatory_process_groups:
           form:
+            metadata: 元數據
             title: 基本資訊
             visibility: 可見度
         participatory_process_imports:
           form:
             document_legend: 添加文檔
+            slug_help: 'URL slugs用於生成指向此程序的URL。僅接受字母、數字和破折號，必須以字母開頭。例如：%{url}'
+        participatory_process_steps:
+          form:
+            cta_path_help: '在這裡使用部分路徑，而不是完整的 URL。只接受字母、數字、破折號和斜線，並且必須以字母開頭。如果未設置，按鈕將不會顯示。例如：%{url}'
+            cta_text_help: 如果未設置，按鈕將不會顯示。
         participatory_processes:
           form:
+            announcement_help: 您在此處輸入的文字將顯示至使用者的正下方程序信息
             duration: 持續時間
             filters: 過濾器
             images: 圖片
+            metadata: 元數據
             other: 其他
             related_processes: 相關程序
+            scope_type_max_depth_help: 限制範圍過濾器深度；過濾器將會從一般範圍到所選範圍層級進行顯示。
             select_an_area: 選擇一個地區
+            select_participatory_process_type: 選擇一個程序類型
+            select_process_group: 選擇一個程序群組
+            slug_help: 'URL slugs用於生成指向此程序的URL。僅接受字母、數字和破折號，必須以字母開頭。例如：%{url}'
             title: 基本資訊
             visbility: 可見度
       content_blocks:
@@ -417,6 +454,8 @@ zh-TW:
             active_step: 進行中的階段
             more_information: 更多資訊
             participate: 參與
+            participate_in: 參與程序 %{resource_name}
+            processes_button_title: 鏈接到顯示所有程序的程序頁面
             see_all_processes: 檢視所有程序
       participatory_process_steps:
         index:
