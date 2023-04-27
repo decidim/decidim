@@ -161,7 +161,7 @@ header{
       @apply hidden lg:flex justify-between items-center gap-2.5 [&>*]:text-lg [&>*]:text-white;
 
       &__dropdown-trigger{
-        @apply flex rounded px-2 py-1 relative before:content-[''] before:absolute before:w-[calc(100%+3rem)] before:min-w-[10rem] before:h-40 before:left-1/2 before:top-1/2 before:-translate-x-1/2 before:-translate-y-1/4 before:-z-10;
+        @apply flex rounded px-2 py-1 relative before:content-[''] before:absolute before:w-[calc(100%+3rem+1px)] before:min-w-[10rem] before:h-40 before:left-1/2 before:top-1/2 before:-translate-x-1/2 before:-translate-y-1/4 before:-z-10;
 
         &:not(.no-interactive){
           @apply cursor-pointer hover:backdrop-brightness-75 focus:backdrop-brightness-75 focus:outline-none;
