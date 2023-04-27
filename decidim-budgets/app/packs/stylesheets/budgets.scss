@@ -21,7 +21,7 @@
     }
 
     &__content{
-      @apply grid grid-cols-1 md:grid-cols-[67.6%_30%] items-center gap-x-20 pt-8;
+      @apply grid grid-cols-1 md:grid-cols-[67.6%_30%] items-center gap-x-20;
     }
 
     &__content__fixed{
@@ -132,7 +132,7 @@
   }
 
   &__definition-project__title .ql-editor{
-    @apply text-4xl my-4;
+    @apply text-4xl mb-4;
   }
 
   &__definition-data__title{
@@ -179,7 +179,7 @@
     }
 
     .card__list-content{
-      @apply w-full cursor-pointer md:pr-24;
+      @apply w-full cursor-pointer;
     }
 
     .project-item{
