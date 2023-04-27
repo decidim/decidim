@@ -48,8 +48,16 @@ module Decidim
 
       enum iframe_access_level: [:all, :signed_in, :registered], _prefix: true
       enum iframe_embed_type: [:none, :embed_in_meeting_page, :open_in_live_event_page, :open_in_new_tab], _prefix: true
-      enum type_of_meeting: TYPE_OF_MEETING
-      enum registration_type: REGISTRATION_TYPE, _scopes: false
+      enum type_of_meeting: {
+        in_person: "in_person",
+        online: "online",
+        hybrid: "hybrid"
+      }
+      enum registration_type: {
+        registration_disabled: "registration_disabled",
+        on_this_platform: "on_this_platform",
+        on_different_platform: "on_different_platform"
+      }, _scopes: false
 
       component_manifest_name "meetings"
 

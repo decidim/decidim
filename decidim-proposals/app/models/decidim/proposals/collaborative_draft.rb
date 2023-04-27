@@ -31,7 +31,7 @@ module Decidim
 
       geocoded_by :address
 
-      enum state: %w(open withdrawn published)
+      enum state: { open: "open", published: "published", withdrawn: "withdrawn" }, _default: "open"
       scope :except_withdrawn, -> { where.not(state: "withdrawn").or(where(state: nil)) }
 
       scope_search_multi :with_any_state, [:open, :published, :withdrawn]

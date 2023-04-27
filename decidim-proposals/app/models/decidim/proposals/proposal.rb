@@ -55,7 +55,13 @@ module Decidim
 
       geocoded_by :address
 
-      enum state: POSSIBLE_STATES, _scopes: false
+      enum state: {
+        not_answered: "not_answered",
+        evaluating: "evaluating",
+        accepted: "accepted",
+        rejected: "rejected",
+        withdrawn: "withdrawn"
+      }, _scopes: false
 
       scope :accepted, -> { state_published.where(state: "accepted") }
       scope :rejected, -> { state_published.where(state: "rejected") }
