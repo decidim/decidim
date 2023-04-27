@@ -1,5 +1,5 @@
 $(() => {
-  const $projects = $("#projects, #project");
+  const $projects = $("#projects, #project-item");
   const $budgetSummaryTotal = $(".budget-summary__progressbar-marks_right");
   const selectBudgetSummaryTotal = $budgetSummaryTotal[0].dataset.totalAllocation;
   const $budgetSummary = $(".budget-summary__progressbox");
