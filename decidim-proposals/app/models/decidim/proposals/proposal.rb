@@ -230,6 +230,27 @@ module Decidim
         internal_state == "withdrawn"
       end
 
+      # Public: Checks if the organization has accepted a proposal.
+      #
+      # Returns Boolean.
+      def accepted?
+        state == "accepted"
+      end
+
+      # Public: Checks if the organization has rejected a proposal.
+      #
+      # Returns Boolean.
+      def rejected?
+        state == "rejected"
+      end
+
+      # Public: Checks if the organization has marked the proposal as evaluating it.
+      #
+      # Returns Boolean.
+      def evaluating?
+        state == "evaluating"
+      end
+
       # Public: Overrides the `reported_content_url` Reportable concern method.
       def reported_content_url
         ResourceLocatorPresenter.new(self).url
