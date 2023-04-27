@@ -3,9 +3,17 @@ $(() => {
 
     const progressRef = document.querySelectorAll("[data-progress-reference]");
     const progressFix = document.querySelectorAll("[data-progressbox-fixed]");
-    let selectedProgressRef = window.matchMedia("(min-width: 768px)").matches ? progressRef[1] : progressRef[0];
-    let selectedProgressFix  = window.matchMedia("(min-width: 768px)").matches ? progressFix[1] : progressFix[0]
-    let progressVisibleClass = "is-progressbox-visible";
+    let selectedProgressRef = "";
+    let selectedProgressFix = "";
+    const progressVisibleClass = "is-progressbox-visible";
+
+    if (window.matchMedia("(min-width: 768px)").matches) {
+      selectedProgressRef = progressRef[1];
+      selectedProgressFix = progressFix[1];
+    } else {
+      selectedProgressRef = progressRef[0];
+      selectedProgressFix = progressFix[0];
+    }
 
     if (!progressRef) {
       return;
