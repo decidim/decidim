@@ -26,12 +26,12 @@ module Decidim
       include Decidim::TranslatableResource
       include Decidim::Publicable
       include Decidim::FilterableResource
-      include Decidim::EnumerableAttribute
+
       TYPE_OF_MEETING = %w(in_person online hybrid).freeze
       REGISTRATION_TYPE = %w(registration_disabled on_this_platform on_different_platform).freeze
 
-      enum_fields :type_of_meeting, TYPE_OF_MEETING, { method_suffix: :meeting }
-      enum_fields :registration_type, REGISTRATION_TYPE, { enable_scopes: false }
+      enum type_of_meeting: TYPE_OF_MEETING, _suffix: :meeting
+      enum registration_type: REGISTRATION_TYPE, _scopes: false
 
       translatable_fields :title, :description, :location, :location_hints, :closing_report, :registration_terms
 
