@@ -338,9 +338,63 @@ zh-TW:
           back: 返回
           continue: 繼續
           decidim_user_group_id_help: 此計畫創建後，無法更改發起人身份。
+          fill_data_help: "<ul> <li>檢閱您倡議的內容。標題是否易於理解？倡議的目標是否清晰明確？</li> <li>您需要選擇簽名的類型。是現場簽名、線上簽名還是兩者的組合？</li> <li>倡議的地理範圍是什麼？</li> </ul>"
           more_information: "(更多資訊)"
+          select_area: 選擇一個地區
+          select_scope: 選擇一個類型
+        finish:
+          back: 返回
+          back_to_initiatives: 回到倡議
+          callout_text: 恭喜您！您的倡議已成功建立。
+          confirm: 您即將發送倡議給管理員進行審核和發佈。一旦發佈，您將無法編輯它。您確定要繼續嗎？"
+          edit_my_initiative: 編輯我的倡議
+          go_to_my_initiatives: 前往我的倡議
+          more_information: "(更多資訊)"
+          send_my_initiative: 將我的倡議送交技術審核
+        finish_help:
+          access_reminder: 您可以透過「倡議」頁面上的 %{link} 過濾器來訪問您的倡議。
+          publish_helper_text: 請記住，要使您的倡議能夠被發佈，您必須填寫必要的資訊並將其<strong>送交技術審核</strong>以供管理員審查。
+        previous_form:
+          back: 返回
+          continue: 繼續
+          help: 倡議的內容是什麼？請記下標題和描述。我們建議使用簡短明瞭的標題和以提出解決方案為重點的描述。
+          more_information: "(更多資訊)"
+        promotal_committee:
+          back: 返回
+          individual_help_text: 這種倡議需要至少 %{committee_size} 人（證明者）組成推廣委員會。您必須與參與該倡議的其他人分享以下鏈接。當您的聯繫人收到此鏈接後，他們將需要按照指示進行相應步驟。
+          more_information: "(更多資訊)"
+        select_initiative_type:
+          back: 返回
+          choose_html: 我想要創建一個<strong>%{title}</strong>
+          more_information: "(更多資訊)"
+          select: 我想推動這個倡議
+          select_initiative_type_help: 倡議是參與者可以通過其來干預，以便組織可以為捍衛公共利益而采取行動的手段。您希望發起哪個倡議？
+        share_committee_link:
+          continue: 繼續
+          invite_to_committee_help: 邀請成為推動委員會成員的人的連結
+        show_similar_initiatives:
+          back: 返回
+          compare_help: 如果以下任何一個倡議與您的倡議相似，我們鼓勵您簽署它。這樣，您的提案將更有可能被實現。
+          continue: 我的倡議與這些不同
+          more_information: "(更多資訊)"
+      edit:
+        accept: 接受倡議
+        back: 返回
+        confirm: 您確定嗎？
+        discard: 放棄倡議
+        export_pdf_signatures: 匯出簽名的PDF
+        export_votes: 匯出簽名
+        reject: 拒絕倡議
+        title: 編輯倡議
+        update: 更新
       events:
+        approve_membership_request:
+          email_intro: "%{author_nickname} 同意您加入 %{resource_title} 倡議的推動委員會。"
+          email_outro: '這是您收到的通知，因為您申請參與這個倡議：%{resource_title}。'
+          email_subject: "%{author_nickname} 同意您加入推動委員會。"
+          notification_title: <a href="%{author_profile_url}">%{author_nickname}</a> 同意您加入以下倡議的推動委員會：<a href="%{resource_url}">%{resource_title}</a>。
         create_initiative_event:
+          email_intro: "%{author_name} %{author_nickname}，您正在追蹤的用戶，創建了一個新的倡議，請查看並做出貢獻："
           email_outro: 您收到此通知，是因為您正在關注 %{author_nickname}。您可以使用上面的連結停止接收通知。
           email_subject: 由 %{author_nickname} 提出的新倡議
           notification_title: 倡議 <a href="%{resource_path}">%{resource_title}</a> 由 <a href="%{author_path}">%{author_name} %{author_nickname}</a> 提出。
@@ -437,6 +491,8 @@ zh-TW:
           comments_count:
             count:
               other: 評論
+        orders:
+          most_commented: 最多評論
         result:
           answer_title: 這個倡議已經有回應了。
         vote_cabin:
