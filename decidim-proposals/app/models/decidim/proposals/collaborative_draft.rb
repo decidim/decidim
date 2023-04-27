@@ -17,7 +17,6 @@ module Decidim
       include Decidim::Loggable
       include Decidim::Randomable
       include Decidim::FilterableResource
-      include Decidim::EnumerableAttribute
 
       has_many :collaborator_requests,
                class_name: "Decidim::Proposals::CollaborativeDraftCollaboratorRequest",

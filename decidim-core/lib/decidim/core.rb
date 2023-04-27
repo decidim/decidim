@@ -118,7 +118,6 @@ module Decidim
   autoload :DisabledRedesignLayout, "decidim/disabled_redesign_layout"
   autoload :BlockRegistry, "decidim/block_registry"
   autoload :DependencyResolver, "decidim/dependency_resolver"
-  autoload :EnumerableAttribute, "decidim/enumerable_attribute"
   autoload :ParticipatorySpaceUser, "decidim/participatory_space_user"
   autoload :ModerationTools, "decidim/moderation_tools"
 

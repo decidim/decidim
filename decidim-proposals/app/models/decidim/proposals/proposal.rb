@@ -28,7 +28,6 @@ module Decidim
       include Decidim::TranslatableResource
       include Decidim::TranslatableAttributes
       include Decidim::FilterableResource
-      include Decidim::EnumerableAttribute
 
       translatable_fields :title, :body
 
@@ -57,7 +56,10 @@ module Decidim
       geocoded_by :address
 
       enum state: POSSIBLE_STATES, _scopes: false
-      enum_fields :state, POSSIBLE_STATES, prepend_scope: [:state_published]
+
+      scope :accepted, -> { state_published.where(state: "accepted") }
+      scope :rejected, -> { state_published.where(state: "rejected") }
+      scope :evaluating, -> { state_published.where(state: "evaluating") }
 
       scope :answered, -> { where.not(answered_at: nil) }
       scope :not_answered, -> { where(answered_at: nil) }
