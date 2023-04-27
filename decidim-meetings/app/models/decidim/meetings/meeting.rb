@@ -28,7 +28,7 @@ module Decidim
       include Decidim::FilterableResource
 
       TYPE_OF_MEETING = %w(in_person online hybrid).freeze
-      REGISTRATION_TYPE = %w(registration_disabled on_this_platform on_different_platform).freeze
+      REGISTRATION_TYPES = %w(registration_disabled on_this_platform on_different_platform).freeze
 
       translatable_fields :title, :description, :location, :location_hints, :closing_report, :registration_terms
 
@@ -48,16 +48,8 @@ module Decidim
 
       enum iframe_access_level: [:all, :signed_in, :registered], _prefix: true
       enum iframe_embed_type: [:none, :embed_in_meeting_page, :open_in_live_event_page, :open_in_new_tab], _prefix: true
-      enum type_of_meeting: {
-        in_person: "in_person",
-        online: "online",
-        hybrid: "hybrid"
-      }
-      enum registration_type: {
-        registration_disabled: "registration_disabled",
-        on_this_platform: "on_this_platform",
-        on_different_platform: "on_different_platform"
-      }, _scopes: false
+      enum type_of_meeting: TYPE_OF_MEETING
+      enum registration_type: REGISTRATION_TYPES, _scopes: false
 
       component_manifest_name "meetings"
 
@@ -92,7 +84,7 @@ module Decidim
       scope :visible_for, lambda { |user|
         (all.distinct if user&.admin?) ||
           if user.present?
-            spaces = Decidim.participatory_space_registry.manifests.filter_map do |manifest|
+            (spaces = Decidim.participatory_space_registry.manifests.filter_map do |manifest|
               table_name = manifest.model_class_name.constantize.try(:table_name)
               next if table_name.blank?
 
@@ -100,8 +92,8 @@ module Decidim
                 name: table_name.singularize,
                 class_name: manifest.model_class_name
               }
-            end
-            user_role_queries = spaces.map do |space|
+            end)
+            (user_role_queries = spaces.map do |space|
               roles_table = "#{space[:name]}_user_roles"
               next unless connection.table_exists?(roles_table)
 
@@ -111,7 +103,7 @@ module Decidim
               (SELECT CONCAT(#{roles_table}.#{space[:name]}_id, '-#{space[:class_name]}')
               FROM #{roles_table} WHERE #{roles_table}.decidim_user_id = ?)
               "
-            end
+            end)
 
             query = "
               decidim_meetings_meetings.private_meeting = ?

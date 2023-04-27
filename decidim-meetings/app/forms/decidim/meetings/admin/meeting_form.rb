@@ -125,7 +125,7 @@ module Decidim
         end
 
         def registration_type_select
-          Decidim::Meetings::Meeting::REGISTRATION_TYPE.map do |type|
+          Decidim::Meetings::Meeting::REGISTRATION_TYPES.map do |type|
             [
               I18n.t("registration_type.#{type}", scope: "decidim.meetings"),
               type
