@@ -285,6 +285,8 @@ zh-TW:
             only_global_scope_enabled_help: 若您已啟用「子範圍籤章」並將全域範圍配置為父範圍，請勾選此標誌。啟用後，建立倡議的精靈中將跳過倡議類型選擇。如需有關此配置如何運作的詳細信息，請參閱此<a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">鏈接</a>。
             options: 選項
             title: 一般資訊
+          initiative_type_scopes:
+            title: 倡議類型範圍
           new:
             create: 建立
             title: 新的倡議類型
@@ -324,6 +326,13 @@ zh-TW:
         new:
           continue: 繼續
           help_text: 你即將要求成為此倡議的推動委員會成員。
+        revoke:
+          success: 申請已被撤銷。
+        spawn:
+          success: 您的請求已發送給倡議的作者。
+      content_blocks:
+        highlighted_initiatives:
+          name: 重點倡議
       create_initiative:
         fill_data:
           back: 返回
