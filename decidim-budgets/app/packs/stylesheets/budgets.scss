@@ -89,7 +89,6 @@
     &__progressbar-legend-strong{
       @apply font-bold block;
     }
-
   }
 
   &__card__list-project{
@@ -133,7 +132,7 @@
   }
 
   &__definition-project__title .ql-editor{
-    @apply text-4xl;
+    @apply text-4xl my-4;
   }
 
   &__definition-data__title{
@@ -180,7 +179,7 @@
     }
 
     .card__list-content{
-      @apply w-full cursor-pointer pr-24 ;
+      @apply w-full cursor-pointer pr-8 md:pr-24;
     }
 
     .project-item{
@@ -246,6 +245,10 @@
 
   .card__list-title{
     @apply cursor-default no-underline;
+  }
+
+  .card__list__content{
+    @apply w-[60%];
   }
 }
 

@@ -40,7 +40,7 @@ edit_link(
     <%= render partial: "decidim/shared/static_map", locals: { icon_name: "projects", geolocalizable: project } %>
   <% end %>
   <%= cell("decidim/budgets/project_selected_status", project, as_label: true) %>
-  <h1 class="h1 decorator budget__definition-project__title editor-content mt-4">
+  <h1 class="h1 decorator budget__definition-project__title editor-content">
     <%= decidim_sanitize_editor translated_attribute project.title %>
   </h1>
   <div class="editor-content">
