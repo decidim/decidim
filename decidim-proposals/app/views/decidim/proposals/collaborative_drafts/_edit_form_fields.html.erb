@@ -32,10 +32,6 @@
   <%= scopes_picker_field form, :scope_id, root: current_component.scope %>
 <% end %>
 
-<% if current_organization.user_groups_enabled? && Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.any? %>
-  <%= user_group_select_field form, :user_group_id %>
-<% end %>
-
 <% if component_settings.attachments_allowed? %>
   <%= form.attachment :documents,
     multiple: false,
@@ -45,4 +41,8 @@
     button_class: "button button__lg button__transparent-secondary w-full",
     help_text: t("attachment_legend", scope: "decidim.proposals.collaborative_drafts.edit"),
     help_i18n_scope: "decidim.forms.file_help.file" %>
+<% end %>
+
+<% if current_organization.user_groups_enabled? && Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.any? %>
+  <%= user_group_select_field form, :user_group_id %>
 <% end %>
