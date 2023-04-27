@@ -2,9 +2,9 @@
 
 module Decidim
   module ParticipatoryProcesses
-    # This cell renders the Grid (:g) process card
-    # for an given instance of a Process
-    class ProcessGroupGCell < Decidim::CardGCell
+    # This cell renders the List (:l) process card
+    # for an given instance of a Process Group
+    class ProcessGroupLCell < Decidim::CardLCell
       private
 
       def resource_path

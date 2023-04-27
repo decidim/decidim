@@ -138,6 +138,7 @@ ignore_unused:
   - decidim.statistics.*
   - decidim.components.*
   - decidim.filters.linked_classes.*
+  - decidim.shared.participatory_space_filters.filters.*
   - decidim.follows.create.participatory_space
   - decidim.forms.errors.*
   - decidim.forms.file_help.*

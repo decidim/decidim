@@ -2,7 +2,7 @@
 <div class="layout-item">
   <main class="layout-item__main">
     <% if local_assigns.has_key?(:back_path) %>
-      <%= link_to back_path, class: "layout-item__back button button__text-secondary" do %>
+      <%= link_to back_path, class: "layout-item__back button button__text-secondary js-back-to-list" do %>
         <%= icon "arrow-left-line" %>
         <span><%= t("back", scope: "devise.shared.links") %></span>
       <% end %>
