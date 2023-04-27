@@ -70,6 +70,10 @@ pt-BR:
             select_component: Selecionar componente
             title: Importar Projetos para Responsabilidade
         results:
+          create:
+            success: Resultado criado com sucesso.
+          destroy:
+            success: Resultado removido com sucesso.
           edit:
             title: Editar resultado
             update: Atualizar resultado
