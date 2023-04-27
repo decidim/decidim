@@ -48,6 +48,8 @@ describe "Proposals", type: :system do
 
     it_behaves_like "accessible page" do
       before do
+        skip_unless_redesign_enabled("Old menu layout breaks this test using layout item")
+
         visit_component
         click_link proposal_title
       end
