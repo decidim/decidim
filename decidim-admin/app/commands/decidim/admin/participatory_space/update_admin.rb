@@ -8,8 +8,9 @@ module Decidim
         #
         # form - A form object with the params.
         # user_role - The UserRole to update
-        # event_class - The event class to be used when notifying the user
-        # event - The event name to be used when notifying the user
+        # options: a hash with at least two mandatory keys, event_class and event
+        # - event_class - The event class to be used when notifying the user
+        # - event - The event name to be used when notifying the user
         def initialize(form, user_role, options = {})
           @form = form
           @user_role = user_role

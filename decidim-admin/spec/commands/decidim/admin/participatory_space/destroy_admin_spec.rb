@@ -51,7 +51,7 @@ module Decidim::Admin
       include_examples "destroys participatory space role"
     end
 
-    context "when the role is a assembly admin" do
+    context "when the role is an assembly admin" do
       let(:my_process) { create :assembly }
       let(:role) { create :assembly_user_role, user:, assembly: my_process, role: :admin }
 
