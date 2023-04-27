@@ -452,8 +452,8 @@ Decidim.register_component(:proposals) do |component|
       case n
       when 2
         authors = Decidim::User.where(organization: component.organization).all.sample(5)
-        authors.each do |author|
-          Decidim::Coauthorship.create(coauthorable: draft, author: author)
+        authors.each do |local_author|
+          Decidim::Coauthorship.create(coauthorable: draft, author: local_author)
         end
       when 3
         author2 = Decidim::User.where(organization: component.organization).all.sample

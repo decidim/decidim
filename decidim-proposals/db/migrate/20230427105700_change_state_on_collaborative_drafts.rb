@@ -8,7 +8,7 @@ class ChangeStateOnCollaborativeDrafts < ActiveRecord::Migration[6.1]
     Decidim::Proposals::CollaborativeDraft.reset_column_information
 
     Decidim::Proposals::CollaborativeDraft.find_each do |collaborative_draft|
-      collaborative_draft.update(state: Decidim::Proposals::CollaborativeDraft::STATES.index(collaborative_draft.old_state))
+      collaborative_draft.update(state: Decidim::Proposals::CollaborativeDraft::STATES.index(collaborative_draft.old_state) || "not_answered")
     end
 
     remove_column :decidim_proposals_collaborative_drafts, :old_state

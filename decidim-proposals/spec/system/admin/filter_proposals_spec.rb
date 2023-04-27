@@ -30,7 +30,7 @@ describe "Admin filters proposals", type: :system do
 
     before { visit_component_admin }
 
-    STATES.without(:not_answered).each do |state|
+    STATES.each do |state|
       i18n_state = I18n.t(state, scope: "decidim.admin.filters.proposals.state_eq.values")
 
       context "filtering proposals by state: #{i18n_state}" do
@@ -41,10 +41,10 @@ describe "Admin filters proposals", type: :system do
       end
     end
 
-    it_behaves_like "a filtered collection", options: "State", filter: "Not answered" do
-      let(:in_filter) { translated(proposal_with_state(nil).title) }
-      let(:not_in_filter) { translated(proposal_without_state(nil).title) }
-    end
+    # it_behaves_like "a filtered collection", options: "State", filter: "Not answered" do
+    #   let(:in_filter) { translated(proposal_with_state("not_answered").title) }
+    #   let(:not_in_filter) { translated(proposal_without_state("not_answered").title) }
+    # end
   end
 
   context "when filtering by type" do

@@ -104,7 +104,7 @@ module Decidim
         order(Arel.sql("#{sort_by_valuation_assignments_count_nulls_last_query} DESC NULLS LAST").to_s)
       }
 
-      scope_search_multi :with_any_state, [:accepted, :rejected, :evaluating, :state_not_published]
+      scope_search_multi :with_any_state, [:accepted, :rejected, :evaluating, :state_not_published, :state_published]
 
       def self.with_valuation_assigned_to(user, space)
         valuator_roles = space.user_roles(:valuator).where(user:)
@@ -379,6 +379,10 @@ module Decidim
 
       ransacker :id_string do
         Arel.sql(%{cast("decidim_proposals_proposals"."id" as text)})
+      end
+
+      ransacker :state, formatter: proc { |v| POSSIBLE_STATES.index(v) } do |parent|
+        parent.table[:state]
       end
 
       ransacker :is_emendation do |_parent|

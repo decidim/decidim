@@ -1,5 +1,6 @@
 ---
 en:
+
   activemodel:
     attributes:
       collaborative_draft:
@@ -97,6 +98,21 @@ en:
     admin:
       filters:
         proposals:
+          state_eq:
+            label: State
+            values:
+              not_answered: Not answered
+              accepted: Accepted
+              evaluating: Evaluating
+              published: Published
+              rejected: Rejected
+              validating: Technical validation
+              withdrawn: Withdrawn
+          with_any_state:
+            label: Answered
+            values:
+              state_not_published: "Not answered"
+              state_published: "Answered"
           category_id_eq:
             label: Category
           is_emendation_true:
@@ -106,19 +122,6 @@ en:
               'true': Amendments
           scope_id_eq:
             label: Scope
-          state_eq:
-            label: State
-            values:
-              accepted: Accepted
-              evaluating: Evaluating
-              published: Published
-              rejected: Rejected
-              validating: Technical validation
-              withdrawn: Withdrawn
-          state_null:
-            label: State
-            values:
-              'true': Not answered
           valuator_role_ids_has:
             label: Assigned to valuator
         search_placeholder:

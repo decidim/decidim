@@ -10,7 +10,7 @@ class ChangeFieldsOnMeetings < ActiveRecord::Migration[6.1]
     Decidim::Meetings::Meeting.reset_column_information
 
     Decidim::Meetings::Meeting.find_each do |meeting|
-      meeting.update(type_of_meeting: Decidim::Meetings::Meeting::TYPES.index(meeting.old_type_of_meeting))
+      meeting.update(type_of_meeting: Decidim::Meetings::Meeting::TYPE_OF_MEETING.index(meeting.old_type_of_meeting))
       meeting.update(registration_type: Decidim::Meetings::Meeting::REGISTRATION_TYPES.index(meeting.old_registration_type))
     end
 
@@ -30,7 +30,7 @@ class ChangeFieldsOnMeetings < ActiveRecord::Migration[6.1]
     Decidim::Meetings::Meeting.reset_column_information
 
     Decidim::Meetings::Meeting.find_each do |meeting|
-      meeting.update(type_of_meeting: Decidim::Meetings::Meeting::TYPES[meeting.old_type_of_meeting])
+      meeting.update(type_of_meeting: Decidim::Meetings::Meeting::TYPE_OF_MEETING[meeting.old_type_of_meeting])
       meeting.update(registration_type: Decidim::Meetings::Meeting::REGISTRATION_TYPES[meeting.old_registration_type])
     end
 

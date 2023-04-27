@@ -374,7 +374,7 @@ FactoryBot.define do
     end
 
     trait :not_answered do
-      state { nil }
+      state { :not_answered }
     end
 
     trait :draft do
