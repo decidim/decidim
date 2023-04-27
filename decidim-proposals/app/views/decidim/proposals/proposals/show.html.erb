@@ -124,25 +124,25 @@ extra_admin_link(
           <%= content_tag :li, class: "drawer-metadata__item" do %>
             <%= content_tag :button, t("decidim.fingerprint.check"), data: { dialog_open: fingerprint_id } %>
           <% end %>
-          <%= decidim_modal id: fingerprint_id, class: "fingerprint-modal" do %>
-            <div data-dialog-container>
-              <%= icon "fingerprint-line" %>
-              <h2 id="dialog-title-<%= fingerprint_id %>" tabindex="-1" data-dialog-title><%= t "decidim.fingerprint.title" %></h2>
-              <div class="fingerprint-modal__container">
-                <p id="dialog-desc-<%= fingerprint_id %>"><%= t "decidim.fingerprint.explanation" %></p>
-                <div>
-                  <span class="fingerprint-modal__span"><%= t "decidim.fingerprint.value" %>:</span>
-                  <code class="fingerprint-modal__code"><%= decidim_html_escape @proposal.fingerprint.value %></code>
-                </div>
-                <div>
-                  <span class="fingerprint-modal__span"><%= t "decidim.fingerprint.source" %>:</span>
-                  <code class="fingerprint-modal__code"><%= @proposal.fingerprint.source %></code>
-                </div>
-                <p><%= t("decidim.fingerprint.replicate_help", online_calculator_link: link_to(t("decidim.fingerprint.online_calculator_name"), "http://www.md5calc.com/sha256", target: "_blank", rel: "noopener")).html_safe %>
-              </div>
-            </div>
-          <% end %>
-        </ul>
+       </ul>
+       <%= decidim_modal id: fingerprint_id, class: "fingerprint-modal" do %>
+         <div data-dialog-container>
+           <%= icon "fingerprint-line" %>
+           <h2 id="dialog-title-<%= fingerprint_id %>" tabindex="-1" data-dialog-title><%= t "decidim.fingerprint.title" %></h2>
+           <div class="fingerprint-modal__container">
+             <p id="dialog-desc-<%= fingerprint_id %>"><%= t "decidim.fingerprint.explanation" %></p>
+             <div>
+               <span class="fingerprint-modal__span"><%= t "decidim.fingerprint.value" %>:</span>
+               <code class="fingerprint-modal__code"><%= decidim_html_escape @proposal.fingerprint.value %></code>
+             </div>
+             <div>
+               <span class="fingerprint-modal__span"><%= t "decidim.fingerprint.source" %>:</span>
+               <code class="fingerprint-modal__code"><%= @proposal.fingerprint.source %></code>
+             </div>
+             <p><%= t("decidim.fingerprint.replicate_help", online_calculator_link: link_to(t("decidim.fingerprint.online_calculator_name"), "http://www.md5calc.com/sha256", target: "_blank", rel: "noopener")).html_safe %>
+           </div>
+         </div>
+       <% end %>
       </div>
     <% end %>
   </div>
