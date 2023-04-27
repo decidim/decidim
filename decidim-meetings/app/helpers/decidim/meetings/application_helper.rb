@@ -90,7 +90,7 @@ module Decidim
       end
 
       def online_or_hybrid_meeting?(meeting)
-        meeting.online_meeting? || meeting.hybrid_meeting?
+        meeting.online? || meeting.hybrid?
       end
 
       def iframe_embed_or_live_event_page?(meeting)

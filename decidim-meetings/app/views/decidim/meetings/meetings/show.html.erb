@@ -126,11 +126,11 @@ edit_link(
       <% end %>
       <%= render_meeting_body(@meeting) %>
 
-      <% if meeting.maps_enabled? && !meeting.online_meeting? %>
+      <% if meeting.maps_enabled? && !meeting.online? %>
         <%= render partial: "decidim/shared/static_map", locals: { icon_name: "meetings", geolocalizable: meeting } %>
       <% end %>
 
-      <% unless meeting.in_person_meeting? || meeting.withdrawn? %>
+      <% unless meeting.in_person? || meeting.withdrawn? %>
         <%= cell "decidim/meetings/online_meeting_link", meeting %>
       <% end %>
 
