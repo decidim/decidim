@@ -5,6 +5,7 @@ require "spec_helper"
 shared_context "when it's a comment event" do
   include Decidim::ComponentPathHelper
   include Decidim::SanitizeHelper
+  include Decidim::TranslationsHelper
 
   include_context "when a simple event"
 
@@ -46,8 +47,9 @@ shared_examples_for "a comment event" do
   context "when is deleted" do
     let(:comment) { create :comment, :deleted }
 
-    it "outputs the comment body" do
+    it "does not output the comment body" do
       expect(subject.resource_text).to include("Comment deleted on")
+      expect(subject.resource_text).not_to include(translated(comment.body))
     end
   end
 
@@ -55,8 +57,9 @@ shared_examples_for "a comment event" do
     let(:comment) { create :comment, :deleted }
     let!(:moderation) { create(:moderation, hidden_at: 6.hours.ago, reportable: comment) }
 
-    it "outputs the comment body" do
+    it "does not output the comment body" do
       expect(subject.resource_text).to include("Comment moderated on")
+      expect(subject.resource_text).not_to include(translated(comment.body))
     end
   end
 end
