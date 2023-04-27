@@ -10,7 +10,7 @@ module Decidim
 
     validates :state, presence: true, inclusion: { in: STATES }
 
-    enum state: { draft: "draft", evaluating: "evaluating", accepted: "accepted", rejected: "rejected", withdrawn: "withdrawn" }, _default: "draft"
+    enum state: STATES, _default: "draft"
 
     # Reports the mapped resource type for authorization transfers.
     #
