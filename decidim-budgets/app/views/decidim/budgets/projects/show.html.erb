@@ -26,6 +26,8 @@ edit_link(
   <%= render partial: "exit_modal" %>
 <% end %>
 
+<%= cell("decidim/budgets/budget_information_modal", budget) %>
+
 <div id="project-item">
   <%= render partial: "budget_summary", locals: { include_heading: true, project_item: true, responsive: true } %>
   <% content_for :item_header do %>
