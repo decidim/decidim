@@ -42,9 +42,9 @@
                 <tr>
                   <td><input type="checkbox"></td>
                   <td><%= Faker::TvShows::FamilyGuy.quote %></td>
-                  <td><%= Faker::Date.forward(1).strftime("%d/%m/%y") %>&nbsp;&#8212;&nbsp;<%= Faker::Time.forward(1).strftime("%R") %>&nbsp;-&nbsp;<%= Faker::Time.forward(1).strftime("%R") %></td>
+                  <td><%= Faker::Date.forward(days: 1).strftime("%d/%m/%y") %>&nbsp;&#8212;&nbsp;<%= Faker::Time.forward(days: 1).strftime("%R") %>&nbsp;-&nbsp;<%= Faker::Time.forward(days: 1).strftime("%R") %></td>
                   <td><u>Gestionar</u></td>
-                  <td><%= Faker::Boolean.boolean(0.5) ? raw("<u>Gestionar</u>") : raw("&#8212;") %></td>
+                  <td><%= Faker::Boolean.boolean(true_ratio: 0.5) ? raw("<u>Gestionar</u>") : raw("&#8212;") %></td>
                   <td><u>Cerrar</u></td>
                   <td>
                     <div class="flex--cc flex-gap--1">
@@ -87,9 +87,9 @@
                 <tr>
                   <td><input type="checkbox"></td>
                   <td><%= Faker::TvShows::FamilyGuy.quote %></td>
-                  <td><%= Faker::Date.forward(1).strftime("%d/%m/%y") %>&nbsp;&#8212;&nbsp;<%= Faker::Time.forward(1).strftime("%R") %>&nbsp;-&nbsp;<%= Faker::Time.forward(1).strftime("%R") %></td>
+                  <td><%= Faker::Date.forward(days: 1).strftime("%d/%m/%y") %>&nbsp;&#8212;&nbsp;<%= Faker::Time.forward(days: 1).strftime("%R") %>&nbsp;-&nbsp;<%= Faker::Time.forward(days: 1).strftime("%R") %></td>
                   <td><u>Ver</u></td>
-                  <td><%= Faker::Boolean.boolean(0.25) ? raw("<u>Ver</u>") : raw("&#8212;") %></td>
+                  <td><%= Faker::Boolean.boolean(true_ratio: 0.25) ? raw("<u>Ver</u>") : raw("&#8212;") %></td>
                   <td>
                     <div class="flex--cc flex-gap--1">
                       <%= icon "eye" %>

@@ -1,4 +1,4 @@
-<% resources= @sections.select {|type, results| types.include?(type)} %>
+<% resources = @sections.select { |type, _results| types.include?(type) } %>
 <div class="card card--secondary">
   <div class="filters">
     <% resources.each do |type, results| %>
