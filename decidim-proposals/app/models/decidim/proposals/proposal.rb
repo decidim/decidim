@@ -55,6 +55,8 @@ module Decidim
       validates :title, :body, presence: true
 
       geocoded_by :address
+
+      enum state: POSSIBLE_STATES, _scopes: false
       enum_fields :state, POSSIBLE_STATES, prepend_scope: [:state_published]
 
       scope :answered, -> { where.not(answered_at: nil) }

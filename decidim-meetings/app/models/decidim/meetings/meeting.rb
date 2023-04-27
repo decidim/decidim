@@ -30,9 +30,6 @@ module Decidim
       TYPE_OF_MEETING = %w(in_person online hybrid).freeze
       REGISTRATION_TYPE = %w(registration_disabled on_this_platform on_different_platform).freeze
 
-      enum type_of_meeting: TYPE_OF_MEETING, _suffix: :meeting
-      enum registration_type: REGISTRATION_TYPE, _scopes: false
-
       translatable_fields :title, :description, :location, :location_hints, :closing_report, :registration_terms
 
       has_many :registrations, class_name: "Decidim::Meetings::Registration", foreign_key: "decidim_meeting_id", dependent: :destroy
@@ -51,6 +48,8 @@ module Decidim
 
       enum iframe_access_level: [:all, :signed_in, :registered], _prefix: true
       enum iframe_embed_type: [:none, :embed_in_meeting_page, :open_in_live_event_page, :open_in_new_tab], _prefix: true
+      enum type_of_meeting: TYPE_OF_MEETING
+      enum registration_type: REGISTRATION_TYPE, _scopes: false
 
       component_manifest_name "meetings"
 
