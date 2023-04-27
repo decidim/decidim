@@ -24,7 +24,6 @@ module Decidim
         def call
           destroy_role!
           dispatch_system_event
-
           broadcast(:ok)
         end
 

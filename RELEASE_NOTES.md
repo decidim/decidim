@@ -122,9 +122,9 @@ In [\#10606](https://github.com/decidim/decidim/pull/10606) we have upgraded the
 
 Please see the [change log](https://github.com/rmosolgo/graphql-ruby/blob/master/CHANGELOG.md) for graphql gem for more information.
 
-### 3.6. Added task to clean orphaned valuator assignements
+### 3.6. Orphans valuator assignments cleanup 
 
-In [\#10607](https://github.com/decidim/decidim/pull/10607) we have added a new task that helps you clean the valuator assignements records of roles that have been deleted.
+We have added a new task that helps you clean the valuator assignements records of roles that have been deleted.
 
 You can run the task with the following command:
 
