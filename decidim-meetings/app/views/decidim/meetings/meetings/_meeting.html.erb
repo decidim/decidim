@@ -35,10 +35,6 @@
 
     <%= cell "decidim/meetings/redesigned_meeting_data", meeting %>
 
-    <% if meeting.agenda.present? && meeting.agenda.visible? %>
-      <%= render "meeting_agenda" %>
-    <% end %>
-
     <div class="meeting__actions">
       <div>
         <%# REDESING_PENDING: Usually this action block comes together, maybe a wrapper cell? %>
@@ -49,6 +45,14 @@
       </div>
       <%= cell "decidim/tags", meeting %>
     </div>
+
+    <% if meeting.agenda.present? && meeting.agenda.visible? %>
+      <%= render "meeting_agenda" %>
+    <% end %>
+
+    <% if meeting.closed? && meeting.closing_visible? %>
+      <%= render "meeting_minutes" %>
+    <% end %>
 
     <%= pad_iframe_for meeting %>
 

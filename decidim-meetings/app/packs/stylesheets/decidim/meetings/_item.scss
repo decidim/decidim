@@ -82,6 +82,10 @@
   &__agenda{
     &-title{
       @apply flex gap-1 items-center;
+
+      svg{
+        @apply w-6 h-6 text-tertiary fill-current;
+      }
     }
 
     &-item{

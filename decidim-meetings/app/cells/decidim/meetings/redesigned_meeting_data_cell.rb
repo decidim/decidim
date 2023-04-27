@@ -50,14 +50,6 @@ module Decidim
             args: ["decidim/meetings/attending_organizations_list", meeting]
           },
           {
-            enabled: meeting.closed? && meeting.closing_visible?,
-            id: "meeting_minutes",
-            text: t("meeting_minutes", scope: "decidim.meetings.meetings.show"),
-            icon: "chat-new-line",
-            method: :render,
-            args: [:meeting_minutes]
-          },
-          {
             enabled: meeting.linked_resources(:proposals, "proposals_from_meeting").present?,
             id: "included_proposals",
             text: t("decidim/proposals/proposal", scope: "activerecord.models", count: 2),
