@@ -547,17 +547,32 @@ zh-TW:
           edit: 編輯
           follow_description: 當這個倡議有新的消息時，您將收到通知。
           offline_method: 這個倡議只收集現場簽名。
+          print: 列印倡議書
           send_to_technical_validation: 送交技術審核
         signatures_count:
           other: " 簽名"
         vote_cabin:
+          already_voted: 已簽署
+          supports_required: "需要 %{total_supports} 個簽署支持"
+          verification_required: 驗證您的帳戶以簽署該倡議
           vote: 簽署
+          votes_blocked: 簽署已禁用
         votes_count:
           count:
             other: 簽名
+          most_popular_initiative: 最受歡迎的倡議
+          need_more_votes: 需要更多簽署支持
       initiatives_mailer:
+        creation_subject: 您的倡議「%{title}」已被創建
         initiative_link:
+          check_initiative_details: 您可以查看倡議的詳細資訊。
           here: 此處
+        more_information: 這裡有更多關於倡議創建過程的資訊。
+        progress_report_body_for: 倡議「%{title}」已達到所需簽署的 %{percentage}%。
+        progress_report_for: '倡議摘要：%{title}'
+        promotal_committee_help: 請記住，您必須邀請至少 %{member_count} 人加入倡議的推廣委員會。請轉發以下連結以邀請人們加入推廣委員會。
+        status_change_body_for: '倡議「%{title}」的狀態已更改為：%{state}'
+        status_change_for: 倡議「%{title}」的狀態已更改。
       last_activity:
         new_initiative: '新的倡議:'
       modal:
@@ -566,10 +581,16 @@ zh-TW:
           close: 關閉
           explanation: 你需要先通過驗證才能創建新的倡議。
           title: 需要授權
+      pages:
+        home:
+          highlighted_initiatives:
+            active_initiatives: 進行中的倡議
+            see_all_initiatives: 查看所有倡議
       show:
         badge_name:
           accepted: 足夠的簽署數
           created: 已建立
+          discarded: 已捨棄
           published: 已發佈
           rejected: 簽署數不足
           validating: 技術驗證
