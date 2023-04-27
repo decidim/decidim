@@ -10,7 +10,7 @@
         budget: model.budget_amount,
         allocation: resource_allocation,
         "redirect-url": resource_path
-      }.merge(modal_params),
+      },
       disabled: vote_button_disabled?,
       title: vote_button_label do %>
   <% if !resource_added? %>

@@ -33,20 +33,6 @@ module Decidim
         current_order.allocation_for(model)
       end
 
-      def modal_params
-        return {} if resource_added? || below_maximum?
-
-        { dialog_open: "" }
-      end
-
-      def remaining_amount
-        model.budget.total_budget - (current_order&.total_budget || 0)
-      end
-
-      def below_maximum?
-        model.budget_amount <= remaining_amount
-      end
-
       def vote_button_disabled?
         current_user && !can_have_order?
       end
