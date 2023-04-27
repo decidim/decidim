@@ -43,18 +43,17 @@ module Decidim
           boolean_method.push(options[:method_suffix]) if options[:method_suffix]
 
           if options[:enable_scopes]
-            scope "not_#{state}".to_sym, -> { where.not(stateable => state) }
+            scope "not_#{state}".to_sym, lambda {
+              raise "scope not_#{state} has been called"
+            }
+
             scope state.to_s.to_sym, lambda {
-              if options[:prepend_scope]
-                options[:prepend_scope].inject(self, :send).where(stateable => state)
-              else
-                where(stateable => state)
-              end
+              raise "scope #{state} has been called"
             }
           end
 
           define_method("#{boolean_method.join("_")}?") do
-            send(stateable) == state.to_s
+            raise "method #{boolean_method.join("_")}? has been called"
           end
         end
       end
