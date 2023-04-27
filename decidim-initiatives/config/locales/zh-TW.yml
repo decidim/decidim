@@ -204,7 +204,9 @@ zh-TW:
         answers:
           edit:
             answer: 回答
+            title: 回答 %{title}
           info_initiative:
+            created_at: 建立於
             description: 說明
             initiative_votes_count: 投票數
             initiatives: 倡議
@@ -215,10 +217,74 @@ zh-TW:
             confirm_revoke: 您確定嗎？
             invite_to_committee_help: 透過分享此連結，邀請其他參與者加入推廣委員會。
             no_members_yet: 推廣委員會中沒有成員.
+            revoke: 撤銷
+            title: 委員會成員
         content_blocks:
           highlighted_initiatives:
+            max_results: 顯示的最大元素數量
             order:
+              default: 預設（最舊）
+              label: '按照順序排列元素：'
               most_recent: 最近
+        exports:
+          initiatives: 倡議
+        initiatives:
+          edit:
+            accept: 接受倡議
+            confirm: 您確定嗎？
+            confirm_send_to_technical_validation: 您確定嗎？
+            discard: 放棄倡議
+            export_pdf_signatures: 匯出簽名的PDF
+            export_votes: 匯出簽名
+            reject: 拒絕倡議
+            send_to_technical_validation: 送交技術審核
+            success: 這個倡議已經送至技術驗證。
+            update: 更新
+          form:
+            attachments: 附件
+            settings: 設定
+            title: 一般資訊
+          index:
+            actions_title: 操作
+            preview: 預覽
+            print: 列印
+          initiative_attachments:
+            documents: 文件
+            edit: 編輯
+            new: 新的
+            photos: 圖片
+          update:
+            error: 出現了一個錯誤.
+            success: 倡議已成功更新.
+        initiatives_settings:
+          edit:
+            update: 更新
+          form:
+            comments: 最多評論
+            date: 最近
+            publication_date: 最近發布的
+            random: 隨機
+            signatures: 最多簽署的
+            title: 倡議設定
+        initiatives_type_scopes:
+          create:
+            error: 出現了一個錯誤.
+            success: 已為給定的倡議類型建立新範圍.
+          destroy:
+            success: 範圍已成功刪除.
+          edit:
+            back: 返回
+            confirm_destroy: 您確定嗎？
+            destroy: 刪除
+            title: 編輯倡議類型範圍
+            update: 更新
+          new:
+            back: 返回
+            create: 建立
+            title: 建立倡議類型範圍
+          update:
+            error: 出現了一個錯誤.
+            success: 範圍已成功更新.
         initiatives_types:
           create:
             error: 出現了一個錯誤.
@@ -362,6 +428,23 @@ zh-TW:
           author: 作者
           myself: 我的倡議
           scope: 範圍
+          search: 搜尋
+          state: 狀態
+          type: 類別
+        filters_small_view:
+          close_modal: 關閉視窗
+          filter: 篩選
+          filter_by: 篩選條件
+          unfold: 展開
+        index_header:
+          new_initiative: 新的倡議
+        initiatives:
+          closed_initiatives_warning: 目前沒有開放中的倡議，但您可以在這裡找到所有已結束的倡議清單。
+          no_initiatives_warning: 沒有符合您的搜尋條件的倡議。
+        interactions:
+          comments_count:
+            count:
+              other: 評論
         vote_cabin:
           vote: 簽署
         votes_count:
