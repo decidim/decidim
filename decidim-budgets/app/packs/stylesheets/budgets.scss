@@ -21,11 +21,7 @@
     }
 
     &__content{
-      @apply grid grid-cols-1 md:grid-cols-[67.6%_30%] items-center gap-x-20;
-    }
-
-    &__content__fixed{
-      @apply grid grid-cols-1 md:grid-cols-12 items-center md:gap-x-20;
+      @apply grid grid-cols-1 md:grid-cols-[1fr_30%] items-center gap-x-20;
     }
 
     &__content__header{
@@ -215,15 +211,7 @@
 }
 
 .voting-wrapper .budget-summary .budget-summary__content{
-  @apply col-span-10 grid-cols-1 md:grid-cols-[57.6%_30%] pr-4 md:pr-0;
-}
-
-.voting-wrapper .budget-summary__content__fixed--progressbar{
-  @apply md:col-start-4 md:col-span-5;
-}
-
-.budget-summary__content__fixed--progressbar{
-  @apply md:col-start-2 md:col-span-8;
+  @apply col-start-4 col-span-10 grid-cols-1 md:grid-cols-[57.6%_30%] pr-4 md:pr-0;
 }
 
 #budgets.card__highlight-container{
