@@ -55,13 +55,7 @@ module Decidim
 
       geocoded_by :address
 
-      enum state: {
-        not_answered: "not_answered",
-        evaluating: "evaluating",
-        accepted: "accepted",
-        rejected: "rejected",
-        withdrawn: "withdrawn"
-      }, _scopes: false
+      enum state: POSSIBLE_STATES
 
       scope :accepted, -> { state_published.where(state: "accepted") }
       scope :rejected, -> { state_published.where(state: "rejected") }
@@ -71,10 +65,9 @@ module Decidim
       scope :not_answered, -> { where(answered_at: nil) }
 
       scope :state_not_published, -> { where(state_published_at: nil) }
-      scope :state_published, -> { where.not(state_published_at: nil).where.not(state: nil) }
-      scope :withdrawn, -> { where(state: "withdrawn") }
-      scope :except_rejected, -> { where.not(state: "rejected").or(state_not_published) }
-      scope :except_withdrawn, -> { where.not(state: "withdrawn").or(where(state: nil)) }
+      scope :state_published, -> { where.not(state_published_at: nil) }
+      scope :except_rejected, -> { not_rejected.or(state_not_published) }
+      scope :except_withdrawn, -> { not_withdrawn }
       scope :drafts, -> { where(published_at: nil) }
       scope :published, -> { where.not(published_at: nil) }
       scope :order_by_most_recent, -> { order(created_at: :desc) }
