@@ -5,7 +5,7 @@
   </div>
 
   <div class="meeting__agenda-item">
-    <div class="meeting__agenda-item__description mb-4"><%= decidim_sanitize_editor translated_attribute meeting.closing_report %></div>
+    <div class="meeting__agenda-item__description editor-content mb-4"><%= decidim_sanitize_editor translated_attribute meeting.closing_report %></div>
 
     <% if meeting.video_url.presence %>
       <div class="flex items-center gap-2 mt-2">

@@ -12,7 +12,7 @@
       <span><%= display_duration_agenda_items(agenda_item.id, index, agenda_items_times) %></span>
     </h3>
 
-    <div class="meeting__agenda-item__description"><%= translated_attribute(agenda_item.description).html_safe %></div>
+    <div class="meeting__agenda-item__description editor-content"><%= translated_attribute(agenda_item.description).html_safe %></div>
 
     <% if agenda_item.agenda_item_children.presence %>
       <% parent_start_time = agenda_items_times[index][:start_time] %>

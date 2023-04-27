@@ -106,7 +106,7 @@
 
     /* overwrite defaults */
     &-list__reset{
-      @apply border-0 px-0;
+      @apply border-0 px-0 flex-row items-start first:[&>*]:flex-none;
     }
 
     &-month{
