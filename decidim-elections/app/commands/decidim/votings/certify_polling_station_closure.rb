@@ -4,7 +4,6 @@ module Decidim
   module Votings
     # A command with all the business logic when signing a closure of a polling station
     class CertifyPollingStationClosure < Decidim::Command
-      include ::Decidim::AttachmentMethods
       include ::Decidim::GalleryMethods
       # Public: Initializes the command.
       #

@@ -1,7 +1,7 @@
 <% if initiative.accepts_online_votes? %>
     <%= render partial: "decidim/initiatives/initiatives/vote_button",
                locals: {
-                   initiative: initiative,
+                   initiative:,
                    vote_label: t(".vote"),
                    unvote_label: t(".already_voted"),
                    verification_label: t(".verification_required"),

@@ -10,9 +10,9 @@
         <%= cell "decidim/author", present(requester), options: { extra_classes: ["author-data--small"] }, has_actions: false %>
 
         <div>
-          <%= render partial: "accept_request_access_form", locals: { requester: requester } %>
+          <%= render partial: "accept_request_access_form", locals: { requester: } %>
 
-          <%= render partial: "reject_request_access_form", locals: { requester: requester } %>
+          <%= render partial: "reject_request_access_form", locals: { requester: } %>
         </div>
       </div>
     <% end %>

@@ -725,6 +725,7 @@ ru:
         see_more: Читать подробнее
   locale:
     name: Русский
+    name_with_error: Русский (ошибка!)
   password_validator:
     domain_included_in_password: слишком похож на это доменное имя
     email_included_in_password: слишком похож на ваш адрес электронной почты

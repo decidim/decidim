@@ -1,1 +1,66 @@
 zh-TW:
+  activemodel:
+    models:
+      decidim/surveys/closed_survey_event: 調查結束
+      decidim/surveys/opened_survey_event: 調查開始
+  activerecord:
+    models:
+      decidim/surveys/survey:
+        other: 調查
+      decidim/surveys/survey_answer:
+        other: 回答
+  decidim:
+    components:
+      surveys:
+        actions:
+          answer: 回答
+        name: 調查
+        settings:
+          global:
+            announcement: 公告
+            clean_after_publish: 當發佈調查問卷時刪除回答
+            ends_at: 接受回答直到
+            ends_at_help: 不指定日期則留空
+            scope_id: 範圍
+            scopes_enabled: 啟用的範圍
+            starts_at: 回答接受開始日期
+            starts_at_help: 不指定日期請留空
+          step:
+            allow_answers: 允許回答
+            allow_unregistered: 允許未註冊的使用者回答問卷
+            allow_unregistered_help: 若啟用此功能，回答問卷時將無需登錄。這可能導致資料品質不佳或不可靠，並增加遭受自動攻擊的風險。請謹慎使用！請注意，參與者可以使用不同的瀏覽器或「私人瀏覽」功能多次回答同一份問卷。
+            announcement: 公告
+    events:
+      surveys:
+        survey_closed:
+          email_intro: 在 %{participatory_space_title} 中的調查 %{resource_title} 已關閉。
+          email_outro: 你收到此通知是因為你正在追蹤 %{participatory_space_title}。你可以透過前面的連結停止接收通知。
+          email_subject: 在 %{participatory_space_title} 中的調查已完成。
+          notification_title: 在<a href="%{participatory_space_url}">%{participatory_space_title}</a>中的調查<a href="%{resource_path}">%{resource_title}</a>已結束。
+        survey_opened:
+          email_intro: '在<a href="%{participatory_space_url}">%{participatory_space_title}</a>中開始了新的調查。'
+          email_outro: 你收到此通知是因為你正在追蹤 %{participatory_space_title}。你可以透過前面的連結停止接收通知。
+          email_subject: 在%{participatory_space_title} 中的新調查
+          notification_title: 現在開放在<a href="%{participatory_space_url}">%{participatory_space_title}</a>中的<a href="%{resource_path}">%{resource_title}</a>調查。
+    metrics:
+      survey_answers:
+        description: 參與者回答調查的數量
+        object: 參與調查的回答
+        title: 參與調查的回答
+    statistics:
+      answers_count: 回答
+    surveys:
+      admin:
+        exports:
+          survey_user_answers: 參與者問卷回答
+        surveys:
+          update:
+            invalid: 儲存問卷時出現問題。
+            success: 問卷成功儲存
+      last_activity:
+        new_survey: '新問卷調查'
+      surveys:
+        answer:
+          invalid: 回答問卷時出現問題。
+          spam_detected: 回答表單時出現問題。也許您回答太快了，可以再試一次嗎?
+          success: 問卷回答成功。
