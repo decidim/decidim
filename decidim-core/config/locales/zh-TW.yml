@@ -1,6 +1,8 @@
 zh-TW:
   activemodel:
     attributes:
+      account:
+        delete_reason: 刪除帳號的原因
       common:
         created_at: 建立於
       conversation:
@@ -31,11 +33,18 @@ zh-TW:
     models:
       decidim/attachment_created_event: 附件
       decidim/component_published_event: 啟用組件
+      decidim/demoted_membership: 不再是群組管理員
       decidim/gamification/badge_earned_event: 贏得的徽章
       decidim/gamification/level_up_event: 你升級了
       decidim/invited_to_group_event: 邀請至群組
+      decidim/join_request_accepted_event: 加入請求已被接受
+      decidim/join_request_rejected_event: 加入請求已被拒絕
       decidim/profile_updated_event: 資料已更新。
+      decidim/promote_to_admin: 晉升為群組管理員
+      decidim/promoted_to_admin_event: 晉升為群組管理員
       decidim/removed_from_group: 從群組中移除
+      decidim/resource_endorsed_event: 資源已獲得連署
+      decidim/resource_hidden_event: 資源已隱藏
       decidim/user_group_created_event: 用戶群組已建立
       decidim/welcome_notification_event: 歡迎訊息
   activerecord:
@@ -65,6 +74,8 @@ zh-TW:
   carrierwave:
     errors:
       file_cannot_be_processed: 無法處理檔案
+      file_resolution_too_large: 檔案解析度過大
+      file_size_too_large: 檔案太大。
   date:
     formats:
       decidim_short: "%d/%m/%Y"
