@@ -60,6 +60,9 @@ zh-TW:
   booleans:
     'false': '否'
     'true': '是'
+  carrierwave:
+    errors:
+      file_cannot_be_processed: 無法處理檔案
   date:
     formats:
       decidim_short: "%d/%m/%Y"
