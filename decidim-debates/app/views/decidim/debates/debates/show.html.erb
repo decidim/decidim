@@ -48,7 +48,7 @@ edit_link(
         <%= cell("decidim/date_range", { start: debate.start_time, end: debate.end_time }) %>
 
         <% if endorsements_enabled? && allowed_to?(:endorse, :debate, debate: debate) %>
-          <div class="row collapse buttons__row">
+          <div class="row collapse buttons__row" data-buttons>
             <div class="column small-12 collapse">
               <%= endorsement_buttons_cell(debate) %>
             </div>
