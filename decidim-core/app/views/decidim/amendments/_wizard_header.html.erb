@@ -15,10 +15,6 @@
   <% end %>
 </ol>
 
-<% attribute = amendable.component.settings.amendments_wizard_help_text %>
-<% if translated_attribute(attribute).presence %>
-  <%= cell(
-    "decidim/announcement",
-    translated_attribute(attribute).presence
-  ) %>
+<% if translated_attribute_value = translated_attribute(amendable.component.settings.amendments_wizard_help_text) %>
+  <%= cell("decidim/announcement", translated_attribute_value) %>
 <% end %>
