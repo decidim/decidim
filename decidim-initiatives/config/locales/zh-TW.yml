@@ -515,14 +515,54 @@ zh-TW:
             count:
               other: 評論
         orders:
+          label: '按照以下方式對倡議進行排序：'
           most_commented: 最多評論
+          most_voted: 最多簽署的
+          random: 隨機
+          recent: 最近
+          recently_published: 最新發佈的倡議
+        print:
+          address: 地址
+          author_title: 倡議的作者
+          city: 城市
+          email: 電子郵件
+          full_name: 全名
+          general_title: 倡議申請應用例
+          id_number: ID 编号
+          initiative:
+            attachments: 附上文件（請在下方寫出每個文件的名稱）
+            description: '說明:'
+            title: '標題:'
+            type: 倡議類型
+          legal_text: 收集的個人資料將根據現行法律由組織機構進行保密處理。
+          members_header: 倡議的推動委員會成員
+          phone_number: 電話號碼
+          place_date: 地點、日期
+          postal_code: 郵遞區號/郵政編碼
+          print: 列印
+          province: 省份/州
+          section: '如果組織要求，請打印並填寫此表格，並按指示提交：'
+          signature: 簽名
         result:
           answer_title: 這個倡議已經有回應了。
+          initiative_rejected_reason: 此倡議因缺乏簽名而被拒絕。
+        show:
+          any_vote_method: 此倡議收集線上和現場簽名。
+          confirm: 您即將發送倡議給管理員進行審核和發佈。一旦發佈，您將無法編輯它。您確定要繼續嗎？"
+          edit: 編輯
+          follow_description: 當這個倡議有新的消息時，您將收到通知。
+          offline_method: 這個倡議只收集現場簽名。
+          send_to_technical_validation: 送交技術審核
+        signatures_count:
+          other: " 簽名"
         vote_cabin:
           vote: 簽署
         votes_count:
           count:
             other: 簽名
+      initiatives_mailer:
+        initiative_link:
+          here: 此處
       last_activity:
         new_initiative: 新的倡議
       show:
@@ -530,9 +570,14 @@ zh-TW:
           accepted: 足夠的簽署數
           created: 已建立
           published: 已發佈
+          rejected: 簽署數不足
+          validating: 技術驗證
+      signature_interval:
+        title: 簽名收集期限
       states:
         accepted: 已接受
         expired: 已過期
+      unavailable_scope: 不可用的範圍
       update:
         error: 出現了一個錯誤
         success: 倡議已成功更新
@@ -556,11 +601,27 @@ zh-TW:
         fill_data: 建立
         finish: 完成
         previous_form: 開始
+        promotal_committee: 推動委員會
         select_initiative_type: 選擇
         show_similar_initiatives: 比較
         step: 第 %{current} 步，共 %{total} 步
+        title: 創建新倡議
       initiative_header:
         initiative_menu_item: 倡議
       initiative_signature_creation_header:
         back: 返回
+        fill_personal_data: 填寫您的資料
         finish: 完成
+        finished: 倡議簽名已創建
+        see_steps: 看步驟
+        select_identity: 選擇身份
+        sms_code: SMS短訊代碼驗證碼
+        sms_phone_number: 行動電話號碼
+        step: 第 %{current} 步，共 %{total} 步
+        title: 簽名 %{initiative_title}
+      initiatives:
+        initiative:
+          check: 查看
+          check_and_support: 查看並簽署
+        no_initiatives_yet:
+          no_initiatives_yet: 尚無倡議！
