@@ -1,10 +1,9 @@
 $(() => {
   const $projects = $("#projects, #project");
   const $budgetSummaryTotal = $(".budget-summary__progressbar-marks_right");
-  const selectBudgetSummaryTotal = window.matchMedia('(min-width: 768px)').matches ? $budgetSummaryTotal[0].dataset.totalAllocation : $budgetSummaryTotal[0].dataset.totalAllocation;
+  const selectBudgetSummaryTotal = $budgetSummaryTotal[0].dataset.totalAllocation;
   const $budgetSummary = $(".budget-summary__progressbox");
   const $voteButton = $(".budget-vote-button");
-  const selectBudgetSummary = window.matchMedia('(min-width: 768px)').matches ? $budgetSummary[0].dataset.currentAllocation : $budgetSummary[0].dataset.currentAllocation;
   const totalAllocation = parseInt(selectBudgetSummaryTotal, 10);
 
   const cancelEvent = (event) => {
