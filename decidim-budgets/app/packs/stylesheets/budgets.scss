@@ -9,7 +9,7 @@
     box-shadow: 0 4px 6px 0 rgba(211, 211, 211, .25);
 
     &__cols{
-      @apply col-span-10 lg:col-start-2 px-4 md:px-0;
+      @apply col-span-12 md:col-span-10 lg:col-start-2 px-4 md:px-0;
     }
 
     &__container{
@@ -75,7 +75,7 @@
     }
 
     &__progressbar-marks_right{
-      @apply justify-self-end text-right;
+      @apply justify-self-end text-left md:text-right;
     }
 
     &__progressbar-legend{
@@ -179,7 +179,7 @@
     }
 
     .card__list-content{
-      @apply w-full cursor-pointer pr-8 md:pr-24;
+      @apply w-full cursor-pointer md:pr-24;
     }
 
     .project-item{
@@ -241,7 +241,7 @@
 }
 
 #budget-confirm .card__list__project-voted{
-  @apply hover:border-background cursor-default;
+  @apply hover:border-background cursor-default flex-row md:flex-col;
 
   .card__list-title{
     @apply cursor-default no-underline;
