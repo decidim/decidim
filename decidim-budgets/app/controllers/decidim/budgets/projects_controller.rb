@@ -72,7 +72,7 @@ module Decidim
           {
             enabled: @project.linked_resources(:proposals, "included_proposals").present?,
             id: "included_proposals",
-            text: t("decidim/budgets/project", scope: "activerecord.models", count: 2),
+            text: t("decidim/proposals/proposal", scope: "activerecord.models", count: 2),
             icon: resource_type_icon_key("Decidim::Budgets::Project"),
             method: :cell,
             args: ["decidim/linked_resources_for", @project, { type: :proposals, link_name: "included_proposals" }]
