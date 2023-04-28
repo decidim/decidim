@@ -46,7 +46,6 @@ export default Extension.create({
         codeBlock: false
       }),
       CharacterCount.configure(this.options.characterCount),
-      Heading.configure(this.options.heading),
       Link.configure({ openOnClick: false, ...this.options.link }),
       Bold,
       Dialog,
@@ -55,6 +54,10 @@ export default Extension.create({
       CodeBlock,
       Underline
     ];
+
+    if (this.options.heading !== false) {
+      extensions.push(Heading.configure(this.options.heading));
+    }
 
     if (this.options.videoEmbed !== false) {
       extensions.push(VideoEmbed.configure(this.options.videoEmbed));

@@ -23,6 +23,13 @@ export default function createEditor(container) {
     editorAttributes["aria-labelledby"] = labelId;
   }
 
+  /**
+   * Toolbar features can be one of:
+   *
+   * - basic = only basic controls without headings
+   * - content = basic + headings
+   * - full = basic + headings + image + video
+   */
   const features = container.dataset?.toolbar || "basic";
   const options = JSON.parse(container.dataset.options);
   const { context, contentTypes } = options;
@@ -35,6 +42,10 @@ export default function createEditor(container) {
 
   if (input.hasAttribute("maxlength")) {
     decidimOptions.characterCount = { limit: parseInt(input.getAttribute("maxlength"), 10) };
+  }
+
+  if (features === "basic") {
+    decidimOptions.heading = false;
   }
 
   if (features === "full") {

@@ -244,7 +244,7 @@ export default function createEditorToolbar(editor) {
     if (editor.isActive("heading")) {
       const { level } = editor.getAttributes("heading");
       headingSelect.value = `${level}`;
-    } else {
+    } else if (headingSelect) {
       headingSelect.value = "normal";
     }
 
