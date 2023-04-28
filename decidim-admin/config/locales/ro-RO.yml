@@ -200,7 +200,6 @@ ro:
         verify: Verifică
       admin_terms_of_service:
         accept:
-          error: A apărut o eroare la acceptarea termenilor de utilizare a serviciului.
           success: Excelent! Ați acceptat termenii de utilizare a serviciului.
         actions:
           accept: Sunt de acord cu termenii

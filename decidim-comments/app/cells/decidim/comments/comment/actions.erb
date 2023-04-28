@@ -1,4 +1,9 @@
 <div class="comment__actions">
+  <button class="comment__hide muted-link <%= depth.zero? && has_replies_in_children? ? "" : "hide" %>" aria-controls="comment-<%= model.id %>-replies" data-toggle="comment_<%= model.id %>">
+    <%= icon "comment-square", class: "icon--small", role: "img", "aria-hidden": true %>&nbsp;
+    <span class="hide-comment-replies"><%= t("decidim.components.comment.hide_replies") %></span>
+    <span class="show-comment-replies"><%= t("decidim.components.comment.show_replies", count: replies.size, replies_count: replies.size ) %></span>
+  </button>
   <% if can_reply? %>
     <button class="comment__reply muted-link" aria-controls="<%= reply_id %>" data-toggle="<%= reply_id %>">
       <%= icon "pencil", class: "icon--small", role: "img", "aria-hidden": true %>&nbsp;<%= t("decidim.components.comment.reply") %>

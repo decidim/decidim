@@ -363,7 +363,8 @@ is-IS:
       widget:
         see_more: Sjá meira
   locale:
-    name: Enska
+    name: Íslenska
+    name_with_error: Íslenska (mistök!)
   social_share_button:
     delicious: Ljúffengur
     douban: Douban

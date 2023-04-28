@@ -8,7 +8,7 @@ edit_link(
   resource_locator([project.budget, project]).edit,
   :update,
   :project,
-  project: project
+  project:
 )
 %>
 
@@ -44,10 +44,10 @@ edit_link(
           <% if voting_finished? %>
             <%= cell("decidim/budgets/project_voted_hint", project, class: "display-block") %>
           <% elsif voting_open? %>
-            <%= render partial: "project_budget_button", locals: { project: project } %>
+            <%= render partial: "project_budget_button", locals: { project: } %>
           <% end %>
 
-          <%= render partial: "decidim/shared/follow_button", locals: { followable: project, large: false  } %>
+          <%= render partial: "decidim/shared/follow_button", locals: { followable: project, large: false } %>
         </div>
       </div>
       <%= resource_reference(project) %>

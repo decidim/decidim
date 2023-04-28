@@ -6,7 +6,7 @@
           <h5 class="card__title"><%= decidim_html_escape(present(emendation).title).html_safe %></h5>
         <% end %>
 
-        <%= cell("decidim/coauthorships", emendation, has_actions: false, context: { current_user: current_user }) %>
+        <%= cell("decidim/coauthorships", emendation, has_actions: false, context: { current_user: }) %>
 
         <div class="tech-info tech-info--text-left">
           <%= t("decidim.proposals.proposals.proposal.creation_date", date: l(emendation.created_at, format: :decidim_short)) %>

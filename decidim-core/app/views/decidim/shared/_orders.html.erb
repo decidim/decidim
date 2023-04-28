@@ -15,7 +15,7 @@
           <% orders.each do |order_name| %>
             <li role="presentation">
               <%= order_link order_name,
-                          i18n_scope: i18n_scope,
+                          i18n_scope:,
                           title: t("#{i18n_scope}.label"),
                           role: "menuitem" %>
             </li>

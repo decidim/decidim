@@ -1120,7 +1120,8 @@ sk:
       widget:
         see_more: Vidieť viac
   locale:
-    name: Čeština
+    name: Slovenčina
+    name_with_error: Slovenčina (chyba!)
   password_validator:
     domain_included_in_password: je príliš podobné tomuto názvu domény
     email_included_in_password: je príliš podobný e-mailu

@@ -1,8 +1,8 @@
 <% add_decidim_meta_tags({
-  description: decidim_sanitize_editor(translated_attribute(sortition.additional_info)),
-  title: decidim_html_escape(translated_attribute(sortition.title)),
-  url: sortition_url(sortition.to_param)
-}) %>
+                           description: decidim_sanitize_editor(translated_attribute(sortition.additional_info)),
+                           title: decidim_html_escape(translated_attribute(sortition.title)),
+                           url: sortition_url(sortition.to_param)
+                         }) %>
 
 <div class="row column">
   <div class="callout success">
@@ -21,7 +21,7 @@
 
   <h2 class="heading2"><%= decidim_html_escape(translated_attribute(sortition.title)) %></h2>
   <div class="author-data">
-    <%= render partial: "sortition_author", locals: { sortition: sortition } %>
+    <%= render partial: "sortition_author", locals: { sortition: } %>
   </div>
 </div>
 
@@ -29,7 +29,7 @@
   <div class="columns section view-side mediumlarge-4 mediumlarge-push-8 large-3 large-push-9">
     <div class="card extra">
       <div class="card__content">
-        <%= render partial: "results_count", locals: { sortition: sortition } %>
+        <%= render partial: "results_count", locals: { sortition: } %>
       </div>
     </div>
     <%= resource_reference(sortition) %>
@@ -51,7 +51,7 @@
   </div>
   <div class=section>
     <div class="author-data">
-      <%= render partial: "sortition_cancel_author", locals: { sortition: sortition } %>
+      <%= render partial: "sortition_cancel_author", locals: { sortition: } %>
     </div>
   </div>
   <div class=section>
