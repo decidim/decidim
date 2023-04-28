@@ -71,6 +71,7 @@ zh-TW:
   carrierwave:
     errors:
       image_too_big: 圖片太大了。
+      not_inside_organization: 該文件未附加到任何組織
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -87,6 +88,8 @@ zh-TW:
       half_a_minute: 半分鐘
       less_than_x_minutes:
         other: "one\n少於 1 分鐘\n\n\nOther\n少於 %{count} 分鐘"
+      less_than_x_seconds:
+        other: "one\n立即\n\nOther\n少於 %{count} 秒。"
       x_days:
         other: "One\n1 天前\n\nOther\n%{count} 天前"
       x_hours:
@@ -100,6 +103,8 @@ zh-TW:
   decidim:
     accessibility:
       external_link: 外部鏈接
+      front_page_link: 請前往主頁
+      logo: "%{organization} 的官方標誌"
       skip_button: 跳到主內容
     account:
       blocked: 由於違反條款和條件，此帳戶已被封鎖。
@@ -113,6 +118,7 @@ zh-TW:
           ok: 是，我想要删除我的帳戶
           question: 您確定要刪除您的帳戶嗎？
           title: 刪除我的帳號
+        explanation: 請填寫您想刪除帳戶的原因（可選）.
       destroy:
         error: 刪除您的帳戶時出現問題。
         success: 您的帳號已經成功刪除.
@@ -127,6 +133,34 @@ zh-TW:
     admin:
       actions:
         cancel: 取消
+    admin_log:
+      area:
+        create: "%{user_name} 建立了 %{resource_name} 區域"
+        delete: "\"%{user_name} 刪除了 %{resource_name} 區域"
+        update: "%{user_name} 更新了 %{resource_name} 區域"
+      component:
+        create: "%{user_name} 將 %{resource_name} 元件添加到 %{space_name} 空間\n\n\n\n\nCopy to Clipboard\n\nRegenerate response"
+        delete: "%{user_name} 從 %{space_name} 空間中移除了 %{resource_name} 元件"
+        publish: "%{user_name} 在 %{space_name} 空間中發佈了 %{resource_name} 元件"
+        unpublish: "%{user_name} 從 %{space_name} 空間中取消發佈了 %{resource_name} 元件"
+      impersonation_log:
+        manage: "%{user_name} 因為 %{reason} 管理了 %{resource_name}"
+      moderation:
+        hide: "%{user_name} 在 %{space_name} 空間中隱藏了一個 %{resource_type} 類型的資源"
+        unreport: "%{user_name} 在 %{space_name} 空間中取消了一個 %{resource_type} 類型的資源的報告"
+      newsletter:
+        create: "%{user_name} 創建了 %{resource_name} 新聞通訊"
+        delete: "%{user_name} 刪除了 %{resource_name} 新聞通訊"
+        deliver: "%{user_name} 發送了 %{resource_name} 新聞通訊"
+        update: "%{user_name} 更新了 %{resource_name} 新聞通訊"
+      oauth_application:
+        create: "%{user_name} 創建了 %{resource_name} OAuth 應用程式"
+        delete: "%{user_name} 刪除了 %{resource_name} OAuth 應用程式"
+        update: "%{user_name} 更新了 %{resource_name} OAuth 應用程式"
+      organization:
+        update: "%{user_name} 更新了組織設定"
+      participatory_space_private_user:
+        create: "%{user_name} 邀請了 %{resource_name} 成為私人參與者"
     admin_terms_of_use:
       default_body: "<h2>管理員使用條款</h2><p>我們相信您已經收到了當地系統管理員的慣例講話。它通常總結為以下三點：</p><ol><li>尊重他人的隱私。</li><li>三思而後行。</li><li>強大的權力伴隨著巨大的責任。</li></ol>"
     amendments:
@@ -143,13 +177,32 @@ zh-TW:
         actions:
           button_accept: 接受
           button_reject: 拒絕
+        announcement:
+          evaluating: |-
+            正在評估對於 %{amendable_type} %{proposal_link} 的修正案。
+          promoted: 晉升為 %{amendable_type}。
+          rejected: 對於 %{amendable_type} %{proposal_link} 的修正案在 <strong>%{date}</strong> 被拒絕。
+          withdrawn: |-
+            對於 %{amendable_type} %{proposal_link} 的修正案已被作者撤回。
+      new:
+        amendment_author: 修正案作者
+        send: 建立
+        title: 創建修正案草稿
+      preview_draft:
+        modify: 修改
+        publish: 發布
+        title: 發佈修正案草稿
       promoted:
         error: 發布修改案為新提案時出現問題。
         success: 該修正案已成功作為新提案發布。
+      publish_draft:
+        error: 發佈修正案時遇到問題。
+        success: 修正案成功發佈。
       rejected:
         error: 拒絕此修改案時發生問題，請稍後再試。
         success: 修正案已成功被拒绝
       review:
+        back: 返回
         help_text: 你正在審查對 %{model_name} 的修正案。
       withdraw:
         error: 撤回修正案時發生錯誤
