@@ -6,7 +6,7 @@ import "foundation-sites";
 
 import { createEditorContainer, sleep, updateContent, selectContent, dropFixtureFile } from "../helpers";
 import contextHelpers from "./shared/context";
-import itBehavesLikeBasicToolbar from "./shared/behaves_like_basic";
+import itBehavesLikeContentToolbar from "./shared/behaves_like_content";
 
 // global.$ = $; // eslint-disable-line id-length
 
@@ -26,7 +26,7 @@ describe("full toolbar", () => {
 
   const { getControl } = contextHelpers(ctx);
 
-  itBehavesLikeBasicToolbar(ctx);
+  itBehavesLikeContentToolbar(ctx);
 
   describe("multimedia toolbar controls", () => {
     let prosemirror = null;

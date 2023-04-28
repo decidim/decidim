@@ -1,19 +1,20 @@
 import { createEditorContainer } from "../helpers";
-import itBehavesLikeBasicToolbar from "./shared/behaves_like_basic";
+import itBehavesLikeContentToolbar from "./shared/behaves_like_content";
 
-describe("basic toolbar", () => {
+describe("content toolbar", () => {
   const ctx = {
     editorContainer: null
   };
 
   beforeEach(() => {
     document.body.innerHTML = "";
-    ctx.editorContainer = createEditorContainer({ toolbar: "basic" });
+    ctx.editorContainer = createEditorContainer({ toolbar: "content" });
   });
 
-  it("adds only the basic editing controls", () => {
+  it("adds only the content editing controls", () => {
     const toolbar = ctx.editorContainer.querySelector(".editor-toolbar");
 
+    expect(toolbar.querySelector("select[data-editor-type='heading'][title='Text style']")).toBeInstanceOf(HTMLElement);
     expect(toolbar.querySelector("button[data-editor-type='bold'][title='Bold']")).toBeInstanceOf(HTMLElement);
     expect(toolbar.querySelector("button[data-editor-type='italic'][title='Italic']")).toBeInstanceOf(HTMLElement);
     expect(toolbar.querySelector("button[data-editor-type='underline'][title='Underline']")).toBeInstanceOf(HTMLElement);
@@ -27,10 +28,10 @@ describe("basic toolbar", () => {
     expect(toolbar.querySelector("button[data-editor-type='indent:indent'][title='Indent']")).toBeInstanceOf(HTMLElement);
     expect(toolbar.querySelector("button[data-editor-type='indent:outdent'][title='Outdent']")).toBeInstanceOf(HTMLElement);
 
-    // These controls should not be added with the basic editing controls
+    // These controls should not be added with the content editing controls
     expect(toolbar.querySelector("button[data-editor-type='videoEmbed'][title='Video embed']")).toBe(null);
     expect(toolbar.querySelector("button[data-editor-type='image'][title='Image']")).toBe(null);
   });
 
-  itBehavesLikeBasicToolbar(ctx);
+  itBehavesLikeContentToolbar(ctx);
 });

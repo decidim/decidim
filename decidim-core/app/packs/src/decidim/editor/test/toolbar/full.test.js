@@ -4,7 +4,7 @@ import Dialog from "a11y-dialog-component";
 
 import { createEditorContainer, sleep, updateContent, selectContent, dropFixtureFile } from "../helpers";
 import contextHelpers from "./shared/context";
-import itBehavesLikeBasicToolbar from "./shared/behaves_like_basic";
+import itBehavesLikeContentToolbar from "./shared/behaves_like_content";
 
 describe("full toolbar", () => {
   const ctx = {
@@ -38,7 +38,7 @@ describe("full toolbar", () => {
     expect(toolbar.querySelector("button[data-editor-type='image'][title='Image']")).toBeInstanceOf(HTMLElement);
   });
 
-  itBehavesLikeBasicToolbar(ctx);
+  itBehavesLikeContentToolbar(ctx);
 
   describe("multimedia toolbar controls", () => {
     let prosemirror = null;
