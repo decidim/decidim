@@ -43,7 +43,7 @@ module Decidim
         end
 
         def default_filter
-          model.settings.try(:default_filter) || "active"
+          model.settings.try(:default_filter)
         end
 
         def limit?
