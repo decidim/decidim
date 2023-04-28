@@ -17,11 +17,15 @@ module Decidim
         )
       end
 
+      def humanize_collaborative_draft_state(state)
+        I18n.t(state, scope: "decidim.proposals.collaborative_drafts.states", default: :open)
+      end
+
       def collaborative_drafts_state_class(type)
         case type
         when "withdrawn"
           "alert"
-        when "published"
+        when "open", "published"
           "success"
         end
       end

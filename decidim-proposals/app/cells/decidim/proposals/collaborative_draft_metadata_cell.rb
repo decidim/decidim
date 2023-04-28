@@ -23,20 +23,7 @@ module Decidim
       def state_item
         return if state.blank?
 
-        { text: content_tag(:span, humanize_collaborative_draft_state(state), class: "label #{state_class}") }
-      end
-
-      def state_class
-        case state
-        when "withdrawn"
-          "alert"
-        when "open", "published"
-          "success"
-        end
-      end
-
-      def humanize_collaborative_draft_state(state)
-        I18n.t(state, scope: "decidim.proposals.collaborative_drafts.states", default: :open)
+        { text: content_tag(:span, humanize_collaborative_draft_state(state), class: "label #{collaborative_drafts_state_class(state)}") }
       end
     end
   end

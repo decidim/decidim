@@ -42,7 +42,7 @@
 
       <% if @collaborative_draft.state %>
         <span class="<%= collaborative_drafts_state_class(@collaborative_draft.state) %> label">
-          <%= humanize_proposal_state(@collaborative_draft.state) %>
+          <%= humanize_collaborative_draft_state(@collaborative_draft.state) %>
         </span>
       <% end %>
     </div>
