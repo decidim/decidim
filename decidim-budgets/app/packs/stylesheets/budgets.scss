@@ -21,7 +21,8 @@
     }
 
     &__content{
-      @apply grid grid-cols-1 md:grid-cols-[1fr_30%] items-center gap-x-20;
+      @apply grid grid-cols-1 md:grid-cols-12 items-center gap-x-20;
+
     }
 
     &__content__header{
@@ -207,7 +208,7 @@
 }
 
 .voting-wrapper .budget-summary .budget-summary__cols{
-  @apply col-span-10 pl-16;
+  @apply col-span-10 pl-16 pt-4;
 }
 
 .voting-wrapper .budget-summary .budget-summary__content{
@@ -242,4 +243,18 @@
 
 .budget-summary__progressbox--checked_out{
   @apply hidden md:block;
+}
+
+#project-item{
+  .budget-summary__progressbox{
+    @apply md:col-span-8;
+  }
+
+  .budget-summary__progressbox-buttons{
+    @apply md:col-span-3 md:col-start-10;
+  }
+
+  .budget-summary__content__fixed--progressbar{
+    @apply md:col-span-8;
+  }
 }
