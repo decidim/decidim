@@ -17,12 +17,15 @@ export default class ExternalLink {
       externalLink: "External link"
     };
 
-    this.setup(node);
+    if (!node.querySelector("span[data-external-link]")) {
+      this.setup(node);
+    }
   }
 
   setup(node) {
     const span = document.createElement("span");
 
+    span.dataset.externalLink = true;
     span.innerHTML = `${this.generateIcon()}${this.generateScreenReaderLabel()}`
     span.classList.add("inline-block", "mx-0.5");
 

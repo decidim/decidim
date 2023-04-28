@@ -13,8 +13,6 @@ module Decidim
       render
     end
 
-    private
-
     def followers_count
       if model.respond_to?(:followers_count)
         model.followers_count
@@ -22,6 +20,8 @@ module Decidim
         model.followers.count
       end
     end
+
+    private
 
     def button_classes
       return "card__button secondary text-uppercase follow-button mb-none has-tip" if inline?

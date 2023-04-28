@@ -89,10 +89,14 @@ export default class InputCharacterCounter {
     if (this.$target.length > 0 && (this.maxCharacters > 0 || this.minCharacters > 0)) {
       // Create the screen reader target element. We do not want to constantly
       // announce every change to screen reader, only occasionally.
-      this.$srTarget = $(
-        `<span role="status" id="${targetId}_sr" class="sr-only remaining-character-count-sr" />`
-      );
-      this.$target.before(this.$srTarget);
+      const screenReaderId = `${targetId}_sr`;
+      this.$srTarget = $(`#${screenReaderId}`);
+      if (!this.$srTarget.length) {
+        this.$srTarget = $(
+          `<span role="status" id="${screenReaderId}" class="sr-only remaining-character-count-sr" />`
+        );
+        this.$target.before(this.$srTarget);
+      }
       this.$target.attr("aria-hidden", "true");
       this.$userInput = this.$input;
 
@@ -145,17 +149,21 @@ export default class InputCharacterCounter {
 
     this.$userInput.on("keyup", () => {
       this.updateStatus();
+      this.updateScreenReaderStatus();
     });
     this.$userInput.on("focus", () => {
+      this.updateStatus();
       this.updateScreenReaderStatus();
     });
     this.$userInput.on("blur", () => {
+      this.updateStatus();
       this.updateScreenReaderStatus();
       this.setDescribedBy(true);
     });
     if (this.$userInput.get(0) !== null) {
       this.$userInput.get(0).addEventListener("emoji.added", () => {
         this.updateStatus();
+        this.updateScreenReaderStatus();
       });
     }
     this.updateStatus();

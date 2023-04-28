@@ -65,7 +65,7 @@ module Decidim
     end
 
     def has_image?
-      false
+      resource_image_path.present?
     end
 
     def has_link_to_resource?
@@ -73,6 +73,8 @@ module Decidim
     end
 
     def link_whole_card?
+      return true unless options.has_key?(:link_whole_card)
+
       options[:link_whole_card]
     end
 
@@ -103,11 +105,15 @@ module Decidim
       options[:title_tag] || :div
     end
 
+    def description_length
+      100
+    end
+
     def description
       attribute = resource.try(:short_description) || resource.try(:body) || resource.description
       text = translated_attribute(attribute)
 
-      decidim_sanitize_editor(html_truncate(text, length: 100))
+      decidim_sanitize_editor(html_truncate(text, length: description_length), strip_tags: true)
     end
 
     def has_authors?

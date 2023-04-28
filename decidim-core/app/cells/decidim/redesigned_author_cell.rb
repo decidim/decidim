@@ -11,6 +11,7 @@ module Decidim
     include ::Devise::Controllers::Helpers
     include ::Devise::Controllers::UrlHelpers
     include Messaging::ConversationHelper
+    include Decidim::FollowableHelper
     include ERB::Util
 
     LAYOUTS = [:default, :compact, :avatar].freeze
@@ -29,20 +30,16 @@ module Decidim
       model.deleted? ? t("decidim.profile.deleted") : decidim_sanitize(author_name)
     end
 
-    def show
-      render layout
-    end
-
-    def profile
-      render
-    end
-
     def flag_user
       render unless current_user == model
     end
 
     def perform_caching?
       true
+    end
+
+    def raw_model
+      model.try(:__getobj__) || model
     end
 
     def context_actions_options
@@ -58,22 +55,20 @@ module Decidim
       @layout ||= LAYOUTS.include?(options[:layout]) ? options[:layout] : :default
     end
 
-    def actions_class
-      layout == :compact ? "text-gray-2 text-sm" : "flex items-center gap-1"
-    end
-
     def show_icons?
       layout != :compact
     end
 
     def context_actions
-      return [] unless actionable?
+      # REDESIGN_PENDING: deprecated?
+      # return [] unless actionable?
 
       actions = [].tap do |list|
         list << :date if creation_date?
         list << :comments if commentable?
         list << :endorsements if endorsable?
-        list << :flag if flaggable?
+        # REDESIGN_PENDING: deprecated?
+        # list << :flag if flaggable?
         list << :withdraw if withdrawable?
       end
       return actions unless has_context_actions_options?
@@ -97,7 +92,8 @@ module Decidim
       hash.push(endorsable?)
       hash.push(actionable?)
       hash.push(withdrawable?)
-      hash.push(flaggable?)
+      # REDESIGN_PENDING: deprecated?
+      # hash.push(flaggable?)
       hash.push(profile_path?)
       hash.push(layout)
       hash.push(context_actions.join)
@@ -138,7 +134,9 @@ module Decidim
     def actionable?
       return options[:has_actions] if options.has_key?(:has_actions)
 
-      withdrawable? || flaggable?
+      withdrawable?
+      # REDESIGN_PENDING: deprecated?
+      # withdrawable? || flaggable?
     end
 
     def user_author?

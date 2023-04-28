@@ -26,6 +26,10 @@ module Decidim
           resource.is_a?(Decidim::ParticipatoryProcess) ? "related_processes" : "included_participatory_processes"
         end
 
+        def resource
+          options[:resource] || super
+        end
+
         def limit
           model.settings.try(:max_results)
         end

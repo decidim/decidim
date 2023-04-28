@@ -133,10 +133,10 @@
           <%= link_to t("decidim.profiles.user.edit_user_group"), edit_group_path(profile_holder.nickname) %>
         </div>
         <div class="text-center">
-          <%= link_to t("decidim.profiles.user.manage_user_group_users"), group_manage_users_path(profile_holder.nickname) %>
+          <%= link_to t("decidim.profiles.user.manage_user_group_users"), profile_group_members_path(profile_holder.nickname) %>
         </div>
         <div class="text-center">
-          <%= link_to t("decidim.profiles.user.manage_user_group_admins"), group_manage_admins_path(profile_holder.nickname) %>
+          <%= link_to t("decidim.profiles.user.manage_user_group_admins"), profile_group_admins_path(profile_holder.nickname) %>
         </div>
         <div class="text-center">
           <%= link_to t("decidim.profiles.user.invite_user"), group_invites_path(profile_holder.nickname) %>

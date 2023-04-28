@@ -1,0 +1,21 @@
+<div id="confirm-modal" data-dialog="confirm-modal" aria-hidden="true" role="dialog" aria-labelledby="confirm-modal-title" aria-modal="true" data-reveal>
+  <div id="confirm-modal-content">
+    <button type="button" data-dialog-close="confirm-modal" data-dialog-closable="" aria-label="<%= t("close_modal", scope: "decidim.shared.confirm_modal") %>">×</button>
+
+    <div data-dialog-container>
+      <%= icon "delete-bin-line" %>
+      <h2 class="h2" data-dialog-title id="dialog-title-confirm-modal"><%= t("title", scope: "decidim.shared.confirm_modal") %></h2>
+
+      <div class="confirm-modal-content"></div>
+    </div>
+
+    <div data-dialog-actions>
+      <a class="button button__lg button__transparent-secondary" role="button" href="#" data-confirm-cancel aria-label="<%= t("cancel", scope: "decidim.shared.confirm_modal") %>">
+        <%= t("cancel", scope: "decidim.shared.confirm_modal") %>
+      </a>
+      <a class="button button__lg button__secondary" role="button" href="#" data-confirm-ok aria-label="<%= t("ok", scope: "decidim.shared.confirm_modal") %>">
+        <%= t("ok", scope: "decidim.shared.confirm_modal") %>
+      </a>
+    </div>
+  </div>
+</div>

@@ -4,8 +4,6 @@ require "cell/partial"
 
 module Decidim
   module ParticipatoryProcesses
-    # This cell renders the List (:l) process card
-    # for an instance of a ParricipatoryProcess
     class ProcessMetadataCell < Decidim::CardMetadataCell
       delegate :active_step, to: :model
 
@@ -18,7 +16,7 @@ module Decidim
       private
 
       def process_items
-        []
+        [progress_item, active_step_item].compact
       end
 
       def active_step_item
