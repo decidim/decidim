@@ -25,9 +25,5 @@ module Decidim::Amendable
     def amenders
       @amenders ||= visible_amendments.map { |amendment| present(amendment.amender) }.uniq
     end
-
-    def options
-      { extra_classes: ["author-data--small"] }
-    end
   end
 end
