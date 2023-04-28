@@ -33,8 +33,8 @@ describe "Amend Proposal", versioning: true, type: :system do
     end
 
     it "is shown the amenders list" do
-      expect(page).to have_content("AMENDED BY")
       within "#amenders-list" do
+        expect(page).to have_content("Amended by")
         expect(page).to have_content(emendation.creator_author.name)
       end
     end
