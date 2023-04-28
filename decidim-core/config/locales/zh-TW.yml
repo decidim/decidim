@@ -76,6 +76,7 @@ zh-TW:
       file_cannot_be_processed: 無法處理檔案
       file_resolution_too_large: 檔案解析度過大
       file_size_too_large: 檔案太大。
+      not_inside_organization: 該文件未附加到任何組織
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -92,6 +93,8 @@ zh-TW:
       half_a_minute: 半分鐘
       less_than_x_minutes:
         other: "one\n少於 1 分鐘\n\n\nOther\n少於 %{count} 分鐘"
+      less_than_x_seconds:
+        other: "one\n立即\n\nOther\n少於 %{count} 秒。"
       x_days:
         other: "One\n1 天前\n\nOther\n%{count} 天前"
       x_hours:
@@ -103,14 +106,20 @@ zh-TW:
   decidim:
     accessibility:
       external_link: 外部鏈接
+      front_page_link: 請前往主頁
+      logo: "%{organization} 的官方標誌"
       skip_button: 跳到主內容
     account:
+      blocked: 該帳戶因違反服務條款而被封鎖
       delete:
+        alert: 此操作無法撤銷。如果您刪除帳戶，將無法使用您的憑證登錄。刪除帳戶將導致您的貢獻被匿名化。您仍然可以創建一個新帳戶，但這些貢獻將不會與之關聯。
         confirm:
           close: 關閉視窗
           ok: 是，我想要删除我的帳戶
           question: 您確定要刪除您的帳戶嗎？
           title: 刪除我的帳號
+        explanation: 請填寫您想刪除帳戶的原因（可選）.
+        leaving_authorizations_behind: 某些與您的授權相關的資料將被保留以確保安全性。如果您創建另一個帳戶並重新進行授權，這些資料將被恢復到您的新帳戶中。
       destroy:
         error: 刪除您的帳戶時出現問題。
         success: 您的帳號已經成功刪除.
@@ -121,8 +130,14 @@ zh-TW:
         body1: 我們已經發送了一封郵件到 %{unconfirmed_email}，以驗證您的新電子郵件地址。
         body2: 需要我們再次發送驗證電子郵件嗎？%{resend_link} 或%{cancel_link}。
         cancel: 取消
+        cancel_error: 無法取消電子郵件更改。
+        cancel_successfully: 電子郵件更改已成功取消。
+        resend_error: 無法重新發送確認電子郵件。
+        resend_successfully: 確認郵件已成功重新發送至 %{unconfirmed_email}.
         send_again: 再次傳送
+        title: 電子郵件變更驗證
       show:
+        available_locales_helper: 選擇您想要使用的語言來瀏覽平台並接收通知.
         change_password: 更改密碼
         update_account: 更新帳號
       update:
@@ -136,12 +151,61 @@ zh-TW:
         cancel: 取消
       password_change:
         alert: 你需要更改你的密碼才能繼續進行操作。
+        notification: 管理員使用者需要每%{days} 天更改密碼。
     admin_log:
+      area:
+        create: "%{user_name} 建立了 %{resource_name} 區域"
+        delete: "\"%{user_name} 刪除了 %{resource_name} 區域"
+        update: "%{user_name} 更新了 %{resource_name} 區域"
+      area_type:
+        create: "%{user_name} 建立了 %{resource_name} 區域類型"
+        delete: "%{user_name} 刪除了 %{resource_name} 區域類型"
+        update: "%{user_name} 更新了 %{resource_name} 區域類型"
+      attachment:
+        create: "%{user_name} 創建了 %{resource_name} 附件"
+        delete: "%{user_name} 刪除了 %{resource_name} 附件"
+        update: "%{user_name} 更新了 %{resource_name} 附件"
+      attachment_collection:
+        create: "%{user_name} 創建了 %{resource_name} 附件集合"
+        delete: "%{user_name} 刪除了 %{resource_name} 附件集合"
+        update: "%{user_name} 更新了 %{resource_name} 附件集合"
+      category:
+        create: "%{user_name} 將 %{resource_name} 分類添加到 %{space_name} 空間"
+        delete: "%{user_name} 從 %{space_name} 空間中刪除了 %{resource_name} 分類"
+        update: "%{user_name} 在 %{space_name} 空間中更新了 %{resource_name} 分類"
+      component:
+        create: "%{user_name} 將 %{resource_name} 元件添加到 %{space_name} 空間\n\n\n\n\nCopy to Clipboard\n\nRegenerate response"
+        delete: "%{user_name} 從 %{space_name} 空間中移除了 %{resource_name} 元件"
+        export_component: "%{user_name} 將 %{space_name} 空間中的 %{resource_name} %{component_name} 匯出為 %{format_name}"
+        publish: "%{user_name} 在 %{space_name} 空間中發佈了 %{resource_name} 元件"
+        unpublish: "%{user_name} 從 %{space_name} 空間中取消發佈了 %{resource_name} 元件"
+        update_permissions_with_space: "%{user_name} 更新了 %{space_name} 空間中 %{resource_name} 的權限"
+      contextual_help_section:
+        update: "%{user_name} 更新了 %{resource_name} 的說明部分"
       helpers:
         answers: 回答
         comments: 評論
         projects: 專案
         results: 結果
+      impersonation_log:
+        manage: "%{user_name} 因為 %{reason} 管理了 %{resource_name}"
+      moderation:
+        hide: "%{user_name} 在 %{space_name} 空間中隱藏了一個 %{resource_type} 類型的資源"
+        unreport: "%{user_name} 在 %{space_name} 空間中取消了一個 %{resource_type} 類型的資源的報告"
+      newsletter:
+        create: "%{user_name} 創建了 %{resource_name} 新聞通訊"
+        delete: "%{user_name} 刪除了 %{resource_name} 新聞通訊"
+        deliver: "%{user_name} 發送了 %{resource_name} 新聞通訊"
+        update: "%{user_name} 更新了 %{resource_name} 新聞通訊"
+      oauth_application:
+        create: "%{user_name} 創建了 %{resource_name} OAuth 應用程式"
+        delete: "%{user_name} 刪除了 %{resource_name} OAuth 應用程式"
+        update: "%{user_name} 更新了 %{resource_name} OAuth 應用程式"
+      organization:
+        update: "%{user_name} 更新了組織設定"
+        update_external_domain: "%{user_name} 更新了組織外部域名"
+      participatory_space_private_user:
+        create: "%{user_name} 邀請了 %{resource_name} 成為私人參與者"
     amendments:
       amendable:
         amended_by: 修改人
@@ -154,6 +218,36 @@ zh-TW:
         actions:
           button_accept: 接受
           button_reject: 拒絕
+        announcement:
+          evaluating: |-
+            正在評估對於 %{amendable_type} %{proposal_link} 的修正案。
+          promoted: 晉升為 %{amendable_type}。
+          rejected: 對於 %{amendable_type} %{proposal_link} 的修正案在 <strong>%{date}</strong> 被拒絕。
+          withdrawn: |-
+            對於 %{amendable_type} %{proposal_link} 的修正案已被作者撤回。
+      new:
+        amendment_author: 修正案作者
+        send: 建立
+        title: 創建修正案草稿
+      preview_draft:
+        modify: 修改
+        publish: 發布
+        title: 發佈修正案草稿
+      promoted:
+        error: 發布修改案為新提案時出現問題。
+        success: 該修正案已成功作為新提案發布。
+      publish_draft:
+        error: 發佈修正案時遇到問題。
+        success: 修正案成功發佈。
+      rejected:
+        error: 拒絕此修改案時發生問題，請稍後再試。
+        success: 修正案已成功被拒绝.
+      review:
+        back: 返回
+        help_text: 你正在審查對 %{model_name} 的修正案。
+      withdraw:
+        error: 撤回修正案時發生錯誤.
+        success: 修正案已成功撤回.
     components:
       dummy:
         settings:
