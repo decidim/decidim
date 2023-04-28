@@ -340,7 +340,7 @@ fr:
         fill_data:
           back: Retour
           continue: Continuer
-          decidim_user_group_id_help: Il n'est pas possible de changer l'auteur/autrice de l'initiative après sa création
+          decidim_user_group_id_help: Il n'est pas possible de changer l'auteur/autrice de la pétition après sa création
           fill_data_help: "<ul> <li>Vérifier le contenu de votre pétition : le titre est-il facile à comprendre ? L'objectif de votre pétition est-il clair ?</li> <li>Vous devez choisir le type de signature : en présentiel, en ligne ou une combinaison des deux</li> <li>Quelle est le secteur géographique de l'initiative ?</li> </ul>"
           more_information: "(Plus d'informations)"
           select_area: Sélectionnez une zone
@@ -422,7 +422,7 @@ fr:
         delete_attachment: Supprimer
       index:
         title: Pétitions
-        uninitialized: Les initiatives ne sont pas encore configurées par un administrateur
+        uninitialized: Les pétitions ne sont pas encore configurées par un administrateur
       initiative_signatures:
         fill_personal_data:
           continue: Continuer
