@@ -229,14 +229,14 @@
 }
 
 #budget-confirm .card__list__project-voted{
-  @apply hover:border-background cursor-default flex-row md:flex-col;
+  @apply hover:border-background cursor-default flex-row;
 
   .card__list-title{
     @apply cursor-default no-underline;
   }
 
   .card__list__content{
-    @apply w-[60%];
+    @apply w-[75%];
   }
 }
 
