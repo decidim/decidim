@@ -333,6 +333,10 @@ en:
           accepted_types:
             json: JSON
       assemblies:
+        filters:
+          names:
+            all: All
+          type: Type
         show:
           title: About this assembly
       assembly_members:

@@ -19,7 +19,7 @@ edit_link(
 <% content_for :aside do %>
   <h1 class="h3 md:h1 decorator"><%= t("decidim.menu.assemblies") %></h1>
 
-  <%= render partial: "decidim/shared/filters" %>
+  <%= render partial: "decidim/shared/filters", locals: { filter_sections: } %>
 <% end %>
 
 <%= render layout:"layouts/decidim/shared/layout_two_col" do %>
