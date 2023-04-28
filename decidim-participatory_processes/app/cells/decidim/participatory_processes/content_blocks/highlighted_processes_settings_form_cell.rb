@@ -10,8 +10,12 @@ module Decidim
           options[:content_block]
         end
 
-        def label
+        def max_results_label
           I18n.t("decidim.participatory_processes.admin.content_blocks.highlighted_processes.max_results")
+        end
+
+        def unlimited_label
+          I18n.t("decidim.participatory_processes.admin.content_blocks.highlighted_processes.unlimited")
         end
       end
     end

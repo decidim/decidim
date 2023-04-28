@@ -12,6 +12,12 @@ module Decidim
             .all
         end
 
+        def limited_processes
+          return related_processes unless limit?
+
+          related_processes.limit(limit)
+        end
+
         def total_count
           related_processes.size
         end
@@ -23,7 +29,11 @@ module Decidim
         end
 
         def limit
-          model.settings.try(:max_results)
+          @limit ||= model.settings.try(:max_results)
+        end
+
+        def limit?
+          limit.to_i.positive?
         end
       end
     end

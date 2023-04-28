@@ -413,6 +413,7 @@ en:
         content_blocks:
           highlighted_processes:
             max_results: Maximum amount of elements to show
+            unlimited: Unlimited
         new_import:
           accepted_types:
             json: JSON
