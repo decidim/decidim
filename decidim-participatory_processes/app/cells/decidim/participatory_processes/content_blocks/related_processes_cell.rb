@@ -12,14 +12,20 @@ module Decidim
             .all
         end
 
-        def limited_processes
-          return related_processes unless limit?
+        def filtered_processes
+          return related_processes unless filter_active?
 
-          related_processes.limit(limit)
+          related_processes.active
+        end
+
+        def limited_processes
+          return filtered_processes unless limit?
+
+          filtered_processes.limit(limit)
         end
 
         def total_count
-          related_processes.size
+          filtered_processes.size
         end
 
         private
@@ -30,6 +36,14 @@ module Decidim
 
         def limit
           @limit ||= model.settings.try(:max_results)
+        end
+
+        def filter_active?
+          default_filter == "active"
+        end
+
+        def default_filter
+          model.settings.try(:default_filter) || "active"
         end
 
         def limit?

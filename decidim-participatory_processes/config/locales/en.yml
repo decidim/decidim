@@ -412,7 +412,10 @@ en:
       admin:
         content_blocks:
           highlighted_processes:
+            active: Active
+            all: All
             max_results: Maximum amount of elements to show
+            selection_criteria: Selection criteria
             unlimited: Unlimited
         new_import:
           accepted_types:
