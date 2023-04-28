@@ -31,7 +31,7 @@ fr:
         cost_report: Rapport de coût
         execution_period: Période d'exécution
       proposals_copy:
-        copy_proposals: "I understand that this will import all proposals from the selected component to the current one and that this action cannot be reversed.\nJe comprends que cela importera toutes les propositions du composant sélectionné dans le composant actuel et que cette action ne peut être annulée."
+        copy_proposals: Je comprends que cela importera toutes les propositions de la fonctionnalité sélectionnée dans la fonctionnalité actuelle et que cette action ne peut être annulée.
         origin_component_id: Fonctionnalité dont on veut copier les propositions
       proposals_import:
         import_proposals: Importer des propositions
