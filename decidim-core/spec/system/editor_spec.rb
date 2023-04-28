@@ -168,28 +168,6 @@ describe "Editor", type: :system do
       prosemirror.native.send_keys [:shift, *Array.new(10).map { :left }]
     end
 
-    it "heading" do
-      prosemirror.native.send_keys :up
-      %w(2 3 4 5 6).each do |level|
-        tag = "h#{level}"
-        select_control("heading", level)
-        expect_value(
-          <<~HTML
-            <#{tag}>Hello, world!</#{tag}>
-            <p>Another paragraph.</p>
-          HTML
-        )
-      end
-
-      select_control("heading", "normal")
-      expect_value(
-        <<~HTML
-          <p>Hello, world!</p>
-          <p>Another paragraph.</p>
-        HTML
-      )
-    end
-
     it "bold" do
       click_toggle("bold")
       expect_value(
@@ -419,6 +397,37 @@ describe "Editor", type: :system do
       )
 
       click_toggle("indent:outdent")
+      expect_value(
+        <<~HTML
+          <p>Hello, world!</p>
+          <p>Another paragraph.</p>
+        HTML
+      )
+    end
+  end
+
+  context "with content toolbar controls" do
+    let(:features) { "content" }
+
+    before do
+      prosemirror.native.send_keys "Hello, world!", [:enter], "Another paragraph."
+      prosemirror.native.send_keys [:shift, *Array.new(10).map { :left }]
+    end
+
+    it "heading" do
+      prosemirror.native.send_keys :up
+      %w(2 3 4 5 6).each do |level|
+        tag = "h#{level}"
+        select_control("heading", level)
+        expect_value(
+          <<~HTML
+            <#{tag}>Hello, world!</#{tag}>
+            <p>Another paragraph.</p>
+          HTML
+        )
+      end
+
+      select_control("heading", "normal")
       expect_value(
         <<~HTML
           <p>Hello, world!</p>
@@ -1258,15 +1267,6 @@ describe "Editor", type: :system do
   end
 
   context "with markdown shortcuts" do
-    [2, 3, 4, 5, 6].each do |level|
-      it "creates a heading level #{level}" do
-        tag = "h#{level}"
-
-        prosemirror.native.send_keys "#{"#" * level} Hello, world!"
-        expect_value("<#{tag}>Hello, world!</#{tag}>")
-      end
-    end
-
     it "creates a bold text" do
       prosemirror.native.send_keys "**Hello, world!**"
       expect_value("<p><strong>Hello, world!</strong></p>")
@@ -1280,6 +1280,19 @@ describe "Editor", type: :system do
     it "creates a blockquote" do
       prosemirror.native.send_keys "> Hello, world!"
       expect_value("<blockquote><p>Hello, world!</p></blockquote>")
+    end
+
+    context "with content toolbar controls" do
+      let(:features) { "content" }
+
+      [2, 3, 4, 5, 6].each do |level|
+        it "creates a heading level #{level}" do
+          tag = "h#{level}"
+
+          prosemirror.native.send_keys "#{"#" * level} Hello, world!"
+          expect_value("<#{tag}>Hello, world!</#{tag}>")
+        end
+      end
     end
   end
 
