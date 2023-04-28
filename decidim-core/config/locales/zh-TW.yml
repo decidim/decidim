@@ -529,14 +529,55 @@ zh-TW:
       resource_endorsed:
         email_intro: '%{endorser_name} %{endorser_nickname}，您正在關注的用戶，剛剛為"%{resource_title}"進行了連署，我們認為這可能對您很有興趣。請查看並做出貢獻：'
         email_outro: 您收到此通知是因為您正在關注 %{endorser_nickname}。您可以點擊上方的連結停止接收通知。
+        email_subject: "%{endorser_nickname} 進行了一個新的連署。"
+        notification_title: <a href="%{resource_path}">%{resource_title}</a> 的 %{resource_type} 已被 <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a> 連署。
+      users:
+        profile_updated:
+          email_intro: 你正在追蹤的 %{name}(%{nickname}) 的<a href="%{resource_path}">個人資料頁面</a>已被更新。
+          email_outro: 您收到此通知是因為您正在關注 %{nickname}。您可以點擊上方的連結停止接收通知。
+          email_subject: "%{nickname} 更新了他們的個人資料。"
+          notification_title: 你正在追蹤的 %{name}(%{nickname}) 的<a href="%{resource_path}">個人資料頁面</a>已被更新。
+        user_officialized:
+          email_intro: 參與者 %{name} (%{nickname}) 已被官方認證。
+          email_outro: 您收到此通知是因為您是該組織的管理員。
+          email_subject: "%{name} 已被官方認證。"
+          notification_title: 參與者 %{name} (%{nickname}) 已被官方認證。
     export_mailer:
       data_portability_export:
         click_button: '點擊下方鏈接下載您的資料。<br/>檔案將可取得直到 %{date}.<br/>您需要 <a href="https://www.7-zip.org/">7-Zip</a> (Windows)，<a href="https://www.keka.io/en/">Keka</a> (MacOS)，或<a href="https://peazip.github.io">PeaZip</a> (Linux) 來打開它。密碼: %{password}'
         download: 下載
+      export:
+        ready: 請查收附上的壓縮檔，這是您的匯出資料。
+      subject: 您的匯出檔案 "%{name}" 已準備就緒。
+    filters:
+      linked_classes:
+        all: 全部
+        collaborative_draft: 協作草稿
+        dummy_resource: 虛擬資源
+        meeting: 會議
+        project: 專案
+        proposal: 提案
+        result: 結果
     fingerprint:
+      check: 檢查指紋碼
       explanation: 以下文字片段是原內容的簡化且經過雜湊處理後的表現方式。這是為了確保內容未被篡改，因為單一修改將導致完全不同的值。
+      online_calculator_name: 線上MD5計算器
+      replicate_help: 這個指紋是使用 SHA256 哈希算法計算的。為了自行複製，您可以使用一個 %{online_calculator_link}，將源數據複製並粘貼到該工具中進行計算。
+      source: 來源
+      title: 指紋
+      value: 數值
+    followers:
+      followers_count:
+        other: "One\n%{count} 位追蹤者\nOther\n%{count} 位追蹤者"
+      no_followers: 還沒有追蹤者
     following:
       no_followings: 還沒有追蹤任何人或任何東西。
+      non_public_followings: 一些的追蹤資源不是公開的。
+    follows:
+      create:
+        button: 關注
+        error: 追蹤此資源時發生問題。
+        participatory_space: 追蹤中 <span class="show-for-sr">%{resource_name}</span>
     forms:
       current_file: 當前檔案
       current_image: 現在的圖片
