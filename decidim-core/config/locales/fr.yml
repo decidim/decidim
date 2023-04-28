@@ -400,7 +400,7 @@ fr:
           title: Autorisation expirée
         incomplete:
           cancel: Annuler
-          explanation: 'Bien que vous soyez actuellement autorisé avec "%{autorisation}", nous avons besoin de vous réautoriser en raison des données manquantes suivantes :'
+          explanation: 'Bien que vous soyez actuellement autorisé avec %{authorization}, nous avons besoin de vous réautoriser en raison des données manquantes suivantes :'
           invalid_field: "%{field}"
           reauthorize: Autoriser de nouveau
           title: Veuillez autoriser de nouveau
