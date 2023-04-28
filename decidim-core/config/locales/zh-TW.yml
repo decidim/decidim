@@ -393,6 +393,8 @@ zh-TW:
         name: 組織指標
       stats:
         name: 組織統計數據
+      sub_hero:
+        name: 子英雄橫幅
     core:
       actions:
         login_before_access: 請先登入您的帳戶再進行訪問
@@ -404,10 +406,14 @@ zh-TW:
         download_data: 下載資料
         download_data_description: 一個包含所有與您的帳戶相關的資訊的檔案將會寄到 <strong>%{user_email}</strong>。此電子郵件將包含一個 .zip 檔案和一個解壓縮密碼。<br/><br/>若要解壓縮此檔案，您需要使用 <a href="https://www.7-zip.org/">7-Zip</a> (Windows) 或 <a href="https://www.keka.io/">Keka</a> (MacOS)。如果您使用 Linux，大多數情況下您已經預設安裝了解壓縮軟體。如果還沒有，您可以使用 <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> 或 <a href="https://peazip.github.io">PeaZip</a>。
         request_data: 請求數據
+    datepicker:
+      help_text: '預期格式：%{datepicker_format}'
     devise:
       omniauth_registrations:
         create:
           email_already_exists: 另一個帳戶已經使用了相同的電子郵件地址
+        new:
+          complete_profile: 完成個人檔案
       registrations:
         new:
           terms: 使用條款和條件
@@ -438,10 +444,67 @@ zh-TW:
       endorse: 認可
     errors:
       internal_server_error:
+        title: 我們的伺服器出現問題
         try_later: 請稍後重試。
       not_found:
+        back_home: 返回首頁
+        content_doesnt_exist: 此地址不正確或已被移除。
         title: 找不到您要搜索的頁面
     events:
+      amendments:
+        amendment_accepted:
+          affected_user:
+            email_intro: '已接受對於 %{amendable_title} 的修正案。您可以從此頁面中查看：'
+            email_outro: 你收到此通知，是因為你是%{amendable_title} 的作者。
+            email_subject: 已接受對於 %{amendable_title} 的修正案，來自於 %{emendation_author_nickname}
+            notification_title: <a href="%{emendation_path}">修正案</a>由<a href="%{emendation_author_path}">%{emendation_author_nickname}</a>創建，已被接受適用於<a href="%{amendable_path}">%{amendable_title}</a>。
+          follower:
+            email_intro: '已接受對於 %{amendable_title} 的修正案。您可以從此頁面中查看：'
+            email_outro: 您收到此通知，是因為您正在關注 %{amendable_title}。您可以使用上面的連結停止接收通知。
+            email_subject: 已接受對於 %{amendable_title} 的修正案，來自於 %{emendation_author_nickname}
+            notification_title: <a href="%{emendation_path}">修正案</a>由<a href="%{emendation_author_path}">%{emendation_author_nickname}</a>創建，已被接受適用於<a href="%{amendable_path}">%{amendable_title}</a>。
+        amendment_created:
+          affected_user:
+            email_intro: '已為 %{amendable_title} 創建一個新的修正案。您可以從此頁面查看：'
+            email_outro: 你收到此通知，是因為你是%{amendable_title} 的作者。
+            email_subject: 新的修正案，針對 %{amendable_title}
+            notification_title: 已為<a href="%{amendable_path}">%{amendable_title}</a>創建一個新的修正案。
+          follower:
+            email_intro: '已為 %{amendable_title} 創建一個新的修正案。您可以從此頁面查看：'
+            email_outro: 您收到此通知，是因為您正在關注 %{amendable_title}。您可以使用上面的連結停止接收通知。
+            email_subject: 新的修正案，針對 %{amendable_title}
+            notification_title: 已為<a href="%{amendable_path}">%{amendable_title}</a>創建一個新的修正案。
+        amendment_promoted:
+          affected_user:
+            email_intro: '一個被拒絕的修正案已被發佈為新的 %{amendable_type}，針對 %{amendable_title}。您可以從此頁面查看：'
+            email_outro: 你收到此通知，是因為你是%{amendable_title} 的作者。
+            email_subject: 來自 %{emendation_author_nickname} 的修正案已被發佈為新的 %{amendable_type}
+            notification_title: 一個<a href="%{emendation_path}">被拒絕的修正案</a>已由<a href="%{emendation_author_path}">%{emendation_author_nickname}</a>發佈為新的 %{amendable_type}，針對<a href="%{amendable_path}">%{amendable_title}</a>。
+          follower:
+            email_intro: '一個被拒絕的修正案已被發佈為新的 %{amendable_type}，針對 %{amendable_title}。您可以從此頁面查看：'
+            email_outro: 您收到此通知，是因為您正在關注 %{amendable_title}。您可以使用上面的連結停止接收通知。
+            email_subject: 來自 %{emendation_author_nickname} 的修正案已被發佈為新的 %{amendable_type}
+            notification_title: 一個<a href="%{emendation_path}">被拒絕的修正案</a>已由<a href="%{emendation_author_path}">%{emendation_author_nickname}</a>發佈為新的 %{amendable_type}，針對<a href="%{amendable_path}">%{amendable_title}</a>。
+        amendment_rejected:
+          affected_user:
+            email_intro: '一個修正案已被拒絕，針對 %{amendable_title}。您可以從此頁面查看：'
+            email_outro: 你收到此通知，是因為你是%{amendable_title} 的作者。
+            email_subject: 修正案由 %{emendation_author_nickname} 提交，針對 %{amendable_title}，已被拒絕。
+            notification_title: <a href="%{emendation_path}">%{emendation_author_nickname}</a>創建的<a href="%{emendation_path}">修正案</a>已被拒絕，針對<a href="%{amendable_path}">%{amendable_title}</a>。
+          follower:
+            email_intro: '一個修正案已被拒絕，針對 %{amendable_title}。您可以從此頁面查看：'
+            email_outro: 您收到此通知，是因為您正在關注 %{amendable_title}。您可以使用上面的連結停止接收通知。
+            email_subject: 修正案由 %{emendation_author_nickname} 提交，針對 %{amendable_title}，已被拒絕。
+            notification_title: <a href="%{emendation_path}">%{emendation_author_nickname}</a>創建的<a href="%{emendation_path}">修正案</a>已被拒絕，針對<a href="%{amendable_path}">%{amendable_title}</a>。
+      attachments:
+        attachment_created:
+          email_intro: '已新增一個文件至 %{resource_title}。您可以從此頁面查看：'
+          email_outro: 您收到此通知，是因為您正在關注 %{resource_title}。您可以使用上面的連結停止接收通知。
+          email_subject: '%{resource_title} 的更新'
+          notification_title: <a href="%{resource_path}">新文件</a>已新增至<a href="%{attached_to_url}">%{resource_title}</a>。
+      components:
+        component_published:
+          email_intro: '%{participatory_space_title} 現已啟用 %{resource_title} 元件。您可以從此頁面查看：'
       gamification:
         badge_earned:
           email_intro: 恭喜！您已經獲得了<a href="%{resource_path}">%{badge_name} 徽章</a>(等級 %{current_level})。
@@ -451,6 +514,21 @@ zh-TW:
           email_intro: 恭喜！您已經達到了 <a href="%{resource_url}">%{badge_name} 徽章</a>的 %{current_level} 級！
           email_subject: 你已經達到了 %{badge_name} 徽章的 %{current_level} 等級！
           notification_title: 恭喜！您已經達到了 <a href="%{resource_path}">%{badge_name} 徽章</a>的 %{current_level} 級！
+      groups:
+        user_group_updated:
+          notification_title: '%{user_group_name} 使用者群組已更新其個人資料，讓它未經驗證。您現在可以在<a href="%{groups_admin_path}">管理面板</a>中進行驗證。'
+      notification_event:
+        notification_title: 發生了一個事件於<a href="%{resource_path}">%{resource_title}</a>。
+      reports:
+        resource_hidden:
+          email_intro: 一位管理員因為您的%{resource_type} 已被檢舉為%{report_reasons} 而將其移除。
+          email_outro: 您收到此通知是因為您是被移除內容的作者。
+          email_subject: 您的%{resource_type} 已被移除。
+          notification_title: |-
+            一位管理員因為 %{report_reasons} 的舉報，移除了您的%{resource_type}。</br> <i>%{resource_content}</i>
+      resource_endorsed:
+        email_intro: '%{endorser_name} %{endorser_nickname}，您正在關注的用戶，剛剛為"%{resource_title}"進行了連署，我們認為這可能對您很有興趣。請查看並做出貢獻：'
+        email_outro: 您收到此通知是因為您正在關注 %{endorser_nickname}。您可以點擊上方的連結停止接收通知。
     export_mailer:
       data_portability_export:
         click_button: '點擊下方鏈接下載您的資料。<br/>檔案將可取得直到 %{date}.<br/>您需要 <a href="https://www.7-zip.org/">7-Zip</a> (Windows)，<a href="https://www.keka.io/en/">Keka</a> (MacOS)，或<a href="https://peazip.github.io">PeaZip</a> (Linux) 來打開它。密碼: %{password}'
