@@ -206,19 +206,81 @@ zh-TW:
         update_external_domain: "%{user_name} 更新了組織外部域名"
       participatory_space_private_user:
         create: "%{user_name} 邀請了 %{resource_name} 成為私人參與者"
+        create_via_csv: "%{user_name} 透過 CSV 邀請了 %{resource_name} 成為私人參與者"
+        delete: "%{user_name} 將參與者 %{resource_name} 從私人參與者中移除"
+      scope:
+        create: "%{user_name} 創建了 %{resource_name} 範圍"
+        create_with_parent: "%{user_name} 在 %{parent_scope} 範圍內創建了 %{resource_name} 範圍"
+        delete: "%{user_name} 刪除了 %{resource_name} 範圍"
+        delete_with_parent: "%{user_name} 刪除了 %{parent_scope} 範圍內的 %{resource_name} 範圍"
+        update: "%{user_name} 更新了 %{resource_name} 範圍"
+        update_with_parent: "%{user_name} 更新了 %{parent_scope} 範圍內的 %{resource_name} 範圍"
+      scope_type:
+        create: "%{user_name} 創建了 %{resource_name} 範圍類型"
+        delete: "%{user_name} 刪除了 %{resource_name} 範圍類型"
+        update: "%{user_name} 更新了 %{resource_name} 範圍類型"
+      static_page:
+        create: "%{user_name} 創建了 %{resource_name} 靜態頁面"
+        delete: "%{user_name} 刪除了 %{resource_name} 靜態頁面"
+        update: "%{user_name} 更新了 %{resource_name} 靜態頁面"
+      user:
+        block: "%{user_name} 封鎖了使用者 %{resource_name}"
+        invite: "%{user_name} 邀請了參與者 %{resource_name}，角色為：%{role}"
+        officialize: "%{user_name} 將參與者 %{resource_name} 官方化"
+        promote: "%{user_name} 提升了 %{resource_name}"
+        remove_from_admin: "%{user_name} 移除了角色為 %{role} 的參與者 %{resource_name}"
+        show_email: "%{user_name} 恢復了參與者 %{resource_name} 的電子郵件"
+        transfer: "%{user_name} 轉移了參與者 %{resource_name}"
+        unblock: "%{user_name} 解封了使用者 %{resource_name}"
+        unofficialize: "%{user_name} 取消參與者 %{resource_name} 的官方化"
+      user_group:
+        block: "%{user_name} 封鎖了使用者群組 %{resource_name}"
+        reject: "%{user_name} 拒絕了 %{resource_name} 群組的驗證"
+        unblock: "%{user_name} 解封了使用者群組 %{resource_name}"
+        verify: "%{user_name} 驗證了群組 %{resource_name}"
+        verify_via_csv: "%{user_name} 透過 CSV 檔案驗證了群組 %{resource_name}"
+      user_moderation:
+        unreport: "%{user_name} 取消了對於 %{unreported_user_name} 的一個 %{resource_type} 的報告"
+    admin_terms_of_service:
+      default_body: "<h2>管理者服務條款</h2><p>我們相信您已經收到了當地系統管理員的慣例講話。通常可以總結為以下三點：</p><ol><li>尊重他人的隱私。</li><li>在點擊之前三思。</li><li>強大的權力伴隨著巨大的責任。</li></ol>"
+    alert:
+      dismiss: 清除通知
     amendments:
+      accepted:
+        error: 接受修正案時發生錯誤。
+        success: 修正案已成功接受。
       amendable:
         amended_by: 修改人
+        button: 修正 %{model_name}
+        error: 在修改此資源時發生錯誤。
+        help_text: 透過修改 %{amendable_fields}，來改善這個 %{model_name}.
+        promote_button: 晉升為 %{model_name}
+        promote_confirm_text: 您確定要晉升此修正嗎？
+        promote_help_text: 您可以提升此修正，並將其發布為獨立的 %{model_name}.
+        section_heading: 修正案（%{count}）
       compare_draft:
         continue: 繼續
+        no_similars_found: 找不到相似的修正案。
+        title: 相似的修正案
+      created:
+        error: 創建修正案草稿時發生錯誤。
+        success: 修正案草稿已成功創建。
+      destroy_draft:
+        error: 刪除修正案草稿時遇到問題。
+        success: 修正案草稿已成功刪除。
       edit_draft:
         discard: 放棄此草案
+        discard_confirmation: 您確定要丟棄此修正案草稿嗎？
         send: 預覽
+        title: 編輯修正案草稿
       emendation:
         actions:
           button_accept: 接受
           button_reject: 拒絕
+          help_text: 審查更改並接受或拒絕此修正案。將向其作者發送通知。
         announcement:
+          accepted: |-
+            對於 %{amendable_type} %{proposal_link} 的這個修正案已於 <strong>%{date}</strong> 被接受。
           evaluating: |-
             正在評估對於 %{amendable_type} %{proposal_link} 的修正案。
           promoted: 晉升為 %{amendable_type}。
@@ -308,13 +370,79 @@ zh-TW:
         actions:
           bar: Bar
           foo: Foo
+        name: 虛擬元件
         settings:
           global:
+            amendments_enabled: 修改功能已啟用
+            comments_enabled: 啟用評論功能
+            comments_max_length: 評論最大長度
             dummy_global_attribute1: 虛擬屬性 1
             dummy_global_attribute2: 虛擬屬性 2
+            dummy_global_translatable_text: 虛擬可翻譯文字
+            enable_pads_creation: 啟用平板創建
+            resources_permissions_enabled: 啟用資源權限
+            scope_id: 範圍
+            scopes_enabled: 啟用範圍
           step:
+            amendment_creation_enabled: 創建修正案已啟用
+            amendment_promotion_enabled: 修正提案提升功能啟用
+            amendment_reaction_enabled: 啟用修正提案反應
+            amendments_visibility: 修正案的可見性
+            comments_blocked: 留言已封鎖
             dummy_step_attribute1: 虛擬步驟屬性1
             dummy_step_attribute2: 虛擬步驟屬性2
+            dummy_step_translatable_text: 虛擬步驟可翻譯文字
+    contact: 聯絡方式
+    content_blocks:
+      cta:
+        name: 圖像、文字和呼籲操作按鈕
+      cta_settings_form:
+        background_image: 背景圖片
+        button_text: 呼籲操作文字
+        button_url: 呼籲操作URL
+        description: 說明
+      footer_sub_hero:
+        name: 頁尾子英雄橫幅
+      hero:
+        name: 英雄圖像
+      hero_settings_form:
+        background_image: 背景圖片
+        welcome_text: 歡迎文字
+      highlighted_content_banner:
+        name: 關注顯示的內容橫幅
+      highlighted_elements_settings_form:
+        orders:
+          label: '按以下方式排序元素:'
+          random: 隨機
+          recent: 最近
+      how_to_participate:
+        name: 如何參與
+      html:
+        html_content: HTML內容
+        name: HTML 區塊
+      last_activity:
+        name: 最後活動
+        title: 最後活動
+        view_all: 檢視全部
+      metrics:
+        name: 組織指標
+      static_page:
+        section:
+          name: 節
+          section_content: 內容
+        summary:
+          name: 摘要
+          summary_content: 內容
+        two_pane_section:
+          left_column: 左欄
+          name: 兩欄區域
+          right_column: 右欄
+      stats:
+        name: 組織統計數據
+    core:
+      actions:
+        login_before_access: 請先登入您的帳戶再進行訪問.
+        unauthorized: 您無權限執行此操作.
     download_your_data:
       export:
         ready: 準備就緒
