@@ -309,7 +309,7 @@ describe "Amendment Wizard", type: :system do
           expect(page).to have_content("1 amendment")
         end
 
-        within ".amendment-list" do
+        within "#amendment-list" do
           expect(page).to have_content(translated(emendation.title))
           expect(page).not_to have_content(translated(emendation_draft.title))
         end

@@ -117,7 +117,7 @@ describe "Amend Proposal", versioning: true, type: :system do
           let(:user) { emendation.creator_author }
 
           it "is shown the emendation from other user in the amendments list" do
-            within ".amendment-list" do
+            within "#amendment-list" do
               expect(page).to have_content(emendation_title)
             end
           end
@@ -133,7 +133,7 @@ describe "Amend Proposal", versioning: true, type: :system do
           let!(:user) { create :user, :confirmed, organization: component.organization }
 
           it "is shown the emendation from other users in the amendments list" do
-            within ".amendment-list" do
+            within "#amendment-list" do
               expect(page).to have_content(emendation_title)
             end
           end
@@ -153,7 +153,7 @@ describe "Amend Proposal", versioning: true, type: :system do
 
         context "and visit an amendable proposal" do
           it "is shown the emendation from other users in the amendments list" do
-            within ".amendment-list" do
+            within "#amendment-list" do
               expect(page).to have_content(emendation_title)
             end
           end
@@ -462,7 +462,7 @@ describe "Amend Proposal", versioning: true, type: :system do
           let(:user) { emendation.creator_author }
 
           it "is shown the emendation in the amendments list" do
-            within ".amendment-list" do
+            within "#amendment-list" do
               expect(page).to have_content(emendation_title)
             end
           end
@@ -478,7 +478,7 @@ describe "Amend Proposal", versioning: true, type: :system do
           let!(:user) { create :user, :confirmed, organization: component.organization }
 
           it "is NOT shown the amendments list" do
-            expect(page).not_to have_css(".amendment-list")
+            expect(page).not_to have_css("#amendment-list")
           end
 
           it "is NOT shown the amenders list" do
@@ -494,7 +494,7 @@ describe "Amend Proposal", versioning: true, type: :system do
 
         context "and visit an amendable proposal" do
           it "is NOT shown the amendments list" do
-            expect(page).not_to have_css(".amendment-list")
+            expect(page).not_to have_css("#amendment-list")
           end
 
           it "is NOT shown the amenders list" do
@@ -519,7 +519,7 @@ describe "Amend Proposal", versioning: true, type: :system do
           let(:user) { emendation.creator_author }
 
           it "is shown the emendation from other user in the amendments list" do
-            within ".amendment-list" do
+            within "#amendment-list" do
               expect(page).to have_content(emendation_title)
             end
           end
@@ -535,7 +535,7 @@ describe "Amend Proposal", versioning: true, type: :system do
           let!(:user) { create :user, :confirmed, organization: component.organization }
 
           it "is shown the emendation from other users in the amendments list" do
-            within ".amendment-list" do
+            within "#amendment-list" do
               expect(page).to have_content(emendation_title)
             end
           end
@@ -555,7 +555,7 @@ describe "Amend Proposal", versioning: true, type: :system do
 
         context "and visit an amendable proposal" do
           it "is shown the emendation from other users in the amendments list" do
-            within ".amendment-list" do
+            within "#amendment-list" do
               expect(page).to have_content(emendation_title)
             end
           end
