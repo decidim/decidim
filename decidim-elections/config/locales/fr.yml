@@ -57,9 +57,9 @@ fr:
         trustee:
           attributes:
             name:
-              cant_be_changed: "cannot be changed\nCela ne peut-être modifié"
+              cant_be_changed: ne peut pas être modifié
             public_key:
-              cant_be_changed: "cannot be changed\nCela ne peut-être modifié"
+              cant_be_changed: ne peut pas être modifié
         voting:
           attributes:
             voting_type:
@@ -193,7 +193,7 @@ fr:
             invalid: Il y a eu un problème lors de la création de cette élection.
             success: Élection créée avec succès.
           destroy:
-            invalid: Une erreur s'est produite lors de la suppression de cette l'élection.
+            invalid: Une erreur s'est produite lors de la suppression de cette élection.
             success: Élection supprimée avec succès.
           edit:
             title: Modifier l'élection
@@ -641,7 +641,7 @@ fr:
                 invalid_key: Impossible de charger les clés d'identification à partir du fichier téléchargé.
                 invalid_public_key: Les clés d'identification dans le fichier téléchargé ne correspondent pas à la clé d'identification publique stockée.
               upload_legend: "The server has your public identification keys, but your browser still does not have it. You need to import the file with your identification keys to your computer from the backup you created after generating them.\nLe serveur dispose de vos clés d'identification publiques, mais pas votre navigateur. Vous devez importer le fichier contenant vos clés d'identification sur votre ordinateur à partir de la sauvegarde que vous avez créée après les avoir générées."
-            not_supported_browser_description: "It looks like you are using a web browser that cannot be used to act as a Trustee. Make sure you're using the most recent version of your browser, or try using any of the most popular browsers to be able to complete your tasks.\nIl semblerait que votre navigateur web ne peut pas être utilisé pour agir en tant qu'administrateur. Assurez-vous d'utiliser la dernière version ou essayez d'utiliser l'un des navigateurs les plus populaires afin de réaliser vos tâches."
+            not_supported_browser_description: Il semblerait que votre navigateur web ne peut pas être utilisé pour agir en tant qu'administrateur. Assurez-vous d'utiliser la dernière version de votre navigateur ou essayez d'utiliser l'un des navigateurs les plus populaires afin de réaliser vos tâches.
             not_supported_browser_title: Mettre à niveau le navigateur pour agir en tant que garant
             trustee_role_description: Vous avez été assigné à agir en tant que garant lors de certaines des élections mises en place sur cette plateforme.
           update:
