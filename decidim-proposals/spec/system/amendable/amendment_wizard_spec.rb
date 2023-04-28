@@ -281,7 +281,7 @@ describe "Amendment Wizard", type: :system do
       end
 
       it "is NOT shown the author of the amendment draft in the amenders list" do
-        expect(page).to have_content("AMENDED BY")
+        expect(page).to have_content("Amended by")
 
         within "#amenders-list" do
           expect(page).to have_content(amendment.amender.name)
