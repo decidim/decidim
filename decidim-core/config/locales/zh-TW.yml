@@ -203,19 +203,56 @@ zh-TW:
         success: 修正案已成功被拒绝
       review:
         back: 返回
+        heading: 審查修正案
         help_text: 你正在審查對 %{model_name} 的修正案。
+        send: 接受修正案
+      update_draft:
+        error: 更新修正案草稿時遇到問題。
+        success: 修正案草稿成功更新。
       withdraw:
         error: 撤回修正案時發生錯誤
         success: 修正案已成功撤回
+      wizard_step_form:
+        steps:
+          '1': 創建您的修正案
+          '2': 比較您的修正案
+          '3': 完成您的修正案
+          '4': 發佈您的修正案
+    anonymous_user: 匿名
     application:
       collection:
         documents:
           other: 文件
+      document:
+        download: 下載檔案
+      documents:
+        related_documents: 相關的檔案
+      geocoding:
+        geocoded_address: 地址
+      photos:
+        related_photos: 相關影像
+    author:
+      avatar: '頭像： %{name}'
+      avatar_multiuser: 多個使用者的頭像
+      comments:
+        other: 評論
+      endorsements:
+        other: "one\n連署\nOther\n連署"
     authorization_handlers:
       another_dummy_authorization_handler:
         explanation: 透過提供以字母“A”開頭的護照號碼進行驗證
+        fields:
+          passport_number: 護照號碼
+          postal_code: 郵政編碼
+        name: 另一個授權範例
       dummy_authorization_handler:
         explanation: 通過輸入以「X」結尾的證件號碼進行驗證
+        fields:
+          allowed_postal_codes: 允許的郵遞區號（以逗號分隔）
+          allowed_scope_id: 允許的範圍
+          document_number: 文件編號
+          postal_code: 郵政編碼
+          scope_id: 範圍
       renew: 更新驗證
     authorization_modals:
       content:
@@ -234,7 +271,16 @@ zh-TW:
     components:
       component_order_selector:
         no_content: 我們找不到符合這個條件的任何內容
+        order:
+          meeting: 會議
+          post: 文章
+          proposal: 提案
+          question: 問題
+        title: '顯示:'
       dummy:
+        actions:
+          bar: Bar
+          foo: Foo
         settings:
           global:
             dummy_global_attribute_1: 虛擬屬性 1
