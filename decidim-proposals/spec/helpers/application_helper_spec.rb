@@ -43,7 +43,7 @@ module Decidim
         end
 
         let(:body) { "<ul><li>First</li><li>Second</li><li>Third</li></ul><script>alert('OK');</script>" }
-        let(:proposal_trait) { :participant_author }
+        let(:proposal_trait) { :citizen_author }
         let(:proposal) { create(:proposal, proposal_trait, body: { "en" => body }) }
 
         it "renders a sanitized body" do
