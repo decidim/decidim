@@ -497,6 +497,8 @@ zh-TW:
                 other: "One\n訂單編號為 %{indexes} 的記錄在導入文件中發現錯誤。\n\nOther\n多個訂單編號為 %{indexes} 的記錄在導入文件中發現錯誤。"
           missing_headers:
             detail: 請確認文件包含所需的欄位。
+            message:
+              other: "One\n缺少欄位 %{columns}。\n\nOther\n缺少欄位 %{columns}。"
         error: 匯入過程中發生問題
         example_error: 無法建立給定類型的範例。
         new:
@@ -507,19 +509,35 @@ zh-TW:
           actions:
             back: 返回
           download_example: 下載示例
+          download_example_format: 範例：%{name}
+          file_legend: 新增一個將被解析的導入檔案。
           import: 匯入
         notice: "成功匯入%{count} 個%{resource_name}"
       logs:
         logs_list:
           no_logs_yet: 尚未有任何日誌記錄
       managed_users:
+        promotion:
+          error: 提升被管理參與者時出現問題。
+          success: 已成功提升受管理的參與者。
         promotions:
           new:
+            explanation: 受管理的參與者可以晉升為標準參與者。這意味著他們將受邀加入應用程式，您將無法再對其進行管理。被邀請的參與者將收到一封電子郵件，以接受您的邀請。
+            new_managed_user_promotion: 晉升新的受管理參與者
             promote: 推廣
       menu:
+        admin_log: 管理員活動日誌
+        admins: 管理員
+        appearance: 外觀
+        area_types: 區域類型
         areas: 區域
+        configuration: 配置
         dashboard: 儀表板
+        external_domain_whitelist: 允許的外部域名
+        help_sections: 幫助部分
         homepage: 首頁
+        impersonations: 模擬登錄
+        moderation: 全局審查
         newsletters: 電子報
         participants: 參與者
         reported_users: 被舉報的使用者
@@ -529,9 +547,13 @@ zh-TW:
         static_pages: 頁
         user_groups: 群組
         users: 參與者
+      metrics:
+        metrics:
+          see_more_metrics: 查看更多指標
       models:
         area:
           fields:
+            area_type: 區域類型
             name: 名稱
         area_type:
           fields:
@@ -612,6 +634,38 @@ zh-TW:
             block: 封鎖使用者
             title: 操作
             unblock: 取消封鎖使用者
+            unreport: 取消報告
+          name: 名稱
+          nickname: 暱稱
+          reason: 理由
+          reports: 報告數量
+          title: 已報告的參與者
+        report:
+          reasons:
+            does_not_belong: 不屬於
+            offensive: 冒犯性
+            spam: 垃圾郵件
+        tabs:
+          blocked: 已封鎖
+          unblocked: 未封鎖的
+      moderations:
+        index:
+          title: 已檢舉內容
+        report:
+          reasons:
+            does_not_belong: 不屬於
+            offensive: 冒犯性
+            spam: 垃圾郵件
+        reports:
+          index:
+            author: 作者
+            callout_html: 當使用者(可以是任何已註冊帳戶的使用者)點擊項目旁邊的 %{icon} 旗幟來標記內容時，該內容會出現在審核面板中。
+            content_original_language: 原始語言
+            participatory_space: 參與空間
+            reported_content: 已檢舉內容
+            see_current: 查看當前語言
+            see_original: 查看原始語言
+            title: 審核報告
       newsletter_templates:
         index:
           preview_template: 預覽
@@ -709,14 +763,31 @@ zh-TW:
       organization_appearance:
         edit:
           update: 更新
+        form:
+          images:
+            layout_appearance_title: 編輯版面外觀
+            preview: 預覽
+          omnipresent_banner_appearance_title: 編輯無處不在的橫幅
+      organization_external_domain_whitelist:
+        edit:
+          update: 更新
+        external_domain:
+          down: 向下
+          external_domain: 外部網域
+          remove: 移除
+          up: 往上
+        form:
+          add: 新增到白名單
       organization_homepage:
         edit:
+          active_content_blocks: 啟用的內容區塊
           inactive_content_blocks: 停用的內容區塊
       organization_homepage_content_blocks:
         edit:
           update: 更新
       participatory_space_private_users:
         create:
+          error: 在此參與空間中添加私人參與者時出現問題。
           success: 成功建立參與空間的私人參與者訪問權限。
         destroy:
           error: 刪除參與空間的私人參與者時發生問題。
@@ -729,6 +800,7 @@ zh-TW:
           title: 新的參與空間私人參與者。
       participatory_space_private_users_csv_imports:
         create:
+          invalid: 讀取 CSV 檔案時發生問題。
           success: CSV檔案上傳成功，我們正在發送邀請電子郵件給參與者。這可能需要一些時間。
         new:
           explanation: '上傳您的 CSV 檔案。該檔案必須具有兩列，第一列為電子郵件，最後一列為名字，格式為 (電子郵件，名字)，這些使用者將被添加到參與空間中，不包括標題列。在使用者名稱中避免使用無效的字符，如 <>?%&^*#@()[]=+:;"{}\|。'
@@ -785,11 +857,17 @@ zh-TW:
           success: 代幣成功刪除。
         share_tokens:
           empty: 沒有有效的代幣
+          help: 這些代幣用於向任何使用者公開分享此未發佈的資源。當資源被發佈時，它們將被隱藏。點擊代幣的分享圖標，以訪問可分享的URL。
+          title: 分享代幣
       shared:
         gallery:
           add_images: 添加圖案
           delete_image: 刪除圖片
+          gallery_legend: 新增圖片庫(可選)
       static_page_topics:
+        create:
+          error: 建立新主題時發生問題。
+          success: 主題已成功建立。
         destroy:
           success: 主題已成功刪除
         edit:
@@ -798,13 +876,26 @@ zh-TW:
         new:
           create: 建立主題
           title: 新增主題
+        update:
+          error: 更新主題時發生問題。
+          success: 主題已成功更新。
       static_pages:
+        actions:
+          view: 查看公開頁面。
+        create:
+          error: 創建新頁面時出現問題。
+          success: 頁面建立成功.
+        destroy:
+          success: 頁面已成功刪除
         edit:
           changed_notably_help: 如果勾選，參與者將被通知接受新的條款和條件。
           title: 編輯頁面
           update: 更新
         form:
           none: 無
+          slug_help: '在此處使用部分路徑，而不是完整的URL。只接受字母、數字、破折號和斜線，且必須以字母開頭。例如： %{url}'
+        index:
+          last_notable_change: 最後重要更改
         new:
           create: 建立頁面
           title: 新頁面
@@ -812,14 +903,33 @@ zh-TW:
           destroy: 刪除主題
           edit: 編輯主題
           empty: 這個主題下沒有頁面
+          without_topic: 沒有主題的頁面
         update:
+          error: 更新此頁面時出現問題。
           success: 頁面已更新成功
       titles:
+        admin_log: 管理日誌
+        area_types: 區域類型
+        areas: 區域
+        authorization_workflows: 驗證方式
+        dashboard: 儀表板
+        impersonatable_users: 可管理的參與者
+        impersonations: 參與者管理
+        metrics: 指標
+        panel: 管理員
+        participants: 參與者
+        scope_types: 範圍類型
+        scopes: 範圍
+        static_pages: 頁
+        statistics: 啟動
+        user_groups: 群組
         users: 參與者
       user_group:
         csv_verify:
+          invalid: 讀取 CSV 檔案時發生問題。
           success: CSV檔案上傳成功，我們正在驗證符合條件的群組。這可能需要一些時間。
         reject:
+          invalid: 拒絕此群組時發生問題。
           success: 群組已成功拒絕
         verify:
           success: 群組驗證成功
@@ -845,6 +955,7 @@ zh-TW:
           last_week: 上週
           no_users_count_statistics_yet: 目前還沒有使用者統計數據。
           participants: 參與者
+      view_public_page: 查看公開頁面。
     forms:
       errors:
         impersonate_user:
@@ -869,3 +980,8 @@ zh-TW:
             created_at: 創建日期
             report_count: 計數
             reports: 報告
+  layouts:
+    decidim:
+      admin:
+        global_moderations:
+          title: 全局審查
