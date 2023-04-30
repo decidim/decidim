@@ -357,6 +357,11 @@ zh-TW:
           document_number: 文件編號
           postal_code: 郵政編碼
           scope_id: 範圍
+        name: 範例授權
+      dummy_authorization_workflow:
+        name: 虛擬授權工作流程
+      errors:
+        duplicate_authorization: 已經有參與者以相同資料進行授權。管理員將與您聯繫以驗證您的詳細資料。
     components:
       component_order_selector:
         order:
