@@ -666,12 +666,23 @@ zh-TW:
             see_current: 查看當前語言
             see_original: 查看原始語言
             title: 審核報告
+          show:
+            report_details: 原因詳情
+            report_language: 報告的語言
+            report_reason: 理由
+            title: 報告理由
       newsletter_templates:
         index:
           preview_template: 預覽
+          title: 通訊範本
+          use_template: 使用這個範本
         show:
+          preview: '預覽範本： %{template_name}'
           use_template: 使用這個範本
       newsletters:
+        create:
+          error: 建立此通訊時出現問題。
+          success: 通訊成功建立。請在發送前先檢查一下。
         edit:
           save_and_preview: 儲存並預覽
         index:
@@ -745,6 +756,7 @@ zh-TW:
           title: 正式認證參與者 "%{name}"
         show_email_modal:
           close_modal: 關閉視窗
+          email_address: 電子郵件地址
           full_name: 全名
           hidden: 隱藏
           show: 顯示
@@ -752,7 +764,12 @@ zh-TW:
           error: 解除參與者封鎖時出現錯誤
           success: 參與者已成功解除封鎖
       organization:
+        edit:
+          update: 更新
         form:
+          facebook: 臉書
+          github: GitHub
+          instagram: Instagram
           social_handlers: 社群
           twitter: Twitter
           url: 網址
@@ -952,6 +969,7 @@ zh-TW:
           title: 邀請參與者成為管理員
       users_statistics:
         users_count:
+          admins: 管理員
           last_week: 上週
           no_users_count_statistics_yet: 目前還沒有使用者統計數據。
           participants: 參與者
@@ -967,21 +985,58 @@ zh-TW:
       reported_users:
         object: 被舉報的使用者
         title: 被舉報的使用者
+      user_reports:
+        object: 使用者報告
+        title: 使用者報告
     moderations:
       actions:
         expand: 展開
         hidden: 隱藏
         hide: 隱藏
         not_hidden: 不隱藏
+        title: 操作
         unhide: 解除隱藏
+        unreport: 取消報告
+      admin:
+        reportable:
+          hide:
+            invalid: 隱藏資源時發生問題。
+            success: 資源已成功隱藏。
+          unhide:
+            invalid: 解除隱藏資源時出現問題。
+            success: 成功取消隱藏資源。
+          unreport:
+            invalid: 解除報告資源時發生問題。
+            success: 成功取消報告資源。
       models:
         moderation:
           fields:
             created_at: 創建日期
+            deleted_resource: 已刪除的資源
+            hidden_at: 隱藏於
+            participatory_space: 參與空間
             report_count: 計數
+            reportable_id: ID
+            reportable_type: 類別
+            reported_content_url: 被舉報的內容URL網址
             reports: 報告
+            visit_url: 訪問網址
+        report:
+          fields:
+            details: 原因詳情
+            locale: 語言
+            reason: 理由
+  errors:
+    messages:
+      invalid_json: 不正確 JSON
   layouts:
     decidim:
       admin:
         global_moderations:
           title: 全局審查
+        newsletters:
+          title: 電子報
+        settings:
+          title: 設定
+        users:
+          title: 參與者
