@@ -834,7 +834,31 @@ zh-TW:
         max_file_size: '最大檔案尺寸： %{megabytes} MB'
       files:
         extension_allowlist: '接受的格式： %{extensions}'
+      upload:
+        labels:
+          filename: 檔案名稱
+          remove: 移除
+          replace: 替換
+          save: 儲存
+          title: 標題
+          title_required: 標題為必填欄位！
+          uploaded: 已上傳
+          validating: 驗證中...
+          validation_error: 驗證錯誤!
+        select_file: 選擇檔案
+    gamification:
+      badges:
+        followers:
+          name: 追隨者
+        index:
+          title: 徽章
+    group_admins:
+      actions:
+        demote_admin: 移除管理員
     group_invites:
+      accept_invitation: 接受
+      index:
+        invite: 邀請
       reject:
         error: 拒絕邀請時出現問題.
         success: 邀請已成功拒絕.
@@ -909,8 +933,31 @@ zh-TW:
       activities:
         no_activities_warning: 沒有活動
       all: 所有活動類型
+    map:
+      static:
+        map_service_brand: 開放街圖
+    members:
+      no_members: 這個群組還沒有任何成員。
+    menu:
+      help: 幫助
+      home: 首頁
     messaging:
       conversation_mailer:
+        comanagers_new_conversation:
+          admin_in_group: 您收到此通知是因為您是 %{group} 的管理員。
+          greeting: 嗨, %{recipient}!
+          outro: 享受Decidim!
+        comanagers_new_message:
+          admin_in_group: 您收到此通知是因為您是 %{group} 的管理員。
+          greeting: 嗨, %{recipient}!
+          outro: 享受Decidim!
+        new_conversation:
+          greeting: 嗨, %{recipient}!
+          outro: 享受Decidim!
+        new_group_conversation:
+          admin_in_group: 您收到此通知是因為您是 %{group} 的管理員。
+          greeting: 嗨, %{recipient}!
+          outro: 享受Decidim!
         new_group_message:
           admin_in_group: 您收到此通知是因為您是 %{group} 的管理員。
           greeting: 嗨, %{recipient}!
@@ -981,8 +1028,18 @@ zh-TW:
       basic_only_text:
         body_preview: '正文的虛擬文字：Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque fringilla nisl tellus. Donec sed mi dui. Sed efficitur libero a felis tempor sollicitudin. Nullam vestibulum fringilla felis, id efficitur lorem sagittis et. Vivamus aliquam maximus velit vel dapibus. Mauris pellentesque, enim eu varius lacinia, risus ante rutrum ipsum, non lobortis augue lorem quis urna. Aenean et malesuada arcu.'
         name: 基礎（僅文字）
+      image_text_cta_settings_form:
+        body: 正文
+        cta_text: 行動呼籲按鈕文字
+        introduction: 介紹
+        main_image: 主圖片
+    newsletters:
+      unsubscribe:
+        check_subscription: 如果您想更改您的偏好設定，您可以在<a href="%{link}" target="_blank">配置頁面</a>進行更改。
+        error: 取消訂閱時發生問題.
     notifications_settings:
       show:
+        newsletters: 電子報
         notifications_sending_frequencies:
           daily: 每日
           none: 無
@@ -1056,6 +1113,33 @@ zh-TW:
           modal_body: 如果您拒絕，將無法使用該平台，您可以<a href="%{download_your_data_path}">下載您的數據</a>和/或<a href="%{delete_path}">刪除您的帳戶</a>。
           modal_btn_continue: 接受條款並繼續
           modal_btn_exit: 我稍後會再查看。
+    profile:
+      view: 檢視
+    profiles:
+      show:
+        activity: 啟動
+        badges: 徽章
+        conversations: 對話
+        followers: 追隨者
+        following: 關注
+        groups: 群組
+        members: 成員
+        officialized: 正式認證參與者
+        send_private_message: 發送私人訊息
+        view_full_profile: 查看完整個人資料
+      sidebar:
+        badges:
+          title: 徽章
+      user:
+        actions:
+          create_user_group: 建立群組
+          edit_profile: 編輯個人資料
+          invite_user: 邀請參與者
+          join_user_group: 申請加入群組
+          manage_user_group_users: 管理成員
+          message: 訊息
+        confirmation_instructions_sent: 電子郵件確認指示已發送.
+        create_user_group: 建立群組
     reported_mailer:
       report:
         content: 已檢舉內容
@@ -1129,7 +1213,35 @@ zh-TW:
         unfold: 展開
       filter_form_help:
         help: 下方的表單會在搜尋條件變更時動態篩選搜尋結果。
+      flag_modal:
+        offensive: 包含種族主義、性別歧視、辱罵、人身攻擊、死亡威脅、自殺要求或任何形式的仇恨言論
+        reason: 理由
+        report: 報告
+        spam: 包含點閱率誘導、廣告、詐騙或自動腳本。
+        title: 檢舉不當內容
+      flag_user_modal:
+        close: 關閉
+        report: 報告
+      floating_help:
+        close: 關閉幫助
+        help: 幫助
+      login_modal:
+        close_modal: 關閉視窗
+      participatory_space_filters:
+        filters:
+          areas: 區域
+          select_an_area: 選擇一個地區
+      redesigned_login_modal:
+        please_sign_in: 請先登入
+      represent_user_group:
+        select_user_group: 選擇一個群組
+      share_modal:
+        close_window: 關閉視窗
+        copy_share_link: 複製
+        share: 分享
+        share_link: 分享連結
     statistics:
+      comments_count: 評論
       followers_count: 追隨者
       headline: 統計資料
       no_stats: 目前還沒有統計資料。
@@ -1199,7 +1311,14 @@ zh-TW:
     version:
       show:
         back_to_resource: 返回
+        number_of_versions: 版本
   devise:
+    failure:
+      inactive: 您的帳號尚未啟用。
+    invitations:
+      new:
+        header: 發送邀請
+        submit_button: 發送一個邀請
     mailer:
       confirmation_instructions:
         subject: 確認說明
@@ -1268,6 +1387,22 @@ zh-TW:
       destroyed: 您的帳號已成功取消，期待再相逢。
       new:
         sign_up: 註冊登記
+    shared:
+      links:
+        back: 返回
+        didn_t_receive_confirmation_instructions: 沒有收到確認的說明嗎？
+        didn_t_receive_unlock_instructions: 沒有收到解鎖說明？
+        forgot_your_password: 忘記密碼了嗎？
+        sign_in: 登入
+        sign_up: 註冊登記
+    unlocks:
+      new:
+        resend_unlock_instructions: 重新發送解鎖說明
+  emojis:
+    categories:
+      activities: 活躍狀態
+      animals-nature: 動物與自然
+      custom: 自訂
   errors:
     messages:
       cycle_detected: 一個範圍的父範圍不能是其子範圍之一
@@ -1284,3 +1419,76 @@ zh-TW:
         other: "One\n在處理您的請求時發生了錯誤:\n\nOther\n在處理您的請求時出現了多個錯誤:"
       too_many_marks: 使用了過多連續的標點符號(例如！和？)
       too_much_caps: 使用了太多大寫字母（超過文本的25%）
+      too_short: 太短（少於%{count} 個字符）
+  forms:
+    correct_errors: 表單上有錯誤，請修正後繼續。
+    length_validator:
+      minimum:
+        other: "One\n至少 %{count} 個字元\n\nOther\n至少 %{count} 個字元"
+    required: 必填的欄位
+    required_explanation: "必填欄位已標示有星號(*)"
+  invisible_captcha:
+    sentence_for_humans: 如果你是人類，請忽略此欄位
+    timestamp_error_message: 抱歉，請慢一點！請重新提交。
+  layouts:
+    decidim:
+      data_consent:
+        details:
+          columns:
+            description: 說明
+            name: 名稱
+            service: 服務
+            type: 種類
+          items:
+            _session_id:
+              description: 允許網站在使用者在網頁之間移動時記住使用者。
+              service: 這個網站
+            decidim-consent:
+              description: 儲存使用者在這個網站上允許的 cookie 資訊。
+              service: 這個網站
+            pwaInstallPromptSeen:
+              description: 儲存使用者是否已經看過進階網頁應用程式 (PWA) 的安裝通知的狀態。
+              service: 這個網站
+          types:
+            cookie: Cookie
+            local_storage: 本地儲存
+        dialog:
+          accept_all: 全部接受
+          accept_only_essential: 僅接受必要的
+          description: 我們在我們的網站上使用cookies，以提升網站的性能和內容。這些cookies使我們能夠提供更個性化的用戶體驗和社交媒體功能。
+          settings: 設定
+          title: 關於網站使用的cookies的信息
+        modal:
+          accept_all: 全部接受
+          accept_only_essential: 僅接受必要的
+          analytics:
+            description: 這些cookies用於測量和分析網站的訪問人數，以幫助改善網站。
+            title: 分析和統計
+          description: 我們使用cookie來確保網站的基本功能並提升您的在線體驗。您可以隨時配置和接受cookie的使用，並修改您的同意選項。
+          essential:
+            description: 這些cookie啟用了網站的關鍵功能，並有助於保護其用戶的安全。它們會自動保存在瀏覽器中，無法禁用。
+            title: 基本功能
+          marketing:
+            description: 這些 cookie 收集有關您使用網站的信息，並可用於在您使用的不同網站上提供更個性化的營銷。
+            title: 市場行銷
+          preferences:
+            description: 這些 cookie 允許網站記住您在過去在該網站上所做的選擇，以提供更個性化的使用體驗給網站用戶。
+            title: 偏好設定
+          save_settings: 儲存設定
+          title: Cookie 設定
+  locale:
+    name: 英文
+    name_with_error: 英文 (錯誤！)
+  social_share_button:
+    email: 電子郵件
+    facebook: Facebook(臉書)
+    linkedin: LinkedIn
+    telegram: Telegram
+    tumblr: Tumblr
+    twitter: Twitter
+    vkontakte: Vkontakte
+    wechat: 微信 WeChat
+  views:
+    pagination:
+      next: 下一個
+      title: '頁碼： '
