@@ -524,12 +524,33 @@ zh-TW:
           nickname_help: 在 %{organization} 中的別名。只能包含字母、數字、'-' 和 '_'。
           sign_up: 請完成您的個人檔案
           subtitle: 請填寫以下表單以完成註冊。
+          username_help: 在您的帖子中顯示的公開名稱。為確保匿名性，可以是任何名稱。
+      registrations:
+        new:
+          already_have_an_account?: 已經有帳號了嗎？
+          newsletter: 偶爾收到包含相關信息的時事通訊。
+          newsletter_title: 聯絡人權限
+          nickname_help: 在 %{organization} 中的別名。只能包含字母、數字、'-' 和 '_'。
+          sign_in: 登入
+          sign_up: 註冊登記
+          sign_up_as:
+            legend: 註冊登記為
+          subtitle: 註冊以參與討論並支持提案。
+          terms: 此服務條款
+          tos_agreement: 通過註冊，您同意遵守 %{link}。
+          tos_title: 服務條款
+          username_help: 在您的帖子中顯示的公開名稱。為確保匿名性，可以是任何名稱。
       sessions:
         new:
+          are_you_new?: 是第一次使用這個平台嗎？
           register: 建立一個帳號
           sign_in_disabled: 你可以使用外部帳戶登入。
           sign_up_disabled: 註冊已停用，您可以使用現有帳戶來登入。
       shared:
+        newsletter_modal:
+          buttons:
+            check: 檢查並繼續
+            close_modal: 關閉視窗
         omniauth_buttons:
           or: 或
     doorkeeper:
