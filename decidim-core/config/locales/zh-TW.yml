@@ -524,6 +524,22 @@ zh-TW:
           nickname_help: 在 %{organization} 中的別名。只能包含字母、數字、'-' 和 '_'。
           sign_up: 請完成您的個人檔案
           subtitle: 請填寫以下表單以完成註冊。
+      sessions:
+        new:
+          register: 建立一個帳號
+          sign_in_disabled: 你可以使用外部帳戶登入。
+          sign_up_disabled: 註冊已停用，您可以使用現有帳戶來登入。
+      shared:
+        omniauth_buttons:
+          or: 或
+    doorkeeper:
+      authorizations:
+        new:
+          authorize: 授權應用程式
+          cancel: 取消
+          connect_your_account_html: 透過登入<strong>%{organization}</strong>連接您的帳戶.
+          see_name: 查看你的名稱
+          see_username: 查看您的暱稱
     download_your_data:
       export:
         ready: 準備就緒
@@ -531,8 +547,16 @@ zh-TW:
         download_data: 下載資料
         download_data_description: 一個包含所有與您的帳戶相關的資訊的檔案將會寄到 <strong>%{user_email}</strong>。此電子郵件將包含一個 .zip 檔案和一個解壓縮密碼。<br/><br/>若要解壓縮此檔案，您需要使用 <a href="https://www.7-zip.org/">7-Zip</a> (Windows) 或 <a href="https://www.keka.io/">Keka</a> (MacOS)。如果您使用 Linux，大多數情況下您已經預設安裝了解壓縮軟體。如果還沒有，您可以使用 <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> 或 <a href="https://peazip.github.io">PeaZip</a>。
         request_data: 請求數據
+    endorsement_buttons_cell:
+      already_endorsed: 不喜歡
+      endorse: 喜歡！
+    endorsements:
+      identities:
+        done: 已完成
+        select_identity: 選擇身份
     errors:
       internal_server_error:
+        copied: 文字已複製!
         copy_error_message_clarification: 將錯誤訊息複製到剪貼簿
         copy_to_clipboard: 複製到剪貼板
         date_and_time: 日期與時間
@@ -602,6 +626,8 @@ zh-TW:
       components:
         component_published:
           email_intro: '%{participatory_space_title} 現已啟用 %{resource_title} 元件。您可以從此頁面查看：'
+          email_outro: 你收到此通知是因為你正在追蹤 %{participatory_space_title}。你可以透過前面的連結停止接收通知。
+          email_subject: '%{participatory_space_title} 的更新'
       email_event:
         email_greeting: 哈囉，%{user_name}!
         email_intro: '%{resource_title}" 有更新。您可以從此頁面查看更新內容：'
@@ -612,8 +638,57 @@ zh-TW:
           email_intro: 恭喜！您已經獲得了 <a href="%{resource_url}">%{badge_name} 徽章</a>(等級 %{current_level})。
           email_outro: 您收到此通知是因為您在我們的網站上進行了相關活動。
           email_subject: '您獲得了新的徽章: %{badge_name}!'
+          notification_title: 恭喜！您已經獲得了 <a href="%{resource_path}">%{badge_name} 徽章</a>(等級 %{current_level})。
+        level_up:
+          email_intro: 恭喜！您已經達到了 <a href="%{resource_url}">%{badge_name} 徽章</a>的 %{current_level} 級！
+          email_outro: 您收到此通知是因為您在我們的網站上進行了相關活動。
+          email_subject: 你已經達到了 %{badge_name} 徽章的 %{current_level} 等級！
+          notification_title: 恭喜！您已經達到了 <a href="%{resource_path}">%{badge_name} 徽章</a>的 %{current_level} 級！
       groups:
+        demoted_membership:
+          email_intro: <a href="%{resource_url}">%{user_group_name}</a> 群組的管理員已將您的管理權限從該群組中移除。
+          email_outro: 您收到此通知是因為您是該群組的成員。
+          email_subject: 您不再是 %{user_group_name} 群組的管理員！
+          notification_title: 您不再是 <a href="%{resource_path}">%{user_group_name}</a> 群組的管理員。
+        invited_to_group:
+          email_intro: 一位<a href="%{resource_url}">%{user_group_name}</a> 群組的管理員邀請您加入該群組。
+          email_outro: 您收到此通知是因為您已獲邀請加入一個群組。請在個人檔案的「群組」選項中檢查並核准該邀請。
+          email_subject: 您已獲邀請加入 %{user_group_name} 群組！
+          notification_title: 您已獲邀請加入 <a href="%{resource_path}">%{user_group_name}</a> 群組。請檢查您個人檔案中的<a href="%{groups_profile_tab_path}">群組頁面</a>以進行批准！
+        join_request_accepted:
+          email_intro: 恭喜！<a href="%{resource_url}">%{user_group_name}</a> 群組的管理員已經接受您加入的請求。
+          email_outro: 您收到此通知是因為您的加入請求已經有了更新。
+          email_subject: 您已被接受加入 %{user_group_name} 群組！
+          notification_title: 您已被接受加入 <a href="%{resource_path}">%{user_group_name}</a> 群組。
+        join_request_created:
+          email_intro: 有人申請加入 %{user_group_name} 群組。您可以從<a href="%{resource_url}">群組成員頁面</a>接受或拒絕。
+          email_outro: 您收到此通知是因為您可以管理 %{user_group_name} 群組。
+          email_subject: 有人申請加入 %{user_group_name} 群組！
+          notification_title: 有人申請加入 %{user_group_name} 群組。您可以從<a href="%{resource_path}">群組成員頁面</a>接受或拒絕。
+        join_request_rejected:
+          email_intro: 一位 <a href="%{resource_url}">%{user_group_name}</a> 群組的管理員已拒絕了你加入的請求。
+          email_outro: 您收到此通知是因為您的加入請求已經有了更新。
+          email_subject: 你的加入 %{user_group_name} 群組的請求已被拒絕！
+          notification_title: 你加入 <a href="%{resource_path}">%{user_group_name}</a> 群組的請求已被拒絕。
+        promoted_to_admin:
+          email_intro: <a href="%{resource_url}">%{user_group_name}</a> 群組的管理員已經給予你該群組的管理權限。
+          email_outro: 您收到此通知是因為您是該群組的成員。
+          email_subject: 你現在是 %{user_group_name} 群組的管理員了！
+          notification_title: 你現在是 <a href="%{resource_path}">%{user_group_name}</a> 群組的管理員了！
+        removed_from_group:
+          email_intro: <a href="%{resource_url}">%{user_group_name}</a> 群組的管理員已將你從該群組中移除。
+          email_outro: 你收到這個通知是因為你曾經是該群組的成員。
+          email_subject: 你已從 %{user_group_name} 群組中移除！
+          notification_title: 您已被從<a href="%{resource_path}">%{user_group_name}</a> 群組中移除。
+        user_group_created:
+          email_intro: 一個名為 %{user_group_name} 的新用戶組已被創建。您現在可以在<a href="%{groups_admin_url}">管理員面板</a>中進行驗證。
+          email_outro: 你收到了這個通知是因為你是該平台的管理員。
+          email_subject: 已建立新的使用者群組
+          notification_title: 已建立 %{user_group_name} 使用者群組。您現在可以在<a href="%{groups_admin_path}">管理面板</a>中進行驗證。
         user_group_updated:
+          email_intro: 名為 %{user_group_name} 的使用者群組已更新其個人檔案，尚未完成驗證。您現在可以在<a href="%{groups_admin_url}">管理面板</a>中進行驗證
+          email_outro: 你收到了這個通知是因為你是該平台的管理員。
+          email_subject: 一個使用者群組已更新其個人檔案。
           notification_title: '%{user_group_name} 使用者群組已更新其個人資料，讓它未經驗證。您現在可以在<a href="%{groups_admin_path}">管理面板</a>中進行驗證。'
       nickname_event:
         notification_body: 我們已更正暱稱使用的方式，以避免重複，所以我們已經移除了大小寫敏感的規則。<br/>你的暱稱是在已有同名暱稱之後創建的，因此我們已經自動重新命名。你可以從<a href="%{link_to_account_settings}">帳戶設置</a>更改它。
@@ -681,6 +756,9 @@ zh-TW:
         error: 追蹤此資源時發生問題。
         participatory_space: 追蹤中 <span class="show-for-sr">%{resource_name}</span>
     forms:
+      errors:
+        decidim/user:
+          password: 密碼太短。
       file_help:
         file:
           message_1: 必須是圖片或文件。
