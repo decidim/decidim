@@ -1490,12 +1490,24 @@ zh-TW:
         edit: 編輯
       offline_banner:
         cache_version_page: 糟糕！您的網路離線了。您正在訪問的頁面是之前緩存的版本，可能內容不是最新的。
+      timeout_modal:
+        sign_out: 登出
+      upload_modal:
+        close_modal: 關閉視窗
+      user_menu:
+        profile: 我的帳號
+      user_profile:
+        user_groups: 群組
+      widget:
+        see_more: 查看更多
   locale:
     name: 英文
     name_with_error: 英文 (錯誤！)
   password_validator:
     blacklisted: 已列入黑名单
   social_share_button:
+    delicious: 美味
+    douban: 豆瓣
     email: 電子郵件
     facebook: Facebook(臉書)
     linkedin: LinkedIn
