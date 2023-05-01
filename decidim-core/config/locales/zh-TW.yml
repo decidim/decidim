@@ -760,12 +760,16 @@ zh-TW:
     gamification:
       badges:
         followers:
+          name: 追隨者
           unearned_another: 這位參與者還沒有任何追蹤者。
           unearned_own: 您還沒有追隨者。
+        index:
+          title: 徽章
       reached_top: 您已經達到此徽章的最高等級。
     group_admins:
       actions:
         are_you_sure: 確定嗎？這將不會將該參與者從該組中移除。
+        demote_admin: 移除管理員
       demote:
         error: 刪除此參與者的管理員名單時發生問題。
         success: 成功從管理員列表中刪除參與者
@@ -773,6 +777,9 @@ zh-TW:
       accept:
         error: 這個邀請接受時發生問題。
         success: 邀請已成功接受
+      accept_invitation: 接受
+      index:
+        invite: 邀請
       invite:
         error: 邀請參與者加入時發生問題
         success: 成功邀請參與者
@@ -852,17 +859,30 @@ zh-TW:
     links:
       warning:
         close_modal: 關閉視窗
+    map:
+      static:
+        map_service_brand: 開放街圖
     members:
       no_members: 這個群組還沒有任何成員。
+    menu:
+      help: 幫助
+      home: 首頁
     messaging:
       conversation_mailer:
         comanagers_new_conversation:
+          admin_in_group: 您收到此通知是因為您是 %{group} 的管理員。
+          greeting: 嗨, %{recipient}!
           outro: 享受Decidim!
         comanagers_new_message:
+          admin_in_group: 您收到此通知是因為您是 %{group} 的管理員。
+          greeting: 嗨, %{recipient}!
           outro: 享受Decidim!
         new_conversation:
+          greeting: 嗨, %{recipient}!
           outro: 享受Decidim!
         new_group_conversation:
+          admin_in_group: 您收到此通知是因為您是 %{group} 的管理員。
+          greeting: 嗨, %{recipient}!
           outro: 享受Decidim!
         new_group_message:
           admin_in_group: 您收到此通知是因為您是 %{group} 的管理員。
@@ -941,6 +961,11 @@ zh-TW:
       basic_only_text:
         body_preview: '正文的虛擬文字：Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque fringilla nisl tellus. Donec sed mi dui. Sed efficitur libero a felis tempor sollicitudin. Nullam vestibulum fringilla felis, id efficitur lorem sagittis et. Vivamus aliquam maximus velit vel dapibus. Mauris pellentesque, enim eu varius lacinia, risus ante rutrum ipsum, non lobortis augue lorem quis urna. Aenean et malesuada arcu.'
         name: 基礎（僅文字）
+      image_text_cta_settings_form:
+        body: 正文
+        cta_text: 行動呼籲按鈕文字
+        introduction: 介紹
+        main_image: 主圖片
     newsletters:
       unsubscribe:
         check_subscription: 如果您想更改您的偏好設定，您可以在<a href="%{link}" target="_blank">配置頁面</a>進行更改。
@@ -955,6 +980,7 @@ zh-TW:
         allow_public_contact: 允許任何人向我發送私信，即使我沒有關注他們。
         email_on_moderations: 我想在每次有事物被檢舉需要審核時收到郵件通知。
         email_on_notification: 我希望每當我收到通知時都能收到一封電子郵件。
+        newsletters: 電子報
         own_activity: 例如，當有人對我的提案發表評論或提及我時，我希望收到通知郵件。
         receive_notifications_about: 我希望收到有關以下方面的通知：
         send_notifications_by_email: 透過電子郵件發送通知
@@ -1026,13 +1052,28 @@ zh-TW:
     profile:
       deleted: 參與者已刪除
       inaccessible_message: 這個帳戶因為違反了使用條款而無法訪問！
+      view: 檢視
     profiles:
       default_officialization_text_for_user_groups: 這個社群已公開驗證，其名稱已經被證實符合其真實名稱。
       default_officialization_text_for_users: 這個參與者已經公開驗證，其名稱或角色已被證實與其真實名稱或角色相符。
       show:
+        activity: 啟動
+        badges: 徽章
+        conversations: 對話
+        followers: 追隨者
+        following: 關注
+        groups: 群組
+        members: 成員
+        officialized: 正式認證參與者
+        send_private_message: 發送私人訊息
         timeline: 時間軸
+        view_full_profile: 查看完整個人資料
+      sidebar:
+        badges:
+          title: 徽章
       user:
         confirmation_instructions_sent: 電子郵件確認指示已發送
+        create_user_group: 建立群組
         fill_in_email_to_confirm_it: 請填寫您的群組電子郵件以進行確認
     reported_mailer:
       report:
@@ -1109,9 +1150,33 @@ zh-TW:
         help: 下方的表單會在搜尋條件變更時動態篩選搜尋結果。
       flag_modal:
         does_not_belong: 包含非法活動、自殺威脅、個人資訊或其他您認為不適合在%{organization_name} 上的內容。
+        offensive: 包含種族主義、性別歧視、辱罵、人身攻擊、死亡威脅、自殺要求或任何形式的仇恨言論
+        reason: 理由
+        report: 報告
+        spam: 包含點閱率誘導、廣告、詐騙或自動腳本。
+        title: 檢舉不當內容
       flag_user_modal:
+        close: 關閉
         does_not_belong: 包含非法活動、自殺威脅、個人資訊或其他您認為不適合在%{organization_name} 上的內容。
+        report: 報告
+      floating_help:
+        close: 關閉幫助
+        help: 幫助
+      login_modal:
+        close_modal: 關閉視窗
+      participatory_space_filters:
+        filters:
+          areas: 區域
+          select_an_area: 選擇一個地區
+      represent_user_group:
+        select_user_group: 選擇一個群組
+      share_modal:
+        close_window: 關閉視窗
+        copy_share_link: 複製
+        share: 分享
+        share_link: 分享連結
     statistics:
+      comments_count: 評論
       followers_count: 追隨者
       headline: 統計資料
       no_stats: 目前還沒有統計資料。
@@ -1180,12 +1245,18 @@ zh-TW:
     version:
       show:
         back_to_resource: 返回
+        number_of_versions: 版本
     welcome_notification:
       default_body: <p>嗨 {{name}}，感謝您加入 {{organization}}，歡迎！</p><ul><li>如果您想快速了解此處的功能，請查看<a href="{{help_url}}">幫助</a>部分。</li><li>閱讀後，您將獲得第一個徽章。這裡是{{organization}} 中您可以參加的所有徽章的<a href="{{badges_url}}">清單</a></li><li>最後但並非最不重要的，加入其他人，分享與他們參與 {{organization}} 的經驗。提出建議，評論，辯論，考慮如何為共同利益做出貢獻，提供論據以說服，耐心聆聽並閱讀以取得信服，以具體且直接的方式表達您的想法，以耐心和決定力回應，捍衛您的想法，保持開放的態度以協作和加入其他人的想法。</li></ul>
   devise:
+    failure:
+      inactive: 您的帳號尚未啟用。
     invitations:
       edit:
         nickname_help: 您在 %{organization} 中的暱稱。
+      new:
+        header: 發送邀請
+        submit_button: 發送一個邀請
     mailer:
       confirmation_instructions:
         subject: 確認說明
@@ -1255,8 +1326,15 @@ zh-TW:
         sign_up: 註冊登記
     shared:
       links:
+        back: 返回
         didn_t_receive_confirmation_instructions: 沒有收到確認的說明嗎？
         didn_t_receive_unlock_instructions: 沒有收到解鎖說明？
+        forgot_your_password: 忘記密碼了嗎？
+        sign_in: 登入
+        sign_up: 註冊登記
+    unlocks:
+      new:
+        resend_unlock_instructions: 重新發送解鎖說明
   errors:
     messages:
       cycle_detected: 一個範圍的父級範圍不能是其後代之一
@@ -1272,14 +1350,37 @@ zh-TW:
         other: "One\n在處理您的請求時發生了錯誤:\n\nOther\n在處理您的請求時出現了多個錯誤:"
       too_many_marks: 使用了過多連續的標點符號(例如！和？)
       too_much_caps: 使用了太多大寫字母（超過文本的25%）
+      too_short: 太短（少於%{count} 個字符）
+  forms:
+    correct_errors: 表單上有錯誤，請修正後繼續。
+    length_validator:
+      minimum:
+        other: "One\n至少 %{count} 個字元\n\nOther\n至少 %{count} 個字元"
+    required: 必填的欄位
+    required_explanation: "必填欄位已標示有星號(*)"
+  invisible_captcha:
+    sentence_for_humans: 如果你是人類，請忽略此欄位
+    timestamp_error_message: 抱歉，請慢一點！請重新提交。
   layouts:
     decidim:
       cookie_warning:
         description_html: 本網站使用 cookies。繼續瀏覽本網站即表示您同意我們使用 cookies。%{link}。
         link_label: 了解更多有關 cookies 的資訊。
         ok: 我同意
+  locale:
+    name: 英文
+    name_with_error: 英文 (錯誤！)
   password_validator:
     blacklisted: 已列入黑名单
+  social_share_button:
+    email: 電子郵件
+    facebook: Facebook(臉書)
+    linkedin: LinkedIn
+    telegram: Telegram
+    tumblr: Tumblr
+    twitter: Twitter
+    vkontakte: Vkontakte
+    wechat: 微信 WeChat
   views:
     pagination:
       first: "&laquo; 第一"
@@ -1288,3 +1389,4 @@ zh-TW:
       last_title: 鏈接到最後一頁
       next: 下一個 &rsaquo;
       previous: "&lsaquo; 上一篇"
+      title: '頁碼： '
