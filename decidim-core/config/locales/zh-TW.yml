@@ -500,6 +500,7 @@ zh-TW:
           buttons:
             check: 檢查並繼續
             close_modal: 關閉視窗
+            uncheck: 保持未勾選
           notice: |-
             <p>嗨，您確定不想收到電子報嗎？<br>
             請再考慮勾選下面的電子報選項。<br>
@@ -508,20 +509,32 @@ zh-TW:
             <p>如果您不勾選此框，您可能會錯過有關平台上新的參與機會的相關信息。<br>
             如果您仍然想避免收到電子報，我們完全理解您的決定。</p>
             <p>感謝您閱讀此內容！</p>
+          title: 電子報通知
         omniauth_buttons:
           or: 或
     doorkeeper:
       authorizations:
         new:
           authorize: 授權應用程式
+          by_organization_link_html: <small class="heading-small">由 %{link} 提供</small>
           cancel: 取消
           connect_your_account_html: 透過登入<strong>%{organization}</strong>連接您的帳戶
+          publish_content: 代表您發佈內容
+          see_email: 查看您的電子郵件
           see_name: 查看你的名稱
           see_username: 查看您的暱稱
+          this_application_will_be_able_to: '此應用程式將可以：'
+          this_application_will_not_be_able_to: '這個應用程式無法：'
+          update_profile: 更新您的個人檔案
+          wants_to_use_your_account_html: "<strong>%{application_name}</strong> 希望使用您的帳戶"
     editor_images:
       create:
         error: 上傳圖片時發生錯誤
         success: 圖片上傳成功
+      drag_and_drop_help: 通過拖放或粘貼方式添加圖片。
+    endorsable:
+      endorsements: 連署
+      endorsements_count: 連署人數
     endorsement_buttons_cell:
       already_endorsed: 已認可
       endorse: 認可
@@ -594,6 +607,7 @@ zh-TW:
           email_intro: '%{participatory_space_title} 現已啟用 %{resource_title} 元件。您可以從此頁面查看：'
           email_outro: 你收到此通知是因為你正在追蹤 %{participatory_space_title}。你可以透過前面的連結停止接收通知。
           email_subject: '%{participatory_space_title} 的更新'
+          notification_title: '%{resource_title} 元件現已對<a href="%{resource_path}">%{participatory_space_title}</a>啟用'
       email_event:
         email_greeting: 哈囉，%{user_name}!
         email_intro: '%{resource_title}" 有更新。您可以從此頁面查看更新內容：'
@@ -717,6 +731,9 @@ zh-TW:
         button: 關注
         error: 追蹤此資源時發生問題。
         participatory_space: 追蹤中 <span class="show-for-sr">%{resource_name}</span>
+      destroy:
+        button: 取消追蹤
+        error: 取消追蹤此資源時發生問題。
     forms:
       current_file: 當前檔案
       current_image: 現在的圖片
@@ -724,11 +741,20 @@ zh-TW:
       errors:
         decidim/user:
           password: 密碼太短。
+          password_confirmation: 密碼確認必須與密碼相符。
         error: 輸入欄位有誤。
       file_help:
         file:
+          explanation: '檔案指南：'
           message_1: 必須是圖片或文件。
           message_2: 對於圖片，請使用橫向圖片，因為服務會對圖片進行裁剪。對於 CSV 文件，列之間的分隔符必須是逗號 (",")
+        image:
+          explanation: '圖像的指導'
+          message_1: 最好選擇一張不含文字的橫向圖像。
+          message_2: 該服務裁剪圖像。
+      file_validation:
+        allowed_file_extensions: '允許的檔案擴展名： %{extensions}'
+        max_file_size: '最大檔案尺寸： %{megabytes} MB'
       remove_this_file: 刪除此文件
     gamification:
       badges:
@@ -752,10 +778,18 @@ zh-TW:
       reject:
         error: 拒絕邀請時出現問題
         success: 邀請已成功拒絕
+      reject_invitation: 拒絕
     group_members:
       accept:
         error: 加入請求接受時發生問題
         success: 加入申請已成功接受
+      actions:
+        are_you_sure: 您確定嗎？
+        promote_to_admin: 設為管理員
+        remove_from_group: 刪除該參與者
+      index:
+        current_members_without_admins: '當前成員 (不包括管理員)：'
+        manage_members: 管理成員
       promote:
         error: 提升這位參與者的權限時發生問題
         success: 成功提升參與者權限
@@ -766,25 +800,54 @@ zh-TW:
         error: 將此參與者從群組中移除時發生問題
         success: 已成功將參與者從群組中移除
     groups:
+      actions:
+        are_you_sure: 您確定嗎？
       create:
         error: 在建立這個群組時發生問題
         success: 分組已成功創建
+      edit:
+        edit_user_group: 編輯群組
+        update_user_group: 更新群組
       form:
         document_number_help: 不要使用破折号或空格
+        email_help: 組織、協會、集體、群組等的電子郵件地址。
+        fill_in_for_verification: '如果您希望您的群組進行驗證，請填寫以下字段：'
+        name_help: 您的組織、協會、集體、群組等的名稱。
+        nickname_help: 您的組織、協會、集體、群組等的暱稱。請勿使用空格或重音符號。
         phone_help: 不要使用破折号或空格
       join:
         error: 加入這個群組時發生問題
+        success: 加入請求已成功建立。管理員將在接受您加入該組之前審查您的請求。
       leave:
         error: 離開這個群組時發生問題
+        success: 成功退出群組。
+      members:
+        accept_or_reject_join_requests: '以下使用者申請加入該群組。請接受或拒絕他們的申請：'
+        accept_request: 接受
+        reject_request: 拒絕
+      new:
+        create_user_group: 建立群組
+        new_user_group: 新群組
+        subtitle: 建立一個群組並邀請其他使用者加入，以便在集體層面上參與。
       no_user_groups: 尚未加入任何群組。
       roles:
+        admin: 管理員
         creator: 建立者
+        member: 成員
       update:
         error: 更新群組時，發生錯誤。
         success: 成功更新群組
     help:
       main_topic:
+        default_page:
+          content: "<p>在 %{organization} 中，您可以透過頂部畫面中的不同空間參與並決定各種議題，包括流程、集會、倡議和諮詢。</p> <p>在每個空間中，您將找到不同的參與選項：個人或與他人一起提出提案、參與辯論、優先考慮要實施的項目、參加面對面會議以及其他行動。</p>\n"
+          title: 我可以在 %{organization} 做什麼？”
         description: 閱讀更多有關 %{organization} 的資訊
+        title: 一般幫助
+    last_activities:
+      activities:
+        no_activities_warning: 沒有活動
+      all: 所有活動類型
     links:
       warning:
         close_modal: 關閉視窗
@@ -806,20 +869,42 @@ zh-TW:
           outro: 享受Decidim!
       conversations:
         add_conversation_users:
+          add_users_placeholder: 搜尋...
+          modal_title: 新的對話
+          no_results: 無結果
           participant_with_disabled_message_reception: 此參與者已停用訊息接收功能
         conversation:
           show: 顯示和 %{sender} 的對話
         create:
           error: 對話未開始。請稍後再試。
+        error_modal:
+          ok: 好的
         index:
+          ago: 之前
           close: 關閉視窗
           groups: 我的群組
+          new_conversation: 新的對話
+          next: 下一個
           no_conversations: 您目前還沒有對話
           to: 至
+        reply:
+          send: 發送
         show:
           deleted_accounts: 你不能與已刪除的帳戶進行對話。
+        start:
+          send: 發送
         update:
           error: 由於錯誤，訊息未能傳送
+    metrics:
+      followers:
+        object: 追隨者
+        title: 追隨者
+      participants:
+        object: 參與者
+        title: 參與者
+      users:
+        object: 參與者
+        title: 參與者
     newsletter_mailer:
       newsletter:
         note: 您收到此電子郵件，是因為您已訂閱了 %{organization_name} 的通訊。您可以在您的<a href="%{link}">通知頁面</a>更改設置。
