@@ -920,9 +920,16 @@ zh-TW:
         new_group_conversation:
           outro: 享受Decidim!
         new_group_message:
+          admin_in_group: 您收到此通知是因為您是 %{group} 的管理員。
+          greeting: 嗨, %{recipient}!
+          intro: "%{sender} 在與 %{group} 的對話中發表了新訊息。點擊這裡查看："
           outro: 享受Decidim!
+          subject: "%{group} 收到了 %{sender} 的新訊息。"
         new_message:
+          greeting: 嗨, %{recipient}!
+          intro: "%{sender} 在您的對話中發布了新訊息。點擊這裡查看："
           outro: 享受Decidim!
+          subject: 您有來自 %{sender} 的新訊息。
       conversations:
         add_conversation_users:
           add_users_placeholder: 搜尋...
