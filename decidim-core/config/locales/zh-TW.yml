@@ -949,14 +949,18 @@ zh-TW:
         index:
           ago: 之前
           close: 關閉視窗
+          from: 來自
           groups: 我的群組
+          last_message: 最後訊息
           new_conversation: 新的對話
           next: 下一個
           no_conversations: 您目前還沒有對話
           title: 對話
           to: 至
         reply:
+          placeholder: 您的回覆...
           send: 發送
+          title: 回覆
         show:
           back: 返回所有對話
           chat_with: 與 的對話
@@ -965,6 +969,7 @@ zh-TW:
           title: 與 %{usernames} 的對話
         start:
           send: 發送
+          title: 開始對話
         update:
           error: 由於錯誤，訊息未能傳送
     metrics:
@@ -1164,33 +1169,110 @@ zh-TW:
         title: 確認
       embed_modal:
         close_window: 關閉視窗
+        embed: 請將此代碼粘貼到您的頁面中。
+        embed_link: 嵌入
+      extended_navigation_bar:
+        more: 更多
+        unfold: 展開
+      filter_form_help:
+        help: 下方的表單會在搜尋條件變更時動態篩選搜尋結果。
       flag_modal:
         does_not_belong: 包含非法活動、自殺威脅、個人資訊或其他您認為不適合在%{organization_name} 上的內容。
       flag_user_modal:
         does_not_belong: 包含非法活動、自殺威脅、個人資訊或其他您認為不適合在%{organization_name} 上的內容。
+    statistics:
+      followers_count: 追隨者
+      headline: 統計資料
+      no_stats: 目前還沒有統計資料。
+      pages_count: 頁
+      participants_count: 參與者
+      users_count: 參與者
+    tags:
+      filter_results_for_category: '篩選類別為 %{resource} 的結果。'
+      filter_results_for_scope: '篩選範圍為 %{resource} 的結果。'
+    translation_bar:
+      help_text: "<strong>警告：</strong>內容可能會被自動翻譯，並且可能不是100％準確。"
+      show_original: 顯示原始文本
+      show_translated: 顯示自動翻譯的文本
     user_activity:
       index:
         no_activities_warning: 這個參與者還沒有任何活動。
+    user_contact_disabled: 該參與者不接受直接訊息。
     user_conversations:
       create:
         error: 訊息無法建立。請稍後再試。
+        existing_error: 無法建立訊息。該對話已存在，請現在重試。
+        success: 對話成功開始！
       index:
+        add_max_users: '將使用者加入對話：最多可加入 9 名使用者。'
+        add_users_placeholder: 搜尋...
+        close: 關閉
+        conversations_info: 對話是私密的，沒有其他人可以看到。可以與平台上註冊的任何參與者或群組開始對話。
+        from: 來自
+        last_message: 最後訊息
+        modal_title: 新對話
+        new_conversation: 新對話
+        next: 下一個
+        no_conversations_warning: 目前還沒有任何對話。
+        no_results: 無結果
         participant_with_disabled_message_reception: 此參與者已停用訊息接收功能
+        time_ago: "%{time} 之前"
+      new:
+        title: 開始對話
+      reply:
+        placeholder: 您的回覆...
+        send: 發送
+        title_reply: 回覆
       show:
+        back: 顯示所有對話
         deleted_accounts: 你不能與已刪除的帳戶進行對話。
+        not_allowed: 此使用者不再接受私訊。
+        title: 與 %{usernames} 的對話
+      update:
+        error: 訊息未送出，請稍後再試。
     user_interests:
       show:
+        my_interests: 我的興趣
         no_scopes: 這個組織目前還沒有設定範圍！
         select_your_interests: 選擇您感興趣的主題，以接收與其相關的活動，並在您的個人檔案時間軸選項卡中查看。
+        update_my_interests: 更新我的興趣
+      update:
+        error: 更新您的興趣時發生問題。
+        success: 您的興趣已成功更新。
+    user_report_mailer:
+      notify:
+        body_1: 使用者 %{user} 已被 %{token} 舉報。
+        body_2: '原因: %{reason}'
+        details: 使用者提供的詳細資料
+        greetings: 問候,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: 哈囉，%{admin},
+        subject: 在 %{organization_name} 中有一個新使用者被舉報了。
+    version:
+      show:
+        back_to_resource: 返回
     welcome_notification:
       default_body: <p>嗨 {{name}}，感謝您加入 {{organization}}，歡迎！</p><ul><li>如果您想快速了解此處的功能，請查看<a href="{{help_url}}">幫助</a>部分。</li><li>閱讀後，您將獲得第一個徽章。這裡是{{organization}} 中您可以參加的所有徽章的<a href="{{badges_url}}">清單</a></li><li>最後但並非最不重要的，加入其他人，分享與他們參與 {{organization}} 的經驗。提出建議，評論，辯論，考慮如何為共同利益做出貢獻，提供論據以說服，耐心聆聽並閱讀以取得信服，以具體且直接的方式表達您的想法，以耐心和決定力回應，捍衛您的想法，保持開放的態度以協作和加入其他人的想法。</li></ul>
   devise:
     mailer:
+      confirmation_instructions:
+        subject: 確認說明
       email_changed:
+        greeting: 哈囉 %{recipient}!
         message: 我們通知您，您的電子郵件正在更改為 %{email}。
+        subject: 已變更電子郵件地址
       invitation_instructions:
+        accept: 接受邀請
+        accept_until: 此邀請的截止日期為 %{due_date}。
+        decline: 拒絕邀請
+        hello: 哈囉 %{email},
         ignore: |-
           如果您不想接受邀請，請忽略此電子郵件。<br />在您使用上述連結設置您的暱稱和密碼之前，您的帳戶不會被創建。
+        invited_you_as_admin: "%{invited_by} 邀請您成為 %{application} 的管理員。您可以通過下面的連結接受邀請。"
+        invited_you_as_private_user: "%{invited_by} 邀請您成為 %{application} 的私密參與者。您可以通過下面的連結接受邀請。"
+        someone_invited_you: 有人邀請您加入 %{application}。您可以通過下面的連結接受邀請。
+        someone_invited_you_as_admin: 有人邀請您成為 %{application} 的管理員，您可以通過下面的連結接受邀請。
+        someone_invited_you_as_private_user: 有人邀請您成為 %{application} 的私人參與者，您可以通過下面的連結接受邀請。
+        subject: 邀請說明
       invite_admin:
         subject: 你已經被邀請成為 %{organization} 的管理者
       invite_collaborator:
@@ -1200,12 +1282,45 @@ zh-TW:
       organization_admin_invitation_instructions:
         subject: 你已經被邀請成為 %{organization} 的管理者
       password_change:
+        greeting: 哈囉 %{recipient}!
         message: 我們通知您，您的密碼已經被更改。
+        subject: 密碼已變更
       reset_password_instructions:
+        action: 變更我的密碼
+        greeting: 哈囉 %{recipient}!
+        instruction: 有人要求更改您的密碼，你可以通過下面的網址更改密碼。
         instruction_2: 如果您沒有要求這，請忽略此電子郵件。
         instruction_3: 在您點擊上面的網址和創建一個新的密碼之前，您現在的密碼不會更改。
+        subject: 重置密碼的說明
+      unlock_instructions:
+        action: 解鎖我的帳戶
+        greeting: 哈囉 %{recipient}!
+        instruction: '請按一下下面的網址來解鎖您的帳戶：'
+        message: 您的帳戶已鎖定由於過量的不成功登錄嘗試。
+        subject: 解鎖說明
+    omniauth_callbacks:
+      failure: 無法驗證您的 %{kind} 因為"%{reason}"。
+      success: 成功從 %{kind} 帳戶進行驗證。
     passwords:
+      edit:
+        change_my_password: 變更我的密碼
+        confirm_new_password: 確認新密碼
+        new_password: 新密碼
+        password_help: "最少 %{minimun_characters} 個字符，不能太常見（例如 123456），且必須與您的暱稱和電子郵件不同。"
+        password_help_admin: "最少 %{minimun_characters} 個字符，不能太常見（例如 123456），必須與您的暱稱和電子郵件不同，並且必須與您的舊密碼不同。"
+        title: 密碼變更
+      new:
+        forgot_your_password: 忘記密碼了嗎？
+        send_me_reset_password_instructions: 請發送重置密碼的說明給我
       no_token: 您無法在未使用密碼重置電子郵件進入此頁面。如果您確實使用了密碼重置電子郵件，請確認您使用了提供的完整URL。
+      send_instructions: 您將在幾分鐘內收到一封包含重設密碼指示的電子郵件。
+      send_paranoid_instructions: 如果您的電子郵件地址存在於我們的資料庫中，您將在幾分鐘內收到一封包含密碼恢復連結的電子郵件。
+      updated: 您的密碼已成功更改。您現在已經登錄。
+      updated_not_active: 您的密碼已變更成功。
+    registrations:
+      destroyed: 您的帳號已成功取消，期待再相逢。
+      new:
+        sign_up: 註冊登記
     shared:
       links:
         didn_t_receive_confirmation_instructions: 沒有收到確認的說明嗎？
@@ -1213,7 +1328,18 @@ zh-TW:
   errors:
     messages:
       cycle_detected: 一個範圍的父級範圍不能是其後代之一
+      expired: 已過期，請申請一個新的
+      file_size_is_less_than_or_equal_to: 檔案大小必須小於或等於 %{count}
+      invalid_time_zone: 不是有效的時區。
+      long_words: 包含過長的單詞(超過35個字符)
+      must_start_with_caps: 必須以大寫字母開頭
       nesting_too_deep: 不能被放置在子類別中。
+      not_found: 找不到該項目。您之前註冊過嗎？
+      not_locked: 未被鎖定
+      not_saved:
+        other: "One\n在處理您的請求時發生了錯誤:\n\nOther\n在處理您的請求時出現了多個錯誤:"
+      too_many_marks: 使用了過多連續的標點符號(例如！和？)
+      too_much_caps: 使用了太多大寫字母（超過文本的25%）
   layouts:
     decidim:
       offline_banner:
