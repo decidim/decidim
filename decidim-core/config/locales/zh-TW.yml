@@ -1403,8 +1403,12 @@ zh-TW:
       activities: 活躍狀態
       animals-nature: 動物與自然
       custom: 自訂
+    search:
+      clear: 清除搜尋
   errors:
     messages:
+      blank: 不能為空白
+      cannot_be_blank: 不能為空白
       cycle_detected: 一個範圍的父範圍不能是其子範圍之一
       empty: 不能為空
       expired: 已過期，請申請一個新的
@@ -1476,10 +1480,27 @@ zh-TW:
             title: 偏好設定
           save_settings: 儲存設定
           title: Cookie 設定
+      edit_link:
+        edit: 編輯
+      timeout_modal:
+        sign_out: 登出
+      upload_modal:
+        close_modal: 關閉視窗
+      user_menu:
+        profile: 我的帳號
+      user_profile:
+        user_groups: 群組
+      widget:
+        see_more: 查看更多
   locale:
     name: 英文
     name_with_error: 英文 (錯誤！)
+  ransack:
+    predicates:
+      dtlt: 之前
   social_share_button:
+    delicious: 美味
+    douban: 豆瓣
     email: 電子郵件
     facebook: Facebook(臉書)
     linkedin: LinkedIn
