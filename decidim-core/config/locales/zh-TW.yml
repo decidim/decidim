@@ -357,6 +357,8 @@ zh-TW:
           explanation_html: 為了執行此操作，您需要進行授權。在此之前，請確認您的電子郵件地址 <strong>%{email}</strong>。
           request_confirmation_instructions: 要求確認指示
           title: 確認您的電郵
+      show:
+        close_modal: 關閉視窗
     block_user_mailer:
       notify:
         body_1: 您的帳戶已被封鎖。
@@ -469,16 +471,35 @@ zh-TW:
           nickname_help: 在 %{organization} 中的別名。只能包含字母、數字、'-' 和 '_'。
           sign_up: 請完成您的個人檔案
           subtitle: 請填寫以下表單以完成註冊。
+          username_help: 在您的帖子中顯示的公開名稱。為確保匿名性，可以是任何名稱。
       registrations:
         new:
+          already_have_an_account?: 已經有帳號了嗎？
+          newsletter: 偶爾收到包含相關信息的時事通訊。
+          newsletter_title: 聯絡人權限
+          nickname_help: 在 %{organization} 中的別名。只能包含字母、數字、'-' 和 '_'。
+          sign_in: 登入
+          sign_up: 註冊登記
+          sign_up_as:
+            legend: 註冊登記為
+          subtitle: 註冊以參與討論並支持提案。
           terms: 使用條款和條件
+          tos_agreement: 通過註冊，您同意遵守 %{link}。
+          tos_title: 服務條款
+          username_help: 在您的帖子中顯示的公開名稱。為確保匿名性，可以是任何名稱。
       sessions:
         new:
+          are_you_new?: 是第一次使用這個平台嗎？
           register: 建立一個帳號
           sign_in_disabled: 你可以使用外部帳戶登入。
           sign_up_disabled: 註冊已停用，您可以使用現有帳戶來登入。
+        user:
+          timed_out: 您已經有一段時間未活動，因此已自動從服務中登出。如果您希望繼續使用服務，請重新登錄。
       shared:
         newsletter_modal:
+          buttons:
+            check: 檢查並繼續
+            close_modal: 關閉視窗
           notice: |-
             <p>嗨，您確定不想收到電子報嗎？<br>
             請再考慮勾選下面的電子報選項。<br>
@@ -764,6 +785,9 @@ zh-TW:
     help:
       main_topic:
         description: 閱讀更多有關 %{organization} 的資訊
+    links:
+      warning:
+        close_modal: 關閉視窗
     members:
       no_members: 這個群組還沒有任何成員。
     messaging:
@@ -788,6 +812,7 @@ zh-TW:
         create:
           error: 對話未開始。請稍後再試。
         index:
+          close: 關閉視窗
           groups: 我的群組
           no_conversations: 您目前還沒有對話
           to: 至
@@ -828,6 +853,7 @@ zh-TW:
         refuse:
           modal_body: 如果您拒絕，您將無法使用平台，但您可以<a href="%{data_portability_path}">下載您的數據</a>和/或<a href="%{delete_path}">刪除您的帳戶</a>。
           modal_btn_exit: 我稍後會再查看。
+          modal_close: 關閉視窗
           modal_title: 您真的要拒絕更新 使用條款和條件嗎？
         required_review:
           alert: 我們已更新我們的服務條款，請您查閱。
