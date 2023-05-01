@@ -1367,12 +1367,24 @@ zh-TW:
         description_html: 本網站使用 cookies。繼續瀏覽本網站即表示您同意我們使用 cookies。%{link}。
         link_label: 了解更多有關 cookies 的資訊。
         ok: 我同意
+      edit_link:
+        edit: 編輯
+      timeout_modal:
+        sign_out: 登出
+      user_menu:
+        profile: 我的帳號
+      user_profile:
+        user_groups: 群組
+      widget:
+        see_more: 查看更多
   locale:
     name: 英文
     name_with_error: 英文 (錯誤！)
   password_validator:
     blacklisted: 已列入黑名单
   social_share_button:
+    delicious: 美味
+    douban: 豆瓣
     email: 電子郵件
     facebook: Facebook(臉書)
     linkedin: LinkedIn
