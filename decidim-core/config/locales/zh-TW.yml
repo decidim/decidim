@@ -924,30 +924,203 @@ zh-TW:
           subject: 您有來自 %{sender} 的新訊息。
       conversations:
         add_conversation_users:
+          add_max_users: '將使用者加入對話：最多可加入 9 名使用者。'
           add_users_placeholder: 搜尋...
           modal_title: 新的對話
           no_results: 無結果
+          participant_with_disabled_message_reception: 此參與者不希望接收私人訊息。
+        create:
+          error: 對話未開始。請稍後再試。
         error_modal:
+          close: 關閉視窗
+          correct_errors: 請修正錯誤後再試一次。
+          intro: '您的訊息有以下錯誤：'
           ok: 好的
         index:
           ago: 之前
           new_conversation: 新的對話
           next: 下一個
           no_conversations: 您目前還沒有對話.
+          title: 對話
+        reply_form:
+          placeholder: 您的回覆...
+          send: 發送
+        show:
+          back: 返回所有對話
+          chat_with: 與 的對話
+          deleted_accounts: 你不能與已刪除的帳戶進行對話。
+          not_allowed: 該參與者不接受直接訊息。
+          title: 與 %{usernames} 的對話
         start:
+          placeholder: 您的訊息...
           send: 發送
         update:
           error: 由於錯誤，訊息未能傳送.
     metrics:
+      download:
+        csv: 下載資料(CSV)
       followers:
+        description: 追蹤此參與空間的參與者數量
         object: 追隨者
         title: 追隨者
       participants:
+        description: 組織中活躍參與者的數量
         object: 參與者
         title: 參與者
       users:
+        description: 組織中參與者的數量
         object: 參與者
         title: 參與者
+    newsletter_mailer:
+      newsletter:
+        no_reply_notice: 此封郵件是由無法接收傳入郵件的通知郵件地址發送的。請不要回覆此訊息。
+        note: 您收到此電子郵件，是因為您已訂閱了 %{organization_name} 的通訊。您可以在您的<a href="%{link}">通知頁面</a>更改設置。
+        see_on_website: 無法正確顯示此電子郵件？請於 <a href="%{link}" target="_blank" class="see-on-website">網站</a> 查看。
+        unsubscribe: 要取消接收此類郵件，<a href="%{link}" target="_blank" class="unsubscribe">取消訂閱</a>。
+    newsletter_templates:
+      basic_only_text:
+        body_preview: '正文的虛擬文字：Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque fringilla nisl tellus. Donec sed mi dui. Sed efficitur libero a felis tempor sollicitudin. Nullam vestibulum fringilla felis, id efficitur lorem sagittis et. Vivamus aliquam maximus velit vel dapibus. Mauris pellentesque, enim eu varius lacinia, risus ante rutrum ipsum, non lobortis augue lorem quis urna. Aenean et malesuada arcu.'
+        name: 基礎（僅文字）
+    notifications_settings:
+      show:
+        notifications_sending_frequencies:
+          daily: 每日
+          none: 無
+          real_time: 即時
+          weekly: 每週
+        notifications_sending_frequency: 您希望多久收到一封通知郵件？
+        own_activity: 例如，當有人對我的提案發表評論或提及我時，我希望收到通知郵件。
+        push_notifications: 推播通知
+        push_notifications_reminder: 要從平台獲得通知，您需要先在瀏覽器設定中允許通知。
+        receive_notifications_about: 我希望收到有關以下方面的通知：
+        update_notifications_settings: 儲存變更
+      update:
+        error: 更新通知設定時出現問題。
+        success: 您的通知設定已成功更新。
+    offline:
+      show:
+        message: 看起來您目前處於離線狀態，請稍後再試。
+        retry: 重試
+    open_data:
+      not_available_yet: 開放數據檔案尚未可用，請稍後再試。
+    own_user_groups:
+      index:
+        pending: 等待中
+        rejected: 已拒絕
+        verified: 已驗證
+    pad_iframe:
+      disclaimer: 此筆記內容由註冊用戶撰寫並表達其意見。%{organization} 對其內容不承擔責任。"
+      explanation: 使用此區塊共同協作撰寫會議紀錄，以便之後更輕鬆地撰寫會議記錄。
+      pad: 平板
+    pages:
+      home:
+        extended:
+          debates: 辯論
+          debates_explanation: 辯論和討論，分享你的觀點，豐富相關話題。
+          how_to_participate: 如何參與一個流程？
+          meetings: 會議
+          meetings_explanation: 尋找您可以參加公開會議的地點和時間。
+          more_info: 更多關於 %{resource_name} 的資訊
+          proposals: 提案
+          proposals_explanation: 提出建議、支持現有建議並推動您希望看到的變化。
+        footer_sub_hero:
+          footer_sub_hero_body: 一起建立更加開放、透明和協作的社會。<br /> 加入、參與和做出決策。
+          footer_sub_hero_headline: 歡迎來到 %{organization} 的參與平台。
+          register: 註冊
+        hero:
+          participate: 參與
+          welcome: 歡迎來到 %{organization}！
+        metrics:
+          headline: 指標
+        statistics:
+          headline: '%{organization} 的目前狀態'
+        sub_hero:
+          register: 註冊
+      index:
+        standalone_pages: 頁
+        subheading: 瀏覽 %{name} 的幫助頁面
+        title: 幫助
+        topics: 主題
+      participatory_space:
+        metrics:
+          headline: 指標
+          link: 顯示所有指標
+      terms_of_service:
+        accept:
+          error: 接受服務條款時出現問題。
+          success: 太棒了！您已經接受了服務條款。
+        form:
+          agreement: 我同意上述条款
+          legend: 我同意服務條款
+        refuse:
+          modal_body: 如果您拒絕，將無法使用該平台，您可以<a href="%{download_your_data_path}">下載您的數據</a>和/或<a href="%{delete_path}">刪除您的帳戶</a>。
+          modal_btn_continue: 接受條款並繼續
+          modal_btn_exit: 我稍後會再查看。
+    reported_mailer:
+      report:
+        content: 已檢舉內容
+        content_original_language: 內容的原始語言
+        date: 報告於
+        details: 詳細資料
+        hello: 哈囉，%{name},
+        id: ID
+        participatory_space: 參與空間
+        reason: 理由
+        report_html: <p>以下<a href="%{url}">內容</a>已被檢舉。</p>
+        see_report: 查閱報告
+        subject: 一個資源已被檢舉。
+    reports:
+      create:
+        error: 在建立報告時發生錯誤。請再試一次。
+        success: 報告已成功建立，將由管理員進行審查。
+    resource_endorsements:
+      create:
+        error: 在連署操作過程中出現問題。
+    scopes:
+      global: 全域範圍
+      picker:
+        cancel: 取消
+        change: 更改所選範圍
+        choose: 選擇
+        currently_selected: 目前選取的範圍
+        title: 選擇 %{field}
+      prompt: 選擇一個範圍
+      scopes: 範圍
+      scopes_picker_input:
+        select_scope: '選擇範圍 (目前: %{current})'
+    search:
+      results: 搜尋結果
+      results_found_for_term: '搜尋結果：%{term}（共找到 %{count} 個結果）'
+      term_input_placeholder: 搜尋
+    searches:
+      filters:
+        back: 返回至結果
+        jump_to: '跳到：'
+        state:
+          active: 啟動
+          all: 全部
+          future: 未來
+          past: 過去
+      filters_small_view:
+        close_modal: 關閉視窗
+        filter: 篩選器
+        filter_by: 篩選條件
+        unfold: 展開
+      results:
+        results:
+          other: "One\n%{count} 個結果\n\nOther\n%{count} 個結果"
+        view_all: 查看全部(%{count})
+    security:
+      selfxss_warning:
+        title: 停止!
+    shared:
+      confirm_modal:
+        cancel: 取消
+        close_modal: 關閉視窗
+        ok: 好的
+        title: 確認
+      embed_modal:
+        close_window: 關閉視窗
     user_activity:
       index:
         no_activities_warning: 這個參與者還沒有任何活動。
