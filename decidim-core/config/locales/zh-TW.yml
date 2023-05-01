@@ -362,9 +362,72 @@ zh-TW:
         name: 虛擬授權工作流程
       errors:
         duplicate_authorization: 已經有參與者以相同資料進行授權。管理員將與您聯繫以驗證您的詳細資料。
+      expired_at: 過期於 %{timestamp}
+      expires_at: 到期於 %{timestamp}
+      foo_authorization:
+        fields:
+          bar: Bar
+          foo: Foo
+        name: Foo 授權
+      granted_at: 授予時間：%{timestamp}
+      sms:
+        explanation: 請提供您的手機號碼以進行身份驗證。
+        name: 透過簡訊驗證碼
+      started_at: 開始時間為 %{timestamp}
+    authorization_modals:
+      content:
+        close_modal: 關閉視窗
+        expired:
+          authorize: 重新授權使用 "%{authorization}"
+          explanation: 您的授權已過期。為了執行此操作，您需要重新授權使用 "%{authorization}"。
+          title: 授權已過期
+        incomplete:
+          cancel: 取消
+          explanation: '即使您目前已經經過"%{authorization}"的授權，我們需要您重新授權，因為我們缺少以下資料：'
+          invalid_field: "%{field}"
+          reauthorize: 重新授權
+          title: 請重新授權
+        missing:
+          authorize: 使用「%{authorization}」進行授權
+          explanation: 為了執行此操作，您需要使用「%{authorization}」進行授權。
+          title: 需要授權
+        ok:
+          title: 您已在此頁面授權。請重新載入頁面以執行您的操作。
+        pending:
+          explanation: 為了執行此操作，您需要使用 "%{authorization}" 進行授權，但您的授權仍在進行中。
+          resume: 檢查您的"%{authorization}"授權進度.
+          title: 授權仍在進行中
+        unauthorized:
+          explanation: 抱歉，由於您的某些授權資料不符，您無法執行此操作。
+          invalid_field: "%{field} 的值%{value} 無效"
+          ok: 確定
+          title: 尚未授權
+        unconfirmed:
+          confirmation_instructions: '如果您沒有收到確認指示，您可以再次請求：'
+          explanation_html: 為了執行此操作，您需要進行授權。在此之前，請確認您的電子郵件地址 <strong>%{email}</strong>。
+          request_confirmation_instructions: 要求確認指示
+          title: 確認您的電郵
+    block_user_mailer:
+      notify:
+        body_1: 您的帳戶已被封鎖。
+        body_2: '原因: %{justification}'
+        greetings: 問候,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: 您好！
+        subject: 您的帳戶已被 %{organization_name} 封鎖。
+    collapsible_list:
+      hidden_elements_count:
+        other: "one\n和 %{count} 個\n\nOther\n和 %{count} 個"
+      see_less: "(查看較少)"
+      see_more: "(查看更多)"
     components:
       component_order_selector:
+        no_content: 我們找不到符合這個條件的任何內容.
         order:
+          all_types: 所有類型
+          collaborative_draft: 協作草稿
+          comment: 評論
+          debate: 辯論
+          initiative: 倡議
           meeting: 會議
           order: 預算投票
           post: 文章
@@ -458,6 +521,9 @@ zh-TW:
           email_already_exists: 另一個帳戶已經使用了相同的電子郵件地址.
         new:
           complete_profile: 完成個人檔案
+          nickname_help: 在 %{organization} 中的別名。只能包含字母、數字、'-' 和 '_'。
+          sign_up: 請完成您的個人檔案
+          subtitle: 請填寫以下表單以完成註冊。
     download_your_data:
       export:
         ready: 準備就緒
@@ -536,6 +602,16 @@ zh-TW:
       components:
         component_published:
           email_intro: '%{participatory_space_title} 現已啟用 %{resource_title} 元件。您可以從此頁面查看：'
+      email_event:
+        email_greeting: 哈囉，%{user_name}!
+        email_intro: '%{resource_title}" 有更新。您可以從此頁面查看更新內容：'
+        email_outro: 您收到了此通知，是因為您正在關注 "%{resource_title}"。您可以通過前面的鏈接取消關注它。
+        email_subject: '%{resource_title} 的更新'
+      gamification:
+        badge_earned:
+          email_intro: 恭喜！您已經獲得了 <a href="%{resource_url}">%{badge_name} 徽章</a>(等級 %{current_level})。
+          email_outro: 您收到此通知是因為您在我們的網站上進行了相關活動。
+          email_subject: '您獲得了新的徽章: %{badge_name}!'
       groups:
         user_group_updated:
           notification_title: '%{user_group_name} 使用者群組已更新其個人資料，讓它未經驗證。您現在可以在<a href="%{groups_admin_path}">管理面板</a>中進行驗證。'
