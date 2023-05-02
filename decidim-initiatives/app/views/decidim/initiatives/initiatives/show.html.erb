@@ -56,14 +56,21 @@ edit_link(
       <span class="initiative__aside__element__signature-title">
         <%= t("signature_collection", scope: "decidim.initiatives.initiatives.show") %>
       </span>
-      <div class="mb-2">
-        <%= icon "community-line", class: "fill-gray inline-block" %>
-        <span class="text-md font-normal text-gray-2 inline-block align-middle ml–2">Presencial</span>
-      </div>
-      <div class="mb-2">
-        <%= icon "device-line", class: "fill-gray inline-block" %>
-        <span class="text-md font-normal text-gray-2 inline-block align-middle ml–2">Digital</span>
-      </div>
+      <% if current_initiative.offline_signature_type? %>
+        <div class="mb-2">
+          <%= icon "community-line", class: "fill-gray inline-block" %>
+          <span class="text-md font-normal text-gray-2 inline-block align-middle ml–2">
+            <%= t("offline", scope: "activemodel.attributes.initiative.signature_type_values") %>
+          </span>
+        </div>
+      <% else %>
+        <div class="mb-2">
+          <%= icon "device-line", class: "fill-gray inline-block" %>
+          <span class="text-md font-normal text-gray-2 inline-block align-middle ml–2">
+            <%= t("online", scope: "activemodel.attributes.initiative.signature_type_values") %>
+          </span>
+        </div>
+      <% end %>
     </div>
 
     <div class="initiative__aside__element">
@@ -78,14 +85,18 @@ edit_link(
         <p class="initiative__aside__element__data-title">
           <%= t("state", scope: "decidim.initiatives.initiatives.show") %>
         </p>
-        <span class="initiative__aside__element__data-text"><%= render partial: "initiative_badge", locals: { initiative: current_initiative } %></span>
+        <span class="initiative__aside__element__data-text">
+          <%= render partial: "initiative_badge", locals: { initiative: current_initiative } %>
+        </span>
       </div>
 
       <div class="initiative__aside__element__data">
         <p class="initiative__aside__element__data-title">
           <%= t("scope", scope: "decidim.initiatives.initiatives.show") %>
         </p>
-        <span class="initiative__aside__element__data-text"><%= render partial: "tags_scope", locals: { resource: current_initiative } %></span>
+        <span class="initiative__aside__element__data-text">
+          <%= render partial: "tags_scope", locals: { resource: current_initiative } %>
+        </span>
       </div>
 
       <div class="initiative__aside__element__data">

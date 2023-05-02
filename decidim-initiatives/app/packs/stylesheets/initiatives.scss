@@ -137,6 +137,10 @@
   @apply relative;
 }
 
+#initiatives .card__grid-text{
+  @apply min-h-[120px];
+}
+
 .wizard__steps{
   @apply text-center my-8 text-center list-none;
 
