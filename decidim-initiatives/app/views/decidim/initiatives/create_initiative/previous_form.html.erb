@@ -1,6 +1,6 @@
 <div class="callout secondary">
   <%= t("help", scope: "decidim.initiatives.create_initiative.previous_form") %>
-  <%= link_to t("more_information", scope: "decidim.initiatives.create_initiative.previous_form"), decidim.page_path("initiatives"), target: "_blank", class: 'button button__sm button__text-secondary block' %>
+  <%= link_to t("more_information", scope: "decidim.initiatives.create_initiative.previous_form"), decidim.page_path("initiatives"), target: "_blank", class: "button button__sm button__text-secondary block" %>
 </div>
 <%= decidim_form_for(@form, url: next_wizard_path, method: :put, html: { class: "form-defaults" }) do |f| %>
   <div class="form__wrapper">
