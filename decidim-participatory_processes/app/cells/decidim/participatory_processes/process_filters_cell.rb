@@ -19,12 +19,13 @@ module Decidim
       end
 
       def current_filter
-        get_filter_in(:date, ALL_FILTERS, model[:default_filter])
-      end
+        date_filter = get_filter(:date)
+        return model[:default_filter] unless date_filter
+        return date_filter if ALL_FILTERS.include?(date_filter)
 
-      def current_type_filter_name
-        participatory_process_types_for_select.find { |_, id| id == get_filter(:with_type) }&.first ||
-          I18n.t("all_types", scope: "decidim.participatory_processes.participatory_processes.filters")
+        # Default to "all" in case the filter is unknown, as the search also
+        # defaults to this.
+        "all"
       end
 
       def get_filter(filter_name, default = nil)
