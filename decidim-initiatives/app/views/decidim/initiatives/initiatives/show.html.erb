@@ -56,25 +56,23 @@ edit_link(
       <span class="initiative__aside__element__signature-title">
         <%= t("signature_collection", scope: "decidim.initiatives.initiatives.show") %>
       </span>
-      <% if current_initiative.offline_signature_type? %>
-        <div class="mb-2">
+      <div>
+        <% if current_initiative.offline_signature_type? %>
           <%= icon "community-line", class: "fill-gray inline-block" %>
           <span class="text-md font-normal text-gray-2 inline-block align-middle ml–2">
             <%= t("offline", scope: "activemodel.attributes.initiative.signature_type_values") %>
           </span>
-        </div>
-      <% else %>
-        <div class="mb-2">
+        <% else %>
           <%= icon "device-line", class: "fill-gray inline-block" %>
           <span class="text-md font-normal text-gray-2 inline-block align-middle ml–2">
             <%= t("online", scope: "activemodel.attributes.initiative.signature_type_values") %>
           </span>
-        </div>
-      <% end %>
+        <% end %>
+      </div>
     </div>
 
-    <div class="initiative__aside__element">
-      <div class="mb-4">
+    <div class="initiative__aside__element__initiative__data">
+      <div class="mb-6">
         <%= icon "apps-line", class: "fill-gray inline-block" %>
         <span class="initiative__aside__element-title">
           <%= t("initiative_data", scope: "decidim.initiatives.initiatives.show") %>
