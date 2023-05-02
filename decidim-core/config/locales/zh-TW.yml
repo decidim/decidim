@@ -828,6 +828,7 @@ zh-TW:
           validation_error: 驗證錯誤!
       upload_help:
         dropzone: 拖曳文件至此處或點擊上傳
+        explanation: 關於 %{attribute} 的指引
     gamification:
       all_badges_link: 查看所有可行徽章
       badges:
@@ -835,11 +836,19 @@ zh-TW:
           conditions:
             - 積極參與並追蹤其他人，有助於吸引其他人追蹤您。
           description: 當您達到一定數量的追蹤者時，將獲得此徽章。%{organization_name} 是一個社交和政治網絡，藉此平台與其他人溝通，編織您的網絡。
+          description_another: 這位參與者有 %{score} 位追隨者。
+          description_own: "這位參與者有 %{score} 位追隨者。"
           name: 追隨者
+          next_level_in: 再有 %{score} 位追隨者跟隨您，就可以達到下一個等級了！
           unearned_another: 這位參與者還沒有任何追蹤者。
           unearned_own: 您還沒有追隨者。
         index:
+          badge_title: "%{name} 徽章"
+          how: 您可以如何獲得它
+          page_description: 徽章是對參與者在平台上的行動和進步的認可。當您開始探索、參與和互動平台時，您將獲得不同的徽章。以下是徽章的列表以及一些獲得徽章的方式：
           title: 徽章
+      description: 徽章是對參與者在平台上的行動和進步的認可。隨著您開始探索、參與和互動平台，您將獲得不同的徽章。
+      level: 等級 %{level}
       reached_top: 您已經達到此徽章的最高等級。
     group_admins:
       actions:
@@ -848,13 +857,18 @@ zh-TW:
       demote:
         error: 刪除此參與者的管理員名單時發生問題。
         success: 成功從管理員列表中刪除參與者
+      index:
+        current_admins: '目前的管理員：'
+        manage_admins: 管理管理員
     group_invites:
       accept:
         error: 這個邀請接受時發生問題。
         success: 邀請已成功接受
       accept_invitation: 接受
+      accept_or_reject_group_invitations: '以下群組已邀請您加入。請接受或拒絕他們的邀請：'
       index:
         invite: 邀請
+        invite_user: 邀請一位參與者
       invite:
         error: 邀請參與者加入時發生問題
         success: 成功邀請參與者
@@ -932,9 +946,27 @@ zh-TW:
       activities:
         no_activities_warning: 沒有活動
       all: 所有活動類型
+      index:
+        last_activity: 最後活動
+        resource_type: 類別
     links:
+      invalid_url: 無效網址 URL
       warning:
+        body_1: 您即將訪問外部連結，我們希望您對外部網站上的內容保持警覺。
+        body_2: 在繼續進行之前，請檢查您即將訪問的連結，確保您認識它並認為它是一個安全的網站。
+        cancel: 取消
         close_modal: 關閉視窗
+        proceed: 繼續
+        title: 開啟外部連結
+    log:
+      base_presenter:
+        create: "%{user_name} 創建了 %{resource_name}"
+        create_with_space: "%{user_name} 在 %{space_name} 中創建了 %{resource_name}"
+        delete: "%{user_name} 刪除了 %{resource_name}"
+        delete_with_space: "%{user_name} 在 %{space_name} 中刪除了 %{resource_name}"
+        publish_with_space: "%{user_name} 在 %{space_name} 中發布了 %{resource_name}"
+        unknown_action: "%{user_name} 在 %{resource_name} 上執行了一些操作"
+        unknown_action_with_space: "%{user_name} 在 %{space_name} 中的 %{resource_name} 上執行了一些操作"
     map:
       static:
         map_service_brand: 開放街圖
@@ -1051,11 +1083,25 @@ zh-TW:
       update:
         error: 出現了錯誤
         success: 成功更新電子報設定
+    notifications_digest_mailer:
+      intro:
+        daily: '這些是根據您所關注的活動在最近一天內的通知：'
+        weekly: '這些是根據您所關注的活動在最近一周內的通知：'
+      outro: 您收到這些通知是因為您正在關注這些內容或其作者。您可以從相應的頁面取消關注。
+      see_more: 查看更多通知
+      subject: 這是您的郵件摘要。
     notifications_settings:
       show:
+        administrators: 管理員
         allow_public_contact: 允許任何人向我發送私信，即使我沒有關注他們。
         allow_push_notifications: 當您不在平台上時，接收推播通知以了解正在發生的事情。您可以隨時關閉。
+        direct_messages: 接收來自任何人的直接訊息。
+        email_on_moderations: 我想在每次有任何內容或使用者被舉報需要審核時收到郵件通知。
+        everything_followed: 我關注的所有內容
+        newsletter_notifications: 我想收到電子報。
         newsletters: 電子報
+        notification_settings:
+          close_meeting_reminder: 我希望收到關於已結束的會議和未發布報告的電子郵件提醒。
         notifications_sending_frequencies:
           daily: 每日
           none: 無
@@ -1130,11 +1176,15 @@ zh-TW:
           modal_body: 如果您拒絕，將無法使用該平台，您可以<a href="%{download_your_data_path}">下載您的數據</a>和/或<a href="%{delete_path}">刪除您的帳戶</a>。
           modal_btn_continue: 接受條款並繼續
           modal_btn_exit: 我稍後會再查看。
+          modal_button: 拒絕條款
           modal_close: 關閉視窗
           modal_title: 您真的要拒絕更新 使用條款和條件嗎？
         required_review:
           alert: 我們已更新我們的服務條款，請您查閱。
           body: 請花一點時間檢閱我們的服務條款更新，否則您將無法使用平台。
+          title: '必須：檢閱我們的服務條款更新'
+    participatory_space_private_users:
+      not_allowed: 您無權查看此內容
     passwords:
       update:
         error: 密碼更新時發生問題
@@ -1160,13 +1210,28 @@ zh-TW:
         view_full_profile: 查看完整個人資料
       sidebar:
         badges:
+          info: 徽章是通過在平台上執行特定活動而獲得的。
           title: 徽章
       user:
         confirmation_instructions_sent: 電子郵件確認指示已發送
         create_user_group: 建立群組
+        edit_profile: 編輯個人資料
+        edit_user_group: 編輯群組資料
         fill_in_email_to_confirm_it: 請填寫您的群組電子郵件以進行確認
+        invite_user: 邀請參與者
+        join_user_group: 申請加入群組
+        leave_user_group: 退出群組
+        manage_user_group_admins: 管理管理員
+        manage_user_group_users: 管理成員
+        resend_email_confirmation_instructions: 重新發送電子郵件確認指示
     reported_mailer:
+      hide:
+        hello: 哈囉，%{name},
+        manage_moderations: 管理版主
+        report_html: <p>以下<a href="%{url}">內容</a>已自動隱藏。</p>
+        subject: 一個資源已被自動隱藏。
       report:
+        authors: 作者
         content: 已檢舉內容
         content_original_language: 內容的原始語言
         date: 報告於
@@ -1238,7 +1303,11 @@ zh-TW:
         unfold: 展開
       filter_form_help:
         help: 下方的表單會在搜尋條件變更時動態篩選搜尋結果。
+        skip: 跳到結果
       flag_modal:
+        already_reported: 此內容已被舉報，將由管理員進行審查。
+        close: 關閉
+        description: 這個內容是否不適當？
         does_not_belong: 包含非法活動、自殺威脅、個人資訊或其他您認為不適合在%{organization_name} 上的內容。
         offensive: 包含種族主義、性別歧視、辱罵、人身攻擊、死亡威脅、自殺要求或任何形式的仇恨言論
         reason: 理由
@@ -1342,12 +1411,33 @@ zh-TW:
   devise:
     failure:
       inactive: 您的帳號尚未啟用。
+      invalid: 無效的 %{authentication_keys} 或密碼。
+      invited: 您有一份待處理的邀請，請接受它以完成您的帳戶創建。
+      last_attempt: 您還有最後一次嘗試機會，再次失敗您的帳號將會被鎖定。
+      locked: 您的帳號已被鎖定。
+      not_found_in_database: 無效的 %{authentication_keys} 或密碼。
+      timeout: 登入階段逾時。請重新登入以繼續。
+      unauthenticated: 您需要先登入或註冊後才能繼續。
     invitations:
+      edit:
+        header: 完成您的帳戶設置
+        nickname_help: 在 %{organization} 中的暱稱。只能包含字母、數字、'-' 和 '_'。
+        submit_button: 儲存
+        subtitle: 如果您接受邀請，請設定您的暱稱和密碼。
+      invitation_removed: 您的邀請已被移除。
+      invitation_token_invalid: 提供的邀請代幣無效！
       new:
         header: 發送邀請
         submit_button: 發送一個邀請
+      no_invitations_remaining: 沒有待處理的邀請
+      send_instructions: 已向 %{email} 發送了一封邀請郵件。
+      updated: 您的密碼已成功設定。您現在已登入。
+      updated_not_active: 您的密碼已成功設定。
     mailer:
       confirmation_instructions:
+        action: 確認我的帳戶
+        greeting: 歡迎 %{recipient} ！
+        instruction: '您可以通過下面的鏈接確認您的電子郵件帳戶：'
         subject: 確認說明
       email_changed:
         greeting: 哈囉 %{recipient}!
@@ -1414,6 +1504,18 @@ zh-TW:
       destroyed: 您的帳號已成功取消，期待再相逢。
       new:
         sign_up: 註冊登記
+      signed_up: 歡迎！您已成功註冊。
+      signed_up_but_inactive: 您已註冊成功，但由於您的帳號尚未啟用，我們暫時無法讓您登入。
+      signed_up_but_locked: 你已成功註冊。然而，由於你的賬戶被鎖，我們無法讓你登入。
+      signed_up_but_unconfirmed: 確認信件已送至您的 Email 信箱，請點擊信件內連結以啓動您的帳號。
+      update_needs_confirmation: 您已經成功的更新帳號資訊，但我們仍需確認您的電子信箱，請至新信箱收信並點擊連結以確認您的新電子郵件帳號。
+      updated: 您的帳號已成功升級。
+    sessions:
+      already_signed_out: 已成功登出。
+      new:
+        sign_in: 登入
+      signed_in: 已成功登入。
+      signed_out: 已成功登出。
     shared:
       links:
         back: 返回
@@ -1421,10 +1523,19 @@ zh-TW:
         didn_t_receive_unlock_instructions: 沒有收到解鎖說明？
         forgot_your_password: 忘記密碼了嗎？
         sign_in: 登入
+        sign_in_with_provider: 用%{provider} 登錄
         sign_up: 註冊登記
+      minimum_password_length:
+        other: "One\n(最少%{count} 個字符)\n\nOther\n(最少%{count} 個字符)"
     unlocks:
       new:
         resend_unlock_instructions: 重新發送解鎖說明
+      send_instructions: 您將在幾分鐘後收到一封電子郵件，內有將帳號解除鎖定的步驟說明。
+      send_paranoid_instructions: 如果你的賬戶存在，你將會在幾分鐘內收到一封電郵，內有解鎖賬戶的方法。
+      unlocked: 您的帳戶已成功解鎖。請登錄以繼續。
+  doorkeeper:
+    scopes:
+      public: 您的公開資訊。
   errors:
     messages:
       cycle_detected: 一個範圍的父級範圍不能是其後代之一
