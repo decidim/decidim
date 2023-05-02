@@ -1276,27 +1276,48 @@ zh-TW:
         spam: 包含點閱率誘導、廣告、詐騙或自動腳本。
         title: 檢舉不當內容
       flag_user_modal:
+        already_reported: 此內容已被舉報，將由管理員進行審查。
         close: 關閉
+        description: 關於該使用者有什麼不適當的行為？
         does_not_belong: 包含非法活動、自殺威脅、個人資訊或其他您認為不適合在%{organization_name} 上的內容。
+        offensive: 包含種族主義、性別歧視、辱罵、人身攻擊、死亡威脅、自殺要求或任何形式的仇恨言論
         report: 報告
+        spam: 包含點閱率誘導、廣告、詐騙或自動腳本。
+        title: 舉報不適當的使用者
       floating_help:
         close: 關閉幫助
         help: 幫助
+      follow_button:
+        sign_in_before_follow: 請在執行此操作之前登入。
       login_modal:
         close_modal: 關閉視窗
+        please_sign_in: 請先登入
+        sign_up: 註冊登記
       participatory_space_filters:
         filters:
           areas: 區域
           select_an_area: 選擇一個地區
+      public_participation:
+        public_participation: 公開展示我的出席情況。
+      reference:
+        reference: '參考資料: %{reference}'
       represent_user_group:
+        represent_user_group: 我代表一個群組。
         select_user_group: 選擇一個群組
+      results_per_page:
+        label: '每頁顯示的結果：'
+        title: 選擇每頁的結果數量
       share_modal:
         close_window: 關閉視窗
         copy_share_link: 複製
+        copy_share_link_clarification: 複製分享連結到剪貼簿。
+        copy_share_link_copied: 已複製！
+        copy_share_link_message: 連結已成功複製到剪貼簿。
         share: 分享
         share_link: 分享連結
     statistics:
       comments_count: 評論
+      endorsements_count: 連署
       followers_count: 追隨者
       headline: 統計資料
       no_stats: 目前還沒有統計資料。
@@ -1365,11 +1386,49 @@ zh-TW:
     version:
       show:
         back_to_resource: 返回
+        changes_at_title: '"%{title}" 的更改'
         number_of_versions: 版本
+        show_all_versions: 顯示所有版本
+        version_author: 版本作者
+        version_created_at: 版本建立於
+        version_number: 版本號碼
+        version_number_out_of_total: "第 %{current_version} 版(共 %{total_count} 版)"
+    version_author:
+      show:
+        deleted: 已刪除的參與者
+    versions:
+      resource_version:
+        of_versions: "(的%{number})"
+        see_other_versions: 查看其他版本
+        version: 版本號碼 %{number}
+    versions_list:
+      show:
+        back_to_resource: 返回
+        changes_at_title: '"%{title}" 的更改'
+        number_of_versions: 版本
+        title: 版本
+    versions_list_item:
+      back: 顯示所有版本
+      show:
+        version_index: 版本 %{index}
     welcome_notification:
       default_body: <p>嗨 {{name}}，感謝您加入 {{organization}}，歡迎！</p><ul><li>如果您想快速了解此處的功能，請查看<a href="{{help_url}}">幫助</a>部分。</li><li>閱讀後，您將獲得第一個徽章。這裡是{{organization}} 中您可以參加的所有徽章的<a href="{{badges_url}}">清單</a></li><li>最後但並非最不重要的，加入其他人，分享與他們參與 {{organization}} 的經驗。提出建議，評論，辯論，考慮如何為共同利益做出貢獻，提供論據以說服，耐心聆聽並閱讀以取得信服，以具體且直接的方式表達您的想法，以耐心和決定力回應，捍衛您的想法，保持開放的態度以協作和加入其他人的想法。</li></ul>
+      default_subject: 感謝您加入 {{organization}}！
+    wizard_step_form:
+      wizard_aside:
+        back: 返回
+      wizard_header:
+        see_steps: 看步驟
+        step_of: 第 %{current_step} 步，共 %{total_steps} 步
   devise:
+    confirmations:
+      confirmed: 您的電子郵件地址已成功確認。
+      new:
+        resend_confirmation_instructions: 重新發送確認指示
+      send_instructions: 您將在幾分鐘後收到一封電子郵件，內有驗證帳號的步驟說明。
+      send_paranoid_instructions: 如果我們的資料庫中有你的電郵地址，你將會在幾分鐘內收到一封電郵，內有確認電郵地址的方法。
     failure:
+      already_authenticated: 您已經登入了。
       inactive: 您的帳號尚未啟用。
       invalid: 無效的 %{authentication_keys} 或密碼。
       invited: 您有一份待處理的邀請，請接受它以完成您的帳戶創建。
@@ -1540,11 +1599,47 @@ zh-TW:
       header:
         close_menu: 關閉選單
         main_menu: 主選單
+        navigation: 導航
+        sign_in: 登入
+        sign_up: 註冊
+        user_menu: 使用者選單
+      impersonation_warning:
+        close_session: 關閉階段
+        description_html: 您正在管理參與者 <b>%{user_name}</b>。
+        expire_time_html: 您的會話將在 <b><span class="minutes">%{minutes}</span> 分鐘內過期</b>。
+      language_chooser:
+        choose_language: 選擇語言
+      notifications_dashboard:
+        mark_all_as_read: 全部標記為已讀
+        mark_as_read: 標記為已讀
+      social_media_links:
+        facebook: "%{organization} 在 Facebook"
+        github: "%{organization} 在 GitHub"
+        instagram: "%{organization} 在 Instagram"
+        twitter: "%{organization} 在 Twitter"
+        youtube: "%{organization} 在 YouTube"
       timeout_modal:
+        body: 您已經閒置了 %{minutes} 分鐘。如果您繼續閒置，為了您的安全，您將被自動登出。
+        continue_session: 繼續會話
         sign_out: 登出
+        title: 您是否想要繼續進行本次對話？
       user_menu:
+        account: '使用者帳戶： %{name}'
+        admin_dashboard: 管理員儀表板
+        conversations: 對話
+        notifications: 通知訊息
         profile: 我的帳號
+        public_profile: 我的公開個人資料
+        sign_out: 登出
+        title: 個人資料連結
       user_profile:
+        account: 帳號
+        authorizations: 授權
+        delete_my_account: 刪除我的帳號
+        my_data: 我的資料
+        my_interests: 我的興趣
+        notifications_settings: 通知設定
+        title: 參與者設定
         user_groups: 群組
       widget:
         see_more: 查看更多
@@ -1553,17 +1648,70 @@ zh-TW:
     name_with_error: 英文 (錯誤！)
   password_validator:
     blacklisted: 已列入黑名单
+    domain_included_in_password: 與此域名稱太相似
+    email_included_in_password: 與您的電子郵件太相似
+    fallback: 為無效
+    name_included_in_password: 與您的名字太相似
+    nickname_included_in_password: 與您的暱稱太相似
+    not_enough_unique_characters: 沒有足夠的獨特字符
+    password_not_allowed: 不被允許
+    password_too_common: 太常見了
+    password_too_long: 太長
+    password_too_short: 太短
   social_share_button:
     delicious: 美味
     douban: 豆瓣
     email: 電子郵件
     facebook: Facebook(臉書)
+    google_bookmark: Google書籤
+    google_plus: Google+
+    hacker_news: 駭客新聞(Hacker News)
     linkedin: LinkedIn
+    pinterest: 繽趣 (Pinterest)
+    qq: Qq空間 (Qzone)
+    reddit: 紅迪 (Reddit)
+    share_to: 分享至 %{name}
     telegram: Telegram
     tumblr: Tumblr
     twitter: Twitter
     vkontakte: Vkontakte
     wechat: 微信 WeChat
+    wechat_footer: 請打開你的微信，點擊「發現」按鈕，然後點擊「掃描QR碼」選單。
+    weibo: 新浪微博 (Sina Weibo)
+    whatsapp_app: WhatsApp
+    whatsapp_web: WhatsApp
+    xing: Xing
+  time:
+    formats:
+      day_of_month: "%b %d"
+      day_of_week: "%a"
+      day_of_week_long: "%a %e"
+      day_of_year: "%d.%m.%y"
+      ddmm: "%d.%m"
+      ddmmyyyy: "%d.%m.%Y"
+      decidim_day_of_year: "%d %B %Y"
+      decidim_short: "%d/%m/%Y %H:%M"
+      default: "%a, %d %b %Y %H:%M:%S %z"
+      devise:
+        mailer:
+          invitation_instructions:
+            accept_until_format: "%B %d, %Y %I:%M %p"
+      long: "%B %d, %Y %H:%M"
+      long_dashed: "%Y-%m-%d %H:%M:%S"
+      short: "%d/%m/%Y %H:%M"
+      time_of_day: "%H:%M"
+  versions:
+    directions:
+      left: 刪除
+      right: 附加項
+    dropdown:
+      choose_diff_view_html: 'HTML 檢視模式:'
+      choose_diff_view_mode: '比較檢視模式'
+      choose_diff_view_mode_menu: 選擇比較模式
+      option_escaped: 已轉義
+      option_split: 並排顯示
+      option_unescaped: 未轉義
+      option_unified: 統一顯示
   views:
     pagination:
       first: "&laquo; 第一"
@@ -1571,5 +1719,9 @@ zh-TW:
       last: 最後 &raquo;
       last_title: 鏈接到最後一頁
       next: 下一個 &rsaquo;
+      next_title: 鏈接到下一頁
+      pagination: 分頁
       previous: "&lsaquo; 上一篇"
+      previous_title: 連結至前一頁
       title: '頁碼： '
+      truncate: "&hellip;"
