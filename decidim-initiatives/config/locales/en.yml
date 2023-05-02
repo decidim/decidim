@@ -488,6 +488,7 @@ en:
           no_members_yet: There are no members in the promoter committee
           revoke: Revoke
           title: Committee members
+          link: Link
         count:
           title:
             one: "%{count} initiative"
