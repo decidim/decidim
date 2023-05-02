@@ -23,7 +23,7 @@ module Decidim::Initiatives
       let(:show_space) { false }
 
       it "renders the card" do
-        expect(subject).to have_css(".card--initiative")
+        expect(subject).to have_css(".card__grid")
       end
 
       shared_examples_for "card shows signatures" do

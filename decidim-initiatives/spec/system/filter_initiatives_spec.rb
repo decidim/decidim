@@ -41,7 +41,7 @@ describe "Filter Initiatives", :slow, type: :system do
           check "All"
         end
 
-        expect(page).to have_css(".card--initiative", count: 4)
+        expect(page).to have_css(".card__grid", count: 4)
         expect(page).to have_content("4 INITIATIVES")
       end
     end
@@ -53,7 +53,7 @@ describe "Filter Initiatives", :slow, type: :system do
           check "Global"
         end
 
-        expect(page).to have_css(".card--initiative", count: 1)
+        expect(page).to have_css(".card__grid", count: 1)
         expect(page).to have_content("1 INITIATIVE")
       end
     end
@@ -65,7 +65,7 @@ describe "Filter Initiatives", :slow, type: :system do
           check scoped_type1.scope_name[I18n.locale.to_s]
         end
 
-        expect(page).to have_css(".card--initiative", count: 2)
+        expect(page).to have_css(".card__grid", count: 2)
         expect(page).to have_content("2 INITIATIVES")
       end
     end
@@ -96,7 +96,7 @@ describe "Filter Initiatives", :slow, type: :system do
           check "All"
         end
 
-        expect(page).to have_css(".card--initiative", count: 11)
+        expect(page).to have_css(".card__grid", count: 11)
         expect(page).to have_content("11 INITIATIVES")
       end
     end
@@ -108,7 +108,7 @@ describe "Filter Initiatives", :slow, type: :system do
           check "Open"
         end
 
-        expect(page).to have_css(".card--initiative", count: 5)
+        expect(page).to have_css(".card__grid", count: 5)
         expect(page).to have_content("5 INITIATIVES")
       end
     end
@@ -120,7 +120,7 @@ describe "Filter Initiatives", :slow, type: :system do
           check "Closed"
         end
 
-        expect(page).to have_css(".card--initiative", count: 6)
+        expect(page).to have_css(".card__grid", count: 6)
         expect(page).to have_content("6 INITIATIVES")
       end
     end
@@ -135,7 +135,7 @@ describe "Filter Initiatives", :slow, type: :system do
           check "Enough signatures"
         end
 
-        expect(page).to have_css(".card--initiative", count: 3)
+        expect(page).to have_css(".card__grid", count: 3)
         expect(page).to have_content("3 INITIATIVES")
       end
     end
@@ -150,7 +150,7 @@ describe "Filter Initiatives", :slow, type: :system do
           check "Not enough signatures"
         end
 
-        expect(page).to have_css(".card--initiative", count: 2)
+        expect(page).to have_css(".card__grid", count: 2)
         expect(page).to have_content("2 INITIATIVES")
       end
     end
@@ -162,7 +162,7 @@ describe "Filter Initiatives", :slow, type: :system do
           check "Answered"
         end
 
-        expect(page).to have_css(".card--initiative", count: 1)
+        expect(page).to have_css(".card__grid", count: 1)
         expect(page).to have_content("1 INITIATIVE")
       end
     end
@@ -187,7 +187,7 @@ describe "Filter Initiatives", :slow, type: :system do
       end
 
       it "lists all initiatives", :slow do
-        expect(page).to have_css(".card--initiative", count: 3)
+        expect(page).to have_css(".card__grid", count: 3)
         expect(page).to have_content("3 INITIATIVES")
       end
     end
@@ -212,7 +212,7 @@ describe "Filter Initiatives", :slow, type: :system do
             check "All"
           end
 
-          expect(page).to have_css(".card--initiative", count: 3)
+          expect(page).to have_css(".card__grid", count: 3)
           expect(page).to have_content("3 INITIATIVES")
         end
       end
@@ -224,7 +224,7 @@ describe "Filter Initiatives", :slow, type: :system do
             check type1.title[I18n.locale.to_s]
           end
 
-          expect(page).to have_css(".card--initiative", count: 2)
+          expect(page).to have_css(".card__grid", count: 2)
           expect(page).to have_content("2 INITIATIVES")
         end
       end
@@ -253,7 +253,7 @@ describe "Filter Initiatives", :slow, type: :system do
           check "All"
         end
 
-        expect(page).to have_css(".card--initiative", count: 4)
+        expect(page).to have_css(".card__grid", count: 4)
         expect(page).to have_content("4 INITIATIVES")
       end
     end
@@ -271,7 +271,7 @@ describe "Filter Initiatives", :slow, type: :system do
           check area1.name[I18n.locale.to_s]
         end
 
-        expect(page).to have_css(".card--initiative", count: 2)
+        expect(page).to have_css(".card__grid", count: 2)
         expect(page).to have_content("2 INITIATIVES")
       end
     end
@@ -283,7 +283,7 @@ describe "Filter Initiatives", :slow, type: :system do
           check area_type1.name[I18n.locale.to_s]
         end
 
-        expect(page).to have_css(".card--initiative", count: 3)
+        expect(page).to have_css(".card__grid", count: 3)
         expect(page).to have_content("3 INITIATIVES")
       end
     end
@@ -327,7 +327,7 @@ describe "Filter Initiatives", :slow, type: :system do
             choose "Any"
           end
 
-          expect(page).to have_css(".card--initiative", count: 3)
+          expect(page).to have_css(".card__grid", count: 3)
           expect(page).to have_content("3 INITIATIVES")
         end
       end
@@ -338,7 +338,7 @@ describe "Filter Initiatives", :slow, type: :system do
             choose "My initiatives"
           end
 
-          expect(page).to have_css(".card--initiative", count: 3)
+          expect(page).to have_css(".card__grid", count: 3)
           expect(page).to have_content("3 INITIATIVES")
         end
       end
