@@ -422,6 +422,7 @@ ca:
         delete_attachment: Esborrar
       index:
         title: Iniciatives
+        uninitialized: Les iniciatives no han estat configurades encara des de l'administració.
       initiative_signatures:
         fill_personal_data:
           continue: Continua
