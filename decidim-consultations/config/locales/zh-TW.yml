@@ -145,6 +145,18 @@ zh-TW:
             title: 標題
           name:
             other: 回應
+      question_configuration:
+        disable_external_voting: 請在進階配置中禁用外部投票功能。
+        form:
+          help: 通過增加參與者可以選擇的最大回應數量，來設置多選題。預設的最大值為1，意味著只能選擇一個回應進行投票。
+          title: 進階配置
+      question_publications:
+        create:
+          error: 發佈此問題時出現問題。
+          success: 問題成功發佈.
+        destroy:
+          error: 取消發佈問題時出了問題.
+          success: 問題已成功取消發佈。
       questions:
         create:
           error: 建立新問題時出現問題。
@@ -232,8 +244,87 @@ zh-TW:
         active: 生效
         all: 全部
         date: 日期
+        finished: 已完成
+        search: 搜尋
+        upcoming: 即將舉行
+      filters_small_view:
+        close_modal: 關閉視窗
+        filter: 篩選器
+        filter_by: 篩選條件
+        unfold: 展開
+      highlighted_questions:
+        title: 來自於 %{scope_name} 的問題
+      index:
+        title: 諮詢
+      last_activity:
+        new_consultation: '新諮詢:'
+        new_question: '新問題:'
+      pages:
+        home:
+          highlighted_consultations:
+            active_consultations: 進行中的諮詢
+            see_all_consultations: 查看所有諮詢
+            voting_ends_in:
+              other: "One\n投票截止日期：<strong>明天</strong>\n\nOther\n投票截止日期：<strong>%{count} 天後</strong>"
+            voting_ends_today: 投票截止日期：<strong>今天</strong>
+      question:
+        take_part: 參與
+        view_results: 顯示結果
+        votes_out_of:
+          other: "one\n票中的一個\n\nOther\n票中的數個"
+      question_multiple_votes:
+        results_rules:
+          minimum_votes_per_user:
+            description: 參與者可以將最少 %{votes} 票分配給不同的選項。
+          title: 在這個問題中，允許多個選擇。
+          total_participants: 總共有 %{count} 人參與了投票。
+          vote_limit:
+            description: 參與者最多可以投票給 %{limit} 個選項。
+        voting_rules:
+          minimum_votes_per_user:
+            description: 您必須將最少 %{votes} 票分配給不同的選項。
+          title: '投票受以下規則約束：'
+          vote_limit:
+            description: 您最多可以對 %{limit} 個選項進行投票。
+            left: 剩餘
+            votes: 投票
+      question_votes:
+        create:
+          error: 投票此問題時出現問題。
+          success: 您可以在諮詢結束之前更改投票。只有最後一次投票將被接受。
+          title_error: 投票錯誤！
+          title_success: 投票成功註冊。
+      regular_questions:
+        title: 此諮詢的問題
+      show:
+        badge_name:
+          finished: 已完成
+          open: 開啟
+          open_votes: 開放投票
+          published_results: 公佈結果
+        footer_button_text:
+          debate: 辯論
+          view: 檢視
+          view_results: 顯示結果
+          vote: 投票
+        unspecified: 未指定
+    help:
+      participatory_spaces:
+        consultations:
+          contextual: "<p>一個<strong>諮詢</strong>是一個空間，讓您向組織的所有成員提出明確的問題，呼籲參與諮詢，引發並組織支持或反對某個回應的討論。當諮詢日期到來時，您可以進行投票並公佈投票結果。</p> <p>例子：諮詢可以涉及影響組織的幾乎所有方面：例如，更改組織的名稱或標誌，提供多個選項，決定是否加入一個更大的組織，驗證或拒絕新的戰略計劃或工作小組的結果，或確定職位是否應該有最多 1、2 或 3 個任期。</p>\n"
+          page: "<p>一個<strong>諮詢</strong>是一個空間，讓您向組織的所有成員提出明確的問題，呼籲參與諮詢，引發並組織支持或反對某個回應的討論。當諮詢日期到來時，您可以進行投票並公佈投票結果。</p> <p>例子：諮詢可以涉及影響組織的幾乎任何方面：例如，更改組織的名稱或標誌，提供多個替代方案，決定是否加入一個更大的組織，驗證或拒絕新的戰略計劃或工作小組的結果，或確定組織中的職位是否應保持最多 1、2 或 3 個任期。</p>\n"
+          title: 什麼是諮詢？
+    menu:
+      consultations: 諮詢
     questions:
+      next_button: 下一個問題
+      previous_button: 上一個問題
+      results:
+        title: 結果
+      show:
+        read_more: 顯示較多
       statistics:
+        assistants_count_title: 助理
         comments_count_title: 評論
         meetings_count_title: 會議
         supports_count_title: 投票
