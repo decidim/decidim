@@ -13,7 +13,7 @@ module Decidim
       before_action :set_commentable, except: [:destroy, :update]
       before_action :ensure_commentable!, except: [:destroy, :update]
 
-      helper_method :root_depth, :commentable, :order, :reply?, :reload?
+      helper_method :root_depth, :commentable, :order, :reply?, :reload?, :root_comment
 
       def index
         enforce_permission_to :read, :comment, commentable: commentable
@@ -135,14 +135,20 @@ module Decidim
       end
 
       def handle_success(comment)
-        @comment = comment
-        @comments_count = begin
-          case commentable
-          when Decidim::Comments::Comment
-            commentable.root_commentable.comments_count
-          else
-            commentable.comments_count
-          end
+        @comment = comment.reload
+        @comments_count = case commentable
+                          when Decidim::Comments::Comment
+                            commentable.root_commentable.comments_count
+                          else
+                            commentable.comments_count
+                          end
+      end
+
+      def root_comment
+        @root_comment ||= begin
+          root_comment = comment
+          root_comment = root_comment.commentable while root_comment.commentable.is_a?(Decidim::Comments::Comment)
+          root_comment
         end
       end
 

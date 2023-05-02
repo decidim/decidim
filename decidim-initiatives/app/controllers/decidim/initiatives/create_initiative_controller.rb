@@ -16,6 +16,8 @@ module Decidim
 
       helper Decidim::Admin::IconLinkHelper
       helper InitiativeHelper
+      helper SignatureTypeOptionsHelper
+
       helper_method :similar_initiatives
       helper_method :scopes
       helper_method :areas
@@ -23,12 +25,16 @@ module Decidim
       helper_method :initiative_type
       helper_method :promotal_committee_required?
 
+      before_action :authenticate_user!
+
       steps :select_initiative_type,
             :previous_form,
             :show_similar_initiatives,
             :fill_data,
             :promotal_committee,
             :finish
+
+      before_action :ensure_type_exists, only: :show
 
       def show
         enforce_permission_to :create, :initiative
@@ -41,6 +47,15 @@ module Decidim
       end
 
       private
+
+      def ensure_type_exists
+        destination_step = single_initiative_type? ? :previous_form : :select_initiative_type
+
+        return if step == destination_step
+        return if initiative_type_id.present? && initiative_type.present?
+
+        redirect_to wizard_path(destination_step)
+      end
 
       def select_initiative_type_step(_parameters)
         @form = form(Decidim::Initiatives::SelectInitiativeTypeForm).instance

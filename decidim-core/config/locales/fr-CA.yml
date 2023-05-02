@@ -1663,8 +1663,8 @@ fr-CA:
       widget:
         see_more: Voir plus
   locale:
-    name: Français
-    name_with_error: Français (erreur !)
+    name: Français canadien
+    name_with_error: Français canadien (erreur !)
   password_validator:
     blacklisted: sur liste noire
     domain_included_in_password: est trop similaire au nom de domaine de cette plateforme

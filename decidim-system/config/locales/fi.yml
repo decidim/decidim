@@ -42,7 +42,7 @@ fi:
         title: Toiminnot
       admins:
         create:
-          error: Uuden hallinnointikäyttäjän luonti epäonnistui.
+          error: Uuden hallintakäyttäjän luonti epäonnistui.
           success: Hallinnointikäyttäjän luonti onnistui
         destroy:
           success: Hallinnointikäyttäjän poistaminen onnistui
@@ -55,7 +55,7 @@ fi:
           create: Luo
           title: Uusi hallinnoija
         update:
-          error: Hallinnointikäyttäjän päivitys epäonnistui.
+          error: Hallintakäyttäjän päivitys epäonnistui.
           success: Hallinnointikäyttäjän päivitys onnistui
       dashboard:
         show:
@@ -76,7 +76,7 @@ fi:
             email: Sähköposti
           name: Hallinnoija
           validations:
-            email_uniqueness: toinen hallinnointikäyttäjä on jo olemassa samalla sähköpostilla
+            email_uniqueness: toinen hallintakäyttäjä on jo olemassa samalla sähköpostilla
         oauth_application:
           fields:
             created_at: Luontiaika
@@ -85,7 +85,7 @@ fi:
           name: OAuth-sovellus
         organization:
           actions:
-            save_and_invite: Luo organisaatioita ja kutsu hallinnointikäyttäjiä
+            save_and_invite: Luo organisaatioita ja kutsu hallintakäyttäjiä
           fields:
             created_at: Luotu
             file_upload_settings: Tiedostojen latauksen asetukset

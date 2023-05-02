@@ -1448,7 +1448,8 @@ el:
       widget:
         see_more: Δείτε περισσότερα
   locale:
-    name: Αγγλικά
+    name: Ελληνικά
+    name_with_error: Ελληνικά (σφάλμα!)
   password_validator:
     domain_included_in_password: είναι πολύ παρόμοιο με αυτό το όνομα τομέα
     email_included_in_password: είναι πολύ παρόμοια με τη διεύθυνση email σας
