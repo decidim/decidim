@@ -295,6 +295,92 @@ describe "Participatory Processes", type: :system do
           end
         end
       end
+
+      context "when filtering by date" do
+        before do
+          visit "#{decidim_participatory_processes.participatory_processes_path}?filter[date]=#{date_filter}"
+        end
+
+        context "with active filter" do
+          let(:date_filter) { "active" }
+
+          it "lists active processes" do
+            within "#processes-grid .section-heading" do
+              expect(page).to have_content("3 ACTIVE PROCESSES")
+            end
+            within "#processes-grid .card-grid" do
+              expect(page).to have_css(".card--process", count: 3)
+              expect(page).to have_content(translated(participatory_process.title, locale: :en))
+              expect(page).to have_content(translated(promoted_process.title, locale: :en))
+              expect(page).to have_content(translated(group.title, locale: :en))
+            end
+          end
+        end
+
+        context "with upcoming filter" do
+          let(:date_filter) { "upcoming" }
+
+          it "lists upcoming processes" do
+            within "#processes-grid .section-heading" do
+              expect(page).to have_content("1 UPCOMING PROCESS")
+            end
+            within "#processes-grid .card-grid" do
+              expect(page).to have_css(".card--process", count: 1)
+              expect(page).to have_content(translated(upcoming_process.title, locale: :en))
+            end
+          end
+        end
+
+        context "with past filter" do
+          let(:date_filter) { "past" }
+
+          it "lists past processes" do
+            within "#processes-grid .section-heading" do
+              expect(page).to have_content("1 PAST PROCESS")
+            end
+            within "#processes-grid .card-grid" do
+              expect(page).to have_css(".card--process", count: 1)
+              expect(page).to have_content(translated(past_process.title, locale: :en))
+            end
+          end
+        end
+
+        context "with all filter" do
+          let(:date_filter) { "all" }
+
+          it "lists all processes" do
+            within "#processes-grid .section-heading" do
+              expect(page).to have_content("5 PROCESSES")
+            end
+            within "#processes-grid .card-grid" do
+              expect(page).to have_css(".card--process", count: 5)
+              expect(page).to have_content(translated(participatory_process.title, locale: :en))
+              expect(page).to have_content(translated(promoted_process.title, locale: :en))
+              expect(page).to have_content(translated(past_process.title, locale: :en))
+              expect(page).to have_content(translated(upcoming_process.title, locale: :en))
+              expect(page).to have_content(translated(group.title, locale: :en))
+            end
+          end
+        end
+
+        context "with unknown filter" do
+          let(:date_filter) { "foobar" }
+
+          it "lists all processes" do
+            within "#processes-grid .section-heading" do
+              expect(page).to have_content("5 PROCESSES")
+            end
+            within "#processes-grid .card-grid" do
+              expect(page).to have_css(".card--process", count: 5)
+              expect(page).to have_content(translated(participatory_process.title, locale: :en))
+              expect(page).to have_content(translated(promoted_process.title, locale: :en))
+              expect(page).to have_content(translated(past_process.title, locale: :en))
+              expect(page).to have_content(translated(upcoming_process.title, locale: :en))
+              expect(page).to have_content(translated(group.title, locale: :en))
+            end
+          end
+        end
+      end
     end
   end
 
