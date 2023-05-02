@@ -86,8 +86,8 @@ module Decidim::Meetings
         expect(meeting.description["machine_translations"]["es"]).to match(/gid:/)
 
         presented_description = presented_meeting.description(all_locales: true)
-        expect(presented_description["en"]).to eq("<div class=\"ql-editor ql-reset-decidim\">Description #description</div>")
-        expect(presented_description["machine_translations"]["es"]).to eq("<div class=\"ql-editor ql-reset-decidim\">Description in Spanish #description</div>")
+        expect(presented_description["en"]).to eq("Description #description")
+        expect(presented_description["machine_translations"]["es"]).to eq("Description in Spanish #description")
       end
 
       context "when sanitizes any HTML input" do
