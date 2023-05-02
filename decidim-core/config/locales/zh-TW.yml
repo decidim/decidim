@@ -836,6 +836,13 @@ zh-TW:
         extension_allowlist: '接受的格式： %{extensions}'
       upload:
         labels:
+          add_attachment: 新增附件
+          add_file: 添加檔案
+          add_image: 新增圖片
+          cancel: 取消
+          edit_image: 編輯圖片
+          error: 錯誤！
+          file_size_too_large: '檔案大小過大！最大檔案大小：%{megabytes}MB'
           filename: 檔案名稱
           remove: 移除
           replace: 替換
@@ -847,8 +854,12 @@ zh-TW:
           validation_error: 驗證錯誤!
         select_file: 選擇檔案
     gamification:
+      all_badges_link: 查看所有可行徽章
       badges:
         followers:
+          conditions:
+            - 積極參與並追蹤其他人，有助於吸引其他人追蹤您。
+          description: 當您達到一定數量的追蹤者時，將獲得此徽章。%{organization_name} 是一個社交和政治網絡，藉此平台與其他人溝通，編織您的網絡。
           name: 追隨者
         index:
           title: 徽章
