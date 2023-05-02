@@ -994,6 +994,8 @@ zh-TW:
         publish_with_space: "%{user_name} 在 %{space_name} 中發布了 %{resource_name}"
         unknown_action: "%{user_name} 在 %{resource_name} 上執行了一些操作"
         unknown_action_with_space: "%{user_name} 在 %{space_name} 中的 %{resource_name} 上執行了一些操作"
+        unpublish_with_space: "%{user_name} 從%{space_name} 取消發布了%{resource_name}"
+        update: "%{user_name} 更新了%{resource_name}"
     map:
       static:
         map_service_brand: 開放街圖
