@@ -10,7 +10,7 @@ module Decidim::ParticipatoryProcesses
     let!(:participatory_process_list1) { create_list(:participatory_process, 2, :published, organization: organization1) }
     let!(:participatory_process_list2) { create_list(:participatory_process, 2, :published, organization: organization2) }
 
-    let(:my_cell) { cell("decidim/participatory_processes/process_filters", default_filter:) }
+    let(:my_cell) { cell("decidim/participatory_processes/process_filters", default_filter: default_filter) }
     let(:default_filter) { "active" }
     let(:filter_params) { { with_date: "all" } }
 
