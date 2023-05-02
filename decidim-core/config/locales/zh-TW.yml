@@ -969,8 +969,25 @@ zh-TW:
         unknown_action_with_space: "%{user_name} 在 %{space_name} 中的 %{resource_name} 上執行了一些操作"
         unpublish_with_space: "%{user_name} 從%{space_name} 取消發布了%{resource_name}"
         update: "%{user_name} 更新了%{resource_name}"
+        update_permissions_with_space: "%{user_name} 更新了 %{space_name} 空間中 %{resource_name} 的權限"
+        update_with_space: "%{user_name} 在%{space_name} 中更新了%{resource_name}"
+      value_types:
+        area_presenter:
+          not_found: '在數據庫中找不到該區域 (ID: %{id})'
+        area_type_presenter:
+          not_found: '在數據庫中找不到該區域類型(ID: %{id})'
+        scope_presenter:
+          not_found: '在數據庫中找不到該範圍 (ID: %{id})'
+        scope_type_presenter:
+          not_found: '在數據庫中找不到該範圍類型 (ID: %{id})'
+    managed_users:
+      expired_session: 該參與者的當前管理會話已過期。
     map:
+      dynamic:
+        screen_reader_explanation: 下面的元素是一個地圖，它將此頁面上的項目呈現為地圖點。這個元素可以與螢幕閱讀器一起使用，但可能較難理解。
+        skip_button: 跳過地圖
       static:
+        latlng_text: '緯度：%{latitude}，經度：%{longitude}'
         map_service_brand: 開放街圖
     members:
       no_members: 這個群組還沒有任何成員。
@@ -982,18 +999,26 @@ zh-TW:
         comanagers_new_conversation:
           admin_in_group: 您收到此通知是因為您是 %{group} 的管理員。
           greeting: 嗨, %{recipient}!
+          intro: "%{manager} 以%{group} 的名義開始了一個新對話。點擊這裡查看："
           outro: 享受Decidim!
+          subject: "%{manager} 以%{group} 的身份開始了一個新對話。"
         comanagers_new_message:
           admin_in_group: 您收到此通知是因為您是 %{group} 的管理員。
           greeting: 嗨, %{recipient}!
+          intro: "%{manager} 以%{group} 的名義在一個對話中發佈了新訊息。點擊這裡查看它們："
           outro: 享受Decidim!
+          subject: "%{manager} 以%{group} 的身份發送了新的訊息。點擊這裡查看它們："
         new_conversation:
           greeting: 嗨, %{recipient}!
+          intro: "%{sender} 與您開始了一個新的對話。點擊這裡查看它："
           outro: 享受Decidim!
+          subject: "%{sender} 已與您開始對話"
         new_group_conversation:
           admin_in_group: 您收到此通知是因為您是 %{group} 的管理員。
           greeting: 嗨, %{recipient}!
+          intro: "%{sender} 已與群組%{group} 開始了一個新的對話。點擊這裡查看："
           outro: 享受Decidim!
+          subject: "%{sender} 已與%{group} 開始了一個對話"
         new_group_message:
           admin_in_group: 您收到此通知是因為您是 %{group} 的管理員。
           greeting: 嗨, %{recipient}!
@@ -1071,6 +1096,8 @@ zh-TW:
       basic_only_text:
         body_preview: '正文的虛擬文字：Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque fringilla nisl tellus. Donec sed mi dui. Sed efficitur libero a felis tempor sollicitudin. Nullam vestibulum fringilla felis, id efficitur lorem sagittis et. Vivamus aliquam maximus velit vel dapibus. Mauris pellentesque, enim eu varius lacinia, risus ante rutrum ipsum, non lobortis augue lorem quis urna. Aenean et malesuada arcu.'
         name: 基礎（僅文字）
+      basic_only_text_settings_form:
+        body: 正文
       image_text_cta_settings_form:
         body: 正文
         cta_text: 行動呼籲按鈕文字
