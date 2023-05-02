@@ -14,7 +14,7 @@ module Decidim::ParticipatoryProcesses
 
     let(:my_cell) { cell("decidim/participatory_processes/process_filters", default_filter: default_filter) }
     let(:default_filter) { "active" }
-    let(:filter_params) { { with_date: "all" } }
+    let(:filter_params) { { date: "all" } }
 
     controller Decidim::ParticipatoryProcesses::ParticipatoryProcessesController
 
@@ -25,13 +25,13 @@ module Decidim::ParticipatoryProcesses
     end
 
     it "counts the processes" do
-      expect(subject.filtered_processes("all", filter_with_type: false).count).to eq(2)
+      expect(subject.filtered_processes("all").results.count).to eq(2)
     end
 
     describe "#current_filter" do
       subject { my_cell.current_filter }
 
-      let(:filter_params) { { with_date: date_filter } }
+      let(:filter_params) { { date: date_filter } }
 
       shared_examples "expected current_filter value" do |given_value|
         let(:date_filter) { given_value }
@@ -42,7 +42,7 @@ module Decidim::ParticipatoryProcesses
       shared_examples "unexpected current_filter_value" do |given_value|
         let(:date_filter) { given_value }
 
-        it { is_expected.to eq(default_filter) }
+        it { is_expected.to eq("all") }
       end
 
       it_behaves_like "expected current_filter value", "active"
@@ -50,12 +50,17 @@ module Decidim::ParticipatoryProcesses
       it_behaves_like "expected current_filter value", "past"
       it_behaves_like "expected current_filter value", "all"
 
-      it_behaves_like "unexpected current_filter_value", nil
       it_behaves_like "unexpected current_filter_value", ["upcoming"]
       it_behaves_like "unexpected current_filter_value", { 1 => "upcoming" }
       it_behaves_like "unexpected current_filter_value", "unknown"
       it_behaves_like "unexpected current_filter_value", "upcomingfoobar"
       it_behaves_like "unexpected current_filter_value", "upcoming foobar"
+
+      context "with the date filter set to nil" do
+        let(:date_filter) { nil }
+
+        it { is_expected.to eq(default_filter) }
+      end
     end
   end
 end
