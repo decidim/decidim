@@ -62,7 +62,8 @@ edit_link(
           <span class="text-md font-normal text-gray-2 inline-block align-middle ml–2">
             <%= t("offline", scope: "activemodel.attributes.initiative.signature_type_values") %>
           </span>
-        <% else %>
+        <% end %>
+        <% if current_initiative.online_signature_type? %>
           <%= icon "device-line", class: "fill-gray inline-block" %>
           <span class="text-md font-normal text-gray-2 inline-block align-middle ml–2">
             <%= t("online", scope: "activemodel.attributes.initiative.signature_type_values") %>
