@@ -758,8 +758,12 @@ zh-TW:
         max_file_size: '最大檔案尺寸： %{megabytes} MB'
       remove_this_file: 刪除此文件
     gamification:
+      all_badges_link: 查看所有可行徽章
       badges:
         followers:
+          conditions:
+            - 積極參與並追蹤其他人，有助於吸引其他人追蹤您。
+          description: 當您達到一定數量的追蹤者時，將獲得此徽章。%{organization_name} 是一個社交和政治網絡，藉此平台與其他人溝通，編織您的網絡。
           name: 追隨者
           unearned_another: 這位參與者還沒有任何追蹤者。
           unearned_own: 您還沒有追隨者。
