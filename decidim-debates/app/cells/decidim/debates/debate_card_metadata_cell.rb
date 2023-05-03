@@ -32,11 +32,7 @@ module Decidim
       end
 
       def duration
-        text = if [start_time, end_time].any?(&:blank?)
-                 t("decidim.debates.debates.show.open")
-               else
-                 distance_of_time_in_words(start_time, end_time, scope: "datetime.distance_in_words.short")
-               end
+        text = format_date_range(debate.start_time, debate.end_time) || t("open", scope: "decidim.debates.debates.show")
 
         {
           text:,
