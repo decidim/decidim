@@ -7,13 +7,7 @@ module Decidim
       include CommentCellsHelper
 
       def title
-        I18n.t(
-          "decidim.comments.last_activity.new_comment_at_html",
-          link: link_to(
-            root_commentable_title,
-            resource_link_path
-          )
-        )
+        I18n.t("decidim.comments.last_activity.new_comment")
       end
 
       def participatory_space
