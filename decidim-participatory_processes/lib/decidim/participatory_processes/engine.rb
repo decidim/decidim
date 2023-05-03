@@ -200,6 +200,7 @@ module Decidim
             content_block.default!
 
             content_block.settings do |settings|
+              settings.attribute :order, type: :enum, default: "random", choices: %w(random recent)
               settings.attribute :show_space, type: :boolean, default: true
             end
           end
