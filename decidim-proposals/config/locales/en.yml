@@ -819,10 +819,6 @@ en:
           see_all: See all proposals
           see_all_withdrawn: See all withdrawn proposals
           text_banner: You are viewing the list of proposals withdrawn by their authors. %{go_back_link}.
-        linked_proposals:
-          proposal_votes:
-            one: support
-            other: supports
         new:
           send: Continue
           title: Create your proposal
