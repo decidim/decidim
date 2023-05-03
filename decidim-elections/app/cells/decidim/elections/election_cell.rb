@@ -20,7 +20,7 @@ module Decidim
         when :s
           "decidim/elections/election_s"
         else
-          "decidim/elections/election_m"
+          "decidim/elections/election_g"
         end
       end
     end

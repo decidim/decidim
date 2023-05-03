@@ -4,12 +4,14 @@
   <%= cell("decidim/announcement", t("decidim.elections.warnings.no_scheduled_elections_warning"), callout_class: "warning") %>
 <% end %>
 
-<div class="my-8">
+<div class="my-8 first:mt-0">
   <%= order_selector available_orders, i18n_scope: "decidim.elections.orders" %>
 </div>
 
-<div class="mt-6 space-y-10">
-  <%= render paginated_elections %>
+<div class="card__grid-grid">
+  <% paginated_elections.each do |election| %>
+    <%= card_for election %>
+  <% end %>
 </div>
 
 <%= decidim_paginate paginated_elections %>
