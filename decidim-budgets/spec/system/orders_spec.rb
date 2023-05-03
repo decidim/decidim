@@ -46,7 +46,7 @@ describe "Orders", type: :system do
 
       context "when voting by percentage threshold" do
         it "displays description messages" do
-          within ".budget-summary" do
+          within ".budget-summary", match: :first do
             expect(page).to have_content("Start adding projects. Assign at least €70,000,000 to the projects you want and vote according to your preferences to define the budget.")
           end
         end
@@ -61,7 +61,7 @@ describe "Orders", type: :system do
         end
 
         it "displays description messages" do
-          within ".budget-summary" do
+          within ".budget-summary", match: :first do
             expect(page).to have_content("Start adding projects. Select at least 3 projects you want and vote according to your preferences to define the budget.")
           end
         end
@@ -77,7 +77,7 @@ describe "Orders", type: :system do
         end
 
         it "displays description messages" do
-          within ".budget-summary" do
+          within ".budget-summary", match: :first do
             expect(page).to have_content("Start adding projects. Select up to 6 projects you want and vote according to your preferences to define the budget.")
           end
         end
@@ -92,7 +92,7 @@ describe "Orders", type: :system do
         end
 
         it "displays description messages" do
-          within ".budget-summary" do
+          within ".budget-summary", match: :first do
             expect(page).to have_content("Start adding projects. Select at least 3 and up to 6 projects you want and vote according to your preferences to define the budget.")
           end
         end
@@ -377,14 +377,14 @@ describe "Orders", type: :system do
         end
 
         it "shows the rule description" do
-          within ".budget-summary" do
+          within ".budget-summary", match: :first do
             expect(page).to have_content("Assign at least €70,000,000 to the projects you want and vote")
           end
         end
 
         context "when the order total budget does not exceed the threshold" do
           it "cannot vote" do
-            within "#order-progress" do
+            within "#order-progress", match: :first do
               expect(page).to have_button("Vote", disabled: true)
             end
           end
@@ -402,7 +402,7 @@ describe "Orders", type: :system do
           end
 
           it "can vote" do
-            within "#order-progress" do
+            within "#order-progress", match: :first do
               expect(page).to have_button("Vote", disabled: false)
             end
           end
@@ -452,7 +452,7 @@ describe "Orders", type: :system do
         it "shows the rule description" do
           visit_budget
 
-          within ".budget-summary" do
+          within ".budget-summary", match: :first do
             expect(page).to have_content("Select at least 3 projects you want and vote")
           end
         end
@@ -461,7 +461,7 @@ describe "Orders", type: :system do
           it "cannot vote" do
             visit_budget
 
-            within "#order-progress" do
+            within "#order-progress", match: :first do
               expect(page).to have_button("Vote", disabled: true)
             end
           end
@@ -476,7 +476,7 @@ describe "Orders", type: :system do
           it "can vote" do
             visit_budget
 
-            within "#order-progress" do
+            within "#order-progress", match: :first do
               expect(page).to have_button("Vote", disabled: false)
             end
           end
