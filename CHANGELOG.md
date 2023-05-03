@@ -4,6 +4,20 @@
 
 ### Upgrade notes
 
+#### Orphans valuator assignments cleanup
+
+We have added a new task that helps you clean the valuator assignements records of roles that have been deleted.
+
+You can run the task with the following command:
+
+```console
+bundle exec rake decidim:proposals:upgrade:remove_valuator_orphan_records
+```
+
+You can see more details about this change on PR [\#10607](https://github.com/decidim/decidim/pull/10607)
+
+#### Initiatives pages exception fix
+
 We have added a new tasks to fix a bug related to the pages component inside of the Initiatives module (`decidim-initiatives`).
 
 You can run the task with the following command:
