@@ -94,12 +94,6 @@ eu:
       about_x_months:
         one: hilabete inguru
         other: '%{count} hilabete inguru'
-      x_days:
-        one: Duela egun bat
-        other: "Duela %{count} egun"
-      x_minutes:
-        one: duela minutu bat
-        other: "duela %{count} minutu"
   decidim:
     accessibility:
       external_link: Kanpoko lotura
@@ -894,7 +888,6 @@ eu:
           intro: 'Zure mezuan honako akats hauek gertatu dira:'
           ok: Ados
         index:
-          ago: orain dela
           new_conversation: Elkarrizketa berria
           next: Hurrengoa
           title: Elkarrizketak
