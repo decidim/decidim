@@ -88,7 +88,7 @@
   }
 
   &__card__list-project{
-    @apply ml-auto rounded py-3 px-6 bg-background w-[40%] min-w-[120px] grid grid-cols-1 md:grid-cols-2 md:place-items-center md:justify-items-end;
+    @apply ml-auto rounded py-3 px-6 bg-background w-[35%] min-w-[120px] grid grid-cols-1 md:grid-cols-2 md:place-items-center md:justify-items-end;
   }
 
   &__card__list-project__amount{
@@ -182,7 +182,7 @@
       @apply flex gap-4;
 
       .card__list{
-        @apply inline-block w-[60%];
+        @apply inline-block w-[65%];
       }
 
       + .project-item{
