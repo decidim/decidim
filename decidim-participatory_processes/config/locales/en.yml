@@ -395,6 +395,7 @@ en:
           participatory_structure: How is it decided
           target: Who participates
         participatory_processes:
+          active: Active participatory processes
           name: Participatory processes
         stats:
           name: Statistics
