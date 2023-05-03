@@ -366,6 +366,7 @@ describe "Participatory Process Groups", type: :system do
         organization:
       )
     end
+    let(:participatory_processes_content_block_settings) { nil }
     let!(:past_process_with_scope) do
       create(
         :participatory_process,
@@ -443,16 +444,56 @@ describe "Participatory Process Groups", type: :system do
         organization:,
         scope_name: :participatory_process_group_homepage,
         scoped_resource_id: participatory_process_group.id,
-        manifest_name: :participatory_processes
+        manifest_name: :participatory_processes,
+        settings: participatory_processes_content_block_settings
       )
+      visit decidim_participatory_processes.participatory_process_group_path(participatory_process_group)
     end
 
-    context "when no filters are set" do
-      before do
-        visit decidim_participatory_processes.participatory_process_group_path(participatory_process_group)
+    shared_examples "shows active processes" do
+      it "lists active processes ordered by weigtht" do
+        within "section.content-block" do
+          expect(titles[0].text).to eq(translated(active_process_with_area.title, locale: :en))
+          expect(titles[1].text).to eq(translated(active_process.title, locale: :en))
+          expect(titles[2].text).to eq(translated(active_process_with_scope.title, locale: :en))
+        end
       end
 
-      it "lists active processes ordered by weigtht" do
+      it "does not list process of other group" do
+        within "section.content-block" do
+          expect(page).to have_no_content(translated(other_group_process.title, locale: :en))
+        end
+      end
+
+      it "does not list inactice processes" do
+        within "section.content-block" do
+          expect(page).to have_no_content(translated(upcoming_process_with_area.title, locale: :en))
+          expect(page).to have_no_content(translated(past_process_with_scope.title, locale: :en))
+        end
+      end
+
+      it "shows count of active processes" do
+        within "div.content-block__title" do
+          expect(page).to have_content("Active participatory processes")
+          expect(page).to have_content("3")
+        end
+      end
+    end
+
+    context "when the block filter settings is blank" do
+      it_behaves_like "shows active processes"
+    end
+
+    context "when the block filter settings configures active processes" do
+      let(:participatory_processes_content_block_settings) { { default_filter: "active" } }
+
+      it_behaves_like "shows active processes"
+    end
+
+    context "when the block filter settings configures all processes" do
+      let(:participatory_processes_content_block_settings) { { default_filter: "all" } }
+
+      it "lists all processes ordered by weigtht" do
         within "section.content-block" do
           expect(titles[0].text).to eq(translated(upcoming_process_with_area.title, locale: :en))
           expect(titles[1].text).to eq(translated(active_process_with_area.title, locale: :en))
@@ -468,8 +509,10 @@ describe "Participatory Process Groups", type: :system do
         end
       end
 
-      it "shows counts of processes" do
+      it "shows count of all processes" do
         within "div.content-block__title" do
+          expect(page).to have_content("Participatory processes")
+          expect(page).to have_no_content("Active")
           expect(page).to have_content("5")
         end
       end
