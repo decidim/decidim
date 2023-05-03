@@ -77,9 +77,11 @@
       <% end %>
     <% end %>
   </div>
-  <button type="button" data-dialog-open="budget-modal-info" aria-haspopup="dialog" tabindex="0" class="button button__text button__xs justify-start <%= project_item ? "col-span-10 col-start-2" : "col-span-12 mb-4 pb-4" %> ">
-    <%= t("more_information", scope: "decidim.budgets.budget_information_modal") %>
-  </button>
+  <div class="justify-start <%= project_item ? "col-span-10 col-start-2" : "col-span-12 mb-4 pb-4" %>">
+    <button type="button" data-dialog-open="budget-modal-info" aria-haspopup="dialog" tabindex="0" class="button button__text button__xs">
+      <%= t("more_information", scope: "decidim.budgets.budget_information_modal") %>
+    </button>
+  </div>
 </div>
 <div class="w-full progressbox-fixed-wrapper" data-progressbox-fixed>
   <div class="layout-item py-4 items-center budget-summary__progressbar">
