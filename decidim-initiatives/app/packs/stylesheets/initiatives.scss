@@ -52,10 +52,14 @@
   }
 
   &__card__grid-metadata-dates{
-    @apply absolute top-4 right-4 bg-background rounded block p-1 border border-white justify-center content-center text-gray-2 font-semibold;
+    @apply block justify-center content-center;
 
     svg{
-      @apply fill-gray-2;
+      @apply fill-gray;
+    }
+
+    span{
+      @apply text-gray-2;
     }
   }
 }

@@ -1,11 +1,14 @@
-<% if initiative.has_signature_interval_defined? %>
-  <div class="flex items-center text-center justify-center">
-    <span class="text-sm">
-      <%= l(initiative.signature_start_date, format: :default) %>
-    </span>
-    <%= icon "arrow-right-line", class: "fill-current mx-1" %>
-    <span class="text-sm">
-      <%= l(initiative.signature_end_date, format: :default) %>
-    </span>
-  </div>
-<% end %>
+<div class="initiatives__card__grid-metadata-dates">
+  <% if initiative.has_signature_interval_defined? %>
+    <div class="flex items-center text-center justify-center">
+      <%= icon "calendar-line", class: "fill-gray mr-1" %>
+      <span class="text-sm">
+        <%= l(initiative.signature_start_date, format: :default) %>
+      </span>
+      <%= icon "arrow-right-line", class: "fill-gray mx-1" %>
+      <span class="text-sm">
+        <%= l(initiative.signature_end_date, format: :default) %>
+      </span>
+    </div>
+  <% end %>
+</div>
