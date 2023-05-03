@@ -97,6 +97,27 @@ ca:
         one: al voltant d’1 mes
         other: al voltant de %{count} mesos
       half_a_minute: mig minut
+      less_than_x_minutes:
+        one: fa menys d'un minut
+        other: fa menys de %{count} minuts
+      less_than_x_seconds:
+        one: fa menys d'un segon
+        other: fa menys de %{count} segons
+      x_days:
+        one: 1 dia
+        other: "%{count} dies"
+      x_hours:
+        one: 1 hora
+        other: "%{count} hores"
+      x_minutes:
+        one: 1 minut
+        other: "%{count} minuts"
+      x_months:
+        one: 1 mes
+        other: "%{count} mesos"
+      x_seconds:
+        one: 1 segon
+        other: "%{count} segons"
   decidim:
     accessibility:
       external_link: Enllaç extern
