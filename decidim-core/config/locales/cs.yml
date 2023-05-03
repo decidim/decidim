@@ -109,6 +109,21 @@ cs:
         many: asi %{count} měsíců
         other: asi %{count} měsíců
       half_a_minute: půl minuty
+      less_than_x_minutes:
+        one: méně než minuta
+        few: méně než %{count} minuty
+        many: méně než %{count} minut
+        other: méně než %{count} minut
+      less_than_x_seconds:
+        one: méně než 1 sekundou
+        few: méně než %{count} sekundami
+        many: méně než %{count} sekundami
+        other: méně než %{count} sekundami
+      x_days:
+        one: 1 dnem
+        few: "{{$count}} dny"
+        many: "{{$count}} dny"
+        other: "{{$count}} dny"
   decidim:
     accessibility:
       external_link: Externí odkaz
