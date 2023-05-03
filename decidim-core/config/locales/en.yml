@@ -94,24 +94,26 @@ en:
         other: about %{count} months
       half_a_minute: half a minute
       less_than_x_minutes:
-        one: less than a min.
-        other: less than %{count} min.
+        one: less than a minute
+        other: less than %{count} minutes
       less_than_x_seconds:
-        one: right now
-        other: less than %{count} sec.
+        one: less than 1 second
+        other: less than %{count} seconds
       x_days:
-        one: 1 day ago
-        other: "%{count} days ago"
+        one: 1 day
+        other: "%{count} days"
       x_hours:
-        one: 1 hour ago
-        other: "%{count} hours ago"
+        one: 1 hour
+        other: "%{count} hours"
       x_minutes:
-        one: 1 min. ago
-        other: "%{count} min. ago"
+        one: 1 minute
+        other: "%{count} minutes"
+      x_months:
+        one: 1 month
+        other: "%{count} months"
       x_seconds:
-        one: 1 sec. ago
-        other: "%{count} sec. ago"
-        zero: right now
+        one: 1 second
+        other: "%{count} seconds"
   decidim:
     accessibility:
       external_link: External link
@@ -997,7 +999,6 @@ en:
           intro: 'There were the following errors with your message:'
           ok: OK
         index:
-          ago: ago
           close: Close modal
           from: From
           groups: My groups
