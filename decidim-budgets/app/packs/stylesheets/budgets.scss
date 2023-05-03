@@ -21,7 +21,7 @@
     }
 
     &__content{
-      @apply grid grid-cols-1 md:grid-cols-12 items-center gap-x-20;
+      @apply md:grid md:grid-cols-12 md:items-center md:gap-x-20;
     }
 
     &__content__header{
@@ -206,14 +206,6 @@
   @apply inline-block w-[25%] text-center;
 }
 
-.voting-wrapper .budget-summary .budget-summary__cols{
-  @apply col-span-10 pl-16 pt-4;
-}
-
-.voting-wrapper .budget-summary .budget-summary__content{
-  @apply col-start-4 col-span-10 grid-cols-1 md:grid-cols-[57.6%_30%] pr-4 md:pr-0;
-}
-
 #budgets.card__highlight-container{
   @apply mb-0;
 }
@@ -242,18 +234,4 @@
 
 .budget-summary__progressbox--checked_out{
   @apply hidden md:block;
-}
-
-#project-item{
-  .budget-summary__progressbox{
-    @apply md:col-span-8;
-  }
-
-  .budget-summary__progressbox-buttons{
-    @apply md:col-span-3 md:col-start-10;
-  }
-
-  .budget-summary__content__fixed--progressbar{
-    @apply md:col-span-8;
-  }
 }
