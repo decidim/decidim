@@ -929,7 +929,6 @@ ro:
           intro: 'Au existat următoarele erori cu mesajul tău:'
           ok: Ok
         index:
-          ago: acum
           new_conversation: Conversație nouă
           next: Următoarea
           title: Conversații
