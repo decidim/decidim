@@ -97,24 +97,6 @@ es:
         one: aproximadamente 1 mes
         other: aproximadamente %{count} meses
       half_a_minute: medio minuto
-      less_than_x_minutes:
-        one: menos de 1 minuto
-        other: menos de %{count} minutos
-      less_than_x_seconds:
-        one: ahora mismo
-        other: menos de %{count} segundos
-      x_days:
-        one: hace 1 día
-        other: "hace %{count} días"
-      x_hours:
-        one: hace 1 hora
-        other: "hace %{count} días"
-      x_minutes:
-        one: hace 1 minuto
-        other: "hace %{count} minutos"
-      x_seconds:
-        one: hace 1 segundo
-        other: "hace %{count} segundos"
   decidim:
     accessibility:
       external_link: Enlace externo
@@ -1089,7 +1071,6 @@ es:
           intro: 'Se han producido los siguientes errores en tu mensaje:'
           ok: De acuerdo
         index:
-          ago: hace
           new_conversation: Nueva conversación
           next: Siguiente
           no_conversations: Aún no tienes ninguna conversarción.
