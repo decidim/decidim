@@ -311,11 +311,11 @@ module Decidim
 
         Decidim.content_blocks.register(:participatory_process_group_homepage, :participatory_processes) do |content_block|
           content_block.cell = "decidim/participatory_process_groups/content_blocks/related_processes"
-          content_block.settings_form_cell = "decidim/participatory_processes/content_blocks/highlighted_processes_settings_form"
+          content_block.settings_form_cell = "decidim/participatory_processes/content_blocks/processes_settings_form"
           content_block.public_name_key = "decidim.participatory_process_groups.content_blocks.participatory_processes.name"
 
           content_block.settings do |settings|
-            settings.attribute :max_results, type: :integer, default: 6
+            settings.attribute :default_filter, type: :enum, default: "active", choices: %w(active all)
           end
         end
       end
