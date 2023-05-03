@@ -9,11 +9,11 @@ module Decidim
 
       def date_filter_values
         TreeNode.new(
-          TreePoint.new("", t("elections.elections.filters.all", scope: "decidim")),
+          TreePoint.new("", filter_text_for(t("elections.elections.filters.all", scope: "decidim"))),
           [
-            TreePoint.new("active", t("elections.elections.filters.active", scope: "decidim")),
-            TreePoint.new("upcoming", t("elections.elections.filters.upcoming", scope: "decidim")),
-            TreePoint.new("finished", t("elections.elections.filters.finished", scope: "decidim"))
+            TreePoint.new("active", filter_text_for(t("elections.elections.filters.active", scope: "decidim"))),
+            TreePoint.new("upcoming", filter_text_for(t("elections.elections.filters.upcoming", scope: "decidim"))),
+            TreePoint.new("finished", filter_text_for(t("elections.elections.filters.finished", scope: "decidim")))
           ]
         )
       end

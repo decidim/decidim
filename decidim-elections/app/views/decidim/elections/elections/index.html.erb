@@ -1,23 +1,31 @@
-<%= render partial: "decidim/shared/component_announcement" %>
+<% add_decidim_page_title(t("decidim.components.elections.name")) %>
 
-<section class="section row">
-  <div class="columns">
-    <div class="row">
-      <h2 id="elections-count" class="order-by__text section-heading">
-        <%= render partial: "count" %>
-      </h2>
-    </div>
+<% content_for :css_content do %>
+  <%= stylesheet_pack_tag "decidim_elections", media: "all" %>
+<% end %>
 
-    <div class="row">
-      <div class="columns mediumlarge-4 large-3">
-        <%= render partial: "filters_small_view" %>
-        <div class="card card--secondary show-for-mediumlarge">
-          <%= render partial: "filters" %>
-        </div>
-      </div>
-      <div id="elections" class="columns mediumlarge-8 large-9" aria-live="polite">
-        <%= render partial: "elections" %>
-      </div>
-    </div>
+<% content_for :js_content do %>
+  <%= javascript_pack_tag "decidim_elections" %>
+<% end %>
+
+<% content_for :aside do %>
+  <h1 class="h3 md:h1 decorator"><%= t("decidim.components.elections.name") %></h1>
+
+  <% filter_sections = [].tap do |f|
+      f.append(method: :with_any_date, collection: date_filter_values, label_scope: "decidim.elections.elections.filters", id: "date")
+    end
+
+    search_variable = :search_text_cont %>
+
+  <%= render layout: "decidim/shared/filters", locals: { filter_sections: , search_variable: } do %>
+    <%= hidden_field_tag :order, order, id: nil, class: "order_filter" %>
+  <% end %>
+<% end %>
+
+<%= render layout: "layouts/decidim/shared/layout_two_col" do %>
+  <%= render partial: "decidim/shared/component_announcement" %>
+
+  <div id="elections">
+    <%= render partial: "elections" %>
   </div>
-</section>
+<% end %>
