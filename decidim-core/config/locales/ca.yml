@@ -97,24 +97,6 @@ ca:
         one: al voltant d’1 mes
         other: al voltant de %{count} mesos
       half_a_minute: mig minut
-      less_than_x_minutes:
-        one: menys d’un minut
-        other: menys de %{count} minuts
-      less_than_x_seconds:
-        one: ara mateix
-        other: menys de %{count} segons
-      x_days:
-        one: fa 1 dia
-        other: "fa %{count} dies"
-      x_hours:
-        one: fa 1 hora
-        other: "fa %{count} hores"
-      x_minutes:
-        one: fa 1 minut
-        other: "fa %{count} minuts"
-      x_seconds:
-        one: fa 1 segon
-        other: "fa %{count} segons"
   decidim:
     accessibility:
       external_link: Enllaç extern
@@ -1089,7 +1071,6 @@ ca:
           intro: 'Hi ha els següents errors al vostre missatge:'
           ok: D'acord
         index:
-          ago: fa
           new_conversation: Nova conversa
           next: Següent
           no_conversations: Encara no tens cap conversa.
