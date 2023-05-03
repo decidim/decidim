@@ -97,24 +97,6 @@ fr:
         one: environ %{count} mois
         other: environ %{count} mois
       half_a_minute: 30 secondes
-      less_than_x_minutes:
-        one: moins d’une minute.
-        other: moins de %{count} min.
-      less_than_x_seconds:
-        one: à l’instant
-        other: moins de %{count} sec.
-      x_days:
-        one: Hier
-        other: "Il y a %{count} jours"
-      x_hours:
-        one: Il y a 1 heure
-        other: "Il y a %{count} heures"
-      x_minutes:
-        one: Il y a 1 min
-        other: "Il y a %{count} min"
-      x_seconds:
-        one: Il y a 1 seconde
-        other: "Il y a %{count} secondes"
   decidim:
     accessibility:
       external_link: Lien externe
@@ -1095,7 +1077,6 @@ fr:
           intro: 'Il y a eu les erreurs suivantes avec votre message :'
           ok: Ok
         index:
-          ago: il y a
           new_conversation: Nouvelle conversation
           next: Suivant
           no_conversations: Vous n'avez encore aucune conversation.
