@@ -91,18 +91,6 @@ ja:
       about_x_months:
         other: 約%{count} ヶ月
       half_a_minute: 約30秒
-      less_than_x_minutes:
-        other: '%{count} 分未満'
-      less_than_x_seconds:
-        other: '%{count} 秒未満'
-      x_days:
-        other: "%{count} 日前"
-      x_hours:
-        other: "%{count} 時間前"
-      x_minutes:
-        other: "%{count} 分前"
-      x_seconds:
-        other: "%{count} 秒前"
   decidim:
     accessibility:
       external_link: 外部リンク
@@ -1075,7 +1063,6 @@ ja:
           intro: 'あなたのメッセージには次のエラーがありました:'
           ok: OK
         index:
-          ago: 前
           new_conversation: 新しい会話
           next: 次へ
           no_conversations: まだ会話がありません。
