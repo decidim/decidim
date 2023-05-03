@@ -97,24 +97,6 @@ fr-CA:
         one: environ %{count} mois
         other: environ %{count} mois
       half_a_minute: une demi-minute
-      less_than_x_minutes:
-        one: moins d’une minute.
-        other: moins de %{count} min.
-      less_than_x_seconds:
-        one: à l’instant
-        other: moins de %{count} sec.
-      x_days:
-        one: Hier
-        other: "Il y a %{count} jours"
-      x_hours:
-        one: Il y a 1 heure
-        other: "Il y a %{count} heures"
-      x_minutes:
-        one: Il y a 1 min
-        other: "Il y a %{count} min"
-      x_seconds:
-        one: Il y a 1 seconde
-        other: "Il y a %{count} secondes"
   decidim:
     accessibility:
       external_link: Lien externe
@@ -400,7 +382,7 @@ fr-CA:
           title: Autorisation expirée
         incomplete:
           cancel: Annuler
-          explanation: 'Bien que vous soyez actuellement autorisé avec "%{autorisation}", nous avons besoin de vous réautoriser en raison des données manquantes suivantes :'
+          explanation: 'Bien que vous soyez actuellement autorisé avec %{authorization}, nous avons besoin de vous réautoriser en raison des données manquantes suivantes :'
           invalid_field: "%{field}"
           reauthorize: Autoriser de nouveau
           title: Veuillez autoriser de nouveau
@@ -1095,7 +1077,6 @@ fr-CA:
           intro: 'Il y a eu les erreurs suivantes avec votre message :'
           ok: Ok
         index:
-          ago: il y a
           new_conversation: Nouvelle conversation
           next: Suivant
           no_conversations: Vous n'avez encore aucune conversation.
@@ -1422,7 +1403,7 @@ fr-CA:
         already_reported: Ce contenu a déjà été signalé et il sera examiné par un administrateur.
         close: Fermer
         description: Ce contenu est-il inapproprié ?
-        does_not_belong: Contient du contenu illégal, menace de suicide, informations personnelles ou tout autre élément qui, selon vous, n'aurait pas sa place sur %{nom_de_l'organisation}.
+        does_not_belong: Contient du contenu illégal, menace de suicide, informations personnelles ou tout autre élément qui, selon vous, n'aurait pas sa place sur %{organization_name}.
         hide: Masquer
         hide_content: Masquer ce contenu
         offensive: Contient des propos contraires à la loi (propos racistes, sexistes, insultes, attaques personnelles, menaces de mort, incitations au suicide ou toute forme de discours de haine,...).
@@ -1436,7 +1417,7 @@ fr-CA:
         block: Bloquer ce participant
         close: Fermer
         description: Qu'est-ce qui est inapproprié à propos de cet utilisateur ?
-        does_not_belong: Contient du contenu illégal, menace de suicide, informations personnelles ou tout autre élément qui, selon vous, n'aurait pas sa place sur %{nom_de_l'organisation}.
+        does_not_belong: Contient du contenu illégal, menace de suicide, informations personnelles ou tout autre élément qui, selon vous, n'aurait pas sa place sur %{organization_name}.
         hide: Masquer tous ses contenus
         offensive: Rédige des contenus racistes, sexistes, contenant des insultes, attaques personnelles, menaces de mort, incitations au suicide ou toute forme de discours de haine.
         report: Signaler
