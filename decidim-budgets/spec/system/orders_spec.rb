@@ -119,7 +119,7 @@ describe "Orders", type: :system do
             expect(page).to have_content(/Added\s1/)
           end
 
-          within "#order-progress .budget-summary__content" do
+          within "#order-progress .budget-summary__content", match: :first do
             expect(page).to have_selector ".budget-summary__progressbar--meter", style: "width: 25%"
             expect(page).to have_selector("button:disabled", text: "Vote budget")
           end
@@ -152,7 +152,7 @@ describe "Orders", type: :system do
             expect(page).to have_content(/Added\s1/)
           end
 
-          within "#order-progress .budget-summary__content" do
+          within "#order-progress .budget-summary__content", match: :first do
             expect(page).to have_selector ".budget-summary__progressbar--meter", style: "width: 25%"
             expect(page).to have_selector("button:disabled", text: "Vote budget")
           end
@@ -186,7 +186,7 @@ describe "Orders", type: :system do
             expect(page).to have_content(/Added\s1/)
           end
 
-          within "#order-progress .budget-summary__content" do
+          within "#order-progress .budget-summary__content", match: :first do
             expect(page).to have_selector ".budget-summary__progressbar--meter", style: "width: 16%"
             expect(page).to have_selector("button", text: "Vote budget")
           end
@@ -218,7 +218,7 @@ describe "Orders", type: :system do
             expect(page).to have_content(/Added\s1/)
           end
 
-          within "#order-progress .budget-summary__content" do
+          within "#order-progress .budget-summary__content", match: :first do
             expect(page).to have_selector ".budget-summary__progressbar--meter", style: "width: 16%"
             expect(page).to have_selector("button", text: "Vote budget")
           end
@@ -353,7 +353,7 @@ describe "Orders", type: :system do
 
           expect(page).to have_selector ".budget-list__data--added", count: 2
 
-          within "#order-progress .budget-summary__content" do
+          within "#order-progress .budget-summary__content", match: :first do
             page.find(".button", match: :first).click
           end
 
@@ -365,7 +365,7 @@ describe "Orders", type: :system do
 
           expect(page).to have_content("successfully")
 
-          within "#order-progress .budget-summary__content" do
+          within "#order-progress .budget-summary__content", match: :first do
             expect(page).to have_selector(".button", text: "delete your vote")
           end
         end
@@ -496,17 +496,17 @@ describe "Orders", type: :system do
       it "can cancel the order" do
         visit_budget
 
-        within ".budget-summary__content" do
+        within ".budget-summary__content", match: :first do
           accept_confirm { page.find(".cancel-order").click }
         end
 
         expect(page).to have_content("successfully")
 
-        within "#order-progress .budget-summary__content" do
+        within "#order-progress .budget-summary__content", match: :first do
           expect(page).to have_selector("button:disabled")
         end
 
-        within ".budget-summary__content" do
+        within ".budget-summary__content", match: :first do
           expect(page).to have_no_selector(".button", text: "delete your vote")
         end
       end
