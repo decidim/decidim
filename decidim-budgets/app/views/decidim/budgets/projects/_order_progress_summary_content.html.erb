@@ -1,5 +1,5 @@
-<div <%= responsive ? "data-order-progress-responsive=true" : "data-order-progress-responsive=false" %> class="px-4 md:px-0 <%= project_item ? "md:layout-item md:items-center py-4" : "md:pl-16 pt-4 budget-summary__content" %>">
-  <div class="budget-summary__progressbox <%= project_item ? "layout-item__main" : "" %>" data-current-allocation="<%= current_order ? current_order.total : 0 %>">
+<div <%= responsive ? "data-order-progress-responsive=true" : "data-order-progress-responsive=false" %> class="px-4 <%= project_item ? "py-4 md:py-4 md:layout-item md:items-center" : "md:pl-16 pt-4 budget-summary__content" %>">
+  <div class="budget-summary__progressbox <%= project_item ? "layout-item__main" : "md:col-span-7" %>" data-current-allocation="<%= current_order ? current_order.total : 0 %>">
     <% if include_heading %>
       <% if current_order_checked_out? %>
         <%= t("title", scope: "decidim.budgets.projects.budget_summary.checked_out") %>
@@ -61,7 +61,7 @@
       </div>
     </div>
   </div>
-  <div class="budget-summary__progressbox-buttons <%= project_item ? "layout-item__aside" : "" %>">
+  <div class="budget-summary__progressbox-buttons <%= project_item ? "layout-item__aside" : "md:col-span-3 md:col-start-9" %>">
     <% if !current_order_checked_out? && voting_open? %>
       <button class="button button__secondary button__lg w-full" data-dialog-open="budget-confirm" <%= budget_confirm_disabled_attr %>>
         <%= t("vote", scope: "decidim.budgets.projects.budget_summary") %>
