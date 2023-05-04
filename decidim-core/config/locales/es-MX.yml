@@ -97,6 +97,27 @@ es-MX:
         one: aproximadamente 1 mes
         other: aproximadamente %{count} meses
       half_a_minute: medio minuto
+      less_than_x_minutes:
+        one: hace menos de un minuto
+        other: ha menos de %{count} minutos
+      less_than_x_seconds:
+        one: hace menos de un segundo
+        other: hace menos de %{count} segundos
+      x_days:
+        one: 1 día
+        other: "%{count} días"
+      x_hours:
+        one: 1 hora
+        other: "%{count} horas"
+      x_minutes:
+        one: 1 minuto
+        other: "%{count} minutos"
+      x_months:
+        one: 1 mes
+        other: "%{count} meses"
+      x_seconds:
+        one: 1 segundo
+        other: "%{count} segundos"
   decidim:
     accessibility:
       external_link: Enlace externo
