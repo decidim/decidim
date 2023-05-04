@@ -999,6 +999,7 @@ en:
           intro: 'There were the following errors with your message:'
           ok: OK
         index:
+          ago: ago
           close: Close modal
           from: From
           groups: My groups
