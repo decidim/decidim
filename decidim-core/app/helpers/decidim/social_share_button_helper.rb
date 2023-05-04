@@ -39,7 +39,8 @@ module Decidim
         target: "_blank",
         data: {
           "site" => service.name.downcase,
-          "external-link" => false
+          "external-link" => false,
+          "external-domain-link" => false
         },
         title: t("decidim.shared.share_modal.share_to", service: service.name)
       ) do
