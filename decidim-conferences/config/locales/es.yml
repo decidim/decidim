@@ -28,11 +28,12 @@ es:
         show_statistics: Mostrar estadísticas
         sign_date: Fecha de firma
         signature: Firma
-        signature_name: nombre de firma
+        signature_name: Nombre de la firma
         slogan: Eslogan
         slug: URL amigable
         start_date: Fecha de inicio
         title: Título
+        weight: Orden de posición
       conference_media_link:
         date: Fecha
         link: Enlace
@@ -73,7 +74,7 @@ es:
         conference_registration_invite:
           attributes:
             email:
-              already_invited: Este correo electrónico ya ha sido invitado
+              already_invited: Ya se había invitado a este correo electrónico.
   activerecord:
     models:
       decidim/conference:
@@ -134,7 +135,7 @@ es:
           title: Actualizar administradora de la jornada.
           update: Actualizar
         index:
-          conference_admins_title: administradoras de la jornada
+          conference_admins_title: Administradoras de la jornada
         new:
           create: Crear
           title: Nueva administradora de la jornada.
@@ -312,6 +313,7 @@ es:
           update: "%{user_name} actualizó la colaboradora %{resource_name} de la jornada %{space_name}"
         registration_type:
           create: "%{user_name} ha creado el tipo de inscripción %{resource_name} en la jornada %{space_name}"
+          delete: "%{user_name} ha eliminado el tipo de inscripción %{resource_name} en la jornada %{space_name}"
           publish: "%{user_name} ha publicado el tipo de inscripción %{resource_name} en la conferencia %{space_name}"
           unpublish: "%{user_name} ha despublicado el tipo de inscripción %{resource_name} en la jornada %{space_name}"
           update: "%{user_name} ha actualizado el tipo de inscripción %{resource_name} en la jornada %{space_name}"
@@ -405,18 +407,11 @@ es:
           cancel: Cancelar
           confirm: Confirmar
         show:
-          free: Entrada libre
           going: Asistiré
           no_slots_available: No hay plazas disponibles
           registration: Inscripción
       conference_program:
-        program_meeting:
-          content: Contenido
-          location: Ubicación
-          speakers: Ponentes
-          streaming: Streaming
         show:
-          day: Día
           program: Programa
       conference_registration_mailer:
         confirmation:
@@ -431,7 +426,7 @@ es:
         create:
           invalid: Se ha producido un error al inscribirte a esta jornada.
           success: Te has inscrito a la jornada correctamente.
-          unauthorized: Necesitas iniciar tu sesión antes de registrarse en la conferencia.
+          unauthorized: Necesitas iniciar tu sesión antes de registrarse en la jornada.
         decline_invitation:
           invalid: Se ha producido un error al declinar la invitación.
           success: Has declinado la invitación correctamente.
@@ -449,18 +444,18 @@ es:
       conference_speaker_cell:
         personal_url:
           personal_website: Sitio web personal
-        twitter_handle:
-          go_to_twitter: Ir a twitter
       conference_speakers:
         index:
-          speakers: Ponentes
+          speakers:
+            one: Ponente
+            other: Ponentes
       conferences:
         partners:
           collaborators: Colaboradores
           main_promotors: Organizadores
         show:
           login_as: Has iniciado sesión como %{name} <%{email}>
-          make_conference_registration: 'Inscríbete a la jornada:'
+          make_conference_registration: Inscríbete en la jornada
           register: Inscripciones
       content_blocks:
         highlighted_conferences:
@@ -470,9 +465,9 @@ es:
       mailer:
         conference_registration_mailer:
           confirmation:
-            subject: Tu inscripción a la jornada ha sido confirmada
+            subject: Se ha confirmado tu inscripción a la jornada.
           pending_validation:
-            subject: Tu inscripción en la jornada está pendiente de confirmación
+            subject: Tu inscripción a la jornada está pendiente de confirmación.
         invite_join_conference_mailer:
           invite:
             subject: Invitación para unirse a una jornada
@@ -506,29 +501,12 @@ es:
             active_conferences: Jornadas activas
             conferences_button_title: Enlace a la página de Jornadas que muestra todas las jornadas
             see_all_conferences: Ver todas las jornadas
-      photo:
-        image:
-          attributes:
-            alt: Imagen multimedia
-        show:
-          close_modal: Cerrar modal
-          photo: Imagen
-      photos_list:
-        show:
-          related_photos: Imágenes
       registration_types:
         index:
           choose_an_option: 'Elige tu tipo de inscripción:'
-          login_as: Has iniciado sesión como %{name} <%{email}>
           no_registrations: No hay inscripciones
           register: Inscribirse
           title: Tipos de inscripción
-      shared:
-        conference_user_login:
-          already_account: '¿Ya tienes una cuenta en decidim?'
-          new_user: '¿Eres nuevo?'
-          sign_in: Inicia sesión para inscribirte en la jornada
-          sign_up: Crea una cuenta de participante para inscribirte en la jornada
       show:
         details: Detalles
         introduction: Introducción
@@ -576,7 +554,7 @@ es:
     log:
       value_types:
         conference_presenter:
-          not_found: 'La jornada no se ha encontrado en la base de datos (ID: %{id})'
+          not_found: 'La jornada no se ha encontrado en la base de datos (ID: %{id}).'
     media:
       index:
         description: Enlaces sobre esta conferencia

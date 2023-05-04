@@ -187,7 +187,7 @@ module Decidim
         context "with inexistent suffix" do
           let(:suffix) { :inexistent }
 
-          it "doesn't render anything" do
+          it "does not render anything" do
             expect(helper.send(:text_for_setting, name, suffix, i18n_scope)).to be_nil
           end
         end

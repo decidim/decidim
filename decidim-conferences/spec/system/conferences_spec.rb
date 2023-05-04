@@ -97,28 +97,30 @@ describe "Conferences", type: :system do
     it "lists all the highlighted conferences" do
       within "#highlighted-conferences" do
         expect(page).to have_content(translated(promoted_conference.title, locale: :en))
-        expect(page).to have_selector(".card--full", count: 1)
+        expect(page).to have_selector("[id^='promoted']", count: 1)
       end
     end
 
     it "lists all the conferences" do
       within "#conferences-grid" do
-        within "#conferences-grid h3" do
+        within "#conferences-grid h2" do
           expect(page).to have_content("2")
         end
 
         expect(page).to have_content(translated(conference.title, locale: :en))
         expect(page).to have_content(translated(promoted_conference.title, locale: :en))
-        expect(page).to have_selector(".card", count: 2)
+        expect(page).to have_selector("[id^='conference']", count: 2)
 
         expect(page).not_to have_content(translated(unpublished_conference.title, locale: :en))
       end
     end
 
     it "links to the individual conference page" do
-      first(".card__link", text: translated(conference.title, locale: :en)).click
+      within "#conferences-grid" do
+        first("[id^='conference']", text: translated(conference.title, locale: :en)).click
 
-      expect(page).to have_current_path decidim_conferences.conference_path(conference)
+        expect(page).to have_current_path decidim_conferences.conference_path(conference)
+      end
     end
   end
 
@@ -135,34 +137,34 @@ describe "Conferences", type: :system do
     end
 
     it "shows the details of the given conference" do
-      within "div.hero__container" do
+      within "[data-conference-hero]", match: :first do
         expect(page).to have_content(translated(conference.title, locale: :en))
         expect(page).to have_content(translated(conference.slogan, locale: :en))
         expect(page).to have_content(conference.hashtag)
       end
 
-      within "div.wrapper" do
-        expect(page).to have_content(translated(conference.description, locale: :en))
-        expect(page).to have_content(translated(conference.short_description, locale: :en))
-      end
+      expect(page).to have_content(translated(conference.description, locale: :en))
+      expect(page).to have_content(translated(conference.short_description, locale: :en))
     end
 
     it_behaves_like "has embedded video in description", :description
     it_behaves_like "has embedded video in description", :short_description
 
     context "when the conference has some components" do
+      # REDESIGN_PENDING: Review if this part should be implemened in the
+      # redesigned layout
       it "shows the components" do
-        within ".process-nav" do
-          expect(page).to have_content(translated(proposals_component.name, locale: :en).upcase)
-          expect(page).to have_no_content(translated(meetings_component.name, locale: :en).upcase)
+        within ".conference__nav" do
+          expect(page).to have_content(translated(proposals_component.name, locale: :en))
+          expect(page).to have_no_content(translated(meetings_component.name, locale: :en))
         end
       end
 
       it "renders the stats for those components that are visible" do
-        within ".section-statistics" do
-          expect(page).to have_css(".statistic__title", text: "PROPOSALS")
+        within "[data-statistics]" do
+          expect(page).to have_css(".statistic__title", text: "Proposals")
           expect(page).to have_css(".statistic__number", text: "3")
-          expect(page).to have_no_css(".statistic__title", text: "MEETINGS")
+          expect(page).to have_no_css(".statistic__title", text: "Meetings")
           expect(page).to have_no_css(".statistic__number", text: "0")
         end
       end
@@ -170,8 +172,8 @@ describe "Conferences", type: :system do
       context "when the conference stats are not enabled" do
         let(:show_statistics) { false }
 
-        it "doesn't render the stats for those components that are not visible" do
-          expect(page).to have_no_css(".statistic__title", text: "PROPOSALS")
+        it "does not render the stats for those components that are not visible" do
+          expect(page).to have_no_css(".statistic__title", text: "Proposals")
           expect(page).to have_no_css(".statistic__number", text: "3")
         end
       end

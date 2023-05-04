@@ -11,15 +11,22 @@ cs:
         decidim_area_id: Oblast
         description: Popis
         developer_group: Skupina promotérů
+        document: Dokument
         domain: Doména
         end_date: Datum ukončení
         hashtag: Hashtag
         hero_image: Domácí obrázek
+        import_attachments: Importovat přílohy
+        import_categories: Importovat kategorie
+        import_components: Importovat komponenty
+        import_steps: Importovat kroky
         local_area: Oblast působnosti organizace
         meta_scope: Metadata Oblasti působnosti
         participatory_process_group_id: Skupina procesů
+        participatory_process_type_id: Typ procesů
         participatory_scope: Co se rozhodlo
         participatory_structure: Jak se to rozhoduje
+        private_space: Soukromý proces
         promoted: Propagováno
         published_at: Publikováno v
         related_process_ids: Související procesy
@@ -176,8 +183,17 @@ cs:
       participatory_process_group_landing_page:
         edit:
           active_content_blocks: Aktivní bloky obsahu
+          add: Přidat blok obsahu
+          destroy_confirmation: Opravdu chcete smazat tento blok obsahu?
           inactive_content_blocks: Neaktivní bloky obsahu
+          title: Obsah stránky
       participatory_process_group_landing_page_content_blocks:
+        create:
+          error: Při pokusu o vytvoření tohoto obsahu došlo k chybě.
+          success: Blok obsahu byl úspěšně vytvořen.
+        destroy:
+          error: Při pokusu o odstranění tohoto obsahu došlo k chybě.
+          success: Blok obsahu byl úspěšně odstraněn.
         edit:
           update: Aktualizovat
       participatory_process_groups:
@@ -219,8 +235,8 @@ cs:
         default_title: Úvod
         destroy:
           error:
-            active_step: Aktivní krok nelze odstranit.
-            last_step: Poslední krok procesu nelze odstranit.
+            active_step: Nelze odstranit aktivní fázi.
+            last_step: Nelze odstranit poslední fázi procesu.
           success: Úspěšný krok procesu byl úspěšně smazán.
         edit:
           title: Úprava kroku procesu participace
@@ -353,7 +369,7 @@ cs:
     log:
       value_types:
         participatory_process_type_presenter:
-          not_found: 'Typ procesu nebyl v databázi nalezen (ID: %{id})'
+          not_found: 'Typ procesu nebyl v databázi nalezen (ID: %{id}).'
     menu:
       processes: Procesy
     metrics:
@@ -481,8 +497,8 @@ cs:
               many: "%{count} nadcházejících procesů"
               other: "%{count} nadcházejících procesů"
           explanations:
-            no_active: Žádné aktivní procesy
-            no_active_nor_upcoming: Žádné aktivní ani nadcházející procesy
+            no_active: Žádné aktivní procesy.
+            no_active_nor_upcoming: Žádné aktivní ani nadcházející procesy.
             no_active_nor_upcoming_callout: Neexistují žádné aktivní ani nadcházející procesy. Zde je seznam minulých.
           filter_by: Zobrazit
           names:

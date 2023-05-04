@@ -5,7 +5,7 @@ module Decidim
     class InvalidVerificationRoute < StandardError
       def new(route:)
         msg = <<~MSG
-          You specified a direct handler but you're trying to use `#{route}`
+          You specified a direct handler but you are trying to use `#{route}`
           which is only available for multi-step authorization workflows. Change
           your workflow to define an engine with a `#{route}` route.
         MSG
@@ -63,7 +63,7 @@ module Decidim
         @manifest = manifest
       end
 
-      delegate :key, :name, :fullname, :description, :type, to: :manifest
+      delegate :key, :name, :fullname, :description, :type, :icon, to: :manifest
 
       #
       # Main entry point for the verification engine

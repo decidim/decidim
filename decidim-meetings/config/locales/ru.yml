@@ -1,10 +1,6 @@
 ru:
   activemodel:
     attributes:
-      agenda:
-        description: Описание
-        duration: Длительность
-        title: Заголовок
       close_meeting:
         attendees_count: Количество участников
         attending_organizations: Список принявших участие организаций
@@ -18,7 +14,6 @@ ru:
         decidim_category_id: Категория
         decidim_scope_id: Охват
         description: Описание
-        end_time: Время окончания
         location: Место
         location_hints: Как добраться
         organizer_id: Организация
@@ -26,20 +21,8 @@ ru:
         registration_form_enabled: Регистрационная форма включена
         registration_terms: Условия регистрации
         registrations_enabled: Регистрация включена
-        start_time: Время начала
         title: Название
         transparent: Прозрачная
-    errors:
-      models:
-        meeting_agenda:
-          attributes:
-            base:
-              too_many_minutes: Продолжительность всех вопросов превышает продолжительность встречи на %{count} минут
-              too_many_minutes_child: Продолжительность вложенных вопросов превышает продолжительность общего вопроса «%{parent_title}» на %{count} минут
-        meeting_registration_invite:
-          attributes:
-            email:
-              already_invited: Участник с таким адресом уже приглашен
     models:
       decidim/meetings/close_meeting_event: Встреча закрыта
       decidim/meetings/create_meeting_event: Встреча
@@ -142,8 +125,6 @@ ru:
           description_another: Этот участник принял участие в %{score} встречах.
           description_own: Вы приняли участие в %{score} встречах.
           next_level_in: Примите участие еще в %{score} встречах, чтобы достичь следующего уровня!
-          unearned_another: Этот участник еще не участвовал ни в одной встрече.
-          unearned_own: Вы еще не участвовали ни в одной встрече.
     meetings:
       actions:
         agenda: Повестка дня
@@ -171,9 +152,6 @@ ru:
             down: Вниз
             remove: Удалить
             up: Вверх
-          create:
-            invalid: При попытке создать эту повестку дня произошла ошибка
-            success: Повестка дня успешно создана
           edit:
             title: Изменить повестку дня
             update: Обновить
@@ -185,9 +163,6 @@ ru:
           new:
             create: Создать
             title: Создать повестку дня
-          update:
-            invalid: При попытке обновить эту повестку дня произошла ошибка
-            success: Повестка дня успешно обновлена
         exports:
           meetings: Встречи
           registrations: Регистрации
@@ -216,18 +191,12 @@ ru:
             filter_by: 'Отобрать по признаку:'
             invite_attendee: Пригласить участника
             invites: Приглашения
-            registrations_disabled: Вы не можете пригласить участника, так как регистрация отключена.
             search: Поиск
         meeting_closes:
           edit:
             close: Закрыть
             title: Закрыть встречу
         meetings:
-          close:
-            invalid: При попытке закрыть эту встречу произошла ошибка
-            success: Встреча успешно завершена
-          create:
-            invalid: При попытке добавить эту встречу произошла ошибка
           destroy:
             success: Встреча успешно удалена
           edit:
@@ -247,9 +216,6 @@ ru:
           services:
             add_service: Добавить услугу
             services: Услуги
-          update:
-            invalid: При попытке обновить эту встречу произошла ошибка
-            success: Встреча успешно обновлена
         models:
           meeting:
             name: Встреча
@@ -262,7 +228,6 @@ ru:
             available_slots_help: Оставьте его равным 0, если у вас не ограничено количество мест.
             invites: Приглашения
             registration_form: Форма регистрации
-            reserved_slots_help: Оставьте его равным 0, если у вас нет забронированных мест
             reserved_slots_less_than: Должен быть меньше или равен %{count}
             title: Регистрации
           update:
@@ -300,8 +265,6 @@ ru:
         registration_mailer:
           confirmation:
             subject: Ваша регистрация на встречу подтверждена
-      meeting:
-        not_allowed: У вас нет прав на просмотр этой встречи
       meetings:
         filters:
           category: Категория
@@ -315,7 +278,6 @@ ru:
         meeting_minutes:
           related_information: Сопутствующие сведения
         meetings:
-          no_meetings_warning: Нет встреч, соответствующих вашим критериям поиска, или нет ни одной запланированной встречи.
           upcoming_meetings_warning: Сейчас нет запланированных встреч, но здесь вы можете найти список всех прошедших встреч.
         registration_confirm:
           cancel: Отменить
@@ -361,7 +323,6 @@ ru:
       registrations:
         create:
           invalid: При попытке присоединиться к встрече произошла ошибка.
-          success: Вы успешно зарегистрировались на эту встречу.
         decline_invitation:
           invalid: При попытке отклонить это приглашение произошла ошибка.
           success: Вы успешно отклонили это приглашение.

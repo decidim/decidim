@@ -16,7 +16,7 @@
       <%= form.number_field :weight %>
     </div>
 
-    <%= render partial: "decidim/admin/shared/gallery", locals: { form: form } %>
+    <%= render partial: "decidim/admin/shared/gallery", locals: { form: } %>
 
     <div class="row column">
       <%= proposals_picker(form, :proposals, proposals_picker_election_question_answers_path(election, question)) %>

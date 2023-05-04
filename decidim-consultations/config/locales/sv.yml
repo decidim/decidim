@@ -46,12 +46,6 @@ sv:
         decidim_consultations_response_id:
           not_found: Hittade inte svar.
   activerecord:
-    errors:
-      models:
-        decidim/consultations/vote:
-          attributes:
-            question:
-              invalid_num_votes: Ogiltigt antal röster
     models:
       decidim/consultation:
         one: Samråd
@@ -94,7 +88,6 @@ sv:
         create:
           error: Det gick inte att skapa ett nytt samråd.
           success: Samrådet har skapats.
-        deprecation_warning: Konsultationsmodulen kommer att tas bort inom en nära framtid. Vi arbetar på nästa kryptografiskt säkra version som kallas Omröstningar.
         edit:
           update: Uppdatera
         form:
@@ -153,7 +146,6 @@ sv:
             one: Svar
             other: Svar
       question_configuration:
-        disable_external_voting: Avaktivera extern röstning för avancerade konfigurationer
         form:
           help: Skapa flervalsfrågor genom att öka det maximala antalet svar en deltagare kan ge. Det förvalda maxvärdet är 1, vilket innebär att det endast går att rösta på ett alternativ.
           title: Avancerad konfiguration
@@ -264,6 +256,8 @@ sv:
         title: Frågor från %{scope_name}
       index:
         title: Samråd
+      last_activity:
+        new_question: 'Ny fråga:'
       pages:
         home:
           highlighted_consultations:
@@ -297,7 +291,6 @@ sv:
             votes: Röster
       question_votes:
         create:
-          error: Det gick inte att rösta i frågan
           success: Du kan ändra den upp till slutet av samrådet. Endast den sista rösten räknas.
           title_error: Röstningsfel!
           title_success: Rösten har tagits emot

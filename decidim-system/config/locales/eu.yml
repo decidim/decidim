@@ -43,9 +43,6 @@ eu:
       admins:
         create:
           error: Errorea gertatu da administratzaile berri bat sortzean.
-          success: Administratzailea zuzen sortu da
-        destroy:
-          success: Admin ezabatu da
         edit:
           title: Editatu administratzailea
           update: Eguneratu
@@ -56,7 +53,6 @@ eu:
           title: Administratzaile berria
         update:
           error: Errorea gertatu da administratzaile hau eguneratzean.
-          success: Administratzailea zuzen eguneratu da
       dashboard:
         show:
           current_organizations: Uneko antolatzaileak
@@ -72,7 +68,7 @@ eu:
       models:
         admin:
           fields:
-            created_at: Tan sortua
+            created_at: Sortze-data
             email: Helbide elektronikoa
           name: Administratzailea
           validations:
@@ -145,8 +141,6 @@ eu:
         index:
           title: Erakundeak
         new:
-          reference_prefix_hint: Erreferentzia-aurrizkia erabiltzen da erakunde guztien baliabideak modu bakarrean identifikatzeko
-          secondary_hosts_hint: Sartu haietako bakoitza lerro batean
           title: Erakunde berria
         omniauth_settings:
           decidim:
@@ -169,8 +163,6 @@ eu:
         smtp_settings:
           fieldsets:
             sender: Bidaltzailea
-          instructions:
-            from_label: 'Posta elektronikoaren bidaltzailea honako hau izango da: "Erakundearen izena < your-organization@example.org>". Utzi hutsik ''Helbide elektronikoa'' eremua etiketa gisa erabiltzeko'
           placeholder:
             from_email: zure-erakundea@example.org
             from_label: erakundearen izena
@@ -180,7 +172,6 @@ eu:
         users_registration_mode:
           disabled: Sarbidea soilik kanpoko kontuekin egin daiteke
           enabled: Baimendu erabiltzaileei erregistratzea eta saioa hasteko
-          existing: Ez utzi erabiltzaileek erregistratu, baizik eta existitzen diren erabiltzaileei saioa hasteko
       shared:
         notices:
           no_organization_warning_html: Hasteko erakunde bat sortu behar duzu. Jarraitu aurretik ziurta zaitez %{guide} irakurri duzula.

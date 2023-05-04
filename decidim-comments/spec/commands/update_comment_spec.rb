@@ -41,7 +41,7 @@ module Decidim
             expect { command.call }.to broadcast(:invalid)
           end
 
-          it "doesn't update the comment" do
+          it "does not update the comment" do
             expect { command.call }.not_to change(comment, :body)
           end
         end
@@ -55,7 +55,7 @@ module Decidim
             expect { command.call }.to broadcast(:invalid)
           end
 
-          it "doesn't update the comment" do
+          it "does not update the comment" do
             expect { command.call }.not_to change(comment, :body)
           end
         end

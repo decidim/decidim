@@ -22,24 +22,12 @@ zh-CN:
         slogan: 斯洛根文
         slug: URL 名称
         title: 标题
-      conference_media_link:
-        weight: 权重
-      conference_partner:
-        weight: 权重
-      conference_registration_type:
-        weight: 权重
       conference_speaker:
         full_name: 全名
       conference_user_role:
         email: 电子邮件地址
         name: 名称
         role: 作用
-    errors:
-      models:
-        conference_registration_invite:
-          attributes:
-            email:
-              already_invited: 此电子邮件已被邀请
   activerecord:
     models:
       decidim/conference:
@@ -96,8 +84,6 @@ zh-CN:
         edit:
           title: 更新会议管理员。
           update: 更新
-        index:
-          conference_admins_title: 会议管理员
         new:
           create: 创建
           title: 新的会议管理员。
@@ -309,7 +295,6 @@ zh-CN:
             invites: 邀请
             search: 搜索
           new:
-            explanation: 与会者将被邀请参加会议。如果她的电子邮件未注册，她也将被邀请加入组织。
             invite: 邀请
             new_invite: Invite participant
         conference_registrations:
@@ -361,18 +346,11 @@ zh-CN:
           cancel: 取消
           confirm: 确认
         show:
-          free: 免费的
           going: 正在参加
           no_slots_available: 无可用槽位
           registration: 登记
       conference_program:
-        program_meeting:
-          content: 内容
-          location: 地点
-          speakers: 发言者：
-          streaming: 流流
         show:
-          day: 日
           program: 程序
       conference_registration_mailer:
         confirmation:
@@ -402,18 +380,12 @@ zh-CN:
       conference_speaker_cell:
         personal_url:
           personal_website: 个人网站
-        twitter_handle:
-          go_to_twitter: 转到Twitter
-      conference_speakers:
-        index:
-          speakers: 发言者：
       conferences:
         partners:
           collaborators: 合作伙伴
           main_promotors: 组织者
         show:
           login_as: 您已登录为 %{name} <%{email}>
-          make_conference_registration: '让您在会议上注册：'
           register: 注册
       content_blocks:
         highlighted_conferences:
@@ -421,11 +393,6 @@ zh-CN:
       index:
         title: 会议
       mailer:
-        conference_registration_mailer:
-          confirmation:
-            subject: 您的会议注册已确认
-          pending_validation:
-            subject: 您的会议注册正在等待确认
         invite_join_conference_mailer:
           invite:
             subject: 邀请加入会议
@@ -458,29 +425,12 @@ zh-CN:
           highlighted_conferences:
             active_conferences: 活跃的会议
             see_all_conferences: 查看所有会议
-      photo:
-        image:
-          attributes:
-            alt: 媒体图片
-        show:
-          close_modal: 关闭模式
-          photo: 图片
-      photos_list:
-        show:
-          related_photos: 图像
       registration_types:
         index:
           choose_an_option: '选择您的注册选项：'
-          login_as: 您已登录为 %{name} <%{email}>
           no_registrations: 无注册
           register: 注册
           title: 注册类型
-      shared:
-        conference_user_login:
-          already_account: 您在决定中是否已经有一个帐户？
-          new_user: 新用户？
-          sign_in: 登录以注册会议
-          sign_up: 创建一个帐号来注册会议
       show:
         details: 详细信息
         introduction: 一. 导言
@@ -519,10 +469,6 @@ zh-CN:
           email_outro: 您收到此通知是因为您正在关注“%{resource_title}”会议。您可以从上一个链接取消关注它。
           email_subject: '"%{resource_title}"会议即将来临！'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> 会议将在 2 天内到来。
-    log:
-      value_types:
-        conference_presenter:
-          not_found: '会议未在数据库中找到 (ID: %{id})'
     media:
       index:
         description: 关于此会议的链接

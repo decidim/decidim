@@ -71,7 +71,7 @@ describe "Check Census", type: :system do
 
     it "shows instructions to ask for access code again, mentioning email and SMS" do
       within ".wrapper" do
-        expect(page).to have_content("You should have received your Access Code by postal mail already. In case, you don't have it, you can request it here via SMS or email")
+        expect(page).to have_content("You should have received your Access Code by postal mail already. In case, you do not have it, you can request it here via SMS or email")
       end
     end
   end
@@ -98,7 +98,7 @@ describe "Check Census", type: :system do
 
     it "shows instructions to ask for access code again, mentioning only email" do
       within ".wrapper" do
-        expect(page).to have_content("You should have received your Access Code by postal mail already. In case, you don't have it, you can request it here via email")
+        expect(page).to have_content("You should have received your Access Code by postal mail already. In case, you do not have it, you can request it here via email")
       end
     end
   end

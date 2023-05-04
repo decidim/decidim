@@ -62,10 +62,6 @@ nl:
             title: Annulatie van de loting
           create:
             error: Er is een fout opgetreden bij het maken van een nieuwe loting.
-            success: Loting succesvol aangemaakt
-          destroy:
-            error: De sortering kan niet worden geannuleerd.
-            success: Loting succesvol geannuleerd
           edit:
             title: Update de informatie over de loting
             update: Bijwerken
@@ -82,7 +78,6 @@ nl:
             selected_proposals: Voorstellen geselecteerd voor trekking
           update:
             error: Er is een fout opgetreden bij het bijwerken van de loting.
-            success: Loting succesvol bijgewerkt
       admin_log:
         sortition:
           create: "%{user_name} heeft de %{resource_name} loting gemaakt in %{space_name}"

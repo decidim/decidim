@@ -18,7 +18,7 @@ describe "Data consent", type: :system do
       end
     end
 
-    it "user accepts the cookies and dialog isn't shown anymore'" do
+    it "user accepts the cookies and dialog is not shown anymore'" do
       expect(page).to have_content(cookies_description)
 
       click_button "Accept all"
@@ -28,7 +28,7 @@ describe "Data consent", type: :system do
       expect(page).not_to have_content(cookies_description)
     end
 
-    it "user rejects the cookies and dialog isn't shown anymore'" do
+    it "user rejects the cookies and dialog is not shown anymore'" do
       expect(page).to have_content(cookies_description)
 
       click_button "Accept only essential"

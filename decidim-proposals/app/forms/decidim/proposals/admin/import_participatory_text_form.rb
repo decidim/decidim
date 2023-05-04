@@ -21,7 +21,7 @@ module Decidim
         validates :document, presence: true, if: :new_participatory_text?
         validate :document_type_must_be_valid, if: :document
 
-        # Assume it's a NEW participatory_text if there are no proposals
+        # Assume it is a NEW participatory_text if there are no proposals
         # Validate document presence while CREATING proposals from document
         # Allow skipping document validation while UPDATING title/description
         def new_participatory_text?

@@ -1,4 +1,50 @@
-inherit_from:
-  - .rubocop_ruby.yml
-  - .rubocop_rails.yml
-  - .rubocop-disabled.yml
+inherit_gem:
+  decidim-dev: rubocop-decidim.yml
+
+inherit_mode:
+  merge:
+    - Exclude
+
+AllCops:
+  Exclude:
+    - "decidim-initiatives/lib/gem_overrides/origami/date.rb"
+
+Naming/FileName:
+  Exclude:
+    - "decidim-dev/lib/decidim-dev.rb"
+
+Metrics/CyclomaticComplexity:
+  Exclude:
+    - "decidim-admin/app/queries/decidim/admin/newsletter_recipients.rb"
+
+Metrics/ParameterLists:
+  Exclude:
+    - "decidim-core/lib/decidim/filter_form_builder.rb"
+
+Metrics/PerceivedComplexity:
+  Exclude:
+    - "decidim-admin/app/queries/decidim/admin/newsletter_recipients.rb"
+
+RSpec/DescribeClass:
+  Exclude:
+    - decidim-core/spec/lib/global_engines_spec.rb
+
+RSpec/EmptyExampleGroup:
+  Exclude:
+    - decidim-core/spec/lib/participatory_space_manifest_spec.rb
+
+RSpec/MultipleMemoizedHelpers:
+  Exclude:
+    - decidim-assemblies/spec/forms/assembly_form_spec.rb
+
+Rails/Output:
+  Exclude:
+    - lib/decidim/git_backport_manager.rb
+    - lib/decidim/github_manager/poster.rb
+    - decidim-core/lib/decidim/core.rb
+    - decidim-core/lib/decidim/component_manifest.rb
+    - decidim-core/lib/decidim/participatory_space_manifest.rb
+
+Rails/Exit:
+  Exclude:
+    - lib/decidim/git_backport_manager.rb

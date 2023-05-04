@@ -6,7 +6,7 @@
     <% else %>
       <% component.manifest.import_manifests.each do |import_manifest| %>
         <li class="imports--file imports--<%= import_manifest.name %>">
-          <%= link_to import_manifest.message(:label, self), admin_imports_path(component, resource_id: resource_id, name: import_manifest.name) %>
+          <%= link_to import_manifest.message(:label, self), admin_imports_path(component, resource_id:, name: import_manifest.name) %>
         </li>
       <% end %>
     <% end %>

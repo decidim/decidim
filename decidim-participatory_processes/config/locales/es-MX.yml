@@ -11,15 +11,22 @@ es-MX:
         decidim_area_id: Área
         description: Descripción
         developer_group: Grupo promotor
+        document: Documento
         domain: Dominio
         end_date: Fecha de finalización
         hashtag: Hashtag
         hero_image: Imagen de portada
+        import_attachments: Importar archivos adjuntos
+        import_categories: Importar categorias
+        import_components: Importar componentes
+        import_steps: Importar fases
         local_area: Área de organización
         meta_scope: 'Metadatos: ámbito'
         participatory_process_group_id: Grupo de procesos
+        participatory_process_type_id: Tipo de proceso
         participatory_scope: Qué se decide
         participatory_structure: Cómo se decide
+        private_space: Proceso privado
         promoted: Destacado
         published_at: Publicado en
         related_process_ids: Procesos relacionados
@@ -170,8 +177,17 @@ es-MX:
       participatory_process_group_landing_page:
         edit:
           active_content_blocks: Bloques de contenido activos
+          add: Añadir bloque de contenido
+          destroy_confirmation: '¿Seguro que quieres borrar este bloque de contenido?'
           inactive_content_blocks: Bloques de contenido inactivos
+          title: Contenidos de la página
       participatory_process_group_landing_page_content_blocks:
+        create:
+          error: Se ha producido un error al intentar crear este bloque de contenido.
+          success: El bloque de contenido se ha creado correctamente.
+        destroy:
+          error: Se ha producido un error al intentar eliminar este bloque de contenido.
+          success: Bloque de contenido eliminado correctamente.
         edit:
           update: Actualizar
       participatory_process_groups:
@@ -347,7 +363,7 @@ es-MX:
     log:
       value_types:
         participatory_process_type_presenter:
-          not_found: 'Este tipo de proceso no se encontró en la base de datos (ID: %{id})'
+          not_found: 'Este tipo de proceso no se encontró en la base de datos (ID: %{id}).'
     menu:
       processes: Procesos
     metrics:
@@ -465,8 +481,8 @@ es-MX:
               one: 1 próximo proceso
               other: "%{count} próximos procesos"
           explanations:
-            no_active: Sin procesos activos
-            no_active_nor_upcoming: Sin procesos activos ni futuros
+            no_active: Sin procesos activos.
+            no_active_nor_upcoming: No hay procesos activos ni futuros.
             no_active_nor_upcoming_callout: No hay procesos activos ni futuros. Aquí hay una lista de los pasados.
           filter_by: Mostrar
           names:

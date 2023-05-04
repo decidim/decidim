@@ -28,7 +28,6 @@ pt-BR:
         show_statistics: Mostre estatisticas
         sign_date: Data de assinatura
         signature: Assinatura
-        signature_name: nome da assinatura
         slogan: Slogan
         slug: Lesma de URL
         start_date: Data de início
@@ -37,13 +36,11 @@ pt-BR:
         date: Data
         link: Link
         title: Título
-        weight: Peso
       conference_partner:
         link: Link
         logo: Logo
         name: Nome
         partner_type: Tipo de parceiro
-        weight: Peso
       conference_registration_invite:
         email: E-mail
         name: Nome
@@ -53,7 +50,6 @@ pt-BR:
         description: Descrição
         price: Preço
         title: Título
-        weight: Peso
       conference_speaker:
         affiliation: Afiliação
         avatar: Avatar
@@ -66,12 +62,6 @@ pt-BR:
         email: O email
         name: Nome
         role: Função
-    errors:
-      models:
-        conference_registration_invite:
-          attributes:
-            email:
-              already_invited: Este email já foi convidado
   activerecord:
     models:
       decidim/conference:
@@ -131,8 +121,6 @@ pt-BR:
         edit:
           title: Atualize o usuário da conferência.
           update: Atualizar
-        index:
-          conference_admins_title: usuários da conferência
         new:
           create: Crio
           title: Novo usuário da conferência.
@@ -349,7 +337,6 @@ pt-BR:
             invites: Convites
             search: Pesquisa
           new:
-            explanation: O usuário será convidado a participar de uma conferência. Se o email não estiver registrado, ele será convidado para a organização também.
             invite: Convite
             new_invite: Convidar Usuário
         conference_registrations:
@@ -402,18 +389,11 @@ pt-BR:
           cancel: Cancelar
           confirm: confirme
         show:
-          free: Livre
           going: Indo
           no_slots_available: Não há slots disponíveis
           registration: Cadastro
       conference_program:
-        program_meeting:
-          content: Conteúdo
-          location: Localização
-          speakers: Alto-falantes
-          streaming: Transmissão
         show:
-          day: Dia
           program: Programa
       conference_registration_mailer:
         confirmation:
@@ -444,18 +424,12 @@ pt-BR:
       conference_speaker_cell:
         personal_url:
           personal_website: Site pessoal
-        twitter_handle:
-          go_to_twitter: Vá para o Twitter
-      conference_speakers:
-        index:
-          speakers: caixas de som
       conferences:
         partners:
           collaborators: Parceiros
           main_promotors: Organizadores
         show:
           login_as: Você está logado como %{name} <%{email}>
-          make_conference_registration: 'Faça seu cadastro na conferência:'
           register: Registrar-se
       content_blocks:
         highlighted_conferences:
@@ -463,11 +437,6 @@ pt-BR:
       index:
         title: Conferências
       mailer:
-        conference_registration_mailer:
-          confirmation:
-            subject: O registro da sua conferência foi confirmado
-          pending_validation:
-            subject: O registro da sua conferência está pendente de confirmação
         invite_join_conference_mailer:
           invite:
             subject: Convite para participar de uma conferência
@@ -501,29 +470,12 @@ pt-BR:
             active_conferences: Conferências ativas
             conferences_button_title: Link para a página de Conferências exibindo todas as conferências
             see_all_conferences: Veja todas as conferências
-      photo:
-        image:
-          attributes:
-            alt: Imagem da mídia
-        show:
-          close_modal: Fechar modal
-          photo: Foto
-      photos_list:
-        show:
-          related_photos: Fotos
       registration_types:
         index:
           choose_an_option: 'Escolha sua opção de registro:'
-          login_as: Você está logado como %{name} <%{email}>
           no_registrations: Sem inscrições
           register: registo
           title: Tipos de registro
-      shared:
-        conference_user_login:
-          already_account: Você já tem uma conta na decidim?
-          new_user: Novo usuário?
-          sign_in: Entre para se inscrever na conferência
-          sign_up: Crie uma conta no decidim para se inscrever na conferência
       show:
         details: Detalhes
         introduction: Introdução
@@ -568,10 +520,6 @@ pt-BR:
           contextual: "<p>Uma <strong>conferência</strong> é uma coleção de reuniões organizadas em um programa, com várias pessoas convidadas como palestrantes, e outros campos de informação típicos de grandes congressos ou eventos sociais (registro, lista de organizações que apoiam ou patrocinam o evento, etc.).</p> <p>Exemplos: Uma conferência pode ser um evento relevante para uma organização e seus membros, ou realiza como parte de um processo participativo ou segue uma consulta.</p>\n"
           page: "<p>Uma <strong>conferência</strong> é uma coleção de reuniões organizadas em um programa, com várias pessoas convidadas como palestrantes, e outros campos de informação típicos de grandes congressos ou eventos sociais (registro, lista de organizações que apoiam ou patrocinam o evento, etc.).</p> <p>Exemplos: Uma conferência pode ser um evento relevante para uma organização e seus membros, ou realiza como parte de um processo participativo ou segue uma consulta.</p>\n"
           title: O que são conferências?
-    log:
-      value_types:
-        conference_presenter:
-          not_found: 'A conferência não foi encontrada no banco de dados (ID: %{id})'
     media:
       index:
         description: Links sobre esta conferência

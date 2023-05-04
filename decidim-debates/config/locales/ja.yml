@@ -206,7 +206,7 @@ ja:
           email_intro: '%{participatory_space_title}で新しいディベートを開始できます! このページに参加してください:'
           email_outro: '%{participatory_space_title}をフォローしているため、この通知を受け取りました。前のリンクに続く通知の受信を停止することができます。'
           email_subject: ディベートは %{participatory_space_title} で利用可能になりました
-          notification_title: <a href="%{participatory_space_url}">%{participatory_space_title}</a> 内で <a href="%{resource_path}">新しいディベート</a> を開始できます。
+          notification_title: <a href="%{participatory_space_url}">%{participatory_space_title}</a>で<a href="%{resource_path}">新しいディベート</a>を開始できます。
         debate_closed:
           affected_user:
             email_intro: '「%{resource_title}」のディベートは終了しました。そのページから結論を読むことができます。'
@@ -229,7 +229,7 @@ ja:
           name: ディベート
           next_level_in: さらに %{score} のディベートに参加して、次のレベルに到達しましょう！
           unearned_another: この参加者はまだディベートに参加していません。
-          unearned_own: まだディベートに参加していません。
+          unearned_own: まだどのディベートにも参加していません。
     metrics:
       debates:
         description: 作成されたディベート数

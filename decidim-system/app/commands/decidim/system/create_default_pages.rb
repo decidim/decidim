@@ -22,10 +22,10 @@ module Decidim
             page.title = localized_attribute(slug, :title)
             page.content = localized_attribute(slug, :content)
             page.show_in_footer = true
-            page.allow_public_access = true if slug == "terms-and-conditions"
+            page.allow_public_access = true if slug == "terms-of-service"
           end
 
-          create_default_content_blocks_for(static_page)
+          create_summary_content_blocks_for(static_page) if slug == "terms-of-service"
         end
       end
 
@@ -43,7 +43,7 @@ module Decidim
         end
       end
 
-      def create_default_content_blocks_for(page)
+      def create_summary_content_blocks_for(page)
         content_block_summary = Decidim::ContentBlock.create(
           organization:,
           scope_name: :static_page,

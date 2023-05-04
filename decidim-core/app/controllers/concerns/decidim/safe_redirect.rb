@@ -21,7 +21,7 @@ module Decidim
         # Add the organization host to the URL if not present
         target_uri = URI.join("#{request.scheme}://#{current_organization.host}", target_uri) unless target_uri.host
 
-        # Don't allow URLs without host or with a different host than the organization one
+        # Do not allow URLs without host or with a different host than the organization one
         return if target_uri.host != current_organization.host
 
         # Convert the URI to relative

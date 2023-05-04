@@ -48,7 +48,7 @@ describe Decidim::NotificationsDigestSendingDecider do
       end
     end
 
-    # This particular case shouldn't happen on daily runs but in case sending
+    # This particular case should not happen on daily runs but in case sending
     # takes a long time, those users should be also included who were notified
     # a bit later than the exact time when the scheduled task was run as we
     # cannot know precicely on which second the scheduled task was run exactly
@@ -88,7 +88,7 @@ describe Decidim::NotificationsDigestSendingDecider do
       end
     end
 
-    # This particular case shouldn't happen on weekly runs but in case sending
+    # This particular case should not happen on weekly runs but in case sending
     # takes a long time, those users should be also included who were notified
     # a bit later than the exact time when the scheduled task was run as we
     # cannot know precicely on which second the scheduled task was run exactly

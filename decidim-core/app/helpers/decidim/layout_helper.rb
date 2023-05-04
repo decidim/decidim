@@ -25,10 +25,11 @@ module Decidim
     end
 
     def legacy_favicon
-      icon_image = current_organization.attached_uploader(:favicon).variant_url(:small, host: current_organization.host)
+      variant = :favicon if current_organization.favicon.content_type != "image/vnd.microsoft.icon"
+      icon_image = current_organization.attached_uploader(:favicon).variant_url(variant, host: current_organization.host)
       return unless icon_image
 
-      favicon_link_tag(icon_image.gsub(".png", ".ico"), rel: "icon", sizes: "any", type: nil)
+      favicon_link_tag(icon_image, rel: "icon", sizes: "any", type: nil)
     end
 
     # Outputs an SVG-based icon.
@@ -52,13 +53,13 @@ module Decidim
         "aria-hidden" => "true"
       }
 
-      html_properties = options.with_indifferent_access.transform_keys(&:dasherize).slice("width", "height", "aria-label", "role", "aria-hidden", "class")
+      html_properties = options.with_indifferent_access.transform_keys(&:dasherize).slice("width", "height", "aria-label", "role", "aria-hidden", "class", "style")
       html_properties = default_html_properties.merge(html_properties)
 
       href = Decidim.cors_enabled ? "" : asset_pack_path("media/images/remixicon.symbol.svg")
 
       content_tag :svg, html_properties do
-        content_tag :use, nil, "href" => "#{href}#ri-#{name}"
+        content_tag :use, nil, "href" => "#{href}#ri-#{name}", tabindex: -1
       end
     end
 
@@ -177,7 +178,7 @@ module Decidim
     # Example:
     #
     # --primary: #ff0000;
-    # --primary-rgb: 255 0 0
+    # --primary-rgb: 255,0,0
     #
     # Hexadecimal variables can be used as a normal CSS color:
     #
@@ -188,7 +189,7 @@ module Decidim
     #
     # background-color: rgba(var(--primary-rgb), 0.5)
     def organization_colors
-      css = current_organization.colors.each.map { |k, v| "--#{k}: #{v};--#{k}-rgb: #{v[1..2].hex} #{v[3..4].hex} #{v[5..6].hex};" }.join
+      css = current_organization.colors.each.map { |k, v| "--#{k}: #{v};--#{k}-rgb: #{v[1..2].hex},#{v[3..4].hex},#{v[5..6].hex};" }.join
       render partial: "layouts/decidim/organization_colors", locals: { css: }
     end
 

@@ -6,7 +6,7 @@ module Decidim
     # The data needed for this class to work should be sent by
     # `Decidim::Log::BasePresenter` or any of its children.
     #
-    # In order to be able to use your own class to present a resource, you'll need to
+    # In order to be able to use your own class to present a resource, you will need to
     # overwrite `BasePresenter#resource_presenter` to return your custom resource presenter.
     # The only requirement for custom renderers is that they should respond to `present`.
     class ResourcePresenter

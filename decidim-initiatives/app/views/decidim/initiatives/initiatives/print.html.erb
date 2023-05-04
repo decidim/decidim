@@ -60,7 +60,7 @@
 
       <div class="print-table-cell">
         <div class="cell-header"><%= t ".email" %></div>
-        <div class="cell-content"><%= current_initiative.author.email %></div>
+        <div class="cell-content"></div>
       </div>
     </div>
   </div>
@@ -154,5 +154,5 @@
   </p>
 
   <a href="#" onclick="window.print();return false;" class="button expanded"><%= t ".print" %></a>
-  <%= stylesheet_pack_tag "decidim_initiatives_print", media: "all" %>
+  <%= append_stylesheet_pack_tag "decidim_initiatives_print" %>
 </div>

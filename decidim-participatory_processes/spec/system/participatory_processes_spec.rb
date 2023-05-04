@@ -9,13 +9,14 @@ describe "Participatory Processes", type: :system do
   let(:show_statistics) { true }
   let(:hashtag) { true }
   let(:base_description) { { en: "Description", ca: "Descripció", es: "Descripción" } }
+  let(:short_description) { { en: "Short description", ca: "Descripció curta", es: "Descripción corta" } }
   let(:base_process) do
     create(
       :participatory_process,
       :active,
       organization:,
       description: base_description,
-      short_description: { en: "Short description", ca: "Descripció curta", es: "Descripción corta" },
+      short_description:,
       show_metrics:,
       show_statistics:
     )
@@ -420,11 +421,11 @@ describe "Participatory Processes", type: :system do
             let(:show_statistics) { true }
 
             it "the stats for those components are visible" do
-              within ".section-statistics" do
-                expect(page).to have_css("h3.section-heading", text: "STATISTICS")
-                expect(page).to have_css(".statistic__title", text: "PROPOSALS")
+              within "[data-statistics]" do
+                expect(page).to have_css("h2.h2", text: "Statistics")
+                expect(page).to have_css(".statistic__title", text: "Proposals")
                 expect(page).to have_css(".statistic__number", text: "3")
-                expect(page).to have_no_css(".statistic__title", text: "MEETINGS")
+                expect(page).to have_no_css(".statistic__title", text: "Meetings")
                 expect(page).to have_no_css(".statistic__number", text: "0")
               end
             end
@@ -434,8 +435,8 @@ describe "Participatory Processes", type: :system do
             let(:show_statistics) { false }
 
             it "the stats for those components are not visible" do
-              expect(page).to have_no_css("h3.section-heading", text: "STATISTICS")
-              expect(page).to have_no_css(".statistic__title", text: "PROPOSALS")
+              expect(page).to have_no_css("h2.h2", text: "Statistics")
+              expect(page).to have_no_css(".statistic__title", text: "Proposals")
               expect(page).to have_no_css(".statistic__number", text: "3")
             end
           end
@@ -452,7 +453,7 @@ describe "Participatory Processes", type: :system do
             end
           end
 
-          context "and the process doesn't have hashtag" do
+          context "and the process does not have hashtag" do
             let(:hashtag) { false }
 
             it "the hashtags for those components are not visible" do
@@ -485,6 +486,7 @@ describe "Participatory Processes", type: :system do
         end
 
         it_behaves_like "has embedded video in description", :base_description
+        it_behaves_like "has embedded video in description", :short_description
       end
     end
   end

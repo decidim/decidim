@@ -6,11 +6,11 @@ module Decidim::Admin
   describe UpdateOrganizationTosVersion do
     describe "call" do
       let(:organization) { create(:organization) }
-      let(:tos_page) { Decidim::StaticPage.find_by(slug: "terms-and-conditions", organization:) }
+      let(:tos_page) { Decidim::StaticPage.find_by(slug: "terms-of-service", organization:) }
       let(:other_page) { create(:static_page, slug: "other-page", organization:) }
       let(:user) { create(:user, organization:) }
 
-      describe "when the page is not the terms-and-conditions page" do
+      describe "when the page is not the terms-of-service page" do
         let(:form) do
           StaticPageForm.from_params(
             static_page: other_page.attributes.merge(
@@ -31,7 +31,7 @@ module Decidim::Admin
           expect { command.call }.to broadcast(:invalid)
         end
 
-        it "doesn't update the organization's terms-and-conditions updated at setting" do
+        it "does not update the organization's terms-of-service updated at setting" do
           previous_tos_version = organization.tos_version.strftime("%F %T.%L")
           command.call
           organization.reload
@@ -40,7 +40,7 @@ module Decidim::Admin
         end
       end
 
-      describe "when the page is the terms-and-conditions page" do
+      describe "when the page is the terms-of-service page" do
         let(:form) do
           StaticPageForm.from_params(
             static_page: tos_page.attributes.merge(
@@ -74,7 +74,7 @@ module Decidim::Admin
           expect(action_log.action).to eq "update"
         end
 
-        it "updates the the organization's terms-and-conditions updated at setting" do
+        it "updates the the organization's terms-of-service updated at setting" do
           command.call
           tos_page.reload
           organization.reload

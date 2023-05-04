@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
-require "webpush"
+require "web-push"
 
 namespace :decidim do
   namespace :pwa do
     desc "Generates VAPID keys for push notifications"
     task :generate_vapid_keys do
-      vapid_key = Webpush.generate_key
+      vapid_key = WebPush.generate_key
 
       puts("VAPID keys correctly generated.")
       puts("*******************************")

@@ -13,6 +13,7 @@ module Decidim
         attribute :private_meeting, Boolean
         attribute :transparent, Boolean
         attribute :registration_type, String
+        attribute :registrations_enabled, Boolean, default: false
         attribute :registration_url, String
         attribute :customize_registration_email, Boolean
         attribute :iframe_embed_type, String, default: "none"
@@ -92,15 +93,6 @@ module Decidim
           type_of_meeting.presence
         end
 
-        def type_of_meeting_select
-          Decidim::Meetings::Meeting::TYPE_OF_MEETING.map do |type|
-            [
-              I18n.t("type_of_meeting.#{type}", scope: "decidim.meetings"),
-              type
-            ]
-          end
-        end
-
         def iframe_access_level_select
           Decidim::Meetings::Meeting.iframe_access_levels.map do |level, _value|
             [
@@ -119,6 +111,11 @@ module Decidim
           end
         end
 
+        # Support for copy meeting
+        def questionnaire
+          Decidim::Forms::Questionnaire.new
+        end
+
         def on_this_platform?
           registration_type == "on_this_platform"
         end
@@ -134,6 +131,10 @@ module Decidim
               type
             ]
           end
+        end
+
+        def registrations_enabled
+          on_this_platform?
         end
 
         def embeddable_meeting_url

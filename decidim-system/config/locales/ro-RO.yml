@@ -43,9 +43,9 @@ ro:
       admins:
         create:
           error: A apărut o problemă la crearea unui administrator nou.
-          success: Administrator creat cu succes
+          success: Administratorul a fost creat.
         destroy:
-          success: Administrator şters cu succes
+          success: Administratorul a fost șters.
         edit:
           title: Editare admin
           update: Actualizare
@@ -56,7 +56,7 @@ ro:
           title: Administrator nou
         update:
           error: A apărut o eroare la actualizarea administratorului.
-          success: Administrator actualizat cu succes
+          success: Administratorul a fost actualizat.
       dashboard:
         show:
           current_organizations: Organizații curente
@@ -144,8 +144,6 @@ ro:
         index:
           title: Organizații
         new:
-          reference_prefix_hint: Prefixul de referință este utilizat pentru a identifica în mod unic resursele din toate organizațiile
-          secondary_hosts_hint: Introduceți fiecare dintre ele într-o linie nouă
           title: Organizație nouă
         omniauth_settings:
           decidim:
@@ -168,8 +166,6 @@ ro:
         smtp_settings:
           fieldsets:
             sender: Expeditor
-          instructions:
-            from_label: 'Expeditorul de e-mail va fi: "organizația-nume <your-organization@example.org>". Lăsați necompletat pentru a utiliza ''Adresa de e-mail'' ca etichetă'
           placeholder:
             from_email: organizație@exemplu.org
             from_label: numele tău de organizatorie
@@ -179,7 +175,6 @@ ro:
         users_registration_mode:
           disabled: Accesul se poate face doar cu conturi externe
           enabled: Permite participanților să se înregistreze și să se autentifice
-          existing: Nu permiteţi participanţilor să se înregistreze, dar permiteţi participanţilor existenţi să se autentifice
       shared:
         notices:
           no_organization_warning_html: Trebuie să creezi o organizație pentru a începe. Asigură-te că ai citit %{guide} înainte de a continua.

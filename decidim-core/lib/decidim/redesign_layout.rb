@@ -53,7 +53,10 @@ module Decidim
       def redesign_participatory_space_layout(options = {})
         @redesign_layout_conditions = conditions_parsed(options)
 
+        skip_authorize_participatory_space = options.delete(:skip_authorize_participatory_space)
+
         layout :participatory_space_redesign_layout
+        before_action(:authorize_participatory_space, **options) unless skip_authorize_participatory_space
       end
 
       def redesigned_layout(layout_value)
@@ -110,8 +113,12 @@ module Decidim
         if conditional_layout?
           redesigned_layout(current_participatory_space_manifest.context(current_participatory_space_context).layout)
         else
-          redesigned_layout(FALLBACK_LAYOUT)
+          redesigned_layout(fallback_layout)
         end
+      end
+
+      def fallback_layout
+        FALLBACK_LAYOUT
       end
 
       def conditional_layout?

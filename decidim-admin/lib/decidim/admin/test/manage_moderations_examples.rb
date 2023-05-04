@@ -92,7 +92,7 @@ shared_examples "manage moderations" do
       moderations_ordered_by_report_count_asc = moderations.sort_by(&:report_count)
 
       within "table" do
-        click_link "Count"
+        click_link "Reports count"
 
         all("tbody tr").each_with_index do |row, index|
           reportable_id = moderations_ordered_by_report_count_asc[index].reportable.id
@@ -173,11 +173,17 @@ shared_examples "manage moderations" do
   end
 
   context "when listing hidden resources" do
-    it "user can review them" do
+    before do
       within ".card-title" do
         click_link "Hidden"
       end
+    end
 
+    it "user cannot unreport them" do
+      expect(page).not_to have_css(".action-icon--unreport")
+    end
+
+    it "user can review them" do
       hidden_moderations.each do |moderation|
         within "tr[data-id=\"#{moderation.id}\"]" do
           expect(page).to have_css("a[href='#{moderation.reportable.reported_content_url}']")

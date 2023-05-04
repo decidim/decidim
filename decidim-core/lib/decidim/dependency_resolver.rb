@@ -28,11 +28,9 @@ module Decidim
     # specs which means any gems available in the gem install folder.
     #
     # @param gem [String] The name for the gem to be looked up.
-    # @return [Bundler::LazySpecification, Gem::Specification, nil] When bundler
-    #   is available, returns `Bundler::LazySpecification`. When bundler is not
-    #   available, returns `Gem::Specification`. Both of these implement the
-    #   necessary methods for the other checks. In both cases returns nil if
-    #   the gem is not found.
+    # @return [Gem::Specification, nil] Returns the gem specification for the
+    #   given gem name. The specification implements the necessary methods for
+    #   the other checks. In both cases returns nil if the gem is not found.
     def lookup(gem)
       # In case the lookup method is called with a spec definition, return the
       # definition itself.
@@ -217,10 +215,18 @@ module Decidim
       # Gemfile, e.g. when the Decidim gems are installed through git.
       #
       # @param name [String] The name of the gem to find.
-      # @return [Bundler::LazySpecification, nil] The specification for the gem
-      #   or nil if the gem is not listed in the locked gems.
+      # @return [Gem::Specification, nil] The specification for the gem
+      #   or nil if the gem is not listed in the locked gems or nil when the
+      #   returned spec is not installed in the current gem environment.
       def spec(name)
-        Bundler.definition.locked_gems.specs.find { |s| s.name == name }
+        sp = Bundler.definition.locked_gems.specs.find { |s| s.name == name }
+
+        # Fetching the gem through Gem.loaded_specs ensures we are not returning
+        # a lazy specification which does not respond to `#full_gem_path` which
+        # is needed for the resolver.
+        return Gem.loaded_specs[sp.name] if sp
+
+        nil
       end
 
       private

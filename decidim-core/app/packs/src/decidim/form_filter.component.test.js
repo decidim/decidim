@@ -1,4 +1,4 @@
-/* global spyOn, jest */
+/* global jest */
 /* eslint-disable id-length */
 window.$ = $;
 
@@ -83,7 +83,7 @@ describe("FormFilterComponent", () => {
         </fieldset>
       </form>
     `;
-    $("body").append(form);
+    $("body").html(form);
 
     const $form = $(document).find("form");
 
@@ -120,7 +120,7 @@ describe("FormFilterComponent", () => {
 
   describe("when mounted", () => {
     beforeEach(() => {
-      // Jest doesn't implement listening on the form submit event so we need
+      // Jest does not implement listening on the form submit event so we need
       // to hack it.
       const originalOn = subject.$form.on.bind(subject.$form);
       jest.spyOn(subject.$form, "on").mockImplementation((...args) => {
@@ -151,7 +151,7 @@ describe("FormFilterComponent", () => {
 
     describe("form changes", () => {
       beforeEach(() => {
-        spyOn(window.history, "pushState");
+        jest.spyOn(window.history, "pushState");
 
         // This is a hack to be able to trigger the events even somewhat close
         // to an actual situation. In real browser environment the change events
@@ -240,11 +240,11 @@ describe("FormFilterComponent", () => {
 
     describe("onpopstate event", () => {
       beforeEach(() => {
-        spyOn(subject.$form, "submit");
+        jest.spyOn(subject.$form, "submit");
       });
 
       it("clears the form data", () => {
-        spyOn(subject, "_clearForm");
+        jest.spyOn(subject, "_clearForm");
 
         window.onpopstate({ isTrusted: true, state: scopesPickerState});
 
@@ -253,7 +253,7 @@ describe("FormFilterComponent", () => {
 
       it("sets the correct form fields based on the current location", () => {
         const path = "/filters?filter[scope_id][]=3&filter[scope_id][]=4&filter[category_id]=2&filter[state][]=&filter[state][]=accepted&filter[state][]=evaluating";
-        spyOn(subject, "_getLocation").and.returnValue(path);
+        jest.spyOn(subject, "_getLocation").mockReturnValue(path);
         window.onpopstate({ isTrusted: true, state: scopesPickerState});
 
         expect($(selector).find("select#filter_somerandomid_category_id").val()).toEqual("2");
@@ -267,18 +267,18 @@ describe("FormFilterComponent", () => {
       });
 
       it("does not save the state", () => {
-        spyOn(window.history, "pushState");
+        expect(window.history.pushState).toHaveBeenCalledTimes(2);
 
         window.onpopstate({ isTrusted: true, state: scopesPickerState});
 
-        expect(window.history.pushState).not.toHaveBeenCalled();
+        expect(window.history.pushState).toHaveBeenCalledTimes(2);
       });
     });
   });
 
   describe("when unmounted", () => {
     beforeEach(() => {
-      spyOn(subject.$form, "off");
+      jest.spyOn(subject.$form, "off");
       subject.mountComponent();
       subject.unmountComponent();
     });

@@ -39,7 +39,7 @@ module Decidim
       describe "notification_title" do
         it "is generated correctly" do
           expect(subject.notification_title)
-            .to eq("You can now start <a href=\"#{resource_path}\">endorsing proposals</a> in <a href=\"#{participatory_space_url}\">#{participatory_space.title["en"]}</a>")
+            .to eq("You can now start <a href=\"#{resource_path}\">endorsing proposals</a> in <a href=\"#{participatory_space_url}\">#{participatory_space.title["en"]}</a>.")
         end
       end
     end

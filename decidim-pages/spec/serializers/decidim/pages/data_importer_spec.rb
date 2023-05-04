@@ -45,7 +45,7 @@ module Decidim::Pages
       context "without body" do
         let(:as_json) { nil }
 
-        it "doesn't import the page" do
+        it "does not import the page" do
           expect(subject).to be_nil
         end
       end

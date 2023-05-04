@@ -271,7 +271,7 @@ describe "Proposals", type: :system do
           end
         end
 
-        context "when the user isn't authorized" do
+        context "when the user is not authorized" do
           before do
             permissions = {
               create: {
@@ -351,10 +351,10 @@ describe "Proposals", type: :system do
 
               # See that the images are in correct positions and remove the card
               # image.
-              within ".upload-container-for-photos .active-uploads" do
+              within ".upload-container-for-photos [data-active-uploads]" do
                 expect(page).to have_content("city.jpeg")
               end
-              within ".upload-container-for-documents .active-uploads" do
+              within ".upload-container-for-documents [data-active-uploads]" do
                 expect(page).to have_content("city2.jpeg")
                 expect(page).to have_content("city3.jpeg")
               end
@@ -377,10 +377,10 @@ describe "Proposals", type: :system do
 
               # See that the card image is now empty and the two other images
               # are still in the documents container as they should.
-              within ".upload-container-for-photos .active-uploads" do
+              within ".upload-container-for-photos [data-active-uploads]" do
                 expect(page).not_to have_selector(".attachment-details")
               end
-              within ".upload-container-for-documents .active-uploads" do
+              within ".upload-container-for-documents [data-active-uploads]" do
                 expect(page).to have_content("city2.jpeg")
                 expect(page).to have_content("city3.jpeg")
               end

@@ -6,18 +6,11 @@ tr:
       templates:
         apply:
           error: Bu şablonu uygularken bir sorun oluştu.
-          success: Şablon başarıyla uygulandı
         copy:
           error: Bu şablonu kopyalarken bir sorun oluştu.
-          success: Şablon başarıyla kopyalandı
         create:
           error: Bu şablonu oluştururken bir hata oluştu.
-          success: Şablon başarıyla oluşturuldu
-        destroy:
-          success: Şablon başarıyla silindi
         empty: Burada henüz şablon yok.
-        update:
-          success: Şablon başarıyla güncellendi
       titles:
         template_types:
           questionnaires: Anket şablonları
@@ -42,7 +35,6 @@ tr:
             skip_template: Atla
           edit:
             edit: Düzenle
-            empty: Henüz bir soru yok
             questionnaire: Anket
           form:
             save: Kaydet

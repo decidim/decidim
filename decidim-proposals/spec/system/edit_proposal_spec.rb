@@ -64,7 +64,10 @@ describe "Edit proposals", type: :system do
 
         it "can delete attachments" do
           visit current_path
-          expect(page).to have_content("RELATED DOCUMENTS")
+
+          # REDESIGN_PENDING: the documents partial now comes with no title,
+          # that is something will be added in the proposal view
+          # expect(page).to have_content("Related documents")
           expect(page).to have_content("RELATED IMAGES")
           click_link "Edit proposal"
 
@@ -120,13 +123,9 @@ describe "Edit proposals", type: :system do
           dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("avatar.jpg"))
           click_button "Send"
           click_link "Edit proposal"
-          within ".photos_container" do
-            expect(page).to have_content("city.jpeg")
-          end
-          within ".attachments_container" do
-            expect(page).to have_content("icon.png")
-            expect(page).to have_content("avatar.jpg")
-          end
+          expect(page).to have_content("city.jpeg")
+          expect(page).to have_content("icon.png")
+          expect(page).to have_content("avatar.jpg")
           dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city2.jpeg"))
           dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city3.jpeg"))
           click_button "Send"
@@ -266,15 +265,16 @@ describe "Edit proposals", type: :system do
           proposal.update!(body:)
           visit_component
           click_link proposal_title
+          click_link "Edit proposal"
         end
 
-        it "doesnt change the href" do
-          click_link "Edit proposal"
+        it_behaves_like "having a rich text editor", "edit_proposal", "basic"
+
+        it "does not change the href" do
           expect(page).to have_link("this is a link", href: link)
         end
 
-        it "doesnt add external link container inside the editor" do
-          click_link "Edit proposal"
+        it "does not add external link container inside the editor" do
           editor = page.find(".editor-container")
           expect(editor).to have_selector("a[href='#{link}']")
           expect(editor).not_to have_selector("a.external-link-container")

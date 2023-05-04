@@ -11,7 +11,7 @@ module Decidim
 
       before_action :configure_permitted_parameters
 
-      # We don't users to create invitations, so we just redirect them to the
+      # We do not users to create invitations, so we just redirect them to the
       # homepage.
       def authenticate_inviter!
         redirect_to root_path

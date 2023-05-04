@@ -1,8 +1,8 @@
 <% add_decidim_meta_tags({
-  description: present(@proposal).body,
-  title: present(@proposal).title,
-  url: proposal_url(@proposal.id)
-}) %>
+                           description: present(@proposal).body,
+                           title: present(@proposal).title,
+                           url: proposal_url(@proposal.id)
+                         }) %>
 
 <%
 edit_link(
@@ -47,7 +47,7 @@ extra_admin_link(
     <h2 class="heading3"><%= present(@proposal).title(links: true, html_escape: true) %></h2>
   <% end %>
   <% unless component_settings.participatory_texts_enabled? %>
-    <%= cell("decidim/coauthorships", @proposal, has_actions: true, size: 3, context: { current_user: current_user }) %>
+    <%= cell("decidim/coauthorships", @proposal, has_actions: true, size: 3, context: { current_user: }) %>
   <% end %>
 </div>
 <div class="row">

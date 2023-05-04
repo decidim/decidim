@@ -1,10 +1,6 @@
 nl:
   activemodel:
     attributes:
-      agenda:
-        description: Beschrijving
-        duration: Duur
-        title: Titel
       close_meeting:
         attendees_count: Aantal deelnemers
         attending_organizations: Lijst van organisaties die bijwoonden
@@ -22,7 +18,6 @@ nl:
         decidim_scope_id: Scope
         decidim_user_group_id: Gebruikers groep
         description: Beschrijving
-        end_time: Eindtijd
         id: ID
         location: Plaats
         location_hints: Locatie hints
@@ -35,26 +30,9 @@ nl:
         registration_terms: Registratievoorwaarden
         registration_url: Registratie URL
         registrations_enabled: Registraties geactiveerd
-        show_embedded_iframe: Toon embedded iframe voor deze URL
-        start_time: Starttijd
         title: Titel
         transparent: Transparant
         type_of_meeting: Type
-    errors:
-      models:
-        meeting:
-          attributes:
-            iframe_embed_type:
-              not_embeddable: Deze URL kan niet worden ingesloten in vergadering of live evenement pagina
-        meeting_agenda:
-          attributes:
-            base:
-              too_many_minutes: De duur van de items overschrijdt de vergaderduur met %{count} minuten
-              too_many_minutes_child: De duur van het item childs overschrijdt het agendapunt van de ouder-duur "%{parent_title}" met %{count} minuut
-        meeting_registration_invite:
-          attributes:
-            email:
-              already_invited: Deze e-mail is al uitgenodigd
     models:
       decidim/meetings/close_meeting_event: Vergadering gesloten
       decidim/meetings/create_meeting_event: Vergadering
@@ -182,9 +160,6 @@ nl:
           email_outro: Je ontvangt deze melding omdat je het event "%{resource_title}" volgt. Ontvolgen kan door te klikken op de voorgaande link.
           email_subject: Het "%{resource_title}" event start in minder dan 48 uur.
           notification_title: Het <a href="%{resource_path}">%{resource_title}</a> event begint over minder dan 48 uur.
-    forms:
-      meetings:
-        attendees_count_help_text: Vergeet niet om het totale aantal deelnemers aan je vergadering toe te voegen, of het nu een fysieke, online of hybride bijeenkomst is.
     gamification:
       badges:
         attended_meetings:
@@ -195,8 +170,6 @@ nl:
           description_own: U hebt %{score} vergaderingen bijgewoond.
           name: Bijgewoonde vergaderingen
           next_level_in: Woon nog %{score} vergaderingen bij om het volgende niveau te bereiken!
-          unearned_another: Deze gebruiker heeft nog geen enkele vergadering bijgewoond.
-          unearned_own: Je hebt nog geen vergadering bijgewoond.
     meetings:
       actions:
         agenda: Agenda
@@ -229,9 +202,6 @@ nl:
             down: Naar beneden
             remove: Verwijderen
             up: Omhoog
-          create:
-            invalid: Er is een probleem opgetreden bij het maken van deze agenda
-            success: Agenda succesvol aangemaakt
           edit:
             title: Agenda bewerken
             update: Bijwerken
@@ -243,9 +213,6 @@ nl:
           new:
             create: Aanmaken
             title: Nieuwe agenda
-          update:
-            invalid: Er is een probleem opgetreden bij het bijwerken van deze agenda
-            success: Agenda succesvol bijgewerkt
         exports:
           answers: Antwoorden
           meeting_comments: Reacties
@@ -276,34 +243,21 @@ nl:
             filter_by: Filteren op
             invite_attendee: Nodig een deelnemer uit
             invites: Uitnodigingen
-            registrations_disabled: U kunt een deelnemer niet uitnodigen omdat de registraties zijn uitgeschakeld.
             search: Zoeken
         meeting_closes:
           edit:
             close: Sluiten
             title: Vergadering sluiten
-        meeting_copies:
-          form:
-            select_a_meeting_type: Selecteer een vergaderingstype
         meetings:
-          close:
-            invalid: Er is een probleem opgetreden bij het sluiten van deze vergadering
-            success: Vergadering succesvol afgesloten
           create:
-            invalid: Er is een probleem opgetreden met het maken van deze vergadering
             success: Vergadering met succes aangemaakt. Merk op dat deze nog niet gepubliceerd is, je moet deze nog handmatig publiceren.
           destroy:
-            invalid:
-              proposals_count:
-                one: De vergadering kan niet worden verwijderd omdat er %{count} voorstel aan verbonden is
-                other: De vergadering kan niet worden verwijderd omdat er %{count} voorstellen aan verbonden zijn
             success: Vergadering succesvol verwijderd
           edit:
             title: Vergadering bewerken
             update: Bijwerken
           form:
             address_help: 'Adres: gebruikt door Geocoder om de locatie te vinden'
-            disclaimer: 'Disclaimer: Door gebruik te maken van een extern registratiesysteem, ben je op de hoogte dat de organisatoren van %{organization} niet verantwoordelijk zijn voor de gegevens die door gebruikers aan de externe dienst worden verstrekt.'
             location_help: 'Locatie: bericht gericht aan de gebruikers die de locatie op een vergadering plaatsen'
             location_hints_help: 'Locatie hints: aanvullende informatie. Bijvoorbeeld: de verdieping van het gebouw als het een fysieke vergadering is, of het vergaderwachtwoord als het een online vergadering is met beperkte toegang.'
             online_meeting_url_help: 'Link: laat deelnemers direct verbinding maken met je vergadering'
@@ -317,9 +271,6 @@ nl:
           new:
             create: Creëren
             title: Creëer vergadering
-          publish:
-            invalid: Er is een fout opgetreden bij het publiceren van deze vergadering
-            success: Vergadering succesvol gepubliceerd
           service:
             description: Beschrijving
             down: Omlaag
@@ -330,18 +281,9 @@ nl:
           services:
             add_service: Dienst toevoegen
             services: Diensten
-          unpublish:
-            invalid: Er is een probleem opgetreden bij het weghalen van deze vergadering
-            success: Vergadering met succes weggehaald
-          update:
-            invalid: Er is een probleem opgetreden bij het bijwerken van deze vergadering
-            success: Vergadering succesvol bijgewerkt
         meetings_poll:
           form:
             title: Bewerk poll vragenlijst voor %{questionnaire_for}
-          update:
-            invalid: Er is een probleem opgetreden bij het bijwerken van deze poll
-            success: Poll vergadering met succes bijgewerkt
         models:
           meeting:
             name: Vergadering
@@ -359,7 +301,6 @@ nl:
             registrations_count:
               one: Er is %{count} registratie geweest.
               other: Er zijn %{count} registraties geweest.
-            reserved_slots_help: Laat het op 0 staan ​​als je geen plaatsen gereserveerd hebt
             reserved_slots_less_than: Moet kleiner of gelijk zijn aan %{count}
             title: Inschrijvingen
           update:
@@ -398,7 +339,6 @@ nl:
         copy_calendar_url_clarification: Kopieer link naar klembord
         copy_calendar_url_copied: Gekopieerd!
         copy_calendar_url_description: Je kunt alle gepubliceerde vergaderingen zien in uw agenda-applicatie. Kopieer en plak deze URL in uw kalender met behulp van de optie "Voeg nieuwe kalender toe van een URL".
-        copy_calendar_url_explanation: Hou er rekening mee dat je een selectie van vergaderingen exporteert, omdat er filters actief zijn. Als je ze allemaal wil exporteren, reset eerst alle filters.
         copy_calendar_url_message: URL met succes gekopieerd naar klembord.
         export_calendar: Kalender exporteren
       close_meeting_reminder_mailer:
@@ -439,8 +379,6 @@ nl:
         registration_mailer:
           confirmation:
             subject: Registratie van uw vergadering is bevestigd
-      meeting:
-        not_allowed: U mag deze vergadering niet bekijken
       meeting_closes:
         edit:
           back: Terug
@@ -498,7 +436,6 @@ nl:
           address_help: 'Adres: gebruikt door Geocoder om de locatie te vinden'
           available_slots_help: Laat op 0 staan als je onbeperkt aantal tijdsblokken beschikbaar hebt
           create_as: Maak vergadering als
-          disclaimer: 'Disclaimer: Door gebruik te maken van een extern registratiesysteem, ben je op de hoogte dat de organisatoren van %{organization} niet verantwoordelijk zijn voor de gegevens die door gebruikers aan de externe dienst worden verstrekt.'
           location_help: 'Locatie: bericht over de ontmoetingsplek gericht naar de gebruikers'
           location_hints_help: 'Locatie hints: aanvullende informatie. Bijvoorbeeld: de verdieping van het gebouw als het een fysieke vergadering is, of het vergaderwachtwoord als het een online vergadering is met beperkte toegang.'
           online_meeting_url_help: 'Link: laat deelnemers direct verbinding maken met je vergadering'
@@ -517,7 +454,6 @@ nl:
         meeting_minutes:
           related_information: Gerelateerde informatie
         meetings:
-          no_meetings_warning: Geen afspraken komen overeen met uw zoekcriteria of er is geen vergadering gepland.
           upcoming_meetings_warning: Momenteel zijn er geen geplande vergaderingen, maar hier vindt u alle afgelopen vergaderingen.
         new:
           back: Achterzijde
@@ -620,7 +556,6 @@ nl:
       registrations:
         create:
           invalid: Er is een probleem opgetreden bij het deelnemen van deze vergadering.
-          success: Je bent met succes aangemeld als aanwezige bij de vergadering. Omdat je je voor deze vergadering bent geregistreerd, ontvang je een melding als er updates over zijn.
         decline_invitation:
           invalid: Er is een probleem opgetreden bij het afwijzen van de uitnodiging.
           success: U hebt de uitnodiging met succes afgewezen.
@@ -637,9 +572,6 @@ nl:
         withdraw: Afgelasten
       versions:
         back_to_resource: Ga terug naar de vergadering
-      withdraw:
-        error: Er is een fout opgetreden tijdens het afgelasten van de vergadering
-        success: De vergadering is met succes afgelast
     metrics:
       meetings:
         description: Aantal gemaakte vergaderingen

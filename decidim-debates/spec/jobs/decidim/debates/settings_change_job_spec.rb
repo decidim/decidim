@@ -54,11 +54,11 @@ module Decidim
         end
       end
 
-      context "when there aren't any changes" do
+      context "when there are not any changes" do
         let(:previously_allowing_creation) { true }
         let(:currently_allowing_creation) { true }
 
-        it "doesn't notify the space followers about it" do
+        it "does not notify the space followers about it" do
           expect(Decidim::EventsManager)
             .not_to receive(:publish)
 

@@ -18,6 +18,10 @@ describe "Admin manages participatory process groups", type: :system do
     visit decidim_admin_participatory_processes.participatory_process_groups_path
   end
 
+  it_behaves_like "having a rich text editor for field", ".tabs-content[data-tabs-content='participatory_process_group-description-tabs']", "full" do
+    before { find(".card-title .new").click }
+  end
+
   it "creates a new participatory process group" do
     find(".card-title .new").click
 
@@ -192,7 +196,7 @@ describe "Admin manages participatory process groups", type: :system do
       visit decidim_admin_participatory_processes.participatory_processes_path
     end
 
-    it "doesn't show the participatory process group link" do
+    it "does not show the participatory process group link" do
       within ".main-nav" do
         expect(page).not_to have_selector(:link_or_button, "Process groups")
       end

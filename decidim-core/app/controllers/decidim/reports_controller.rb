@@ -11,7 +11,7 @@ module Decidim
     def create
       enforce_permission_to :create, :moderation
 
-      @form = form(Decidim::ReportForm).from_params(params)
+      @form = form(Decidim::ReportForm).from_params(params, can_hide: reportable.try(:can_be_administered_by?, current_user))
 
       CreateReport.call(@form, reportable, current_user) do
         on(:ok) do

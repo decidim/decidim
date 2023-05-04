@@ -18,16 +18,9 @@ el:
         title: Ενέργειες
       admin:
         models:
-          components:
-            body: Σώμα
           post:
             name: Δημοσίευση
         posts:
-          create:
-            invalid: Υπήρξε ένα πρόβλημα κατά τη δημιουργία αυτής της ανάρτησης
-            success: Η δημοσίευση δημιουργήθηκε με επιτυχία
-          destroy:
-            success: Η ανάρτηση διαγράφηκε με επιτυχία
           edit:
             save: Ενημέρωση
             title: Επεξεργασία ανάρτησης
@@ -38,16 +31,13 @@ el:
             title: Δημιουργία δημοσίευσης
           update:
             invalid: Υπήρξε ένα πρόβλημα κατά την αποθήκευση της ανάρτησης.
-            success: Η ανάρτηση αποθηκεύτηκε με επιτυχία
       models:
         post:
           fields:
             author: Συντάκτης
             body: Σώμα
-            title: τίτλος
       posts:
         show:
-          comments: Σχόλια
           view: Προβολή
     components:
       blogs:

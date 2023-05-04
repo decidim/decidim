@@ -19,16 +19,9 @@ sk:
         title: Akcie
       admin:
         models:
-          components:
-            body: Telo textu
           post:
             name: Príspevok
         posts:
-          create:
-            invalid: Vyskytol sa problém s vytváraním príspevku
-            success: Príspevok úspešne vytvorený
-          destroy:
-            success: Príspevok úspešne odstránený
           edit:
             save: Aktualizovať
           index:
@@ -38,16 +31,13 @@ sk:
             title: Vytvort príspevok
           update:
             invalid: Vyskytol sa problém s ukladaním príspevku.
-            success: Príspevok úspešne uložený
       models:
         post:
           fields:
             author: Autor
             body: Telo textu
-            title: názov
       posts:
         show:
-          comments: Komentáre
           view: Zobraziť
     components:
       blogs:

@@ -75,6 +75,8 @@ describe "Admin manages meetings", type: :system, serves_map: true, serves_geoco
       click_link "Edit"
     end
 
+    it_behaves_like "having a rich text editor for field", ".tabs-content[data-tabs-content='meeting-description-tabs']", "full"
+
     it "shows help text" do
       expect(help_text_for("label[for*='meeting_address']")).to be_present
       expect(help_text_for("div[data-tabs-content*='meeting-location']")).to be_present
@@ -137,6 +139,14 @@ describe "Admin manages meetings", type: :system, serves_map: true, serves_geoco
     end
   end
 
+  it_behaves_like "having a rich text editor for field", ".tabs-content[data-tabs-content='meeting-description-tabs']", "full" do
+    before do
+      within find("tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title) do
+        click_link "Edit"
+      end
+    end
+  end
+
   it "updates a meeting", :serves_geocoding_autocomplete do
     within find("tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title) do
       click_link "Edit"
@@ -160,6 +170,36 @@ describe "Admin manages meetings", type: :system, serves_map: true, serves_geoco
     within "table" do
       expect(page).to have_content("My new title")
     end
+  end
+
+  it "sets registration enabled to true when registration type is on this platform" do
+    within find("tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title) do
+      click_link "Edit"
+    end
+
+    within ".edit_meeting" do
+      select "On this platform", from: :meeting_registration_type
+
+      find("*[type=submit]").click
+    end
+
+    expect(page).to have_admin_callout("successfully")
+    expect(meeting.reload.registrations_enabled).to be true
+  end
+
+  it "sets registration enabled to false when registration type is not on this platform" do
+    within find("tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title) do
+      click_link "Edit"
+    end
+
+    within ".edit_meeting" do
+      select "Registration disabled", from: :meeting_registration_type
+
+      find("*[type=submit]").click
+    end
+
+    expect(page).to have_admin_callout("successfully")
+    expect(meeting.reload.registrations_enabled).to be false
   end
 
   it "adds a few services to the meeting", :serves_geocoding_autocomplete do
@@ -440,11 +480,11 @@ describe "Admin manages meetings", type: :system, serves_map: true, serves_geoco
       end
     end
 
-    it "doesn't display error message when opening meeting's create form" do
+    it "does not display error message when opening meeting's create form" do
       find(".card-title a.button").click
 
       within "label[for='meeting_registration_type']" do
-        expect(page).to have_no_content("There's an error in this field.")
+        expect(page).to have_no_content("There is an error in this field.")
       end
     end
 

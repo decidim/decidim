@@ -41,6 +41,7 @@ module Decidim::Conferences
             slogan_ca: my_conference.slogan,
             slogan_es: my_conference.slogan,
             location: my_conference.location,
+            weight: my_conference.weight,
             slug: my_conference.slug,
             hashtag: my_conference.hashtag,
             promoted: my_conference.promoted,
@@ -94,7 +95,7 @@ module Decidim::Conferences
           expect { command.call }.to broadcast(:invalid)
         end
 
-        it "doesn't update the conference" do
+        it "does not update the conference" do
           command.call
           my_conference.reload
 
@@ -209,8 +210,9 @@ module Decidim::Conferences
             invalid?: false,
             title:,
             slogan: my_conference.slogan,
+            weight: my_conference.weight,
             slug: my_conference.slug,
-            hashtag: my_conference.slug,
+            hashtag: my_conference.hashtag,
             short_description: my_conference.short_description,
             description: my_conference.description,
             objectives: my_conference.objectives,
@@ -237,7 +239,7 @@ module Decidim::Conferences
         end
 
         context "when nothing changes" do
-          it "doesn't notify the change" do
+          it "does not notify the change" do
             expect(Decidim::EventsManager)
               .not_to receive(:publish)
 
@@ -252,14 +254,14 @@ module Decidim::Conferences
             }
           end
 
-          it "doesn't notify the change" do
+          it "does not notify the change" do
             expect(Decidim::EventsManager)
               .not_to receive(:publish)
 
             command.call
           end
 
-          it "doesn't schedule the upcoming conference notification job" do
+          it "does not schedule the upcoming conference notification job" do
             expect(UpcomingConferenceNotificationJob)
               .not_to receive(:perform_later)
 

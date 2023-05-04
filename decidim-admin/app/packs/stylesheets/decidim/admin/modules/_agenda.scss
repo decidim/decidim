@@ -1,24 +1,24 @@
-.agenda{
-  .grid-x{
+.agenda {
+  .grid-x {
     border-bottom: 1px solid $light-gray;
 
-    .cell:first-child{
+    .cell:first-child {
       color: $medium-gray;
     }
 
-    .cell:nth-child(2){
+    .cell:nth-child(2) {
       color: $muted;
 
-      small{
+      small {
         color: $medium-gray;
       }
     }
 
-    .cell:nth-last-child(2){
+    .cell:nth-last-child(2) {
       display: flex;
       align-items: baseline;
 
-      small{
+      small {
         color: $medium-gray;
         white-space: nowrap;
         overflow-x: hidden;
@@ -27,7 +27,7 @@
       }
     }
 
-    .cell:last-child{
+    .cell:last-child {
       color: map-get($foundation-palette, alert);
     }
   }

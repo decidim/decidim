@@ -106,7 +106,7 @@ describe Decidim::Log::DiffChangesetCalculator do
             }
           end
 
-          it "doesn't try to generate a nice label" do
+          it "does not try to generate a nice label" do
             expect(subject.count).to eq 2
             expect(subject.first).to include(label: "My field (English)", previous_value: "Foo", new_value: "Doe")
             expect(subject.last).to include(label: "My field (zn)", previous_value: "Bar", new_value: "Doe")

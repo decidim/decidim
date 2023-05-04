@@ -1,31 +1,31 @@
 <%= decidim_modal id: modal_id, class: "upload-modal" do %>
 <div data-dialog-container>
   <%= icon "upload-cloud-2-line" %>
-  <h2 id="dialog-title-<%= modal_id %>" data-dialog-title data-addlabel="<%= button_label %>" data-editlabel="<%= button_edit_label %>"><%= label %></h2>
+  <h2 id="dialog-title-<%= modal_id %>" tabindex="-1" data-dialog-title data-addlabel="<%= button_label %>" data-editlabel="<%= button_edit_label %>"><%= label %></h2>
   <div>
     <div data-name="<%= attribute %>" class="upload-modal__dropzone-container" data-dropzone>
       <%= form.file_field add_attribute,
         id: "files-#{modal_id}",
         label: false,
         required: false,
-        multiple: multiple,
+        multiple:,
         direct_upload: true,
         hidden: true,
-        data: { direct_upload_url: direct_upload_url } %>
+        data: { direct_upload_url: } %>
 
       <%= tag.ul id: "dropzone-items", class: "upload-modal__dropzone", hidden: true, data: {
-        locales: {
-          error: t("decidim.forms.upload.labels.error"),
-          title_required: t("decidim.forms.upload.labels.title_required"),
-          filename: t("decidim.forms.upload.labels.filename"),
-          file_size_too_large: t("decidim.forms.upload.labels.file_size_too_large", megabytes: (max_file_size_mb)),
-          remove: t("decidim.forms.upload.labels.remove"),
-          title: t("decidim.forms.upload.labels.title"),
-          uploaded: t("decidim.forms.upload.labels.uploaded"),
-          validating: t("decidim.forms.upload.labels.validating"),
-          validation_error: t("decidim.forms.upload.labels.validation_error")
-        }
-      } %>
+            locales: {
+              error: t("decidim.forms.upload.labels.error"),
+              title_required: t("decidim.forms.upload.labels.title_required"),
+              filename: t("decidim.forms.upload.labels.filename"),
+              file_size_too_large: t("decidim.forms.upload.labels.file_size_too_large", megabytes: (max_file_size_mb)),
+              remove: t("decidim.forms.upload.labels.remove"),
+              title: t("decidim.forms.upload.labels.title"),
+              uploaded: t("decidim.forms.upload.labels.uploaded"),
+              validating: t("decidim.forms.upload.labels.validating"),
+              validation_error: t("decidim.forms.upload.labels.validation_error")
+            }
+          } %>
 
       <div id="dropzone-no-items" class="upload-modal__dropzone">
         <div class="upload-modal__dropzone-placeholder">

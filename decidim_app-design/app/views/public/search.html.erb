@@ -54,7 +54,7 @@
               <div class="card__status">
                 <ul class="card-data">
                   <li class="card-data__item">
-                    <%= Faker::Date.backward(725).strftime("%d/%m/%Y") %>
+                    <%= Faker::Date.backward(days: 725).strftime("%d/%m/%Y") %>
                   </li>
                   <li class="card-data__item">
                     <a href="">
@@ -133,7 +133,7 @@
               <div class="card__status">
                 <ul class="card-data">
                   <li class="card-data__item">
-                    <%= Faker::Date.backward(725).strftime("%d/%m/%Y") %>
+                    <%= Faker::Date.backward(days: 725).strftime("%d/%m/%Y") %>
                   </li>
                   <li class="card-data__item">
                     <a href="">
@@ -181,7 +181,7 @@
                 <div class="card__text card--picture-offset">
                   <div><small><strong><%= Faker::Company.profession.capitalize %></strong></small></div>
                   <div><small><%= Faker::Movies::StarWars.vehicle %></small></div>
-                  <div class="text-small">Designated on <strong><%= Faker::Date.backward(365).strftime("%D") %></strong></div>
+                  <div class="text-small">Designated on <strong><%= Faker::Date.backward(days: 365).strftime("%D") %></strong></div>
                   <div class="text-small mt-s"><%= Faker::Demographic.sex %> / <%= Faker::Number.number(digits: 2) %> / <%= Faker::Address.city %></div>
                 </div>
               </div>

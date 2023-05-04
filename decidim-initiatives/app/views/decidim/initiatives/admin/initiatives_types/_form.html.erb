@@ -9,12 +9,12 @@
     </div>
 
     <div class="row column">
-      <%= form.translated :editor, :description, toolbar: :full, lines: 25 %>
+      <%= form.translated :editor, :description %>
     </div>
 
     <div class="row">
       <div class="columns xlarge-6">
-        <%= form.upload :banner_image, optional: false %>
+        <%= form.upload :banner_image, required: true %>
       </div>
     </div>
   </div>
@@ -102,4 +102,4 @@
   </div>
 </div>
 
-<%= javascript_pack_tag "decidim_initiatives_admin" %>
+<%= append_javascript_pack_tag "decidim_initiatives_admin" %>

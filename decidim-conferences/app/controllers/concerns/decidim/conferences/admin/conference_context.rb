@@ -3,7 +3,7 @@
 module Decidim
   module Conferences
     module Admin
-      # This module, when injected into a controller, ensures there's a
+      # This module, when injected into a controller, ensures there is a
       # Conference available and deducts it from the context.
       module ConferenceContext
         def self.extended(base)

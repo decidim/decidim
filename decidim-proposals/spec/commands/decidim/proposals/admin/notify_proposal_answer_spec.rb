@@ -79,7 +79,7 @@ module Decidim
             expect { subject }.to broadcast(:ok)
           end
 
-          it "doesn't notify the proposal followers" do
+          it "does not notify the proposal followers" do
             expect(Decidim::EventsManager)
               .not_to receive(:publish)
 
@@ -98,15 +98,23 @@ module Decidim
             expect { command.call }.to broadcast(:ok)
           end
 
-          it "doesn't notify the proposal followers" do
+          it "does not notify the proposal followers" do
             expect(Decidim::EventsManager)
               .not_to receive(:publish)
 
             subject
           end
 
-          it "doesn't modify the accepted proposals counter" do
+          it "does not modify the accepted proposals counter" do
             expect { subject }.not_to(change { Gamification.status_for(current_user, :accepted_proposals).score })
+          end
+        end
+
+        context "when the proposal is nil" do
+          let(:command) { described_class.new(nil, initial_state) }
+
+          it "broadcasts invalid" do
+            expect { subject }.to broadcast(:invalid)
           end
         end
       end

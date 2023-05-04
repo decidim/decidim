@@ -8,11 +8,11 @@
 
   <%= decidim_form_for(resource, namespace: "unlock", as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f| %>
 
-    <div class="login__form">
+    <div class="form__wrapper">
       <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "hi@email.com" %>
     </div>
 
-    <div class="login__form-block">
+    <div class="form__wrapper-block">
       <button type="submit" class="button button__lg button__secondary">
         <%= t("devise.unlocks.new.resend_unlock_instructions") %>
         <%= icon "arrow-right-line", class: "fill-current" %>

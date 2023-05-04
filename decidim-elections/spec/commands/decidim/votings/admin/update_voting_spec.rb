@@ -51,7 +51,7 @@ module Decidim
             expect { command.call }.to broadcast(:invalid)
           end
 
-          it "doesn't update the voting" do
+          it "does not update the voting" do
             command.call
             voting.reload
 

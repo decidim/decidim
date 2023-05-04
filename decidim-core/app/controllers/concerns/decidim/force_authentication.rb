@@ -19,7 +19,7 @@ module Decidim
     def ensure_authenticated!
       return true unless current_organization.force_users_to_authenticate_before_access_organization
 
-      # Next stop: Let's check whether auth is ok
+      # Next stop: Check whether auth is ok
       unless user_signed_in?
         flash[:warning] = t("actions.login_before_access", scope: "decidim.core")
         redirect_to decidim.new_user_session_path

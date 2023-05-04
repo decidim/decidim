@@ -19,7 +19,7 @@ describe Decidim::AddressCell, type: :cell do
   let(:location_text) { "This is my location" }
   let(:location) { "#{location_text}#{js_alert}" }
 
-  let(:icondata_address) { subject.find(".card__icondata--address") }
+  let(:icondata_address) { subject.find(".address") }
 
   before do
     allow(model).to receive(:location_hints).and_return location_hints

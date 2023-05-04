@@ -344,11 +344,11 @@ shared_examples "comments" do
             within ".add-comment form" do
               find(:css, "textarea:enabled").set("toto")
             end
-            expect(page).not_to have_selector(".picmo-picker.picker")
+            expect(page).not_to have_selector(".picmo__picker.picmo__picker")
             within ".add-comment form" do
               find(".emoji__button").click
             end
-            expect(page).to have_selector(".picmo-picker.picker")
+            expect(page).to have_selector(".picmo__picker.picmo__picker")
           end
         end
 
@@ -361,7 +361,7 @@ shared_examples "comments" do
               find(:css, "textarea:enabled").set("0123456789012345678901234567")
               find(".emoji__button").click
             end
-            expect(page).not_to have_selector(".picmo-picker.picker")
+            expect(page).not_to have_selector(".picmo__picker.picmo__picker")
           end
         end
       end
@@ -419,6 +419,42 @@ shared_examples "comments" do
           "add-comment-#{commentable.commentable_type.demodulize}-#{commentable.id}",
           with: "This is a new comment"
         )
+      end
+
+      context "when user can hide replies on a thread" do
+        let(:thread) { comments.first }
+        let(:new_reply_body) { "Hey, I just jumped inside the thread!" }
+        let!(:new_reply) { create(:comment, commentable: thread, root_commentable: commentable, body: new_reply_body) }
+
+        it "displays the hide button" do
+          visit current_path
+          within "#comment_#{thread.id}" do
+            expect(page).to have_content("Hide replies")
+            expect(page).to have_content(new_reply_body)
+          end
+        end
+
+        it "displays the show button" do
+          visit current_path
+          within "#comment_#{thread.id}" do
+            click_button "Hide replies"
+            expect(page).to have_content("Show reply")
+            expect(page).not_to have_content(new_reply_body)
+          end
+        end
+
+        context "when are more replies" do
+          let!(:new_replies) { create_list(:comment, 2, commentable: thread, root_commentable: commentable, body: new_reply_body) }
+
+          it "displays the show button" do
+            visit current_path
+            within "#comment_#{thread.id}" do
+              click_button "Hide replies"
+              expect(page).to have_content("Show 3 replies")
+              expect(page).not_to have_content(new_reply_body)
+            end
+          end
+        end
       end
 
       context "when inside a thread reply form" do
@@ -484,7 +520,7 @@ shared_examples "comments" do
       context "when the comment is not authored by user" do
         let!(:comment_author) { create(:user, :confirmed, organization:) }
 
-        it "the context menu of the comment doesn't show a delete link" do
+        it "the context menu of the comment does not show a delete link" do
           within "#comment_#{comment.id}" do
             within ".comment__header__context-menu" do
               page.find("label").click
@@ -546,7 +582,7 @@ shared_examples "comments" do
       context "when the comment is not authored by user" do
         let!(:comment_author) { create(:user, :confirmed, organization:) }
 
-        it "the context menu of the comment doesn't show an edit button" do
+        it "the context menu of the comment does not show an edit button" do
           within "#comment_#{comment.id}" do
             within ".comment__header__context-menu" do
               page.find("label").click
@@ -625,7 +661,7 @@ shared_examples "comments" do
       let!(:parent) { create(:comment, commentable:) }
       let!(:reply) { create(:comment, commentable: parent, root_commentable: commentable) }
 
-      it "doesn't show additional reply" do
+      it "does not show additional reply" do
         Decidim::Moderation.create!(reportable: reply, participatory_space: reply.participatory_space, hidden_at: 1.day.ago)
 
         visit current_path

@@ -16,11 +16,13 @@ module Decidim
 
         # Executes the command. Broadcasts these events:
         #
-        # - :noop when the answer is not published or the state didn't changed.
+        # - :noop when the answer is not published or the state did not changed.
         # - :ok when everything is valid.
         #
         # Returns nothing.
         def call
+          return broadcast(:invalid) if proposal.blank?
+
           if proposal.published_state? && state_changed?
             transaction do
               increment_score

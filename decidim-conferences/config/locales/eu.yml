@@ -28,7 +28,6 @@ eu:
         show_statistics: Erakutsi estatistikak
         sign_date: Sinatze-data
         signature: Sinadura
-        signature_name: sinaduraren izena
         slogan: Leloa
         slug: URL laburra
         start_date: Hasiera-data
@@ -37,13 +36,11 @@ eu:
         date: Data
         link: Lotura
         title: Izenburua
-        weight: Pisua
       conference_partner:
         link: Lotura
         logo: Logoa
         name: Izena
         partner_type: Lankidetza mota
-        weight: Pisua
       conference_registration_invite:
         email: Helbide elektronikoa
         name: Izena
@@ -53,7 +50,6 @@ eu:
         description: Deskribapena
         price: Prezioa
         title: Izenburua
-        weight: Pisua
       conference_speaker:
         affiliation: Kidetza
         avatar: Avatarra
@@ -66,12 +62,6 @@ eu:
         email: Emaila
         name: izena
         role: Role
-    errors:
-      models:
-        conference_registration_invite:
-          attributes:
-            email:
-              already_invited: Mezu hau dagoeneko gonbidatu da
   activerecord:
     models:
       decidim/conference:
@@ -131,8 +121,6 @@ eu:
         edit:
           title: Eguneratu konferentzia erabiltzaileak.
           update: eguneratzearen
-        index:
-          conference_admins_title: konferentzia erabiltzaileak
         new:
           create: Sortu
           title: Konferentzia erabiltzaile berria.
@@ -347,9 +335,8 @@ eu:
             filter_by: Iragazi arabera
             invite_attendee: Gonbidatu parte-hartzailea
             invites: Gonbidapenak
-            search: Search
+            search: Bilatu
           new:
-            explanation: Erabiltzaileari hitzaldi batean parte hartzeko gonbidapena egongo da. Posta elektronikoa ez bada erregistratuta, erakundera gonbidatuko dute.
             invite: gonbidatu
             new_invite: Gonbidatu erabiltzailea
         conference_registrations:
@@ -362,7 +349,7 @@ eu:
             select_user: Aukeratu erabiltzailea
             user_type: Erabiltzaile mota
           index:
-            search: Search
+            search: Bilatu
         conferences:
           form:
             available_slots_help: Utzi 0 mugak mugagabea badaude.
@@ -402,18 +389,11 @@ eu:
           cancel: Utzi
           confirm: Berretsi
         show:
-          free: Free
           going: joatean
           no_slots_available: Ez dago slotarik erabilgarri
           registration: Izen-ematea
       conference_program:
-        program_meeting:
-          content: Edukia
-          location: Kokalekua
-          speakers: Hizlariak
-          streaming: Streaming
         show:
-          day: eguna
           program: Programa
       conference_registration_mailer:
         confirmation:
@@ -444,18 +424,12 @@ eu:
       conference_speaker_cell:
         personal_url:
           personal_website: Webgune pertsonala
-        twitter_handle:
-          go_to_twitter: Joan Twitterrera
-      conference_speakers:
-        index:
-          speakers: Hizlariak
       conferences:
         partners:
           collaborators: Bazkideak
           main_promotors: Antolatzaileak
         show:
           login_as: '%{name} <%{email}> gisa erregistratuta zaude'
-          make_conference_registration: 'Egin zure izen ematea hitzaldian:'
           register: Eman izena
       content_blocks:
         highlighted_conferences:
@@ -463,11 +437,6 @@ eu:
       index:
         title: Jardunaldiak
       mailer:
-        conference_registration_mailer:
-          confirmation:
-            subject: Zure hitzaldiko erregistroa baieztatu da
-          pending_validation:
-            subject: Zure hitzaldiko erregistroa baieztatu behar da
         invite_join_conference_mailer:
           invite:
             subject: Hitzaldi baterako gonbidapena
@@ -501,29 +470,12 @@ eu:
             active_conferences: Jardunaldi aktiboak
             conferences_button_title: Lotura batzar guztiak erakusten dituen Batzarren orrialdera
             see_all_conferences: Ikusi hitzaldi guztiak
-      photo:
-        image:
-          attributes:
-            alt: Multimedia-irudia
-        show:
-          close_modal: Itxi leihoa
-          photo: Irudia
-      photos_list:
-        show:
-          related_photos: Argazkiak
       registration_types:
         index:
           choose_an_option: 'Aukeratu zure erregistro-aukera:'
-          login_as: '%{name} <%{email}> gisa erregistratuta zaude'
           no_registrations: Ez dago izen-ematerik
           register: Eman izena
           title: Izen-emate motak
-      shared:
-        conference_user_login:
-          already_account: Dagoeneko kontu bat duzu erabakitzeko?
-          new_user: Erabiltzaile berria?
-          sign_in: Saioa hasteko erregistratzeko saioa
-          sign_up: Sortu kontua erabakitzeko biltzea erregistratzeko
       show:
         details: Xehetasunak
         introduction: Sarrera
@@ -568,10 +520,6 @@ eu:
           contextual: "</p>Programa batean antolatutako bileren bilduma bat da. Bertan, hizlari gisa gonbidatutako pertsonak daude, baita biltzar handietako edo gizarte-ekitaldietako ohiko informazio-eremuak ere (erregistroa, ekitaldia babesten edo laguntzen duten erakundeen zerrenda, etab.).</p> <p>Adibideak: Hitzaldi bat garrantzitsua izan daiteke erakunde batentzat eta haren kideentzat, edo parte hartzeko prozesu baten zati gisa edo kontsulta baten ondoren egin daiteke.</p>\n"
           page: "</p>Programa batean antolatutako bileren bilduma bat da. Bertan, hizlari gisa gonbidatutako pertsonak daude, baita biltzar handietako edo gizarte-ekitaldietako ohiko informazio-eremuak ere (erregistroa, ekitaldia babesten edo laguntzen duten erakundeen zerrenda, etab.).</p> <p>Adibideak: Hitzaldi bat garrantzitsua izan daiteke erakunde batentzat eta haren kideentzat, edo parte hartzeko prozesu baten zati gisa edo kontsulta baten ondoren egin daiteke.</p>\n"
           title: Zer dira hitzaldiak?
-    log:
-      value_types:
-        conference_presenter:
-          not_found: 'Konferentzia ez da aurkitu datu-basean (ID: %{id})'
     media:
       index:
         description: Kongresu honi buruzko estekak

@@ -39,6 +39,9 @@ module Decidim
       def map_model(model)
         self.type_id = model.type.id
         self.scope_id = model.scope&.id
+        self.signature_type = model.signature_type
+        self.title = translated_attribute(model.title)
+        self.description = translated_attribute(model.description)
       end
 
       def signature_type_updatable?
@@ -97,7 +100,7 @@ module Decidim
         errors.add(:scope_id, :invalid) unless InitiativesTypeScope.exists?(type: initiative_type, scope:)
       end
 
-      # This method will add an error to the `attachment` field only if there's
+      # This method will add an error to the `attachment` field only if there is
       # any error in any other field. This is needed because when the form has
       # an error, the attachment is lost, so we need a way to inform the user of
       # this problem.

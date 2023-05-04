@@ -18,17 +18,22 @@ module Decidim
         # Executes the command. Broadcasts these events:
         #
         # - :ok when everything is valid.
-        # - :invalid if the form wasn't valid and we couldn't proceed.
+        # - :invalid if the form was not valid and we could not proceed.
         #
         # Returns nothing.
         def call
           destroy_role!
+          dispatch_system_event
           broadcast(:ok)
         end
 
         private
 
         attr_reader :role, :current_user
+
+        def dispatch_system_event
+          ActiveSupport::Notifications.publish("decidim.system.participatory_space.admin.destroyed", role.class.name, role.id)
+        end
 
         def destroy_role!
           extra_info = {

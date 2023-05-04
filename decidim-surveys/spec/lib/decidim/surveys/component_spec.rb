@@ -28,7 +28,7 @@ describe "Surveys component" do # rubocop:disable RSpec/DescribeClass
       it "raises an error" do
         expect { subject.manifest.run_hooks(:before_destroy, subject) }.to raise_error(
           RuntimeError,
-          "Can't destroy this component when there are survey answers"
+          "Cannot destroy this component when there are survey answers"
         )
       end
     end

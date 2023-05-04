@@ -72,7 +72,7 @@
         </thead>
         <tbody>
           <% proposals.each do |proposal| %>
-            <%= render partial: "proposal-tr", locals: { proposal: proposal } %>
+            <%= render partial: "proposal-tr", locals: { proposal: } %>
           <% end %>
         </tbody>
       </table>
@@ -81,4 +81,4 @@
   </div>
 </div>
 
-<%= javascript_pack_tag "decidim_proposals_admin" %>
+<%= append_javascript_pack_tag "decidim_proposals_admin" %>
