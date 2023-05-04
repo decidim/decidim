@@ -4,13 +4,13 @@
     <%= t(".back") %>
   <% end %>
 <% end %>
-<div class="row column">
-  <div class="callout secondary">
-    <%= t(".compare_help") %>
-    <%= link_to t(".more_information"), decidim.page_path("initiatives"), target: "_blank" %>
-  </div>
-</div>
-<br>
+
+<% announcement_body = capture do %>
+  <%= t("compare_help", scope: "decidim.initiatives.create_initiative.show_similar_initiatives") %>
+  <%= link_to t(".more_information"), decidim.page_path("initiatives"), target: "_blank" %>
+<% end %>
+
+<%= cell("decidim/announcement", { body: announcement_body }, callout_class: "secondary") %>
 
 <div class="row small-up-1 medium-up-2 card-grid">
   <%= render similar_initiatives %>

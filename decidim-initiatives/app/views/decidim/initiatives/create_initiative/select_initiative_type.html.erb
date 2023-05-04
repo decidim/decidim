@@ -4,10 +4,14 @@
     <%= t("new", scope: "decidim.initiatives.create_initiative.select_initiative_type") %>
   </h1>
 </div>
-<div class="callout secondary mt-8">
+
+<% announcement_body = capture do %>
   <%= t("select_initiative_type_help", scope: "decidim.initiatives.create_initiative.select_initiative_type") %>
   <%= link_to t("more_information", scope: "decidim.initiatives.create_initiative.select_initiative_type"), decidim.page_path("initiatives"), target: "_blank", class: "button button__sm button__text-secondary block text-left" %>
-</div>
+<% end %>
+
+<%= cell("decidim/announcement", { body: announcement_body }, callout_class: "secondary") %>
+
 <div class="initiatives__selection__container">
   <% initiative_types_each do |type| %>
     <div class="initiatives__selection">
