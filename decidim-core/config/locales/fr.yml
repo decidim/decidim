@@ -93,24 +93,26 @@ fr:
         other: environ %{count} mois
       half_a_minute: 30 secondes
       less_than_x_minutes:
-        one: moins d’une minute.
-        other: moins de %{count} min.
+        one: moins d'une minute
+        other: moins de %{count} minutes
       less_than_x_seconds:
-        one: à l’instant
-        other: moins de %{count} sec.
+        one: moins d'une seconde
+        other: moins de %{count} secondes
       x_days:
-        one: Hier
-        other: "Il y a %{count} jours"
+        one: 1 jour
+        other: "%{count} jours"
       x_hours:
-        one: Il y a 1 heure
-        other: "Il y a %{count} heures"
+        one: 1 heure
+        other: "%{count} heures"
       x_minutes:
-        one: Il y a 1 min
-        other: "Il y a %{count} min"
+        one: 1 minute
+        other: "%{count} minutes"
+      x_months:
+        one: 1 mois
+        other: "%{count} mois"
       x_seconds:
-        one: Il y a 1 seconde
-        other: "Il y a %{count} secondes"
-        zero: à l’instant
+        one: 1 seconde
+        other: "%{count} secondes"
   decidim:
     accessibility:
       external_link: Lien externe
