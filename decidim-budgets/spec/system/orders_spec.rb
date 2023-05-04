@@ -497,7 +497,7 @@ describe "Orders", type: :system do
         visit_budget
 
         within ".budget-summary__content", match: :first do
-          accept_confirm { page.find(".cancel-order").click }
+          accept_confirm { page.find(".cancel-order", match: :first).click }
         end
 
         expect(page).to have_content("successfully")
