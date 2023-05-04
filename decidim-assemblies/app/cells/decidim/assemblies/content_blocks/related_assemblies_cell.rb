@@ -4,6 +4,10 @@ module Decidim
   module Assemblies
     module ContentBlocks
       class RelatedAssembliesCell < Decidim::ContentBlocks::BaseCell
+        def show
+          render if total_count.positive?
+        end
+
         def related_assemblies
           @related_assemblies ||=
             resource
@@ -16,6 +20,10 @@ module Decidim
         end
 
         private
+
+        def title
+          t("name", scope: "decidim.assemblies.content_blocks.related_assemblies")
+        end
 
         def limit
           model.settings.try(:max_results)
