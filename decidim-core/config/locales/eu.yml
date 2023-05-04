@@ -91,16 +91,6 @@ eu:
       about_x_months:
         one: hilabete inguru
         other: '%{count} hilabete inguru'
-      x_days:
-        one: Duela egun bat
-        other: "Duela %{count} egun"
-      x_minutes:
-        one: duela minutu bat
-        other: "duela %{count} minutu"
-      x_seconds:
-        one: Orain dela segundu 1
-        other: "Orain dela %{count} segundu"
-        zero: orain
   decidim:
     accessibility:
       external_link: Kanpoko lotura
