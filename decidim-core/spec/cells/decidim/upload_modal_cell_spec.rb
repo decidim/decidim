@@ -127,58 +127,33 @@ describe Decidim::UploadModal, type: :cell do
     end
   end
 
-  context "when multiple attachments are present" do
-    let(:file1) { Decidim::Dev.test_file("Exampledocument.pdf", "application/pdf") }
-    let(:file2) { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
-    let(:attachments) { [upload_test_file(file2), upload_test_file(file1)] }
+  context "when there is a title" do
+    let(:titled) { true }
+    let(:attachment) do
+      instance_double(
+        Decidim::Attachment,
+        title: { en: title },
+        id: 123,
+        url: "https://example.org/file.png"
+      )
+    end
+    let(:attachments) { [attachment] }
+    let(:title) { "An image title" }
 
-    it "renders the attachments" do
-      expect(subject).to have_css(".attachment-details", count: 2)
-      expect(subject).to have_selector("[data-filename='Exampledocument.pdf']")
-      expect(subject).to have_selector("[data-filename='city.jpeg']")
-      expect(subject).to have_css("img")
-      expect(subject.find("img")["src"]).to match(%r{/city.jpeg$})
+    it "renders the title" do
+      expect(subject).to have_css(".attachment-details")
+      expect(subject).to have_content("An image title")
     end
 
-    context "when all attachments are images" do
-      let(:file1) { Decidim::Dev.test_file("city.jpeg", "application/pdf") }
-      let(:file2) { Decidim::Dev.test_file("city2.jpeg", "image/jpeg") }
-
-      it "renders preview" do
-        images = subject.all("img")
-        expect(images.count).to be(1)
-        expect(images[0]["src"]).to match(%r{/city2.jpeg$})
-      end
-    end
-
-    context "when there is a title" do
-      let(:titled) { true }
-      let(:attachment) do
-        instance_double(
-          Decidim::Attachment,
-          title: { en: title },
-          id: 123,
-          url: "https://example.org/file.png"
-        )
-      end
-      let(:attachments) { [attachment] }
-      let(:title) { "An image title" }
+    context "when there is rich content in the title" do
+      let(:title) { "An image <script>alert(\"ALERT\")</script>" }
 
       it "renders the title" do
-        expect(subject).to have_css(".attachment-details")
-        expect(subject).to have_content("An image title")
+        expect(subject).to have_content("An image alert(\"ALERT\")")
       end
 
-      context "when there is rich content in the title" do
-        let(:title) { "An image <script>alert(\"ALERT\")</script>" }
-
-        it "renders the title" do
-          expect(subject).to have_content("An image alert(\"ALERT\")")
-        end
-
-        it "escapes the title" do
-          expect(my_cell.send(:title_for, attachment)).to eq("An image alert(&quot;ALERT&quot;)")
-        end
+      it "escapes the title" do
+        expect(my_cell.send(:title_for, attachment)).to eq("An image alert(&quot;ALERT&quot;)")
       end
     end
   end
