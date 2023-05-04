@@ -88,10 +88,6 @@ ro:
   datetime:
     distance_in_words:
       half_a_minute: jumătate de minut
-      x_seconds:
-        one: Acum 1 sec
-        other: "%{count} secunde în urmă"
-        zero: chiar acum
   decidim:
     accessibility:
       external_link: Link extern
