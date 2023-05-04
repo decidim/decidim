@@ -8,6 +8,8 @@ module Decidim
     include Decidim::ApplicationHelper
     include Decidim::SanitizeHelper
     include ActionView::Helpers::DateHelper
+    include Cell::ViewModel::Partial
+    include Decidim::ViewHooksHelper
 
     alias resource model
 

@@ -272,6 +272,7 @@ ignore_unused:
   - decidim.searches.filters.state.*
   - decidim.security.selfxss_warning.*
   - decidim.assemblies.filter.*
+  - decidim.assemblies.assemblies.filters.*
   - decidim.initiatives.initiatives.votes_count.count.*
   - decidim.proposals.admin.participatory_texts.new_import.accepted_mime_types.*
   - decidim.participatory_processes.admin.new_import.accepted_types.*

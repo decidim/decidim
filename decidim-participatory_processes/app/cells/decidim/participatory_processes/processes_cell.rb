@@ -15,6 +15,10 @@ module Decidim
       def show_all_path
         @show_all_path ||= options[:show_all_path]
       end
+
+      def title
+        options[:title] || t("related_processes", scope: "decidim.participatory_processes.show")
+      end
     end
   end
 end
