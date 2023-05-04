@@ -21,7 +21,7 @@
     }
 
     &__content{
-      @apply md:grid md:grid-cols-12 md:items-center md:gap-x-8;
+      @apply md:grid md:grid-cols-12 md:items-center;
     }
 
     &__content__header{

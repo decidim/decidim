@@ -61,7 +61,7 @@
       </div>
     </div>
   </div>
-  <div class="budget-summary__progressbox-buttons <%= project_item ? "layout-item__aside" : "md:col-span-3 md:col-start-9" %>">
+  <div class="budget-summary__progressbox-buttons <%= project_item ? "layout-item__aside" : "md:col-span-3 md:col-start-10" %>">
     <% if !current_order_checked_out? && voting_open? %>
       <button class="button button__secondary button__lg w-full" data-dialog-open="budget-confirm" <%= budget_confirm_disabled_attr %>>
         <%= t("vote", scope: "decidim.budgets.projects.budget_summary") %>
@@ -84,8 +84,8 @@
   </div>
 </div>
 <div class="w-full progressbox-fixed-wrapper" data-progressbox-fixed>
-  <div class="layout-item py-4 items-center budget-summary__progressbar">
-    <div class="layout-item__main">
+  <div class="md:pl-32 gap-0 md:gap-12 layout-item py-4 items-center budget-summary__progressbar">
+    <div class="md:col-span-5 md:col-start-4 layout-item__main">
       <div class="progress budget-progress relative" role="progressbar" aria-valuenow="<%= current_order_budget_percent %>" aria-valuetext="<%= current_order_budget_percent %>%" aria-valuemin="0" aria-valuemax="100">
         <div class="progress-meter budget-summary__progressbar--minimum" style="width: <%= current_order_budget_percent_minimum %>%">
           <span class="progress-meter--minimum-mark"></span>
@@ -125,7 +125,7 @@
         </span>
       </div>
     </div>
-    <div class="layout-item__aside budget-summary__progressbox-buttons">
+    <div class="md:col-start-11 layout-item__aside budget-summary__progressbox-buttons">
       <% if !current_order_checked_out? && voting_open? %>
         <button class="button button__secondary button__lg mt-2 md:mt-0 w-full" data-dialog-open="budget-confirm" <%= budget_confirm_disabled_attr %>>
           <span>
