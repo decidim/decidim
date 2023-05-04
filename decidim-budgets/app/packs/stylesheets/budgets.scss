@@ -8,8 +8,8 @@
 
     box-shadow: 0 4px 6px 0 rgba(211, 211, 211, .25);
 
-    &__cols{
-      @apply col-span-12 md:col-span-10 lg:col-start-2 px-4 md:px-0;
+    &__content{
+      @apply p-4 md:p-0;
     }
 
     &__container{
@@ -18,10 +18,6 @@
       .budget-summary{
         @apply -ml-16;
       }
-    }
-
-    &__content{
-      @apply md:grid md:grid-cols-12 md:items-center;
     }
 
     &__content__header{
@@ -234,4 +230,60 @@
 
 .budget-summary__progressbox--checked_out{
   @apply hidden md:block;
+}
+
+.voting-wrapper{
+  .budget-summary__content{
+    @apply md:grid md:grid-cols-12 md:items-center md:pl-16 pt-4 px-4;
+  }
+
+  .budget-summary__progressbox{
+    @apply md:col-span-7;
+  }
+
+  .budget-summary__progressbox-buttons{
+    @apply md:col-span-3 md:col-start-10;
+  }
+
+  .budget-summary__button-modal{
+    @apply col-span-12 mb-4 pb-4;
+  }
+
+  .progressbox-fixed-wrapper{
+    .budget-summary__progressbar{
+      @apply md:pl-32 gap-0 md:gap-12;
+    }
+
+    .budget-summary__progressbox{
+      @apply md:col-span-5 md:col-start-4;
+    }
+
+    .budget-summary__progressbox-buttons{
+      @apply md:col-start-11 md:col-span-3;
+    }
+  }
+}
+
+#project-item{
+  .budget-summary__content{
+    @apply py-4 md:py-4 md:container md:grid grid-cols-1 md:grid-cols-12 gap-0 md:gap-12 md:items-center;
+  }
+
+  .budget-summary__progressbox{
+    @apply lg:col-start-2 md:col-span-8 lg:col-span-7 relative;
+  }
+
+  .budget-summary__progressbox-buttons{
+    @apply md:col-start-10 lg:col-start-10 md:col-span-3 lg:col-span-2;
+  }
+
+  .budget-summary__button-modal{
+    @apply col-span-10 col-start-2 justify-start;
+  }
+
+  .progressbox-fixed-wrapper{
+    .budget-summary__progressbar{
+      @apply md:col-start-1 md:col-span-7;
+    }
+  }
 }
