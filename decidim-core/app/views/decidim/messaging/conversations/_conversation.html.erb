@@ -33,11 +33,7 @@
         <span class="text-small">
           <%= t("last_message", scope: "decidim.messaging.conversations.index") %>:
           <strong>
-            <% if I18n.locale != :en %>
-              <%= t("ago", scope: "decidim.messaging.conversations.index") %> <%= time_ago_in_words(Time.parse(conversation.last_message.created_at.to_s)) %>
-            <% else %>
-              <%= time_ago_in_words(Time.parse(conversation.last_message.created_at.to_s)) %> <%= t("ago", scope: "decidim.messaging.conversations.index") %>
-            <% end %>
+            <%= t("decidim.user_conversations.index.time_ago", time: time_ago_in_words(Time.zone.parse(conversation.last_message.created_at.to_s))) %>
           </strong>
         </span>
       </div>

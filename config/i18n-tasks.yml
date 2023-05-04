@@ -323,6 +323,7 @@ ignore_unused:
   - decidim.blogs.admin_log.*
   - decidim.templates.admin_log.*
   - decidim.forms.upload_help.explanation
+  - decidim.messaging.conversations.index.ago
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:
 # ignore_eq_base:
