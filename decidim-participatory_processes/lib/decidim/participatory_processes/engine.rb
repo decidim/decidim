@@ -74,7 +74,7 @@ module Decidim
           content_block.settings_form_cell = "decidim/participatory_processes/content_blocks/highlighted_processes_settings_form"
 
           content_block.settings do |settings|
-            settings.attribute :max_results, type: :integer, default: 4
+            settings.attribute :max_results, type: :integer, default: 6
           end
         end
 
@@ -115,7 +115,7 @@ module Decidim
         end
 
         Decidim.content_blocks.register(:participatory_process_homepage, :announcement) do |content_block|
-          content_block.cell = "decidim/participatory_processes/content_blocks/announcement"
+          content_block.cell = "decidim/content_blocks/participatory_space_announcement"
           content_block.public_name_key = "decidim.content_blocks.announcement.name"
           content_block.default!
         end
@@ -133,7 +133,7 @@ module Decidim
         end
 
         Decidim.content_blocks.register(:participatory_process_homepage, :last_activity) do |content_block|
-          content_block.cell = "decidim/participatory_processes/content_blocks/last_activity"
+          content_block.cell = "decidim/content_blocks/participatory_space_last_activity"
           content_block.public_name_key = "decidim.content_blocks.last_activity.name"
           content_block.settings_form_cell = "decidim/content_blocks/last_activity_settings_form"
           content_block.settings do |settings|
@@ -195,7 +195,7 @@ module Decidim
           content_block.public_name_key = "decidim.participatory_processes.content_blocks.related_processes.name"
 
           content_block.settings do |settings|
-            settings.attribute :max_results, type: :integer, default: 4
+            settings.attribute :max_results, type: :integer, default: 6
           end
         end
 
@@ -205,17 +205,17 @@ module Decidim
           content_block.public_name_key = "decidim.assemblies.content_blocks.related_assemblies.name"
 
           content_block.settings do |settings|
-            settings.attribute :max_results, type: :integer, default: 4
+            settings.attribute :max_results, type: :integer, default: 6
           end
         end
 
         Decidim.content_blocks.register(:participatory_process_homepage, :related_documents) do |content_block|
-          content_block.cell = "decidim/participatory_processes/content_blocks/documents"
+          content_block.cell = "decidim/content_blocks/participatory_space_documents"
           content_block.public_name_key = "decidim.application.documents.related_documents"
         end
 
         Decidim.content_blocks.register(:participatory_process_homepage, :related_images) do |content_block|
-          content_block.cell = "decidim/participatory_processes/content_blocks/images"
+          content_block.cell = "decidim/content_blocks/participatory_space_images"
           content_block.public_name_key = "decidim.application.photos.related_photos"
         end
 
