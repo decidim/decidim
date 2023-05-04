@@ -5,6 +5,7 @@ module Decidim
   class UploadModalCell < Decidim::ViewModel
     include Cell::ViewModel::Partial
     include ERB::Util
+    include Decidim::SanitizeHelper
 
     alias form model
 
@@ -151,7 +152,7 @@ module Decidim
     def title_for(attachment)
       return unless has_title?
 
-      translated_attribute(attachment.title)
+      decidim_html_escape(decidim_sanitize(translated_attribute(attachment.title)))
     end
 
     def truncated_file_name_for(attachment, max_length = 31)
