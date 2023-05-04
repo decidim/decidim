@@ -1,11 +1,7 @@
 <% if @forced_closed_initiatives %>
-  <div class="callout warning mt-4">
-    <%= t ".closed_initiatives_warning" %>
-  </div>
+  <%= cell("decidim/announcement", t("decidim.initiatives.initiatives.initiatives.closed_initiatives_warning"), callout_class: "warning") %>
 <% elsif initiatives.blank? %>
-  <div class="callout warning mt-4">
-    <%= t ".no_initiatives_warning" %>
-  </div>
+  <%= cell("decidim/announcement", t("decidim.initiatives.initiatives.initiatives.no_initiatives_warning"), callout_class: "warning") %>
 <% end %>
 
 <%= render partial: "index_header" %>
@@ -21,4 +17,3 @@
 </div>
 
 <%= decidim_paginate initiatives %>
-<%= render partial: "decidim/shared/results_per_page" %>

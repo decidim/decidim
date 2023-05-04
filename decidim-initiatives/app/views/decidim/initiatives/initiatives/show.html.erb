@@ -19,14 +19,8 @@ edit_link(
 <% add_decidim_page_title(translated_attribute(current_initiative.title)) %>
 
 <% unless current_initiative.online_signature_type? %>
-  <div class="column">
-    <div class="callout secondary">
-      <p>
-        <%= t("any_vote_method", scope: "decidim.initiatives.initiatives.show") if current_initiative.any_signature_type? %>
-        <%= t("offline_method", scope: "decidim.initiatives.initiatives.show") if current_initiative.any_signature_type? %>
-      </p>
-    </div>
-  </div>
+  <%= cell("decidim/announcement", t("decidim.initiatives.initiatives.show.any_vote_method"), callout_class: "warning") if current_initiative.any_signature_type? %>
+  <%= cell("decidim/announcement", t("decidim.initiatives.initiatives.show.offline_method"), callout_class: "warning") if current_initiative.any_signature_type? %>
 <% end %>
 
 <%= content_for :aside do %>

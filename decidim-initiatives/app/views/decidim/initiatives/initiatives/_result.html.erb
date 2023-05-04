@@ -14,9 +14,5 @@
 <% end %>
 
 <% if initiative.rejected? %>
-  <div class="row column">
-    <div class="callout warning">
-      <h5><%= t(".initiative_rejected_reason") %></h5>
-    </div>
-  </div>
+  <%= cell("decidim/announcement", t("decidim.initiatives.initiatives.result.initiative_rejected_reason"), callout_class: "warning") %>
 <% end %>
