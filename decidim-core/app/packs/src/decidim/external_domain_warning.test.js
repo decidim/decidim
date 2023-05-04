@@ -32,7 +32,7 @@ describe("ExternalDomainLink", () => {
     );
   });
 
-  it("doesn't update the link to the external link URL when its whitelisted", () => {
+  it("does not update the link to the external link URL when its whitelisted", () => {
     const $link = $("#links a")[1];
 
     expect($link.outerHTML).toEqual(
@@ -40,7 +40,7 @@ describe("ExternalDomainLink", () => {
     );
   });
 
-  it("doesn't update the link to the external link URL when the parent class is excluded", () => {
+  it("does not update the link to the external link URL when the parent class is excluded", () => {
     const $link = $("#links a")[2];
 
     expect($link.outerHTML).toEqual(
