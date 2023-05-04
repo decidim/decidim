@@ -618,7 +618,7 @@ describe "Orders", type: :system do
       visit resource_locator([budget, project]).path
     end
 
-    it_behaves_like "has attachments" do
+    it_behaves_like "has redesigned attachments" do
       let(:attached_to) { project }
     end
 
