@@ -124,6 +124,11 @@ cs:
         few: "{{$count}} dny"
         many: "{{$count}} dny"
         other: "{{$count}} dny"
+      x_hours:
+        one: 1 hodina
+        few: "%{count} hodiny"
+        many: "%{count} hodin"
+        other: "%{count} hodin"
   decidim:
     accessibility:
       external_link: Externí odkaz
