@@ -9,6 +9,7 @@ module Decidim
       redesign_participatory_space_layout only: [:show, :all_metrics]
       include FilterResource
       include Paginable
+      include HasParticipatorySpaceContentBlocks
 
       helper_method :collection,
                     :promoted_collection,
@@ -18,8 +19,7 @@ module Decidim
                     :participatory_process_group,
                     :default_date_filter,
                     :related_processes,
-                    :linked_assemblies,
-                    :active_content_blocks
+                    :linked_assemblies
 
       def index
         raise ActionController::RoutingError, "Not Found" if published_processes.none?
