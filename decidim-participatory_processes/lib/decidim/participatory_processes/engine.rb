@@ -79,14 +79,14 @@ module Decidim
         end
 
         Decidim.content_blocks.register(:participatory_process_group_homepage, :title) do |content_block|
-          content_block.cell = "decidim/participatory_process_groups/content_blocks/title"
-          content_block.public_name_key = "decidim.participatory_process_groups.content_blocks.title.name"
+          content_block.cell = "decidim/participatory_process_groups/content_blocks/main_data"
+          content_block.public_name_key = "decidim.participatory_process_groups.content_blocks.main_data.name"
           content_block.default!
         end
 
         (1..3).each do |index|
           Decidim.content_blocks.register(:participatory_process_group_homepage, :"html_#{index}") do |content_block|
-            content_block.cell = "decidim/participatory_process_groups/content_blocks/html"
+            content_block.cell = "decidim/content_blocks/html"
             content_block.public_name_key = "decidim.participatory_process_groups.content_blocks.html_#{index}.name"
             content_block.settings_form_cell = "decidim/content_blocks/html_settings_form"
 
@@ -108,9 +108,9 @@ module Decidim
           content_block.default!
         end
 
-        Decidim.content_blocks.register(:participatory_process_homepage, :hero) do |content_block|
+        Decidim.content_blocks.register(:participatory_process_homepage, :process_hero) do |content_block|
           content_block.cell = "decidim/participatory_processes/content_blocks/hero"
-          content_block.public_name_key = "decidim.content_blocks.hero.name"
+          content_block.public_name_key = "decidim.participatory_processes.content_blocks.hero.name"
           content_block.default!
         end
 
@@ -154,38 +154,81 @@ module Decidim
           content_block.default!
         end
 
-        Decidim.content_blocks.register(:participatory_process_homepage, :highlighted_results) do |content_block|
-          content_block.cell = "decidim/accountability/content_blocks/highlighted_results"
-          content_block.settings_form_cell = "decidim/content_blocks/highlighted_elements_for_component_settings_form"
-          content_block.public_name_key = "decidim.accountability.content_blocks.highlighted_results.results"
-          content_block.component_manifest_name = "accountability"
+        if Decidim.module_installed?(:accountability)
+          Decidim.content_blocks.register(:participatory_process_homepage, :highlighted_results) do |content_block|
+            content_block.cell = "decidim/accountability/content_blocks/highlighted_results"
+            content_block.settings_form_cell = "decidim/content_blocks/highlighted_elements_for_component_settings_form"
+            content_block.public_name_key = "decidim.accountability.content_blocks.highlighted_results.results"
+            content_block.component_manifest_name = "accountability"
 
-          content_block.settings do |settings|
-            settings.attribute :order, type: :enum, default: "random", choices: %w(random recent)
-            settings.attribute :component_id, type: :select, default: nil
+            content_block.settings do |settings|
+              settings.attribute :order, type: :enum, default: "random", choices: %w(random recent)
+              settings.attribute :component_id, type: :select, default: nil
+            end
+          end
+
+          Decidim.content_blocks.register(:participatory_process_group_homepage, :highlighted_results) do |content_block|
+            content_block.cell = "decidim/accountability/content_blocks/highlighted_results"
+            content_block.settings_form_cell = "decidim/content_blocks/highlighted_elements_settings_form"
+            content_block.public_name_key = "decidim.accountability.content_blocks.highlighted_results.results"
+            content_block.component_manifest_name = "accountability"
+
+            content_block.settings do |settings|
+              settings.attribute :order, type: :enum, default: "random", choices: %w(random recent)
+              settings.attribute :show_space, type: :boolean, default: true
+            end
           end
         end
 
-        Decidim.content_blocks.register(:participatory_process_homepage, :highlighted_meetings) do |content_block|
-          content_block.cell = "decidim/meetings/content_blocks/highlighted_meetings"
-          content_block.settings_form_cell = "decidim/content_blocks/highlighted_elements_for_component_settings_form"
-          content_block.public_name_key = "decidim.meetings.content_blocks.upcoming_meetings.name"
-          content_block.component_manifest_name = "meetings"
+        if Decidim.module_installed?(:meetings)
+          Decidim.content_blocks.register(:participatory_process_homepage, :highlighted_meetings) do |content_block|
+            content_block.cell = "decidim/meetings/content_blocks/highlighted_meetings"
+            content_block.settings_form_cell = "decidim/content_blocks/highlighted_elements_for_component_settings_form"
+            content_block.public_name_key = "decidim.meetings.content_blocks.upcoming_meetings.name"
+            content_block.component_manifest_name = "meetings"
 
-          content_block.settings do |settings|
-            settings.attribute :component_id, type: :select, default: nil
+            content_block.settings do |settings|
+              settings.attribute :component_id, type: :select, default: nil
+            end
+          end
+
+          Decidim.content_blocks.register(:participatory_process_group_homepage, :highlighted_meetings) do |content_block|
+            content_block.cell = "decidim/meetings/content_blocks/highlighted_meetings"
+            content_block.settings_form_cell = "decidim/content_blocks/highlighted_elements_settings_form"
+            content_block.public_name_key = "decidim.meetings.content_blocks.upcoming_meetings.name"
+            content_block.component_manifest_name = "meetings"
+            content_block.default!
+
+            content_block.settings do |settings|
+              settings.attribute :order, type: :enum, default: "random", choices: %w(random recent)
+              settings.attribute :show_space, type: :boolean, default: true
+            end
           end
         end
 
-        Decidim.content_blocks.register(:participatory_process_homepage, :highlighted_proposals) do |content_block|
-          content_block.cell = "decidim/proposals/content_blocks/highlighted_proposals"
-          content_block.settings_form_cell = "decidim/content_blocks/highlighted_elements_for_component_settings_form"
-          content_block.public_name_key = "decidim.proposals.content_blocks.highlighted_proposals.name"
-          content_block.component_manifest_name = "proposals"
+        if Decidim.module_installed?(:proposals)
+          Decidim.content_blocks.register(:participatory_process_homepage, :highlighted_proposals) do |content_block|
+            content_block.cell = "decidim/proposals/content_blocks/highlighted_proposals"
+            content_block.settings_form_cell = "decidim/content_blocks/highlighted_elements_for_component_settings_form"
+            content_block.public_name_key = "decidim.proposals.content_blocks.highlighted_proposals.name"
+            content_block.component_manifest_name = "proposals"
 
-          content_block.settings do |settings|
-            settings.attribute :order, type: :enum, default: "recent", choices: %w(random recent)
-            settings.attribute :component_id, type: :select, default: nil
+            content_block.settings do |settings|
+              settings.attribute :order, type: :enum, default: "recent", choices: %w(random recent)
+              settings.attribute :component_id, type: :select, default: nil
+            end
+          end
+
+          Decidim.content_blocks.register(:participatory_process_group_homepage, :highlighted_proposals) do |content_block|
+            content_block.cell = "decidim/proposals/content_blocks/highlighted_proposals"
+            content_block.settings_form_cell = "decidim/content_blocks/highlighted_elements_settings_form"
+            content_block.public_name_key = "decidim.proposals.content_blocks.highlighted_proposals.name"
+            content_block.component_manifest_name = "proposals"
+
+            content_block.settings do |settings|
+              settings.attribute :order, type: :enum, default: "random", choices: %w(random recent)
+              settings.attribute :show_space, type: :boolean, default: true
+            end
           end
         end
 
@@ -199,13 +242,15 @@ module Decidim
           end
         end
 
-        Decidim.content_blocks.register(:participatory_process_homepage, :related_assemblies) do |content_block|
-          content_block.cell = "decidim/assemblies/content_blocks/related_assemblies"
-          content_block.settings_form_cell = "decidim/assemblies/content_blocks/highlighted_assemblies_settings_form"
-          content_block.public_name_key = "decidim.assemblies.content_blocks.related_assemblies.name"
+        if Decidim.module_installed?(:assemblies)
+          Decidim.content_blocks.register(:participatory_process_homepage, :related_assemblies) do |content_block|
+            content_block.cell = "decidim/assemblies/content_blocks/related_assemblies"
+            content_block.settings_form_cell = "decidim/assemblies/content_blocks/highlighted_assemblies_settings_form"
+            content_block.public_name_key = "decidim.assemblies.content_blocks.related_assemblies.name"
 
-          content_block.settings do |settings|
-            settings.attribute :max_results, type: :integer, default: 6
+            content_block.settings do |settings|
+              settings.attribute :max_results, type: :integer, default: 6
+            end
           end
         end
 
@@ -219,14 +264,16 @@ module Decidim
           content_block.public_name_key = "decidim.application.photos.related_photos"
         end
 
-        Decidim.content_blocks.register(:participatory_process_homepage, :highlighted_posts) do |content_block|
-          content_block.cell = "decidim/blogs/content_blocks/highlighted_posts"
-          content_block.settings_form_cell = "decidim/content_blocks/highlighted_elements_for_component_settings_form"
-          content_block.public_name_key = "decidim.blogs.content_blocks.highlighted_posts.name"
-          content_block.component_manifest_name = "blogs"
+        if Decidim.module_installed?(:blogs)
+          Decidim.content_blocks.register(:participatory_process_homepage, :highlighted_posts) do |content_block|
+            content_block.cell = "decidim/blogs/content_blocks/highlighted_posts"
+            content_block.settings_form_cell = "decidim/content_blocks/highlighted_elements_for_component_settings_form"
+            content_block.public_name_key = "decidim.blogs.content_blocks.highlighted_posts.name"
+            content_block.component_manifest_name = "blogs"
 
-          content_block.settings do |settings|
-            settings.attribute :component_id, type: :select, default: nil
+            content_block.settings do |settings|
+              settings.attribute :component_id, type: :select, default: nil
+            end
           end
         end
 
@@ -257,32 +304,6 @@ module Decidim
           content_block.default!
         end
 
-        Decidim.content_blocks.register(:participatory_process_group_homepage, :highlighted_proposals) do |content_block|
-          content_block.cell = "decidim/proposals/content_blocks/highlighted_proposals"
-          content_block.settings_form_cell = "decidim/content_blocks/highlighted_elements_settings_form"
-          content_block.public_name_key = "decidim.proposals.content_blocks.highlighted_proposals.name"
-
-          content_block.settings do |settings|
-            settings.attribute :order, type: :enum, default: "random", choices: %w(random recent)
-          end
-        end
-
-        Decidim.content_blocks.register(:participatory_process_group_homepage, :highlighted_results) do |content_block|
-          content_block.cell = "decidim/accountability/content_blocks/highlighted_results"
-          content_block.settings_form_cell = "decidim/content_blocks/highlighted_elements_settings_form"
-          content_block.public_name_key = "decidim.accountability.content_blocks.highlighted_results.results"
-
-          content_block.settings do |settings|
-            settings.attribute :order, type: :enum, default: "random", choices: %w(random recent)
-          end
-        end
-
-        Decidim.content_blocks.register(:participatory_process_group_homepage, :highlighted_meetings) do |content_block|
-          content_block.cell = "decidim/meetings/content_blocks/highlighted_meetings"
-          content_block.public_name_key = "decidim.meetings.content_blocks.upcoming_meetings.name"
-          content_block.default!
-        end
-
         Decidim.content_blocks.register(:participatory_process_group_homepage, :stats) do |content_block|
           content_block.cell = "decidim/participatory_process_groups/content_blocks/statistics"
           content_block.public_name_key = "decidim.participatory_process_groups.content_blocks.stats.name"
@@ -290,9 +311,13 @@ module Decidim
         end
 
         Decidim.content_blocks.register(:participatory_process_group_homepage, :participatory_processes) do |content_block|
-          content_block.cell = "decidim/participatory_process_groups/content_blocks/highlighted_participatory_processes"
+          content_block.cell = "decidim/participatory_process_groups/content_blocks/related_processes"
+          content_block.settings_form_cell = "decidim/participatory_processes/content_blocks/processes_settings_form"
           content_block.public_name_key = "decidim.participatory_process_groups.content_blocks.participatory_processes.name"
-          content_block.default!
+
+          content_block.settings do |settings|
+            settings.attribute :default_filter, type: :enum, default: "active", choices: %w(active all)
+          end
         end
       end
 
