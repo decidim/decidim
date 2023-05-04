@@ -1,7 +1,9 @@
 
 /**
  * Changes all external links to point to the external domain warning page.
- * It will apply to all a[target="_blank"] found in the document
+ * It will apply to all a[target="_blank"] found in the document, except for:
+ * - the ones that are inside an editor, i.e. inside a div with class "editor-container"
+ * - the ones with a domain whitelisted in the external_domain_whitelist config.
  *
  * This behaviour can be omitted adding data-external-domain-link="false" attribute to the anchor tag
  * e.g. <a href="https://..." target="_blank" data-external-domain-link="false">...</a>
@@ -40,9 +42,10 @@ export default class ExternalDomainLink {
   }
 
   isNodeInEditor(node) {
+    const EDITOR_CONTAINER_SELECTOR = ".editor-container";
     let result = false;
 
-    document.querySelectorAll(".editor-container").forEach((editorNode) => {
+    document.querySelectorAll(EDITOR_CONTAINER_SELECTOR).forEach((editorNode) => {
       editorNode.querySelectorAll("a").forEach((childEditorNode) => {
         if (node === childEditorNode) {
           result = true;
