@@ -1,15 +1,13 @@
 # frozen_string_literal: true
 
 module Decidim
-  module ParticipatoryProcesses
+  module Assemblies
     module ContentBlocks
       class StatsCell < Decidim::ContentBlocks::ParticipatorySpaceStatsCell
-        include ParticipatorySpaceContentBlocksHelper
-
         private
 
         def stats
-          @stats ||= resource.show_statistics && ParticipatoryProcessStatsPresenter.new(participatory_process: resource).collection
+          @stats ||= resource.show_statistics && AssemblyStatsPresenter.new(assembly: resource).collection
         end
       end
     end
