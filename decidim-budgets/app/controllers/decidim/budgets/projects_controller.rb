@@ -78,12 +78,12 @@ module Decidim
             args: ["decidim/linked_resources_for", @project, { type: :proposals, link_name: "included_proposals" }]
           },
           {
-            enabled: @project.linked_resources(:results, "included_proposals").present?,
+            enabled: @project.linked_resources(:results, "included_projects").present?,
             id: "included_results",
             text: t("decidim/accountability/result", scope: "activerecord.models", count: 2),
             icon: resource_type_icon_key("Decidim::Accountability::Result"),
             method: :cell,
-            args: ["decidim/linked_resources_for", @project, { type: :results, link_name: "included_proposals" }]
+            args: ["decidim/linked_resources_for", @project, { type: :results, link_name: "included_projects" }]
           },
           {
             enabled: @project.photos.present?,
