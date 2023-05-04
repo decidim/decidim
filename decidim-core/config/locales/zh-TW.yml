@@ -89,18 +89,6 @@ zh-TW:
       about_x_months:
         other: "one\n大約 1 月\n\nOther\n大約 %{count} 月"
       half_a_minute: 半分鐘
-      less_than_x_minutes:
-        other: "one\n少於 1 分鐘\n\n\nOther\n少於 %{count} 分鐘"
-      less_than_x_seconds:
-        other: "one\n立即\n\nOther\n少於 %{count} 秒。"
-      x_days:
-        other: "One\n1 天前\n\nOther\n%{count} 天前"
-      x_hours:
-        other: "One\n1 小時前\n\nOther\n%{count} 小時前"
-      x_minutes:
-        other: "One\n1 分前\n\nOther\n%{count} 分前"
-      x_seconds:
-        other: "One\n1 秒前\n\nOther\n%{count} 秒前"
   decidim:
     accessibility:
       external_link: 外部鏈接
