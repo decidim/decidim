@@ -9,6 +9,8 @@ module Decidim
     include Decidim::SanitizeHelper
     include Decidim::DateRangeHelper
     include ActionView::Helpers::DateHelper
+    include Cell::ViewModel::Partial
+    include Decidim::ViewHooksHelper
 
     alias resource model
 
@@ -50,19 +52,23 @@ module Decidim
 
     def endorsements_count_item
       return unless resource.respond_to?(:endorsements_count)
+      return if (count = resource.endorsements_count).zero?
 
       {
-        text: resource.endorsements_count,
-        icon: resource_type_icon_key(:like)
+        text: count,
+        icon: resource_type_icon_key(:like),
+        data_attributes: { endorsements_count: "" }
       }
     end
 
     def author_item
       return unless authorable?
 
+      presented_author = official? ? "#{resource.class.module_parent}::OfficialAuthorPresenter".constantize.new : present(resource.author)
+
       {
         cell: "decidim/redesigned_author",
-        args: [present(resource.author), { from: resource, skip_profile_link: true, context_actions: [] }]
+        args: [presented_author, { from: resource, skip_profile_link: true, context_actions: [] }]
       }
     end
 
@@ -166,8 +172,9 @@ module Decidim
 
     def progress_value
       return if dates_blank?
+      return 0 unless current_date <= end_date
 
-      @progress_value ||= (end_date - current_date).to_f / (end_date - start_date) if current_date <= end_date
+      @progress_value ||= (end_date - current_date).to_f / (end_date - start_date)
     end
 
     def progress_span
@@ -184,9 +191,9 @@ module Decidim
                          elsif end_date.blank?
                            t("active", scope: "decidim.metadata.progress")
                          elsif current_date < end_date
-                           t("remaining", time_distance: distance_of_time_in_words(current_date, end_date), scope: "decidim.metadata.progress")
+                           t("remaining", scope: "decidim.metadata.progress", time_distance: distance_of_time_in_words(current_date, end_date))
                          else
-                           t("finished", scope: "decidim.metadata.progress")
+                           t("finished", scope: "decidim.metadata.progress", end_date: l(end_date.to_date, format: :decidim_short))
                          end
     end
   end

@@ -1,6 +1,6 @@
 .card{
   &__highlight{
-    @apply ring-4 ring-background hover:ring-tertiary rounded flex flex-col md:flex-row hover:cursor-pointer;
+    @apply ring-4 ring-background hover:ring-tertiary rounded flex flex-col md:flex-row hover:cursor-pointer transition;
 
     &-container{
       @apply space-y-10 mb-16 md:mb-28;
@@ -24,7 +24,7 @@
   }
 
   &__grid{
-    @apply ring-4 ring-background hover:ring-tertiary rounded hover:cursor-pointer;
+    @apply flex flex-col ring-4 ring-background hover:ring-tertiary rounded hover:cursor-pointer transition;
 
     &-container{
       @apply space-y-10 mb-16;
@@ -43,7 +43,7 @@
     }
 
     &-text{
-      @apply px-4 py-3 flex flex-col gap-y-2 md:gap-y-4 text-gray-2;
+      @apply grow px-4 py-3 flex flex-col gap-y-2 md:gap-y-4 text-gray-2;
     }
 
     &:hover &-text h3{
@@ -52,18 +52,18 @@
   }
 
   &__list{
-    @apply flex flex-col md:flex-row gap-2.5 md:gap-4 px-4 rounded overflow-hidden border-l-4 border-background hover:border-tertiary;
+    @apply flex flex-col md:flex-row gap-2.5 md:gap-4 px-4 rounded overflow-hidden border-l-4 border-background hover:border-tertiary focus-visible:border-tertiary focus-visible:outline-none transition transition;
 
     &-content{
       @apply flex flex-col gap-2.5;
     }
 
     &-title{
-      @apply h4 text-secondary focus-visible:outline-none focus-visible:underline;
+      @apply h4 text-secondary;
     }
 
     &-image{
-      @apply w-1/4 flex-none rounded overflow-hidden aspect-[1.5] -ml-[calc(1rem+4px)];
+      @apply w-full md:w-1/5 flex-none rounded overflow-hidden aspect-[1.5] md:-ml-[calc(1rem+4px)];
 
       img{
         @apply w-full h-full object-cover;
@@ -72,13 +72,18 @@
 
     &-text{
       @apply text-gray-2;
+
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 3;
     }
 
     &-metadata{
       @apply mt-auto inline-flex flex-wrap gap-x-4 md:gap-0;
 
       & > span{
-        @apply inline-flex items-center gap-1 px-0 md:px-6 border-gray-3 border-0 md:border-x first:pl-0 last:pr-0 first:border-l-0 last:border-r-0 text-sm text-gray-2;
+        @apply inline-flex items-center gap-1 px-0 md:px-6 border-gray-3 border-0 md:border-r first:pl-0 last:pr-0 last:border-r-0 text-sm text-gray-2;
 
         & > svg{
           @apply w-3.5 h-3.5 fill-current text-gray;
@@ -90,6 +95,7 @@
       @apply mt-6;
     }
 
+    &:focus &-title,
     &:hover &-title{
       @apply underline;
     }
@@ -109,7 +115,9 @@
   &__highlight-loader,
   &__grid-loader{
     --color: var(--alert);
+    --inner: theme('colors.background.DEFAULT');
+    --outer: theme('colors.gray.3');
 
-    @apply w-3.5 h-3.5 mx-auto grid place-items-center rounded-full overflow-hidden bg-[radial-gradient(farthest-side,#F3F4F7_60%,transparent_0_100%),conic-gradient(var(--color)_calc(var(--value)*100%),transparent_0)];
+    @apply w-3.5 h-3.5 mx-auto grid place-items-center rounded-full overflow-hidden bg-[radial-gradient(farthest-side,var(--inner)_60%,transparent_0_100%),conic-gradient(var(--color)_calc(var(--value)*100%),var(--outer)_0)];
   }
 }
