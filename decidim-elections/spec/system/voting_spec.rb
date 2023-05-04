@@ -25,6 +25,13 @@ describe "Voting", type: :system do
       expect(page).to have_i18n_content(voting.description)
     end
 
+    it_behaves_like "has embedded video in description", :description do
+      before do
+        voting.update!(description: description)
+        visit decidim_votings.voting_path(voting)
+      end
+    end
+
     context "when the voting is unpublished" do
       let!(:voting) do
         create(:voting, :unpublished, organization: organization)
