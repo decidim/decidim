@@ -8,7 +8,7 @@ class ChangeStateOnProposals < ActiveRecord::Migration[6.1]
     Decidim::Proposals::Proposal.reset_column_information
 
     Decidim::Proposals::Proposal.find_each do |proposal|
-      proposal.update(state: Decidim::Proposals::Proposal::POSSIBLE_STATES.index(proposal.old_state))
+      proposal.update(state: Decidim::Proposals::Proposal::STATES.index(proposal.old_state))
     end
 
     remove_column :decidim_proposals_proposals, :old_state
@@ -22,7 +22,7 @@ class ChangeStateOnProposals < ActiveRecord::Migration[6.1]
     Decidim::Proposals::Proposal.reset_column_information
 
     Decidim::Proposals::Proposal.find_each do |proposal|
-      proposal.update(state: Decidim::Proposals::Proposal::POSSIBLE_STATES[proposal.old_state])
+      proposal.update(state: Decidim::Proposals::Proposal::STATES[proposal.old_state])
     end
 
     remove_column :decidim_proposals_proposals, :old_state

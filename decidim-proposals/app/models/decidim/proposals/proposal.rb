@@ -31,7 +31,7 @@ module Decidim
 
       translatable_fields :title, :body
 
-      POSSIBLE_STATES = %w(not_answered evaluating accepted rejected withdrawn).freeze
+      STATES = %w(not_answered evaluating accepted rejected withdrawn).freeze
 
       fingerprint fields: [:title, :body]
 
@@ -55,7 +55,7 @@ module Decidim
 
       geocoded_by :address
 
-      enum state: POSSIBLE_STATES
+      enum state: STATES
 
       scope :accepted, -> { state_published.where(state: "accepted") }
       scope :rejected, -> { state_published.where(state: "rejected") }
@@ -402,7 +402,7 @@ module Decidim
         Arel.sql(%{cast("decidim_proposals_proposals"."id" as text)})
       end
 
-      ransacker :state, formatter: proc { |v| POSSIBLE_STATES.index(v) } do |parent|
+      ransacker :state, formatter: proc { |v| STATES.index(v) } do |parent|
         parent.table[:state]
       end
 

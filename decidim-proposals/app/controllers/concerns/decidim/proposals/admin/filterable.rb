@@ -44,7 +44,7 @@ module Decidim
           def filters_with_values
             {
               is_emendation_true: %w(true false),
-              state_eq: Proposal::POSSIBLE_STATES,
+              state_eq: Proposal::STATES,
               with_any_state: %w(state_published state_not_published),
               scope_id_eq: scope_ids_hash(scopes.top_level),
               category_id_eq: category_ids_hash(categories.first_class),

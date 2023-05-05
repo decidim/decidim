@@ -6,7 +6,7 @@ describe "Admin filters proposals", type: :system do
   include_context "when admin manages proposals"
   include_context "with filterable context"
 
-  STATES = Decidim::Proposals::Proposal::POSSIBLE_STATES.map(&:to_sym)
+  STATES = Decidim::Proposals::Proposal::STATES.map(&:to_sym)
 
   let(:model_name) { Decidim::Proposals::Proposal.model_name }
   let(:resource_controller) { Decidim::Proposals::Admin::ProposalsController }
@@ -40,11 +40,6 @@ describe "Admin filters proposals", type: :system do
         end
       end
     end
-
-    # it_behaves_like "a filtered collection", options: "State", filter: "Not answered" do
-    #   let(:in_filter) { translated(proposal_with_state("not_answered").title) }
-    #   let(:not_in_filter) { translated(proposal_without_state("not_answered").title) }
-    # end
   end
 
   context "when filtering by type" do
