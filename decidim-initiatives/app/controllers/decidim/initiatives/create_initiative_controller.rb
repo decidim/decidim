@@ -24,8 +24,6 @@ module Decidim
       helper_method :promotal_committee_required?
 
       steps :select_initiative_type,
-            :previous_form,
-            :show_similar_initiatives,
             :fill_data,
             :promotal_committee,
             :finish
