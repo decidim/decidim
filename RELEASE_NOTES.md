@@ -126,10 +126,22 @@ In [\#10606](https://github.com/decidim/decidim/pull/10606) we have upgraded the
 
 Please see the [change log](https://github.com/rmosolgo/graphql-ruby/blob/master/CHANGELOG.md) for graphql gem for more information.
 
-### 3.6. Improved Content Security Policy (CSP) handling
+### 3.6. Orphans valuator assignments cleanup
 
-In [\#10700](https://github.com/decidim/decidim/pull/10700) we have introduced support for Content Security Policy (CSP) in Decidim. This is a security feature that helps to detect and mitigate certain types of attacks, including Cross Site Scripting (XSS) and data injection attacks.
-by default, the CSP is enabled, and is configured to be as restrictive as possible, having the following default configuration:
+We have added a new task that helps you clean the valuator assignements records of roles that have been deleted.
+
+You can run the task with the following command:
+
+```console
+bundle exec rake decidim:proposals:upgrade:remove_valuator_orphan_records
+```
+
+You can see more details about this change on PR [\#10607](https://github.com/decidim/decidim/pull/10607)
+
+### 3.7. Add Content Security Policy (CSP) support
+
+We have introduced support for Content Security Policy (CSP). This is a security feature that helps to detect and mitigate certain types of attacks, including Cross Site Scripting (XSS) and data injection attacks.
+By default, the CSP is enabled, and is configured to be as restrictive as possible, having the following default configuration:
 
 ```ruby
 {
@@ -456,3 +468,36 @@ end
 ```
 
 You can read more about this change at PR [\#10111](https://github.com/decidim/decidim/pull/10111).
+
+### 5.4. Extra context argument added to SMS gateway implementations
+
+If you have integrated any [SMS gateways](https://docs.decidim.org/en/develop/services/sms), there is a small change in the API that needs to be reflected to the SMS integrations. An extra `context` attribute is passed to the SMS gateway's initializer which can be used to pass e.g. the correct organization for the gateway to utilize.
+
+In previous versions your SMS gateway initializer might have looked like the following:
+
+```ruby
+class MySMSGatewayService
+  attr_reader :mobile_phone_number, :code
+  def initialize(mobile_phone_number, code)
+    @mobile_phone_number = mobile_phone_number
+    @code = code
+  end
+  # ...
+end
+```
+
+From now on, you will need to change it as follows (note the extra `context` attribute):
+
+```ruby
+class MySMSGatewayService
+  attr_reader :mobile_phone_number, :code, :context
+  def initialize(mobile_phone_number, code, context = {})
+    @mobile_phone_number = mobile_phone_number
+    @code = code
+    @context = context
+  end
+  # ...
+end
+```
+
+You can read more about this change at PR [\#10760](https://github.com/decidim/decidim/pull/10760).

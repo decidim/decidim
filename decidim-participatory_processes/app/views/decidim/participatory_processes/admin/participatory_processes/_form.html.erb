@@ -169,7 +169,7 @@
     <div class="row column">
       <%= form.select(
         :related_process_ids,
-        @form.processes.order(title: :asc).map{|process| [translated_attribute(process.title), process.id]},
+        @form.processes.order(title: :asc).map { |process| [translated_attribute(process.title), process.id] },
         { include_blank: true },
         { multiple: true, class: "chosen-select" }
       ) %>
