@@ -43,13 +43,11 @@
     <% end %>
 
     <% if initiative_type.attachments_enabled? %>
-      <fieldset class="attachments_container">
-        <legend><%= t("attachment_legend", scope: "decidim.initiatives.form") %></legend>
-
-        <%= f.attachment :documents,
-          multiple: true,
-          label: t("add_attachments", scope: "decidim.initiatives.form") %>
-      </fieldset>
+      <%= f.attachment :documents,
+            multiple: true,
+            label: t("decidim.initiatives.form.add_attachments"),
+            button_class: "button button__lg button__transparent-secondary w-full",
+            help_text: t("attachment_legend", scope: "decidim.initiatives.form") %>
     <% end %>
     <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
       <%= link_to :back, class: "button button__sm md:button__lg button__text-secondary" do %>

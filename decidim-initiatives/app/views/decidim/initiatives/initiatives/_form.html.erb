@@ -44,45 +44,13 @@
                           disabled: !@form.area_updatable? %>
 <% end %>
 
-  <%= form.select :signature_type, [], {}, { disabled: !@form.signature_type_updatable? } %>
+<%= form.select :signature_type, [], {}, { disabled: !@form.signature_type_updatable? } %>
 <% if current_initiative.type.attachments_enabled? %>
-  <fieldset class="attachments_container">
-    <legend><%= t("attachment_legend", scope: "decidim.initiatives.form") %></legend>
-
-    <% if @form.photos.any? %>
-      <% @form.photos.each do |photo| %>
-        <div class="callout gallery__item" data-closable>
-          <%= image_tag photo.thumbnail_url, class: "thumbnail", alt: photo.file.filename %>
-          <%= form.hidden_field :photos, multiple: true, value: photo.id, id: "photo-#{photo.id}" %>
-          <button class="close-button"
-                  aria-label="<%= t("delete_attachment", scope: "decidim.initiatives.form") %>"
-                  title="<%= t("delete_attachment", scope: "decidim.initiatives.form") %>"
-                  type="button"
-                  data-close>
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-      <% end %>
-    <% end %>
-
-    <% if @form.documents.any? %>
-      <% @form.documents.each do |document| %>
-        <div class="callout" data-closable>
-          <%= link_to translated_attribute(document.title), document.url %>
-          <small><%= document.file_type %> <%= number_to_human_size(document.file_size) %></small>
-          <%= form.hidden_field :documents, multiple: true, value: document.id, id: "document-#{document.id}" %>
-          <button class="close-button"
-                  aria-label="<%= t("delete_attachment", scope: "decidim.initiatives.form") %>"
-                  title="<%= t("delete_attachment", scope: "decidim.initiatives.form") %>"
-                  type="button" data-close>
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-      <% end %>
-    <% end %>
-
-    <%= form.file_field :add_documents, multiple: true, label: t("add_attachments", scope: "decidim.initiatives.form") %>
-  </fieldset>
+  <%= form.attachment :add_documents,
+      multiple: true,
+      label: t("decidim.initiatives.form.add_attachments"),
+      button_class: "button button__lg button__transparent-secondary w-full",
+      help_text: t("attachment_legend", scope: "decidim.initiatives.form") %>
 <% end %>
 
 <% if current_initiative.type.promoting_committee_enabled? %>
