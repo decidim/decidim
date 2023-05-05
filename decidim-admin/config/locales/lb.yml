@@ -32,7 +32,6 @@ lb:
         body: Haupttext
         subject: Betreff
       organization:
-        admin_terms_of_use_body: Körper für die Admin-Nutzungsbedingungen
         alert_color: Benachrichtigung
         available_authorizations: Verfügbare Autorisierungen
         badges_enabled: Abzeichen aktivieren
@@ -129,10 +128,6 @@ lb:
               allowed_file_content_types: Ungültige Bilddatei
             official_img_header:
               allowed_file_content_types: Ungültige Bilddatei
-      new_import:
-        attributes:
-          file:
-            invalid_mime_type: Ungültiger MIME-Typ
   activerecord:
     attributes:
       decidim/static_page:
@@ -153,8 +148,6 @@ lb:
         add: Hinzufügen
         attachment:
           new: Neuer Anhang
-        attachment_collection:
-          new: Neuer Ordner
         browse: Durchsuchen
         category:
           new: Neue Kategorie
@@ -172,25 +165,10 @@ lb:
         reject: Ablehnen
         share: Teilen
         verify: Überprüfen
-      admin_terms_of_use:
-        accept:
-          error: Beim Akzeptieren der Nutzungsbedingungen ist ein Fehler aufgetreten.
-          success: Super! Sie haben die Admin-Nutzungsbedingungen akzeptiert.
-        actions:
-          are_you_sure: Sidd Dir sécher datt Dir d'Admin Benotzungsconditioune wëllt refuséieren? Sidd Dir sécher datt Dir d'Admin Notzungsbedéngunge refuséiere wëllt?
-          refuse: Die Admin-Nutzungsbedingungen ablehnen
-          title: Den Admin-Nutzungsbedingungen zustimmen
-        required_review:
-          alert: 'Erforderlich: Überprüfen Sie unsere Admin-Nutzungsbedingungen'
-          callout: Huelt e Moment fir d'Admin Benotzungsconditiounen ze iwwerpréiwen. Soss kënnt Dir d'Plattform net managen
-          cta: Lesen Sie sie jetzt.
-        title: Admin-Nutzungsbedingungen
       area_types:
         create:
           error: Beim Erstellen eines neuen Bereichstyps ist ein Fehler aufgetreten.
           success: Bereichstyp wurde erfolgreich erstellt.
-        destroy:
-          success: Der Bereichstyp wurde erfolgreich zerstört
         edit:
           title: Bereichstyp bearbeiten
           update: Aktualisieren
@@ -199,14 +177,12 @@ lb:
           title: Neuer Bereichstyp
         update:
           error: Beim Aktualisieren dieses Bereichstyps ist ein Fehler aufgetreten.
-          success: Bereichstyp wurde erfolgreich aktualisiert
       areas:
         create:
           error: Beim Erstellen eines neuen Bereichs ist ein Fehler aufgetreten.
           success: Bereich wurde erfolgreich erstellt.
         destroy:
           has_spaces: Dëse Beräich huet ofhängeg Plazen. Gitt w.e.g. sécher datt kee Participatiounsraum dëst Gebitt bezitt ier Dir et läscht
-          success: Bereich wurde erfolgreich zerstört
         edit:
           title: Bereich bearbeiten
           update: Aktualisieren
@@ -216,7 +192,6 @@ lb:
         no_areas: Keine Bereiche
         update:
           error: Beim Aktualisieren dieses Bereichs ist ein Fehler aufgetreten.
-          success: Bereich wurde erfolgreich aktualisiert
       attachment_collections:
         create:
           error: Beim Erstellen eines neuen Ordners ist ein Fehler aufgetreten.
@@ -254,7 +229,6 @@ lb:
           success: Anhang wurde erfolgreich aktualisiert.
       autocomplete:
         no_results: keine Ergebnisse gefunden
-        search_prompt: Geben Sie mindestens drei Zeichen ein, um zu suchen
       block_user:
         new:
           action: Konto sperren und Begründung senden
@@ -337,9 +311,6 @@ lb:
       domain_whitelist:
         form:
           domain_too_short: Domain zu kurz
-        update:
-          error: Domain-Whitelist konnte nicht aktualisiert werden
-          success: Domain-Whitelist erfolgreich aktualisiert
       exports:
         export_as: "%{name} als %{export_format}"
         formats:
@@ -347,7 +318,6 @@ lb:
           Excel: Excel
           FormPDF: PDF
           JSON: JSON
-        notice: Ihr Export wird gerade ausgeführt. Sie erhalten nach Fertigstellung eine E-Mail.
       filters:
         category_id_eq:
           label: Kategorie
@@ -413,10 +383,8 @@ lb:
             message_1: CSV, JSON und Excel (.xlsx) Dateien werden unterstützt
             message_2: Bei CSV-Dateien muss das Trennzeichen zwischen den Spalten ein Semikolon sein (";")
       help_sections:
-        error: Beim Aktualisieren der Hilfeabschnitte ist ein Fehler aufgetreten
         form:
           save: Speichern
-        success: Hilfeabschnitte wurden erfolgreich aktualisiert
       impersonatable_users:
         index:
           filter:
@@ -451,7 +419,6 @@ lb:
           impersonate_existing_user: Imitieren von Benutzer "%{name}"
           impersonate_new_managed_user: Sich als neuer verwalteter Benutzer ausgeben
       imports:
-        error: Beim Importieren ist ein Fehler aufgetreten
         new:
           accepted_mime_types:
             xlsx: xlsx
@@ -459,7 +426,6 @@ lb:
             back: Zurück
           file_legend: Datei zum Importieren hinzufügen.
           import: Importieren
-        notice: "%{number}%{resource_name} erfolgreich importiert"
       managed_users:
         promotion:
           error: Es ist ein Fehler aufgetreten, der den verwalteten Benutzer unterstützt.
@@ -484,7 +450,6 @@ lb:
         moderation: Globale Moderationen
         newsletters: Newsletter
         participants: Teilnehmer
-        reported_users: Gemeldete Nutzer
         scope_types: Bereichstypen
         scopes: Bereiche
         settings: die Einstellungen
@@ -583,7 +548,6 @@ lb:
           nickname: Spitzname
           reason: Grund
           reports: Anzahl Meldungen
-          title: Liste der gemeldeten Benutzer
         report:
           reasons:
             does_not_belong: Gehört nicht zu
@@ -593,8 +557,6 @@ lb:
           blocked: Blockiert
           unblocked: Nicht blockiert
       moderations:
-        index:
-          title: Moderationen
         report:
           reasons:
             does_not_belong: Gehört nicht
@@ -670,8 +632,6 @@ lb:
           send_to_participants: An Teilnehmer senden
           title: Empfänger auswählen
           warning: "<strong>Achtung:</strong> Dieser Newsletter wird nur an Benutzer gesendet, die <em>Ich möchte Newsletter empfangen</em> in ihren Benachrichtigungseinstellungen aktiviert haben."
-        send:
-          no_recipients: Keine Empfänger für diese Auswahl
         show:
           preview: Vorschau
           select_recipients_to_deliver: Empfänger auswählen
@@ -680,13 +640,6 @@ lb:
           error: Beim Aktualisieren dieses Newsletters ist ein Fehler aufgetreten.
           success: Newsletter erfolgreich aktualisiert. Bitte überprüfen Sie es vor dem Senden.
       officializations:
-        block:
-          error: Beim Blockieren des Teilnehmers ist ein Fehler aufgetreten
-          success: Teilnehmer erfolgreich blockiert
-        create:
-          success: Benutzer wurde offiziell anerkannt
-        destroy:
-          success: Der Benutzer wurde erfolgreich inoffizialisiert
         index:
           actions: Aktionen
           badge: Abzeichen
@@ -715,9 +668,6 @@ lb:
           hidden: versteckt
           show: Anzeigen
           title: Weist dem E -Mail Adress vum Participant
-        unblock:
-          error: Beim Blockieren des Teilnehmers ist ein Fehler aufgetreten
-          success: Blockierung des Teilnehmers wurde erfolgreich aufgehoben
       organization:
         edit:
           title: Organisation bearbeiten
@@ -778,8 +728,6 @@ lb:
           create: Erstellen
           title: Neuer privater Benutzer des Participatory Space.
       participatory_space_private_users_csv_imports:
-        create:
-          success: CSV-Datei wurde erfolgreich hochgeladen, wir senden eine Einladungs-E-Mail an die Teilnehmer. Dies kann eine Weile dauern.
         new:
           title: CSV-Datei hochladen
           upload: Hochladen
@@ -812,8 +760,6 @@ lb:
         create:
           error: Beim Erstellen eines neuen Bereichs ist ein Fehler aufgetreten.
           success: Bereich erfolgreich erstellt
-        destroy:
-          success: Bereich wurde erfolgreich zerstört
         edit:
           title: Bereich bearbeiten
           update: Aktualisieren
@@ -833,7 +779,6 @@ lb:
           error: Beim Löschen dieses Tokens ist ein Fehler aufgetreten.
           success: Token wurde erfolgreich gelöscht.
         share_tokens:
-          empty: Es gibt keine aktiven Token
           help: Diese Token werden verwendet, um diese unveröffentlichte Ressource öffentlich an jeden Benutzer weiterzugeben. Sie werden ausgeblendet, wenn das Werk veröffentlicht wird. Klicken Sie auf das Teilen-Symbol des Tokens um die teilbare URL zu besuchen.
           title: Token teilen
       shared:
@@ -845,8 +790,6 @@ lb:
         create:
           error: Beim Erstellen eines neuen Themas ist ein Fehler aufgetreten.
           success: Thema erfolgreich erstellt.
-        destroy:
-          success: Thema erfolgreich zerstört
         edit:
           title: Thema bearbeiten
           update: Thema aktualisieren
@@ -865,7 +808,6 @@ lb:
         destroy:
           success: Seite erfolgreich zerstört
         edit:
-          changed_notably_help: Wenn diese Option aktiviert ist, werden Benutzer benachrichtigt, um die neuen Nutzungsbedingungen zu akzeptieren.
           title: Seite bearbeiten
           update: Aktualisieren
         form:
@@ -879,11 +821,9 @@ lb:
         topic:
           destroy: Thema entfernen
           edit: Thema bearbeiten
-          empty: Es gibt keine Seite zu diesem Thema
           without_topic: Seiten ohne Thema
         update:
           error: Beim Aktualisieren dieser Seite ist ein Fehler aufgetreten.
-          success: Seite wurde erfolgreich aktualisiert
       titles:
         admin_log: Adminprotokoll
         area_types: Bereichstypen
@@ -903,13 +843,10 @@ lb:
       user_group:
         csv_verify:
           invalid: Beim Lesen der CSV-Datei ist ein Fehler aufgetreten.
-          success: CSV-Datei wurde erfolgreich hochgeladen. Wir überprüfen, ob die Benutzergruppen den Kriterien entsprechen. Das kann eine Weile dauern.
         reject:
           invalid: Beim Ablehnen dieser Benutzergruppe ist ein Fehler aufgetreten.
-          success: Benutzergruppe wurde erfolgreich abgelehnt
         verify:
           invalid: Beim Überprüfen dieser Benutzergruppe ist ein Fehler aufgetreten.
-          success: Benutzergruppe erfolgreich verifiziert
       user_groups:
         index:
           state:
@@ -941,13 +878,8 @@ lb:
           last_day: Letzter Tag
           last_month: Letzter Monat
           last_week: Letzte Woche
-          no_users_count_statistics_yet: Es gibt noch keine Nutzerstatistiken
           participants: Teilnehmer
       view_public_page: Öffentliche Seite anzeigen
-    forms:
-      errors:
-        impersonate_user:
-          reason: Sie müssen einen Grund angeben, wenn Sie einen nicht verwalteten Teilnehmer verwalten
     metrics:
       blocked_users:
         object: blockierte Benutzer
@@ -981,13 +913,10 @@ lb:
       models:
         moderation:
           fields:
-            created_at: Erstellungsdatum
             hidden_at: Versteckt bei
             participatory_space: Beteiligungsbereich
-            report_count: Anzahl
             reportable_type: Typ
             reported_content_url: URL des gemeldeten Inhalts
-            reports: Berichte
             visit_url: Besuchs-URL
         report:
           fields:
@@ -1000,8 +929,6 @@ lb:
   layouts:
     decidim:
       admin:
-        global_moderations:
-          title: Globale Moderationen
         newsletters:
           title: Newsletter
         settings:

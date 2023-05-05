@@ -37,13 +37,11 @@ ar:
         date: التاريخ
         link: الرابط
         title: العنوان
-        weight: وزن
       conference_partner:
         link: الرابط
         logo: الشعار
         name: الإسم
         partner_type: نوع الشريك
-        weight: وزن
       conference_registration_invite:
         email: البريد الإلكتروني
         name: الإسم
@@ -53,7 +51,6 @@ ar:
         description: الوصف
         price: السعر
         title: العنوان
-        weight: وزن
       conference_speaker:
         affiliation: الانتساب
         avatar: الصورة الرمزية
@@ -66,12 +63,6 @@ ar:
         email: البريد الإلكتروني
         name: اسم
         role: وظيفة
-    errors:
-      models:
-        conference_registration_invite:
-          attributes:
-            email:
-              already_invited: تمت دعوة هذا البريد الإلكتروني بالفعل
   activerecord:
     models:
       decidim/conference:
@@ -143,8 +134,6 @@ ar:
         edit:
           title: تحديث مسؤول المؤتمر.
           update: تحديث
-        index:
-          conference_admins_title: مدراء المؤتمر
         new:
           create: إنشاء
           title: مشرف المؤتمر الجديد.
@@ -361,7 +350,6 @@ ar:
             invites: تدعو
             search: بحث
           new:
-            explanation: سيدعى المشارك للانضمام إلى مؤتمر. إذا لم يتم تسجيل بريدها الإلكتروني ، فستتم دعوتها إلى المنظمة أيضًا.
             invite: دعا
             new_invite: دعوة مشارك
         conference_registrations:
@@ -418,18 +406,11 @@ ar:
           cancel: إلغاء
           confirm: تؤكد
         show:
-          free: حر
           going: حضور
           no_slots_available: لا فتحات المتاحة
           registration: التسجيل
       conference_program:
-        program_meeting:
-          content: المحتوى
-          location: موقعك
-          speakers: مكبرات الصوت
-          streaming: تدفق
         show:
-          day: يوم
           program: برنامج
       conference_registration_mailer:
         confirmation:
@@ -460,18 +441,12 @@ ar:
       conference_speaker_cell:
         personal_url:
           personal_website: موقع الويب الشخصي
-        twitter_handle:
-          go_to_twitter: انتقل إلى تويتر
-      conference_speakers:
-        index:
-          speakers: مكبرات الصوت
       conferences:
         partners:
           collaborators: شركاء
           main_promotors: المنظمون
         show:
           login_as: تم تسجيل دخولك كـ %{name} <%{email}>
-          make_conference_registration: 'اجعل تسجيلك في المؤتمر:'
           register: تسجيل
       content_blocks:
         highlighted_conferences:
@@ -479,11 +454,6 @@ ar:
       index:
         title: المؤتمرات
       mailer:
-        conference_registration_mailer:
-          confirmation:
-            subject: تم تأكيد تسجيل مؤتمرك
-          pending_validation:
-            subject: تسجيل مؤتمرك في انتظار التأكيد
         invite_join_conference_mailer:
           invite:
             subject: دعوة للانضمام إلى مؤتمر
@@ -517,29 +487,12 @@ ar:
             active_conferences: المؤتمرات النشطة
             conferences_button_title: رابط إلى صفحة المؤتمرات لعرض جميع المؤتمرات
             see_all_conferences: رؤية جميع المؤتمرات
-      photo:
-        image:
-          attributes:
-            alt: صورة الوسائط
-        show:
-          close_modal: إغلاق مشروط
-          photo: صورة
-      photos_list:
-        show:
-          related_photos: صور
       registration_types:
         index:
           choose_an_option: 'اختر خيار التسجيل الخاص بك:'
-          login_as: تم تسجيل دخولك كـ %{name} <%{email}>
           no_registrations: لا توجد تسجيلات
           register: تسجيل
           title: أنواع التسجيل
-      shared:
-        conference_user_login:
-          already_account: هل تمتلك حسابًا مِن قبلُ على ديسيديم؟
-          new_user: مستخدم جديد؟
-          sign_in: تسجيل الدخول للتسجيل في المؤتمر
-          sign_up: إنشاء حساب في decidim للتسجيل في المؤتمر
       show:
         details: تفاصيل
         introduction: المقدمة
@@ -584,10 +537,6 @@ ar:
           contextual: "<p>ال<strong>مؤتمر</strong> هو مجموعة من الاجتماعات المرتبة في برنامج ما، مع عدد من الأشخاص المدعوين كمتحدثين، وحقول أدخال نموذجيه للمعلومات الأخرى للمؤتمرات الكبيرة أو المناسبات الاجتماعية (التسجيل، قائمة بالمنظمات التي تدعم الحدث أو ترعاه، إلخ)..</p> <p>أمثلة: يمكن أن يكون المؤتمر حدثا ذا صلة بالنسبة لمنظمة ما وأعضائها، أو يتم في إطار عملية تشاركية أو في أعقاب مشاورات.</p>\n"
           page: "<p>ال<strong>مؤتمر</strong> هو مجموعة من الاجتماعات المرتبة في برنامج ما، مع عدد من الأشخاص المدعوين كمتحدثين، وحقول أدخال نموذجيه للمعلومات الأخرى للمؤتمرات الكبيرة أو المناسبات الاجتماعية (التسجيل، قائمة بالمنظمات التي تدعم الحدث أو ترعاه، إلخ)..</p> <p>أمثلة: يمكن أن يكون المؤتمر حدثا ذا صلة بالنسبة لمنظمة ما وأعضائها، أو يتم في إطار عملية تشاركية أو في أعقاب مشاورات.</p>\n"
           title: ما هي المؤتمرات؟
-    log:
-      value_types:
-        conference_presenter:
-          not_found: 'لم يتم العثور على المؤتمر في قاعدة البيانات (المعرف: %{id})'
     media:
       index:
         description: روابط حول هذا المؤتمر

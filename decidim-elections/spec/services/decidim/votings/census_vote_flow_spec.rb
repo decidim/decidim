@@ -176,19 +176,19 @@ module Decidim::Votings
       context "when the access code is invalid" do
         let(:login_params_changes) { { access_code: "an invalid code" } }
 
-        it { expect(subject.error_message).to eq("The given data doesn't match any voter.") }
+        it { expect(subject.error_message).to eq("The given data does not match any voter.") }
       end
 
       context "when the document type is invalid" do
         let(:login_params_changes) { { document_type: "Passport" } }
 
-        it { expect(subject.error_message).to eq("The given data doesn't match any voter.") }
+        it { expect(subject.error_message).to eq("The given data does not match any voter.") }
       end
 
       context "when the birthdate is invalid" do
         let(:login_params_changes) { { day: 15 } }
 
-        it { expect(subject.error_message).to eq("The given data doesn't match any voter.") }
+        it { expect(subject.error_message).to eq("The given data does not match any voter.") }
       end
     end
 

@@ -18,16 +18,9 @@ de:
         title: Aktionen
       admin:
         models:
-          components:
-            body: Haupttext
           post:
             name: Post
         posts:
-          create:
-            invalid: Beim Erstellen dieses Posts ist ein Problem aufgetreten
-            success: Post erfolgreich erstellt
-          destroy:
-            success: Beitrag wurde erfolgreich gelöscht
           edit:
             save: Aktualisieren
             title: Post bearbeiten
@@ -38,7 +31,6 @@ de:
             title: Post erstellen
           update:
             invalid: Beim Speichern des Posts sind Fehler aufgetreten.
-            success: Beitrag wurde erfolgreich gespeichert
       admin_log:
         post:
           create: "%{user_name} hat den Blogpost %{resource_name} in %{space_name} erstellt"
@@ -50,10 +42,8 @@ de:
             author: Autor
             body: Haupttext
             official_blog_post: Offizieller Post
-            title: Titel
       posts:
         show:
-          comments: Kommentare
           view: Anzeigen
     components:
       blogs:

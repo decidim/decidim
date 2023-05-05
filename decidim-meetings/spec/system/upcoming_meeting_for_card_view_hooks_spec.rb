@@ -14,7 +14,7 @@ describe "Upcoming meeting for card view hook", type: :system do
   end
 
   context "when there are only past meetings" do
-    it "doesn't show any meeting" do
+    it "does not show any meeting" do
       visit decidim_assemblies.assemblies_path
 
       within "#assembly_#{assembly.id}" do

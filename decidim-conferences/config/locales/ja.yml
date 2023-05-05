@@ -33,17 +33,18 @@ ja:
         slug: URL スラグ
         start_date: 開始日
         title: タイトル
+        weight: 並び順の位置
       conference_media_link:
         date: 日付
         link: リンク
         title: タイトル
-        weight: 重みづけ
+        weight: 並び順の位置
       conference_partner:
         link: リンク
         logo: ロゴ
         name: 名前
         partner_type: パートナータイプ
-        weight: 重みづけ
+        weight: 並び順の位置
       conference_registration_invite:
         email: Eメールアドレス
         name: 名前
@@ -53,7 +54,7 @@ ja:
         description: 説明
         price: 価格
         title: タイトル
-        weight: 重みづけ
+        weight: 並び順の位置
       conference_speaker:
         affiliation: 所属
         avatar: アバター
@@ -73,7 +74,7 @@ ja:
         conference_registration_invite:
           attributes:
             email:
-              already_invited: このメールアドレスは既に招待されています
+              already_invited: このメールアドレスは既に招待されています。
   activerecord:
     models:
       decidim/conference:
@@ -309,6 +310,7 @@ ja:
           update: "%{user_name} が %{space_name} カンファレンスのパートナー %{resource_name} を更新しました"
         registration_type:
           create: "%{user_name} が %{resource_name} カンファレンスで %{space_name} の登録タイプを作成しました"
+          delete: "%{user_name} が %{space_name} カンファレンスから %{resource_name} 登録タイプを削除しました"
           publish: "%{user_name} が %{resource_name} カンファレンスで %{space_name} 登録タイプを公開しました"
           unpublish: "%{user_name} が %{resource_name} カンファレンス内の %{space_name} 登録タイプを非公開にしました"
           update: "%{user_name} が %{resource_name} カンファレンスの %{space_name} 登録タイプを更新しました"
@@ -348,7 +350,7 @@ ja:
             invites: 招待
             search: 検索
           new:
-            explanation: 参加者はカンファレンスに招待されます。 参加者の電子メールが組織に登録されていない場合、同様に組織に招待されます。
+            explanation: 参加者はカンファレンスに参加するように招待されます。参加者のメールアドレスが組織に登録されていない場合は、組織にも招待されます。
             invite: 招待
             new_invite: 参加者の招待
         conference_registrations:
@@ -401,18 +403,11 @@ ja:
           cancel: キャンセル
           confirm: 確認する
         show:
-          free: 無料
           going: 参加
           no_slots_available: 利用可能なスロットがありません
           registration: 登録
       conference_program:
-        program_meeting:
-          content: コンテンツ
-          location: 場所
-          speakers: スピーカー
-          streaming: ストリーミング
         show:
-          day: 日
           program: プログラム
       conference_registration_mailer:
         confirmation:
@@ -445,18 +440,17 @@ ja:
       conference_speaker_cell:
         personal_url:
           personal_website: 個人のウェブサイト
-        twitter_handle:
-          go_to_twitter: Twitter に移動
       conference_speakers:
         index:
-          speakers: スピーカー
+          speakers:
+            other: スピーカー
       conferences:
         partners:
           collaborators: パートナー
           main_promotors: オーガナイザー
         show:
           login_as: '%{name} <%{email} >としてログインしています'
-          make_conference_registration: 'カンファレンスに参加登録を行います'
+          make_conference_registration: カンファレンスに登録する
           register: 登録
       content_blocks:
         highlighted_conferences:
@@ -466,9 +460,9 @@ ja:
       mailer:
         conference_registration_mailer:
           confirmation:
-            subject: カンファレンスの登録が確認されました
+            subject: カンファレンスの登録が確認されました。
           pending_validation:
-            subject: カンファレンスの登録は保留中です
+            subject: カンファレンスの登録は保留中です。
         invite_join_conference_mailer:
           invite:
             subject: カンファレンスへの招待
@@ -502,29 +496,12 @@ ja:
             active_conferences: アクティブなカンファレンス
             conferences_button_title: すべてのカンファレンスを表示するカンファレンス一覧ページへのリンク
             see_all_conferences: すべてのカンファレンスを見る
-      photo:
-        image:
-          attributes:
-            alt: メディア画像
-        show:
-          close_modal: モーダルを閉じる
-          photo: 画像
-      photos_list:
-        show:
-          related_photos: 画像
       registration_types:
         index:
           choose_an_option: '登録オプションを選択：'
-          login_as: '%{name} <%{email} >としてログインしています'
           no_registrations: 登録なし
           register: 登録
           title: 登録種別
-      shared:
-        conference_user_login:
-          already_account: 既にアカウントをお持ちですか？
-          new_user: 新規ユーザーですか？
-          sign_in: ログインしてカンファレンスに登録する
-          sign_up: カンファレンスに登録するために Decidim にアカウントを作成する
       show:
         details: 詳細
         introduction: はじめに
@@ -572,7 +549,7 @@ ja:
     log:
       value_types:
         conference_presenter:
-          not_found: 'データベース上にカンファレンスが見つかりませんでした (ID: %{id})'
+          not_found: 'データベース上にカンファレンスが見つかりませんでした (ID: %{id}).'
     media:
       index:
         description: このカンファレンスに関するリンク

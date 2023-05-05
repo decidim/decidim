@@ -28,7 +28,7 @@ shared_examples_for "endorsable" do
           expect(subject).not_to be_endorsed_by(user, user_group)
         end
 
-        context "when there's an endorsement" do
+        context "when there is an endorsement" do
           let!(:endorsement) { create(:endorsement, resource: subject, author: user, user_group:) }
 
           before { user_group.reload }

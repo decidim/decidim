@@ -32,7 +32,6 @@ nl:
         body: Body
         subject: Onderwerp
       organization:
-        admin_terms_of_use_body: Body voor de admin gebruiksvoorwaarden
         alert_color: Alarm
         available_authorizations: Beschikbare autorisaties
         badges_enabled: Schakel badges in
@@ -123,21 +122,12 @@ nl:
         file: Bestand
     errors:
       models:
-        newsletter:
-          attributes:
-            base:
-              at_least_one_space: Selecteer minstens één participatieve ruimte
         organization:
           attributes:
             official_img_footer:
               allowed_file_content_types: Ongeldig afbeeldingsbestand
             official_img_header:
               allowed_file_content_types: Ongeldig afbeeldingsbestand
-      new_import:
-        attributes:
-          file:
-            invalid_file: Ongeldig bestand opgegeven, controleer of het bestand correct geformatteerd is
-            invalid_mime_type: Ongeldig mime-type
   activerecord:
     attributes:
       decidim/static_page:
@@ -158,8 +148,6 @@ nl:
         add: Toevoegen
         attachment:
           new: Nieuwe bijlage
-        attachment_collection:
-          new: Nieuwe groep bijlagen
         browse: Browsen
         category:
           new: Nieuwe categorie
@@ -179,25 +167,10 @@ nl:
         user:
           new: Nieuwe admin
         verify: Verifiëren
-      admin_terms_of_use:
-        accept:
-          error: Er is een fout opgetreden bij het accepteren van de admin gebruiksvoorwaarden.
-          success: Geweldig! Je hebt de admin gebruiksvoorwaarden geaccepteerd.
-        actions:
-          are_you_sure: Weet je zeker dat je de Admin gebruiksvoorwaarden wil resetten?
-          refuse: Weiger de admin gebruiksvoorwaarden
-          title: Ga akkoord met de gebruiksvoorwaarden
-        required_review:
-          alert: 'Vereist: neem onze admin gebruiksvoorwaarden door'
-          callout: Neem even de tijd om de Admin Gebruiksvoorwaarden door te nemen. Anders kan je het platform niet beheren.
-          cta: Bekijk ze nu.
-        title: Admin gebruiksvoorwaarden
       area_types:
         create:
           error: Er is een fout opgetreden bij het maken van een nieuwe pagina.
           success: Pagina met succes gemaakt.
-        destroy:
-          success: Pagina met succes verwijderd
         edit:
           title: Onderwerp bewerken
           update: Bijwerken
@@ -206,14 +179,12 @@ nl:
           title: Nieuwe pagina
         update:
           error: Er is een fout opgetreden bij het bijwerken van deze pagina.
-          success: Pagina is succesvol bijgewerkt
       areas:
         create:
           error: Er is een fout opgetreden bij het maken van een nieuwe pagina.
           success: Pagina succesvol aangemaakt.
         destroy:
           has_spaces: Dit gebied heeft nog onderliggende ruimtes. Zorg ervoor dat er geen participatieve ruimte meer naar dit gebied verwijst om het te verwijderen.
-          success: Pagina succesvol verwijderd
         edit:
           title: Pagina bewerken
           update: Bijwerken
@@ -223,7 +194,6 @@ nl:
         no_areas: Geen pagina's
         update:
           error: Er is een fout opgetreden bij het bijwerken van deze pagina.
-          success: Pagina met succes bijgewerkt
       attachment_collections:
         create:
           error: Er is een fout opgetreden bij het maken van een nieuwe map.
@@ -263,7 +233,6 @@ nl:
         message: Wees voorzichtig bij het werken met bijlagen in een privéruimte. Elke deelnemer kan dit document delen met anderen.
       autocomplete:
         no_results: geen resultaten gevonden
-        search_prompt: Typ minimaal drie tekens om te zoeken
       block_user:
         new:
           action: Blokkeer account en verzend reden
@@ -347,9 +316,6 @@ nl:
       domain_whitelist:
         form:
           domain_too_short: Domein te kort
-        update:
-          error: Kan domein whitelist niet bijwerken
-          success: Domain whitelist succesvol bijgewerkt
       exports:
         export_as: "%{name} als %{export_format}"
         formats:
@@ -357,7 +323,6 @@ nl:
           Excel: Excel
           FormPDF: PDF-bestand
           JSON: JSON
-        notice: Uw export is momenteel aan de gang. U ontvangt een email wanneer het klaar is.
       filters:
         category_id_eq:
           label: Categorie
@@ -432,10 +397,8 @@ nl:
             message_1: CSV, JSON en Excel (.xlsx) bestanden worden ondersteund
             message_2: Voor CSV-bestanden moet het scheidingsteken tussen kolommen een puntkomma (";") zijn
       help_sections:
-        error: Er is een fout opgetreden bij het bijwerken van de Help-gedeelten
         form:
           save: Opslaan
-        success: Help-secties met succes bijgewerkt
       impersonatable_users:
         index:
           filter:
@@ -493,8 +456,6 @@ nl:
             message:
               one: Ontbrekende kolom %{columns}.
               other: Ontbrekende kolommen %{columns}.
-        error: Er zijn fouten opgetreden bij het importeren
-        example_error: Kon geen voorbeeld maken voor het opgegeven type
         new:
           accepted_mime_types:
             csv: csv
@@ -506,7 +467,6 @@ nl:
           download_example_format: Voorbeeld als %{name}
           file_legend: Een importbestand toevoegen dat zal worden verwerkt.
           import: Importeren
-        notice: "%{number} %{resource_name} succesvol geïmporteerd"
       logs:
         filters:
           participatory_space: Zoek een participatieve ruimte
@@ -539,7 +499,6 @@ nl:
         moderation: Algemene moderatie
         newsletters: Nieuwsbrieven
         participants: Deelnemers
-        reported_users: Gerapporteerde gebruikers
         scope_types: Scope types
         scopes: Scopes
         settings: Instellingen
@@ -638,7 +597,6 @@ nl:
           nickname: Bijnaam
           reason: Reden
           reports: Aantal rapporteringen
-          title: Gerapporteerde gebruikers weergeven
         report:
           reasons:
             does_not_belong: Hoort niet bij
@@ -648,8 +606,6 @@ nl:
           blocked: Geblokkeerd
           unblocked: Niet geblokkeerd
       moderations:
-        index:
-          title: Moderaties
         report:
           reasons:
             does_not_belong: Hoort niet
@@ -725,8 +681,6 @@ nl:
           send_to_participants: Stuur naar deelnemers
           title: Selecteer ontvangers
           warning: "<strong>Opgelet:</strong> Deze nieuwsbrief zal alleen worden verzonden naar gebruikers die <em>Ik wil nieuwsbrieven ontvangen</em> in hun notificatie instellingen hebben geactiveerd."
-        send:
-          no_recipients: Geen ontvangers voor deze selectie
         show:
           preview: Voorbeeld
           select_recipients_to_deliver: Selecteer ontvangers
@@ -735,13 +689,6 @@ nl:
           error: Er is een fout opgetreden bij het bijwerken van deze nieuwsbrief.
           success: Nieuwsbrief is succesvol bijgewerkt. Controleer het voordat u verzendt.
       officializations:
-        block:
-          error: Er was een probleem bij het blokkeren van de deelnemer
-          success: Deelnemer met succes geblokkeerd
-        create:
-          success: Deelnemer met succes officieel gemaakt
-        destroy:
-          success: Deelnemer succesvol niet-officieel
         index:
           actions: acties
           badge: badge
@@ -770,9 +717,6 @@ nl:
           hidden: hidden
           show: Weergeven
           title: E-mailadres deelnemer weergeven
-        unblock:
-          error: Er was een probleem bij het deblokkeren van de deelnemer
-          success: Deelnemer met succes gedeblokkeerd
       organization:
         edit:
           title: Organisatie bewerken
@@ -834,12 +778,9 @@ nl:
           create: creëren
           title: Nieuwe privé deelnemer burgerinspraak.
       participatory_space_private_users_csv_imports:
-        create:
-          success: Het CSV-bestand is succesvol geüploaded. We sturen een uitnodigingsmail naar de deelnemers. Dit kan even duren.
         new:
           destroy:
             button: Verwijder alle privé deelnemers
-            confirm: Weet je zeker dat je alle privédeelnemers wilt verwijderen? Deze actie kan niet ongedaan worden gemaakt, je kan ze achteraf niet herstellen.
             empty: Je hebt geen privé deelnemers.
             explanation: Je hebt %{count} privédeelnemers.
             title: Verwijder privé deelnemer
@@ -882,8 +823,6 @@ nl:
         create:
           error: Er is een fout opgetreden bij het maken van een nieuwe scope.
           success: Scope is succesvol gemaakt.
-        destroy:
-          success: Scope succesvol vernietigd
         edit:
           title: Bewerk de scope
           update: Bijwerken
@@ -903,7 +842,6 @@ nl:
           error: Er is een fout opgetreden bij het vernietigen van de token.
           success: Token met succes verwijderd.
         share_tokens:
-          empty: Er zijn geen actieve tokens
           help: Deze tokens worden gebruikt om deze niet-gepubliceerde bron openbaar te delen met alle gebruikers. Ze worden verborgen wanneer de bron is gepubliceerd. Klik op het pictogram “delen” van het token om de deelbare URL te bezoeken.
           title: Tokens delen
       shared:
@@ -916,8 +854,6 @@ nl:
         create:
           error: Er is een fout opgetreden bij het maken van een nieuw onderwerp.
           success: Onderwerp met succes gemaakt.
-        destroy:
-          success: Onderwerp succesvol vernietigd
         edit:
           title: Onderwerp bewerken
           update: Onderwerp bijwerken
@@ -936,7 +872,6 @@ nl:
         destroy:
           success: Pagina succesvol vernietigd
         edit:
-          changed_notably_help: Indien aangevinkt, zullen deelnemers op de hoogte worden gesteld van de nieuwe algemene voorwaarden.
           title: Pagina bewerken
           update: Bijwerken
         form:
@@ -950,11 +885,9 @@ nl:
         topic:
           destroy: Verwijder onderwerp
           edit: Onderwerp bewerken
-          empty: Er is geen pagina onder dit onderwerp
           without_topic: Pagina's zonder onderwerp
         update:
           error: Er is een fout opgetreden bij het bijwerken van deze pagina.
-          success: Pagina is succesvol bijgewerkt
       titles:
         admin_log: log van de beheerder
         area_types: Thema's
@@ -975,13 +908,10 @@ nl:
       user_group:
         csv_verify:
           invalid: Er is een fout opgetreden bij het lezen van het CSV-bestand.
-          success: CSV-bestand is geüpload, we verifiëren de groepen die aan de criteria voldoen. Dit kan even duren.
         reject:
           invalid: Er was een probleem met het afwijzen van deze groep.
-          success: Groep met succes afgewezen
         verify:
           invalid: Er is een probleem opgetreden bij het verifiëren van deze groep.
-          success: Groep succesvol geverifieerd
       user_groups:
         index:
           state:
@@ -1014,13 +944,8 @@ nl:
           last_day: Afgelopen dag
           last_month: Vorige maand
           last_week: Vorige week
-          no_users_count_statistics_yet: Er zijn nog geen gebruikers teller statistieken
           participants: Deelnemers
       view_public_page: Bekijk openbare pagina
-    forms:
-      errors:
-        impersonate_user:
-          reason: Je moet een reden opgeven voor het beheer van een niet-beheerde deelnemer
     metrics:
       blocked_users:
         object: geblokkeerde gebruikers
@@ -1054,14 +979,11 @@ nl:
       models:
         moderation:
           fields:
-            created_at: Aanmaakdatum
             hidden_at: Verborgen op
             participatory_space: Participatieve ruimte
-            report_count: Aantal
             reportable_id: ID
             reportable_type: Type
             reported_content_url: Gerapporteerde inhouds-URL
-            reports: Meldingen
             visit_url: Bezoek URL
         report:
           fields:
@@ -1074,8 +996,6 @@ nl:
   layouts:
     decidim:
       admin:
-        global_moderations:
-          title: Algemene moderatie
         newsletters:
           title: Nieuwsbrieven
         settings:

@@ -1,21 +1,26 @@
 = Getting started with Decidim
 :source-highlighter: highlightjs
 
-== What is and what isn't Decidim?
+== What is Decidim?
 
-Decidim is a set of Ruby on Rails engines to create a participatory democracy framework on top of a Ruby on Rails app. This system allows having Decidim code separated from custom code for each installation and still enabling easy updates.
+Decidim is a participatory democracy framework based on multiple Ruby on Rails engines that are mounted on top of a Ruby on Rails application. This system allows separating the Decidim core code from any custom code needed in Decidim installations. This approach also makes it easy to keep the core code updated while maintaining any custom functionality added to the platform separated from the core code.
 
-These libraries are published to Rubygems.org, so you can add Decidim to your Ruby on Rails app as external dependencies.
+These libraries (gems) are published to Rubygems.org, and they are added to the Decidim applications by defining them as external dependencies within the Ruby on Rails application.
 
-If you want to start your own installation of Decidim, you don't need to clone this repo. Keep reading to find out how to install Decidim.
+[NOTE]
+====
+We may refer to engines, libraries, gems, or modules; they are mostly the same. Technically there are some differences with these terms but when you first start learning about Decidim and Ruby on Rails, you can see them as synonyms.
+====
+
+If you want to start your own installation of Decidim, you do not need to clone the Decidim source code repository. Keep reading to find out how to install Decidim.
 
 == Creating your Decidim app
 
 === A. Recommended: manual installation
 
-If you know Ruby and have already worked with Ruby on Rails, you need to know that decidim is a gem and a command line that generates an application that consumes this gem 😅.
+If you know Ruby and have already worked with Ruby on Rails, you need to know that `decidim` is a gem and a command line utility that generates a Decidim application. The generated application utilizes the other gems provided by the Decidim project to benefit from the functionality provided by each gem.
 
-The flow is: install gem, generate a Ruby on Rails app, enjoy.
+The flow is: install the `decidim` gem, generate a Ruby on Rails app, enjoy.
 
 [source,console]
 ----
@@ -27,7 +32,7 @@ You can see the xref:install:manual.adoc[official manual installation tutorial],
 
 === B. Installation script [experimental]
 
-There's also an installation script made by http://www.platoniq.net/[Platoniq] that allows you to install Decidim automatically. You can even check it on a Vagrant virtual machine if you want to. https://platoniq.github.io/decidim-install/script/[More information].
+There is also an installation script made by http://www.platoniq.net/[Platoniq] that allows you to install Decidim automatically. You can even check it on a Vagrant virtual machine if you want to. https://platoniq.github.io/decidim-install/script/[More information].
 
 [source,console]
 ----
@@ -36,7 +41,12 @@ chmod +x install-decidim.sh
 ./install-decidim.sh decidim_application
 ----
 
-== Initializing your app for local development
+== Initializing your application for local development
+
+[NOTE]
+====
+The commands below will add lots of example seed data to the Decidim application. This may be confusing for new users if you only want to use Decidim for a specific purpose, such as collecting proposals or arranging participatory budgeting. If you want to start with an empty database (without any seeds) and configure the system yourself, please refer to xref:install:empty-database.adoc[Empty database installation] manual.
+====
 
 You should now setup your database:
 
@@ -45,7 +55,7 @@ You should now setup your database:
 bin/rails db:create db:migrate db:seed
 ----
 
-This will also create some default data so you can start testing the app:
+This will also create some example data through the seeds so that you can start testing the application straight away. The following table contains some example user accounts that you can start testing the system with.
 
 .Default seed's users
 |===
@@ -71,9 +81,7 @@ This will also create some default data so you can start testing the app:
 
 |===
 
-This data won't be created in production environments, if you still want to do it, run: `$ SEED=true rails db:setup`. We recomend that you first login as system user and edit the host for the organization. Set it to you production host, without the protocol and the port (so if your host is `+https://example.org:3001+`, you need to write `example.org`). After it'd be good to execute the `seed` command, as that would be created with the first Organization created.
-
-If you want to verify yourself against the default authorization handler use a document number ended with "X".
+This data will not be created in production environments. If you insist on adding it in production, run: `$ SEED=true rails db:setup`. We recomend that you first login as a system user and edit the hostname for the organization. Set it as your production environment's domain, without the protocol and the port (so if your domain/hostname is `+https://example.org:3000+`, you need to write `example.org` in the organization's host field).
 
 You can now start your server!
 
@@ -86,13 +94,13 @@ Visit http://localhost:3000 to see your app running.
 
 == Configuration & setup
 
-Decidim comes pre-configured with some safe defaults, but can be changed through xref:configure:environment_variables.adoc[Environment Variables] or the xref:configure:initializer.adoc[Initializer] file in your app.
+Decidim comes pre-configured with some sane and safe defaults, but those configurations can be changed through xref:configure:environment_variables.adoc[Environment Variables] or the xref:configure:initializer.adoc[Initializer] file in your app.
 
 === Scheduled tasks
 
-For Decidim to function as expected, there are some background tasks that should be scheduled to be executed regularly. Alternatively you could use `whenever` gem or the scheduled jobs of your hosting provider.
+For Decidim to function as expected, there are some background tasks that should be scheduled to be executed regularly. Alternatively you could use `whenever` gem or the scheduled jobs of your hosting provider. When you are locally testing Decidim for development purposes, you can omit this step or run these tasks manually one by one if you want to test them out.
 
-You can configure it with `crontab -e`, for instance if you've created your Decidim application on /home/user/decidim_application:
+For production environments, you can configure these tasks with `crontab -e`. For instance, if you have created your Decidim application at `/home/user/decidim_application`, you can use the following crontab configuration:
 
 [source,console]
 ----
@@ -126,26 +134,37 @@ You can configure it with `crontab -e`, for instance if you've created your Deci
 We also have other guides on how to configure some extra mandatory components:
 
 * xref:services:activejob.adoc[ActiveJob]: For background jobs (like sending emails).
+* xref:services:activestorage.adoc[ActiveStorage]: For uploading and storing files (like attachments, images, etc.).
 * xref:services:maps.adoc[Maps]: How to enable geocoding for proposals and meetings.
 * xref:services:smtp.adoc[SMTP]: For sending emails for account registrations, password reminders, notifications, etc.
 * xref:services:social_providers.adoc[Social providers integration]: Enable sign up from social networks.
+* xref:customize:authorizations.adoc[Authorizations]: Configure authorizations to verify people's identities
 
 == Deploy
 
-Once you've successfully deployed your app to your favorite platform, you'll need to create your `System` user. First you'll need to create your `Decidim::System` user in your terminal:
+Once you have successfully deployed your applicaton to your favorite platform, you will need to create your `System` user. You can do this using the following command in your terminal:
 
 [source,console]
 ----
 bin/rails decidim_system:create_admin
 ----
 
-You'll be asked for an email and a password. For security, the password will not get displayed back at you and you'll need to confirm it.
+The command asks for an email and a password. For security, the password will not be displayed in the terminal and you need to confirm it by typing it twice.
 
-This will create a system user with the email and password you set. We recommend using a random password generator and saving it to a password manager, so you have a more secure login.
+This will create a system user with the email and password you provided. We recommend using a random password generator and saving it to a password manager, so you have a more secure credentials.
 
-Then, visit the `/system` dashboard and login with the email and passwords you just entered and create your organization. You're done! 🎉
+After this, visit the `/system` panel and login with the email and passwords you just entered and create your organization. Now you are ready to setup your organization and after that you are done! 🎉
 
-You can check the https://github.com/decidim/decidim/tree/develop/decidim-system/README.md[`decidim-system` README file] for more info on how organizations work.
+=== What are organizations?
+
+Decidim is a https://en.wikipedia.org/wiki/Multitenancy[multitenant] application that allows you to host multiple different Decidim-based websites within the same system. Organizations are isolated from each other and users in those organizations cannot see any data from other organizations. This allows you to simplify your hosting configuration if you want to use the same codebase for running multiple websites, with each website having their own content and data. To get started with Decidim, you only need to configure one organization.
+
+Note that the system panel admin user you created earlier is also separated from the user accounts on the organization. When you create the organization, you also provided its admin user's name and email. Decidim will send an email to that address asking that user to create a password for their admin account within the organization. To clarify the difference:
+
+* *System admin* - Manages the organizations on the same platform, does not necessarily have to be involved in any organization
+* *Organization admin* - Administers a single organization, i.e. manages its content, sets up processes, adds components, manages user accounts, etc.
+
+You can read the xref:admin:system.adoc[System panel] documentation for more info on what are organizations and how they work.
 
 == Checklist
 

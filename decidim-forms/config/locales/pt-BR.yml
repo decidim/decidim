@@ -22,8 +22,6 @@ pt-BR:
             choices:
               missing: não estão completos
               too_many: são muitos
-        questionnaire:
-          request_invalid: Houve um erro ao lidar com a solicitação. Por favor, tente novamente
   decidim:
     forms:
       admin:
@@ -111,9 +109,6 @@ pt-BR:
           update:
             invalid: Houve erros ao salvar o questionário.
             success: Formulário salvo com sucesso.
-      errors:
-        answer:
-          body: O corpo não pode ficar em branco
       images:
         dimensions: "%{width} x %{height} px"
       question_types:

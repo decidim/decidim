@@ -38,7 +38,7 @@ describe "decidim_system:create_admin", type: :task do
     end
 
     context "when provided data is invalid" do
-      context "when passwords don't match" do
+      context "when passwords do not match" do
         let(:email) { "invalid" }
         let(:password_confirmation) { "invalid" }
 
@@ -47,7 +47,7 @@ describe "decidim_system:create_admin", type: :task do
 
           expect($stdout.string).to include("Some errors prevented creation of admin")
           expect($stdout.string).to include("Email is invalid")
-          expect($stdout.string).to include("Password confirmation doesn't match Password")
+          expect($stdout.string).to include("Password confirmation does not match Password")
         end
       end
 

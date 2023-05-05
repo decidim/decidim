@@ -36,7 +36,7 @@ module Decidim::Verifications
           end.to change(Decidim::Authorization, :count).by(1)
 
           expect(authorization).not_to be_blank
-          expect(flash[:notice]).to eq("You've been successfully authorized.")
+          expect(flash[:notice]).to eq("You have been successfully authorized.")
           expect(response).to redirect_to(authorizations_path)
         end
 
@@ -69,7 +69,7 @@ module Decidim::Verifications
               end.not_to change(Decidim::Authorization, :count)
 
               expect(authorization).not_to be_blank
-              expect(flash[:notice]).to eq("You've been successfully authorized.")
+              expect(flash[:notice]).to eq("You have been successfully authorized.")
               expect(response).to redirect_to(authorizations_path)
             end
 
@@ -98,7 +98,7 @@ module Decidim::Verifications
                 expect(authorization).not_to be_blank
                 expect(flash[:notice]).to eq(
                   <<~HTML
-                    <p>#{CGI.escapeHTML("You've been successfully authorized.")}</p>
+                    <p>#{CGI.escapeHTML("You have been successfully authorized.")}</p>
                     <p>We have recovered the following participation data based on your authorization:</p>
                     <ul><li>Dummy resource: 5</li></ul>
                   HTML

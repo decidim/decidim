@@ -52,6 +52,6 @@ class UpdateInitiativeScopedType < ActiveRecord::Migration[5.1]
   end
 
   def down
-    raise ActiveRecord::IrreversibleMigration, "Can't undo initialization of mandatory attribute"
+    raise ActiveRecord::IrreversibleMigration, "Cannot undo initialization of mandatory attribute"
   end
 end

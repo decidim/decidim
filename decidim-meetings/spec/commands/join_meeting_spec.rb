@@ -165,7 +165,7 @@ module Decidim::Meetings
             create :registration, meeting:
           end
 
-          it "doesn't notify it twice" do
+          it "does not notify it twice" do
             expect(Decidim::EventsManager).not_to receive(:publish).with(admin_notification)
 
             subject.call
@@ -193,7 +193,7 @@ module Decidim::Meetings
             create_list :registration, (available_slots * 0.8).round, meeting:
           end
 
-          it "doesn't notify it twice" do
+          it "does not notify it twice" do
             expect(Decidim::EventsManager).not_to receive(:publish).with(admin_notification)
 
             subject.call

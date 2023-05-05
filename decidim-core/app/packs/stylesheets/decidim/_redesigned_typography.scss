@@ -1,32 +1,32 @@
-.h1{
+.h1 {
   @apply font-sans font-bold text-4xl;
 }
 
-.h2{
+.h2 {
   @apply font-sans font-bold text-3xl;
 }
 
-.h3{
+.h3 {
   @apply font-sans font-semibold text-2xl;
 }
 
-.h4{
+.h4 {
   @apply font-sans font-semibold text-xl;
 }
 
-.h5{
+.h5 {
   @apply font-sans font-semibold text-lg;
 }
 
-.h6{
+.h6 {
   @apply font-sans font-semibold text-md;
 }
 
-.decorator{
+.decorator {
   @apply relative after:absolute after:content-[''] after:h-1 after:w-10 after:top-[calc(100%+0.25rem)] after:left-0 after:bg-tertiary after:rounded-b;
 }
 
 /* default styles for those dynamic text blocks */
-.editor-content{
+.editor-content {
   @apply prose max-w-prose text-black text-lg;
 }

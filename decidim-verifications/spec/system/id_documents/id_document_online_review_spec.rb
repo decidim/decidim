@@ -41,10 +41,10 @@ describe "Identity document online review", type: :system do
     expect(page).to have_no_content("Verification #")
   end
 
-  it "shows an error when information doesn't match" do
+  it "shows an error when information does not match" do
     submit_verification_form(doc_type: "NIE", doc_number: "XXXXXXXY")
 
-    expect(page).to have_content("Verification doesn't match")
+    expect(page).to have_content("Verification does not match")
     expect(page).to have_content("Introduce the data in the picture")
   end
 

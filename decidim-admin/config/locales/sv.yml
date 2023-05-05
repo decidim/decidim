@@ -14,17 +14,24 @@ sv:
         description: Beskrivning
         file: Fil
         title: Bilaga eller bildnamn
+        weight: Ordning
       attachment_collection:
         description: Beskrivning
         name: Namn
+        weight: Ordning
       category:
         description: Beskrivning
         name: Namn
         parent_id: Överordnad
+        weight: Ordning
       component:
         name: Namn
         published_at: Publicerad
-        weight: Vikt
+        weight: Ordning
+      external_domain:
+        value: Värde
+      help_section:
+        content: Innehåll
       id: ID
       import:
         user_group_id: Skapa import som
@@ -32,7 +39,6 @@ sv:
         body: Innehåll
         subject: Ämne
       organization:
-        admin_terms_of_use_body: Innehåll för administratörsvillkoren
         alert_color: Larm
         available_authorizations: Tillgängliga auktoriseringar
         badges_enabled: Aktivera märken
@@ -92,6 +98,9 @@ sv:
         welcome_notification_body: Välkomstmeddelandets brödtext
         welcome_notification_subject: Välkomstmeddelandets ämnesrad
         youtube_handler: YouTube-hanterare
+      participatory_space_private_user:
+        email: E-post
+        name: Namn
       scope:
         code: Kod
         name: Namn
@@ -113,31 +122,31 @@ sv:
         show_in_footer: Visa i sidfoten
         slug: URL slug
         title: Titel
-        weight: Vikt
+        topic_id: Ämne
+        weight: Ordning
       static_page_topic:
         description: Beskrivning
         show_in_footer: Visa i sidfoten
         title: Titel
-        weight: Vikt
+        weight: Ordning
       user_group_csv_verification:
         file: Fil
     errors:
       models:
-        newsletter:
-          attributes:
-            base:
-              at_least_one_space: Välj minst ett deltagarutrymme
         organization:
           attributes:
             official_img_footer:
               allowed_file_content_types: Ogiltig bildfil
             official_img_header:
               allowed_file_content_types: Ogiltig bildfil
-      new_import:
-        attributes:
-          file:
-            invalid_file: 'Ogiltig fil: Kontrollera formatteringen eller försök igen'
-            invalid_mime_type: Ogiltig MIME type
+        participatory_space_private_user_csv_import:
+          attributes:
+            file:
+              malformed: Fel format, läs igenom instruktionerna noga och se till att filen är UTF-8 kodad.
+        user_group_csv_verification:
+          attributes:
+            file:
+              malformed: Fel format, läs igenom instruktionerna noga och se till att filen är UTF-8 kodad.
   activerecord:
     attributes:
       decidim/static_page:
@@ -158,8 +167,6 @@ sv:
         add: Lägg till
         attachment:
           new: Ny bifogad fil
-        attachment_collection:
-          new: Ny mapp för bilagor
         browse: Bläddra
         category:
           new: Ny kategori
@@ -179,25 +186,10 @@ sv:
         user:
           new: Ny admin
         verify: Kontrollera
-      admin_terms_of_use:
-        accept:
-          error: Ett fel inträffade när användarvillkoren för administratörer skulle godkännas.
-          success: Du har godkänt användarvillkoren för administratörer.
-        actions:
-          are_you_sure: Är du säker på att du vill avvisa administratörsvillkoren?
-          refuse: Avvisa villkoren för administratörer
-          title: Godkänn användarvillkoren
-        required_review:
-          alert: 'Krav: granska villkoren för administratörer'
-          callout: Granska användarvillkoren för administratörer. Annars kan du inte administrera plattformen.
-          cta: Granska dem nu.
-        title: Användarvillkor för administratörer
       area_types:
         create:
           error: Det gick inte att skapa en ny områdestyp.
           success: Områdestypen har skapats.
-        destroy:
-          success: Områdestypen har tagits bort
         edit:
           title: Redigera områdestyp
           update: Uppdatera
@@ -206,14 +198,12 @@ sv:
           title: Ny områdestyp
         update:
           error: Det gick inte att uppdatera områdestypen.
-          success: Områdestypen uppdaterades framgångsrikt
       areas:
         create:
           error: Det gick inte att skapa ett nytt område.
           success: Området har har skapats.
         destroy:
           has_spaces: Det finns redan deltagarutrymmen för detta område. Se till att inget utrymme refererar till detta område innan du tar bort det.
-          success: Området har tagits bort
         edit:
           title: Redigera område
           update: Uppdatera
@@ -223,7 +213,6 @@ sv:
         no_areas: Inga områden
         update:
           error: Det gick inte att uppdatera området.
-          success: Området har uppdaterats
       attachment_collections:
         create:
           error: Det gick inte att skapa en ny mapp.
@@ -263,7 +252,6 @@ sv:
         message: Var försiktig när du arbetar med bilagor i ett privat utrymme. En deltagare skulle kunna dela detta dokument utanför plattformen.
       autocomplete:
         no_results: Hittade inga resultat
-        search_prompt: Sök genom att skriva minst tre tecken
       block_user:
         new:
           action: Blockera konto och skicka motivering
@@ -347,9 +335,6 @@ sv:
       domain_whitelist:
         form:
           domain_too_short: Domänen är för kort
-        update:
-          error: Vitlistans uppdatering misslyckades
-          success: Domäns vitlista har uppdaterats
       exports:
         export_as: "%{name} som %{export_format}"
         formats:
@@ -357,7 +342,6 @@ sv:
           Excel: Excel
           FormPDF: PDF
           JSON: JSON
-        notice: Exporten pågår just nu. Du får ett e-post när den är klar.
       filters:
         category_id_eq:
           label: Kategori
@@ -432,10 +416,8 @@ sv:
             message_1: CSV, JSON och Excel (.xlsx) filer stöds
             message_2: För CSV-filer måste separatorn mellan kolumner vara en semikolon (";")
       help_sections:
-        error: Det gick inte att uppdatera hjälpavsnitten
         form:
           save: Spara
-        success: Hjälpavsnitten har uppdaterats
       impersonatable_users:
         index:
           filter:
@@ -493,8 +475,6 @@ sv:
             message:
               one: 'Saknad kolumn: %{columns}.'
               other: 'Saknade kolumner: %{columns}.'
-        error: Ett fel uppstod under importeringsprocessen
-        example_error: Kunde inte skapa ett exempel för följande typ
         new:
           accepted_mime_types:
             csv: csv
@@ -506,7 +486,14 @@ sv:
           download_example_format: Exempel som %{name}
           file_legend: Lägg till en fil som kommer importeras.
           import: Importera
-        notice: "%{number} %{resource_name} har importerats"
+      logs:
+        filters:
+          participatory_space: Hitta deltagarutrymme
+          text: Sök efter e-post, namn eller användarnamn.
+          user: Användare
+        logs_list:
+          no_logs_yet: Det finns inga loggar än.
+          no_matching_logs: Det finns inga loggar med de angivna sökkriterierna. Försök att ändra dem.
       managed_users:
         promotion:
           error: Det gick inte att befordra den hanterade användaren.
@@ -531,7 +518,6 @@ sv:
         moderation: Global moderering
         newsletters: Nyhetsbrev
         participants: Deltagare
-        reported_users: Rapporterade användare
         scope_types: Omfattningstyper
         scopes: Omfattningar
         settings: Inställningar
@@ -630,7 +616,6 @@ sv:
           nickname: Användarnamn
           reason: Anledning
           reports: Antal anmälningar
-          title: Rapporterade användare
         report:
           reasons:
             does_not_belong: Tillhör inte
@@ -640,8 +625,6 @@ sv:
           blocked: Blockerad
           unblocked: Icke blockerade
       moderations:
-        index:
-          title: Moderering
         report:
           reasons:
             does_not_belong: Hör inte hemma
@@ -717,8 +700,6 @@ sv:
           send_to_participants: Skicka till deltagare
           title: Välj mottagare att skicka till
           warning: "<strong>Obs:</strong> Detta nyhetsbrev kommer endast att skickas till de användare som har markerat <em>Jag vill få nyhetsbrev</em> i sina meddelandeinställningar."
-        send:
-          no_recipients: Inga mottagare för det här urvalet
         show:
           preview: Förhandsvisa
           select_recipients_to_deliver: Välj mottagare att leverera till
@@ -727,13 +708,6 @@ sv:
           error: Det gick inte att uppdatera nyhetsbrevet.
           success: Nyhetsbrevet har uppdaterats. Granska det gärna innan du skickar det.
       officializations:
-        block:
-          error: Det gick inte att blockera användaren
-          success: Deltagaren har blockerats
-        create:
-          success: Deltagaren har gjorts officiell
-        destroy:
-          success: Deltagaren är inte längre officiell
         index:
           actions: Åtgärder
           badge: Märke
@@ -762,9 +736,6 @@ sv:
           hidden: dold
           show: Visa
           title: Visa deltagarens e-postadress
-        unblock:
-          error: Det gick inte att avblockera användaren
-          success: Deltagaren har avblockerats
       organization:
         edit:
           title: Redigera organisation
@@ -827,14 +798,18 @@ sv:
           title: Ny privat deltagare i deltagarutrymme.
       participatory_space_private_users_csv_imports:
         create:
-          success: CSV-filen har skickats in och vi skickar inbjudningar via e-brev till deltagarna. Det kan ta en stund.
+          invalid: Det gick inte att läsa CSV-filen. Kontrollera att du har följt instruktionerna.
         new:
           destroy:
             button: Radera alla privata deltagare
-            confirm: Är du säker på att du vill radera alla privata deltagare? Den här åtgärden kan inte ångras.
             empty: Det finns inga privata deltagare.
             explanation: Det finns %{count} privata deltagare.
             title: Radera privata deltagare
+          example_file: 'Exempel fil:'
+          explanation: 'Skicka in din CSV-fil. Den måste ha två kolumner över de användare som du vill lägga till deltagarutrymmet, utan rubriker, med e-postadressen i den första kolumnen i filen och namnet i den sista kolumnen i filen. Undvik olämpliga karaktärer som `<>?%&^*#@()[]=+:;"{}\|` i användarnamn.'
+          explanation_example: |
+            jon.andersson@example.org%{csv_col_sep}Jon Andersson
+            jenny.andersson@example.org%{csv_col_sep}Jenny Andersson
           title: Skicka CSV-fil
           upload: Skicka
       reminders:
@@ -874,8 +849,6 @@ sv:
         create:
           error: Det gick inte att skapa ett nytt omfång.
           success: Omfånget har skapats.
-        destroy:
-          success: Omfånget har tagits bort
         edit:
           title: Redigera omfattning
           update: Uppdatera
@@ -895,7 +868,6 @@ sv:
           error: Det gick inte att radera den token.
           success: Token har tagits bort.
         share_tokens:
-          empty: Det finns inga aktiva tokens
           help: Dessa tokens används för att offentligt dela denna opublicerade resurs till alla användare. De kommer att döljas när resursen publiceras. Klicka på tokens dela-ikon för att besöka den delbara URL.
           title: Delade tokens
       shared:
@@ -908,8 +880,6 @@ sv:
         create:
           error: Det gick inte att skapa ett nytt ämne.
           success: Ämnet har skapats.
-        destroy:
-          success: Ämne har tagits bort
         edit:
           title: Redigera ämne
           update: Uppdatera ämne
@@ -922,13 +892,16 @@ sv:
       static_pages:
         actions:
           view: Visa offentlig sida
+        content_blocks:
+          active_content_blocks: Aktiva innehållsblock
+          inactive_content_blocks: Inactiva innehållsblock
+          title: Sidans innehåll
         create:
           error: Det gick inte att skapa en ny sida.
           success: Sidan har skapats.
         destroy:
           success: Sidan har tagits bort
         edit:
-          changed_notably_help: Om markerad kommer deltagarna att bli ombedda att godkänna de nya villkoren.
           title: Redigera sida
           update: Uppdatera
         form:
@@ -942,11 +915,9 @@ sv:
         topic:
           destroy: Ta bort ämne
           edit: Redigera ämne
-          empty: Det finns ingen sida under det här ämnet
           without_topic: Sidor utan ämne
         update:
           error: Det gick inte att uppdatera sidan.
-          success: Sidan har uppdaterats
       titles:
         admin_log: Administratörslogg
         area_types: Områdestyper
@@ -967,13 +938,10 @@ sv:
       user_group:
         csv_verify:
           invalid: Det gick inte att läsa CSV-filen.
-          success: CSV-filen har tagits mot, och vi verifierar de grupper som överensstämmer med kriterierna. Det kan ta en stund.
         reject:
           invalid: Det gick inte att avvisa gruppen.
-          success: Gruppen har avvisats
         verify:
           invalid: Det gicka inte att verifiera gruppen.
-          success: Gruppen har verifierats
       user_groups:
         index:
           state:
@@ -983,7 +951,11 @@ sv:
           verify_via_csv: Verifiera via CSV
       user_groups_csv_verifications:
         new:
+          example_file: 'Exempel fil:'
           explanation: Skicka in CSV-filen. Den måste innehålla de officiella e-postadresserna till grupperna i organisationen i den första kolumnen i filen, utan kolumnrubriker. Endast grupper som har bekräftar sin e-postadress och som har en e-postadress i CSV-filen kommer att valideras.
+          explanation_example: |
+            acme@exempel.org
+            bubba.gump@exempel.org
           title: Skicka CSV-fil
           upload: Skicka
       users:
@@ -1006,13 +978,8 @@ sv:
           last_day: Sista dagen
           last_month: Förra månaden
           last_week: Förra veckan
-          no_users_count_statistics_yet: Det finns ingen statistik för användare än
           participants: Deltagare
       view_public_page: Visa offentlig sida
-    forms:
-      errors:
-        impersonate_user:
-          reason: Du måste ange en anledning vid hantering av en icke-hanterad användare
     metrics:
       blocked_users:
         object: blockerade användare
@@ -1046,14 +1013,12 @@ sv:
       models:
         moderation:
           fields:
-            created_at: Skapandedatum
+            deleted_resource: Borttagen resurs
             hidden_at: Dold
             participatory_space: Deltagarutrymme
-            report_count: Antal
             reportable_id: ID
             reportable_type: Typ
             reported_content_url: Rapporterad innehållsadress
-            reports: Rapporter
             visit_url: Besök URL
         report:
           fields:
@@ -1066,8 +1031,6 @@ sv:
   layouts:
     decidim:
       admin:
-        global_moderations:
-          title: Global moderering
         newsletters:
           title: Nyhetsbrev
         settings:

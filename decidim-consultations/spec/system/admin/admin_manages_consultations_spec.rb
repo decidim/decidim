@@ -25,6 +25,8 @@ describe "Admin manages consultations", type: :system do
       end
     end
 
+    it_behaves_like "having a rich text editor for field", ".tabs-content[data-tabs-content='consultation-description-tabs']", "full"
+
     it "creates a new consultation" do
       execute_script("$('#consultation_start_voting_date').focus()")
       find(".active").click
@@ -269,7 +271,7 @@ describe "Admin manages consultations", type: :system do
       visit decidim_admin_consultations.consultations_path
     end
 
-    it "doesn't let the admin manage assemblies form other organizations" do
+    it "does not let the admin manage assemblies form other organizations" do
       within "table" do
         expect(page).not_to have_content(external_consultation.title["en"])
       end

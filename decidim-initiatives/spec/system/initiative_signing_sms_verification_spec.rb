@@ -128,7 +128,7 @@ describe "Initiative signing", type: :system do
               it "appears an invalid message" do
                 fill_sms_code
 
-                expect(page).to have_content("Your verification code doesn't match ours")
+                expect(page).to have_content("Your verification code does not match ours")
                 expect(initiative.reload.supports_count).to be_zero
               end
             end

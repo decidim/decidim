@@ -24,7 +24,7 @@ module Decidim
           end
         end
 
-        describe "when the start date isn't present" do
+        describe "when the start date is not present" do
           let(:start_date) { nil }
 
           it "fills it in with an interrogation mark" do
@@ -33,7 +33,7 @@ module Decidim
           end
         end
 
-        describe "when the end date isn't present" do
+        describe "when the end date is not present" do
           let(:end_date) { nil }
 
           it "fills it in with an interrogation mark" do

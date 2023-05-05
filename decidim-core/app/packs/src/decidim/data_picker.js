@@ -84,7 +84,7 @@ export default class DataPicker {
 
   _createModalContainer() {
     // Add a header because we are referencing the title element with
-    // `aria-labelledby`. If the title doesn't exist, the "labelled by"
+    // `aria-labelledby`. If the title does not exist, the "labelled by"
     // reference is incorrect.
     const headerHtml = '<div class="scope-picker picker-header"><h6 id="data_picker-title" class="h2"></h6></div>';
 
@@ -237,7 +237,7 @@ export default class DataPicker {
   _removeValue($picker, target) {
     if (target) {
       this._setCurrentPicker($picker, target);
-      // Fadeout (with time) doesn't work in system tests
+      // Fadeout (with time) does not work in system tests
       let fadeoutTime = 500;
       if (navigator && navigator.webdriver) {
         fadeoutTime = 0;

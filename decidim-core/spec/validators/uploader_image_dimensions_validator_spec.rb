@@ -140,4 +140,43 @@ describe UploaderImageDimensionsValidator do
 
     it_behaves_like "working image dimensions validator", :test_file
   end
+
+  describe "#validate_image_size" do
+    subject { validator.validate_image_size(record, :upload, upload, uploader) }
+
+    let(:validator) { described_class.new(attributes: [:upload], allow: %w(image/jpeg)) }
+    let(:record) { validatable.new(upload:) }
+    let(:upload) { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") }
+    let(:uploader) { record.attached_uploader(:upload) }
+
+    context "when MiniMagick fails to process the image" do
+      let(:image) do
+        MiniMagick::Image.new(upload.path, File.extname(upload.original_filename))
+      end
+
+      before do
+        allow(MiniMagick::Image).to receive(:new).and_return(image)
+        allow(image).to receive(:dimensions).and_raise(
+          MiniMagick::Error.new(
+            <<~ERR.strip
+              identify-im6.q16: unable to open image `%w': No such file or directory @ error/blob.c/OpenBlob/2924.
+              identify-im6.q16: no decode delegate for this image format `' @ error/constitute.c/ReadImage/575.
+              identify-im6.q16: unable to open image `%h': No such file or directory @ error/blob.c/OpenBlob/2924.
+              identify-im6.q16: unable to open image `%h': No such file or directory @ error/blob.c/OpenBlob/2924.
+              identify-im6.q16: no decode delegate for this image format `' @ error/constitute.c/ReadImage/575.
+              identify-im6.q16: unable to open image `%b': No such file or directory @ error/blob.c/OpenBlob/2924.
+              identify-im6.q16: unable to open image `%b': No such file or directory @ error/blob.c/OpenBlob/2924.
+              identify-im6.q16: no decode delegate for this image format `' @ error/constitute.c/ReadImage/575.
+              identify-im6.q16: width or height exceeds limit `avatar.jpg' @ error/cache.c/OpenPixelCache/3909.
+            ERR
+          )
+        )
+      end
+
+      it "adds the correct error" do
+        expect { subject }.not_to raise_error
+        expect(record.errors[:upload]).to match_array(["File cannot be processed"])
+      end
+    end
+  end
 end

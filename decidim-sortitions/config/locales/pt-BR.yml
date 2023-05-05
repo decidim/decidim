@@ -60,10 +60,6 @@ pt-BR:
             title: Cancelamento da classificação
           create:
             error: Ocorreu um erro ao criar uma nova classificação.
-            success: Ordenação criada com sucesso
-          destroy:
-            error: Não é possível cancelar a classificação.
-            success: Classificação cancelada com sucesso
           edit:
             title: Atualizar as informações sobre a classificação
             update: Atualizar
@@ -80,7 +76,6 @@ pt-BR:
             selected_proposals: Propostas selecionadas para sorteio
           update:
             error: Houve um erro ao atualizar a classificação.
-            success: Ordenação atualizada com sucesso
       admin_log:
         sortition:
           create: "%{user_name} criou a classificação %{resource_name} em %{space_name}"

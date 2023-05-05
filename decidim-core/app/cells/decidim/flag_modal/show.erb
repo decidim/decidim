@@ -29,11 +29,13 @@
       <% if frontend_administrable? %>
         <fieldset>
           <div class="modal__report-container__radio">
-            <%= f.check_box :hide, label: false , data: {
-              label_hide: t("decidim.shared.flag_modal.hide"),
-              label_report: t("decidim.shared.flag_modal.report"),
-              hide: "true"
-            }, id: hide_checkbox_id %>
+            <%= f.check_box :hide, label: false,
+                                   include_hidden: false,
+                                   data: {
+                                     label_action: t("decidim.shared.flag_modal.hide"),
+                                     label_report: t("decidim.shared.flag_modal.report"),
+                                     hide: "true"
+                                   }, id: hide_checkbox_id %>
             <label for="<%= hide_checkbox_id %>">
               <%= t("decidim.shared.flag_modal.hide_content") %>
             </label>

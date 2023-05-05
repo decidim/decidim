@@ -95,7 +95,7 @@ module Decidim::Conferences
           expect { command.call }.to broadcast(:invalid)
         end
 
-        it "doesn't update the conference" do
+        it "does not update the conference" do
           command.call
           my_conference.reload
 
@@ -239,7 +239,7 @@ module Decidim::Conferences
         end
 
         context "when nothing changes" do
-          it "doesn't notify the change" do
+          it "does not notify the change" do
             expect(Decidim::EventsManager)
               .not_to receive(:publish)
 
@@ -254,14 +254,14 @@ module Decidim::Conferences
             }
           end
 
-          it "doesn't notify the change" do
+          it "does not notify the change" do
             expect(Decidim::EventsManager)
               .not_to receive(:publish)
 
             command.call
           end
 
-          it "doesn't schedule the upcoming conference notification job" do
+          it "does not schedule the upcoming conference notification job" do
             expect(UpcomingConferenceNotificationJob)
               .not_to receive(:perform_later)
 

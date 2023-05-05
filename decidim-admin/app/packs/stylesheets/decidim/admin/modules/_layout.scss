@@ -1,29 +1,29 @@
-html{
+html {
   height: 100%;
 }
 
-body{
+body {
   min-height: 100%;
   display: flex;
   flex-direction: column;
 }
 
-.main{
+.main {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
 
-  & > .row{
+  & > .row {
     width: 100%;
     flex-grow: 1;
 
-    @include breakpoint(medium){
+    @include breakpoint(medium) {
       display: flex;
     }
   }
 }
 
-.layout-wrapper{
+.layout-wrapper {
   display: flex;
   flex-grow: 1;
 
@@ -32,44 +32,44 @@ body{
   position: relative;
 }
 
-.layout-nav{
+.layout-nav {
   max-width: 340px;
   flex-shrink: 0;
 
-  @include breakpoint(mediumlarge down){
+  @include breakpoint(mediumlarge down) {
     position: absolute;
     top: 0;
     bottom: 0;
     transform: translateX(-100%);
-    transition: transform .3s;
+    transition: transform 0.3s;
     z-index: 1;
   }
 
-  @include breakpoint(small down){
+  @include breakpoint(small down) {
     max-width: 100%;
     width: 100%;
     transform: translateX(-100%);
 
-    .secondary-nav{
+    .secondary-nav {
       width: calc(100% - 120px);
     }
   }
 
-  &.is-nav-open{
+  &.is-nav-open {
     transform: translateX(0);
   }
 }
 
-.layout-content{
+.layout-content {
   flex-grow: 1;
   max-width: 100%;
   overflow: scroll;
 }
 
-.container{
+.container {
   padding: 1rem;
 
-  @include breakpoint(mediumlarge){
+  @include breakpoint(mediumlarge) {
     padding: 2rem;
   }
 }

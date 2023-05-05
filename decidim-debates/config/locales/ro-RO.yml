@@ -10,6 +10,7 @@ ro:
         end_time: Se termină la
         information_updates: Actualizări informații
         instructions: Instrucţiuni de participare
+        scope_id: Domeniu de interes
         start_time: Începe la
         title: Titlu
         user_group_id: Creați o dezbatere în calitate de
@@ -173,6 +174,9 @@ ro:
             title: Versiuni
         versions_list:
           back_to_resource: Înapoi la dezbatere
+      last_activity:
+        debate_updated: 'Dezbatere actualizată:'
+        new_debate: 'Dezbatere nouă:'
       models:
         debate:
           fields:
@@ -206,7 +210,7 @@ ro:
           email_intro: 'Acum poți începe noi dezbateri în %{participatory_space_title}! Participă acum:'
           email_outro: Ai primit această notificare deoarece urmărești %{participatory_space_title}. Poți opri notificările accesând linkul anterior.
           email_subject: Dezbaterile sunt acum disponibile în %{participatory_space_title}
-          notification_title: Acum poți începe <a href="%{resource_path}">noi dezbateri</a> în <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          notification_title: Acum poți începe <a href="%{resource_path}">noi dezbateri</a> în <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
         debate_closed:
           affected_user:
             email_intro: 'Dezbaterea pentru "%{resource_title}” a fost închisă. Poți citi concluziile pe pagina dezbaterii:'

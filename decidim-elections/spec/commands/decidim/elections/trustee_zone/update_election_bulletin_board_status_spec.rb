@@ -23,14 +23,14 @@ describe Decidim::Elections::TrusteeZone::UpdateElectionBulletinBoardStatus do
     expect(election).to be_bb_key_ceremony_ended
   end
 
-  context "when the election status doesn't match the required status" do
+  context "when the election status does not match the required status" do
     let(:election) { create :election, :tally_ended }
 
     it "broadcasts ok" do
       expect { subject.call }.to broadcast(:ok)
     end
 
-    it "doesn't update the election status" do
+    it "does not update the election status" do
       subject.call
       expect(election).to be_bb_tally_ended
     end

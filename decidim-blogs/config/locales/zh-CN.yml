@@ -16,16 +16,9 @@ zh-CN:
         title: 行动
       admin:
         models:
-          components:
-            body: 正文内容
           post:
             name: 帖子
         posts:
-          create:
-            invalid: 创建这个帖子时出错
-            success: 帖子创建成功
-          destroy:
-            success: 帖子已成功删除
           edit:
             save: 更新
           index:
@@ -35,16 +28,13 @@ zh-CN:
             title: 创建帖子
           update:
             invalid: 保存帖子时出错。
-            success: 帖子保存成功
       models:
         post:
           fields:
             author: 作者
             body: 正文内容
-            title: 标题
       posts:
         show:
-          comments: 评论
           view: 查看
     components:
       blogs:

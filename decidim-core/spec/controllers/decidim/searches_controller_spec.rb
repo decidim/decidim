@@ -26,7 +26,7 @@ module Decidim
         end
 
         before do
-          create(:searchable_resource, organization:, content_a: "I don't like groomming my dog.")
+          create(:searchable_resource, organization:, content_a: "I do not like groomming my dog.")
         end
 
         it "returns results with 'Great' in their content" do

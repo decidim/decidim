@@ -14,17 +14,24 @@ eu:
         description: Descripción
         file: Fitxategia
         title: Erantsitakoaren edo irudiaren izena
+        weight: Kokapenaren hurrenkera
       attachment_collection:
         description: Deskribapena
         name: Izena
+        weight: Kokapenaren hurrenkera
       category:
         description: Descripción
         name: Izena
         parent_id: Nagusia
+        weight: Kokapenaren hurrenkera
       component:
         name: Izena
         published_at: Argitaratu at
         weight: Kokapenaren hurrenkera
+      external_domain:
+        value: Balioa
+      help_section:
+        content: Edukia
       id: NAN
       import:
         user_group_id: Inportatu hau bezala
@@ -32,10 +39,9 @@ eu:
         body: Testua
         subject: Gaia
       organization:
-        admin_terms_of_use_body: Administratzailearen erabilera-terminoetarako testu-atala
         alert_color: Alerta
         available_authorizations: Baimen erabilgarriak
-        badges_enabled: Gaitu txapak
+        badges_enabled: Intsigniak gaitu
         comments_max_length: Iruzkinen gehieneko luzera (utzi 0 defektuz konfigurazioa mantendu nahi baduzu)
         cta_button_path: Deitu ekintza botoiaren bideora
         cta_button_text: Deitu ekintza botoiaren testura
@@ -92,6 +98,9 @@ eu:
         welcome_notification_body: Ongietorri-jakinarazpenaren mezuaren atala
         welcome_notification_subject: Ongietorri-jakinarazpenaren mezuaren gaia
         youtube_handler: YouTube kudeatzailea
+      participatory_space_private_user:
+        email: Helbide elektronikoa
+        name: Izena
       scope:
         code: Kodea
         name: Izena
@@ -113,6 +122,7 @@ eu:
         show_in_footer: Erakutsi orri-oinean
         slug: URL laburra
         title: Titulua
+        topic_id: Gaia
         weight: Kokapenaren hurrenkera
       static_page_topic:
         description: Deskribapena
@@ -137,11 +147,6 @@ eu:
           attributes:
             file:
               malformed: Fitxategia akastuna da. Irakurri arretaz jarraibideak eta ziurtatu fitxategia UTF-8an kodifikatuta dagoela.
-      new_import:
-        attributes:
-          file:
-            invalid_file: Baliogabetutako fitxategia, mesedez, egiaztatu espedientea ondo formalizatuta dagoela
-            invalid_mime_type: Baliogabeko mime mota
   activerecord:
     attributes:
       decidim/static_page:
@@ -162,8 +167,6 @@ eu:
         add: Gehitu
         attachment:
           new: Beste artxibo bat
-        attachment_collection:
-          new: Erantsitako beste artxibo-blduma bat
         browse: Arakatu
         category:
           new: Kategoria berria
@@ -180,53 +183,36 @@ eu:
         permissions: Baimenak
         reject: Ukatu
         share: Partekatu
+        user:
+          new: Administratzaile berria
         verify: Egiaztatu
-      admin_terms_of_use:
-        accept:
-          error: Errorea gertatu da Administrazioaren Gaiak eta Baldintzak onartzean.
-          success: Ederto! Onartu dituzu Administrazioaren Gaiak eta Baldintzak.
-        actions:
-          accept: Ados nago
-          are_you_sure: Ziur zaude ez dituzula onartu nahi administratzaileentzako erabilera-irizpideak?
-          refuse: Ez onartu Administrazio-irizpideak eta baldintzak
-          title: Onartzen ditut Administrazio-irizpideak eta baldintzak
-        required_review:
-          alert: 'Eskatuta: berrikusi gure Administrazio-irizpideak eta baldintzak'
-          callout: Mesedez, hartu tarte bat administratzaileentzako erabilera-irizpideak erabiltzeko. Bestela, ezin izango duzu plataforma administratu.
-          cta: Berrikusi orain.
-        title: Administrazioaren Irizpideak eta Baldintzak
       area_types:
         create:
           error: Errorea eremu mota berri bat sortzean.
           success: Area mota sortu da.
-        destroy:
-          success: Area mota behar bezala suntsitu da
         edit:
           title: Editatu eremu mota
-          update: Eguneratzearen
+          update: Onartu
         new:
           create: Sortu eremu mota
           title: Area mota berria
         update:
           error: Errore bat gertatu da eremu mota hau eguneratzean.
-          success: Area mota eguneratu da behar bezala
       areas:
         create:
           error: Errore bat gertatu da area berri bat sortzean.
           success: Area sortu da behar bezala.
         destroy:
           has_spaces: Eremu honek mendekotasuna duten espazioak ditu. Kendu aurretik, ziurtatu ez duela parte hartzeko gunerik aipatzen.
-          success: Area behar bezala suntsitu da
         edit:
           title: Editatu eremua
-          update: Eguneratzearen
+          update: Onartu
         new:
           create: Sortu eremua
           title: Area berria
         no_areas: No Arloak
         update:
           error: Errore bat gertatu da eremu hau eguneratzean.
-          success: Area ondo eguneratu da
       attachment_collections:
         create:
           error: Errore bat gertatu da karpeta berria sortzean.
@@ -235,7 +221,7 @@ eu:
           success: Karpeta ondo suntsitu da.
         edit:
           title: Editatu karpeta
-          update: Eguneratzearen
+          update: Onartu
         index:
           attachment_collection_used: Karpeta hau ezin da ezabatu erabiltzen ari delako.
           attachment_collections_title: Eranskinen karpetak
@@ -262,9 +248,10 @@ eu:
         update:
           error: Errorea gertatu da fitxategi erantsi bat eguneratzean.
           success: Fitxategi erantsia zuzen eguneratu da.
+      attachments_privacy_warning:
+        message: Kontuz ibili fitxategi erantsiekin espazio pribatu batean lan egiten duzunean, edozein parte-hartzailek parteka dezake dokumentu hau beste pertsona batzuekin.
       autocomplete:
         no_results: Ez da emaitzarik aurkitu
-        search_prompt: Idatzi bilaketak gutxienez hiru karaktere
       block_user:
         new:
           action: Blokeatu kontua eta bidali justifikazioa
@@ -303,7 +290,7 @@ eu:
           success: Osagaia zuzen ezabatu da.
         edit:
           title: Editatu osagaia
-          update: Eguneratzearen
+          update: Onartu
         form:
           default_step_settings: Urratsen ezarpen lehenetsiak
           global_settings: Ezarpen globalak
@@ -342,14 +329,17 @@ eu:
         'true': 'Bai'
         user_name: Erabiltzailea
       dashboard:
+        pending_moderations:
+          anouncement:
+            one: '%{count} moderazo zain'
+            other: '%{count} moderazo zain'
+          goto_moderation: Joan moderazio globaletara
+          title: Zain dauden moderazioak
         show:
           view_more_logs: Ikusi gehiago erregistroak
       domain_whitelist:
         form:
           domain_too_short: Domeinu laburregia
-        update:
-          error: Errorea gertatu da domeinuaren zerrenda zuria eguneratzean
-          success: Domeinuaren zerrenda zuria zuzen eguneratu da
       exports:
         export_as: "%{name} honako hau gisa: %{export_format}"
         formats:
@@ -357,7 +347,6 @@ eu:
           Excel: Excel
           FormPDF: PDF
           JSON: JSON
-        notice: Zure esportazioa bidean da. Mezu elektroniko bat jasoko duzu bukatutakoan.
       filters:
         category_id_eq:
           label: Kategoria
@@ -408,7 +397,7 @@ eu:
             'true': Ez da argitaratu
         scope_id_eq:
           label: Esparrua
-        search_label: Search
+        search_label: Bilatu
         search_placeholder:
           name_or_nickname_or_email_cont: Bilatu %{collection} helbide elektroniko, izen edo ezizenaren arabera.
           reported_id_string_or_reported_content_cont: Bilatu %{collection} eduki edo Id erreportablearen arabera.
@@ -429,10 +418,8 @@ eu:
             message_1: CSV, JSON eta Excel (.xlsx) artxiboak eutsita daude
             message_2: CSV artxiboetarako, zutabeen arteko banatzailea puntu eta koma (";") izan behar da
       help_sections:
-        error: Errore bat gertatu da laguntza-atalak eguneratuz
         form:
-          save: Save
-        success: Laguntza atalak behar bezala eguneratu dira
+          save: Gorde
       impersonatable_users:
         index:
           filter:
@@ -447,7 +434,7 @@ eu:
           needs_authorization_warning: Gutxienez baimen gaitu bat behar duzu erakunde honendako.
           not_managed: Ez da kudeatzen
           promote: Sustatu
-          search: Search
+          search: Bilatu
           status: Egoera
           view_logs: Ikusi erregistroak
       impersonations:
@@ -471,13 +458,14 @@ eu:
         data_errors:
           duplicate_headers:
             detail: Mesedez, egiaztatu fitxategiak behin bakarrik eskatzen diren zutabeak edo goiburuak dituela.
+            message:
+              one: Bikoiztu zutabeak %{columns}.
+              other: Bikoiztu %{columns} zutabe.
           invalid_indexes:
             lines:
               detail: "\nEgiaztatu erregistro horiek formatu zuzena dutela eta baliozko erregistroak dituztela."
             records:
               detail: "\nEgiaztatu erregistro horiek formatu zuzena dutela eta baliozko erregistroak dituztela."
-        error: Errorea gertatu da inportatzean
-        example_error: Ezin izan da adibiderik sortu emandako motarako
         new:
           accepted_mime_types:
             csv: csv
@@ -488,7 +476,6 @@ eu:
           download_example: Deskargatu adibidea
           file_legend: Gehitu prozesatuko den inportazio-artxibo bat.
           import: Inportatu
-        notice: "%{number} %{resource_name} zuzen inportatu da"
       managed_users:
         promotion:
           error: Errorea gertatu da kudeatutako erabiltzailea mailaz igotzean.
@@ -513,7 +500,6 @@ eu:
         moderation: Moderazio globalak
         newsletters: Buletinak
         participants: Parte-hartzaileak
-        reported_users: Erabiltzaile erreportatuak
         scope_types: Esparru motak
         scopes: Esparruak
         settings: Ezarpenak
@@ -612,7 +598,6 @@ eu:
           nickname: Ezizena
           reason: Arrazoia
           reports: Salaketa kopurua
-          title: Erreportatutako erabiltzaileen zerrenda
         report:
           reasons:
             does_not_belong: Ez da bidezkoa
@@ -622,8 +607,6 @@ eu:
           blocked: Blokeatuta
           unblocked: Ez blokeatuta
       moderations:
-        index:
-          title: ' Salaketak'
         report:
           reasons:
             does_not_belong: Ez du zer ikusirik
@@ -699,8 +682,6 @@ eu:
           send_to_participants: Bidali parte-hartzaileei
           title: Hautatu hartzaileak
           warning: "<strong>Adi:</strong> Jakinarazpen-doikuntzetan “Albiste-buletinak jaso nahi ditut” aktibatu duten parte-hartzaileei baino ez zaie bidaliko buletin hau."
-        send:
-          no_recipients: Ez dago hartzailerik hautaketa honetarako
         show:
           preview: Aurreikusi
           select_recipients_to_deliver: Hautatu hartzaileak
@@ -709,13 +690,6 @@ eu:
           error: Errorea gertatu da buletin hau eguneratzean.
           success: Buletina zuzen eguneratu da. Mesedez, berrikusi bidali baino lehen.
       officializations:
-        block:
-          error: Errorea gertatu da parte-hartzailea blokeatzean
-          success: Parte-hartzailea zuzen blokeatu da
-        create:
-          success: Erabiltzailea zuzen ofizializatu da
-        destroy:
-          success: Parte-hartzailearen ofizializazioa behar bezala desgaitu da
         index:
           actions: Ekintzak
           badge: Badge
@@ -744,9 +718,6 @@ eu:
           hidden: ezkutua
           show: Erakutsi
           title: Erakutsi parte-hartzailearen helbide elektronikoa
-        unblock:
-          error: Errorea gertatu da parte-hartzailea desblokeatzean
-          success: Parte-hartzailea zuzen desblokeatu da
       organization:
         edit:
           title: Editatu erakundea
@@ -810,7 +781,6 @@ eu:
       participatory_space_private_users_csv_imports:
         create:
           invalid: Arazo bat sortu da CSV fitxategia irakurtzean. Mesedez, ziurtatu jarraibideei kasu egin diezula.
-          success: CSV fitxategia zuzen igo da, eta parte-hartzaileei gonbidapen-mezu elektroniko bat bidaltzen ari gara. Horrek denbora behar du.
         new:
           example_file: 'Fitxategi eredua:'
           explanation: 'Igo zure CSV fitxategia. Bizutabe izan behar ditu. Lehenengo zutabean posta elektronikoa jarri behar da, eta azken zutabean parte-hartze prozesura gehitu nahi dutuzun erabiltzaileen izena, goibururik gabe. Ez erabili holako karaktererik erabiltzaileen izenetan: `<>?%&^*#@()[]=+:;"{}\|`.'
@@ -848,8 +818,6 @@ eu:
         create:
           error: Errorea gertatu da esparru berri bat sortzean.
           success: Esparrua zuzen sortu da.
-        destroy:
-          success: Esparrua ongi ezabatu da
         edit:
           title: Editatu helmena
           update: Eguneratu
@@ -869,7 +837,6 @@ eu:
           error: Errore bat gertatu da identifikatzailea ezabatzean.
           success: Identifikatzailea zuzen ezabatu da.
         share_tokens:
-          empty: Ez dago identifikatzaile aktiborik
           help: Identifikatzaile hauek argitaratu gabeko baliabide hori edozein erabiltzaileri publikoki partekatzeko erabiltzen dira. Errekurtsoa argitaratzean ezkutatuko dira. Egin klik identifikatzailea partekatzeko ikonoan, URL partekagarria bisitatzeko.
           title: Partekatu identifikatzaileak
       shared:
@@ -881,8 +848,6 @@ eu:
         create:
           error: Errore bat gertatu da gai berri bat sortzean.
           success: Gaia arrakastaz sortu da.
-        destroy:
-          success: Gaia arrakastaz suntsitu da
         edit:
           title: Editatu gaia
           update: Eguneratu gaia
@@ -901,7 +866,6 @@ eu:
         destroy:
           success: Orria zuzen ezabatu da.
         edit:
-          changed_notably_help: Egiaztatuta badago, erabiltzaileei jakinaraziko zaie baldintza eta baldintza berriak onartzeko.
           title: Editatu orria
           update: Eguneratu
         form:
@@ -915,11 +879,9 @@ eu:
         topic:
           destroy: Kendu gaia
           edit: Editatu gaia
-          empty: Ez dago orrialde honen azpian
           without_topic: Gai gabeko orriak
         update:
           error: Errorea gertatu da orri hau eguneratzean.
-          success: Orria zuzen eguneratu da.
       titles:
         admin_log: Admin erregistroa
         area_types: Area motak
@@ -939,13 +901,10 @@ eu:
       user_group:
         csv_verify:
           invalid: Errore bat gertatu da CSV fitxategia irakurtzean.
-          success: CSV fitxategiak behar bezala kargatu da, irizpideekin bat datozen erabiltzaile-taldeak egiaztatzen ari gara. Denbora pixka bat izan liteke.
         reject:
           invalid: Errore bat gertatu da erabiltzaile talde hau arbuiatzerakoan.
-          success: Erabiltzaile taldea arrakastaz arbuiatua
         verify:
           invalid: Errorea gertatu da erabiltzaile-talde hau egiaztatzean.
-          success: Erabiltzaile-taldea ongi egiaztatu da
       user_groups:
         index:
           state:
@@ -981,13 +940,8 @@ eu:
           last_day: Azken eguna
           last_month: Azken hila
           last_week: Azken astea
-          no_users_count_statistics_yet: Oraindik ez dago erabiltzaileen zenbaketa-estatistikarik
           participants: Parte-hartzaileak
       view_public_page: Ikusi orri publikoa
-    forms:
-      errors:
-        impersonate_user:
-          reason: Arrazoi bat adierazi behar duzu kudeatu gabeko parte-hartzaile bat kudeatzeko
     metrics:
       blocked_users:
         object: erabiltzaileak blokeatuta
@@ -1021,13 +975,11 @@ eu:
       models:
         moderation:
           fields:
-            created_at: Sortze-data
             hidden_at: Ezkutatze-data
             participatory_space: Parte hartzeko esparrua
-            report_count: Zenbaketa
+            reportable_id: ID
             reportable_type: Mota
             reported_content_url: Emandako edukiaren URLa
-            reports: Salaketak
             visit_url: Bisitatu URLa
         report:
           fields:
@@ -1040,8 +992,6 @@ eu:
   layouts:
     decidim:
       admin:
-        global_moderations:
-          title: Moderazio globalak
         newsletters:
           title: Buletinak
         settings:

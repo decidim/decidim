@@ -11,7 +11,7 @@ module Decidim
       context "when invalid" do
         let(:user) { create(:user, organization:, newsletter_notifications_at: nil) }
 
-        it "Doesn't unsubscribe user" do
+        it "Does not unsubscribe user" do
           expect { command.call }.to broadcast(:invalid)
         end
       end

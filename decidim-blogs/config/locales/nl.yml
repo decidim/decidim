@@ -18,16 +18,9 @@ nl:
         title: acties
       admin:
         models:
-          components:
-            body: Tekstgedeelte
           post:
             name: Post
         posts:
-          create:
-            invalid: Er is een probleem opgetreden bij het maken van dit bericht
-            success: Post succesvol aangemaakt
-          destroy:
-            success: Post succesvol verwijderd
           edit:
             save: Bijwerken
             title: Bericht bewerken
@@ -38,7 +31,6 @@ nl:
             title: Maak bericht
           update:
             invalid: Er zijn fouten opgetreden bij het opslaan van deze blogpost.
-            success: Post succesvol opgeslagen
       admin_log:
         post:
           create: "%{user_name} heeft de %{resource_name} blog gemaakt in %{space_name}"
@@ -50,10 +42,8 @@ nl:
             author: Auteur
             body: Tekstgedeelte
             official_blog_post: Officiële blogpost
-            title: titel
       posts:
         show:
-          comments: Reacties
           view: Bekijk
     components:
       blogs:

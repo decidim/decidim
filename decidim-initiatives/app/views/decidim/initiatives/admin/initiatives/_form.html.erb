@@ -9,7 +9,7 @@
     </div>
 
     <div class="row column">
-      <%= form.translated :editor, :description, toolbar: :full, lines: 8, disabled: !allowed_to?(:update, :initiative, initiative: current_initiative) %>
+      <%= form.translated :editor, :description, lines: 8, disabled: !allowed_to?(:update, :initiative, initiative: current_initiative) %>
     </div>
 
     <div class="row column">
@@ -113,10 +113,10 @@
   <div class="card-section">
     <div class="row">
       <% if allowed_to?(:read, :attachment, initiative: current_participatory_space) %>
-        <%= render partial: "initiative_attachments", locals: { current_initiative: current_initiative, current_participatory_space: current_participatory_space } %>
+        <%= render partial: "initiative_attachments", locals: { current_initiative:, current_participatory_space: } %>
       <% end %>
     </div>
   </div>
 </div>
 
-<%= javascript_pack_tag "decidim_initiatives_admin" %>
+<%= append_javascript_pack_tag "decidim_initiatives_admin" %>

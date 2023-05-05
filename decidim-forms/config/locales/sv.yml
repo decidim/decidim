@@ -22,8 +22,6 @@ sv:
             choices:
               missing: är inte fullständiga
               too_many: är för många
-        questionnaire:
-          request_invalid: Ett fel uppstod när begäran skulle hanteras. Försök igen
   decidim:
     forms:
       admin:
@@ -44,6 +42,8 @@ sv:
             actions:
               back: Tillbaka till svar
               export: Exportera
+              next: Nästa &rsaquo;
+              previous: "&lsaquo; Föregående"
               show: Visa svar
             empty: Inga svar ännu
             export:
@@ -121,9 +121,6 @@ sv:
           update:
             invalid: Det gick inte att spara formuläret.
             success: Formuläret har sparats.
-      errors:
-        answer:
-          body: Kroppen kan inte vara to
       images:
         dimensions: "%{width} x %{height} px"
       question_types:

@@ -1,10 +1,6 @@
 zh-CN:
   activemodel:
     attributes:
-      agenda:
-        description: 描述
-        duration: 期限
-        title: 标题
       close_meeting:
         attendees_count: 参与者人数
         attending_organizations: 与会组织名单
@@ -19,7 +15,6 @@ zh-CN:
         decidim_scope_id: 范围
         decidim_user_group_id: 用户组
         description: 描述
-        end_time: 结束时间
         location: 地点
         location_hints: 位置提示
         organizer_gid: 创建为
@@ -28,20 +23,8 @@ zh-CN:
         registration_form_enabled: 注册表单已启用
         registration_terms: 注册条款
         registrations_enabled: 注册已启用
-        start_time: 开始时间
         title: 标题
         transparent: 透明的
-    errors:
-      models:
-        meeting_agenda:
-          attributes:
-            base:
-              too_many_minutes: 项目持续时间超过 %{count} 分钟
-              too_many_minutes_child: 项目的持续时间超过议程项目 "%{parent_title}" 父时间 %{count} 分钟
-        meeting_registration_invite:
-          attributes:
-            email:
-              already_invited: 此电子邮件帐户已被邀请
     models:
       decidim/meetings/close_meeting_event: 会议结束
       decidim/meetings/create_meeting_event: 会议
@@ -143,8 +126,6 @@ zh-CN:
           description_own: 您已经参加了 %{score} 次会议。
           name: 出席会议
           next_level_in: 再参加 %{score} 个会议来达到下一级！
-          unearned_another: 此参与者尚未参加任何会议。
-          unearned_own: 你还没有参加任何会议。
     meetings:
       actions:
         agenda: 议程项目
@@ -175,9 +156,6 @@ zh-CN:
             down: 向下
             remove: 删除
             up: 上移
-          create:
-            invalid: 创建这个议程时遇到问题
-            success: 日程创建成功
           edit:
             title: 编辑议程
             update: 更新
@@ -189,9 +167,6 @@ zh-CN:
           new:
             create: 创建
             title: 新议程
-          update:
-            invalid: 更新这个议程时遇到问题
-            success: 日程更新成功
         exports:
           meetings: 会议
           registrations: 注册
@@ -220,22 +195,13 @@ zh-CN:
             filter_by: 筛选方式
             invite_attendee: 邀请参与者
             invites: 邀请
-            registrations_disabled: 您不能邀请参与者，因为注册已被禁用。
             search: 搜索
         meeting_closes:
           edit:
             close: 关闭
             title: 关闭会议
         meetings:
-          close:
-            invalid: 本次会议结束时出现问题
-            success: 会议已成功关闭
-          create:
-            invalid: 创建此会议时出现问题
           destroy:
-            invalid:
-              proposals_count:
-                other: 会议不能被销毁，因为它有 %{count} 个建议相关联。
             success: 会议已成功删除
           edit:
             update: 更新
@@ -257,9 +223,6 @@ zh-CN:
           services:
             add_service: 添加服务
             services: 服务
-          update:
-            invalid: 更新本次会议时出错
-            success: 会议已成功更新
         models:
           meeting:
             name: 会议
@@ -275,7 +238,6 @@ zh-CN:
             registration_form: 报名表
             registrations_count:
               other: 有 %{count} 个注册。
-            reserved_slots_help: 如果您没有预留位置，请将它留给0
             reserved_slots_less_than: 必须小于或等于 %{count}
             title: 注册
           update:
@@ -318,8 +280,6 @@ zh-CN:
         registration_mailer:
           confirmation:
             subject: 您的会议注册已确认
-      meeting:
-        not_allowed: 您无权查看此会议
       meetings:
         count:
           meetings_count:
@@ -360,7 +320,6 @@ zh-CN:
         meeting_minutes:
           related_information: 相关信息
         meetings:
-          no_meetings_warning: 没有符合您搜索条件的会议，也没有安排任何会议。
           upcoming_meetings_warning: 目前没有排定的会议，但在这里你可以找到过去所有会议的清单。
         new:
           back: 后退
@@ -419,7 +378,6 @@ zh-CN:
       registrations:
         create:
           invalid: 加入本次会议时出现问题。
-          success: 您已成功加入会议。由于您已经注册了这次会议，如果有更新，您将收到通知。
         decline_invitation:
           invalid: 有一个问题拒绝邀请。
           success: 您已成功拒绝邀请。

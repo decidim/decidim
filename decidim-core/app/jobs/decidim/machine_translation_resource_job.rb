@@ -60,7 +60,7 @@ module Decidim
 
       return true if old_value[default_locale] != new_value[default_locale]
 
-      # In a case where the default locale isn't changed
+      # In a case where the default locale is not changed
       # but a translation of a different locale is deleted
       # We trigger a job to translate only for that locale
       if old_value[default_locale] == new_value[default_locale]

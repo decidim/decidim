@@ -17,7 +17,7 @@
       <%= decidim_form_for(@form) do |f| %>
         <div class="card">
           <div class="card__content">
-            <%= render partial: "form", locals: { f: f } %>
+            <%= render partial: "form", locals: { f: } %>
 
             <div class="actions">
               <%= f.submit t(".create_user_group"), class: "button expanded" %>

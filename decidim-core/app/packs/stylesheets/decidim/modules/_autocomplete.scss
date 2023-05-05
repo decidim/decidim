@@ -2,52 +2,55 @@ $autocomplete-item-color: $secondary !default;
 $autocomplete-item-hover-bg: #ededed !default;
 $autocomplete-multiselect-bg: $white !default;
 $autocomplete-multiselect-border-color: $medium-gray !default;
-$autocomplete-input-height: ($input-font-size * unitless-calc($input-line-height)) + (get-side($input-padding, 'top') + get-side($input-padding, 'bottom')) - rem-calc(1) !default;
+$autocomplete-input-height: (
+    $input-font-size * unitless-calc($input-line-height)
+  ) + (get-side($input-padding, "top") + get-side($input-padding, "bottom")) -
+  rem-calc(1) !default;
 $autocomplete-input-line-height: $input-line-height !default;
 $autocomplete-input-padding: $input-padding !default;
 $autocomplete-multiselect-search-prompt-color: $dark-gray !default;
 
-.autoComplete_wrapper{
+.autoComplete_wrapper {
   width: 100%;
   position: relative;
 
-  input{
+  input {
     color: $black;
     width: 100%;
     margin: 0;
   }
 
-  ul{
+  ul {
     position: absolute;
     margin: 0;
 
-    li{
+    li {
       color: $autocomplete-item-color;
 
-      span{
-        &.author__avatar{
+      span {
+        &.author__avatar {
           display: inline-block;
         }
       }
 
       &:hover,
-      &[aria-selected="true"]{
+      &[aria-selected="true"] {
         background-color: $autocomplete-item-hover-bg;
       }
 
-      &.disabled{
+      &.disabled {
         pointer-events: none;
-        opacity: .6;
+        opacity: 0.6;
       }
 
-      .is-group{
+      .is-group {
         float: right;
       }
     }
   }
 
-  span{
-    &.autocomplete__selected-item.sticky{
+  span {
+    &.autocomplete__selected-item.sticky {
       position: absolute;
       overflow: hidden;
       height: $autocomplete-input-height;
@@ -56,7 +59,7 @@ $autocomplete-multiselect-search-prompt-color: $dark-gray !default;
     }
   }
 
-  .clear-sticky-selection{
+  .clear-sticky-selection {
     display: inline;
     position: absolute;
     font-size: 1.3rem;
@@ -66,38 +69,38 @@ $autocomplete-multiselect-search-prompt-color: $dark-gray !default;
     line-height: $autocomplete-input-height;
   }
 
-  .clear-multi-selection{
+  .clear-multi-selection {
     cursor: pointer;
   }
 
-  .search-prompt{
+  .search-prompt {
     color: $autocomplete-multiselect-search-prompt-color;
     border: 1px solid $autocomplete-multiselect-border-color;
-    padding: .2rem;
+    padding: 0.2rem;
   }
 }
 
-.multiselect{
+.multiselect {
   background-color: $autocomplete-multiselect-bg;
   display: inline-block;
   border: 1px solid $autocomplete-multiselect-border-color;
   width: 100%;
   cursor: text;
-  padding: 0 .5rem;
+  padding: 0 0.5rem;
   min-height: 2.4375rem;
 
-  span{
+  span {
     display: inline-block;
     position: relative;
-    margin: .5rem .5rem .5rem 0;
+    margin: 0.5rem 0.5rem 0.5rem 0;
 
-    input{
+    input {
       border: none;
       outline: none;
     }
 
-    &.clear-multi-selection{
-      margin: 0 0 0 .2rem;
+    &.clear-multi-selection {
+      margin: 0 0 0 0.2rem;
       cursor: pointer;
     }
   }

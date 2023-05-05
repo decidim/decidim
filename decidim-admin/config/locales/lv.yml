@@ -125,23 +125,10 @@ lv:
         permissions: Atļaujas
         reject: Noraidīt
         verify: Verificēt
-      admin_terms_of_use:
-        accept:
-          error: Piekrītot administratora lietošanas noteikumiem, radās kļūda.
-          success: Lieliski! Jūs esat piekritis administratora lietošanas noteikumiem.
-        actions:
-          refuse: Nepiekrist administratora noteikumiem
-          title: Piekrist lietošanas noteikumiem
-        required_review:
-          alert: 'Obligāti: pārskatiet mūsu administratora lietošanas noteikumus'
-          cta: Pārskatiet tos tagad.
-        title: Administratora lietošanas noteikumi
       area_types:
         create:
           error: Jauna jomas veida radīšanas laikā radās problēma.
           success: Jomas veids ir veiksmīgi izveidots.
-        destroy:
-          success: Jomas veids ir veiksmīgi dzēsts
         edit:
           title: Labot jomas veidu
           update: Atjaunināt
@@ -150,13 +137,10 @@ lv:
           title: Jauns jomas veids
         update:
           error: Šī jomas veida atjaunināšanas laikā radās problēma.
-          success: Jomas veids ir veiksmīgi atjaunināts
       areas:
         create:
           error: Jaunas jomas izveides laikā radās problēma.
           success: Joma ir veiksmīgi izveidota.
-        destroy:
-          success: Joma ir veiksmīgi dzēsta
         edit:
           title: Labot jomu
           update: Atjaunināt
@@ -166,7 +150,6 @@ lv:
         no_areas: Nav jomu
         update:
           error: Šīs jomas atjaunināšanas laikā radās problēma.
-          success: Joma ir veiksmīgi atjaunināta
       attachment_collections:
         create:
           error: Jaunas mapes izveides laikā radās problēma.
@@ -204,7 +187,6 @@ lv:
           success: Pielikums ir veiksmīgi atjaunināts.
       autocomplete:
         no_results: Netika atrasts neviens rezultāt
-        search_prompt: Ievadiet vismaz trīs rakstzīmes, lai meklētu
       categories:
         create:
           error: Šīs kategorijas izveides laikā radās problēma.
@@ -264,7 +246,6 @@ lv:
           view_more_logs: Skatīt vairāk ierakstu
       exports:
         export_as: "%{name} kā %{export_format}"
-        notice: Pašlaik notiek jūsu eksportēšana. Jūs saņemsiet e-pastu, kad tā būs pabeigta.
       filters:
         category_id_eq:
           label: Kategorija
@@ -291,10 +272,8 @@ lv:
           name_or_nickname_or_email_cont: Meklējiet %{collection} pēc e-pasta adreses, vārda vai segvārda.
           title_cont: Meklējiet %{collection} pēc nosaukuma.
       help_sections:
-        error: Palīdzības sadaļu atjaunināšanas laikā radās problēma
         form:
           save: Saglabāt
-        success: Palīdzības sadaļas ir veiksmīgi atjauninātas
       impersonatable_users:
         index:
           filter:
@@ -429,8 +408,6 @@ lv:
             state: Stāvoklis
             users_count: Dalībnieku skaits
       moderations:
-        index:
-          title: Moderācijas
         report:
           reasons:
             does_not_belong: Neattiecas
@@ -490,8 +467,6 @@ lv:
           send_to_participants: Nosūtīt dalībniekiem
           title: Izvēlieties adresātus, kuriem nosūtīt
           warning: "<strong>Uzmanību:</strong> šis informatīvais biļetens tiks nosūtīts tikai tiem lietotājiem, kuri savos paziņojumu iestatījumos ir aktivizējuši <em>Vēlos saņemt informatīvos biļetenus</em>."
-        send:
-          no_recipients: Šai izvēlei nav adresātu
         show:
           preview: Priekšskatīt
           select_recipients_to_deliver: Izvēlieties adresātus, kuriem nosūtīt
@@ -500,10 +475,6 @@ lv:
           error: Šī informatīvā biļetena atjaunināšanas laikā radās problēma.
           success: Informatīvais biļetens ir veiksmīgi atjaunināts. Lūdzu, pārskatiet to pirms nosūtīšanas.
       officializations:
-        create:
-          success: Oficiālais statuss dalībniekam veiksmīgi piešķirts
-        destroy:
-          success: Oficiālais statuss dalībniekam veiksmīgi noņemts
         index:
           actions: Darbības
           badge: Žetons
@@ -568,8 +539,6 @@ lv:
           create: Izveidot
           title: Jauns līdzdalības telpas privāts dalībnieks
       participatory_space_private_users_csv_imports:
-        create:
-          success: CSV fails ir veiksmīgi augšupielādēts, nosūtām dalībniekiem uzaicinājuma e-pastu. Tas var aizņemt kādu laiku.
         new:
           title: Augšupielādējiet savu CSV failu
           upload: Augšupielādēt
@@ -598,8 +567,6 @@ lv:
         create:
           error: Jauna tvēruma izveides laikā radās problēma.
           success: Darbības tvērums ir veiksmīgi izveidots.
-        destroy:
-          success: Darbības tvērums ir veiksmīgi dzēsts
         edit:
           title: Rediģēt darbības tvērumu
           update: Atjaunināt
@@ -619,8 +586,6 @@ lv:
         create:
           error: Tēmas izveides laikā radās problēma.
           success: Tēma ir veiksmīgi izveidota.
-        destroy:
-          success: Tēma ir veiksmīgi dzēsta
         edit:
           title: Rediģēt tēmu
           update: Atjaunināt tēmu
@@ -639,7 +604,6 @@ lv:
         destroy:
           success: Lapa ir veiksmīgi dzēsta
         edit:
-          changed_notably_help: Ja atzīmēts, dalībnieki tiks informēti, lai viņi varētu pieņemt jaunos lietošanas noteikumus.
           title: Rediģēt lapu
           update: Atjaunināt
         form:
@@ -653,11 +617,9 @@ lv:
         topic:
           destroy: Noņemt tēmu
           edit: Rediģēt tēmu
-          empty: Šajā tēmā nav nevienas lapas
           without_topic: Lapas bez tēmas
         update:
           error: Šīs lapas atjaunināšanas laikā radās problēma.
-          success: Lapa ir veiksmīgi atjaunināta
       titles:
         admin_log: Administratora žurnāls
         area_types: Jomu veidi
@@ -676,13 +638,10 @@ lv:
       user_group:
         csv_verify:
           invalid: CSV faila lasīšanas laikā radās problēma.
-          success: CSV fails tika augšupielādēts veiksmīgi, mēs pārbaudām grupas, kas atbilst kritērijiem. Tas var aizņemt kādu laiku.
         reject:
           invalid: Šīs grupas noraidīšanas laikā radās problēma.
-          success: Grupa ir veiksmīgi noraidīta
         verify:
           invalid: Šīs grupas pārbaudes laikā radās problēma.
-          success: Grupa ir veiksmīgi pārbaudīta
       user_groups:
         index:
           state:
@@ -714,7 +673,6 @@ lv:
           last_day: Pēdējā diena
           last_month: Iepriekšējais mēnesis
           last_week: Iepriekšējā nedēļa
-          no_users_count_statistics_yet: Pagaidām nav lietotāju skaita statistikas
           participants: Dalībnieki
       view_public_page: Skatīt publisko lapu
     moderations:
@@ -740,9 +698,7 @@ lv:
         moderation:
           fields:
             hidden_at: Paslēpts plkst.
-            report_count: Skaits
             reported_content_url: Paziņotā satura URL
-            reports: Ziņojumi
             visit_url: Apmeklēt URL
   errors:
     messages:

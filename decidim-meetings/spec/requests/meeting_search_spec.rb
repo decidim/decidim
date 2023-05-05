@@ -33,7 +33,7 @@ RSpec.describe "Meeting search", type: :request do
       description: Decidim::Faker::Localized.literal("Curabitur arcu erat, accumsan id imperdiet et.")
     )
   end
-  # Meeting not published, shouldn't appear
+  # Meeting not published, should not appear
   let!(:meeting3) do
     create(
       :meeting,
@@ -43,7 +43,7 @@ RSpec.describe "Meeting search", type: :request do
       description: Decidim::Faker::Localized.literal("Nulla TestCheck accumsan tincidunt.")
     )
   end
-  # Meeting withdrawn, shouldn't appear
+  # Meeting withdrawn, should not appear
   let!(:meeting4) do
     create(
       :meeting,

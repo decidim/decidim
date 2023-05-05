@@ -56,16 +56,16 @@ en:
         meeting:
           attributes:
             iframe_embed_type:
-              not_embeddable: This URL can't be embedded in meeting or live event page
+              not_embeddable: This URL cannot be embedded in meeting or live event page.
         meeting_agenda:
           attributes:
             base:
-              too_many_minutes: The duration of the items exceed the meeting duration by %{count} minutes
-              too_many_minutes_child: The duration of the item childs exceed the agenda item "%{parent_title}" parent duration by %{count} minutes
+              too_many_minutes: The duration of the items exceed the meeting duration by %{count} minutes.
+              too_many_minutes_child: The duration of the item childs exceed the agenda item "%{parent_title}" parent duration by %{count} minutes.
         meeting_registration_invite:
           attributes:
             email:
-              already_invited: This email account has already been invited
+              already_invited: This email account has already been invited.
     models:
       decidim/meetings/close_meeting_event: Meeting closed
       decidim/meetings/create_meeting_event: Meeting
@@ -195,7 +195,7 @@ en:
           notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting will start in less than 48h.
     forms:
       meetings:
-        attendees_count_help_text: Don't forget to include the total number of attendees at your meeting, whether in person, online or hybrid.
+        attendees_count_help_text: Do not forget to include the total number of attendees at your meeting, whether in person, online or hybrid.
     gamification:
       badges:
         attended_meetings:
@@ -206,8 +206,8 @@ en:
           description_own: You have attended %{score} meetings.
           name: Attended meetings
           next_level_in: Attend %{score} more meetings to reach the next level!
-          unearned_another: This participant hasn't attended any meeting yet.
-          unearned_own: You haven't attended any meeting yet.
+          unearned_another: This participant has not attended any meeting yet.
+          unearned_own: You have not attended any meeting yet.
     meetings:
       actions:
         agenda: Agenda
@@ -241,8 +241,8 @@ en:
             remove: Remove
             up: Up
           create:
-            invalid: There was a problem creating this agenda
-            success: Agenda successfully created
+            invalid: There was a problem creating this agenda.
+            success: Agenda successfully created.
           edit:
             title: Edit agenda
             update: Update
@@ -255,8 +255,8 @@ en:
             create: Create
             title: New agenda
           update:
-            invalid: There was a problem updating this agenda
-            success: Agenda successfully updated
+            invalid: There was a problem updating this agenda.
+            success: Agenda successfully updated.
         exports:
           answers: Answers
           meeting_comments: Comments
@@ -287,7 +287,7 @@ en:
             filter_by: Filter by
             invite_attendee: Invite attendee
             invites: Invites
-            registrations_disabled: You can't invite an attendee because the registrations are disabled.
+            registrations_disabled: You cannot invite an attendee because the registrations are disabled.
             search: Search
         meeting_closes:
           edit:
@@ -295,23 +295,23 @@ en:
             title: Close meeting
         meetings:
           close:
-            invalid: There was a problem closing this meeting
-            success: Meeting successfully closed
+            invalid: There was a problem closing this meeting.
+            success: Meeting successfully closed.
           create:
-            invalid: There was a problem creating this meeting
+            invalid: There was a problem creating this meeting.
             success: Meeting successfully created. Notice this is unpublished yet, you need to manually publish it.
           destroy:
             invalid:
               proposals_count:
-                one: The meeting cannot be destroyed because it has %{count} proposal associated to it
-                other: The meeting cannot be destroyed because it has %{count} proposals associated to it
+                one: The meeting cannot be destroyed because it has %{count} proposal associated to it.
+                other: The meeting cannot be destroyed because it has %{count} proposals associated to it.
             success: Meeting successfully deleted
           edit:
             title: Edit meeting
             update: Update
           form:
             address_help: 'Address: used by Geocoder to find the location'
-            disclaimer: 'Disclaimer: By using an external registration system, you''re aware that the organizers of %{organization} are not responsible for the data provided by the users to the external service.'
+            disclaimer: 'Disclaimer: By using an external registration system, you are aware that the organizers of %{organization} are not responsible for the data provided by the users to the external service.'
             location_help: 'Location: message directed to the users implying the spot to meet at'
             location_hints_help: 'Location hints: additional info. Example: the floor of the building if it is an in-person meeting, or the meeting password if it is an online meeting with restricted access.'
             online_meeting_url_help: 'Link: allow participants to connect directly to your meeting'
@@ -326,8 +326,8 @@ en:
             create: Create
             title: Create meeting
           publish:
-            invalid: There was a problem publishing this meeting
-            success: Meeting successfully published
+            invalid: There was a problem publishing this meeting.
+            success: Meeting successfully published.
           service:
             description: Description
             down: Down
@@ -339,17 +339,17 @@ en:
             add_service: Add service
             services: Services
           unpublish:
-            invalid: There was a problem unpublishing this meeting
-            success: Meeting successfully unpublished
+            invalid: There was a problem unpublishing this meeting.
+            success: Meeting successfully unpublished.
           update:
-            invalid: There was a problem updating this meeting
-            success: Meeting successfully updated
+            invalid: There was a problem updating this meeting.
+            success: Meeting successfully updated.
         meetings_poll:
           form:
             title: Edit poll questionnaire for %{questionnaire_for}
           update:
-            invalid: There was a problem updating this meeting poll
-            success: Meeting poll successfully updated
+            invalid: There was a problem updating this meeting poll.
+            success: Meeting poll successfully updated.
         models:
           meeting:
             name: Meeting
@@ -367,7 +367,7 @@ en:
             registrations_count:
               one: There has been %{count} registration.
               other: There has been %{count} registrations.
-            reserved_slots_help: Leave it to 0 if you don't have reserved slots
+            reserved_slots_help: Leave it to 0 if you do not have reserved slots.
             reserved_slots_less_than: Must be less than or equal to %{count}
             title: Registrations
           update:
@@ -406,7 +406,7 @@ en:
         copy_calendar_url_clarification: Copy calendar URL to clipboard
         copy_calendar_url_copied: Copied!
         copy_calendar_url_description: You can see all the published meetings in your calendar application or provider. Copy and paste this URL in your calendar using the "Add new calendar from an URL" option.
-        copy_calendar_url_explanation: Please note that you're exporting a selection of meetings, as there are active filters. If you wish to export them all, reset all filters first.
+        copy_calendar_url_explanation: Please note that you are exporting a selection of meetings, as there are active filters. If you wish to export them all, reset all filters first.
         copy_calendar_url_message: The URL was successfully copied to clipboard.
         export_calendar: Export calendar
       close_meeting_reminder_mailer:
@@ -451,7 +451,7 @@ en:
           confirmation:
             subject: Your meeting's registration has been confirmed
       meeting:
-        not_allowed: You are not allowed to view this meeting
+        not_allowed: You are not allowed to view this meeting.
       meeting_closes:
         edit:
           back: Back
@@ -509,7 +509,7 @@ en:
           address_help: 'Address: used by Geocoder to find the location'
           available_slots_help: Leave it to 0 if you have unlimited slots available
           create_as: Create meeting as
-          disclaimer: 'Disclaimer: By using an external registration system, you''re aware that the organizers of %{organization} are not responsible for the data provided by the users to the external service.'
+          disclaimer: 'Disclaimer: By using an external registration system, you are aware that the organizers of %{organization} are not responsible for the data provided by the users to the external service.'
           location_help: 'Location: message directed to the users implying the spot to meet at'
           location_hints_help: 'Location hints: additional info. Example: the floor of the building if it is an in-person meeting, or the meeting password if it is an online meeting with restricted access.'
           online_meeting_url_help: 'Link: allow participants to connect directly to your meeting'
@@ -528,7 +528,7 @@ en:
         meeting_minutes:
           related_information: Related Information
         meetings:
-          no_meetings_warning: No meetings match your search criteria or there isn't any meeting scheduled.
+          no_meetings_warning: No meetings match your search criteria or there is not any meeting scheduled.
           upcoming_meetings_warning: Currently, there are no scheduled meetings, but here you can find all the past meetings listed.
         new:
           back: Back
@@ -631,7 +631,7 @@ en:
       registrations:
         create:
           invalid: There was a problem joining this meeting.
-          success: You have joined the meeting successfully. Because you have registered for this meeting, you'll be notified if there are updates on it.
+          success: You have joined the meeting successfully. Because you have registered for this meeting, you will be notified if there are updates on it.
         decline_invitation:
           invalid: There was a problem declining the invitation.
           success: You have declined the invitation successfully.
@@ -649,8 +649,8 @@ en:
       versions:
         back_to_resource: Go back to meeting
       withdraw:
-        error: An error ocurred while withdrawing the meeting
-        success: The meeting has been withdrawn successfully
+        error: An error ocurred while withdrawing the meeting.
+        success: The meeting has been withdrawn successfully.
     metrics:
       meetings:
         description: Number of meetings created

@@ -26,7 +26,7 @@ module Decidim::Meetings::AdminLog
         end
       end
 
-      context "when invite doesn't exist anymore" do
+      context "when invite does not exist anymore" do
         before do
           invite.destroy
           action_log.reload

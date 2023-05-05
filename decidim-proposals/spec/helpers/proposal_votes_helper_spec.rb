@@ -23,7 +23,7 @@ module Decidim
           expect(helper.vote_button_classes(true)).to eq("card__button")
         end
 
-        it "returns expanded buttons classes if it's not from proposals list'" do
+        it "returns expanded buttons classes if it is not from proposals list'" do
           expect(helper.vote_button_classes(false)).to eq("expanded")
         end
       end
@@ -33,7 +33,7 @@ module Decidim
           expect(helper.votes_count_classes(true)).to eq(number: "card__support__number", label: "")
         end
 
-        it "returns expanded count classes if it's not from proposals list'" do
+        it "returns expanded count classes if it is not from proposals list'" do
           expect(helper.votes_count_classes(false)).to eq(number: "extra__suport-number", label: "extra__suport-text")
         end
       end

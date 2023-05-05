@@ -61,7 +61,7 @@ module Decidim
             expect { command.call }.to broadcast(:invalid)
           end
 
-          it "doesn't create a collaborative draft" do
+          it "does not create a collaborative draft" do
             expect do
               command.call
             end.not_to change(Decidim::Proposals::CollaborativeDraft, :count)

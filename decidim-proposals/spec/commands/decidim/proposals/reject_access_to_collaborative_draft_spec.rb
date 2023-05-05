@@ -75,7 +75,7 @@ module Decidim
             expect { command.call }.to broadcast(:invalid)
           end
 
-          it "doesn't reject the request for the collaborative draft" do
+          it "does not reject the request for the collaborative draft" do
             expect do
               command.call
             end.not_to change(collaborative_draft.requesters, :count)
@@ -89,7 +89,7 @@ module Decidim
             expect { command.call }.to broadcast(:invalid)
           end
 
-          it "doesn't reject the request for the collaborative draft" do
+          it "does not reject the request for the collaborative draft" do
             expect do
               command.call
             end.not_to change(collaborative_draft.requesters, :count)
@@ -103,7 +103,7 @@ module Decidim
             expect { command.call }.to broadcast(:invalid)
           end
 
-          it "doesn't reject the request for the collaborative draft" do
+          it "does not reject the request for the collaborative draft" do
             expect do
               command.call
             end.not_to change(collaborative_draft.requesters, :count)
@@ -117,7 +117,7 @@ module Decidim
             expect { command.call }.to broadcast(:invalid)
           end
 
-          it "doesn't reject the request for the collaborative draft" do
+          it "does not reject the request for the collaborative draft" do
             expect do
               command.call
             end.not_to change(collaborative_draft.requesters, :count)
@@ -132,7 +132,7 @@ module Decidim
             expect { command.call }.to broadcast(:invalid)
           end
 
-          it "doesn't reject the request for the collaborative draft" do
+          it "does not reject the request for the collaborative draft" do
             expect do
               command.call
             end.not_to change(collaborative_draft.requesters, :count)

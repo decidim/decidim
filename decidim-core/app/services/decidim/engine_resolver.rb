@@ -44,8 +44,8 @@ module Decidim
     def find_mounted_route(target_engine)
       target_engine.routes.set.each do |route|
         # If the route is a dispatcher
-        # (ActionDispatch::Routing::RouteSet::Dispatcher), it won't have an
-        # engine app mapped to it in which case the app won't respond to the
+        # (ActionDispatch::Routing::RouteSet::Dispatcher), it will not have an
+        # engine app mapped to it in which case the app will not respond to the
         # `routes` method.
         next if route.dispatcher?
         next unless route.app.app.is_a?(Class)

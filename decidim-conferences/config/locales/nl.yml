@@ -28,7 +28,6 @@ nl:
         show_statistics: Toon statistieken
         sign_date: Datum ondertekenen
         signature: Handtekening
-        signature_name: naam van de handtekenaar
         slogan: Slogan
         slug: URL-slug
         start_date: Startdatum
@@ -37,13 +36,11 @@ nl:
         date: Datum
         link: Link
         title: Titel
-        weight: Gewicht
       conference_partner:
         link: Link
         logo: Logo
         name: Naam
         partner_type: Type partner
-        weight: Gewicht
       conference_registration_invite:
         email: E-mail
         name: Naam
@@ -53,7 +50,6 @@ nl:
         description: Omschrijving
         price: Prijs
         title: Titel
-        weight: Gewicht
       conference_speaker:
         affiliation: Aansluiting
         avatar: Profielfoto
@@ -66,12 +62,6 @@ nl:
         email: E-mail
         name: Naam
         role: Rol
-    errors:
-      models:
-        conference_registration_invite:
-          attributes:
-            email:
-              already_invited: Deze e-mail is al uitgenodigd
   activerecord:
     models:
       decidim/conference:
@@ -131,8 +121,6 @@ nl:
         edit:
           title: Update conferentiebeheerder.
           update: Bijwerken
-        index:
-          conference_admins_title: conferentiebeheerders
         new:
           create: Creëren
           title: Nieuwe conferentiebeheerder.
@@ -349,7 +337,6 @@ nl:
             invites: Uitnodigingen
             search: Zoeken
           new:
-            explanation: De gebruiker wordt uitgenodigd om deel te nemen aan een conferentie. Als zijn/haar e-mailadres niet is geregistreerd, worden ze ook uitgenodigd voor de organisatie.
             invite: Nodig uit
             new_invite: Nodig deelnemer uit
         conference_registrations:
@@ -402,18 +389,11 @@ nl:
           cancel: Annuleer
           confirm: Bevestigen
         show:
-          free: Gratis
           going: Ingeschreven
           no_slots_available: Geen slots beschikbaar
           registration: Inschrijving
       conference_program:
-        program_meeting:
-          content: Inhoud
-          location: Plaats
-          speakers: Sprekers
-          streaming: Streaming
         show:
-          day: Dag
           program: Programma
       conference_registration_mailer:
         confirmation:
@@ -444,18 +424,12 @@ nl:
       conference_speaker_cell:
         personal_url:
           personal_website: Persoonlijke website
-        twitter_handle:
-          go_to_twitter: Ga naar Twitter
-      conference_speakers:
-        index:
-          speakers: Sprekers
       conferences:
         partners:
           collaborators: Partners
           main_promotors: Organisatoren
         show:
           login_as: U bent ingelogd als %{name} <%{email}>
-          make_conference_registration: 'Maak uw registratie in de conferentie:'
           register: Registreren
       content_blocks:
         highlighted_conferences:
@@ -463,11 +437,6 @@ nl:
       index:
         title: Conferenties
       mailer:
-        conference_registration_mailer:
-          confirmation:
-            subject: De registratie van uw conferentie is bevestigd
-          pending_validation:
-            subject: De registratie van uw conferentie is in afwachting van bevestiging
         invite_join_conference_mailer:
           invite:
             subject: Uitnodiging om deel te nemen aan een conferentie
@@ -501,29 +470,12 @@ nl:
             active_conferences: Actieve conferenties
             conferences_button_title: Link naar de pagina Conferenties waarop alle conferenties worden weergegeven
             see_all_conferences: Bekijk alle conferenties
-      photo:
-        image:
-          attributes:
-            alt: Media afbeelding
-        show:
-          close_modal: Modal sluiten
-          photo: Beeld
-      photos_list:
-        show:
-          related_photos: Afbeeldingen
       registration_types:
         index:
           choose_an_option: 'Kies je registratieoptie:'
-          login_as: Je bent ingelogd als %{name} <%{email}>
           no_registrations: Geen inschrijvingen
           register: Registreren
           title: Registratie soorten
-      shared:
-        conference_user_login:
-          already_account: Heb je al een account bij decidim?
-          new_user: Nieuwe gebruiker?
-          sign_in: Meld u aan om u te registreren voor de conferentie
-          sign_up: Maak een account aan in decidim om u te registreren voor de conferentie
       show:
         details: Details
         introduction: Inleiding
@@ -568,10 +520,6 @@ nl:
           contextual: "<p>Een <strong>conferentie</strong> is een verzameling van bijeenkomsten georganiseerd in een programma, waarbij een aantal mensen is uitgenodigd als spreker. en andere informatievelden die typerend zijn voor grote congressen of sociale evenementen (registratie, lijst van organisaties die het evenement ondersteunen, sponsoren, etc.)</p> <p>Voorbeelden: een conferentie kan een relevante gebeurtenis zijn voor een organisatie en haar leden, of maakt deel uit van een participatief proces of volgt na een consultatie.</p>\n"
           page: "<p>Een <strong>conferentie</strong> is een verzameling van bijeenkomsten georganiseerd in een programma, waarbij een aantal mensen is uitgenodigd als spreker. en andere informatievelden die typerend zijn voor grote congressen of sociale evenementen (registratie, lijst van organisaties die het evenement ondersteunen, sponsoren, etc.)</p> <p>Voorbeelden: een conferentie kan een relevante gebeurtenis zijn voor een organisatie en haar leden, of maakt deel uit van een participatief proces of volgt na een consultatie.</p>\n"
           title: Wat zijn conferenties?
-    log:
-      value_types:
-        conference_presenter:
-          not_found: 'De conferentie is niet gevonden in de database (ID: %{id})'
     media:
       index:
         description: Links over deze conferentie

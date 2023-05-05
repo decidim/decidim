@@ -131,7 +131,7 @@ Decidim.register_participatory_space(:initiatives) do |participatory_space|
         next unless component_name == :pages
 
         Decidim::Pages::CreatePage.call(component) do
-          on(:invalid) { raise "Can't create page" }
+          on(:invalid) { raise "Cannot create page" }
         end
       end
     end

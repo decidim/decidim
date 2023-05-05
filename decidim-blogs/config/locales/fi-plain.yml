@@ -2,7 +2,10 @@ fi-pl:
   activemodel:
     attributes:
       post:
+        body: Sisältöteksti
+        decidim_author_id: Laatija
         published_at: Julkaisuaika
+        title: Otsikko
     models:
       decidim/blogs/create_post_event: Uusi blogiartikkeli
   activerecord:
@@ -21,28 +24,26 @@ fi-pl:
         title: Toiminnot
       admin:
         models:
-          components:
-            body: Leipäteksti
           post:
             name: Artikkeli
         posts:
           create:
-            invalid: Tämän artikkelin luomisessa esiintyi ongelma
-            success: Artikkeli luotu onnistuneesti
+            invalid: Artikkelin luonti epäonnistui.
+            success: Artikkelin luonti onnistui.
           destroy:
-            success: Artikkeli poistettu onnistuneesti
+            success: Artikkelin poisto onnistui.
           edit:
             save: Päivitä
             title: Muokkaa artikkelia
           index:
-            not_published_yet: Ei vielä julkaistu
+            not_published_yet: Ei vielä julkaistu.
             title: Artikkelit
           new:
             create: Luo
             title: Luo artikkeli
           update:
             invalid: Artikkelin tallennuksessa tapahtui virheitä.
-            success: Artikkeli tallennettu onnistuneesti
+            success: Artikkelin tallennus onnistui.
       admin_log:
         post:
           create: "%{user_name} loi blogikirjoituksen %{resource_name} tilassa %{space_name}"
@@ -57,16 +58,17 @@ fi-pl:
             body: Leipäteksti
             official_blog_post: Virallinen artikkeli
             published_at: Julkaisuaika
-            title: otsikko
+            title: Otsikko
       posts:
         show:
-          comments: Kommentit
           view: Näytä
     components:
       blogs:
         actions:
+          comment: Kommentointi
           create: Luo
           destroy: Poista
+          endorse: Suosittelu
           update: Päivitä
         name: Blogi
         settings:

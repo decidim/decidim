@@ -46,7 +46,7 @@ describe "Explore elections", :slow, type: :system do
           fill_in "filter[search_text_cont]", with: translated(elections.first.title)
 
           # The form should be auto-submitted when filter box is filled up, but
-          # somehow it's not happening. So we workaround that be explicitly
+          # somehow it is not happening. So we workaround that be explicitly
           # clicking on "Search" until we find out why.
           find(".icon--magnifying-glass").click
         end
@@ -136,7 +136,8 @@ describe "Explore elections", :slow, type: :system do
 
   describe "show" do
     let(:elections_count) { 1 }
-    let(:election) { elections.first }
+    let(:description) { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
+    let(:election) { create(:election, :complete, :published, :ongoing, component:, description:) }
     let(:question) { election.questions.first }
     let(:image) { create(:attachment, :with_image, attached_to: election) }
 
@@ -144,6 +145,8 @@ describe "Explore elections", :slow, type: :system do
       election.update!(attachments: [image])
       visit resource_locator(election).path
     end
+
+    it_behaves_like "has embedded video in description", :description
 
     it "shows all election info" do
       expect(page).to have_i18n_content(election.title)

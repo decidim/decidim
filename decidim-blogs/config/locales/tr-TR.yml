@@ -1,5 +1,11 @@
 tr:
   activemodel:
+    attributes:
+      post:
+        body: Vücut
+        decidim_author_id: Yazar
+        published_at: Yayın zamanı
+        title: Başlik / Unvani 
     models:
       decidim/blogs/create_post_event: Yeni blog yazısı
   activerecord:
@@ -17,16 +23,9 @@ tr:
         title: Eylemler
       admin:
         models:
-          components:
-            body: Vücut
           post:
             name: posta
         posts:
-          create:
-            invalid: Bu yayını oluştururken bir sorun oluştu
-            success: Yayın başarıyla oluşturuldu
-          destroy:
-            success: Yayın başarıyla silindi
           edit:
             save: Güncelleştirme
             title: Gönderiyi düzenle
@@ -37,16 +36,13 @@ tr:
             title: Gönderi oluştur
           update:
             invalid: Gönderiyi kaydederken bir sorun oluştu.
-            success: Yayın başarıyla kaydedildi
       models:
         post:
           fields:
             author: Yazar
             body: Vücut
-            title: Başlık
       posts:
         show:
-          comments: Yorumlar
           view: Görünüm
     components:
       blogs:

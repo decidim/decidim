@@ -22,7 +22,7 @@ module Decidim
           )
         end
 
-        # When there's a phone number, sanitize it allowing only numbers and +.
+        # When there is a phone number, sanitize it allowing only numbers and +.
         def mobile_phone_number
           return unless super
 
@@ -43,13 +43,17 @@ module Decidim
           return unless sms_gateway
           return @verification_code if defined?(@verification_code)
 
-          return unless sms_gateway.new(mobile_phone_number, generated_code).deliver_code
+          return unless sms_gateway.new(mobile_phone_number, generated_code, sms_gateway_context).deliver_code
 
           @verification_code = generated_code
         end
 
         def sms_gateway
           Decidim.sms_gateway_service.to_s.safe_constantize
+        end
+
+        def sms_gateway_context
+          { organization: user&.organization }
         end
 
         def generated_code

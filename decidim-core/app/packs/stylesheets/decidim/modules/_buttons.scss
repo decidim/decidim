@@ -1,47 +1,47 @@
 /* Foundation button overrides */
-.button{
-  &.small{
-    padding-top: .5rem;
-    padding-bottom: .5rem;
+.button {
+  &.small {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
 
-    &.compact{
-      padding-left: .5rem;
-      padding-right: .5rem;
+    &.compact {
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
       letter-spacing: 0;
       white-space: nowrap;
     }
   }
 
-  &.tiny{
-    padding-top: .25rem;
-    padding-bottom: .25rem;
+  &.tiny {
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
 
-    &.compact{
-      padding-left: .25rem;
-      padding-right: .25rem;
+    &.compact {
+      padding-left: 0.25rem;
+      padding-right: 0.25rem;
       letter-spacing: 0;
     }
   }
 
-  &.button--right{
+  &.button--right {
     float: right;
   }
 
-  a{
+  a {
     color: inherit;
 
-    &:hover{
+    &:hover {
       text-decoration: none;
     }
   }
 }
 
-.button{
+.button {
   position: relative;
   background-color: var(--primary);
 
   &.focus,
-  &:focus{
+  &:focus {
     background-color: var(--primary);
     box-shadow: $button-shadow-focus;
     outline: $button-outline-focus;
@@ -50,28 +50,28 @@
   }
 
   &.hover,
-  &:hover{
+  &:hover {
     background-color: var(--primary);
     filter: brightness($button-brightness-hover);
     text-decoration: none;
   }
 
   &.active,
-  &:active{
+  &:active {
     filter: brightness($button-brightness-active);
   }
 
   &.disabled,
-  &[disabled]{
+  &[disabled] {
     &,
     &:active,
     &:hover,
-    &:focus{
+    &:focus {
       background-color: var(--primary);
     }
   }
 
-  &.hollow{
+  &.hollow {
     background-color: transparent;
     color: var(--primary);
     border-color: var(--primary);
@@ -80,18 +80,18 @@
     &.hover,
     &:hover,
     &.focus,
-    &:focus{
+    &:focus {
       border-color: var(--primary);
       background-color: var(--primary);
       color: $white;
     }
 
     &.disabled,
-    &[disabled]{
+    &[disabled] {
       &,
       &:active,
       &:hover,
-      &:focus{
+      &:focus {
         background-color: transparent;
         border-color: var(--primary);
         color: var(--primary);
@@ -100,22 +100,22 @@
       }
     }
 
-    &.light{
+    &.light {
       &.hover,
       &:hover,
       &.focus,
-      &:focus{
+      &:focus {
         border-color: var(--primary);
         background-color: var(--primary);
         color: $white;
       }
 
       &.disabled,
-      &[disabled]{
+      &[disabled] {
         &,
         &:active,
         &:hover,
-        &:focus{
+        &:focus {
           border-color: $white;
           color: $white;
         }
@@ -123,371 +123,375 @@
     }
   }
 
-  &.secondary{
+  &.primary {
+    @include button-hollow-variant(var(--primary));
+  }
+
+  &.secondary {
     @include button-hollow-variant(var(--secondary));
   }
 
-  &.success{
+  &.success {
     @include button-hollow-variant(var(--success));
   }
 
-  &.alert{
+  &.alert {
     @include button-hollow-variant(var(--alert));
   }
 
-  &.warning{
+  &.warning {
     @include button-hollow-variant(var(--warning));
   }
 
-  &.clear{
+  &.clear {
     &.secondary,
     &.success,
     &.alert,
-    &.warning{
+    &.warning {
       background-color: transparent;
 
       &.hover,
       &:hover,
       &.focus,
-      &:focus{
+      &:focus {
         background-color: transparent;
       }
     }
 
-    &.secondary{
+    &.secondary {
       color: var(--secondary);
     }
 
-    &.success{
+    &.success {
       color: var(--success);
     }
 
-    &.alert{
+    &.alert {
       color: var(--alert);
     }
 
-    &.warning{
+    &.warning {
       color: var(--warning);
     }
   }
 }
 
-.progress-meter{
+.progress-meter {
   background-color: var(--primary);
 }
 
 // Overwrite Foundation hover styles in hollow disabled buttons
 .button.hollow:disabled:hover,
-.button.hollow.disabled:hover{
-  &.success{
+.button.hollow.disabled:hover {
+  &.success {
     border-color: var(--success);
     color: var(--success);
   }
 
-  &.alert{
+  &.alert {
     border-color: var(--alert);
     color: var(--alert);
   }
 
-  &.warning{
+  &.warning {
     border-color: var(--warning);
     color: var(--warning);
   }
 }
 
-.button.light:not(.hollow){
+.button.light:not(.hollow) {
   @include modifiers(
     color,
     (
       success: $white,
-      secondary: $white,
+      secondary: $white
     )
   );
 }
 
-.button.light.hollow{
+.button.light.hollow {
   border-color: $white;
   color: $white;
 }
 
 // Button groups
-.button-group--collapse{
+.button-group--collapse {
   text-align: left;
   margin-bottom: 0;
   display: flex;
 
-  > :last-child{
+  > :last-child {
     flex: 1;
   }
 
   > :first-child,
-  > :first-child *{
+  > :first-child * {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
   }
 
   > :last-child,
-  > :last-child *{
+  > :last-child * {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
   }
 
   > :not(:first-child):not(:last-child),
-  > :not(:first-child):not(:last-child) *{
+  > :not(:first-child):not(:last-child) * {
     border-radius: 0;
   }
 
-  &.no-gaps{
-    .button{
+  &.no-gaps {
+    .button {
       margin-right: 0;
     }
   }
 }
 
 // buttons layout
-.buttons__row{
-  @include flexgap(.5rem);
+.buttons__row {
+  @include flexgap(0.5rem);
 }
 
-.buttons__column{
-  @include flexgap(.5rem, column);
+.buttons__column {
+  @include flexgap(0.5rem, column);
 }
 
 /* Extra buttons styles */
 
-.button--shadow{
+.button--shadow {
   $shadows: (
     primary: shade($primary, 50%),
     secondary: shade($secondary, 50%),
     success: shade($success, 50%),
     warning: shade($warning, 50%),
     alert: shade($alert, 50%),
-    muted: shade($muted, 50%),
+    muted: shade($muted, 50%)
   );
 
-  @include modifiers(background-color, $shadows){
+  @include modifiers(background-color, $shadows) {
     color: $white;
   }
 }
 
-.button--icon{
+.button--icon {
   display: flex;
   align-items: center;
   position: relative;
 
-  .icon-wrap{
+  .icon-wrap {
     position: absolute;
     left: 0;
     top: 0;
-    padding: .85em;
+    padding: 0.85em;
     border-right: 1px solid $white;
     height: 100%;
     min-width: 3.5em;
     white-space: no-wrap;
     padding-right: 5px;
 
-    .icon{
+    .icon {
       margin: 0;
       vertical-align: bottom;
     }
   }
 
-  .text-wrap{
+  .text-wrap {
     display: block;
     margin-left: 2rem;
   }
 
-  .icon{
+  .icon {
     margin: 0 2px;
   }
 
-  &.hollow{
-    .icon-wrap{
+  &.hollow {
+    .icon-wrap {
       border-right: 1px solid var(--primary);
     }
 
-    &.secondary{
-      .icon-wrap{
+    &.secondary {
+      .icon-wrap {
         border-right: 1px solid var(--secondary);
       }
     }
   }
 
-  &.small{
-    .icon-wrap{
-      padding: .5rem;
+  &.small {
+    .icon-wrap {
+      padding: 0.5rem;
       min-width: 2.5rem;
     }
 
-    .icon{
+    .icon {
       width: 12px;
       height: 12px;
     }
   }
 }
 
-.button--nomargin{
+.button--nomargin {
   margin: 0;
 }
 
-.button--frosted{
-  background-color: rgba($white, .65);
+.button--frosted {
+  background-color: rgba($white, 0.65);
   color: var(--primary);
 }
 
-.button--muted{
+.button--muted {
   background-color: $muted;
 
-  &:hover{
+  &:hover {
     background-color: var(--primary);
   }
 
-  &.hollow{
+  &.hollow {
     border-color: $muted;
   }
 }
 
-.button--sc{
-  letter-spacing: .05em;
+.button--sc {
+  letter-spacing: 0.05em;
   font-weight: 600;
   text-transform: uppercase;
 
-  &.hollow{
-    letter-spacing: .01em;
+  &.hollow {
+    letter-spacing: 0.01em;
   }
 
-  &.large{
+  &.large {
     font-size: 1rem;
   }
 }
 
-.button__info{
+.button__info {
   text-transform: none;
   font-weight: normal;
   font-size: 80%;
-  margin-top: .25rem;
+  margin-top: 0.25rem;
   display: block;
 }
 
-.link{
+.link {
   cursor: pointer;
   color: var(--secondary);
   font-weight: $anchor-font-weight;
 
-  &:hover{
+  &:hover {
     color: $anchor-color-hover;
     text-decoration: underline;
     text-decoration-skip-ink: auto;
   }
 }
 
-.link-alt{
+.link-alt {
   cursor: pointer;
   color: $anchor-color;
   font-weight: $anchor-font-weight;
 
-  &:hover{
+  &:hover {
     color: $anchor-color-hover;
     text-decoration: underline;
     text-decoration-skip-ink: auto;
   }
 }
 
-.muted-link{
+.muted-link {
   font-weight: 600;
   color: $muted;
 
-  &:hover{
+  &:hover {
     color: $anchor-color;
     text-decoration: underline;
   }
 }
 
-.show-more{
+.show-more {
   text-align: center;
   margin-bottom: $margin-s;
 }
 
 /* Social buttons */
 
-.button--social{
+.button--social {
   position: relative;
   padding: 0 1.5rem 0 0;
   text-align: left;
   display: block;
   min-width: 250px;
 
-  &::after{
+  &::after {
     content: "";
     clear: both;
   }
 }
 
 .button--social__icon,
-.button--social__text{
+.button--social__text {
   display: block;
-  padding: .85em 1rem;
+  padding: 0.85em 1rem;
 }
 
-.button--social__icon{
+.button--social__icon {
   display: block;
   position: absolute;
   top: 0;
   bottom: 0;
   vertical-align: middle;
-  padding: .85em 1rem;
-  border-right: 1px solid rgba(black, .075);
-  margin-right: .5rem;
+  padding: 0.85em 1rem;
+  border-right: 1px solid rgba(black, 0.075);
+  margin-right: 0.5rem;
   min-width: 3rem;
   text-align: center;
 }
 
-.button--social__text{
+.button--social__text {
   margin-left: 3rem;
 }
 
-.button--social--mini{
+.button--social--mini {
   padding: 0;
   min-width: 0;
 
-  .button--social__icon{
+  .button--social__icon {
     border: 0;
-    padding: .85em 0;
+    padding: 0.85em 0;
     margin-right: 0;
   }
 }
 
-.button--twitter{
+.button--twitter {
   background-color: var(--twitter);
 
-  &:hover{
+  &:hover {
     background-color: var(--twitter);
     filter: brightness(90%);
   }
 }
 
-.button--facebook{
+.button--facebook {
   background-color: var(--facebook);
 
-  &:hover{
+  &:hover {
     background-color: var(--facebook);
     filter: brightness(90%);
   }
 }
 
-.button--google{
+.button--google {
   background-color: var(--google);
   font-family: Roboto;
 
-  &:hover{
+  &:hover {
     background-color: var(--google);
     filter: brightness(90%);
   }
 
-  .button--social__icon{
+  .button--social__icon {
     padding: 0;
 
-    svg.icon{
+    svg.icon {
       fill: inherit;
       width: inherit;
       height: inherit;
@@ -496,15 +500,15 @@
       /*
        * This is a hack to comply with google guidelines
        * https://developers.google.com/identity/branding-guidelines
-       * Currently the icons.svg file have the wrong google icon, until that's fixed
+       * Currently the icons.svg file have the wrong google icon, until that is fixed
        * google icon can be specified in secrets.yml with icon_path: decidim/brands/google.svg
        * however to facilitate upgrades this provides a fallback
        */
       max-width: 42px;
       max-height: 42px;
 
-      &.icon--google{
-        > use{
+      &.icon--google {
+        > use {
           display: none;
         }
 
@@ -513,13 +517,13 @@
     }
   }
 
-  &.button--social--mini{
-    .button--social__icon{
+  &.button--social--mini {
+    .button--social__icon {
       font-size: 0;
       min-width: auto;
       padding: 0;
 
-      svg.icon{
+      svg.icon {
         margin: 1px;
       }
     }

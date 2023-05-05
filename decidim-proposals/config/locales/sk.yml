@@ -29,7 +29,6 @@ sk:
         cost_report: Výkazy nákladov
         execution_period: Časový rámec realizácie
       proposals_copy:
-        copy_proposals: Rozumiem, že toto importuje všetky návrhy z vybranej súčasti do aktuálnej, a že táto akcia nemôže byť vrátená.
         origin_component_id: Súčasť, z ktorej sa skopírujú návrhy
       proposals_import:
         import_proposals: Importovať návrhy
@@ -174,12 +173,10 @@ sk:
           email_intro: 'Teraz môžete vytvoriť nové návrhy v %{participatory_space_title}! Zúčastnite sa na tejto stránke: '
           email_outro: Toto oznámenie ste dostali, pretože sledujete %{participatory_space_title}. Notifikácie môžete zrušiť po kliknutí na predchádzajúci odkaz.
           email_subject: Návrhy sú teraz k dispozícii v %{participatory_space_title}
-          notification_title: Teraz môžete predložiť <a href="%{resource_path}"> nových návrhov </a> v <a href="%{participatory_space_url}">%{participatory_space_title} </a>
         endorsing_enabled:
           email_intro: 'Môžete schváliť návrhy v %{participatory_space_title}! Zúčastnite sa na tejto stránke: '
           email_outro: Toto oznámenie ste dostali, pretože sledujete %{participatory_space_title}. Notifikácie môžete zrušiť po kliknutí na predchádzajúci odkaz.
           email_subject: Schválenie návrhov sa začalo po dobu%{participatory_space_title}
-          notification_title: Teraz môžete začať <a href="%{resource_path}"> schválení návrhov </a> v <a href="%{participatory_space_url}">%{participatory_space_title} </a>
         proposal_accepted:
           affected_user:
             email_intro: 'Váš návrh "%{resource_title}" bol prijatý. Odpoveď môžete čítať na tejto stránke: '
@@ -189,7 +186,6 @@ sk:
           follower:
             email_intro: 'Návrh "%{resource_title}" bol prijatý. Odpoveď môžete čítať na tejto stránke: '
             email_outro: Toto oznámenie ste dostali, pretože sledujete "%{resource_title}". Môžete ho odhlásiť od predchádzajúceho odkazu.
-            email_subject: Návrh, ktorý sledujete, bol prijatý
             notification_title: Návrh <a href="%{resource_path}">%{resource_title} </a> bol prijatý.
         proposal_evaluating:
           affected_user:
@@ -200,7 +196,6 @@ sk:
           follower:
             email_intro: 'V súčasnej dobe sa hodnotí návrh "%{resource_title}". V tejto stránke môžete skontrolovať odpoveď: '
             email_outro: Toto oznámenie ste dostali, pretože sledujete "%{resource_title}". Môžete ho odhlásiť od predchádzajúceho odkazu.
-            email_subject: Návrh, ktorý sledujete, sa hodnotí
             notification_title: Návrh <a href="%{resource_path}">%{resource_title} </a> sa hodnotí.
         proposal_mentioned:
           email_intro: Váš návrh %{mentioned_proposal_title} bol zmienený v komentároch v <a href="%{resource_url}">tomto priestore</a>.
@@ -224,7 +219,6 @@ sk:
           follower:
             email_intro: 'Návrh "%{resource_title}" bol zamietnutý. Odpoveď môžete čítať na tejto stránke: '
             email_outro: Toto oznámenie ste dostali, pretože sledujete "%{resource_title}". Môžete ho odhlásiť od predchádzajúceho odkazu.
-            email_subject: Návrh, ktorý sledujete, bol zamietnutý
             notification_title: Návrh <a href="%{resource_path}">%{resource_title} </a> bol zamietnutý.
         proposal_update_category:
           email_intro: 'Správca aktualizoval kategórii vášho návrhu "%{resource_title}", pozrite sa na neho:'
@@ -263,7 +257,6 @@ sk:
           description_own: Podporili ste %{score} návrhov.
           name: Podpora návrhu
           next_level_in: Podporte o %{score} návrhov viac pre dosiahnutie ďalšej úrovne!
-          unearned_another: Tento účastník zatiaľ nepodporil žiadne návrhy.
           unearned_own: Zatiaľ ste nepodporili žiadne návrhy.
         proposals:
           conditions:
@@ -274,7 +267,6 @@ sk:
           description_own: Vytvorili ste %{score} návrhov.
           name: Návrhy
           next_level_in: Vytvorte o %{score} návrhov viac pre dosiahnutie ďalšej úrovne!
-          unearned_another: Tento účastník nevytvoril žiadny návrh.
           unearned_own: Zatiaľ ste nevytvorili žiadny návrh.
     metrics:
       accepted_proposals:
@@ -335,9 +327,6 @@ sk:
             bottom_hint: "(Budete mať možnosť zobraziť a triediť sekcie dokumentov)"
             title: PRIDAŤ DOKUMENT
             upload_document: Nahrať dokument
-          publish:
-            invalid: Nemožno publikovať návrhy
-            success: Všetky návrhy boli zverejnené
           sections:
             article: "<em>Článok</em>"
             section: "<em> Sekcia: </ em> <strong>%{title} </strong>"
@@ -352,21 +341,12 @@ sk:
             rejected: Odmietnuté
             title: Odpoveď na návrh%{title}
         proposal_notes:
-          create:
-            error: Pri vytváraní tohto návrhu nebol problém
-            success: Návrhová poznámka bola úspešne vytvorená
           form:
             note: Poznámka
             submit: Predložiť
           leave_your_note: Nechajte svoju poznámku
           title: Súkromné ​​poznámky
         proposals:
-          answer:
-            invalid: Pri riešení tohto problému došlo k problému
-            success: Návrh úspešne odpovedal
-          create:
-            invalid: Pri vytváraní tohto návrhu došlo k problému
-            success: Návrh bol úspešne vytvorený
           edit:
             title: Návrh aktualizácie
             update: Aktualizácia
@@ -400,7 +380,6 @@ sk:
             title: Vytvorte návrh
           publish_answers:
             number_of_proposals: Odpovede pre %{number} návrhov budú zverejnené.
-            select_a_proposal: Vyberte návrh
           show:
             amendments_count: Počet zmien
             assigned_valuators: Priradení hodnotitelia
@@ -432,18 +411,11 @@ sk:
             votes_ranking: Umiestnenie podľa hlasov
           update_category:
             invalid: 'Tieto návrhy už majú kategóriu %{subject_name}: %{proposals}.'
-            select_a_category: Vyberte kategóriu
-            select_a_proposal: Vyberte návrh
             success: 'Návrhy úspešne pridané do kategórie %{subject_name}: %{proposals}.'
           update_scope:
             invalid: 'Tieto návrhy už mali %{subject_name} rozsah: %{proposals}.'
-            select_a_proposal: Vyberte návrh
-            select_a_scope: Prosím, zvoľte rozsah
             success: 'Návrhy úspešne pridané do kategórie %{subject_name}: %{proposals}.'
         proposals_imports:
-          create:
-            invalid: Pri importe návrhov došlo k problému
-            success: "%{number} návrhov bolo úspešne dovezené"
           new:
             create: Návrhy na dovoz
             no_components: V tomto účastníckom priestore neexistujú žiadne iné komponenty návrhu, ktoré by mohli importovať návrhy.
@@ -455,13 +427,6 @@ sk:
         proposals_splits:
           create:
             success: Úspešne rozdelil návrhy na nové.
-        valuation_assignments:
-          create:
-            invalid: Pri udeľovaní návrhov ku hodnotiteľovi nastala chyba
-            success: Návrhy úspešne pridelené hodnotiteľovi
-          delete:
-            invalid: Pri rušení pridelených návrhov ku hodnotiteľovi nastala chyba
-            success: Návrhy úspešne odobrané hodnotiteľovi
       admin_log:
         proposal:
           answer: "%{user_name} odpovedalo na %{resource_name} návrh na priestore %{space_name}"
@@ -504,7 +469,6 @@ sk:
           publish:
             error: Pri publikovaní konceptu spolupráce došlo k chybám.
             irreversible_action_modal:
-              body: Po zverejnení návrhu ako návrhu návrh už nebude upraviteľný. Návrh neprijme nové autorov ani príspevky.
               cancel: zrušenie
               ok: Publikovať ako návrh
               title: Nasledujúci akcia je nevratná
@@ -513,7 +477,6 @@ sk:
           withdraw:
             error: Došlo k chybe pri uzatvorení návrhu spolupráce.
             irreversible_action_modal:
-              body: Po uzavretí konceptu už návrh nebude upraviteľný. Návrh neprijme nové autorov alebo príspevky.
               cancel: zrušenie
               ok: Vyberte návrh spolupráca
               title: Nasledujúci akcia je nevratná
@@ -560,17 +523,14 @@ sk:
         requests:
           accepted_request:
             error: Nemožno prijať ako spolupracovník, skúste to znova neskôr.
-            success: "@%{user} bol úspešne prijatý ako spolupracovník"
           access_requested:
             error: Vaša žiadosť nebola dokončená, skúste to znova neskôr.
-            success: Vaša žiadosť o spolupráci bola úspešne odoslaná
           collaboration_requests:
             accept_request: Akceptovať
             reject_request: Odmietnuť
             title: Žiadosti o spolupráci
           rejected_request:
             error: Nemohol byť odmietnutý ako spolupracovník, skúste to znova neskôr.
-            success: "@%{user} bol úspešne odmietnutý ako spolupracovník"
         show:
           back: Zadná
           edit: Úprava konceptu spolupráce
@@ -581,7 +541,6 @@ sk:
             few: a%{count} ďalších ľudí
             many: a%{count} ďalších ľudí
             other: a%{count} ďalších ľudí
-          info-message: Jedná sa o <strong> kolaboratívne návrh </strong> k návrhu. To znamená, že môžete pomôcť ich autorom formovať návrh pomocou nižšie uvedené poznámky alebo je vylepšiť priamo tým, že požiadate o prístup k jeho úpravám. Akonáhle vám autori udelí prístup, budete môcť tento návrh uskutočniť.
           publish: Publikovať
           publish_info: Publikujte túto verziu konceptu alebo
           published_proposal: zverejnený návrh
@@ -627,8 +586,6 @@ sk:
             valuator: Hodnotiteľ
             valuators: Hodnotitelia
             votes: Hlasy
-      new:
-        limit_reached: Nie je možné vytvoriť nové návrhy, pretože ste prekročili limit.
       participatory_text_proposal:
         alternative_title: Momentálne nie sú k dispozícii žiadne príspevky
         buttons:
@@ -769,12 +726,9 @@ sk:
             description: Každý návrh môže akumulovať viac ako%{limit} pomoci
           minimum_votes_per_user:
             description: Musíte rozdeliť minimálne %{votes} hlasov medzi rôzne návrhy.
-            given_enough_votes: Dali ste dostatok podpory.
             supports_remaining: Musíte hlasovať o ďalších %{remaining_votes} návrhoch, aby sa vaše hlasy zohľadnili.
           proposal_limit:
             description: Môžete vytvoriť až %{limit} návrhov.
-          threshold_per_proposal:
-            description: Aby bolo možné overiť návrhy, je potrebné dosiahnuť %{limit} podpory
           title: 'Hlasovanie podlieha týmto pravidlám:'
           vote_limit:
             description: Môžete hlasovať až pre %{limit} návrhov.
@@ -794,7 +748,6 @@ sk:
         choose_proposals: Zvoliť návrhy
         close: Zavrieť
         more_proposals: Celkovo je tu o %{number} návrhov viac. Hľadajte s podrobnejšími nastaveniami.
-        no_proposals: Žiadne návrhy nezodpovedajú vašim kritériám vyhľadávania alebo nie sú žiadne plánované.
       publish:
         error: Pri publikovaní návrhu došlo k chybám.
         success: Návrh bol úspešne publikovaný.
@@ -813,9 +766,6 @@ sk:
           title: Verze
         proposals:
           back_to_resource: Vraťte se k návrhu
-      withdraw:
-        errors:
-          has_supports: Tento návrh nelze stáhnout, protože již má podporu.
     resource_links:
       copied_from_component:
         proposal_proposal: Související návrhy

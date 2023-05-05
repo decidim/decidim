@@ -21,7 +21,7 @@
     "axios": "^0.21.4",
     "bootstrap-tagsinput": "^0.7.1",
     "classnames": "^2.2.5",
-    "d3": "5.4.0",
+    "d3": "7.8.4",
     "dayjs": "^1.11.0",
     "diff": "^5.0.0",
     "drag-on-drop": "^3.6.1",

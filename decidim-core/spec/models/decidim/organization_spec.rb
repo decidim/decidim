@@ -85,7 +85,7 @@ module Decidim
         end
       end
 
-      context "when it's overriden" do
+      context "when it is overriden" do
         let(:organization) { create(:organization) }
         let(:omniauth_settings) do
           {

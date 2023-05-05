@@ -12,7 +12,8 @@ on:
 env:
   CI: "true"
   RUBY_VERSION: 3.1.1
-  NODE_VERSION: 16.9.1
+  NODE_VERSION: 16.13.0
+  WEBPACKER_RUNTIME_COMPILE: "false"
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
@@ -21,23 +22,23 @@ concurrency:
 jobs:
   main:
     name: Tests
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     timeout-minutes: 60
     steps:
-      - uses: actions/checkout@v2.0.0
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 1
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ env.RUBY_VERSION }}
           bundler-cache: true
-      - uses: actions/setup-node@v1
+      - uses: actions/setup-node@v3
         with:
           node-version: ${{ env.NODE_VERSION }}
       - name: Get npm cache directory path
         id: npm-cache-dir-path
-        run: echo "::set-output name=dir::$(npm get cache)-main"
-      - uses: actions/cache@v2
+        run: echo "dir=$(npm get cache)-main" >> $GITHUB_OUTPUT
+      - uses: actions/cache@v3
         id: npm-cache
         with:
           path: ${{ steps.npm-cache-dir-path.outputs.dir }}

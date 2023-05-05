@@ -36,7 +36,7 @@ module Decidim
               expect { command.call }.to broadcast(:invalid)
             end
 
-            it "doesn't destroy the assignments" do
+            it "does not destroy the assignments" do
               expect do
                 command.call
               end.not_to change(ValuationAssignment, :count)

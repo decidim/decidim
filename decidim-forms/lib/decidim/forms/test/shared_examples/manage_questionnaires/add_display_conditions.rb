@@ -20,12 +20,12 @@ shared_examples_for "add display conditions" do
         visit_questionnaire_edit_path_and_expand_all
       end
 
-      it "doesn't display an add display condition button" do
+      it "does not display an add display condition button" do
         expect(page).to have_no_button("Add display condition")
       end
 
       context "when creating a new question" do
-        it "disables the add display condition button if the question hasn't been saved" do
+        it "disables the add display condition button if the question has not been saved" do
           within "form.edit_questionnaire" do
             click_button "Add question"
             expand_all_questions

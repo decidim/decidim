@@ -9,13 +9,14 @@ describe "Participatory Processes", type: :system do
   let(:show_statistics) { true }
   let(:hashtag) { true }
   let(:base_description) { { en: "Description", ca: "Descripció", es: "Descripción" } }
+  let(:short_description) { { en: "Short description", ca: "Descripció curta", es: "Descripción corta" } }
   let(:base_process) do
     create(
       :participatory_process,
       :active,
       organization:,
       description: base_description,
-      short_description: { en: "Short description", ca: "Descripció curta", es: "Descripción corta" },
+      short_description:,
       show_metrics:,
       show_statistics:
     )
@@ -452,7 +453,7 @@ describe "Participatory Processes", type: :system do
             end
           end
 
-          context "and the process doesn't have hashtag" do
+          context "and the process does not have hashtag" do
             let(:hashtag) { false }
 
             it "the hashtags for those components are not visible" do
@@ -485,6 +486,7 @@ describe "Participatory Processes", type: :system do
         end
 
         it_behaves_like "has embedded video in description", :base_description
+        it_behaves_like "has embedded video in description", :short_description
       end
     end
   end
