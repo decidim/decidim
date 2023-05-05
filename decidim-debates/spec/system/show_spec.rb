@@ -46,13 +46,13 @@ describe "show", type: :system do
     context "when the field is information_updates" do
       let(:information_updates) { { en: %(Description <iframe class="ql-video" allowfullscreen="true" src="#{iframe_src}" frameborder="0"></iframe>) } }
 
-      it { expect(page).not_to have_selector("iframe") }
+      it { expect(page).to have_selector("iframe") }
     end
 
     context "when the field is instructions" do
       let(:instructions) { { en: %(Description <iframe class="ql-video" allowfullscreen="true" src="#{iframe_src}" frameborder="0"></iframe>) } }
 
-      it { expect(page).not_to have_selector("iframe") }
+      it { expect(page).to have_selector("iframe") }
     end
   end
 
