@@ -10,7 +10,7 @@
   <p><%= t "questions.vote_modal.contextual_help", scope: "decidim" %></p>
   <div class="card card--secondary">
     <div class="card__content">
-      <h4 class="heading5 text-center"><%= translated_attribute(question.title).html_safe %></h4>
+      <h4 class="heading5 text-center"><%= decidim_sanitize translated_attribute(question.title), scrubber: Decidim::Consultations::QuestionTitleScrubber.new %></h4>
     </div>
   </div>
 

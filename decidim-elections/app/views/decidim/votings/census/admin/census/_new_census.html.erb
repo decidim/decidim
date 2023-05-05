@@ -6,11 +6,11 @@
     <div class="card-section">
       <h4><%= t("title", scope: "decidim.votings.census.admin.census.new") %></h4>
 
-      <%= render "upload_info", ballot_style_code_header: ballot_style_code_header %>
+      <%= render "upload_info", ballot_style_code_header: %>
 
       <%= decidim_form_for(@form, url: admin_voting_census_path,
-                            method: :post,
-                            html: { class: "form new_census" }) do |form| %>
+                                  method: :post,
+                                  html: { class: "form new_census" }) do |form| %>
         <div class="field">
           <%= form.upload :file, required: true, help_i18n_scope: "decidim.votings.census.admin.census.new.file_help" %>
         </div>

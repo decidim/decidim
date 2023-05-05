@@ -39,6 +39,7 @@ de:
         body: Haupttext
         subject: Betreff
       organization:
+        admin_terms_of_service_body: Inhalt für die Admin-Nutzungsbedingungen
         alert_color: Benachrichtigung
         available_authorizations: Verfügbare Autorisierungen
         badges_enabled: Abzeichen aktivieren
@@ -143,6 +144,14 @@ de:
               allowed_file_content_types: Ungültige Bilddatei
             official_img_header:
               allowed_file_content_types: Ungültige Bilddatei
+        participatory_space_private_user_csv_import:
+          attributes:
+            file:
+              malformed: Fehlerhafte Importdatei. Bitte lesen Sie die Anweisungen sorgfältig durch und stellen Sie sicher, dass die Datei UTF-8 kodiert ist.
+        user_group_csv_verification:
+          attributes:
+            file:
+              malformed: Fehlerhafte Importdatei. Bitte lesen Sie die Anweisungen sorgfältig durch und stellen Sie sicher, dass die Datei UTF-8 kodiert ist.
       new_import:
         attributes:
           file:
@@ -168,6 +177,8 @@ de:
         add: Hinzufügen
         attachment:
           new: Neuer Anhang
+        attachment_collection:
+          new: Neuer Ordner für Dateianhänge
         browse: Durchsuchen
         category:
           new: Neue Kategorie
@@ -187,6 +198,20 @@ de:
         user:
           new: Neuer Administrator
         verify: Überprüfen
+      admin_terms_of_service:
+        accept:
+          error: Beim Akzeptieren der Admin-Nutzungsbedingungen ist ein Fehler aufgetreten.
+          success: Super! Sie haben die Admin-Nutzungsbedingungen akzeptiert.
+        actions:
+          accept: Ich stimme diesen Bedingungen zu
+          are_you_sure: Sind Sie sicher, dass Sie die Admin-Nutzungsbedingungen ablehnen möchten?
+          refuse: Admin-Nutzungsbedingungen ablehnen
+          title: Nutzungsbedingungen zustimmen
+        required_review:
+          alert: 'Erforderlich: Überprüfen Sie unsere Admin-Nutzungsbedingungen'
+          callout: Bitte nehmen Sie sich einen Moment Zeit, um die Admin-Nutzungsbedingungen zu lesen. Ansonsten können Sie die Plattform nicht verwalten.
+          cta: Jetzt überprüfen.
+        title: Admin-Nutzungsbedingungen
       area_types:
         create:
           error: Beim Erstellen eines neuen Bereichstyps ist ein Fehler aufgetreten.
@@ -262,6 +287,7 @@ de:
       block_user:
         new:
           action: Konto sperren und Begründung senden
+          already_reported_html: Wenn Sie diese Aktion fortsetzen, werden Sie auch alle Inhalte der Teilnehmenden ausblenden. <a href="%{link}"> Konto blockieren</a>.
           description: Das Blockieren eines Benutzers wird sein Konto unbrauchbar machen. Sie können begründen und Richtlinien dafür bieten, wie der Benutzer vorgehen könnte, damit Sie in Betracht ziehen, die Blockierung wieder aufzuheben.
           justification: Begründung
           title: Benutzer %{name} blockieren

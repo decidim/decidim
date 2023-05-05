@@ -17,7 +17,6 @@ module Decidim
       # sometimes markdown documents are classified as text/plain
       TEXT_PLAIN_MIME_TYPE = "text/plain"
       ODT_MIME_TYPE = "application/vnd.oasis.opendocument.text"
-      DOCX_MIME_TYPE = "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
 
       # Accepted mime types
       # keys: are used for dynamic help text on admin form.
@@ -36,9 +35,6 @@ module Decidim
                        when ODT_MIME_TYPE
                          # convert libreoffice odt to markdown
                          OdtToMarkdown.new(doc)
-                       when DOCX_MIME_TYPE
-                         # convert word 2013 docx to markdown
-                         DocxToMarkdown.new(doc)
                        end
       end
 

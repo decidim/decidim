@@ -35,6 +35,16 @@ module Decidim::Admin
         expect(action_log.version).to be_present
         expect(action_log.version.event).to eq "destroy"
       end
+
+      it "fires an event" do
+        expect(ActiveSupport::Notifications).to receive(:publish).with(
+          "decidim.system.participatory_space.admin.destroyed",
+          role.class.name,
+          role.id
+        )
+
+        subject.call
+      end
     end
 
     context "when the role is a participatory space admin" do

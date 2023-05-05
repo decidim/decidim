@@ -362,6 +362,10 @@ en:
         actions:
           comment: Comment
           vote: Vote
+      question:
+        actions:
+          comment: Comment
+          vote: Vote
     statistics:
       consultations_count: Consultations
       votes_count: Votes

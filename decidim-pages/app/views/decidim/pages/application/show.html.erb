@@ -1,6 +1,6 @@
 <% add_decidim_meta_tags({
-  description: translated_attribute(@page.body),
-}) %>
+                           description: translated_attribute(@page.body)
+                         }) %>
 
 <%= render layout:"layouts/decidim/shared/layout_center" do %>
   <div class="py-12 space-y-12">
@@ -14,7 +14,7 @@
     <%= render partial: "decidim/shared/component_announcement" %>
 
     <div class="editor-content">
-      <%= decidim_sanitize_editor translated_attribute(@page.body) %>
+      <%= decidim_sanitize_editor_admin translated_attribute(@page.body) %>
     </div>
   </div>
 <% end %>

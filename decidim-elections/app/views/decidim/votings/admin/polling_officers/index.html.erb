@@ -29,9 +29,9 @@
               </td>
               <td>
                 <% if polling_officer.presided_polling_station.present? %>
-                  <%= link_to "#{translated_attribute(polling_officer.presided_polling_station.title)} (#{t(".role_president") })", edit_voting_polling_station_path(current_voting, polling_officer.presided_polling_station) %>
+                  <%= link_to "#{translated_attribute(polling_officer.presided_polling_station.title)} (#{t(".role_president")})", edit_voting_polling_station_path(current_voting, polling_officer.presided_polling_station) %>
                 <% elsif polling_officer.managed_polling_station.present? %>
-                  <%= link_to "#{translated_attribute(polling_officer.managed_polling_station.title)} (#{t(".role_manager") })", edit_voting_polling_station_path(current_voting, polling_officer.managed_polling_station) %>
+                  <%= link_to "#{translated_attribute(polling_officer.managed_polling_station.title)} (#{t(".role_manager")})", edit_voting_polling_station_path(current_voting, polling_officer.managed_polling_station) %>
                 <% end %>
               </td>
               <td class="table-list__actions">

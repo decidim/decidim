@@ -8,7 +8,7 @@
       <div class="card">
         <div class="card__content">
           <%= decidim_form_for(@form, url: update_draft_amend_path(amendment), method: :patch) do |form| %>
-            <%= render partial: "edit_form_fields", locals: { form: form, original: :emendation } %>
+            <%= render partial: "edit_form_fields", locals: { form:, original: :emendation } %>
 
             <% if current_organization.user_groups_enabled? && current_user.user_groups.verified.any? %>
               <div class="field">
