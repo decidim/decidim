@@ -12,11 +12,7 @@
 
 <%= render "layouts/decidim/redesigned_application" do %>
   <%= render layout: "layouts/decidim/shared/layout_center" do %>
-    <% if wizard_steps.first == step %>
-      <%= yield %>
-    <% else %>
-      <%= render partial: "layouts/decidim/initiative_creation_header" %>
-      <%= yield %>
-    <% end %>
+    <%= render partial: "layouts/decidim/initiative_creation_header" %>
+    <%= yield %>
   <% end %>
 <% end %>
