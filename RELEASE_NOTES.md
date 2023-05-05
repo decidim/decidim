@@ -158,36 +158,10 @@ By default, the CSP is enabled, and is configured to be as restrictive as possib
 
 In order to customize the CSP we are providing, have 2 options, either by using a configuration key the initializer `config/initializers/decidim.rb` or by setting values in the Organization's system admin.
 
-Using the initializer is the recommended way to customize the CSP when you have multiple organizations sharing the same Decidim instance, sharing the same tools. Fox example, if you are using a custom map provider, you will need to add the domain to the CSP, so that the map can be displayed. In this case, you will need to add the following to your initializer:
+Please read more in the docs:
 
-```ruby
-config.additional_content_security_policies = {
-  "connect-src" => %w(https://*.mycustommapprovider.com),
-  "img-src" => %w(https://*.mycustommapprovider.com)
-}
-```
-
-For specific organization setup, you could use the system panel to customize the Content Security Policies, by adding the domains or directives that you need to allow in the predesignated spots.
-
-Sometimes, there may be typos in your customization, and your rules will not be applied, if the directive is not in the allowed list of directives. Do not worry, if we encounter a directive that is not in the allowed list, we will log a warning to application console, and we will not apply the directive.
-
-You can check the [Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) documentation for more information.
-
-#### Note for developers
-
-When developing custom modules, you may need to relax the CSP in order to be able to use a custom domain to load various things. In that case, you could build up your module so that would use a custom before action, that would relax the CSP for the specific request. For example:
-
-```ruby
-before_action :append_csp_directives
-
-# your controller actions here
-
-private
-
-def append_csp_directives
-  content_security_policy.append_csp_directive("frame-src", "https://mycustomdomain.com")
-end
-```
+- [Customize Content Security Policy](https://docs.decidim.org/develop/en/customize/content_security_policy)
+- [Using Content Security Policy initializer](https://docs.decidim.org/en/develop/configure/initializer#_content_security_policy)
 
 You can check more about the implementation in the [\#10700](https://github.com/decidim/decidim/pull/10700) pull request.
 
