@@ -1,6 +1,8 @@
 <% announcement_body = capture do %>
-  <%= t("fill_data_help", scope: "decidim.initiatives.create_initiative.fill_data") %>
-  <%= link_to t(".more_information"), decidim.page_path("initiatives"), target: "_blank", class: "button button__sm button__text-secondary block text-left" %>
+  <div class="max-w-full prose">
+    <%= t("fill_data_help", scope: "decidim.initiatives.create_initiative.fill_data").html_safe %>
+    <%= link_to t(".more_information"), decidim.page_path("initiatives"), target: "_blank", class: "button button__sm button__text-secondary block text-left" %>
+  </div>
 <% end %>
 
 <%= cell("decidim/announcement", { body: announcement_body }, callout_class: "secondary") %>
