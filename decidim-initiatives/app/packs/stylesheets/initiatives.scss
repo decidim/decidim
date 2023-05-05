@@ -79,6 +79,16 @@
     &-location{
       @apply text-lg;
     }
+
+    .initiatives__card__grid-metadata-dates{
+      svg{
+        @apply fill-white;
+      }
+
+      span{
+        @apply text-white;
+      }
+    }
   }
 
   &__form__committee{
