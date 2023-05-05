@@ -33,7 +33,10 @@
           <% end %>
 
           <% if question.results.blank_answers.any? %>
-            <%= render view: :blank_votes, locals: { question: } %>
+            <div>
+              <p><%= t("decidim.elections.votes.new.nota_option") %></p>
+              <%= render view: :progress_bar, locals: { results_percentage: question.blank_votes_percentage, results_total:.blank_votes } %>
+            </div>
           <% end %>
         </div>
       </li>
