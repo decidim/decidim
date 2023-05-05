@@ -46,25 +46,27 @@ edit_link(
       <%= render partial: "progress_bar" %>
     </div>
 
-    <div class="initiative__aside__element__signature">
-      <span class="initiative__aside__element__signature-title">
-        <%= t("signature_collection", scope: "decidim.initiatives.initiatives.show") %>
-      </span>
-      <div>
-        <% if current_initiative.offline_signature_type? %>
-          <%= icon "community-line", class: "fill-gray inline-block" %>
-          <span class="text-md font-normal text-gray-2 inline-block align-middle ml–2">
-            <%= t("offline", scope: "activemodel.attributes.initiative.signature_type_values") %>
-          </span>
-        <% end %>
-        <% if current_initiative.online_signature_type? %>
-          <%= icon "device-line", class: "fill-gray inline-block" %>
-          <span class="text-md font-normal text-gray-2 inline-block align-middle ml–2">
-            <%= t("online", scope: "activemodel.attributes.initiative.signature_type_values") %>
-          </span>
-        <% end %>
+    <% if current_initiative.offline_signature_type? || current_initiative.online_signature_type? %>
+      <div class="initiative__aside__element__signature">
+        <span class="initiative__aside__element__signature-title">
+          <%= t("signature_collection", scope: "decidim.initiatives.initiatives.show") %>
+        </span>
+        <div>
+          <% if current_initiative.offline_signature_type? %>
+            <%= icon "community-line", class: "fill-gray inline-block" %>
+            <span class="text-md font-normal text-gray-2 inline-block align-middle ml–2">
+              <%= t("offline", scope: "activemodel.attributes.initiative.signature_type_values") %>
+            </span>
+          <% end %>
+          <% if current_initiative.online_signature_type? %>
+            <%= icon "device-line", class: "fill-gray inline-block" %>
+            <span class="text-md font-normal text-gray-2 inline-block align-middle ml–2">
+              <%= t("online", scope: "activemodel.attributes.initiative.signature_type_values") %>
+            </span>
+          <% end %>
+        </div>
       </div>
-    </div>
+    <% end %>
 
     <div class="initiative__aside__element__initiative__data">
       <div class="mb-6">
@@ -74,14 +76,16 @@ edit_link(
         </span>
       </div>
 
-      <div class="initiative__aside__element__data">
-        <p class="initiative__aside__element__data-title">
-          <%= t("state", scope: "decidim.initiatives.initiatives.show") %>
-        </p>
-        <span class="initiative__aside__element__data-text">
-          <%= render partial: "initiative_badge", locals: { initiative: current_initiative } %>
-        </span>
-      </div>
+      <% if current_initiative.rejected? || current_initiative.accepted? %>
+        <div class="initiative__aside__element__data">
+          <p class="initiative__aside__element__data-title">
+            <%= t("state", scope: "decidim.initiatives.initiatives.show") %>
+          </p>
+          <span class="initiative__aside__element__data-text">
+            <%= render partial: "initiative_badge", locals: { initiative: current_initiative } %>
+          </span>
+        </div>
+      <% end %>
 
       <div class="initiative__aside__element__data">
         <p class="initiative__aside__element__data-title">
