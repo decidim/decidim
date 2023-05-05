@@ -12,52 +12,62 @@ edit_link(
 )
 %>
 
-<%= render partial: "decidim/shared/component_announcement" %>
-
-<div class="row">
-  <div class="columns">
-
-    <% unless single? %>
-      <%= link_to :elections, class: "small hollow" do %>
-        <%= icon "caret-left", class: "icon--small" %>
-        <%= t(".back") %>
-      <% end %>
-    <% end %>
-
-    <h2 class="heading3">
-      <%== present(election).title %>
-    </h2>
-    <div class="card__callout">
-      <%= cell "decidim/elections/remaining_time_callout", election %>
-    </div>
-    <p>
-      <%= t(".voting_period_status.#{election.voting_period_status}",
-            start_time: "<strong>#{l election.start_time, format: :long}</strong>",
-            end_time: "<strong>#{l election.end_time, format: :long}</strong>").html_safe %>
-    </p>
-  </div>
-</div>
-<div class="row section">
-  <% if election.attachments.first.present? && election.attachments.first.image? %>
-    <div class="columns medium-4 mediumlarge-5">
-      <img src="<%= election.attachments.first.url %>" alt="">
-    </div>
-  <% end %>
-  <div class="columns medium-8 mediumlarge-7">
-    <div class="section">
-      <p><%= decidim_sanitize_editor_admin(translated_attribute(election.description)) %></p>
-
-      <%= cell("decidim/elections/election_vote_cta", election) %>
-
-      <%= link_to(t(".election_log"), election_log_election_path(election), class:"text-sm") %>
-    </div>
-  </div>
-</div>
-
-<% if onboarding %>
-  <%= render partial: "decidim/elections/votes/onboarding_modal" %>
+<% content_for :css_content do %>
+  <%= stylesheet_pack_tag "decidim_elections", media: "all" %>
 <% end %>
 
-<%= cell("decidim/elections/election_preview", election) %>
+<% content_for :js_content do %>
+  <%= javascript_pack_tag "decidim_elections" %>
+<% end %>
 
-<%= cell("decidim/elections/election_results", election) %>
+<% content_for :aside do %>
+  <%= cell("decidim/elections/election_vote_cta", election) %>
+  <%= link_to(t("election_log", scope: "decidim.elections.elections.show"), election_log_election_path(election)) %>
+<% end %>
+
+<%= render layout: "layouts/decidim/shared/layout_item", locals: { back_path: :elections } do %>
+
+  <div class="election__container">
+    <h1 class="h2 decorator"><%== present(election).title %></h1>
+
+    <%= cell "decidim/elections/remaining_time_callout", election %>
+
+    <%= cell("decidim/announcement", t("voting_period_status.#{election.voting_period_status}",
+              scope: "decidim.elections.elections.show",
+              start_time: "<strong>#{l election.start_time, format: :long}</strong>",
+              end_time: "<strong>#{l election.end_time, format: :long}</strong>").html_safe) %>
+
+    <div class="editor-content">
+      <%= decidim_sanitize_editor(simple_format(translated_attribute(election.description))) %>
+    </div>
+
+    <% if tabs.any? %>
+      <div class="mt-8" data-component="accordion" data-multiselectable="false" data-collapsible="false">
+        <ul class="tab-x-container">
+          <% tabs.each_with_index do |tab, i| %>
+            <li>
+              <button id="trigger-<%= tab[:id] %>" class="tab-x" data-controls="panel-<%= tab[:id] %>" data-open="<%= "true" if i == 0 %>">
+                <%= icon tab[:icon], class: "text-gray fill-current" %><%= tab[:text] %>
+              </button>
+            </li>
+          <% end %>
+        </ul>
+
+        <% panels.each do |panel| %>
+          <div id="panel-<%= panel[:id] %>" class="py-8">
+            <%= send(panel[:method], *panel[:args]) %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+
+    <% if onboarding %>
+      <%= render partial: "decidim/elections/votes/onboarding_modal" %>
+    <% end %>
+
+    <%= cell("decidim/elections/election_preview", election) %>
+
+    <%= cell("decidim/elections/election_results", election) %>
+  </div>
+
+<% end %>

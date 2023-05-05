@@ -8,8 +8,9 @@ module Decidim
       include Paginable
       include Decidim::Elections::Orderable
       include HasVoteFlow
+      include Decidim::IconHelper
 
-      helper_method :elections, :election, :paginated_elections, :scheduled_elections, :single?, :onboarding, :authority_public_key, :bulletin_board_server, :authority_slug
+      helper_method :elections, :election, :paginated_elections, :scheduled_elections, :single?, :onboarding, :authority_public_key, :bulletin_board_server, :authority_slug, :tabs, :panels
 
       def index
         redirect_to election_path(single, single: true) if single?
@@ -86,6 +87,27 @@ module Decidim
         else
           %w()
         end
+      end
+
+      def tabs
+        @tabs ||= items.map { |item| item.slice(:id, :text, :icon) }
+      end
+
+      def panels
+        @panels ||= items.map { |item| item.slice(:id, :method, :args) }
+      end
+
+      def items
+        @items ||= [
+          {
+            enabled: @election.photos.present?,
+            id: "images",
+            text: t("decidim.application.photos.photos"),
+            icon: resource_type_icon_key("images"),
+            method: :cell,
+            args: ["decidim/images_panel", @election]
+          },
+        ].select { |item| item[:enabled] }
       end
     end
   end

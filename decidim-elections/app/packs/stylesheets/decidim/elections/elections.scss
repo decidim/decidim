@@ -1,1 +1,47 @@
-// elections
+.election{
+  &__container{
+    @apply space-y-8;
+  }
+
+  &__section{
+    &-title{
+      @apply flex gap-1 items-center;
+
+      svg{
+        @apply w-6 h-6 text-tertiary fill-current;
+      }
+    }
+
+    &-desc{
+      @apply text-gray-2 my-6;
+    }
+  }
+
+  &__accordion{
+    @apply border-4 border-background rounded px-3 py-2;
+
+    &-trigger{
+      @apply flex justify-between items-center w-full font-bold text-secondary hover:underline focus:outline-none focus:underline;
+
+      > :last-child{
+        @apply flex-none;
+      }
+
+      svg{
+        @apply w-8 h-8 text-secondary fill-current first:block last:hidden;
+      }
+
+      &[role="button"][aria-expanded="true"] svg{
+        @apply first:hidden last:block;
+      }
+    }
+
+    &-panel{
+      @apply border-t border-gray-3 mt-4 pt-4 space-y-4;
+
+      ul{
+        @apply list-decimal p-4;
+      }
+    }
+  }
+}
