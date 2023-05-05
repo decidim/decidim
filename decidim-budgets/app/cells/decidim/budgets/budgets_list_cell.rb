@@ -16,6 +16,8 @@ module Decidim
         render
       end
 
+      def main_list = render
+
       private
 
       def highlighted?
