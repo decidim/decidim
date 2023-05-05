@@ -1,5 +1,4 @@
 import "src/decidim/elections/election_log";
-import "src/decidim/elections/onboarding";
 import "src/decidim/elections/trustee/key_ceremony";
 import "src/decidim/elections/trustee/tally";
 import "src/decidim/elections/trustee/trustee_zone";
