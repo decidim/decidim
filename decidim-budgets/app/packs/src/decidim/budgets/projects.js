@@ -1,7 +1,7 @@
 $(() => {
   const $projects = $("#projects, #project-item");
   const $budgetSummaryTotal = $(".budget-summary__progressbar-marks_right");
-  const selectBudgetSummaryTotal = $budgetSummaryTotal[0].dataset.totalAllocation;
+  const selectBudgetSummaryTotal = $budgetSummaryTotal.data("totalAllocation");
   const $budgetSummary = $(".budget-summary__progressbox");
   const $voteButton = $(".budget-vote-button");
   const totalAllocation = parseInt(selectBudgetSummaryTotal, 10);
