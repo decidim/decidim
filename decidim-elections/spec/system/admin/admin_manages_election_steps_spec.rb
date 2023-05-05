@@ -117,7 +117,7 @@ describe "Admin manages election steps", :slow, type: :system do
 
       visit_steps_page
       expect(page).to have_content("Key ceremony")
-      expect(page).not_to have_css(".loading-spinner") # It's not waiting for any trustee
+      expect(page).not_to have_css(".loading-spinner") # It is not waiting for any trustee
       expect(page).to have_css("svg.icon--task") # All the trustees are active
       expect(page).not_to have_link("Continue", class: "disabled")
       expect(page).to have_link("Continue")
@@ -310,6 +310,17 @@ describe "Admin manages election steps", :slow, type: :system do
 
     within find("tr", text: translated(election.title)) do
       page.find(".action-icon--manage-steps").click
+    end
+
+    # Ensure the correct page is loaded before proceeding further
+    if election.bb_status.nil?
+      within ".form.step.create_election .card .card-divider", match: :first do
+        expect(page).to have_css(".card-title", text: "Setup election")
+      end
+    else
+      within ".process-content .card .card-divider", match: :first do
+        expect(page).to have_css(".card-title", text: translated(election.title))
+      end
     end
   end
 end

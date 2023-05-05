@@ -135,7 +135,7 @@ describe "Polling Officer zone", type: :system do
         expect(page).to have_content("Vote recount - Sign closure")
 
         within ".form.sign_closure" do
-          check "I've reviewed this and is the same as the physical electoral closure certificate"
+          check "I have reviewed this and is the same as the physical electoral closure certificate"
           click_button "Sign the closure", wait: 2
           click_button "Ok, continue"
         end

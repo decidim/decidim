@@ -7,7 +7,7 @@ module Decidim
   # A concern with the features needed when you want a model to be searchable.
   #
   # A Searchable should include this concern and declare its `searchable_fields`.
-  # You'll also need to define it as `searchable` in its resource manifest,
+  # You will also need to define it as `searchable` in its resource manifest,
   # otherwise it will not appear as possible results.
   #
   # The indexing of Searchables is managed through:

@@ -22,8 +22,6 @@ lt:
             choices:
               missing: nepilnas - trūksta elementų
               too_many: per daug
-        questionnaire:
-          request_invalid: Tvarkant prašymą įvyko klaida. Bandykite dar kartą
   decidim:
     forms:
       admin:
@@ -126,9 +124,6 @@ lt:
       admin_log:
         questionnaire:
           update: "%{user_name} atnaujino %{resource_name} klausimyną"
-      errors:
-        answer:
-          body: Pagrindinė dalis negali būti tuščia
       images:
         dimensions: "%{width} x %{height} px"
         processors:

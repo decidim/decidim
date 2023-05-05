@@ -29,22 +29,22 @@ ro:
             name: Postează
         posts:
           create:
-            invalid: A apărut o eroare la crearea acestei postări
-            success: Postarea a fost creată cu succes
+            invalid: A apărut o eroare la crearea acestei postări.
+            success: Postarea a fost creată cu succes.
           destroy:
-            success: Postarea a fost ștearsă cu succes
+            success: Postarea a fost ștearsă cu succes.
           edit:
             save: Actualizează
             title: Editează postarea
           index:
-            not_published_yet: Nu a fost publicat încă
+            not_published_yet: Nu a fost publicat încă.
             title: Postări
           new:
             create: Creează
             title: Creează postare
           update:
             invalid: A apărut o eroare la salvarea postării.
-            success: Postarea a fost salvată cu succes
+            success: Postarea a fost salvată cu succes.
       admin_log:
         post:
           create: "%{user_name} a creat postarea de blog %{resource_name} în %{space_name}"

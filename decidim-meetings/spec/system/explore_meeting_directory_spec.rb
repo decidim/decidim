@@ -235,7 +235,7 @@ describe "Explore meeting directory", type: :system do
         end
 
         expect(page).to have_content(in_person_meeting.title["en"])
-        expect(page).to have_css("#meetings-count", text: "7 MEETINGS") # default meeting component it's with type "in-person"
+        expect(page).to have_css("#meetings-count", text: "7 MEETINGS") # default meeting component it is with type "in-person"
       end
     end
 

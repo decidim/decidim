@@ -1,59 +1,59 @@
-#dc-dialog-wrapper{
+#dc-dialog-wrapper {
   z-index: 1000000;
 
-  .dc-dialog{
+  .dc-dialog {
     position: fixed;
     background-color: $white;
     bottom: 0;
     width: 100%;
 
-    @include breakpoint(large){
+    @include breakpoint(large) {
       width: unset;
     }
 
-    .dc-button-wrapper{
+    .dc-button-wrapper {
       flex-direction: column;
       margin: 1rem 0;
 
-      > *{
+      > * {
         width: 100%;
-        margin: .5rem 0;
+        margin: 0.5rem 0;
       }
 
-      @include breakpoint(medium){
+      @include breakpoint(medium) {
         flex-direction: row;
 
-        > *{
+        > * {
           width: unset;
           margin: 0 1rem;
         }
       }
 
-      @include breakpoint(large){
+      @include breakpoint(large) {
         justify-content: flex-end;
       }
     }
   }
 }
 
-#dc-modal{
+#dc-modal {
   background-color: $white;
 
-  .category-wrapper{
+  .category-wrapper {
     background-color: $light-gray;
-    padding: .2rem;
+    padding: 0.2rem;
 
-    .category-row{
+    .category-row {
       position: relative;
       justify-content: space-between;
 
-      .dc-title{
-        &::before{
+      .dc-title {
+        &::before {
           border: solid #2d4156;
           border-width: 0 2px 2px 0;
-          padding: .2em;
+          padding: 0.2em;
           display: inline-block;
-          content: '';
+          content: "";
           margin-right: 15px;
           position: absolute;
           left: 1.2em;
@@ -61,39 +61,39 @@
           transform: translateY(-50%) rotate(45deg);
         }
 
-        &.open{
-          &::before{
+        &.open {
+          &::before {
             transform: translateY(-50%) rotate(225deg);
           }
         }
       }
 
-      .dc-switch{
-        padding: .5rem 0 0;
+      .dc-switch {
+        padding: 0.5rem 0 0;
       }
     }
 
-    .dataconsent-details-wrapper{
-      .detail-titles{
+    .dataconsent-details-wrapper {
+      .detail-titles {
         border-bottom: 1px solid $medium-gray;
 
-        > *{
+        > * {
           font-weight: 600;
         }
       }
 
-      .dataconsent-detail-row{
-        font-size: .6rem;
+      .dataconsent-detail-row {
+        font-size: 0.6rem;
       }
     }
   }
 
-  .dc-buttons-wrapper{
+  .dc-buttons-wrapper {
     justify-content: space-between;
   }
 }
 
-.disabled-iframe{
+.disabled-iframe {
   background-color: $light-gray;
   border: 1px solid $medium-gray;
   cursor: auto;
@@ -103,12 +103,12 @@
   text-align: center;
   max-height: 20rem;
 
-  &.ql-video{
+  &.ql-video {
     display: flex;
   }
 }
 
-.dataconsent-warning{
+.dataconsent-warning {
   flex-direction: column;
   font-size: 2rem;
   font-weight: $global-weight-bold;

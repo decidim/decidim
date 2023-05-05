@@ -28,22 +28,22 @@ es:
             name: Publicar
         posts:
           create:
-            invalid: Se ha producido un error al crear esta publicación
-            success: Publicación creada correctamente
+            invalid: Se ha producido un error al crear esta publicación.
+            success: Publicación creada correctamente.
           destroy:
-            success: La publicación se ha eliminado correctamente
+            success: La publicación se ha eliminado correctamente.
           edit:
             save: Actualizar
             title: Editar publicación
           index:
-            not_published_yet: No publicado aún
+            not_published_yet: No publicada aún.
             title: Publicaciones
           new:
             create: Crear
             title: Crear publicación
           update:
             invalid: Se ha producido un error al guardar la publicación.
-            success: Se ha guardado la publicación correctamente
+            success: Se ha guardado la publicación correctamente.
       admin_log:
         post:
           create: "%{user_name} creó el post %{resource_name} en el blog de %{space_name}"

@@ -123,7 +123,7 @@ describe Decidim::GitBackportManager do
   end
 
   describe ".push_backport_branch!" do
-    # Add /decidim/decidim in the path so it thinks it's in the decidim repository
+    # Add /decidim/decidim in the path so it thinks it is in the decidim repository
     let(:remote_repository_dir) { "#{tmp_repository_dir}/fake-remote/decidim/decidim/repository.git" }
 
     before do

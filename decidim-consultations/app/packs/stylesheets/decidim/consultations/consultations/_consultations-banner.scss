@@ -1,13 +1,13 @@
 //whole banner is a link
-.consultations-banner{
+.consultations-banner {
   color: inherit;
 
   &:hover,
-  &:active{
+  &:active {
     color: var(--primary);
   }
 }
 
-.consultations-banner__action{
+.consultations-banner__action {
   margin-bottom: 0;
 }

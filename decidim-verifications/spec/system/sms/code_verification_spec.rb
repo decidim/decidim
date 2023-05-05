@@ -66,7 +66,7 @@ describe "sms code verification", type: :system do
         let(:attempted_verification_code) { verification_code }
 
         it "shows a success message" do
-          expect(page).to have_content("Congratulations. You've been successfully verified.")
+          expect(page).to have_content("Congratulations. You have been successfully verified.")
         end
       end
     end

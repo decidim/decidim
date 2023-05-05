@@ -4,7 +4,7 @@
       <%= start_time.to_s(:time) %> - <%= end_time.to_s(:time) %>
     </div>
     <div data-component="accordion" data-multiselectable="false" data-collapsible="false">
-      <% categories = meetings.collect(&:category).uniq %>
+      <% categories = meetings.map(&:category).uniq %>
       <% seed = SecureRandom.hex(3).to_s %>
       <% if categories.present? %>
         <ul class="conference__program-category-container">
@@ -12,7 +12,7 @@
             <li>
               <!-- NOTE: The data-open attribute throws a console error related with Foundation and a11y-accordion-component.
               Once Foundation will be remove after redesign, this error will not longer happen -->
-              <button id="conference-item-trigger-<%= seed %>-tab<%= i %>" class="conference__program-category" data-controls="conference-item-panel-<%= seed %>-tab<%= i %>" data-open="<%= "true" if i == 0 %>">
+              <button id="conference-item-trigger-<%= seed %>-tab<%= i %>" class="conference__program-category" data-controls="conference-item-panel-<%= seed %>-tab<%= i %>" data-open="<%= "true" if i.zero? %>">
                 <%= category.present? ? translated_attribute(category.name) : "other" %>
               </button>
             </li>
@@ -23,7 +23,7 @@
       <% meetings.group_by(&:category).each_with_index do |categories_block, i| %>
         <div id="conference-item-panel-<%= seed %>-tab<%= i %>" class="conference__program-category-content">
           <% categories_block.last.each do |meeting| %>
-            <%= render partial: "program_meeting", locals: { meeting: meeting } %>
+            <%= render partial: "program_meeting", locals: { meeting: } %>
           <% end %>
         </div>
       <% end %>

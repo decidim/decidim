@@ -1711,7 +1711,7 @@ function () {
     value: function traverse(string, pattern, stringIndex, patternIndex, patternCache) {
       // if the pattern search at end
       if (pattern.length === patternIndex) {
-        // calculate score and copy the cache containing the indices where it's found
+        // calculate score and copy the cache containing the indices where it is found
         return {
           score: this.calculateScore(patternCache),
           cache: patternCache.slice()

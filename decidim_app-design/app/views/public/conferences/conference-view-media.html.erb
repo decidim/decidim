@@ -28,7 +28,7 @@
               <%= icon "external-link" %>
               <div>
                 <a href="#"><strong><%= title %></strong></a>
-                <div class="text-small"><%= Faker::Date.backward(100).strftime("%d %b %Y") %> · <%= Faker::Internet.url %></small>
+                <div class="text-small"><%= Faker::Date.backward(days: 100).strftime("%d %b %Y") %> · <%= Faker::Internet.url %></small>
               </div>
             </li>
             <% end %>
@@ -45,7 +45,7 @@
               "puntverd.jpg",
               "superilles.jpg",
               "gracia.jpg",
-              "demo-consultations.jpg",
+              "demo-consultations.jpg"
               ] %>
             <% 8.times do |i| %>
             <% seed = Random.rand(9999) %>

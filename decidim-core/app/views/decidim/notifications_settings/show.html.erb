@@ -49,7 +49,7 @@
       </label>
     </div>
 
-    <% Decidim.notification_settings_registry.manifests.filter{ |a| a.settings_area == :administrators }.each do |manifest| %>
+    <% Decidim.notification_settings_registry.manifests.filter { |a| a.settings_area == :administrators }.each do |manifest| %>
       <div class="switch tiny switch-with-label notification_settings">
         <label>
           <%= f.check_box "notification_settings[#{manifest.name}]",

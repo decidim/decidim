@@ -39,17 +39,17 @@ module Decidim
       end
 
       def questions_hash
-        return {} if questionnaire&.questions.blank?
+        questionnaire_id = @answers.first&.decidim_questionnaire_id
+        return {} unless questionnaire_id
 
-        questionnaire.questions.each.inject({}) do |serialized, question|
+        questions = Decidim::Forms::Question.where(decidim_questionnaire_id: questionnaire_id)
+        return {} if questions.none?
+
+        questions.each.inject({}) do |serialized, question|
           serialized.update(
             translated_question_key(question.position, question.body) => ""
           )
         end
-      end
-
-      def questionnaire
-        @answers.first&.questionnaire
       end
 
       def translated_question_key(idx, body)

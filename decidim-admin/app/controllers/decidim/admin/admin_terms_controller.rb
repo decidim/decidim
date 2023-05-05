@@ -3,7 +3,7 @@
 module Decidim
   module Admin
     # The controller to handle the Admin
-    # Terms of use agreement.
+    # Terms of service agreement.
     class AdminTermsController < Decidim::Admin::ApplicationController
       def accept
         current_user.admin_terms_accepted_at = Time.current
@@ -11,7 +11,7 @@ module Decidim
           flash[:notice] = t("accept.success", scope: "decidim.admin.admin_terms_of_use")
           redirect_to session[:user_return_to] || decidim_admin.root_path
         else
-          flash[:alert] = t("accept.error", scope: "decidim.admin.admin_terms_of_use")
+          flash[:alert] = t("accept.error", scope: "decidim.admin.admin_terms_of_service")
           redirect_to decidim_admin.admin_terms_show_path
         end
       end

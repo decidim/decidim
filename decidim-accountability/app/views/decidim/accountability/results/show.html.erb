@@ -1,25 +1,20 @@
 <% add_decidim_meta_tags({
-  description: translated_attribute(result.description),
-  title: translated_attribute(result.title),
-  url: result_url(result.id)
-}) %>
+                           description: translated_attribute(result.description),
+                           title: translated_attribute(result.title),
+                           url: result_url(result.id)
+                         }) %>
 
 <%
 edit_link(
   resource_locator(result).edit,
   :update,
   :result,
-  result: result
+  result:
 )
 %>
 
-<% content_for :js_content do %>
-  <%= javascript_pack_tag "decidim_accountability" %>
-<% end %>
-
-<% content_for :css_content do %>
-  <%= stylesheet_pack_tag "decidim_accountability", media: "all" %>
-<% end %>
+<%= append_javascript_pack_tag "decidim_accountability" %>
+<%= append_stylesheet_pack_tag "decidim_accountability" %>
 
 <%# REDESIGN_PENDING: this content must go inside the drawer, now the displayed result is kinda odd %>
-<%= render partial: "project", locals: { result: result } %>
+<%= render partial: "project", locals: { result: } %>

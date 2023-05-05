@@ -9,7 +9,7 @@ After you install Decidim you can see it in several ways, depending on:
 . Which modules do you have activated
 . Which contents do you have in your database
 
-If you have the default modules and no contents, then you'll only see Home and Help.
+If you have the default modules and no contents, then you will only see Home and Help.
 
 Depending in the kind of space and module, then you can see or not some of the spaces:
 

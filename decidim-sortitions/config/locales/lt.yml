@@ -66,10 +66,6 @@ lt:
             title: Sprendimo burtų keliu atšaukimas
           create:
             error: Rengiant naują sprendimą burtų keliu iškilo problema.
-            success: Sprendimas burtų keliu sukurtas
-          destroy:
-            error: Negalima atšaukti sprendimo burtų keliu.
-            success: Sprendimas burtų keliu atšauktas
           edit:
             title: Atnaujinti informaciją apie sprendimo burtų keliu galimybę
             update: Atnaujinti
@@ -80,14 +76,12 @@ lt:
           index:
             title: Sprendimai burtų keliu
           new:
-            confirm: Spustelėjus mygtuką, data ir laikas bus užregistruoti (sekundžių tikslumu). Kartu su kauliuko metimu ši informacija bus naudojama atsitiktinei atrankai vykdyti. Spustelėjus mygtuką, veiksmas bus negrįžtamas, o jo rezultatas bus paskelbtas kartu su šioje formoje įrašytais duomenimis ir jų nebus galima keisti, taigi, atidžiai patikrinkite turinį
             create: Sukurti
             title: Nauja galimybė spręsti burtų keliu
           show:
             selected_proposals: Pasirinkti pasiūlymai sprendimui burtų keliu priimti
           update:
             error: Atnaujinant galimybę spręsti burtų keliu iškilo problema.
-            success: Galimybė spręsti burtų keliu atnaujinta
       admin_log:
         sortition:
           create: "%{user_name} sukūrė %{resource_name} galimybę spręsti burtų keliu %{space_name} erdvėje"

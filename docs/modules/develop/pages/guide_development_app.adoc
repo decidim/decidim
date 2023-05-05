@@ -6,7 +6,7 @@ app (that you can create with `decidim app_name`) but with a Gemfile pre-configu
 We recommend that you first have a xref:install:manual.adoc[working Decidim app] so that you have fullfilled all the necessary
 system and services requirements, like having a working Ruby installation, PostgreSQL, Node.JS, etc.
 
-You'll need to configure the PostgreSQL database before anything. For this,
+You will need to configure the PostgreSQL database before anything. For this,
 
 . Configure postgresql with a super-user. For instance, for a user called `decidim_development_app_user` with password `changeme`, it'd be:
 
@@ -16,7 +16,7 @@ sudo -u postgres psql -c "CREATE USER decidim_development_app_user WITH SUPERUSE
 ----
 
 [start=2]
-. Save the database configuration in your environment variables configuration. If you've followed the xref:install:manual.adoc[Decidim installation manual],
+. Save the database configuration in your environment variables configuration. If you have followed the xref:install:manual.adoc[Decidim installation manual],
 then you should have a working https://github.com/rbenv/rbenv-vars[rbenv-vars] in your environment:
 
 [source,console]
@@ -55,10 +55,10 @@ Mind that if everything went well you should not need to run these commands manu
 ====
 
 If the default database.yml does not suit your needs you can always configure it at your will and run these steps manually, although
-we recommend that you make the database configurations with environment variables (ENV VARs) so it's easy for you to regenerate the database.
+we recommend that you make the database configurations with environment variables (ENV VARs) so it is easy for you to regenerate the database.
 
 The last command will set your database and add some example data (called "seed data") so that you can start trying Decidim.
-We do not recommend using seed data for production environments, but it's useful for local development and staging environments.
+We do not recommend using seed data for production environments, but it is useful for local development and staging environments.
 
 Once the app is created you are ready to start the server:
 
@@ -79,7 +79,7 @@ Anyway we recommend re-creating your development_app every once in a while.
 
 == Updating from develop
 
-We recommend that you periodically update your codebase with the last changes from the main repository. For this, you'll need
+We recommend that you periodically update your codebase with the last changes from the main repository. For this, you will need
 to follow these instructions:
 
 [source,console]
@@ -93,7 +93,7 @@ And restart your rails server (with Ctrl+C to stop it).
 
 == Re-creating the development_app
 
-If you're working with old branches or there were multiple changes in develop, you'll need to re-create your development_app.
+If you are working with old branches or there were multiple changes in develop, you will need to re-create your development_app.
 
 [source,console]
 ----

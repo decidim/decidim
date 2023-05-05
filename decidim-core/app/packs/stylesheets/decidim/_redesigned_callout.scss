@@ -1,15 +1,15 @@
-.callout{
+.callout {
   @apply rounded p-4 border-l-4 border-secondary bg-secondary/5 space-y-2;
 
-  &.success{
+  &.success {
     @apply border-success bg-success/5;
   }
 
-  &.alert{
+  &.alert {
     @apply border-alert bg-alert/5;
   }
 
-  &.warning{
+  &.warning {
     @apply border-warning bg-warning/5;
   }
 }

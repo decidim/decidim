@@ -14,7 +14,7 @@
     <% if missing_trustees_allowed > 0 %>
       <ul>
         <%= content_tag :li, t(".mark_as_missing_description") %>
-        <%= content_tag :li, t(".tally_completion", quorum: quorum) %>
+        <%= content_tag :li, t(".tally_completion", quorum:) %>
         <%= content_tag :li, t(".undo_mark_as_missing") %>
       </ul>
     <% end %>
@@ -64,4 +64,4 @@
   <%= link_to t("steps.tally_started.continue", scope: "decidim.elections.admin"), election_steps_path(election), class: "button disabled js-continue-link" %>
 </div>
 
-<%= javascript_pack_tag "decidim_elections_admin_trustees_process" %>
+<%= append_javascript_pack_tag "decidim_elections_admin_trustees_process" %>

@@ -13,6 +13,18 @@ describe "Explore projects", :slow, type: :system do
   let!(:project) { projects.first }
   let(:categories) { create_list(:category, 3, participatory_space: component.participatory_space) }
 
+  describe "show" do
+    let(:description) { { en: "Short description", ca: "Descripció curta", es: "Descripción corta" } }
+    let(:project) { create(:project, budget:, description:) }
+
+    before do
+      visit_budget
+      click_link translated(project.title)
+    end
+
+    it_behaves_like "has embedded video in description", :description
+  end
+
   describe "index" do
     it "shows all resources for the given component" do
       visit_budget

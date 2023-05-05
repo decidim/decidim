@@ -30,13 +30,13 @@ en:
         password_confirmation: Confirm your password
         personal_url: Personal URL
         remove_avatar: Remove avatar
-        tos_agreement: Terms and conditions of use agreement
+        tos_agreement: Terms of service agreement
     models:
       decidim/attachment_created_event: Attachment
       decidim/component_published_event: Active component
       decidim/demoted_membership: No longer a group admin
       decidim/gamification/badge_earned_event: Badge earned
-      decidim/gamification/level_up_event: You've leveled up
+      decidim/gamification/level_up_event: You have leveled up
       decidim/invited_to_group_event: Invited to group
       decidim/join_request_accepted_event: Join request accepted
       decidim/join_request_rejected_event: Join request rejected
@@ -99,24 +99,26 @@ en:
         other: about %{count} months
       half_a_minute: half a minute
       less_than_x_minutes:
-        one: less than a min.
-        other: less than %{count} min.
+        one: less than a minute
+        other: less than %{count} minutes
       less_than_x_seconds:
-        one: right now
-        other: less than %{count} sec.
+        one: less than 1 second
+        other: less than %{count} seconds
       x_days:
-        one: 1 day ago
-        other: "%{count} days ago"
+        one: 1 day
+        other: "%{count} days"
       x_hours:
-        one: 1 hour ago
-        other: "%{count} hours ago"
+        one: 1 hour
+        other: "%{count} hours"
       x_minutes:
-        one: 1 min. ago
-        other: "%{count} min. ago"
+        one: 1 minute
+        other: "%{count} minutes"
+      x_months:
+        one: 1 month
+        other: "%{count} months"
       x_seconds:
-        one: 1 sec. ago
-        other: "%{count} sec. ago"
-        zero: right now
+        one: 1 second
+        other: "%{count} seconds"
   decidim:
     accessibility:
       external_link: External link
@@ -124,7 +126,7 @@ en:
       logo: "%{organization}'s official logo"
       skip_button: Skip to main content
     account:
-      blocked: This account has been blocked due to Terms and Conditions violation
+      blocked: This account has been blocked due to terms of service violation
       delete:
         alert: This action cannot be undone. If you delete your account you will not be able to log in with your credentials. The deletion of your account will result in the anonymization of your contributions. You will still be able to create a new account, but these contributions will not be associated with it.
         confirm:
@@ -139,9 +141,9 @@ en:
         success: Your account was successfully deleted.
       download_your_data_export:
         file_no_exists: File does not exist
-        notice: The download of your data is currently in progress. You'll receive an email when it's complete.
+        notice: The download of your data is currently in progress. You will receive an email when it is complete.
       email_change:
-        body1: We've sent an email to %{unconfirmed_email} to verify your new email address.
+        body1: We have sent an email to %{unconfirmed_email} to verify your new email address.
         body2: Need us to send the verification email again? %{resend_link} or %{cancel_link}.
         cancel: cancel
         cancel_error: Could not cancel the email change.
@@ -157,7 +159,7 @@ en:
       update:
         error: There was a problem updating your account.
         success: Your account was successfully updated.
-        success_with_email_confirmation: Your account was successfully updated. You'll receive an email to confirm your new email address.
+        success_with_email_confirmation: Your account was successfully updated. You will receive an email to confirm your new email address.
     activity:
       time_ago: "%{time} ago"
     admin:
@@ -255,8 +257,8 @@ en:
         verify_via_csv: "%{user_name} verified the group %{resource_name} via a CSV file"
       user_moderation:
         unreport: "%{user_name} unreported an %{resource_type} - %{unreported_user_name}"
-    admin_terms_of_use:
-      default_body: "<h2>ADMIN TERMS OF USE</h2><p>We trust you have received the usual lecture from the local System Administrator. It usually boils down to these three things:</p><ol><li>Respect the privacy of others.</li><li>Think before you click.</li><li>With great power comes great responsibility.</li></ol>"
+    admin_terms_of_service:
+      default_body: "<h2>ADMIN TERMS OF SERVICE</h2><p>We trust you have received the usual lecture from the local System Administrator. It usually boils down to these three things:</p><ol><li>Respect the privacy of others.</li><li>Think before you click.</li><li>With great power comes great responsibility.</li></ol>"
     alert:
       dismiss: Dismiss notification
     amendments:
@@ -402,7 +404,7 @@ en:
           title: Authorization has expired
         incomplete:
           cancel: Cancel
-          explanation: 'Even though you''re currently authorized with "%{authorization}", we need you to reauthorize because we lack the following data:'
+          explanation: 'Even though you are currently authorized with "%{authorization}", we need you to reauthorize because we lack the following data:'
           invalid_field: "%{field}"
           reauthorize: Reauthorize
           title: Please reauthorize
@@ -411,7 +413,7 @@ en:
           explanation: In order to perform this action, you need to be authorized with "%{authorization}".
           title: Authorization required
         ok:
-          title: You've been authorized while in this page. Please, reload the page to perform your action.
+          title: You have been authorized while in this page. Please, reload the page to perform your action.
         pending:
           explanation: In order to perform this action, you need to be authorized with "%{authorization}", but your authorization is still in progress.
           resume: Check your "%{authorization}" authorization progress.
@@ -556,7 +558,7 @@ en:
           sign_up_as:
             legend: Sign up as
           subtitle: Sign up to participate in discussions and support proposals.
-          terms: the terms and conditions of use
+          terms: the terms of service
           tos_agreement: By signing up you agree to %{link}.
           tos_title: Terms of Service
           username_help: Public name that appears on your posts. With the aim of guaranteeing the anonymity, can be any name.
@@ -612,8 +614,8 @@ en:
         request_data: Request data
     editor_images:
       create:
-        error: Error uploading image
-        success: Image uploaded successfully
+        error: Error uploading image.
+        success: Image uploaded successfully.
       drag_and_drop_help: Add images by dragging & dropping or pasting them.
     endorsable:
       endorsements: Endorsements
@@ -643,7 +645,7 @@ en:
       not_found:
         back_home: Back home
         content_doesnt_exist: This address is incorrect or has been removed.
-        title: The page you're looking for cannot be found
+        title: The page you are looking for cannot be found
     events:
       amendments:
         amendment_accepted:
@@ -709,15 +711,15 @@ en:
         email_subject: An update to %{resource_title}
       gamification:
         badge_earned:
-          email_intro: Congratulations! You've earned the <a href="%{resource_url}">%{badge_name} badge</a> (level %{current_level}).
+          email_intro: Congratulations! You have earned the <a href="%{resource_url}">%{badge_name} badge</a> (level %{current_level}).
           email_outro: You have received this notification because you made activity on our website.
-          email_subject: 'You''ve earned a new badge: %{badge_name}!'
-          notification_title: Congratulations! You've earned the <a href="%{resource_path}">%{badge_name} badge</a> (level %{current_level}).
+          email_subject: 'You have earned a new badge: %{badge_name}!'
+          notification_title: Congratulations! You have earned the <a href="%{resource_path}">%{badge_name} badge</a> (level %{current_level}).
         level_up:
-          email_intro: Congratulations! You've reached level %{current_level} on the <a href="%{resource_url}">%{badge_name} badge</a>!
+          email_intro: Congratulations! You have reached level %{current_level} on the <a href="%{resource_url}">%{badge_name} badge</a>!
           email_outro: You have received this notification because you made activity on our website.
-          email_subject: You've reached level %{current_level} on the %{badge_name} badge!
-          notification_title: Congratulations! You've reached level %{current_level} on the <a href="%{resource_path}">%{badge_name} badge</a>!
+          email_subject: You have reached level %{current_level} on the %{badge_name} badge!
+          notification_title: Congratulations! You have reached level %{current_level} on the <a href="%{resource_path}">%{badge_name} badge</a>!
       groups:
         demoted_membership:
           email_intro: An admin of the <a href="%{resource_url}">%{user_group_name}</a> group has removed your admin rights to that group.
@@ -810,7 +812,7 @@ en:
         result: Results
     fingerprint:
       check: Check fingerprint
-      explanation: The piece of text below is a shortened, hashed representation of this content. It's useful to ensure the content has not been tampered with, as a single modification would result in a totally different value.
+      explanation: The piece of text below is a shortened, hashed representation of this content. It is useful to ensure the content has not been tampered with, as a single modification would result in a totally different value.
       online_calculator_name: MD5 calculator online
       replicate_help: This fingerprint is calculated using a SHA256 hashing algorithm. In order to replicate it yourself, you can use an %{online_calculator_link} and copy-paste the source data.
       source: Source
@@ -894,7 +896,7 @@ en:
           name: Followers
           next_level_in: Get %{score} more people to follow you to reach the next level!
           unearned_another: This participant does not have any followers yet.
-          unearned_own: You've got no followers yet.
+          unearned_own: You have got no followers yet.
         index:
           badge_title: "%{name} badge"
           how: How can you earn it
@@ -902,22 +904,22 @@ en:
           title: Badges
       description: Badges are recognitions to participant actions and progress in the platform. As you start discovering, participating and interacting in the platform, you will earn different badges.
       level: Level %{level}
-      reached_top: You've reached the top level for this badge.
+      reached_top: You have reached the top level for this badge.
       title: What are the badges?
     group_admins:
       actions:
         are_you_sure: Are you sure? This will not remove the participant from the group.
         demote_admin: Remove admin
       demote:
-        error: There was a problem removing this participant from the admins list
-        success: Participant successfully removed from admin
+        error: There was a problem removing this participant from the admins list.
+        success: Participant successfully removed from admin.
       index:
         current_admins: 'Current admins:'
         manage_admins: Manage admins
     group_invites:
       accept:
-        error: There was a problem accepting this invitation
-        success: Invitation successfully accepted
+        error: There was a problem accepting this invitation.
+        success: Invitation successfully accepted.
       accept_invitation: Accept
       accept_or_reject_group_invitations: 'The following groups have invited you to join them. Accept or reject their requests:'
       index:
@@ -971,7 +973,7 @@ en:
         success: Join request successfully created. An admin will review your request before accepting you to the group.
       leave:
         error: There was a problem leaving the group.
-        last_admin: You cannot remove yourself from this group as you're the last administrator. Make another member an administrator in order to leave the group.
+        last_admin: You cannot remove yourself from this group as you are the last administrator. Make another member an administrator in order to leave the group.
         success: Group successfully abandoned.
       members:
         accept_or_reject_join_requests: 'The following users have applied to join this group. Accept or reject their requests:'
@@ -1098,7 +1100,6 @@ en:
           intro: 'There were the following errors with your message:'
           ok: OK
         index:
-          ago: ago
           new_conversation: New conversation
           next: Next
           no_conversations: You have no conversations yet.
@@ -1135,8 +1136,8 @@ en:
     newsletter_mailer:
       newsletter:
         no_reply_notice: This email was sent from a notification email address that cannot accept incoming email. Please do not reply to this message.
-        note: You received this email because you're subscribed to newsletters on %{organization_name}. You can change your settings on your <a href="%{link}">notifications page</a>.
-        see_on_website: Can’t see this email correctly? View it on the <a href="%{link}" target="_blank" class="see-on-website">website</a>.
+        note: You received this email because you are subscribed to newsletters on %{organization_name}. You can change your settings on your <a href="%{link}">notifications page</a>.
+        see_on_website: Cannot see this email correctly? View it on the <a href="%{link}" target="_blank" class="see-on-website">website</a>.
         unsubscribe: To opt out of receiving this type of email, <a href="%{link}" target="_blank" class="unsubscribe">Unsubscribe</a>.
     newsletter_templates:
       basic_only_text:
@@ -1159,16 +1160,16 @@ en:
         main_image: Main image
     newsletters:
       unsubscribe:
-        check_subscription: If you want to change your preferences, you can do so in the <a href="%{link}" target="_blank">configuration page</a>
-        error: There was a problem unsubscribing
+        check_subscription: If you want to change your preferences, you can do so in the <a href="%{link}" target="_blank">configuration page</a>.
+        error: There was a problem unsubscribing.
         success: You are unsubscribed successfully.
         token_error: The link has expired.
         unsubscribe: Unsubscribe
     newsletters_opt_in:
-      unathorized: Sorry, this link is no longer available
+      unathorized: Sorry, this link is no longer available.
       update:
-        error: Something wrong happened
-        success: Newsletter settings successfully updated
+        error: There was a problem saving the newsletter settings.
+        success: Newsletter settings successfully updated.
     newsletters_opt_in_mailer:
       notify:
         body_1: The processing of personal data and its protection is becoming increasingly important for all of us. With the new General Data Protection Regulation (GDPR) of May 25, 2018, individuals have better control over their personal data. For this reason we need your "OK" to continue sending relevant information about the activities of the %{organization_name}.
@@ -1203,7 +1204,7 @@ en:
       show:
         administrators: Administrators
         allow_public_contact: Allow anyone to send me a direct message, even if I do not follow them.
-        allow_push_notifications: Get push notifications to find out what's going on when you're not on the platform. You can turn them off anytime.
+        allow_push_notifications: Get push notifications to find out what is going on when you are not on the platform. You can turn them off anytime.
         direct_messages: Receive direct messages from anyone
         email_on_moderations: I want to receive an email every time something or someone is reported for moderation.
         everything_followed: Everything I follow
@@ -1219,7 +1220,7 @@ en:
         notifications_sending_frequency: How often do you want to receive the notifications email?
         own_activity: My own activity, like when someone comments in my proposal or mentions me
         push_notifications: Push notifications
-        push_notifications_reminder: To get notifications from the platform, you'll need to allow them in your browser settings first.
+        push_notifications_reminder: To get notifications from the platform, you will need to allow them in your browser settings first.
         receive_notifications_about: I want to get notifications about
         update_notifications_settings: Save changes
       update:
@@ -1227,7 +1228,7 @@ en:
         success: Your notifications settings were successfully updated.
     offline:
       show:
-        message: It looks like you're currently offline. Please, try again later.
+        message: It looks like you are currently offline. Please, try again later.
         retry: Retry
     open_data:
       not_available_yet: The Open Data files are not yet available, please try again in a few minutes.
@@ -1238,7 +1239,7 @@ en:
         verified: Verified
     pad_iframe:
       disclaimer: The contents of this pad are written by registered users and express their opinions. %{organization} cannot be held responsible for its contents.
-      explanation: Use this pad to collaboratively take notes during the meeting so it's easier to write down the minute afterwards.
+      explanation: Use this pad to collaboratively take notes during the meeting so it is easier to write down the minute afterwards.
       pad: Pad
     pages:
       home:
@@ -1273,22 +1274,22 @@ en:
         metrics:
           headline: Metrics
           link: Show all metrics
-      terms_and_conditions:
+      terms_of_service:
         accept:
-          error: There was a problem accepting the terms and conditions.
-          success: Great! You have accepted the terms and conditions.
+          error: There was a problem accepting the terms of service.
+          success: Great! You have accepted the terms of service.
         form:
           agreement: I agree with these terms
-          legend: Agree to the terms and conditions
+          legend: Agree to the terms of service
         refuse:
           modal_body: If you refuse, you will not be able to use the platform, you can <a href="%{download_your_data_path}">download your data</a> and/or <a href="%{delete_path}">delete your account</a>.
           modal_btn_continue: Accept terms and continue
-          modal_btn_exit: I'll review it later
+          modal_btn_exit: I will review it later
           modal_button: Refuse the terms
           modal_close: Close modal
-          modal_title: Do you really refuse the updated Terms and Conditions?
+          modal_title: Do you really refuse the updated terms of service?
         required_review:
-          alert: We've updated our Terms of Service, please review them.
+          alert: We have updated our Terms of Service, please review them.
           body: Please take a moment to review updates to our Terms of Services. Otherwise you will not be able to use the platform.
           title: 'Required: Review updates to our terms of service'
     participatory_space_private_users:
@@ -1299,7 +1300,7 @@ en:
         success: Password successfully updated.
     profile:
       deleted: Deleted participant
-      inaccessible_message: This profile is inaccessible due to Terms and Conditions violation!
+      inaccessible_message: This profile is inaccessible due to terms of service violation!
       view: View
     profiles:
       default_officialization_text_for_user_groups: This group is publicly verified, its name has been verified to correspond with its real name.
@@ -1436,9 +1437,11 @@ en:
         visit_profile: If you want to also block the participant and the rest of its contents, go to %{user_link} profile page.
       flag_user_modal:
         already_reported: This content is already reported and it will be reviewed by an admin.
+        block: Block this participant
         close: Close
         description: What is inappropriate about the user?
         does_not_belong: Contains illegal activity, suicide threats, personal information, or something else you think does not belong on %{organization_name}.
+        hide: Hide all their contents
         offensive: Contains racism, sexism, slurs, personal attacks, death threats, suicide requests or any form of hate speech.
         report: Report
         spam: Contains clickbait, advertising, scams or script bots.
@@ -1536,7 +1539,7 @@ en:
       show:
         my_interests: My interests
         no_scopes: This organization does not have any scope yet!
-        select_your_interests: Select the topics you're interested in to receive events related to them in your profile Timeline tab.
+        select_your_interests: Select the topics you are interested in to receive events related to them in your profile Timeline tab.
         update_my_interests: Update my interests
       update:
         error: There was a problem updating your interests.
@@ -1578,7 +1581,7 @@ en:
       show:
         version_index: Version %{index}
     welcome_notification:
-      default_body: <p>Hi {{name}}, thanks for joining {{organization}} and welcome!</p><ul><li>If you want to get a quick idea of what you can do here, have a look at the <a href="{{help_url}}">Help</a> section.</li><li>Once you have read it you will get your first badge. Here's a <a href="{{badges_url}}">list of all the badges</a> you can get as you participate in {{organization}}</li><li>Last but not least, join other people, share with them the experience of being engaged and participating in {{organization}}. Make proposals, comments, debate, think about how to contribute to the common good, provide arguments to convince, listen and read to be convinced, express your ideas in a concrete and direct way, respond with patience and decision, defend your ideas and keep an open mind to collaborate and join other people's ideas.</li></ul>
+      default_body: <p>Hi {{name}}, thanks for joining {{organization}} and welcome!</p><ul><li>If you want to get a quick idea of what you can do here, have a look at the <a href="{{help_url}}">Help</a> section.</li><li>Once you have read it you will get your first badge. Here is a <a href="{{badges_url}}">list of all the badges</a> you can get as you participate in {{organization}}</li><li>Last but not least, join other people, share with them the experience of being engaged and participating in {{organization}}. Make proposals, comments, debate, think about how to contribute to the common good, provide arguments to convince, listen and read to be convinced, express your ideas in a concrete and direct way, respond with patience and decision, defend your ideas and keep an open mind to collaborate and join other people's ideas.</li></ul>
       default_subject: Thanks for joining {{organization}}!
     wizard_step_form:
       wizard_aside:
@@ -1626,7 +1629,7 @@ en:
         subject: Confirmation instructions
       email_changed:
         greeting: Hello %{recipient}!
-        message: We're contacting you to notify you that your email is being changed to %{email}.
+        message: We are contacting you to notify you that your email is being changed to %{email}.
         subject: Email Changed
       invitation_instructions:
         accept: Accept invitation
@@ -1643,16 +1646,16 @@ en:
         someone_invited_you_as_private_user: Someone has invited you as private participant of %{application}, you can accept it through the link below.
         subject: Invitation instructions
       invite_admin:
-        subject: You've been invited to manage %{organization}
+        subject: You have been invited to manage %{organization}
       invite_collaborator:
-        subject: You've been invited to collaborate on %{organization}
+        subject: You have been invited to collaborate on %{organization}
       invite_private_user:
-        subject: You've been invited to a private participatory process on %{organization}
+        subject: You have been invited to a private participatory process on %{organization}
       organization_admin_invitation_instructions:
-        subject: You've been invited to manage %{organization}
+        subject: You have been invited to manage %{organization}
       password_change:
         greeting: Hello %{recipient}!
-        message: We're contacting you to notify you that your password has been changed.
+        message: We are contacting you to notify you that your password has been changed.
         subject: Password changed
       reset_password_instructions:
         action: Change my password
@@ -1860,7 +1863,7 @@ en:
         mark_all_as_read: Mark all as read
         mark_as_read: Mark as read
       offline_banner:
-        cache_version_page: Oooops! Your network is offline. This is a previously cached version of the page you're visiting, perhaps the content is not up to date.
+        cache_version_page: Oooops! Your network is offline. This is a previously cached version of the page you are visiting, perhaps the content is not up to date.
       social_media_links:
         facebook: "%{organization} at Facebook"
         github: "%{organization} at GitHub"

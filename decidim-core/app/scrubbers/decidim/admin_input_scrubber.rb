@@ -2,7 +2,7 @@
 
 module Decidim
   # Use this class as a scrubber to sanitize admin user input. The default
-  # scrubbed provided by Rails does not allow `iframe`s, and we're using
+  # scrubbed provided by Rails does not allow `iframe`s, and we are using
   # them to embed videos, so we need to provide a whole new scrubber.
   #
   # Example:
@@ -14,12 +14,14 @@ module Decidim
   class AdminInputScrubber < UserInputScrubber
     private
 
+    DECIDIM_ALLOWED_TAGS = %w(img video audio source comment iframe).freeze
+
     def custom_allowed_attributes
       super + %w(frameborder allowfullscreen) - %w(onerror)
     end
 
     def custom_allowed_tags
-      super + %w(comment iframe)
+      super + DECIDIM_ALLOWED_TAGS
     end
   end
 end

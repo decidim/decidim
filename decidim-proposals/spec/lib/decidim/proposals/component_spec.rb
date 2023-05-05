@@ -166,7 +166,7 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
         visit edit_component_path
       end
 
-      context "when it's enabled" do
+      context "when it is enabled" do
         before do
           component.update(settings: { participatory_texts_enabled: true })
           visit edit_component_path
@@ -283,6 +283,20 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
 
       it "exports all proposals from the component" do
         expect(subject).to match_array([unassigned_proposal, assigned_proposal])
+      end
+    end
+
+    context "when proposal is moderated" do
+      let(:hidden_proposal) { create :proposal, component: }
+      let!(:moderation) { create(:moderation, hidden_at: 6.hours.ago, reportable: hidden_proposal) }
+      let!(:user) { create :user, admin: true, organization: }
+
+      it "exports all proposals from the component" do
+        expect(subject).to include(unassigned_proposal, assigned_proposal)
+      end
+
+      it "excludes the hidden proposals" do
+        expect(subject).not_to include(hidden_proposal)
       end
     end
   end

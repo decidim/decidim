@@ -205,9 +205,6 @@ de:
           success: Partizipativer Prozessschritt erfolgreich erstellt
         default_title: Einführung
         destroy:
-          error:
-            active_step: Der aktive Schritt kann nicht gelöscht werden.
-            last_step: Der letzte Schritt eines Beteiligungsprozesses kann nicht gelöscht werden.
           success: Participatory-Prozessschritt erfolgreich gelöscht
         edit:
           title: Beteiligungsschritt bearbeiten
@@ -453,8 +450,6 @@ de:
               one: 1 bevorstehender Beteiligungsprozess
               other: "%{count} bevorstehende Beteiligungsprozesse"
           explanations:
-            no_active: Keine aktiven Prozesse
-            no_active_nor_upcoming: Keine aktiven oder zukünftigen Beteiligungsprozesse
             no_active_nor_upcoming_callout: Es gibt keine aktiven oder zukünftigen Beteiligungsprozesse. Hier ist eine Liste der vergangenen.
           filter_by: Anzeigen
           names:

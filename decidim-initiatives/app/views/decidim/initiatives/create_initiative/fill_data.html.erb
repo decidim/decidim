@@ -20,12 +20,23 @@
       <div class="card__content">
         <%= decidim_form_for(@form, url: next_wizard_path, method: :put, html: { class: "form new_initiative_form", novalidate: false }) do |f| %>
           <%= form_required_explanation %>
-          <%= f.hidden_field :type_id %>
           <div class=section>
-            <% unless single_initiative_type? %>
+            <% if single_initiative_type? %>
+              <%= f.hidden_field :type_id %>
+            <% else %>
               <div class="field">
-                <label for="type_description"><%= t ".initiative_type" %></label>
-                <%= text_field_tag :type_description, strip_tags(translated_attribute(initiative_type.title)), readonly: true %>
+                <%= f.select :type_id,
+                                initiative_type_options,
+                                {},
+                                {
+                                  disabled: !@form.signature_type_updatable?,
+                                  "data-scope-selector": "initiative_decidim_scope_id",
+                                  "data-scope-id": f.object.scope_id.to_s,
+                                  "data-scope-search-url": decidim_initiatives.initiative_type_scopes_search_url,
+                                  "data-signature-types-selector": "initiative_signature_type",
+                                  "data-signature-type": current_initiative&.signature_type,
+                                  "data-signature-types-search-url": decidim_initiatives.initiative_type_signature_types_search_url
+                                } %>
               </div>
             <% end %>
 
@@ -37,12 +48,22 @@
               <%= text_editor_for(f, :description, lines: 8, toolbar: :full) %>
             </div>
 
+            <div class="field">
+              <%= f.text_field :hashtag %>
+            </div>
+
             <% signature_type_options = signature_type_options(f.object) %>
             <% if signature_type_options.length == 1 %>
               <%= f.hidden_field :signature_type, value: signature_type_options.first.last %>
             <% else %>
               <div class="field">
                 <%= f.select :signature_type, signature_type_options %>
+              </div>
+            <% end %>
+
+            <% if initiative_type.custom_signature_end_date_enabled? %>
+              <div class="field">
+                <%= f.date_field :signature_end_date %>
               </div>
             <% end %>
 
@@ -57,12 +78,6 @@
               </div>
             <% end %>
 
-            <% if initiative_type.custom_signature_end_date_enabled? %>
-              <div class="field">
-                <%= f.date_field :signature_end_date %>
-              </div>
-            <% end %>
-
             <% if initiative_type.area_enabled? %>
               <div class="field">
                 <%= f.areas_select :area_id, areas_for_select(current_organization), prompt: t(".select_area") %>
@@ -73,7 +88,7 @@
               <div class="field">
                 <%= f.select :decidim_user_group_id,
                              Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.map { |g| [g.name, g.id] },
-                             include_blank: current_user.name %>
+                             include_blank: current_user.name, help_text: t(".decidim_user_group_id_help") %>
               </div>
             <% end %>
 

@@ -21,11 +21,6 @@ pt-BR:
           post:
             name: Postar
         posts:
-          create:
-            invalid: Houve um problema ao criar esta postagem
-            success: Post criado com sucesso
-          destroy:
-            success: Postagem excluída com sucesso
           edit:
             save: Atualizar
             title: Editar publicação
@@ -36,7 +31,6 @@ pt-BR:
             title: Criar post
           update:
             invalid: Falha ao salvar o post.
-            success: Post salvo com sucesso
       models:
         post:
           fields:

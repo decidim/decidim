@@ -1,8 +1,8 @@
-#sortition-details{
+#sortition-details {
   margin-bottom: 1.5rem;
 }
 
-.sortition-details{
+.sortition-details {
   padding: 0;
   display: flex;
   flex-flow: row wrap;
@@ -10,18 +10,18 @@
   align-items: stretch;
   align-content: stretch;
 
-  .sortition-details-item{
+  .sortition-details-item {
     width: 33.3%;
 
-    @include breakpoint(large down){
+    @include breakpoint(large down) {
       width: 33.3%;
     }
 
-    @include breakpoint(medium down){
+    @include breakpoint(medium down) {
       width: 49.9%;
     }
 
-    @include breakpoint(smallmedium down){
+    @include breakpoint(smallmedium down) {
       width: 100%;
     }
 
@@ -30,13 +30,13 @@
     border: $border;
     background: $white;
 
-    .sortition-details-title{
-      margin-right: .5rem;
+    .sortition-details-title {
+      margin-right: 0.5rem;
       font-weight: bolder;
     }
 
-    .sortition-details-text{
-      letter-spacing: .03em;
+    .sortition-details-text {
+      letter-spacing: 0.03em;
       font-size: 90%;
       text-transform: uppercase;
       color: #3d393c;

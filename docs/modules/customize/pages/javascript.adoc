@@ -56,7 +56,7 @@ in your `config/initializers/decidim.rb` file. Please do notice that this has se
   config.enable_html_header_snippets = true
 ----
 
-Then you'll have a new textarea field called "Header snippets" in Administration -> Configuration -> Appearance (URL `/admin/organization/appearance/edit`):
+Then you will have a new textarea field called "Header snippets" in Administration -> Configuration -> Appearance (URL `/admin/organization/appearance/edit`):
 
 image::header-snippet.png[Header snippet]
 

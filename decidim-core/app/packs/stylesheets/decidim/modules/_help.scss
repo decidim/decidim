@@ -1,7 +1,7 @@
-.help{
+.help {
   vertical-align: -2px;
 
-  .icon{
+  .icon {
     width: 14px;
     height: 14px;
     fill: $white;
@@ -9,49 +9,49 @@
     border-radius: 50%;
     padding: 2px;
 
-    &:hover{
+    &:hover {
       background: $anchor-color;
     }
   }
 }
 
-.help-tooltip{
+.help-tooltip {
   @include flex;
   @include flex-align(center, middle);
 
-  border: .25rem solid lighten($secondary, 25%);
+  border: 0.25rem solid lighten($secondary, 25%);
   border-radius: 50%;
   background-color: $secondary;
   color: $light-gray;
-  padding: .25rem;
+  padding: 0.25rem;
   cursor: pointer;
 }
 
 // Extend Foundation defaults
-.tooltip{
-  &.expanded{
+.tooltip {
+  &.expanded {
     max-width: 100%;
   }
 
-  &.light{
+  &.light {
     background-color: $body-background;
     color: $body-font-color;
     box-shadow: $prototype-box-shadow;
     border-radius: $global-radius;
 
-    &.top::before{
+    &.top::before {
       border-color: $body-background transparent transparent;
     }
 
-    &.bottom::before{
+    &.bottom::before {
       border-color: transparent transparent $body-background;
     }
 
-    &.left::before{
+    &.left::before {
       border-color: transparent transparent transparent $body-background;
     }
 
-    &.right::before{
+    &.right::before {
       border-color: transparent $body-background transparent transparent;
     }
   }
