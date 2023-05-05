@@ -26,7 +26,11 @@ export default class ExternalDomainLink {
       return;
     }
 
-    const parts = node.href.match(/^(([a-z]+):)?\/\/([^/:]+)(:[0-9]*)?(\/.*)?$/) || null;
+    // We use the href attribute (`node.getAttribute("href")`) instead of the
+    // `node.href` property because the latter returns the URL with a trailing
+    // slash, which is not what we want.
+    const url = node.getAttribute("href");
+    const parts = url.match(/^(([a-z]+):)?\/\/([^/:]+)(:[0-9]*)?(\/.*)?$/) || null;
     if (!parts) {
       return;
     }
@@ -36,7 +40,7 @@ export default class ExternalDomainLink {
       return;
     }
 
-    const externalHref = `/link?external_url=${encodeURIComponent(node.href)}`;
+    const externalHref = `/link?external_url=${encodeURIComponent(url)}`;
     node.setAttribute("href", externalHref);
     node.setAttribute("data-remote", true);
   }
