@@ -1,12 +1,12 @@
 <% if highlighted.any? %>
   <div id="highlighted-budgets" class="card__highlight-container">
-    <% highlighted.each do |budget| %>
+    <% reorder(highlighted).each do |budget| %>
       <%= cell("decidim/budgets/budget_list_item", budget) %>
     <% end %>
   </div>
 <% end %>
 
-<% non_highlighted = budgets.where.not(id: (highlighted + voted).map(&:id)) %>
+<% non_highlighted = reorder(budgets).where.not(id: (highlighted + voted).map(&:id)) %>
 
 <% if non_highlighted.exists? %>
   <div id="budgets" class="card__highlight-container">
