@@ -44,4 +44,22 @@
       }
     }
   }
+
+  &__aside{
+    &-heading{
+      @apply uppercase font-semibold text-gray-2 text-sm;
+    }
+
+    &-link{
+      @apply flex items-center gap-2 text-sm;
+
+      svg{
+        @apply w-4 h-4 flex-none text-gray fill-current;
+      }
+
+      a{
+        @apply text-md text-secondary;
+      }
+    }
+  }
 }

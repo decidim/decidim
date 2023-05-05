@@ -22,7 +22,30 @@ edit_link(
 
 <% content_for :aside do %>
   <%= cell("decidim/elections/election_vote_cta", election) %>
-  <%= link_to(t("election_log", scope: "decidim.elections.elections.show"), election_log_election_path(election)) %>
+
+  <div class="mt-14 space-y-4">
+    <p class="election__aside-heading"><%= t("verify.already_voted", scope: "decidim.elections.elections.show") %></p>
+
+    <div class="election__aside-link">
+      <%= icon "checkbox-multiple-line" %>
+
+      <% if election.started? %>
+        <%= link_to t("verify.verify_here", scope: "decidim.elections.elections.show"), election_vote_verify_path(
+              "#{current_participatory_space.underscored_name}_slug".to_sym => current_participatory_space.slug,
+              component_id: current_component.id,
+              election_id: election.id,
+              vote_id: "_"
+            ) %>
+      <% else %>
+        <span><%= t("verify.will_verify", scope: "decidim.elections.elections.show") %></span>
+      <% end %>
+    </div>
+
+    <div class="election__aside-link">
+      <%= icon "book-2-line" %>
+      <%= link_to(t("election_log", scope: "decidim.elections.elections.show"), election_log_election_path(election)) %>
+    </div>
+  </div>
 <% end %>
 
 <%= render layout: "layouts/decidim/shared/layout_item", locals: { back_path: :elections } do %>
