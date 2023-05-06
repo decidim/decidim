@@ -33,8 +33,7 @@ describe "show", type: :system do
   end
 
   context "when is created by the participant" do
-    let!(:author) { create(:user, :confirmed, organization: component.organization) }
-    let!(:debate) { create(:debate, author: author, component: component, description: description, information_updates: information_updates, instructions: instructions) }
+    let!(:debate) { create(:debate, :citizen_author, component: component, description: description, information_updates: information_updates, instructions: instructions) }
     let(:iframe_src) { "http://www.example.org" }
 
     context "when the field is decription" do
