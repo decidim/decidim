@@ -4,15 +4,29 @@ require "spec_helper"
 
 describe "Question", type: :system do
   let(:organization) { create(:organization) }
-  let(:consultation) { create(:consultation, :published, organization: organization) }
+  let!(:consultation) { create(:consultation, :published, organization: organization) }
+  let(:question_context) { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
+  let(:what_is_decided) { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
   let(:previous_question) { create :question, consultation: consultation }
-  let(:question) { create :question, consultation: consultation }
+  let(:question) { create :question, consultation: consultation, question_context: question_context, what_is_decided: what_is_decided }
   let(:next_question) { create :question, consultation: consultation }
 
   context "when shows question information" do
     before do
       switch_to_host(organization.host)
       visit decidim_consultations.question_path(question)
+    end
+
+    context "when displaying question context" do
+      it_behaves_like "has embedded video in description", :question_context, count: 2 do
+        before { click_button("Read more") }
+      end
+    end
+
+    context "when displaying what is decided" do
+      it_behaves_like "has embedded video in description", :what_is_decided do
+        before { click_button("Read more") }
+      end
     end
 
     it "Shows the basic question data" do
