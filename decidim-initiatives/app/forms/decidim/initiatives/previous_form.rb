@@ -8,9 +8,8 @@ module Decidim
 
       mimic :initiative
 
-      translatable_attribute :title, String
-      translatable_attribute :description, String
-
+      attribute :title, String
+      attribute :description, String
       attribute :type_id, Integer
       attribute :scope_id, Integer
 

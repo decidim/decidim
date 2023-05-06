@@ -3,6 +3,7 @@
 require "decidim/core/test/factories"
 require "decidim/participatory_processes/test/factories"
 require "decidim/assemblies/test/factories"
+require "decidim/conferences/test/factories"
 require "decidim/comments/test/factories"
 require "decidim/meetings/test/factories"
 require "decidim/budgets/test/factories"

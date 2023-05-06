@@ -32,6 +32,8 @@ module Decidim
         self.type_id = model.type.id
         self.scope_id = model.scope&.id
         self.signature_type = model.signature_type
+        self.title = translated_attribute(model.title)
+        self.description = translated_attribute(model.description)
       end
 
       def signature_type_updatable?

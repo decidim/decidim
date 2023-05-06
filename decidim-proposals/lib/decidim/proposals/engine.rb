@@ -90,6 +90,12 @@ module Decidim
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Proposals::Engine.root}/app/views") # for proposal partials
       end
 
+      initializer "decidim_proposals.remove_space_admins" do
+        ActiveSupport::Notifications.subscribe("decidim.system.participatory_space.admin.destroyed") do |_event_name, klass, id|
+          Decidim::Proposals::ValuationAssignment.where(valuator_role_type: klass, valuator_role_id: id).destroy_all
+        end
+      end
+
       initializer "decidim_proposals.add_badges" do
         Decidim::Gamification.register_badge(:proposals) do |badge|
           badge.levels = [1, 5, 10, 30, 60]
