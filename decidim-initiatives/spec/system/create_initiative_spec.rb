@@ -209,7 +209,7 @@ describe "Initiative", type: :system do
       find_button("I want to promote this initiative").click
     end
 
-    it_behaves_like "having a rich text editor", "new_initiative_previous_form", "full"
+    it_behaves_like "having a rich text editor", "new_initiative_previous_form", "content"
   end
 
   describe "creating an initiative" do
@@ -444,6 +444,17 @@ describe "Initiative", type: :system do
             it "shows the area" do
               expect(page).to have_content("Area")
             end
+          end
+
+          context "when rich text editor is enabled for participants" do
+            before do
+              expect(page).to have_content("Create")
+              organization.update(rich_text_editor_in_public_views: true)
+
+              visit current_path
+            end
+
+            it_behaves_like "having a rich text editor", "new_initiative_form", "content"
           end
         end
       end
