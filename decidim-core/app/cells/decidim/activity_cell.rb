@@ -145,6 +145,10 @@ module Decidim
       model.participatory_space_lazy
     end
 
+    def participatory_space_icon
+      icon "treasure-map-line"
+    end
+
     def participatory_space_link
       link_to(
         decidim_html_escape(translated_attribute(participatory_space.title)),
