@@ -100,11 +100,11 @@
   }
 
   &__aside{
-    @apply px-6 pb-6 w-full;
+    @apply md:px-6 md:pb-6 w-full;
   }
 
   &__aside__element{
-    @apply mb-20;
+    @apply mb-6 md:mb-20;
 
     .profile__user-nick,
     .profile__user-role{
@@ -165,11 +165,11 @@
   }
 
   &__aside__element__signature{
-    @apply mb-20 bg-white rounded py-4 px-6;
+    @apply mb-6 md:mb-20 bg-white rounded md:py-4 md:px-6;
   }
 
   &__aside__element__initiative__data{
-    @apply mb-12;
+    @apply mb-6 md:mb-12;
   }
 
   &__aside__element__signature-title{
