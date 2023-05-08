@@ -10,5 +10,5 @@
 <span class="content-block__span"><%= t("name", scope: "decidim.content_blocks.last_activity") %></span>
 <%#= REDESIGN_PENDING: user_activity requires a proper modal to make it work %>
 <div class="space-y-4">
-  <%= cell "decidim/activities", activities_query.limit(6) %>
+  <%= cell "decidim/activities", activities_query.limit(6), hide_participatory_space: %>
 </div>
