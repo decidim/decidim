@@ -1279,7 +1279,7 @@ eu:
       reference:
         reference: 'Erreferentzia: %{reference}'
       represent_user_group:
-        represent_user_group: Talde bat irudikatzen dut
+        represent_user_group: Talde bat ordezkatzen dut
         select_user_group: Aukeratu talde bat
       results_per_page:
         label: 'Emaitzak, orrialdeko:'
