@@ -18,6 +18,8 @@ module Decidim
                       processes.where("decidim_participatory_processes.end_date <= ?", Date.current)
                     when "upcoming"
                       processes.where("decidim_participatory_processes.start_date > ?", Date.current)
+                    when "active"
+                      processes.where("decidim_participatory_processes.start_date <= ? AND decidim_participatory_processes.end_date >= ?", Date.current, Date.current)
                     else
                       processes
                     end
