@@ -74,6 +74,7 @@ hu:
     'true': 'Igen'
   carrierwave:
     errors:
+      file_cannot_be_processed: A fájl nem nyitható meg
       file_resolution_too_large: A fájl felbontása túl nagy
       file_size_too_large: Túl nagy a fájl mérete
       not_inside_organization: A fájl nincs csatolva egyetlen szervezethez sem
@@ -93,24 +94,6 @@ hu:
         one: kb. 1 hónapja
         other: kb %{count} hónapja
       half_a_minute: fél perce
-      less_than_x_minutes:
-        one: kevesebb, mint 1 perce.
-        other: levesebb mint %{count} perce.
-      less_than_x_seconds:
-        one: épp most
-        other: levesebb mint %{count} másodperce.
-      x_days:
-        one: 1 napja
-        other: "%{count} napja"
-      x_hours:
-        one: 1 órája
-        other: "%{count} órája"
-      x_minutes:
-        one: 1 perce
-        other: "%{count} perccel ezelőtt"
-      x_seconds:
-        one: 1 másodperce
-        other: "%{count} másodperce"
   decidim:
     accessibility:
       external_link: Külső hivatkozás

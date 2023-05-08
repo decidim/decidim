@@ -342,7 +342,6 @@
           back: Tilbake
           continue: Fortsett
           fill_data_help: "<ul> <li>Gjennomgå innholdet i ditt initiativ. Er tittelen din lett å forstå? Er målet med initiativet ditt tydelig?</li> <li>Du må velge type signatur. Pålogget, fysisk tilstede eller en kombinasjon av begge</li> <li>Hvilket geografisk tema av satsingen?</li> </ul>"
-          initiative_type: Initiativtype
           more_information: "(Mer informasjon)"
           select_area: Velg et område
           select_scope: Velg et temaet

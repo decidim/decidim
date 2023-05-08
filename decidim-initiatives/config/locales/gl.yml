@@ -242,7 +242,6 @@ gl:
         fill_data:
           back: De volta
           continue: Continuar
-          initiative_type: Tipo de iniciativa
           more_information: "(Máis información)"
           select_scope: Seleccione un alcance
         finish:

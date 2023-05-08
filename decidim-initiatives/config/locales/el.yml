@@ -282,7 +282,6 @@ el:
         fill_data:
           back: Πίσω
           continue: Συνέχεια
-          initiative_type: Τύπος πρωτοβουλίας
           more_information: "(Περισσότερες πληροφορίες)"
           select_area: Επιλέξτε τομέα
           select_scope: Επιλέξτε πεδίο εφαρμογής

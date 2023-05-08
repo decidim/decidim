@@ -75,6 +75,7 @@ fi-pl:
     'true': 'Kyllä'
   carrierwave:
     errors:
+      file_cannot_be_processed: Tiedostoa ei voida käsitellä
       file_resolution_too_large: Tiedoston resoluutio on liian suuri
       file_size_too_large: Tiedoston koko on liian suuri
       not_inside_organization: Tiedostoa ei ole liitetty mihinkään organisaatioon
@@ -94,24 +95,6 @@ fi-pl:
         one: noin kuukausi
         other: noin %{count} kuukautta
       half_a_minute: puoli minuuttia
-      less_than_x_minutes:
-        one: alle minuutti.
-        other: alle %{count} minuuttia.
-      less_than_x_seconds:
-        one: juuri nyt
-        other: vähemmän kuin %{count} sekuntia.
-      x_days:
-        one: päivä sitten
-        other: "%{count} päivää sitten"
-      x_hours:
-        one: tunti sitten
-        other: "%{count} tuntia sitten"
-      x_minutes:
-        one: minuutti sitten
-        other: "%{count} minuuttia sitten"
-      x_seconds:
-        one: sekunti sitten
-        other: "%{count} sekuntia sitten"
   decidim:
     accessibility:
       external_link: Ulkoinen linkki

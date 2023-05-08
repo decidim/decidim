@@ -75,6 +75,7 @@ fr-CA:
     'true': 'Oui'
   carrierwave:
     errors:
+      file_cannot_be_processed: Le fichier n'a pas pu être traité
       file_resolution_too_large: La résolution du fichier est trop grande
       file_size_too_large: Le fichier est trop volumineux
       not_inside_organization: Le fichier n'est relié à aucune organisation
@@ -95,23 +96,26 @@ fr-CA:
         other: environ %{count} mois
       half_a_minute: une demi-minute
       less_than_x_minutes:
-        one: moins d’une minute.
-        other: moins de %{count} min.
+        one: moins d'une minute
+        other: moins de %{count} minutes
       less_than_x_seconds:
-        one: à l’instant
-        other: moins de %{count} sec.
+        one: moins d'une seconde
+        other: moins de %{count} secondes
       x_days:
-        one: Hier
-        other: "Il y a %{count} jours"
+        one: 1 jour
+        other: "%{count} jours"
       x_hours:
-        one: Il y a 1 heure
-        other: "Il y a %{count} heures"
+        one: 1 heure
+        other: "%{count} heures"
       x_minutes:
-        one: Il y a 1 min
-        other: "Il y a %{count} min"
+        one: 1 minute
+        other: "%{count} minutes"
+      x_months:
+        one: 1 mois
+        other: "%{count} mois"
       x_seconds:
-        one: Il y a 1 seconde
-        other: "Il y a %{count} secondes"
+        one: 1 seconde
+        other: "%{count} secondes"
   decidim:
     accessibility:
       external_link: Lien externe
@@ -1259,7 +1263,7 @@ fr-CA:
         required_review:
           alert: Nous avons mis à jour nos conditions d'utilisation, veuillez les consulter.
           body: Veuillez prendre un moment pour examiner nos conditions d'utilisation mises à jour. Sinon, vous ne pourrez pas utiliser la plateforme.
-          title: "Required: Review updates to our terms of service\nRequis : veuillez consulter la mise à jour des conditions d'utilisation."
+          title: 'Requis : veuillez consulter la mise à jour des conditions d''utilisation.'
     participatory_space_private_users:
       not_allowed: Vous n'êtes pas autorisé à voir ce contenu
     passwords:

@@ -302,7 +302,6 @@ zh-CN:
         fill_data:
           back: 后退
           continue: 继续
-          initiative_type: 倡议类型
           more_information: "(更多信息)"
           select_area: 选择区域
           select_scope: 选择范围

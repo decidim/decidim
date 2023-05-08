@@ -326,7 +326,6 @@ sv:
         fill_data:
           back: Tillbaka
           continue: Fortsätt
-          initiative_type: Initiativtyp
           more_information: "(Mer information)"
           select_area: Välj ett område
           select_scope: Välj ett omfång

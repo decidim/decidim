@@ -224,7 +224,6 @@ sk:
         fill_data:
           back: Späť
           continue: Pokračovať
-          initiative_type: Typ iniciatívy
           more_information: "(Viac informácií)"
           select_scope: Zvoľte rozsah
         finish:
