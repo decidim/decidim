@@ -5,6 +5,11 @@ import { Client } from "@decidim/decidim-bulletin_board";
 
 $(() => {
   const $voteVerifyWrapper = $(".verify-vote-wrapper");
+
+  if (!$voteVerifyWrapper.length) {
+    return
+  }
+
   const $verifySubmitButton = $voteVerifyWrapper.find("a.focus__next.confirm");
 
   let $formData = $voteVerifyWrapper.find(".vote-identifier");
