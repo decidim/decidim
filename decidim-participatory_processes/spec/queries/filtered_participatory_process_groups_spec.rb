@@ -41,6 +41,15 @@ module Decidim::ParticipatoryProcesses
             expect(subject.first).to eq(active_group)
           end
         end
+
+        context "when end date is not set" do
+          let!(:active_participatory_process) { create(:participatory_process, start_date: 2.months.ago, end_date: nil, participatory_process_group: active_group, organization:) }
+
+          it "returns only the active group" do
+            expect(subject.count).to eq(1)
+            expect(subject.first).to eq(active_group)
+          end
+        end
       end
 
       context "with past filter" do
