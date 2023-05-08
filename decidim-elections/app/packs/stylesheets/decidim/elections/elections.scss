@@ -63,3 +63,18 @@
     }
   }
 }
+
+.election-log{
+  &__entry{
+    @apply flex flex-col gap-2 rounded border-4 border-background p-4 mb-8 last:mb-0 text-gray-2;
+  }
+
+  &__hash,
+  &__time{
+    @apply text-sm empty:hidden;
+  }
+
+  &__pre{
+    @apply bg-background p-2 rounded;
+  }
+}

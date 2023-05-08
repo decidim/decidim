@@ -1,181 +1,186 @@
-<%= render partial: "decidim/shared/component_announcement" %>
+<% content_for :css_content do %>
+  <%= stylesheet_pack_tag "decidim_elections", media: "all" %>
+<% end %>
 
-<div class="row section election-log"
-  data-election-id="<%= election.id %>"
-  data-api-endpoint-url="<%= bulletin_board_server %>"
-  data-authority-slug="<%= authority_slug %>"
-  data-authority-public-key="<%= authority_public_key %>">
-  <div class="columns large-8">
-    <h1 class="heading3"><%= t(".title") %></h1>
-    <p><%= t(".description") %></p>
-    <div class="mt-sm">
-      <!-- CREATE ELECTION STEP -->
-      <div class="card" id="create-election-step">
-        <div class="card__content">
-          <div class="card__header">
-            <span class="text-small time"></span>
-            <h5 class="card__title"><%= t(".creation_title") %></h5>
-          </div>
-          <div class="card__text">
-            <span class="no-election-created">
-              <span class="card__text--status text-muted"><%= t(".not_created") %></span>
-              <%= t(".creation_description.not_created") %>
-            </span>
-            <span class="election-created hide">
-              <span class="card__text--status success"><%= t(".complete") %></span>
-              <%= t(".creation_description.complete") %>
-            </span>
-          </div>
-          <div class="card__footer--transparent text-small hide">
-            <strong><%= t(".chained_hash") %></strong>: <span class="chained-hash"></span>
-          </div>
-        </div>
-      </div>
-      <!-- KEY CEREMONY STEP -->
-      <div class="card" id="key-ceremony-step">
-        <div class="card__content">
-          <div class="card__header">
-            <span class="text-small time"></span>
-            <h5 class="card__title"><%= t(".key_ceremony_title") %></h5>
-          </div>
-          <div class="card__text">
-            <span class="key-ceremony-not-started">
-              <span class="card__text--status text-muted"><%= t(".not_started") %></span>
-              <%= t(".key_ceremony_description.not_started") %>
-            </span>
-            <span class="key-ceremony-started hide">
-              <span class="card__text--status warning"><%= t(".started") %></span>
-              <%= t(".key_ceremony_description.started") %>
-            </span>
-            <span class="key-ceremony-completed hide">
-              <span class="card__text--status success"><%= t(".complete") %></span>
-              <%= t(".key_ceremony_description.complete") %>
-            </span>
-          </div>
-          <div class="card__footer--transparent text-small hide">
-            <strong><%= t(".chained_hash") %></strong>: <span class="chained-hash"></span>
-          </div>
-        </div>
-      </div>
-      <!-- VOTE STEP -->
-      <div class="card" id="vote-step">
-        <div class="card__content">
-          <div class="card__header">
-            <span class="text-small time"></span>
-            <h5 class="card__title"><%= t(".vote_title") %></h5>
-          </div>
-          <div class="card__text">
-            <span class="vote-not-started">
-              <span class="card__text--status text-muted"><%= t(".not_started") %></span>
-              <%= t(".vote_description.not_started") %>
-            </span>
-            <span class="vote-started hide">
-              <span class="card__text--status success"><%= t(".started") %></span>
-              <%= t(".vote_description.started") %>
-            </span>
-            <span class="vote-completed hide">
-              <span class="card__text--status success"><%= t(".complete") %></span>
-              <%= t(".vote_description.finished") %>
-            </span>
-          </div>
-          <div class="card__footer--transparent text-small hide">
-            <strong><%= t(".chained_hash") %></strong>: <span class="chained-hash"></span>
-          </div>
-        </div>
-      </div>
-      <!-- TALLY STEP -->
-      <div class="card" id="tally-step">
-        <div class="card__content">
-          <div class="card__header">
-            <span class="text-small time"></span>
-            <h5 class="card__title"><%= t(".tally_title") %></h5>
-          </div>
-          <div class="card__text">
-            <span class="tally-not-started">
-              <span class="card__text--status text-muted"><%= t(".not_started") %></span>
-              <%= t(".tally_description.not_started") %>
-            </span>
-            <span class="tally-started hide">
-              <span class="card__text--status success"><%= t(".started") %></span>
-              <%= t(".tally_description.started") %>
-            </span>
-            <span class="tally-completed hide">
-              <span class="card__text--status success"><%= t(".complete") %></span>
-              <%= t(".tally_description.finished") %>
-            </span>
-          </div>
-          <div class="card__footer--transparent text-small hide">
-            <strong><%= t(".chained_hash") %></strong>: <span class="chained-hash"></span>
-          </div>
-        </div>
-      </div>
-      <!-- PUBLISHED RESULTS STEP -->
-      <div class="card" id="results-step">
-        <div class="card__content">
-          <div class="card__header">
-            <span class="text-small time"></span>
-            <h5 class="card__title"><%= t(".results_title") %></h5>
-          </div>
-          <div class="card__text">
-            <span class="results-not-published">
-              <span class="card__text--status text-muted"><%= t(".not_published") %></span>
-              <%= t(".results_description.not_published") %>
-            </span>
-            <span class="results-published hide">
-              <span class="card__text--status success"><%= t(".published") %></span>
-              <%= t(".results_description.published") %>
-            </span>
-          </div>
-          <div class="card__footer--transparent text-small hide">
-            <strong><%= t(".chained_hash") %></strong>: <span class="chained-hash"></span>
-          </div>
-        </div>
-      </div>
+<% content_for :js_content do %>
+  <%= javascript_pack_tag "decidim_elections" %>
+<% end %>
 
-      <!-- VERIFIABLE RESULTS STEP -->
-      <div class="card" id="verifiable-results-step">
-        <div class="card__content">
-          <div class="card__header">
-            <h5 class="card__title"><%= t(".verifiable_results.title") %></h5>
-          </div>
-          <div class="card__text">
-            <% if election.results_published? %>
-              <span class="card__text--status success"><%= t(".verify") %></span>
-              <%= content_tag :p, sanitize(t(".verifiable_results.description.ready")) %>
-              <pre class="code-block">sha256sum &lt;verifiable_election_file_path&gt;</pre>
-              <%= content_tag :p, sanitize(t(".verifiable_results.how_to_verify")) %>
-              <pre class="code-block">bin/verify &lt;verifiable_election_file_path&gt;</pre>
-            <% else %>
-              <span class="card__text--status text-muted"><%= t(".not_ready") %></span>
-              <%= t(".verifiable_results.description.not_ready") %>
-            <% end %>
-          </div>
-          <% if election.results_published? %>
-            <div class="card__footer">
-              <div class="card__support">
-                <span class="card--process__small"><strong><%= t(".verifiable_results.verifiable_file") %></strong></span>
-                <% if election.verifiable_results_file_url.present? %>
-                  <%= link_to t(".download"), election.verifiable_results_file_url, class: "card__button button small" %>
-                <% else %>
-                  <span class="card--process__small">
-                    <%= t(".not_available") %>
-                  </span>
-                <% end %>
-                <span class="card--process__small"><strong><%= t(".verifiable_results.checksum") %></strong></span>
-                <% if election.verifiable_results_file_hash.present? %>
-                  <%= election.verifiable_results_file_hash %>
-                <% else %>
-                  <span class="card--process__small">
-                    <%= t(".not_available") %>
-                  </span>
-                <% end %>
-              </div>
-            </div>
-          <% end %>
-        </div>
-      </div>
+<%= render layout: "layouts/decidim/shared/layout_center" do %>
+
+  <%= render partial: "decidim/shared/component_announcement" %>
+
+  <% scope = "decidim.elections.elections.election_log" %>
+
+  <div class="text-center py-10">
+    <h1 class="h3 md:h1 decorator inline-block text-left mb-12">
+      <%= t("title", scope:) %>
+    </h1>
+
+    <div class="text-lg text-gray-2 text-left">
+      <%= t("description", scope:) %>
     </div>
   </div>
-</div>
+
+  <div id="election-log"
+    data-election-id="<%= election.id %>"
+    data-api-endpoint-url="<%= bulletin_board_server %>"
+    data-authority-slug="<%= authority_slug %>"
+    data-authority-public-key="<%= authority_public_key %>">
+
+    <!-- CREATE ELECTION STEP -->
+    <div id="create-election-step" class="election-log__entry">
+      <span class="election-log__time" data-time></span>
+
+      <h2 class="h4 text-secondary">
+        <%= t("creation_title", scope:) %>
+        <span data-no-election-created><span class="label"><%= t("not_created", scope:) %></span></span>
+        <span data-election-created hidden><span class="label success"><%= t("complete", scope:) %></span></span>
+      </h2>
+
+      <span data-no-election-created>
+        <%= t("creation_description.not_created", scope:) %>
+      </span>
+      <span data-election-created hidden>
+        <%= t("creation_description.complete", scope:) %>
+      </span>
+
+      <span class="election-log__hash"><strong><%= t("chained_hash", scope:) %></strong> <span data-chained-hash></span></span>
+    </div>
+
+    <!-- KEY CEREMONY STEP -->
+    <div id="key-ceremony-step" class="election-log__entry">
+      <span class="election-log__time" data-time></span>
+
+      <h2 class="h4 text-secondary">
+        <%= t("key_ceremony_title", scope:) %>
+        <span data-key-ceremony-not-started><span class="label"><%= t("not_started", scope:) %></span></span>
+        <span data-key-ceremony-started hidden><span class="label warning"><%= t("started", scope:) %></span></span>
+        <span data-key-ceremony-completed hidden><span class="label success"><%= t("complete", scope:) %></span></span>
+      </h2>
+
+      <span data-key-ceremony-not-started>
+        <%= t("key_ceremony_description.not_started", scope:) %>
+      </span>
+      <span data-key-ceremony-started hidden>
+        <%= t("key_ceremony_description.started", scope:) %>
+      </span>
+      <span data-key-ceremony-completed hidden>
+        <%= t("key_ceremony_description.complete", scope:) %>
+      </span>
+
+      <span class="election-log__hash"><strong><%= t("chained_hash", scope:) %></strong> <span data-chained-hash></span></span>
+    </div>
+
+    <!-- VOTE STEP -->
+    <div id="vote-step" class="election-log__entry">
+      <span class="election-log__time" data-time></span>
+
+      <h2 class="h4 text-secondary">
+        <%= t("vote_title", scope:) %>
+        <span data-vote-not-started><span class="label"><%= t("not_started", scope:) %></span></span>
+        <span data-vote-started hidden><span class="label success"><%= t("started", scope:) %></span></span>
+        <span data-vote-completed hidden><span class="label success"><%= t("complete", scope:) %></span></span>
+      </h2>
+
+      <span data-vote-not-started>
+        <%= t("vote_description.not_started", scope:) %>
+      </span>
+      <span data-vote-started hidden>
+        <%= t("vote_description.started", scope:) %>
+      </span>
+      <span data-vote-completed hidden>
+        <%= t("vote_description.finished", scope:) %>
+      </span>
+
+      <span class="election-log__hash"><strong><%= t("chained_hash", scope:) %></strong> <span data-chained-hash></span></span>
+    </div>
+
+    <!-- TALLY STEP -->
+    <div id="tally-step" class="election-log__entry">
+      <span class="election-log__time" data-time></span>
+
+      <h2 class="h4 text-secondary">
+        <%= t("tally_title", scope:) %>
+        <span data-tally-not-started><span class="label"><%= t("not_started", scope:) %></span></span>
+        <span data-tally-started hidden><span class="label success"><%= t("started", scope:) %></span></span>
+        <span data-tally-completed hidden><span class="label success"><%= t("complete", scope:) %></span></span>
+      </h2>
+
+      <span data-tally-not-started>
+        <%= t("tally_description.not_started", scope:) %>
+      </span>
+      <span data-tally-started hidden>
+        <%= t("tally_description.started", scope:) %>
+      </span>
+      <span data-tally-completed hidden>
+        <%= t("tally_description.finished", scope:) %>
+      </span>
+
+      <span class="election-log__hash"><strong><%= t("chained_hash", scope:) %></strong> <span data-chained-hash></span></span>
+    </div>
+
+    <!-- PUBLISHED RESULTS STEP -->
+    <div id="results-step" class="election-log__entry">
+      <span class="election-log__time" data-time></span>
+
+      <h2 class="h4 text-secondary">
+        <%= t("results_title", scope:) %>
+        <span data-results-not-published><span class="label"><%= t("not_published", scope:) %></span></span>
+        <span data-results-published hidden><span class="label success"><%= t("published", scope:) %></span></span>
+      </h2>
+
+      <span data-results-not-published>
+        <%= t("results_description.not_published", scope:) %>
+      </span>
+      <span data-results-published hidden>
+        <%= t("results_description.published", scope:) %>
+      </span>
+
+      <span class="election-log__hash"><strong><%= t("chained_hash", scope:) %></strong> <span data-chained-hash></span></span>
+    </div>
+
+    <%# REDESIGN_PENDING: This block does not look like to be in use %>
+    <!-- VERIFIABLE RESULTS STEP -->
+    <div id="verifiable-results-step" class="election-log__entry">
+      <h2 class="h4 text-secondary">
+        <%= t("verifiable_results.title", scope:) %>
+        <% if election.results_published? %>
+          <span class="label success"><%= t("verify", scope:) %></span>
+        <% else %>
+          <span class="label"><%= t("not_ready", scope:) %></span>
+        <% end %>
+      </h2>
+
+      <% if election.results_published? %>
+        <%= content_tag :p, sanitize(t("verifiable_results.description.ready", scope:)) %>
+        <pre class="election-log__pre">sha256sum &lt;verifiable_election_file_path&gt;</pre>
+        <%= content_tag :p, sanitize(t("verifiable_results.how_to_verify", scope:)) %>
+        <pre class="election-log__pre">bin/verify &lt;verifiable_election_file_path&gt;</pre>
+      <% else %>
+        <span><%= t("verifiable_results.description.not_ready", scope:) %></span>
+      <% end %>
+
+      <% if election.results_published? %>
+        <span class="election-log__hash">
+          <strong><%= t("verifiable_results.verifiable_file", scope:) %></strong>
+          <% if election.verifiable_results_file_url.present? %>
+            <%= link_to t("download", scope:), election.verifiable_results_file_url, class: "card__button button small" %>
+          <% else %>
+            <span><%= t("not_available", scope:) %></span>
+          <% end %>
+        </span>
+
+        <span class="election-log__hash">
+          <strong><%= t("verifiable_results.checksum", scope:) %></strong>
+          <% if election.verifiable_results_file_hash.present? %>
+            <%= election.verifiable_results_file_hash %>
+          <% else %>
+            <span><%= t("not_available", scope:) %></span>
+          <% end %>
+        </span>
+      <% end %>
+    </div>
+  </div>
 
 <%= append_javascript_pack_tag "decidim_elections" %>

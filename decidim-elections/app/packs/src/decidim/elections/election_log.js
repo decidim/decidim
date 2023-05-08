@@ -6,7 +6,7 @@ import { Client, MessageParser } from "@decidim/decidim-bulletin_board";
 
 $(async () => {
   // UI Elements
-  const $electionLog = $(".election-log");
+  const $electionLog = $("#election-log");
 
   if ($electionLog.length) {
     const $createElectionStep = $electionLog.find("#create-election-step");
@@ -45,7 +45,7 @@ $(async () => {
     // adds the `iat` of the message to the UI
     const setMessageTime = async (logEntryStep, uiStep) => {
       if (!logEntryStep.signedData) {
-        uiStep.find(".time").html("");
+        uiStep.find("[data-time]").html("");
         return;
       }
 
@@ -54,13 +54,12 @@ $(async () => {
       const year = messageTime.toDateString();
       const time = messageTime.toLocaleTimeString();
 
-      uiStep.find(".time").html(`${year} ${time}`);
+      uiStep.find("[data-time]").html(`${year} ${time}`);
     };
 
     // adds the chained Hash of the message to the UI
     const addChainedHash = (logEntryStep, uiStep) => {
-      uiStep.find(".card__footer--transparent").removeClass("hide");
-      uiStep.find(".chained-hash").html(logEntryStep.chainedHash);
+      uiStep.find("[data-chained-hash]").html(logEntryStep.chainedHash);
     };
 
     // finds the logEntry for each step
@@ -71,8 +70,8 @@ $(async () => {
     // CREATE ELECTION STEP
     const createElectionLogEntry = getLogEntryByMessageId("create_election");
     if (createElectionLogEntry) {
-      $createElectionStep.find(".no-election-created").addClass("hide");
-      $createElectionStep.find(".election-created").removeClass("hide");
+      $createElectionStep.find("[data-no-election-created]").attr("hidden", true);
+      $createElectionStep.find("[data-election-created]").attr("hidden", false);
 
       await setMessageTime(createElectionLogEntry, $createElectionStep);
 
@@ -84,21 +83,19 @@ $(async () => {
     const endKeyCeremonyLogEntry = getLogEntryByMessageId("end_key_ceremony");
 
     if (startKeyCeremonyLogEntry && !endKeyCeremonyLogEntry) {
-      $keyCeremonyStep.find(".key-ceremony-not-started").addClass("hide");
-      $keyCeremonyStep.find(".card__text").removeClass("hide");
+      $keyCeremonyStep.find("[data-key-ceremony-not-started]").attr("hidden", true);
 
       await setMessageTime(startKeyCeremonyLogEntry, $keyCeremonyStep);
 
-      $keyCeremonyStep.find(".key-ceremony-started").removeClass("hide");
+      $keyCeremonyStep.find("[data-key-ceremony-started]").attr("hidden", false);
       addChainedHash(startKeyCeremonyLogEntry, $keyCeremonyStep);
     } else if (endKeyCeremonyLogEntry) {
-      $keyCeremonyStep.find(".key-ceremony-not-started").addClass("hide");
-      $keyCeremonyStep.find(".card__text").removeClass("hide");
+      $keyCeremonyStep.find("[data-key-ceremony-not-started]").attr("hidden", true);
 
       await setMessageTime(endKeyCeremonyLogEntry, $keyCeremonyStep);
 
-      $keyCeremonyStep.find(".key-ceremony-started").addClass("hide");
-      $keyCeremonyStep.find(".key-ceremony-completed").removeClass("hide");
+      $keyCeremonyStep.find("[data-key-ceremony-started]").attr("hidden", true);
+      $keyCeremonyStep.find("[data-key-ceremony-completed]").attr("hidden", false);
       addChainedHash(endKeyCeremonyLogEntry, $keyCeremonyStep);
     }
 
@@ -107,21 +104,19 @@ $(async () => {
     const endVoteLogEntry = getLogEntryByMessageId("end_vote");
 
     if (startVoteLogEntry && !endVoteLogEntry) {
-      $voteStep.find(".vote-not-started").addClass("hide");
-      $voteStep.find(".card__text").removeClass("hide");
+      $voteStep.find("[data-vote-not-started]").attr("hidden", true);
 
       await setMessageTime(startVoteLogEntry, $voteStep);
 
-      $voteStep.find(".vote-started").removeClass("hide");
+      $voteStep.find("[data-vote-started]").attr("hidden", false);
       addChainedHash(startVoteLogEntry, $voteStep);
     } else if (endVoteLogEntry) {
-      $voteStep.find(".vote-not-started").addClass("hide");
-      $voteStep.find(".card__text").removeClass("hide");
+      $voteStep.find("[data-vote-not-started]").attr("hidden", true);
 
       await setMessageTime(endVoteLogEntry, $voteStep);
 
-      $voteStep.find(".vote-started").addClass("hide");
-      $voteStep.find(".vote-completed").removeClass("hide");
+      $voteStep.find("[data-vote-started]").attr("hidden", true);
+      $voteStep.find("[data-vote-completed]").attr("hidden", false);
       addChainedHash(endVoteLogEntry, $voteStep);
     }
 
@@ -130,21 +125,19 @@ $(async () => {
     const endTallyLogEntry = getLogEntryByMessageId("end_tally");
 
     if (startTallyLogEntry && !endTallyLogEntry) {
-      $tallyStep.find(".tally-not-started").addClass("hide");
-      $tallyStep.find(".card__text").removeClass("hide");
+      $tallyStep.find("[data-tally-not-started]").attr("hidden", true);
 
       await setMessageTime(startTallyLogEntry, $tallyStep);
 
-      $tallyStep.find(".tally-started").removeClass("hide");
+      $tallyStep.find("[data-tally-started]").attr("hidden", false);
       addChainedHash(startTallyLogEntry, $tallyStep);
     } else if (endTallyLogEntry) {
-      $tallyStep.find(".tally-not-started").addClass("hide");
-      $tallyStep.find(".card__text").removeClass("hide");
+      $tallyStep.find("[data-tally-not-started]").attr("hidden", true);
 
       await setMessageTime(endTallyLogEntry, $tallyStep);
 
-      $tallyStep.find(".tally-started").addClass("hide");
-      $tallyStep.find(".tally-completed").removeClass("hide");
+      $tallyStep.find("[data-tally-started]").attr("hidden", true);
+      $tallyStep.find("[data-tally-completed]").attr("hidden", false);
       addChainedHash(endTallyLogEntry, $tallyStep);
     }
 
@@ -152,12 +145,11 @@ $(async () => {
     const resultsLogEntry = getLogEntryByMessageId("publish_results");
 
     if (resultsLogEntry) {
-      $resultStep.find(".results-not-published").addClass("hide");
-      $resultStep.find(".card__text").removeClass("hide");
+      $resultStep.find("[data-results-not-published]").attr("hidden", true);
 
       await setMessageTime(resultsLogEntry, $resultStep);
 
-      $resultStep.find(".results-published").removeClass("hide");
+      $resultStep.find("[data-results-published]").attr("hidden", false);
       addChainedHash(resultsLogEntry, $resultStep);
     }
   }
