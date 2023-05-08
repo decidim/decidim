@@ -48,6 +48,7 @@ hu:
           results: Eredmények
         import_results:
           new:
+            download_export: A CSV formátumú exportálás letöltése
             import: Importál
             title: Eredmények betöltése CSV-ből
         imports:

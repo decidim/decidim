@@ -84,21 +84,6 @@ nl:
         one: ongeveer 1 maand
         other: ongeveer %{count} maanden
       half_a_minute: een halve minuut
-      less_than_x_minutes:
-        one: minder dan een minuut
-        other: minder dan %{count} minuten
-      less_than_x_seconds:
-        one: nu meteen
-        other: minder dan %{count} seconden
-      x_days:
-        one: 1 dag geleden
-        other: "%{count} dagen geleden"
-      x_hours:
-        one: 1 uur geleden
-        other: "%{count} uren geleden"
-      x_minutes:
-        one: 1 minuut geleden
-        other: "%{count} minuten geleden"
   decidim:
     accessibility:
       external_link: Externe link

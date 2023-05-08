@@ -91,16 +91,6 @@ eu:
       about_x_months:
         one: hilabete inguru
         other: '%{count} hilabete inguru'
-      x_days:
-        one: Duela egun bat
-        other: "Duela %{count} egun"
-      x_minutes:
-        one: duela minutu bat
-        other: "duela %{count} minutu"
-      x_seconds:
-        one: Orain dela segundu 1
-        other: "Orain dela %{count} segundu"
-        zero: orain
   decidim:
     accessibility:
       external_link: Kanpoko lotura
@@ -1289,7 +1279,7 @@ eu:
       reference:
         reference: 'Erreferentzia: %{reference}'
       represent_user_group:
-        represent_user_group: Talde bat irudikatzen dut
+        represent_user_group: Talde bat ordezkatzen dut
         select_user_group: Aukeratu talde bat
       results_per_page:
         label: 'Emaitzak, orrialdeko:'

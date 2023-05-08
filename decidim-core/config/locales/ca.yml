@@ -93,24 +93,26 @@ ca:
         other: al voltant de %{count} mesos
       half_a_minute: mig minut
       less_than_x_minutes:
-        one: menys d’un minut
-        other: menys de %{count} minuts
+        one: fa menys d'un minut
+        other: fa menys de %{count} minuts
       less_than_x_seconds:
-        one: ara mateix
-        other: menys de %{count} segons
+        one: fa menys d'un segon
+        other: fa menys de %{count} segons
       x_days:
-        one: fa 1 dia
-        other: "fa %{count} dies"
+        one: 1 dia
+        other: "%{count} dies"
       x_hours:
-        one: fa 1 hora
-        other: "fa %{count} hores"
+        one: 1 hora
+        other: "%{count} hores"
       x_minutes:
-        one: fa 1 minut
-        other: "fa %{count} minuts"
+        one: 1 minut
+        other: "%{count} minuts"
+      x_months:
+        one: 1 mes
+        other: "%{count} mesos"
       x_seconds:
-        one: fa 1 segon
-        other: "fa %{count} segons"
-        zero: ara mateix
+        one: 1 segon
+        other: "%{count} segons"
   decidim:
     accessibility:
       external_link: Enllaç extern

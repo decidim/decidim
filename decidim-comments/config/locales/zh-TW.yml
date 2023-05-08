@@ -82,7 +82,8 @@ zh-TW:
             offensive: 包含種族主義、性別歧視、辱罵、人身攻擊、死亡威脅、自殺要求或任何形式的仇恨言論
             spam: 包含點閱率誘導、廣告、詐騙或自動腳本。
           title: 檢舉不當內容
-        show_replies: 顯示 %{replies_count} 則回覆
+        show_replies:
+          other: 顯示 %{count} 則回覆
         single_comment_link_title: 取得連結
       comment_order_selector:
         order:

@@ -85,25 +85,6 @@
         one: omtrent 1 måned
         other: omtrent %{count} måneder
       half_a_minute: et halvt minutt
-      less_than_x_minutes:
-        one: mindre enn et minutt.
-        other: mindre enn %{count} minutter.
-      less_than_x_seconds:
-        one: akkurat nå
-        other: mindre enn %{count} sekunder.
-      x_days:
-        one: 1 dag siden
-        other: "%{count} dager siden"
-      x_hours:
-        one: 1 time siden
-        other: "%{count} timer siden"
-      x_minutes:
-        one: 1 minutt siden
-        other: "%{count} minutter siden"
-      x_seconds:
-        one: 1 sek. siden
-        other: "%{count} sek. siden"
-        zero: akkurat nå
   decidim:
     accessibility:
       external_link: Ekstern lenke
