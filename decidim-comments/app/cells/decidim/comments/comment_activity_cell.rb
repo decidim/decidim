@@ -14,6 +14,14 @@ module Decidim
         model.participatory_space_lazy
       end
 
+      def participatory_space_link
+        link_to(root_commentable_title, resource_link_path)
+      end
+
+      def participatory_space_icon
+        resource_type_icon(root_commentable.class)
+      end
+
       def comment
         model.resource_lazy
       end
