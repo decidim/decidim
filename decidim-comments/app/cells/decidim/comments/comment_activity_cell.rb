@@ -22,6 +22,8 @@ module Decidim
         resource_type_icon(root_commentable.class)
       end
 
+      def hide_participatory_space? = false
+
       def comment
         model.resource_lazy
       end
