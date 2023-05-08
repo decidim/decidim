@@ -10,7 +10,7 @@ describe "Valuator checks components", type: :system do
     decidim_admin_conferences.components_path(conference)
   end
   let(:components_path) { participatory_space_path }
-  let!(:user) { create :user, :confirmed, organization: }
+  let!(:user) { create :user, :confirmed, admin_terms_accepted_at: Time.current, admin: false, organization: }
   let!(:valuator_role) { create :conference_user_role, role: :valuator, user:, conference: }
   let(:another_component) { create :component, participatory_space: conference }
 
@@ -19,8 +19,6 @@ describe "Valuator checks components", type: :system do
   include_context "when administrating a conference"
 
   before do
-    user.update(admin: false)
-
     create :valuation_assignment, proposal: assigned_proposal, valuator_role: valuator_role
 
     switch_to_host(organization.host)
@@ -47,6 +45,14 @@ describe "Valuator checks components", type: :system do
         expect(page).to have_content(translated(current_component.name))
         expect(page).to have_no_content(translated(another_component.name))
       end
+    end
+  end
+
+  context "when the user has not accepted the admin TOS" do
+    let!(:user) { create :user, :confirmed, organization: }
+
+    it "shows a message to accept the admin TOS" do
+      expect(page).to have_content("Please take a moment to review the admin terms of service")
     end
   end
 end
