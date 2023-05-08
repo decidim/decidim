@@ -89,6 +89,20 @@ ja:
       about_x_months:
         other: 約%{count} ヶ月
       half_a_minute: 約30秒
+      less_than_x_minutes:
+        other: '%{count} 分未満'
+      less_than_x_seconds:
+        other: '%{count} 秒未満'
+      x_days:
+        other: "%{count} 日"
+      x_hours:
+        other: "%{count} 時間"
+      x_minutes:
+        other: "%{count} 分"
+      x_months:
+        other: "%{count} ヶ月"
+      x_seconds:
+        other: "%{count} 秒"
   decidim:
     accessibility:
       external_link: 外部リンク
