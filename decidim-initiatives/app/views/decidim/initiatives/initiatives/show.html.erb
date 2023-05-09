@@ -113,16 +113,14 @@ edit_link(
         </span>
       </div>
 
-      <% if current_initiative.rejected? || current_initiative.accepted? %>
-        <div class="initiative__aside__element__data">
-          <p class="initiative__aside__element__data-title">
-            <%= t("state", scope: "decidim.initiatives.initiatives.show") %>
-          </p>
-          <span class="initiative__aside__element__data-text">
-            <%= render partial: "initiative_badge", locals: { initiative: current_initiative } %>
-          </span>
-        </div>
-      <% end %>
+      <div class="initiative__aside__element__data">
+        <p class="initiative__aside__element__data-title">
+          <%= t("state", scope: "decidim.initiatives.initiatives.show") %>
+        </p>
+        <span class="initiative__aside__element__data-text">
+          <%= render partial: "initiative_badge", locals: { initiative: current_initiative } %>
+        </span>
+      </div>
 
       <div class="initiative__aside__element__data">
         <p class="initiative__aside__element__data-title">

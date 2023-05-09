@@ -14,9 +14,16 @@ module Decidim
       #
       # Returns a String.
       def state_badge_css_class(initiative)
-        return "success" if initiative.accepted?
-
-        "warning"
+        case initiative
+        when "accepted", "published"
+          ["success"]
+        when "rejected", "discarded"
+          ["alert"]
+        when "validating"
+          ["warning"]
+        else
+          ["muted"]
+        end
       end
 
       # Public: The state of an initiative in a way a human can understand.
