@@ -106,6 +106,11 @@ export default class UploadModal {
   }
 
   autoloadImage(container, file) {
+    // if the mime type is not from an image, skip previewing
+    if (!(/image/).test(file.type)) {
+      return
+    }
+
     const reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onload = ({ target: { result }}) => {
@@ -116,7 +121,13 @@ export default class UploadModal {
 
   preloadFiles(element) {
     // Get a File object from img.src, more info: https://stackoverflow.com/a/38935544/5020256
-    const { src } = element.querySelector("img")
+    const { src } = element.querySelector("img") || {}
+
+    // if there's no src, it's not an image, therefore, skip previewing
+    if (!src) {
+      return null
+    }
+
     return fetch(src).
       then((res) => res.arrayBuffer()).
       then((buffer) => {
@@ -159,7 +170,7 @@ export default class UploadModal {
 
   createUploadItem(file, errors, opts = {}) {
     const okTemplate = `
-      <div><img src="" alt="${file.name}" /></div>
+      <img src="" alt="${file.name}" />
       <span>${truncateFilename(file.name)}</span>
     `
 
@@ -173,7 +184,7 @@ export default class UploadModal {
     `
 
     const titleTemplate = `
-      <div><img src="" alt="${file.name}" /></div>
+      <img src="" alt="${file.name}" />
       <div>
         <div>
           <label>${this.locales.filename}</label>
@@ -181,7 +192,7 @@ export default class UploadModal {
         </div>
         <div>
           <label>${this.locales.title}</label>
-          <input class="sm" type="text" placeholder="${truncateFilename(file.name)}" />
+          <input class="sm" type="text" value="${truncateFilename(file.name)}" />
         </div>
       </div>
     `
