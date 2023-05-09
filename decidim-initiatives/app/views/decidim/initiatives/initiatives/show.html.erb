@@ -214,7 +214,7 @@ edit_link(
 <%= render partial: "result", locals: { initiative: current_initiative } %>
 
 <div class="my-4 flex gap-x-1 items-center">
-  <% if current_initiative.commentable? %>
+  <% if current_initiative.commentable? && current_initiative.published? %>
     <%= cell "decidim/comments_button", nil %>
   <% end %>
   <div class="ml-auto">
