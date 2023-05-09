@@ -22,10 +22,12 @@
           </button>
         <% end %>
       <% else %>
-        <%= authorized_create_modal_button(type, remote: true, class: "button") do %>
-        <%= t("verification_required", scope: "decidim.initiatives.create_initiative.select_initiative_type") %>
+        <%= authorized_create_modal_button(type, remote: true, class: "button button__sm button__text-secondary initiatives__selection__card") do %>
+          <%= t("verification_required", scope: "decidim.initiatives.create_initiative.select_initiative_type") %>
         <% end %>
       <% end %>
     </div>
   <% end %>
 </div>
+
+<%= render partial: "decidim/initiatives/modal" %>
