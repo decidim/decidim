@@ -61,8 +61,9 @@
     }
   }
 
-  &[disabled]{
-    @apply text-gray bg-background-3 border border-gray;
+  &[disabled],
+  &.disabled{
+    @apply text-gray-2 bg-background-3 border border-gray-2 pointer-events-none;
   }
 
   &:not([disabled]):not([class*="button__text"]):hover{
