@@ -177,12 +177,26 @@
   }
 }
 
-#initiatives .card__grid{
-  @apply relative;
-}
+#initiatives{
+  .card__grid{
+    @apply relative;
+  }
 
-#initiatives .card__grid-text{
-  @apply min-h-[120px];
+  .card__grid-text{
+    @apply min-h-[120px];
+  }
+
+  .initiative-status{
+    @apply text-center ml-2;
+  }
+
+  .initiatives__card__grid-metadata-dates{
+    @apply mr-2;
+  }
+
+  .initiatives__progress-bar{
+    @apply mx-2;
+  }
 }
 
 .edit_initiative .profile__group__list{

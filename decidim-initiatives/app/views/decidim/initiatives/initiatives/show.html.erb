@@ -154,35 +154,35 @@ edit_link(
       <% end %>
     </div>
 
-    <div class="initiative__aside__element">
-      <div class="initiative__aside__element__committee">
-        <%= icon "account-circle-line", class: "fill-gray inline-block" %>
-        <span class="ml-2 initiative__aside__element-title">
-          <%= t("title", scope: "decidim.initiatives.admin.committee_requests.index") %>
-        </span>
-        <div class="ml-auto fill-secondary inline-block">
-          <input id="urlShareLink" type="text" class="!hidden" value="<%= decidim_initiatives.new_initiative_committee_request_url(current_initiative) %>" readonly>
-          <button type="button" class="button button__sm button__text-secondary" data-clipboard-copy="#urlShareLink">
-            <%= render_committee_tooltip %>
-          </button>
-        </div>
-      </div>
-      <% if current_initiative.type.promoting_committee_enabled? %>
-        <% if current_initiative.committee_members.empty? %>
-          <span class="initiative__aside__element__data-text">
-            <%= t("no_members_yet", scope: "decidim.initiatives.admin.committee_requests.index") %>
+    <% if current_initiative.type.promoting_committee_enabled? && current_user&.admin? %>
+      <div class="initiative__aside__element">
+        <div class="initiative__aside__element__committee">
+          <%= icon "account-circle-line", class: "fill-gray inline-block" %>
+          <span class="ml-2 initiative__aside__element-title">
+            <%= t("title", scope: "decidim.initiatives.admin.committee_requests.index") %>
           </span>
-        <% end %>
-        <% current_initiative.committee_members.each do |request| %>
-          <div class="author" data-id="<%= request.id %>">
-            <div class="profile__group__list">
-              <%= card_for request.user %>
-            </div>
+          <div class="ml-auto fill-secondary inline-block">
+            <input id="urlShareLink" type="text" class="!hidden" value="<%= decidim_initiatives.new_initiative_committee_request_url(current_initiative) %>" readonly>
+            <button type="button" class="button button__sm button__text-secondary" data-clipboard-copy="#urlShareLink">
+              <%= render_committee_tooltip %>
+            </button>
           </div>
-        <% end %>
-      <% end %>
+        </div>
+          <% if current_initiative.committee_members.empty? %>
+            <span class="initiative__aside__element__data-text">
+              <%= t("no_members_yet", scope: "decidim.initiatives.admin.committee_requests.index") %>
+            </span>
+          <% end %>
+          <% current_initiative.committee_members.each do |request| %>
+            <div class="author" data-id="<%= request.id %>">
+              <div class="profile__group__list">
+                <%= card_for request.user %>
+              </div>
+            </div>
+          <% end %>
+      </div>
     </div>
-  </div>
+  <% end %>
 <% end %>
 
 <h2 class="h2 decorator mb-4">
@@ -216,7 +216,9 @@ edit_link(
 <%= render partial: "result", locals: { initiative: current_initiative } %>
 
 <div class="my-4 flex gap-x-1 items-center">
-  <%= cell "decidim/comments_button", nil %>
+  <% if current_initiative.commentable? %>
+    <%= cell "decidim/comments_button", nil %>
+  <% end %>
   <div class="ml-auto">
     <%= cell "decidim/share_button", nil %>
     <% if current_user %>
