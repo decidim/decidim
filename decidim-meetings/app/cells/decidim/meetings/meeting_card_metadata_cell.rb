@@ -23,11 +23,11 @@ module Decidim
       private
 
       def meeting_items
-        [type, category_item, duration_item, comments_count_item, official, withdrawn_item]
+        [type, duration_item, comments_count_item, category_item, withdrawn_item]
       end
 
       def meeting_items_for_map
-        [dates_item, type, official].compact_blank.map do |item|
+        [dates_item, type].compact_blank.map do |item|
           {
             text: item[:text],
             icon: icon(item[:icon]).html_safe
