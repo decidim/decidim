@@ -12,6 +12,10 @@
   &__content{
     @apply col-span-2 md:col-span-1 order-first md:order-none space-y-2;
 
+    > span:first-child svg{
+      @apply inline-block;
+    }
+
     > span:first-child a{
       @apply text-secondary font-semibold hover:underline;
     }
