@@ -110,6 +110,8 @@
   }
 
   &__aside{
+    @apply space-y-14;
+
     &-button{
       @apply space-y-4 mb-14;
     }
@@ -156,6 +158,10 @@
       &__list{
         @apply ml-4 list-disc text-gray-2 text-sm;
       }
+    }
+
+    &-actions{
+      @apply flex flex-wrap justify-center gap-x-2;
     }
   }
 
