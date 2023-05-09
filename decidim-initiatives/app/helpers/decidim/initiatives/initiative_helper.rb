@@ -16,13 +16,13 @@ module Decidim
       def state_badge_css_class(initiative)
         case initiative
         when "accepted", "published"
-          ["success"]
+          "success"
         when "rejected", "discarded"
-          ["alert"]
+          "alert"
         when "validating"
-          ["warning"]
+          "warning"
         else
-          ["muted"]
+          "muted"
         end
       end
 
