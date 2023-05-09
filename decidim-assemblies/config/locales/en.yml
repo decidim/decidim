@@ -333,16 +333,12 @@ en:
           accepted_types:
             json: JSON
       assemblies:
-        filters:
-          names:
-            all: All
-          type: Type
         description:
           area_name: Area
           closing_date: Closing date
           data: Assembly data
-          duration: Duration
           developer_group: Promoter group
+          duration: Duration
           indefinite_duration: Indefinite
           local_area: Organization Area
           meta_scope: Scope
@@ -350,6 +346,10 @@ en:
           participatory_structure: How is it decided
           target: Who participates
           title: About this assembly
+        filters:
+          names:
+            all: All
+          type: Type
         show:
           title: About this assembly
       assembly_members:
