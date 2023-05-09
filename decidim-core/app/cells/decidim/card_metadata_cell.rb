@@ -40,20 +40,18 @@ module Decidim
 
     def comments_count_item
       return unless model.is_a?(Decidim::Comments::Commentable) && model.commentable?
-      return if (count = model.comments_count).zero?
 
       {
-        text: count,
+        text: model.comments_count,
         icon: resource_type_icon_key(:comments_count)
       }
     end
 
     def endorsements_count_item
       return unless resource.respond_to?(:endorsements_count)
-      return if (count = resource.endorsements_count).zero?
 
       {
-        text: count,
+        text: resource.endorsements_count,
         icon: resource_type_icon_key(:like),
         data_attributes: { endorsements_count: "" }
       }
