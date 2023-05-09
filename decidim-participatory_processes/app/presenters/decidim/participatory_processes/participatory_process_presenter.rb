@@ -17,16 +17,15 @@ module Decidim
         Decidim::AreaPresenter.new(process.area).translated_name_with_type
       end
 
-      def start_date
-        return if process.start_date.blank?
+      def date_range
+        dates = [process.start_date, process.end_date]
+        return if dates.all?(&:blank?)
 
-        I18n.l(process.start_date, format: :long)
-      end
+        dates.map! do |date|
+          date.blank? ? "-" : I18n.l(date, format: :decidim_short_dashed)
+        end
 
-      def end_date
-        return if process.end_date.blank?
-
-        I18n.l(process.end_date, format: :long)
+        dates.join(" / ")
       end
 
       def process

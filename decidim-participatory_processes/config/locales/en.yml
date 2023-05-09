@@ -478,13 +478,12 @@ en:
         description:
           area_name: Area
           data: Process data
+          date_range: Start / End
           developer_group: Promoter group
-          end_date: End date
           local_area: Organization Area
           meta_scope: Scope
           participatory_scope: What is decided
           participatory_structure: How is it decided
-          start_date: Start date
           target: Who participates
           title: About this process
         filters:
