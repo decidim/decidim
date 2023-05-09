@@ -339,8 +339,11 @@ en:
           type: Type
         description:
           area_name: Area
+          closing_date: Closing date
           data: Assembly data
+          duration: Duration
           developer_group: Promoter group
+          indefinite_duration: Indefinite
           local_area: Organization Area
           meta_scope: Scope
           participatory_scope: What is decided
