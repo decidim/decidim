@@ -37,6 +37,10 @@ module Decidim
           collection do
             resources :imports, controller: "assembly_imports", only: [:new, :create]
           end
+
+          resource :landing_page, only: [:edit, :update], controller: "assembly_landing_page" do
+            resources :content_blocks, only: [:edit, :update, :destroy, :create], controller: "assembly_landing_page_content_blocks"
+          end
         end
 
         scope "/assemblies/:assembly_slug" do
@@ -198,6 +202,12 @@ module Decidim
                         decidim_admin_assemblies.moderations_path(current_participatory_space),
                         if: allowed_to?(:read, :moderation, assembly: current_participatory_space),
                         active: is_active_link?(decidim_admin_assemblies.moderations_path(current_participatory_space))
+
+          menu.add_item :edit_assembly_landing_page,
+                        I18n.t("landing_page", scope: "decidim.admin.menu.assemblies_submenu"),
+                        decidim_admin_assemblies.edit_assembly_landing_page_path(current_participatory_space),
+                        if: allowed_to?(:update, :assembly, assembly: current_participatory_space),
+                        active: is_active_link?(decidim_admin_assemblies.assembly_landing_page_path(current_participatory_space))
         end
       end
       initializer "decidim_assemblies.admin_assemblies_menu" do

@@ -19,6 +19,10 @@ module Decidim
         "card__calendar-list__reset"
       end
 
+      def image
+        render
+      end
+
       private
 
       def metadata_cell
