@@ -12,11 +12,20 @@ describe "Monitoring committee member verifies elections", type: :system do
     switch_to_host(organization.host)
     login_as user, scope: :user
     visit decidim_admin_votings.edit_voting_path(voting)
-    click_link "Verify Elections"
+  end
+
+  context "when the user did not accepted the admin ToS" do
+    let(:user) { create(:user, :confirmed, organization:) }
+
+    it "has a message that they need to accept the admin TOS" do
+      expect(page).to have_content("Please take a moment to review the admin terms of service")
+    end
   end
 
   context "when listing the elections" do
     it "lists all the polling stations for the voting" do
+      click_link "Verify Elections"
+
       within "#monitoring_committee_verify_elections table" do
         expect(page).to have_content(translated(election.title))
         expect(page).to have_link("Download", href: election.verifiable_results_file_url)

@@ -15,6 +15,14 @@ describe "Monitoring committee member manages voting results", type: :system do
     visit decidim_admin_votings.edit_voting_path(voting)
   end
 
+  context "when the user did not accepted the admin ToS" do
+    let(:user) { create(:user, :confirmed, organization:) }
+
+    it "has a message that they need to accept the admin TOS" do
+      expect(page).to have_content("Please take a moment to review the admin terms of service")
+    end
+  end
+
   context "when there are more than one finished elections" do
     let!(:other_election) { create(:election, :complete, :published, :finished, component: elections_component) }
 

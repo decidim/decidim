@@ -41,9 +41,7 @@ describe "Space moderator manages global moderations", type: :system do
     it "cannot access to the Global moderations page" do
       visit decidim_admin.moderations_path
 
-      within ".callout.alert" do
-        expect(page).to have_text("You are not authorized to perform this action")
-      end
+      expect(page).to have_content("Please take a moment to review the admin terms of service")
     end
   end
 
