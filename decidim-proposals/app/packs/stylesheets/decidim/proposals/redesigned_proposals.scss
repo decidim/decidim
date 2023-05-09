@@ -20,6 +20,7 @@
     @apply space-y-8;
 
     /* overwrite defaults */
+    .static-map,
     [data-decidim-map]{
       @apply aspect-[5/1];
     }
