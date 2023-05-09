@@ -74,7 +74,7 @@ extra_admin_link(
     <% if @proposal.emendation? %>
       <%= cell("decidim/diff", proposal_presenter.versions.last) %>
     <% elsif not ["section","subsection"].include? @proposal.participatory_text_level %>
-      <div class="editor-content">
+      <div class="editor-content space-y-8">
         <%= render_proposal_body(@proposal) %>
       </div>
     <% end %>
