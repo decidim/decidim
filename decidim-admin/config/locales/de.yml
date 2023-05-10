@@ -540,6 +540,7 @@ de:
         area_types: Bereichstypen
         areas: Bereiche
         configuration: Aufbau
+        content: Gemeldeter Inhalt
         dashboard: Instrumententafel
         external_domain_whitelist: Erlaubte externe Domains
         help_sections: Hilfeabschnitte
@@ -548,6 +549,7 @@ de:
         moderation: Globale Moderationen
         newsletters: Newsletter
         participants: Teilnehmer
+        reported_users: Gemeldete Teilnehmende
         scope_types: Bereichstypen
         scopes: Bereiche
         settings: die Einstellungen
@@ -632,6 +634,7 @@ de:
             created_at: Hergestellt in
             document_number: Dokumentnummer
             name: Name
+            nickname: Spitzname
             phone: Telefon
             state: Zustand
             users_count: Benutzer zählen
@@ -646,6 +649,7 @@ de:
           nickname: Spitzname
           reason: Grund
           reports: Anzahl Meldungen
+          title: Gemeldete Teilnehmende
         report:
           reasons:
             does_not_belong: Gehört nicht zu
@@ -655,6 +659,8 @@ de:
           blocked: Blockiert
           unblocked: Nicht blockiert
       moderations:
+        index:
+          title: Gemeldeter Inhalt
         report:
           reasons:
             does_not_belong: Gehört nicht
@@ -829,9 +835,14 @@ de:
           destroy:
             error: Es gab ein Problem beim Löschen dieses Inhaltsblocks.
             success: Inhaltsblock erfolgreich gelöscht.
+          edit:
+            update: Aktualisieren
         edit:
           active_content_blocks: Aktive Inhaltsblöcke
+          add: Inhaltsblock hinzufügen
+          destroy_confirmation: Sind Sie sicher, dass Sie diesen Inhaltsblock löschen möchten?
           inactive_content_blocks: Inaktive Inhaltsblöcke
+          title: Seiteninhalt
       participatory_space_private_users:
         create:
           error: Beim Hinzufügen eines privaten Benutzers für diesen partizipativen Bereich ist ein Fehler aufgetreten.
@@ -848,9 +859,11 @@ de:
       participatory_space_private_users_csv_imports:
         create:
           invalid: Beim Lesen der CSV-Datei ist ein Problem aufgetreten. Bitte stellen Sie sicher, dass Sie den Anweisungen korrekt gefolgt sind.
+          success: CSV-Datei wurde erfolgreich hochgeladen, wir senden eine Einladungs-E-Mail an die Teilnehmenden. Dies kann eine Weile dauern.
         new:
           destroy:
             button: Alle private Teilnehmende auswählen
+            confirm: Sind Sie sicher, dass Sie alle private Teilnehmende entfernen möchten? Diese Aktion kann nicht rückgängig gemacht werden. Sie werden sie nicht wiederherstellen können.
             empty: Sie haben keine private Teilnehmende.
             explanation: Sie haben %{count} private Teilnehmende.
             title: Alle private Teilnehmende entfernen
@@ -944,8 +957,13 @@ de:
           view: Öffentliche Seite anzeigen
         content_blocks:
           active_content_blocks: Aktive Inhaltsblöcke
+          add: Inhaltsblock hinzufügen
           create:
             error: Es gab ein Problem beim Versuch, diesen Inhaltsblock zu erstellen.
+          edit:
+            update: Aktualisieren
+          inactive_content_blocks: Inaktive Inhaltsblöcke
+          title: Seiteninhalt
         create:
           error: Beim Erstellen einer neuen Seite ist ein Fehler aufgetreten.
           success: Seite erfolgreich erstellt
@@ -968,6 +986,7 @@ de:
           without_topic: Seiten ohne Thema
         update:
           error: Beim Aktualisieren dieser Seite ist ein Fehler aufgetreten.
+          success: Seite wurde erfolgreich aktualisiert.
       titles:
         admin_log: Adminprotokoll
         area_types: Bereichstypen
@@ -1001,7 +1020,11 @@ de:
           verify_via_csv: Überprüfen Sie über CSV
       user_groups_csv_verifications:
         new:
+          example_file: 'Beispieldatei:'
           explanation: Laden Sie Ihre CSV-Datei hoch. In der ersten Spalte der Datei müssen die offiziellen E-Mails der Benutzergruppen in Ihrer Organisation enthalten sein, ohne Kopfzeilen. Nur Benutzergruppen, die ihre E-Mail bestätigt haben und deren E-Mail in der CSV-Datei enthalten ist, werden überprüft.
+          explanation_example: |
+            acme@example.org
+            bubba.gump@example.org
           title: Laden Sie Ihre CSV-Datei hoch
           upload: Hochladen
       users:
@@ -1059,11 +1082,13 @@ de:
       models:
         moderation:
           fields:
+            created_at: Gemeldet am
             hidden_at: Versteckt bei
             participatory_space: Beteiligungsbereich
             reportable_id: ID
             reportable_type: Typ
             reported_content_url: URL des gemeldeten Inhalts
+            reports: Begründung
             visit_url: Besuchs-URL
         report:
           fields:
