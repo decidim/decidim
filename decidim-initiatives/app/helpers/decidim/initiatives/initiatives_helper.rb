@@ -19,6 +19,26 @@ module Decidim
         end
       end
 
+      # Items to display in the navigation of an initiative
+      def initiative_nav_items(participatory_space)
+        components = participatory_space.components.published.or(Decidim::Component.where(id: try(:current_component)))
+
+        [
+          {
+            name: t("initiative_menu_item", scope: "layouts.decidim.initiative_header"),
+            url: decidim_initiatives.initiative_path(participatory_space),
+            active: is_active_link?(decidim_initiatives.initiative_path(participatory_space), :exclusive) ||
+              is_active_link?(decidim_initiatives.initiative_versions_path(participatory_space), :inclusive)
+          }
+        ] + components.map do |component|
+          {
+            name: translated_attribute(component.name),
+            url: main_component_path(component),
+            active: is_active_link?(main_component_path(component), :inclusive)
+          }
+        end
+      end
+
       private
 
       # Creates a unique namespace for a filter form to prevent dupliacte IDs in
