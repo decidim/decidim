@@ -43,40 +43,7 @@ edit_link(
     <% end %>
 
     <div class="initiative__aside__element">
-      <div class="initiative__nav-container">
-        <button id="dropdown-trigger" data-component="dropdown" data-target="dropdown-menu" data-auto-close="true" aria-haspopup="true" aria-controls="dropdown-menu">
-          <span>Jump to:</span>
-          <svg width="1em" height="1em" role="img" aria-hidden="true">
-            <use href="/decidim-packs/media/images/remixicon.symbol-5540ed538fb6bd400d2a.svg#ri-arrow-down-s-line" tabindex="-1"></use>
-          </svg>
-          <svg width="1em" height="1em" role="img" aria-hidden="true">
-            <use href="/decidim-packs/media/images/remixicon.symbol-5540ed538fb6bd400d2a.svg#ri-arrow-up-s-line" tabindex="-1"></use>
-          </svg>
-        </button>
-        <ul id="dropdown-menu" class="initiative__nav" aria-hidden="true" role="menu" aria-labelledby="dropdown-trigger" tabindex="-1">
-          <li>
-            <a class="initiative__nav-item" href="/conferences/iste-reprehenderit">
-              Information
-              <svg width="1em" height="1em" role="img" aria-hidden="true">
-                <use href="/decidim-packs/media/images/remixicon.symbol-5540ed538fb6bd400d2a.svg#ri-arrow-right-line" tabindex="-1"></use>
-              </svg>
-            </a></li>
-          <li>
-            <a class="initiative__nav-item" href="/conferences/iste-reprehenderit/speakers">
-              Speakers
-              <svg width="1em" height="1em" role="img" aria-hidden="true">
-                <use href="/decidim-packs/media/images/remixicon.symbol-5540ed538fb6bd400d2a.svg#ri-arrow-right-line" tabindex="-1"></use>
-              </svg>
-            </a></li>
-          <li>
-            <a class="initiative__nav-item" href="/conferences/iste-reprehenderit/program/62">
-              Meetings
-              <svg width="1em" height="1em" role="img" aria-hidden="true">
-                <use href="/decidim-packs/media/images/remixicon.symbol-5540ed538fb6bd400d2a.svg#ri-arrow-right-line" tabindex="-1"></use>
-              </svg>
-            </a></li>
-        </ul>
-      </div>
+      <%= cell("decidim/nav_links", initiative_nav_items(current_initiative)) %>
     </div>
 
     <div class="initiative__aside__element">
