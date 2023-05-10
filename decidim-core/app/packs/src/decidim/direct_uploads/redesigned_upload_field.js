@@ -37,7 +37,7 @@ const updateActiveUploads = (modal) => {
 
     const template = `
       <div data-filename="${file.name}" data-title="${title}">
-        <div><img src="" alt="${file.name}" /></div>
+        ${(/image/).test(file.type) && `<div><img src="" alt="${file.name}" /></div>` || ""}
         <span>${title}</span>
         ${hidden}
       </div>
