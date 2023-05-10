@@ -29,6 +29,7 @@ de:
         password_confirmation: Bestätigen Sie Ihr Passwort
         personal_url: Persönliche URL
         remove_avatar: Avatar entfernen
+        tos_agreement: Nutzungsvereinbarung
     models:
       decidim/attachment_created_event: Anhang
       decidim/component_published_event: Aktive Komponente
@@ -444,6 +445,17 @@ de:
         view_all: Alle ansehen
       metrics:
         name: Organisationsmetriken
+      static_page:
+        section:
+          name: Abschnitt
+          section_content: Inhalt
+        summary:
+          name: Zusammenfassung
+          summary_content: Inhalt
+        two_pane_section:
+          left_column: Linke Spalte
+          name: Zweispaltiger Abschnitt
+          right_column: Rechte Spalte
       stats:
         name: Organisationsstatistiken
       sub_hero:
@@ -521,10 +533,12 @@ de:
       internal_server_error:
         copied: Text Kopiert!
         copy_to_clipboard: In die Zwischenablage kopieren
+        date_and_time: Datum und Uhrzeit
         reference: Referenz
         title: Auf unserem Server ist ein Problem aufgetreten
         unknown: Unbekannt
         url: URL
+        user: User ID
       not_found:
         back_home: Zurück zur Startseite
         content_doesnt_exist: Diese Adresse ist falsch oder wurde entfernt.
@@ -876,29 +890,35 @@ de:
           admin_in_group: Sie haben diese Benachrichtigung erhalten, weil Sie ein Administrator von %{group} sind.
           greeting: Hallo, %{recipient}!
           intro: "%{manager} hat eine Unterhaltung im Namen von %{group} begonnen. Klicken Sie hier, um diese anzuzeigen:"
+          outro: Viel Spaß mit Decidim!
           subject: "%{manager} hat eine Unterhaltung als %{group} begonnen"
         comanagers_new_message:
           admin_in_group: Sie haben diese Benachrichtigung erhalten, weil Sie ein Administrator von %{group} sind.
           greeting: Hallo, %{recipient}!
           intro: "%{manager} hat Nachrichten in einer Unterhaltung im Namen von %{group} gesendet. Klicken Sie hier, um diese anzuzeigen:"
+          outro: Viel Spaß mit Decidim!
           subject: "%{manager} hat neue Nachrichten als %{group} gesendet"
         new_conversation:
           greeting: Hallo, %{recipient}!
           intro: "%{sender} hat eine neue Unterhaltung mit Ihnen begonnen. Klicken Sie hier, um es zu sehen:"
+          outro: Viel Spaß mit Decidim!
           subject: "%{sender} hat ein Gespräch mit Ihnen begonnen"
         new_group_conversation:
           admin_in_group: Sie haben diese Benachrichtigung erhalten, weil Sie ein Administrator von %{group} sind.
           greeting: Hallo, %{recipient}!
           intro: "%{sender} hat eine neue Unterhaltung mit der Gruppe %{group} begonnen. Klicken Sie hier, um diese anzuzeigen:"
+          outro: Viel Spaß mit Decidim!
           subject: "%{sender} hat eine Unterhaltung mit %{group} begonnen"
         new_group_message:
           admin_in_group: Sie haben diese Benachrichtigung erhalten, weil Sie ein Administrator von %{group} sind.
           greeting: Hallo, %{recipient}!
           intro: "%{sender} hat neue Nachrichten in einer Unterhaltung mit der Gruppe %{group} gesendet. Klicken Sie hier, um diese anzuzeigen:"
+          outro: Viel Spaß mit Decidim!
           subject: "%{group} hat neue Nachrichten von %{sender}"
         new_message:
           greeting: Hallo, %{recipient}!
           intro: "%{sender} hat neue Nachrichten in Ihrer Konversation gepostet. Klicken Sie hier, um sie zu sehen:"
+          outro: Viel Spaß mit Decidim!
           subject: Sie haben neue Nachrichten von %{sender}
       conversations:
         add_conversation_users:
@@ -915,6 +935,9 @@ de:
           new_conversation: Neue Unterhaltung
           next: Weiter
           title: Nachrichten
+        reply_form:
+          placeholder: Ihre Antwort...
+          send: Senden
         show:
           back: Zurück zu allen Unterhaltungen
           chat_with: Unterhaltung mit
