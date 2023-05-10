@@ -28,7 +28,7 @@ module Decidim
             name: t("initiative_menu_item", scope: "layouts.decidim.initiative_header"),
             url: decidim_initiatives.initiative_path(participatory_space),
             active: is_active_link?(decidim_initiatives.initiative_path(participatory_space), :exclusive) ||
-              is_active_link?(decidim_initiatives.initiative_version_path(participatory_space), :inclusive)
+              is_active_link?(decidim_initiatives.initiative_version_path(participatory_space, participatory_space.versions.count), :inclusive)
           }
         ] + components.map do |component|
           {
