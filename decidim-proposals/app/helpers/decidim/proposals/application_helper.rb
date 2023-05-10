@@ -110,7 +110,7 @@ module Decidim
         if safe_content?
           Decidim::ContentProcessor.render_without_format(sanitized).html_safe
         else
-          Decidim::ContentProcessor.render(sanitized, "div")
+          Decidim::ContentProcessor.render(sanitized)
         end
       end
 
