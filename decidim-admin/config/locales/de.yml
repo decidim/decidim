@@ -654,6 +654,7 @@ de:
           nickname: Spitzname
           reason: Grund
           reports: Anzahl Meldungen
+          title: Gemeldete Teilnehmende
         report:
           reasons:
             does_not_belong: Gehört nicht zu
@@ -663,6 +664,8 @@ de:
           blocked: Blockiert
           unblocked: Nicht blockiert
       moderations:
+        index:
+          title: Gemeldeter Inhalt
         report:
           reasons:
             does_not_belong: Gehört nicht
