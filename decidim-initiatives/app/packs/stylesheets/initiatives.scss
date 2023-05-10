@@ -2,14 +2,12 @@
   @apply block;
 
   &__selection{
-    @apply border-[3px] border-background rounded cursor-pointer;
-
-    &__container{
-      @apply space-y-8 my-10;
+    .form-defaults{
+      @apply my-10;
     }
 
-    &__card{
-      @apply flex items-center justify-between gap-4 pl-4 pr-20 py-4;
+    .card__highlight{
+      @apply pl-4 pr-20 py-4 items-center justify-between gap-4;
     }
 
     &__icon{
@@ -30,10 +28,6 @@
 
     &:hover{
       @apply border-tertiary;
-    }
-
-    &:hover &__text > :first-child{
-      @apply underline;
     }
   }
 
