@@ -11,8 +11,9 @@
     <%= form_required_explanation %>
     <%= f.hidden_field :type_id %>
     <% unless single_initiative_type? %>
-      <label for="type_description"><%= t ".initiative_type" %></label>
-      <%= text_field_tag :type_description, strip_tags(translated_attribute(initiative_type.title)), readonly: true %>
+      <label for="type_description"><%= t ".initiative_type" %>
+        <%= text_field_tag :type_description, strip_tags(translated_attribute(initiative_type.title)), readonly: true %>
+      </label>
     <% end %>
 
     <%= f.text_field :title, autofocus: true %>

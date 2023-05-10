@@ -11,7 +11,7 @@
 <%= render "layouts/decidim/redesigned_application" do %>
   <%= render partial: "decidim/initiatives/initiatives/initiative_hero" %>
   <%= render layout:"layouts/decidim/shared/layout_two_col", locals: { reverse: true, main_enabled: false } do %>
-    <main id="test">
+    <main>
       <%= yield %>
     </main>
   <% end %>
