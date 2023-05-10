@@ -50,7 +50,15 @@
       multiple: true,
       label: t("decidim.initiatives.form.add_attachments"),
       button_class: "button button__lg button__transparent-secondary w-full",
+      button_edit_label: t("decidim.initiatives.form.edit_documents"),
       help_text: t("attachment_legend", scope: "decidim.initiatives.form") %>
+
+  <%= form.attachment :photos,
+      multiple: true,
+      label: t("decidim.initiatives.form.add_image"),
+      button_class: "button button__lg button__transparent-secondary w-full",
+      button_edit_label: t("decidim.initiatives.form.edit_image"),
+      help_text: t("image_legend", scope: "decidim.initiatives.form") %>
 <% end %>
 
 <% if current_initiative.type.promoting_committee_enabled? %>
