@@ -48,7 +48,8 @@
     <% if initiative_type.attachments_enabled? %>
       <%= f.attachment :add_documents,
           multiple: true,
-          label: t("decidim.initiatives.form.add_attachments"),
+          label: t("decidim.initiatives.form.add_documents"),
+          button_label: t("decidim.initiatives.form.add_documents"),
           button_class: "button button__lg button__transparent-secondary w-full",
           button_edit_label: t("decidim.initiatives.form.edit_documents"),
           help_text: t("attachment_legend", scope: "decidim.initiatives.form") %>
@@ -56,6 +57,7 @@
       <%= f.attachment :photos,
           multiple: true,
           label: t("decidim.initiatives.form.add_image"),
+          button_label: t("decidim.initiatives.form.add_image"),
           button_class: "button button__lg button__transparent-secondary w-full",
           button_edit_label: t("decidim.initiatives.form.edit_image"),
           help_text: t("image_legend", scope: "decidim.initiatives.form") %>
