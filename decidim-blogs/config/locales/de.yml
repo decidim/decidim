@@ -1,6 +1,9 @@
 ---
 de:
   activemodel:
+    attributes:
+      post:
+        title: Titel
     models:
       decidim/blogs/create_post_event: Neuer Blogeintrag
   activerecord:
