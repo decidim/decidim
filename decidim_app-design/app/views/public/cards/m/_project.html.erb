@@ -33,7 +33,7 @@
           </li>
           <li class="card-data__item">
             <div class="text-left text-uppercase">
-              <strong class="heading4"><%= number_to_currency(Faker::Number.between(from: 5000, to: 100000), locale: :es, precision: 0) %></strong>&nbsp;<small>of budget</small>
+              <strong class="heading4"><%= number_to_currency(Faker::Number.between(from: 5000, to: 100_000), locale: :es, precision: 0) %></strong>&nbsp;<small>of budget</small>
             </div>
           </li>
         </ul>
@@ -41,7 +41,7 @@
       <div class="card__status">
         <ul class="card-data">
           <li class="card-data__item">
-            <%= Faker::Date.backward(725).strftime("%d/%m/%Y") %>
+            <%= Faker::Date.backward(days: 725).strftime("%d/%m/%Y") %>
           </li>
           <li class="card-data__item">
             <a href="">
@@ -103,7 +103,7 @@
           </li>
           <li class="card-data__item">
             <div class="text-left text-uppercase">
-              <strong class="heading4"><%= number_to_currency(Faker::Number.between(from: 5000, to: 100000), locale: :es, precision: 0) %></strong>&nbsp;<small>of budget</small>
+              <strong class="heading4"><%= number_to_currency(Faker::Number.between(from: 5000, to: 100_000), locale: :es, precision: 0) %></strong>&nbsp;<small>of budget</small>
             </div>
           </li>
         </ul>
@@ -111,7 +111,7 @@
       <div class="card__status">
         <ul class="card-data">
           <li class="card-data__item">
-            <%= Faker::Date.backward(725).strftime("%d/%m/%Y") %>
+            <%= Faker::Date.backward(days: 725).strftime("%d/%m/%Y") %>
           </li>
           <li class="card-data__item">
             <a href="">

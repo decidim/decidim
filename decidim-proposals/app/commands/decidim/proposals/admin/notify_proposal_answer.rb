@@ -21,6 +21,8 @@ module Decidim
         #
         # Returns nothing.
         def call
+          return broadcast(:invalid) if proposal.blank?
+
           if proposal.published_state? && state_changed?
             transaction do
               increment_score

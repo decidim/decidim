@@ -227,7 +227,6 @@ ar:
         fill_data:
           back: الى الخلف
           continue: استمر
-          initiative_type: نوع المبادرة
           more_information: "(معلومات اكثر)"
           select_scope: حدد النطاق
         finish:

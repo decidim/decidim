@@ -23,12 +23,14 @@ bin/rails db:migrate
 
 ### 1.3. Follow the steps and commands detailed in these notes
 
-#### 1.3.1 Config Parameter change
+#### 1.3.1 Configuration parameter change
 
-Prior to 0.28, Decidim offered the possibility of configuring the a list of disallowed domains used to restrict user access using either `Decidim.password_blacklist` or environment variable `DECIDIM_PASSWORD_BLACKLIST`. While upgrading to 0.28, those methods have been renamed as follows:
+Prior to 0.28, there was the possibility of configuring a list of disallowed passwords using the configuration parameter `Decidim.password_blacklist` or the environment variable `DECIDIM_PASSWORD_BLACKLIST`. These methods have been renamed as follows:
 
-`Decidim.password_blacklist` becomes `Decidim.denied_passwords`
-`DECIDIM_PASSWORD_BLACKLIST` becomes `DECIDIM_DENIED_PASSWORDS`
+- `Decidim.password_blacklist` becomes `Decidim.denied_passwords`
+- `DECIDIM_PASSWORD_BLACKLIST` becomes `DECIDIM_DENIED_PASSWORDS`
+
+You can read more about this change on PR [\#10288](https://github.com/decidim/decidim/pull/10288).
 
 ## 2. General notes
 
@@ -38,7 +40,7 @@ These are one time actions that need to be done after the code is updated in the
 
 ### 3.1. Tailwind CSS introduction
 
-Decidim redesign has introduced Tailwind CSS framework to compile CSS. It integrates with Webpacker, which generates Tailwind configuration dynamically when Webpacker is invoked.
+The redesign has introduced Tailwind CSS framework to compile CSS. It integrates with Webpacker, which generates Tailwind configuration dynamically when Webpacker is invoked.
 
 You will need to add `tailwind.config.js` to your app `.gitignore`. If you generate a new Decidim app from scratch, that entry will already be included in the `.gitignore`.
 
@@ -46,7 +48,7 @@ You can read more about this change on PR [\#9480](https://github.com/decidim/de
 
 ### 3.2. Added Procfile support
 
-In [\#10519](https://github.com/decidim/decidim/pull/10519) we have added Procfile support to ease up the development of Decidim instances. In order to install `foreman` and the `Procfile.dev`, you need to run the following command:
+We have added Procfile support to ease up the development of Decidim instances. In order to install `foreman` and the `Procfile.dev`, you need to run the following command:
 
 ```console
 bundle exec rake decidim:procfile:install
@@ -63,6 +65,8 @@ Additional notes on Procfile:
 In some cases, when running in a containerized environment, you may need to manually edit the `config/webpacker.yml` to edit the host parameter from `host: localhost` to `host: 0.0.0.0`
 
 In some other cases when you run your application on a custom port (other than 3000), you will need to edit the `Procfile`, and add the parameter. `web: bin/rails server -b 0.0.0.0 -p 3000`
+
+You can read more about this change on PR [\#10519](https://github.com/decidim/decidim/pull/10519).
 
 ### 3.3. User moderation panel changes
 
@@ -121,6 +125,18 @@ You can read more about this change on PR [\#10389](https://github.com/decidim/d
 In [\#10606](https://github.com/decidim/decidim/pull/10606) we have upgraded the GraphQL gem to version 2.0.19. This upgrade introduces some breaking changes, so you will need to update your GraphQL queries to match the new API. This change should be transparent for most of the users, but if you have custom GraphQL queries, you will need to update them. Also, please note, there might be some issues with community plugins that offer support for GraphQL, so you might need to update them as well.
 
 Please see the [change log](https://github.com/rmosolgo/graphql-ruby/blob/master/CHANGELOG.md) for graphql gem for more information.
+
+### 3.6. Orphans valuator assignments cleanup
+
+We have added a new task that helps you clean the valuator assignements records of roles that have been deleted.
+
+You can run the task with the following command:
+
+```console
+bundle exec rake decidim:proposals:upgrade:remove_valuator_orphan_records
+```
+
+You can see more details about this change on PR [\#10607](https://github.com/decidim/decidim/pull/10607)
 
 ## 4. Scheduled tasks
 
@@ -193,6 +209,8 @@ Decidim.configure do |config|
   config.password_similarity_length = 4
 end
 ```
+
+You can read more about this change on PR [\#10201](https://github.com/decidim/decidim/pull/10201).
 
 ## 5. Changes in APIs
 
@@ -397,3 +415,36 @@ end
 ```
 
 You can read more about this change at PR [\#10111](https://github.com/decidim/decidim/pull/10111).
+
+### 5.4. Extra context argument added to SMS gateway implementations
+
+If you have integrated any [SMS gateways](https://docs.decidim.org/en/develop/services/sms), there is a small change in the API that needs to be reflected to the SMS integrations. An extra `context` attribute is passed to the SMS gateway's initializer which can be used to pass e.g. the correct organization for the gateway to utilize.
+
+In previous versions your SMS gateway initializer might have looked like the following:
+
+```ruby
+class MySMSGatewayService
+  attr_reader :mobile_phone_number, :code
+  def initialize(mobile_phone_number, code)
+    @mobile_phone_number = mobile_phone_number
+    @code = code
+  end
+  # ...
+end
+```
+
+From now on, you will need to change it as follows (note the extra `context` attribute):
+
+```ruby
+class MySMSGatewayService
+  attr_reader :mobile_phone_number, :code, :context
+  def initialize(mobile_phone_number, code, context = {})
+    @mobile_phone_number = mobile_phone_number
+    @code = code
+    @context = context
+  end
+  # ...
+end
+```
+
+You can read more about this change at PR [\#10760](https://github.com/decidim/decidim/pull/10760).

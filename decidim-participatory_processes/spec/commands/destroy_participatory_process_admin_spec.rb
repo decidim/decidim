@@ -25,6 +25,16 @@ module Decidim::ParticipatoryProcesses
         expect { role.reload }.to raise_error(ActiveRecord::RecordNotFound)
       end
 
+      it "fires an event" do
+        expect(ActiveSupport::Notifications).to receive(:publish).with(
+          "decidim.system.participatory_space.admin.destroyed",
+          "Decidim::ParticipatoryProcessUserRole",
+          role.id
+        )
+
+        subject.call
+      end
+
       it "traces the action" do
         expect(Decidim.traceability)
           .to receive(:perform_action!)

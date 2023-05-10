@@ -20,12 +20,12 @@
       <%= f.text_area :details, rows: 4 %>
       <% if current_user&.admin? %>
         <%= f.check_box :block, label: t("decidim.shared.flag_user_modal.block"),
-                        include_hidden: false,
-                        data: {
-          label_action: t("decidim.shared.flag_user_modal.block"),
-          label_report: t("decidim.shared.flag_user_modal.report"),
-          block: "true"
-        } %>
+                                include_hidden: false,
+                                data: {
+                                  label_action: t("decidim.shared.flag_user_modal.block"),
+                                  label_report: t("decidim.shared.flag_user_modal.report"),
+                                  block: "true"
+                                } %>
         <%= f.check_box :hide, label: t("decidim.shared.flag_user_modal.hide"), label_options: { id: "block_and_hide" } %>
       <% end %>
       <%= f.submit t("decidim.shared.flag_user_modal.report") %>
