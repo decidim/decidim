@@ -52,7 +52,7 @@
       button_label: t("decidim.proposals.proposals.edit.add_documents"),
       button_class: "button button__lg button__transparent-secondary w-full",
       button_edit_label: t("decidim.initiatives.form.edit_documents"),
-      help_text: t("attachment_legend", scope: "decidim.initiatives.form") %>
+      help_text: t("decidim.initiatives.form.attachment_legend") %>
 
   <%= form.attachment :photos,
       multiple: true,
@@ -60,7 +60,7 @@
       button_label: t("decidim.proposals.proposals.edit.add_image"),
       button_class: "button button__lg button__transparent-secondary w-full",
       button_edit_label: t("decidim.initiatives.form.edit_image"),
-      help_text: t("image_legend", scope: "decidim.initiatives.form") %>
+      help_text: t("decidim.initiatives.form.image_legend") %>
 <% end %>
 
 <% if current_initiative.type.promoting_committee_enabled? %>
