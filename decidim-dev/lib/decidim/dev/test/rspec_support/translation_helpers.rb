@@ -2,7 +2,6 @@
 
 # A collection of methods to help dealing with translated attributes.
 module TranslationHelpers
-  include Decidim::ComponentTestHelpers
   # Allows using the `t` shortcut inside specs just like in views
   def t(key, scope: nil)
     I18n.t(key, scope:, raise: true)

@@ -3,8 +3,6 @@
 require "spec_helper"
 
 describe Decidim::Initiatives::Admin::InitiativeSentToTechnicalValidationEvent do
-  # include Decidim::SanitizeHelper
-
   let(:resource) { create :initiative }
   let(:event_name) { "decidim.events.initiatives.admin.initiative_sent_to_technical_validation" }
   let(:admin_initiative_path) { "/admin/initiatives/#{resource.slug}/edit?initiative_slug=#{resource.slug}" }
