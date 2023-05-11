@@ -1,0 +1,17 @@
+.sortition{
+  &__aside-element{
+    @apply mb-12;
+
+    &-item{
+      @apply border-b border-gray-3 py-4 first:pt-0 last:pb-0 last:border-b-0;
+    }
+
+    &-item__title{
+      @apply text-sm block text-gray-2 mb-1;
+    }
+
+    &-item__text{
+      @apply text-md block font-semibold text-gray-2;
+    }
+  }
+}

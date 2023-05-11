@@ -4,7 +4,16 @@
   url: sortition_url(sortition.to_param)
 }) %>
 
-<%= render layout: "layouts/decidim/shared/layout_item", locals: { back_path: sortition, commentable: sortition } do %>
+<% content_for :js_content do %>
+  <%= javascript_pack_tag "decidim_sortitions" %>
+<% end %>
+
+<% content_for :css_content do %>
+  <%= stylesheet_pack_tag "decidim_sortitions" %>
+<% end %>
+
+
+<%= render layout: "layouts/decidim/shared/layout_item", locals: { back_path: :sortitions, commentable: sortition } do %>
 
   <div class="callout success">
     <%= t("introduction", scope: "decidim.sortitions.sortitions.show", reference: sortition.id, target_items: sortition.target_items) %>:
@@ -42,56 +51,45 @@
   <%= sortition_proposal_candidate_ids sortition %>
 
   <% content_for :aside do %>
-    <div class="m-bottom">
-      <%= link_to :sortitions, class: "small hollow" do %>
-        <%= icon "chevron-left", class: "icon--small", role: "img", "aria-hidden": true %>
-        <%= t("back", scope: "decidim.sortitions.sortitions.show") %>
-      <% end %>
-    </div>
 
-    <%= render partial: "results_count", locals: { sortition: sortition } %>
-
-    <section class="extended" id="sortition-details">
-      <h4 class="section-heading">
+    <div class="sortition__aside">
+      <div class="sortition__aside-element">
+        <%= render partial: "results_count", locals: { sortition: sortition } %>
+      </div>
+      <h4 class="text-sm text-gray-2 uppercase font-semibold mb-4 ">
         <%= t("sortition_reproducibility_details", scope: "decidim.sortitions.sortitions.show") %>
       </h4>
-    </section>
-
-    <div class="sortition-details-item">
-      <span class="sortition-details-title sortition-details-text">
-        <%= t("dice_result", scope: "decidim.sortitions.sortitions.show") %>
-      </span>
-      <span class=sortition-details-text><%= sortition.dice %></span>
+      <div class="sortition__aside-element bg-background p-4 rounded">
+        <div class="sortition__aside-element-item">
+          <span class="sortition__aside-element-item__title">
+            <%= t("dice_result", scope: "decidim.sortitions.sortitions.show") %>
+          </span>
+          <span class="sortition__aside-element-item__text">
+            <%= sortition.dice %>
+          </span>
+        </div>
+        <div class="sortition__aside-element-item">
+          <span class="sortition__aside-element-item__title">
+            <%= t("time_seed", scope: "decidim.sortitions.sortitions.show") %>
+          </span>
+          <span class="sortition__aside-element-item__text">
+            <%= sortition.request_timestamp.to_i %>
+          </span>
+        </div>
+        <div class="sortition__aside-element-item">
+          <span class="sortition__aside-element-item__title">
+            <%= t("mathematical_result", scope: "decidim.sortitions.sortitions.show") %>
+          </span>
+          <span class="sortition__aside-element-item__text">
+            <%= sortition.seed %>
+          </span>
+        </div>
+        <div class="sortition__aside-element-item">
+          <%= link_to t("algorithm", scope: "decidim.sortitions.sortitions.show"), Decidim::Sortitions.sortition_algorithm, class: "sortition__aside-element-item__title underline text-secondary" %>
+        </div>
+      </div>
+      <%= cell "decidim/share_button", nil %>
     </div>
-
-    <div class="sortition-details-item">
-      <span class="sortition-details-title sortition-details-text">
-        <%= t("time_seed", scope: "decidim.sortitions.sortitions.show") %>
-      </span>
-      <span class=sortition-details-text><%= sortition.request_timestamp.to_i %></span>
-    </div>
-
-    <div class="sortition-details-item">
-      <span class="sortition-details-title sortition-details-text">
-        <%= t("mathematical_result", scope: "decidim.sortitions.sortitions.show") %>
-      </span>
-      <span class=sortition-details-text><%= sortition.seed %></span>
-    </div>
-
-    <div class="sortition-details-item">
-      <span class="sortition-details-title sortition-details-text">
-        <%= t("algorithm", scope: "decidim.sortitions.sortitions.show") %>
-      </span>
-      <span class=sortition-details-text>
-        <%= link_to Decidim::Sortitions.sortition_algorithm,
-                    Decidim::Sortitions.sortition_algorithm,
-                    target: "_blank",
-                    title: t("algorithm", scope: "decidim.sortitions.sortitions.show") %>
-      </span>
-    </div>
-
-    <%= cell "decidim/share_button", nil %>
-
   <% end %>
   <% content_for :item_footer do %>
     <%= comments_for sortition %>
