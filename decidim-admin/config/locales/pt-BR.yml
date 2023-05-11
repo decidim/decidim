@@ -15,17 +15,24 @@ pt-BR:
         description: Descrição
         file: Arquivo
         title: Nome da imagem ou anexo
+        weight: Posição do pedido
       attachment_collection:
         description: Descrição
         name: Nome
+        weight: Posição do pedido
       category:
         description: Descrição
         name: Nome
         parent_id: Superior
+        weight: Posição do pedido
       component:
         name: Nome
         published_at: Publicado em
         weight: Posição do pedido
+      external_domain:
+        value: Valor
+      help_section:
+        content: Conteúdo
       id: ID
       import:
         user_group_id: Criar importações como
@@ -49,6 +56,7 @@ pt-BR:
         favicon: Ícone
         force_authentication: Forçar autenticação
         force_users_to_authenticate_before_access_organization: Forçar usuários a autenticar antes de acessar organização
+        from: Endereço de e-mail do remetente
         github_handler: Manipulador GitHub
         header_snippets: Snippets de cabeçalho
         highlight_alternative_color: Destaque, alternativa
@@ -92,6 +100,9 @@ pt-BR:
         welcome_notification_body: Corpo de notificação de boas-vindas
         welcome_notification_subject: Corpo de notificação de boas-vindas
         youtube_handler: Manipulador do YouTube
+      participatory_space_private_user:
+        email: E-mail
+        name: Nome
       scope:
         code: Código
         name: Nome
@@ -113,6 +124,7 @@ pt-BR:
         show_in_footer: Mostrar no rodapé
         slug: Texto curto de URL
         title: Título
+        topic_id: Tópico
         weight: Posição do pedido
       static_page_topic:
         description: Descrição
@@ -129,6 +141,14 @@ pt-BR:
               allowed_file_content_types: Arquivo de imagem inválido
             official_img_header:
               allowed_file_content_types: Arquivo de imagem inválido
+        participatory_space_private_user_csv_import:
+          attributes:
+            file:
+              malformed: Arquivo de importação malformado, por favor leia as instruções cuidadosamente e certifique-se de que o arquivo é codificado em UTF-8.
+        user_group_csv_verification:
+          attributes:
+            file:
+              malformed: Arquivo de importação malformado, por favor leia as instruções cuidadosamente e certifique-se de que o arquivo é codificado em UTF-8.
       new_import:
         attributes:
           file:
@@ -171,12 +191,16 @@ pt-BR:
         permissions: Permissões
         reject: Negar
         share: Compartilhar
+        user:
+          new: Novo administrador
         verify: Verificar
       admin_terms_of_use:
         accept:
           error: Ocorreu um erro ao aceitar os termos de uso do administrador.
           success: Ótimo! Você aceitou os termos de uso do administrador.
         actions:
+          accept: Concordo com estes termos
+          refuse: Recusar os termos de administrador
           title: Concorde com os termos e condições de uso
         required_review:
           alert: 'Obrigatório: Revise os termos de uso de nosso administrador'
