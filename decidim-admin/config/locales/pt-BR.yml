@@ -204,6 +204,7 @@ pt-BR:
           title: Concorde com os termos e condições de uso
         required_review:
           alert: 'Obrigatório: Revise os termos de uso de nosso administrador'
+          cta: Reveja eles agora.
         title: Termos de Uso do Administrador
       area_types:
         create:
@@ -225,6 +226,7 @@ pt-BR:
           error: Ocorreu um erro ao criar uma nova área.
           success: Área criada com sucesso.
         destroy:
+          has_spaces: Essa área tem espaços dependentes. Por favor, certifique-se de que nenhum Espaço Participativo referencia essa área antes de excluí-lo.
           success: Área excluída com sucesso
         edit:
           title: Editar área
@@ -271,12 +273,15 @@ pt-BR:
         update:
           error: Ocorreu um erro ao atualizar este anexo.
           success: Anexo atualizado com sucesso.
+      attachments_privacy_warning:
+        message: Tenha cuidado ao trabalhar com anexos em um espaço privado. Qualquer participante pode compartilhar este documento com outros.
       autocomplete:
         no_results: Nenhum resultado encontrado
         search_prompt: Digite, no mínimo, três caracteres para pesquisar
       block_user:
         new:
           action: Bloquear conta e enviar justificativa
+          description: Bloquear um usuário irá tornar sua conta inutilizável. Você pode fornecer em sua justificação quaisquer diretrizes sobre como você poderia considerar desbloquear o usuário.
           justification: Justificativa
           title: Bloquear usuário %{name}
       categories:
@@ -339,6 +344,7 @@ pt-BR:
         'false': 'Não'
         managed_user_name: Usuário gerenciado
         solved: Resolvido
+        title: Conflitos de verificação
         transfer:
           email: E-mail
           error: Houve um erro ao transferir o usuário atual para o usuário gerenciado.
@@ -351,6 +357,7 @@ pt-BR:
       dashboard:
         show:
           view_more_logs: Ver mais registros
+          welcome: Bem-vindo ao painel de administração.
       domain_whitelist:
         form:
           domain_too_short: Domínio muito curto
@@ -379,6 +386,12 @@ pt-BR:
           values:
             'false': 'Não'
             'true': 'Sim'
+        moderated_users:
+          reports_reason_eq:
+            values:
+              does_not_belong: Não pertence
+              offensive: Ofensivo
+              spam: Spam
         moderations:
           reportable_type_string_eq:
             label: Tipo
@@ -416,8 +429,14 @@ pt-BR:
           reported_id_string_or_reported_content_cont: Pesquisar %{collection} por id ou conteúdo reportável.
           title_cont: Pesquisar %{collection} por título.
           user_name_or_user_email_cont: Pesquise %{collection} por nome ou e-mail.
+          user_name_or_user_nickname_or_user_email_cont: Pesquise %{collection} por e-mail, nome ou apelido.
         state_eq:
           label: Estado
+          values:
+            all: Todos
+            pending: Pendente
+            rejected: Rejeitado
+            verified: Verificado
       forms:
         file_help:
           import:
@@ -463,6 +482,16 @@ pt-BR:
           impersonate_existing_user: Representar usuário "%{name}"
           impersonate_new_managed_user: Representar novo usuário gerenciado
       imports:
+        and: e
+        data_errors:
+          duplicate_headers:
+            detail: Por favor, verifique se o arquivo contém colunas obrigatórias ou cabeçalhos apenas uma vez.
+            message:
+              one: Coluna duplicada %{columns}.
+              other: Colunas duplicadas %{columns}.
+          invalid_indexes:
+            lines:
+              detail: Por favor, verifique se essas linhas estão formatadas corretamente e contém registros válidos.
         error: Houve um problema durante a importação
         new:
           accepted_mime_types:
@@ -471,6 +500,7 @@ pt-BR:
             xlsx: xlsx
           actions:
             back: Voltar
+          download_example: Baixar exemplo
           file_legend: Adicionar um arquivo de importação que será analisado.
           import: Importar
         notice: "%{number} %{resource_name} importado com sucesso"
@@ -725,6 +755,7 @@ pt-BR:
           full_name: Nome completo
           hidden: oculto
           show: Mostrar
+          title: Mostrar endereço de e-mail do participante
         unblock:
           error: Ocorreu um erro ao desbloquear o participante
           success: Usuário desbloqueado com sucesso
@@ -750,6 +781,7 @@ pt-BR:
         form:
           colors:
             colors_title: Cores da organização
+            colors_warning_html: Aviso! Mudando essas cores pode quebrar os contrastes de acessibilidade. Você pode verificar o contraste de sua escolha com o <a href="%{link}">Verificador de Contrastes WebAIM</a> ou outras ferramentas similares.
             header_snippets_help: Use este campo para adicionar coisas ao cabeçalho HTML. O uso mais comum é integrar serviços de terceiros que exigem algum JavaScript ou CSS extra. Além disso, você pode usá-lo para adicionar meta tags adicionais ao HTML. Observe que isso só será exibido em páginas públicas, não na seção de administração.
           cta_button_path_help: 'Você pode substituir onde o botão Chamar para Ação na página inicial liga. Use caminhos parciais, não URLs completos aqui. Aceita letras, números, traços e barras, e deve começar com uma letra. O botão Chamar para Ação é exibido na página inicial entre o texto de boas-vindas e a descrição. Exemplo: %{url}'
           cta_button_text_help: Você pode substituir o texto do botão Chamar para Ação na página inicial para cada idioma disponível em sua organização. Se não for definido, o valor padrão será usado. O botão Chamar para Ação é exibido na página inicial entre o texto de boas-vindas e a descrição.
@@ -795,9 +827,20 @@ pt-BR:
           invalid: Ocorreu um erro ao ler o arquivo CSV.
           success: Arquivo CSV enviado com sucesso, estamos enviando um e-mail de convite para os participantes. Isso pode demorar um pouco.
         new:
+          destroy:
+            empty: Você não tem participantes privados.
+            explanation: Você tem %{count} participantes privados.
+            title: Excluir participantes privados
           explanation: 'Envie seu arquivo CSV. Deve ter duas colunas com e-mail na primeira coluna do arquivo e nome na última coluna do arquivo (email, nome) dos usuários que você deseja adicionar ao espaço participativo, sem cabeçalhos. Evite usar caracteres inválidos como `<>?%&^*#@()[]=+:;"{}\├` no nome de usuário.'
           title: Envie seu arquivo CSV
           upload: Upload
+      reminders:
+        create:
+          success:
+            one: "%{count} usuário será lembrado."
+            other: "%{count} usuários serão lembrados."
+        new:
+          submit: Enviar
       resource_permissions:
         edit:
           submit: Enviar
@@ -855,6 +898,7 @@ pt-BR:
         gallery:
           add_images: Adicione imagens
           delete_image: Excluir Imagem
+          edit_images: Editar imagens
           gallery_legend: Adicionar uma galeria de imagens (Opcional)
       static_page_topics:
         create:
