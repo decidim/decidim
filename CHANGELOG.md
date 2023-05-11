@@ -4,7 +4,7 @@
 
 Nothing.
 
-## [0.26.6](https://github.com/decidim/decidim/tree/v0.26.6)
+## [0.26.7](https://github.com/decidim/decidim/tree/v0.26.7)
 ### Added
 
 Nothing.
