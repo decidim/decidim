@@ -95,7 +95,13 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
               click_link "My account"
             end
 
-            click_link "Authorizations"
+            # REDESIGN_PENDING - My account is not redesigned yet and doesn't
+            # contain an "Authorizations" link. Uncomment after redesigning it
+            # and remove the visit_authorizations call
+            # click_link "Authorizations"
+
+            visit_authorizations
+
             click_link "Example authorization"
           end
 
