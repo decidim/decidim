@@ -27,8 +27,12 @@ shared_examples "editable content for admins" do
       let(:user) { create(:user, :confirmed, organization:) }
 
       it "does not have a link to edit the content at the admin" do
-        within header_selector do
-          expect(page).not_to have_link("Edit")
+        if Decidim.redesign_active
+          expect(page).not_to have_css(header_selector)
+        else
+          within header_selector do
+            expect(page).not_to have_link("Edit")
+          end
         end
       end
     end
