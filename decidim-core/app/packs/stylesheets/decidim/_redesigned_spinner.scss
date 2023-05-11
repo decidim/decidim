@@ -1,0 +1,11 @@
+.spinner-container{
+  @apply relative cursor-wait;
+
+  &::before{
+    @apply content-[""] absolute inset-0 w-full h-full bg-white/80 z-10;
+  }
+
+  &::after{
+    @apply content-[""] absolute inset-1/2 w-6 h-6 rounded-full animate-spin border-4 border-background border-r-primary z-10;
+  }
+}
