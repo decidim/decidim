@@ -81,6 +81,7 @@ class ConsentManager {
 
       let cloned = this.warningElement.cloneNode(true);
       cloned.classList.remove("hide");
+      cloned.hidden = false;
       original.appendChild(cloned);
     });
   }
