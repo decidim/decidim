@@ -5,8 +5,7 @@
 export default class VoteQuestionsComponent {
   constructor($voteWrapper) {
     this.$voteWrapper = $voteWrapper;
-    this.$continueButton = this.$voteWrapper.find("a.focus__next");
-    this.$confirmButton = this.$voteWrapper.find("a.focus__next.confirm");
+    this.$confirmButton = this.$voteWrapper.find("[type=submit]");
     this.$continueSpan = this.$voteWrapper.find("span.disabled-continue");
     this.$currentStep = "";
     this.$currentStepMaxSelection = "";
@@ -38,11 +37,9 @@ export default class VoteQuestionsComponent {
   toggleContinueButton() {
     if (this.checkAnswers()) {
       // next step enabled
-      this.$continueButton.addClass("show").removeClass("hide")
       this.$continueSpan.addClass("hide").removeClass("show")
     } else {
       // next step disabled
-      this.$continueButton.addClass("hide").removeClass("show")
       this.$continueSpan.addClass("show").removeClass("hide")
     }
   }
