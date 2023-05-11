@@ -102,8 +102,10 @@ de:
             success: "%{number} Vorschläge wurden erfolgreich in Projekte importiert"
           new:
             create: Importieren Sie Vorschläge in Projekte
+            default_budget: Standardbudget
             import_all_accepted_proposals: Alle akzeptierten Vorschläge importieren
             no_components: Es gibt keine weiteren Vorschlagskomponenten in diesem partizipativen Raum, um die Vorschläge in Projekte zu importieren.
+            origin_component_id: Ursprungskomponente
             select_component: Bitte wählen Sie eine Komponente aus
             title: Vorschläge importieren
       admin_log:
@@ -245,6 +247,7 @@ de:
           votes:
             one: Abstimmung
             other: Abstimmungen
+          you_voted: Sie haben dafür gestimmt
         project_budget_button:
           add: Zur Abstimmung hinzufügen
           add_descriptive: Projekt %{resource_name} Ihrer Stimme hinzufügen
