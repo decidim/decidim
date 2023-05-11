@@ -4,7 +4,7 @@ module Decidim
   # This holds the decidim-meetings version.
   module Elections
     def self.version
-      "0.27.2"
+      "0.27.3"
     end
   end
 end
