@@ -1019,6 +1019,8 @@ de:
         everything_followed: Alles was ich folge
         newsletter_notifications: Ich möchte Newsletter erhalten
         newsletters: Newsletter
+        notification_settings:
+          close_meeting_reminder: Ich möchte per E-Mail auf Zusammenfassungen von Veranstaltungen hingewiesen werden
         notifications_sending_frequencies:
           daily: Täglich
           none: Keine
@@ -1549,12 +1551,17 @@ de:
           accept_all: Alle akzeptieren
           accept_only_essential: Nur essentielle Cookies akzeptieren
           analytics:
+            description: Diese Cookies werden zur Messung und Analyse der Besuchenden der Website verwendet, um die Website zu verbessern.
             title: Analysen und Statistiken
+          description: Wir verwenden Cookies, um die grundlegenden Funktionalitäten der Website zu gewährleisten und Ihr Online-Erlebnis zu verbessern. Sie können jederzeit die Verwendung der Cookies konfigurieren und akzeptieren oder Ihre Zustimmungsoptionen ändern.
           essential:
+            description: Diese Cookies ermöglichen die Schlüsselfunktionalität der Website und helfen bei der Sicherheit ihrer Benutzenden. Sie werden automatisch im Browser gespeichert und können nicht deaktiviert werden.
             title: Notwendige
           marketing:
+            description: Diese Cookies sammeln Informationen darüber, wie Sie die Website nutzen und können verwendet werden, um Ihnen mehr personalisierte Marketing über die verschiedenen Webseiten, die Sie verwenden, zu bieten.
             title: Marketing
           preferences:
+            description: Diese Cookies ermöglichen es der Website, sich an die Entscheidungen zu erinnern, die Sie in der Vergangenheit auf dieser Website getroffen haben, um den Benutzenden der Website ein persönlicheres Erlebnis zu bieten.
             title: Präferenzen
           save_settings: Einstellungen speichern
           title: Cookie Einstellungen
