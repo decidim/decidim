@@ -15,23 +15,28 @@
 
 <%= render layout: "layouts/decidim/shared/layout_item", locals: { back_path: :sortitions, commentable: sortition } do %>
 
-  <div class="callout success">
+  <div class="callout secondary">
     <%= t("introduction", scope: "decidim.sortitions.sortitions.show", reference: sortition.id, target_items: sortition.target_items) %>:
   </div>
-  <h1 class="h1 decorator editor-content">
+  <h1 class="h1 decorator">
     <%= decidim_html_escape(translated_attribute(sortition.title)) %>
   </h1>
-  <div class="h1 decorator editor-content">
+  <%= cell "decidim/author", sortition.author, skip_profile_link: true %>
+  <%= render partial: "sortition_author", locals: { sortition: sortition } %>
+  <div class="editor-content">
     <%= decidim_sanitize_editor translated_attribute sortition.additional_info %>
   </div>
-  <%= render partial: "sortition_author", locals: { sortition: sortition } %>
   <% if sortition.cancelled? %>
     <h2 class="title-action__title section-heading"><%= t ".cancelled" %></h2>
     <%= render partial: "sortition_cancel_author", locals: { sortition: sortition } %>
     <%= decidim_sanitize_editor translated_attribute sortition.cancel_reason %>
   <% end %>
-  <h2 class="title-action__title section-heading"><%= t("witnesses", scope: "decidim.sortitions.sortitions.show") %></h2>
-  <%= decidim_sanitize_editor translated_attribute sortition.witnesses %>
+  <h2 class="h2 editor-content">
+    <%= t("witnesses", scope: "decidim.sortitions.sortitions.show") %>
+  </h2>
+  <div class="editor-content">
+    <%= decidim_sanitize_editor translated_attribute sortition.witnesses %>
+  </div>
 
   <% if sortition&.proposals %>
     <h2 id="proposals-count" class="title-action__title section-heading">
@@ -43,12 +48,6 @@
       </div>
     </div>
   <% end %>
-
-  <h4 class="section-heading">
-    <%= t("candidate_proposal_ids", scope: "decidim.sortitions.sortitions.show") %>
-  </h4>
-  <%= t("candidate_proposals_info", scope: "decidim.sortitions.sortitions.show", category_label: sortition_category_label(sortition)) %>:
-  <%= sortition_proposal_candidate_ids sortition %>
 
   <% content_for :aside do %>
 
@@ -86,6 +85,19 @@
         </div>
         <div class="sortition__aside-element-item">
           <%= link_to t("algorithm", scope: "decidim.sortitions.sortitions.show"), Decidim::Sortitions.sortition_algorithm, class: "sortition__aside-element-item__title underline text-secondary" %>
+        </div>
+      </div>
+      <h2 class="text-sm text-gray-2 uppercase font-semibold mb-4">
+        <%= t("candidate_proposal_ids", scope: "decidim.sortitions.sortitions.show") %>
+      </h2>
+      <div class="sortition__aside-element bg-background p-4 rounded">
+        <div class="sortition__aside-element-item">
+          <span class="sortition__aside-element-item__title">
+            <%= t("candidate_proposals_info", scope: "decidim.sortitions.sortitions.show", category_label: sortition_category_label(sortition)) %>
+          </span>
+          <span class="sortition__aside-element-item__text">
+            <%= sortition_proposal_candidate_ids sortition %>
+          </span>
         </div>
       </div>
       <%= cell "decidim/share_button", nil %>
