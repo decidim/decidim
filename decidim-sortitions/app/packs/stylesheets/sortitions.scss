@@ -18,4 +18,12 @@
   &__author{
     @apply flex items-center gap-4;
   }
+
+  &__aside__count-number{
+    @apply text-5xl block text-center text-gray-2 font-bold;
+  }
+
+  &__aside__count-text{
+    @apply text-gray-2 text-sm block text-center;
+  }
 }
