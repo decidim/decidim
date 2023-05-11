@@ -69,6 +69,9 @@ pt-BR:
           new:
             create: Importar
             import_all_selected_projects: Importar todos os projetos selecionados para implementação
+            new_items:
+              one: 1 projeto selecionado será importado
+              other: "%{count} projetos selecionados serão importados"
             no_components: Não há componentes de orçamento neste espaço participativo para importar os projetos em resultados.
             origin_component_id: Componente de origem
             select_component: Selecionar componente
@@ -160,6 +163,9 @@ pt-BR:
           success: Importação bem sucedida de resultados. Você pode revisar os resultados na interface de administração.
       import_projects_mailer:
         import:
+          added_projects:
+            one: Um resultado foi importado de projetos.
+            other: "%{count} resultados foram importados de projetos."
           subject: Importação de projetos bem sucedida
           success: Projetos importados com sucesso para resultados no componente %{component_name}. Você pode rever os resultados na “interface” de administração.
       last_activity:
