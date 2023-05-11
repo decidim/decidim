@@ -6,7 +6,7 @@
 # https://github.com/decidim/decidim/pull/6161
 shared_examples "editable content for admins" do
   describe "edit link" do
-    let(:header_selector) { Decidim.redesign_active ? "header div.relative.w-full" : ".topbar" }
+    let(:header_selector) { Decidim.redesign_active ? "header #admin-bar" : ".topbar" }
 
     before do
       relogin_as user
