@@ -205,6 +205,7 @@ de:
             endorsements_enabled: Bestätigungen aktiviert
             proposal_answering_enabled: Vorschlagsantworten aktiviert
             publish_answers_immediately: Vorschlagsantworten sofort veröffentlichten
+            publish_answers_immediately_help_html: 'Wenn Sie einen Vorschlag ohne diese Option beantworten, müssen Sie die Antwort manuell veröffentlichen, indem Sie den Vorschlag auswählen und über «Aktionen» im Menü veröffentlichen. Weitere Informationen darüber finden Sie auf der <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">Dokumentationsseite zur Vorschlagsbeantwortung</a>.'
             suggested_hashtags: Hashtags schlug Benutzern neue Vorschläge vor
             votes_blocked: Abstimmung blockiert
             votes_enabled: Abstimmung aktiviert
@@ -281,6 +282,8 @@ de:
           email_intro: Der Vorschlag "%{resource_title}" wurde zu "%{participatory_space_title}" hinzugefügt, welchem Sie folgen.
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie "%{participatory_space_title}" folgen. Sie können den Erhalt von Benachrichtigungen über den vorherigen Link beenden.
           email_subject: Neuer Vorschlag "%{resource_title}" zu %{participatory_space_title} hinzugefügt
+          notification_title: Der Vorschlag <a href="%{resource_path}">%{resource_title}</a> wurde von %{author} zu %{participatory_space_title} hinzugefügt
+          notification_title_official: Der offizielle Vorschlag <a href="%{resource_path}">%{resource_title}</a> wurde zu %{participatory_space_title} hinzugefügt
         proposal_rejected:
           affected_user:
             email_intro: 'Ihr Vorschlag "%{resource_title}" wurde abgelehnt. Sie können die Antwort auf dieser Seite lesen:'
