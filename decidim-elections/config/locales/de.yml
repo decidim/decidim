@@ -185,6 +185,10 @@ de:
         exports:
           elections: Wahlen
           feedback_form_answers: Antworten auf Feedback-Formular
+        mailers:
+          trustee_mailer:
+            body: "<p>Hallo %{user_name},</p><p>Sie wurden als TreuhänderIn zu %{resource_name} hinzugefügt.</p>"
+            subject: Sie wurden als TreuhänderIn zu %{resource_name} hinzugefügt
         menu:
           trustees: Wahlhelfer
         models:
@@ -715,6 +719,12 @@ de:
     votings:
       admin:
         ballot_styles:
+          create:
+            error: Beim Erstellen dieser Wahlkategorie ist ein Problem aufgetreten
+            success: Wahlkategorie erfolgreich erstellt
+          destroy:
+            invalid: Beim Erstellen dieser Wahlkategorie ist ein Problem aufgetreten
+            success: Wahlkategorie erfolgreich gelöscht
           edit:
             title: Wahlkategorie bearbeiten
             update: Aktualisieren
@@ -994,6 +1004,7 @@ de:
           census:
             create:
               invalid: Beim Hochladen der Erhebung ist ein Problem aufgetreten, bitte versuchen Sie es später erneut.
+              invalid_csv_header: Die CSV-Kopfzeilen fehlen oder sind nicht korrekt - Bitte lesen Sie die Anweisungen sorgfältig
             creating_data:
               info_message: "<strong>Bitte warten</strong>, %{processed_count} von %{raw_count} Zeilen aus der Datei %{file} wurden verarbeitet."
             delete:
@@ -1230,6 +1241,8 @@ de:
         check_census:
           check_status: Status überprüfen
           description: Hier haben Sie die Möglichkeit, Ihre Erhebungsdaten zu überprüfen, um herauszufinden ob Sie das Recht haben, an dieser Abstimmung teilzunehmen. Sie sollten bereits einen Zugangscode haben, aber wenn Sie ihn verloren haben können Sie ihn erneut anfragen, sobald Ihre Daten korrekt sind.
+          error:
+            info: 'Bitte versuchen Sie es erneut. Wenn Sie denken, dass die Daten im System nicht korrekt sind, können Sie das hier melden: %{census_contact_information}'
           form_title: 'Füllen Sie das folgende Formular aus, um Ihre Erhebungsdaten zu überprüfen:'
           invalid: Bei der Überprüfung der Erhebung ist ein Problem aufgetreten.
           success:
