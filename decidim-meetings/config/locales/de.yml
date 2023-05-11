@@ -48,6 +48,10 @@ de:
         code: Code
     errors:
       models:
+        meeting:
+          attributes:
+            iframe_embed_type:
+              not_embeddable: Diese URL kann nicht in der Veranstaltungs- oder Live-Eventseite eingebettet werden
         meeting_agenda:
           attributes:
             base:
@@ -336,6 +340,9 @@ de:
         meetings_poll:
           form:
             title: Fragebogen für %{questionnaire_for} bearbeiten
+          update:
+            invalid: Beim Aktualisieren der Veranstaltungsumfrage ist ein Problem aufgetreten
+            success: Veranstaltungsumfrage erfolgreich aktualisiert
         models:
           meeting:
             name: Treffen
