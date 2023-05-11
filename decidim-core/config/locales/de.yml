@@ -1579,7 +1579,7 @@ de:
     decidim:
       cookie_warning:
         description_html: Diese Seite verwendet Cookies. Indem Sie die Seite weiter durchsuchen, stimmen Sie der Verwendung von Cookies zu. Erfahren Sie mehr darüber %{link}.
-        link_label: Hier
+        link_label: Mehr über Cookies erfahren
         ok: Ich stimme zu
       edit_link:
         edit: Bearbeiten
