@@ -14,4 +14,8 @@
       @apply text-md block font-semibold text-gray-2;
     }
   }
+
+  &__author{
+    @apply flex items-center gap-4;
+  }
 }
