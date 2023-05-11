@@ -16,6 +16,8 @@ de:
         proposals: Vorschläge
         selected: Zur Implementierung ausgewählt
         title: Titel
+      proposals_import:
+        scope_id: Themenbereich
   activerecord:
     models:
       decidim/budgets/project:
@@ -54,6 +56,7 @@ de:
             success: Budget erfolgreich erstellt.
           destroy:
             invalid: Es gab ein Problem beim Löschen dieses Budgets.
+            success: Budget erfolgreich gelöscht.
           edit:
             title: Budget bearbeiten
             update: Budget aktualisieren
@@ -66,6 +69,9 @@ de:
           new:
             create: Budget erstellen
             title: Neues Budget
+          update:
+            invalid: Es gab ein Problem beim Aktualisieren dieses Budgets.
+            success: Budget erfolgreich aktualisiert.
         exports:
           projects: Projekte
         models:
@@ -75,6 +81,7 @@ de:
             name: Projekt
         projects:
           create:
+            invalid: Beim Erstellen dieses Projekts ist ein Problem aufgetreten.
             success: Projekt erfolgreich erstellt.
           destroy:
             success: Projekt erfolgreich gelöscht.
@@ -116,7 +123,7 @@ de:
               selected: 'Diese Projekte wurden bereits für die Umsetzung ausgewählt: %{projects}.'
               unselected: 'Diese Projekte wurden bereits von den umzusetzenden Projekten abgewählt: %{projects}.'
             select_a_project: Bitte wählen Sie ein Projekt.
-            select_a_selection: Bitte wählen Sie einen Implementierungsstatus.
+            select_a_selection: Bitte wählen Sie einen Umsetzungsstatus.
             success:
               selected: 'Diese Projekte wurden erfolgreich für die Umsetzung ausgewählt: %{projects}.'
               unselected: 'Diese Projekte wurden erfolgreich von den umzusetzenden Projekten abgewählt: %{projects}.'
@@ -168,6 +175,7 @@ de:
         progress: Abstimmung beenden
         show: Projekte ansehen
         vote: Abstimmen
+        voted_on: 'Sie haben über abgestimmt folgende Projekte abgestimmt: %{links}.'
       last_activity:
         new_vote_at: Neue Budgetabstimmung bei
       limit_announcement:
@@ -286,6 +294,7 @@ de:
           add: Zur Abstimmung hinzufügen
           add_descriptive: Projekt %{resource_name} zu Ihrer Abstimmung hinzufügen.
           added: Zu deiner Abstimmung hinzugefügt
+          added_descriptive: Project %{resource_name} zu Ihrer Abstimmung hinzugefügt.
         projects_for: Projekte für %{name}
         show:
           budget: Budget
@@ -310,6 +319,10 @@ de:
             announcement: Ankündigung
             comments_enabled: Kommentare aktiviert
             comments_max_length: Maximale Länge der Kommentare (0 für Standardwert)
+            form:
+              errors:
+                budget_voting_rule_only_one: Nur eine Abstimmungsregel kann aktiviert sein.
+                budget_voting_rule_required: Es ist eine Abstimmungsregel notwendig.
             geocoding_enabled: Geocoding aktiviert
             landing_page_content: Budgets Landingpage
             more_information_modal: Weitere Informationen
@@ -351,6 +364,13 @@ de:
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
           email_subject: Das Budget %{resource_title} ist jetzt für %{participatory_space_title} aktiv.
           notification_title: Das Budget <a href="%{resource_path}">%{resource_title}</a> ist jetzt aktiv für %{participatory_space_title}.
+    orders:
+      checkout:
+        error: Bei der Bearbeitung Ihrer Stimme ist ein Problem aufgetreten.
+        success: Ihre Stimme wurde erfolgreich abgegeben.
+      destroy:
+        error: Beim Löschen Ihrer Stimme ist ein Problem aufgetreten.
+        success: Ihre Stimme wurde erfolgreich gelöscht.
     resource_links:
       included_proposals:
         project_proposal: Vorschläge in diesem Projekt
