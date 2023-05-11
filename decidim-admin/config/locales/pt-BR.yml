@@ -499,6 +499,7 @@ pt-BR:
           invalid_indexes:
             lines:
               detail: Por favor, verifique se essas linhas estão formatadas corretamente e contém registros válidos.
+        error: Houve um problema durante a importação.
         new:
           accepted_mime_types:
             csv: csv
@@ -619,6 +620,7 @@ pt-BR:
             created_at: Criado em
             document_number: Número do documento
             name: Nome
+            nickname: Nome de usuário
             phone: Telefone
             state: Situação
             users_count: Total de usuários
@@ -945,6 +947,7 @@ pt-BR:
           without_topic: Páginas sem tópico
         update:
           error: Ocorreu um erro ao atualizar esta página.
+          success: Página atualizada com sucesso.
       titles:
         admin_log: Log de administração
         area_types: Tipos de área
