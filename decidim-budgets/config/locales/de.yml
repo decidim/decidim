@@ -16,6 +16,8 @@ de:
         proposals: Vorschläge
         selected: Zur Implementierung ausgewählt
         title: Titel
+      proposals_import:
+        scope_id: Themenbereich
   activerecord:
     models:
       decidim/budgets/project:
