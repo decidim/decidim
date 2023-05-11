@@ -110,7 +110,7 @@ shared_examples_for "has questionnaire" do
       fill_in question.body["en"], with: "My first answer"
 
       dismiss_page_unload do
-        page.find(".logo-wrapper a").click
+        page.find(".main-bar__logo a").click
       end
 
       expect(page).to have_current_path questionnaire_public_path
