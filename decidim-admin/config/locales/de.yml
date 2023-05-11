@@ -362,6 +362,12 @@ de:
         'true': 'Ja'
         user_name: Nutzer
       dashboard:
+        pending_moderations:
+          anouncement:
+            one: Es gibt %{count} ausstehende Moderation
+            other: Es gibt %{count} ausstehende Moderationen
+          goto_moderation: Gehe zur globalen Moderation
+          title: Offene Moderationen
         show:
           view_more_logs: Weitere Protokolle anzeigen
           welcome: Willkommen beim Admin-Panel von Decidim.
@@ -378,6 +384,7 @@ de:
           Excel: Excel
           FormPDF: PDF
           JSON: JSON
+        notice: Ihr Export wird gerade ausgeführt. Sie erhalten nach Fertigstellung eine E-Mail.
       filters:
         category_id_eq:
           label: Kategorie
@@ -513,6 +520,8 @@ de:
             message:
               one: Fehlende Spalte %{columns}.
               other: Fehlende Spalten %{columns}.
+        error: Beim Importieren ist ein Problem aufgetreten.
+        example_error: Es gab ein Problem beim Erstellen eines Beispiels für den angegebenen Typ.
         new:
           accepted_mime_types:
             csv: CSV
@@ -524,6 +533,15 @@ de:
           download_example_format: Beispiel als %{name}
           file_legend: Datei zum Importieren hinzufügen.
           import: Importieren
+        notice: "%{number} %{resource_name} erfolgreich importiert."
+      logs:
+        filters:
+          participatory_space: Partizipativen Raum finden
+          text: Suche nach E-Mail, Name oder Spitzname.
+          user: Benutzer*in
+        logs_list:
+          no_logs_yet: Es gibt noch keine Protokolle.
+          no_matching_logs: Es gibt keine Protokolle mit den angegebenen Suchfiltern. Ändern Sie sie und versuchen Sie es erneut.
       managed_users:
         promotion:
           error: Es ist ein Fehler aufgetreten, der den verwalteten Benutzer unterstützt.
@@ -664,6 +682,7 @@ de:
         report:
           reasons:
             does_not_belong: Gehört nicht
+            hidden_during_block: Versteckt beim Blockieren des Benutzers
             offensive: Beleidigend
             spam: Spam
         reports:
