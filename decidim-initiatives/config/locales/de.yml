@@ -351,6 +351,7 @@ de:
         fill_data:
           back: Zurück
           continue: Fortsetzen
+          decidim_user_group_id_help: Es ist nicht möglich, die Autorschaft der Initiative nach der Erstellung zu ändern
           fill_data_help: "<ul> <li>Inhalt Ihrer Initiative überprüfen. Ist Ihr Titel leicht verständlich? Ist das Ziel Ihrer Initiative klar?</li> <li>Sie müssen die Art der Unterschrift wählen. Persönlich, online oder eine Kombination aus beidem</li> <li>Was ist die geografische Reichweite der Initiative? Stadt, Bezirk?</li> </ul>"
           more_information: "(Weitere Informationen)"
           select_area: Wählen Sie einen Bereich aus
@@ -432,6 +433,7 @@ de:
         delete_attachment: Löschen
       index:
         title: Initiativen
+        uninitialized: Initiativen sind noch nicht von einem Admin konfiguriert
       initiative_signatures:
         fill_personal_data:
           continue: Fortsetzen
