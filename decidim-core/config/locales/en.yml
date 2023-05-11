@@ -589,8 +589,6 @@ en:
           nickname_help: Your alias in %{organization}. Can only contain letters, numbers, '-' and '_'.
           sign_in: Log in
           sign_up: Sign up
-          sign_up_as:
-            legend: Sign up as
           subtitle: Sign up to participate in discussions and support proposals.
           terms: the terms and conditions of use
           tos_agreement: By signing up you agree to %{link}.

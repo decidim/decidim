@@ -547,8 +547,6 @@ es:
           nickname_help: Tu alias en %{organization}. Solo puede contener letras, números, '-' y '_'.
           sign_in: Entra
           sign_up: Regístrate
-          sign_up_as:
-            legend: Inscribirse como
           subtitle: Crea una cuenta para poder participar en los debates y apoyar las propuestas.
           terms: los términos y condiciones de uso
           tos_agreement: Al registrarte aceptas %{link}.
