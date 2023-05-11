@@ -17,6 +17,8 @@ de:
         proposals: Vorschläge
         selected: Zur Implementierung ausgewählt
         title: Titel
+      proposals_import:
+        scope_id: Themenbereich
   activerecord:
     models:
       decidim/budgets/project:
@@ -122,6 +124,7 @@ de:
               selected: 'Diese Projekte wurden bereits für die Umsetzung ausgewählt: %{projects}.'
               unselected: 'Diese Projekte wurden bereits von den umzusetzenden Projekten abgewählt: %{projects}.'
             select_a_project: Bitte wählen Sie ein Projekt
+            select_a_selection: Bitte wählen Sie einen Umsetzungsstatus
             success:
               selected: 'Diese Projekte wurden erfolgreich für die Umsetzung ausgewählt: %{projects}.'
               unselected: 'Diese Projekte wurden erfolgreich von den umzusetzenden Projekten abgewählt: %{projects}.'
