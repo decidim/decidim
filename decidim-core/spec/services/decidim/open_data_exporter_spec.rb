@@ -146,7 +146,7 @@ describe Decidim::OpenDataExporter do
         end
 
         it "includes the meetings data" do
-          expect(csv_data).to include(meeting.title["en"])
+          expect(csv_data).to include(meeting.title["en"].gsub(/"/, '""'))
         end
 
         context "with unpublished components" do
