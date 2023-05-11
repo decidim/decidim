@@ -46,6 +46,7 @@ de:
         import: Vorschläge in Projekte importieren
         new: Neue(r/s) %{name}
         preview: Vorschau
+        send_voting_reminders: Abstimmungserinnerungen versenden
         title: Aktionen
       admin:
         budgets:
@@ -92,8 +93,10 @@ de:
             change_category: Kategorie ändern
             change_scope: Themenbereich ändern
             change_selected: Ausgewählten Status ändern
+            deselect_implementation: Von umzusetzenden Projekten abwählen
             finished_orders: Abgeschlossene Stimmen
             pending_orders: Ausstehende Stimmen
+            select_for_implementation: Zur Umsetzung auswählen
             selected: Ausgewählt
             title: Projekte
             update: Aktualisieren
@@ -115,15 +118,23 @@ de:
             select_a_scope: Bitte wählen Sie einen Themenbereich
             success: 'Die folgenden Projekte wurden erfolgreich zum Themenbereich %{subject_name} hinzugefügt: %{projects}.'
           update_selected:
+            invalid:
+              selected: 'Diese Projekte wurden bereits für die Umsetzung ausgewählt: %{projects}.'
+              unselected: 'Diese Projekte wurden bereits von den umzusetzenden Projekten abgewählt: %{projects}.'
             select_a_project: Bitte wählen Sie ein Projekt
+            success:
+              selected: 'Diese Projekte wurden erfolgreich für die Umsetzung ausgewählt: %{projects}.'
+              unselected: 'Diese Projekte wurden erfolgreich von den umzusetzenden Projekten abgewählt: %{projects}.'
         proposals_imports:
           create:
             invalid: Beim Importieren der Vorschläge in Projekte ist ein Problem aufgetreten
             success: "%{number} Vorschläge wurden erfolgreich in Projekte importiert"
           new:
             create: Importieren Sie Vorschläge in Projekte
+            default_budget: Standardbudget
             import_all_accepted_proposals: Alle akzeptierten Vorschläge importieren
             no_components: Es gibt keine weiteren Vorschlagskomponenten in diesem partizipativen Raum, um die Vorschläge in Projekte zu importieren.
+            origin_component_id: Ursprungskomponente
             select_component: Bitte wählen Sie eine Komponente aus
             title: Vorschläge importieren
         reminders:
@@ -276,6 +287,7 @@ de:
           votes:
             one: Abstimmung
             other: Abstimmungen
+          you_voted: Sie haben dafür gestimmt
         project_budget_button:
           add: Zur Abstimmung hinzufügen
           add_descriptive: Projekt %{resource_name} Ihrer Stimme hinzufügen
