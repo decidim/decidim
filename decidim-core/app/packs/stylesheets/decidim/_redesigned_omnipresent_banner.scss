@@ -1,0 +1,16 @@
+.omnipresent-banner{
+  @apply bg-secondary text-white text-center p-4 text-xl;
+
+  &-link{
+    @apply flex items-center justify-center gap-4 first:[&>*]:font-bold hover:underline focus:outline-none focus:underline;
+  }
+
+  svg{
+    @apply flex-none text-white fill-current;
+  }
+
+  &:hover,
+  &:hover svg{
+    @apply text-white/80;
+  }
+}
