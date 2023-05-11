@@ -129,6 +129,21 @@ cs:
         few: "%{count} hodiny"
         many: "%{count} hodin"
         other: "%{count} hodin"
+      x_minutes:
+        one: 1 minuta
+        few: "%{count} minuty"
+        many: "%{count} minut"
+        other: "%{count} minut"
+      x_months:
+        one: 1 měsíc
+        few: "%{count} měsíce"
+        many: "%{count} měsíců"
+        other: "%{count} měsíců"
+      x_seconds:
+        one: 1 sekunda
+        few: "%{count} sekundy"
+        many: "%{count} sekund"
+        other: "%{count} sekund"
   decidim:
     accessibility:
       external_link: Externí odkaz
