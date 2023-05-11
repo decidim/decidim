@@ -524,6 +524,7 @@ pt-BR:
         areas: Áreas
         configuration: Configuração
         dashboard: Painel de controle
+        external_domain_whitelist: Domínios externos permitidos
         help_sections: Seções de ajuda
         homepage: Pagina inicial
         impersonations: Imitações
