@@ -16,20 +16,27 @@
 <%= render layout: "layouts/decidim/shared/layout_item", locals: { back_path: :sortitions, commentable: sortition } do %>
 
   <div class="callout secondary">
+    <h4 class="h4 font-bold mb-2">
+      <%= t("sortition", scope: "decidim.sortitions.sortitions.show") %>
+    </h4>
     <%= t("introduction", scope: "decidim.sortitions.sortitions.show", reference: sortition.id, target_items: sortition.target_items) %>:
   </div>
   <h1 class="h1 decorator">
     <%= decidim_html_escape(translated_attribute(sortition.title)) %>
   </h1>
-  <%= cell "decidim/author", sortition.author, skip_profile_link: true %>
+  <%#= cell "decidim/author", sortition.author, skip_profile_link: true %>
   <%= render partial: "sortition_author", locals: { sortition: sortition } %>
   <div class="editor-content">
     <%= decidim_sanitize_editor translated_attribute sortition.additional_info %>
   </div>
   <% if sortition.cancelled? %>
-    <h2 class="title-action__title section-heading"><%= t ".cancelled" %></h2>
     <%= render partial: "sortition_cancel_author", locals: { sortition: sortition } %>
-    <%= decidim_sanitize_editor translated_attribute sortition.cancel_reason %>
+    <div class="callout alert">
+      <h4 class="h4 font-bold">
+        <%= t("cancelled", scope: "decidim.sortitions.sortitions.show") %>
+      </h4>
+      <%= decidim_sanitize_editor translated_attribute sortition.cancel_reason %>
+    </div>
   <% end %>
   <h2 class="h2 editor-content">
     <%= t("witnesses", scope: "decidim.sortitions.sortitions.show") %>
