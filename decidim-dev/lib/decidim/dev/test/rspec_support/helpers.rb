@@ -9,8 +9,15 @@ module Decidim::ComponentTestHelpers
   end
 
   def within_user_menu
-    within ".topbar__user__logged" do
-      find("a", text: user.name).click
+    main_bar_selector = Decidim.redesign_active ? ".main-bar" : ".topbar__user__logged"
+
+    within main_bar_selector do
+      if Decidim.redesign_active ? ".main-bar" : ".topbar__user__logged"
+        find("#trigger-dropdown-account").click
+      else
+        find("a", text: user.name).click
+      end
+
       yield
     end
   end
