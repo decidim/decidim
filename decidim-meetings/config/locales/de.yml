@@ -19,7 +19,9 @@ de:
         decidim_scope_id: Umfang
         decidim_user_group_id: Benutzergruppe
         description: Beschreibung
+        end_time: Endzeit
         id: ID
+        iframe_embed_type: iFrame-Einbettungstyp
         location: Ort
         location_hints: Standorthinweise
         online_meeting_url: Online Meeting URL
@@ -29,8 +31,11 @@ de:
         registration_email_custom_content: Angepasster Inhalt des Registrierungs-E-Mails
         registration_form_enabled: Anmeldeformular aktiviert
         registration_terms: Registrierungsbedingungen
+        registration_type: Registrierungstyp
         registration_url: Registrierungs-URL
         registrations_enabled: Registrierungen aktiviert
+        reserved_slots: Reservierte Slots für diese Veranstaltung
+        start_time: Startzeit
         title: Titel
         transparent: Transparent
         type_of_meeting: Art
