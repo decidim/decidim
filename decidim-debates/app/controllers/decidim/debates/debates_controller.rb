@@ -114,7 +114,7 @@ module Decidim
       def default_filter_params
         {
           search_text_cont: "",
-          with_any_origin: %w(official participants user_group),
+          with_any_origin: %w(official participants user_groups),
           activity: "all",
           with_any_category: default_filter_category_params,
           with_any_scope: default_filter_scope_params,
