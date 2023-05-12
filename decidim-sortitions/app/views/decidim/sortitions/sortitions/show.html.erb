@@ -53,7 +53,10 @@
   <% end %>
 
   <% if sortition.cancelled? %>
-    <div class="sortition__author mt-8 mb-4">
+    <h3 class="h3 mt-8 mb-4">
+      <%= t("cancelled", scope: "decidim.sortitions.sortitions.show") %>
+    </h3>
+    <div class="sortition__author mb-4">
       <%= cell "decidim/author", present(sortition.cancelled_by_user), context_actions: [:cancelled_on], from: sortition, layout: :compact %>
       <% if sortition.cancelled_by_user&.deleted? %>
         <span class="label alert">
@@ -62,9 +65,6 @@
       <% end %>
     </div>
     <div class="callout alert">
-      <h4 class="h4 font-bold">
-        <%= t("cancelled", scope: "decidim.sortitions.sortitions.show") %>
-      </h4>
       <%= decidim_sanitize_editor translated_attribute sortition.cancel_reason %>
     </div>
   <% end %>
