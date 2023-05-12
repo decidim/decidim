@@ -32,10 +32,10 @@ module Decidim
         }
       end
 
-      #REDESIGN_PENDING: add a function to pass the status(alert, warning or success) as a class to the tag
+      # REDESIGN_PENDING: add a function to pass the status(alert, warning or success) as a class to the tag
       def badge_item
         {
-          text: content_tag(:span, class: "alert label") {badge_name}
+          text: content_tag(:span, class: "alert label") { badge_name }
         }
       end
 
