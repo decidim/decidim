@@ -120,8 +120,8 @@ describe "Meeting registrations", type: :system do
             click_button "Register"
 
             within "#loginModal" do
-              expect(page).to have_content("Sign in with Facebook")
-              find(".close-button").click
+              expect(page).to have_content("Forgot your password?")
+              find("[data-dialog-close='loginModal']", match: :first).click
             end
 
             within_language_menu do
@@ -131,7 +131,7 @@ describe "Meeting registrations", type: :system do
             click_button "Unir-se a la trobada"
 
             within "#loginModal" do
-              expect(page).to have_content("Inicia sessió amb Facebook")
+              expect(page).to have_content("Has oblidat la teva contrasenya?")
             end
           end
         end
