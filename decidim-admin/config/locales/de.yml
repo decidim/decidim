@@ -887,6 +887,10 @@ de:
             explanation: Sie haben %{count} private Teilnehmende.
             title: Alle private Teilnehmende entfernen
           example_file: 'Beispieldatei:'
+          explanation: 'Laden Sie Ihre CSV-Datei mit den Teilnehmenden, die Sie zum Prozess hinzufügen möchten, hoch. Sie muss zwei Spalten (ohne Kopfzeile) haben, mit der E-Mail-Adresse in der ersten Spalte und dem Namen in der zweiten Spalte der Datei. Verwenden Sie keine ungültige Zeichen wie `<>?%&^*#@()[]=+:;"{}\|` im Namen der Teilnehmenden.'
+          explanation_example: |
+            john.doe@example.org%{csv_col_sep}John Doe
+            jane.doe@example.org%{csv_col_sep}Jane Doe
           title: CSV-Datei hochladen
           upload: Hochladen
       reminders:
@@ -979,6 +983,11 @@ de:
           add: Inhaltsblock hinzufügen
           create:
             error: Es gab ein Problem beim Versuch, diesen Inhaltsblock zu erstellen.
+            success: Inhaltsblock erfolgreich erstellt.
+          destroy:
+            error: Es gab ein Problem beim Löschen dieses Inhaltsblocks.
+            success: Inhaltsblock erfolgreich gelöscht.
+          destroy_confirmation: Sind Sie sicher, dass Sie diesen Inhaltsblock löschen möchten?
           edit:
             update: Aktualisieren
           inactive_content_blocks: Inaktive Inhaltsblöcke
@@ -989,6 +998,7 @@ de:
         destroy:
           success: Seite erfolgreich zerstört
         edit:
+          changed_notably_help: Wenn diese Option aktiviert ist, werden Nutzende benachrichtigt, um die neuen Nutzungsbedingungen zu akzeptieren.
           title: Seite bearbeiten
           update: Aktualisieren
         form:
@@ -1002,6 +1012,7 @@ de:
         topic:
           destroy: Thema entfernen
           edit: Thema bearbeiten
+          empty: Es gibt keine Seite zu diesem Thema.
           without_topic: Seiten ohne Thema
         update:
           error: Beim Aktualisieren dieser Seite ist ein Fehler aufgetreten.
@@ -1026,10 +1037,13 @@ de:
       user_group:
         csv_verify:
           invalid: Beim Lesen der CSV-Datei ist ein Fehler aufgetreten.
+          success: CSV-Datei wurde erfolgreich hochgeladen. Wir überprüfen, welche Gruppen den Kriterien entsprechen. Das kann eine Weile dauern.
         reject:
           invalid: Beim Ablehnen dieser Benutzergruppe ist ein Fehler aufgetreten.
+          success: Gruppe erfolgreich abgelehnt.
         verify:
           invalid: Beim Überprüfen dieser Benutzergruppe ist ein Fehler aufgetreten.
+          success: Gruppe erfolgreich verifiziert.
       user_groups:
         index:
           state:
@@ -1066,6 +1080,7 @@ de:
           last_day: Letzter Tag
           last_month: Letzter Monat
           last_week: Letzte Woche
+          no_users_count_statistics_yet: Es gibt noch keine Nutzendestatistiken.
           participants: Teilnehmer
       view_public_page: Öffentliche Seite anzeigen
     metrics:
@@ -1102,8 +1117,10 @@ de:
         moderation:
           fields:
             created_at: Gemeldet am
+            deleted_resource: Gelöschte Ressource
             hidden_at: Versteckt bei
             participatory_space: Beteiligungsbereich
+            report_count: Anzahl Meldungen
             reportable_id: ID
             reportable_type: Typ
             reported_content_url: URL des gemeldeten Inhalts
@@ -1120,6 +1137,8 @@ de:
   layouts:
     decidim:
       admin:
+        global_moderations:
+          title: Globale Moderationen
         newsletters:
           title: Newsletter
         settings:
