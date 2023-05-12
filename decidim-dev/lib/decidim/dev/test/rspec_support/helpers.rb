@@ -23,8 +23,8 @@ module Decidim::ComponentTestHelpers
   end
 
   def within_language_menu
-    within ".topbar__dropmenu.language-choose" do
-      find("ul.dropdown.menu").click
+    within(Decidim.redesign_active ? "footer details" : ".topbar__dropmenu.language-choose") do
+      find(Decidim.redesign_active ? "#language-chooser-control" : "ul.dropdown.menu").click
       yield
     end
   end
