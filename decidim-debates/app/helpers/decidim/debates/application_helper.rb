@@ -90,6 +90,8 @@ module Decidim
           items.reject { |item| item[:collection].blank? }
         end
       end
+
+      def search_variable = :search_text_cont
     end
   end
 end
