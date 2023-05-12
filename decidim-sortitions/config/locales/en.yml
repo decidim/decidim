@@ -116,8 +116,8 @@ en:
           recent: Recent
         results_count:
           count:
-            one: selected proposal
-            other: selected proposals
+            one: Selected proposal
+            other: Selected proposals
         show:
           algorithm: Sortition's algorithm code
           any_category: from all categories

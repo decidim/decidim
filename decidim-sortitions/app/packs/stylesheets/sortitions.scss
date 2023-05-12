@@ -13,6 +13,10 @@
     &-item__text{
       @apply text-md block font-semibold text-gray-2;
     }
+
+    &-item__numbers{
+      @apply text-md block text-gray-2;
+    }
   }
 
   &__author{

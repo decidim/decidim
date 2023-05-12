@@ -54,7 +54,7 @@
   <% end %>
 
   <% if sortition.cancelled? %>
-    <div class="sortition__author my-4">
+    <div class="sortition__author mt-8 mb-4">
       <%= cell "decidim/author", present(sortition.cancelled_by_user), context_actions: [:cancelled_on], from: sortition, layout: :compact %>
       <% if sortition.cancelled_by_user&.deleted? %>
         <span class="label alert">
@@ -116,7 +116,7 @@
           <span class="sortition__aside-element-item__title">
             <%= t("candidate_proposals_info", scope: "decidim.sortitions.sortitions.show", category_label: sortition_category_label(sortition)) %>
           </span>
-          <span class="sortition__aside-element-item__text">
+          <span class="sortition__aside-element-item__numbers">
             <%= sortition_proposal_candidate_ids sortition %>
           </span>
         </div>
