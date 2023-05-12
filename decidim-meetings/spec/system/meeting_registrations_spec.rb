@@ -319,11 +319,7 @@ describe "Meeting registrations", type: :system do
 
           expect(page).to have_field("public_participation", checked: false)
           find("#questionnaire_tos_agreement").set(true)
-          click_button "Submit"
-
-          within ".confirm-modal-footer" do
-            find("a.button[data-confirm-ok]").click
-          end
+          accept_confirm { click_button "Submit" }
 
           expect(page).to have_content("Needs to be reattached")
         end
