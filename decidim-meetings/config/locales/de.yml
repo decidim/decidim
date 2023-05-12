@@ -60,6 +60,11 @@ de:
           attributes:
             base:
               too_many_minutes: Die Dauer der Elemente überschreitet die Veranstaltungsdauer um %{count} Minuten.
+              too_many_minutes_child: Die Dauer des Unterpunkts überschreitet das Traktandum "%{parent_title}" um %{count} Minuten.
+        meeting_registration_invite:
+          attributes:
+            email:
+              already_invited: Das mit dieser E-Mail verknüpfte Konto wurde bereits eingeladen.
     models:
       decidim/meetings/close_meeting_event: Sitzung geschlossen
       decidim/meetings/create_meeting_event: Sitzung
@@ -187,6 +192,9 @@ de:
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie der Sitzung "%{resource_title}" folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
           email_subject: Die Sitzung "%{resource_title}" beginnt in weniger als 48 Stunden.
           notification_title: Die Sitzung <a href="%{resource_path}">%{resource_title}</a> beginnt in weniger als 48 Stunden.
+    forms:
+      meetings:
+        attendees_count_help_text: Vergessen Sie nicht, die Gesamtzahl der Teilnehmenden an Ihrer Veranstaltung anzugeben, egal ob sie persönlich, online oder hybrid stattgefunden hat.
     gamification:
       badges:
         attended_meetings:
