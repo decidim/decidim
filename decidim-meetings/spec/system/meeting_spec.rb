@@ -17,7 +17,7 @@ describe "Meeting", type: :system, download: true do
     skip_unless_redesign_enabled("This test pass using redesigned modals")
 
     visit_meeting
-    click_button "Add to calendar"
+    click_link "Add to calendar"
 
     expect(page).to have_link("Add to Outlook calendar")
 
@@ -30,7 +30,7 @@ describe "Meeting", type: :system, download: true do
     skip_unless_redesign_enabled("This test pass using redesigned modals")
 
     visit_meeting
-    click_button "Add to calendar"
+    click_link "Add to calendar"
 
     expect(page).to have_link("Add to Google calendar", href: /calendar\.google\.com/)
   end
