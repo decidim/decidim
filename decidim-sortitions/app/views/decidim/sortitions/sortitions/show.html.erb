@@ -36,17 +36,17 @@
   <div class="editor-content">
     <%= decidim_sanitize_editor translated_attribute sortition.additional_info %>
   </div>
-  <h2 class="h2 editor-content">
+  <h3 class="h3">
     <%= t("witnesses", scope: "decidim.sortitions.sortitions.show") %>
-  </h2>
+  </h3>
   <div class="editor-content">
     <%= decidim_sanitize_editor translated_attribute sortition.witnesses %>
   </div>
 
   <% if sortition&.proposals %>
-    <h2 id="proposals-count" class="h2 editor-content mb-4">
+    <h3 id="proposals-count" class="h3 mb-4">
       <%= t("proposals_selected_by_sortition", scope: "decidim.sortitions.sortitions.show") %>
-    </h2>
+    </h3>
     <div id="proposals">
       <%= render partial: "proposal", collection: sortition.proposals %>
     </div>
@@ -68,6 +68,10 @@
       <%= decidim_sanitize_editor translated_attribute sortition.cancel_reason %>
     </div>
   <% end %>
+
+  <div class="mt-8 mb-4 flex gap-x-1 items-center">
+    <%= cell "decidim/comments_button", nil %>
+  </div>
 
   <% content_for :aside do %>
 
