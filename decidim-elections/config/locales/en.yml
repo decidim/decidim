@@ -478,13 +478,7 @@ en:
           all: All
           date: Date
           finished: Finished
-          search: Search
           upcoming: Upcoming
-        filters_small_view:
-          close_modal: Close modal
-          filter: Filter
-          filter_by: Filter by
-          unfold: Unfold
         preview:
           available_answers: 'Available answers:'
           description: 'These are the questions you will find in the voting process:'
@@ -503,7 +497,6 @@ en:
             change_vote: Change your vote
             vote: Start voting
             vote_again: Vote again
-          back: Available elections
           callout:
             already_voted: You have already voted in this election. You can change your vote or verify it.
             pending_vote: Your vote is being casted on the server.
@@ -710,7 +703,6 @@ en:
           question_steps: Question %{current_step} of %{total_steps}
           selections: "%{selected} of %{max_selections}<br> selections"
         onboarding_modal:
-          close: Close modal
           create_account: Create Account
           description: Do you want to create a new account on the platform? You will be able to participate in the processes and be an active part of the organization.
           no_account: No, thanks.

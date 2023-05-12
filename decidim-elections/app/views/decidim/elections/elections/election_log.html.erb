@@ -8,15 +8,13 @@
 
 <%= render layout: "layouts/decidim/shared/layout_center" do %>
 
-  <% scope = "decidim.elections.elections.election_log" %>
-
   <div class="text-center py-10">
     <h1 class="h3 md:h1 decorator inline-block text-left mb-12">
-      <%= t("title", scope:) %>
+      <%= t("decidim.elections.elections.election_log.title") %>
     </h1>
 
     <div class="text-lg text-gray-2 text-left">
-      <%= t("description", scope:) %>
+      <%= t("decidim.elections.elections.election_log.description") %>
     </div>
   </div>
 
@@ -31,19 +29,19 @@
       <span class="election-log__time" data-time></span>
 
       <h2 class="h4 text-secondary">
-        <%= t("creation_title", scope:) %>
-        <span data-no-election-created><span class="label"><%= t("not_created", scope:) %></span></span>
-        <span data-election-created hidden><span class="label success"><%= t("complete", scope:) %></span></span>
+        <%= t("decidim.elections.elections.election_log.creation_title") %>
+        <span data-no-election-created><span class="label"><%= t("decidim.elections.elections.election_log.not_created") %></span></span>
+        <span data-election-created hidden><span class="label success"><%= t("decidim.elections.elections.election_log.complete") %></span></span>
       </h2>
 
       <span data-no-election-created>
-        <%= t("creation_description.not_created", scope:) %>
+        <%= t("decidim.elections.elections.election_log.creation_description.not_created") %>
       </span>
       <span data-election-created hidden>
-        <%= t("creation_description.complete", scope:) %>
+        <%= t("decidim.elections.elections.election_log.creation_description.complete") %>
       </span>
 
-      <span class="election-log__hash"><strong><%= t("chained_hash", scope:) %></strong> <span data-chained-hash></span></span>
+      <span class="election-log__hash"><strong><%= t("decidim.elections.elections.election_log.chained_hash") %></strong> <span data-chained-hash></span></span>
     </div>
 
     <!-- KEY CEREMONY STEP -->
@@ -51,23 +49,23 @@
       <span class="election-log__time" data-time></span>
 
       <h2 class="h4 text-secondary">
-        <%= t("key_ceremony_title", scope:) %>
-        <span data-key-ceremony-not-started><span class="label"><%= t("not_started", scope:) %></span></span>
-        <span data-key-ceremony-started hidden><span class="label warning"><%= t("started", scope:) %></span></span>
-        <span data-key-ceremony-completed hidden><span class="label success"><%= t("complete", scope:) %></span></span>
+        <%= t("decidim.elections.elections.election_log.key_ceremony_title") %>
+        <span data-key-ceremony-not-started><span class="label"><%= t("decidim.elections.elections.election_log.not_started") %></span></span>
+        <span data-key-ceremony-started hidden><span class="label warning"><%= t("decidim.elections.elections.election_log.started") %></span></span>
+        <span data-key-ceremony-completed hidden><span class="label success"><%= t("decidim.elections.elections.election_log.complete") %></span></span>
       </h2>
 
       <span data-key-ceremony-not-started>
-        <%= t("key_ceremony_description.not_started", scope:) %>
+        <%= t("decidim.elections.elections.election_log.key_ceremony_description.not_started") %>
       </span>
       <span data-key-ceremony-started hidden>
-        <%= t("key_ceremony_description.started", scope:) %>
+        <%= t("decidim.elections.elections.election_log.key_ceremony_description.started") %>
       </span>
       <span data-key-ceremony-completed hidden>
-        <%= t("key_ceremony_description.complete", scope:) %>
+        <%= t("decidim.elections.elections.election_log.key_ceremony_description.complete") %>
       </span>
 
-      <span class="election-log__hash"><strong><%= t("chained_hash", scope:) %></strong> <span data-chained-hash></span></span>
+      <span class="election-log__hash"><strong><%= t("decidim.elections.elections.election_log.chained_hash") %></strong> <span data-chained-hash></span></span>
     </div>
 
     <!-- VOTE STEP -->
@@ -75,23 +73,23 @@
       <span class="election-log__time" data-time></span>
 
       <h2 class="h4 text-secondary">
-        <%= t("vote_title", scope:) %>
-        <span data-vote-not-started><span class="label"><%= t("not_started", scope:) %></span></span>
-        <span data-vote-started hidden><span class="label success"><%= t("started", scope:) %></span></span>
-        <span data-vote-completed hidden><span class="label success"><%= t("complete", scope:) %></span></span>
+        <%= t("decidim.elections.elections.election_log.vote_title") %>
+        <span data-vote-not-started><span class="label"><%= t("decidim.elections.elections.election_log.not_started") %></span></span>
+        <span data-vote-started hidden><span class="label success"><%= t("decidim.elections.elections.election_log.started") %></span></span>
+        <span data-vote-completed hidden><span class="label success"><%= t("decidim.elections.elections.election_log.complete") %></span></span>
       </h2>
 
       <span data-vote-not-started>
-        <%= t("vote_description.not_started", scope:) %>
+        <%= t("decidim.elections.elections.election_log.vote_description.not_started") %>
       </span>
       <span data-vote-started hidden>
-        <%= t("vote_description.started", scope:) %>
+        <%= t("decidim.elections.elections.election_log.vote_description.started") %>
       </span>
       <span data-vote-completed hidden>
-        <%= t("vote_description.finished", scope:) %>
+        <%= t("decidim.elections.elections.election_log.vote_description.finished") %>
       </span>
 
-      <span class="election-log__hash"><strong><%= t("chained_hash", scope:) %></strong> <span data-chained-hash></span></span>
+      <span class="election-log__hash"><strong><%= t("decidim.elections.elections.election_log.chained_hash") %></strong> <span data-chained-hash></span></span>
     </div>
 
     <!-- TALLY STEP -->
@@ -99,23 +97,23 @@
       <span class="election-log__time" data-time></span>
 
       <h2 class="h4 text-secondary">
-        <%= t("tally_title", scope:) %>
-        <span data-tally-not-started><span class="label"><%= t("not_started", scope:) %></span></span>
-        <span data-tally-started hidden><span class="label success"><%= t("started", scope:) %></span></span>
-        <span data-tally-completed hidden><span class="label success"><%= t("complete", scope:) %></span></span>
+        <%= t("decidim.elections.elections.election_log.tally_title") %>
+        <span data-tally-not-started><span class="label"><%= t("decidim.elections.elections.election_log.not_started") %></span></span>
+        <span data-tally-started hidden><span class="label success"><%= t("decidim.elections.elections.election_log.started") %></span></span>
+        <span data-tally-completed hidden><span class="label success"><%= t("decidim.elections.elections.election_log.complete") %></span></span>
       </h2>
 
       <span data-tally-not-started>
-        <%= t("tally_description.not_started", scope:) %>
+        <%= t("decidim.elections.elections.election_log.tally_description.not_started") %>
       </span>
       <span data-tally-started hidden>
-        <%= t("tally_description.started", scope:) %>
+        <%= t("decidim.elections.elections.election_log.tally_description.started") %>
       </span>
       <span data-tally-completed hidden>
-        <%= t("tally_description.finished", scope:) %>
+        <%= t("decidim.elections.elections.election_log.tally_description.finished") %>
       </span>
 
-      <span class="election-log__hash"><strong><%= t("chained_hash", scope:) %></strong> <span data-chained-hash></span></span>
+      <span class="election-log__hash"><strong><%= t("decidim.elections.elections.election_log.chained_hash") %></strong> <span data-chained-hash></span></span>
     </div>
 
     <!-- PUBLISHED RESULTS STEP -->
@@ -123,58 +121,58 @@
       <span class="election-log__time" data-time></span>
 
       <h2 class="h4 text-secondary">
-        <%= t("results_title", scope:) %>
-        <span data-results-not-published><span class="label"><%= t("not_published", scope:) %></span></span>
-        <span data-results-published hidden><span class="label success"><%= t("published", scope:) %></span></span>
+        <%= t("decidim.elections.elections.election_log.results_title") %>
+        <span data-results-not-published><span class="label"><%= t("decidim.elections.elections.election_log.not_published") %></span></span>
+        <span data-results-published hidden><span class="label success"><%= t("decidim.elections.elections.election_log.published") %></span></span>
       </h2>
 
       <span data-results-not-published>
-        <%= t("results_description.not_published", scope:) %>
+        <%= t("decidim.elections.elections.election_log.results_description.not_published") %>
       </span>
       <span data-results-published hidden>
-        <%= t("results_description.published", scope:) %>
+        <%= t("decidim.elections.elections.election_log.results_description.published") %>
       </span>
 
-      <span class="election-log__hash"><strong><%= t("chained_hash", scope:) %></strong> <span data-chained-hash></span></span>
+      <span class="election-log__hash"><strong><%= t("decidim.elections.elections.election_log.chained_hash") %></strong> <span data-chained-hash></span></span>
     </div>
 
     <%# REDESIGN_PENDING: This block does not look like to be in use %>
     <!-- VERIFIABLE RESULTS STEP -->
     <div id="verifiable-results-step" class="election-log__entry">
       <h2 class="h4 text-secondary">
-        <%= t("verifiable_results.title", scope:) %>
+        <%= t("decidim.elections.elections.election_log.verifiable_results.title") %>
         <% if election.results_published? %>
-          <span class="label success"><%= t("verify", scope:) %></span>
+          <span class="label success"><%= t("decidim.elections.elections.election_log.verify") %></span>
         <% else %>
-          <span class="label"><%= t("not_ready", scope:) %></span>
+          <span class="label"><%= t("decidim.elections.elections.election_log.not_ready") %></span>
         <% end %>
       </h2>
 
       <% if election.results_published? %>
-        <%= content_tag :p, sanitize(t("verifiable_results.description.ready", scope:)) %>
+        <%= content_tag :p, sanitize(t("decidim.elections.elections.election_log.verifiable_results.description.ready")) %>
         <pre class="election-log__pre">sha256sum &lt;verifiable_election_file_path&gt;</pre>
-        <%= content_tag :p, sanitize(t("verifiable_results.how_to_verify", scope:)) %>
+        <%= content_tag :p, sanitize(t("decidim.elections.elections.election_log.verifiable_results.how_to_verify")) %>
         <pre class="election-log__pre">bin/verify &lt;verifiable_election_file_path&gt;</pre>
       <% else %>
-        <span><%= t("verifiable_results.description.not_ready", scope:) %></span>
+        <span><%= t("decidim.elections.elections.election_log.verifiable_results.description.not_ready") %></span>
       <% end %>
 
       <% if election.results_published? %>
         <span class="election-log__hash">
-          <strong><%= t("verifiable_results.verifiable_file", scope:) %></strong>
+          <strong><%= t("decidim.elections.elections.election_log.verifiable_results.verifiable_file") %></strong>
           <% if election.verifiable_results_file_url.present? %>
-            <%= link_to t("download", scope:), election.verifiable_results_file_url, class: "card__button button small" %>
+            <%= link_to t("decidim.elections.elections.election_log.download"), election.verifiable_results_file_url, class: "card__button button small" %>
           <% else %>
-            <span><%= t("not_available", scope:) %></span>
+            <span><%= t("decidim.elections.elections.election_log.not_available") %></span>
           <% end %>
         </span>
 
         <span class="election-log__hash">
-          <strong><%= t("verifiable_results.checksum", scope:) %></strong>
+          <strong><%= t("decidim.elections.elections.election_log.verifiable_results.checksum") %></strong>
           <% if election.verifiable_results_file_hash.present? %>
             <%= election.verifiable_results_file_hash %>
           <% else %>
-            <span><%= t("not_available", scope:) %></span>
+            <span><%= t("decidim.elections.elections.election_log.not_available") %></span>
           <% end %>
         </span>
       <% end %>
