@@ -1050,6 +1050,7 @@ de:
         moderation:
           fields:
             created_at: Erstellungsdatum
+            deleted_resource: Gelöschte Ressource
             hidden_at: Versteckt bei
             participatory_space: Beteiligungsbereich
             report_count: Anzahl
