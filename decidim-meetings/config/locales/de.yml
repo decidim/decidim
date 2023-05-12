@@ -18,7 +18,9 @@ de:
         decidim_scope_id: Umfang
         decidim_user_group_id: Benutzergruppe
         description: Beschreibung
+        end_time: Endzeit
         id: ID
+        iframe_embed_type: iFrame-Einbettungstyp
         location: Ort
         location_hints: Standorthinweise
         online_meeting_url: Online Meeting URL
@@ -28,8 +30,11 @@ de:
         registration_email_custom_content: Angepasster Inhalt des Registrierungs-E-Mails
         registration_form_enabled: Anmeldeformular aktiviert
         registration_terms: Registrierungsbedingungen
+        registration_type: Registrierungstyp
         registration_url: Registrierungs-URL
         registrations_enabled: Registrierungen aktiviert
+        reserved_slots: Reservierte Slots für diese Veranstaltung
+        start_time: Startzeit
         title: Titel
         transparent: Transparent
         type_of_meeting: Art
@@ -45,6 +50,16 @@ de:
         name: Name
       validate_registration_code:
         code: Code
+    errors:
+      models:
+        meeting:
+          attributes:
+            iframe_embed_type:
+              not_embeddable: Diese URL kann nicht in der Veranstaltungs- oder Live-Eventseite eingebettet werden.
+        meeting_agenda:
+          attributes:
+            base:
+              too_many_minutes: Die Dauer der Elemente überschreitet die Veranstaltungsdauer um %{count} Minuten.
     models:
       decidim/meetings/close_meeting_event: Sitzung geschlossen
       decidim/meetings/create_meeting_event: Sitzung
