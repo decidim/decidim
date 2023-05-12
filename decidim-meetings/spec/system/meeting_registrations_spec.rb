@@ -161,7 +161,7 @@ describe "Meeting registrations", type: :system do
 
         context "and they ARE NOT part of a verified user group" do
           it "they can join the meeting and automatically follow it" do
-            skip_unless_redesign_enabled("This test pass using redesigned modals")
+            skip "REDESIGN_PENDING - The follow button is implemented there: https://github.com/decidim/decidim/pull/10722. Unskip after merging"
 
             visit_meeting
 
@@ -186,7 +186,7 @@ describe "Meeting registrations", type: :system do
           end
 
           it "they can join the meeting and configure their participation to be shown publicly" do
-            skip_unless_redesign_enabled("This test pass using redesigned modals")
+            skip "REDESIGN_PENDING - The follow button is implemented there: https://github.com/decidim/decidim/pull/10722. Unskip after merging"
 
             visit_meeting
 
@@ -210,7 +210,7 @@ describe "Meeting registrations", type: :system do
           end
 
           it "they can join the meeting if they are already following it" do
-            skip_unless_redesign_enabled("This test pass using redesigned modals")
+            skip "REDESIGN_PENDING - The follow button is implemented there: https://github.com/decidim/decidim/pull/10722. Unskip after merging"
 
             create(:follow, followable: meeting, user:)
 
