@@ -110,7 +110,7 @@ describe "Explore debates", type: :system do
     context "when filtering" do
       context "when filtering by text" do
         it "updates the current URL" do
-          skip "REDESIGN_PENDING - Enable this test when filters merged and integrated in the index"
+          skip_unless_redesign_enabled "Only redesigned filters work"
 
           create(:debate, component:, title: { en: "Foobar debate" })
           create(:debate, component:, title: { en: "Another debate" })
@@ -118,7 +118,9 @@ describe "Explore debates", type: :system do
 
           within "form.new_filter" do
             fill_in("filter[search_text_cont]", with: "foobar")
-            click_button "Search"
+            within "div.filter-search" do
+              click_button
+            end
           end
 
           expect(page).not_to have_content("Another debate")
@@ -134,18 +136,17 @@ describe "Explore debates", type: :system do
           let!(:debates) { create_list(:debate, 2, component:, skip_injection: true) }
 
           it "lists the filtered debates" do
-            skip "REDESIGN_PENDING - Enable this test when filters merged and integrated in the index"
+            skip_unless_redesign_enabled "Only redesigned filters work"
 
             create(:debate, :participant_author, component:, skip_injection: true)
             visit_component
 
-            within ".filters .with_any_origin_check_boxes_tree_filter" do
+            within "#panel-dropdown-menu-origin" do
               uncheck "All"
               check "Official"
             end
 
             expect(page).to have_css("a.card__list", count: 2)
-            expect(page).to have_content("2 DEBATES")
           end
         end
 
@@ -153,24 +154,23 @@ describe "Explore debates", type: :system do
           let!(:debates) { create_list(:debate, 2, :participant_author, component:, skip_injection: true) }
 
           it "lists the filtered debates" do
-            skip "REDESIGN_PENDING - Enable this test when filters merged and integrated in the index"
+            skip_unless_redesign_enabled "Only redesigned filters work"
 
             create(:debate, component:, skip_injection: true)
             visit_component
 
-            within ".filters .with_any_origin_check_boxes_tree_filter" do
+            within "#panel-dropdown-menu-origin" do
               uncheck "All"
               check "Participants"
             end
 
             expect(page).to have_css("a.card__list", count: 2)
-            expect(page).to have_content("2 DEBATES")
           end
         end
       end
 
       it "allows filtering by scope" do
-        skip "REDESIGN_PENDING - Enable this test when filters merged and integrated in the index"
+        skip_unless_redesign_enabled "Only redesigned filters work"
 
         scope = create(:scope, organization:)
         debate = debates.first
@@ -179,7 +179,7 @@ describe "Explore debates", type: :system do
 
         visit_component
 
-        within ".with_any_scope_check_boxes_tree_filter" do
+        within "#panel-dropdown-menu-scope" do
           check "All"
           uncheck "All"
           check translated(scope.name)
@@ -199,9 +199,9 @@ describe "Explore debates", type: :system do
         end
 
         it "can be filtered by category" do
-          skip "REDESIGN_PENDING - Enable this test when filters merged and integrated in the index"
+          skip_unless_redesign_enabled "Only redesigned filters work"
 
-          within ".filters .with_any_category_check_boxes_tree_filter" do
+          within "#panel-dropdown-menu-category" do
             uncheck "All"
             check category.name[I18n.locale.to_s]
           end
@@ -210,18 +210,18 @@ describe "Explore debates", type: :system do
         end
 
         it "works with 'back to list' link" do
-          skip "REDESIGN_PENDING - Enable this test when filters merged and integrated in the index"
+          skip_unless_redesign_enabled "Only redesigned filters work"
 
-          within ".filters .with_any_category_check_boxes_tree_filter" do
+          within "#panel-dropdown-menu-category" do
             uncheck "All"
             check category.name[I18n.locale.to_s]
           end
 
           expect(page).to have_css("a.card__list", count: 1)
 
-          page.find("a.card__list .card__link").click
+          page.find("a.card__list").click
 
-          click_link "Back to list"
+          click_link "Back"
 
           expect(page).to have_css("a.card__list", count: 1)
         end
@@ -342,9 +342,7 @@ describe "Explore debates", type: :system do
           click_link translated(debate.scope.name)
         end
 
-        skip "REDESIGN_PENDING - Enable this test when filters merged and integrated in the index"
-
-        within ".filters" do
+        within "#dropdown-menu-filters" do
           expect(page).to have_checked_field(translated(debate.scope.name))
         end
       end
