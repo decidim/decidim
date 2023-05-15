@@ -4,6 +4,15 @@
   url: sortition_url(sortition.to_param)
 }) %>
 
+<%
+edit_link(
+  resource_locator(sortition).edit,
+  :update,
+  :sortition,
+  sortition: sortition
+)
+%>
+
 <% content_for :js_content do %>
   <%= javascript_pack_tag "decidim_sortitions" %>
 <% end %>
