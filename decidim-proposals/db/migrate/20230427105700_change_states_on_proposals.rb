@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class ChangeStateOnProposals < ActiveRecord::Migration[6.1]
+class ChangeStatesOnProposals < ActiveRecord::Migration[6.1]
   class Proposal < ApplicationRecord
     self.table_name = :decidim_proposals_proposals
     STATES = %w(not_answered evaluating accepted rejected withdrawn).freeze
@@ -17,7 +17,6 @@ class ChangeStateOnProposals < ActiveRecord::Migration[6.1]
     end
 
     remove_column :decidim_proposals_proposals, :old_state
-    Proposal.reset_column_information
   end
 
   def down
@@ -31,6 +30,5 @@ class ChangeStateOnProposals < ActiveRecord::Migration[6.1]
     end
 
     remove_column :decidim_proposals_proposals, :old_state
-    Proposal.reset_column_information
   end
 end

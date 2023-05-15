@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class ChangeFieldsOnMeetings < ActiveRecord::Migration[6.1]
+class ChangeTypesAndRegistrationTypesOnMeetings < ActiveRecord::Migration[6.1]
   class Meeting < ApplicationRecord
     self.table_name = :decidim_meetings_meetings
 
@@ -23,8 +23,6 @@ class ChangeFieldsOnMeetings < ActiveRecord::Migration[6.1]
 
     remove_column :decidim_meetings_meetings, :old_type_of_meeting
     remove_column :decidim_meetings_meetings, :old_registration_type
-
-    Meeting.reset_column_information
   end
 
   def down
@@ -43,7 +41,5 @@ class ChangeFieldsOnMeetings < ActiveRecord::Migration[6.1]
 
     remove_column :decidim_meetings_meetings, :old_type_of_meeting
     remove_column :decidim_meetings_meetings, :old_registration_type
-
-    Meeting.reset_column_information
   end
 end

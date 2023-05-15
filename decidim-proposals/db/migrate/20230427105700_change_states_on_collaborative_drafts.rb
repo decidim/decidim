@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class ChangeStateOnCollaborativeDrafts < ActiveRecord::Migration[6.1]
+class ChangeStatesOnCollaborativeDrafts < ActiveRecord::Migration[6.1]
   class CollaborativeDraft < ApplicationRecord
     self.table_name = :decidim_proposals_collaborative_drafts
     STATES = %w(open published withdrawn).freeze
@@ -17,7 +17,6 @@ class ChangeStateOnCollaborativeDrafts < ActiveRecord::Migration[6.1]
     end
 
     remove_column :decidim_proposals_collaborative_drafts, :old_state
-    CollaborativeDraft.reset_column_information
   end
 
   def down
@@ -31,6 +30,5 @@ class ChangeStateOnCollaborativeDrafts < ActiveRecord::Migration[6.1]
     end
 
     remove_column :decidim_proposals_collaborative_drafts, :old_state
-    CollaborativeDraft.reset_column_information
   end
 end

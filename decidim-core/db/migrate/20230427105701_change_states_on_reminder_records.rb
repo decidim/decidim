@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class ChangeStatusOnReminderRecords < ActiveRecord::Migration[6.1]
+class ChangeStatesOnReminderRecords < ActiveRecord::Migration[6.1]
   class ReminderRecord < ApplicationRecord
     self.table_name = :decidim_reminder_records
     STATES = %w(active pending completed deleted).freeze
@@ -17,7 +17,6 @@ class ChangeStatusOnReminderRecords < ActiveRecord::Migration[6.1]
     end
 
     remove_column :decidim_reminder_records, :old_state
-    ReminderRecord.reset_column_information
   end
 
   def down
@@ -28,6 +27,5 @@ class ChangeStatusOnReminderRecords < ActiveRecord::Migration[6.1]
       amendment.update(state: ReminderRecord::STATES[amendment.old_state])
     end
     remove_column :decidim_reminder_records, :old_state
-    ReminderRecord.reset_column_information
   end
 end
