@@ -49,9 +49,6 @@ edit_link(
     <div class="editor-content">
       <%= decidim_sanitize_editor translated_attribute project.description %>
     </div>
-    <%#= attachments_for project %>
-    <%#= linked_resources_for project, :proposals, "included_proposals" %>
-    <%#= linked_resources_for project, :results, "included_projects" %>
 
     <% if tabs.any? %>
       <div class="mt-8" data-component="accordion" data-multiselectable="false" data-collapsible="false">
@@ -101,7 +98,6 @@ edit_link(
         <div class="mt-8">
           <ul class="drawer-metadata__container" data-metadata-footer>
             <%= content_tag :li, resource_reference(project), class: "drawer-metadata__item" %>
-            <%= content_tag :li, resource_version(project, versions_path: budget_projects_path(project)), class: "drawer-metadata__item" %>
           </ul>
         </div>
       <% end %>
