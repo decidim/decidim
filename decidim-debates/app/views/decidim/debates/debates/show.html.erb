@@ -127,7 +127,7 @@ edit_link(
     <%= comments_for debate %>
     <ul class="drawer-metadata__container">
       <%= content_tag :li, resource_reference(debate), class: "drawer-metadata__item" %>
-      <%= content_tag :li, resource_version(debate, versions_path: debate_versions_path(debate)), class: "drawer-metadata__item" %>
+      <%= content_tag :li, resource_version(debate, versions_path: debate_version_path(debate, debate.versions.count)), class: "drawer-metadata__item" %>
     </ul>
   <% end %>
 
