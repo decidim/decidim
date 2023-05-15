@@ -119,7 +119,7 @@ module Decidim
             reportable.coauthorships.destroy_all
             create :coauthorship, coauthorable: reportable, author: meeting
 
-            expect(email_body(mail)).to match(translated(meeting.title))
+            expect(email_body(mail)).to have_content(translated(meeting.title))
           end
         end
       end

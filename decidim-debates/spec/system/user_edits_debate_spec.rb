@@ -10,8 +10,7 @@ describe "User edits a debate", type: :system do
     create(
       :debate,
       author:,
-      component:,
-      skip_injection: true
+      component:
     )
   end
 
@@ -61,8 +60,7 @@ describe "User edits a debate", type: :system do
           :debate,
           author:,
           user_group:,
-          component:,
-          skip_injection: true
+          component:
         )
       end
 

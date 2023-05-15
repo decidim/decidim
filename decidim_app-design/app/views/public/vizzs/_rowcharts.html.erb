@@ -34,14 +34,14 @@
   <code>partial "rowchart", ratio: "16:9", metric: "metrica"</code>
 </div>
 <div class="row column mt-s">
-  <%= partial "rowchart", ratio: "16:9", metric: "rowchart-" + SecureRandom.random_number(2).to_s, title: Faker::Commerce.department(1), subtitle: Faker::Lorem.sentence %>
+  <%= partial "rowchart", ratio: "16:9", metric: "rowchart-" + SecureRandom.random_number(2).to_s, title: Faker::Commerce.department(max: 1), subtitle: Faker::Lorem.sentence %>
 </div>
 <div class="row column">
   <h4>5:4</h4>
   <code>partial "rowchart", ratio: "5:4", metric: "metrica"</code>
 </div>
 <div class="row column mt-s">
-  <%= partial "rowchart", ratio: "5:4", metric: "rowchart-" + SecureRandom.random_number(2).to_s, title: Faker::Commerce.department(1), subtitle: Faker::Lorem.sentence %>
+  <%= partial "rowchart", ratio: "5:4", metric: "rowchart-" + SecureRandom.random_number(2).to_s, title: Faker::Commerce.department(max: 1), subtitle: Faker::Lorem.sentence %>
 </div>
 <br>
 <div class="row column">
@@ -60,7 +60,7 @@
   <code>partial "rowchart", metric: "metrica", ratio: "1:2"</code>
 </div>
 <div class="row column mt-s">
-  <%= partial "rowchart", metric: "rowchart-3", ratio: "1:2", title: Faker::Commerce.department(1), subtitle: Faker::Lorem.sentence %>
+  <%= partial "rowchart", metric: "rowchart-3", ratio: "1:2", title: Faker::Commerce.department(max: 1), subtitle: Faker::Lorem.sentence %>
 </div>
 <br>
 <div class="row column">
@@ -68,7 +68,7 @@
   <code>partial "rowchart", metric: "metrica"</code>
 </div>
 <div class="row column mt-s">
-  <%= partial "rowchart", metric: "rowchart-2", title: Faker::Commerce.department(1), subtitle: Faker::Lorem.sentence %>
+  <%= partial "rowchart", metric: "rowchart-2", title: Faker::Commerce.department(max: 1), subtitle: Faker::Lorem.sentence %>
 </div>
 <br>
 <div class="row column">
@@ -77,10 +77,10 @@
 </div>
 <div class="row mt-s">
   <div class="column medium-9">
-    <%= partial "rowchart", percent: false, metric: "rowchart-0", title: Faker::Commerce.department(1), subtitle: Faker::Lorem.sentence %>
+    <%= partial "rowchart", percent: false, metric: "rowchart-0", title: Faker::Commerce.department(max: 1), subtitle: Faker::Lorem.sentence %>
   </div>
   <div class="column medium-9 pull-right">
-    <%= partial "rowchart", percent: true, metric: "rowchart-0", title: Faker::Commerce.department(1), subtitle: Faker::Lorem.sentence %>
+    <%= partial "rowchart", percent: true, metric: "rowchart-0", title: Faker::Commerce.department(max: 1), subtitle: Faker::Lorem.sentence %>
   </div>
 </div>
 <div class="row column">
@@ -96,16 +96,16 @@
 </div>
 <div class="row mt-s">
   <div class="column medium-9">
-    <%= partial "rowchart", classes: "secondary", metric: "rowchart-" + SecureRandom.random_number(2).to_s, title: Faker::Commerce.department(1), subtitle: Faker::Lorem.sentence %>
+    <%= partial "rowchart", classes: "secondary", metric: "rowchart-" + SecureRandom.random_number(2).to_s, title: Faker::Commerce.department(max: 1), subtitle: Faker::Lorem.sentence %>
   </div>
   <div class="column medium-9 pull-right">
-    <%= partial "rowchart", classes: "warning", metric: "rowchart-" + SecureRandom.random_number(2).to_s, title: Faker::Commerce.department(1), subtitle: Faker::Lorem.sentence %>
+    <%= partial "rowchart", classes: "warning", metric: "rowchart-" + SecureRandom.random_number(2).to_s, title: Faker::Commerce.department(max: 1), subtitle: Faker::Lorem.sentence %>
   </div>
   <div class="column medium-9">
-    <%= partial "rowchart", classes: "success", metric: "rowchart-" + SecureRandom.random_number(2).to_s, title: Faker::Commerce.department(1), subtitle: Faker::Lorem.sentence %>
+    <%= partial "rowchart", classes: "success", metric: "rowchart-" + SecureRandom.random_number(2).to_s, title: Faker::Commerce.department(max: 1), subtitle: Faker::Lorem.sentence %>
   </div>
   <div class="column medium-9 pull-right">
-    <%= partial "rowchart", classes: "alert", metric: "rowchart-" + SecureRandom.random_number(2).to_s, title: Faker::Commerce.department(1), subtitle: Faker::Lorem.sentence %>
+    <%= partial "rowchart", classes: "alert", metric: "rowchart-" + SecureRandom.random_number(2).to_s, title: Faker::Commerce.department(max: 1), subtitle: Faker::Lorem.sentence %>
   </div>
 </div>
 <br>
@@ -115,10 +115,10 @@
 </div>
 <div class="row mt-s">
   <div class="column medium-9">
-    <%= partial "rowchart", metric: "rowchart-" + SecureRandom.random_number(3).to_s, title: Faker::Commerce.department(1), subtitle: Faker::Lorem.sentence, tip: false %>
+    <%= partial "rowchart", metric: "rowchart-" + SecureRandom.random_number(3).to_s, title: Faker::Commerce.department(max: 1), subtitle: Faker::Lorem.sentence, tip: false %>
   </div>
   <div class="column medium-9">
-    <%= partial "rowchart", metric: "rowchart-" + SecureRandom.random_number(3).to_s, title: Faker::Commerce.department(1), subtitle: Faker::Lorem.sentence, tip: false %>
+    <%= partial "rowchart", metric: "rowchart-" + SecureRandom.random_number(3).to_s, title: Faker::Commerce.department(max: 1), subtitle: Faker::Lorem.sentence, tip: false %>
   </div>
 </div>
 <br>
@@ -131,7 +131,7 @@
 <div class="row">
   <% 2.times do %>
   <div class="column medium-6">
-    <%= partial "rowchart", ratio: "1:2", metric: "rowchart-0", title: Faker::Commerce.department(1), subtitle: Faker::Lorem.sentence %>
+    <%= partial "rowchart", ratio: "1:2", metric: "rowchart-0", title: Faker::Commerce.department(max: 1), subtitle: Faker::Lorem.sentence %>
   </div>
   <% end %>
 </div>
