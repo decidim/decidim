@@ -1,14 +1,12 @@
 # frozen_string_literal: true
 
 module Decidim
-  module Conferences
-    module Admin
-      # A command with all the business logic when destroying an conference
-      # admin in the system.
-      class DestroyConferenceAdmin < Decidim::Command
+  module Admin
+    module ParticipatorySpace
+      class DestroyAdmin < Decidim::Command
         # Public: Initializes the command.
         #
-        # role - the ConferenceUserRole to destroy
+        # role - the UserRole to destroy
         # current_user - the user performing this action
         def initialize(role, current_user)
           @role = role
