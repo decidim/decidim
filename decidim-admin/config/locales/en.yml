@@ -135,10 +135,6 @@ en:
         file: File
     errors:
       models:
-        meeting:
-          attributes:
-            online_meeting_url:
-              url_format: Must be a valid URL
         newsletter:
           attributes:
             base:
