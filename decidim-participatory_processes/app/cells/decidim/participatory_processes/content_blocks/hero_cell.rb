@@ -3,33 +3,25 @@
 module Decidim
   module ParticipatoryProcesses
     module ContentBlocks
-      class HeroCell < Decidim::ContentBlocks::BaseCell
-        include Decidim::SanitizeHelper
-        include Decidim::TranslationsHelper
-        include Decidim::TwitterSearchHelper
+      class HeroCell < Decidim::ContentBlocks::ParticipatorySpaceHeroCell
+        include Decidim::ApplicationHelper
 
-        delegate :title, :subtitle, :attached_uploader, :hashtag, to: :resource
+        delegate :active_step, to: :resource
 
-        def title_text
-          translated_attribute(title)
+        def decidim_participatory_processes
+          Decidim::ParticipatoryProcesses::Engine.routes.url_helpers
         end
 
-        def subtitle_text
-          translated_attribute(subtitle)
+        def cta_text
+          return if active_step.blank?
+
+          @cta_text ||= translated_attribute(active_step.cta_text).presence
         end
 
-        def image_path
-          attached_uploader(:banner_image).path
-        end
+        def cta_path
+          return if active_step.blank?
 
-        def has_hashtag?
-          @has_hashtag ||= hashtag.present?
-        end
-
-        def escaped_hashtag
-          return unless has_hashtag?
-
-          @escaped_hashtag ||= decidim_html_escape(hashtag)
+          @cta_path ||= active_step.cta_path.presence && step_cta_url(resource)
         end
       end
     end

@@ -10,6 +10,7 @@ module Decidim
 
       include FilterResource
       include Paginable
+      include HasParticipatorySpaceContentBlocks
 
       helper_method :collection, :parent_assemblies, :promoted_assemblies, :stats, :assembly_participatory_processes, :current_assemblies_settings
 
@@ -59,7 +60,7 @@ module Decidim
         {
           with_scope: nil,
           with_area: nil,
-          type_id_eq: nil
+          with_type: nil
         }
       end
 

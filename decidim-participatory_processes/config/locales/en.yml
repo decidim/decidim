@@ -373,9 +373,6 @@ en:
         description: Number of participatory processes in this organization
         object: participatory processes
         title: Participatory processes
-    participatory_process:
-      show:
-        related_assemblies: Related assemblies
     participatory_process_groups:
       content_blocks:
         html:
@@ -386,6 +383,8 @@ en:
           name: Second HTML block
         html_3:
           name: Third HTML block
+        main_data:
+          name: Title and description
         metadata:
           developer_group: Promoted by
           name: Metadata
@@ -393,12 +392,12 @@ en:
           participatory_structure: How is it decided
           target: Who participates
         participatory_processes:
+          active: Active participatory processes
           name: Participatory processes
         stats:
           name: Statistics
         title:
           meta_scope: Scope
-          name: Title, description and hashtag
           participatory_processes:
             one: 1 process
             other: "%{count} processes"
@@ -412,7 +411,10 @@ en:
       admin:
         content_blocks:
           highlighted_processes:
+            active: Active
+            all: All
             max_results: Maximum amount of elements to show
+            selection_criteria: Selection criteria
         new_import:
           accepted_types:
             json: JSON
@@ -449,6 +451,8 @@ en:
             title: General Information
             visbility: Visibility
       content_blocks:
+        hero:
+          name: Hero image and CTA
         highlighted_processes:
           name: Highlighted processes
         related_processes:
@@ -499,8 +503,6 @@ en:
             upcoming: Upcoming
           see: See
           type: Type
-        index:
-          loading: Loading results...
         show:
           title: About this process
       show:
