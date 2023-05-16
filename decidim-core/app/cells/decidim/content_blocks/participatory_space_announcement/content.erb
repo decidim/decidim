@@ -1,7 +1,1 @@
-<div>
-  <% if private_space? %>
-    <%= cell("decidim/announcement", t("private_space", scope: "decidim.participatory_processes.show"), callout_class: "alert") %>
-  <% end %>
-
-  <%= announcement_cell %>
-</div>
+<div><%= announcement_cell %></div>

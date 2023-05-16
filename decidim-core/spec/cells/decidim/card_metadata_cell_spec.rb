@@ -49,8 +49,8 @@ describe Decidim::CardMetadataCell, type: :cell do
       let(:items_list) { [:comments_count_item] }
 
       context "and comments count is zero" do
-        it "displays nothing" do
-          expect(cell_html).to have_no_content("0")
+        it "displays 0" do
+          expect(cell_html).to have_content("0")
         end
       end
 
@@ -67,7 +67,7 @@ describe Decidim::CardMetadataCell, type: :cell do
       let(:items_list) { [:endorsements_count_item] }
 
       context "and endorsements count is zero" do
-        it "displays 0 endorsements" do
+        it "displays 0" do
           expect(cell_html).to have_content("0")
         end
       end

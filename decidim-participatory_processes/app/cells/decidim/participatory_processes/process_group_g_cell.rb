@@ -14,6 +14,10 @@ module Decidim
       def resource_image_path
         model.attached_uploader(:hero_image).path
       end
+
+      def metadata_cell
+        "decidim/participatory_processes/process_group_metadata"
+      end
     end
   end
 end

@@ -85,7 +85,7 @@ FactoryBot.define do
     end
 
     trait :with_content_blocks do
-      transient { blocks_manifests { [:hero] } }
+      transient { blocks_manifests { [:process_hero] } }
 
       after(:create) do |participatory_process, evaluator|
         evaluator.blocks_manifests.each do |manifest_name|

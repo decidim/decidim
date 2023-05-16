@@ -63,15 +63,16 @@ shared_examples "manage assemblies" do
 
   describe "previewing assemblies" do
     context "when the assembly is unpublished" do
-      let!(:assembly) { create(:assembly, :unpublished, organization:, parent: parent_assembly) }
+      let!(:assembly) { create(:assembly, :unpublished, :with_content_blocks, organization:, parent: parent_assembly) }
 
       it "allows the user to preview the unpublished assembly" do
         within find("tr", text: translated(assembly.title)) do
           click_link "Preview"
         end
 
-        expect(page).to have_css(".process-header")
-        expect(page).to have_content(translated(assembly.title))
+        within(".participatory-space__container") do
+          expect(page).to have_content(translated(assembly.title))
+        end
       end
     end
 
