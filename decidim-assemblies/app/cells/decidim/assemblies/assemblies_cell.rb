@@ -15,6 +15,10 @@ module Decidim
       def show_all_path
         @show_all_path ||= options[:show_all_path].presence
       end
+
+      def title
+        @title ||= options[:title] || t("name", scope: "decidim.assemblies.content_blocks.related_assemblies")
+      end
     end
   end
 end

@@ -11,8 +11,8 @@ describe "Filter Participatory Processes", type: :system do
 
   shared_examples "listing all processes" do
     it "lists all processes ordered by start_date (closest to current_date)" do
-      within "#processes-grid h3" do
-        expect(page).to have_content("6 PROCESSES")
+      within "#processes-grid h2" do
+        expect(page).to have_content("6 processes")
       end
 
       within "#processes-grid" do
@@ -54,16 +54,14 @@ describe "Filter Participatory Processes", type: :system do
 
     context "and choosing 'past' processes" do
       before do
-        skip "REDESIGN PENDING - Filter integration in processes index pending"
-
-        within ".order-by__tabs" do
-          click_link "Past"
+        within "#panel-dropdown-menu-date" do
+          click_filter_item "Past"
         end
       end
 
       it "lists the past processes ordered by end_date (descendingly)" do
-        within "#processes-grid h3" do
-          expect(page).to have_content("2 PAST PROCESSES")
+        within "#processes-grid h2" do
+          expect(page).to have_content("2 past processes")
         end
 
         within "#processes-grid" do
@@ -75,15 +73,14 @@ describe "Filter Participatory Processes", type: :system do
 
     context "and choosing 'upcoming' processes" do
       before do
-        skip "REDESIGN PENDING - Filter integration in processes index pending"
-
-        within ".order-by__tabs" do
-          click_link "Upcoming"
+        within "#panel-dropdown-menu-date" do
+          click_filter_item "Upcoming"
         end
+        sleep 2
       end
 
       it "lists the upcoming processes ordered by start_date (ascendingly)" do
-        within "#processes-grid h3" do
+        within "#processes-grid h2" do
           expect(page).to have_content("2")
         end
 
@@ -98,13 +95,11 @@ describe "Filter Participatory Processes", type: :system do
       let(:time_zone) { Time.zone } # UTC
 
       before do
-        skip "REDESIGN PENDING - Filter integration in processes index pending"
-
         past_process.update(title: { en: "Started 2 weeks ago" })
         past_process2.update(title: { en: "Started 3 weeks ago" }, start_date: 3.weeks.ago)
         allow(Time).to receive(:zone).and_return(time_zone)
-        within ".order-by__tabs" do
-          click_link "All"
+        within "#panel-dropdown-menu-date" do
+          click_filter_item "All"
         end
       end
 
@@ -146,9 +141,9 @@ describe "Filter Participatory Processes", type: :system do
 
     context "and choosing an area" do
       before do
-        skip "REDESIGN PENDING - Filter integration in processes index pending"
-
-        select translated(area.name), from: "filter[with_area]"
+        within "#panel-dropdown-menu-area" do
+          click_filter_item translated(area.name)
+        end
       end
 
       it "lists all processes belonging to that area" do
@@ -182,8 +177,7 @@ describe "Filter Participatory Processes", type: :system do
           visit decidim_participatory_processes.participatory_processes_path
         end
 
-        it "does not show the participatory process types filter" do
-          skip "REDESIGN PENDING - Filter integration in processes index pending"
+        it "doesn't show the participatory process types filter" do
           expect(page).to have_no_css("#process-type-filter")
         end
       end
@@ -241,112 +235,41 @@ describe "Filter Participatory Processes", type: :system do
               expect(page).to have_content("8 active processes")
             end
           end
-
-          it "only shows process types with active processes" do
-            skip "REDESIGN PENDING - Filter integration in processes index pending"
-
-            within "#process-type-filter" do
-              click_button "All types"
-              expect(page).to have_content("Awesome Type")
-              expect(page).to have_content("The East Type")
-              expect(page).to have_content("The West Type")
-              expect(page).to have_no_content("Old Type")
-              expect(page).to have_no_content("Empty Type")
-              expect(page).to have_no_content("Unpublished Type")
-            end
-          end
         end
 
         context "and choosing 'past' processes" do
           before do
-            skip "REDESIGN PENDING - Filter integration in processes index pending"
-
-            within ".order-by__tabs" do
-              click_link "Past"
+            within "#panel-dropdown-menu-date" do
+              click_filter_item "Past"
             end
             sleep 2
           end
 
           it "lists past processes" do
             within "#processes-grid h2" do
-              expect(page).to have_content("2 PAST PROCESSES")
-            end
-          end
-
-          it "only shows process types with past processes" do
-            within "#process-type-filter" do
-              click_button "All types"
-              expect(page).to have_no_content("Awesome Type")
-              expect(page).to have_no_content("The East Type")
-              expect(page).to have_no_content("The West Type")
-              expect(page).to have_content("Old Type")
-              expect(page).to have_no_content("Empty Type")
-              expect(page).to have_no_content("Unpublished Type")
+              expect(page).to have_content("2 past processes")
             end
           end
         end
 
         context "and filtering by a process type" do
           before do
-            skip "REDESIGN PENDING - Filter integration in processes index pending"
-
-            within "#process-type-filter" do
-              click_button "All types"
-              click_link "The West Type"
+            within "#panel-dropdown-menu-type" do
+              click_filter_item "All"
+              click_filter_item "The West Type"
             end
             sleep 2
           end
 
           it "lists process type processes" do
-            skip "REDESIGN PENDING - Filter integration in processes index pending"
-
             within "#processes-grid h2" do
-              expect(page).to have_content("3 ACTIVE PROCESSES")
+              expect(page).to have_content("3 active processes")
             end
 
             expect(page).to have_no_content("NW Rocks!")
             expect(page).to have_no_content("SE Rocks!")
             group_2_process_type.processes.groupless.each do |group|
               expect(page).to have_content(translated(group.title))
-            end
-          end
-        end
-      end
-
-      context "when visiting processes group page with processes block enabled" do
-        before do
-          create(
-            :content_block,
-            organization:,
-            scope_name: :participatory_process_group_homepage,
-            scoped_resource_id: processes_group1.id,
-            manifest_name: :participatory_processes
-          )
-          visit decidim_participatory_processes.participatory_process_group_path(processes_group1)
-        end
-
-        context "and choosing 'active' processes" do
-          it "lists all active processes inside the group" do
-            within "#processes-grid .processes-grid-order-by h3" do
-              expect(page).to have_content("3 ACTIVE PROCESSES")
-            end
-
-            expect(page).to have_content("SE Rocks!")
-            expect(page).to have_no_content("NW Rocks!")
-            group_1_process_type.processes.groupless.each do |group|
-              expect(page).to have_no_content(translated(group.title))
-            end
-          end
-
-          it "only shows process types with active processes in the group" do
-            within "#process-type-filter" do
-              click_button "All types"
-              expect(page).to have_no_content("Awesome Type")
-              expect(page).to have_content("The East Type")
-              expect(page).to have_no_content("The West Type")
-              expect(page).to have_no_content("Old Type")
-              expect(page).to have_no_content("Empty Type")
-              expect(page).to have_no_content("Unpublished Type")
             end
           end
         end

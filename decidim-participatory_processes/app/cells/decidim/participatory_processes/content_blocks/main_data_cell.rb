@@ -18,7 +18,7 @@ module Decidim
         end
 
         def description_text
-          decidim_sanitize_editor translated_attribute(short_description)
+          decidim_sanitize_editor_admin translated_attribute(short_description)
         end
 
         def details_path

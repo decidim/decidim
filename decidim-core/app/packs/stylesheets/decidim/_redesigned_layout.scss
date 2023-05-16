@@ -1,8 +1,12 @@
 .layout-container{
-  @apply flex flex-col min-h-screen [&_[data-content]]:min-h-[50vh] [&_[data-content]]:relative;
+  @apply flex flex-col min-h-screen;
 
   &__skip{
     @apply absolute z-10 left-0 -translate-x-full py-1 px-4 bg-primary rounded-br-lg text-white cursor-pointer transition focus:translate-x-0;
+  }
+
+  [data-content]{
+    @apply min-h-[60vh] relative flex flex-col [&>*]:grow;
   }
 
   footer{
@@ -11,7 +15,7 @@
 }
 
 .layout-1col{
-  @apply container grid grid-cols-12;
+  @apply container grid grid-cols-12 mb-12 md:mb-32;
 
   .cols-6{
     @apply col-span-12 md:col-start-2 md:col-span-10 lg:col-start-3 lg:col-span-8 grid grid-cols-8 [&>*]:col-span-8 lg:[&>*:not(.grow)]:col-start-2 lg:[&>*:not(.grow)]:col-span-6;
@@ -27,24 +31,18 @@
 }
 
 .layout-2col{
-  @apply md:bg-gradient-to-r md:from-background md:via-background md:to-white md:[&>*]:grid md:[&>*]:grid-cols-12 [&>*]:container;
-
-  --tw-gradient-stops: var(--tw-gradient-from) 0%, var(--tw-gradient-from) 50%, var(--tw-gradient-to) 50%;
+  @apply md:grid grid-cols-12 container;
 
   &__aside{
-    @apply col-span-3 md:pr-16 py-6 md:py-12 gap-6 md:gap-12 flex flex-col justify-between items-start md:justify-start;
+    @apply col-span-3 md:pr-16 py-6 md:py-12 gap-6 md:gap-12 flex flex-col justify-between items-start md:justify-start before:content-[''] before:absolute before:top-0 before:left-0 before:h-full before:w-1/2 before:-z-10 md:before:bg-background;
   }
 
   &__main{
     @apply col-span-9 bg-white md:pl-16 py-6 md:py-12;
   }
 
-  &__reverse{
-    --tw-gradient-stops: var(--tw-gradient-to) 0%, var(--tw-gradient-to) 50%, var(--tw-gradient-from) 50%;
-  }
-
   &__reverse &__aside{
-    @apply order-last pr-0;
+    @apply order-last pr-0 before:left-full before:-translate-x-full;
   }
 
   &__reverse &__main{
