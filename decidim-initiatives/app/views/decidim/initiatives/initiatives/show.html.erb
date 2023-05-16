@@ -38,11 +38,11 @@ edit_link(
     <% end %>
 
     <div class="initiative__aside__element">
-      <%= cell("decidim/nav_links", initiative_nav_items(current_initiative)) %>
+      <%= render partial: "progress_bar" %>
     </div>
 
     <div class="initiative__aside__element">
-      <%= render partial: "progress_bar" %>
+      <%= cell("decidim/nav_links", initiative_nav_items(current_initiative)) %>
     </div>
 
     <% if current_initiative.offline_signature_type? || current_initiative.online_signature_type? %>
@@ -97,7 +97,7 @@ edit_link(
         <p class="initiative__aside__element__data-title">
           <%= t("type", scope: "decidim.initiatives.initiatives.show") %>
         </p>
-        <span class="initiative__aside__element__data-text">
+        <span class="initiative__aside__element__data-text text-gray-2">
           <%= render partial: "tags_type", locals: { resource: current_initiative } %>
         </span>
       </div>

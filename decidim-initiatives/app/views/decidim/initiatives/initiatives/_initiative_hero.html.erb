@@ -5,9 +5,7 @@
         <%= translated_attribute(current_participatory_space.title) %>
       </h1>
       <p class="initiative__hero-slogan">
-        <% if current_participatory_space.hashtag.present? %>
-          <%= link_to "##{current_participatory_space.hashtag}", twitter_hashtag_url(current_participatory_space.hashtag), target: "_blank" %>
-        <% end %>
+        <%= render partial: "tags_type", locals: { resource: current_initiative } %>
       </p>
       <%= render partial: "layouts/decidim/initiative_header_steps", locals: { initiative: current_participatory_space } %>
     </div>
