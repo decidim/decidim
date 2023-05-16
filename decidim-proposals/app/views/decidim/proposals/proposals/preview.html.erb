@@ -30,8 +30,6 @@
       <%= render_proposal_body(@proposal) %>
     </div>
 
-    <%= cell "decidim/tags", @proposal %>
-
     <% if component_settings.geocoding_enabled? && has_position?(@proposal) %>
       <%= render partial: "decidim/shared/static_map", locals: { icon_name: "proposals", geolocalizable: @proposal } %>
     <% end %>
@@ -55,6 +53,8 @@
         <% end %>
       </div>
     <% end %>
+
+    <%= cell "decidim/tags", @proposal %>
   </div>
 
   <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
