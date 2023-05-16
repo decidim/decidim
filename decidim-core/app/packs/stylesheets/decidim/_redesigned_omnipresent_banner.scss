@@ -1,13 +1,7 @@
 .omnipresent-banner{
-  @apply flex items-center justify-center gap-4 bg-secondary text-white text-center px-4 py-3 text-xl transition first:[&>*]:font-bold focus:outline-none;
+  @apply flex items-center justify-center gap-4 bg-gray-4 text-white text-center px-4 py-2 text-xl transition first:[&>*]:font-bold focus:outline-none hover:bg-black focus:bg-black;
 
   svg{
     @apply flex-none text-white fill-current;
-  }
-
-  &:hover,
-  &:hover svg{
-    /* NOTE: same fading as the buttons have */
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), theme('colors.secondary');
   }
 }
