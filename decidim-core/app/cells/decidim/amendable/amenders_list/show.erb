@@ -1,9 +1,0 @@
-<div id="amenders-list" class="flex flex-col gap-4">
-  <p class="h5"><%= t("amended_by", scope: "decidim.amendments.amendable") %></p>
-
-  <% amenders.each do |amender| %>
-    <div id="amendment_<%= amender.id %>">
-      <%= cell("decidim/author", amender, options: options, has_actions: false) %>
-    </div>
-  <% end %>
-</div>

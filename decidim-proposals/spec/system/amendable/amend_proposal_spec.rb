@@ -31,13 +31,6 @@ describe "Amend Proposal", versioning: true, type: :system do
         expect(page).to have_content(emendation_title)
       end
     end
-
-    it "is shown the amenders list" do
-      within "#amenders-list" do
-        expect(page).to have_content("Amended by")
-        expect(page).to have_content(emendation.creator_author.name)
-      end
-    end
   end
 
   context "with amendments NOT enabled" do
@@ -121,12 +114,6 @@ describe "Amend Proposal", versioning: true, type: :system do
               expect(page).to have_content(emendation_title)
             end
           end
-
-          it "is shown the other user in the amenders list" do
-            within "#amenders-list" do
-              expect(page).to have_content(emendation.creator_author.name)
-            end
-          end
         end
 
         context "and visit an amendable proposal that they have NOT amended" do
@@ -135,12 +122,6 @@ describe "Amend Proposal", versioning: true, type: :system do
           it "is shown the emendation from other users in the amendments list" do
             within ".amendment-list" do
               expect(page).to have_content(emendation_title)
-            end
-          end
-
-          it "is shown other users in the amenders list" do
-            within "#amenders-list" do
-              expect(page).to have_content(emendation.creator_author.name)
             end
           end
         end
@@ -155,12 +136,6 @@ describe "Amend Proposal", versioning: true, type: :system do
           it "is shown the emendation from other users in the amendments list" do
             within ".amendment-list" do
               expect(page).to have_content(emendation_title)
-            end
-          end
-
-          it "is shown other users in the amenders list" do
-            within "#amenders-list" do
-              expect(page).to have_content(emendation.creator_author.name)
             end
           end
         end
@@ -478,12 +453,6 @@ describe "Amend Proposal", versioning: true, type: :system do
               expect(page).to have_content(emendation_title)
             end
           end
-
-          it "is shown the user in the amenders list" do
-            within "#amenders-list" do
-              expect(page).to have_content(user.name)
-            end
-          end
         end
 
         context "and visit an amendable proposal that they have NOT amended" do
@@ -491,10 +460,6 @@ describe "Amend Proposal", versioning: true, type: :system do
 
           it "is NOT shown the amendments list" do
             expect(page).not_to have_css(".amendment-list")
-          end
-
-          it "is NOT shown the amenders list" do
-            expect(page).not_to have_css("#amenders-list")
           end
         end
       end
@@ -507,10 +472,6 @@ describe "Amend Proposal", versioning: true, type: :system do
         context "and visit an amendable proposal" do
           it "is NOT shown the amendments list" do
             expect(page).not_to have_css(".amendment-list")
-          end
-
-          it "is NOT shown the amenders list" do
-            expect(page).not_to have_css("#amenders-list")
           end
         end
       end
@@ -535,12 +496,6 @@ describe "Amend Proposal", versioning: true, type: :system do
               expect(page).to have_content(emendation_title)
             end
           end
-
-          it "is shown the other user in the amenders list" do
-            within "#amenders-list" do
-              expect(page).to have_content(emendation.creator_author.name)
-            end
-          end
         end
 
         context "and visit an amendable proposal that they have NOT amended" do
@@ -549,12 +504,6 @@ describe "Amend Proposal", versioning: true, type: :system do
           it "is shown the emendation from other users in the amendments list" do
             within ".amendment-list" do
               expect(page).to have_content(emendation_title)
-            end
-          end
-
-          it "is shown other users in the amenders list" do
-            within "#amenders-list" do
-              expect(page).to have_content(emendation.creator_author.name)
             end
           end
         end
@@ -569,12 +518,6 @@ describe "Amend Proposal", versioning: true, type: :system do
           it "is shown the emendation from other users in the amendments list" do
             within ".amendment-list" do
               expect(page).to have_content(emendation_title)
-            end
-          end
-
-          it "is shown other users in the amenders list" do
-            within "#amenders-list" do
-              expect(page).to have_content(emendation.creator_author.name)
             end
           end
         end
