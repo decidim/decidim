@@ -5,7 +5,7 @@ require "active_support/concern"
 module Decidim
   module Admin
     module ParticipatorySpace
-      class UserRoleController < Decidim::Conferences::Admin::ApplicationController
+      class UserRoleController < Decidim::Admin::ApplicationController
         include Decidim::Admin::Officializations::Filterable
 
         helper_method :filtered_collection
