@@ -42,7 +42,7 @@ module Decidim
         end
       end
 
-      initializer "decidim.content_processors" do |_app|
+      initializer "decidim_meetings.content_processors" do |_app|
         Decidim.configure do |config|
           config.content_processors += [:meeting]
         end

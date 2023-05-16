@@ -50,7 +50,7 @@ module Decidim
         [:trustees]
       end
 
-      initializer "decidim_admin_elections.menu_entry" do
+      initializer "decidim_elections_admin.menu_entry" do
         Decidim.participatory_space_registry.manifests.each do |participatory_space|
           menu_id = :"admin_#{participatory_space.name.to_s.singularize}_menu"
           Decidim.menu menu_id do |menu|

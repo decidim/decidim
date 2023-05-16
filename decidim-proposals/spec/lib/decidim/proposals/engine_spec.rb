@@ -3,6 +3,8 @@
 require "spec_helper"
 
 describe Decidim::Proposals::Engine do
+  it_behaves_like "clean engine"
+
   describe "decidim_proposals.remove_space_admins" do
     let(:component) { create(:proposal_component, participatory_space: space) }
     let(:valuator) { create :user, organization: }
