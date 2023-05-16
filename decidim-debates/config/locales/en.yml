@@ -129,7 +129,7 @@ en:
           state_values:
             closed: Closed
             open: Open
-          user_groups: Groups
+          user_group: Groups
         form:
           select_a_category: Please select a category
         index:
