@@ -149,8 +149,10 @@ edit_link(
   <%= translated_attribute(current_initiative.title) %>
 </h2>
 
-<div class="editor-content">
-  <%= decidim_sanitize_editor translated_attribute(current_initiative.description) %>
+<div class="content-block__description">
+  <div class="editor-content">
+    <%= decidim_sanitize_editor translated_attribute(current_initiative.description) %>
+  </div>
 </div>
 
 <% if tabs.any? %>
