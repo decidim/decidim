@@ -18,10 +18,6 @@ edit_link(
 
 <% add_decidim_page_title(translated_attribute(current_initiative.title)) %>
 
-<% unless current_initiative.online_signature_type? %>
-  <%= cell("decidim/announcement", t("decidim.initiatives.initiatives.show.any_vote_method"), callout_class: "warning") if current_initiative.any_signature_type? %>
-  <%= cell("decidim/announcement", t("decidim.initiatives.initiatives.show.offline_method"), callout_class: "warning") if current_initiative.any_signature_type? %>
-<% end %>
 
 <%= content_for :aside do %>
   <div class="initiative__aside">
