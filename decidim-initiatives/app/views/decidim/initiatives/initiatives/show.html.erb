@@ -18,10 +18,9 @@ edit_link(
 
 <% add_decidim_page_title(translated_attribute(current_initiative.title)) %>
 
-
 <%= content_for :aside do %>
   <div class="initiative__aside">
-    <% if current_initiative.published? || current_initiative.rejected? || current_initiative.accepted? %>
+    <% if current_initiative.published? || current_initiative.rejected? || current_initiative.accepted? || current_initiative.discarded? %>
       <% if current_initiative.votes_enabled? %>
         <div class="initiative__aside__element">
           <div class="mb-4" id="initiative-<%= current_initiative.id %>-vote-cabin">
