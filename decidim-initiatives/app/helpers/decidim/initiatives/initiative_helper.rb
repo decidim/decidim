@@ -147,6 +147,10 @@ module Decidim
           icon "file-copy-line"
         end
       end
+
+      def hero_background_path(initiative)
+        initiative.attachments.find(&:image?)&.url
+      end
     end
   end
 end
