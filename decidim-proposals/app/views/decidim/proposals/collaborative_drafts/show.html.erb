@@ -1,9 +1,9 @@
 <% add_decidim_page_title(Decidim::Proposals::CollaborativeDraft.model_name.human(count: 2)) %>
 <% add_decidim_meta_tags({
-  description: present(@collaborative_draft).body,
-  title: present(@collaborative_draft).title,
-  url: collaborative_draft_url(@collaborative_draft.id)
-}) %>
+                           description: present(@collaborative_draft).body,
+                           title: present(@collaborative_draft).title,
+                           url: collaborative_draft_url(@collaborative_draft.id)
+                         }) %>
 
 <% if current_user.nil? || allowed_to?(:request_access, :collaborative_draft, collaborative_draft: @collaborative_draft) %>
   <div class="row">

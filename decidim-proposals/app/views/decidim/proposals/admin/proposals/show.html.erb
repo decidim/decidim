@@ -102,7 +102,7 @@
           <% proposal.linked_resources(:meetings, "proposals_from_meeting").each do |meeting| %>
             <% presented_meeting = present(meeting) %>
             <li>
-              <%= link_to presented_meeting.title, presented_meeting.profile_path %>
+              <%= link_to presented_meeting.title(html_escape: true), presented_meeting.profile_path %>
             </li>
           <% end %>
         </ul>
