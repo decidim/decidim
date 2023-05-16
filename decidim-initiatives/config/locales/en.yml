@@ -566,8 +566,6 @@ en:
           count:
             one: Signature
             other: Signatures
-          most_popular_initiative: Most popular initiative
-          need_more_votes: Need more signatures
       initiatives_mailer:
         creation_subject: Your initiative '%{title}' has been created
         initiative_link:
