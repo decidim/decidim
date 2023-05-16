@@ -90,7 +90,7 @@ module Decidim::Core
       end
     end
 
-    describe "decidim.authorization_transfer" do
+    describe "decidim_core.authorization_transfer" do
       include_context "authorization transfer"
 
       let(:component) { create(:component, organization:) }
