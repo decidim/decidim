@@ -619,6 +619,7 @@ pt-BR:
           nickname: Apelido
           reason: Motivo
           reports: Número de denúncias
+          title: Participantes relatados
         report:
           reasons:
             does_not_belong: Não pertence
@@ -628,6 +629,8 @@ pt-BR:
           blocked: Bloqueado
           unblocked: Não bloqueado
       moderations:
+        index:
+          title: Conteúdo relatado
         report:
           reasons:
             does_not_belong: Não pertence
