@@ -861,6 +861,7 @@ de:
         publish_with_space: "%{user_name} veröffentlichte %{resource_name} in %{space_name}"
         unknown_action: "%{user_name} hat eine Aktion an %{resource_name} ausgeführt"
         unknown_action_with_space: "%{user_name} hat eine Aktion an %{resource_name} in %{space_name} ausgeführt"
+        unpublish_with_space: "%{user_name} hat die Veröffentlichung von %{resource_name} in %{space_name} aufgehoben"
         update: "%{user_name} hat %{resource_name} aktualisiert"
         update_permissions_with_space: "%{user_name} hat die Berechtigungen für %{resource_name} in %{space_name} aktualisiert"
         update_with_space: "%{user_name} hat %{resource_name} in %{space_name} aktualisiert"
