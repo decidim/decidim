@@ -19,7 +19,7 @@ module Decidim
         root to: "debates#index"
       end
 
-      initializer "decidim_debates.decidim_changes" do
+      initializer "decidim_debates.settings_changes" do
         config.to_prepare do
           Decidim::SettingsChange.subscribe "debates" do |changes|
             Decidim::Debates::SettingsChangeJob.perform_later(

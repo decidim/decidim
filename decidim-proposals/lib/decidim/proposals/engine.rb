@@ -51,7 +51,7 @@ module Decidim
         end
       end
 
-      initializer "decidim_proposals.decidim_changes" do
+      initializer "decidim_proposals.settings_changes" do
         config.to_prepare do
           Decidim::SettingsChange.subscribe "surveys" do |changes|
             Decidim::Proposals::SettingsChangeJob.perform_later(
