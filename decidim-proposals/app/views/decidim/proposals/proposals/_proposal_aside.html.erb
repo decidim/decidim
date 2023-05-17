@@ -14,6 +14,12 @@
     </div>
   <% end %>
 
+  <% if @proposal.withdrawable_by?(current_user) %>
+    <%= action_authorized_link_to :withdraw, withdraw_proposal_path(@proposal), method: :put, class: "button button__lg button__transparent-secondary", title: t("withdraw_btn_hint", scope: "decidim.proposals.proposals.show" ), data: { confirm: t("withdraw_confirmation_html", scope: "decidim.proposals.proposals.show" ) } do %>
+      <%= t("withdraw_proposal", scope: "decidim.proposals.proposals.show") %>
+    <% end %>
+  <% end %>
+
   <%= cell "decidim/proposals/proposal_link_to_collaborative_draft", @proposal %>
   <%= cell "decidim/proposals/proposal_link_to_rejected_emendation", @proposal %>
 
