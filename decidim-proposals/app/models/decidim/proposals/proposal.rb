@@ -402,7 +402,7 @@ module Decidim
         Arel.sql(%{cast("decidim_proposals_proposals"."id" as text)})
       end
 
-      ransacker :state, formatter: proc { |v| STATES.index(v) } do |parent|
+      ransacker :state, formatter: proc { |v| STATES[v.to_sym] } do |parent|
         parent.table[:state]
       end
 
