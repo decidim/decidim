@@ -655,7 +655,7 @@ en:
           select_a_category: Please select a category
           send: Send
           title: Edit collaborative draft
-        empty: There is no collaborative drafts yet
+        empty: There are no collaborative drafts yet
         empty_filters: There is no collaborative draft with this criteria
         filters:
           all: All
