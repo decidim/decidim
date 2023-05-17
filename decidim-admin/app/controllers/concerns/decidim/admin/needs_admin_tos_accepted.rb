@@ -18,7 +18,10 @@ module Decidim
         return if current_user.admin_terms_accepted?
         return if permitted_paths?
 
-        session[:user_return_to] = request.url
+        store_location_for(
+          current_user,
+          stored_location_for(current_user) || request.path
+        )
         redirect_to admin_tos_path
       end
 
