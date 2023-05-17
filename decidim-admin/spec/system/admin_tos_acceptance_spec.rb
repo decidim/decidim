@@ -16,7 +16,7 @@ describe "AdminTosAcceptance", type: :system do
       login_as user, scope: :user
     end
 
-    context "when they visit the dashbaord" do
+    context "when they visit the dashboard" do
       before do
         visit decidim_admin.root_path
       end
