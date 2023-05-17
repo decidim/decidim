@@ -15,7 +15,7 @@ module Decidim
         end
 
         def admin_tos
-          render plain: "Admin ToS page"
+          render plain: "Admin TOS page"
         end
 
         def another
@@ -44,7 +44,7 @@ module Decidim
         sign_in user, scope: :user
       end
 
-      context "when the user has not accepted the ToS" do
+      context "when the user has not accepted the TOS" do
         let(:user) { create(:user, :admin, :confirmed, admin_terms_accepted_at: nil, organization:) }
 
         it "allows entering the root page" do
@@ -53,10 +53,10 @@ module Decidim
           expect(response.body).to have_text("Root page")
         end
 
-        it "allows entering the ToS page" do
+        it "allows entering the TOS page" do
           get :admin_tos
 
-          expect(response.body).to have_text("Admin ToS page")
+          expect(response.body).to have_text("Admin TOS page")
         end
 
         it "does not allow entering another page" do
@@ -68,7 +68,7 @@ module Decidim
         end
       end
 
-      context "when the user has accepted the ToS" do
+      context "when the user has accepted the TOS" do
         let(:user) { create(:user, :admin, :confirmed, admin_terms_accepted_at: Time.zone.now, organization:) }
 
         it "allows entering the root page" do
@@ -77,10 +77,10 @@ module Decidim
           expect(response.body).to have_text("Root page")
         end
 
-        it "allows entering the ToS page" do
+        it "allows entering the TOS page" do
           get :admin_tos
 
-          expect(response.body).to have_text("Admin ToS page")
+          expect(response.body).to have_text("Admin TOS page")
         end
 
         it "allows entering another page" do

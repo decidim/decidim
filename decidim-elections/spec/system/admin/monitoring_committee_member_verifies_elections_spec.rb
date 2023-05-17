@@ -14,10 +14,10 @@ describe "Monitoring committee member verifies elections", type: :system do
     visit decidim_admin_votings.edit_voting_path(voting)
   end
 
-  context "when the user did not accepted the admin ToS" do
+  context "when the user has not accepted the admin TOS" do
     let(:user) { create(:user, :confirmed, organization:) }
 
-    it "has a message that they need to accept the admin TOS" do
+    it "shows a message to accept the admin TOS" do
       expect(page).to have_content("Please take a moment to review the admin terms of service")
     end
   end
