@@ -3,7 +3,7 @@
 class ChangeStatesOnCollaborativeDrafts < ActiveRecord::Migration[6.1]
   class CollaborativeDraft < ApplicationRecord
     self.table_name = :decidim_proposals_collaborative_drafts
-    STATES = %w(open published withdrawn).freeze
+    STATES = { open: 0, published: 10, withdrawn: -1 }.freeze
   end
 
   def up
@@ -12,8 +12,8 @@ class ChangeStatesOnCollaborativeDrafts < ActiveRecord::Migration[6.1]
 
     CollaborativeDraft.reset_column_information
 
-    CollaborativeDraft.find_each do |collaborative_draft|
-      collaborative_draft.update(state: CollaborativeDraft::STATES.index(collaborative_draft.old_state) || "not_answered")
+    CollaborativeDraft::STATES.each_pair do |status, index|
+      CollaborativeDraft.where(old_state: status).update_all(state: index) # rubocop:disable Rails/SkipsModelValidations
     end
 
     remove_column :decidim_proposals_collaborative_drafts, :old_state
@@ -25,8 +25,8 @@ class ChangeStatesOnCollaborativeDrafts < ActiveRecord::Migration[6.1]
 
     CollaborativeDraft.reset_column_information
 
-    CollaborativeDraft.find_each do |collaborative_draft|
-      collaborative_draft.update(state: CollaborativeDraft::STATES[collaborative_draft.old_state])
+    CollaborativeDraft::STATES.each_pair do |status, index|
+      CollaborativeDraft.where(old_state: index).update_all(state: status) # rubocop:disable Rails/SkipsModelValidations
     end
 
     remove_column :decidim_proposals_collaborative_drafts, :old_state

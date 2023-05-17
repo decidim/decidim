@@ -3,7 +3,7 @@
 class ChangeStatesOnReminderRecords < ActiveRecord::Migration[6.1]
   class ReminderRecord < ApplicationRecord
     self.table_name = :decidim_reminder_records
-    STATES = %w(active pending completed deleted).freeze
+    STATES = { active: 0, pending: 10, completed: 20, deleted: -1 }.freeze
   end
 
   def up
@@ -12,8 +12,8 @@ class ChangeStatesOnReminderRecords < ActiveRecord::Migration[6.1]
 
     ReminderRecord.reset_column_information
 
-    ReminderRecord.find_each do |reminder|
-      amendment.update(state: ReminderRecord::STATES.index(reminder.old_state))
+    ReminderRecord::STATES.each_pair do |status, index|
+      ReminderRecord.where(old_state: status).update_all(state: index) # rubocop:disable Rails/SkipsModelValidations
     end
 
     remove_column :decidim_reminder_records, :old_state
@@ -23,9 +23,11 @@ class ChangeStatesOnReminderRecords < ActiveRecord::Migration[6.1]
     rename_column :decidim_reminder_records, :state, :old_state
     add_column :decidim_reminder_records, :state, :string, default: "draft", null: false
     ReminderRecord.reset_column_information
-    ReminderRecord.find_each do |amendment|
-      amendment.update(state: ReminderRecord::STATES[amendment.old_state])
+
+    ReminderRecord::STATES.each_pair do |status, index|
+      ReminderRecord.where(old_state: index).update_all(state: status) # rubocop:disable Rails/SkipsModelValidations
     end
+
     remove_column :decidim_reminder_records, :old_state
   end
 end

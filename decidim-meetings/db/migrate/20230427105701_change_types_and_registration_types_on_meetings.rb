@@ -4,8 +4,8 @@ class ChangeTypesAndRegistrationTypesOnMeetings < ActiveRecord::Migration[6.1]
   class Meeting < ApplicationRecord
     self.table_name = :decidim_meetings_meetings
 
-    TYPE_OF_MEETING = %w(in_person online hybrid).freeze
-    REGISTRATION_TYPES = %w(registration_disabled on_this_platform on_different_platform).freeze
+    TYPE_OF_MEETING = { in_person: 0, online: 10, hybrid: 20 }.freeze
+    REGISTRATION_TYPES = { registration_disabled: 0, on_this_platform: 10, on_different_platform: 20 }.freeze
   end
 
   def up
@@ -16,9 +16,11 @@ class ChangeTypesAndRegistrationTypesOnMeetings < ActiveRecord::Migration[6.1]
 
     Meeting.reset_column_information
 
-    Meeting.find_each do |meeting|
-      meeting.update(type_of_meeting: Meeting::TYPE_OF_MEETING.index(meeting.old_type_of_meeting))
-      meeting.update(registration_type: Meeting::REGISTRATION_TYPES.index(meeting.old_registration_type))
+    Meeting::TYPE_OF_MEETING.each_pair do |status, index|
+      Meeting.where(old_type_of_meeting: status).update_all(type_of_meeting: index) # rubocop:disable Rails/SkipsModelValidations
+    end
+    Meeting::REGISTRATION_TYPES.each_pair do |status, index|
+      Meeting.where(old_registration_type: status).update_all(registration_type: index) # rubocop:disable Rails/SkipsModelValidations
     end
 
     remove_column :decidim_meetings_meetings, :old_type_of_meeting
@@ -34,9 +36,11 @@ class ChangeTypesAndRegistrationTypesOnMeetings < ActiveRecord::Migration[6.1]
 
     Meeting.reset_column_information
 
-    Meeting.find_each do |meeting|
-      meeting.update(type_of_meeting: Meeting::TYPE_OF_MEETING[meeting.old_type_of_meeting])
-      meeting.update(registration_type: Meeting::REGISTRATION_TYPES[meeting.old_registration_type])
+    Meeting::TYPE_OF_MEETING.each_pair do |status, index|
+      Meeting.where(old_type_of_meeting: index).update_all(type_of_meeting: status) # rubocop:disable Rails/SkipsModelValidations
+    end
+    Meeting::REGISTRATION_TYPES.each_pair do |status, index|
+      Meeting.where(old_registration_type: index).update_all(registration_type: status) # rubocop:disable Rails/SkipsModelValidations
     end
 
     remove_column :decidim_meetings_meetings, :old_type_of_meeting

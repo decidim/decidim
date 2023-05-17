@@ -3,7 +3,7 @@
 class ChangeStatesOnProposals < ActiveRecord::Migration[6.1]
   class Proposal < ApplicationRecord
     self.table_name = :decidim_proposals_proposals
-    STATES = %w(not_answered evaluating accepted rejected withdrawn).freeze
+    STATES = { not_answered: 0, evaluating: 10, accepted: 20, rejected: -10, withdrawn: -20 }.freeze
   end
 
   def up
@@ -12,8 +12,8 @@ class ChangeStatesOnProposals < ActiveRecord::Migration[6.1]
 
     Proposal.reset_column_information
 
-    Proposal.find_each do |proposal|
-      proposal.update(state: Proposal::STATES.index(proposal.old_state).to_i)
+    Proposal::STATES.each_pair do |status, index|
+      Proposal.where(old_state: status).update_all(state: index) # rubocop:disable Rails/SkipsModelValidations
     end
 
     remove_column :decidim_proposals_proposals, :old_state
@@ -25,8 +25,8 @@ class ChangeStatesOnProposals < ActiveRecord::Migration[6.1]
 
     Proposal.reset_column_information
 
-    Proposal.find_each do |proposal|
-      proposal.update(state: Proposal::STATES[proposal.old_state])
+    Proposal::STATES.each_pair do |status, index|
+      Proposal.where(old_state: index).update_all(state: status) # rubocop:disable Rails/SkipsModelValidations
     end
 
     remove_column :decidim_proposals_proposals, :old_state

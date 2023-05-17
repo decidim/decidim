@@ -3,7 +3,7 @@
 class ChangeStatesOnAmendments < ActiveRecord::Migration[6.1]
   class Amendment < ApplicationRecord
     self.table_name = :decidim_amendments
-    STATES = %w(draft evaluating accepted rejected withdrawn).freeze
+    STATES = { draft: 0, evaluating: 10, accepted: 20, rejected: 30, withdrawn: -1 }.freeze
   end
 
   def up
@@ -12,8 +12,8 @@ class ChangeStatesOnAmendments < ActiveRecord::Migration[6.1]
 
     Amendment.reset_column_information
 
-    Amendment.find_each do |amendment|
-      amendment.update(state: Amendment::STATES.index(amendment.old_state))
+    Amendment::STATES.each_pair do |status, index|
+      Amendment.where(old_state: status).update_all(state: index) # rubocop:disable Rails/SkipsModelValidations
     end
 
     remove_column :decidim_amendments, :old_state
@@ -22,10 +22,13 @@ class ChangeStatesOnAmendments < ActiveRecord::Migration[6.1]
   def down
     rename_column :decidim_amendments, :state, :old_state
     add_column :decidim_amendments, :state, :string, default: "draft", null: false
+
     Amendment.reset_column_information
-    Amendment.find_each do |amendment|
-      amendment.update(state: Amendment::STATES[amendment.old_state])
+
+    Amendment::STATES.each_pair do |status, index|
+      Amendment.where(old_state: index).update_all(state: status) # rubocop:disable Rails/SkipsModelValidations
     end
+
     remove_column :decidim_amendments, :old_state
   end
 end

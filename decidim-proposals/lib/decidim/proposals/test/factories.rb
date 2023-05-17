@@ -441,7 +441,7 @@ FactoryBot.define do
     amendable { build(:proposal) }
     emendation { build(:proposal, component: amendable.component) }
     amender { build(:user, organization: amendable.component.participatory_space.organization) }
-    state { Decidim::Amendment::STATES.sample }
+    state { Decidim::Amendment::STATES.keys.sample }
   end
 
   factory :proposal_note, class: "Decidim::Proposals::ProposalNote" do

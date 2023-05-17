@@ -747,7 +747,7 @@ FactoryBot.define do
     amender { emendation.try(:creator_author) || emendation.try(:author) }
     state { "evaluating" }
 
-    Decidim::Amendment::STATES.each do |defined_state|
+    Decidim::Amendment::STATES.keys.each do |defined_state|
       trait defined_state.to_sym do
         state { defined_state }
       end
@@ -808,7 +808,7 @@ FactoryBot.define do
     reminder { create(:reminder) }
     remindable { build(:dummy_resource) }
 
-    Decidim::ReminderRecord::STATES.each do |defined_state|
+    Decidim::ReminderRecord::STATES.keys.each do |defined_state|
       trait defined_state.to_sym do
         state { defined_state }
       end

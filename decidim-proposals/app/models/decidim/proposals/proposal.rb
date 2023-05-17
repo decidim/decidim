@@ -31,7 +31,7 @@ module Decidim
 
       translatable_fields :title, :body
 
-      STATES = %w(not_answered evaluating accepted rejected withdrawn).freeze
+      STATES = { not_answered: 0, evaluating: 10, accepted: 20, rejected: -10, withdrawn: -20 }.freeze
 
       fingerprint fields: [:title, :body]
 
@@ -55,7 +55,7 @@ module Decidim
 
       geocoded_by :address
 
-      enum state: STATES
+      enum state: STATES, _default: "not_answered"
 
       scope :accepted, -> { state_published.where(state: "accepted") }
       scope :rejected, -> { state_published.where(state: "rejected") }

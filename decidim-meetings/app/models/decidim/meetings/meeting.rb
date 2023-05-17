@@ -27,8 +27,8 @@ module Decidim
       include Decidim::Publicable
       include Decidim::FilterableResource
 
-      TYPE_OF_MEETING = %w(in_person online hybrid).freeze
-      REGISTRATION_TYPES = %w(registration_disabled on_this_platform on_different_platform).freeze
+      TYPE_OF_MEETING = { in_person: 0, online: 10, hybrid: 20 }.freeze
+      REGISTRATION_TYPES = { registration_disabled: 0, on_this_platform: 10, on_different_platform: 20 }.freeze
 
       translatable_fields :title, :description, :location, :location_hints, :closing_report, :registration_terms
 
@@ -135,7 +135,7 @@ module Decidim
 
       scope :authored_by, ->(author) { where(decidim_author_id: author) }
 
-      scope_search_multi :with_any_type, TYPE_OF_MEETING.map(&:to_sym)
+      scope_search_multi :with_any_type, TYPE_OF_MEETING.keys.map(&:to_sym)
 
       searchable_fields({
                           scope_id: :decidim_scope_id,

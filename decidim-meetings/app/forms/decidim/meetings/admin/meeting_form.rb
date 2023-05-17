@@ -125,10 +125,10 @@ module Decidim
         end
 
         def registration_type_select
-          Decidim::Meetings::Meeting::REGISTRATION_TYPES.map do |type|
+          Decidim::Meetings::Meeting::REGISTRATION_TYPES.each_pair do |type, index|
             [
               I18n.t("registration_type.#{type}", scope: "decidim.meetings"),
-              type
+              index
             ]
           end
         end
