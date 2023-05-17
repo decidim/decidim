@@ -149,21 +149,21 @@ export default class InputCharacterCounter {
 
     this.$userInput.on("keyup", () => {
       this.updateStatus();
-      this.updateScreenReaderStatus();
+      // this.updateScreenReaderStatus();
     });
     this.$userInput.on("focus", () => {
-      this.updateStatus();
+      // this.updateStatus();
       this.updateScreenReaderStatus();
     });
     this.$userInput.on("blur", () => {
-      this.updateStatus();
+      // this.updateStatus();
       this.updateScreenReaderStatus();
       this.setDescribedBy(true);
     });
     if (this.$userInput.get(0) !== null) {
       this.$userInput.get(0).addEventListener("emoji.added", () => {
         this.updateStatus();
-        this.updateScreenReaderStatus();
+        // this.updateScreenReaderStatus();
       });
     }
     this.updateStatus();
