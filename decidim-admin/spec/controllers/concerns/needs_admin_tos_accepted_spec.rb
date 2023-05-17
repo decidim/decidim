@@ -8,7 +8,7 @@ module Decidim
       let!(:organization) { create :organization }
 
       controller do
-        include Decidim::Admin::NeedsAdminTosAccepted
+        include NeedsAdminTosAccepted
 
         def root
           render plain: "Root page"
