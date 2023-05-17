@@ -63,7 +63,7 @@ edit_link(
         </ul>
 
         <% panels.each do |panel| %>
-          <div id="panel-<%= panel[:id] %>" class="py-8">
+          <div id="panel-<%= panel[:id] %>" class="py-8 panel-container">
             <%= send(panel[:method], *panel[:args]) %>
           </div>
         <% end %>

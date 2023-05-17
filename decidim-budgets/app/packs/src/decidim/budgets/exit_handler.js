@@ -10,6 +10,7 @@ const isSafeUrl = (exitUrl) => {
 
   const safeUrls = [
     $(".budget-summary").attr("data-safe-url").replace(location.origin, ""),
+    $(".panel-container a")
     `${location.pathname}#`,
     `${location.href}#`,
     "#"
