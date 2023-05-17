@@ -390,7 +390,7 @@ describe "Explore meetings", :slow, type: :system do
 
         expect(page).to have_css(meetings_selector, count: 1)
 
-        find("a.meeting-list").click
+        find("a.card__list").click
 
         click_link "Back"
 
