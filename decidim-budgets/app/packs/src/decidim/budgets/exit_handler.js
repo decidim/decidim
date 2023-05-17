@@ -10,7 +10,6 @@ const isSafeUrl = (exitUrl) => {
 
   const safeUrls = [
     $(".budget-summary").attr("data-safe-url").replace(location.origin, ""),
-    $(".panel-container a")
     `${location.pathname}#`,
     `${location.href}#`,
     "#"
@@ -27,6 +26,7 @@ const isSafeUrl = (exitUrl) => {
 }
 
 const allowExitFrom = ($el) => {
+  const panelContainer = document.querySelector(".panel-container");
   if (currentAllocationZero()) {
     return true
   } else if ($el.attr("target") === "_blank") {
@@ -40,6 +40,8 @@ const allowExitFrom = ($el) => {
   } else if ($el.parents(".voting-wrapper").length > 0) {
     return true;
   } else if (isSafeUrl($el.attr("href"))) {
+    return true
+  } else if (panelContainer.contains($el[0])) {
     return true
   }
 
