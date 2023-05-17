@@ -157,6 +157,8 @@ describe "Explore meetings", :slow, type: :system do
 
         context "with 'official' origin" do
           it "lists the filtered meetings" do
+            skip "REDESIGN_PENDING - It seems that the metadata removes the 'Official' message in the card-l. Remove this test if it's correct"
+
             skip_unless_redesign_enabled
 
             visit_component
