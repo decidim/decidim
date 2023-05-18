@@ -49,7 +49,7 @@ module Decidim
       end
 
       def data_with_text(data, text)
-        "#{content_tag(:strong) { data }}#{content_tag(:span) { text }}"
+        "#{content_tag(:strong) { data }}#{content_tag(:span) { text }}".html_safe
       end
 
       def state_classes
