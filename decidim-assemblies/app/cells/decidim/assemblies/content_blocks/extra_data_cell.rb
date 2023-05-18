@@ -3,12 +3,12 @@
 module Decidim
   module Assemblies
     module ContentBlocks
-      class MetadataCell < Decidim::ContentBlocks::ParticipatorySpaceMetadataCell
+      class ExtraDataCell < Decidim::ContentBlocks::ParticipatorySpaceExtraDataCell
         delegate :meta_scope, :duration, to: :resource
 
         private
 
-        def metadata_items
+        def extra_data_items
           [type_item, duration_item].compact
         end
 

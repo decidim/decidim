@@ -3,14 +3,14 @@
 module Decidim
   module ParticipatoryProcessGroups
     module ContentBlocks
-      class MetadataCell < Decidim::ContentBlocks::ParticipatorySpaceMetadataCell
+      class ExtraDataCell < Decidim::ContentBlocks::ParticipatorySpaceExtraDataCell
         include Decidim::SanitizeHelper
 
         delegate :developer_group, :target, :participatory_scope, :participatory_structure, to: :resource
 
         private
 
-        def metadata_items
+        def extra_data_items
           [developer_group_item, target_item, participatory_scope_item, participatory_structure_item]
         end
 
@@ -18,7 +18,7 @@ module Decidim
           return if (text = decidim_sanitize translated_attribute(developer_group)).blank?
 
           {
-            title: t("decidim.participatory_process_groups.content_blocks.metadata.developer_group"),
+            title: t("decidim.participatory_process_groups.content_blocks.extra_data.developer_group"),
             icon: "question-line",
             text:
           }
@@ -28,7 +28,7 @@ module Decidim
           return if (text = decidim_sanitize translated_attribute(target)).blank?
 
           {
-            title: t("decidim.participatory_process_groups.content_blocks.metadata.target"),
+            title: t("decidim.participatory_process_groups.content_blocks.extra_data.target"),
             icon: "question-line",
             text:
           }
@@ -38,7 +38,7 @@ module Decidim
           return if (text = decidim_sanitize translated_attribute(participatory_scope)).blank?
 
           {
-            title: t("decidim.participatory_process_groups.content_blocks.metadata.participatory_scope"),
+            title: t("decidim.participatory_process_groups.content_blocks.extra_data.participatory_scope"),
             icon: "question-line",
             text:
           }
@@ -48,7 +48,7 @@ module Decidim
           return if (text = decidim_sanitize translated_attribute(participatory_structure)).blank?
 
           {
-            title: t("decidim.participatory_process_groups.content_blocks.metadata.participatory_structure"),
+            title: t("decidim.participatory_process_groups.content_blocks.extra_data.participatory_structure"),
             icon: "question-line",
             text:
           }
@@ -63,7 +63,7 @@ module Decidim
         end
 
         def block_id
-          "participatory_process_group-metadata"
+          "participatory_process_group-extra_data"
         end
       end
     end

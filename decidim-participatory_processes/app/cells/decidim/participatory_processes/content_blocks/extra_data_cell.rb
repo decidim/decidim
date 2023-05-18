@@ -3,7 +3,7 @@
 module Decidim
   module ParticipatoryProcesses
     module ContentBlocks
-      class MetadataCell < Decidim::ContentBlocks::ParticipatorySpaceMetadataCell
+      class ExtraDataCell < Decidim::ContentBlocks::ParticipatorySpaceExtraDataCell
         include ParticipatorySpaceContentBlocksHelper
         include ParticipatoryProcessHelper
         include Decidim::ModalHelper
@@ -12,15 +12,15 @@ module Decidim
 
         private
 
-        def metadata_items
-          [step_metadata_item, dates_metadata_item, group_item].compact
+        def extra_data_items
+          [step_item, dates_item, group_item].compact
         end
 
         def active_step_name
           translated_attribute active_step.title
         end
 
-        def step_metadata_item
+        def step_item
           return if active_step.blank?
 
           {
@@ -30,7 +30,7 @@ module Decidim
           }
         end
 
-        def dates_metadata_item
+        def dates_item
           {
             title: [
               t("start_date", scope: "activemodel.attributes.participatory_process_step"),

@@ -366,6 +366,8 @@ en:
       content_blocks:
         children_assemblies:
           name: Assemblies
+        extra_data:
+          name: Type & duration
         highlighted_assemblies:
           name: Highlighted assemblies
         related_assemblies:

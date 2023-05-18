@@ -2,10 +2,10 @@
 
 module Decidim
   module ContentBlocks
-    class ParticipatorySpaceMetadataCell < BaseCell
+    class ParticipatorySpaceExtraDataCell < BaseCell
       private
 
-      def metadata_items
+      def extra_data_items
         []
       end
     end
