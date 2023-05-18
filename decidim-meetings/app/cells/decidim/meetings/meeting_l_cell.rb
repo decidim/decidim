@@ -15,8 +15,8 @@ module Decidim
         true
       end
 
-      def item_list_class
-        "meeting-list"
+      def extra_class
+        "card__calendar-list__reset"
       end
 
       def image

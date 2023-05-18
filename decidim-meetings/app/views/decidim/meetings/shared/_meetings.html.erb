@@ -15,7 +15,7 @@
 
   <div class="meeting-list__container">
     <% meetings.each do |meeting| %>
-      <%= cell "decidim/meetings/meeting_l", meeting %>
+      <%= card_for meeting %>
     <% end %>
   </div>
   <%= decidim_paginate meetings, order_start_time: params[:order_start_time], scope_id: params[:scope_id] %>

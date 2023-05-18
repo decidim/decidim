@@ -21,12 +21,12 @@
         <%= icon "arrow-right-line", class: "fill-current" %>
       </button>
     </div>
-  <% end %>
 
-  <% unless current_user %>
-    <div class="login__links">
-      <%= render "decidim/devise/shared/redesigned_links" %>
-    </div>
+    <% unless current_user %>
+      <div class="login__links">
+        <%= render "decidim/devise/shared/redesigned_links" %>
+      </div>
+    <% end %>
   <% end %>
 
 <% end %>
