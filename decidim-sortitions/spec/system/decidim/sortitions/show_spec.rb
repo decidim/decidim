@@ -51,11 +51,18 @@ describe "show", type: :system do
   end
 
   context "when cancelled sortition" do
-    let!(:sortition) { create(:sortition, :cancelled, component: component) }
+    let(:witnesses) { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
+    let(:additional_info) { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
+    let(:cancel_reason) { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
+    let!(:sortition) { create(:sortition, :cancelled, component: component, witnesses: witnesses, additional_info: additional_info, cancel_reason: cancel_reason) }
 
     before do
       page.visit "#{main_component_path(component)}?filter[state]=cancelled"
       click_link "View"
+    end
+
+    context "when the field is additional_info" do
+      it_behaves_like "has embedded video in description", :additional_info
     end
 
     it "shows the cancel reasons" do

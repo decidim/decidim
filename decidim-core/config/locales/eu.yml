@@ -91,16 +91,6 @@ eu:
       about_x_months:
         one: hilabete inguru
         other: '%{count} hilabete inguru'
-      x_days:
-        one: Duela egun bat
-        other: "Duela %{count} egun"
-      x_minutes:
-        one: duela minutu bat
-        other: "duela %{count} minutu"
-      x_seconds:
-        one: Orain dela segundu 1
-        other: "Orain dela %{count} segundu"
-        zero: orain
   decidim:
     accessibility:
       external_link: Kanpoko lotura
@@ -773,7 +763,7 @@ eu:
           badge_title: "%{name} txapela"
           how: Nola irabaz dezakezu?
           page_description: Badiak partaideen ekintzak eta plataforma aurrerapenean aitortzen dira. Plataforman ezagutzeko, parte hartu eta elkarreraginean hasten zarenean, txapak irabazten dituzu. Hona hemen txapak eta irabazi ditzakezun modu batzuk.
-          title: Badges
+          title: Intsigniak
       description: Badiak partaideen ekintzak eta plataforma aurrerapenean aitortzen dira. Plataforman ezagutzeko, parte hartu eta elkarreraginean hasten zarenean, txapak irabazten dituzu.
       level: '%{level}maila'
       reached_top: Idatzi honen goialdean iritsi zara.
@@ -1125,19 +1115,15 @@ eu:
           error: Errore bat gertatu da terminoak eta baldintzak onartzen dituzunean.
           success: Great! Baldintzak eta baldintzak onartu dituzu.
         form:
-          agreement: Ados nago irizpide hauekin
           legend: Erabiltzeko baldintzak eta baldintzak onartzen dituzu
         refuse:
           modal_body: Uko egiten baduzu, ezin izango duzu plataforman erabiltzeko gai, ezin duzu <a href="%{data_portability_path}">deskargatu zure datu</a> edo / <a href="%{delete_path}">zure kontua ezabatu</a>.
-          modal_btn_continue: Baldintzak onartu eta jarraitu
           modal_btn_exit: Berriro berrikusiko dut geroago
-          modal_button: Ezetsi terminoak
-          modal_close: Itxi leihoa
+          modal_close: Itxi modal
           modal_title: Baldintza eta baldintza eguneratuak uko dituzu benetan?
         required_review:
           alert: Zerbitzu-baldintzak eguneratu ditugu, mesedez, berrikusi.
           body: Jarri une bat gure Zerbitzu Baldintzak eguneratzeak berrikusteko. Bestela, ezin izango duzu plataforma erabili.
-          title: 'Beharrezkoa: berrikusi gure zerbitzu-baldintzen eguneratzeak'
     participatory_space_private_users:
       not_allowed: Ez duzu edukia ikusteko baimenik
     profile:
@@ -1149,10 +1135,10 @@ eu:
       default_officialization_text_for_users: Partehartzaile hau publikoki egiaztatua dago, bere izena edo rol egiaztatua dago bere benetako izena eta rolarekin bat etorriz
       show:
         activity: Jarduera
-        badges: Badges
+        badges: Intsigniak
         conversations: Elkarrizketak
         followers: Jarraitzaileak
-        following: honako hau
+        following: Jarraitu
         groups: Taldeak
         members: Bazkideek
         officialized: Parte-hartzaile ofiziala
@@ -1162,7 +1148,7 @@ eu:
       sidebar:
         badges:
           info: Plataforman jarduera espezifikoak burutzeko doikuntzak lortzen dira.
-          title: Badges
+          title: Intsigniak
       user:
         confirmation_instructions_sent: Posta elektroniko bidezko berrespena bidalitako argibideak
         create_user_group: Sortu taldea
@@ -1293,7 +1279,7 @@ eu:
       reference:
         reference: 'Erreferentzia: %{reference}'
       represent_user_group:
-        represent_user_group: Talde bat irudikatzen dut
+        represent_user_group: Talde bat ordezkatzen dut
         select_user_group: Aukeratu talde bat
       results_per_page:
         label: 'Emaitzak, orrialdeko:'

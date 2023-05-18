@@ -224,7 +224,7 @@ ja:
       admin:
         agenda:
           agenda_item:
-            add_agenda_item_child: 議題サブ項目を追加
+            add_agenda_item_child: アジェンダのサブ項目を追加
             agenda_item: 予定表の項目
             agenda_item_children: アジェンダサブアイテム
             down: 下
@@ -239,16 +239,16 @@ ja:
             invalid: この議題の作成中に問題が発生しました
             success: アジェンダを作成しました
           edit:
-            title: 議題を編集
+            title: アジェンダを編集
             update: 更新
           form:
-            add_agenda_item: 議題項目を追加
+            add_agenda_item: アジェンダを追加
             agenda_items: 予定表の項目
             end_date: 終了日
             start_date: 開始日
           new:
             create: 作成
-            title: 新しい議題の作成
+            title: 新しいアジェンダの作成
           update:
             invalid: この議題の更新中に問題が発生しました
             success: アジェンダを正常に更新しました

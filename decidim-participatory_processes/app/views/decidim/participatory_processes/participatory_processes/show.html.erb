@@ -32,9 +32,9 @@
           <%= render partial: "participatory_process_group" %>
         <% end %>
         <div class="lead">
-          <%= decidim_sanitize_editor translated_attribute(current_participatory_space.short_description) %>
+          <%= decidim_sanitize_editor_admin translated_attribute(current_participatory_space.short_description) %>
         </div>
-        <%= decidim_sanitize_editor translated_attribute(current_participatory_space.description) %>
+        <%= decidim_sanitize_editor_admin translated_attribute(current_participatory_space.description) %>
       </div>
       <%= attachments_for current_participatory_space %>
       <%= render_hook(:participatory_space_highlighted_elements) %>

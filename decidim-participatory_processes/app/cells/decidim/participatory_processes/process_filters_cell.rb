@@ -19,7 +19,13 @@ module Decidim
       end
 
       def current_filter
-        get_filter(:date, model[:default_filter])
+        date_filter = get_filter(:date)
+        return model[:default_filter] unless date_filter
+        return date_filter if ALL_FILTERS.include?(date_filter)
+
+        # Default to "all" in case the filter is unknown, as the search also
+        # defaults to this.
+        "all"
       end
 
       def get_filter(filter_name, default = nil)

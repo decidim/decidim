@@ -3,6 +3,7 @@
 require "spec_helper"
 
 describe "Explore Collaborative Drafts", versioning: true, type: :system do
+  include Decidim::Proposals::ApplicationHelper
   include ActionView::Helpers::TextHelper
 
   include_context "with a component"
@@ -89,12 +90,15 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
         end
       end
 
+      let(:html_body) { strip_tags(collaborative_draft.body).gsub(/\n/, " ").strip }
+      let(:stripped_body) { %(alert("BODY"); #{html_body}) }
+
       it "shows the title" do
         expect(page).to have_content(collaborative_draft.title)
       end
 
       it "shows the body" do
-        expect(page).to have_content(strip_tags(collaborative_draft.body))
+        expect(page).to have_content(stripped_body)
       end
 
       it "shows the state" do
@@ -129,7 +133,7 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
         end
 
         it "shows the body" do
-          expect(page).to have_content(strip_tags(collaborative_draft.body))
+          expect(page).to have_content(stripped_body)
         end
 
         it "shows the address" do
@@ -186,8 +190,14 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
 
       context "when publishing as a proposal" do
         before do
+          within ".view-header" do
+            expect(page).to have_content(collaborative_draft.title)
+          end
           login_as author, scope: :user
           visit current_path
+          within ".header .title-bar .topbar__user__logged" do
+            expect(page).to have_content(author.name)
+          end
         end
 
         it "shows the publish button" do
@@ -196,14 +206,9 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
           end
         end
 
-        context "when the published" do
+        context "when the publish button is clicked" do
           before do
-            visit current_path
             click_button "Publish"
-          end
-
-          after do
-            click_button "Publish as a Proposal"
           end
 
           it "shows the a modal" do
@@ -211,6 +216,8 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
               expect(page).to have_css("h3", text: "The following action is irreversible")
               expect(page).to have_css("button", text: "Publish as a Proposal")
             end
+            click_button "Publish as a Proposal"
+            expect(page).to have_content("Collaborative draft published successfully as a proposal.")
           end
         end
       end
@@ -226,8 +233,14 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
 
       context "when visits an non author user" do
         before do
-          sign_in user, scope: :user
+          within ".view-header" do
+            expect(page).to have_content(collaborative_draft.title)
+          end
+          login_as user, scope: :user
           visit current_path
+          within ".header .title-bar .topbar__user__logged" do
+            expect(page).to have_content(user.name)
+          end
         end
 
         it "shows an announcement to collaborate" do
@@ -246,6 +259,7 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
         context "when the user requests access" do
           before do
             click_button "Request access"
+            expect(page).to have_button("Access requested")
           end
 
           it "renders an flash informing about the request" do
@@ -267,8 +281,11 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
 
           context "when the author receives the request" do
             before do
-              sign_in author, scope: :user
+              relogin_as author, scope: :user
               visit current_path
+              within ".header .title-bar .topbar__user__logged" do
+                expect(page).to have_content(author.name)
+              end
             end
 
             it "lists the user in Collaboration Requests" do
@@ -293,12 +310,16 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
             context "when the request is accepted and the contributor visits the draft" do
               before do
                 click_button "Accept"
-                sign_in user, scope: :user
+                expect(page).to have_content("@#{user.nickname} has been accepted as a collaborator successfully")
+                relogin_as user, scope: :user
                 visit current_path
+                within ".header .title-bar .topbar__user__logged" do
+                  expect(page).to have_content(user.name)
+                end
               end
 
               it "shows the user as a coauthor" do
-                expect(page).to have_content(user.name)
+                expect(page).to have_css("#content .wrapper .author--inline .author-data .author__name", text: user.name)
               end
 
               it "removes the announcement to collaborate" do
@@ -327,8 +348,14 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
 
       context "when the author visits the collaborative draft" do
         before do
-          sign_in author, scope: :user
+          within ".view-header" do
+            expect(page).to have_content(collaborative_draft.title)
+          end
+          login_as author, scope: :user
           visit current_path
+          within ".header .title-bar .topbar__user__logged" do
+            expect(page).to have_content(author.name)
+          end
         end
 
         it "removes the announcement to collaborate" do

@@ -18,6 +18,8 @@ module Decidim
       helper Decidim::ResourceReferenceHelper
       helper PaginateHelper
       helper InitiativeHelper
+      helper SignatureTypeOptionsHelper
+
       include InitiativeSlug
       include FilterResource
       include Paginable
@@ -86,6 +88,7 @@ module Decidim
         enforce_permission_to :update, :initiative, initiative: current_initiative
 
         params[:id] = params[:slug]
+        params[:type_id] = current_initiative.type&.id
         @form = form(Decidim::Initiatives::InitiativeForm)
                 .from_params(params, initiative_type: current_initiative.type, initiative: current_initiative)
 

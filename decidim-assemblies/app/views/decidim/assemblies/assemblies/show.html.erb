@@ -37,9 +37,9 @@ edit_link(
       <div class="section">
         <h2 class="show-for-sr"><%= t(".title") %></h2>
         <div class="lead">
-          <%= decidim_sanitize_editor translated_attribute(current_participatory_space.short_description) %>
+          <%= decidim_sanitize_editor_admin translated_attribute(current_participatory_space.short_description) %>
         </div>
-        <%= decidim_sanitize_editor translated_attribute(current_participatory_space.description) %>
+        <%= decidim_sanitize_editor_admin translated_attribute(current_participatory_space.description) %>
 
         <% if current_participatory_space.private_space? %>
           <%= assembly_features(current_participatory_space) %>
@@ -57,21 +57,21 @@ edit_link(
           <% if translated_attribute(current_participatory_space.purpose_of_action).present? %>
             <div class="section">
               <h3 class="section-heading"><%= t("purpose_of_action", scope: "decidim.assemblies.show") %></h3>
-              <%= decidim_sanitize_editor translated_attribute(current_participatory_space.purpose_of_action) %>
+              <%= decidim_sanitize_editor_admin translated_attribute(current_participatory_space.purpose_of_action) %>
             </div>
           <% end %>
 
           <% if translated_attribute(current_participatory_space.internal_organisation).present? %>
             <div class="section">
               <h3 class="section-heading"><%= t("internal_organisation", scope: "decidim.assemblies.show") %></h3>
-              <%= decidim_sanitize_editor translated_attribute(current_participatory_space.internal_organisation) %>
+              <%= decidim_sanitize_editor_admin translated_attribute(current_participatory_space.internal_organisation) %>
             </div>
           <% end %>
 
           <% if translated_attribute(current_participatory_space.composition).present? %>
             <div class="section">
               <h3 class="section-heading"><%= t("composition", scope: "decidim.assemblies.show") %></h3>
-              <%= decidim_sanitize_editor translated_attribute(current_participatory_space.composition) %>
+              <%= decidim_sanitize_editor_admin translated_attribute(current_participatory_space.composition) %>
             </div>
           <% end %>
           <div class="section text-center">

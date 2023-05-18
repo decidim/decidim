@@ -18,7 +18,7 @@ module Decidim
       # Broadcasts :ok if published, :invalid otherwise.
       def call
         publish_component
-        publish_event
+        publish_event unless component.previously_published?
 
         broadcast(:ok)
       end

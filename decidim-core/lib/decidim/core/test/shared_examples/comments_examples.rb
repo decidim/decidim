@@ -213,6 +213,42 @@ shared_examples "comments" do
         )
       end
 
+      context "when user can hide replies on a thread" do
+        let(:thread) { comments.first }
+        let(:new_reply_body) { "Hey, I just jumped inside the thread!" }
+        let!(:new_reply) { create(:comment, commentable: thread, root_commentable: commentable, body: new_reply_body) }
+
+        it "displays the hide button" do
+          visit current_path
+          within "#comment_#{thread.id}" do
+            expect(page).to have_content("Hide replies")
+            expect(page).to have_content(new_reply_body)
+          end
+        end
+
+        it "displays the show button" do
+          visit current_path
+          within "#comment_#{thread.id}" do
+            click_button "Hide replies"
+            expect(page).to have_content("Show reply")
+            expect(page).not_to have_content(new_reply_body)
+          end
+        end
+
+        context "when are more replies" do
+          let!(:new_replies) { create_list(:comment, 2, commentable: thread, root_commentable: commentable, body: new_reply_body) }
+
+          it "displays the show button" do
+            visit current_path
+            within "#comment_#{thread.id}" do
+              click_button "Hide replies"
+              expect(page).to have_content("Show 3 replies")
+              expect(page).not_to have_content(new_reply_body)
+            end
+          end
+        end
+      end
+
       context "when inside a thread reply form" do
         let(:thread) { comments.first }
         let(:new_reply_body) { "Hey, I just jumped inside the thread!" }

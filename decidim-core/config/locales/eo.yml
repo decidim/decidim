@@ -86,4 +86,5 @@ eo:
       user_menu:
         sign_out: Elsaluti
   locale:
-    name: Angla
+    name: Esperanto
+    name_with_error: Esperanto (eraro!)

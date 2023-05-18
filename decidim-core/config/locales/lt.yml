@@ -103,35 +103,6 @@ lt:
         many: apie %{count} mėnesiai
         other: apie %{count} mėnesiai
       half_a_minute: pusė minutės
-      less_than_x_minutes:
-        one: mažiau nei minutė.
-        few: mažiau nei %{count} minutės.
-        many: mažiau nei %{count} minutės.
-        other: mažiau nei %{count} minutės.
-      less_than_x_seconds:
-        one: dabar
-        few: mažiau nei %{count} sek.
-        many: mažiau nei %{count} sek.
-        other: mažiau nei %{count} sek.
-      x_days:
-        one: prieš 1 dieną
-        few: "prieš %{count} dienas"
-        many: "prieš %{count} dienas"
-        other: "prieš %{count} dienas"
-      x_hours:
-        one: prieš vieną valandą
-        few: "prieš %{count} valandas"
-        many: "prieš %{count} valandų"
-        other: "prieš %{count} valandas"
-      x_minutes:
-        one: prieš 1 min.
-        few: "prieš %{count} min."
-        many: "prieš %{count} min."
-        other: "prieš %{count} min."
-      x_seconds:
-        one: prieš 1 sekundę
-        other: "prieš %{count} sekundes"
-        zero: dabar
   decidim:
     accessibility:
       external_link: Išorinė nuoroda
@@ -1176,19 +1147,15 @@ lt:
           error: Sutinkant su sąlygomis iškilo problema.
           success: Puiku! Jūs sutikote su sąlygomis.
         form:
-          agreement: Aš sutinku su šiomis sąlygomis
           legend: Sutikti su naudojimosi nuostatomis ir sąlygomis
         refuse:
           modal_body: Jeigu nesutiksite, negalėsite naudotis platforma, <a href="%{data_portability_path}">pasisiųsti savo duomenų</a> ir (arba) <a href="%{delete_path}">pašalinti savo paskyros</a>.
-          modal_btn_continue: Sutikti su sąlygomis ir tęsti
           modal_btn_exit: Peržiūrėsiu vėliau
-          modal_button: Nesutikti su sąlygomis
           modal_close: Uždaryti modalinį langą
           modal_title: Ar iš tikrųjų nesutinkate su atnaujintomis naudojimo sąlygomis?
         required_review:
           alert: Mes atnaujinome naudojimo sąlygas, kviečiame jas peržiūrėti.
           body: Kviečiame peržiūrėti naujimo sąlygu atnaujinimus. Kitu atveju negalėsite naudotis platforma.
-          title: 'Būtina: Peržiūrėkite naudojimo sąlygų atnaujinimus'
     participatory_space_private_users:
       not_allowed: Jūs negalite peržiūrėti šio turinio
     profile:

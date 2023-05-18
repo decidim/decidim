@@ -93,24 +93,26 @@ ca:
         other: al voltant de %{count} mesos
       half_a_minute: mig minut
       less_than_x_minutes:
-        one: menys d’un minut
-        other: menys de %{count} minuts
+        one: fa menys d'un minut
+        other: fa menys de %{count} minuts
       less_than_x_seconds:
-        one: ara mateix
-        other: menys de %{count} segons
+        one: fa menys d'un segon
+        other: fa menys de %{count} segons
       x_days:
-        one: fa 1 dia
-        other: "fa %{count} dies"
+        one: 1 dia
+        other: "%{count} dies"
       x_hours:
-        one: fa 1 hora
-        other: "fa %{count} hores"
+        one: 1 hora
+        other: "%{count} hores"
       x_minutes:
-        one: fa 1 minut
-        other: "fa %{count} minuts"
+        one: 1 minut
+        other: "%{count} minuts"
+      x_months:
+        one: 1 mes
+        other: "%{count} mesos"
       x_seconds:
-        one: fa 1 segon
-        other: "fa %{count} segons"
-        zero: ara mateix
+        one: 1 segon
+        other: "%{count} segons"
   decidim:
     accessibility:
       external_link: Enllaç extern
@@ -1151,19 +1153,19 @@ ca:
           error: S'ha produït un error en acceptar els Termes i Condicions.
           success: Genial! Has acceptat els Termes i Condicions.
         form:
-          agreement: Estic d'acord amb aquests termes
+          agreement: Estic d'acord amb aquests termes i condicions d'ús
           legend: Accepto els termes i condicions
         refuse:
           modal_body: Si no acceptes, no podràs utilitzar la plataforma, pots <a href="%{data_portability_path}">descarregar les teves dades</a> i / o <a href="%{delete_path}">esborrar el teu compte de</a>.
-          modal_btn_continue: Acceptar els termes i continuar
+          modal_btn_continue: Acceptar els termes i condicions d'ús, i continuar
           modal_btn_exit: Ho revisaré més tard
-          modal_button: Rebutjar els termes
-          modal_close: Tanca el modal
+          modal_button: Rebutjar els termes i condicions d'ús
+          modal_close: Tanca modal
           modal_title: Confirmes que no acceptes els Termes i Condicions actualitzats?
         required_review:
           alert: Hem actualitzat els nostres Termes de Servei, si us plau revisa'ls.
           body: Si us plau dedica un moment a revisar l'actualització dels nostres Termes de Servei. En cas contrari, no podràs utilitzar la plataforma.
-          title: 'Obligatori: revisa l''actualització dels nostres Termes de Servei'
+          title: 'Obligatori: revisa les actualitzacions als nostres termes i condicions d''ús'
     participatory_space_private_users:
       not_allowed: No tens permís per visualitzar aquest contingut
     profile:

@@ -105,34 +105,25 @@ cs:
         other: asi %{count} měsíců
       half_a_minute: půl minuty
       less_than_x_minutes:
-        one: méně než minutu.
-        few: méně než %{count} minuty.
-        many: méně než %{count} minut.
-        other: méně než %{count} minut.
+        one: méně než minuta
+        few: méně než %{count} minuty
+        many: méně než %{count} minut
+        other: méně než %{count} minut
       less_than_x_seconds:
-        one: právě teď
-        few: méně než %{count} vteřiny.
-        many: méně než %{count} vteřin.
-        other: méně než %{count} vteřin.
+        one: méně než 1 sekundou
+        few: méně než %{count} sekundami
+        many: méně než %{count} sekundami
+        other: méně než %{count} sekundami
       x_days:
-        one: před 1 dnem
-        few: "před %{count} dny"
-        many: "před %{count} ti dny"
-        other: "před %{count} ti dny"
+        one: 1 dnem
+        few: "{{$count}} dny"
+        many: "{{$count}} dny"
+        other: "{{$count}} dny"
       x_hours:
-        one: před 1 hodinou
-        few: "před %{count} hodinami"
-        many: "před %{count} hodinami"
-        other: "před %{count} hodinami"
-      x_minutes:
-        one: před 1 minutou
-        few: "před %{count} minutami"
-        many: "před %{count} minutami"
-        other: "před %{count} minutami"
-      x_seconds:
-        one: před 1 vteřinou
-        other: "před %{count} vteřinami"
-        zero: právě teď
+        one: 1 hodina
+        few: "%{count} hodiny"
+        many: "%{count} hodin"
+        other: "%{count} hodin"
   decidim:
     accessibility:
       external_link: Externí odkaz
@@ -1194,15 +1185,15 @@ cs:
           legend: Souhlasíte s podmínkami používání
         refuse:
           modal_body: Pokud odmítnete, nebudete moci používat platformu, můžete <a href="%{data_portability_path}">stahovat data</a> a / nebo <a href="%{delete_path}">smazat svůj účet</a>.
-          modal_btn_continue: Přijměte termíny a pokračujte
+          modal_btn_continue: Přijmout podmínky a pokračovat
           modal_btn_exit: Později to přezkoumám
-          modal_button: Odmítněte podmínky
-          modal_close: Zavřít modální
+          modal_button: Odmítnout podmínky
+          modal_close: Zavřít okno
           modal_title: Opravdu odmítáte aktualizované smluvní podmínky?
         required_review:
           alert: Aktualizovali jsme Smluvní podmínky, přečtěte si je.
           body: Věnujte prosím pozornost aktualizaci našich smluvních podmínek. V opačném případě nebudete moci platformu používat.
-          title: 'Požadováno: Zkontrolujte aktualizace našich smluvních podmínek'
+          title: 'Povinné: Přečtěte si aktualizaci našich podmínek poskytování služeb'
     participatory_space_private_users:
       not_allowed: Nemáte oprávnění k zobrazení tohoto obsahu
     profile:

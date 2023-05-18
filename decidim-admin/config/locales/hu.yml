@@ -14,17 +14,24 @@ hu:
         description: Leírás
         file: Fájl
         title: Melléklet vagy kép neve
+        weight: Sorrend rendezése
       attachment_collection:
         description: Leírás
         name: Név
+        weight: Sorrend rendezése
       category:
         description: Leírás
         name: Név
         parent_id: Parent
+        weight: Sorrend rendezése
       component:
         name: Név
         published_at: Publikálva
         weight: Pozíció sorrend
+      external_domain:
+        value: Érték
+      help_section:
+        content: Tartalom
       id: ID
       import:
         user_group_id: Az importáltak létrehozása mint
@@ -85,13 +92,15 @@ hu:
         success_color: Siker
         time_zone: Időzóna
         tos_version: Használati feltételek
-        twitter_handler: Twitter handler
+        twitter_handler: Twitter kezelő
         user_groups_enabled: Csoportok engedélyezése
         users_registration_mode: Felhasználói regisztrációs mód
         warning_color: Figyelmeztetés
         welcome_notification_body: Üdvözlő értesítés szövegtörzse
         welcome_notification_subject: Üdvözlő üzenet tárgya
-        youtube_handler: YouTube handler
+        youtube_handler: YouTube kezelő
+      participatory_space_private_user:
+        name: Név
       scope:
         code: Kód
         name: Név
@@ -113,6 +122,7 @@ hu:
         show_in_footer: Mutassa a láblécben
         slug: URL slug
         title: Cím
+        topic_id: Téma
         weight: Pozíció sorrend
       static_page_topic:
         description: Leírás
@@ -184,13 +194,14 @@ hu:
           error: Hiba történt az adminra vonatkozó általános szerződési feltételek elfogadása során.
           success: Nagyszerű! Elfogadtad az admin felhasználási feltételeket.
         actions:
+          accept: Egyetértek a feltételekkel
           are_you_sure: Biztosan visszautasítod az adminokra vonatkozó feltételek elfogadását?
-          refuse: Admin feltételek elutasítása
+          refuse: Visszautasítja az admin feltételeket
           title: Elfogadom a felhasználási feltételeket
         required_review:
           alert: 'Szükséges: az admin felhasználási feltételek áttekintése'
           callout: Kérünk nézz rá az adminokra vonatkozó felhasználási feltételekre. Máskülönben nem fogod tudni adminisztrálni a platformot.
-          cta: Áttekintés most.
+          cta: Tekintse át őket most.
         title: Admin felhasználási feltételek
       area_types:
         create:
@@ -440,7 +451,7 @@ hu:
             all: Összes
             managed: Felügyelt
             not_managed: Nem felügyelt
-          filter_by: 'Szűrés ez alapján:'
+          filter_by: Szűrés ez alapján
           impersonate: Megszemélyesítés
           impersonate_new_managed_user: Új résztvevő kezelése
           managed: Felügyelt
@@ -488,13 +499,16 @@ hu:
                 other: Hibát találtam az importfájlban a rendelésszámmal rendelkező rekordoknál %{indexes}.
           missing_headers:
             detail: Kérjük, ellenőrizze, hogy a fájl tartalmazza-e a szükséges oszlopokat.
+            message:
+              one: Hiányzó oszlop %{columns}.
+              other: Hiányzó oszlopok száma %{columns}.
         error: Hiba történt az importálás során
         example_error: Nem sikerült példát létrehozni a megadott típusra
         new:
           accepted_mime_types:
             csv: csv
             json: json
-            xlsx: xlsx
+            xlsx: Xlsx
           actions:
             back: Vissza
           download_example: Példa letöltése
@@ -562,16 +576,16 @@ hu:
         impersonation_log:
           fields:
             admin: Admin
-            ended_at: 'Befejeződik:'
-            expired_at: 'Lejár:'
+            ended_at: 'Véget ért:'
+            expired_at: 'Lejárt:'
             reason: Indok
-            started_at: 'Kezdődik:'
+            started_at: 'Elkezdődött:'
             user: Résztvevő
         newsletter:
           fields:
-            created_at: 'Létrehozva:'
+            created_at: Létrehozva
             progress: Folyamat
-            sent_at: 'Elküldve:'
+            sent_at: Elküldve
             sent_to: Címzett
             subject: Tárgy
           name: Hírlevél
@@ -595,7 +609,7 @@ hu:
             user: Létrehozta
         static_page:
           fields:
-            created_at: 'Létrehozva:'
+            created_at: Létrehozva
             title: Cím
         user:
           fields:
@@ -611,7 +625,7 @@ hu:
         user_group:
           fields:
             actions: Műveletek
-            created_at: 'Létrehozva:'
+            created_at: Létrehozva
             document_number: Dokumentum száma
             name: Név
             phone: Telefon
@@ -628,7 +642,7 @@ hu:
           nickname: Felhasználónév
           reason: Indok
           reports: Jelentések száma
-          title: Jelentett felhasználók listája
+          title: Jelentett résztvevők
         report:
           reasons:
             does_not_belong: Nem tartozik hozzá
@@ -639,7 +653,7 @@ hu:
           unblocked: Nincs letiltva
       moderations:
         index:
-          title: Moderálás
+          title: Jelentett tartalom
         report:
           reasons:
             does_not_belong: Nem tartozik hozzá
@@ -683,7 +697,7 @@ hu:
           title: Hírlevél szerkesztése
         index:
           all: mind
-          all_users: 'Minden felhasználó'
+          all_users: 'Minden felhasználó '
           and: 'és '
           confirm_delete: Biztosan törölni szeretnéd ezt a hírlevelet?
           followers: 'követők '
@@ -736,7 +750,7 @@ hu:
           actions: Műveletek
           badge: Jelvény
           block: Felhasználó tiltása
-          created_at: 'Létrehozva:'
+          created_at: Létrehozva
           name: Név
           nickname: Becenév
           not_officialized: Nem hivatalos
@@ -749,7 +763,7 @@ hu:
           unblock: Felhasználó tiltásának törlése
           unofficialize: Hivatalossá tétel visszavonása
         new:
-          badge: A hitelesítés jelvénye
+          badge: A hivatalosság jelvénye
           officialize: Hivatalossá tétel
           title: '"%{name}" hivatalossá tétele'
         show_email_modal:
@@ -1003,10 +1017,10 @@ hu:
           reason: Indokolnod kell a nem menedzselt résztvevők kezelését
     metrics:
       blocked_users:
-        object: Letiltott felhasználók
+        object: letiltott felhasználók
         title: Letiltott felhasználók
       reported_users:
-        object: Jelentett felhasználók
+        object: jelentett felhasználók
         title: Jelentett felhasználók
       user_reports:
         object: felhasználói jelentések
@@ -1036,7 +1050,7 @@ hu:
           fields:
             created_at: Létrehozás dátuma
             deleted_resource: Törölt erőforrás
-            hidden_at: 'Rejtett itt:'
+            hidden_at: Rejtve
             participatory_space: Részvételi tér
             report_count: Számol
             reportable_id: ID
@@ -1062,4 +1076,4 @@ hu:
         settings:
           title: Beállítások
         users:
-          title: résztvevők
+          title: Résztvevők

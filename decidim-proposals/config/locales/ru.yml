@@ -195,7 +195,6 @@ ru:
             proposals: Предложения
             votes_count: Количество голосов
           update_category:
-            select_a_category: Пожалуйста, выберите категорию
             select_a_proposal: Пожалуйста, выберите предложение
           update_scope:
             select_a_proposal: Пожалуйста, выберите предложение

@@ -13,7 +13,7 @@
     <div class="row column">
       <%= form.number_field :max_votes, step: 1, min: 1 %>
       <%= form.number_field :min_votes, step: 1, min: 1 %>
-      <%= form.translated :editor, :instructions, toolbar: :full, lines: 5 %>
+      <%= form.translated :editor, :instructions, lines: 5, toolbar: :content %>
     </div>
   </div>
 </div>

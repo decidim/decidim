@@ -361,6 +361,10 @@ sv:
         actions:
           comment: Kommentera
           vote: Rösta
+      question:
+        actions:
+          comment: Kommentera
+          vote: Rösta
     statistics:
       consultations_count: Samråd
       votes_count: Röster

@@ -90,7 +90,6 @@ nl:
           label: Gevalideerd
           values:
             'false': Gevalideerd
-            'true': Niet gevalideerd
     components:
       elections:
         actions:

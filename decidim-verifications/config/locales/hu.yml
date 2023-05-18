@@ -64,7 +64,7 @@ hu:
             - Miután a levelet megjelölted elküldöttként, a felhasználó a kód segítségével ellenőrizhető lesz.
       csv_census:
         explanation: Ellenőrizze a szervezet népszámlálásával
-        name: A szervezet népszámlálása
+        name: A szervezet névjegyzéke
       direct: Közvetlen
       help: Segítség
       id_documents:
@@ -75,6 +75,13 @@ hu:
       postal_letter:
         explanation: Küldünk egy levelet postán a kóddal, amelyet aztán a lakcím ellenőrzéséhez tudsz majd használni
         name: Kód postai levéllel
+    events:
+      verifications:
+        verify_with_managed_user:
+          email_intro: A résztvevő <a href="%{resource_url}">%{resource_title}</a> megpróbálta ellenőrizni magát egy másik résztvevő adataival (<a href="%{managed_user_url}">%{managed_user_name}</a>).
+          email_outro: Ellenőrizze az <a href="%{conflicts_url}">Ellenőrzések konfliktuslistáját</a>, és lépjen kapcsolatba a résztvevővel az adatok ellenőrzése és a probléma megoldása érdekében.
+          email_subject: Sikertelen hitelesítési kísérlet egy másik résztvevővel szemben
+          notification_title: A résztvevő <a href="%{resource_path}">%{resource_title}</a> megpróbálta ellenőrizni magát egy másik résztvevő adataival (<a href="%{managed_user_path}">%{managed_user_name}</a>).
     verifications:
       authorizations:
         authorization_metadata:
@@ -90,7 +97,7 @@ hu:
         first_login:
           actions:
             another_dummy_authorization_handler: Ellenőrizd az engedélykezelő másik példáját
-            csv_census: Ellenőrizze a szervezet népszámlálását
+            csv_census: Ellenőrizze a szervezet névjegyzékében
             dummy_authorization_handler: Ellenőrizze a példakezelési engedélyezőt
             dummy_authorization_workflow: Ellenőrizd az engedélykezelő munkafolyamatát
             id_documents: Töltsd fel személyazonosító okmányod az ellenőrzéshez
@@ -118,35 +125,38 @@ hu:
         admin:
           census:
             create:
-              error: Hiba történt a népszámlálás importálásakor.
+              error: Hiba történt a névjegyzék importálásakor.
               success: Sikeresen importált %{count} elemet (%{errors} hiba)
             destroy_all:
               success: Az összes népszámlálási adatot törölték
           destroy:
             confirm: Az összes népszámlálás törlése nem vonható vissza. Biztos vagy benne, hogy folytatni akarod?
-            title: Törölje az összes népszámlálási adatot
+            title: Törölje az összes névjegyzéki adatot
           index:
             data: '%{count} bejegyzés van feltöltve. Az utolsó feltöltés dátuma %{due_date}'
-            empty: Nincsenek népszámlálási adatok. Az alábbi űrlap segítségével importálhatja a CSV-fájlt.
-            title: Jelenlegi népszámlálási adatok
+            empty: Nincsenek névjegyzéki adatok. Az alábbi űrlap segítségével importálhatja a CSV-fájlt.
+            title: Jelenlegi névjegyzéki adatok
           instructions:
             body: Ehhez be kell lépnie a rendszeradminisztrációba, és hozzá kell adnia a csv_census jogosultságokat a szervezethez
-            title: Aktiválnia kell a szervezet CSV-állományadatait
+            title: Aktiválnia kell a szervezet névjegyzéki CSV-állományadatait
           new:
             file: ".csv fájl e-mail adatokkal"
             info: 'CSV formátumú fájl lehet csak egy oszloppal, amely az email címeket tartalmazza:'
             submit: Fájl feltöltés
-            title: Töltsön fel egy új népszámlálást
+            title: Töltsön fel egy új névjegyzéket
         authorizations:
           new:
-            error: Nem tudtuk ellenőrizni fiókját, vagy nem szerepel a szervezet népszámlálásában.
-            success: Fiókját sikeresen ellenőrizték.
+            error: Nem tudtuk ellenőrizni fiókját, vagy nem szerepel a szervezet névjegyzékében.
+            success: Fiókja sikeresen ellenőrizésre került.
       dummy_authorization:
         extra_explanation:
           postal_codes:
             one: A részvétel %{postal_codes} irányítószámú felhasználókra korlátozódik.
             other: 'A részvétel %{postal_codes} irányítószámú felhasználókra korlátozódik.'
           scope: A részvétel kizárólag a(z) %{scope_name} hatókörrel rendelkező résztvevőkre korlátozódik.
+          user_postal_codes:
+            one: Csak a %{postal_codes} irányítószámmal rendelkező résztvevők vehetnek részt, az Ön irányítószáma pedig %{user_postal_code}.
+            other: 'A részvétel a következő irányítószámok bármelyikével rendelkező résztvevőkre korlátozódik: %{postal_codes}. Az Ön postai irányítószáma %{user_postal_code}.'
           user_scope: A részvétel a %{scope_name} hatókörrel rendelkező résztvevőkre korlátozódik, és a te hatóköröd %{user_scope_name}.
       id_documents:
         admin:
@@ -205,7 +215,7 @@ hu:
           update:
             error: Probléma volt a dokumentum újbóli feltöltésekor
             success: Dokumentum újbóli feltöltése sikeres
-        dni: Szig.
+        dni: Sz.ig.
         nie: Lakcím kártya
         passport: Útlevél
       postal_letter:
@@ -213,7 +223,7 @@ hu:
           pending_authorizations:
             index:
               address: Lakcím
-              letter_sent_at: 'Levél elküldve:'
+              letter_sent_at: Levél elküldve ekkor
               mark_as_sent: Megjelölés elküldöttként
               not_yet_sent: Még nincs elküldve
               title: Folyamatban lévő ellenőrzések
@@ -229,7 +239,7 @@ hu:
             success: Köszönjük! Az ellenőrző kódot elküldünk a lakcímedre
           edit:
             send: Megerősítés
-            title: Írd be az ellenőrző kódot
+            title: Vigye be a kapott ellenőrző kódot
             waiting_for_letter: Az ellenőrző kódot tartalmazó levelet hamarosan elküldjük a címedre
           new:
             send: Küldjetek levelet
@@ -258,4 +268,4 @@ hu:
             success: Gratulálunk. Sikeresen ellenőrizte.
   errors:
     messages:
-      uppercase_only_letters_numbers: kizárólag nagybetűt és/vagy számokat használhatsz
+      uppercase_only_letters_numbers: kizárólag nagybetűt és/vagy számokat használhat

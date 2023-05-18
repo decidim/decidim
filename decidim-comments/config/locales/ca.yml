@@ -84,7 +84,9 @@ ca:
             offensive: Conté racisme, sexisme, insults, atacs personals, amenaces de mort, peticions de suïcidi o qualsevol forma de discurs d'odi.
             spam: Conté "clickbait", publicitat o estafes.
           title: Notificar contingut inapropiat
-        show_replies: Mostra %{replies_count} respostes
+        show_replies:
+          one: Mostra la resposta
+          other: Mostra les %{count} respostes
         single_comment_link_title: Obtenir enllaç
       comment_order_selector:
         order:

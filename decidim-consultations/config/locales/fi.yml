@@ -361,6 +361,10 @@ fi:
         actions:
           comment: Kommentoi
           vote: Äänestä
+      question:
+        actions:
+          comment: Kommentoi
+          vote: Äänestä
     statistics:
       consultations_count: Kuulemista
       votes_count: Ääntä

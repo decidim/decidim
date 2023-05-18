@@ -913,7 +913,6 @@ module Decidim
       return {} unless options[:editor_images]
 
       {
-        editor_images: true,
         upload_images_path: Decidim::Core::Engine.routes.url_helpers.editor_images_path,
         drag_and_drop_help_text: I18n.t("drag_and_drop_help", scope: "decidim.editor_images")
       }

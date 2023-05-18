@@ -76,7 +76,6 @@ pt-BR:
             offensive: Contém racismo, sexismo, insultos, ataques pessoais, ameaças de morte, pedidos de suicídio ou qualquer tipo de discurso de ódio.
             spam: Contém clickbait, publicidade, fraudes ou script bots.
           title: Reportar conteúdo impróprio
-        show_replies: Mostrar %{replies_count} respostas
         single_comment_link_title: Obter o link
       comment_order_selector:
         order:
