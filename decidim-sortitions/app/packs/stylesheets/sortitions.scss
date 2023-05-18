@@ -31,3 +31,7 @@
     @apply text-gray-2 text-sm block text-center;
   }
 }
+
+a.sortition__aside-element-item__title{
+  @apply text-secondary underline;
+}
