@@ -39,8 +39,10 @@ edit_link(
       </span>
     <% end %>
   </div>
-  <div class="editor-content">
-    <%= decidim_sanitize_editor translated_attribute sortition.additional_info %>
+  <div class="content-block__description">
+    <div class="editor-content">
+      <%= decidim_sanitize_editor translated_attribute sortition.additional_info %>
+    </div>
   </div>
   <h3 class="h3">
     <%= t("witnesses", scope: "decidim.sortitions.sortitions.show") %>
@@ -94,7 +96,7 @@ edit_link(
             <%= t("dice_result", scope: "decidim.sortitions.sortitions.show") %>
           </span>
           <span class="sortition__aside-element-item__text">
-            <%= sortition.dice %>
+            <%= sortition.dice %>º
           </span>
         </div>
         <div class="sortition__aside-element-item">
@@ -114,7 +116,7 @@ edit_link(
           </span>
         </div>
         <div class="sortition__aside-element-item">
-          <%= link_to t("algorithm", scope: "decidim.sortitions.sortitions.show"), Decidim::Sortitions.sortition_algorithm, class: "sortition__aside-element-item__title underline text-secondary" %>
+          <%= link_to t("algorithm", scope: "decidim.sortitions.sortitions.show"), Decidim::Sortitions.sortition_algorithm, class: "text-secondary sortition__aside-element-item__title underline" %>
         </div>
       </div>
       <h2 class="text-sm text-gray-2 uppercase font-semibold mb-4">
