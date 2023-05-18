@@ -23,7 +23,7 @@ module Decidim
     class Engine < ::Rails::Engine
       isolate_namespace Decidim::Api
 
-      initializer "decidim-api.middleware" do |app|
+      initializer "decidim_api.middleware" do |app|
         app.config.middleware.insert_before 0, Rack::Cors do
           allow do
             origins "*"
@@ -32,7 +32,7 @@ module Decidim
         end
       end
 
-      initializer "decidim-api.graphiql" do
+      initializer "decidim_api.graphiql" do
         Decidim::GraphiQL::Rails.config.tap do |config|
           config.query_params = true
           config.initial_query = File.read(
