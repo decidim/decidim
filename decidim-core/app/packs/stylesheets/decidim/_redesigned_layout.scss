@@ -81,3 +81,11 @@
     }
   }
 }
+
+.layout-main__section + .layout-main__section{
+  @apply mt-8;
+}
+
+.layout-aside__section + .layout-aside__section{
+  @apply mt-4;
+}
