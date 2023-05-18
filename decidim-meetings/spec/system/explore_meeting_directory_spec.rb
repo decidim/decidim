@@ -126,8 +126,6 @@ describe "Explore meeting directory", type: :system do
       let!(:official_meeting) { create(:meeting, :published, :official, component: components.first, author: organization) }
 
       it "lists the filtered meetings" do
-        skip "REDESIGN_PENDING - It seems that the metadata removes the 'Official' message in the card-l. Remove this test if it's correct"
-
         visit directory
 
         within "#panel-dropdown-menu-origin" do
@@ -138,7 +136,7 @@ describe "Explore meeting directory", type: :system do
         expect(page).to have_css(meetings_selector, count: 1)
 
         within meetings_selector do
-          expect(page).to have_content("Official meeting")
+          expect(page).to have_content(translated(official_meeting.title))
         end
       end
     end

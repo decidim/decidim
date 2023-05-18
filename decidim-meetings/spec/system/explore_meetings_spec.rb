@@ -157,8 +157,6 @@ describe "Explore meetings", :slow, type: :system do
 
         context "with 'official' origin" do
           it "lists the filtered meetings" do
-            skip "REDESIGN_PENDING - It seems that the metadata removes the 'Official' message in the card-l. Remove this test if it's correct"
-
             skip_unless_redesign_enabled
 
             visit_component
@@ -171,7 +169,7 @@ describe "Explore meetings", :slow, type: :system do
             expect(page).to have_css(meetings_selector, count: 1)
 
             within meetings_selector do
-              expect(page).to have_content("Official meeting")
+              expect(page).to have_content(translated(official_meeting.title))
             end
           end
         end
