@@ -20,14 +20,14 @@ module Decidim
 
       def count_item
         {
-          text: count_text,
+          text: data_with_text(proposals_count, t("decidim.sortitions.sortitions.sortition.selected_proposals", count: proposals_count)),
           icon: "chat-new-line"
         }
       end
 
       def seed_item
         {
-          text: seed_text,
+          text: data_with_text(model.seed, t("random_seed", scope: "decidim.sortitions.sortitions.sortition")),
           icon: "seedling-line"
         }
       end
@@ -48,26 +48,8 @@ module Decidim
         t("filters.active", scope: "decidim.sortitions.sortitions")
       end
 
-      def seed_text
-        number = content_tag :strong do
-          model.seed
-        end
-
-        text = content_tag :span do
-          t("random_seed", scope: "decidim.sortitions.sortitions.sortition")
-        end
-        return number.concat(text)
-      end
-
-      def count_text
-        number = content_tag :strong do
-          proposals_count
-        end
-
-        text = content_tag :span do
-          t("decidim.sortitions.sortitions.sortition.selected_proposals", count: proposals_count)
-        end
-        return number.concat(text)
+      def data_with_text(data, text)
+        "#{content_tag(:strong) { data }}#{content_tag(:span) { text }}".html_safe
       end
 
       def state_classes
