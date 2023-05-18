@@ -25,6 +25,15 @@ module Decidim
         @email = NewsletterMailer.newsletter(current_user, newsletter)
       end
 
+      def send_to_user
+        enforce_permission_to :read, :newsletter, newsletter: newsletter
+        
+        NewsletterMailer.newsletter(current_user, newsletter).deliver_later
+        flash[:notice] = "Yay! Newsletter has been sent to #{current_user.email}"
+
+        redirect_back fallback_location: newsletters_path
+      end
+
       def preview
         enforce_permission_to :read, :newsletter, newsletter: newsletter
 

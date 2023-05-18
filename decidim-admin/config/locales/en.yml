@@ -175,6 +175,7 @@ en:
   decidim:
     admin:
       actions:
+        send_me_a_test_email: Send me a test email
         add: Add
         attachment:
           new: New attachment
@@ -758,6 +759,7 @@ en:
           no_recipients: No recipients for this selection.
         show:
           preview: Preview
+          send_me_a_test_email: Send me a test email
           select_recipients_to_deliver: Select recipients to deliver
           subject: Subject
         update:

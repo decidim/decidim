@@ -113,6 +113,13 @@ describe "Admin manages newsletters", type: :system do
       visit decidim_admin.preview_newsletter_path(newsletter)
       expect(page).to have_content("Hello Sarah Kerrigan! Relevant content.")
     end
+
+    it "sends a test email to the logged user" do
+      visit decidim_admin.newsletter_path(newsletter)
+      click_link "Send me a test email"
+      expect(page).to have_content("Yay! Newsletter has been sent to")
+
+    end
   end
 
   describe "update newsletter" do
