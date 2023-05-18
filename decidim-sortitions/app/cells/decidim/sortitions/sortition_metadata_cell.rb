@@ -32,10 +32,9 @@ module Decidim
         }
       end
 
-      # REDESIGN_PENDING: add a function to pass the status(alert, warning or success) as a class to the tag
       def badge_item
         {
-          text: content_tag(:span, class: "alert label") { badge_name }
+          text: content_tag(:span, class: "label #{state_classes}") { badge_name }
         }
       end
 
@@ -50,9 +49,9 @@ module Decidim
       end
 
       def state_classes
-        return ["muted"] if model.cancelled?
+        return "alert" if model.cancelled?
 
-        ["success"]
+        "success"
       end
 
       def proposals_count
