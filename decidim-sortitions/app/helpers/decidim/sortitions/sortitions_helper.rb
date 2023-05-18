@@ -32,7 +32,7 @@ module Decidim
                     end
         end
 
-        result.join(", ").html_safe
+        result.join(" - ").html_safe
       end
     end
   end
