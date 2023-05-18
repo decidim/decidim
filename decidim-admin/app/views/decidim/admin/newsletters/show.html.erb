@@ -19,6 +19,9 @@
     <% if  !@newsletter.sent? %>
       <%= link_to t("actions.edit", scope: "decidim.admin"), [:edit, @newsletter], class: "button" %>
     <% end %>
+  <% if  !@newsletter.sent? %>
+      <button class="hollow button" href="#">Send me a test email</button>
+  <% end %>
     <% unless @newsletter.sent? %>
       <%= link_to t(".select_recipients_to_deliver"), select_recipients_to_deliver_newsletter_path(@newsletter), class: "button alert" %>
     <% end %>

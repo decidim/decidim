@@ -25,6 +25,12 @@ module Decidim
         @email = NewsletterMailer.newsletter(current_user, newsletter)
       end
 
+      def send_to_user
+        enforce_permission_to :read, :newsletter, newsletter: newsletter
+
+        byebug
+      end
+
       def preview
         enforce_permission_to :read, :newsletter, newsletter: newsletter
 

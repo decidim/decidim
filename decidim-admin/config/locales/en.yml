@@ -175,6 +175,7 @@ en:
   decidim:
     admin:
       actions:
+        send_by_mail: Send it to my email
         add: Add
         attachment:
           new: New attachment
