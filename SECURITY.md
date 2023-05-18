@@ -1,23 +1,16 @@
-= Security Policy
+# Security Policy
 
-== Supported Versions
+## Supported Versions
 
 Until we have the version 1.0 we support only the last two minor versions with security updates.
 
-|===
-| Version | Supported
+| Version  | Supported          |
+| -------- | ------------------ |
+| 0.27.x   | :white_check_mark: |
+| 0.26.x   | :white_check_mark: |
+| \<= 0.25 | :x:                |
 
-| 0.27.x
-| :white_check_mark:
-
-| 0.26.x
-| :white_check_mark:
-
-| \<= 0.25
-| :x:
-|===
-
-== Reporting a Vulnerability
+## Reporting a Vulnerability
 
 Security is very important to us.
 
@@ -27,7 +20,6 @@ We appreciate your effort to make Decidim more secure.
 We recommend to use GPG for these kind of communications, the fingerprint is `C1BD 8981 D83C 23F9 D419 FE42 149A D0F9 84B9 35C4`.
 To download our key:
 
-[source,bash]
-----
+```bash
 gpg --keyserver pgp.mit.edu --recv 84B935C4
-----
+```
