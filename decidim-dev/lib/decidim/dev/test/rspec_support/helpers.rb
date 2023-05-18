@@ -12,7 +12,7 @@ module Decidim::ComponentTestHelpers
     main_bar_selector = Decidim.redesign_active ? ".main-bar" : ".topbar__user__logged"
 
     within main_bar_selector do
-      if Decidim.redesign_active ? ".main-bar" : ".topbar__user__logged"
+      if Decidim.redesign_active
         find("#trigger-dropdown-account").click
       else
         find("a", text: user.name).click
