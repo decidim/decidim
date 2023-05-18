@@ -20,7 +20,7 @@
       <div class="editor-content">
         <%= decidim_sanitize_editor translated_attribute(current_initiative.description) %>
       </div>
-      <p><%= t ".help_text" %></p>
+      <%= cell("decidim/announcement", t("decidim.initiatives.committee_requests.new.help_text"), callout_class: "secondary") %>
       <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
         <%= logged_link_to t(".continue"), spawn_initiative_committee_requests_path(current_initiative), class: "button button__sm md:button__lg button__secondary" %>
       </div>
