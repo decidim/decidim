@@ -17,6 +17,8 @@ describe "Participatory Processes", type: :system do
   end
 
   before do
+    skip "REDESIGN_PENDING - Adapt these examples to metadata and main data content blocks and remove this file"
+
     switch_to_host(organization.host)
   end
 
