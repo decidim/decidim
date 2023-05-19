@@ -1,8 +1,4 @@
 .meeting{
-  &__container{
-    @apply space-y-8;
-  }
-
   &__filter{
     &-container{
       @apply self-stretch;
@@ -63,10 +59,6 @@
     }
   }
 
-  &__author{
-    @apply flex items-center gap-4;
-  }
-
   &__actions{
     @apply flex items-center justify-between first:[&>*]:flex;
   }
@@ -110,8 +102,6 @@
   }
 
   &__aside{
-    @apply space-y-14;
-
     &-button{
       @apply space-y-4 mb-14;
     }
