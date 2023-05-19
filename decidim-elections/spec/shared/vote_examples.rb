@@ -116,7 +116,7 @@ def uses_the_voting_booth
   end
 
   # cast ballot
-  non_question_step(".ballot_decision") do
+  non_question_step("#ballot_decision") do
     click_button("Cast ballot")
   end
 
@@ -174,7 +174,7 @@ def change_answer(question, selected, non_selected)
 end
 
 def expect_only_one_step
-  expect(page).to have_selector(".focus__step", count: 1)
+  expect(page).to have_selector('[id^="step"]', count: 1)
 end
 
 def expect_not_valid

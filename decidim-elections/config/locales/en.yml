@@ -646,7 +646,7 @@ en:
             success: Your identification public key was successfully stored.
       votes:
         ballot_decision:
-          audit: "( Audit ballot )"
+          audit: Audit ballot
           back: Start voting process again
           ballot_hash: 'Your ballot identifier is:'
           cast: Cast ballot to finish your vote
@@ -701,7 +701,7 @@ en:
           nota_option: Blank/ None of the above
           preview_alert: This is a preview of the voting booth.
           question_steps: Question %{current_step} of %{total_steps}
-          selections: "%{selected} of %{max_selections}<br> selections"
+          selections: "%{selected} of %{max_selections} selections"
         onboarding_modal:
           create_account: Create Account
           description: Do you want to create a new account on the platform? You will be able to participate in the processes and be an active part of the organization.

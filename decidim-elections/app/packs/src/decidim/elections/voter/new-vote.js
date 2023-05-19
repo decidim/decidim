@@ -9,7 +9,7 @@ $(async () => {
   const $voteWrapper = $("#vote-wrapper");
 
   if ($voteWrapper.length) {
-    const $ballotHash = $voteWrapper.find(".ballot-hash");
+    const $ballotHash = $voteWrapper.find("#ballot-hash");
     const ballotStyleId = $voteWrapper.data("ballotStyleId");
 
     // Use the questions component
@@ -41,25 +41,25 @@ $(async () => {
         validVoteFn(formData, ballotStyleId);
       },
       castOrAuditBallot({ encryptedData, encryptedDataHash }) {
-        $voteWrapper.find("#encrypting").addClass("hide");
+        $voteWrapper.find("#encrypting").attr("hidden", true);
         $ballotHash.text(encryptedDataHash);
-        $voteWrapper.find("#ballot_decision").removeClass("hide");
+        $voteWrapper.find("#ballot_decision").attr("hidden", false);
 
         const $form = $("form.new_vote");
         $("#vote_encrypted_data", $form).val(encryptedData);
         $("#vote_encrypted_data_hash", $form).val(encryptedDataHash);
       },
       onBindAuditBallotButton(onEventTriggered) {
-        $(".audit_ballot").on("click", onEventTriggered);
+        $("#audit_ballot").on("click", onEventTriggered);
       },
       onBindCastBallotButton(onEventTriggered) {
-        $(".cast_ballot").on("click", onEventTriggered);
+        $("#cast_ballot").on("click", onEventTriggered);
       },
       onAuditBallot(auditedData, auditedDataFileName) {
         const vote = JSON.stringify(auditedData);
         const link = document.createElement("a");
-        $voteWrapper.find(".button.cast_ballot").addClass("hide");
-        $voteWrapper.find(".button.back").removeClass("hide");
+        $voteWrapper.find("#cast_ballot").attr("hidden", true);
+        $voteWrapper.find("#back").attr("hidden", false);
         questionsComponent.voteCasted = true;
 
         link.setAttribute("href", `data:text/plain;charset=utf-8,${vote}`);
@@ -73,7 +73,7 @@ $(async () => {
       },
       onCastBallot() {
         questionsComponent.voteCasted = true;
-        $(".cast_ballot").prop("disabled", true);
+        $("#cast_ballot").prop("disabled", true);
       },
       onCastComplete() {
         console.log("Cast completed");

@@ -6,7 +6,6 @@ export default class VoteQuestionsComponent {
   constructor($voteWrapper) {
     this.$voteWrapper = $voteWrapper;
     this.$confirmButton = this.$voteWrapper.find("[type=submit]");
-    this.$continueSpan = this.$voteWrapper.find("span.disabled-continue");
     this.$currentStep = "";
     this.$currentStepMaxSelection = "";
     this.$answerCounter = 0;
@@ -22,14 +21,14 @@ export default class VoteQuestionsComponent {
   init() {
     this.setCurrentStep();
     this.toggleContinueButton();
-    this.$confirmButton.addClass("show").removeClass("hide");
-    $(".evote__counter-min").text(this.$answerCounter);
+
+    $("[data-counter-selection]").text(this.$answerCounter);
     this.answerCounter();
     this.disableCheckbox();
   }
 
   setCurrentStep() {
-    this.$currentStep = this.$voteWrapper.find(".focus__step:visible")
+    this.$currentStep = this.$voteWrapper.find('[id^="step"]:not([hidden])')
     this.setSelections();
     this.onSelectionChange();
   }
@@ -37,10 +36,10 @@ export default class VoteQuestionsComponent {
   toggleContinueButton() {
     if (this.checkAnswers()) {
       // next step enabled
-      this.$continueSpan.addClass("hide").removeClass("show")
+      this.$confirmButton.attr("disabled", false)
     } else {
       // next step disabled
-      this.$continueSpan.addClass("show").removeClass("hide")
+      this.$confirmButton.attr("disabled", true)
     }
   }
 
@@ -54,7 +53,7 @@ export default class VoteQuestionsComponent {
 
   answerCounter() {
     let checked = $(`#${this.$currentStep.attr("id")} .answer_input:checked`).length
-    $(".evote__counter-min").text(checked);
+    $("[data-counter-selection]").text(checked);
   }
 
   // disable checkboxes if NOTA option is selected
@@ -83,12 +82,11 @@ export default class VoteQuestionsComponent {
   }
 
   setSelections() {
-    this.$currentStepMaxSelection = this.$currentStep.find(".evote__options").data("max-selection")
+    this.$currentStepMaxSelection = this.$currentStep.find('[id^="question"]').data("max-selection")
   }
 
-
   onSelectionChange() {
-    let $voteOptions = this.$currentStep.find(".evote__options");
+    let $voteOptions = this.$currentStep.find('[id^="question"]');
     $voteOptions.on("change", () => {
       this.toggleContinueButton();
       this.toggleConfirmAnswers();
@@ -99,23 +97,23 @@ export default class VoteQuestionsComponent {
   // receive confirmed answers
   toggleConfirmAnswers() {
     $(".answer_input:checked").each((_index, element) => {
-      const confirmedAnswer = $(".evote__confirm").find(`#${element.value}`);
-      $(confirmedAnswer).removeClass("hide")
+      const confirmedAnswer = $("#confirm").find(`#${element.value}`);
+      $(confirmedAnswer).attr("hidden", false)
     })
 
     $(".answer_input").not(":checked").each((_index, element) => {
-      const confirmedAnswer = $(".evote__confirm").find(`#${element.value}`);
-      $(confirmedAnswer).addClass("hide")
+      const confirmedAnswer = $("#confirm").find(`#${element.value}`);
+      $(confirmedAnswer).attr("hidden", true)
     })
 
     $(".nota_input:checked").each((_index, element) => {
-      const confirmedAnswer = $(".evote__confirm").find(`.${element.value}`);
-      $(confirmedAnswer).removeClass("hide")
+      const confirmedAnswer = $("#confirm").find(`#${element.value}`);
+      $(confirmedAnswer).attr("hidden", false)
     })
 
     $(".nota_input").not(":checked").each((_index, element) => {
-      const confirmedAnswer = $(".evote__confirm").find(`.${element.value}`);
-      $(confirmedAnswer).addClass("hide")
+      const confirmedAnswer = $("#confirm").find(`#${element.value}`);
+      $(confirmedAnswer).attr("hidden", true)
     })
   }
 }
