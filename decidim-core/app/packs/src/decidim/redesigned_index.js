@@ -177,6 +177,20 @@ const initializer = (element = document) => {
 
   scrollToLastChild()
 
+  element.querySelectorAll("[data-toggle]").forEach(x => {
+    const { toggle } = x.dataset
+
+    x.addEventListener("click", () => {
+      toggle.split(" ").forEach(id => {
+        const item = document.getElementById(id)
+
+        if (item) {
+          item.hidden = !item.hidden
+        }
+      })
+    })
+  })
+
   // https://github.com/jonathanlevaillant/a11y-accordion-component
   element.querySelectorAll('[data-component="accordion"]').forEach((component) => {
     const accordionOptions = {};
