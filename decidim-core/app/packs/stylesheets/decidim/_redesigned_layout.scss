@@ -99,6 +99,6 @@
   @apply flex items-center gap-4;
 }
 
-.layout-item__aside .layout-aside__section:first-child{
-  @apply mt-0;
+.layout-aside__buttons{
+  @apply space-y-4;
 }
