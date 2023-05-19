@@ -181,6 +181,8 @@ const initializer = (element = document) => {
     const { toggle } = x.dataset
 
     x.addEventListener("click", () => {
+      document.dispatchEvent(new Event("on:toggle"));
+
       toggle.split(" ").forEach(id => {
         const item = document.getElementById(id)
 
