@@ -15,7 +15,9 @@ module Decidim
       helper Decidim::ResourceVersionsHelper
       helper Decidim::ShortLinkHelper
 
-      helper_method :meetings, :meeting, :registration, :search
+      helper_method :meetings, :meeting, :registration, :search, :nav_paths
+
+      redesign active: true
 
       def new
         enforce_permission_to :create, :meeting
@@ -52,6 +54,23 @@ module Decidim
           @forced_past_meetings = true
           @search = @past_meetings
         end
+      end
+
+      def year_calendar
+        @filter_options = {
+          # REDESIGN_PENDING: This variable must be set
+          date: !@forced_past_meetings,
+          type: true,
+          scopes: current_component.has_subscopes?,
+          categories: current_component.categories.any?,
+          origin: component_settings.creation_enabled_for_participants?,
+          space_type: false,
+          activity: current_user.present?
+        }
+        @search_variable = :search_text_cont
+        @year = (params[:year] || Date.current.year).to_i
+        @year_path = proc { |year| year_calendar_meetings_path(year) }
+        render template: "decidim/meetings/directory/meetings/year_calendar"
       end
 
       def show
@@ -106,6 +125,36 @@ module Decidim
 
       def meeting
         @meeting ||= Meeting.not_hidden.where(component: current_component).find_by(id: params[:id])
+      end
+
+      def next_meeting
+        return if search_collection.size < 2
+
+        search_collection.order(:start_time, :id).where(
+          Decidim::Meetings::Meeting.arel_table[:start_time].gt(meeting.start_time).or(
+            Decidim::Meetings::Meeting.arel_table[:start_time].eq(meeting.start_time).and(
+              Decidim::Meetings::Meeting.arel_table[:id].gt(meeting.id)
+            )
+          )
+        ).first
+      end
+
+      def prev_meeting
+        return if search_collection.size < 2
+
+        search_collection.order(:start_time, :id).where(
+          Decidim::Meetings::Meeting.arel_table[:start_time].lt(meeting.start_time).or(
+            Decidim::Meetings::Meeting.arel_table[:start_time].eq(meeting.start_time).and(
+              Decidim::Meetings::Meeting.arel_table[:id].lt(meeting.id)
+            )
+          )
+        ).last
+      end
+
+      def nav_paths
+        return {} if meeting.blank?
+
+        { prev_path: prev_meeting, next_path: next_meeting }.compact_blank.transform_values { |meeting| meeting_path(meeting) }.merge(back_path: meetings_path)
       end
 
       def meetings

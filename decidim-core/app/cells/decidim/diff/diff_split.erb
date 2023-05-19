@@ -1,11 +1,2 @@
-<div class="mediumlarge-6 columns">
-  <div class="diff-direction-label">
-    <%= t(direction, scope: "versions.directions") %>
-  </div>
-
-  <div class="card">
-    <div class="diff-data">
-      <%= output_split_diff(data, direction, format) %>
-    </div>
-  </div>
-</div>
+<span><%= t(direction, scope: "versions.directions") %></span>
+<%= output_split_diff(data, direction, format) %>

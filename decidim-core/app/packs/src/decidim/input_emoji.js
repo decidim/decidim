@@ -49,6 +49,10 @@ export class EmojiButton {
   }
 
   constructor(elem) {
+    if (elem.dataset.inputEmojiInitialized) {
+      return;
+    }
+
     const i18nConfig = EmojiButton.i18n();
     const i18n = i18nConfig.dictionary;
     const buttonText = i18nConfig.messages.buttonText;
@@ -93,11 +97,13 @@ export class EmojiButton {
     }, {
       position: "bottom-end",
       triggerElement: btn,
+      className: "z-50",
       referenceElement
     });
 
     // Prevent the picker close button to submit the comment form
     picker.closeButton.type = "button";
+    picker.closeButton.style.zIndex = 51;
 
     let handlerPicker = () => {
       picker.toggle();
@@ -126,6 +132,8 @@ export class EmojiButton {
       const event = new Event("emoji.added");
       elem.dispatchEvent(event);
     });
+
+    elem.dataset.inputEmojiInitialized = true;
   }
 }
 

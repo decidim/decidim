@@ -28,7 +28,7 @@ module Decidim
                end
 
       content = opts[:remote].nil? ? button + capture(&).html_safe : button + icon("loader-3-line")
-      content_tag(:div, id: opts[:id], data: { dialog: opts[:id] || "" }) do
+      content_tag(:div, id: opts[:id], data: { dialog: opts[:id] || "" }.merge(opts[:data] || {})) do
         content_tag(:div, id: "#{opts[:id]}-content", class: opts[:class]) do
           content
         end

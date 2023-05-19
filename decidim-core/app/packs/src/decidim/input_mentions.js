@@ -1,7 +1,7 @@
 /* eslint no-unused-vars: 0 */
 import Tribute from "src/decidim/vendor/tribute"
 
-$(() => {
+const mentionsInitializer = () => {
   const $mentionContainer = $(".js-mentions");
   const nodatafound = $mentionContainer.attr("data-noresults");
 
@@ -114,12 +114,12 @@ $(() => {
 
         svg = `<span class="is-group">${item.original.membersCount}x <svg class="icon--members icon"><use href="${iconsPath}#icon-members"/></svg></span>`;
       }
-      return `<div class="tribute-item ${item.original.__typename}">
+      return `
       <span class="author__avatar"><img src="${item.original.avatarUrl}" alt="author-avatar"></span>
         <strong>${item.original.nickname}</strong>
         <small>${item.original.name}</small>
         ${svg}
-      </div>`;
+      `;
     }
   });
 
@@ -184,5 +184,6 @@ $(() => {
       }
     });
   }, 1000);
-});
+}
 
+$(() => mentionsInitializer());

@@ -2,23 +2,51 @@
   <%= form.hidden_field :commentable_gid, id: nil %>
   <%= form.hidden_field :alignment, id: nil, class: "alignment-input" %>
   <%= comment_as_for(form) %>
-  <div class="field">
-    <label class="show-for-sr" for="<%= add_comment_id %>">
+  <div class="form__wrapper gap-2">
+    <% if alignment_enabled? %>
+      <div class="opinion-toggle button-group comment__opinion-container">
+        <span class="py-1.5"><%= t("decidim.components.add_comment_form.opinion.label") %></span>
+        <button type="button" aria-pressed="false" class="button button__sm button__text-secondary opinion-toggle--ok" data-selected-label="<%= t("decidim.components.add_comment_form.opinion.positive_selected") %>">
+          <%= icon "thumb-up-line" %>
+          <%= icon "thumb-up-fill" %>
+          <span class="sr-only"><%= t("decidim.components.add_comment_form.opinion.positive") %></span>
+        </button>
+        <button type="button" aria-pressed="true" class="button button__sm button__text-secondary opinion-toggle--meh is-active" data-selected-label="<%= t("decidim.components.add_comment_form.opinion.neutral_selected") %>">
+          <span><%= t("decidim.components.add_comment_form.opinion.neutral") %></span>
+        </button>
+        <button type="button" aria-pressed="false" class="button button__sm button__text-secondary opinion-toggle--ko" data-selected-label="<%= t("decidim.components.add_comment_form.opinion.negative_selected") %>">
+          <%= icon "thumb-down-line" %>
+          <%= icon "thumb-down-fill" %>
+          <span class="sr-only"><%= t("decidim.components.add_comment_form.opinion.negative") %></span>
+        </button>
+        <div role="alert" aria-live="assertive" aria-atomic="true" class="selected-state sr-only"></div>
+      </div>
+    <% end %>
+    <label class="text-gray-2" for="<%= add_comment_id %>">
       <%= t("decidim.components.add_comment_form.form.body.label") %>
     </label>
-    <div class="hashtags__container">
-      <%= form.text_area(
-        :body,
-        id: add_comment_id,
-        rows: 4,
-        maxlength: comments_max_length,
-        required: true,
-        placeholder: t("decidim.components.add_comment_form.form.body.placeholder"),
-        label: false,
-        data: { remaining_characters: "##{add_comment_id}-remaining-characters", input_emoji: true }
-      ) %>
+    <%= form.text_area(
+      :body,
+      id: add_comment_id,
+      class: "w-full rounded border min-h-[160px] border-text-gray-2",
+      maxlength: comments_max_length,
+      required: true,
+      placeholder: t("decidim.components.add_comment_form.form.body.placeholder"),
+      label: false,
+      data: { remaining_characters: "##{add_comment_id}-remaining-characters", input_emoji: true }
+    ) %>
+    <span id="<%= add_comment_id %>-remaining-characters" class="remaining-character-count show-erb-comment"></span>
+    <div class="w-full text-right">
+      <button type="submit" class="button button__sm button__secondary" disabled="disabled">
+        <span>
+        <% if reply? %>
+          <%= t("decidim.components.add_comment_form.form.submit_reply") %>
+        <% else %>
+          <%= t("decidim.components.add_comment_form.form.submit_root_comment") %>
+        <% end %>
+        </span>
+        <%= icon "chat-1-line" %>
+      </button>
     </div>
-    <button type="submit" class="button button--sc" disabled="disabled"><%= t("decidim.components.add_comment_form.form.submit") %></button>
-    <span id="<%= add_comment_id %>-remaining-characters" class="remaining-character-count"></span>
   </div>
 <% end %>

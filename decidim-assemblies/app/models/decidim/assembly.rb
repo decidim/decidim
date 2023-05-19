@@ -83,6 +83,8 @@ module Decidim
     after_create :set_parents_path
     after_update :set_parents_path, :update_children_paths, if: :saved_change_to_parent_id?
 
+    scope :with_type, ->(type_id) { where(decidim_assemblies_type_id: type_id) }
+
     searchable_fields({
                         scope_id: :decidim_scope_id,
                         participatory_space: :itself,
@@ -159,7 +161,7 @@ module Decidim
     end
 
     def self.ransackable_scopes(_auth_object = nil)
-      [:with_area, :with_scope]
+      [:with_area, :with_scope, :with_type]
     end
 
     private

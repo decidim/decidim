@@ -20,7 +20,7 @@ describe "Sorting elections", type: :system do
     it "lists the elections in desc start_time order" do
       visit_component
       within ".order-by" do
-        expect(page).to have_selector("ul[data-dropdown-menu$=dropdown-menu]", text: "Recent")
+        expect(page).to have_selector("div.order-by a", text: "Recent")
       end
 
       expect(page).to have_selector("#elections .card-grid .column:first-child", text: translated(election1.title))
@@ -32,7 +32,7 @@ describe "Sorting elections", type: :system do
     it "lists the elections in asc start_time order" do
       visit_component
       within ".order-by" do
-        expect(page).to have_selector("ul[data-dropdown-menu$=dropdown-menu]", text: "Recent")
+        expect(page).to have_selector("div.order-by a", text: "Recent")
         page.find("a", text: "Recent").click
         click_link "Older"
       end

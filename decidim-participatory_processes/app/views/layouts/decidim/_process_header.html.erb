@@ -1,28 +1,17 @@
-<div class="process-header">
-  <div class="process-header__inner">
-    <div class="row column process-header__main"
-        style="background-image:url('<%= current_participatory_space.attached_uploader(:banner_image).path %>');">
-    </div>
-    <div class="process-header__container row collapse column">
-      <div class="columns mediumlarge-8 process-header__info">
-        <div>
-          <h1 class="text-highlight heading2">
-            <%= translated_attribute(current_participatory_space.title) %>
-          </h1>
-        </div>
-        <div>
-          <p class="text-highlight heading-small">
-            <% if current_participatory_space.hashtag.present? %>
-              <span class="process-header__hashtag">
-                <%= link_to "##{decidim_html_escape(current_participatory_space.hashtag)}", twitter_hashtag_url(decidim_html_escape(current_participatory_space.hashtag)), target: "_blank" %>
-              </span>
-            <% end %>
-            <%= translated_attribute(current_participatory_space.subtitle) %>
-          </p>
-        </div>
-      </div>
-      <%= render partial: "layouts/decidim/process_header_steps", locals: { participatory_process: current_participatory_space } %>
+<section style="background-image:url('<%= current_participatory_space.attached_uploader(:banner_image).path %>');">
+  <div class="process__hero">
+    <div class="process__hero-text">
+      <h1 class="h1 text-5xl">
+        <%= translated_attribute(current_participatory_space.title) %>
+      </h1>
+      <p class="process__hero-slogan">
+        <% if current_participatory_space.hashtag.present? %>
+          <span>
+            <%= link_to "##{decidim_html_escape(current_participatory_space.hashtag)}", twitter_hashtag_url(decidim_html_escape(current_participatory_space.hashtag)), target: "_blank" %>
+          </span>
+        <% end %>
+        <%= translated_attribute(current_participatory_space.subtitle) %>
+      </p>
     </div>
   </div>
-  <%= render partial: "layouts/decidim/process_navigation", locals: { participatory_space: current_participatory_space } %>
-</div>
+</section>

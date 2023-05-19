@@ -3,30 +3,10 @@
 module Decidim
   module Meetings
     module ContentBlocks
-      class HighlightedMeetingsCell < Decidim::ContentBlocks::HighlightedElementsCell
-        def base_relation
-          Decidim::Meetings::Meeting
-            .except_withdrawn
-            .published
-            .not_hidden
-            .upcoming
-            .visible_for(current_user)
-            .where(component: published_components)
-        end
-
-        def elements
-          @elements ||= base_relation.order(start_time: :asc).limit(limit)
-        end
-
-        def geolocation_enabled?
-          Decidim::Map.available?(:geocoding)
-        end
-
+      class HighlightedMeetingsCell < Decidim::ContentBlocks::HighlightedElementsWithCellForListCell
         private
 
-        def limit
-          geolocation_enabled? ? 4 : 8
-        end
+        def list_cell_path = "decidim/meetings/highlighted_meetings_for_component"
       end
     end
   end

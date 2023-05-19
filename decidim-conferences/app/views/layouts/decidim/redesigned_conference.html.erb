@@ -9,6 +9,8 @@
 <%= append_stylesheet_pack_tag "decidim_conferences" %>
 
 <%= render "layouts/decidim/redesigned_application" do %>
+  <%= cell "decidim/translation_bar", current_organization %>
+
   <%= yield %>
 <% end %>
 

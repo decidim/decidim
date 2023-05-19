@@ -68,12 +68,9 @@ describe "Account", type: :system do
           find("*[type=submit]").click
         end
 
-        within_flash_messages do
+        # REDESIGN_PENDING - Replace with within_flash_messages after redesigning this form
+        within ".flash", match: :first do
           expect(page).to have_content("successfully")
-        end
-
-        within ".title-bar" do
-          expect(page).to have_content("Nikola Tesla")
         end
 
         user.reload

@@ -2,5 +2,10 @@ var $activities = $('#activities');
 
 $activities.html('<%= j(render partial: "activities").strip.html_safe %>');
 
-var $dropdownMenu = $('.dropdown.menu', $activities);
-$dropdownMenu.foundation();
+var options = document.querySelectorAll("#dropdown-trigger span");
+
+if (options.length) {
+  // Update the current selector
+  var currentFilter = "<%= params.dig(:filter, :with_resource_type) %>";
+  options.forEach(opt => opt.dataset.value === currentFilter ? opt.classList.add("is-active") : opt.classList.remove("is-active"));
+}

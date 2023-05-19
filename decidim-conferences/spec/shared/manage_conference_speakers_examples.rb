@@ -89,7 +89,7 @@ shared_examples "manage conference speakers examples" do
 
     it "deletes the conference speaker" do
       within find("#conference_speakers tr", text: conference_speaker.full_name) do
-        accept_confirm { find("a.action-icon--remove").click }
+        accept_confirm(admin: true) { find("a.action-icon--remove").click }
       end
 
       expect(page).to have_admin_callout("successfully")

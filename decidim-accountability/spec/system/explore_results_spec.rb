@@ -306,12 +306,14 @@ describe "Explore results", versioning: true, type: :system do
       end
 
       it "shows related projects" do
+        click_button "Included projects"
         projects.each do |project|
           expect(page).to have_content(translated(project.title))
         end
       end
 
       it "the result is mentioned in the project page" do
+        click_button "Included projects"
         click_link translated(project.title)
         expect(page).to have_i18n_content(result.title)
       end
@@ -331,13 +333,15 @@ describe "Explore results", versioning: true, type: :system do
       end
 
       it "shows related meetings" do
+        click_button "Included meetings"
         meetings.each do |meeting|
           expect(page).to have_i18n_content(meeting.title)
-          expect(page).to have_i18n_content(meeting.description)
         end
       end
 
       it "the result is mentioned in the meeting page" do
+        skip_unless_redesign_enabled("this test pass with redesign enabled because the panel containing the result is visible")
+
         click_link translated(meeting.title)
         expect(page).to have_i18n_content(result.title)
       end
@@ -383,5 +387,5 @@ describe "Explore results", versioning: true, type: :system do
 end
 
 def select_tab(text)
-  find("li.tab-x", text:).click
+  find("li", text:).click
 end

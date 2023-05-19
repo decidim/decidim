@@ -33,5 +33,9 @@ module Decidim
     def self.log_presenter_class_for(_log)
       Decidim::ParticipatoryProcesses::AdminLog::ParticipatoryProcessGroupPresenter
     end
+
+    def self.participatory_spaces(group_id)
+      find(group_id).participatory_processes
+    end
   end
 end

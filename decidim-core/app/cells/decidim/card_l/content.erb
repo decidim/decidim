@@ -1,7 +1,11 @@
 <%= render :image if has_image? %>
-<div class="card__list-content">
-  <%= render :title %>
-  <%= render :description if has_description? %>
-  <%= render details_template if details_template.present? %>
-</div>
+<% if has_link_to_resource? && !link_whole_card? %>
+  <%= link_to resource_path, class: "card__list-content" do %>
+    <%= render :title_and_details %>
+  <% end %>
+<% else %>
+  <%= content_tag(:div, class: "card__list-content") do %>
+    <%= render :title_and_details %>
+  <% end %>
+<% end %>
 <%= render :extra_data if render_extra_data? %>

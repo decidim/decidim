@@ -619,11 +619,11 @@ tr:
       organization_homepage:
         content_blocks:
           edit:
-            update: Güncellemeler 
+            update: Güncellemeler
         edit:
           active_content_blocks: Aktif içerik blokları
-          add: Içerik bloğu ekle 
-          destroy_confirmation: Bu içerik bloğunu silmek istediğnizeden emin misiniz 
+          add: Içerik bloğu ekle
+          destroy_confirmation: Bu içerik bloğunu silmek istediğnizeden emin misiniz
           inactive_content_blocks: Etkin olmayan içerik blokları
           title: Sayfa içeriği
       participatory_space_private_users:
@@ -715,10 +715,10 @@ tr:
         actions:
           view: Genel sayfayı görüntüle
         content_blocks:
-          add: Içerik bloğu ekle 
-          destroy_confirmation: Bu içerik bloğunu silmek istediğnizeden emin misiniz 
+          add: Içerik bloğu ekle
+          destroy_confirmation: Bu içerik bloğunu silmek istediğnizeden emin misiniz
           edit:
-            update: Güncellemeler 
+            update: Güncellemeler
         create:
           error: Yeni bir sayfa oluşturulurken bir hata oluştu.
           success: Sayfa başarıyla oluşturuldu.

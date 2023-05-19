@@ -39,7 +39,7 @@ describe "Meeting live event access", type: :system do
             when :embedded
               expect(page).to have_css("iframe")
             else
-              expect(page).to have_content("JOIN MEETING")
+              expect(page).to have_content("Register")
             end
           end
         end
@@ -59,7 +59,7 @@ describe "Meeting live event access", type: :system do
             when :embedded
               expect(page).to have_no_css("iframe")
             else
-              expect(page).to have_no_content("JOIN MEETING")
+              expect(page).to have_no_content("Register")
             end
           end
         end
@@ -77,7 +77,7 @@ describe "Meeting live event access", type: :system do
             when :embedded
               expect(page).to have_css("iframe")
             else
-              expect(page).to have_content("JOIN MEETING")
+              expect(page).to have_content("Register")
             end
           end
 
@@ -93,7 +93,7 @@ describe "Meeting live event access", type: :system do
                 expect(page).to have_content("You need to enable all cookies in order to see this content")
                 expect(page).not_to have_css("iframe")
               else
-                expect(page).to have_content("JOIN MEETING")
+                expect(page).to have_content("Register")
               end
             end
           end
@@ -117,7 +117,7 @@ describe "Meeting live event access", type: :system do
             when :embedded
               expect(page).to have_no_css("iframe")
             else
-              expect(page).to have_no_content("JOIN MEETING")
+              expect(page).to have_no_content("Register")
             end
           end
         end
@@ -135,7 +135,7 @@ describe "Meeting live event access", type: :system do
             when :embedded
               expect(page).to have_no_css("iframe")
             else
-              expect(page).to have_no_content("JOIN MEETING")
+              expect(page).to have_no_content("Register")
             end
           end
         end
@@ -153,7 +153,7 @@ describe "Meeting live event access", type: :system do
             when :embedded
               expect(page).to have_css("iframe")
             else
-              expect(page).to have_content("JOIN MEETING")
+              expect(page).to have_content("Register")
             end
           end
         end
@@ -255,7 +255,7 @@ describe "Meeting live event access", type: :system do
       it "shows the link to the live meeting streaming" do
         visit_meeting
 
-        new_window = window_opened_by { click_link "Join meeting" }
+        new_window = window_opened_by { click_link "Register" }
 
         within_window new_window do
           expect(page).to have_current_path(meeting_live_event_path)
@@ -270,7 +270,7 @@ describe "Meeting live event access", type: :system do
 
           # Join the meeting displays a warning to users because
           # is redirecting to a different domain
-          click_link "Join meeting"
+          click_link "Register"
 
           expect(page).to have_content("Open external link")
         end
@@ -294,7 +294,7 @@ describe "Meeting live event access", type: :system do
 
         # Join the meeting displays a warning to users because
         # is redirecting to a different domain
-        click_link "Join meeting"
+        click_link "Register"
 
         expect(page).to have_content("Open external link")
       end

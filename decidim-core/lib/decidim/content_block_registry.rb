@@ -10,6 +10,7 @@ module Decidim
   #       content_block.cell = "decidim/content_blocks/stats_block"
   #       content_block.public_name_key = "decidim.content_blocks.stats_block.name"
   #       content_block.settings_form_cell = "decidim/content_blocks/stats_block_settings_form"
+  #       content_block.component_manifest_name = "proposals"
   #
   #       content_block.settings do |settings|
   #         settings.attribute :minimum_priority_level,

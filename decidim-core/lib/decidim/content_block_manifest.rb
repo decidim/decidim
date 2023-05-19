@@ -26,6 +26,7 @@ module Decidim
     attribute :public_name_key, String
     attribute :cell, String
     attribute :settings_form_cell, String
+    attribute :component_manifest_name, String
     attribute :images, Array[Hash]
     attribute :default, Boolean, default: false
 

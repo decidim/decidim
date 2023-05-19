@@ -22,9 +22,13 @@ module Decidim
     include Decidim::SanitizeHelper
 
     def show
-      return if clean_body.blank? && clean_announcement.blank?
+      return if blank_content?
 
       render :show
+    end
+
+    def blank_content?
+      @blank_content ||= clean_body.blank? && clean_announcement.blank?
     end
 
     private

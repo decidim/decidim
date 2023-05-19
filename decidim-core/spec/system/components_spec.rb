@@ -13,6 +13,8 @@ describe "Components can be navigated", type: :system do
     end
 
     it "renders the content of the page" do
+      skip "REDESIGN PENDING: Adapt this test to navigation breadcrumb once redesign fully enabled"
+
       within ".process-nav" do
         click_link component.name[I18n.locale.to_s]
       end

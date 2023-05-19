@@ -1,4 +1,4 @@
-<details class="meeting-polls__question text-medium" data-question="<%= question.id %>" <%= "open" if local_assigns.fetch(:open_question, nil) == question %>>
+<details class="meeting-polls__question" data-question="<%= question.id %>" <%= "open" if local_assigns.fetch(:open_question, nil) == question %>>
   <% if question.published? %>
     <%= render partial: "decidim/meetings/polls/questions/published_question", locals: { question: question, form: local_assigns.fetch(:form, nil) } %>
   <% elsif question.closed? %>

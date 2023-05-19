@@ -1,14 +1,7 @@
-<section class="content-block" data-statistics>
-  <% if heading? %>
-    <h2 class="h2 decorator">
-      <%= stats_heading %>
-    </h2>
+<div class="statistic__container">
+  <% if stats.present? %>
+    <%= cell("decidim/statistic", collection: stats) %>
+  <% else %>
+    <span><%= no_stats %></span>
   <% end %>
-  <div class="statistic__container">
-    <% if stats.present? %>
-      <%= cell("decidim/statistic", collection: stats, design: design) %>
-    <% else %>
-      <span><%= no_stats %></span>
-    <% end %>
-  </div>
-</section>
+</div>

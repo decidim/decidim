@@ -1,19 +1,21 @@
-<details>
-  <summary id="secondary-dropdown-summary-mobile" aria-controls="secondary-dropdown-mobile" class="flex items-center justify-between text-white">
-    <span class="flex flex-wrap md:flex-nowrap gap-x-2.5 overflow-hidden">
-      <% breadcrumb=[["Process", false], ["Imaginem el nou ecobarri de Ca n' Ametller", true], ["Sobre el procés", false]] %>
-
-      <!-- REDESIGN_PENDING: Only displays two last items -->
-      <% breadcrumb.take(2).each_with_index do |item, i| %>
-        <% is_active = item[1] # item[0] could also be "active" %>
-        <span class="<%= "hidden" if i == 0 %>">/</span>
-        <span class="cursor-pointer <%= "truncate" if i != 0 %> <%= "font-bold" if is_active %>"><%= item[0] %></span>
+<% dropdown_item = breadcrumb_items.select { |item| item[:dropdown_cell].present? }.last %>
+<div id="secondary-dropdown-trigger-mobile" class="menu-bar__breadcrumb-mobile__dropdown-trigger" <%= "data-component=dropdown data-target=secondary-dropdown-menu-mobile" if dropdown_item.present? %>>
+  <span>
+    <!-- REDESIGN_PENDING: Only displays two last items -->
+    <% breadcrumb_items.take(2).each_with_index do |item, i| %>
+      <% item_label = decidim_html_escape(translated_attribute(item[:label])) %>
+      <% if i > 0 %>
+        <span>/</span>
       <% end %>
-    </span>
+      <span class="cursor-pointer <%= "truncate" if i != 0 %> <%= "font-bold" if item[:active] %>"><%= item_label %></span>
+    <% end %>
+  </span>
 
-    <%= icon "arrow-down-s-line", class: "flex-none w-6 h-6 fill-current" %>
-  </summary>
-  <div id="secondary-dropdown-mobile" aria-labelledby="secondary-dropdown-summary-mobile">
-    <%= render partial: "layouts/decidim/header/redesigned_menu_breadcrumb_secondary_dropdown" %>
+  <%= icon "arrow-down-s-line", class: "flex-none w-6 h-6 fill-current" %>
+</div>
+
+<% if dropdown_item.present? %>
+  <div id="secondary-dropdown-menu-mobile" aria-hidden="true">
+    <%= cell dropdown_item[:dropdown_cell], dropdown_item[:resource] %>
   </div>
-</details>
+<% end %>

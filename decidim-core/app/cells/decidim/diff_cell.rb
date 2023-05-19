@@ -7,6 +7,7 @@ module Decidim
   class DiffCell < Decidim::ViewModel
     include Cell::ViewModel::Partial
     include LayoutHelper
+    include ActionView::Helpers::FormOptionsHelper
 
     def attribute(data)
       render locals: { data: }
@@ -20,7 +21,37 @@ module Decidim
       render locals: { data:, direction:, format: }
     end
 
+    def diff_split_full(data, format)
+      render locals: { data:, format: }
+    end
+
+    def path(extra_params)
+      return if options[:path].blank?
+
+      options[:path].call(extra_params)
+    end
+
+    def dropdown_options_for_select(options, value)
+      options_for_select(options.map { |opt| [t("versions.dropdown.option_#{opt}"), opt] }, value)
+    end
+
+    def mode_options
+      dropdown_options_for_select(%w(unified split), params["diff-mode"])
+    end
+
+    def html_options
+      dropdown_options_for_select(%w(unescaped escaped), params["diff-html"])
+    end
+
     private
+
+    def display_html_config
+      @display_html_config ||= params["diff-html"] == "unescaped" || show_html_view_dropdown? ? :unescaped_html : :html
+    end
+
+    def unified_mode?
+      @unified_mode ||= params["diff-mode"] != "split"
+    end
 
     # Adds a unique ID prefix for the attribute div IDs to avoid duplicate IDs
     # in the DOM.

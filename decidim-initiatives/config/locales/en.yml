@@ -335,8 +335,6 @@ en:
       application_helper:
         filter_area_values:
           all: All
-        filter_scope_values:
-          all: All
         filter_state_values:
           accepted: Enough signatures
           all: All
@@ -568,8 +566,6 @@ en:
           count:
             one: Signature
             other: Signatures
-          most_popular_initiative: Most popular initiative
-          need_more_votes: Need more signatures
       initiatives_mailer:
         creation_subject: Your initiative '%{title}' has been created
         initiative_link:
@@ -611,9 +607,6 @@ en:
       update:
         error: An error has occurred.
         success: The initiative has been successfully updated.
-      versions:
-        shared:
-          back_to_resource: Go back to initiative
     menu:
       initiatives: Initiatives
     resources:

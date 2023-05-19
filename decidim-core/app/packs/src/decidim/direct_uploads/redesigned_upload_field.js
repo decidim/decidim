@@ -11,6 +11,12 @@ const updateModalTitle = (modal) => {
 }
 
 const updateActiveUploads = (modal) => {
+  // remove the default image block, if exists
+  const defaultFile = document.getElementById("default-active-upload")
+  if (defaultFile) {
+    defaultFile.remove()
+  }
+
   const files = document.querySelector("[data-active-uploads]")
 
   // fastest way to clean children nodes

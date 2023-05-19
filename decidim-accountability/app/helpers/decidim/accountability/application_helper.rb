@@ -83,6 +83,13 @@ module Decidim
           end
         ]
       end
+
+      def apply_accountability_pack_tags
+        return unless respond_to?(:snippets)
+
+        snippets.add(:head, stylesheet_pack_tag("decidim_accountability", media: "all"))
+        snippets.add(:foot, javascript_pack_tag("decidim_accountability"))
+      end
     end
   end
 end

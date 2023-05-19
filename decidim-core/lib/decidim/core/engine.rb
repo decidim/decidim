@@ -39,7 +39,6 @@ require "diffy"
 require "ransack"
 require "wisper"
 require "webpacker"
-require "turbo-rails"
 
 # Needed for the assets:precompile task, for configuring webpacker instance
 require "decidim/webpacker"

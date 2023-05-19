@@ -9,6 +9,9 @@ module Decidim
       helper ParticipatoryProcessHelper
       include NeedsPermission
 
+      include RedesignLayout
+      redesign active: true
+
       register_permissions(Decidim::ParticipatoryProcesses::ApplicationController,
                            ::Decidim::ParticipatoryProcesses::Permissions,
                            ::Decidim::Admin::Permissions,

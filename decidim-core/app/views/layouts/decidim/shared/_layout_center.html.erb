@@ -1,5 +1,6 @@
 <% columns ||= 6 %>
-<% main_tag = redesign_enabled? ? :main : :div %>
+<% main_enabled = true unless local_assigns.has_key?(:main_enabled) %>
+<% main_tag = redesign_enabled? && main_enabled ? :main : :div %>
 <%= content_tag main_tag, class: "layout-1col" do %>
   <div class="<%= columns == 10 ? "cols-10" : columns == 8 ? "cols-8" : "cols-6" %>">
     <%= yield %>

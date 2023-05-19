@@ -1,3 +1,6 @@
+/**
+ * @deprecated since feature/redesign
+ */
 $(() => {
   const $allDiffViews = $(".row.diff_view");
 

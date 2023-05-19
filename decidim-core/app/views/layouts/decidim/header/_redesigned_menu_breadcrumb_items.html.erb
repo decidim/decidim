@@ -1,0 +1,22 @@
+<% breadcrumb_items.each_with_index do |item, i| %>
+  <% item_label = decidim_html_escape(translated_attribute(item[:label])) %>
+  <span>/</span>
+  <% if item[:dropdown_cell].present? %>
+    <div class="relative">
+      <div id="secondary-dropdown-summary"
+        class="menu-bar__breadcrumb-desktop__dropdown-trigger<%= " font-bold" if item[:active] %>"
+        data-component="dropdown"
+        data-target="secondary-dropdown-menu-<%= i %>">
+        <%= item_label %>
+      </div>
+      <div id="secondary-dropdown-menu-<%= i %>" class="menu-bar__breadcrumb-desktop__dropdown-content-secondary" aria-hidden="true">
+        <%= cell item[:dropdown_cell], item[:resource] %>
+      </div>
+    </div>
+  <% else %>
+    <%= link_to_if(item[:url].present? && !is_active_link?(item[:url], :exclusive), item_label, item[:url], class:"menu-bar__breadcrumb-desktop__dropdown-trigger#{' font-bold' if item[:active]}") do %>
+      <%# alternative template %>
+      <%= content_tag :span, item_label, class:"menu-bar__breadcrumb-desktop__dropdown-trigger no-interactive#{' font-bold' if item[:active]}", tabindex: "0" %>
+    <% end %>
+  <% end %>
+<% end %>

@@ -32,6 +32,7 @@ module Decidim
     helper Decidim::TranslationsHelper
     helper Decidim::AriaSelectedLinkToHelper
     helper Decidim::MenuHelper
+    helper Decidim::BreadcrumbHelper
     helper Decidim::ComponentPathHelper
     helper Decidim::ViewHooksHelper
     helper Decidim::CardHelper

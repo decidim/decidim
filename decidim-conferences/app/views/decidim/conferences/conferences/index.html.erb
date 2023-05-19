@@ -13,25 +13,23 @@ edit_link(
 <% end %>
 
 <%= render layout:"layouts/decidim/shared/layout_two_col" do %>
-  <%# REDESIGN_PENDING: Uncomment after https://github.com/decidim/decidim/pull/10005 and remove the old one %>
-  <%#= redesigned_participatory_space_floating_help %>
   <%= participatory_space_floating_help %>
 
   <% if promoted_conferences.any? %>
     <section id="highlighted-conferences" class="card__highlight-container">
       <h2 class="h3 decorator"><%= t("conferences.index.promoted_conferences", scope: "layouts.decidim") %></h2>
-      <%= render partial: "promoted_conference", collection: promoted_conferences, as: :promoted_conference %>
+      <% promoted_conferences.each do |promoted_conference| %>
+        <%= card_for promoted_conference, highlight: true %>
+      <% end %>
     </section>
   <% end %>
 
   <section id="conferences-grid" class="card__grid-container">
-    <h2 class="h3 decorator"><%= t("conferences.order_by_conferences.conferences", scope: "layouts.decidim", count: collection.count) %></h2>
+    <h2 class="h3 decorator"><%= t("conferences.order_by_conferences.conferences", scope: "layouts.decidim", count: conferences.size) %></h2>
     <div class="card__grid-grid">
       <%= render(collection) %>
     </div>
 
-    <%# REDESIGN_PENDING: include paginator %>
-    <%#= decidim_paginate collection %>
+    <%= decidim_paginate collection %>
   </section>
-
 <% end %>
