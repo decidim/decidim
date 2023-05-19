@@ -1,6 +1,5 @@
 <div class="meeting__aside-button">
   <% if model.can_be_joined_by?(current_user) %>
-
     <% if model.has_registration_for? current_user %>
       <%= render :cancelation_modal %>
       <%= action_authorized_button_to(
