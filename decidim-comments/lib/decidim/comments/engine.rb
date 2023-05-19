@@ -29,7 +29,7 @@ module Decidim
         Decidim::Api::MutationType.include MutationExtensions
       end
 
-      initializer "decidim.stats" do
+      initializer "decidim_comments.stats" do
         Decidim.stats.register :comments_count, priority: StatsRegistry::MEDIUM_PRIORITY do |organization|
           Decidim.component_manifests.sum do |component|
             component.stats.filter(tag: :comments).with_context(organization.published_components).map { |_name, value| value }.sum
