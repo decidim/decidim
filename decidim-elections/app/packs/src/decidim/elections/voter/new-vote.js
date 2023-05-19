@@ -6,7 +6,7 @@ const { setupVoteComponent } = window.Decidim;
 
 $(async () => {
   // UI Elements
-  const $voteWrapper = $(".vote-wrapper");
+  const $voteWrapper = $("#vote-wrapper");
 
   if ($voteWrapper.length) {
     const $ballotHash = $voteWrapper.find(".ballot-hash");
@@ -15,10 +15,10 @@ $(async () => {
     // Use the questions component
     const questionsComponent = new VoteQuestionsComponent($voteWrapper);
     questionsComponent.init();
-    $(document).on("on.zf.toggler", () => {
-      // continue and back btn
-      questionsComponent.init();
-    });
+    // $(document).on("on.zf.toggler", () => {
+    //   // continue and back btn
+    //   questionsComponent.init();
+    // });
 
     // Get the vote component and bind it to all UI events
     const voteComponent = setupVoteComponent($voteWrapper);
