@@ -32,7 +32,7 @@
         <% end %>
       </span>
 
-      <button class="button button__lg button__text-secondary" data-toggle="<%= ["step-#{question_index}", "step-#{questions_count}"].join(" ") %>">
+      <button class="button button__lg button__text-secondary" data-toggle="<%= ["step-#{question_index}", "confirm"].join(" ") %>">
         <span class="underline"><%= t("decidim.elections.votes.confirm.edit") %></span>
         <span class="sr-only"><%= t("decidim.elections.votes.confirm.answer_number", number: question_index + 1) %></span>
       </button>
@@ -47,7 +47,7 @@
     class: "button button__sm md:button__lg button__transparent-secondary",
     id: "back-step-#{questions_count - 1}",
     data: {
-      #controls: "step-#{questions_count - 1}"
+      toggle: ["step-#{questions_count - 1}", "confirm"].join(" ")
     }
   ) %>
 
@@ -56,7 +56,7 @@
     type: "button",
     id: "next-encrypting",
     data: {
-      #controls: "encrypting"
+      toggle: ["encrypting", "confirm"].join(" ")
     },
   ) do %>
     <span><%= t("decidim.elections.votes.confirm.confirm") %></span>

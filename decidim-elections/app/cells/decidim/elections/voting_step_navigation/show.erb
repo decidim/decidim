@@ -6,7 +6,7 @@
       id: "back-#{current_step_index}",
       class: "button button__sm md:button__lg button__transparent-secondary",
       data: {
-        #controls: previous_step_dom_id
+        toggle: [previous_step_dom_id, current_step_dom_id].join(" ")
       }
     ) %>
   <% end %>
@@ -16,7 +16,7 @@
     type: "button",
     id: "next-#{current_step_index}",
     data: {
-      #controls: next_step_dom_id
+      toggle: [next_step_dom_id, current_step_dom_id].join(" ")
     },
   ) do %>
     <span><%= button_continue_text %></span>

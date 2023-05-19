@@ -20,7 +20,7 @@
     <% end %>>
 
     <% questions.each_with_index do |step_question, step_index| %>
-      <div id="step-<%= step_index %>">
+      <div id="step-<%= step_index %>" <%= "hidden" unless step_index.zero? %>>
 
         <div class="election-question__intro">
           <p class="election-question__counter">
@@ -58,18 +58,18 @@
       </div>
     <% end %>
 
-    <div id="confirm">
+    <div id="confirm" hidden>
       <%= render(
         "new_confirm_step",
         questions:
       ) %>
     </div>
 
-    <div id="encrypting">
+    <div id="encrypting" hidden>
       <%= render("new_encrypting_step") %>
     </div>
 
-    <div id="ballot_decision">
+    <div id="ballot_decision" hidden>
       <%= render("new_ballot_decision_step") %>
     </div>
   </div>
