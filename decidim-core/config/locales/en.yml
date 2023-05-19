@@ -545,8 +545,6 @@ en:
         name: Metadata
       metrics:
         name: Organization metrics
-      participatory_space_main_data:
-        more_info: More info
       participatory_space_metrics:
         name: Metrics
       participatory_space_stats:
