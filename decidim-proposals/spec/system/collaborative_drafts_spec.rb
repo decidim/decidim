@@ -315,7 +315,7 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
               end
 
               it "shows the user as a coauthor" do
-                expect(page).to have_css("#content .wrapper .author--inline .author-data .author__name", text: user.name)
+                expect(page).to have_css("#content .wrapper .author--inline [data-author] .author__name", text: user.name)
               end
 
               it "removes the announcement to collaborate" do

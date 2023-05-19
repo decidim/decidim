@@ -86,10 +86,8 @@ module Decidim
       end
 
       def apply_meetings_pack_tags
-        return unless respond_to?(:snippets)
-
-        snippets.add(:head, stylesheet_pack_tag("decidim_meetings", media: "all"))
-        snippets.add(:foot, javascript_pack_tag("decidim_meetings"))
+        append_stylesheet_pack_tag("decidim_meetings", media: "all")
+        append_javascript_pack_tag("decidim_meetings")
       end
     end
   end
