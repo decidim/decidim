@@ -5,7 +5,6 @@
 export default class VoteQuestionsComponent {
   constructor($voteWrapper) {
     this.$voteWrapper = $voteWrapper;
-    this.$confirmButton = this.$voteWrapper.find("[type=submit]");
     this.$currentStep = "";
     this.$currentStepMaxSelection = "";
     this.$answerCounter = 0;
@@ -29,6 +28,7 @@ export default class VoteQuestionsComponent {
 
   setCurrentStep() {
     this.$currentStep = this.$voteWrapper.find('[id^="step"]:not([hidden])')
+    this.$confirmButton = this.$currentStep.find('[id^="next"]');
     this.setSelections();
     this.onSelectionChange();
   }
