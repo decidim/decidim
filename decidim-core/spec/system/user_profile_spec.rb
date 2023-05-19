@@ -21,13 +21,13 @@ describe "Profile", type: :system do
     end
 
     it "shows the profile page when clicking on the menu" do
-      within ".wrapper" do
+      within "[data-content]" do
         expect(page).to have_content(user.nickname)
       end
     end
 
     it "adds a link to edit the profile" do
-      within ".wrapper" do
+      within "[data-content]" do
         click_link "Edit profile"
       end
 
