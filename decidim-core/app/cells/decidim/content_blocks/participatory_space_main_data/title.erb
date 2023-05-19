@@ -11,10 +11,3 @@
     <%= description_text %>
   </div>
 <% end %>
-
-<% if details_path.present? %>
-  <%= link_to details_path, class: "button button__lg button__text-secondary" do %>
-    <span><%= t("more_info", scope: "decidim.content_blocks.participatory_space_main_data") %></span>
-    <%= icon "arrow-right-line" %>
-  <% end %>
-<% end %>

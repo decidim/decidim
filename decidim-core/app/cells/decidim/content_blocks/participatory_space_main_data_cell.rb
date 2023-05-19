@@ -21,8 +21,6 @@ module Decidim
 
       def description_text; end
 
-      def details_path; end
-
       def nav_items
         []
       end

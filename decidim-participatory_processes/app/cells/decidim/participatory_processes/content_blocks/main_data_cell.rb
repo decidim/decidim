@@ -25,10 +25,6 @@ module Decidim
           decidim_sanitize_editor_admin translated_attribute(description)
         end
 
-        def details_path
-          decidim_participatory_processes.description_participatory_process_path(resource)
-        end
-
         def nav_items
           process_nav_items(resource)
         end
