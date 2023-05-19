@@ -8,7 +8,7 @@ module Decidim
         include Decidim::ComponentPathHelper
         include ActiveLinkTo
 
-        delegate :short_description, to: :resource
+        delegate :short_description, :description, to: :resource
 
         private
 
@@ -20,8 +20,12 @@ module Decidim
           t("title", scope: "decidim.assemblies.assemblies.show")
         end
 
-        def description_text
+        def short_description_text
           decidim_sanitize_editor_admin translated_attribute(short_description)
+        end
+
+        def description_text
+          decidim_sanitize_editor_admin translated_attribute(description)
         end
 
         def details_path

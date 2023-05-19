@@ -17,6 +17,8 @@ module Decidim
 
       def title; end
 
+      def short_description_text; end
+
       def description_text; end
 
       def details_path; end

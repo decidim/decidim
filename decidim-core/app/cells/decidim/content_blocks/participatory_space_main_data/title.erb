@@ -1,7 +1,13 @@
 <h2 class="h2 decorator"><%= title_text %></h2>
 
-<% if description_text.present? %>
+<% if short_description_text.present? %>
   <div class="content-block__description">
+    <%= short_description_text %>
+  </div>
+<% end %>
+
+<% if description_text.present? %>
+  <div class="editor-content my-10 max-w-2xl">
     <%= description_text %>
   </div>
 <% end %>
