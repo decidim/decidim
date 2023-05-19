@@ -32,7 +32,7 @@ module Decidim
       #
       # Returns an Integer if set, nil otherwise.
       def vote_limit
-        return nil if component_settings.vote_limit.zero?
+        return nil if component_settings.vote_limit&.zero?
 
         component_settings.vote_limit
       end
@@ -55,7 +55,7 @@ module Decidim
       #
       # Returns an Integer with the maximum amount of votes, nil otherwise.
       def threshold_per_proposal
-        return nil unless component_settings.threshold_per_proposal.positive?
+        return nil unless component_settings.threshold_per_proposal&.positive?
 
         component_settings.threshold_per_proposal
       end
