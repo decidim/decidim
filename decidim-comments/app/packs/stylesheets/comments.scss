@@ -1,8 +1,4 @@
 .comments{
-  &__container{
-    @apply mt-12;
-  }
-
   .add-comment .remaining-character-count{
     @apply inline-block align-middle text-sm;
   }
