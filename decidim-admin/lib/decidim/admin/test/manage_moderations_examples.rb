@@ -159,7 +159,7 @@ shared_examples "manage moderations" do
           }
         )
 
-        within_language_menu do
+        within_language_menu(admin: true) do
           click_link "Català"
         end
       end
