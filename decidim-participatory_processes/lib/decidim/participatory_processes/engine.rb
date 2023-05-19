@@ -31,7 +31,6 @@ module Decidim
         resources :participatory_process_groups, only: :show, path: "processes_groups"
         resources :participatory_processes, only: [:index, :show], param: :slug, path: "processes" do
           get "all-metrics", on: :member
-          get "description", on: :member
           resources :participatory_process_steps, only: [:index], path: "steps"
           resource :widget, only: :show, path: "embed"
         end

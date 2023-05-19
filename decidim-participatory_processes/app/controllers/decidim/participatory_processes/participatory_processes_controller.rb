@@ -40,13 +40,6 @@ module Decidim
         end
       end
 
-      def description
-        enforce_permission_to :read, :process, process: current_participatory_space
-
-        @presented_space = ParticipatoryProcessPresenter.new(current_participatory_space)
-        @about_items = %w(participatory_scope target participatory_structure area_name meta_scope local_area developer_group date_range)
-      end
-
       private
 
       def search_collection

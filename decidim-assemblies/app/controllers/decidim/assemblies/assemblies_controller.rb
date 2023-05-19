@@ -50,13 +50,6 @@ module Decidim
         enforce_permission_to :read, :assembly, assembly: current_participatory_space
       end
 
-      def description
-        enforce_permission_to :read, :assembly, assembly: current_participatory_space
-
-        @presented_space = AssemblyPresenter.new(current_participatory_space)
-        @about_items = %w(participatory_scope target participatory_structure area_name meta_scope local_area developer_group duration closing_date)
-      end
-
       private
 
       def search_collection
