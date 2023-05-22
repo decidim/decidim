@@ -9,7 +9,7 @@ describe "show", type: :system do
   let(:description) { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_debate_title } }
   let(:information_updates) { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_debate_title } }
   let(:instructions) { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_debate_title } }
-  let!(:debate) { create(:debate, component:, description:, information_updates:, instructions:, skip_injection: true) }
+  let!(:debate) { create(:debate, component:, description:, information_updates:, instructions:) }
 
   before do
     visit_component

@@ -20,7 +20,8 @@ describe Decidim::Meetings::CreateMeetingEvent do
 
   describe "email_intro" do
     it "is generated correctly" do
-      expect(subject.email_intro).to eq("The meeting \"#{resource_title}\" has been added to \"#{participatory_space_title}\" that you are following.")
+      meeting_title = decidim_html_escape(resource_title)
+      expect(subject.email_intro).to eq("The meeting \"#{meeting_title}\" has been added to \"#{participatory_space_title}\" that you are following.")
     end
   end
 
@@ -33,8 +34,9 @@ describe Decidim::Meetings::CreateMeetingEvent do
 
   describe "notification_title" do
     it "is generated correctly" do
+      meeting_title = decidim_html_escape(resource_title)
       expect(subject.notification_title)
-        .to eq("The meeting <a href=\"#{resource_path}\">#{resource_title}</a> has been added to #{participatory_space_title}")
+        .to eq("The meeting <a href=\"#{resource_path}\">#{meeting_title}</a> has been added to #{participatory_space_title}")
     end
   end
 

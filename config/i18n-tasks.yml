@@ -335,6 +335,15 @@ ignore_unused:
   - decidim.profiles.user.actions.*
   - decidim.forms.questionnaires.show.answer_questionnaire.*
   - decidim.forms.upload_help.explanation
+  - decidim.admin.assembly_user_roles.create.*
+  - decidim.admin.assembly_user_roles.update.*
+  - decidim.admin.assembly_user_roles.destroy.*
+  - decidim.admin.conference_user_roles.create.*
+  - decidim.admin.conference_user_roles.update.*
+  - decidim.admin.conference_user_roles.destroy.*
+  - decidim.admin.participatory_process_user_roles.create.*
+  - decidim.admin.participatory_process_user_roles.update.*
+  - decidim.admin.participatory_process_user_roles.destroy.*
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:
 # ignore_eq_base:

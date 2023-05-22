@@ -2,9 +2,12 @@
 
 require "spec_helper"
 
-module Decidim::Assemblies
-  describe Admin::UpdateAssemblyAdmin do
-    subject { described_class.new(form, user_role) }
+module Decidim::Admin
+  describe ParticipatorySpace::UpdateAdmin, versioning: true do
+    subject { described_class.new(form, user_role, event_class:, event:) }
+
+    let(:event) { "decidim.events.assembly.role_assigned" }
+    let(:event_class) { Decidim::RoleAssignedToAssemblyEvent }
 
     let(:my_assembly) { create :assembly }
     let!(:new_role) { "collaborator" }
@@ -24,8 +27,8 @@ module Decidim::Assemblies
     let(:invalid) { false }
     let(:user_notification) do
       {
-        event: "decidim.events.assembly.role_assigned",
-        event_class: Decidim::RoleAssignedToAssemblyEvent,
+        event:,
+        event_class:,
         resource: my_assembly,
         affected_users: [user_role.user],
         extra: { role: kind_of(String) }

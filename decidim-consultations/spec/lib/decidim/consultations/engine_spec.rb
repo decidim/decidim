@@ -3,6 +3,8 @@
 require "spec_helper"
 
 describe Decidim::Consultations::Engine do
+  it_behaves_like "clean engine"
+
   describe "decidim_consultations.authorization_transfer" do
     include_context "authorization transfer"
 
