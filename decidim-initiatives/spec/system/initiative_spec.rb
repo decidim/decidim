@@ -34,15 +34,15 @@ describe "Initiative", type: :system do
 
       shared_examples_for "initiative shows signatures" do
         it "shows signatures for the state" do
-          expect(page).to have_css(".progress__bar__number")
-          expect(page).to have_css(".progress__bar__text")
+          within "[data-progress-bar]" do
+            expect(page).to have_css("span", count: 2)
+          end
         end
       end
 
       shared_examples_for "initiative does not show signatures" do
         it "does not show signatures for the state" do
-          expect(page).not_to have_css(".progress__bar__number")
-          expect(page).not_to have_css(".progress__bar__text")
+          expect(page).to have_no_css("[data-progress-bar]")
         end
       end
 
@@ -166,7 +166,8 @@ describe "Initiative", type: :system do
         within ".process-nav" do
           click_link translated(meetings_component.name, locale: :en)
         end
-        expect(page).to have_selector("a.meeting-list", count: 3)
+
+        expect(page).to have_selector('[id^="meetings__meeting"]', count: 3)
       end
     end
   end
