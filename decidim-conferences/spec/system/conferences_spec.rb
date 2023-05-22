@@ -32,7 +32,8 @@ describe "Conferences", type: :system do
     it "the menu link is not shown" do
       visit decidim.root_path
 
-      within ".main-nav" do
+      find("#main-dropdown-summary").click
+      within ".menu-bar__main-dropdown__menu" do
         expect(page).to have_no_content("Conferences")
       end
     end
@@ -60,7 +61,8 @@ describe "Conferences", type: :system do
       it "the menu link is not shown" do
         visit decidim.root_path
 
-        within ".main-nav" do
+        find("#main-dropdown-summary").click
+        within ".menu-bar__main-dropdown__menu" do
           expect(page).to have_no_content("Conferences")
         end
       end
@@ -85,7 +87,8 @@ describe "Conferences", type: :system do
       it "the menu link is shown" do
         visit decidim.root_path
 
-        within ".main-nav" do
+        find("#main-dropdown-summary").click
+        within ".menu-bar__main-dropdown__menu" do
           expect(page).to have_content("Conferences")
           click_link "Conferences"
         end
