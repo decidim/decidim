@@ -1,0 +1,71 @@
+<%= render layout: "decidim/design/layout" do %>
+  <div class="cols-8">
+    <h1 class="h2 mb-4">Layout spacing</h1>
+    <h1 class="h3 mb-4">Main</h1>
+    <pre class="bg-background rounded border">
+      <code>
+    &lt;main&nbsp;class=&quot;layout&#45;item__main&quot;&gt;
+
+    &nbsp;&nbsp;&lt;section&nbsp;class=&quot;layout&#45;main__section&nbsp;layout&#45;main__heading&quot;&gt;
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&lt;h1&nbsp;class=&quot;h2&nbsp;decorator&quot;&gt;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;!&#45;&#45;&nbsp;item.Title&nbsp;&#45;&#45;&gt;
+    &nbsp;&nbsp;&nbsp;&nbsp;&lt;/h1&gt;
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;class=&quot;layout&#45;author&quot;&gt;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;!&#45;&#45;&nbsp;cell&nbsp;&quot;decidim/author&nbsp;&#45;&#45;&gt;
+    &nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;
+
+    &nbsp;&nbsp;&lt;/section&gt;
+
+    &nbsp;&nbsp;&lt;section&nbsp;class=&quot;layout&#45;main__section&quot;&gt;
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;class=&quot;editor&#45;content&quot;&gt;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;!&#45;&#45;&nbsp;item.body&nbsp;&#45;&#45;&gt;
+    &nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;
+
+    &nbsp;&nbsp;&lt;/section&gt;
+
+    &nbsp;&nbsp;&lt;section&nbsp;class=&quot;layout&#45;main__section&quot;&nbsp;data&#45;component=&quot;accordion&quot;&gt;
+    &nbsp;&nbsp;&nbsp;&nbsp;&lt;!&#45;&#45;&nbsp;TABS:&nbsp;proposals,&nbsp;participants,&nbsp;images&nbsp;documents&nbsp;etc...&nbsp;&#45;&#45;&gt;
+    &nbsp;&nbsp;&lt;/section&gt;
+
+    &nbsp;&nbsp;&lt;section&nbsp;class=&quot;layout&#45;main__section&quot;&gt;
+    &nbsp;&nbsp;&nbsp;&nbsp;&lt;!&#45;&#45;&nbsp;render&nbsp;partial:&nbsp;&quot;actions&quot;&nbsp;&#45;&#45;&gt;
+    &nbsp;&nbsp;&lt;/section&gt;
+
+    &lt;/main&gt;
+      </code>
+    </pre>
+
+    <h1 class="h3 mt-8 mb-4">Aside</h1>
+
+    <pre class="bg-background rounded border">
+      <code>
+    &lt;aside&nbsp;class=&quot;layout&#45;item__main&nbsp;layout&#45;item__aside&#45;&#45;footer&quot;&gt;
+
+    &nbsp;&nbsp;&lt;section&nbsp;class=&quot;layout&#45;aside__section&nbsp;layout&#45;aside__buttons&quot;&gt;
+    &nbsp;&nbsp;&nbsp;&nbsp;&lt;!&#45;&#45;&nbsp;BUTTONS&nbsp;&#45;&#45;&gt;
+    &nbsp;&nbsp;&lt;/section&gt;
+
+    &nbsp;&nbsp;&lt;section&nbsp;class=&quot;layout&#45;aside__section&quot;&gt;
+    &nbsp;&nbsp;&nbsp;&nbsp;&lt;!&#45;&#45;&nbsp;MORE&nbsp;INFORMATION&nbsp;&#45;&#45;&gt;
+    &nbsp;&nbsp;&lt;/section&gt;
+
+    &lt;/aside&gt;
+      </code>
+    </pre>
+
+    <h1 class="h3 mt-8 mb-4">Aside footer</h1>
+    <pre class="bg-background rounded border">
+      <code>
+        &lt;aside&nbsp;class=&quot;layout&#45;item__main&nbsp;layout&#45;item__aside&#45;&#45;footer&quot;&gt;
+        &nbsp;&nbsp;&lt;%#=&nbsp;comments_for&nbsp;meeting&nbsp;%&gt;
+        &nbsp;&nbsp;&lt;ul&nbsp;class=&quot;layout&#45;main__section&quot;&gt;
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;!&#45;&#45;&nbsp;REFERENCE,&nbsp;VERSIONS&nbsp;&#45;&#45;&gt;
+        &nbsp;&nbsp;&lt;/ul&gt;
+        &lt;/aside&gt;
+      </code>
+    </pre>
+  </div>
+<% end %>
