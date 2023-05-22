@@ -318,6 +318,7 @@ de:
             registration_url_help: 'Link: Erlaubt den Teilnehmern den externen Service zu nutzen, den Sie für die Registrierung verwenden'
             select_a_meeting_type: Bitte eine Meeting-Typ auswählen
             select_a_registration_type: Bitte wählen Sie eine Registrierungsart aus
+            select_an_iframe_access_level: Bitte wählen Sie eine iFrame-Zugriffsebene aus
           index:
             title: Meetings
           new:
