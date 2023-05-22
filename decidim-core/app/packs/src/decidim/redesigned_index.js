@@ -177,10 +177,24 @@ const initializer = (element = document) => {
 
   scrollToLastChild()
 
-  element.querySelectorAll("[data-toggle]").forEach(x => {
-    const { toggle } = x.dataset
+  element.querySelectorAll("[data-toggle]").forEach(element => {
+    const { toggle } = element.dataset
 
-    x.addEventListener("click", () => {
+    if (!element.id) {
+      // when component has no id, we enforce to have it one
+      element.id = `toggle-${Math.random().toString(36).substring(7)}`
+    }
+
+    element.setAttribute("aria-controls", toggle);
+    toggle.split(" ").reduce((x) => {
+      const item = document.getElementById(x)
+
+      if (item) {
+        item.setAttribute("aria-labelledby", [item.getAttribute("aria-labelledby"), element.id].filter(Boolean).join(" "))
+      }
+    })
+
+    element.addEventListener("click", () => {
       document.dispatchEvent(new Event("on:toggle"));
 
       toggle.split(" ").forEach(id => {
@@ -188,6 +202,7 @@ const initializer = (element = document) => {
 
         if (item) {
           item.hidden = !item.hidden
+          item.setAttribute("aria-expanded", !item.hidden);
         }
       })
     })
