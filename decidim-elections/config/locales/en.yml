@@ -476,7 +476,6 @@ en:
         filters:
           active: Active
           all: All
-          date: Date
           finished: Finished
           upcoming: Upcoming
         preview:
@@ -683,11 +682,8 @@ en:
           text: Something went wrong, please try it again.
           try_again: Try again
         header:
-          ballot_decision: Cast or audit your vote
           casting: Casting the vote
-          confirm: Confirm your vote
           confirmed: Vote confirmed
-          encrypting: Encrypting the vote
           failed: Vote failed
         messages:
           invalid_token: Your session in the voting booth is not valid. Try to vote again.
