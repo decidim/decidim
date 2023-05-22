@@ -28,6 +28,18 @@ $(() => {
     }
   });
 
+  var additionSelectorButtons = document.querySelectorAll(".budget__list--header .button__pill")
+
+  additionSelectorButtons.forEach(function(button) {
+    button.addEventListener('click', function(event) {
+      additionSelectorButtons.forEach(function(element) {
+        element.classList.remove("button__pill--active")
+      })
+      event.currentTarget.classList.add("button__pill--active")
+    })
+  });
+
+
   // This hack moves the flash inside the layout (as in the redesign) only for the budgets page
   // Redesign: this should be removed after the redesign is finished
   const $budgetsToVote = $("#budgets-to-vote");
