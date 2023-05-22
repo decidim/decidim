@@ -1,15 +1,13 @@
 <div class="budget__list--header">
-  <div><%= render partial: "addition_selector" %></div>
+  <div>
+    <%= render partial: "addition_selector" %>
+  </div>
 
-  <div class="collection-sort-controls card-grid">
-    <%= order_selector available_orders, i18n_scope: "decidim.budgets.projects.orders" %>
+  <div class="collection-sort-controls">
+    <%= render partial: "order" %>
   </div>
 </div>
 
-<div class="budget-list">
-  <% projects.each do |project| %>
-    <%= render partial: "project", locals: { project: project } %>
-  <% end %>
-</div>
+<%= render partial: "projects_list", locals: { project: project } %>
 
 <%= decidim_paginate projects %>
