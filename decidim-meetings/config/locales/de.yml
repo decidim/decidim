@@ -576,6 +576,8 @@ de:
             title: Titel
       polls:
         questions:
+          closed_question:
+            question_results: Umfrageergebnisse
           index:
             empty_questions: Während dieses Treffens werden einige Fragen gesendet und Sie werden sie beantworten können. Sie werden hier angezeigt.
           index_admin:
