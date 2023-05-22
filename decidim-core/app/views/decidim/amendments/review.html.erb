@@ -8,7 +8,7 @@
 
   <h2 class="h3 text-secondary"><%= translated_attribute emendation.amendable.title %></h2>
 
-  <%= cell("decidim/diff", emendation.versions.last) %>
+  <%= cell("decidim/diff", emendation.versions.last, path: proc { |extra_params| url_for(**extra_params) }) %>
 
   <%= decidim_form_for(@form, url: accept_amend_path(emendation.amendment), method: :patch) do |form| %>
     <div class="form__wrapper">
