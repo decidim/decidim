@@ -317,11 +317,16 @@ de:
             registration_url_help: 'Link: Erlaubt den Teilnehmern den externen Service zu nutzen, den Sie für die Registrierung verwenden'
             select_a_meeting_type: Bitte eine Meeting-Typ auswählen
             select_a_registration_type: Bitte wählen Sie eine Registrierungsart aus
+            select_an_iframe_access_level: Bitte wählen Sie eine iFrame-Zugriffsebene aus
+            show_embedded_iframe_help: 'Nur wenige Dienste erlauben das Einbetten einer Veranstaltung oder eines Livestreams: %{domains}'
           index:
             title: Meetings
           new:
             create: Erstellen
             title: Besprechung erstellen
+          publish:
+            invalid: Beim Veröffentlichen dieser Veranstaltung ist ein Fehler aufgetreten.
+            success: Veranstaltung erfolgreich veröffentlicht.
           service:
             description: Beschreibung
             down: Nieder
@@ -560,6 +565,8 @@ de:
             title: Titel
       polls:
         questions:
+          closed_question:
+            question_results: Umfrageergebnisse
           index:
             empty_questions: Während dieses Treffens werden einige Fragen gesendet und Sie werden sie beantworten können. Sie werden hier angezeigt.
           index_admin:
