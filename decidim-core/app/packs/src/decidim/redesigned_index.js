@@ -80,6 +80,7 @@ import markAsReadNotifications from "./notifications"
 import RemoteModal from "./redesigned_ajax_modals"
 import selectActiveIdentity from "./redesigned_identity_selector_dialog"
 import createTooltip from "./redesigned_tooltips"
+import createToggle from "./redesigned_toggle"
 
 // bad practice: window namespace should avoid be populated as much as possible
 // rails-translations could be referrenced through a single Decidim.I18n object
@@ -176,37 +177,6 @@ const initializer = (element = document) => {
   markAsReadNotifications()
 
   scrollToLastChild()
-
-  element.querySelectorAll("[data-toggle]").forEach(element => {
-    const { toggle } = element.dataset
-
-    if (!element.id) {
-      // when component has no id, we enforce to have it one
-      element.id = `toggle-${Math.random().toString(36).substring(7)}`
-    }
-
-    element.setAttribute("aria-controls", toggle);
-    toggle.split(" ").reduce((x) => {
-      const item = document.getElementById(x)
-
-      if (item) {
-        item.setAttribute("aria-labelledby", [item.getAttribute("aria-labelledby"), element.id].filter(Boolean).join(" "))
-      }
-    })
-
-    element.addEventListener("click", () => {
-      document.dispatchEvent(new Event("on:toggle"));
-
-      toggle.split(" ").forEach(id => {
-        const item = document.getElementById(id)
-
-        if (item) {
-          item.hidden = !item.hidden
-          item.setAttribute("aria-expanded", !item.hidden);
-        }
-      })
-    })
-  })
 
   // https://github.com/jonathanlevaillant/a11y-accordion-component
   element.querySelectorAll('[data-component="accordion"]').forEach((component) => {
@@ -305,6 +275,9 @@ const initializer = (element = document) => {
 
   // Initialize data-tooltips
   element.querySelectorAll("[data-tooltip]").forEach((elem) => createTooltip(elem))
+
+  // Initialize data-toggles
+  element.querySelectorAll("[data-toggle]").forEach((elem) => createToggle(elem))
 }
 
 // If no jQuery is used the Tribute feature used in comments to autocomplete
