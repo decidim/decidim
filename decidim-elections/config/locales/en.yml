@@ -684,7 +684,12 @@ en:
         header:
           casting: Casting the vote
           confirmed: Vote confirmed
+          confirm: Confirm
+          ballot_decision: Cast
           failed: Vote failed
+          register: Register
+          election: Election
+          vote_for: Vote for %{title}
         messages:
           invalid_token: Your session in the voting booth is not valid. Try to vote again.
           not_allowed: You are not allowed to vote on this election at this moment.

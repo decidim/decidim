@@ -18,6 +18,14 @@
     data-ballot-style-id="<%== ballot_style_id %>"
     <% end %>>
 
+    <div class="flex justify-center">
+      <h1 class="h1 decorator my-12">
+        <%= t("vote_for", scope: "decidim.elections.votes.header", title: translated_attribute(election.title) ) %>
+      </h1>
+    </div>
+
+    <%= wizard_steps(@step) %>
+
     <% questions.each_with_index do |step_question, step_index| %>
       <div id="step-<%= step_index %>" <%= "hidden" unless step_index.zero? %>>
 
