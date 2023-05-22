@@ -183,6 +183,7 @@ module Decidim
           namespace :design do
             get "forms", to: "forms#index"
             get "cards", to: "cards#index"
+            get "spacing", to: "spacing#index"
           end
         end
       end
