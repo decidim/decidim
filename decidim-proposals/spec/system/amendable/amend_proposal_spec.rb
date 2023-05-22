@@ -328,7 +328,7 @@ describe "Amend Proposal", versioning: true, type: :system do
 
           it "is shown the amendment review form" do
             expect(page).to have_css(".edit_amendment")
-            expect(page).to have_content("REVIEW THE AMENDMENT")
+            expect(page).to have_content("Review the amendment")
             expect(page).to have_field("Title", with: emendation_title)
             expect(page).to have_field("Body", with: emendation_body)
             expect(page).to have_button("Accept amendment")
