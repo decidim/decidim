@@ -7,6 +7,7 @@ describe "Explore meeting directory", type: :system do
   let(:organization) { create(:organization) }
   let(:participatory_process) { create :participatory_process, organization: }
   let(:components) { create_list(:meeting_component, 3, organization:) }
+  let(:meetings_selector) { "[id^='meetings__meeting_']" }
   let!(:meetings) do
     components.flat_map do |component|
       create_list(:meeting, 2, :published, :not_official, component:)
@@ -33,7 +34,7 @@ describe "Explore meeting directory", type: :system do
       end
 
       within "#meetings" do
-        expect(page).to have_css(".meeting-list", count: 7)
+        expect(page).to have_css(meetings_selector, count: 7)
       end
 
       expect(page).to have_content(translated(upcoming_meeting.title))
@@ -125,8 +126,6 @@ describe "Explore meeting directory", type: :system do
       let!(:official_meeting) { create(:meeting, :published, :official, component: components.first, author: organization) }
 
       it "lists the filtered meetings" do
-        skip_unless_redesign_enabled
-
         visit directory
 
         within "#panel-dropdown-menu-origin" do
@@ -134,10 +133,10 @@ describe "Explore meeting directory", type: :system do
           click_filter_item "Official"
         end
 
-        expect(page).to have_css(".meeting-list", count: 1)
+        expect(page).to have_css(meetings_selector, count: 1)
 
-        within ".meeting-list" do
-          expect(page).to have_content("Official meeting")
+        within meetings_selector do
+          expect(page).to have_content(translated(official_meeting.title))
         end
       end
     end
@@ -155,11 +154,11 @@ describe "Explore meeting directory", type: :system do
           click_filter_item "Groups"
         end
 
-        expect(page).to have_css(".meeting-list", count: 1)
+        expect(page).to have_css(meetings_selector, count: 1)
         # REDESIGN_PENDING: The redesigned card_l cell is not expected to show
         # the author, only display if a meeting is official
         #
-        # within ".meeting-list" do
+        # within meetings_selector do
         #   expect(page).to have_content(user_group_meeting.normalized_author.name)
         # end
       end
@@ -174,7 +173,7 @@ describe "Explore meeting directory", type: :system do
           click_filter_item "Participants"
         end
 
-        expect(page).to have_css(".meeting-list", count: 6)
+        expect(page).to have_css(meetings_selector, count: 6)
       end
     end
   end
@@ -335,7 +334,7 @@ describe "Explore meeting directory", type: :system do
         click_filter_item "Past"
       end
 
-      expect(page).to have_no_css(".meeting-list")
+      expect(page).to have_no_css(meetings_selector)
       within("#panel-dropdown-menu-space_type") do
         click_filter_item "All"
         click_filter_item "Assemblies"
@@ -346,7 +345,7 @@ describe "Explore meeting directory", type: :system do
       end
 
       expect(page).to have_content(assembly_meeting.title["en"])
-      expect(page).to have_css(".meeting-list", count: 1)
+      expect(page).to have_css(meetings_selector, count: 1)
     end
   end
 end

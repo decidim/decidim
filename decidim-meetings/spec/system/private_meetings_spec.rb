@@ -5,6 +5,7 @@ require "spec_helper"
 describe "Private meetings", type: :system do
   include_context "with a component"
   let(:manifest_name) { "meetings" }
+  let(:meetings_selector) { "[id^='meetings__meeting_']" }
 
   let!(:meeting) { create :meeting, :published, component:, registrations_enabled: true, available_slots: 20 }
   let!(:private_meeting) { create :meeting, :published, component:, private_meeting: true, transparent: true, registrations_enabled: true, available_slots: 20 }
@@ -25,7 +26,7 @@ describe "Private meetings", type: :system do
             within "#meetings" do
               expect(page).to have_content(translated(meeting.title, locale: :en))
               expect(page).to have_content(translated(private_meeting.title, locale: :en))
-              expect(page).to have_selector(".meeting-list", count: 2)
+              expect(page).to have_selector(meetings_selector, count: 2)
             end
           end
         end
@@ -41,7 +42,7 @@ describe "Private meetings", type: :system do
             within "#meetings" do
               expect(page).to have_content(translated(meeting.title, locale: :en))
               expect(page).to have_content(translated(private_meeting.title, locale: :en))
-              expect(page).to have_selector(".meeting-list", count: 2)
+              expect(page).to have_selector(meetings_selector, count: 2)
             end
           end
 
@@ -68,7 +69,7 @@ describe "Private meetings", type: :system do
           it "lists only the not private meetings" do
             within "#meetings" do
               expect(page).to have_content(translated(meeting.title, locale: :en))
-              expect(page).to have_selector(".meeting-list", count: 1)
+              expect(page).to have_selector(meetings_selector, count: 1)
 
               expect(page).to have_no_content(translated(private_meeting.title, locale: :en))
             end
@@ -85,7 +86,7 @@ describe "Private meetings", type: :system do
           it "lists only the not private meetings" do
             within "#meetings" do
               expect(page).to have_content(translated(meeting.title, locale: :en))
-              expect(page).to have_selector(".meeting-list", count: 1)
+              expect(page).to have_selector(meetings_selector, count: 1)
 
               expect(page).to have_no_content(translated(private_meeting.title, locale: :en))
             end
@@ -103,7 +104,7 @@ describe "Private meetings", type: :system do
             within "#meetings" do
               expect(page).to have_content(translated(meeting.title, locale: :en))
               expect(page).to have_content(translated(private_meeting.title, locale: :en))
-              expect(page).to have_selector(".meeting-list", count: 2)
+              expect(page).to have_selector(meetings_selector, count: 2)
             end
           end
 
