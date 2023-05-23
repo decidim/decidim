@@ -718,14 +718,17 @@ describe "Filter Proposals", :slow, type: :system do
 
       page.go_back
 
+      page.refresh
       expect(page).to have_css(".card__list.proposal-list-item", count: 6)
 
       page.go_back
 
+      page.refresh
       expect(page).to have_css(".card__list.proposal-list-item", count: 8)
 
       page.go_forward
 
+      page.refresh
       expect(page).to have_css(".card__list.proposal-list-item", count: 6)
     end
   end
