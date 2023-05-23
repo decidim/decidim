@@ -281,7 +281,6 @@ en:
         error: An error ocurred while accepting the amendment.
         success: The amendment has been accepted successfully.
       amendable:
-        amended_by: Amended by
         button: Amend %{model_name}
         error: There has been an error amending this resource.
         help_text: Improve this %{model_name} by modifying its %{amendable_fields}
