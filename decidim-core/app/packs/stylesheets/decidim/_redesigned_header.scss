@@ -181,8 +181,14 @@ header{
       }
 
       /* overwrite default dropdown styles */
-      [id*="dropdown-menu"][aria-hidden="true"]{
-        @apply md:hidden;
+      [id*="dropdown-menu"]{
+        &[aria-hidden="true"]{
+          @apply md:opacity-0 pointer-events-none transition duration-300 delay-300 [&>*]:invisible;
+        }
+
+        &[aria-hidden="false"]{
+          @apply md:opacity-100 pointer-events-auto transition duration-300 [&>*]:visible;
+        }
       }
 
       [data-target*="dropdown"]{
