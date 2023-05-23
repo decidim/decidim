@@ -476,6 +476,7 @@ en:
         filters:
           active: Active
           all: All
+          date: Date
           finished: Finished
           upcoming: Upcoming
         preview:
