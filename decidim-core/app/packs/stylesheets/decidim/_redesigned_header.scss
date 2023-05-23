@@ -192,12 +192,20 @@ header{
       }
 
       [data-target*="dropdown"]{
-        @apply w-auto last-of-type:[&>svg]:block;
+        @apply w-auto p-0 block last-of-type:[&>svg]:block;
 
         > svg{
-          @apply text-white;
+          @apply w-5 h-5 text-white;
         }
       }
+
+      // [data-target*="dropdown"]{
+      //   @apply w-auto last-of-type:[&>svg]:block;
+
+      //   > svg{
+      //     @apply text-white;
+      //   }
+      // }
     }
 
     &__breadcrumb-mobile{

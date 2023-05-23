@@ -3,14 +3,18 @@
   <span>/</span>
   <% if item[:dropdown_cell].present? %>
     <div class="relative">
-      <button id="secondary-dropdown-summary"
-        class="menu-bar__breadcrumb-desktop__dropdown-trigger<%= " font-bold" if item[:active] %>"
-        <%== 'aria-current="page"' if item[:active] %>
-        data-component="dropdown"
-        data-hover="true"
-        data-target="secondary-dropdown-menu-<%= i %>">
-        <%= item_label %>
-      </button>
+      <div class="flex items-center" <%== 'aria-current="page"' if item[:active] %>>
+        <%= link_to item[:url], class: "menu-bar__breadcrumb-desktop__dropdown-trigger#{" font-bold" if item[:active]}" do %>
+          <%= item_label %>
+        <% end %>
+        <button id="secondary-dropdown-summary"
+          class="menu-bar__breadcrumb-desktop__dropdown-trigger"
+          data-component="dropdown"
+          data-hover="true"
+          data-target="secondary-dropdown-menu-<%= i %>">
+          <%= icon "arrow-drop-down-line" %>
+        </button>
+      </div>
       <div id="secondary-dropdown-menu-<%= i %>" class="menu-bar__breadcrumb-desktop__dropdown-content-secondary" aria-hidden="true">
         <%= cell item[:dropdown_cell], item[:resource] %>
       </div>
