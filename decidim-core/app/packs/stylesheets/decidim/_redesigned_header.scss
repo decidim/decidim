@@ -262,6 +262,18 @@ header{
             @apply border-0;
           }
         }
+
+        a{
+          @apply flex items-center justify-start gap-1 font-semibold text-lg text-secondary;
+
+          span{
+            @apply min-w-0 truncate;
+          }
+
+          svg{
+            @apply flex-none fill-current;
+          }
+        }
       }
     }
 
@@ -281,6 +293,18 @@ header{
 
         > *{
           @apply py-3 md:py-3.5;
+        }
+
+        a{
+          @apply flex items-center justify-start gap-1 font-semibold text-lg text-white;
+
+          span{
+            @apply min-w-0 truncate;
+          }
+
+          svg{
+            @apply flex-none fill-current;
+          }
         }
       }
 
