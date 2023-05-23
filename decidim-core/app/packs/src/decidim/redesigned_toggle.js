@@ -23,8 +23,6 @@ export default function createToggle(component) {
   })
 
   component.addEventListener("click", () => {
-    document.dispatchEvent(new Event("on:toggle"));
-
     toggle.split(" ").forEach((id) => {
       const node = document.getElementById(id)
 
@@ -32,6 +30,8 @@ export default function createToggle(component) {
         node.hidden = !node.hidden
         node.setAttribute("aria-expanded", !node.hidden);
       }
-    })
+    });
+
+    document.dispatchEvent(new Event("on:toggle"));
   })
 }
