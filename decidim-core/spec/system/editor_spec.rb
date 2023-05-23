@@ -3,6 +3,9 @@
 require "spec_helper"
 
 describe "Editor", type: :system do
+  include Decidim::FrontEndDataTestHelpers
+  include Decidim::FrontEndFileTestHelpers
+
   let!(:organization) { create(:organization) }
   let(:user) { create :user, :admin, :confirmed, organization: }
 
@@ -1117,6 +1120,8 @@ describe "Editor", type: :system do
   end
 
   context "with pointer device" do
+    include Decidim::FrontEndPointerTestHelpers
+
     let(:features) { "full" }
 
     context "when resizing an image" do
@@ -1216,53 +1221,6 @@ describe "Editor", type: :system do
           expect(page).to have_current_path("/test_editor")
         end
       end
-    end
-
-    def drag(selector, mode: "mouse", direction: nil, amount: 0)
-      move =
-        case direction
-        when "left"
-          "x -= #{amount}"
-        when "right"
-          "x += #{amount}"
-        when "top"
-          "y -= #{amount}"
-        when "bottom"
-          "y += #{amount}"
-        end
-
-      events =
-        if mode == "touch"
-          <<~JS
-            var evStart = new Event("touchstart");
-            evStart.touches = [{ pageX: rect.x, pageY: rect.y }];
-            var evMove = new Event("touchmove");
-            evMove.touches = [{ pageX: x, pageY: y }];
-
-            element.dispatchEvent(evStart);
-            document.dispatchEvent(evMove);
-            document.dispatchEvent(new Event("touchend"));
-          JS
-        else
-          <<~JS
-            element.dispatchEvent(new MouseEvent("mousedown", { clientX: rect.x, clientY: rect.y }));
-            document.dispatchEvent(new MouseEvent("mousemove", { clientX: x, clientY: y }));
-            document.dispatchEvent(new MouseEvent("mouseup"));
-          JS
-        end
-
-      page.execute_script(
-        <<~JS
-          var element = document.querySelector("#{selector}");
-          var rect = element.getBoundingClientRect();
-
-          var x = rect.x;
-          var y = rect.y;
-          #{move};
-
-          #{events}
-        JS
-      )
     end
   end
 
@@ -1680,89 +1638,5 @@ describe "Editor", type: :system do
     within toolbar do
       find("select[data-editor-type='#{type}']").find("option[value='#{value}']").select_option
     end
-  end
-
-  def file_to_frontend(filename)
-    filepath = Decidim::Dev.asset(filename)
-    mime = MiniMime.lookup_by_filename(filepath).content_type
-    encoded = Base64.encode64(File.read(filepath))
-
-    {
-      filename:,
-      data_url: "data:application/octet-binary;base64,#{encoded.gsub("\n", "")}",
-      mime_type: mime
-    }
-  end
-
-  def add_file(filename, target_selector, event)
-    file = file_to_frontend(filename)
-
-    page.execute_script(
-      <<~JS
-        var dataUrl = "#{file[:data_url]}";
-        fetch(dataUrl).then(function(res) { return res.arrayBuffer(); }).then(function (buffer) {
-          var file = new File([buffer], "#{filename}", { type: "#{file[:mime_type]}" });
-          var dropzone = document.querySelector("#{target_selector}");
-
-          var dt = new DataTransfer();
-          dt.items.add(file);
-
-          if ("#{event}" === "drop") {
-            var ev = new Event("drop");
-            ev.dataTransfer = dt;
-            dropzone.dispatchEvent(ev);
-          } else {
-            // Simulates selecting the file through the browser's file selector
-            var input = dropzone.querySelector("input[type='file']");
-            input.files = dt.files;
-            input.dispatchEvent(new Event("change", { bubbles: true }));
-          }
-        });
-      JS
-    )
-
-    # Wait for the file to be uploaded
-    if redesigned
-      within "[data-dropzone-items]" do
-        expect(page).to have_content(filename)
-      end
-    else
-      expect(page).to have_css("img[alt='Uploaded file']")
-    end
-  end
-
-  def paste_file(filename, target_selector)
-    file = file_to_frontend(filename)
-
-    page.execute_script(
-      <<~JS
-        var dataUrl = "#{file[:data_url]}";
-        fetch(dataUrl).then(function(res) { return res.arrayBuffer(); }).then(function (buffer) {
-          var file = new File([buffer], "#{filename}", { type: "#{file[:mime_type]}" });
-
-          var dt = new DataTransfer();
-          dt.items.add(file);
-
-          var element = document.querySelector("#{target_selector}");
-          element.dispatchEvent(new ClipboardEvent("paste", { clipboardData: dt }));
-        });
-      JS
-    )
-
-    # Wait for the file to be uploaded
-    sleep 1
-  end
-
-  def paste_content(content, target_selector)
-    page.execute_script(
-      <<~JS
-        var dt = new DataTransfer();
-        dt.setData("text/html", #{content.to_json});
-        dt.setData("text/plain", #{content.to_json});
-
-        var element = document.querySelector("#{target_selector}");
-        element.dispatchEvent(new ClipboardEvent("paste", { clipboardData: dt }));
-      JS
-    )
   end
 end
