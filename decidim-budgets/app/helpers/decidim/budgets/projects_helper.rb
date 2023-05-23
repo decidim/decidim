@@ -135,6 +135,23 @@ module Decidim
           ["added", { text: t("added", scope: "decidim.budgets.projects.project_filter"), count: added_count }]
         ]
       end
+
+      def filter_sections
+        @filter_sections ||= begin
+          items = []
+          if voting_finished?
+            items.append(method: :with_any_status, collection: filter_status_values, label_scope: "decidim.budgets.projects.filters", id: "status")
+          end
+          if current_component.has_subscopes?
+            items.append(method: :with_any_scope, collection: resource_filter_scope_values(budget.scope), label_scope: "decidim.budgets.projects.filters", id: "scope")
+          end
+          if current_participatory_space.categories.any?
+            items.append(method: :with_any_category, collection: filter_categories_values, label_scope: "decidim.budgets.projects.filters", id: "category")
+          end
+        end
+
+        items.reject { |item| item[:collection].blank? }
+      end
     end
   end
 end
