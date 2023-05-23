@@ -16,7 +16,7 @@ jobs:
     steps:
       - uses: deepakputhraya/action-pr-title@master
         with:
-          disallowed_prefixes: "feat/,chore/,build/,ci/,refactor/,docs/,wip/"
+          disallowed_prefixes: "feat/,feature/,fix/,chore/,build/,ci/,refactor/,docs/,wip/,fix:"
           prefix_case_sensitive: false
           min_length: 5
           max_length: 100
