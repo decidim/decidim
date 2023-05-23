@@ -75,7 +75,8 @@ describe "Proposals", type: :system do
             fill_in :proposal_title, with: "More sidewalks and less roads"
             fill_in :proposal_body, with: "Cities need more people, not more cars"
             select translated(category.name), from: :proposal_category_id
-            scope_pick scope_picker, scope
+            # REDESIGN_PENDING - scope picker is pending https://github.com/decidim/decidim/issues/10192
+            # scope_pick scope_picker, scope
 
             find("*[type=submit]").click
           end
@@ -89,7 +90,8 @@ describe "Proposals", type: :system do
           expect(page).to have_content("More sidewalks and less roads")
           expect(page).to have_content("Cities need more people, not more cars")
           expect(page).to have_content(translated(category.name))
-          expect(page).to have_content(translated(scope.name))
+          # REDESIGN_PENDING - scope picker is pending https://github.com/decidim/decidim/issues/10192
+          # expect(page).to have_content(translated(scope.name))
           expect(page).to have_author(user.name)
         end
 
@@ -121,7 +123,8 @@ describe "Proposals", type: :system do
               expect(page).to have_content("You can move the point on the map.")
 
               select translated(category.name), from: :proposal_category_id
-              scope_pick scope_picker, scope
+              # REDESIGN_PENDING - scope picker is pending https://github.com/decidim/decidim/issues/10192
+              # scope_pick scope_picker, scope
 
               find("*[type=submit]").click
             end
@@ -137,7 +140,8 @@ describe "Proposals", type: :system do
             expect(page).to have_content("Cities need more people, not more cars")
             expect(page).to have_content(address)
             expect(page).to have_content(translated(category.name))
-            expect(page).to have_content(translated(scope.name))
+            # REDESIGN_PENDING - scope picker is pending https://github.com/decidim/decidim/issues/10192
+            # expect(page).to have_content(translated(scope.name))
             expect(page).to have_author(user.name)
           end
 
@@ -209,7 +213,8 @@ describe "Proposals", type: :system do
               fill_in :proposal_title, with: "More sidewalks and less roads"
               fill_in :proposal_body, with: "Cities need more people, not more cars"
               select translated(category.name), from: :proposal_category_id
-              scope_pick scope_picker, scope
+              # REDESIGN_PENDING - scope picker is pending https://github.com/decidim/decidim/issues/10192
+              # scope_pick scope_picker, scope
               select user_group.name, from: :proposal_user_group_id
 
               find("*[type=submit]").click
@@ -221,7 +226,8 @@ describe "Proposals", type: :system do
             expect(page).to have_content("More sidewalks and less roads")
             expect(page).to have_content("Cities need more people, not more cars")
             expect(page).to have_content(translated(category.name))
-            expect(page).to have_content(translated(scope.name))
+            # REDESIGN_PENDING - scope picker is pending https://github.com/decidim/decidim/issues/10192
+            # expect(page).to have_content(translated(scope.name))
             expect(page).to have_author(user_group.name)
           end
 
@@ -248,7 +254,8 @@ describe "Proposals", type: :system do
                 fill_in :proposal_body, with: "Cities need more people, not more cars"
                 fill_in :proposal_address, with: address
                 select translated(category.name), from: :proposal_category_id
-                scope_pick scope_picker, scope
+                # REDESIGN_PENDING - scope picker is pending https://github.com/decidim/decidim/issues/10192
+                # scope_pick scope_picker, scope
                 select user_group.name, from: :proposal_user_group_id
 
                 find("*[type=submit]").click
@@ -261,7 +268,8 @@ describe "Proposals", type: :system do
               expect(page).to have_content("Cities need more people, not more cars")
               expect(page).to have_content(address)
               expect(page).to have_content(translated(category.name))
-              expect(page).to have_content(translated(scope.name))
+              # REDESIGN_PENDING - scope picker is pending https://github.com/decidim/decidim/issues/10192
+              # expect(page).to have_content(translated(scope.name))
               expect(page).to have_author(user_group.name)
             end
           end
