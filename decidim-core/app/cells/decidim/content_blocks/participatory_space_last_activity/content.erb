@@ -4,10 +4,8 @@
     <%= render_recent_avatars %>
   </div>
   <div class="label text-lg"><%= participants_count %></div>
-  <%#= REDESIGN_DETAILS: a link and a route to last_activity inside the space should be added? %>
 </div>
 
-<%#= REDESIGN_PENDING: user_activity requires a proper modal to make it work %>
 <div class="space-y-4">
   <%= cell "decidim/activities", activities_query.limit(6), hide_participatory_space: %>
 </div>
