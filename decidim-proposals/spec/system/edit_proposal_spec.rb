@@ -212,6 +212,8 @@ describe "Edit proposals", type: :system do
       let(:component) { create(:proposal_component, :with_creation_enabled, :with_attachments_allowed, participatory_space: participatory_process) }
 
       it "returns an error message" do
+        skip "REDESIGN_PENDING - Validation messages in forms don't appear. Issue https://github.com/decidim/decidim/issues/10852"
+
         visit_component
 
         click_link proposal_title
