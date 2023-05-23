@@ -113,7 +113,7 @@ describe "Collaborative drafts", type: :system do
           it "allows returning to the index" do
             click_link "Back to collaborative drafts"
 
-            expect(page).to have_content("0 COLLABORATIVE DRAFTS")
+            expect(page).to have_content("0 collaborative drafts")
           end
         end
 
@@ -332,7 +332,7 @@ describe "Collaborative drafts", type: :system do
               fill_in :collaborative_draft_body, with: "This is my collaborative draft and I want to upload attachments."
             end
 
-            dynamically_attach_file(:collaborative_draft_documents, Decidim::Dev.asset("city.jpeg"), { title: "My attachment" })
+            dynamically_attach_file(:collaborative_draft_documents, Decidim::Dev.asset("city.jpeg"), title: "My attachment", front_interface: true)
 
             within ".new_collaborative_draft" do
               find("*[type=submit]").click
