@@ -225,6 +225,8 @@ shared_examples "manage proposals" do
           end
 
           it "creates a new proposal with attachments" do
+            skip "REDESIGN_PENDING - This test should be fixed in https://github.com/decidim/decidim/pull/10555"
+
             click_link "New proposal"
 
             within ".new_proposal" do
