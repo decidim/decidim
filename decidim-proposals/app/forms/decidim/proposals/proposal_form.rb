@@ -18,7 +18,6 @@ module Decidim
       attribute :attachment, AttachmentForm
       attribute :suggested_hashtags, Array[String]
 
-      attachments_attribute :photos
       attachments_attribute :documents
 
       validates :address, geocoding: true, if: ->(form) { form.has_address? && !form.geocoded? }
@@ -39,11 +38,7 @@ module Decidim
         # has to be manually mapped.
         self.scope_id = model.scope.id if model.scope
 
-        # Proposals have the "photos" field reserved for the proposal card image
-        # so we do not want to show all photos there. Instead, only show the
-        # first photo.
-        self.photos = [model.photo].compact.select { |p| p.weight.zero? }
-        self.documents = model.attachments - photos
+        self.documents = model.attachments
       end
 
       # Finds the Category from the category_id.
@@ -102,15 +97,11 @@ module Decidim
 
       private
 
-      # This method will add an error to the `add_photos` and/or "add_documents" fields
-      # only if there's any error in any other field. This is needed because when the
-      # form has an error, the attachment is lost, so we need a way to inform the user of
-      # this problem.
+      # This method will add an error to the "add_documents" field only if there's any error
+      # in any other field. This is needed because when the form has an error, the attachment
+      # is lost, so we need a way to inform the user of this problem.
       def notify_missing_attachment_if_errored
-        if errors.any?
-          errors.add(:add_photos, :needs_to_be_reattached) if add_photos.present?
-          errors.add(:add_documents, :needs_to_be_reattached) if add_documents.present?
-        end
+        errors.add(:add_documents, :needs_to_be_reattached) if errors.any? && add_documents.present?
       end
 
       def ordered_hashtag_list(string)
