@@ -247,6 +247,9 @@ const initializer = (element = document) => {
       })
     });
 
+    // attach all modals to the body, removing them from wherever are placed
+    document.body.appendChild(modal.dialog)
+
     // in order to use the Dialog object somewhere else
     window.Decidim.currentDialogs = { ...window.Decidim.currentDialogs, [dialog]: modal }
 
