@@ -11,8 +11,7 @@
     </div>
 
     <div class="row column">
-      <%= form.label :partner_type %>
-      <%= select :conference_partner, :partner_type, @form.types, include_blank: false %>
+     <%= form.select :partner_type, @form.types, { multiple: false, prompt: "" } %>
     </div>
 
     <div class="row column">
