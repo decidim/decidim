@@ -331,7 +331,7 @@ de:
           success: Die Komponente wurde erfolgreich veröffentlicht.
         title: Komponenten
         unpublish:
-          success: Die Komponente wurde erfolgreich veröffentlicht.
+          success: Die Veröffentlichung der Komponente wurde erfolgreich zurückgezogen.
         update:
           error: Beim Aktualisieren dieser Komponente ist ein Fehler aufgetreten.
           success: Die Komponente wurde erfolgreich aktualisiert.
