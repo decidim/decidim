@@ -337,6 +337,7 @@ pt-BR:
       calendar_modal:
         calendar_url: URL do calendário
         close_window: Janela fechada
+        copy_calendar_url_explanation: Por favor, note que você está exportando uma coletânea de reuniões, enquanto existem filtros ativos. Se você deseja exportar todas elas, redefina todos os filtros primeiro.
         export_calendar: Calendário de exportação
       conference_venues: Locais de conferência
       content_blocks:
