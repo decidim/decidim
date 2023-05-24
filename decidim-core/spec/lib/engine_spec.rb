@@ -4,12 +4,14 @@ require "spec_helper"
 
 module Decidim::Core
   describe Engine do
+    it_behaves_like "clean engine"
+
     describe "initializers" do
       let(:initializer_name) { nil }
       let(:initializer) { described_class.initializers.find { |i| i.name == initializer_name } }
 
-      context "when running the 'SSL and HSTS' initializer" do
-        let(:initializer_name) { "SSL and HSTS" }
+      context "when running the 'decidim_core.ssl_and_hsts' initializer" do
+        let(:initializer_name) { "decidim_core.ssl_and_hsts" }
 
         before do
           allow(Decidim.config).to receive(:force_ssl).and_return(decidim_force_ssl)
@@ -37,8 +39,8 @@ module Decidim::Core
         end
       end
 
-      context "when running the 'Expire sessions' initializer" do
-        let(:initializer_name) { "Expire sessions" }
+      context "when running the 'decidim_core.expire_sessions' initializer" do
+        let(:initializer_name) { "decidim_core.expire_sessions" }
         let(:decidim_force_ssl) { false }
         let(:decidim_expire_session_after) { 30.minutes }
 
@@ -88,7 +90,7 @@ module Decidim::Core
       end
     end
 
-    describe "decidim.authorization_transfer" do
+    describe "decidim_core.authorization_transfer" do
       include_context "authorization transfer"
 
       let(:component) { create(:component, organization:) }

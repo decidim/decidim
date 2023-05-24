@@ -3,6 +3,8 @@
 require "spec_helper"
 
 describe Decidim::Initiatives::Engine do
+  it_behaves_like "clean engine"
+
   it "loads engine mailer previews" do
     expect(ActionMailer::Preview.all).to include(Decidim::Initiatives::InitiativesMailerPreview)
   end

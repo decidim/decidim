@@ -333,7 +333,7 @@ describe "Explore results", versioning: true, type: :system do
       it "shows related meetings" do
         meetings.each do |meeting|
           expect(page).to have_i18n_content(meeting.title)
-          expect(page).to have_i18n_content(meeting.description)
+          expect(page).to have_i18n_content(meeting.description, strip_tags: true)
         end
       end
 
