@@ -34,7 +34,7 @@ Note that content blocks need to be registered from an initializer. If you are a
 module Decidim::MyModule::Engine < ::Rails::Engine
   # ...
 
-  initializer "decidim.my_module.content_blocks" do
+  initializer "decidim_my_module.content_blocks" do
     Decidim.content_blocks.register(:homepage, :my_content_block) do |content_block|
       # ...
     end

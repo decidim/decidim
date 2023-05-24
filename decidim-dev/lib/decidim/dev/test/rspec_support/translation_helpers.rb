@@ -25,7 +25,7 @@ module TranslationHelpers
   # field - the field that holds the translations
   # upcase - a boolean to indicate whether the string must be checked upcased or not.
   def have_i18n_content(field, upcase: false, strip_tags: false)
-    have_content(i18n_content(field, upcase:, strip_tags:))
+    have_content(i18n_content(field, upcase:, strip_tags:).strip)
   end
 
   # Checks that the current page does not have some translated content. It strips

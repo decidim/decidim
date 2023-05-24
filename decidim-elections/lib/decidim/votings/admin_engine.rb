@@ -70,7 +70,7 @@ module Decidim
         end
       end
 
-      initializer "decidim_votings.admin_menu" do
+      initializer "decidim_votings_admin.menu" do
         Decidim.menu :admin_menu do |menu|
           menu.add_item :votings,
                         I18n.t("menu.votings", scope: "decidim.votings.admin"),
@@ -82,7 +82,7 @@ module Decidim
         end
       end
 
-      initializer "decidim_votings.admin_votings_components_menu" do
+      initializer "decidim_votings_admin.votings_components_menu" do
         Decidim.menu :admin_votings_components_menu do |menu|
           current_participatory_space.components.each do |component|
             caption = translated_attribute(component.name)
@@ -99,7 +99,7 @@ module Decidim
         end
       end
 
-      initializer "decidim_votings.decidim_votings_attachments_menu" do
+      initializer "decidim_votings_admin.attachments_menu" do
         Decidim.menu :decidim_votings_attachments_menu do |menu|
           menu.add_item :voting_attachment_collections,
                         I18n.t("attachment_collections", scope: "decidim.votings.admin.menu.votings_submenu"),
@@ -115,7 +115,7 @@ module Decidim
         end
       end
 
-      initializer "decidim_votings.decidim_votings_monitoring_committee_menu" do
+      initializer "decidim_votings_admin.monitoring_committee_menu" do
         Decidim.menu :decidim_votings_monitoring_committee_menu do |menu|
           menu.add_item :voting_monitoring_committee_members,
                         I18n.t("monitoring_committee_members", scope: "decidim.votings.admin.menu.votings_submenu"),
@@ -140,7 +140,7 @@ module Decidim
         end
       end
 
-      initializer "decidim_votings.decidim_voting_menu" do
+      initializer "decidim_votings_admin.voting_menu" do
         Decidim.menu :admin_voting_menu do |menu|
           menu.add_item :edit_voting,
                         I18n.t("info", scope: "decidim.votings.admin.menu.votings_submenu"),
