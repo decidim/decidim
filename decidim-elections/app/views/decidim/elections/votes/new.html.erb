@@ -8,6 +8,7 @@
 
 <%= render layout: "layouts/decidim/shared/layout_center" do %>
   <div id="vote-wrapper"
+    data-preview-mode="<%= preview_mode? %>"
     data-election-id="<%== election.id %>"
     data-api-endpoint-url="<%== bulletin_board_server %>"
     data-authority-public-key="<%= authority_public_key %>"
