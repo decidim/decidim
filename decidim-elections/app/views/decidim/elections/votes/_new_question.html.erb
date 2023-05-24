@@ -1,6 +1,6 @@
 <div id="<%= dom_id(question) %>" class="election-question__container" data-max-selection="<%= question.max_selections %>" data-min-selection="<%= question.min_selections %>">
   <% ordered_answers(question).each do |answer| %>
-    <%= label_tag nil, data: { "disabled-by": "#check-nota" }, class: "election-question" do %>
+    <%= label_tag nil, data: { "disabled-by": "check-nota" }, class: "election-question" do %>
       <% if question.max_selections == 1 %>
         <%= radio_button_tag question.slug, answer.slug, false, class: "answer_input" %>
       <% else %>

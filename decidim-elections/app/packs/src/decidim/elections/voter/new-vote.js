@@ -15,18 +15,20 @@ $(async () => {
     // Use the questions component
     const questionsComponent = new VoteQuestionsComponent($voteWrapper);
     questionsComponent.init();
-    // $(document).on("on.zf.toggler", () => {
-    //   // continue and back btn
-    //   questionsComponent.init();
-    // });
+
+    // Activates the events associated to the forms after show a new step
+    $(document).on("on:toggle", () => questionsComponent.init());
 
     // Get the vote component and bind it to all UI events
     const voteComponent = setupVoteComponent($voteWrapper);
+
     await voteComponent.bindEvents({
       onBindEncryptButton(onEventTriggered) {
         $(".button.confirm").on("click", onEventTriggered);
       },
-      onStart() {},
+      onStart() {
+        console.log("start");
+      },
       onVoteEncryption(validVoteFn) {
         const getFormData = (formData) => {
           return formData.serializeArray().reduce((acc, { name, value }) => {
@@ -41,9 +43,9 @@ $(async () => {
         validVoteFn(formData, ballotStyleId);
       },
       castOrAuditBallot({ encryptedData, encryptedDataHash }) {
-        $voteWrapper.find("#encrypting").attr("hidden", true);
+        $voteWrapper.find("#step-encrypting").attr("hidden", true);
         $ballotHash.text(encryptedDataHash);
-        $voteWrapper.find("#ballot_decision").attr("hidden", false);
+        $voteWrapper.find("#step-ballot_decision").attr("hidden", false);
 
         const $form = $("form.new_vote");
         $("#vote_encrypted_data", $form).val(encryptedData);

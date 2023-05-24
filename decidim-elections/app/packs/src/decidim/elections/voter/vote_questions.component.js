@@ -29,11 +29,18 @@ export default class VoteQuestionsComponent {
   setCurrentStep() {
     this.$currentStep = this.$voteWrapper.find('[id^="step"]:not([hidden])')
     this.$confirmButton = this.$currentStep.find('[id^="next"]');
+
     this.setSelections();
     this.onSelectionChange();
+    this.updateWizardSteps(this.$currentStep.attr("id"));
   }
 
   toggleContinueButton() {
+    // ignore the button if the step is not a question
+    if (!this.isQuestion(this.$currentStep.attr("id"))) {
+      return
+    }
+
     if (this.checkAnswers()) {
       // next step enabled
       this.$confirmButton.attr("disabled", false)
@@ -68,14 +75,16 @@ export default class VoteQuestionsComponent {
       let checkId = $(event.target).attr("id");
       let checkStatus = event.target.checked;
 
-      this.$currentStep.find(`[data-disabled-by='#${checkId}']`).each((_index, element) => {
+      this.$currentStep.find(`[data-disabled-by='${checkId}']`).each((_index, element) => {
+        const $checkbox = $(element).find("input[type=checkbox]")
+
         if (checkStatus) {
-          $(element).addClass("is-disabled");
-          $(element).find("input[type=checkbox]").prop("checked", false);
-          $(element).find("input[type=checkbox]").attr("aria-disabled", "");
+          $checkbox.prop("disabled", true);
+          $checkbox.prop("checked", false);
+          $(element).attr("aria-disabled", true);
         } else {
-          $(element).removeClass("is-disabled");
-          $(element).find("input[type=checkbox]").removeAttr("aria-disabled");
+          $checkbox.prop("disabled", false);
+          $(element).removeAttr("aria-disabled");
         }
       });
     });
@@ -92,6 +101,40 @@ export default class VoteQuestionsComponent {
       this.toggleConfirmAnswers();
       this.answerCounter();
     });
+  }
+
+  updateWizardSteps(id) {
+    const wizard = document.getElementById("wizard-steps")
+
+    // this step has no heading 🤷‍♀️
+    if (id === "step-encrypting") {
+      document.getElementById("heading").hidden = true
+
+      return
+    }
+
+    document.getElementById("heading").hidden = false
+
+    if (wizard) {
+      let selector = id
+
+      if (this.isQuestion(id)) {
+        selector = "step-election"
+      }
+
+      wizard.querySelectorAll("[data-step]").forEach((element) => {
+        if (element.dataset.step === selector) {
+          element.setAttribute("aria-current", "step")
+        } else {
+          element.removeAttribute("aria-current")
+        }
+      })
+    }
+  }
+
+  // the question ids always end with a number
+  isQuestion(id) {
+    return (/[0-9]+$/).test(id);
   }
 
   // receive confirmed answers

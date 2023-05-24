@@ -18,13 +18,19 @@
     data-ballot-style-id="<%== ballot_style_id %>"
     <% end %>>
 
-    <div class="flex justify-center">
-      <h1 class="h1 decorator my-12">
-        <%= t("vote_for", scope: "decidim.elections.votes.header", title: translated_attribute(election.title) ) %>
-      </h1>
-    </div>
+    <div id="heading">
+      <div class="flex justify-center">
+        <h1 class="h1 decorator my-12">
+          <%= t("vote_for", scope: "decidim.elections.votes.header", title: translated_attribute(election.title) ) %>
+        </h1>
+      </div>
 
-    <%= wizard_steps(@step) %>
+      <ol id="wizard-steps" class="wizard-steps">
+        <% ["register", "election", "confirm", "ballot_decision"].each_with_index do |wizard_step, i| %>
+          <li data-step="step-<%= wizard_step %>" <%= "aria-current=step" if i.zero? %>><%= t(wizard_step, scope: "decidim.elections.votes.header") %></li>
+        <% end %>
+      </ol>
+    </div>
 
     <% questions.each_with_index do |step_question, step_index| %>
       <div id="step-<%= step_index %>" <%= "hidden" unless step_index.zero? %>>
@@ -65,18 +71,18 @@
       </div>
     <% end %>
 
-    <div id="confirm" hidden>
+    <div id="step-confirm" hidden>
       <%= render(
         "new_confirm_step",
         questions:
       ) %>
     </div>
 
-    <div id="encrypting" hidden>
+    <div id="step-encrypting" hidden>
       <%= render("new_encrypting_step") %>
     </div>
 
-    <div id="ballot_decision" hidden>
+    <div id="step-ballot_decision" hidden>
       <%= render("new_ballot_decision_step") %>
     </div>
   </div>

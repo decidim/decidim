@@ -47,7 +47,7 @@
     class: "button button__sm md:button__lg button__transparent-secondary",
     id: "back-step-#{questions_count - 1}",
     data: {
-      toggle: ["step-#{questions_count - 1}", "confirm"].join(" ")
+      toggle: ["step-#{questions_count - 1}", "step-confirm"].join(" ")
     }
   ) %>
 
@@ -56,7 +56,7 @@
     type: "button",
     id: "next-encrypting",
     data: {
-      toggle: ["encrypting", "confirm"].join(" ")
+      toggle: ["step-encrypting", "step-confirm"].join(" ")
     },
   ) do %>
     <span><%= t("decidim.elections.votes.confirm.confirm") %></span>

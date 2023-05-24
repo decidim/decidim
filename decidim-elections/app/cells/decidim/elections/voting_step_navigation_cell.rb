@@ -31,7 +31,7 @@ module Decidim
       end
 
       def next_step_dom_id
-        last_step? ? "confirm" : "step-#{current_step_index + 1}"
+        last_step? ? "step-confirm" : "step-#{current_step_index + 1}"
       end
 
       def current_step_dom_id

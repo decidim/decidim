@@ -82,6 +82,10 @@
 .election-question{
   @apply block rounded p-4 border-4 border-background flex items-center text-lg text-gray-2 hover:border-tertiary focus:border-tertiary cursor-pointer;
 
+  &[aria-disabled="true"]{
+    @apply text-gray cursor-not-allowed hover:border-background focus:border-background;
+  }
+
   &__counter{
     @apply font-semibold text-black text-lg bg-tertiary inline-block;
   }
