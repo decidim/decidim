@@ -105,7 +105,7 @@ de:
         initiatives:
           fields:
             created_at: Hergestellt in
-            id: ICH WÜRDE
+            id: ID
             published_at: Veröffentlicht am
             state: Zustand
             supports_count: Unterschriften
