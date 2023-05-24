@@ -25,12 +25,12 @@ const updateActiveUploads = (modal) => {
   // divide the items between those'll gonna be removed, and added
   const [removeFiles, addFiles] = [modal.items.filter(({ removable }) => removable), modal.items.filter(({ removable }) => !removable)]
 
-  addFiles.forEach((file) => {
+  addFiles.forEach((file, ix) => {
     let title = truncateFilename(file.name, 19)
 
     let hidden = `<input type="hidden" name="${file.hiddenField.name}" value="${file.hiddenField.value}" />`
     if (modal.options.titled) {
-      const value = modal.modal.querySelector('input[type="text"]').value
+      const value = modal.modal.querySelectorAll('input[type="text"]')[ix].value
       title = `${value} (${truncateFilename(file.name)})`
       hidden += `<input type="hidden" name="${file.hiddenTitle.name}" value="${value}" />`
     }
