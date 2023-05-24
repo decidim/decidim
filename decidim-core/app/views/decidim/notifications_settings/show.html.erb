@@ -8,8 +8,8 @@
       <p>
         <%= t("receive_notifications_about", scope:"decidim.notifications_settings.show") %>
       </p>
-      <div class="cookies__category-trigger">
-        <label for="dc-<%= :notifications_from_own_activity %>" class="cookies__category-toggle">
+      <div class="toggle__switch-trigger">
+        <label for="dc-<%= :notifications_from_own_activity %>" class="toggle__switch-toggle">
           <input
             <%= %(checked="checked") if :notifications_from_own_activity %>
             id="dc-<%= :notifications_from_own_activity %>"
@@ -17,17 +17,17 @@
             name="<%= :notifications_from_own_activity %>"
           >
           <span class="sr-only"></span>
-          <span class="cookies__category-toggle-content">
+          <span class="toggle__switch-toggle-content">
           </span>
-          <%= icon "check-line", class: "cookies__category-toggle-icon" %>
-          <%= icon "close-line", class: "cookies__category-toggle-icon" %>
+          <%= icon "check-line", class: "toggle__switch-toggle-icon" %>
+          <%= icon "close-line", class: "toggle__switch-toggle-icon" %>
         </label>
-        <h3 class="cookies__category-trigger-title">
+        <h3 class="toggle__switch-trigger-title">
           <%= t("own_activity", scope:"decidim.notifications_settings.show") %>
         </h3>
       </div>
-      <div class="cookies__category-trigger">
-        <label for="dc-<%= :notifications_from_followed %>" class="cookies__category-toggle">
+      <div class="toggle__switch-trigger">
+        <label for="dc-<%= :notifications_from_followed %>" class="toggle__switch-toggle">
           <input
             <%= %(checked="checked") if :notifications_from_followed %>
             id="dc-<%= :notifications_from_followed %>"
@@ -35,24 +35,26 @@
             name="<%= :notifications_from_followed %>"
           >
           <span class="sr-only"></span>
-          <span class="cookies__category-toggle-content">
+          <span class="toggle__switch-toggle-content">
           </span>
-          <%= icon "check-line", class: "cookies__category-toggle-icon" %>
-          <%= icon "close-line", class: "cookies__category-toggle-icon" %>
+          <%= icon "check-line", class: "toggle__switch-toggle-icon" %>
+          <%= icon "close-line", class: "toggle__switch-toggle-icon" %>
         </label>
-        <h3 class="cookies__category-trigger-title">
+        <h3 class="toggle__switch-trigger-title">
           <%= t("everything_followed", scope:"decidim.notifications_settings.show") %>
         </h3>
       </div>
       <p>
         <%= t("notifications_sending_frequency", scope:"decidim.notifications_settings.show") %>
       </p>
+      <div class="grid grid-cols-4">
       <%= f.collection_radio_buttons :notifications_sending_frequency, frequencies_collection, :first, :last, { checked: @notifications_settings.notifications_sending_frequency || "daily" } %>
+      </div>
       <p>
         <%= t("newsletters", scope:"decidim.notifications_settings.show") %>
       </p>
-      <div class="cookies__category-trigger">
-        <label for="dc-<%= :newsletter_notifications %>" class="cookies__category-toggle">
+      <div class="toggle__switch-trigger">
+        <label for="dc-<%= :newsletter_notifications %>" class="toggle__switch-toggle">
           <input
             <%= %(checked="checked") if :newsletter_notifications %>
             id="dc-<%= :newsletter_notifications %>"
@@ -60,20 +62,20 @@
             name="<%= :newsletter_notifications %>"
           >
           <span class="sr-only"></span>
-          <span class="cookies__category-toggle-content">
+          <span class="toggle__switch-toggle-content">
           </span>
-          <%= icon "check-line", class: "cookies__category-toggle-icon" %>
-          <%= icon "close-line", class: "cookies__category-toggle-icon" %>
+          <%= icon "check-line", class: "toggle__switch-toggle-icon" %>
+          <%= icon "close-line", class: "toggle__switch-toggle-icon" %>
         </label>
-        <h3 class="cookies__category-trigger-title">
+        <h3 class="toggle__switch-trigger-title">
           <%= t("newsletter_notifications", scope:"decidim.notifications_settings.show") %>
         </h3>
       </div>
       <p>
         <%= t("direct_messages", scope:"decidim.notifications_settings.show") %>
       </p>
-      <div class="cookies__category-trigger">
-        <label for="dc-<%= :allow_public_contact %>" class="cookies__category-toggle">
+      <div class="toggle__switch-trigger">
+        <label for="dc-<%= :allow_public_contact %>" class="toggle__switch-toggle">
           <input
             <%= %(checked="checked") if :allow_public_contact %>
             id="dc-<%= :allow_public_contact %>"
@@ -81,12 +83,12 @@
             name="<%= :allow_public_contact %>"
           >
           <span class="sr-only"></span>
-          <span class="cookies__category-toggle-content">
+          <span class="toggle__switch-toggle-content">
           </span>
-          <%= icon "check-line", class: "cookies__category-toggle-icon" %>
-          <%= icon "close-line", class: "cookies__category-toggle-icon" %>
+          <%= icon "check-line", class: "toggle__switch-toggle-icon" %>
+          <%= icon "close-line", class: "toggle__switch-toggle-icon" %>
         </label>
-        <h3 class="cookies__category-trigger-title">
+        <h3 class="toggle__switch-trigger-title">
           <%= t("allow_public_contact", scope:"decidim.notifications_settings.show") %>
         </h3>
       </div>
@@ -95,8 +97,8 @@
         <p>
           <%= t("administrators", scope:"decidim.notifications_settings.show") %>
         </p>
-        <div class="cookies__category-trigger">
-        <label for="dc-<%= :email_on_moderations %>" class="cookies__category-toggle">
+        <div class="toggle__switch-trigger">
+        <label for="dc-<%= :email_on_moderations %>" class="toggle__switch-toggle">
           <input
             <%= %(checked="checked") if :email_on_moderations %>
             id="dc-<%= :email_on_moderations %>"
@@ -104,12 +106,12 @@
             name="<%= :email_on_moderations %>"
           >
           <span class="sr-only"></span>
-          <span class="cookies__category-toggle-content">
+          <span class="toggle__switch-toggle-content">
           </span>
-          <%= icon "check-line", class: "cookies__category-toggle-icon" %>
-          <%= icon "close-line", class: "cookies__category-toggle-icon" %>
+          <%= icon "check-line", class: "toggle__switch-toggle-icon" %>
+          <%= icon "close-line", class: "toggle__switch-toggle-icon" %>
         </label>
-        <h3 class="cookies__category-trigger-title">
+        <h3 class="toggle__switch-trigger-title">
           <%= t("email_on_moderations", scope:"decidim.notifications_settings.show") %>
         </h3>
       </div>
@@ -138,8 +140,8 @@
           <p id="push-notifications-reminder" class="push-notifications__reminder">
             <%= t("push_notifications_reminder", scope:"decidim.notifications_settings.show") %>
           </p>
-          <div class="cookies__category-trigger">
-            <label for="dc-<%= :allow_push_notifications %>" class="cookies__category-toggle">
+          <div class="toggle__switch-trigger">
+            <label for="dc-<%= :allow_push_notifications %>" class="toggle__switch-toggle">
               <input
                 <%= %(checked="checked") if :allow_push_notifications %>
                 id="dc-<%= :allow_push_notifications %>"
@@ -147,12 +149,12 @@
                 name="<%= :allow_push_notifications %>"
               >
               <span class="sr-only"></span>
-              <span class="cookies__category-toggle-content">
+              <span class="toggle__switch-toggle-content">
               </span>
-              <%= icon "check-line", class: "cookies__category-toggle-icon" %>
-              <%= icon "close-line", class: "cookies__category-toggle-icon" %>
+              <%= icon "check-line", class: "toggle__switch-toggle-icon" %>
+              <%= icon "close-line", class: "toggle__switch-toggle-icon" %>
             </label>
-            <h3 class="cookies__category-trigger-title">
+            <h3 class="toggle__switch-trigger-title">
               <%= t("allow_push_notifications", scope:"decidim.notifications_settings.show") %>
             </h3>
           </div>
