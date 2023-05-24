@@ -533,7 +533,6 @@ describe "Initiative", type: :system do
           find_button("I want to promote this initiative").click
           fill_in "Title", with: translated(initiative.title, locale: :en)
           fill_in "initiative_description", with: translated(initiative.description, locale: :en)
-          select(translated(initiative_type_scope.scope.name, locale: :en), from: "Scope")
           find_button("Continue").click
         end
 
@@ -580,17 +579,6 @@ describe "Initiative", type: :system do
           end
         end
 
-        context "when the scope is not selected" do
-          it "shows an error" do
-            find_button("I want to promote this initiative").click
-            fill_in "Title", with: translated(initiative.title, locale: :en)
-            fill_in "initiative_description", with: translated(initiative.description, locale: :en)
-            find_button("Continue").click
-
-            expect_blank_field_validation_message("#initiative_scope_id", type: :select)
-          end
-        end
-
         context "when there is only one initiative type" do
           let!(:other_initiative_type) { nil }
           let!(:other_initiative_type_scope) { nil }
@@ -598,7 +586,6 @@ describe "Initiative", type: :system do
           before do
             fill_in "Title", with: translated(initiative.title, locale: :en)
             fill_in "initiative_description", with: translated(initiative.description, locale: :en)
-            select(translated(initiative_type_scope.scope.name, locale: :en), from: "Scope")
             find_button("Continue").click
           end
 
@@ -618,7 +605,6 @@ describe "Initiative", type: :system do
             find_button("I want to promote this initiative").click
             fill_in "Title", with: translated(initiative.title, locale: :en)
             fill_in "initiative_description", with: translated(initiative.description, locale: :en)
-            select(translated(initiative_type_scope.scope.name, locale: :en), from: "Scope")
             find_button("Continue").click
           end
 
@@ -701,7 +687,6 @@ describe "Initiative", type: :system do
 
           fill_in "Title", with: translated(initiative.title, locale: :en)
           fill_in "initiative_description", with: translated(initiative.description, locale: :en)
-          select(translated(initiative_type_scope.scope.name, locale: :en), from: "Scope")
           find_button("Continue").click
 
           select("Online", from: "Signature collection type")
@@ -755,7 +740,6 @@ describe "Initiative", type: :system do
 
           fill_in "Title", with: translated(initiative.title, locale: :en)
           fill_in "initiative_description", with: translated(initiative.description, locale: :en)
-          select(translated(initiative_type_scope.scope.name, locale: :en), from: "Scope")
           find_button("Continue").click
 
           select("Online", from: "Signature collection type")

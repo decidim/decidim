@@ -67,10 +67,7 @@ module Decidim
       end
 
       def scoped_type
-        InitiativesTypeScope.find_by(
-          type: form.type,
-          scope: form.scope
-        )
+        InitiativesTypeScope.find_by(type: form.type)
       end
 
       def signature_end_date

@@ -385,7 +385,6 @@ en:
           continue: Continue
           help: What does the initiative consist of? Write down the title and description. We recommend a short and concise title and a description focused on the proposed solution.
           more_information: "(More information)"
-          select_scope: Select a scope
         promotal_committee:
           back: Back
           individual_help_text: This kind of initiative requires a Promoting Commission consisting of at least %{committee_size} people (attestors). You must share the following link with the other people that are part of this initiative. When your contacts receive this link they will have to follow the indicated steps.

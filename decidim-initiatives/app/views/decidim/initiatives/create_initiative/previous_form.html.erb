@@ -30,17 +30,6 @@
             <%= text_editor_for(f, :description, lines: 8, toolbar: :content) %>
           </div>
 
-          <% if scopes.length == 1 %>
-            <%= f.hidden_field :scope_id, value: scopes.first.scope&.id %>
-          <% else %>
-            <div class="field">
-              <%= f.select :scope_id,
-                           scopes.map { |scope| [translated_attribute(scope.scope_name), scope&.scope&.id] },
-                           required: true,
-                           include_blank: t(".select_scope") %>
-            </div>
-          <% end %>
-
           <div class="actions">
             <%= f.submit t(".continue"), class: "button expanded" %>
           </div>

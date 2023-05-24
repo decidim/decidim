@@ -16,6 +16,7 @@ module Decidim
       attribute :state, String
       attribute :attachment, AttachmentForm
       attribute :hashtag, String
+      attribute :scope_id, Integer
 
       attachments_attribute :photos
       attachments_attribute :documents
@@ -24,6 +25,7 @@ module Decidim
       validates :area, presence: true, if: ->(form) { form.area_id.present? }
       validate :notify_missing_attachment_if_errored
       validate :trigger_attachment_errors
+      validate :scope_exists
       validates :signature_end_date, date: { after: Date.current }, if: lambda { |form|
         form.context.initiative_type.custom_signature_end_date_enabled? && form.signature_end_date.present?
       }
@@ -62,7 +64,31 @@ module Decidim
         type.scopes.find_by(decidim_scopes_id: scope_id.presence).id
       end
 
+      def scope
+        @scope ||= Scope.find(scope_id) if scope_id.present?
+      end
+
+      def scope_id
+        return nil if type.only_global_scope_enabled?
+
+        super.presence
+      end
+
+      def available_scopes
+        @available_scopes ||= if type.only_global_scope_enabled?
+                                type.scopes.where(scope: nil)
+                              else
+                                type.scopes
+                              end
+      end
+
       private
+
+      def scope_exists
+        return if scope_id.blank?
+
+        errors.add(:scope_id, :invalid) unless InitiativesTypeScope.exists?(type:, scope:)
+      end
 
       # This method will add an error to the `attachment` field only if there is
       # any error in any other field. This is needed because when the form has
