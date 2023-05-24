@@ -16,7 +16,7 @@ module Decidim
           organization.settings.tap do |settings|
             settings.upload.maximum_file_size.default = 5
           end
-          allow(subject.file.blob).to receive(:byte_size).and_return(6.megabytes)
+          allow(subject.file.blob).to receive(:byte_size).and_return(11.megabytes)
         end
 
         it { is_expected.not_to be_valid }
