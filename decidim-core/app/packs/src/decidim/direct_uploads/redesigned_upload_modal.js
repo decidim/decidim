@@ -132,7 +132,7 @@ export default class UploadModal {
       then((res) => res.arrayBuffer()).
       then((buffer) => {
         const file = new File([buffer], element.dataset.filename)
-        const item = this.createUploadItem(file, [], { value: 100 })
+        const item = this.createUploadItem(file, [], { ...element.dataset, value: 100 })
 
         this.items.push(file)
         this.uploadItems.appendChild(item);
@@ -192,7 +192,7 @@ export default class UploadModal {
         </div>
         <div>
           <label>${this.locales.title}</label>
-          <input class="sm" type="text" value="${truncateFilename(file.name)}" />
+          <input class="sm" type="text" value="${opts.title || truncateFilename(file.name)}" />
         </div>
       </div>
     `
