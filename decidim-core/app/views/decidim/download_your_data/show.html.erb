@@ -1,8 +1,14 @@
-<% add_decidim_page_title(t("my_data", scope: "layouts.decidim.user_profile")) %>
-<% content_for(:subtitle) { t("my_data", scope: "layouts.decidim.user_profile") } %>
+<%= render layout: "layouts/decidim/shared/layout_user_profile" do %>
+  <% add_decidim_page_title(t("my_data", scope: "layouts.decidim.user_profile")) %>
+  <% content_for(:subtitle) { t("my_data", scope: "layouts.decidim.user_profile") } %>
 
-<div class="download-your-data">
-  <strong><%= t(".download_data") %></strong>
-  <p><%= t(".download_data_description", user_email: current_user.email).html_safe %></p>
-  <%= button_to t(".request_data"), export_download_your_data_path, class: "button", data: { disable: true } %>
-</div>
+  <div class="download-your-data">
+    <strong>
+      <%= t("download_data", scope:"decidim.download_your_data.show") %>
+    </strong>
+    <p>
+      <%= t("download_data_description", scope:"decidim.download_your_data.show" , user_email: current_user.email).html_safe %>
+    </p>
+    <%= button_to t("request_data", scope:"decidim.download_your_data.show"), export_download_your_data_path, class: "button button__sm md:button__lg button__secondary", data: { disable: true } %>
+  </div>
+<% end %>
