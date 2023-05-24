@@ -38,18 +38,18 @@
 <% end %>
 
 <% if component_settings.attachments_allowed? && @proposal %>
-  <%= form.attachment :photos,
-    multiple: false,
-    label: t("decidim.proposals.proposals.edit.add_image"),
-    button_label: t("decidim.proposals.proposals.edit.add_image"),
-    button_edit_label: t("decidim.proposals.proposals.edit.edit_image"),
-    button_class: "button button__lg button__transparent-secondary w-full",
-    help_i18n_scope: "decidim.forms.file_help.image",
-    help_text: t("gallery_legend", scope: "decidim.proposals.proposals.edit"),
-    extension_allowlist: Decidim::OrganizationSettings.for(current_organization).upload_allowed_file_extensions_image %>
+  <%# <%= form.attachment :photos, %>
+  <%#   multiple: false, %>
+  <%#   label: t("decidim.proposals.proposals.edit.add_image"), %>
+  <%#   button_label: t("decidim.proposals.proposals.edit.add_image"), %>
+  <%#   button_edit_label: t("decidim.proposals.proposals.edit.edit_image"), %>
+  <%#   button_class: "button button__lg button__transparent-secondary w-full", %>
+  <%#   help_i18n_scope: "decidim.forms.file_help.image", %>
+  <%#   help_text: t("gallery_legend", scope: "decidim.proposals.proposals.edit"), %>
+  <%#   extension_allowlist: Decidim::OrganizationSettings.for(current_organization).upload_allowed_file_extensions_image %1> %>
 
   <%= form.attachment :documents,
-    multiple: false,
+    multiple: true,
     label: t("decidim.proposals.proposals.edit.add_documents"),
     button_label: t("decidim.proposals.proposals.edit.add_documents"),
     button_edit_label: t("decidim.proposals.proposals.edit.edit_documents"),
