@@ -12,6 +12,7 @@ module Decidim
 
         def register_model(klass, columns)
           if klass.is_a?(String)
+            # Guard clause for when the module has not added to the instance.
             return unless Object.const_defined?(klass)
 
             klass = Object.const_get(klass)
