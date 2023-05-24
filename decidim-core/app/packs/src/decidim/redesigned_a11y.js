@@ -3,14 +3,6 @@ import Dropdowns from "a11y-dropdown-component";
 import Dialogs from "a11y-dialog-component";
 import { screens } from "tailwindcss/defaultTheme"
 
-// REDESIGN_PENDING: perhaps it's not necessary
-window.Decidim = {
-  ...window.Decidim,
-  Accordions,
-  Dropdowns,
-  Dialogs
-};
-
 const createAccordion = (component) => {
   const accordionOptions = {};
   accordionOptions.isMultiSelectable = component.dataset.multiselectable !== "false";
