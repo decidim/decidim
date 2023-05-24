@@ -4,14 +4,14 @@
   <% content_for(:subtitle) { t("notifications_settings", scope: "layouts.decidim.user_profile") } %>
 
   <%= form_for(@notifications_settings, url: notifications_settings_path, method: :put, class: "user-form") do |f| %>
-    <div class="form__wrapper">
+    <div class="form__wrapper pt-0">
       <span class="text-lg font-semibold">
         <%= t("receive_notifications_about", scope:"decidim.notifications_settings.show") %>
       </span>
       <div class="toggle__switch-trigger">
         <label for="dc-<%= :notifications_from_own_activity %>" class="toggle__switch-toggle">
           <input
-            <%= %(checked="checked") if :notifications_from_own_activity %>
+            <%= %(checked="checked") if @notifications_settings.notifications_from_own_activity %>
             id="dc-<%= :notifications_from_own_activity %>"
             type="checkbox"
             name="<%= :notifications_from_own_activity %>"
@@ -29,7 +29,7 @@
       <div class="toggle__switch-trigger">
         <label for="dc-<%= :notifications_from_followed %>" class="toggle__switch-toggle">
           <input
-            <%= %(checked="checked") if :notifications_from_followed %>
+            <%= %(checked="checked") if @notifications_settings.notifications_from_followed %>
             id="dc-<%= :notifications_from_followed %>"
             type="checkbox"
             name="<%= :notifications_from_followed %>"
@@ -56,7 +56,7 @@
       <div class="toggle__switch-trigger">
         <label for="dc-<%= :newsletter_notifications %>" class="toggle__switch-toggle">
           <input
-            <%= %(checked="checked") if :newsletter_notifications %>
+            <%= %(checked="checked") if  @notifications_settings.newsletter_notifications %>
             id="dc-<%= :newsletter_notifications %>"
             type="checkbox"
             name="<%= :newsletter_notifications %>"
@@ -77,7 +77,7 @@
       <div class="toggle__switch-trigger">
         <label for="dc-<%= :allow_public_contact %>" class="toggle__switch-toggle">
           <input
-            <%= %(checked="checked") if :allow_public_contact %>
+            <%= %(checked="checked") if @notifications_settings.allow_public_contact %>
             id="dc-<%= :allow_public_contact %>"
             type="checkbox"
             name="<%= :allow_public_contact %>"
@@ -100,7 +100,7 @@
         <div class="toggle__switch-trigger">
         <label for="dc-<%= :email_on_moderations %>" class="toggle__switch-toggle">
           <input
-            <%= %(checked="checked") if :email_on_moderations %>
+            <%= %(checked="checked") if @notifications_settings.email_on_moderations %>
             id="dc-<%= :email_on_moderations %>"
             type="checkbox"
             name="<%= :email_on_moderations %>"
@@ -148,7 +148,7 @@
           <div class="toggle__switch-trigger">
             <label for="dc-<%= :allow_push_notifications %>" class="toggle__switch-toggle">
               <input
-                <%= %(checked="checked") if :allow_push_notifications %>
+                <%= %(checked="checked") if @notifications_settings.allow_push_notifications %>
                 id="dc-<%= :allow_push_notifications %>"
                 type="checkbox"
                 name="<%= :allow_push_notifications %>"
@@ -169,8 +169,8 @@
         <input id="subKeys" name="sub_key" type="hidden" value="<%= current_user.notifications_subscriptions.keys %>">
       <% end %>
 
-      <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
-        <%= f.submit t("update_notifications_settings", scope:"decidim.notifications_settings.show"), class: "button button__sm md:button__lg button__secondary" %>
+      <div class="form__wrapper-block">
+        <%= f.submit t("update_notifications_settings", scope:"decidim.notifications_settings.show"), class: "button button__sm md:button__lg button__secondary mr-auto !ml-0" %>
       </div>
     </div>
   <% end %>

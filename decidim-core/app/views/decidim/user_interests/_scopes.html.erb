@@ -1,18 +1,20 @@
 <% scopes.each do |scope| %>
   <div class="toggle__switch-trigger mb-4">
-    <label for="dc-<%= scope.id %>" class="toggle__switch-toggle">
-      <input
-        <%= %(checked="checked") if :notifications_from_own_activity %>
-        id="dc-<%= scope.id %>"
-        type="checkbox"
-        name="<%= scope.id %>"
-      >
-      <span class="sr-only"></span>
-      <span class="toggle__switch-toggle-content">
-      </span>
-      <%= icon "check-line", class: "toggle__switch-toggle-icon" %>
-      <%= icon "close-line", class: "toggle__switch-toggle-icon" %>
-    </label>
+    <%= f.fields_for "scopes[]", scope do |form| %>
+      <label for="dc-<%= scope.id %>" class="toggle__switch-toggle">
+        <input
+          <%= %(checked="checked") if scope.checked %>
+          id="dc-<%= scope.id %>"
+          type="checkbox"
+          name="<%= scope.id %>"
+        >
+        <span class="sr-only"></span>
+        <span class="toggle__switch-toggle-content">
+        </span>
+        <%= icon "check-line", class: "toggle__switch-toggle-icon" %>
+        <%= icon "close-line", class: "toggle__switch-toggle-icon" %>
+      </label>
+    <% end %>
     <span class="toggle__switch-trigger-text">
       <%= translated_attribute scope.name %>
     </span>
