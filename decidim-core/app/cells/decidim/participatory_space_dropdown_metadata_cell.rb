@@ -25,5 +25,11 @@ module Decidim
 
       @hashtag ||= decidim_html_escape(model.hashtag) if model.hashtag.present?
     end
+
+    def id
+      return "#{model.id}-mobile" if options[:mobile]
+
+      model.id
+    end
   end
 end

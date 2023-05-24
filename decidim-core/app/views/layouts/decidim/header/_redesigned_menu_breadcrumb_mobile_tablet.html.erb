@@ -23,6 +23,6 @@
 </div>
 <% if dropdown_item.present? %>
   <div id="secondary-dropdown-menu-mobile" aria-hidden="true">
-    <%= cell dropdown_item[:dropdown_cell], dropdown_item[:resource] %>
+    <%= cell dropdown_item[:dropdown_cell], dropdown_item[:resource], mobile: true %>
   </div>
 <% end %>
