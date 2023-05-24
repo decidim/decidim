@@ -25,25 +25,12 @@
         <%= f.text_area :delete_reason, rows: 2, label: false %>
       </div>
     </div>
-    <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
-      <button class="button button__sm md:button__lg button__secondary">
+    <div class="form__wrapper-block">
+      <button data-dialog-open="deleteAccount" class="button button__sm md:button__lg button__secondary mr-auto !ml-0">
         <%= t("title", scope:"decidim.account.delete.confirm") %>
       </button>
     </div>
   <% end %>
-  <div class="tiny reveal" id="deleteConfirm" data-reveal>
-    <%= decidim_form_for(@form, url: account_path, method: :delete, namespace: "delete_user_confirm", html: { class: "user-form delete-account-modal" }) do |f| %>
-      <%= f.hidden_field :delete_reason %>
 
-      <p>
-        <%= t("question", scope:"decidim.account.delete.confirm") %>
-      </p>
-
-      <input type="submit" class="button expanded" value="<%= t("ok", scope:"decidim.account.delete.confirm") %>">
-
-      <button class="close-button" data-close aria-label="<%= t("close", scope:"decidim.account.delete.confirm") %>" type="button">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    <% end %>
-  </div>
+  <%= render partial: "delete_modal" %>
 <% end %>
