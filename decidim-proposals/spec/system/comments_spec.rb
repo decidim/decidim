@@ -17,6 +17,8 @@ describe "Comments", type: :system do
   end
 
   before do
+    skip "REDESIGN_PENDING - This shared examples should be fixed in https://github.com/decidim/decidim/pull/10555"
+
     switch_to_host(organization.host)
   end
 

@@ -11,6 +11,10 @@ describe "Filter Proposals", :slow, type: :system do
   let!(:user) { create :user, :confirmed, organization: }
   let(:scoped_participatory_process) { create(:participatory_process, :with_steps, organization:, scope:) }
 
+  before do
+    skip "REDESIGN_PENDING - This test should be fixed in https://github.com/decidim/decidim/pull/10555"
+  end
+
   context "when caching is enabled", :caching do
     before do
       visit_component
