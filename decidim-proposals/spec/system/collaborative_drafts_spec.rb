@@ -48,10 +48,10 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
 
     describe "Renders collaborative drafts index" do
       it "shows Open Drafts by default" do
-        first ".card__text--paragraph" do
-          expect(page).to have_css(".success.card__text--status", text: "OPEN")
+        first ".card__list" do
+          expect(page).to have_css(".label.success", text: "Open")
         end
-        within ".filters" do
+        within "#dropdown-menu-filters" do
           expect(find(:css, "input[name='filter[with_any_state][]'][value='open']")).to be_checked
         end
       end
@@ -291,7 +291,7 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
               end
 
               it "shows a button to edit" do
-                expect(page).to have_css("#collaborative_draft_edit", text: "EDIT COLLABORATIVE DRAFT")
+                expect(page).to have_css("#collaborative_draft_edit", text: "Edit collaborative draft")
               end
 
               it "does not show the Collaboration Requests from other users" do
