@@ -3,6 +3,8 @@
 module Decidim
   module Upgrade
     class WysiwygMigrator
+      class UndefinedColumnError < StandardError; end
+
       class << self
         def model_registry
           @model_registry ||= []
@@ -15,6 +17,9 @@ module Decidim
             klass = Object.const_get(klass)
           end
 
+          columns.each do |col|
+            raise UndefinedColumnError, "#{klass} does not have column named '#{col}'." unless klass.column_names.include?(col.to_s)
+          end
           model_registry << { class: klass, columns: }
         end
 
