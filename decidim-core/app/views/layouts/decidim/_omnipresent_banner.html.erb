@@ -1,14 +1,12 @@
 <% if current_organization.enable_omnipresent_banner %>
-  <div class="omnipresent-banner">
-    <%= link_to current_organization.omnipresent_banner_url do %>
-      <span class="omnipresent-banner-title">
-        <%= translated_attribute current_organization.omnipresent_banner_title %>
-      </span>
-      -
-      <span class="omnipresent-banner-short-description">
-        <%= translated_attribute current_organization.omnipresent_banner_short_description %>
-      </span>
-      <%= icon "media-play", role: "img", "aria-hidden": true %>
-    <% end %>
-  </div>
+  <%= link_to current_organization.omnipresent_banner_url, class: "omnipresent-banner" do %>
+    <span>
+      <%= translated_attribute current_organization.omnipresent_banner_title %>
+    </span>
+    -
+    <span>
+      <%= translated_attribute current_organization.omnipresent_banner_short_description %>
+    </span>
+    <%= icon "play-fill" %>
+  <% end %>
 <% end %>
