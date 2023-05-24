@@ -21,6 +21,15 @@ docker-compose up
 
 One important caveat is that as the Trustees' key generation functionality uses the IndexedDB API, and at least in Firefox there is unsupported in the Private Browsing mode (see ticket [#1639542 in Mozilla's Bugzilla](https://bugzilla.mozilla.org/show_bug.cgi?id=1639542)). As a workaround there is the [Firefox Multi-Account Containers addon](https://addons.mozilla.org/es/firefox/addon/multi-account-containers/).
 
+## Testing
+
+Besides the [set-up typical for Decidim](https://docs.decidim.org/en/develop/develop/testing), for some of the specs a Bulletin Board installation is needed, running in port 5017 by default with the `DATABASE_CLEANER_ALLOW_REMOTE_DATABASE_URL` environment variable set up with the "true" string. There's a working configuration on `docs`.
+
+```bash
+cd docs/docker/bulletin_board_test
+docker-compose up
+```
+
 ## Installation
 
 Add this line to your application's Gemfile:
