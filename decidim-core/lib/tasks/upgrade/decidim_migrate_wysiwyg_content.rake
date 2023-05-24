@@ -74,11 +74,11 @@ namespace :decidim do
         Decidim::ContentBlock.where(scope_name: "static_page", manifest_name: "summary"),
         ["summary"]
       ) do |_klass, range|
-        puts "    #{range}"
+        log_info "    #{range}"
       end
 
-      puts ""
-      puts "Done!"
+      log_info ""
+      log_info "Done!"
     end
 
     private
