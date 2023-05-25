@@ -55,7 +55,8 @@ module Decidim
           published_at: Time.current
         )
 
-        content_block_summary.settings = { summary: localized_attribute(page.slug, :summary) }
+        translated_slug = I18n.t(page.slug, scope: "decidim.system.default_pages")
+        content_block_summary.settings = { summary: localized_attribute(translated_slug, :summary) }
         content_block_summary.save!
       end
     end
