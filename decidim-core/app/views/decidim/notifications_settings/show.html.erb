@@ -1,5 +1,4 @@
 <%= render layout: "layouts/decidim/shared/layout_user_profile" do %>
-
   <% add_decidim_page_title(t("notifications_settings", scope: "layouts.decidim.user_profile")) %>
   <% content_for(:subtitle) { t("notifications_settings", scope: "layouts.decidim.user_profile") } %>
 
@@ -44,11 +43,19 @@
           <%= t("everything_followed", scope:"decidim.notifications_settings.show") %>
         </span>
       </div>
-      <span class="text-lg font-semibold">
-        <%= t("notifications_sending_frequency", scope:"decidim.notifications_settings.show") %>
-      </span>
-      <div class="grid grid-cols-4">
-      <%= f.collection_radio_buttons :notifications_sending_frequency, frequencies_collection, :first, :last, { checked: @notifications_settings.notifications_sending_frequency || "daily" } %>
+      <div>
+        <span class="text-lg font-semibold">
+          <%= t("notifications_sending_frequency", scope:"decidim.notifications_settings.show") %>
+        </span>
+        <div class="flex items-center gap-x-6 mt-4">
+          <%= f.collection_radio_buttons:notifications_sending_frequency, frequencies_collection, :first, :last, { checked: @notifications_settings.notifications_sending_frequency || "daily" }, class: "flex items-center" do |b|
+          %>
+            <div>
+              <%= b.radio_button %>
+              <%= b.label :class => "!text-md !font-normal" %>
+            </div>
+          <% end %>
+        </div>
       </div>
       <span class="text-lg font-semibold">
         <%= t("newsletters", scope:"decidim.notifications_settings.show") %>

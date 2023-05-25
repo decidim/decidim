@@ -1,10 +1,10 @@
 <%= render layout: "layouts/decidim/shared/layout_user_profile" do %>
-    <%= alert_box("", "account-notification hide", true) %>
+    <%= alert_box("", "account-notification hidden", true) %>
     <% add_decidim_page_title(t("profile", scope: "layouts.decidim.user_menu")) %>
     <% content_for(:subtitle) { t("profile", scope: "layouts.decidim.user_menu") } %>
 
     <%= decidim_form_for(@account, url: account_path, method: :put, html: { autocomplete: "on", class: "form-defaults" }) do |f| %>
-      <div class="form__wrapper">
+      <div class="form__wrapper pt-0">
         <%= f.upload :avatar, button_class: "button button__lg button__transparent-secondary w-full" %>
 
         <% if current_user.unconfirmed_email.present? %>
@@ -38,7 +38,7 @@
               :to_s,
               ->(locale) {locale_name(locale) }
             ) %>
-        <p class="help-text">
+        <p class="help-text !-mt-8">
           <%= t("available_locales_helper", scope:"decidim.account.show") %>
         </p>
 
@@ -46,15 +46,15 @@
           <%= render partial: "password_fields", locals: { form: f } %>
         <% else %>
           <% if current_organization.sign_in_enabled? %>
-            <p class="help-text">
+            <span class="text-lg font-semibold">
               <%= t("change_password", scope:"decidim.account.show") %>
-            </p>
+            </span>
             <%= render partial: "password_fields", locals: { form: f } %>
           <% end %>
         <% end %>
 
         <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
-          <%= f.submit t("update_account", scope:"decidim.account.show"), class: "button button__sm md:button__lg button__secondary" %>
+          <%= f.submit t("update_account", scope:"decidim.account.show"), class: "button button__sm md:button__lg button__secondary mr-auto !ml-0" %>
         </div>
       </div>
     <% end %>

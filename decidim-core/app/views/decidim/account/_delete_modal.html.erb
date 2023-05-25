@@ -2,7 +2,7 @@
   <%= decidim_form_for(@form, url: account_path, method: :delete, namespace: "delete_user_confirm", html: { class: "user-form delete-account-modal" }) do |f| %>
     <%= f.hidden_field :delete_reason %>
     <div data-dialog-container>
-      <%= icon "check-double-line" %>
+      <%= icon "close-circle-line" %>
       <h3 class="h3" id="dialog-title-delete-account" data-dialog-title>
         <%= t("question", scope:"decidim.account.delete.confirm") %>
       </h3>
