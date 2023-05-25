@@ -1414,6 +1414,29 @@ eu:
   doorkeeper:
     scopes:
       public: Zure informazio publikoa.
+  editor:
+    extensions:
+      image:
+        altLabel: Testu alternatiboa irudiarentzat
+        nodeView:
+          resizer:
+            position:
+              bottomLeft: beheko ezker ertza
+      link:
+        bubbleMenu:
+          remove: Kendu
+          url: URL-a
+      videoEmbed:
+        titleLabel: Izenburua
+    inputDialog:
+      buttons:
+        cancel: Utzi
+    toolbar:
+      control:
+        heading: Testu estiloa
+        image: Irudia
+        italic: Italikoa
+        link: Esteka
   emojis:
     button: Gehitu emojia
     categories:
