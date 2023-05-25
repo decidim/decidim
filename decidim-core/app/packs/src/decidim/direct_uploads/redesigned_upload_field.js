@@ -19,6 +19,7 @@ const updateActiveUploads = (modal) => {
 
   const files = document.querySelector(`[data-active-uploads=${modal.modal.id}]`)
   const previousId = Array.from(files.querySelectorAll("[type=hidden]"))
+  const isMultiple = modal.options.multiple
 
   // fastest way to clean children nodes
   files.textContent = ""
@@ -32,11 +33,19 @@ const updateActiveUploads = (modal) => {
     let hidden = ""
     if (file.hiddenField) {
       // if there's hiddenField, this file is new
-      const fileField = `${modal.options.resourceName}[${modal.options.addAttribute}][${ix}][file]`
+      // eslint-disable-next-line no-ternary
+      const fileField = isMultiple
+        ? `${modal.options.resourceName}[${modal.options.addAttribute}][${ix}][file]`
+        : `${modal.options.resourceName}[${modal.options.addAttribute}]`
+
       hidden = `<input type="hidden" name="${fileField}" value="${file.hiddenField}" />`
     } else {
       // otherwise, we keep the attachmentId
-      const fileField = `${modal.options.resourceName}[${modal.options.addAttribute}][${ix}][id]`
+      // eslint-disable-next-line no-ternary
+      const fileField = isMultiple
+        ? `${modal.options.resourceName}[${modal.options.addAttribute}][${ix}][id]`
+        : `${modal.options.resourceName}[${modal.options.addAttribute}]`
+
       // convert all node attributes to string
       const attributes = Array.from(previousId.find(({ id }) => id === file.attachmentId).attributes).reduce((acc, { name, value }) => `${acc} ${name}="${value}"`, "")
       hidden = `<input ${attributes} />`
@@ -45,6 +54,7 @@ const updateActiveUploads = (modal) => {
 
     if (modal.options.titled) {
       const titleValue = modal.modal.querySelectorAll('input[type="text"]')[ix].value
+      // NOTE - Renaming the attachment is not supported when multiple uploader is disabled
       const titleField = `${modal.options.resourceName}[${modal.options.addAttribute}][${ix}][title]`
       hidden += `<input type="hidden" name="${titleField}" value="${titleValue}" />`
 
