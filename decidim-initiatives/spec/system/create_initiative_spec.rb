@@ -760,6 +760,30 @@ describe "Initiative", type: :system do
         end
       end
 
+      context "when the initiative is created by an user group" do
+        let(:organization) { create(:organization, available_authorizations: authorizations, user_groups_enabled: true) }
+        let(:initiative) { build(:initiative) }
+        let!(:user_group) { create(:user_group, :verified, organization:, users: [authorized_user]) }
+
+        before do
+          authorized_user.reload
+          find_button("I want to promote this initiative").click
+
+          fill_in "Title", with: translated(initiative.title, locale: :en)
+          fill_in "initiative_description", with: translated(initiative.description, locale: :en)
+          find_button("Continue").click
+
+          select("Online", from: "Signature collection type")
+          select(user_group.name, from: "Author")
+        end
+
+        it "shows the user group as author" do
+          expect(Decidim::Initiative.where(decidim_user_group_id: user_group.id).count).to eq(0)
+          find_button("Continue").click
+          expect(Decidim::Initiative.where(decidim_user_group_id: user_group.id).count).to eq(1)
+        end
+      end
+
       context "when finish" do
         let(:initiative) { build(:initiative) }
 
