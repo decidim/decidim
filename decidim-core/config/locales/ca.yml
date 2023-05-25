@@ -1737,6 +1737,43 @@ ca:
           remove: Esborrar
           url: URL
         hrefLabel: URL de l'enllaç
+        targetLabel: Insereix enllaç
+        targets:
+          blank: Nova pestanya
+          default: Per defecte (en la mateixa pestanya)
+      videoEmbed:
+        titleLabel: Títol
+        urlLabel: URL del vídeo
+    inputDialog:
+      buttons:
+        cancel: Cancel·lar
+        remove: Esborrar
+        save: Desar
+      close: Tancar la finestra
+    toolbar:
+      control:
+        blockquote: Cita
+        bold: Negreta
+        bulletList: Llista desordenada
+        codeBlock: Bloc de codi
+        common:
+          eraseStyles: Esborrar els estils
+        hardBreak: Salt de línia
+        heading: Estil del text
+        image: Imatge
+        indent:
+          indent: Aumenta la sagnia
+          outdent: Reduir la sagnia
+        italic: Cursiva
+        link: Enllaç
+        orderedList: Llista ordenada
+        underline: Subratllat
+        videoEmbed: Incrustar vídeo
+      textStyle:
+        heading: Encapçalament %level%
+        normal: Normal
+    upload:
+      uploadedFile: Fitxer carregat
   emojis:
     button: Afegir emoji
     categories:
