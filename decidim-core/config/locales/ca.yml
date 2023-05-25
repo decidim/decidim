@@ -1717,6 +1717,26 @@ ca:
   doorkeeper:
     scopes:
       public: La teva informació pública.
+  editor:
+    extensions:
+      image:
+        altLabel: Text alternatiu per la imatge
+        nodeView:
+          resizer:
+            control:
+              resize: Redimensionar la imatge (%position%)
+            position:
+              bottomLeft: cantonada inferior esquerra
+              bottomRight: cantonada inferior dreta
+              topLeft: cantonada superior esquerra
+              topRight: cantonada superior dreta
+        uploadError: No s'ha pogut pujar l'arxiu.
+      link:
+        bubbleMenu:
+          edit: Editar
+          remove: Esborrar
+          url: URL
+        hrefLabel: URL de l'enllaç
   emojis:
     button: Afegir emoji
     categories:
@@ -1767,6 +1787,7 @@ ca:
       too_many_marks: Estàs fent servir massa signes de puntuació consecutius (p. ex. i?)
       too_much_caps: Estàs utilitzant massa lletres majúscules (més del 25% del text)
       too_short: és massa curt (menys %{count} caràcters)
+      url_format: El format d'aquesta URL és incorrecte
   forms:
     correct_errors: Hi ha errors al formulari, si us plau corregeix-los per continuar.
     length_validator:
