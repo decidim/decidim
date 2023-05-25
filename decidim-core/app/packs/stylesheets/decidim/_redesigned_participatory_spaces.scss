@@ -72,6 +72,14 @@
   &__metadata{
     @apply flex flex-col md:flex-row items-start gap-8 md:gap-0;
 
+    &-grid{
+      @apply grid grid-cols-1 md:grid-cols-3 gap-y-8;
+    }
+
+    &-grid &-item{
+      @apply border-0 px-0;
+    }
+
     &-item{
       @apply md:px-10 first:pt-0 md:first:pl-0 last:pb-0 md:last:pr-0 border-0 md:border-l-2 md:first:border-l-0 border-background-3 font-semibold text-md text-gray-2;
 
