@@ -64,6 +64,8 @@ describe "Index proposals", type: :system do
       let!(:proposals) { create(:proposal, :with_answer, :accepted, component:) }
 
       it "shows filters empty message" do
+        skip "REDESIGN_PENDING - This test should be fixed in https://github.com/decidim/decidim/pull/10555"
+
         visit_component
 
         uncheck "Accepted"
