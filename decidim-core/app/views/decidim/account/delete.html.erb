@@ -18,12 +18,12 @@
   </p>
   <%= decidim_form_for(@form, url: account_path, method: :delete, namespace: "delete_user", html: { class: "form-defaults" }) do |f| %>
     <div class="form__wrapper">
-      <div>
+      <label>
         <span class="help-text">
           <%= t("activemodel.attributes.account.delete_reason") %>
         </span>
         <%= f.text_area :delete_reason, rows: 2, label: false %>
-      </div>
+      </label>
     </div>
     <div class="form__wrapper-block">
       <button type="button" data-dialog-open="delete-account" class="button button__sm md:button__lg button__secondary mr-auto !ml-0">
