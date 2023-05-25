@@ -122,6 +122,15 @@ describe "Admin manages newsletters", type: :system do
       expect(page).to have_content("Yay! Newsletter has been sent")
       expect(last_email.subject).to include("A fancy newsletter for")
     end
+
+    it "admin clicks on this index button and receives the test newsletter" do
+      visit decidim_admin.newsletters_path
+      perform_enqueued_jobs do
+        click_link "Send me a test email"
+      end
+      expect(page).to have_content("Yay! Newsletter has been sent")
+      expect(last_email.subject).to include("A fancy newsletter for")
+    end
   end
 
   describe "update newsletter" do
