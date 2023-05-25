@@ -1737,6 +1737,43 @@ es:
           remove: Borrar
           url: URL
         hrefLabel: URL del enlace
+        targetLabel: Insertar enlace
+        targets:
+          blank: Nueva pestaña
+          default: Por defecto (en la misma pestaña)
+      videoEmbed:
+        titleLabel: Título
+        urlLabel: URL del vídeo
+    inputDialog:
+      buttons:
+        cancel: Cancelar
+        remove: Borrar
+        save: Guardar
+      close: Cerrar la ventana
+    toolbar:
+      control:
+        blockquote: Cita
+        bold: Negrita
+        bulletList: Lista desordenada
+        codeBlock: Bloque de códigos
+        common:
+          eraseStyles: Borrar los estilos
+        hardBreak: Salto de línea
+        heading: Estilo de texto
+        image: Imagen
+        indent:
+          indent: Aumentar la sangria
+          outdent: Reduiir la sangria
+        italic: Cursiva
+        link: Enlace
+        orderedList: Lista ordenada
+        underline: Subrayado
+        videoEmbed: Incrustar vídeo
+      textStyle:
+        heading: Encabezado %level%
+        normal: Normal
+    upload:
+      uploadedFile: Archivo subido
   emojis:
     button: Añadir emoji
     categories:
