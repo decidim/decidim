@@ -119,7 +119,7 @@ describe "Admin manages newsletters", type: :system do
       perform_enqueued_jobs do
         click_link "Send me a test email"
       end
-      expect(page).to have_content("Yay! Newsletter has been sent to")
+      expect(page).to have_content("Yay! Newsletter has been sent")
       expect(last_email.subject).to include("A fancy newsletter for")
     end
   end
