@@ -103,8 +103,10 @@ module Decidim
       end
 
       initializer "decidim_debates.authorization_transfer" do
-        Decidim::AuthorizationTransfer.register(:debates) do |transfer|
-          transfer.move_records(Decidim::Debates::Debate, :decidim_author_id)
+        config.to_prepare do
+          Decidim::AuthorizationTransfer.register(:debates) do |transfer|
+            transfer.move_records(Decidim::Debates::Debate, :decidim_author_id)
+          end
         end
       end
 
