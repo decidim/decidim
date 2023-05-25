@@ -21,7 +21,7 @@
         </button>
       <% end %>
     <% else %>
-      <%= authorized_create_modal_button(type, remote: true, class: "button button__sm button__text-secondary card__highlight") do %>
+      <%= authorized_create_modal_button(type, remote: true, class: "button button__sm button__text-secondary card__highlight w-full my-10") do %>
         <%= t("verification_required", scope: "decidim.initiatives.create_initiative.select_initiative_type") %>
       <% end %>
     <% end %>
