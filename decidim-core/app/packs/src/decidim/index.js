@@ -5,7 +5,7 @@ import formDatePicker from "src/decidim/form_datepicker"
 import fixDropdownMenus from "src/decidim/dropdowns_menus"
 import Configuration from "src/decidim/configuration"
 import ExternalLink from "src/decidim/external_link"
-import updateExternalDomainLinks from "src/decidim/external_domain_warning"
+import ExternalDomainLink from "src/decidim/external_domain_warning"
 import scrollToLastChild from "src/decidim/scroll_to_last_child"
 import InputCharacterCounter, { createCharacterCounter } from "src/decidim/input_character_counter"
 import FormValidator from "src/decidim/form_validator"
@@ -82,6 +82,8 @@ $(() => {
     $link.data("external-link", new ExternalLink($link));
   });
 
+  document.querySelectorAll("a[target=\"_blank\"]:not([data-external-domain-link=\"false\"])").forEach((elem) => new ExternalDomainLink(elem))
+
   // initialize character counter
   $("input[type='text'], textarea, .editor>input[type='hidden']").each((_i, elem) => {
     const $input = $(elem);
@@ -99,8 +101,6 @@ $(() => {
     formFilter.mountComponent();
   })
   document.querySelectorAll(".new_report").forEach((container) => changeReportFormBehavior(container))
-
-  updateExternalDomainLinks($("body"))
 
   addInputEmoji()
 

@@ -16,7 +16,7 @@ import Rails from "@rails/ujs";
 
 import { createCharacterCounter } from "src/decidim/input_character_counter"
 import ExternalLink from "src/decidim/redesigned_external_link"
-import updateExternalDomainLinks from "src/decidim/external_domain_warning"
+import ExternalDomainLink from "src/decidim/external_domain_warning"
 import changeReportFormBehavior from "src/decidim/change_report_form_behavior"
 
 export default class CommentsComponent {
@@ -170,8 +170,10 @@ export default class CommentsComponent {
     $container.foundation();
     this._initializeComments($container);
     createCharacterCounter($(".add-comment textarea", $container));
-    $container.find('a[target="_blank"]').each((_i, elem) => new ExternalLink(elem));
-    updateExternalDomainLinks($container)
+    $container.find('a[target="_blank"]').each((_i, elem) => {
+      new ExternalLink(elem); // eslint-disable-line no-new
+      new ExternalDomainLink(elem); // eslint-disable-line no-new
+    });
   }
 
   /**
