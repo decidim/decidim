@@ -4,8 +4,9 @@ require "spec_helper"
 
 module Decidim::Votings
   describe SendAccessCode do
-    subject { described_class.new(datum, medium) }
+    subject { command }
 
+    let(:command) { described_class.new(datum, medium) }
     let(:voting) { create(:voting) }
     let(:datum) { create(:datum, :with_access_code, dataset:) }
     let(:mobile_phone_number) { datum.mobile_phone_number }
@@ -46,8 +47,9 @@ module Decidim::Votings
         end
 
         it "sends a SMS" do
+          allow(command).to receive(:current_organization).and_return(voting.organization)
           expect(Decidim::Verifications::Sms::ExampleGateway)
-            .to(receive(:new).with(mobile_phone_number, access_code))
+            .to(receive(:new).with(mobile_phone_number, access_code, { organization: voting.organization }))
             .and_return(double(deliver_code: true))
           subject.call
         end

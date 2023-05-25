@@ -18,7 +18,7 @@
 :uri-propose-new-features: https://meta.decidim.org/processes/roadmap
 :uri-releases: https://github.com/decidim/decidim/releases
 :uri-roadmap: https://github.com/decidim/decidim/projects/16
-:uri-security: xref:SECURITY.adoc
+:uri-security: https://github.com/decidim/decidim/blob/develop/SECURITY.md
 :uri-social-contract: http://www.decidim.org/contract/
 :uri-website: https://decidim.org
 :uri-yard-docs: http://rubydoc.info/github/decidim/decidim/develop
@@ -143,7 +143,7 @@ See {uri-security}[full security policy].
 
 Decidim helps citizens, organizations and public institutions to democratically self-organize at every scale. Thanks to Decidim, any organization is able to configure spaces for participation (initiatives, assemblies, processes, or votings) and enrich them through the multiple available components (meetings, surveys, proposals, participatory budgets, accountability for results, comments, and many other).
 
-You can contribute financial to the sustainability of this project through {uri-opencollective}[OpenCollective].
+You can contribute financially to the sustainability of this project through {uri-opencollective}[OpenCollective].
 
 The funds will enable the maintainers to:
 

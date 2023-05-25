@@ -85,12 +85,14 @@ shared_examples "manage conference admins examples" do
           name: "test",
           email: "test@example.org",
           role: "admin"
-        )
+        ).with_context(current_user: user)
 
-        Decidim::Conferences::Admin::CreateConferenceAdmin.call(
+        Decidim::Admin::ParticipatorySpace::CreateAdmin.call(
           form,
-          user,
-          conference
+          conference,
+          role_class: Decidim::ConferenceUserRole,
+          event: "decidim.events.conferences.role_assigned",
+          event_class: Decidim::Conferences::ConferenceRoleAssignedEvent
         )
 
         visit current_path

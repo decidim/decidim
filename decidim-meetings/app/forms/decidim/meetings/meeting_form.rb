@@ -47,7 +47,7 @@ module Decidim
         self.decidim_category_id = model.categorization.decidim_category_id if model.categorization
         presenter = MeetingEditionPresenter.new(model)
         self.title = presenter.title(all_locales: false)
-        self.description = presenter.description(all_locales: false)
+        self.description = presenter.editor_description(all_locales: false)
         self.location = presenter.location(all_locales: false)
         self.location_hints = presenter.location_hints(all_locales: false)
         self.registration_terms = presenter.registration_terms(all_locales: false)

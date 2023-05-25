@@ -5,105 +5,22 @@ module Decidim
     module Admin
       # Controller that allows managing assembly user roles.
       #
-      class AssemblyUserRolesController < Decidim::Assemblies::Admin::ApplicationController
+      class AssemblyUserRolesController < Decidim::Admin::ParticipatorySpace::UserRoleController
         include Concerns::AssemblyAdmin
-        include Decidim::Admin::Officializations::Filterable
 
-        def index
-          enforce_permission_to :index, :assembly_user_role
-          @assembly_user_roles = filtered_collection
-        end
+        def authorization_scope = :assembly_user_role
 
-        def new
-          enforce_permission_to :create, :assembly_user_role
-          @form = form(AssemblyUserRoleForm).instance
-        end
+        def resource_form = form(AssemblyUserRoleForm)
 
-        def create
-          enforce_permission_to :create, :assembly_user_role
-          @form = form(AssemblyUserRoleForm).from_params(params)
+        def space_index_path = assembly_user_roles_path(current_participatory_space)
 
-          CreateAssemblyAdmin.call(@form, current_user, current_assembly) do
-            on(:ok) do
-              flash[:notice] = I18n.t("assembly_user_roles.create.success", scope: "decidim.admin")
-              redirect_to assembly_user_roles_path(current_assembly)
-            end
+        def i18n_scope = "decidim.admin.assembly_user_roles"
 
-            on(:invalid) do
-              flash[:alert] = I18n.t("assembly_user_roles.create.error", scope: "decidim.admin")
-              render :new
-            end
-          end
-        end
+        def role_class = Decidim::AssemblyUserRole
 
-        def edit
-          @user_role = collection.find(params[:id])
-          enforce_permission_to :update, :assembly_user_role, user_role: @user_role
-          @form = form(AssemblyUserRoleForm).from_model(@user_role.user)
-        end
+        def event = "decidim.events.assembly.role_assigned"
 
-        def update
-          @user_role = collection.find(params[:id])
-          enforce_permission_to :update, :assembly_user_role, user_role: @user_role
-          @form = form(AssemblyUserRoleForm).from_params(params)
-
-          UpdateAssemblyAdmin.call(@form, @user_role) do
-            on(:ok) do
-              flash[:notice] = I18n.t("assembly_user_roles.update.success", scope: "decidim.admin")
-              redirect_to assembly_user_roles_path(current_assembly)
-            end
-
-            on(:invalid) do
-              flash.now[:alert] = I18n.t("assembly_user_roles.update.error", scope: "decidim.admin")
-              render :edit
-            end
-          end
-        end
-
-        def destroy
-          @assembly_user_role = collection.find(params[:id])
-          enforce_permission_to :destroy, :assembly_user_role, user_role: @assembly_user_role
-
-          DestroyAssemblyAdmin.call(@assembly_user_role, current_user) do
-            on(:ok) do
-              flash[:notice] = I18n.t("assembly_user_roles.destroy.success", scope: "decidim.admin")
-              redirect_to assembly_user_roles_path(current_assembly)
-            end
-          end
-        end
-
-        def resend_invitation
-          @user_role = collection.find(params[:id])
-          enforce_permission_to :invite, :assembly_user_role, user_role: @user_role
-
-          InviteUserAgain.call(@user_role.user, "invite_admin") do
-            on(:ok) do
-              flash[:notice] = I18n.t("users.resend_invitation.success", scope: "decidim.admin")
-            end
-
-            on(:invalid) do
-              flash[:alert] = I18n.t("users.resend_invitation.error", scope: "decidim.admin")
-            end
-          end
-
-          redirect_to assembly_user_roles_path(current_assembly)
-        end
-
-        private
-
-        def search_field_predicate
-          :name_or_nickname_or_email_cont
-        end
-
-        def filters
-          [:invitation_accepted_at_present, :last_sign_in_at_present]
-        end
-
-        def collection
-          @collection ||= Decidim::AssemblyUserRole
-                          .joins(:user)
-                          .where(assembly: current_assembly)
-        end
+        def event_class = Decidim::RoleAssignedToAssemblyEvent
       end
     end
   end

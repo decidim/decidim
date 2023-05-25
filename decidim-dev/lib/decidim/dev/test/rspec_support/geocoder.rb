@@ -90,7 +90,7 @@ RSpec.configure do |config|
     # otherwise the utilities could remain unregistered which causes issues with
     # further tests.
     Decidim::Core::Engine.initializers.each do |i|
-      next unless i.name == "decidim.maps"
+      next unless i.name == "decidim_core.maps"
 
       i.run
       break
