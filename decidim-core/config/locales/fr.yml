@@ -1723,6 +1723,63 @@ fr:
   doorkeeper:
     scopes:
       public: Votre information publique
+  editor:
+    extensions:
+      image:
+        altLabel: Texte alternatif pour l'image
+        nodeView:
+          resizer:
+            control:
+              resize: Redimensionner l'image (%position%)
+            position:
+              bottomLeft: coin inférieur gauche
+              bottomRight: coin inférieur droit
+              topLeft: coin supérieur gauche
+              topRight: coin supérieur droit
+        uploadError: Le dépôt du fichier a échoué.
+      link:
+        bubbleMenu:
+          edit: Modifier
+          remove: Retirer
+          url: URL
+        hrefLabel: URL du lien
+        targetLabel: Cible
+        targets:
+          blank: Nouvel onglet
+          default: Défaut (même onglet)
+      videoEmbed:
+        titleLabel: Titre
+        urlLabel: URL de la vidéo
+    inputDialog:
+      buttons:
+        cancel: Annuler
+        remove: Retirer
+        save: Sauvegarder
+      close: Fermer la fenêtre de dialogue
+    toolbar:
+      control:
+        blockquote: Citation
+        bold: Gras
+        bulletList: Liste non ordonnée
+        codeBlock: Bloc de code
+        common:
+          eraseStyles: Effacer les styles
+        hardBreak: Saut de ligne
+        heading: Style de texte
+        image: Image
+        indent:
+          indent: Augmenter le retrait
+          outdent: Diminuer le retrait
+        italic: Italique
+        link: Lien
+        orderedList: Liste ordonnée
+        underline: Souligné
+        videoEmbed: Intégrer la vidéo
+      textStyle:
+        heading: Titre %level%
+        normal: Normal
+    upload:
+      uploadedFile: Fichier déposé
   emojis:
     button: Ajouter un émoji
     categories:
