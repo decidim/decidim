@@ -314,7 +314,7 @@ describe "Proposals", type: :system do
               fill_in :proposal_body, with: "This is my proposal and I want to upload attachments."
             end
 
-            dynamically_attach_file(:proposal_photos, Decidim::Dev.asset("city.jpeg"), front_interface: true)
+            dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city.jpeg"), front_interface: true)
 
             within ".edit_proposal" do
               find("*[type=submit]").click
@@ -340,10 +340,8 @@ describe "Proposals", type: :system do
             end
 
             it "sets the card image correctly with zero weight" do
-              skip "REDESIGN_PENDING - The upload feature has to be simplified in redesign and multiple files upload fails"
-
               # Attach one card image and two document images and go to preview
-              dynamically_attach_file(:proposal_photos, Decidim::Dev.asset("city.jpeg"), front_interface: true)
+              dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city.jpeg"), front_interface: true)
               dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city2.jpeg"), front_interface: true)
               dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city3.jpeg"), front_interface: true)
 
@@ -357,20 +355,20 @@ describe "Proposals", type: :system do
 
               # See that the images are in correct positions and remove the card
               # image.
-              within ".upload-container-for-photos [data-active-uploads]" do
+              within "[data-active-uploads]" do
                 expect(page).to have_content("city.jpeg")
-              end
-              within ".upload-container-for-documents [data-active-uploads]" do
                 expect(page).to have_content("city2.jpeg")
                 expect(page).to have_content("city3.jpeg")
               end
 
-              within ".upload-container-for-photos" do
-                click_button "Edit image"
+              within ".upload-container-for-documents" do
+                click_button "Edit documents"
               end
               within ".upload-modal" do
-                find("button.remove-upload-item").click
-                click_button "Save"
+                within "[data-filename='city.jpeg']" do
+                  click_button("Remove")
+                end
+                click_button "Next"
               end
 
               within ".edit_proposal" do
@@ -381,12 +379,8 @@ describe "Proposals", type: :system do
               expect(page).to have_content("Your proposal has not yet been published")
               click_link "Modify the proposal"
 
-              # See that the card image is now empty and the two other images
-              # are still in the documents container as they should.
-              within ".upload-container-for-photos [data-active-uploads]" do
-                expect(page).not_to have_selector(".attachment-details")
-              end
-              within ".upload-container-for-documents [data-active-uploads]" do
+              within "[data-active-uploads]" do
+                expect(page).to have_no_content("city.jpeg")
                 expect(page).to have_content("city2.jpeg")
                 expect(page).to have_content("city3.jpeg")
               end

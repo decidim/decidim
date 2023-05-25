@@ -52,7 +52,7 @@ describe "Edit proposals", type: :system do
 
       it "shows validation error when format is not accepted" do
         click_link "Edit proposal"
-        dynamically_attach_file(:proposal_photos, Decidim::Dev.asset("participatory_text.md"), front_interface: true, keep_modal_open: true) do
+        dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("participatory_text.md"), front_interface: true, keep_modal_open: true) do
           expect(page).to have_content("Accepted formats: #{Decidim::OrganizationSettings.for(organization).upload_allowed_file_extensions_image.join(", ")}")
         end
         expect(page).to have_content("only files with the following extensions are allowed: jpeg, jpg, pdf, png, rtf, txt")
@@ -63,23 +63,20 @@ describe "Edit proposals", type: :system do
         let!(:photo) { create(:attachment, :with_image, weight: 0, attached_to: proposal) }
 
         it "can delete attachments" do
-          skip "REDESIGN_PENDING - The upload feature has to be simplified in redesign and multiple files upload fails"
-
           visit current_path
 
           expect(page).to have_content("Documents")
-          expect(page).to have_content("Images")
           click_link "Edit proposal"
 
           click_button "Edit documents"
           within ".upload-modal" do
-            click_button("Remove")
-            click_button "Save"
-          end
-          click_button "Edit image"
-          within ".upload-modal" do
-            click_button("Remove")
-            click_button "Save"
+            within "[data-filename='city.jpeg']" do
+              click_button("Remove")
+            end
+            within "[data-filename='Exampledocument.pdf']" do
+              click_button("Remove")
+            end
+            click_button "Next"
           end
 
           click_button "Send"
@@ -93,20 +90,18 @@ describe "Edit proposals", type: :system do
           let(:attachment_image_title) { ::Faker::Lorem.sentence }
 
           it "can change attachment titles" do
-            skip "REDESIGN_PENDING - The upload feature has to be simplified in redesign and multiple files upload fails"
-
             click_link "Edit proposal"
-            click_button "Edit image"
-            within ".upload-modal" do
-              expect(page).to have_content("Preferrably a landscape image that does not have any text")
-              find("input[type='text']").set(attachment_image_title)
-              click_button "Next"
-            end
             click_button "Edit documents"
             within ".upload-modal" do
               expect(page).to have_content("Has to be an image or a document")
-              find(".attachment-title").set(attachment_file_title)
-              click_button "Save"
+              expect(page).to have_content("For images, use preferrably landscape images, the service crops the image")
+              within "[data-filename='city.jpeg']" do
+                find("input[type='text']").set(attachment_image_title)
+              end
+              within "[data-filename='Exampledocument.pdf']" do
+                find("input[type='text']").set(attachment_file_title)
+              end
+              click_button "Next"
             end
             click_button "Send"
             expect(page).to have_selector("[data-alert-box].success")
@@ -119,10 +114,8 @@ describe "Edit proposals", type: :system do
 
       context "with multiple images" do
         it "can add many images many times" do
-          skip "REDESIGN_PENDING - The upload feature has to be simplified in redesign and multiple files upload fails"
-
           click_link "Edit proposal"
-          dynamically_attach_file(:proposal_photos, Decidim::Dev.asset("city.jpeg"), front_interface: true)
+          dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city.jpeg"), front_interface: true)
           dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("icon.png"), front_interface: true)
           dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("avatar.jpg"), front_interface: true)
           click_button "Send"
@@ -134,11 +127,11 @@ describe "Edit proposals", type: :system do
           dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city3.jpeg"), front_interface: true)
           click_button "Send"
           expect(page).to have_selector("[data-alert-box].success")
-          expect(page).to have_selector("img.object-cover[alt='city']")
-          expect(page).to have_selector("img.object-cover[alt='icon']")
-          expect(page).to have_selector("img.object-cover[alt='avatar']")
-          expect(page).to have_selector("img.object-cover[alt='city2']")
-          expect(page).to have_selector("img.object-cover[alt='city3']")
+          expect(page).to have_selector("img.object-cover[alt='city.jpeg']")
+          expect(page).to have_selector("img.object-cover[alt='icon.png']")
+          expect(page).to have_selector("img.object-cover[alt='avatar.jpg']")
+          expect(page).to have_selector("img.object-cover[alt='city2.jpeg']")
+          expect(page).to have_selector("img.object-cover[alt='city3.jpeg']")
         end
       end
     end
