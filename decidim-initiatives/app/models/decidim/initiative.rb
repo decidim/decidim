@@ -489,7 +489,6 @@ module Decidim
     def signature_type_allowed
       return if published?
 
-      # raise [type.allowed_signature_types_for_initiatives, signature_type].inspect
       errors.add(:signature_type, :invalid) if type.allowed_signature_types_for_initiatives.exclude?(signature_type)
     end
 
