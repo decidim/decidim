@@ -184,6 +184,7 @@ describe "Amend Proposal", versioning: true, type: :system do
 
         before do
           visit proposal_path
+          expect(page).to have_content(proposal_title)
         end
 
         it "is NOT shown a link to Amend it" do
@@ -208,6 +209,7 @@ describe "Amend Proposal", versioning: true, type: :system do
       context "and visits an amendable proposal" do
         before do
           visit proposal_path
+          expect(page).to have_content(proposal_title)
         end
 
         it "is shown a link to Amend it" do
@@ -231,6 +233,7 @@ describe "Amend Proposal", versioning: true, type: :system do
           before do
             login_as user, scope: :user
             visit proposal_path
+            expect(page).to have_content(proposal_title)
             click_link "Amend Proposal"
           end
 
