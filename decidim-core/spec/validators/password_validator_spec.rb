@@ -67,7 +67,7 @@ describe PasswordValidator do
 
         it "is denied" do
           expect(validator).to be(false)
-          expect(record.errors[attribute]).to eq(["is denied"])
+          expect(record.errors[attribute]).to include("is denied")
         end
       end
 
@@ -76,7 +76,7 @@ describe PasswordValidator do
 
         it "does not validate" do
           expect(validator).to be(false)
-          expect(record.errors[attribute]).to eq(["is denied"])
+          expect(record.errors[attribute]).to include("is denied")
         end
       end
 
@@ -95,7 +95,7 @@ describe PasswordValidator do
 
       it "is too short" do
         expect(validator).to be(false)
-        expect(record.errors[attribute]).to eq(["is too short"])
+        expect(record.errors[attribute]).to include("is too short")
       end
 
       context "when the record is an admin" do
@@ -109,17 +109,17 @@ describe PasswordValidator do
 
         it "is too short" do
           expect(validator).to be(false)
-          expect(record.errors[attribute]).to eq(["is too short"])
+          expect(record.errors[attribute]).to include("is too short")
         end
       end
     end
 
     describe "long password" do
-      let(:value) { ::Faker::Internet.password(min_length: ::PasswordValidator::MAX_LENGTH + 1) }
+      let(:value) { ::Faker::Internet.password(min_length: ::PasswordValidator::MAX_LENGTH + 1, max_length: ::PasswordValidator::MAX_LENGTH + 2) }
 
       it "is too long" do
         expect(validator).to be(false)
-        expect(record.errors[attribute]).to eq(["is too long"])
+        expect(record.errors[attribute]).to include("is too long")
       end
     end
 
@@ -128,7 +128,7 @@ describe PasswordValidator do
 
       it "does not have enough unique characters" do
         expect(validator).to be(false)
-        expect(record.errors[attribute]).to eq(["does not have enough unique characters"])
+        expect(record.errors[attribute]).to include("does not have enough unique characters")
       end
     end
 
@@ -137,7 +137,7 @@ describe PasswordValidator do
 
       it "is too similar with email" do
         expect(validator).to be(false)
-        expect(record.errors[attribute]).to eq(["is too similar to your email"])
+        expect(record.errors[attribute]).to include("is too similar to your email")
       end
     end
 
@@ -158,7 +158,7 @@ describe PasswordValidator do
 
         it "validates with domain" do
           expect(validator).to be(false)
-          expect(record.errors[attribute]).to eq(["is too similar to your email"])
+          expect(record.errors[attribute]).to include("is too similar to your email")
         end
       end
     end
@@ -168,7 +168,7 @@ describe PasswordValidator do
 
       it "is too similar with name" do
         expect(validator).to be(false)
-        expect(record.errors[attribute]).to eq(["is too similar to your name"])
+        expect(record.errors[attribute]).to include("is too similar to your name")
       end
     end
 
@@ -177,7 +177,7 @@ describe PasswordValidator do
 
       it "is too similar with nickname" do
         expect(validator).to be(false)
-        expect(record.errors[attribute]).to eq(["is too similar to your nickname"])
+        expect(record.errors[attribute]).to include("is too similar to your nickname")
       end
     end
 
@@ -186,7 +186,7 @@ describe PasswordValidator do
 
       it "is too similar with domain" do
         expect(validator).to be(false)
-        expect(record.errors[attribute]).to eq(["is too similar to this domain name"])
+        expect(record.errors[attribute]).to include("is too similar to this domain name")
       end
     end
 
@@ -207,7 +207,7 @@ describe PasswordValidator do
 
         it "validates with domain" do
           expect(validator).to be(false)
-          expect(record.errors[attribute]).to eq(["is too similar to this domain name"])
+          expect(record.errors[attribute]).to include("is too similar to this domain name")
         end
       end
     end
@@ -217,7 +217,7 @@ describe PasswordValidator do
 
       it "is too common" do
         expect(validator).to be(false)
-        expect(record.errors[attribute]).to eq(["is too common"])
+        expect(record.errors[attribute]).to include("is too common")
       end
     end
 
@@ -231,7 +231,7 @@ describe PasswordValidator do
 
         it "cannot reuse" do
           expect(validator).to be(false)
-          expect(record.errors[attribute]).to eq(["cannot reuse old password"])
+          expect(record.errors[attribute]).to include("cannot reuse old password")
         end
       end
 
@@ -240,7 +240,7 @@ describe PasswordValidator do
 
         it "cannot reuse" do
           expect(validator).to be(false)
-          expect(record.errors[attribute]).to eq(["cannot reuse old password"])
+          expect(record.errors[attribute]).to include("cannot reuse old password")
         end
       end
 

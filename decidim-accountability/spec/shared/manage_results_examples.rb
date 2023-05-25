@@ -28,7 +28,7 @@ shared_examples "manage results" do
 
   context "when having existing proposals" do
     let!(:proposal_component) { create(:proposal_component, participatory_space:) }
-    let!(:proposals) { create_list :proposal, 5, component: proposal_component, skip_injection: true }
+    let!(:proposals) { create_list :proposal, 5, component: proposal_component }
 
     it "updates a result" do
       within find("tr", text: translated(result.title)) do

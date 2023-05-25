@@ -1,10 +1,12 @@
 # frozen_string_literal: true
 
 require "spec_helper"
+module Decidim::Admin
+  describe ParticipatorySpace::UpdateAdmin, versioning: true do
+    subject { described_class.new(form, user_role, event_class:, event:) }
 
-module Decidim::Conferences
-  describe Admin::UpdateConferenceAdmin do
-    subject { described_class.new(form, user_role) }
+    let(:event) { "decidim.events.conferences.role_assigned" }
+    let(:event_class) { Decidim::Conferences::ConferenceRoleAssignedEvent }
 
     let(:my_conference) { create :conference }
     let!(:new_role) { "collaborator" }
@@ -24,8 +26,8 @@ module Decidim::Conferences
     let(:invalid) { false }
     let(:user_notification) do
       {
-        event: "decidim.events.conferences.role_assigned",
-        event_class: ConferenceRoleAssignedEvent,
+        event:,
+        event_class:,
         resource: my_conference,
         affected_users: [user_role.user],
         extra: { role: kind_of(String) }

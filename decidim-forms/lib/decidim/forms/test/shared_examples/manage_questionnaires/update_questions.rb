@@ -510,7 +510,7 @@ shared_examples_for "update questions" do
       expect do
         click_button "Add question"
         expand_all_questions
-      end.to change { page.all(".ql-toolbar").size }.by(1)
+      end.to change { page.all(".editor-toolbar").size }.by(1)
     end
 
     it "properly decides which button to show after adding/removing answer options" do

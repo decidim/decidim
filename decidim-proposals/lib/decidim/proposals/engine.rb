@@ -39,7 +39,7 @@ module Decidim
         root to: "proposals#index"
       end
 
-      initializer "decidim.content_processors" do |_app|
+      initializer "decidim_proposals.content_processors" do |_app|
         Decidim.configure do |config|
           config.content_processors += [:proposal]
         end
@@ -51,7 +51,7 @@ module Decidim
         end
       end
 
-      initializer "decidim_changes" do
+      initializer "decidim_proposals.settings_changes" do
         config.to_prepare do
           Decidim::SettingsChange.subscribe "surveys" do |changes|
             Decidim::Proposals::SettingsChangeJob.perform_later(
@@ -210,8 +210,10 @@ module Decidim
       end
 
       initializer "decidim_proposals.authorization_transfer" do
-        Decidim::AuthorizationTransfer.register(:proposals) do |transfer|
-          transfer.move_records(Decidim::Proposals::ProposalVote, :decidim_author_id)
+        config.to_prepare do
+          Decidim::AuthorizationTransfer.register(:proposals) do |transfer|
+            transfer.move_records(Decidim::Proposals::ProposalVote, :decidim_author_id)
+          end
         end
       end
 

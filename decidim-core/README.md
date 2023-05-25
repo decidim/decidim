@@ -59,7 +59,7 @@ They should be registered as resources. In their manifest, in the `register_reso
 This can be done in an initializer (like user does), in a participatory_space manifest, or in a component manifest. i.e.:
 
 ```ruby
-      initializer "decidim.core.register_resources" do
+      initializer "decidim_core.register_resources" do
         Decidim.register_resource(:user) do |resource|
           resource.model_class_name = "Decidim::User"
           resource.card = "decidim/user_profile"
