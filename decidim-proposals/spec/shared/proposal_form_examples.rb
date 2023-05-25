@@ -266,9 +266,10 @@ shared_examples "a proposal form" do |options|
         address:,
         meeting_as_author:,
         suggested_hashtags:,
-        add_photos: [Decidim::Dev.test_file("city.jpeg", "image/jpeg")]
+        attachments_key => [Decidim::Dev.test_file("city.jpeg", "image/jpeg")]
       }
     end
+    let(:attachments_key) { options[:admin] ? :add_photos : :add_documents }
 
     it { is_expected.to be_valid }
 
@@ -282,8 +283,8 @@ shared_examples "a proposal form" do |options|
           expect(subject.errors.full_messages).to match_array(["Title en cannot be blank", "Add photos Needs to be reattached"])
           expect(subject.errors.attribute_names).to match_array([:title_en, :add_photos])
         else
-          expect(subject.errors.full_messages).to match_array(["Title cannot be blank", "Title is too short (under 15 characters)", "Add photos Needs to be reattached"])
-          expect(subject.errors.attribute_names).to match_array([:title, :add_photos])
+          expect(subject.errors.full_messages).to match_array(["Title cannot be blank", "Title is too short (under 15 characters)", "Add documents Needs to be reattached"])
+          expect(subject.errors.attribute_names).to match_array([:title, :add_documents])
         end
       end
     end
