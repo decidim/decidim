@@ -26,11 +26,10 @@
       </div>
     </div>
     <div class="form__wrapper-block">
-      <button data-dialog-open="deleteAccount" class="button button__sm md:button__lg button__secondary mr-auto !ml-0">
+      <button type="button" data-dialog-open="delete-account" class="button button__sm md:button__lg button__secondary mr-auto !ml-0">
         <%= t("title", scope:"decidim.account.delete.confirm") %>
       </button>
     </div>
   <% end %>
-
   <%= render partial: "delete_modal" %>
 <% end %>
