@@ -1717,6 +1717,26 @@ es:
   doorkeeper:
     scopes:
       public: Tu información pública
+  editor:
+    extensions:
+      image:
+        altLabel: Texto alternativo para la imagen
+        nodeView:
+          resizer:
+            control:
+              resize: Redimensiona la imagen (%position%)
+            position:
+              bottomLeft: esquina inferior izquierda
+              bottomRight: esquina inferior derecha
+              topLeft: esquina superior izquierda
+              topRight: esquina superior derecha
+        uploadError: No se ha podido subir el archivo.
+      link:
+        bubbleMenu:
+          edit: Editar
+          remove: Borrar
+          url: URL
+        hrefLabel: URL del enlace
   emojis:
     button: Añadir emoji
     categories:
@@ -1767,6 +1787,7 @@ es:
       too_many_marks: Estás usando demasiados signos de puntuación consecutivos (por ejemplo,! y?)
       too_much_caps: Está usando demasiadas letras mayúsculas (más del 25% del texto)
       too_short: es demasiado corto (menos %{count} caracteres)
+      url_format: El formato de esta URL es incorrecto
   forms:
     correct_errors: Hay errores en el formulario, por favor corrígelos para continuar.
     length_validator:
