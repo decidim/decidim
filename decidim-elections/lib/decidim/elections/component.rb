@@ -519,10 +519,10 @@ Decidim.register_component(:elections) do |component|
 
     %w(admin@example.org user@example.org user2@example.org).each do |email|
       trustee = Decidim::Elections::Trustee.create!(
-        user: Decidim::User.find_by(email: email),
+        user: Decidim::User.find_by(email:),
         organization: participatory_space.organization
       )
-      trustee.trustees_participatory_spaces.create!(participatory_space: participatory_space)
+      trustee.trustees_participatory_spaces.create!(participatory_space:)
     end
   end
 end
