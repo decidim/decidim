@@ -22,7 +22,7 @@
     <%= t ".no_members_yet" %>
   <% end %>
   <% current_initiative.committee_members.each do |request| %>
-    <div class="author" data-id="<%= request.id %>">
+    <div class="author mb-6" data-id="<%= request.id %>">
       <div class="profile__group__list">
         <%= card_for request.user %>
         <% if allowed_to? :approve, :initiative_committee_member, initiative: current_initiative, request: request %>
