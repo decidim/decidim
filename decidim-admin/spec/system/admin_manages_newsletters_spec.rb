@@ -116,9 +116,11 @@ describe "Admin manages newsletters", type: :system do
 
     it "sends a test email to the logged user" do
       visit decidim_admin.newsletter_path(newsletter)
-      click_link "Send me a test email"
+      perform_enqueued_jobs do
+        click_link "Send me a test email"
+      end
       expect(page).to have_content("Yay! Newsletter has been sent to")
-
+      expect(last_email.subject).to include("A fancy newsletter for")
     end
   end
 
