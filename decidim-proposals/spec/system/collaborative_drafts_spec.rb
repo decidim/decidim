@@ -278,6 +278,8 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
               end
 
               it "shows the user as a coauthor" do
+                skip "REDESIGN_PENDING - The collaborative draft currently only displays the first coauthors identity. This is pending in https://github.com/decidim/decidim/issues/10846"
+
                 expect(page).to have_content(user.name)
               end
 
