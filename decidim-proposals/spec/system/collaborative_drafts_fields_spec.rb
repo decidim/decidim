@@ -114,7 +114,7 @@ describe "Collaborative drafts", type: :system do
           it "allows returning to the index" do
             click_link "Back to collaborative drafts"
 
-            expect(page).to have_content("0 COLLABORATIVE DRAFTS")
+            expect(page).to have_content("There are no collaborative drafts yet")
           end
         end
 
@@ -139,7 +139,6 @@ describe "Collaborative drafts", type: :system do
             visit new_collaborative_draft_path
 
             within ".new_collaborative_draft" do
-              check :collaborative_draft_has_address
               fill_in :collaborative_draft_title, with: "More sidewalks and less roads"
               fill_in :collaborative_draft_body, with: "Cities need more people, not more cars"
               fill_in_geocoding :collaborative_draft_address, with: address
@@ -174,7 +173,6 @@ describe "Collaborative drafts", type: :system do
               visit new_collaborative_draft_path
 
               within ".new_collaborative_draft" do
-                check :collaborative_draft_has_address
                 fill_in :collaborative_draft_title, with: "More sidewalks and less roads"
                 fill_in :collaborative_draft_body, with: "Cities need more people, not more cars"
               end
@@ -274,7 +272,6 @@ describe "Collaborative drafts", type: :system do
               within ".new_collaborative_draft" do
                 fill_in :collaborative_draft_title, with: "More sidewalks and less roads"
                 fill_in :collaborative_draft_body, with: "Cities need more people, not more cars"
-                check :collaborative_draft_has_address
                 fill_in :collaborative_draft_address, with: address
                 select translated(category.name), from: :collaborative_draft_category_id
                 # REDESIGN_PENDING - scope picker is pending https://github.com/decidim/decidim/issues/10192
@@ -334,7 +331,7 @@ describe "Collaborative drafts", type: :system do
               fill_in :collaborative_draft_body, with: "This is my collaborative draft and I want to upload attachments."
             end
 
-            dynamically_attach_file(:collaborative_draft_documents, Decidim::Dev.asset("city.jpeg"), { title: "My attachment" })
+            dynamically_attach_file(:collaborative_draft_documents, Decidim::Dev.asset("city.jpeg"), title: "My attachment", front_interface: true)
 
             within ".new_collaborative_draft" do
               find("*[type=submit]").click
@@ -342,7 +339,7 @@ describe "Collaborative drafts", type: :system do
 
             expect(page).to have_content("successfully")
 
-            within ".section.images" do
+            within "#panel-images" do
               expect(page).to have_selector("img[src*=\"city.jpeg\"]", count: 1)
             end
           end
