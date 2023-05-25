@@ -95,5 +95,8 @@ const createDialog = (component) => {
 export {
   createAccordion,
   createDialog,
-  createDropdown
+  createDropdown,
+  Accordions,
+  Dialogs,
+  Dropdowns
 }

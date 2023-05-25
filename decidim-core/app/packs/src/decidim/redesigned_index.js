@@ -79,7 +79,8 @@ import createTooltip from "./redesigned_tooltips"
 import {
   createAccordion,
   createDialog,
-  createDropdown
+  createDropdown,
+  Dialogs
 } from "./redesigned_a11y"
 
 // bad practice: window namespace should avoid be populated as much as possible
@@ -91,7 +92,8 @@ window.Decidim = window.Decidim || {
   FormValidator,
   DataPicker,
   addInputEmoji,
-  EmojiButton
+  EmojiButton,
+  Dialogs
 };
 
 window.morphdom = morphdom
