@@ -6,8 +6,7 @@
           <%= %(checked="checked") if scope.checked %>
           id="dc-<%= scope.id %>"
           type="checkbox"
-          name="<%= scope.id %>"
-        >
+          name="<%= scope.id %>">
         <span class="sr-only"></span>
         <span class="toggle__switch-toggle-content">
         </span>
@@ -23,4 +22,3 @@
     <%= render partial: "scopes", locals: { scopes: scope.children, f: f } %>
   </div>
 <% end %>
-

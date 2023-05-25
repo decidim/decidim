@@ -13,8 +13,7 @@
             <%= %(checked="checked") if @notifications_settings.notifications_from_own_activity %>
             id="dc-<%= :notifications_from_own_activity %>"
             type="checkbox"
-            name="<%= :notifications_from_own_activity %>"
-          >
+            name="<%= :notifications_from_own_activity %>">
           <span class="sr-only"></span>
           <span class="toggle__switch-toggle-content">
           </span>
@@ -31,8 +30,7 @@
             <%= %(checked="checked") if @notifications_settings.notifications_from_followed %>
             id="dc-<%= :notifications_from_followed %>"
             type="checkbox"
-            name="<%= :notifications_from_followed %>"
-          >
+            name="<%= :notifications_from_followed %>">
           <span class="sr-only"></span>
           <span class="toggle__switch-toggle-content">
           </span>
@@ -48,8 +46,7 @@
           <%= t("notifications_sending_frequency", scope:"decidim.notifications_settings.show") %>
         </span>
         <div class="flex items-center gap-x-6 mt-4">
-          <%= f.collection_radio_buttons:notifications_sending_frequency, frequencies_collection, :first, :last, { checked: @notifications_settings.notifications_sending_frequency || "daily" }, class: "flex items-center" do |b|
-          %>
+          <%= f.collection_radio_buttons:notifications_sending_frequency, frequencies_collection, :first, :last, { checked: @notifications_settings.notifications_sending_frequency || "daily" }, class: "flex items-center" do |b| %>
             <div>
               <%= b.radio_button %>
               <%= b.label :class => "!text-md !font-normal" %>
@@ -66,8 +63,7 @@
             <%= %(checked="checked") if  @notifications_settings.newsletter_notifications %>
             id="dc-<%= :newsletter_notifications %>"
             type="checkbox"
-            name="<%= :newsletter_notifications %>"
-          >
+            name="<%= :newsletter_notifications %>">
           <span class="sr-only"></span>
           <span class="toggle__switch-toggle-content">
           </span>
@@ -87,8 +83,7 @@
             <%= %(checked="checked") if @notifications_settings.allow_public_contact %>
             id="dc-<%= :allow_public_contact %>"
             type="checkbox"
-            name="<%= :allow_public_contact %>"
-          >
+            name="<%= :allow_public_contact %>">
           <span class="sr-only"></span>
           <span class="toggle__switch-toggle-content">
           </span>
@@ -110,8 +105,7 @@
             <%= %(checked="checked") if @notifications_settings.email_on_moderations %>
             id="dc-<%= :email_on_moderations %>"
             type="checkbox"
-            name="<%= :email_on_moderations %>"
-          >
+            name="<%= :email_on_moderations %>">
           <span class="sr-only"></span>
           <span class="toggle__switch-toggle-content">
           </span>
@@ -129,8 +123,7 @@
                 <%= %(checked="checked") if ["1", true].include?(current_user.notification_settings.fetch(manifest.name.to_s, manifest.default_value)) %>
                 id="dc-"
                 type="checkbox"
-                name=""
-              >
+                name="">
               <span class="sr-only"></span>
               <span class="toggle__switch-toggle-content">
               </span>
@@ -158,8 +151,7 @@
                 <%= %(checked="checked") if @notifications_settings.allow_push_notifications %>
                 id="dc-<%= :allow_push_notifications %>"
                 type="checkbox"
-                name="<%= :allow_push_notifications %>"
-              >
+                name="<%= :allow_push_notifications %>">
               <span class="sr-only"></span>
               <span class="toggle__switch-toggle-content">
               </span>
