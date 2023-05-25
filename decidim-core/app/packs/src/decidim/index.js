@@ -6,8 +6,8 @@ import fixDropdownMenus from "src/decidim/dropdowns_menus"
 import createQuillEditor from "src/decidim/editor"
 import Configuration from "src/decidim/configuration"
 import ExternalLink from "src/decidim/external_link"
-import updateExternalDomainLinks from "src/decidim/external_domain_warning"
-import InputCharacterCounter from "src/decidim/input_character_counter"
+import ExternalDomainLink from "src/decidim/external_domain_warning"
+import InputCharacterCounter, { createCharacterCounter } from "src/decidim/input_character_counter"
 import FormValidator from "src/decidim/form_validator"
 import CommentsComponent from "src/decidim/comments/comments.component"
 import DataPicker from "src/decidim/data_picker"
@@ -65,6 +65,7 @@ $(() => {
     const $link = $(elem);
     $link.data("external-link", new ExternalLink($link));
   });
+  document.querySelectorAll("a[target=\"_blank\"]:not([external-link])").forEach((elem) => new ExternalDomainLink(elem))
 
   // Mount comments component
   $("[data-decidim-comments]").each((_i, el) => {
@@ -79,8 +80,6 @@ $(() => {
 
     formFilter.mountComponent();
   })
-
-  updateExternalDomainLinks($("body"))
 
   addInputEmoji()
 
