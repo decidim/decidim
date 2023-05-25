@@ -12,13 +12,17 @@ describe Decidim::Metrics::UsersMetricManage do
   include_context "when managing metrics"
 
   context "when executing" do
-    it "creates new metric records" do
-      registry = generate_metric_registry.first
+    shared_examples "computes the metric" do
+      it "creates new metric records" do
+        registry = generate_metric_registry.first
 
-      expect(registry.day).to eq(day)
-      expect(registry.cumulative).to eq(5)
-      expect(registry.quantity).to eq(5)
+        expect(registry.day).to eq(day)
+        expect(registry.cumulative).to eq(5)
+        expect(registry.quantity).to eq(5)
+      end
     end
+
+    include_examples "computes the metric"
 
     it "does not create any record if there is no data" do
       registry = generate_metric_registry("2017-01-01")
@@ -34,6 +38,57 @@ describe Decidim::Metrics::UsersMetricManage do
       expect(Decidim::Metric.count).to eq(1)
       expect(registry.cumulative).to eq(5)
       expect(registry.quantity).to eq(5)
+    end
+
+    context "when removing deleted users from query" do
+      context "when the user is deleted long before the end_time" do
+        let!(:deleted_user) { create(:user, :confirmed, created_at: day, deleted_at: day - 1.month, organization:) }
+
+        include_examples "computes the metric"
+      end
+      context "when the user is deleted before the end_time" do
+        let!(:deleted_user) { create(:user, :confirmed, created_at: day, deleted_at: day, organization:) }
+
+        include_examples "computes the metric"
+      end
+
+      context "when the user is deleted after the end_time" do
+        let!(:deleted_user) { create(:user, :confirmed, created_at: day, deleted_at: day + 1.month, organization:) }
+
+        it "does not count them" do
+          registry = generate_metric_registry.first
+
+          expect(Decidim::Metric.count).to eq(1)
+          expect(registry.cumulative).to eq(6)
+          expect(registry.quantity).to eq(6)
+        end
+      end
+    end
+
+    context "when removing blocked users from query" do
+      context "when the user is blocked long before the end_time" do
+        let!(:deleted_user) { create(:user, :confirmed, created_at: day, blocked_at: day - 1.month, organization:) }
+
+        include_examples "computes the metric"
+      end
+
+      context "when the user is blocked before the end_time" do
+        let!(:deleted_user) { create(:user, :confirmed, created_at: day, blocked_at: day, organization:) }
+
+        include_examples "computes the metric"
+      end
+
+      context "when the user is blocked after the end_time" do
+        let!(:deleted_user) { create(:user, :confirmed, created_at: day, blocked_at: day + 1.month, organization:) }
+
+        it "does not count them" do
+          registry = generate_metric_registry.first
+
+          expect(Decidim::Metric.count).to eq(1)
+          expect(registry.cumulative).to eq(6)
+          expect(registry.quantity).to eq(6)
+        end
+      end
     end
   end
 end
