@@ -111,30 +111,28 @@ export default class UploadModal {
     }
   }
 
-  preloadFiles(element) {
+  async preloadFiles(element) {
     // Get a File object from img.src, more info: https://stackoverflow.com/a/38935544/5020256
     const { src } = element.querySelector("img") || {}
 
-    return fetch(src).
-      then((res) => res.arrayBuffer()).
-      then((buffer) => {
+    let buffer = "";
+    let type = "";
 
-        let type = ""
-        if (src) {
-          // since we cannot know the exact mime-type of the file,
-          // we assume as "image" if it has the src attribute in order to load the preview
-          type = "image"
-        }
+    if (src) {
+      buffer = await fetch(src).then((res) => res.arrayBuffer())
+      // since we cannot know the exact mime-type of the file,
+      // we assume as "image" if it has the src attribute in order to load the preview
+      type = "image"
+    }
 
-        const file = new File([buffer], element.dataset.filename, { type })
-        const item = this.createUploadItem(file, [], { ...element.dataset, value: 100 })
+    const file = new File([buffer], element.dataset.filename, { type })
+    const item = this.createUploadItem(file, [], { ...element.dataset, value: 100 })
 
-        file.attachmentId = element.dataset.attachmentId
+    file.attachmentId = element.dataset.attachmentId
 
-        this.items.push(file)
-        this.uploadItems.appendChild(item);
-        this.autoloadImage(item, file)
-      })
+    this.items.push(file)
+    this.uploadItems.appendChild(item);
+    this.autoloadImage(item, file)
   }
 
   getOrdinalNumber() {
