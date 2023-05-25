@@ -785,12 +785,9 @@ en:
           instructions: You can move the point on the map.
         edit:
           add_documents: Add documents
-          add_image: Add image
           attachment_legend: "(Optional) Add an attachment"
           back: Back
           edit_documents: Edit documents
-          edit_image: Edit image
-          gallery_legend: "(Optional) Add an image to the proposal card"
           select_a_category: Please select a category
           send: Send
           title: Edit proposal
