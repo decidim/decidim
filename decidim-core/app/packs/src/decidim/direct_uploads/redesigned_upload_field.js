@@ -18,6 +18,7 @@ const updateActiveUploads = (modal) => {
   }
 
   const files = document.querySelector(`[data-active-uploads=${modal.modal.id}]`)
+  const previousId = Array.from(files.querySelectorAll("[type=hidden]"))
 
   // fastest way to clean children nodes
   files.textContent = ""
@@ -28,11 +29,26 @@ const updateActiveUploads = (modal) => {
   addFiles.forEach((file, ix) => {
     let title = truncateFilename(file.name, 19)
 
-    let hidden = `<input type="hidden" name="${file.hiddenField.name}" value="${file.hiddenField.value}" />`
+    let hidden = ""
+    if (file.hiddenField) {
+      // if there's hiddenField, this file is new
+      const fileField = `${modal.options.resourceName}[${modal.options.addAttribute}][${ix}][file]`
+      hidden = `<input type="hidden" name="${fileField}" value="${file.hiddenField}" />`
+    } else {
+      // otherwise, we keep the attachmentId
+      const fileField = `${modal.options.resourceName}[${modal.options.addAttribute}][${ix}][id]`
+      // convert all node attributes to string
+      const attributes = Array.from(previousId.find(({ id }) => id === file.attachmentId).attributes).reduce((acc, { name, value }) => `${acc} ${name}="${value}"`, "")
+      hidden = `<input ${attributes} />`
+      hidden += `<input type="hidden" name="${fileField}" value="${file.attachmentId}" />`
+    }
+
     if (modal.options.titled) {
-      const value = modal.modal.querySelectorAll('input[type="text"]')[ix].value
-      title = `${value} (${truncateFilename(file.name)})`
-      hidden += `<input type="hidden" name="${file.hiddenTitle.name}" value="${value}" />`
+      const titleValue = modal.modal.querySelectorAll('input[type="text"]')[ix].value
+      const titleField = `${modal.options.resourceName}[${modal.options.addAttribute}][${ix}][title]`
+      hidden += `<input type="hidden" name="${titleField}" value="${titleValue}" />`
+
+      title = `${titleValue} (${truncateFilename(file.name)})`
     }
 
     const template = `

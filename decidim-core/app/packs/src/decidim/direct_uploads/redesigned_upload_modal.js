@@ -77,16 +77,8 @@ export default class UploadModal {
         if (error) {
           uploader.errors = [error]
         } else {
-          // append to the file object some custom attributes in order to build the form properly
-          let name = `${this.options.resourceName}[${this.options.addAttribute}]`
-          if (this.options.titled) {
-            const ordinalNumber = this.getOrdinalNumber();
-
-            name = `${this.options.resourceName}[${this.options.addAttribute}][${ordinalNumber}][file]`
-            file.hiddenTitle = { name: `${this.options.resourceName}[${this.options.addAttribute}][${ordinalNumber}][title]` }
-          }
-
-          file.hiddenField = { value: blob.signed_id, name }
+          // attach the file hash to submit the form, when the file has been uploaded
+          file.hiddenField = blob.signed_id
 
           // since the validation step is async, we must wait for the responses
           uploader.validate(blob.signed_id).then(() => {
@@ -123,16 +115,21 @@ export default class UploadModal {
     // Get a File object from img.src, more info: https://stackoverflow.com/a/38935544/5020256
     const { src } = element.querySelector("img") || {}
 
-    // if there's no src, it's not an image, therefore, skip previewing
-    if (!src) {
-      return null
-    }
-
     return fetch(src).
       then((res) => res.arrayBuffer()).
       then((buffer) => {
-        const file = new File([buffer], element.dataset.filename)
+
+        let type = ""
+        if (src) {
+          // since we cannot know the exact mime-type of the file,
+          // we assume as "image" if it has the src attribute in order to load the preview
+          type = "image"
+        }
+
+        const file = new File([buffer], element.dataset.filename, { type })
         const item = this.createUploadItem(file, [], { ...element.dataset, value: 100 })
+
+        file.attachmentId = element.dataset.attachmentId
 
         this.items.push(file)
         this.uploadItems.appendChild(item);
@@ -212,8 +209,12 @@ export default class UploadModal {
       template = "titled"
     }
 
+    // eslint-disable-next-line no-ternary
+    const attachmentId = opts.attachmentId
+      ? `data-attachment-id="${opts.attachmentId}"`
+      : ""
     const fullTemplate = `
-      <li data-filename="${file.name}" data-state="${state}">
+      <li ${attachmentId} data-filename="${file.name}" data-state="${state}">
         <div data-template="${template}">
           ${content.trim()}
           <button>${this.locales.remove}</button>
