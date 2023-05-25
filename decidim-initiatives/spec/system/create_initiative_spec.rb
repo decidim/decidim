@@ -620,6 +620,11 @@ describe "Initiative", type: :system do
             end
           end
 
+          it "shows select input for initiative_type" do
+            expect(page).to have_content("Type")
+            expect(find(:xpath, "//select[@id='initiative_type_id']", visible: :all).value).to eq(initiative_type.id.to_s)
+          end
+
           it "shows information collected in previous steps already filled" do
             expect(find(:xpath, "//input[@id='initiative_title']").value).to eq(translated(initiative.title, locale: :en))
             expect(find(:xpath, "//textarea[@id='initiative_description']", visible: :all).value).to eq(translated(initiative.description, locale: :en))
@@ -633,6 +638,29 @@ describe "Initiative", type: :system do
           it "shows input for hashtag" do
             expect(page).to have_content("Hashtag")
             expect(find(:xpath, "//input[@id='initiative_hashtag']", visible: :all).value).to eq("")
+          end
+
+          context "when only one signature collection and scope are available" do
+            let(:initiative_type_scope2) { nil }
+            let(:initiative_type) { create(:initiatives_type, organization:, minimum_committee_members: initiative_type_minimum_committee_members, signature_type: "offline") }
+
+            it "hides and automatically selects the values" do
+              expect(page).not_to have_content("Signature collection type")
+              expect(page).not_to have_content("Scope")
+              expect(find(:xpath, "//select[@id='initiative_type_id']", visible: :all).value).to eq(initiative_type.id.to_s)
+              expect(find(:xpath, "//input[@id='initiative_signature_type']", visible: :all).value).to eq("offline")
+            end
+          end
+
+          context "when the scope is not selected" do
+            it "shows an error" do
+              select("Online", from: "Signature collection type")
+              expect_blank_field_validation_message("#initiative_scope_id", type: :select)
+
+              find_button("Continue").click
+
+              expect_blank_field_validation_message("#initiative_scope_id", type: :select)
+            end
           end
 
           context "when the initiative type does not enable custom signature end date" do

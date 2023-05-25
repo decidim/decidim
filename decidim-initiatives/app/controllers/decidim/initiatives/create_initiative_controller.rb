@@ -88,7 +88,13 @@ module Decidim
       private
 
       def initiative_type_id
-        single_initiative_type? ? current_organization_initiatives_type.first.id : session[:type_id]
+        @initiative_type_id ||= if single_initiative_type?
+                                  current_organization_initiatives_type.first.id
+                                elsif session[:initiative_id].present?
+                                  current_initiative&.type&.id
+                                else
+                                  session[:type_id]
+                                end
       end
 
       def ensure_initiative_exists
