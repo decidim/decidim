@@ -23,7 +23,7 @@
         </ol>
         <div>
           <% steps.each_with_index do |step, i| %>
-            <div id="panel-process-steps-<%= i %>" class="participatory-space__metadata-modal__content">
+            <div id="panel-process-steps-<%= i %>" class="editor-content">
               <%= decidim_sanitize_editor_admin(translated_attribute(step.description)) %>
             </div>
           <% end %>

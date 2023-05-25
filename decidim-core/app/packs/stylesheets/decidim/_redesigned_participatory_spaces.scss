@@ -120,7 +120,7 @@
         @apply flex items-baseline gap-2 relative before:absolute before:w-px before:-z-10 before:left-[18px] before:bg-gray-3 before:h-[calc(100%+1.5rem)] last:before:h-[36px] before:-top-[18px] first:before:top-[18px];
 
         > :first-child{
-          @apply w-9 h-9 rounded-full inline-grid place-items-center text-secondary bg-background;
+          @apply flex-none w-9 h-9 rounded-full inline-grid place-items-center text-secondary bg-background;
         }
 
         > :last-child{
@@ -152,10 +152,6 @@
         &.is-active &-current{
           @apply visible;
         }
-      }
-
-      &__content{
-        @apply text-gray-2 text-lg;
       }
     }
   }
