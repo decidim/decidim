@@ -52,7 +52,7 @@ describe "User edits a debate", type: :system do
       # REDESIGN_PENDING - scope picker is pending https://github.com/decidim/decidim/issues/10192
       # expect(page).to have_content(translated(scope.name))
       expect(page).to have_content(translated(category.name))
-      expect(page).to have_selector(".author-data", text: user.name)
+      expect(page).to have_selector("[data-author]", text: user.name)
     end
 
     context "when editing as a user group" do
@@ -89,7 +89,7 @@ describe "User edits a debate", type: :system do
         # REDESIGN_PENDING - scope picker is pending https://github.com/decidim/decidim/issues/10192
         # expect(page).to have_content(translated(scope.name))
         expect(page).to have_content(translated(category.name))
-        expect(page).to have_selector(".author-data", text: user_group.name)
+        expect(page).to have_selector("[data-author]", text: user_group.name)
       end
     end
   end
