@@ -61,7 +61,7 @@ module Decidim::Meetings
       end
     end
 
-    describe "description" do
+    describe "#description" do
       let(:description1) do
         Decidim::ContentProcessor.parse_with_processor(:hashtag, "Description #description", current_organization: organization).rewrite
       end
@@ -97,6 +97,17 @@ module Decidim::Meetings
           presented_description = presented_meeting.description(all_locales: true, strip_tags: true)
           expect(presented_description["en"]).to eq("XSS via target in a tag")
         end
+      end
+    end
+
+    describe "#editor_description" do
+      let(:meeting) { create :meeting, component: meeting_component, description: }
+      let(:description) { { en: html, es: html } }
+
+      include_context "with editor content containing hashtags and mentions"
+
+      it "converts the hastags and mentions to WYSIWYG editor ready elements" do
+        expect(presented_meeting.editor_description(all_locales: true)).to eq("en" => editor_html, "es" => editor_html)
       end
     end
   end

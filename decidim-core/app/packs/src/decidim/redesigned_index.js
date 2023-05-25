@@ -6,7 +6,6 @@
 import "core-js/stable";
 import "regenerator-runtime/runtime";
 import "jquery"
-import "quill"
 import Rails from "@rails/ujs"
 import "@hotwired/turbo-rails"
 
@@ -63,7 +62,6 @@ import "./direct_uploads/redesigned_upload_field"
 // local deps that require initialization
 import formDatePicker from "./form_datepicker"
 import fixDropdownMenus from "./dropdowns_menus"
-import createQuillEditor from "./editor"
 import Configuration from "./configuration"
 import ExternalLink from "./redesigned_external_link"
 import updateExternalDomainLinks from "./external_domain_warning"
@@ -137,11 +135,16 @@ const initializer = (element = document) => {
 
   formDatePicker();
 
-  $(".editor-container").each((_idx, container) => {
-    createQuillEditor(container);
+  document.querySelectorAll(".editor-container").forEach((container) => {
+    window.createEditor(container);
   });
 
-  element.querySelectorAll("a[target=\"_blank\"]:not([data-external-link=\"false\"])").forEach((elem) => new ExternalLink(elem))
+  element.querySelectorAll("a[target=\"_blank\"]:not([data-external-link=\"false\"])").forEach((elem) => {
+    if (elem.closest(".editor-container")) {
+      return null;
+    }
+    return new ExternalLink(elem);
+  });
 
   // initialize character counter
   $("input[type='text'], textarea, .editor>input[type='hidden']").each((_i, elem) => {
@@ -197,8 +200,12 @@ const initializer = (element = document) => {
       closingSelector: `[data-dialog-close="${dialog}"]`,
       backdropSelector: `[data-dialog="${dialog}"]`,
       enableAutoFocus: false,
-      onOpen: (params) => {
-        setFocusOnTitle(params)
+      onOpen: (el) => {
+        setFocusOnTitle(el)
+        el.dispatchEvent(new CustomEvent("open.dialog"));
+      },
+      onClose: (el) => {
+        el.dispatchEvent(new CustomEvent("close.dialog"));
       },
       // optional parameters (whenever exists the id, it will add the tagging)
       ...(Boolean(elem.querySelector(`#dialog-title-${dialog}`)) && {
@@ -208,6 +215,7 @@ const initializer = (element = document) => {
         describedby: `dialog-desc-${dialog}`
       })
     });
+    elem.dialog = modal;
 
     // NOTE: when a remote modal is open, the contents are empty
     // once they are in the DOM, we append the ARIA attributes
