@@ -149,9 +149,11 @@ module Decidim
       end
 
       initializer "decidim_initiatives.authorization_transfer" do
-        Decidim::AuthorizationTransfer.register(:initiatives) do |transfer|
-          transfer.move_records(Decidim::Initiative, :decidim_author_id)
-          transfer.move_records(Decidim::InitiativesVote, :decidim_author_id)
+        config.to_prepare do
+          Decidim::AuthorizationTransfer.register(:initiatives) do |transfer|
+            transfer.move_records(Decidim::Initiative, :decidim_author_id)
+            transfer.move_records(Decidim::InitiativesVote, :decidim_author_id)
+          end
         end
       end
     end

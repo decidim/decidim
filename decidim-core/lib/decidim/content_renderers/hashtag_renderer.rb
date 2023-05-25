@@ -20,7 +20,7 @@ module Decidim
       # extras - should include extra hashtags?
       #
       # @return [String] the content ready to display (contains HTML)
-      def render(links: true, extras: true)
+      def render(links: true, extras: true, editor: false)
         return content unless content.respond_to?(:gsub)
 
         content.gsub(GLOBAL_ID_REGEX) do |hashtag_gid|
@@ -31,7 +31,10 @@ module Decidim
 
           presenter = Decidim::HashtagPresenter.new(hashtag, cased_name:)
 
-          if links
+          if editor
+            label = presenter.display_hashtag_name
+            %(<span data-type="hashtag" data-label="#{label}">#{label}</span>)
+          elsif links
             presenter.display_hashtag
           else
             presenter.display_hashtag_name

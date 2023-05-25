@@ -62,5 +62,25 @@ module Decidim
         expect(parser.metadata.groups).to eq([])
       end
     end
+
+    context "when the mentions are added through the WYSIWYG editor" do
+      let(:user_group2) { create(:user_group, :confirmed, organization:) }
+      let(:content) { "<p>This text contains multiple valid group mentions: #{html_mention(user_group)} and #{html_mention(user_group2)}</p>" }
+
+      it "rewrites all mentions" do
+        expect(parser.rewrite).to eq("<p>This text contains multiple valid group mentions: #{user_group.to_global_id} and #{user_group2.to_global_id}</p>")
+      end
+
+      it "returns the correct metadata" do
+        expect(parser.metadata).to be_a(Decidim::ContentParsers::UserGroupParser::Metadata)
+        expect(parser.metadata.groups).to match_array([user_group, user_group2])
+      end
+
+      def html_mention(mentionable)
+        mention = "@#{mentionable.nickname}"
+        label = "#{mention} (#{CGI.escapeHTML(mentionable.name)})"
+        %(<span data-type="mention" data-id="#{mention}" data-label="#{label}">#{label}</span>)
+      end
+    end
   end
 end

@@ -108,6 +108,12 @@ module Decidim
           expect(attribute.default_value).to be_nil
         end
 
+        it "supports floats" do
+          attribute = SettingsManifest::Attribute.new(type: :float)
+          expect(attribute.type_class).to eq(Float)
+          expect(attribute.default_value).to be_nil
+        end
+
         it "supports texts" do
           attribute = SettingsManifest::Attribute.new(type: :text)
           expect(attribute.type_class).to eq(String)
