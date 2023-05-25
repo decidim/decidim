@@ -57,7 +57,7 @@ fr:
             iframe_embed_type:
               not_embeddable: Cette URL ne peut pas être intégrée dans la page de rencontre ou d'événement en direct.
             online_meeting_url:
-              url_format: "Must be valid URL\nVeuillez saisir une adresse URL valide"
+              url_format: Veuillez saisir une adresse URL valide
         meeting_agenda:
           attributes:
             base:
