@@ -680,10 +680,12 @@ module Decidim
           filename:
         )
       end
+      let(:id) { 1 }
       let(:url) { Rails.application.routes.url_helpers.rails_blob_url(blob, only_path: true) }
       let(:file) do
         double(
           blob:,
+          id:,
           filename:,
           attached?: present?,
           attachment: double(
