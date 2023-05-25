@@ -50,6 +50,9 @@ describe "Admin manages elections", type: :system do
       )
     end
 
+    expect(page).to have_content("Check that the organization time zone is correct")
+    expect(page).to have_content("The current configuration is UTC")
+
     page.execute_script("$('#election_start_time').focus()")
     page.find(".datepicker-dropdown .day:not(.new)", text: "12").click
     page.find(".datepicker-dropdown .hour", text: "10:00").click
@@ -73,6 +76,19 @@ describe "Admin manages elections", type: :system do
     end
   end
 
+  context "when the organization has a different time zone" do
+    let(:organization) { create(:organization, time_zone: "Madrid") }
+
+    it "shows the correct time zone" do
+      within ".card-title" do
+        page.find(".button.button--title").click
+      end
+
+      expect(page).to have_content("Check that the organization time zone is correct")
+      expect(page).to have_content("The current configuration is Madrid")
+    end
+  end
+
   describe "updating an election" do
     let(:election) { create :election, :published, component: current_component }
 
@@ -90,6 +106,9 @@ describe "Admin manages elections", type: :system do
           ca: "El meu nou títol"
         )
 
+        expect(page).to have_content("Check that the organization time zone is correct")
+        expect(page).to have_content("The current configuration is UTC")
+
         find("*[type=submit]").click
       end
 
@@ -99,6 +118,19 @@ describe "Admin manages elections", type: :system do
 
       within "table" do
         expect(page).to have_content("My new title")
+      end
+    end
+
+    context "when the organization has a different time zone" do
+      let(:organization) { create(:organization, time_zone: "Madrid") }
+
+      it "shows the correct time zone" do
+        within find("tr", text: translated(election.title)) do
+          page.find(".action-icon--edit").click
+        end
+
+        expect(page).to have_content("Check that the organization time zone is correct")
+        expect(page).to have_content("The current configuration is Madrid")
       end
     end
   end
