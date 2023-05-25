@@ -12,7 +12,7 @@
       <% if @user_interests.scopes.any? %>
         <%= render partial: "scopes", locals: { scopes: @user_interests.scopes, f: f } %>
         <div class="form__wrapper-block">
-          <%= f.submit t("my_interests", scope:"decidim.user_interests.show"), class: "button button__sm md:button__lg button__secondary mr-auto !ml-0" %>
+          <%= f.submit t("update_my_interests", scope:"decidim.user_interests.show"), class: "button button__sm md:button__lg button__secondary mr-auto !ml-0" %>
         </div>
       <% else %>
         <p>

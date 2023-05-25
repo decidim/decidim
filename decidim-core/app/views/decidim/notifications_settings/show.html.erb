@@ -19,10 +19,10 @@
           </span>
           <%= icon "check-line", class: "toggle__switch-toggle-icon" %>
           <%= icon "close-line", class: "toggle__switch-toggle-icon" %>
+          <span class="toggle__switch-trigger-text">
+            <%= t("own_activity", scope:"decidim.notifications_settings.show") %>
+          </span>
         </label>
-        <span class="toggle__switch-trigger-text">
-          <%= t("own_activity", scope:"decidim.notifications_settings.show") %>
-        </span>
       </div>
       <div class="toggle__switch-trigger">
         <label for="dc-<%= :notifications_from_followed %>" class="toggle__switch-toggle">
@@ -36,10 +36,10 @@
           </span>
           <%= icon "check-line", class: "toggle__switch-toggle-icon" %>
           <%= icon "close-line", class: "toggle__switch-toggle-icon" %>
+          <span class="toggle__switch-trigger-text">
+            <%= t("everything_followed", scope:"decidim.notifications_settings.show") %>
+          </span>
         </label>
-        <span class="toggle__switch-trigger-text">
-          <%= t("everything_followed", scope:"decidim.notifications_settings.show") %>
-        </span>
       </div>
       <div>
         <span class="text-lg font-semibold">
@@ -69,10 +69,10 @@
           </span>
           <%= icon "check-line", class: "toggle__switch-toggle-icon" %>
           <%= icon "close-line", class: "toggle__switch-toggle-icon" %>
+          <span class="toggle__switch-trigger-text">
+            <%= t("newsletter_notifications", scope:"decidim.notifications_settings.show") %>
+          </span>
         </label>
-        <span class="toggle__switch-trigger-text">
-          <%= t("newsletter_notifications", scope:"decidim.notifications_settings.show") %>
-        </span>
       </div>
       <span class="text-lg font-semibold">
         <%= t("direct_messages", scope:"decidim.notifications_settings.show") %>
@@ -89,10 +89,10 @@
           </span>
           <%= icon "check-line", class: "toggle__switch-toggle-icon" %>
           <%= icon "close-line", class: "toggle__switch-toggle-icon" %>
+          <span class="toggle__switch-trigger-text">
+            <%= t("allow_public_contact", scope:"decidim.notifications_settings.show") %>
+          </span>
         </label>
-        <span class="toggle__switch-trigger-text">
-          <%= t("allow_public_contact", scope:"decidim.notifications_settings.show") %>
-        </span>
       </div>
 
       <% if @notifications_settings.user_is_moderator?(current_user) %>
@@ -111,10 +111,10 @@
           </span>
           <%= icon "check-line", class: "toggle__switch-toggle-icon" %>
           <%= icon "close-line", class: "toggle__switch-toggle-icon" %>
+          <span class="toggle__switch-trigger-text">
+            <%= t("email_on_moderations", scope:"decidim.notifications_settings.show") %>
+          </span>
         </label>
-        <span class="toggle__switch-trigger-text">
-          <%= t("email_on_moderations", scope:"decidim.notifications_settings.show") %>
-        </span>
       </div>
         <% Decidim.notification_settings_registry.manifests.filter{ |a| a.settings_area == :administrators }.each do |manifest| %>
           <div class="toggle__switch-trigger">
@@ -129,10 +129,10 @@
               </span>
               <%= icon "check-line", class: "toggle__switch-toggle-icon" %>
               <%= icon "close-line", class: "toggle__switch-toggle-icon" %>
+              <span class="toggle__switch-trigger-text">
+                <%= t("notification_settings.#{manifest.name}", scope:"decidim.notifications_settings.show") %>
+              </span>
             </label>
-            <span class="toggle__switch-trigger-text">
-              <%= t("notification_settings.#{manifest.name}", scope:"decidim.notifications_settings.show") %>
-            </span>
           </div>
         <% end %>
       <% end %>
@@ -157,10 +157,10 @@
               </span>
               <%= icon "check-line", class: "toggle__switch-toggle-icon" %>
               <%= icon "close-line", class: "toggle__switch-toggle-icon" %>
+              <span class="toggle__switch-trigger-text">
+                <%= t("allow_push_notifications", scope:"decidim.notifications_settings.show") %>
+              </span>
             </label>
-            <span class="toggle__switch-trigger-text">
-              <%= t("allow_push_notifications", scope:"decidim.notifications_settings.show") %>
-            </span>
           </div>
         </div>
 
