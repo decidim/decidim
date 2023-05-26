@@ -19,7 +19,7 @@
     }
 
     &-text{
-      @apply ml-12 font-normal block text-md cursor-pointer;
+      @apply ml-12 font-normal block text-md;
     }
 
     &-arrow{
@@ -32,14 +32,14 @@
   }
 
   &-toggle{
-    @apply relative inline-block w-14 h-6 rounded-full w-full;
+    @apply relative inline-block w-14 h-6 rounded-full w-auto cursor-pointer;
 
     input{
       @apply opacity-0 w-0 h-0;
     }
 
     &-content{
-      @apply absolute cursor-pointer top-0 left-0 right-0 bottom-0 bg-alert/10 rounded-full before:content-[''] before:absolute before:w-5 before:h-5 before:bottom-0.5 before:left-0.5 before:rounded-full before:bg-alert before:transition before:duration-300 w-14;
+      @apply absolute top-0 left-0 right-0 bottom-0 bg-alert/10 rounded-full before:content-[''] before:absolute before:w-5 before:h-5 before:bottom-0.5 before:left-0.5 before:rounded-full before:bg-alert before:transition before:duration-300 w-14;
     }
 
     input:focus ~ &-content{
