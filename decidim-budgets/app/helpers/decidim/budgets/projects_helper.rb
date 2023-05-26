@@ -139,9 +139,7 @@ module Decidim
       def filter_sections
         @filter_sections ||= begin
           items = []
-          if voting_finished?
-            items.append(method: :with_any_status, collection: filter_status_values, label_scope: "decidim.budgets.projects.filters", id: "status")
-          end
+          items.append(method: :with_any_status, collection: filter_status_values, label_scope: "decidim.budgets.projects.filters", id: "status") if voting_finished?
           if current_component.has_subscopes?
             items.append(method: :with_any_scope, collection: resource_filter_scope_values(budget.scope), label_scope: "decidim.budgets.projects.filters", id: "scope")
           end
