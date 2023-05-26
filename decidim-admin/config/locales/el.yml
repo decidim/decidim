@@ -14,17 +14,24 @@ el:
         description: Περιγραφή
         file: Αρχείο
         title: Συνημμένο ή όνομα εικόνας
+        weight: Θέση κατάταξης
       attachment_collection:
         description: Περιγραφή
         name: Όνομα
+        weight: Θέση κατάταξης
       category:
         description: Περιγραφή
         name: Όνομα
         parent_id: Γονικό στοιχείο
+        weight: Θέση κατάταξης
       component:
         name: Όνομα
         published_at: Δημοσιεύτηκε στις
         weight: Θέση κατάταξης
+      external_domain:
+        value: Τιμή
+      help_section:
+        content: Περιεχόμενο
       id: Αναγνωριστικό
       import:
         user_group_id: Δημιουργία εισαγωγών ως
@@ -92,6 +99,9 @@ el:
         welcome_notification_body: Σώμα ειδοποίησης καλωσορίσματος
         welcome_notification_subject: Θέμα ειδοποίησης καλωσορίσματος
         youtube_handler: Πρόγραμμα χειρισμού YouTube
+      participatory_space_private_user:
+        email: Email
+        name: Όνομα
       scope:
         code: Κωδικός
         name: Όνομα
@@ -113,6 +123,7 @@ el:
         show_in_footer: Εμφάνιση στο υποσέλιδο
         slug: Slug διεύθυνσης URL
         title: Τίτλος
+        topic_id: Θέμα
         weight: Θέση κατάταξης
       static_page_topic:
         description: Περιγραφή
@@ -179,6 +190,7 @@ el:
           error: Υπήρξε ένα σφάλμα κατά την αποδοχή των όρων χρήσης διαχειριστή.
           success: Εξαιρετικά! Αποδεχτήκατε τους όρους χρήσης διαχειριστή.
         actions:
+          accept: Συμφωνώ με τους όρους
           are_you_sure: Είστε σίγουρος ότι θέλετε να αρνηθείτε τους όρους χρήσης του διαχειριστή;
           title: Αποδοχή των όρων και των προϋποθέσεων χρήσης
         required_review:
