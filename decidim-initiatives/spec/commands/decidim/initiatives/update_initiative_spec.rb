@@ -72,6 +72,32 @@ module Decidim
             expect(initiative.description["en"]).to eq description
           end
 
+          context "when the initiative type enables custom signature end date" do
+            let(:initiative_type) { create(:initiatives_type, :custom_signature_end_date_enabled, organization:) }
+            let(:scoped_type) { create(:initiatives_type_scope, type: initiative_type) }
+            let!(:initiative) { create(:initiative, :created, organization:, scoped_type:) }
+
+            let(:form_params) do
+              {
+                title:,
+                description:,
+                signature_type:,
+                type_id: initiative_type.id,
+                attachment:,
+                add_documents: uploaded_files,
+                documents: current_files,
+                signature_end_date: Date.tomorrow
+              }
+            end
+
+            it "sets the signature end date" do
+              command.call
+              initiative = Decidim::Initiative.last
+
+              expect(initiative.signature_end_date).to eq(Date.tomorrow)
+            end
+          end
+
           context "when attachments are allowed" do
             let(:uploaded_files) do
               [
