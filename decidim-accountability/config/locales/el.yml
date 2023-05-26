@@ -48,6 +48,7 @@ el:
           results: Αποτελέσματα
         import_results:
           new:
+            download_export: Κατεβάστε την εξαγωγή με μορφή CSV
             import: Εισαγωγή
             title: Εισαγωγή αποτελεσμάτων από αρχείο CSV
         imports:
