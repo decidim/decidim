@@ -748,7 +748,7 @@ FactoryBot.define do
     state { "evaluating" }
 
     Decidim::Amendment::STATES.keys.each do |defined_state|
-      trait defined_state.to_sym do
+      trait defined_state do
         state { defined_state }
       end
     end
@@ -809,7 +809,7 @@ FactoryBot.define do
     remindable { build(:dummy_resource) }
 
     Decidim::ReminderRecord::STATES.keys.each do |defined_state|
-      trait defined_state.to_sym do
+      trait defined_state do
         state { defined_state }
       end
     end

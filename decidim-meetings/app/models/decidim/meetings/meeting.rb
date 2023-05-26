@@ -135,7 +135,7 @@ module Decidim
 
       scope :authored_by, ->(author) { where(decidim_author_id: author) }
 
-      scope_search_multi :with_any_type, TYPE_OF_MEETING.keys.map(&:to_sym)
+      scope_search_multi :with_any_type, TYPE_OF_MEETING.keys
 
       searchable_fields({
                           scope_id: :decidim_scope_id,

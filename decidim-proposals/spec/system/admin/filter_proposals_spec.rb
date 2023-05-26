@@ -6,7 +6,7 @@ describe "Admin filters proposals", type: :system do
   include_context "when admin manages proposals"
   include_context "with filterable context"
 
-  STATES = Decidim::Proposals::Proposal::STATES.keys.map(&:to_sym)
+  STATES = Decidim::Proposals::Proposal::STATES.keys
 
   let(:model_name) { Decidim::Proposals::Proposal.model_name }
   let(:resource_controller) { Decidim::Proposals::Admin::ProposalsController }
