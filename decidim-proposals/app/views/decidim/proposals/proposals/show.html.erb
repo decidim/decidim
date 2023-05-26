@@ -103,7 +103,7 @@ extra_admin_link(
               <%= render partial: "votes_count", locals: { proposal: @proposal, from_proposals_list: false } %>
               <%= render partial: "vote_button", locals: { proposal: @proposal, from_proposals_list: false } %>
             <% end %>
-            <div class="row collapse buttons__row">
+            <div class="row collapse buttons__row" data-buttons>
               <% if endorsements_enabled? %>
                 <div class="column small-9 collapse">
                   <%= endorsement_buttons_cell(@proposal) %>
