@@ -111,6 +111,8 @@ module Decidim
       alias current_initiative current_participatory_space
 
       def current_participatory_space
+        return unless params["slug"]
+
         @current_participatory_space ||= Initiative.find(id_from_slug(params[:slug]))
       end
 
