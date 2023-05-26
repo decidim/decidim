@@ -25,33 +25,44 @@ module Decidim
       helper_method :promotal_committee_required?
 
       before_action :authenticate_user!
-      before_action :ensure_type_exists, only: [:previous_form, :fill_data, :show_similar_initiatives, :promotal_committee, :finish]
-      before_action :ensure_initiative_exists, only: [:fill_data, :show_similar_initiatives, :promotal_committee, :finish]
+      before_action :ensure_type_exists,
+                    only: [:store_initiative_type, :previous_form, :store_initial_data, :fill_data, :store_data, :show_similar_initiatives, :promotal_committee, :finish]
+      before_action :ensure_user_can_create_initiative,
+                    only: [:previous_form, :store_initial_data, :fill_data, :store_data, :show_similar_initiatives, :promotal_committee, :finish]
+      before_action :ensure_initiative_exists, only: [:fill_data, :store_data, :show_similar_initiatives, :promotal_committee, :finish]
 
       def select_initiative_type
-        redirect_to previous_form_create_initiative_index_path if single_initiative_type?
         @form = form(Decidim::Initiatives::SelectInitiativeTypeForm).from_params(params)
 
-        render :select_initiative_type && return unless request.put?
+        redirect_to previous_form_create_initiative_index_path if single_initiative_type?
+      end
+
+      def store_initiative_type
+        @form = form(Decidim::Initiatives::SelectInitiativeTypeForm).from_params(params)
 
         if @form.valid?
           session[:type_id] = @form.type_id
           redirect_to previous_form_create_initiative_index_path
+        else
+          render :select_initiative_type
         end
       end
 
       def previous_form
         @form = form(Decidim::Initiatives::PreviousForm).from_params({ type_id: initiative_type_id })
+      end
 
-        enforce_permission_to :create, :initiative, { initiative_type: }
-
-        render :previous_form && return unless request.put?
-
+      def store_initial_data
         @form = form(Decidim::Initiatives::PreviousForm).from_params(params, { initiative_type: })
+
         CreateInitiative.call(@form, current_user) do
           on(:ok) do |initiative|
             session[:initiative_id] = initiative.id
             redirect_to show_similar_initiatives_create_initiative_index_path
+          end
+
+          on(:invalid) do
+            render :previous_form
           end
         end
       end
@@ -64,17 +75,20 @@ module Decidim
 
       def fill_data
         @form = form(Decidim::Initiatives::InitiativeForm).from_model(current_initiative, { initiative_type: })
+      end
 
-        render :fill_data && return unless request.put?
-
-        enforce_permission_to :create, :initiative, { initiative_type: }
-
+      def store_data
         @form = form(Decidim::Initiatives::InitiativeForm).from_params(params, { initiative_type: })
+
         UpdateInitiative.call(current_initiative, @form, current_user) do
           on(:ok) do
             path = promotal_committee_required? ? "promotal_committee" : "finish"
 
             redirect_to send("#{path}_create_initiative_index_path".to_sym)
+          end
+
+          on(:invalid) do
+            render :fill_data
           end
         end
       end
@@ -87,16 +101,22 @@ module Decidim
 
       private
 
-      def initiative_type_id
-        @initiative_type_id ||= get_initiative_type_id
+      def ensure_user_can_create_initiative
+        enforce_permission_to :create, :initiative, { initiative_type: }
       end
 
-      def get_initiative_type_id
+      def initiative_type_id
+        @initiative_type_id ||= fetch_initiative_type_id
+      end
+
+      def fetch_initiative_type_id
         return current_organization_initiatives_type.first.id if single_initiative_type?
+        return params.dig(:initiative, :type_id) if params.dig(:initiative, :type_id).present?
         return current_initiative&.type&.id if session[:initiative_id].present?
-        
+
         session[:type_id]
       end
+
       def ensure_initiative_exists
         redirect_to previous_form_create_initiative_index_path if session[:initiative_id].blank?
       end
