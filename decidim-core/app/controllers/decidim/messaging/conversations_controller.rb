@@ -6,6 +6,7 @@ module Decidim
     class ConversationsController < Decidim::ApplicationController
       include ConversationHelper
       include FormFactory
+      include HasSpecificBreadcrumb
 
       helper ConversationHelper
 
@@ -139,6 +140,14 @@ module Decidim
 
       def sender_is_user?(sender)
         current_user.id == sender.id
+      end
+
+      def breadcrumb_item
+        {
+          label: t("layouts.decidim.user_menu.conversations"),
+          url: conversations_path,
+          active: true
+        }
       end
     end
   end

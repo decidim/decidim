@@ -321,6 +321,7 @@ en:
           withdrawn: |-
             This amendment for the %{amendable_type} %{proposal_link}
             has been withdrawn by the author.
+      name: Amendment
       new:
         amendment_author: Amendment author
         send: Create
@@ -1034,6 +1035,7 @@ en:
       all: All activity types
       index:
         last_activity: Last activity
+      name: Last activities
     links:
       invalid_url: Invalid URL
       warning:
@@ -1263,6 +1265,7 @@ en:
         error: There was a problem updating your notifications settings.
         success: Your notifications settings were successfully updated.
     offline:
+      name: Offline
       show:
         message: It looks like you're currently offline. Please, try again later.
         retry: Retry
@@ -1416,6 +1419,7 @@ en:
       scopes_picker_input:
         select_scope: 'Select a scope (currently: %{current})'
     search:
+      name: Search
       results: Search results
       results_found_for_term: '%{count} Results for the search: "%{term}"'
       term_input_placeholder: Search
@@ -1919,6 +1923,7 @@ en:
         my_data: My data
         my_interests: My interests
         notifications_settings: Notifications settings
+        profile: Profile
         title: Participant settings
         user_groups: Groups
       widget:
