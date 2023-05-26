@@ -7,7 +7,10 @@ module Decidim
     include Decidim::IconHelper
     include Decidim::ApplicationHelper
     include Decidim::SanitizeHelper
+    include Decidim::DateRangeHelper
     include ActionView::Helpers::DateHelper
+    include Cell::ViewModel::Partial
+    include Decidim::ViewHooksHelper
 
     alias resource model
 
@@ -38,11 +41,11 @@ module Decidim
 
     def comments_count_item
       return unless model.is_a?(Decidim::Comments::Commentable) && model.commentable?
-      return if (count = model.comments_count).zero?
 
       {
-        text: count,
-        icon: resource_type_icon_key(:comments_count)
+        text: model.comments_count,
+        icon: resource_type_icon_key(:comments_count),
+        data_attributes: { comments_count: "" }
       }
     end
 
@@ -51,16 +54,19 @@ module Decidim
 
       {
         text: resource.endorsements_count,
-        icon: resource_type_icon_key(:like)
+        icon: resource_type_icon_key(:like),
+        data_attributes: { endorsements_count: "" }
       }
     end
 
     def author_item
       return unless authorable?
 
+      presented_author = official? ? "#{resource.class.module_parent}::OfficialAuthorPresenter".constantize.new : present(resource.author)
+
       {
         cell: "decidim/redesigned_author",
-        args: [present(resource.author), { from: resource, skip_profile_link: true, context_actions: [] }]
+        args: [presented_author, { from: resource, skip_profile_link: true, context_actions: [] }]
       }
     end
 
@@ -91,15 +97,8 @@ module Decidim
     def dates_item
       return if dates_blank?
 
-      format = [start_date.year, end_date.year].any? { |year| year != Date.current.year } ? :decidim_short_with_month_name_short : :decidim_with_month_name_short
-      text = if start_date.to_date == end_date.to_date
-               "#{l(start_date.to_date, format:)} #{l(start_date, format: :time_of_day)} - #{l(end_date, format: :time_of_day)}"
-             else
-               "#{l(start_date.to_date, format:)} - #{l(end_date.to_date, format:)}"
-             end
-
       {
-        text:,
+        text: format_date_range(start_date, end_date),
         icon: "timer-2-line"
       }
     end
@@ -171,8 +170,9 @@ module Decidim
 
     def progress_value
       return if dates_blank?
+      return 0 unless current_date <= end_date
 
-      @progress_value ||= (end_date - current_date).to_f / (end_date - start_date) if current_date <= end_date
+      @progress_value ||= (end_date - current_date).to_f / (end_date - start_date)
     end
 
     def progress_span
@@ -189,9 +189,9 @@ module Decidim
                          elsif end_date.blank?
                            t("active", scope: "decidim.metadata.progress")
                          elsif current_date < end_date
-                           t("remaining", time_distance: distance_of_time_in_words(current_date, end_date), scope: "decidim.metadata.progress")
+                           t("remaining", scope: "decidim.metadata.progress", time_distance: distance_of_time_in_words(current_date, end_date))
                          else
-                           t("finished", scope: "decidim.metadata.progress")
+                           t("finished", scope: "decidim.metadata.progress", end_date: l(end_date.to_date, format: :decidim_short))
                          end
     end
   end

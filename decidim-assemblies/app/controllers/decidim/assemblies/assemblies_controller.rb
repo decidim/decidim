@@ -10,6 +10,7 @@ module Decidim
 
       include FilterResource
       include Paginable
+      include HasParticipatorySpaceContentBlocks
 
       helper_method :collection, :parent_assemblies, :promoted_assemblies, :stats, :assembly_participatory_processes, :current_assemblies_settings
 
@@ -59,7 +60,7 @@ module Decidim
         {
           with_scope: nil,
           with_area: nil,
-          type_id_eq: nil
+          with_type: nil
         }
       end
 
@@ -69,18 +70,6 @@ module Decidim
         @current_participatory_space ||= OrganizationAssemblies.new(current_organization).query.where(slug: params[:slug]).or(
           OrganizationAssemblies.new(current_organization).query.where(id: params[:slug])
         ).first!
-      end
-
-      def current_participatory_space_breadcrumb_item
-        return if current_participatory_space.blank?
-
-        {
-          label: current_participatory_space.title,
-          url: assembly_path(current_participatory_space),
-          active: true,
-          dropdown_cell: "decidim/assemblies/assembly_dropdown_metadata",
-          resource: current_participatory_space
-        }
       end
 
       def published_assemblies

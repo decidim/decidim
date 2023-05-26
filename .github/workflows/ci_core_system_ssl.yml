@@ -23,6 +23,7 @@ env:
   DECIDIM_SERVICE_WORKER_ENABLED: true
   TEST_SSL: true
   CODECOV_TOKEN: bc15b944-6b42-420a-b3f9-a5a8fb214326
+  REDESIGN_ENABLED: "false"
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
@@ -65,6 +66,7 @@ jobs:
           processor_count: ${{ env.PARALLEL_TEST_PROCESSORS }}
           ruby_version: ${{ env.RUBY_VERSION }}
           node_version: ${{ env.NODE_VERSION }}
+          redesign_enabled: ${{ env.REDESIGN_ENABLED }}
       - run: |
           sudo Xvfb -ac $DISPLAY -screen 0 1920x1084x24 > /dev/null 2>&1 & # optional
           bundle exec rake parallel:spec[spec/system/data_consent/organization_spec.rb]

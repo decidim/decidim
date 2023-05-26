@@ -18,7 +18,7 @@ module Decidim
     end
 
     def image_alt
-      model.description || model.title || t("alt", scope: "decidim.application.photo")
+      strip_tags(description) || strip_tags(translated_attribute(model.title)) || t("alt", scope: "decidim.application.photo")
     end
 
     def image_thumb
@@ -30,7 +30,7 @@ module Decidim
     end
 
     def title
-      translated_attribute model.title
+      decidim_html_escape(translated_attribute(model.title))
     end
 
     def short_description

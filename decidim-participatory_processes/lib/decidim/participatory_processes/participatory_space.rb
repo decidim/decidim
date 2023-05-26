@@ -3,6 +3,7 @@
 Decidim.register_participatory_space(:participatory_processes) do |participatory_space|
   participatory_space.icon = "media/images/decidim_participatory_processes.svg"
   participatory_space.model_class_name = "Decidim::ParticipatoryProcess"
+  participatory_space.content_blocks_scope_name = "participatory_process_homepage"
 
   participatory_space.participatory_spaces do |organization|
     Decidim::ParticipatoryProcesses::OrganizationParticipatoryProcesses.new(organization).query
@@ -13,6 +14,8 @@ Decidim.register_participatory_space(:participatory_processes) do |participatory
   participatory_space.query_list = "Decidim::ParticipatoryProcesses::ParticipatoryProcessList"
 
   participatory_space.permissions_class_name = "Decidim::ParticipatoryProcesses::Permissions"
+
+  participatory_space.breadcrumb_cell = "decidim/participatory_processes/process_dropdown_metadata"
 
   participatory_space.register_resource(:participatory_process) do |resource|
     resource.model_class_name = "Decidim::ParticipatoryProcess"

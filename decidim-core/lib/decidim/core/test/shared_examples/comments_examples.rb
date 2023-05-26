@@ -339,6 +339,8 @@ shared_examples "comments" do
         end
 
         it "let the emoji button works properly when there are not too much characters" do
+          skip_unless_redesign_enabled "This test doesn't pass without redesign because the emoji button is not visible"
+
           if component.present?
             component.update!(settings: { comments_max_length: 100 })
             visit current_path
@@ -358,6 +360,8 @@ shared_examples "comments" do
         end
 
         it "deactivate the emoji button when there are less than 4 characters left" do
+          skip_unless_redesign_enabled "This test doesn't pass without redesign because the emoji button is not visible"
+
           if component.present?
             component.update!(settings: { comments_max_length: 30 })
             visit current_path
@@ -447,6 +451,10 @@ shared_examples "comments" do
         let(:reply_content) { "This is a new reply" }
 
         before do
+          within "div#comment_#{thread.id}" do
+            find("span", text: "Reply").click
+          end
+
           within "form#new_comment_for_#{thread.commentable_type.demodulize}_#{thread.id}" do
             field = find("#add-comment-#{thread.commentable_type.demodulize}-#{thread.id}")
             field.set " "
@@ -525,9 +533,7 @@ shared_examples "comments" do
             click_link "Delete"
           end
 
-          within "div.confirm-reveal" do
-            click_link "OK"
-          end
+          accept_confirm
 
           expect(page).to have_selector("#comment_#{comment.id}")
           within "#comment_#{comment.id}" do

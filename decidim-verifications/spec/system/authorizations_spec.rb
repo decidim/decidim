@@ -17,7 +17,9 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
 
       before do
         visit decidim.root_path
-        click_link("Sign In")
+        within "#main-bar" do
+          click_link("Sign In")
+        end
 
         within "form.new_user", match: :first do
           fill_in :session_user_email, with: user.email
@@ -93,7 +95,13 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
               click_link "My account"
             end
 
-            click_link "Authorizations"
+            # REDESIGN_PENDING - My account is not redesigned yet and doesn't
+            # contain an "Authorizations" link. Uncomment after redesigning it
+            # and remove the visit_authorizations call
+            # click_link "Authorizations"
+
+            visit_authorizations
+
             click_link "Example authorization"
           end
 
@@ -117,7 +125,9 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
 
       before do
         visit decidim.root_path
-        click_link("Sign In")
+        within "#main-bar" do
+          click_link("Sign In")
+        end
 
         within "form.new_user", match: :first do
           fill_in :session_user_email, with: user.email

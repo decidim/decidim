@@ -421,7 +421,7 @@ describe "Authentication", type: :system do
 
       it "signs out the user" do
         within_user_menu do
-          find(".sign-out-link").click
+          click_link("Sign out")
         end
 
         expect(page).to have_content("Signed out successfully.")

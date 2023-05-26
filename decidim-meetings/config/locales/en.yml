@@ -397,8 +397,6 @@ en:
           all: All
         filter_meeting_space_values:
           all: All
-        filter_scope_values:
-          all: All
       calendar_modal:
         calendar_url: Calendar URL
         copy_calendar_url: Copy
@@ -492,7 +490,6 @@ en:
             official: Official
             participants: Participants
             user_group: Groups
-          scope: Scope
           search: Search
           type: Type
           type_values:
@@ -524,8 +521,6 @@ en:
           close_meeting: Close meeting
           edit_close_meeting: Edit meeting report
           edit_meeting: Edit meeting
-        meeting_minutes:
-          related_information: Related Information
         meetings:
           no_meetings_warning: No meetings match your search criteria or there is not any meeting scheduled.
           upcoming_meetings_warning: Currently, there are no scheduled meetings, but here you can find all the past meetings listed.

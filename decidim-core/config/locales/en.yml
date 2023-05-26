@@ -321,6 +321,7 @@ en:
           withdrawn: |-
             This amendment for the %{amendable_type} %{proposal_link}
             has been withdrawn by the author.
+      name: Amendment
       new:
         amendment_author: Amendment author
         send: Create
@@ -534,7 +535,6 @@ en:
         name: HTML block
       last_activity:
         name: Last activity
-        see_all_activity: See all the activity
         title: Last activity
         view_all: View all
       last_activity_settings_form:
@@ -590,8 +590,6 @@ en:
           nickname_help: Your alias in %{organization}. Can only contain letters, numbers, '-' and '_'.
           sign_in: Log in
           sign_up: Sign up
-          sign_up_as:
-            legend: Sign up as
           subtitle: Sign up to participate in discussions and support proposals.
           terms: the terms and conditions of use
           tos_agreement: By signing up you agree to %{link}.
@@ -1037,6 +1035,7 @@ en:
       all: All activity types
       index:
         last_activity: Last activity
+      name: Last activities
     links:
       invalid_url: Invalid URL
       warning:
@@ -1154,7 +1153,7 @@ en:
     metadata:
       progress:
         active: Active
-        finished: Finished
+        finished: 'Finished: %{end_date}'
         not_started: Not started yet
         remaining: "%{time_distance} remaining"
     metrics:
@@ -1266,6 +1265,7 @@ en:
         error: There was a problem updating your notifications settings.
         success: Your notifications settings were successfully updated.
     offline:
+      name: Offline
       show:
         message: It looks like you're currently offline. Please, try again later.
         retry: Retry
@@ -1419,12 +1419,14 @@ en:
       scopes_picker_input:
         select_scope: 'Select a scope (currently: %{current})'
     search:
+      name: Search
       results: Search results
       results_found_for_term: '%{count} Results for the search: "%{term}"'
       term_input_placeholder: Search
     searches:
       filters:
         jump_to: 'Jump to:'
+        search: Search
         state:
           active: Active
           all: All
@@ -1433,6 +1435,7 @@ en:
       filters_small_view:
         close_modal: Close modal
         filter: Filter
+        filter_and_search: Filter and Search
         filter_by: Filter by
         unfold: Unfold
       results:
@@ -1489,7 +1492,9 @@ en:
         remove_recipient: Remove recipient %{name}
       participatory_space_filters:
         filters:
+          area: Area
           areas: Areas
+          scope: Scope
           select_an_area: Select an area
       public_participation:
         public_participation: Show my attendance publicly
@@ -1918,6 +1923,7 @@ en:
         my_data: My data
         my_interests: My interests
         notifications_settings: Notifications settings
+        profile: Profile
         title: Participant settings
         user_groups: Groups
       widget:

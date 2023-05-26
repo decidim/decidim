@@ -9,6 +9,18 @@ module Decidim
 
       private
 
+      def has_image?
+        resource_image_path.present?
+      end
+
+      def show_description?
+        true
+      end
+
+      def metadata_cell
+        "decidim/blogs/post_metadata_g"
+      end
+
       def resource_image_path
         return if photo.blank?
 

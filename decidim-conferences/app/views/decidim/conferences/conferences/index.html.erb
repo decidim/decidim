@@ -25,13 +25,11 @@ edit_link(
   <% end %>
 
   <section id="conferences-grid" class="card__grid-container">
-    <h2 class="h3 decorator"><%= t("conferences.order_by_conferences.conferences", scope: "layouts.decidim", count: collection.count) %></h2>
+    <h2 class="h3 decorator"><%= t("conferences.order_by_conferences.conferences", scope: "layouts.decidim", count: conferences.size) %></h2>
     <div class="card__grid-grid">
       <%= render(collection) %>
     </div>
 
-    <%# REDESIGN_PENDING: include paginator %>
-    <%#= decidim_paginate collection %>
+    <%= decidim_paginate collection %>
   </section>
-
 <% end %>
