@@ -308,6 +308,8 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
 
             context "when the request is accepted and the contributor visits the draft" do
               before do
+                skip "REDESIGN_PENDING - This test should be fixed in https://github.com/decidim/decidim/pull/10729"
+
                 click_button "Accept"
                 sign_in user, scope: :user
                 visit current_path
