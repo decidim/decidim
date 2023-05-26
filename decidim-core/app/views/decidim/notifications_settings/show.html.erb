@@ -117,23 +117,22 @@
         </label>
       </div>
         <% Decidim.notification_settings_registry.manifests.filter{ |a| a.settings_area == :administrators }.each do |manifest| %>
-          <div class="toggle__switch-trigger">
-            <label for="dc-" class="toggle__switch-toggle">
-              <input
-                <%= %(checked="checked") if ["1", true].include?(current_user.notification_settings.fetch(manifest.name.to_s, manifest.default_value)) %>
-                id="dc-"
-                type="checkbox"
-                name="">
-              <span class="sr-only"></span>
-              <span class="toggle__switch-toggle-content">
-              </span>
-              <%= icon "check-line", class: "toggle__switch-toggle-icon" %>
-              <%= icon "close-line", class: "toggle__switch-toggle-icon" %>
-              <span class="toggle__switch-trigger-text">
-                <%= t("notification_settings.#{manifest.name}", scope:"decidim.notifications_settings.show") %>
-              </span>
-            </label>
-          </div>
+        <div class="toggle__switch-trigger">
+          <label class="toggle__switch-toggle">
+            <%= f.check_box "notification_settings[#{manifest.name}]",
+                            checked: ["1", true].include?(current_user.notification_settings.fetch(manifest.name.to_s, manifest.default_value)),
+                            label: false,
+                            class: "switch-input" %>
+            <span class="sr-only"></span>
+            <span class="toggle__switch-toggle-content">
+            </span>
+            <%= icon "check-line", class: "toggle__switch-toggle-icon" %>
+            <%= icon "close-line", class: "toggle__switch-toggle-icon" %>
+            <span class="toggle__switch-trigger-text">
+              <%= t("notification_settings.#{manifest.name}", scope:"decidim.notifications_settings.show") %>
+            </span>
+          </label>
+        </div>
         <% end %>
       <% end %>
 

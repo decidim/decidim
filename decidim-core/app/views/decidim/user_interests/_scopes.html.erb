@@ -1,12 +1,8 @@
 <% scopes.each do |scope| %>
   <div class="toggle__switch-trigger mb-4">
     <%= f.fields_for "scopes[]", scope do |form| %>
-      <label for="dc-<%= scope.id %>" class="toggle__switch-toggle">
-        <input
-          <%= %(checked="checked") if scope.checked %>
-          id="dc-<%= scope.id %>"
-          type="checkbox"
-          name="<%= scope.id %>">
+      <%= form.label("checked", nil, class: "toggle__switch-toggle") do %>
+        <%= form.check_box "checked", label: false %>
         <span class="sr-only"></span>
         <span class="toggle__switch-toggle-content">
         </span>
@@ -15,7 +11,8 @@
         <span class="toggle__switch-trigger-text">
           <%= translated_attribute scope.name %>
         </span>
-      </label>
+      <% end %>
+      <%= form.hidden_field "id", value: scope.id %>
     <% end %>
   </div>
   <div class="ml-4 mb-2">
