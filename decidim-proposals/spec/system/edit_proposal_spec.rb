@@ -112,7 +112,7 @@ describe "Edit proposals", type: :system do
         end
       end
 
-      context "with multiple images" do
+      context "with multiple images", :slow do
         it "can add many images many times" do
           click_link "Edit proposal"
           dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city.jpeg"), front_interface: true)
