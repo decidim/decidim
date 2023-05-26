@@ -36,15 +36,23 @@ module Decidim
       end
 
       def filter_sections_sortitions
-        [
-          { method: :with_any_state, collection: filter_state_values, label_scope: "decidim.sortitions.sortitions.filters", id: "state" }
-        ].tap do |f|
-          f.append(method: :with_category, collection: filter_categories_values, label_scope: "decidim.sortitions.sortitions.filters", id: "category") if current_participatory_space.categories.any?
-        end.reject { |item| item[:collection].blank? }
+        sections = [{ method: :with_any_state, collection: filter_state_values, label_scope: "decidim.sortitions.sortitions.filters", id: "state" }]
+        if current_participatory_space.categories.any?
+          sections.append(
+            method: :with_category,
+            collection: filter_categories_values,
+            label_scope: "decidim.sortitions.sortitions.filters", id: "category"
+          )
+        end
+        sections.reject { |item| item[:collection].blank? }
       end
 
       def filter_state_values
-        [["all", filter_text_for(t("all", scope: "decidim.sortitions.sortitions.filters"))], ["active", filter_text_for(t("active", scope: "decidim.sortitions.sortitions.filters"))],["cancelled", filter_text_for(t("cancelled", scope: "decidim.sortitions.sortitions.filters"))]]
+        [
+          ["all", filter_text_for(t("all", scope: "decidim.sortitions.sortitions.filters"))],
+          ["active", filter_text_for(t("active", scope: "decidim.sortitions.sortitions.filters"))],
+          ["cancelled", filter_text_for(t("cancelled", scope: "decidim.sortitions.sortitions.filters"))]
+        ]
       end
     end
   end
