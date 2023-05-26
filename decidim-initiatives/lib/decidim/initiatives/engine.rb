@@ -23,10 +23,10 @@ module Decidim
           collection do
             match :select_initiative_type, via: [:get, :put]
             match :previous_form, via: [:get, :put]
-            match :show_similar_initiatives, via: [:get, :put]
+            get :show_similar_initiatives
             match :fill_data, via: [:get, :put]
-            match :promotal_committee, via: [:get, :put]
-            match :finish, via: [:get, :put]
+            get :promotal_committee
+            get :finish
           end
         end
 
