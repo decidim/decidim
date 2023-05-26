@@ -19,6 +19,10 @@ inputs:
     description: "Number or parallel jobs to run"
     default: "4"
     required: false
+  redesign_enabled:
+    description: "Enable redesign"
+    default: "false"
+    required: false
 
 runs:
   using: "composite"
@@ -52,6 +56,8 @@ runs:
       name: Precompile assets
       working-directory: ./spec/decidim_dummy_app/
       shell: "bash"
+      env:
+        REDESIGN_ENABLED: "${{ inputs.redesign_enabled }}"
     - run: bundle exec brakeman --rails6 --force-scan .
       name: Scanning Security issues on module
       working-directory: ${{ inputs.name }}
