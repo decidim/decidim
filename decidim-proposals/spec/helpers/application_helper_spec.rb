@@ -63,7 +63,7 @@ module Decidim
           it "renders a sanitized body" do
             expect(subject).to eq(
               <<~HTML.strip
-                <div class="ql-editor-display"><ul>
+                <div class="ql-editor ql-reset-decidim"><ul>
                 <li>First</li>
                 <li>Second</li>
                 <li>Third</li>
@@ -87,7 +87,7 @@ module Decidim
             it "renders the image and iframe embed" do
               expect(subject).to eq(
                 <<~HTML.strip
-                  <div class="ql-editor-display"><p><img src="/path/to/image.jpg" alt="Image"></p>
+                  <div class="ql-editor ql-reset-decidim"><p><img src="/path/to/image.jpg" alt="Image"></p>
                   <div class="editor-content-videoEmbed">
                     <div>
                       <div class="disabled-iframe"><!-- <iframe src="https://example.org/video/xyz" title="Video" frameborder="0" allowfullscreen="true"></iframe> --></div>
