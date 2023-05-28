@@ -27,6 +27,7 @@ eu:
         min_selections: Aurreko bat ere ez
         title: Izenburua
       voting:
+        banner_image: Bannerra
         end_time: Bozketaren amaiera-data
         start_time: Bozketaren hasiera-data
         title: Izenburua
