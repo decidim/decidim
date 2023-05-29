@@ -84,6 +84,10 @@ lv:
     admin:
       filters:
         proposals:
+          state_null:
+            label: Stāvoklis
+            values:
+              'true': Nav atbildēts
           valuator_role_ids_has:
             label: Piešķirts vērtētājam
         search_placeholder:
