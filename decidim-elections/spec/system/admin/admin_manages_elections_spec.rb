@@ -28,7 +28,7 @@ describe "Admin manages elections", type: :system do
     it_behaves_like "having a rich text editor", "new_election", "full"
   end
 
-  describe "creating a election" do
+  describe "creating an election" do
     it "creates a new election" do
       within ".card-title" do
         page.find(".button.button--title").click
