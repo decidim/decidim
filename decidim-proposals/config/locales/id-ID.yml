@@ -64,6 +64,13 @@ id:
       decidim/proposals/proposal_vote:
         other: Suara
   decidim:
+    admin:
+      filters:
+        proposals:
+          state_null:
+            label: Negara
+            values:
+              'true': Tidak dijawab
     components:
       proposals:
         actions:
