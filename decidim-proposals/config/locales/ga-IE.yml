@@ -46,8 +46,6 @@ ga:
             values:
               accepted: Glactha
               rejected: Diúltaithe
-          state_null:
-            label: Staid
     components:
       proposals:
         actions:
