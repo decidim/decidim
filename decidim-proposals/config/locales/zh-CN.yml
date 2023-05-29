@@ -91,10 +91,6 @@ zh-CN:
               rejected: 已拒绝
               validating: 技术验证
               withdrawn: 取出
-          state_null:
-            label: 状态
-            values:
-              'true': 未回答
           valuator_role_ids_has:
             label: 分配给值者
         search_placeholder:
