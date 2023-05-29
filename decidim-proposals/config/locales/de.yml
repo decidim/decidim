@@ -107,10 +107,6 @@ de:
               rejected: Abgelehnt
               validating: Technische Validierung
               withdrawn: Zurückgezogen
-          state_null:
-            label: Bundesländer
-            values:
-              'true': Unbeantwortet
           valuator_role_ids_has:
             label: Zugewiesen zu dem Schätzer
         search_placeholder:
