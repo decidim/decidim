@@ -4,6 +4,7 @@ module Decidim
   module Conferences
     module ContentBlocks
       class HighlightedConferencesCell < Decidim::ViewModel
+        include Decidim::CardHelper
         delegate :current_user, to: :controller
 
         def show
