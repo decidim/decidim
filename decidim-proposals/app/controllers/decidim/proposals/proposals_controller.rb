@@ -349,14 +349,6 @@ module Decidim
             method: :cell,
             args: ["decidim/linked_resources_for", @proposal, { type: :proposals, link_name: "copied_from_component" }]
           },
-          # {
-          #   enabled: @proposal.public_participants.any?,
-          #   id: "participants",
-          #   text: t("attending_participants", scope: "decidim.meetings.public_participants_list"),
-          #   icon: "group-line",
-          #   method: :cell,
-          #   args: ["decidim/meetings/public_participants_list", @proposal]
-          # },
           {
             enabled: @proposal.photos.present?,
             id: "images",
