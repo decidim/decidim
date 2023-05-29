@@ -82,6 +82,10 @@ el:
     admin:
       filters:
         proposals:
+          state_null:
+            label: Κατάσταση
+            values:
+              'true': Δεν απαντήθηκε
           valuator_role_ids_has:
             label: Ανατέθηκε στον εκτιμητή
         search_placeholder:
