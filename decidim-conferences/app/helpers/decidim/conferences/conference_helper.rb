@@ -16,57 +16,57 @@ module Decidim
 
       # Items to display in the navigation of a conference
       #
-      def conference_nav_items
+      def conference_nav_items(participatory_space)
         [
           {
             name: t("layouts.decidim.conferences_nav.conference_menu_item"),
-            path: decidim_conferences.conference_path(current_participatory_space)
+            url: decidim_conferences.conference_path(participatory_space)
           }
         ].tap do |items|
-          if current_participatory_space.speakers.exists?
+          if participatory_space.speakers.exists?
             items << {
               name: t("layouts.decidim.conferences_nav.conference_speaker_menu_item"),
-              path: decidim_conferences.conference_conference_speakers_path(current_participatory_space)
+              url: decidim_conferences.conference_conference_speakers_path(participatory_space)
             }
           end
 
-          meeting_components = current_participatory_space.components.published.where(manifest_name: "meetings")
-          other_components = current_participatory_space.components.published.where.not(manifest_name: "meetings")
+          meeting_components = participatory_space.components.published.where(manifest_name: "meetings")
+          other_components = participatory_space.components.published.where.not(manifest_name: "meetings")
 
           meeting_components.each do |component|
             next unless Decidim::Meetings::Meeting.where(component:).published.not_hidden.visible_for(current_user).exists?
 
             items << {
               name: translated_attribute(component.name),
-              path: decidim_conferences.conference_conference_program_path(current_participatory_space, id: component.id)
+              url: decidim_conferences.conference_conference_program_path(participatory_space, id: component.id)
             }
           end
 
-          if current_participatory_space.partners.exists?
+          if participatory_space.partners.exists?
             items << {
               name: t("layouts.decidim.conferences_nav.conference_partners_menu_item"),
-              path: decidim_conferences.conference_path(current_participatory_space, anchor: "conference-partners-main_promotor")
+              url: decidim_conferences.conference_path(participatory_space, anchor: "conference-partners-main_promotor")
             }
           end
 
           if meeting_components.exists?
             items << {
               name: t("layouts.decidim.conferences_nav.venues"),
-              path: decidim_conferences.conference_path(current_participatory_space, anchor: "venues")
+              url: decidim_conferences.conference_path(participatory_space, anchor: "venues")
             }
           end
 
           other_components.each do |component|
             items << {
               name: translated_attribute(component.name),
-              path: main_component_path(component)
+              url: main_component_path(component)
             }
           end
 
-          if current_participatory_space.attachments.any? || current_participatory_space.media_links.any?
+          if participatory_space.attachments.any? || participatory_space.media_links.any?
             items << {
               name: t("layouts.decidim.conferences_nav.media"),
-              path: decidim_conferences.conference_media_path(current_participatory_space)
+              url: decidim_conferences.conference_media_path(participatory_space)
             }
           end
         end

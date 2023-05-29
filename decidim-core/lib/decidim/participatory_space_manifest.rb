@@ -43,6 +43,10 @@ module Decidim
     # probably have the form of `Decidim::<MySpace>::Permissions`.
     attribute :permissions_class_name, String, default: "Decidim::DefaultPermissions"
 
+    # The cell to use as dropdown in the breadcrumb element associated to the space.
+    # If this value is omitted or blank, no breadcrumb is displayed
+    attribute :breadcrumb_cell, String
+
     # The cell path to use to render the card of a resource.
     attribute :card, String
 
