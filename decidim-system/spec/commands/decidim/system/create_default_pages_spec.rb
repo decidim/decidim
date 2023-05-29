@@ -37,6 +37,14 @@ module Decidim
         end
       end
 
+      it "sets the content with translatable title" do
+        described_class.new(organization1).call
+
+        organization1.static_pages.each do |page|
+          expect(page.title["en"]).to include(I18n.t(page.slug, scope: "decidim.system.default_pages"))
+        end
+      end
+
       it "sets the terms-of-service page as allowed for public access" do
         described_class.new(organization1).call
 
