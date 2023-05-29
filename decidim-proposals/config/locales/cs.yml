@@ -122,10 +122,6 @@ cs:
               rejected: Zamítnuto
               validating: Technické ověření
               withdrawn: Odebráno
-          state_null:
-            label: Stav
-            values:
-              'true': Nezodpovězeno
           valuator_role_ids_has:
             label: Přiřazeno k hodnotiteli
         search_placeholder:
