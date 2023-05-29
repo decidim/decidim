@@ -110,7 +110,7 @@ de:
               validating: Technische Validierung
               withdrawn: Zurückgezogen
           state_null:
-            label: Bundesländer
+            label: Status
             values:
               'true': Unbeantwortet
           valuator_role_ids_has:
