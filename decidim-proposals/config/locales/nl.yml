@@ -93,6 +93,10 @@ nl:
     admin:
       filters:
         proposals:
+          state_null:
+            label: Staat
+            values:
+              'true': Nog niet beantwoord
           valuator_role_ids_has:
             label: Toegewezen aan beoordelaar
         search_placeholder:
