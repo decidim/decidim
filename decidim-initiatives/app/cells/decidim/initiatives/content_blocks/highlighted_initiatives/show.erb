@@ -9,12 +9,10 @@
         <% end %>
       </div>
     </div>
-    <div class="card__grid-container">
-      <div class="card__grid-grid">
-        <% highlighted_initiatives.each do |initiative| %>
-          <%= card_for initiative, size: :g %>
-        <% end %>
-      </div>
+    <div class="card__grid-home">
+      <% highlighted_initiatives.each do |initiative| %>
+        <%= card_for initiative, size: :g %>
+      <% end %>
     </div>
   </div>
 </section>
