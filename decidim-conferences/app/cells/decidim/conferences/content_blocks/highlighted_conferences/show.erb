@@ -1,19 +1,16 @@
-<section id="highlighted_conferences" class="wrapper-home home__section">
-  <div class="row" id="highlighted-conferences">
-    <h3 class="section-heading"><%= t("active_conferences", scope: i18n_scope) %></h3>
+<section id="highlighted_conferences" class="home__section">
+  <div id="highlighted-conferences">
+    <div class="home__section-header">
+      <h2 class="h2 decorator"><%= t("active_conferences", scope: i18n_scope) %></h2>
+      <%= link_to decidim_conferences.conferences_path, class: "button button__sm button__text-secondary ml-auto" do %>
+          <%= t("see_all_conferences", scope: "decidim.conferences.pages.home.highlighted_conferences") %>
+          <%= icon "arrow-right-line", class: "fill-current" %>
+        <% end %>
+    </div>
     <div class="card__grid-home">
       <% highlighted_conferences.each do |conference| %>
         <%= card_for conference, size: :g %>
       <% end %>
-    </div>
-  </div>
-  <div class="row" id="see-all-conferences">
-    <div class="columns small-centered small-12
-      smallmedium-8 medium-6 large-4">
-      <%= link_to t("see_all_conferences", scope: i18n_scope),
-                  decidim_conferences.conferences_path,
-                  class: "button expanded hollow button--sc home-section__cta",
-                  title: t("conferences_button_title", scope: i18n_scope) %>
     </div>
   </div>
 </section>

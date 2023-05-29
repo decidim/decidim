@@ -1,6 +1,10 @@
 <section id="highlighted_processes" class="wrapper-home home__section">
-  <h3 class="section-heading"><%= t("active_processes", scope: i18n_scope) %></h3>
-  <%= render "_all_processes" %>
+  <div class="home__section-header">
+    <h2 class="h2 decorator">
+      <%= t("active_processes", scope: i18n_scope) %>
+    </h2>
+    <%= render "_all_processes" %>
+  </div>
   <div class="card__grid-home">
     <% highlighted_items.each do |item| %>
       <%= card_for item, size: :g %>
