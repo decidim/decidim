@@ -118,7 +118,7 @@ es-MX:
           state_null:
             label: Estado
             values:
-              'true': No contestadas
+              'true': No contestada
           valuator_role_ids_has:
             label: Asignada a evaluadora
         search_placeholder:
