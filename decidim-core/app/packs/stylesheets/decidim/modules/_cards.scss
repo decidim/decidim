@@ -805,12 +805,6 @@ a .card__title {
   }
 }
 
-//card propsoals index in processes
-.card--proposal {
-  max-width: 17rem;
-  width: auto;
-}
-
 /* Card full width process variant */
 
 @include breakpoint(mediumlarge) {
