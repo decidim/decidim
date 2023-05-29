@@ -118,7 +118,7 @@ fr-CA:
           state_null:
             label: État
             values:
-              'true': Non répondu
+              'true': En attente de réponse
           valuator_role_ids_has:
             label: Assigné à l'évaluateur
         search_placeholder:
