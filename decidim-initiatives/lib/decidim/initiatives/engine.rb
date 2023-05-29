@@ -89,7 +89,7 @@ module Decidim
                         I18n.t("menu.initiatives", scope: "decidim"),
                         decidim_initiatives.initiatives_path,
                         position: 2.4,
-                        active: :inclusive,
+                        active: %r{^/(initiatives|create_initiative)},
                         if: !Decidim::InitiativesType.joins(:scopes).where(organization: current_organization).all.empty?
         end
       end
