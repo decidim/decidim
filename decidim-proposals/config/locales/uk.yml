@@ -51,6 +51,12 @@ uk:
         many: Голосів
         other: Голосів
   decidim:
+    admin:
+      filters:
+        proposals:
+          state_null:
+            values:
+              'true': Без відповідей
     components:
       proposals:
         actions:
