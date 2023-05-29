@@ -66,6 +66,7 @@ en:
           content: Please add meaningful content to the %{page} static page on the admin dashboard.
           summary: Please add meaningful summary to the %{page} static page on the admin dashboard.
           title: Default title for %{page}
+        terms-of-service: Terms of service
       menu:
         admins: Admins
         dashboard: Dashboard

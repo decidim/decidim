@@ -19,6 +19,7 @@ describe "Show a Proposal", type: :system do
     context "when requesting the proposal path" do
       before do
         visit_proposal
+        expect(page).to have_content(translated(proposal.title))
       end
 
       it_behaves_like "share link"
