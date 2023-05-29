@@ -117,7 +117,7 @@ sv:
           state_null:
             label: Status
             values:
-              'true': Ej besvarad
+              'true': Ej besvarat
           valuator_role_ids_has:
             label: Tilldelad till värderare
         search_placeholder:
