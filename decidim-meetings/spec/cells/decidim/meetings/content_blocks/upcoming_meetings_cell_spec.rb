@@ -8,20 +8,17 @@ module Decidim
       describe UpcomingMeetingsCell, type: :cell do
         controller Decidim::Meetings::Directory::MeetingsController
 
-        let(:html) { cell("decidim/meetings/content_blocks/upcoming_meetings").call }
+        let(:content_block) { create :content_block, organization:, manifest_name: :upcoming_meetings, scope_name: :homepage }
         let(:organization) { create(:organization) }
         let(:current_user) { create :user, :confirmed, organization: }
-
-        before do
-          expect(controller).to receive(:current_organization).at_least(:once).and_return(organization)
-        end
+        let(:html) { cell("decidim/meetings/content_blocks/highlighted_meetings", content_block).call }
 
         context "with meetings" do
           let(:organization) { meeting.organization }
           let(:meeting) { create(:meeting, :published, start_time: 1.week.from_now) }
 
           it "renders the meetings" do
-            expect(html).to have_css(".card", count: 1)
+            expect(html).to have_css(".card__list", count: 1)
           end
 
           describe "upcoming meetings" do
@@ -86,7 +83,7 @@ module Decidim
 
         context "with no meetings" do
           it "renders nothing" do
-            expect(html).to have_no_css(".upcoming-meetings")
+            expect(html).to have_no_css(".meeting-list__block-list")
           end
         end
       end
