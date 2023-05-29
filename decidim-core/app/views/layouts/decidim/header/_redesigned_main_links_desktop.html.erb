@@ -25,8 +25,13 @@
 <% else %>
   <div class="main-bar__dropdown-container">
     <button id="trigger-dropdown-account" class="main-bar__dropdown-trigger" data-component="dropdown" data-target="dropdown-menu-account">
-      <% if current_user.notifications.any? || current_user.unread_conversations.any? %>
-        <span class="main-bar__notification" data-unread-items></span>
+        <% unread_data = {}.tap do |d|
+            d.merge!(unread_notifications: true) if current_user.notifications.any?
+            d.merge!(unread_conversations: true) if current_user.unread_conversations.any?
+            d.merge!(unread_items: d.present?)
+          end %>
+      <% if unread_data[:unread_items] %>
+        <%= content_tag :span, "", class: "main-bar__notification", data: unread_data %>
       <% end %>
       <% if current_user.avatar.attached? %>
         <span class="main-bar__avatar">
@@ -46,7 +51,7 @@
     </button>
     <div id="dropdown-menu-account" aria-hidden="true">
       <ul class="dropdown dropdown__bottom main-bar__dropdown">
-        <%= render partial: "layouts/decidim/header/redesigned_main_links_dropdown" %>
+        <%= render partial: "layouts/decidim/header/redesigned_main_links_dropdown", locals: { unread_data: } %>
       </ul>
     </div>
   </div>

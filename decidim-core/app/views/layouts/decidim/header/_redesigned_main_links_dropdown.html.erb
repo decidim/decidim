@@ -14,12 +14,18 @@
   <%= link_to decidim.notifications_path, class: "dropdown__item" do %>
     <%= icon "notification-3-line" %>
     <span class="text-secondary"><%= t("layouts.decidim.user_menu.notifications") %></span>
+    <% if unread_data[:unread_notifications] %>
+      <%= content_tag :span, "", class: "main-bar__dropdown-notification", data: unread_data %>
+    <% end %>
   <% end %>
 </li>
 <li>
   <%= link_to decidim.conversations_path, class: "dropdown__item" do %>
     <%= icon "mail-send-line" %>
     <span class="text-secondary"><%= t("layouts.decidim.user_menu.conversations") %></span>
+    <% if unread_data[:unread_conversations] %>
+      <%= content_tag :span, "", class: "main-bar__dropdown-notification", data: unread_data %>
+    <% end %>
   <% end %>
 </li>
 <% if allowed_to? :read, :admin_dashboard %>
