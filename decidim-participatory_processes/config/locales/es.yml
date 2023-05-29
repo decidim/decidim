@@ -172,7 +172,7 @@ es:
       participatory_process_copies:
         new:
           copy: Copiar
-          select: Seleccione los datos que deseas duplicar
+          select: Selecciona los datos que deseas duplicar
           title: Duplicar proceso participativo
       participatory_process_group_landing_page:
         edit:
@@ -429,7 +429,7 @@ es:
             other: Otro
             related_processes: Procesos relacionados
             scope_type_max_depth_help: Restringe la profundidad del filtro de ámbito; se mostrará el filtro desde el ámbito general hasta el seleccionado.
-            select_an_area: Seleccione una área
+            select_an_area: Selecciona una área
             select_participatory_process_type: Selecciona un tipo de proceso
             select_process_group: Selecciona un grupo de procesos
             slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a este proceso. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
