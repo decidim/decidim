@@ -2,4 +2,7 @@
   section{
     @apply px-12 py-16;
   }
+  &__section-header{
+    @apply mb-12 flex gap-x-1 items-center;
+  }
 }

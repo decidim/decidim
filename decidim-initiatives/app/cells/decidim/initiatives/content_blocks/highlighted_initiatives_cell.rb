@@ -5,6 +5,7 @@ module Decidim
     module ContentBlocks
       class HighlightedInitiativesCell < Decidim::ViewModel
         include Decidim::SanitizeHelper
+        include Decidim::CardHelper
 
         delegate :current_organization, to: :controller
 
