@@ -80,6 +80,8 @@ bg:
     admin:
       filters:
         proposals:
+          state_null:
+            label: Състояние
           valuator_role_ids_has:
             label: Прикрепено към проверяващ
         search_placeholder:
