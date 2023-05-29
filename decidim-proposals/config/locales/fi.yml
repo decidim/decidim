@@ -114,10 +114,6 @@ fi:
               rejected: Hylätty
               validating: Teknisessä validoinnissa
               withdrawn: Peruutettu
-          state_null:
-            label: Tila
-            values:
-              'true': Vastaamaton
           valuator_role_ids_has:
             label: Annettu tehtäväksi arvioijalle
         search_placeholder:
