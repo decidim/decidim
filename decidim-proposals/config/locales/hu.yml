@@ -93,10 +93,6 @@ hu:
               rejected: Elutasítva
               validating: Műszaki érvényesítés
               withdrawn: Visszavonva
-          state_null:
-            label: Állapot
-            values:
-              'true': Megválaszolatlan
           valuator_role_ids_has:
             label: Értékelőhöz rendelve
         search_placeholder:
