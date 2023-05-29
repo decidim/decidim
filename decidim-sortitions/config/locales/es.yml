@@ -72,7 +72,7 @@ es:
             update: Actualizar
           form:
             all_categories: Todas las categorias
-            select_proposal_component: Seleccione el conjunto de propuestas
+            select_proposal_component: Selecciona el conjunto de propuestas
             title: Nuevo sorteo para propuestas
           index:
             title: Sorteos
