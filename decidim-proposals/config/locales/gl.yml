@@ -112,6 +112,8 @@ gl:
               withdrawn: Retiradas
           state_null:
             label: Estado
+            values:
+              'true': Non respondeu
         search_placeholder:
           id_string_or_title_cont: Procurar %{collection} por ID ou título.
     components:
