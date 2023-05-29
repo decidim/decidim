@@ -91,6 +91,10 @@ sk:
     admin:
       filters:
         proposals:
+          state_null:
+            label: Štát
+            values:
+              'true': Nezodpovedané
           valuator_role_ids_has:
             label: Priradené ku hodnotiteľov
         search_placeholder:
