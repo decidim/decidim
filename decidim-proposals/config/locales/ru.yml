@@ -52,6 +52,12 @@ ru:
         many: Голосов
         other: Голосов
   decidim:
+    admin:
+      filters:
+        proposals:
+          state_null:
+            values:
+              'true': Без ответов
     components:
       proposals:
         actions:
