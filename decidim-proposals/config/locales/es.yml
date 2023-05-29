@@ -114,10 +114,6 @@ es:
               rejected: Rechazada
               validating: Validación técnica
               withdrawn: Retirada
-          state_null:
-            label: Estado
-            values:
-              'true': No contestada
           valuator_role_ids_has:
             label: Asignada a evaluadora
         search_placeholder:
