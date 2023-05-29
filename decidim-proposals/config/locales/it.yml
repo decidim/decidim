@@ -112,7 +112,7 @@ it:
           state_null:
             label: Stato
             values:
-              'true': Senza risposta
+              'true': Non risposto
           valuator_role_ids_has:
             label: Assegnato al valutatore
         search_placeholder:
