@@ -11,7 +11,7 @@ describe "Admin filters meetings", type: :system do
 
   include_context "when managing a component as an admin"
 
-  TYPES = Decidim::Meetings::Meeting::TYPE_OF_MEETING.map(&:to_sym)
+  TYPES = Decidim::Meetings::Meeting::TYPE_OF_MEETING.keys
 
   def create_meeting_with_trait(trait)
     create(:meeting, trait, component:)

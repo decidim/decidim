@@ -72,7 +72,7 @@ module Decidim
         end
 
         context "when the proposal is not answered after being accepted" do
-          let(:proposal) { create(:proposal, state: nil, answered_at: Time.current, state_published_at: Time.current) }
+          let(:proposal) { create(:proposal, answered_at: Time.current, state_published_at: Time.current) }
           let(:initial_state) { "accepted" }
 
           it "broadcasts ok" do

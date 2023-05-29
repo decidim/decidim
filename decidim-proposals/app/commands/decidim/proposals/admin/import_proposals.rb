@@ -47,20 +47,9 @@ module Decidim
         def proposals
           @proposals = Decidim::Proposals::Proposal
                        .where(component: origin_component)
-                       .where(state: proposal_states)
+                       .where(state: @form.states)
           @proposals = @proposals.where(scope: proposal_scopes) unless proposal_scopes.empty?
           @proposals
-        end
-
-        def proposal_states
-          @proposal_states = @form.states
-
-          if @form.states.include?("not_answered")
-            @proposal_states.delete("not_answered")
-            @proposal_states.push(nil)
-          end
-
-          @proposal_states
         end
 
         def proposal_scopes

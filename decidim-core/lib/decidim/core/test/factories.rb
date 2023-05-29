@@ -747,12 +747,10 @@ FactoryBot.define do
     amender { emendation.try(:creator_author) || emendation.try(:author) }
     state { "evaluating" }
 
-    trait :draft do
-      state { "draft" }
-    end
-
-    trait :rejected do
-      state { "rejected" }
+    Decidim::Amendment::STATES.keys.each do |defined_state|
+      trait defined_state do
+        state { defined_state }
+      end
     end
   end
 
@@ -809,6 +807,12 @@ FactoryBot.define do
   factory :reminder_record, class: "Decidim::ReminderRecord" do
     reminder { create(:reminder) }
     remindable { build(:dummy_resource) }
+
+    Decidim::ReminderRecord::STATES.keys.each do |defined_state|
+      trait defined_state do
+        state { defined_state }
+      end
+    end
   end
 
   factory :reminder_delivery, class: "Decidim::ReminderDelivery" do
