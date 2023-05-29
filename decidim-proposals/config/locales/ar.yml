@@ -131,9 +131,9 @@ ar:
               validating: تحقق تقني
               withdrawn: تم السحب
           state_null:
-            label: الحالة
+            label: حالة
             values:
-              'true': لم تتم الإجابة عليها
+              'true': بلا جواب
           valuator_role_ids_has:
             label: تم إسناده إلى مُقيِّم
         search_placeholder:
