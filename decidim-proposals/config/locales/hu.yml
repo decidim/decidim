@@ -98,7 +98,7 @@ hu:
           state_null:
             label: Állapot
             values:
-              'true': Megválaszolatlan
+              'true': Nem megválaszolt
           valuator_role_ids_has:
             label: Értékelőhöz rendelve
         search_placeholder:
