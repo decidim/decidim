@@ -109,7 +109,7 @@
               validating: Teknisk validering
               withdrawn: Tilbakekalt
           state_null:
-            label: Tilstand
+            label: Delstat
             values:
               'true': Ikke besvart
         search_placeholder:
