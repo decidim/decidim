@@ -104,7 +104,7 @@ tr:
               validating: Teknik doğrulama
               withdrawn: Geri çekildi
           state_null:
-            label: Durum
+            label: Belirtmek, bildirmek
             values:
               'true': Cevaplanmadı
           valuator_role_ids_has:
