@@ -1,5 +1,11 @@
 hu:
   activemodel:
+    attributes:
+      post:
+        body: Törzs
+        decidim_author_id: Szerző
+        published_at: Közzététel időpontja
+        title: Cím
     models:
       decidim/blogs/create_post_event: Új blogbejegyzés
   activerecord:
@@ -45,6 +51,7 @@ hu:
             author: Szerző
             body: Szöveg
             created_at: 'Létrehozva:'
+            title: Cím
       posts:
         show:
           back: Vissza a listához
@@ -57,8 +64,10 @@ hu:
     components:
       blogs:
         actions:
+          comment: Hozzászólás
           create: Létrehozás
           destroy: Törlés
+          endorse: Helyesel/Jóváhagy
           update: Frissítés
         name: Blog
         settings:
