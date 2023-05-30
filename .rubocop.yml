@@ -62,9 +62,6 @@ Capybara/SpecificActions:
 Capybara/CurrentPathExpectation:
   Enabled: false
 
-Style/RedundantStringEscape:
-  Enabled: false
-
 Style/MapToSet:
   Enabled: false
 
