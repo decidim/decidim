@@ -156,7 +156,7 @@ describe "ProfileConversations", type: :system do
         it_behaves_like "conversation field with maximum length", "message_body"
 
         describe "reply to conversation" do
-          let(:reply_message) { ::Faker::Lorem.sentence }
+          let(:reply_message) { Faker::Lorem.sentence }
 
           it "can reply to conversation" do
             fill_in "message_body", with: reply_message

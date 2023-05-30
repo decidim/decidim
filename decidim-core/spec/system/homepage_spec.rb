@@ -23,7 +23,7 @@ describe "Homepage", type: :system do
                             highlighted_content_banner_short_description: Decidim::Faker::Localized.sentence(word_count: 2),
                             highlighted_content_banner_action_title: Decidim::Faker::Localized.sentence(word_count: 2),
                             highlighted_content_banner_action_subtitle: Decidim::Faker::Localized.sentence(word_count: 2),
-                            highlighted_content_banner_action_url: ::Faker::Internet.url,
+                            highlighted_content_banner_action_url: Faker::Internet.url,
                             highlighted_content_banner_image: Decidim::Dev.test_file("city.jpeg", "image/jpeg"))
     end
 
@@ -434,7 +434,7 @@ describe "Homepage", type: :system do
                  highlighted_content_banner_short_description: Decidim::Faker::Localized.sentence(word_count: 2),
                  highlighted_content_banner_action_title: Decidim::Faker::Localized.sentence(word_count: 2),
                  highlighted_content_banner_action_subtitle: Decidim::Faker::Localized.sentence(word_count: 2),
-                 highlighted_content_banner_action_url: ::Faker::Internet.url,
+                 highlighted_content_banner_action_url: Faker::Internet.url,
                  highlighted_content_banner_image: Decidim::Dev.test_file("city.jpeg", "image/jpeg"))
         end
 

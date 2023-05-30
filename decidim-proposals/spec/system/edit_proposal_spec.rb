@@ -89,8 +89,8 @@ describe "Edit proposals", type: :system do
         end
 
         context "with attachment titles" do
-          let(:attachment_file_title) { ::Faker::Lorem.sentence }
-          let(:attachment_image_title) { ::Faker::Lorem.sentence }
+          let(:attachment_file_title) { Faker::Lorem.sentence }
+          let(:attachment_image_title) { Faker::Lorem.sentence }
 
           it "can change attachment titles" do
             click_link "Edit proposal"

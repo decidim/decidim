@@ -43,8 +43,8 @@ describe "Admin manages projects", type: :system do
       within "tr[data-id='#{project.id}']" do
         expect(page).to have_content(translated(category.name))
       end
-      expect(::Decidim::Budgets::Project.find(project.id).category).to eq(category)
-      expect(::Decidim::Budgets::Project.find(project2.id).category).to be_nil
+      expect(Decidim::Budgets::Project.find(project.id).category).to eq(category)
+      expect(Decidim::Budgets::Project.find(project2.id).category).to be_nil
     end
 
     it "changes projects scope" do
@@ -57,8 +57,8 @@ describe "Admin manages projects", type: :system do
       within "tr[data-id='#{project.id}']" do
         expect(page).to have_content(translated(scope.name))
       end
-      expect(::Decidim::Budgets::Project.find(project.id).scope).to eq(scope)
-      expect(::Decidim::Budgets::Project.find(project2.id).scope).to be_nil
+      expect(Decidim::Budgets::Project.find(project.id).scope).to eq(scope)
+      expect(Decidim::Budgets::Project.find(project2.id).scope).to be_nil
     end
 
     it "selects projects to implementation" do
@@ -74,8 +74,8 @@ describe "Admin manages projects", type: :system do
       within "tr[data-id='#{project2.id}']" do
         expect(page).to have_content("Selected")
       end
-      expect(::Decidim::Budgets::Project.find(project.id).selected_at).to eq(Time.zone.today)
-      expect(::Decidim::Budgets::Project.find(project2.id).selected_at).to eq(Time.zone.today)
+      expect(Decidim::Budgets::Project.find(project.id).selected_at).to eq(Time.zone.today)
+      expect(Decidim::Budgets::Project.find(project2.id).selected_at).to eq(Time.zone.today)
     end
   end
 end
