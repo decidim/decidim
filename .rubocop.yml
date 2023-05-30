@@ -71,9 +71,6 @@ Style/MapToSet:
 Style/HashSyntax:
   Enabled: false
 
-Style/MagicCommentFormat:
-  Enabled: false
-
 Style/Semicolon:
   Enabled: false
 
