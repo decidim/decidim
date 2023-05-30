@@ -16,7 +16,7 @@ module Decidim
 
       let(:scopes) { create_list(:scope, 2, parent: scope) }
 
-      it { is_expected.to contain_exactly(*scopes) }
+      it { is_expected.to match_array(scopes) }
     end
 
     context "with two scopes with the same code and organization" do

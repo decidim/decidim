@@ -31,7 +31,7 @@ module Decidim
 
       let(:assemblies) { create_list(:assembly, 2, assembly_type: assemblies_type) }
 
-      it { is_expected.to contain_exactly(*assemblies) }
+      it { is_expected.to match_array(assemblies) }
     end
   end
 end

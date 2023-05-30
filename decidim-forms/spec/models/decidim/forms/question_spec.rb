@@ -19,14 +19,14 @@ module Decidim
       end
 
       it "has an association of display_conditions" do
-        expect(subject.display_conditions).to contain_exactly(*display_conditions)
+        expect(subject.display_conditions).to match_array(display_conditions)
       end
 
       context "when there are answer_options belonging to this question" do
         let(:answer_options) { create_list(:answer_option, 3, question:) }
 
         it "has an association of answer_options" do
-          expect(subject.answer_options).to contain_exactly(*answer_options)
+          expect(subject.answer_options).to match_array(answer_options)
         end
       end
 
@@ -34,7 +34,7 @@ module Decidim
         let(:matrix_rows) { create_list(:question_matrix_row, 3, question:) }
 
         it "has an association of matrix_rows" do
-          expect(subject.matrix_rows).to contain_exactly(*matrix_rows)
+          expect(subject.matrix_rows).to match_array(matrix_rows)
         end
       end
 

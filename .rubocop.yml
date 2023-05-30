@@ -110,9 +110,6 @@ RSpec/MatchArray:
 Rails/ActionControllerFlashBeforeRender:
   Enabled: false
 
-RSpec/ContainExactly:
-  Enabled: false
-
 Style/EachForSimpleLoop:
   Enabled: false
 
