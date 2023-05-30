@@ -131,9 +131,6 @@ RSpec/Rails/HaveHttpStatus:
 Rails/HelperInstanceVariable:
   Enabled: false
 
-RSpec/BeEmpty:
-  Enabled: false
-
 Rails/RootPathnameMethods:
   Enabled: false
 

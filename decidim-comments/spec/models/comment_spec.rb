@@ -299,7 +299,7 @@ module Decidim
         context "when passing a non-commentable resource" do
           it "returns the autors of the resources' comments" do
             ids = Decidim::Comments::Comment.user_commentators_ids_in([commentable.component.participatory_space])
-            expect(ids).to match_array([])
+            expect(ids).to be_empty
           end
         end
 
