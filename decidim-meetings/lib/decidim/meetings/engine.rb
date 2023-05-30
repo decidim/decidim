@@ -125,7 +125,7 @@ module Decidim
       end
 
       initializer "decidim_meetings.register_reminders" do
-        config.to_prepare do
+        config.after_initialize do
           Decidim.reminders_registry.register(:close_meeting) do |reminder_registry|
             reminder_registry.generator_class_name = "Decidim::Meetings::CloseMeetingReminderGenerator"
 
