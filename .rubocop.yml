@@ -113,9 +113,6 @@ Rails/ActionControllerFlashBeforeRender:
 RSpec/ContainExactly:
   Enabled: false
 
-RSpec/Rails/TravelAround:
-  Enabled: false
-
 Style/EachForSimpleLoop:
   Enabled: false
 
