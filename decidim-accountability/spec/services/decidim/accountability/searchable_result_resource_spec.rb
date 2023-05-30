@@ -95,7 +95,7 @@ module Decidim
             on(:ok) do |results_by_type|
               results = results_by_type[result.class.name]
               expect(results[:count]).to eq 2
-              expect(results[:results]).to match_array [result, result2]
+              expect(results[:results]).to contain_exactly(result, result2)
             end
             on(:invalid) { raise("Should not happen") }
           end

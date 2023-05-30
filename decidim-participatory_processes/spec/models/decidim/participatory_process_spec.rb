@@ -124,7 +124,7 @@ module Decidim
 
       describe "active_spaces" do
         it "returns the currently active ones" do
-          expect(described_class.active_spaces).to match_array [active, ends_today]
+          expect(described_class.active_spaces).to contain_exactly(active, ends_today)
           expect(described_class.active_spaces).not_to include past
           expect(described_class.active_spaces).not_to include upcoming
         end

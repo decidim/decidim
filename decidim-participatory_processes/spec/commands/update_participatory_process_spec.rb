@@ -127,7 +127,7 @@ module Decidim::ParticipatoryProcesses
             command.call
 
             linked_processes = my_process.linked_participatory_space_resources(:participatory_process, "related_processes")
-            expect(linked_processes).to match_array([another_process])
+            expect(linked_processes).to contain_exactly(another_process)
           end
         end
 

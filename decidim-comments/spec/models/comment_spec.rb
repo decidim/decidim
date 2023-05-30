@@ -306,7 +306,7 @@ module Decidim
         context "when commentors belong to the given resources" do
           it "returns the autors of the resources' comments" do
             ids = Decidim::Comments::Comment.user_commentators_ids_in(Decidim::DummyResources::DummyResource.where(component: commentable.component))
-            expect(ids).to match_array([author.id])
+            expect(ids).to contain_exactly(author.id)
           end
         end
 
@@ -316,7 +316,7 @@ module Decidim
 
           it "does not return them" do
             ids = Decidim::Comments::Comment.user_commentators_ids_in(Decidim::DummyResources::DummyResource.where(component: commentable.component))
-            expect(ids).to match_array([author.id])
+            expect(ids).to contain_exactly(author.id)
           end
         end
       end

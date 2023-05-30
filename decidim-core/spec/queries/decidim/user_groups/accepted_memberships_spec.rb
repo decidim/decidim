@@ -17,6 +17,6 @@ describe Decidim::UserGroups::AcceptedMemberships do
   let!(:deleted_member) { create(:user_group_membership, user_group:, role: :member, user: deleted_user) }
 
   it "finds the active memberships for the user group" do
-    expect(subject).to match_array([creator, admin, member])
+    expect(subject).to contain_exactly(creator, admin, member)
   end
 end

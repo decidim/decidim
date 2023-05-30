@@ -17,6 +17,6 @@ describe Decidim::UserGroups::MemberMemberships do
   let!(:requested) { create(:user_group_membership, user_group:, role: :requested) }
 
   it "finds the member memberships for the user group" do
-    expect(subject).to match_array([member])
+    expect(subject).to contain_exactly(member)
   end
 end

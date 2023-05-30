@@ -21,6 +21,6 @@ describe Decidim::UserGroups::AcceptedUserGroups do
   end
 
   it "finds the user groups where the user has an accepted membership" do
-    expect(subject).to match_array([creator_user_group, admin_user_group, member_user_group])
+    expect(subject).to contain_exactly(creator_user_group, admin_user_group, member_user_group)
   end
 end

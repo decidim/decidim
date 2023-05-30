@@ -21,6 +21,6 @@ describe Decidim::UserGroups::ManageableUserGroups do
   end
 
   it "finds the user groups the user can manage" do
-    expect(subject).to match_array([creator_user_group, admin_user_group])
+    expect(subject).to contain_exactly(creator_user_group, admin_user_group)
   end
 end

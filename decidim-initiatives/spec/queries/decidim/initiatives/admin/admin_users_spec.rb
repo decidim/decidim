@@ -13,7 +13,7 @@ module Decidim::Initiatives
     let!(:other_organization_user) { create(:user, :confirmed) }
 
     it "returns the organization admins" do
-      expect(subject.query).to match_array([admin])
+      expect(subject.query).to contain_exactly(admin)
     end
   end
 end

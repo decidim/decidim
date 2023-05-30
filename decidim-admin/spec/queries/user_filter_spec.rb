@@ -32,7 +32,7 @@ module Decidim::Admin
           let(:search) { "Argo" }
 
           it "returns all matching users" do
-            expect(subject.query).to match_array([users[1], users[2]])
+            expect(subject.query).to contain_exactly(users[1], users[2])
           end
         end
 
@@ -111,7 +111,7 @@ module Decidim::Admin
         let(:filter) { "officialized" }
 
         it 'returns the "Officialized" users that contain the query search' do
-          expect(subject.query).to match_array([officialized_users[0], officialized_users[2]])
+          expect(subject.query).to contain_exactly(officialized_users[0], officialized_users[2])
         end
       end
     end
