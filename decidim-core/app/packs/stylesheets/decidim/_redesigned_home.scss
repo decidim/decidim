@@ -2,7 +2,20 @@
   section{
     @apply px-12 py-16;
   }
+
   &__section-header{
     @apply mb-12 flex gap-x-1 items-center;
+  }
+
+  &__section-content-banner{
+    @apply flex gap-x-1 items-center px-20;
+
+    &__title{
+      @apply h2 text-white;
+    }
+
+    &__text{
+      @apply text-lg text-white mt-6;
+    }
   }
 }
