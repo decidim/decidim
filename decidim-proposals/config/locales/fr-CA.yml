@@ -110,12 +110,18 @@ fr-CA:
             values:
               accepted: Acceptée
               evaluating: En cours d'évaluation
+              not_answered: Non répondue
               published: Publiée
               rejected: Rejetée
               validating: Validation technique
               withdrawn: Retirée
           valuator_role_ids_has:
             label: Assigné à l'évaluateur
+          with_any_state:
+            label: Répondue
+            values:
+              state_not_published: Non répondue
+              state_published: Répondue
         search_placeholder:
           id_string_or_title_cont: Rechercher %{collection} par ID ou titre.
     components:
