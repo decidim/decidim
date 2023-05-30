@@ -122,9 +122,6 @@ Style/EachForSimpleLoop:
 RSpec/ContextWording:
   Enabled: false
 
-RSpec/EmptyLineAfterExampleGroup:
-  Enabled: false
-
 Rails/ActiveSupportOnLoad:
   Enabled: false
 
