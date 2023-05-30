@@ -28,48 +28,66 @@ describe "Admin manages elections", type: :system do
     it_behaves_like "having a rich text editor", "new_election", "full"
   end
 
-  it "creates a new election" do
-    within ".card-title" do
-      page.find(".button.button--title").click
+  describe "creating an election" do
+    it "creates a new election" do
+      within ".card-title" do
+        page.find(".button.button--title").click
+      end
+
+      within ".new_election" do
+        fill_in_i18n(
+          :election_title,
+          "#election-title-tabs",
+          en: "My election",
+          es: "Mi elección",
+          ca: "La meva elecció"
+        )
+        fill_in_i18n_editor(
+          :election_description,
+          "#election-description-tabs",
+          en: "Long description",
+          es: "Descripción más larga",
+          ca: "Descripció més llarga"
+        )
+      end
+
+      expect(page).to have_content("Check that the organization time zone is correct")
+      expect(page).to have_content("The current configuration is UTC")
+
+      page.execute_script("$('#election_start_time').focus()")
+      page.find(".datepicker-dropdown .day:not(.new)", text: "12").click
+      page.find(".datepicker-dropdown .hour", text: "10:00").click
+      page.find(".datepicker-dropdown .minute", text: "10:50").click
+
+      page.execute_script("$('#election_end_time').focus()")
+      page.find(".datepicker-dropdown .day:not(.new)", text: "12").click
+      page.find(".datepicker-dropdown .hour", text: "12:00").click
+      page.find(".datepicker-dropdown .minute", text: "12:50").click
+
+      within ".new_election" do
+        find("*[type=submit]").click
+      end
+
+      within ".callout-wrapper" do
+        expect(page).to have_content("successfully")
+      end
+
+      within "table" do
+        expect(page).to have_content("My election")
+      end
     end
 
-    within ".new_election" do
-      fill_in_i18n(
-        :election_title,
-        "#election-title-tabs",
-        en: "My election",
-        es: "Mi elección",
-        ca: "La meva elecció"
-      )
-      fill_in_i18n_editor(
-        :election_description,
-        "#election-description-tabs",
-        en: "Long description",
-        es: "Descripción más larga",
-        ca: "Descripció més llarga"
-      )
-    end
+    context "when the organization has a different time zone" do
+      let(:organization) { create(:organization, time_zone: "Madrid") }
 
-    page.execute_script("$('#election_start_time').focus()")
-    page.find(".datepicker-dropdown .day:not(.new)", text: "12").click
-    page.find(".datepicker-dropdown .hour", text: "10:00").click
-    page.find(".datepicker-dropdown .minute", text: "10:50").click
+      it "shows the correct time zone" do
+        within ".card-title" do
+          page.find(".button.button--title").click
+        end
 
-    page.execute_script("$('#election_end_time').focus()")
-    page.find(".datepicker-dropdown .day:not(.new)", text: "12").click
-    page.find(".datepicker-dropdown .hour", text: "12:00").click
-    page.find(".datepicker-dropdown .minute", text: "12:50").click
-
-    within ".new_election" do
-      find("*[type=submit]").click
-    end
-
-    within ".callout-wrapper" do
-      expect(page).to have_content("successfully")
-    end
-
-    within "table" do
-      expect(page).to have_content("My election")
+        expect(page).to have_content("Check that the organization time zone is correct")
+        expect(page).to have_content("The current configuration is Madrid")
+      end
     end
   end
 
@@ -90,6 +108,9 @@ describe "Admin manages elections", type: :system do
           ca: "El meu nou títol"
         )
 
+        expect(page).to have_content("Check that the organization time zone is correct")
+        expect(page).to have_content("The current configuration is UTC")
+
         find("*[type=submit]").click
       end
 
@@ -99,6 +120,19 @@ describe "Admin manages elections", type: :system do
 
       within "table" do
         expect(page).to have_content("My new title")
+      end
+    end
+
+    context "when the organization has a different time zone" do
+      let(:organization) { create(:organization, time_zone: "Madrid") }
+
+      it "shows the correct time zone" do
+        within find("tr", text: translated(election.title)) do
+          page.find(".action-icon--edit").click
+        end
+
+        expect(page).to have_content("Check that the organization time zone is correct")
+        expect(page).to have_content("The current configuration is Madrid")
       end
     end
   end
