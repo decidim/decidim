@@ -33,7 +33,7 @@ describe "Admin filters proposals", type: :system do
     STATES.each do |state|
       i18n_state = I18n.t(state, scope: "decidim.admin.filters.proposals.state_eq.values")
 
-      context "filtering proposals by state: #{i18n_state}" do
+      context "when filtering proposals by state: #{i18n_state}" do
         it_behaves_like "a filtered collection", options: "State", filter: i18n_state do
           let(:in_filter) { translated(proposal_with_state(state).title) }
           let(:not_in_filter) { translated(proposal_without_state(state).title) }

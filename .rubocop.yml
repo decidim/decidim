@@ -119,9 +119,6 @@ RSpec/Rails/TravelAround:
 Style/EachForSimpleLoop:
   Enabled: false
 
-RSpec/ContextWording:
-  Enabled: false
-
 Rails/ActiveSupportOnLoad:
   Enabled: false
 

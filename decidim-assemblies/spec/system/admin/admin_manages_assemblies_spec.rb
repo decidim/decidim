@@ -104,7 +104,7 @@ describe "Admin manages assemblies", type: :system do
         Decidim::AssembliesType.all.each do |assemblies_type|
           i18n_assemblies_type = assemblies_type.name[I18n.locale.to_s]
 
-          context "filtering collection by assemblies_type: #{i18n_assemblies_type}" do
+          context "when filtering collection by assemblies_type: #{i18n_assemblies_type}" do
             let!(:assembly1) { create(:assembly, organization:, assemblies_type: assemblies_type1) }
             let!(:assembly2) { create(:assembly, organization:, assemblies_type: assemblies_type2) }
 
