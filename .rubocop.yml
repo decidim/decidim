@@ -152,6 +152,4 @@ RSpec/BeEmpty:
 Rails/RootPathnameMethods:
   Enabled: false
 
-Lint/DuplicateMagicComment:
-  Enabled: false
 # EOF fix these rules later
