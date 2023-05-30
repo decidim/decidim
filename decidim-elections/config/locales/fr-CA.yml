@@ -198,6 +198,8 @@ fr-CA:
           edit:
             title: Modifier l'élection
             update: Mettre à jour l'élection
+          form:
+            organization_time_zone: Vérifiez dans les paramètres de l'organisation que le fuseau horaire de l'organisation est correct. La configuration actuelle est %{time_zone} (%{time}).
           index:
             no_bulletin_board: Il n'y a pas de <a href="https://github.com/decidim/decidim-bulletin-board">serveur Bulletin Board</a> configuré, ce qui est nécessaire pour utiliser ce module. Cette tâche doit être effectuée par l'administrateur système.
             title: Élections
