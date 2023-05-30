@@ -98,6 +98,31 @@ module Decidim
             end
           end
 
+          context "when the initiative type enables area" do
+            let(:initiative_type) { create(:initiatives_type, :area_enabled, organization:) }
+            let(:scoped_type) { create(:initiatives_type_scope, type: initiative_type) }
+            let!(:initiative) { create(:initiative, :created, organization:, scoped_type:) }
+            let(:area) { create(:area, organization: initiative_type.organization) }
+
+            let(:form_params) do
+              {
+                title: "A reasonable initiative title",
+                description: "A reasonable initiative description",
+                type_id: initiative_type.id,
+                signature_type: "online",
+                decidim_user_group_id: nil,
+                area_id: area.id
+              }
+            end
+
+            it "sets the area" do
+              command.call
+              initiative = Decidim::Initiative.last
+
+              expect(initiative.decidim_area_id).to eq(area.id)
+            end
+          end
+
           context "when attachments are allowed" do
             let(:uploaded_files) do
               [
