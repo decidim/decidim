@@ -71,9 +71,6 @@ Style/ConcatArrayLiterals:
 Style/ClassEqualityComparison:
   Enabled: false
 
-Style/RedundantParentheses:
-  Enabled: false
-
 Style/ArrayIntersect:
   Enabled: false
 
