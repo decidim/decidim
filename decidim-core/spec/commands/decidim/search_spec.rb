@@ -193,7 +193,6 @@ describe Decidim::Search do
       before do
         create_list(:searchable_resource, 5, organization: current_organization, resource_type:, content_a: "Where is your crown king nothing?")
 
-        # rubocop:disable RSpec/FactoryBot/CreateList
         3.times do
           create(
             :searchable_resource,
@@ -204,7 +203,6 @@ describe Decidim::Search do
             content_a: "Where is your crown king nothing?"
           )
         end
-        # rubocop:enable RSpec/FactoryBot/CreateList
       end
 
       context "when resource_type is setted" do

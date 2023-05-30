@@ -5,7 +5,7 @@ require "spec_helper"
 describe Decidim::OpenDataExporter do
   subject { described_class.new(organization, path) }
 
-  let(:organization) { create :organization }
+  let(:organization) { create(:organization) }
   let(:path) { "/tmp/test-open-data.zip" }
 
   describe "export" do

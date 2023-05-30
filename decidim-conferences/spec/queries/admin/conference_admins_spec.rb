@@ -6,8 +6,8 @@ module Decidim::Conferences
   describe Admin::AdminUsers do
     subject { described_class.new(conference) }
 
-    let(:organization) { create :organization }
-    let!(:conference) { create :conference, organization: }
+    let(:organization) { create(:organization) }
+    let!(:conference) { create(:conference, organization:) }
     let!(:admin) { create(:user, :admin, :confirmed, organization:) }
     let!(:conference_admin_role) { create(:conference_user_role, conference:, user: conference_admin) }
     let(:conference_admin) { create(:user, organization:) }

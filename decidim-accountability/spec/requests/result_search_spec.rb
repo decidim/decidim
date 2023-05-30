@@ -5,7 +5,7 @@ require "spec_helper"
 RSpec.describe "Result search", type: :request do
   include Decidim::ComponentPathHelper
 
-  let(:component) { create :accountability_component }
+  let(:component) { create(:accountability_component) }
   let(:participatory_space) { component.participatory_space }
   let(:parent_id) { nil }
   let(:filter_params) { {} }

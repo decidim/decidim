@@ -4,7 +4,7 @@ require "spec_helper"
 
 describe "ProfileConversations", type: :system do
   let(:organization) { create(:organization) }
-  let(:user) { create :user, :confirmed, organization: }
+  let(:user) { create(:user, :confirmed, organization:) }
   let(:another_user) { create(:user, :confirmed, organization:) }
   let(:extra_user) { create(:user, :confirmed, organization:) }
   let(:user_group) { create(:user_group, :confirmed, organization:, users: [user, extra_user]) }
@@ -73,7 +73,7 @@ describe "ProfileConversations", type: :system do
     end
 
     it "shows an empty conversation page" do
-      expect(page).to have_no_selector(".card.card--widget")
+      expect(page).not_to have_selector(".card.card--widget")
       expect(page).to have_current_path decidim.new_profile_conversation_path(nickname: profile.nickname, recipient_id: recipient.id)
     end
 
@@ -105,7 +105,7 @@ describe "ProfileConversations", type: :system do
       end
 
       context "and recipient follows user" do
-        let!(:follow) { create :follow, user: recipient, followable: profile }
+        let!(:follow) { create(:follow, user: recipient, followable: profile) }
 
         before do
           visit decidim.new_profile_conversation_path(nickname: profile.nickname, recipient_id: recipient.id)
@@ -156,7 +156,7 @@ describe "ProfileConversations", type: :system do
         it_behaves_like "conversation field with maximum length", "message_body"
 
         describe "reply to conversation" do
-          let(:reply_message) { ::Faker::Lorem.sentence }
+          let(:reply_message) { Faker::Lorem.sentence }
 
           it "can reply to conversation" do
             fill_in "message_body", with: reply_message
@@ -227,18 +227,18 @@ describe "ProfileConversations", type: :system do
 
       it "does not show the topbar button the number of unread messages" do
         within "#profile-tabs li.is-active a" do
-          expect(page).to have_no_selector(".badge")
+          expect(page).not_to have_selector(".badge")
         end
       end
 
       it "does not show an unread count" do
-        expect(page).to have_no_selector(".card.card--widget .unread_message__counter")
+        expect(page).not_to have_selector(".card.card--widget .unread_message__counter")
       end
 
       it "conversation page does not show the number of unread messages" do
         visit_inbox
 
-        expect(page).to have_no_selector(".user-groups .card--list__author .card--list__counter")
+        expect(page).not_to have_selector(".user-groups .card--list__author .card--list__counter")
       end
     end
 
@@ -273,7 +273,7 @@ describe "ProfileConversations", type: :system do
           expect(page).to have_content("Please reply!")
 
           visit decidim.conversations_path
-          expect(page).to have_no_selector(".card.card--widget .unread_message__counter")
+          expect(page).not_to have_selector(".card.card--widget .unread_message__counter")
         end
       end
     end
@@ -298,7 +298,7 @@ describe "ProfileConversations", type: :system do
       end
 
       context "and interlocutor follows profile" do
-        let!(:follow) { create :follow, user: interlocutor, followable: profile }
+        let!(:follow) { create(:follow, user: interlocutor, followable: profile) }
 
         before do
           visit_profile_inbox

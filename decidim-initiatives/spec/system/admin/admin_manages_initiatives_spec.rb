@@ -9,12 +9,12 @@ describe "Admin manages initiatives", type: :system do
   let(:user) { create(:user, :confirmed, :admin, organization:) }
   let(:model_name) { Decidim::Initiative.model_name }
   let(:resource_controller) { Decidim::Initiatives::Admin::InitiativesController }
-  let(:type1) { create :initiatives_type, organization: }
-  let(:type2) { create :initiatives_type, organization: }
-  let(:scoped_type1) { create :initiatives_type_scope, type: type1 }
-  let(:scoped_type2) { create :initiatives_type_scope, type: type2 }
-  let(:area1) { create :area, organization: }
-  let(:area2) { create :area, organization: }
+  let(:type1) { create(:initiatives_type, organization:) }
+  let(:type2) { create(:initiatives_type, organization:) }
+  let(:scoped_type1) { create(:initiatives_type_scope, type: type1) }
+  let(:scoped_type2) { create(:initiatives_type_scope, type: type2) }
+  let(:area1) { create(:area, organization:) }
+  let(:area2) { create(:area, organization:) }
 
   def create_initiative_with_trait(trait)
     create(:initiative, trait, organization:)

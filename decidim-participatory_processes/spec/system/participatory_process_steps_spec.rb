@@ -45,7 +45,7 @@ describe "Participatory Process Steps", type: :system do
       visit decidim_participatory_processes.participatory_process_participatory_process_steps_path(participatory_process)
 
       within ".process-header__phase" do
-        expect(page).to have_no_css(".process-header__button")
+        expect(page).not_to have_css(".process-header__button")
       end
     end
 

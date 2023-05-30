@@ -6,8 +6,8 @@ module Decidim::Assemblies::Admin
   describe AdminUsers do
     subject { described_class.new(assembly) }
 
-    let(:organization) { create :organization }
-    let!(:assembly) { create :assembly, organization: }
+    let(:organization) { create(:organization) }
+    let!(:assembly) { create(:assembly, organization:) }
     let!(:admin) { create(:user, :admin, :confirmed, organization:) }
     let!(:assembly_admin_role) { create(:assembly_user_role, assembly:, user: assembly_admin) }
     let(:assembly_admin) { create(:user, organization:) }

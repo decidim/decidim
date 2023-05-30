@@ -162,7 +162,7 @@ module Decidim
       end
 
       describe "#users_to_notify_on_comment_created" do
-        let(:user) { create :user, organization: comment.organization }
+        let(:user) { create(:user, organization: comment.organization) }
 
         it "includes the comment author" do
           expect(comment.users_to_notify_on_comment_created)

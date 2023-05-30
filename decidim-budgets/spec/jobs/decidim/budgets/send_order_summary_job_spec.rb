@@ -5,7 +5,7 @@ require "spec_helper"
 describe Decidim::Budgets::SendOrderSummaryJob do
   subject { described_class }
 
-  let(:order) { create :order }
+  let(:order) { create(:order) }
   let(:user) { order.user }
 
   describe "queue" do

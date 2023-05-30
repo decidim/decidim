@@ -7,11 +7,11 @@ describe "Admin filters meetings", type: :system do
   let(:manifest_name) { "meetings" }
   let(:model_name) { Decidim::Meetings::Meeting.model_name }
   let(:resource_controller) { Decidim::Meetings::Admin::MeetingsController }
-  let!(:meeting) { create :meeting, scope:, component: current_component }
+  let!(:meeting) { create(:meeting, scope:, component: current_component) }
 
   include_context "when managing a component as an admin"
 
-  TYPES = Decidim::Meetings::Meeting::TYPE_OF_MEETING.map(&:to_sym)
+  TYPES = Decidim::Meetings::Meeting::TYPE_OF_MEETING.keys
 
   def create_meeting_with_trait(trait)
     create(:meeting, trait, component:)

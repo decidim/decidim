@@ -40,6 +40,13 @@ describe "Social share button", type: :system do
         expect(page).to have_css('a[data-site="whatsapp"]')
       end
     end
+
+    it "does not have the external domain warning in the URL" do
+      within modal_selector do
+        link = find('a[data-site="telegram"]')
+        expect(link[:href]).not_to include("/link?external_url")
+      end
+    end
   end
 
   context "without cookie dialog" do

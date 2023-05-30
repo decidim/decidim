@@ -13,7 +13,7 @@ module Decidim::Initiatives
     let(:state) { :published }
     let(:organization) { create(:organization) }
     let!(:initiative) { create(:initiative, organization:, hashtag: "my_hashtag", state:) }
-    let(:user) { create :user, organization: initiative.organization }
+    let(:user) { create(:user, organization: initiative.organization) }
 
     before do
       allow(controller).to receive(:current_user).and_return(user)

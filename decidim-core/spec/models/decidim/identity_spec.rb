@@ -38,7 +38,7 @@ module Decidim
       end
 
       context "when the organization is different than the user's organization" do
-        let(:organization) { create :organization }
+        let(:organization) { create(:organization) }
 
         it { is_expected.to be_invalid }
       end

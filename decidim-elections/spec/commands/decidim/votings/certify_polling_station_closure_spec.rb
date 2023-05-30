@@ -6,7 +6,7 @@ module Decidim::Votings
   describe CertifyPollingStationClosure do
     subject { described_class.new(form, closure) }
 
-    let(:closure) { create :ps_closure, :with_results, phase: :certificate }
+    let(:closure) { create(:ps_closure, :with_results, phase: :certificate) }
     let(:add_photos) { [upload_test_file(Decidim::Dev.test_file("city.jpeg", "image/jpeg"))] }
 
     let(:form) { ClosureCertifyForm.from_params(add_photos:).with_context(closure:) }

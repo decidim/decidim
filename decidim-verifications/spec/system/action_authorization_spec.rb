@@ -62,7 +62,7 @@ describe "Action Authorization", type: :system do
     end
 
     context "and action authorized with custom action authorizer options" do
-      let(:scope) { create :scope, organization: }
+      let(:scope) { create(:scope, organization:) }
       let(:permissions) do
         {
           create: {
@@ -101,7 +101,7 @@ describe "Action Authorization", type: :system do
       end
 
       context "when the user does not match the authorization criteria" do
-        let(:other_scope) { create :scope, organization: }
+        let(:other_scope) { create(:scope, organization:) }
         let!(:user_authorization) do
           create(:authorization, name: "dummy_authorization_handler", user:, granted_at: 1.second.ago,
                                  metadata: { postal_code: "1234", scope_id: other_scope.id })
@@ -117,7 +117,7 @@ describe "Action Authorization", type: :system do
       end
 
       context "when the user does not match one of the authorization criteria" do
-        let(:user_scope) { create :scope, organization: }
+        let(:user_scope) { create(:scope, organization:) }
         let(:postal_code) { "1234" }
         let!(:user_authorization) do
           create(:authorization, name: "dummy_authorization_handler", user:, granted_at: 1.second.ago,

@@ -9,10 +9,10 @@ module Decidim
         describe "call" do
           let(:organization) { create(:organization) }
 
-          let!(:proposal) { create :proposal }
+          let!(:proposal) { create(:proposal) }
           let!(:proposals) { create_list(:proposal, 3, component: proposal.component) }
-          let!(:category_one) { create :category, participatory_space: proposal.component.participatory_space }
-          let!(:category) { create :category, participatory_space: proposal.component.participatory_space }
+          let!(:category_one) { create(:category, participatory_space: proposal.component.participatory_space) }
+          let!(:category) { create(:category, participatory_space: proposal.component.participatory_space) }
 
           context "with no category" do
             it "broadcasts invalid_category" do

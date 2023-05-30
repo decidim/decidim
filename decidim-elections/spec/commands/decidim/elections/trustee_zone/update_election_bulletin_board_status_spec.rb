@@ -5,7 +5,7 @@ require "spec_helper"
 describe Decidim::Elections::TrusteeZone::UpdateElectionBulletinBoardStatus do
   subject { described_class.new(election, required_status) }
 
-  let(:election) { create :election, required_status }
+  let(:election) { create(:election, required_status) }
   let(:required_status) { :key_ceremony }
   let(:new_status) { :key_ceremony_ended }
   let(:election_status_response) { new_status }
@@ -24,7 +24,7 @@ describe Decidim::Elections::TrusteeZone::UpdateElectionBulletinBoardStatus do
   end
 
   context "when the election status does not match the required status" do
-    let(:election) { create :election, :tally_ended }
+    let(:election) { create(:election, :tally_ended) }
 
     it "broadcasts ok" do
       expect { subject.call }.to broadcast(:ok)
@@ -37,7 +37,7 @@ describe Decidim::Elections::TrusteeZone::UpdateElectionBulletinBoardStatus do
   end
 
   context "when the new election status is tally_ended" do
-    let(:election) { create :election, :complete, bb_status: required_status }
+    let(:election) { create(:election, :complete, bb_status: required_status) }
     let(:required_status) { :tally_started }
     let(:new_status) { :tally_ended }
     let(:bullettin_board_server) { "https://my-bb.com" }

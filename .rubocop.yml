@@ -50,9 +50,6 @@ Rails/Exit:
     - lib/decidim/git_backport_manager.rb
 
 # fix these rules later
-Capybara/NegationMatcher:
-  Enabled: false
-
 Capybara/SpecificMatcher:
   Enabled: false
 
@@ -65,9 +62,6 @@ Capybara/SpecificActions:
 Capybara/CurrentPathExpectation:
   Enabled: false
 
-Style/RedundantConstantBase:
-  Enabled: false
-
 Style/RedundantStringEscape:
   Enabled: false
 
@@ -75,9 +69,6 @@ Style/MapToSet:
   Enabled: false
 
 Style/HashSyntax:
-  Enabled: false
-
-Style/MagicCommentFormat:
   Enabled: false
 
 Style/Semicolon:
@@ -116,16 +107,10 @@ RSpec/NoExpectationExample:
 RSpec/SortMetadata:
   Enabled: false
 
-RSpec/FactoryBot/ConsistentParenthesesStyle:
-  Enabled: false
-
 RSpec/MatchArray:
   Enabled: false
 
 Rails/ActionControllerFlashBeforeRender:
-  Enabled: false
-
-Lint/RedundantCopDisableDirective:
   Enabled: false
 
 RSpec/ContainExactly:
@@ -161,6 +146,4 @@ RSpec/BeEmpty:
 Rails/RootPathnameMethods:
   Enabled: false
 
-Lint/DuplicateMagicComment:
-  Enabled: false
 # EOF fix these rules later

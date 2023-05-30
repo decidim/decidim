@@ -6,7 +6,7 @@ module Decidim::Conferences::Admin
   describe ConferenceSpeakers do
     subject { described_class.for(Decidim::ConferenceSpeaker.all, search) }
 
-    let(:organization) { create :organization }
+    let(:organization) { create(:organization) }
     let(:search) { nil }
 
     describe "when the list is not filtered" do

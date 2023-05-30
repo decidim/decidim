@@ -13,7 +13,7 @@ describe Decidim::Verifications::AuthorizationsBeforeDate do
   let(:user7) { create(:user, organization:) }
   let(:user8) { create(:user, organization:) }
   let(:user9) { create(:user, organization:, managed: true) }
-  let(:organization) { create :organization }
+  let(:organization) { create(:organization) }
   let(:now) { Time.zone.now }
   let(:prev_week) { Time.zone.today.prev_week }
   let(:prev_month) { Time.zone.today.prev_month }

@@ -44,8 +44,8 @@ module Decidim
           end
 
           it "sets two different collections" do
-            geocoded_proposals = create_list :proposal, 10, component: component, latitude: 1.1, longitude: 2.2
-            _non_geocoded_proposals = create_list :proposal, 2, component: component, latitude: nil, longitude: nil
+            geocoded_proposals = create_list(:proposal, 10, component: component, latitude: 1.1, longitude: 2.2)
+            _non_geocoded_proposals = create_list(:proposal, 2, component: component, latitude: nil, longitude: nil)
 
             get :index
             expect(response).to have_http_status(:ok)

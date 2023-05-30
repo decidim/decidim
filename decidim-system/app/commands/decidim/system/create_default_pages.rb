@@ -14,13 +14,15 @@ module Decidim
       end
 
       # Executes the command.
+      # i18n-tasks-use t('decidim.system.default_pages.terms-of-service')
       #
       # Returns nothing.
       def call
         Decidim::StaticPage::DEFAULT_PAGES.map do |slug|
           static_page = Decidim::StaticPage.find_or_create_by!(organization:, slug:) do |page|
-            page.title = localized_attribute(slug, :title)
-            page.content = localized_attribute(slug, :content)
+            translated_slug = I18n.t(slug, scope: "decidim.system.default_pages")
+            page.title = localized_attribute(translated_slug, :title)
+            page.content = localized_attribute(translated_slug, :content)
             page.show_in_footer = true
             page.allow_public_access = true if slug == "terms-of-service"
           end
@@ -53,7 +55,8 @@ module Decidim
           published_at: Time.current
         )
 
-        content_block_summary.settings = { summary: localized_attribute(page.slug, :summary) }
+        translated_slug = I18n.t(page.slug, scope: "decidim.system.default_pages")
+        content_block_summary.settings = { summary: localized_attribute(translated_slug, :summary) }
         content_block_summary.save!
       end
     end

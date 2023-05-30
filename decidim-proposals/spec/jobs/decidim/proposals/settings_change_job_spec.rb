@@ -8,8 +8,8 @@ module Decidim
       subject { described_class }
 
       let(:component) { create(:proposal_component) }
-      let(:user) { create :user, organization: component.organization }
-      let!(:follow) { create :follow, followable: component.participatory_space, user: }
+      let(:user) { create(:user, organization: component.organization) }
+      let!(:follow) { create(:follow, followable: component.participatory_space, user:) }
 
       describe "creation enabled" do
         let(:previous_settings) do

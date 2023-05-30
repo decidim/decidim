@@ -6,16 +6,16 @@ module Decidim::Accountability
   describe Admin::CreateImportedResult do
     subject { described_class.new(form) }
 
-    let(:organization) { create :organization, available_locales: [:en] }
-    let(:user) { create :user, organization: }
-    let(:participatory_process) { create :participatory_process, organization: }
-    let(:current_component) { create :accountability_component, participatory_space: participatory_process }
-    let(:scope) { create :scope, organization: }
-    let(:category) { create :category, participatory_space: participatory_process }
+    let(:organization) { create(:organization, available_locales: [:en]) }
+    let(:user) { create(:user, organization:) }
+    let(:participatory_process) { create(:participatory_process, organization:) }
+    let(:current_component) { create(:accountability_component, participatory_space: participatory_process) }
+    let(:scope) { create(:scope, organization:) }
+    let(:category) { create(:category, participatory_space: participatory_process) }
 
     let(:start_date) { Date.yesterday }
     let(:end_date) { Date.tomorrow }
-    let(:status) { create :status, component: current_component, key: "ongoing", name: { en: "Ongoing" } }
+    let(:status) { create(:status, component: current_component, key: "ongoing", name: { en: "Ongoing" }) }
     let(:progress) { 89 }
     let(:external_id) { "external-id" }
     let(:weight) { 0.3 }

@@ -181,9 +181,9 @@ shared_examples "Managing component permissions" do
     end
 
     let(:edit_resource_permissions_path) do
-      ::Decidim::EngineRouter.admin_proxy(participatory_space).edit_component_permissions_path(component.id,
-                                                                                               resource_name: resource.resource_manifest.name,
-                                                                                               resource_id: resource.id)
+      Decidim::EngineRouter.admin_proxy(participatory_space).edit_component_permissions_path(component.id,
+                                                                                             resource_name: resource.resource_manifest.name,
+                                                                                             resource_id: resource.id)
     end
 
     let(:component_settings) { nil }

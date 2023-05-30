@@ -8,7 +8,7 @@ module Decidim::Conferences
 
     let(:conference) { create(:conference) }
     let(:user) { nil }
-    let!(:current_user) { create :user, :confirmed, organization: conference.organization }
+    let!(:current_user) { create(:user, :confirmed, organization: conference.organization) }
     let(:logo) do
       ActiveStorage::Blob.create_and_upload!(
         io: File.open(Decidim::Dev.asset("avatar.jpg")),

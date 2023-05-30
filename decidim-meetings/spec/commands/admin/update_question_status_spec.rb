@@ -7,12 +7,12 @@ module Decidim
     module Admin
       describe UpdateQuestionStatus do
         let(:current_organization) { create(:organization) }
-        let(:current_user) { create :user, organization: meeting_component.organization }
-        let(:meeting_component) { create :meeting_component }
-        let(:meeting) { create :meeting, component: meeting_component }
-        let(:poll) { create :poll, meeting: }
-        let(:questionnaire) { create :meetings_poll_questionnaire, questionnaire_for: poll }
-        let(:question) { create :meetings_poll_question, questionnaire: }
+        let(:current_user) { create(:user, organization: meeting_component.organization) }
+        let(:meeting_component) { create(:meeting_component) }
+        let(:meeting) { create(:meeting, component: meeting_component) }
+        let(:poll) { create(:poll, meeting:) }
+        let(:questionnaire) { create(:meetings_poll_questionnaire, questionnaire_for: poll) }
+        let(:question) { create(:meetings_poll_question, questionnaire:) }
         let(:command) { described_class.new(question, current_user) }
 
         context "with a persisted poll and questionnaire" do
@@ -29,7 +29,7 @@ module Decidim
           end
 
           describe "when the status is published" do
-            let(:question) { create :meetings_poll_question, :published, questionnaire: }
+            let(:question) { create(:meetings_poll_question, :published, questionnaire:) }
 
             it "broadcasts ok" do
               expect { command.call }.to broadcast(:ok)
@@ -43,7 +43,7 @@ module Decidim
           end
 
           describe "when the status is closed" do
-            let(:question) { create :meetings_poll_question, :closed, questionnaire: }
+            let(:question) { create(:meetings_poll_question, :closed, questionnaire:) }
 
             it "broadcasts invalid" do
               expect { command.call }.to broadcast(:invalid)

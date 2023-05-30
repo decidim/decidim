@@ -14,7 +14,7 @@ describe Decidim::Elections::Admin::AnswerForm do
     }
   end
   let(:election) { question.election }
-  let(:question) { create :question }
+  let(:question) { create(:question) }
   let(:component) { election.component }
   let(:title) { Decidim::Faker::Localized.sentence(word_count: 3) }
   let(:description) { Decidim::Faker::Localized.sentence(word_count: 3) }
@@ -67,9 +67,9 @@ describe Decidim::Elections::Admin::AnswerForm do
   context "with proposals" do
     subject { described_class.from_model(answer).with_context(context) }
 
-    let(:proposals_component) { create :component, manifest_name: :proposals, participatory_space: component.participatory_space }
-    let(:proposals) { create_list :proposal, 2, component: proposals_component }
-    let(:answer) { create :election_answer, question: }
+    let(:proposals_component) { create(:component, manifest_name: :proposals, participatory_space: component.participatory_space) }
+    let(:proposals) { create_list(:proposal, 2, component: proposals_component) }
+    let(:answer) { create(:election_answer, question:) }
 
     describe "#map_model" do
       it "sets the proposal_ids correctly" do

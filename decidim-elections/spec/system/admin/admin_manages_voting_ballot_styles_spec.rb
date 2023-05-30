@@ -61,7 +61,7 @@ describe "Admin manages ballot styles", type: :system do
 
       expect(page).to have_admin_callout("successfully")
 
-      expect(page).to have_no_content(ballot_style.code)
+      expect(page).not_to have_content(ballot_style.code)
     end
 
     it "can update a ballot style" do
