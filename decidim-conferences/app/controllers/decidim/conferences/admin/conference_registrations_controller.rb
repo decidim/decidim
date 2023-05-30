@@ -9,7 +9,7 @@ module Decidim
         include Concerns::ConferenceAdmin
         include Decidim::Paginable
 
-        helper_method :conference
+        alias conference current_conference
 
         def index
           enforce_permission_to :read_conference_registrations, :conference, conference: current_participatory_space

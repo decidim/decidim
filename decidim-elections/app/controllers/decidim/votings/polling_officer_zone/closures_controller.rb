@@ -112,15 +112,9 @@ module Decidim
 
         def election
           @election ||= Decidim::Elections::Election.joins(:component)
-                                                    .where(component: { participatory_space: participatory_spaces })
+                                                    .where(component: { participatory_space: current_organization.participatory_spaces })
                                                     .includes(questions: :answers)
-                                                    .find(params[:election_id])
-        end
-
-        def participatory_spaces
-          @participatory_spaces ||= Decidim.participatory_space_manifests.flat_map do |manifest|
-            manifest.participatory_spaces.call(current_organization)
-          end
+                                                    .find_by(id: params[:election_id])
         end
 
         def polling_station
