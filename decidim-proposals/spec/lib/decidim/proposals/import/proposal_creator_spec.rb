@@ -49,7 +49,6 @@ describe Decidim::Proposals::Import::ProposalCreator do
 
   describe "#resource_attributes" do
     it "returns the attributes hash" do
-      # rubocop:disable Style/HashSyntax
       expect(subject.resource_attributes).to eq(
         :"title/en" => data[:"title/en"],
         :"body/en" => data[:"body/en"],

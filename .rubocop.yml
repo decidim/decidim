@@ -116,9 +116,6 @@ RSpec/MatchArray:
 Rails/ActionControllerFlashBeforeRender:
   Enabled: false
 
-Lint/RedundantCopDisableDirective:
-  Enabled: false
-
 RSpec/ContainExactly:
   Enabled: false
 
