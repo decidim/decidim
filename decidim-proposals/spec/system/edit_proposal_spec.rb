@@ -6,9 +6,9 @@ describe "Edit proposals", type: :system do
   include_context "with a component"
   let(:manifest_name) { "proposals" }
 
-  let!(:user) { create :user, :confirmed, organization: participatory_process.organization }
-  let!(:another_user) { create :user, :confirmed, organization: participatory_process.organization }
-  let!(:proposal) { create :proposal, users: [user], component: }
+  let!(:user) { create(:user, :confirmed, organization: participatory_process.organization) }
+  let!(:another_user) { create(:user, :confirmed, organization: participatory_process.organization) }
+  let!(:proposal) { create(:proposal, users: [user], component:) }
   let!(:proposal_title) { translated(proposal.title) }
 
   before do
@@ -143,7 +143,7 @@ describe "Edit proposals", type: :system do
       let(:component) { create(:proposal_component, :with_geocoding_enabled, participatory_space: participatory_process) }
       let(:address) { "6 Villa des Nymphéas 75020 Paris" }
       let(:new_address) { "6 rue Sorbier 75020 Paris" }
-      let!(:proposal) { create :proposal, address:, users: [user], component: }
+      let!(:proposal) { create(:proposal, address:, users: [user], component:) }
       let(:latitude) { 48.8682538 }
       let(:longitude) { 2.389643 }
 
@@ -300,7 +300,7 @@ describe "Edit proposals", type: :system do
   end
 
   describe "editing my proposal outside the time limit" do
-    let!(:proposal) { create :proposal, users: [user], component:, created_at: 1.hour.ago }
+    let!(:proposal) { create(:proposal, users: [user], component:, created_at: 1.hour.ago) }
 
     before do
       login_as another_user, scope: :user

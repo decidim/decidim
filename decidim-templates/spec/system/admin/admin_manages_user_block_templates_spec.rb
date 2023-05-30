@@ -3,8 +3,8 @@
 require "spec_helper"
 
 describe "Admin manages user block templates", type: :system do
-  let!(:organization) { create :organization }
-  let!(:user) { create :user, :confirmed, organization: }
+  let!(:organization) { create(:organization) }
+  let!(:user) { create(:user, :confirmed, organization:) }
 
   before do
     switch_to_host(organization.host)

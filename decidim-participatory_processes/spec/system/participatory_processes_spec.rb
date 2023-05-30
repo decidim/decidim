@@ -75,10 +75,10 @@ describe "Participatory Processes", type: :system do
     let!(:participatory_process) { base_process }
     let!(:promoted_process) { create(:participatory_process, :promoted, organization:) }
     let!(:unpublished_process) { create(:participatory_process, :unpublished, organization:) }
-    let!(:past_process) { create :participatory_process, :past, organization: }
-    let!(:upcoming_process) { create :participatory_process, :upcoming, organization: }
-    let!(:grouped_process) { create :participatory_process, organization: }
-    let!(:group) { create :participatory_process_group, participatory_processes: [grouped_process], organization: }
+    let!(:past_process) { create(:participatory_process, :past, organization:) }
+    let!(:upcoming_process) { create(:participatory_process, :upcoming, organization:) }
+    let!(:grouped_process) { create(:participatory_process, organization:) }
+    let!(:group) { create(:participatory_process_group, participatory_processes: [grouped_process], organization:) }
 
     it_behaves_like "shows contextual help" do
       let(:index_path) { decidim_participatory_processes.participatory_processes_path }
@@ -347,7 +347,7 @@ describe "Participatory Processes", type: :system do
         end
 
         context "and it belongs to a group" do
-          let!(:group) { create :participatory_process_group, participatory_processes: [participatory_process], organization: }
+          let!(:group) { create(:participatory_process_group, participatory_processes: [participatory_process], organization:) }
 
           it "has a link to the group the process belongs to" do
             visit decidim_participatory_processes.participatory_process_path(participatory_process)
@@ -357,8 +357,8 @@ describe "Participatory Processes", type: :system do
         end
 
         context "when it has some linked processes" do
-          let(:published_process) { create :participatory_process, :published, organization: }
-          let(:unpublished_process) { create :participatory_process, :unpublished, organization: }
+          let(:published_process) { create(:participatory_process, :published, organization:) }
+          let(:unpublished_process) { create(:participatory_process, :unpublished, organization:) }
 
           it "only shows the published linked processes" do
             participatory_process

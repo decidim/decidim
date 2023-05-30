@@ -4,7 +4,7 @@ require "spec_helper"
 
 describe "ProfileConversations", type: :system do
   let(:organization) { create(:organization) }
-  let(:user) { create :user, :confirmed, organization: }
+  let(:user) { create(:user, :confirmed, organization:) }
   let(:another_user) { create(:user, :confirmed, organization:) }
   let(:extra_user) { create(:user, :confirmed, organization:) }
   let(:user_group) { create(:user_group, :confirmed, organization:, users: [user, extra_user]) }
@@ -105,7 +105,7 @@ describe "ProfileConversations", type: :system do
       end
 
       context "and recipient follows user" do
-        let!(:follow) { create :follow, user: recipient, followable: profile }
+        let!(:follow) { create(:follow, user: recipient, followable: profile) }
 
         before do
           visit decidim.new_profile_conversation_path(nickname: profile.nickname, recipient_id: recipient.id)
@@ -298,7 +298,7 @@ describe "ProfileConversations", type: :system do
       end
 
       context "and interlocutor follows profile" do
-        let!(:follow) { create :follow, user: interlocutor, followable: profile }
+        let!(:follow) { create(:follow, user: interlocutor, followable: profile) }
 
         before do
           visit_profile_inbox

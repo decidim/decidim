@@ -44,7 +44,7 @@ shared_examples "manage assembly members examples" do
   end
 
   context "with existing user" do
-    let!(:member_user) { create :user, organization: assembly.organization }
+    let!(:member_user) { create(:user, organization: assembly.organization) }
 
     it "creates a new assembly member" do
       find(".card-title a.new").click
@@ -71,7 +71,7 @@ shared_examples "manage assembly members examples" do
   end
 
   context "with existing user group" do
-    let!(:member_organization) { create :user_group, :verified, organization: assembly.organization }
+    let!(:member_organization) { create(:user_group, :verified, organization: assembly.organization) }
 
     it "creates a new assembly member" do
       find(".card-title a.new").click

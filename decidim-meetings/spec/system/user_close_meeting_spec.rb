@@ -7,8 +7,8 @@ describe "User edit meeting", type: :system do
   include_context "with a component"
   let(:manifest_name) { "meetings" }
 
-  let!(:user) { create :user, :confirmed, organization: participatory_process.organization }
-  let!(:another_user) { create :user, :confirmed, organization: participatory_process.organization }
+  let!(:user) { create(:user, :confirmed, organization: participatory_process.organization) }
+  let!(:another_user) { create(:user, :confirmed, organization: participatory_process.organization) }
   let!(:meeting) do
     create(:meeting,
            :published,

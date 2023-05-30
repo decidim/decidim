@@ -5,7 +5,7 @@ require "spec_helper"
 describe "Show a Proposal", type: :system do
   include_context "with a component"
   let(:manifest_name) { "proposals" }
-  let(:proposal) { create :proposal, component: }
+  let(:proposal) { create(:proposal, component:) }
 
   def visit_proposal
     visit resource_locator(proposal).path

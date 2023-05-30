@@ -6,14 +6,14 @@ describe Decidim::Debates::Admin::CloseDebateForm do
   subject(:form) { described_class.from_params(attributes).with_context(context) }
 
   let(:organization) { create(:organization) }
-  let(:participatory_process) { create :participatory_process, organization: }
-  let(:current_component) { create :component, participatory_space: participatory_process, manifest_name: "debates" }
+  let(:participatory_process) { create(:participatory_process, organization:) }
+  let(:current_component) { create(:component, participatory_space: participatory_process, manifest_name: "debates") }
   let(:context) do
     {
       current_organization: organization
     }
   end
-  let(:debate) { create :debate, :official, component: current_component }
+  let(:debate) { create(:debate, :official, component: current_component) }
   let(:conclusions) { Decidim::Faker::Localized.localized { "We found a conlcusion." } }
   let(:attributes) do
     {

@@ -6,7 +6,7 @@ module Decidim::Admin
   describe UserGroupsEvaluation do
     subject { described_class.new(Decidim::UserGroup.all, search, filter) }
 
-    let(:organization) { create :organization }
+    let(:organization) { create(:organization) }
     let(:search) { nil }
     let(:filter) { nil }
 

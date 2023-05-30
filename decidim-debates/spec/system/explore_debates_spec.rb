@@ -8,7 +8,7 @@ describe "Explore debates", type: :system do
 
   before do
     switch_to_host(organization.host)
-    component_scope = create :scope, parent: participatory_process.scope
+    component_scope = create(:scope, parent: participatory_process.scope)
     component_settings = component["settings"]["global"].merge!(scopes_enabled: true, scope_id: component_scope.id)
     component.update!(settings: component_settings)
   end
@@ -179,7 +179,7 @@ describe "Explore debates", type: :system do
       end
 
       context "when filtering by category" do
-        let(:category2) { create :category, participatory_space: }
+        let(:category2) { create(:category, participatory_space:) }
         let(:debates) { create_list(:debate, 3, component:, category: category2) }
 
         before do
@@ -218,7 +218,7 @@ describe "Explore debates", type: :system do
       let(:debate) { debates.last }
 
       before do
-        create :moderation, :hidden, reportable: debate
+        create(:moderation, :hidden, reportable: debate)
         visit_component
       end
 
@@ -243,7 +243,7 @@ describe "Explore debates", type: :system do
   end
 
   context "when component is not commentable" do
-    let(:component) { create :debante_component, :with_comments_blocked, participatory_space: }
+    let(:component) { create(:debante_component, :with_comments_blocked, participatory_space:) }
     let(:resources) { create_list(:debate, 3, component:) }
 
     it_behaves_like "an uncommentable component"

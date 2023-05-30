@@ -7,7 +7,7 @@ module Decidim
     describe Status do
       subject { status }
 
-      let(:status) { build :status }
+      let(:status) { build(:status) }
 
       it { is_expected.to be_valid }
 

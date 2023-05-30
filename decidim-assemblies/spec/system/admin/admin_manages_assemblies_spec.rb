@@ -79,7 +79,7 @@ describe "Admin manages assemblies", type: :system do
 
   context "when managing parent assemblies" do
     let(:parent_assembly) { nil }
-    let!(:assembly) { create :assembly, organization: }
+    let!(:assembly) { create(:assembly, organization:) }
 
     before do
       switch_to_host(organization.host)
@@ -129,8 +129,8 @@ describe "Admin manages assemblies", type: :system do
   end
 
   context "when managing child assemblies" do
-    let!(:parent_assembly) { create :assembly, organization: }
-    let!(:child_assembly) { create :assembly, organization:, parent: parent_assembly }
+    let!(:parent_assembly) { create(:assembly, organization:) }
+    let!(:child_assembly) { create(:assembly, organization:, parent: parent_assembly) }
     let(:assembly) { child_assembly }
 
     before do

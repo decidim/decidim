@@ -8,10 +8,10 @@ module Decidim
       describe DestroyPollingOfficer do
         subject { described_class.new(polling_officer, current_user) }
 
-        let(:voting) { create :voting }
-        let!(:user) { create :user, :confirmed, organization: voting.organization }
-        let(:polling_officer) { create :polling_officer, user:, voting: }
-        let!(:current_user) { create :user, email: "some_email@example.org", organization: voting.organization }
+        let(:voting) { create(:voting) }
+        let!(:user) { create(:user, :confirmed, organization: voting.organization) }
+        let(:polling_officer) { create(:polling_officer, user:, voting:) }
+        let!(:current_user) { create(:user, email: "some_email@example.org", organization: voting.organization) }
 
         context "when everything is ok" do
           let(:log_info) do

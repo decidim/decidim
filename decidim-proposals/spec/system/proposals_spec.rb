@@ -7,9 +7,9 @@ describe "Proposals", type: :system do
   include_context "with a component"
   let(:manifest_name) { "proposals" }
 
-  let!(:category) { create :category, participatory_space: participatory_process }
-  let!(:scope) { create :scope, organization: }
-  let!(:user) { create :user, :confirmed, organization: }
+  let!(:category) { create(:category, participatory_space: participatory_process) }
+  let!(:scope) { create(:scope, organization:) }
+  let!(:user) { create(:user, :confirmed, organization:) }
   let(:scoped_participatory_process) { create(:participatory_process, :with_steps, organization:, scope:) }
 
   let(:address) { "Some address" }
@@ -441,7 +441,7 @@ describe "Proposals", type: :system do
       let(:proposal) { create(:proposal, component:) }
       let(:author) { create(:user, :confirmed, organization: component.organization) }
       let!(:comments) { create_list(:comment, 3, commentable: proposal) }
-      let!(:moderation) { create :moderation, reportable: comments.first, hidden_at: 1.day.ago }
+      let!(:moderation) { create(:moderation, reportable: comments.first, hidden_at: 1.day.ago) }
 
       it "displays unhidden comments count" do
         visit_component
@@ -648,7 +648,7 @@ describe "Proposals", type: :system do
     end
 
     context "when paginating" do
-      let!(:collection) { create_list :proposal, collection_size, component: }
+      let!(:collection) { create_list(:proposal, collection_size, component:) }
       let!(:resource_selector) { ".card--proposal" }
 
       it_behaves_like "a paginated resource"

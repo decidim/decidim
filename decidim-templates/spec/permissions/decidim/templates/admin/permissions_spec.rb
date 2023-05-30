@@ -5,8 +5,8 @@ require "spec_helper"
 describe Decidim::Templates::Admin::Permissions do
   subject { described_class.new(user, permission_action, context).permissions.allowed? }
 
-  let(:organization) { create :organization }
-  let(:user) { create :user, organization: }
+  let(:organization) { create(:organization) }
+  let(:user) { create(:user, organization:) }
   let(:context) do
     {
       current_organization: create(:organization)

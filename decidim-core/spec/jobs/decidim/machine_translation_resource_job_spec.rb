@@ -5,8 +5,8 @@ require "spec_helper"
 module Decidim
   describe MachineTranslationResourceJob do
     let(:title) { { en: "New Title", es: "nuevo título", machine_translations: { ca: "nou títol" } } }
-    let(:organization) { create :organization, default_locale: "en" }
-    let(:process) { create :participatory_process, title:, organization: }
+    let(:organization) { create(:organization, default_locale: "en") }
+    let(:process) { create(:participatory_process, title:, organization:) }
     let(:current_locale) { "en" }
 
     before do
@@ -118,7 +118,7 @@ module Decidim
 
     context "when machine translations are duplicated" do
       let(:new_title) { { en: "New Title", machine_translations: { es: "nuevo título" } } }
-      let!(:process) { create :participatory_process, title: new_title }
+      let!(:process) { create(:participatory_process, title: new_title) }
 
       before do
         updated_title = { en: "New Title", es: "nuevo título" }

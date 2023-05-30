@@ -27,8 +27,8 @@ module Decidim
       end
 
       it "is not valid if author is from another organization" do
-        user = build :user, organization: build(:organization)
-        newsletter = build :newsletter, organization: build(:organization), author: user
+        user = build(:user, organization: build(:organization))
+        newsletter = build(:newsletter, organization: build(:organization), author: user)
 
         expect(newsletter).not_to be_valid
       end

@@ -6,8 +6,8 @@ module Decidim::ParticipatoryProcesses
   describe Admin::CreateParticipatoryProcessStep do
     subject { described_class.new(form, participatory_process) }
 
-    let(:user) { create :user, :admin }
-    let(:participatory_process) { create :participatory_process }
+    let(:user) { create(:user, :admin) }
+    let(:participatory_process) { create(:participatory_process) }
     let(:form) do
       instance_double(
         Admin::ParticipatoryProcessStepForm,

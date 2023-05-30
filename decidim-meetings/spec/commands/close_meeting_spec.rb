@@ -6,8 +6,8 @@ module Decidim::Meetings
   describe CloseMeeting do
     subject { described_class.new(form, meeting) }
 
-    let(:meeting) { create :meeting }
-    let(:user) { create :user, :admin }
+    let(:meeting) { create(:meeting) }
+    let(:user) { create(:user, :admin) }
     let(:form) do
       double(
         invalid?: invalid,
@@ -91,7 +91,7 @@ module Decidim::Meetings
       end
 
       describe "events" do
-        let!(:follow) { create :follow, followable: meeting, user: }
+        let!(:follow) { create(:follow, followable: meeting, user:) }
 
         it "notifies the change" do
           expect(Decidim::EventsManager)

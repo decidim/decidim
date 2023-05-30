@@ -7,7 +7,7 @@ describe "Explore results", versioning: true, type: :system do
 
   let(:manifest_name) { "accountability" }
   let(:results_count) { 5 }
-  let!(:scope) { create :scope, organization: }
+  let!(:scope) { create(:scope, organization:) }
   let!(:results) do
     create_list(
       :result,
@@ -23,11 +23,11 @@ describe "Explore results", versioning: true, type: :system do
   end
 
   describe "home" do
-    let!(:other_category) { create :category, participatory_space: }
-    let!(:other_scope) { create :scope, organization: }
+    let!(:other_category) { create(:category, participatory_space:) }
+    let!(:other_scope) { create(:scope, organization:) }
 
-    let(:subcategory) { create :subcategory, parent: category }
-    let(:other_subcategory) { create :subcategory, parent: other_category }
+    let(:subcategory) { create(:subcategory, parent: category) }
+    let(:other_subcategory) { create(:subcategory, parent: other_category) }
 
     let(:path) { decidim_participatory_process_accountability.root_path(participatory_process_slug: participatory_process.slug, component_id: component.id) }
 
@@ -143,8 +143,8 @@ describe "Explore results", versioning: true, type: :system do
     end
 
     context "with a category and a scope" do
-      let!(:category) { create :category, participatory_space: participatory_process }
-      let!(:scope) { create :scope, organization: }
+      let!(:category) { create(:category, participatory_space: participatory_process) }
+      let!(:scope) { create(:scope, organization:) }
       let!(:result) do
         result = results.first
         result.category = category

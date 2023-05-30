@@ -6,7 +6,7 @@ module Decidim::Admin
   describe NewsletterRecipients do
     subject { described_class.new(form) }
 
-    let(:newsletter) { create :newsletter }
+    let(:newsletter) { create(:newsletter) }
     let(:organization) { newsletter.organization }
     let(:send_to_all_users) { true }
     let(:send_to_followers) { false }

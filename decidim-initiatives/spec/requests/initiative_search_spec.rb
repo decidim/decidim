@@ -6,11 +6,11 @@ RSpec.describe "Initiative search", type: :request do
   include Decidim::SanitizeHelper
   subject { response.body }
 
-  let(:organization) { create :organization }
-  let(:type1) { create :initiatives_type, organization: }
-  let(:type2) { create :initiatives_type, organization: }
-  let(:scoped_type1) { create :initiatives_type_scope, type: type1 }
-  let(:scoped_type2) { create :initiatives_type_scope, type: type2 }
+  let(:organization) { create(:organization) }
+  let(:type1) { create(:initiatives_type, organization:) }
+  let(:type2) { create(:initiatives_type, organization:) }
+  let(:scoped_type1) { create(:initiatives_type_scope, type: type1) }
+  let(:scoped_type2) { create(:initiatives_type_scope, type: type2) }
   let(:user1) { create(:user, :confirmed, organization:, name: "John McDoggo", nickname: "john_mcdoggo") }
   let(:user2) { create(:user, :confirmed, organization:, nickname: "doggotrainer") }
   let(:group1) { create(:user_group, :confirmed, organization:, name: "The Doggo House", nickname: "the_doggo_house") }

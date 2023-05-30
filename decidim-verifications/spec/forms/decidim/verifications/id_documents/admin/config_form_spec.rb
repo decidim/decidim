@@ -13,7 +13,7 @@ module Decidim::Verifications::IdDocuments::Admin
         offline_explanation:
       }
     end
-    let(:organization) { create :organization }
+    let(:organization) { create(:organization) }
     let(:online) { true }
     let(:offline) { false }
     let(:offline_explanation) { {} }

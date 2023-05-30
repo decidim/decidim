@@ -3,8 +3,8 @@
 require "spec_helper"
 
 describe "Admin manages questions", type: :system do
-  let(:election) { create :election, component: current_component }
-  let(:question) { create :question, election: }
+  let(:election) { create(:election, component: current_component) }
+  let(:question) { create(:question, election:) }
   let(:manifest_name) { "elections" }
 
   include_context "when managing a component as an admin"
@@ -47,7 +47,7 @@ describe "Admin manages questions", type: :system do
   end
 
   context "when the election has already started" do
-    let(:election) { create :election, :started, component: current_component }
+    let(:election) { create(:election, :started, component: current_component) }
 
     it "does not create a new question" do
       click_on "New Question"

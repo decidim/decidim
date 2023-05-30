@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe "Admin manages elections", type: :system do
-  let(:election) { create :election, :upcoming, :published, component: current_component }
+  let(:election) { create(:election, :upcoming, :published, component: current_component) }
   let(:questionnaire) { election.questionnaire }
   let(:manifest_name) { "elections" }
 
@@ -19,7 +19,7 @@ describe "Admin manages elections", type: :system do
   it_behaves_like "manage announcements"
 
   it_behaves_like "manage questionnaires" do
-    let(:election) { create :election, :ongoing, :published, component: current_component }
+    let(:election) { create(:election, :ongoing, :published, component: current_component) }
   end
 
   describe "admin form" do
@@ -92,7 +92,7 @@ describe "Admin manages elections", type: :system do
   end
 
   describe "updating an election" do
-    let(:election) { create :election, :published, component: current_component }
+    let(:election) { create(:election, :published, component: current_component) }
 
     it "updates an election" do
       within find("tr", text: translated(election.title)) do
@@ -165,7 +165,7 @@ describe "Admin manages elections", type: :system do
   end
 
   describe "unpublishing an election" do
-    let!(:election) { create :election, :published, :ready_for_setup, component: current_component }
+    let!(:election) { create(:election, :published, :ready_for_setup, component: current_component) }
 
     it "unpublishes an election" do
       within find("tr", text: translated(election.title)) do

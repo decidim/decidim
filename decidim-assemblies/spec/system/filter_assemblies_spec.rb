@@ -48,7 +48,7 @@ describe "Filter Assemblies", type: :system do
   end
 
   context "when filtering parent assemblies by scope" do
-    let!(:scope) { create :scope, organization: }
+    let!(:scope) { create(:scope, organization:) }
     let!(:assembly_with_scope) { create(:assembly, scope:, organization:) }
     let!(:assembly_without_scope) { create(:assembly, organization:) }
 
@@ -67,7 +67,7 @@ describe "Filter Assemblies", type: :system do
   end
 
   context "when filtering parent assemblies by area" do
-    let!(:area) { create :area, organization: }
+    let!(:area) { create(:area, organization:) }
     let!(:assembly_with_area) { create(:assembly, area:, organization:) }
     let!(:assembly_without_area) { create(:assembly, organization:) }
 

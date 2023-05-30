@@ -3,13 +3,13 @@
 require "spec_helper"
 
 describe "Conference registrations", type: :system do
-  let(:organization) { create :organization }
+  let(:organization) { create(:organization) }
   let(:conferences_count) { 5 }
   let!(:conferences) do
     create_list(:conference, conferences_count, organization:)
   end
   let(:conference) { conferences.first }
-  let!(:user) { create :user, :confirmed, organization: }
+  let!(:user) { create(:user, :confirmed, organization:) }
 
   let(:registrations_enabled) { true }
   let(:available_slots) { 20 }

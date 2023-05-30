@@ -6,7 +6,7 @@ module Decidim
   describe Search do
     subject { described_class.new(params) }
 
-    let(:current_component) { create :debates_component, manifest_name: "debates" }
+    let(:current_component) { create(:debates_component, manifest_name: "debates") }
     let(:organization) { current_component.organization }
     let(:author) { create(:user, organization:) }
     let!(:debate) do

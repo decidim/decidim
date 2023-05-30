@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe Decidim::Accountability::DiffRenderer, versioning: true do
-  let!(:result) { create :result, progress: 50 }
+  let!(:result) { create(:result, progress: 50) }
   let(:version) { result.versions.last }
 
   before do

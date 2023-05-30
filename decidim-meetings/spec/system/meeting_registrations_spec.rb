@@ -8,8 +8,8 @@ describe "Meeting registrations", type: :system do
 
   let!(:questionnaire) { create(:questionnaire) }
   let!(:question) { create(:questionnaire_question, questionnaire:, position: 0) }
-  let!(:meeting) { create :meeting, :published, component:, questionnaire: }
-  let!(:user) { create :user, :confirmed, organization: }
+  let!(:meeting) { create(:meeting, :published, component:, questionnaire:) }
+  let!(:user) { create(:user, :confirmed, organization:) }
 
   let(:registrations_enabled) { true }
   let(:registration_form_enabled) { false }
@@ -249,7 +249,7 @@ describe "Meeting registrations", type: :system do
         end
 
         context "and they ARE part of a verified user group" do
-          let!(:user_group) { create :user_group, :verified, users: [user], organization: }
+          let!(:user_group) { create(:user_group, :verified, users: [user], organization:) }
 
           it "they can join the meeting representing a group and appear in the attending organizations list" do
             visit_meeting

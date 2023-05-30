@@ -8,7 +8,7 @@ module Decidim
       let(:form_klass) { ProposalWizardCreateStepForm }
       let(:component) { create(:proposal_component) }
       let(:organization) { component.organization }
-      let(:user) { create :user, :admin, :confirmed, organization: }
+      let(:user) { create(:user, :admin, :confirmed, organization:) }
       let(:form) do
         form_klass.from_params(
           form_params

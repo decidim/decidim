@@ -12,8 +12,8 @@ describe Decidim::Elections::Admin::ElectionForm do
       current_component:
     }
   end
-  let(:participatory_process) { create :participatory_process, organization: }
-  let(:current_component) { create :elections_component, participatory_space: participatory_process }
+  let(:participatory_process) { create(:participatory_process, organization:) }
+  let(:current_component) { create(:elections_component, participatory_space: participatory_process) }
   let(:title) { Decidim::Faker::Localized.sentence(word_count: 3) }
   let(:description) { Decidim::Faker::Localized.sentence(word_count: 3) }
   let(:start_time) { 1.day.from_now }

@@ -6,7 +6,7 @@ module Decidim::Admin
   describe UserFilter do
     subject { described_class.new(organization.users, search, filter) }
 
-    let(:organization) { create :organization }
+    let(:organization) { create(:organization) }
     let(:search) { nil }
     let(:filter) { nil }
 

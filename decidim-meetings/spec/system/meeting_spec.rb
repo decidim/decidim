@@ -6,8 +6,8 @@ describe "Meeting", type: :system, download: true do
   include_context "with a component"
   let(:manifest_name) { "meetings" }
 
-  let(:meeting) { create :meeting, :published, :with_services, component: }
-  let!(:user) { create :user, :confirmed, organization: }
+  let(:meeting) { create(:meeting, :published, :with_services, component:) }
+  let!(:user) { create(:user, :confirmed, organization:) }
 
   def visit_meeting
     visit resource_locator(meeting).path
@@ -59,7 +59,7 @@ describe "Meeting", type: :system, download: true do
     end
 
     context "and meeting is online" do
-      let(:meeting) { create :meeting, :published, :with_services, :online, component: }
+      let(:meeting) { create(:meeting, :published, :with_services, :online, component:) }
 
       it "hides the map section" do
         visit_meeting
@@ -69,7 +69,7 @@ describe "Meeting", type: :system, download: true do
     end
 
     context "and meeting is in_person" do
-      let(:meeting) { create :meeting, :published, :with_services, component: }
+      let(:meeting) { create(:meeting, :published, :with_services, component:) }
 
       it "shows the map section" do
         visit_meeting
@@ -79,7 +79,7 @@ describe "Meeting", type: :system, download: true do
     end
 
     context "and meeting is hybrid" do
-      let(:meeting) { create :meeting, :published, :with_services, :hybrid, component: }
+      let(:meeting) { create(:meeting, :published, :with_services, :hybrid, component:) }
 
       it "shows the map section" do
         visit_meeting
@@ -101,7 +101,7 @@ describe "Meeting", type: :system, download: true do
     end
 
     context "and meeting is in_person" do
-      let(:meeting) { create :meeting, :published, :with_services, component: }
+      let(:meeting) { create(:meeting, :published, :with_services, component:) }
 
       it "hides the map section" do
         visit_meeting
@@ -111,7 +111,7 @@ describe "Meeting", type: :system, download: true do
     end
 
     context "and meeting is hybrid" do
-      let(:meeting) { create :meeting, :published, :with_services, :hybrid, component: }
+      let(:meeting) { create(:meeting, :published, :with_services, :hybrid, component:) }
 
       it "hides the map section" do
         visit_meeting

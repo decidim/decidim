@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 shared_examples "manage participatory process private users examples" do
-  let(:other_user) { create :user, organization:, email: "my_email@example.org" }
+  let(:other_user) { create(:user, organization:, email: "my_email@example.org") }
 
-  let!(:participatory_space_private_user) { create :participatory_space_private_user, user:, privatable_to: participatory_process }
+  let!(:participatory_space_private_user) { create(:participatory_space_private_user, user:, privatable_to: participatory_process) }
 
   before do
     switch_to_host(organization.host)
@@ -51,7 +51,7 @@ shared_examples "manage participatory process private users examples" do
 
   describe "when managing different users" do
     before do
-      create :participatory_space_private_user, user: other_user, privatable_to: participatory_process
+      create(:participatory_space_private_user, user: other_user, privatable_to: participatory_process)
       visit current_path
     end
 

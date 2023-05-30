@@ -6,7 +6,7 @@ module Decidim::Meetings::Admin
   describe Invites do
     subject { described_class.for(Decidim::Meetings::Invite.all, search, filter) }
 
-    let(:organization) { create :organization }
+    let(:organization) { create(:organization) }
     let(:search) { nil }
     let(:filter) { nil }
 

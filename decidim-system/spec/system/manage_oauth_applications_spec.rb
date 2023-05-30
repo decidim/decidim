@@ -5,8 +5,8 @@ require "spec_helper"
 describe "Manage OAuth applications", type: :system do
   include ActionView::Helpers::SanitizeHelper
 
-  let(:admin) { create :admin }
-  let!(:organization) { create :organization }
+  let(:admin) { create(:admin) }
+  let!(:organization) { create(:organization) }
 
   before do
     login_as admin, scope: :admin

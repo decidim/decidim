@@ -107,9 +107,6 @@ RSpec/NoExpectationExample:
 RSpec/SortMetadata:
   Enabled: false
 
-RSpec/FactoryBot/ConsistentParenthesesStyle:
-  Enabled: false
-
 RSpec/MatchArray:
   Enabled: false
 

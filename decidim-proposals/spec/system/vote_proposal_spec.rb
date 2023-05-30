@@ -9,7 +9,7 @@ describe "Support Proposal", type: :system, slow: true do
   let!(:proposals) { create_list(:proposal, 3, component:) }
   let!(:proposal) { Decidim::Proposals::Proposal.find_by(component:) }
   let(:proposal_title) { translated(proposal.title) }
-  let!(:user) { create :user, :confirmed, organization: }
+  let!(:user) { create(:user, :confirmed, organization:) }
 
   def expect_page_not_to_include_votes
     expect(page).not_to have_button("Support")

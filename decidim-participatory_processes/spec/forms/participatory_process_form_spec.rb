@@ -8,7 +8,7 @@ module Decidim
       describe ParticipatoryProcessForm do
         subject { described_class.from_params(attributes).with_context(current_organization: organization) }
 
-        let(:organization) { create :organization }
+        let(:organization) { create(:organization) }
         let(:title) do
           {
             en: "Title",

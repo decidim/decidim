@@ -6,8 +6,8 @@ describe "Orders", type: :system do
   include_context "with a component"
   let(:manifest_name) { "budgets" }
 
-  let(:organization) { create :organization, available_authorizations: %w(dummy_authorization_handler) }
-  let!(:user) { create :user, :confirmed, organization: }
+  let(:organization) { create(:organization, available_authorizations: %w(dummy_authorization_handler)) }
+  let!(:user) { create(:user, :confirmed, organization:) }
   let(:project) { projects.first }
 
   let!(:component) do
@@ -16,7 +16,7 @@ describe "Orders", type: :system do
            manifest:,
            participatory_space: participatory_process)
   end
-  let(:budget) { create :budget, component: }
+  let(:budget) { create(:budget, component:) }
 
   context "when the user is not logged in" do
     let!(:projects) { create_list(:project, 1, budget:, budget_amount: 25_000_000) }

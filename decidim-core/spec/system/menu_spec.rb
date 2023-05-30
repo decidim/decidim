@@ -56,7 +56,7 @@ describe "Menu", type: :system do
   end
 
   context "with a user logged in and multiple languages" do
-    let!(:user) { create :user, :confirmed, organization: }
+    let!(:user) { create(:user, :confirmed, organization:) }
 
     before do
       login_as user, scope: :user
