@@ -54,13 +54,11 @@ const initializeDeleteAccount = () => {
   }
 
   const $openModalButton = $(".open-modal-button");
-  const $modal = $("#deleteConfirm");
 
   $openModalButton.on("click", (event) => {
     try {
       const reasonValue = $deleteAccountForm.find("textarea#delete_account_delete_reason").val();
       $deleteAccountModalForm.find("input#delete_account_delete_reason").val(reasonValue);
-      $modal.foundation("open");
     } catch (error) {
       console.error(error); // eslint-disable-line no-console
     }
