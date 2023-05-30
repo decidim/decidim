@@ -6,7 +6,7 @@ module Decidim
   module Votings
     module Admin
       describe UpdateVoting do
-        let(:voting) { create :voting }
+        let(:voting) { create(:voting) }
         let(:params) do
           {
             voting: {

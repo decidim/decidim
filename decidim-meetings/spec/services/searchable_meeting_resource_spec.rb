@@ -6,9 +6,9 @@ module Decidim
   describe Search do
     subject { described_class.new(params) }
 
-    let(:current_component) { create :component, manifest_name: "meetings" }
+    let(:current_component) { create(:component, manifest_name: "meetings") }
     let(:organization) { current_component.organization }
-    let(:scope1) { create :scope, organization: }
+    let(:scope1) { create(:scope, organization:) }
     let!(:meeting) do
       create(
         :meeting,

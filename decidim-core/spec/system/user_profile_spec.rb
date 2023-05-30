@@ -196,9 +196,9 @@ describe "Profile", type: :system do
     end
 
     context "when belonging to user groups" do
-      let!(:accepted_user_group) { create :user_group, users: [user], organization: user.organization }
-      let!(:pending_user_group) { create :user_group, users: [], organization: user.organization }
-      let!(:pending_membership) { create :user_group_membership, user_group: pending_user_group, user:, role: "requested" }
+      let!(:accepted_user_group) { create(:user_group, users: [user], organization: user.organization) }
+      let!(:pending_user_group) { create(:user_group, users: [], organization: user.organization) }
+      let!(:pending_membership) { create(:user_group_membership, user_group: pending_user_group, user:, role: "requested") }
 
       before do
         visit decidim.profile_path(user.nickname)

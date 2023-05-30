@@ -7,7 +7,7 @@ module Decidim
     describe TimelineEntry do
       subject { timeline_entry }
 
-      let(:timeline_entry) { build :timeline_entry }
+      let(:timeline_entry) { build(:timeline_entry) }
 
       it { is_expected.to be_valid }
     end

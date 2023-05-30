@@ -31,10 +31,10 @@ describe Decidim::Proposals::Import::ProposalCreator do
       current_participatory_space: participatory_process
     }
   end
-  let(:participatory_process) { create :participatory_process, organization: }
-  let(:component) { create :component, manifest_name: :proposals, participatory_space: participatory_process }
-  let(:scope) { create :scope, organization: }
-  let(:category) { create :category, participatory_space: participatory_process }
+  let(:participatory_process) { create(:participatory_process, organization:) }
+  let(:component) { create(:component, manifest_name: :proposals, participatory_space: participatory_process) }
+  let(:scope) { create(:scope, organization:) }
+  let(:category) { create(:category, participatory_space: participatory_process) }
 
   it "removes the IDs from the hash" do
     expect(subject.instance_variable_get(:@data)).not_to have_key(:id)

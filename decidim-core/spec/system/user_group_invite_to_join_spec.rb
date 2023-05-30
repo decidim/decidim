@@ -28,7 +28,7 @@ describe "User group invite to join", type: :system do
   end
 
   context "when trying to invite by a manager" do
-    let(:invited_user) { create :user, :confirmed, organization: creator.organization }
+    let(:invited_user) { create(:user, :confirmed, organization: creator.organization) }
 
     before do
       login_as creator, scope: :user

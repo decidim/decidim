@@ -7,7 +7,7 @@ describe "Upcoming meeting for card view hook", type: :system do
     let(:participatory_space) { assembly }
   end
 
-  let(:assembly) { create :assembly, organization: }
+  let(:assembly) { create(:assembly, organization:) }
   let(:manifest_name) { "meetings" }
   let!(:past_meeting) do
     create(:meeting, :published, :past, component:)

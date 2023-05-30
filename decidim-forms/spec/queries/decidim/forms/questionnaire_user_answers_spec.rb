@@ -16,8 +16,8 @@ describe Decidim::Forms::QuestionnaireUserAnswers do
       create(:questionnaire_question, questionnaire:, position: 1)
     ]
   end
-  let!(:answers_user1) { questions.map { |question| create :answer, user: user1, questionnaire:, question: } }
-  let!(:answers_user2) { questions.map { |question| create :answer, user: user2, questionnaire:, question: } }
+  let!(:answers_user1) { questions.map { |question| create(:answer, user: user1, questionnaire:, question:) } }
+  let!(:answers_user2) { questions.map { |question| create(:answer, user: user2, questionnaire:, question:) } }
 
   it "returns the user answers for each user without the separators and title-and-descriptions" do
     result = subject.query

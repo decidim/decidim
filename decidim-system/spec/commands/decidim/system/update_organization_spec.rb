@@ -9,7 +9,7 @@ module Decidim
         let(:form) do
           UpdateOrganizationForm.new(params)
         end
-        let(:organization) { create :organization, name: "My organization" }
+        let(:organization) { create(:organization, name: "My organization") }
 
         let(:command) { described_class.new(organization.id, form) }
 

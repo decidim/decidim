@@ -121,7 +121,7 @@ describe "Static pages", type: :system do
     it_behaves_like "requesting with very long URL parameters"
 
     context "when authenticated" do
-      let(:user) { create :user, :confirmed, organization: }
+      let(:user) { create(:user, :confirmed, organization:) }
 
       it_behaves_like "requesting with very long URL parameters"
     end

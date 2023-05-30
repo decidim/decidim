@@ -85,7 +85,7 @@ describe "Admin manages trustees", type: :system do
   end
 
   context "when removing trustee from participatory space" do
-    let!(:trustee_participatory_space) { create :trustees_participatory_space, participatory_space: }
+    let!(:trustee_participatory_space) { create(:trustees_participatory_space, participatory_space:) }
 
     before do
       visit current_path

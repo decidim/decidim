@@ -7,9 +7,9 @@ describe "Edit collaborative_drafts", type: :system do
   let!(:component) { create(:proposal_component, :with_collaborative_drafts_enabled, organization:) }
   let(:manifest_name) { "proposals" }
 
-  let!(:user) { create :user, :confirmed, organization: participatory_process.organization }
-  let!(:another_user) { create :user, :confirmed, organization: participatory_process.organization }
-  let!(:collaborative_draft) { create :collaborative_draft, users: [user], component: }
+  let!(:user) { create(:user, :confirmed, organization: participatory_process.organization) }
+  let!(:another_user) { create(:user, :confirmed, organization: participatory_process.organization) }
+  let!(:collaborative_draft) { create(:collaborative_draft, users: [user], component:) }
 
   before do
     switch_to_host user.organization.host
@@ -143,7 +143,7 @@ describe "Edit collaborative_drafts", type: :system do
   end
 
   describe "editing my proposal outside the time limit" do
-    let!(:collaborative_draft) { create :collaborative_draft, users: [user], component:, created_at: 1.hour.ago }
+    let!(:collaborative_draft) { create(:collaborative_draft, users: [user], component:, created_at: 1.hour.ago) }
 
     before do
       login_as another_user, scope: :user

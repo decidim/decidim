@@ -58,7 +58,7 @@ module Decidim
         let(:result) { helper.resource_icon(resource) }
 
         context "when it has a component" do
-          let(:resource) { build :dummy_resource }
+          let(:resource) { build(:dummy_resource) }
 
           it "renders the component icon" do
             expect(helper).to receive(:component_icon).with(resource.component, {})
@@ -78,7 +78,7 @@ module Decidim
         end
 
         context "when it is a user" do
-          let(:resource) { build :user }
+          let(:resource) { build(:user) }
 
           it "renders a person icon" do
             expect(result).to include("svg#icon-person")
@@ -86,7 +86,7 @@ module Decidim
         end
 
         context "when the resource component and manifest are nil" do
-          let(:resource) { build :dummy_resource }
+          let(:resource) { build(:dummy_resource) }
 
           before do
             allow(resource).to receive(:component).and_return(nil)

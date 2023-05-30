@@ -60,8 +60,8 @@ module Decidim::Meetings
     end
 
     describe "events" do
-      let(:user) { create :user, :confirmed, organization: meeting.organization }
-      let!(:follow) { create :follow, followable: meeting, user: }
+      let(:user) { create(:user, :confirmed, organization: meeting.organization) }
+      let!(:follow) { create(:follow, followable: meeting, user:) }
 
       context "when registrations are enabled" do
         it "notifies the change" do

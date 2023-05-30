@@ -28,11 +28,11 @@ describe "Homepage", type: :system do
     end
 
     before do
-      create :content_block, organization: organization, scope_name: :homepage, manifest_name: :hero
-      create :content_block, organization: organization, scope_name: :homepage, manifest_name: :sub_hero
-      create :content_block, organization: organization, scope_name: :homepage, manifest_name: :highlighted_content_banner
-      create :content_block, organization: organization, scope_name: :homepage, manifest_name: :how_to_participate
-      create :content_block, organization: organization, scope_name: :homepage, manifest_name: :footer_sub_hero
+      create(:content_block, organization: organization, scope_name: :homepage, manifest_name: :hero)
+      create(:content_block, organization: organization, scope_name: :homepage, manifest_name: :sub_hero)
+      create(:content_block, organization: organization, scope_name: :homepage, manifest_name: :highlighted_content_banner)
+      create(:content_block, organization: organization, scope_name: :homepage, manifest_name: :how_to_participate)
+      create(:content_block, organization: organization, scope_name: :homepage, manifest_name: :footer_sub_hero)
 
       switch_to_host(organization.host)
     end
@@ -84,7 +84,7 @@ describe "Homepage", type: :system do
       end
 
       describe "call to action" do
-        let!(:participatory_process) { create :participatory_process, :published }
+        let!(:participatory_process) { create(:participatory_process, :published) }
         let!(:organization) { participatory_process.organization }
 
         before do
@@ -250,7 +250,7 @@ describe "Homepage", type: :system do
           end
 
           context "when authenticated" do
-            let(:user) { create :user, :confirmed, organization: }
+            let(:user) { create(:user, :confirmed, organization:) }
 
             it_behaves_like "accessible page"
 
@@ -300,7 +300,7 @@ describe "Homepage", type: :system do
           let(:organization) { create(:organization) }
 
           before do
-            create :content_block, organization: organization, scope_name: :homepage, manifest_name: :stats
+            create(:content_block, organization: organization, scope_name: :homepage, manifest_name: :stats)
             visit current_path
           end
 
@@ -344,7 +344,7 @@ describe "Homepage", type: :system do
           context "and have metric records" do
             before do
               metrics
-              create :content_block, organization: organization, scope_name: :homepage, manifest_name: :metrics
+              create(:content_block, organization: organization, scope_name: :homepage, manifest_name: :metrics)
               visit current_path
             end
 
@@ -363,7 +363,7 @@ describe "Homepage", type: :system do
 
           context "and does not have metric records" do
             before do
-              create :content_block, organization: organization, scope_name: :homepage, manifest_name: :metrics
+              create(:content_block, organization: organization, scope_name: :homepage, manifest_name: :metrics)
               visit current_path
             end
 

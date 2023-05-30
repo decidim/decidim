@@ -283,7 +283,7 @@ describe "Budgets component" do # rubocop:disable RSpec/DescribeClass
     let(:organization) { component.participatory_space.organization }
 
     context "when the user is an admin" do
-      let!(:user) { create :user, admin: true, organization: }
+      let!(:user) { create(:user, admin: true, organization:) }
 
       it "exports all budgets from the component" do
         expect(subject.count).to eq(2)
@@ -310,7 +310,7 @@ describe "Budgets component" do # rubocop:disable RSpec/DescribeClass
     let(:organization) { component.participatory_space.organization }
 
     context "when the user is an admin" do
-      let!(:user) { create :user, admin: true, organization: }
+      let!(:user) { create(:user, admin: true, organization:) }
 
       it "exports projects of individual budget" do
         expect(subject.count).to eq(3)

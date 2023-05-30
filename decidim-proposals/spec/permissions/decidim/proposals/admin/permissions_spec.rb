@@ -5,7 +5,7 @@ require "spec_helper"
 describe Decidim::Proposals::Admin::Permissions do
   subject { described_class.new(user, permission_action, context).permissions.allowed? }
 
-  let(:user) { build :user, :admin }
+  let(:user) { build(:user, :admin) }
   let(:current_component) { create(:proposal_component) }
   let(:proposal) { nil }
   let(:extra_context) { {} }
@@ -90,12 +90,12 @@ describe Decidim::Proposals::Admin::Permissions do
   context "when user is a valuator" do
     let(:organization) { space.organization }
     let(:space) { current_component.participatory_space }
-    let!(:valuator_role) { create :participatory_process_user_role, user:, role: :valuator, participatory_process: space }
-    let!(:user) { create :user, organization: }
+    let!(:valuator_role) { create(:participatory_process_user_role, user:, role: :valuator, participatory_process: space) }
+    let!(:user) { create(:user, organization:) }
 
     context "and can valuate the current proposal" do
-      let(:proposal) { create :proposal, component: current_component }
-      let!(:assignment) { create :valuation_assignment, proposal:, valuator_role: }
+      let(:proposal) { create(:proposal, component: current_component) }
+      let!(:assignment) { create(:valuation_assignment, proposal:, valuator_role:) }
 
       it_behaves_like "can create proposal notes"
       it_behaves_like "can answer proposals"
@@ -152,13 +152,13 @@ describe Decidim::Proposals::Admin::Permissions do
     end
 
     context "when the proposal is not official" do
-      let(:proposal) { create :proposal, component: current_component }
+      let(:proposal) { create(:proposal, component: current_component) }
 
       it_behaves_like "permission is not set"
     end
 
     context "when the proposal is official" do
-      let(:proposal) { create :proposal, :official, component: current_component }
+      let(:proposal) { create(:proposal, :official, component: current_component) }
 
       context "when everything is OK" do
         it { is_expected.to be true }
@@ -166,7 +166,7 @@ describe Decidim::Proposals::Admin::Permissions do
 
       context "when it has some votes" do
         before do
-          create :proposal_vote, proposal:
+          create(:proposal_vote, proposal:)
         end
 
         it_behaves_like "permission is not set"

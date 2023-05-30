@@ -256,9 +256,9 @@ describe "Assemblies", type: :system do
       end
 
       context "when the assembly has children assemblies" do
-        let!(:child_assembly) { create :assembly, organization:, parent: assembly, weight: 0 }
-        let!(:second_child_assembly) { create :assembly, organization:, parent: assembly, weight: 1 }
-        let!(:unpublished_child_assembly) { create :assembly, :unpublished, organization:, parent: assembly }
+        let!(:child_assembly) { create(:assembly, organization:, parent: assembly, weight: 0) }
+        let!(:second_child_assembly) { create(:assembly, organization:, parent: assembly, weight: 1) }
+        let!(:unpublished_child_assembly) { create(:assembly, :unpublished, organization:, parent: assembly) }
 
         before do
           visit decidim_assemblies.assembly_path(assembly)
@@ -306,8 +306,8 @@ describe "Assemblies", type: :system do
       end
 
       context "when the assembly has children private and transparent assemblies" do
-        let!(:private_transparent_child_assembly) { create :assembly, organization:, parent: assembly, private_space: true, is_transparent: true }
-        let!(:private_transparent_unpublished_child_assembly) { create :assembly, :unpublished, organization:, parent: assembly, private_space: true, is_transparent: true }
+        let!(:private_transparent_child_assembly) { create(:assembly, organization:, parent: assembly, private_space: true, is_transparent: true) }
+        let!(:private_transparent_unpublished_child_assembly) { create(:assembly, :unpublished, organization:, parent: assembly, private_space: true, is_transparent: true) }
 
         before do
           visit decidim_assemblies.assembly_path(assembly)
@@ -322,8 +322,8 @@ describe "Assemblies", type: :system do
       end
 
       context "when the assembly has children private and not transparent assemblies" do
-        let!(:private_child_assembly) { create :assembly, organization:, parent: assembly, private_space: true, is_transparent: false }
-        let!(:private_unpublished_child_assembly) { create :assembly, :unpublished, organization:, parent: assembly, private_space: true, is_transparent: false }
+        let!(:private_child_assembly) { create(:assembly, organization:, parent: assembly, private_space: true, is_transparent: false) }
+        let!(:private_unpublished_child_assembly) { create(:assembly, :unpublished, organization:, parent: assembly, private_space: true, is_transparent: false) }
 
         before do
           visit decidim_assemblies.assembly_path(assembly)
@@ -338,7 +338,7 @@ describe "Assemblies", type: :system do
 
   describe "when going to the assembly child page" do
     let!(:parent_assembly) { base_assembly }
-    let!(:child_assembly) { create :assembly, organization:, parent: parent_assembly }
+    let!(:child_assembly) { create(:assembly, organization:, parent: parent_assembly) }
 
     before do
       visit decidim_assemblies.assembly_path(child_assembly)

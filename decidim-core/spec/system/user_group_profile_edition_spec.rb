@@ -8,7 +8,7 @@ describe "User group profile edition", type: :system do
   let!(:member) { create(:user, :confirmed, organization: creator.organization) }
 
   before do
-    create :user_group_membership, user: member, user_group: user_group, role: :member
+    create(:user_group_membership, user: member, user_group: user_group, role: :member)
 
     switch_to_host(user_group.organization.host)
   end

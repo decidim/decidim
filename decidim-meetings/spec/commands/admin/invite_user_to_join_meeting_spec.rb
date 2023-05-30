@@ -6,8 +6,8 @@ module Decidim::Meetings
   describe Admin::InviteUserToJoinMeeting do
     subject { described_class.new(form, meeting, current_user) }
 
-    let(:organization) { create :organization }
-    let!(:current_user) { create :user, :admin, organization: }
+    let(:organization) { create(:organization) }
+    let!(:current_user) { create(:user, :admin, organization:) }
     let(:name) { "name" }
     let(:email) { "foo@example.org" }
     let(:existing_user) { false }
@@ -27,9 +27,9 @@ module Decidim::Meetings
         current_organization: organization
       )
     end
-    let!(:participatory_process) { create :participatory_process, organization: }
-    let!(:component) { create :meeting_component, participatory_space: participatory_process }
-    let!(:meeting) { create :meeting, component: }
+    let!(:participatory_process) { create(:participatory_process, organization:) }
+    let!(:component) { create(:meeting_component, participatory_space: participatory_process) }
+    let!(:meeting) { create(:meeting, component:) }
 
     context "when everything is ok" do
       before do

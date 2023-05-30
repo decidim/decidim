@@ -6,9 +6,9 @@ module Decidim::Meetings
   describe CalendarRenderer do
     subject { described_class }
 
-    let(:component) { create :component, manifest_name: "meetings" }
+    let(:component) { create(:component, manifest_name: "meetings") }
     let(:organization) { component.organization }
-    let(:dummy_resource) { create :dummy_resource }
+    let(:dummy_resource) { create(:dummy_resource) }
 
     describe "when the resource is a component" do
       it "calls the ComponentCalendar" do

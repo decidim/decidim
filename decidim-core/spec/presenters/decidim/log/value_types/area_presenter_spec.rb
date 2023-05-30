@@ -6,7 +6,7 @@ describe Decidim::Log::ValueTypes::AreaPresenter, type: :helper do
   subject { described_class.new(value, helper) }
 
   let(:value) { area.id }
-  let!(:area) { create :area }
+  let!(:area) { create(:area) }
 
   before do
     helper.extend(Decidim::ApplicationHelper)

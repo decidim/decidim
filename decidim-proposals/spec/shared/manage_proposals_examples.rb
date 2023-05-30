@@ -136,7 +136,7 @@ shared_examples "manage proposals" do
           end
 
           context "when the process scope has a child scope" do
-            let!(:child_scope) { create :scope, parent: scope }
+            let!(:child_scope) { create(:scope, parent: scope) }
 
             it "can be related to a scope" do
               click_link "New proposal"
@@ -479,7 +479,7 @@ shared_examples "manage proposals" do
     context "when the proposal is an emendation" do
       let!(:amendable) { create(:proposal, component: current_component) }
       let!(:emendation) { create(:proposal, component: current_component) }
-      let!(:amendment) { create :amendment, amendable:, emendation:, state: "evaluating" }
+      let!(:amendment) { create(:amendment, amendable:, emendation:, state: "evaluating") }
 
       it "cannot answer a proposal" do
         visit_component_admin

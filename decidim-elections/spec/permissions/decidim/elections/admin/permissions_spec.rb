@@ -5,7 +5,7 @@ require "spec_helper"
 describe Decidim::Elections::Admin::Permissions do
   subject { described_class.new(user, permission_action, context).permissions.allowed? }
 
-  let(:user) { create :user, organization: elections_component.organization }
+  let(:user) { create(:user, organization: elections_component.organization) }
   let(:context) do
     {
       current_component: elections_component,
@@ -16,17 +16,17 @@ describe Decidim::Elections::Admin::Permissions do
       questionnaire:
     }
   end
-  let(:elections_component) { create :elections_component }
-  let(:election) { create :election, component: elections_component }
+  let(:elections_component) { create(:elections_component) }
+  let(:election) { create(:election, component: elections_component) }
   let(:question) { nil }
   let(:answer) { nil }
-  let(:trustee_participatory_space) { create :trustees_participatory_space }
+  let(:trustee_participatory_space) { create(:trustees_participatory_space) }
   let(:questionnaire) { election&.questionnaire }
   let(:permission_action) { Decidim::PermissionAction.new(**action) }
 
   shared_examples "not allowed when election was created on the bulletin board" do
     context "when election was created on the bulletin board" do
-      let(:election) { create :election, :created, component: elections_component }
+      let(:election) { create(:election, :created, component: elections_component) }
 
       it { is_expected.to be false }
     end
@@ -34,8 +34,8 @@ describe Decidim::Elections::Admin::Permissions do
 
   shared_examples "not allowed when election has invalid questions" do
     context "when election has invalid questions" do
-      let(:election) { create :election, component: elections_component }
-      let(:question) { create :question, :candidates, max_selections: 11, election: }
+      let(:election) { create(:election, component: elections_component) }
+      let(:question) { create(:question, :candidates, max_selections: 11, election:) }
 
       it { is_expected.to be false }
     end
@@ -43,8 +43,8 @@ describe Decidim::Elections::Admin::Permissions do
 
   shared_examples "not allowed when trustee has elections" do
     context "when trustee has elections" do
-      let(:trustee) { create :trustee, :with_elections }
-      let(:trustee_participatory_space) { create :trustees_participatory_space, trustee: }
+      let(:trustee) { create(:trustee, :with_elections) }
+      let(:trustee_participatory_space) { create(:trustees_participatory_space, trustee:) }
 
       it { is_expected.to be false }
     end
@@ -94,7 +94,7 @@ describe Decidim::Elections::Admin::Permissions do
   end
 
   describe "election publish" do
-    let(:election) { create :election, :complete, component: elections_component }
+    let(:election) { create(:election, :complete, component: elections_component) }
     let(:action) do
       { scope: :admin, action: :publish, subject: :election }
     end
@@ -126,7 +126,7 @@ describe Decidim::Elections::Admin::Permissions do
   end
 
   describe "questions" do
-    let(:question) { create :question, election: }
+    let(:question) { create(:question, election:) }
 
     describe "question creation" do
       let(:action) do
@@ -161,8 +161,8 @@ describe Decidim::Elections::Admin::Permissions do
   end
 
   describe "answers" do
-    let(:question) { create :question, election: }
-    let(:answer) { create :election_answer, question: }
+    let(:question) { create(:question, election:) }
+    let(:answer) { create(:election_answer, question:) }
 
     describe "answer creation" do
       let(:action) do
@@ -196,7 +196,7 @@ describe Decidim::Elections::Admin::Permissions do
     end
 
     describe "select answer" do
-      let(:election) { create :election, :tally_ended, component: elections_component }
+      let(:election) { create(:election, :tally_ended, component: elections_component) }
 
       let(:action) do
         { scope: :admin, action: :select, subject: :answer }

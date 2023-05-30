@@ -4,7 +4,7 @@ require "spec_helper"
 
 describe "Conversations", type: :system do
   let!(:organization) { create(:organization, twitter_handler: "redesigned") }
-  let(:user) { create :user, :confirmed, organization: }
+  let(:user) { create(:user, :confirmed, organization:) }
   let!(:redesign_enabled?) { true }
 
   before do
@@ -87,7 +87,7 @@ describe "Conversations", type: :system do
       end
 
       context "and recipient follows user" do
-        let!(:follow) { create :follow, user: recipient, followable: user }
+        let!(:follow) { create(:follow, user: recipient, followable: user) }
 
         before do
           visit decidim.new_conversation_path(recipient_id: recipient.id)
@@ -238,7 +238,7 @@ describe "Conversations", type: :system do
       end
 
       context "and interlocutor follows user" do
-        let!(:follow) { create :follow, user: interlocutor, followable: user }
+        let!(:follow) { create(:follow, user: interlocutor, followable: user) }
 
         before do
           visit_inbox

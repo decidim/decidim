@@ -17,8 +17,8 @@ describe Decidim::Admin::Import::Importer do
       current_participatory_space: participatory_process
     }
   end
-  let(:participatory_process) { create :participatory_process, organization: }
-  let(:current_component) { create :component, manifest_name: :proposals, participatory_space: participatory_process }
+  let(:participatory_process) { create(:participatory_process, organization:) }
+  let(:current_component) { create(:component, manifest_name: :proposals, participatory_space: participatory_process) }
 
   context "with CSV" do
     let(:blob) { upload_test_file(Decidim::Dev.asset("import_proposals.csv"), return_blob: true) }

@@ -3,11 +3,11 @@
 require "spec_helper"
 
 describe "Admin manages answers", type: :system do
-  let!(:proposals) { create_list :proposal, 3, :accepted, component: origin_component }
-  let!(:origin_component) { create :proposal_component, participatory_space: current_component.participatory_space }
-  let(:election) { create :election, component: current_component }
-  let(:question) { create :question, election: }
-  let(:answer) { create :election_answer, question: }
+  let!(:proposals) { create_list(:proposal, 3, :accepted, component: origin_component) }
+  let!(:origin_component) { create(:proposal_component, participatory_space: current_component.participatory_space) }
+  let(:election) { create(:election, component: current_component) }
+  let(:question) { create(:question, election:) }
+  let(:answer) { create(:election_answer, question:) }
   let(:manifest_name) { "elections" }
 
   include_context "when managing a component as an admin"
@@ -90,7 +90,7 @@ describe "Admin manages answers", type: :system do
   end
 
   context "when max selections is higher than answers count" do
-    let(:question) { create :question, election:, max_selections: 5 }
+    let(:question) { create(:question, election:, max_selections: 5) }
 
     it "shows alert" do
       expect(page).to have_content("You need 4 more answer/s")
@@ -164,7 +164,7 @@ describe "Admin manages answers", type: :system do
   end
 
   context "when answer has votes" do
-    let!(:election) { create :election, :tally_ended, component: current_component }
+    let!(:election) { create(:election, :tally_ended, component: current_component) }
     let!(:question) { election.questions.first }
     let!(:answer) { question.answers.first }
 

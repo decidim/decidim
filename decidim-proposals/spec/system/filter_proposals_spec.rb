@@ -6,9 +6,9 @@ describe "Filter Proposals", :slow, type: :system do
   include_context "with a component"
   let(:manifest_name) { "proposals" }
 
-  let!(:category) { create :category, participatory_space: participatory_process }
-  let!(:scope) { create :scope, organization: }
-  let!(:user) { create :user, :confirmed, organization: }
+  let!(:category) { create(:category, participatory_space: participatory_process) }
+  let!(:scope) { create(:scope, organization:) }
+  let!(:user) { create(:user, :confirmed, organization:) }
   let(:scoped_participatory_process) { create(:participatory_process, :with_steps, organization:, scope:) }
 
   context "when caching is enabled", :caching do
@@ -114,7 +114,7 @@ describe "Filter Proposals", :slow, type: :system do
 
   context "when filtering proposals by SCOPE" do
     let(:scopes_picker) { select_data_picker(:filter_scope_id, multiple: true, global_value: "global") }
-    let!(:scope2) { create :scope, organization: participatory_process.organization }
+    let!(:scope2) { create(:scope, organization: participatory_process.organization) }
 
     before do
       create_list(:proposal, 2, component:, scope:)
@@ -193,7 +193,7 @@ describe "Filter Proposals", :slow, type: :system do
       end
 
       context "with subscopes" do
-        let!(:subscopes) { create_list :subscope, 5, parent: scope }
+        let!(:subscopes) { create_list(:subscope, 5, parent: scope) }
 
         it "can be filtered by scope" do
           visit_component
@@ -347,8 +347,8 @@ describe "Filter Proposals", :slow, type: :system do
 
   context "when filtering proposals by CATEGORY", :slow do
     context "when the user is logged in" do
-      let!(:category2) { create :category, participatory_space: participatory_process }
-      let!(:category3) { create :category, participatory_space: participatory_process }
+      let!(:category2) { create(:category, participatory_space: participatory_process) }
+      let!(:category3) { create(:category, participatory_space: participatory_process) }
       let!(:proposal1) { create(:proposal, component:, category:) }
       let!(:proposal2) { create(:proposal, component:, category: category2) }
       let!(:proposal3) { create(:proposal, component:, category: category3) }

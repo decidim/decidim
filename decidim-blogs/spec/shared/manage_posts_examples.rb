@@ -96,7 +96,7 @@ shared_examples "manage posts" do
   end
 
   context "when user is in user group" do
-    let(:user_group) { create :user_group, :confirmed, :verified, organization: }
+    let(:user_group) { create(:user_group, :confirmed, :verified, organization:) }
     let!(:membership) { create(:user_group_membership, user:, user_group:) }
 
     it "can set user group as posts author", :slow do

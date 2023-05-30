@@ -11,7 +11,7 @@ describe "Admin manages surveys", type: :system do
            published_at: nil)
   end
   let!(:questionnaire) { create(:questionnaire) }
-  let!(:survey) { create :survey, component:, questionnaire: }
+  let!(:survey) { create(:survey, component:, questionnaire:) }
 
   include_context "when managing a component as an admin"
 

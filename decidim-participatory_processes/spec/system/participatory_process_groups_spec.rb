@@ -351,8 +351,8 @@ describe "Participatory Process Groups", type: :system do
   end
 
   context "when participatory processes block is enabled" do
-    let!(:scope) { create :scope, organization: }
-    let!(:area) { create :area, organization: }
+    let!(:scope) { create(:scope, organization:) }
+    let!(:area) { create(:area, organization:) }
     let!(:participatory_process_group) do
       create(
         :participatory_process_group,

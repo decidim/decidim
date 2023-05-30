@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
 shared_examples "manage conference admins examples" do
-  let(:other_user) { create :user, organization:, email: "my_email@example.org" }
+  let(:other_user) { create(:user, organization:, email: "my_email@example.org") }
 
   let!(:conference_admin) do
-    create :conference_admin,
+    create(:conference_admin,
            :confirmed,
            organization:,
-           conference:
+           conference:)
   end
 
   before do

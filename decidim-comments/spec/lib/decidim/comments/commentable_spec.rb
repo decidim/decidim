@@ -5,11 +5,11 @@ require "spec_helper"
 describe Decidim::Comments::Commentable do
   subject { dummy_resource }
 
-  let(:dummy_resource) { create :dummy_resource }
+  let(:dummy_resource) { create(:dummy_resource) }
 
   describe "commentable" do
-    let!(:top_level_comment) { create :comment, commentable: dummy_resource }
-    let!(:second_level_comment) { create :comment, commentable: top_level_comment, root_commentable: dummy_resource }
+    let!(:top_level_comment) { create(:comment, commentable: dummy_resource) }
+    let!(:second_level_comment) { create(:comment, commentable: top_level_comment, root_commentable: dummy_resource) }
 
     describe "comment_threads" do
       it "only returns top-level comments" do

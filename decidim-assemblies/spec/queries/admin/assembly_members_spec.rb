@@ -6,7 +6,7 @@ module Decidim::Assemblies::Admin
   describe AssemblyMembers do
     subject { described_class.for(Decidim::AssemblyMember.all, search, filter) }
 
-    let(:organization) { create :organization }
+    let(:organization) { create(:organization) }
     let(:search) { nil }
     let(:filter) { nil }
 

@@ -12,7 +12,7 @@ describe "Admin manages global moderations", type: :system do
     )
   end
   let(:organization) { current_component.organization }
-  let(:current_component) { create :component }
+  let(:current_component) { create(:component) }
   let!(:reportables) { create_list(:dummy_resource, 2, component: current_component) }
   let(:participatory_space_path) do
     decidim_admin.moderations_path
