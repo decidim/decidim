@@ -140,7 +140,7 @@ module Decidim::ParticipatoryProcesses
           subject.call
 
           linked_processes = process.linked_participatory_space_resources(:participatory_process, "related_processes")
-          expect(linked_processes).to match_array([another_process])
+          expect(linked_processes).to contain_exactly(another_process)
         end
 
         context "when sorting by weight" do

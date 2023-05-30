@@ -50,8 +50,8 @@ describe Decidim::Proposals::Import::ProposalCreator do
   describe "#resource_attributes" do
     it "returns the attributes hash" do
       expect(subject.resource_attributes).to eq(
-        :"title/en" => data[:"title/en"],
-        :"body/en" => data[:"body/en"],
+        "title/en": data[:"title/en"],
+        "body/en": data[:"body/en"],
         category: data[:category],
         scope: data[:scope],
         address: data[:address],

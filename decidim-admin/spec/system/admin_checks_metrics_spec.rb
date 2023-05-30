@@ -13,7 +13,7 @@ describe "Admin checks metrics", type: :system do
     login_as user, scope: :user
 
     metric_manifests.each do |manifest|
-      create(:metric, organization: organization, metric_type: manifest.metric_name, day: Time.zone.today)
+      create(:metric, organization:, metric_type: manifest.metric_name, day: Time.zone.today)
       create(:metric, organization:, metric_type: manifest.metric_name, day: Time.zone.yesterday)
     end
 

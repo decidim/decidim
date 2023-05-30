@@ -37,7 +37,7 @@ describe Decidim::Meetings::DiffRenderer, versioning: true do
 
     it "calculates the fields that have changed" do
       expect(subject.keys)
-        .to match_array [:title_en, :description_ca, :address, :location_ca, :location_en, :location_hints_ca, :location_hints_en, :start_time, :end_time, :decidim_scope_id]
+        .to contain_exactly(:title_en, :description_ca, :address, :location_ca, :location_en, :location_hints_ca, :location_hints_en, :start_time, :end_time, :decidim_scope_id)
     end
 
     it "has the old and new values for each field" do

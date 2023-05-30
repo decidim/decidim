@@ -18,7 +18,7 @@ module Decidim
           let(:code) { subject.generate(registration) }
 
           before do
-            create(:registration, meeting: meeting, code: existing_code)
+            create(:registration, meeting:, code: existing_code)
             expect(subject)
               .to receive(:choose)
               .with(length)

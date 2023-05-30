@@ -16,13 +16,13 @@ module Decidim
         end
 
         def edit
-          enforce_permission_to :update, :sortition, sortition: sortition
+          enforce_permission_to(:update, :sortition, sortition:)
 
           @form = edit_sortition_form.from_model(sortition, current_participatory_space:)
         end
 
         def update
-          enforce_permission_to :update, :sortition, sortition: sortition
+          enforce_permission_to(:update, :sortition, sortition:)
 
           @form = edit_sortition_form.from_params(params, current_participatory_space:)
           UpdateSortition.call(@form) do
@@ -62,13 +62,13 @@ module Decidim
         end
 
         def confirm_destroy
-          enforce_permission_to :destroy, :sortition, sortition: sortition
+          enforce_permission_to(:destroy, :sortition, sortition:)
 
           @form = destroy_sortition_form.from_model(sortition, current_participatory_space:)
         end
 
         def destroy
-          enforce_permission_to :destroy, :sortition, sortition: sortition
+          enforce_permission_to(:destroy, :sortition, sortition:)
 
           @form = destroy_sortition_form.from_params(params, current_participatory_space:)
           DestroySortition.call(@form) do

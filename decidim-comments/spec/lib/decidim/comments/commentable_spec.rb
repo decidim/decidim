@@ -19,7 +19,7 @@ describe Decidim::Comments::Commentable do
 
     describe "comments" do
       it "returns comments in all levels" do
-        expect(subject.comments).to match_array [top_level_comment, second_level_comment]
+        expect(subject.comments).to contain_exactly(top_level_comment, second_level_comment)
       end
     end
   end

@@ -39,7 +39,7 @@ describe Decidim::Follow do
     context "when following a resource" do
       it "increases the following count" do
         expect do
-          create(:follow, user: user)
+          create(:follow, user:)
           user.reload
         end.to change(user, :following_count).by(1)
       end
@@ -48,7 +48,7 @@ describe Decidim::Follow do
     context "when following a user" do
       it "increases the following count" do
         expect do
-          create(:follow, user: user, followable: another_user)
+          create(:follow, user:, followable: another_user)
           user.reload
         end.to change(user, :following_count).by(1)
       end
@@ -57,7 +57,7 @@ describe Decidim::Follow do
     context "when being followed" do
       it "increases the followers count" do
         expect do
-          create(:follow, user: user, followable: another_user)
+          create(:follow, user:, followable: another_user)
           user.reload
         end.to change(another_user, :followers_count).by(1)
       end
@@ -70,7 +70,7 @@ describe Decidim::Follow do
 
     context "when unfollowing a resource" do
       it "decreases the following count" do
-        follow = create(:follow, user: user)
+        follow = create(:follow, user:)
         expect do
           follow.destroy!
           user.reload
@@ -80,7 +80,7 @@ describe Decidim::Follow do
 
     context "when unfollowing a user" do
       it "decreases the following count" do
-        follow = create(:follow, user: user, followable: another_user)
+        follow = create(:follow, user:, followable: another_user)
         expect do
           follow.destroy!
           user.reload
@@ -90,7 +90,7 @@ describe Decidim::Follow do
 
     context "when not being followed anymore" do
       it "decreases the followers count" do
-        follow = create(:follow, user: user, followable: another_user)
+        follow = create(:follow, user:, followable: another_user)
         expect do
           follow.destroy!
           user.reload

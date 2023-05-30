@@ -11,7 +11,7 @@ module Decidim
         alias conference current_conference
 
         def index
-          enforce_permission_to :read_invites, :conference, conference: current_participatory_space
+          enforce_permission_to(:read_invites, :conference, conference: current_participatory_space)
 
           @query = params[:q]
           @status = params[:status]
@@ -19,13 +19,13 @@ module Decidim
         end
 
         def new
-          enforce_permission_to :invite_attendee, :conference, conference: current_participatory_space
+          enforce_permission_to(:invite_attendee, :conference, conference: current_participatory_space)
 
           @form = form(ConferenceRegistrationInviteForm).instance
         end
 
         def create
-          enforce_permission_to :invite_attendee, :conference, conference: current_participatory_space
+          enforce_permission_to(:invite_attendee, :conference, conference: current_participatory_space)
 
           @form = form(ConferenceRegistrationInviteForm).from_params(params)
 

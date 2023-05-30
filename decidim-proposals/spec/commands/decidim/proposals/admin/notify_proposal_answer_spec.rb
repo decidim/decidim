@@ -33,8 +33,8 @@ module Decidim
               event: "decidim.events.proposals.proposal_accepted",
               event_class: Decidim::Proposals::AcceptedProposalEvent,
               resource: proposal,
-              affected_users: match_array([proposal.creator_author]),
-              followers: match_array([follower])
+              affected_users: contain_exactly(proposal.creator_author),
+              followers: contain_exactly(follower)
             )
 
           subject
@@ -59,8 +59,8 @@ module Decidim
                 event: "decidim.events.proposals.proposal_rejected",
                 event_class: Decidim::Proposals::RejectedProposalEvent,
                 resource: proposal,
-                affected_users: match_array([proposal.creator_author]),
-                followers: match_array([follower])
+                affected_users: contain_exactly(proposal.creator_author),
+                followers: contain_exactly(follower)
               )
 
             subject

@@ -20,7 +20,7 @@ module Decidim::ParticipatoryProcesses
     end
 
     it "returns the organization admins and participatory process admins" do
-      expect(subject.query).to match_array([admin, participatory_process_admin, participatory_process_moderator])
+      expect(subject.query).to contain_exactly(admin, participatory_process_admin, participatory_process_moderator)
     end
   end
 end

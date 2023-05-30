@@ -33,7 +33,7 @@ module Decidim
         end
 
         def destroy
-          enforce_permission_to :delete, :polling_officer, voting: current_voting, polling_officer: polling_officer
+          enforce_permission_to(:delete, :polling_officer, voting: current_voting, polling_officer:)
 
           DestroyPollingOfficer.call(polling_officer, current_user) do
             on(:ok) do

@@ -46,7 +46,7 @@ module Decidim
 
       it "returns the correct metadata" do
         expect(parser.metadata).to be_a(Decidim::ContentParsers::UserGroupParser::Metadata)
-        expect(parser.metadata.groups).to match_array([user_group, user_group2])
+        expect(parser.metadata.groups).to contain_exactly(user_group, user_group2)
       end
     end
 
@@ -73,7 +73,7 @@ module Decidim
 
       it "returns the correct metadata" do
         expect(parser.metadata).to be_a(Decidim::ContentParsers::UserGroupParser::Metadata)
-        expect(parser.metadata.groups).to match_array([user_group, user_group2])
+        expect(parser.metadata.groups).to contain_exactly(user_group, user_group2)
       end
 
       def html_mention(mentionable)

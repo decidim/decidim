@@ -15,13 +15,13 @@ describe Decidim::UserGroups::AcceptedUsers do
   let!(:user_group) { create(:user_group, organization:, users: []) }
 
   before do
-    create(:user_group_membership, user: creator_user, user_group: user_group, role: :creator)
-    create(:user_group_membership, user: admin_user, user_group: user_group, role: :admin)
-    create(:user_group_membership, user: member_user, user_group: user_group, role: :member)
+    create(:user_group_membership, user: creator_user, user_group:, role: :creator)
+    create(:user_group_membership, user: admin_user, user_group:, role: :admin)
+    create(:user_group_membership, user: member_user, user_group:, role: :member)
     create(:user_group_membership, user: requested_user, user_group:, role: :requested)
   end
 
   it "finds the active members for the user group" do
-    expect(subject).to match_array([creator_user, admin_user, member_user])
+    expect(subject).to contain_exactly(creator_user, admin_user, member_user)
   end
 end
