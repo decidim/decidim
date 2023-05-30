@@ -76,8 +76,8 @@ describe "Sorting projects", type: :system do
 
     context "when ordering by most votes" do
       before do
-        order = build(:order, budget: budget)
-        create(:line_item, order: order, project: project2)
+        order = build(:order, budget:)
+        create(:line_item, order:, project: project2)
         order = Decidim::Budgets::Order.last
         order.checked_out_at = Time.zone.now
         order.save

@@ -31,7 +31,7 @@ module Decidim::Admin
           let(:search) { "Argo" }
 
           it "returns all matching users" do
-            expect(subject.query).to match_array([user_groups[1], user_groups[2]])
+            expect(subject.query).to contain_exactly(user_groups[1], user_groups[2])
           end
         end
 
@@ -98,7 +98,7 @@ module Decidim::Admin
         end
 
         it 'returns the "Rejected" user groups that contain the query search' do
-          expect(subject.query).to match_array([rejected_user_groups[0], rejected_user_groups[2]])
+          expect(subject.query).to contain_exactly(rejected_user_groups[0], rejected_user_groups[2])
         end
       end
     end

@@ -126,7 +126,7 @@ describe "Meetings component" do # rubocop:disable RSpec/DescribeClass
       let!(:user) { create(:user, admin: true, organization:) }
 
       it "exports all meetings from the component" do
-        expect(subject).to match_array([first_meeting, second_meeting, unpublished_meeting])
+        expect(subject).to contain_exactly(first_meeting, second_meeting, unpublished_meeting)
       end
     end
   end

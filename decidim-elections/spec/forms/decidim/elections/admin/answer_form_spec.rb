@@ -58,8 +58,8 @@ describe Decidim::Elections::Admin::AnswerForm do
 
       it "adds an error to the `:attachment` field" do
         expect(subject).not_to be_valid
-        expect(subject.errors.full_messages).to match_array(["Title en cannot be blank", "Attachment Needs to be reattached"])
-        expect(subject.errors.attribute_names).to match_array([:title_en, :attachment])
+        expect(subject.errors.full_messages).to contain_exactly("Title en cannot be blank", "Attachment Needs to be reattached")
+        expect(subject.errors.attribute_names).to contain_exactly(:title_en, :attachment)
       end
     end
   end

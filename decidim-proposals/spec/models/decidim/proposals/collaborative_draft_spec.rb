@@ -39,7 +39,7 @@ module Decidim
 
         context "when user is author" do
           let(:collaborative_draft) do
-            cd = create(:collaborative_draft, component: component, updated_at: Time.current)
+            cd = create(:collaborative_draft, component:, updated_at: Time.current)
             Decidim::Coauthorship.create(author:, coauthorable: cd)
             cd
           end
@@ -50,7 +50,7 @@ module Decidim
         context "when created from user group and user is admin" do
           let(:user_group) { create(:user_group, :verified, users: [author], organization: author.organization) }
           let(:collaborative_draft) do
-            cd = create(:collaborative_draft, component: component, updated_at: Time.current)
+            cd = create(:collaborative_draft, component:, updated_at: Time.current)
             Decidim::Coauthorship.create(author:, decidim_user_group_id: user_group.id, coauthorable: cd)
             cd
           end

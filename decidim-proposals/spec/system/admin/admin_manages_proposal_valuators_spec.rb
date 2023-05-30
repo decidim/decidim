@@ -60,7 +60,7 @@ describe "Admin manages proposals valuators", type: :system do
     let(:assigned_proposal) { proposal }
 
     before do
-      create(:valuation_assignment, proposal: proposal, valuator_role: valuator_role)
+      create(:valuation_assignment, proposal:, valuator_role:)
 
       visit current_path
     end
@@ -84,7 +84,7 @@ describe "Admin manages proposals valuators", type: :system do
     let(:assigned_proposal) { proposal }
 
     before do
-      create(:valuation_assignment, proposal: proposal, valuator_role: valuator_role)
+      create(:valuation_assignment, proposal:, valuator_role:)
 
       visit current_path
 
@@ -126,7 +126,7 @@ describe "Admin manages proposals valuators", type: :system do
     let(:assigned_proposal) { proposal }
 
     before do
-      create(:valuation_assignment, proposal: proposal, valuator_role: valuator_role)
+      create(:valuation_assignment, proposal:, valuator_role:)
 
       visit current_path
       within find("tr", text: translated(proposal.title)) do

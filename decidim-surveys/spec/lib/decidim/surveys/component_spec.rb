@@ -21,7 +21,7 @@ describe "Surveys component" do # rubocop:disable RSpec/DescribeClass
 
     context "with answers" do
       before do
-        survey = create(:survey, component: component)
+        survey = create(:survey, component:)
         create(:answer, questionnaire: survey.questionnaire)
       end
 

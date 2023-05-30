@@ -328,13 +328,8 @@ describe "Meeting live event access", type: :system do
     let(:start_time) { meeting.start_time }
     let(:end_time) { meeting.end_time }
 
-    around do |example|
-      travel_to current_time do
-        example.run
-      end
-    end
-
     before do
+      travel_to current_time
       visit_meeting
     end
 

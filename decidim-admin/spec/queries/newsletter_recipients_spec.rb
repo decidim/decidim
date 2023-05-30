@@ -178,7 +178,7 @@ module Decidim::Admin
           end
 
           it "do not return recipients" do
-            expect(subject.query).to match_array []
+            expect(subject.query).to be_empty
           end
         end
       end

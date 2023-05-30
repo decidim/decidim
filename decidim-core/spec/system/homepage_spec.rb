@@ -28,11 +28,11 @@ describe "Homepage", type: :system do
     end
 
     before do
-      create(:content_block, organization: organization, scope_name: :homepage, manifest_name: :hero)
-      create(:content_block, organization: organization, scope_name: :homepage, manifest_name: :sub_hero)
-      create(:content_block, organization: organization, scope_name: :homepage, manifest_name: :highlighted_content_banner)
-      create(:content_block, organization: organization, scope_name: :homepage, manifest_name: :how_to_participate)
-      create(:content_block, organization: organization, scope_name: :homepage, manifest_name: :footer_sub_hero)
+      create(:content_block, organization:, scope_name: :homepage, manifest_name: :hero)
+      create(:content_block, organization:, scope_name: :homepage, manifest_name: :sub_hero)
+      create(:content_block, organization:, scope_name: :homepage, manifest_name: :highlighted_content_banner)
+      create(:content_block, organization:, scope_name: :homepage, manifest_name: :how_to_participate)
+      create(:content_block, organization:, scope_name: :homepage, manifest_name: :footer_sub_hero)
 
       switch_to_host(organization.host)
     end
@@ -300,7 +300,7 @@ describe "Homepage", type: :system do
           let(:organization) { create(:organization) }
 
           before do
-            create(:content_block, organization: organization, scope_name: :homepage, manifest_name: :stats)
+            create(:content_block, organization:, scope_name: :homepage, manifest_name: :stats)
             visit current_path
           end
 
@@ -344,7 +344,7 @@ describe "Homepage", type: :system do
           context "and have metric records" do
             before do
               metrics
-              create(:content_block, organization: organization, scope_name: :homepage, manifest_name: :metrics)
+              create(:content_block, organization:, scope_name: :homepage, manifest_name: :metrics)
               visit current_path
             end
 
@@ -363,7 +363,7 @@ describe "Homepage", type: :system do
 
           context "and does not have metric records" do
             before do
-              create(:content_block, organization: organization, scope_name: :homepage, manifest_name: :metrics)
+              create(:content_block, organization:, scope_name: :homepage, manifest_name: :metrics)
               visit current_path
             end
 

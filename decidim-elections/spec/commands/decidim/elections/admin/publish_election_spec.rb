@@ -27,7 +27,7 @@ module Decidim::Elections::Admin
     end
 
     it "fires an event" do
-      create(:follow, followable: participatory_process, user: user)
+      create(:follow, followable: participatory_process, user:)
 
       expect(Decidim::EventsManager)
         .to receive(:publish)

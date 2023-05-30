@@ -38,12 +38,12 @@ module Decidim
         end
 
         def edit
-          enforce_permission_to :update, :polling_station, voting: current_voting, polling_station: polling_station
+          enforce_permission_to(:update, :polling_station, voting: current_voting, polling_station:)
           @form = form(PollingStationForm).from_model(polling_station, voting: current_voting)
         end
 
         def update
-          enforce_permission_to :update, :polling_station, voting: current_voting, polling_station: polling_station
+          enforce_permission_to(:update, :polling_station, voting: current_voting, polling_station:)
           @form = form(PollingStationForm).from_params(params, voting: current_voting)
 
           UpdatePollingStation.call(@form, polling_station) do
@@ -60,7 +60,7 @@ module Decidim
         end
 
         def destroy
-          enforce_permission_to :delete, :polling_station, voting: current_voting, polling_station: polling_station
+          enforce_permission_to(:delete, :polling_station, voting: current_voting, polling_station:)
 
           DestroyPollingStation.call(polling_station, current_user) do
             on(:ok) do

@@ -244,6 +244,7 @@ shared_examples "proposals wizards" do |options|
       end
     end
   end
+
   shared_examples_for "with address" do
     let!(:component) do
       create(:proposal_component,

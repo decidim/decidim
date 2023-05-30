@@ -6,14 +6,14 @@ module Decidim
       # This controller allows an admin to manage meeting registrations from a Participatory Process
       class RegistrationsController < Admin::ApplicationController
         def edit
-          enforce_permission_to :update, :meeting, meeting: meeting
+          enforce_permission_to(:update, :meeting, meeting:)
 
           @form = MeetingRegistrationsForm.from_model(meeting)
           @validation_form = ValidateRegistrationCodeForm.new
         end
 
         def update
-          enforce_permission_to :update, :meeting, meeting: meeting
+          enforce_permission_to(:update, :meeting, meeting:)
 
           @form = MeetingRegistrationsForm.from_params(params).with_context(current_organization: meeting.organization, meeting:)
           @validation_form = ValidateRegistrationCodeForm.new
@@ -32,7 +32,7 @@ module Decidim
         end
 
         def export
-          enforce_permission_to :export_registrations, :meeting, meeting: meeting
+          enforce_permission_to(:export_registrations, :meeting, meeting:)
 
           ExportMeetingRegistrations.call(meeting, params[:format], current_user) do
             on(:ok) do |export_data|
@@ -42,7 +42,7 @@ module Decidim
         end
 
         def validate_registration_code
-          enforce_permission_to :update, :meeting, meeting: meeting
+          enforce_permission_to(:update, :meeting, meeting:)
 
           @form = MeetingRegistrationsForm.from_model(meeting)
           @validation_form = ValidateRegistrationCodeForm.from_params(params).with_context(current_organization: meeting.organization, meeting:)

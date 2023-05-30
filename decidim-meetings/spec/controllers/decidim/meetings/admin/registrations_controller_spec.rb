@@ -37,7 +37,7 @@ describe Decidim::Meetings::Admin::RegistrationsController, type: :controller do
       let(:available_slots) { nil }
 
       it "renders the form again with alert message" do
-        put :update, params: params
+        put(:update, params:)
 
         expect(subject).to render_template(:edit)
         expect(flash[:alert]).not_to be_empty
@@ -48,7 +48,7 @@ describe Decidim::Meetings::Admin::RegistrationsController, type: :controller do
       let(:reserved_slots) { nil }
 
       it "renders the index view" do
-        put :update, params: params
+        put(:update, params:)
 
         expect(subject).to render_template(:edit)
         expect(flash[:alert]).not_to be_empty

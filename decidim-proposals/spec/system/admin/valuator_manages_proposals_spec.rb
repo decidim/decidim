@@ -22,7 +22,7 @@ describe "Valuator manages proposals", type: :system do
   before do
     user.update(admin: false)
 
-    create(:valuation_assignment, proposal: assigned_proposal, valuator_role: valuator_role)
+    create(:valuation_assignment, proposal: assigned_proposal, valuator_role:)
     create(:valuation_assignment, proposal: assigned_proposal, valuator_role: another_valuator_role)
 
     visit current_path

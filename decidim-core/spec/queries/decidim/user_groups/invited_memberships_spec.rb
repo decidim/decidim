@@ -15,6 +15,6 @@ describe Decidim::UserGroups::InvitedMemberships do
   let(:invited_membership) { create(:user_group_membership, user:, role: :invited) }
 
   it "finds the user groups where the user has a pending membership" do
-    expect(subject).to match_array([invited_membership])
+    expect(subject).to contain_exactly(invited_membership)
   end
 end

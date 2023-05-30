@@ -80,7 +80,7 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
       let(:stats_name) { :supports_count }
 
       before do
-        create_list(:proposal_vote, 2, proposal: proposal)
+        create_list(:proposal_vote, 2, proposal:)
         create_list(:proposal_vote, 3, proposal: hidden_proposal)
       end
 
@@ -280,7 +280,7 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
       let!(:user) { create(:user, admin: true, organization:) }
 
       it "exports all proposals from the component" do
-        expect(subject).to match_array([unassigned_proposal, assigned_proposal])
+        expect(subject).to contain_exactly(unassigned_proposal, assigned_proposal)
       end
     end
 

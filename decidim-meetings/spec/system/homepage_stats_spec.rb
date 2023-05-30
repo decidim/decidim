@@ -15,7 +15,7 @@ describe "Homepage", type: :system do
   let!(:comment_moderation) { create(:moderation, reportable: comments.last, hidden_at: 1.day.ago) }
 
   before do
-    create(:content_block, organization: organization, scope_name: :homepage, manifest_name: :stats)
+    create(:content_block, organization:, scope_name: :homepage, manifest_name: :stats)
     visit decidim.root_path
   end
 

@@ -377,7 +377,7 @@ describe Decidim::Search do
             on(:ok) do |results_by_type|
               results = results_by_type["Decidim::DummyResources::DummyResource"]
               expect(results[:count]).to eq 3
-              expect(results[:results]).to match_array [active.resource, past.resource, future.resource]
+              expect(results[:results]).to contain_exactly(active.resource, past.resource, future.resource)
             end
             on(:invalid) { raise("Should not happen") }
           end

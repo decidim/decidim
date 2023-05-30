@@ -17,6 +17,6 @@ describe Decidim::UserGroups::AdminMemberships do
   let!(:deleted_member) { create(:user_group_membership, user_group:, role: :member, user: deleted_user) }
 
   it "finds the admin memberships for the user group" do
-    expect(subject).to match_array([admin])
+    expect(subject).to contain_exactly(admin)
   end
 end

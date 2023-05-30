@@ -102,7 +102,7 @@ describe "Admin views proposal details from admin", type: :system do
     end
 
     it "shows the ranking by supports" do
-      another_proposal = create(:proposal, component: component)
+      another_proposal = create(:proposal, component:)
       create(:proposal_vote, proposal: another_proposal)
       go_to_admin_proposal_page(proposal)
 
@@ -124,7 +124,7 @@ describe "Admin views proposal details from admin", type: :system do
     end
 
     it "shows the ranking by endorsements" do
-      another_proposal = create(:proposal, component: component)
+      another_proposal = create(:proposal, component:)
       create(:endorsement, resource: another_proposal, author: build(:user, organization:))
       go_to_admin_proposal_page(proposal)
 
