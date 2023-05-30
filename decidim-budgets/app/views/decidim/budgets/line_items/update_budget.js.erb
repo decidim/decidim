@@ -18,9 +18,6 @@ if ($orderSelectedProjectsCount.length > 0) {
   morphdom($orderSelectedProjectsCount[0], '<%= j(render partial: "decidim/budgets/projects/projects_count", locals: { count: current_order.projects.count }).strip.html_safe %>')
 }
 
-$("#order-progress").foundation();
-$(".budget-summary__selected").foundation();
-
 if ($projectItem.length > 0) {
   <% if params[:action] == "destroy" && params[:show_only_added] == "true" %>
     $projectItem[0].remove();
