@@ -67,7 +67,7 @@ module Decidim
       end
 
       def scoped_type
-        InitiativesTypeScope.find_by(type: form.type)
+        InitiativesTypeScope.order(:id).find_by(type: form.type)
       end
 
       def signature_end_date
