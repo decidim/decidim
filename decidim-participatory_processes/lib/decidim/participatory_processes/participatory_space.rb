@@ -26,6 +26,7 @@ Decidim.register_participatory_space(:participatory_processes) do |participatory
   participatory_space.register_resource(:participatory_process_group) do |resource|
     resource.model_class_name = "Decidim::ParticipatoryProcessGroup"
     resource.card = "decidim/participatory_processes/process_group"
+    resource.content_blocks_scope_name = "participatory_process_group_homepage"
   end
 
   participatory_space.register_stat :followers_count, tag: :followers, priority: Decidim::StatsRegistry::LOW_PRIORITY do |spaces, _start_at, _end_at|
