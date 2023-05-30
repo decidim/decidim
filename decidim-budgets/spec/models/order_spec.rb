@@ -20,7 +20,7 @@ shared_examples "an order" do |*options|
 
     it "is unique for each user and component" do
       subject.save
-      new_order = build(:order, user: subject.user, budget: budget)
+      new_order = build(:order, user: subject.user, budget:)
       expect(new_order).to be_invalid
     end
 

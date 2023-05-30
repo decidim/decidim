@@ -68,9 +68,6 @@ Style/RedundantStringEscape:
 Style/MapToSet:
   Enabled: false
 
-Style/HashSyntax:
-  Enabled: false
-
 Style/Semicolon:
   Enabled: false
 

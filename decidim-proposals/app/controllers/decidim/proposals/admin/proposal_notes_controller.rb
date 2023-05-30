@@ -8,7 +8,7 @@ module Decidim
         helper_method :proposal
 
         def create
-          enforce_permission_to :create, :proposal_note, proposal: proposal
+          enforce_permission_to(:create, :proposal_note, proposal:)
           @form = form(ProposalNoteForm).from_params(params)
 
           CreateProposalNote.call(@form, proposal) do

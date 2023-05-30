@@ -33,7 +33,7 @@ module Decidim
         it "returns seconds until timeout" do
           expect(controller).not_to receive(:store_current_location)
 
-          get :seconds_until_timeout, format: :json, params: params
+          get(:seconds_until_timeout, format: :json, params:)
 
           expect(response.status).to eq(200)
           expect(parsed_response["seconds_remaining"])

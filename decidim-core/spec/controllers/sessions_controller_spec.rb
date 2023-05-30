@@ -103,7 +103,7 @@ module Decidim
             let(:password) { "decidim123" }
 
             it "does not update password_updated_at" do
-              post :create, params: params
+              post(:create, params:)
 
               expect(user.reload.password_updated_at).not_to be_nil
             end
@@ -115,7 +115,7 @@ module Decidim
             let(:user) { create(:user, :confirmed, :admin) }
 
             it "does not change password_updated_at" do
-              post :create, params: params
+              post(:create, params:)
 
               expect(user.reload.password_updated_at).not_to be_nil
             end
@@ -132,7 +132,7 @@ module Decidim
             end
 
             it "sets password_updated_at to nil" do
-              post :create, params: params
+              post(:create, params:)
 
               expect(user.reload.password_updated_at).to be_nil
             end

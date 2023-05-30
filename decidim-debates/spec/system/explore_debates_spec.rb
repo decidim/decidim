@@ -293,7 +293,7 @@ describe "Explore debates", type: :system do
     context "with a category" do
       let(:debate) do
         debate = create(:debate, component:)
-        debate.category = create :category, participatory_space: participatory_space
+        debate.category = create(:category, participatory_space:)
         debate.save
         debate
       end

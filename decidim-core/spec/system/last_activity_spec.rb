@@ -35,7 +35,7 @@ describe "Last activity", type: :system do
       %w(Decidim::DummyResources::DummyResource)
     )
 
-    create(:content_block, organization: organization, scope_name: :homepage, manifest_name: :last_activity)
+    create(:content_block, organization:, scope_name: :homepage, manifest_name: :last_activity)
     switch_to_host organization.host
   end
 

@@ -21,7 +21,7 @@ describe "Admin manages meetings", type: :system, serves_map: true, serves_geoco
 
   describe "listing meetings" do
     it "lists the meetings by start date" do
-      old_meeting = create(:meeting, scope: scope, services: [], component: current_component, start_time: 2.years.ago)
+      old_meeting = create(:meeting, scope:, services: [], component: current_component, start_time: 2.years.ago)
       visit current_path
 
       expect(page).to have_selector("tbody tr:first-child", text: Decidim::Meetings::MeetingPresenter.new(meeting).title)
@@ -245,7 +245,7 @@ describe "Admin manages meetings", type: :system, serves_map: true, serves_geoco
   end
 
   it "allows the user to preview an unpublished meeting" do
-    unpublished_meeting = create(:meeting, scope: scope, services: [], component: current_component)
+    unpublished_meeting = create(:meeting, scope:, services: [], component: current_component)
     visit current_path
 
     meeting_path = resource_locator(unpublished_meeting).path

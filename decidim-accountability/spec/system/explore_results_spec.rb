@@ -229,7 +229,7 @@ describe "Explore results", versioning: true, type: :system do
     context "with a scope" do
       let(:result) do
         result = results.first
-        result.scope = create :scope, organization: organization
+        result.scope = create(:scope, organization:)
         result.save
         result
       end

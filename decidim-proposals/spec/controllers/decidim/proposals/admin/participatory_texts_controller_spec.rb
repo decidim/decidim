@@ -33,7 +33,7 @@ module Decidim
             let(:title) { {} }
 
             it "renders new_import template" do
-              post :import, params: params
+              post(:import, params:)
               expect(response).to render_template(:new_import)
               expect(flash[:alert]).to eq("The form is invalid!")
             end
@@ -41,7 +41,7 @@ module Decidim
 
           context "when the command succeeds" do
             it "parses the document" do
-              post :import, params: params
+              post(:import, params:)
               expect(response).to redirect_to EngineRouter.admin_proxy(component).participatory_texts_path
               expect(flash[:notice].starts_with?("Congratulations")).to be true
             end

@@ -80,7 +80,7 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
       let(:stats_name) { :supports_count }
 
       before do
-        create_list(:proposal_vote, 2, proposal: proposal)
+        create_list(:proposal_vote, 2, proposal:)
         create_list(:proposal_vote, 3, proposal: hidden_proposal)
       end
 

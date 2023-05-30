@@ -21,7 +21,7 @@ describe "Valuator checks components", type: :system do
   before do
     user.update(admin: false)
 
-    create(:valuation_assignment, proposal: assigned_proposal, valuator_role: valuator_role)
+    create(:valuation_assignment, proposal: assigned_proposal, valuator_role:)
 
     switch_to_host(organization.host)
     login_as user, scope: :user

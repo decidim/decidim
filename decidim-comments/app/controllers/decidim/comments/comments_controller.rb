@@ -16,7 +16,7 @@ module Decidim
       helper_method :root_depth, :commentable, :order, :reply?, :reload?, :root_comment
 
       def index
-        enforce_permission_to :read, :comment, commentable: commentable
+        enforce_permission_to(:read, :comment, commentable:)
 
         @comments = SortedComments.for(
           commentable,
@@ -47,7 +47,7 @@ module Decidim
 
       def update
         set_comment
-        enforce_permission_to :update, :comment, comment: comment
+        enforce_permission_to(:update, :comment, comment:)
 
         form = Decidim::Comments::CommentForm.from_params(
           params.merge(commentable: comment.commentable)
@@ -71,7 +71,7 @@ module Decidim
       end
 
       def create
-        enforce_permission_to :create, :comment, commentable: commentable
+        enforce_permission_to(:create, :comment, commentable:)
 
         form = Decidim::Comments::CommentForm.from_params(
           params.merge(commentable:)
@@ -106,7 +106,7 @@ module Decidim
         set_comment
         @commentable = @comment.commentable
 
-        enforce_permission_to :destroy, :comment, comment: comment
+        enforce_permission_to(:destroy, :comment, comment:)
 
         Decidim::Comments::DeleteComment.call(comment, current_user) do
           on(:ok) do
