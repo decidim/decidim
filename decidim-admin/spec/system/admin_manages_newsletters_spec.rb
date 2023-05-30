@@ -327,7 +327,7 @@ describe "Admin manages newsletters", type: :system do
       end
 
       expect(page).to have_content("successfully")
-      expect(page).to have_no_css("tr[data-newsletter-id=\"#{newsletter.id}\"]")
+      expect(page).not_to have_css("tr[data-newsletter-id=\"#{newsletter.id}\"]")
     end
   end
 end

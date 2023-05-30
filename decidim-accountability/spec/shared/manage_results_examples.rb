@@ -118,7 +118,7 @@ shared_examples "manage results" do
       expect(page).to have_admin_callout("successfully")
 
       within "table" do
-        expect(page).to have_no_content(translated(result2.title))
+        expect(page).not_to have_content(translated(result2.title))
       end
     end
   end

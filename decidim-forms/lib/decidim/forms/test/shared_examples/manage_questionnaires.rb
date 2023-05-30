@@ -63,8 +63,8 @@ shared_examples_for "manage questionnaires" do
     it "cannot modify questionnaire questions" do
       visit questionnaire_edit_path
 
-      expect(page).to have_no_content("Add question")
-      expect(page).to have_no_content("Remove")
+      expect(page).not_to have_content("Add question")
+      expect(page).not_to have_content("Remove")
 
       expand_all_questions
 

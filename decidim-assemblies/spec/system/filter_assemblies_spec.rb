@@ -42,7 +42,7 @@ describe "Filter Assemblies", type: :system do
 
     it "does not show the assemblies types filter" do
       within("#assemblies-filter") do
-        expect(page).to have_no_content("All types")
+        expect(page).not_to have_content("All types")
       end
     end
   end

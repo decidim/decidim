@@ -80,7 +80,7 @@ describe "Organization Areas", type: :system do
         expect(page).to have_admin_callout("successfully")
 
         within ".card-section" do
-          expect(page).to have_no_content(translated(area.name))
+          expect(page).not_to have_content(translated(area.name))
         end
       end
 

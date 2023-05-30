@@ -70,7 +70,7 @@ describe "Private meetings", type: :system do
               expect(page).to have_content(translated(meeting.title, locale: :en))
               expect(page).to have_selector(".card", count: 1)
 
-              expect(page).to have_no_content(translated(private_meeting.title, locale: :en))
+              expect(page).not_to have_content(translated(private_meeting.title, locale: :en))
             end
           end
         end
@@ -87,7 +87,7 @@ describe "Private meetings", type: :system do
               expect(page).to have_content(translated(meeting.title, locale: :en))
               expect(page).to have_selector(".card", count: 1)
 
-              expect(page).to have_no_content(translated(private_meeting.title, locale: :en))
+              expect(page).not_to have_content(translated(private_meeting.title, locale: :en))
             end
           end
         end

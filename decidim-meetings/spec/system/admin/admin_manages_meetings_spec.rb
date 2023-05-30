@@ -397,11 +397,11 @@ describe "Admin manages meetings", type: :system, serves_map: true, serves_geoco
       select "In person", from: :meeting_type_of_meeting
       expect(page).to have_field("Address")
       expect(page).to have_field(:meeting_location_en)
-      expect(page).to have_no_field("Online meeting URL")
+      expect(page).not_to have_field("Online meeting URL")
 
       select "Online", from: :meeting_type_of_meeting
-      expect(page).to have_no_field("Address")
-      expect(page).to have_no_field(:meeting_location_en)
+      expect(page).not_to have_field("Address")
+      expect(page).not_to have_field(:meeting_location_en)
       expect(page).to have_field("Online meeting URL")
 
       select "Hybrid", from: :meeting_type_of_meeting
@@ -416,13 +416,13 @@ describe "Admin manages meetings", type: :system, serves_map: true, serves_geoco
 
     within ".new_meeting" do
       select "Registration disabled", from: :meeting_registration_type
-      expect(page).to have_no_field("Registration URL")
+      expect(page).not_to have_field("Registration URL")
 
       select "On a different platform", from: :meeting_registration_type
       expect(page).to have_field("Registration URL")
 
       select "On this platform", from: :meeting_registration_type
-      expect(page).to have_no_field("Registration URL")
+      expect(page).not_to have_field("Registration URL")
     end
   end
 
@@ -441,7 +441,7 @@ describe "Admin manages meetings", type: :system, serves_map: true, serves_geoco
       expect(page).to have_admin_callout("successfully")
 
       within "table" do
-        expect(page).to have_no_content(Decidim::Meetings::MeetingPresenter.new(meeting2).title)
+        expect(page).not_to have_content(Decidim::Meetings::MeetingPresenter.new(meeting2).title)
       end
     end
   end
@@ -484,7 +484,7 @@ describe "Admin manages meetings", type: :system, serves_map: true, serves_geoco
       find(".card-title a.button").click
 
       within "label[for='meeting_registration_type']" do
-        expect(page).to have_no_content("There is an error in this field.")
+        expect(page).not_to have_content("There is an error in this field.")
       end
     end
 

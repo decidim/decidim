@@ -18,7 +18,7 @@ describe "Upcoming meeting for card view hook", type: :system do
       visit decidim_assemblies.assemblies_path
 
       within "#assembly_#{assembly.id}" do
-        expect(page).to have_no_selector(".card__icondata")
+        expect(page).not_to have_selector(".card__icondata")
       end
     end
   end

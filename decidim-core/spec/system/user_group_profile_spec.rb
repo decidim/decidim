@@ -42,7 +42,7 @@ describe "User group profile", type: :system do
     end
 
     it "does not show verification stuff" do
-      expect(page).to have_no_content("This group is publicly verified")
+      expect(page).not_to have_content("This group is publicly verified")
     end
 
     context "and user group is verified" do
@@ -83,7 +83,7 @@ describe "User group profile", type: :system do
         click_link "Members"
 
         expect(page).to have_content(user.name)
-        expect(page).to have_no_content(pending_user.name)
+        expect(page).not_to have_content(pending_user.name)
       end
     end
   end

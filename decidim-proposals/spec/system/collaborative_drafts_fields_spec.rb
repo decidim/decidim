@@ -65,7 +65,7 @@ describe "Collaborative drafts", type: :system do
             visit new_collaborative_draft_path
 
             within "form.new_collaborative_draft" do
-              expect(page).to have_no_content("Scope")
+              expect(page).not_to have_content("Scope")
             end
           end
         end
@@ -351,7 +351,7 @@ describe "Collaborative drafts", type: :system do
         it "does not show the creation button" do
           visit_component
           click_link "Access collaborative drafts"
-          expect(page).to have_no_link("New collaborative draft")
+          expect(page).not_to have_link("New collaborative draft")
         end
       end
     end

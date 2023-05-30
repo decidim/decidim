@@ -43,7 +43,7 @@ describe "Assemblies", type: :system do
       visit decidim.root_path
 
       within ".main-nav" do
-        expect(page).to have_no_content("Assemblies")
+        expect(page).not_to have_content("Assemblies")
       end
     end
   end
@@ -71,7 +71,7 @@ describe "Assemblies", type: :system do
         visit decidim.root_path
 
         within ".main-nav" do
-          expect(page).to have_no_content("Assemblies")
+          expect(page).not_to have_content("Assemblies")
         end
       end
     end
@@ -226,7 +226,7 @@ describe "Assemblies", type: :system do
         it "shows the components" do
           within ".process-nav" do
             expect(page).to have_content(translated(proposals_component.name, locale: :en).upcase)
-            expect(page).to have_no_content(translated(meetings_component.name, locale: :en).upcase)
+            expect(page).not_to have_content(translated(meetings_component.name, locale: :en).upcase)
           end
         end
       end
@@ -239,8 +239,8 @@ describe "Assemblies", type: :system do
             expect(page).to have_css("h2.h2", text: "Statistics")
             expect(page).to have_css(".statistic__title", text: "Proposals")
             expect(page).to have_css(".statistic__number", text: "3")
-            expect(page).to have_no_css(".statistic__title", text: "Meetings")
-            expect(page).to have_no_css(".statistic__number", text: "0")
+            expect(page).not_to have_css(".statistic__title", text: "Meetings")
+            expect(page).not_to have_css(".statistic__number", text: "0")
           end
         end
       end
@@ -249,9 +249,9 @@ describe "Assemblies", type: :system do
         let(:show_statistics) { false }
 
         it "does not render the stats for those components that are not visible" do
-          expect(page).to have_no_css("h2.h2", text: "Statistics")
-          expect(page).to have_no_css(".statistic__title", text: "Proposals")
-          expect(page).to have_no_css(".statistic__number", text: "3")
+          expect(page).not_to have_css("h2.h2", text: "Statistics")
+          expect(page).not_to have_css(".statistic__title", text: "Proposals")
+          expect(page).not_to have_css(".statistic__number", text: "3")
         end
       end
 

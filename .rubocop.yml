@@ -50,9 +50,6 @@ Rails/Exit:
     - lib/decidim/git_backport_manager.rb
 
 # fix these rules later
-Capybara/NegationMatcher:
-  Enabled: false
-
 Capybara/SpecificMatcher:
   Enabled: false
 

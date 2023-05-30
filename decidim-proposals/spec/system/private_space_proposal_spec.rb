@@ -33,7 +33,7 @@ describe "Private Space Proposal", type: :system do
         visit_component
 
         within ".title-action" do
-          expect(page).to have_no_link("New proposal")
+          expect(page).not_to have_link("New proposal")
         end
       end
     end
@@ -60,7 +60,7 @@ describe "Private Space Proposal", type: :system do
           visit_component
 
           within ".title-action" do
-            expect(page).to have_no_link("New proposal")
+            expect(page).not_to have_link("New proposal")
           end
         end
       end

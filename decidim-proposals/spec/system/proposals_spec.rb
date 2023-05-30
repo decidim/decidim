@@ -82,7 +82,7 @@ describe "Proposals", type: :system do
       it "does not show the scope name" do
         visit_component
         click_link proposal_title
-        expect(page).to have_no_content(translated(scope.name))
+        expect(page).not_to have_content(translated(scope.name))
       end
     end
 
@@ -486,7 +486,7 @@ describe "Proposals", type: :system do
 
       it "shows a disabled vote button for each proposal, but no links to full proposals" do
         expect(page).to have_button("Supports disabled", disabled: true, count: 2)
-        expect(page).to have_no_link("View proposal")
+        expect(page).not_to have_link("View proposal")
       end
     end
 
@@ -507,8 +507,8 @@ describe "Proposals", type: :system do
 
         visit_component
 
-        expect(page).to have_no_button("Supports disabled", disabled: true)
-        expect(page).to have_no_button("Vote")
+        expect(page).not_to have_button("Supports disabled", disabled: true)
+        expect(page).not_to have_button("Vote")
         expect(page).to have_link("View proposal", count: 2)
       end
     end

@@ -70,7 +70,7 @@ describe "Admin manages assemblies", type: :system do
         expect(page).to have_admin_callout("successfully")
 
         within ".card-section" do
-          expect(page).to have_no_content(translated(assembly_type.title))
+          expect(page).not_to have_content(translated(assembly_type.title))
         end
       end
     end

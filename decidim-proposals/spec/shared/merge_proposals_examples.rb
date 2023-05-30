@@ -31,7 +31,7 @@ shared_examples "merge proposals" do
         it "does not show the merge action option" do
           click_button "Actions"
 
-          expect(page).to have_no_selector(:link_or_button, "Merge into a new one")
+          expect(page).not_to have_selector(:link_or_button, "Merge into a new one")
         end
       end
     end

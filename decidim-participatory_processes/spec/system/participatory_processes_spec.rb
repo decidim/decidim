@@ -37,7 +37,7 @@ describe "Participatory Processes", type: :system do
       visit decidim.root_path
 
       within ".main-nav" do
-        expect(page).to have_no_content("Processes")
+        expect(page).not_to have_content("Processes")
       end
     end
   end
@@ -65,7 +65,7 @@ describe "Participatory Processes", type: :system do
         visit decidim.root_path
 
         within ".main-nav" do
-          expect(page).to have_no_content("Processes")
+          expect(page).not_to have_content("Processes")
         end
       end
     end
@@ -137,10 +137,10 @@ describe "Participatory Processes", type: :system do
           expect(page).to have_content(translated(group.title, locale: :en))
           expect(page).to have_selector(".card", count: 3)
 
-          expect(page).to have_no_content(translated(unpublished_process.title, locale: :en))
-          expect(page).to have_no_content(translated(past_process.title, locale: :en))
-          expect(page).to have_no_content(translated(upcoming_process.title, locale: :en))
-          expect(page).to have_no_content(translated(grouped_process.title, locale: :en))
+          expect(page).not_to have_content(translated(unpublished_process.title, locale: :en))
+          expect(page).not_to have_content(translated(past_process.title, locale: :en))
+          expect(page).not_to have_content(translated(upcoming_process.title, locale: :en))
+          expect(page).not_to have_content(translated(grouped_process.title, locale: :en))
         end
       end
 
@@ -368,7 +368,7 @@ describe "Participatory Processes", type: :system do
               )
             visit decidim_participatory_processes.participatory_process_path(participatory_process)
             expect(page).to have_content(translated(published_process.title))
-            expect(page).to have_no_content(translated(unpublished_process.title))
+            expect(page).not_to have_content(translated(unpublished_process.title))
           end
         end
 
@@ -376,7 +376,7 @@ describe "Participatory Processes", type: :system do
           it "shows the components" do
             within ".process-nav" do
               expect(page).to have_content(translated(proposals_component.name, locale: :en).upcase)
-              expect(page).to have_no_content(translated(meetings_component.name, locale: :en).upcase)
+              expect(page).not_to have_content(translated(meetings_component.name, locale: :en).upcase)
             end
           end
 
@@ -425,8 +425,8 @@ describe "Participatory Processes", type: :system do
                 expect(page).to have_css("h2.h2", text: "Statistics")
                 expect(page).to have_css(".statistic__title", text: "Proposals")
                 expect(page).to have_css(".statistic__number", text: "3")
-                expect(page).to have_no_css(".statistic__title", text: "Meetings")
-                expect(page).to have_no_css(".statistic__number", text: "0")
+                expect(page).not_to have_css(".statistic__title", text: "Meetings")
+                expect(page).not_to have_css(".statistic__number", text: "0")
               end
             end
           end
@@ -435,9 +435,9 @@ describe "Participatory Processes", type: :system do
             let(:show_statistics) { false }
 
             it "the stats for those components are not visible" do
-              expect(page).to have_no_css("h2.h2", text: "Statistics")
-              expect(page).to have_no_css(".statistic__title", text: "Proposals")
-              expect(page).to have_no_css(".statistic__number", text: "3")
+              expect(page).not_to have_css("h2.h2", text: "Statistics")
+              expect(page).not_to have_css(".statistic__title", text: "Proposals")
+              expect(page).not_to have_css(".statistic__number", text: "3")
             end
           end
 
@@ -445,11 +445,11 @@ describe "Participatory Processes", type: :system do
             let(:show_metrics) { false }
 
             it "the metrics for the participatory processes are not rendered" do
-              expect(page).to have_no_css("h4.section-heading", text: "METRICS")
+              expect(page).not_to have_css("h4.section-heading", text: "METRICS")
             end
 
             it "has no link to all metrics" do
-              expect(page).to have_no_link("Show all metrics")
+              expect(page).not_to have_link("Show all metrics")
             end
           end
 
@@ -457,7 +457,7 @@ describe "Participatory Processes", type: :system do
             let(:hashtag) { false }
 
             it "the hashtags for those components are not visible" do
-              expect(page).to have_no_content("#")
+              expect(page).not_to have_content("#")
             end
           end
         end
@@ -480,8 +480,8 @@ describe "Participatory Processes", type: :system do
             expect(page).to have_content("RELATED ASSEMBLIES")
             expect(page).to have_content(translated(published_assembly.title))
             expect(page).to have_content(translated(transparent_assembly.title))
-            expect(page).to have_no_content(translated(unpublished_assembly.title))
-            expect(page).to have_no_content(translated(private_assembly.title))
+            expect(page).not_to have_content(translated(unpublished_assembly.title))
+            expect(page).not_to have_content(translated(private_assembly.title))
           end
         end
 

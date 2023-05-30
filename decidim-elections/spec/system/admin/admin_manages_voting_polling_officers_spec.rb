@@ -127,7 +127,7 @@ describe "Admin manages polling officers", type: :system do
       expect(page).to have_admin_callout("successfully")
 
       within "#polling_officers table" do
-        expect(page).to have_no_content(other_user.email)
+        expect(page).not_to have_content(other_user.email)
       end
     end
   end

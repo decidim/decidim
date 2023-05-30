@@ -311,14 +311,14 @@ describe "Orders", type: :system do
         end
 
         expect(page).to have_content "ASSIGNED: €0"
-        expect(page).to have_no_content "1 project selected"
-        expect(page).to have_no_selector ".budget-summary__selected"
+        expect(page).not_to have_content "1 project selected"
+        expect(page).not_to have_selector ".budget-summary__selected"
 
         within "#order-progress .budget-summary__progressbox" do
           expect(page).to have_content "0%"
         end
 
-        expect(page).to have_no_selector ".budget-list__data--added"
+        expect(page).not_to have_selector ".budget-list__data--added"
       end
 
       it "is alerted when trying to leave the component before completing" do
@@ -403,7 +403,7 @@ describe "Orders", type: :system do
           expect(page).to have_content("successfully")
 
           within "#order-progress .budget-summary__progressbox" do
-            expect(page).to have_no_selector("button.small")
+            expect(page).not_to have_selector("button.small")
           end
         end
       end
@@ -544,7 +544,7 @@ describe "Orders", type: :system do
         end
 
         within ".budget-summary" do
-          expect(page).to have_no_selector(".cancel-order")
+          expect(page).not_to have_selector(".cancel-order")
         end
       end
 
@@ -570,7 +570,7 @@ describe "Orders", type: :system do
       it "cannot create new orders" do
         visit_budget
 
-        expect(page).to have_no_selector("button.budget-list__action")
+        expect(page).not_to have_selector("button.budget-list__action")
       end
     end
 

@@ -70,7 +70,7 @@ describe "Admin manages the monitoring committee", type: :system do
       expect(page).to have_admin_callout("successfully")
 
       within "#monitoring_committee_members table" do
-        expect(page).to have_no_content(other_user.email)
+        expect(page).not_to have_content(other_user.email)
       end
     end
   end

@@ -70,7 +70,7 @@ module Decidim::Proposals
         it "renders the card with no status info" do
           expect(subject).to have_css(".card__header")
           expect(subject).to have_css(".card__text")
-          expect(subject).to have_no_css(".card-data__item")
+          expect(subject).not_to have_css(".card-data__item")
         end
       end
 

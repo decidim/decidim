@@ -188,7 +188,7 @@ shared_examples "manage projects" do
       expect(page).to have_admin_callout("successfully")
 
       within "table" do
-        expect(page).to have_no_content(translated(project2.title))
+        expect(page).not_to have_content(translated(project2.title))
       end
     end
   end

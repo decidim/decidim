@@ -329,7 +329,7 @@ describe "Explore meeting directory", type: :system do
         choose "Past"
       end
 
-      expect(page).to have_no_css(".card--meeting")
+      expect(page).not_to have_css(".card--meeting")
       within(all(".filters__section")[7]) do
         uncheck "All"
         check "Assemblies"

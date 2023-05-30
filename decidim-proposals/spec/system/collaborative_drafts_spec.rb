@@ -382,7 +382,7 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
     end
 
     it "does not show the Collaborative drafts access button" do
-      expect(page).to have_no_content("Access collaborative drafts")
+      expect(page).not_to have_content("Access collaborative drafts")
     end
   end
 end

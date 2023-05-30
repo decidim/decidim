@@ -62,9 +62,9 @@ describe "Explore results", versioning: true, type: :system do
       it "does not show progress" do
         visit path
 
-        expect(page).to have_no_content("Global execution status")
+        expect(page).not_to have_content("Global execution status")
         within("aside") do
-          expect(page).to have_no_selector(".accountability__status-value")
+          expect(page).not_to have_selector(".accountability__status-value")
         end
       end
     end
@@ -206,7 +206,7 @@ describe "Explore results", versioning: true, type: :system do
 
     context "without category or scope" do
       it "does not show any tag" do
-        expect(page).to have_no_selector("ul.tags.tag-container")
+        expect(page).not_to have_selector("ul.tags.tag-container")
       end
     end
 
@@ -357,7 +357,7 @@ describe "Explore results", versioning: true, type: :system do
         end
 
         it "disables filtering by scope" do
-          expect(page).to have_no_selector("[data-scope-filters]")
+          expect(page).not_to have_selector("[data-scope-filters]")
         end
       end
 

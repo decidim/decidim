@@ -106,7 +106,7 @@ describe "Filter Proposals", :slow, type: :system do
         visit_component
 
         within "form.new_filter" do
-          expect(page).to have_no_content(/Official/i)
+          expect(page).not_to have_content(/Official/i)
         end
       end
     end
@@ -188,7 +188,7 @@ describe "Filter Proposals", :slow, type: :system do
         visit_component
 
         within "form.new_filter" do
-          expect(page).to have_no_content(/Scope/i)
+          expect(page).not_to have_content(/Scope/i)
         end
       end
 
@@ -324,7 +324,7 @@ describe "Filter Proposals", :slow, type: :system do
           visit_component
 
           within "form.new_filter" do
-            expect(page).to have_no_content(/Status/i)
+            expect(page).not_to have_content(/Status/i)
           end
         end
       end
@@ -339,7 +339,7 @@ describe "Filter Proposals", :slow, type: :system do
         visit_component
 
         within "form.new_filter" do
-          expect(page).to have_no_content(/Status/i)
+          expect(page).not_to have_content(/Status/i)
         end
       end
     end
@@ -545,7 +545,7 @@ describe "Filter Proposals", :slow, type: :system do
                 expect(page).to have_content("1 PROPOSAL")
                 expect(page).to have_content("Amendment", count: 2)
                 expect(page).to have_content(translated(new_emendation.title))
-                expect(page).to have_no_content(translated(emendation.title))
+                expect(page).not_to have_content(translated(emendation.title))
               end
             end
 
@@ -558,7 +558,7 @@ describe "Filter Proposals", :slow, type: :system do
 
               it "cannot be filtered by type" do
                 within "form.new_filter" do
-                  expect(page).to have_no_content(/Type/i)
+                  expect(page).not_to have_content(/Type/i)
                 end
               end
             end
@@ -571,7 +571,7 @@ describe "Filter Proposals", :slow, type: :system do
 
             it "cannot be filtered by type" do
               within "form.new_filter" do
-                expect(page).to have_no_content(/Type/i)
+                expect(page).not_to have_content(/Type/i)
               end
             end
           end

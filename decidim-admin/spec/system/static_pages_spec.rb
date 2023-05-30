@@ -143,7 +143,7 @@ describe "Content pages", type: :system do
         expect(page).to have_admin_callout("successfully")
 
         within "table" do
-          expect(page).to have_no_content(translated(topic.title))
+          expect(page).not_to have_content(translated(topic.title))
         end
       end
     end
@@ -254,7 +254,7 @@ describe "Content pages", type: :system do
         expect(page).to have_admin_callout("successfully")
 
         within "table" do
-          expect(page).to have_no_content(translated(decidim_page.title))
+          expect(page).not_to have_content(translated(decidim_page.title))
         end
       end
 

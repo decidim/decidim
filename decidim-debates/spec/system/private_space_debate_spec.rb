@@ -33,7 +33,7 @@ describe "Private Space Debate", type: :system do
         visit_component
 
         within ".title-action" do
-          expect(page).to have_no_link("New debate")
+          expect(page).not_to have_link("New debate")
         end
       end
     end
@@ -60,7 +60,7 @@ describe "Private Space Debate", type: :system do
           visit_component
 
           within ".title-action" do
-            expect(page).to have_no_link("New debate")
+            expect(page).not_to have_link("New debate")
           end
         end
       end
