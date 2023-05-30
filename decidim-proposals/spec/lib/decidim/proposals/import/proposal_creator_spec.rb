@@ -60,7 +60,6 @@ describe Decidim::Proposals::Import::ProposalCreator do
         component: data[:component],
         published_at: data[:published_at]
       )
-      # rubocop:enable Style/HashSyntax
     end
   end
 
