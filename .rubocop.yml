@@ -119,7 +119,4 @@ RSpec/SkipBlockInsideExample:
 Rails/HelperInstanceVariable:
   Enabled: false
 
-Rails/RootPathnameMethods:
-  Enabled: false
-
 # EOF fix these rules later
