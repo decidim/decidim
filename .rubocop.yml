@@ -83,9 +83,6 @@ RSpec/IndexedLet:
 RSpec/Rails/InferredSpecType:
   Enabled: false
 
-RSpec/ClassCheck:
-  Enabled: false
-
 RSpec/NoExpectationExample:
   Enabled: false
 

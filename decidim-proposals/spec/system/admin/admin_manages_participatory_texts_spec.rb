@@ -85,8 +85,8 @@ describe "Admin manages participatory texts", type: :system do
   def validate_proposals
     proposals = Decidim::Proposals::Proposal.where(component: current_component)
     proposals.each do |proposal|
-      expect(proposal.title).to be_kind_of(Hash)
-      expect(proposal.body).to be_kind_of(Hash)
+      expect(proposal.title).to be_a(Hash)
+      expect(proposal.body).to be_a(Hash)
     end
   end
 

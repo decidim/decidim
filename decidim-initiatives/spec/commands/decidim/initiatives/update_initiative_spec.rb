@@ -66,9 +66,9 @@ module Decidim
           it "updates the initiative" do
             command.call
             initiative.reload
-            expect(initiative.title).to be_kind_of(Hash)
+            expect(initiative.title).to be_a(Hash)
             expect(initiative.title["en"]).to eq title
-            expect(initiative.description).to be_kind_of(Hash)
+            expect(initiative.description).to be_a(Hash)
             expect(initiative.description["en"]).to eq description
           end
 
