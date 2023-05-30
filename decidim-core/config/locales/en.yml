@@ -289,6 +289,10 @@ en:
         promote_confirm_text: Are you sure you want to promote this emendation?
         promote_help_text: You can promote this emendation and publish it as an independent %{model_name}
         section_heading: Amendments (%{count})
+      amendments:
+        title:
+          one: "%{count} amendment"
+          other: "%{count} amendments"
       compare_draft:
         continue: Continue
         no_similars_found: No similar emendations found.
@@ -363,8 +367,6 @@ en:
       documents:
         documents: Documents
         related_documents: Related documents
-      geocoding:
-        geocoded_address: Address
       photo:
         alt: Media picture
         title: Image
@@ -836,6 +838,7 @@ en:
     filters:
       linked_classes:
         all: All
+        answer: Answer
         collaborative_draft: Collaborative draft
         dummy_resource: Dummy resources
         meeting: Meetings
