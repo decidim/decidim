@@ -68,9 +68,6 @@ Style/MapToSet:
 Style/ConcatArrayLiterals:
   Enabled: false
 
-Style/ClassEqualityComparison:
-  Enabled: false
-
 Style/ArrayIntersect:
   Enabled: false
 
