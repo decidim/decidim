@@ -15,7 +15,7 @@ module Decidim
       def upcoming_meeting_item
         {
           hook: :upcoming_meeting_for_card,
-          icon: resource_type_icon_key("Decidim::Meetings::Meeting")
+          icon: "calendar-line"
         }
       end
 
