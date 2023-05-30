@@ -77,16 +77,8 @@ export default class UploadModal {
         if (error) {
           uploader.errors = [error]
         } else {
-          // append to the file object some custom attributes in order to build the form properly
-          let name = `${this.options.resourceName}[${this.options.addAttribute}]`
-          if (this.options.titled) {
-            const ordinalNumber = this.getOrdinalNumber();
-
-            name = `${this.options.resourceName}[${this.options.addAttribute}][${ordinalNumber}][file]`
-            file.hiddenTitle = { name: `${this.options.resourceName}[${this.options.addAttribute}][${ordinalNumber}][title]` }
-          }
-
-          file.hiddenField = { value: blob.signed_id, name }
+          // attach the file hash to submit the form, when the file has been uploaded
+          file.hiddenField = blob.signed_id
 
           // since the validation step is async, we must wait for the responses
           uploader.validate(blob.signed_id).then(() => {
@@ -106,6 +98,11 @@ export default class UploadModal {
   }
 
   autoloadImage(container, file) {
+    // if the mime type is not from an image, skip previewing
+    if (!(/image/).test(file.type)) {
+      return
+    }
+
     const reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onload = ({ target: { result }}) => {
@@ -114,19 +111,28 @@ export default class UploadModal {
     }
   }
 
-  preloadFiles(element) {
+  async preloadFiles(element) {
     // Get a File object from img.src, more info: https://stackoverflow.com/a/38935544/5020256
-    const { src } = element.querySelector("img")
-    return fetch(src).
-      then((res) => res.arrayBuffer()).
-      then((buffer) => {
-        const file = new File([buffer], element.dataset.filename)
-        const item = this.createUploadItem(file, [], { value: 100 })
+    const { src } = element.querySelector("img") || {}
 
-        this.items.push(file)
-        this.uploadItems.appendChild(item);
-        this.autoloadImage(item, file)
-      })
+    let buffer = "";
+    let type = "";
+
+    if (src) {
+      buffer = await fetch(src).then((res) => res.arrayBuffer())
+      // since we cannot know the exact mime-type of the file,
+      // we assume as "image" if it has the src attribute in order to load the preview
+      type = "image"
+    }
+
+    const file = new File([buffer], element.dataset.filename, { type })
+    const item = this.createUploadItem(file, [], { ...element.dataset, value: 100 })
+
+    file.attachmentId = element.dataset.attachmentId
+
+    this.items.push(file)
+    this.uploadItems.appendChild(item);
+    this.autoloadImage(item, file)
   }
 
   getOrdinalNumber() {
@@ -159,7 +165,7 @@ export default class UploadModal {
 
   createUploadItem(file, errors, opts = {}) {
     const okTemplate = `
-      <div><img src="" alt="${file.name}" /></div>
+      <img src="" alt="${file.name}" />
       <span>${truncateFilename(file.name)}</span>
     `
 
@@ -173,7 +179,7 @@ export default class UploadModal {
     `
 
     const titleTemplate = `
-      <div><img src="" alt="${file.name}" /></div>
+      <img src="" alt="${file.name}" />
       <div>
         <div>
           <label>${this.locales.filename}</label>
@@ -181,7 +187,7 @@ export default class UploadModal {
         </div>
         <div>
           <label>${this.locales.title}</label>
-          <input class="sm" type="text" placeholder="${truncateFilename(file.name)}" />
+          <input class="sm" type="text" value="${opts.title || truncateFilename(file.name)}" />
         </div>
       </div>
     `
@@ -201,8 +207,12 @@ export default class UploadModal {
       template = "titled"
     }
 
+    // eslint-disable-next-line no-ternary
+    const attachmentId = opts.attachmentId
+      ? `data-attachment-id="${opts.attachmentId}"`
+      : ""
     const fullTemplate = `
-      <li data-filename="${file.name}" data-state="${state}">
+      <li ${attachmentId} data-filename="${file.name}" data-state="${state}">
         <div data-template="${template}">
           ${content.trim()}
           <button>${this.locales.remove}</button>

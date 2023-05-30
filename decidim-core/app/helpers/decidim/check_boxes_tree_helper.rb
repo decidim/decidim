@@ -6,13 +6,14 @@ module Decidim
     # This method returns a hash with the options for the checkbox and its label
     # used in filters that uses checkboxes trees
     def check_boxes_tree_options(value, label, **options)
+      parent_id = options.delete(:parent_id) || ""
       checkbox_options = {
         value:,
         label:,
         multiple: true,
         include_hidden: false,
         label_options: {
-          "data-children-checkbox": options[:parent_id] || "",
+          "data-children-checkbox": parent_id,
           value:,
           class: "filter"
         }

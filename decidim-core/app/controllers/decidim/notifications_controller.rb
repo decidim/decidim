@@ -3,6 +3,8 @@
 module Decidim
   # The controller to handle the user's notifications deletion.
   class NotificationsController < Decidim::ApplicationController
+    include HasSpecificBreadcrumb
+
     def index
       enforce_permission_to :read, :notification
     end
@@ -22,6 +24,14 @@ module Decidim
 
     def notifications
       @notifications ||= current_user.notifications.order(created_at: :desc)
+    end
+
+    def breadcrumb_item
+      {
+        label: t("layouts.decidim.user_menu.notifications"),
+        active: true,
+        url: notifications_path
+      }
     end
   end
 end

@@ -1,4 +1,4 @@
-<%= content_tag :div, class: "callout #{callout_class}", data: { announcement: "" } do %>
+<%= content_tag :div, id: options[:id], class: "callout #{callout_class}", data: { announcement: "" } do %>
   <% if has_title? %>
     <div class="h4"><%= clean_title %></div>
 

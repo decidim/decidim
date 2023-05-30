@@ -8,6 +8,7 @@ module Decidim
     include ::Webpacker::Helper
     include ::ActionView::Helpers::AssetUrlHelper
     include IconHelper
+    include HasSpecificBreadcrumb
 
     helper Decidim::ResourceHelper
     helper Decidim::FiltersHelper
@@ -30,6 +31,14 @@ module Decidim
 
     def default_filter_params
       { with_resource_type: "all" }
+    end
+
+    def breadcrumb_item
+      {
+        label: t("decidim.last_activities.name"),
+        active: true,
+        url: last_activities_path
+      }
     end
   end
 end

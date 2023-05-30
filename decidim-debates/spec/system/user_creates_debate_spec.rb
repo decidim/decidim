@@ -53,7 +53,7 @@ describe "User creates debate", type: :system do
           expect(page).to have_content("Should every organization use Decidim?")
           expect(page).to have_content("Add your comments on whether Decidim is useful for every organization.")
           expect(page).to have_content(translated(category.name))
-          expect(page).to have_selector(".author-data", text: user.name)
+          expect(page).to have_selector("[data-author]", text: user.name)
         end
 
         context "when creating as a user group" do
@@ -77,7 +77,7 @@ describe "User creates debate", type: :system do
             expect(page).to have_content("Should every organization use Decidim?")
             expect(page).to have_content("Add your comment on whether Decidim is useful for every organization.")
             expect(page).to have_content(translated(category.name))
-            expect(page).to have_selector(".author-data", text: user_group.name)
+            expect(page).to have_selector("[data-author]", text: user_group.name)
           end
         end
 
