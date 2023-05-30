@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe Decidim::Proposals::Admin::ProposalNoteCreatedEvent do
-  let(:resource) { create :proposal, title: ::Faker::Lorem.characters(number: 25) }
+  let(:resource) { create :proposal, title: Faker::Lorem.characters(number: 25) }
   let(:resource_title) { translated(resource.title) }
   let(:event_name) { "decidim.events.proposals.admin.proposal_note_created" }
   let(:component) { resource.component }
@@ -45,7 +45,7 @@ describe Decidim::Proposals::Admin::ProposalNoteCreatedEvent do
   context "when proposals component added to assemblies participatory space" do
     let(:assembly) { create(:assembly) }
     let(:proposal_component) { create :proposal_component, participatory_space: assembly }
-    let(:resource) { create :proposal, component: proposal_component, title: ::Faker::Lorem.characters(number: 25) }
+    let(:resource) { create :proposal, component: proposal_component, title: Faker::Lorem.characters(number: 25) }
     let(:admin_proposal_info_path) { "/admin/assemblies/#{participatory_space.slug}/components/#{component.id}/manage/proposals/#{resource.id}" }
     let(:admin_proposal_info_url) { "http://#{organization.host}/admin/assemblies/#{participatory_space.slug}/components/#{component.id}/manage/proposals/#{resource.id}" }
 

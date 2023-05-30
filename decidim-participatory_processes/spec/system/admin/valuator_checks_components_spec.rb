@@ -29,7 +29,7 @@ describe "Valuator checks components", type: :system do
     it "can only see the proposals component" do
       within ".layout-nav #components-list" do
         expect(page).to have_content(translated(current_component.name))
-        expect(page).to have_no_content(translated(another_component.name))
+        expect(page).not_to have_content(translated(another_component.name))
       end
     end
   end
@@ -42,7 +42,7 @@ describe "Valuator checks components", type: :system do
 
       within ".card" do
         expect(page).to have_content(translated(current_component.name))
-        expect(page).to have_no_content(translated(another_component.name))
+        expect(page).not_to have_content(translated(another_component.name))
       end
     end
   end

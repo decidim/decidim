@@ -33,7 +33,7 @@ shared_examples "comments" do
 
     visit resource_path
 
-    expect(page).to have_no_content("Comments are disabled at this time")
+    expect(page).not_to have_content("Comments are disabled at this time")
 
     expect(page).to have_css(".comment", minimum: 1)
     page.find(".order-by .dropdown.menu .is-dropdown-submenu-parent").hover
@@ -59,12 +59,12 @@ shared_examples "comments" do
     it "shows only a deletion message for deleted comments" do
       expect(page).to have_selector("#comment_#{deleted_comment.id}")
 
-      expect(page).to have_no_content(deleted_comment.author.name)
-      expect(page).to have_no_content(deleted_comment.body.values.first)
+      expect(page).not_to have_content(deleted_comment.author.name)
+      expect(page).not_to have_content(deleted_comment.body.values.first)
       within "#comment_#{deleted_comment.id}" do
         expect(page).to have_content("Comment deleted on")
-        expect(page).to have_no_selector("comment__header")
-        expect(page).to have_no_selector("comment__footer")
+        expect(page).not_to have_selector("comment__header")
+        expect(page).not_to have_selector("comment__footer")
       end
     end
 
@@ -90,7 +90,7 @@ shared_examples "comments" do
   context "when not authenticated" do
     it "does not show form to add comments to user" do
       visit resource_path
-      expect(page).to have_no_selector(".add-comment form")
+      expect(page).not_to have_selector(".add-comment form")
     end
   end
 
@@ -524,7 +524,7 @@ shared_examples "comments" do
           within "#comment_#{comment.id}" do
             within ".comment__header__context-menu" do
               page.find("label").click
-              expect(page).to have_no_link("Delete")
+              expect(page).not_to have_link("Delete")
             end
           end
         end
@@ -557,12 +557,12 @@ shared_examples "comments" do
           end
 
           expect(page).to have_selector("#comment_#{comment.id}")
-          expect(page).to have_no_content(comment_body)
+          expect(page).not_to have_content(comment_body)
           within "#comment_#{comment.id}" do
             expect(page).to have_content("Comment deleted on")
-            expect(page).to have_no_content comment_author.name
-            expect(page).to have_no_selector("comment__header")
-            expect(page).to have_no_selector("comment__footer")
+            expect(page).not_to have_content comment_author.name
+            expect(page).not_to have_selector("comment__header")
+            expect(page).not_to have_selector("comment__footer")
           end
           expect(page).to have_selector("span.comments-count", text: "3 COMMENTS")
 
@@ -586,7 +586,7 @@ shared_examples "comments" do
           within "#comment_#{comment.id}" do
             within ".comment__header__context-menu" do
               page.find("label").click
-              expect(page).to have_no_button("Edit")
+              expect(page).not_to have_button("Edit")
             end
           end
         end
@@ -617,7 +617,7 @@ shared_examples "comments" do
           it "the comment body changes" do
             within "#comment_#{comment.id}" do
               expect(page).to have_content("This comment has been fixed")
-              expect(page).to have_no_content(comment_body)
+              expect(page).not_to have_content(comment_body)
             end
           end
 
@@ -698,7 +698,7 @@ shared_examples "comments" do
               expect(page).to have_selector "span.success.label", text: "In favor", wait: 20
             end
           else
-            expect(page).to have_no_selector(".opinion-toggle--ok")
+            expect(page).not_to have_selector(".opinion-toggle--ok")
           end
         end
       end
@@ -717,7 +717,7 @@ shared_examples "comments" do
               page.find(".comment__votes--up").click
               expect(page).to have_selector(".comment__votes--up", text: /1/)
             else
-              expect(page).to have_no_selector(".comment__votes--up", text: /0/)
+              expect(page).not_to have_selector(".comment__votes--up", text: /0/)
             end
           end
         end
@@ -731,7 +731,7 @@ shared_examples "comments" do
               page.find(".comment__votes--down").click
               expect(page).to have_selector(".comment__votes--down", text: /1/)
             else
-              expect(page).to have_no_selector(".comment__votes--down", text: /0/)
+              expect(page).not_to have_selector(".comment__votes--down", text: /0/)
             end
           end
         end

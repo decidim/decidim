@@ -69,7 +69,7 @@ describe "Space moderator manages global moderations", type: :system do
       within ".container" do
         expect(page).to have_content("Reported content")
 
-        expect(page).to have_no_selector("table.table-list tbody tr")
+        expect(page).not_to have_selector("table.table-list tbody tr")
       end
     end
   end

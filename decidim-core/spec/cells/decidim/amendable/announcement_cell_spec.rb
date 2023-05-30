@@ -17,7 +17,7 @@ describe Decidim::Amendable::AnnouncementCell, type: :cell do
     emendation.link_resources(pr, "created_from_rejected_emendation")
     pr
   end
-  let(:link_to_amendable) { ::Decidim::ResourceLocatorPresenter.new(amendable).path }
+  let(:link_to_amendable) { Decidim::ResourceLocatorPresenter.new(amendable).path }
 
   it "renders the link to the amendable resource" do
     expect(subject.to_s).to include(

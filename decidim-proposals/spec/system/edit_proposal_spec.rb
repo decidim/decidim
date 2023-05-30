@@ -84,13 +84,13 @@ describe "Edit proposals", type: :system do
 
           click_button "Send"
 
-          expect(page).to have_no_content("Related documents")
-          expect(page).to have_no_content("Related images")
+          expect(page).not_to have_content("Related documents")
+          expect(page).not_to have_content("Related images")
         end
 
         context "with attachment titles" do
-          let(:attachment_file_title) { ::Faker::Lorem.sentence }
-          let(:attachment_image_title) { ::Faker::Lorem.sentence }
+          let(:attachment_file_title) { Faker::Lorem.sentence }
+          let(:attachment_image_title) { Faker::Lorem.sentence }
 
           it "can change attachment titles" do
             click_link "Edit proposal"
@@ -292,7 +292,7 @@ describe "Edit proposals", type: :system do
       visit_component
 
       click_link proposal_title
-      expect(page).to have_no_content("Edit proposal")
+      expect(page).not_to have_content("Edit proposal")
       visit "#{current_path}/edit"
 
       expect(page).to have_content("not authorized")
@@ -310,7 +310,7 @@ describe "Edit proposals", type: :system do
       visit_component
 
       click_link proposal_title
-      expect(page).to have_no_content("Edit proposal")
+      expect(page).not_to have_content("Edit proposal")
       visit "#{current_path}/edit"
 
       expect(page).to have_content("not authorized")

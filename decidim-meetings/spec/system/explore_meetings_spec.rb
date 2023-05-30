@@ -102,7 +102,7 @@ describe "Explore meetings", :slow, type: :system do
 
         expect(page).to have_selector(".card.card--meeting", count: meetings_count - 1)
 
-        expect(page).to have_no_content(translated(meeting.title))
+        expect(page).not_to have_content(translated(meeting.title))
       end
     end
 
@@ -163,7 +163,7 @@ describe "Explore meetings", :slow, type: :system do
               check "Official"
             end
 
-            expect(page).to have_no_content("6 MEETINGS")
+            expect(page).not_to have_content("6 MEETINGS")
             expect(page).to have_content("1 MEETING")
             expect(page).to have_css(".card--meeting", count: 1)
 
@@ -182,7 +182,7 @@ describe "Explore meetings", :slow, type: :system do
               check "Groups"
             end
 
-            expect(page).to have_no_content("6 MEETINGS")
+            expect(page).not_to have_content("6 MEETINGS")
             expect(page).to have_content("1 MEETING")
             expect(page).to have_css(".card--meeting", count: 1)
             within ".card--meeting" do
@@ -200,7 +200,7 @@ describe "Explore meetings", :slow, type: :system do
               check "Participants"
             end
 
-            expect(page).to have_no_content("6 MEETINGS")
+            expect(page).not_to have_content("6 MEETINGS")
             expect(page).to have_css(".card--meeting", count: meetings_count)
             expect(page).to have_content("#{meetings_count} MEETINGS")
           end
@@ -432,7 +432,7 @@ describe "Explore meetings", :slow, type: :system do
       it "hides map" do
         visit_component
 
-        expect(page).to have_no_css("div.map__help")
+        expect(page).not_to have_css("div.map__help")
       end
     end
   end
@@ -467,7 +467,7 @@ describe "Explore meetings", :slow, type: :system do
 
     context "without category or scope" do
       it "does not show any tag" do
-        expect(page).to have_no_selector("ul.tags.tag-container")
+        expect(page).not_to have_selector("ul.tags.tag-container")
       end
     end
 
@@ -585,7 +585,7 @@ describe "Explore meetings", :slow, type: :system do
 
       it "does not show contributions count" do
         within ".definition-data" do
-          expect(page).to have_no_content("CONTRIBUTIONS COUNT\n0")
+          expect(page).not_to have_content("CONTRIBUTIONS COUNT\n0")
         end
       end
     end

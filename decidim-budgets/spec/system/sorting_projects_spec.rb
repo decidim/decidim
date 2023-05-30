@@ -39,7 +39,7 @@ describe "Sorting projects", type: :system do
     it "lists the projects ordered by selected option" do
       # expect(page).to have_selector("#projects li.is-dropdown-submenu-parent a", text: selected_option)
       within "#projects li.is-dropdown-submenu-parent a" do
-        expect(page).to have_no_content("Random order", wait: 20)
+        expect(page).not_to have_content("Random order", wait: 20)
         expect(page).to have_content(selected_option)
       end
 

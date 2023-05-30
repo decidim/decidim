@@ -85,7 +85,7 @@ describe "Admin manages answers", type: :system do
     let(:election) { create(:election, :created, component: current_component) }
 
     it "cannot add a new answer" do
-      expect(page).to have_no_content("New Answer")
+      expect(page).not_to have_content("New Answer")
     end
   end
 
@@ -129,7 +129,7 @@ describe "Admin manages answers", type: :system do
 
       it "cannot update the answer" do
         within find("tr", text: translated(answer.title)) do
-          expect(page).to have_no_selector(".action-icon--edit")
+          expect(page).not_to have_selector(".action-icon--edit")
         end
       end
     end
@@ -157,7 +157,7 @@ describe "Admin manages answers", type: :system do
 
       it "cannot delete the question" do
         within find("tr", text: translated(answer.title)) do
-          expect(page).to have_no_selector(".action-icon--remove")
+          expect(page).not_to have_selector(".action-icon--remove")
         end
       end
     end

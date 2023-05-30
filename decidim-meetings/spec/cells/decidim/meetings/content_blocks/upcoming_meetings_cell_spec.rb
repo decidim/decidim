@@ -86,7 +86,7 @@ module Decidim
 
         context "with no meetings" do
           it "renders nothing" do
-            expect(html).to have_no_css(".upcoming-meetings")
+            expect(html).not_to have_css(".upcoming-meetings")
           end
         end
       end

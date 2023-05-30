@@ -140,7 +140,7 @@ shared_examples "manage assembly members examples" do
       expect(page).to have_admin_callout("successfully")
 
       within "#assembly_members table" do
-        expect(page).to have_no_content(assembly_member.full_name)
+        expect(page).not_to have_content(assembly_member.full_name)
       end
     end
   end

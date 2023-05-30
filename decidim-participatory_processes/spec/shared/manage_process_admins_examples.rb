@@ -76,7 +76,7 @@ shared_examples "manage process admins examples" do
       expect(page).to have_admin_callout("successfully")
 
       within "#process_admins table" do
-        expect(page).to have_no_content(other_user.email)
+        expect(page).not_to have_content(other_user.email)
       end
     end
 

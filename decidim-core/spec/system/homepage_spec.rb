@@ -23,7 +23,7 @@ describe "Homepage", type: :system do
                             highlighted_content_banner_short_description: Decidim::Faker::Localized.sentence(word_count: 2),
                             highlighted_content_banner_action_title: Decidim::Faker::Localized.sentence(word_count: 2),
                             highlighted_content_banner_action_subtitle: Decidim::Faker::Localized.sentence(word_count: 2),
-                            highlighted_content_banner_action_url: ::Faker::Internet.url,
+                            highlighted_content_banner_action_url: Faker::Internet.url,
                             highlighted_content_banner_image: Decidim::Dev.test_file("city.jpeg", "image/jpeg"))
     end
 
@@ -174,7 +174,7 @@ describe "Homepage", type: :system do
               expect(page).to have_content(static_page.title["en"])
             end
 
-            expect(page).to have_no_content(static_page3.title["en"])
+            expect(page).not_to have_content(static_page3.title["en"])
           end
 
           click_link static_page1.title["en"]
@@ -236,11 +236,11 @@ describe "Homepage", type: :system do
           it "displays only publicly accessible pages and topics in the footer" do
             within ".main-footer" do
               expect(page).to have_content(static_page1.title["en"])
-              expect(page).to have_no_content(static_page2.title["en"])
-              expect(page).to have_no_content(static_page3.title["en"])
+              expect(page).not_to have_content(static_page2.title["en"])
+              expect(page).not_to have_content(static_page3.title["en"])
               expect(page).to have_content(static_page_topic1.title["en"])
-              expect(page).to have_no_content(static_page_topic2.title["en"])
-              expect(page).to have_no_content(static_page_topic3.title["en"])
+              expect(page).not_to have_content(static_page_topic2.title["en"])
+              expect(page).not_to have_content(static_page_topic3.title["en"])
 
               expect(page).to have_link(
                 static_page_topic1.title["en"],
@@ -257,10 +257,10 @@ describe "Homepage", type: :system do
             it "displays all pages and topics in footer that are configured to display in footer" do
               expect(page).to have_content(static_page1.title["en"])
               expect(page).to have_content(static_page2.title["en"])
-              expect(page).to have_no_content(static_page3.title["en"])
+              expect(page).not_to have_content(static_page3.title["en"])
               expect(page).to have_content(static_page_topic1.title["en"])
               expect(page).to have_content(static_page_topic2.title["en"])
-              expect(page).to have_no_content(static_page_topic3.title["en"])
+              expect(page).not_to have_content(static_page_topic3.title["en"])
 
               expect(page).to have_link(
                 static_page_topic1.title["en"],
@@ -292,7 +292,7 @@ describe "Homepage", type: :system do
           let(:organization) { create(:organization) }
 
           it "does not show the statistics block" do
-            expect(page).to have_no_content("Current state of #{organization.name}")
+            expect(page).not_to have_content("Current state of #{organization.name}")
           end
         end
 
@@ -329,7 +329,7 @@ describe "Homepage", type: :system do
           let(:organization) { create(:organization) }
 
           it "does not show the statistics block" do
-            expect(page).to have_no_content("Participation in figures")
+            expect(page).not_to have_content("Participation in figures")
           end
         end
 
@@ -371,10 +371,10 @@ describe "Homepage", type: :system do
               within "#metrics" do
                 expect(page).to have_content("Metrics")
                 Decidim.metrics_registry.highlighted.each do |metric_registry|
-                  expect(page).to have_no_css("##{metric_registry.metric_name}_chart")
+                  expect(page).not_to have_css("##{metric_registry.metric_name}_chart")
                 end
                 Decidim.metrics_registry.not_highlighted.each do |metric_registry|
-                  expect(page).to have_no_css("##{metric_registry.metric_name}_chart")
+                  expect(page).not_to have_css("##{metric_registry.metric_name}_chart")
                 end
               end
             end
@@ -434,7 +434,7 @@ describe "Homepage", type: :system do
                  highlighted_content_banner_short_description: Decidim::Faker::Localized.sentence(word_count: 2),
                  highlighted_content_banner_action_title: Decidim::Faker::Localized.sentence(word_count: 2),
                  highlighted_content_banner_action_subtitle: Decidim::Faker::Localized.sentence(word_count: 2),
-                 highlighted_content_banner_action_url: ::Faker::Internet.url,
+                 highlighted_content_banner_action_url: Faker::Internet.url,
                  highlighted_content_banner_image: Decidim::Dev.test_file("city.jpeg", "image/jpeg"))
         end
 

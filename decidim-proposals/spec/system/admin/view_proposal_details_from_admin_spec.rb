@@ -67,7 +67,7 @@ describe "Admin views proposal details from admin", type: :system do
         go_to_admin_proposal_page(proposal)
 
         within "#proposal-authors-list" do
-          expect(page).to have_no_selector("a", text: "Official proposal")
+          expect(page).not_to have_selector("a", text: "Official proposal")
           expect(page).to have_content("Official proposal")
         end
       end

@@ -95,7 +95,7 @@ shared_examples "reports" do
     it "gives the option to sign in" do
       visit reportable_path
 
-      expect(page).to have_no_css("html.is-reveal-open")
+      expect(page).not_to have_css("html.is-reveal-open")
 
       click_button "Report"
 

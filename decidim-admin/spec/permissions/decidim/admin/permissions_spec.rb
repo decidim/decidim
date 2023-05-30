@@ -73,7 +73,7 @@ describe Decidim::Admin::Permissions do
       let(:participatory_process) { create(:participatory_process, organization: user.organization) }
 
       before do
-        ::Decidim::ParticipatoryProcessUserRole.create(user:, participatory_process:, role: :admin)
+        Decidim::ParticipatoryProcessUserRole.create(user:, participatory_process:, role: :admin)
       end
 
       it "allows users to enter the space area" do

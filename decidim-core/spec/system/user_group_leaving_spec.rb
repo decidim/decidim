@@ -60,7 +60,7 @@ describe "User group leaving", type: :system do
 
   context "when the user does not belong to the group" do
     it "does not show the link to leave" do
-      expect(page).to have_no_content("Leave group")
+      expect(page).not_to have_content("Leave group")
     end
   end
 end

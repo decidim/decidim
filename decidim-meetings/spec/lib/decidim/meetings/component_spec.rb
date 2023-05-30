@@ -76,14 +76,12 @@ describe "Meetings component" do # rubocop:disable RSpec/DescribeClass
       let(:stats_name) { :followers_count }
 
       before do
-        # rubocop:disable RSpec/FactoryBot/CreateList
         2.times do
           create(:follow, followable: meeting, user: build(:user, organization:))
         end
         3.times do
           create(:follow, followable: hidden_meeting, user: build(:user, organization:))
         end
-        # rubocop:enable RSpec/FactoryBot/CreateList
       end
 
       it "counts the followers from visible meetings" do

@@ -115,7 +115,7 @@ describe "Admin manages budgets", type: :system do
 
       it "cannot delete the budget" do
         within find("tr", text: translated(budget.title)) do
-          expect(page).to have_no_selector(".action-icon--remove")
+          expect(page).not_to have_selector(".action-icon--remove")
         end
       end
     end

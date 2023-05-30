@@ -52,7 +52,7 @@ describe "Last activity", type: :system do
 
     it "shows activities long comment shorten text" do
       expect(page).to have_content(long_body_comment[0..79])
-      expect(page).to have_no_content(another_comment.translated_body)
+      expect(page).not_to have_content(another_comment.translated_body)
     end
 
     context "when there is a deleted comment" do
@@ -92,7 +92,7 @@ describe "Last activity", type: :system do
 
         expect(page).to have_content(translated(comment.commentable.title))
         expect(page).to have_content(translated(another_comment.commentable.title))
-        expect(page).to have_no_content(translated(resource.title))
+        expect(page).not_to have_content(translated(resource.title))
         expect(page).to have_css("[data-activity]", count: 2)
       end
 

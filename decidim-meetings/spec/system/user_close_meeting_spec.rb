@@ -125,7 +125,7 @@ describe "User edit meeting", type: :system do
       visit_component
 
       click_link translated(meeting.title)
-      expect(page).to have_no_content("Close meeting")
+      expect(page).not_to have_content("Close meeting")
     end
   end
 end

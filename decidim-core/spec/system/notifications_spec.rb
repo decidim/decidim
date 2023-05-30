@@ -25,7 +25,7 @@ describe "Notifications", type: :system do
       end
 
       expect(page).to have_current_path decidim.notifications_path
-      expect(page).to have_no_content("No notifications yet")
+      expect(page).not_to have_content("No notifications yet")
       expect(page).to have_content("An event occured")
     end
 
@@ -50,7 +50,7 @@ describe "Notifications", type: :system do
 
       it "the button is not shown as active" do
         within ".topbar__user__logged" do
-          expect(page).to have_no_selector("a.topbar__notifications.is-active")
+          expect(page).not_to have_selector("a.topbar__notifications.is-active")
           expect(page).to have_selector("a.topbar__notifications")
         end
       end
@@ -93,7 +93,7 @@ describe "Notifications", type: :system do
       it "hides the notification from the page" do
         expect(page).to have_content(translated(notification_title))
         find("[data-notification-read]").click
-        expect(page).to have_no_content(translated(notification_title))
+        expect(page).not_to have_content(translated(notification_title))
         expect(page).to have_content("No notifications yet")
       end
     end

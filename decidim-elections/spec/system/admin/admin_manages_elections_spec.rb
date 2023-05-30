@@ -158,7 +158,7 @@ describe "Admin manages elections", type: :system do
         end
 
         within find("tr", text: translated(election.title)) do
-          expect(page).to have_no_selector(".action-icon--publish")
+          expect(page).not_to have_selector(".action-icon--publish")
         end
       end
     end
@@ -177,7 +177,7 @@ describe "Admin manages elections", type: :system do
       end
 
       within find("tr", text: translated(election.title)) do
-        expect(page).to have_no_selector(".action-icon--unpublish")
+        expect(page).not_to have_selector(".action-icon--unpublish")
       end
     end
 
@@ -186,7 +186,7 @@ describe "Admin manages elections", type: :system do
 
       it "cannot unpublish the election" do
         within find("tr", text: translated(election.title)) do
-          expect(page).to have_no_selector(".action-icon--unpublish")
+          expect(page).not_to have_selector(".action-icon--unpublish")
         end
       end
     end
@@ -196,7 +196,7 @@ describe "Admin manages elections", type: :system do
 
       it "cannot unpublish the election" do
         within find("tr", text: translated(election.title)) do
-          expect(page).to have_no_selector(".action-icon--unpublish")
+          expect(page).not_to have_selector(".action-icon--unpublish")
         end
       end
     end
@@ -226,7 +226,7 @@ describe "Admin manages elections", type: :system do
 
       it "cannot delete the election" do
         within find("tr", text: translated(election.title)) do
-          expect(page).to have_no_selector(".action-icon--remove")
+          expect(page).not_to have_selector(".action-icon--remove")
         end
       end
     end

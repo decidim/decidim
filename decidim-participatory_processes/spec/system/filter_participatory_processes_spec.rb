@@ -175,7 +175,7 @@ describe "Filter Participatory Processes", type: :system do
         end
 
         it "does not show the participatory process types filter" do
-          expect(page).to have_no_css("#process-type-filter")
+          expect(page).not_to have_css("#process-type-filter")
         end
       end
     end
@@ -239,9 +239,9 @@ describe "Filter Participatory Processes", type: :system do
               expect(page).to have_content("Awesome Type")
               expect(page).to have_content("The East Type")
               expect(page).to have_content("The West Type")
-              expect(page).to have_no_content("Old Type")
-              expect(page).to have_no_content("Empty Type")
-              expect(page).to have_no_content("Unpublished Type")
+              expect(page).not_to have_content("Old Type")
+              expect(page).not_to have_content("Empty Type")
+              expect(page).not_to have_content("Unpublished Type")
             end
           end
         end
@@ -263,12 +263,12 @@ describe "Filter Participatory Processes", type: :system do
           it "only shows process types with past processes" do
             within "#process-type-filter" do
               click_button "All types"
-              expect(page).to have_no_content("Awesome Type")
-              expect(page).to have_no_content("The East Type")
-              expect(page).to have_no_content("The West Type")
+              expect(page).not_to have_content("Awesome Type")
+              expect(page).not_to have_content("The East Type")
+              expect(page).not_to have_content("The West Type")
               expect(page).to have_content("Old Type")
-              expect(page).to have_no_content("Empty Type")
-              expect(page).to have_no_content("Unpublished Type")
+              expect(page).not_to have_content("Empty Type")
+              expect(page).not_to have_content("Unpublished Type")
             end
           end
         end
@@ -287,8 +287,8 @@ describe "Filter Participatory Processes", type: :system do
               expect(page).to have_content("3 ACTIVE PROCESSES")
             end
 
-            expect(page).to have_no_content("NW Rocks!")
-            expect(page).to have_no_content("SE Rocks!")
+            expect(page).not_to have_content("NW Rocks!")
+            expect(page).not_to have_content("SE Rocks!")
             group_2_process_type.processes.groupless.each do |group|
               expect(page).to have_content(translated(group.title))
             end
@@ -315,21 +315,21 @@ describe "Filter Participatory Processes", type: :system do
             end
 
             expect(page).to have_content("SE Rocks!")
-            expect(page).to have_no_content("NW Rocks!")
+            expect(page).not_to have_content("NW Rocks!")
             group_1_process_type.processes.groupless.each do |group|
-              expect(page).to have_no_content(translated(group.title))
+              expect(page).not_to have_content(translated(group.title))
             end
           end
 
           it "only shows process types with active processes in the group" do
             within "#process-type-filter" do
               click_button "All types"
-              expect(page).to have_no_content("Awesome Type")
+              expect(page).not_to have_content("Awesome Type")
               expect(page).to have_content("The East Type")
-              expect(page).to have_no_content("The West Type")
-              expect(page).to have_no_content("Old Type")
-              expect(page).to have_no_content("Empty Type")
-              expect(page).to have_no_content("Unpublished Type")
+              expect(page).not_to have_content("The West Type")
+              expect(page).not_to have_content("Old Type")
+              expect(page).not_to have_content("Empty Type")
+              expect(page).not_to have_content("Unpublished Type")
             end
           end
         end

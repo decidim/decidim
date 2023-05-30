@@ -94,7 +94,7 @@ describe "Admin manages scope types", type: :system do
       expect(page).to have_admin_callout("successfully")
 
       within "table" do
-        expect(page).to have_no_content(translated(scope_type.name))
+        expect(page).not_to have_content(translated(scope_type.name))
       end
     end
   end

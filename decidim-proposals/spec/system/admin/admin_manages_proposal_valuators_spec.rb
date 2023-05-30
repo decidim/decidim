@@ -76,7 +76,7 @@ describe "Admin manages proposals valuators", type: :system do
       end
 
       expect(page).to have_content(translated(assigned_proposal.title))
-      expect(page).to have_no_content(translated(unassigned_proposal.title))
+      expect(page).not_to have_content(translated(unassigned_proposal.title))
     end
   end
 
@@ -145,7 +145,7 @@ describe "Admin manages proposals valuators", type: :system do
 
       expect(page).to have_content("Valuator unassigned from proposals successfully")
 
-      expect(page).to have_no_selector("#valuators")
+      expect(page).not_to have_selector("#valuators")
     end
   end
 end

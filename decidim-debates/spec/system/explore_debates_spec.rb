@@ -224,7 +224,7 @@ describe "Explore debates", type: :system do
 
       it "does not list the hidden debates" do
         expect(page).to have_selector(".card--debate", count: debates_count - 1)
-        expect(page).to have_no_content(translated(debate.title))
+        expect(page).not_to have_content(translated(debate.title))
       end
     end
 
