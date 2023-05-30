@@ -37,7 +37,7 @@ shared_examples "publish answers" do
 
     it "cannot publish answers for non answered proposals" do
       page.find("#proposals_bulk.js-check-all").set(true)
-      page.all("[data-published-state=false] .js-proposal-list-check").each { |c| c.set(false); }
+      page.all("[data-published-state=false] .js-proposal-list-check").each { |c| c.set(false) }
 
       click_button "Actions"
       expect(page).not_to have_content("Publish answers")

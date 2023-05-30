@@ -68,9 +68,6 @@ Style/RedundantStringEscape:
 Style/MapToSet:
   Enabled: false
 
-Style/Semicolon:
-  Enabled: false
-
 Style/ConcatArrayLiterals:
   Enabled: false
 
@@ -102,9 +99,6 @@ RSpec/NoExpectationExample:
   Enabled: false
 
 RSpec/SortMetadata:
-  Enabled: false
-
-RSpec/MatchArray:
   Enabled: false
 
 Rails/ActionControllerFlashBeforeRender:
