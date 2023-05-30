@@ -11,7 +11,7 @@ module Decidim
         )
       end
 
-      it_behaves_like "a proposal form", user_group_check: true, i18n: false
+      it_behaves_like "a proposal form", user_group_check: true, i18n: false, admin: false
     end
   end
 end

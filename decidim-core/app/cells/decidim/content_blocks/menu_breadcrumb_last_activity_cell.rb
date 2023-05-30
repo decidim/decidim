@@ -7,6 +7,10 @@ module Decidim
     class MenuBreadcrumbLastActivityCell < LastActivityCell
       private
 
+      def activities
+        @activities ||= Decidim::ParticipatorySpaceLastActivity.new(model).query.limit(activities_to_show * 6)
+      end
+
       # A MD5 hash of model attributes is needed because
       # it ensures the cache version value will always be the same size
       def cache_hash

@@ -26,6 +26,7 @@ module Decidim
     end
 
     # Renders the amenders list of an amendable resource
+    # REDESIGN_PENDING: deprecated
     def amenders_list_for(amendable)
       return unless amendable.amendable?
 

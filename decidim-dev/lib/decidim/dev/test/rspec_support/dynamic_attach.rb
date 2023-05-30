@@ -21,13 +21,17 @@ module Capybara
         within "[data-filename='#{filename}']" do
           expect(page).to have_css(filled_selector(front_interface), wait: 5)
         end
-        all("input.attachment-title").last.set(options[:title]) if options.has_key?(:title)
+        all(title_input(front_interface)).last.set(options[:title]) if options.has_key?(:title)
         click_button(front_interface ? "Next" : "Save") unless options[:keep_modal_open]
       end
     end
 
     def filled_selector(front_interface)
       front_interface ? "li progress[value='100']" : "div.progress-bar.filled"
+    end
+
+    def title_input(front_interface)
+      front_interface ? "input[type='text']" : "input.attachment-title"
     end
 
     def click_remove(front_interface)

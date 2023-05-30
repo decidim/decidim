@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 module Decidim
+  # REDESIGN_PENDING: deprecated cell
   class FingerprintCell < Decidim::ViewModel
     include ActionView::RecordIdentifier
     include Decidim::SanitizeHelper
