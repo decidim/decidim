@@ -173,7 +173,7 @@ module Decidim
       end
 
       def initiative_type_from_params
-        @initiative_type ||= Decidim::InitiativesType.where(organization: current_organization).find_by(id: params["initiative"]["type_id"])
+        @initiative_type ||= Decidim::InitiativesType.find_by(id: params["initiative"]["type_id"], organization: current_organization)
       end
 
       def initiative_type_id
