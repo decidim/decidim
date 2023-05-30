@@ -1,6 +1,10 @@
 .home{
-  section{
-    @apply px-12 py-16;
+  &__section{
+    @apply py-12 container;
+  }
+
+  &__section-image{
+    @apply px-16 py-16;
   }
 
   &__section-header{
@@ -16,6 +20,20 @@
 
     &__text{
       @apply text-lg text-white mt-6;
+    }
+  }
+
+  .initiatives__progress-bar{
+    .progress-bar__container{
+      @apply w-16;
+    }
+
+    .progress-bar__number{
+      @apply text-gray-2 font-normal text-sm;
+    }
+
+    .progress-bar__units{
+      @apply hidden;
     }
   }
 }
