@@ -15,7 +15,7 @@ module Decidim
       private
 
       def card_size
-        "decidim/debates/debate_m"
+        "decidim/debates/debate_l"
       end
     end
   end

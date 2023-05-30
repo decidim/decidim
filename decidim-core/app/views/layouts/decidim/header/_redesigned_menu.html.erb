@@ -5,9 +5,11 @@
     <div class="menu-bar__breadcrumb-desktop">
       <%= render partial: "layouts/decidim/header/redesigned_menu_breadcrumb_desktop" %>
     </div>
-    <div class="menu-bar__actions">
-      <%= content_for :participatory_space_actions %>
-    </div>
+    <% if content_for?(:participatory_space_actions) %>
+      <div class="menu-bar__actions">
+        <%= content_for :participatory_space_actions %>
+      </div>
+    <% end %>
 
     <%# secondary dropdown mobile-tablet %>
     <div class="menu-bar__breadcrumb-mobile">

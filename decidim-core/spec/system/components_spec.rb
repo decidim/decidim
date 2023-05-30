@@ -13,10 +13,12 @@ describe "Components can be navigated", type: :system do
     end
 
     it "renders the content of the page" do
-      skip "REDESIGN PENDING: Adapt this test to navigation breadcrumb once redesign fully enabled"
+      skip_unless_redesign_enabled "This test works with the redesigned navigation layout"
 
-      within ".process-nav" do
-        click_link component.name[I18n.locale.to_s]
+      within "#menu-bar" do
+        expect(page).to have_content("Processes")
+        find("#secondary-dropdown-summary", text: translated(participatory_space.title)).click
+        click_link(translated(component.name))
       end
 
       expect(page).to have_content("DUMMY ENGINE")

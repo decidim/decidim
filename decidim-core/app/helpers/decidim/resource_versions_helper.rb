@@ -23,7 +23,7 @@ module Decidim
       html << " "
       html << link_to_other_resource_versions(path, options) if path.present?
 
-      content_tag(:div, safe_join(html), class: "tech-info #{options[:class]}")
+      safe_join(html)
     end
 
     def resource_version_number(count, css_class = "")
