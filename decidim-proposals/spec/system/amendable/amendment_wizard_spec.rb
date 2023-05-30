@@ -53,7 +53,7 @@ describe "Amendment Wizard", type: :system do
 
         it "redirects to the proposal page" do
           expect(page).to have_content(translated(proposal.title))
-          expect(page).to have_content("AMEND PROPOSAL")
+          expect(page).to have_css("#amend-button")
         end
       end
     end
@@ -309,20 +309,13 @@ describe "Amendment Wizard", type: :system do
       end
 
       it "is NOT shown the amendment draft in the amendments list" do
-        expect(page).to have_css("#amendments", text: "AMENDMENTS")
+        within("#amendments") do
+          expect(page).to have_content("1 amendment")
+        end
 
-        within ".amendment-list" do
+        within "#amendment-list" do
           expect(page).to have_content(translated(emendation.title))
           expect(page).not_to have_content(translated(emendation_draft.title))
-        end
-      end
-
-      it "is NOT shown the author of the amendment draft in the amenders list" do
-        expect(page).to have_content("AMENDED BY")
-
-        within ".amender-list" do
-          expect(page).to have_content(amendment.amender.name)
-          expect(page).not_to have_content(amendment_draft.amender.name)
         end
       end
     end

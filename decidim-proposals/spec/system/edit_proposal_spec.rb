@@ -31,7 +31,7 @@ describe "Edit proposals", type: :system do
       click_link proposal_title
       click_link "Edit proposal"
 
-      expect(page).to have_content "EDIT PROPOSAL"
+      expect(page).to have_content "Edit proposal"
       expect(page).not_to have_content("You can move the point on the map.")
 
       within "form.edit_proposal" do
@@ -56,7 +56,7 @@ describe "Edit proposals", type: :system do
         skip "REDESIGN_PENDING - This test should be fixed in https://github.com/decidim/decidim/pull/10555"
 
         click_link "Edit proposal"
-        dynamically_attach_file(:proposal_photos, Decidim::Dev.asset("participatory_text.md"), keep_modal_open: true) do
+        dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("participatory_text.md"), front_interface: true, keep_modal_open: true) do
           expect(page).to have_content("Accepted formats: #{Decidim::OrganizationSettings.for(organization).upload_allowed_file_extensions_image.join(", ")}")
         end
         expect(page).to have_content("only files with the following extensions are allowed: jpeg, jpg, pdf, png, rtf, txt")
@@ -71,27 +71,24 @@ describe "Edit proposals", type: :system do
 
           visit current_path
 
-          # REDESIGN_PENDING: the documents partial now comes with no title,
-          # that's is something will be added in the proposal view
-          # expect(page).to have_content("Related documents")
-          expect(page).to have_content("RELATED IMAGES")
+          expect(page).to have_content("Documents")
           click_link "Edit proposal"
 
           click_button "Edit documents"
           within ".upload-modal" do
-            find("button.remove-upload-item").click
-            click_button "Save"
-          end
-          click_button "Edit image"
-          within ".upload-modal" do
-            find("button.remove-upload-item").click
-            click_button "Save"
+            within "[data-filename='city.jpeg']" do
+              click_button("Remove")
+            end
+            within "[data-filename='Exampledocument.pdf']" do
+              click_button("Remove")
+            end
+            click_button "Next"
           end
 
           click_button "Send"
 
-          expect(page).to have_no_content("Related documents")
-          expect(page).to have_no_content("Related images")
+          expect(page).to have_no_content("Documents")
+          expect(page).to have_no_content("Images")
         end
 
         context "with attachment titles" do
@@ -102,17 +99,17 @@ describe "Edit proposals", type: :system do
             skip "REDESIGN_PENDING - This test should be fixed in https://github.com/decidim/decidim/pull/10555"
 
             click_link "Edit proposal"
-            click_button "Edit image"
-            within ".upload-modal" do
-              expect(page).to have_content("Preferrably a landscape image that does not have any text")
-              find(".attachment-title").set(attachment_image_title)
-              click_button "Save"
-            end
             click_button "Edit documents"
             within ".upload-modal" do
               expect(page).to have_content("Has to be an image or a document")
-              find(".attachment-title").set(attachment_file_title)
-              click_button "Save"
+              expect(page).to have_content("For images, use preferrably landscape images, the service crops the image")
+              within "[data-filename='city.jpeg']" do
+                find("input[type='text']").set(attachment_image_title)
+              end
+              within "[data-filename='Exampledocument.pdf']" do
+                find("input[type='text']").set(attachment_file_title)
+              end
+              click_button "Next"
             end
             click_button "Send"
             expect(page).to have_selector("[data-alert-box].success")
@@ -123,28 +120,28 @@ describe "Edit proposals", type: :system do
         end
       end
 
-      context "with multiple images" do
+      context "with multiple images", :slow do
         it "can add many images many times" do
           skip "REDESIGN_PENDING - This test should be fixed in https://github.com/decidim/decidim/pull/10555"
 
           click_link "Edit proposal"
-          dynamically_attach_file(:proposal_photos, Decidim::Dev.asset("city.jpeg"))
-          dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("icon.png"))
-          dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("avatar.jpg"))
+          dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city.jpeg"), front_interface: true)
+          dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("icon.png"), front_interface: true)
+          dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("avatar.jpg"), front_interface: true)
           click_button "Send"
           click_link "Edit proposal"
           expect(page).to have_content("city.jpeg")
           expect(page).to have_content("icon.png")
           expect(page).to have_content("avatar.jpg")
-          dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city2.jpeg"))
-          dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city3.jpeg"))
+          dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city2.jpeg"), front_interface: true)
+          dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city3.jpeg"), front_interface: true)
           click_button "Send"
           expect(page).to have_selector("[data-alert-box].success")
-          expect(page).to have_selector(".thumbnail[alt='city']")
-          expect(page).to have_selector(".thumbnail[alt='icon']")
-          expect(page).to have_selector(".thumbnail[alt='avatar']")
-          expect(page).to have_selector(".thumbnail[alt='city2']")
-          expect(page).to have_selector(".thumbnail[alt='city3']")
+          expect(page).to have_selector("img.object-cover[alt='city.jpeg']")
+          expect(page).to have_selector("img.object-cover[alt='icon.png']")
+          expect(page).to have_selector("img.object-cover[alt='avatar.jpg']")
+          expect(page).to have_selector("img.object-cover[alt='city2.jpeg']")
+          expect(page).to have_selector("img.object-cover[alt='city3.jpeg']")
         end
       end
     end
@@ -166,7 +163,6 @@ describe "Edit proposals", type: :system do
 
         click_link translated(proposal.title)
         click_link "Edit proposal"
-        check "proposal_has_address"
 
         expect(page).to have_field("Title", with: translated(proposal.title))
         expect(page).to have_field("Body", with: translated(proposal.body))
@@ -190,7 +186,7 @@ describe "Edit proposals", type: :system do
           )
         end
 
-        it "allows filling an empty address and unchecking the has address checkbox" do
+        it "allows filling an empty address" do
           visit_component
 
           click_link translated(proposal.title)
@@ -205,7 +201,7 @@ describe "Edit proposals", type: :system do
             fill_in :proposal_body, with: new_body
             fill_in :proposal_address, with: ""
           end
-          uncheck "proposal_has_address"
+
           click_button "Send"
 
           expect(page).to have_content(new_title)
@@ -219,14 +215,14 @@ describe "Edit proposals", type: :system do
       let(:component) { create(:proposal_component, :with_creation_enabled, :with_attachments_allowed, participatory_space: participatory_process) }
 
       it "returns an error message" do
-        skip "REDESIGN_PENDING - This test should be fixed in https://github.com/decidim/decidim/pull/10555"
+        skip "REDESIGN_PENDING - Validation messages in forms don't appear. Issue https://github.com/decidim/decidim/issues/10852"
 
         visit_component
 
         click_link proposal_title
         click_link "Edit proposal"
 
-        expect(page).to have_content "EDIT PROPOSAL"
+        expect(page).to have_content "Edit proposal"
 
         within "form.edit_proposal" do
           fill_in :proposal_body, with: "A"
@@ -252,7 +248,7 @@ describe "Edit proposals", type: :system do
         click_link proposal_title
         click_link "Edit proposal"
 
-        expect(page).to have_content "EDIT PROPOSAL"
+        expect(page).to have_content "Edit proposal"
 
         within "form.edit_proposal" do
           fill_in :proposal_title, with: "A title with a #hashtag"

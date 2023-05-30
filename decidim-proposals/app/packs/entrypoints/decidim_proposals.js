@@ -8,4 +8,4 @@ require.context("../images", true)
 require.context("../documents", true)
 
 // CSS
-import "stylesheets/decidim/proposals/proposals.scss"
+import "stylesheets/decidim/proposals/redesigned_proposals.scss"

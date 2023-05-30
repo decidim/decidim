@@ -77,7 +77,8 @@ describe "Proposals", type: :system do
             fill_in :proposal_title, with: "More sidewalks and less roads"
             fill_in :proposal_body, with: "Cities need more people, not more cars"
             select translated(category.name), from: :proposal_category_id
-            scope_pick scope_picker, scope
+            # REDESIGN_PENDING - scope picker is pending https://github.com/decidim/decidim/issues/10192
+            # scope_pick scope_picker, scope
 
             find("*[type=submit]").click
           end
@@ -91,7 +92,8 @@ describe "Proposals", type: :system do
           expect(page).to have_content("More sidewalks and less roads")
           expect(page).to have_content("Cities need more people, not more cars")
           expect(page).to have_content(translated(category.name))
-          expect(page).to have_content(translated(scope.name))
+          # REDESIGN_PENDING - scope picker is pending https://github.com/decidim/decidim/issues/10192
+          # expect(page).to have_content(translated(scope.name))
           expect(page).to have_author(user.name)
         end
 
@@ -116,7 +118,6 @@ describe "Proposals", type: :system do
             visit complete_proposal_path(component, proposal_draft)
 
             within ".edit_proposal" do
-              check :proposal_has_address
               fill_in :proposal_title, with: "More sidewalks and less roads"
               fill_in :proposal_body, with: "Cities need more people, not more cars"
               fill_in_geocoding :proposal_address, with: address
@@ -126,7 +127,8 @@ describe "Proposals", type: :system do
               expect(page).to have_content("You can move the point on the map.")
 
               select translated(category.name), from: :proposal_category_id
-              scope_pick scope_picker, scope
+              # REDESIGN_PENDING - scope picker is pending https://github.com/decidim/decidim/issues/10192
+              # scope_pick scope_picker, scope
 
               find("*[type=submit]").click
             end
@@ -142,7 +144,8 @@ describe "Proposals", type: :system do
             expect(page).to have_content("Cities need more people, not more cars")
             expect(page).to have_content(address)
             expect(page).to have_content(translated(category.name))
-            expect(page).to have_content(translated(scope.name))
+            # REDESIGN_PENDING - scope picker is pending https://github.com/decidim/decidim/issues/10192
+            # expect(page).to have_content(translated(scope.name))
             expect(page).to have_author(user.name)
           end
 
@@ -160,7 +163,6 @@ describe "Proposals", type: :system do
               # Prepare the view for submission (other than the address field)
               visit complete_proposal_path(component, proposal_draft)
 
-              check :proposal_has_address
               fill_in :proposal_title, with: "More sidewalks and less roads"
               fill_in :proposal_body, with: "Cities need more people, not more cars"
             end
@@ -217,7 +219,8 @@ describe "Proposals", type: :system do
               fill_in :proposal_title, with: "More sidewalks and less roads"
               fill_in :proposal_body, with: "Cities need more people, not more cars"
               select translated(category.name), from: :proposal_category_id
-              scope_pick scope_picker, scope
+              # REDESIGN_PENDING - scope picker is pending https://github.com/decidim/decidim/issues/10192
+              # scope_pick scope_picker, scope
               select user_group.name, from: :proposal_user_group_id
 
               find("*[type=submit]").click
@@ -229,7 +232,8 @@ describe "Proposals", type: :system do
             expect(page).to have_content("More sidewalks and less roads")
             expect(page).to have_content("Cities need more people, not more cars")
             expect(page).to have_content(translated(category.name))
-            expect(page).to have_content(translated(scope.name))
+            # REDESIGN_PENDING - scope picker is pending https://github.com/decidim/decidim/issues/10192
+            # expect(page).to have_content(translated(scope.name))
             expect(page).to have_author(user_group.name)
           end
 
@@ -256,10 +260,10 @@ describe "Proposals", type: :system do
               within ".edit_proposal" do
                 fill_in :proposal_title, with: "More sidewalks and less roads"
                 fill_in :proposal_body, with: "Cities need more people, not more cars"
-                check :proposal_has_address
                 fill_in :proposal_address, with: address
                 select translated(category.name), from: :proposal_category_id
-                scope_pick scope_picker, scope
+                # REDESIGN_PENDING - scope picker is pending https://github.com/decidim/decidim/issues/10192
+                # scope_pick scope_picker, scope
                 select user_group.name, from: :proposal_user_group_id
 
                 find("*[type=submit]").click
@@ -272,7 +276,8 @@ describe "Proposals", type: :system do
               expect(page).to have_content("Cities need more people, not more cars")
               expect(page).to have_content(address)
               expect(page).to have_content(translated(category.name))
-              expect(page).to have_content(translated(scope.name))
+              # REDESIGN_PENDING - scope picker is pending https://github.com/decidim/decidim/issues/10192
+              # expect(page).to have_content(translated(scope.name))
               expect(page).to have_author(user_group.name)
             end
           end
@@ -321,7 +326,7 @@ describe "Proposals", type: :system do
               fill_in :proposal_body, with: "This is my proposal and I want to upload attachments."
             end
 
-            dynamically_attach_file(:proposal_photos, Decidim::Dev.asset("city.jpeg"))
+            dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city.jpeg"), front_interface: true)
 
             within ".edit_proposal" do
               find("*[type=submit]").click
@@ -331,7 +336,7 @@ describe "Proposals", type: :system do
 
             expect(page).to have_content("successfully")
 
-            within ".section.images" do
+            within "#panel-images" do
               expect(page).to have_selector("img[src*=\"city.jpeg\"]", count: 1)
             end
           end
@@ -346,13 +351,11 @@ describe "Proposals", type: :system do
               end
             end
 
-            it "sets the card image correctly with zero weight" do
-              skip "REDESIGN_PENDING - The upload feature has to be simplified in redesign and multiple files upload fails"
-
+            it "sets the card image correctly with zero weight", :slow do
               # Attach one card image and two document images and go to preview
-              dynamically_attach_file(:proposal_photos, Decidim::Dev.asset("city.jpeg"))
-              dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city2.jpeg"))
-              dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city3.jpeg"))
+              dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city.jpeg"), front_interface: true)
+              dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city2.jpeg"), front_interface: true)
+              dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city3.jpeg"), front_interface: true)
 
               within ".edit_proposal" do
                 find("*[type=submit]").click
@@ -364,20 +367,20 @@ describe "Proposals", type: :system do
 
               # See that the images are in correct positions and remove the card
               # image.
-              within ".upload-container-for-photos [data-active-uploads]" do
+              within "[data-active-uploads]" do
                 expect(page).to have_content("city.jpeg")
-              end
-              within ".upload-container-for-documents [data-active-uploads]" do
                 expect(page).to have_content("city2.jpeg")
                 expect(page).to have_content("city3.jpeg")
               end
 
-              within ".upload-container-for-photos" do
-                click_button "Edit image"
+              within ".upload-container-for-documents" do
+                click_button "Edit documents"
               end
               within ".upload-modal" do
-                find("button.remove-upload-item").click
-                click_button "Save"
+                within "[data-filename='city.jpeg']" do
+                  click_button("Remove")
+                end
+                click_button "Next"
               end
 
               within ".edit_proposal" do
@@ -388,12 +391,8 @@ describe "Proposals", type: :system do
               expect(page).to have_content("Your proposal has not yet been published")
               click_link "Modify the proposal"
 
-              # See that the card image is now empty and the two other images
-              # are still in the documents container as they should.
-              within ".upload-container-for-photos [data-active-uploads]" do
-                expect(page).not_to have_selector(".attachment-details")
-              end
-              within ".upload-container-for-documents [data-active-uploads]" do
+              within "[data-active-uploads]" do
+                expect(page).to have_no_content("city.jpeg")
                 expect(page).to have_content("city2.jpeg")
                 expect(page).to have_content("city3.jpeg")
               end

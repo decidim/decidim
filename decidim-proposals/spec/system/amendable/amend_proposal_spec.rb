@@ -26,20 +26,9 @@ describe "Amend Proposal", versioning: true, type: :system do
     end
 
     it "is shown the amendments list" do
-      skip "REDESIGN_PENDING - This test should be fixed in https://github.com/decidim/decidim/pull/10765"
-
-      expect(page).to have_css("#amendments", text: "AMENDMENTS")
-      within ".amendment-list" do
+      within("#amendments") do
+        expect(page).to have_content("1 amendment")
         expect(page).to have_content(emendation_title)
-      end
-    end
-
-    it "is shown the amenders list" do
-      skip "REDESIGN_PENDING - This test should be fixed in https://github.com/decidim/decidim/pull/10765"
-
-      expect(page).to have_content("AMENDED BY")
-      within ".amender-list" do
-        expect(page).to have_content(emendation.creator_author.name)
       end
     end
   end
@@ -60,7 +49,7 @@ describe "Amend Proposal", versioning: true, type: :system do
         end
 
         it "is NOT shown a link to Amend it" do
-          expect(page).not_to have_link("Amend Proposal")
+          expect(page).to have_no_css("#amend-button")
         end
       end
     end
@@ -121,14 +110,8 @@ describe "Amend Proposal", versioning: true, type: :system do
           let(:user) { emendation.creator_author }
 
           it "is shown the emendation from other user in the amendments list" do
-            within ".amendment-list" do
+            within "#amendment-list" do
               expect(page).to have_content(emendation_title)
-            end
-          end
-
-          it "is shown the other user in the amenders list" do
-            within ".amender-list" do
-              expect(page).to have_content(emendation.creator_author.name)
             end
           end
         end
@@ -137,14 +120,8 @@ describe "Amend Proposal", versioning: true, type: :system do
           let!(:user) { create :user, :confirmed, organization: component.organization }
 
           it "is shown the emendation from other users in the amendments list" do
-            within ".amendment-list" do
+            within "#amendment-list" do
               expect(page).to have_content(emendation_title)
-            end
-          end
-
-          it "is shown other users in the amenders list" do
-            within ".amender-list" do
-              expect(page).to have_content(emendation.creator_author.name)
             end
           end
         end
@@ -157,14 +134,8 @@ describe "Amend Proposal", versioning: true, type: :system do
 
         context "and visit an amendable proposal" do
           it "is shown the emendation from other users in the amendments list" do
-            within ".amendment-list" do
+            within "#amendment-list" do
               expect(page).to have_content(emendation_title)
-            end
-          end
-
-          it "is shown other users in the amenders list" do
-            within ".amender-list" do
-              expect(page).to have_content(emendation.creator_author.name)
             end
           end
         end
@@ -191,7 +162,7 @@ describe "Amend Proposal", versioning: true, type: :system do
         end
 
         it "is NOT shown a link to Amend it" do
-          expect(page).not_to have_link("Amend Proposal")
+          expect(page).to have_no_css("#amend-button")
         end
 
         context "when a private user is logged in" do
@@ -204,7 +175,7 @@ describe "Amend Proposal", versioning: true, type: :system do
           end
 
           it "is shown a link to Amend it" do
-            expect(page).to have_link("Amend Proposal")
+            expect(page).to have_link("Amend")
           end
         end
       end
@@ -215,12 +186,12 @@ describe "Amend Proposal", versioning: true, type: :system do
         end
 
         it "is shown a link to Amend it" do
-          expect(page).to have_link("Amend Proposal")
+          expect(page).to have_link("Amend")
         end
 
         context "when the user is not logged in and clicks" do
           before do
-            click_link "Amend Proposal"
+            click_link "Amend"
           end
 
           it "is shown the login modal" do
@@ -237,7 +208,7 @@ describe "Amend Proposal", versioning: true, type: :system do
           before do
             login_as user, scope: :user
             visit proposal_path
-            click_link "Amend Proposal"
+            click_link "Amend"
           end
 
           it "is shown the amendment create form" do
@@ -297,7 +268,7 @@ describe "Amend Proposal", versioning: true, type: :system do
         end
 
         it "is NOT shown a link to Amend it" do
-          expect(page).not_to have_link("Amend Proposal")
+          expect(page).to have_no_css("#amend-button")
         end
       end
     end
@@ -316,19 +287,12 @@ describe "Amend Proposal", versioning: true, type: :system do
         end
 
         it "is shown the accept and reject button" do
-          skip "REDESIGN_PENDING - This test should be fixed in https://github.com/decidim/decidim/pull/10765"
-
-          expect(page).to have_css(".success", text: "ACCEPT")
-          expect(page).to have_css(".alert", text: "REJECT")
+          expect(page).to have_css("a.button.button__secondary", text: "Accept")
+          expect(page).to have_css("a.button.button__transparent-secondary", text: "Reject")
         end
 
         context "when the user clicks on the accept button" do
           before do
-            # For some reason, the reject button click can fail unless the page
-            # is first scrolled to the amend button...?
-            # Got the idea from:
-            # https://stackoverflow.com/a/39103252
-            page.scroll_to(find(".card__amend-button"))
             click_link "Accept"
           end
 
@@ -359,11 +323,6 @@ describe "Amend Proposal", versioning: true, type: :system do
 
         context "when the user clicks on the reject button" do
           before do
-            # For some reason, the reject button click can fail unless the page
-            # is first scrolled to the amend button...?
-            # Got the idea from:
-            # https://stackoverflow.com/a/39103252
-            page.scroll_to(find(".card__amend-button"))
             click_link "Reject"
           end
 
@@ -414,9 +373,7 @@ describe "Amend Proposal", versioning: true, type: :system do
         end
 
         it "is shown the promote button" do
-          skip "REDESIGN_PENDING - This test should be fixed in https://github.com/decidim/decidim/pull/10765"
-
-          expect(page).to have_content("PROMOTE TO PROPOSAL")
+          expect(page).to have_content("Promote to Proposal")
           expect(page).to have_content("You can promote this emendation and publish it as an independent proposal")
         end
 
@@ -491,14 +448,8 @@ describe "Amend Proposal", versioning: true, type: :system do
           let(:user) { emendation.creator_author }
 
           it "is shown the emendation in the amendments list" do
-            within ".amendment-list" do
+            within "#amendment-list" do
               expect(page).to have_content(emendation_title)
-            end
-          end
-
-          it "is shown the user in the amenders list" do
-            within ".amender-list" do
-              expect(page).to have_content(user.name)
             end
           end
         end
@@ -507,11 +458,7 @@ describe "Amend Proposal", versioning: true, type: :system do
           let!(:user) { create :user, :confirmed, organization: component.organization }
 
           it "is NOT shown the amendments list" do
-            expect(page).not_to have_css(".amendment-list")
-          end
-
-          it "is NOT shown the amenders list" do
-            expect(page).not_to have_css(".amender-list")
+            expect(page).not_to have_css("#amendment-list")
           end
         end
       end
@@ -523,11 +470,7 @@ describe "Amend Proposal", versioning: true, type: :system do
 
         context "and visit an amendable proposal" do
           it "is NOT shown the amendments list" do
-            expect(page).not_to have_css(".amendment-list")
-          end
-
-          it "is NOT shown the amenders list" do
-            expect(page).not_to have_css(".amender-list")
+            expect(page).not_to have_css("#amendment-list")
           end
         end
       end
@@ -548,14 +491,8 @@ describe "Amend Proposal", versioning: true, type: :system do
           let(:user) { emendation.creator_author }
 
           it "is shown the emendation from other user in the amendments list" do
-            within ".amendment-list" do
+            within "#amendment-list" do
               expect(page).to have_content(emendation_title)
-            end
-          end
-
-          it "is shown the other user in the amenders list" do
-            within ".amender-list" do
-              expect(page).to have_content(emendation.creator_author.name)
             end
           end
         end
@@ -564,14 +501,8 @@ describe "Amend Proposal", versioning: true, type: :system do
           let!(:user) { create :user, :confirmed, organization: component.organization }
 
           it "is shown the emendation from other users in the amendments list" do
-            within ".amendment-list" do
+            within "#amendment-list" do
               expect(page).to have_content(emendation_title)
-            end
-          end
-
-          it "is shown other users in the amenders list" do
-            within ".amender-list" do
-              expect(page).to have_content(emendation.creator_author.name)
             end
           end
         end
@@ -584,14 +515,8 @@ describe "Amend Proposal", versioning: true, type: :system do
 
         context "and visit an amendable proposal" do
           it "is shown the emendation from other users in the amendments list" do
-            within ".amendment-list" do
+            within "#amendment-list" do
               expect(page).to have_content(emendation_title)
-            end
-          end
-
-          it "is shown other users in the amenders list" do
-            within ".amender-list" do
-              expect(page).to have_content(emendation.creator_author.name)
             end
           end
         end

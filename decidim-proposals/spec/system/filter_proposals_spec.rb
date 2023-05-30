@@ -37,16 +37,20 @@ describe "Filter Proposals", :slow, type: :system do
 
   context "when filtering proposals by TEXT" do
     it "updates the current URL" do
+      skip_unless_redesign_enabled("Filters update the results when redesign is fully enabled")
+
       create(:proposal, component:, title: { en: "Foobar proposal" })
       create(:proposal, component:, title: { en: "Another proposal" })
       visit_component
 
       within "form.new_filter" do
         fill_in("filter[search_text_cont]", with: "foobar")
-        click_button "Search"
+        within "form .filter-search" do
+          find("*[type=submit]").click
+        end
       end
 
-      expect(page).not_to have_content("Another proposal")
+      expect(page).to have_no_content("Another proposal")
       expect(page).to have_content("Foobar proposal")
 
       filter_params = CGI.parse(URI.parse(page.current_url).query)
@@ -70,33 +74,35 @@ describe "Filter Proposals", :slow, type: :system do
 
       context "with 'official' origin" do
         it "lists the filtered proposals" do
+          skip_unless_redesign_enabled("Filters update the results when redesign is fully enabled")
+
           create_list(:proposal, 2, :official, component:, scope:)
           create(:proposal, component:, scope:)
           visit_component
 
-          within ".filters .with_any_origin_check_boxes_tree_filter" do
+          within "#dropdown-menu-filters div.filter-container", text: "Origin" do
             uncheck "All"
             check "Official"
           end
 
           expect(page).to have_css(".proposal-list-item", count: 2)
-          expect(page).to have_content("2 PROPOSALS")
         end
       end
 
       context "with 'participants' origin" do
         it "lists the filtered proposals" do
+          skip_unless_redesign_enabled("Filters update the results when redesign is fully enabled")
+
           create_list(:proposal, 2, component:, scope:)
           create(:proposal, :official, component:, scope:)
           visit_component
 
-          within ".filters .with_any_origin_check_boxes_tree_filter" do
+          within "#dropdown-menu-filters div.filter-container", text: "Origin" do
             uncheck "All"
             check "Participants"
           end
 
           expect(page).to have_css(".proposal-list-item", count: 2)
-          expect(page).to have_content("2 PROPOSALS")
         end
       end
     end
@@ -135,44 +141,49 @@ describe "Filter Proposals", :slow, type: :system do
 
     context "when selecting the global scope" do
       it "lists the filtered proposals", :slow do
-        within ".filters .with_any_scope_check_boxes_tree_filter" do
+        skip_unless_redesign_enabled("Filters update the results when redesign is fully enabled")
+
+        within "#dropdown-menu-filters div.filter-container", text: "Scope" do
           uncheck "All"
           check "Global"
         end
 
         expect(page).to have_css(".proposal-list-item", count: 1)
-        expect(page).to have_content("1 PROPOSAL")
       end
     end
 
     context "when selecting one scope" do
       it "lists the filtered proposals", :slow do
-        within ".filters .with_any_scope_check_boxes_tree_filter" do
+        skip_unless_redesign_enabled("Filters update the results when redesign is fully enabled")
+
+        within "#dropdown-menu-filters div.filter-container", text: "Scope" do
           uncheck "All"
           check scope.name[I18n.locale.to_s]
         end
 
         expect(page).to have_css(".proposal-list-item", count: 2)
-        expect(page).to have_content("2 PROPOSALS")
       end
     end
 
     context "when selecting the global scope and another scope" do
       it "lists the filtered proposals", :slow do
-        within ".filters .with_any_scope_check_boxes_tree_filter" do
+        skip_unless_redesign_enabled("Filters update the results when redesign is fully enabled")
+
+        within "#dropdown-menu-filters div.filter-container", text: "Scope" do
           uncheck "All"
           check "Global"
           check scope.name[I18n.locale.to_s]
         end
 
         expect(page).to have_css(".proposal-list-item", count: 3)
-        expect(page).to have_content("3 PROPOSALS")
       end
     end
 
     context "when unselecting the selected scope" do
       it "lists the filtered proposals" do
-        within ".filters .with_any_scope_check_boxes_tree_filter" do
+        skip_unless_redesign_enabled("Filters update the results when redesign is fully enabled")
+
+        within "#dropdown-menu-filters div.filter-container", text: "Scope" do
           uncheck "All"
           check scope.name[I18n.locale.to_s]
           check "Global"
@@ -180,7 +191,6 @@ describe "Filter Proposals", :slow, type: :system do
         end
 
         expect(page).to have_css(".proposal-list-item", count: 1)
-        expect(page).to have_content("1 PROPOSAL")
       end
     end
 
@@ -238,14 +248,13 @@ describe "Filter Proposals", :slow, type: :system do
           create(:proposal, :accepted, component:, scope:)
           visit_component
 
-          within ".filters .with_any_state_check_boxes_tree_filter" do
+          within "#dropdown-menu-filters div.filter-container", text: "Status" do
             check "All"
             uncheck "All"
             check "Accepted"
           end
 
           expect(page).to have_css(".proposal-list-item", count: 1)
-          expect(page).to have_content("1 PROPOSAL")
 
           within ".proposal-list-item" do
             expect(page).to have_content("Accepted")
@@ -253,17 +262,18 @@ describe "Filter Proposals", :slow, type: :system do
         end
 
         it "lists the filtered proposals" do
+          skip_unless_redesign_enabled("Filters update the results when redesign is fully enabled")
+
           create(:proposal, :rejected, component:, scope:)
           visit_component
 
-          within ".filters .with_any_state_check_boxes_tree_filter" do
+          within "#dropdown-menu-filters div.filter-container", text: "Status" do
             check "All"
             uncheck "All"
             check "Rejected"
           end
 
           expect(page).to have_css(".proposal-list-item", count: 1)
-          expect(page).to have_content("1 PROPOSAL")
 
           within ".proposal-list-item" do
             expect(page).to have_content("Rejected")
@@ -280,14 +290,15 @@ describe "Filter Proposals", :slow, type: :system do
           end
 
           it "shows only accepted proposals with published answers" do
-            within ".filters .with_any_state_check_boxes_tree_filter" do
+            skip_unless_redesign_enabled("Filters update the results when redesign is fully enabled")
+
+            within "#dropdown-menu-filters div.filter-container", text: "Status" do
               check "All"
               uncheck "All"
               check "Accepted"
             end
 
             expect(page).to have_css(".proposal-list-item", count: 1)
-            expect(page).to have_content("1 PROPOSAL")
 
             within ".proposal-list-item" do
               expect(page).to have_content("Accepted")
@@ -295,14 +306,15 @@ describe "Filter Proposals", :slow, type: :system do
           end
 
           it "shows accepted proposals with not published answers as not answered" do
-            within ".filters .with_any_state_check_boxes_tree_filter" do
+            skip_unless_redesign_enabled("Filters update the results when redesign is fully enabled")
+
+            within "#dropdown-menu-filters div.filter-container", text: "Status" do
               check "All"
               uncheck "All"
               check "Not answered"
             end
 
             expect(page).to have_css(".proposal-list-item", count: 1)
-            expect(page).to have_content("1 PROPOSAL")
 
             within ".proposal-list-item" do
               expect(page).to have_content(translated(proposal.title))
@@ -361,9 +373,11 @@ describe "Filter Proposals", :slow, type: :system do
       end
 
       it "can be filtered by a category" do
+        skip_unless_redesign_enabled("Filters update the results when redesign is fully enabled")
+
         visit_component
 
-        within ".filters .with_any_category_check_boxes_tree_filter" do
+        within "#dropdown-menu-filters div.filter-container", text: "Category" do
           uncheck "All"
           check category.name[I18n.locale.to_s]
         end
@@ -372,9 +386,11 @@ describe "Filter Proposals", :slow, type: :system do
       end
 
       it "can be filtered by two categories" do
+        skip_unless_redesign_enabled("Filters update the results when redesign is fully enabled")
+
         visit_component
 
-        within ".filters .with_any_category_check_boxes_tree_filter" do
+        within "#dropdown-menu-filters div.filter-container", text: "Category" do
           uncheck "All"
           check category.name[I18n.locale.to_s]
           check category2.name[I18n.locale.to_s]
@@ -411,6 +427,8 @@ describe "Filter Proposals", :slow, type: :system do
       end
 
       it "lists the filtered proposals created by the user" do
+        skip_unless_redesign_enabled("Filters update the results when redesign is fully enabled")
+
         within "form.new_filter" do
           find("input[value='my_proposals']").click
         end
@@ -477,31 +495,32 @@ describe "Filter Proposals", :slow, type: :system do
           find('input[name="filter[type]"][value="all"]').click
 
           expect(page).to have_css(".card__list.proposal-list-item", count: 2)
-          expect(page).to have_content("2 PROPOSALS")
           expect(page).to have_content("Amendment", count: 2)
         end
       end
 
       context "with 'proposals' type" do
         it "lists the filtered proposals" do
-          within ".filters" do
+          skip_unless_redesign_enabled("Filters update the results when redesign is fully enabled")
+
+          within "#dropdown-menu-filters div.filter-container", text: "Type" do
             choose "Proposals"
           end
 
           expect(page).to have_css(".card__list.proposal-list-item", count: 1)
-          expect(page).to have_content("1 PROPOSAL")
           expect(page).to have_content("Amendment", count: 1)
         end
       end
 
       context "with 'amendments' type" do
         it "lists the filtered proposals" do
-          within ".filters" do
+          skip_unless_redesign_enabled("Filters update the results when redesign is fully enabled")
+
+          within "#dropdown-menu-filters div.filter-container", text: "Type" do
             choose "Amendments"
           end
 
           expect(page).to have_css(".card__list.proposal-list-item", count: 1)
-          expect(page).to have_content("1 PROPOSAL")
           expect(page).to have_content("Amendment", count: 2)
         end
       end
@@ -540,11 +559,12 @@ describe "Filter Proposals", :slow, type: :system do
               end
 
               it "lists only their amendments" do
-                within ".filters" do
+                skip_unless_redesign_enabled("Filters update the results when redesign is fully enabled")
+
+                within "#dropdown-menu-filters div.filter-container", text: "Type" do
                   choose "Amendments"
                 end
                 expect(page).to have_css(".card__list.proposal-list-item", count: 1)
-                expect(page).to have_content("1 PROPOSAL")
                 expect(page).to have_content("Amendment", count: 2)
                 expect(page).to have_content(translated(new_emendation.title))
                 expect(page).to have_no_content(translated(emendation.title))
@@ -613,11 +633,12 @@ describe "Filter Proposals", :slow, type: :system do
               end
 
               it "lists all the amendments" do
-                within ".filters" do
+                skip_unless_redesign_enabled("Filters update the results when redesign is fully enabled")
+
+                within "#dropdown-menu-filters div.filter-container", text: "Type" do
                   choose "Amendments"
                 end
                 expect(page).to have_css(".card__list.proposal-list-item", count: 2)
-                expect(page).to have_content("2 PROPOSAL")
                 expect(page).to have_content("Amendment", count: 3)
                 expect(page).to have_content(translated(new_emendation.title))
                 expect(page).to have_content(translated(emendation.title))
@@ -665,7 +686,9 @@ describe "Filter Proposals", :slow, type: :system do
     end
 
     it "recover filters from initial pages" do
-      within ".filters .with_any_state_check_boxes_tree_filter" do
+      skip_unless_redesign_enabled("Filters update the results when redesign is fully enabled")
+
+      within "#dropdown-menu-filters div.filter-container", text: "Status" do
         check "Rejected"
       end
 
@@ -677,19 +700,21 @@ describe "Filter Proposals", :slow, type: :system do
     end
 
     it "recover filters from previous pages" do
-      within ".filters .with_any_state_check_boxes_tree_filter" do
+      skip_unless_redesign_enabled("Filters update the results when redesign is fully enabled")
+
+      within "#dropdown-menu-filters div.filter-container", text: "Status" do
         check "All"
         uncheck "All"
       end
-      within ".filters .with_any_origin_check_boxes_tree_filter" do
+      within "#dropdown-menu-filters div.filter-container", text: "Origin" do
         uncheck "All"
       end
 
-      within ".filters .with_any_origin_check_boxes_tree_filter" do
+      within "#dropdown-menu-filters div.filter-container", text: "Origin" do
         check "Official"
       end
 
-      within ".filters .with_any_state_check_boxes_tree_filter" do
+      within "#dropdown-menu-filters div.filter-container", text: "Status" do
         check "Accepted"
       end
 
@@ -697,14 +722,17 @@ describe "Filter Proposals", :slow, type: :system do
 
       page.go_back
 
+      page.refresh
       expect(page).to have_css(".card__list.proposal-list-item", count: 6)
 
       page.go_back
 
+      page.refresh
       expect(page).to have_css(".card__list.proposal-list-item", count: 8)
 
       page.go_forward
 
+      page.refresh
       expect(page).to have_css(".card__list.proposal-list-item", count: 6)
     end
   end
@@ -720,16 +748,18 @@ describe "Filter Proposals", :slow, type: :system do
     end
 
     it "saves and restores the filtering" do
+      skip_unless_redesign_enabled("Filters update the results when redesign is fully enabled")
+
       expect(page).to have_css(".card__list.proposal-list-item", count: 6)
 
-      within ".filters .with_any_state_check_boxes_tree_filter" do
+      within "#dropdown-menu-filters div.filter-container", text: "Status" do
         check "Rejected"
       end
 
       expect(page).to have_css(".card__list.proposal-list-item", count: 8)
 
       page.find("a.card__list.proposal-list-item", match: :first).click
-      click_link "Back to list"
+      click_link "Back"
 
       expect(page).to have_css(".card__list.proposal-list-item", count: 8)
     end
