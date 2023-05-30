@@ -35,7 +35,7 @@ module Decidim::Devise
 
       it "responds to the edit path" do
         get :edit, params: { invitation_token: user.raw_invitation_token }
-        expect(response.status).to eq(200)
+        expect(response).to have_http_status(200)
       end
 
       it "redirects to the provided path" do

@@ -26,7 +26,7 @@ module Decidim
       it "validates" do
         post(:create, params:)
 
-        expect(response.status).to eq(200)
+        expect(response).to have_http_status(200)
         expect(parsed_response).to eq([])
       end
     end

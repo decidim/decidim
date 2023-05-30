@@ -125,9 +125,6 @@ Rails/ActiveSupportOnLoad:
 RSpec/SkipBlockInsideExample:
   Enabled: false
 
-RSpec/Rails/HaveHttpStatus:
-  Enabled: false
-
 Rails/HelperInstanceVariable:
   Enabled: false
 
