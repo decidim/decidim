@@ -3,7 +3,7 @@
     <% add_decidim_page_title(t("profile", scope: "layouts.decidim.user_menu")) %>
     <% content_for(:subtitle) { t("profile", scope: "layouts.decidim.user_menu") } %>
 
-    <%= decidim_form_for(@account, url: account_path, method: :put, html: { autocomplete: "on", class: "form-defaults" }) do |f| %>
+    <%= decidim_form_for(@account, url: account_path, method: :put, html: { autocomplete: "on", class: "form-defaults edit_user" }) do |f| %>
       <div class="form__wrapper pt-0">
         <%= f.upload :avatar, button_class: "button button__lg button__transparent-secondary w-full" %>
 

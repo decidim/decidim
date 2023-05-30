@@ -10,7 +10,7 @@ const initializeAccountForm = () => {
     return;
   }
 
-  const passwordChange = editUserForm.querySelector("#passwordChange");
+  const passwordChange = editUserForm.querySelector("#panel-password");
   if (!passwordChange) {
     return;
   }
