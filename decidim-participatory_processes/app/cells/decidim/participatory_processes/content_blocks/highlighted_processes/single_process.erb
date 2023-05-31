@@ -1,11 +1,15 @@
 <% process = highlighted_items.first %>
 <% title_id = "process_title" %>
-<section class="wrapper-home home__section">
-  <div class="row" id="highlighted-processes">
-    <h3 class="section-heading"><%= t("active_processes", scope: i18n_scope) %></h3>
+<section class="home__section">
+  <div id="highlighted-processes">
+    <div class="home__section-header">
+      <h2 class="home__section-title">
+        <%= t("active_processes", scope: i18n_scope) %>
+      </h2>
+      <%= render "_all_processes" %>
+    </div>
     <div class="card__grid-home">
       <%= card_for process, highlight: true, size: :g %>
     </div>
   </div>
-  <%= render "_all_processes" %>
 </section>
