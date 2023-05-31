@@ -92,9 +92,6 @@ Capybara/SpecificActions:
 Capybara/CurrentPathExpectation:
   Enabled: false
 
-Style/MapToSet:
-  Enabled: false
-
 Style/ConcatArrayLiterals:
   Enabled: false
 
