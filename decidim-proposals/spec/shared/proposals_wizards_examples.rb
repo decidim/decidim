@@ -3,11 +3,11 @@
 shared_examples "proposals wizards" do |options|
   include_context "with a component"
   let(:manifest_name) { "proposals" }
-  let(:organization) { create :organization }
+  let(:organization) { create(:organization) }
 
-  let!(:category) { create :category, participatory_space: participatory_process }
-  let!(:scope) { create :scope, organization: }
-  let!(:user) { create :user, :confirmed, organization: }
+  let!(:category) { create(:category, participatory_space: participatory_process) }
+  let!(:scope) { create(:scope, organization:) }
+  let!(:user) { create(:user, :confirmed, organization:) }
   let(:scoped_participatory_process) { create(:participatory_process, :with_steps, organization:, scope:) }
 
   let(:address) { "Plaça Santa Jaume, 1, 08002 Barcelona" }
@@ -244,6 +244,7 @@ shared_examples "proposals wizards" do |options|
       end
     end
   end
+
   shared_examples_for "with address" do
     let!(:component) do
       create(:proposal_component,

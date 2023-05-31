@@ -7,11 +7,11 @@ module Decidim::Admin
     subject { described_class.new(form, current_user, privatable_to, via_csv:) }
 
     let(:via_csv) { false }
-    let(:privatable_to) { create :participatory_process }
+    let(:privatable_to) { create(:participatory_process) }
     let!(:email) { "my_email@example.org" }
     let!(:name) { "Weird Guy" }
-    let!(:user) { create :user, email: "my_email@example.org", organization: privatable_to.organization }
-    let!(:current_user) { create :user, email: "some_email@example.org", organization: privatable_to.organization }
+    let!(:user) { create(:user, email: "my_email@example.org", organization: privatable_to.organization) }
+    let!(:current_user) { create(:user, email: "some_email@example.org", organization: privatable_to.organization) }
     let(:form) do
       double(
         invalid?: invalid,

@@ -19,7 +19,7 @@ module Decidim
         root to: "debates#index"
       end
 
-      initializer "decidim_changes" do
+      initializer "decidim_debates.settings_changes" do
         config.to_prepare do
           Decidim::SettingsChange.subscribe "debates" do |changes|
             Decidim::Debates::SettingsChangeJob.perform_later(
@@ -31,12 +31,12 @@ module Decidim
         end
       end
 
-      initializer "decidim_meetings.add_cells_view_paths" do
+      initializer "decidim_debates.add_cells_view_paths" do
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Debates::Engine.root}/app/cells")
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Debates::Engine.root}/app/views") # for partials
       end
 
-      initializer "decidim.debates.commented_debates_badge" do
+      initializer "decidim_debates.commented_debates_badge" do
         Decidim::Gamification.register_badge(:commented_debates) do |badge|
           badge.levels = [1, 5, 10, 30, 50]
 
@@ -103,8 +103,10 @@ module Decidim
       end
 
       initializer "decidim_debates.authorization_transfer" do
-        Decidim::AuthorizationTransfer.register(:debates) do |transfer|
-          transfer.move_records(Decidim::Debates::Debate, :decidim_author_id)
+        config.to_prepare do
+          Decidim::AuthorizationTransfer.register(:debates) do |transfer|
+            transfer.move_records(Decidim::Debates::Debate, :decidim_author_id)
+          end
         end
       end
 

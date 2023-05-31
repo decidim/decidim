@@ -196,9 +196,9 @@ module Decidim
 
         context "when display_conditions are not mandatory on the same question but are fulfilled" do
           let(:questionnaire_conditionned) { create(:questionnaire, questionnaire_for: participatory_process) }
-          let!(:option1) { create :answer_option, question: condition_question }
-          let!(:option2) { create :answer_option, question: condition_question }
-          let!(:option3) { create :answer_option, question: condition_question }
+          let!(:option1) { create(:answer_option, question: condition_question) }
+          let!(:option2) { create(:answer_option, question: condition_question) }
+          let!(:option3) { create(:answer_option, question: condition_question) }
           let!(:condition_question) do
             create(
               :questionnaire_question,

@@ -8,13 +8,13 @@ module Decidim
         include Decidim::FormFactory
 
         def show
-          enforce_permission_to :view, :trustee, trustee: trustee
+          enforce_permission_to(:view, :trustee, trustee:)
 
           trustee.name ||= current_user.name
         end
 
         def update
-          enforce_permission_to :update, :trustee, trustee: trustee
+          enforce_permission_to(:update, :trustee, trustee:)
 
           form = form(TrusteeForm).from_params(params, trustee:)
 

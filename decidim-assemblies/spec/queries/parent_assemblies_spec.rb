@@ -12,7 +12,7 @@ module Decidim::Assemblies
     describe "query" do
       it "only returns parent assemblies" do
         expect(subject.count).to eq(2)
-        expect(subject.pluck(:id)).to match_array([parent_assembly.id, child_assembly.parent.id])
+        expect(subject.pluck(:id)).to contain_exactly(parent_assembly.id, child_assembly.parent.id)
       end
     end
   end

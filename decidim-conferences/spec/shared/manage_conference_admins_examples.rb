@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
 shared_examples "manage conference admins examples" do
-  let(:other_user) { create :user, organization:, email: "my_email@example.org" }
+  let(:other_user) { create(:user, organization:, email: "my_email@example.org") }
 
   let!(:conference_admin) do
-    create :conference_admin,
+    create(:conference_admin,
            :confirmed,
            organization:,
-           conference:
+           conference:)
   end
 
   before do
@@ -75,7 +75,7 @@ shared_examples "manage conference admins examples" do
       expect(page).to have_admin_callout("successfully")
 
       within "#conference_admins table" do
-        expect(page).to have_no_content(other_user.email)
+        expect(page).not_to have_content(other_user.email)
       end
     end
 
@@ -85,12 +85,14 @@ shared_examples "manage conference admins examples" do
           name: "test",
           email: "test@example.org",
           role: "admin"
-        )
+        ).with_context(current_user: user)
 
-        Decidim::Conferences::Admin::CreateConferenceAdmin.call(
+        Decidim::Admin::ParticipatorySpace::CreateAdmin.call(
           form,
-          user,
-          conference
+          conference,
+          role_class: Decidim::ConferenceUserRole,
+          event: "decidim.events.conferences.role_assigned",
+          event_class: Decidim::Conferences::ConferenceRoleAssignedEvent
         )
 
         visit current_path

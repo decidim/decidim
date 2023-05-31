@@ -7,15 +7,15 @@ describe "Homepage", type: :system do
   let(:manifest_name) { "meetings" }
 
   let!(:meetings) { create_list(:meeting, 3, :published, component:, author: component.organization) }
-  let!(:moderation) { create :moderation, reportable: meetings.first, hidden_at: 1.day.ago }
+  let!(:moderation) { create(:moderation, reportable: meetings.first, hidden_at: 1.day.ago) }
 
   let(:day) { Time.zone.yesterday }
   let(:author) { create(:user, organization: component.organization) }
   let!(:comments) { create_list(:comment, 5, created_at: day, author:, commentable: meetings.last) }
-  let!(:comment_moderation) { create :moderation, reportable: comments.last, hidden_at: 1.day.ago }
+  let!(:comment_moderation) { create(:moderation, reportable: comments.last, hidden_at: 1.day.ago) }
 
   before do
-    create :content_block, organization: organization, scope_name: :homepage, manifest_name: :stats
+    create(:content_block, organization:, scope_name: :homepage, manifest_name: :stats)
     visit decidim.root_path
   end
 

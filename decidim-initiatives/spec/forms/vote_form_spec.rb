@@ -190,7 +190,7 @@ module Decidim
           let(:scoped_type) { district_1_initiative_type_scope }
 
           it "returns the scope descendants" do
-            expect(form.authorized_scope_candidates).to match_array([neighbourhood1, neighbourhood3, district1])
+            expect(form.authorized_scope_candidates).to contain_exactly(neighbourhood1, neighbourhood3, district1)
           end
         end
       end
@@ -225,13 +225,13 @@ module Decidim
               context "when the user scope has children" do
                 let(:user_scope) { district1 }
 
-                it { is_expected.to match_array([nil, city, district1]) }
+                it { is_expected.to contain_exactly(nil, city, district1) }
               end
 
               context "when the user scope is a leaf" do
                 let(:user_scope) { neighbourhood1 }
 
-                it { is_expected.to match_array([nil, city, district1, neighbourhood1]) }
+                it { is_expected.to contain_exactly(nil, city, district1, neighbourhood1) }
               end
             end
 
@@ -251,13 +251,13 @@ module Decidim
               context "when the user scope has children" do
                 let(:user_scope) { district1 }
 
-                it { is_expected.to match_array([district1]) }
+                it { is_expected.to contain_exactly(district1) }
               end
 
               context "when the user scope is a leaf" do
                 let(:user_scope) { neighbourhood1 }
 
-                it { is_expected.to match_array([district1, neighbourhood1]) }
+                it { is_expected.to contain_exactly(district1, neighbourhood1) }
               end
             end
 

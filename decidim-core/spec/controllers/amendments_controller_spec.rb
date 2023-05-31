@@ -60,14 +60,14 @@ module Decidim
 
             it "renders the view: compare_draft" do
               allow(Decidim::SimilarEmendations).to receive(:for).and_return([similar_emendation])
-              get :compare_draft, params: params
+              get(:compare_draft, params:)
               expect(subject).to render_template(:compare_draft)
             end
           end
 
           context "without similar emendations" do
             it "redirects to edit_draft" do
-              get :compare_draft, params: params
+              get(:compare_draft, params:)
               expect(response).to redirect_to edit_draft_amend_path(amendment)
             end
           end
@@ -105,7 +105,7 @@ module Decidim
           let(:amendment_state) { "draft" }
 
           it "renders the view: edit_draft" do
-            get :edit_draft, params: params
+            get(:edit_draft, params:)
             expect(subject).to render_template(:edit_draft)
           end
         end
@@ -192,7 +192,7 @@ module Decidim
           let(:amendment_state) { "draft" }
 
           it "destroys the draft" do
-            delete :destroy_draft, params: params
+            delete(:destroy_draft, params:)
             expect(flash[:notice]).to eq("Amendment draft was successfully deleted.")
           end
         end
@@ -229,7 +229,7 @@ module Decidim
           let(:amendment_state) { "draft" }
 
           it "renders the view: preview_draft" do
-            get :preview_draft, params: params
+            get(:preview_draft, params:)
             expect(subject).to render_template(:preview_draft)
           end
         end

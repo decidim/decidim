@@ -8,11 +8,11 @@ module Decidim
       describe AcceptInitiative do
         subject { described_class.new(initiative, user) }
 
-        let(:initiative) { create :initiative, :validating }
-        let(:user) { create :user, :admin, :confirmed, organization: initiative.organization }
+        let(:initiative) { create(:initiative, :validating) }
+        let(:user) { create(:user, :admin, :confirmed, organization: initiative.organization) }
 
         context "when the initiative is already accepted" do
-          let(:initiative) { create :initiative, :accepted }
+          let(:initiative) { create(:initiative, :accepted) }
 
           it "broadcasts :invalid" do
             expect { subject.call }.to broadcast(:invalid)

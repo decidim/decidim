@@ -3,8 +3,8 @@
 require "spec_helper"
 
 describe "Admin manages questionnaire templates", type: :system do
-  let!(:organization) { create :organization }
-  let!(:user) { create :user, :admin, :confirmed, organization: }
+  let!(:organization) { create(:organization) }
+  let!(:user) { create(:user, :admin, :confirmed, organization:) }
 
   before do
     switch_to_host(organization.host)

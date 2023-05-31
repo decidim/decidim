@@ -97,8 +97,8 @@ describe "User answers the initiative", type: :system do
         page.find(".action-icon--answer").click
 
         within ".edit_initiative_answer" do
-          expect(page).to have_no_css("#initiative_signature_start_date")
-          expect(page).to have_no_css("#initiative_signature_end_date")
+          expect(page).not_to have_css("#initiative_signature_start_date")
+          expect(page).not_to have_css("#initiative_signature_end_date")
         end
       end
     end

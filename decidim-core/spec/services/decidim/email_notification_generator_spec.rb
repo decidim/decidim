@@ -12,7 +12,7 @@ describe Decidim::EmailNotificationGenerator do
   let(:event_class) { Decidim::Events::BaseEvent }
   let(:event_class_name) { "Decidim::Events::BaseEvent" }
   let(:affected_users) { [recipient] }
-  let(:follower) { create :user }
+  let(:follower) { create(:user) }
   let(:followers) { [follower] }
   let(:extra) { double }
 
