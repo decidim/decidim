@@ -86,9 +86,6 @@ RSpec/Rails/InferredSpecType:
 RSpec/NoExpectationExample:
   Enabled: false
 
-RSpec/SortMetadata:
-  Enabled: false
-
 Rails/ActionControllerFlashBeforeRender:
   Enabled: false
 
