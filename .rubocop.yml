@@ -98,9 +98,6 @@ Style/MapToSet:
 Style/ConcatArrayLiterals:
   Enabled: false
 
-Style/RedundantRegexpEscape:
-  Enabled: false
-
 RSpec/IndexedLet:
   Enabled: false
 
