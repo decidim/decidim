@@ -47,7 +47,7 @@ shared_examples "merge proposals" do
       end
 
       it "shows an update button" do
-        expect(page).to have_css("button#js-submit-merge-proposals", count: 1)
+        expect(page).to have_button(id: "js-submit-merge-proposals", count: 1)
       end
 
       context "when submiting the form" do

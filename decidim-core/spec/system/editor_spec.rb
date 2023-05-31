@@ -1345,8 +1345,8 @@ describe "Editor", type: :system do
 
           within "[data-bubble-menu] [data-linkbubble]" do
             expect(page).to have_content("URL:\nhttps://decidim.org")
-            expect(page).to have_selector("button", text: "Edit")
-            expect(page).to have_selector("button", text: "Remove")
+            expect(page).to have_button(text: "Edit")
+            expect(page).to have_button(text: "Remove")
           end
         end
       end

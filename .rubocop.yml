@@ -80,9 +80,6 @@ RSpec/NoExpectationExample:
     - decidim-participatory_processes/spec/system/participatory_processes_spec.rb
 
 # fix these rules later
-Capybara/SpecificMatcher:
-  Enabled: false
-
 Capybara/SpecificFinders:
   Enabled: false
 

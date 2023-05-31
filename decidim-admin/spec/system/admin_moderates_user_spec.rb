@@ -26,8 +26,8 @@ describe "Admin reports user", type: :system do
 
       within ".flag-modal" do
         find(:css, "input[name='report[block]']").set(true)
-        expect(page).to have_css("input[name='report[block]']", visible: :visible)
-        expect(page).to have_css("input[name='report[hide]']", visible: :visible)
+        expect(page).to have_field(name: "report[block]", visible: :visible)
+        expect(page).to have_field(name: "report[hide]", visible: :visible)
         click_button I18n.t("decidim.shared.flag_user_modal.block")
       end
 
@@ -50,8 +50,8 @@ describe "Admin reports user", type: :system do
       within ".flag-modal" do
         find(:css, "input[name='report[block]']").set(true)
         find(:css, "input[name='report[hide]']").set(true)
-        expect(page).to have_css("input[name='report[block]']", visible: :visible)
-        expect(page).to have_css("input[name='report[hide]']", visible: :visible)
+        expect(page).to have_field(name: "report[block]", visible: :visible)
+        expect(page).to have_field(name: "report[hide]", visible: :visible)
         click_button I18n.t("decidim.shared.flag_user_modal.block")
       end
 

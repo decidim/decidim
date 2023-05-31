@@ -34,7 +34,7 @@ describe "Admin manages proposals valuators", type: :system do
     end
 
     it "shows an update button" do
-      expect(page).to have_css("button#js-submit-assign-proposals-to-valuator", count: 1)
+      expect(page).to have_button(id: "js-submit-assign-proposals-to-valuator", count: 1)
     end
 
     context "when submitting the form" do
@@ -101,7 +101,7 @@ describe "Admin manages proposals valuators", type: :system do
     end
 
     it "shows an update button" do
-      expect(page).to have_css("button#js-submit-unassign-proposals-from-valuator", count: 1)
+      expect(page).to have_button(id: "js-submit-unassign-proposals-from-valuator", count: 1)
     end
 
     context "when submitting the form" do

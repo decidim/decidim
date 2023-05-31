@@ -84,7 +84,7 @@ shared_examples "higher user role does not have hide" do
       expect(page).to have_css(".flag-modal", visible: :visible)
 
       within ".flag-modal" do
-        expect(page).not_to have_selector "input[name='report[hide]']"
+        expect(page).not_to have_field(name: "report[hide]")
       end
     end
   end
