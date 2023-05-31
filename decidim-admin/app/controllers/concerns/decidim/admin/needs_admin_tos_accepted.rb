@@ -20,7 +20,7 @@ module Decidim
 
         store_location_for(
           current_user,
-          stored_location_for(current_user) || request.path
+          request.path
         )
         redirect_to admin_tos_path
       end
