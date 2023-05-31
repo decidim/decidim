@@ -808,6 +808,15 @@ describe "Initiative", type: :system do
               expect(page).to have_link("Edit my initiative")
             end
           end
+
+          it "displays a link to take the user to their initiatives" do
+            within ".actions" do
+              expect(page).to have_link("Go to my initiatives")
+              find_link("Go to my initiatives").click
+            end
+
+            expect(page).to have_content(translated(initiative.title, locale: :en))
+          end
         end
 
         context "when minimum committee size is zero" do
