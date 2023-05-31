@@ -14,7 +14,7 @@
   &__section-header{
     @apply mb-6 md:mb-12 flex flex-col md:flex-row gap-y-6 md:gap-y-0 gap-x-1 items-start md:items-center;
 
-    button{
+    .button{
       @apply md:ml-auto;
     }
   }
