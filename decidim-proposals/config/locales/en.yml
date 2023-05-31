@@ -768,7 +768,6 @@ en:
         buttons:
           amend: Amend
           comment: Comment
-          comments: Comments
       proposal_votes:
         create:
           error: There was a problem supporting the proposal.

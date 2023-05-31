@@ -8,7 +8,7 @@
 
 <% content_for :aside do %>
   <h1 class="h3 md:h1 decorator">
-    <%= render_participatory_text_title(@participatory_text) %>
+    <%= translated_attribute(current_component.name) %>
   </h1>
 
   <%= render partial: "decidim/proposals/proposals/participatory_texts/view_index" %>
@@ -17,6 +17,10 @@
 <%= render layout: "layouts/decidim/shared/layout_two_col" do %>
 
   <%= render partial: "decidim/shared/component_announcement" %>
+
+  <h2 class="proposal-participatory__heading">
+    <%= render_participatory_text_title(@participatory_text) %>
+  </h2>
 
   <div id="proposals">
     <% @proposals.each do |proposal| %>
