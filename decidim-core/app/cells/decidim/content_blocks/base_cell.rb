@@ -35,7 +35,7 @@ module Decidim
       end
 
       def section_class
-        return "content-block home__section" if extra_classes.blank?
+        return "content-block" if extra_classes.blank?
 
         "content-block #{extra_classes}"
       end

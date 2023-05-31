@@ -1,10 +1,15 @@
 .home{
-  &__section{
+  &__section,
+  .content-block{
     @apply py-8 md:py-12 container;
 
     &-title{
       @apply h2 decorator;
     }
+  }
+
+  &__section-content-block{
+    @apply flex flex-col gap-8 items-stretch;
   }
 
   &__section-image{
