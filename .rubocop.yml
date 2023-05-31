@@ -113,9 +113,6 @@ RSpec/IndexedLet:
 RSpec/Rails/InferredSpecType:
   Enabled: false
 
-Rails/ActionControllerFlashBeforeRender:
-  Enabled: false
-
 Rails/HelperInstanceVariable:
   Enabled: false
 
