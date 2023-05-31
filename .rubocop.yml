@@ -98,9 +98,6 @@ Style/MapToSet:
 Style/ConcatArrayLiterals:
   Enabled: false
 
-Style/MinMaxComparison:
-  Enabled: false
-
 Style/RedundantRegexpEscape:
   Enabled: false
 
