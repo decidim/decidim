@@ -3,7 +3,7 @@
     @apply py-12 container;
 
     &-title{
-      @apply h2 decorator mb-12;
+      @apply h2 decorator;
     }
   }
 
@@ -24,6 +24,18 @@
 
     &__text{
       @apply text-lg text-white mt-6;
+    }
+  }
+
+  &__section-participate-grid{
+    @apply grid grid-cols-3 my-12 gap-x-8;
+
+    &__title{
+      @apply h3 mb-2;
+    }
+
+    &__text{
+      @apply text-md text-gray-2;
     }
   }
 

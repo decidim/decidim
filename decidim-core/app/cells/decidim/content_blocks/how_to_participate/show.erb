@@ -2,33 +2,33 @@
   <h2 class="home__section-title">
     <%= t("decidim.pages.home.extended.how_to_participate") %>
   </h2>
-  <div class="grid grid-cols-3 gap-x-4">
+  <div class="home__section-participate-grid">
     <div>
-      <h3 class="heading4">
+      <h3 class="home__section-participate-grid__title">
         <%= t("decidim.pages.home.extended.meetings") %>
       </h3>
-      <p>
+      <p class="home__section-participate-grid__text">
         <%= t("decidim.pages.home.extended.meetings_explanation") %>
       </p>
     </div>
     <div>
-      <h3 class="heading4">
+      <h3 class="home__section-participate-grid__title">
         <%= t("decidim.pages.home.extended.debates") %>
       </h3>
-      <p>
+      <p class="home__section-participate-grid__text">
         <%= t("decidim.pages.home.extended.debates_explanation") %>
       </p>
     </div>
     <div>
-      <h3 class="heading4">
+      <h3 class="home__section-participate-grid__title">
         <%= t("decidim.pages.home.extended.proposals") %>
       </h3>
-      <p>
+      <p class="home__section-participate-grid__text">
         <%= t("decidim.pages.home.extended.proposals_explanation") %>
       </p>
     </div>
   </div>
-  <%= link_to decidim.pages_path, class: "button button__sm md:button__lg button__secondary mt-4" do %>
+  <%= link_to decidim.pages_path, class: "button button__sm md:button__lg button__secondary mt-6" do %>
     <%= t("more_info", scope: "decidim.pages.home.extended", resource_name: translated_attribute(current_organization.name, current_organization)) %>
     <%= icon "arrow-right-line", class: "fill-current" %>
   <% end %>
