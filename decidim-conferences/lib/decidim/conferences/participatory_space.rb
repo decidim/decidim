@@ -95,7 +95,7 @@ Decidim.register_participatory_space(:conferences) do |participatory_space|
       Decidim::ConferenceUserRole::ROLES.each do |role|
         email = "conference_#{conference.id}_#{role}@example.org"
 
-        user = Decidim::User.find_or_initialize_by(email:)
+        user = Decidim::User.entire_collection.find_or_initialize_by(email:)
         user.update!(
           name: Faker::Name.name,
           nickname: Faker::Twitter.unique.screen_name,
@@ -172,7 +172,7 @@ Decidim.register_participatory_space(:conferences) do |participatory_space|
 
       5.times do
         Decidim::ConferenceSpeaker.create!(
-          user: conference.organization.users.sample,
+          user: conference.organization.users.entire_collection.sample,
           full_name: Faker::Name.name,
           position: Decidim::Faker::Localized.word,
           affiliation: Decidim::Faker::Localized.sentence(word_count: 3),

@@ -9,7 +9,7 @@ module Decidim
       include Decidim::DownloadYourData
 
       belongs_to :meeting, foreign_key: "decidim_meeting_id", class_name: "Decidim::Meetings::Meeting"
-      belongs_to :user, foreign_key: "decidim_user_id", class_name: "Decidim::User"
+      belongs_to :user, -> { entire_collection }, foreign_key: "decidim_user_id", class_name: "Decidim::User"
 
       validates :user, uniqueness: { scope: :meeting }
 

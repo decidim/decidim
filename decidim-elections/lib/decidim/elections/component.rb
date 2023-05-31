@@ -66,7 +66,7 @@ Decidim.register_component(:elections) do |component|
   end
 
   component.seeds do |participatory_space|
-    admin_user = Decidim::User.find_by(
+    admin_user = Decidim::User.entire_collection.find_by(
       organization: participatory_space.organization,
       email: "admin@example.org"
     )
@@ -519,7 +519,7 @@ Decidim.register_component(:elections) do |component|
 
     %w(admin@example.org user@example.org user2@example.org).each do |email|
       trustee = Decidim::Elections::Trustee.create!(
-        user: Decidim::User.find_by(email:),
+        user: Decidim::User.entire_collection.find_by(email:),
         organization: participatory_space.organization
       )
       trustee.trustees_participatory_spaces.create!(participatory_space:)

@@ -71,6 +71,7 @@ module Decidim
 
     def unique_nickname
       return true if Decidim::UserBaseEntity
+                     .entire_collection
                      .where(
                        organization: context.current_organization,
                        nickname:

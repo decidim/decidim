@@ -12,6 +12,7 @@ module Decidim
                class_name: "Decidim::Organization"
 
     belongs_to :user,
+               -> { entire_collection },
                foreign_key: :decidim_user_id,
                class_name: "Decidim::User"
 

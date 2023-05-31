@@ -6,7 +6,7 @@ module Decidim
       include Traceable
       include Loggable
 
-      belongs_to :user, foreign_key: "decidim_user_id", class_name: "Decidim::User", optional: true
+      belongs_to :user, -> { entire_collection }, foreign_key: "decidim_user_id", class_name: "Decidim::User", optional: true
       belongs_to :voting, foreign_key: "decidim_votings_voting_id", class_name: "Decidim::Votings::Voting", inverse_of: :monitoring_committee_members
 
       validate :user_and_voting_same_organization

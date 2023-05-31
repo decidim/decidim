@@ -6,7 +6,7 @@ module Decidim
     SESSION_TIME_IN_MINUTES = 30
 
     belongs_to :admin, foreign_key: "decidim_admin_id", class_name: "Decidim::User"
-    belongs_to :user, foreign_key: "decidim_user_id", class_name: "Decidim::User"
+    belongs_to :user, -> { entire_collection }, foreign_key: "decidim_user_id", class_name: "Decidim::User"
 
     validate :same_organization
 

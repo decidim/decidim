@@ -97,7 +97,7 @@ Decidim.register_component(:meetings) do |component|
   end
 
   component.seeds do |participatory_space|
-    admin_user = Decidim::User.find_by(
+    admin_user = Decidim::User.entire_collection.find_by(
       organization: participatory_space.organization,
       email: "admin@example.org"
     )
@@ -204,7 +204,7 @@ Decidim.register_component(:meetings) do |component|
       2.times do |n|
         email = "meeting-registered-user-#{meeting.id}-#{n}@example.org"
         name = "#{Faker::Name.name} #{meeting.id} #{n}"
-        user = Decidim::User.find_or_initialize_by(email:)
+        user = Decidim::User.entire_collection.find_or_initialize_by(email:)
 
         user.update!(
           password: "decidim123456789",
@@ -271,7 +271,7 @@ Decidim.register_component(:meetings) do |component|
 
     authors = [
       Decidim::UserGroup.where(decidim_organization_id: participatory_space.decidim_organization_id).verified.sample,
-      Decidim::User.where(decidim_organization_id: participatory_space.decidim_organization_id).all.sample
+      Decidim::User.entire_collection.where(decidim_organization_id: participatory_space.decidim_organization_id).all.sample
     ]
 
     authors.each do |author|

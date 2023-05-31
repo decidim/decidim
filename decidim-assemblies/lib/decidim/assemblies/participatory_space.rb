@@ -118,7 +118,7 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
       assembly = Decidim.traceability.perform_action!(
         "publish",
         Decidim::Assembly,
-        organization.users.first,
+        organization.users.entire_collection.first,
         visibility: "all"
       ) do
         Decidim::Assembly.create!(params)
@@ -128,7 +128,7 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
       Decidim::AssemblyUserRole::ROLES.each do |role|
         email = "assembly_#{assembly.id}_#{role}@example.org"
 
-        user = Decidim::User.find_or_initialize_by(email:)
+        user = Decidim::User.entire_collection.find_or_initialize_by(email:)
         user.update!(
           name: Faker::Name.name,
           nickname: Faker::Twitter.unique.screen_name,
@@ -255,7 +255,7 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
         end
 
         Decidim::AssemblyMember.create!(
-          user: current_assembly.organization.users.first,
+          user: current_assembly.organization.users.entire_collection.first,
           gender: Faker::Lorem.word,
           birthday: Faker::Date.birthday(min_age: 18, max_age: 65),
           birthplace: Faker::Demographic.demonym,

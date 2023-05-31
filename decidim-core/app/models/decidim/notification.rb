@@ -5,7 +5,7 @@ module Decidim
     include Decidim::DownloadYourData
 
     belongs_to :resource, foreign_key: "decidim_resource_id", foreign_type: "decidim_resource_type", polymorphic: true
-    belongs_to :user, foreign_key: "decidim_user_id", class_name: "Decidim::User"
+    belongs_to :user, -> { entire_collection }, foreign_key: "decidim_user_id", class_name: "Decidim::User"
 
     # Daily notifications should contain all notifications within the previous
     # day from the given day.

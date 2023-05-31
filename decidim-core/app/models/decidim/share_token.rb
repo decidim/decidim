@@ -5,7 +5,7 @@ module Decidim
     validates :token, presence: true, uniqueness: { scope: [:decidim_organization_id, :token_for_type, :token_for_id] }
 
     belongs_to :organization, foreign_key: "decidim_organization_id", class_name: "Decidim::Organization"
-    belongs_to :user, foreign_key: "decidim_user_id", class_name: "Decidim::User"
+    belongs_to :user, -> { entire_collection }, foreign_key: "decidim_user_id", class_name: "Decidim::User"
     belongs_to :token_for, foreign_type: "token_for_type", polymorphic: true
 
     after_initialize :generate, :set_default_expiration

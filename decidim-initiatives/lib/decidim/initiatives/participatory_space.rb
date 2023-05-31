@@ -91,14 +91,14 @@ Decidim.register_participatory_space(:initiatives) do |participatory_space|
         signature_start_date: Date.current - 7.days,
         signature_end_date: Date.current + 7.days,
         published_at: 7.days.ago,
-        author: Decidim::User.reorder(Arel.sql("RANDOM()")).first,
+        author: Decidim::User.entire_collection.reorder(Arel.sql("RANDOM()")).first,
         organization:
       }
 
       initiative = Decidim.traceability.perform_action!(
         "publish",
         Decidim::Initiative,
-        organization.users.first,
+        organization.users.entire_collection.first,
         visibility: "all"
       ) do
         Decidim::Initiative.create!(params)

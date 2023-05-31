@@ -14,6 +14,7 @@ module Decidim
                as: :privatable_to,
                dependent: :destroy
       has_many :users,
+               -> { entire_collection },
                through: :participatory_space_private_users,
                class_name: "Decidim::User",
                foreign_key: "private_user_to_id"

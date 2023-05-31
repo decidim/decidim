@@ -8,7 +8,7 @@ module Decidim
       include Decidim::DownloadYourData
       include Decidim::NewsletterParticipant
 
-      belongs_to :user, class_name: "Decidim::User", foreign_key: "decidim_user_id"
+      belongs_to :user, -> { entire_collection }, class_name: "Decidim::User", foreign_key: "decidim_user_id"
       belongs_to :budget, foreign_key: "decidim_budgets_budget_id", class_name: "Decidim::Budgets::Budget", inverse_of: :orders
       has_one :component, through: :budget, foreign_key: "decidim_component_id", class_name: "Decidim::Component"
       has_many :line_items, class_name: "Decidim::Budgets::LineItem", foreign_key: "decidim_order_id", dependent: :destroy

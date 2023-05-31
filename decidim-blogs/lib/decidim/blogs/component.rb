@@ -41,7 +41,7 @@ Decidim.register_component(:blogs) do |component|
   end
 
   component.seeds do |participatory_space|
-    admin_user = Decidim::User.find_by(
+    admin_user = Decidim::User.entire_collection.find_by(
       organization: participatory_space.organization,
       email: "admin@example.org"
     )
@@ -74,7 +74,7 @@ Decidim.register_component(:blogs) do |component|
 
     6.times do |n|
       author = if n >= 3
-                 Decidim::User.where(organization: component.organization).order(Arel.sql("RANDOM()")).first
+                 Decidim::User.entire_collection.where(organization: component.organization).order(Arel.sql("RANDOM()")).first
                elsif n <= 1
                  Decidim::UserGroup.where(organization: component.organization).order(Arel.sql("RANDOM()")).first
                else

@@ -5,7 +5,7 @@ module Decidim
     # The data store for a trustee in the Decidim::Elections component. It stores a
     # public key and has a reference to Decidim::User.
     class Trustee < ApplicationRecord
-      belongs_to :user, foreign_key: "decidim_user_id", class_name: "Decidim::User"
+      belongs_to :user, -> { entire_collection }, foreign_key: "decidim_user_id", class_name: "Decidim::User"
       belongs_to :organization, foreign_key: "decidim_organization_id", class_name: "Decidim::Organization"
       has_many :elections_trustees, foreign_key: "decidim_elections_trustee_id", dependent: :destroy
       has_many :elections, through: :elections_trustees

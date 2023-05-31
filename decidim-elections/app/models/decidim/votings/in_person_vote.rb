@@ -7,7 +7,7 @@ module Decidim
       enum status: [:pending, :accepted, :rejected]
 
       belongs_to :election, foreign_key: "decidim_elections_election_id", class_name: "Decidim::Elections::Election"
-      belongs_to :user, foreign_key: "decidim_user_id", class_name: "Decidim::User", optional: true
+      belongs_to :user, -> { entire_collection }, foreign_key: "decidim_user_id", class_name: "Decidim::User", optional: true
 
       belongs_to :polling_station,
                  foreign_key: "decidim_votings_polling_station_id",

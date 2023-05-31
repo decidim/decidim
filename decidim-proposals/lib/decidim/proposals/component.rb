@@ -194,7 +194,7 @@ Decidim.register_component(:proposals) do |component|
   end
 
   component.seeds do |participatory_space|
-    admin_user = Decidim::User.find_by(
+    admin_user = Decidim::User.entire_collection.find_by(
       organization: participatory_space.organization,
       email: "admin@example.org"
     )
@@ -271,7 +271,7 @@ Decidim.register_component(:proposals) do |component|
 
         coauthor = case n
                    when 0
-                     Decidim::User.where(decidim_organization_id: participatory_space.decidim_organization_id).order(Arel.sql("RANDOM()")).first
+                     Decidim::User.entire_collection.where(decidim_organization_id: participatory_space.decidim_organization_id).order(Arel.sql("RANDOM()")).first
                    when 1
                      Decidim::UserGroup.where(decidim_organization_id: participatory_space.decidim_organization_id).order(Arel.sql("RANDOM()")).first
                    when 2
@@ -288,7 +288,7 @@ Decidim.register_component(:proposals) do |component|
         email = "amendment-author-#{participatory_space.underscored_name}-#{participatory_space.id}-#{n}-amend#{n}@example.org"
         name = "#{Faker::Name.name} #{participatory_space.id} #{n} amend#{n}"
 
-        author = Decidim::User.find_or_initialize_by(email:)
+        author = Decidim::User.entire_collection.find_or_initialize_by(email:)
         author.update!(
           password: "decidim123456789",
           password_confirmation: "decidim123456789",
@@ -354,7 +354,7 @@ Decidim.register_component(:proposals) do |component|
         email = "vote-author-#{participatory_space.underscored_name}-#{participatory_space.id}-#{n}-#{m}@example.org"
         name = "#{Faker::Name.name} #{participatory_space.id} #{n} #{m}"
 
-        author = Decidim::User.find_or_initialize_by(email:)
+        author = Decidim::User.entire_collection.find_or_initialize_by(email:)
         author.update!(
           password: "decidim123456789",
           password_confirmation: "decidim123456789",
@@ -376,7 +376,7 @@ Decidim.register_component(:proposals) do |component|
           email = "endorsement-author-#{participatory_space.underscored_name}-#{participatory_space.id}-#{n}-endr#{index}@example.org"
           name = "#{Faker::Name.name} #{participatory_space.id} #{n} endr#{index}"
 
-          author = Decidim::User.find_or_initialize_by(email:)
+          author = Decidim::User.entire_collection.find_or_initialize_by(email:)
           author.update!(
             password: "decidim123456789",
             password_confirmation: "decidim123456789",
@@ -411,7 +411,7 @@ Decidim.register_component(:proposals) do |component|
       end
 
       (n % 3).times do
-        author_admin = Decidim::User.where(organization: component.organization, admin: true).all.sample
+        author_admin = Decidim::User.entire_collection.where(organization: component.organization, admin: true).all.sample
 
         Decidim::Proposals::ProposalNote.create!(
           proposal:,
@@ -432,7 +432,7 @@ Decidim.register_component(:proposals) do |component|
               else
                 "open"
               end
-      author = Decidim::User.where(organization: component.organization).all.sample
+      author = Decidim::User.entire_collection.where(organization: component.organization).all.sample
 
       draft = Decidim.traceability.perform_action!("create", Decidim::Proposals::CollaborativeDraft, author) do
         draft = Decidim::Proposals::CollaborativeDraft.new(
@@ -451,12 +451,12 @@ Decidim.register_component(:proposals) do |component|
 
       case n
       when 2
-        authors = Decidim::User.where(organization: component.organization).all.sample(5)
+        authors = Decidim::User.entire_collection.where(organization: component.organization).all.sample(5)
         authors.each do |local_author|
           Decidim::Coauthorship.create(coauthorable: draft, author: local_author)
         end
       when 3
-        author2 = Decidim::User.where(organization: component.organization).all.sample
+        author2 = Decidim::User.entire_collection.where(organization: component.organization).all.sample
         Decidim::Coauthorship.create(coauthorable: draft, author: author2)
       end
 
@@ -465,7 +465,7 @@ Decidim.register_component(:proposals) do |component|
 
     Decidim.traceability.update!(
       Decidim::Proposals::CollaborativeDraft.all.sample,
-      Decidim::User.where(organization: component.organization).all.sample,
+      Decidim::User.entire_collection.where(organization: component.organization).all.sample,
       component:,
       category: participatory_space.categories.sample,
       scope: Faker::Boolean.boolean(true_ratio: 0.5) ? global : scopes.sample,

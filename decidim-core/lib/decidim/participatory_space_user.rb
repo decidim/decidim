@@ -11,7 +11,7 @@ module Decidim
     included do
       validate :user_and_space_same_organization
 
-      belongs_to :user, foreign_key: "decidim_user_id", class_name: "Decidim::User", optional: true
+      belongs_to :user, -> { entire_collection }, foreign_key: "decidim_user_id", class_name: "Decidim::User", optional: true
 
       ransacker :name do
         Arel.sql(%{("decidim_users"."name")::text})

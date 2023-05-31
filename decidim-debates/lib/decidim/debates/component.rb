@@ -68,12 +68,12 @@ Decidim.register_component(:debates) do |component|
   end
 
   component.seeds do |participatory_space|
-    admin_user = Decidim::User.find_by(
+    admin_user = Decidim::User.entire_collection.find_by(
       organization: participatory_space.organization,
       email: "admin@example.org"
     )
 
-    user = Decidim::User.find_by(
+    user = Decidim::User.entire_collection.find_by(
       organization: participatory_space.organization,
       email: "user@example.org"
     )

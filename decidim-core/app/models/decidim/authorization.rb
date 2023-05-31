@@ -21,7 +21,7 @@ module Decidim
     has_one_attached :verification_attachment
     validates_upload :verification_attachment, uploader: Decidim::Verifications::AttachmentUploader
 
-    belongs_to :user, foreign_key: "decidim_user_id", class_name: "Decidim::User"
+    belongs_to :user, -> { entire_collection }, foreign_key: "decidim_user_id", class_name: "Decidim::User"
     has_one :organization, through: :user, class_name: "Decidim::Organization"
     has_many :transfers, class_name: "Decidim::AuthorizationTransfer", dependent: :destroy
 

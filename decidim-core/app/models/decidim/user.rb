@@ -168,6 +168,11 @@ module Decidim
       @unread_messages_count ||= Decidim::Messaging::Receipt.unread_count(self)
     end
 
+    # Provides an overridable scope
+    def self.all_users
+      self
+    end
+
     # Check if the user exists with the given email and the current organization
     #
     # warden_conditions - A hash with the authentication conditions

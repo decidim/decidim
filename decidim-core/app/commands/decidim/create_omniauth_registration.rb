@@ -92,7 +92,7 @@ module Decidim
 
     def existing_identity
       @existing_identity ||= Identity.find_by(
-        user: organization.users,
+        user: organization.users.entire_collection,
         provider: form.provider,
         uid: form.uid
       )

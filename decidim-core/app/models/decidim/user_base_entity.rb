@@ -34,6 +34,12 @@ module Decidim
     scope :not_blocked, -> { where(blocked: false) }
     scope :available, -> { where(deleted_at: nil, blocked: false, managed: false) }
 
+    # A "dummy" scope to make it possible to fetch all users in case external
+    # modules want to apply a `default_scope` to the user record. An example use
+    # case can be seen in the `decidim-privacy` module that adds privacy
+    # controls for the users by applying a `default_scope`.
+    scope :entire_collection, -> { self }
+
     # Public: Returns a collection with all the public entities this user is following.
     #
     # This cannot be done as with a `has_many :following, through: :following_follows`

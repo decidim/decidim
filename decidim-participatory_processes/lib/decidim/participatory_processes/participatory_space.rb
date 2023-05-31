@@ -155,7 +155,7 @@ Decidim.register_participatory_space(:participatory_processes) do |participatory
       process = Decidim.traceability.perform_action!(
         "publish",
         Decidim::ParticipatoryProcess,
-        organization.users.first,
+        organization.users.entire_collection.first,
         visibility: "all"
       ) do
         Decidim::ParticipatoryProcess.create!(params)
@@ -178,7 +178,7 @@ Decidim.register_participatory_space(:participatory_processes) do |participatory
       Decidim::ParticipatoryProcessUserRole::ROLES.each do |role|
         email = "participatory_process_#{process.id}_#{role}@example.org"
 
-        user = Decidim::User.find_or_initialize_by(email:)
+        user = Decidim::User.entire_collection.find_or_initialize_by(email:)
         user.update!(
           name: Faker::Name.name,
           nickname: Faker::Twitter.unique.screen_name,

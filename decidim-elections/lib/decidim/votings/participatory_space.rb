@@ -67,7 +67,7 @@ Decidim.register_participatory_space(:votings) do |participatory_space|
       voting = Decidim.traceability.perform_action!(
         "publish",
         Decidim::Votings::Voting,
-        organization.users.first,
+        organization.users.entire_collection.first,
         visibility: "all"
       ) do
         Decidim::Votings::Voting.create!(params)
@@ -88,14 +88,14 @@ Decidim.register_participatory_space(:votings) do |participatory_space|
 
           polling_station = Decidim.traceability.create!(
             Decidim::Votings::PollingStation,
-            organization.users.first,
+            organization.users.entire_collection.first,
             params,
             visibility: "all"
           )
 
           email = "voting_#{voting.id}_president_#{polling_station.id}@example.org"
 
-          user = Decidim::User.find_or_initialize_by(email:)
+          user = Decidim::User.entire_collection.find_or_initialize_by(email:)
           user.update!(
             name: Faker::Name.name,
             nickname: Faker::Twitter.unique.screen_name,
@@ -109,7 +109,7 @@ Decidim.register_participatory_space(:votings) do |participatory_space|
 
           Decidim.traceability.create!(
             Decidim::Votings::PollingOfficer,
-            organization.users.first,
+            organization.users.entire_collection.first,
             {
               voting:,
               user:,

@@ -63,7 +63,7 @@ Decidim.register_participatory_space(:consultations) do |participatory_space|
     active_consultation = Decidim.traceability.perform_action!(
       "publish",
       Decidim::Consultation,
-      organization.users.first,
+      organization.users.entire_collection.first,
       visibility: "all"
     ) do
       Decidim::Consultation.create!(active_consultation_params)
@@ -95,7 +95,7 @@ Decidim.register_participatory_space(:consultations) do |participatory_space|
     finished_consultation = Decidim.traceability.perform_action!(
       "publish",
       Decidim::Consultation,
-      organization.users.first,
+      organization.users.entire_collection.first,
       visibility: "all"
     ) do
       Decidim::Consultation.create!(finished_consultation_params)
@@ -126,7 +126,7 @@ Decidim.register_participatory_space(:consultations) do |participatory_space|
     upcoming_consultation = Decidim.traceability.perform_action!(
       "publish",
       Decidim::Consultation,
-      organization.users.first,
+      organization.users.entire_collection.first,
       visibility: "all"
     ) do
       Decidim::Consultation.create!(upcoming_consultation_params)
@@ -168,7 +168,7 @@ Decidim.register_participatory_space(:consultations) do |participatory_space|
         question = Decidim.traceability.perform_action!(
           "publish",
           Decidim::Consultations::Question,
-          organization.users.first,
+          organization.users.entire_collection.first,
           visibility: "all"
         ) do
           Decidim::Consultations::Question.create!(params)
