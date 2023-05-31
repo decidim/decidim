@@ -608,7 +608,7 @@ fr-CA:
         promotal_committee: Comité de promotion
         select_initiative_type: Sélectionnez le type de d'initiative
         show_similar_initiatives: Comparez avec les autres initiatives
-        step: Étape %{current} de %{total}
+        step: Étape %{current} sur %{total}
         title: Créer une nouvelle initiative
       initiative_header:
         initiative_menu_item: Pétition
