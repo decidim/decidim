@@ -3,6 +3,9 @@
 class InvalidateAllSessionsForDeletedUsers < ActiveRecord::Migration[5.2]
   class User < ApplicationRecord
     self.table_name = "decidim_users"
+    self.inheritance_column = nil # disable the default inheritance
+
+    default_scope { where(type: "Decidim::User") }
   end
 
   def up

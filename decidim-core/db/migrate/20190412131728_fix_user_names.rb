@@ -5,6 +5,7 @@ class FixUserNames < ActiveRecord::Migration[5.2]
     include Decidim::Nicknamizable
 
     self.table_name = :decidim_users
+    self.inheritance_column = nil # disable the default inheritance
   end
 
   def change
