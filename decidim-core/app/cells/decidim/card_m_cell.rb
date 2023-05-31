@@ -93,14 +93,14 @@ module Decidim
 
     def card_classes
       classes = [base_card_class]
-      classes = classes.concat(["card--stack"]).join(" ") if has_children?
+      classes = classes.push("card--stack").join(" ") if has_children?
       return classes unless has_state?
 
       classes.concat(state_classes).join(" ")
     end
 
     def badge_classes
-      state_classes.concat(["card__text--status"]).join(" ")
+      state_classes.push("card__text--status").join(" ")
     end
 
     def state_classes

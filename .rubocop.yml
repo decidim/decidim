@@ -89,9 +89,6 @@ Capybara/SpecificActions:
 Capybara/CurrentPathExpectation:
   Enabled: false
 
-Style/ConcatArrayLiterals:
-  Enabled: false
-
 RSpec/IndexedLet:
   Enabled: false
 
