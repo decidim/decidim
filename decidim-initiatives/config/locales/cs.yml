@@ -651,7 +651,6 @@ cs:
         promotal_committee: Výbor předkladatelů
         select_initiative_type: Vybrat
         show_similar_initiatives: Porovnat
-        step: Krok %{current} z %{total}
         title: Vytvořit novou iniciativu
       initiative_header:
         initiative_menu_item: Iniciativa
