@@ -1,12 +1,12 @@
 <section id="footer_sub_hero" class="footer__subhero home__section">
-  <h2 class="h2 decorator mb-4">
+  <h2 class="home__section-title">
     <%= t("decidim.pages.home.footer_sub_hero.footer_sub_hero_headline", organization: current_organization.name) %>
   </h2>
   <p class="text-xl text-gray-2">
     <%== t("decidim.pages.home.footer_sub_hero.footer_sub_hero_body") %>
   </p>
   <% if current_organization.sign_up_enabled? && !current_user %>
-    <%= link_to decidim.new_user_registration_path, class: "button button__sm md:button__lg button__secondary", title: t("decidim.pages.home.sub_hero.register_title") do %>
+    <%= link_to decidim.new_user_registration_path, class: "button button__sm md:button__lg button__secondary mt-4", title: t("decidim.pages.home.sub_hero.register_title") do %>
       <%= t("decidim.pages.home.footer_sub_hero.register") %>
       <%= icon "arrow-right-line", class: "fill-current" %>
     <% end %>

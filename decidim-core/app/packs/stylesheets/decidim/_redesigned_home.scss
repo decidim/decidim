@@ -1,6 +1,10 @@
 .home{
   &__section{
     @apply py-12 container;
+
+    &-title{
+      @apply h2 decorator mb-12;
+    }
   }
 
   &__section-image{

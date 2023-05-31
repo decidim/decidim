@@ -1,5 +1,7 @@
 <section id="statistics" class="content-block home__section">
-  <h2 class="h2 decorator"><%= t("decidim.pages.home.statistics.headline", organization: current_organization.name) %></h2>
+  <h2 class="home__section-title">
+    <%= t("decidim.pages.home.statistics.headline", organization: current_organization.name) %>
+  </h2>
 
   <%= cell("decidim/statistics", stats.highlighted) %>
   <%= cell("decidim/statistics", stats.not_highlighted) %>
