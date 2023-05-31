@@ -635,7 +635,6 @@ es:
         promotal_committee: Comisión Promotora
         select_initiative_type: Escoger
         show_similar_initiatives: Comparar
-        step: Paso %{current} de %{total}
         title: Crear nueva iniciativa
       initiative_header:
         initiative_menu_item: Iniciativa
