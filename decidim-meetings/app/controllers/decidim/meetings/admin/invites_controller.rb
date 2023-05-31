@@ -9,7 +9,7 @@ module Decidim
         helper_method :invites
 
         def index
-          enforce_permission_to :read_invites, :meeting, meeting: meeting
+          enforce_permission_to(:read_invites, :meeting, meeting:)
 
           @query = params[:q]
           @status = params[:status]
@@ -18,7 +18,7 @@ module Decidim
         end
 
         def create
-          enforce_permission_to :invite_attendee, :meeting, meeting: meeting
+          enforce_permission_to(:invite_attendee, :meeting, meeting:)
 
           @form = form(MeetingRegistrationInviteForm).from_params(params)
 

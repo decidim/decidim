@@ -8,7 +8,7 @@ module Decidim
       let!(:component) { create(:proposal_component) }
       let!(:amendable) { create(:proposal, component:) }
       let!(:emendation) { create(:proposal, component:) }
-      let!(:amendment) { create :amendment, amendable:, emendation: }
+      let!(:amendment) { create(:amendment, amendable:, emendation:) }
       let(:command) { described_class.new(form) }
 
       let(:emendation_params) do

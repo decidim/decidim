@@ -558,7 +558,7 @@ FactoryBot.define do
 
     after :build do |resource, evaluator|
       evaluator.authors_list.each do |coauthor|
-        resource.coauthorships << if coauthor.is_a?(::Decidim::UserGroup)
+        resource.coauthorships << if coauthor.is_a?(Decidim::UserGroup)
                                     build(:coauthorship, author: coauthor.users.first, user_group: coauthor, coauthorable: resource, organization: evaluator.component.organization)
                                   else
                                     build(:coauthorship, author: coauthor, coauthorable: resource, organization: evaluator.component.organization)

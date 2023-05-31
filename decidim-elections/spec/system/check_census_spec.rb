@@ -11,7 +11,7 @@ describe "Check Census", type: :system do
   let!(:datum) do
     create(:datum, document_type: "DNI", document_number: "12345678X", birthdate: Date.civil(1980, 5, 11), postal_code: "04001", dataset:, mobile_phone_number:, email:)
   end
-  let!(:user) { create :user, :confirmed, organization: }
+  let!(:user) { create(:user, :confirmed, organization:) }
   let(:mobile_phone_number) { "123456789" }
   let(:email) { "foo@example.com" }
   let(:memory_store) { ActiveSupport::Cache.lookup_store(:memory_store) }

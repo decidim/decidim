@@ -7,8 +7,8 @@ module Decidim::Admin
     subject { described_class.new(user_group, current_user, via_csv:) }
 
     let(:via_csv) { false }
-    let(:current_user) { create :user, organization: }
-    let(:organization) { create :organization }
+    let(:current_user) { create(:user, organization:) }
+    let(:organization) { create(:organization) }
 
     describe "User group validation is pending" do
       let!(:user_group) { create(:user_group, users: [create(:user, organization:)]) }

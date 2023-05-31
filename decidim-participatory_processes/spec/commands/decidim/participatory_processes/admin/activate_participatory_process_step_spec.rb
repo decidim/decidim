@@ -6,8 +6,8 @@ module Decidim::ParticipatoryProcesses
   describe Admin::ActivateParticipatoryProcessStep do
     subject { described_class.new(process_step, user) }
 
-    let(:user) { create :user, :admin, :confirmed }
-    let(:process_step) { create :participatory_process_step }
+    let(:user) { create(:user, :admin, :confirmed) }
+    let(:process_step) { create(:participatory_process_step) }
     let(:participatory_process) { process_step.participatory_process }
 
     context "when the step is nil" do
@@ -19,7 +19,7 @@ module Decidim::ParticipatoryProcesses
     end
 
     context "when the step is active" do
-      let(:process_step) { create :participatory_process_step, :active }
+      let(:process_step) { create(:participatory_process_step, :active) }
 
       it "is not valid" do
         expect { subject.call }.to broadcast(:invalid)
@@ -28,7 +28,7 @@ module Decidim::ParticipatoryProcesses
 
     context "when the step is not active" do
       let!(:active_step) do
-        create :participatory_process_step, :active, participatory_process:
+        create(:participatory_process_step, :active, participatory_process:)
       end
 
       it "is valid" do

@@ -175,7 +175,7 @@ describe UploaderImageDimensionsValidator do
 
       it "adds the correct error" do
         expect { subject }.not_to raise_error
-        expect(record.errors[:upload]).to match_array(["File cannot be processed"])
+        expect(record.errors[:upload]).to contain_exactly("File cannot be processed")
       end
     end
   end

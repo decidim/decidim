@@ -128,9 +128,7 @@ module Decidim
         # Include it in ActiveRecord base in order to apply it to all models
         # that may be using the `geocoded_by` or `reverse_geocoded_by` class
         # methods injected by the Geocoder gem.
-        ActiveSupport.on_load :active_record do
-          ActiveRecord::Base.include Decidim::Geocodable
-        end
+        ActiveSupport.on_load(:active_record) { include Decidim::Geocodable }
       end
 
       initializer "decidim_core.maps" do

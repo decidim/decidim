@@ -18,7 +18,7 @@
   <div class="medium-centered">
     <div class="card">
       <div class="card__content">
-        <%= decidim_form_for(@form, url: next_wizard_path, method: :put, html: { class: "form new_initiative_previous_form" }) do |f| %>
+        <%= decidim_form_for(@form, url: previous_form_create_initiative_index_path, method: :put, html: { class: "form new_initiative_previous_form" }) do |f| %>
           <%= form_required_explanation %>
           <%= f.hidden_field :type_id %>
 

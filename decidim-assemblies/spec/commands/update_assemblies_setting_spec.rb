@@ -6,9 +6,9 @@ module Decidim::Assemblies
   describe Admin::UpdateAssembliesSetting do
     subject { described_class.new(assembly_setting, form) }
 
-    let(:organization) { create :organization }
-    let(:user) { create :user, :admin, :confirmed, organization: }
-    let(:assembly_setting) { create :assemblies_setting, organization: }
+    let(:organization) { create(:organization) }
+    let(:user) { create(:user, :admin, :confirmed, organization:) }
+    let(:assembly_setting) { create(:assemblies_setting, organization:) }
     let(:enable_organization_chart) { true }
     let(:form) do
       double(

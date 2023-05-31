@@ -45,7 +45,7 @@ describe "Scopes picker", type: :system do
         let(:params) { { title:, required: true, current: scopes.first } }
 
         it "allows to choose it" do
-          expect(page).to have_no_selector(".scope-picker.picker-footer .buttons a.button[disabled='true']")
+          expect(page).not_to have_selector(".scope-picker.picker-footer .buttons a.button[disabled='true']")
         end
       end
     end
@@ -68,7 +68,7 @@ describe "Scopes picker", type: :system do
       let(:root) { scopes.first }
 
       it "does not show global scope in header" do
-        expect(page).to have_no_css(".scope-picker.picker-header li a", text: "Global scope")
+        expect(page).not_to have_css(".scope-picker.picker-header li a", text: "Global scope")
       end
 
       it "shows root scope in header" do
@@ -76,7 +76,7 @@ describe "Scopes picker", type: :system do
       end
 
       it "does not show root sibling scope in header" do
-        expect(page).to have_no_css(".scope-picker.picker-header li a", text: scopes.last.name["en"])
+        expect(page).not_to have_css(".scope-picker.picker-header li a", text: scopes.last.name["en"])
       end
 
       it "shows child scope in content" do
@@ -97,7 +97,7 @@ describe "Scopes picker", type: :system do
         end
 
         it "does not shows any scope in content" do
-          expect(page).to have_no_css(".scope-picker.picker-content li")
+          expect(page).not_to have_css(".scope-picker.picker-content li")
         end
       end
     end

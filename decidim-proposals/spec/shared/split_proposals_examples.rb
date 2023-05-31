@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 shared_examples "split proposals" do
-  let!(:proposals) { create_list :proposal, 3, component: current_component }
-  let!(:target_component) { create :proposal_component, participatory_space: current_component.participatory_space }
+  let!(:proposals) { create_list(:proposal, 3, component: current_component) }
+  let!(:target_component) { create(:proposal_component, participatory_space: current_component.participatory_space) }
   include Decidim::ComponentPathHelper
 
   context "when selecting proposals" do
@@ -55,7 +55,7 @@ shared_examples "split proposals" do
           let!(:target_component) { current_component }
 
           context "and the proposals cannot be splitted" do
-            let!(:proposals) { create_list :proposal, 3, :with_endorsements, :with_votes, component: current_component }
+            let!(:proposals) { create_list(:proposal, 3, :with_endorsements, :with_votes, component: current_component) }
 
             it "does not create a new proposal and displays a validation fail message" do
               expect(page).to have_content("There has been a problem splitting the selected proposals")

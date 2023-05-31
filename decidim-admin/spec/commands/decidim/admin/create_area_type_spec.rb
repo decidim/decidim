@@ -6,7 +6,7 @@ module Decidim::Admin
   describe CreateAreaType do
     subject { described_class.new(form, user) }
 
-    let(:organization) { create :organization }
+    let(:organization) { create(:organization) }
     let(:user) { create(:user, organization:) }
     let(:name) { Decidim::Faker::Localized.literal("territorial") }
     let(:plural) { Decidim::Faker::Localized.literal("territorials") }

@@ -8,7 +8,7 @@ module Decidim
       describe UnpublishQuestion do
         subject { described_class.new(question) }
 
-        let(:question) { create :question, :published }
+        let(:question) { create(:question, :published) }
 
         context "when the question is nil" do
           let(:question) { nil }
@@ -19,7 +19,7 @@ module Decidim
         end
 
         context "when the question is not published" do
-          let(:question) { create :question, :unpublished }
+          let(:question) { create(:question, :unpublished) }
 
           it "is not valid" do
             expect { subject.call }.to broadcast(:invalid)

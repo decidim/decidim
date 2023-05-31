@@ -10,7 +10,7 @@ module Decidim
 
       let!(:amendable) { create(:proposal, component:) }
       let!(:emendation) { create(:proposal, component:) }
-      let!(:amendment) { create :amendment, amendable:, emendation:, amender: emendation.creator_author }
+      let!(:amendment) { create(:amendment, amendable:, emendation:, amender: emendation.creator_author) }
 
       let(:command) { described_class.new(amendment, current_user) }
       let(:current_user) { amendment.amender }

@@ -10,12 +10,12 @@ module Decidim
     before_action :ensure_user_group_not_blocked
 
     def new
-      enforce_permission_to :create, :user_group, current_user: current_user
+      enforce_permission_to(:create, :user_group, current_user:)
       @form = form(UserGroupForm).instance
     end
 
     def create
-      enforce_permission_to :create, :user_group, current_user: current_user
+      enforce_permission_to(:create, :user_group, current_user:)
       @form = form(UserGroupForm).from_params(params)
 
       CreateUserGroup.call(@form) do
@@ -33,12 +33,12 @@ module Decidim
     end
 
     def edit
-      enforce_permission_to :manage, :user_group, current_user: current_user, user_group: user_group
+      enforce_permission_to(:manage, :user_group, current_user:, user_group:)
       @form = form(UserGroupForm).from_model(user_group)
     end
 
     def update
-      enforce_permission_to :manage, :user_group, current_user: current_user, user_group: user_group
+      enforce_permission_to(:manage, :user_group, current_user:, user_group:)
       @form = form(UserGroupForm).from_params(user_group_params)
 
       UpdateUserGroup.call(@form, user_group) do

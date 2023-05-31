@@ -35,12 +35,12 @@ module Decidim
       end
 
       def edit
-        enforce_permission_to :update, :area_type, area_type: area_type
+        enforce_permission_to(:update, :area_type, area_type:)
         @form = form(AreaTypeForm).from_model(area_type)
       end
 
       def update
-        enforce_permission_to :update, :area_type, area_type: area_type
+        enforce_permission_to(:update, :area_type, area_type:)
         @form = form(AreaTypeForm).from_params(params)
 
         UpdateAreaType.call(area_type, @form, current_user) do
@@ -57,7 +57,7 @@ module Decidim
       end
 
       def destroy
-        enforce_permission_to :destroy, :area_type, area_type: area_type
+        enforce_permission_to(:destroy, :area_type, area_type:)
 
         Decidim.traceability.perform_action!("delete", area_type, current_user) do
           area_type.destroy!

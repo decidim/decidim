@@ -6,8 +6,8 @@ describe Decidim::Consultations::ContentBlocks::HighlightedConsultationsCell, ty
   subject { cell(content_block.cell, content_block).call }
 
   let(:organization) { create(:organization) }
-  let(:content_block) { create :content_block, organization:, manifest_name: :highlighted_consultations, scope_name: :homepage, settings: }
-  let!(:consultations) { create_list :consultation, 5, :active, organization: }
+  let(:content_block) { create(:content_block, organization:, manifest_name: :highlighted_consultations, scope_name: :homepage, settings:) }
+  let!(:consultations) { create_list(:consultation, 5, :active, organization:) }
   let(:settings) { {} }
 
   let(:highlighted_consultations) { subject.find("#highlighted-consultations") }

@@ -5,8 +5,8 @@ require "spec_helper"
 describe "Admin manages polling officers", type: :system do
   include_context "when admin managing a voting"
 
-  let(:other_user) { create :user, organization:, email: "my_email@example.org" }
-  let!(:polling_officer) { create :polling_officer, user: other_user, voting: }
+  let(:other_user) { create(:user, organization:, email: "my_email@example.org") }
+  let!(:polling_officer) { create(:polling_officer, user: other_user, voting:) }
 
   before do
     switch_to_host(organization.host)
@@ -79,7 +79,7 @@ describe "Admin manages polling officers", type: :system do
   end
 
   context "when creating a new polling officer" do
-    let(:existing_user) { create :user, organization: voting.organization }
+    let(:existing_user) { create(:user, organization: voting.organization) }
 
     before do
       click_link("New")
@@ -127,7 +127,7 @@ describe "Admin manages polling officers", type: :system do
       expect(page).to have_admin_callout("successfully")
 
       within "#polling_officers table" do
-        expect(page).to have_no_content(other_user.email)
+        expect(page).not_to have_content(other_user.email)
       end
     end
   end

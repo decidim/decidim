@@ -4,11 +4,11 @@ require "spec_helper"
 
 module Decidim::Meetings
   describe MeetingPresenter, type: :helper do
-    let(:meeting) { create :meeting, component: meeting_component }
-    let(:user) { create :user, :admin, organization: }
+    let(:meeting) { create(:meeting, component: meeting_component) }
+    let(:user) { create(:user, :admin, organization:) }
 
     let(:organization) { create(:organization) }
-    let(:participatory_process) { create :participatory_process, organization: }
+    let(:participatory_process) { create(:participatory_process, organization:) }
     let(:meeting_component) { create(:meeting_component, participatory_space: participatory_process) }
     let(:proposal_component) { create(:proposal_component, participatory_space: participatory_process) }
     let(:proposal) { create(:proposal, component: proposal_component) }
@@ -101,7 +101,7 @@ module Decidim::Meetings
     end
 
     describe "#editor_description" do
-      let(:meeting) { create :meeting, component: meeting_component, description: }
+      let(:meeting) { create(:meeting, component: meeting_component, description:) }
       let(:description) { { en: html, es: html } }
 
       include_context "with editor content containing hashtags and mentions"

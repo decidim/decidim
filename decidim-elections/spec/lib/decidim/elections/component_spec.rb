@@ -5,7 +5,7 @@ require "spec_helper"
 describe "Elections component" do # rubocop:disable RSpec/DescribeClass
   subject { component }
 
-  let(:component) { create :elections_component }
+  let(:component) { create(:elections_component) }
 
   describe "before_destroy hooks" do
     context "when there are no elections" do
@@ -16,7 +16,7 @@ describe "Elections component" do # rubocop:disable RSpec/DescribeClass
 
     context "with elections" do
       before do
-        create :election, component:
+        create(:election, component:)
       end
 
       it "raises an error" do

@@ -7,16 +7,16 @@ module Decidim::Meetings::Calendar
     subject { described_class.for(organization) }
 
     let!(:meeting) do
-      create :meeting, :published, title: Decidim::Faker::Localized.localized { "<script>alert(\"fooo\")</script> meeting title" }
+      create(:meeting, :published, title: Decidim::Faker::Localized.localized { "<script>alert(\"fooo\")</script> meeting title" })
     end
     let!(:component) { meeting.component }
-    let!(:component2) { create :meeting_component, participatory_space: component.participatory_space }
+    let!(:component2) { create(:meeting_component, participatory_space: component.participatory_space) }
     let!(:organization) { component.organization }
     let!(:another_meeting) do
-      create :meeting, :published, component: component2, title: Decidim::Faker::Localized.localized { "<script>alert(\"fooo\")</script> another meeting title" }
+      create(:meeting, :published, component: component2, title: Decidim::Faker::Localized.localized { "<script>alert(\"fooo\")</script> another meeting title" })
     end
     let!(:external_meeting) do
-      create :meeting, title: Decidim::Faker::Localized.localized { "<script>alert(\"fooo\")</script> external meeting title" }
+      create(:meeting, title: Decidim::Faker::Localized.localized { "<script>alert(\"fooo\")</script> external meeting title" })
     end
 
     describe "#calendar" do
@@ -55,13 +55,13 @@ module Decidim::Meetings::Calendar
       subject { described_class.for(organization, filters) }
 
       let(:online_meeting) do
-        create :meeting, :official, :online, component:, title: Decidim::Faker::Localized.localized { "<script>alert(\"fooo\")</script> online meeting title" }
+        create(:meeting, :official, :online, component:, title: Decidim::Faker::Localized.localized { "<script>alert(\"fooo\")</script> online meeting title" })
       end
       let(:online_meeting2) do
-        create :meeting, :not_official, :online, component: component2, title: Decidim::Faker::Localized.localized { "<script>alert(\"fooo\")</script> online meeting 2 " }
+        create(:meeting, :not_official, :online, component: component2, title: Decidim::Faker::Localized.localized { "<script>alert(\"fooo\")</script> online meeting 2 " })
       end
       let!(:withdrawn_meeting) do
-        create :meeting, :published, :withdrawn, component: component2, title: Decidim::Faker::Localized.localized { "<script>alert(\"fooo\")</script> withdrawn meeting title" }
+        create(:meeting, :published, :withdrawn, component: component2, title: Decidim::Faker::Localized.localized { "<script>alert(\"fooo\")</script> withdrawn meeting title" })
       end
       let!(:filters) { { "with_any_origin" => ["", "official"], "with_any_type" => ["", "online"] } }
 

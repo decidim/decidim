@@ -7,7 +7,7 @@ module Decidim
     describe Vote do
       subject { vote }
 
-      let(:vote) { build :vote }
+      let(:vote) { build(:vote) }
 
       it { is_expected.to be_valid }
     end

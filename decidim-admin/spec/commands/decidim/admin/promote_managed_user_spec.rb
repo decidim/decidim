@@ -6,8 +6,8 @@ module Decidim::Admin
   describe PromoteManagedUser do
     subject { described_class.new(form, user, current_user) }
 
-    let(:organization) { create :organization }
-    let!(:current_user) { create :user, :admin, organization: }
+    let(:organization) { create(:organization) }
+    let!(:current_user) { create(:user, :admin, organization:) }
     let(:email) { "foo@example.org" }
     let(:form_params) do
       {
@@ -22,7 +22,7 @@ module Decidim::Admin
         current_user:
       )
     end
-    let!(:user) { create :user, :managed, organization: }
+    let!(:user) { create(:user, :managed, organization:) }
 
     context "when everything is ok" do
       before do
@@ -56,7 +56,7 @@ module Decidim::Admin
     end
 
     context "when the user is not managed" do
-      let(:user) { create :user, organization: }
+      let(:user) { create(:user, organization:) }
 
       it "broadcasts invalid" do
         expect { subject.call }.to broadcast(:invalid)

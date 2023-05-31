@@ -5,7 +5,7 @@ require "spec_helper"
 describe Decidim::Meetings::Admin::Permissions do
   subject { described_class.new(user, permission_action, context).permissions.allowed? }
 
-  let(:user) { create :user, organization: meeting_component.organization }
+  let(:user) { create(:user, organization: meeting_component.organization) }
   let(:space_allows) { true }
   let(:context) do
     {
@@ -16,16 +16,16 @@ describe Decidim::Meetings::Admin::Permissions do
       poll:
     }
   end
-  let(:meeting_component) { create :meeting_component }
-  let(:meeting) { create :meeting, :official, component: meeting_component }
-  let(:agenda) { create :agenda }
-  let(:questionnaire) { create :questionnaire }
+  let(:meeting_component) { create(:meeting_component) }
+  let(:meeting) { create(:meeting, :official, component: meeting_component) }
+  let(:agenda) { create(:agenda) }
+  let(:questionnaire) { create(:questionnaire) }
   let(:permission_action) { Decidim::PermissionAction.new(**action) }
   let(:registrations_enabled) { true }
   let(:action) do
     { scope: :admin, action: action_name, subject: action_subject }
   end
-  let(:poll) { create :poll }
+  let(:poll) { create(:poll) }
   let(:poll_questionnaire) { create(:meetings_poll_questionnaire, questionnaire_for: poll) }
   let(:action_name) { :foo }
   let(:action_subject) { :foo }
@@ -94,7 +94,7 @@ describe Decidim::Meetings::Admin::Permissions do
     let(:action_subject) { :meeting }
 
     context "when meeting is not official" do
-      let(:meeting) { create :meeting, :not_official, component: meeting_component }
+      let(:meeting) { create(:meeting, :not_official, component: meeting_component) }
       let(:action_name) { :update }
 
       it { is_expected.to be false }
@@ -132,12 +132,12 @@ describe Decidim::Meetings::Admin::Permissions do
 
     context "when inviting a user a meeting" do
       let(:action_name) { :invite_attendee }
-      let(:meeting) { create :meeting, registrations_enabled: true, component: meeting_component }
+      let(:meeting) { create(:meeting, registrations_enabled: true, component: meeting_component) }
 
       it_behaves_like "action requiring a meeting"
 
       context "when the meeting registrations are closed" do
-        let(:meeting) { create :meeting, registrations_enabled: false, component: meeting_component }
+        let(:meeting) { create(:meeting, registrations_enabled: false, component: meeting_component) }
 
         it { is_expected.to be false }
       end
