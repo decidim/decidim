@@ -10,9 +10,9 @@ describe "Valuator checks components", type: :system do
     decidim_admin_assemblies.components_path(assembly)
   end
   let(:components_path) { participatory_space_path }
-  let!(:user) { create(:user, :confirmed, :admin_terms_accepted, admin: false, organization: }
-  let!(:valuator_role) { create(:assembly_user_role, role: :valuator, user:, assembly: }
-  let(:another_component) { create(:component, participatory_space: assembly }
+  let!(:user) { create(:user, :confirmed, :admin_terms_accepted, admin: false, organization:) }
+  let!(:valuator_role) { create(:assembly_user_role, role: :valuator, user:, assembly:) }
+  let(:another_component) { create(:component, participatory_space: assembly) }
 
   include Decidim::ComponentPathHelper
 
