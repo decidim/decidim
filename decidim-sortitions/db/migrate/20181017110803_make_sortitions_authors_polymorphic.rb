@@ -5,18 +5,22 @@ class MakeSortitionsAuthorsPolymorphic < ActiveRecord::Migration[5.2]
     self.table_name = :decidim_users
   end
 
+  class Sortition < ApplicationRecord
+    include Decidim::HasComponent
+
+    self.table_name = :decidim_sortitions_sortitions
+  end
+
   def change
     add_column :decidim_sortitions_sortitions, :decidim_author_type, :string
 
-    Decidim::Sortitions::Sortition.reset_column_information
-    Decidim::Sortitions::Sortition.includes(:author).find_each do |sortition|
-      author = if sortition.decidim_author_id.present?
-                 User.find_by(id: sortition.decidim_author_id) || sortition.organization
-               else
-                 sortition.organization
-               end
-      sortition.author = author
-      sortition.save!
+    Sortition.find_each do |sortition|
+      author = User.find_by(id: sortition.decidim_author_id) if sortition.decidim_author_id.present?
+      author ||= sortition.organization
+      sortition.update!(
+        decidim_author_type: author.is_a?(User) ? author.type : "Decidim::Organization",
+        decidim_author_id: author.id
+      )
     end
 
     add_index :decidim_sortitions_sortitions,
