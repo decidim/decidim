@@ -41,22 +41,18 @@ module Decidim
 
     private
 
-    # deprecated
     def highlighted_classes
       "column medium-4"
     end
 
-    # deprecated
     def not_highlighted_classes
       "column medium-6"
     end
 
-    # deprecated
     def not_highlighted_wrapper_classes
       "column medium-4"
     end
 
-    # deprecated
     def render_highlighted(metrics)
       safe_join(
         metrics.map do |metric|
@@ -65,7 +61,6 @@ module Decidim
       )
     end
 
-    # deprecated
     def render_not_highlighted(metrics)
       safe_join(
         metrics.in_groups_of(2).map do |metrics_group|
@@ -82,19 +77,8 @@ module Decidim
       )
     end
 
-    # deprecated
     def render_metrics_data(metric_name, opts = {})
       content_tag :div, class: opts[:klass].presence || not_highlighted_classes do
-        concat render_metric_chart(metric_name, opts)
-        concat render_downloader(metric_name) if opts[:download]
-      end
-    end
-
-    # deprecated
-    def render_metrics_descriptive(metric_name, opts = {})
-      content_tag :div, class: opts[:klass].presence || not_highlighted_classes do
-        concat content_tag(:h3, opts[:title], class: "metric-title heading3 text-muted")
-        concat content_tag(:p, opts[:description], class: "metric-description text-medium")
         concat render_metric_chart(metric_name, opts)
         concat render_downloader(metric_name) if opts[:download]
       end
