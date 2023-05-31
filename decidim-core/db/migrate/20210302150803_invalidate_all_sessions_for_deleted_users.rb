@@ -1,10 +1,14 @@
 # frozen_string_literal: true
 
 class InvalidateAllSessionsForDeletedUsers < ActiveRecord::Migration[5.2]
-  def up
-    Decidim::User.reset_column_information
+  class User < ApplicationRecord
+    self.table_name = "decidim_users"
+  end
 
-    Decidim::User.where.not(deleted_at: nil).find_each(&:invalidate_all_sessions!)
+  def up
+    User.where.not(deleted_at: nil).find_each do |user|
+      user.update!(session_token: SecureRandom.hex)
+    end
   end
 
   def down; end
