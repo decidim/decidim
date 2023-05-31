@@ -1,11 +1,11 @@
-<div class="lines-breadcrumb">
+<section class="content-block home__section">
   <% root = assemblies.shift %>
-  <%= link_to translated_attribute(root.title), assembly_path(root) %>
+  <%= link_to translated_attribute(root.title), assembly_path(root), class: "layout-item__back button button__text-secondary js-back-to-list" %>
 
   <% assemblies.each do |assembly| %>
-    <span class="breadcrumb--separator">></span>
-    <div>
-      <%= link_to translated_attribute(assembly.title), assembly_path(assembly) %>
-    </div>
+    <%= link_to assembly_path(assembly), class: "layout-item__back button button__text-secondary js-back-to-list" do %>
+      <%= icon "arrow-right-line" %>
+      <%= translated_attribute(assembly.title) %>
+    <% end %>
   <% end %>
-</div>
+</section>
