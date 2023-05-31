@@ -11,7 +11,9 @@ describe "Monitoring committee member manages votings", type: :system do
     visit decidim_admin_votings.votings_path
   end
 
-  it_behaves_like "needs admin TOS accepted"
+  it_behaves_like "needs admin TOS accepted" do
+    let(:user) { create(:user, :confirmed, organization:) }
+  end
 
   context "when the user has not accepted the admin TOS" do
     let(:user) { create(:user, :confirmed, organization:) }

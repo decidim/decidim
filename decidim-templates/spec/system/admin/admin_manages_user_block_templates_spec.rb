@@ -12,6 +12,10 @@ describe "Admin manages user block templates", type: :system do
     visit decidim_admin_templates.block_user_templates_path
   end
 
+  it_behaves_like "needs admin TOS accepted" do
+    let(:user) { create(:user, :admin, :confirmed, admin_terms_accepted_at: nil, organization:) }
+  end
+
   describe "listing templates" do
     let!(:template) { create(:template, :user_block, organization:) }
 
@@ -24,8 +28,6 @@ describe "Admin manages user block templates", type: :system do
         expect(page).to have_i18n_content(template.name)
       end
     end
-
-    it_behaves_like "needs admin TOS accepted"
   end
 
   describe "creating a user block template" do

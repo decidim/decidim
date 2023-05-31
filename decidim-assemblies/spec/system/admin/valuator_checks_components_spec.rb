@@ -26,7 +26,9 @@ describe "Valuator checks components", type: :system do
     visit components_path
   end
 
-  it_behaves_like "needs admin TOS accepted"
+  it_behaves_like "needs admin TOS accepted" do
+    let(:user) { create(:user, :confirmed, organization:) }
+  end
 
   context "when listing the space components in the sidebar" do
     it "can only see the proposals component" do

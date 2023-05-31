@@ -12,6 +12,10 @@ describe "Admin manages questionnaire templates", type: :system do
     visit decidim_admin_templates.questionnaire_templates_path
   end
 
+  it_behaves_like "needs admin TOS accepted" do
+    let(:user) { create(:user, :admin, :confirmed, admin_terms_accepted_at: nil, organization:) }
+  end
+
   describe "listing templates" do
     let!(:template) { create(:questionnaire_template, organization:) }
 
@@ -25,8 +29,6 @@ describe "Admin manages questionnaire templates", type: :system do
         expect(page).to have_i18n_content(template.templatable.title)
       end
     end
-
-    it_behaves_like "needs admin TOS accepted"
   end
 
   describe "creating a questionnaire_template" do

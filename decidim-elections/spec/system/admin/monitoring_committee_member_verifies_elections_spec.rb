@@ -14,7 +14,9 @@ describe "Monitoring committee member verifies elections", type: :system do
     visit decidim_admin_votings.edit_voting_path(voting)
   end
 
-  it_behaves_like "needs admin TOS accepted"
+  it_behaves_like "needs admin TOS accepted" do
+    let(:user) { create(:user, :confirmed, organization:) }
+  end
 
   context "when listing the elections" do
     it "lists all the polling stations for the voting" do
