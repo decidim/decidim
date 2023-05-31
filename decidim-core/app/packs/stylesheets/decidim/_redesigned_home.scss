@@ -1,6 +1,6 @@
 .home{
   &__section{
-    @apply py-12 container;
+    @apply py-8 md:py-12 container;
 
     &-title{
       @apply h2 decorator;
@@ -8,15 +8,19 @@
   }
 
   &__section-image{
-    @apply px-16 py-16;
+    @apply px-0 py-8 md:p-16;
   }
 
   &__section-header{
-    @apply mb-12 flex gap-x-1 items-center;
+    @apply mb-6 md:mb-12 flex flex-col md:flex-row gap-y-6 md:gap-y-0 gap-x-1 items-start md:items-center;
+
+    button{
+      @apply md:ml-auto;
+    }
   }
 
   &__section-content-banner{
-    @apply flex gap-x-1 items-center px-20;
+    @apply flex flex-col md:flex-row gap-x-1 items-center px-4 md:px-20;
 
     &__title{
       @apply h2 text-white;
@@ -28,7 +32,7 @@
   }
 
   &__section-participate-grid{
-    @apply grid grid-cols-3 my-12 gap-x-8;
+    @apply grid grid-cols-1 md:grid-cols-3 my-12 md:gap-x-8 gap-y-4;
 
     &__title{
       @apply h3 mb-2;

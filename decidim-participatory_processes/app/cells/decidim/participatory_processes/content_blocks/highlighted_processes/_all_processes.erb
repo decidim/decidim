@@ -1,6 +1,4 @@
-<div id="see-all-processes" class="ml-auto">
-    <%= link_to decidim_participatory_processes.participatory_processes_path, class: "button button__sm button__text-secondary" do %>
-      <%= t("see_all_processes", scope: "decidim.participatory_processes.pages.home.highlighted_processes") %>
-      <%= icon "arrow-right-line", class: "fill-current" %>
-    <% end %>
-</div>
+<%= link_to decidim_participatory_processes.participatory_processes_path, class: "button button__sm button__text-secondary" do %>
+  <%= t("see_all_processes", scope: "decidim.participatory_processes.pages.home.highlighted_processes") %>
+  <%= icon "arrow-right-line", class: "fill-current" %>
+<% end %>

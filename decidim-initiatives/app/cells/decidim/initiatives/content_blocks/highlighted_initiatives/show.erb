@@ -4,12 +4,10 @@
       <h2 class="home__section-title">
         <%= t("active_initiatives", scope: i18n_scope) %>
       </h2>
-      <div class="ml-auto" id="see-all-initiatives">
-        <%= link_to decidim_initiatives.initiatives_path, class: "button button__sm button__text-secondary" do %>
-          <%= t("see_all_initiatives", scope: "decidim.initiatives.pages.home.highlighted_initiatives") %>
-          <%= icon "arrow-right-line", class: "fill-current" %>
-        <% end %>
-      </div>
+      <%= link_to decidim_initiatives.initiatives_path, class: "button button__sm button__text-secondary" do %>
+        <%= t("see_all_initiatives", scope: "decidim.initiatives.pages.home.highlighted_initiatives") %>
+        <%= icon "arrow-right-line", class: "fill-current" %>
+      <% end %>
     </div>
     <div class="card__grid-home">
       <% highlighted_initiatives.each do |initiative| %>
