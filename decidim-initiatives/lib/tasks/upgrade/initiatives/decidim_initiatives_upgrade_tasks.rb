@@ -7,7 +7,7 @@ namespace :decidim do
       task fix_broken_pages: :environment do
         Decidim::Initiative.find_each do |initiative|
           initiative.components.where(manifest_name: "pages").each do |component|
-            next unless Decidim::Pages::Page.where(component: component).empty?
+            next unless Decidim::Pages::Page.where(component:).empty?
 
             Decidim::Pages::CreatePage.call(component) do
               on(:invalid) { raise "Cannot create page" }
