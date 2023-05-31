@@ -26,6 +26,8 @@ describe "Valuator checks components", type: :system do
     visit components_path
   end
 
+  it_behaves_like "needs admin TOS accepted"
+
   context "when listing the space components in the sidebar" do
     it "can only see the proposals component" do
       within ".layout-nav #components-list" do
@@ -45,14 +47,6 @@ describe "Valuator checks components", type: :system do
         expect(page).to have_content(translated(current_component.name))
         expect(page).to have_no_content(translated(another_component.name))
       end
-    end
-  end
-
-  context "when the user has not accepted the admin TOS" do
-    let!(:user) { create :user, :confirmed, organization: }
-
-    it "shows a message to accept the admin TOS" do
-      expect(page).to have_content("Please take a moment to review the admin terms of service")
     end
   end
 end

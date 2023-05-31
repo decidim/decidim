@@ -25,13 +25,7 @@ describe "Admin manages user block templates", type: :system do
       end
     end
 
-    context "when the user has not accepted the admin TOS" do
-      let(:user) { create(:user, :admin, :confirmed, admin_terms_accepted_at: nil, organization:) }
-
-      it "shows a message to accept the admin TOS" do
-        expect(page).to have_content("Please take a moment to review the admin terms of service")
-      end
-    end
+    it_behaves_like "needs admin TOS accepted"
   end
 
   describe "creating a user block template" do
