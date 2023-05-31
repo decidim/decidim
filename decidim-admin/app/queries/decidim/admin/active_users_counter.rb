@@ -23,7 +23,7 @@ module Decidim
 
         query = Decidim::User.left_outer_joins(:organization).where(decidim_organizations: { id: organization.id })
         query = query.where("#{Decidim::User.table_name}.current_sign_in_at >= ?", date)
-        query.where(admin: admin)
+        query.where(admin:)
       end
 
       private

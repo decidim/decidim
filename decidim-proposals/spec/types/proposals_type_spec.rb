@@ -30,7 +30,7 @@ module Decidim
 
         context "when querying proposals with categories" do
           let(:category) { create(:category, participatory_space: model.participatory_space) }
-          let!(:proposal_with_category) { create(:proposal, component: model, category: category) }
+          let!(:proposal_with_category) { create(:proposal, component: model, category:) }
           let(:all_proposals) { published_proposals + [proposal_with_category] }
 
           let(:query) { "{ proposals { edges { node { id, category { id } } } } }" }
@@ -55,7 +55,7 @@ module Decidim
           end
         end
 
-        context "when the proposal doesn't belong to the component" do
+        context "when the proposal does not belong to the component" do
           let!(:proposal) { create(:proposal, component: create(:proposal_component)) }
 
           it "returns null" do

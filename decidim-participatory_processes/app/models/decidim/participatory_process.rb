@@ -2,7 +2,7 @@
 
 module Decidim
   # Interaction between a user and an organization is done via a
-  # ParticipatoryProcess. It's a unit of action from the Organization point of
+  # ParticipatoryProcess. It is a unit of action from the Organization point of
   # view that groups several components (proposals, debates...) distributed in
   # steps that get enabled or disabled depending on which step is currently
   # active.
@@ -93,7 +93,7 @@ module Decidim
             sanitize_sql_array(
               [
                 "ABS(start_date - (CURRENT_DATE at time zone :timezone)::date)",
-                { timezone: timezone }
+                { timezone: }
               ]
             )
           )
@@ -122,7 +122,7 @@ module Decidim
       where(promoted: true)
     end
 
-    # Return processes that DON'T belong to a process group.
+    # Return processes that DO NOT belong to a process group.
     def self.groupless
       where(decidim_participatory_process_group_id: nil)
     end

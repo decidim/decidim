@@ -15,7 +15,7 @@ module Decidim
       def serialize
         {
           id: conversation.id,
-          messages: messages,
+          messages:,
           created_at: conversation.created_at,
           updated_at: conversation.updated_at
         }

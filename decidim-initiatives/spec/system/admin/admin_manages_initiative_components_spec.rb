@@ -4,9 +4,9 @@ require "spec_helper"
 
 describe "Admin manages initiative components", type: :system do
   let(:organization) { create(:organization) }
-  let(:user) { create(:user, :admin, :confirmed, organization: organization) }
+  let(:user) { create(:user, :admin, :confirmed, organization:) }
 
-  let!(:initiative) { create(:initiative, organization: organization) }
+  let!(:initiative) { create(:initiative, organization:) }
 
   before do
     switch_to_host(organization.host)
@@ -173,13 +173,13 @@ describe "Admin manages initiative components", type: :system do
         page.find(".action-icon--remove").click
       end
 
-      expect(page).to have_no_content("My component")
+      expect(page).not_to have_content("My component")
     end
   end
 
   context "when publish and unpublish a component" do
     let!(:component) do
-      create(:component, participatory_space: initiative, published_at: published_at)
+      create(:component, participatory_space: initiative, published_at:)
     end
 
     let(:published_at) { nil }

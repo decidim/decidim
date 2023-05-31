@@ -1,0 +1,9 @@
+<% if current_organization.official_img_footer.attached? %>
+  <%= link_to current_organization.official_url, class: "block mb-6" do %>
+    <%= image_tag current_organization.attached_uploader(:official_img_footer).path, alt: current_organization.name, class: "max-h-16" %>
+  <% end %>
+<% end %>
+<div class="text-sm text-white prose">
+  <p><%= t("decidim.pages.home.footer_sub_hero.footer_sub_hero_headline", organization: current_organization.name) %></p>
+  <p><%== t("decidim.pages.home.footer_sub_hero.footer_sub_hero_body") %></p>
+</div>

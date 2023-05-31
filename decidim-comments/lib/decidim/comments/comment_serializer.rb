@@ -25,7 +25,7 @@ module Decidim
           },
           commentable_id: resource.decidim_commentable_id,
           commentable_type: resource.decidim_commentable_type,
-          root_commentable_url: root_commentable_url
+          root_commentable_url:
         }
       end
 

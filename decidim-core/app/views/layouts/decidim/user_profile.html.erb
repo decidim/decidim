@@ -1,3 +1,5 @@
+<%# REDESIGN_PENDING: file deprecated. It is not renamed due to the redesigned has been moved %>
+
 <% subtitle = content_for(:subtitle) %>
 
 <%= render "layouts/decidim/application" do %>
@@ -6,7 +8,7 @@
       <div class="columns">
         <h1 class="heading1 user-header">
           <%= t("title", scope: "layouts.decidim.user_profile") %>
-          <%= " - #{subtitle}" unless subtitle.blank? %>
+          <%= " - #{subtitle}" if subtitle.present? %>
         </h1>
       </div>
     </div>

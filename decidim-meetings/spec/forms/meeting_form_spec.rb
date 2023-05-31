@@ -10,12 +10,12 @@ module Decidim::Meetings
     let(:context) do
       {
         current_organization: organization,
-        current_component: current_component,
+        current_component:,
         current_participatory_space: participatory_process
       }
     end
-    let(:participatory_process) { create :participatory_process, organization: organization }
-    let(:current_component) { create :component, participatory_space: participatory_process, manifest_name: "meetings" }
+    let(:participatory_process) { create(:participatory_process, organization:) }
+    let(:current_component) { create(:component, participatory_space: participatory_process, manifest_name: "meetings") }
     let(:title) { Faker::Lorem.sentence(word_count: 1) }
     let(:description) { Faker::Lorem.sentence(word_count: 3) }
     let(:short_description) { Faker::Lorem.sentence(word_count: 1) }
@@ -26,10 +26,10 @@ module Decidim::Meetings
     let(:longitude) { 2.1234 }
     let(:start_time) { 2.days.from_now }
     let(:end_time) { 2.days.from_now + 4.hours }
-    let(:parent_scope) { create(:scope, organization: organization) }
+    let(:parent_scope) { create(:scope, organization:) }
     let(:scope) { create(:subscope, parent: parent_scope) }
     let(:scope_id) { scope.id }
-    let(:category) { create :category, participatory_space: participatory_process }
+    let(:category) { create(:category, participatory_space: participatory_process) }
     let(:category_id) { category.id }
     let(:private_meeting) { false }
     let(:transparent) { true }
@@ -44,24 +44,24 @@ module Decidim::Meetings
       {
         decidim_scope_id: scope_id,
         decidim_category_id: category_id,
-        title: title,
-        description: description,
-        short_description: short_description,
-        location: location,
-        location_hints: location_hints,
-        address: address,
-        start_time: start_time,
-        end_time: end_time,
-        private_meeting: private_meeting,
-        transparent: transparent,
-        type_of_meeting: type_of_meeting,
-        online_meeting_url: online_meeting_url,
-        registration_type: registration_type,
-        available_slots: available_slots,
-        registration_terms: registration_terms,
+        title:,
+        description:,
+        short_description:,
+        location:,
+        location_hints:,
+        address:,
+        start_time:,
+        end_time:,
+        private_meeting:,
+        transparent:,
+        type_of_meeting:,
+        online_meeting_url:,
+        registration_type:,
+        available_slots:,
+        registration_terms:,
         registrations_enabled: true,
-        registration_url: registration_url,
-        iframe_embed_type: iframe_embed_type
+        registration_url:,
+        iframe_embed_type:
       }
     end
 
@@ -141,7 +141,7 @@ module Decidim::Meetings
     end
 
     it "properly maps category id from model" do
-      meeting = create(:meeting, component: current_component, category: category)
+      meeting = create(:meeting, component: current_component, category:)
 
       expect(described_class.from_model(meeting).decidim_category_id).to eq(category_id)
     end
@@ -188,7 +188,7 @@ module Decidim::Meetings
       end
     end
 
-    describe "when online meeting url is present and the meeting is embedded and the url can't be embedded" do
+    describe "when online meeting url is present and the meeting is embedded and the url cannot be embedded" do
       let(:online_meeting_url) { "https://example.org/decidim" }
       let(:iframe_embed_type) { "embed_in_meeting_page" }
 

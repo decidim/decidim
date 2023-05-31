@@ -14,8 +14,8 @@ module Decidim
                  [Decidim::ParticipatoryProcesses::ParticipatoryProcessType],
                  null: true,
                  description: "Lists all participatory_processes" do
-        argument :filter, Decidim::ParticipatoryProcesses::ParticipatoryProcessInputFilter, "This argument let's you filter the results", required: false
-        argument :order, Decidim::ParticipatoryProcesses::ParticipatoryProcessInputSort, "This argument let's you order the results", required: false
+        argument :filter, Decidim::ParticipatoryProcesses::ParticipatoryProcessInputFilter, "This argument lets you filter the results", required: false
+        argument :order, Decidim::ParticipatoryProcesses::ParticipatoryProcessInputSort, "This argument lets you order the results", required: false
       end
 
       type.field :participatory_process,
@@ -64,16 +64,16 @@ module Decidim
 
     def participatory_processes(filter: {}, order: {})
       manifest = Decidim.participatory_space_manifests.select { |m| m.name == :participatory_processes }.first
-      Decidim::Core::ParticipatorySpaceListBase.new(manifest: manifest).call(object, { filter: filter, order: order }, context)
+      Decidim::Core::ParticipatorySpaceListBase.new(manifest:).call(object, { filter:, order: }, context)
     end
 
     def participatory_process(id: nil, slug: nil)
       manifest = Decidim.participatory_space_manifests.select { |m| m.name == :participatory_processes }.first
-      Decidim::Core::ParticipatorySpaceFinderBase.new(manifest: manifest).call(object, { id: id, slug: slug }, context)
+      Decidim::Core::ParticipatorySpaceFinderBase.new(manifest:).call(object, { id:, slug: }, context)
     end
 
     def component(id: {})
-      component = Decidim::Component.published.find_by(id: id)
+      component = Decidim::Component.published.find_by(id:)
       component&.organization == context[:current_organization] ? component : nil
     end
 
@@ -113,11 +113,11 @@ module Decidim
     end
 
     def user(id: nil, nickname: nil)
-      Core::UserEntityFinder.new.call(object, { id: id, nickname: nickname }, context)
+      Core::UserEntityFinder.new.call(object, { id:, nickname: }, context)
     end
 
     def users(filter: {}, order: {})
-      Core::UserEntityList.new.call(object, { filter: filter, order: order }, context)
+      Core::UserEntityList.new.call(object, { filter:, order: }, context)
     end
   end
 end

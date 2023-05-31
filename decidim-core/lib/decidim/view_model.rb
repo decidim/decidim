@@ -15,9 +15,11 @@ module Decidim
     include Decidim::ReplaceButtonsHelper
     include Cell::Caching::Notifications
     include Decidim::MarkupHelper
-    include ::Webpacker::Helper
+    include Decidim::LayoutHelper
 
     delegate :current_organization, to: :controller
+
+    delegate :redesigned_layout, :redesign_enabled?, to: :controller
 
     cache :show, if: :perform_caching?, expires_in: :cache_expiry_time do
       cache_hash
@@ -29,14 +31,39 @@ module Decidim
 
     def call(*)
       identifier = self.class.name.sub(/Cell$/, "").underscore
-      instrument(:cell, identifier: identifier) do |_payload|
+      instrument(:cell, identifier:) do |_payload|
         super
       end
     end
 
+    # Rails cells is delegating those methods to some internal view layer which messes up with shakapacker asset loading strategy
+    # generating 2 or more queues for the javascript to be loading, resulting in the fact that no js / style pack appended or
+    # prepended is added to main view rendering queue.
+    # This is inspired from : https://github.com/trailblazer/cells-rails/blob/master/lib/cell/helper/asset_helper.rb
+    %w(
+      asset_pack_path
+      asset_pack_url
+      image_pack_path
+      image_pack_url
+      image_pack_tag
+      favicon_pack_tag
+      javascript_pack_tag
+      preload_pack_asset
+      stylesheet_pack_tag
+      append_stylesheet_pack_tag
+      append_javascript_pack_tag
+      prepend_javascript_pack_tag
+    ).each do |method|
+      delegate method, to: :view_context
+    end
+
+    def view_context
+      context&.dig(:view_context) || ::ActionController::Base.helpers
+    end
+
     private
 
-    def render_template(template, options, &block)
+    def render_template(template, options, &)
       ActiveSupport::Notifications.instrument(
         "render_template.action_view",
         identifier: template.file,

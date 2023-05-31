@@ -8,7 +8,7 @@ module Decidim
   # This class handles all the logic associated to configuring a component
   # associated to a participatory process.
   #
-  # It's normally not used directly but through the API exposed through
+  # It is normally not used directly but through the API exposed through
   # `Decidim.register_component`.
   class ComponentManifest
     include ActiveModel::Model
@@ -18,7 +18,7 @@ module Decidim
     attribute :engine, Rails::Engine, **{}
 
     attribute :name, Symbol
-    attribute :hooks, Hash[Symbol => Array[Proc]], default: {}
+    attribute(:hooks, { Symbol => Array[Proc] }, default: {})
 
     attribute :query_type, String, default: "Decidim::Core::ComponentType"
 
@@ -51,7 +51,7 @@ module Decidim
     # on meetings.
     #
     # A Component can expose as many actions as it wants and the admin panel will
-    # generate a UI to handle them. There's a set of controller helpers available
+    # generate a UI to handle them. There is a set of controller helpers available
     # as well that allows checking for those permissions.
     attribute :actions, Array[String]
 
@@ -224,8 +224,8 @@ module Decidim
     # block - A block that receive the components to filter out the stat.
     #
     # Returns nothing.
-    def register_stat(name, options = {}, &block)
-      stats.register(name, options, &block)
+    def register_stat(name, options = {}, &)
+      stats.register(name, options, &)
     end
 
     # Public: Finds the permission class from its name, using the

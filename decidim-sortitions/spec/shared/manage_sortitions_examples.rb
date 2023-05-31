@@ -53,9 +53,12 @@ shared_examples "manage sortitions" do
     end
 
     context "when creates a sortition" do
-      let(:sortition_dice) { ::Faker::Number.between(from: 1, to: 6) }
-      let(:sortition_target_items) { ::Faker::Number.between(from: 1, to: 10) }
-      let!(:proposal) { create :proposal, component: proposal_component }
+      let(:sortition_dice) { Faker::Number.between(from: 1, to: 6) }
+      let(:sortition_target_items) { Faker::Number.between(from: 1, to: 10) }
+      let!(:proposal) { create(:proposal, component: proposal_component) }
+
+      it_behaves_like "having a rich text editor for field", ".tabs-content[data-tabs-content='sortition-additional_info-tabs']", "full"
+      it_behaves_like "having a rich text editor for field", ".tabs-content[data-tabs-content='sortition-witnesses-tabs']", "content"
 
       it "shows the sortition details" do
         within ".new_sortition" do

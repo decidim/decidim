@@ -36,8 +36,8 @@ module Decidim
       # link_name     - The String name of the link between this model and the target resource.
       #
       # Returns an ActiveRecord::Relation.
-      def linked_resources(resource_name, link_name)
-        scope = sibling_scope(resource_name)
+      def linked_resources(resource_name, link_name, component_published: true)
+        scope = sibling_scope(resource_name, component_published:)
 
         from = scope
                .joins(:resource_links_from)
@@ -56,14 +56,15 @@ module Decidim
       # resource_name - The String name of the resource manifest exposed by a component.
       #
       # Returns an ActiveRecord::Relation.
-      def sibling_scope(resource_name)
+      def sibling_scope(resource_name, component_published: true)
         manifest = Decidim.find_resource_manifest(resource_name)
         return self.class.none unless manifest
 
         scope = manifest.resource_scope(component)
         scope = scope.where("#{self.class.table_name}.id != ?", id) if manifest.model_class == self.class
         scope = scope.not_hidden if manifest.model_class.respond_to?(:not_hidden)
-        scope.includes(:component).where.not(decidim_components: { published_at: nil })
+        scope = scope.includes(:component).where.not(decidim_components: { published_at: nil }) if component_published
+        scope
       end
 
       # Links the given resources to this model, replaces any previous links with the same name.
@@ -90,7 +91,7 @@ module Decidim
                 from: self,
                 to: resource,
                 name: link_name,
-                data: data
+                data:
               )
             end
           end
@@ -153,7 +154,7 @@ module Decidim
       #
       # Returns an Array of Strings.
       def linked_classes_for(component)
-        scope = where(component: component)
+        scope = where(component:)
 
         from = scope
                .joins(:resource_links_from)
@@ -164,8 +165,8 @@ module Decidim
              .where(decidim_resource_links: { to_type: name })
 
         ResourceLink
-          .where(from: from)
-          .or(ResourceLink.where(to: to))
+          .where(from:)
+          .or(ResourceLink.where(to:))
           .pluck(:from_type, :to_type)
           .flatten
           .uniq

@@ -4,9 +4,9 @@ require "spec_helper"
 
 describe "Admin manages consultation components", type: :system do
   let(:organization) { create(:organization) }
-  let(:user) { create(:user, :admin, :confirmed, organization: organization) }
-  let(:consultation) { create(:consultation, organization: organization) }
-  let!(:question) { create(:question, consultation: consultation) }
+  let(:user) { create(:user, :admin, :confirmed, organization:) }
+  let(:consultation) { create(:consultation, organization:) }
+  let!(:question) { create(:question, consultation:) }
 
   before do
     switch_to_host(organization.host)
@@ -165,13 +165,13 @@ describe "Admin manages consultation components", type: :system do
         click_link "Delete"
       end
 
-      expect(page).to have_no_content("My component")
+      expect(page).not_to have_content("My component")
     end
   end
 
   describe "publish and unpublish a component" do
     let!(:component) do
-      create(:component, participatory_space: question, published_at: published_at)
+      create(:component, participatory_space: question, published_at:)
     end
 
     let(:published_at) { nil }

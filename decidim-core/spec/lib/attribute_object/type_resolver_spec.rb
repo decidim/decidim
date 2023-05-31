@@ -16,7 +16,7 @@ module Decidim
         let(:type) { :foo }
 
         it "returns the same exact type with the provided options" do
-          expect(subject).to eq(type: type, options: options)
+          expect(subject).to eq(type:, options:)
         end
       end
 
@@ -24,7 +24,7 @@ module Decidim
         let(:type) { ActiveModel::Type::Value.new }
 
         it "returns the same exact type with the provided options" do
-          expect(subject).to eq(type: type, options: options)
+          expect(subject).to eq(type:, options:)
         end
       end
 
@@ -91,7 +91,7 @@ module Decidim
       end
 
       context "with a Hash type" do
-        let(:type) { Hash[String => OpenStruct] }
+        let(:type) { { String => OpenStruct } }
 
         it "returns a :hash type with correct key_type and value_type options" do
           expect(subject).to eq(type: :hash, options: { key_type: String, value_type: OpenStruct, default: {}, foo: "bar" })

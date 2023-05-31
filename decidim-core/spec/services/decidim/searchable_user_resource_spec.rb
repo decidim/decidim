@@ -7,25 +7,25 @@ module Decidim
     subject { described_class.new(params) }
 
     let(:organization) { create(:organization) }
-    let(:scope1) { create :scope, organization: organization }
-    let!(:user) { create(:user, nickname: "the_solitary_man", name: "Neil Diamond", organization: organization) }
+    let(:scope1) { create(:scope, organization:) }
+    let!(:user) { create(:user, nickname: "the_solitary_man", name: "Neil Diamond", organization:) }
 
     describe "Indexing of users" do
       context "when implementing Searchable" do
         describe "index_on_create" do
           it "inserts a SearchableResource" do
             organization.available_locales.each do |locale|
-              searchable = SearchableResource.find_by(resource_type: user.class.name, resource_id: user.id, locale: locale)
+              searchable = SearchableResource.find_by(resource_type: user.class.name, resource_id: user.id, locale:)
               expect_searchable_resource_to_correspond_to_user(searchable, user, locale)
             end
           end
 
           context "when User has been deleted" do
-            let!(:user) { create(:user, :deleted, name: "Neil Diamond", organization: organization) }
+            let!(:user) { create(:user, :deleted, name: "Neil Diamond", organization:) }
 
-            it "doesn't inserts a SearchableResource" do
+            it "does not inserts a SearchableResource" do
               organization.available_locales.each do |locale|
-                searchable = SearchableResource.find_by(resource_type: user.class.name, resource_id: user.id, locale: locale)
+                searchable = SearchableResource.find_by(resource_type: user.class.name, resource_id: user.id, locale:)
 
                 expect(searchable).to be_nil
               end
@@ -33,11 +33,11 @@ module Decidim
           end
 
           context "when User has been blocked" do
-            let!(:user) { create(:user, :blocked, name: "Neil Diamond", organization: organization) }
+            let!(:user) { create(:user, :blocked, name: "Neil Diamond", organization:) }
 
-            it "doesn't inserts a SearchableResource" do
+            it "does not inserts a SearchableResource" do
               organization.available_locales.each do |locale|
-                searchable = SearchableResource.find_by(resource_type: user.class.name, resource_id: user.id, locale: locale)
+                searchable = SearchableResource.find_by(resource_type: user.class.name, resource_id: user.id, locale:)
 
                 expect(searchable).to be_nil
               end
@@ -52,14 +52,14 @@ module Decidim
             user.save!
 
             organization.available_locales.each do |locale|
-              searchable = SearchableResource.find_by(resource_type: user.class.name, resource_id: user.id, locale: locale)
+              searchable = SearchableResource.find_by(resource_type: user.class.name, resource_id: user.id, locale:)
               expect(searchable.content_a).to eq user.name
               expect(searchable.updated_at.to_i).to be >= created_at.to_i
             end
           end
 
           context "when User has been deleted" do
-            it "doesn't updates the associated SearchableResource" do
+            it "does not updates the associated SearchableResource" do
               searchable = SearchableResource.find_by(resource_type: user.class.name, resource_id: user.id)
               expect(searchable).not_to be_nil
               user.update!({
@@ -68,14 +68,14 @@ module Decidim
                            })
 
               organization.available_locales.each do |locale|
-                searchable = SearchableResource.find_by(resource_type: user.class.name, resource_id: user.id, locale: locale)
+                searchable = SearchableResource.find_by(resource_type: user.class.name, resource_id: user.id, locale:)
                 expect(searchable).to be_nil
               end
             end
           end
 
           context "when User has been blocked" do
-            it "doesn't updates the associated SearchableResource" do
+            it "does not updates the associated SearchableResource" do
               searchable = SearchableResource.find_by(resource_type: user.class.name, resource_id: user.id)
               expect(searchable).not_to be_nil
               user.update!({
@@ -86,7 +86,7 @@ module Decidim
                            })
 
               organization.available_locales.each do |locale|
-                searchable = SearchableResource.find_by(resource_type: user.class.name, resource_id: user.id, locale: locale)
+                searchable = SearchableResource.find_by(resource_type: user.class.name, resource_id: user.id, locale:)
                 expect(searchable).to be_nil
               end
             end
@@ -107,7 +107,7 @@ module Decidim
 
     describe "Search" do
       context "when searching by User resource_type" do
-        let!(:user2) { create(:user, nickname: "the_loner", name: "Neil Young", organization: organization) }
+        let!(:user2) { create(:user, nickname: "the_loner", name: "Neil Young", organization:) }
 
         context "when searching by name" do
           it "returns User results" do
@@ -130,17 +130,17 @@ module Decidim
         end
 
         context "when User has been deleted" do
-          let!(:user2) { create(:user, :deleted, name: "Neil Young", organization: organization) }
+          let!(:user2) { create(:user, :deleted, name: "Neil Young", organization:) }
 
-          it "doesn't returns User results" do
+          it "does not returns User results" do
             expect_searched_user_results("Neil", 1, [user])
           end
         end
 
         context "when User has been blocked" do
-          let!(:user2) { create(:user, :blocked, name: "Neil Young", organization: organization) }
+          let!(:user2) { create(:user, :blocked, name: "Neil Young", organization:) }
 
-          it "doesn't returns User results" do
+          it "does not returns User results" do
             expect_searched_user_results("Neil", 1, [user])
           end
         end

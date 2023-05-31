@@ -9,21 +9,21 @@ module Decidim
 
       let(:params) do
         {
-          title: title,
-          body: body,
-          body_template: body_template,
+          title:,
+          body:,
+          body_template:,
           user_group_id: user_group.id
         }
       end
 
       let(:organization) { create(:organization, available_locales: [:en]) }
-      let(:participatory_space) { create(:participatory_process, :with_steps, organization: organization) }
-      let(:component) { create(:proposal_component, participatory_space: participatory_space) }
+      let(:participatory_space) { create(:participatory_process, :with_steps, organization:) }
+      let(:component) { create(:proposal_component, participatory_space:) }
       let(:title) { "More sidewalks and less roads" }
       let(:body) { "Cities need more people, not more cars" }
       let(:body_template) { nil }
-      let(:author) { create(:user, organization: organization) }
-      let(:user_group) { create(:user_group, :verified, users: [author], organization: organization) }
+      let(:author) { create(:user, organization:) }
+      let(:user_group) { create(:user_group, :verified, users: [author], organization:) }
 
       let(:form) do
         described_class.from_params(params).with_context(
@@ -37,7 +37,7 @@ module Decidim
         it { is_expected.to be_valid }
       end
 
-      context "when there's no title" do
+      context "when there is no title" do
         let(:title) { nil }
 
         it { is_expected.to be_invalid }
@@ -48,14 +48,14 @@ module Decidim
         end
       end
 
-      context "when there's no body" do
+      context "when there is no body" do
         let(:body) { nil }
 
         it { is_expected.to be_invalid }
       end
 
       context "when the body exceeds the permited length" do
-        let(:component) { create(:proposal_component, :with_proposal_length, participatory_space: participatory_space, proposal_length: allowed_length) }
+        let(:component) { create(:proposal_component, :with_proposal_length, participatory_space:, proposal_length: allowed_length) }
         let(:allowed_length) { 15 }
         let(:body) { "A body longer than the permitted" }
 
@@ -69,7 +69,7 @@ module Decidim
         end
       end
 
-      context "when there's a body template set" do
+      context "when there is a body template set" do
         let(:body_template) { "This is the template" }
 
         it { is_expected.to be_valid }

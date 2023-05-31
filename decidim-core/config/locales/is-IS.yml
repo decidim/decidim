@@ -22,9 +22,6 @@ is-IS:
   booleans:
     'false': 'Nei'
     'true': 'Já'
-  carrierwave:
-    errors:
-      image_too_big: Myndin er of stór
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -78,10 +75,6 @@ is-IS:
         update: "%{user_name} uppfært %{resource_name} truflanir síðu"
     anonymous_user: Nafnlaus
     application:
-      collection:
-        documents:
-          one: Skjal
-          other: Skjöl
       documents:
         related_documents: Tengd skjöl
     author:
@@ -90,12 +83,10 @@ is-IS:
         other: athugasemdir
     authorization_handlers:
       another_dummy_authorization_handler:
-        explanation: Fá staðfest með því að kynna vegabréfarnúmer sem byrjar með "A"
         fields:
           passport_number: Vegabréfs númer
           postal_code: Póstnúmer
       dummy_authorization_handler:
-        explanation: Fá staðfest með því að kynna skjalnúmer sem endar með "X"
         fields:
           document_number: Skjal númer
           postal_code: Póstnúmer
@@ -120,20 +111,15 @@ is-IS:
         settings:
           global:
             comments_enabled: Athugasemdir virkt
-            dummy_global_attribute_1: Dummy Attribute 1
-            dummy_global_attribute_2: Dummy Attribute 2
+            dummy_global_attribute1: Dummy Attribute 1
+            dummy_global_attribute2: Dummy Attribute 2
           step:
             comments_blocked: Athugasemdir læst
-            dummy_step_attribute_1: Dummy Skref Attribute 1
-            dummy_step_attribute_2: Dummy Skref Attribute 2
+            dummy_step_attribute1: Dummy Skref Attribute 1
+            dummy_step_attribute2: Dummy Skref Attribute 2
     contact: Hafa samband
-    core:
-      actions:
-        unauthorized: Þú hefur ekki heimild til að framkvæma þessa aðgerð
     devise:
       omniauth_registrations:
-        create:
-          email_already_exists: Önnur reikningur notar sama netfangið
         new:
           complete_profile: Heill snið
           sign_up: Vinsamlegast ljúktu prófílnum þínum
@@ -148,7 +134,6 @@ is-IS:
           sign_up_as:
             legend: Skráðu þig sem
           subtitle: Skráðu þig til að taka þátt í umræðum og stuðningsatriðum.
-          terms: Skilmálar og skilyrði fyrir notkun
           tos_agreement: Með því að skrá þig samþykkir þú %{link}.
           username_help: Almennt nafn sem birtist á færslunum þínum. Með það að markmiði að tryggja nafnleyndina getur verið nafn.
       sessions:
@@ -164,7 +149,6 @@ is-IS:
           authorize: Leyfa umsókn
           by_organization_link_html: <small class="heading-small">af %{link}</small>
           cancel: Hætta við
-          connect_your_account_html: Tengdu reikninginn þinn með því að skrá þig inn á <strong>%{organization}</strong>
           publish_content: Birta efni fyrir þig
           see_email: Sjá netfangið þitt
           see_name: Sjáðu nafnið þitt
@@ -175,11 +159,9 @@ is-IS:
     errors:
       internal_server_error:
         title: Vandamál kom upp við netþjóninn okkar
-        try_later: Vinsamlegast reyndu aftur síðar.
       not_found:
         back_home: Heima
         content_doesnt_exist: Þetta netfang er rangt eða hefur verið fjarlægt.
-        title: Ekki er hægt að finna síðuna sem þú leitar að
     events:
       attachments:
         attachment_created:
@@ -222,11 +204,6 @@ is-IS:
         button: Fylgja
       destroy:
         button: Hættu að fylgja
-    forms:
-      current_image: Núverandi mynd
-      default_image: Sjálfgefin mynd
-      errors:
-        error: Það er villa í þessu sviði.
     log:
       base_presenter:
         create: "%{user_name} búið til %{resource_name}"
@@ -253,35 +230,24 @@ is-IS:
         new_conversation:
           greeting: Hæ, %{recipient}!
           intro: "%{sender} hefur byrjað nýtt samtal við þig. Smelltu hér til að sjá það:"
-          outro: Njóttu decidim!
           subject: "%{sender} hefur byrjað samtal við þig"
         new_message:
           greeting: Hæ, %{recipient}!
           intro: "%{sender} hefur sent ný skilaboð í samtali þínu. Smelltu hér til að sjá þær:"
-          outro: Njóttu decidim!
           subject: Þú hefur nýjar skilaboð frá %{sender}
       conversations:
-        create:
-          error: Samtal ekki hafin. Reyndu aftur seinna
-        index:
-          no_conversations: Þú hefur enga samtöl ennþá
         start:
           send: Senda
-          title: Byrjaðu samtal
     newsletter_mailer:
       newsletter:
-        note: Þú fékkst þennan tölvupóst vegna þess að þú ert áskrifandi að fréttabréfinu á %{organization_name}. Þú getur breytt stillingum þínum á <a href="%{link}">tilkynningarsíðunni þinni</a>.
-        see_on_website: Get ekki séð þetta netfang rétt? Skoðaðu það á <a href="%{link}" target="_blank">website</a>.
         unsubscribe: Til að hætta við að fá þessa tegund af tölvupósti, <a href="%{link}" target="_blank" class="unsubscribe">Afskráðu</a>.
     newsletters:
       unsubscribe:
-        check_subscription: Ef þú vilt breyta stillingum þínum getur þú gert það á <a href="%{link}" target="_blank">stillingar síðu</a>
         success: Þú ert með áskrift að góðum árangri.
         token_error: Tengillinn er liðinn.
         unsubscribe: Afskráðu þig
     notifications_settings:
       show:
-        email_on_notification: Ég vil fá tölvupóst í hvert skipti sem ég fá tilkynningu.
         newsletter_notifications: Ég vil fá fréttabréf
         update_notifications_settings: Vista breytingar
     own_user_groups:
@@ -291,8 +257,6 @@ is-IS:
         verified: Staðfest
     participatory_space_private_users:
       not_allowed: Þú hefur ekki leyfi til að skoða þetta efni
-    profiles:
-      default_officialization_text_for_users: Þessi þátttakandi er staðfestur opinberlega, nafn hans eða hlutverk hefur verið staðfest til að samsvara raunverulegu nafni hans og hlutverki
     reported_mailer:
       hide:
         hello: Halló %{name},
@@ -324,7 +288,6 @@ is-IS:
         already_reported: Þetta efni er þegar tilkynnt og það verður endurskoðað af stjórnanda.
         close: Loka
         description: Er þetta efni óviðeigandi?
-        does_not_belong: Inniheldur ólöglega starfsemi, sjálfsvígshugmyndir, persónulegar upplýsingar eða eitthvað sem þér finnst ekki tilheyra %{organization_name}.
         offensive: Inniheldur kynþáttafordóma, kynhneigð, slurðir, persónulegar árásir, dauðarefsárásir, sjálfsvígstilraunir eða hvers konar hatursmál.
         report: Skýrsla
         spam: Inniheldur clickbait, auglýsingar, óþekktarangi eða handritabots.
@@ -357,26 +320,15 @@ is-IS:
         invited_you_as_admin: "%{invited_by} hefur boðið þér sem admin á %{application}. Þú getur samþykkt það í gegnum tengilinn hér að neðan."
         someone_invited_you: Einhver hefur boðið þér að %{application}. Þú getur samþykkt það í gegnum tengilinn hér að neðan.
         someone_invited_you_as_admin: Einhver hefur boðið þér sem admin á %{application}, þú getur samþykkt það í gegnum tengilinn hér að neðan.
-      invite_admin:
-        subject: Þú hefur verið boðið að stjórna %{organization}
-      invite_collaborator:
-        subject: Þú hefur verið boðið að vinna á %{organization}
-      invite_private_user:
-        subject: Þú hefur verið boðið í einkaþátttökuferli á %{organization}
-      organization_admin_invitation_instructions:
-        subject: Þú hefur verið boðið að stjórna %{organization}
       password_change:
         greeting: Halló %{recipient}!
-        message: Við erum að hafa samband við þig til að tilkynna þér að lykilorðið þitt hafi verið breytt.
         subject: Lykilorð breytt
   doorkeeper:
     scopes:
       public: Opinberar upplýsingar þínar.
   errors:
     messages:
-      cycle_detected: foreldri umfangs getur ekki verið einn af niðjum hans
       file_size_is_less_than_or_equal_to: Skráarstærð verður að vera minni en eða jafnt við %{count}
-      nesting_too_deep: getur ekki verið inni í undirflokki
   forms:
     required: Nauðsynlegt
   invisible_captcha:
@@ -384,10 +336,6 @@ is-IS:
     timestamp_error_message: Því miður, það var of fljótt! Vinsamlegast sendu aftur inn.
   layouts:
     decidim:
-      cookie_warning:
-        description_html: Þessi síða notar smákökur. Með því að halda áfram að skoða síðuna samþykkirðu notkun okkar á smákökum. Finndu meira um það %{link}.
-        link_label: hér
-        ok: ég er sammála
       footer:
         made_with_open_source: Website gert með <a target="_blank" href="https://github.com/decidim/decidim">ókeypis hugbúnaði</a>.
       header:
@@ -415,7 +363,8 @@ is-IS:
       widget:
         see_more: Sjá meira
   locale:
-    name: Enska
+    name: Íslenska
+    name_with_error: Íslenska (mistök!)
   social_share_button:
     delicious: Ljúffengur
     douban: Douban
@@ -446,8 +395,4 @@ is-IS:
       time_of_day: "%H:%M"
   views:
     pagination:
-      first: "&laquo; fyrst"
-      last: Síðasta &raquo;
-      next: Næsta &rsaquo;
-      previous: "&lsaquo; Prev"
       truncate: "&hellip;"

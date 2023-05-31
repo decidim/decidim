@@ -19,6 +19,7 @@ module Decidim
             initiative_committee_action?
             initiative_user_action?
             attachment_action?
+            initiatives_settings_action?
 
             return permission_action
           end
@@ -36,6 +37,7 @@ module Decidim
           initiative_committee_action?
           initiative_admin_user_action?
           initiative_export_action?
+          initiatives_settings_action?
           moderator_action?
           allow! if permission_action.subject == :attachment
 
@@ -161,6 +163,13 @@ module Decidim
 
         def initiative_export_action?
           allow! if permission_action.subject == :initiatives && permission_action.action == :export
+        end
+
+        def initiatives_settings_action?
+          return unless permission_action.action == :update &&
+                        permission_action.subject == :initiatives_settings
+
+          toggle_allow(user.admin?)
         end
 
         def moderator_action?

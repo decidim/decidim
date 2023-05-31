@@ -6,13 +6,13 @@ module Decidim
   module Comments
     describe VoteComment do
       describe "call" do
-        let(:organization) { create :organization }
-        let(:participatory_process) { create(:participatory_process, organization: organization) }
+        let(:organization) { create(:organization) }
+        let(:participatory_process) { create(:participatory_process, organization:) }
         let(:component) { create(:component, participatory_space: participatory_process) }
-        let(:commentable) { create(:dummy_resource, component: component) }
-        let(:author) { create(:user, organization: organization) }
-        let(:comment) { create(:comment, commentable: commentable) }
-        let(:options) { { weight: weight } }
+        let(:commentable) { create(:dummy_resource, component:) }
+        let(:author) { create(:user, organization:) }
+        let(:comment) { create(:comment, commentable:) }
+        let(:options) { { weight: } }
         let(:weight) { 1 }
         let(:command) { described_class.new(comment, author, options) }
 
@@ -23,7 +23,7 @@ module Decidim
             expect { command.call }.to broadcast(:invalid)
           end
 
-          it "doesn't create a comment vote" do
+          it "does not create a comment vote" do
             expect do
               command.call
             end.not_to change(CommentVote, :count)
@@ -32,7 +32,7 @@ module Decidim
 
         describe "when the vote is already created for this user" do
           before do
-            comment.up_votes.create!(author: author)
+            comment.up_votes.create!(author:)
           end
 
           it "broadcasts ok" do
@@ -72,7 +72,7 @@ module Decidim
                   affected_users: [comment.author],
                   extra: {
                     comment_id: comment.id,
-                    weight: weight,
+                    weight:,
                     upvotes: comment.up_votes.count + 1,
                     downvotes: comment.down_votes.count
                   }
@@ -94,7 +94,7 @@ module Decidim
                   affected_users: [comment.author],
                   extra: {
                     comment_id: comment.id,
-                    weight: weight,
+                    weight:,
                     upvotes: comment.up_votes.count,
                     downvotes: comment.down_votes.count + 1
                   }
@@ -115,7 +115,7 @@ module Decidim
                 expect { command.call }.to broadcast(:invalid)
               end
 
-              it "doesn't create a comment vote" do
+              it "does not create a comment vote" do
                 expect do
                   command.call
                 end.not_to change(CommentVote, :count)
@@ -124,7 +124,7 @@ module Decidim
 
             describe "when the vote is already created for this user" do
               before do
-                comment.down_votes.create!(author: author)
+                comment.down_votes.create!(author:)
               end
 
               it "broadcasts ok" do

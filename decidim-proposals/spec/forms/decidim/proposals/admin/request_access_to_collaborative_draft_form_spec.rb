@@ -12,11 +12,11 @@ module Decidim
         let(:collaborative_draft) { create(:collaborative_draft, :open) }
         let(:state) { collaborative_draft.state }
         let(:id) { collaborative_draft.id }
-        let(:current_user) { create(:user, organization: organization) }
+        let(:current_user) { create(:user, organization:) }
         let(:params) do
           {
-            state: state,
-            id: id
+            state:,
+            id:
           }
         end
 
@@ -34,13 +34,13 @@ module Decidim
           it { is_expected.to be_invalid }
         end
 
-        context "when there's no state" do
+        context "when there is no state" do
           let(:state) { nil }
 
           it { is_expected.to be_invalid }
         end
 
-        context "when there's no collaborative_draft id" do
+        context "when there is no collaborative_draft id" do
           let(:id) { nil }
 
           it { is_expected.to be_invalid }

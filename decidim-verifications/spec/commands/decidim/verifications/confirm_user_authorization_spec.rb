@@ -12,7 +12,7 @@ describe Decidim::Verifications::ConfirmUserAuthorization do
       :authorization,
       :pending,
       name: "cool_method",
-      verification_metadata: verification_metadata
+      verification_metadata:
     )
   end
 
@@ -34,10 +34,10 @@ describe Decidim::Verifications::ConfirmUserAuthorization do
     end
   end
 
-  let(:form) { form_class.new(secret_code: secret_code) }
+  let(:form) { form_class.new(secret_code:) }
 
   let(:authorizations) do
-    Decidim::Verifications::Authorizations.new(organization: user.organization, user: user, granted: true)
+    Decidim::Verifications::Authorizations.new(organization: user.organization, user:, granted: true)
   end
 
   let(:user) { authorization.user }
@@ -96,7 +96,7 @@ describe Decidim::Verifications::ConfirmUserAuthorization do
       expect(session[:failed_attempts]).to eq(0)
     end
 
-    context "when there's a problem with the SMS service" do
+    context "when there is a problem with the SMS service" do
       before do
         expect(authorization).to receive(:grant!).and_raise(StandardError, "Somewthing went wrong")
       end

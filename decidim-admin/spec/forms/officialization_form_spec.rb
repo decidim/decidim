@@ -7,7 +7,7 @@ module Decidim
     describe OfficializationForm do
       let(:organization) { create(:organization) }
 
-      let(:user) { create(:user, organization: organization) }
+      let(:user) { create(:user, organization:) }
 
       describe "from a model" do
         subject do
@@ -24,7 +24,7 @@ module Decidim
       describe "from params" do
         subject do
           described_class.from_params(
-            officialized_as: officialized_as, user_id: user_id
+            officialized_as:, user_id:
           ).with_context(
             current_organization: organization
           )

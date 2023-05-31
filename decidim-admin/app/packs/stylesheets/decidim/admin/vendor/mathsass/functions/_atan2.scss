@@ -10,34 +10,27 @@
 //     atan2(0, -1)      // 3.14159
 @use "sass:math";
 
-@function atan2 ($y, $x){
-  @if $x > 0{
+@function atan2($y, $x) {
+  @if $x > 0 {
     @return atan(math.div($y, $x));
-  }
-  @else if $x < 0{
-    @if $y < 0{
+  } @else if $x < 0 {
+    @if $y < 0 {
       @return atan(math.div($y, $x)) - $PI;
-    }
-    @else{
+    } @else {
       @return atan(math.div($y, $x)) + $PI;
     }
-  }
-  @else{
-    @if $y < 0{
-      @return - $PI * .5;
-    }
-    @else if $y > 0{
-      @return $PI * .5;
-    }
-    @else{
-      @if math.div(1, $x) == math.div(1, 0){
+  } @else {
+    @if $y < 0 {
+      @return -$PI * 0.5;
+    } @else if $y > 0 {
+      @return $PI * 0.5;
+    } @else {
+      @if math.div(1, $x) == math.div(1, 0) {
         @return 0;
-      }
-      @else{
-        @if math.div(1, $y) == math.div(1, 0){
+      } @else {
+        @if math.div(1, $y) == math.div(1, 0) {
           @return $PI;
-        }
-        @else{
+        } @else {
           @return -$PI;
         }
       }

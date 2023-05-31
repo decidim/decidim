@@ -19,15 +19,15 @@ module Decidim
         organization = resource.organization
 
         2.times do
-          author = Decidim::User.where(organization: organization).all.sample
+          author = Decidim::User.where(organization:).all.sample
           user_group = [true, false].sample ? Decidim::UserGroups::ManageableUserGroups.for(author).verified.sample : nil
 
           params = {
             commentable: resource,
             root_commentable: resource,
             body: { en: ::Faker::Lorem.sentence(word_count: 50) },
-            author: author,
-            user_group: user_group
+            author:,
+            user_group:
           }
 
           Decidim.traceability.create!(

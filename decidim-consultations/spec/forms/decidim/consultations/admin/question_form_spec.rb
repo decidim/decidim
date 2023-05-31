@@ -15,9 +15,9 @@ module Decidim
             )
         end
 
-        let(:organization) { create :organization }
-        let(:consultation) { create :consultation, organization: organization }
-        let(:scope) { create :scope, organization: organization }
+        let(:organization) { create(:organization) }
+        let(:consultation) { create(:consultation, organization:) }
+        let(:scope) { create(:scope, organization:) }
         let(:slug) { "slug" }
         let(:title) do
           {
@@ -105,7 +105,7 @@ module Decidim
               "origin_url" => origin_url,
               "external_voting" => external_voting,
               "i_frame_url" => i_frame_url,
-              order: order
+              order:
             }
           }
         end
@@ -126,7 +126,7 @@ module Decidim
             it { is_expected.not_to be_valid }
           end
 
-          context "and it hasn't the expected type" do
+          context "and it has not the expected type" do
             let(:banner_image) { Decidim::Dev.test_file("Exampledocument.pdf", "application/pdf") }
 
             it { is_expected.not_to be_valid }
@@ -145,7 +145,7 @@ module Decidim
             it { is_expected.not_to be_valid }
           end
 
-          context "and it hasn't the expected type" do
+          context "and it has not the expected type" do
             let(:hero_image) { upload_test_file(Decidim::Dev.test_file("Exampledocument.pdf", "application/pdf")) }
 
             it { is_expected.not_to be_valid }
@@ -213,7 +213,7 @@ module Decidim
         context "when slug is not unique" do
           context "when in the same consultation" do
             before do
-              create(:question, slug: slug, consultation: consultation)
+              create(:question, slug:, consultation:)
             end
 
             it "is not valid" do
@@ -223,10 +223,10 @@ module Decidim
           end
 
           context "when in another organization" do
-            let(:consultation) { create :consultation }
+            let(:consultation) { create(:consultation) }
 
             before do
-              create(:question, slug: slug, consultation: consultation)
+              create(:question, slug:, consultation:)
             end
 
             it { is_expected.to be_valid }

@@ -24,7 +24,7 @@ module Decidim
       allow(Decidim).to receive(:available_locales).and_return available_locales
     end
 
-    describe "#translatable_attribute do" do
+    describe "#translatable_attribute" do
       before do
         klass.class_eval do
           translatable_attribute :name, String
@@ -52,6 +52,18 @@ module Decidim
       it "coerces values" do
         model.name_en = 1
         expect(model.name_en).to eq("1")
+      end
+
+      context "when the stored value is a string" do
+        before do
+          allow(model).to receive(:name).and_return("Hello")
+        end
+
+        it "returns the stored value for the locale specific getters" do
+          expect(model.name_en).to eq("Hello")
+          expect(model.name_ca).to eq("Hello")
+          expect(model.name_pt__BR).to eq("Hello")
+        end
       end
     end
   end

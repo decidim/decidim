@@ -33,7 +33,7 @@ module Decidim
       end
 
       context "when there is no request" do
-        let!(:current_organization) { create(:organization, host: host) }
+        let!(:current_organization) { create(:organization, host:) }
 
         before do
           allow(subject).to receive(:request).and_return(nil)

@@ -20,7 +20,7 @@ module Decidim
         # Executes the command. Broadcasts these events:
         #
         # - :ok when everything is valid.
-        # - :invalid if the form wasn't valid and we couldn't proceed.
+        # - :invalid if the form was not valid and we could not proceed.
         #
         # Returns nothing.
         def call
@@ -37,7 +37,7 @@ module Decidim
 
         def already_invited?
           return false unless user.persisted?
-          return false unless meeting.invites.exists?(user: user)
+          return false unless meeting.invites.exists?(user:)
 
           form.errors.add(:email, :already_invited)
           true
@@ -58,8 +58,8 @@ module Decidim
             Invite,
             invited_by,
             {
-              user: user,
-              meeting: meeting,
+              user:,
+              meeting:,
               sent_at: Time.current
             },
             log_info
@@ -98,7 +98,7 @@ module Decidim
 
         def invite_user_to_sign_up
           user.skip_reconfirmation!
-          user.invite!(invited_by, invitation_instructions: "join_meeting", meeting: meeting)
+          user.invite!(invited_by, invitation_instructions: "join_meeting", meeting:)
         end
       end
     end

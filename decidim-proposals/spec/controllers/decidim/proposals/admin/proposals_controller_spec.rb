@@ -16,7 +16,7 @@ describe Decidim::Proposals::Admin::ProposalsController, type: :controller do
 
   describe "PATCH update" do
     let(:component) { create(:proposal_component, :with_creation_enabled, :with_attachments_allowed) }
-    let(:proposal) { create(:proposal, :official, component: component) }
+    let(:proposal) { create(:proposal, :official, component:) }
     let(:proposal_params) do
       {
         title: { en: "Lorem ipsum dolor sit amet, consectetur adipiscing elit" },
@@ -37,7 +37,7 @@ describe Decidim::Proposals::Admin::ProposalsController, type: :controller do
     it "updates the proposal" do
       allow(controller).to receive(:proposals_path).and_return("/proposals")
 
-      patch :update, params: params
+      patch(:update, params:)
 
       expect(flash[:notice]).not_to be_empty
       expect(response).to have_http_status(:found)
@@ -54,10 +54,10 @@ describe Decidim::Proposals::Admin::ProposalsController, type: :controller do
             attachment: { title: "", file: nil }
           }
         end
-        let(:proposal) { create(:proposal, :official, :with_photo, component: component) }
+        let(:proposal) { create(:proposal, :official, :with_photo, component:) }
 
         it "displays the editing form with errors" do
-          patch :update, params: params
+          patch(:update, params:)
 
           expect(flash[:alert]).not_to be_empty
           expect(response).to have_http_status(:ok)

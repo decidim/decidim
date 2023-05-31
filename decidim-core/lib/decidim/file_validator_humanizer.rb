@@ -49,7 +49,7 @@ module Decidim
       if (extensions = extension_allowlist)
         messages << I18n.t(
           "allowed_file_extensions",
-          extensions: extensions.join(" "),
+          extensions: extensions.sort.join(" "),
           scope: "decidim.forms.file_validation"
         )
       end

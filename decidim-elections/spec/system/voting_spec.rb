@@ -4,8 +4,8 @@ require "spec_helper"
 
 describe "Voting", type: :system do
   let!(:organization) { create(:organization) }
-  let!(:voting) { create(:voting, :published, organization: organization) }
-  let!(:user) { create :user, :confirmed, organization: organization }
+  let!(:voting) { create(:voting, :published, organization:) }
+  let!(:user) { create(:user, :confirmed, organization:) }
 
   before do
     switch_to_host(organization.host)
@@ -25,9 +25,16 @@ describe "Voting", type: :system do
       expect(page).to have_i18n_content(voting.description)
     end
 
+    it_behaves_like "has embedded video in description", :description do
+      before do
+        voting.update!(description:)
+        visit decidim_votings.voting_path(voting)
+      end
+    end
+
     context "when the voting is unpublished" do
       let!(:voting) do
-        create(:voting, :unpublished, organization: organization)
+        create(:voting, :unpublished, organization:)
       end
 
       before do
@@ -40,10 +47,10 @@ describe "Voting", type: :system do
       end
 
       context "with signed in user" do
-        let!(:user) { create(:user, :confirmed, organization: organization) }
+        let!(:user) { create(:user, :confirmed, organization:) }
 
         before do
-          sign_in user, scope: :user
+          login_as user, scope: :user
         end
 
         it "redirects to root path" do
@@ -54,7 +61,7 @@ describe "Voting", type: :system do
     end
 
     context "when the voting has census" do
-      let!(:census) { create(:dataset, voting: voting) }
+      let!(:census) { create(:dataset, voting:) }
 
       before do
         switch_to_host(organization.host)
@@ -66,13 +73,13 @@ describe "Voting", type: :system do
       end
     end
 
-    context "when the voting doesn't has a census" do
+    context "when the voting does not has a census" do
       before do
         switch_to_host(organization.host)
         visit decidim_votings.voting_path(voting)
       end
 
-      it "doesn't has 'Can I vote' tab" do
+      it "does not has 'Can I vote' tab" do
         expect(page).not_to have_link("Can I vote?")
       end
     end

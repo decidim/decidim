@@ -9,19 +9,19 @@ module Decidim
         subject { described_class.from_model(initiative).with_context(context) }
 
         let(:organization) { create(:organization) }
-        let(:initiatives_type) { create(:initiatives_type, organization: organization) }
+        let(:initiatives_type) { create(:initiatives_type, organization:) }
         let(:scope) { create(:initiatives_type_scope, type: initiatives_type) }
 
         let(:state) { "published" }
 
-        let(:initiative) { create(:initiative, organization: organization, state: state, scoped_type: scope) }
-        let(:user) { create(:user, organization: organization) }
+        let(:initiative) { create(:initiative, organization:, state:, scoped_type: scope) }
+        let(:user) { create(:user, organization:) }
 
         let(:context) do
           {
             current_user: user,
             current_organization: organization,
-            initiative: initiative
+            initiative:
           }
         end
 

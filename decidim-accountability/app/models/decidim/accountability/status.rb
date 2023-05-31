@@ -8,6 +8,7 @@ module Decidim
       include Decidim::HasComponent
       include Decidim::TranslatableResource
       include Decidim::FilterableResource
+      include Decidim::Traceable
 
       component_manifest_name "accountability"
 
@@ -20,6 +21,10 @@ module Decidim
 
       # Allow ransacker to search for a key in a hstore column (`name`.`en`)
       ransacker_i18n :name
+
+      def self.log_presenter_class_for(_log)
+        Decidim::Accountability::AdminLog::StatusPresenter
+      end
     end
   end
 end

@@ -35,10 +35,10 @@ module Decidim
       end
     end
 
-    def participatory_space_wrapper(&block)
+    def participatory_space_wrapper(&)
       content_tag :div, class: "wrapper" do
         concat(participatory_space_floating_help)
-        concat(capture(&block))
+        concat(capture(&))
       end
     end
   end

@@ -10,29 +10,29 @@ module Decidim
       let(:form) { described_class.from_params(attributes).with_context(context) }
 
       let(:organization) { create(:organization) }
-      let!(:city) { create(:scope, organization: organization) }
-      let!(:district_1) { create(:subscope, parent: city) }
-      let!(:district_2) { create(:subscope, parent: city) }
-      let!(:neighbourhood_1) { create(:subscope, parent: district_1) }
-      let!(:neighbourhood_2) { create(:subscope, parent: district_2) }
-      let!(:neighbourhood_3) { create(:subscope, parent: district_1) }
-      let!(:neighbourhood_4) { create(:subscope, parent: district_2) }
+      let!(:city) { create(:scope, organization:) }
+      let!(:district1) { create(:subscope, parent: city) }
+      let!(:district2) { create(:subscope, parent: city) }
+      let!(:neighbourhood1) { create(:subscope, parent: district1) }
+      let!(:neighbourhood2) { create(:subscope, parent: district2) }
+      let!(:neighbourhood3) { create(:subscope, parent: district1) }
+      let!(:neighbourhood4) { create(:subscope, parent: district2) }
       let!(:initiative_type) do
         create(
           :initiatives_type,
-          organization: organization,
-          document_number_authorization_handler: document_number_authorization_handler,
-          child_scope_threshold_enabled: child_scope_threshold_enabled,
-          collect_user_extra_fields: collect_user_extra_fields
+          organization:,
+          document_number_authorization_handler:,
+          child_scope_threshold_enabled:,
+          collect_user_extra_fields:
         )
       end
       let!(:global_initiative_type_scope) { create(:initiatives_type_scope, scope: nil, type: initiative_type) }
       let!(:city_initiative_type_scope) { create(:initiatives_type_scope, scope: city, type: initiative_type) }
-      let!(:district_1_initiative_type_scope) { create(:initiatives_type_scope, scope: district_1, type: initiative_type) }
-      let!(:district_2_initiative_type_scope) { create(:initiatives_type_scope, scope: district_2, type: initiative_type) }
-      let!(:neighbourhood_1_initiative_type_scope) { create(:initiatives_type_scope, scope: neighbourhood_1, type: initiative_type) }
-      let!(:neighbourhood_2_initiative_type_scope) { create(:initiatives_type_scope, scope: neighbourhood_2, type: initiative_type) }
-      let!(:neighbourhood_3_initiative_type_scope) { create(:initiatives_type_scope, scope: neighbourhood_3, type: initiative_type) }
+      let!(:district_1_initiative_type_scope) { create(:initiatives_type_scope, scope: district1, type: initiative_type) }
+      let!(:district_2_initiative_type_scope) { create(:initiatives_type_scope, scope: district2, type: initiative_type) }
+      let!(:neighbourhood_1_initiative_type_scope) { create(:initiatives_type_scope, scope: neighbourhood1, type: initiative_type) }
+      let!(:neighbourhood_2_initiative_type_scope) { create(:initiatives_type_scope, scope: neighbourhood2, type: initiative_type) }
+      let!(:neighbourhood_3_initiative_type_scope) { create(:initiatives_type_scope, scope: neighbourhood3, type: initiative_type) }
       let!(:authorization) do
         create(
           :authorization,
@@ -40,17 +40,17 @@ module Decidim
           name: "dummy_authorization_handler",
           user: current_user,
           unique_id: document_number,
-          metadata: { document_number: document_number, postal_code: postal_code, scope_id: user_scope.id }
+          metadata: { document_number:, postal_code:, scope_id: user_scope.id }
         )
       end
-      let(:user_scope) { district_1 }
+      let(:user_scope) { district1 }
       let(:scoped_type) { district_1_initiative_type_scope }
 
       let(:initiative) do
         create(
           :initiative,
-          organization: organization,
-          scoped_type: scoped_type
+          organization:,
+          scoped_type:
         )
       end
       let(:document_number_authorization_handler) { "dummy_authorization_handler" }
@@ -64,15 +64,15 @@ module Decidim
       let(:personal_data) do
         {
           name_and_surname: "James Morgan McGill",
-          document_number: document_number,
+          document_number:,
           date_of_birth: 40.years.ago.to_date,
-          postal_code: postal_code
+          postal_code:
         }
       end
 
       let(:vote_attributes) do
         {
-          initiative: initiative,
+          initiative:,
           signer: current_user
         }
       end
@@ -141,7 +141,7 @@ module Decidim
         context "when a handler is configured" do
           it { is_expected.to eq(user_scope) }
 
-          context "when the authorization metadata doesn't match" do
+          context "when the authorization metadata does not match" do
             before do
               authorization.metadata["scope_id"] = nil
               authorization.save!
@@ -156,10 +156,25 @@ module Decidim
 
           it { is_expected.to eq(initiative.scope) }
         end
+
+        context "when the authorization does not have metadata" do
+          let!(:authorization) do
+            create(
+              :authorization,
+              :granted,
+              name: "dummy_authorization_handler",
+              user: current_user,
+              unique_id: document_number,
+              metadata: nil
+            )
+          end
+
+          it { is_expected.to be_nil }
+        end
       end
 
       describe "authorized_scope_candidates" do
-        context "when it's a global scope initiative" do
+        context "when it is a global scope initiative" do
           let(:scoped_type) { global_initiative_type_scope }
 
           it "includes all the scopes of the organization" do
@@ -171,11 +186,11 @@ module Decidim
           end
         end
 
-        context "when it's a fixed scope" do
+        context "when it is a fixed scope" do
           let(:scoped_type) { district_1_initiative_type_scope }
 
           it "returns the scope descendants" do
-            expect(form.authorized_scope_candidates).to match_array([neighbourhood_1, neighbourhood_3, district_1])
+            expect(form.authorized_scope_candidates).to contain_exactly(neighbourhood1, neighbourhood3, district1)
           end
         end
       end
@@ -201,22 +216,22 @@ module Decidim
         end
 
         context "when the authorization is valid" do
-          context "when it's a global scope initiative" do
+          context "when it is a global scope initiative" do
             let(:scoped_type) { global_initiative_type_scope }
 
             context "when child scope voting is enabled" do
               let(:child_scope_threshold_enabled) { true }
 
               context "when the user scope has children" do
-                let(:user_scope) { district_1 }
+                let(:user_scope) { district1 }
 
-                it { is_expected.to match_array([nil, city, district_1]) }
+                it { is_expected.to contain_exactly(nil, city, district1) }
               end
 
               context "when the user scope is a leaf" do
-                let(:user_scope) { neighbourhood_1 }
+                let(:user_scope) { neighbourhood1 }
 
-                it { is_expected.to match_array([nil, city, district_1, neighbourhood_1]) }
+                it { is_expected.to contain_exactly(nil, city, district1, neighbourhood1) }
               end
             end
 
@@ -234,22 +249,22 @@ module Decidim
               let(:child_scope_threshold_enabled) { true }
 
               context "when the user scope has children" do
-                let(:user_scope) { district_1 }
+                let(:user_scope) { district1 }
 
-                it { is_expected.to match_array([district_1]) }
+                it { is_expected.to contain_exactly(district1) }
               end
 
               context "when the user scope is a leaf" do
-                let(:user_scope) { neighbourhood_1 }
+                let(:user_scope) { neighbourhood1 }
 
-                it { is_expected.to match_array([district_1, neighbourhood_1]) }
+                it { is_expected.to contain_exactly(district1, neighbourhood1) }
               end
             end
 
             context "when child scope voting is disabled" do
               let(:child_scope_threshold_enabled) { false }
 
-              it { is_expected.to eq([district_1]) }
+              it { is_expected.to eq([district1]) }
             end
           end
         end

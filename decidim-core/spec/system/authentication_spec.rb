@@ -123,7 +123,7 @@ describe "Authentication", type: :system do
           info: {
             name: "Twitter User",
             nickname: "twitter_user",
-            email: email
+            email:
           }
         )
       end
@@ -142,7 +142,7 @@ describe "Authentication", type: :system do
         OmniAuth.config.camelizations.delete("twitter")
       end
 
-      context "when the response doesn't include the email" do
+      context "when the response does not include the email" do
         it "redirects the user to a finish signup page" do
           find(".sign-up-link").click
 
@@ -158,8 +158,8 @@ describe "Authentication", type: :system do
         end
 
         context "and a user already exists with the given email" do
-          it "doesn't allow it" do
-            create(:user, :confirmed, email: "user@from-twitter.com", organization: organization)
+          it "does not allow it" do
+            create(:user, :confirmed, email: "user@from-twitter.com", organization:)
             find(".sign-up-link").click
 
             click_link "Sign in with Twitter"
@@ -227,7 +227,7 @@ describe "Authentication", type: :system do
     end
 
     context "when nickname is not unique case insensitively" do
-      let!(:user) { create(:user, nickname: "Nick", organization: organization) }
+      let!(:user) { create(:user, nickname: "Nick", organization:) }
 
       it "show an error message" do
         find(".sign-up-link").click
@@ -255,7 +255,7 @@ describe "Authentication", type: :system do
         expect(page).not_to have_content("Sign Up")
       end
 
-      it "don't allow the user to sign up" do
+      it "do not allow the user to sign up" do
         find(".sign-in-link").click
         expect(page).not_to have_content("Create an account")
       end
@@ -264,7 +264,7 @@ describe "Authentication", type: :system do
 
   describe "Confirm email" do
     it "confirms the user" do
-      perform_enqueued_jobs { create(:user, organization: organization) }
+      perform_enqueued_jobs { create(:user, organization:) }
 
       visit last_email_link
 
@@ -274,7 +274,7 @@ describe "Authentication", type: :system do
   end
 
   context "when confirming the account" do
-    let!(:user) { create(:user, organization: organization) }
+    let!(:user) { create(:user, organization:) }
 
     before do
       perform_enqueued_jobs { user.confirm }
@@ -286,8 +286,7 @@ describe "Authentication", type: :system do
     it "sends a welcome notification" do
       find("a.topbar__notifications").click
 
-      within "#notifications" do
-        expect(page).to have_content("Welcome")
+      within "[data-notifications]" do
         expect(page).to have_content("thanks for joining #{organization.name}")
       end
 
@@ -297,7 +296,7 @@ describe "Authentication", type: :system do
 
   describe "Resend confirmation instructions" do
     let(:user) do
-      perform_enqueued_jobs { create(:user, organization: organization) }
+      perform_enqueued_jobs { create(:user, organization:) }
     end
 
     it "sends an email with the instructions" do
@@ -314,7 +313,7 @@ describe "Authentication", type: :system do
   end
 
   context "when a user is already registered" do
-    let(:user) { create(:user, :confirmed, password: "DfyvHn425mYAy2HL", organization: organization) }
+    let(:user) { create(:user, :confirmed, password: "DfyvHn425mYAy2HL", organization:) }
 
     describe "Sign in" do
       it "authenticates an existing User" do
@@ -332,13 +331,13 @@ describe "Authentication", type: :system do
 
       it "caches the omniauth buttons correctly with different languages", :caching do
         find(".sign-in-link").click
-        expect(page).to have_content("Sign in with Facebook")
+        expect(page).to have_link("Sign in with Facebook")
 
         within_language_menu do
           click_link "Català"
         end
 
-        expect(page).to have_content("Inicia sessió amb Facebook")
+        expect(page).to have_link("Inicia sessió amb Facebook")
       end
     end
 
@@ -389,8 +388,8 @@ describe "Authentication", type: :system do
         visit last_email_link
 
         within ".new_user" do
-          fill_in :password_user_password, with: "example"
-          fill_in :password_user_password_confirmation, with: "example"
+          fill_in :password_user_password, with: "whatislove"
+          fill_in :password_user_password_confirmation, with: "whatislove"
           find("*[type=submit]").click
         end
 
@@ -398,6 +397,19 @@ describe "Authentication", type: :system do
         expect(page).to have_content("must be different from your nickname and your email")
         expect(page).to have_content("must not be too common")
         expect(page).to have_current_path "/users/password"
+      end
+
+      it "enforces the minimum length for the password in the front-end" do
+        visit last_email_link
+
+        within ".new_user" do
+          fill_in :password_user_password, with: "example"
+          fill_in :password_user_password_confirmation, with: "example"
+          find("*[type=submit]").click
+        end
+
+        expect(page).to have_content("The password is too short.")
+        expect(page).to have_content("Password confirmation must match the password.")
       end
     end
 
@@ -413,7 +425,7 @@ describe "Authentication", type: :system do
         end
 
         expect(page).to have_content("Signed out successfully.")
-        expect(page).to have_no_content(user.name)
+        expect(page).not_to have_content(user.name)
       end
     end
 
@@ -436,7 +448,7 @@ describe "Authentication", type: :system do
             end
           end
 
-          it "doesn't show the last attempt warning before locking the account" do
+          it "does not show the last attempt warning before locking the account" do
             within ".new_user" do
               fill_in :session_user_email, with: user.email
               fill_in :session_user_password, with: "not-the-pasword"
@@ -517,8 +529,8 @@ describe "Authentication", type: :system do
   end
 
   context "when a user is already registered with a social provider" do
-    let(:user) { create(:user, :confirmed, organization: organization) }
-    let(:identity) { create(:identity, user: user, provider: "facebook", uid: "12345") }
+    let(:user) { create(:user, :confirmed, organization:) }
+    let(:identity) { create(:identity, user:, provider: "facebook", uid: "12345") }
 
     let(:omniauth_hash) do
       OmniAuth::AuthHash.new(
@@ -558,7 +570,7 @@ describe "Authentication", type: :system do
       context "when sign up is disabled" do
         let(:organization) { create(:organization, users_registration_mode: :existing) }
 
-        it "doesn't allow the user to sign up" do
+        it "does not allow the user to sign up" do
           find(".sign-in-link").click
           expect(page).not_to have_content("Sign Up")
         end
@@ -567,15 +579,17 @@ describe "Authentication", type: :system do
       context "when sign in is disabled" do
         let(:organization) { create(:organization, users_registration_mode: :disabled) }
 
-        it "doesn't allow the user to sign up" do
+        it "does not allow the user to sign up" do
           find(".sign-in-link").click
           expect(page).not_to have_content("Sign Up")
         end
 
-        it "doesn't allow the user to sign in as a regular user, only through external accounts" do
+        it "does not allow the user to sign in as a regular user, only through external accounts" do
           find(".sign-in-link").click
           expect(page).not_to have_content("Email")
-          expect(page).to have_css(".button--facebook")
+          within("div.login__omniauth") do
+            expect(page).to have_link("Facebook")
+          end
         end
 
         it "authenticates an existing User" do
@@ -617,7 +631,7 @@ describe "Authentication", type: :system do
 
   context "when a user is already registered in another organization with the same fb account" do
     let(:user) { create(:user, :confirmed) }
-    let(:identity) { create(:identity, user: user, provider: "facebook", uid: "12345") }
+    let(:identity) { create(:identity, user:, provider: "facebook", uid: "12345") }
 
     let(:omniauth_hash) do
       OmniAuth::AuthHash.new(
@@ -662,7 +676,7 @@ describe "Authentication", type: :system do
     let(:organization2) { create(:organization) }
 
     let!(:user2) { create(:user, :confirmed, email: "fake@user.com", name: "Wrong user", organization: organization2, password: "DfyvHn425mYAy2HL") }
-    let!(:user) { create(:user, :confirmed, email: "fake@user.com", name: "Right user", organization: organization, password: "DfyvHn425mYAy2HL") }
+    let!(:user) { create(:user, :confirmed, email: "fake@user.com", name: "Right user", organization:, password: "DfyvHn425mYAy2HL") }
 
     describe "Sign in" do
       it "authenticates the right user" do

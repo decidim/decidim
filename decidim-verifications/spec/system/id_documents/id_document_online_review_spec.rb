@@ -7,7 +7,7 @@ describe "Identity document online review", type: :system do
     create(:organization, available_authorizations: ["id_documents"])
   end
 
-  let(:user) { create(:user, :confirmed, organization: organization) }
+  let(:user) { create(:user, :confirmed, organization:) }
 
   let!(:authorization) do
     create(
@@ -15,7 +15,7 @@ describe "Identity document online review", type: :system do
       :pending,
       id: 1,
       name: "id_documents",
-      user: user,
+      user:,
       verification_metadata: {
         "verification_type" => "online",
         "document_type" => "DNI",
@@ -25,7 +25,7 @@ describe "Identity document online review", type: :system do
     )
   end
 
-  let(:admin) { create(:user, :admin, :confirmed, organization: organization) }
+  let(:admin) { create(:user, :admin, :confirmed, organization:) }
 
   before do
     switch_to_host(organization.host)
@@ -38,13 +38,13 @@ describe "Identity document online review", type: :system do
     submit_verification_form(doc_type: "DNI", doc_number: "XXXXXXXX")
 
     expect(page).to have_content("Participant successfully verified")
-    expect(page).to have_no_content("Verification #")
+    expect(page).not_to have_content("Verification #")
   end
 
-  it "shows an error when information doesn't match" do
+  it "shows an error when information does not match" do
     submit_verification_form(doc_type: "NIE", doc_number: "XXXXXXXY")
 
-    expect(page).to have_content("Verification doesn't match")
+    expect(page).to have_content("Verification does not match")
     expect(page).to have_content("Introduce the data in the picture")
   end
 
@@ -53,7 +53,7 @@ describe "Identity document online review", type: :system do
 
     it "dismisses the verification from the list" do
       expect(page).to have_content("Verification rejected. Participant will be prompted to amend their documents")
-      expect(page).to have_no_content("Verification #")
+      expect(page).not_to have_content("Verification #")
     end
 
     context "and the user logs back in" do

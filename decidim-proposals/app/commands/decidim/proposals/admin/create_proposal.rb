@@ -19,7 +19,7 @@ module Decidim
         # Executes the command. Broadcasts these events:
         #
         # - :ok when everything is valid, together with the proposal.
-        # - :invalid if the form wasn't valid and we couldn't proceed.
+        # - :invalid if the form was not valid and we could not proceed.
         #
         # Returns nothing.
         def call
@@ -40,8 +40,9 @@ module Decidim
             create_gallery if process_gallery?
             create_attachment(weight: first_attachment_weight) if process_attachments?
             link_author_meeeting if form.created_in_meeting?
-            send_notification
           end
+
+          send_notification
 
           broadcast(:ok, proposal)
         end
@@ -52,7 +53,7 @@ module Decidim
 
         def create_proposal
           @proposal = Decidim::Proposals::ProposalBuilder.create(
-            attributes: attributes,
+            attributes:,
             author: form.author,
             action_user: form.current_user
           )
@@ -61,7 +62,7 @@ module Decidim
 
         def attributes
           parsed_title = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.title, current_organization: form.current_organization).rewrite
-          parsed_body = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.body, current_organization: form.current_organization).rewrite
+          parsed_body = Decidim::ContentProcessor.parse(form.body, current_organization: form.current_organization).rewrite
           {
             title: parsed_title,
             body: parsed_body,
@@ -81,11 +82,13 @@ module Decidim
         end
 
         def send_notification
+          return unless proposal
+
           Decidim::EventsManager.publish(
             event: "decidim.events.proposals.proposal_published",
             event_class: Decidim::Proposals::PublishProposalEvent,
             resource: proposal,
-            followers: @proposal.participatory_space.followers,
+            followers: proposal.participatory_space.followers,
             extra: {
               participatory_space: true
             }

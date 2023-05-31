@@ -5,7 +5,7 @@ require "spec_helper"
 describe "Organization admins", type: :system do
   include Decidim::SanitizeHelper
 
-  let(:admin) { create :user, :admin, :confirmed }
+  let(:admin) { create(:user, :admin, :confirmed) }
   let(:organization) { admin.organization }
 
   before do
@@ -62,11 +62,11 @@ describe "Organization admins", type: :system do
 
     context "with existing users" do
       let!(:user) do
-        user = build(:user, :confirmed, :admin, organization: organization)
+        user = build(:user, :confirmed, :admin, organization:)
         user.invite!
         user
       end
-      let!(:other_admin) { create(:user, :confirmed, :admin, organization: organization) }
+      let!(:other_admin) { create(:user, :confirmed, :admin, organization:) }
 
       before do
         visit current_path
@@ -87,7 +87,17 @@ describe "Organization admins", type: :system do
           accept_confirm { click_link "Delete" }
         end
 
-        expect(page).to have_no_content(other_admin.name)
+        expect(page).not_to have_content(other_admin.name)
+      end
+
+      it "cannot remove admin rights from self" do
+        within "tr[data-user-id=\"#{admin.id}\"]" do
+          expect(page).not_to have_link("Delete")
+        end
+
+        within "tr[data-user-id=\"#{other_admin.id}\"]" do
+          expect(page).to have_link("Delete")
+        end
       end
     end
   end

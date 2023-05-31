@@ -33,10 +33,8 @@ module Decidim
     def sort_hash(hash)
       return hash unless hash.is_a?(Hash)
 
-      Hash[
-        hash.map { |key, value| [key, sort_hash(value)] }
-            .sort_by { |key, _value| key }
-      ]
+      hash.map { |key, value| [key, sort_hash(value)] }
+          .sort_by { |key, _value| key }.to_h
     end
   end
 end

@@ -10,8 +10,8 @@ describe "Participatory Processes", type: :system, download: true do
   let(:participatory_process) do
     create(
       :participatory_process,
-      organization: organization,
-      show_metrics: show_metrics
+      organization:,
+      show_metrics:
     )
   end
 
@@ -19,7 +19,7 @@ describe "Participatory Processes", type: :system, download: true do
     let(:metrics) do
       Decidim.metrics_registry.all.each do |metric_registry|
         create(:metric, metric_type: metric_registry.metric_name, day: date,
-                        organization: organization, participatory_space_type: Decidim::ParticipatoryProcess.name,
+                        organization:, participatory_space_type: Decidim::ParticipatoryProcess.name,
                         participatory_space_id: participatory_process.id, cumulative: 5, quantity: 2)
       end
     end
@@ -86,15 +86,15 @@ describe "Participatory Processes", type: :system, download: true do
     it "does not render any metric chart" do
       # BIG CHART
       Decidim.metrics_registry.filtered(scope: "participatory_process", block: "big").each do |metric_manifest|
-        expect(page).to have_no_css(%(##{metric_manifest.metric_name}_chart))
+        expect(page).not_to have_css(%(##{metric_manifest.metric_name}_chart))
       end
       # MEDIUM CHARTS
       Decidim.metrics_registry.filtered(scope: "participatory_process", block: "medium").each do |metric_manifest|
-        expect(page).to have_no_css(%(##{metric_manifest.metric_name}_chart))
+        expect(page).not_to have_css(%(##{metric_manifest.metric_name}_chart))
       end
       # LITTLE CHARTS
       Decidim.metrics_registry.filtered(scope: "participatory_process", block: "small").each do |metric_manifest|
-        expect(page).to have_no_css(%(##{metric_manifest.metric_name}_chart))
+        expect(page).not_to have_css(%(##{metric_manifest.metric_name}_chart))
       end
     end
   end

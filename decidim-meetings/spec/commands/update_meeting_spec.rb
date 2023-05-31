@@ -6,13 +6,13 @@ module Decidim::Meetings
   describe UpdateMeeting do
     subject { described_class.new(form, current_user, meeting) }
 
-    let(:meeting) { create :meeting }
+    let(:meeting) { create(:meeting) }
     let(:organization) { meeting.component.organization }
-    let(:current_user) { create :user, :confirmed, organization: organization }
+    let(:current_user) { create(:user, :confirmed, organization:) }
     let(:participatory_process) { meeting.component.participatory_space }
     let(:current_component) { meeting.component }
-    let(:scope) { create :scope, organization: organization }
-    let(:category) { create :category, participatory_space: participatory_process }
+    let(:scope) { create(:scope, organization:) }
+    let(:category) { create(:category, participatory_space: participatory_process) }
     let(:address) { "address" }
     let(:invalid) { false }
     let(:latitude) { 40.1234 }
@@ -35,23 +35,23 @@ module Decidim::Meetings
         location_hints: "The meeting location hint text",
         start_time: 1.day.from_now,
         end_time: 1.day.from_now + 1.hour,
-        scope: scope,
-        category: category,
-        address: address,
-        latitude: latitude,
-        longitude: longitude,
-        user_group_id: user_group_id,
-        current_user: current_user,
+        scope:,
+        category:,
+        address:,
+        latitude:,
+        longitude:,
+        user_group_id:,
+        current_user:,
         current_organization: organization,
-        registration_type: registration_type,
-        available_slots: available_slots,
-        registration_url: registration_url,
+        registration_type:,
+        available_slots:,
+        registration_url:,
         registration_terms: "The meeting registration terms",
         registrations_enabled: true,
         clean_type_of_meeting: type_of_meeting,
-        online_meeting_url: online_meeting_url,
-        iframe_embed_type: iframe_embed_type,
-        iframe_access_level: iframe_access_level
+        online_meeting_url:,
+        iframe_embed_type:,
+        iframe_access_level:
       )
     end
 
@@ -88,7 +88,7 @@ module Decidim::Meetings
       end
 
       context "when the author is a user_group" do
-        let(:user_group) { create :user_group, :verified, users: [current_user], organization: organization }
+        let(:user_group) { create(:user_group, :verified, users: [current_user], organization:) }
         let(:user_group_id) { user_group.id }
 
         it "sets the user_group as the author" do
@@ -119,7 +119,7 @@ module Decidim::Meetings
       end
 
       describe "events" do
-        let!(:follow) { create :follow, followable: meeting, user: current_user }
+        let!(:follow) { create(:follow, followable: meeting, user: current_user) }
         let(:title) { meeting.title }
         let(:start_time) { meeting.start_time }
         let(:end_time) { meeting.end_time }
@@ -127,35 +127,35 @@ module Decidim::Meetings
         let(:form) do
           double(
             invalid?: false,
-            title: title,
+            title:,
             description: meeting.description,
             location: meeting.location,
             location_hints: meeting.location_hints,
-            start_time: start_time,
-            end_time: end_time,
+            start_time:,
+            end_time:,
             scope: meeting.scope,
             category: meeting.category,
-            address: address,
+            address:,
             latitude: meeting.latitude,
             longitude: meeting.longitude,
-            user_group_id: user_group_id,
+            user_group_id:,
             services_to_persist: [],
-            current_user: current_user,
+            current_user:,
             current_organization: organization,
-            registration_type: registration_type,
-            available_slots: available_slots,
-            registration_url: registration_url,
+            registration_type:,
+            available_slots:,
+            registration_url:,
             registration_terms: meeting.registration_terms,
             registrations_enabled: true,
             clean_type_of_meeting: type_of_meeting,
-            online_meeting_url: online_meeting_url,
-            iframe_embed_type: iframe_embed_type,
-            iframe_access_level: iframe_access_level
+            online_meeting_url:,
+            iframe_embed_type:,
+            iframe_access_level:
           )
         end
 
         context "when nothing changes" do
-          it "doesn't notify the change" do
+          it "does not notify the change" do
             expect(Decidim::EventsManager)
               .not_to receive(:publish)
 
@@ -170,14 +170,14 @@ module Decidim::Meetings
             }
           end
 
-          it "doesn't notify the change" do
+          it "does not notify the change" do
             expect(Decidim::EventsManager)
               .not_to receive(:publish)
 
             subject.call
           end
 
-          it "doesn't schedule the upcoming meeting notification job" do
+          it "does not schedule the upcoming meeting notification job" do
             expect(UpcomingMeetingNotificationJob)
               .not_to receive(:perform_later)
 

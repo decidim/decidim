@@ -2,7 +2,7 @@
 
 shared_examples "manage process components" do
   let!(:participatory_process) do
-    create(:participatory_process, :with_steps, organization: organization)
+    create(:participatory_process, :with_steps, organization:)
   end
   let(:step_id) { participatory_process.steps.first.id }
 
@@ -24,7 +24,7 @@ shared_examples "manage process components" do
           find(".dummy").click
         end
 
-        expect(page).to have_no_content("Share tokens")
+        expect(page).not_to have_content("Share tokens")
 
         within ".new_component" do
           fill_in_i18n(
@@ -87,9 +87,9 @@ shared_examples "manage process components" do
       end
     end
 
-    context "when the process doesn't have active steps" do
+    context "when the process does not have active steps" do
       let!(:participatory_process) do
-        create(:participatory_process, organization: organization)
+        create(:participatory_process, organization:)
       end
 
       before do
@@ -226,7 +226,7 @@ shared_examples "manage process components" do
       end
     end
 
-    context "when the process doesn't have active steps" do
+    context "when the process does not have active steps" do
       before { participatory_process.steps.destroy_all }
 
       it "updates the default step settings" do
@@ -277,13 +277,13 @@ shared_examples "manage process components" do
         click_link "Delete"
       end
 
-      expect(page).to have_no_content("My component")
+      expect(page).not_to have_content("My component")
     end
   end
 
   describe "publish and unpublish a component" do
     let!(:component) do
-      create(:component, participatory_space: participatory_process, published_at: published_at)
+      create(:component, participatory_space: participatory_process, published_at:)
     end
 
     let(:published_at) { nil }
@@ -333,7 +333,7 @@ shared_examples "manage process components" do
           click_link "Configure"
         end
 
-        expect(page).to have_no_content("Share tokens")
+        expect(page).not_to have_content("Share tokens")
       end
 
       it "unpublishes the component" do

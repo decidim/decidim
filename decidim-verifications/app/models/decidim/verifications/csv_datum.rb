@@ -9,18 +9,18 @@ module Decidim
       validates :email, format: { with: ::Devise.email_regexp }
 
       def self.inside(organization)
-        where(organization: organization)
+        where(organization:)
       end
 
       def self.search_user_email(organization, email)
         inside(organization)
-          .where(email: email)
+          .where(email:)
           .order(created_at: :desc, id: :desc)
           .first
       end
 
       def self.insert_all(organization, values)
-        values.each { |value| create(email: value, organization: organization) }
+        values.each { |value| create(email: value, organization:) }
       end
 
       def self.clear(organization)

@@ -3,7 +3,7 @@
 require "spec_helper"
 
 shared_examples "localised email" do
-  let(:user) { build(:user, locale: locale) }
+  let(:user) { build(:user, locale:) }
 
   context "when the user has a custom locale" do
     let(:locale) { "ca" }
@@ -23,7 +23,7 @@ shared_examples "localised email" do
     end
   end
 
-  context "when the user doesn't have an email" do
+  context "when the user does not have an email" do
     let(:user) { create(:user, :deleted) }
 
     it "does nothing" do

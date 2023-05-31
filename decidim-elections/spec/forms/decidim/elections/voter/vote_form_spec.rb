@@ -15,9 +15,9 @@ describe Decidim::Elections::Voter::VoteForm do
   end
   let(:context) do
     {
-      user: user,
-      email: email,
-      election: election
+      user:,
+      email:,
+      election:
     }
   end
   let(:user) { create(:user) }
@@ -48,7 +48,7 @@ describe Decidim::Elections::Voter::VoteForm do
     it { is_expected.to be_invalid }
   end
 
-  context "when the encrypted vote hash doesn't match" do
+  context "when the encrypted vote hash does not match" do
     let(:params) do
       {
         encrypted_vote: "{ \"question_1\": \"aNsWeR 1\" }",

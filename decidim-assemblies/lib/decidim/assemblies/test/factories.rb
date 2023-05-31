@@ -57,7 +57,7 @@ FactoryBot.define do
     announcement { generate_localized_title }
 
     trait :with_type do
-      assembly_type { create :assemblies_type, organization: organization }
+      assembly_type { create :assemblies_type, organization: }
     end
 
     trait :promoted do
@@ -73,7 +73,7 @@ FactoryBot.define do
     end
 
     trait :with_parent do
-      parent { create :assembly, organization: organization }
+      parent { create :assembly, organization: }
     end
 
     trait :public do
@@ -105,10 +105,11 @@ FactoryBot.define do
     end
 
     organization { assembly.organization }
+    admin_terms_accepted_at { Time.current }
 
     after(:create) do |user, evaluator|
       create :assembly_user_role,
-             user: user,
+             user:,
              assembly: evaluator.assembly,
              role: :admin
     end
@@ -120,10 +121,11 @@ FactoryBot.define do
     end
 
     organization { assembly.organization }
+    admin_terms_accepted_at { Time.current }
 
     after(:create) do |user, evaluator|
       create :assembly_user_role,
-             user: user,
+             user:,
              assembly: evaluator.assembly,
              role: :moderator
     end
@@ -135,10 +137,11 @@ FactoryBot.define do
     end
 
     organization { assembly.organization }
+    admin_terms_accepted_at { Time.current }
 
     after(:create) do |user, evaluator|
       create :assembly_user_role,
-             user: user,
+             user:,
              assembly: evaluator.assembly,
              role: :collaborator
     end
@@ -150,10 +153,11 @@ FactoryBot.define do
     end
 
     organization { assembly.organization }
+    admin_terms_accepted_at { Time.current }
 
     after(:create) do |user, evaluator|
       create :assembly_user_role,
-             user: user,
+             user:,
              assembly: evaluator.assembly,
              role: :valuator
     end

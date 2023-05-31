@@ -8,11 +8,11 @@ module Decidim
     module Admin
       describe DisplayConditionForm do
         subject do
-          described_class.new(decidim_question_id: decidim_question_id,
-                              decidim_condition_question_id: decidim_condition_question_id,
-                              condition_value: condition_value,
-                              condition_type: condition_type,
-                              decidim_answer_option_id: decidim_answer_option_id,
+          described_class.new(decidim_question_id:,
+                              decidim_condition_question_id:,
+                              condition_value:,
+                              condition_type:,
+                              decidim_answer_option_id:,
                               mandatory: true).with_context(current_organization: organization)
         end
 
@@ -99,7 +99,7 @@ module Decidim
 
         describe "#answer_options" do
           context "when decidim_condition_question_id is set" do
-            it { expect(subject.answer_options).to contain_exactly(*condition_question.answer_options) }
+            it { expect(subject.answer_options).to match_array(condition_question.answer_options) }
           end
 
           context "when decidim_condition_question_id is not set" do
@@ -120,7 +120,7 @@ module Decidim
           end
 
           it "attaches a 'data-type' attribute to every question with its question_type" do
-            expect(questions_for_select.map { |q| q.last["data-type"] }).to contain_exactly(*questionnaire.questions.pluck(:question_type))
+            expect(questions_for_select.map { |q| q.last["data-type"] }).to match_array(questionnaire.questions.pluck(:question_type))
           end
 
           it "disables current question" do

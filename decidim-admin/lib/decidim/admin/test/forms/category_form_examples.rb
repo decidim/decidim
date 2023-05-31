@@ -50,7 +50,7 @@ module Decidim
       end
 
       context "when the parent_id is set" do
-        let!(:category) { create :category, participatory_space: participatory_space }
+        let!(:category) { create :category, participatory_space: }
 
         context "and it is set to a first-class category" do
           let(:parent_id) { category.id }

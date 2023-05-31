@@ -9,7 +9,7 @@ module Decidim
         described_class.from_params(
           attributes
         ).with_context(
-          collection_for: collection_for,
+          collection_for:,
           current_organization: organization
         )
       end

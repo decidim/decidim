@@ -10,13 +10,13 @@ describe Decidim::Verifications::IdDocuments::Admin::ConfirmUserOfflineAuthoriza
       :authorization,
       :pending,
       name: "id_documents",
-      verification_metadata: verification_metadata
+      verification_metadata:
     )
   end
 
   let(:verification_type) { "offline" }
   let(:verification_metadata) do
-    { secret_code: "XX42YY", verification_type: verification_type }
+    { secret_code: "XX42YY", verification_type: }
   end
 
   let(:form_class) do
@@ -37,8 +37,8 @@ describe Decidim::Verifications::IdDocuments::Admin::ConfirmUserOfflineAuthoriza
   let(:email) { user.email }
   let(:form) do
     form_class.new(
-      secret_code: secret_code,
-      email: email
+      secret_code:,
+      email:
     ).with_context(
       current_user: admin,
       current_organization: user.organization
@@ -46,11 +46,11 @@ describe Decidim::Verifications::IdDocuments::Admin::ConfirmUserOfflineAuthoriza
   end
 
   let(:granted_authorizations) do
-    Decidim::Verifications::Authorizations.new(organization: user.organization, user: user, granted: true)
+    Decidim::Verifications::Authorizations.new(organization: user.organization, user:, granted: true)
   end
 
   let(:user) { authorization.user }
-  let(:admin) { create :user, :admin, organization: user.organization }
+  let(:admin) { create(:user, :admin, organization: user.organization) }
 
   context "when the form is not valid" do
     let(:secret_code) { nil }
@@ -61,7 +61,7 @@ describe Decidim::Verifications::IdDocuments::Admin::ConfirmUserOfflineAuthoriza
   end
 
   context "when the authorization is not found" do
-    let(:email) { "this@doesnt.exist" }
+    let(:email) { "this@doesnot.exist" }
     let(:secret_code) { "XX42YY" }
 
     it "broadcasts invalid" do

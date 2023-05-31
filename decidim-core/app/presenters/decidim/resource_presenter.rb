@@ -11,7 +11,7 @@ module Decidim
         content = decidim_html_escape(content) if html_escape
 
         renderer = Decidim::ContentRenderers::HashtagRenderer.new(content)
-        renderer.render(links: links, extras: extras).html_safe
+        renderer.render(links:, extras:).html_safe
       end
     end
 
@@ -26,6 +26,23 @@ module Decidim
         end
       else
         yield(translated_attribute(content))
+      end
+    end
+
+    # Prepares the HTML content for the editors with the correct tags included
+    # to identify the hashtags and mentions.
+    def editor_locales(data, all_locales, extras: true)
+      handle_locales(data, all_locales) do |content|
+        [
+          Decidim::ContentRenderers::HashtagRenderer,
+          Decidim::ContentRenderers::UserRenderer,
+          Decidim::ContentRenderers::UserGroupRenderer
+        ].each do |renderer_class|
+          renderer = renderer_class.new(content)
+          content = renderer.render(links: false, editor: true, extras:).html_safe
+        end
+
+        content
       end
     end
   end

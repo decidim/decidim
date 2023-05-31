@@ -8,7 +8,7 @@ module Decidim::Verifications
 
     let(:user) { create(:user, :confirmed) }
 
-    let(:authorizations) { Authorizations.new(organization: user.organization, user: user, granted: true) }
+    let(:authorizations) { Authorizations.new(organization: user.organization, user:, granted: true) }
 
     context "when no authorization" do
       let(:authorization) { nil }
@@ -19,7 +19,7 @@ module Decidim::Verifications
     end
 
     context "when everything is ok" do
-      let!(:authorization) { create(:authorization, :granted, user: user) }
+      let!(:authorization) { create(:authorization, :granted, user:) }
 
       it "destroys the authorization for the user" do
         expect { subject.call }.to change(authorizations, :count).by(-1)

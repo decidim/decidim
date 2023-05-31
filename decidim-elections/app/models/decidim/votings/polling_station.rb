@@ -59,7 +59,7 @@ module Decidim
       end
 
       def closure_for(election)
-        closures.find_by(election: election)
+        closures.find_by(election:)
       end
 
       def self.log_presenter_class_for(_log)

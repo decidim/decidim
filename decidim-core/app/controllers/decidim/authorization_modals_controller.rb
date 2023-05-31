@@ -7,6 +7,10 @@ module Decidim
 
     def show; end
 
+    def authorize_action_path(handler_name)
+      authorizations.status_for(handler_name).current_path(redirect_url: URI(request.referer).path)
+    end
+
     private
 
     def resource
@@ -24,12 +28,8 @@ module Decidim
       @authorization_action ||= params[:authorization_action]
     end
 
-    def authorize_action_path(handler_name)
-      authorizations.status_for(handler_name).current_path(redirect_url: URI(request.referer).path)
-    end
-
     def authorizations
-      @authorizations ||= action_authorized_to(authorization_action, resource: resource)
+      @authorizations ||= action_authorized_to(authorization_action, resource:)
     end
   end
 end

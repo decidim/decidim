@@ -4,7 +4,7 @@
 module TranslationHelpers
   # Allows using the `t` shortcut inside specs just like in views
   def t(key, scope: nil)
-    I18n.t(key, scope: scope, raise: true)
+    I18n.t(key, scope:, raise: true)
   end
 
   # Gives the localized version of the attribute for the given locale. The
@@ -25,16 +25,16 @@ module TranslationHelpers
   # field - the field that holds the translations
   # upcase - a boolean to indicate whether the string must be checked upcased or not.
   def have_i18n_content(field, upcase: false, strip_tags: false)
-    have_content(i18n_content(field, upcase: upcase, strip_tags: strip_tags))
+    have_content(i18n_content(field, upcase:, strip_tags:).strip)
   end
 
-  # Checks that the current page doesn't have some translated content. It strips
+  # Checks that the current page does not have some translated content. It strips
   # the HTML tags from the field (in case there are any).
   #
   # field - the field that holds the translations
   # upcase - a boolean to indicate whether the string must be checked upcased or not.
   def have_no_i18n_content(field, upcase: false)
-    have_no_content(i18n_content(field, upcase: upcase))
+    have_no_content(i18n_content(field, upcase:))
   end
 
   # Handles how to fill in i18n form fields.
@@ -90,8 +90,8 @@ module TranslationHelpers
     raise ArgumentError if params[:with].blank?
 
     page.execute_script <<-SCRIPT
-      $('##{locator}').siblings('.editor-container').find('.ql-editor')[0].innerHTML = "#{params[:with]}";
-      $('##{locator}').val("#{params[:with]}")
+      document.querySelector('##{locator} .editor-container .ProseMirror').innerHTML = `#{params[:with]}`;
+      document.querySelector('##{locator} input').value = `#{params[:with]}`;
     SCRIPT
   end
 
@@ -100,8 +100,8 @@ module TranslationHelpers
   # locator - The input field ID. The DOM element is selected using jQuery.
   def clear_editor(locator)
     page.execute_script <<-SCRIPT
-      $('##{locator}').siblings('.editor-container').find('.ql-editor')[0].innerHTML = "<p><br></p>";
-      $('##{locator}').val("")
+      document.querySelector('##{locator} .editor-container .ProseMirror').innerHTML = '<p><br class="ProseMirror-trailingBreak"></p>';
+      document.querySelector('##{locator} input').value = "";
     SCRIPT
   end
 

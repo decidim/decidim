@@ -16,22 +16,22 @@ module Decidim
           helper_method :attached_to, :attachment
 
           def index
-            enforce_permission_to :read, :attachment, attached_to: attached_to
+            enforce_permission_to(:read, :attachment, attached_to:)
 
             render template: "decidim/admin/attachments/index"
           end
 
           def new
-            enforce_permission_to :create, :attachment, attached_to: attached_to
-            @form = form(::Decidim::Admin::AttachmentForm).from_params({}, attached_to: attached_to)
+            enforce_permission_to(:create, :attachment, attached_to:)
+            @form = form(::Decidim::Admin::AttachmentForm).from_params({}, attached_to:)
             render template: "decidim/admin/attachments/new"
           end
 
           def create
-            enforce_permission_to :create, :attachment, attached_to: attached_to
-            @form = form(::Decidim::Admin::AttachmentForm).from_params(params, attached_to: attached_to)
+            enforce_permission_to(:create, :attachment, attached_to:)
+            @form = form(::Decidim::Admin::AttachmentForm).from_params(params, attached_to:)
 
-            CreateAttachment.call(@form, attached_to) do
+            CreateAttachment.call(@form, attached_to, current_user) do
               on(:ok) do
                 flash[:notice] = I18n.t("attachments.create.success", scope: "decidim.admin")
                 redirect_to action: :index
@@ -46,17 +46,17 @@ module Decidim
 
           def edit
             @attachment = collection.find(params[:id])
-            enforce_permission_to :update, :attachment, attachment: attachment
-            @form = form(::Decidim::Admin::AttachmentForm).from_model(@attachment, attached_to: attached_to)
+            enforce_permission_to(:update, :attachment, attachment:)
+            @form = form(::Decidim::Admin::AttachmentForm).from_model(@attachment, attached_to:)
             render template: "decidim/admin/attachments/edit"
           end
 
           def update
             @attachment = collection.find(params[:id])
-            enforce_permission_to :update, :attachment, attachment: attachment
-            @form = form(::Decidim::Admin::AttachmentForm).from_params(attachment_params, attached_to: attached_to)
+            enforce_permission_to(:update, :attachment, attachment:)
+            @form = form(::Decidim::Admin::AttachmentForm).from_params(attachment_params, attached_to:)
 
-            UpdateAttachment.call(@attachment, @form) do
+            UpdateAttachment.call(@attachment, @form, current_user) do
               on(:ok) do
                 flash[:notice] = I18n.t("attachments.update.success", scope: "decidim.admin")
                 redirect_to action: :index
@@ -71,14 +71,17 @@ module Decidim
 
           def show
             @attachment = collection.find(params[:id])
-            enforce_permission_to :read, :attachment, attachment: attachment
+            enforce_permission_to(:read, :attachment, attachment:)
             render template: "decidim/admin/attachments/show"
           end
 
           def destroy
             @attachment = collection.find(params[:id])
-            enforce_permission_to :destroy, :attachment, attachment: attachment
-            @attachment.destroy!
+            enforce_permission_to(:destroy, :attachment, attachment:)
+
+            Decidim.traceability.perform_action!("delete", @attachment, current_user) do
+              @attachment.destroy!
+            end
 
             flash[:notice] = I18n.t("attachments.destroy.success", scope: "decidim.admin")
 

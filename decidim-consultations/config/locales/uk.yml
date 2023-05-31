@@ -225,9 +225,6 @@ uk:
           few: голоси з
           many: голосів з
           other: голосів з
-      question_votes:
-        create:
-          error: При голосуванні щодо питання сталися помилки
       regular_questions:
         title: Питання цієї консультації
       show:
@@ -275,6 +272,5 @@ uk:
         start_voting_date: Голосування починається
       question_components:
         question_menu_item: Питання
-        unfold: Розгорнути
       question_header:
         back_to_consultation: Переглянути всі консультації

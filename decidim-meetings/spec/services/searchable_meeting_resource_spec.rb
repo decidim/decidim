@@ -6,9 +6,9 @@ module Decidim
   describe Search do
     subject { described_class.new(params) }
 
-    let(:current_component) { create :component, manifest_name: "meetings" }
+    let(:current_component) { create(:component, manifest_name: "meetings") }
     let(:organization) { current_component.organization }
-    let(:scope1) { create :scope, organization: organization }
+    let(:scope1) { create(:scope, organization:) }
     let!(:meeting) do
       create(
         :meeting,
@@ -25,7 +25,7 @@ module Decidim
       context "when implementing Searchable" do
         it "inserts a SearchableResource after Meeting creation" do
           organization.available_locales.each do |locale|
-            searchable = SearchableResource.find_by(resource_type: meeting.class.name, resource_id: meeting.id, locale: locale)
+            searchable = SearchableResource.find_by(resource_type: meeting.class.name, resource_id: meeting.id, locale:)
             expect_searchable_resource_to_correspond_to_meeting(searchable, meeting, locale)
           end
         end
@@ -41,7 +41,7 @@ module Decidim
           meeting.save!
 
           organization.available_locales.each do |locale|
-            searchable = SearchableResource.find_by(resource_type: meeting.class.name, resource_id: meeting.id, locale: locale)
+            searchable = SearchableResource.find_by(resource_type: meeting.class.name, resource_id: meeting.id, locale:)
             expect(searchable.content_a).to eq updated_title[locale]
             expect(searchable.updated_at).to be > created_at
           end
@@ -53,6 +53,30 @@ module Decidim
           searchables = SearchableResource.where(resource_type: meeting.class.name, resource_id: meeting.id)
 
           expect(searchables.any?).to be false
+        end
+
+        context "with enriched content" do
+          before do
+            meeting.update(title: { "en" => "Meeting <strong>title</strong>" })
+            meeting.update(description: { "en" => "Meeting <strong>description</strong>" })
+          end
+
+          it "inserts a SearchableResource after Meeting creation" do
+            searchable = SearchableResource.find_by(resource_type: meeting.class.name, resource_id: meeting.id, locale: "en")
+            expect(searchable.attributes["content_a"]).to eq "Meeting title"
+            expect(searchable.attributes["content_d"]).to eq "Meeting description Some very centric address"
+          end
+
+          it "updates the associated SearchableResource after Meeting update" do
+            searchable = SearchableResource.find_by(resource_type: meeting.class.name, resource_id: meeting.id, locale: "en")
+            created_at = searchable.created_at
+            updated_title = "Meeting <strong>title</strong> EN"
+            meeting.update(title: { en: updated_title })
+
+            searchable = SearchableResource.find_by(resource_type: meeting.class.name, resource_id: meeting.id, locale: "en")
+            expect(searchable.content_a).to eq "Meeting title EN"
+            expect(searchable.updated_at).to be > created_at
+          end
         end
       end
     end
@@ -76,7 +100,7 @@ module Decidim
             on(:ok) do |results_by_type|
               results = results_by_type[meeting.class.name]
               expect(results[:count]).to eq 2
-              expect(results[:results]).to match_array [meeting, meeting2]
+              expect(results[:results]).to contain_exactly(meeting, meeting2)
             end
             on(:invalid) { raise("Should not happen") }
           end

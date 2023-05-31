@@ -14,13 +14,13 @@ module Decidim
       # Non-ajax votings (such as multi-reponses) have a html page
       def show
         enforce_permission_to :vote, :question, question: current_question
-        @form = form(MultiVoteForm).instance(current_question: current_question)
+        @form = form(MultiVoteForm).instance(current_question:)
       end
 
       def create
         enforce_permission_to :vote, :question, question: current_question
 
-        multivote_form = form(MultiVoteForm).from_params(params, current_question: current_question)
+        multivote_form = form(MultiVoteForm).from_params(params, current_question:)
 
         MultipleVoteQuestion.call(multivote_form, current_user) do
           on(:ok) do

@@ -9,7 +9,7 @@ namespace :decidim_api do
 
     GraphQLDocs.build(
       schema: Decidim::Api::Schema,
-      output_dir: output_dir,
+      output_dir:,
       base_url: "/api/docs",
       landing_pages: {
         index: File.expand_path("../../docs/usage.md", __dir__)

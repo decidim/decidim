@@ -6,7 +6,7 @@ module Decidim
   describe ParticipatoryProcessUserRole do
     subject { participatory_process_user_role }
 
-    let(:participatory_process_user_role) { build(:participatory_process_user_role, role: role) }
+    let(:participatory_process_user_role) { build(:participatory_process_user_role, role:) }
     let(:role) { "admin" }
 
     it { is_expected.to be_valid }
@@ -63,8 +63,8 @@ module Decidim
       let(:participatory_process_user_role) do
         build(
           :participatory_process_user_role,
-          user: user,
-          participatory_process: participatory_process,
+          user:,
+          participatory_process:,
           role: "admin"
         )
       end
@@ -83,7 +83,7 @@ module Decidim
       end
 
       let!(:existing_role) do
-        create(:participatory_process_user_role, role: role)
+        create(:participatory_process_user_role, role:)
       end
 
       it { is_expected.not_to be_valid }

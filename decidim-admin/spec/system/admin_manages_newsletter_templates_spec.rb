@@ -4,7 +4,7 @@ require "spec_helper"
 
 describe "Admin manages newsletter templates", type: :system do
   let(:organization) { create(:organization) }
-  let(:user) { create(:user, :admin, :confirmed, name: "Sarah Kerrigan", organization: organization) }
+  let(:user) { create(:user, :admin, :confirmed, name: "Sarah Kerrigan", organization:) }
 
   before do
     switch_to_host(organization.host)
@@ -58,5 +58,19 @@ describe "Admin manages newsletter templates", type: :system do
 
       expect(page).to have_content("New newsletter")
     end
+  end
+
+  describe "previewing a newsletter template iframe" do
+    shared_examples "working newsletter template iframe" do |template_id|
+      it "changes the footer links correctly" do
+        visit decidim_admin.preview_newsletter_template_path(template_id)
+        expect(page).to have_link("notifications page", href: "#")
+        expect(page).to have_link("Unsubscribe", href: "#")
+        expect(page).to have_link(organization.name, href: "#", count: 2)
+      end
+    end
+
+    it_behaves_like "working newsletter template iframe", :basic_only_text
+    it_behaves_like "working newsletter template iframe", :image_text_cta
   end
 end

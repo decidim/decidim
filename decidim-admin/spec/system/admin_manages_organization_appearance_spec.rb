@@ -4,7 +4,7 @@ require "spec_helper"
 
 describe "Admin manages organization", type: :system do
   let(:organization) { create(:organization) }
-  let(:user) { create(:user, :admin, :confirmed, organization: organization) }
+  let(:user) { create(:user, :admin, :confirmed, organization:) }
 
   before do
     switch_to_host(organization.host)
@@ -32,7 +32,7 @@ describe "Admin manages organization", type: :system do
       it "does not show the HTML header snippet form field" do
         visit decidim_admin.edit_organization_appearance_path
 
-        expect(page).to have_no_field(:organization_header_snippets)
+        expect(page).not_to have_field(:organization_header_snippets)
       end
     end
 

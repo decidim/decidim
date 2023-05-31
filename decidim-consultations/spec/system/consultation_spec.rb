@@ -4,8 +4,10 @@ require "spec_helper"
 
 describe "Consultation", type: :system do
   let!(:organization) { create(:organization) }
-  let!(:consultation) { create(:consultation, :published, organization: organization) }
-  let!(:user) { create :user, :confirmed, organization: organization }
+  let(:description) { { en: "Short description", ca: "Descripció curta", es: "Descripción corta" } }
+  let(:introductory_video_url) { "https://www.youtube.com/watch?v=1234567890" }
+  let!(:consultation) { create(:consultation, :published, organization:, description:, introductory_video_url:) }
+  let!(:user) { create(:user, :confirmed, organization:) }
 
   before do
     switch_to_host(organization.host)
@@ -20,6 +22,10 @@ describe "Consultation", type: :system do
       visit decidim_consultations.consultation_path(consultation)
     end
 
+    it_behaves_like "has embedded video in description", :description do
+      let(:introductory_video_url) { nil }
+    end
+
     it "Shows the basic consultation data" do
       expect(page).to have_i18n_content(consultation.title)
       expect(page).to have_i18n_content(consultation.subtitle)
@@ -28,7 +34,7 @@ describe "Consultation", type: :system do
 
     context "when the consultation is unpublished" do
       let!(:consultation) do
-        create(:consultation, :unpublished, organization: organization)
+        create(:consultation, :unpublished, organization:)
       end
 
       before do
@@ -41,10 +47,10 @@ describe "Consultation", type: :system do
       end
 
       context "with signed in user" do
-        let!(:user) { create(:user, :confirmed, organization: organization) }
+        let!(:user) { create(:user, :confirmed, organization:) }
 
         before do
-          sign_in user, scope: :user
+          login_as user, scope: :user
         end
 
         it "redirects to root path" do
@@ -55,7 +61,7 @@ describe "Consultation", type: :system do
     end
 
     context "when highlighted questions" do
-      let!(:question) { create(:question, :published, consultation: consultation, scope: consultation.highlighted_scope) }
+      let!(:question) { create(:question, :published, consultation:, scope: consultation.highlighted_scope) }
 
       before do
         switch_to_host(organization.host)
@@ -73,8 +79,8 @@ describe "Consultation", type: :system do
     end
 
     context "when regular questions" do
-      let!(:scope) { create(:scope, organization: organization) }
-      let!(:question) { create(:question, :published, consultation: consultation, scope: scope) }
+      let!(:scope) { create(:scope, organization:) }
+      let!(:question) { create(:question, :published, consultation:, scope:) }
 
       before do
         switch_to_host(organization.host)
@@ -96,7 +102,7 @@ describe "Consultation", type: :system do
     end
 
     context "when showing the button that links to the question" do
-      let!(:question) { create(:question, :published, consultation: consultation, scope: consultation.highlighted_scope) }
+      let!(:question) { create(:question, :published, consultation:, scope: consultation.highlighted_scope) }
 
       context "when the user is not logged in" do
         before do

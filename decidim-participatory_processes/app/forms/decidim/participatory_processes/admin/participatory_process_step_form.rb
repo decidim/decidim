@@ -15,8 +15,8 @@ module Decidim
 
         mimic :participatory_process_step
 
-        attribute :start_date, Decidim::Attributes::LocalizedDate
-        attribute :end_date, Decidim::Attributes::LocalizedDate
+        attribute :start_date, Decidim::Attributes::TimeWithZone
+        attribute :end_date, Decidim::Attributes::TimeWithZone
         attribute :cta_path, String
 
         validates :title, translatable_presence: true

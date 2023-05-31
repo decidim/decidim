@@ -16,7 +16,7 @@ shared_examples "manage announcements" do
 
     visit main_component_path(current_component)
 
-    within ".callout.secondary" do
+    within "[class='callout '][data-announcement]" do
       expect(page).to have_content("An important announcement")
     end
   end
@@ -50,8 +50,8 @@ shared_examples "manage announcements" do
 
       visit main_component_path(current_component)
 
-      within ".callout.secondary" do
-        expect(page).to have_no_content("An important announcement")
+      within "[class='callout '][data-announcement]" do
+        expect(page).not_to have_content("An important announcement")
         expect(page).to have_content("An announcement for this step")
       end
     end

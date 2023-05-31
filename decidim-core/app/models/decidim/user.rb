@@ -36,8 +36,6 @@ module Decidim
     has_many :access_tokens, class_name: "Doorkeeper::AccessToken", foreign_key: :resource_owner_id, dependent: :destroy
     has_many :reminders, foreign_key: "decidim_user_id", class_name: "Decidim::Reminder", dependent: :destroy
 
-    has_one :blocking, class_name: "Decidim::UserBlock", foreign_key: :id, primary_key: :block_id, dependent: :destroy
-
     validates :name, presence: true, unless: -> { deleted? }
     validates :nickname,
               presence: true,
@@ -89,6 +87,7 @@ module Decidim
                       index_on_update: ->(user) { !(user.deleted? || user.blocked?) })
 
     before_save :ensure_encrypted_password
+    before_save :save_password_change
 
     def user_invited?
       invitation_token_changed? && invitation_accepted_at_changed?
@@ -107,7 +106,7 @@ module Decidim
     # Returns the user corresponding to the given +email+ if it exists and has pending invitations,
     #   otherwise returns nil.
     def self.has_pending_invitations?(organization_id, email)
-      invitation_not_accepted.find_by(decidim_organization_id: organization_id, email: email)
+      invitation_not_accepted.find_by(decidim_organization_id: organization_id, email:)
     end
 
     # Returns the presenter for this author, to be used in the views.
@@ -151,7 +150,7 @@ module Decidim
     end
 
     def follows?(followable)
-      Decidim::Follow.where(user: self, followable: followable).any?
+      Decidim::Follow.where(user: self, followable:).any?
     end
 
     # Public: whether the user accepts direct messages from another
@@ -199,7 +198,7 @@ module Decidim
       return true if managed
       return false if accepted_tos_version.nil?
 
-      # For some reason, if we don't use `#to_i` here we get some
+      # For some reason, if we do not use `#to_i` here we get some
       # cases where the comparison returns false, but calling `#to_i` returns
       # the same number :/
       accepted_tos_version.to_i >= organization.tos_version.to_i
@@ -261,6 +260,14 @@ module Decidim
       notification_settings.fetch("subscriptions", {})
     end
 
+    def needs_password_update?
+      return false unless admin?
+      return false unless Decidim.config.admin_password_strong
+      return identities.none? if password_updated_at.blank?
+
+      password_updated_at < Decidim.config.admin_password_expiration_days.days.ago
+    end
+
     protected
 
     # Overrides devise email required validation.
@@ -307,6 +314,19 @@ module Decidim
 
     def ensure_encrypted_password
       restore_encrypted_password! if will_save_change_to_encrypted_password? && encrypted_password.blank?
+    end
+
+    def save_password_change
+      return unless persisted?
+      return unless encrypted_password_changed?
+      return unless admin?
+      return unless Decidim.config.admin_password_strong
+
+      # We do not want to run validations here because that could lead to an endless validation loop.
+      # rubocop:disable Rails/SkipsModelValidations
+      update_column(:password_updated_at, Time.current)
+      update_column(:previous_passwords, [encrypted_password_was, *previous_passwords].first(Decidim.config.admin_password_repetition_times))
+      # rubocop:enable Rails/SkipsModelValidations
     end
   end
 end

@@ -44,11 +44,11 @@ describe "Admin filters, searches, and paginates results", type: :system do
 
   context "when filtering by category" do
     let!(:category1) do
-      create(:category, participatory_space: participatory_space,
+      create(:category, participatory_space:,
                         name: { "en" => "Category1" })
     end
     let!(:category2) do
-      create(:category, participatory_space: participatory_space,
+      create(:category, participatory_space:,
                         name: { "en" => "Category2" })
     end
     let!(:result_with_category1) do

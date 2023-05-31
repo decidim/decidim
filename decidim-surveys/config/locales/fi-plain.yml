@@ -30,7 +30,7 @@ fi-pl:
           step:
             allow_answers: Salli vastaukset
             allow_unregistered: Salli rekisteröitymättömien käyttäjien vastata tähän kyselyyn
-            allow_unregistered_help: Mikäli tämä asetus on päällä, käyttäjien ei tarvitse kirjautua sisään vastatakseen kyselyyn. Tämä voi johtaa heikkolaatuiseen tai epäluotettavaan tietoon ja tekee automaattisista hyökkäyksistä helpompaa. Käytä harkiten!
+            allow_unregistered_help: Jos asetus on käytössä, käyttäjän ei tarvitse kirjautua sisään vastatakseen kyselyyn. Tämä voi johtaa heikkotasoiseen tai epäluotettavaan tietoon ja se on alttiimpi automatisoiduille hyökkäyksille. Käytä varoen! Muista, että osallistuja voisi vastata samaan kyselyyn useita kertoja, käyttämällä eri selaimia tai selaimen "yksityisen selauksen" ominaisuutta.
             announcement: Ilmoitus
     events:
       surveys:
@@ -60,9 +60,9 @@ fi-pl:
             invalid: Kyselyn tallennus epäonnistui.
             success: Kysely tallennettu onnistuneesti.
       last_activity:
-        new_survey_at_html: "<span>Uusi kysely osoitteessa %{link}</span>"
+        new_survey: 'Uusi kysely:'
       surveys:
         answer:
           invalid: Kyselyyn vastaaminen epäonnistui.
-          spam_detected: Kyselyn vastaamisessa tapahtui virhe. Ehkä olit liian nopea, voisitko yrittää uudestaan?
+          spam_detected: Lomakkeeseen vastaaminen epäonnistui. Saatoit toimia liian nopeasti. Yrittäisitkö uudestaan?
           success: Kyselyyn vastattu onnistuneesti.

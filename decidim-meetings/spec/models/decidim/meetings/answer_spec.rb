@@ -10,8 +10,8 @@ module Decidim
       let(:meeting) { create(:meeting) }
       let(:user) { create(:user, organization: meeting.organization) }
       let(:questionnaire) { create(:meetings_poll_questionnaire, questionnaire_for: meeting) }
-      let(:question) { create(:meetings_poll_question, questionnaire: questionnaire) }
-      let(:answer) { create(:meetings_poll_answer, questionnaire: questionnaire, question: question, user: user) }
+      let(:question) { create(:meetings_poll_question, questionnaire:) }
+      let(:answer) { create(:meetings_poll_answer, questionnaire:, question:, user:) }
 
       it { is_expected.to be_valid }
 
@@ -27,14 +27,14 @@ module Decidim
         expect(subject.user).to eq(user)
       end
 
-      context "when the user doesn't belong to the same organization" do
+      context "when the user does not belong to the same organization" do
         it "is not valid" do
           subject.user = create(:user)
           expect(subject).not_to be_valid
         end
       end
 
-      context "when question doesn't belong to the questionnaire" do
+      context "when question does not belong to the questionnaire" do
         it "is not valid" do
           subject.question = create(:meetings_poll_question)
           expect(subject).not_to be_valid

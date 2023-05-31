@@ -59,12 +59,6 @@ tr:
         email: E-posta
         name: isim
         role: rol
-    errors:
-      models:
-        participatory_process:
-          attributes:
-            document:
-              invalid_document_type: 'Geçersiz belge türü. Kabul edilen biçimler şunlardır: %{valid_mime_types}'
     models:
       decidim/participatory_process_step_activated_event: Adım aktif
       decidim/participatory_process_step_changed_event: Adım değişti
@@ -159,7 +153,10 @@ tr:
       participatory_process_group_landing_page:
         edit:
           active_content_blocks: Aktif içerik blokları
+          add: İçerik bloğu ekle 
+          destroy_confirmation: Bu içerik bloğunu silmek istediğnizden emin misniz 
           inactive_content_blocks: Aktif olmayan içerik blokları
+          title: Sayfa içeriği
       participatory_process_group_landing_page_content_blocks:
         edit:
           update: Güncelle
@@ -201,9 +198,6 @@ tr:
           success: Katılımcı süreç adımı başarıyla oluşturuldu.
         default_title: Giriş
         destroy:
-          error:
-            active_step: Aktif adımı silemiyorum.
-            last_step: Bir işlemin son adımı silinemiyor.
           success: Katılımcı süreç adımı başarıyla silindi.
         edit:
           title: Katılımcı süreç adımını düzenle
@@ -422,8 +416,6 @@ tr:
               one: 1 yaklaşan süreç
               other: "%{count} gelecek süreç"
           explanations:
-            no_active: Etkin işlem yok
-            no_active_nor_upcoming: Etkin ve yaklaşan süreç yok
             no_active_nor_upcoming_callout: Etkin ve yaklaşan süreçler yoktur. İşte geçmiş olanların listesi.
           names:
             active: Aktif

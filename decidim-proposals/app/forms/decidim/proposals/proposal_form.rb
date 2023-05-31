@@ -37,6 +37,9 @@ module Decidim
         body = translated_attribute(model.body)
         @suggested_hashtags = Decidim::ContentRenderers::HashtagRenderer.new(body).extra_hashtags.map(&:name).map(&:downcase)
 
+        presenter = ProposalPresenter.new(model)
+        self.body = presenter.editor_body(all_locales: body.is_a?(Hash))
+
         # The scope attribute is with different key (decidim_scope_id), so it
         # has to be manually mapped.
         self.scope_id = model.scope.id if model.scope
@@ -44,7 +47,7 @@ module Decidim
         self.has_address = true if model.address.present?
 
         # Proposals have the "photos" field reserved for the proposal card image
-        # so we don't want to show all photos there. Instead, only show the
+        # so we do not want to show all photos there. Instead, only show the
         # first photo.
         self.photos = [model.photo].compact.select { |p| p.weight.zero? }
         self.documents = model.attachments - photos
@@ -115,7 +118,7 @@ module Decidim
       private
 
       # This method will add an error to the `add_photos` and/or "add_documents" fields
-      # only if there's any error in any other field. This is needed because when the
+      # only if there is any error in any other field. This is needed because when the
       # form has an error, the attachment is lost, so we need a way to inform the user of
       # this problem.
       def notify_missing_attachment_if_errored

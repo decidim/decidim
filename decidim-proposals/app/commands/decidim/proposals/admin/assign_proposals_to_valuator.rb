@@ -16,7 +16,7 @@ module Decidim
         # Executes the command. Broadcasts these events:
         #
         # - :ok when everything is valid.
-        # - :invalid if the form wasn't valid and we couldn't proceed.
+        # - :invalid if the form was not valid and we could not proceed.
         #
         # Returns nothing.
         def call
@@ -42,7 +42,7 @@ module Decidim
 
         def find_assignment(proposal)
           Decidim::Proposals::ValuationAssignment.find_by(
-            proposal: proposal,
+            proposal:,
             valuator_role: form.valuator_role
           )
         end
@@ -51,7 +51,7 @@ module Decidim
           Decidim.traceability.create!(
             Decidim::Proposals::ValuationAssignment,
             form.current_user,
-            proposal: proposal,
+            proposal:,
             valuator_role: form.valuator_role
           )
         end

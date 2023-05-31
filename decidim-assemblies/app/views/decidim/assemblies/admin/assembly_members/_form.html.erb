@@ -16,12 +16,12 @@
       </div>
 
       <div class="row column user-fields--non-user-avatar">
-        <%= form.upload :non_user_avatar, help_i18n_messages: ["non_user_avatar_help", "image_guide"], help_i18n_scope: "decidim.assemblies.admin.assembly_members.form" %>
+        <%= form.upload :non_user_avatar, help_i18n_messages: %w(non_user_avatar_help image_guide), help_i18n_scope: "decidim.assemblies.admin.assembly_members.form" %>
       </div>
 
       <div class="row column user-fields--user-picker">
         <% prompt_options = { url: decidim_admin.user_entities_organization_url, placeholder: t(".select_user") } %>
-        <%= form.autocomplete_select(:user_id, form.object.user.presence,  { multiple: false }, prompt_options) do |user|
+        <%= form.autocomplete_select(:user_id, form.object.user.presence, { multiple: false }, prompt_options) do |user|
           { value: user.id, label: "#{user.name} (@#{user.nickname})" }
         end %>
       </div>
@@ -63,4 +63,4 @@
   </div>
 </div>
 
-<%= javascript_pack_tag "decidim_assemblies_admin" %>
+<%= append_javascript_pack_tag "decidim_assemblies_admin" %>

@@ -46,6 +46,7 @@ module Decidim
     end
 
     # Renders the counter of endorsements that appears in m-cards.
+    # deprecated
     def render_endorsements_count
       content = icon("bullhorn", class: "icon--small", aria_label: t("decidim.endorsable.endorsements_count"), role: "img")
       content += resource.endorsements_count.to_s
@@ -64,13 +65,14 @@ module Decidim
     end
 
     # Renders the endorsements button but disabled.
-    # To be used to let the user know that endorsements are enabled but are blocked or cant participate.
+    # To be used to let the user know that endorsements are enabled but are blocked or cannot participate.
     def render_disabled_endorsements_button
       content_tag :span, class: "#{card_button_html_class} #{endorsement_button_classes(from_resourcess_list: false)} disabled", disabled: true, title: endorse_translated do
         endorse_translated + render_screen_reader_context_title
       end
     end
 
+    # deprecated
     def render_screen_reader_context_title
       content_tag :span, class: "show-for-sr" do
         decidim_html_escape(resource_title(resource))
@@ -112,7 +114,7 @@ module Decidim
           action_authorized_button_to(
             :endorse,
             destroy_endorsement_url,
-            resource: resource,
+            resource:,
             method: :delete,
             remote: true,
             class: "button #{endorsement_button_classes} active",
@@ -124,7 +126,7 @@ module Decidim
           action_authorized_button_to(
             :endorse,
             path_to_create_endorsement(resource),
-            resource: resource,
+            resource:,
             remote: true,
             class: "button #{endorsement_button_classes}",
             id: "endorsement_button"
@@ -140,16 +142,17 @@ module Decidim
       model
     end
 
+    # deprecated
     def reveal_identities_url
       decidim.identities_endorsement_path(resource.to_gid.to_param)
     end
 
-    # produce the path to endorsements from the engine routes as the cell doesn't have access to routes
+    # produce the path to endorsements from the engine routes as the cell does not have access to routes
     def endorsements_path(*args)
       decidim.endorsements_path(*args)
     end
 
-    # produce the path to an endorsement from the engine routes as the cell doesn't have access to routes
+    # produce the path to an endorsement from the engine routes as the cell does not have access to routes
     def endorsement_path(*args)
       decidim.endorsement_path(*args)
     end
@@ -171,7 +174,7 @@ module Decidim
     def render_user_login_button
       action_authorized_button_to(:endorse,
                                   path_to_create_endorsement(resource),
-                                  resource: resource,
+                                  resource:,
                                   class: "button #{endorsement_button_classes}") do
         endorse_translated + render_screen_reader_context_title
       end
@@ -190,7 +193,7 @@ module Decidim
     end
 
     def current_user_and_allowed?
-      current_user && allowed_to?(:create, :endorsement, resource: resource)
+      current_user && allowed_to?(:create, :endorsement, resource:)
     end
 
     def user_has_verified_groups?

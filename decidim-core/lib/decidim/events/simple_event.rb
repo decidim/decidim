@@ -2,7 +2,7 @@
 
 module Decidim
   module Events
-    # Extends the BaseEvent to add common components to most events so you don't
+    # Extends the BaseEvent to add common components to most events so you do not
     # need to write each time the same code.
     #
     # The only convention you need to keep in mind is that the event name will be
@@ -34,7 +34,14 @@ module Decidim
       end
 
       def email_subject
-        I18n.t("email_subject", **i18n_options).html_safe
+        I18n.t("email_subject", **email_subject_i18n_options).html_safe
+      end
+
+      def email_subject_i18n_options
+        sanitized_values = { resource_title: decidim_sanitize(resource_title) }
+        sanitized_values[:mentioned_proposal_title] = decidim_sanitize(mentioned_proposal_title) if i18n_options.has_key?(:mentioned_proposal_title)
+        sanitized_values[:participatory_space_title] = decidim_sanitize(participatory_space_title) if i18n_options.has_key?(:participatory_space_title)
+        i18n_options.merge(sanitized_values)
       end
 
       def email_intro
@@ -79,14 +86,14 @@ module Decidim
         end
       end
 
-      # Caches the path for the given resource when it's a Decidim::Component.
+      # Caches the path for the given resource when it is a Decidim::Component.
       def resource_path
         return super unless resource.is_a?(Decidim::Component)
 
         @resource_path ||= main_component_path(resource)
       end
 
-      # Caches the URL for the given resource when it's a Decidim::Component.
+      # Caches the URL for the given resource when it is a Decidim::Component.
       def resource_url
         return super unless resource.is_a?(Decidim::Component)
 
@@ -119,11 +126,11 @@ module Decidim
 
       def default_i18n_options
         {
-          resource_path: resource_path,
-          resource_title: resource_title,
-          resource_url: resource_url,
-          participatory_space_title: participatory_space_title,
-          participatory_space_url: participatory_space_url,
+          resource_path:,
+          resource_title:,
+          resource_url:,
+          participatory_space_title:,
+          participatory_space_url:,
           scope: i18n_scope
         }
       end

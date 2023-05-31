@@ -23,8 +23,8 @@ module Decidim
             body_en: "Body en",
             body_ca: "Body ca",
             body_es: "Body es",
-            position: position,
-            deleted: deleted
+            position:,
+            deleted:
           }
         end
 

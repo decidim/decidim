@@ -44,9 +44,9 @@ module Decidim
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Assemblies::Engine.root}/app/views") # for partials
       end
 
-      initializer "decidim.stats" do
+      initializer "decidim_assemblies.stats" do
         Decidim.stats.register :assemblies_count, priority: StatsRegistry::HIGH_PRIORITY do |organization, _start_at, _end_at|
-          Decidim::Assembly.where(organization: organization).public_spaces.count
+          Decidim::Assembly.where(organization:).public_spaces.count
         end
       end
 
@@ -77,7 +77,7 @@ module Decidim
           view_context.render(
             partial: "decidim/assemblies/pages/user_profile/member_of",
             locals: {
-              assemblies: assemblies
+              assemblies:
             }
           )
         end

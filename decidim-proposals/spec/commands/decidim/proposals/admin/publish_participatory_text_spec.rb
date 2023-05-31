@@ -33,7 +33,7 @@ module Decidim
                 body: { en: ::Faker::Books::Lovecraft.fhtagn(number: 5) }
               ).with_context(
                 current_participatory_space: current_component.participatory_space,
-                current_component: current_component
+                current_component:
               )
             end
             modifs
@@ -41,7 +41,7 @@ module Decidim
           let(:form) do
             instance_double(
               PreviewParticipatoryTextForm,
-              current_component: current_component,
+              current_component:,
               current_user: create(:user, organization: current_component.organization),
               proposals: proposal_modifications
             )
@@ -78,7 +78,7 @@ module Decidim
               it "does not persist modifications and broadcasts invalid" do
                 failures = {}
                 proposals.each do |proposal|
-                  failures[proposal.id] = ["Title can't be blank"]
+                  failures[proposal.id] = ["Title cannot be blank"]
                 end
                 expect { command.call }.to broadcast(:invalid, failures)
               end

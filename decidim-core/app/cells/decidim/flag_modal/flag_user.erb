@@ -1,4 +1,4 @@
-<div class="reveal flag-modal" id="flagUserModal" data-reveal role="dialog" aria-modal="true" aria-labelledby="flagUserModal-label">
+<div class="reveal flag-modal hidden" id="flagUserModal" data-reveal role="dialog" aria-modal="true" aria-labelledby="flagUserModal-label">
   <div class="reveal__header">
     <h3 id="flagUserModal-label" class="reveal__title"><%= t("decidim.shared.flag_user_modal.title") %></h3>
     <button class="close-button" data-close aria-label="<%= t("decidim.shared.flag_user_modal.close") %>" type="button">
@@ -9,7 +9,7 @@
     <p><%= t("decidim.shared.flag_user_modal.already_reported") %></p>
   <% else %>
     <p><%= t("decidim.shared.flag_user_modal.description") %></p>
-    <%= decidim_form_for user_report_form, url: decidim.report_user_path(sgid: model.to_sgid.to_s), method: :post do |f| %>
+    <%= decidim_form_for report_form, url: decidim.report_user_path(sgid: model.to_sgid.to_s), method: :post do |f| %>
       <%= f.collection_radio_buttons :reason, [
           [:spam, t("decidim.shared.flag_user_modal.spam")],
           [:offensive, t("decidim.shared.flag_user_modal.offensive")],
@@ -18,6 +18,16 @@
         <%= builder.label { builder.radio_button + builder.text } %>
       <% end %>
       <%= f.text_area :details, rows: 4 %>
+      <% if current_user&.admin? %>
+        <%= f.check_box :block, label: t("decidim.shared.flag_user_modal.block"),
+                                include_hidden: false,
+                                data: {
+                                  label_action: t("decidim.shared.flag_user_modal.block"),
+                                  label_report: t("decidim.shared.flag_user_modal.report"),
+                                  block: "true"
+                                } %>
+        <%= f.check_box :hide, label: t("decidim.shared.flag_user_modal.hide"), label_options: { id: "block_and_hide" } %>
+      <% end %>
       <%= f.submit t("decidim.shared.flag_user_modal.report") %>
     <% end %>
   <% end %>

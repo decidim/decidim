@@ -9,7 +9,7 @@ shared_examples "manage assembly members examples" do
   end
 
   context "without existing user" do
-    let!(:assembly_member) { create(:assembly_member, assembly: assembly) }
+    let!(:assembly_member) { create(:assembly_member, assembly:) }
 
     it "creates a new assembly member" do
       find(".card-title a.new").click
@@ -44,7 +44,7 @@ shared_examples "manage assembly members examples" do
   end
 
   context "with existing user" do
-    let!(:member_user) { create :user, organization: assembly.organization }
+    let!(:member_user) { create(:user, organization: assembly.organization) }
 
     it "creates a new assembly member" do
       find(".card-title a.new").click
@@ -71,7 +71,7 @@ shared_examples "manage assembly members examples" do
   end
 
   context "with existing user group" do
-    let!(:member_organization) { create :user_group, :verified, organization: assembly.organization }
+    let!(:member_organization) { create(:user_group, :verified, organization: assembly.organization) }
 
     it "creates a new assembly member" do
       find(".card-title a.new").click
@@ -98,7 +98,7 @@ shared_examples "manage assembly members examples" do
   end
 
   describe "when managing other assembly members" do
-    let!(:assembly_member) { create(:assembly_member, assembly: assembly) }
+    let!(:assembly_member) { create(:assembly_member, assembly:) }
 
     before do
       visit current_path
@@ -140,14 +140,14 @@ shared_examples "manage assembly members examples" do
       expect(page).to have_admin_callout("successfully")
 
       within "#assembly_members table" do
-        expect(page).to have_no_content(assembly_member.full_name)
+        expect(page).not_to have_content(assembly_member.full_name)
       end
     end
   end
 
   context "when paginating" do
     let!(:collection_size) { 20 }
-    let!(:collection) { create_list(:assembly_member, collection_size, assembly: assembly) }
+    let!(:collection) { create_list(:assembly_member, collection_size, assembly:) }
     let!(:resource_selector) { "#assembly_members tbody tr" }
 
     before do
@@ -156,11 +156,9 @@ shared_examples "manage assembly members examples" do
 
     it "lists 15 members per page by default" do
       expect(page).to have_css(resource_selector, count: 15)
-      expect(page).to have_css(".pagination .page", count: 2)
+      expect(page).to have_css("[data-pages] [data-page]", count: 2)
       click_link "Next"
-
-      expect(page).to have_selector(".pagination .current", text: "2")
-
+      expect(page).to have_selector("[data-pages] [data-page][aria-current='page']", text: "2")
       expect(page).to have_css(resource_selector, count: 5)
     end
   end

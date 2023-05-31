@@ -8,8 +8,8 @@ module Decidim
       let(:organization) { create(:organization) }
       let(:limit) { 10 }
       let(:votes_enabled) { true }
-      let(:proposal_component) { create(:proposal_component, organization: organization) }
-      let(:user) { create(:user, organization: organization) }
+      let(:proposal_component) { create(:proposal_component, organization:) }
+      let(:user) { create(:user, organization:) }
 
       before do
         allow(helper).to receive(:current_user).and_return(user)
@@ -23,7 +23,7 @@ module Decidim
           expect(helper.vote_button_classes(true)).to eq("card__button")
         end
 
-        it "returns expanded buttons classes if it's not from proposals list'" do
+        it "returns expanded buttons classes if it is not from proposals list'" do
           expect(helper.vote_button_classes(false)).to eq("expanded")
         end
       end
@@ -33,7 +33,7 @@ module Decidim
           expect(helper.votes_count_classes(true)).to eq(number: "card__support__number", label: "")
         end
 
-        it "returns expanded count classes if it's not from proposals list'" do
+        it "returns expanded count classes if it is not from proposals list'" do
           expect(helper.votes_count_classes(false)).to eq(number: "extra__suport-number", label: "extra__suport-text")
         end
       end
@@ -57,7 +57,7 @@ module Decidim
       describe "#remaining_votes_count_for" do
         it "returns the remaining votes for a user based on the component votes limit" do
           proposal = create(:proposal, component: proposal_component)
-          create(:proposal_vote, author: user, proposal: proposal)
+          create(:proposal_vote, author: user, proposal:)
 
           expect(helper.remaining_votes_count_for(user)).to eq(9)
         end

@@ -7,6 +7,9 @@
 
   <body>
     <%= render partial: "layouts/decidim/timeout_modal" %>
+    <%= render partial: "layouts/decidim/data_consent_warning" %>
+    <%= cell("decidim/data_consent", current_organization) %>
+
     <header class="meeting-polls__header">
       <% if current_user && poll %>
         <div class="flex--cc">
@@ -21,7 +24,7 @@
       <% end %>
 
       <div>
-        <strong class="text-secondary"><%= current_organization.name %></strong> / <strong><%= present(meeting).title(links: true) %></strong>
+        <strong class="text-secondary"><%= current_organization.name %></strong> / <strong><%= present(meeting).title(links: true, html_escape: true) %></strong>
       </div>
 
       <div class="flex--cc">
@@ -46,7 +49,7 @@
       <%= yield %>
     </main>
 
+    <%= append_javascript_pack_tag "decidim_meetings" %>
     <%= render partial: "layouts/decidim/decidim_javascript" %>
-    <%= javascript_pack_tag "decidim_meetings" %>
   </body>
 </html>

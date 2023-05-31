@@ -17,3 +17,9 @@
 @import "stylesheets/decidim/layouts/layouts";
 @import "stylesheets/decidim/extras/extras";
 @import "stylesheets/decidim/vizzs/vizzs";
+
+/*
+  REDESIGN_PENDING: remove this import
+  It include only to pass the tests of the new a11y components
+*/
+@import "stylesheets/decidim/redesigned_accordion.scss";

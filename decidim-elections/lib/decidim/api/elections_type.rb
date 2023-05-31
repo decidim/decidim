@@ -25,7 +25,7 @@ module Decidim
 
     module ElectionsTypeHelper
       def self.base_scope(component)
-        Election.where(component: component).where.not(published_at: nil)
+        Election.where(component:).where.not(published_at: nil)
       end
     end
   end

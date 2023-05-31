@@ -1,9 +1,7 @@
 # frozen_string_literal: true
 
 module Decidim
-  # Use this class as a scrubber to sanitize user input. The default
-  # scrubbed provided by Rails does not allow `iframe`s, and we're using
-  # them to embed videos, so we need to provide a whole new scrubber.
+  # Use this class as a scrubber to sanitize participant user input.
   #
   # Example:
   #
@@ -20,12 +18,41 @@ module Decidim
 
     private
 
+    RESTRICTED_TAGS = %w(
+      area
+      article
+      aside
+      audio
+      button
+      canvas
+      fieldset
+      figcaption
+      figure
+      font
+      footer
+      form
+      header
+      img
+      input
+      label
+      legend
+      main
+      map
+      menu
+      optgroup
+      option
+      output
+      select
+      textarea
+      video
+    ).freeze
+
     def custom_allowed_attributes
-      Loofah::HTML5::SafeList::ALLOWED_ATTRIBUTES + %w(frameborder allowfullscreen) - %w(onerror)
+      Loofah::HTML5::SafeList::ALLOWED_ATTRIBUTES
     end
 
     def custom_allowed_tags
-      Loofah::HTML5::SafeList::ALLOWED_ELEMENTS_WITH_LIBXML2 + %w(iframe)
+      Loofah::HTML5::SafeList::ACCEPTABLE_ELEMENTS - RESTRICTED_TAGS
     end
   end
 end

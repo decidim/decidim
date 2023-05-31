@@ -12,9 +12,9 @@ module Decidim
     let(:attributes) do
       {
         "editor_image" => {
-          organization: organization,
+          organization:,
           author_id: user_id,
-          file: file
+          file:
         }
       }
     end
@@ -36,8 +36,8 @@ module Decidim
         expect { subject.call }.to broadcast(:invalid)
       end
 
-      it "doesn't create an editor image" do
-        expect { subject.call }.not_to(change { Decidim::EditorImage.count })
+      it "does not create an editor image" do
+        expect { subject.call }.not_to(change(Decidim::EditorImage, :count))
       end
     end
 
@@ -47,7 +47,7 @@ module Decidim
       end
 
       it "creates an editor image" do
-        expect { subject.call }.to change { Decidim::EditorImage.count }.by(1)
+        expect { subject.call }.to change(Decidim::EditorImage, :count).by(1)
       end
     end
   end

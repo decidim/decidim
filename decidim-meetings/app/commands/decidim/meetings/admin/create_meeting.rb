@@ -31,7 +31,7 @@ module Decidim
 
         def create_meeting!
           parsed_title = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.title, current_organization: form.current_organization).rewrite
-          parsed_description = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.description, current_organization: form.current_organization).rewrite
+          parsed_description = Decidim::ContentProcessor.parse(form.description, current_organization: form.current_organization).rewrite
           params = {
             scope: form.scope,
             category: form.category,
@@ -52,6 +52,7 @@ module Decidim
             transparent: form.transparent,
             author: form.current_organization,
             registration_terms: form.current_component.settings.default_registration_terms,
+            registrations_enabled: form.registrations_enabled,
             component: form.current_component,
             questionnaire: Decidim::Forms::Questionnaire.new,
             iframe_embed_type: form.iframe_embed_type,
@@ -72,7 +73,7 @@ module Decidim
         def create_services!
           form.services_to_persist.each do |service|
             Decidim::Meetings::Service.create!(
-              meeting: meeting,
+              meeting:,
               "title" => service.title,
               "description" => service.description
             )

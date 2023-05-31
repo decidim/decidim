@@ -72,7 +72,7 @@ module Decidim
         end
 
         def user_valuator_role
-          @user_valuator_role ||= space.user_roles(:valuator).find_by(user: user)
+          @user_valuator_role ||= space.user_roles(:valuator).find_by(user:)
         end
 
         def user_is_valuator?
@@ -84,7 +84,7 @@ module Decidim
         def valuator_assigned_to_proposal?
           @valuator_assigned_to_proposal ||=
             Decidim::Proposals::ValuationAssignment
-            .where(proposal: proposal, valuator_role: user_valuator_role)
+            .where(proposal:, valuator_role: user_valuator_role)
             .any?
         end
 
@@ -112,7 +112,7 @@ module Decidim
           component_settings.participatory_texts_enabled?
         end
 
-        # There's no special condition to create proposal notes, only
+        # There is no special condition to create proposal notes, only
         # users with access to the admin section can do it.
         def can_create_proposal_note?
           allow! if permission_action.subject == :proposal_note
@@ -120,7 +120,10 @@ module Decidim
 
         # Proposals can only be created from the admin when the
         # corresponding setting is enabled.
+        # This setting is incompatible with participatory texts.
         def can_create_proposal_from_admin?
+          return disallow! if participatory_texts_are_enabled? && permission_action.subject == :proposal
+
           toggle_allow(admin_creation_is_enabled?) if permission_action.subject == :proposal
         end
 

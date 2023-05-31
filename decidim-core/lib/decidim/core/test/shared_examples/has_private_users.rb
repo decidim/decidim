@@ -14,7 +14,7 @@ shared_examples_for "has private users" do
   end
 
   def create_space_private_user(space, user = create(:user, organization: space.organization))
-    Decidim::ParticipatorySpacePrivateUser.create(privatable_to: space, user: user)
+    Decidim::ParticipatorySpacePrivateUser.create(privatable_to: space, user:)
   end
 
   describe ".public_spaces" do

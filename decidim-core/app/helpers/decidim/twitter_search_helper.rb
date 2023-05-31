@@ -8,7 +8,7 @@ module Decidim
     #
     # @return [String]
     def twitter_hashtag_url(hashtag)
-      format("https://twitter.com/hashtag/%{hashtag}?src=hash", hashtag: hashtag)
+      format("https://twitter.com/hashtag/%{hashtag}?src=hash", hashtag:)
     end
   end
 end

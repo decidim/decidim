@@ -17,7 +17,7 @@ describe Decidim::Elections::Admin::ElectionsController, type: :controller do
   describe "PATCH update" do
     let(:datetime_format) { I18n.t("time.formats.decidim_short") }
     let(:component) { create(:elections_component) }
-    let(:election) { create(:election, component: component) }
+    let(:election) { create(:election, component:) }
     let(:election_title) { election.title }
     let(:election_params) do
       {
@@ -42,7 +42,7 @@ describe Decidim::Elections::Admin::ElectionsController, type: :controller do
     it "updates the election" do
       allow(controller).to receive(:elections_path).and_return("/elections")
 
-      patch :update, params: params
+      patch(:update, params:)
 
       expect(flash[:notice]).not_to be_empty
       expect(response).to have_http_status(:found)
@@ -51,10 +51,10 @@ describe Decidim::Elections::Admin::ElectionsController, type: :controller do
     context "when the existing election has photos and there are other errors on the form" do
       include_context "with controller rendering the view" do
         let(:election_title) { { en: "" } }
-        let(:election) { create(:election, :with_photos, component: component) }
+        let(:election) { create(:election, :with_photos, component:) }
 
         it "displays the editing form with errors" do
-          patch :update, params: params
+          patch(:update, params:)
 
           expect(flash[:alert]).not_to be_empty
           expect(response).to have_http_status(:ok)

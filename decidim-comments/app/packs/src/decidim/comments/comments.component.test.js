@@ -1,5 +1,5 @@
 /* eslint-disable id-length, max-lines */
-/* global spyOn, jest */
+/* global jest */
 
 const $ = require("jquery");
 
@@ -9,9 +9,9 @@ const $ = require("jquery");
 window.$ = jest.fn().mockImplementation((...args) => $(...args));
 window.$.ajax = jest.fn().mockImplementation((...args) => $.ajax(...args));
 
-// Quill is expected by the input character counter
-import Quill from "quill"
-window.Quill = Quill
+// Rails.ajax is used by the fetching/polling of the comments
+import Rails from "@rails/ujs";
+jest.mock("@rails/ujs");
 
 // Fake timers for testing polling
 jest.useFakeTimers();
@@ -19,7 +19,7 @@ jest.useFakeTimers();
 import { createCharacterCounter } from "../../../../../../decidim-core/app/packs/src/decidim/input_character_counter";
 import Configuration from "../../../../../../decidim-core/app/packs/src/decidim/configuration";
 // Component is loaded with require because using import loads it before $ has been mocked
-// so tests aren't able to check the spied behaviours
+// so tests are not able to check the spied behaviours
 const CommentsComponent = require("./comments.component_for_testing.js");
 
 
@@ -49,13 +49,13 @@ describe("CommentsComponent", () => {
       addComment[i].commentTextarea = $("textarea", addComment[i].commentForm);
 
       if (methodToSpy) {
-        spyOn(addComment[i].opinionToggles, methodToSpy);
-        spyOn(addComment[i].commentForm, methodToSpy);
-        spyOn(addComment[i].commentTextarea, methodToSpy);
+        jest.spyOn(addComment[i].opinionToggles, methodToSpy);
+        jest.spyOn(addComment[i].commentForm, methodToSpy);
+        jest.spyOn(addComment[i].commentTextarea, methodToSpy);
       }
     });
 
-    spyOn(window, "$").mockImplementation((...args) => {
+    jest.spyOn(window, "$").mockImplementation((...args) => {
       const jqSelector = args[0];
       const parent = args[1];
 
@@ -128,7 +128,7 @@ describe("CommentsComponent", () => {
                 data-remaining-characters="#add-comment-${modelName}-${modelId}-remaining-characters"
                 name="comment[body]"
               ></textarea>
-              <span class="form-error">There's an error in this field.</span>
+              <span class="form-error">There is an error in this field.</span>
             </label>
           </div>
           <button type="submit" class="button button--sc" disabled="disabled">Send</button>
@@ -373,34 +373,68 @@ describe("CommentsComponent", () => {
   });
 
   it("initializes the comments element with the given selector", () => {
-    expect(subject.$element).toEqual($(selector));
+    expect(subject.$element[0]).toEqual($(selector)[0]);
   });
 
-  it("starts polling for new comments", () => {
+  it("loads the comments through AJAX", () => {
     subject.mountComponent();
 
-    expect(window.setTimeout).toHaveBeenLastCalledWith(expect.any(Function), 1000);
-
-    jest.advanceTimersByTime(1000);
-
-    expect(window.$.ajax).toHaveBeenCalledWith({
+    expect(Rails.ajax).toHaveBeenCalledWith({
       url: "/comments",
-      method: "GET",
-      contentType: "application/javascript",
-      data: {
+      type: "GET",
+      data: new URLSearchParams({
         "commentable_gid": "commentable-gid",
         "root_depth": 0,
         order: "older",
         after: 456
-      }
+      }),
+      success: expect.any(Function)
     });
+  });
+
+  it("disables the comment textarea", () => {
+    subject.mountComponent();
+
+    expect($(`${selector} .add-comment textarea`).prop("disabled")).toBeTruthy();
+  });
+
+  it("re-enables the comment textarea after a successful fetch", () => {
+    Rails.ajax.mockImplementationOnce((options) => options.success());
+
+    subject.mountComponent();
+
+    expect($(`${selector} .add-comment textarea`).prop("disabled")).toBeFalsy();
+  });
+
+  it("starts polling for new comments", () => {
+    jest.spyOn(window, "setTimeout");
+    Rails.ajax.mockImplementationOnce((options) => options.success());
+
+    subject.mountComponent();
+
+    expect(window.setTimeout).toHaveBeenLastCalledWith(expect.any(Function), 1000);
+  });
+
+  it("does not disable the textarea when polling comments normally", () => {
+    Rails.ajax.mockImplementationOnce((options) => options.success());
+
+    subject.mountComponent();
+
+    // Delay the success call 2s after the polling has happened to test that
+    // the textarea is still enabled when the polling is happening.
+    Rails.ajax.mockImplementationOnce((options) => {
+      setTimeout(() => options.success(), 2000);
+    });
+    jest.advanceTimersByTime(1500);
+
+    expect($(`${selector} .add-comment textarea`).prop("disabled")).toBeFalsy();
   });
 
   describe("when mounted", () => {
     beforeEach(() => {
       spyOnAddComment("on");
-      spyOn(orderLinks, "on");
-      spyOn($doc, "trigger");
+      jest.spyOn(orderLinks, "on");
+      jest.spyOn($doc, "trigger");
 
       subject.mountComponent();
     });
@@ -450,6 +484,7 @@ describe("CommentsComponent", () => {
   describe("when interacting", () => {
     beforeEach(() => {
       spyOnAddComment();
+      Rails.ajax.mockImplementationOnce((options) => options.success());
       subject.mountComponent();
     });
 
@@ -481,7 +516,7 @@ describe("CommentsComponent", () => {
       });
 
       it("disables the submit button on submit and stops polling", () => {
-        spyOn(window, "clearTimeout");
+        jest.spyOn(window, "clearTimeout");
 
         commentText.html("This is a test comment")
         commentText.trigger("input");
@@ -638,10 +673,10 @@ describe("CommentsComponent", () => {
 
   describe("when unmounted", () => {
     beforeEach(() => {
-      spyOn(orderLinks, "off");
-      spyOn(allToggles, "off");
-      spyOn(allTextareas, "off");
-      spyOn(allForms, "off");
+      jest.spyOn(orderLinks, "off");
+      jest.spyOn(allToggles, "off");
+      jest.spyOn(allTextareas, "off");
+      jest.spyOn(allForms, "off");
 
       subject.mountComponent();
       subject.unmountComponent();

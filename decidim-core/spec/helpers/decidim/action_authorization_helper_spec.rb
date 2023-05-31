@@ -7,6 +7,7 @@ module Decidim
     let(:component) { create(:component) }
     let(:resource) { nil }
     let(:permissions_holder) { nil }
+    let(:redesign_enabled) { false }
     let(:user) { create(:user) }
     let(:action) { "foo" }
     let(:status) { double(ok?: authorized) }
@@ -18,7 +19,10 @@ module Decidim
     before do
       allow(helper).to receive(:current_component).and_return(component)
       allow(helper).to receive(:current_user).and_return(user)
-      allow(helper).to receive(:action_authorized_to).with(action, resource: resource, permissions_holder: permissions_holder).and_return(status)
+      allow(helper).to receive(:action_authorized_to).with(action, resource:, permissions_holder:).and_return(status)
+      # rubocop:disable RSpec/AnyInstance
+      allow_any_instance_of(ActionView::Base).to receive(:redesign_enabled?).and_return(redesign_enabled)
+      # rubocop:enable RSpec/AnyInstance
     end
 
     shared_examples "an action authorization widget helper" do |params|
@@ -34,7 +38,7 @@ module Decidim
           end
 
           context "when called with a resource" do
-            let(:resource) { create(:dummy_resource, component: component) }
+            let(:resource) { create(:dummy_resource, component:) }
 
             it "renders a widget toggling the authorization modal" do
               expect(subject).not_to include(path)
@@ -83,13 +87,13 @@ module Decidim
 
     describe "action_authorized_link_to" do
       context "when called with text" do
-        subject(:rendered) { helper.action_authorized_link_to(action, widget_text, path, resource: resource, permissions_holder: permissions_holder) }
+        subject(:rendered) { helper.action_authorized_link_to(action, widget_text, path, resource:, permissions_holder:) }
 
         it_behaves_like "an action authorization widget helper", has_action: true, widget_parts: %w(<a)
       end
 
       context "when called with a block" do
-        subject(:rendered) { helper.action_authorized_link_to(action, path, resource: resource, permissions_holder: permissions_holder) { widget_text } }
+        subject(:rendered) { helper.action_authorized_link_to(action, path, resource:, permissions_holder:) { widget_text } }
 
         it_behaves_like "an action authorization widget helper", has_action: true, widget_parts: %w(<a)
       end
@@ -97,13 +101,13 @@ module Decidim
 
     describe "action_authorized_button_to" do
       context "when called with text" do
-        subject(:rendered) { helper.action_authorized_button_to(action, widget_text, path, resource: resource, permissions_holder: permissions_holder) }
+        subject(:rendered) { helper.action_authorized_button_to(action, widget_text, path, resource:, permissions_holder:) }
 
         it_behaves_like "an action authorization widget helper", has_action: true, widget_parts: %w(<input type="submit")
       end
 
       context "when called with a block" do
-        subject(:rendered) { helper.action_authorized_button_to(action, path, resource: resource, permissions_holder: permissions_holder) { widget_text } }
+        subject(:rendered) { helper.action_authorized_button_to(action, path, resource:, permissions_holder:) { widget_text } }
 
         it_behaves_like "an action authorization widget helper", has_action: true, widget_parts: %w(<button type="submit")
       end
@@ -111,13 +115,13 @@ module Decidim
 
     describe "logged_link_to" do
       context "when called with text" do
-        subject(:rendered) { helper.logged_link_to(widget_text, path, resource: resource) }
+        subject(:rendered) { helper.logged_link_to(widget_text, path, resource:) }
 
         it_behaves_like "an action authorization widget helper", has_action: false, widget_parts: %w(<a)
       end
 
       context "when called with a block" do
-        subject(:rendered) { helper.logged_link_to(path, resource: resource) { widget_text } }
+        subject(:rendered) { helper.logged_link_to(path, resource:) { widget_text } }
 
         it_behaves_like "an action authorization widget helper", has_action: false, widget_parts: %w(<a)
       end
@@ -125,13 +129,13 @@ module Decidim
 
     describe "logged_button_to" do
       context "when called with text" do
-        subject(:rendered) { helper.logged_button_to(widget_text, path, resource: resource) }
+        subject(:rendered) { helper.logged_button_to(widget_text, path, resource:) }
 
         it_behaves_like "an action authorization widget helper", has_action: false, widget_parts: %w(<input type="submit")
       end
 
       context "when called with a block" do
-        subject(:rendered) { helper.logged_button_to(path, resource: resource) { widget_text } }
+        subject(:rendered) { helper.logged_button_to(path, resource:) { widget_text } }
 
         it_behaves_like "an action authorization widget helper", has_action: false, widget_parts: %w(<button type="submit")
       end

@@ -9,35 +9,35 @@ module Decidim
     let(:component) { create(:component, manifest_name: "dummy") }
 
     context "when having searchables of different kinds indexed" do
-      let(:organization_1) { create(:organization) }
-      let(:component_1) { create(:component, organization: organization_1) }
-      let(:organization_2) { create(:organization) }
-      let(:component_2) { create(:component, organization: organization_2) }
+      let(:organization1) { create(:organization) }
+      let(:component1) { create(:component, organization: organization1) }
+      let(:organization2) { create(:organization) }
+      let(:component2) { create(:component, organization: organization2) }
 
-      let!(:dummy_resource_1) do
+      let!(:dummy_resource1) do
         Decidim::DummyResources::DummyResource.create!(
           id: COMMON_ID,
-          component: component_1,
+          component: component1,
           published_at: Time.current,
-          author: organization_1
+          author: organization1
         )
       end
-      let!(:dummy_resource_2) do
+      let!(:dummy_resource2) do
         Decidim::DummyResources::DummyResource.create!(
           id: COMMON_ID + 1,
-          component: component_2,
+          component: component2,
           published_at: Time.current,
-          author: organization_2
+          author: organization2
         )
       end
-      let!(:user_1) { create(:user, id: COMMON_ID, organization: organization_1) }
-      let!(:user_2) { create(:user, id: COMMON_ID + 1, organization: organization_2) }
+      let!(:user1) { create(:user, id: COMMON_ID, organization: organization1) }
+      let!(:user2) { create(:user, id: COMMON_ID + 1, organization: organization2) }
 
       it "each searchable should link to its own searchable_resources" do
-        org = user_1.organization
+        org = user1.organization
         num_locales = org.available_locales.size
-        expect(dummy_resource_1.searchable_resources.by_organization(org.id).pluck(:resource_id, :resource_type)).to eq([[COMMON_ID, "Decidim::DummyResources::DummyResource"]] * num_locales)
-        expect(user_1.searchable_resources.by_organization(org.id).pluck(:resource_id, :resource_type)).to eq([[COMMON_ID, "Decidim::User"]] * num_locales)
+        expect(dummy_resource1.searchable_resources.by_organization(org.id).pluck(:resource_id, :resource_type)).to eq([[COMMON_ID, "Decidim::DummyResources::DummyResource"]] * num_locales)
+        expect(user1.searchable_resources.by_organization(org.id).pluck(:resource_id, :resource_type)).to eq([[COMMON_ID, "Decidim::User"]] * num_locales)
       end
     end
 
@@ -57,8 +57,8 @@ module Decidim
       end
 
       context "with a list of ids" do
-        let(:resource1) { create :dummy_resource }
-        let(:resource2) { create :dummy_resource }
+        let(:resource1) { create(:dummy_resource) }
+        let(:resource2) { create(:dummy_resource) }
         let(:ids) { [resource2.id, resource1.id] }
 
         it { is_expected.to eq [resource2, resource1] }
@@ -68,7 +68,7 @@ module Decidim
     describe "#try_update_index_for_search_resource" do
       let!(:participatory_process) { create(:participatory_process) }
 
-      context "when searchable doesn't have component" do
+      context "when searchable does not have component" do
         it "enqueues the job when participatory process is updated" do
           expect(Decidim::FindAndUpdateDescendantsJob).to receive(:perform_later).with(participatory_process)
 
@@ -92,7 +92,7 @@ module Decidim
           allow(Decidim::ParticipatoryProcess).to receive(:searchable_resource?).with(participatory_process).and_return(false)
         end
 
-        it "doesn't enqueues the job" do
+        it "does not enqueues the job" do
           expect(Decidim::FindAndUpdateDescendantsJob).not_to receive(:perform_later)
 
           participatory_process.update!(published_at: nil)

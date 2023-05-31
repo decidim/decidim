@@ -1,6 +1,6 @@
 = Initializer
 
-There are some settings that you'll need to change in the `config/initializer/decidim.rb` file. We recommend that, whenever it is possible, you use xref:configure:environment_variables.adoc[Environment Variables], as just cleaner and easier to work with.
+There are some settings that you will need to change in the `config/initializer/decidim.rb` file. We recommend that, whenever it is possible, you use xref:configure:environment_variables.adoc[Environment Variables], as just cleaner and easier to work with.
 
 If you need to add special logic or if you feel more comfortable working with Ruby code instead of Environment Variables, then you can of course do all the changes that you need directly in the initializer file. Take into account that this file could be published in a Version Control System (like `git`) so you should be careful with the secrets/API keys that you add here.
 
@@ -8,7 +8,7 @@ Remember to restart your server when making changes in this file.
 
 This is where you can change the behaviour defined on the different components (most notably from `decidim-core`).
 
-After making changes to this file you'll need to also restart your application server.
+After making changes to this file you will need to also restart your application server.
 
 == Application name
 
@@ -66,7 +66,7 @@ this value for that specific organization.
 == Content Processors
 
 Defines a list of custom content processors. They are used to parse and
-render specific tags inside some user-provided content. Check the xref:develop:content_processor.adoc[Content Processor]
+render specific tags inside some user-provided content. Check the xref:develop:content_processors.adoc[Content Processor]
 docs for more info.
 
 [source,ruby]
@@ -101,7 +101,7 @@ Please refer to:
 
 == Geocoder configuration
 
-Allows to make geographical mapping in some components, like Proposals or Meetings. It must be configured against a OpenStreetMap provider. See xref:services:geocoder.adoc[Geocoder service documentation].
+Allows to make geographical mapping in some components, like Proposals or Meetings. It must be configured against a OpenStreetMap provider. See xref:services:maps.adoc[Geocoder service documentation].
 
 [source,ruby]
 ....
@@ -113,7 +113,7 @@ Allows to make geographical mapping in some components, like Proposals or Meetin
 
 == Custom resource reference
 
-Custom resource reference generator method. See the See xref:admin:system_panel.adoc[System panel docs] for more information.
+Custom resource reference generator method. See the See xref:admin:system.adoc[System panel docs] for more information.
 
 [source,ruby]
 ....
@@ -261,17 +261,18 @@ If not set, it will be ignored.
 == SMS gateway configuration
 
 If you want to verify your users by sending a verification code via
-SMS you need to provide a SMS gateway service class.
+xref:services:sms.adoc[SMS] you need to provide a SMS gateway service class.
 
 An example class would be something like:
 
 [source,ruby]
 ....
 class MySMSGatewayService
-  attr_reader :mobile_phone_number, :code
-  def initialize(mobile_phone_number, code)
+  attr_reader :mobile_phone_number, :code, :context
+  def initialize(mobile_phone_number, code, context = {})
     @mobile_phone_number = mobile_phone_number
     @code = code
+    @context = context
   end
   def deliver_code
     # Actual code to deliver the code
@@ -280,7 +281,7 @@ class MySMSGatewayService
 end
 ....
 
-Then you'll need to configure it in the Decidim initializer:
+Then you will need to configure it in the Decidim initializer:
 
 [source,ruby]
 ....
@@ -312,7 +313,7 @@ class MyTimestampService
 end
 ....
 
-Then you'll need to configure it in the Decidim initializer:
+Then you will need to configure it in the Decidim initializer:
 
 [source,ruby]
 ....

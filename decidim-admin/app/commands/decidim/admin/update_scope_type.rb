@@ -8,15 +8,16 @@ module Decidim
       #
       # scope_type - The ScopeType to update
       # form - A form object with the params.
-      def initialize(scope_type, form)
+      def initialize(scope_type, form, user)
         @scope_type = scope_type
         @form = form
+        @user = user
       end
 
       # Executes the command. Broadcasts these events:
       #
       # - :ok when everything is valid.
-      # - :invalid if the form wasn't valid and we couldn't proceed.
+      # - :invalid if the form was not valid and we could not proceed.
       #
       # Returns nothing.
       def call
@@ -31,7 +32,11 @@ module Decidim
       attr_reader :form
 
       def update_scope_type
-        @scope_type.update!(attributes)
+        Decidim.traceability.update!(
+          @scope_type,
+          @user,
+          attributes
+        )
       end
 
       def attributes

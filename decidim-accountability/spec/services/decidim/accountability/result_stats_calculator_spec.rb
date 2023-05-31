@@ -7,15 +7,15 @@ module Decidim::Accountability
     subject { described_class.new(result) }
 
     let(:participatory_process) { create(:participatory_process, :with_steps) }
-    let(:current_component) { create :accountability_component, participatory_space: participatory_process }
-    let(:scope) { create :scope, organization: current_component.organization }
-    let(:parent_category) { create :category, participatory_space: current_component.participatory_space }
+    let(:current_component) { create(:accountability_component, participatory_space: participatory_process) }
+    let(:scope) { create(:scope, organization: current_component.organization) }
+    let(:parent_category) { create(:category, participatory_space: current_component.participatory_space) }
     let!(:result) do
       create(
         :result,
         component: current_component,
         category: parent_category,
-        scope: scope
+        scope:
       )
     end
     let(:meetings_component) do
@@ -73,7 +73,7 @@ module Decidim::Accountability
     describe "votes_count" do
       before do
         proposals.each do |proposal|
-          create(:proposal_vote, proposal: proposal)
+          create(:proposal_vote, proposal:)
         end
       end
 

@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   describe CurrentComponent do
-    let(:request) { double(params: params, env: env) }
+    let(:request) { double(params:, env:) }
     let(:params) { {} }
     let(:manifest) { Decidim.find_component_manifest("dummy") }
 
@@ -26,7 +26,7 @@ module Decidim
       end
 
       let(:participatory_processes) do
-        create_list(:participatory_process, 2, organization: organization)
+        create_list(:participatory_process, 2, organization:)
       end
 
       let(:current_participatory_process) { participatory_processes.first }
@@ -40,13 +40,13 @@ module Decidim
           super().merge("decidim.current_participatory_space" => current_participatory_process)
         end
 
-        context "when there's no component" do
-          it "doesn't match" do
+        context "when there is no component" do
+          it "does not match" do
             expect(subject.matches?(request)).to be(false)
           end
         end
 
-        context "when the component doesn't belong to the participatory space" do
+        context "when the component does not belong to the participatory space" do
           before do
             params["component_id"] = component.id.to_s
           end
@@ -71,8 +71,8 @@ module Decidim
         end
       end
 
-      context "when the env doesn't contain a current participatory space" do
-        it "doesn't match" do
+      context "when the env does not contain a current participatory space" do
+        it "does not match" do
           expect(subject.matches?(request)).to be(false)
         end
       end

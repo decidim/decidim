@@ -8,13 +8,13 @@ module Decidim::Conferences
 
     let(:registrations_enabled) { true }
     let(:available_slots) { 10 }
-    let!(:conference) { create :conference, registrations_enabled: registrations_enabled, available_slots: available_slots }
-    let!(:registration_type) { create :registration_type, conference: conference }
-    let(:user) { create :user, :confirmed, organization: conference.organization }
+    let!(:conference) { create(:conference, registrations_enabled:, available_slots:) }
+    let!(:registration_type) { create(:registration_type, conference:) }
+    let(:user) { create(:user, :confirmed, organization: conference.organization) }
     let(:user_leaving_conference) { user }
 
     before do
-      create(:conference_registration, conference: conference, user: user, registration_type: registration_type)
+      create(:conference_registration, conference:, user:, registration_type:)
     end
 
     context "when everything is ok" do
@@ -28,7 +28,7 @@ module Decidim::Conferences
     end
 
     context "when the user has not joined the conference" do
-      let(:user_leaving_conference) { create :user, :confirmed, organization: conference.organization }
+      let(:user_leaving_conference) { create(:user, :confirmed, organization: conference.organization) }
 
       it "broadcasts invalid" do
         expect { subject.call }.to broadcast(:invalid)

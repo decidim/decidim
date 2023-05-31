@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   describe IoEncoder do
-    let(:input) { IO.read(Decidim::Dev.asset(file_name)) }
+    let(:input) { File.read(Decidim::Dev.asset(file_name)) }
 
     describe "to_standard_encoding" do
       context "when input is in utf-8" do

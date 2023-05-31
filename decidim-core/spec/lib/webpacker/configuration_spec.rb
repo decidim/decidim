@@ -16,7 +16,7 @@ module Decidim
         let(:runtime_config_path) do
           Rails.application.root.join("tmp/webpacker_runtime.yml")
         end
-        let(:runtime_config) { YAML.load_file(runtime_config_path) }
+        let(:runtime_config) { YAML.load_file(runtime_config_path, aliases: true) }
         let(:core_path) do
           core_gem = Bundler.load.specs.find { |spec| spec.name == "decidim-core" }
           core_gem.full_gem_path
@@ -36,6 +36,7 @@ module Decidim
         it "adds the core entrypoints to the webpacker runtime configuration" do
           expect(runtime_config["default"]["entrypoints"]).to include(
             "decidim_core" => "#{core_path}/app/packs/entrypoints/decidim_core.js",
+            "decidim_sw" => "#{core_path}/app/packs/entrypoints/decidim_sw.js",
             "decidim_conference_diploma" => "#{core_path}/app/packs/entrypoints/decidim_conference_diploma.js",
             "decidim_email" => "#{core_path}/app/packs/entrypoints/decidim_email.js",
             "decidim_map" => "#{core_path}/app/packs/entrypoints/decidim_map.js",
@@ -51,11 +52,8 @@ module Decidim
           expect(runtime_config["default"]["stylesheet_imports"].keys).to include("imports")
           expect(runtime_config["default"]["stylesheet_imports"]["imports"].keys).to include("app")
           expect(runtime_config["default"]["stylesheet_imports"]["imports"]["app"]).to include(
-            "stylesheets/decidim/accountability/accountability",
             "stylesheets/decidim/budgets/budgets",
             "stylesheets/decidim/proposals/proposals",
-            "stylesheets/decidim/surveys/surveys",
-            "stylesheets/decidim/conferences/conferences",
             "stylesheets/decidim/consultations/consultations",
             "stylesheets/decidim/elections/elections",
             "stylesheets/decidim/votings/votings",

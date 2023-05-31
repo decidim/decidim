@@ -8,9 +8,9 @@ module Decidim::Assemblies
 
     let!(:organization) { create(:organization) }
     let!(:local_assemblies) do
-      create(:assembly, organization: organization, weight: 2)
-      create(:assembly, organization: organization, weight: 3)
-      create(:assembly, organization: organization, weight: 1)
+      create(:assembly, organization:, weight: 2)
+      create(:assembly, organization:, weight: 3)
+      create(:assembly, organization:, weight: 1)
     end
 
     let!(:foreign_assemblies) do

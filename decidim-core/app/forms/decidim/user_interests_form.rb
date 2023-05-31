@@ -16,7 +16,7 @@ module Decidim
 
     def map_model(user)
       self.scopes = user.organization.scopes.top_level.map do |scope|
-        UserInterestScopeForm.from_model(scope: scope, user: user)
+        UserInterestScopeForm.from_model(scope:, user:)
       end
     end
   end

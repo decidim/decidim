@@ -9,11 +9,11 @@ module Decidim::Exporters
         described_class.new(participatory_space)
       end
 
-      let!(:component_1) { create(:component) }
-      let!(:participatory_space) { component_1.participatory_space }
-      let!(:component_2) { create(:component, participatory_space: participatory_space) }
+      let!(:component1) { create(:component) }
+      let!(:participatory_space) { component1.participatory_space }
+      let!(:component2) { create(:component, participatory_space:) }
       let(:components) do
-        { component_1.id => component_1, component_2.id => component_2 }
+        { component1.id => component1, component2.id => component2 }
       end
       let(:previous_conf) { {} }
 
@@ -24,7 +24,7 @@ module Decidim::Exporters
       end
 
       before do
-        manifest = component_2.manifest
+        manifest = component2.manifest
         previous_conf[:serializes_specific_data] = manifest.serializes_specific_data
         manifest.serializes_specific_data = true
         previous_conf[:specific_data_serializer_class_name] = manifest.specific_data_serializer_class_name
@@ -32,7 +32,7 @@ module Decidim::Exporters
       end
 
       after do
-        manifest = component_2.manifest
+        manifest = component2.manifest
         manifest.serializes_specific_data = previous_conf[:serializes_specific_data]
         manifest.specific_data_serializer_class_name = previous_conf[:specific_data_serializer_class_name]
       end
@@ -44,7 +44,7 @@ module Decidim::Exporters
           expect(serialized.size).to eq(2)
           serialized.each do |serialized|
             serialized_component_attrs_should_be_as_expected(serialized)
-            expect(serialized[:specific_data]).to eq(specific: :data) if serialized[:id] == component_2.id
+            expect(serialized[:specific_data]).to eq(specific: :data) if serialized[:id] == component2.id
           end
         end
 

@@ -41,7 +41,7 @@ module Decidim
 
         def create_vote(message_id)
           @vote = Vote.create!(
-            message_id: message_id,
+            message_id:,
             election: form.election,
             voter_id: form.voter_id,
             encrypted_vote_hash: form.encrypted_data_hash,

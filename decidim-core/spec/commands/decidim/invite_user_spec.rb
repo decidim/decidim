@@ -5,22 +5,22 @@ require "spec_helper"
 module Decidim
   describe InviteUser do
     let(:organization) { create(:organization) }
-    let!(:admin) { create(:user, :confirmed, :admin, organization: organization) }
+    let!(:admin) { create(:user, :confirmed, :admin, organization:) }
     let(:form) do
       Decidim::InviteUserForm.from_params(
         name: "Old man",
         email: "oldman@email.com",
-        organization: organization,
+        organization:,
         role: "admin",
         invited_by: admin,
         invitation_instructions: "invite_admin"
       )
     end
     let!(:command) { described_class.new(form) }
-    let(:invited_user) { User.where(organization: organization).last }
+    let(:invited_user) { User.where(organization:).last }
 
     context "when a user with the given email already exists in the same organization" do
-      let!(:user) { create(:user, email: form.email, organization: organization) }
+      let!(:user) { create(:user, email: form.email, organization:) }
 
       it "does not create another user" do
         expect do

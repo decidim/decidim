@@ -15,7 +15,7 @@ module Decidim
         @metrics_presenter ||= Decidim::Admin::DashboardMetricChartsPresenter.new(
           summary: false,
           organization: current_organization,
-          view_context: view_context
+          view_context:
         )
       end
     end

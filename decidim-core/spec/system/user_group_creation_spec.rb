@@ -4,7 +4,7 @@ require "spec_helper"
 
 describe "User group creation", type: :system do
   let(:organization) { create(:organization) }
-  let(:user) { create(:user, :confirmed, organization: organization) }
+  let(:user) { create(:user, :confirmed, organization:) }
 
   before do
     switch_to_host(organization.host)

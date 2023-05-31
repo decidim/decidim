@@ -12,7 +12,7 @@ describe Decidim::NotificationGenerator do
   let(:event_class) { Decidim::Events::BaseEvent }
   let(:event_class_name) { "Decidim::Events::BaseEvent" }
   let(:affected_users) { [affected_user] }
-  let(:follower) { create :user }
+  let(:follower) { create(:user) }
   let(:followers) { [follower] }
   let(:extra) { double }
 
@@ -26,7 +26,7 @@ describe Decidim::NotificationGenerator do
         let(:affected_users) { [] }
 
         context "when the follower asks for notifications on all" do
-          let(:follower) { create :user, notification_types: "all" }
+          let(:follower) { create(:user, notification_types: "all") }
 
           it "sends the notification" do
             expect(Decidim::NotificationGeneratorForRecipientJob)
@@ -37,7 +37,7 @@ describe Decidim::NotificationGenerator do
         end
 
         context "when the follower asks for notifications on followed" do
-          let(:follower) { create :user, notification_types: "followed-only" }
+          let(:follower) { create(:user, notification_types: "followed-only") }
 
           it "sends the notification" do
             expect(Decidim::NotificationGeneratorForRecipientJob)
@@ -48,7 +48,7 @@ describe Decidim::NotificationGenerator do
         end
 
         context "when the follower asks for notifications on none" do
-          let(:follower) { create :user, notification_types: "none" }
+          let(:follower) { create(:user, notification_types: "none") }
 
           it "sends the notification" do
             expect(Decidim::NotificationGeneratorForRecipientJob)
@@ -59,7 +59,7 @@ describe Decidim::NotificationGenerator do
         end
 
         context "when the follower asks for notifications on own-only" do
-          let(:follower) { create :user, notification_types: "own-only" }
+          let(:follower) { create(:user, notification_types: "own-only") }
 
           it "sends the notification" do
             expect(Decidim::NotificationGeneratorForRecipientJob)
@@ -74,7 +74,7 @@ describe Decidim::NotificationGenerator do
         let(:followers) { [] }
 
         context "when the affected_user asks for notifications on all" do
-          let(:affected_user) { create :user, notification_types: "all" }
+          let(:affected_user) { create(:user, notification_types: "all") }
 
           it "sends the notification" do
             expect(Decidim::NotificationGeneratorForRecipientJob)
@@ -85,7 +85,7 @@ describe Decidim::NotificationGenerator do
         end
 
         context "when the affected_user asks for notifications on followed" do
-          let(:affected_user) { create :user, notification_types: "followed-only" }
+          let(:affected_user) { create(:user, notification_types: "followed-only") }
 
           it "sends the notification" do
             expect(Decidim::NotificationGeneratorForRecipientJob)
@@ -96,7 +96,7 @@ describe Decidim::NotificationGenerator do
         end
 
         context "when the affected_user asks for notifications on none" do
-          let(:affected_user) { create :user, notification_types: "none" }
+          let(:affected_user) { create(:user, notification_types: "none") }
 
           it "sends the notification" do
             expect(Decidim::NotificationGeneratorForRecipientJob)
@@ -107,7 +107,7 @@ describe Decidim::NotificationGenerator do
         end
 
         context "when the affected_user asks for notifications on own-only" do
-          let(:affected_user) { create :user, notification_types: "own-only" }
+          let(:affected_user) { create(:user, notification_types: "own-only") }
 
           it "sends the notification" do
             expect(Decidim::NotificationGeneratorForRecipientJob)
@@ -135,12 +135,12 @@ describe Decidim::NotificationGenerator do
           end
         end
 
-        context "and the user can't participate" do
+        context "and the user cannot participate" do
           before do
             allow(resource).to receive(:can_participate?).with(kind_of(Decidim::User)).and_return(false)
           end
 
-          it "doesn't schedule a job" do
+          it "does not schedule a job" do
             expect(Decidim::NotificationGeneratorForRecipientJob)
               .not_to receive(:perform_later)
 
@@ -155,7 +155,7 @@ describe Decidim::NotificationGenerator do
         allow(event_class).to receive(:types).and_return([])
       end
 
-      it "doesn't schedule a job for each recipient" do
+      it "does not schedule a job for each recipient" do
         expect(Decidim::NotificationGeneratorForRecipientJob)
           .not_to receive(:perform_later)
 

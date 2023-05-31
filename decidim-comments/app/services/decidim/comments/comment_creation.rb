@@ -16,7 +16,7 @@ module Decidim
         ActiveSupport::Notifications.publish(
           EVENT_NAME,
           comment_id: comment.id,
-          metadatas: metadatas
+          metadatas:
         )
       end
 

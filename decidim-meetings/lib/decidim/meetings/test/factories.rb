@@ -8,7 +8,7 @@ FactoryBot.define do
   factory :meeting_component, parent: :component do
     name { Decidim::Components::Namer.new(participatory_space.organization.available_locales, :meetings).i18n_name }
     manifest_name { :meetings }
-    participatory_space { create(:participatory_process, :with_steps, organization: organization) }
+    participatory_space { create(:participatory_process, :with_steps, organization:) }
 
     trait :with_creation_enabled do
       settings do
@@ -20,10 +20,44 @@ FactoryBot.define do
   end
 
   factory :meeting, class: "Decidim::Meetings::Meeting" do
-    title { generate_localized_title }
-    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
-    location { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
-    location_hints { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
+    transient do
+      skip_injection { false }
+    end
+
+    title do
+      if skip_injection
+        Decidim::Faker::Localized.localized { generate(:title) }
+      else
+        Decidim::Faker::Localized.localized { "<script>alert(\"Meetings TITLE\")</script> #{generate(:title)}" }
+      end
+    end
+    description do
+      Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+        if skip_injection
+          Decidim::Faker::Localized.localized { generate(:title) }
+        else
+          Decidim::Faker::Localized.localized { "<script>alert(\"Meetings description\");</script> #{generate(:title)}" }
+        end
+      end
+    end
+    location do
+      Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+        if skip_injection
+          Decidim::Faker::Localized.localized { generate(:title) }
+        else
+          Decidim::Faker::Localized.localized { "<script>alert(\"Meetings description\");</script> #{generate(:title)}" }
+        end
+      end
+    end
+    location_hints do
+      Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+        if skip_injection
+          Decidim::Faker::Localized.localized { generate(:title) }
+        else
+          Decidim::Faker::Localized.localized { "<script>alert(\"Meetings description\");</script> #{generate(:title)}" }
+        end
+      end
+    end
     address { Faker::Lorem.sentence(word_count: 3) }
     latitude { Faker::Address.latitude }
     longitude { Faker::Address.longitude }
@@ -33,7 +67,15 @@ FactoryBot.define do
     transparent { true }
     questionnaire { build(:questionnaire) }
     registration_form_enabled { true }
-    registration_terms { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
+    registration_terms do
+      Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+        if skip_injection
+          Decidim::Faker::Localized.localized { generate(:title) }
+        else
+          Decidim::Faker::Localized.localized { "<script>alert(\"Meetings description\");</script> #{generate(:title)}" }
+        end
+      end
+    end
     registration_type { :on_this_platform }
     type_of_meeting { :in_person }
     component { build(:component, manifest_name: "meetings") }
@@ -82,7 +124,7 @@ FactoryBot.define do
       end
 
       after(:build) do |meeting, evaluator|
-        meeting.services = evaluator.services || build_list(:service, 2, meeting: meeting)
+        meeting.services = evaluator.services || build_list(:service, 2, meeting:)
       end
     end
 
@@ -98,7 +140,13 @@ FactoryBot.define do
     end
 
     trait :closed do
-      closing_report { generate_localized_title }
+      closing_report do
+        if skip_injection
+          Decidim::Faker::Localized.localized { generate(:title) }
+        else
+          Decidim::Faker::Localized.localized { "<script>alert(\"Meetings registration_terms\");</script> #{generate(:title)}" }
+        end
+      end
       attendees_count { rand(50) }
       contributions_count { rand(50) }
       attending_organizations { Array.new(3) { Faker::TvShows::GameOfThrones.house }.join(", ") }
@@ -117,7 +165,13 @@ FactoryBot.define do
       registrations_enabled { true }
       available_slots { 10 }
       reserved_slots { 4 }
-      registration_terms { generate_localized_title }
+      registration_terms do
+        if skip_injection
+          Decidim::Faker::Localized.localized { generate(:title) }
+        else
+          Decidim::Faker::Localized.localized { "<script>alert(\"Meetings registration_terms\");</script> #{generate(:title)}" }
+        end
+      end
     end
 
     trait :past do
@@ -175,26 +229,54 @@ FactoryBot.define do
   end
 
   factory :agenda, class: "Decidim::Meetings::Agenda" do
+    transient do
+      skip_injection { false }
+    end
+
     meeting
-    title { generate_localized_title }
+    title do
+      if skip_injection
+        Decidim::Faker::Localized.localized { generate(:title) }
+      else
+        Decidim::Faker::Localized.localized { "<script>alert(\"Meetings agenda title\");</script> #{generate(:title)}" }
+      end
+    end
     visible { true }
 
     trait :with_agenda_items do
       after(:create) do |agenda, _evaluator|
-        create_list(:agenda_item, 2, :with_children, agenda: agenda)
+        create_list(:agenda_item, 2, :with_children, agenda:)
       end
     end
   end
 
   factory :agenda_item, class: "Decidim::Meetings::AgendaItem" do
+    transient do
+      skip_injection { false }
+    end
+
     agenda
-    title { generate_localized_title }
-    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
+    title do
+      if skip_injection
+        Decidim::Faker::Localized.localized { generate(:title) }
+      else
+        Decidim::Faker::Localized.localized { "<script>alert(\"Meetings agenda item title\");</script> #{generate(:title)}" }
+      end
+    end
+    description do
+      Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+        if skip_injection
+          Decidim::Faker::Localized.localized { generate(:title) }
+        else
+          Decidim::Faker::Localized.localized { "<script>alert(\"Meetings agenda item descrition\");</script> #{generate(:title)}" }
+        end
+      end
+    end
     duration { 15 }
     position { 0 }
 
     trait :with_parent do
-      parent { create(:agenda_item, agenda: agenda) }
+      parent { create(:agenda_item, agenda:) }
     end
 
     trait :with_children do
@@ -221,9 +303,27 @@ FactoryBot.define do
   end
 
   factory :service, class: "Decidim::Meetings::Service" do
+    transient do
+      skip_injection { false }
+    end
+
     meeting
-    title { generate_localized_title }
-    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
+    title do
+      if skip_injection
+        Decidim::Faker::Localized.localized { generate(:title) }
+      else
+        Decidim::Faker::Localized.localized { "<script>alert(\"Meetings agenda title\");</script> #{generate(:title)}" }
+      end
+    end
+    description do
+      Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+        if skip_injection
+          Decidim::Faker::Localized.localized { generate(:title) }
+        else
+          Decidim::Faker::Localized.localized { "<script>alert(\"Meetings agenda title\");</script> #{generate(:title)}" }
+        end
+      end
+    end
   end
 
   factory :poll, class: "Decidim::Meetings::Poll" do
@@ -236,10 +336,17 @@ FactoryBot.define do
 
   factory :meetings_poll_question, class: "Decidim::Meetings::Question" do
     transient do
+      skip_injection { false }
       options { [] }
     end
 
-    body { generate_localized_title }
+    body do
+      if skip_injection
+        Decidim::Faker::Localized.localized { generate(:title) }
+      else
+        Decidim::Faker::Localized.localized { "<script>alert(\"Meetings agenda title\");</script> #{generate(:title)}" }
+      end
+    end
     position { 0 }
     status { 0 }
     question_type { Decidim::Meetings::Question::QUESTION_TYPES.first }
@@ -263,7 +370,7 @@ FactoryBot.define do
 
   factory :meetings_poll_answer, class: "Decidim::Meetings::Answer" do
     questionnaire factory: :meetings_poll_questionnaire
-    question { create(:meetings_poll_question, questionnaire: questionnaire) }
+    question { create(:meetings_poll_question, questionnaire:) }
     user { create(:user, organization: questionnaire.questionnaire_for.organization) }
   end
 

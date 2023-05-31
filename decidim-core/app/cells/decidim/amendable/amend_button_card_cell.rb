@@ -19,7 +19,7 @@ module Decidim
       end
 
       def new_amend_button_label
-        t("button", scope: "decidim.amendments.amendable", model_name: model_name)
+        t("button", scope: "decidim.amendments.amendable", model_name:)
       end
 
       def new_amend_help_text

@@ -6,16 +6,16 @@ module Decidim::Admin
   describe CreateImport do
     subject { described_class.new(form) }
 
-    let(:user) { create(:user, :confirmed, :admin, organization: organization) }
+    let(:user) { create(:user, :confirmed, :admin, organization:) }
     let(:organization) { create(:organization) }
-    let(:participatory_space) { create(:participatory_process, organization: organization) }
-    let!(:component) { create(:dummy_component, organization: organization) }
+    let(:participatory_space) { create(:participatory_process, organization:) }
+    let!(:component) { create(:dummy_component, organization:) }
     let(:file) { upload_test_file(Decidim::Dev.test_file("verify_user_groups.csv", "text/csv")) }
 
     let(:form) do
       Decidim::Admin::ImportForm.from_params(
-        component: component,
-        file: file,
+        component:,
+        file:,
         name: "dummies"
       ).with_context(
         current_organization: organization,

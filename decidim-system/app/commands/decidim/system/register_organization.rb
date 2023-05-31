@@ -16,7 +16,7 @@ module Decidim
       # Executes the command. Broadcasts these events:
       #
       # - :ok when everything is valid.
-      # - :invalid if the form wasn't valid and we couldn't proceed.
+      # - :invalid if the form was not valid and we could not proceed.
       #
       # Returns nothing.
       def call
@@ -24,6 +24,7 @@ module Decidim
 
         @organization = nil
         invite_form = nil
+        invitation_failed = false
 
         transaction do
           @organization = create_organization
@@ -31,8 +32,10 @@ module Decidim
           PopulateHelp.call(@organization)
           CreateDefaultContentBlocks.call(@organization)
           invite_form = invite_user_form(@organization)
-          return broadcast(:invalid) if invite_form.invalid?
+          invitation_failed = invite_form.invalid?
         end
+        return broadcast(:invalid) if invitation_failed
+
         Decidim::InviteUser.call(invite_form) if @organization && invite_form
 
         broadcast(:ok)

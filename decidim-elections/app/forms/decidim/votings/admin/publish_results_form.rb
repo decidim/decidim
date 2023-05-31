@@ -11,8 +11,8 @@ module Decidim
         private
 
         def closurables
-          @closurables ||= Decidim::Votings::PollingStationClosure.where(election: election) +
-                           Decidim::Elections::BulletinBoardClosure.where(election: election)
+          @closurables ||= Decidim::Votings::PollingStationClosure.where(election:) +
+                           Decidim::Elections::BulletinBoardClosure.where(election:)
         end
 
         def groups_for(question)
@@ -23,13 +23,13 @@ module Decidim
           end
 
           {
-            question: question,
+            question:,
             results: groups.values
           }
         end
 
         def aggregate_results_for(question)
-          Decidim::Elections::Result.where(closurable: closurables, question: question)
+          Decidim::Elections::Result.where(closurable: closurables, question:)
                                     .group(:closurable_type, :result_type, :decidim_elections_answer_id)
                                     .sum(:value)
         end
@@ -37,7 +37,7 @@ module Decidim
         def update_group(groups, group_id, key, total)
           closurable_type, result_type, answer_id = key
           groups[group_id] ||= {
-            result_type: result_type,
+            result_type:,
             answer: all_answers[answer_id],
             value: 0,
             polling_station: 0,

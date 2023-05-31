@@ -26,6 +26,14 @@ module Decidim
       initializer "decidim_blogs.webpacker.assets_path" do
         Decidim.register_assets_path File.expand_path("app/packs", root)
       end
+
+      initializer "decidim_blogs.authorization_transfer" do
+        config.to_prepare do
+          Decidim::AuthorizationTransfer.register(:blogs) do |transfer|
+            transfer.move_records(Decidim::Blogs::Post, :decidim_author_id)
+          end
+        end
+      end
     end
   end
 end

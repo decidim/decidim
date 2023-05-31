@@ -30,7 +30,6 @@
           step:
             allow_answers: Tillat svar
             allow_unregistered: Tillat uregistrerte brukere å svare på undersøkelsen
-            allow_unregistered_help: Hvis aktiv, er det ikke nødvendig med innlogging for å svare på undersøkelsen. Dette kan føre til dårlige eller upålitelig data, og den vil være mer sårbare for automatiserte angrep. Bruk med forsiktighet!
             announcement: Kunngjøring
     events:
       surveys:
@@ -59,10 +58,7 @@
           update:
             invalid: Det oppstod et problem med å lagre undersøkelsen.
             success: Undersøkelsen ble lagret.
-      last_activity:
-        new_survey_at_html: "<span>Ny undersøkelse på %{link}</span>"
       surveys:
         answer:
           invalid: Det oppstod et problem med å svare på undersøkelsen.
-          spam_detected: Det oppstod et problem med å svare på skjemaet. Kanskje du har vært for rask, kan du prøve igjen?
           success: Undersøkelsen ble besvart.

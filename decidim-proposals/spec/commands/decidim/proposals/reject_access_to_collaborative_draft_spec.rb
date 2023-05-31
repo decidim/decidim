@@ -7,7 +7,7 @@ module Decidim
     describe RejectAccessToCollaborativeDraft do
       let(:component) { create(:proposal_component) }
       let(:state) { :open }
-      let(:collaborative_draft) { create(:collaborative_draft, state, component: component, users: [author1, author2]) }
+      let(:collaborative_draft) { create(:collaborative_draft, state, component:, users: [author1, author2]) }
       let(:id) { collaborative_draft.id }
       let(:requester_user) { create(:user, :confirmed, organization: component.organization) }
       let(:requester_user_id) { requester_user.id }
@@ -15,12 +15,12 @@ module Decidim
       let(:author2) { create(:user, :confirmed, organization: component.organization) }
       let(:current_user) { author1 }
       let(:current_organization) { component.organization }
-      let(:form) { RejectAccessToCollaborativeDraftForm.from_params(form_params).with_context(current_user: current_user, current_organization: current_organization) }
+      let(:form) { RejectAccessToCollaborativeDraftForm.from_params(form_params).with_context(current_user:, current_organization:) }
       let(:form_params) do
         {
-          state: state,
-          id: id,
-          requester_user_id: requester_user_id
+          state:,
+          id:,
+          requester_user_id:
         }
       end
 
@@ -75,7 +75,7 @@ module Decidim
             expect { command.call }.to broadcast(:invalid)
           end
 
-          it "doesn't reject the request for the collaborative draft" do
+          it "does not reject the request for the collaborative draft" do
             expect do
               command.call
             end.not_to change(collaborative_draft.requesters, :count)
@@ -89,7 +89,7 @@ module Decidim
             expect { command.call }.to broadcast(:invalid)
           end
 
-          it "doesn't reject the request for the collaborative draft" do
+          it "does not reject the request for the collaborative draft" do
             expect do
               command.call
             end.not_to change(collaborative_draft.requesters, :count)
@@ -103,7 +103,7 @@ module Decidim
             expect { command.call }.to broadcast(:invalid)
           end
 
-          it "doesn't reject the request for the collaborative draft" do
+          it "does not reject the request for the collaborative draft" do
             expect do
               command.call
             end.not_to change(collaborative_draft.requesters, :count)
@@ -117,7 +117,7 @@ module Decidim
             expect { command.call }.to broadcast(:invalid)
           end
 
-          it "doesn't reject the request for the collaborative draft" do
+          it "does not reject the request for the collaborative draft" do
             expect do
               command.call
             end.not_to change(collaborative_draft.requesters, :count)
@@ -132,7 +132,7 @@ module Decidim
             expect { command.call }.to broadcast(:invalid)
           end
 
-          it "doesn't reject the request for the collaborative draft" do
+          it "does not reject the request for the collaborative draft" do
             expect do
               command.call
             end.not_to change(collaborative_draft.requesters, :count)

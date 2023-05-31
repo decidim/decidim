@@ -5,10 +5,10 @@ require "spec_helper"
 module Decidim::Admin
   describe CreateNewsletter do
     describe "call" do
-      let(:user) { create(:user, organization: organization) }
+      let(:user) { create(:user, organization:) }
       let(:organization) { create(:organization) }
       let(:content_block) do
-        build(:content_block, :newsletter_template, organization: organization, manifest_name: :basic_only_text)
+        build(:content_block, :newsletter_template, organization:, manifest_name: :basic_only_text)
       end
       let(:newsletter_subject) { Decidim::Faker::Localized.paragraph(sentence_count: 3) }
       let(:newsletter_body) { Decidim::Faker::Localized.paragraph(sentence_count: 3) }
@@ -29,7 +29,7 @@ module Decidim::Admin
           expect { command.call }.to broadcast(:invalid)
         end
 
-        it "doesn't create a newsletter" do
+        it "does not create a newsletter" do
           expect do
             command.call
           end.not_to change(Decidim::Newsletter, :count)

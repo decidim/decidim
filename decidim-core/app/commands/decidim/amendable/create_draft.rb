@@ -17,7 +17,7 @@ module Decidim
       # Executes the command. Broadcasts these events:
       #
       # - :ok when everything is valid, together with the amend.
-      # - :invalid if the form wasn't valid and we couldn't proceed.
+      # - :invalid if the form was not valid and we could not proceed.
       #
       # Returns nothing.
       def call
@@ -62,7 +62,7 @@ module Decidim
       def create_amendment!
         @amendment = Decidim::Amendment.create!(
           amender: current_user,
-          amendable: amendable,
+          amendable:,
           emendation: @emendation,
           state: "draft"
         )

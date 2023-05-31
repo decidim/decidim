@@ -58,7 +58,7 @@ FactoryBot.define do
         create(:participatory_process_step,
                active: true,
                end_date: evaluator.current_step_ends,
-               participatory_process: participatory_process)
+               participatory_process:)
         participatory_process.reload
         participatory_process.steps.reload
       end
@@ -81,7 +81,7 @@ FactoryBot.define do
 
     trait :with_scope do
       scopes_enabled { true }
-      scope { create :scope, organization: organization }
+      scope { create :scope, organization: }
     end
   end
 
@@ -105,7 +105,7 @@ FactoryBot.define do
 
     trait :with_participatory_processes do
       after(:create) do |participatory_process_group|
-        create_list(:participatory_process, 2, :published, organization: participatory_process_group.organization, participatory_process_group: participatory_process_group)
+        create_list(:participatory_process, 2, :published, organization: participatory_process_group.organization, participatory_process_group:)
       end
     end
   end
@@ -134,13 +134,13 @@ FactoryBot.define do
 
     trait :with_active_participatory_processes do
       after(:create) do |participatory_process_type|
-        create_list(:participatory_process, 2, :active, :published, organization: participatory_process_type.organization, participatory_process_type: participatory_process_type)
+        create_list(:participatory_process, 2, :active, :published, organization: participatory_process_type.organization, participatory_process_type:)
       end
     end
 
     trait :with_past_participatory_processes do
       after(:create) do |participatory_process_type|
-        create_list(:participatory_process, 2, :past, :published, organization: participatory_process_type.organization, participatory_process_type: participatory_process_type)
+        create_list(:participatory_process, 2, :past, :published, organization: participatory_process_type.organization, participatory_process_type:)
       end
     end
   end
@@ -151,10 +151,11 @@ FactoryBot.define do
     end
 
     organization { participatory_process.organization }
+    admin_terms_accepted_at { Time.current }
 
     after(:create) do |user, evaluator|
       create :participatory_process_user_role,
-             user: user,
+             user:,
              participatory_process: evaluator.participatory_process,
              role: :admin
     end
@@ -166,10 +167,11 @@ FactoryBot.define do
     end
 
     organization { participatory_process.organization }
+    admin_terms_accepted_at { Time.current }
 
     after(:create) do |user, evaluator|
       create :participatory_process_user_role,
-             user: user,
+             user:,
              participatory_process: evaluator.participatory_process,
              role: :collaborator
     end
@@ -181,10 +183,11 @@ FactoryBot.define do
     end
 
     organization { participatory_process.organization }
+    admin_terms_accepted_at { Time.current }
 
     after(:create) do |user, evaluator|
       create :participatory_process_user_role,
-             user: user,
+             user:,
              participatory_process: evaluator.participatory_process,
              role: :moderator
     end
@@ -196,10 +199,11 @@ FactoryBot.define do
     end
 
     organization { participatory_process.organization }
+    admin_terms_accepted_at { Time.current }
 
     after(:create) do |user, evaluator|
       create :participatory_process_user_role,
-             user: user,
+             user:,
              participatory_process: evaluator.participatory_process,
              role: :valuator
     end

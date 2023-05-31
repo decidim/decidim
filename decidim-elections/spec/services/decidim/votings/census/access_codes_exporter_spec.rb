@@ -12,7 +12,7 @@ module Decidim
         let(:tmp_dir_out) { Dir.mktmpdir("access_codes_exporter_spec") }
         let(:dataset) { create(:dataset, :with_access_code_data) }
         let(:password) { "secret" }
-        let(:user) { create :user }
+        let(:user) { create(:user) }
         let(:expected_file) { "#{translated(dataset.voting.title).parameterize}-voting-access-codes.csv" }
 
         describe "#export" do
@@ -37,7 +37,7 @@ module Decidim
           files = []
           data = nil
           File.open(file_path, "rb") do |file|
-            SevenZipRuby::Reader.open_file(file, password: password) do |szr|
+            SevenZipRuby::Reader.open_file(file, password:) do |szr|
               files = szr.entries.map(&:path)
               data = szr.extract_data(:all).join
             end

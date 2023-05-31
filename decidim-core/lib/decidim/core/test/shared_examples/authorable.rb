@@ -7,13 +7,13 @@ shared_examples_for "authorable" do
     context "when the user group is not verified" do
       it "is not valid" do
         user_group = create(:user_group)
-        create(:user_group_membership, user: subject.author, user_group: user_group)
+        create(:user_group_membership, user: subject.author, user_group:)
         subject.user_group = user_group
         expect(subject).not_to be_valid
       end
     end
 
-    context "when the author doesn't have a membership of the user group" do
+    context "when the author does not have a membership of the user group" do
       it "is not valid" do
         user_group = create(:user_group, :verified)
         subject.user_group = user_group

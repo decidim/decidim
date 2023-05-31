@@ -7,8 +7,8 @@ describe "User edit meeting", type: :system do
   include_context "with a component"
   let(:manifest_name) { "meetings" }
 
-  let!(:user) { create :user, :confirmed, organization: participatory_process.organization }
-  let!(:another_user) { create :user, :confirmed, organization: participatory_process.organization }
+  let!(:user) { create(:user, :confirmed, organization: participatory_process.organization) }
+  let!(:another_user) { create(:user, :confirmed, organization: participatory_process.organization) }
   let!(:meeting) do
     create(:meeting,
            :published,
@@ -16,7 +16,7 @@ describe "User edit meeting", type: :system do
            title: { en: "Meeting title with #hashtag" },
            description: { en: "Meeting description" },
            author: user,
-           component: component)
+           component:)
   end
   let(:component) do
     create(:meeting_component,
@@ -70,7 +70,7 @@ describe "User edit meeting", type: :system do
                author: user,
                attendees_count: nil,
                attending_organizations: nil,
-               component: component)
+               component:)
       end
 
       it "updates the meeting report" do
@@ -121,11 +121,11 @@ describe "User edit meeting", type: :system do
       login_as another_user, scope: :user
     end
 
-    it "doesn't show the button" do
+    it "does not show the button" do
       visit_component
 
       click_link translated(meeting.title)
-      expect(page).to have_no_content("Close meeting")
+      expect(page).not_to have_content("Close meeting")
     end
   end
 end

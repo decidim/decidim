@@ -6,7 +6,7 @@ module Decidim
   module Proposals
     describe MarkdownToProposals do
       def should_parse_and_produce_proposals(num_proposals)
-        proposals = Decidim::Proposals::Proposal.where(component: component)
+        proposals = Decidim::Proposals::Proposal.where(component:)
         expect { parser.parse(document) }.to change { proposals.count }.by(num_proposals)
         proposals
       end
@@ -17,7 +17,7 @@ module Decidim
       end
 
       def proposal_should_conform(section_level, title, body)
-        proposal = Decidim::Proposals::Proposal.where(component: component).last
+        proposal = Decidim::Proposals::Proposal.where(component:).last
         expect(proposal.participatory_text_level).to eq(Decidim::Proposals::ParticipatoryTextSection::LEVELS[section_level])
         expect(translated(proposal.title)).to eq(title)
         expect(translated(proposal.body)).to eq(body)
@@ -142,16 +142,16 @@ module Decidim
             **bold text** is supported, *italics text* is supported, __underlined text__ is supported.
             As explained [here](https://daringfireball.net/projects/markdown/syntax#em) Markdown treats asterisks
             and underscores as indicators of emphasis.
-            Text wrapped with one asterisk or underscore will be wrapped with an HTML &lt;em> tag; double asterisks or underscores will be wrapped with an HTML &lt;strong> tag. E.g., this input:
+            Text wrapped with one asterisk or underscore will be wrapped with an HTML <em> tag; double asterisks or underscores will be wrapped with an HTML <strong> tag. E.g., this input:
             - *single asterisks*
             - _single underscores_
             - **double asterisks**
             - __double underscores__
             Will produce this oputput:
-            - &lt;em>single asterisks&lt;/em>
-            - &lt;u>single underscores&lt;/u>
-            - &lt;strong>double asterisks&lt;/strong>
-            - &lt;strong>double underscores&lt;/strong>
+            - <em>single asterisks</em>
+            - <u>single underscores</u>
+            - <strong>double asterisks</strong>
+            - <strong>double underscores</strong>
           EOPARAGRAPH
         end
 
@@ -168,16 +168,16 @@ module Decidim
             <strong>bold text</strong> is supported, <em>italics text</em> is supported, <strong>underlined text</strong> is supported.
             As explained <a href="https://daringfireball.net/projects/markdown/syntax#em">here</a> Markdown treats asterisks
             and underscores as indicators of emphasis.
-            Text wrapped with one asterisk or underscore will be wrapped with an HTML &lt;em> tag; double asterisks or underscores will be wrapped with an HTML &lt;strong> tag. E.g., this input:
+            Text wrapped with one asterisk or underscore will be wrapped with an HTML <em> tag; double asterisks or underscores will be wrapped with an HTML <strong> tag. E.g., this input:
             - <em>single asterisks</em>
             - <u>single underscores</u>
             - <strong>double asterisks</strong>
             - <strong>double underscores</strong>
             Will produce this oputput:
-            - &lt;em>single asterisks&lt;/em>
-            - &lt;u>single underscores&lt;/u>
-            - &lt;strong>double asterisks&lt;/strong>
-            - &lt;strong>double underscores&lt;/strong>
+            - <em>single asterisks</em>
+            - <u>single underscores</u>
+            - <strong>double asterisks</strong>
+            - <strong>double underscores</strong>
           EOEXPECTED
           expect(translated(proposal.body)).to eq(paragraph.strip)
           expect(proposal.position).to eq(1)
@@ -223,6 +223,23 @@ module Decidim
             should_parse_and_produce_proposals(1)
             proposal_should_conform(:article, "1", list)
           end
+        end
+      end
+
+      describe "HTML comments are ignored" do
+        let(:paragraph) { "<!-- This should be ignored --> \nThis should be kept." }
+
+        before do
+          items << "#{paragraph}\n"
+        end
+
+        it "ignores the comment" do
+          should_parse_and_produce_proposals(1)
+
+          proposal = Proposal.last
+          # proposal titled with its numbering (position)
+          expect(translated(proposal.title)).to eq("1")
+          expect(translated(proposal.body)).to eq("This should be kept.")
         end
       end
     end

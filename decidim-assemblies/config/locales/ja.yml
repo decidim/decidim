@@ -3,7 +3,10 @@ ja:
     attributes:
       assemblies_setting:
         enable_organization_chart: 組織図を有効化
+      assemblies_type:
+        title: タイトル
       assembly:
+        announcement: お知らせ
         area_id: エリア
         assembly_type: 参加スペース種別
         assembly_type_other: その他（参加スペース）
@@ -22,12 +25,16 @@ ja:
         decidim_scope_id: スコープ
         description: 説明
         developer_group: プロモーターグループ
+        document: ドキュメント
         domain: ドメイン
         duration: 持続期間
         facebook: Facebook
         github: GitHub
         hashtag: ハッシュタグ
         hero_image: ホーム画像
+        import_attachments: 添付ファイルをインポート
+        import_categories: カテゴリをインポート
+        import_components: コンポーネントをインポート
         included_at: 含まれた日
         instagram: Instagram
         internal_organisation: 内部組織
@@ -64,6 +71,7 @@ ja:
         non_user_avatar: アバター
         position: ポジション
         user_id: ユーザー
+        weight: 並び順の位置
       assembly_user_role:
         email: Eメールアドレス
         name: 名前
@@ -73,7 +81,7 @@ ja:
         assembly:
           attributes:
             document:
-              invalid_document_type: '無効なドキュメントの種類です。承認されたフォーマットは次のとおりです: %{valid_mime_types}'
+              allowed_file_content_types: '無効なドキュメントタイプです。次の拡張子を持つファイルのみ許可されます: %{types}。'
   activerecord:
     models:
       decidim/assembly:
@@ -239,6 +247,9 @@ ja:
     admin_log:
       assembly:
         create: "%{user_name} が %{resource_name} 参加スペースを作成しました"
+        duplicate: "%{user_name} が %{resource_name} 参加スペースを複製しました"
+        export: "%{user_name} は %{resource_name} 参加スペースをエクスポートしました"
+        import: "%{user_name} が %{resource_name} 参加スペースをインポートしました"
         publish: "%{user_name} が %{resource_name} 参加スペースを公開しました"
         unpublish: "%{user_name} が %{resource_name} 参加スペースを非公開にしました"
         update: "%{user_name} が %{resource_name} 参加スペースを更新しました"
@@ -350,7 +361,7 @@ ja:
       index:
         title: 参加スペース
       last_activity:
-        new_assembly: 新しい参加スペース
+        new_assembly: '新しい参加スペース:'
       pages:
         home:
           highlighted_assemblies:
@@ -386,7 +397,7 @@ ja:
         related_participatory_processes: 関連する参加型プロセス
         scope: スコープ
         social_networks: ソーシャル ネットワーク
-        social_networks_title: この参加スペースを共有
+        social_networks_title: 参加スペースを訪問
         target: 参加者
     assembly_members:
       assembly_member:
@@ -397,7 +408,7 @@ ja:
       assemblies:
         create_assembly_member:
           email_intro: <a href="%{resource_url}">%{resource_name}</a> 参加スペースの管理者があなたをメンバーの一人として追加しました。
-          email_outro: 参加スペースに招待されたため、この通知を受け取りました。 <a href="%{resource_path}">参加スペースページ</a> を確認して貢献してください！
+          email_outro: 参加スペースに招待されたため、この通知を受け取りました。 <a href="%{resource_url}">参加スペースのページ</a> を確認して協力してください！
           email_subject: あなたは %{resource_name} 参加スペースのメンバーに招待されています！
           notification_title: 参加スペース <a href="%{resource_path}">%{resource_name}</a>のメンバーとして登録されました。貢献するには <a href="%{resource_path}">参加スペースページ</a> を確認してください！
       assembly:
@@ -430,9 +441,6 @@ ja:
         related_assemblies: 関連する参加スペース
     statistics:
       assemblies_count: 参加スペース
-  errors:
-    messages:
-      cannot_be_blank: 空白にできません
   layouts:
     decidim:
       assemblies:

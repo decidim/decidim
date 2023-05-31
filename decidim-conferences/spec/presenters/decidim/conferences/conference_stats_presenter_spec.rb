@@ -4,11 +4,11 @@ require "spec_helper"
 
 module Decidim
   describe Conferences::ConferenceStatsPresenter do
-    subject { described_class.new(conference: conference) }
+    subject { described_class.new(conference:) }
 
     let!(:organization) { create(:organization) }
-    let!(:user) { create(:user, :confirmed, organization: organization) }
-    let!(:conference) { create(:conference, organization: organization) }
+    let!(:user) { create(:user, :confirmed, organization:) }
+    let!(:conference) { create(:conference, organization:) }
     let!(:component) { create(:component, participatory_space: conference) }
 
     describe "#highlighted" do

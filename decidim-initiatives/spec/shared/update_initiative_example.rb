@@ -2,7 +2,7 @@
 
 shared_examples "update an initiative" do
   let(:organization) { create(:organization) }
-  let(:initiative) { create(:initiative, organization: organization) }
+  let(:initiative) { create(:initiative, organization:) }
 
   let(:form) do
     form_klass.from_params(
@@ -10,7 +10,7 @@ shared_examples "update an initiative" do
     ).with_context(
       current_organization: organization,
       current_component: nil,
-      initiative: initiative
+      initiative:
     )
   end
 
@@ -21,7 +21,7 @@ shared_examples "update an initiative" do
       title: { en: "A reasonable initiative title" },
       description: { en: "A reasonable initiative description" },
       signature_start_date: Date.current + 10.days,
-      signature_end_date: signature_end_date,
+      signature_end_date:,
       signature_type: "any",
       type_id: initiative.type.id,
       decidim_scope_id: initiative.scope.id,
@@ -44,7 +44,7 @@ shared_examples "update an initiative" do
         expect { command.call }.to broadcast(:invalid)
       end
 
-      it "doesn't updates the initiative" do
+      it "does not updates the initiative" do
         expect do
           command.call
         end.not_to change(initiative, :title)
@@ -67,10 +67,17 @@ shared_examples "update an initiative" do
       end
 
       context "when attachment is present" do
+        let(:blob) do
+          ActiveStorage::Blob.create_and_upload!(
+            io: File.open(Decidim::Dev.test_file("city.jpeg", "image/jpeg"), "rb"),
+            filename: "city.jpeg",
+            content_type: "image/jpeg" # Or figure it out from `name` if you have non-JPEGs
+          )
+        end
         let(:attachment_params) do
           {
             title: "My attachment",
-            file: Decidim::Dev.test_file("city.jpeg", "image/jpeg")
+            file: blob.signed_id
           }
         end
 
@@ -135,13 +142,13 @@ shared_examples "update an initiative" do
 
         before { form.signature_type = "offline" }
 
-        it "doesn't update signature type" do
+        it "does not update signature type" do
           expect { command.call }.not_to change(initiative, :signature_type)
         end
       end
 
       context "when administrator user" do
-        let(:administrator) { create(:user, :admin, organization: organization) }
+        let(:administrator) { create(:user, :admin, organization:) }
 
         let(:command) do
           described_class.new(initiative, form, administrator)

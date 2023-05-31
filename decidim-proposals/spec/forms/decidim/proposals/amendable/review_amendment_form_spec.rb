@@ -8,9 +8,9 @@ module Decidim
       subject { form }
 
       let(:component) { create(:proposal_component) }
-      let(:amendable) { create(:proposal, component: component) }
-      let(:emendation) { create(:proposal, component: component) }
-      let(:amendment) { create(:amendment, amendable: amendable, emendation: emendation) }
+      let(:amendable) { create(:proposal, component:) }
+      let(:emendation) { create(:proposal, component:) }
+      let(:amendment) { create(:amendment, amendable:, emendation:) }
 
       let(:form) do
         described_class.from_params(form_params).with_context(form_context)
@@ -19,7 +19,7 @@ module Decidim
       let(:form_params) do
         {
           id: amendment.id,
-          emendation_params: emendation_params
+          emendation_params:
         }
       end
 

@@ -16,7 +16,7 @@ module Decidim
   # or a value accepted by the `translated_attribute` method.
   #
   # As options, the cell accepts a Hash with these keys:
-  #   - `callout_class`: The Css class to apply. Default to `"secondary"`
+  #   - `callout_class`: The Css class to apply
   #
   class AnnouncementCell < Decidim::ViewModel
     include Decidim::SanitizeHelper
@@ -34,7 +34,7 @@ module Decidim
     end
 
     def callout_class
-      options[:callout_class] ||= "secondary"
+      options[:callout_class]
     end
 
     def announcement
@@ -62,7 +62,7 @@ module Decidim
     end
 
     def clean(value)
-      decidim_sanitize(translated_attribute(value))
+      decidim_sanitize_admin(translated_attribute(value))
     end
   end
 end

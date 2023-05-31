@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe TimeZoneValidator do
-  subject { validatable.new(time_zone: time_zone) }
+  subject { validatable.new(time_zone:) }
 
   let(:validatable) do
     Class.new do

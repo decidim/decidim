@@ -37,7 +37,7 @@ module Decidim
         label = t(action, scope: "decidim.proposals.collaborative_drafts.show")
         css = publish? ? "button expanded button--sc" : "secondary"
 
-        button_tag label, type: "button", class: css, data: data
+        button_tag label, type: "button", class: css, data:
       end
 
       def modal_title

@@ -78,7 +78,7 @@ module Decidim
         raise "You must provide a set of fields to amend" unless fields
         raise "You must provide a form class of the amendable" unless form
 
-        @amendable_options = { fields: fields, form: form }
+        @amendable_options = { fields:, form: }
       end
     end
 
@@ -157,7 +157,7 @@ module Decidim
         end
       else # Assume is_a?(Decidim::Coauthorable)
         coauthorships.clear
-        add_coauthor(author, user_group: user_group)
+        add_coauthor(author, user_group:)
       end
     end
 

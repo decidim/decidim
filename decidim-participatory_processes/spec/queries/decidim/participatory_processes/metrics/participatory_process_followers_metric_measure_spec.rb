@@ -6,7 +6,7 @@ describe Decidim::ParticipatoryProcesses::Metrics::ParticipatoryProcessFollowers
   let(:day) { Time.zone.yesterday }
   let(:organization) { create(:organization) }
   let(:not_valid_resource) { create(:dummy_resource) }
-  let(:participatory_space) { create(:participatory_process, :with_steps, organization: organization) }
+  let(:participatory_space) { create(:participatory_process, :with_steps, organization:) }
   let!(:follows) { create_list(:follow, 5, followable: participatory_space, created_at: day) }
   let!(:old_follows) { create_list(:follow, 5, followable: participatory_space, created_at: day - 1.week) }
 

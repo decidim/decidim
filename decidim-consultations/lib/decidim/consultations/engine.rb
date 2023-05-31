@@ -52,9 +52,9 @@ module Decidim
         end
       end
 
-      initializer "decidim.stats" do
+      initializer "decidim_consultations.stats" do
         Decidim.stats.register :consultations_count, priority: StatsRegistry::HIGH_PRIORITY do |organization, _start_at, _end_at|
-          Decidim::Consultation.where(organization: organization).published.count
+          Decidim::Consultation.where(organization:).published.count
         end
       end
 
@@ -92,6 +92,14 @@ module Decidim
 
       initializer "decidim_consultations.webpacker.assets_path" do
         Decidim.register_assets_path File.expand_path("app/packs", root)
+      end
+
+      initializer "decidim_consultations.authorization_transfer" do
+        config.to_prepare do
+          Decidim::AuthorizationTransfer.register(:consultations) do |transfer|
+            transfer.move_records(Decidim::Consultations::Vote, :decidim_author_id)
+          end
+        end
       end
     end
   end

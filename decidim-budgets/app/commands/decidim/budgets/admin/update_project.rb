@@ -6,7 +6,6 @@ module Decidim
       # This command is executed when the user changes a Project from the admin
       # panel.
       class UpdateProject < Decidim::Command
-        include ::Decidim::AttachmentMethods
         include ::Decidim::GalleryMethods
 
         # Initializes an UpdateProject Command.
@@ -53,7 +52,10 @@ module Decidim
             title: form.title,
             description: form.description,
             budget_amount: form.budget_amount,
-            selected_at: selected_at
+            selected_at:,
+            address: form.address,
+            latitude: form.latitude,
+            longitude: form.longitude
           )
         end
 

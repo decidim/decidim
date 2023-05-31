@@ -19,7 +19,7 @@ module Decidim
     describe ProposalType, type: :graphql do
       include_context "with a graphql class type"
       let(:component) { create(:proposal_component) }
-      let(:model) { create(:proposal, :with_votes, :with_endorsements, :with_amendments, component: component) }
+      let(:model) { create(:proposal, :with_votes, :with_endorsements, :with_amendments, component:) }
 
       include_examples "categorizable interface"
       include_examples "scopable interface"
@@ -165,7 +165,7 @@ module Decidim
 
       describe "meeting" do
         let(:query) { '{ meeting { title { translation(locale:"en") } } }' }
-        let(:model) { create(:proposal, :official_meeting, component: component) }
+        let(:model) { create(:proposal, :official_meeting, component:) }
 
         it "returns the meeting of this proposal" do
           expect(response["meeting"]["title"]["translation"]).to eq(model.authors.first.title["en"])

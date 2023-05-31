@@ -5,7 +5,6 @@ module Decidim
     # A command with all the business logic that creates a new initiative.
     class CreateInitiative < Decidim::Command
       include CurrentLocale
-      include ::Decidim::MultipleAttachmentsMethods
 
       # Public: Initializes the command.
       #
@@ -19,16 +18,11 @@ module Decidim
       # Executes the command. Broadcasts these events:
       #
       # - :ok when everything is valid.
-      # - :invalid if the form wasn't valid and we couldn't proceed.
+      # - :invalid if the form was not valid and we could not proceed.
       #
       # Returns nothing.
       def call
         return broadcast(:invalid) if form.invalid?
-
-        if process_attachments?
-          build_attachments
-          return broadcast(:invalid) if attachments_invalid?
-        end
 
         initiative = create_initiative
 
@@ -50,8 +44,6 @@ module Decidim
 
         initiative.transaction do
           initiative.save!
-          @attached_to = initiative
-          create_attachments if process_attachments?
 
           create_components_for(initiative)
           send_notification(initiative)
@@ -68,20 +60,14 @@ module Decidim
           title: { current_locale => form.title },
           description: { current_locale => form.description },
           author: current_user,
-          decidim_user_group_id: form.decidim_user_group_id,
-          scoped_type: scoped_type,
-          area: area,
-          signature_type: form.signature_type,
-          signature_end_date: signature_end_date,
+          scoped_type:,
+          signature_type: form.type.signature_type,
           state: "created"
         )
       end
 
       def scoped_type
-        InitiativesTypeScope.find_by(
-          type: form.initiative_type,
-          scope: form.scope
-        )
+        InitiativesTypeScope.order(:id).find_by(type: form.type)
       end
 
       def signature_end_date
@@ -111,7 +97,7 @@ module Decidim
 
       def initialize_pages(component)
         Decidim::Pages::CreatePage.call(component) do
-          on(:invalid) { raise "Can't create page" }
+          on(:invalid) { raise "Cannot create page" }
         end
       end
 
@@ -129,7 +115,7 @@ module Decidim
                .from_params(followable_gid: initiative.to_signed_global_id.to_s)
                .with_context(
                  current_organization: initiative.organization,
-                 current_user: current_user
+                 current_user:
                )
 
         Decidim::CreateFollow.new(form, current_user).call
@@ -140,7 +126,7 @@ module Decidim
                .from_params(initiative_id: initiative.id, user_id: initiative.decidim_author_id, state: "accepted")
                .with_context(
                  current_organization: initiative.organization,
-                 current_user: current_user
+                 current_user:
                )
 
         Decidim::Initiatives::SpawnCommitteeRequest.new(form, current_user).call

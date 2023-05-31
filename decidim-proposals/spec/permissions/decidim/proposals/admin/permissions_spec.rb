@@ -5,16 +5,16 @@ require "spec_helper"
 describe Decidim::Proposals::Admin::Permissions do
   subject { described_class.new(user, permission_action, context).permissions.allowed? }
 
-  let(:user) { build :user, :admin }
+  let(:user) { build(:user, :admin) }
   let(:current_component) { create(:proposal_component) }
   let(:proposal) { nil }
   let(:extra_context) { {} }
   let(:context) do
     {
-      proposal: proposal,
-      current_component: current_component,
-      current_settings: current_settings,
-      component_settings: component_settings
+      proposal:,
+      current_component:,
+      current_settings:,
+      component_settings:
     }.merge(extra_context)
   end
   let(:component_settings) do
@@ -34,7 +34,7 @@ describe Decidim::Proposals::Admin::Permissions do
   let(:creation_enabled?) { true }
   let(:official_proposals_enabled?) { true }
   let(:component_settings_proposal_answering_enabled?) { true }
-  let(:component_settings_participatory_texts_enabled?) { true }
+  let(:component_settings_participatory_texts_enabled?) { false }
   let(:current_settings_proposal_answering_enabled?) { true }
   let(:current_settings_publish_answers_immediately?) { true }
   let(:permission_action) { Decidim::PermissionAction.new(**action) }
@@ -90,12 +90,12 @@ describe Decidim::Proposals::Admin::Permissions do
   context "when user is a valuator" do
     let(:organization) { space.organization }
     let(:space) { current_component.participatory_space }
-    let!(:valuator_role) { create :participatory_process_user_role, user: user, role: :valuator, participatory_process: space }
-    let!(:user) { create :user, organization: organization }
+    let!(:valuator_role) { create(:participatory_process_user_role, user:, role: :valuator, participatory_process: space) }
+    let!(:user) { create(:user, organization:) }
 
     context "and can valuate the current proposal" do
-      let(:proposal) { create :proposal, component: current_component }
-      let!(:assignment) { create :valuation_assignment, proposal: proposal, valuator_role: valuator_role }
+      let(:proposal) { create(:proposal, component: current_component) }
+      let!(:assignment) { create(:valuation_assignment, proposal:, valuator_role:) }
 
       it_behaves_like "can create proposal notes"
       it_behaves_like "can answer proposals"
@@ -138,6 +138,12 @@ describe Decidim::Proposals::Admin::Permissions do
 
       it { is_expected.to be false }
     end
+
+    context "when participatory texts is enabled" do
+      let(:component_settings_participatory_texts_enabled?) { true }
+
+      it { is_expected.to be false }
+    end
   end
 
   describe "proposal edition" do
@@ -146,13 +152,13 @@ describe Decidim::Proposals::Admin::Permissions do
     end
 
     context "when the proposal is not official" do
-      let(:proposal) { create :proposal, component: current_component }
+      let(:proposal) { create(:proposal, component: current_component) }
 
       it_behaves_like "permission is not set"
     end
 
     context "when the proposal is official" do
-      let(:proposal) { create :proposal, :official, component: current_component }
+      let(:proposal) { create(:proposal, :official, component: current_component) }
 
       context "when everything is OK" do
         it { is_expected.to be true }
@@ -160,7 +166,7 @@ describe Decidim::Proposals::Admin::Permissions do
 
       context "when it has some votes" do
         before do
-          create :proposal_vote, proposal: proposal
+          create(:proposal_vote, proposal:)
         end
 
         it_behaves_like "permission is not set"
@@ -232,6 +238,7 @@ describe Decidim::Proposals::Admin::Permissions do
   end
 
   describe "manage participatory texts" do
+    let(:component_settings_participatory_texts_enabled?) { true }
     let(:action) do
       { scope: :admin, action: :manage, subject: :participatory_texts }
     end

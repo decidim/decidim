@@ -11,7 +11,7 @@ module Decidim::Meetings
       ).with_context(current_organization: organization)
     end
 
-    let(:organization) { create :organization }
+    let(:organization) { create(:organization) }
 
     let(:title) { Decidim::Faker::Localized.sentence(word_count: 3) }
     let(:description) { Decidim::Faker::Localized.sentence(word_count: 3) }
@@ -21,7 +21,7 @@ module Decidim::Meetings
       {
         title_en: title[:en],
         description_en: description[:en],
-        deleted: deleted
+        deleted:
       }
     end
 

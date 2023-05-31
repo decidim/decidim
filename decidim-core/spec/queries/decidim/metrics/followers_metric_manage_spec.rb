@@ -5,9 +5,9 @@ require "spec_helper"
 describe Decidim::Metrics::FollowersMetricManage do
   let(:day) { Time.zone.yesterday }
   let(:organization) { create(:organization) }
-  let!(:participatory_space) { create(:participatory_process, organization: organization) }
-  let(:component) { create(:proposal_component, participatory_space: participatory_space) }
-  let(:proposal) { create(:proposal, component: component) }
+  let!(:participatory_space) { create(:participatory_process, organization:) }
+  let(:component) { create(:proposal_component, participatory_space:) }
+  let(:proposal) { create(:proposal, component:) }
   let(:follow) { create(:follow, followable: proposal, created_at: day) }
   let(:old_follow) { create(:follow, followable: proposal, created_at: day - 1.week) }
   let(:key) { [participatory_space.class.name, participatory_space.id] }
@@ -59,7 +59,7 @@ describe Decidim::Metrics::FollowersMetricManage do
       end
 
       it "updates metric records" do
-        create(:metric, metric_type: "followers", day: day, cumulative: 1, quantity: 1, organization: organization, category: nil, participatory_space: participatory_space)
+        create(:metric, metric_type: "followers", day:, cumulative: 1, quantity: 1, organization:, category: nil, participatory_space:)
         registry = generate_metric_registry
 
         expect(Decidim::Metric.count).to eq(1)

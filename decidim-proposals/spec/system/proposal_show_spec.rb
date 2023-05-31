@@ -5,7 +5,7 @@ require "spec_helper"
 describe "Show a Proposal", type: :system do
   include_context "with a component"
   let(:manifest_name) { "proposals" }
-  let(:proposal) { create :proposal, component: component }
+  let(:proposal) { create(:proposal, component:) }
 
   def visit_proposal
     visit resource_locator(proposal).path
@@ -19,6 +19,7 @@ describe "Show a Proposal", type: :system do
     context "when requesting the proposal path" do
       before do
         visit_proposal
+        expect(page).to have_content(translated(proposal.title))
       end
 
       it_behaves_like "share link"
@@ -30,7 +31,7 @@ describe "Show a Proposal", type: :system do
         end
 
         context "when I'm an admin user" do
-          let(:user) { create(:user, :admin, :confirmed, organization: organization) }
+          let(:user) { create(:user, :admin, :confirmed, organization:) }
 
           it "has a link to answer to the proposal at the admin" do
             within ".topbar" do
@@ -40,7 +41,7 @@ describe "Show a Proposal", type: :system do
         end
 
         context "when I'm a regular user" do
-          let(:user) { create(:user, :confirmed, organization: organization) }
+          let(:user) { create(:user, :confirmed, organization:) }
 
           it "does not have a link to answer the proposal at the admin" do
             within ".topbar" do
@@ -51,14 +52,14 @@ describe "Show a Proposal", type: :system do
       end
 
       describe "author tooltip" do
-        let(:user) { create(:user, :confirmed, organization: organization) }
+        let(:user) { create(:user, :confirmed, organization:) }
 
         before do
           login_as user, scope: :user
           visit current_path
         end
 
-        context "when author doesn't restrict messaging" do
+        context "when author does not restrict messaging" do
           it "includes a link to message the proposal author" do
             within ".author-data" do
               find_link.hover

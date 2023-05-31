@@ -14,7 +14,7 @@ module Decidim
             helper_method :templates, :choose_template?
 
             def templates
-              @templates = current_organization.templates.where(templatable_type: templatable_type)
+              @templates = current_organization.templates.where(templatable_type:)
               @templates = @templates.where.not(id: params[:id]) if templates_path?
               @templates
             end

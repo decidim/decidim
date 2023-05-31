@@ -1,9 +1,6 @@
 ga:
   activemodel:
     attributes:
-      agenda:
-        duration: Fad
-        title: Teideal
       close_meeting:
         audio_url: URL Fuaime
         closing_report: Miontuairiscí
@@ -12,7 +9,6 @@ ga:
         address: Seoladh
         decidim_category_id: Catagóir
         decidim_scope_id: Scóip
-        end_time: Am Críochnaithe
         id: ID
         location: Suíomh
         title: Teideal
@@ -152,7 +148,6 @@ ga:
           type: Cineál
           type_values:
             all: Uile
-            hybrid: Araon
             online: Ar líne
         filters_small_view:
           filter: Scag
@@ -181,7 +176,6 @@ ga:
           fields:
             closed: Dúnta
             end_time: Dáta deiridh
-            id: Id
             map: Léarscáil
             title: Teideal
       polls:
@@ -194,7 +188,6 @@ ga:
           published_question:
             question: Ceist
       type_of_meeting:
-        hybrid: Araon
         online: Ar líne
     metrics:
       meetings:

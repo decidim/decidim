@@ -6,7 +6,7 @@ module Decidim
       include ParticipatorySpaceContext
       helper Decidim::SanitizeHelper
       helper Decidim::Conferences::ConferenceProgramHelper
-      participatory_space_layout only: :show
+      redesign_participatory_space_layout only: :show
 
       helper_method :collection, :conference, :meeting_days, :meeting_component
 
@@ -26,7 +26,7 @@ module Decidim
       end
 
       def meetings
-        return unless meeting_component.published? || !meeting_component.presence
+        return unless meeting_component&.published? || !meeting_component.presence
 
         @meetings ||= Decidim::Meetings::Meeting.where(component: meeting_component).visible_for(current_user).order(:start_time)
       end

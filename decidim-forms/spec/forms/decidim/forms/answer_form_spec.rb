@@ -11,7 +11,7 @@ module Decidim
 
       let(:context) do
         {
-          responses: responses
+          responses:
         }
       end
       let(:responses) { [] }
@@ -35,17 +35,17 @@ module Decidim
       let!(:question) do
         create(
           :questionnaire_question,
-          questionnaire: questionnaire,
-          mandatory: mandatory,
-          question_type: question_type,
-          max_choices: max_choices,
-          max_characters: max_characters,
-          options: options
+          questionnaire:,
+          mandatory:,
+          question_type:,
+          max_choices:,
+          max_characters:,
+          options:
         )
       end
 
       let(:body) { Decidim::Faker::Localized.sentence }
-      let!(:answer) { build(:answer, user: user, questionnaire: questionnaire, question: question, body: body) }
+      let!(:answer) { build(:answer, user:, questionnaire:, question:, body:) }
 
       context "when everything is OK" do
         it { is_expected.to be_valid }
@@ -108,8 +108,8 @@ module Decidim
 
         context "and question has display conditions" do
           let(:question_type) { "short_answer" }
-          let!(:condition_question) { create(:questionnaire_question, questionnaire: questionnaire, question_type: question_type) }
-          let!(:display_condition) { create(:display_condition, question: question, condition_question: condition_question, condition_type: :answered) }
+          let!(:condition_question) { create(:questionnaire_question, questionnaire:, question_type:) }
+          let!(:display_condition) { create(:display_condition, question:, condition_question:, condition_type: :answered) }
           let(:the_answer) { "" }
           let(:attributes) do
             {
@@ -239,7 +239,7 @@ module Decidim
 
         context "when the question has a text answer" do
           let(:question_type) { "short_answer" }
-          let!(:answer) { build(:answer, user: user, questionnaire: questionnaire, question: question, body: "This answer is very very very long") }
+          let!(:answer) { build(:answer, user:, questionnaire:, question:, body: "This answer is very very very long") }
 
           it "is not valid if the answer is too long" do
             expect(subject).not_to be_valid

@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   describe BlockUserMailer, type: :mailer do
-    let(:user) { create(:user, :confirmed, organization: organization, newsletter_notifications_at: nil, newsletter_token: token) }
+    let(:user) { create(:user, :confirmed, organization:, newsletter_notifications_at: nil, newsletter_token: token) }
     let(:token) { SecureRandom.base58(24) }
     let(:organization) { create(:organization) }
     let(:organization_url) { "http://www.example.com" }
@@ -20,6 +20,10 @@ module Decidim
       it "parses the body" do
         expect(email_body(mail)).to include("Your account was blocked.")
         expect(email_body(mail)).to include("Reason: ")
+      end
+
+      it "includes no-reply message" do
+        expect(email_body(mail)).to include("This email was sent from a notification email address that cannot accept incoming email. Please do not reply to this message.")
       end
     end
   end

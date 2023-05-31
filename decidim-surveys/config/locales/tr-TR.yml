@@ -30,7 +30,6 @@ tr:
           step:
             allow_answers: Cevaplara izin ver
             allow_unregistered: Kayıtlı olmayan kullanıcıların anketi yanıtlamasına izin verin
-            allow_unregistered_help: Etkinse, anketi cevaplamak için oturum açmanız gerekmeyecektir. Bu, zayıf veya güvenilmez verilere yol açabilir ve otomatik saldırılara karşı daha savunmasız hale gelir. Dikkatle kullanın!
             announcement: Duyuru
     events:
       surveys:
@@ -57,10 +56,7 @@ tr:
           update:
             invalid: Anketi kaydederken bir sorun oluştu.
             success: Anket başarıyla kaydedildi.
-      last_activity:
-        new_survey_at_html: "<span> %{link}</span> linkinde yeni anket"
       surveys:
         answer:
           invalid: Anketi cevaplarken bir sorun oluştu.
-          spam_detected: Formu yanıtlarken bir sorun oluştu. Belki çok hızlı davrandın, tekrar deneyebilir misin?
           success: Anket başarıyla cevaplandı.

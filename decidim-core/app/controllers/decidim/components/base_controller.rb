@@ -2,9 +2,9 @@
 
 module Decidim
   module Components
-    # Controller from which all component engines inherit from. It's in charge of
+    # Controller from which all component engines inherit from. It is in charge of
     # setting the appropiate layout, including necessary helpers, and overall
-    # fooling the engine into thinking it's isolated.
+    # fooling the engine into thinking it is isolated.
     class BaseController < Decidim::ApplicationController
       include Settings
       include Decidim::NeedsPermission
@@ -30,7 +30,7 @@ module Decidim
                     :current_manifest
 
       before_action do
-        enforce_permission_to :read, :component, component: current_component, share_token: share_token
+        enforce_permission_to :read, :component, component: current_component, share_token:
       end
 
       before_action :redirect_unless_feature_private

@@ -29,7 +29,7 @@ module Decidim
             @registration_type = registration_type
 
             subject = I18n.t("invite.subject", scope: "decidim.conferences.mailer.invite_join_conference_mailer")
-            mail(to: user.email, subject: subject)
+            mail(to: user.email, subject:)
           end
         end
 

@@ -24,7 +24,7 @@ module Decidim
     end
 
     def update_attachment_title_for(photo)
-      Decidim::Attachment.find(photo[:id]).update(title: title_for(photo))
+      Decidim::Attachment.find(photo[:id]).update(title: photos_title(photo))
     end
 
     def image?(signed_id)
@@ -45,7 +45,7 @@ module Decidim
       weight = first_weight
       # Add the weights first to the old photos
       @form.photos.each do |photo|
-        photo.update!(weight: weight)
+        photo.update!(weight:)
         weight += 1
       end
       @gallery.map! do |photo|

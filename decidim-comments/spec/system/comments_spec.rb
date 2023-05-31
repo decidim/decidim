@@ -3,9 +3,9 @@
 require "spec_helper"
 
 describe "Comments", type: :system do
-  let!(:component) { create(:component, manifest_name: :dummy, organization: organization) }
-  let!(:author) { create(:user, :confirmed, organization: organization) }
-  let!(:commentable) { create(:dummy_resource, component: component, author: author) }
+  let!(:component) { create(:component, manifest_name: :dummy, organization:) }
+  let!(:author) { create(:user, :confirmed, organization:) }
+  let!(:commentable) { create(:dummy_resource, component:, author:) }
 
   let(:resource_path) { resource_locator(commentable).path }
 

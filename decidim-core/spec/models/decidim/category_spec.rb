@@ -24,13 +24,13 @@ module Decidim
 
       it "adds an error" do
         subject.valid?
-        expect(subject.errors[:parent_id]).to eq ["can't be inside of a subcategory"]
+        expect(subject.errors[:parent_id]).to eq ["cannot be inside of a subcategory"]
       end
     end
 
     context "without a participatory space" do
       let(:parent) { create(:category) }
-      let(:category) { create(:subcategory, parent: parent, participatory_space: nil) }
+      let(:category) { create(:subcategory, parent:, participatory_space: nil) }
 
       it "is saved to parent before save" do
         subject.save

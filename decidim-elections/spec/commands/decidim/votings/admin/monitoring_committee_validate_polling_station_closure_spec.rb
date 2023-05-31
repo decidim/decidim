@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-# frozen_string_literal: true
 
 require "spec_helper"
 
@@ -9,11 +8,11 @@ module Decidim
       describe MonitoringCommitteeValidatePollingStationClosure do
         subject { described_class.new(form, closure) }
 
-        let(:closure) { create :ps_closure }
+        let(:closure) { create(:ps_closure) }
         let(:form) do
           double(
             invalid?: invalid,
-            monitoring_committee_notes: monitoring_committee_notes
+            monitoring_committee_notes:
           )
         end
         let(:invalid) { false }

@@ -71,7 +71,7 @@ module Decidim
             end
 
             def questionnaire
-              @questionnaire ||= Questionnaire.find_by(questionnaire_for: questionnaire_for)
+              @questionnaire ||= Questionnaire.find_by(questionnaire_for:)
             end
 
             def participants_query

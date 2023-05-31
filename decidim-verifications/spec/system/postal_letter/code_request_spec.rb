@@ -7,8 +7,8 @@ describe "Postal letter code request", type: :system do
     create(:organization, available_authorizations: ["postal_letter"])
   end
 
-  let!(:user) { create(:user, :confirmed, organization: organization) }
-  let(:admin) { create(:user, :admin, :confirmed, organization: organization) }
+  let!(:user) { create(:user, :confirmed, organization:) }
+  let(:admin) { create(:user, :admin, :confirmed, organization:) }
 
   let(:verification_metadata) do
     Decidim::Authorization.first.verification_metadata
@@ -31,12 +31,12 @@ describe "Postal letter code request", type: :system do
     end
 
     it "allows the user to request a code by postal letter to get verified" do
-      expect(page).to have_content("Thanks! We'll send a verification code to your address")
+      expect(page).to have_content("Thanks! We will send a verification code to your address.")
     end
 
     context "and getting it sent" do
       before do
-        relogin_as admin
+        relogin_as admin, scope: :user
         visit decidim_admin_postal_letter.root_path
       end
 

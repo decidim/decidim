@@ -21,7 +21,7 @@ module Decidim
         # Executes the command. Broadcasts these events:
         #
         # - :ok when everything is valid.
-        # - :invalid if the form wasn't valid and we couldn't proceed.
+        # - :invalid if the form was not valid and we could not proceed.
         #
         # Returns nothing.
         def call
@@ -63,7 +63,7 @@ module Decidim
             "position_other",
             "weight"
           ).symbolize_keys.merge(
-            assembly: assembly,
+            assembly:,
             user: form.user
           ).merge(
             attachment_attributes(:non_user_avatar)
@@ -97,7 +97,7 @@ module Decidim
             event: "decidim.events.assemblies.create_assembly_member",
             event_class: Decidim::Assemblies::CreateAssemblyMemberEvent,
             resource: assembly,
-            followers: followers
+            followers:
           }
           Decidim::EventsManager.publish(**data)
         end

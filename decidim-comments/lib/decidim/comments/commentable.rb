@@ -64,7 +64,7 @@ module Decidim
         # rubocop:disable Rails/SkipsModelValidations
         def update_comments_count
           comments_count = comments.not_hidden.not_deleted.count
-          update_columns(comments_count: comments_count, updated_at: Time.current)
+          update_columns(comments_count:, updated_at: Time.current)
         end
         # rubocop:enable Rails/SkipsModelValidations
       end

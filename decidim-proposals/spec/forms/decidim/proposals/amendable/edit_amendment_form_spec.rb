@@ -8,14 +8,14 @@ module Decidim
       subject { form }
 
       let!(:component) { create(:proposal_component) }
-      let!(:amendable) { create(:proposal, component: component) }
-      let!(:emendation) { create(:proposal, component: component) }
-      let!(:amendment) { create(:amendment, :draft, amendable: amendable, emendation: emendation) }
+      let!(:amendable) { create(:proposal, component:) }
+      let!(:emendation) { create(:proposal, component:) }
+      let!(:amendment) { create(:amendment, :draft, amendable:, emendation:) }
 
       let(:params) do
         {
           id: amendment.id,
-          emendation_params: emendation_params
+          emendation_params:
         }
       end
 
@@ -30,7 +30,7 @@ module Decidim
 
       it_behaves_like "an amendment form"
 
-      context "when the emendation doesn't change the amendable" do
+      context "when the emendation does not change the amendable" do
         let(:emendation_params) { { title: translated(amendable.title), body: amendable.body } }
 
         it { is_expected.to be_invalid }

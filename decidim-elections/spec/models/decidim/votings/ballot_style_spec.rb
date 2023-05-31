@@ -13,12 +13,12 @@ describe Decidim::Votings::BallotStyle do
       let(:other_election) { create(:election, :complete) }
       let(:ballot_style_questions_from_other_election) do
         other_election.questions.first(2).each do |question|
-          create(:ballot_style_question, question: question, ballot_style: ballot_style)
+          create(:ballot_style_question, question:, ballot_style:)
         end
       end
 
       context "when the ballot style has questions from this election" do
-        let(:ballot_style) { create(:ballot_style, :with_ballot_style_questions, election: election) }
+        let(:ballot_style) { create(:ballot_style, :with_ballot_style_questions, election:) }
 
         it "returns the questions for the specified election" do
           expect(subject).to match_array(election.questions.first(2))
@@ -36,7 +36,7 @@ describe Decidim::Votings::BallotStyle do
 
     context "when the ballot style DOES NOT HAVE questions from another election" do
       context "when the ballot style has questions from this election" do
-        let(:ballot_style) { create(:ballot_style, :with_ballot_style_questions, election: election) }
+        let(:ballot_style) { create(:ballot_style, :with_ballot_style_questions, election:) }
 
         it "returns the questions for the specified election" do
           expect(subject).to match_array(election.questions.first(2))

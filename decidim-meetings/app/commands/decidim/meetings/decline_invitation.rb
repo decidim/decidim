@@ -38,7 +38,7 @@ module Decidim
       end
 
       def invitation
-        @invitation ||= meeting.invites.find_by(user: user)
+        @invitation ||= meeting.invites.find_by(user:)
       end
     end
   end

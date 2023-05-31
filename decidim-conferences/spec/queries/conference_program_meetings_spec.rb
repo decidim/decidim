@@ -17,7 +17,7 @@ module Decidim::Conferences
         :meeting,
         3,
         :published,
-        component: component
+        component:
       )
     end
 
@@ -50,12 +50,12 @@ module Decidim::Conferences
             :meeting,
             3,
             :published,
-            component: component,
+            component:,
             private_meeting: true
           )
         end
 
-        let!(:registration) { create(:registration, user: user, meeting: local_private_meetings.first) }
+        let!(:registration) { create(:registration, user:, meeting: local_private_meetings.first) }
 
         it "includes the meetings visible for user" do
           expect(subject).to include(*local_private_meetings.first)

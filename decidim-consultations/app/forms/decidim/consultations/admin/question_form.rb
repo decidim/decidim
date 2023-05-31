@@ -48,7 +48,7 @@ module Decidim
           return unless OrganizationQuestions
                         .new(current_organization)
                         .query
-                        .where(slug: slug)
+                        .where(slug:)
                         .where.not(id: context[:question_id]).any?
 
           errors.add(:slug, :taken)

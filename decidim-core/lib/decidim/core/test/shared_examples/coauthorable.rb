@@ -61,7 +61,7 @@ shared_examples_for "coauthorable" do
         before do
           coauthorable.coauthorships.clear
           other_user_groups.each do |ug|
-            Decidim::Coauthorship.create(author: ug.memberships.first.user, user_group: ug, coauthorable: coauthorable)
+            Decidim::Coauthorship.create(author: ug.memberships.first.user, user_group: ug, coauthorable:)
           end
         end
 
@@ -115,7 +115,7 @@ shared_examples_for "coauthorable" do
           other_user_groups.each do |user_group|
             coauthorable.add_coauthor(
               user_group.memberships.first.user,
-              user_group: user_group
+              user_group:
             )
           end
         end

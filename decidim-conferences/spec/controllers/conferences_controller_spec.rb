@@ -13,7 +13,7 @@ module Decidim
         create(
           :conference,
           :unpublished,
-          organization: organization
+          organization:
         )
       end
 
@@ -21,7 +21,7 @@ module Decidim
         create(
           :conference,
           :published,
-          organization: organization
+          organization:
         )
       end
 
@@ -30,7 +30,7 @@ module Decidim
           :conference,
           :published,
           :promoted,
-          organization: organization
+          organization:
         )
       end
 
@@ -40,7 +40,7 @@ module Decidim
 
       describe "conferences" do
         it "includes only published, with promoted listed first" do
-          expect(controller.helpers.conferences).to match_array([promoted, published])
+          expect(controller.helpers.conferences).to contain_exactly(promoted, published)
         end
       end
 
@@ -59,7 +59,7 @@ module Decidim
           end
 
           context "with signed in user" do
-            let!(:user) { create(:user, :confirmed, organization: organization) }
+            let!(:user) { create(:user, :confirmed, organization:) }
 
             before do
               sign_in user, scope: :user

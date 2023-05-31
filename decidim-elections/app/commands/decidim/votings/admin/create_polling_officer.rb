@@ -19,7 +19,7 @@ module Decidim
         # Executes the command. Broadcasts these events:
         #
         # - :ok when everything is valid.
-        # - :invalid if the form wasn't valid and we couldn't proceed.
+        # - :invalid if the form was not valid and we could not proceed.
         #
         # Returns nothing.
         def call
@@ -54,8 +54,8 @@ module Decidim
             }
           ) do
             Decidim::Votings::PollingOfficer.find_or_create_by!(
-              user: user,
-              voting: voting
+              user:,
+              voting:
             )
           end
         end
@@ -87,7 +87,7 @@ module Decidim
                          organization: voting.organization,
                          admin: false,
                          invited_by: current_user,
-                         invitation_instructions: invitation_instructions)
+                         invitation_instructions:)
         end
 
         def invitation_instructions

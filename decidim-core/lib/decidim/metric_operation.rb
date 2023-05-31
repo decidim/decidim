@@ -7,7 +7,7 @@ module Decidim
     # metric_operation - a symbol representing the name of the operation involved
     # metric_name - a symbol representing the name of the metric involved
     #
-    # Returns nothing. Raises an error if there's already a metric
+    # Returns nothing. Raises an error if there is already a metric
     # registered with that metric name.
     def register(metric_operation, metric_name)
       metric_operation = metric_operation.to_s
@@ -17,11 +17,11 @@ module Decidim
       if metric_exists
         raise(
           MetricOperationAlreadyRegistered,
-          "There's a metric already registered with the name `:#{metric_name}`, must be unique"
+          "There is a metric already registered with the name `:#{metric_name}`, must be unique"
         )
       end
 
-      metric_manifest = MetricOperationManifest.new(metric_operation: metric_operation, metric_name: metric_name)
+      metric_manifest = MetricOperationManifest.new(metric_operation:, metric_name:)
 
       yield(metric_manifest)
 

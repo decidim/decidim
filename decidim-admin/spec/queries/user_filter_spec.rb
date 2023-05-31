@@ -6,12 +6,12 @@ module Decidim::Admin
   describe UserFilter do
     subject { described_class.new(organization.users, search, filter) }
 
-    let(:organization) { create :organization }
+    let(:organization) { create(:organization) }
     let(:search) { nil }
     let(:filter) { nil }
 
     describe "when the list is not filtered" do
-      let!(:users) { create_list(:user, 3, organization: organization) }
+      let!(:users) { create_list(:user, 3, organization:) }
       let!(:other_org_users) { create_list(:user, 3) }
 
       it "returns all users" do
@@ -24,7 +24,7 @@ module Decidim::Admin
       context "and receives a search param" do
         let!(:users) do
           %w(Walter Fargo Phargo).map do |name|
-            create(:user, name: name, organization: organization)
+            create(:user, name:, organization:)
           end
         end
 
@@ -32,7 +32,7 @@ module Decidim::Admin
           let(:search) { "Argo" }
 
           it "returns all matching users" do
-            expect(subject.query).to match_array([users[1], users[2]])
+            expect(subject.query).to contain_exactly(users[1], users[2])
           end
         end
 
@@ -46,11 +46,11 @@ module Decidim::Admin
       end
 
       context "and receives a filter param" do
-        let!(:regular_users) { create_list(:user, 2, organization: organization) }
+        let!(:regular_users) { create_list(:user, 2, organization:) }
         let!(:not_officialized_users) { regular_users + managed_users }
-        let!(:officialized_users) { create_list(:user, 2, :officialized, organization: organization) }
+        let!(:officialized_users) { create_list(:user, 2, :officialized, organization:) }
         let!(:not_managed_users) { regular_users + officialized_users }
-        let!(:managed_users) { create_list(:user, 2, :managed, organization: organization) }
+        let!(:managed_users) { create_list(:user, 2, :managed, organization:) }
         let(:all_users) { regular_users + officialized_users + managed_users }
 
         context 'when filtering by "Officialized"' do
@@ -97,13 +97,13 @@ module Decidim::Admin
       context "and receives a search and a filter param" do
         let(:officialized_users) do
           %w(Lorem Ipsum Dolor).map do |name|
-            create(:user, :officialized, name: name, organization: organization)
+            create(:user, :officialized, name:, organization:)
           end
         end
 
         let(:_not_officialized_users) do
           %w(Elit Vivamus Doctum).map do |name|
-            create(:user, name: name, organization: organization)
+            create(:user, name:, organization:)
           end
         end
 
@@ -111,7 +111,7 @@ module Decidim::Admin
         let(:filter) { "officialized" }
 
         it 'returns the "Officialized" users that contain the query search' do
-          expect(subject.query).to match_array([officialized_users[0], officialized_users[2]])
+          expect(subject.query).to contain_exactly(officialized_users[0], officialized_users[2])
         end
       end
     end

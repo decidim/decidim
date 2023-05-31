@@ -5,7 +5,7 @@ module Decidim
     # This form handles permissions for a particular action in the admin panel.
     class PermissionForm < Form
       attribute :authorization_handlers, Array[String]
-      attribute :authorization_handlers_options, Hash[String => Object]
+      attribute(:authorization_handlers_options, { String => Object })
 
       def authorization_handlers
         handlers = super || []

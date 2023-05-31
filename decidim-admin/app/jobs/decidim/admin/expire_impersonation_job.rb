@@ -6,7 +6,7 @@ module Decidim
       queue_as :default
 
       def perform(user, current_user)
-        impersonation_log = Decidim::ImpersonationLog.where(admin: current_user, user: user).active.first
+        impersonation_log = Decidim::ImpersonationLog.where(admin: current_user, user:).active.first
         return unless impersonation_log
 
         impersonation_log.expire!

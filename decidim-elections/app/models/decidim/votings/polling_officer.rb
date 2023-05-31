@@ -39,11 +39,11 @@ module Decidim
       end
 
       def self.polling_officer?(user)
-        exists?(user: user)
+        exists?(user:)
       end
 
       def self.for(user)
-        where(user: user)
+        where(user:)
       end
 
       def role

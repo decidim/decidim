@@ -1,16 +1,23 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/core/test/shared_examples/simple_event"
 
 describe Decidim::Blogs::CreatePostEvent do
-  let(:resource) { create :post }
+  let(:resource) { create(:post) }
   let(:event_name) { "decidim.events.blogs.post_created" }
 
   include_context "when a simple event"
   it_behaves_like "a simple event"
 
   describe "email_subject" do
+    let(:assembly) { create(:assembly, organization:, title: { en: "It is a test" }) }
+    let(:blogs_component) { create(:component, :published, name: { en: "Blogs" }, participatory_space: assembly, manifest_name: :blogs) }
+
+    before do
+      resource.component = blogs_component
+      resource.save!
+    end
+
     it "is generated correctly" do
       expect(subject.email_subject).to eq("New post published in #{participatory_space_title}")
     end

@@ -6,19 +6,19 @@ module Decidim::Admin
   describe CreateArea do
     subject { described_class.new(form) }
 
-    let(:organization) { create :organization }
-    let(:user) { create :user, :admin, :confirmed, organization: organization }
+    let(:organization) { create(:organization) }
+    let(:user) { create(:user, :admin, :confirmed, organization:) }
     let(:name) { Decidim::Faker::Localized.literal(Faker::Address.unique.state) }
     let(:code) { Faker::Address.unique.state_abbr }
-    let(:area_type) { create :area_type }
+    let(:area_type) { create(:area_type) }
 
     let(:form) do
       double(
         invalid?: invalid,
         current_user: user,
-        name: name,
-        organization: organization,
-        area_type: area_type
+        name:,
+        organization:,
+        area_type:
       )
     end
     let(:invalid) { false }

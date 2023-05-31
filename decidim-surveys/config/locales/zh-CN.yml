@@ -24,7 +24,6 @@ zh-CN:
           step:
             allow_answers: 允许答案
             allow_unregistered: 允许未注册用户回答调查
-            allow_unregistered_help: 如果激活，将不需要登录才能回答调查。 这可能导致数据不准确或不可靠，更容易受到自动攻击。请谨慎使用！
             announcement: 通 知
     events:
       surveys:
@@ -51,10 +50,7 @@ zh-CN:
           update:
             invalid: 保存调查时出现问题。
             success: 调查保存成功。
-      last_activity:
-        new_survey_at_html: "<span>在 %{link}上的新调查</span>"
       surveys:
         answer:
           invalid: 回答调查时出现问题。
-          spam_detected: 回答表单时出现问题。可能你太快了，你可以再试一次吗？
           success: 调查回答成功。

@@ -19,11 +19,11 @@ module Decidim
         )
       end
 
-      let!(:collaborative_draft) { create :collaborative_draft, component: component, users: [author] }
-      let(:author) { create(:user, organization: organization) }
+      let!(:collaborative_draft) { create(:collaborative_draft, component:, users: [author]) }
+      let(:author) { create(:user, organization:) }
 
       let(:user_group) do
-        create(:user_group, :verified, organization: organization, users: [author])
+        create(:user_group, :verified, organization:, users: [author])
       end
 
       let(:has_address) { false }
@@ -37,10 +37,10 @@ module Decidim
           {
             title: "This is the collaborative draft title",
             body: "This is the collaborative draft body",
-            address: address,
-            has_address: has_address,
+            address:,
+            has_address:,
             user_group_id: user_group.try(:id),
-            suggested_hashtags: suggested_hashtags
+            suggested_hashtags:
           }
         end
 
@@ -57,7 +57,7 @@ module Decidim
             expect { command.call }.to broadcast(:invalid)
           end
 
-          it "doesn't update the proposal" do
+          it "does not update the proposal" do
             expect do
               command.call
             end.not_to change(collaborative_draft, :title)
@@ -73,7 +73,7 @@ module Decidim
             expect { command.call }.to broadcast(:invalid)
           end
 
-          it "doesn't update the collaborative draft" do
+          it "does not update the collaborative draft" do
             expect do
               command.call
             end.not_to change(collaborative_draft, :title)

@@ -7,7 +7,7 @@ module Decidim
     describe PagesController, type: :controller do
       routes { Decidim::Core::Engine.routes }
 
-      let(:organization) { create :organization }
+      let(:organization) { create(:organization) }
 
       before do
         request.env["decidim.current_organization"] = organization
@@ -27,7 +27,7 @@ module Decidim
       end
 
       context "when a page exists" do
-        let(:page) { create(:static_page, organization: organization) }
+        let(:page) { create(:static_page, organization:) }
 
         it_behaves_like "accessible static page"
 
@@ -40,7 +40,7 @@ module Decidim
         end
       end
 
-      context "when a page doesn't exist" do
+      context "when a page does not exist" do
         it "redirects to the 404" do
           expect { get :show, params: { id: "some-page" } }
             .to raise_error(ActiveRecord::RecordNotFound)
@@ -54,13 +54,13 @@ module Decidim
         end
 
         context "with a publicly accessible page" do
-          let(:page) { create(:static_page, organization: organization, allow_public_access: true) }
+          let(:page) { create(:static_page, organization:, allow_public_access: true) }
 
           it_behaves_like "accessible static page"
         end
 
         context "with a publicly hidden page" do
-          let(:page) { create(:static_page, organization: organization, allow_public_access: false) }
+          let(:page) { create(:static_page, organization:, allow_public_access: false) }
 
           it "redirects to sign in path" do
             get :show, params: { id: page.slug }
@@ -71,20 +71,20 @@ module Decidim
         end
 
         context "when authenticated" do
-          let!(:user) { create :user, :confirmed, organization: organization }
+          let!(:user) { create(:user, :confirmed, organization:) }
 
           before do
             sign_in user
           end
 
           context "with a publicly accessible page" do
-            let(:page) { create(:static_page, organization: organization, allow_public_access: true) }
+            let(:page) { create(:static_page, organization:, allow_public_access: true) }
 
             it_behaves_like "accessible static page"
           end
 
           context "with a publicly hidden page" do
-            let(:page) { create(:static_page, organization: organization, allow_public_access: false) }
+            let(:page) { create(:static_page, organization:, allow_public_access: false) }
 
             it_behaves_like "accessible static page"
           end

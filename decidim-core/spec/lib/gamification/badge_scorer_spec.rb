@@ -11,7 +11,7 @@ module Decidim
       let(:badge) { Badge.new(name: "test", levels: [1, 3, 5]) }
 
       describe "#increment" do
-        context "when there's no previous score" do
+        context "when there is no previous score" do
           it "sets the score to 1" do
             subject.increment
             status = BadgeStatus.new(user, badge)
@@ -27,9 +27,9 @@ module Decidim
           end
         end
 
-        context "when there's a previous score" do
+        context "when there is a previous score" do
           before do
-            BadgeScore.create(user: user, badge_name: badge.name, value: 10)
+            BadgeScore.create(user:, badge_name: badge.name, value: 10)
           end
 
           it "increments the score by 1 by default" do
@@ -47,8 +47,8 @@ module Decidim
       end
 
       describe "#decrement" do
-        context "when there's no previous score" do
-          it "doesn't do anything" do
+        context "when there is no previous score" do
+          it "does not do anything" do
             subject.decrement
             status = BadgeStatus.new(user, badge)
             expect(status.score).to eq(0)
@@ -63,9 +63,9 @@ module Decidim
           end
         end
 
-        context "when there's a previous score" do
+        context "when there is a previous score" do
           before do
-            BadgeScore.create(user: user, badge_name: badge.name, value: 10)
+            BadgeScore.create(user:, badge_name: badge.name, value: 10)
           end
 
           it "decrements the score by 1 by default" do
@@ -89,7 +89,7 @@ module Decidim
       end
 
       describe "#set" do
-        context "when there's no previous score" do
+        context "when there is no previous score" do
           it "sets the score to the provided value" do
             subject.set(10)
             status = BadgeStatus.new(user, badge)
@@ -97,9 +97,9 @@ module Decidim
           end
         end
 
-        context "when there's a previous score" do
+        context "when there is a previous score" do
           before do
-            BadgeScore.create(user: user, badge_name: badge.name, value: 10)
+            BadgeScore.create(user:, badge_name: badge.name, value: 10)
           end
 
           it "sets the score to the provided value" do
@@ -151,7 +151,7 @@ module Decidim
               user.organization.update(badges_enabled: false)
             end
 
-            it "doesn't send a notification" do
+            it "does not send a notification" do
               expect(Decidim::EventsManager).not_to receive(:publish).with(anything)
               subject.increment
             end
@@ -173,7 +173,7 @@ module Decidim
                 }
               )
             )
-            BadgeScore.create(user: user, badge_name: badge.name, value: 2)
+            BadgeScore.create(user:, badge_name: badge.name, value: 2)
             subject.increment
           end
         end

@@ -8,12 +8,12 @@ module Decidim::Verifications::IdDocuments::Admin
 
     let(:attributes) do
       {
-        online: online,
-        offline: offline,
-        offline_explanation: offline_explanation
+        online:,
+        offline:,
+        offline_explanation:
       }
     end
-    let(:organization) { create :organization }
+    let(:organization) { create(:organization) }
     let(:online) { true }
     let(:offline) { false }
     let(:offline_explanation) { {} }
@@ -39,7 +39,7 @@ module Decidim::Verifications::IdDocuments::Admin
       it "is not valid without an explanation" do
         expect(subject).not_to be_valid
         expect(subject.errors[:offline_explanation_en])
-          .to include("can't be blank")
+          .to include("cannot be blank")
       end
     end
   end

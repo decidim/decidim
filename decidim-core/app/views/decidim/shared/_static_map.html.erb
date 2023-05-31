@@ -6,7 +6,7 @@
           <%= icon icon_name, role: "img", "aria-hidden": true, width: 40, height: 70 %>
         </div>
         <div class="address__details">
-          <%= render partial: "decidim/shared/address_details", locals: { geolocalizable: geolocalizable } %>
+          <%= render partial: "decidim/shared/address_details", locals: { geolocalizable: } %>
         </div>
       </div>
       <% if Decidim::Map.available?(:static) || Decidim::Map.available?(:dynamic) %>

@@ -13,19 +13,19 @@ fr:
       templates:
         apply:
           error: Une erreur est survenue lors de l'application de ce modèle.
-          success: Modèle appliqué avec succès
+          success: Modèle appliqué avec succès.
         copy:
           error: Une erreur est survenue lors de la copie de ce modèle.
-          success: Modèle copié avec succès
+          success: Modèle copié avec succès.
         create:
           error: Une erreur est survenue pendant la création du modèle.
-          success: Modèle créé avec succès
+          success: Modèle créé avec succès.
         destroy:
-          success: Modèle supprimé avec succès
+          success: Modèle supprimé avec succès.
         empty: Il n'y a pas de modèle pour l'instant.
         update:
-          error: Une erreur est survenue pendant la mise à jour du modèle.
-          success: Modèle mis à jour avec succès
+          error: Un problème est survenu lors de la mise à jour de ce modèle.
+          success: Modèle mis à jour avec succès.
       titles:
         template_types:
           questionnaires: Modèles de questionnaire
@@ -41,6 +41,15 @@ fr:
         name: Modèle
     templates:
       admin:
+        block_user_templates:
+          form:
+            save: Enregistrer
+            template_title: Informations sur le modèle
+          index:
+            confirm_delete: Êtes-vous sûr(e) de vouloir supprimer ce modèle ?
+            title: Bloquer les messages de l'utilisateur
+          template_chooser:
+            select_template: Sélectionnez un modèle de réponse
         questionnaire_templates:
           choose:
             create_from_template: Créer depuis un modèle
@@ -50,7 +59,7 @@ fr:
             skip_template: Passer
           edit:
             edit: Modifier
-            empty: Il n'y a pas encore de question
+            empty: Il n'y a pas encore de question.
             questionnaire: Questionnaire
           form:
             save: Sauvegarder
@@ -63,5 +72,12 @@ fr:
             current_step: Étape %{step}
             of_total_steps: sur %{total_steps}
             tos_agreement: En participant, vous acceptez ces conditions d'utilisation
+      admin_log:
+        template:
+          create: "%{user_name} a créé le modèle de questionnaire %{resource_name}"
+          delete: "%{user_name} a supprimé le modèle de questionnaire %{resource_name}"
+          duplicate: "%{user_name} a dupliqué le modèle de questionnaire %{resource_name}"
+          update: "%{user_name} a modifié le modèle de questionnaire %{resource_name}"
       template_types:
+        block_user: Bloquer les messages de l'utilisateur
         questionnaires: Questionnaires

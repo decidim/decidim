@@ -7,8 +7,8 @@ module Decidim
     subject { authorizer }
 
     let(:organization) { create(:organization, available_authorizations: %w(dummy_authorization_handler another_dummy_authorization_handler)) }
-    let(:user) { create(:user, organization: organization) }
-    let(:component) { create(:component, permissions: permissions, organization: organization) }
+    let(:user) { create(:user, organization:) }
+    let(:component) { create(:component, permissions:, organization:) }
     let(:resource) { nil }
     let(:action) { "vote" }
     let(:permissions) { { action => permission } }
@@ -16,7 +16,7 @@ module Decidim
     let(:authorizer) { described_class.new(user, action, component, resource) }
 
     let!(:authorization) do
-      create(:authorization, :granted, name: name, metadata: metadata)
+      create(:authorization, :granted, name:, metadata:)
     end
 
     let(:metadata) { { postal_code: "1234", location: "Tomorrowland" } }
@@ -51,7 +51,7 @@ module Decidim
         end
 
         context "when authorization is granted" do
-          before { authorization.update!(user: user, granted_at: 1.minute.ago) }
+          before { authorization.update!(user:, granted_at: 1.minute.ago) }
 
           it "returns an authorization status ok" do
             expect(response).to be_ok
@@ -61,7 +61,7 @@ module Decidim
         end
 
         context "when authorization is not granted" do
-          before { authorization.update!(user: user, granted_at: nil) }
+          before { authorization.update!(user:, granted_at: nil) }
 
           it "returns an authorization status not ok" do
             expect(response).not_to be_ok
@@ -73,7 +73,7 @@ module Decidim
 
       context "when more than one authorization handlers are set" do
         let!(:another_authorization) do
-          create(:authorization, :granted, name: "another_dummy_authorization_handler", metadata: metadata)
+          create(:authorization, :granted, name: "another_dummy_authorization_handler", metadata:)
         end
         let(:permission) do
           {
@@ -85,7 +85,7 @@ module Decidim
         end
 
         context "when the user only has a valid authorization" do
-          before { authorization.update!(user: user, granted_at: 1.minute.ago) }
+          before { authorization.update!(user:, granted_at: 1.minute.ago) }
 
           context "when only one authorzation matches options" do
             it "returns an authorization status not ok" do
@@ -96,7 +96,7 @@ module Decidim
           end
 
           context "when both authorizations are ok" do
-            before { another_authorization.update!(user: user, granted_at: 1.minute.ago) }
+            before { another_authorization.update!(user:, granted_at: 1.minute.ago) }
 
             it "returns an ok authorization status" do
               expect(response).to be_ok
@@ -105,7 +105,7 @@ module Decidim
             end
           end
 
-          context "when options doesn't match one authorization" do
+          context "when options does not match one authorization" do
             let(:options) { { postal_code: "789" } }
 
             it "returns an authorization status collection including unauthorized" do
@@ -117,7 +117,7 @@ module Decidim
         end
       end
 
-      context "when organization doesnt have authorization handler available" do
+      context "when organization does not have authorization handler available" do
         let(:permission) do
           {
             "authorization_handlers" => {
@@ -126,7 +126,7 @@ module Decidim
           }
         end
 
-        it "doesn't require it" do
+        it "does not require it" do
           expect(response).to be_ok
           expect(response.statuses.count).to eq(0)
         end
@@ -165,12 +165,12 @@ module Decidim
       end
 
       context "when the user has a valid authorization" do
-        before { authorization.update!(user: user) }
+        before { authorization.update!(user:) }
 
         context "when the authorization has not expired" do
           before { authorization.update!(granted_at: 1.minute.ago) }
 
-          context "when it doesn't have options" do
+          context "when it does not have options" do
             let(:options) { {} }
 
             it "returns ok" do
@@ -178,7 +178,7 @@ module Decidim
             end
           end
 
-          context "when has options that doesn't match the authorization" do
+          context "when has options that does not match the authorization" do
             let(:options) { { postal_code: "789" } }
 
             it "returns an authorization status collection including unauthorized" do
@@ -235,7 +235,7 @@ module Decidim
             end
           end
 
-          context "when custom action authorizer options are present and don't match the authorization" do
+          context "when custom action authorizer options are present and do not match the authorization" do
             let(:options) { { allowed_postal_codes: "2345,4567" } }
 
             it "returns an authorization status collection including unauthorized" do
@@ -263,7 +263,7 @@ module Decidim
           context "when attribute is defined in manifest with required_for_authorization" do
             before do
               Verifications.find_workflow_manifest(name).options do |opts|
-                opts.attribute :location, type: :string, required: false, required_for_authorization: required_for_authorization
+                opts.attribute :location, type: :string, required: false, required_for_authorization:
               end
             end
 
@@ -307,7 +307,7 @@ module Decidim
 
         context "when the authorization has expired" do
           let!(:authorization) do
-            create(:authorization, :granted, name: name, metadata: metadata, granted_at: 2.months.ago)
+            create(:authorization, :granted, name:, metadata:, granted_at: 2.months.ago)
           end
 
           before do
@@ -342,7 +342,7 @@ module Decidim
         end
       end
 
-      context "when the user doesn't have a valid authorization" do
+      context "when the user does not have a valid authorization" do
         let(:name) { "bar_handler" }
 
         it "returns an authorization status collection including missing" do
@@ -361,7 +361,7 @@ module Decidim
           allow(resource).to receive(:resource_permission).and_return(resource_permission)
         end
 
-        let(:resource) { create(:dummy_resource, component: component) }
+        let(:resource) { create(:dummy_resource, component:) }
         let(:resource_permission) do
           double(
             Decidim::ResourcePermission,

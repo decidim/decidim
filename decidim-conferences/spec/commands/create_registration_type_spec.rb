@@ -8,7 +8,7 @@ module Decidim::Conferences
 
     let(:conference) { create(:conference) }
     let(:user) { nil }
-    let!(:current_user) { create :user, :confirmed, organization: conference.organization }
+    let!(:current_user) { create(:user, :confirmed, organization: conference.organization) }
     let(:meeting_component) do
       create(:component, manifest_name: :meetings, participatory_space: conference)
     end
@@ -26,7 +26,7 @@ module Decidim::Conferences
       double(
         Admin::RegistrationTypeForm,
         invalid?: invalid,
-        current_user: current_user,
+        current_user:,
         title: { en: "title" },
         attributes: {
           "title" => { en: "title" },
@@ -51,7 +51,7 @@ module Decidim::Conferences
       let(:registration_type) { Decidim::Conferences::RegistrationType.last }
 
       it "creates a registration type" do
-        expect { subject.call }.to change { Decidim::Conferences::RegistrationType.count }.by(1)
+        expect { subject.call }.to change(Decidim::Conferences::RegistrationType, :count).by(1)
       end
 
       it "broadcasts ok" do

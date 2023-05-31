@@ -1,6 +1,6 @@
-.questionnaire-answers{
-  .header{
-    h1{
+.questionnaire-answers {
+  .header {
+    h1 {
       margin: 0;
       padding: 25px;
       background: rgb(59, 69, 87);
@@ -8,7 +8,7 @@
       border-radius: 4px 4px 0 0;
     }
 
-    .description{
+    .description {
       margin: 0;
       padding: 25px;
       background: #f6f6f6;
@@ -17,12 +17,12 @@
     }
   }
 
-  .answer{
+  .answer {
     margin-top: 25px;
     background: #f6f6f6;
     border-radius: 0 0 4px 4px;
 
-    .title{
+    .title {
       page-break-inside: avoid;
       border-radius: 4px 4px 0 0;
       padding: 10px 25px;
@@ -30,7 +30,7 @@
       color: white;
     }
 
-    .participant-info{
+    .participant-info {
       margin-top: 0;
       padding: 10px 25px;
       width: 100%;
@@ -39,27 +39,27 @@
       color: #202751;
       page-break-inside: avoid;
 
-      th:first-child{
+      th:first-child {
         text-align: left;
       }
 
-      td:first-child{
+      td:first-child {
         text-align: left;
       }
 
-      th:last-child{
+      th:last-child {
         text-align: right;
       }
 
-      td:last-child{
+      td:last-child {
         text-align: right;
       }
     }
 
-    .answers{
+    .answers {
       padding: 25px;
 
-      .question{
+      .question {
         page-break-inside: avoid;
         font-size: inherit;
         color: #202751;

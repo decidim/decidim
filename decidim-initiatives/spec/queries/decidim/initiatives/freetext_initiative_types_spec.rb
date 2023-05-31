@@ -11,7 +11,7 @@ module Decidim
           create(:initiatives_type,
                  title: Decidim::Faker::Localized.literal(title),
                  description: Decidim::Faker::Localized.sentence(word_count: 25),
-                 organization: organization)
+                 organization:)
         end
       end
 
@@ -31,7 +31,7 @@ module Decidim
         end
       end
 
-      context "when don't find results" do
+      context "when do not find results" do
         subject { described_class.new(organization, "en", "Dd") }
 
         it "is empty" do

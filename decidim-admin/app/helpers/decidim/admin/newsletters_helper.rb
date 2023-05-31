@@ -74,7 +74,7 @@ module Decidim
           else
             Decidim.find_participatory_space_manifest(type["manifest_name"].to_sym)
                    .participatory_spaces.call(current_organization).where(id: type["ids"]).each do |space|
-              html += "<strong>#{translated_attribute space.title}</strong>"
+              html += "<strong>#{decidim_html_escape(translated_attribute(space.title))}</strong>"
             end
           end
           html += "<br/>"
@@ -88,7 +88,7 @@ module Decidim
           concat t("index.segmented_to", scope: "decidim.admin.newsletters", subject: nil)
           if newsletter.sent_scopes.any?
             newsletter.sent_scopes.each do |scope|
-              concat content_tag(:strong, (translated_attribute scope.name).to_s)
+              concat content_tag(:strong, decidim_html_escape(translated_attribute(scope.name)).to_s)
             end
           else
             concat content_tag(:strong, t("index.no_scopes", scope: "decidim.admin.newsletters"))
@@ -141,7 +141,7 @@ module Decidim
         spinner = "<span id='recipients_count_spinner' class='loading-spinner hide'></span>"
         body = "#{t("recipients_count", scope: "decidim.admin.newsletters.select_recipients_to_deliver", count: recipients_count_query)} #{spinner}"
         {
-          body: body
+          body:
         }
       end
     end

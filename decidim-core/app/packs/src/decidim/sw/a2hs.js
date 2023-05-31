@@ -3,9 +3,17 @@ const DELAYED_VISITS = 2
 let deferredPrompt = null
 
 const shouldCountVisitedPages = () => sessionStorage.getItem("userChoice") !== "dismissed" && visitedPages.length < DELAYED_VISITS && !visitedPages.includes(location.pathname)
-const shouldPrompt = () => deferredPrompt && sessionStorage.getItem("userChoice") !== "dismissed" && visitedPages.length >= DELAYED_VISITS
+const shouldPrompt = () => {
+  // Disable the application install prompt showing constantly.
+  if (localStorage.getItem("pwaInstallPromptSeen")) {
+    return false
+  }
+
+  return deferredPrompt && sessionStorage.getItem("userChoice") !== "dismissed" && visitedPages.length >= DELAYED_VISITS
+}
 
 window.addEventListener("beforeinstallprompt", (event) => {
+  event.preventDefault()
   deferredPrompt = event
 
   // allow the user browse through different locations before prompt them anything
@@ -24,5 +32,6 @@ window.addEventListener("click", async (event) => {
     // store the user choice to avoid asking again in the current session
     sessionStorage.setItem("userChoice", outcome)
     sessionStorage.removeItem("visitedPages")
+    localStorage.setItem("pwaInstallPromptSeen", true)
   }
 });

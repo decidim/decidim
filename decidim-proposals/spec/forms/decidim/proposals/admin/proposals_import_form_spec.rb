@@ -15,10 +15,10 @@ module Decidim
         let(:import_proposals) { true }
         let(:params) do
           {
-            states: states,
+            states:,
             keep_authors: false,
             origin_component_id: origin_component.try(:id),
-            import_proposals: import_proposals
+            import_proposals:
           }
         end
 
@@ -45,7 +45,7 @@ module Decidim
           it { is_expected.to be_invalid }
         end
 
-        context "when there's no target component" do
+        context "when there is no target component" do
           let(:origin_component) { nil }
 
           it { is_expected.to be_invalid }

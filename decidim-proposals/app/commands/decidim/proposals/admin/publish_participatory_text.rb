@@ -16,7 +16,7 @@ module Decidim
         # Executes the command. Broadcasts these events:
         #
         # - :ok when everything is valid.
-        # - :invalid if the form wasn't valid and we couldn't proceed.
+        # - :invalid if the form was not valid and we could not proceed.
         #
         # Returns nothing.
         def call
@@ -55,7 +55,7 @@ module Decidim
           title, body = reset_proposal_title_and_body(proposal)
 
           Decidim.traceability.perform_action!(:create, proposal, form.current_user, visibility: "all") do
-            proposal.update(title: title, body: body, published_at: Time.current)
+            proposal.update(title:, body:, published_at: Time.current)
           end
         end
 

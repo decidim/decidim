@@ -5,25 +5,26 @@ require "spec_helper"
 describe Decidim::Meetings::Permissions do
   subject { described_class.new(user, permission_action, context).permissions.allowed? }
 
-  let(:user) { create :user, organization: meeting_component.organization }
-  let(:admin_user) { create :user, :admin, organization: meeting_component.organization }
+  let(:participatory_space) { create(:participatory_process, :with_steps) }
+  let(:user) { create(:user, organization: participatory_space.organization) }
+  let(:admin_user) { create(:user, :admin, organization: participatory_space.organization) }
   let(:context) do
     {
       current_component: meeting_component,
-      component_settings: component_settings,
-      meeting: meeting,
-      question: question
+      component_settings:,
+      meeting:,
+      question:
     }
   end
   let(:component_settings) do
     double(creation_enabled_for_participants?: true)
   end
-  let(:meeting_component) { create :meeting_component }
-  let(:meeting) { create :meeting, component: meeting_component }
+  let(:meeting_component) { create(:meeting_component, participatory_space:) }
+  let(:meeting) { create(:meeting, component: meeting_component) }
   let(:permission_action) { Decidim::PermissionAction.new(**action) }
-  let(:poll) { create :poll, meeting: meeting }
-  let(:poll_questionnaire) { create :meetings_poll_questionnaire, questionnaire_for: poll }
-  let(:question) { create :meetings_poll_question, questionnaire: poll_questionnaire }
+  let(:poll) { create(:poll, meeting:) }
+  let(:poll_questionnaire) { create(:meetings_poll_questionnaire, questionnaire_for: poll) }
+  let(:question) { create(:meetings_poll_question, questionnaire: poll_questionnaire) }
   let(:registrations_enabled) { true }
 
   context "when scope is admin" do
@@ -60,7 +61,7 @@ describe Decidim::Meetings::Permissions do
     end
 
     context "when question answered" do
-      let!(:answer) { create :meetings_poll_answer, user: user, question: question, questionnaire: poll_questionnaire }
+      let!(:answer) { create(:meetings_poll_answer, user:, question:, questionnaire: poll_questionnaire) }
 
       it { is_expected.to be false }
     end
@@ -94,7 +95,7 @@ describe Decidim::Meetings::Permissions do
         .and_return(can_be_joined)
     end
 
-    context "when meeting can't be joined" do
+    context "when meeting cannot be joined" do
       let(:can_be_joined) { false }
 
       it { is_expected.to be false }
@@ -119,7 +120,7 @@ describe Decidim::Meetings::Permissions do
         .and_return(can_be_registered)
     end
 
-    context "when meeting can't be joined" do
+    context "when meeting cannot be joined" do
       let(:can_be_registered) { false }
 
       it { is_expected.to be false }
@@ -138,13 +139,13 @@ describe Decidim::Meetings::Permissions do
     end
 
     context "when meeting author is the user trying to withdraw" do
-      let(:meeting) { create :meeting, author: user, component: meeting_component }
+      let(:meeting) { create(:meeting, author: user, component: meeting_component) }
 
       it { is_expected.to be true }
     end
 
     context "when trying by another user" do
-      let(:user) { build :user }
+      let(:user) { build(:user) }
 
       it { is_expected.to be false }
     end
@@ -195,7 +196,7 @@ describe Decidim::Meetings::Permissions do
 
     context "when user has been invited" do
       before do
-        meeting.invites << create(:invite, user: user, meeting: meeting)
+        meeting.invites << create(:invite, user:, meeting:)
       end
 
       it { is_expected.to be true }
@@ -207,8 +208,51 @@ describe Decidim::Meetings::Permissions do
       { scope: :public, action: :create, subject: :meeting }
     end
 
-    context "when setting is enabled" do
+    context "when space is public and setting is enabled" do
       it { is_expected.to be true }
+    end
+
+    context "when space is private and setting is enabled" do
+      let(:participatory_space) { create(:participatory_process, :with_steps, private_space: true) }
+      let(:component_settings) do
+        double(creation_enabled_for_participants?: true)
+      end
+
+      context "when user is not a member" do
+        it { is_expected.to be false }
+      end
+
+      context "when user is admin and not a member" do
+        let(:user) { admin_user }
+
+        it { is_expected.to be false }
+      end
+
+      context "when user is admin but is a member" do
+        let(:user) { admin_user }
+
+        before do
+          create(:participatory_space_private_user, user:, privatable_to: participatory_space)
+        end
+
+        it { is_expected.to be true }
+      end
+
+      context "when user is a space admin" do
+        before do
+          create(:participatory_process_user_role, user:, participatory_process: participatory_space)
+        end
+
+        it { is_expected.to be false }
+      end
+
+      context "when user is a space private participant" do
+        before do
+          create(:participatory_space_private_user, user:, privatable_to: participatory_space)
+        end
+
+        it { is_expected.to be true }
+      end
     end
 
     context "when setting is disabled" do
@@ -231,12 +275,12 @@ describe Decidim::Meetings::Permissions do
       end
 
       context "when user is the author" do
-        let(:meeting) { create :meeting, author: user, component: meeting_component }
+        let(:meeting) { create(:meeting, author: user, component: meeting_component) }
 
         it { is_expected.to be true }
 
         context "when meeting is closed" do
-          let(:meeting) { create :meeting, :closed, author: user, component: meeting_component }
+          let(:meeting) { create(:meeting, :closed, author: user, component: meeting_component) }
 
           it { is_expected.to be false }
         end
@@ -263,7 +307,7 @@ describe Decidim::Meetings::Permissions do
       end
 
       context "when user is the author" do
-        let(:meeting) { create :meeting, author: user, component: meeting_component, closed_at: closed_at }
+        let(:meeting) { create(:meeting, author: user, component: meeting_component, closed_at:) }
 
         context "when meeting is closed" do
           let(:closed_at) { Time.current }
@@ -274,7 +318,7 @@ describe Decidim::Meetings::Permissions do
         context "when meeting is not closed" do
           let(:closed_at) { nil }
 
-          context "when meeting didn't finish" do
+          context "when meeting did not finish" do
             before do
               allow(meeting).to receive(:past?).and_return(false)
             end

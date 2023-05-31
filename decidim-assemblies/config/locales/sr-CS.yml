@@ -33,13 +33,10 @@ sr:
         home:
           highlighted_assemblies:
             assemblies_button_title: Veza ka strani Veća koja prikazuje sva veća
-      show:
-        social_networks_title: Podelite ovo veće na
     events:
       assemblies:
         create_assembly_member:
           email_intro: Administrator veća <a href="%{resource_url}">%{resource_name}</a> vas je dodao u to veće.
-          email_outro: Dobili ste ovo obaveštenje jer ste pozvani u jedno veće. Pogledajte <a href="%{resource_path}">stranicu veća</a> da bi doprineli njegovom radu!
           email_subject: Pozvani ste da postanete član veća %{resource_name}!
           notification_title: Registrovani ste kao član Veća <a href="%{resource_path}">%{resource_name}</a>. Pogledajte <a href="%{resource_path}">stranicu veća</a> da bi doprineli njegovom radu!
       assembly:

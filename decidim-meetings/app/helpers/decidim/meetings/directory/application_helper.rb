@@ -16,7 +16,7 @@ module Decidim
 
         def filter_type_values
           type_values = []
-          Decidim::Meetings::Meeting::TYPE_OF_MEETING.each do |type|
+          Decidim::Meetings::Meeting::TYPE_OF_MEETING.keys.each do |type|
             type_values << TreePoint.new(type, t("decidim.meetings.meetings.filters.type_values.#{type}"))
           end
 
@@ -27,13 +27,11 @@ module Decidim
         end
 
         def filter_date_values
-          TreeNode.new(
-            TreePoint.new("", t("decidim.meetings.meetings.filters.date_values.all")),
-            [
-              TreePoint.new("upcoming", t("decidim.meetings.meetings.filters.date_values.upcoming")),
-              TreePoint.new("past", t("decidim.meetings.meetings.filters.date_values.past"))
-            ]
-          )
+          [
+            ["all", t("decidim.meetings.meetings.filters.date_values.all")],
+            ["upcoming", t("decidim.meetings.meetings.filters.date_values.upcoming")],
+            ["past", t("decidim.meetings.meetings.filters.date_values.past")]
+          ]
         end
 
         def directory_filter_scopes_values

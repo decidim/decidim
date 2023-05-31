@@ -16,7 +16,7 @@ module Decidim
         enforce_permission_to :update, :organization, organization: current_organization
         @form = form(OrganizationExternalDomainWhitelistForm).from_params(params)
 
-        UpdateExternalDomainWhitelist.call(@form, current_organization) do
+        UpdateExternalDomainWhitelist.call(@form, current_organization, current_user) do
           on(:ok) do
             flash[:notice] = t("domain_whitelist.update.success", scope: "decidim.admin")
             redirect_to edit_organization_external_domain_whitelist_path

@@ -1,0 +1,35 @@
+<%= decidim_modal id: "flagModal", class: "flag-modal" do %>
+  <%= form_for report_form, builder:, url: decidim.report_path(sgid: model.to_sgid.to_s), method: :post, data: { turbo: false } do |f| %>
+    <div data-dialog-container>
+      <%= icon "flag-line" %>
+      <h2 id="dialog-title-flagModal" tabindex="-1" data-dialog-title><%= t("decidim.shared.flag_modal.title") %></h2>
+      <div>
+        <div class="form__wrapper flag-modal__form">
+          <p id="dialog-desc-flagModal" class="flag-modal__form-description"><%= t("decidim.shared.flag_modal.description") %></p>
+          <p class="flag-modal__form-reason"><%= t("decidim.shared.flag_modal.reason") %>:</p>
+          <%= f.collection_radio_buttons :reason, [
+            [:spam, t("decidim.shared.flag_modal.spam")],
+            [:offensive, t("decidim.shared.flag_modal.offensive")],
+            [:does_not_belong, t("decidim.shared.flag_modal.does_not_belong", organization_name: current_organization.name)]
+          ], :first, :last do |builder|
+            builder.label(for: nil, class: "form__wrapper-checkbox-label flag-modal__form-reasons") { builder.radio_button(id: nil) + builder.text }
+          end %>
+
+          <%= f.label :details, nil, class: "flag-modal__form-textarea-label" %>
+          <%= f.text_area :details, rows: 4, label: false %>
+        </div>
+      </div>
+    </div>
+
+    <div data-dialog-actions>
+      <button class="button button__lg button__transparent-secondary" data-dialog-close="flagModal">
+        <%= t("decidim.shared.confirm_modal.cancel") %>
+      </button>
+
+      <button type="submit" class="button button__lg button__secondary">
+        <%= t("decidim.shared.flag_modal.report") %>
+        <%= icon "arrow-right-line", class: "fill-current" %>
+      </button>
+    </div>
+  <% end %>
+<% end %>

@@ -6,12 +6,12 @@ describe Decidim::Comments::Metrics::CommentParticipantsMetricMeasure do
   let(:day) { Time.zone.yesterday }
   let(:organization) { create(:organization) }
   let(:not_valid_resource) { create(:dummy_resource) }
-  let(:participatory_space) { create(:participatory_process, :with_steps, organization: organization) }
-  let(:other_participatory_space) { create(:participatory_process, :with_steps, organization: organization) }
-  let(:component) { create(:component, participatory_space: participatory_space) }
-  let(:commentable) { create(:dummy_resource, component: component) }
-  let!(:comments) { create_list(:comment, 2, root_commentable: commentable, commentable: commentable, created_at: day) }
-  let!(:old_comments) { create_list(:comment, 2, root_commentable: commentable, commentable: commentable, created_at: day - 1.week) }
+  let(:participatory_space) { create(:participatory_process, :with_steps, organization:) }
+  let(:other_participatory_space) { create(:participatory_process, :with_steps, organization:) }
+  let(:component) { create(:component, participatory_space:) }
+  let(:commentable) { create(:dummy_resource, component:) }
+  let!(:comments) { create_list(:comment, 2, root_commentable: commentable, commentable:, created_at: day) }
+  let!(:old_comments) { create_list(:comment, 2, root_commentable: commentable, commentable:, created_at: day - 1.week) }
   let(:other_component) { create(:component, participatory_space: other_participatory_space) }
   let(:other_commentable) { create(:dummy_resource, component: other_component) }
   let!(:other_comments) { create_list(:comment, 2, root_commentable: other_commentable, commentable: other_commentable, created_at: day) }

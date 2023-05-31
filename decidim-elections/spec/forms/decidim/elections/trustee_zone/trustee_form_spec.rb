@@ -5,7 +5,7 @@ require "spec_helper"
 describe Decidim::Elections::TrusteeZone::TrusteeForm do
   subject { described_class.from_params(attributes).with_context(context) }
 
-  let(:trustee) { create(:trustee, public_key: public_key) }
+  let(:trustee) { create(:trustee, public_key:) }
   let(:public_key) { nil }
   let(:trustee_name) { "Shelton Runolfsson Sr." }
   let(:new_public_key) { "1234567890abcde" }
@@ -18,8 +18,8 @@ describe Decidim::Elections::TrusteeZone::TrusteeForm do
   end
   let(:context) do
     {
-      trustee: trustee,
-      current_organization: current_organization
+      trustee:,
+      current_organization:
     }
   end
 
@@ -44,7 +44,7 @@ describe Decidim::Elections::TrusteeZone::TrusteeForm do
   end
 
   context "when the trustee already has a name" do
-    let(:trustee) { create(:trustee, public_key: public_key, name: "Sheldon") }
+    let(:trustee) { create(:trustee, public_key:, name: "Sheldon") }
 
     it { is_expected.not_to be_valid }
   end

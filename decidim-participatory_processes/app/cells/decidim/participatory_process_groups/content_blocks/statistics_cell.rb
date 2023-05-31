@@ -7,7 +7,7 @@ module Decidim
         def stats
           @stats ||= begin
             participatory_process_group = Decidim::ParticipatoryProcessGroup.find(model.scoped_resource_id)
-            Decidim::ParticipatoryProcesses::ParticipatoryProcessGroupStatsPresenter.new(participatory_process_group: participatory_process_group).collection
+            Decidim::ParticipatoryProcesses::ParticipatoryProcessGroupStatsPresenter.new(participatory_process_group:).collection
           end
         end
       end

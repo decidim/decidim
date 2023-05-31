@@ -10,7 +10,7 @@ describe "Conference admin accesses admin sections", type: :system do
     login_as user, scope: :user
     visit decidim_admin_conferences.conferences_path
 
-    click_link translated(conference.title)
+    click_link "Configure"
   end
 
   it "can access all sections" do

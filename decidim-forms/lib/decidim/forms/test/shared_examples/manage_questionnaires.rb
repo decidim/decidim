@@ -57,14 +57,14 @@ shared_examples_for "manage questionnaires" do
   end
 
   context "when the questionnaire is already answered" do
-    let!(:question) { create(:questionnaire_question, questionnaire: questionnaire, body: body, question_type: "multiple_option") }
-    let!(:answer) { create(:answer, questionnaire: questionnaire, question: question) }
+    let!(:question) { create(:questionnaire_question, questionnaire:, body:, question_type: "multiple_option") }
+    let!(:answer) { create(:answer, questionnaire:, question:) }
 
     it "cannot modify questionnaire questions" do
       visit questionnaire_edit_path
 
-      expect(page).to have_no_content("Add question")
-      expect(page).to have_no_content("Remove")
+      expect(page).not_to have_content("Add question")
+      expect(page).not_to have_content("Remove")
 
       expand_all_questions
 
@@ -72,26 +72,26 @@ shared_examples_for "manage questionnaires" do
       expect(page).to have_selector("select[id$=question_type][disabled]")
       expect(page).to have_selector("select[id$=max_choices][disabled]")
       expect(page).to have_selector("input[id$=max_characters][disabled]")
-      expect(page).to have_selector(".ql-editor[contenteditable=false]")
+      expect(page).to have_selector(".ProseMirror[contenteditable=false]")
     end
   end
 
   private
 
   def find_nested_form_field_locator(attribute, visible: :visible)
-    find_nested_form_field(attribute, visible: visible)["id"]
+    find_nested_form_field(attribute, visible:)["id"]
   end
 
   def find_nested_form_field(attribute, visible: :visible)
-    current_scope.find(nested_form_field_selector(attribute), visible: visible)
+    current_scope.find(nested_form_field_selector(attribute), visible:)
   end
 
   def have_nested_field(attribute, with:)
-    have_field find_nested_form_field_locator(attribute), with: with
+    have_field find_nested_form_field_locator(attribute), with:
   end
 
   def have_no_nested_field(attribute, with:)
-    have_no_field(find_nested_form_field_locator(attribute), with: with)
+    have_no_field(find_nested_form_field_locator(attribute), with:)
   end
 
   def nested_form_field_selector(attribute)

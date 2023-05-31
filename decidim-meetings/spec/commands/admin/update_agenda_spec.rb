@@ -11,7 +11,7 @@ module Decidim::Meetings
     let(:agenda) { agenda_item.agenda }
     let(:meeting) { agenda.meeting }
     let(:organization) { meeting.component.organization }
-    let(:current_user) { create(:user, :admin, :confirmed, organization: organization) }
+    let(:current_user) { create(:user, :admin, :confirmed, organization:) }
 
     let(:deleted) { false }
     let(:attributes) do
@@ -36,7 +36,7 @@ module Decidim::Meetings
                 position: agenda_item_child.position,
                 duration: agenda_item_child.duration,
                 parent_id: agenda_item.parent_id,
-                deleted: deleted
+                deleted:
               }
             ]
           }
@@ -47,8 +47,8 @@ module Decidim::Meetings
       Admin::MeetingAgendaForm.from_params(
         attributes
       ).with_context(
-        meeting: meeting,
-        current_user: current_user,
+        meeting:,
+        current_user:,
         current_organization: organization
       )
     end

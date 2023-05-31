@@ -8,23 +8,23 @@ module Decidim
       let!(:component) { create(:proposal_component) }
       let!(:other_user) { create(:user, :confirmed, organization: component.organization) }
 
-      let!(:amendable) { create(:proposal, component: component) }
-      let!(:emendation) { create(:proposal, :unpublished, component: component) }
-      let!(:amendment) { create(:amendment, :draft, amendable: amendable, emendation: emendation) }
+      let!(:amendable) { create(:proposal, component:) }
+      let!(:emendation) { create(:proposal, :unpublished, component:) }
+      let!(:amendment) { create(:amendment, :draft, amendable:, emendation:) }
 
       let(:title) { "More sidewalks and less roads!" }
       let(:body) { "Everything would be better" }
       let(:params) do
         {
           id: amendment.id,
-          emendation_params: { title: title, body: body }
+          emendation_params: { title:, body: }
         }
       end
 
       let(:current_user) { amendment.amender }
       let(:context) do
         {
-          current_user: current_user,
+          current_user:,
           current_organization: component.organization
         }
       end

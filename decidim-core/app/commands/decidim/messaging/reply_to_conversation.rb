@@ -16,7 +16,7 @@ module Decidim
       # Executes the command. Broadcasts these events:
       #
       # - :ok when everything is valid, together with the message.
-      # - :invalid if the form wasn't valid and we couldn't proceed.
+      # - :invalid if the form was not valid and we could not proceed.
       #
       # Returns nothing.
       def call
@@ -42,7 +42,7 @@ module Decidim
       end
 
       def message
-        @message ||= conversation.add_message(sender: sender, body: form.body, user: form.context.current_user)
+        @message ||= conversation.add_message(sender:, body: form.body, user: form.context.current_user)
       end
 
       def notify_interlocutors

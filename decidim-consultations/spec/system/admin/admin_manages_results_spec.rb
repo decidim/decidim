@@ -16,7 +16,7 @@ describe "Admin manages results", type: :system do
   end
 
   describe "viewing active consultation" do
-    let!(:consultation) { create(:consultation, :active, :unpublished_results, organization: organization) }
+    let!(:consultation) { create(:consultation, :active, :unpublished_results, organization:) }
 
     it "Show votes but not responses" do
       expect(page).to have_content(/#{total_votes}/i)
@@ -26,7 +26,7 @@ describe "Admin manages results", type: :system do
   end
 
   describe "viewing active consultations with votes" do
-    let!(:consultation) { create(:consultation, :active, :unpublished_results, organization: organization) }
+    let!(:consultation) { create(:consultation, :active, :unpublished_results, organization:) }
     let!(:vote) do
       consultation.questions.first.votes.create(author: user, response: consultation.questions.first.responses.first)
     end
@@ -40,7 +40,7 @@ describe "Admin manages results", type: :system do
   end
 
   describe "viewing finished consultation" do
-    let!(:consultation) { create(:consultation, :finished, :unpublished_results, organization: organization) }
+    let!(:consultation) { create(:consultation, :finished, :unpublished_results, organization:) }
 
     it "Shows votes and responses" do
       expect(page).to have_content(/#{total_votes}/i)
@@ -50,7 +50,7 @@ describe "Admin manages results", type: :system do
   end
 
   describe "viewing finished consultations with votes" do
-    let!(:consultation) { create(:consultation, :finished, :unpublished_results, organization: organization) }
+    let!(:consultation) { create(:consultation, :finished, :unpublished_results, organization:) }
     let!(:vote) do
       consultation.questions.first.votes.create(author: user, response: consultation.questions.first.responses.first)
     end

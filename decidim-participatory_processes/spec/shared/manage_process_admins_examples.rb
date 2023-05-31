@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
 shared_examples "manage process admins examples" do
-  let(:other_user) { create :user, organization: organization, email: "my_email@example.org" }
+  let(:other_user) { create(:user, organization:, email: "my_email@example.org") }
 
   let!(:process_admin) do
-    create :process_admin,
+    create(:process_admin,
            :confirmed,
-           organization: organization,
-           participatory_process: participatory_process
+           organization:,
+           participatory_process:)
   end
 
   before do
@@ -42,7 +42,7 @@ shared_examples "manage process admins examples" do
   end
 
   describe "when managing different users" do
-    let!(:user_role2) { create(:participatory_process_user_role, participatory_process: participatory_process, user: other_user) }
+    let!(:user_role2) { create(:participatory_process_user_role, participatory_process:, user: other_user) }
 
     before do
       visit current_path
@@ -76,7 +76,7 @@ shared_examples "manage process admins examples" do
       expect(page).to have_admin_callout("successfully")
 
       within "#process_admins table" do
-        expect(page).to have_no_content(other_user.email)
+        expect(page).not_to have_content(other_user.email)
       end
     end
 
@@ -86,12 +86,14 @@ shared_examples "manage process admins examples" do
           name: "test",
           email: "test@example.org",
           role: "admin"
-        )
+        ).with_context(current_user: user)
 
-        Decidim::ParticipatoryProcesses::Admin::CreateParticipatoryProcessAdmin.call(
+        Decidim::Admin::ParticipatorySpace::CreateAdmin.call(
           form,
-          user,
-          participatory_process
+          participatory_process,
+          role_class: Decidim::ParticipatoryProcessUserRole,
+          event: "decidim.events.participatory_process.role_assigned",
+          event_class: Decidim::ParticipatoryProcessRoleAssignedEvent
         )
 
         visit current_path

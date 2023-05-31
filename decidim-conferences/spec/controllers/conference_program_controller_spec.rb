@@ -13,7 +13,7 @@ module Decidim
         create(
           :conference,
           :published,
-          organization: organization
+          organization:
         )
       end
 
@@ -27,8 +27,15 @@ module Decidim
 
       describe "GET show" do
         context "when conference has no meetings" do
-          it "redirects to 404" do
+          it "returns 404" do
             expect { get :show, params: { conference_slug: conference.slug, id: component.id } }
+              .to raise_error(ActionController::RoutingError)
+          end
+        end
+
+        context "when conference has an invalid component id" do
+          it "returns 404" do
+            expect { get :show, params: { conference_slug: conference.slug, id: 999 } }
               .to raise_error(ActionController::RoutingError)
           end
         end
@@ -39,7 +46,7 @@ module Decidim
               :meeting,
               3,
               :published,
-              component: component
+              component:
             )
           end
 

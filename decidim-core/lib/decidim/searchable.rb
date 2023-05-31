@@ -7,8 +7,8 @@ module Decidim
   # A concern with the features needed when you want a model to be searchable.
   #
   # A Searchable should include this concern and declare its `searchable_fields`.
-  # You'll also need to define it as `searchable` in its resource manifest,
-  # otherwise it won't appear as possible results.
+  # You will also need to define it as `searchable` in its resource manifest,
+  # otherwise it will not appear as possible results.
   #
   # The indexing of Searchables is managed through:
   # - after_create callback configurable via `index_on_create`.
@@ -125,8 +125,8 @@ module Decidim
         content_c = I18n.transliterate(contents[:C] || "")
         content_d = I18n.transliterate(contents[:D] || "")
         {
-          content_a: content_a, content_b: content_b, content_c: content_c, content_d: content_d,
-          locale: locale,
+          content_a:, content_b:, content_c:, content_d:,
+          locale:,
           datetime: fields[:datetime],
           decidim_scope_id: fields[:decidim_scope_id],
           decidim_participatory_space_id: fields[:decidim_participatory_space_id],

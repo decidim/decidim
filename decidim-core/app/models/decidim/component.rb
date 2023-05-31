@@ -2,7 +2,7 @@
 
 module Decidim
   # A Component represents a self-contained group of functionalities usually
-  # defined via a ComponentManifest. It's meant to be able to provide a single
+  # defined via a ComponentManifest. It is meant to be able to provide a single
   # component that spans over several steps.
   class Component < ApplicationRecord
     include HasSettings
@@ -24,7 +24,7 @@ module Decidim
 
     # Other components with the same manifest and same participatory space as this one.
     def siblings
-      @siblings ||= participatory_space.components.where.not(id: id).where(manifest_name: manifest_name)
+      @siblings ||= participatory_space.components.where.not(id:).where(manifest_name:)
     end
 
     # Public: Finds the manifest this component is associated to.

@@ -8,7 +8,7 @@ module Decidim
     # they only contains letters, numbers or underscores.
     #
     # @see BaseParser Examples of how to use a content parser
-    class UserParser < BaseParser
+    class UserParser < TagParser
       # Class used as a container for metadata
       #
       # @!attribute users
@@ -18,36 +18,45 @@ module Decidim
       # Matches a nickname if contains letters, numbers or underscores.
       MENTION_REGEX = /\B@(\w*)\b/
 
-      # Replaces found mentions matching a nickname of an existing
-      # user in the current organization with a global id. Other
-      # mentions found that doesn't match an existing user are
-      # returned as is.
-      #
-      # @return [String] the content with the valid mentions replaced by a global id
-      def rewrite
-        content.gsub(MENTION_REGEX) do |match|
-          users[match[1..-1].downcase]&.to_global_id&.to_s || match
-        end
-      end
-
       # (see BaseParser#metadata)
       def metadata
-        Metadata.new(existing_users)
+        Metadata.new(existing_mentionables)
       end
 
       private
 
-      def users
-        @users ||=
-          existing_users.index_by(&:nickname)
+      def tag_data_type
+        "mention"
       end
 
-      def existing_users
-        @existing_users ||= Decidim::User.where("decidim_organization_id = ? AND LOWER(nickname) IN (?)", current_organization.id, content_nicknames)
+      def replace_tags(text)
+        text.gsub(MENTION_REGEX) do |match|
+          mentionables[match[1..-1].downcase]&.to_global_id&.to_s || match
+        end
+      end
+
+      def scan_tags(text)
+        text.scan(MENTION_REGEX)
+      end
+
+      def mentionable_class
+        Decidim::User
+      end
+
+      def mentionables
+        @mentionables ||= existing_mentionables.index_by(&:nickname)
+      end
+
+      def existing_mentionables
+        @existing_mentionables ||= mentionable_class.where(
+          "decidim_organization_id = ? AND LOWER(nickname) IN (?)",
+          current_organization.id,
+          content_nicknames
+        )
       end
 
       def content_nicknames
-        @content_nicknames ||= content.scan(MENTION_REGEX).flatten.uniq.map!(&:downcase)
+        @content_nicknames ||= content_tags.map(&:downcase)
       end
 
       def current_organization

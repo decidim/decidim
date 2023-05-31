@@ -6,15 +6,15 @@ module Decidim
   describe AccountForm do
     subject do
       described_class.new(
-        name: name,
-        email: email,
-        nickname: nickname,
-        password: password,
-        password_confirmation: password_confirmation,
-        avatar: avatar,
-        remove_avatar: remove_avatar,
-        personal_url: personal_url,
-        about: about,
+        name:,
+        email:,
+        nickname:,
+        password:,
+        password_confirmation:,
+        avatar:,
+        remove_avatar:,
+        personal_url:,
+        about:,
         locale: "es"
       ).with_context(
         current_organization: organization,
@@ -49,6 +49,24 @@ module Decidim
       end
     end
 
+    describe "name" do
+      context "with an empty name" do
+        let(:name) { "" }
+
+        it "is invalid" do
+          expect(subject).not_to be_valid
+        end
+      end
+
+      context "with invalid characters" do
+        let(:name) { "foo@bar" }
+
+        it "is invalid" do
+          expect(subject).not_to be_valid
+        end
+      end
+    end
+
     describe "email" do
       context "with an empty email" do
         let(:email) { "" }
@@ -58,16 +76,26 @@ module Decidim
         end
       end
 
-      context "when it's already in use in the same organization" do
-        let!(:existing_user) { create(:user, email: email, organization: organization) }
+      context "when it is already in use in the same organization" do
+        context "and belongs to a user" do
+          let!(:existing_user) { create(:user, email:, organization:) }
 
-        it "is invalid" do
-          expect(subject).not_to be_valid
+          it "is invalid" do
+            expect(subject).not_to be_valid
+          end
+        end
+
+        context "and belongs to a group" do
+          let!(:existing_group) { create(:user_group, email:, organization:) }
+
+          it "is invalid" do
+            expect(subject).not_to be_valid
+          end
         end
       end
 
-      context "when it's already in use in another organization" do
-        let!(:existing_user) { create(:user, email: email) }
+      context "when it is already in use in another organization" do
+        let!(:existing_user) { create(:user, email:) }
 
         it "is valid" do
           expect(subject).to be_valid
@@ -84,16 +112,26 @@ module Decidim
         end
       end
 
-      context "when it's already in use in the same organization" do
-        let!(:existing_user) { create(:user, nickname: nickname, organization: organization) }
+      context "when it is already in use in the same organization" do
+        context "and belongs to a user" do
+          let!(:existing_user) { create(:user, nickname:, organization:) }
 
-        it "is invalid" do
-          expect(subject).not_to be_valid
+          it "is invalid" do
+            expect(subject).not_to be_valid
+          end
+        end
+
+        context "and belongs to a group" do
+          let!(:existing_group) { create(:user_group, nickname:, organization:) }
+
+          it "is invalid" do
+            expect(subject).not_to be_valid
+          end
         end
       end
 
-      context "when it's already in use in another organization" do
-        let!(:existing_user) { create(:user, nickname: nickname) }
+      context "when it is already in use in another organization" do
+        let!(:existing_user) { create(:user, nickname:) }
 
         it "is valid" do
           expect(subject).to be_valid
@@ -118,7 +156,7 @@ module Decidim
     end
 
     describe "personal_url" do
-      context "when it doesn't start with http" do
+      context "when it does not start with http" do
         let(:personal_url) { "example.org" }
 
         it "adds it" do
@@ -126,7 +164,7 @@ module Decidim
         end
       end
 
-      context "when it's not a valid URL" do
+      context "when it is not a valid URL" do
         let(:personal_url) { "foobar, aa" }
 
         it "is invalid" do

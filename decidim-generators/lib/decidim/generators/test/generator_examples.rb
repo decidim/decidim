@@ -44,7 +44,7 @@ shared_examples_for "a new development application" do
     end
 
     # Check that important node modules were installed
-    expect(Pathname.new("#{test_app}/node_modules/@rails/webpacker")).to be_directory
+    expect(Pathname.new("#{test_app}/node_modules/shakapacker")).to be_directory
 
     # Check that the configuration tweaks are applied properly
     expect(File.read("#{test_app}/config/spring.rb")).to match(%r{^require "decidim/spring"})
@@ -82,6 +82,11 @@ shared_context "with application env vars" do
       "DECIDIM_BASE_UPLOADS_PATH" => "",
       "DECIDIM_DEFAULT_CSV_COL_SEP" => "",
       "DECIDIM_CORS_ENABLED" => "",
+      "DECIDIM_ADMIN_PASSWORD_EXPIRATION_DAYS" => "",
+      "DECIDIM_ADMIN_PASSWORD_MIN_LENGTH" => "",
+      "DECIDIM_ADMIN_PASSWORD_REPETITION_TIMES" => "",
+      "DECIDIM_ADMIN_PASSWORD_STRONG" => "",
+      "DECIDIM_SERVICE_WORKER_ENABLED" => "",
       "RAILS_LOG_LEVEL" => "nonsense",
       "STORAGE_PROVIDER" => ""
     }
@@ -111,7 +116,8 @@ shared_context "with application env vars" do
       "DECIDIM_THROTTLING_PERIOD" => "false",
       "DECIDIM_UNCONFIRMED_ACCESS_FOR" => "false",
       "DECIDIM_SYSTEM_ACCESSLIST_IPS" => "false",
-      "DECIDIM_CORS_ENABLED" => "falsE"
+      "DECIDIM_CORS_ENABLED" => "false",
+      "DECIDIM_SERVICE_WORKER_ENABLED" => "false"
     }
   end
 
@@ -152,6 +158,7 @@ shared_context "with application env vars" do
       "DECIDIM_BASE_UPLOADS_PATH" => "some-path/",
       "DECIDIM_DEFAULT_CSV_COL_SEP" => ",",
       "DECIDIM_CORS_ENABLED" => "true",
+      "DECIDIM_SERVICE_WORKER_ENABLED" => "true",
       "DECIDIM_CONSENT_COOKIE_NAME" => ":weird-consent-cookie-name:",
       "DECIDIM_CACHE_KEY_SEPARATOR" => ":",
       "DECIDIM_EXPIRE_SESSION_AFTER" => "45",
@@ -159,8 +166,14 @@ shared_context "with application env vars" do
       "DECIDIM_SESSION_TIMEOUT_INTERVAL" => "33",
       "DECIDIM_FOLLOW_HTTP_X_FORWARDED_HOST" => "true",
       "DECIDIM_MAXIMUM_CONVERSATION_MESSAGE_LENGTH" => "1234",
-      "DECIDIM_PASSWORD_BLACKLIST" => "i-dont-like-this-password, i-dont,like,this,one,either, password123456",
+      "DECIDIM_PASSWORD_SIMILARITY_LENGTH" => "4",
+      "DECIDIM_DENIED_PASSWORDS" => "i-do-not-like-this-password, i-do-not,like,this,one,either, password123456",
       "DECIDIM_ALLOW_OPEN_REDIRECTS" => "true",
+      "DECIDIM_ADMIN_PASSWORD_EXPIRATION_DAYS" => "93",
+      "DECIDIM_ADMIN_PASSWORD_MIN_LENGTH" => "18",
+      "DECIDIM_ADMIN_PASSWORD_REPETITION_TIMES" => "8",
+      "DECIDIM_ADMIN_PASSWORD_STRONG" => "false",
+      "DECIDIM_REDESIGN_ACTIVE" => "false",
       "RAILS_LOG_LEVEL" => "fatal",
       "RAILS_ASSET_HOST" => "http://assets.example.org",
       "ETHERPAD_SERVER" => "http://a-etherpad-server.com",
@@ -269,15 +282,21 @@ shared_examples_for "an application with configurable env vars" do
       %w(decidim base_uploads_path) => nil,
       %w(decidim default_csv_col_sep) => ";",
       %w(decidim cors_enabled) => false,
-      %w(decidim consent_cookie_name) => "decidim-cc",
+      %w(decidim service_worker_enabled) => true,
+      %w(decidim consent_cookie_name) => "decidim-consent",
       %w(decidim cache_key_separator) => "/",
       %w(decidim expire_session_after) => 30,
       %w(decidim enable_remember_me) => "auto",
       %w(decidim session_timeout_interval) => 10,
       %w(decidim follow_http_x_forwarded_host) => false,
       %w(decidim maximum_conversation_message_length) => 1000,
-      %w(decidim password_blacklist) => [],
+      %w(decidim password_similarity_length) => 4,
+      %w(decidim denied_passwords) => [],
       %w(decidim allow_open_redirects) => false,
+      %w(decidim admin_password expiration_days) => 90,
+      %w(decidim admin_password min_length) => 15,
+      %w(decidim admin_password repetition_times) => 5,
+      %w(decidim admin_password strong) => true,
       %w(etherpad server) => nil,
       %w(etherpad api_key) => nil,
       %w(etherpad api_version) => "1.2.1",
@@ -368,6 +387,7 @@ shared_examples_for "an application with configurable env vars" do
       %w(decidim base_uploads_path) => "some-path/",
       %w(decidim default_csv_col_sep) => ",",
       %w(decidim cors_enabled) => true,
+      %w(decidim service_worker_enabled) => true,
       %w(decidim consent_cookie_name) => ":weird-consent-cookie-name:",
       %w(decidim cache_key_separator) => ":",
       %w(decidim expire_session_after) => 45,
@@ -375,8 +395,13 @@ shared_examples_for "an application with configurable env vars" do
       %w(decidim session_timeout_interval) => 33,
       %w(decidim follow_http_x_forwarded_host) => true,
       %w(decidim maximum_conversation_message_length) => 1234,
-      %w(decidim password_blacklist) => ["i-dont-like-this-password", "i-dont,like,this,one,either", "password123456"],
+      %w(decidim password_similarity_length) => 4,
+      %w(decidim denied_passwords) => ["i-do-not-like-this-password", "i-do-not,like,this,one,either", "password123456"],
       %w(decidim allow_open_redirects) => true,
+      %w(decidim admin_password expiration_days) => 93,
+      %w(decidim admin_password min_length) => 18,
+      %w(decidim admin_password repetition_times) => 8,
+      %w(decidim admin_password strong) => false,
       %w(etherpad server) => "http://a-etherpad-server.com",
       %w(etherpad api_key) => "an-etherpad-key",
       %w(etherpad api_version) => "1.2.2",
@@ -458,14 +483,15 @@ shared_examples_for "an application with configurable env vars" do
       "base_uploads_path" => nil,
       "default_csv_col_sep" => ";",
       "cors_enabled" => false,
-      "consent_cookie_name" => "decidim-cc",
+      "consent_cookie_name" => "decidim-consent",
       "cache_key_separator" => "/",
       "expire_session_after" => 1800, # 30 minutes
       "enable_remember_me" => true,
       "session_timeout_interval" => 10,
       "follow_http_x_forwarded_host" => false,
       "maximum_conversation_message_length" => 1000,
-      "password_blacklist" => [],
+      "password_similarity_length" => 4,
+      "denied_passwords" => [],
       "allow_open_redirects" => false,
       "etherpad" => nil,
       "maps" => nil
@@ -501,7 +527,8 @@ shared_examples_for "an application with configurable env vars" do
       "session_timeout_interval" => 33,
       "follow_http_x_forwarded_host" => true,
       "maximum_conversation_message_length" => 1234,
-      "password_blacklist" => ["i-dont-like-this-password", "i-dont,like,this,one,either", "password123456"],
+      "password_similarity_length" => 4,
+      "denied_passwords" => ["i-do-not-like-this-password", "i-do-not,like,this,one,either", "password123456"],
       "allow_open_redirects" => true,
       "etherpad" => {
         "server" => "http://a-etherpad-server.com",
@@ -656,7 +683,7 @@ shared_examples_for "an application with configurable env vars" do
       "Rails.application.config.log_level" => "info",
       "Rails.application.config.action_controller.asset_host" => nil,
       "Rails.application.config.active_storage.service" => "local",
-      "Decidim::ApplicationUploader.new(nil, :file).protocol_options" => { "protocol" => "https" }
+      "Decidim::EngineRouter.new(nil, {}).send(:configured_default_url_options)" => { "protocol" => "https" }
     }
   end
 
@@ -666,7 +693,7 @@ shared_examples_for "an application with configurable env vars" do
       "Rails.application.config.log_level" => "fatal",
       "Rails.application.config.action_controller.asset_host" => "http://assets.example.org",
       "Rails.application.config.active_storage.service" => "test",
-      "Decidim::ApplicationUploader.new(nil, :file).protocol_options" => { "host" => "https://cdn.example.org" },
+      "Decidim::AssetRouter::Storage.new(nil).send(:default_options)" => { "host" => "https://cdn.example.org" },
       "Decidim::Api::Schema.default_max_page_size" => 31,
       "Decidim::Api::Schema.max_complexity" => 3001,
       "Decidim::Api::Schema.max_depth" => 11
@@ -1046,7 +1073,8 @@ shared_examples_for "an application with storage and queue gems" do
     current = rails_value("YAML.load(ERB.new(IO.read(\"config/sidekiq.yml\")).result)", test_app, queue_envs_on)
     expect(current["concurrency"]).to eq(11), "sidekiq concurrency (#{current["concurrency"]}) expected to eq 11"
 
-    queues = %w(mailers vote_reminder reminders default newsletter newsletters_opt_in conference_diplomas events translations user_report block_user metrics exports)
+    queues = %w(mailers vote_reminder reminders default newsletter newsletters_opt_in conference_diplomas events translations user_report block_user metrics exports
+                close_meeting_reminder)
     expect(current["queues"].flatten).to include(*queues), "sidekiq queues (#{current["queues"].flatten}) expected to eq containt (#{queues})"
   end
 end

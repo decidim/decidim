@@ -16,7 +16,7 @@ module Decidim
     # Executes the command. Broadcasts these events:
     #
     # - :ok when everything is valid.
-    # - :invalid if we couldn't proceed.
+    # - :invalid if we could not proceed.
     #
     # Returns nothing.
     def call
@@ -37,7 +37,7 @@ module Decidim
     end
 
     def membership
-      @membership ||= Decidim::UserGroupMembership.find_by(user: user, user_group: user_group, role: :invited)
+      @membership ||= Decidim::UserGroupMembership.find_by(user:, user_group:, role: :invited)
     end
   end
 end

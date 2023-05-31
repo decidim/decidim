@@ -8,10 +8,10 @@ module Decidim
       subject { proposal }
 
       let!(:organization) { create(:organization) }
-      let!(:component) { create(:component, organization: organization, manifest_name: "proposals") }
-      let!(:participatory_process) { create(:participatory_process, organization: organization) }
-      let!(:author) { create(:user, :admin, organization: organization) }
-      let!(:proposal) { create(:proposal, component: component, users: [author]) }
+      let!(:component) { create(:component, organization:, manifest_name: "proposals") }
+      let!(:participatory_process) { create(:participatory_process, organization:) }
+      let!(:author) { create(:user, :admin, organization:) }
+      let!(:proposal) { create(:proposal, component:, users: [author]) }
       let(:resource) do
         build(:dummy_resource)
       end

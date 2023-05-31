@@ -52,8 +52,26 @@ module Decidim
 
     def template
       @template ||= Decidim::ContentBlock
-                    .for_scope(:newsletter_template, organization: organization)
+                    .for_scope(:newsletter_template, organization:)
                     .find_by(scoped_resource_id: id)
+    end
+
+    def url(**kwargs)
+      proxy_url(:newsletter_url, id:, **kwargs)
+    end
+
+    def notifications_settings_url(**kwargs)
+      proxy_url(__method__, **kwargs)
+    end
+
+    def unsubscribe_newsletters_url(**kwargs)
+      proxy_url(__method__, **kwargs)
+    end
+
+    def organization_official_url
+      return "#" unless sent?
+
+      organization.official_url || proxy_url(:root_url)
     end
 
     private
@@ -62,6 +80,16 @@ module Decidim
       return if !author || !organization
 
       errors.add(:author, :invalid) unless author.organization == organization
+    end
+
+    def proxy_url(method, **kwargs)
+      return "#" unless sent?
+
+      router.public_send(method, host: organization.host, **kwargs)
+    end
+
+    def router
+      @router ||= EngineRouter.new("decidim", {})
     end
   end
 end

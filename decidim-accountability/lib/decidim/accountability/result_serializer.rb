@@ -39,7 +39,7 @@ module Decidim
           },
           progress: result.progress,
           created_at: result.created_at,
-          url: url,
+          url:,
           component: { id: component.id },
           proposal_urls: proposals
         }

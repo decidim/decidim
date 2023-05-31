@@ -7,8 +7,8 @@ module Decidim::Conferences
     subject { described_class.new(form, registration_type) }
 
     let!(:conference) { create(:conference) }
-    let(:registration_type) { create :registration_type, conference: conference }
-    let!(:current_user) { create :user, :confirmed, organization: conference.organization }
+    let(:registration_type) { create(:registration_type, conference:) }
+    let!(:current_user) { create(:user, :confirmed, organization: conference.organization) }
     let!(:meeting_component) do
       create(:component, manifest_name: :meetings, participatory_space: conference)
     end
@@ -23,7 +23,7 @@ module Decidim::Conferences
       double(
         Admin::RegistrationTypeForm,
         invalid?: invalid,
-        current_user: current_user,
+        current_user:,
         title: { en: "New title" },
         attributes: {
           "title" => { en: "New title" },

@@ -3,7 +3,10 @@ sv:
     attributes:
       assemblies_setting:
         enable_organization_chart: Aktivera organisationskarta
+      assemblies_type:
+        title: Titel
       assembly:
+        announcement: Meddelande
         area_id: Område
         assembly_type: Typ av grupp
         assembly_type_other: Annan typ av grupp
@@ -22,12 +25,14 @@ sv:
         decidim_scope_id: Omfång
         description: Beskrivning
         developer_group: Kampanjgrupp
+        document: Dokument
         domain: Domän
         duration: Varaktighet
         facebook: Facebook
         github: GitHub
         hashtag: Hashtag
         hero_image: Hembild
+        import_attachments: Importera bilagor
         included_at: Inkluderad vid
         instagram: Instagram
         internal_organisation: Intern organisation
@@ -52,7 +57,7 @@ sv:
         target: Vem deltar
         title: Titel
         twitter: Twitter
-        weight: Vikt
+        weight: Ordning
         youtube: YouTube
       assembly_member:
         birthday: Födelsedag
@@ -64,16 +69,11 @@ sv:
         non_user_avatar: Profilbild
         position: Befattning
         user_id: Användare
+        weight: Ordning
       assembly_user_role:
         email: E-post
         name: Namn
         role: Roll
-    errors:
-      models:
-        assembly:
-          attributes:
-            document:
-              invalid_document_type: 'Ogiltig dokumenttyp. Godkända format är: %{valid_mime_types}'
   activerecord:
     models:
       decidim/assembly:
@@ -319,6 +319,9 @@ sv:
         new_import:
           accepted_types:
             json: JSON
+      assemblies:
+        show:
+          title: Om den här gruppen
       assembly_members:
         index:
           members: Medlemmar
@@ -350,7 +353,7 @@ sv:
       index:
         title: Grupper
       last_activity:
-        new_assembly: Ny grupp
+        new_assembly: 'Ny grupp:'
       pages:
         home:
           highlighted_assemblies:
@@ -386,7 +389,6 @@ sv:
         related_participatory_processes: Relaterade dialoger
         scope: Omfång
         social_networks: Sociala nätverk
-        social_networks_title: Dela denna grupp på
         target: Vilka deltar
     assembly_members:
       assembly_member:
@@ -397,7 +399,7 @@ sv:
       assemblies:
         create_assembly_member:
           email_intro: En administratör för församlingen <a href="%{resource_url}">%{resource_name}</a> har lagt till dig som en av dess medlemmar.
-          email_outro: Du har fått det här meddelandet eftersom du har blivit inbjuden till en församling. Kolla <a href="%{resource_path}">samlingssidan</a> för att bidra!
+          email_outro: Du har fått denna avisering eftersom du har bjudits in till en grupp. Ta en titt på <a href="%{resource_url}">gruppsidan</a> för att bidra!
           email_subject: Du har blivit inbjuden att vara medlem i församlingen %{resource_name}!
           notification_title: Du har blivit registrerad som medlem i församlingen <a href="%{resource_path}">%{resource_name}</a>. Kolla <a href="%{resource_path}">mötessidan</a> för att bidra!
       assembly:
@@ -430,9 +432,6 @@ sv:
         related_assemblies: Relaterade grupper
     statistics:
       assemblies_count: Grupper
-  errors:
-    messages:
-      cannot_be_blank: kan inte vara tomt
   layouts:
     decidim:
       assemblies:

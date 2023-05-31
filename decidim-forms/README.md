@@ -12,7 +12,7 @@ A `Decidim::Forms::Question` must be of one of the types:
 
 Here are the relations between the classes of a `Decidim::Questionnaire`:
 
-```
+```plantuml
                   1..* +----------+         1..* +--------------+
         +------------->| Question |------------->| AnswerOption |
         |              +-----+----+              +------+-------+

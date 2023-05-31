@@ -7,7 +7,7 @@ describe "SMS code request", type: :system do
     create(:organization, available_authorizations: ["sms"])
   end
 
-  let!(:user) { create(:user, :confirmed, organization: organization) }
+  let!(:user) { create(:user, :confirmed, organization:) }
 
   before do
     switch_to_host(organization.host)
@@ -26,7 +26,7 @@ describe "SMS code request", type: :system do
     end
 
     it "allows the user to request a code by sms to get verified" do
-      expect(page).to have_content("Thanks! We've sent an SMS to your phone")
+      expect(page).to have_content("Thanks! We have sent an SMS to your phone.")
     end
   end
 end

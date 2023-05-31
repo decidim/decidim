@@ -17,6 +17,7 @@ de:
       decidim/debates/close_debate_event: Debatte beendet
       decidim/debates/create_debate_event: Debatte
       decidim/debates/creation_disabled_event: Debatten deaktiviert
+      decidim/debates/creation_enabled_event: Erstellung von Debatten aktiviert
   activerecord:
     models:
       decidim/debates/debate:
@@ -26,6 +27,7 @@ de:
     components:
       debates:
         actions:
+          comment: Kommentar
           create: Erstellen
           endorse: Bestätigen
         name: Debatten
@@ -39,6 +41,7 @@ de:
           step:
             announcement: Ankündigung
             comments_blocked: Kommentare blockiert
+            creation_enabled: Teilnehmer können Debatten erstellen
             endorsements_blocked: Bestätigungen blockiert
             endorsements_enabled: Bestätigungen aktiviert
     debates:
@@ -118,6 +121,7 @@ de:
           my_debates: Meine Debatten
           official: Offiziell
           origin: Ursprung
+          participants: Teilnehmer
           scope: Bereich
           search: Suche
           state: Status
@@ -167,9 +171,6 @@ de:
             title: Versionen
         versions_list:
           back_to_resource: Zurück zur Debatte
-      last_activity:
-        debate_updated_at_html: "<span>Debatte aktualisiert unter %{link}</span>"
-        new_debate_at_html: "<span>Neue Debatte bei %{link}</span>"
       models:
         debate:
           fields:
@@ -203,7 +204,6 @@ de:
           email_intro: 'Sie können jetzt neue Debatten in %{participatory_space_title} eröffnen! Beteiligen Sie sich auf dieser Seite:'
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
           email_subject: Debatten jetzt in %{participatory_space_title} verfügbar
-          notification_title: Sie können jetzt <a href="%{resource_path}">neue Debatten</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a> starten
         debate_closed:
           affected_user:
             email_intro: 'Die Debatte "%{resource_title}" wurde beendet. Sie können die Resultate auf dieser Seite lesen:'

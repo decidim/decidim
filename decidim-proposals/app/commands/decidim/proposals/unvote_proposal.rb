@@ -16,7 +16,7 @@ module Decidim
       # Executes the command. Broadcasts these events:
       #
       # - :ok when everything is valid, together with the proposal.
-      # - :invalid if the form wasn't valid and we couldn't proceed.
+      # - :invalid if the form was not valid and we could not proceed.
       #
       # Returns nothing.
       def call
@@ -57,7 +57,7 @@ module Decidim
       def user_votes
         @user_votes ||= ProposalVote.where(
           author: @current_user,
-          proposal: Proposal.where(component: component)
+          proposal: Proposal.where(component:)
         )
       end
     end

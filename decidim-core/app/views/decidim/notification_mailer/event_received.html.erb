@@ -4,7 +4,7 @@
 
 <% if @event_instance.resource_path.present? && @event_instance.resource_title.present? %>
   <p class="email-button email-button__cta">
-    <%= link_to @event_instance.resource_title, @event_instance.resource_url %>
+    <%= link_to decidim_sanitize(@event_instance.resource_title, strip_tags: true), @event_instance.resource_url %>
   </p>
 <% end %>
 

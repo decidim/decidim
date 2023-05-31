@@ -49,7 +49,7 @@ module Decidim
         attribute_locale = "#{attribute}_#{locale}".to_sym
         diff.update(
           attribute_locale => {
-            type: type,
+            type:,
             label: generate_i18n_label(attribute, locale),
             old_value: first_value,
             new_value: last_value
@@ -67,7 +67,7 @@ module Decidim
 
       diff.update(
         attribute => {
-          type: type,
+          type:,
           label: I18n.t(attribute, scope: i18n_scope),
           old_value: old_user_group ? translated_attribute(old_user_group.name) : "",
           new_value: new_user_group ? translated_attribute(new_user_group.name) : ""
@@ -83,7 +83,7 @@ module Decidim
 
       diff.update(
         attribute => {
-          type: type,
+          type:,
           label: I18n.t(attribute, scope: i18n_scope),
           old_value: old_scope ? translated_attribute(old_scope.name) : "",
           new_value: new_scope ? translated_attribute(new_scope.name) : ""
@@ -99,7 +99,7 @@ module Decidim
 
       diff.update(
         attribute => {
-          type: type,
+          type:,
           label: I18n.t(attribute, scope: i18n_scope),
           old_value: values[0],
           new_value: values[1]
@@ -111,7 +111,7 @@ module Decidim
     def generate_i18n_label(attribute, locale)
       label = I18n.t(attribute, scope: i18n_scope)
       locale_name = if I18n.available_locales.include?(locale.to_sym)
-                      I18n.t("locale.name", locale: locale)
+                      I18n.t("locale.name", locale:)
                     else
                       locale
                     end

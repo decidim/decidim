@@ -8,7 +8,7 @@ describe "Explore elections", :slow, type: :system do
 
   let(:elections_count) { 5 }
   let!(:elections) do
-    create_list(:election, elections_count, :complete, :published, :ongoing, component: component)
+    create_list(:election, elections_count, :complete, :published, :ongoing, component:)
   end
 
   describe "index" do
@@ -17,7 +17,7 @@ describe "Explore elections", :slow, type: :system do
         Decidim::Elections::Election.destroy_all
       end
 
-      let!(:single_elections) { create_list(:election, 1, :complete, :published, :ongoing, component: component) }
+      let!(:single_elections) { create_list(:election, 1, :complete, :published, :ongoing, component:) }
 
       it "redirects to the only election" do
         visit_component
@@ -46,7 +46,7 @@ describe "Explore elections", :slow, type: :system do
           fill_in "filter[search_text_cont]", with: translated(elections.first.title)
 
           # The form should be auto-submitted when filter box is filled up, but
-          # somehow it's not happening. So we workaround that be explicitly
+          # somehow it is not happening. So we workaround that be explicitly
           # clicking on "Search" until we find out why.
           find(".icon--magnifying-glass").click
         end
@@ -57,8 +57,8 @@ describe "Explore elections", :slow, type: :system do
       end
 
       it "allows filtering by date" do
-        finished_election = create(:election, :complete, :published, :finished, component: component)
-        upcoming_election = create(:election, :complete, :published, :upcoming, component: component)
+        finished_election = create(:election, :complete, :published, :finished, component:)
+        upcoming_election = create(:election, :complete, :published, :upcoming, component:)
         visit_component
 
         within ".with_any_date_check_boxes_tree_filter" do
@@ -98,7 +98,7 @@ describe "Explore elections", :slow, type: :system do
       end
 
       let!(:finished_elections) do
-        create_list(:election, elections_count, :complete, :published, :finished, component: component)
+        create_list(:election, elections_count, :complete, :published, :finished, component:)
       end
 
       it "shows the correct warning" do
@@ -127,7 +127,7 @@ describe "Explore elections", :slow, type: :system do
         Decidim::Elections::Election.destroy_all
       end
 
-      let!(:collection) { create_list :election, collection_size, :complete, :published, :ongoing, component: component }
+      let!(:collection) { create_list(:election, collection_size, :complete, :published, :ongoing, component:) }
       let!(:resource_selector) { ".card--election" }
 
       it_behaves_like "a paginated resource"
@@ -136,7 +136,8 @@ describe "Explore elections", :slow, type: :system do
 
   describe "show" do
     let(:elections_count) { 1 }
-    let(:election) { elections.first }
+    let(:description) { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
+    let(:election) { create(:election, :complete, :published, :ongoing, component:, description:) }
     let(:question) { election.questions.first }
     let(:image) { create(:attachment, :with_image, attached_to: election) }
 
@@ -144,6 +145,8 @@ describe "Explore elections", :slow, type: :system do
       election.update!(attachments: [image])
       visit resource_locator(election).path
     end
+
+    it_behaves_like "has embedded video in description", :description
 
     it "shows all election info" do
       expect(page).to have_i18n_content(election.title)
@@ -169,8 +172,8 @@ describe "Explore elections", :slow, type: :system do
   end
 
   context "with results" do
-    let(:election) { create(:election, :published, :results_published, component: component) }
-    let(:question) { create :question, :with_votes, election: election }
+    let(:election) { create(:election, :published, :results_published, component:) }
+    let(:question) { create(:question, :with_votes, election:) }
 
     before do
       election.update!(questions: [question])

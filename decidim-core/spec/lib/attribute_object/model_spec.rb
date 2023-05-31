@@ -16,12 +16,12 @@ module Decidim
         attribute :flt, Float
         attribute :eng, Rails::Engine, **{}
         attribute :arr, Array[OpenStruct]
-        attribute :hsh, Hash[String => OpenStruct]
+        attribute(:hsh, { String => OpenStruct })
       end
 
       c.attribute :sub, submodel
       c.attribute :sar, Array[submodel]
-      c.attribute :shs, Hash[String => submodel]
+      c.attribute(:shs, { String => submodel })
 
       c
     end
@@ -87,7 +87,7 @@ module Decidim
         Class.new do
           include Decidim::AttributeObject::Model
 
-          attribute :date, Hash[Integer => String]
+          attribute(:date, { Integer => String })
         end
       end
       let(:attributes) do

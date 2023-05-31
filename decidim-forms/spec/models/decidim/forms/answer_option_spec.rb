@@ -8,13 +8,13 @@ module Decidim
       subject { answer_option }
 
       let(:organization) { create(:organization) }
-      let(:user) { create(:user, organization: organization) }
-      let(:participatory_process) { create(:participatory_process, organization: organization) }
+      let(:user) { create(:user, organization:) }
+      let(:participatory_process) { create(:participatory_process, organization:) }
       let(:questionnaire) { create(:questionnaire, questionnaire_for: participatory_process) }
       let(:question_type) { "single_option" }
-      let(:question) { create(:questionnaire_question, questionnaire: questionnaire, question_type: question_type) }
-      let(:display_conditions) { create_list(:display_condition, 2, answer_option: answer_option) }
-      let(:answer_option) { build(:answer_option, question: question, body: { en: "A statement", ca: "Una afirmació", es: "Una afirmación" }) }
+      let(:question) { create(:questionnaire_question, questionnaire:, question_type:) }
+      let(:display_conditions) { create_list(:display_condition, 2, answer_option:) }
+      let(:answer_option) { build(:answer_option, question:, body: { en: "A statement", ca: "Una afirmació", es: "Una afirmación" }) }
 
       it { is_expected.to be_valid }
 

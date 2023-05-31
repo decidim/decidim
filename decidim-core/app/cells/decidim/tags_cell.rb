@@ -24,21 +24,23 @@ module Decidim
     private
 
     def tags_classes
-      (["tags"] + context[:extra_classes].to_a).join(" ")
+      # REDESIGN_PENDING: 'tags' class is legacy. Try to delete
+      (["tags tag-container"] + context[:extra_classes].to_a).join(" ")
     end
 
     def category?
       model.category.present?
     end
 
+    # deprecated
     def link_to_category
       accessible_title = t("decidim.tags.filter_results_for_category", resource: category_name)
 
-      link_to category_path, title: accessible_title do
+      link_to category_path, title: accessible_title, class: "tag" do
         sr_title = content_tag(
           :span,
           accessible_title,
-          class: "show-for-sr"
+          class: "sr-only"
         )
         display_title = content_tag(
           :span,
@@ -47,6 +49,23 @@ module Decidim
         )
 
         sr_title + display_title
+      end
+    end
+
+    def link_to_tag(path, name, title)
+      link_to path, title:, class: "tag" do
+        sr_title = content_tag(
+          :span,
+          title,
+          class: "sr-only"
+        )
+        display_title = content_tag(
+          :span,
+          name,
+          "aria-hidden": true
+        )
+
+        icon("price-tag-3-line") + sr_title + display_title
       end
     end
 
@@ -62,14 +81,15 @@ module Decidim
       has_visible_scopes?(model)
     end
 
+    # deprecated
     def link_to_scope
       accessible_title = t("decidim.tags.filter_results_for_scope", resource: scope_name)
 
-      link_to scope_path, title: accessible_title do
+      link_to scope_path, title: accessible_title, class: "tag" do
         sr_title = content_tag(
           :span,
           accessible_title,
-          class: "show-for-sr"
+          class: "sr-only"
         )
         display_title = content_tag(
           :span,

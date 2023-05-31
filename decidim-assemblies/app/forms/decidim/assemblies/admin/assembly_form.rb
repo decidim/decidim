@@ -149,7 +149,7 @@ module Decidim
 
         def slug_uniqueness
           return unless organization_assemblies
-                        .where(slug: slug)
+                        .where(slug:)
                         .where.not(id: context[:assembly_id])
                         .any?
 

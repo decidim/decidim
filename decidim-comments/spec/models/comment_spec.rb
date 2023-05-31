@@ -6,12 +6,12 @@ module Decidim
   module Comments
     describe Comment do
       let(:component) { create(:component, manifest_name: "dummy") }
-      let!(:commentable) { create(:dummy_resource, component: component) }
+      let!(:commentable) { create(:dummy_resource, component:) }
       let!(:author) { create(:user, organization: commentable.organization) }
-      let!(:comment) { create(:comment, commentable: commentable, author: author) }
+      let!(:comment) { create(:comment, commentable:, author:) }
       let!(:replies) { create_list(:comment, 3, commentable: comment, root_commentable: commentable) }
-      let!(:up_vote) { create(:comment_vote, :up_vote, comment: comment) }
-      let!(:down_vote) { create(:comment_vote, :down_vote, comment: comment) }
+      let!(:up_vote) { create(:comment_vote, :up_vote, comment:) }
+      let!(:down_vote) { create(:comment_vote, :down_vote, comment:) }
 
       include_examples "authorable" do
         subject { comment }
@@ -110,7 +110,7 @@ module Decidim
         let(:user) { create(:user, organization: comment.organization) }
 
         it "returns true if the given user has upvoted the comment" do
-          create(:comment_vote, comment: comment, author: user, weight: 1)
+          create(:comment_vote, comment:, author: user, weight: 1)
           expect(comment).to be_up_voted_by(user)
         end
 
@@ -123,7 +123,7 @@ module Decidim
         let(:user) { create(:user, organization: comment.organization) }
 
         it "returns true if the given user has downvoted the comment" do
-          create(:comment_vote, comment: comment, author: user, weight: -1)
+          create(:comment_vote, comment:, author: user, weight: -1)
           expect(comment).to be_down_voted_by(user)
         end
 
@@ -132,8 +132,37 @@ module Decidim
         end
       end
 
+      describe "#reported_content_url" do
+        subject { comment.reported_content_url }
+
+        let(:url_format) { "http://%{host}:%{port}/processes/%{slug}/f/%{component_id}/dummy_resources/%{resource_id}#comment_%{comment_id}" }
+
+        it "returns the resource URL" do
+          expect(subject).to eq(
+            format(
+              url_format,
+              host: commentable.organization.host,
+              port: Capybara.server_port,
+              slug: commentable.participatory_space.slug,
+              component_id: commentable.component.id,
+              resource_id: commentable.id,
+              comment_id: comment.id
+            )
+          )
+        end
+
+        context "when the root commentable has been deleted" do
+          before do
+            comment.root_commentable.destroy!
+            comment.reload
+          end
+
+          it { is_expected.to be_nil }
+        end
+      end
+
       describe "#users_to_notify_on_comment_created" do
-        let(:user) { create :user, organization: comment.organization }
+        let(:user) { create(:user, organization: comment.organization) }
 
         it "includes the comment author" do
           expect(comment.users_to_notify_on_comment_created)
@@ -151,7 +180,7 @@ module Decidim
       end
 
       describe "#formatted_body" do
-        let(:comment) { create(:comment, commentable: commentable, author: author, body: body) }
+        let(:comment) { create(:comment, commentable:, author:, body:) }
         let(:body) { "<b>bold text</b> %lorem% <a href='https://example.com'>link</a>" }
 
         before do
@@ -216,7 +245,7 @@ module Decidim
       end
 
       describe "#comment_threads count" do
-        let!(:parent) { create(:comment, commentable: commentable) }
+        let!(:parent) { create(:comment, commentable:) }
         let!(:comments) { create_list(:comment, 3, commentable: parent, root_commentable: commentable) }
 
         it "return 3" do
@@ -243,8 +272,8 @@ module Decidim
           context "when organization has a default comments length params" do
             let!(:body) { { en: ::Faker::Lorem.sentence(word_count: 1600) } }
             let(:organization) { create(:organization, comments_max_length: 1500) }
-            let(:component) { create(:component, organization: organization, manifest_name: "dummy") }
-            let!(:commentable) { create(:dummy_resource, component: component) }
+            let(:component) { create(:component, organization:, manifest_name: "dummy") }
+            let!(:commentable) { create(:dummy_resource, component:) }
 
             it "is invalid" do
               comment.body = body
@@ -270,14 +299,14 @@ module Decidim
         context "when passing a non-commentable resource" do
           it "returns the autors of the resources' comments" do
             ids = Decidim::Comments::Comment.user_commentators_ids_in([commentable.component.participatory_space])
-            expect(ids).to match_array([])
+            expect(ids).to be_empty
           end
         end
 
         context "when commentors belong to the given resources" do
           it "returns the autors of the resources' comments" do
             ids = Decidim::Comments::Comment.user_commentators_ids_in(Decidim::DummyResources::DummyResource.where(component: commentable.component))
-            expect(ids).to match_array([author.id])
+            expect(ids).to contain_exactly(author.id)
           end
         end
 
@@ -287,7 +316,7 @@ module Decidim
 
           it "does not return them" do
             ids = Decidim::Comments::Comment.user_commentators_ids_in(Decidim::DummyResources::DummyResource.where(component: commentable.component))
-            expect(ids).to match_array([author.id])
+            expect(ids).to contain_exactly(author.id)
           end
         end
       end

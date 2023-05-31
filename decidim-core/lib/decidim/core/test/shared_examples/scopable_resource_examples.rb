@@ -23,13 +23,13 @@ shared_examples_for "a scopable resource" do
 
   context "when the component has a scope" do
     context "when the scope is descendant from component scope" do
-      let(:scope) { create(:scope, organization: organization, parent: parent_scope) }
+      let(:scope) { create(:scope, organization:, parent: parent_scope) }
 
       it { expect(form.scope).to eq(scope) }
     end
 
     context "when the scope is not descendant from component scope" do
-      let(:another_scope) { create(:scope, organization: organization) }
+      let(:another_scope) { create(:scope, organization:) }
       let(:scope) { create(:subscope, parent: another_scope) }
       let(:scope_id) { scope.id }
 

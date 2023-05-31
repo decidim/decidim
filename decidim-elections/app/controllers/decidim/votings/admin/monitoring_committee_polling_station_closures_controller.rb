@@ -17,17 +17,17 @@ module Decidim
         end
 
         def show
-          enforce_permission_to :read, :monitoring_committee_polling_station_closure, voting: current_voting, closure: closure
+          enforce_permission_to :read, :monitoring_committee_polling_station_closure, voting: current_voting, closure:
         end
 
         def edit
-          enforce_permission_to :validate, :monitoring_committee_polling_station_closure, voting: current_voting, closure: closure
+          enforce_permission_to(:validate, :monitoring_committee_polling_station_closure, voting: current_voting, closure:)
 
           @form = form(MonitoringCommitteePollingStationClosureForm).from_model(closure)
         end
 
         def validate
-          enforce_permission_to :validate, :monitoring_committee_polling_station_closure, voting: current_voting, closure: closure
+          enforce_permission_to(:validate, :monitoring_committee_polling_station_closure, voting: current_voting, closure:)
 
           @form = form(MonitoringCommitteePollingStationClosureForm).from_params(params)
 

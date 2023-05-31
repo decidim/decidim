@@ -10,7 +10,7 @@ module Decidim
 
         def edit
           enforce_permission_to :configure, :question, question: current_question
-          @form = question_form.from_model(current_question, current_consultation: current_consultation)
+          @form = question_form.from_model(current_question, current_consultation:)
           render layout: "decidim/admin/question"
         end
 
@@ -18,7 +18,7 @@ module Decidim
           enforce_permission_to :configure, :question, question: current_question
 
           @form = question_form
-                  .from_params(params, question_id: current_question.id, current_consultation: current_consultation)
+                  .from_params(params, question_id: current_question.id, current_consultation:)
 
           UpdateQuestionConfiguration.call(current_question, @form) do
             on(:ok) do |question|

@@ -134,7 +134,7 @@ module Decidim
       end
 
       def to_h
-        hash = Hash[attributes].symbolize_keys
+        hash = attributes.to_h.symbolize_keys
         hash.delete(:id) if hash.has_key?(:id) && hash[:id].blank?
 
         hash

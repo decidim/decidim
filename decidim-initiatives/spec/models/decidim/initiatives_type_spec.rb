@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   describe InitiativesType do
-    let(:initiatives_type) { build :initiatives_type }
+    let(:initiatives_type) { build(:initiatives_type) }
 
     it "is valid" do
       expect(initiatives_type).to be_valid
@@ -12,9 +12,9 @@ module Decidim
 
     describe "::initiatives" do
       let(:organization) { create(:organization) }
-      let(:initiatives_type) { create(:initiatives_type, organization: organization) }
+      let(:initiatives_type) { create(:initiatives_type, organization:) }
       let(:scope) { create(:initiatives_type_scope, type: initiatives_type) }
-      let!(:initiative) { create(:initiative, organization: organization, scoped_type: scope) }
+      let!(:initiative) { create(:initiative, organization:, scoped_type: scope) }
       let!(:other_initiative) { create(:initiative) }
 
       it "returns initiatives" do

@@ -10,10 +10,10 @@ module Decidim::Comments
 
     let(:my_cell) { cell("decidim/comments/comment", comment) }
     let(:organization) { create(:organization) }
-    let(:participatory_process) { create :participatory_process, organization: organization }
+    let(:participatory_process) { create(:participatory_process, organization:) }
     let(:component) { create(:component, participatory_space: participatory_process) }
-    let(:commentable) { create(:dummy_resource, component: component) }
-    let(:comment) { create(:comment, commentable: commentable) }
+    let(:commentable) { create(:dummy_resource, component:) }
+    let(:comment) { create(:comment, commentable:) }
 
     context "when rendering" do
       it "renders the card" do
@@ -35,45 +35,45 @@ module Decidim::Comments
       end
 
       context "when deleted" do
-        let(:comment) { create(:comment, :deleted, commentable: commentable) }
+        let(:comment) { create(:comment, :deleted, commentable:) }
 
         it "renders the card with a deletion message and replies" do
           expect(subject).to have_css("#comment_#{comment.id}")
           expect(subject).to have_css("#comment-#{comment.id}-replies", text: "")
           expect(subject).to have_css(".comment__deleted")
-          expect(subject).to have_no_css("button[data-open='loginModal'][title='#{I18n.t("decidim.components.comment.report.title")}']")
-          expect(subject).to have_no_css("a[href='/processes/#{participatory_process.slug}/f/#{component.id}/dummy_resources/#{commentable.id}?commentId=#{comment.id}#comment_#{comment.id}']")
-          expect(subject).to have_no_content(comment.body.values.first)
-          expect(subject).to have_no_content(I18n.l(comment.created_at, format: :decidim_short))
+          expect(subject).not_to have_css("button[data-open='loginModal'][title='#{I18n.t("decidim.components.comment.report.title")}']")
+          expect(subject).not_to have_css("a[href='/processes/#{participatory_process.slug}/f/#{component.id}/dummy_resources/#{commentable.id}?commentId=#{comment.id}#comment_#{comment.id}']")
+          expect(subject).not_to have_content(comment.body.values.first)
+          expect(subject).not_to have_content(I18n.l(comment.created_at, format: :decidim_short))
           expect(subject).to have_content(I18n.l(comment.deleted_at, format: :decidim_short))
-          expect(subject).to have_no_content(comment.author.name)
+          expect(subject).not_to have_content(comment.author.name)
 
-          expect(subject).to have_no_css(".comment__additionalreply")
-          expect(subject).to have_no_css(".add-comment")
-          expect(subject).to have_no_css(".comment__reply")
-          expect(subject).to have_no_css("#flagModalComment#{comment.id}")
+          expect(subject).not_to have_css(".comment__additionalreply")
+          expect(subject).not_to have_css(".add-comment")
+          expect(subject).not_to have_css(".comment__reply")
+          expect(subject).not_to have_css("#flagModalComment#{comment.id}")
         end
       end
 
       context "when moderated" do
-        let(:comment) { create(:comment, commentable: commentable, created_at: 1.day.ago) }
+        let(:comment) { create(:comment, commentable:, created_at: 1.day.ago) }
         let!(:moderation) { create(:moderation, hidden_at: 6.hours.ago, reportable: comment) }
 
         it "renders the card with a moderation message and replies" do
           expect(subject).to have_css("#comment_#{comment.id}")
           expect(subject).to have_css("#comment-#{comment.id}-replies", text: "")
           expect(subject).to have_css(".comment__moderated")
-          expect(subject).to have_no_css("button[data-open='loginModal'][title='#{I18n.t("decidim.components.comment.report.title")}']")
-          expect(subject).to have_no_css("a[href='/processes/#{participatory_process.slug}/f/#{component.id}/dummy_resources/#{commentable.id}?commentId=#{comment.id}#comment_#{comment.id}']")
-          expect(subject).to have_no_content(comment.body.values.first)
-          expect(subject).to have_no_content(I18n.l(comment.created_at, format: :decidim_short))
+          expect(subject).not_to have_css("button[data-open='loginModal'][title='#{I18n.t("decidim.components.comment.report.title")}']")
+          expect(subject).not_to have_css("a[href='/processes/#{participatory_process.slug}/f/#{component.id}/dummy_resources/#{commentable.id}?commentId=#{comment.id}#comment_#{comment.id}']")
+          expect(subject).not_to have_content(comment.body.values.first)
+          expect(subject).not_to have_content(I18n.l(comment.created_at, format: :decidim_short))
           expect(subject).to have_content(I18n.l(moderation.hidden_at, format: :decidim_short))
-          expect(subject).to have_no_content(comment.author.name)
+          expect(subject).not_to have_content(comment.author.name)
 
-          expect(subject).to have_no_css(".comment__additionalreply")
-          expect(subject).to have_no_css(".add-comment")
-          expect(subject).to have_no_css(".comment__reply")
-          expect(subject).to have_no_css("#flagModalComment#{comment.id}")
+          expect(subject).not_to have_css(".comment__additionalreply")
+          expect(subject).not_to have_css(".add-comment")
+          expect(subject).not_to have_css(".comment__reply")
+          expect(subject).not_to have_css("#flagModalComment#{comment.id}")
         end
       end
 
@@ -101,13 +101,13 @@ module Decidim::Comments
       end
 
       context "with votes" do
-        let(:comment) { create(:comment, commentable: commentable) }
+        let(:comment) { create(:comment, commentable:) }
 
         before do
           allow(commentable).to receive(:comments_have_votes?).and_return(true)
 
-          create_list(:comment_vote, 4, :up_vote, comment: comment)
-          create_list(:comment_vote, 2, :down_vote, comment: comment)
+          create_list(:comment_vote, 4, :up_vote, comment:)
+          create_list(:comment_vote, 2, :down_vote, comment:)
         end
 
         it "renders the votes buttons" do
@@ -120,7 +120,7 @@ module Decidim::Comments
 
       context "with alignment" do
         context "when positive alignment" do
-          let(:comment) { create(:comment, commentable: commentable) }
+          let(:comment) { create(:comment, commentable:) }
 
           before do
             comment.update!(alignment: 1)
@@ -132,7 +132,7 @@ module Decidim::Comments
         end
 
         context "when negative alignment" do
-          let(:comment) { create(:comment, commentable: commentable) }
+          let(:comment) { create(:comment, commentable:) }
 
           before do
             comment.update!(alignment: -1)
@@ -203,12 +203,12 @@ module Decidim::Comments
           }
         end
 
-        let(:user) { create(:user, :confirmed, organization: organization) }
+        let(:user) { create(:user, :confirmed, organization:) }
 
         before do
           organization.available_authorizations = ["dummy_authorization_handler"]
           organization.save!
-          commentable.create_resource_permission(permissions: permissions)
+          commentable.create_resource_permission(permissions:)
           allow(commentable).to receive(:comments_have_votes?).and_return(true)
           allow(subject).to receive(:current_user).and_return(user)
         end
@@ -220,7 +220,7 @@ module Decidim::Comments
 
       context "when commentable has no permissions set for the vote_comment action" do
         it "renders a plain button" do
-          expect(subject).to have_no_css("[data-open=\"authorizationModal\"]")
+          expect(subject).not_to have_css("[data-open=\"authorizationModal\"]")
         end
       end
     end

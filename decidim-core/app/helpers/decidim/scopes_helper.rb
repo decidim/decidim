@@ -41,7 +41,7 @@ module Decidim
     def scopes_picker_field(form, name, root: false, options: { checkboxes_on_top: true })
       root = try(:current_participatory_space)&.scope if root == false
       form.scopes_picker name, options do |scope|
-        { url: decidim.scopes_picker_path(root: root, current: scope&.id, field: form.label_for(name)),
+        { url: decidim.scopes_picker_path(root:, current: scope&.id, field: form.label_for(name)),
           text: scope_name_for_picker(scope, I18n.t("decidim.scopes.global")) }
       end
     end
@@ -56,7 +56,7 @@ module Decidim
       field = options[:field] || name
 
       scopes_picker_field_tag name, value, id: options[:id] do |scope|
-        { url: decidim.scopes_picker_path(root: root, current: scope&.id, field: field),
+        { url: decidim.scopes_picker_path(root:, current: scope&.id, field:),
           text: scope_name_for_picker(scope, I18n.t("decidim.scopes.global")) }
       end
     end
@@ -72,7 +72,7 @@ module Decidim
         multiple: true,
         legend_title: I18n.t("decidim.scopes.scopes"),
         label: false,
-        checkboxes_on_top: checkboxes_on_top
+        checkboxes_on_top:
       }
 
       form.scopes_picker name, options do |scope|

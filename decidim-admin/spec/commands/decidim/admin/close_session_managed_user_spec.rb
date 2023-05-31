@@ -6,10 +6,10 @@ module Decidim::Admin
   describe CloseSessionManagedUser do
     subject { described_class.new(user, current_user) }
 
-    let(:organization) { create :organization }
-    let(:current_user) { create :user, :admin, organization: organization }
-    let(:user) { create :user, :managed, organization: organization }
-    let!(:impersonation_log) { create(:impersonation_log, admin: current_user, user: user) }
+    let(:organization) { create(:organization) }
+    let(:current_user) { create(:user, :admin, organization:) }
+    let(:user) { create(:user, :managed, organization:) }
+    let!(:impersonation_log) { create(:impersonation_log, admin: current_user, user:) }
 
     context "when everything is ok" do
       it "broadcasts ok" do

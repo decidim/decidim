@@ -14,7 +14,7 @@ module Decidim
               let(:current_user) { create(:user, :admin, organization: initiative.organization) }
 
               it "notifies the followers" do
-                follower = create(:user, organization: organization)
+                follower = create(:user, organization:)
                 create(:follow, followable: initiative, user: follower)
 
                 expect(Decidim::EventsManager)
@@ -32,7 +32,7 @@ module Decidim
               context "when the signature end time is not modified" do
                 let(:signature_end_date) { initiative.signature_end_date }
 
-                it "doesn't notify the followers" do
+                it "does not notify the followers" do
                   expect(Decidim::EventsManager).not_to receive(:publish)
 
                   command.call
@@ -44,11 +44,11 @@ module Decidim
 
         context "when validation failure" do
           let(:organization) { create(:organization) }
-          let!(:initiative) { create(:initiative, organization: organization) }
+          let!(:initiative) { create(:initiative, organization:) }
           let!(:form) do
             form_klass
               .from_model(initiative)
-              .with_context(current_organization: organization, initiative: initiative)
+              .with_context(current_organization: organization, initiative:)
           end
 
           let(:command) { described_class.new(initiative, form, initiative.author) }

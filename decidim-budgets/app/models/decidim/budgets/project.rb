@@ -34,6 +34,8 @@ module Decidim
       scope :selected, -> { where.not(selected_at: nil) }
       scope :not_selected, -> { where(selected_at: nil) }
 
+      geocoded_by :address
+
       scope_search_multi :with_any_status, [:selected, :not_selected]
 
       searchable_fields(

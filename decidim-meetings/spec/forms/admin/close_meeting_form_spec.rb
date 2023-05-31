@@ -6,17 +6,17 @@ module Decidim::Meetings
   describe Admin::CloseMeetingForm do
     subject { described_class.from_params(attributes).with_context(context) }
 
-    let(:meeting) { create(:meeting, component: component) }
+    let(:meeting) { create(:meeting, component:) }
     let(:component) { create(:meeting_component) }
     let(:attributes) do
       {
-        closing_report: closing_report,
-        attendees_count: attendees_count,
-        contributions_count: contributions_count,
-        attending_organizations: attending_organizations,
-        video_url: video_url,
-        audio_url: audio_url,
-        closing_visible: closing_visible
+        closing_report:,
+        attendees_count:,
+        contributions_count:,
+        attending_organizations:,
+        video_url:,
+        audio_url:,
+        closing_visible:
       }
     end
     let(:closing_report) { { en: "It went great", ca: "Ha anat molt bé", es: "Ha ido muy bien" } }

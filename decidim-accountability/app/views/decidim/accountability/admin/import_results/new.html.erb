@@ -7,6 +7,13 @@
     </div>
 
     <div class="card-section">
+      <div class="mb-s">
+        <p><%= t(".info",
+                 link_new_status: new_status_path,
+                 link_new_result: new_result_path,
+                 link_export_csv: link_to(t(".download_export"),exports_path(current_component, id: "results", format: "CSV"), method: :post)
+                ).try("html_safe") %></p>
+      </div>
       <div class="row column">
         <%= file_field_tag :csv_file %>
       </div>
@@ -15,8 +22,5 @@
 
   <div class="button--double form-general-submit">
     <%= submit_tag t(".import"), class: "button" %>
-  </div>
-  <div class="import-process-info">
-    <%= t(".info", link_new_status: new_status_path, link_new_result: new_result_path, link_export_csv: link_to(t(".link"), exports_path(current_component, id: "results", format: "CSV"), method: :post)).try("html_safe") %>
   </div>
 <% end %>

@@ -11,7 +11,7 @@ describe "rake decidim:right_to_be_forgotten", type: :task do
   let(:users) { [user, user2] }
 
   before do
-    File.delete(Rails.root.join("log/right_to_be_forgotten.log")) if File.exist?(Rails.root.join("log/right_to_be_forgotten.log"))
+    FileUtils.rm_f(Rails.root.join("log/right_to_be_forgotten.log"))
   end
 
   after do
@@ -56,7 +56,7 @@ describe "rake decidim:right_to_be_forgotten", type: :task do
       user_ids = users.collect(&:id)
       create_forgotten_users_file(user_ids)
       task.execute
-      expect(File.exist?(Rails.root.join("log/right_to_be_forgotten.log"))).to be true
+      expect(Rails.root.join("log/right_to_be_forgotten.log").exist?).to be true
     end
   end
 
@@ -91,5 +91,5 @@ def create_forgotten_users_file(user_ids = [1])
 end
 
 def delete_forgotten_users_file
-  File.delete(file_path) if File.exist?(file_path)
+  FileUtils.rm_f(file_path)
 end

@@ -6,8 +6,8 @@ describe "Meeting", type: :system, download: true do
   include_context "with a component"
   let(:manifest_name) { "meetings" }
 
-  let(:meeting) { create :meeting, :published, :with_services, component: component }
-  let!(:user) { create :user, :confirmed, organization: organization }
+  let(:meeting) { create(:meeting, :published, :with_services, component:) }
+  let!(:user) { create(:user, :confirmed, organization:) }
 
   def visit_meeting
     visit resource_locator(meeting).path
@@ -46,7 +46,7 @@ describe "Meeting", type: :system, download: true do
   end
 
   context "when component is not commentable" do
-    let!(:resources) { create_list(:meeting, 3, :published, :with_services, component: component) }
+    let!(:resources) { create_list(:meeting, 3, :published, :with_services, component:) }
 
     it_behaves_like "an uncommentable component"
   end
@@ -54,22 +54,22 @@ describe "Meeting", type: :system, download: true do
   context "when component has maps enabled" do
     let!(:component) do
       create(:component,
-             manifest: manifest,
-             participatory_space: participatory_space)
+             manifest:,
+             participatory_space:)
     end
 
     context "and meeting is online" do
-      let(:meeting) { create :meeting, :published, :with_services, :online, component: component }
+      let(:meeting) { create(:meeting, :published, :with_services, :online, component:) }
 
       it "hides the map section" do
         visit_meeting
 
-        expect(page).to have_no_css("div.address__map")
+        expect(page).not_to have_css("div.address__map")
       end
     end
 
     context "and meeting is in_person" do
-      let(:meeting) { create :meeting, :published, :with_services, component: component }
+      let(:meeting) { create(:meeting, :published, :with_services, component:) }
 
       it "shows the map section" do
         visit_meeting
@@ -79,7 +79,7 @@ describe "Meeting", type: :system, download: true do
     end
 
     context "and meeting is hybrid" do
-      let(:meeting) { create :meeting, :published, :with_services, :hybrid, component: component }
+      let(:meeting) { create(:meeting, :published, :with_services, :hybrid, component:) }
 
       it "shows the map section" do
         visit_meeting
@@ -92,8 +92,8 @@ describe "Meeting", type: :system, download: true do
   context "when component has maps disabled" do
     let!(:component) do
       create(:component,
-             manifest: manifest,
-             participatory_space: participatory_space)
+             manifest:,
+             participatory_space:)
     end
 
     before do
@@ -101,40 +101,40 @@ describe "Meeting", type: :system, download: true do
     end
 
     context "and meeting is in_person" do
-      let(:meeting) { create :meeting, :published, :with_services, component: component }
+      let(:meeting) { create(:meeting, :published, :with_services, component:) }
 
       it "hides the map section" do
         visit_meeting
 
-        expect(page).to have_no_css("div.address__map")
+        expect(page).not_to have_css("div.address__map")
       end
     end
 
     context "and meeting is hybrid" do
-      let(:meeting) { create :meeting, :published, :with_services, :hybrid, component: component }
+      let(:meeting) { create(:meeting, :published, :with_services, :hybrid, component:) }
 
       it "hides the map section" do
         visit_meeting
 
-        expect(page).to have_no_css("div.address__map")
+        expect(page).not_to have_css("div.address__map")
       end
     end
   end
 
   context "when the meeting is the same as the current year" do
-    let(:meeting) { create(:meeting, :published, component: component, start_time: Time.current) }
+    let(:meeting) { create(:meeting, :published, component:, start_time: Time.current) }
 
-    it "doesn't show the year" do
+    it "does not show the year" do
       visit_meeting
 
       within ".extra__date-container" do
-        expect(page).to have_no_content(meeting.start_time.year)
+        expect(page).not_to have_content(meeting.start_time.year)
       end
     end
   end
 
   context "when the meeting is different from the current year" do
-    let(:meeting) { create(:meeting, :published, component: component, start_time: 1.year.ago, end_time: 1.year.ago + 7.days) }
+    let(:meeting) { create(:meeting, :published, component:, start_time: 1.year.ago, end_time: 1.year.ago + 7.days) }
 
     it "shows the year" do
       visit_meeting
@@ -153,7 +153,7 @@ describe "Meeting", type: :system, download: true do
     end
 
     context "when meeting is live" do
-      let(:meeting) { create(:meeting, :published, component: component, start_time: 1.minute.ago, end_time: 1.hour.from_now) }
+      let(:meeting) { create(:meeting, :published, component:, start_time: 1.minute.ago, end_time: 1.hour.from_now) }
 
       it "does not timeout user" do
         visit_meeting
@@ -164,7 +164,7 @@ describe "Meeting", type: :system, download: true do
     end
 
     context "when meeting is in future" do
-      let(:meeting) { create(:meeting, :published, component: component, start_time: 1.day.from_now, end_time: 1.day.from_now + 2.hours) }
+      let(:meeting) { create(:meeting, :published, component:, start_time: 1.day.from_now, end_time: 1.day.from_now + 2.hours) }
 
       it "timeouts user normally" do
         visit_meeting
@@ -179,7 +179,7 @@ describe "Meeting", type: :system, download: true do
           component.settings[:comments_enabled] = true
         end
 
-        it "fetching comments doesnt prevent timeout" do
+        it "fetching comments does not prevent timeout" do
           visit_meeting
           comment
           expect(page).to have_content(translated(comment.body), wait: 30)

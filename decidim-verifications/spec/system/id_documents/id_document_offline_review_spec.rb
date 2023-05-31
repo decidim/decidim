@@ -12,7 +12,7 @@ describe "Identity document offline review", type: :system do
     )
   end
 
-  let(:user) { create(:user, :confirmed, organization: organization) }
+  let(:user) { create(:user, :confirmed, organization:) }
 
   let!(:authorization) do
     create(
@@ -20,7 +20,7 @@ describe "Identity document offline review", type: :system do
       :pending,
       id: 1,
       name: "id_documents",
-      user: user,
+      user:,
       verification_metadata: {
         "verification_type" => "offline",
         "document_type" => "DNI",
@@ -29,7 +29,7 @@ describe "Identity document offline review", type: :system do
     )
   end
 
-  let(:admin) { create(:user, :admin, :confirmed, organization: organization) }
+  let(:admin) { create(:user, :admin, :confirmed, organization:) }
 
   before do
     switch_to_host(organization.host)
@@ -44,17 +44,17 @@ describe "Identity document offline review", type: :system do
     expect(page).to have_content("Participant successfully verified")
   end
 
-  it "shows an error when there's no authorization for the given email" do
-    submit_verification_form(doc_type: "DNI", doc_number: "XXXXXXXX", user_email: "this@doesnt.exist")
+  it "shows an error when there is no authorization for the given email" do
+    submit_verification_form(doc_type: "DNI", doc_number: "XXXXXXXX", user_email: "this@doesnot.exist")
 
-    expect(page).to have_content("Verification doesn't match")
+    expect(page).to have_content("Verification does not match")
     expect(page).to have_content("Introduce the participant email and the document data")
   end
 
-  it "shows an error when information doesn't match" do
+  it "shows an error when information does not match" do
     submit_verification_form(doc_type: "NIE", doc_number: "XXXXXXXY")
 
-    expect(page).to have_content("Verification doesn't match")
+    expect(page).to have_content("Verification does not match")
     expect(page).to have_content("Introduce the participant email and the document data")
   end
 

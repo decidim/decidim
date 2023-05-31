@@ -8,9 +8,10 @@ module Decidim::Blogs
 
     let(:current_organization) { create(:organization) }
     let(:current_user) { create(:user, :confirmed, organization: current_organization) }
-    let(:participatory_process) { create :participatory_process, organization: current_organization }
-    let(:current_component) { create :component, participatory_space: participatory_process, manifest_name: "blogs" }
-    let(:post) { create(:post, component: current_component, author: current_user) }
+    let(:participatory_process) { create(:participatory_process, organization: current_organization) }
+    let(:current_component) { create(:component, participatory_space: participatory_process, manifest_name: "blogs") }
+    let(:post) { create(:post, component: current_component, author: current_user, published_at:) }
+    let(:published_at) { nil }
 
     include_examples "endorsable"
     include_examples "has component"
@@ -19,20 +20,20 @@ module Decidim::Blogs
     it { is_expected.to be_valid }
 
     context "without a component" do
-      let(:post) { build :post, component: nil, author: current_user }
+      let(:post) { build(:post, component: nil, author: current_user) }
 
       it { is_expected.not_to be_valid }
     end
 
     context "without a valid component" do
-      let(:post) { build :post, component: build(:component, manifest_name: "proposals"), author: current_user }
+      let(:post) { build(:post, component: build(:component, manifest_name: "proposals"), author: current_user) }
 
       it { is_expected.not_to be_valid }
     end
 
     context "without a valid author" do
       let(:other_author) { create(:user) }
-      let(:post) { build :post, component: current_component, author: other_author }
+      let(:post) { build(:post, component: current_component, author: other_author) }
 
       it { is_expected.not_to be_valid }
     end

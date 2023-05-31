@@ -5,8 +5,8 @@ require "spec_helper"
 describe "Admin manages participatory space private users via csv import", type: :system do
   let(:organization) { create(:organization) }
 
-  let!(:user) { create(:user, :admin, :confirmed, organization: organization) }
-  let(:assembly) { create(:assembly, organization: organization) }
+  let!(:user) { create(:user, :admin, :confirmed, organization:) }
+  let(:assembly) { create(:assembly, organization:) }
 
   before do
     switch_to_host(organization.host)
@@ -21,14 +21,14 @@ describe "Admin manages participatory space private users via csv import", type:
   end
 
   context "when there are no existing users" do
-    it "doesn't propose to delete" do
+    it "does not propose to delete" do
       expect(page).to have_content("You have no private participants.")
     end
   end
 
   context "when there are existing users" do
     before do
-      create_list :assembly_private_user, 3, privatable_to: assembly, user: create(:user, organization: assembly.organization)
+      create_list(:assembly_private_user, 3, privatable_to: assembly, user: create(:user, organization: assembly.organization))
       visit current_path
     end
 

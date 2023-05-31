@@ -38,8 +38,8 @@ module Decidim
     attr_reader :user, :role
 
     def process_ids
-      user_roles = ParticipatoryProcessUserRole.where(user: user) if role == :any
-      user_roles = ParticipatoryProcessUserRole.where(user: user, role: role) if role != :any
+      user_roles = ParticipatoryProcessUserRole.where(user:) if role == :any
+      user_roles = ParticipatoryProcessUserRole.where(user:, role:) if role != :any
       user_roles.pluck(:decidim_participatory_process_id)
     end
   end

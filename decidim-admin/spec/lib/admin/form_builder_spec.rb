@@ -107,7 +107,7 @@ module Decidim
       context "with label disabled" do
         let(:options) { { label: false } }
 
-        it "doesn't output the label" do
+        it "does not output the label" do
           expect(subject.xpath("//label")).to be_empty
         end
       end

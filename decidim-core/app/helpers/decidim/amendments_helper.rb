@@ -18,7 +18,7 @@ module Decidim
 
       content << cell("decidim/collapsible_list",
                       emendations,
-                      cell_options: { context: { current_user: current_user } },
+                      cell_options: { context: { current_user: } },
                       list_class: "row small-up-1 medium-up-2 card-grid amendment-list",
                       size: 4).to_s
 
@@ -85,7 +85,7 @@ module Decidim
       current_component.settings.amendments_enabled
     end
 
-    # Checks if there's a user that can react to an emendation
+    # Checks if there is a user that can react to an emendation
     def can_react_to_emendation?(emendation)
       return unless current_user && emendation.emendation?
 

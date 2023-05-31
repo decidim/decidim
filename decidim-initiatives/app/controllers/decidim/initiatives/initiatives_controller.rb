@@ -18,6 +18,8 @@ module Decidim
       helper Decidim::ResourceReferenceHelper
       helper PaginateHelper
       helper InitiativeHelper
+      helper SignatureTypeOptionsHelper
+
       include InitiativeSlug
       include FilterResource
       include Paginable
@@ -28,7 +30,7 @@ module Decidim
       include SingleInitiativeType
 
       helper_method :collection, :initiatives, :filter, :stats
-      helper_method :initiative_type
+      helper_method :initiative_type, :available_initiative_types
 
       # GET /initiatives
       def index
@@ -60,7 +62,7 @@ module Decidim
             redirect_to EngineRouter.main_proxy(current_initiative).initiatives_path(initiative_slug: nil), flash: {
               notice: I18n.t(
                 "success",
-                scope: %w(decidim initiatives admin initiatives edit)
+                scope: "decidim.initiatives.admin.initiatives.edit"
               )
             }
           end
@@ -86,6 +88,7 @@ module Decidim
         enforce_permission_to :update, :initiative, initiative: current_initiative
 
         params[:id] = params[:slug]
+        params[:type_id] = current_initiative.type&.id
         @form = form(Decidim::Initiatives::InitiativeForm)
                 .from_params(params, initiative_type: current_initiative.type, initiative: current_initiative)
 
@@ -111,7 +114,7 @@ module Decidim
       alias current_initiative current_participatory_space
 
       def current_participatory_space
-        @current_participatory_space ||= Initiative.find_by(id: id_from_slug(params[:slug]))
+        @current_participatory_space ||= Initiative.find(id_from_slug(params[:slug]))
       end
 
       def current_participatory_space_manifest

@@ -14,15 +14,15 @@ edit_link(
 
 <% if @topic %>
   <%= render partial: "tabbed", locals: {
-    title: translated_attribute(@topic.title),
-    description: translated_attribute(@topic.description),
-    page: @page,
-    pages: @pages
-  } %>
+        title: translated_attribute(@topic.title),
+        description: translated_attribute(@topic.description),
+        page: @page,
+        pages: @pages
+      } %>
 <% else %>
   <%= render partial: "standalone", locals: {
-    title: translated_attribute(@page.title),
-    description: nil,
-    page: @page
-  } %>
+        title: translated_attribute(@page.title),
+        description: nil,
+        page: @page
+      } %>
 <% end %>

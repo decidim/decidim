@@ -52,7 +52,7 @@ module Decidim
         all_recipients(recipients).each do |recipient|
           next if @already_notified.include?(recipient)
 
-          receipts.build(recipient: recipient)
+          receipts.build(recipient:)
           @already_notified.push(recipient)
         end
       end

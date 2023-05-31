@@ -15,8 +15,8 @@ module Decidim
           decidim_amendable_type: "type1",
           decidim_emendation_type: "type2",
           amender: user,
-          amendable: amendable,
-          emendation: emendation
+          amendable:,
+          emendation:
         )
       end
       let(:user) { create(:user) }

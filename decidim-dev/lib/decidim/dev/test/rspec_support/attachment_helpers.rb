@@ -18,8 +18,8 @@ module AttachmentHelpers
 
     blob = ActiveStorage::Blob.create_and_upload!(
       io: File.open(file),
-      filename: filename,
-      content_type: content_type
+      filename:,
+      content_type:
     )
     return blob if options[:return_blob]
 

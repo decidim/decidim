@@ -8,8 +8,8 @@ module Decidim
       routes { Decidim::Initiatives::Engine.routes }
 
       let(:organization) { create(:organization) }
-      let(:initiative_with_user_extra_fields) { create(:initiative, :with_user_extra_fields_collection, organization: organization) }
-      let(:initiative_without_user_extra_fields) { create(:initiative, organization: organization) }
+      let(:initiative_with_user_extra_fields) { create(:initiative, :with_user_extra_fields_collection, organization:) }
+      let(:initiative_without_user_extra_fields) { create(:initiative, organization:) }
       let(:initiative) { initiative_without_user_extra_fields }
 
       before do
@@ -19,7 +19,7 @@ module Decidim
       context "when POST create" do
         context "and authorized user" do
           context "and initiative with user extra fields required" do
-            it "can't vote" do
+            it "cannot vote" do
               sign_in initiative_with_user_extra_fields.author, scope: :user
               post :create, params: { initiative_slug: initiative_with_user_extra_fields.slug, format: :js }
               expect(response).to have_http_status(:unprocessable_entity)
@@ -46,7 +46,7 @@ module Decidim
           it "do not register the vote" do
             expect do
               post :create, params: { initiative_slug: initiative.slug, format: :js }
-            end.not_to(change { InitiativesVote.where(initiative: initiative).count })
+            end.not_to(change { InitiativesVote.where(initiative:).count })
           end
         end
       end

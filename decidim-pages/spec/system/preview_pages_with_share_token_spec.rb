@@ -13,7 +13,7 @@ describe "Preview pages with share token", type: :system do
     }
   end
 
-  let!(:page_component) { create(:page, component: component, body: body) }
+  let!(:page_component) { create(:page, component:, body:) }
 
   include_context "with a component"
   it_behaves_like "preview component with share_token"

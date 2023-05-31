@@ -8,13 +8,13 @@ module Decidim
   describe UserGroupForm do
     subject do
       described_class.new(
-        name: name,
-        email: email,
-        nickname: nickname,
-        phone: phone,
-        document_number: document_number,
-        avatar: avatar,
-        about: about
+        name:,
+        email:,
+        nickname:,
+        phone:,
+        document_number:,
+        avatar:,
+        about:
       ).with_context(
         current_organization: organization,
         current_user: user
@@ -61,16 +61,16 @@ module Decidim
         it { is_expected.to be_valid }
       end
 
-      context "when it's already in use in the same organization" do
-        let!(:existing_user_group) { create(:user_group, document_number: document_number, organization: organization) }
+      context "when it is already in use in the same organization" do
+        let!(:existing_user_group) { create(:user_group, document_number:, organization:) }
 
         it "is invalid" do
           expect(subject).not_to be_valid
         end
       end
 
-      context "when it's already in use in another organization" do
-        let!(:existing_user_group) { create(:user_group, document_number: document_number) }
+      context "when it is already in use in another organization" do
+        let!(:existing_user_group) { create(:user_group, document_number:) }
 
         it "is valid" do
           expect(subject).to be_valid
@@ -87,16 +87,16 @@ module Decidim
         end
       end
 
-      context "when it's already in use in the same organization" do
-        let!(:existing_user) { create(:user, email: email, organization: organization) }
+      context "when it is already in use in the same organization" do
+        let!(:existing_user) { create(:user, email:, organization:) }
 
         it "is invalid" do
           expect(subject).not_to be_valid
         end
       end
 
-      context "when it's already in use in another organization" do
-        let!(:existing_user) { create(:user, email: email) }
+      context "when it is already in use in another organization" do
+        let!(:existing_user) { create(:user, email:) }
 
         it "is valid" do
           expect(subject).to be_valid
@@ -113,16 +113,16 @@ module Decidim
         end
       end
 
-      context "when it's already in use in the same organization" do
-        let!(:existing_user) { create(:user, name: name, organization: organization) }
+      context "when it is already in use in the same organization" do
+        let!(:existing_user) { create(:user, name:, organization:) }
 
         it "is invalid" do
           expect(subject).not_to be_valid
         end
       end
 
-      context "when it's already in use in another organization" do
-        let!(:existing_user) { create(:user, name: name) }
+      context "when it is already in use in another organization" do
+        let!(:existing_user) { create(:user, name:) }
 
         it "is valid" do
           expect(subject).to be_valid
@@ -139,16 +139,16 @@ module Decidim
         end
       end
 
-      context "when it's already in use in the same organization" do
-        let!(:existing_user) { create(:user, nickname: nickname, organization: organization) }
+      context "when it is already in use in the same organization" do
+        let!(:existing_user) { create(:user, nickname:, organization:) }
 
         it "is invalid" do
           expect(subject).not_to be_valid
         end
       end
 
-      context "when it's already in use in another organization" do
-        let!(:existing_user) { create(:user, nickname: nickname) }
+      context "when it is already in use in another organization" do
+        let!(:existing_user) { create(:user, nickname:) }
 
         it "is valid" do
           expect(subject).to be_valid

@@ -12,7 +12,7 @@ module Decidim
         # Note that the form.select does not seem to work correctly in the cell
         # context. The Rails form builder tries to call @template.select which
         # is not available for the cell objects.
-        render view: :comment_as, locals: { form: form }
+        render view: :comment_as, locals: { form: }
       end
 
       private
@@ -84,13 +84,13 @@ module Decidim
       def component_comments_max_length
         return unless model.component&.settings.respond_to?(:comments_max_length)
 
-        model.component.settings.comments_max_length if model.component.settings.comments_max_length.positive?
+        model.component.settings.comments_max_length if model.component.settings.comments_max_length.to_i.positive?
       end
 
       def organization_comments_max_length
         return unless organization
 
-        organization.comments_max_length if organization.comments_max_length.positive?
+        organization.comments_max_length if organization.comments_max_length.to_i.positive?
       end
 
       def organization

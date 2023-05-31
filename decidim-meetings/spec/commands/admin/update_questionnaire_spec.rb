@@ -7,9 +7,10 @@ module Decidim
     module Admin
       describe UpdateQuestionnaire do
         let(:current_organization) { create(:organization) }
+        let(:user) { create(:user, organization: current_organization) }
         let(:participatory_process) { create(:participatory_process, organization: current_organization) }
-        let(:current_component) { create :component, participatory_space: participatory_process, manifest_name: "meetings" }
-        let(:meeting) { create :meeting, component: current_component }
+        let(:current_component) { create(:component, participatory_space: participatory_process, manifest_name: "meetings") }
+        let(:meeting) { create(:meeting, component: current_component) }
         let(:form_params) do
           {
             "questions" => {
@@ -71,13 +72,14 @@ module Decidim
           QuestionnaireForm.from_params(
             questionnaire: form_params
           ).with_context(
-            current_organization: current_organization
+            current_organization:,
+            current_user: user
           )
         end
         let(:command) { described_class.new(form, questionnaire) }
 
         context "with a persisted poll and questionnaire" do
-          let(:poll) { create(:poll) }
+          let(:poll) { create(:poll, meeting:) }
           let(:questionnaire) { create(:meetings_poll_questionnaire, questionnaire_for: poll) }
 
           describe "when the form is invalid" do
@@ -89,7 +91,7 @@ module Decidim
               expect { command.call }.to broadcast(:invalid)
             end
 
-            it "doesn't update the questionnaire" do
+            it "does not update the questionnaire" do
               expect(questionnaire).not_to receive(:update!)
               command.call
             end
@@ -111,10 +113,22 @@ module Decidim
               expect(questionnaire.questions[1].question_type).to eq("multiple_option")
               expect(questionnaire.questions[1].max_choices).to eq(2)
             end
+
+            it "traces the action", versioning: true do
+              expect(Decidim.traceability)
+                .to receive(:perform_action!)
+                .with("update", Decidim::Meetings::Questionnaire, user, { meeting: })
+                .and_call_original
+
+              expect { command.call }.to change(Decidim::ActionLog, :count)
+              action_log = Decidim::ActionLog.last
+              expect(action_log.action).to eq("update")
+              expect(action_log.version).to be_present
+            end
           end
 
           describe "when the questionnaire has an existing question" do
-            let!(:question) { create(:meetings_poll_question, questionnaire: questionnaire) }
+            let!(:question) { create(:meetings_poll_question, questionnaire:) }
 
             context "and the question should be removed" do
               let(:form_params) do
@@ -170,7 +184,7 @@ module Decidim
               expect { command.call }.to broadcast(:invalid)
             end
 
-            it "doesn't update the questionnaire" do
+            it "does not update the questionnaire" do
               expect(questionnaire).not_to receive(:update!)
               command.call
             end
@@ -209,7 +223,7 @@ module Decidim
           end
 
           describe "when the questionnaire has an existing question" do
-            let!(:question) { create(:meetings_poll_question, questionnaire: questionnaire) }
+            let!(:question) { create(:meetings_poll_question, questionnaire:) }
 
             context "and the question should be removed" do
               let(:form_params) do

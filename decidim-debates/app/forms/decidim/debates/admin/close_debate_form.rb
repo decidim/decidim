@@ -22,7 +22,7 @@ module Decidim
         end
 
         def debate
-          @debate ||= Debate.find_by(id: id)
+          @debate ||= Debate.find_by(id:)
         end
 
         private

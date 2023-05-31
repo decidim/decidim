@@ -45,26 +45,26 @@ module Decidim
 
         def resource
           @resource ||= Decidim::Proposals::Proposal.new(
-            category: category,
-            scope: scope,
-            title: title,
-            body: body,
-            address: address,
-            latitude: latitude,
-            longitude: longitude,
-            component: component,
+            category:,
+            scope:,
+            title:,
+            body:,
+            address:,
+            latitude:,
+            longitude:,
+            component:,
             published_at: Time.current
           )
         end
 
         def category
           id = data.has_key?(:category) ? data[:category]["id"] : data[:"category/id"].to_i
-          Decidim::Category.find_by(id: id)
+          Decidim::Category.find_by(id:)
         end
 
         def scope
           id = data.has_key?(:scope) ? data[:scope]["id"] : data[:"scope/id"].to_i
-          Decidim::Scope.find_by(id: id)
+          Decidim::Scope.find_by(id:)
         end
 
         def title

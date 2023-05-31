@@ -37,6 +37,14 @@ module Decidim
             initiatives.order_randomly(random_seed)
           end
         end
+
+        def order
+          @order ||= detect_order(params[:order]) || current_initiatives_settings.initiatives_order || default_order
+        end
+
+        def current_initiatives_settings
+          @current_initiatives_settings ||= Decidim::InitiativesSettings.find_or_create_by!(organization: current_organization)
+        end
       end
     end
   end

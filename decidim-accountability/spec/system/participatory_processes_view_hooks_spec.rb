@@ -16,7 +16,7 @@ describe "Results in process home", type: :system do
 
   context "when there are results" do
     let!(:results) do
-      create_list(:result, results_count, component: component)
+      create_list(:result, results_count, component:)
     end
 
     it "shows the highlighted results section" do

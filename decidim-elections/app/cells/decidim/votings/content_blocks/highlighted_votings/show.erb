@@ -8,7 +8,7 @@
           <div class="column">
             <%= link_to decidim_votings.voting_path(voting), class: "card card--voting card--mini" do %>
               <div aria-hidden="true" class="card__image-top"
-                style="background-image:url(<%= voting.attached_uploader(:banner_image).path %>)"></div>
+                style="background-image:url('<%= voting.attached_uploader(:banner_image).path %>')"></div>
               <div class="card__content">
                 <span class="card__title card__link"><%= translated_attribute voting.title %></span>
               </div>

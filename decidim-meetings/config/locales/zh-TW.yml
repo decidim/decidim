@@ -1,1 +1,16 @@
 zh-TW:
+  activemodel:
+    attributes:
+      meeting_agenda_items:
+        duration: 持續時間
+  decidim:
+    admin:
+      filters:
+        meetings:
+          with_any_origin:
+            values:
+              user_group: 使用者群組
+          with_any_type:
+            label: 會議類型
+            values:
+              in_person: 親自

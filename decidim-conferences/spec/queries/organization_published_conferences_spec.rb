@@ -9,11 +9,13 @@ module Decidim::Conferences
     let!(:organization) { create(:organization) }
 
     let!(:published_conferences) do
-      create_list(:conference, 3, :published, organization: organization)
+      create(:conference, :published, organization:, weight: 2)
+      create(:conference, :published, organization:, weight: 3)
+      create(:conference, :published, organization:, weight: 1)
     end
 
     let!(:unpublished_conferences) do
-      create_list(:conference, 3, :unpublished, organization: organization)
+      create_list(:conference, 3, :unpublished, organization:)
     end
 
     let!(:foreign_conferences) do
@@ -31,6 +33,10 @@ module Decidim::Conferences
 
       it "excludes other organization's published conferences" do
         expect(subject).not_to include(*foreign_conferences)
+      end
+
+      it "order conferences by weight" do
+        expect(subject.to_a.first.weight).to eq 1
       end
     end
   end

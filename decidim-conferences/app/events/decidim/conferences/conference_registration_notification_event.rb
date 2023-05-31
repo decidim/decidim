@@ -1,4 +1,4 @@
-# frozen-string_literal: true
+# frozen_string_literal: true
 
 module Decidim
   module Conferences
@@ -11,8 +11,8 @@ module Decidim
 
       def i18n_options
         {
-          resource_title: resource_title,
-          resource_url: resource_url,
+          resource_title:,
+          resource_url:,
           scope: event_name
         }
       end

@@ -15,17 +15,18 @@ describe Decidim::InitiativesVotes::VoteCell, type: :cell do
 
   let(:personal_data_params) do
     {
-      name_and_surname: ::Faker::Name.name,
-      document_number: ::Faker::IDNumber.spanish_citizen_number,
-      date_of_birth: ::Faker::Date.birthday(min_age: 18, max_age: 40),
-      postal_code: ::Faker::Address.zip_code
+      name_and_surname: Faker::Name.name,
+      document_number: Faker::IDNumber.spanish_citizen_number,
+      date_of_birth: Faker::Date.birthday(min_age: 18, max_age: 40),
+      postal_code: Faker::Address.zip_code
     }
   end
 
   context "when rendering" do
     it "shows title and identifier of initiative" do
-      expect(subject).to have_content(vote.initiative.title[:en])
-      expect(subject).to have_content(translated(vote.initiative.title, locale: :en))
+      expect(vote.initiative.title["en"]).to eq(translated(vote.initiative.title, locale: :en))
+      expect(subject.to_s).to include(vote.initiative.title["en"])
+      expect(subject.to_s).to include(translated(vote.initiative.title, locale: :en))
     end
 
     it "shows decrypted data" do

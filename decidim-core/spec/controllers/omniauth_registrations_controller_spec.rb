@@ -17,22 +17,22 @@ module Decidim
       let(:provider) { "facebook" }
       let(:uid) { "12345" }
       let(:email) { "user@from-facebook.com" }
-      let!(:user) { create(:user, organization: organization, email: email) }
+      let!(:user) { create(:user, organization:, email:) }
 
       before do
         request.env["omniauth.auth"] = {
-          provider: provider,
-          uid: uid,
+          provider:,
+          uid:,
           info: {
             name: "Facebook User",
             nickname: "facebook_user",
-            email: email
+            email:
           }
         }
       end
 
       context "when the user has the account blocked" do
-        let!(:user) { create(:user, organization: organization, email: email, blocked: true) }
+        let!(:user) { create(:user, organization:, email:, blocked: true) }
 
         before do
           post :create
@@ -56,7 +56,7 @@ module Decidim
           post :create
         end
 
-        it "doesn't create a new user" do
+        it "does not create a new user" do
           expect(User.count).to eq(1)
         end
 
@@ -87,13 +87,13 @@ module Decidim
         end
 
         context "with another email than the one from the identity provider" do
-          let!(:identity) { create(:identity, user: user, uid: uid) }
+          let!(:identity) { create(:identity, user:, uid:) }
 
           before do
             request.env["omniauth.auth"][:info][:email] = "omniauth@email.com"
           end
 
-          it "doesn't log in" do
+          it "does not log in" do
             post :create
 
             expect(controller).not_to be_user_signed_in

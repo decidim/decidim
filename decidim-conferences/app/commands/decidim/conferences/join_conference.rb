@@ -20,9 +20,10 @@ module Decidim
       #
       # Broadcasts :ok if successful, :invalid otherwise.
       def call
-        conference.with_lock do
-          return broadcast(:invalid) unless can_join_conference?
+        return broadcast(:invalid) unless can_join_conference?
+        return broadcast(:ok) if already_joined_conference?
 
+        conference.with_lock do
           create_registration
           create_meetings_registrations
           accept_invitation
@@ -38,11 +39,11 @@ module Decidim
       attr_reader :conference, :user
 
       def accept_invitation
-        conference.conference_invites.find_by(user: user)&.accept!
+        conference.conference_invites.find_by(user:)&.accept!
       end
 
       def create_registration
-        Decidim::Conferences::ConferenceRegistration.create!(conference: conference, user: user, registration_type: @registration_type)
+        Decidim::Conferences::ConferenceRegistration.create!(conference:, user:, registration_type: @registration_type)
       end
 
       def create_meetings_registrations
@@ -50,12 +51,16 @@ module Decidim
         meetings = Decidim::Meetings::Meeting.where(component: published_meeting_components).where(id: @registration_type.conference_meetings.pluck(:id))
 
         meetings.each do |meeting|
-          Decidim::Meetings::Registration.create!(meeting: meeting, user: user)
+          Decidim::Meetings::Registration.create!(meeting:, user:)
         end
       end
 
       def can_join_conference?
         conference.registrations_enabled? && conference.has_available_slots?
+      end
+
+      def already_joined_conference?
+        conference.conference_registrations.where(user:).any?
       end
 
       def send_email_pending_validation
@@ -89,7 +94,7 @@ module Decidim
           resource: @conference,
           followers: participatory_space_admins,
           extra: {
-            percentage: percentage
+            percentage:
           }
         )
       end

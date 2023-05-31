@@ -11,7 +11,7 @@ module Decidim
       # Returns a string with the title of the section, subsection or article.
       def preview_participatory_text_section_title(proposal)
         title = decidim_html_escape(present(proposal).title)
-        translated = t(proposal.participatory_text_level, scope: "decidim.proposals.admin.participatory_texts.sections", title: title)
+        translated = t(proposal.participatory_text_level, scope: "decidim.proposals.admin.participatory_texts.sections", title:)
         translated.html_safe
       end
 

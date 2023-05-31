@@ -8,19 +8,19 @@ module Decidim
       describe CreateBallotStyle do
         subject { described_class.new(form) }
 
-        let(:user) { create :user, :admin, :confirmed }
-        let(:election) { create :election, :complete, component: elections_component }
-        let(:elections_component) { create :elections_component, participatory_space: voting }
-        let(:voting) { create :voting, organization: user.organization }
+        let(:user) { create(:user, :admin, :confirmed) }
+        let(:election) { create(:election, :complete, component: elections_component) }
+        let(:elections_component) { create(:elections_component, participatory_space: voting) }
+        let(:voting) { create(:voting, organization: user.organization) }
 
         let(:form) do
           double(
             valid?: valid,
-            code: code,
-            question_ids: question_ids,
+            code:,
+            question_ids:,
             current_participatory_space: voting,
             current_user: user,
-            errors: errors
+            errors:
           )
         end
 
@@ -32,11 +32,11 @@ module Decidim
         let(:ballot_style) { Decidim::Votings::BallotStyle.last }
 
         it "creates the ballot style" do
-          expect { subject.call }.to change { Decidim::Votings::BallotStyle.count }.by(1)
+          expect { subject.call }.to change(Decidim::Votings::BallotStyle, :count).by(1)
         end
 
         it "creates the association between ballot style and questions" do
-          expect { subject.call }.to change { Decidim::Votings::BallotStyleQuestion.count }.by(2)
+          expect { subject.call }.to change(Decidim::Votings::BallotStyleQuestion, :count).by(2)
         end
 
         it "broadcasts ok" do
@@ -74,8 +74,8 @@ module Decidim
         end
 
         context "when a ballot style with the same code exists" do
-          context "when it's in the same voting" do
-            let!(:existing_ballot_style) { create(:ballot_style, voting: voting, code: code) }
+          context "when it is in the same voting" do
+            let!(:existing_ballot_style) { create(:ballot_style, voting:, code:) }
 
             it "is not valid" do
               expect(errors).to receive(:add).with(:code, :taken)
@@ -83,8 +83,8 @@ module Decidim
             end
           end
 
-          context "when it's in another voting" do
-            let!(:existing_ballot_style) { create(:ballot_style, code: code) }
+          context "when it is in another voting" do
+            let!(:existing_ballot_style) { create(:ballot_style, code:) }
 
             it "is valid" do
               expect { subject.call }.to broadcast(:ok)

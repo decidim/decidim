@@ -7,10 +7,19 @@ module Decidim
     #
     class MeetingPresenter < Decidim::ResourcePresenter
       include Decidim::ResourceHelper
+      include ActionView::Helpers::UrlHelper
       include Decidim::SanitizeHelper
 
       def meeting
         __getobj__
+      end
+
+      def meeting_path
+        Decidim::ResourceLocatorPresenter.new(meeting).path
+      end
+
+      def display_mention
+        link_to title, meeting_path
       end
 
       def title(links: false, html_escape: false, all_locales: false)
@@ -22,12 +31,13 @@ module Decidim
       def description(links: false, extras: true, strip_tags: false, all_locales: false)
         return unless meeting
 
-        new_description = handle_locales(meeting.description, all_locales) do |content|
-          renderer = Decidim::ContentRenderers::HashtagRenderer.new(sanitized(content))
-          renderer.render(links: links).html_safe
-        end
+        content_handle_locale(meeting.description, all_locales, extras, links, strip_tags)
+      end
 
-        content_handle_locale(new_description, all_locales, extras, links, strip_tags)
+      def editor_description(all_locales: false, extras: true)
+        return unless meeting
+
+        editor_locales(meeting.description, all_locales, extras:)
       end
 
       def location(all_locales: false)
@@ -59,7 +69,7 @@ module Decidim
 
         handle_locales(meeting.closing_report, all_locales) do |content|
           renderer = Decidim::ContentRenderers::HashtagRenderer.new(sanitized(content))
-          renderer.render(links: links).html_safe
+          renderer.render(links:).html_safe
         end
       end
 
@@ -68,7 +78,7 @@ module Decidim
 
         handle_locales(meeting.registration_email_custom_content, all_locales) do |content|
           renderer = Decidim::ContentRenderers::HashtagRenderer.new(sanitized(content))
-          renderer.render(links: links).html_safe
+          renderer.render(links:).html_safe
         end
       end
 

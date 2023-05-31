@@ -4,6 +4,14 @@ require "spec_helper"
 
 module Decidim
   describe DecidimFormHelper, type: :helper do
+    let(:redesign_enabled) { false }
+
+    before do
+      # rubocop:disable RSpec/AnyInstance
+      allow_any_instance_of(ActionView::Base).to receive(:redesign_enabled?).and_return(redesign_enabled)
+      # rubocop:enable RSpec/AnyInstance
+    end
+
     describe "decidim_form_for" do
       it "injects custom options" do
         record = double("record").as_null_object
@@ -26,7 +34,7 @@ module Decidim
         end
       end
 
-      context "when there's errors on base" do
+      context "when there is errors on base" do
         it "adds an error callout" do
           form = Form.new
           form.errors.add(:base, "Arbitrary error")
@@ -34,7 +42,7 @@ module Decidim
           output = helper.decidim_form_for(form, url: "#") do
             # empty block
           end
-          expect(output).to include("callout")
+          expect(output).to include("data-alert-box")
           expect(output).to include("Arbitrary error")
         end
       end

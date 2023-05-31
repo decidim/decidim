@@ -9,14 +9,14 @@ module Decidim
 
     let(:user) { create(:user, :confirmed) }
     let(:document_number) { "123456X" }
-    let(:scope) { create :scope, organization: user.organization }
+    let(:scope) { create(:scope, organization: user.organization) }
     let(:scope_id) { scope.id }
     let(:params) do
       {
-        user: user,
-        document_number: document_number,
+        user:,
+        document_number:,
         postal_code: "123456",
-        scope_id: scope_id
+        scope_id:
       }
     end
 
@@ -51,7 +51,7 @@ module Decidim
     describe "metadata" do
       subject { handler.metadata }
 
-      it { is_expected.to eq(document_number: "123456X", postal_code: "123456", scope_id: scope_id) }
+      it { is_expected.to eq(document_number: "123456X", postal_code: "123456", scope_id:) }
     end
   end
 end

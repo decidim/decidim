@@ -34,10 +34,14 @@ module Decidim
       end
     end
 
+    def active?
+      is_active_link?(url, active)
+    end
+
     private
 
     def link_options
-      if is_active_link?(url, active)
+      if active?
         { aria: { current: "page" } }
       else
         {}
@@ -57,7 +61,7 @@ module Decidim
     def active_class
       active_link_to_class(
         url,
-        active: active,
+        active:,
         class_active: @options.active_class
       )
     end

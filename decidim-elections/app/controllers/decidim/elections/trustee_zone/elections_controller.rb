@@ -8,11 +8,11 @@ module Decidim
         helper_method :election, :bulletin_board_server, :authority_slug, :authority_public_key, :current_step, :scheme_name
 
         def show
-          enforce_permission_to :view, :election, trustee: trustee
+          enforce_permission_to :view, :election, trustee:
         end
 
         def update
-          enforce_permission_to :update, :election, trustee: trustee
+          enforce_permission_to(:update, :election, trustee:)
 
           UpdateElectionBulletinBoardStatus.call(election, params[:status]) do
             on(:ok) do

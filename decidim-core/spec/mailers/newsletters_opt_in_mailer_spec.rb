@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   describe NewslettersOptInMailer, type: :mailer do
-    let(:user) { create(:user, :confirmed, organization: organization, newsletter_notifications_at: nil, newsletter_token: token) }
+    let(:user) { create(:user, :confirmed, organization:, newsletter_notifications_at: nil, newsletter_token: token) }
     let(:token) { SecureRandom.base58(24) }
     let(:organization) { create(:organization) }
     let(:decidim) { Decidim::Core::Engine.routes.url_helpers }
@@ -21,7 +21,7 @@ module Decidim
       end
 
       it "parses the link" do
-        expect(mail).to have_link("Yes, I want to continue receiving relevant information", href: decidim.newsletters_opt_in_url(token: token, host: organization.host))
+        expect(mail).to have_link("Yes, I want to continue receiving relevant information", href: decidim.newsletters_opt_in_url(token:, host: organization.host))
       end
     end
   end

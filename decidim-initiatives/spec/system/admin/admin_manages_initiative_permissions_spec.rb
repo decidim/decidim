@@ -12,12 +12,12 @@ describe "Admin manages initiative permissions", type: :system do
       available_authorizations: %w(dummy_authorization_handler another_dummy_authorization_handler)
     )
   end
-  let(:user) { create(:user, :admin, :confirmed, organization: organization) }
+  let(:user) { create(:user, :admin, :confirmed, organization:) }
   let(:participatory_space_engine) { decidim_admin_initiatives }
-  let!(:initiative_type) { create(:initiatives_type, :online_signature_enabled, organization: organization) }
+  let!(:initiative_type) { create(:initiatives_type, :online_signature_enabled, organization:) }
   let!(:scoped_type) { create(:initiatives_type_scope, type: initiative_type) }
-  let(:initiative) { create(:initiative, :published, author: author, scoped_type: scoped_type, organization: organization) }
-  let!(:author) { create(:user, :confirmed, organization: organization) }
+  let(:initiative) { create(:initiative, :published, author:, scoped_type:, organization:) }
+  let!(:author) { create(:user, :confirmed, organization:) }
 
   let(:action) { "comment" }
 

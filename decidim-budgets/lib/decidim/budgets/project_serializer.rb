@@ -37,9 +37,9 @@ module Decidim
           comments: project.comments_count,
           created_at: project.created_at,
           url: project.polymorphic_resource_url({}),
-          related_proposals: related_proposals,
-          related_proposal_titles: related_proposal_titles,
-          related_proposal_urls: related_proposal_urls
+          related_proposals:,
+          related_proposal_titles:,
+          related_proposal_urls:
         }
       end
 

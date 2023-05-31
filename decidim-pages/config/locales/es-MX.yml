@@ -30,6 +30,6 @@ es-MX:
             success: Página guardada correctamente.
       home:
         hero:
-          participate_title: Participar en los procesos de la plataforma
+          participate_title: Participa en los procesos de la plataforma
         sub_hero:
           register_title: Regístrate para tener una cuenta

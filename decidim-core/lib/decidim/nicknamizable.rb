@@ -22,9 +22,9 @@ module Decidim
       #
       # Converts any string into a valid nickname
       #
-      # * Parameterizes it so it's valid as a URL.
+      # * Parameterizes it so it is valid as a URL.
       # * Trims length so it fits validation constraints.
-      # * Disambiguates it so it's unique.
+      # * Disambiguates it so it is unique.
       #
       # name - the String to nicknamize
       # scope - a Hash with extra values to scope the nickname to
@@ -52,7 +52,7 @@ module Decidim
         candidate = name
 
         2.step do |n|
-          return candidate if Decidim::User.where("nickname ILIKE ?", candidate.downcase).where(scope).empty?
+          return candidate if Decidim::UserBaseEntity.where("nickname ILIKE ?", candidate.downcase).where(scope).empty?
 
           candidate = numbered_variation_of(name, n)
         end

@@ -7,7 +7,7 @@ module Decidim
     shared_examples_for "CreateAttachmentCollection command" do
       describe "call" do
         let(:organization) { create(:organization) }
-        let(:user) { create(:user, organization: organization) }
+        let(:user) { create(:user, organization:) }
         let(:form_params) do
           {
             "attachment_collection" => {
@@ -23,7 +23,7 @@ module Decidim
         let(:form) do
           AttachmentCollectionForm.from_params(
             form_params,
-            collection_for: collection_for
+            collection_for:
           ).with_context(
             current_organization: organization
           )
@@ -39,7 +39,7 @@ module Decidim
             expect { command.call }.to broadcast(:invalid)
           end
 
-          it "doesn't create an attachment collection" do
+          it "does not create an attachment collection" do
             expect do
               command.call
             end.not_to change(AttachmentCollection, :count)

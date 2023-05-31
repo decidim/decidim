@@ -6,13 +6,13 @@ module Decidim::Meetings
   describe CloseMeetingForm do
     subject { described_class.from_params(attributes).with_context(context) }
 
-    let(:meeting) { create(:meeting, component: component) }
+    let(:meeting) { create(:meeting, component:) }
     let(:component) { create(:meeting_component) }
     let(:attendees_count) { 5 }
     let(:attributes) do
       {
-        attendees_count: attendees_count,
-        closing_report: closing_report
+        attendees_count:,
+        closing_report:
       }
     end
     let(:closing_report) { "It went great" }

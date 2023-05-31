@@ -10,14 +10,14 @@ module Decidim::Meetings
     let(:context) do
       {
         current_organization: organization,
-        current_component: current_component,
+        current_component:,
         current_participatory_space: participatory_process,
-        meeting: meeting
+        meeting:
       }
     end
-    let(:participatory_process) { create :participatory_process, organization: organization }
-    let(:current_component) { create :component, participatory_space: participatory_process, manifest_name: "meetings" }
-    let(:meeting) { create :meeting, component: current_component }
+    let(:participatory_process) { create(:participatory_process, organization:) }
+    let(:current_component) { create(:component, participatory_space: participatory_process, manifest_name: "meetings") }
+    let(:meeting) { create(:meeting, component: current_component) }
 
     let(:title) do
       Decidim::Faker::Localized.sentence(word_count: 3)
@@ -42,9 +42,9 @@ module Decidim::Meetings
 
     let(:attributes) do
       {
-        title: title,
-        visible: visible,
-        agenda_items: agenda_items
+        title:,
+        visible:,
+        agenda_items:
       }
     end
 

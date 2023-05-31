@@ -23,12 +23,12 @@ module Decidim
         self.ballot_results = BallotResultForm.from_model(model)
 
         self.question_results = model.election.questions.flat_map do |question|
-          QuestionResultForm.from_model(question: question, closure: model)
+          QuestionResultForm.from_model(question:, closure: model)
         end
 
         self.answer_results = model.election.questions.flat_map do |question|
           question.answers.map do |answer|
-            AnswerResultForm.from_model(answer: answer, closure: model)
+            AnswerResultForm.from_model(answer:, closure: model)
           end
         end
       end

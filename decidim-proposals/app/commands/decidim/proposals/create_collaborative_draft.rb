@@ -20,7 +20,7 @@ module Decidim
       # Executes the command. Broadcasts these events:
       #
       # - :ok when everything is valid, together with the collaborative draft.
-      # - :invalid if the form wasn't valid and we couldn't proceed.
+      # - :invalid if the form was not valid and we could not proceed.
       #
       # Returns nothing.
       def call
@@ -70,7 +70,7 @@ module Decidim
       end
 
       def user_group
-        @user_group ||= Decidim::UserGroup.find_by(organization: organization, id: form.user_group_id)
+        @user_group ||= Decidim::UserGroup.find_by(organization:, id: form.user_group_id)
       end
 
       def organization

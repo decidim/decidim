@@ -1,4 +1,4 @@
-import createMapController from "src/decidim/map/factory"
+import "src/decidim/map/factory"
 
 $(() => {
   // Load the map controller factory method in the document.ready handler to
@@ -20,7 +20,7 @@ $(() => {
     }
 
     const mapConfig = $map.data("decidim-map");
-    const ctrl = createMapController(mapId, mapConfig);
+    const ctrl = window.Decidim.createMapController(mapId, mapConfig);
     const map = ctrl.load();
 
     $map.data("map", map);

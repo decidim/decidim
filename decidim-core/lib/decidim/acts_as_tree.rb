@@ -37,7 +37,7 @@ module Decidim
     end
 
     def descendants
-      @descendants ||= self_and_descendants.where.not(id: id)
+      @descendants ||= self_and_descendants.where.not(id:)
     end
 
     def self_and_descendants

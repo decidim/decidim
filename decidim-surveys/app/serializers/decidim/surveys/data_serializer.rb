@@ -10,7 +10,7 @@ module Decidim
       #     or nil if none exists.
       def serialize
         component = resource
-        surveys = Decidim::Surveys::Survey.where(component: component)
+        surveys = Decidim::Surveys::Survey.where(component:)
         surveys.collect do |survey|
           next if survey.questionnaire.nil?
 

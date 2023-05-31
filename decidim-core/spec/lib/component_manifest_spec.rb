@@ -24,13 +24,13 @@ module Decidim
       describe "run_hooks" do
         it "runs all registered hooks" do
           subject.on(:foo) do |context|
-            context[:foo_1] ||= 0
-            context[:foo_1] += 1
+            context[:foo1] ||= 0
+            context[:foo1] += 1
           end
 
           subject.on(:foo) do |context|
-            context[:foo_2] ||= 0
-            context[:foo_2] += 1
+            context[:foo2] ||= 0
+            context[:foo2] += 1
           end
 
           subject.on(:bar) do
@@ -40,8 +40,8 @@ module Decidim
 
           context = {}
           subject.run_hooks(:foo, context)
-          expect(context[:foo_1]).to eq(1)
-          expect(context[:foo_2]).to eq(1)
+          expect(context[:foo1]).to eq(1)
+          expect(context[:foo2]).to eq(1)
           expect(context[:bar]).to be_nil
         end
       end

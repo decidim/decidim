@@ -7,7 +7,7 @@ module Decidim::Conferences
     subject { described_class.new(form, current_user, conference) }
 
     let(:conference) { create(:conference) }
-    let!(:current_user) { create :user, :confirmed, organization: conference.organization }
+    let!(:current_user) { create(:user, :confirmed, organization: conference.organization) }
     let(:form) do
       double(
         Admin::ConferenceSpeakerForm,
@@ -36,7 +36,7 @@ module Decidim::Conferences
       let(:media_link) { Decidim::Conferences::MediaLink.last }
 
       it "creates a media link" do
-        expect { subject.call }.to change { Decidim::Conferences::MediaLink.count }.by(1)
+        expect { subject.call }.to change(Decidim::Conferences::MediaLink, :count).by(1)
       end
 
       it "broadcasts ok" do

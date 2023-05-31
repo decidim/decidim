@@ -30,11 +30,11 @@ module Decidim
       options[:primary] ||= false
       options[:priority] ||= LOW_PRIORITY
 
-      @stats.push(name: name,
+      @stats.push(name:,
                   primary: options[:primary],
                   priority: options[:priority],
                   tag: options[:tag],
-                  block: block)
+                  block:)
     end
 
     # Public: Returns a number returned by executing the corresponding block.

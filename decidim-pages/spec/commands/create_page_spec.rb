@@ -20,7 +20,7 @@ module Decidim
             expect { command.call }.to broadcast(:invalid)
           end
 
-          it "doesn't create a page" do
+          it "does not create a page" do
             expect do
               command.call
             end.not_to change(Page, :count)
@@ -33,7 +33,7 @@ module Decidim
           end
 
           it "creates a new page with the same name as the component" do
-            expect(Page).to receive(:new).with(component: component).and_call_original
+            expect(Page).to receive(:new).with(component:).and_call_original
 
             expect do
               command.call

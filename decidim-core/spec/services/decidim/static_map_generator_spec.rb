@@ -17,7 +17,7 @@ module Decidim
     let(:body) { "1234" }
 
     before do
-      stub_request(:get, Regexp.new(Decidim.maps.fetch(:static).fetch(:url))).to_return(body: body)
+      stub_request(:get, Regexp.new(Decidim.maps.fetch(:static).fetch(:url))).to_return(body:)
     end
 
     describe "#data" do

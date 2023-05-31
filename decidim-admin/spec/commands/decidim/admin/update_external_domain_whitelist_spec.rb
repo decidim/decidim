@@ -5,8 +5,9 @@ require "spec_helper"
 module Decidim::Admin
   describe UpdateExternalDomainWhitelist do
     let(:organization) { create(:organization, external_domain_whitelist: []) }
+    let(:user) { create(:user, organization:) }
     let(:form) { Decidim::Admin::OrganizationExternalDomainWhitelistForm.from_params(attributes) }
-    let(:command) { described_class.new(form, organization) }
+    let(:command) { described_class.new(form, organization, user) }
     let(:domains) { ["erabaki.pamplona.es", "osallistu.hel.fi", "codefor.fr"] }
     let(:attributes) do
       {
@@ -32,6 +33,18 @@ module Decidim::Admin
         expect(organization.external_domain_whitelist).to include(domains[2])
         expect(organization.external_domain_whitelist.length).to eq(3)
       end
+
+      it "traces the action", versioning: true do
+        expect(Decidim.traceability)
+          .to receive(:perform_action!)
+          .with("update_external_domain", organization, user)
+          .and_call_original
+
+        expect { command.call }.to change(Decidim::ActionLog, :count)
+        action_log = Decidim::ActionLog.last
+        expect(action_log.action).to eq("update_external_domain")
+        expect(action_log.version).to be_present
+      end
     end
 
     describe "when the form is not valid" do
@@ -43,7 +56,7 @@ module Decidim::Admin
         expect { command.call }.to broadcast(:invalid)
       end
 
-      it "doesn't create an attachment collection" do
+      it "does not create an attachment collection" do
         expect do
           command.call
         end.not_to change(organization, :external_domain_whitelist)

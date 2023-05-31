@@ -31,7 +31,8 @@ module Decidim
 
       def create_meeting!
         parsed_title = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.title, current_organization: form.current_organization).rewrite
-        parsed_description = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.description, current_organization: form.current_organization).rewrite
+        parsed_description = Decidim::ContentProcessor.parse(form.description, current_organization: form.current_organization).rewrite
+
         params = {
           scope: form.scope,
           category: form.category,

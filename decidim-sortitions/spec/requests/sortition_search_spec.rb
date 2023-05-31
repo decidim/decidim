@@ -7,16 +7,16 @@ RSpec.describe "Sortition search", type: :request do
 
   subject { response.body }
 
-  let(:component) { create :sortition_component }
+  let(:component) { create(:sortition_component) }
   let(:participatory_space) { component.participatory_space }
   let(:organization) { participatory_space.organization }
   let(:filter_params) { {} }
 
-  let!(:sortition1) { create(:sortition, title: { en: "A doggo" }, component: component) }
-  let!(:sortition2) { create(:sortition, additional_info: { en: "There is a doggo in the office" }, component: component) }
-  let!(:sortition3) { create(:sortition, witnesses: { en: "My doggo was there" }, component: component) }
-  let!(:sortition4) { create(:sortition, component: component) }
-  let!(:sortition5) { create(:sortition, :cancelled, component: component) }
+  let!(:sortition1) { create(:sortition, title: { en: "A doggo" }, component:) }
+  let!(:sortition2) { create(:sortition, additional_info: { en: "There is a doggo in the office" }, component:) }
+  let!(:sortition3) { create(:sortition, witnesses: { en: "My doggo was there" }, component:) }
+  let!(:sortition4) { create(:sortition, component:) }
+  let!(:sortition5) { create(:sortition, :cancelled, component:) }
 
   let(:request_path) { Decidim::EngineRouter.main_proxy(component).sortitions_path }
 

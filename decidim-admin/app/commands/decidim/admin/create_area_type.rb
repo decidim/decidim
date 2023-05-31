@@ -7,14 +7,15 @@ module Decidim
       # Public: Initializes the command.
       #
       # form - A form object with the params.
-      def initialize(form)
+      def initialize(form, user)
         @form = form
+        @user = user
       end
 
       # Executes the command. Broadcasts these events:
       #
       # - :ok when everything is valid.
-      # - :invalid if the form wasn't valid and we couldn't proceed.
+      # - :invalid if the form was not valid and we could not proceed.
       #
       # Returns nothing.
       def call
@@ -29,7 +30,9 @@ module Decidim
       attr_reader :form
 
       def create_area_type
-        AreaType.create!(
+        Decidim.traceability.create!(
+          AreaType,
+          @user,
           name: form.name,
           organization: form.organization,
           plural: form.plural

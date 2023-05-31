@@ -3,7 +3,7 @@
 module Decidim
   module Importers
     # For importing data from files to components. Every resource type should
-    # specify it's own creator, which will be responsible for producing (creating)
+    # specify it is own creator, which will be responsible for producing (creating)
     # and finishing (saving) the imported resource.
     class ImportManifest
       include Decidim::AttributeObject::Model
@@ -67,11 +67,11 @@ module Decidim
       #
       # Returns either the set value (the block) when defining the message or
       # the message String when rendering the message.
-      def message(key, context = nil, **extra, &block)
+      def message(key, context = nil, **extra, &)
         extra = context if extra.empty? && context.is_a?(Hash)
 
         if block_given?
-          messages.set(key, &block)
+          messages.set(key, &)
         else
           messages.render(key, context, **extra)
         end

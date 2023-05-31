@@ -22,15 +22,15 @@ module Decidim
             # Always prioritize house number results, even if they are not as
             # close as street level matches.
             hn_result = results.find do |r|
-              r.data["MatchLevel"] == "houseNumber"
+              r.data["resultType"] == "houseNumber"
             end
             return hn_result.address if hn_result
 
-            # Some of the matches that have "MatchLevel" == "street" do not even
-            # contain the street name unless they also have the "Street" key in
-            # the "MatchQuality" attribute defined.
+            # Some of the matches that have "resultType" == "street" do not even
+            # contain the street name unless they also have the "streets" key in
+            # the "scoring" -> "fieldScore" attribute defined.
             street_result = results.find do |r|
-              r.data["MatchQuality"].has_key?("Street")
+              r.data["scoring"]["fieldScore"].has_key?("streets")
             end
             return street_result.address if street_result
 

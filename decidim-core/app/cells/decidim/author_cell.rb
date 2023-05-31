@@ -102,7 +102,7 @@ module Decidim
     end
 
     def commentable?
-      from_context && from_context.class.include?(Decidim::Comments::Commentable)
+      from_context && from_context.class.include?(Decidim::Comments::Commentable) && from_context.try(:commentable?)
     end
 
     def endorsable?

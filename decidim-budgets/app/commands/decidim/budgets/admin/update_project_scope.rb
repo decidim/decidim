@@ -45,7 +45,7 @@ module Decidim
 
         def update_project_scope(project)
           project.update!(
-            scope: scope
+            scope:
           )
         end
       end

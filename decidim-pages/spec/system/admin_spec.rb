@@ -17,9 +17,11 @@ describe "Edit a page", type: :system do
 
   describe "admin page" do
     before do
-      create(:page, component: component, body: body)
+      create(:page, component:, body:)
       visit_component_admin
     end
+
+    it_behaves_like "having a rich text editor for field", ".tabs-content[data-tabs-content='page-body-tabs']", "full"
 
     it "updates the page" do
       new_body = {
@@ -43,7 +45,7 @@ describe "Edit a page", type: :system do
 
   describe "announcements" do
     before do
-      create(:page, component: component, body: body)
+      create(:page, component:, body:)
       visit_component_admin
     end
 

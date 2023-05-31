@@ -12,6 +12,7 @@ FactoryBot.define do
   factory :conference, class: "Decidim::Conference" do
     title { generate_localized_title }
     slug { generate(:conference_slug) }
+    weight { 1 }
     slogan { generate_localized_title }
     short_description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
@@ -58,10 +59,11 @@ FactoryBot.define do
     end
 
     organization { conference.organization }
+    admin_terms_accepted_at { Time.current }
 
     after(:create) do |user, evaluator|
       create :conference_user_role,
-             user: user,
+             user:,
              conference: evaluator.conference,
              role: :admin
     end
@@ -73,10 +75,11 @@ FactoryBot.define do
     end
 
     organization { conference.organization }
+    admin_terms_accepted_at { Time.current }
 
     after(:create) do |user, evaluator|
       create :conference_user_role,
-             user: user,
+             user:,
              conference: evaluator.conference,
              role: :moderator
     end
@@ -88,10 +91,11 @@ FactoryBot.define do
     end
 
     organization { conference.organization }
+    admin_terms_accepted_at { Time.current }
 
     after(:create) do |user, evaluator|
       create :conference_user_role,
-             user: user,
+             user:,
              conference: evaluator.conference,
              role: :collaborator
     end
@@ -103,10 +107,11 @@ FactoryBot.define do
     end
 
     organization { conference.organization }
+    admin_terms_accepted_at { Time.current }
 
     after(:create) do |user, evaluator|
       create :conference_user_role,
-             user: user,
+             user:,
              conference: evaluator.conference,
              role: :valuator
     end
@@ -138,7 +143,7 @@ FactoryBot.define do
       after :build do |conference_speaker, evaluator|
         conference_speaker.conference_speaker_conference_meetings << build(:conference_speaker_conference_meeting,
                                                                            meetings_component: evaluator.meetings_component,
-                                                                           conference_speaker: conference_speaker)
+                                                                           conference_speaker:)
       end
     end
   end
@@ -149,8 +154,8 @@ FactoryBot.define do
       meetings_component { create(:meetings_component, participatory_space: conference.participatory_space) }
     end
 
-    conference_meeting { create(:conference_meeting, :published, conference: conference, component: meetings_component) }
-    conference_speaker { create(:conference_speaker, conference: conference) }
+    conference_meeting { create(:conference_meeting, :published, conference:, component: meetings_component) }
+    conference_speaker { create(:conference_speaker, conference:) }
   end
 
   factory :conference_meeting_registration_type, class: "Decidim::Conferences::ConferenceMeetingRegistrationType" do
@@ -159,7 +164,7 @@ FactoryBot.define do
     end
 
     conference_meeting
-    registration_type { build(:registration_type, conference: conference) }
+    registration_type { build(:registration_type, conference:) }
   end
 
   factory :conference_meeting, parent: :meeting, class: "Decidim::ConferenceMeeting" do
@@ -169,7 +174,7 @@ FactoryBot.define do
 
     after :build do |conference_meeting, evaluator|
       conference_meeting.conference_meeting_registration_types << build(:conference_meeting_registration_type,
-                                                                        conference_meeting: conference_meeting,
+                                                                        conference_meeting:,
                                                                         conference: evaluator.conference)
     end
   end

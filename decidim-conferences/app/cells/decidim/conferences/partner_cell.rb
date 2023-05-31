@@ -10,12 +10,14 @@ module Decidim
 
       private
 
+      # deprecated
       def name
         return unless model.name.presence
 
         "<div class='text-medium'> #{model.name} </div>"
       end
 
+      # deprecated
       def logo
         return unless model.logo.attached?
 

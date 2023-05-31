@@ -8,7 +8,7 @@ module Decidim
       subject { form }
 
       let(:organization) { create(:organization) }
-      let(:participatory_space) { create(:participatory_process, organization: organization) }
+      let(:participatory_space) { create(:participatory_process, organization:) }
       let(:manifest) { Decidim.find_component_manifest("dummy") }
       let(:name) { generate_localized_title }
 

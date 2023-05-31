@@ -16,14 +16,14 @@ module Decidim
       # Executes the command. Broadcasts these events:
       #
       # - :ok when everything is valid.
-      # - :invalid if the handler wasn't valid and we couldn't proceed.
+      # - :invalid if the handler was not valid and we could not proceed.
       #
       # Returns nothing.
       def call
         return broadcast(:invalid) unless @organization
 
         auths = Decidim::Verifications::Authorizations.new(
-          organization: organization,
+          organization:,
           granted: true
         ).query
 

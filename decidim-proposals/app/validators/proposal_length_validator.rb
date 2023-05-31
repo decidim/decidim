@@ -5,11 +5,14 @@
 # allows the minimum and maximum values to be lambdas allowing us to fetch the
 # maximum length dynamically for each proposals component.
 class ProposalLengthValidator < ActiveModel::EachValidator
+  include ActionView::Helpers::SanitizeHelper
+
   def validate_each(record, attribute, value)
     return if value.blank?
 
-    validate_min_length(record, attribute, value)
-    validate_max_length(record, attribute, value)
+    text_value = strip_tags(value)
+    validate_min_length(record, attribute, text_value)
+    validate_max_length(record, attribute, text_value)
   end
 
   private

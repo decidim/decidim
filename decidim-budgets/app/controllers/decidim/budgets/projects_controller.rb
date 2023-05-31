@@ -8,7 +8,7 @@ module Decidim
       include NeedsCurrentOrder
       include Decidim::Budgets::Orderable
 
-      helper_method :projects, :project, :budget
+      helper_method :projects, :project, :budget, :all_geocoded_projects
 
       def index
         raise ActionController::RoutingError, "Not Found" unless budget
@@ -28,8 +28,12 @@ module Decidim
       def projects
         return @projects if @projects
 
-        @projects = search.result.page(params[:page]).per(current_component.settings.projects_per_page)
-        @projects = reorder(@projects)
+        @projects = reorder(search.result)
+        @projects = @projects.page(params[:page]).per(current_component.settings.projects_per_page)
+      end
+
+      def all_geocoded_projects
+        @all_geocoded_projects ||= projects.geocoded
       end
 
       def project
@@ -37,7 +41,7 @@ module Decidim
       end
 
       def search_collection
-        Project.where(budget: budget).includes([:scope, :component, :attachments, :category])
+        Project.where(budget:).includes([:scope, :component, :attachments, :category])
       end
 
       def default_filter_params

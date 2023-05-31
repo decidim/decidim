@@ -8,14 +8,14 @@ module Decidim
       subject { described_class.from_params(attributes).with_context(context) }
 
       let(:organization) { create(:organization) }
-      let(:initiatives_type) { create(:initiatives_type, organization: organization) }
+      let(:initiatives_type) { create(:initiatives_type, organization:) }
       let(:scope) { create(:initiatives_type_scope, type: initiatives_type) }
       let(:attachment_params) { nil }
 
       let(:title) { ::Faker::Lorem.sentence(word_count: 5) }
       let(:attributes) do
         {
-          title: title,
+          title:,
           description: ::Faker::Lorem.sentence(word_count: 25),
           type_id: initiatives_type.id,
           scope_id: scope&.scope&.id,
@@ -34,7 +34,7 @@ module Decidim
       end
 
       let(:state) { "validating" }
-      let(:initiative) { create(:initiative, organization: organization, state: state, scoped_type: scope) }
+      let(:initiative) { create(:initiative, organization:, state:, scoped_type: scope) }
 
       context "when everything is OK" do
         it { is_expected.to be_valid }
@@ -47,7 +47,7 @@ module Decidim
       end
 
       context "when initiative type enables custom signature end date" do
-        let(:initiatives_type) { create(:initiatives_type, :custom_signature_end_date_enabled, organization: organization) }
+        let(:initiatives_type) { create(:initiatives_type, :custom_signature_end_date_enabled, organization:) }
 
         context "when custom date is missing" do
           it { is_expected.to be_valid }
@@ -67,7 +67,7 @@ module Decidim
       end
 
       context "when initiative type enables area" do
-        let(:initiatives_type) { create(:initiatives_type, :area_enabled, organization: organization) }
+        let(:initiatives_type) { create(:initiatives_type, :area_enabled, organization:) }
 
         context "when area is missing" do
           it { is_expected.to be_valid }
@@ -75,12 +75,12 @@ module Decidim
 
         context "when area is present and belongs to organization" do
           let(:area) { { area_id: decidim_area.id } }
-          let(:decidim_area) { create(:area, organization: organization) }
+          let(:decidim_area) { create(:area, organization:) }
 
           it { is_expected.to be_valid }
         end
 
-        context "when area is present but doesn't belong to organization" do
+        context "when area is present but does not belong to organization" do
           let(:area) { { area_id: decidim_area.id } }
           let(:decidim_area) { create(:area) }
 
@@ -96,14 +96,14 @@ module Decidim
             current_component: nil,
             initiative_type: initiatives_type,
             current_user: user,
-            initiative: initiative
+            initiative:
           }
         end
 
         context "when initiative is created" do
           subject { described_class.from_model(initiative).with_context(context).area_updatable? }
 
-          let(:initiative) { create(:initiative, organization: organization, state: "created", scoped_type: scope) }
+          let(:initiative) { create(:initiative, organization:, state: "created", scoped_type: scope) }
 
           it { is_expected.to be(true) }
         end
@@ -168,8 +168,8 @@ module Decidim
 
           it "adds an error to the `:attachment` field" do
             expect(subject).not_to be_valid
-            expect(subject.errors.full_messages).to match_array(["Title can't be blank", "Attachment Needs to be reattached"])
-            expect(subject.errors.attribute_names).to match_array([:title, :attachment])
+            expect(subject.errors.full_messages).to contain_exactly("Title cannot be blank", "Attachment Needs to be reattached")
+            expect(subject.errors.attribute_names).to contain_exactly(:title, :attachment)
           end
         end
       end

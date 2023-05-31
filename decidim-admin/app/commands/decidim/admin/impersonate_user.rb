@@ -50,7 +50,7 @@ module Decidim
       def create_impersonation_log
         Decidim::ImpersonationLog.create!(
           admin: form.current_user,
-          user: user,
+          user:,
           reason: form.reason,
           started_at: Time.current
         )

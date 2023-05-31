@@ -57,7 +57,7 @@ module Decidim
             expect { command.call }.to broadcast(:invalid)
           end
 
-          it "doesn't create a user" do
+          it "does not create a user" do
             expect do
               command.call
             end.not_to change(User, :count)
@@ -70,7 +70,7 @@ module Decidim
           end
 
           it "creates a new user" do
-            allow(SecureRandom).to receive(:hex).and_return("decidim123456")
+            allow(SecureRandom).to receive(:hex).and_return("decidim123456789")
 
             expect do
               command.call
@@ -82,11 +82,21 @@ module Decidim
             expect(user.organization).to eq(organization)
             expect(user.newsletter_notifications_at).to be_nil
             expect(user).to be_confirmed
-            expect(user.valid_password?("decidim123456")).to be(true)
+            expect(user.valid_password?("decidim123456789")).to be(true)
+          end
+
+          # NOTE: This is important so that the users who are only
+          # authenticating using omniauth will not need to update their
+          # passwords.
+          it "leaves password_updated_at nil" do
+            expect { command.call }.to broadcast(:ok)
+
+            user = User.find_by(email: form.email)
+            expect(user.password_updated_at).to be_nil
           end
 
           it "notifies about registration with oauth data" do
-            user = create(:user, email: email, organization: organization)
+            user = create(:user, email:, organization:)
             identity = Decidim::Identity.new(id: 1234)
             allow(command).to receive(:create_identity).and_return(identity)
 
@@ -96,9 +106,9 @@ module Decidim
                 "decidim.user.omniauth_registration",
                 user_id: user.id,
                 identity_id: 1234,
-                provider: provider,
-                uid: uid,
-                email: email,
+                provider:,
+                uid:,
+                email:,
                 name: "Facebook User",
                 nickname: "facebook_user",
                 avatar_url: "http://www.example.com/foo.jpg",
@@ -112,17 +122,16 @@ module Decidim
               let(:verified_email) { email }
 
               it "links a previously existing user" do
-                user = create(:user, email: email, organization: organization)
-                expect { command.call }.to change(User, :count).by(0)
-
+                user = create(:user, email:, organization:)
+                expect { command.call }.not_to change(User, :count)
                 expect(user.identities.length).to eq(1)
               end
 
               it "confirms a previously existing user" do
-                create(:user, email: email, organization: organization)
-                expect { command.call }.to change(User, :count).by(0)
+                create(:user, email:, organization:)
+                expect { command.call }.not_to change(User, :count)
 
-                user = User.find_by(email: email)
+                user = User.find_by(email:)
                 expect(user).to be_confirmed
               end
             end
@@ -130,18 +139,18 @@ module Decidim
             context "with an unverified email" do
               let(:verified_email) { nil }
 
-              it "doesn't link a previously existing user" do
-                user = create(:user, email: email, organization: organization)
+              it "does not link a previously existing user" do
+                user = create(:user, email:, organization:)
                 expect { command.call }.to broadcast(:error)
 
                 expect(user.identities.length).to eq(0)
               end
 
-              it "doesn't confirm a previously existing user" do
-                create(:user, email: email, organization: organization)
+              it "does not confirm a previously existing user" do
+                create(:user, email:, organization:)
                 expect { command.call }.to broadcast(:error)
 
-                user = User.find_by(email: email)
+                user = User.find_by(email:)
                 expect(user).not_to be_confirmed
               end
             end
@@ -167,8 +176,8 @@ module Decidim
 
         context "when a user exists with that identity" do
           before do
-            user = create(:user, email: email, organization: organization)
-            create(:identity, user: user, provider: provider, uid: uid)
+            user = create(:user, email:, organization:)
+            create(:identity, user:, provider:, uid:)
           end
 
           it "broadcasts ok" do
@@ -179,7 +188,7 @@ module Decidim
             it "confirms the user" do
               command.call
 
-              user = User.find_by(email: email)
+              user = User.find_by(email:)
               expect(user).to be_confirmed
             end
           end
@@ -187,10 +196,10 @@ module Decidim
           context "with another email than in the one reported by the identity" do
             let(:verified_email) { "other@email.com" }
 
-            it "doesn't confirm the user" do
+            it "does not confirm the user" do
               command.call
 
-              user = User.find_by(email: email)
+              user = User.find_by(email:)
               expect(user).not_to be_confirmed
             end
           end

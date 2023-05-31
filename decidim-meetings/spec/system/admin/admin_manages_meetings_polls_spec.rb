@@ -5,9 +5,9 @@ require "spec_helper"
 describe "Admin manages meetings polls", type: :system do
   let(:current_organization) { create(:organization) }
   let(:participatory_process) { create(:participatory_process, organization: current_organization) }
-  let(:current_component) { create :component, participatory_space: participatory_process, manifest_name: "meetings" }
+  let(:current_component) { create(:component, participatory_space: participatory_process, manifest_name: "meetings") }
   let(:manifest_name) { "meetings" }
-  let!(:meeting) { create :meeting, scope: scope, services: [], component: current_component }
+  let!(:meeting) { create(:meeting, scope:, services: [], component: current_component) }
   let(:poll) { create(:poll) }
   let(:questionnaire) { create(:meetings_poll_questionnaire, questionnaire_for: poll) }
   let(:body) do
@@ -100,11 +100,11 @@ describe "Admin manages meetings polls", type: :system do
 
       select "Single option", from: "Type"
       expect(page).to have_selector(".questionnaire-question-answer-option", count: 2)
-      expect(page).to have_no_selector(".questionnaire-question-matrix-row")
+      expect(page).not_to have_selector(".questionnaire-question-matrix-row")
 
       select "Multiple option", from: "Type"
       expect(page).to have_selector(".questionnaire-question-answer-option", count: 2)
-      expect(page).to have_no_selector(".questionnaire-question-matrix-row")
+      expect(page).not_to have_selector(".questionnaire-question-matrix-row")
     end
 
     it "does not incorrectly reorder when clicking answer options" do
@@ -193,22 +193,22 @@ describe "Admin manages meetings polls", type: :system do
             fill_in find_nested_form_field_locator("body_en"), with: "This is the first question"
           end
 
-          expect(page).to have_no_select("Maximum number of choices")
+          expect(page).not_to have_select("Maximum number of choices")
         end
       end
 
       it "updates the free text option selector according to the selected question type" do
-        expect(page).to have_no_selector("[id$=max_choices]")
+        expect(page).not_to have_selector("[id$=max_choices]")
 
         select "Multiple option", from: "Type"
         expect(page).to have_selector("[id$=max_choices]")
 
         select "Single option", from: "Type"
-        expect(page).to have_no_selector("[id$=max_choices]")
+        expect(page).not_to have_selector("[id$=max_choices]")
       end
 
       it "updates the max choices selector according to the configured options" do
-        expect(page).to have_no_select("Maximum number of choices")
+        expect(page).not_to have_select("Maximum number of choices")
 
         select "Multiple option", from: "Type"
         expect(page).to have_select("Maximum number of choices", options: %w(Any 2))
@@ -233,40 +233,40 @@ describe "Admin manages meetings polls", type: :system do
           expect(page).to have_select("Maximum number of choices", options: %w(Any 2))
 
           select "Single option", from: "Type"
-          expect(page).to have_no_select("Maximum number of choices")
+          expect(page).not_to have_select("Maximum number of choices")
         end
       end
     end
   end
 
   context "when the questionnaire is already answered" do
-    let!(:question) { create(:meetings_poll_question, questionnaire: questionnaire, body: body, question_type: "multiple_option") }
-    let!(:answer) { create(:meetings_poll_answer, questionnaire: questionnaire, question: question) }
+    let!(:question) { create(:meetings_poll_question, questionnaire:, body:, question_type: "multiple_option") }
+    let!(:answer) { create(:meetings_poll_answer, questionnaire:, question:) }
 
     it "can modify questionnaire questions" do
       visit questionnaire_edit_path
 
       expect(page).to have_content("Add question")
-      expect(page).to have_no_content("Remove")
+      expect(page).not_to have_content("Remove")
     end
   end
 
   private
 
   def find_nested_form_field_locator(attribute, visible: :visible)
-    find_nested_form_field(attribute, visible: visible)["id"]
+    find_nested_form_field(attribute, visible:)["id"]
   end
 
   def find_nested_form_field(attribute, visible: :visible)
-    current_scope.find(nested_form_field_selector(attribute), visible: visible, match: :first)
+    current_scope.find(nested_form_field_selector(attribute), visible:, match: :first)
   end
 
   def have_nested_field(attribute, with:)
-    have_field find_nested_form_field_locator(attribute), with: with
+    have_field find_nested_form_field_locator(attribute), with:
   end
 
   def have_no_nested_field(attribute, with:)
-    have_no_field(find_nested_form_field_locator(attribute), with: with)
+    have_no_field(find_nested_form_field_locator(attribute), with:)
   end
 
   def nested_form_field_selector(attribute)

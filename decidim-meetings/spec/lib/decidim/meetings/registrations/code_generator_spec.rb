@@ -6,11 +6,11 @@ module Decidim
   module Meetings
     module Registrations
       describe CodeGenerator do
-        subject { described_class.new(length: length) }
+        subject { described_class.new(length:) }
 
         let(:length) { 6 }
         let(:meeting) { build(:meeting) }
-        let(:registration) { build :registration, meeting: meeting }
+        let(:registration) { build(:registration, meeting:) }
 
         describe "#generate" do
           let(:existing_code) { "AS35TY58" }
@@ -18,7 +18,7 @@ module Decidim
           let(:code) { subject.generate(registration) }
 
           before do
-            create :registration, meeting: meeting, code: existing_code
+            create(:registration, meeting:, code: existing_code)
             expect(subject)
               .to receive(:choose)
               .with(length)

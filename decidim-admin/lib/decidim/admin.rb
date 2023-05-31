@@ -11,7 +11,9 @@ module Decidim
   module Admin
     autoload :Components, "decidim/admin/components"
     autoload :FormBuilder, "decidim/admin/form_builder"
+    autoload :SearchFormBuilder, "decidim/admin/search_form_builder"
     autoload :Import, "decidim/admin/import"
+    autoload :CustomImport, "decidim/admin/custom_import"
 
     include ActiveSupport::Configurable
 
@@ -23,6 +25,10 @@ module Decidim
     # per_page_range.last sets the default max_per_page
     config_accessor :per_page_range do
       [15, 50, 100]
+    end
+
+    config_accessor :enable_templates do
+      Decidim.const_defined?("Templates")
     end
 
     Kaminari.configure do |config|

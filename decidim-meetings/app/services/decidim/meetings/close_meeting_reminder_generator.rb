@@ -47,8 +47,8 @@ module Decidim
               send_notif = author.notification_settings.fetch("close_meeting_reminder", "1")
               next unless send_notif == "1"
 
-              reminder = Decidim::Reminder.find_or_create_by(user: author, component: component)
-              record = Decidim::ReminderRecord.find_or_create_by(reminder: reminder, remindable: meeting)
+              reminder = Decidim::Reminder.find_or_create_by(user: author, component:)
+              record = Decidim::ReminderRecord.find_or_create_by(reminder:, remindable: meeting)
               record.update(state: "active") unless record.active?
               reminder.records << record
               reminder.save!

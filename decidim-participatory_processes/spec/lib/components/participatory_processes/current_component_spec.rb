@@ -7,7 +7,7 @@ module Decidim
     describe CurrentComponent do
       subject { described_class.new(manifest) }
 
-      let(:request) { double(params: params, env: env) }
+      let(:request) { double(params:, env:) }
       let(:params) { {} }
       let(:manifest) { Decidim.find_component_manifest("dummy") }
 
@@ -16,7 +16,7 @@ module Decidim
       end
 
       let(:participatory_processes) do
-        create_list(:participatory_process, 2, organization: organization)
+        create_list(:participatory_process, 2, organization:)
       end
 
       let(:current_participatory_process) { participatory_processes.first }
@@ -30,8 +30,8 @@ module Decidim
           params["participatory_process_slug"] = current_participatory_process.id.to_s
         end
 
-        context "when the params don't contain a component id" do
-          it "doesn't match" do
+        context "when the params do not contain a component id" do
+          it "does not match" do
             expect(subject.matches?(request)).to be(false)
           end
         end
@@ -41,7 +41,7 @@ module Decidim
             params["component_id"] = component.id.to_s
           end
 
-          context "when the component doesn't belong to the participatory process" do
+          context "when the component does not belong to the participatory process" do
             let(:component) { create(:component) }
 
             it "matches" do
@@ -59,8 +59,8 @@ module Decidim
         end
       end
 
-      context "when the params don't contain a participatory process id" do
-        it "doesn't match" do
+      context "when the params do not contain a participatory process id" do
+        it "does not match" do
           expect { subject.matches?(request) }.to raise_error(ActiveRecord::RecordNotFound)
         end
       end
@@ -70,18 +70,18 @@ module Decidim
           params["participatory_process_slug"] = "99999999"
         end
 
-        context "when there's no component" do
-          it "doesn't match" do
+        context "when there is no component" do
+          it "does not match" do
             expect { subject.matches?(request) }.to raise_error(ActiveRecord::RecordNotFound)
           end
         end
 
-        context "when there's component" do
+        context "when there is component" do
           before do
             params["component_id"] = "1"
           end
 
-          it "doesn't match" do
+          it "does not match" do
             expect { subject.matches?(request) }.to raise_error(ActiveRecord::RecordNotFound)
           end
         end

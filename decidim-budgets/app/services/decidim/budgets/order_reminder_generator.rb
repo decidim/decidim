@@ -31,12 +31,12 @@ module Decidim
       attr_reader :reminder_manifest
 
       def send_reminders(component)
-        budgets = Decidim::Budgets::Budget.where(component: component)
+        budgets = Decidim::Budgets::Budget.where(component:)
         pending_orders = Decidim::Budgets::Order.where(budget: budgets, checked_out_at: nil)
         users = Decidim::User.where(id: pending_orders.pluck(:decidim_user_id).uniq)
         users.each do |user|
-          reminder = Decidim::Reminder.find_or_create_by(user: user, component: component)
-          users_pending_orders = pending_orders.where(user: user)
+          reminder = Decidim::Reminder.find_or_create_by(user:, component:)
+          users_pending_orders = pending_orders.where(user:)
           update_reminder_records(reminder, users_pending_orders)
           if reminder.records.active.any?
             Decidim::Budgets::SendVoteReminderJob.perform_later(reminder)
@@ -61,7 +61,7 @@ module Decidim
       end
 
       def add_pending_orders(reminder, users_pending_orders)
-        reminder.records << users_pending_orders.map { |order| Decidim::ReminderRecord.find_or_create_by(reminder: reminder, remindable: order) }
+        reminder.records << users_pending_orders.map { |order| Decidim::ReminderRecord.find_or_create_by(reminder:, remindable: order) }
         return @alternative_refresh_state.call(reminder) if @alternative_refresh_state.present?
 
         reminder.records.each do |record|

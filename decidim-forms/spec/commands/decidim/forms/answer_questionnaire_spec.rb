@@ -17,26 +17,26 @@ module Decidim
       let(:ip_hash) { tokenize(remote_ip) }
       let(:request) do
         double(
-          session: { session_id: session_id },
-          remote_ip: remote_ip
+          session: { session_id: },
+          remote_ip:
         )
       end
 
       let(:participatory_process) { create(:participatory_process, organization: current_organization) }
       let(:questionnaire) { create(:questionnaire, questionnaire_for: participatory_process) }
-      let(:question_1) { create(:questionnaire_question, questionnaire: questionnaire) }
-      let(:question_2) { create(:questionnaire_question, questionnaire: questionnaire) }
-      let(:question_3) { create(:questionnaire_question, questionnaire: questionnaire) }
-      let(:answer_options) { create_list(:answer_option, 5, question: question_2) }
+      let(:question1) { create(:questionnaire_question, questionnaire:) }
+      let(:question2) { create(:questionnaire_question, questionnaire:) }
+      let(:question3) { create(:questionnaire_question, questionnaire:) }
+      let(:answer_options) { create_list(:answer_option, 5, question: question2) }
       let(:answer_option_ids) { answer_options.pluck(:id).map(&:to_s) }
-      let(:matrix_rows) { create_list(:question_matrix_row, 3, question: question_2) }
+      let(:matrix_rows) { create_list(:question_matrix_row, 3, question: question2) }
       let(:matrix_row_ids) { matrix_rows.pluck(:id).map(&:to_s) }
       let(:form_params) do
         {
           "responses" => [
             {
               "body" => "This is my first answer",
-              "question_id" => question_1.id
+              "question_id" => question1.id
             },
             {
               "choices" => [
@@ -44,14 +44,14 @@ module Decidim
                 { "answer_option_id" => answer_option_ids[1], "body" => "second", "matrix_row_id" => matrix_row_ids[1] },
                 { "answer_option_id" => answer_option_ids[2], "body" => "answer", "matrix_row_id" => matrix_row_ids[2] }
               ],
-              "question_id" => question_2.id
+              "question_id" => question2.id
             },
             {
               "choices" => [
                 { "answer_option_id" => answer_option_ids[3], "body" => "Third", "position" => 0 },
                 { "answer_option_id" => answer_option_ids[4], "body" => "answer", "position" => 1 }
               ],
-              "question_id" => question_3.id
+              "question_id" => question3.id
             }
           ],
           "tos_agreement" => "1"
@@ -61,9 +61,9 @@ module Decidim
         QuestionnaireForm.from_params(
           form_params
         ).with_context(
-          current_organization: current_organization,
-          session_token: session_token,
-          ip_hash: ip_hash
+          current_organization:,
+          session_token:,
+          ip_hash:
         )
       end
       let(:command) { described_class.new(form, current_user, questionnaire) }
@@ -77,7 +77,7 @@ module Decidim
           expect { command.call }.to broadcast(:invalid)
         end
 
-        it "doesn't create questionnaire answers" do
+        it "does not create questionnaire answers" do
           expect do
             command.call
           end.not_to change(Answer, :count)
@@ -125,7 +125,7 @@ module Decidim
         end
 
         context "with attachments" do
-          let(:question_1) { create(:questionnaire_question, questionnaire: questionnaire, question_type: :files) }
+          let(:question1) { create(:questionnaire_question, questionnaire:, question_type: :files) }
           let(:uploaded_files) do
             [
               {
@@ -143,7 +143,7 @@ module Decidim
               "responses" => [
                 {
                   "add_documents" => uploaded_files,
-                  "question_id" => question_1.id
+                  "question_id" => question1.id
                 }
               ],
               "tos_agreement" => "1"
@@ -173,7 +173,7 @@ module Decidim
             end
 
             it "does not create atachments for the proposal" do
-              expect { command.call }.to change(Decidim::Attachment, :count).by(0)
+              expect { command.call }.not_to change(Decidim::Attachment, :count)
             end
 
             it "broadcasts invalid" do
@@ -182,15 +182,69 @@ module Decidim
           end
 
           context "when the user has answered the survey" do
-            let!(:answer) { create(:answer, questionnaire: questionnaire, question: question_1, user: current_user) }
+            let!(:answer) { create(:answer, questionnaire:, question: question1, user: current_user) }
 
-            it "doesn't create questionnaire answers" do
+            it "does not create questionnaire answers" do
               expect { command.call }.not_to change(Answer, :count)
             end
 
             it "broadcasts invalid" do
               expect { command.call }.to broadcast(:invalid)
             end
+          end
+        end
+
+        context "when display_conditions are not mandatory on the same question but are fulfilled" do
+          let(:questionnaire_conditionned) { create(:questionnaire, questionnaire_for: participatory_process) }
+          let!(:option1) { create(:answer_option, question: condition_question) }
+          let!(:option2) { create(:answer_option, question: condition_question) }
+          let!(:option3) { create(:answer_option, question: condition_question) }
+          let!(:condition_question) do
+            create(
+              :questionnaire_question,
+              questionnaire: questionnaire_conditionned,
+              mandatory: false,
+              question_type: "single_option"
+            )
+          end
+          let!(:question) { create(:questionnaire_question, questionnaire: questionnaire_conditionned, question_type: "short_answer") }
+          let!(:display_condition) { create(:display_condition, question:, condition_question:, condition_type: :equal, answer_option: option1, mandatory: false) }
+          let!(:display_condition2) { create(:display_condition, question:, condition_question:, condition_type: :equal, answer_option: option3, mandatory: false) }
+          let(:form_params) do
+            {
+              "responses" => [
+                {
+                  "choices" => [
+                    { "body" => option1.body, "answer_option_id" => option1.id }
+                  ],
+                  "question_id" => condition_question.id
+                },
+                {
+                  "body" => "answer_test",
+                  "question_id" => question.id
+                }
+              ],
+              "tos_agreement" => "1"
+            }
+          end
+          let(:command) { described_class.new(form, current_user, questionnaire_conditionned) }
+
+          it "broadcasts ok" do
+            expect { command.call }.to broadcast(:ok)
+          end
+
+          it "creates a questionnaire answer for each question answered" do
+            expect do
+              command.call
+            end.to change(Answer, :count).by(2)
+            expect(Answer.all.map(&:questionnaire)).to eq([questionnaire_conditionned, questionnaire_conditionned])
+          end
+
+          it "creates answers with the correct information" do
+            command.call
+
+            expect(Answer.first.choices.first.answer_option).to eq(option1)
+            expect(Answer.second.body).to eq("answer_test")
           end
         end
       end
@@ -216,9 +270,9 @@ module Decidim
         end
 
         context "and visitor has answered the survey" do
-          let!(:answer) { create(:answer, questionnaire: questionnaire, question: question_1, session_token: tokenize(session_id)) }
+          let!(:answer) { create(:answer, questionnaire:, question: question1, session_token: tokenize(session_id)) }
 
-          it "doesn't create questionnaire answers" do
+          it "does not create questionnaire answers" do
             expect { command.call }.not_to change(Answer, :count)
           end
 
@@ -234,7 +288,7 @@ module Decidim
             expect { command.call }.to broadcast(:invalid)
           end
 
-          it "doesn't create questionnaire answers" do
+          it "does not create questionnaire answers" do
             expect do
               command.call
             end.not_to change(Answer, :count)

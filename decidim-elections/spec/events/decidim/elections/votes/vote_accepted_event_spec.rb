@@ -7,7 +7,7 @@ describe Decidim::Elections::Votes::VoteAcceptedEvent do
 
   let(:event_name) { "decidim.events.elections.votes.accepted_votes" }
   let(:vote) { create(:vote) }
-  let(:extra) { { vote: vote, verify_url: verify_url } }
+  let(:extra) { { vote:, verify_url: } }
   let(:resource) { vote.election }
   let(:encrypted_vote_hash) { vote.encrypted_vote_hash }
   let(:resource_name) { resource.title["en"] }
@@ -31,7 +31,7 @@ describe Decidim::Elections::Votes::VoteAcceptedEvent do
   describe "email_outro" do
     it "is generated correctly" do
       expect(subject.email_outro)
-        .to eq("You have received this notification because you've voted for the #{resource_name} election.")
+        .to eq("You have received this notification because you have voted for the #{resource_name} election.")
     end
   end
 

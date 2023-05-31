@@ -14,13 +14,14 @@ module Decidim
 
     included do
       helper Decidim::UserProfileHelper
+      redesign active: true
       layout "layouts/decidim/user_profile"
 
       helper_method :available_verification_workflows
 
       before_action :current_user
       before_action do
-        enforce_permission_to :update_profile, :user, current_user: current_user
+        enforce_permission_to :update_profile, :user, current_user:
       end
     end
 

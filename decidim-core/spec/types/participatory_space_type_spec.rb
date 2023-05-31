@@ -45,6 +45,20 @@ module Decidim
           expect(response["stats"]).to include("name" => "dummies_count_high", "value" => 0)
         end
       end
+
+      describe "manifest" do
+        let(:query) { %({ manifest { name humanName { single { translation(locale: "en") } plural { translation(locale: "en") } } } }) }
+
+        it "show the manifest information for this participatory process" do
+          expect(response["manifest"]).to include(
+            "name" => "participatory_processes",
+            "humanName" => {
+              "single" => { "translation" => "Participatory process" },
+              "plural" => { "translation" => "Participatory processes" }
+            }
+          )
+        end
+      end
     end
   end
 end

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 shared_examples "manage conference speakers examples" do
-  let!(:conference_speaker) { create(:conference_speaker, conference: conference) }
+  let!(:conference_speaker) { create(:conference_speaker, conference:) }
 
   before do
     switch_to_host(organization.host)
@@ -39,7 +39,7 @@ shared_examples "manage conference speakers examples" do
   end
 
   context "with existing user" do
-    let!(:speaker_user) { create :user, organization: conference.organization }
+    let!(:speaker_user) { create(:user, organization: conference.organization) }
 
     it "creates a new conference speaker" do
       find(".card-title a.new").click
@@ -95,7 +95,7 @@ shared_examples "manage conference speakers examples" do
       expect(page).to have_admin_callout("successfully")
 
       within "#conference_speakers table" do
-        expect(page).to have_no_content(conference_speaker.full_name)
+        expect(page).not_to have_content(conference_speaker.full_name)
       end
     end
   end

@@ -4,18 +4,18 @@ require "spec_helper"
 
 describe "Admin filters user_roles", type: :system do
   let(:organization) { create(:organization) }
-  let!(:admin) { create(:user, :admin, :confirmed, organization: organization) }
-  let(:conference) { create(:conference, organization: organization) }
+  let!(:admin) { create(:user, :admin, :confirmed, organization:) }
+  let(:conference) { create(:conference, organization:) }
 
   let(:resource_controller) { Decidim::Conferences::Admin::ConferenceUserRolesController }
   let(:name) { "Dummy Name" }
   let(:email) { "dummy_email@example.org" }
 
-  let!(:invited_user_1) { create(:conference_valuator, name: name, conference: conference) }
-  let!(:invited_user_2) { create(:conference_valuator, email: email, conference: conference) }
+  let!(:invited_user1) { create(:conference_valuator, name:, conference:) }
+  let!(:invited_user2) { create(:conference_valuator, email:, conference:) }
 
   before do
-    invited_user_2.update!(invitation_sent_at: 1.day.ago, invitation_accepted_at: Time.current, last_sign_in_at: Time.current)
+    invited_user2.update!(invitation_sent_at: 1.day.ago, invitation_accepted_at: Time.current, last_sign_in_at: Time.current)
 
     switch_to_host(organization.host)
     login_as admin, scope: :user
@@ -29,14 +29,14 @@ describe "Admin filters user_roles", type: :system do
   context "when sorting" do
     include_examples "sortable participatory space user roles" do
       let!(:collection) do
-        create_list(:conference_collaborator, 100, conference: conference,
+        create_list(:conference_collaborator, 100, conference:,
                                                    last_sign_in_at: 2.days.ago,
                                                    invitation_accepted_at: 1.day.ago)
       end
       let!(:user) do
         create(:conference_valuator,
                name: "ZZZupper user",
-               conference: conference,
+               conference:,
                last_sign_in_at: 30.seconds.ago,
                invitation_accepted_at: Time.current)
       end
@@ -48,7 +48,7 @@ describe "Admin filters user_roles", type: :system do
   end
 
   it_behaves_like "paginating a collection" do
-    let!(:collection) { create_list(:conference_valuator, 100, conference: conference) }
+    let!(:collection) { create_list(:conference_valuator, 100, conference:) }
 
     before do
       switch_to_host(organization.host)

@@ -5,11 +5,11 @@ require "spec_helper"
 shared_examples "an uncommentable component" do
   let!(:component) do
     create(:component,
-           manifest: manifest,
-           participatory_space: participatory_space)
+           manifest:,
+           participatory_space:)
   end
 
-  it "doesn't displays comments count" do
+  it "does not displays comments count" do
     component.update!(settings: { comments_enabled: false })
 
     visit_component

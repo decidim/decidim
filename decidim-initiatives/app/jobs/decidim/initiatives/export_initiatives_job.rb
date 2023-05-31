@@ -17,7 +17,7 @@ module Decidim
       private
 
       def collection_to_export(ids, organization)
-        collection = Decidim::Initiative.where(organization: organization)
+        collection = Decidim::Initiative.where(organization:)
 
         collection = collection.where(id: ids) if ids.present?
 

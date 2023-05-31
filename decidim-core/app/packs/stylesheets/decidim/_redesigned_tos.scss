@@ -1,0 +1,7 @@
+.tos {
+  @apply rounded border border-gray p-4;
+
+  &__buttons {
+    @apply flex items-center justify-center gap-4 mt-4;
+  }
+}

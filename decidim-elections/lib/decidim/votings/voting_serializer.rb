@@ -18,7 +18,7 @@ module Decidim
       def serialize
         {
           participatory_space_id: voting.id,
-          url: url,
+          url:,
           title: voting.title,
           description: voting.description,
           start_time: voting.start_time.to_s(:db),

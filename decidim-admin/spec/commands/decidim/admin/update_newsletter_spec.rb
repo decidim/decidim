@@ -5,9 +5,9 @@ require "spec_helper"
 module Decidim::Admin
   describe UpdateNewsletter do
     describe "call" do
-      let(:user) { create(:user, organization: organization) }
+      let(:user) { create(:user, organization:) }
       let(:organization) { create(:organization) }
-      let(:newsletter) { create(:newsletter, organization: organization) }
+      let(:newsletter) { create(:newsletter, organization:) }
 
       let(:newsletter_subject) { Decidim::Faker::Localized.paragraph(sentence_count: 3) }
       let(:newsletter_body) { Decidim::Faker::Localized.paragraph(sentence_count: 3) }
@@ -28,12 +28,12 @@ module Decidim::Admin
           expect { command.call }.to broadcast(:invalid)
         end
 
-        it "doesn't create a newsletter" do
+        it "does not create a newsletter" do
           expect { command.call }.not_to(change { newsletter.reload.updated_at })
         end
       end
 
-      describe "when the newsletter can't be edited by this user" do
+      describe "when the newsletter cannot be edited by this user" do
         let(:user) { create(:user) }
 
         it "broadcasts invalid" do

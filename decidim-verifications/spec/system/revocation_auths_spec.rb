@@ -7,39 +7,39 @@ describe "Authorizations revocation flow", type: :system do
     create(:organization, available_authorizations: [authorization])
   end
   let(:authorization) { "dummy_authorization_handler" }
-  let(:admin) { create(:user, :admin, :confirmed, organization: organization) }
+  let(:admin) { create(:user, :admin, :confirmed, organization:) }
   let(:name) { "some_method" }
   let(:prev_year) { Time.zone.today.prev_year }
   let(:prev_month) { Time.zone.today.prev_month }
   let(:prev_week) { Time.zone.today.prev_week }
-  let(:user1) { create(:user, organization: organization) }
-  let(:user2) { create(:user, organization: organization) }
-  let(:user3) { create(:user, organization: organization) }
-  let(:user4) { create(:user, organization: organization) }
-  let(:user5) { create(:user, organization: organization) }
+  let(:user1) { create(:user, organization:) }
+  let(:user2) { create(:user, organization:) }
+  let(:user3) { create(:user, organization:) }
+  let(:user4) { create(:user, organization:) }
+  let(:user5) { create(:user, organization:) }
   let!(:granted_authorizations) do
-    create(:authorization, created_at: prev_month, granted_at: prev_month, name: name, user: user1)
-    create(:authorization, created_at: prev_year, granted_at: prev_year, name: name, user: user2)
-    create(:authorization, created_at: prev_year, granted_at: prev_year, name: name, user: user3)
+    create(:authorization, created_at: prev_month, granted_at: prev_month, name:, user: user1)
+    create(:authorization, created_at: prev_year, granted_at: prev_year, name:, user: user2)
+    create(:authorization, created_at: prev_year, granted_at: prev_year, name:, user: user3)
   end
   let!(:ungranted_authorizations) do
-    create(:authorization, created_at: prev_month, granted_at: nil, name: name, user: user4)
-    create(:authorization, created_at: prev_year, granted_at: nil, name: name, user: user5)
+    create(:authorization, created_at: prev_month, granted_at: nil, name:, user: user4)
+    create(:authorization, created_at: prev_year, granted_at: nil, name:, user: user5)
   end
   let(:get_all_authorizations) do
     Decidim::Verifications::Authorizations.new(
-      organization: organization
+      organization:
     ).query
   end
   let(:get_granted_authorizations) do
     Decidim::Verifications::Authorizations.new(
-      organization: organization,
+      organization:,
       granted: true
     ).query
   end
   let(:get_ungranted_authorizations) do
     Decidim::Verifications::Authorizations.new(
-      organization: organization,
+      organization:,
       granted: nil
     ).query
   end
@@ -73,7 +73,7 @@ describe "Authorizations revocation flow", type: :system do
         end
       end
 
-      it "doesn't allow the user to see No Granted Authorizations info message" do
+      it "does not allow the user to see No Granted Authorizations info message" do
         within ".container" do
           expect(page).not_to have_content(t("decidim.admin.menu.authorization_revocation.no_data"))
         end
@@ -93,7 +93,7 @@ describe "Authorizations revocation flow", type: :system do
         end
       end
 
-      it "doesn't allow the user to see Authorization's revocation options" do
+      it "does not allow the user to see Authorization's revocation options" do
         within ".container" do
           expect(page).not_to have_content(t("decidim.admin.menu.authorization_revocation.button"))
           expect(page).not_to have_content(t("decidim.admin.menu.authorization_revocation.before_date_info"))
@@ -114,7 +114,7 @@ describe "Authorizations revocation flow", type: :system do
         end
       end
 
-      it "doesnt appear revoke before confirmation dialog" do
+      it "does not appear revoke before confirmation dialog" do
         within ".container" do
           message = dismiss_confirm do
             click_link(t("decidim.admin.menu.authorization_revocation.button"))
@@ -134,7 +134,7 @@ describe "Authorizations revocation flow", type: :system do
         end
       end
 
-      it "doesnt appear revoke all confirmation dialog" do
+      it "does not appear revoke all confirmation dialog" do
         within ".container" do
           message = dismiss_confirm do
             click_button(t("decidim.admin.menu.authorization_revocation.button_before"))

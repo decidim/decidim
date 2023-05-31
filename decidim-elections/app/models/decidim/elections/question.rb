@@ -3,7 +3,7 @@
 module Decidim
   module Elections
     # The data store for a Question in the Decidim::Elections component. It stores a
-    # title, description and a maximum number of selection that voters can choose.
+    # title and a maximum number of selection that voters can choose.
     class Question < ApplicationRecord
       include Decidim::Resourceable
       include Traceable

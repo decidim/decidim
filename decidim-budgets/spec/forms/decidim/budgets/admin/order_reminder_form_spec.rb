@@ -13,9 +13,9 @@ describe Decidim::Budgets::Admin::OrderReminderForm do
     }
   end
   let(:organization) { create(:organization) }
-  let(:participatory_space) { create(:participatory_process, organization: organization) }
-  let(:component) { create(:component, participatory_space: participatory_space, manifest_name: "budgets") }
-  let(:budget) { create(:budget, component: component) }
+  let(:participatory_space) { create(:participatory_process, organization:) }
+  let(:component) { create(:component, participatory_space:, manifest_name: "budgets") }
+  let(:budget) { create(:budget, component:) }
 
   context "when voting is ending today" do
     let!(:step1) do
@@ -53,13 +53,13 @@ describe Decidim::Budgets::Admin::OrderReminderForm do
     end
   end
 
-  context "when participatory spac doesnt have steps" do
+  context "when participatory space does not have steps" do
     let(:participatory_space) { create(:assembly) }
 
     context "and there are 2 hours left in the day" do
       before { allow(Time.zone).to receive(:now).and_return(Time.zone.now.end_of_day - 2.hours) }
 
-      it "we dont know that ending is ending soon" do
+      it "we do not know that ending is ending soon" do
         expect(subject.voting_ends_soon?).to be(false)
       end
     end
@@ -67,7 +67,7 @@ describe Decidim::Budgets::Admin::OrderReminderForm do
 
   describe "#reminder_amount" do
     context "when there is new order" do
-      let!(:new_order) { create(:order, budget: budget, created_at: 10.minutes.ago) }
+      let!(:new_order) { create(:order, budget:, created_at: 10.minutes.ago) }
 
       it "does not count it" do
         expect(subject.reminder_amount).to eq(0)
@@ -75,17 +75,17 @@ describe Decidim::Budgets::Admin::OrderReminderForm do
     end
 
     context "when there is a pending order" do
-      let!(:order) { create(:order, budget: budget, created_at: 3.days.ago) }
+      let!(:order) { create(:order, budget:, created_at: 3.days.ago) }
 
       it "counts that user will be reminded" do
         expect(subject.reminder_amount).to eq(1)
       end
 
       context "with reminder" do
-        let(:reminder) { create(:reminder, user: order.user, component: component) }
+        let(:reminder) { create(:reminder, user: order.user, component:) }
 
         context "with recent delivery" do
-          let!(:reminder_delivery) { create(:reminder_delivery, reminder: reminder) }
+          let!(:reminder_delivery) { create(:reminder_delivery, reminder:) }
 
           it "calculates that the user will not be reminded" do
             expect(subject.reminder_amount).to eq(0)
@@ -93,7 +93,7 @@ describe Decidim::Budgets::Admin::OrderReminderForm do
         end
 
         context "with old delivery" do
-          let!(:reminder_delivery) { create(:reminder_delivery, reminder: reminder, created_at: 2.days.ago) }
+          let!(:reminder_delivery) { create(:reminder_delivery, reminder:, created_at: 2.days.ago) }
 
           it "calculates that the user will be reminded" do
             expect(subject.reminder_amount).to eq(1)
@@ -104,8 +104,8 @@ describe Decidim::Budgets::Admin::OrderReminderForm do
 
     context "when there are multiple pending orders and one new order" do
       let(:pending_order_amount) { rand(2..7) }
-      let!(:orders) { create_list(:order, pending_order_amount, budget: budget, created_at: 2.days.ago) }
-      let!(:new_order) { create(:order, budget: budget, created_at: 10.minutes.ago) }
+      let!(:orders) { create_list(:order, pending_order_amount, budget:, created_at: 2.days.ago) }
+      let!(:new_order) { create(:order, budget:, created_at: 10.minutes.ago) }
 
       it "counts pending order" do
         expect(subject.reminder_amount).to eq(pending_order_amount)

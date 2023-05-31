@@ -8,11 +8,14 @@ describe "Explore meetings", :slow, type: :system do
 
   let(:meetings_count) { 5 }
   let!(:meetings) do
-    create_list(:meeting, meetings_count, :not_official, :published, component: component)
+    create_list(:meeting, meetings_count, :not_official, :published, component:)
   end
 
   before do
-    component_scope = create :scope, parent: participatory_process.scope
+    # Required for the link to be pointing to the correct URL with the server
+    # port since the server port is not defined for the test environment.
+    allow(ActionMailer::Base).to receive(:default_url_options).and_return(port: Capybara.server_port)
+    component_scope = create(:scope, parent: participatory_process.scope)
     component_settings = component["settings"]["global"].merge!(scopes_enabled: true, scope_id: component_scope.id)
     component.update!(settings: component_settings)
   end
@@ -27,9 +30,35 @@ describe "Explore meetings", :slow, type: :system do
       end
     end
 
+    context "with default filter" do
+      let!(:past_meeting) { create(:meeting, :published, start_time: 2.weeks.ago, component:) }
+      let!(:upcoming_meeting) { create(:meeting, :published, :not_official, component:) }
+
+      it "shows all the upcoming meetings" do
+        visit_component
+        within ".with_any_date_collection_radio_buttons_filter" do
+          expect(find("input[value='upcoming']").checked?).to be(true)
+        end
+
+        within "#meetings" do
+          expect(page).to have_css(".card--meeting", count: 6)
+        end
+
+        expect(page).to have_css("#meetings-count", text: "6 MEETINGS")
+        expect(page).to have_content(translated(upcoming_meeting.title))
+      end
+
+      it "does not show past meetings" do
+        visit_component
+        within "#meetings" do
+          expect(page).not_to have_content(translated(past_meeting.title))
+        end
+      end
+    end
+
     context "when checking withdrawn meetings" do
       context "when there are no withrawn meetings" do
-        let!(:meeting) { create_list(:meeting, 3, :published, component: component) }
+        let!(:meeting) { create_list(:meeting, 3, :published, component:) }
 
         before do
           visit_component
@@ -37,7 +66,7 @@ describe "Explore meetings", :slow, type: :system do
         end
 
         it "shows an empty page with a message" do
-          expect(page).to have_content("No meetings match your search criteria or there isn't any meeting scheduled.")
+          expect(page).to have_content("No meetings match your search criteria or there is not any meeting scheduled.")
           within ".callout.warning", match: :first do
             expect(page).to have_content("You are viewing the list of meetings withdrawn by their authors.")
           end
@@ -45,7 +74,7 @@ describe "Explore meetings", :slow, type: :system do
       end
 
       context "when there are withrawn meetings" do
-        let!(:withdrawn_meetings) { create_list(:meeting, 3, :withdrawn, :published, component: component) }
+        let!(:withdrawn_meetings) { create_list(:meeting, 3, :withdrawn, :published, component:) }
 
         before do
           visit_component
@@ -65,7 +94,7 @@ describe "Explore meetings", :slow, type: :system do
       let(:meeting) { meetings.last }
 
       before do
-        create :moderation, :hidden, reportable: meeting
+        create(:moderation, :hidden, reportable: meeting)
       end
 
       it "does not list the hidden meetings" do
@@ -73,14 +102,14 @@ describe "Explore meetings", :slow, type: :system do
 
         expect(page).to have_selector(".card.card--meeting", count: meetings_count - 1)
 
-        expect(page).to have_no_content(translated(meeting.title))
+        expect(page).not_to have_content(translated(meeting.title))
       end
     end
 
     context "when comments have been moderated" do
-      let(:meeting) { create(:meeting, :published, component: component) }
+      let(:meeting) { create(:meeting, :published, component:) }
       let!(:comments) { create_list(:comment, 3, commentable: meeting) }
-      let!(:moderation) { create :moderation, reportable: comments.first, hidden_at: 1.day.ago }
+      let!(:moderation) { create(:moderation, reportable: comments.first, hidden_at: 1.day.ago) }
 
       it "displays unhidden comments count" do
         visit_component
@@ -96,6 +125,25 @@ describe "Explore meetings", :slow, type: :system do
     end
 
     context "when filtering" do
+      context "when filtering by text" do
+        it "updates the current URL" do
+          create(:meeting, :published, component:, title: { en: "Foobar meeting" })
+          create(:meeting, :published, component:, title: { en: "Another meeting" })
+          visit_component
+
+          within "form.new_filter" do
+            fill_in("filter[search_text_cont]", with: "foobar")
+            click_button "Search"
+          end
+
+          expect(page).not_to have_content("Another meeting")
+          expect(page).to have_content("Foobar meeting")
+
+          filter_params = CGI.parse(URI.parse(page.current_url).query)
+          expect(filter_params["filter[search_text_cont]"]).to eq(["foobar"])
+        end
+      end
+
       context "when filtering by origin" do
         let!(:component) do
           create(:meeting_component,
@@ -103,8 +151,8 @@ describe "Explore meetings", :slow, type: :system do
                  participatory_space: participatory_process)
         end
 
-        let!(:official_meeting) { create(:meeting, :published, :official, component: component, author: organization) }
-        let!(:user_group_meeting) { create(:meeting, :published, :user_group_author, component: component) }
+        let!(:official_meeting) { create(:meeting, :published, :official, component:, author: organization) }
+        let!(:user_group_meeting) { create(:meeting, :published, :user_group_author, component:) }
 
         context "with 'official' origin" do
           it "lists the filtered meetings" do
@@ -115,7 +163,7 @@ describe "Explore meetings", :slow, type: :system do
               check "Official"
             end
 
-            expect(page).to have_no_content("6 MEETINGS")
+            expect(page).not_to have_content("6 MEETINGS")
             expect(page).to have_content("1 MEETING")
             expect(page).to have_css(".card--meeting", count: 1)
 
@@ -134,7 +182,7 @@ describe "Explore meetings", :slow, type: :system do
               check "Groups"
             end
 
-            expect(page).to have_no_content("6 MEETINGS")
+            expect(page).not_to have_content("6 MEETINGS")
             expect(page).to have_content("1 MEETING")
             expect(page).to have_css(".card--meeting", count: 1)
             within ".card--meeting" do
@@ -152,7 +200,7 @@ describe "Explore meetings", :slow, type: :system do
               check "Participants"
             end
 
-            expect(page).to have_no_content("6 MEETINGS")
+            expect(page).not_to have_content("6 MEETINGS")
             expect(page).to have_css(".card--meeting", count: meetings_count)
             expect(page).to have_content("#{meetings_count} MEETINGS")
           end
@@ -162,12 +210,12 @@ describe "Explore meetings", :slow, type: :system do
       it "allows searching by text", :slow do
         visit_component
         within ".filters" do
-          # It seems that there's another field with the same name in another form on page.
+          # It seems that there is another field with the same name in another form on page.
           # Because of that we try to select the correct field to set the value and submit the right form
           find(:css, "#content form.new_filter [name='filter[search_text_cont]']").set(translated(meetings.first.title))
 
           # The form should be auto-submitted when filter box is filled up, but
-          # somehow it's not happening. So we workaround that be explicitly
+          # somehow it is not happening. So we workaround that be explicitly
           # clicking on "Search" until we find out why.
           find("#content form.new_filter .icon--magnifying-glass").click
         end
@@ -177,28 +225,127 @@ describe "Explore meetings", :slow, type: :system do
         expect(page).to have_content(translated(meetings.first.title))
       end
 
-      it "allows filtering by date" do
-        past_meeting = create(:meeting, :published, component: component, start_time: 1.day.ago)
+      context "when filtering by date" do
+        let!(:past_meeting1) { create(:meeting, :published, component:, start_time: 1.week.ago) }
+        let!(:past_meeting2) { create(:meeting, :published, component:, start_time: 3.months.ago) }
+        let!(:past_meeting3) { create(:meeting, :published, component:, start_time: 2.days.ago) }
+        let!(:upcoming_meeting1) { create(:meeting, :published, component:, start_time: 1.week.from_now) }
+        let!(:upcoming_meeting2) { create(:meeting, :published, component:, start_time: 3.months.from_now) }
+        let!(:upcoming_meeting3) { create(:meeting, :published, component:, start_time: 2.days.from_now) }
+
+        it "lists filtered meetings" do
+          visit_component
+
+          within ".with_any_date_collection_radio_buttons_filter" do
+            choose "Past"
+          end
+
+          expect(page).to have_css(".card--meeting", count: 3)
+          expect(page).to have_content(translated(past_meeting1.title))
+          expect(page).not_to have_content(translated(upcoming_meeting1.title))
+
+          within ".with_any_date_collection_radio_buttons_filter" do
+            choose "Upcoming"
+          end
+
+          expect(page).to have_content(translated(upcoming_meeting1.title))
+          expect(page).not_to have_content(translated(past_meeting1.title))
+
+          expect(page).to have_css(".card--meeting", count: 8)
+
+          within ".with_any_date_collection_radio_buttons_filter" do
+            choose "All"
+          end
+
+          expect(page).to have_css(".card--meeting", count: 8)
+          expect(page).to have_content(translated(past_meeting1.title))
+          expect(page).to have_content(translated(upcoming_meeting1.title))
+        end
+
+        context "when there are multiple past meetings" do
+          it "orders them by start date" do
+            visit_component
+            within ".with_any_date_collection_radio_buttons_filter" do
+              choose "Past"
+            end
+
+            expect(page).to have_css("#meetings-count", text: "3 MEETINGS")
+
+            result = page.find("#meetings .card-grid").text
+            expect(result.index(translated(past_meeting3.title))).to be < result.index(translated(past_meeting1.title))
+            expect(result.index(translated(past_meeting1.title))).to be < result.index(translated(past_meeting2.title))
+          end
+        end
+
+        context "when there are multiple upcoming meetings" do
+          it "orders them by start date" do
+            visit_component
+            within ".with_any_date_collection_radio_buttons_filter" do
+              choose "Upcoming"
+            end
+
+            expect(page).to have_css("#meetings-count", text: "8 MEETINGS")
+
+            result = page.find("#meetings .card-grid").text
+            expect(result.index(translated(upcoming_meeting3.title))).to be < result.index(translated(upcoming_meeting1.title))
+            expect(result.index(translated(upcoming_meeting1.title))).to be < result.index(translated(upcoming_meeting2.title))
+          end
+        end
+
+        context "when there are multiple meetings" do
+          it "orders them by start date" do
+            page.visit "#{main_component_path(component)}?per_page=20"
+            within ".with_any_date_collection_radio_buttons_filter" do
+              choose "All"
+            end
+
+            expect(page).to have_css("#meetings-count", text: "11 MEETINGS")
+
+            result = page.find("#meetings .card-grid").text
+            expect(result.index(translated(past_meeting2.title))).to be < result.index(translated(past_meeting1.title))
+            expect(result.index(translated(past_meeting1.title))).to be < result.index(translated(past_meeting3.title))
+            expect(result.index(translated(past_meeting2.title))).to be < result.index(translated(upcoming_meeting1.title))
+            expect(result.index(translated(upcoming_meeting3.title))).to be < result.index(translated(upcoming_meeting1.title))
+            expect(result.index(translated(upcoming_meeting1.title))).to be < result.index(translated(upcoming_meeting2.title))
+          end
+        end
+      end
+
+      it "allows linking to the filtered view using a short link" do
+        past_meeting = create(:meeting, :published, component:, start_time: 1.day.ago)
         visit_component
 
-        within ".with_any_date_check_boxes_tree_filter" do
-          uncheck "All"
-          check "Past"
+        within ".with_any_date_collection_radio_buttons_filter" do
+          choose "Past"
         end
 
         expect(page).to have_css(".card--meeting", count: 1)
         expect(page).to have_content(translated(past_meeting.title))
 
-        within ".with_any_date_check_boxes_tree_filter" do
-          uncheck "All"
-          check "Upcoming"
+        filter_params = CGI.parse(URI.parse(page.current_url).query)
+        base_url = "http://#{organization.host}:#{Capybara.server_port}"
+
+        click_button "Export calendar"
+        expect(page).to have_content("Calendar URL:")
+        expect(page).to have_css("#calendarShare", visible: :visible)
+        short_url = nil
+        within "#calendarShare" do
+          input = find("input#urlCalendarUrl[readonly]")
+          short_url = input.value
+          expect(short_url).to match(%r{^#{base_url}/s/[a-zA-Z0-9]{10}$})
         end
 
-        expect(page).to have_css(".card--meeting", count: 5)
+        visit short_url
+        expect(page).to have_css(".card--meeting", count: 1)
+        expect(page).to have_content(translated(past_meeting.title))
+        expect(page).to have_current_path(/^#{main_component_path(component)}/)
+
+        current_params = CGI.parse(URI.parse(page.current_url).query)
+        expect(current_params).to eq(filter_params)
       end
 
       it "allows filtering by scope" do
-        scope = create(:scope, organization: organization)
+        scope = create(:scope, organization:)
         meeting = meetings.first
         meeting.scope = scope
         meeting.save
@@ -215,7 +362,7 @@ describe "Explore meetings", :slow, type: :system do
       end
 
       it "works with 'back to list' link" do
-        scope = create(:scope, organization: organization)
+        scope = create(:scope, organization:)
         meeting = meetings.first
         meeting.scope = scope
         meeting.save
@@ -239,7 +386,7 @@ describe "Explore meetings", :slow, type: :system do
 
     context "when no upcoming meetings scheduled" do
       let!(:meetings) do
-        create_list(:meeting, 2, :published, component: component, start_time: 4.days.ago, end_time: 2.days.ago)
+        create_list(:meeting, 2, :published, component:, start_time: 4.days.ago, end_time: 2.days.ago)
       end
 
       it "only shows the past meetings" do
@@ -271,7 +418,7 @@ describe "Explore meetings", :slow, type: :system do
         Decidim::Meetings::Meeting.destroy_all
       end
 
-      let!(:collection) { create_list :meeting, collection_size, :published, component: component }
+      let!(:collection) { create_list(:meeting, collection_size, :published, component:) }
       let!(:resource_selector) { ".card--meeting" }
 
       it_behaves_like "a paginated resource"
@@ -279,13 +426,13 @@ describe "Explore meetings", :slow, type: :system do
 
     context "when there are only online meetings" do
       let!(:meetings) do
-        create_list(:meeting, meetings_count, :online, :not_official, component: component)
+        create_list(:meeting, meetings_count, :online, :not_official, component:)
       end
 
       it "hides map" do
         visit_component
 
-        expect(page).to have_no_css("div.map__help")
+        expect(page).not_to have_css("div.map__help")
       end
     end
   end
@@ -306,7 +453,7 @@ describe "Explore meetings", :slow, type: :system do
 
     it "shows all meeting info" do
       expect(page).to have_i18n_content(meeting.title)
-      expect(page).to have_i18n_content(meeting.description)
+      expect(page).to have_i18n_content(meeting.description, strip_tags: true)
       expect(page).to have_i18n_content(meeting.location)
       expect(page).to have_i18n_content(meeting.location_hints)
       expect(page).to have_content(meeting.address)
@@ -320,7 +467,7 @@ describe "Explore meetings", :slow, type: :system do
 
     context "without category or scope" do
       it "does not show any tag" do
-        expect(page).to have_no_selector("ul.tags.tags--meeting")
+        expect(page).not_to have_selector("ul.tags.tag-container")
       end
     end
 
@@ -333,14 +480,14 @@ describe "Explore meetings", :slow, type: :system do
       end
 
       it "shows tags for category" do
-        expect(page).to have_selector("ul.tags.tags--meeting")
-        within "ul.tags.tags--meeting" do
+        expect(page).to have_selector("ul.tags.tag-container")
+        within "ul.tags.tag-container" do
           expect(page).to have_content(translated(meeting.category.name))
         end
       end
 
       it "links to the filter for this category" do
-        within "ul.tags.tags--meeting" do
+        within "ul.tags.tag-container" do
           click_link translated(meeting.category.name)
         end
 
@@ -351,20 +498,20 @@ describe "Explore meetings", :slow, type: :system do
     context "with a scope" do
       let(:meeting) do
         meeting = meetings.first
-        meeting.scope = create(:scope, organization: organization)
+        meeting.scope = create(:scope, organization:)
         meeting.save
         meeting
       end
 
       it "shows tags for scope" do
-        expect(page).to have_selector("ul.tags.tags--meeting")
-        within "ul.tags.tags--meeting" do
+        expect(page).to have_selector("ul.tags.tag-container")
+        within "ul.tags.tag-container" do
           expect(page).to have_content(translated(meeting.scope.name))
         end
       end
 
       it "links to the filter for this scope" do
-        within "ul.tags.tags--meeting" do
+        within "ul.tags.tag-container" do
           click_link translated(meeting.scope.name)
         end
 
@@ -422,7 +569,7 @@ describe "Explore meetings", :slow, type: :system do
       it "shows the closing report" do
         visit_component
         click_link translated(meeting.title)
-        expect(page).to have_i18n_content(meeting.closing_report)
+        expect(page).to have_i18n_content(meeting.closing_report, strip_tags: true)
 
         within ".definition-data" do
           expect(page).to have_content("ATTENDEES COUNT\n#{meeting.attendees_count}")
@@ -432,19 +579,19 @@ describe "Explore meetings", :slow, type: :system do
     end
 
     context "when the meeting is closed and had no contributions" do
-      let!(:meeting) { create(:meeting, :published, :closed, contributions_count: 0, component: component) }
+      let!(:meeting) { create(:meeting, :published, :closed, contributions_count: 0, component:) }
 
       it_behaves_like "a closing report page"
 
       it "does not show contributions count" do
         within ".definition-data" do
-          expect(page).to have_no_content("CONTRIBUTIONS COUNT\n0")
+          expect(page).not_to have_content("CONTRIBUTIONS COUNT\n0")
         end
       end
     end
 
     context "when the meeting is closed and had contributions" do
-      let!(:meeting) { create(:meeting, :published, :closed, contributions_count: 1, component: component) }
+      let!(:meeting) { create(:meeting, :published, :closed, contributions_count: 1, component:) }
 
       it_behaves_like "a closing report page"
 

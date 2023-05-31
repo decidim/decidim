@@ -6,9 +6,9 @@ module Decidim
   module Amendable
     describe Accept do
       let!(:component) { create(:proposal_component) }
-      let!(:amendable) { create(:proposal, component: component) }
-      let!(:emendation) { create(:proposal, component: component) }
-      let!(:amendment) { create :amendment, amendable: amendable, emendation: emendation }
+      let!(:amendable) { create(:proposal, component:) }
+      let!(:emendation) { create(:proposal, component:) }
+      let!(:amendment) { create(:amendment, amendable:, emendation:) }
       let(:command) { described_class.new(form) }
 
       let(:emendation_params) do
@@ -21,7 +21,7 @@ module Decidim
       let(:form_params) do
         {
           id: amendment.id,
-          emendation_params: emendation_params
+          emendation_params:
         }
       end
 
@@ -29,7 +29,7 @@ module Decidim
 
       include_examples "accept amendment" do
         it "changes the emendation state" do
-          expect { command.call }.to change { emendation.reload[:state] }.from(nil).to("accepted")
+          expect { command.call }.to change { emendation.reload[:state] }.from("not_answered").to("accepted")
         end
       end
     end

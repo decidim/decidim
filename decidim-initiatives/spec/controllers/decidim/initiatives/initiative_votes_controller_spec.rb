@@ -8,7 +8,7 @@ module Decidim
       routes { Decidim::Initiatives::Engine.routes }
 
       let(:organization) { create(:organization) }
-      let(:initiative) { create(:initiative, organization: organization) }
+      let(:initiative) { create(:initiative, organization:) }
 
       before do
         request.env["decidim.current_organization"] = organization
@@ -20,7 +20,7 @@ module Decidim
             expect do
               sign_in initiative.author, scope: :user
               post :create, params: { initiative_slug: initiative.slug, format: :js }
-            end.to change { InitiativesVote.where(initiative: initiative).count }.by(1)
+            end.to change { InitiativesVote.where(initiative:).count }.by(1)
           end
         end
 
@@ -33,13 +33,13 @@ module Decidim
           it "do not register the vote" do
             expect do
               post :create, params: { initiative_slug: initiative.slug, format: :js }
-            end.not_to(change { InitiativesVote.where(initiative: initiative).count })
+            end.not_to(change { InitiativesVote.where(initiative:).count })
           end
         end
       end
 
       context "when destroy" do
-        let!(:vote) { create(:initiative_user_vote, initiative: initiative, author: initiative.author) }
+        let!(:vote) { create(:initiative_user_vote, initiative:, author: initiative.author) }
 
         context "and authorized users" do
           it "Authorized users can unvote" do
@@ -48,20 +48,20 @@ module Decidim
             expect do
               sign_in initiative.author, scope: :user
               delete :destroy, params: { initiative_slug: initiative.slug, format: :js }
-            end.to change { InitiativesVote.where(initiative: initiative).count }.by(-1)
+            end.to change { InitiativesVote.where(initiative:).count }.by(-1)
           end
         end
 
         context "and unvote disabled" do
-          let(:initiatives_type) { create(:initiatives_type, :undo_online_signatures_disabled, organization: organization) }
+          let(:initiatives_type) { create(:initiatives_type, :undo_online_signatures_disabled, organization:) }
           let(:scope) { create(:initiatives_type_scope, type: initiatives_type) }
-          let(:initiative) { create(:initiative, organization: organization, scoped_type: scope) }
+          let(:initiative) { create(:initiative, organization:, scoped_type: scope) }
 
           it "does not remove the vote" do
             expect do
               sign_in initiative.author, scope: :user
               delete :destroy, params: { initiative_slug: initiative.slug, format: :js }
-            end.not_to(change { InitiativesVote.where(initiative: initiative).count })
+            end.not_to(change { InitiativesVote.where(initiative:).count })
           end
 
           it "raises an exception" do

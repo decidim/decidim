@@ -22,8 +22,6 @@ ca:
             choices:
               missing: no estan complets
               too_many: en són masses
-        questionnaire:
-          request_invalid: Hi ha hagut un problema gestionant la petició. Si us plau torna-ho a provar
   decidim:
     forms:
       admin:
@@ -44,6 +42,8 @@ ca:
             actions:
               back: Tornar a les respostes
               export: Exportar
+              next: Següent &rsaquo;
+              previous: "&lsaquo; Anterior"
               show: Mostrar les respostes
             empty: Encara no hi ha respostes
             export:
@@ -121,13 +121,17 @@ ca:
           update:
             invalid: S'ha produït un error en desar el formulari.
             success: Formulari desat correctament.
+      admin_log:
+        questionnaire:
+          update: "%{user_name} ha actualitzat el qüestionari %{resource_name}"
       errors:
         answer:
           body: El camp no pot estar en blanc
-      files:
-        extension_allowlist: 'Formats d''arxiu acceptats:'
       images:
         dimensions: "%{width} x %{height} px"
+        processors:
+          resize_and_pad: Aquesta imatge serà redimensionada i ajustada a %{dimensions}.
+          resize_to_fit: Aquesta imatge serà redimensionada per ajustar-se a %{dimensions}.
       question_types:
         files: Arxius
         long_answer: Resposta llarga
@@ -138,6 +142,8 @@ ca:
         single_option: Opció única
         sorting: Ordenació
         title_and_description: Títol i descripció
+      questionnaire_answer_presenter:
+        download_attachment: Descarregar l'arxiu adjunt
       questionnaires:
         answer:
           invalid: S'han produït un error en respondre el formulari.
@@ -147,7 +153,11 @@ ca:
           max_choices: 'Opcions màximes: %{n}'
         show:
           answer_questionnaire:
+            already_have_an_account?: Ja tens un compte?
             anonymous_user_message: <a href="%{sign_in_link}">Inicia sessió amb el teu compte</a> o <a href="%{sign_up_link}">registra't</a> per respondre el formulari.
+            are_you_new?: Ets una nova usuària?
+            sign_in_description: Inicia la teva sessió per respondre l'enquesta
+            sign_up_description: Crea un compte de participant per a respondre l'enquesta
             title: Respon el formulari
           current_step: Pas %{step}
           of_total_steps: de %{total_steps}
@@ -166,9 +176,10 @@ ca:
           questionnaire_not_published:
             body: Aquest formulari no s'ha publicat encara.
           tos_agreement: En participar acceptes els Termes i condicions d'ús
+          upload_file: Puja un arxiu
       step_navigation:
         show:
-          are_you_sure: Aquesta acció no es pot desfer i no podràs editar les teves respostes. Estàs segura?
+          are_you_sure: Aquesta acció no es pot desfer i no podràs editar les teves respostes. Segur?
           back: Enrere
           continue: Continuar
           submit: Enviar respostes

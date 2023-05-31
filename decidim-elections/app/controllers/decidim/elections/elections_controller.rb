@@ -16,7 +16,7 @@ module Decidim
       end
 
       def show
-        enforce_permission_to :view, :election, election: election
+        enforce_permission_to :view, :election, election:
       end
 
       def election_log; end
@@ -59,8 +59,8 @@ module Decidim
       end
 
       def paginated_elections
-        @paginated_elections ||= paginate(search.result.published)
-        @paginated_elections = reorder(@paginated_elections)
+        @paginated_elections ||= reorder(search.result.published)
+        @paginated_elections = paginate(@paginated_elections)
       end
 
       def scheduled_elections

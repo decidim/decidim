@@ -6,19 +6,18 @@ describe "Report Proposal", type: :system do
   include_context "with a component"
 
   let(:manifest_name) { "proposals" }
-  let!(:proposals) { create_list(:proposal, 3, component: component) }
+  let!(:proposals) { create_list(:proposal, 3, component:) }
   let(:reportable) { proposals.first }
   let(:reportable_path) { resource_locator(reportable).path }
-  let!(:user) { create :user, :confirmed, organization: organization }
 
   let!(:component) do
     create(:proposal_component,
-           manifest: manifest,
+           manifest:,
            participatory_space: participatory_process)
   end
 
   context "when the author is a meeting" do
-    let!(:proposal) { create(:proposal, :official_meeting, component: component) }
+    let!(:proposal) { create(:proposal, :official_meeting, component:) }
     let(:reportable) { proposal }
     let(:reportable_path) { resource_locator(reportable).path }
 
@@ -43,7 +42,42 @@ describe "Report Proposal", type: :system do
 
       expect(page).to have_content "report has been created"
     end
+
+    context "when reporting user is platform admin" do
+      let!(:user) { create(:user, :admin, :confirmed, organization:) }
+
+      include_examples "higher user role reports"
+      include_examples "higher user role does not have hide"
+    end
+
+    context "when reporting user is process admin" do
+      let!(:user) { create(:process_admin, :confirmed, participatory_process:) }
+
+      include_examples "higher user role reports"
+      include_examples "higher user role does not have hide"
+    end
+
+    context "when reporting user is process collaborator" do
+      let!(:user) { create(:process_collaborator, :confirmed, participatory_process:) }
+
+      include_examples "higher user role reports"
+      include_examples "higher user role does not have hide"
+    end
+
+    context "when reporting user is process moderator" do
+      let!(:user) { create(:process_moderator, :confirmed, participatory_process:) }
+
+      include_examples "higher user role reports"
+      include_examples "higher user role does not have hide"
+    end
+
+    context "when reporting user is process valuator" do
+      let!(:user) { create(:process_valuator, :confirmed, participatory_process:) }
+
+      include_examples "higher user role reports"
+      include_examples "higher user role does not have hide"
+    end
   end
 
-  include_examples "reports"
+  include_examples "reports by user type"
 end

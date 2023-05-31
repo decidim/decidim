@@ -9,7 +9,7 @@ describe Decidim::DateRangeCell, type: :cell do
 
   let(:my_cell) { cell("decidim/date_range", model) }
   let!(:organization) { create(:organization) }
-  let(:user) { create(:user, :confirmed, organization: organization) }
+  let(:user) { create(:user, :confirmed, organization:) }
   let(:model) { { start: start_time, end: end_time } }
   let(:base_time) { Time.zone.parse(Time.zone.now.strftime("%Y-%m-%d 12:00:00")) }
   let(:start_time) { base_time - 1.hour }
@@ -70,14 +70,14 @@ describe Decidim::DateRangeCell, type: :cell do
   end
 
   def has_time(count)
-    expect(subject).to have_css(".extra__time", count: count)
+    expect(subject).to have_css(".extra__time", count:)
   end
 
   def has_date(count)
-    expect(subject).to have_css(".extra__date", count: count)
+    expect(subject).to have_css(".extra__date", count:)
   end
 
   def has_month(count)
-    expect(subject).to have_css(".extra__month", count: count)
+    expect(subject).to have_css(".extra__month", count:)
   end
 end

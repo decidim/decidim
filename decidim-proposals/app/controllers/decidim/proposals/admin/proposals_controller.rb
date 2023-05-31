@@ -122,12 +122,12 @@ module Decidim
         end
 
         def edit
-          enforce_permission_to :edit, :proposal, proposal: proposal
+          enforce_permission_to(:edit, :proposal, proposal:)
           @form = form(Admin::ProposalForm).from_model(proposal)
         end
 
         def update
-          enforce_permission_to :edit, :proposal, proposal: proposal
+          enforce_permission_to(:edit, :proposal, proposal:)
 
           @form = form(Admin::ProposalForm).from_params(params)
 

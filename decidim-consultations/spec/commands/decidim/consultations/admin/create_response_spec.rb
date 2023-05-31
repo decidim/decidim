@@ -8,7 +8,7 @@ module Decidim
       describe CreateResponse do
         subject { described_class.new(form) }
 
-        let(:question) { create :question }
+        let(:question) { create(:question) }
         let(:errors) { double.as_null_object }
         let(:params) do
           {
@@ -37,7 +37,7 @@ module Decidim
 
         context "when everything is ok" do
           it "creates a response" do
-            expect { subject.call }.to change { Decidim::Consultations::Response.count }.by(1)
+            expect { subject.call }.to change(Decidim::Consultations::Response, :count).by(1)
           end
 
           it "broadcasts ok" do

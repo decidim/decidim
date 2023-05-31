@@ -20,6 +20,7 @@ module Decidim
         mimic :conference
 
         attribute :slug, String
+        attribute :weight, Integer, default: 0
         attribute :hashtag, String
         attribute :promoted, Boolean
         attribute :scopes_enabled, Boolean
@@ -38,6 +39,7 @@ module Decidim
         attribute :assemblies_ids, Array[Integer]
         attribute :consultations_ids, Array[Integer]
 
+        validates :weight, presence: true, numericality: { greater_than_or_equal_to: 0 }
         validates :slug, presence: true, format: { with: Decidim::Conference.slug_format }
         validates :title, :slogan, :description, :short_description, translatable_presence: true
 
@@ -103,14 +105,14 @@ module Decidim
         private
 
         def available_slots_greater_than_or_equal_to_registrations_count
-          conference = OrganizationConferences.new(current_organization).query.find_by(slug: slug)
+          conference = OrganizationConferences.new(current_organization).query.find_by(slug:)
           return true if conference.blank?
 
           errors.add(:available_slots, :invalid) if available_slots < conference.conference_registrations.count
         end
 
         def slug_uniqueness
-          return unless OrganizationConferences.new(current_organization).query.where(slug: slug).where.not(id: context[:conference_id]).any?
+          return unless OrganizationConferences.new(current_organization).query.where(slug:).where.not(id: context[:conference_id]).any?
 
           errors.add(:slug, :taken)
         end

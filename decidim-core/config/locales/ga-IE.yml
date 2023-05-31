@@ -54,13 +54,6 @@ ga:
       review:
         back: Ar Ais
     application:
-      collection:
-        documents:
-          one: Cáipéis
-          two: Cáipéisí
-          few: Cáipéisí
-          many: Cáipéisí
-          other: Cáipéisí
       geocoding:
         geocoded_address: Seoladh
     authorization_handlers:
@@ -109,9 +102,6 @@ ga:
           random: Randamach
       last_activity:
         view_all: Amharc ar uile
-    data_portability:
-      export:
-        ready: Réidh
     devise:
       registrations:
         new:
@@ -124,16 +114,16 @@ ga:
       authorizations:
         new:
           cancel: Cealaigh
+    download_your_data:
+      export:
+        ready: Réidh
     endorsable:
       endorsements: Formhuinithe
-    endorsement_buttons_cell:
-      already_endorsed: Formhuinithe
-      endorse: Formhuinigh
     endorsements:
       identities:
         done: Críochnaithe
     export_mailer:
-      data_portability_export:
+      download_your_data_export:
         download: Íoslódáil
     filters:
       linked_classes:
@@ -152,8 +142,6 @@ ga:
       badges:
         index:
           title: Suaitheantais
-        invitations:
-          name: Cuirí
     group_invites:
       accept_invitation: Glac
       index:
@@ -165,7 +153,6 @@ ga:
         reject_request: Diúltaigh
       roles:
         admin: Riarthóir
-        creator: Cruthaitheoir
         member: Ball
     last_activities:
       index:
@@ -183,11 +170,7 @@ ga:
           ok: Togha
         index:
           ago: ó shin
-          from: Ó
           next: I ndiaidh
-        reply:
-          send: Seol
-          title: Freagra
         start:
           send: Seol
     newsletter_templates:
@@ -323,8 +306,6 @@ ga:
       edit:
         submit_button: Sábháil
     registrations:
-      edit:
-        update: Nuashonraigh
       new:
         sign_up: Cláraigh
     sessions:
@@ -337,8 +318,6 @@ ga:
         sign_up: Cláraigh
   layouts:
     decidim:
-      cookie_warning:
-        ok: Aontaím
       edit_link:
         edit: Eagar
       header:
@@ -356,6 +335,7 @@ ga:
         see_more: Feic níos mó
   locale:
     name: Gaeilge
+    name_with_error: Gaeilge (earráid!)
   social_share_button:
     douban: Douban
     email: Seoladh ríomhphoist

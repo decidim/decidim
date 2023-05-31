@@ -18,7 +18,7 @@ module Decidim
       # Executes the command. Broadcasts these events:
       #
       # - :ok when everything is valid.
-      # - :invalid if the handler wasn't valid and we couldn't proceed.
+      # - :invalid if the handler was not valid and we could not proceed.
       #
       # Returns nothing.
       def call
@@ -29,14 +29,14 @@ module Decidim
         if @form.before_date.present?
           authorizations_to_revoke = if @form.impersonated_only?
                                        Decidim::Verifications::AuthorizationsBeforeDate.new(
-                                         organization: organization,
+                                         organization:,
                                          date: @form.before_date,
                                          granted: true,
                                          impersonated_only: @form.impersonated_only
                                        )
                                      else
                                        Decidim::Verifications::AuthorizationsBeforeDate.new(
-                                         organization: organization,
+                                         organization:,
                                          date: @form.before_date,
                                          granted: true
                                        )

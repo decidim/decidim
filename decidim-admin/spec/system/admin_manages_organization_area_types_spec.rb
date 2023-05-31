@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe "Admin manages area types", type: :system do
-  let(:admin) { create :user, :admin, :confirmed }
+  let(:admin) { create(:user, :admin, :confirmed) }
   let(:organization) { admin.organization }
 
   before do
@@ -47,7 +47,7 @@ describe "Admin manages area types", type: :system do
   end
 
   context "with existing area_types" do
-    let!(:area_type) { create(:area_type, organization: organization) }
+    let!(:area_type) { create(:area_type, organization:) }
 
     before do
       visit current_path
@@ -94,7 +94,7 @@ describe "Admin manages area types", type: :system do
       expect(page).to have_admin_callout("successfully")
 
       within "table" do
-        expect(page).to have_no_content(translated(area_type.name))
+        expect(page).not_to have_content(translated(area_type.name))
       end
     end
   end

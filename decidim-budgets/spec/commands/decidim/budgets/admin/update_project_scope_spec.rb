@@ -7,7 +7,7 @@ module Decidim::Budgets
     subject { described_class.new(scope_id, Array(project)) }
 
     let(:budget) { create(:budget) }
-    let(:project) { create(:project, budget: budget) }
+    let(:project) { create(:project, budget:) }
     let(:scope) { create(:scope, organization: budget.component.organization) }
     let(:scope_id) { scope.id }
 

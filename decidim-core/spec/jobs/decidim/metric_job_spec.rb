@@ -7,7 +7,7 @@ describe Decidim::MetricJob do
 
   let(:manager_class) { Decidim::Metrics::UsersMetricManage }
   let(:organization) { create(:organization) }
-  let(:user) { create(:user, :confirmed, organization: organization) }
+  let(:user) { create(:user, :confirmed, organization:) }
   let(:day) { Time.zone.today.strftime("%Y/%m/%d") }
 
   describe "queue" do

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 shared_examples "manage registration types examples" do
-  let!(:registration_type) { create(:registration_type, conference: conference) }
+  let!(:registration_type) { create(:registration_type, conference:) }
 
   before do
     switch_to_host(organization.host)
@@ -54,7 +54,7 @@ shared_examples "manage registration types examples" do
       expect(page).to have_admin_callout("successfully")
 
       within "#registration_types table" do
-        expect(page).to have_no_content(translated(registration_type.title))
+        expect(page).not_to have_content(translated(registration_type.title))
       end
     end
   end

@@ -3,7 +3,7 @@
 shared_examples "manage impersonations examples" do
   include ActiveSupport::Testing::TimeHelpers
 
-  let(:organization) { create(:organization, available_authorizations: available_authorizations) }
+  let(:organization) { create(:organization, available_authorizations:) }
   let(:available_authorizations) { ["dummy_authorization_handler"] }
   let(:document_number) { "123456789X" }
 
@@ -12,7 +12,7 @@ shared_examples "manage impersonations examples" do
     login_as user, scope: :user
   end
 
-  context "when the organization doesn't have any authorization available" do
+  context "when the organization does not have any authorization available" do
     let(:available_authorizations) { [] }
 
     it "the managed users page displays a warning and creation is disabled" do
@@ -39,7 +39,7 @@ shared_examples "manage impersonations examples" do
       let(:document_number) { "123456789Y" }
 
       it "shows the errors in the form" do
-        expect(page).to have_selector("label", text: "Document number*\nRequired field\nis invalid")
+        expect(page).to have_selector("label", text: "Document number*Required field\nis invalid")
       end
     end
 
@@ -60,13 +60,13 @@ shared_examples "manage impersonations examples" do
       end
 
       let(:participatory_space) do
-        create(:participatory_process, organization: organization)
+        create(:participatory_process, organization:)
       end
 
       let(:component) do
         create(
           :component,
-          participatory_space: participatory_space,
+          participatory_space:,
           permissions: {
             "foo" => {
               "authorization_handlers" => {
@@ -77,7 +77,7 @@ shared_examples "manage impersonations examples" do
         )
       end
 
-      let(:dummy_resource) { create(:dummy_resource, component: component) }
+      let(:dummy_resource) { create(:dummy_resource, component:) }
 
       before do
         visit resource_locator(dummy_resource).path
@@ -172,7 +172,7 @@ shared_examples "manage impersonations examples" do
 
   describe "impersonation" do
     let!(:impersonated_user) do
-      create(:user, managed: managed, name: "Rigoberto", organization: organization)
+      create(:user, managed:, name: "Rigoberto", organization:)
     end
 
     context "when impersonating a previously authorized user" do
@@ -191,10 +191,10 @@ shared_examples "manage impersonations examples" do
       let(:reason) { nil }
 
       before do
-        impersonate(impersonated_user, reason: reason)
+        impersonate(impersonated_user, reason:)
       end
 
-      context "and it's a managed user" do
+      context "and it is a managed user" do
         let(:managed) { true }
 
         it_behaves_like "impersonating a user"
@@ -211,7 +211,7 @@ shared_examples "manage impersonations examples" do
 
         context "and a reason is provided" do
           let(:reason) do
-            "We're on a meeting and want to do a collaborative session in the pope's name."
+            "We are on a meeting and want to do a collaborative session in the pope's name."
           end
 
           it_behaves_like "impersonating a user"
@@ -221,7 +221,7 @@ shared_examples "manage impersonations examples" do
             expect(page).to have_content("successfully")
 
             check_impersonation_logs
-            expect(page).to have_content("We're on a meeting and want to do a collaborative session in the pope's name.")
+            expect(page).to have_content("We are on a meeting and want to do a collaborative session in the pope's name.")
           end
         end
       end
@@ -229,7 +229,7 @@ shared_examples "manage impersonations examples" do
   end
 
   context "when a managed user already exists" do
-    let!(:managed_user) { create(:user, :managed, name: "Rigoberto", organization: organization) }
+    let!(:managed_user) { create(:user, :managed, name: "Rigoberto", organization:) }
     let!(:authorization) { create(:authorization, user: managed_user, name: "dummy_authorization_handler", unique_id: "123456789X") }
 
     it_behaves_like "creating a managed user"
@@ -255,8 +255,8 @@ shared_examples "manage impersonations examples" do
       visit last_email_link
 
       within "form.new_user" do
-        fill_in :invitation_user_password, with: "decidim123456"
-        fill_in :invitation_user_password_confirmation, with: "decidim123456"
+        fill_in :invitation_user_password, with: "decidim123456789"
+        fill_in :invitation_user_password_confirmation, with: "decidim123456789"
         check :invitation_user_tos_agreement
         find("*[type=submit]").click
       end
@@ -269,16 +269,16 @@ shared_examples "manage impersonations examples" do
       navigate_to_impersonations_page
 
       within find("tr", text: managed_user.name) do
-        expect(page).to have_no_link("Promote")
+        expect(page).not_to have_link("Promote")
       end
     end
   end
 
   describe "verifications conflicts" do
     context "when have verifications conflicts in current organization" do
-      let(:managed_user) { create(:user, :managed, organization: organization) }
-      let(:current_user) { create(:user, name: "Rigoberto", organization: organization) }
-      let!(:conflict) { create(:conflict, current_user: current_user, managed_user: managed_user) }
+      let(:managed_user) { create(:user, :managed, organization:) }
+      let(:current_user) { create(:user, name: "Rigoberto", organization:) }
+      let!(:conflict) { create(:conflict, current_user:, managed_user:) }
 
       it "show only verifications of current organization" do
         navigate_to_impersonations_page
@@ -289,10 +289,10 @@ shared_examples "manage impersonations examples" do
     end
 
     context "when have verifications conflicts in other organization" do
-      let(:other_organization) { create(:organization, available_authorizations: available_authorizations) }
+      let(:other_organization) { create(:organization, available_authorizations:) }
       let(:current_user) { create(:user, name: "Rigoberto", organization: other_organization) }
       let(:managed_user) { create(:user, :managed, organization: other_organization) }
-      let!(:conflict) { create(:conflict, current_user: current_user, managed_user: managed_user) }
+      let!(:conflict) { create(:conflict, current_user:, managed_user:) }
 
       it "show only verifications of current organization" do
         navigate_to_impersonations_page
@@ -328,7 +328,7 @@ shared_examples "manage impersonations examples" do
       click_link "Impersonate"
     end
 
-    fill_in_the_impersonation_form("123456789X", reason: reason)
+    fill_in_the_impersonation_form("123456789X", reason:)
   end
 
   def simulate_session_expiration

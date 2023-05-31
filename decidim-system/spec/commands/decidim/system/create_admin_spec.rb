@@ -42,7 +42,7 @@ module Decidim
           end
         end
 
-        describe "when the admin doesn't exist" do
+        describe "when the admin does not exist" do
           before do
             create(:admin, email: "email@foo.bar")
           end

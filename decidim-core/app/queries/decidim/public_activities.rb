@@ -34,10 +34,10 @@ module Decidim
 
     def query
       query = ActionLog
-              .where(visibility: visibility)
-              .where(organization: organization)
+              .where(visibility:)
+              .where(organization:)
 
-      query = query.where(user: user) if user
+      query = query.where(user:) if user
       query = query.where(resource_type: resource_name) if resource_name.present?
 
       query = filter_follows(query)
@@ -107,6 +107,7 @@ module Decidim
               LEFT JOIN decidim_participatory_space_private_users AS #{manifest.name}_private_users
                 ON #{manifest.name}_private_users.privatable_to_type = '#{manifest.model_class_name}'
                 AND #{table}.id = #{manifest.name}_private_users.privatable_to_id
+                AND #{table}.private_space = 't'
             SQL
           ).to_s
         ).where(

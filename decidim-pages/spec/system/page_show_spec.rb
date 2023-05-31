@@ -14,7 +14,7 @@ describe "Show a page", type: :system do
     }
   end
 
-  let!(:page_component) { create(:page, component: component, body: body) }
+  let!(:page_component) { create(:page, component:, body:) }
 
   describe "page show" do
     it_behaves_like "editable content for admins" do
@@ -27,6 +27,7 @@ describe "Show a page", type: :system do
       end
 
       it_behaves_like "accessible page"
+      it_behaves_like "has embedded video in description", :body
 
       it "renders the content of the page" do
         expect(page).to have_content("Content")

@@ -7,7 +7,7 @@ module Decidim
     module Admin
       describe ParticipatorySpaceProposalComponents do
         let(:organization) { create(:organization) }
-        let(:participatory_process) { create(:participatory_process, organization: organization) }
+        let(:participatory_process) { create(:participatory_process, organization:) }
         let(:proposal_components) { create_list(:proposal_component, 10, participatory_space: participatory_process) }
         let(:unpublished_proposal_components) { create_list(:proposal_component, 10, participatory_space: participatory_process, published_at: nil) }
         let(:sortition_components) { create_list(:sortition_component, 10, participatory_space: participatory_process) }

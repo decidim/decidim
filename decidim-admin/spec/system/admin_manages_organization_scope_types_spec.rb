@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe "Admin manages scope types", type: :system do
-  let(:admin) { create :user, :admin, :confirmed }
+  let(:admin) { create(:user, :admin, :confirmed) }
   let(:organization) { admin.organization }
 
   before do
@@ -47,7 +47,7 @@ describe "Admin manages scope types", type: :system do
   end
 
   context "with existing scope_types" do
-    let!(:scope_type) { create(:scope_type, organization: organization) }
+    let!(:scope_type) { create(:scope_type, organization:) }
 
     before do
       visit current_path
@@ -94,7 +94,7 @@ describe "Admin manages scope types", type: :system do
       expect(page).to have_admin_callout("successfully")
 
       within "table" do
-        expect(page).to have_no_content(translated(scope_type.name))
+        expect(page).not_to have_content(translated(scope_type.name))
       end
     end
   end

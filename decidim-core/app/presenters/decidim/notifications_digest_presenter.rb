@@ -18,7 +18,7 @@ module Decidim
     end
 
     def greeting
-      I18n.t("decidim.notifications_digest_mailer.hello", name: name)
+      I18n.t("decidim.notifications_digest_mailer.hello", name:)
     end
 
     def intro

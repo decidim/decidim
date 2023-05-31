@@ -9,9 +9,9 @@ module Decidim
     describe "i18n_options?" do
       subject do
         described_class.new(
-          resource: resource,
+          resource:,
           event_name: "some.event",
-          user: user,
+          user:,
           extra: {}
         )
       end

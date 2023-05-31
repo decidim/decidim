@@ -20,7 +20,7 @@ module Decidim
         @extra_context = {
           current_component: component,
           current_organization: component.organization,
-          current_user: current_user,
+          current_user:,
           current_participatory_space: component.participatory_space
         }
         @matches_ids = []
@@ -31,7 +31,7 @@ module Decidim
 
         ActiveRecord::Base.transaction do
           i = 1
-          csv = CSV.new(@csv_file, headers: true, col_sep: ";")
+          csv = CSV.new(@csv_file, headers: true, col_sep: Decidim.default_csv_col_sep)
           while (row = csv.shift).present?
             i += 1
             next if row.empty?

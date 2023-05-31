@@ -6,7 +6,7 @@ module Decidim::Admin
   describe ProcessUserGroupVerificationCsv do
     subject { described_class.new(form) }
 
-    let(:user) { create(:user, :admin, organization: organization) }
+    let(:user) { create(:user, :admin, organization:) }
     let(:organization) { create(:organization) }
     let(:file) { upload_test_file(Decidim::Dev.test_file("verify_user_groups.csv", "text/csv"), return_blob: true) }
     let(:validity) { true }
@@ -15,7 +15,7 @@ module Decidim::Admin
       double(
         current_user: user,
         current_organization: organization,
-        file: file,
+        file:,
         valid?: validity
       )
     end

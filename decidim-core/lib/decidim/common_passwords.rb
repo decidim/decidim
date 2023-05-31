@@ -30,7 +30,7 @@ module Decidim
       @common_password_list ||= begin
         list = []
         URLS.each do |url|
-          URI.open(url) do |data|
+          URI.parse(url).open do |data|
             data.read.split.each do |line|
               list << line if line.length >= min_length
             end

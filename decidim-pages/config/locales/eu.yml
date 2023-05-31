@@ -29,7 +29,5 @@ eu:
             invalid: Erroreak gertatu dira orria gordetzean.
             success: Orria zuzen gorde da.
       home:
-        hero:
-          participate_title: Parte hartu plataformako prozesuetan
         sub_hero:
           register_title: Erregistratu kontu bat edukitzeko

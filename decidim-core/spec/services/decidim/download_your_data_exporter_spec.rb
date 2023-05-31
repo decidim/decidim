@@ -9,7 +9,7 @@ module Decidim
     let(:tmp_file_in) { Tempfile.new(["download-your-data", ".7z"]) }
     let(:tmp_dir_out) { Dir.mktmpdir("download_your_data_exporter_spec") }
     let(:password) { "download-your-data.7z>passwd" }
-    let(:user) { create :user }
+    let(:user) { create(:user) }
     let(:expected_files) do
       # this are the prefixes for the files archived in the zip
       %w(
@@ -60,7 +60,7 @@ module Decidim
 
     def open_7z_and_extract_zip(file_path)
       File.open(file_path, "rb") do |file|
-        SevenZipRuby::Reader.open_file(file, password: password) do |szr|
+        SevenZipRuby::Reader.open_file(file, password:) do |szr|
           szr.extract(:all, tmp_dir_out)
         end
       end

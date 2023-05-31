@@ -19,7 +19,7 @@ module Decidim
       delegate :current_participatory_space, to: :context, prefix: false
 
       def parent_categories
-        @parent_categories ||= current_participatory_space.categories.first_class.where.not(id: id)
+        @parent_categories ||= current_participatory_space.categories.first_class.where.not(id:)
       end
 
       private

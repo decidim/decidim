@@ -6,8 +6,8 @@ module Decidim
       # This class holds the logic to present a `Decidim::Assembly`
       # for the `AdminLog` log.
       #
-      # Usage should be automatic and you shouldn't need to call this class
-      # directly, but here's an example:
+      # Usage should be automatic and you should not need to call this class
+      # directly, but here is an example:
       #
       #    action_log = Decidim::ActionLog.last
       #    view_helpers # => this comes from the views
@@ -63,7 +63,7 @@ module Decidim
 
         def action_string
           case action
-          when "create", "publish", "unpublish", "update"
+          when "create", "publish", "unpublish", "update", "duplicate", "export", "import"
             "decidim.admin_log.assembly.#{action}"
           else
             super

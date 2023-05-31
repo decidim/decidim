@@ -12,12 +12,12 @@ module Decidim
       let(:sender) { create(:user) }
       let(:params) do
         {
-          body: body,
-          recipient_id: recipient_id
+          body:,
+          recipient_id:
         }
       end
       let(:form) do
-        described_class.from_params(params).with_context(sender: sender)
+        described_class.from_params(params).with_context(sender:)
       end
 
       context "when everything is OK" do

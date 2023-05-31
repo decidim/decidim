@@ -10,7 +10,7 @@ FactoryBot.define do
   factory :accountability_component, parent: :component do
     name { Decidim::Components::Namer.new(participatory_space.organization.available_locales, :accountability).i18n_name }
     manifest_name { :accountability }
-    participatory_space { create(:participatory_process, :with_steps, organization: organization) }
+    participatory_space { create(:participatory_process, :with_steps, organization:) }
     settings do
       {
         intro: Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title },
@@ -38,7 +38,7 @@ FactoryBot.define do
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     start_date { "12/7/2017" }
     end_date { "30/9/2017" }
-    status { create :status, component: component }
+    status { create :status, component: }
     progress { rand(1..100) }
   end
 

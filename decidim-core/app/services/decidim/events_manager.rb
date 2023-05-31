@@ -17,7 +17,7 @@ module Decidim
     # affected_users - a collection of `Decidim::Users` that are affected by the
     #   event and will receive a notification about it.
     # followers - a collection of `Decidim::Users` that should be notified about
-    #   the event, even though it doesn't affect them directly
+    #   the event, even though it does not affect them directly
     # force_send - boolean indicating if EventPublisherJob should skip the
     #   `notifiable?` check it performs before notifying. Defaults to __false__.
     # extra - a Hash with extra information to be included in the notification.
@@ -27,12 +27,12 @@ module Decidim
     def self.publish(event:, resource:, event_class: Decidim::Events::BaseEvent, affected_users: [], followers: [], extra: {}, force_send: false)
       ActiveSupport::Notifications.publish(
         event,
-        resource: resource,
+        resource:,
         event_class: event_class.name,
         affected_users: affected_users.uniq.compact,
         followers: followers.uniq.compact,
-        force_send: force_send,
-        extra: extra
+        force_send:,
+        extra:
       )
     end
     # rubocop:enable Metrics/ParameterLists
@@ -43,8 +43,8 @@ module Decidim
     # event - a String or a RegExp to match against event names.
     #
     # Returns nothing.
-    def self.subscribe(event, &block)
-      ActiveSupport::Notifications.subscribe(event, &block)
+    def self.subscribe(event, &)
+      ActiveSupport::Notifications.subscribe(event, &)
     end
   end
 end

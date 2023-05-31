@@ -10,12 +10,12 @@ module Decidim
     let(:active_step_id) { participatory_process.active_step.id }
     let(:step_settings) { { active_step_id => { amendment_creation_enabled: true } } }
     let(:settings) { { amendments_enabled: true } }
-    let!(:component) { create(:component, participatory_space: participatory_process, settings: settings, step_settings: step_settings) }
+    let!(:component) { create(:component, participatory_space: participatory_process, settings:, step_settings:) }
     let(:other_user) { create(:user, :confirmed, organization: component.organization) }
 
-    let!(:amendable) { create(:dummy_resource, component: component) }
-    let!(:emendation) { create(:dummy_resource, component: component) }
-    let!(:amendment) { create(:amendment, amendable: amendable, emendation: emendation, state: amendment_state) }
+    let!(:amendable) { create(:dummy_resource, component:) }
+    let!(:emendation) { create(:dummy_resource, component:) }
+    let!(:amendment) { create(:amendment, amendable:, emendation:, state: amendment_state) }
     let(:amendment_state) { "evaluating" }
 
     let(:params) { { id: amendment.id } }
@@ -34,7 +34,7 @@ module Decidim
 
           it "redirects to 404" do
             expect do
-              get :compare_draft, params: params
+              get :compare_draft, params:
             end.to raise_error(ActionController::RoutingError)
           end
         end
@@ -46,7 +46,7 @@ module Decidim
         context "and the amendment is NOT a draft" do
           it "redirects to 404" do
             expect do
-              get :compare_draft, params: params
+              get :compare_draft, params:
             end.to raise_error(ActionController::RoutingError)
           end
         end
@@ -55,19 +55,19 @@ module Decidim
           let(:amendment_state) { "draft" }
 
           context "with similar emendations" do
-            let!(:similar_emendation) { create(:dummy_resource, :published, title: emendation.title, component: component) }
-            let!(:similar_amendment) { create(:amendment, amendable: amendable, emendation: similar_emendation) }
+            let!(:similar_emendation) { create(:dummy_resource, :published, title: emendation.title, component:) }
+            let!(:similar_amendment) { create(:amendment, amendable:, emendation: similar_emendation) }
 
             it "renders the view: compare_draft" do
               allow(Decidim::SimilarEmendations).to receive(:for).and_return([similar_emendation])
-              get :compare_draft, params: params
+              get(:compare_draft, params:)
               expect(subject).to render_template(:compare_draft)
             end
           end
 
           context "without similar emendations" do
             it "redirects to edit_draft" do
-              get :compare_draft, params: params
+              get(:compare_draft, params:)
               expect(response).to redirect_to edit_draft_amend_path(amendment)
             end
           end
@@ -84,7 +84,7 @@ module Decidim
 
           it "redirects to 404" do
             expect do
-              get :edit_draft, params: params
+              get :edit_draft, params:
             end.to raise_error(ActionController::RoutingError)
           end
         end
@@ -96,7 +96,7 @@ module Decidim
         context "and the amendment is NOT a draft" do
           it "redirects to 404" do
             expect do
-              get :edit_draft, params: params
+              get :edit_draft, params:
             end.to raise_error(ActionController::RoutingError)
           end
         end
@@ -105,7 +105,7 @@ module Decidim
           let(:amendment_state) { "draft" }
 
           it "renders the view: edit_draft" do
-            get :edit_draft, params: params
+            get(:edit_draft, params:)
             expect(subject).to render_template(:edit_draft)
           end
         end
@@ -129,7 +129,7 @@ module Decidim
           it "redirects to 404" do
             expect do
               post :update_draft, params: params.merge(
-                emendation_params: emendation_params
+                emendation_params:
               )
             end.to raise_error(ActionController::RoutingError)
           end
@@ -143,7 +143,7 @@ module Decidim
           it "redirects to 404" do
             expect do
               post :update_draft, params: params.merge(
-                emendation_params: emendation_params
+                emendation_params:
               )
             end.to raise_error(ActionController::RoutingError)
           end
@@ -154,7 +154,7 @@ module Decidim
 
           it "updates the draft" do
             post :update_draft, params: params.merge(
-              emendation_params: emendation_params
+              emendation_params:
             )
             expect(flash[:notice]).to eq("Amendment draft successfully updated.")
           end
@@ -171,7 +171,7 @@ module Decidim
 
           it "redirects to 404" do
             expect do
-              delete :destroy_draft, params: params
+              delete :destroy_draft, params:
             end.to raise_error(ActionController::RoutingError)
           end
         end
@@ -183,7 +183,7 @@ module Decidim
         context "and the amendment is NOT a draft" do
           it "redirects to 404" do
             expect do
-              delete :destroy_draft, params: params
+              delete :destroy_draft, params:
             end.to raise_error(ActionController::RoutingError)
           end
         end
@@ -192,7 +192,7 @@ module Decidim
           let(:amendment_state) { "draft" }
 
           it "destroys the draft" do
-            delete :destroy_draft, params: params
+            delete(:destroy_draft, params:)
             expect(flash[:notice]).to eq("Amendment draft was successfully deleted.")
           end
         end
@@ -208,7 +208,7 @@ module Decidim
 
           it "redirects to 404" do
             expect do
-              get :preview_draft, params: params
+              get :preview_draft, params:
             end.to raise_error(ActionController::RoutingError)
           end
         end
@@ -220,7 +220,7 @@ module Decidim
         context "and the amendment is NOT a draft" do
           it "redirects to 404" do
             expect do
-              get :preview_draft, params: params
+              get :preview_draft, params:
             end.to raise_error(ActionController::RoutingError)
           end
         end
@@ -229,7 +229,7 @@ module Decidim
           let(:amendment_state) { "draft" }
 
           it "renders the view: preview_draft" do
-            get :preview_draft, params: params
+            get(:preview_draft, params:)
             expect(subject).to render_template(:preview_draft)
           end
         end
@@ -249,8 +249,8 @@ module Decidim
           it "redirects to 404" do
             expect do
               post :publish_draft, params: params.merge(
-                emendation_params: emendation_params,
-                amendable_params: amendable_params
+                emendation_params:,
+                amendable_params:
               )
             end.to raise_error(ActionController::RoutingError)
           end
@@ -264,8 +264,8 @@ module Decidim
           it "redirects to 404" do
             expect do
               post :publish_draft, params: params.merge(
-                emendation_params: emendation_params,
-                amendable_params: amendable_params
+                emendation_params:,
+                amendable_params:
               )
             end.to raise_error(ActionController::RoutingError)
           end
@@ -276,8 +276,8 @@ module Decidim
 
           it "publishes the draft" do
             post :publish_draft, params: params.merge(
-              emendation_params: emendation_params,
-              amendable_params: amendable_params
+              emendation_params:,
+              amendable_params:
             )
             expect(flash[:notice]).to eq("Amendment successfully published.")
           end

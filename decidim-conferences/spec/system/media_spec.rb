@@ -4,7 +4,7 @@ require "spec_helper"
 
 describe "Conferences", type: :system do
   let(:organization) { create(:organization) }
-  let!(:conference) { create(:conference, organization: organization) }
+  let!(:conference) { create(:conference, organization:) }
 
   def visit_conference
     visit decidim_conferences.conference_path(conference)
@@ -26,12 +26,12 @@ describe "Conferences", type: :system do
     end
 
     it "the menu link is not shown" do
-      expect(page).to have_no_content("MEDIA")
+      expect(page).not_to have_content("MEDIA")
     end
   end
 
   context "when it has media links" do
-    let!(:media_link) { create(:media_link, conference: conference) }
+    let!(:media_link) { create(:media_link, conference:) }
 
     before do
       visit decidim_conferences.conference_media_path(conference)
@@ -46,10 +46,10 @@ describe "Conferences", type: :system do
     end
 
     it "shows them" do
-      within "div.wrapper .conference-media" do
-        expect(page).to have_content("MEDIA AND LINKS")
+      within "#conference-media-links" do
+        expect(page).to have_content("Media and Links")
         expect(page).to have_content(/#{translated(media_link.title, locale: :en)}/i)
-        expect(page).to have_css(".media-links a")
+        expect(page).to have_css("[data-conference-media-links] a")
       end
     end
   end
@@ -64,12 +64,12 @@ describe "Conferences", type: :system do
     end
 
     it "shows them" do
-      within "div.wrapper .documents" do
+      within "#conference-media-documents" do
         expect(page).to have_content(/#{translated(document.title, locale: :en)}/i)
       end
 
-      within "div.wrapper .images" do
-        expect(page).to have_css(".picture__content img")
+      within "#conference-media-photos" do
+        expect(page).to have_css("img")
       end
     end
   end
@@ -85,11 +85,11 @@ describe "Conferences", type: :system do
     end
 
     it "shows them ordered" do
-      within "div.wrapper .documents" do
+      within "#conference-media-documents" do
         expect(translated(first_document.title, locale: :en)).to appear_before(translated(last_document.title, locale: :en))
       end
 
-      within "div.wrapper .images" do
+      within "#conference-media-photos" do
         expect(strip_tags(translated(fist_image.description, locale: :en))).to appear_before(strip_tags(translated(last_image.description, locale: :en)))
       end
     end

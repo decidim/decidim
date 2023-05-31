@@ -4,7 +4,7 @@ module Decidim
   module Attributes
     # Custom attributes value to parse a String representing a Time using
     # the app TimeZone.
-    class TimeWithZone < ActiveModel::Type::Time
+    class TimeWithZone < ActiveModel::Type::DateTime
       def type
         :"decidim/attributes/time_with_zone"
       end
@@ -16,7 +16,10 @@ module Decidim
 
         Time.zone.strptime(value, I18n.t("time.formats.decidim_short"))
       rescue ArgumentError
-        nil
+        fallback = super
+        return fallback unless fallback.is_a?(Time)
+
+        ActiveSupport::TimeWithZone.new(fallback, Time.zone)
       end
     end
   end

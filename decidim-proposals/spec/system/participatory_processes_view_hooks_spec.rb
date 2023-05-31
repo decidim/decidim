@@ -22,10 +22,10 @@ describe "Proposals in process home", type: :system do
   end
 
   context "when there are proposals" do
-    let!(:proposals) { create_list(:proposal, proposals_count, component: component) }
-    let!(:drafted_proposals) { create_list(:proposal, proposals_count, :draft, component: component) }
-    let!(:hidden_proposals) { create_list(:proposal, proposals_count, :hidden, component: component) }
-    let!(:withdrawn_proposals) { create_list(:proposal, proposals_count, :withdrawn, component: component) }
+    let!(:proposals) { create_list(:proposal, proposals_count, component:) }
+    let!(:drafted_proposals) { create_list(:proposal, proposals_count, :draft, component:) }
+    let!(:hidden_proposals) { create_list(:proposal, proposals_count, :hidden, component:) }
+    let!(:withdrawn_proposals) { create_list(:proposal, proposals_count, :withdrawn, component:) }
 
     it "shows the highlighted proposals section" do
       visit resource_locator(participatory_process).path
@@ -47,7 +47,7 @@ describe "Proposals in process home", type: :system do
     end
 
     context "and there are more proposals than those that can be shown" do
-      let!(:proposals) { create_list(:proposal, highlighted_proposals + 2, component: component) }
+      let!(:proposals) { create_list(:proposal, highlighted_proposals + 2, component:) }
 
       it "shows the amount of proposals configured" do
         visit resource_locator(participatory_process).path

@@ -11,7 +11,7 @@ module Decidim
     let(:non_user_avatar) { nil }
 
     let(:assembly_member) do
-      build(:assembly_member, full_name: "Full name", birthday: birthday, non_user_avatar: non_user_avatar)
+      build(:assembly_member, full_name: "Full name", birthday:, non_user_avatar:)
     end
 
     describe "name" do
@@ -21,7 +21,7 @@ module Decidim
 
       context "when member is an existing user" do
         let(:user) { build(:user, name: "Julia G.", nickname: "julia_g") }
-        let(:assembly_member) { build(:assembly_member, full_name: "Full name", user: user) }
+        let(:assembly_member) { build(:assembly_member, full_name: "Full name", user:) }
 
         it { is_expected.to eq "Julia G." }
       end
@@ -34,7 +34,7 @@ module Decidim
 
       context "when member is an existing user" do
         let(:user) { build(:user, name: "Julia G.", nickname: "julia_g") }
-        let(:assembly_member) { build(:assembly_member, full_name: "Full name", user: user) }
+        let(:assembly_member) { build(:assembly_member, full_name: "Full name", user:) }
 
         it { is_expected.to eq "@julia_g" }
       end
@@ -72,7 +72,7 @@ module Decidim
       it { is_expected.to eq "#{assembly_member.gender} / #{age} / #{assembly_member.birthplace}" }
 
       context "when gender is not present" do
-        let(:assembly_member) { build(:assembly_member, birthday: birthday, gender: nil) }
+        let(:assembly_member) { build(:assembly_member, birthday:, gender: nil) }
 
         it { is_expected.to eq "#{age} / #{assembly_member.birthplace}" }
       end
@@ -84,7 +84,7 @@ module Decidim
       end
 
       context "when birthplace is not present" do
-        let(:assembly_member) { build(:assembly_member, birthday: birthday, birthplace: nil) }
+        let(:assembly_member) { build(:assembly_member, birthday:, birthplace: nil) }
 
         it { is_expected.to eq "#{assembly_member.gender} / #{age}" }
       end

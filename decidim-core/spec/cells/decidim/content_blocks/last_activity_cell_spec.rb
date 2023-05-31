@@ -7,7 +7,7 @@ describe Decidim::ContentBlocks::LastActivityCell, type: :cell do
 
   let(:organization) { create(:organization) }
   let(:component) do
-    create(:component, :published, organization: organization)
+    create(:component, :published, organization:)
   end
   let(:cell) do
     described_class.new(nil, activities_count: 3)
@@ -28,10 +28,10 @@ describe Decidim::ContentBlocks::LastActivityCell, type: :cell do
 
   describe "valid_activities" do
     let!(:action_log) do
-      create(:action_log, action: "publish", visibility: "all", resource: resource, organization: organization)
+      create(:action_log, action: "publish", visibility: "all", resource:, organization:)
     end
     let(:resource) do
-      create(:dummy_resource, component: component, published_at: Time.current)
+      create(:dummy_resource, component:, published_at: Time.current)
     end
 
     it { is_expected.to include(action_log) }
@@ -63,8 +63,8 @@ describe Decidim::ContentBlocks::LastActivityCell, type: :cell do
     context "with a lot of activities" do
       before do
         5.times do
-          dummy_resource = create(:dummy_resource, component: component, published_at: Time.current)
-          create(:action_log, action: "publish", visibility: "all", resource: dummy_resource, organization: organization)
+          dummy_resource = create(:dummy_resource, component:, published_at: Time.current)
+          create(:action_log, action: "publish", visibility: "all", resource: dummy_resource, organization:)
         end
       end
 
@@ -76,10 +76,10 @@ describe Decidim::ContentBlocks::LastActivityCell, type: :cell do
 
   describe "#cache_hash" do
     let!(:action_log) do
-      create(:action_log, action: "publish", visibility: "all", resource: resource, organization: organization)
+      create(:action_log, action: "publish", visibility: "all", resource:, organization:)
     end
     let(:resource) do
-      create(:dummy_resource, component: component, published_at: Time.current)
+      create(:dummy_resource, component:, published_at: Time.current)
     end
 
     it "generate a unique hash" do
@@ -91,7 +91,7 @@ describe Decidim::ContentBlocks::LastActivityCell, type: :cell do
     context "when new valid activity" do
       it "generates a different hash" do
         old_hash = cell.send(:cache_hash)
-        activities = [action_log, create(:action_log, action: "publish", visibility: "all", resource: resource, organization: organization)]
+        activities = [action_log, create(:action_log, action: "publish", visibility: "all", resource:, organization:)]
         allow(cell).to receive(:valid_activities).and_return(activities)
 
         expect(cell.send(:cache_hash)).not_to eq(old_hash)

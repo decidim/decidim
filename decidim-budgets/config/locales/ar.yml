@@ -43,34 +43,31 @@ ar:
           edit:
             title: تعديل الميزانية
             update: تحديث الميزانية
+        exports:
+          projects: المشاريع
         models:
+          budget:
+            name: الميزانية
           project:
             name: مشروع
         projects:
-          create:
-            invalid: كانت هناك مشكلة في إنشاء هذا المشروع
-            success: تم إنشاء المشروع بنجاح
-          destroy:
-            success: تم حذف المشروع بنجاح
           edit:
             title: تحرير المشروع
             update: تحديث
           index:
+            actions: الإجراءات
+            cancel: إلغاء
+            change_category: تغيير الفئة
             finished_orders: الانتهاء من الأصوات
             pending_orders: في انتظار الأصوات
             title: مشاريع
           new:
             create: إنشاء
             title: مشروع جديد
-          update:
-            invalid: حدثت مشكلة أثناء تحديث هذا المشروع
-            success: تم تحديث المشروع بنجاح
         proposals_imports:
-          create:
-            invalid: كانت هناك مشكلة في استيراد المقترحات إلى المشاريع
-            success: "%{number} مقترحات تم استيرادها بنجاح في المشروعات"
           new:
             create: استيراد مقترحات للمشاريع
+            default_budget: الميزانية الافتراضية
             no_components: لا توجد مكونات أخرى مقترحة في هذه المساحة التشاركية لاستيراد المقترحات إلى المشروعات.
             select_component: يرجى اختيار عنصر
       admin_log:
@@ -81,6 +78,8 @@ ar:
       budget_information_modal:
         continue: مواصلة
         more_information: المزيد من المعلومات
+      budgets_list:
+        my_budgets: ميزانياتي
       models:
         budget:
           fields:
@@ -105,7 +104,6 @@ ar:
           assigned: 'تعيين:'
           cancel_order: احذف صوتك وابدأ من جديد
           checked_out:
-            description: لقد قمت بالتصويت بالفعل على الميزانية. إذا غيرت رأيك ، يمكنك %{cancel_link}.
             title: اكتمال التصويت في الميزانية
           title: عليك أن تقرر الميزانية
         count:
@@ -142,6 +140,9 @@ ar:
         show:
           budget: ميزانية
           view_all_projects: عرض جميع المشاريع
+      vote_reminder_mailer:
+        vote_reminder:
+          email_link: الذهاب لمتابعة التصويت
     components:
       budgets:
         actions:
@@ -160,13 +161,6 @@ ar:
             show_votes: إظهار الأصوات
             votes_choices:
               enabled: تم تمكين التصويت
-    orders:
-      checkout:
-        error: حدثت مشكلة أثناء معالجة تصويتك
-        success: تم قبول تصويتك بنجاح
-      destroy:
-        error: حدثت مشكلة في إلغاء تصويتك
-        success: تم إلغاء تصويتك بنجاح
     statistics:
       projects_count: المشاريع
   index:

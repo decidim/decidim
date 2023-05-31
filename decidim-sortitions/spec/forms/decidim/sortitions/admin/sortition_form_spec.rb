@@ -38,10 +38,10 @@ module Decidim
         let(:params) do
           {
             sortition: {
-              decidim_proposals_component_id: decidim_proposals_component_id,
-              decidim_category_id: decidim_category_id,
-              dice: dice,
-              target_items: target_items,
+              decidim_proposals_component_id:,
+              decidim_category_id:,
+              dice:,
+              target_items:,
               title_en: title[:en],
               title_es: title[:es],
               title_ca: title[:ca],

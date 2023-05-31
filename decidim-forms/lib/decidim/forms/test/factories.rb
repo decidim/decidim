@@ -19,11 +19,11 @@ FactoryBot.define do
       questions do
         position = 0
         qs = %w(short_answer long_answer).collect do |text_question_type|
-          q = build(:questionnaire_question, question_type: text_question_type, position: position)
+          q = build(:questionnaire_question, question_type: text_question_type, position:)
           position += 1
           q
         end
-        qs << build(:questionnaire_question, :with_answer_options, question_type: :single_option, position: position)
+        qs << build(:questionnaire_question, :with_answer_options, question_type: :single_option, position:)
         qs
       end
     end
@@ -34,7 +34,7 @@ FactoryBot.define do
         %w(short_answer long_answer).collect do |text_question_type|
           q = create(:questionnaire_question,
                      question_type: text_question_type,
-                     position: position,
+                     position:,
                      questionnaire: questionaire)
           position += 1
           questionaire.questions << q
@@ -43,7 +43,7 @@ FactoryBot.define do
         %w(single_option multiple_option).each do |option_question_type|
           q = create(:questionnaire_question, :with_answer_options,
                      question_type: option_question_type,
-                     position: position,
+                     position:,
                      questionnaire: questionaire)
           q.display_conditions.build(
             condition_question: questionaire.questions[q.position - 1],
@@ -58,7 +58,7 @@ FactoryBot.define do
         %w(matrix_single matrix_multiple).collect do |matrix_question_type|
           q = build(:questionnaire_question, :with_answer_options,
                     question_type: matrix_question_type,
-                    position: position,
+                    position:,
                     body: generate_localized_title,
                     questionnaire: questionaire)
           q.display_conditions.build(
@@ -141,7 +141,7 @@ FactoryBot.define do
   factory :answer, class: "Decidim::Forms::Answer" do
     body { "hola" }
     questionnaire
-    question { create(:questionnaire_question, questionnaire: questionnaire) }
+    question { create(:questionnaire_question, questionnaire:) }
     user { create(:user, organization: questionnaire.questionnaire_for.organization) }
     session_token { Digest::MD5.hexdigest(user.id.to_s) }
 

@@ -20,7 +20,7 @@ module Decidim
             expect { command.call }.to broadcast(:invalid)
           end
 
-          it "doesn't create a survey" do
+          it "does not create a survey" do
             expect do
               command.call
             end.not_to change(Survey, :count)
@@ -33,7 +33,7 @@ module Decidim
           end
 
           it "creates a new survey with the same name as the component" do
-            expect(Survey).to receive(:new).with(component: component, questionnaire: kind_of(Decidim::Forms::Questionnaire)).and_call_original
+            expect(Survey).to receive(:new).with(component:, questionnaire: kind_of(Decidim::Forms::Questionnaire)).and_call_original
 
             expect do
               command.call

@@ -5,9 +5,9 @@ require "spec_helper"
 module Decidim::Admin
   describe UnreportResource do
     let(:reportable) { create(:dummy_resource) }
-    let(:moderation) { create(:moderation, reportable: reportable, report_count: 1) }
-    let!(:report) { create(:report, moderation: moderation) }
-    let(:current_user) { create :user, organization: reportable.participatory_space.organization }
+    let(:moderation) { create(:moderation, reportable:, report_count: 1) }
+    let!(:report) { create(:report, moderation:) }
+    let(:current_user) { create(:user, organization: reportable.participatory_space.organization) }
     let(:command) { described_class.new(reportable, current_user) }
 
     context "when everything is ok" do

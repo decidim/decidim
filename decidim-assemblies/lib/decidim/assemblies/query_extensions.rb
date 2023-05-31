@@ -20,8 +20,8 @@ module Decidim
                    [Decidim::Assemblies::AssemblyType],
                    null: true,
                    description: "Lists all assemblies" do
-          argument :filter, Decidim::ParticipatoryProcesses::ParticipatoryProcessInputFilter, "This argument let's you filter the results", required: false
-          argument :order, Decidim::ParticipatoryProcesses::ParticipatoryProcessInputSort, "This argument let's you order the results", required: false
+          argument :filter, Decidim::ParticipatoryProcesses::ParticipatoryProcessInputFilter, "This argument lets you filter the results", required: false
+          argument :order, Decidim::ParticipatoryProcesses::ParticipatoryProcessInputSort, "This argument lets you order the results", required: false
         end
 
         type.field :assembly,
@@ -41,18 +41,18 @@ module Decidim
       def assemblies_type(id:)
         Decidim::AssembliesType.find_by(
           organization: context[:current_organization],
-          id: id
+          id:
         )
       end
 
       def assemblies(filter: {}, order: {})
         manifest = Decidim.participatory_space_manifests.select { |m| m.name == :assemblies }.first
-        Decidim::Core::ParticipatorySpaceListBase.new(manifest: manifest).call(object, { filter: filter, order: order }, context)
+        Decidim::Core::ParticipatorySpaceListBase.new(manifest:).call(object, { filter:, order: }, context)
       end
 
       def assembly(id: nil)
         manifest = Decidim.participatory_space_manifests.select { |m| m.name == :assemblies }.first
-        Decidim::Core::ParticipatorySpaceFinderBase.new(manifest: manifest).call(object, { id: id }, context)
+        Decidim::Core::ParticipatorySpaceFinderBase.new(manifest:).call(object, { id: }, context)
       end
     end
   end

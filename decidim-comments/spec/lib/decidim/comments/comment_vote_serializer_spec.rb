@@ -7,7 +7,7 @@ module Decidim
     describe CommentVoteSerializer do
       let(:comment) { create(:comment) }
       let(:serialized) { subject.serialize }
-      let(:resource) { create(:comment_vote, comment: comment) }
+      let(:resource) { create(:comment_vote, comment:) }
 
       subject { described_class.new(resource) }
 

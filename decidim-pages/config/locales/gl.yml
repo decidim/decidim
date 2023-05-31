@@ -29,7 +29,5 @@ gl:
             invalid: Produciuse un erro ao gardar a páxina.
             success: A páxina gardouse correctamente.
       home:
-        hero:
-          participate_title: Participar nos procesos da plataforma
         sub_hero:
           register_title: Rexistrarse para crear unha conta

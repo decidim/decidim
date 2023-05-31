@@ -63,9 +63,9 @@ module Decidim
 
         def create_answer_result_for!(answer, value)
           params = {
-            value: value,
+            value:,
             question: answer.question,
-            answer: answer,
+            answer:,
             result_type: :valid_answers
           }
 
@@ -78,7 +78,7 @@ module Decidim
 
         def store_verifiable_results
           election.update!(
-            verifiable_results_file_url: verifiable_results_file_url,
+            verifiable_results_file_url:,
             verifiable_results_file_hash: verifiable_results[:hash]
           )
         end

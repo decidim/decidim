@@ -25,7 +25,7 @@ module Decidim
       end
 
       context "without a questionable" do
-        let(:questionnaire) { build :meetings_poll_questionnaire, questionnaire_for: nil }
+        let(:questionnaire) { build(:meetings_poll_questionnaire, questionnaire_for: nil) }
 
         it { is_expected.not_to be_valid }
       end
@@ -36,7 +36,7 @@ module Decidim
 
       describe "#questions_editable?" do
         it "returns false when questionnaire has already answers" do
-          create(:meetings_poll_answer, questionnaire: questionnaire)
+          create(:meetings_poll_answer, questionnaire:)
           expect(subject.reload).not_to be_questions_editable
         end
       end

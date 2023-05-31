@@ -30,17 +30,28 @@ module Decidim
 
       initializer "decidim_admin.global_moderation_menu" do
         Decidim.menu :admin_global_moderation_menu do |menu|
+          moderations_count = Decidim::Admin::ModerationStats.new(current_user).count_content_moderations
+
+          caption = I18n.t("menu.content", scope: "decidim.admin")
+          caption += content_tag(:span, moderations_count, class: moderations_count.zero? ? "component-counter component-counter--off" : "component-counter")
+
           menu.add_item :moderations,
-                        I18n.t("actions.not_hidden", scope: "decidim.moderations"),
+                        caption.html_safe,
                         decidim_admin.moderations_path,
                         position: 1,
-                        active: params[:hidden].blank?
+                        active: is_active_link?(decidim_admin.moderations_path),
+                        if: allowed_to?(:read, :global_moderation)
 
-          menu.add_item :hidden_moderations,
-                        I18n.t("actions.hidden", scope: "decidim.moderations"),
-                        decidim_admin.moderations_path(hidden: true),
-                        position: 2,
-                        active: params[:hidden].present?
+          user_reports = Decidim::Admin::ModerationStats.new(current_user).count_user_pending_reports
+
+          caption = I18n.t("menu.reported_users", scope: "decidim.admin")
+          caption += content_tag(:span, user_reports, class: user_reports.zero? ? "component-counter component-counter--off" : "component-counter")
+
+          menu.add_item :moderated_users,
+                        caption.html_safe,
+                        decidim_admin.moderated_users_path,
+                        active: is_active_link?(decidim_admin.moderated_users_path),
+                        if: allowed_to?(:index, :moderate_users)
         end
       end
 
@@ -69,7 +80,7 @@ module Decidim
         end
       end
 
-      initializer "decidim_admin.admin_user_menu" do
+      initializer "decidim_admin.user_menu" do
         Decidim.menu :admin_user_menu do |menu|
           menu.add_item :users,
                         I18n.t("menu.admins", scope: "decidim.admin"), decidim_admin.users_path,
@@ -89,10 +100,6 @@ module Decidim
                         if: allowed_to?(:index, :impersonatable_user),
                         submenu: { target_menu: :impersonate_menu }
 
-          menu.add_item :moderated_users,
-                        I18n.t("menu.reported_users", scope: "decidim.admin"), decidim_admin.moderated_users_path,
-                        active: is_active_link?(decidim_admin.moderated_users_path),
-                        if: allowed_to?(:index, :moderate_users)
           menu.add_item :authorization_workflows,
                         I18n.t("menu.authorization_workflows", scope: "decidim.admin"), decidim_admin.authorization_workflows_path,
                         active: is_active_link?(decidim_admin.authorization_workflows_path),
@@ -101,7 +108,7 @@ module Decidim
         end
       end
 
-      initializer "decidim_admin.admin_settings_menu" do
+      initializer "decidim_admin.settings_menu" do
         Decidim.menu :admin_settings_menu do |menu|
           menu.add_item :edit_organization,
                         I18n.t("menu.configuration", scope: "decidim.admin"),
@@ -173,7 +180,10 @@ module Decidim
                         decidim_admin.root_path,
                         icon_name: "dashboard",
                         position: 1,
-                        active: ["decidim/admin/dashboard" => :show]
+                        active: [%w(
+                          decidim/admin/dashboard
+                          decidim/admin/metrics
+                        ), []]
 
           menu.add_item :moderations,
                         I18n.t("menu.moderation", scope: "decidim.admin"),
@@ -183,18 +193,17 @@ module Decidim
                         active: [%w(
                           decidim/admin/global_moderations
                           decidim/admin/global_moderations/reports
+                          decidim/admin/moderated_users
                         ), []],
-                        if: allowed_to?(:read, :global_moderation)
+                        if: allowed_to?(:read, :global_moderation) || allowed_to?(:index, :moderate_users)
 
           menu.add_item :static_pages,
                         I18n.t("menu.static_pages", scope: "decidim.admin"),
                         decidim_admin.static_pages_path,
                         icon_name: "book",
                         position: 4.5,
-                        active: [%w(
-                          decidim/admin/static_pages
-                          decidim/admin/static_page_topics
-                        ), []],
+                        active: is_active_link?(decidim_admin.static_pages_path, :inclusive) ||
+                                is_active_link?(decidim_admin.static_page_topics_path, :inclusive),
                         if: allowed_to?(:read, :static_page)
 
           menu.add_item :impersonatable_users,
@@ -208,10 +217,14 @@ module Decidim
                           decidim/admin/user_groups_csv_verifications
                           decidim/admin/officializations
                           decidim/admin/impersonatable_users
-                          decidim/admin/moderated_users
+                          decidim/admin/conflicts
                           decidim/admin/managed_users/impersonation_logs
                           decidim/admin/managed_users/promotions
                           decidim/admin/authorization_workflows
+                          decidim/verifications/id_documents/admin/pending_authorizations
+                          decidim/verifications/id_documents/admin/config
+                          decidim/verifications/postal_letter/admin/pending_authorizations
+                          decidim/verifications/csv_census/admin/census
                         ), []],
                         if: allowed_to?(:read, :admin_user) || allowed_to?(:read, :managed_user)
 
@@ -238,6 +251,8 @@ module Decidim
                             decidim/admin/scopes
                             decidim/admin/scope_types
                             decidim/admin/areas decidim/admin/area_types
+                            decidim/admin/help_sections
+                            decidim/admin/organization_external_domain_whitelist
                           ),
                           []
                         ],

@@ -8,7 +8,7 @@ module Decidim
       describe CreateResponseGroup do
         subject { described_class.new(form) }
 
-        let(:question) { create :question }
+        let(:question) { create(:question) }
         let(:params) do
           {
             response_group: {
@@ -36,7 +36,7 @@ module Decidim
 
         context "when everything is ok" do
           it "creates a response group" do
-            expect { subject.call }.to change { Decidim::Consultations::ResponseGroup.count }.by(1)
+            expect { subject.call }.to change(Decidim::Consultations::ResponseGroup, :count).by(1)
           end
 
           it "broadcasts ok" do

@@ -18,8 +18,8 @@ describe "Manage admins", type: :system do
 
         within ".new_admin" do
           fill_in :admin_email, with: "admin@foo.bar"
-          fill_in :admin_password, with: "decidim123456"
-          fill_in :admin_password_confirmation, with: "decidim123456"
+          fill_in :admin_password, with: "decidim123456789"
+          fill_in :admin_password_confirmation, with: "decidim123456789"
 
           find("*[type=submit]").click
         end
@@ -102,7 +102,13 @@ describe "Manage admins", type: :system do
     end
 
     within "table" do
-      expect(page).to have_no_content(admin2.email)
+      expect(page).not_to have_content(admin2.email)
+    end
+  end
+
+  it "cannot delete admin rights from self" do
+    within find("tr", text: admin.email) do
+      expect(page).not_to have_link("Delete", visible: :hidden)
     end
   end
 end

@@ -12,7 +12,7 @@ module Decidim
 
         it "allows endorsements" do
           expect do
-            post :create, format: :js, params: params
+            post :create, format: :js, params:
           end.to change(Endorsement, :count).by(1)
 
           expect(Endorsement.last.author).to eq(user)
@@ -21,7 +21,7 @@ module Decidim
 
         context "when requesting user identities without belonging to any user_group" do
           it "only returns the user identity endorse button" do
-            get :identities, params: params
+            get(:identities, params:)
 
             expect(response).to have_http_status(:ok)
             expect(assigns[:user_verified_groups]).to be_empty
@@ -32,7 +32,7 @@ module Decidim
         context "when requesting user identities while belonging to UNverified user_groups" do
           it "only returns the user identity endorse button" do
             create_list(:user_group, 2, users: [user], organization: user.organization)
-            get :identities, params: params
+            get(:identities, params:)
 
             expect(response).to have_http_status(:ok)
             expect(assigns[:user_verified_groups]).to be_empty
@@ -43,7 +43,7 @@ module Decidim
         context "when requesting user identities while belonging to verified user_groups" do
           it "returns the user's and user_groups's identities for the endorse button" do
             create_list(:user_group, 2, :verified, users: [user], organization: user.organization)
-            get :identities, params: params
+            get(:identities, params:)
 
             expect(response).to have_http_status(:ok)
             expect(assigns[:user_verified_groups]).to eq user.user_groups
@@ -57,7 +57,7 @@ module Decidim
 
         it "does not allow endorsing" do
           expect do
-            post :create, format: :js, params: params
+            post :create, format: :js, params:
           end.not_to change(Endorsement, :count)
 
           expect(flash[:alert]).not_to be_empty
@@ -66,7 +66,7 @@ module Decidim
 
         context "when requesting user identities" do
           it "raises exception" do
-            get :identities, params: params
+            get(:identities, params:)
             expect(response).to have_http_status(:found)
           end
         end
@@ -79,7 +79,7 @@ module Decidim
 
         it "does not allow endorsing" do
           expect do
-            post :create, format: :js, params: params
+            post :create, format: :js, params:
           end.not_to change(Endorsement, :count)
 
           expect(flash[:alert]).not_to be_empty
@@ -88,7 +88,7 @@ module Decidim
 
         context "when requesting user identities" do
           it "does not allow it" do
-            get :identities, params: params
+            get(:identities, params:)
             expect(response).to have_http_status(:found)
           end
         end
@@ -97,7 +97,7 @@ module Decidim
 
     describe "As User unendorsing a resource" do
       before do
-        create(:endorsement, resource: resource, author: user)
+        create(:endorsement, resource:, author: user)
       end
 
       context "when endorsements are enabled" do
@@ -105,7 +105,7 @@ module Decidim
 
         it "deletes the endorsement" do
           expect do
-            delete :destroy, format: :js, params: params
+            delete :destroy, format: :js, params:
           end.to change(Endorsement, :count).by(-1)
 
           expect(Endorsement.count).to eq(0)
@@ -117,7 +117,7 @@ module Decidim
 
         it "does not delete the endorsement" do
           expect do
-            delete :destroy, format: :js, params: params
+            delete :destroy, format: :js, params:
           end.not_to change(Endorsement, :count)
 
           expect(flash[:alert]).not_to be_empty

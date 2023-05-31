@@ -4,18 +4,18 @@ require "spec_helper"
 
 describe "Admin filters user_roles", type: :system do
   let(:organization) { create(:organization) }
-  let!(:admin) { create(:user, :admin, :confirmed, organization: organization) }
-  let(:participatory_process) { create(:participatory_process, organization: organization) }
+  let!(:admin) { create(:user, :admin, :confirmed, organization:) }
+  let(:participatory_process) { create(:participatory_process, organization:) }
 
   let(:resource_controller) { Decidim::Conferences::Admin::ConferenceUserRolesController }
   let(:name) { "Dummy Name" }
   let(:email) { "dummy_email@example.org" }
 
-  let!(:invited_user_1) { create(:process_valuator, name: name, participatory_process: participatory_process) }
-  let!(:invited_user_2) { create(:process_valuator, email: email, participatory_process: participatory_process) }
+  let!(:invited_user1) { create(:process_valuator, name:, participatory_process:) }
+  let!(:invited_user2) { create(:process_valuator, email:, participatory_process:) }
 
   before do
-    invited_user_2.update!(invitation_sent_at: 1.day.ago, invitation_accepted_at: Time.current, last_sign_in_at: Time.current)
+    invited_user2.update!(invitation_sent_at: 1.day.ago, invitation_accepted_at: Time.current, last_sign_in_at: Time.current)
 
     switch_to_host(organization.host)
     login_as admin, scope: :user
@@ -29,14 +29,15 @@ describe "Admin filters user_roles", type: :system do
   context "when sorting" do
     include_examples "sortable participatory space user roles" do
       let!(:collection) do
-        create_list(:process_collaborator, 100, participatory_process: participatory_process,
+        create_list(:process_collaborator, 100, participatory_process:,
                                                 last_sign_in_at: 2.days.ago,
                                                 invitation_accepted_at: 1.day.ago)
       end
       let!(:user) do
         create(:process_valuator,
                name: "ZZZupper user",
-               participatory_process: participatory_process,
+               email: "zzz@example.org",
+               participatory_process:,
                last_sign_in_at: 30.seconds.ago,
                invitation_accepted_at: Time.current)
       end
@@ -48,7 +49,7 @@ describe "Admin filters user_roles", type: :system do
   end
 
   it_behaves_like "paginating a collection" do
-    let!(:collection) { create_list(:process_valuator, 100, participatory_process: participatory_process) }
+    let!(:collection) { create_list(:process_valuator, 100, participatory_process:) }
 
     before do
       switch_to_host(organization.host)

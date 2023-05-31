@@ -36,7 +36,7 @@ module Decidim
           editor_image = EditorImage.create!(
             decidim_author_id: context[:user]&.id,
             organization: context[:user].organization,
-            file: file
+            file:
           )
 
           image.set_attribute(:src, editor_image.attached_uploader(:file).path)
@@ -58,8 +58,8 @@ module Decidim
         tempfile.binmode
         tempfile.write(Base64.decode64(base64_data[start.length..-1]))
         ActionDispatch::Http::UploadedFile.new(
-          tempfile: tempfile,
-          filename: filename,
+          tempfile:,
+          filename:,
           original_filename: filename
         )
       end

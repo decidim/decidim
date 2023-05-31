@@ -1,0 +1,11 @@
+Style/OpenStructUse:
+  Enabled: false
+
+Gemspec/RequireMFA:
+  Enabled: false
+
+Naming/MemoizedInstanceVariableName:
+  Enabled: false
+
+RSpec/VerifiedDoubleReference:
+  Enabled: false

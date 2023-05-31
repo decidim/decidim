@@ -20,7 +20,7 @@ module Decidim
       # Executes the command. Broadcasts these events:
       #
       # - :ok when everything is valid.
-      # - :invalid if the form wasn't valid and we couldn't proceed.
+      # - :invalid if the form was not valid and we could not proceed.
       #
       # Returns nothing.
       def call
@@ -52,7 +52,7 @@ module Decidim
           }
         ) do
           Decidim::ParticipatorySpacePrivateUser.find_or_create_by!(
-            user: user,
+            user:,
             privatable_to: @private_user_to
           )
         end
@@ -85,7 +85,7 @@ module Decidim
                        organization: private_user_to.organization,
                        admin: false,
                        invited_by: current_user,
-                       invitation_instructions: invitation_instructions)
+                       invitation_instructions:)
       end
 
       def invitation_instructions

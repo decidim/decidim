@@ -22,7 +22,7 @@ module Decidim
         def create
           enforce_permission_to :create, :debate
 
-          @form = form(Decidim::Debates::Admin::DebateForm).from_params(params, current_component: current_component)
+          @form = form(Decidim::Debates::Admin::DebateForm).from_params(params, current_component:)
 
           CreateDebate.call(@form) do
             on(:ok) do
@@ -38,15 +38,15 @@ module Decidim
         end
 
         def edit
-          enforce_permission_to :update, :debate, debate: debate
+          enforce_permission_to(:update, :debate, debate:)
 
           @form = form(Decidim::Debates::Admin::DebateForm).from_model(debate)
         end
 
         def update
-          enforce_permission_to :update, :debate, debate: debate
+          enforce_permission_to(:update, :debate, debate:)
 
-          @form = form(Decidim::Debates::Admin::DebateForm).from_params(params, current_component: current_component)
+          @form = form(Decidim::Debates::Admin::DebateForm).from_params(params, current_component:)
 
           UpdateDebate.call(@form, debate) do
             on(:ok) do
@@ -62,7 +62,7 @@ module Decidim
         end
 
         def destroy
-          enforce_permission_to :delete, :debate, debate: debate
+          enforce_permission_to(:delete, :debate, debate:)
 
           debate.destroy!
 

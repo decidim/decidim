@@ -7,17 +7,17 @@ module Decidim::Votings
     subject { described_class.new(form) }
 
     let(:voting) { create(:voting) }
-    let(:datum) { create(:datum, document_number: document_number, document_type: document_type, birthdate: birthdate, postal_code: postal_code, dataset: dataset) }
+    let(:datum) { create(:datum, document_number:, document_type:, birthdate:, postal_code:, dataset:) }
     let(:context) { { current_participatory_space: voting } }
-    let(:dataset) { create(:dataset, voting: voting) }
+    let(:dataset) { create(:dataset, voting:) }
     let(:params) do
       {
-        document_number: document_number,
-        document_type: document_type,
+        document_number:,
+        document_type:,
         year: year.to_s,
         month: month.to_s,
         day: day.to_s,
-        postal_code: postal_code
+        postal_code:
       }
     end
     let(:birthdate) { Date.civil(year, month, day) }
@@ -39,7 +39,7 @@ module Decidim::Votings
     end
 
     context "when census is found" do
-      let!(:datum) { create(:datum, document_number: document_number, document_type: document_type, birthdate: birthdate, postal_code: postal_code, dataset: dataset) }
+      let!(:datum) { create(:datum, document_number:, document_type:, birthdate:, postal_code:, dataset:) }
 
       it "broadcasts ok and returns the datum" do
         expect(subject.call).to broadcast(:ok, datum)
@@ -47,7 +47,7 @@ module Decidim::Votings
     end
 
     context "when census is not found" do
-      let!(:datum) { create(:datum, document_number: "987654321Y", document_type: document_type, birthdate: birthdate, postal_code: postal_code) }
+      let!(:datum) { create(:datum, document_number: "987654321Y", document_type:, birthdate:, postal_code:) }
 
       it "returns not_found" do
         expect(subject.call).to broadcast(:not_found)
@@ -55,7 +55,7 @@ module Decidim::Votings
     end
 
     context "when hashed_checked_data exists in different dataset" do
-      let!(:datum) { create(:datum, document_number: "987654321Y", document_type: document_type, birthdate: birthdate, postal_code: postal_code) }
+      let!(:datum) { create(:datum, document_number: "987654321Y", document_type:, birthdate:, postal_code:) }
       let!(:voting) { create(:voting) }
 
       it "returns not_found" do

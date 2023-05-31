@@ -15,7 +15,7 @@ module Decidim
       it "creates and publishes all the default content blocks for an organization" do
         expect do
           described_class.new(organization).call
-        end.to change { Decidim::ContentBlock.where(organization: organization).where.not(published_at: nil).count }.by(default_content_blocks)
+        end.to change { Decidim::ContentBlock.where(organization:).where.not(published_at: nil).count }.by(default_content_blocks)
       end
     end
   end

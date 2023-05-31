@@ -18,7 +18,7 @@ describe "DownloadYourData", type: :system do
 
     describe "show button export data" do
       it "export the user's data" do
-        within ".row.download-your-data" do
+        within ".download-your-data" do
           expect(page).to have_content("Download the data")
           expect(page).to have_content(user.email)
         end

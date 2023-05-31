@@ -4,10 +4,10 @@ require "spec_helper"
 
 describe "Amend Proposal", versioning: true, type: :system do
   let!(:participatory_space) { create(:participatory_process, :with_steps) }
-  let!(:component) { create(:proposal_component, participatory_space: participatory_space) }
-  let!(:proposal) { create(:proposal, title: { en: "Long enough title" }, component: component) }
-  let!(:emendation) { create(:proposal, title: { en: "Amended Long enough title" }, component: component) }
-  let!(:amendment) { create :amendment, amendable: proposal, emendation: emendation }
+  let!(:component) { create(:proposal_component, participatory_space:) }
+  let!(:proposal) { create(:proposal, title: { en: "Long enough title" }, component:) }
+  let!(:emendation) { create(:proposal, title: { en: "Amended Long enough title" }, component:) }
+  let!(:amendment) { create(:amendment, amendable: proposal, emendation:) }
   let(:proposal_title) { translated(proposal.title) }
   let(:emendation_title) { translated(emendation.title) }
   let(:emendation_body) { translated(emendation.body) }
@@ -130,7 +130,7 @@ describe "Amend Proposal", versioning: true, type: :system do
         end
 
         context "and visit an amendable proposal that they have NOT amended" do
-          let!(:user) { create :user, :confirmed, organization: component.organization }
+          let!(:user) { create(:user, :confirmed, organization: component.organization) }
 
           it "is shown the emendation from other users in the amendments list" do
             within ".amendment-list" do
@@ -184,6 +184,7 @@ describe "Amend Proposal", versioning: true, type: :system do
 
         before do
           visit proposal_path
+          expect(page).to have_content(proposal_title)
         end
 
         it "is NOT shown a link to Amend it" do
@@ -191,7 +192,7 @@ describe "Amend Proposal", versioning: true, type: :system do
         end
 
         context "when a private user is logged in" do
-          let!(:user) { create :user, :confirmed, organization: component.organization }
+          let!(:user) { create(:user, :confirmed, organization: component.organization) }
 
           before do
             participatory_space.update(users: [user])
@@ -208,6 +209,7 @@ describe "Amend Proposal", versioning: true, type: :system do
       context "and visits an amendable proposal" do
         before do
           visit proposal_path
+          expect(page).to have_content(proposal_title)
         end
 
         it "is shown a link to Amend it" do
@@ -225,12 +227,13 @@ describe "Amend Proposal", versioning: true, type: :system do
         end
 
         context "when the user is logged in and clicks" do
-          let!(:user) { create :user, :confirmed, organization: component.organization }
+          let!(:user) { create(:user, :confirmed, organization: component.organization) }
           let!(:user_group) { create(:user_group, :verified, organization: user.organization, users: [user]) }
 
           before do
             login_as user, scope: :user
             visit proposal_path
+            expect(page).to have_content(proposal_title)
             click_link "Amend Proposal"
           end
 
@@ -254,7 +257,7 @@ describe "Amend Proposal", versioning: true, type: :system do
             end
 
             it "is shown the Success Callout" do
-              expect(page).to have_css(".callout.success")
+              expect(page).to have_css("[data-alert-box].success")
             end
           end
 
@@ -267,7 +270,7 @@ describe "Amend Proposal", versioning: true, type: :system do
             end
 
             it "is shown the Error Callout" do
-              expect(page).to have_css(".callout.alert", text: "An error ocurred while creating the amendment")
+              expect(page).to have_css("[data-alert-box].alert", text: "An error ocurred while creating the amendment")
             end
 
             it "is shown the field error message" do
@@ -338,7 +341,7 @@ describe "Amend Proposal", versioning: true, type: :system do
             end
 
             it "is shown the Success Callout" do
-              expect(page).to have_css(".callout.success", text: "The amendment has been accepted successfully.")
+              expect(page).to have_css("[data-alert-box].success", text: "The amendment has been accepted successfully.")
             end
 
             it "is changed the state of the emendation" do
@@ -358,11 +361,11 @@ describe "Amend Proposal", versioning: true, type: :system do
           end
 
           it "is shown the Success Callout" do
-            expect(page).to have_css(".callout.success", text: "The amendment has been successfully rejected")
+            expect(page).to have_css("[data-alert-box].success", text: "The amendment has been successfully rejected")
           end
 
           it "is changed the state of the emendation" do
-            expect(page).to have_css(".callout.alert", text: "This amendment for the proposal #{proposal_title} was rejected")
+            expect(page).to have_css(".callout.alert[data-announcement]", text: "This amendment for the proposal #{proposal_title} was rejected")
           end
         end
       end
@@ -485,7 +488,7 @@ describe "Amend Proposal", versioning: true, type: :system do
         end
 
         context "and visit an amendable proposal that they have NOT amended" do
-          let!(:user) { create :user, :confirmed, organization: component.organization }
+          let!(:user) { create(:user, :confirmed, organization: component.organization) }
 
           it "is NOT shown the amendments list" do
             expect(page).not_to have_css(".amendment-list")
@@ -542,7 +545,7 @@ describe "Amend Proposal", versioning: true, type: :system do
         end
 
         context "and visit an amendable proposal that they have NOT amended" do
-          let!(:user) { create :user, :confirmed, organization: component.organization }
+          let!(:user) { create(:user, :confirmed, organization: component.organization) }
 
           it "is shown the emendation from other users in the amendments list" do
             within ".amendment-list" do

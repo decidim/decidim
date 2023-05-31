@@ -9,15 +9,15 @@ module Decidim
     include LayoutHelper
 
     def attribute(data)
-      render locals: { data: data }
+      render locals: { data: }
     end
 
     def diff_unified(data, format)
-      render locals: { data: data, format: format }
+      render locals: { data:, format: }
     end
 
     def diff_split(data, direction, format)
-      render locals: { data: data, direction: direction, format: format }
+      render locals: { data:, direction:, format: }
     end
 
     private
@@ -86,7 +86,7 @@ module Decidim
         data[:old_value].to_s,
         data[:new_value].to_s,
         allow_empty_diff: false,
-        format: format,
+        format:,
         include_plus_and_minus_in_html: true
       ).send(direction)
     end

@@ -12,7 +12,11 @@
     </div>
     <dl>
       <dt><%= t("models.moderation.fields.reported_content_url", scope: "decidim.moderations") %></dt>
-      <dd><%= link_to moderation.reportable.reported_content_url, moderation.reportable.reported_content_url, target: "_blank" %></dd>
+      <% if (reportable_url = moderation.reportable.reported_content_url) %>
+        <dd><%= link_to moderation.reportable.reported_content_url, reportable_url, target: "_blank" %></dd>
+      <% else %>
+        <dd><%= t("models.moderation.fields.deleted_resource", scope: "decidim.moderations") %></dd>
+      <% end %>
 
       <dt><%= t("models.moderation.fields.reportable_id", scope: "decidim.moderations") %></dt>
       <dd><%= moderation.reportable.id %></dd>

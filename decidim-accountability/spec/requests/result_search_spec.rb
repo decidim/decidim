@@ -5,7 +5,7 @@ require "spec_helper"
 RSpec.describe "Result search", type: :request do
   include Decidim::ComponentPathHelper
 
-  let(:component) { create :accountability_component }
+  let(:component) { create(:accountability_component) }
   let(:participatory_space) { component.participatory_space }
   let(:parent_id) { nil }
   let(:filter_params) { {} }
@@ -14,34 +14,34 @@ RSpec.describe "Result search", type: :request do
     create(
       :result,
       title: Decidim::Faker::Localized.literal("A doggo in the title"),
-      component: component,
+      component:,
       parent: nil,
-      category: create(:category, participatory_space: participatory_space)
+      category: create(:category, participatory_space:)
     )
   end
   let!(:result2) do
     create(
       :result,
       description: Decidim::Faker::Localized.literal("There is a doggo in the office"),
-      component: component,
+      component:,
       parent: result1,
-      category: create(:category, participatory_space: participatory_space)
+      category: create(:category, participatory_space:)
     )
   end
   let!(:result3) do
     create(
       :result,
-      component: component,
+      component:,
       parent: result2,
-      category: create(:category, participatory_space: participatory_space)
+      category: create(:category, participatory_space:)
     )
   end
   let!(:result4) do
     create(
       :result,
-      component: component,
+      component:,
       parent: nil,
-      category: create(:category, participatory_space: participatory_space)
+      category: create(:category, participatory_space:)
     )
   end
 
@@ -50,7 +50,7 @@ RSpec.describe "Result search", type: :request do
   before do
     get(
       request_path,
-      params: { parent_id: parent_id, filter: filter_params },
+      params: { parent_id:, filter: filter_params },
       headers: { "HOST" => component.organization.host }
     )
   end
@@ -77,7 +77,7 @@ RSpec.describe "Result search", type: :request do
     context "when deep searching" do
       context "when the parent_id is nil" do
         it "returns the search on all results" do
-          expect(subject).to match_array [result1, result2, result4]
+          expect(subject).to contain_exactly(result1, result2, result4)
         end
       end
 
@@ -85,7 +85,7 @@ RSpec.describe "Result search", type: :request do
         let(:parent_id) { result1.id }
 
         it "returns the search on the children of result" do
-          expect(subject).to match_array [result2, result3]
+          expect(subject).to contain_exactly(result2, result3)
         end
       end
 
@@ -93,7 +93,7 @@ RSpec.describe "Result search", type: :request do
         let(:parent_id) { result2.id }
 
         it "returns the search on the children of result" do
-          expect(subject).to match_array [result3]
+          expect(subject).to contain_exactly(result3)
         end
       end
     end
@@ -102,7 +102,7 @@ RSpec.describe "Result search", type: :request do
       let(:filter_params) { { search_text_cont: "doggo" } }
 
       it "returns the search results matching the word in title or description" do
-        expect(subject).to match_array [result1, result2]
+        expect(subject).to contain_exactly(result1, result2)
       end
     end
   end

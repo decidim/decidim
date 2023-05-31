@@ -15,7 +15,7 @@ module Decidim
     # Executes the command. Broadcasts these events:
     #
     # - :ok when everything is valid.
-    # - :invalid if we couldn't proceed.
+    # - :invalid if we could not proceed.
     #
     # Returns nothing.
     def call
@@ -34,11 +34,11 @@ module Decidim
     attr_reader :user, :user_group
 
     def join_user_group
-      Decidim::UserGroupMembership.create!(user: user, user_group: user_group, role: :requested)
+      Decidim::UserGroupMembership.create!(user:, user_group:, role: :requested)
     end
 
     def already_member?
-      Decidim::UserGroupMembership.where(user: user, user_group: user_group).any?
+      Decidim::UserGroupMembership.where(user:, user_group:).any?
     end
 
     def send_notification

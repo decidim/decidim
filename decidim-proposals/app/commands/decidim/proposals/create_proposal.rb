@@ -4,7 +4,6 @@ module Decidim
   module Proposals
     # A command with all the business logic when a user creates a new proposal.
     class CreateProposal < Decidim::Command
-      include ::Decidim::AttachmentMethods
       include HashtagsMethods
 
       # Public: Initializes the command.
@@ -21,7 +20,7 @@ module Decidim
       # Executes the command. Broadcasts these events:
       #
       # - :ok when everything is valid, together with the proposal.
-      # - :invalid if the form wasn't valid and we couldn't proceed.
+      # - :invalid if the form was not valid and we could not proceed.
       #
       # Returns nothing.
       def call
@@ -65,7 +64,7 @@ module Decidim
               },
               component: form.component
             )
-            proposal.add_coauthor(@current_user, user_group: user_group)
+            proposal.add_coauthor(@current_user, user_group:)
             proposal.save!
             proposal
           end
@@ -87,7 +86,7 @@ module Decidim
       end
 
       def user_group
-        @user_group ||= Decidim::UserGroup.find_by(organization: organization, id: form.user_group_id)
+        @user_group ||= Decidim::UserGroup.find_by(organization:, id: form.user_group_id)
       end
 
       def organization

@@ -12,7 +12,7 @@ module Decidim
     # block   - A block with the content of the form.
     #
     # Returns a String.
-    def authorization_form_for(record, options = {}, &block)
+    def authorization_form_for(record, options = {}, &)
       default_options = {
         builder: AuthorizationFormBuilder,
         as: "authorization_handler",
@@ -20,7 +20,7 @@ module Decidim
       }
 
       options = default_options.merge(options)
-      decidim_form_for(record, options, &block)
+      decidim_form_for(record, options, &)
     end
   end
 end

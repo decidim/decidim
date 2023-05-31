@@ -21,7 +21,7 @@ namespace :decidim_elections do
   task :scheduled_tasks, [] => :environment do
     Decidim::Elections::ElectionsReadyToStart.for.each do |election|
       puts "\nStarting vote period for election ##{election.id}:"
-      form = Decidim::Elections::Admin::VotePeriodForm.new.with_context(election: election, current_user: nil)
+      form = Decidim::Elections::Admin::VotePeriodForm.new.with_context(election:, current_user: nil)
       Decidim::Elections::Admin::StartVote.call(form) do
         on(:ok) do
           puts "\n✓ Voting period start requested.\n"
@@ -36,7 +36,7 @@ namespace :decidim_elections do
 
     Decidim::Elections::ElectionsFinishedToEnd.for.each do |election|
       puts "\nEnding vote period for election ##{election.id}:"
-      form = Decidim::Elections::Admin::VotePeriodForm.new.with_context(election: election, current_user: nil)
+      form = Decidim::Elections::Admin::VotePeriodForm.new.with_context(election:, current_user: nil)
       Decidim::Elections::Admin::EndVote.call(form) do
         on(:ok) do
           puts "\n✓ Voting period end requested.\n"

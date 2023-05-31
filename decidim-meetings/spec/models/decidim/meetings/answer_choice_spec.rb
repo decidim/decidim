@@ -8,16 +8,16 @@ module Decidim
       subject { answer_choice }
 
       let(:organization) { create(:organization) }
-      let(:user) { create(:user, organization: organization) }
+      let(:user) { create(:user, organization:) }
       let(:meeting) { create(:meeting) }
-      let(:poll) { create(:poll, meeting: meeting) }
+      let(:poll) { create(:poll, meeting:) }
       let(:questionnaire) { create(:meetings_poll_questionnaire, questionnaire_for: poll) }
       let(:question_type) { "single_option" }
-      let(:question) { create(:meetings_poll_question, questionnaire: questionnaire, question_type: question_type) }
-      let(:answer_options) { create_list(:meetings_poll_answer_option, 3, question: question) }
+      let(:question) { create(:meetings_poll_question, questionnaire:, question_type:) }
+      let(:answer_options) { create_list(:meetings_poll_answer_option, 3, question:) }
       let(:answer_option) { answer_options.first }
-      let(:answer) { create(:meetings_poll_answer, question: question, questionnaire: questionnaire) }
-      let(:answer_choice) { build(:meetings_poll_answer_choice, answer: answer, answer_option: answer_option) }
+      let(:answer) { create(:meetings_poll_answer, question:, questionnaire:) }
+      let(:answer_choice) { build(:meetings_poll_answer_choice, answer:, answer_option:) }
 
       it { is_expected.to be_valid }
 

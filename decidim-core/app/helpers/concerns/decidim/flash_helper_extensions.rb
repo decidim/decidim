@@ -20,13 +20,21 @@ module Decidim
       # Returns a HTML string.
       def alert_box(value, alert_class, closable)
         options = {
-          class: "flash callout #{alert_class}",
+          class: "flash #{alert_class}",
+          data: { "alert-box": "" },
           role: "alert",
           aria: { atomic: "true" }
         }
-        options[:data] = { closable: "" } if closable
+        options[:data] = options[:data].merge(closable: "") if closable
+        icon = {
+          secondary: "information-line",
+          alert: "information-line",
+          warning: "alert-line",
+          success: "checkbox-circle-line"
+        }
         content_tag(:div, options) do
-          concat value
+          concat icon(icon[alert_class])
+          concat message(value)
           concat close_link if closable
         end
       end
@@ -43,6 +51,15 @@ module Decidim
           aria: { label: I18n.t("decidim.alert.dismiss") }
         ) do
           content_tag(:span, "&times;".html_safe, aria: { hidden: true })
+        end
+      end
+
+      def message(value)
+        return content_tag(:span, value, class: "flash__message") unless value.is_a?(Hash)
+
+        content_tag(:span, class: "flash__message") do
+          concat value[:title]
+          concat content_tag(:span, value[:body], class: "flash__message-body")
         end
       end
     end

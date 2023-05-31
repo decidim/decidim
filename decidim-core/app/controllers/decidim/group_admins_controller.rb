@@ -11,11 +11,11 @@ module Decidim
     helper_method :user_group
 
     def index
-      enforce_permission_to :manage, :user_group, user_group: user_group
+      enforce_permission_to :manage, :user_group, user_group:
     end
 
     def demote
-      enforce_permission_to :manage, :user_group, user_group: user_group
+      enforce_permission_to(:manage, :user_group, user_group:)
 
       DemoteMembership.call(membership, user_group) do
         on(:ok) do

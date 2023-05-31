@@ -10,15 +10,15 @@ module Decidim
 
         let(:event_name) { "decidim.events.votings.polling_officers.polling_station_assigned" }
         let(:organization) { create(:organization) }
-        let(:voting) { create(:voting, organization: organization) }
-        let(:polling_station) { create(:polling_station, voting: voting) }
+        let(:voting) { create(:voting, organization:) }
+        let(:polling_station) { create(:polling_station, voting:) }
         let(:resource) { voting }
-        let(:polling_officer) { create(:polling_officer, user: user, managed_polling_station: polling_station, voting: voting) }
+        let(:polling_officer) { create(:polling_officer, user:, managed_polling_station: polling_station, voting:) }
         let(:extra) { { polling_officer_id: polling_officer.id } }
         let(:polling_station_name) { translated(polling_station.title) }
         let(:voting_title) { translated(voting.title) }
         let(:voting_path) { "/votings/#{voting.slug}?voting_slug=#{voting.slug}" }
-        let(:voting_url) { "http://#{organization.host}#{voting_path}" }
+        let(:voting_url) { "http://#{organization.host}:#{Capybara.server_port}#{voting_path}" }
         let(:polling_officer_zone_url) { "http://#{organization.host}/polling_officers" }
 
         it_behaves_like "a simple event"

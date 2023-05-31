@@ -21,7 +21,7 @@ module Decidim
           end
         end
 
-        context "when user doesn't restrict private messaging" do
+        context "when user does not restrict private messaging" do
           let(:user) { create(:user, :confirmed) }
           let(:message_link) do
             "<a title=\"Send private message\" href=\"/conversations/new?recipient_id=#{user.id}\">Send private message</a>"
@@ -34,7 +34,7 @@ module Decidim
       end
 
       describe "#conversation_label_for" do
-        let(:user) { create :user, :confirmed }
+        let(:user) { create(:user, :confirmed) }
         let(:participants) { [user] }
 
         before do
@@ -46,16 +46,16 @@ module Decidim
         end
 
         context "when user is deleted" do
-          let(:user) { create :user, :deleted }
+          let(:user) { create(:user, :deleted) }
 
-          it "doesn't include the user name" do
-            expect(helper.conversation_label_for(participants)).to eq "Conversation with Participant deleted"
+          it "does not include the user name" do
+            expect(helper.conversation_label_for(participants)).to eq "Conversation with Deleted participant"
           end
         end
       end
 
       describe "#username_list" do
-        let(:user) { create :user, :confirmed }
+        let(:user) { create(:user, :confirmed) }
         let(:participants) { [user] }
 
         before do
@@ -63,20 +63,21 @@ module Decidim
         end
 
         it "includes the user name" do
-          expect(helper.username_list(participants)).to eq "<strong>#{user.name}</strong>"
+          expect(helper.username_list(participants)).to eq user.name
         end
 
         context "when user is deleted" do
-          let(:user) { create :user, :deleted }
+          let(:user) { create(:user, :deleted) }
 
-          it "doesn't include the user name" do
-            expect(helper.username_list(participants)).to eq "<span class=\"label label--small label--basic\">Participant deleted</span>"
+          it "does not include the user name" do
+            expect(helper.username_list(participants)).to eq "Deleted participant"
           end
         end
       end
 
+      # deprecated
       describe "#conversation_name_for" do
-        let(:user) { create :user, :confirmed }
+        let(:user) { create(:user, :confirmed) }
         let(:participants) { [user] }
 
         before do
@@ -88,10 +89,10 @@ module Decidim
         end
 
         context "when user is deleted" do
-          let(:user) { create :user, :deleted }
+          let(:user) { create(:user, :deleted) }
 
-          it "doesn't include the user name" do
-            expect(helper.conversation_name_for(participants)).to eq "<span class=\"label label--small label--basic\">Participant deleted</span>"
+          it "does not include the user name" do
+            expect(helper.conversation_name_for(participants)).to eq "<span class=\"label label--small label--basic\">Deleted participant</span>"
           end
         end
       end

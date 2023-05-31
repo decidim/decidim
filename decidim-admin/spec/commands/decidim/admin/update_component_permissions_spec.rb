@@ -7,8 +7,8 @@ module Decidim::Admin
     subject(:command) { described_class.call(form, component, resource, user) }
 
     let(:organization) { create(:organization, available_authorizations: ["dummy"]) }
-    let(:participatory_process) { create(:participatory_process, :with_steps, organization: organization) }
-    let(:user) { create(:user, organization: organization) }
+    let(:participatory_process) { create(:participatory_process, :with_steps, organization:) }
+    let(:user) { create(:user, organization:) }
 
     let(:component) do
       create(
@@ -101,7 +101,7 @@ module Decidim::Admin
     end
 
     context "when receives a resource" do
-      let(:resource) { create(:dummy_resource, component: component) }
+      let(:resource) { create(:dummy_resource, component:) }
       let(:expected_permissions) { component.permissions.merge(changing_permissions) }
       let(:changing_permissions) do
         {
@@ -119,7 +119,7 @@ module Decidim::Admin
         expect { subject }.to broadcast(:ok)
       end
 
-      it "doesn't update the component permissions" do
+      it "does not update the component permissions" do
         expect { subject }.not_to change(component, :permissions)
       end
 

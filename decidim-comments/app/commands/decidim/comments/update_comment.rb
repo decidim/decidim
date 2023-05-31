@@ -18,7 +18,7 @@ module Decidim
       # Executes the command. Broadcasts these events:
       #
       # - :ok when everything is valid.
-      # - :invalid if the form wasn't valid and we couldn't proceed.
+      # - :invalid if the form was not valid and we could not proceed.
       #
       # Returns nothing.
       def call
@@ -48,14 +48,7 @@ module Decidim
           edit: true
         )
 
-        mentioned_users = parsed.metadata[:user].users
-        mentioned_groups = parsed.metadata[:user_group].groups
         CommentCreation.publish(@comment, parsed.metadata)
-        send_notifications(mentioned_users, mentioned_groups)
-      end
-
-      def send_notifications(mentioned_users, mentioned_groups)
-        NewCommentNotificationCreator.new(comment, mentioned_users, mentioned_groups).create
       end
     end
   end

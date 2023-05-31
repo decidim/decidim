@@ -5,7 +5,7 @@ require "spec_helper"
 describe "Content pages", type: :system do
   include ActionView::Helpers::SanitizeHelper
 
-  let(:admin) { create :user, :admin, :confirmed }
+  let(:admin) { create(:user, :admin, :confirmed) }
   let(:organization) { admin.organization }
 
   before do
@@ -13,7 +13,8 @@ describe "Content pages", type: :system do
   end
 
   describe "Showing pages" do
-    let!(:decidim_pages) { create_list(:static_page, 5, :with_topic, organization: organization) }
+    let!(:decidim_pages) { create_list(:static_page, 5, :with_topic, organization:) }
+    let(:decidim_page) { decidim_pages.first }
 
     it_behaves_like "editable content for admins" do
       let(:target_path) { decidim.pages_path }
@@ -24,11 +25,24 @@ describe "Content pages", type: :system do
         visit decidim.pages_path
       end
 
-      it "shows the list of all the pages" do
+      it "shows the list of topics" do
         decidim_pages.each do |decidim_page|
+          topic_title = decidim_page.topic.title[I18n.locale.to_s]
+
+          expect(page).to have_content(topic_title)
+        end
+      end
+
+      it "expands the topics" do
+        topic_title = decidim_page.topic.title[I18n.locale.to_s]
+        page_title = decidim_page.title[I18n.locale.to_s]
+
+        within(".page__accordion", text: topic_title) do
+          find("button").click
+
           expect(page).to have_css(
             "a[href=\"#{decidim.page_path(decidim_page)}\"]",
-            text: decidim_page.title[I18n.locale.to_s]
+            text: page_title
           )
         end
       end
@@ -74,7 +88,7 @@ describe "Content pages", type: :system do
     end
 
     context "when editing a topic" do
-      let!(:topic) { create(:static_page_topic, organization: organization) }
+      let!(:topic) { create(:static_page_topic, organization:) }
 
       before do
         login_as admin, scope: :user
@@ -113,7 +127,7 @@ describe "Content pages", type: :system do
     end
 
     context "when deleting topics" do
-      let!(:topic) { create(:static_page_topic, organization: organization) }
+      let!(:topic) { create(:static_page_topic, organization:) }
 
       before do
         login_as admin, scope: :user
@@ -129,19 +143,27 @@ describe "Content pages", type: :system do
         expect(page).to have_admin_callout("successfully")
 
         within "table" do
-          expect(page).to have_no_content(translated(topic.title))
+          expect(page).not_to have_content(translated(topic.title))
         end
       end
     end
   end
 
   describe "Managing pages" do
-    let!(:topic) { create(:static_page_topic, organization: organization) }
+    let!(:topic) { create(:static_page_topic, organization:) }
 
     before do
       login_as admin, scope: :user
       visit decidim_admin.root_path
       click_link "Pages"
+    end
+
+    context "when displaying the page form" do
+      before do
+        click_link "Create page"
+      end
+
+      it_behaves_like "having a rich text editor", "new_static_page", "full"
     end
 
     it "can create new pages" do
@@ -180,11 +202,21 @@ describe "Content pages", type: :system do
     end
 
     context "with existing pages" do
-      let!(:decidim_page) { create(:static_page, :with_topic, organization: organization) }
-      let!(:topic) { create(:static_page_topic, organization: organization) }
+      let!(:decidim_page) { create(:static_page, :with_topic, organization:) }
+      let!(:topic) { create(:static_page_topic, organization:) }
 
       before do
         visit current_path
+      end
+
+      context "when displaying the page form" do
+        before do
+          within find("tr", text: translated(decidim_page.title)) do
+            click_link "Edit"
+          end
+        end
+
+        it_behaves_like "having a rich text editor", "edit_static_page", "full"
       end
 
       it "can edit them" do
@@ -222,7 +254,7 @@ describe "Content pages", type: :system do
         expect(page).to have_admin_callout("successfully")
 
         within "table" do
-          expect(page).to have_no_content(translated(decidim_page.title))
+          expect(page).not_to have_content(translated(decidim_page.title))
         end
       end
 

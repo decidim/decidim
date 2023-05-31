@@ -8,12 +8,12 @@ module Decidim
       subject { form }
 
       let(:organization) { create(:organization) }
-      let!(:component) { create(:dummy_component, organization: organization) }
-      let(:user) { create(:user, :confirmed, :admin, organization: organization) }
+      let!(:component) { create(:dummy_component, organization:) }
+      let(:user) { create(:user, :confirmed, :admin, organization:) }
       let(:file) { upload_test_file(Decidim::Dev.test_file("import_proposals.csv", "text/csv")) }
       let(:name) { "dummies" }
 
-      let(:params) { { file: file, name: name } }
+      let(:params) { { file:, name: } }
 
       let(:form) do
         described_class.from_params(params).with_context(
@@ -38,7 +38,7 @@ module Decidim
 
         it "reports invalid and adds the correct error for the file field" do
           expect(subject).not_to be_valid
-          expect(subject.errors[:file]).to include("Invalid mime type")
+          expect(subject.errors[:file]).to include("Invalid MIME type.")
         end
       end
     end

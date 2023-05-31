@@ -22,6 +22,6 @@ class GeocodingValidator < ActiveModel::EachValidator
   private
 
   def geocoder_for(organization)
-    Decidim::Map.geocoding(organization: organization)
+    Decidim::Map.geocoding(organization:)
   end
 end

@@ -10,7 +10,9 @@ describe "Admin manages officializations", type: :system do
 
   let(:organization) { create(:organization) }
 
-  let!(:admin) { create(:user, :admin, :confirmed, organization: organization) }
+  let!(:admin) { create(:user, :admin, :confirmed, organization:) }
+
+  let(:profile_selector) { Decidim.redesign_active ? "div.bg-background" : ".profile--sidebar" }
 
   before do
     switch_to_host(organization.host)
@@ -20,10 +22,10 @@ describe "Admin manages officializations", type: :system do
   end
 
   describe "listing officializations" do
-    let!(:officialized) { create(:user, :officialized, organization: organization) }
-    let!(:not_officialized) { create(:user, organization: organization) }
+    let!(:officialized) { create(:user, :officialized, organization:) }
+    let!(:not_officialized) { create(:user, organization:) }
     let!(:deleted) do
-      user = create(:user, organization: organization)
+      user = create(:user, organization:)
       result = Decidim::DestroyAccount.call(user, OpenStruct.new(valid?: true, delete_reason: "Testing"))
       result["ok"]
     end
@@ -48,9 +50,27 @@ describe "Admin manages officializations", type: :system do
     it_behaves_like "paginating a collection"
   end
 
+  describe "blocked users" do
+    let!(:user) { create(:user, :blocked, organization:) }
+
+    before do
+      within ".secondary-nav" do
+        click_link "Participants"
+      end
+    end
+
+    context "when user is blocked" do
+      it "cannot be officialized" do
+        within "tr[data-user-id=\"#{user.id}\"]" do
+          expect(page).not_to have_link("Officialize")
+        end
+      end
+    end
+  end
+
   describe "officializating users" do
     context "when not yet officialized" do
-      let!(:user) { create(:user, organization: organization) }
+      let!(:user) { create(:user, organization:) }
 
       before do
         within ".secondary-nav" do
@@ -96,7 +116,7 @@ describe "Admin manages officializations", type: :system do
           :user,
           :officialized,
           officialized_as: { "en" => "Mayor of Barcelona" },
-          organization: organization
+          organization:
         )
       end
 
@@ -130,7 +150,7 @@ describe "Admin manages officializations", type: :system do
   end
 
   describe "unofficializating users" do
-    let!(:user) { create(:user, :officialized, organization: organization) }
+    let!(:user) { create(:user, :officialized, organization:) }
 
     before do
       within ".secondary-nav" do
@@ -152,7 +172,7 @@ describe "Admin manages officializations", type: :system do
   end
 
   describe "contacting the user" do
-    let!(:user) { create(:user, organization: organization) }
+    let!(:user) { create(:user, organization:) }
 
     before do
       within ".secondary-nav" do
@@ -169,7 +189,7 @@ describe "Admin manages officializations", type: :system do
   end
 
   describe "clicking on user name" do
-    let!(:user) { create(:user, organization: organization) }
+    let!(:user) { create(:user, organization:) }
 
     before do
       within ".secondary-nav" do
@@ -182,14 +202,14 @@ describe "Admin manages officializations", type: :system do
         click_link user.name
       end
 
-      within ".profile--sidebar" do
+      within profile_selector, match: :first do
         expect(page).to have_content(user.name)
       end
     end
   end
 
   describe "clicking on user nickname" do
-    let!(:user) { create(:user, organization: organization) }
+    let!(:user) { create(:user, organization:) }
 
     before do
       within ".secondary-nav" do
@@ -202,14 +222,14 @@ describe "Admin manages officializations", type: :system do
         click_link user.nickname
       end
 
-      within ".profile--sidebar" do
+      within profile_selector, match: :first do
         expect(page).to have_content(user.name)
       end
     end
   end
 
   describe "retrieving the user email address" do
-    let!(:users) { create_list(:user, 3, organization: organization) }
+    let!(:users) { create_list(:user, 3, organization:) }
 
     before do
       within ".secondary-nav" do

@@ -9,8 +9,8 @@ module Decidim
       include_context "with a graphql class type"
 
       let(:organization) { create(:organization) }
-      let(:process) { create(:participatory_process, organization: organization) }
-      let(:assembly) { create(:assembly, organization: organization) }
+      let(:process) { create(:participatory_process, organization:) }
+      let(:assembly) { create(:assembly, organization:) }
       # before do
 
       # end

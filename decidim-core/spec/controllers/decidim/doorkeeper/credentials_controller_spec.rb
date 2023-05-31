@@ -7,8 +7,8 @@ describe Decidim::Doorkeeper::CredentialsController, type: :controller do
 
   let(:user) { create(:user, :confirmed) }
   let(:organization) { user.organization }
-  let(:application) { create(:oauth_application, organization: organization) }
-  let!(:access_token) { create(:oauth_access_token, application: application, resource_owner_id: user.id) }
+  let(:application) { create(:oauth_application, organization:) }
+  let!(:access_token) { create(:oauth_access_token, application:, resource_owner_id: user.id) }
 
   before do
     request.env["decidim.current_organization"] = organization

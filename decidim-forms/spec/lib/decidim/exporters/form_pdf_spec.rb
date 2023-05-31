@@ -9,7 +9,7 @@ module Decidim
     end
 
     let(:questionnaire) { create(:questionnaire) }
-    let(:participants) { 5.times.map { create_list(:answer, 5, questionnaire: questionnaire) } }
+    let(:participants) { 5.times.map { create_list(:answer, 5, questionnaire:) } }
 
     describe "#export" do
       it "exports the collection to a pdf" do

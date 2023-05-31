@@ -44,7 +44,7 @@ module Decidim
 
       scope :open, -> { where(closed_at: nil) }
       scope :closed, -> { where.not(closed_at: nil) }
-      scope :authored_by, ->(author) { where(author: author) }
+      scope :authored_by, ->(author) { where(author:) }
       scope :commented_by, lambda { |author|
         joins(:comments).where(
           decidim_comments_comments:
@@ -147,12 +147,12 @@ module Decidim
       end
 
       def self.newsletter_participant_ids(component)
-        authors_ids = Decidim::Debates::Debate.where(component: component)
+        authors_ids = Decidim::Debates::Debate.where(component:)
                                               .where(decidim_author_type: Decidim::UserBaseEntity.name)
                                               .where.not(author: nil)
                                               .group(:decidim_author_id)
                                               .pluck(:decidim_author_id).flatten.compact
-        commentators_ids = Decidim::Comments::Comment.user_commentators_ids_in(Decidim::Debates::Debate.where(component: component))
+        commentators_ids = Decidim::Comments::Comment.user_commentators_ids_in(Decidim::Debates::Debate.where(component:))
         (authors_ids + commentators_ids).flatten.compact.uniq
       end
 
@@ -189,7 +189,7 @@ module Decidim
           last_comment_at: last_comment&.created_at,
           last_comment_by_id: last_comment&.decidim_user_group_id || last_comment&.decidim_author_id,
           last_comment_by_type: last_comment&.decidim_author_type,
-          comments_count: comments_count,
+          comments_count:,
           updated_at: Time.current
         )
       end

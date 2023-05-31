@@ -9,7 +9,7 @@ describe "Participatory Process Groups", type: :system do
     create(
       :participatory_process_group,
       :with_participatory_processes,
-      organization: organization,
+      organization:,
       title: { en: "Title", ca: "Títol", es: "Título" },
       hashtag: "my_awesome_hashtag",
       group_url: "https://www.example.org/external"
@@ -42,7 +42,7 @@ describe "Participatory Process Groups", type: :system do
         expect(page).to have_content(translated(participatory_process_group.title, locale: :en))
         expect(page).to have_selector(".card", count: 1)
 
-        expect(page).to have_no_content(translated(other_group.title, locale: :en))
+        expect(page).not_to have_content(translated(other_group.title, locale: :en))
       end
     end
 
@@ -70,7 +70,7 @@ describe "Participatory Process Groups", type: :system do
       before do
         create(
           :content_block,
-          organization: organization,
+          organization:,
           scope_name: :participatory_process_group_homepage,
           scoped_resource_id: participatory_process_group.id,
           manifest_name: :title
@@ -97,13 +97,20 @@ describe "Participatory Process Groups", type: :system do
       it "has a link to the group url" do
         expect(page).to have_link("www.example.org/external", href: "https://www.example.org/external")
       end
+
+      it_behaves_like "has embedded video in description", :description do
+        before do
+          participatory_process_group.update!(description:)
+          visit decidim_participatory_processes.participatory_process_group_path(participatory_process_group)
+        end
+      end
     end
 
     context "when the metadata content block is enabled" do
       before do
         create(
           :content_block,
-          organization: organization,
+          organization:,
           scope_name: :participatory_process_group_homepage,
           scoped_resource_id: participatory_process_group.id,
           manifest_name: :metadata
@@ -125,7 +132,7 @@ describe "Participatory Process Groups", type: :system do
       before do
         create(
           :content_block,
-          organization: organization,
+          organization:,
           scope_name: :participatory_process_group_homepage,
           scoped_resource_id: participatory_process_group.id,
           manifest_name: :cta,
@@ -149,8 +156,8 @@ describe "Participatory Process Groups", type: :system do
       context "when url is not configured" do
         let(:cta_settings) { nil }
 
-        it "doesn't show the block" do
-          expect(page).to have_no_selector("div.hero__container")
+        it "does not show the block" do
+          expect(page).not_to have_selector("div.hero__container")
         end
       end
     end
@@ -158,13 +165,13 @@ describe "Participatory Process Groups", type: :system do
     context "when the proposals block is enabled" do
       let!(:proposals_component) { create(:component, :published, participatory_space: process, manifest_name: :proposals) }
       let!(:other_process_proposals_component) { create(:component, :published, participatory_space: other_process, manifest_name: :proposals) }
-      let!(:proposal_1) { create(:proposal, component: proposals_component, title: { en: "First awesome proposal!" }) }
-      let!(:proposal_2) { create(:proposal, component: other_process_proposals_component, title: { en: "Second fabulous proposal!" }) }
+      let!(:proposal1) { create(:proposal, component: proposals_component, title: { en: "First awesome proposal!" }) }
+      let!(:proposal2) { create(:proposal, component: other_process_proposals_component, title: { en: "Second fabulous proposal!" }) }
 
       before do
         create(
           :content_block,
-          organization: organization,
+          organization:,
           scope_name: :participatory_process_group_homepage,
           scoped_resource_id: participatory_process_group.id,
           manifest_name: :highlighted_proposals
@@ -175,15 +182,15 @@ describe "Participatory Process Groups", type: :system do
 
       it "shows cards of proposals from both processes" do
         within("#participatory-process-group-homepage-highlighted-proposals") do
-          expect(page).to have_selector("#proposal_#{proposal_1.id}")
-          expect(page).to have_selector("#proposal_#{proposal_2.id}")
+          expect(page).to have_selector("#proposal_#{proposal1.id}")
+          expect(page).to have_selector("#proposal_#{proposal2.id}")
 
-          within("#proposal_#{proposal_1.id}") do
+          within("#proposal_#{proposal1.id}") do
             expect(page).to have_content "First awesome proposal!"
             expect(page).to have_i18n_content process.title
           end
 
-          within("#proposal_#{proposal_2.id}") do
+          within("#proposal_#{proposal2.id}") do
             expect(page).to have_content "Second fabulous proposal!"
             expect(page).to have_i18n_content other_process.title
           end
@@ -194,13 +201,13 @@ describe "Participatory Process Groups", type: :system do
     context "when the results block is enabled" do
       let!(:accountability_component) { create(:component, :published, participatory_space: process, manifest_name: :accountability) }
       let!(:other_process_accountability_component) { create(:component, :published, participatory_space: other_process, manifest_name: :accountability) }
-      let!(:result_1) { create(:result, component: accountability_component, title: { en: "First awesome result!" }) }
-      let!(:result_2) { create(:result, component: other_process_accountability_component, title: { en: "Second fabulous result!" }) }
+      let!(:result1) { create(:result, component: accountability_component, title: { en: "First awesome result!" }) }
+      let!(:result2) { create(:result, component: other_process_accountability_component, title: { en: "Second fabulous result!" }) }
 
       before do
         create(
           :content_block,
-          organization: organization,
+          organization:,
           scope_name: :participatory_process_group_homepage,
           scoped_resource_id: participatory_process_group.id,
           manifest_name: :highlighted_results
@@ -211,15 +218,15 @@ describe "Participatory Process Groups", type: :system do
 
       it "shows cards of results from both processes" do
         within("#participatory-process-group-homepage-highlighted-results") do
-          expect(page).to have_selector("#result_#{result_1.id}")
-          expect(page).to have_selector("#result_#{result_2.id}")
+          expect(page).to have_selector("#accountability__result_#{result1.id}")
+          expect(page).to have_selector("#accountability__result_#{result2.id}")
 
-          within("#result_#{result_1.id}") do
+          within("#accountability__result_#{result1.id}") do
             expect(page).to have_content "First awesome result!"
             expect(page).to have_i18n_content process.title
           end
 
-          within("#result_#{result_2.id}") do
+          within("#accountability__result_#{result2.id}") do
             expect(page).to have_content "Second fabulous result!"
             expect(page).to have_i18n_content other_process.title
           end
@@ -229,9 +236,10 @@ describe "Participatory Process Groups", type: :system do
 
     context "when the html block is enabled" do
       before do
+        # rubocop:disable Naming/VariableNumber
         create(
           :content_block,
-          organization: organization,
+          organization:,
           scope_name: :participatory_process_group_homepage,
           scoped_resource_id: participatory_process_group.id,
           manifest_name: :html_1,
@@ -241,6 +249,7 @@ describe "Participatory Process Groups", type: :system do
             html_content_es: nil
           }
         )
+        # rubocop:enable Naming/VariableNumber
 
         visit decidim_participatory_processes.participatory_process_group_path(participatory_process_group)
       end
@@ -257,13 +266,13 @@ describe "Participatory Process Groups", type: :system do
   context "when the meetings block is enabled" do
     let!(:meetings_component) { create(:component, :published, participatory_space: process, manifest_name: :meetings) }
     let!(:other_process_meetings_component) { create(:component, :published, participatory_space: other_process, manifest_name: :meetings) }
-    let!(:meeting_1) { create(:meeting, :published, component: meetings_component, title: { en: "First awesome meeting!" }) }
-    let!(:meeting_2) { create(:meeting, :published, component: other_process_meetings_component, title: { en: "Second fabulous meeting!" }) }
+    let!(:meeting1) { create(:meeting, :published, component: meetings_component, title: { en: "First awesome meeting!" }) }
+    let!(:meeting2) { create(:meeting, :published, component: other_process_meetings_component, title: { en: "Second fabulous meeting!" }) }
 
     before do
       create(
         :content_block,
-        organization: organization,
+        organization:,
         scope_name: :participatory_process_group_homepage,
         scoped_resource_id: participatory_process_group.id,
         manifest_name: :highlighted_meetings
@@ -285,7 +294,7 @@ describe "Participatory Process Groups", type: :system do
     before do
       create(
         :content_block,
-        organization: organization,
+        organization:,
         scope_name: :participatory_process_group_homepage,
         scoped_resource_id: participatory_process_group.id,
         manifest_name: :stats
@@ -295,7 +304,7 @@ describe "Participatory Process Groups", type: :system do
     it "shows no data if there are no components or followers in depending participatory processes" do
       visit decidim_participatory_processes.participatory_process_group_path(participatory_process_group)
 
-      within(".section-statistics") do
+      within("[data-statistics]") do
         expect(page).to have_content("There are no statistics yet")
       end
     end
@@ -306,7 +315,7 @@ describe "Participatory Process Groups", type: :system do
       let!(:proposals_component) { create(:component, :published, participatory_space: process, manifest_name: :proposals) }
       let!(:other_process_proposals_component) { create(:component, :published, participatory_space: other_process, manifest_name: :proposals) }
       let!(:other_process_meetings_component) { create(:component, :published, participatory_space: other_process, manifest_name: :meetings) }
-      let!(:user) { create(:user, organization: organization) }
+      let!(:user) { create(:user, organization:) }
 
       before do
         create_list(:proposal, 3, component: proposals_component)
@@ -322,19 +331,19 @@ describe "Participatory Process Groups", type: :system do
       end
 
       it "shows unique participants count from both participatory processes" do
-        within(".section-statistics") do
-          expect(page).to have_css("h3.section-heading", text: "STATISTICS")
-          expect(page).to have_css(".statistic__title", text: "PARTICIPANTS")
+        within("[data-statistics]") do
+          expect(page).to have_css("h2.h2", text: "Statistics")
+          expect(page).to have_css(".statistic__title", text: "Participants")
           expect(page).to have_css(".statistic__number", text: "1")
         end
       end
 
       it "shows accumulated resources from components of both participatory processes" do
-        within(".section-statistics") do
-          expect(page).to have_css("h3.section-heading", text: "STATISTICS")
-          expect(page).to have_css(".statistic__title", text: "PROPOSALS")
+        within("[data-statistics]") do
+          expect(page).to have_css("h2.h2", text: "Statistics")
+          expect(page).to have_css(".statistic__title", text: "Proposals")
           expect(page).to have_css(".statistic__number", text: "10")
-          expect(page).to have_css(".statistic__title", text: "MEETINGS")
+          expect(page).to have_css(".statistic__title", text: "Meetings")
           expect(page).to have_css(".statistic__number", text: "4")
         end
       end
@@ -342,12 +351,12 @@ describe "Participatory Process Groups", type: :system do
   end
 
   context "when participatory processes block is enabled" do
-    let!(:scope) { create :scope, organization: organization }
-    let!(:area) { create :area, organization: organization }
+    let!(:scope) { create(:scope, organization:) }
+    let!(:area) { create(:area, organization:) }
     let!(:participatory_process_group) do
       create(
         :participatory_process_group,
-        organization: organization
+        organization:
       )
     end
     let!(:past_process_with_scope) do
@@ -355,9 +364,9 @@ describe "Participatory Process Groups", type: :system do
         :participatory_process,
         :published,
         :past,
-        scope: scope,
-        organization: organization,
-        participatory_process_group: participatory_process_group
+        scope:,
+        organization:,
+        participatory_process_group:
       )
     end
     let!(:active_process) do
@@ -366,8 +375,8 @@ describe "Participatory Process Groups", type: :system do
         :published,
         :active,
         start_date: 1.year.ago,
-        organization: organization,
-        participatory_process_group: participatory_process_group
+        organization:,
+        participatory_process_group:
       )
     end
     let!(:active_process_with_scope) do
@@ -376,9 +385,9 @@ describe "Participatory Process Groups", type: :system do
         :published,
         :active,
         start_date: 1.month.ago,
-        scope: scope,
-        organization: organization,
-        participatory_process_group: participatory_process_group
+        scope:,
+        organization:,
+        participatory_process_group:
       )
     end
     let!(:active_process_with_area) do
@@ -387,9 +396,9 @@ describe "Participatory Process Groups", type: :system do
         :published,
         :active,
         start_date: 1.week.ago,
-        area: area,
-        organization: organization,
-        participatory_process_group: participatory_process_group
+        area:,
+        organization:,
+        participatory_process_group:
       )
     end
     let!(:upcoming_process_with_area) do
@@ -397,9 +406,9 @@ describe "Participatory Process Groups", type: :system do
         :participatory_process,
         :published,
         :upcoming,
-        area: area,
-        organization: organization,
-        participatory_process_group: participatory_process_group
+        area:,
+        organization:,
+        participatory_process_group:
       )
     end
     let!(:other_group_process) do
@@ -407,10 +416,10 @@ describe "Participatory Process Groups", type: :system do
         :participatory_process,
         :published,
         :active,
-        scope: scope,
-        area: area,
-        organization: organization,
-        participatory_process_group: create(:participatory_process_group, organization: organization)
+        scope:,
+        area:,
+        organization:,
+        participatory_process_group: create(:participatory_process_group, organization:)
       )
     end
     let(:titles) { page.all(".card__title") }
@@ -424,9 +433,9 @@ describe "Participatory Process Groups", type: :system do
     end
 
     shared_examples "not showing processes belonging to other group" do
-      it "doesn't list process of other group" do
+      it "does not list process of other group" do
         within("#processes-grid") do
-          expect(page).to have_no_content(translated(other_group_process.title, locale: :en))
+          expect(page).not_to have_content(translated(other_group_process.title, locale: :en))
         end
       end
     end
@@ -434,7 +443,7 @@ describe "Participatory Process Groups", type: :system do
     before do
       create(
         :content_block,
-        organization: organization,
+        organization:,
         scope_name: :participatory_process_group_homepage,
         scoped_resource_id: participatory_process_group.id,
         manifest_name: :participatory_processes

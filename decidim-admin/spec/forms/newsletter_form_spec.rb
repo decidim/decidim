@@ -6,7 +6,7 @@ module Decidim
   module Admin
     describe NewsletterForm do
       subject do
-        described_class.new(subject: newsletter_subject, body: body)
+        described_class.new(subject: newsletter_subject, body:)
                        .with_context(current_organization: organization)
       end
 
@@ -31,7 +31,7 @@ module Decidim
         it { is_expected.to be_valid }
       end
 
-      context "when there's no subject" do
+      context "when there is no subject" do
         let(:newsletter_subject) { nil }
 
         it { is_expected.to be_invalid }

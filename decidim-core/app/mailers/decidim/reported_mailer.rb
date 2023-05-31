@@ -18,7 +18,7 @@ module Decidim
         @author = @reportable.try(:creator_identity) || @reportable.try(:author)
         @original_language = original_language(@reportable)
         subject = I18n.t("report.subject", scope: "decidim.reported_mailer")
-        mail(to: user.email, subject: subject)
+        mail(to: user.email, subject:)
       end
     end
 
@@ -29,7 +29,7 @@ module Decidim
         @organization = user.organization
         @user = user
         subject = I18n.t("hide.subject", scope: "decidim.reported_mailer")
-        mail(to: user.email, subject: subject)
+        mail(to: user.email, subject:)
       end
     end
 
@@ -63,7 +63,7 @@ module Decidim
     end
 
     # This is needed to be able to use a cell in an ActionMailer, which is not supported out of the box by cells-rails.
-    # We're are passing the current object as if it was a controller.
+    # We are are passing the current object as if it was a controller.
     # We also need to define a 'current_organization' method, which is expected by Decidim::ViewModel.
     # A similar approach is used in Decidim::NewsletterMailer
     def reported_content_cell

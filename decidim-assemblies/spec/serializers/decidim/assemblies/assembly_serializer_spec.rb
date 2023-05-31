@@ -60,7 +60,7 @@ module Decidim::Assemblies
       end
 
       context "when assembly has area" do
-        let(:area) { create :area, organization: resource.organization }
+        let(:area) { create(:area, organization: resource.organization) }
 
         before do
           resource.area = area
@@ -78,7 +78,7 @@ module Decidim::Assemblies
       end
 
       context "when assembly has scope" do
-        let(:scope) { create :scope, organization: resource.organization }
+        let(:scope) { create(:scope, organization: resource.organization) }
 
         before do
           resource.scope = scope
@@ -126,7 +126,7 @@ module Decidim::Assemblies
 
       context "when assembly has attachments" do
         let!(:attachment_collection) { create(:attachment_collection, collection_for: resource) }
-        let!(:attachment) { create(:attachment, attached_to: resource, attachment_collection: attachment_collection) }
+        let!(:attachment) { create(:attachment, attached_to: resource, attachment_collection:) }
 
         it "includes the attachment" do
           serialized_assembly_attachment = subject.serialize[:attachments][:files].first

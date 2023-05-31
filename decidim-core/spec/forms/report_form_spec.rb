@@ -9,7 +9,7 @@ module Decidim
     let(:reason) { "spam" }
     let(:params) do
       {
-        reason: reason
+        reason:
       }
     end
 

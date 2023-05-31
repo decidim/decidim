@@ -5,12 +5,12 @@ require "spec_helper"
 describe Decidim::Elections::Admin::UpdateAnswer do
   subject(:command) { described_class.new(form, answer) }
 
-  let(:election) { create :election }
-  let(:question) { create :question, election: election }
-  let(:answer) { create :election_answer, question: question }
+  let(:election) { create(:election) }
+  let(:question) { create(:question, election:) }
+  let(:answer) { create(:election_answer, question:) }
   let(:component) { election.component }
   let(:organization) { component.organization }
-  let(:user) { create :user, :admin, :confirmed, organization: organization }
+  let(:user) { create(:user, :admin, :confirmed, organization:) }
   let(:form) do
     double(
       invalid?: invalid,
@@ -18,13 +18,13 @@ describe Decidim::Elections::Admin::UpdateAnswer do
       title: { en: "title" },
       description: { en: "description" },
       weight: 10,
-      proposals: proposals,
+      proposals:,
       proposal_ids: proposals.map(&:id),
       attachment: attachment_params,
       photos: current_photos,
       add_photos: uploaded_photos,
-      election: election,
-      question: question
+      election:,
+      question:
     )
   end
   let(:proposals) { [] }
@@ -53,11 +53,11 @@ describe Decidim::Elections::Admin::UpdateAnswer do
   end
 
   context "with proposals" do
-    let(:proposals_component) { create :component, manifest_name: :proposals, participatory_space: component.participatory_space }
-    let(:proposals) { create_list :proposal, 2, component: proposals_component }
+    let(:proposals_component) { create(:component, manifest_name: :proposals, participatory_space: component.participatory_space) }
+    let(:proposals) { create_list(:proposal, 2, component: proposals_component) }
 
     it "creates the answer" do
-      expect { subject.call }.to change { Decidim::Elections::Answer.count }.by(1)
+      expect { subject.call }.to change(Decidim::Elections::Answer, :count).by(1)
     end
 
     it "stores the relations with proposals" do
@@ -82,7 +82,7 @@ describe Decidim::Elections::Admin::UpdateAnswer do
   end
 
   context "when the election has started" do
-    let(:election) { create :election, :started }
+    let(:election) { create(:election, :started) }
 
     it "is not valid" do
       expect { subject.call }.to broadcast(:invalid)

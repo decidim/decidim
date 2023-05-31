@@ -16,7 +16,7 @@ module Decidim
           end
         end
 
-        DummyEvent.new(resource: resource, event_name: "dummy_event", user: user, extra: {})
+        DummyEvent.new(resource:, event_name: "dummy_event", user:, extra: {})
       end
 
       let(:resource) do
@@ -96,7 +96,7 @@ module Decidim
         end
       end
 
-      context "when the resource doesn't have an author" do
+      context "when the resource does not have an author" do
         let(:resource) { OpenStruct.new }
 
         it "ignores it" do

@@ -16,12 +16,12 @@ describe Decidim::Admin::Import::ImporterFactory do
           :search_by_mime_type
         ).with(mime_type).and_return(reader)
         expect(Decidim::Admin::Import::Importer).to receive(:new).with(
-          file: file,
-          reader: reader,
-          creator: creator,
-          context: context
+          file:,
+          reader:,
+          creator:,
+          context:
         )
-        described_class.build(file, mime_type, context: context, creator: creator)
+        described_class.build(file, mime_type, context:, creator:)
       end
     end
 
@@ -31,7 +31,7 @@ describe Decidim::Admin::Import::ImporterFactory do
           :search_by_mime_type
         ).with(mime_type).and_return(nil)
         expect do
-          described_class.build(file, mime_type, context: context, creator: creator)
+          described_class.build(file, mime_type, context:, creator:)
         end.to raise_error(NotImplementedError)
       end
     end

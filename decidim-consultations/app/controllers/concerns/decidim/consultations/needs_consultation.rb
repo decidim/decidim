@@ -2,7 +2,7 @@
 
 module Decidim
   module Consultations
-    # This module, when injected into a controller, ensures there's a
+    # This module, when injected into a controller, ensures there is a
     # consultation available and deducts it from the context.
     module NeedsConsultation
       def self.enhance_controller(instance_or_module)
@@ -38,7 +38,7 @@ module Decidim
 
         def detect_consultation
           request.env["current_consultation"] ||
-            organization_consultations.find_by(slug: params[:consultation_slug] || params[:slug])
+            organization_consultations.find_by!(slug: params[:consultation_slug] || params[:slug])
         end
 
         def organization_consultations

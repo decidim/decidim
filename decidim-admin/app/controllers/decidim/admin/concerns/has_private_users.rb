@@ -25,13 +25,13 @@ module Decidim
 
           def new
             enforce_permission_to :create, :space_private_user
-            @form = form(ParticipatorySpacePrivateUserForm).from_params({}, privatable_to: privatable_to)
+            @form = form(ParticipatorySpacePrivateUserForm).from_params({}, privatable_to:)
             render template: "decidim/admin/participatory_space_private_users/new"
           end
 
           def create
             enforce_permission_to :create, :space_private_user
-            @form = form(ParticipatorySpacePrivateUserForm).from_params(params, privatable_to: privatable_to)
+            @form = form(ParticipatorySpacePrivateUserForm).from_params(params, privatable_to:)
 
             CreateParticipatorySpacePrivateUser.call(@form, current_user, current_participatory_space) do
               on(:ok) do
@@ -94,9 +94,9 @@ module Decidim
           end
 
           def collection
-            # there's an unidentified corner case where Decidim::User
+            # there is an unidentified corner case where Decidim::User
             # may have been destroyed, but the related ParticipatorySpacePrivateUser
-            # remains in the database. That's why filtering by not null users
+            # remains in the database. That is why filtering by not null users
             @collection ||= privatable_to
                             .participatory_space_private_users
                             .includes(:user).where.not("decidim_users.id" => nil)

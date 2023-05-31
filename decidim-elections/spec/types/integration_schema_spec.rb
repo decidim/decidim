@@ -6,7 +6,7 @@ require "decidim/api/test/component_context"
 describe "Decidim::Api::QueryType" do
   include_context "with a graphql decidim component"
   let(:component_type) { "Elections" }
-  let!(:current_component) { create :elections_component, participatory_space: participatory_process }
+  let!(:current_component) { create(:elections_component, participatory_space: participatory_process) }
   let!(:election) { create(:election, :complete, :published, :finished, component: current_component) }
 
   let(:election_single_result) do
@@ -40,7 +40,6 @@ describe "Decidim::Api::QueryType" do
               "weight" => a.weight.to_i
             }
           end,
-          "description" => { "translation" => q.description[locale] },
           "id" => q.id.to_s,
           "maxSelections" => q.max_selections,
           "minSelections" => q.min_selections,
@@ -113,9 +112,6 @@ describe "Decidim::Api::QueryType" do
                     versionsCount
                     results_total
                     weight
-                  }
-                  description {
-                    translation(locale: "en")
                   }
                   id
                   maxSelections
@@ -193,9 +189,6 @@ describe "Decidim::Api::QueryType" do
               versionsCount
               results_total
               weight
-            }
-            description {
-              translation(locale: "en")
             }
             id
             maxSelections

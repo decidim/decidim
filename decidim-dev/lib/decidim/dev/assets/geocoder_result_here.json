@@ -1,72 +1,51 @@
 {
-    "Response": {
-      "MetaInfo": {
-        "Timestamp": "2013-02-08T16:26:39.382+0000"
+  "items": [
+    {
+      "title": "5 Rue Daunou, 75002 Paris, France",
+      "id": "here:af:streetsection:bI4Le6cyA.1mlQyLunYpjC:CggIBCCi-9SPARABGgE1KGQ",
+      "resultType": "houseNumber",
+      "houseNumberType": "PA",
+      "address": {
+        "label": "5 Rue Daunou, 75002 Paris, France",
+        "countryCode": "FRA",
+        "countryName": "France",
+        "stateCode": "IDF",
+        "state": "Île-de-France",
+        "county": "Paris",
+        "city": "Paris",
+        "district": "2e Arrondissement",
+        "street": "Rue Daunou",
+        "postalCode": "75002",
+        "houseNumber": "5"
       },
-      "View": [
+      "position": {
+        "lat": 48.86926,
+        "lng": 2.3321
+      },
+      "access": [
         {
-          "_type": "SearchResultsViewType",
-          "ViewId": 0,
-          "Result": [
-            {
-              "Relevance": 1.0,
-              "MatchLevel": "houseNumber",
-              "MatchQuality": {
-                "State": 1.0,
-                "City": 1.0,
-                "Street": [
-                  1.0
-                ],
-                "HouseNumber": 1.0
-              },
-              "MatchType": "pointAddress",
-              "Location": {
-                "LocationId": "NT_ArsGdYbpo6dqjPQel9gTID_4",
-                "LocationType": "point",
-                "DisplayPosition": {
-                  "Latitude": 40.7504692,
-                  "Longitude": -73.9933777
-                },
-                "NavigationPosition": [
-                  {
-                    "Latitude": 40.7500305,
-                    "Longitude": -73.9942398
-                  }
-                ],
-                "MapView": {
-                  "TopLeft": {
-                    "Latitude": 40.7515934,
-                    "Longitude": -73.9948616
-                  },
-                  "BottomRight": {
-                    "Latitude": 40.7493451,
-                    "Longitude": -73.9918938
-                  }
-                },
-                "Address": {
-                  "Label": "4 Penn Plz, New York, NY 10001, United States",
-                  "Country": "USA",
-                  "State": "NY",
-                  "County": "New York",
-                  "City": "New York",
-                  "Street": "Penn Plz",
-                  "HouseNumber": "4",
-                  "PostalCode": "10001",
-                  "AdditionalData": [
-                    {
-                      "value": "United States",
-                      "key": "CountryName"
-                    },
-                    {
-                      "value": "New York",
-                      "key": "StateName"
-                    }
-                  ]
-                }
-              }
-            }
-          ]
+          "lat": 48.86931,
+          "lng": 2.33215
         }
-      ]
+      ],
+      "mapView": {
+        "west": 2.33073,
+        "south": 48.86836,
+        "east": 2.33347,
+        "north": 48.87016
+      },
+      "scoring": {
+        "queryScore": 0.97,
+        "fieldScore": {
+          "country": 1,
+          "city": 1,
+          "streets": [
+            1
+          ],
+          "houseNumber": 1,
+          "postalCode": 0.82
+        }
+      }
     }
-  }
+  ]
+}

@@ -7,7 +7,7 @@ module Decidim
         @component = data[:resource]
         return unless component&.manifest_name == "surveys"
 
-        @survey = Survey.find_by(component: component)
+        @survey = Survey.find_by(component:)
         return unless survey&.questionnaire
 
         case data[:event_class]

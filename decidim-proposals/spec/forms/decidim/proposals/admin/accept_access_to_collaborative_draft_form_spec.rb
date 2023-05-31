@@ -12,14 +12,14 @@ module Decidim
         let(:collaborative_draft) { create(:collaborative_draft, :open) }
         let(:state) { collaborative_draft.state }
         let(:id) { collaborative_draft.id }
-        let(:current_user) { create(:user, organization: organization) }
-        let(:requester_user) { create(:user, organization: organization) }
+        let(:current_user) { create(:user, organization:) }
+        let(:requester_user) { create(:user, organization:) }
         let(:requester_user_id) { requester_user.id }
         let(:params) do
           {
-            state: state,
-            requester_user_id: requester_user_id,
-            id: id
+            state:,
+            requester_user_id:,
+            id:
           }
         end
 
@@ -41,26 +41,26 @@ module Decidim
           it { is_expected.to be_invalid }
         end
 
-        context "when there's no state" do
+        context "when there is no state" do
           let(:state) { nil }
 
           it { is_expected.to be_invalid }
         end
 
-        context "when there's no collaborative_draft id" do
+        context "when there is no collaborative_draft id" do
           let(:id) { nil }
 
           it { is_expected.to be_invalid }
         end
 
-        context "when there's no requester user id" do
+        context "when there is no requester user id" do
           let(:requester_user_id) { nil }
 
           it { is_expected.to be_invalid }
         end
 
         context "when the requester user is not a requester" do
-          let(:not_requester_user) { create(:user, organization: organization) }
+          let(:not_requester_user) { create(:user, organization:) }
           let(:requester_user_id) { not_requester_user.id }
 
           it { is_expected.to be_invalid }

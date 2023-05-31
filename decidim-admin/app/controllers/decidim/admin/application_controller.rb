@@ -6,6 +6,7 @@ module Decidim
     class ApplicationController < ::DecidimController
       include NeedsOrganization
       include NeedsPermission
+      include NeedsPasswordChange
       include NeedsSnippets
       include FormFactory
       include LocaleSwitcher
@@ -13,6 +14,8 @@ module Decidim
       include PayloadInfo
       include HttpCachingDisabler
       include DisableRedirectionToExternalHost
+
+      include DisabledRedesignLayout
 
       helper Decidim::Admin::ApplicationHelper
       helper Decidim::Admin::AttributesDisplayHelper
@@ -28,6 +31,7 @@ module Decidim
       helper Decidim::LanguageChooserHelper
       helper Decidim::ComponentPathHelper
       helper Decidim::SanitizeHelper
+      helper Decidim::Templates::Admin::ApplicationHelper if Decidim::Admin.enable_templates
 
       default_form_builder Decidim::Admin::FormBuilder
 

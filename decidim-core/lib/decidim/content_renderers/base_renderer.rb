@@ -10,6 +10,8 @@ module Decidim
     #
     # @abstract Subclass and override {#render} to implement a content renderer
     class BaseRenderer
+      include Decidim::ContentProcessor::Common
+
       # @return [String] the content to be formatted
       attr_reader :content
 

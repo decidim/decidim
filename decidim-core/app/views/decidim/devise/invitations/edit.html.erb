@@ -27,11 +27,10 @@
 
             <% if f.object.class.require_password_on_accepting %>
               <div class="field">
-                <p><%= f.password_field :password, required: "required", autocomplete: "new-password", minlength: ::PasswordValidator::MINIMUM_LENGTH, maxlength: ::PasswordValidator::MAX_LENGTH %></p>
+                <p><%= f.password_field :password, password_field_options_for(:user).except(:help_text) %></p>
               </div>
-
               <div class="field">
-                <p><%= f.password_field :password_confirmation, required: "required", autocomplete: "new-password", minlength: ::PasswordValidator::MINIMUM_LENGTH, maxlength: ::PasswordValidator::MAX_LENGTH %></p>
+                <p><%= f.password_field :password_confirmation, password_field_options_for(:user).except(:help_text) %></p>
               </div>
             <% end %>
           </div>
@@ -39,15 +38,18 @@
 
         <div class="card" id="card__tos">
           <div class="card__content">
-            <fieldset>
-              <legend><%= t("tos_title", scope: "decidim.devise.registrations.new") %></legend>
-              <p class="tos-text"><%= strip_tags(translated_attribute(terms_and_conditions_page.content)) %></p>
-            </fieldset>
+            <h3><%= t("tos_title", scope: "decidim.devise.registrations.new") %></h3>
+
+            <div class="tos-text">
+              <% terms_of_service_summary_content_blocks.each do |content_block| %>
+                <%= cell content_block.manifest.cell, content_block %>
+              <% end %>
+            </div>
 
             <div class="field">
-              <% link = link_to t("terms", scope: "decidim.devise.registrations.new"), page_path("terms-and-conditions"), target: "_blank" %>
-              <% label = t("tos_agreement", scope: "decidim.devise.registrations.new", link: link) %>
-              <%= f.check_box :tos_agreement, label: label, required: "required" %>
+              <% link = link_to t("terms", scope: "decidim.devise.registrations.new"), page_path("terms-of-service"), target: "_blank" %>
+              <% label = t("tos_agreement", scope: "decidim.devise.registrations.new", link:) %>
+              <%= f.check_box :tos_agreement, label:, required: "required" %>
             </div>
           </div>
         </div>

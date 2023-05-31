@@ -18,9 +18,9 @@ module Decidim
         #
         # Broadcasts :ok if successful, :invalid otherwise.
         def call
-          @conference.with_lock do
-            return broadcast(:invalid) if form.invalid?
+          return broadcast(:invalid) if form.invalid?
 
+          @conference.with_lock do
             update_conference_diploma
             Decidim.traceability.perform_action!(:update_diploma, @conference, form.current_user) do
               @conference

@@ -1,23 +1,26 @@
-<div class="row small-12">
-  <% paginate_posts.each do |post| %>
-    <div class="card card--post">
-      <% if post.photo.present? %>
-        <%= image_tag post.photo.url, class: "card__image" %>
-      <% end %>
-      <div class="card__content">
-        <div class="card__header">
-          <%= link_to post, class: "card__link" do %>
-          <h2 class="card__title">
-            <%= translated_attribute post.title %>
-          </h2>
-          <% end %>
-          <div class="card__author">
-            <%= cell "decidim/author", present(post.author), from: post, has_actions: true %>
-          </div>
-        </div>
+<% paginate_posts.each do |post| %>
+  <div class="blogs__list-item" data-post>
+    <% if post.photo.present? %>
+      <div class="blogs__list-item__image">
+        <%= image_tag post.photo.url, class: "w-full h-full object-cover" %>
+      </div>
+    <% end %>
+
+    <div class="blogs__list-item__content">
+      <h2 class="h4 blogs__list-item__title">
+        <%= link_to translated_attribute(post.title), post %>
+      </h2>
+
+      <div class="blogs__list-item__text">
         <%= decidim_sanitize_editor post_description(post) %>
       </div>
+
+      <div class="blogs__list-item__author">
+        <% post_presenter = Decidim::Blogs::PostPresenter.new(post) %>
+        <%= cell "decidim/author", post_presenter.author, from: post, has_actions: true, skip_profile_link: true %>
+      </div>
     </div>
-  <% end %>
-</div>
+  </div>
+<% end %>
+
 <%= decidim_paginate paginate_posts %>

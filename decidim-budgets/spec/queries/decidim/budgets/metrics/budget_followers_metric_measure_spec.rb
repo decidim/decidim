@@ -6,10 +6,10 @@ describe Decidim::Budgets::Metrics::BudgetFollowersMetricMeasure do
   let(:day) { Time.zone.yesterday }
   let(:organization) { create(:organization) }
   let(:not_valid_resource) { create(:dummy_resource) }
-  let(:participatory_space) { create(:participatory_process, :with_steps, organization: organization) }
-  let(:budgets_component) { create(:budgets_component, :published, participatory_space: participatory_space, settings: { vote_threshold_percent: 0 }) }
+  let(:participatory_space) { create(:participatory_process, :with_steps, organization:) }
+  let(:budgets_component) { create(:budgets_component, :published, participatory_space:, settings: { vote_threshold_percent: 0 }) }
   let(:budget) { create(:budget, component: budgets_component) }
-  let(:project) { create(:project, budget: budget, created_at: day) }
+  let(:project) { create(:project, budget:, created_at: day) }
   let!(:follows) { create_list(:follow, 5, followable: project, created_at: day) }
   let!(:old_follows) { create_list(:follow, 5, followable: project, created_at: day - 1.week) }
 

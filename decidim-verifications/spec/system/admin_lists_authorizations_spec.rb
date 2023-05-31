@@ -7,7 +7,7 @@ describe "Admin lists authorizations", type: :system do
     create(:organization, available_authorizations: ["id_documents"])
   end
 
-  let(:admin) { create(:user, :admin, :confirmed, organization: organization) }
+  let(:admin) { create(:user, :admin, :confirmed, organization:) }
 
   before do
     switch_to_host(organization.host)

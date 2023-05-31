@@ -7,6 +7,8 @@ module Decidim
     # A command with all the business logic when processing the CSV to verify
     # user groups.
     class ProcessUserGroupVerificationCsv < Decidim::Command
+      include Decidim::Admin::CustomImport
+
       # Public: Initializes the command.
       #
       # form - the form object containing the uploaded file
@@ -17,7 +19,7 @@ module Decidim
       # Executes the command. Broadcasts these events:
       #
       # - :ok when everything is valid.
-      # - :invalid if the form wasn't valid and we couldn't proceed.
+      # - :invalid if the form was not valid and we could not proceed.
       #
       # Returns nothing.
       def call
@@ -33,8 +35,7 @@ module Decidim
         verifier = @form.current_user
         organization = @form.current_organization
 
-        CSV.foreach(ActiveStorage::Blob.service.path_for(@form.file.key)) do |row|
-          email = row[0]
+        process_import_file(@form.file) do |(email)|
           VerifyUserGroupFromCsvJob.perform_later(email, verifier, organization) if email.present?
         end
       end

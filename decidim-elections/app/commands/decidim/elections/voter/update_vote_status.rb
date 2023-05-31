@@ -69,8 +69,8 @@ module Decidim
             resource: vote.election,
             affected_users: [vote.user],
             extra: {
-              vote: vote,
-              verify_url: verify_url
+              vote:,
+              verify_url:
             }
           }
 

@@ -8,15 +8,16 @@ module Decidim
 
     helper Decidim::Messaging::ConversationHelper
 
-    helper_method :profile_holder, :active_content
+    helper_method :profile_holder, :active_content, :context_menu
 
     before_action :ensure_profile_holder
     before_action :ensure_profile_holder_is_a_group, only: [:members]
     before_action :ensure_profile_holder_is_a_user, only: [:groups, :following]
-    before_action :ensure_user_not_blocked, only: [:following, :followers, :badges]
+    before_action :ensure_user_not_blocked
+
+    redesign active: true
 
     def show
-      return redirect_to profile_timeline_path(nickname: params[:nickname]) if profile_holder == current_user
       return redirect_to profile_members_path if profile_holder.is_a?(Decidim::UserGroup)
 
       redirect_to profile_activity_path(nickname: params[:nickname])

@@ -8,7 +8,7 @@ module Decidim
 
     describe "#status_for" do
       it "returns the status of a user for a badge" do
-        Gamification::BadgeScore.create(user: user, value: 2, badge_name: "test")
+        Gamification::BadgeScore.create(user:, value: 2, badge_name: "test")
         expect(Gamification.status_for(user, :test).score).to eq(2)
       end
     end

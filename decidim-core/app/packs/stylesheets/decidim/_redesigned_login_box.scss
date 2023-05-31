@@ -1,0 +1,31 @@
+.login__box {
+  @apply w-full md:w-1/2 flex flex-col items-start gap-4 border-2 border-background rounded p-6 cursor-pointer text-left;
+
+  &-container {
+    @apply flex flex-col md:flex-row gap-4 md:gap-12;
+  }
+
+  &-icon {
+    @apply w-8 h-8 text-tertiary fill-current;
+  }
+
+  &-title {
+    @apply text-2xl font-semibold;
+  }
+
+  &-description {
+    @apply text-lg text-gray-2;
+  }
+
+  &-link {
+    @apply inline-flex items-center gap-1 text-secondary font-semibold mt-auto;
+  }
+
+  &:hover {
+    @apply border-tertiary;
+  }
+
+  &:hover &-link {
+    @apply underline;
+  }
+}

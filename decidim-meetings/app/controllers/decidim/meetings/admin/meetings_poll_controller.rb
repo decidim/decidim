@@ -13,7 +13,7 @@ module Decidim
         helper Decidim::Forms::Admin::ApplicationHelper
 
         def edit
-          enforce_permission_to :update, :poll, meeting: meeting, poll: poll
+          enforce_permission_to(:update, :poll, meeting:, poll:)
 
           @form = form(Admin::QuestionnaireForm).from_model(questionnaire)
 
@@ -21,7 +21,7 @@ module Decidim
         end
 
         def update
-          enforce_permission_to :update, :poll, meeting: meeting, poll: poll
+          enforce_permission_to(:update, :poll, meeting:, poll:)
 
           @form = form(Admin::QuestionnaireForm).from_params(params)
 
@@ -69,7 +69,7 @@ module Decidim
         private
 
         def questionnaire
-          @questionnaire ||= Decidim::Meetings::Questionnaire.find_or_initialize_by(questionnaire_for: questionnaire_for)
+          @questionnaire ||= Decidim::Meetings::Questionnaire.find_or_initialize_by(questionnaire_for:)
         end
 
         def blank_question
@@ -99,7 +99,7 @@ module Decidim
         end
 
         def poll
-          @poll ||= Poll.find_or_initialize_by(meeting: meeting)
+          @poll ||= Poll.find_or_initialize_by(meeting:)
         end
       end
     end

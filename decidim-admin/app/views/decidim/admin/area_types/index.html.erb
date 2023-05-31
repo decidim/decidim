@@ -21,7 +21,11 @@
           <% area_types.each do |area_type| %>
             <tr>
               <td>
-                <%= translated_attribute(area_type.name) %>
+                <% if allowed_to? :update, :area_type, area_type: area_type %>
+                  <%= link_to translated_attribute(area_type.name), [:edit, area_type] %>
+                <% else %>
+                  <%= translated_attribute(area_type.name) %>
+                <% end %>
               </td>
               <td>
                 <%= translated_attribute(area_type.plural) %>

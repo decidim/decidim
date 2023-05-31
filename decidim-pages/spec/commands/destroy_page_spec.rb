@@ -7,7 +7,7 @@ module Decidim
     describe DestroyPage do
       describe "call" do
         let(:component) { create(:component, manifest_name: "pages") }
-        let!(:page) { create(:page, component: component) }
+        let!(:page) { create(:page, component:) }
         let(:command) { described_class.new(component) }
 
         it "broadcasts ok" do

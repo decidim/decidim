@@ -9,9 +9,15 @@ module Decidim
 
       helper ConversationHelper
 
+      layout "layouts/decidim/application", force_redesign: true
+
       before_action :authenticate_user!
 
-      helper_method :conversation, :user_grouped_messages, :sender_is_user?, :user_groups
+      helper_method :conversation, :user_grouped_messages, :sender_is_user?, :user_groups, :validation_messages
+
+      def redesign_enabled?
+        true
+      end
 
       # Shows the form to initiate a conversation with an user (the recipient)
       # recipient is passed via GET parameter:
@@ -41,7 +47,7 @@ module Decidim
         StartConversation.call(@form) do
           on(:ok) do |conversation|
             render action: :create, locals: {
-              conversation: conversation,
+              conversation:,
               form: MessageForm.new
             }
           end
@@ -49,7 +55,7 @@ module Decidim
           on(:invalid) do |messages|
             render action: :error, locals: {
               error: I18n.t("messaging.conversations.create.error", scope: "decidim"),
-              messages: messages
+              messages:
             }, status: :unprocessable_entity
           end
         end
@@ -60,10 +66,12 @@ module Decidim
 
         @conversations = UserConversations.for(current_user)
         @form = MessageForm.new
+
+        validation_messages << t("decidim.messaging.conversations.index.no_conversations") if @conversations.blank?
       end
 
       def show
-        enforce_permission_to :read, :conversation, conversation: conversation
+        enforce_permission_to(:read, :conversation, conversation:)
 
         @conversation.mark_as_read(current_user)
 
@@ -71,19 +79,19 @@ module Decidim
       end
 
       def update
-        enforce_permission_to :update, :conversation, conversation: conversation
+        enforce_permission_to(:update, :conversation, conversation:)
 
         @form = form(MessageForm).from_params(params, sender: current_user)
 
         ReplyToConversation.call(conversation, @form) do
           on(:ok) do |message|
-            render action: :update, locals: { message: message }
+            render action: :update, locals: { message: }
           end
 
           on(:invalid) do |messages|
             render action: :error, locals: {
               error: I18n.t("messaging.conversations.update.error", scope: "decidim"),
-              messages: messages
+              messages:
             }, status: :unprocessable_entity
           end
         end
@@ -97,10 +105,15 @@ module Decidim
 
       private
 
+      # deprecated
       def user_groups
         return [] unless current_organization.user_groups_enabled?
 
         current_user.manageable_user_groups
+      end
+
+      def validation_messages
+        @validation_messages ||= []
       end
 
       def conversation

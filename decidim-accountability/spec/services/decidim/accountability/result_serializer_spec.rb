@@ -10,7 +10,7 @@ module Decidim
       end
 
       let!(:parent) { create(:result) }
-      let!(:result) { create(:result, parent: parent, component: parent.component) }
+      let!(:result) { create(:result, parent:, component: parent.component) }
       let!(:category) { create(:category, participatory_space: component.participatory_space) }
       let!(:scope) { create(:scope, organization: component.participatory_space.organization) }
       let(:participatory_process) { component.participatory_space }
@@ -20,8 +20,8 @@ module Decidim
       let(:proposals) { create_list(:proposal, 2, component: proposal_component) }
 
       before do
-        result.update!(category: category)
-        result.update!(scope: scope)
+        result.update!(category:)
+        result.update!(scope:)
         result.link_resources(proposals, "included_proposals")
       end
 
@@ -66,13 +66,13 @@ module Decidim
 
         it "serializes the title" do
           I18n.available_locales.each do |locale|
-            expect(translated(serialized[:title], locale: locale)).to eq(translated(result.title, locale: locale))
+            expect(translated(serialized[:title], locale:)).to eq(translated(result.title, locale:))
           end
         end
 
         it "serializes the description" do
           I18n.available_locales.each do |locale|
-            expect(translated(serialized[:description], locale: locale)).to eq(translated(result.description, locale: locale))
+            expect(translated(serialized[:description], locale:)).to eq(translated(result.description, locale:))
           end
         end
 

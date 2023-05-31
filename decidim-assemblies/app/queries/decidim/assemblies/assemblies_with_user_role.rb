@@ -39,8 +39,8 @@ module Decidim
       attr_reader :user, :role
 
       def assembly_ids
-        user_roles = AssemblyUserRole.where(user: user) if role == :any
-        user_roles = AssemblyUserRole.where(user: user, role: role) if role != :any
+        user_roles = AssemblyUserRole.where(user:) if role == :any
+        user_roles = AssemblyUserRole.where(user:, role:) if role != :any
         user_roles.pluck(:decidim_assembly_id)
       end
     end

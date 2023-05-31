@@ -26,7 +26,7 @@ module Decidim
         allow(paddable).to receive(:pad).and_return(pad)
       end
 
-      context "when there's no pad" do
+      context "when there is no pad" do
         let(:pad) { nil }
 
         it "returns nil" do
@@ -44,7 +44,7 @@ module Decidim
         allow(paddable).to receive(:pad).and_return(pad)
       end
 
-      context "when there's no pad" do
+      context "when there is no pad" do
         let(:pad) { nil }
 
         it "returns nil" do
@@ -58,7 +58,7 @@ module Decidim
     end
 
     describe "pad" do
-      context "when there's no Etherpad service configured" do
+      context "when there is no Etherpad service configured" do
         let(:etherpad_config) { nil }
 
         it "returns nil" do
@@ -66,7 +66,7 @@ module Decidim
         end
       end
 
-      context "when the component hasn't enabled pads" do
+      context "when the component has not enabled pads" do
         before do
           paddable.component.settings = { enable_pads_creation: false }
         end
@@ -115,7 +115,7 @@ module Decidim
       end
 
       def secure_hash(id)
-        Decidim::Tokenizer.new(salt: salt).hex_digest(id)
+        Decidim::Tokenizer.new(salt:).hex_digest(id)
       end
     end
   end

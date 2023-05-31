@@ -5,7 +5,7 @@ require "spec_helper"
 describe Decidim::Metrics::UsersMetricManage do
   let(:organization) { create(:organization) }
   let(:day) { Time.zone.yesterday }
-  let!(:users) { create_list(:user, 5, created_at: day, confirmed_at: nil, organization: organization) }
+  let!(:users) { create_list(:user, 5, created_at: day, confirmed_at: nil, organization:) }
   let!(:other_user) { create(:user, created_at: day) }
 
   include_context "when managing metrics"
@@ -27,7 +27,7 @@ describe Decidim::Metrics::UsersMetricManage do
     end
 
     it "updates metric records" do
-      create(:metric, metric_type: "users", day: day, cumulative: 1, quantity: 1, organization: organization)
+      create(:metric, metric_type: "users", day:, cumulative: 1, quantity: 1, organization:)
       registry = generate_metric_registry.first
 
       expect(Decidim::Metric.count).to eq(1)

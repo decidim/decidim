@@ -8,10 +8,10 @@ module Decidim
 
     let(:params) do
       {
-        resource_class: resource_class,
-        property: property,
-        blob: blob,
-        form_class: form_class
+        resource_class:,
+        property:,
+        blob:,
+        form_class:
       }
     end
 
@@ -24,9 +24,9 @@ module Decidim
 
     describe "#create" do
       it "validates" do
-        post :create, params: params
+        post(:create, params:)
 
-        expect(response.status).to eq(200)
+        expect(response).to have_http_status(:ok)
         expect(parsed_response).to eq([])
       end
     end

@@ -41,7 +41,7 @@ module Decidim
         allow(form).to receive(:valid?).and_return(false)
       end
 
-      it "doesn't update anything" do
+      it "does not update anything" do
         form.name = "John Doe"
         old_name = user.name
         expect { command.call }.to broadcast(:invalid)
@@ -78,8 +78,14 @@ module Decidim
       end
 
       describe "updating the email" do
+        let(:validator) { instance_double(ValidEmail2::Address) }
+
         before do
           form.email = "new@email.com"
+
+          allow(ValidEmail2::Address).to receive(:new).and_return(validator)
+          allow(validator).to receive(:valid?).and_return(true)
+          allow(validator).to receive(:disposable?).and_return(false)
         end
 
         it "broadcasts ok" do
@@ -119,6 +125,8 @@ module Decidim
       end
 
       describe "when the password is present" do
+        let(:user) { create(:user, :confirmed, password_updated_at: 1.week.ago) }
+
         before do
           form.password = "pNY6h9crVtVHZbdE"
           form.password_confirmation = "pNY6h9crVtVHZbdE"
@@ -127,6 +135,11 @@ module Decidim
         it "updates the password" do
           expect { command.call }.to broadcast(:ok)
           expect(user.reload.valid_password?("pNY6h9crVtVHZbdE")).to be(true)
+        end
+
+        it "sets the password_updated_at to the current time" do
+          expect { command.call }.to broadcast(:ok)
+          expect(User.last.password_updated_at).to be_between(2.seconds.ago, Time.current)
         end
       end
 

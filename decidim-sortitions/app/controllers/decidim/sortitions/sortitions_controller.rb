@@ -18,8 +18,8 @@ module Decidim
                       .result
                       .includes(:category)
 
-        @sortitions = paginate(@sortitions)
         @sortitions = reorder(@sortitions)
+        @sortitions = paginate(@sortitions)
       end
 
       def show

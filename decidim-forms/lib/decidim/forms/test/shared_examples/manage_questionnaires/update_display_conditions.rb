@@ -5,17 +5,17 @@ require "spec_helper"
 shared_examples_for "update display conditions" do
   context "when loading a saved display condition" do
     let!(:condition_question_type) { "short_answer" }
-    let!(:condition_question) { create(:questionnaire_question, questionnaire: questionnaire, question_type: condition_question_type, position: 1) }
-    let!(:question) { create(:questionnaire_question, questionnaire: questionnaire, question_type: "short_answer", position: 2) }
+    let!(:condition_question) { create(:questionnaire_question, questionnaire:, question_type: condition_question_type, position: 1) }
+    let!(:question) { create(:questionnaire_question, questionnaire:, question_type: "short_answer", position: 2) }
     let!(:condition_type) { :answered }
     let!(:answer_option) { nil }
 
     let!(:display_condition) do
       create(:display_condition,
-             question: question,
-             condition_question: condition_question,
-             condition_type: condition_type,
-             answer_option: answer_option)
+             question:,
+             condition_question:,
+             condition_type:,
+             answer_option:)
     end
 
     before do

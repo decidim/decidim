@@ -31,7 +31,7 @@ module Decidim
     end
 
     def map_utility
-      @map_utility ||= Decidim::Map.static(organization: organization)
+      @map_utility ||= Decidim::Map.static(organization:)
     end
   end
 end

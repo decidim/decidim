@@ -9,9 +9,9 @@ module Decidim
     let(:attributes) do
       {
         "editor_image" => {
-          organization: organization,
+          organization:,
           author_id: user_id,
-          file: file
+          file:
         }
       }
     end

@@ -25,7 +25,7 @@ module Decidim::System
     end
     let(:context) do
       {
-        current_user: create(:user, organization: organization),
+        current_user: create(:user, organization:),
         current_organization: organization
       }
     end

@@ -6,8 +6,8 @@ module Decidim::ParticipatoryProcesses
   describe Admin::CreateParticipatoryProcessType do
     subject { described_class.new(form) }
 
-    let(:organization) { create :organization }
-    let(:user) { create :user, :admin }
+    let(:organization) { create(:organization) }
+    let(:user) { create(:user, :admin) }
     let(:form) do
       instance_double(
         Admin::ParticipatoryProcessTypeForm,
@@ -29,7 +29,7 @@ module Decidim::ParticipatoryProcesses
 
     context "when everything is ok" do
       it "creates a participatory process type" do
-        expect { subject.call }.to change { Decidim::ParticipatoryProcessType.count }.by(1)
+        expect { subject.call }.to change(Decidim::ParticipatoryProcessType, :count).by(1)
       end
 
       it "broadcasts ok" do

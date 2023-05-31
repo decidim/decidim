@@ -23,7 +23,7 @@ module Decidim
       # badge if the progress gets lost somehow. The lambda receives a user as an
       # argument.
       #
-      # It might not be possible sometimes, so it's fine to leave it empty.
+      # It might not be possible sometimes, so it is fine to leave it empty.
       attribute :reset, Proc
 
       validates :name, :levels, presence: true
@@ -50,7 +50,7 @@ module Decidim
       end
 
       def description(organization_name = nil)
-        I18n.t("description", organization_name: organization_name, scope: translation_scope)
+        I18n.t("description", organization_name:, scope: translation_scope)
       end
 
       def conditions
@@ -60,9 +60,9 @@ module Decidim
       def score_descriptions(score)
         {
           unearned_own: I18n.t("unearned_own", scope: translation_scope),
-          description_own: I18n.t("description_own", score: score, scope: translation_scope),
+          description_own: I18n.t("description_own", score:, scope: translation_scope),
           unearned_another: I18n.t("unearned_another", scope: translation_scope),
-          description_another: I18n.t("description_another", score: score, scope: translation_scope)
+          description_another: I18n.t("description_another", score:, scope: translation_scope)
         }
       end
 

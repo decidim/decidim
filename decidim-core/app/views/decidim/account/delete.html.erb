@@ -5,6 +5,9 @@
   <div class="columns large-8 end">
     <div class="callout alert">
       <p><%= t(".alert") %></p>
+      <% if has_authorizations? %>
+        <p><strong><%= t(".leaving_authorizations_behind") %></strong></p>
+      <% end %>
     </div>
     <p><%= t(".explanation") %></p>
     <%= decidim_form_for(@form, url: account_path, method: :delete, namespace: "delete_user", html: { class: "user-form delete-account" }) do |f| %>

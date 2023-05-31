@@ -17,7 +17,7 @@ module Decidim::Admin
         invited_by: current_user,
         invitation_instructions: "invite_admin",
         organization: current_user.organization,
-        current_user: current_user
+        current_user:
       )
     end
 

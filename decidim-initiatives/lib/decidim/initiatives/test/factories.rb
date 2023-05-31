@@ -25,6 +25,11 @@ FactoryBot.define do
     minimum_committee_members { 3 }
     child_scope_threshold_enabled { false }
     only_global_scope_enabled { false }
+    comments_enabled { true }
+
+    trait :with_comments_disabled do
+      comments_enabled { false }
+    end
 
     trait :attachments_enabled do
       attachments_enabled { true }
@@ -105,10 +110,28 @@ FactoryBot.define do
   end
 
   factory :initiative, class: "Decidim::Initiative" do
-    title { generate_localized_title }
-    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
+    transient do
+      skip_injection { false }
+    end
+
+    title do
+      if skip_injection
+        Decidim::Faker::Localized.localized { generate(:title) }
+      else
+        Decidim::Faker::Localized.localized { "<script>alert(\"Initiative TITLE\")</script> #{generate(:title)}" }
+      end
+    end
+    description do
+      Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+        if skip_injection
+          Decidim::Faker::Localized.localized { generate(:title) }
+        else
+          Decidim::Faker::Localized.localized { "<script>alert(\"Meetings description\");</script> #{generate(:title)}" }
+        end
+      end
+    end
     organization
-    author { create(:user, :confirmed, organization: organization) }
+    author { create(:user, :confirmed, organization:) }
     published_at { Time.current }
     state { "published" }
     signature_type { "online" }
@@ -117,14 +140,14 @@ FactoryBot.define do
 
     scoped_type do
       create(:initiatives_type_scope,
-             type: create(:initiatives_type, organization: organization, signature_type: signature_type))
+             type: create(:initiatives_type, organization:, signature_type:))
     end
 
     after(:create) do |initiative|
       if initiative.author.is_a?(Decidim::User) && Decidim::Authorization.where(user: initiative.author).where.not(granted_at: nil).none?
         create(:authorization, user: initiative.author, granted_at: Time.now.utc)
       end
-      create_list(:initiatives_committee_member, 3, initiative: initiative)
+      create_list(:initiatives_committee_member, 3, initiative:)
     end
 
     trait :created do
@@ -194,12 +217,12 @@ FactoryBot.define do
     trait :with_user_extra_fields_collection do
       scoped_type do
         create(:initiatives_type_scope,
-               type: create(:initiatives_type, :with_user_extra_fields_collection, organization: organization))
+               type: create(:initiatives_type, :with_user_extra_fields_collection, organization:))
       end
     end
 
     trait :with_area do
-      area { create(:area, organization: organization) }
+      area { create(:area, organization:) }
     end
 
     trait :with_documents do
@@ -269,6 +292,27 @@ FactoryBot.define do
 
     trait :rejected do
       state { "rejected" }
+    end
+  end
+
+  factory :initiatives_settings, class: "Decidim::InitiativesSettings" do
+    initiatives_order { "random" }
+    organization
+
+    trait :most_recent do
+      initiatives_order { "date" }
+    end
+
+    trait :most_signed do
+      initiatives_order { "signatures" }
+    end
+
+    trait :most_commented do
+      initiatives_order { "comments" }
+    end
+
+    trait :most_recently_published do
+      initiatives_order { "publication_date" }
     end
   end
 end

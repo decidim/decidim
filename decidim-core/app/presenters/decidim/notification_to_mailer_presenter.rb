@@ -25,10 +25,11 @@ module Decidim
 
     def event
       @event ||= event_class.constantize.new(
-        resource: resource,
-        user: user,
-        event_name: event_name,
-        extra: extra
+        resource:,
+        user:,
+        user_role:,
+        event_name:,
+        extra:
       )
     end
 

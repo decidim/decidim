@@ -21,7 +21,7 @@ module Decidim
 
       attribute :settings, Object
       attribute :default_step_settings, Object
-      attribute :step_settings, Hash[String => Object]
+      attribute(:step_settings, { String => Object })
 
       attribute :share_tokens, Array[ShareToken]
 

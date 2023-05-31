@@ -5,7 +5,11 @@ module Decidim
   module EndorsableHelper
     # Invokes the decidim/endorsement_buttons cell.
     def endorsement_buttons_cell(resource)
-      cell("decidim/endorsement_buttons", resource)
+      if redesign_enabled?
+        cell("decidim/endorsement_block", resource)
+      else
+        cell("decidim/endorsement_buttons", resource)
+      end
     end
 
     # Invokes the decidim/endorsers_list cell.
@@ -85,8 +89,8 @@ module Decidim
       end
       http_method = selected ? :delete : :post
       render partial: "decidim/endorsements/identity", locals:
-      { identity: presenter, selected: selected,
-        http_method: http_method,
+      { identity: presenter, selected:,
+        http_method:,
         create_url: path_to_create_endorsement(resource, user_group),
         destroy_url: path_to_destroy_endorsement(resource, user_group) }
     end

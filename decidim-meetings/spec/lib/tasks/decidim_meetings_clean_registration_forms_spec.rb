@@ -20,7 +20,7 @@ describe "decidim_meetings:clean_registration_forms", type: :task do
 
     it "removes related questionnaires and answers but not the meeting itself" do
       expect(meeting.end_time).to be <= threshold
-      task.execute(months: months)
+      task.execute(months:)
 
       expect { questionnaire.reload }.to raise_error(ActiveRecord::RecordNotFound)
       expect(meeting.reload).to be_present
@@ -35,7 +35,7 @@ describe "decidim_meetings:clean_registration_forms", type: :task do
       expect(questionnaire.id).to eq(meeting.questionnaire.id)
 
       expect(meeting.end_time).to be > threshold
-      task.execute(months: months)
+      task.execute(months:)
 
       expect(questionnaire.reload).to be_present
       expect(meeting.reload).to be_present

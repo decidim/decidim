@@ -6,7 +6,7 @@ describe "Admin manages meetings registration forms", type: :system do
   let(:manifest_name) { "meetings" }
 
   let!(:questionnaire) { create(:questionnaire) }
-  let!(:meeting) { create :meeting, scope: scope, component: current_component, questionnaire: questionnaire, registrations_enabled: true, registration_form_enabled: true }
+  let!(:meeting) { create(:meeting, scope:, component: current_component, questionnaire:, registrations_enabled: true, registration_form_enabled: true) }
 
   include_context "when managing a component as an admin"
 
@@ -32,7 +32,7 @@ describe "Admin manages meetings registration forms", type: :system do
       fill_in_i18n_editor(
         :meeting_registration_email_custom_content,
         "#meeting-registration_email_custom_content-tabs",
-        en: "We're very happy you registered for this event!"
+        en: "We are very happy you registered for this event!"
       )
     end
   end

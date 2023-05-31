@@ -21,8 +21,9 @@ module Decidim
       end
 
       c.attribute :drinks, Array[drinkform]
-      c.attribute :foods, Hash[Symbol => foodform]
+      c.attribute(:foods, { Symbol => foodform })
       c.attribute :gadgets, Array[gadgetmodel]
+      c.attribute :attachables, attachablesform
 
       c
     end
@@ -33,6 +34,12 @@ module Decidim
         attribute :name, String
 
         validates :name, presence: true
+
+        attr_reader :secret_sauce
+
+        def map_model(model)
+          @secret_sauce = model.custom_sauce
+        end
       end
     end
     let(:foodform) do
@@ -55,6 +62,13 @@ module Decidim
         def self.model_name
           ActiveModel::Name.new(self, nil, "Gadget")
         end
+      end
+    end
+    let(:attachablesform) do
+      Class.new(described_class) do
+        mimic :attachables
+
+        attribute :attachments, Array, default: []
       end
     end
     let(:attributes) { valid_attributes }
@@ -163,11 +177,15 @@ module Decidim
           email: "john@example.org",
           boss: "0",
           drinks: [{ name: "Water" }],
-          foods: { voner: { name: "Vöner", vegan: true } }
+          foods: { voner: { name: "Vöner", vegan: true } },
+          attachments:,
+          attachables:
         )
       end
+      let(:attachments) { create_list(:attachment, 5) }
+      let(:attachables) { [] }
 
-      it "initiates the form and the sub-form correctly" do
+      it "initiates the form and the sub-forms correctly" do
         expect(subject).to be_a(form)
         expect(subject.id).to eq(1)
         expect(subject.name).to eq("John")
@@ -179,6 +197,51 @@ module Decidim
         expect(subject.foods[:voner].name).to eq("Vöner")
         expect(subject.foods[:voner].vegan).to be(true)
         expect(subject.gadgets.empty?).to be(true)
+        expect(subject.attachables.attachments).to eq(attachments)
+      end
+
+      context "when Active Record objects are provided as nested attribute values" do
+        let(:drink_class) do
+          Class.new(ApplicationRecord) do
+            self.table_name = :decidim_dummy_resources_dummy_resources
+
+            def custom_sauce
+              "foobar"
+            end
+          end
+        end
+        let(:drink) { drink_class.new }
+
+        let(:model) do
+          OpenStruct.new(id: 1, drinks: [drink])
+        end
+
+        it "calls the map_model method on the created nested form object" do
+          expect(subject.drinks.first.secret_sauce).to eq("foobar")
+        end
+      end
+
+      context "when Active Record Relation is provided as nested attribute value for a non-array type attribute" do
+        let(:attachables) { Decidim::DummyResources::DummyResource.where(id: dummy_resources.map(&:id)) }
+        let(:component) { create(:component) }
+        let(:dummy_resources) { create_list(:dummy_resource, 4, component:) }
+
+        it "maps the nested attributes correctly" do
+          expect(subject.attachables.attachments).to eq(attachments)
+        end
+      end
+
+      context "when Active Record CollectionProxy is provided as nested attribute value for a non-array type attribute" do
+        let(:component) { create(:component) }
+        let(:reportable) { create(:dummy_resource, component:) }
+        let(:moderation) { create(:moderation, reportable:, report_count: 1) }
+        let!(:reports) { create_list(:report, 4, moderation:) }
+
+        let(:attachables) { reportable.reports }
+
+        it "maps the nested attributes correctly" do
+          expect(subject.attachables.attachments).to eq(attachments)
+        end
       end
     end
 

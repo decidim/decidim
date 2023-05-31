@@ -3,7 +3,7 @@
 RSpec.shared_context "when in a proposal" do
   routes { Decidim::Proposals::Engine.routes }
 
-  let(:proposal) { create(:proposal, component: component) }
+  let(:proposal) { create(:proposal, component:) }
   let(:user) { create(:user, :confirmed, organization: component.organization) }
   let(:params) do
     {

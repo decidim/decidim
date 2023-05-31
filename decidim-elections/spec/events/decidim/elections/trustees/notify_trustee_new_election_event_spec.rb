@@ -21,7 +21,7 @@ describe Decidim::Elections::Trustees::NotifyTrusteeNewElectionEvent do
   describe "email_outro" do
     it "is generated correctly" do
       expect(subject.email_outro)
-        .to eq("You have received this notification because you've been added as trustee for the #{resource_title} election.")
+        .to eq("You have received this notification because you have been added as trustee for the #{resource_title} election.")
     end
   end
 

@@ -3,7 +3,7 @@
 module Decidim
   module ParticipatoryProcessGroups
     # This cell renders the filter tabs of participatory processes
-    # in a group. It's inherited from ProcessFiltersCell of participatory
+    # in a group. It is inherited from ProcessFiltersCell of participatory
     # processes index but is based in the group processes
     #
     # The `model` must be a Decidim::ParticipatoryProcessGroup`
@@ -60,7 +60,7 @@ module Decidim
             with_area: get_filter(:with_area),
             with_type: filter_with_type ? get_filter(:with_type) : nil
           },
-          current_user: current_user,
+          current_user:,
           organization: current_organization
         ).result
 

@@ -2,7 +2,7 @@
   <div class="card card--process">
     <%= link_to consultation_path(consultation), class: "card__link" do %>
       <div class="card__image-top"
-           style="background-image:url(<%= consultation.attached_uploader(:banner_image).path %>)"></div>
+           style="background-image:url('<%= consultation.attached_uploader(:banner_image).path %>')"></div>
     <% end %>
     <div class="card__content">
       <%= link_to consultation_path(consultation), class: "card__link" do %>

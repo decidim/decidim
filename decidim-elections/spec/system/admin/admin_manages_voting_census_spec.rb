@@ -30,9 +30,37 @@ describe "Admin manages polling officers", type: :system do
     end
   end
 
+  context "when data is invalid" do
+    before do
+      create(:dataset, :data_created, voting:)
+      visit decidim_admin_votings.voting_census_path(voting)
+    end
+
+    it "shows the processed file result" do
+      expect(page).to have_admin_callout("Finished processing")
+      expect(page).not_to have_content("You can now proceed to generate the access codes")
+      expect(page).to have_content("Please delete the current census and start over")
+    end
+
+    it "shows an option to delete the census" do
+      expect(page).to have_link("Delete all census data", count: 2)
+    end
+
+    context "when deleting the census" do
+      it "deletes the census" do
+        within "#wrapper-action-view" do
+          accept_confirm { click_link "Delete all census data" }
+        end
+
+        expect(page).to have_admin_callout("Census data deleted")
+        expect(page).to have_content("There is no census yet")
+      end
+    end
+  end
+
   context "when data exists" do
     before do
-      create :dataset, :data_created, :with_data, voting: voting
+      create(:dataset, :data_created, :with_data, voting:)
       visit decidim_admin_votings.voting_census_path(voting)
     end
 
@@ -73,7 +101,7 @@ describe "Admin manages polling officers", type: :system do
 
   context "when access codes have been generated" do
     before do
-      create :dataset, :codes_generated, voting: voting
+      create(:dataset, :codes_generated, voting:)
       visit decidim_admin_votings.voting_census_path(voting)
     end
 
@@ -89,7 +117,7 @@ describe "Admin manages polling officers", type: :system do
 
   context "when census is frozen" do
     before do
-      create :dataset, :frozen, voting: voting
+      create(:dataset, :frozen, voting:)
       visit decidim_admin_votings.voting_census_path(voting)
     end
 

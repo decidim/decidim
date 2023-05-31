@@ -7,12 +7,12 @@ describe "Space admin manages global moderations", type: :system do
     create(
       :process_admin,
       :confirmed,
-      organization: organization,
+      organization:,
       participatory_process: participatory_space
     )
   end
   let(:organization) { current_component.organization }
-  let(:current_component) { create :component }
+  let(:current_component) { create(:component) }
   let(:participatory_space) { current_component.participatory_space }
   let!(:reportables) { create_list(:dummy_resource, 2, component: current_component) }
   let(:participatory_space_path) do
@@ -24,15 +24,46 @@ describe "Space admin manages global moderations", type: :system do
     login_as user, scope: :user
   end
 
+  context "when the user did not accepted the admin ToS" do
+    before do
+      user.update(admin_terms_accepted_at: nil)
+      visit decidim_admin.moderations_path
+    end
+
+    it "has a message that they need to accept the admin TOS" do
+      expect(page).to have_content("You are not authorized")
+      expect(page).to have_content("Please take a moment to review the admin terms of service. Otherwise you will not be able to manage the platform")
+    end
+
+    it "has only the Dashboard menu item in the main navigation" do
+      within ".main-nav" do
+        expect(page).to have_text("Dashboard")
+        expect(page).to have_selector("li a", count: 1)
+      end
+    end
+
+    context "when they visit other admin pages" do
+      before do
+        visit decidim_admin.newsletters_path
+      end
+
+      it "says that you are not authorized" do
+        within ".callout.alert" do
+          expect(page).to have_text("You are not authorized to perform this action")
+        end
+      end
+    end
+  end
+
   context "when the user can visualize the components" do
     let!(:reportable) { create(:dummy_resource, component: current_component, title: { "en" => "<p>Dummy<br> Title</p>" }) }
-    let!(:moderation) { create(:moderation, reportable: reportable) }
+    let!(:moderation) { create(:moderation, reportable:) }
 
     it "can see links to components" do
       visit decidim_admin.moderations_path
 
       within "body", wait: 2 do
-        expect(page).to have_content("Moderations")
+        expect(page).to have_content("Reported content")
         expect(page).to have_link("Visit URL")
 
         find_link("Visit URL").hover
@@ -61,16 +92,16 @@ describe "Space admin manages global moderations", type: :system do
 
   context "when the user can manage a space without moderations" do
     let(:participatory_space) do
-      create :participatory_process, organization: organization
+      create(:participatory_process, organization:)
     end
 
-    it "can't see any moderation" do
+    it "cannot see any moderation" do
       visit decidim_admin.moderations_path
 
       within ".container" do
-        expect(page).to have_content("Moderations")
+        expect(page).to have_content("Reported content")
 
-        expect(page).to have_no_selector("table.table-list tbody tr")
+        expect(page).not_to have_selector("table.table-list tbody tr")
       end
     end
   end

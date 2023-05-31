@@ -82,15 +82,15 @@ module Decidim
         proposal = if author.nil?
                      create_with_authors(
                        attributes: origin_attributes,
-                       original_proposal: original_proposal,
-                       action_user: action_user
+                       original_proposal:,
+                       action_user:
                      )
                    else
                      create(
                        attributes: origin_attributes,
-                       author: author,
-                       user_group_author: user_group_author,
-                       action_user: action_user
+                       author:,
+                       user_group_author:,
+                       action_user:
                      )
                    end
 
@@ -122,7 +122,7 @@ module Decidim
 
           new_attachment.save!
         rescue Errno::ENOENT, OpenURI::HTTPError => e
-          Rails.logger.warn("[ERROR] Couldn't copy attachment from proposal #{original_proposal.id} when copying to component due to #{e.message}")
+          Rails.logger.warn("[ERROR] Could not copy attachment from proposal #{original_proposal.id} when copying to component due to #{e.message}")
         end
       end
 

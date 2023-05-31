@@ -7,13 +7,13 @@ module Decidim
     # used in filters that uses checkboxes trees
     def check_boxes_tree_options(value, label, **options)
       checkbox_options = {
-        value: value,
-        label: label,
+        value:,
+        label:,
         multiple: true,
         include_hidden: false,
         label_options: {
           "data-children-checkbox": "",
-          value: value
+          value:
         }
       }
       options.merge!(checkbox_options)

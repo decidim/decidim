@@ -6,11 +6,11 @@ module Decidim
   describe CreateReport do
     describe "call" do
       let(:organization) { create(:organization) }
-      let(:component) { create(:component, organization: organization) }
-      let(:reportable) { create(:dummy_resource, component: component) }
-      let!(:admin) { create(:user, :admin, :confirmed, organization: organization) }
-      let!(:admin_no_moderation_mail) { create(:user, :admin, :confirmed, organization: organization, email_on_moderations: false) }
-      let(:user) { create(:user, :confirmed, organization: organization) }
+      let(:component) { create(:component, organization:) }
+      let(:reportable) { create(:dummy_resource, component:) }
+      let!(:admin) { create(:user, :admin, :confirmed, organization:) }
+      let!(:admin_no_moderation_mail) { create(:user, :admin, :confirmed, organization:, email_on_moderations: false) }
+      let(:user) { create(:user, :confirmed, organization:) }
       let(:form) { ReportForm.from_params(form_params) }
       let(:form_params) do
         {
@@ -29,7 +29,7 @@ module Decidim
           expect { command.call }.to broadcast(:invalid)
         end
 
-        it "doesn't create the report" do
+        it "does not create the report" do
           expect { command.call }.not_to change(Report, :count)
         end
       end
@@ -80,7 +80,7 @@ module Decidim
             .with(admin, last_report)
         end
 
-        it "doesnt send an email to the admin when he/she doesnt allow it" do
+        it "does not send an email to the admin when he/she does not allow it" do
           allow(ReportedMailer).to receive(:report).and_call_original
           command.call
           last_report = Report.last
@@ -93,11 +93,11 @@ module Decidim
           before do
             expect(form).to receive(:invalid?).at_least(:once).and_return(false)
             (Decidim.max_reports_before_hiding - 1).times do
-              described_class.new(form, reportable, create(:user, organization: organization)).call
+              described_class.new(form, reportable, create(:user, organization:)).call
             end
           end
 
-          it "doesn't create an additional moderation" do
+          it "does not create an additional moderation" do
             expect { command.call }.not_to change(Moderation, :count)
 
             last_moderation = Moderation.last

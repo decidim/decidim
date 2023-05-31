@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "webpush"
+require "web-push"
 
 module Decidim
   # This class generates a notification based on the given event, for the given
@@ -11,25 +11,27 @@ module Decidim
   class SendPushNotification
     include ActionView::Helpers::UrlHelper
 
-    # Send the push notification. Returns `nil` if the user didn't allowed push notifications
-    # or if the subscription to push notifications doesn't exist
+    # Send the push notification. Returns `nil` if the user did not allowed push notifications
+    # or if the subscription to push notifications does not exist
     #
     # Returns the result of the dispatch or nil if user or subscription are empty
     def perform(notification)
-      return unless Rails.application.secrets.vapid[:enabled]
+      return unless Rails.application.secrets.dig(:vapid, :enabled)
 
-      notification.user.notifications_subscriptions.values.map do |subscription|
-        message_params = notification_params(Decidim::PushNotificationPresenter.new(notification))
-        payload = build_payload(message_params, subscription)
-        # Capture webpush exceptions in order to avoid this call to be repeated by the background job runner
-        # Webpush::Error class is the parent class of all defined errors
-        begin
-          Webpush.payload_send(**payload)
-        rescue Webpush::Error => e
-          Rails.logger.warn("[ERROR] Push notification delivery failed due to #{e.message}")
-          nil
-        end
-      end.compact
+      I18n.with_locale(notification.user.locale || notification.user.organization.default_locale) do
+        notification.user.notifications_subscriptions.values.map do |subscription|
+          message_params = notification_params(Decidim::PushNotificationPresenter.new(notification))
+          payload = build_payload(message_params, subscription)
+          # Capture webpush exceptions in order to avoid this call to be repeated by the background job runner
+          # Webpush::Error class is the parent class of all defined errors
+          begin
+            WebPush.payload_send(**payload)
+          rescue WebPush::Error => e
+            Rails.logger.warn("[ERROR] Push notification delivery failed due to #{e.message}")
+            nil
+          end
+        end.compact
+      end
     end
 
     private

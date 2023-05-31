@@ -15,7 +15,7 @@ module Decidim
       it "translates the attribute against the current locale" do
         attribute = { "ca" => "Hola", "zh-CN" => "你好" }
 
-        I18n.with_locale(:'zh-CN') do
+        I18n.with_locale(:"zh-CN") do
           expect(helper.translated_attribute(attribute)).to eq("你好")
         end
       end
@@ -25,7 +25,7 @@ module Decidim
           it "uses the default locale" do
             attribute = { "ca" => "Hola", "en" => "Hello" }
 
-            I18n.with_locale(:'zh-CN') do
+            I18n.with_locale(:"zh-CN") do
               expect(helper.translated_attribute(attribute)).to eq("Hello")
             end
           end
@@ -35,7 +35,7 @@ module Decidim
           it "returns the first available string" do
             attribute = { "ca" => "Hola" }
 
-            I18n.with_locale(:'zh-CN') do
+            I18n.with_locale(:"zh-CN") do
               expect(helper.translated_attribute(attribute)).to eq("Hola")
             end
           end
@@ -48,7 +48,7 @@ module Decidim
         it "uses the given organization default locale" do
           attribute = { "ca" => "Hola", "en" => "Hello" }
 
-          I18n.with_locale(:'zh-CN') do
+          I18n.with_locale(:"zh-CN") do
             expect(helper.translated_attribute(attribute, other_organization)).to eq("Hola")
           end
         end

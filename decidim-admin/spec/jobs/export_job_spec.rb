@@ -7,7 +7,7 @@ module Decidim
     describe ExportJob do
       let!(:component) { create(:component, manifest_name: "dummy") }
       let(:organization) { component.organization }
-      let!(:user) { create(:user, organization: organization) }
+      let!(:user) { create(:user, organization:) }
 
       it "sends an email with the result of the export" do
         ExportJob.perform_now(user, component, "dummies", "CSV")
@@ -26,7 +26,7 @@ module Decidim
           export_data = double
 
           expect(Decidim::Exporters::CSV)
-            .to(receive(:new).with(anything, DummySerializer))
+            .to(receive(:new).with(anything, Decidim::DummyResources::DummySerializer))
             .and_return(double(export: export_data))
 
           expect(ExportMailer)
@@ -42,7 +42,7 @@ module Decidim
           export_data = double
 
           expect(Decidim::Exporters::JSON)
-            .to(receive(:new).with(anything, DummySerializer))
+            .to(receive(:new).with(anything, Decidim::DummyResources::DummySerializer))
             .and_return(double(export: export_data))
 
           expect(ExportMailer)

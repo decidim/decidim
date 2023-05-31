@@ -37,16 +37,15 @@ ar:
       response:
         decidim_consultations_response_group_id: الفريق
     errors:
+      models:
+        question:
+          attributes:
+            max_votes:
+              lower_than_min: يجب أن يكون الحد الأقصى لعدد الأصوات أعلى أو يساوي الحد الأدنى.
       vote:
         decidim_consultations_response_id:
           not_found: الرد غير موجود.
   activerecord:
-    errors:
-      models:
-        decidim/consultations/vote:
-          attributes:
-            question:
-              invalid_num_votes: عدد الأصوات غير صالح
     models:
       decidim/consultation:
         zero: المشاورات
@@ -85,6 +84,7 @@ ar:
         new_response: استجابة جديدة
         new_response_group: فريق جديد
         publish_results: نشر النتائج
+        response_groups: إدارة مجموعات الاستجابة
         unpublish_results: نتائج غير منشورة
       consultation_publications:
         create:
@@ -116,6 +116,7 @@ ar:
           create: إنشاء
           title: استشارة جديدة
         results:
+          not_visible: وستكون النتائج متاحة لدى إغلاق المشاورات
           participants: "%{count} مشارِكين"
           total_votes: 'المجموع: %{count} أصوات'
         update:
@@ -174,6 +175,7 @@ ar:
             other: استجابات
       question_configuration:
         form:
+          help: يمكن بإعداد أسئلة خيارات متعددة عن طريق زيادة الحد الأقصى لعدد الردود التي يمكن أن يختارها المشارك. القيمة القصوى الافتراضية هي 1، بمعنى أنه يمكن التصويت على رد واحد فقط.
           title: الإعداد المتقدّم
       question_publications:
         create:
@@ -202,12 +204,20 @@ ar:
           error: حدثت مشكلة أثناء تحديث هذا السؤال.
           success: تم تحديث السؤال بنجاح.
       response_groups:
+        create:
+          error: طرأت مشكلة خلال إنشاء مجموعة رد جديدة.
+          success: تم إنشاء مجموعة رد جديدة بنجاح.
+        destroy:
+          error: طرأت مشكلة خلال إزالة مجموعة الاستجابة. يتوجب التحقق من أنه لا توجد ردود تعتمد عليها.
+          success: تم إلغاء مجموعة الرد بنجاح.
         edit:
           update: تحديث
         form:
           title: معلومات عامة
+        help: يمكن استخدام المجموعات لتنظيم أسئلة خيارات متعددة ضمن حزم.
         new:
           create: إنشاء
+          title: مجموعة رد جديدة
         update:
           error: وقعت هناك مشكلة عند تحديث هذه الإجابة.
           success: تم تحديث الإجابة بنجاح.
@@ -231,6 +241,7 @@ ar:
       titles:
         consultations: المشاورات
         questions: الأسئلة
+        response_groups: مجموعات الرد
         responses: استجابات
         results: النتائج
     consultations:
@@ -248,6 +259,8 @@ ar:
           label: 'ترتيب المشاورات حسب:'
           random: عشوائية
           recent: الأحدث
+        show:
+          dates: التواريخ
       content_blocks:
         highlighted_consultations:
           name: مشاورات أبرزت
@@ -262,6 +275,7 @@ ar:
       filters:
         active: نشيط
         all: الكل
+        date: التاريخ
         finished: تم الانتهاء من
         search: بحث
         upcoming: القادمة
@@ -275,8 +289,8 @@ ar:
       index:
         title: المشاورات
       last_activity:
-        new_consultation: استشارة جديدة
-        new_question_at_html: "<span>سؤال جديد في %{link}</span>"
+        new_consultation: 'مشاورة جديدة:'
+        new_question: 'سؤال جديد:'
       pages:
         home:
           highlighted_consultations:
@@ -302,11 +316,15 @@ ar:
           other: يصوت من
       question_multiple_votes:
         results_rules:
+          minimum_votes_per_user:
+            description: يمكن للمشاركين توزيع %{votes} أصوات كحد أدنى من ضمن خيارات مختلفة.
           title: خيارات عديدة متاحة مسموحة للإجابة على هذا السؤال
           total_participants: لقد شارك مجموع يقدّر بـ %{count} أشخاص في التصويت.
           vote_limit:
             description: يمكن للمشارِكين التصويت على %{limit} خيارات كأقصى حد.
         voting_rules:
+          minimum_votes_per_user:
+            description: يتوجب عليم توزيع %{votes} أصوات كحد أدنى من ضمن خيارات مختلفة.
           title: 'التصويت خاضع للقواعد التالية:'
           vote_limit:
             description: يمكنك التصويت إلى غاية %{limit} خيارات.
@@ -314,7 +332,7 @@ ar:
             votes: أصوات
       question_votes:
         create:
-          error: كانت هناك مشكلة في التصويت على السؤال
+          success: يمكنك تغيير ذلك حتى نهاية المشاورة. سيتم قبول التصويت الأخير فقط.
           title_error: خطأ في التصويت!
           title_success: تم تسجيل التصويت بنجاح
       regular_questions:
@@ -334,6 +352,8 @@ ar:
     help:
       participatory_spaces:
         consultations:
+          contextual: "<p>المشاورة <strong></strong> هي مساحة تسمح لك بتوجيه سؤال واضح إلى جميع الأشخاص الذين يشكلون منظمة، وبتوجيه دعوة للمشاركة في المشاورة وإشعال شرارة وتنظيم النقاش لصالح الرد أو ضده. وعند حلول الاستشارة، يمكنك التصويت ونشر نتائج الأصوات.</p> <p>أمثلة: يمكن أن تكون المشاورات حول أي جانب يؤثر على منظمة ما: على سبيل المثال تغير اسم أو شعار المنظمة عن طريق طرح البدائل، تقرير بنعم أو لا لصالح المشاركة أو عدمها في منظمة أكبر، تصديق أو رفض خطة استراتيجية جديدة أو نتيجة فريق عامل، أو تحديد ما إذا كانت الوظائف ينبغي أن تظل ولايات واحدة أو 2 أو 3 كحد أقصى.</p>\n"
+          page: "<p>المشاورة <strong></strong> هي مساحة تسمح لك بتوجيه سؤال واضح إلى جميع الأشخاص الذين يشكلون منظمة، وبتوجيه دعوة للمشاركة في المشاورة وإشعال شرارة وتنظيم النقاش لصالح الرد أو ضده. وعند حلول الاستشارة، يمكنك التصويت ونشر نتائج الأصوات.</p> <p>أمثلة: يمكن أن تكون المشاورات حول أي جانب يؤثر على منظمة ما: على سبيل المثال تغير اسم أو شعار المنظمة عن طريق طرح البدائل، تقرير بنعم أو لا لصالح المشاركة أو عدمها في منظمة أكبر، تصديق أو رفض خطة استراتيجية جديدة أو نتيجة فريق عامل، أو تحديد ما إذا كانت الوظائف ينبغي أن تظل ولايات واحدة أو 2 أو 3 كحد أقصى.</p>\n"
           title: ما هي المشاورات؟
     menu:
       consultations: المشاورات
@@ -358,24 +378,29 @@ ar:
         verification_required: تحقق من حسابك قبل التصويت
         vote: تصويت
       vote_modal:
+        close_modal: اغلاق النموذج
         contextual_help: من فضلك ، حدد خيار.
         title: 'التشاور: التصويت السؤال'
       vote_modal_confirm:
         change: يتغيرون
+        close_modal: اغلاق النموذج
         confirm: تؤكد
         contextual_help: يرجى تأكيد الخيار المحدد.
         title: 'التشاور: تأكيد التصويت'
     resources:
       consultations:
         actions:
+          comment: تعليق
           vote: صوِّت
+    statistics:
+      consultations_count: المشاورات
+      votes_count: الأصوات
   layouts:
     decidim:
       consultation_voting_data:
         start_voting_date: يبدأ التصويت
       question_components:
         question_menu_item: السؤال
-        unfold: كشف
       question_header:
         back_to_consultation: انظر جميع المشاورات
         back_to_question: العودة إلى السؤال

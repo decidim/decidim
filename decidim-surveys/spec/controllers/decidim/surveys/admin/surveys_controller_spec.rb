@@ -14,7 +14,7 @@ module Decidim
 
         let(:answers) do
           survey.questionnaire.questions.map do |question|
-            create(:answer, questionnaire: survey.questionnaire, question: question, user: user)
+            create(:answer, questionnaire: survey.questionnaire, question:, user:)
           end
         end
 
@@ -37,7 +37,7 @@ module Decidim
           end
 
           it "renders the index template" do
-            get :index, params: params
+            get(:index, params:)
             expect(response).to render_template(:index)
           end
         end
@@ -48,12 +48,12 @@ module Decidim
               component_id: survey.component.id,
               participatory_process_slug: survey.component.participatory_space.slug,
               id: survey.id,
-              session_token: session_token
+              session_token:
             }
           end
 
           it "renders the show template" do
-            get :show, params: params
+            get(:show, params:)
             expect(response).to render_template(:show)
           end
         end
@@ -65,12 +65,12 @@ module Decidim
               component_id: survey.component.id,
               participatory_process_slug: survey.component.participatory_space.slug,
               id: survey.id,
-              session_token: session_token
+              session_token:
             }
           end
 
           it "redirects with a flash notice message" do
-            get :export_response, params: params
+            get(:export_response, params:)
 
             expect(response).to be_redirect
             expect(flash[:notice]).to be_present

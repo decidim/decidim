@@ -7,12 +7,12 @@ module Decidim::Meetings
     subject { described_class.new(meeting, user) }
 
     let(:registrations_enabled) { true }
-    let(:organization) { create :organization }
-    let(:participatory_process) { create :participatory_process, organization: organization }
-    let(:component) { create :component, manifest_name: :meetings, participatory_space: participatory_process }
-    let(:meeting) { create :meeting, component: component, registrations_enabled: registrations_enabled }
-    let(:user) { create :user, :confirmed, organization: organization }
-    let!(:invitation) { create(:invite, meeting: meeting, user: user) }
+    let(:organization) { create(:organization) }
+    let(:participatory_process) { create(:participatory_process, organization:) }
+    let(:component) { create(:component, manifest_name: :meetings, participatory_space: participatory_process) }
+    let(:meeting) { create(:meeting, component:, registrations_enabled:) }
+    let(:user) { create(:user, :confirmed, organization:) }
+    let!(:invitation) { create(:invite, meeting:, user:) }
 
     context "when everything is ok" do
       it "broadcasts ok" do
@@ -32,7 +32,7 @@ module Decidim::Meetings
       end
     end
 
-    context "when the invitation doesn't exists" do
+    context "when the invitation does not exists" do
       let(:invitation) { nil }
 
       it "broadcasts invalid" do

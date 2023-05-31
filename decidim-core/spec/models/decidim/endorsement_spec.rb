@@ -7,14 +7,14 @@ module Decidim
     subject { endorsement }
 
     let!(:organization) { create(:organization) }
-    let!(:component) { create(:component, organization: organization, manifest_name: "dummy") }
-    let!(:participatory_process) { create(:participatory_process, organization: organization) }
-    let!(:author) { create(:user, organization: organization) }
-    let!(:user_group) { create(:user_group, verified_at: Time.current, organization: organization, users: [author]) }
-    let!(:resource) { create(:dummy_resource, component: component, users: [author]) }
+    let!(:component) { create(:component, organization:, manifest_name: "dummy") }
+    let!(:participatory_process) { create(:participatory_process, organization:) }
+    let!(:author) { create(:user, organization:) }
+    let!(:user_group) { create(:user_group, verified_at: Time.current, organization:, users: [author]) }
+    let!(:resource) { create(:dummy_resource, component:, users: [author]) }
     let!(:endorsement) do
-      build(:endorsement, resource: resource, author: author,
-                          user_group: user_group)
+      build(:endorsement, resource:, author:,
+                          user_group:)
     end
 
     it "is valid" do
@@ -32,8 +32,8 @@ module Decidim
     it "validates uniqueness for author and user_group and resource combination" do
       endorsement.save!
       expect do
-        create(:endorsement, resource: resource, author: author,
-                             user_group: user_group)
+        create(:endorsement, resource:, author:,
+                             user_group:)
       end.to raise_error(ActiveRecord::RecordInvalid)
     end
 
@@ -77,17 +77,17 @@ module Decidim
       end
 
       let!(:other_user_group) { create(:user_group, verified_at: Time.current, organization: author.organization, users: [author]) }
-      let!(:other_endorsement_1) do
-        create(:endorsement, resource: resource, author: author)
+      let!(:other_endorsement1) do
+        create(:endorsement, resource:, author:)
       end
-      let!(:other_endorsement_2) do
-        create(:endorsement, resource: resource, author: author, user_group: other_user_group)
+      let!(:other_endorsement2) do
+        create(:endorsement, resource:, author:, user_group: other_user_group)
       end
 
       it "sorts user_grup endorsements first and then by created_at" do
         expected_sorting = [
-          endorsement.id, other_endorsement_2.id,
-          other_endorsement_1.id
+          endorsement.id, other_endorsement2.id,
+          other_endorsement1.id
         ]
         expect(resource.endorsements.for_listing.pluck(:id)).to eq(expected_sorting)
       end

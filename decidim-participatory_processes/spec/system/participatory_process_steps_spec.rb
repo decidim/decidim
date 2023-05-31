@@ -7,7 +7,7 @@ describe "Participatory Process Steps", type: :system do
   let!(:participatory_process) do
     create(
       :participatory_process,
-      organization: organization,
+      organization:,
       description: { en: "Description", ca: "Descripció", es: "Descripción" },
       short_description: { en: "Short description", ca: "Descripció curta", es: "Descripción corta" }
     )
@@ -19,7 +19,7 @@ describe "Participatory Process Steps", type: :system do
 
   context "when there are some processes with steps" do
     let!(:steps) do
-      create_list(:participatory_process_step, 3, participatory_process: participatory_process)
+      create_list(:participatory_process_step, 3, participatory_process:)
     end
 
     before do
@@ -45,7 +45,7 @@ describe "Participatory Process Steps", type: :system do
       visit decidim_participatory_processes.participatory_process_participatory_process_steps_path(participatory_process)
 
       within ".process-header__phase" do
-        expect(page).to have_no_css(".process-header__button")
+        expect(page).not_to have_css(".process-header__button")
       end
     end
 

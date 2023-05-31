@@ -26,7 +26,7 @@ module Decidim
 
     after_commit :update_counter_cache, on: [:create, :destroy]
 
-    scope :for_scope, ->(scope) { where(scope: scope) }
+    scope :for_scope, ->(scope) { where(scope:) }
 
     # Public: Generates a hashed representation of the initiative support.
     #

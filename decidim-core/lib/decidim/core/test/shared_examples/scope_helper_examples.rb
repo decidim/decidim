@@ -11,13 +11,13 @@ shared_examples "scope helpers" do
     create(
       :component,
       manifest_name: "dummy",
-      participatory_space: participatory_space,
-      settings: { scopes_enabled: scopes_enabled, scope_id: component_scope&.id }
+      participatory_space:,
+      settings: { scopes_enabled:, scope_id: component_scope&.id }
     )
   end
-  let(:scope) { create(:scope, organization: organization) }
-  let(:subscope) { create(:subscope, organization: organization) }
-  let(:resource) { create(:dummy_resource, component: component, scope: scope) }
+  let(:scope) { create(:scope, organization:) }
+  let(:subscope) { create(:subscope, organization:) }
+  let(:resource) { create(:dummy_resource, component:, scope:) }
 
   before do
     allow(helper).to receive(:current_participatory_space).and_return(participatory_space)
@@ -44,7 +44,7 @@ shared_examples "scope helpers" do
     end
 
     context "when the process has a different scope than the organization" do
-      let(:participatory_space_scope) { create(:scope, organization: organization) }
+      let(:participatory_space_scope) { create(:scope, organization:) }
       let(:component_scope) { participatory_space_scope }
 
       it { is_expected.to be_truthy }

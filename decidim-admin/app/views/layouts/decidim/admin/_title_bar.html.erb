@@ -20,7 +20,7 @@
             <%= link_to t("name", scope: "locale"), "#", id: "admin-user-menu-control", "aria-controls": "admin-user-menu", "aria-haspopup": "menu" %>
             <ul class="menu is-dropdown-submenu" id="admin-user-menu" role="menu" aria-labelledby="admin-user-menu-control" tabindex="-1">
               <% (available_locales - [I18n.locale.to_s]).each do |locale| %>
-                <li><%= link_to(locale_name(locale), decidim.locale_path(locale: locale), method: :post, tabindex: "-1") %></li>
+                <li><%= link_to(locale_name(locale), decidim.locale_path(locale:), method: :post, tabindex: "-1") %></li>
               <% end %>
             </ul>
           </li>

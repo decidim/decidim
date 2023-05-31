@@ -20,7 +20,7 @@ module Decidim
 
         def create
           enforce_permission_to :create, :response_group, question: current_question
-          @form = response_group_form.from_params(params, current_question: current_question)
+          @form = response_group_form.from_params(params, current_question:)
 
           CreateResponseGroup.call(@form) do
             on(:ok) do

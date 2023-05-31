@@ -1,7 +1,7 @@
 <% if params.dig("filter", "with_availability").present? && params["filter"]["with_availability"] == "withdrawn" %>
   <div class="callout warning">
     <%= t("decidim.meetings.meetings.index.text_banner",
-          go_back_link: link_to(t("decidim.meetings.meetings.index.click_here"), meetings_path("filter[with_availability]" => nil)),
+          go_back_link: link_to(t("decidim.meetings.meetings.index.click_here"), meetings_path("filter[with_availability]" => nil))
           ).html_safe %>
   </div>
 <% end %>
@@ -21,7 +21,12 @@
     <%= render partial: "decidim/shared/results_per_page" %>
   </div>
   <div class="column">
-    <%= render partial: "decidim/meetings/calendar_modal", locals: { path: calendar_url(filter: params.fetch(:filter, {}).try(:to_unsafe_hash)) } %>
+    <%= render partial: "decidim/meetings/calendar_modal", locals: {
+          path: short_url(
+            route_name: "calendar",
+            params: { filter: params.fetch(:filter, {}).try(:to_unsafe_hash) }
+          )
+        } %>
   </div>
 </div>
 

@@ -7,7 +7,7 @@ module Decidim
     describe VoteInitiative do
       let(:form_klass) { VoteForm }
       let(:organization) { create(:organization) }
-      let(:initiative) { create(:initiative, organization: organization) }
+      let(:initiative) { create(:initiative, organization:) }
 
       let(:current_user) { create(:user, organization: initiative.organization) }
       let(:form) do
@@ -19,7 +19,7 @@ module Decidim
 
       let(:form_params) do
         {
-          initiative: initiative,
+          initiative:,
           signer: current_user
         }
       end
@@ -83,11 +83,11 @@ module Decidim
         context "when a new milestone is completed" do
           let(:initiative) do
             create(:initiative,
-                   organization: organization,
+                   organization:,
                    scoped_type: create(
                      :initiatives_type_scope,
                      supports_required: 4,
-                     type: create(:initiatives_type, organization: organization)
+                     type: create(:initiatives_type, organization:)
                    ))
           end
 
@@ -95,8 +95,8 @@ module Decidim
           let!(:follow) { create(:follow, followable: initiative, user: follower) }
 
           before do
-            create(:initiative_user_vote, initiative: initiative)
-            create(:initiative_user_vote, initiative: initiative)
+            create(:initiative_user_vote, initiative:)
+            create(:initiative_user_vote, initiative:)
           end
 
           it "notifies the followers" do
@@ -127,21 +127,21 @@ module Decidim
         end
 
         context "when support threshold is reached" do
-          let!(:admin) { create(:user, :admin, :confirmed, organization: organization) }
+          let!(:admin) { create(:user, :admin, :confirmed, organization:) }
           let(:initiative) do
             create(:initiative,
-                   organization: organization,
+                   organization:,
                    scoped_type: create(
                      :initiatives_type_scope,
                      supports_required: 4,
-                     type: create(:initiatives_type, organization: organization)
+                     type: create(:initiatives_type, organization:)
                    ))
           end
 
           before do
-            create(:initiative_user_vote, initiative: initiative)
-            create(:initiative_user_vote, initiative: initiative)
-            create(:initiative_user_vote, initiative: initiative)
+            create(:initiative_user_vote, initiative:)
+            create(:initiative_user_vote, initiative:)
+            create(:initiative_user_vote, initiative:)
           end
 
           it "notifies the admins" do
@@ -170,10 +170,10 @@ module Decidim
 
           context "when more votes are added" do
             before do
-              create(:initiative_user_vote, initiative: initiative)
+              create(:initiative_user_vote, initiative:)
             end
 
-            it "doesn't notifies the admins" do
+            it "does not notifies the admins" do
               expect(Decidim::EventsManager).to receive(:publish)
                 .with(kind_of(Hash)).once
 
@@ -198,7 +198,7 @@ module Decidim
             create(
               :initiative,
               :with_user_extra_fields_collection,
-              organization: organization
+              organization:
             )
           end
           let(:form_with_personal_data) do
@@ -208,13 +208,13 @@ module Decidim
           let(:invalid_command) { described_class.new(form) }
           let(:command_with_personal_data) { described_class.new(form_with_personal_data) }
 
-          it "broadcasts invalid when form doesn't contain personal data" do
+          it "broadcasts invalid when form does not contain personal data" do
             expect { invalid_command.call }.to broadcast :invalid
           end
 
           context "when another signature exists with the same hash_id" do
             before do
-              create(:initiative_user_vote, initiative: initiative, hash_id: form_with_personal_data.hash_id)
+              create(:initiative_user_vote, initiative:, hash_id: form_with_personal_data.hash_id)
             end
 
             it "broadcasts invalid" do
@@ -240,14 +240,14 @@ module Decidim
               initiative.type.update(document_number_authorization_handler: handler_name)
             end
 
-            context "when current_user doesn't have any authorization for the handler" do
+            context "when current_user does not have any authorization for the handler" do
               it "broadcasts invalid" do
                 expect { command_with_personal_data.call }.to broadcast :invalid
               end
             end
 
             context "when current_user have an an authorization for the handler" do
-              let!(:authorization) { create(:authorization, granted_at: granted_at, name: handler_name, unique_id: authorization_unique_id, metadata: authorization_metadata, user: current_user) }
+              let!(:authorization) { create(:authorization, granted_at:, name: handler_name, unique_id: authorization_unique_id, metadata: authorization_metadata, user: current_user) }
               let(:authorization_unique_id) { unique_id }
               let(:authorization_metadata) { metadata }
               let(:granted_at) { 1.minute.ago }

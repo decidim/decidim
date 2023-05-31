@@ -4,7 +4,7 @@ require "spec_helper"
 
 shared_examples_for "update questions" do
   context "when a questionnaire has an existing question" do
-    let!(:question) { create(:questionnaire_question, questionnaire: questionnaire, body: body) }
+    let!(:question) { create(:questionnaire_question, questionnaire:, body:) }
 
     before do
       visit questionnaire_edit_path
@@ -28,7 +28,7 @@ shared_examples_for "update questions" do
       visit_questionnaire_edit_path_and_expand_all
 
       expect(page).to have_selector("input[value='Modified question']")
-      expect(page).to have_no_selector("input[value='This is the first question']")
+      expect(page).not_to have_selector("input[value='This is the first question']")
       expect(page).to have_selector("input#questionnaire_questions_#{question.id}_mandatory[checked]")
       expect(page).to have_selector("input#questionnaire_questions_#{question.id}_max_characters[value='30']")
       expect(page).to have_selector("select#questionnaire_questions_#{question.id}_question_type option[value='long_answer'][selected]")
@@ -53,11 +53,11 @@ shared_examples_for "update questions" do
       expand_all_questions
 
       expect(page).to have_admin_callout("There was a problem saving")
-      expect(page).to have_content("can't be blank", count: 5) # emtpy question, 2 empty default answer options, 2 empty default matrix rows
+      expect(page).to have_content("cannot be blank", count: 5) # emtpy question, 2 empty default answer options, 2 empty default matrix rows
       expect(page).to have_content("must be greater than or equal to 0", count: 1)
 
       expect(page).to have_selector("input[value='']")
-      expect(page).to have_no_selector("input[value='This is the first question']")
+      expect(page).not_to have_selector("input[value='This is the first question']")
       expect(page).to have_selector("input#questionnaire_questions_#{question.id}_mandatory[checked]")
       expect(page).to have_selector("input#questionnaire_questions_#{question.id}_max_characters[value='-3']")
       expect(page).to have_select("Maximum number of choices", selected: "2")
@@ -79,7 +79,7 @@ shared_examples_for "update questions" do
 
       within ".questionnaire-question" do
         expect(page).to have_selector(".card-title", text: "#1")
-        expect(page).to have_no_button("Up")
+        expect(page).not_to have_button("Up")
       end
     end
 
@@ -104,7 +104,7 @@ shared_examples_for "update questions" do
     it "cannot be moved up" do
       within "form.edit_questionnaire" do
         within ".questionnaire-question" do
-          expect(page).to have_no_button("Up")
+          expect(page).not_to have_button("Up")
         end
       end
     end
@@ -112,14 +112,14 @@ shared_examples_for "update questions" do
     it "cannot be moved down" do
       within "form.edit_questionnaire" do
         within ".questionnaire-question" do
-          expect(page).to have_no_button("Down")
+          expect(page).not_to have_button("Down")
         end
       end
     end
   end
 
   context "when a questionnaire has a title and description" do
-    let!(:question) { create(:questionnaire_question, :title_and_description, questionnaire: questionnaire, body: title_and_description_body) }
+    let!(:question) { create(:questionnaire_question, :title_and_description, questionnaire:, body: title_and_description_body) }
 
     before do
       visit questionnaire_edit_path
@@ -140,7 +140,7 @@ shared_examples_for "update questions" do
       visit_questionnaire_edit_path_and_expand_all
 
       expect(page).to have_selector("input[value='Modified title and description']")
-      expect(page).to have_no_selector("input[value='This is the first title and description']")
+      expect(page).not_to have_selector("input[value='This is the first title and description']")
     end
 
     it "re-renders the form when the information is invalid and displays errors" do
@@ -157,9 +157,9 @@ shared_examples_for "update questions" do
       expand_all_questions
 
       expect(page).to have_admin_callout("There was a problem saving")
-      expect(page).to have_content("can't be blank", count: 1)
+      expect(page).to have_content("cannot be blank", count: 1)
       expect(page).to have_selector("input[value='']")
-      expect(page).to have_no_selector("input[value='This is the first title and description']")
+      expect(page).not_to have_selector("input[value='This is the first title and description']")
     end
 
     it "preserves deleted status across submission failures" do
@@ -177,7 +177,7 @@ shared_examples_for "update questions" do
 
       within ".questionnaire-question" do
         expect(page).to have_selector(".card-title", text: "#1")
-        expect(page).to have_no_button("Up")
+        expect(page).not_to have_button("Up")
       end
     end
 
@@ -202,7 +202,7 @@ shared_examples_for "update questions" do
     it "cannot be moved up" do
       within "form.edit_questionnaire" do
         within ".questionnaire-question" do
-          expect(page).to have_no_button("Up")
+          expect(page).not_to have_button("Up")
         end
       end
     end
@@ -210,7 +210,7 @@ shared_examples_for "update questions" do
     it "cannot be moved down" do
       within "form.edit_questionnaire" do
         within ".questionnaire-question" do
-          expect(page).to have_no_button("Down")
+          expect(page).not_to have_button("Down")
         end
       end
     end
@@ -220,8 +220,8 @@ shared_examples_for "update questions" do
     let!(:question) do
       create(
         :questionnaire_question,
-        questionnaire: questionnaire,
-        body: body,
+        questionnaire:,
+        body:,
         question_type: "single_option",
         options: [
           { "body" => { "en" => "cacatua" } },
@@ -278,12 +278,12 @@ shared_examples_for "update questions" do
   end
 
   context "when a questionnaire has an existing question with matrix rows" do
-    let!(:other_question) { create(:questionnaire_question, questionnaire: questionnaire, position: 1) }
+    let!(:other_question) { create(:questionnaire_question, questionnaire:, position: 1) }
     let!(:question) do
       create(
         :questionnaire_question,
-        questionnaire: questionnaire,
-        body: body,
+        questionnaire:,
+        body:,
         question_type: "matrix_single",
         position: 2,
         options: [
@@ -344,12 +344,12 @@ shared_examples_for "update questions" do
   end
 
   context "when a questionnaire has multiple existing questions" do
-    let!(:question_1) do
-      create(:questionnaire_question, questionnaire: questionnaire, body: first_body, position: 0)
+    let!(:question1) do
+      create(:questionnaire_question, questionnaire:, body: first_body, position: 0)
     end
 
-    let!(:question_2) do
-      create(:questionnaire_question, questionnaire: questionnaire, body: second_body, position: 1)
+    let!(:question2) do
+      create(:questionnaire_question, questionnaire:, body: second_body, position: 1)
     end
 
     let(:first_body) do
@@ -510,7 +510,7 @@ shared_examples_for "update questions" do
       expect do
         click_button "Add question"
         expand_all_questions
-      end.to change { page.all(".ql-toolbar").size }.by(1)
+      end.to change { page.all(".editor-toolbar").size }.by(1)
     end
 
     it "properly decides which button to show after adding/removing answer options" do
@@ -521,7 +521,7 @@ shared_examples_for "update questions" do
         select "Single option", from: "Type"
 
         within ".questionnaire-question-answer-options-list" do
-          expect(page).to have_no_button("Remove")
+          expect(page).not_to have_button("Remove")
         end
 
         click_button "Add answer option"
@@ -533,7 +533,7 @@ shared_examples_for "update questions" do
         end
 
         within ".questionnaire-question-answer-options-list" do
-          expect(page).to have_no_button("Remove")
+          expect(page).not_to have_button("Remove")
         end
       end
 
@@ -542,7 +542,7 @@ shared_examples_for "update questions" do
 
       within ".questionnaire-question:last-of-type" do
         within ".questionnaire-question-answer-options-list" do
-          expect(page).to have_no_button("Remove")
+          expect(page).not_to have_button("Remove")
         end
       end
     end

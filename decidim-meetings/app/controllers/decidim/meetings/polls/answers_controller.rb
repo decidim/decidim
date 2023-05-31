@@ -10,8 +10,8 @@ module Decidim
         helper_method :question
 
         def create
-          enforce_permission_to :create, :answer, question: question
-          @form = form(AnswerForm).from_params(params, question: question, current_user: current_user)
+          enforce_permission_to(:create, :answer, question:)
+          @form = form(AnswerForm).from_params(params, question:, current_user:)
 
           CreateAnswer.call(@form, current_user, questionnaire) do
             # Both :ok and :invalid render the same template, because

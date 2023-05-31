@@ -4,8 +4,8 @@ require "spec_helper"
 
 module Decidim
   describe WelcomeNotificationEvent do
-    subject { described_class.new(resource: user, event_name: "test", user: user) }
-    let(:user) { create(:user, organization: organization, name: "James") }
+    subject { described_class.new(resource: user, event_name: "test", user:) }
+    let(:user) { create(:user, organization:, name: "James") }
     let(:organization) { create(:organization, name: "Awesome Town") }
 
     describe "subject" do
@@ -49,7 +49,7 @@ module Decidim
     end
 
     context "when the organization has customized the default welcome message" do
-      let(:organization) { create(:organization, name: "Awesome Town", welcome_notification_subject: welcome_notification_subject, welcome_notification_body: welcome_notification_body) }
+      let(:organization) { create(:organization, name: "Awesome Town", welcome_notification_subject:, welcome_notification_body:) }
       let(:welcome_notification_subject) do
         { en: "Well hello {{name}}" }
       end

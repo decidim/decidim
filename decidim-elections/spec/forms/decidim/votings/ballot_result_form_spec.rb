@@ -11,9 +11,9 @@ describe Decidim::Votings::BallotResultForm do
 
   let(:attributes) do
     {
-      valid_ballots_count: valid_ballots_count,
-      blank_ballots_count: blank_ballots_count,
-      null_ballots_count: null_ballots_count
+      valid_ballots_count:,
+      blank_ballots_count:,
+      null_ballots_count:
     }
   end
 

@@ -15,7 +15,7 @@ module Decidim
         # Executes the command. Broadcasts these events:
         #
         # - :ok when everything is valid.
-        # - :invalid if the form wasn't valid and we couldn't proceed.
+        # - :invalid if the form was not valid and we could not proceed.
         #
         # Returns nothing.
         def call
@@ -49,7 +49,7 @@ module Decidim
             additional_info: form.additional_info,
             selected_proposals: [],
             candidate_proposals: [],
-            category: category
+            category:
           )
         end
 

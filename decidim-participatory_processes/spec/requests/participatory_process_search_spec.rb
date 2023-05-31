@@ -6,32 +6,32 @@ RSpec.describe "Participatory process search", type: :request do
   subject { response.body }
 
   let(:organization) { create(:organization) }
-  let(:current_user) { create :user, :confirmed, organization: organization }
+  let(:current_user) { create(:user, :confirmed, organization:) }
   let!(:process1) do
     create(
       :participatory_process,
       :active,
-      organization: organization,
-      area: create(:area, organization: organization),
-      scope: create(:scope, organization: organization)
+      organization:,
+      area: create(:area, organization:),
+      scope: create(:scope, organization:)
     )
   end
   let!(:process2) do
     create(
       :participatory_process,
       :active,
-      organization: organization,
-      area: create(:area, organization: organization),
-      scope: create(:scope, organization: organization)
+      organization:,
+      area: create(:area, organization:),
+      scope: create(:scope, organization:)
     )
   end
-  let!(:past_process) { create(:participatory_process, :past, organization: organization) }
-  let!(:upcoming_process) { create(:participatory_process, :upcoming, organization: organization) }
+  let!(:past_process) { create(:participatory_process, :past, organization:) }
+  let!(:upcoming_process) { create(:participatory_process, :upcoming, organization:) }
   let!(:unpublished_process) do
     create(
       :participatory_process,
       :unpublished,
-      organization: organization
+      organization:
     )
   end
 
@@ -115,6 +115,23 @@ RSpec.describe "Participatory process search", type: :request do
         expect(subject).to include(translated(process2.title))
         expect(subject).to include(translated(past_process.title))
         expect(subject).to include(translated(upcoming_process.title))
+      end
+    end
+
+    context "and the date is set to an unknown value" do
+      let(:date) { "foobar" }
+      let(:dom) { Nokogiri::HTML(subject) }
+
+      it "displays all public processes" do
+        expect(subject).to include(translated(process1.title))
+        expect(subject).to include(translated(process2.title))
+        expect(subject).to include(translated(past_process.title))
+        expect(subject).to include(translated(upcoming_process.title))
+      end
+
+      it "does not cause any display issues" do
+        expect(dom.css("#processes-grid .processes-grid-order-by .section-heading").text).to include("2 active processes")
+        expect(dom.css("#processes-grid .processes-grid-order-by .section-heading").text).not_to include("foobar")
       end
     end
   end

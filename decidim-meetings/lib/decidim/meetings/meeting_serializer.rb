@@ -43,9 +43,9 @@ module Decidim
           comments: meeting.comments_count,
           attachments: meeting.attachments.size,
           followers: meeting.follows.size,
-          url: url,
-          related_proposals: related_proposals,
-          related_results: related_results,
+          url:,
+          related_proposals:,
+          related_results:,
           published: meeting.published_at.present?
         }
       end

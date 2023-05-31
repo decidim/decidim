@@ -27,7 +27,7 @@ module Decidim
       end
 
       def participant(session_token)
-        query.find_by(session_token: session_token)
+        query.find_by(session_token:)
       end
 
       def participants

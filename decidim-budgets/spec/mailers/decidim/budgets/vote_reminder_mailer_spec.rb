@@ -7,14 +7,14 @@ module Decidim::Budgets
     let(:mail) { described_class.vote_reminder(reminder) }
     let(:router) { Decidim::EngineRouter.main_proxy(component) }
     let(:organization) { create(:organization) }
-    let(:user) { create(:user, organization: organization) }
-    let(:component) { create(:budgets_component, organization: organization) }
-    let(:budget) { create(:budget, component: component) }
-    let(:order) { create(:order, budget: budget, user: user) }
+    let(:user) { create(:user, organization:) }
+    let(:component) { create(:budgets_component, organization:) }
+    let(:budget) { create(:budget, component:) }
+    let(:order) { create(:order, budget:, user:) }
 
     context "when reminder and reminder record exists" do
-      let(:reminder) { create(:reminder, component: component, user: user) }
-      let!(:reminder_record) { create(:reminder_record, reminder: reminder, remindable: order) }
+      let(:reminder) { create(:reminder, component:, user:) }
+      let!(:reminder_record) { create(:reminder_record, reminder:, remindable: order) }
 
       describe "#vote_reminder" do
         it "delivers the email to the user" do
@@ -36,13 +36,13 @@ module Decidim::Budgets
     end
 
     context "when reminder with multiple reminder records exists" do
-      let(:reminder) { create(:reminder, component: component, user: user) }
-      let!(:reminder_record) { create(:reminder_record, reminder: reminder, remindable: order) }
-      let!(:reminder_record2) { create(:reminder_record, reminder: reminder, remindable: order2) }
-      let!(:reminder_record3) { create(:reminder_record, reminder: reminder, remindable: order3) }
-      let(:budgets) { create_list(:budget, 2, component: component) }
-      let(:order2) { create(:order, budget: budgets.first, user: user) }
-      let(:order3) { create(:order, budget: budgets.last, user: user) }
+      let(:reminder) { create(:reminder, component:, user:) }
+      let!(:reminder_record) { create(:reminder_record, reminder:, remindable: order) }
+      let!(:reminder_record2) { create(:reminder_record, reminder:, remindable: order2) }
+      let!(:reminder_record3) { create(:reminder_record, reminder:, remindable: order3) }
+      let(:budgets) { create_list(:budget, 2, component:) }
+      let(:order2) { create(:order, budget: budgets.first, user:) }
+      let(:order3) { create(:order, budget: budgets.last, user:) }
 
       it "includes links to the budgets" do
         expect(mail).to have_link(budget.title["en"], href: router.budget_url(budget))

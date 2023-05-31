@@ -23,18 +23,19 @@ module Decidim
       end
 
       context "without an agenda" do
-        let(:agenda_item) { build :agenda_item, agenda: nil }
+        let(:agenda_item) { build(:agenda_item, agenda: nil) }
 
         it { is_expected.not_to be_valid }
       end
 
       it "has an associated agenda" do
         expect(agenda_item.agenda).to be_a(Decidim::Meetings::Agenda)
+        expect(Decidim::Meetings::AgendaItem.last.agenda).to be_a(Decidim::Meetings::Agenda)
       end
 
       describe ".first_class" do
         let(:parent) { create(:agenda_item) }
-        let(:child) { create(:agenda_item, parent: parent) }
+        let(:child) { create(:agenda_item, parent:) }
 
         it "returns agenda items without a parent" do
           expect(described_class.first_class).to eq([parent])
@@ -43,7 +44,7 @@ module Decidim
 
       describe ".agenda_item_children" do
         let(:parent) { create(:agenda_item) }
-        let(:child) { create(:agenda_item, parent: parent) }
+        let(:child) { create(:agenda_item, parent:) }
 
         it "returns agenda items that have a parent" do
           expect(described_class.agenda_item_children).to eq([child])
@@ -56,7 +57,7 @@ module Decidim
           expect(subject).not_to be_parent
         end
 
-        it "returns true if the agenda item doesn't have a parent" do
+        it "returns true if the agenda item does not have a parent" do
           subject.parent = nil
           expect(subject).to be_parent
         end

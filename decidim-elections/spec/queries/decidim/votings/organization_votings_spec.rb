@@ -9,7 +9,7 @@ module Decidim
 
       let!(:organization) { create(:organization) }
       let!(:local_votings) do
-        create_list(:voting, 3, organization: organization)
+        create_list(:voting, 3, organization:)
       end
 
       let!(:foreign_votings) do

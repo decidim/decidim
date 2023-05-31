@@ -9,10 +9,10 @@ module Decidim
         describe "call" do
           let(:organization) { create(:organization) }
 
-          let!(:proposal) { create :proposal }
+          let!(:proposal) { create(:proposal) }
           let!(:proposals) { create_list(:proposal, 3, component: proposal.component) }
-          let!(:category_one) { create :category, participatory_space: proposal.component.participatory_space }
-          let!(:category) { create :category, participatory_space: proposal.component.participatory_space }
+          let!(:category_one) { create(:category, participatory_space: proposal.component.participatory_space) }
+          let!(:category) { create(:category, participatory_space: proposal.component.participatory_space) }
 
           context "with no category" do
             it "broadcasts invalid_category" do
@@ -29,10 +29,10 @@ module Decidim
           describe "with a category and proposals" do
             context "when the category is the same as the proposal's category" do
               before do
-                proposal.update!(category: category)
+                proposal.update!(category:)
               end
 
-              it "doesn't update the proposal" do
+              it "does not update the proposal" do
                 expect(proposal).not_to receive(:update!)
                 described_class.call(proposal.category.id, proposal.id)
               end

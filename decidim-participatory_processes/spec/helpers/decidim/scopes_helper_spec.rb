@@ -6,8 +6,8 @@ describe Decidim::ScopesHelper do
   let(:participatory_space) do
     create(
       :participatory_process,
-      organization: organization,
-      scopes_enabled: scopes_enabled,
+      organization:,
+      scopes_enabled:,
       scope: participatory_space_scope
     )
   end

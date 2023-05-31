@@ -3,9 +3,9 @@
 require "spec_helper"
 
 describe Decidim::PadIframeCell, type: :cell do
-  subject { described_class.new(model, context: { current_user: current_user }) }
+  subject { described_class.new(model, context: { current_user: }) }
 
-  let(:my_cell) { cell("decidim/pad_iframe", model, context: { current_user: current_user }) }
+  let(:my_cell) { cell("decidim/pad_iframe", model, context: { current_user: }) }
   let(:model) { create(:dummy_resource) }
   let(:current_user) { model.author }
   let(:pad) { instance_double(Decidim::Etherpad::Pad, text: pad_text) }
@@ -22,11 +22,11 @@ describe Decidim::PadIframeCell, type: :cell do
 
     let(:html) { subject }
 
-    context "when there's no current user" do
+    context "when there is no current user" do
       let(:current_user) { nil }
 
       it "renders nothing" do
-        expect(html).to have_no_css("iframe")
+        expect(html).not_to have_css("iframe")
       end
     end
 
@@ -36,7 +36,7 @@ describe Decidim::PadIframeCell, type: :cell do
       end
 
       it "renders nothing" do
-        expect(html).to have_no_css("iframe")
+        expect(html).not_to have_css("iframe")
       end
     end
 
@@ -56,7 +56,7 @@ describe Decidim::PadIframeCell, type: :cell do
         let(:pad_text) { nil }
 
         it "renders nothing" do
-          expect(html).to have_no_css("iframe")
+          expect(html).not_to have_css("iframe")
         end
       end
     end

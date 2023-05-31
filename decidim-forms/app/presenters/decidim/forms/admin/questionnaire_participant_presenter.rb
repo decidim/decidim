@@ -34,7 +34,7 @@ module Decidim
         end
 
         def answers
-          sibilings.map { |answer| QuestionnaireAnswerPresenter.new(answer: answer) }
+          sibilings.map { |answer| QuestionnaireAnswerPresenter.new(answer:) }
         end
 
         def first_short_answer
@@ -56,7 +56,7 @@ module Decidim
         def sibilings
           Answer.not_separator
                 .not_title_and_description
-                .where(questionnaire: questionnaire, session_token: participant.session_token)
+                .where(questionnaire:, session_token: participant.session_token)
                 .joins(:question).order("decidim_forms_questions.position ASC")
         end
       end

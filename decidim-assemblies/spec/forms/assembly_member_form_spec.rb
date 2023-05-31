@@ -8,7 +8,7 @@ module Decidim
       describe AssemblyMemberForm do
         subject(:form) { described_class.from_params(attributes).with_context(context) }
 
-        let(:organization) { create :organization }
+        let(:organization) { create(:organization) }
         let(:context) do
           {
             current_organization: organization
@@ -70,7 +70,7 @@ module Decidim
           context "when is other" do
             let(:position) { "other" }
 
-            context "and it's not specified" do
+            context "and it is not specified" do
               subject(:form) { described_class.from_params(attributes.merge(position_other: "")).with_context(context) }
 
               it { is_expected.to be_invalid }
@@ -86,7 +86,7 @@ module Decidim
           end
 
           context "and user exists" do
-            let(:user_id) { create(:user, organization: organization).id }
+            let(:user_id) { create(:user, organization:).id }
 
             it { is_expected.to be_valid }
           end
@@ -122,7 +122,7 @@ module Decidim
           subject { form.user }
 
           context "when the user exists" do
-            let(:user_id) { create(:user, organization: organization).id }
+            let(:user_id) { create(:user, organization:).id }
 
             it { is_expected.to be_kind_of(Decidim::User) }
           end

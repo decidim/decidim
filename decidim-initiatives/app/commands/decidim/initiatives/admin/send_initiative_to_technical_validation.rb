@@ -18,7 +18,7 @@ module Decidim
         # Executes the command. Broadcasts these events:
         #
         # - :ok when everything is valid.
-        # - :invalid if the form wasn't valid and we couldn't proceed.
+        # - :invalid if the form was not valid and we could not proceed.
         #
         # Returns nothing.
         def call
@@ -47,7 +47,7 @@ module Decidim
             event: "decidim.events.initiatives.admin.initiative_sent_to_technical_validation",
             event_class: Decidim::Initiatives::Admin::InitiativeSentToTechnicalValidationEvent,
             resource: initiative,
-            affected_users: affected_users,
+            affected_users:,
             force_send: true
           }
 

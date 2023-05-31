@@ -6,10 +6,10 @@ module Decidim::Meetings::AdminLog
   describe InvitePresenter, type: :helper do
     subject { described_class.new(action_log, helper).present }
 
-    let(:participatory_space) { create :participatory_process }
-    let(:component) { create :component, participatory_space: participatory_space }
+    let(:participatory_space) { create(:participatory_process) }
+    let(:component) { create(:component, participatory_space:) }
     let(:invite) { create(:invite, sent_at: nil) }
-    let(:action_log) { create(:action_log, participatory_space: participatory_space, component: component, resource: invite, action: "create") }
+    let(:action_log) { create(:action_log, participatory_space:, component:, resource: invite, action: "create") }
 
     before do
       helper.class.include Decidim::TranslatableAttributes
@@ -26,7 +26,7 @@ module Decidim::Meetings::AdminLog
         end
       end
 
-      context "when invite doesn't exist anymore" do
+      context "when invite does not exist anymore" do
         before do
           invite.destroy
           action_log.reload

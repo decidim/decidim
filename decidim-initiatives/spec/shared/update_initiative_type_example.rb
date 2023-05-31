@@ -2,6 +2,7 @@
 
 shared_examples "update an initiative type" do
   let(:organization) { create(:organization) }
+  let(:user) { create(:user) }
   let(:initiative_type) do
     create(:initiatives_type,
            :online_signature_enabled,
@@ -9,7 +10,7 @@ shared_examples "update an initiative type" do
            :undo_online_signatures_enabled,
            :custom_signature_end_date_disabled,
            :area_disabled,
-           organization: organization)
+           organization:)
   end
   let(:form) do
     form_klass.from_params(
@@ -30,6 +31,7 @@ shared_examples "update an initiative type" do
         undo_online_signatures_enabled: false,
         custom_signature_end_date_enabled: true,
         area_enabled: true,
+        comments_enabled: true,
         promoting_committee_enabled: true,
         minimum_committee_members: 7,
         banner_image: Decidim::Dev.test_file("city2.jpeg", "image/jpeg"),
@@ -41,7 +43,7 @@ shared_examples "update an initiative type" do
       }
     end
 
-    let(:command) { described_class.new(initiative_type, form) }
+    let(:command) { described_class.new(initiative_type, form, user) }
 
     describe "when the form is not valid" do
       before do
@@ -52,7 +54,7 @@ shared_examples "update an initiative type" do
         expect { command.call }.to broadcast(:invalid)
       end
 
-      it "doesn't update an initiative type" do
+      it "does not update an initiative type" do
         command.call
         expect(initiative_type.title).not_to eq(form_params[:title])
         expect(initiative_type.description).not_to eq(form_params[:description])
@@ -86,7 +88,7 @@ shared_examples "update an initiative type" do
       end
 
       it "propagates signature type to created initiatives" do
-        initiative = create(:initiative, :created, organization: organization, scoped_type: scope, signature_type: "online")
+        initiative = create(:initiative, :created, organization:, scoped_type: scope, signature_type: "online")
 
         command.call
         initiative.reload
@@ -94,13 +96,25 @@ shared_examples "update an initiative type" do
         expect(initiative.signature_type).to eq("offline")
       end
 
-      it "doesn't propagate signature type to non-created initiatives" do
-        initiative = create(:initiative, :published, organization: organization, scoped_type: scope, signature_type: "online")
+      it "does not propagate signature type to non-created initiatives" do
+        initiative = create(:initiative, :published, organization:, scoped_type: scope, signature_type: "online")
 
         command.call
         initiative.reload
 
         expect(initiative.signature_type).to eq("online")
+      end
+
+      it "traces the action", versioning: true do
+        expect(Decidim.traceability)
+          .to receive(:perform_action!)
+          .with("update", initiative_type, user)
+          .and_call_original
+
+        expect { command.call }.to change(Decidim::ActionLog, :count)
+        action_log = Decidim::ActionLog.last
+        expect(action_log.action).to eq("update")
+        expect(action_log.version).to be_present
       end
     end
   end

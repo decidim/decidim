@@ -6,7 +6,6 @@ module Decidim
       # This command is executed when the user creates a Project from the admin
       # panel.
       class CreateProject < Decidim::Command
-        include ::Decidim::AttachmentMethods
         include ::Decidim::GalleryMethods
 
         def initialize(form)
@@ -44,7 +43,10 @@ module Decidim
             category: form.category,
             title: form.title,
             description: form.description,
-            budget_amount: form.budget_amount
+            budget_amount: form.budget_amount,
+            address: form.address,
+            latitude: form.latitude,
+            longitude: form.longitude
           }
 
           @project = Decidim.traceability.create!(

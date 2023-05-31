@@ -8,7 +8,7 @@ module Decidim
       describe ProposalsMergeForm do
         subject { form }
 
-        let(:proposals) { create_list(:proposal, 3, component: component) }
+        let(:proposals) { create_list(:proposal, 3, component:) }
         let(:component) { create(:proposal_component) }
         let(:target_component) { create(:proposal_component, participatory_space: component.participatory_space) }
         let(:params) do
@@ -36,7 +36,7 @@ module Decidim
         end
 
         context "when not enough proposals" do
-          let(:proposals) { create_list(:proposal, 1, component: component) }
+          let(:proposals) { create_list(:proposal, 1, component:) }
 
           it { is_expected.to be_invalid }
         end
@@ -49,10 +49,10 @@ module Decidim
 
         context "when merging to the same component" do
           let(:target_component) { component }
-          let(:proposals) { create_list(:proposal, 3, :official, component: component) }
+          let(:proposals) { create_list(:proposal, 3, :official, component:) }
 
           context "when the proposal is not official" do
-            let(:proposals) { create_list(:proposal, 3, component: component) }
+            let(:proposals) { create_list(:proposal, 3, component:) }
 
             it { is_expected.to be_invalid }
           end

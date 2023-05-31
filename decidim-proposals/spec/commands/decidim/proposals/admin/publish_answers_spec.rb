@@ -10,7 +10,7 @@ module Decidim
 
         let(:command) { described_class.new(component, user, proposal_ids) }
         let(:proposal_ids) { proposals.map(&:id) }
-        let(:proposals) { create_list(:proposal, 5, :accepted_not_published, component: component) }
+        let(:proposals) { create_list(:proposal, 5, :accepted_not_published, component:) }
         let(:component) { create(:proposal_component) }
         let(:user) { create(:user, :admin) }
 
@@ -57,18 +57,18 @@ module Decidim
             expect { subject }.to broadcast(:invalid)
           end
 
-          it "doesn't publish the answers" do
+          it "does not publish the answers" do
             expect { subject }.not_to(change { proposals.map { |proposal| proposal.reload.published_state? }.uniq })
           end
 
-          it "doesn't trace the action" do
+          it "does not trace the action" do
             expect(Decidim.traceability)
               .not_to receive(:perform_action!)
 
             subject
           end
 
-          it "doesn't notify the answers" do
+          it "does not notify the answers" do
             expect(NotifyProposalAnswer).not_to receive(:call)
 
             subject

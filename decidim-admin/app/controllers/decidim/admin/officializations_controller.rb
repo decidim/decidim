@@ -32,7 +32,7 @@ module Decidim
           on(:ok) do |user|
             notice = I18n.t("officializations.create.success", scope: "decidim.admin")
 
-            redirect_to officializations_path(q: { name_or_nickname_or_email_cont: user.name }), notice: notice
+            redirect_to officializations_path(q: { name_or_nickname_or_email_cont: user.name }), notice:
           end
         end
       end
@@ -44,13 +44,13 @@ module Decidim
           on(:ok) do
             notice = I18n.t("officializations.destroy.success", scope: "decidim.admin")
 
-            redirect_to officializations_path(q: { name_or_nickname_or_email_cont: user.name }), notice: notice
+            redirect_to officializations_path(q: { name_or_nickname_or_email_cont: user.name }), notice:
           end
         end
       end
 
       def show_email
-        enforce_permission_to :show_email, :user, user: user
+        enforce_permission_to(:show_email, :user, user:)
 
         Decidim.traceability.perform_action! :show_email, user, current_user
 

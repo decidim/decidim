@@ -4,18 +4,18 @@ require "spec_helper"
 
 describe "Admin filters user_roles", type: :system do
   let(:organization) { create(:organization) }
-  let!(:admin) { create(:user, :admin, :confirmed, organization: organization) }
-  let(:assembly) { create(:assembly, organization: organization) }
+  let!(:admin) { create(:user, :admin, :confirmed, organization:) }
+  let(:assembly) { create(:assembly, organization:) }
 
   let(:resource_controller) { Decidim::Assemblies::Admin::AssemblyUserRolesController }
   let(:name) { "Dummy Name" }
   let(:email) { "dummy_email@example.org" }
 
-  let!(:invited_user_1) { create(:assembly_valuator, name: name, assembly: assembly) }
-  let!(:invited_user_2) { create(:assembly_valuator, email: email, assembly: assembly) }
+  let!(:invited_user1) { create(:assembly_valuator, name:, assembly:) }
+  let!(:invited_user2) { create(:assembly_valuator, email:, assembly:) }
 
   before do
-    invited_user_2.update!(invitation_sent_at: 1.day.ago, invitation_accepted_at: Time.current, last_sign_in_at: Time.current)
+    invited_user2.update!(invitation_sent_at: 1.day.ago, invitation_accepted_at: Time.current, last_sign_in_at: Time.current)
 
     switch_to_host(organization.host)
     login_as admin, scope: :user
@@ -29,14 +29,15 @@ describe "Admin filters user_roles", type: :system do
   context "when sorting" do
     include_examples "sortable participatory space user roles" do
       let!(:collection) do
-        create_list(:assembly_collaborator, 100, assembly: assembly,
+        create_list(:assembly_collaborator, 100, assembly:,
                                                  last_sign_in_at: 2.days.ago,
                                                  invitation_accepted_at: 1.day.ago)
       end
       let!(:user) do
         create(:assembly_valuator,
                name: "ZZZupper user",
-               assembly: assembly,
+               email: "zzz@example.org",
+               assembly:,
                last_sign_in_at: 30.seconds.ago,
                invitation_accepted_at: Time.current)
       end
@@ -48,7 +49,7 @@ describe "Admin filters user_roles", type: :system do
   end
 
   it_behaves_like "paginating a collection" do
-    let!(:collection) { create_list(:assembly_valuator, 100, assembly: assembly) }
+    let!(:collection) { create_list(:assembly_valuator, 100, assembly:) }
 
     before do
       switch_to_host(organization.host)

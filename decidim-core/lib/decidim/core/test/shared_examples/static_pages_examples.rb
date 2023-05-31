@@ -10,8 +10,8 @@ shared_examples "accessible static pages" do
       force_users_to_authenticate_before_access_organization: true
     )
   end
-  let!(:public_pages) { create_list(:static_page, 5, organization: organization, allow_public_access: true) }
-  let!(:private_pages) { create_list(:static_page, 5, organization: organization) }
+  let!(:public_pages) { create_list(:static_page, 5, organization:, allow_public_access: true) }
+  let!(:private_pages) { create_list(:static_page, 5, organization:) }
   let(:actual_page_ids) { [] }
 
   def expect_correct_accessible_static_pages
@@ -19,7 +19,7 @@ shared_examples "accessible static pages" do
   end
 
   context "with a user" do
-    let(:user) { create(:user, organization: organization) }
+    let(:user) { create(:user, organization:) }
     let(:expected_page_ids) { public_pages.pluck(:id) + private_pages.pluck(:id) }
 
     it { expect_correct_accessible_static_pages }

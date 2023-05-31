@@ -9,8 +9,15 @@ Gem::Specification.new do |s|
   s.authors = ["Leonardo Diez", "Agustí B.R."]
   s.email = ["leo@codegram.com", "agusti@codegram.com"]
   s.license = "AGPL-3.0"
-  s.homepage = "https://github.com/decidim/decidim-elections"
-  s.required_ruby_version = ">= 3.0"
+  s.homepage = "https://decidim.org"
+  s.metadata = {
+    "bug_tracker_uri" => "https://github.com/decidim/decidim/issues",
+    "documentation_uri" => "https://docs.decidim.org/",
+    "funding_uri" => "https://opencollective.com/decidim",
+    "homepage_uri" => "https://decidim.org",
+    "source_code_uri" => "https://github.com/decidim/decidim"
+  }
+  s.required_ruby_version = ">= 3.1"
 
   s.name = "decidim-elections"
   s.summary = "A decidim elections module (votings space and elections component)"
@@ -18,9 +25,9 @@ Gem::Specification.new do |s|
 
   s.files = Dir["{app,config,db,lib}/**/*", "LICENSE-AGPLv3.txt", "Rakefile", "README.md"]
 
-  s.add_dependency "decidim-bulletin_board", "0.23"
-  s.add_dependency "voting_schemes-dummy", "0.23"
-  s.add_dependency "voting_schemes-electionguard", "0.23"
+  s.add_dependency "decidim-bulletin_board", "~> 0.24.1"
+  s.add_dependency "voting_schemes-dummy", "~> 0.24.1"
+  s.add_dependency "voting_schemes-electionguard", "~> 0.24.1"
 
   s.add_dependency "decidim-core", Decidim::Elections.version
   s.add_dependency "decidim-forms", Decidim::Elections.version

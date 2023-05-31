@@ -4,7 +4,7 @@ module Decidim
   # This class acts as a manifest for reminders.
   #
   # This manifest is a simple object that holds and stores reminder
-  # and it's generator class.
+  # and it is generator class.
   class ReminderManifest
     include ActiveModel::Model
     include Decidim::AttributeObject::Model
@@ -55,11 +55,11 @@ module Decidim
       end
     end
 
-    def message(key, context = nil, **extra, &block)
+    def message(key, context = nil, **extra, &)
       extra = context if extra.empty? && context.is_a?(Hash)
 
       if block_given?
-        messages.set(key, &block)
+        messages.set(key, &)
       else
         messages.render(key, context, **extra)
       end

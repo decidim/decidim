@@ -16,12 +16,12 @@ module Decidim
     let(:form) do
       double(
         invalid?: invalid,
-        current_user: current_user,
-        title: title,
-        body: body,
-        photos: photos,
+        current_user:,
+        title:,
+        body:,
+        photos:,
         add_photos: uploaded_images,
-        current_component: current_component
+        current_component:
       )
     end
 
@@ -85,6 +85,25 @@ module Decidim
 
           it "broadcasts ok" do
             expect { subject.call }.to broadcast(:ok)
+          end
+        end
+
+        context "when existing attachments are updated" do
+          let(:attachment1) { create(:attachment, attached_to: current_component.organization) }
+          let(:attachment2) { create(:attachment, attached_to: current_component.organization) }
+
+          let(:uploaded_images) do
+            [
+              { id: attachment1.id, title: "Updated title for attachment 1" },
+              { id: attachment2.id, title: "Updated title for attachment 2" }
+            ]
+          end
+
+          it "broadcasts ok and updates the titles" do
+            expect { subject.call }.to broadcast(:ok)
+
+            expect(attachment1.reload.title).to include("en" => "Updated title for attachment 1")
+            expect(attachment2.reload.title).to include("en" => "Updated title for attachment 2")
           end
         end
       end

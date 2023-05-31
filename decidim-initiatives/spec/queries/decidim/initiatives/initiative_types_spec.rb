@@ -8,7 +8,7 @@ module Decidim
       subject { described_class.new(organization) }
 
       let!(:organization) { create(:organization) }
-      let!(:initiative_types) { create_list(:initiatives_type, 3, organization: organization) }
+      let!(:initiative_types) { create_list(:initiatives_type, 3, organization:) }
 
       let!(:other_organization) { create(:organization) }
       let!(:other_initiative_types) { create_list(:initiatives_type, 3, organization: other_organization) }

@@ -24,13 +24,13 @@ module Decidim::Meetings
     let(:form) do
       double(
         invalid?: invalid,
-        registrations_enabled: registrations_enabled,
-        registration_form_enabled: registration_form_enabled,
-        available_slots: available_slots,
-        reserved_slots: reserved_slots,
-        customize_registration_email: customize_registration_email,
-        registration_email_custom_content: registration_email_custom_content,
-        registration_terms: registration_terms
+        registrations_enabled:,
+        registration_form_enabled:,
+        available_slots:,
+        reserved_slots:,
+        customize_registration_email:,
+        registration_email_custom_content:,
+        registration_terms:
       )
     end
 
@@ -60,8 +60,8 @@ module Decidim::Meetings
     end
 
     describe "events" do
-      let(:user) { create :user, :confirmed, organization: meeting.organization }
-      let!(:follow) { create :follow, followable: meeting, user: user }
+      let(:user) { create(:user, :confirmed, organization: meeting.organization) }
+      let!(:follow) { create(:follow, followable: meeting, user:) }
 
       context "when registrations are enabled" do
         it "notifies the change" do
@@ -81,7 +81,7 @@ module Decidim::Meetings
       context "when registrations are already enabled and something else changes" do
         let(:meeting) { create(:meeting, :with_registrations_enabled) }
 
-        it "doesn't notify the change" do
+        it "does not notify the change" do
           expect(Decidim::EventsManager)
             .not_to receive(:publish)
 

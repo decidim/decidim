@@ -23,7 +23,7 @@ module Decidim
       # Executes the command. Broadcasts these events:
       #
       # - :ok when everything is valid.
-      # - :invalid if the form wasn't valid and we couldn't proceed.
+      # - :invalid if the form was not valid and we could not proceed.
       #
       # Returns nothing.
       def call
@@ -57,7 +57,8 @@ module Decidim
         attrs = {
           title: { current_locale => form.title },
           description: { current_locale => form.description },
-          hashtag: form.hashtag
+          hashtag: form.hashtag,
+          decidim_user_group_id: form.decidim_user_group_id
         }
 
         if form.signature_type_updatable?
