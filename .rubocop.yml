@@ -116,9 +116,6 @@ RSpec/Rails/InferredSpecType:
 Rails/ActionControllerFlashBeforeRender:
   Enabled: false
 
-Style/EachForSimpleLoop:
-  Enabled: false
-
 Rails/HelperInstanceVariable:
   Enabled: false
 
