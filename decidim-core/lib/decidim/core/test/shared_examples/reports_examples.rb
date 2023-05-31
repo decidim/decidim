@@ -13,7 +13,7 @@ shared_examples "logged in user reports content" do
         expect(page).to have_selector(".author-data__extra")
 
         within ".author-data__extra", match: :first do
-          page.find("button").click
+          click_button
         end
 
         expect(page).to have_css(".flag-modal", visible: :visible)
@@ -51,7 +51,7 @@ shared_examples "higher user role hides" do
       expect(page).to have_selector(".author-data__extra")
 
       within ".author-data__extra", match: :first do
-        page.find("button").click
+        click_button
       end
 
       expect(page).to have_css(".flag-modal", visible: :visible)
@@ -78,7 +78,7 @@ shared_examples "higher user role does not have hide" do
       expect(page).to have_selector(".author-data__extra")
 
       within ".author-data__extra", match: :first do
-        page.find("button").click
+        click_button
       end
 
       expect(page).to have_css(".flag-modal", visible: :visible)
@@ -118,7 +118,7 @@ shared_examples "reports" do
       expect(page).to have_selector(".author-data__extra")
 
       within ".author-data__extra", match: :first do
-        page.find("button").click
+        click_button
       end
 
       expect(page).to have_css(".flag-modal", visible: :visible)

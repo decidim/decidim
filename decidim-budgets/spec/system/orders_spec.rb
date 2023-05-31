@@ -371,7 +371,7 @@ describe "Orders", type: :system do
           page.visit Decidim::EngineRouter.main_proxy(component).budget_project_path(budget, expensive_project)
 
           within "#project-#{expensive_project.id}-budget-button" do
-            page.find("button").click
+            click_button
           end
 
           expect(page).to have_css("#budget-excess", visible: :visible)

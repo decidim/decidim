@@ -363,7 +363,7 @@ describe "Proposals", type: :system do
                 click_button "Edit image"
               end
               within ".upload-modal" do
-                find("button.remove-upload-item").click
+                click_button(class: "remove-upload-item")
                 click_button "Save"
               end
 

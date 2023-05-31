@@ -19,7 +19,7 @@ shared_examples "publish answers" do
         expect(page).to have_content("Answers for 2 proposals will be published.")
       end
 
-      page.find("button#js-submit-publish-answers").click
+      click_button(id: "js-submit-publish-answers")
       20.times do # wait for the ajax call to finish
         sleep(1)
         expect(page).to have_content(I18n.t("proposals.publish_answers.success", scope: "decidim"))

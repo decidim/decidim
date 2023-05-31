@@ -42,7 +42,7 @@ shared_examples "split proposals" do
         before do
           within "#js-form-split-proposals" do
             select translated(target_component.name), from: :target_component_id_
-            page.find("button#js-submit-split-proposals").click
+            click_button(id: "js-submit-split-proposals")
           end
         end
 

@@ -41,7 +41,7 @@ describe "Admin manages proposals valuators", type: :system do
       before do
         within "#js-form-assign-proposals-to-valuator" do
           select valuator.name, from: :valuator_role_id
-          page.find("button#js-submit-assign-proposals-to-valuator").click
+          click_button(id: "js-submit-unassign-proposals-from-valuator")
         end
       end
 
@@ -108,7 +108,7 @@ describe "Admin manages proposals valuators", type: :system do
       before do
         within "#js-form-unassign-proposals-from-valuator" do
           select valuator.name, from: :valuator_role_id
-          page.find("button#js-submit-unassign-proposals-from-valuator").click
+          click_button(id: "js-submit-unassign-proposals-from-valuator")
         end
       end
 

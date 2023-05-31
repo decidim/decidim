@@ -19,7 +19,7 @@ describe "Admin reports user", type: :system do
       expect(page).to have_selector(".profile--sidebar")
 
       within ".profile--sidebar", match: :first do
-        page.find("button").click
+        click_button
       end
 
       expect(page).to have_css(".flag-modal", visible: :visible)
@@ -42,7 +42,7 @@ describe "Admin reports user", type: :system do
       expect(page).to have_selector(".profile--sidebar")
 
       within ".profile--sidebar", match: :first do
-        page.find("button").click
+        click_button
       end
 
       expect(page).to have_css(".flag-modal", visible: :visible)

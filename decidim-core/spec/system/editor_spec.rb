@@ -1586,7 +1586,7 @@ describe "Editor", type: :system do
           add_file("city.jpeg", ".dropzone-container .dropzone", "drop")
           fill_in "Alternative text for the image", with: "City landscape"
 
-          find("button.add-file-file").click
+          click_button(class: "add-file-file")
         end
         expect(Decidim::EditorImage.count).to be(1)
 
@@ -1607,7 +1607,7 @@ describe "Editor", type: :system do
           add_file("city.jpeg", ".dropzone-container .dropzone", "select")
           fill_in "Alternative text for the image", with: "City landscape"
 
-          find("button.add-file-file").click
+          click_button(class: "add-file-file")
         end
         expect(Decidim::EditorImage.count).to be(1)
 

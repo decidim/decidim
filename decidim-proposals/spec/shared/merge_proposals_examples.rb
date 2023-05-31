@@ -54,7 +54,7 @@ shared_examples "merge proposals" do
         before do
           within "#js-form-merge-proposals" do
             select translated(target_component.name), from: :target_component_id_
-            page.find("button#js-submit-merge-proposals").click
+            click_button(id: "js-submit-merge-proposals")
           end
         end
 

@@ -64,7 +64,7 @@ shared_examples "when managing proposals category as an admin" do
           click_button "Change category"
           within "#js-form-recategorize-proposals" do
             select translated(category.name), from: :category_id
-            page.find("button#js-submit-edit-category").click
+            click_button(id: "js-submit-edit-category")
           end
         end
 

@@ -56,7 +56,7 @@ describe "Admin manages participatory texts", type: :system do
   def move_some_sections; end
 
   def publish_participatory_text
-    find("button[name=commit]").click
+    click_button(name: "commit")
     expect(page).to have_content "All proposals have been published"
   end
 
