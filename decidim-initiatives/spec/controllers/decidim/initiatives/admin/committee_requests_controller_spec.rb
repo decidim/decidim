@@ -11,7 +11,7 @@ module Decidim
         let(:organization) { create(:organization) }
         let(:initiative) { create(:initiative, :created, organization:) }
         let(:admin_user) { create(:user, :admin, :confirmed, organization:) }
-        let(:user) { create(:user, :confirmed, admin_terms_accepted_at: Time.current, organization:) }
+        let(:user) { create(:user, :confirmed, :admin_terms_accepted, organization:) }
 
         before do
           request.env["decidim.current_organization"] = organization

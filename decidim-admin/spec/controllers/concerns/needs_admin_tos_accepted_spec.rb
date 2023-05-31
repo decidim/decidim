@@ -69,7 +69,7 @@ module Decidim
       end
 
       context "when the user has accepted the TOS" do
-        let(:user) { create(:user, :admin, :confirmed, admin_terms_accepted_at: Time.zone.now, organization:) }
+        let(:user) { create(:user, :admin, :confirmed) }
 
         it "allows entering the root page" do
           get :root

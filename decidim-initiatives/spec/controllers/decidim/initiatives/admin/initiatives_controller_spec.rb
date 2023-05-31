@@ -5,8 +5,8 @@ require "spec_helper"
 describe Decidim::Initiatives::Admin::InitiativesController, type: :controller do
   routes { Decidim::Initiatives::AdminEngine.routes }
 
-  let(:user) { create(:user, :confirmed, admin_terms_accepted_at: Time.current, organization:) }
-  let(:admin_user) { create(:user, :admin, :confirmed, admin_terms_accepted_at: Time.current, organization:) }
+  let(:user) { create(:user, :confirmed, :admin_terms_accepted, organization:) }
+  let(:admin_user) { create(:user, :admin, :confirmed, organization:) }
   let(:organization) { create(:organization) }
   let!(:initiative) { create(:initiative, organization:) }
   let!(:created_initiative) { create(:initiative, :created, organization:) }

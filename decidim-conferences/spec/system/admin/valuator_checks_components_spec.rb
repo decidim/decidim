@@ -10,7 +10,7 @@ describe "Valuator checks components", type: :system do
     decidim_admin_conferences.components_path(conference)
   end
   let(:components_path) { participatory_space_path }
-  let!(:user) { create :user, :confirmed, admin_terms_accepted_at: Time.current, admin: false, organization: }
+  let!(:user) { create :user, :confirmed, :admin_terms_accepted, admin: false, organization: }
   let!(:valuator_role) { create :conference_user_role, role: :valuator, user:, conference: }
   let(:another_component) { create :component, participatory_space: conference }
 
