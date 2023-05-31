@@ -119,9 +119,6 @@ Rails/ActionControllerFlashBeforeRender:
 Style/EachForSimpleLoop:
   Enabled: false
 
-RSpec/SkipBlockInsideExample:
-  Enabled: false
-
 Rails/HelperInstanceVariable:
   Enabled: false
 
