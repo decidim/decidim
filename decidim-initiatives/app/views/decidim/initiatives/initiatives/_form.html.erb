@@ -7,7 +7,7 @@
                     {},
                     {
                       disabled: !@form.signature_type_updatable?,
-                      "data-scope-selector": "initiative_decidim_scope_id",
+                      "data-scope-selector": "initiative_scope_id",
                       "data-scope-id": form.object.scope_id.to_s,
                       "data-scope-search-url": decidim_initiatives.initiative_type_scopes_search_url,
                       "data-signature-types-selector": "initiative_signature_type",
@@ -114,5 +114,3 @@
 <% if current_initiative.type.promoting_committee_enabled? %>
   <%= render partial: "committee_members" %>
 <% end %>
-
-<%= append_javascript_pack_tag "decidim_initiatives" %>
