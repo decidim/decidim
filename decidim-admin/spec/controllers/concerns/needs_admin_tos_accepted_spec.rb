@@ -5,7 +5,7 @@ require "spec_helper"
 module Decidim
   module Admin
     describe "NeedsAdminTosAccepted", type: :controller do
-      let!(:organization) { create :organization }
+      let!(:organization) { create(:organization) }
 
       controller do
         include NeedsAdminTosAccepted

@@ -39,7 +39,7 @@ describe Decidim::Templates::Admin::Permissions do
   end
 
   context "when user is not admin" do
-    let(:user) { create :user, :confirmed, organization: }
+    let(:user) { create(:user, :confirmed, organization:) }
     let(:action) do
       { scope: :admin, action: :read, subject: :template }
     end
@@ -56,7 +56,7 @@ describe Decidim::Templates::Admin::Permissions do
   end
 
   context "when user is admin" do
-    let(:user) { create :user, :admin, organization: }
+    let(:user) { create(:user, :admin, organization:) }
 
     it_behaves_like "action is allowed", :admin, :index, :templates
   end
