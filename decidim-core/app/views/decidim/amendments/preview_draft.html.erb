@@ -7,7 +7,7 @@
 
     <% # REDESIGN_PENDING: Logic copied from decidim-core/app/cells/decidim/coauthorships_cell.rb
     author = if emendation.respond_to?(:official?) && emendation.official?
-                Decidim::Proposals::OfficialAuthorPresenter.new
+                Decidim::OfficialAuthorPresenter.new
               else
                 emendation.identities.first&.presenter
               end %>
