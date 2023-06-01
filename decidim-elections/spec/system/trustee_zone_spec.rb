@@ -39,7 +39,9 @@ describe "Trustee zone", type: :system do
 
     expect(page).to have_content("Trustee zone")
 
-    click_link "Trustee zone"
+    within "#dropdown-menu" do
+      click_link "Trustee zone"
+    end
 
     expect(page).to have_content("Trustee identification keys")
   end
