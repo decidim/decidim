@@ -9,7 +9,7 @@ describe "Report a post", type: :system do
   let!(:posts) { create_list(:post, 3, component:) }
   let(:reportable) { posts.first }
   let(:reportable_path) { resource_locator(reportable).path }
-  let!(:user) { create :user, :confirmed, organization: }
+  let!(:user) { create(:user, :confirmed, organization:) }
 
   let!(:component) do
     create(:post_component,
