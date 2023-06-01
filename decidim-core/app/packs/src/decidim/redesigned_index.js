@@ -55,6 +55,7 @@ import "./impersonation"
 import "./gallery"
 import "./direct_uploads/redesigned_upload_field"
 import "./data_consent"
+import "./sw"
 
 // local deps that require initialization
 import formDatePicker from "./form_datepicker"
