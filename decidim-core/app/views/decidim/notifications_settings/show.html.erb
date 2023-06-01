@@ -145,7 +145,7 @@
             <%= t("push_notifications_reminder", scope:"decidim.notifications_settings.show") %>
           </p>
           <div class="toggle__switch-trigger">
-            <label for="dc-<%= :allow_push_notifications %>" class="toggle__switch-toggle">
+            <label for="dc-allow_push_notifications" class="toggle__switch-toggle">
               <input
                 <%= %(checked="checked") if @notifications_settings.allow_push_notifications %>
                 id="dc-<%= :allow_push_notifications %>"
