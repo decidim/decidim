@@ -40,7 +40,7 @@ module Decidim
 
       describe "conferences" do
         it "includes only published, with promoted listed first" do
-          expect(controller.helpers.conferences).to match_array([promoted, published])
+          expect(controller.helpers.conferences).to contain_exactly(promoted, published)
         end
       end
 

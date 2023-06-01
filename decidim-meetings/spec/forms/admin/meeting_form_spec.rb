@@ -14,8 +14,8 @@ module Decidim::Meetings
         current_participatory_space: participatory_process
       }
     end
-    let(:participatory_process) { create :participatory_process, organization: }
-    let(:current_component) { create :component, participatory_space: participatory_process, manifest_name: "meetings" }
+    let(:participatory_process) { create(:participatory_process, organization:) }
+    let(:current_component) { create(:component, participatory_space: participatory_process, manifest_name: "meetings") }
     let(:title) do
       Decidim::Faker::Localized.sentence(word_count: 3)
     end
@@ -45,7 +45,7 @@ module Decidim::Meetings
     let(:parent_scope) { create(:scope, organization:) }
     let(:scope) { create(:subscope, parent: parent_scope) }
     let(:scope_id) { scope.id }
-    let(:category) { create :category, participatory_space: participatory_process }
+    let(:category) { create(:category, participatory_space: participatory_process) }
     let(:category_id) { category.id }
     let(:private_meeting) { false }
     let(:transparent) { true }

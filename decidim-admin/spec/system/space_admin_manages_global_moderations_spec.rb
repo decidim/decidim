@@ -12,7 +12,7 @@ describe "Space admin manages global moderations", type: :system do
     )
   end
   let(:organization) { current_component.organization }
-  let(:current_component) { create :component }
+  let(:current_component) { create(:component) }
   let(:participatory_space) { current_component.participatory_space }
   let!(:reportables) { create_list(:dummy_resource, 2, component: current_component) }
   let(:participatory_space_path) do
@@ -92,7 +92,7 @@ describe "Space admin manages global moderations", type: :system do
 
   context "when the user can manage a space without moderations" do
     let(:participatory_space) do
-      create :participatory_process, organization:
+      create(:participatory_process, organization:)
     end
 
     it "cannot see any moderation" do
@@ -101,7 +101,7 @@ describe "Space admin manages global moderations", type: :system do
       within ".container" do
         expect(page).to have_content("Reported content")
 
-        expect(page).to have_no_selector("table.table-list tbody tr")
+        expect(page).not_to have_selector("table.table-list tbody tr")
       end
     end
   end

@@ -8,7 +8,7 @@ describe Decidim::Initiatives::Admin::SupportThresholdReachedEvent do
   let(:event_name) { "decidim.events.initiatives.support_threshold_reached" }
   let(:resource) { initiative }
 
-  let(:initiative) { create :initiative }
+  let(:initiative) { create(:initiative) }
   let(:participatory_space) { initiative }
   let(:initiative_title) { decidim_html_escape(translated(initiative.title)) }
 

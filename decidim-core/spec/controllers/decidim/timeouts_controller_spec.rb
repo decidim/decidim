@@ -33,9 +33,9 @@ module Decidim
         it "returns seconds until timeout" do
           expect(controller).not_to receive(:store_current_location)
 
-          get :seconds_until_timeout, format: :json, params: params
+          get(:seconds_until_timeout, format: :json, params:)
 
-          expect(response.status).to eq(200)
+          expect(response).to have_http_status(:ok)
           expect(parsed_response["seconds_remaining"])
             .to be_between(timeout_time.to_i - time_since_last_request.to_i - max_delay, timeout_time.to_i - time_since_last_request.to_i)
         end

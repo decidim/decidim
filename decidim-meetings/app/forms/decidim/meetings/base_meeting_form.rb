@@ -19,7 +19,7 @@ module Decidim
       validates :end_time, presence: true, date: { after: :start_time }
 
       def type_of_meeting_select
-        Decidim::Meetings::Meeting::TYPE_OF_MEETING.map do |type|
+        Decidim::Meetings::Meeting::TYPE_OF_MEETING.keys.map do |type|
           [
             I18n.t("type_of_meeting.#{type}", scope: "decidim.meetings"),
             type

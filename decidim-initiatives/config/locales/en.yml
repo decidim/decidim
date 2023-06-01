@@ -636,7 +636,6 @@ en:
         promotal_committee: Promoter committee
         select_initiative_type: Choose
         show_similar_initiatives: Compare
-        step: Step %{current} of %{total}
         title: Create new initiative
       initiative_header:
         initiative_menu_item: Initiative

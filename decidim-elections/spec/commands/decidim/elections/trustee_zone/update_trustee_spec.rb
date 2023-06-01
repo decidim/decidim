@@ -5,7 +5,7 @@ require "spec_helper"
 describe Decidim::Elections::TrusteeZone::UpdateTrustee do
   subject { described_class.new(form) }
 
-  let(:trustee) { create :trustee, public_key: nil }
+  let(:trustee) { create(:trustee, public_key: nil) }
   let(:form) do
     double(
       invalid?: invalid,
@@ -26,7 +26,7 @@ describe Decidim::Elections::TrusteeZone::UpdateTrustee do
   end
 
   context "when trustee with same name and organization exists" do
-    let!(:other_trustee) { create :trustee, name: "Sheldon", organization: trustee.organization }
+    let!(:other_trustee) { create(:trustee, name: "Sheldon", organization: trustee.organization) }
 
     it "adds errors to the form" do
       expect(errors).to receive(:add).with(:name, :taken)

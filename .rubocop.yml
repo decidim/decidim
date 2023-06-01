@@ -48,3 +48,75 @@ Rails/Output:
 Rails/Exit:
   Exclude:
     - lib/decidim/git_backport_manager.rb
+
+# fix these rules later
+Capybara/SpecificMatcher:
+  Enabled: false
+
+Capybara/SpecificFinders:
+  Enabled: false
+
+Capybara/SpecificActions:
+  Enabled: false
+
+Capybara/CurrentPathExpectation:
+  Enabled: false
+
+Style/RedundantStringEscape:
+  Enabled: false
+
+Style/MapToSet:
+  Enabled: false
+
+Style/Semicolon:
+  Enabled: false
+
+Style/ConcatArrayLiterals:
+  Enabled: false
+
+Style/ClassEqualityComparison:
+  Enabled: false
+
+Style/RedundantParentheses:
+  Enabled: false
+
+Style/ArrayIntersect:
+  Enabled: false
+
+Style/MinMaxComparison:
+  Enabled: false
+
+Style/RedundantRegexpEscape:
+  Enabled: false
+
+RSpec/IndexedLet:
+  Enabled: false
+
+RSpec/Rails/InferredSpecType:
+  Enabled: false
+
+RSpec/ClassCheck:
+  Enabled: false
+
+RSpec/NoExpectationExample:
+  Enabled: false
+
+RSpec/SortMetadata:
+  Enabled: false
+
+RSpec/MatchArray:
+  Enabled: false
+
+Rails/ActionControllerFlashBeforeRender:
+  Enabled: false
+
+Style/EachForSimpleLoop:
+  Enabled: false
+
+RSpec/SkipBlockInsideExample:
+  Enabled: false
+
+Rails/HelperInstanceVariable:
+  Enabled: false
+
+# EOF fix these rules later

@@ -8,7 +8,7 @@ describe "Admin manages election steps", :slow, type: :system do
   include_context "when admin manages elections"
 
   describe "setup an election" do
-    let(:election) { create :election, :ready_for_setup, component: current_component, title: { en: "English title", es: "" } }
+    let(:election) { create(:election, :ready_for_setup, component: current_component, title: { en: "English title", es: "" }) }
 
     it "performs the action successfully" do
       visit_steps_page
@@ -76,7 +76,7 @@ describe "Admin manages election steps", :slow, type: :system do
   end
 
   describe "start the key ceremony" do
-    let(:election) { create :election, :bb_test, :created, component: current_component }
+    let(:election) { create(:election, :bb_test, :created, component: current_component) }
 
     it "performs the action successfully" do
       visit_steps_page
@@ -125,7 +125,7 @@ describe "Admin manages election steps", :slow, type: :system do
   end
 
   describe "start the voting period" do
-    let(:election) { create :election, :bb_test, :key_ceremony_ended, component: current_component }
+    let(:election) { create(:election, :bb_test, :key_ceremony_ended, component: current_component) }
 
     it "performs the action successfully" do
       visit_steps_page
@@ -149,7 +149,7 @@ describe "Admin manages election steps", :slow, type: :system do
   end
 
   describe "voting period" do
-    let(:election) { create :election, :bb_test, :vote, component: current_component }
+    let(:election) { create(:election, :bb_test, :vote, component: current_component) }
 
     context "with no vote statistics" do
       it "shows text about vote statistics" do
@@ -163,10 +163,10 @@ describe "Admin manages election steps", :slow, type: :system do
     end
 
     context "with vote statistics" do
-      let!(:user1) { create :user, :confirmed }
-      let!(:user2) { create :user, :confirmed }
-      let!(:user1_votes) { create_list :vote, 3, election:, status: "accepted", voter_id: "voter_#{user1.id}" }
-      let!(:user2_votes) { create :vote, election:, status: "accepted", voter_id: "voter_#{user2.id}" }
+      let!(:user1) { create(:user, :confirmed) }
+      let!(:user2) { create(:user, :confirmed) }
+      let!(:user1_votes) { create_list(:vote, 3, election:, status: "accepted", voter_id: "voter_#{user1.id}") }
+      let!(:user2_votes) { create(:vote, election:, status: "accepted", voter_id: "voter_#{user2.id}") }
 
       it "shows votes and unique voters" do
         visit_steps_page
@@ -186,7 +186,7 @@ describe "Admin manages election steps", :slow, type: :system do
   end
 
   describe "end the voting period" do
-    let(:election) { create :election, :bb_test, :vote, :finished, component: current_component }
+    let(:election) { create(:election, :bb_test, :vote, :finished, component: current_component) }
 
     it "performs the action successfully" do
       visit_steps_page
@@ -210,7 +210,7 @@ describe "Admin manages election steps", :slow, type: :system do
   end
 
   describe "start the tally" do
-    let(:election) { create :election, :bb_test, :vote_ended, component: current_component }
+    let(:election) { create(:election, :bb_test, :vote_ended, component: current_component) }
 
     it "performs the action successfully" do
       visit_steps_page
@@ -234,7 +234,7 @@ describe "Admin manages election steps", :slow, type: :system do
   end
 
   describe "report missing trustee" do
-    let(:election) { create :election, :bb_test, :tally_started, component: current_component }
+    let(:election) { create(:election, :bb_test, :tally_started, component: current_component) }
     let(:trustee) { election.trustees.first }
 
     it "marks the trustee as missing" do
@@ -260,7 +260,7 @@ describe "Admin manages election steps", :slow, type: :system do
   end
 
   describe "tally ended" do
-    let(:election) { create :election, :tally_ended, component: current_component }
+    let(:election) { create(:election, :tally_ended, component: current_component) }
     let(:question) { election.questions.first }
     let(:answer) { question.answers.first }
 
@@ -277,7 +277,7 @@ describe "Admin manages election steps", :slow, type: :system do
   end
 
   describe "publishing results" do
-    let(:election) { create :election, :bb_test, :tally_ended, component: current_component }
+    let(:election) { create(:election, :bb_test, :tally_ended, component: current_component) }
     let(:question) { election.questions.first }
     let(:answer) { question.answers.first }
 

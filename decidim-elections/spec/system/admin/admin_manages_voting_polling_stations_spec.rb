@@ -151,7 +151,7 @@ describe "Admin manages polling stations", type: :system, serves_geocoding_autoc
 
       expect(page).to have_admin_callout("successfully")
 
-      expect(page).to have_no_content(translated(polling_station.title, locale: :en))
+      expect(page).not_to have_content(translated(polling_station.title, locale: :en))
     end
 
     it "can update a polling_station" do

@@ -21,11 +21,7 @@ module Decidim
     let(:enhanced_instance) { enhanced_class.new(date) }
 
     describe "#friendly_created_at" do
-      around do |example|
-        travel_to Time.zone.local(1945, 2, 6) do
-          example.run
-        end
-      end
+      before { travel_to Time.zone.local(1945, 2, 6) }
 
       describe "when in the same day" do
         let(:date) { Time.current.beginning_of_day + 1.minute }

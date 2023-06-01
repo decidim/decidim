@@ -3,8 +3,8 @@
 require "spec_helper"
 
 describe "Admin manages questions", type: :system do
-  let(:election) { create :election, component: current_component }
-  let(:question) { create :question, election: }
+  let(:election) { create(:election, component: current_component) }
+  let(:question) { create(:question, election:) }
   let(:manifest_name) { "elections" }
 
   include_context "when managing a component as an admin"
@@ -58,7 +58,7 @@ describe "Admin manages questions", type: :system do
     end
 
     it "cannot add a new question" do
-      expect(page).to have_no_content("New Question")
+      expect(page).not_to have_content("New Question")
     end
   end
 
@@ -94,7 +94,7 @@ describe "Admin manages questions", type: :system do
 
       it "cannot update the question" do
         within find("tr", text: translated(question.title)) do
-          expect(page).to have_no_selector(".action-icon--edit")
+          expect(page).not_to have_selector(".action-icon--edit")
         end
       end
     end
@@ -122,7 +122,7 @@ describe "Admin manages questions", type: :system do
 
       it "cannot delete the question" do
         within find("tr", text: translated(question.title)) do
-          expect(page).to have_no_selector(".action-icon--remove")
+          expect(page).not_to have_selector(".action-icon--remove")
         end
       end
     end

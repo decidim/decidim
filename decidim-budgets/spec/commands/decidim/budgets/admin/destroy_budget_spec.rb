@@ -5,9 +5,9 @@ require "spec_helper"
 describe Decidim::Budgets::Admin::DestroyBudget do
   subject { described_class.new(budget, user) }
 
-  let!(:budget) { create :budget }
+  let!(:budget) { create(:budget) }
   let(:organization) { budget.component.organization }
-  let(:user) { create :user, :admin, :confirmed, organization: }
+  let(:user) { create(:user, :admin, :confirmed, organization:) }
 
   it "destroys the budget" do
     expect { subject.call }.to change(Decidim::Budgets::Budget, :count).by(-1)
@@ -26,7 +26,7 @@ describe Decidim::Budgets::Admin::DestroyBudget do
   end
 
   context "when the budget has projects" do
-    let!(:project) { create :project, budget: }
+    let!(:project) { create(:project, budget:) }
 
     it "is not valid" do
       expect { subject.call }.to broadcast(:invalid)

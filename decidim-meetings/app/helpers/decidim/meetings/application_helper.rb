@@ -30,7 +30,7 @@ module Decidim
 
       def filter_type_values
         type_values = []
-        Decidim::Meetings::Meeting::TYPE_OF_MEETING.each do |type|
+        Decidim::Meetings::Meeting::TYPE_OF_MEETING.keys.each do |type|
           type_values << TreePoint.new(type, t("decidim.meetings.meetings.filters.type_values.#{type}"))
         end
 
@@ -90,7 +90,7 @@ module Decidim
       end
 
       def online_or_hybrid_meeting?(meeting)
-        meeting.online_meeting? || meeting.hybrid_meeting?
+        meeting.online? || meeting.hybrid?
       end
 
       def iframe_embed_or_live_event_page?(meeting)

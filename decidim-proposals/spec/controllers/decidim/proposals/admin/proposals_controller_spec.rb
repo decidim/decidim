@@ -37,7 +37,7 @@ describe Decidim::Proposals::Admin::ProposalsController, type: :controller do
     it "updates the proposal" do
       allow(controller).to receive(:proposals_path).and_return("/proposals")
 
-      patch :update, params: params
+      patch(:update, params:)
 
       expect(flash[:notice]).not_to be_empty
       expect(response).to have_http_status(:found)
@@ -57,7 +57,7 @@ describe Decidim::Proposals::Admin::ProposalsController, type: :controller do
         let(:proposal) { create(:proposal, :official, :with_photo, component:) }
 
         it "displays the editing form with errors" do
-          patch :update, params: params
+          patch(:update, params:)
 
           expect(flash[:alert]).not_to be_empty
           expect(response).to have_http_status(:ok)

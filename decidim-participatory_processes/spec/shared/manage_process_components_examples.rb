@@ -24,7 +24,7 @@ shared_examples "manage process components" do
           find(".dummy").click
         end
 
-        expect(page).to have_no_content("Share tokens")
+        expect(page).not_to have_content("Share tokens")
 
         within ".new_component" do
           fill_in_i18n(
@@ -277,7 +277,7 @@ shared_examples "manage process components" do
         click_link "Delete"
       end
 
-      expect(page).to have_no_content("My component")
+      expect(page).not_to have_content("My component")
     end
   end
 
@@ -333,7 +333,7 @@ shared_examples "manage process components" do
           click_link "Configure"
         end
 
-        expect(page).to have_no_content("Share tokens")
+        expect(page).not_to have_content("Share tokens")
       end
 
       it "unpublishes the component" do

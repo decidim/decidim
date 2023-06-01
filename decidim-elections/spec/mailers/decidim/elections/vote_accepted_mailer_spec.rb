@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim::Elections
   describe VoteAcceptedMailer, type: :mailer do
-    let(:vote) { create :vote }
+    let(:vote) { create(:vote) }
     let(:verify_url) { "https://example.org/verify_url?hash=123" }
     let(:locale) { nil }
     let(:election) { vote.election }

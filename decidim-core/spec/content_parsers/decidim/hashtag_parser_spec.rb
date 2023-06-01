@@ -97,6 +97,22 @@ module Decidim
       it_behaves_like "find and stores the hashtags references"
     end
 
+    context "when the hashtags are added through the WYSIWYG editor" do
+      let(:new_hashtag) { Decidim::Hashtag.find_by(organization:, name: "a_new_one") }
+      let(:hashtag2) { create(:hashtag, organization:) }
+      let(:content) do
+        %(<p>This text contains multiple hashtag presents: #{html_hashtag("a_new_one")}, #{html_hashtag(hashtag.name)} and #{html_hashtag(hashtag2.name)}</p>)
+      end
+      let(:parsed_content) { "<p>This text contains multiple hashtag presents: #{new_hashtag.to_global_id}/#{new_hashtag.name}, #{hashtag.to_global_id}/#{hashtag.name} and #{hashtag2.to_global_id}/#{hashtag2.name}</p>" }
+      let(:metadata_hashtags) { [new_hashtag, hashtag, hashtag2] }
+
+      it_behaves_like "find and stores the hashtags references"
+
+      def html_hashtag(hashtag)
+        %(<span data-type="hashtag" data-label="##{hashtag}">##{hashtag}</span>)
+      end
+    end
+
     context "when content contains an URL with a fragment (aka anchor link)" do
       let(:content) { "You can add an URL and this should not be parsed http://www.example.org/path##{hashtag.name}" }
       let(:parsed_content) { "You can add an URL and this should not be parsed http://www.example.org/path#fragment" }

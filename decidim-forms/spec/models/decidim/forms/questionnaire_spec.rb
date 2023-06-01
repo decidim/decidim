@@ -25,7 +25,7 @@ module Decidim
       end
 
       context "without a questionable" do
-        let(:questionnaire) { build :questionnaire, questionnaire_for: nil }
+        let(:questionnaire) { build(:questionnaire, questionnaire_for: nil) }
 
         it { is_expected.not_to be_valid }
       end

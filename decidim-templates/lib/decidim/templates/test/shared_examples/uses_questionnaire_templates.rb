@@ -15,7 +15,7 @@ shared_examples_for "uses questionnaire templates" do |_questionnaire_for|
       end
 
       it "does not show the template selection screen" do
-        expect(page).to have_no_content("Choose template")
+        expect(page).not_to have_content("Choose template")
       end
     end
 
@@ -33,7 +33,7 @@ shared_examples_for "uses questionnaire templates" do |_questionnaire_for|
         end
 
         it "does not show the template selection screen" do
-          expect(page).to have_no_content("Choose template")
+          expect(page).not_to have_content("Choose template")
         end
       end
 

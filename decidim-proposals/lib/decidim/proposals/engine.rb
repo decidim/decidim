@@ -210,8 +210,10 @@ module Decidim
       end
 
       initializer "decidim_proposals.authorization_transfer" do
-        Decidim::AuthorizationTransfer.register(:proposals) do |transfer|
-          transfer.move_records(Decidim::Proposals::ProposalVote, :decidim_author_id)
+        config.to_prepare do
+          Decidim::AuthorizationTransfer.register(:proposals) do |transfer|
+            transfer.move_records(Decidim::Proposals::ProposalVote, :decidim_author_id)
+          end
         end
       end
 

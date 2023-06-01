@@ -15,13 +15,13 @@ module Decidim
         helper Decidim::Admin::IconLinkHelper
 
         def new
-          enforce_permission_to :manage, :in_person_vote, polling_officer: polling_officer
+          enforce_permission_to(:manage, :in_person_vote, polling_officer:)
 
           has_pending_in_person_vote?
         end
 
         def create
-          enforce_permission_to :manage, :in_person_vote, polling_officer: polling_officer
+          enforce_permission_to(:manage, :in_person_vote, polling_officer:)
 
           return if has_pending_in_person_vote?
 
@@ -37,7 +37,7 @@ module Decidim
         end
 
         def update
-          enforce_permission_to :manage, :in_person_vote, polling_officer: polling_officer
+          enforce_permission_to(:manage, :in_person_vote, polling_officer:)
 
           Decidim::Votings::Voter::UpdateInPersonVoteStatus.call(in_person_vote) do
             on(:ok) do

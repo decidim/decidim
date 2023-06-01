@@ -6,7 +6,8 @@ js_configs = {
     "mentionsModal": {
       "removeRecipient": t("decidim.shared.mentions_modal.remove_recipient", name: "%name%")
     },
-    emojis: I18n.t("emojis").deep_transform_keys { |k| k.to_s.camelize(:lower) }
+    emojis: I18n.t("emojis").deep_transform_keys { |k| k.to_s.camelize(:lower) },
+    editor: I18n.t("editor")
   },
   external_domain_whitelist: [current_organization.host] + current_organization.external_domain_whitelist,
   consent_cookie_name: Decidim.consent_cookie_name
