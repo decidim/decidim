@@ -91,7 +91,7 @@ describe "Account", type: :system do
       context "when password and confirmation match" do
         it "updates the password successfully" do
           within "form.edit_user" do
-            page.find(".change-password").click
+            page.find("span", text: "Change password").click
 
             fill_in :user_password, with: "sekritpass123"
             fill_in :user_password_confirmation, with: "sekritpass123"
@@ -99,7 +99,8 @@ describe "Account", type: :system do
             find("*[type=submit]").click
           end
 
-          within_flash_messages do
+          # REDESIGN_PENDING - Replace with within_flash_messages after redesigning this form
+          within ".flash", match: :first do
             expect(page).to have_content("successfully")
           end
 
@@ -110,7 +111,7 @@ describe "Account", type: :system do
       context "when passwords do not match" do
         it "does not update the password" do
           within "form.edit_user" do
-            page.find(".change-password").click
+            page.find("span", text: "Change password").click
 
             fill_in :user_password, with: "sekritpass123"
             fill_in :user_password_confirmation, with: "oopseytypo"
@@ -118,7 +119,8 @@ describe "Account", type: :system do
             find("*[type=submit]").click
           end
 
-          within_flash_messages do
+          # REDESIGN_PENDING - Replace with within_flash_messages after redesigning this form
+          within ".flash", match: :first do
             expect(page).to have_content("There was a problem")
           end
 
@@ -183,9 +185,7 @@ describe "Account", type: :system do
       end
 
       it "updates the user's notifications" do
-        within ".switch.newsletter_notifications" do
-          page.find(".switch-paddle").click
-        end
+        page.find("[for='dc-newsletter_notifications']").click
 
         within "form.edit_user" do
           find("*[type=submit]").click
@@ -205,13 +205,8 @@ describe "Account", type: :system do
         end
 
         it "updates the administrator's notifications" do
-          within ".switch.email_on_moderations" do
-            page.find(".switch-paddle").click
-          end
-
-          within ".switch.notification_settings" do
-            page.find(".switch-paddle").click
-          end
+          page.find("[for='dc-email_on_moderations']").click
+          page.find("[for='dc-user_notification_settings[close_meeting_reminder]']").click
 
           within "form.edit_user" do
             find("*[type=submit]").click
@@ -329,10 +324,7 @@ describe "Account", type: :system do
       context "when on the account page" do
         it "enables push notifications if supported browser" do
           sleep 2
-          within ".push-notifications" do
-            # Check allow push notifications
-            find(".switch-paddle").click
-          end
+          page.find("[for='dc-allow_push_notifications']").click
 
           # Wait for the browser to be subscribed
           sleep 5
