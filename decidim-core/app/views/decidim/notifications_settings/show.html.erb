@@ -100,7 +100,7 @@
           <%= t("administrators", scope:"decidim.notifications_settings.show") %>
         </span>
         <div class="toggle__switch-trigger">
-        <label for="dc-<%= :email_on_moderations %>" class="toggle__switch-toggle">
+        <label for="dc-email_on_moderations" class="toggle__switch-toggle">
           <input
             <%= %(checked="checked") if @notifications_settings.email_on_moderations %>
             id="dc-<%= :email_on_moderations %>"
