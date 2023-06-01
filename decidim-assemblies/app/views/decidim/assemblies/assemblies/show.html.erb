@@ -21,7 +21,9 @@ edit_link(
 <% end %>
 
 <% if current_participatory_space.parent.present? %>
-  <%= render partial: "decidim/assemblies/assemblies/nav_breadcrumb", locals: { assemblies: current_participatory_space.ancestors.to_a } %>
+  <section class="participatory-space__block-breadcrumb">
+    <%= render partial: "decidim/assemblies/assemblies/nav_breadcrumb", locals: { assemblies: current_participatory_space.ancestors.to_a } %>
+  </section>
 <% end %>
 
 <div class="participatory-space__container">

@@ -1,11 +1,7 @@
-<section class="content-block home__section">
-  <% root = assemblies.shift %>
-  <%= link_to translated_attribute(root.title), assembly_path(root), class: "layout-item__back button button__text-secondary js-back-to-list" %>
+<% root = assemblies.shift %>
+<%= link_to translated_attribute(root.title), assembly_path(root), class: "button button__text-secondary" %>
 
-  <% assemblies.each do |assembly| %>
-    <%= link_to assembly_path(assembly), class: "layout-item__back button button__text-secondary js-back-to-list" do %>
-      <%= icon "arrow-right-line" %>
-      <%= translated_attribute(assembly.title) %>
-    <% end %>
-  <% end %>
-</section>
+<% assemblies.each do |assembly| %>
+  <%= icon "arrow-right-line" %>
+  <%= link_to translated_attribute(assembly.title), assembly_path(assembly), class: "button button__text-secondary" %>
+<% end %>
