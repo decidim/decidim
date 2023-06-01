@@ -5,6 +5,8 @@ module Decidim
   module AmendmentsHelper
     include RichTextEditorHelper
 
+    TOTAL_STEPS = 4
+
     # Renders the emendations of an amendable resource
     #
     # Returns Html grid of CardM.
@@ -152,9 +154,7 @@ module Decidim
       present(send(original_resource)).send(attribute)
     end
 
-    def total_steps
-      4
-    end
+    def total_steps = TOTAL_STEPS
 
     def current_step
       @current_step ||= case params[:action].to_sym
