@@ -7,11 +7,8 @@
 
 <ol id="wizard-steps" class="wizard-steps">
   <% (1..total_steps).each do |wizard_step| %>
-    <%
-      scope = "decidim.amendments.wizard_step_form.steps"
-      attributes = @current_step == wizard_step ? { "aria-current": "step" } : {}
-    %>
-    <%= content_tag :li, t(wizard_step, scope:), attributes %>
+    <% attributes = @current_step == wizard_step ? { "aria-current": "step" } : {} %>
+    <%= content_tag :li, t(wizard_step, scope: "decidim.amendments.wizard_step_form.steps"), attributes %>
   <% end %>
 </ol>
 
