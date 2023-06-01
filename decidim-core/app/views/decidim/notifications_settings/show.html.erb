@@ -78,7 +78,7 @@
         <%= t("direct_messages", scope:"decidim.notifications_settings.show") %>
       </span>
       <div class="toggle__switch-trigger">
-        <label for="dc-<%= :allow_public_contact %>" class="toggle__switch-toggle">
+        <label for="dc-allow_public_contact" class="toggle__switch-toggle">
           <input
             <%= %(checked="checked") if @notifications_settings.allow_public_contact %>
             id="dc-<%= :allow_public_contact %>"
