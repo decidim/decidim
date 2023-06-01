@@ -81,8 +81,8 @@ $(async () => {
         console.log("Something went wrong.");
       }
     });
-  } catch (e) {
-    console.error(e);
+  } catch (error) {
+    console.error(error);
     questionsComponent.errored();
   }
 });
