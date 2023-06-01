@@ -139,7 +139,8 @@ describe "Account", type: :system do
           perform_enqueued_jobs { find("*[type=submit]").click }
         end
 
-        within_flash_messages do
+        # REDESIGN_PENDING - Replace with within_flash_messages after redesigning this form
+        within ".flash", match: :first do
           expect(page).to have_content("You'll receive an email to confirm your new email address")
         end
       end
@@ -238,9 +239,10 @@ describe "Account", type: :system do
         end
 
         it "display translated scope name" do
-          label_field = "label[for='user_scopes_#{scopes.first.id}_checked']"
           expect(page).to have_content("My interests")
-          expect(find("#{label_field} > span.switch-label").text).to eq(translated(scopes.first.name))
+          within "label[for='user_scopes_#{scopes.first.id}_checked']" do
+            expect(page).to have_content(translated(scopes.first.name))
+          end
         end
 
         it "allows to choose interests" do
