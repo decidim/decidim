@@ -1,5 +1,5 @@
 /* eslint-disable camelcase */
-const controlSelector = function(source, prefix, currentValueKey) {
+const controlSelector = function (source, prefix, currentValueKey) {
   if (source.length) {
     let currentValue = source.data(currentValueKey),
         searchUrl = source.data(`${prefix}-search-url`),

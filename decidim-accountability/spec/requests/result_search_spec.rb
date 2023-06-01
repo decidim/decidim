@@ -5,7 +5,7 @@ require "spec_helper"
 RSpec.describe "Result search", type: :request do
   include Decidim::ComponentPathHelper
 
-  let(:component) { create :accountability_component }
+  let(:component) { create(:accountability_component) }
   let(:participatory_space) { component.participatory_space }
   let(:parent_id) { nil }
   let(:filter_params) { {} }
@@ -77,7 +77,7 @@ RSpec.describe "Result search", type: :request do
     context "when deep searching" do
       context "when the parent_id is nil" do
         it "returns the search on all results" do
-          expect(subject).to match_array [result1, result2, result4]
+          expect(subject).to contain_exactly(result1, result2, result4)
         end
       end
 
@@ -85,7 +85,7 @@ RSpec.describe "Result search", type: :request do
         let(:parent_id) { result1.id }
 
         it "returns the search on the children of result" do
-          expect(subject).to match_array [result2, result3]
+          expect(subject).to contain_exactly(result2, result3)
         end
       end
 
@@ -93,7 +93,7 @@ RSpec.describe "Result search", type: :request do
         let(:parent_id) { result2.id }
 
         it "returns the search on the children of result" do
-          expect(subject).to match_array [result3]
+          expect(subject).to contain_exactly(result3)
         end
       end
     end
@@ -102,7 +102,7 @@ RSpec.describe "Result search", type: :request do
       let(:filter_params) { { search_text_cont: "doggo" } }
 
       it "returns the search results matching the word in title or description" do
-        expect(subject).to match_array [result1, result2]
+        expect(subject).to contain_exactly(result1, result2)
       end
     end
   end

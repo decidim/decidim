@@ -199,6 +199,8 @@ en:
           edit:
             title: Edit election
             update: Update election
+          form:
+            organization_time_zone: Check that the organization time zone is correct in the organization settings. The current configuration is %{time_zone} (%{time}).
           index:
             no_bulletin_board: There is no <a href="https://github.com/decidim/decidim-bulletin-board">Bulletin Board server</a> configured, which is needed to use this module. This task should be done by the System Administrator.
             title: Elections

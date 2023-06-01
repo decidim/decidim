@@ -8,10 +8,10 @@ module Decidim::Admin
     let(:event) { "decidim.events.conferences.role_assigned" }
     let(:event_class) { Decidim::Conferences::ConferenceRoleAssignedEvent }
 
-    let(:my_conference) { create :conference }
+    let(:my_conference) { create(:conference) }
     let!(:new_role) { "collaborator" }
     let!(:user_role) do
-      user = create :conference_admin
+      user = create(:conference_admin)
       Decidim::ConferenceUserRole.where(user:).last
     end
     let(:form) do

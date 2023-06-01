@@ -7,7 +7,7 @@ RSpec.describe "Debate search", type: :request do
 
   subject { response.body }
 
-  let(:component) { create :debates_component }
+  let(:component) { create(:debates_component) }
   let(:participatory_space) { component.participatory_space }
   let(:organization) { participatory_space.organization }
   let(:filter_params) { {} }

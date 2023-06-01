@@ -6,13 +6,13 @@ module Decidim::Accountability
   describe Admin::UpdateTimelineEntry do
     subject { described_class.new(form, timeline_entry, user) }
 
-    let(:organization) { create :organization, available_locales: [:en] }
-    let(:user) { create :user, organization: }
-    let(:participatory_process) { create :participatory_process, organization: }
-    let(:current_component) { create :accountability_component, participatory_space: participatory_process }
-    let(:result) { create :result, component: current_component }
+    let(:organization) { create(:organization, available_locales: [:en]) }
+    let(:user) { create(:user, organization:) }
+    let(:participatory_process) { create(:participatory_process, organization:) }
+    let(:current_component) { create(:accountability_component, participatory_space: participatory_process) }
+    let(:result) { create(:result, component: current_component) }
 
-    let(:timeline_entry) { create :timeline_entry, result: }
+    let(:timeline_entry) { create(:timeline_entry, result:) }
 
     let(:date) { "2017-9-23" }
     let(:title) { "New title" }

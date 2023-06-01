@@ -6,9 +6,9 @@ module Decidim::Admin
   describe DestroyArea do
     subject { described_class.new(area, user) }
 
-    let(:organization) { create :organization }
-    let(:user) { create :user, :admin, :confirmed, organization: }
-    let(:area) { create :area, organization: }
+    let(:organization) { create(:organization) }
+    let(:user) { create(:user, :admin, :confirmed, organization:) }
+    let(:area) { create(:area, organization:) }
 
     it "destroys the area" do
       subject.call

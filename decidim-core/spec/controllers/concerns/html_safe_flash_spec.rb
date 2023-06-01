@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   describe "HtmlSafeFlash", type: :controller do
-    let!(:organization) { create :organization }
+    let!(:organization) { create(:organization) }
 
     controller do
       include Decidim::HtmlSafeFlash

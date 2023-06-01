@@ -6,12 +6,12 @@ module Decidim::Meetings
   describe Admin::CreateMeeting do
     subject { described_class.new(form) }
 
-    let(:organization) { create :organization, available_locales: [:en] }
-    let(:current_user) { create :user, :admin, :confirmed, organization: }
-    let(:participatory_process) { create :participatory_process, organization: }
-    let(:current_component) { create :component, participatory_space: participatory_process, manifest_name: "meetings" }
-    let(:scope) { create :scope, organization: }
-    let(:category) { create :category, participatory_space: participatory_process }
+    let(:organization) { create(:organization, available_locales: [:en]) }
+    let(:current_user) { create(:user, :admin, :confirmed, organization:) }
+    let(:participatory_process) { create(:participatory_process, organization:) }
+    let(:current_component) { create(:component, participatory_space: participatory_process, manifest_name: "meetings") }
+    let(:scope) { create(:scope, organization:) }
+    let(:category) { create(:category, participatory_space: participatory_process) }
     let(:address) { "address" }
     let(:invalid) { false }
     let(:latitude) { 40.1234 }

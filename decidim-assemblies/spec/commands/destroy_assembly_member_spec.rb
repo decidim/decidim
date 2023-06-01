@@ -7,8 +7,8 @@ module Decidim::Assemblies
     subject { described_class.new(assembly_member, current_user) }
 
     let(:assembly) { create(:assembly) }
-    let(:assembly_member) { create :assembly_member, assembly: }
-    let!(:current_user) { create :user, :confirmed, organization: assembly.organization }
+    let(:assembly_member) { create(:assembly_member, assembly:) }
+    let!(:current_user) { create(:user, :confirmed, organization: assembly.organization) }
 
     context "when everything is ok" do
       let(:log_info) do

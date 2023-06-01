@@ -5,11 +5,11 @@ require "spec_helper"
 describe Decidim::Debates::Admin::UpdateDebate do
   subject { described_class.new(form, debate) }
 
-  let(:debate) { create :debate }
+  let(:debate) { create(:debate) }
   let(:organization) { debate.component.organization }
-  let(:scope) { create :scope, organization: }
-  let(:category) { create :category, participatory_space: debate.component.participatory_space }
-  let(:user) { create :user, :admin, :confirmed, organization: }
+  let(:scope) { create(:scope, organization:) }
+  let(:category) { create(:category, participatory_space: debate.component.participatory_space) }
+  let(:user) { create(:user, :admin, :confirmed, organization:) }
   let(:form) do
     double(
       invalid?: invalid,

@@ -19,7 +19,22 @@ module Decidim
         get "/initiative_type_scopes/search", to: "initiatives_type_scopes#search", as: :initiative_type_scopes_search
         get "/initiative_type_signature_types/search", to: "initiatives_type_signature_types#search", as: :initiative_type_signature_types_search
 
-        resources :create_initiative
+        resources :create_initiative do
+          collection do
+            get :select_initiative_type
+            put :select_initiative_type, to: "create_initiative#store_initiative_type"
+
+            get :previous_form
+            put :previous_form, to: "create_initiative#store_initial_data"
+
+            get :show_similar_initiatives
+
+            get :fill_data
+            put :fill_data, to: "create_initiative#store_data"
+            get :promotal_committee
+            get :finish
+          end
+        end
 
         get "initiatives/:initiative_id", to: redirect { |params, _request|
           initiative = Decidim::Initiative.find(params[:initiative_id])
@@ -90,7 +105,7 @@ module Decidim
                         I18n.t("menu.initiatives", scope: "decidim"),
                         decidim_initiatives.initiatives_path,
                         position: 2.4,
-                        active: :inclusive,
+                        active: %r{^/(initiatives|create_initiative)},
                         if: !Decidim::InitiativesType.joins(:scopes).where(organization: current_organization).all.empty?
         end
       end
@@ -140,9 +155,11 @@ module Decidim
       end
 
       initializer "decidim_initiatives.authorization_transfer" do
-        Decidim::AuthorizationTransfer.register(:initiatives) do |transfer|
-          transfer.move_records(Decidim::Initiative, :decidim_author_id)
-          transfer.move_records(Decidim::InitiativesVote, :decidim_author_id)
+        config.to_prepare do
+          Decidim::AuthorizationTransfer.register(:initiatives) do |transfer|
+            transfer.move_records(Decidim::Initiative, :decidim_author_id)
+            transfer.move_records(Decidim::InitiativesVote, :decidim_author_id)
+          end
         end
       end
     end

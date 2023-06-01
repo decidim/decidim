@@ -4,7 +4,7 @@ module Decidim
   module CellMatchers
     RSpec::Matchers.define :render_nothing do |_expected_value|
       match do |actual_value|
-        expect(actual_value).to have_no_selector("html")
+        expect(actual_value).not_to have_selector("html")
       end
 
       diffable

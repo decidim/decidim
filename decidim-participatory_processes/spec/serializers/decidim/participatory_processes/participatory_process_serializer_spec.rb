@@ -40,7 +40,7 @@ module Decidim::ParticipatoryProcesses
       end
 
       context "when process has area" do
-        let(:area) { create :area, organization: resource.organization }
+        let(:area) { create(:area, organization: resource.organization) }
 
         before do
           resource.area = area
@@ -58,7 +58,7 @@ module Decidim::ParticipatoryProcesses
       end
 
       context "when process has type" do
-        let(:participatory_process_type) { create :participatory_process_type, organization: resource.organization }
+        let(:participatory_process_type) { create(:participatory_process_type, organization: resource.organization) }
 
         before do
           resource.participatory_process_type = participatory_process_type
@@ -76,7 +76,7 @@ module Decidim::ParticipatoryProcesses
       end
 
       context "when process has scope" do
-        let(:scope) { create :scope, organization: resource.organization }
+        let(:scope) { create(:scope, organization: resource.organization) }
 
         before do
           resource.scope = scope
@@ -94,7 +94,7 @@ module Decidim::ParticipatoryProcesses
       end
 
       context "when process belongs to process group" do
-        let(:participatory_process_group) { create :participatory_process_group, organization: resource.organization }
+        let(:participatory_process_group) { create(:participatory_process_group, organization: resource.organization) }
 
         before do
           resource.participatory_process_group = participatory_process_group
@@ -114,7 +114,7 @@ module Decidim::ParticipatoryProcesses
       end
 
       context "when process has steps" do
-        let(:step) { create :participatory_process_step }
+        let(:step) { create(:participatory_process_step) }
 
         before do
           resource.steps << step

@@ -4,14 +4,14 @@ require "spec_helper"
 
 describe "Admin manages proposals valuators", type: :system do
   let(:manifest_name) { "proposals" }
-  let!(:proposal) { create :proposal, component: current_component }
+  let!(:proposal) { create(:proposal, component: current_component) }
   let!(:reportables) { create_list(:proposal, 3, component: current_component) }
   let(:participatory_process) { create(:participatory_process, :with_steps, organization:) }
   let(:participatory_space_path) do
     decidim_admin_participatory_processes.edit_participatory_process_path(participatory_process)
   end
-  let!(:valuator) { create :user, organization: }
-  let!(:valuator_role) { create :participatory_process_user_role, role: :valuator, user: valuator, participatory_process: }
+  let!(:valuator) { create(:user, organization:) }
+  let!(:valuator_role) { create(:participatory_process_user_role, role: :valuator, user: valuator, participatory_process:) }
 
   include Decidim::ComponentPathHelper
 
@@ -56,11 +56,11 @@ describe "Admin manages proposals valuators", type: :system do
   end
 
   context "when filtering proposals by assigned valuator" do
-    let!(:unassigned_proposal) { create :proposal, component: }
+    let!(:unassigned_proposal) { create(:proposal, component:) }
     let(:assigned_proposal) { proposal }
 
     before do
-      create :valuation_assignment, proposal: proposal, valuator_role: valuator_role
+      create(:valuation_assignment, proposal:, valuator_role:)
 
       visit current_path
     end
@@ -76,7 +76,7 @@ describe "Admin manages proposals valuators", type: :system do
       end
 
       expect(page).to have_content(translated(assigned_proposal.title))
-      expect(page).to have_no_content(translated(unassigned_proposal.title))
+      expect(page).not_to have_content(translated(unassigned_proposal.title))
     end
   end
 
@@ -84,7 +84,7 @@ describe "Admin manages proposals valuators", type: :system do
     let(:assigned_proposal) { proposal }
 
     before do
-      create :valuation_assignment, proposal: proposal, valuator_role: valuator_role
+      create(:valuation_assignment, proposal:, valuator_role:)
 
       visit current_path
 
@@ -126,7 +126,7 @@ describe "Admin manages proposals valuators", type: :system do
     let(:assigned_proposal) { proposal }
 
     before do
-      create :valuation_assignment, proposal: proposal, valuator_role: valuator_role
+      create(:valuation_assignment, proposal:, valuator_role:)
 
       visit current_path
       within find("tr", text: translated(proposal.title)) do
@@ -145,7 +145,7 @@ describe "Admin manages proposals valuators", type: :system do
 
       expect(page).to have_content("Valuator unassigned from proposals successfully")
 
-      expect(page).to have_no_selector("#valuators")
+      expect(page).not_to have_selector("#valuators")
     end
   end
 end

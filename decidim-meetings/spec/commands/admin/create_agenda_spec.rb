@@ -6,7 +6,7 @@ module Decidim::Meetings
   describe Admin::CreateAgenda do
     subject { described_class.new(form, meeting) }
 
-    let(:organization) { create :organization, available_locales: [:en] }
+    let(:organization) { create(:organization, available_locales: [:en]) }
     let(:component) { create(:component, manifest_name: "meetings", organization:) }
     let(:meeting) { create(:meeting, component:) }
     let(:current_user) { create(:user, :admin, :confirmed, organization:) }

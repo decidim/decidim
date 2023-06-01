@@ -5,11 +5,11 @@ require "spec_helper"
 module Decidim::Conferences
   describe Admin::SendConferenceDiplomas do
     describe "call" do
-      let(:my_conference) { create :conference, :diploma }
-      let(:user) { create :user, :admin, :confirmed, organization: my_conference.organization }
-      let(:user_not_admin) { create :user, :confirmed, organization: my_conference.organization }
+      let(:my_conference) { create(:conference, :diploma) }
+      let(:user) { create(:user, :admin, :confirmed, organization: my_conference.organization) }
+      let(:user_not_admin) { create(:user, :confirmed, organization: my_conference.organization) }
 
-      let!(:conference_registration) { create :conference_registration, conference: my_conference, user: user_not_admin }
+      let!(:conference_registration) { create(:conference_registration, conference: my_conference, user: user_not_admin) }
 
       let(:command) { described_class.new(my_conference, user) }
 

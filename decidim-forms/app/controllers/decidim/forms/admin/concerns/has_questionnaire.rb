@@ -34,7 +34,7 @@ module Decidim
             end
 
             def edit
-              enforce_permission_to :update, :questionnaire, questionnaire: questionnaire
+              enforce_permission_to(:update, :questionnaire, questionnaire:)
 
               @form = form(Admin::QuestionnaireForm).from_model(questionnaire)
 
@@ -42,7 +42,7 @@ module Decidim
             end
 
             def update
-              enforce_permission_to :update, :questionnaire, questionnaire: questionnaire
+              enforce_permission_to(:update, :questionnaire, questionnaire:)
 
               params["published_at"] = Time.current if params.has_key? "save_and_publish"
               @form = form(Admin::QuestionnaireForm).from_params(params)

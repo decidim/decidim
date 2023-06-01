@@ -7,7 +7,7 @@ module Decidim
     describe CreateUserGroup do
       describe "call" do
         let(:organization) { create(:organization) }
-        let(:user) { create :user, :confirmed, organization: }
+        let(:user) { create(:user, :confirmed, organization:) }
 
         let(:name) { "User group name" }
         let(:nickname) { "nickname" }

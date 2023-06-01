@@ -9,7 +9,7 @@ module Decidim
         routes { Decidim::ParticipatoryProcesses::AdminEngine.routes }
 
         let!(:organization) { create(:organization) }
-        let!(:participatory_process) { create :participatory_process, organization: }
+        let!(:participatory_process) { create(:participatory_process, organization:) }
         let!(:user) { create(:user, :admin, :confirmed, organization:) }
 
         let(:params) do

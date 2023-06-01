@@ -8,7 +8,7 @@ module Decidim
       describe InitiativeTypeForm do
         subject { described_class.from_params(attributes).with_context(context) }
 
-        let(:organization) { create :organization }
+        let(:organization) { create(:organization) }
         let(:initiatives_type) { create(:initiatives_type, organization:) }
         let(:title) { Decidim::Faker::Localized.sentence(word_count: 5) }
         let(:promoting_committee_enabled) { true }
