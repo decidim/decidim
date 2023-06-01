@@ -67,7 +67,7 @@
 
 .proposal-participatory{
   &__heading{
-    @apply mt-10 mb-6 pb-6 border-b-4 border-background font-sans font-semibold text-xl md:text-3xl;
+    @apply mt-10 first:mt-0 mb-6 pb-6 border-b-4 border-background font-sans font-semibold text-xl md:text-3xl;
   }
 
   &__section{
