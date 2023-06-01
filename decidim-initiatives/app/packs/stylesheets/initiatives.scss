@@ -10,6 +10,10 @@
       @apply pl-4 pr-20 py-4 items-center justify-between gap-4;
     }
 
+    .card__highlight-authorized{
+      @apply w-full my-10 hover:cursor-default hover:ring-background;
+    }
+
     &__icon{
       @apply flex-none w-8 h-8 text-gray fill-secondary;
 
