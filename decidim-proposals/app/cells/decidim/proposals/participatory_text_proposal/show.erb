@@ -1,5 +1,5 @@
 <section id="<%= dom_id(model) %>" class="proposal-participatory__section">
-  <%= link_to title, resource_path, class: "proposal-participatory__title" %>
+  <%= link_to section_title, resource_path, class: "proposal-participatory__title" %>
   <div class="proposal-participatory__text"><%= body %></div>
-  <div><%= render :buttons %></div>
+  <div class="flex"><%= render :buttons %></div>
 </section>

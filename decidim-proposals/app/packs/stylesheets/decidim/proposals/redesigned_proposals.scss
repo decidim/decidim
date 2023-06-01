@@ -79,7 +79,7 @@
   }
 
   &__title{
-    @apply font-semibold text-xl text-secondary;
+    @apply block font-semibold text-xl text-secondary;
   }
 
   &__text{
@@ -89,6 +89,10 @@
   &__button{
     @apply inline-flex items-center gap-1 px-0 md:px-6 border-gray-3 border-0 md:border-r first:pl-0 last:pr-0 last:border-r-0 text-sm text-secondary;
 
+    & > span{
+      @apply underline;
+    }
+
     & > svg{
       @apply w-3.5 h-3.5 fill-current text-gray;
     }
@@ -96,5 +100,9 @@
 
   &__section:hover &__title{
     @apply underline;
+  }
+
+  &__section:hover .label{
+    @apply text-white bg-secondary;
   }
 }
