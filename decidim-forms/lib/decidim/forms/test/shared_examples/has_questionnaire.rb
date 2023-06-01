@@ -52,7 +52,7 @@ shared_examples_for "has questionnaire" do
       let!(:question2) { create(:questionnaire_question, questionnaire:, position: 2) }
 
       before do
-        skip "REDESIGN_PENDING - This specs are reciprocal among https://github.com/decidim/decidim/pull/10886 and https://github.com/decidim/decidim/pull/10922. Both PRs are required."
+        skip "REDESIGN_PENDING - This specs are reciprocal among https://github.com/decidim/decidim/pull/10886 and https://github.com/decidim/decidim/pull/10922. Both PRs are required." # rubocop:disable Layout/LineLength
 
         visit questionnaire_public_path
       end
