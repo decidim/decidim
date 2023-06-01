@@ -8,8 +8,8 @@ module Decidim
       routes { Decidim::Blogs::Engine.routes }
       describe "show" do
         context "when the post has not published yet" do
-          let(:organization) { create :organization }
-          let(:participatory_process) { create :participatory_process, organization: }
+          let(:organization) { create(:organization) }
+          let(:participatory_process) { create(:participatory_process, organization:) }
           let!(:post_component) { create(:post_component, participatory_space: participatory_process) }
           let!(:unpublished) { create(:post, component: post_component, created_at: 2.days.ago, published_at: 2.days.from_now) }
           let!(:published) { create(:post, component: post_component, created_at: 2.days.ago, published_at: 2.days.ago) }

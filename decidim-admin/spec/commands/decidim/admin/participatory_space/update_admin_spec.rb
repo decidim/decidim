@@ -9,11 +9,11 @@ module Decidim::Admin
     let(:event) { "decidim.events.participatory_process.role_assigned" }
     let(:event_class) { Decidim::ParticipatoryProcessRoleAssignedEvent }
 
-    let(:my_process) { create :participatory_process }
-    let(:role) { create :participatory_process_user_role, user:, participatory_process: my_process, role: :admin }
+    let(:my_process) { create(:participatory_process) }
+    let(:role) { create(:participatory_process_user_role, user:, participatory_process: my_process, role: :admin) }
     let(:new_role) { "moderator" }
-    let!(:current_user) { create :user, email: "some_email@example.org", organization: my_process.organization }
-    let!(:user) { create :user, :confirmed, organization: my_process.organization }
+    let!(:current_user) { create(:user, email: "some_email@example.org", organization: my_process.organization) }
+    let!(:user) { create(:user, :confirmed, organization: my_process.organization) }
     let(:form) do
       double(
         invalid?: invalid,

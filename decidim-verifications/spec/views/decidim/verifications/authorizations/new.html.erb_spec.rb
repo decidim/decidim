@@ -38,7 +38,7 @@ module Decidim
       end
 
       it "renders the form without the partial" do
-        expect(render).to have_no_css("[data-partial-demo]")
+        expect(render).not_to have_css("[data-partial-demo]")
       end
     end
   end

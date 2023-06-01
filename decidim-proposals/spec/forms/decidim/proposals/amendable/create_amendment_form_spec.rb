@@ -8,7 +8,7 @@ module Decidim
       subject { form }
 
       let(:amendable) { create(:proposal) }
-      let(:amender) { create :user, :confirmed, organization: amendable.organization }
+      let(:amender) { create(:user, :confirmed, organization: amendable.organization) }
 
       let(:form) do
         described_class.from_params(form_params).with_context(form_context)

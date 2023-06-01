@@ -5,8 +5,8 @@ require "spec_helper"
 describe Decidim::Votings::Admin::VotingForm do
   subject { described_class.from_params(attributes).with_context(current_organization: organization) }
 
-  let(:organization) { create :organization, available_locales: [:en, :ca, :es], default_locale: :en }
-  let(:scope) { create :scope, organization: }
+  let(:organization) { create(:organization, available_locales: [:en, :ca, :es], default_locale: :en) }
+  let(:scope) { create(:scope, organization:) }
 
   let(:title) { Decidim::Faker::Localized.sentence(word_count: 3) }
   let(:description) { Decidim::Faker::Localized.sentence(word_count: 3) }

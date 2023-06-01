@@ -5,7 +5,7 @@ require "spec_helper"
 describe "Explore meeting directory", type: :system do
   let(:directory) { Decidim::Meetings::DirectoryEngine.routes.url_helpers.root_path }
   let(:organization) { create(:organization) }
-  let(:participatory_process) { create :participatory_process, organization: }
+  let(:participatory_process) { create(:participatory_process, organization:) }
   let(:components) { create_list(:meeting_component, 3, organization:) }
   let!(:meetings) do
     components.flat_map do |component|
@@ -329,7 +329,7 @@ describe "Explore meeting directory", type: :system do
         choose "Past"
       end
 
-      expect(page).to have_no_css(".card--meeting")
+      expect(page).not_to have_css(".card--meeting")
       within(all(".filters__section")[7]) do
         uncheck "All"
         check "Assemblies"

@@ -5,12 +5,12 @@ require "spec_helper"
 describe Decidim::Debates::Admin::CreateDebate do
   subject { described_class.new(form) }
 
-  let(:organization) { create :organization, available_locales: [:en, :ca, :es], default_locale: :en }
-  let(:participatory_process) { create :participatory_process, organization: }
-  let(:current_component) { create :component, participatory_space: participatory_process, manifest_name: "debates" }
-  let(:scope) { create :scope, organization: }
-  let(:category) { create :category, participatory_space: participatory_process }
-  let(:user) { create :user, :admin, :confirmed, organization: }
+  let(:organization) { create(:organization, available_locales: [:en, :ca, :es], default_locale: :en) }
+  let(:participatory_process) { create(:participatory_process, organization:) }
+  let(:current_component) { create(:component, participatory_space: participatory_process, manifest_name: "debates") }
+  let(:scope) { create(:scope, organization:) }
+  let(:category) { create(:category, participatory_space: participatory_process) }
+  let(:user) { create(:user, :admin, :confirmed, organization:) }
   let(:form) do
     double(
       invalid?: invalid,
@@ -97,7 +97,7 @@ describe Decidim::Debates::Admin::CreateDebate do
 
     describe "events" do
       let(:space_follower) { create(:user, organization:) }
-      let!(:space_follow) { create :follow, followable: participatory_process, user: space_follower }
+      let!(:space_follow) { create(:follow, followable: participatory_process, user: space_follower) }
 
       it "notifies the change to the author followers" do
         expect(Decidim::EventsManager)

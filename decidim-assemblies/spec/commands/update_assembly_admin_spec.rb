@@ -9,10 +9,10 @@ module Decidim::Admin
     let(:event) { "decidim.events.assembly.role_assigned" }
     let(:event_class) { Decidim::RoleAssignedToAssemblyEvent }
 
-    let(:my_assembly) { create :assembly }
+    let(:my_assembly) { create(:assembly) }
     let!(:new_role) { "collaborator" }
     let!(:user_role) do
-      user = create :assembly_admin
+      user = create(:assembly_admin)
       Decidim::AssemblyUserRole.where(user:).last
     end
     let(:form) do

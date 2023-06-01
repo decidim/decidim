@@ -13,7 +13,7 @@ describe "Explore versions", versioning: true, type: :system do
       id: meeting.id
     )
   end
-  let!(:scope) { create :scope, organization: }
+  let!(:scope) { create(:scope, organization:) }
   let!(:meeting) do
     create(
       :meeting,

@@ -20,9 +20,9 @@ describe ScopeBelongsToComponentValidator do
       validates :scope, scope_belongs_to_component: true
     end
   end
-  let(:component) { create :component, organization: }
+  let(:component) { create(:component, organization:) }
   let!(:parent_scope) { create(:scope, organization:) }
-  let!(:organization) { create :organization }
+  let!(:organization) { create(:organization) }
 
   before do
     component.update!(settings: { scopes_enabled: true, scope_id: parent_scope.id })

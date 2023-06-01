@@ -11,8 +11,8 @@ module Decidim
     let!(:user) { create(:user, :confirmed, organization:) }
     let!(:process) { create(:participatory_process, :published, organization:) }
     let!(:assembly) { create(:assembly, :published, organization:) }
-    let!(:process_component) { create :component, participatory_space: process }
-    let!(:assembly_component) { create :component, participatory_space: assembly }
+    let!(:process_component) { create(:component, participatory_space: process) }
+    let!(:assembly_component) { create(:component, participatory_space: assembly) }
     let(:extra_manifest) do
       # The extra manifest registers the same stat as the actual component
       # manifest to test that there are no duplicate stats in the results.

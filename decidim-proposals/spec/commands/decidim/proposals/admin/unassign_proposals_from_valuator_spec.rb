@@ -12,10 +12,10 @@ module Decidim
           let!(:current_component) { create(:proposal_component) }
           let(:space) { current_component.participatory_space }
           let(:organization) { space.organization }
-          let(:user) { create :user, organization: }
-          let(:valuator) { create :user, organization: }
-          let(:valuator_role) { create :participatory_process_user_role, role: :valuator, user: valuator, participatory_process: space }
-          let!(:assignment) { create :valuation_assignment, proposal: assigned_proposal, valuator_role: }
+          let(:user) { create(:user, organization:) }
+          let(:valuator) { create(:user, organization:) }
+          let(:valuator_role) { create(:participatory_process_user_role, role: :valuator, user: valuator, participatory_process: space) }
+          let!(:assignment) { create(:valuation_assignment, proposal: assigned_proposal, valuator_role:) }
           let(:form) do
             instance_double(
               ValuationAssignmentForm,

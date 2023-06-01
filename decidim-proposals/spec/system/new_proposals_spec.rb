@@ -5,7 +5,7 @@ require "spec_helper"
 describe "Proposals", type: :system do
   include_context "with a component"
   let(:manifest_name) { "proposals" }
-  let!(:user) { create :user, :confirmed, organization: }
+  let!(:user) { create(:user, :confirmed, organization:) }
   let!(:component) do
     create(:proposal_component,
            :with_creation_enabled,

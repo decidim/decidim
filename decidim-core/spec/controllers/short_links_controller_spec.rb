@@ -27,7 +27,7 @@ module Decidim
       let(:params) { { id: short_link.identifier } }
 
       it "redirects to the full URL of the short link" do
-        get :show, params: params
+        get(:show, params:)
 
         expect(response).to redirect_to(short_link.target_url)
       end

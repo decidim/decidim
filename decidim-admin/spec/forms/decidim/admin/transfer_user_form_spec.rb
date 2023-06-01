@@ -13,10 +13,10 @@ module Decidim
         )
       end
 
-      let(:organization) { create :organization }
-      let(:current_user) { create :user, :admin, organization: }
-      let(:new_user) { create :user, organization: }
-      let(:managed_user) { create :user, managed: true, organization: }
+      let(:organization) { create(:organization) }
+      let(:current_user) { create(:user, :admin, organization:) }
+      let(:new_user) { create(:user, organization:) }
+      let(:managed_user) { create(:user, managed: true, organization:) }
 
       let(:conflict) do
         Decidim::Verifications::Conflict.create(current_user: new_user, managed_user:)

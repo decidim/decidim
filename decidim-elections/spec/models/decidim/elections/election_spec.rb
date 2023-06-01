@@ -28,7 +28,7 @@ describe Decidim::Elections::Election do
   end
 
   context "when it is ongoing" do
-    subject(:election) { build :election, :ongoing }
+    subject(:election) { build(:election, :ongoing) }
 
     it { is_expected.to be_started }
     it { is_expected.to be_ongoing }
@@ -36,7 +36,7 @@ describe Decidim::Elections::Election do
   end
 
   context "when it is finished" do
-    subject(:election) { build :election, :finished }
+    subject(:election) { build(:election, :finished) }
 
     it { is_expected.to be_started }
     it { is_expected.not_to be_ongoing }
