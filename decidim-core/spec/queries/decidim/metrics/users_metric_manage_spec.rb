@@ -46,6 +46,7 @@ describe Decidim::Metrics::UsersMetricManage do
 
         include_examples "computes the metric"
       end
+
       context "when the user is deleted before the end_time" do
         let!(:deleted_user) { create(:user, :confirmed, created_at: day, deleted_at: day, organization:) }
 
