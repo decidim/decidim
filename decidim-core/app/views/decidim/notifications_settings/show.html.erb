@@ -5,7 +5,7 @@
   <%= form_for(@notifications_settings, url: notifications_settings_path, method: :put, class: "user-form") do |f| %>
     <div class="form__wrapper pt-0">
       <span class="text-lg font-semibold">
-        <%= t("receive_notifications_about", scope:"decidim.notifications_settings.show") %>
+        <%= t("receive_notifications_about", scope: "decidim.notifications_settings.show") %>
       </span>
       <div class="toggle__switch-trigger">
         <label for="dc-notifications_from_own_activity" class="toggle__switch-toggle">
@@ -20,7 +20,7 @@
           <%= icon "check-line", class: "toggle__switch-toggle-icon" %>
           <%= icon "close-line", class: "toggle__switch-toggle-icon" %>
           <span class="toggle__switch-trigger-text">
-            <%= t("own_activity", scope:"decidim.notifications_settings.show") %>
+            <%= t("own_activity", scope: "decidim.notifications_settings.show") %>
           </span>
         </label>
       </div>
@@ -37,13 +37,13 @@
           <%= icon "check-line", class: "toggle__switch-toggle-icon" %>
           <%= icon "close-line", class: "toggle__switch-toggle-icon" %>
           <span class="toggle__switch-trigger-text">
-            <%= t("everything_followed", scope:"decidim.notifications_settings.show") %>
+            <%= t("everything_followed", scope: "decidim.notifications_settings.show") %>
           </span>
         </label>
       </div>
       <div>
         <span class="text-lg font-semibold">
-          <%= t("notifications_sending_frequency", scope:"decidim.notifications_settings.show") %>
+          <%= t("notifications_sending_frequency", scope: "decidim.notifications_settings.show") %>
         </span>
         <div class="flex items-center gap-x-6 mt-4">
           <%= f.collection_radio_buttons:notifications_sending_frequency, frequencies_collection, :first, :last, { checked: @notifications_settings.notifications_sending_frequency || "daily" }, class: "flex items-center" do |b| %>
@@ -55,7 +55,7 @@
         </div>
       </div>
       <span class="text-lg font-semibold">
-        <%= t("newsletters", scope:"decidim.notifications_settings.show") %>
+        <%= t("newsletters", scope: "decidim.notifications_settings.show") %>
       </span>
       <div class="toggle__switch-trigger">
         <label for="dc-newsletter_notifications" class="toggle__switch-toggle">
@@ -70,12 +70,12 @@
           <%= icon "check-line", class: "toggle__switch-toggle-icon" %>
           <%= icon "close-line", class: "toggle__switch-toggle-icon" %>
           <span class="toggle__switch-trigger-text">
-            <%= t("newsletter_notifications", scope:"decidim.notifications_settings.show") %>
+            <%= t("newsletter_notifications", scope: "decidim.notifications_settings.show") %>
           </span>
         </label>
       </div>
       <span class="text-lg font-semibold">
-        <%= t("direct_messages", scope:"decidim.notifications_settings.show") %>
+        <%= t("direct_messages", scope: "decidim.notifications_settings.show") %>
       </span>
       <div class="toggle__switch-trigger">
         <label for="dc-allow_public_contact" class="toggle__switch-toggle">
@@ -90,14 +90,14 @@
           <%= icon "check-line", class: "toggle__switch-toggle-icon" %>
           <%= icon "close-line", class: "toggle__switch-toggle-icon" %>
           <span class="toggle__switch-trigger-text">
-            <%= t("allow_public_contact", scope:"decidim.notifications_settings.show") %>
+            <%= t("allow_public_contact", scope: "decidim.notifications_settings.show") %>
           </span>
         </label>
       </div>
 
       <% if @notifications_settings.user_is_moderator?(current_user) %>
         <span class="text-lg font-semibold">
-          <%= t("administrators", scope:"decidim.notifications_settings.show") %>
+          <%= t("administrators", scope: "decidim.notifications_settings.show") %>
         </span>
         <div class="toggle__switch-trigger">
         <label for="dc-email_on_moderations" class="toggle__switch-toggle">
@@ -112,7 +112,7 @@
           <%= icon "check-line", class: "toggle__switch-toggle-icon" %>
           <%= icon "close-line", class: "toggle__switch-toggle-icon" %>
           <span class="toggle__switch-trigger-text">
-            <%= t("email_on_moderations", scope:"decidim.notifications_settings.show") %>
+            <%= t("email_on_moderations", scope: "decidim.notifications_settings.show") %>
           </span>
         </label>
       </div>
@@ -129,7 +129,7 @@
             <%= icon "check-line", class: "toggle__switch-toggle-icon" %>
             <%= icon "close-line", class: "toggle__switch-toggle-icon" %>
             <span class="toggle__switch-trigger-text">
-              <%= t("notification_settings.#{manifest.name}", scope:"decidim.notifications_settings.show") %>
+              <%= t("notification_settings.#{manifest.name}", scope: "decidim.notifications_settings.show") %>
             </span>
           </label>
         </div>
@@ -139,10 +139,10 @@
       <% if @notifications_settings.meet_push_notifications_requirements? %>
         <div class="push-notifications js-sw-mandatory">
           <span class="text-lg font-semibold">
-            <%= t("push_notifications", scope:"decidim.notifications_settings.show") %>
+            <%= t("push_notifications", scope: "decidim.notifications_settings.show") %>
           </span>
           <p id="push-notifications-reminder" class="push-notifications__reminder">
-            <%= t("push_notifications_reminder", scope:"decidim.notifications_settings.show") %>
+            <%= t("push_notifications_reminder", scope: "decidim.notifications_settings.show") %>
           </p>
           <div class="toggle__switch-trigger">
             <label for="dc-allow_push_notifications" class="toggle__switch-toggle">
@@ -157,7 +157,7 @@
               <%= icon "check-line", class: "toggle__switch-toggle-icon" %>
               <%= icon "close-line", class: "toggle__switch-toggle-icon" %>
               <span class="toggle__switch-trigger-text">
-                <%= t("allow_push_notifications", scope:"decidim.notifications_settings.show") %>
+                <%= t("allow_push_notifications", scope: "decidim.notifications_settings.show") %>
               </span>
             </label>
           </div>
@@ -168,7 +168,7 @@
       <% end %>
 
       <div class="form__wrapper-block">
-        <%= f.submit t("update_notifications_settings", scope:"decidim.notifications_settings.show"), class: "button button__sm md:button__lg button__secondary mr-auto !ml-0" %>
+        <%= f.submit t("update_notifications_settings", scope: "decidim.notifications_settings.show"), class: "button button__sm md:button__lg button__secondary mr-auto !ml-0" %>
       </div>
     </div>
   <% end %>
