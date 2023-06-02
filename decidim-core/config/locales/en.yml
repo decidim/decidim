@@ -281,7 +281,6 @@ en:
         error: An error ocurred while accepting the amendment.
         success: The amendment has been accepted successfully.
       amendable:
-        amended_by: Amended by
         button: Amend %{model_name}
         error: There has been an error amending this resource.
         help_text: Improve this %{model_name} by modifying its %{amendable_fields}
@@ -289,6 +288,10 @@ en:
         promote_confirm_text: Are you sure you want to promote this emendation?
         promote_help_text: You can promote this emendation and publish it as an independent %{model_name}
         section_heading: Amendments (%{count})
+      amendments:
+        title:
+          one: "%{count} amendment"
+          other: "%{count} amendments"
       compare_draft:
         continue: Continue
         no_similars_found: No similar emendations found.
@@ -301,7 +304,6 @@ en:
         success: Amendment draft was successfully deleted.
       edit_draft:
         discard: Discard this draft
-        discard_confirmation: Are you sure you want to discard this amendment draft?
         send: Preview
         title: Edit Amendment Draft
       emendation:
@@ -321,6 +323,7 @@ en:
           withdrawn: |-
             This amendment for the %{amendable_type} %{proposal_link}
             has been withdrawn by the author.
+      name: Amendment
       new:
         amendment_author: Amendment author
         send: Create
@@ -341,7 +344,6 @@ en:
       review:
         back: Back
         heading: Review the amendment
-        help_text: You are reviewing an amendment to the %{model_name}
         send: Accept amendment
       update_draft:
         error: There was a problem updating the amendment draft.
@@ -362,8 +364,6 @@ en:
       documents:
         documents: Documents
         related_documents: Related documents
-      geocoding:
-        geocoded_address: Address
       photo:
         alt: Media picture
         title: Image
@@ -835,6 +835,7 @@ en:
     filters:
       linked_classes:
         all: All
+        answer: Answer
         collaborative_draft: Collaborative draft
         dummy_resource: Dummy resources
         meeting: Meetings
@@ -1034,6 +1035,7 @@ en:
       all: All activity types
       index:
         last_activity: Last activity
+      name: Last activities
     links:
       invalid_url: Invalid URL
       warning:
@@ -1263,6 +1265,7 @@ en:
         error: There was a problem updating your notifications settings.
         success: Your notifications settings were successfully updated.
     offline:
+      name: Offline
       show:
         message: It looks like you're currently offline. Please, try again later.
         retry: Retry
@@ -1416,6 +1419,7 @@ en:
       scopes_picker_input:
         select_scope: 'Select a scope (currently: %{current})'
     search:
+      name: Search
       results: Search results
       results_found_for_term: '%{count} Results for the search: "%{term}"'
       term_input_placeholder: Search
@@ -1919,6 +1923,7 @@ en:
         my_data: My data
         my_interests: My interests
         notifications_settings: Notifications settings
+        profile: Profile
         title: Participant settings
         user_groups: Groups
       widget:

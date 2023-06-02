@@ -3,20 +3,27 @@
   <span>/</span>
   <% if item[:dropdown_cell].present? %>
     <div class="relative">
-      <div id="secondary-dropdown-summary"
-        class="menu-bar__breadcrumb-desktop__dropdown-trigger<%= " font-bold" if item[:active] %>"
-        data-component="dropdown"
-        data-target="secondary-dropdown-menu-<%= i %>">
-        <%= item_label %>
+      <div class="flex items-center" <%== 'aria-current="page"' if item[:active] %>>
+        <%= link_to item[:url], class: "menu-bar__breadcrumb-desktop__dropdown-trigger#{" font-bold" if item[:active]}" do %>
+          <%= item_label %>
+        <% end %>
+        <button id="secondary-dropdown-summary"
+          class="menu-bar__breadcrumb-desktop__dropdown-trigger"
+          data-component="dropdown"
+          data-hover="true"
+          data-target="secondary-dropdown-menu-<%= i %>">
+          <%= icon "arrow-drop-down-line" %>
+          <span class="sr-only"><%= t("layouts.decidim.header.user_menu") %></span>
+        </button>
       </div>
       <div id="secondary-dropdown-menu-<%= i %>" class="menu-bar__breadcrumb-desktop__dropdown-content-secondary" aria-hidden="true">
         <%= cell item[:dropdown_cell], item[:resource] %>
       </div>
     </div>
   <% else %>
-    <%= link_to_if(item[:url].present? && !is_active_link?(item[:url], :exclusive), item_label, item[:url], class:"menu-bar__breadcrumb-desktop__dropdown-trigger#{' font-bold' if item[:active]}") do %>
+    <%= link_to_if(item[:url].present? && !is_active_link?(item[:url], :exclusive), item_label, item[:url], class:"menu-bar__breadcrumb-desktop__dropdown-trigger#{' font-bold' if item[:active]}", "aria-current": (item[:active] ? "page" : nil)) do %>
       <%# alternative template %>
-      <%= content_tag :span, item_label, class:"menu-bar__breadcrumb-desktop__dropdown-trigger no-interactive#{' font-bold' if item[:active]}", tabindex: "0" %>
+      <%= content_tag :span, item_label, class:"menu-bar__breadcrumb-desktop__dropdown-trigger no-interactive#{' font-bold' if item[:active]}", tabindex: "0", "aria-current": "page" if item[:active] %>
     <% end %>
   <% end %>
 <% end %>

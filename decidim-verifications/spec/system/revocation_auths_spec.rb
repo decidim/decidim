@@ -147,7 +147,7 @@ describe "Authorizations revocation flow", type: :system do
 
   context "when clicking revoke all authorizations option with admin user" do
     it "shows an informative message to the user with all authorizations revoked ok" do
-      accept_confirm do
+      accept_confirm admin: true do
         click_link(t("decidim.admin.menu.authorization_revocation.button"))
       end
       expect(page).to have_content(t("authorization_revocation.destroy_ok", scope: "decidim.admin.menu"))
@@ -157,7 +157,7 @@ describe "Authorizations revocation flow", type: :system do
 
   context "when clicking revoke before date authorizations option with admin user" do
     it "shows an informative message to the user with before date authorizations revoked ok" do
-      accept_confirm do
+      accept_confirm admin: true do
         click_button(t("decidim.admin.menu.authorization_revocation.button_before"))
       end
       expect(page).to have_content(t("authorization_revocation.destroy_ok", scope: "decidim.admin.menu"))

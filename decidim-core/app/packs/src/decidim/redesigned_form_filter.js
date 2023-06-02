@@ -57,7 +57,7 @@ export default class FormFilterComponent {
       this.mounted = true;
       let queue = 0;
 
-      let contentContainer = $(this.$form.closest(".filters").parent().find(".skip").attr("href"));
+      let contentContainer = $("main");
       if (contentContainer.length === 0 && this.$form.data("remoteFill")) {
         contentContainer = this.$form.data("remoteFill");
       }

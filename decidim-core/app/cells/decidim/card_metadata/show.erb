@@ -3,12 +3,12 @@
     <% hook_output = render_hook(item[:hook]) %>
     <% next if hook_output.blank? %>
 
-    <span>
+    <%= content_tag :span, data: item[:data_attributes] do %>
       <%= icon item[:icon] if item[:icon].present? %>
       <%= hook_output %>
-    </span>
+    <% end %>
   <% else %>
-    <span>
+    <%= content_tag :span, data: item[:data_attributes] do %>
       <%= icon item[:icon] if item[:icon].present? %>
       <% if item[:text].present? %>
         <%= link_to_if enable_links? && item.has_key?(:url), item[:text], item[:url] %>
@@ -17,6 +17,6 @@
       <% elsif item[:cell].present? %>
         <%= cell(item[:cell], item[:args]) %>
       <% end %>
-    </span>
+    <% end %>
   <% end %>
 <% end %>

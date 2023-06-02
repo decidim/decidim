@@ -161,7 +161,7 @@ header{
       @apply hidden lg:flex justify-between items-center gap-2.5 [&>*]:text-lg [&>*]:text-white;
 
       &__dropdown-trigger{
-        @apply flex rounded overflow-hidden px-2 py-1 relative;
+        @apply flex rounded px-2 py-1 relative before:content-[''] before:absolute before:w-[calc(100%+3rem+1px)] before:min-w-[10rem] before:h-40 before:left-1/2 before:top-1/2 before:-translate-x-1/2 before:-translate-y-1/4 before:-z-10;
 
         &:not(.no-interactive){
           @apply cursor-pointer hover:backdrop-brightness-75 focus:backdrop-brightness-75 focus:outline-none;
@@ -181,17 +181,31 @@ header{
       }
 
       /* overwrite default dropdown styles */
-      [id*="dropdown-menu"][aria-hidden="true"]{
-        @apply md:hidden;
+      [id*="dropdown-menu"]{
+        &[aria-hidden="true"]{
+          @apply md:opacity-0 pointer-events-none transition duration-300 delay-300 [&>*]:invisible;
+        }
+
+        &[aria-hidden="false"]{
+          @apply md:opacity-100 pointer-events-auto transition duration-300 [&>*]:visible;
+        }
       }
 
       [data-target*="dropdown"]{
-        @apply w-auto last-of-type:[&>svg]:block;
+        @apply w-auto p-0 block last-of-type:[&>svg]:block;
 
         > svg{
-          @apply text-white;
+          @apply w-5 h-5 text-white;
         }
       }
+
+      // [data-target*="dropdown"]{
+      //   @apply w-auto last-of-type:[&>svg]:block;
+
+      //   > svg{
+      //     @apply text-white;
+      //   }
+      // }
     }
 
     &__breadcrumb-mobile{
@@ -262,6 +276,18 @@ header{
             @apply border-0;
           }
         }
+
+        a{
+          @apply flex items-center justify-start gap-1 font-semibold text-lg text-secondary;
+
+          span{
+            @apply min-w-0 truncate;
+          }
+
+          svg{
+            @apply flex-none fill-current;
+          }
+        }
       }
     }
 
@@ -281,6 +307,18 @@ header{
 
         > *{
           @apply py-3 md:py-3.5;
+        }
+
+        a{
+          @apply flex items-center justify-start gap-1 font-semibold text-lg text-white;
+
+          span{
+            @apply min-w-0 truncate;
+          }
+
+          svg{
+            @apply flex-none fill-current;
+          }
         }
       }
 

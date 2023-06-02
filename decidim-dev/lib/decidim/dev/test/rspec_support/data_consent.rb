@@ -15,7 +15,7 @@ module Capybara
       if dialog_present
         click_button "Settings"
       else
-        within ".footer" do
+        within footer_selector do
           click_link "Cookie settings"
         end
       end
@@ -32,6 +32,10 @@ module Capybara
       elsif [false, "essential"].include?(categories)
         click_button "Accept only essential"
       end
+    end
+
+    def footer_selector
+      Decidim.redesign_active ? "footer" : ".footer"
     end
   end
 end
