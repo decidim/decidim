@@ -37,6 +37,33 @@ module Decidim
       def reject_request_button_label
         t("reject_request", scope: "decidim.proposals.collaborative_drafts.requests.collaboration_requests")
       end
+
+      def collaborative_drafts_filter_sections
+        @collaborative_drafts_filter_sections ||= begin
+          items = [{
+            method: :with_any_state,
+            collection: filter_collaborative_drafts_state_values,
+            label_scope: "decidim.proposals.collaborative_drafts.filters",
+            id: "state"
+          }]
+          if current_component.has_subscopes?
+            items.append(method: :with_any_scope, collection: filter_scopes_values, label_scope: "decidim.proposals.collaborative_drafts.filters", id: "scope")
+          end
+          if current_component.categories.any?
+            items.append(method: :with_any_category, collection: filter_categories_values, label_scope: "decidim.proposals.collaborative_drafts.filters", id: "category")
+          end
+          if linked_classes_for(Decidim::Proposals::CollaborativeDraft).any?
+            items.append(
+              method: :related_to,
+              collection: linked_classes_filter_values_for(Decidim::Proposals::CollaborativeDraft),
+              label_scope: "decidim.proposals.collaborative_drafts.filters",
+              id: "related_to",
+              type: :radio_buttons
+            )
+          end
+          items.reject { |item| item[:collection].blank? }
+        end
+      end
     end
   end
 end

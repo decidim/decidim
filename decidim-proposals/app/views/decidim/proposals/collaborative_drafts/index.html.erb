@@ -21,16 +21,7 @@
     <% end %>
   <% end %>
 
-  <% filter_sections = [].tap do |f|
-      f.append(method: :with_any_state, collection: filter_collaborative_drafts_state_values, label_scope: "decidim.proposals.collaborative_drafts.filters", id: "state")
-      f.append(method: :with_any_scope, collection: filter_scopes_values, label_scope: "decidim.proposals.collaborative_drafts.filters", id: "scope") if current_component.has_subscopes?
-      f.append(method: :with_any_category, collection: filter_categories_values, label_scope: "decidim.proposals.collaborative_drafts.filters", id: "category") if current_component.categories.any?
-      f.append(method: :related_to, collection: linked_classes_filter_values_for(Decidim::Proposals::CollaborativeDraft), label_scope: "decidim.proposals.collaborative_drafts.filters", id: "related_to", type: :radio_buttons) if linked_classes_for(Decidim::Proposals::CollaborativeDraft).any?
-    end
-
-    search_variable = :search_text_cont %>
-
-  <%= render layout: "decidim/shared/filters", locals: { filter_sections: , search_variable: } do %>
+  <%= render layout: "decidim/shared/filters", locals: { filter_sections: collaborative_drafts_filter_sections, search_variable: :search_text_cont } do %>
     <%= hidden_field_tag :order, order, id: nil, class: "order_filter" %>
   <% end %>
 
