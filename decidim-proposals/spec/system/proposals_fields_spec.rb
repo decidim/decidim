@@ -69,8 +69,6 @@ describe "Proposals", type: :system do
         end
 
         it "creates a new proposal", :slow do
-          skip "REDESIGN_PENDING - This test should be fixed in https://github.com/decidim/decidim/pull/10555"
-
           visit complete_proposal_path(component, proposal_draft)
 
           within ".edit_proposal" do
@@ -113,8 +111,6 @@ describe "Proposals", type: :system do
           let(:proposal_draft) { create(:proposal, :draft, users: [user], component:, title: "More sidewalks and less roads", body: "It will not solve everything") }
 
           it "creates a new proposal", :slow do
-            skip "REDESIGN_PENDING - This test should be fixed in https://github.com/decidim/decidim/pull/10555"
-
             visit complete_proposal_path(component, proposal_draft)
 
             within ".edit_proposal" do
@@ -211,8 +207,6 @@ describe "Proposals", type: :system do
           end
 
           it "creates a new proposal as a user group", :slow do
-            skip "REDESIGN_PENDING - This test should be fixed in https://github.com/decidim/decidim/pull/10555"
-
             visit complete_proposal_path(component, user_group_proposal_draft)
 
             within ".edit_proposal" do
@@ -253,8 +247,6 @@ describe "Proposals", type: :system do
             let(:proposal_draft) { create(:proposal, :draft, users: [user], component:, title: "More sidewalks and less roads", body: "It will not solve everything") }
 
             it "creates a new proposal as a user group", :slow do
-              skip "REDESIGN_PENDING - This test should be fixed in https://github.com/decidim/decidim/pull/10555"
-
               visit complete_proposal_path(component, proposal_draft)
 
               within ".edit_proposal" do

@@ -21,8 +21,7 @@ describe "Show a Proposal", type: :system do
         visit_proposal
       end
 
-      # REDESIGN_PENDING - These shared examples should be fixed in https://github.com/decidim/decidim/pull/10555"
-      # it_behaves_like "share link"
+      it_behaves_like "share link"
 
       describe "extra admin link" do
         before do

@@ -303,8 +303,6 @@ describe "Amendment Wizard", type: :system do
 
     context "and visiting an amended proposal" do
       before do
-        skip "REDESIGN_PENDING - This test should be fixed in https://github.com/decidim/decidim/pull/10555"
-
         visit proposal_path
       end
 

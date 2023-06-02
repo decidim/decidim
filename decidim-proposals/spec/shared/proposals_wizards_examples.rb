@@ -285,8 +285,6 @@ shared_examples "proposals wizards" do |options|
       end
 
       it "shows a preview" do
-        skip "REDESIGN_PENDING - This test should be fixed in https://github.com/decidim/decidim/pull/10555"
-
         expect(page).to have_content(proposal_title)
         expect(page).to have_content(user.name)
         expect(page).to have_content(proposal_body)

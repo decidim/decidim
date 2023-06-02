@@ -207,8 +207,6 @@ describe "Proposals", type: :system do
       let!(:author) { create(:user, :confirmed, organization: component.organization) }
 
       it "shows the costs" do
-        skip "REDESIGN_PENDING - This test should be fixed in https://github.com/decidim/decidim/pull/10555"
-
         component.update!(
           step_settings: {
             component.participatory_space.active_step.id => {
@@ -394,10 +392,9 @@ describe "Proposals", type: :system do
       end
     end
 
-    # REDESIGN_PENDING - This shared examples should be fixed in https://github.com/decidim/decidim/pull/10555"
-    # it_behaves_like "accessible page" do
-    #   before { visit_component }
-    # end
+    it_behaves_like "accessible page" do
+      before { visit_component }
+    end
 
     it "lists all the proposals" do
       create(:proposal_component,
@@ -620,8 +617,6 @@ describe "Proposals", type: :system do
       end
 
       it "finds the correct proposal" do
-        skip "REDESIGN_PENDING - This test should be fixed in https://github.com/decidim/decidim/pull/10555"
-
         within "form.new_filter" do
           find("input[name='filter[search_text_cont]']", match: :first).set("lorem")
           find("*[type=submit]").click

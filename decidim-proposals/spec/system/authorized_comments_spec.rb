@@ -19,8 +19,6 @@ describe "Authorized comments", type: :system do
   end
 
   before do
-    skip "REDESIGN_PENDING - This test should be fixed in https://github.com/decidim/decidim/pull/10555"
-
     switch_to_host(organization.host)
     sign_in user
   end
