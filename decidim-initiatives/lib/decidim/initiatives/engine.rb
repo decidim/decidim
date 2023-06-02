@@ -19,7 +19,22 @@ module Decidim
         get "/initiative_type_scopes/search", to: "initiatives_type_scopes#search", as: :initiative_type_scopes_search
         get "/initiative_type_signature_types/search", to: "initiatives_type_signature_types#search", as: :initiative_type_signature_types_search
 
-        resources :create_initiative
+        resources :create_initiative do
+          collection do
+            get :select_initiative_type
+            put :select_initiative_type, to: "create_initiative#store_initiative_type"
+
+            get :previous_form
+            put :previous_form, to: "create_initiative#store_initial_data"
+
+            get :show_similar_initiatives
+
+            get :fill_data
+            put :fill_data, to: "create_initiative#store_data"
+            get :promotal_committee
+            get :finish
+          end
+        end
 
         get "initiatives/:initiative_id", to: redirect { |params, _request|
           initiative = Decidim::Initiative.find(params[:initiative_id])
