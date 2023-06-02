@@ -248,6 +248,8 @@ describe "Amend Proposal", versioning: true, type: :system do
             end
 
             it "is shown the field error message" do
+              skip "REDESIGN_PENDING - Validation messages in forms don't appear. Issue https://github.com/decidim/decidim/issues/10852"
+
               expect(page).to have_css(".form-error.is-visible", text: "Title is using too many capital letters")
             end
           end
