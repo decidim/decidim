@@ -6,7 +6,7 @@ module Decidim
       class MetadataCell < Decidim::ContentBlocks::ParticipatorySpaceMetadataCell
         private
 
-        def metadata_items = %w(participatory_scope target participatory_structure area_name meta_scope local_area developer_group date_range)
+        def metadata_items = %w(participatory_scope target participatory_structure area_name meta_scope local_area developer_group)
 
         def space_presenter = ParticipatoryProcessPresenter
 
