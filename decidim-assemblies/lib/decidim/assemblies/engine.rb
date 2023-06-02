@@ -135,6 +135,12 @@ module Decidim
           content_block.default!
         end
 
+        Decidim.content_blocks.register(:assembly_homepage, :dates_metadata) do |content_block|
+          content_block.cell = "decidim/assemblies/content_blocks/dates_metadata"
+          content_block.public_name_key = "decidim.assemblies.content_blocks.dates_metadata.name"
+          content_block.default!
+        end
+
         Decidim.content_blocks.register(:assembly_homepage, :last_activity) do |content_block|
           content_block.cell = "decidim/content_blocks/participatory_space_last_activity"
           content_block.public_name_key = "decidim.content_blocks.last_activity.name"

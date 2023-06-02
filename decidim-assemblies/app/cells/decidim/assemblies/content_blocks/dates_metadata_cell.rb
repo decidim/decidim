@@ -3,10 +3,10 @@
 module Decidim
   module Assemblies
     module ContentBlocks
-      class MetadataCell < Decidim::ContentBlocks::ParticipatorySpaceMetadataCell
+      class DatesMetadataCell < Decidim::ContentBlocks::ParticipatorySpaceMetadataCell
         private
 
-        def metadata_items = %w(meta_scope developer_group local_area target participatory_scope participatory_structure area_name)
+        def metadata_items = %w(creation_date created_by included_at duration closing_date)
 
         def space_presenter = AssemblyPresenter
 

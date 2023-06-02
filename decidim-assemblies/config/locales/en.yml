@@ -336,9 +336,12 @@ en:
         description:
           area_name: Area
           closing_date: Closing date
+          created_by: Created by
+          creation_date: Date created
           data: Assembly data
           developer_group: Promoter group
           duration: Duration
+          included_at: Included at
           indefinite_duration: Indefinite
           local_area: Organization Area
           meta_scope: Scope
@@ -366,6 +369,8 @@ en:
       content_blocks:
         children_assemblies:
           name: Assemblies
+        dates_metadata:
+          name: Dates metadata
         extra_data:
           name: Type & duration
         highlighted_assemblies:
