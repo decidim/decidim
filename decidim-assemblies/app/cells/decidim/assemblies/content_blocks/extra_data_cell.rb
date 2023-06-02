@@ -4,7 +4,7 @@ module Decidim
   module Assemblies
     module ContentBlocks
       class ExtraDataCell < Decidim::ContentBlocks::ParticipatorySpaceExtraDataCell
-        delegate :meta_scope, :duration, to: :resource
+        delegate :assembly_type, :duration, to: :resource
 
         private
 
@@ -13,10 +13,12 @@ module Decidim
         end
 
         def type_item
+          return if assembly_type.blank?
+
           {
             title: t("assembly_type", scope: "decidim.assemblies.show"),
             icon: "group-2-line",
-            text: translated_attribute(meta_scope)
+            text: translated_attribute(assembly_type.title)
           }
         end
 
