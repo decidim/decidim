@@ -35,7 +35,7 @@ edit_link(
     <%= cell "decidim/author", present(sortition.author), context_actions: [:date], from: sortition, layout: :compact %>
     <% if sortition.author&.deleted? %>
       <span class="label alert">
-        <%= t("deleted", scope: "decidim.sortitions.sortitions.show.sortition_author") %>
+        <%= t("deleted", scope: "decidim.sortitions.sortitions.sortition_author") %>
       </span>
     <% end %>
   </div>
@@ -68,7 +68,7 @@ edit_link(
       <%= cell "decidim/author", present(sortition.cancelled_by_user), context_actions: [:cancelled_on], from: sortition, layout: :compact %>
       <% if sortition.cancelled_by_user&.deleted? %>
         <span class="label alert">
-          <%= t("deleted", scope: "decidim.sortitions.sortitions.show.sortition_author") %>
+          <%= t("deleted", scope: "decidim.sortitions.sortitions.sortition_author") %>
         </span>
       <% end %>
     </div>
