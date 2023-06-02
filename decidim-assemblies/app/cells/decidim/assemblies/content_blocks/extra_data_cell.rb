@@ -23,12 +23,12 @@ module Decidim
         end
 
         def duration_item
-          return if duration.blank?
+          text = duration.blank? ? I18n.t("indefinite_duration", scope: "decidim.assemblies.assemblies.description") : I18n.l(duration, format: :decidim_short)
 
           {
             title: t("duration", scope: "decidim.assemblies.show"),
             icon: "calendar-line",
-            text: duration
+            text:
           }
         end
       end
