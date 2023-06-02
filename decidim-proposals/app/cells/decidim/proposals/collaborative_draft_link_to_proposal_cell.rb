@@ -35,9 +35,7 @@ module Decidim
       end
 
       def link_to_versions
-        @path ||= decidim_proposals.collaborative_draft_versions_path(
-          collaborative_draft_id: model.id
-        )
+        @path ||= decidim_proposals.collaborative_draft_versions_path(model, model.versions.count)
         link_to @path, class: "text-medium" do
           tag.u do
             t("version_history", scope: "decidim.proposals.collaborative_drafts.show")

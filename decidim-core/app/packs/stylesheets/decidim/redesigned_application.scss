@@ -13,8 +13,8 @@
   --success-rgb: 40 167 69;
   --warning: #ffb703;
   --warning-rgb: 255 183 3;
-  --alert: #ed1c24;
-  --alert-rgb: 237 28 36;
+  --alert: #e7131a;
+  --alert-rgb: 231 19 26;
 }
 
 @layer base{
@@ -40,7 +40,9 @@
   @import "stylesheets/decidim/redesigned_filters.scss";
   @import "stylesheets/decidim/redesigned_tags.scss";
   @import "stylesheets/decidim/redesigned_tabs_x.scss";
+  // REDESIGN_PENDING: remove this file
   @import "stylesheets/decidim/redesigned_drawer.scss";
+  // REDESIGN_PENDING: rename this file and its contents to avoid misunderstandings
   @import "stylesheets/decidim/redesigned_drawer_metadata.scss";
   @import "stylesheets/decidim/redesigned_modal.scss";
   @import "stylesheets/decidim/redesigned_modal_share.scss";
@@ -49,6 +51,7 @@
   @import "stylesheets/decidim/redesigned_modal_authorization.scss";
   @import "stylesheets/decidim/redesigned_modal_update.scss";
   @import "stylesheets/decidim/redesigned_modal_tos_refuse.scss";
+  @import "stylesheets/decidim/redesigned_modal_fingerprint.scss";
   @import "stylesheets/decidim/redesigned_address.scss";
   @import "stylesheets/decidim/redesigned_statistics.scss";
   @import "stylesheets/decidim/redesigned_content_blocks.scss";
@@ -64,6 +67,7 @@
   @import "stylesheets/decidim/redesigned_tooltip.scss";
   @import "stylesheets/decidim/redesigned_author.scss";
   @import "stylesheets/decidim/redesigned_order-by.scss";
+  @import "stylesheets/decidim/redesigned_wizard_steps.scss";
   @import "stylesheets/decidim/redesigned_progress-bar.scss";
   @import "stylesheets/decidim/redesigned_spinner.scss";
 }

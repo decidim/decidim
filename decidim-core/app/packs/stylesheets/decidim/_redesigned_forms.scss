@@ -59,7 +59,7 @@
 }
 
 .form-error{
-  @apply mt-2 hidden font-normal text-sm text-primary;
+  @apply mt-2 hidden font-normal text-sm text-alert;
 }
 
 .form-error.is-visible{
@@ -79,6 +79,10 @@
 
   &-checkbox-label{
     @apply text-md text-gray-2 font-normal prose-a:text-secondary prose-a:underline cursor-pointer;
+
+    & + &{
+      @apply block;
+    }
   }
 
   & label:not(&-checkbox-label),
@@ -106,14 +110,30 @@
   textarea{
     @apply w-full block mt-4;
   }
+
+  input[type="checkbox"],
+  input[type="radio"]{
+    @apply mt-4;
+  }
 }
 
 .input-character-counter{
   @apply relative mt-4 block;
 
-  input[type="text"],
+  input[type="date"],
+  input[type="datetime-local"],
   input[type="email"],
-  input[type="password"]{
+  input[type="month"],
+  input[type="number"],
+  input[type="password"],
+  input[type="search"],
+  input[type="tel"],
+  input[type="text"],
+  input[type="time"],
+  input[type="url"],
+  input[type="week"],
+  select,
+  textarea{
     @apply mt-0;
   }
 
