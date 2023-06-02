@@ -845,7 +845,6 @@ en:
           publish: Publish
           title: Publish your proposal
         proposal:
-          creation_date: 'Creation: %{date}'
           view_proposal: View proposal
         proposals:
           empty: There is no proposal yet
