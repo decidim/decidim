@@ -33,7 +33,8 @@ describe "Show a Proposal", type: :system do
           let(:user) { create(:user, :admin, :confirmed, organization:) }
 
           it "has a link to answer to the proposal at the admin" do
-            within ".topbar" do
+            within "header" do
+              expect(page).to have_css("#admin-bar")
               expect(page).to have_link("Answer", href: /.*admin.*proposal-answer.*/)
             end
           end
@@ -43,8 +44,9 @@ describe "Show a Proposal", type: :system do
           let(:user) { create(:user, :confirmed, organization:) }
 
           it "does not have a link to answer the proposal at the admin" do
-            within ".topbar" do
-              expect(page).not_to have_link("Answer")
+            within "header" do
+              expect(page).to have_no_css("#admin-bar")
+              expect(page).to have_no_link("Answer")
             end
           end
         end
