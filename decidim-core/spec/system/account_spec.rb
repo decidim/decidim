@@ -329,10 +329,7 @@ describe "Account", type: :system do
       context "when on the account page" do
         it "enables push notifications if supported browser" do
           sleep 2
-          within ".push-notifications" do
-            # Check allow push notifications
-            find(".switch-paddle").click
-          end
+          page.find("[for='allow_push_notifications']").click
 
           # Wait for the browser to be subscribed
           sleep 5
@@ -345,7 +342,7 @@ describe "Account", type: :system do
             expect(page).to have_content("successfully")
           end
 
-          expect(page.find("#allow_push_notifications", visible: false)).to be_checked
+          expect(page.find("#allow_push_notifications")).to be_checked
         end
       end
     end
