@@ -17,6 +17,8 @@ Decidim.register_participatory_space(:conferences) do |participatory_space|
 
   participatory_space.query_type = "Decidim::Conferences::ConferenceType"
 
+  participatory_space.breadcrumb_cell = "decidim/conferences/conference_dropdown_metadata"
+
   participatory_space.register_resource(:conference) do |resource|
     resource.model_class_name = "Decidim::Conference"
     resource.card = "decidim/conferences/conference"

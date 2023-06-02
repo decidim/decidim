@@ -36,7 +36,7 @@ describe "Assemblies", type: :system do
     it "the menu link is not shown" do
       visit decidim.root_path
 
-      find("#main-dropdown-summary").click
+      find("#main-dropdown-summary").hover
       within ".menu-bar__main-dropdown__menu" do
         expect(page).to have_no_content("Assemblies")
       end
@@ -65,7 +65,7 @@ describe "Assemblies", type: :system do
       it "the menu link is not shown" do
         visit decidim.root_path
 
-        find("#main-dropdown-summary").click
+        find("#main-dropdown-summary").hover
         within ".menu-bar__main-dropdown__menu" do
           expect(page).to have_no_content("Assemblies")
         end
@@ -97,7 +97,7 @@ describe "Assemblies", type: :system do
         it "the menu link is shown" do
           visit decidim.root_path
 
-          find("#main-dropdown-summary").click
+          find("#main-dropdown-summary").hover
           within ".menu-bar__main-dropdown__menu" do
             expect(page).to have_content("Assemblies")
             click_link "Assemblies"

@@ -53,7 +53,16 @@
     }
   }
 
+  /*
+    NOTE: the calculated value is the sum of the arrow offset position plus the half of the arrow size:
+    - offset position: 20%
+    - arrow size: 1.5rem
+  */
+  --arrow-offset: 20%;
+  --arrow-size: 1.5rem;
+  --arrow-visible-size: var(--arrow-size) * 0.5;
+
   &__bottom{
-    @apply top-full right-0 mt-3 before:content-[''] before:absolute before:right-[20%] before:-top-2 before:w-6 before:h-6 before:rotate-45 before:bg-white before:rounded before:border-2 before:border-gray-3 after:content-[''] after:absolute after:left-0 after:top-0 after:w-full after:h-full after:bg-white;
+    @apply top-full right-0 mt-3 translate-x-[calc(var(--arrow-offset)-var(--arrow-visible-size))] before:content-[''] before:absolute before:right-[var(--arrow-offset)] before:-top-2 before:w-[var(--arrow-size)] before:h-[var(--arrow-size)] before:rotate-45 before:bg-white before:rounded before:border-2 before:border-gray-3 after:content-[''] after:absolute after:left-0 after:top-0 after:w-full after:h-full after:bg-white;
   }
 }

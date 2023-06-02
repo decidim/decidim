@@ -45,6 +45,12 @@ module Decidim
       end
     end
 
+    def title_icon
+      return if resource.blank?
+
+      resource_type_icon(resource.class)
+    end
+
     # The description to show at the card.
     #
     # The card will also be displayed OK if there is no description.
@@ -143,6 +149,10 @@ module Decidim
       return resource if resource.is_a?(Decidim::Participable)
 
       model.participatory_space_lazy
+    end
+
+    def participatory_space_icon
+      icon "treasure-map-line"
     end
 
     def participatory_space_link

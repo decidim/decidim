@@ -1,21 +1,18 @@
-<div class="wrapper">
-  <div class="row">
-    <%= cell("decidim/amendable/wizard_step_form", amendable, view: :wizard_aside ) %>
+<%= render layout: "layouts/decidim/shared/layout_center" do %>
 
-    <div class="columns large-6">
-      <%= cell("decidim/amendable/wizard_step_form", amendable, view: :wizard_header, similar_resources_count: similar_emendations.size ) %>
+  <%= render partial: "wizard_header", locals: { similar_resources_count: similar_emendations.size } %>
 
-      <div class="row small-up-1 card-grid">
-        <% similar_emendations.each do |emendation| %>
-          <%= render partial: "similar_emendation", locals: { emendation: emendation } %>
-        <% end %>
-      </div>
-
-      <div class="row column text-center">
-        <%= link_to t(".continue"), edit_draft_amend_path(amendment), class: "button small" %>
-      </div>
-    </div>
-
-    <div class="columns large-3"></div>
+  <div class="space-y-8 my-10">
+    <% similar_emendations.each do |emendation| %>
+      <%= card_for emendation %>
+    <% end %>
   </div>
-</div>
+
+  <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
+    <%= link_to edit_draft_amend_path(amendment), class: "button button__sm md:button__lg button__secondary ml-auto" do %>
+      <span><%= t("continue", scope: "decidim.amendments.compare_draft") %></span>
+      <%= icon "arrow-right-line" %>
+    <% end %>
+  </div>
+
+<% end %>

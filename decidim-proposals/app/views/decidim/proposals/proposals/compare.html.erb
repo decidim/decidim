@@ -1,23 +1,24 @@
 <% add_decidim_page_title(proposal_wizard_step_title(action_name)) %>
 
-<div class="row">
-  <%= render partial: "wizard_aside" %>
+<% append_stylesheet_pack_tag "decidim_proposals", media: "all" %>
+<% append_javascript_pack_tag "decidim_proposals" %>
 
-  <div class="columns large-6">
-    <%= render partial: "wizard_header", locals: { callout_step_help_text_class: "warning" } %>
+<%= render layout: "layouts/decidim/shared/layout_center" do %>
 
-    <% if @similar_proposals.presence %>
-      <div class="row small-up-1 card-grid">
-        <% @similar_proposals.each do |proposal| %>
-          <%= render partial: "proposal_similar", locals: { proposal: proposal } %>
-        <% end %>
-      </div>
-    <% end %>
+  <%= render partial: "wizard_header", locals: { callout_step_help_text_class: "warning" } %>
 
-    <div class="row column text-center">
-      <%= link_to t(".continue"), complete_proposal_path(@proposal), class: "button small" %>
+  <% if @similar_proposals.present? %>
+    <div class="proposal__container my-10">
+      <% @similar_proposals.each do |proposal| %>
+        <%= card_for @proposal %>
+      <% end %>
     </div>
-  </div>
+  <% end %>
 
-  <div class="columns large-3"></div>
-</div>
+  <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
+    <%= link_to complete_proposal_path(@proposal), class: "button button__sm md:button__lg button__secondary ml-auto" do %>
+      <span><%= t("continue", scope: "decidim.proposals.proposals.compare") %></span>
+      <%= icon "arrow-right-line" %>
+    <% end %>
+  </div>
+<% end %>
