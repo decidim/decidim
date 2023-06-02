@@ -97,24 +97,6 @@ hu:
         one: kb. 1 hónapja
         other: kb %{count} hónapja
       half_a_minute: fél perce
-      less_than_x_minutes:
-        one: kevesebb, mint 1 perce.
-        other: levesebb mint %{count} perce.
-      less_than_x_seconds:
-        one: épp most
-        other: levesebb mint %{count} másodperce.
-      x_days:
-        one: 1 napja
-        other: "%{count} napja"
-      x_hours:
-        one: 1 órája
-        other: "%{count} órája"
-      x_minutes:
-        one: 1 perce
-        other: "%{count} perccel ezelőtt"
-      x_seconds:
-        one: 1 másodperce
-        other: "%{count} másodperce"
   decidim:
     accessibility:
       external_link: Külső hivatkozás
@@ -1013,7 +995,6 @@ hu:
           intro: 'A következő hibákat tartalmazza az üzenet:'
           ok: OK
         index:
-          ago: óta
           new_conversation: Új beszélgetés
           next: Következő
           title: Beszélgetések

@@ -31,7 +31,7 @@ fr:
         cost_report: Rapport de coût
         execution_period: Période d'exécution
       proposals_copy:
-        copy_proposals: "I understand that this will import all proposals from the selected component to the current one and that this action cannot be reversed.\nJe comprends que cela importera toutes les propositions du composant sélectionné dans le composant actuel et que cette action ne peut être annulée."
+        copy_proposals: Je comprends que cela importera toutes les propositions de la fonctionnalité sélectionnée dans la fonctionnalité actuelle et que cette action ne peut être annulée.
         origin_component_id: Fonctionnalité dont on veut copier les propositions
       proposals_import:
         import_proposals: Importer des propositions
@@ -110,16 +110,18 @@ fr:
             values:
               accepted: Acceptée
               evaluating: En cours d'évaluation
+              not_answered: Non répondue
               published: Publiée
               rejected: Rejetée
               validating: Validation technique
               withdrawn: Retirée
-          state_null:
-            label: État
-            values:
-              'true': Non répondu
           valuator_role_ids_has:
             label: Assigné à l'évaluateur
+          with_any_state:
+            label: Répondue
+            values:
+              state_not_published: Non répondue
+              state_published: Répondue
         search_placeholder:
           id_string_or_title_cont: Rechercher %{collection} par ID ou titre.
     components:
@@ -213,7 +215,7 @@ fr:
             endorsements_enabled: Activer le module de soutiens
             proposal_answering_enabled: Autoriser la réponse officielle aux propositions
             publish_answers_immediately: Publier immédiatement les réponses à la proposition
-            publish_answers_immediately_help_html: "Mind that if you answer any proposal without this enabled, you will need to publish them manually by selecting them and using the action for publication. For more info on how this works, see <a href=\"https://docs.decidim.org/en/admin/components/proposals/answers#_publication\" target=\"_blank\">proposals' answers documentation page</a>.\nNotez que si vous répondez à une proposition sans que cela soit activé, vous devrez la publier manuellement en la sélectionnant et en utilisant l'action de publication.\nPour plus d'informations sur le fonctionnement de cette action, voir <a href=\"https://docs.decidim.org/en/admin/components/proposals/answers#_publication\" target=\"_blank\">la page de documentation sur les réponses aux propositions</a>."
+            publish_answers_immediately_help_html: "Notez que si vous répondez à une proposition sans que cette case soit activée, vous devrez publier la réponse manuellement en sélectionnant la proposition et en utilisant l'action de publication.\nPour plus d'informations sur le fonctionnement de cette action, voir <a href=\"https://docs.decidim.org/en/admin/components/proposals/answers#_publication\" target=\"_blank\">la page de documentation sur les réponses aux propositions</a>."
             suggested_hashtags: Hashtags suggérés aux utilisateurs pour de nouvelles propositions
             votes_blocked: Bloquer les votes
             votes_enabled: Activer le module de vote simple
@@ -352,7 +354,7 @@ fr:
           description_own: Vous avez soutenu %{score} propositions.
           name: Soutiens de proposition
           next_level_in: Soutenir %{score} propositions supplémentaires pour atteindre le niveau supérieur!
-          unearned_another: Cet utilisateur n'a soutenu aucun proposition pour le moment.
+          unearned_another: Cet utilisateur n'a voté pour aucune proposition pour le moment.
           unearned_own: Vous n'avez soutenu aucune proposition pour le moment.
         proposals:
           conditions:
@@ -476,8 +478,8 @@ fr:
             title: Réponse à la proposition %{title}
         proposal_notes:
           create:
-            error: Un problème est survenu lors de la création de cette note de proposition.
-            success: Note de proposition créée avec succès.
+            error: Un problème est survenu lors de la création de cette note privée.
+            success: Note privée créée avec succès.
           form:
             note: Remarque
             submit: Soumettre
@@ -485,7 +487,7 @@ fr:
           title: Notes privées
         proposals:
           answer:
-            invalid: Il y a eu un problème lors de la création de réponse à cette proposition.
+            invalid: Il y a eu un problème lors de la réponse à cette proposition.
             success: La réponse à la proposition a publiée avec succès.
           create:
             invalid: Il y a eu un problème lors de la création de cette proposition.
@@ -564,7 +566,7 @@ fr:
             success: 'Les propositions ont été mises à jour avec succès vers le périmètre %{subject_name} : %{proposals}.'
         proposals_imports:
           create:
-            invalid: Un problème est survenu lors de l'importation des propositions.
+            invalid: Un problème est survenu lors de l'import des propositions.
             success: "%{number} propositions importées avec succès."
           new:
             create: Importer des propositions
@@ -706,7 +708,7 @@ fr:
           hidden_authors_count:
             one: et %{count} personne de plus
             other: et %{count} autres personnes
-          info-message: Ceci est un <strong>brouillon collaboratif</strong> pour une question. Cela signifie que vous pouvez aider leurs auteurs à façonner la question en utilisant la section commentaire ci-dessous ou l'améliorer directement en demandant l'accès pour la modifier. Une fois que les auteurs vous accordent l'accès, vous pourrez apporter des modifications à ce brouillon.
+          info-message: Ceci est le <strong>brouillon collaboratif</strong> d'une proposition. Cela signifie que vous pouvez aider les auteurs à façonner la proposition en utilisant la section commentaire ci-dessous ou l'améliorer directement en demandant un accès pour la modifier. Une fois que les auteurs vous accordent l'accès, vous pourrez apporter des modifications à ce brouillon de proposition.
           publish: Publier
           publish_info: Publiez cette version du brouillon ou
           published_proposal: proposition publiée
@@ -760,7 +762,7 @@ fr:
             valuators: Évaluateurs
             votes: Votes
       new:
-        limit_reached: "You cannot create new proposals since you have exceeded the limit.\nVous ne pouvez plus créer de nouvelles propositions car vous avez atteint la limite autorisée."
+        limit_reached: Vous ne pouvez plus créer de nouvelles propositions car vous avez atteint la limite autorisée.
       participatory_text_proposal:
         alternative_title: Il n'y a pas de textes participatifs pour le moment
         buttons:
@@ -864,7 +866,7 @@ fr:
           view_proposal: Voir la proposition
         proposals:
           empty: Il n'y a pas encore de proposition.
-          empty_filters: Il n'y a aucune proposition avec ce critère.
+          empty_filters: Aucune proposition ne correspond à ce critère.
         show:
           answer: Répondre
           back_to: Retour à
@@ -913,7 +915,7 @@ fr:
             description: Chaque proposition doit rassembler plus de %{limit} votes
           minimum_votes_per_user:
             description: Vous devez répartir un minimum de %{votes} voix entre différentes propositions.
-            given_enough_votes: Vous avez donné suffisamment de soutien.
+            given_enough_votes: Vous avez attribué suffisamment de votes.
             supports_remaining: Vous devez voter %{remaining_votes} proposition supplémentaire pour que vos votes soient pris en compte.
           proposal_limit:
             description: Vous pouvez créer jusqu'à %{limit} propositions.
@@ -965,7 +967,7 @@ fr:
           back_to_resource: Retourner à la proposition
       withdraw:
         errors:
-          has_supports: Cette proposition ne peut pas être retirée car elle dispose déjà de soutiens.
+          has_supports: Cette proposition ne peut pas être retirée car elle comporte déjà des votes.
     resource_links:
       copied_from_component:
         proposal_proposal: Propositions associées

@@ -128,11 +128,13 @@ ro:
         send_again: Trimite din nou
         title: Verificarea adresei de e-mail
       show:
+        available_locales_helper: Alege limba pe care dorești să o utilizezi pentru a naviga și primi notificări din platformă.
         change_password: Schimbă parola
         update_account: Actualizați contul
       update:
         error: A apărut o eroare la actualizarea contului tău.
         success: Contul tău fost actualizat cu succes.
+        success_with_email_confirmation: Contul tău a fost actualizat cu succes. Vei primi un e-mail pentru a confirma noua ta adresă de e-mail.
     activity:
       time_ago: "În urmă cu %{time}"
     admin:
@@ -929,7 +931,6 @@ ro:
           intro: 'Au existat următoarele erori cu mesajul tău:'
           ok: Ok
         index:
-          ago: acum
           new_conversation: Conversație nouă
           next: Următoarea
           title: Conversații

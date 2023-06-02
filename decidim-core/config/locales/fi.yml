@@ -98,23 +98,26 @@ fi:
         other: noin %{count} kuukautta
       half_a_minute: puoli minuuttia
       less_than_x_minutes:
-        one: alle minuutti.
-        other: alle %{count} minuuttia.
+        one: alle minuutti
+        other: alle %{count} minuuttia
       less_than_x_seconds:
-        one: juuri nyt
-        other: vähemmän kuin %{count} sekuntia.
+        one: alle 1 sekunti
+        other: alle %{count} sekuntia
       x_days:
-        one: päivä sitten
-        other: "%{count} päivää sitten"
+        one: 1 päivä
+        other: "%{count} päivää"
       x_hours:
-        one: tunti sitten
-        other: "%{count} tuntia sitten"
+        one: 1 tunti
+        other: "%{count} tuntia"
       x_minutes:
-        one: minuutti sitten
-        other: "%{count} minuuttia sitten"
+        one: 1 minuutti
+        other: "%{count} minuuttia"
+      x_months:
+        one: 1 kuukausi
+        other: "%{count} kuukautta"
       x_seconds:
-        one: sekunti sitten
-        other: "%{count} sekuntia sitten"
+        one: 1 sekunti
+        other: "%{count} sekuntia"
   decidim:
     accessibility:
       external_link: Ulkoinen linkki
@@ -546,7 +549,7 @@ fi:
       registrations:
         new:
           already_have_an_account?: Onko sinulla jo käyttäjätili?
-          newsletter: Vastaanota silloin tällöin olennaista tietoa sisältävä uutiskirje
+          newsletter: Vastaanota silloin tällöin ajankohtaista tietoa sisältävä uutiskirje
           newsletter_title: Yhteydenottolupa
           nickname_help: Nimimerkkisi palvelussa %{organization}. Voi sisältää ainoastaan kirjaimia, numeroita sekä yhdysmerkkejä "-" ja alaviivoja "_".
           sign_in: Kirjaudu sisään
@@ -1091,7 +1094,6 @@ fi:
           intro: 'Viestisi sisältää seuraavia virheitä:'
           ok: OK
         index:
-          ago: sitten
           new_conversation: Uusi keskustelu
           next: Seuraava
           no_conversations: Sinulla ei vielä ole keskusteluja.
@@ -1718,6 +1720,63 @@ fi:
   doorkeeper:
     scopes:
       public: Julkiset tietosi.
+  editor:
+    extensions:
+      image:
+        altLabel: Vaihtoehtoinen teksti kuvalle
+        nodeView:
+          resizer:
+            control:
+              resize: Muuta kuvan kokoa (%position%)
+            position:
+              bottomLeft: vasen alakulma
+              bottomRight: oikea alakulma
+              topLeft: vasen yläkulma
+              topRight: oikea yläkulma
+        uploadError: Tiedoston lataaminen epäonnistui.
+      link:
+        bubbleMenu:
+          edit: Muokkaa
+          remove: Poista
+          url: URL
+        hrefLabel: Linkin URL-osoite
+        targetLabel: Kohde
+        targets:
+          blank: Uusi välilehti
+          default: Oletus (sama välilehti)
+      videoEmbed:
+        titleLabel: Otsikko
+        urlLabel: Videon URL-osoite
+    inputDialog:
+      buttons:
+        cancel: Peruuta
+        remove: Poista
+        save: Tallenna
+      close: Sulje ikkuna
+    toolbar:
+      control:
+        blockquote: Sitaatti
+        bold: Lihavointi
+        bulletList: Järjestämätön lista
+        codeBlock: Koodinäyte
+        common:
+          eraseStyles: Poista tyylit
+        hardBreak: Rivinvaihto
+        heading: Tekstin tyyli
+        image: Kuva
+        indent:
+          indent: Sisennys
+          outdent: Sisennyksen vähennys
+        italic: Kursivointi
+        link: Linkki
+        orderedList: Järjestetty lista
+        underline: Alleviivaus
+        videoEmbed: Videoupotus
+      textStyle:
+        heading: Otsikkotaso %level%
+        normal: Normaali
+    upload:
+      uploadedFile: Ladattu tiedosto
   emojis:
     button: Lisää emoji
     categories:
@@ -1768,6 +1827,7 @@ fi:
       too_many_marks: liian monta välimerkkiä peräkkäin (esim. ! ja ?)
       too_much_caps: liian monta isoa kirjainta (yli 25% tekstistä)
       too_short: liian lyhyt (alle %{count} merkkiä)
+      url_format: Tämä URL-osoite on väärässä muodossa
   forms:
     correct_errors: Lomakkeella on virheitä, korjaa ne jatkaaksesi.
     length_validator:

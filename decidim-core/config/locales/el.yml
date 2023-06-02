@@ -729,7 +729,6 @@ el:
           modal_title: Νέα συνομιλία
           no_results: Δεν υπάρχουν αποτελέσματα
         index:
-          ago: πριν
           new_conversation: Νέα συνομιλία
           next: Επόμενο
           title: Συνομιλίες

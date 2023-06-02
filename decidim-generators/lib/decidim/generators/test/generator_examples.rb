@@ -339,7 +339,7 @@ shared_examples_for "an application with configurable env vars" do
       %w(decidim initiatives max_time_in_validating_state) => 60,
       %w(decidim initiatives print_enabled) => "auto",
       %w(decidim initiatives do_not_require_authorization) => false,
-      %w(elections setup_minimum_hours_before_start) => 3,
+      %w(elections setup_minimum_hours_before_start) => 1,
       %w(elections start_vote_maximum_hours_before_start) => 6,
       %w(elections voter_token_expiration_minutes) => 120,
       %w(elections votings check_census_max_requests) => 5,
@@ -887,7 +887,7 @@ shared_examples_for "an application with extra configurable env vars" do
 
   let(:elections_initializer_off) do
     {
-      "setup_minimum_hours_before_start" => 3,
+      "setup_minimum_hours_before_start" => 1,
       "start_vote_maximum_hours_before_start" => 6,
       "voter_token_expiration_minutes" => 120
     }
