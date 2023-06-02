@@ -195,8 +195,6 @@ describe "Amend Proposal", versioning: true, type: :system do
           end
 
           it "is shown the login modal" do
-            skip "REDESIGN_PENDING - This test should be fixed in https://github.com/decidim/decidim/pull/10765"
-
             expect(page).to have_css("#loginModal", visible: :visible)
           end
         end
@@ -239,8 +237,6 @@ describe "Amend Proposal", versioning: true, type: :system do
 
           context "when the form is filled incorrectly" do
             before do
-              skip "REDESIGN_PENDING - This test should be fixed in https://github.com/decidim/decidim/pull/10765"
-
               within ".new_amendment" do
                 fill_in "amendment[emendation_params][title]", with: "INVALID TITLE"
               end
@@ -385,22 +381,16 @@ describe "Amend Proposal", versioning: true, type: :system do
           end
 
           it "is shown the alert text" do
-            skip "REDESIGN_PENDING - This test should be fixed in https://github.com/decidim/decidim/pull/10765"
-
             expect(accept_confirm).to eq("Are you sure you want to promote this emendation?")
           end
 
           it "is shown the Success Callout when the alert text is accepted" do
-            skip "REDESIGN_PENDING - This test should be fixed in https://github.com/decidim/decidim/pull/10765"
-
             accept_confirm
             expect(page).to have_content("The amendment has been successfully published as a new proposal")
           end
 
           context "when the user visits again the rejected emendation" do
             before do
-              skip "REDESIGN_PENDING - This test should be fixed in https://github.com/decidim/decidim/pull/10765"
-
               accept_confirm
               visit emendation_path
             end
