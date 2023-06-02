@@ -549,7 +549,6 @@ eu:
         promotal_committee: Sustatzaile batzordea
         select_initiative_type: Aukeratu
         show_similar_initiatives: konparatu
-        step: Step %{current} of %{total}
         title: Sortu ekimen berria
       initiative_header:
         initiative_menu_item: Initiative

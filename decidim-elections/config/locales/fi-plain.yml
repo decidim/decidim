@@ -198,6 +198,8 @@ fi-pl:
           edit:
             title: Muokkaa vaalia
             update: Päivitä vaali
+          form:
+            organization_time_zone: Tarkista, että organisaation aikavyöhyke on oikea organisaation asetuksissa. Nykyinen aikavyöhyke on %{time_zone} (%{time}).
           index:
             no_bulletin_board: Järjestelmässä ei ole <a href="https://github.com/decidim/decidim-bulletin-board">Bulletin Board -palvelinta</a> määritettynä, mitä tarvitaan käyttääksesi tätä moduulia. Tämä tehtävä tulisi toteuttaa yhteistyössä järjestelmänvalvojan kanssa.
             title: Vaalit

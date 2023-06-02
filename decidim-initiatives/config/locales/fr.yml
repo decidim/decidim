@@ -64,7 +64,7 @@ fr:
             attachment:
               file: Le fichier n'est pas valide
               needs_to_be_reattached: Doit être téléchargé de nouveau
-              title: Le titre doit être non vide
+              title: Le titre ne peut être vide
   activerecord:
     models:
       decidim/initiative:
@@ -635,7 +635,6 @@ fr:
         promotal_committee: Comité de promotion
         select_initiative_type: Sélectionnez le type de pétition
         show_similar_initiatives: Comparez avec les autres pétitions
-        step: Étape %{current} de %{total}
         title: Créer une nouvelle pétition
       initiative_header:
         initiative_menu_item: Pétition
