@@ -186,7 +186,7 @@ describe "Account", type: :system do
       end
 
       it "updates the user's notifications" do
-        page.find("[for='dc-newsletter_notifications']").click
+        page.find("[for='newsletter_notifications']").click
 
         within "form.edit_user" do
           find("*[type=submit]").click
@@ -206,8 +206,8 @@ describe "Account", type: :system do
         end
 
         it "updates the administrator's notifications" do
-          page.find("[for='dc-email_on_moderations']").click
-          page.find("[for='dc-user_notification_settings[close_meeting_reminder]']").click
+          page.find("[for='email_on_moderations']").click
+          page.find("[for='user_notification_settings[close_meeting_reminder]']").click
 
           within "form.edit_user" do
             find("*[type=submit]").click

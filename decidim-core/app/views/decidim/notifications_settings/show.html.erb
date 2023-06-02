@@ -8,10 +8,10 @@
         <%= t("receive_notifications_about", scope: "decidim.notifications_settings.show") %>
       </span>
       <div class="toggle__switch-trigger">
-        <label for="dc-notifications_from_own_activity" class="toggle__switch-toggle">
+        <label for="notifications_from_own_activity" class="toggle__switch-toggle">
           <input
             <%= %(checked="checked") if @notifications_settings.notifications_from_own_activity %>
-            id="dc-notifications_from_own_activity"
+            id="notifications_from_own_activity"
             type="checkbox"
             name="notifications_from_own_activity">
           <span class="sr-only"></span>
@@ -25,10 +25,10 @@
         </label>
       </div>
       <div class="toggle__switch-trigger">
-        <label for="dc-notifications_from_followed" class="toggle__switch-toggle">
+        <label for="notifications_from_followed" class="toggle__switch-toggle">
           <input
             <%= %(checked="checked") if @notifications_settings.notifications_from_followed %>
-            id="dc-notifications_from_followed"
+            id="notifications_from_followed"
             type="checkbox"
             name="notifications_from_followed">
           <span class="sr-only"></span>
@@ -58,10 +58,10 @@
         <%= t("newsletters", scope: "decidim.notifications_settings.show") %>
       </span>
       <div class="toggle__switch-trigger">
-        <label for="dc-newsletter_notifications" class="toggle__switch-toggle">
+        <label for="newsletter_notifications" class="toggle__switch-toggle">
           <input
             <%= %(checked="checked") if  @notifications_settings.newsletter_notifications %>
-            id="dc-nnewsletter_notifications"
+            id="newsletter_notifications"
             type="checkbox"
             name="newsletter_notifications">
           <span class="sr-only"></span>
@@ -78,10 +78,10 @@
         <%= t("direct_messages", scope: "decidim.notifications_settings.show") %>
       </span>
       <div class="toggle__switch-trigger">
-        <label for="dc-allow_public_contact" class="toggle__switch-toggle">
+        <label for="allow_public_contact" class="toggle__switch-toggle">
           <input
             <%= %(checked="checked") if @notifications_settings.allow_public_contact %>
-            id="dc-allow_public_contact"
+            id="allow_public_contact"
             type="checkbox"
             name="allow_public_contact">
           <span class="sr-only"></span>
@@ -100,10 +100,10 @@
           <%= t("administrators", scope: "decidim.notifications_settings.show") %>
         </span>
         <div class="toggle__switch-trigger">
-        <label for="dc-email_on_moderations" class="toggle__switch-toggle">
+        <label for="email_on_moderations" class="toggle__switch-toggle">
           <input
             <%= %(checked="checked") if @notifications_settings.email_on_moderations %>
-            id="dc-email_on_moderations"
+            id="email_on_moderations"
             type="checkbox"
             name="email_on_moderations">
           <span class="sr-only"></span>
@@ -118,7 +118,7 @@
       </div>
         <% Decidim.notification_settings_registry.manifests.filter{ |a| a.settings_area == :administrators }.each do |manifest| %>
           <div class="toggle__switch-trigger">
-            <label class="toggle__switch-toggle" for="dc-user_notification_settings[<%= manifest.name %>]">
+            <label class="toggle__switch-toggle" for="user_notification_settings[<%= manifest.name %>]">
               <%= f.check_box "notification_settings[#{manifest.name}]",
                               checked: ["1", true].include?(current_user.notification_settings.fetch(manifest.name.to_s, manifest.default_value)),
                               label: false,
