@@ -1,5 +1,5 @@
 .answer-questionnaire{
-  @apply border-t-4 border-background pt-10;
+  @apply border-t-2 border-background pt-8;
 
   &__step{
     @apply space-y-10;
@@ -49,6 +49,10 @@
   &__multiple-matrix,
   &__single-matrix{
     @apply text-gray-2 text-sm rounded overflow-x-auto;
+
+    table{
+      @apply w-full;
+    }
 
     th,
     td{
