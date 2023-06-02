@@ -6,6 +6,7 @@ module Decidim
   module Proposals
     describe MapHelper do
       include Decidim::LayoutHelper
+      include ::Devise::Test::ControllerHelpers
 
       let!(:organization) { create(:organization) }
       let!(:proposal_component) { create(:proposal_component, :with_geocoding_enabled, organization:) }
@@ -20,6 +21,8 @@ module Decidim
       before do
         # rubocop:disable RSpec/AnyInstance
         allow_any_instance_of(ActionView::Base).to receive(:redesign_enabled?).and_return(redesign_enabled)
+        allow_any_instance_of(ActionView::Base).to receive(:redesigned_layout).and_return("decidim/proposals/proposal_metadata")
+        allow_any_instance_of(Decidim::Proposals::ProposalMetadataCell).to receive(:redesign_enabled?).and_return(redesign_enabled)
         # rubocop:enable RSpec/AnyInstance
       end
 
