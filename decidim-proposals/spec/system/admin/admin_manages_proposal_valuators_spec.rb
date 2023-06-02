@@ -41,7 +41,7 @@ describe "Admin manages proposals valuators", type: :system do
       before do
         within "#js-form-assign-proposals-to-valuator" do
           select valuator.name, from: :valuator_role_id
-          click_button(id: "js-submit-unassign-proposals-from-valuator")
+          click_button(id: "js-submit-assign-proposals-to-valuator")
         end
       end
 
