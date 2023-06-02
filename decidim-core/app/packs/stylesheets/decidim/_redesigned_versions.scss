@@ -39,20 +39,20 @@
     }
 
     li{
-      @apply p-3 rounded bg-background [&_span]:mr-2;
+      @apply p-3 rounded bg-background text-black [&_span]:mr-2 [&_strong]:font-normal;
 
       &.ins{
-        @apply bg-success/20 text-success [&_span]:text-success;
+        @apply bg-success/20 [&_strong]:bg-success/20;
       }
 
       &.del{
-        @apply bg-alert/20 text-alert [&_span]:text-alert;
+        @apply bg-alert/20 [&_strong]:bg-alert/20;
       }
 
       > ins,
       > del,
       > *{
-        @apply no-underline;
+        @apply no-underline break-words;
       }
     }
 
