@@ -70,7 +70,7 @@
 
           <div>
             <span class="text-medium">
-              <%= link_to_other_resource_versions(collaborative_draft_versions_path(@collaborative_draft)) %>
+              <%= link_to_other_resource_versions(collaborative_draft_version_path(@collaborative_draft, @collaborative_draft.versions.count)) %>
             </span>
           </div>
         <% end %>
@@ -97,7 +97,7 @@
           </li>
 
           <li class="card-data__item versions_status">
-            <%= link_to collaborative_draft_versions_path(@collaborative_draft) do %>
+            <%= link_to collaborative_draft_version_path(@collaborative_draft, @collaborative_draft.versions.count) do %>
               <%= with_tooltip t("decidim.proposals.models.collaborative_draft.fields.contributions") do %>
                 <%= icon("pencil", class: "icon--small", role: "img", "aria-hidden": true) + " " + "#{@collaborative_draft.versions.count}" %>
               <% end %>

@@ -77,7 +77,8 @@ describe "Collaborative drafts", type: :system do
             fill_in :collaborative_draft_title, with: "More sidewalks and less roads"
             fill_in :collaborative_draft_body, with: "Cities need more people, not more cars"
             select translated(category.name), from: :collaborative_draft_category_id
-            scope_pick scope_picker, scope
+            # REDESIGN_PENDING - scope picker is pending https://github.com/decidim/decidim/issues/10192
+            # scope_pick scope_picker, scope
 
             find("*[type=submit]").click
           end
@@ -86,7 +87,8 @@ describe "Collaborative drafts", type: :system do
           expect(page).to have_content("More sidewalks and less roads")
           expect(page).to have_content("Cities need more people, not more cars")
           expect(page).to have_content(translated(category.name))
-          expect(page).to have_content(translated(scope.name))
+          # REDESIGN_PENDING - scope picker is pending https://github.com/decidim/decidim/issues/10192
+          # expect(page).to have_content(translated(scope.name))
           expect(page).to have_author(user.name)
         end
 
@@ -111,7 +113,7 @@ describe "Collaborative drafts", type: :system do
           it "allows returning to the index" do
             click_link "Back to collaborative drafts"
 
-            expect(page).to have_content("0 COLLABORATIVE DRAFTS")
+            expect(page).to have_content("0 collaborative drafts")
           end
         end
 
@@ -136,12 +138,12 @@ describe "Collaborative drafts", type: :system do
             visit new_collaborative_draft_path
 
             within ".new_collaborative_draft" do
-              check :collaborative_draft_has_address
               fill_in :collaborative_draft_title, with: "More sidewalks and less roads"
               fill_in :collaborative_draft_body, with: "Cities need more people, not more cars"
               fill_in_geocoding :collaborative_draft_address, with: address
               select translated(category.name), from: :collaborative_draft_category_id
-              scope_pick scope_picker, scope
+              # REDESIGN_PENDING - scope picker is pending https://github.com/decidim/decidim/issues/10192
+              # scope_pick scope_picker, scope
 
               find("*[type=submit]").click
             end
@@ -151,7 +153,8 @@ describe "Collaborative drafts", type: :system do
             expect(page).to have_content("Cities need more people, not more cars")
             expect(page).to have_content(address)
             expect(page).to have_content(translated(category.name))
-            expect(page).to have_content(translated(scope.name))
+            # REDESIGN_PENDING - scope picker is pending https://github.com/decidim/decidim/issues/10192
+            # expect(page).to have_content(translated(scope.name))
             expect(page).to have_author(user.name)
           end
 
@@ -169,7 +172,6 @@ describe "Collaborative drafts", type: :system do
               visit new_collaborative_draft_path
 
               within ".new_collaborative_draft" do
-                check :collaborative_draft_has_address
                 fill_in :collaborative_draft_title, with: "More sidewalks and less roads"
                 fill_in :collaborative_draft_body, with: "Cities need more people, not more cars"
               end
@@ -233,7 +235,8 @@ describe "Collaborative drafts", type: :system do
               fill_in :collaborative_draft_title, with: "More sidewalks and less roads"
               fill_in :collaborative_draft_body, with: "Cities need more people, not more cars"
               select translated(category.name), from: :collaborative_draft_category_id
-              scope_pick scope_picker, scope
+              # REDESIGN_PENDING - scope picker is pending https://github.com/decidim/decidim/issues/10192
+              # scope_pick scope_picker, scope
               select user_group.name, from: :collaborative_draft_user_group_id
 
               find("*[type=submit]").click
@@ -243,7 +246,8 @@ describe "Collaborative drafts", type: :system do
             expect(page).to have_content("More sidewalks and less roads")
             expect(page).to have_content("Cities need more people, not more cars")
             expect(page).to have_content(translated(category.name))
-            expect(page).to have_content(translated(scope.name))
+            # REDESIGN_PENDING - scope picker is pending https://github.com/decidim/decidim/issues/10192
+            # expect(page).to have_content(translated(scope.name))
             expect(page).to have_author(user_group.name)
           end
 
@@ -267,10 +271,10 @@ describe "Collaborative drafts", type: :system do
               within ".new_collaborative_draft" do
                 fill_in :collaborative_draft_title, with: "More sidewalks and less roads"
                 fill_in :collaborative_draft_body, with: "Cities need more people, not more cars"
-                check :collaborative_draft_has_address
                 fill_in :collaborative_draft_address, with: address
                 select translated(category.name), from: :collaborative_draft_category_id
-                scope_pick scope_picker, scope
+                # REDESIGN_PENDING - scope picker is pending https://github.com/decidim/decidim/issues/10192
+                # scope_pick scope_picker, scope
                 select user_group.name, from: :collaborative_draft_user_group_id
 
                 find("*[type=submit]").click
@@ -281,7 +285,8 @@ describe "Collaborative drafts", type: :system do
               expect(page).to have_content("Cities need more people, not more cars")
               expect(page).to have_content(address)
               expect(page).to have_content(translated(category.name))
-              expect(page).to have_content(translated(scope.name))
+              # REDESIGN_PENDING - scope picker is pending https://github.com/decidim/decidim/issues/10192
+              # expect(page).to have_content(translated(scope.name))
               expect(page).to have_author(user_group.name)
             end
           end
@@ -318,6 +323,8 @@ describe "Collaborative drafts", type: :system do
           end
 
           it "creates a new collaborative draft with attachments" do
+            skip "REDESIGN_PENDING - This test should be fixed in https://github.com/decidim/decidim/pull/10729"
+
             visit new_collaborative_draft_path
 
             within ".new_collaborative_draft" do
@@ -325,7 +332,7 @@ describe "Collaborative drafts", type: :system do
               fill_in :collaborative_draft_body, with: "This is my collaborative draft and I want to upload attachments."
             end
 
-            dynamically_attach_file(:collaborative_draft_documents, Decidim::Dev.asset("city.jpeg"), { title: "My attachment" })
+            dynamically_attach_file(:collaborative_draft_documents, Decidim::Dev.asset("city.jpeg"), title: "My attachment", front_interface: true)
 
             within ".new_collaborative_draft" do
               find("*[type=submit]").click
