@@ -69,7 +69,7 @@ RSpec.shared_examples "manage statuses" do
 
     it "deletes a status" do
       within find("tr", text: status2.key) do
-        accept_confirm { click_link "Delete" }
+        accept_confirm(admin: true) { click_link "Delete" }
       end
 
       expect(page).to have_admin_callout("successfully")

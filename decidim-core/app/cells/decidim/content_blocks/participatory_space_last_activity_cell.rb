@@ -38,6 +38,8 @@ module Decidim
       def max_last_activity_users
         model.settings.try(:max_last_activity_users) || DEFAULT_MAX_LAST_ACTIVITY_USERS
       end
+
+      def hide_participatory_space = true
     end
   end
 end

@@ -12,10 +12,12 @@ module Decidim
         @linked_resource ||= model.linked_resources(:collaborative_draft, "created_from_collaborative_draft").first
       end
 
-      def link_to_resource
-        link_to resource_locator(linked_resource).path, class: "link" do
-          t("link_to_collaborative_draft_text", scope: "decidim.proposals.proposals.show")
-        end
+      def link_to_resource_url
+        resource_locator(linked_resource).path
+      end
+
+      def link_to_resource_text
+        t("link_to_collaborative_draft_text", scope: "decidim.proposals.proposals.show")
       end
 
       def link_help_text

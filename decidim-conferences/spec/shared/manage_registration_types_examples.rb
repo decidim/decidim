@@ -48,7 +48,7 @@ shared_examples "manage registration types examples" do
 
     it "deletes the conference registration type" do
       within find("#registration_types tr", text: translated(registration_type.title)) do
-        accept_confirm { find("a.action-icon--remove").click }
+        accept_confirm(admin: true) { find("a.action-icon--remove").click }
       end
 
       expect(page).to have_admin_callout("successfully")

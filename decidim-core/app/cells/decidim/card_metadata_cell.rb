@@ -7,6 +7,7 @@ module Decidim
     include Decidim::IconHelper
     include Decidim::ApplicationHelper
     include Decidim::SanitizeHelper
+    include Decidim::DateRangeHelper
     include ActionView::Helpers::DateHelper
     include Cell::ViewModel::Partial
     include Decidim::ViewHooksHelper
@@ -40,20 +41,19 @@ module Decidim
 
     def comments_count_item
       return unless model.is_a?(Decidim::Comments::Commentable) && model.commentable?
-      return if (count = model.comments_count).zero?
 
       {
-        text: count,
-        icon: resource_type_icon_key(:comments_count)
+        text: model.comments_count,
+        icon: resource_type_icon_key(:comments_count),
+        data_attributes: { comments_count: "" }
       }
     end
 
     def endorsements_count_item
       return unless resource.respond_to?(:endorsements_count)
-      return if (count = resource.endorsements_count).zero?
 
       {
-        text: count,
+        text: resource.endorsements_count,
         icon: resource_type_icon_key(:like),
         data_attributes: { endorsements_count: "" }
       }
@@ -97,15 +97,8 @@ module Decidim
     def dates_item
       return if dates_blank?
 
-      format = [start_date.year, end_date.year].any? { |year| year != Date.current.year } ? :decidim_short_with_month_name_short : :decidim_with_month_name_short
-      text = if start_date.to_date == end_date.to_date
-               "#{l(start_date.to_date, format:)} #{l(start_date, format: :time_of_day)} - #{l(end_date, format: :time_of_day)}"
-             else
-               "#{l(start_date.to_date, format:)} - #{l(end_date.to_date, format:)}"
-             end
-
       {
-        text:,
+        text: format_date_range(start_date, end_date),
         icon: "timer-2-line"
       }
     end

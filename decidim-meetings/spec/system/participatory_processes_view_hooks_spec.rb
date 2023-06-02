@@ -6,6 +6,7 @@ describe "Meetings in process home", type: :system do
   include_context "with a component"
   let(:manifest_name) { "meetings" }
   let(:meetings_count) { 5 }
+  let(:meetings_selector) { "[id^='meetings__meeting_']" }
 
   before do
     create(:content_block, organization:, scope_name: :participatory_process_homepage, manifest_name: :highlighted_meetings, scoped_resource_id: participatory_process.id)
@@ -29,7 +30,7 @@ describe "Meetings in process home", type: :system do
 
       within("#participatory-process-homepage-highlighted-meetings") do
         expect(page).to have_content("PAST MEETINGS")
-        expect(page).to have_css(".meeting-list", count: 3)
+        expect(page).to have_css(meetings_selector, count: 3)
 
         expect(page).to have_no_content(/#{translated(moderated_meeting.title)}/i)
 
@@ -51,7 +52,7 @@ describe "Meetings in process home", type: :system do
 
       within("#participatory-process-homepage-highlighted-meetings") do
         expect(page).to have_content("UPCOMING MEETINGS")
-        expect(page).to have_css(".meeting-list", count: 3)
+        expect(page).to have_css(meetings_selector, count: 3)
 
         expect(page).to have_no_content(/#{translated(moderated_meeting.title)}/i)
 
@@ -76,7 +77,7 @@ describe "Meetings in process home", type: :system do
 
       within("#participatory-process-homepage-highlighted-meetings") do
         expect(page).to have_content("UPCOMING MEETINGS")
-        expect(page).to have_css(".meeting-list", count: 3)
+        expect(page).to have_css(meetings_selector, count: 3)
 
         past_meetings.each do |meeting|
           expect(page).to have_no_content(/#{translated(meeting.title)}/i)

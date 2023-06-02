@@ -49,8 +49,8 @@ describe Decidim::CardMetadataCell, type: :cell do
       let(:items_list) { [:comments_count_item] }
 
       context "and comments count is zero" do
-        it "displays nothing" do
-          expect(cell_html).to have_no_content("0")
+        it "displays 0" do
+          expect(cell_html).to have_content("0")
         end
       end
 
@@ -67,8 +67,8 @@ describe Decidim::CardMetadataCell, type: :cell do
       let(:items_list) { [:endorsements_count_item] }
 
       context "and endorsements count is zero" do
-        it "displays 0 nothing" do
-          expect(cell_html).to have_no_content("0")
+        it "displays 0" do
+          expect(cell_html).to have_content("0")
         end
       end
 
@@ -150,7 +150,7 @@ describe Decidim::CardMetadataCell, type: :cell do
           let(:end_date) { Date.parse("2066-06-06") }
 
           it "displays the dates including year" do
-            expect(cell_html).to have_content("31 Jan 2046 - 06 Jun 2066")
+            expect(cell_html).to have_content("31 Jan 2046 arrow-right-line 06 Jun 2066")
           end
         end
 
@@ -160,7 +160,7 @@ describe Decidim::CardMetadataCell, type: :cell do
 
           it "displays the dates excluding year" do
             expect(cell_html).to have_no_content(current_year)
-            expect(cell_html).to have_content("31 Jan - 06 Jun")
+            expect(cell_html).to have_content("31 Jan arrow-right-line 06 Jun")
           end
         end
 
@@ -169,7 +169,7 @@ describe Decidim::CardMetadataCell, type: :cell do
           let(:end_date) { Date.parse("#{current_year + 5}-06-06") }
 
           it "displays the dates including year" do
-            expect(cell_html).to have_content("31 Jan #{current_year + 5} - 06 Jun #{current_year + 5}")
+            expect(cell_html).to have_content("31 Jan #{current_year + 5} arrow-right-line 06 Jun #{current_year + 5}")
           end
         end
 
@@ -179,7 +179,7 @@ describe Decidim::CardMetadataCell, type: :cell do
 
           it "displays hour interval excluding year" do
             expect(cell_html).to have_no_content(current_year)
-            expect(cell_html).to have_content("31 Jan 14:30 - 17:00")
+            expect(cell_html).to have_content("31 Jan 14:30 arrow-right-line 17:00")
           end
         end
 
@@ -188,7 +188,7 @@ describe Decidim::CardMetadataCell, type: :cell do
           let(:end_date) { Time.zone.parse("#{current_year + 5}-01-31 17:00") }
 
           it "displays hour interval excluding year" do
-            expect(cell_html).to have_content("31 Jan #{current_year + 5} 14:30 - 17:00")
+            expect(cell_html).to have_content("31 Jan #{current_year + 5} 14:30 arrow-right-line 17:00")
           end
         end
       end
