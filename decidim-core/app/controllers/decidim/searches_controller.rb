@@ -6,6 +6,7 @@ module Decidim
     include FormFactory
     include FilterResource
     include Paginable
+    include HasSpecificBreadcrumb
 
     helper Decidim::FiltersHelper
     helper_method :term
@@ -47,6 +48,14 @@ module Decidim
       {
         per_page:,
         page: params[:page]
+      }
+    end
+
+    def breadcrumb_item
+      {
+        label: t("decidim.search.name"),
+        active: true,
+        url: search_path
       }
     end
   end

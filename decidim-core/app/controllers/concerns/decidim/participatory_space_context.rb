@@ -27,7 +27,7 @@ module Decidim
 
       helper ParticipatorySpaceHelpers, IconHelper, ContextualHelpHelper
       helper_method :current_participatory_space
-      helper_method :participatory_space_breadcrumb_items
+      helper_method :context_breadcrumb_items
       helper_method :current_participatory_space_manifest
       helper_method :current_participatory_space_context
       helper_method :help_section, :help_id
@@ -56,7 +56,15 @@ module Decidim
     #              dropdown cell, so it's mandatory if the dropdown cell is
     #              present.
     def current_participatory_space_breadcrumb_item
-      {}
+      return {} if current_participatory_space.blank?
+
+      {
+        label: current_participatory_space.title,
+        url: Decidim::ResourceLocatorPresenter.new(current_participatory_space).path,
+        active: true,
+        dropdown_cell: current_participatory_space_manifest.breadcrumb_cell,
+        resource: current_participatory_space
+      }
     end
 
     def current_participatory_space_manifest
@@ -75,8 +83,8 @@ module Decidim
       enforce_permission_to :read, :participatory_space, current_participatory_space:
     end
 
-    def participatory_space_breadcrumb_items
-      @participatory_space_breadcrumb_items ||= [current_participatory_space_breadcrumb_item].compact_blank
+    def context_breadcrumb_items
+      @context_breadcrumb_items ||= [current_participatory_space_breadcrumb_item].compact_blank
     end
 
     def layout

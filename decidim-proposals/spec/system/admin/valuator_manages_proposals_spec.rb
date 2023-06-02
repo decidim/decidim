@@ -82,7 +82,7 @@ describe "Valuator manages proposals", type: :system do
 
         within find("li", text: user.name) do
           expect(page).to have_selector("a.red-icon")
-          accept_confirm do
+          accept_confirm admin: true do
             find("a.red-icon").click
           end
         end

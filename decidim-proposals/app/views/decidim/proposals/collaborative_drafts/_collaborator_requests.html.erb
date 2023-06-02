@@ -7,7 +7,7 @@
     </div>
     <% @collaborative_draft.requesters.each do |requester| %>
       <div class="definition-data__item expanded" id="request_<%= requester.id %>">
-        <%= cell "decidim/author", present(requester), options: { extra_classes: ["author-data--small"] }, has_actions: false %>
+        <%= cell "decidim/redesigned_author", present(requester), options: { extra_classes: ["author-data--small"] }, has_actions: false %>
 
         <div>
           <%= render partial: "accept_request_access_form", locals: { requester: requester } %>

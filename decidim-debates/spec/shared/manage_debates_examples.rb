@@ -190,7 +190,7 @@ RSpec.shared_examples "manage debates" do
 
     it "deletes a debate" do
       within find("tr", text: translated(debate2.title)) do
-        accept_confirm do
+        accept_confirm admin: true do
           page.find(".action-icon--remove").click
         end
       end

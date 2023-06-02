@@ -28,13 +28,11 @@ shared_examples "comments_reports" do
 
         # Open toolbar
         page.find("[id^='dropdown-trigger']").click
-        within "details" do
-          click_button "Report"
-        end
+        click_button "Report"
 
-        expect(page).to have_css(".modal__report", visible: :visible)
+        expect(page).to have_css(".flag-modal", visible: :visible)
 
-        within ".modal__report" do
+        within ".flag-modal" do
           click_button "Report"
         end
 
@@ -57,7 +55,7 @@ shared_examples "comments_reports" do
         page.find("[id^='dropdown-trigger']").click
         click_button "Report"
 
-        expect(page).to have_css(".modal__report", visible: :visible)
+        expect(page).to have_css(".flag-modal", visible: :visible)
 
         expect(page).to have_content "already reported"
       end

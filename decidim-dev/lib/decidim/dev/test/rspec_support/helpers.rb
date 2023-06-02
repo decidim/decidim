@@ -9,15 +9,22 @@ module Decidim::ComponentTestHelpers
   end
 
   def within_user_menu
-    within ".topbar__user__logged" do
-      find("a", text: user.name).click
+    main_bar_selector = Decidim.redesign_active ? ".main-bar" : ".topbar__user__logged"
+
+    within main_bar_selector do
+      if Decidim.redesign_active
+        find("#trigger-dropdown-account").click
+      else
+        find("a", text: user.name).click
+      end
+
       yield
     end
   end
 
-  def within_language_menu
-    within ".topbar__dropmenu.language-choose" do
-      find("ul.dropdown.menu").click
+  def within_language_menu(options = {})
+    within(options.fetch(:admin, !Decidim.redesign_active) ? ".topbar__dropmenu.language-choose" : "footer details") do
+      find(options.fetch(:admin, !Decidim.redesign_active) ? "ul.dropdown.menu" : "#language-chooser-control").click
       yield
     end
   end
