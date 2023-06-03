@@ -200,6 +200,7 @@ ca:
         verify: Verificar
       admin_terms_of_service:
         accept:
+          error: S'ha produït un error en acceptar els Termes i Condicions d'administració.
           success: Genial! Has acceptat les condicions del servei d'administració.
         actions:
           accept: Estic d'acord amb les condicions

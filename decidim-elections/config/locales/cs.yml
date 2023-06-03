@@ -216,6 +216,8 @@ cs:
           edit:
             title: Upravit volbu
             update: Aktualizovat volby
+          form:
+            organization_time_zone: Zkontrolujte, zda je časové pásmo organizace v nastavení organizace správné. Aktuální konfigurace je %{time_zone} (%{time}).
           index:
             no_bulletin_board: Není nastaven žádný <a href="https://github.com/decidim/decidim-bulletin-board">server Vývěsky</a>, který je potřebný pro použití tohoto modulu. Tento úkol by měl provést správce systému.
             title: Volby
