@@ -16,15 +16,13 @@ module Decidim
         end
 
         def projects
-          @projects ||= if budget
-                          budget.projects
-                        else
-                          Decidim::Budgets::Project.joins(:budget).where(budget: { component: current_component })
-                        end
+          return unless budget
+
+          @projects ||= budget.projects
         end
 
         def project
-          @project ||= projects.find(params[:project_id] || params[:id])
+          @project ||= projects.find(params[:id])
         end
       end
     end
