@@ -121,9 +121,9 @@ describe "Last activity", type: :system do
 
       context "when there are activities from private spaces" do
         before do
-          component.participatory_space.update(private_space: true)
-          comment.participatory_space.update(private_space: true)
-          another_comment.participatory_space.update(private_space: true)
+          Decidim::ActionLog.find_each do |action_log|
+            action_log.participatory_space.update(private_space: true)
+          end
           visit current_path
         end
 
