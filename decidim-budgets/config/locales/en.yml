@@ -172,9 +172,6 @@ en:
         if_change_opinion: If you've changed your mind, you can
         my_budgets: My budgets
         progress: Finish voting
-        projects_count:
-          one: 1 project
-          other: "%{count} projects"
         remove_vote: Remove vote
         show: See projects
         vote: Vote
