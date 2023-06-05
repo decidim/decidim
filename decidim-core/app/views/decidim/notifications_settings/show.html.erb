@@ -146,7 +146,11 @@
           </p>
           <div class="toggle__switch-trigger">
             <label class="toggle__switch-toggle" for="allow_push_notifications">
-              <%= check_box_tag :allow_push_notifications, 0, false, class: "switch-input" %>
+              <input
+                <%= %(checked="checked") if @notifications_settings.meet_push_notifications_requirements? %>
+                id="allow_push_notifications"
+                type="checkbox"
+                name="allow_push_notifications">
               <span class="sr-only"></span>
               <span class="toggle__switch-toggle-content">
               </span>
