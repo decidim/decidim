@@ -75,8 +75,6 @@ describe "Edit collaborative_drafts", type: :system do
 
     context "when updating with wrong data" do
       it "returns an error message" do
-        skip "REDESIGN_PENDING - Validation messages in forms don't appear. Issue https://github.com/decidim/decidim/issues/10852"
-
         visit_component
 
         click_link "Access collaborative drafts"
