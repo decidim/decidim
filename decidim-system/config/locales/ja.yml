@@ -65,6 +65,7 @@ ja:
           content: 管理ダッシュボードの %{page} 静的ページに意味のあるコンテンツを追加してください。
           summary: 管理者ダッシュボードの静的ページ %{page} に意味のある概要を追加してください。
           title: '%{page} のデフォルトのタイトル'
+        terms-of-service: 利用規約
       menu:
         admins: 管理者
         dashboard: ダッシュボード
