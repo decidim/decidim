@@ -30,7 +30,7 @@ describe "Show a Proposal", type: :system do
           visit current_path
         end
 
-        context "when I'm an admin user" do
+        context "when I am an admin user" do
           let(:user) { create(:user, :admin, :confirmed, organization:) }
 
           it "has a link to answer to the proposal at the admin" do
@@ -40,7 +40,7 @@ describe "Show a Proposal", type: :system do
           end
         end
 
-        context "when I'm a regular user" do
+        context "when I am a regular user" do
           let(:user) { create(:user, :confirmed, organization:) }
 
           it "does not have a link to answer the proposal at the admin" do
