@@ -1700,6 +1700,63 @@ ja:
   doorkeeper:
     scopes:
       public: 公開情報
+  editor:
+    extensions:
+      image:
+        altLabel: 画像の代替テキスト
+        nodeView:
+          resizer:
+            control:
+              resize: 画像のサイズを変更 (%position%)
+            position:
+              bottomLeft: 左下コーナー
+              bottomRight: 右下コーナー
+              topLeft: 左上コーナー
+              topRight: 右上コーナー
+        uploadError: ファイルのアップロードに失敗しました。
+      link:
+        bubbleMenu:
+          edit: 編集
+          remove: 削除
+          url: URL
+        hrefLabel: リンク URL
+        targetLabel: ターゲット
+        targets:
+          blank: 新しいタブ
+          default: 標準 (同じタブ)
+      videoEmbed:
+        titleLabel: タイトル
+        urlLabel: 動画URL
+    inputDialog:
+      buttons:
+        cancel: キャンセル
+        remove: 削除
+        save: 保存
+      close: 閉じる
+    toolbar:
+      control:
+        blockquote: 引用
+        bold: 太字
+        bulletList: 順序なしリスト
+        codeBlock: コードブロック
+        common:
+          eraseStyles: スタイルの消去
+        hardBreak: 改行
+        heading: テキストのスタイル
+        image: 画像
+        indent:
+          indent: インデントあり
+          outdent: インデントなし
+        italic: イタリック
+        link: リンク
+        orderedList: 順序付きリスト
+        underline: アンダーライン
+        videoEmbed: ビデオの埋め込み
+      textStyle:
+        heading: 見出し %level%
+        normal: 標準
+    upload:
+      uploadedFile: アップロードされたファイル
   emojis:
     button: 絵文字を追加
     categories:
@@ -1749,6 +1806,7 @@ ja:
       too_many_marks: '連続する句読点が多すぎます (例: !, ?)'
       too_much_caps: 大文字が多すぎます(テキストの25%以上)
       too_short: は短すぎます( %{count} 文字以下)
+      url_format: この URL は不正な形式です。
   forms:
     correct_errors: 下記のフォームにエラーがありました。修正して継続してください。
     length_validator:
