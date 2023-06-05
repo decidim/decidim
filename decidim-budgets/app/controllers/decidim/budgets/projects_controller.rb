@@ -42,7 +42,7 @@ module Decidim
       end
 
       def search_collection
-        Project.where(budget:).includes([:scope, :component, :attachments, :category]).with_order(filter_params[:addition_type] == "added" ? current_order : nil)
+        budget.projects.includes([:scope, :component, :attachments, :category]).with_order(filter_params[:addition_type] == "added" ? current_order : nil)
       end
 
       def default_filter_params
