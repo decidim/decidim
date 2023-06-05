@@ -23,7 +23,7 @@ describe "User group verification status on account page", type: :system do
       end
 
       expect(page).to have_content(user_group.name)
-      expect(page).to have_content("Pending")
+      expect(page).to have_no_css("div.profile__user-avatar-badge")
     end
 
     describe "#verified?" do
@@ -44,7 +44,7 @@ describe "User group verification status on account page", type: :system do
       end
 
       expect(page).to have_content(user_group.name)
-      expect(page).to have_content("Rejected")
+      expect(page).to have_no_css("div.profile__user-avatar-badge")
     end
   end
 
@@ -59,7 +59,7 @@ describe "User group verification status on account page", type: :system do
       end
 
       expect(page).to have_content(user_group.name)
-      expect(page).to have_content("Verified")
+      expect(page).to have_css("div.profile__user-avatar-badge")
     end
 
     describe "#verified?" do
