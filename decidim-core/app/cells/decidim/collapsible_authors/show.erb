@@ -1,17 +1,17 @@
-<div class="author--inline">
-  <%= cell(
-    "decidim/collapsible_list",
-    list,
-    cell_name: cell_name,
-    cell_options: options.merge(has_actions: false),
-    size: size
-    ) %>
+<div class="flex flex-wrap items-center gap-2" data-component="accordion">
+  <% visible_authors.each do |author| %>
+    <%= cell "decidim/redesigned_author", author, layout: :compact %>
+  <% end %>
+
+  <% if model.length > MAX_ITEMS_STACKED %>
+    <div id="panel-coauthors" class="flex flex-wrap items-center gap-2" aria-hidden="true">
+      <% (model - visible_authors).each do |author| %>
+        <%= cell "decidim/redesigned_author", author, layout: :compact %>
+      <% end %>
+    </div>
+
+    <button id="coauthors-trigger" data-controls="panel-coauthors" class="button button__sm button__text-secondary">
+      (<%= t("decidim.collapsible_list.hidden_elements_count", count: model.length - MAX_ITEMS_STACKED ) %>)
+    </button>
+  <% end %>
 </div>
-<% if actionable? %>
-  <div class="author-data__extra">
-    <% author_cell= cell("decidim/author", model, from: from_context) %>
-    <%= author_cell.(:date) %>
-    <%= author_cell.(:flag) %>
-    <%= author_cell.(:withdraw) %>
-  </div>
-<% end %>

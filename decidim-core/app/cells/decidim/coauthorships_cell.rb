@@ -24,12 +24,7 @@ module Decidim
       else
         cell(
           "decidim/collapsible_authors",
-          presenters_for_identities(model),
-          cell_name: "decidim/redesigned_author",
-          cell_options: extra_classes,
-          size:,
-          from: model,
-          has_actions: has_actions?
+          presenters_for_identities(model)
         )
       end
     end
