@@ -110,16 +110,18 @@ fi:
             values:
               accepted: Hyväksytty
               evaluating: Arvioitavana
+              not_answered: Ei vastattu
               published: Julkaistu
               rejected: Hylätty
               validating: Teknisessä validoinnissa
               withdrawn: Peruutettu
-          state_null:
-            label: Tila
-            values:
-              'true': Vastaamaton
           valuator_role_ids_has:
             label: Annettu tehtäväksi arvioijalle
+          with_any_state:
+            label: Vastattu
+            values:
+              state_not_published: Ei vastattu
+              state_published: Vastattu
         search_placeholder:
           id_string_or_title_cont: '%{collection}: Hae ID-numeron tai otsikon perusteella'
     components:

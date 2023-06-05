@@ -65,6 +65,7 @@ es:
           content: Por favor, agrega contenido significativo a la página estática de %{page} en el panel de administración.
           summary: Por favor, agrega un resumen significativo a la página estática %{page} en el panel de administración.
           title: Título predeterminado para %{page}
+        terms-of-service: Términos y condiciones de uso
       menu:
         admins: Administradoras
         dashboard: Panel de administración

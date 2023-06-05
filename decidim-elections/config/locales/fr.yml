@@ -39,7 +39,7 @@ fr:
         end_time: Le vote prend fin le
         introductory_image: Image d'introduction
         promoted: Mis en avant
-        scope_id: Périmètre d'application
+        scope_id: Secteur
         show_check_census: Afficher la page "Vérifier le recensement"
         start_time: Le vote commence le
         title: Titre
@@ -57,9 +57,9 @@ fr:
         trustee:
           attributes:
             name:
-              cant_be_changed: "cannot be changed\nCela ne peut-être modifié"
+              cant_be_changed: ne peut pas être modifié
             public_key:
-              cant_be_changed: "cannot be changed\nCela ne peut-être modifié"
+              cant_be_changed: ne peut pas être modifié
         voting:
           attributes:
             voting_type:
@@ -193,11 +193,13 @@ fr:
             invalid: Il y a eu un problème lors de la création de cette élection.
             success: Élection créée avec succès.
           destroy:
-            invalid: Une erreur s'est produite lors de la suppression de cette l'élection.
+            invalid: Une erreur s'est produite lors de la suppression de cette élection.
             success: Élection supprimée avec succès.
           edit:
             title: Modifier l'élection
             update: Mettre à jour l'élection
+          form:
+            organization_time_zone: Vérifiez dans les paramètres de l'organisation que le fuseau horaire de l'organisation est correct. La configuration actuelle est %{time_zone} (%{time}).
           index:
             no_bulletin_board: Il n'y a pas de <a href="https://github.com/decidim/decidim-bulletin-board">serveur Bulletin Board</a> configuré, ce qui est nécessaire pour utiliser ce module. Cette tâche doit être effectuée par l'administrateur système.
             title: Élections
@@ -216,8 +218,8 @@ fr:
           feedback_form_answers: Feedbacks des répondants
         mailers:
           trustee_mailer:
-            body: "<p>Hi %{user_name},</p><p>You have been added as a trustee to %{resource_name}.</p>\n<p>Bonjour %{nom_utilisateur},</p><p>Vous avez été ajouté(e) en tant qu'administrateur à %{nom_ressource}.</p>"
-            subject: "You have been added as a trustee to %{resource_name}\nVous avez été ajouté(e) comme administrateur à %{nom_de_la_ressource}"
+            body: "<p>Bonjour %{user_name},</p><p>Vous avez été ajouté(e) en tant qu'administrateur à %{resource_name}.</p>"
+            subject: Vous avez été ajouté(e) comme garant pour %{resource_name}
             trustee_zone: Emmenez-moi dans la zone des garants
         menu:
           trustees: Garants
@@ -232,7 +234,7 @@ fr:
             name: Garant
         proposals_imports:
           create:
-            invalid: Un problème est survenu lors de l'importation des propositions en réponses.
+            invalid: Un problème est survenu lors de l'import des propositions en réponses.
             success: "%{number} propositions importées en réponses."
           new:
             create: Importer des propositions dans les réponses
@@ -290,7 +292,7 @@ fr:
               time_before: La configuration est réalisée <strong>au moins %{hours} heures</strong> avant le début de l'élection.
               trustees_number: L'espace participatif <strong>doit avoir au moins %{number} garants avec une clé publique</strong>.
             submit: Configurer l'élection
-            success: "Election successfully sent to the Bulletin Board.\nL' élection a été envoyée avec succès au Bulletin d'information."
+            success: L' élection a été envoyée avec succès au Panneau d'Affichage.
             title: Configurer l'élection
             trustees: Garants de l'élection
           created:
@@ -333,8 +335,8 @@ fr:
             continue: Continuer
             invalid: Une erreur est survenue lors du signalement du garant absent.
             mark_as_missing: Marquer comme absent
-            mark_as_missing_description: "All the trustees should participate in this process, but if a trustee cannot take part in the process, you can mark it as missing.\nTous les garants doivent participer à ce processus, toutefois, si l'un deux ne peut pas y participer, vous pouvez le marquer comme manquant."
-            success: "Missing trustee report was successfully sent to the Bulletin Board.\nLe rapport manquant a été envoyé avec succès au Panneau d''Affichage."
+            mark_as_missing_description: Tous les garants doivent participer à ce processus, toutefois, si l'un deux ne peut pas y participer, vous pouvez le marquer comme manquant.
+            success: Le garant manquant a été envoyé avec succès au Panneau d'Affichage.
             tally_completion: Le processus sera terminé lorsque tout les garants seront marqués comme actifs ou absents. Au moins %{quorum} garants sont requis pour compléter le processus.
             title: Dépouillement
             undo_mark_as_missing: Un garant marqué comme absent par erreur sera capable de participer avant l'achèvement du processus. Ils peuvent procéder comme d'habitude et le signalement d'absence sera ignoré.
@@ -516,7 +518,7 @@ fr:
       feedback:
         answer:
           invalid: Un problème est survenu lors de l'envoi de votre retour utilisateur.
-          spam_detected: "There was a problem answering the form. Maybe you have been too quick, can you try again?\nUne erreur est survenue lorsque vous avez répondu au questionnaire. Pouvez-vous réessayer ?"
+          spam_detected: Une erreur est survenue lorsque vous avez répondu au questionnaire. Pouvez-vous réessayer ?
           success: Votre avis a bien été envoyé.
       models:
         answer:
@@ -640,8 +642,8 @@ fr:
                 invalid_format: Le fichier téléchargé ne contient pas de clé d'identification.
                 invalid_key: Impossible de charger les clés d'identification à partir du fichier téléchargé.
                 invalid_public_key: Les clés d'identification dans le fichier téléchargé ne correspondent pas à la clé d'identification publique stockée.
-              upload_legend: "The server has your public identification keys, but your browser still does not have it. You need to import the file with your identification keys to your computer from the backup you created after generating them.\nLe serveur dispose de vos clés d'identification publiques, mais pas votre navigateur. Vous devez importer le fichier contenant vos clés d'identification sur votre ordinateur à partir de la sauvegarde que vous avez créée après les avoir générées."
-            not_supported_browser_description: "It looks like you are using a web browser that cannot be used to act as a Trustee. Make sure you're using the most recent version of your browser, or try using any of the most popular browsers to be able to complete your tasks.\nIl semblerait que votre navigateur web ne peut pas être utilisé pour agir en tant qu'administrateur. Assurez-vous d'utiliser la dernière version ou essayez d'utiliser l'un des navigateurs les plus populaires afin de réaliser vos tâches."
+              upload_legend: Le serveur dispose de vos clés d'identification publiques, mais pas votre navigateur. Vous devez importer le fichier contenant vos clés d'identification sur votre ordinateur à partir de la sauvegarde que vous avez créée après les avoir générées.
+            not_supported_browser_description: Il semblerait que votre navigateur web ne peut pas être utilisé pour agir en tant qu'administrateur. Assurez-vous d'utiliser la dernière version de votre navigateur ou essayez d'utiliser l'un des navigateurs les plus populaires afin de réaliser vos tâches.
             not_supported_browser_title: Mettre à niveau le navigateur pour agir en tant que garant
             trustee_role_description: Vous avez été assigné à agir en tant que garant lors de certaines des élections mises en place sur cette plateforme.
           update:
@@ -652,7 +654,7 @@ fr:
           back: Recommencer le processus de vote
           ballot_hash: 'L''identifiant de votre bulletin est :'
           cast: Remplir le bulletin pour terminer votre vote
-          description: Ici, vous pouvez valider votre vote de sorte qu'il soit correctement comptabilisé ou alternativement vous pouvez vérifier que votre bulletin a bien été chiffré. Pour des raisons de sécurité, l’audit de votre bulletin révélera son contenu. Si vous souhaitez valider votre vote, vous devrez donc recommencer le processus de vote.
+          description: Ici, vous pouvez valider votre vote de sorte à ce qu'il soit correctement comptabilisé ou alternativement vous pouvez vérifier que votre bulletin a bien été chiffré. Pour des raisons de sécurité, l’audit de votre bulletin invalidera son contenu. Si vous souhaitez valider votre vote, vous devrez donc recommencer le processus de vote.
           header: 'Le bulletin est chiffré : validez-le ou auditez-le'
         casting:
           header: Vote en cours...
@@ -745,18 +747,18 @@ fr:
         trustees:
           new_election:
             email_intro: Vous avez été ajouté en tant que garant pour l'élection %{resource_title}.
-            email_outro: "You have received this notification because you have been added as trustee for the %{resource_title} election.\nVous avez reçu cette notification parce que vous avez été ajouté(e) comme administrateur de l'élection \"%{resource_title}\". Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”."
+            email_outro: Vous avez reçu cette notification parce que vous avez été ajouté(e) comme garant de l'élection "%{resource_title}". Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
             email_subject: Vous avez été ajouté en tant que garant pour l'élection %{resource_title}.
             notification_title: Vous êtes garant de l'élection <a href="%{resource_path}">%{resource_title}</a>.
           new_trustee:
             email_intro: Un administrateur vous a ajouté en tant que garant de %{resource_name}. Vous devriez créer votre clé publique <a href='%{trustee_zone_url}'>dans votre espace de garant</a>
-            email_outro: "You have received this notification because you have been added as trustee for %{resource_name}.\nVous avez reçu cette notification parce que vous avez été ajouté(s) en tant qu'administrateur pour %{nom_de_la_ressource}."
+            email_outro: Vous avez reçu cette notification parce que vous avez été ajouté(s) en tant que garant pour %{resource_name}. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
             email_subject: Vous avez été ajouté en tant que garant pour l'élection %{resource_name}.
             notification_title: Vous êtes garant de <a href="%{participatory_space_url}">%{resource_name}</a>.
         votes:
           accepted_votes:
             email_intro: 'Votre vote a été accepté ! En utilisant votre jeton de vote : %{encrypted_vote_hash}, vous pouvez vérifier votre vote <a href="%{verify_url}">ici</a>.'
-            email_outro: "You have received this notification because you have voted for the %{resource_name} election.\nVous avez reçu cette notification parce que vous avez voté pour l'élection %{nom_de_la_ressource}.\n"
+            email_outro: "Vous avez reçu cette notification parce que vous avez voté pour l'élection %{resource_name}.\nSi vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”."
             email_subject: Votre vote pour %{resource_name} a été accepté.
             notification_title: 'Votre vote a été accepté. Vérifiez votre vote <a href="%{verify_url}">ici</a> en utilisant votre jeton de vote : %{encrypted_vote_hash}'
       votings:
@@ -805,14 +807,14 @@ fr:
               new: Nouveau
               title: Actions
             associated_census_data: Entrées de recensement associées
-            explanation_callout: Un style de bulletin spécifie quelles questions seront présentées aux électeurs dans le stand. Dans un style de bulletin, vous pouvez choisir quelles questions de la fonctionnalité Élection de ce vote appartiennent à un bulletin de vote. Le code de style de bulletin est utilisé pour faire correspondre un électeur du recensement avec le bulletin de vote qui lui sera présenté dans l'isoloir. Ne créez pas de style de vote si vous voulez présenter toutes les questions.
+            explanation_callout: Un style de bulletin spécifie quelles questions seront présentées aux électeurs dans l'isoloir. Dans un style de bulletin, vous pouvez choisir quelles questions de la fonctionnalité Élection de ce vote appartiennent à un bulletin de vote. Le code de style de bulletin est utilisé pour faire correspondre un électeur du recensement avec le bulletin de vote qui lui sera présenté dans l'isoloir. Ne créez pas de style de vote si vous voulez présenter toutes les questions systématiquement.
             title: Styles de bulletin
           new:
             create: Créer
             title: Créer un style de bulletin
           update:
-            invalid: "There was a problem updating this ballot style.\nUn problème est survenu lors de la mise à jour de ce mode de scrutin."
-            success: "Ballot style successfully updated.\nMise à jour réussie du mode de scrutin."
+            invalid: Un problème est survenu lors de la mise à jour de ce style de scrutin.
+            success: Mise à jour réussie du style de scrutin.
         content_blocks:
           highlighted_votings:
             max_results: Nombre maximum d'éléments à afficher
@@ -984,7 +986,7 @@ fr:
         polling_officers:
           create:
             invalid: Une erreur est survenue lors de la création de cet accesseur.
-            success: L'accesseur créé avec succès.
+            success: L'accesseur a été créé avec succès.
           destroy:
             invalid: Une erreur est survenue lors de la suppression de cet accesseur.
             success: Accesseur supprimé avec succès.
@@ -1020,7 +1022,7 @@ fr:
             location_help: 'Lieu : message adressé aux électeurs informant du lieu exact du bureau de vote'
             location_hints_help: 'Indices de localisation : informations complémentaires. Par exemple : l''étage du bâtiment où se trouve le bureau de vote.'
             polling_station_managers_help: 'Directeur du scrutin : les personnes qui seront gestionnaires des bureaux de vote. Assurez-vous que les responsables du scrutin ont déjà été créés dans les bureaux de vote et qu''ils ne sont pas déjà affectés à un autre bureau de vote'
-            polling_station_president_help: "Polling station president: the officer that will act as polling station president. Make sure the officer has already been created in Polling Officers and that (s)he is not already assigned to another polling station\n\nPrésident du bureau de vote : Agent qui agit en tant que président du bureau de vote. \nAssurez-vous que l'agent soit créé dans \"Bureau de vote\" et qu'il ne soit pas déjà assigné à un autre bureau de vote"
+            polling_station_president_help: "Président du bureau de vote : Agent qui agit en tant que président du bureau de vote. \nAssurez-vous que l'agent soit créé dans \"Bureau de vote\" et qu'il ne soit pas déjà assigné à un autre bureau de vote"
             select_president: Sélectionnez un responsable de scrutin en tant que président du bureau de vote
           index:
             title: Bureaux de vote
@@ -1163,7 +1165,7 @@ fr:
             subject: L'export des codes d'accès au vote pour %{voting_title} est disponible
         vote_flow:
           already_voted_in_person: Ce participant a déjà voté en personne et n'a plus le droit de voter.
-          datum_not_found: "The given data does not match any voter.\nLes données fournies ne correspondent à aucun électeur."
+          datum_not_found: Les données fournies ne correspondent à aucun électeur.
       content_blocks:
         highlighted_votings:
           name: Élections mises en avant
@@ -1223,7 +1225,7 @@ fr:
               btn_validate_total: Valider le nombre total de bulletins
               close_modal: Fermer
               info_explanation_text: 'Veuillez examiner le nombre total de bulletins de vote. Si le nombre total est incorrect, vous devez fournir une explication pour le comité de suivi :'
-              info_text: "The total number of ballots (envelopes) introduced does not match the record of people that has voted in this Polling Station.\nLe nombre total de bulletins de vote ne correspond pas au nombre de personnes ayant voté dans ce bureau de vote."
+              info_text: Le nombre total de bulletins de vote ne correspond pas au nombre de personnes ayant voté dans ce bureau de vote.
               message_for_monitoring_committee: Message pour le comité de suivi
               review_recount: Revoir le comptage
               text_area_placeholder: Veuillez saisir votre message
@@ -1238,15 +1240,15 @@ fr:
             info_text: Fermeture électorale du bureau de vote.
           sign:
             cancel: Annuler
-            check_box: "I have reviewed this and is the same as the physical electoral closure certificate\nAprès vérification, ce certificat est identique au certificat physique de clôture des élections"
+            check_box: Après vérification, ce certificat est identique au certificat physique de clôture des élections
             close_modal: Clore
             confirm: Ok, continuer
             error: Une erreur est survenue, veuillez réessayer.
             heading: Recomptage des voix - Signer la fermeture
-            info_text: "If you continue you can no longer modify any of the information, this action cannot be undone.\nCette action est irréversible. Si vous continuez, vous ne pourrez plus modifier les informations."
+            info_text: Cette action est irréversible. Si vous continuez, vous ne pourrez plus modifier les informations.
             submit: Signer la fermeture
             success: Fermeture signée avec succès.
-            title: "Action cannot be undone\nCette action est irréversible"
+            title: Cette action est irréversible
           update:
             error: Une erreur s'est produite lors de la mise à jour des résultats de fermeture, veuillez réessayer plus tard.
             success: Résultats de fermeture mis à jour avec succès.
@@ -1257,7 +1259,7 @@ fr:
             census_verified_with_online_vote: Ce participant a déjà voté en ligne. S'il vote en personne, les votes précédents seront invalidés et ce sera le vote définitif.
             complete_voting: Vote terminé
             identify_another: Identifier un autre participant
-            questions_title: "They are entitled to vote in the following questions:\nIls/elles ont le droit de voter sur les questions suivantes :"
+            questions_title: 'Ils/elles ont le droit de voter sur les questions suivantes :'
             questions_title_voted: 'Le participant a déjà voté en ligne et a le droit de voter dans les questions suivantes :'
             voted: Le participant a voté
           create:
@@ -1339,7 +1341,7 @@ fr:
       votings:
         access_code_modal:
           email: Envoyer par e-mail à %{email}
-          info: "You need an Access Code to participate. If you did not get one by postal mail, we can send you a new one.\nUn code d'accès est nécessaire pour participer. Si vous ne l'avez pas reçu par courrier, un nouveau code peut vous être envoyé."
+          info: Un code d'accès est nécessaire pour participer. Si vous ne l'avez pas reçu par courrier, un nouveau code peut vous être envoyé.
           no_email: Aucun email disponible
           no_sms: Aucun numéro de téléphone disponible
           sms: Envoyer par SMS à %{sms}
@@ -1355,7 +1357,7 @@ fr:
           success:
             access_link: par email.
             access_link_with_sms: par SMS ou e-mail.
-            info: "You should have received your Access Code by postal mail already. In case, you do not have it, you can request it here\nVous devriez avoir reçu votre code d'accès par courrier postal. Si vous ne l'avez pas reçu, vous pouvez le demander ici"
+            info: Vous devriez avoir reçu votre code d'accès par courrier postal. Si vous ne l'avez pas reçu, vous pouvez le demander ici
             title: Vos données de recensement sont correctes!
           title: Puis-je voter ?
         check_fields:
