@@ -50,7 +50,7 @@ module Decidim
     end
 
     def unique_email
-      return true if Decidim::UserBaseEntity.where(
+      return true if Decidim::UserBaseEntity.entire_collection.where(
         organization: context.current_organization,
         email:
       ).where.not(id: context.current_user.id).empty?
