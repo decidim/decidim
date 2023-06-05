@@ -106,12 +106,18 @@ ja:
             values:
               accepted: 受理
               evaluating: 評価
+              not_answered: 未回答
               published: 公開済
               rejected: 却下済み
               validating: 技術的検証
               withdrawn: 撤回
           valuator_role_ids_has:
             label: 評価者にアサインされました
+          with_any_state:
+            label: 回答済み
+            values:
+              state_not_published: 未回答
+              state_published: 回答済み
         search_placeholder:
           id_string_or_title_cont: '%{collection} をIDまたはタイトルで検索します。'
     components:
