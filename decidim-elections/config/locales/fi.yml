@@ -272,7 +272,6 @@ fi:
               minimum_answers: Kysymyksillä on oltava <strong>vähintään kaksi vastausta</strong>.
               minimum_questions: Vaalilla <strong>on oltava vähintään yksi kysymys</strong>.
               published: Vaalia <strong>ei ole julkaistu</strong>.
-              time_before: Alkamisaika on <strong>alle %{hours} tuntia</strong> ennen vaalin alkua.
               trustees_number: Osallistumistilassa <strong>on oltava vähintään %{number} luottamushenkilöä, joilla on julkinen avain</strong>.
             invalid: Vaalin asetusten määrittäminen epäonnistui
             no_trustees: Tähän osallistumistilaan ei ole määritetty luottamushenkilöitä
@@ -289,7 +288,6 @@ fi:
               minimum_answers: Jokaisella kysymyksellä on <strong>vähintään 2 vastausta</strong>.
               minimum_questions: Vaalilla on <strong>vähintään 1 kysymys</strong>.
               published: Vaalia <strong>ei ole julkaistu</strong>.
-              time_before: Vaalin määritys tulee tapahtua <strong>vähintään %{hours} tuntia</strong> ennen sen alkamista.
               trustees_number: Osallistumistilassa <strong>on oltava vähintään %{number} luottamushenkilöä, joilla on julkinen avain</strong>.
             submit: Määritä vaali
             success: Vaalin lähetys sähköiselle ääniuurnalle onnistui.
