@@ -13,7 +13,7 @@ shared_examples "editable content for admins" do
       visit target_path
     end
 
-    context "when I'm an admin user" do
+    context "when I am an admin user" do
       let(:user) { create(:user, :admin, :confirmed, organization:) }
 
       it "has a link to edit the content at the admin" do
@@ -23,7 +23,7 @@ shared_examples "editable content for admins" do
       end
     end
 
-    context "when I'm a regular user" do
+    context "when I am a regular user" do
       let(:user) { create(:user, :confirmed, organization:) }
 
       it "does not have a link to edit the content at the admin" do
