@@ -34,7 +34,7 @@ describe Decidim::Elections::Admin::SetupForm do
                        minimum_answers: "Each question has <strong>at least 2 answers</strong>.",
                        minimum_questions: "The election has <strong>at least 1 question</strong>.",
                        published: "The election is <strong>published</strong>.",
-                       time_before: "The setup is being done <strong>at least 3 hours</strong> before the election starts.",
+                       time_before: "The setup is being done <strong>at least 1 hour</strong> before the election starts.",
                        trustees_number: "The participatory space has <strong>at least 3 trustees with public key</strong>."
                      })
     )
