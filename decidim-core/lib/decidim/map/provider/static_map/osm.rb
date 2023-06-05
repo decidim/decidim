@@ -18,8 +18,8 @@ module Decidim
                 coordinates: [longitude, latitude]
               }.to_json,
               zoom: options[:zoom] || 15,
-              width: options[:width] || 120,
-              height: options[:height] || 120
+              width: options[:width] || 300,
+              height: options[:height] || 300
             }
           end
         end
