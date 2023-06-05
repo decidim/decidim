@@ -8,7 +8,7 @@ module Decidim::Initiatives
 
     subject { cell_html }
 
-    let(:my_cell) { cell("decidim/initiatives/initiative_m", initiative, context: { show_space: }) }
+    let(:my_cell) { cell("decidim/initiatives/initiative_g", initiative, context: { show_space: }) }
     let(:cell_html) { my_cell.call }
     let(:state) { :published }
     let(:organization) { create(:organization) }
