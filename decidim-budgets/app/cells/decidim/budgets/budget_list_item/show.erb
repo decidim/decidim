@@ -11,7 +11,6 @@
         <%= decidim_sanitize html_truncate(translated_attribute(description), length: 70) %>
       </div>
       <% unless voted? %>
-      <% else %>
         <div class="divide-x-2 divide-gray-3">
           <%= render :projects_count %>
           <%= render :vote_action %>
