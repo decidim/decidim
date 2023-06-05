@@ -346,7 +346,9 @@ describe "Proposals", type: :system do
             it "sets the card image correctly with zero weight", :slow do
               # Attach one card image and two document images and go to preview
               dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city.jpeg"), front_interface: true)
+              sleep 4
               dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city2.jpeg"), front_interface: true)
+              sleep 4
               dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city3.jpeg"), front_interface: true)
 
               within ".edit_proposal" do
