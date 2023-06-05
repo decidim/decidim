@@ -33,7 +33,7 @@ module Decidim
 
       scope :with_order, lambda { |order|
         if order.present?
-          joins(:orders).where(Decidim::Budgets::Order.arel_table[:id].eq(order.id))
+          joins(:orders).where(decidim_budgets_orders: { id: order.id })
         else
           all
         end
