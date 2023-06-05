@@ -141,6 +141,12 @@ module Decidim
           content_block.default!
         end
 
+        Decidim.content_blocks.register(:assembly_homepage, :social_networks_metadata) do |content_block|
+          content_block.cell = "decidim/content_blocks/participatory_space_social_networks"
+          content_block.public_name_key = "decidim.content_blocks.social_networks_metadata.name"
+          content_block.default!
+        end
+
         Decidim.content_blocks.register(:assembly_homepage, :last_activity) do |content_block|
           content_block.cell = "decidim/content_blocks/participatory_space_last_activity"
           content_block.public_name_key = "decidim.content_blocks.last_activity.name"

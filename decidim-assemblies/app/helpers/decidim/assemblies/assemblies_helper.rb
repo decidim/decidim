@@ -39,26 +39,6 @@ module Decidim
         html.html_safe
       end
 
-      def social_handler_links(assembly)
-        html = "".html_safe
-        if Decidim::Assembly::SOCIAL_HANDLERS.any? { |h| assembly.try("#{h}_handler").present? }
-          html += "<div class='definition-data__item social_networks'>".html_safe
-          html += "<span class='definition-data__title'>#{t("assemblies.show.social_networks", scope: "decidim")}</span>".html_safe
-          Decidim::Assembly::SOCIAL_HANDLERS.each do |handler|
-            handler_name = "#{handler}_handler"
-            next if assembly.send(handler_name).blank?
-
-            html += link_to handler.capitalize, "https://#{handler}.com/#{assembly.send(handler_name)}",
-                            target: "_blank",
-                            class: "",
-                            title: t("assemblies.show.social_networks_title", scope: "decidim") << " " << handler.capitalize.to_s, rel: "noopener"
-          end
-          html += "</div>".html_safe
-        end
-
-        html.html_safe
-      end
-
       # Items to display in the navigation of an assembly
       def assembly_nav_items(participatory_space)
         components = participatory_space.components.published.or(Decidim::Component.where(id: try(:current_component)))

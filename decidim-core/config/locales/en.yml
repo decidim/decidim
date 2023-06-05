@@ -549,6 +549,8 @@ en:
         name: Metrics
       participatory_space_stats:
         name: Statistics
+      social_networks_metadata:
+        name: Social networks
       static_page:
         section:
           name: Section
