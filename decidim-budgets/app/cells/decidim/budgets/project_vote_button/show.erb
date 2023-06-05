@@ -13,12 +13,11 @@
       },
       disabled: vote_button_disabled?,
       title: vote_button_label do %>
-  <% if !resource_added? %>
-    <%= t("add", scope: "decidim.budgets.projects.project_budget_button") %>
-    <%= icon "add-fill", class: "inline-block" %>
-
+  <% if resource_added? %>
+     <%= t("added", scope: "decidim.budgets.projects.project_budget_button") %>
+     <%= icon "checkbox-circle-line", class: "inline-block" %>
   <% else %>
-    <%= t("added", scope: "decidim.budgets.projects.project_budget_button") %>
-    <%= icon "checkbox-circle-line", class: "inline-block" %>
+     <%= t("add", scope: "decidim.budgets.projects.project_budget_button") %>
+     <%= icon "add-fill", class: "inline-block" %>
   <% end %>
 <% end %>
