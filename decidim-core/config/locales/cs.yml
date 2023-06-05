@@ -1765,6 +1765,63 @@ cs:
   doorkeeper:
     scopes:
       public: Vaše veřejné informace.
+  editor:
+    extensions:
+      image:
+        altLabel: Alternativní text obrázku
+        nodeView:
+          resizer:
+            control:
+              resize: Změnit velikost obrázku (%position%)
+            position:
+              bottomLeft: levý dolní roh
+              bottomRight: pravý dolní roh
+              topLeft: levý horní roh
+              topRight: pravý horní roh
+        uploadError: Nahrávání souboru se nezdařilo.
+      link:
+        bubbleMenu:
+          edit: Upravit
+          remove: Odebrat
+          url: URL
+        hrefLabel: URL odkazu
+        targetLabel: Cíl
+        targets:
+          blank: Nová záložka
+          default: Výchozí (stejná záložka)
+      videoEmbed:
+        titleLabel: Název
+        urlLabel: URL Videa
+    inputDialog:
+      buttons:
+        cancel: Zrušit
+        remove: Odebrat
+        save: Uložit
+      close: Zavřít modální okno
+    toolbar:
+      control:
+        blockquote: Blockquote
+        bold: Tučně
+        bulletList: Nečíslovaný seznam
+        codeBlock: Blok kódu
+        common:
+          eraseStyles: Vymazat styly
+        hardBreak: Konec řádku
+        heading: Styl textu
+        image: Obrázek
+        indent:
+          indent: Odsazení
+          outdent: Předsazení
+        italic: Kurzíva
+        link: Odkaz
+        orderedList: Číslovaný seznam
+        underline: Podtržení
+        videoEmbed: Vložení videa
+      textStyle:
+        heading: Nadpis %level%
+        normal: Normální
+    upload:
+      uploadedFile: Nahraný soubor
   emojis:
     button: Přidat emoji
     categories:
@@ -1817,6 +1874,7 @@ cs:
       too_many_marks: používá příliš mnoho po sobě jdoucích interpunkčních znamének (např.! a?)
       too_much_caps: používá příliš mnoho velkých písmen (více než 25% textu)
       too_short: je příliš krátká (pod %{count} znaků)
+      url_format: Tato adresa URL je v nesprávném formátu
   forms:
     correct_errors: Na formuláři jsou chyby, opravte je a pokračujte.
     length_validator:
