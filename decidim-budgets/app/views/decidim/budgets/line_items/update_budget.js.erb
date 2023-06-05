@@ -15,7 +15,7 @@ $orderProgress.forEach((orderProgress) => {
 })
 morphdom($budgetConfirm[0], '<%= j(render partial: "decidim/budgets/projects/budget_confirm").strip.html_safe %>')
 if ($orderSelectedProjectsCount.length > 0) {
-  morphdom($orderSelectedProjectsCount[0], '<%= j(render partial: "decidim/budgets/projects/projects_count", locals: { count: current_order.projects.count }).strip.html_safe %>')
+  morphdom($orderSelectedProjectsCount[0], '<%= j(render partial: "decidim/budgets/projects/projects_count", locals: { count: current_order.projects.size }).strip.html_safe %>')
 }
 
 if ($projectItem.length > 0) {
