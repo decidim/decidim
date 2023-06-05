@@ -126,7 +126,9 @@ describe "Edit proposals", type: :system do
           dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city2.jpeg"), front_interface: true)
           expect(page).to have_content("city2.jpeg")
           expect(page).to have_no_content("city3.jpeg")
+          sleep 4
           dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city3.jpeg"), front_interface: true)
+          sleep 4
           expect(page).to have_content("city2.jpeg")
           expect(page).to have_content("city3.jpeg")
           click_button "Send"
