@@ -324,8 +324,6 @@ describe "Collaborative drafts", type: :system do
           end
 
           it "creates a new collaborative draft with attachments" do
-            skip "REDESIGN_PENDING - This test should be fixed in https://github.com/decidim/decidim/pull/10729"
-
             visit new_collaborative_draft_path
 
             within ".new_collaborative_draft" do

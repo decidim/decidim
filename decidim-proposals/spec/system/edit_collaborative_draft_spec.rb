@@ -24,8 +24,6 @@ describe "Edit collaborative_drafts", type: :system do
     end
 
     it "can be updated" do
-      skip "REDESIGN_PENDING - This thest should be fixed in https://github.com/decidim/decidim/pull/10729"
-
       visit_component
 
       click_link "Access collaborative drafts"
@@ -54,8 +52,6 @@ describe "Edit collaborative_drafts", type: :system do
         end
 
         it "can be updated" do
-          skip "REDESIGN_PENDING - This test should be fixed in https://github.com/decidim/decidim/pull/10729"
-
           visit_component
 
           click_link "Access collaborative drafts"
