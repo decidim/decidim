@@ -124,7 +124,11 @@ describe "Edit proposals", type: :system do
           expect(page).to have_content("icon.png")
           expect(page).to have_content("avatar.jpg")
           dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city2.jpeg"), front_interface: true)
+          expect(page).to have_content("city2.jpeg")
+          expect(page).to have_no_content("city3.jpeg")
           dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city3.jpeg"), front_interface: true)
+          expect(page).to have_content("city2.jpeg")
+          expect(page).to have_content("city3.jpeg")
           click_button "Send"
           expect(page).to have_selector("[data-alert-box].success")
           expect(page).to have_selector("img.object-cover[alt='city.jpeg']")
