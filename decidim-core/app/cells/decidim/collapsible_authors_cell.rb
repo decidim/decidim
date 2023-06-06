@@ -9,6 +9,7 @@ module Decidim
     def show
       if options[:stack]
         return cell("decidim/redesigned_author", model.first, { skip_profile_link: true }.merge(options)) if model.length == 1
+
         return render :stack
       end
 
