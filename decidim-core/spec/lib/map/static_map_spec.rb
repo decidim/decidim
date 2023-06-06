@@ -59,7 +59,7 @@ module Decidim
 
           it "returns the correct URL" do
             expect(subject.url(latitude:, longitude:)).to eq(
-              "https://staticmaps.example.org/?latitude=#{latitude}&longitude=#{longitude}&zoom=#{Decidim::Map::StaticMap::DEFAULT_ZOOM}&width=#{Decidim::Map::StaticMap::DEFAULT_SIZE}&height=#{DECIDIM::MAP::STATICMAP::DEFAULT_SIZE}"
+              "https://staticmaps.example.org/?latitude=#{latitude}&longitude=#{longitude}&zoom=#{Decidim::Map::StaticMap::DEFAULT_ZOOM}&width=#{Decidim::Map::StaticMap::DEFAULT_SIZE}&height=#{Decidim::Map::StaticMap::DEFAULT_SIZE}"
             )
           end
 
@@ -68,7 +68,7 @@ module Decidim
 
             it "returns the correct URL" do
               expect(subject.url(latitude:, longitude:)).to eq(
-                "https://staticmaps.example.org/?key=123&msg=foo&latitude=#{latitude}&longitude=#{longitude}&zoom=#{Decidim::Map::StaticMap::DEFAULT_ZOOM}&width=#{Decidim::Map::StaticMap::DEFAULT_SIZE}&height=#{DECIDIM::MAP::STATICMAP::DEFAULT_SIZE}"
+                "https://staticmaps.example.org/?key=123&msg=foo&latitude=#{latitude}&longitude=#{longitude}&zoom=#{Decidim::Map::StaticMap::DEFAULT_ZOOM}&width=#{Decidim::Map::StaticMap::DEFAULT_SIZE}&height=#{Decidim::Map::StaticMap::DEFAULT_SIZE}"
               )
             end
           end
@@ -176,7 +176,7 @@ module Decidim
 
         context "when the URL is configured" do
           let(:config) { { url: "https://staticmaps.example.org/" } }
-          let(:image_url) { "https://staticmaps.example.org/?latitude=#{latitude}&longitude=#{longitude}&zoom=#{Decidim::Map::StaticMap::DEFAULT_ZOOM}&width=#{Decidim::Map::StaticMap::DEFAULT_SIZE}&height=#{DECIDIM::MAP::STATICMAP::DEFAULT_SIZE}" }
+          let(:image_url) { "https://staticmaps.example.org/?latitude=#{latitude}&longitude=#{longitude}&zoom=#{Decidim::Map::StaticMap::DEFAULT_ZOOM}&width=#{Decidim::Map::StaticMap::DEFAULT_SIZE}&height=#{Decidim::Map::StaticMap::DEFAULT_SIZE}" }
           let(:body) { "imagedata" }
 
           before do
