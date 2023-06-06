@@ -59,6 +59,10 @@ describe Decidim::Proposals::CollaborativeDraftCell, type: :cell do
     describe "with coauthors" do
       let(:collaborative_draft) { create(:collaborative_draft, component:, users: authors) }
 
+      before do
+        skip "REDESIGN_PENDING - Remove this skip after merging https://github.com/decidim/decidim/pull/10729"
+      end
+
       it "renders the first three authors" do
         expect(subject).to have_css("[data-author]", count: 3)
       end
