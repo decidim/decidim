@@ -526,38 +526,7 @@ module Decidim
 
   # List of additional content security policies to be appended to the default ones
   # This is useful for adding custom CSPs for external services like Here Maps, YouTube, etc.
-  # The format is a Hash with the following structure:
-  # {
-  #   "connect-src": ["*.hereapi.com"]
-  #   "frame-src": ["*.youtube.com"]
-  #   "img-src": ["*.hereapi.com data:"]
-  # }
-  # The keys are the CSP directives and the values are arrays of allowed sources
-  # See https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy
-  # for more information
-  # Please note, we strongly recommend not to use the wildcard (*) as a allowed source!
-  #
-  # The default value for this setting is an empty Hash
-  #
-  # We are starting from the following rules defined in `decidim-core` gem:
-  #  {
-  #    "default-src" => %w('self' 'unsafe-inline'),
-  #    "script-src" => %w('self' 'unsafe-inline' 'unsafe-eval'),
-  #    "style-src" => %w('self' 'unsafe-inline'),
-  #    "img-src" => %w('self'),
-  #    "font-src" => %w('self'),
-  #    "connect-src" => %w('self'),
-  #    "frame-src" => %w('self'),
-  #    "media-src" => %w('self')
-  # }
-  # And we automatically add the assets host to the `media-src`, `img-src`, `script-src`, `style-src` directives,
-  # and the `wss` protocol to the `connect-src` directive.
-  # To the those rules we are appending the additional content security policies defined at the organization level, if any.
-  # The order of the directives is the following:
-  # 1. The default rules defined in `decidim-core` gem
-  # 2. The content security policies required for serving the assets (defined by asset_host rails config)
-  # 3. The additional content security policies defined by this setting
-  # 4. The additional content security policies defined at the organization level
+  # Read more: https://docs.decidim.org/en/v0.27/configure/initializer/#_content-security-policy
   config_accessor :additional_content_security_policies do
     {}
   end

@@ -378,9 +378,7 @@ Decidim.configure do |config|
   # ]
 
   # Defines additional content security policies following the structure
-  # keys are the CSP directives and the values are arrays of allowed sources
-  # See https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy
-  # for more information
+  # Read more: https://docs.decidim.org/en/v0.27/configure/initializer/#_content-security-policy
   config.additional_content_security_policies = {}
 
   # Admin admin password configurations

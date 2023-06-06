@@ -52,10 +52,8 @@ module Decidim
     def append_csp_directive(directive, value)
       return if value.blank?
 
-      unless SUPPORTED_POLICIES.include?(directive)
-        Rails.logger.debug { "Invalid Content Security Policy directive: #{directive}, supported directives: #{SUPPORTED_POLICIES.join(", ")}" }
-        return
-      end
+      message = "Invalid Content Security Policy directive: #{directive}, supported directives: #{SUPPORTED_POLICIES.join(", ")}"
+      raise message unless SUPPORTED_POLICIES.include?(directive)
 
       policy[directive] ||= []
       policy[directive] << value

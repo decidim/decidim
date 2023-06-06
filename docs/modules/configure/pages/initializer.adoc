@@ -450,9 +450,9 @@ The format is a Hash with the following structure:
 [source,ruby]
 ....
   {
-    "connect-src": ["*.hereapi.com"]
-    "frame-src": ["*.youtube.com"]
-    "img-src": ["*.hereapi.com data:"]
+    "connect-src": %w(*.hereapi.com),
+    "frame-src": %w(*.youtube.com),
+    "img-src": %w(*.hereapi.com data:)
   }
 ....
 
