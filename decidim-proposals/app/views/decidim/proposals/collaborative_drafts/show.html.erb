@@ -31,14 +31,7 @@
     <% end %>
 
     <div class="proposal__author">
-      <% # REDESIGN_PENDING: Logic copied from decidim-core/app/cells/decidim/coauthorships_cell.rb
-          author = if @collaborative_draft.respond_to?(:official?) && @collaborative_draft.official?
-                      Decidim::Proposals::OfficialAuthorPresenter.new
-                    else
-                      @collaborative_draft.identities.first&.presenter
-                    end %>
-
-      <%= cell "decidim/author", author, from: @collaborative_draft, context_actions: nil, layout: :compact if author.present? %>
+      <%= cell "decidim/coauthorships", @collaborative_draft %>
 
       <% if @collaborative_draft.state %>
         <span class="<%= collaborative_drafts_state_class(@collaborative_draft.state) %> label">
