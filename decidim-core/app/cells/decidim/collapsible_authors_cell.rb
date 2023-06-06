@@ -7,15 +7,14 @@ module Decidim
     MAX_ITEMS_STACKED = 3
 
     def show
-      if options[:stack]
-        return cell("decidim/redesigned_author", model.first, { skip_profile_link: true }.merge(options)) if model.length == 1
-
-        return render :stack
-      end
-
-      return cell("decidim/redesigned_author", model.first, { layout: :compact }.merge(options)) if model.length == 1
+      return cell("decidim/redesigned_author", model.first, single_author_options.merge(options)) if model.length == 1
+      return render :stack if options[:stack]
 
       render
+    end
+
+    def single_author_options
+      options[:stack] ? { skip_profile_link: true } : { layout: :compact }
     end
 
     def visible_authors
