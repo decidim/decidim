@@ -9,6 +9,9 @@ module Decidim
 
       alias current_initiative resource
       alias initiative resource
+      def items
+        [""]
+      end
     end
   end
 end
