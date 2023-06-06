@@ -141,7 +141,7 @@ module Decidim
         context "when a handler is configured" do
           it { is_expected.to eq(user_scope) }
 
-          context "when the authorization metadata doesn't match" do
+          context "when the authorization metadata does not match" do
             before do
               authorization.metadata["scope_id"] = nil
               authorization.save!
@@ -156,10 +156,25 @@ module Decidim
 
           it { is_expected.to eq(initiative.scope) }
         end
+
+        context "when the authorization does not have metadata" do
+          let!(:authorization) do
+            create(
+              :authorization,
+              :granted,
+              name: "dummy_authorization_handler",
+              user: current_user,
+              unique_id: document_number,
+              metadata: nil
+            )
+          end
+
+          it { is_expected.to be_nil }
+        end
       end
 
       describe "authorized_scope_candidates" do
-        context "when it's a global scope initiative" do
+        context "when it is a global scope initiative" do
           let(:scoped_type) { global_initiative_type_scope }
 
           it "includes all the scopes of the organization" do
@@ -171,11 +186,11 @@ module Decidim
           end
         end
 
-        context "when it's a fixed scope" do
+        context "when it is a fixed scope" do
           let(:scoped_type) { district_1_initiative_type_scope }
 
           it "returns the scope descendants" do
-            expect(form.authorized_scope_candidates).to match_array([neighbourhood1, neighbourhood3, district1])
+            expect(form.authorized_scope_candidates).to contain_exactly(neighbourhood1, neighbourhood3, district1)
           end
         end
       end
@@ -201,7 +216,7 @@ module Decidim
         end
 
         context "when the authorization is valid" do
-          context "when it's a global scope initiative" do
+          context "when it is a global scope initiative" do
             let(:scoped_type) { global_initiative_type_scope }
 
             context "when child scope voting is enabled" do
@@ -210,13 +225,13 @@ module Decidim
               context "when the user scope has children" do
                 let(:user_scope) { district1 }
 
-                it { is_expected.to match_array([nil, city, district1]) }
+                it { is_expected.to contain_exactly(nil, city, district1) }
               end
 
               context "when the user scope is a leaf" do
                 let(:user_scope) { neighbourhood1 }
 
-                it { is_expected.to match_array([nil, city, district1, neighbourhood1]) }
+                it { is_expected.to contain_exactly(nil, city, district1, neighbourhood1) }
               end
             end
 
@@ -236,13 +251,13 @@ module Decidim
               context "when the user scope has children" do
                 let(:user_scope) { district1 }
 
-                it { is_expected.to match_array([district1]) }
+                it { is_expected.to contain_exactly(district1) }
               end
 
               context "when the user scope is a leaf" do
                 let(:user_scope) { neighbourhood1 }
 
-                it { is_expected.to match_array([district1, neighbourhood1]) }
+                it { is_expected.to contain_exactly(district1, neighbourhood1) }
               end
             end
 

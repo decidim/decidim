@@ -94,8 +94,7 @@
   </div>
 <% end %>
 
-<%= render partial: "decidim/consultations/questions/vote_modal", locals: { question: question } %>
-<%= render partial: "decidim/consultations/questions/vote_modal_confirm", locals: { question: question } %>
-<% content_for :js_content do %>
-  <%= javascript_pack_tag "decidim_consultations" %>
-<% end %>
+<%= render partial: "decidim/consultations/questions/vote_modal", locals: { question: } %>
+<%= render partial: "decidim/consultations/questions/vote_modal_confirm", locals: { question: } %>
+
+<%= append_javascript_pack_tag "decidim_consultations" %>

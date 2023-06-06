@@ -3,7 +3,7 @@
 shared_examples "publish answers" do
   context "when publishing answers at once" do
     before do
-      create_list :proposal, 3, :accepted_not_published, component: current_component
+      create_list(:proposal, 3, :accepted_not_published, component: current_component)
 
       visit current_path
     end
@@ -35,7 +35,7 @@ shared_examples "publish answers" do
       expect(page).to have_content("Accepted", count: 3)
     end
 
-    it "can't publish answers for non answered proposals" do
+    it "cannot publish answers for non answered proposals" do
       page.find("#proposals_bulk.js-check-all").set(true)
       page.all("[data-published-state=false] .js-proposal-list-check").each { |c| c.set(false); }
 

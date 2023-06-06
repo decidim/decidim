@@ -56,10 +56,7 @@ tr:
           update:
             invalid: Anketi kaydederken bir sorun oluştu.
             success: Anket başarıyla kaydedildi.
-      last_activity:
-        new_survey_at_html: "<span> %{link}</span> linkinde yeni anket"
       surveys:
         answer:
           invalid: Anketi cevaplarken bir sorun oluştu.
-          spam_detected: Formu yanıtlarken bir sorun oluştu. Belki çok hızlı davrandın, tekrar deneyebilir misin?
           success: Anket başarıyla cevaplandı.

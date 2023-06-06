@@ -18,10 +18,11 @@ module Decidim
           root to: "authorizations#new"
         end
 
-        initializer "decidim.sms_verification_workflow" do |_app|
+        initializer "decidim_verifications_sms.workflow" do |_app|
           if Decidim.sms_gateway_service
             Decidim::Verifications.register_workflow(:sms) do |workflow|
               workflow.engine = Decidim::Verifications::Sms::Engine
+              workflow.icon = "message-3-line"
             end
           end
         end

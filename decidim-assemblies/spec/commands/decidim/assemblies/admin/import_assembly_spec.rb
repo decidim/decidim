@@ -8,8 +8,8 @@ module Decidim::Assemblies::Admin
 
     subject { described_class.new(form, user) }
 
-    let(:organization) { create :organization }
-    let(:user) { create :user, organization: }
+    let(:organization) { create(:organization) }
+    let(:user) { create(:user, organization:) }
     let!(:document_file) { File.read(Decidim::Dev.asset(document_name)) }
     let(:form_doc) do
       instance_double(File,
@@ -96,7 +96,7 @@ module Decidim::Assemblies::Admin
         expect { subject.call }.to broadcast(:invalid)
       end
 
-      it "doesn't create any assembly" do
+      it "does not create any assembly" do
         expect do
           subject.call
         end.not_to change(::Decidim::Assembly, :count)

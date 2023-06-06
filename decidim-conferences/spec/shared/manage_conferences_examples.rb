@@ -12,6 +12,11 @@ shared_examples "manage conferences" do
       click_link "New Conference"
     end
 
+    %w(description short_description objectives).each do |field|
+      it_behaves_like "having a rich text editor for field", ".tabs-content[data-tabs-content='conference-#{field}-tabs']", "full"
+    end
+    it_behaves_like "having a rich text editor for field", "#conference_registrations_terms", "content"
+
     it "creates a new conference" do
       within ".new_conference" do
         fill_in_i18n(
@@ -43,6 +48,7 @@ shared_examples "manage conferences" do
           ca: "Descripció més llarga"
         )
 
+        fill_in :conference_weight, with: 1
         fill_in :conference_slug, with: "slug"
         fill_in :conference_hashtag, with: "#hashtag"
       end
@@ -105,6 +111,11 @@ shared_examples "manage conferences" do
         click_link "Configure"
       end
     end
+
+    %w(description short_description objectives).each do |field|
+      it_behaves_like "having a rich text editor for field", ".tabs-content[data-tabs-content='conference-#{field}-tabs']", "full"
+    end
+    it_behaves_like "having a rich text editor for field", "#conference_registrations_terms", "content"
 
     it "update an conference without images does not delete them" do
       click_submenu_link "Info"
@@ -193,7 +204,7 @@ shared_examples "manage conferences" do
   context "when there are multiple organizations in the system" do
     let!(:external_conference) { create(:conference) }
 
-    it "doesn't let the admin manage conferences form other organizations" do
+    it "does not let the admin manage conferences form other organizations" do
       within "table" do
         expect(page).not_to have_content(external_conference.title["en"])
       end

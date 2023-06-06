@@ -3,15 +3,15 @@
 require "spec_helper"
 
 describe Decidim::Blogs::CreatePostEvent do
-  let(:resource) { create :post }
+  let(:resource) { create(:post) }
   let(:event_name) { "decidim.events.blogs.post_created" }
 
   include_context "when a simple event"
   it_behaves_like "a simple event"
 
   describe "email_subject" do
-    let(:assembly) { create(:assembly, organization:, title: { en: "It's a test" }) }
-    let(:blogs_component) { create :component, :published, name: { en: "Blogs" }, participatory_space: assembly, manifest_name: :blogs }
+    let(:assembly) { create(:assembly, organization:, title: { en: "It is a test" }) }
+    let(:blogs_component) { create(:component, :published, name: { en: "Blogs" }, participatory_space: assembly, manifest_name: :blogs) }
 
     before do
       resource.component = blogs_component

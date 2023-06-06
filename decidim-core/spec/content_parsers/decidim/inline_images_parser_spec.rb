@@ -19,7 +19,7 @@ module Decidim
         it { expect(subject).to be_inline_images }
       end
 
-      context "when content doesn't include inline images" do
+      context "when content does not include inline images" do
         let(:content) { html_without_images }
 
         it { expect(subject).not_to be_inline_images }
@@ -42,10 +42,10 @@ module Decidim
         end
       end
 
-      context "when content doesn't include inline images" do
+      context "when content does not include inline images" do
         let(:content) { html_without_images }
 
-        it "doesn't change the content" do
+        it "does not change the content" do
           expect(subject.rewrite).to eq(html_without_images)
         end
       end

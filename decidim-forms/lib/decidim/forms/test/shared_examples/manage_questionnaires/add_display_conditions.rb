@@ -20,12 +20,12 @@ shared_examples_for "add display conditions" do
         visit_questionnaire_edit_path_and_expand_all
       end
 
-      it "doesn't display an add display condition button" do
-        expect(page).to have_no_button("Add display condition")
+      it "does not display an add display condition button" do
+        expect(page).not_to have_button("Add display condition")
       end
 
       context "when creating a new question" do
-        it "disables the add display condition button if the question hasn't been saved" do
+        it "disables the add display condition button if the question has not been saved" do
           within "form.edit_questionnaire" do
             click_button "Add question"
             expand_all_questions
@@ -85,14 +85,14 @@ shared_examples_for "add display conditions" do
               select question_single_option.body["en"], from: "Question"
               select "Answered", from: "Condition"
 
-              expect(page).to have_no_select("Answer option")
-              expect(page).to have_no_css("[id$=condition_value_en]", visible: :visible)
+              expect(page).not_to have_select("Answer option")
+              expect(page).not_to have_css("[id$=condition_value_en]", visible: :visible)
 
               select question_single_option.body["en"], from: "Question"
               select "Equal", from: "Condition"
 
               expect(page).to have_select("Answer option")
-              expect(page).to have_no_css("[id$=condition_value_en]", visible: :visible)
+              expect(page).not_to have_css("[id$=condition_value_en]", visible: :visible)
             end
           end
         end
@@ -164,7 +164,7 @@ shared_examples_for "add display conditions" do
         it "loads a mandatory field with false value" do
           within_add_display_condition do
             expect(page).to have_selector("[id$=mandatory]")
-            expect(page).to have_no_selector("[id$=mandatory][checked]")
+            expect(page).not_to have_selector("[id$=mandatory][checked]")
           end
         end
 

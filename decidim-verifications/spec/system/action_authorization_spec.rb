@@ -62,7 +62,7 @@ describe "Action Authorization", type: :system do
     end
 
     context "and action authorized with custom action authorizer options" do
-      let(:scope) { create :scope, organization: }
+      let(:scope) { create(:scope, organization:) }
       let(:permissions) do
         {
           create: {
@@ -100,8 +100,8 @@ describe "Action Authorization", type: :system do
         expect(page).to have_content("Participation is restricted to participants with the scope #{scope.name["en"]}.")
       end
 
-      context "when the user doesn't match the authorization criteria" do
-        let(:other_scope) { create :scope, organization: }
+      context "when the user does not match the authorization criteria" do
+        let(:other_scope) { create(:scope, organization:) }
         let!(:user_authorization) do
           create(:authorization, name: "dummy_authorization_handler", user:, granted_at: 1.second.ago,
                                  metadata: { postal_code: "1234", scope_id: other_scope.id })
@@ -111,13 +111,13 @@ describe "Action Authorization", type: :system do
           click_link "New proposal"
 
           expect(page).to have_content("Not authorized")
-          expect(page).to have_content("Sorry, you can't perform this action as some of your authorization data doesn't match.")
+          expect(page).to have_content("Sorry, you cannot perform this action as some of your authorization data does not match.")
           expect(page).to have_content("Participation is restricted to participants with the scope #{scope.name["en"]}, and your scope is #{other_scope.name["en"]}.")
         end
       end
 
-      context "when the user doesn't match one of the authorization criteria" do
-        let(:user_scope) { create :scope, organization: }
+      context "when the user does not match one of the authorization criteria" do
+        let(:user_scope) { create(:scope, organization:) }
         let(:postal_code) { "1234" }
         let!(:user_authorization) do
           create(:authorization, name: "dummy_authorization_handler", user:, granted_at: 1.second.ago,
@@ -131,7 +131,7 @@ describe "Action Authorization", type: :system do
             click_link "New proposal"
 
             expect(page).to have_content("Not authorized")
-            expect(page).to have_content("Sorry, you can't perform this action as some of your authorization data doesn't match.")
+            expect(page).to have_content("Sorry, you cannot perform this action as some of your authorization data does not match.")
             expect(page).to have_content("Participation is restricted to participants with any of the following postal codes: 1234, 4567.")
             expect(page).to have_content("Participation is restricted to participants with the scope #{scope.name["en"]}, and your scope is #{user_scope.name["en"]}.")
           end
@@ -144,7 +144,7 @@ describe "Action Authorization", type: :system do
             click_link "New proposal"
 
             expect(page).to have_content("Not authorized")
-            expect(page).to have_content("Sorry, you can't perform this action as some of your authorization data doesn't match.")
+            expect(page).to have_content("Sorry, you cannot perform this action as some of your authorization data does not match.")
             expect(page).to have_content("Participation is restricted to participants with the scope #{scope.name["en"]}.")
           end
         end
@@ -157,7 +157,7 @@ describe "Action Authorization", type: :system do
             click_link "New proposal"
 
             expect(page).to have_content("Not authorized")
-            expect(page).to have_content("Sorry, you can't perform this action as some of your authorization data doesn't match.")
+            expect(page).to have_content("Sorry, you cannot perform this action as some of your authorization data does not match.")
             expect(page).to have_content("Participation is restricted to participants with any of the following postal codes: 1234, 4567.")
             expect(page).to have_content("Participation is restricted to participants with the scope #{scope.name["en"]}.")
           end

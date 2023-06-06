@@ -23,7 +23,7 @@ module Decidim
       end
 
       context "without an agenda" do
-        let(:agenda_item) { build :agenda_item, agenda: nil }
+        let(:agenda_item) { build(:agenda_item, agenda: nil) }
 
         it { is_expected.not_to be_valid }
       end
@@ -57,7 +57,7 @@ module Decidim
           expect(subject).not_to be_parent
         end
 
-        it "returns true if the agenda item doesn't have a parent" do
+        it "returns true if the agenda item does not have a parent" do
           subject.parent = nil
           expect(subject).to be_parent
         end

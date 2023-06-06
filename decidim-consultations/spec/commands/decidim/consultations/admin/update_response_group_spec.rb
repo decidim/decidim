@@ -6,7 +6,7 @@ module Decidim
   module Consultations
     module Admin
       describe UpdateResponseGroup do
-        let(:response_group) { create :response_group }
+        let(:response_group) { create(:response_group) }
         let(:params) do
           {
             response_group: {
@@ -35,7 +35,7 @@ module Decidim
             expect { command.call }.to broadcast(:invalid)
           end
 
-          it "doesn't update the response group" do
+          it "does not update the response group" do
             command.call
             response_group.reload
 

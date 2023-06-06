@@ -14,6 +14,12 @@ es:
       dummy:
         settings:
           global:
+            guided: Entrada guiada
+            guided_help: Texto de ayuda
+            guided_readonly: Entrada deshabilitada
+            guided_rich: Entrada guiada enriquecida
+            guided_rich_help_html: Texto de <strong>ayuda</strong> HTML
+            guided_rich_readonly_html: Texto de <strong>ayuda</strong> HTML para la entrada deshabilitada
             readonly_attribute: Atributo de sólo lectura
             test: Una prueba
             test_choices:

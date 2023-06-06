@@ -5,8 +5,8 @@ require "spec_helper"
 describe Decidim::Admin::Permissions do
   subject { described_class.new(user, permission_action, context).permissions.allowed? }
 
-  let(:user) { build :user, :admin, organization: }
-  let(:organization) { build :organization }
+  let(:user) { build(:user, :admin, organization:) }
+  let(:organization) { build(:organization) }
   let(:context) { {} }
   let(:permission_action) { Decidim::PermissionAction.new(**action) }
   let(:registrations_enabled) { true }
@@ -15,6 +15,23 @@ describe Decidim::Admin::Permissions do
   end
   let(:action_name) { :foo }
   let(:action_subject) { :bar }
+
+  shared_examples "needs to accept Terms of Service for" do |action_subject_name, action_name|
+    let(:action_subject) { action_subject_name }
+    let(:action_name) { action_name }
+
+    context "when admin has accepted Terms of Service" do
+      let(:user) { build(:user, :admin, admin_terms_accepted_at: Time.current, organization:) }
+
+      it { is_expected.to be true }
+    end
+
+    context "when admin has not accepted Terms of Service" do
+      let(:user) { build(:user, :admin, admin_terms_accepted_at: nil, organization:) }
+
+      it_behaves_like "permission is not set"
+    end
+  end
 
   context "when scope is not admin" do
     let(:action) do
@@ -29,7 +46,7 @@ describe Decidim::Admin::Permissions do
       it { is_expected.to be true }
 
       context "when user is a user manager" do
-        let(:user) { build :user, :user_manager }
+        let(:user) { build(:user, :user_manager) }
 
         it { is_expected.to be true }
       end
@@ -45,7 +62,7 @@ describe Decidim::Admin::Permissions do
   end
 
   context "when user is a user manager" do
-    let(:user) { build :user, :user_manager }
+    let(:user) { build(:user, :user_manager) }
 
     it_behaves_like "delegates permissions to", Decidim::Admin::UserManagerPermissions
 
@@ -56,7 +73,7 @@ describe Decidim::Admin::Permissions do
       let(:participatory_process) { create(:participatory_process, organization: user.organization) }
 
       before do
-        ::Decidim::ParticipatoryProcessUserRole.create(user:, participatory_process:, role: :admin)
+        Decidim::ParticipatoryProcessUserRole.create(user:, participatory_process:, role: :admin)
       end
 
       it "allows users to enter the space area" do
@@ -78,6 +95,18 @@ describe Decidim::Admin::Permissions do
 
   describe "admin logs" do
     let(:action_subject) { :admin_log }
+
+    it_behaves_like "permission is not set"
+
+    context "when reading" do
+      let(:action_name) { :read }
+
+      it { is_expected.to be true }
+    end
+  end
+
+  describe "user statistics" do
+    let(:action_subject) { :users_statistics }
 
     it_behaves_like "permission is not set"
 
@@ -131,7 +160,7 @@ describe Decidim::Admin::Permissions do
       end
 
       context "when page is not default" do
-        let(:page) { build :static_page }
+        let(:page) { build(:static_page) }
 
         it { is_expected.to be true }
       end
@@ -140,6 +169,10 @@ describe Decidim::Admin::Permissions do
     context "when any other action" do
       it { is_expected.to be true }
     end
+  end
+
+  describe "global moderation" do
+    it_behaves_like "needs to accept Terms of Service for", :global_moderation, :read
   end
 
   describe "share tokens" do
@@ -162,7 +195,7 @@ describe Decidim::Admin::Permissions do
       end
 
       context "when user does not belong to organization" do
-        let(:user) { build :user, :admin }
+        let(:user) { build(:user, :admin) }
 
         it_behaves_like "permission is not set"
       end
@@ -195,6 +228,8 @@ describe Decidim::Admin::Permissions do
       context "when organization available authorizations are not empty" do
         let(:authorizations) { [:foo] }
 
+        it_behaves_like "needs to accept Terms of Service for", :managed_user, :create
+
         it { is_expected.to be true }
       end
     end
@@ -206,7 +241,7 @@ describe Decidim::Admin::Permissions do
 
   describe "users" do
     let(:action_subject) { :user }
-    let(:subject_user) { build :user }
+    let(:subject_user) { build(:user) }
     let(:context) { { user: subject_user } }
 
     context "when destroying" do
@@ -231,11 +266,11 @@ describe Decidim::Admin::Permissions do
       end
 
       context "when subject user is managed" do
-        let(:subject_user) { build :user, :managed, organization: }
+        let(:subject_user) { build(:user, :managed, organization:) }
 
         context "when there are active impersonation logs" do
           before do
-            create :impersonation_log, user: subject_user, admin: user
+            create(:impersonation_log, user: subject_user, admin: user)
           end
 
           it_behaves_like "permission is not set"
@@ -249,31 +284,31 @@ describe Decidim::Admin::Permissions do
 
     context "when impersonating" do
       let(:action_name) { :impersonate }
-      let(:organization) { build :organization, available_authorizations: ["dummy_authorization_handler"] }
+      let(:organization) { build(:organization, available_authorizations: ["dummy_authorization_handler"]) }
 
       context "when organization has no available authorizations" do
-        let(:organization) { build :organization, available_authorizations: [] }
+        let(:organization) { build(:organization, available_authorizations: []) }
 
         it_behaves_like "permission is not set"
       end
 
       context "when subject user is admin" do
-        let(:subject_user) { build :user, :admin, organization: }
+        let(:subject_user) { build(:user, :admin, organization:) }
 
         it_behaves_like "permission is not set"
       end
 
       context "when subject user has some roles" do
-        let(:subject_user) { build :user, roles: ["my_role"] }
+        let(:subject_user) { build(:user, roles: ["my_role"]) }
 
         it_behaves_like "permission is not set"
       end
 
       context "when there are active impersonation logs" do
-        let(:subject_user) { build :user, organization: }
+        let(:subject_user) { build(:user, organization:) }
 
         before do
-          create :impersonation_log, user: subject_user, admin: user
+          create(:impersonation_log, user: subject_user, admin: user)
         end
 
         it_behaves_like "permission is not set"
@@ -290,7 +325,7 @@ describe Decidim::Admin::Permissions do
       it { is_expected.to be true }
 
       context "when user is not an admin" do
-        let(:user) { build :user, organization: }
+        let(:user) { build(:user, organization:) }
 
         it_behaves_like "permission is not set"
       end
@@ -298,6 +333,24 @@ describe Decidim::Admin::Permissions do
 
     context "when any other action" do
       it { is_expected.to be true }
+    end
+  end
+
+  describe "admins" do
+    let(:action_subject) { :admin_user }
+
+    context "when trying to delete admin rights from self" do
+      let(:action_name) { :destroy }
+      let(:context) { { user: } }
+
+      it_behaves_like "permission is not set"
+    end
+
+    context "when trying to block self" do
+      let(:action_name) { :block }
+      let(:context) { { user: } }
+
+      it_behaves_like "permission is not set"
     end
   end
 

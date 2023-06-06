@@ -1,17 +1,17 @@
 <% provide(:title, present(meeting).title) %>
 
 <% add_decidim_meta_tags({
-  title: present(meeting).title,
-  description: present(meeting).description,
-  url: meeting_url(meeting.id)
-}) %>
+                           title: present(meeting).title,
+                           description: present(meeting).description,
+                           url: meeting_url(meeting.id)
+                         }) %>
 
 <%
 edit_link(
   resource_locator(meeting).edit,
   :update,
   :meeting,
-  meeting: meeting
+  meeting:
 )
 %>
 
@@ -37,7 +37,7 @@ edit_link(
     <% end %>
 
     <% if allowed_to?(:close, :meeting, meeting: meeting) %>
-      <% caption =  meeting.closed? ? t(".edit_close_meeting") : t(".close_meeting") %>
+      <% caption = meeting.closed? ? t(".edit_close_meeting") : t(".close_meeting") %>
       <%= link_to caption, edit_meeting_meeting_close_path(meeting_id: meeting.id, id: meeting.id), class: "button hollow expanded button-sc button--icon follow-button" %>
     <% end %>
 
@@ -46,7 +46,7 @@ edit_link(
         <%= cell("decidim/date_range", { start: meeting.start_time, end: meeting.end_time }) %>
 
         <%= cell "decidim/meetings/join_meeting_button", meeting, big_button: true, show_remaining_slots: true %>
-        <%= render partial: "decidim/shared/follow_button", locals: { followable: meeting, large: false  } %>
+        <%= render partial: "decidim/shared/follow_button", locals: { followable: meeting, large: false } %>
       </div>
       <% if meeting.closed? && meeting.closing_visible? %>
         <% double = meeting.has_contributions? && meeting.has_attendees? %>
@@ -126,11 +126,11 @@ edit_link(
       <% end %>
       <%= render_meeting_body(@meeting) %>
 
-      <% if meeting.maps_enabled? && !meeting.online_meeting? %>
+      <% if meeting.maps_enabled? && !meeting.online? %>
         <%= render partial: "decidim/shared/static_map", locals: { icon_name: "meetings", geolocalizable: meeting } %>
       <% end %>
 
-      <% unless meeting.in_person_meeting? || meeting.withdrawn? %>
+      <% unless meeting.in_person? || meeting.withdrawn? %>
         <%= cell "decidim/meetings/online_meeting_link", meeting %>
       <% end %>
 

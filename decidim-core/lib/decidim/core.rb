@@ -116,11 +116,21 @@ module Decidim
   autoload :ProcessesFileLocally, "decidim/processes_file_locally"
   autoload :RedesignLayout, "decidim/redesign_layout"
   autoload :DisabledRedesignLayout, "decidim/disabled_redesign_layout"
+  autoload :BlockRegistry, "decidim/block_registry"
   autoload :DependencyResolver, "decidim/dependency_resolver"
+  autoload :Upgrade, "decidim/upgrade"
+  autoload :ParticipatorySpaceUser, "decidim/participatory_space_user"
+  autoload :ModerationTools, "decidim/moderation_tools"
 
   include ActiveSupport::Configurable
   # Loads seeds from all engines.
   def self.seed!
+    # After running the migrations, some records may have loaded their column
+    # caches at different stages of the migration process, so in order to
+    # prevent any "undefined method" errors if these tasks are run
+    # consecutively, reset the column cache before the migrations.
+    reset_all_column_information
+
     # Faker needs to have the `:en` locale in order to work properly, so we
     # must enforce it during the seeds.
     original_locale = I18n.available_locales
@@ -160,6 +170,17 @@ module Decidim
     I18n.available_locales = original_locale
   end
 
+  # Finds all currently loaded Decidim ActiveRecord classes and resets their
+  # column information.
+  def self.reset_all_column_information
+    ActiveRecord::Base.descendants.each do |cls|
+      next if cls.name.nil? # abstract classes registered during tests
+      next if cls.abstract_class? || !cls.name.match?(/^Decidim::/)
+
+      cls.reset_column_information
+    end
+  end
+
   # Exposes a configuration option: The application name String.
   config_accessor :application_name
 
@@ -179,7 +200,7 @@ module Decidim
 
   # Exposes a configuration option: The application available locales.
   config_accessor :available_locales do
-    %w(en bg ar ca cs da de el eo es es-MX es-PY et eu fi-pl fi fr fr-CA ga gl hr hu id is it ja ko lb lt lv mt nl no pl pt pt-BR ro ru sk sl sr sv tr uk vi zh-CN zh-TW)
+    %w(en bg ar ca cs da de el eo es es-MX es-PY et eu fa fi-pl fi fr fr-CA ga gl hr hu id is it ja ko lb lt lv mt nl no pl pt pt-BR ro ru sk sl sr sv tr uk vi zh-CN zh-TW)
   end
 
   # Exposes a configuration option: The application default locale.
@@ -235,10 +256,10 @@ module Decidim
       ref = ""
 
       if resource.is_a?(Decidim::HasComponent) && component.present?
-        # It's a component resource
+        # It is a component resource
         ref = component.participatory_space.organization.reference_prefix
       elsif resource.is_a?(Decidim::Participable)
-        # It's a participatory space
+        # It is a participatory space
         ref = resource.organization.reference_prefix
       end
 
@@ -310,7 +331,7 @@ module Decidim
     30.minutes
   end
 
-  # If set to true, users have option to "remember me". Notice that expire_session_after won't take
+  # If set to true, users have option to "remember me". Notice that expire_session_after will not take
   # effect when the user wants to be remembered.
   config_accessor :enable_remember_me do
     true
@@ -458,9 +479,14 @@ module Decidim
     ]
   end
 
-  # Blacklisted passwords. Array may contain strings and regex entries.
-  config_accessor :password_blacklist do
+  # Denied passwords. Array may contain strings and regex entries.
+  config_accessor :denied_passwords do
     []
+  end
+
+  # Ignores strings similar to email / domain on password validation if too short
+  config_accessor :password_similarity_length do
+    4
   end
 
   # Defines if admins are required to have stronger passwords than other users
@@ -490,6 +516,11 @@ module Decidim
   # Enable/Disable the service worker
   config_accessor :service_worker_enabled do
     Rails.env.exclude?("development")
+  end
+
+  # List of static pages' slugs that can include content blocks
+  config_accessor :page_blocks do
+    %w(terms-of-service)
   end
 
   # Public: Registers a global engine. This method is intended to be used
@@ -665,6 +696,11 @@ module Decidim
   # Public: Stores the registry for user permissions
   def self.permissions_registry
     @permissions_registry ||= PermissionsRegistry.new
+  end
+
+  # Public: Stores the registry for authorization transfer handlers
+  def self.authorization_transfer_registry
+    @authorization_transfer_registry ||= BlockRegistry.new
   end
 
   # Public: Stores an instance of StatsRegistry

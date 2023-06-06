@@ -32,7 +32,7 @@ module Decidim
     end
 
     def allowed?
-      raise PermissionNotSetError, "Permission hasn't been allowed or disallowed yet: #{inspect}" if @state.blank?
+      raise PermissionNotSetError, "Permission has not been allowed or disallowed yet: #{inspect}" if @state.blank?
 
       @state == :allowed
     end

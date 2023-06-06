@@ -9,7 +9,7 @@
     <% if @similar_proposals.presence %>
       <div class="row small-up-1 card-grid">
         <% @similar_proposals.each do |proposal| %>
-          <%= render partial: "proposal_similar", locals: { proposal: proposal } %>
+          <%= render partial: "proposal_similar", locals: { proposal: } %>
         <% end %>
       </div>
     <% end %>

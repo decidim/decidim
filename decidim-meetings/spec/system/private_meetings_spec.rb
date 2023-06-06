@@ -6,11 +6,11 @@ describe "Private meetings", type: :system do
   include_context "with a component"
   let(:manifest_name) { "meetings" }
 
-  let!(:meeting) { create :meeting, :published, component:, registrations_enabled: true, available_slots: 20 }
-  let!(:private_meeting) { create :meeting, :published, component:, private_meeting: true, transparent: true, registrations_enabled: true, available_slots: 20 }
+  let!(:meeting) { create(:meeting, :published, component:, registrations_enabled: true, available_slots: 20) }
+  let!(:private_meeting) { create(:meeting, :published, component:, private_meeting: true, transparent: true, registrations_enabled: true, available_slots: 20) }
 
-  let!(:other_user) { create :user, :confirmed, organization: }
-  let!(:registration) { create :registration, meeting: private_meeting, user: other_user }
+  let!(:other_user) { create(:user, :confirmed, organization:) }
+  let!(:registration) { create(:registration, meeting: private_meeting, user: other_user) }
 
   describe "index" do
     context "when there are private meetings" do
@@ -57,7 +57,7 @@ describe "Private meetings", type: :system do
       end
 
       context "when the meeting is not transparent" do
-        let!(:private_meeting) { create :meeting, :published, component:, private_meeting: true, transparent: false, registrations_enabled: true, available_slots: 20 }
+        let!(:private_meeting) { create(:meeting, :published, component:, private_meeting: true, transparent: false, registrations_enabled: true, available_slots: 20) }
 
         context "and no user is logged in" do
           before do
@@ -70,7 +70,7 @@ describe "Private meetings", type: :system do
               expect(page).to have_content(translated(meeting.title, locale: :en))
               expect(page).to have_selector(".card", count: 1)
 
-              expect(page).to have_no_content(translated(private_meeting.title, locale: :en))
+              expect(page).not_to have_content(translated(private_meeting.title, locale: :en))
             end
           end
         end
@@ -87,7 +87,7 @@ describe "Private meetings", type: :system do
               expect(page).to have_content(translated(meeting.title, locale: :en))
               expect(page).to have_selector(".card", count: 1)
 
-              expect(page).to have_no_content(translated(private_meeting.title, locale: :en))
+              expect(page).not_to have_content(translated(private_meeting.title, locale: :en))
             end
           end
         end
@@ -122,7 +122,7 @@ describe "Private meetings", type: :system do
   describe "show" do
     context "when the meeting is private" do
       context "and is not transparent" do
-        let!(:private_meeting) { create :meeting, :published, component:, private_meeting: true, transparent: false, registrations_enabled: true, available_slots: 20 }
+        let!(:private_meeting) { create(:meeting, :published, component:, private_meeting: true, transparent: false, registrations_enabled: true, available_slots: 20) }
 
         before do
           switch_to_host(organization.host)

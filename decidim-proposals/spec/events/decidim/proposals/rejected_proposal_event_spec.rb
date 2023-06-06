@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe Decidim::Proposals::RejectedProposalEvent do
-  let(:resource) { create :proposal, :with_answer, title: "It's my super proposal" }
+  let(:resource) { create(:proposal, :with_answer, title: "It is my super proposal") }
   let(:resource_title) { translated(resource.title) }
   let(:event_name) { "decidim.events.proposals.proposal_rejected" }
 
@@ -12,7 +12,7 @@ describe Decidim::Proposals::RejectedProposalEvent do
 
   describe "email_subject" do
     it "is generated correctly" do
-      expect(subject.email_subject).to eq("A proposal you're following has been rejected")
+      expect(subject.email_subject).to eq("A proposal you are following has been rejected")
     end
   end
 

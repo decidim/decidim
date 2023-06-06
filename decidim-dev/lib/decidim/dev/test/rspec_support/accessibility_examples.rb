@@ -1,6 +1,17 @@
 # frozen_string_literal: true
 
 module AxeMatchers
+  def self.axe_version
+    @axe_version ||= begin
+      package = JSON.load_file(Rails.root.join("node_modules/axe-core/package.json"))
+      package["version"]
+    end
+  end
+
+  def self.axe_mainline_version
+    @axe_mainline_version ||= axe_version.split(".")[0..1].join(".")
+  end
+
   class ResultFormatter
     def initialize(result)
       @result = result
@@ -114,7 +125,7 @@ shared_examples_for "accessible page" do
 
   it "passes HTML validation" do
     # Capybara is stripping the doctype out of the HTML which is required for
-    # the validation. If it doesn't exist, add it there.
+    # the validation. If it does not exist, add it there.
     html = page.source
     html = "<!DOCTYPE html>\n#{html}" unless html.strip.match?(/^<!DOCTYPE/i)
 

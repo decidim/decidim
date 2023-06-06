@@ -34,7 +34,7 @@
             :locale,
             @account.organization.available_locales,
             :to_s,
-            ->(locale) {locale_name(locale) }
+            ->(locale) { locale_name(locale) }
           ) %>
       <p class="help-text"><%= t(".available_locales_helper") %></p>
 

@@ -8,7 +8,7 @@ module Decidim
       let(:form_klass) { CollaborativeDraftForm }
       let(:component) { create(:proposal_component, :with_collaborative_drafts_enabled, :with_extra_hashtags, suggested_hashtags: suggested_hashtags.join(" ")) }
       let(:organization) { component.organization }
-      let(:user) { create :user, :confirmed, organization: }
+      let(:user) { create(:user, :confirmed, organization:) }
       let(:form) do
         form_klass.from_params(
           form_params
@@ -61,7 +61,7 @@ module Decidim
             expect { command.call }.to broadcast(:invalid)
           end
 
-          it "doesn't create a collaborative draft" do
+          it "does not create a collaborative draft" do
             expect do
               command.call
             end.not_to change(Decidim::Proposals::CollaborativeDraft, :count)

@@ -12,8 +12,8 @@ module Decidim::Budgets
     let(:organization) { budgets_component.organization }
 
     it_behaves_like "includes base workflow features"
-    it_behaves_like "doesn't highlight any resource"
-    it_behaves_like "doesn't have orders"
+    it_behaves_like "does not highlight any resource"
+    it_behaves_like "does not have orders"
     it_behaves_like "allows to vote in all resources"
 
     context "when it has an order" do
@@ -39,18 +39,18 @@ module Decidim::Budgets
         end
       end
 
-      it_behaves_like "doesn't highlight any resource"
+      it_behaves_like "does not highlight any resource"
       it_behaves_like "has an in-progress order"
       it_behaves_like "allows voting in every resources"
 
       it "has one discardable order" do
-        expect(workflow.progress).to match_array([order_resource])
+        expect(workflow.progress).to contain_exactly(order_resource)
       end
 
       context "when order has been checked out" do
         before { order.update! checked_out_at: Time.current }
 
-        it_behaves_like "doesn't highlight any resource"
+        it_behaves_like "does not highlight any resource"
         it_behaves_like "has a voted order"
 
         it "allows to vote in every resource except the voted one" do
@@ -63,7 +63,7 @@ module Decidim::Budgets
           expect(workflow.allowed).to match_array(other_resources)
         end
 
-        it "doesn't have any discardable order" do
+        it "does not have any discardable order" do
           expect(workflow.discardable).to be_empty
         end
       end

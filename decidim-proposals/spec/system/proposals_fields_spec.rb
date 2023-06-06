@@ -6,9 +6,9 @@ describe "Proposals", type: :system do
   include_context "with a component"
   let(:manifest_name) { "proposals" }
 
-  let!(:category) { create :category, participatory_space: participatory_process }
-  let!(:scope) { create :scope, organization: }
-  let!(:user) { create :user, :confirmed, organization: }
+  let!(:category) { create(:category, participatory_space: participatory_process) }
+  let!(:scope) { create(:scope, organization:) }
+  let!(:user) { create(:user, :confirmed, organization:) }
   let(:scoped_participatory_process) { create(:participatory_process, :with_steps, organization:, scope:) }
 
   let(:address) { "Some address" }
@@ -63,7 +63,7 @@ describe "Proposals", type: :system do
             visit complete_proposal_path(component, proposal_draft)
 
             within "form.edit_proposal" do
-              expect(page).to have_no_content("Scope")
+              expect(page).not_to have_content("Scope")
             end
           end
         end
@@ -271,7 +271,7 @@ describe "Proposals", type: :system do
           end
         end
 
-        context "when the user isn't authorized" do
+        context "when the user is not authorized" do
           before do
             permissions = {
               create: {
@@ -351,15 +351,15 @@ describe "Proposals", type: :system do
 
               # See that the images are in correct positions and remove the card
               # image.
-              within ".dynamic-uploads.upload-container-for-photos .active-uploads" do
+              within ".upload-container-for-photos [data-active-uploads]" do
                 expect(page).to have_content("city.jpeg")
               end
-              within ".dynamic-uploads.upload-container-for-documents .active-uploads" do
+              within ".upload-container-for-documents [data-active-uploads]" do
                 expect(page).to have_content("city2.jpeg")
                 expect(page).to have_content("city3.jpeg")
               end
 
-              within ".dynamic-uploads.upload-container-for-photos" do
+              within ".upload-container-for-photos" do
                 click_button "Edit image"
               end
               within ".upload-modal" do
@@ -377,10 +377,10 @@ describe "Proposals", type: :system do
 
               # See that the card image is now empty and the two other images
               # are still in the documents container as they should.
-              within ".dynamic-uploads.upload-container-for-photos .active-uploads" do
+              within ".upload-container-for-photos [data-active-uploads]" do
                 expect(page).not_to have_selector(".attachment-details")
               end
-              within ".dynamic-uploads.upload-container-for-documents .active-uploads" do
+              within ".upload-container-for-documents [data-active-uploads]" do
                 expect(page).to have_content("city2.jpeg")
                 expect(page).to have_content("city3.jpeg")
               end
@@ -392,7 +392,7 @@ describe "Proposals", type: :system do
       context "when creation is not enabled" do
         it "does not show the creation button" do
           visit_component
-          expect(page).to have_no_link("New proposal")
+          expect(page).not_to have_link("New proposal")
         end
       end
 
@@ -420,7 +420,7 @@ describe "Proposals", type: :system do
             find("*[type=submit]").click
           end
 
-          expect(page).to have_no_content("successfully")
+          expect(page).not_to have_content("successfully")
           expect(page).to have_css("[data-alert-box].alert", text: "limit")
         end
       end

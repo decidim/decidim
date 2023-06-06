@@ -7,7 +7,7 @@ module Decidim
     describe BlockUserController, type: :controller do
       routes { Decidim::Admin::Engine.routes }
 
-      let(:organization) { create :organization }
+      let(:organization) { create(:organization) }
       let(:current_user) { create(:user, :admin, :confirmed, organization:) }
 
       before do
@@ -16,77 +16,101 @@ module Decidim
       end
 
       describe "unblock" do
-        let!(:user) { create(:user, :blocked, :confirmed, organization:, nickname: "some_nickname") }
+        shared_examples "unblocking a user or group" do
+          context "when having a user" do
+            it "flashes a notice message" do
+              delete :destroy, params: { user_id: user.id }
 
-        context "when having a user" do
-          it "flashes a notice message" do
-            delete :destroy, params: { user_id: user.id }
+              expect(flash[:notice]).to be_present
+              expect(user.reload.blocked?).to be(false)
+            end
+          end
 
-            expect(flash[:notice]).to be_present
-            expect(user.reload.blocked?).to be(false)
+          context "when the user is not blocked" do
+            before do
+              user.blocked = false
+              user.save!
+            end
+
+            it "flashes an alert message" do
+              delete :destroy, params: { user_id: user.id }
+
+              expect(flash[:alert]).to be_present
+              expect(user.reload.blocked?).to be(false)
+            end
+          end
+
+          context "when current user is not an admin" do
+            before do
+              current_user.admin = false
+              current_user.save!
+            end
+
+            it "the user remains blocked" do
+              delete :destroy, params: { user_id: user.id }
+
+              expect(user.reload.blocked?).to be(true)
+            end
           end
         end
 
-        context "when the user is not blocked" do
-          before do
-            user.blocked = false
-            user.save!
-          end
+        context "when its a user" do
+          let!(:user) { create(:user, :blocked, :confirmed, organization:, nickname: "some_nickname") }
 
-          it "flashes an alert message" do
-            delete :destroy, params: { user_id: user.id }
-
-            expect(flash[:alert]).to be_present
-            expect(user.reload.blocked?).to be(false)
-          end
+          it_behaves_like "unblocking a user or group"
         end
 
-        context "when current user is not an admin" do
-          before do
-            current_user.admin = false
-            current_user.save!
-          end
+        context "when its a user group" do
+          let!(:user) { create(:user_group, :blocked, :confirmed, organization:, nickname: "another_nickname") }
 
-          it "the user remains blocked" do
-            delete :destroy, params: { user_id: user.id }
-
-            expect(user.reload.blocked?).to be(true)
-          end
+          it_behaves_like "unblocking a user or group"
         end
       end
 
       describe "block" do
-        let!(:user) { create(:user, :confirmed, organization:, nickname: "some_nickname") }
+        shared_examples "blocking a user or group" do
+          context "when having a user" do
+            it "flashes a notice message" do
+              put :create, params: { user_id: user.id, justification: ::Faker::Lorem.sentence(word_count: 12) }
 
-        context "when having a user" do
-          it "flashes a notice message" do
-            put :create, params: { user_id: user.id, justification: ::Faker::Lorem.sentence(word_count: 12) }
+              expect(flash[:notice]).to be_present
+              expect(user.reload.blocked?).to be(true)
+            end
+          end
 
-            expect(flash[:notice]).to be_present
-            expect(user.reload.blocked?).to be(true)
+          context "when form is invalid" do
+            it "flashes an alert message" do
+              put :create, params: { user_id: user.id, justification: nil }
+
+              expect(flash[:alert]).to be_present
+              expect(user.reload.blocked?).to be(false)
+            end
+          end
+
+          context "when current user is not an admin" do
+            before do
+              current_user.admin = false
+              current_user.save!
+            end
+
+            it "the user remains unblocked" do
+              put :create, params: { user_id: user.id, justification: ::Faker::Lorem.sentence(word_count: 12) }
+
+              expect(user.reload.blocked?).to be(false)
+            end
           end
         end
 
-        context "when form is invalid" do
-          it "flashes an alert message" do
-            put :create, params: { user_id: user.id, justification: nil }
+        context "when its a user" do
+          let!(:user) { create(:user, :confirmed, organization:, nickname: "some_nickname") }
 
-            expect(flash[:alert]).to be_present
-            expect(user.reload.blocked?).to be(false)
-          end
+          it_behaves_like "blocking a user or group"
         end
 
-        context "when current user is not an admin" do
-          before do
-            current_user.admin = false
-            current_user.save!
-          end
+        context "when its a user group" do
+          let!(:user) { create(:user_group, :confirmed, organization:, nickname: "another_nickname") }
 
-          it "the user remains unblocked" do
-            put :create, params: { user_id: user.id, justification: ::Faker::Lorem.sentence(word_count: 12) }
-
-            expect(user.reload.blocked?).to be(false)
-          end
+          it_behaves_like "blocking a user or group"
         end
       end
     end

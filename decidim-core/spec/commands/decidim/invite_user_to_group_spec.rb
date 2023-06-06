@@ -7,8 +7,8 @@ module Decidim
     describe InviteUserToGroup do
       describe "call" do
         let(:organization) { create(:organization) }
-        let(:user) { create :user, :confirmed, organization: }
-        let(:user_group) { create :user_group, users: [], organization: }
+        let(:user) { create(:user, :confirmed, organization:) }
+        let(:user_group) { create(:user_group, users: [], organization:) }
         let(:nickname) { user.nickname }
         let(:form) do
           Decidim::InviteUserToGroupForm.new(
@@ -22,19 +22,19 @@ module Decidim
 
         context "when the user already has a membership with the group" do
           let!(:membership) do
-            create :user_group_membership, user:, user_group:, role: "requested"
+            create(:user_group_membership, user:, user_group:, role: "requested")
           end
 
           it "broadcasts ok" do
             expect { command.call }.to broadcast(:ok)
           end
 
-          it "doesn't send a notification" do
+          it "does not send a notification" do
             expect(Decidim::EventsManager).not_to receive(:publish)
             command.call
           end
 
-          it "doesn't modify the membership" do
+          it "does not modify the membership" do
             expect do
               command.call
               membership.reload

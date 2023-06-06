@@ -10,7 +10,7 @@ module Decidim::Meetings
       ).with_context(current_organization: meeting.organization, meeting:)
     end
 
-    let!(:meeting) { create :meeting }
+    let!(:meeting) { create(:meeting) }
     let!(:registration) { create(:registration, meeting:, code:) }
 
     let(:code) { "RT67YU45" }
@@ -30,7 +30,7 @@ module Decidim::Meetings
     end
 
     describe "invalid code" do
-      context "when code doesn't exists" do
+      context "when code does not exists" do
         let!(:registration) { create(:registration, meeting:, code: "ANOT7654") }
 
         it { is_expected.not_to be_valid }

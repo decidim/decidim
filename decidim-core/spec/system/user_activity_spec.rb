@@ -80,7 +80,7 @@ describe "User activity", type: :system do
           expect(page).to have_content(translated(resource.title))
           expect(page).to have_content(translated(comment.commentable.title))
           expect(page).to have_content(translated(resource3.title))
-          expect(page).to have_no_content(translated(resource2.title))
+          expect(page).not_to have_content(translated(resource2.title))
         end
       end
     end
@@ -97,13 +97,13 @@ describe "User activity", type: :system do
 
         expect(page).to have_content(translated(resource.title))
         expect(page).to have_content(translated(comment.commentable.title))
-        expect(page).to have_no_content(translated(resource2.title))
-        expect(page).to have_no_content(translated(resource3.title))
+        expect(page).not_to have_content(translated(resource2.title))
+        expect(page).not_to have_content(translated(resource3.title))
       end
     end
 
     it "displays activities filter with the correct options" do
-      within("form.profile__activity__filter-container") do
+      within(".filter-container #dropdown-menu") do
         resource_types.push("All types").each do |type|
           expect(page).to have_css("label", text: type)
         end
@@ -111,7 +111,7 @@ describe "User activity", type: :system do
     end
 
     it "displays activities filter with the All types option checked by default" do
-      within("form.profile__activity__filter-container") do
+      within(".filter-container #dropdown-menu") do
         expect(page.find("input[value='all']", visible: false)).to be_checked
       end
     end

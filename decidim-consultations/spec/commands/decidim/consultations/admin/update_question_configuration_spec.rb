@@ -6,7 +6,7 @@ module Decidim
   module Consultations
     module Admin
       describe UpdateQuestionConfiguration do
-        let(:question) { create :question }
+        let(:question) { create(:question) }
         let(:min_votes) { "3" }
         let(:max_votes) { "5" }
         let(:params) do
@@ -33,7 +33,7 @@ module Decidim
             expect { command.call }.to broadcast(:invalid)
           end
 
-          it "doesn't update the consultation" do
+          it "does not update the consultation" do
             command.call
             question.reload
 
@@ -50,7 +50,7 @@ module Decidim
             expect { command.call }.to broadcast(:invalid)
           end
 
-          it "doesn't update the consultation" do
+          it "does not update the consultation" do
             command.call
             question.reload
 

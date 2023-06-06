@@ -34,7 +34,7 @@ ca:
   decidim:
     system:
       actions:
-        confirm_destroy: Segur que ho vols eliminar?
+        confirm_destroy: Segur que ho vols eliminar això?
         destroy: Suprimeix
         edit: Edita
         new: Nou
@@ -43,9 +43,9 @@ ca:
       admins:
         create:
           error: S'ha produït un error en crear una nova administradora.
-          success: Administradora creada correctament
+          success: Administradora creada correctament.
         destroy:
-          success: Administradora eliminada correctament
+          success: Administradora eliminada correctament.
         edit:
           title: Editar administradora
           update: Actualitza
@@ -56,13 +56,14 @@ ca:
           title: Nova administradora
         update:
           error: S'ha produït un error en actualitzar aquesta administradora.
-          success: L'administradora s'ha actualitzat correctament
+          success: L'administradora s'ha actualitzat correctament.
       dashboard:
         show:
           current_organizations: Organitzacions actuals
       default_pages:
         placeholders:
           content: Si us plau, afegeix contingut significatiu a la pàgina estàtica de %{page} dins el panell d'administració.
+          summary: Si us plau, afegeix un resum significatiu a la pàgina estàtica %{page} dins el panell d'administració.
           title: Títol predeterminat per %{page}
       menu:
         admins: Administradores
@@ -144,8 +145,8 @@ ca:
         index:
           title: Organitzacions
         new:
-          reference_prefix_hint: El prefix de la referència s'utilitza per identificar de forma única els recursos de tota la organització
-          secondary_hosts_hint: Introdueix cada un d'ells en una nova línia
+          reference_prefix_hint: El prefix de la referència s'utilitza per identificar de forma única els recursos del conjunt de l'organització.
+          secondary_hosts_hint: Introdueix cada un d'ells en una nova línia.
           title: Nova organització
         omniauth_settings:
           decidim:
@@ -169,7 +170,7 @@ ca:
           fieldsets:
             sender: Remitent
           instructions:
-            from_label: 'El remitent de correu electrònic serà: "la-teva-organitzacio <your-organization@example.org>". Deixa-ho en blanc per a usar l''adreça de correu com a etiqueta'
+            from_label: 'El remitent de correu electrònic serà: "nom-de-la-teva-organitzacio <your-organization@example.org>". Deixa-ho en blanc per a usar ''l''adreça de correu'' com a etiqueta.'
           placeholder:
             from_email: la-teva-organitzacio@example.org
             from_label: el-nom-de-la-vostra-organitzacio
@@ -179,7 +180,7 @@ ca:
         users_registration_mode:
           disabled: Només es port accedir amb comptes externs
           enabled: Permetre a les participants registrar-se i iniciar sessió
-          existing: No permetre que es registrin noves participants, però permetre que les participants existents iniciïn sessió
+          existing: No permetre que es registrin noves participants, però permetre a les participants existents iniciar sessió
       shared:
         notices:
           no_organization_warning_html: Has de crear una organització per començar. Assegura't de llegir %{guide} abans de continuar.

@@ -59,9 +59,9 @@ module Decidim
           }
         end
         let(:follower) { create(:user, organization:) }
-        let!(:follow) { create :follow, followable: author, user: follower }
+        let!(:follow) { create(:follow, followable: author, user: follower) }
 
-        it "doesn't notify author about committee request" do
+        it "does not notify author about committee request" do
           expect(Decidim::EventsManager)
             .not_to receive(:publish)
             .with(

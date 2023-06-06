@@ -12,8 +12,8 @@ module Decidim::Budgets
     let(:organization) { budgets_component.organization }
 
     it_behaves_like "includes base workflow features"
-    it_behaves_like "doesn't highlight any resource"
-    it_behaves_like "doesn't have orders"
+    it_behaves_like "does not highlight any resource"
+    it_behaves_like "does not have orders"
     it_behaves_like "allows to vote in all resources"
 
     context "when it has an order" do
@@ -25,10 +25,10 @@ module Decidim::Budgets
 
       it "allows to vote in the order resource" do
         expect(subject).to be_vote_allowed(order_resource)
-        expect(workflow.allowed).to match_array([order_resource])
+        expect(workflow.allowed).to contain_exactly(order_resource)
       end
 
-      it "doesn't allow to vote in the other resources" do
+      it "does not allow to vote in the other resources" do
         other_resources.each do |resource|
           expect(subject).not_to be_vote_allowed(resource)
         end
@@ -46,16 +46,16 @@ module Decidim::Budgets
         end
       end
 
-      it_behaves_like "doesn't highlight any resource"
+      it_behaves_like "does not highlight any resource"
       it_behaves_like "has an in-progress order"
       it_behaves_like "allow to discard all the progress orders"
 
       context "when order has been checked out" do
         before { order.update! checked_out_at: Time.current }
 
-        it_behaves_like "doesn't highlight any resource"
+        it_behaves_like "does not highlight any resource"
         it_behaves_like "has a voted order"
-        it_behaves_like "doesn't allow to vote in any resource"
+        it_behaves_like "does not allow to vote in any resource"
 
         it "has a not_allowed status for other resources" do
           other_resources.each do |resource|
@@ -64,7 +64,7 @@ module Decidim::Budgets
         end
 
         it "does have a discardable order" do
-          expect(workflow.discardable).to match_array([order_resource])
+          expect(workflow.discardable).to contain_exactly(order_resource)
         end
       end
     end

@@ -59,12 +59,12 @@ shared_examples_for "has questionnaire" do
         expect(page).to have_content("Step 1 of 2")
 
         within ".answer-questionnaire__submit", match: :first do
-          expect(page).to have_no_content("Back")
+          expect(page).not_to have_content("Back")
         end
 
         answer_first_questionnaire
 
-        expect(page).to have_no_selector(".success.flash")
+        expect(page).not_to have_selector(".success.flash")
       end
 
       it "allows revisiting previously-answered questionnaires with my answers" do
@@ -93,7 +93,7 @@ shared_examples_for "has questionnaire" do
 
       def answer_first_questionnaire
         within "div.answer-questionnaire__step", match: :first do
-          expect(page).to have_no_selector("#questionnaire_tos_agreement")
+          expect(page).not_to have_selector("#questionnaire_tos_agreement")
 
           fill_in question.body["en"], with: "My first answer"
           within ".answer-questionnaire__footer", match: :first do
@@ -142,7 +142,7 @@ shared_examples_for "has questionnaire" do
       it "does not leak defaults from other answers" do
         visit questionnaire_public_path
 
-        expect(page).to have_no_selector("input[type=radio]:checked")
+        expect(page).not_to have_selector("input[type=radio]:checked")
       end
     end
 
@@ -211,7 +211,7 @@ shared_examples_for "has questionnaire" do
       context "when max_characters value is 0" do
         let(:max_characters) { 0 }
 
-        it "doesn't show message indicating number of characters left" do
+        it "does not show message indicating number of characters left" do
           visit questionnaire_public_path
 
           expect(page).not_to have_content("characters left")
@@ -231,7 +231,7 @@ shared_examples_for "has questionnaire" do
           expect(page).to have_content("problem")
         end
 
-        expect(page).to have_content("can't be blank")
+        expect(page).to have_content("cannot be blank")
       end
     end
 
@@ -243,12 +243,12 @@ shared_examples_for "has questionnaire" do
       end
 
       it "shows errors without submitting the form" do
-        expect(page).to have_no_selector ".alert.flash"
+        expect(page).not_to have_selector ".alert.flash"
         different_error = I18n.t("decidim.forms.questionnaires.answer.max_choices_alert")
         expect(different_error).to eq("There are too many choices selected")
         expect(page).not_to have_content(different_error)
 
-        expect(page).to have_content("can't be blank")
+        expect(page).to have_content("cannot be blank")
       end
     end
 
@@ -280,7 +280,7 @@ shared_examples_for "has questionnaire" do
           expect(page).to have_content("problem")
         end
 
-        expect(page).to have_content("can't be blank")
+        expect(page).to have_content("cannot be blank")
       end
     end
 
@@ -489,7 +489,7 @@ shared_examples_for "has questionnaire" do
 
         expect(page).to have_selector(".js-check-box-collection input[type=checkbox]", count: 3)
 
-        expect(page).to have_no_content("Max choices:")
+        expect(page).not_to have_content("Max choices:")
 
         check answer_options[0]["body"][:en]
         check answer_options[1]["body"][:en]
@@ -1196,7 +1196,7 @@ shared_examples_for "has questionnaire" do
             it "shows the question only if the condition is fulfilled" do
               expect_question_to_be_visible(false)
 
-              fill_in "questionnaire_responses_0", with: "Aren't we all expecting #{condition_value[:en]}?"
+              fill_in "questionnaire_responses_0", with: "Are not we all expecting #{condition_value[:en]}?"
               change_focus
 
               expect_question_to_be_visible(true)
@@ -1219,7 +1219,7 @@ shared_examples_for "has questionnaire" do
             it "shows the question only if the condition is fulfilled" do
               expect_question_to_be_visible(false)
 
-              fill_in "questionnaire_responses_0", with: "Aren't we all expecting #{condition_value[:en]}?"
+              fill_in "questionnaire_responses_0", with: "Are not we all expecting #{condition_value[:en]}?"
               change_focus
 
               expect_question_to_be_visible(true)
@@ -1394,7 +1394,7 @@ shared_examples_for "has questionnaire" do
             ]
           end
 
-          it "doesn't throw error" do
+          it "does not throw error" do
             visit questionnaire_public_path
 
             fill_in condition_question.body["en"], with: "My first answer"

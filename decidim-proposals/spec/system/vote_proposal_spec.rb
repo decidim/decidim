@@ -9,16 +9,16 @@ describe "Support Proposal", type: :system, slow: true do
   let!(:proposals) { create_list(:proposal, 3, component:) }
   let!(:proposal) { Decidim::Proposals::Proposal.find_by(component:) }
   let(:proposal_title) { translated(proposal.title) }
-  let!(:user) { create :user, :confirmed, organization: }
+  let!(:user) { create(:user, :confirmed, organization:) }
 
   def expect_page_not_to_include_votes
-    expect(page).to have_no_button("Support")
-    expect(page).to have_no_css(".card__support__data span", text: "0 Supports")
+    expect(page).not_to have_button("Support")
+    expect(page).not_to have_css(".card__support__data span", text: "0 Supports")
   end
 
   context "when votes are not enabled" do
     context "when the user is not logged in" do
-      it "doesn't show the vote proposal button and counts" do
+      it "does not show the vote proposal button and counts" do
         visit_component
         expect_page_not_to_include_votes
 
@@ -32,7 +32,7 @@ describe "Support Proposal", type: :system, slow: true do
         login_as user, scope: :user
       end
 
-      it "doesn't show the vote proposal button and counts" do
+      it "does not show the vote proposal button and counts" do
         visit_component
         expect_page_not_to_include_votes
 
@@ -107,7 +107,7 @@ describe "Support Proposal", type: :system, slow: true do
         it "is not able to vote it again" do
           within "#proposal-#{proposal.id}-vote-button" do
             expect(page).to have_button("Already supported")
-            expect(page).to have_no_button("Support")
+            expect(page).not_to have_button("Support")
           end
 
           within "#proposal-#{proposal.id}-votes-count" do
@@ -150,11 +150,11 @@ describe "Support Proposal", type: :system, slow: true do
                      participatory_space: participatory_process)
             end
 
-            it "doesn't show the remaining votes counter" do
+            it "does not show the remaining votes counter" do
               visit_component
 
               expect(page).to have_css(".voting-rules")
-              expect(page).to have_no_css(".remaining-votes-counter")
+              expect(page).not_to have_css(".remaining-votes-counter")
             end
           end
 
@@ -192,7 +192,7 @@ describe "Support Proposal", type: :system, slow: true do
           end
         end
 
-        context "when the proposal is not voted yet but the user isn't authorized" do
+        context "when the proposal is not voted yet but the user is not authorized" do
           before do
             permissions = {
               vote: {
@@ -224,7 +224,7 @@ describe "Support Proposal", type: :system, slow: true do
           it "is not able to vote it again" do
             within "#proposal-#{proposal.id}-vote-button" do
               expect(page).to have_button("Already supported")
-              expect(page).to have_no_button("Support")
+              expect(page).not_to have_button("Support")
             end
           end
 
@@ -292,10 +292,10 @@ describe "Support Proposal", type: :system, slow: true do
         end
 
         page.find_link rejected_proposal_title
-        expect(page).to have_no_selector("#proposal-#{rejected_proposal.id}-vote-button")
+        expect(page).not_to have_selector("#proposal-#{rejected_proposal.id}-vote-button")
 
         click_link rejected_proposal_title
-        expect(page).to have_no_selector("#proposal-#{rejected_proposal.id}-vote-button")
+        expect(page).not_to have_selector("#proposal-#{rejected_proposal.id}-vote-button")
       end
     end
 
@@ -312,7 +312,7 @@ describe "Support Proposal", type: :system, slow: true do
         login_as user, scope: :user
       end
 
-      it "doesn't allow users to vote to a proposal that's reached the limit" do
+      it "does not allow users to vote to a proposal that is reached the limit" do
         create(:proposal_vote, proposal:)
         visit_component
 
@@ -381,7 +381,7 @@ describe "Support Proposal", type: :system, slow: true do
         login_as user, scope: :user
       end
 
-      it "doesn't count votes unless the minimum is achieved" do
+      it "does not count votes unless the minimum is achieved" do
         visit_component
 
         proposal_elements = proposals.map do |proposal|

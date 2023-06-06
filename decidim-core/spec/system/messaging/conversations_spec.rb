@@ -4,7 +4,7 @@ require "spec_helper"
 
 describe "Conversations", type: :system do
   let!(:organization) { create(:organization, twitter_handler: "redesigned") }
-  let(:user) { create :user, :confirmed, organization: }
+  let(:user) { create(:user, :confirmed, organization:) }
   let!(:redesign_enabled?) { true }
 
   before do
@@ -23,7 +23,7 @@ describe "Conversations", type: :system do
 
     it "shows the topbar button as inactive" do
       within "#dropdown-summary-account" do
-        expect(page).to have_no_selector("span[data-unread-items]")
+        expect(page).not_to have_selector("span[data-unread-items]")
       end
     end
   end
@@ -53,7 +53,7 @@ describe "Conversations", type: :system do
     it_behaves_like "accessible page"
 
     it "shows an empty conversation page" do
-      expect(page).to have_no_selector(".card--list__item")
+      expect(page).not_to have_selector(".card--list__item")
       expect(page).to have_current_path decidim.new_conversation_path(recipient_id: recipient.id)
     end
 
@@ -87,7 +87,7 @@ describe "Conversations", type: :system do
       end
 
       context "and recipient follows user" do
-        let!(:follow) { create :follow, user: recipient, followable: user }
+        let!(:follow) { create(:follow, user: recipient, followable: user) }
 
         before do
           visit decidim.new_conversation_path(recipient_id: recipient.id)
@@ -153,7 +153,7 @@ describe "Conversations", type: :system do
 
       it "shows the topbar button as inactive" do
         within "#dropdown-summary-account" do
-          expect(page).to have_no_selector("span[data-unread-items]")
+          expect(page).not_to have_selector("span[data-unread-items]")
         end
       end
 
@@ -182,7 +182,7 @@ describe "Conversations", type: :system do
         before do
           click_button "Send"
           expect(page).to have_selector(".conversation__message:last-child", text: message_body)
-          relogin_as interlocutor
+          relogin_as interlocutor, scope: :user
           visit_inbox
         end
 
@@ -190,7 +190,7 @@ describe "Conversations", type: :system do
           expect(page).to have_selector(".conversation__item-unread", text: "2")
         end
 
-        it "appears as read after it's seen", :slow do
+        it "appears as read after it is seen", :slow do
           click_link "conversation-#{conversation.id}"
           expect(page).to have_content("Please reply!")
 
@@ -238,7 +238,7 @@ describe "Conversations", type: :system do
       end
 
       context "and interlocutor follows user" do
-        let!(:follow) { create :follow, user: interlocutor, followable: user }
+        let!(:follow) { create(:follow, user: interlocutor, followable: user) }
 
         before do
           visit_inbox
@@ -287,7 +287,7 @@ describe "Conversations", type: :system do
       context "when someone direct messages disabled" do
         let!(:interlocutor2) { create(:user, :confirmed, organization:, direct_message_types: "followed-only") }
 
-        it "can't be selected on the mentioned list", :slow do
+        it "cannot be selected on the mentioned list", :slow do
           visit_inbox
           expect(page).to have_content("New conversation")
           click_button "New conversation"
@@ -300,7 +300,7 @@ describe "Conversations", type: :system do
   end
 
   describe "when having a conversation with multiple participants" do
-    context "and it's with only one participant" do
+    context "and it is with only one participant" do
       let(:user1) { create(:user, organization:) }
       let!(:conversation2) do
         Decidim::Messaging::Conversation.start!(
@@ -349,7 +349,7 @@ describe "Conversations", type: :system do
       end
     end
 
-    context "and it's with four participants" do
+    context "and it is with four participants" do
       let(:user1) { create(:user, organization:) }
       let(:user2) { create(:user_group, organization:) }
       let(:user3) { create(:user, organization:) }
@@ -403,13 +403,13 @@ describe "Conversations", type: :system do
             expect(page).to have_css("img[alt='Avatar: #{user1.name}']")
             expect(page).to have_css("img[alt='Avatar: #{user2.name}']")
             expect(page).to have_css("img[alt='Avatar: #{user3.name}']")
-            expect(page).to have_no_css("img[alt='Avatar: #{user.name}']")
+            expect(page).not_to have_css("img[alt='Avatar: #{user.name}']")
           end
         end
       end
     end
 
-    context "and it's with ten participants" do
+    context "and it is with ten participants" do
       let(:user1) { create(:user, organization:) }
       let(:user2) { create(:user_group, organization:) }
       let(:user3) { create(:user, organization:) }
@@ -497,7 +497,7 @@ describe "Conversations", type: :system do
       visit_inbox
 
       within ".conversation__container" do
-        expect(page).to have_selector(".conversation__item img[alt='Avatar: Participant deleted']")
+        expect(page).to have_selector(".conversation__item img[alt='Avatar: Deleted participant']")
         expect(page).to have_selector(".conversation__item", text: "who wants apples?")
       end
     end
@@ -506,7 +506,7 @@ describe "Conversations", type: :system do
       visit_inbox
       click_link "conversation-#{conversation.id}"
 
-      expect(page).to have_content("Conversation with\nParticipant deleted")
+      expect(page).to have_content("Conversation with\nDeleted participant")
       expect(page).to have_content("who wants apples?")
     end
   end

@@ -7,7 +7,7 @@ module Decidim
     subject { initiative }
 
     let(:organization) { create(:organization) }
-    let(:initiative) { build :initiative }
+    let(:initiative) { build(:initiative) }
 
     let(:initiatives_type_minimum_committee_members) { 2 }
     let(:initiatives_type) do
@@ -55,7 +55,7 @@ module Decidim
     end
 
     context "when published initiative" do
-      let(:published_initiative) { build :initiative }
+      let(:published_initiative) { build(:initiative) }
       let(:online_allowed_type) { create(:initiatives_type, :online_signature_enabled, organization:) }
       let(:online_allowed_scope) { create(:initiatives_type_scope, type: online_allowed_type) }
 
@@ -190,7 +190,7 @@ module Decidim
           expect(initiative).not_to be_supports_goal_reached
         end
 
-        it "can't be greater than 100" do
+        it "cannot be greater than 100" do
           initiative.update(online_votes: { scope_id => initiative.scoped_type.supports_required, "total" => initiative.scoped_type.supports_required * 2 })
           expect(initiative.percentage).to eq(100)
           expect(initiative).to be_supports_goal_reached
@@ -209,7 +209,7 @@ module Decidim
           expect(initiative).not_to be_supports_goal_reached
         end
 
-        it "can't be greater than 100" do
+        it "cannot be greater than 100" do
           online_votes = initiative.scoped_type.supports_required * 4
           offline_votes = initiative.scoped_type.supports_required * 4
           initiative.update(offline_votes: { scope_id => offline_votes, "total" => offline_votes },

@@ -16,7 +16,7 @@ module Decidim
 
       let(:scopes) { create_list(:scope, 2, parent: scope) }
 
-      it { is_expected.to contain_exactly(*scopes) }
+      it { is_expected.to match_array(scopes) }
     end
 
     context "with two scopes with the same code and organization" do
@@ -61,12 +61,12 @@ module Decidim
       let(:subscope) { create(:subscope, parent: scope) }
       let(:subsubscope) { create(:subscope, parent: subscope) }
 
-      it "don't allows two scopes cycles" do
+      it "do not allows two scopes cycles" do
         scope.parent = subscope
         expect(subject).to be_invalid
       end
 
-      it "don't allows three scopes cycles" do
+      it "do not allows three scopes cycles" do
         scope.parent = subsubscope
         expect(subject).to be_invalid
       end

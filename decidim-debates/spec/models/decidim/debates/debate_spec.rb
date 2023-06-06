@@ -5,7 +5,7 @@ require "spec_helper"
 describe Decidim::Debates::Debate do
   subject { debate }
 
-  let(:debate) { build :debate }
+  let(:debate) { build(:debate) }
   let(:organization) { debate.component.organization }
 
   it { is_expected.to be_valid }
@@ -29,7 +29,7 @@ describe Decidim::Debates::Debate do
   end
 
   context "without a title" do
-    let(:debate) { build :debate, title: nil }
+    let(:debate) { build(:debate, title: nil) }
 
     it { is_expected.not_to be_valid }
   end
@@ -40,13 +40,13 @@ describe Decidim::Debates::Debate do
     end
 
     context "when author is set" do
-      let(:debate) { build :debate, :participant_author }
+      let(:debate) { build(:debate, :participant_author) }
 
       it { is_expected.not_to be_official }
     end
 
     context "when it is authored by a user group" do
-      let(:debate) { build :debate, :user_group_author }
+      let(:debate) { build(:debate, :user_group_author) }
 
       it { is_expected.not_to be_official }
     end
@@ -54,13 +54,13 @@ describe Decidim::Debates::Debate do
 
   describe "ama?" do
     context "when it has both start_time and end_time set" do
-      let(:debate) { build :debate, :open_ama }
+      let(:debate) { build(:debate, :open_ama) }
 
       it { is_expected.to be_ama }
     end
 
-    context "when it doesn't have both start_time and end_time set" do
-      let(:debate) { build :debate, :open_ama, end_time: nil }
+    context "when it does not have both start_time and end_time set" do
+      let(:debate) { build(:debate, :open_ama, end_time: nil) }
 
       it { is_expected.not_to be_ama }
     end
@@ -77,13 +77,13 @@ describe Decidim::Debates::Debate do
 
     context "when it is an AMA debate" do
       context "when current time is between the range" do
-        let(:debate) { build :debate, start_time: 1.day.ago, end_time: 1.day.from_now }
+        let(:debate) { build(:debate, start_time: 1.day.ago, end_time: 1.day.from_now) }
 
         it { is_expected.to be_open_ama }
       end
 
       context "when current time is not between the range" do
-        let(:debate) { build :debate, start_time: 1.day.from_now, end_time: 2.days.from_now }
+        let(:debate) { build(:debate, start_time: 1.day.from_now, end_time: 2.days.from_now) }
 
         it { is_expected.not_to be_open_ama }
       end
@@ -94,7 +94,7 @@ describe Decidim::Debates::Debate do
     subject { debate.accepts_new_comments? }
 
     context "when the debate time has ended" do
-      let(:debate) { build :debate, start_time: 2.days.ago, end_time: 1.day.ago }
+      let(:debate) { build(:debate, start_time: 2.days.ago, end_time: 1.day.ago) }
 
       it { is_expected.to be_falsey }
     end
@@ -108,7 +108,7 @@ describe Decidim::Debates::Debate do
     end
 
     context "when comments are enabled" do
-      let(:debate) { build :debate, :participant_author }
+      let(:debate) { build(:debate, :participant_author) }
 
       before do
         allow(debate).to receive(:commentable?).and_return(true)
@@ -134,7 +134,7 @@ describe Decidim::Debates::Debate do
     end
 
     context "when the debate has been closed" do
-      let(:debate) { build :debate, :participant_author, :closed }
+      let(:debate) { build(:debate, :participant_author, :closed) }
 
       it { is_expected.to be_falsey }
     end

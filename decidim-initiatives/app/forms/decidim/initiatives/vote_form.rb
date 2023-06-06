@@ -83,6 +83,7 @@ module Decidim
       def user_authorized_scope
         return scope if handler_name.blank?
         return unless authorized?
+        return if authorization.metadata.blank?
 
         @user_authorized_scope ||= authorized_scope_candidates.find do |scope|
           scope&.id == authorization.metadata.symbolize_keys[:scope_id]
@@ -136,7 +137,7 @@ module Decidim
         errors.add(:document_number, :invalid) unless authorized? && authorization_handler && authorization.unique_id == authorization_handler.unique_id
       end
 
-      # Private: Checks if there's any existing vote that matches the user's data.
+      # Private: Checks if there is any existing vote that matches the user's data.
       def already_voted?
         errors.add(:document_number, :taken) if initiative.votes.exists?(hash_id:, scope:)
       end
@@ -157,7 +158,7 @@ module Decidim
         ).first
       end
 
-      # Private: Checks if the authorization hasn't expired or is invalid.
+      # Private: Checks if the authorization has not expired or is invalid.
       def authorized?
         authorization_status&.first == :ok
       end

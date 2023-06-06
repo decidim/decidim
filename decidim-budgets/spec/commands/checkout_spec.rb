@@ -15,7 +15,7 @@ module Decidim::Budgets
         organization: user.organization
       )
     end
-    let(:budget) { create :budget, component: }
+    let(:budget) { create(:budget, component:) }
 
     let(:projects) { create_list(:project, 2, budget:, budget_amount: 45_000_000) }
 
@@ -64,7 +64,7 @@ module Decidim::Budgets
     end
 
     context "when the voting rule is set to threshold percent" do
-      context "when the order total budget doesn't exceed the threshold" do
+      context "when the order total budget does not exceed the threshold" do
         let(:projects) { create_list(:project, 2, budget:, budget_amount: 30_000_000) }
 
         it "broadcasts invalid" do
@@ -74,7 +74,7 @@ module Decidim::Budgets
     end
 
     context "when the voting rule is set to minimum projects number" do
-      context "and the order doesn't reach the minimum number of projects" do
+      context "and the order does not reach the minimum number of projects" do
         let(:voting_rule) { :with_budget_projects_range }
 
         it "broadcasts invalid" do
@@ -123,7 +123,7 @@ module Decidim::Budgets
         end
       end
 
-      context "and the order doesn't reach the minimum number of projects" do
+      context "and the order does not reach the minimum number of projects" do
         let(:projects) { create_list(:project, 2, budget:, budget_amount: 45_000_000) }
 
         it "broadcasts invalid" do

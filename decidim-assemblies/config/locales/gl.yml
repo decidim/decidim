@@ -345,8 +345,6 @@ gl:
         working_group: Grupo de traballo
       index:
         title: Asembleas
-      last_activity:
-        new_assembly: Nova montaxe
       pages:
         home:
           highlighted_assemblies:
@@ -414,9 +412,6 @@ gl:
         related_assemblies: Xuntanzas relacionadas
     statistics:
       assemblies_count: Xuntanzas
-  errors:
-    messages:
-      cannot_be_blank: non pode estar baleiro
   layouts:
     decidim:
       assemblies:

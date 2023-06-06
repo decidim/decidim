@@ -8,12 +8,30 @@ module Decidim
     describe AttachmentType do
       include_context "with a graphql class type"
 
+      let(:title) { { en: "Participation guidelines", es: "Pautas de participación", ca: "Pautes de participació" } }
+      let(:description) { { en: "Read through these guidelines carefully.", es: "Lea atentamente estas pautas.", ca: "Llegiu atentament aquestes directrius." } }
       let(:url) { "https://foo.bar/baz" }
       let(:file_type) { "image" }
       let(:thumbnail) { "https://foo.bar/baz.thumb" }
 
       let(:model) do
-        double(url:, file_type:, thumbnail_url: thumbnail)
+        double(title:, description:, url:, file_type:, thumbnail_url: thumbnail)
+      end
+
+      describe "title" do
+        let(:query) { "{ title { translations { locale text } } }" }
+
+        it "returns the attachment's url" do
+          expect(response).to eq("title" => { "translations" => title.map { |locale, text| { "locale" => locale.to_s, "text" => text } } })
+        end
+      end
+
+      describe "description" do
+        let(:query) { "{ description { translations { locale text } } }" }
+
+        it "returns the attachment's url" do
+          expect(response).to eq("description" => { "translations" => description.map { |locale, text| { "locale" => locale.to_s, "text" => text } } })
+        end
       end
 
       describe "url" do

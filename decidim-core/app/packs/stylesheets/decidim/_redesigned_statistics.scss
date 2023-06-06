@@ -1,0 +1,15 @@
+.statistic {
+  @apply flex flex-col items-start gap-2 p-4 rounded border-[3px] border-background;
+
+  &__container {
+    @apply grid grid-cols-2 md:grid-cols-[repeat(auto-fit,minmax(0,120px))] gap-4;
+  }
+
+  &__title {
+    @apply w-full truncate text-gray-2 font-normal text-sm;
+  }
+
+  &__number {
+    @apply w-full text-gray-2 font-bold text-3xl;
+  }
+}

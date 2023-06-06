@@ -1,10 +1,10 @@
 <% total ||= 25 * Faker::Number.between(from: 1, to: 10) %>
 <% progress ||= Faker::Number.between(from: 0, to: total) %>
-<% percent = number_to_percentage((progress.to_f/total) * 100, precision: 0) %>
+<% percent = number_to_percentage((progress.to_f / total) * 100, precision: 0) %>
 <% vertical ||= false %>
 <% text ||= "Apoyos" %>
 <% display ||= "slash" %>
-<div class="progress__bar<%= (vertical) ? " progress__bar--vertical" : "" %>">
+<div class="progress__bar<%= vertical ? " progress__bar--vertical" : "" %>">
   <div class="progress__bar__title">
     <% if (display == 'slash') %>
       <span class="progress__bar__number"><%= progress %></span>/<%= total %>
@@ -18,6 +18,6 @@
     <div class="progress__bar__bar--incomplete" style="width:calc(100% - <%= percent %>);"></div>
   </div>
   <div class="progress__bar__subtitle">
-    Proposta <%= (percent.to_f > 66) ? "molt" : (percent.to_f < 33) ? "poc" : "" %> popular <%= partial "help" %>
+    Proposta <%= percent.to_f > 66 ? "molt" : percent.to_f < 33 ? "poc" : "" %> popular <%= partial "help" %>
   </div>
 </div>

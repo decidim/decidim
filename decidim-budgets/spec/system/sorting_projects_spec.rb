@@ -6,8 +6,8 @@ describe "Sorting projects", type: :system do
   include_context "with a component"
   let(:manifest_name) { "budgets" }
 
-  let(:organization) { create :organization }
-  let!(:user) { create :user, :confirmed, organization: }
+  let(:organization) { create(:organization) }
+  let!(:user) { create(:user, :confirmed, organization:) }
   let(:project) { projects.first }
 
   let!(:component) do
@@ -17,7 +17,7 @@ describe "Sorting projects", type: :system do
            participatory_space: participatory_process)
   end
 
-  let(:budget) { create :budget, component: }
+  let(:budget) { create(:budget, component:) }
   let!(:project1) { create(:project, budget:, budget_amount: 25_000_000) }
   let!(:project2) { create(:project, budget:, budget_amount: 50_000_000) }
 
@@ -39,7 +39,7 @@ describe "Sorting projects", type: :system do
     it "lists the projects ordered by selected option" do
       # expect(page).to have_selector("#projects li.is-dropdown-submenu-parent a", text: selected_option)
       within "#projects li.is-dropdown-submenu-parent a" do
-        expect(page).to have_no_content("Random order", wait: 20)
+        expect(page).not_to have_content("Random order", wait: 20)
         expect(page).to have_content(selected_option)
       end
 
@@ -76,8 +76,8 @@ describe "Sorting projects", type: :system do
 
     context "when ordering by most votes" do
       before do
-        order = build :order, budget: budget
-        create :line_item, order: order, project: project2
+        order = build(:order, budget:)
+        create(:line_item, order:, project: project2)
         order = Decidim::Budgets::Order.last
         order.checked_out_at = Time.zone.now
         order.save
@@ -92,6 +92,29 @@ describe "Sorting projects", type: :system do
 
         expect(page).to have_selector("#projects .budget-list .budget-list__item:first-child", text: translated(project2.title))
         expect(page).to have_selector("#projects .budget-list .budget-list__item:last-child", text: translated(project1.title))
+      end
+
+      it "automatically sorts by votes and respect the pagination" do
+        component.update!(settings: { projects_per_page: 1 })
+
+        visit_budget
+
+        within "#projects li.is-dropdown-submenu-parent a" do
+          expect(page).to have_content("Most voted")
+        end
+
+        # project2 on first page
+        expect(page).to have_content(translated(project2.title))
+        expect(page).not_to have_content(translated(project1.title))
+
+        within "#projects [data-pagination]" do
+          expect(page).to have_content("2")
+          page.find("a", text: "2").click
+        end
+
+        # project1 on second page
+        expect(page).not_to have_content(translated(project2.title))
+        expect(page).to have_content(translated(project1.title))
       end
     end
   end

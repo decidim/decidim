@@ -49,6 +49,24 @@ module Decidim
       end
     end
 
+    describe "name" do
+      context "with an empty name" do
+        let(:name) { "" }
+
+        it "is invalid" do
+          expect(subject).not_to be_valid
+        end
+      end
+
+      context "with invalid characters" do
+        let(:name) { "foo@bar" }
+
+        it "is invalid" do
+          expect(subject).not_to be_valid
+        end
+      end
+    end
+
     describe "email" do
       context "with an empty email" do
         let(:email) { "" }
@@ -58,7 +76,7 @@ module Decidim
         end
       end
 
-      context "when it's already in use in the same organization" do
+      context "when it is already in use in the same organization" do
         context "and belongs to a user" do
           let!(:existing_user) { create(:user, email:, organization:) }
 
@@ -76,7 +94,7 @@ module Decidim
         end
       end
 
-      context "when it's already in use in another organization" do
+      context "when it is already in use in another organization" do
         let!(:existing_user) { create(:user, email:) }
 
         it "is valid" do
@@ -94,7 +112,7 @@ module Decidim
         end
       end
 
-      context "when it's already in use in the same organization" do
+      context "when it is already in use in the same organization" do
         context "and belongs to a user" do
           let!(:existing_user) { create(:user, nickname:, organization:) }
 
@@ -112,7 +130,7 @@ module Decidim
         end
       end
 
-      context "when it's already in use in another organization" do
+      context "when it is already in use in another organization" do
         let!(:existing_user) { create(:user, nickname:) }
 
         it "is valid" do
@@ -138,7 +156,7 @@ module Decidim
     end
 
     describe "personal_url" do
-      context "when it doesn't start with http" do
+      context "when it does not start with http" do
         let(:personal_url) { "example.org" }
 
         it "adds it" do
@@ -146,7 +164,7 @@ module Decidim
         end
       end
 
-      context "when it's not a valid URL" do
+      context "when it is not a valid URL" do
         let(:personal_url) { "foobar, aa" }
 
         it "is invalid" do

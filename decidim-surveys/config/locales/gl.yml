@@ -58,10 +58,7 @@ gl:
           update:
             invalid: Houbo erros ao gardar a enquisa.
             success: A enquisa gardouse correctamente.
-      last_activity:
-        new_survey_at_html: "<span>Nova enquisa en %{link}</span>"
       surveys:
         answer:
           invalid: Houbo erros ao responder a enquisa.
-          spam_detected: Produciuse un problema ao contestar o formulario. É posíbel que o fixeras rápido de máis, podes tentalo de novo?
           success: A enquisa respondeu con éxito.

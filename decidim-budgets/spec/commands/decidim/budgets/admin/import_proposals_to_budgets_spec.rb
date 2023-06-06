@@ -17,7 +17,7 @@ module Decidim
               participatory_space: proposal.component.participatory_space
             )
           end
-          let(:budget) { create :budget, component: current_component }
+          let(:budget) { create(:budget, component: current_component) }
           let!(:current_user) { create(:user, :admin, organization: current_component.participatory_space.organization) }
           let!(:organization) { current_component.participatory_space.organization }
           let(:scope) { nil }
@@ -47,7 +47,7 @@ module Decidim
               expect { command.call }.to broadcast(:invalid)
             end
 
-            it "doesn't create the project" do
+            it "does not create the project" do
               expect do
                 command.call
               end.not_to change(Project, :count)
@@ -68,9 +68,9 @@ module Decidim
             end
 
             context "when there are no proposals in the selected scope" do
-              let(:scope) { create :scope, organization: }
+              let(:scope) { create(:scope, organization:) }
 
-              it "doesn't create any project" do
+              it "does not create any project" do
                 expect do
                   command.call
                 end.not_to(change { Project.where(budget:).where(scope:).count })
@@ -85,7 +85,7 @@ module Decidim
                 second_proposal
               end
 
-              it "doesn't import it again" do
+              it "does not import it again" do
                 expect do
                   command.call
                 end.to change { Project.where(budget:).count }.by(1)
@@ -100,7 +100,7 @@ module Decidim
               context "and the current component was not published" do
                 before { current_component.unpublish! }
 
-                it "doesn't import it again" do
+                it "does not import it again" do
                   expect do
                     command.call
                   end.to change { Project.where(budget:).count }.by(1)
@@ -134,7 +134,7 @@ module Decidim
               expect(new_project.budget_amount).to eq(proposal.cost)
             end
 
-            context "when the proposal doesn't have a cost" do
+            context "when the proposal does not have a cost" do
               let!(:proposals) { create_list(:proposal, 3, :accepted, cost: nil) }
 
               it "imports the default budget" do

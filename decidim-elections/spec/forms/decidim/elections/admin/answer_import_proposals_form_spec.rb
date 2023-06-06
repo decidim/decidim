@@ -9,7 +9,7 @@ module Decidim
         subject { form }
 
         let(:election) { question.election }
-        let(:question) { create :question }
+        let(:question) { create(:question) }
         let(:answer) { create(:election_answer) }
         let(:component) { election.component }
         let(:origin_component) { create(:proposal_component, participatory_space: component.participatory_space) }
@@ -34,7 +34,7 @@ module Decidim
           it { is_expected.to be_valid }
         end
 
-        context "when there's no target component" do
+        context "when there is no target component" do
           let(:origin_component) { nil }
 
           it { is_expected.to be_invalid }

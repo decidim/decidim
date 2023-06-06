@@ -7,7 +7,7 @@
   </div>
   <% if @activeuser == "logged" %>
     <div class="card__content absolutes">
-      <div class="card__header" <%= "style=opacity:.2" if level == 0 %>>
+      <div class="card__header" <%= "style=opacity:.2" if level.zero? %>>
         <div class="badge-container">
           <%= external_icon "badges/" + template + ".svg", class: "badge__logo", remove_icon_class: true %>
         </div>
@@ -25,7 +25,7 @@
     </div>
   <% else %>
     <div class="card__content">
-      <div class="card__header" <%= "style=opacity:.2" if level == 0 %>>
+      <div class="card__header" <%= "style=opacity:.2" if level.zero? %>>
         <div class="badge-container">
           <%= external_icon "badges/" + template + ".svg", class: "badge__logo", remove_icon_class: true %>
         </div>
@@ -37,7 +37,7 @@
   <% end %>
   <div class="card__footer card__footer--transparent">
     <div class="p-xs">
-      <%= render partial: page_path("profile") + "/badge-level", locals: { level: level } %>
+      <%= render partial: page_path("profile") + "/badge-level", locals: { level: } %>
     </div>
   </div>
 </article>

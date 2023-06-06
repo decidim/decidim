@@ -17,12 +17,12 @@ $(function(){
 
 More information in https://guides.rubyonrails.org/webpacker.html[Rails Webpacker documentation].
 
-If you want to replace a whole file existin in Decidim you can do it by creating a file in your application with the same name and the same path. I.e: to replace `decidim-core/app/packs/src/decidim/editor.js` you should create in your Rails app a file in
-  `app/packs/src/decidim/editor.js` and it will have more priority over the Decidim file.
+If you want to replace a whole file existing in Decidim you can do it by creating a file in your application with the same name and the same path. I.e: to replace `decidim-core/app/packs/src/decidim/editor/index.js` you should create in your Rails app a file in
+  `app/packs/src/decidim/editor/index.js` and it will have more priority over the Decidim file.
 
 == Head extra file
 
-There's an special partial file for adding inline content in every public page. You just need to create a file called `app/views/layouts/decidim/_head_extra.html.erb`:
+There is an special partial file for adding inline content in every public page. You just need to create a file called `app/views/layouts/decidim/_head_extra.html.erb`:
 
 [source,javascript]
 ----
@@ -56,7 +56,7 @@ in your `config/initializers/decidim.rb` file. Please do notice that this has se
   config.enable_html_header_snippets = true
 ----
 
-Then you'll have a new textarea field called "Header snippets" in Administration -> Configuration -> Appearance (URL `/admin/organization/appearance/edit`):
+Then you will have a new textarea field called "Header snippets" in Administration -> Configuration -> Appearance (URL `/admin/organization/appearance/edit`):
 
 image::header-snippet.png[Header snippet]
 

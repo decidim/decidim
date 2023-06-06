@@ -48,7 +48,7 @@ module Decidim
       def link_to_current_or_new_conversation_with(user, title = t("decidim.contact"))
         conversation_path = current_or_new_conversation_path_with(user)
         if conversation_path
-          link_to conversation_path, title: title do
+          link_to(conversation_path, title:) do
             icon "envelope-closed", aria_label: title, class: "icon--small"
           end
         else
@@ -72,12 +72,12 @@ module Decidim
       # Finds the right path to the conversation the current user and another
       # user (the interlocutor).
       #
-      # * If there's no current user, it returns to the login form path.
+      # * If there is no current user, it returns to the login form path.
       #
-      # * If there's a prior existing conversation between the users it returns
+      # * If there is a prior existing conversation between the users it returns
       #   the path to the existing conversation.
       #
-      # * If there's no prior conversation between the users, it checks if the
+      # * If there is no prior conversation between the users, it checks if the
       #   the interlocutor accepts the current user to new conversation.
       #   If affirmative, it returns the new conversation form path.
       #

@@ -8,7 +8,7 @@ module Decidim::Assemblies
 
     let(:assembly) { create(:assembly) }
     let(:user_entity) { nil }
-    let!(:current_user) { create :user, :confirmed, organization: assembly.organization }
+    let!(:current_user) { create(:user, :confirmed, organization: assembly.organization) }
     let(:existing_user) { false }
     let(:non_user_avatar) do
       ActiveStorage::Blob.create_and_upload!(

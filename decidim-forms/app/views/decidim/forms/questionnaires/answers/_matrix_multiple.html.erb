@@ -20,7 +20,7 @@
                 <%= check_box_tag "questionnaire[responses][#{answer_idx}][choices][][body]",
                                       translated_attribute(answer_option.body),
                                       choice.present?,
-                                      id: "#{choice_id}_body", disabled: disabled %>
+                                      id: "#{choice_id}_body", disabled: %>
                 <%= hidden_field_tag "questionnaire[responses][#{answer_idx}][choices][][answer_option_id]",
                                       answer_option.id,
                                       id: "#{choice_id}_answer_option",
@@ -34,7 +34,7 @@
                   choice.try(:custom_body),
                   id: "#{choice_id}_custom_body",
                   disabled: true,
-                  maxlength: maxlength %>
+                  maxlength: %>
                 <% end %>
               </div>
             </td>

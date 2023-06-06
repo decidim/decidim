@@ -323,8 +323,6 @@ zh-CN:
         working_group: 工作组
       index:
         title: 程序集
-      last_activity:
-        new_assembly: 新建程序集
       pages:
         home:
           highlighted_assemblies:
@@ -400,9 +398,6 @@ zh-CN:
     participatory_processes:
       show:
         related_assemblies: 相关的会议
-  errors:
-    messages:
-      cannot_be_blank: 不能为空
   layouts:
     decidim:
       assemblies:

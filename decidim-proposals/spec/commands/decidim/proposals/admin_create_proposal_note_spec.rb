@@ -32,7 +32,7 @@ module Decidim
               expect { command.call }.to broadcast(:invalid)
             end
 
-            it "doesn't create the proposal note" do
+            it "does not create the proposal note" do
               expect do
                 command.call
               end.not_to change(ProposalVote, :count)

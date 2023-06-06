@@ -6,9 +6,9 @@ describe "Collaborative drafts", type: :system do
   include_context "with a component"
   let(:manifest_name) { "proposals" }
 
-  let!(:category) { create :category, participatory_space: participatory_process }
-  let!(:scope) { create :scope, organization: }
-  let!(:user) { create :user, :confirmed, organization: }
+  let!(:category) { create(:category, participatory_space: participatory_process) }
+  let!(:scope) { create(:scope, organization:) }
+  let!(:user) { create(:user, :confirmed, organization:) }
   let(:scoped_participatory_process) { create(:participatory_process, :with_steps, organization:, scope:) }
 
   let(:address) { "Some address" }
@@ -65,7 +65,7 @@ describe "Collaborative drafts", type: :system do
             visit new_collaborative_draft_path
 
             within "form.new_collaborative_draft" do
-              expect(page).to have_no_content("Scope")
+              expect(page).not_to have_content("Scope")
             end
           end
         end
@@ -287,7 +287,7 @@ describe "Collaborative drafts", type: :system do
           end
         end
 
-        context "when the user isn't authorized" do
+        context "when the user is not authorized" do
           before do
             permissions = {
               create: {
@@ -351,7 +351,7 @@ describe "Collaborative drafts", type: :system do
         it "does not show the creation button" do
           visit_component
           click_link "Access collaborative drafts"
-          expect(page).to have_no_link("New collaborative draft")
+          expect(page).not_to have_link("New collaborative draft")
         end
       end
     end

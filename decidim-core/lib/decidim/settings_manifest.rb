@@ -82,7 +82,7 @@ module Decidim
     end
 
     # Semi-private: Attributes are an abstraction used by SettingsManifest
-    # to encapsulate behavior related to each individual settings field. Shouldn't
+    # to encapsulate behavior related to each individual settings field. Should not
     # be used from the outside.
     class Attribute
       include Decidim::AttributeObject::Model
@@ -92,6 +92,7 @@ module Decidim
         boolean: { klass: Boolean, default: false },
         integer: { klass: Integer, default: 0 },
         string: { klass: String, default: nil },
+        float: { klass: Float, default: nil },
         text: { klass: String, default: nil },
         array: { klass: Array, default: [] },
         enum: { klass: String, default: nil },

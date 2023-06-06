@@ -8,7 +8,7 @@ describe "Import proposals", type: :system do
 
   let(:manifest_name) { "proposals" }
   let(:participatory_space) { component.participatory_space }
-  let(:user) { create :user, organization: }
+  let(:user) { create(:user, organization:) }
 
   include_context "when managing a component as an admin"
 
@@ -24,10 +24,10 @@ describe "Import proposals", type: :system do
 
     it "returns error without a file" do
       click_button "Import"
-      expect(page).to have_content("There's an error in this field")
+      expect(page).to have_content("There is an error in this field")
     end
 
-    it "doesnt change proposal amount if one imported row fails" do
+    it "does not change proposal amount if one imported row fails" do
       dynamically_attach_file(:proposals_file_import_file, Decidim::Dev.asset("import_proposals_broken.csv"))
 
       click_button "Import"
@@ -44,7 +44,7 @@ describe "Import proposals", type: :system do
   end
 
   context "when the user is in user group" do
-    let(:user_group) { create :user_group, :confirmed, :verified, organization: }
+    let(:user_group) { create(:user_group, :confirmed, :verified, organization:) }
     let!(:membership) { create(:user_group_membership, user:, user_group:) }
 
     before do

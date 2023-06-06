@@ -42,13 +42,13 @@ module Decidim
         end
 
         def edit
-          enforce_permission_to :update, :project, project: project
+          enforce_permission_to(:update, :project, project:)
           @form = form(ProjectForm).from_model(project)
           @form.attachment = form(AttachmentForm).instance
         end
 
         def update
-          enforce_permission_to :update, :project, project: project
+          enforce_permission_to(:update, :project, project:)
           @form = form(ProjectForm).from_params(params, budget:)
 
           UpdateProject.call(@form, project) do
@@ -65,7 +65,7 @@ module Decidim
         end
 
         def destroy
-          enforce_permission_to :destroy, :project, project: project
+          enforce_permission_to(:destroy, :project, project:)
 
           DestroyProject.call(project, current_user) do
             on(:ok) do
@@ -152,8 +152,8 @@ module Decidim
             end
 
             on(:update_projects_selection) do
-              flash.now[:notice] = update_projects_bulk_response_successful(@response, :selected)
-              flash.now[:alert] = update_projects_bulk_response_errored(@response, :selected)
+              flash.now[:notice] = update_projects_bulk_response_successful(@response, :selected, selection: @selection)
+              flash.now[:alert] = update_projects_bulk_response_errored(@response, :selected, selection: @selection)
             end
           end
 
@@ -188,59 +188,47 @@ module Decidim
           @project ||= projects.find(params[:id])
         end
 
-        def update_projects_bulk_response_successful(response, subject)
+        def update_projects_bulk_response_successful(response, subject, extra = {})
           return if response[:successful].blank?
+
+          interpolations = {
+            subject_name: response[:subject_name],
+            projects: response[:successful].to_sentence
+          }
 
           case subject
           when :category
-            t(
-              "projects.update_category.success",
-              subject_name: response[:subject_name],
-              projects: response[:successful].to_sentence,
-              scope: "decidim.budgets.admin"
-            )
+            t("projects.update_category.success", scope: "decidim.budgets.admin", **interpolations)
           when :scope
-            t(
-              "projects.update_scope.success",
-              subject_name: response[:subject_name],
-              projects: response[:successful].to_sentence,
-              scope: "decidim.budgets.admin"
-            )
+            t("projects.update_scope.success", scope: "decidim.budgets.admin", **interpolations)
           when :selected
-            t(
-              "projects.update_selected.success",
-              subject_name: response[:subject_name],
-              projects: response[:successful].to_sentence,
-              scope: "decidim.budgets.admin"
-            )
+            if extra[:selection]
+              t("projects.update_selected.success.selected", scope: "decidim.budgets.admin", **interpolations)
+            else
+              t("projects.update_selected.success.unselected", scope: "decidim.budgets.admin", **interpolations)
+            end
           end
         end
 
-        def update_projects_bulk_response_errored(response, subject)
+        def update_projects_bulk_response_errored(response, subject, extra = {})
           return if response[:errored].blank?
+
+          interpolations = {
+            subject_name: response[:subject_name],
+            projects: response[:errored].to_sentence
+          }
 
           case subject
           when :category
-            t(
-              "projects.update_category.invalid",
-              subject_name: response[:subject_name],
-              projects: response[:errored].to_sentence,
-              scope: "decidim.budgets.admin"
-            )
+            t("projects.update_category.invalid", scope: "decidim.budgets.admin", **interpolations)
           when :scope
-            t(
-              "projects.update_scope.invalid",
-              subject_name: response[:subject_name],
-              projects: response[:errored].to_sentence,
-              scope: "decidim.budgets.admin"
-            )
+            t("projects.update_scope.invalid", scope: "decidim.budgets.admin", **interpolations)
           when :selected
-            t(
-              "projects.update_selected.invalid",
-              subject_name: response[:subject_name],
-              projects: response[:errored].to_sentence,
-              scope: "decidim.budgets.admin"
-            )
+            if extra[:selection]
+              t("projects.update_selected.invalid.selected", scope: "decidim.budgets.admin", **interpolations)
+            else
+              t("projects.update_selected.invalid.unselected", scope: "decidim.budgets.admin", **interpolations)
+            end
           end
         end
       end

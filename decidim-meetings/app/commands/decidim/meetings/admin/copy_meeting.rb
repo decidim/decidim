@@ -18,7 +18,7 @@ module Decidim
         # Executes the command. Broadcasts these events:
         #
         # - :ok when everything is valid.
-        # - :invalid if the form wasn't valid and we couldn't proceed.
+        # - :invalid if the form was not valid and we could not proceed.
         #
         # Returns nothing.
         def call
@@ -44,8 +44,8 @@ module Decidim
           @copied_meeting = Decidim.traceability.create!(
             Meeting,
             form.current_user,
-            scope: meeting.scope,
-            category: meeting.category,
+            scope: form.scope,
+            category: form.category,
             title: parsed_title,
             description: parsed_description,
             end_time: form.end_time,
@@ -60,10 +60,29 @@ module Decidim
             transparent: form.transparent,
             author: form.current_organization,
             questionnaire: form.questionnaire,
+            online_meeting_url: form.online_meeting_url,
+            type_of_meeting: form.type_of_meeting,
+            iframe_embed_type: form.iframe_embed_type,
+            iframe_access_level: form.iframe_access_level,
+            comments_enabled: form.comments_enabled,
+            comments_start_time: form.comments_start_time,
+            comments_end_time: form.comments_end_time,
+            registration_type: form.registration_type,
+            registration_url: form.registration_url,
+            **fields_from_meeting
+          )
+        end
+
+        def fields_from_meeting
+          {
             registrations_enabled: meeting.registrations_enabled,
             available_slots: meeting.available_slots,
-            registration_terms: meeting.registration_terms
-          )
+            registration_terms: meeting.registration_terms,
+            reserved_slots: meeting.reserved_slots,
+            customize_registration_email: meeting.customize_registration_email,
+            registration_form_enabled: meeting.registration_form_enabled,
+            registration_email_custom_content: meeting.registration_email_custom_content
+          }
         end
 
         def copy_services!

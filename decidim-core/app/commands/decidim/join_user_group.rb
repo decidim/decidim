@@ -15,7 +15,7 @@ module Decidim
     # Executes the command. Broadcasts these events:
     #
     # - :ok when everything is valid.
-    # - :invalid if we couldn't proceed.
+    # - :invalid if we could not proceed.
     #
     # Returns nothing.
     def call

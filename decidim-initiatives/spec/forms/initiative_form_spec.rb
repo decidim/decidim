@@ -80,7 +80,7 @@ module Decidim
           it { is_expected.to be_valid }
         end
 
-        context "when area is present but doesn't belong to organization" do
+        context "when area is present but does not belong to organization" do
           let(:area) { { area_id: decidim_area.id } }
           let(:decidim_area) { create(:area) }
 
@@ -168,8 +168,8 @@ module Decidim
 
           it "adds an error to the `:attachment` field" do
             expect(subject).not_to be_valid
-            expect(subject.errors.full_messages).to match_array(["Title can't be blank", "Attachment Needs to be reattached"])
-            expect(subject.errors.attribute_names).to match_array([:title, :attachment])
+            expect(subject.errors.full_messages).to contain_exactly("Title cannot be blank", "Attachment Needs to be reattached")
+            expect(subject.errors.attribute_names).to contain_exactly(:title, :attachment)
           end
         end
       end

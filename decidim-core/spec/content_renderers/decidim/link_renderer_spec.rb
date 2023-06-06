@@ -41,7 +41,7 @@ module Decidim
         it "renders link tag" do
           urls.each do |url|
             rendered = described_class.new(url).render
-            expect(rendered).to eq("<a href=\"#{url}\" target=\"_blank\" rel=\"nofollow noopener noreferrer ugc\">#{url}</a>")
+            expect(rendered).to eq("<a href=\"#{link_href(url)}\" target=\"_blank\" rel=\"nofollow noopener noreferrer ugc\">#{url}</a>")
           end
         end
       end
@@ -51,7 +51,7 @@ module Decidim
           urls.each do |url|
             text = ::Faker::Lorem.sentence
             rendered = described_class.new("#{text} #{url}").render
-            expect(rendered).to eq("#{text} <a href=\"#{url}\" target=\"_blank\" rel=\"nofollow noopener noreferrer ugc\">#{url}</a>")
+            expect(rendered).to eq("#{text} <a href=\"#{link_href(url)}\" target=\"_blank\" rel=\"nofollow noopener noreferrer ugc\">#{url}</a>")
           end
         end
       end
@@ -63,7 +63,7 @@ module Decidim
           urls.each do |url|
             punctuations.each do |punctuation|
               rendered = described_class.new("#{url}#{punctuation}").render
-              expect(rendered).to eq("<a href=\"#{url}\" target=\"_blank\" rel=\"nofollow noopener noreferrer ugc\">#{url}</a>#{punctuation}")
+              expect(rendered).to eq("<a href=\"#{link_href(url)}\" target=\"_blank\" rel=\"nofollow noopener noreferrer ugc\">#{url}</a>#{punctuation}")
             end
           end
         end
@@ -74,7 +74,7 @@ module Decidim
           urls.each do |url|
             text = ::Faker::Lorem.sentence
             rendered = described_class.new("#{url} #{text}").render
-            expect(rendered).to eq("<a href=\"#{url}\" target=\"_blank\" rel=\"nofollow noopener noreferrer ugc\">#{url}</a> #{text}")
+            expect(rendered).to eq("<a href=\"#{link_href(url)}\" target=\"_blank\" rel=\"nofollow noopener noreferrer ugc\">#{url}</a> #{text}")
           end
         end
       end
@@ -85,19 +85,28 @@ module Decidim
             before_text = ::Faker::Lorem.paragraph
             after_text = ::Faker::Lorem.sentence
             rendered = described_class.new("#{before_text} #{url} #{after_text}").render
-            expect(rendered).to eq("#{before_text} <a href=\"#{url}\" target=\"_blank\" rel=\"nofollow noopener noreferrer ugc\">#{url}</a> #{after_text}")
+            expect(rendered).to eq("#{before_text} <a href=\"#{link_href(url)}\" target=\"_blank\" rel=\"nofollow noopener noreferrer ugc\">#{url}</a> #{after_text}")
           end
         end
       end
 
       describe "link is not seperated with spaces" do
-        it "doesnt render a tag" do
+        it "does not render a tag" do
           urls.each do |url|
             before_text = ::Faker::Lorem.sentence
             after_text = ::Faker::Lorem.paragraph
             rendered = described_class.new("#{before_text}#{url}#{after_text}").render
-            expect(rendered).to eq("#{before_text}<a href=\"#{url + after_text.split.first}\" target=\"_blank\" rel=\"nofollow noopener noreferrer ugc\">#{url + after_text.split.first}</a> #{after_text.split.drop(1).join(" ")}")
+            expect(rendered).to eq("#{before_text}<a href=\"#{link_href(url + after_text.split.first)}\" target=\"_blank\" rel=\"nofollow noopener noreferrer ugc\">#{url + after_text.split.first}</a> #{after_text.split.drop(1).join(" ")}")
           end
+        end
+      end
+
+      def link_href(url)
+        if url.match?("%[A-Z0-9]{2}")
+          # Already escaped
+          url
+        else
+          CGI.escape(url).gsub("%3A", ":").gsub("%2F", "/").gsub("%28", "(").gsub("%29", ")")
         end
       end
     end

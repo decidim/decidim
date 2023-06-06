@@ -7,11 +7,11 @@ module Decidim
     describe MultiVoteForm do
       subject { described_class.from_params(attributes).with_context(context) }
 
-      let(:question) { create :question, :multiple }
-      let(:response1) { create :response, question: }
-      let(:response2) { create :response, question: }
-      let(:response3) { create :response, question: }
-      let(:response4) { create :response, question: }
+      let(:question) { create(:question, :multiple) }
+      let(:response1) { create(:response, question:) }
+      let(:response2) { create(:response, question:) }
+      let(:response3) { create(:response, question:) }
+      let(:response4) { create(:response, question:) }
       let(:responses) { [response1.id, response2.id] }
       let(:attributes) do
         {
@@ -56,7 +56,7 @@ module Decidim
 
         it "Returns a message error" do
           subject.validate
-          expect(subject.errors[:responses]).to include("Number of votes is invalid")
+          expect(subject.errors[:responses]).to include("Number of votes is invalid.")
         end
       end
 
@@ -67,7 +67,7 @@ module Decidim
 
         it "Returns a message error" do
           subject.validate
-          expect(subject.errors[:responses]).to include("Number of votes is invalid")
+          expect(subject.errors[:responses]).to include("Number of votes is invalid.")
         end
       end
     end

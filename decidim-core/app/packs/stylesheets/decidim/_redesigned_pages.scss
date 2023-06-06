@@ -1,53 +1,53 @@
-.page{
-  &__container{
+.page {
+  &__container {
     @apply flex flex-col gap-8 mb-24;
   }
 
-  &__accordion{
+  &__accordion {
     @apply border-4 border-background rounded p-4;
 
-    &-trigger{
+    &-trigger {
       @apply flex justify-between items-center cursor-pointer;
 
-      > :first-child{
+      > :first-child {
         @apply grow;
       }
 
-      > :last-child{
+      > :last-child {
         @apply flex-none;
       }
 
-      &-title{
+      &-title {
         @apply h4 text-secondary hover:underline;
       }
 
-      &-snippet{
+      &-snippet {
         @apply text-gray-2 mt-2;
       }
 
-      &-arrow{
+      &-arrow {
         @apply w-8 h-8 text-secondary fill-current first:block last:hidden;
       }
 
-      [role="button"][aria-expanded="true"] &-arrow{
+      [role="button"][aria-expanded="true"] &-arrow {
         @apply first:hidden last:block;
       }
     }
 
-    &-panel{
+    &-panel {
       @apply border-t border-gray-3 mt-4 pt-4;
 
-      ul{
+      ul {
         @apply space-y-4;
       }
 
-      a{
+      a {
         @apply hover:underline;
       }
     }
   }
 
-  &__grid{
+  &__grid {
     @apply grid grid-cols-1 md:grid-cols-2 gap-6;
   }
 }

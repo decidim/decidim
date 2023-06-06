@@ -6,8 +6,8 @@ module Decidim::Meetings
   describe Admin::CloseMeeting do
     subject { described_class.new(form, meeting) }
 
-    let(:meeting) { create :meeting }
-    let(:user) { create :user, :admin }
+    let(:meeting) { create(:meeting) }
+    let(:user) { create(:user, :admin) }
     let(:video_url) { Faker::Internet.url }
     let(:audio_url) { Faker::Internet.url }
     let(:closing_visible) { true }
@@ -46,7 +46,7 @@ module Decidim::Meetings
         expect { subject.call }.to broadcast(:invalid)
       end
 
-      it "doesn't perform any other action" do
+      it "does not perform any other action" do
         expect(meeting).not_to receive(:update!)
         expect(Decidim::ResourceLink).not_to receive(:create!)
 
@@ -98,7 +98,7 @@ module Decidim::Meetings
       end
 
       describe "events" do
-        let!(:follow) { create :follow, followable: meeting, user: }
+        let!(:follow) { create(:follow, followable: meeting, user:) }
 
         it "notifies the change" do
           expect(Decidim::EventsManager)

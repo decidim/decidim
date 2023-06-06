@@ -5,13 +5,13 @@
   <%= action_authorized_button_to(
         :endorse,
         path,
-        resource: resource,
-        method: method,
+        resource:,
+        method:,
         remote: true,
         class: button_classes,
-        id: "endorsement_button"
+        id: "endorsement-button"
       ) do %>
     <%= label %>
-    <%= icon "heart-add-line", class: "fill-current" %>
+    <%= endorse_icon %>
   <% end %>
 </div>

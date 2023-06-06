@@ -10,18 +10,19 @@ describe PasswordValidator do
     let(:errors) { ActiveModel::Errors.new(attribute.to_s => []) }
     let(:record) do
       double(
-        name: ::Faker::Name.name,
-        email: ::Faker::Internet.email,
-        nickname: ::Faker::Internet.username(specifier: 10..15),
+        name: Faker::Name.name,
+        email:,
+        nickname: Faker::Internet.username(specifier: 10..15),
         current_organization: organization,
         errors:,
         admin?: admin_record,
         previous_passwords:,
-        encrypted_password_was: ::Devise::Encryptor.digest(Decidim::User, "decidim123456"),
+        encrypted_password_was: Devise::Encryptor.digest(Decidim::User, "decidim123456"),
         encrypted_password_changed?: true
       )
     end
     let(:admin_record) { false }
+    let(:email) { Faker::Internet.email }
     let(:previous_passwords) { [] }
     let(:attribute) { "password" }
     let(:options) do
@@ -49,11 +50,11 @@ describe PasswordValidator do
       end
     end
 
-    context "when there is blacklisted passwords" do
+    context "when there is a list of denied passwords" do
       let(:example_password) { "examplepassword123456" }
 
       before do
-        allow(Decidim).to receive(:password_blacklist).and_return(
+        allow(Decidim).to receive(:denied_passwords).and_return(
           [
             example_password,
             /[a-z]*foobar\w*/
@@ -64,18 +65,18 @@ describe PasswordValidator do
       describe "example password" do
         let(:value) { example_password }
 
-        it "is blacklisted" do
+        it "is denied" do
           expect(validator).to be(false)
-          expect(record.errors[attribute]).to eq(["is blacklisted"])
+          expect(record.errors[attribute]).to include("is denied")
         end
       end
 
-      describe "regex blacklist" do
+      describe "regex denied" do
         let(:value) { "bazfoobar123456" }
 
         it "does not validate" do
           expect(validator).to be(false)
-          expect(record.errors[attribute]).to eq(["is blacklisted"])
+          expect(record.errors[attribute]).to include("is denied")
         end
       end
 
@@ -90,44 +91,44 @@ describe PasswordValidator do
     end
 
     describe "short password" do
-      let(:value) { ::Faker::Internet.password(max_length: ::PasswordValidator::MINIMUM_LENGTH - 1) }
+      let(:value) { Faker::Internet.password(max_length: PasswordValidator::MINIMUM_LENGTH - 1) }
 
       it "is too short" do
         expect(validator).to be(false)
-        expect(record.errors[attribute]).to eq(["is too short"])
+        expect(record.errors[attribute]).to include("is too short")
       end
 
       context "when the record is an admin" do
         let(:admin_record) { true }
         let(:value) do
-          ::Faker::Internet.password(
-            min_length: ::PasswordValidator::MINIMUM_LENGTH,
-            max_length: ::PasswordValidator::ADMIN_MINIMUM_LENGTH - 1
+          Faker::Internet.password(
+            min_length: PasswordValidator::MINIMUM_LENGTH,
+            max_length: PasswordValidator::ADMIN_MINIMUM_LENGTH - 1
           )
         end
 
         it "is too short" do
           expect(validator).to be(false)
-          expect(record.errors[attribute]).to eq(["is too short"])
+          expect(record.errors[attribute]).to include("is too short")
         end
       end
     end
 
     describe "long password" do
-      let(:value) { ::Faker::Internet.password(min_length: ::PasswordValidator::MAX_LENGTH + 1) }
+      let(:value) { Faker::Internet.password(min_length: PasswordValidator::MAX_LENGTH + 1, max_length: PasswordValidator::MAX_LENGTH + 2) }
 
       it "is too long" do
         expect(validator).to be(false)
-        expect(record.errors[attribute]).to eq(["is too long"])
+        expect(record.errors[attribute]).to include("is too long")
       end
     end
 
     describe "simple password" do
-      let(:value) { "ab" * ::PasswordValidator::MINIMUM_LENGTH }
+      let(:value) { "ab" * PasswordValidator::MINIMUM_LENGTH }
 
       it "does not have enough unique characters" do
         expect(validator).to be(false)
-        expect(record.errors[attribute]).to eq(["does not have enough unique characters"])
+        expect(record.errors[attribute]).to include("does not have enough unique characters")
       end
     end
 
@@ -136,7 +137,29 @@ describe PasswordValidator do
 
       it "is too similar with email" do
         expect(validator).to be(false)
-        expect(record.errors[attribute]).to eq(["is too similar to your email"])
+        expect(record.errors[attribute]).to include("is too similar to your email")
+      end
+    end
+
+    describe "parts of email domain included in password" do
+      context "when less than 4 character parts" do
+        let(:email) { "john.doe@1.example.org" }
+        let(:value) { "Summer1Snoworg" }
+
+        it "ignores domain validation" do
+          expect(validator).to be(true)
+          expect(record.errors[attribute]).to be_empty
+        end
+      end
+
+      context "when 4 or more character parts" do
+        let(:email) { "john.doe@example.org" }
+        let(:value) { "Example1945" }
+
+        it "validates with domain" do
+          expect(validator).to be(false)
+          expect(record.errors[attribute]).to include("is too similar to your email")
+        end
       end
     end
 
@@ -145,7 +168,7 @@ describe PasswordValidator do
 
       it "is too similar with name" do
         expect(validator).to be(false)
-        expect(record.errors[attribute]).to eq(["is too similar to your name"])
+        expect(record.errors[attribute]).to include("is too similar to your name")
       end
     end
 
@@ -154,7 +177,7 @@ describe PasswordValidator do
 
       it "is too similar with nickname" do
         expect(validator).to be(false)
-        expect(record.errors[attribute]).to eq(["is too similar to your nickname"])
+        expect(record.errors[attribute]).to include("is too similar to your nickname")
       end
     end
 
@@ -163,7 +186,29 @@ describe PasswordValidator do
 
       it "is too similar with domain" do
         expect(validator).to be(false)
-        expect(record.errors[attribute]).to eq(["is too similar to this domain name"])
+        expect(record.errors[attribute]).to include("is too similar to this domain name")
+      end
+    end
+
+    describe "parts of organization host included in password" do
+      let(:organization) { create(:organization, host: "www.decidim.1.lvh.me") }
+
+      context "when less than 4 character parts" do
+        let(:value) { "Summer1Snowlvhme" }
+
+        it "ignores domain validation" do
+          expect(validator).to be(true)
+          expect(record.errors[attribute]).to be_empty
+        end
+      end
+
+      context "when 4 or more character parts" do
+        let(:value) { "Decidim1945" }
+
+        it "validates with domain" do
+          expect(validator).to be(false)
+          expect(record.errors[attribute]).to include("is too similar to this domain name")
+        end
       end
     end
 
@@ -172,21 +217,21 @@ describe PasswordValidator do
 
       it "is too common" do
         expect(validator).to be(false)
-        expect(record.errors[attribute]).to eq(["is too common"])
+        expect(record.errors[attribute]).to include("is too common")
       end
     end
 
     describe "repeated password" do
       let(:admin_record) { true }
-      let(:previous_passwords) { plain_passwords.map { |password| ::Devise::Encryptor.digest(Decidim::User, password) } }
-      let(:plain_passwords) { Array.new(6) { ::Faker::Internet.password(min_length: ::PasswordValidator::ADMIN_MINIMUM_LENGTH) } }
+      let(:previous_passwords) { plain_passwords.map { |password| Devise::Encryptor.digest(Decidim::User, password) } }
+      let(:plain_passwords) { Array.new(6) { Faker::Internet.password(min_length: PasswordValidator::ADMIN_MINIMUM_LENGTH) } }
 
       context "when password is last used" do
         let(:value) { plain_passwords[0] }
 
         it "cannot reuse" do
           expect(validator).to be(false)
-          expect(record.errors[attribute]).to eq(["cannot reuse old password"])
+          expect(record.errors[attribute]).to include("cannot reuse old password")
         end
       end
 
@@ -195,7 +240,7 @@ describe PasswordValidator do
 
         it "cannot reuse" do
           expect(validator).to be(false)
-          expect(record.errors[attribute]).to eq(["cannot reuse old password"])
+          expect(record.errors[attribute]).to include("cannot reuse old password")
         end
       end
 

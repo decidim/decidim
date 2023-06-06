@@ -30,6 +30,7 @@ sv:
           step:
             allow_answers: Tillåt svar
             allow_unregistered: Tillåt ej registrerade användare att besvara enkäten
+            allow_unregistered_help: Om valt krävs det ingen inloggning för att besvara enkäten. Detta kan leda till dåliga eller opålitliga data och det kommer att vara mer sårbart för automatiserade attacker. Använd med försiktighet! Det blir också möjligt för en deltagare att besvara enkäten flera gånger igenom att använda olika webbläsare eller surfa privat.
             announcement: Meddelande
     events:
       surveys:
@@ -58,10 +59,7 @@ sv:
           update:
             invalid: Det gick inte att spara enkäten.
             success: Enkäten har sparats.
-      last_activity:
-        new_survey_at_html: "<span>Ny enkät på %{link}</span>"
       surveys:
         answer:
           invalid: Det gick inte att besvara enkäten.
-          spam_detected: Det gick inte att svara på formuläret. Du hade kanske för bråttom, kan du försöka igen?
           success: Enkäten har besvarats.

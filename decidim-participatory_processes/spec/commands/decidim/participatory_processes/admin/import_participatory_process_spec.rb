@@ -8,7 +8,7 @@ module Decidim::ParticipatoryProcesses
 
     subject { described_class.new(form) }
 
-    let(:organization) { create :organization }
+    let(:organization) { create(:organization) }
     let!(:document_file) { File.read(Decidim::Dev.asset(document_name)) }
     let(:form_doc) do
       instance_double(File,
@@ -81,7 +81,7 @@ module Decidim::ParticipatoryProcesses
         expect { subject.call }.to broadcast(:invalid)
       end
 
-      it "doesn't create any proces" do
+      it "does not create any proces" do
         expect do
           subject.call
         end.not_to change(::Decidim::ParticipatoryProcess, :count)

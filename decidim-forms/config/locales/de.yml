@@ -22,8 +22,6 @@ de:
             choices:
               missing: sind nicht vollständig
               too_many: sind zu viele
-        questionnaire:
-          request_invalid: Bei der Bearbeitung der Anfrage ist ein Fehler aufgetreten. Bitte versuchen Sie es nochmal
   decidim:
     forms:
       admin:
@@ -121,13 +119,14 @@ de:
           update:
             invalid: Beim Speichern des Fragebogens sind Fehler aufgetreten.
             success: Formular erfolgreich gespeichert.
-      errors:
-        answer:
-          body: Körper kann nicht leer sein
-      files:
-        extension_allowlist: 'Gültige Formate:'
+      admin_log:
+        questionnaire:
+          update: "%{user_name} hat die Umfrage %{resource_name} aktualisiert"
       images:
         dimensions: "%{width} x %{height} px"
+        processors:
+          resize_and_pad: Dieses Bild wird skaliert und an %{dimensions} angepasst.
+          resize_to_fit: Dieses Bild wird auf %{dimensions} skaliert.
       question_types:
         files: Dateien
         long_answer: Lange Antwort

@@ -44,7 +44,7 @@ module Decidim
       end
 
       def update_content_block
-        UpdateContentBlock.call(form, content_block, user) do
+        ContentBlocks::UpdateContentBlock.call(form, content_block, user) do
           on(:ok) do |content_block|
             @content_block = content_block
           end

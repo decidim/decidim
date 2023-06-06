@@ -8,8 +8,8 @@ module Decidim
       describe MediaLinkForm do
         subject(:form) { described_class.from_params(attributes).with_context(context) }
 
-        let(:organization) { create :organization }
-        let(:conference) { create :conference, organization: }
+        let(:organization) { create(:organization) }
+        let(:conference) { create(:conference, organization:) }
         let(:current_participatory_space) { conference }
 
         let(:context) do
@@ -57,7 +57,7 @@ module Decidim
             it { is_expected.to be_invalid }
           end
 
-          context "when it doesn't start with http" do
+          context "when it does not start with http" do
             let(:link) { "example.org" }
 
             it "adds it" do
@@ -65,7 +65,7 @@ module Decidim
             end
           end
 
-          context "when it's not a valid URL" do
+          context "when it is not a valid URL" do
             let(:link) { "foobar, aa" }
 
             it { is_expected.to be_invalid }

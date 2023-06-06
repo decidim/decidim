@@ -3,10 +3,10 @@
 require "spec_helper"
 
 describe Decidim::Comments::ReplyCreatedEvent do
-  include_context "when it's a comment event"
+  include_context "when it is a comment event"
   let(:event_name) { "decidim.events.comments.reply_created" }
-  let(:comment) { create :comment, commentable: parent_comment, root_commentable: parent_comment.root_commentable }
-  let(:parent_comment) { create :comment }
+  let(:comment) { create(:comment, commentable: parent_comment, root_commentable: parent_comment.root_commentable) }
+  let(:parent_comment) { create(:comment) }
   let(:resource) { comment.root_commentable }
 
   it_behaves_like "a comment event"

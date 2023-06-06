@@ -7,7 +7,7 @@ module Decidim::Budgets
     subject { described_class.new(order, project, user) }
 
     let(:user) { create(:user) }
-    let(:participatory_process) { create :participatory_process, :with_steps, organization: user.organization }
+    let(:participatory_process) { create(:participatory_process, :with_steps, organization: user.organization) }
     let(:component) { create(:budgets_component, participatory_space: participatory_process, settings:) }
     let(:budget) { create(:budget, component:, total_budget: 100_000) }
     let(:project) { create(:project, budget:, budget_amount: 60_000) }
@@ -22,12 +22,12 @@ module Decidim::Budgets
       context "when a order for the current user does exist" do
         let!(:order) { create(:order, user:, budget:) }
 
-        it "doesn't create a new order" do
+        it "does not create a new order" do
           expect { subject.call }.not_to change(Order, :count)
         end
       end
 
-      context "when a order for the current user doesn't exist" do
+      context "when a order for the current user does not exist" do
         it "creates an order" do
           expect { subject.call }.to change(Order, :count).by(1)
         end

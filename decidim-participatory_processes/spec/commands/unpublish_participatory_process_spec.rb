@@ -6,8 +6,8 @@ module Decidim::ParticipatoryProcesses
   describe Admin::UnpublishParticipatoryProcess do
     subject { described_class.new(my_process, user) }
 
-    let(:my_process) { create :participatory_process, :published, organization: user.organization }
-    let(:user) { create :user }
+    let(:my_process) { create(:participatory_process, :published, organization: user.organization) }
+    let(:user) { create(:user) }
 
     context "when the process is nil" do
       let(:my_process) { nil }
@@ -18,7 +18,7 @@ module Decidim::ParticipatoryProcesses
     end
 
     context "when the process is not published" do
-      let(:my_process) { create :participatory_process, :unpublished }
+      let(:my_process) { create(:participatory_process, :unpublished) }
 
       it "is not valid" do
         expect { subject.call }.to broadcast(:invalid)

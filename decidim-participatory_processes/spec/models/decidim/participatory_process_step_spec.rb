@@ -40,8 +40,8 @@ module Decidim
       end
 
       context "when active" do
-        context "when there's an active step in the same process" do
-          let(:active_step) { create :participatory_process_step, :active }
+        context "when there is an active step in the same process" do
+          let(:active_step) { create(:participatory_process_step, :active) }
           let(:participatory_process_step) do
             build(:participatory_process_step, :active, participatory_process: active_step.participatory_process)
           end
@@ -50,7 +50,7 @@ module Decidim
         end
 
         context "with multiple inactive steps" do
-          let(:inactive_step) { create :participatory_process_step }
+          let(:inactive_step) { create(:participatory_process_step) }
           let(:participatory_process_step) do
             build(:participatory_process_step, participatory_process: inactive_step.participatory_process)
           end
@@ -82,7 +82,7 @@ module Decidim
         end
 
         context "when there are more steps in the same process" do
-          let(:other_step) { create :participatory_process_step, :active, position: 3 }
+          let(:other_step) { create(:participatory_process_step, :active, position: 3) }
           let(:participatory_process_step) do
             build(:participatory_process_step, participatory_process: other_step.participatory_process, position:)
           end

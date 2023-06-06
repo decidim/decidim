@@ -201,9 +201,6 @@ id:
         title: Pertanyaan dari %{scope_name}
       index:
         title: Konsultasi
-      last_activity:
-        new_consultation: Konsultasi baru
-        new_question_at_html: "<span>Pertanyaan baru pada %{link}</span>"
       pages:
         home:
           highlighted_consultations:
@@ -217,9 +214,6 @@ id:
         view_results: Lihat hasil
         votes_out_of:
           other: suara keluar
-      question_votes:
-        create:
-          error: Ada kesalahan saat memilih pertanyaan
       regular_questions:
         title: Pertanyaan untuk konsultasi ini
       show:

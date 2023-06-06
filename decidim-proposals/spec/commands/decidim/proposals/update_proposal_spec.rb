@@ -19,7 +19,7 @@ module Decidim
         )
       end
 
-      let!(:proposal) { create :proposal, component:, users: [author] }
+      let!(:proposal) { create(:proposal, component:, users: [author]) }
       let(:author) { create(:user, organization:) }
 
       let(:user_group) do
@@ -71,7 +71,7 @@ module Decidim
             expect { command.call }.to broadcast(:invalid)
           end
 
-          it "doesn't update the proposal" do
+          it "does not update the proposal" do
             expect do
               command.call
             end.not_to change(proposal, :title)
@@ -87,7 +87,7 @@ module Decidim
             expect { command.call }.to broadcast(:invalid)
           end
 
-          it "doesn't update the proposal" do
+          it "does not update the proposal" do
             expect do
               command.call
             end.not_to change(proposal, :title)
@@ -95,7 +95,7 @@ module Decidim
         end
 
         context "when the author changing the author to one that has reached the proposal limit" do
-          let!(:other_proposal) { create :proposal, component:, users: [author], user_groups: [user_group] }
+          let!(:other_proposal) { create(:proposal, component:, users: [author], user_groups: [user_group]) }
           let(:component) { create(:proposal_component, :with_proposal_limit) }
 
           it "broadcasts invalid" do

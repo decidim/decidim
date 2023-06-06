@@ -11,15 +11,22 @@ cs:
         decidim_area_id: Oblast
         description: Popis
         developer_group: Skupina promotérů
+        document: Dokument
         domain: Doména
         end_date: Datum ukončení
         hashtag: Hashtag
         hero_image: Domácí obrázek
+        import_attachments: Importovat přílohy
+        import_categories: Importovat kategorie
+        import_components: Importovat komponenty
+        import_steps: Importovat kroky
         local_area: Oblast působnosti organizace
         meta_scope: Metadata Oblasti působnosti
         participatory_process_group_id: Skupina procesů
+        participatory_process_type_id: Typ procesů
         participatory_scope: Co se rozhodlo
         participatory_structure: Jak se to rozhoduje
+        private_space: Soukromý proces
         promoted: Propagováno
         published_at: Publikováno v
         related_process_ids: Související procesy
@@ -67,7 +74,7 @@ cs:
         participatory_process:
           attributes:
             document:
-              allowed_file_content_types: 'Neplatný typ dokumentu. Přijatelné formáty jsou: %{types}'
+              allowed_file_content_types: 'Neplatný typ dokumentu. Jsou povoleny pouze soubory s následujícími příponami: %{types}'
     models:
       decidim/participatory_process_step_activated_event: Krok aktivován
       decidim/participatory_process_step_changed_event: Krok se změnil
@@ -80,9 +87,9 @@ cs:
         other: Participativní procesy
       decidim/participatory_process_group:
         one: Skupina účastnických procesů
-        few: Skupiny zúčastněných procesů
-        many: Skupiny zúčastněných procesů
-        other: Skupiny zúčastněných procesů
+        few: Skupiny účastnických procesů
+        many: Skupiny účastnických procesů
+        other: Skupiny účastnických procesů
       decidim/participatory_process_step:
         one: Krok
         few: Kroky
@@ -101,6 +108,7 @@ cs:
           all_processes: Zobrazit všechny procesy
           process_groups: Skupiny procesů
         import_process: Importovat
+        moderate: Moderovat
         new_process: Nový proces
         new_process_group: Nová skupina procesů
         new_process_step: Nový krok
@@ -126,7 +134,7 @@ cs:
           info: Info
           moderations: Moderování
           private_users: Soukromí uživatelé
-          process_admins: Zpracovat uživatele
+          process_admins: Administrátoři procesu
           steps: Kroky
       models:
         participatory_process:
@@ -175,8 +183,17 @@ cs:
       participatory_process_group_landing_page:
         edit:
           active_content_blocks: Aktivní bloky obsahu
+          add: Přidat blok obsahu
+          destroy_confirmation: Opravdu chcete smazat tento blok obsahu?
           inactive_content_blocks: Neaktivní bloky obsahu
+          title: Obsah stránky
       participatory_process_group_landing_page_content_blocks:
+        create:
+          error: Při pokusu o vytvoření tohoto obsahu došlo k chybě.
+          success: Blok obsahu byl úspěšně vytvořen.
+        destroy:
+          error: Při pokusu o odstranění tohoto obsahu došlo k chybě.
+          success: Blok obsahu byl úspěšně odstraněn.
         edit:
           update: Aktualizovat
       participatory_process_groups:
@@ -218,8 +235,8 @@ cs:
         default_title: Úvod
         destroy:
           error:
-            active_step: Aktivní krok nelze odstranit.
-            last_step: Poslední krok procesu nelze odstranit.
+            active_step: Nelze odstranit aktivní fázi.
+            last_step: Nelze odstranit poslední fázi procesu.
           success: Úspěšný krok procesu byl úspěšně smazán.
         edit:
           title: Úprava kroku procesu participace
@@ -294,7 +311,7 @@ cs:
           error: Došlo k chybě při vytváření nové skupiny účastnických procesů.
           success: Skupina úspěšně vytvořená skupina účastníků.
       titles:
-        participatory_process_groups: Skupiny zúčastněných procesů
+        participatory_process_groups: Skupiny účastnických procesů
         participatory_process_types: Typy participačních procesů
         participatory_processes: Participativní procesy
       users:
@@ -339,7 +356,7 @@ cs:
           email_subject: Aktualizace na %{participatory_space_title}
           notification_title: Krok %{resource_title} je nyní aktivní pro <a href="%{resource_path}">%{participatory_space_title}</a>
         step_changed:
-          email_intro: 'Byly aktualizovány datumy pro krok %{resource_title} v %{participatory_space_title}. Můžete je vidět z této stránky:'
+          email_intro: 'Data pro %{resource_title} fáze na %{participatory_space_title} byly aktualizovány. Můžete si je prohlédnout na této stránce:'
           email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{participatory_space_title}. Po předchozím propojení můžete přestat přijímat oznámení.
           email_subject: Aktualizace na %{participatory_space_title}
           notification_title: Byly aktualizovány data pro krok <a href="%{resource_path}">%{resource_title}</a> ve <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
@@ -352,7 +369,7 @@ cs:
     log:
       value_types:
         participatory_process_type_presenter:
-          not_found: 'Typ procesu nebyl v databázi nalezen (ID: %{id})'
+          not_found: 'Typ procesu nebyl v databázi nalezen (ID: %{id}).'
     menu:
       processes: Procesy
     metrics:
@@ -390,7 +407,7 @@ cs:
             many: "%{count} procesů"
             other: "%{count} procesy"
       show:
-        title: Skupiny zúčastněných procesů
+        title: Skupiny účastnických procesů
     participatory_process_steps:
       index:
         process_steps: Procesní kroky
@@ -424,9 +441,9 @@ cs:
             announcement_help: Text, který zde zadáte, se uživateli zobrazí přímo pod informacemi o procesu.
             duration: Doba trvání
             filters: Filtry
-            images: snímky
+            images: Obrázky
             metadata: Metadata
-            other: jiný
+            other: Ostatní
             related_processes: Související procesy
             scope_type_max_depth_help: Omezit hloubku filtru rozsahu. Filtr se zobrazí od obecného k vybranému typu rozsahu.
             select_an_area: Vyberte oblast
@@ -480,8 +497,8 @@ cs:
               many: "%{count} nadcházejících procesů"
               other: "%{count} nadcházejících procesů"
           explanations:
-            no_active: Žádné aktivní procesy
-            no_active_nor_upcoming: Žádné aktivní ani nadcházející procesy
+            no_active: Žádné aktivní procesy.
+            no_active_nor_upcoming: Žádné aktivní ani nadcházející procesy.
             no_active_nor_upcoming_callout: Neexistují žádné aktivní ani nadcházející procesy. Zde je seznam minulých.
           filter_by: Zobrazit
           names:

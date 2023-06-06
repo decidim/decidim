@@ -30,7 +30,7 @@ module Decidim
 
       def filter_type_values
         type_values = []
-        Decidim::Meetings::Meeting::TYPE_OF_MEETING.each do |type|
+        Decidim::Meetings::Meeting::TYPE_OF_MEETING.keys.each do |type|
           type_values << TreePoint.new(type, t("decidim.meetings.meetings.filters.type_values.#{type}"))
         end
 
@@ -57,15 +57,26 @@ module Decidim
       end
 
       # If the meeting is official or the rich text editor is enabled on the
-      # frontend, the meeting body is considered as safe content; that's unless
+      # frontend, the meeting body is considered as safe content; that is unless
       # the meeting comes from a collaborative_draft or a participatory_text.
       def safe_content?
-        rich_text_editor_in_public_views? || @meeting.official?
+        rich_text_editor_in_public_views? || safe_content_admin?
+      end
+
+      # For admin entered content, the meeting body can contain certain extra
+      # tags, such as iframes.
+      def safe_content_admin?
+        @meeting.official?
       end
 
       # If the content is safe, HTML tags are sanitized, otherwise, they are stripped.
       def render_meeting_body(meeting)
-        Decidim::ContentProcessor.render(render_sanitized_content(meeting, :description), "div")
+        sanitized = render_sanitized_content(meeting, :description)
+        if safe_content?
+          Decidim::ContentProcessor.render_without_format(sanitized).html_safe
+        else
+          Decidim::ContentProcessor.render(sanitized, "div")
+        end
       end
 
       def prevent_timeout_seconds
@@ -79,7 +90,7 @@ module Decidim
       end
 
       def online_or_hybrid_meeting?(meeting)
-        meeting.online_meeting? || meeting.hybrid_meeting?
+        meeting.online? || meeting.hybrid?
       end
 
       def iframe_embed_or_live_event_page?(meeting)

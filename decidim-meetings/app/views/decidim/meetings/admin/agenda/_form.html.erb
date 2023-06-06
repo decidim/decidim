@@ -3,7 +3,7 @@
     <h2 class="card-title">
       <div class="flex--sbc">
         <div class="grid-x align-middle">
-          <u> <%= present(@meeting).title %> </u> &nbsp;<%= icon "arrow-right" %>&nbsp;<%= title %>
+          <u> <%= present(@meeting).title(html_escape: true) %> </u> &nbsp;<%= icon "arrow-right" %>&nbsp;<%= title %>
         </div>
       </div>
     </h2>
@@ -65,4 +65,4 @@
   </div>
 </div>
 
-<%= javascript_pack_tag "decidim_meetings_admin" %>
+<%= append_javascript_pack_tag "decidim_meetings_admin" %>

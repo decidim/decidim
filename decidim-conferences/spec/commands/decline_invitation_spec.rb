@@ -7,9 +7,9 @@ module Decidim::Conferences
     subject { described_class.new(conference, user) }
 
     let(:registrations_enabled) { true }
-    let(:organization) { create :organization }
-    let(:conference) { create :conference, organization:, registrations_enabled: }
-    let(:user) { create :user, :confirmed, organization: }
+    let(:organization) { create(:organization) }
+    let(:conference) { create(:conference, organization:, registrations_enabled:) }
+    let(:user) { create(:user, :confirmed, organization:) }
     let!(:conference_invitation) { create(:conference_invite, conference:, user:) }
 
     context "when everything is ok" do
@@ -30,7 +30,7 @@ module Decidim::Conferences
       end
     end
 
-    context "when the invitation doesn't exists" do
+    context "when the invitation does not exists" do
       let(:conference_invitation) { nil }
 
       it "broadcasts invalid" do

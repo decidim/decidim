@@ -54,8 +54,8 @@ module Decidim
 
             expect(organization.name).to eq("Gotham City")
             expect(organization.host).to eq("decide.gotham.gov")
-            expect(organization.secondary_hosts).to match_array(["foo.gotham.gov", "bar.gotham.gov"])
-            expect(organization.external_domain_whitelist).to match_array(["decidim.org", "github.com"])
+            expect(organization.secondary_hosts).to contain_exactly("foo.gotham.gov", "bar.gotham.gov")
+            expect(organization.external_domain_whitelist).to contain_exactly("decidim.org", "github.com")
             expect(organization.smtp_settings["from"]).to eq("Decide Gotham <decide@gotham.gov>")
             expect(organization.smtp_settings["from_email"]).to eq("decide@gotham.gov")
             expect(organization.omniauth_settings["omniauth_settings_facebook_enabled"]).to be(true)
@@ -101,7 +101,7 @@ module Decidim
           it "sets the organizations TOS version" do
             command.call
             organization = Organization.last
-            tos_page = Decidim::StaticPage.find_by(slug: "terms-and-conditions", organization:)
+            tos_page = Decidim::StaticPage.find_by(slug: "terms-of-service", organization:)
 
             expect(organization.tos_version).not_to be_nil
             expect(organization.tos_version).to eq(tos_page.updated_at)

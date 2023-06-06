@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe Decidim::Proposals::Admin::UpdateProposalCategoryEvent do
-  let(:resource) { create :proposal, title: "It's my super proposal" }
+  let(:resource) { create(:proposal, title: "It is my super proposal") }
   let(:event_name) { "decidim.events.proposals.proposal_update_category" }
 
   include_context "when a simple event"

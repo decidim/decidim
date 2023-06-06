@@ -9,6 +9,10 @@ module Decidim
       helper Decidim::Conferences::ConferenceHelper
 
       include NeedsPermission
+      include RedesignLayout
+      redesign active: true
+
+      layout "layouts/decidim/conferences/application"
 
       register_permissions(::Decidim::Conferences::ApplicationController,
                            Decidim::Conferences::Permissions,
@@ -16,6 +20,10 @@ module Decidim
                            Decidim::Permissions)
 
       private
+
+      def fallback_layout
+        "layouts/decidim/conferences/application"
+      end
 
       def permissions_context
         super.merge(

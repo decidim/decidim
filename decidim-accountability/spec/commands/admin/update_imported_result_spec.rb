@@ -6,11 +6,11 @@ module Decidim::Accountability
   describe Admin::UpdateImportedResult do
     subject { described_class.new(form, result) }
 
-    let(:result) { create :result, progress: 10 }
+    let(:result) { create(:result, progress: 10) }
     let(:organization) { result.component.organization }
-    let(:user) { create :user, organization: }
-    let(:scope) { create :scope, organization: }
-    let(:category) { create :category, participatory_space: participatory_process }
+    let(:user) { create(:user, organization:) }
+    let(:scope) { create(:scope, organization:) }
+    let(:category) { create(:category, participatory_space: participatory_process) }
     let(:participatory_process) { result.component.participatory_space }
     let(:meeting_component) do
       create(:component, manifest_name: :meetings, participatory_space: participatory_process)
@@ -18,7 +18,7 @@ module Decidim::Accountability
 
     let(:start_date) { Date.yesterday }
     let(:end_date) { Date.tomorrow }
-    let(:status) { create :status, component: result.component, key: "finished", name: { en: "Finished" } }
+    let(:status) { create(:status, component: result.component, key: "finished", name: { en: "Finished" }) }
     let(:progress) { 95 }
     let(:external_id) { "external-id" }
     let(:weight) { 0.3 }

@@ -19,7 +19,7 @@ module Decidim
     end
 
     def url
-      resource.reported_content_url
+      event_class_instance.resource_url
     end
   end
 end

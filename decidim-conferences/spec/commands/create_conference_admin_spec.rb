@@ -2,30 +2,35 @@
 
 require "spec_helper"
 
-module Decidim::Conferences
-  describe Admin::CreateConferenceAdmin do
-    subject { described_class.new(form, current_user, my_conference) }
+module Decidim::Admin
+  describe ParticipatorySpace::CreateAdmin, versioning: true do
+    subject { described_class.new(form, my_conference, event_class:, event:, role_class:) }
 
-    let(:my_conference) { create :conference }
+    let(:role_class) { Decidim::ConferenceUserRole }
+    let(:event) { "decidim.events.conferences.role_assigned" }
+    let(:event_class) { Decidim::Conferences::ConferenceRoleAssignedEvent }
+
+    let(:my_conference) { create(:conference) }
     let!(:email) { "my_email_conference@example.org" }
     let!(:role) { "admin" }
     let!(:name) { "Weird Guy Conference" }
-    let!(:user) { create :user, email: "my_email_conference@example.org", organization: my_conference.organization }
-    let!(:current_user) { create :user, email: "some_email_conference@example.org", organization: my_conference.organization }
+    let!(:user) { create(:user, email: "my_email_conference@example.org", organization: my_conference.organization) }
+    let!(:current_user) { create(:user, email: "some_email_conference@example.org", organization: my_conference.organization) }
     let(:form) do
       double(
         invalid?: invalid,
         email:,
         role:,
         name:,
-        current_participatory_space: my_conference
+        current_participatory_space: my_conference,
+        current_user:
       )
     end
     let(:invalid) { false }
     let(:user_notification) do
       {
-        event: "decidim.events.conferences.role_assigned",
-        event_class: ConferenceRoleAssignedEvent,
+        event:,
+        event_class:,
         resource: my_conference,
         affected_users: [user],
         extra: { role: kind_of(String) }
@@ -41,9 +46,25 @@ module Decidim::Conferences
     end
 
     context "when everything is ok" do
+      let(:log_info) do
+        hash_including(
+          resource: hash_including(
+            title: kind_of(String)
+          )
+        )
+      end
+
+      let(:role_params) do
+        {
+          role: role.to_sym,
+          user:,
+          conference: my_conference
+        }
+      end
+
       it "creates the user role" do
         subject.call
-        roles = Decidim::ConferenceUserRole.where(user:)
+        roles = role_class.where(user:)
 
         expect(roles.count).to eq 1
         expect(roles.first.role).to eq "admin"
@@ -55,7 +76,7 @@ module Decidim::Conferences
         subject.call
       end
 
-      it "doesn't add admin privileges to the user" do
+      it "does not add admin privileges to the user" do
         subject.call
         user.reload
 
@@ -71,13 +92,15 @@ module Decidim::Conferences
 
       it "traces the action", versioning: true do
         expect(Decidim.traceability)
-          .to receive(:perform_action!)
-          .with(:create, Decidim::ConferenceUserRole, current_user, resource: hash_including(:title))
+          .to receive(:create!)
+          .with(role_class, current_user, role_params, log_info)
           .and_call_original
 
         expect { subject.call }.to change(Decidim::ActionLog, :count)
+
         action_log = Decidim::ActionLog.last
         expect(action_log.version).to be_present
+        expect(action_log.version.event).to eq "create"
       end
 
       context "when there is no user with the given email" do
@@ -99,17 +122,17 @@ module Decidim::Conferences
           subject.call
         end
 
-        it "doesn't get created twice" do
+        it "does not get created twice" do
           expect { subject.call }.to broadcast(:ok)
 
-          roles = Decidim::ConferenceUserRole.where(user:)
+          roles = role_class.where(user:)
 
           expect(roles.count).to eq 1
           expect(roles.first.role).to eq "admin"
         end
       end
 
-      context "when the user hasn't accepted the invitation" do
+      context "when the user has not accepted the invitation" do
         before do
           user.invite!
         end

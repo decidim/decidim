@@ -13,14 +13,14 @@ describe "Explore versions", versioning: true, type: :system do
       id: meeting.id
     )
   end
-  let!(:scope) { create :scope, organization: }
+  let!(:scope) { create(:scope, organization:) }
   let!(:meeting) do
     create(
       :meeting,
       :published,
       title: { I18n.locale => "My title" },
       component:,
-      # PaperTrail can create an extra version if there's a questionnaire
+      # PaperTrail can create an extra version if there is a questionnaire
       questionnaire: nil
     )
   end

@@ -8,7 +8,7 @@ module Decidim
       describe ConferenceForm do
         subject { described_class.from_params(attributes).with_context(current_organization: organization) }
 
-        let(:organization) { create :organization }
+        let(:organization) { create(:organization) }
         let(:title) do
           {
             en: "Title",
@@ -37,6 +37,7 @@ module Decidim
             ca: "Descripció curta"
           }
         end
+        let(:weight) { 1 }
         let(:slug) { "slug" }
         let(:attachment) { upload_test_file(Decidim::Dev.asset("city.jpeg")) }
         let(:show_statistics) { true }
@@ -69,6 +70,7 @@ module Decidim
               "short_description_ca" => short_description[:ca],
               "hero_image" => attachment,
               "banner_image" => attachment,
+              "weight" => weight,
               "slug" => slug,
               "show_statistics" => show_statistics,
               "objectives_en" => objectives[:en],
@@ -140,6 +142,12 @@ module Decidim
               ca: "Descripció curta"
             }
           end
+
+          it { is_expected.to be_invalid }
+        end
+
+        context "when weight is missing" do
+          let(:weight) { nil }
 
           it { is_expected.to be_invalid }
         end

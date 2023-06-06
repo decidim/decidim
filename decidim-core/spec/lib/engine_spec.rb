@@ -4,12 +4,14 @@ require "spec_helper"
 
 module Decidim::Core
   describe Engine do
+    it_behaves_like "clean engine"
+
     describe "initializers" do
       let(:initializer_name) { nil }
       let(:initializer) { described_class.initializers.find { |i| i.name == initializer_name } }
 
-      context "when running the 'SSL and HSTS' initializer" do
-        let(:initializer_name) { "SSL and HSTS" }
+      context "when running the 'decidim_core.ssl_and_hsts' initializer" do
+        let(:initializer_name) { "decidim_core.ssl_and_hsts" }
 
         before do
           allow(Decidim.config).to receive(:force_ssl).and_return(decidim_force_ssl)
@@ -37,8 +39,8 @@ module Decidim::Core
         end
       end
 
-      context "when running the 'Expire sessions' initializer" do
-        let(:initializer_name) { "Expire sessions" }
+      context "when running the 'decidim_core.expire_sessions' initializer" do
+        let(:initializer_name) { "decidim_core.expire_sessions" }
         let(:decidim_force_ssl) { false }
         let(:decidim_expire_session_after) { 30.minutes }
 
@@ -85,6 +87,34 @@ module Decidim::Core
             )
           end
         end
+      end
+    end
+
+    describe "decidim_core.authorization_transfer" do
+      include_context "authorization transfer"
+
+      let(:component) { create(:component, organization:) }
+      let(:coauthorables) { build_list(:dummy_resource, 5, component:) }
+      let(:endorsables) { build_list(:dummy_resource, 10, component:) }
+      let(:amendable) { build(:dummy_resource, component:) }
+      let(:emendation) { build(:dummy_resource, component:) }
+      let(:original_records) do
+        {
+          amendments: create_list(:amendment, 3, amendable:, emendation:, amender: original_user),
+          coauthorships: coauthorables.map { |coauthorable| create(:coauthorship, coauthorable:, author: original_user) },
+          endorsements: endorsables.map { |endorsable| create(:endorsement, resource: endorsable, author: original_user) }
+        }
+      end
+      let(:transferred_amendments) { Decidim::Amendment.where(amender: target_user).order(:id) }
+      let(:transferred_coauthorships) { Decidim::Coauthorship.where(author: target_user).order(:id) }
+      let(:transferred_endorsements) { Decidim::Endorsement.where(author: target_user).order(:id) }
+
+      it "handles authorization transfer correctly" do
+        expect(transferred_amendments.count).to eq(3)
+        expect(transferred_coauthorships.count).to eq(5)
+        expect(transferred_endorsements.count).to eq(10)
+        expect(transfer.records.count).to eq(18)
+        expect(transferred_resources).to eq(transferred_amendments + transferred_coauthorships + transferred_endorsements)
       end
     end
 

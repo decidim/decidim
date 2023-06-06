@@ -11,15 +11,21 @@ There are several use cases for this, such as
 * Checking some information through other systems (as a Municipal Census on the case of Municipalities, Cities or Towns)
 * Having a list of valid users emails
 
-Right now Decidim supports only a few of these cases, but we have an internal API where you can program your own kind of authorizations.
-Introduction
+Currently Decidim supports only a few of these cases, but we have an internal API where you can program your own kind of authorizations.
 
-Each decidim instance is in full control of its authorizations, and can customize:
+== Introduction
+
+Each Decidim instance is in full control of its authorizations, and can customize:
 
 * The different methods to be used by users to get verified. For example, through a census, by uploading their identity documents, or by receiving a verification home at their address.
 * The different actions in decidim that require authorization, and which authorization method they require. For example, a decidim instance might choose to require census authorization to create proposals, but a fully verified address via a verification code sent by postal mail for voting on proposals.
 
 See https://github.com/decidim/decidim/blob/develop/decidim-verifications/README.md[decidim-verifications's README] and https://decidim.org/modules[Decidim's Modules page].
+
+The default Decidim application comes pre-configured with some example authorization strategies that you can test to get familiar with the system. If you want to verify yourself with these strategies, please follow these instructions:
+
+- For the "Example authorization" strategy, use a document number ended with "X". Other details can be as you wish.
+- For the "Another example authorization", use a passport number starting with "A". Other details can be as you wish.
 
 == Examples
 

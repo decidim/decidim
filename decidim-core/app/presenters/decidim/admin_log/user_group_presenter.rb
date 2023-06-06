@@ -5,8 +5,8 @@ module Decidim
     # This class holds the logic to present a `Decidim::UserGroup`
     # for the `AdminLog` log.
     #
-    # Usage should be automatic and you shouldn't need to call this class
-    # directly, but here's an example:
+    # Usage should be automatic and you should not need to call this class
+    # directly, but here is an example:
     #
     #    action_log = Decidim::ActionLog.last
     #    view_helpers # => this comes from the views
@@ -20,7 +20,7 @@ module Decidim
 
       def action_string
         case action
-        when "verify", "verify_via_csv", "reject"
+        when "verify", "verify_via_csv", "reject", "block", "unblock"
           "decidim.admin_log.user_group.#{action}"
         else
           super

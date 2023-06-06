@@ -20,8 +20,8 @@ module Decidim
         .to eq Decidim::ParticipatoryProcesses::AdminLog::ParticipatoryProcessPresenter
     end
 
-    context "when there's a process with the same slug in the same organization" do
-      let!(:external_process) { create :participatory_process, organization: participatory_process.organization, slug: "my-slug" }
+    context "when there is a process with the same slug in the same organization" do
+      let!(:external_process) { create(:participatory_process, organization: participatory_process.organization, slug: "my-slug") }
 
       it "is not valid" do
         expect(subject).not_to be_valid
@@ -29,10 +29,21 @@ module Decidim
       end
     end
 
-    context "when there's a process with the same slug in another organization" do
-      let!(:external_process) { create :participatory_process, slug: "my-slug" }
+    context "when there is a process with the same slug in another organization" do
+      let!(:external_process) { create(:participatory_process, slug: "my-slug") }
 
       it { is_expected.to be_valid }
+    end
+
+    context "when a process is attached to a scope type" do
+      let!(:participatory_process) { create(:participatory_process, :with_scope, slug: "my-slug", scope_type_max_depth: scope_type, organization:) }
+      let(:organization) { create(:organization) }
+      let(:scope_type) { create(:scope_type, organization:) }
+
+      it "allows destroying the scope type" do
+        scope_type.destroy!
+        expect(participatory_process.reload.scope_type_max_depth).to be_nil
+      end
     end
 
     describe "#active?" do
@@ -74,7 +85,7 @@ module Decidim
         end
       end
 
-      context "when it doesn't have an end date" do
+      context "when it does not have an end date" do
         it "returns false" do
           participatory_process.end_date = nil
           expect(participatory_process).not_to be_past
@@ -97,7 +108,7 @@ module Decidim
         end
       end
 
-      context "when it doesn't have an end date" do
+      context "when it does not have an end date" do
         it "returns false" do
           participatory_process.end_date = nil
           expect(participatory_process).not_to be_past
@@ -106,14 +117,14 @@ module Decidim
     end
 
     describe "scopes" do
-      let!(:past) { create :participatory_process, :past }
-      let!(:upcoming) { create :participatory_process, :upcoming }
-      let!(:active) { create :participatory_process, :active }
-      let!(:ends_today) { create :participatory_process, start_date: 1.month.ago, end_date: Date.current }
+      let!(:past) { create(:participatory_process, :past) }
+      let!(:upcoming) { create(:participatory_process, :upcoming) }
+      let!(:active) { create(:participatory_process, :active) }
+      let!(:ends_today) { create(:participatory_process, start_date: 1.month.ago, end_date: Date.current) }
 
       describe "active_spaces" do
         it "returns the currently active ones" do
-          expect(described_class.active_spaces).to match_array [active, ends_today]
+          expect(described_class.active_spaces).to contain_exactly(active, ends_today)
           expect(described_class.active_spaces).not_to include past
           expect(described_class.active_spaces).not_to include upcoming
         end

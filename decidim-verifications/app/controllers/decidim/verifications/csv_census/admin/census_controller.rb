@@ -19,16 +19,18 @@ module Decidim
           def create
             enforce_permission_to :create, :authorization
             @form = form(CensusDataForm).from_params(params)
+            @status = Status.new(current_organization)
             CreateCensusData.call(@form, current_organization) do
               on(:ok) do
                 flash[:notice] = t(".success", count: @form.data.values.count, errors: @form.data.errors.count)
+                redirect_to census_path
               end
 
               on(:invalid) do
                 flash[:alert] = t(".error")
+                render :index
               end
             end
-            redirect_to census_path
           end
 
           def destroy_all

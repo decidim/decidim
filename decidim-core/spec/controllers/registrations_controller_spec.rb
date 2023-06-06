@@ -31,7 +31,7 @@ module Decidim
       end
 
       def send_form_and_expect_rendering_the_new_template_again
-        post :create, params: params
+        post(:create, params:)
         expect(controller).to render_template "new"
       end
 
@@ -44,8 +44,8 @@ module Decidim
           expect(controller).to receive(:sign_up).and_call_original
         end
 
-        it "doesn't ask the user to confirm the email" do
-          post :create, params: params
+        it "does not ask the user to confirm the email" do
+          post(:create, params:)
           expect(controller.flash.notice).not_to have_content("confirmation")
         end
       end
@@ -58,8 +58,8 @@ module Decidim
         end
 
         it "adds the flash message" do
-          post :create, params: params
-          expect(controller.flash.now[:alert]).to have_content("Your email can't be blank")
+          post(:create, params:)
+          expect(controller.flash.now[:alert]).to have_content("Your email cannot be blank")
         end
 
         context "when all params are invalid" do
@@ -79,17 +79,17 @@ module Decidim
           end
 
           it "adds the flash message" do
-            post :create, params: params
+            post(:create, params:)
             expect(controller.flash.now[:alert]).to have_content(
               [
-                "Your name can't be blank",
-                "Nickname can't be blank",
+                "Your name cannot be blank",
+                "Nickname cannot be blank",
                 "Nickname is invalid",
-                "Your email can't be blank",
-                "Confirm your password doesn't match Password",
+                "Your email cannot be blank",
+                "Confirm your password does not match Password",
                 "Password is too short",
                 "Password does not have enough unique characters",
-                "Tos agreement must be accepted"
+                "Terms of service agreement must be accepted"
               ].join(", ")
             )
           end

@@ -7,8 +7,8 @@ module Decidim
     describe UpdateUserGroup do
       describe "call" do
         let(:organization) { create(:organization) }
-        let(:user) { create :user, :confirmed, organization: }
-        let(:user_group) { create :user_group, users: [user], organization: }
+        let(:user) { create(:user, :confirmed, organization:) }
+        let(:user_group) { create(:user_group, users: [user], organization:) }
 
         let(:name) { "My super duper group" }
         let(:nickname) { "new_nickname" }
@@ -50,7 +50,7 @@ module Decidim
             expect { command.call }.to broadcast(:invalid)
           end
 
-          it "doesn't update the user group" do
+          it "does not update the user group" do
             expect do
               command.call
               user_group.reload

@@ -5,6 +5,7 @@ module Decidim
   # a events are received.
   class NotificationsDigestMailer < Decidim::ApplicationMailer
     helper Decidim::ResourceHelper
+    helper Decidim::SanitizeHelper
     SIZE_LIMIT = 10
 
     def digest_mail(user, notification_ids)

@@ -6,7 +6,7 @@ module Decidim
   module Consultations
     module Admin
       describe DestroyResponseGroup do
-        let(:response_group) { create :response_group }
+        let(:response_group) { create(:response_group) }
         let(:command) { described_class.new(response_group) }
 
         describe "when the response_group is not present" do
@@ -18,9 +18,9 @@ module Decidim
         end
 
         context "when the response_group is not empty" do
-          let!(:response) { create :response, response_group: }
+          let!(:response) { create(:response, response_group:) }
 
-          it "doesn't destroy the response_group" do
+          it "does not destroy the response_group" do
             expect do
               command.call
             end.not_to change(ResponseGroup, :count)

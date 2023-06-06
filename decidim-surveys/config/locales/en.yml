@@ -65,5 +65,5 @@ en:
       surveys:
         answer:
           invalid: There was a problem answering the survey.
-          spam_detected: There was a problem answering the form. Maybe you've been too quick, can you try again?
+          spam_detected: There was a problem answering the form. Maybe you have been too quick, can you try again?
           success: Survey successfully answered.

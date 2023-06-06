@@ -17,6 +17,8 @@ module Decidim
     has_many :notifications, foreign_key: "decidim_user_id", class_name: "Decidim::Notification", dependent: :destroy
     has_many :following_follows, foreign_key: "decidim_user_id", class_name: "Decidim::Follow", dependent: :destroy
 
+    has_one :blocking, class_name: "Decidim::UserBlock", foreign_key: :id, primary_key: :block_id, dependent: :destroy
+
     # Regex for name & nickname format validations
     REGEXP_NAME = /\A(?!.*[<>?%&\^*#@()\[\]=+:;"{}\\|])/
 
@@ -34,8 +36,8 @@ module Decidim
 
     # Public: Returns a collection with all the public entities this user is following.
     #
-    # This can't be done as with a `has_many :following, through: :following_follows`
-    # since it's a polymorphic relation and Rails doesn't know how to load it. With
+    # This cannot be done as with a `has_many :following, through: :following_follows`
+    # since it is a polymorphic relation and Rails does not know how to load it. With
     # this implementation we only query the database once for each kind of following.
     #
     # Returns an Array of Decidim::Followable

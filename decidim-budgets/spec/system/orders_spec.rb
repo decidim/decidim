@@ -6,8 +6,8 @@ describe "Orders", type: :system do
   include_context "with a component"
   let(:manifest_name) { "budgets" }
 
-  let(:organization) { create :organization, available_authorizations: %w(dummy_authorization_handler) }
-  let!(:user) { create :user, :confirmed, organization: }
+  let(:organization) { create(:organization, available_authorizations: %w(dummy_authorization_handler)) }
+  let!(:user) { create(:user, :confirmed, organization:) }
   let(:project) { projects.first }
 
   let!(:component) do
@@ -16,7 +16,7 @@ describe "Orders", type: :system do
            manifest:,
            participatory_space: participatory_process)
   end
-  let(:budget) { create :budget, component: }
+  let(:budget) { create(:budget, component:) }
 
   context "when the user is not logged in" do
     let!(:projects) { create_list(:project, 1, budget:, budget_amount: 25_000_000) }
@@ -118,6 +118,16 @@ describe "Orders", type: :system do
         it "displays rules" do
           within ".voting-rules" do
             expect(page).to have_content("Select at least 3 and up to 6 projects you want and vote according to your preferences to define the budget.")
+          end
+        end
+      end
+
+      context "when the total budget is zero" do
+        let(:budget) { create(:budget, total_budget: 0, component:) }
+
+        it "displays total budget" do
+          within ".budget-summary__total" do
+            expect(page).to have_content("TOTAL BUDGET €0")
           end
         end
       end
@@ -263,7 +273,7 @@ describe "Orders", type: :system do
       end
     end
 
-    context "and isn't authorized" do
+    context "and is not authorized" do
       before do
         permissions = {
           vote: {
@@ -301,14 +311,14 @@ describe "Orders", type: :system do
         end
 
         expect(page).to have_content "ASSIGNED: €0"
-        expect(page).to have_no_content "1 project selected"
-        expect(page).to have_no_selector ".budget-summary__selected"
+        expect(page).not_to have_content "1 project selected"
+        expect(page).not_to have_selector ".budget-summary__selected"
 
         within "#order-progress .budget-summary__progressbox" do
           expect(page).to have_content "0%"
         end
 
-        expect(page).to have_no_selector ".budget-list__data--added"
+        expect(page).not_to have_selector ".budget-list__data--added"
       end
 
       it "is alerted when trying to leave the component before completing" do
@@ -354,7 +364,7 @@ describe "Orders", type: :system do
         end
       end
 
-      context "and in project show page cant exceed the budget" do
+      context "and in project show page cannot exceed the budget" do
         let!(:expensive_project) { create(:project, budget:, budget_amount: 250_000_000) }
 
         it "cannot add the project" do
@@ -393,7 +403,7 @@ describe "Orders", type: :system do
           expect(page).to have_content("successfully")
 
           within "#order-progress .budget-summary__progressbox" do
-            expect(page).to have_no_selector("button.small")
+            expect(page).not_to have_selector("button.small")
           end
         end
       end
@@ -409,7 +419,7 @@ describe "Orders", type: :system do
           end
         end
 
-        context "when the order total budget doesn't exceed the threshold" do
+        context "when the order total budget does not exceed the threshold" do
           it "cannot vote" do
             within "#order-progress" do
               expect(page).to have_button("Vote", disabled: true)
@@ -484,7 +494,7 @@ describe "Orders", type: :system do
           end
         end
 
-        context "when the order total budget doesn't reach the minimum" do
+        context "when the order total budget does not reach the minimum" do
           it "cannot vote" do
             visit_budget
 
@@ -534,7 +544,7 @@ describe "Orders", type: :system do
         end
 
         within ".budget-summary" do
-          expect(page).to have_no_selector(".cancel-order")
+          expect(page).not_to have_selector(".cancel-order")
         end
       end
 
@@ -560,7 +570,7 @@ describe "Orders", type: :system do
       it "cannot create new orders" do
         visit_budget
 
-        expect(page).to have_no_selector("button.budget-list__action")
+        expect(page).not_to have_selector("button.budget-list__action")
       end
     end
 
@@ -672,6 +682,36 @@ describe "Orders", type: :system do
           expect(page).to have_content(translated(proposal.title))
           expect(page).to have_content(proposal.creator_author.name)
           expect(page).to have_content(proposal.votes.size)
+        end
+      end
+
+      context "with supports enabled" do
+        let(:proposal_component) do
+          create(:proposal_component, :with_votes_enabled, participatory_space: project.component.participatory_space)
+        end
+
+        let(:proposals) { create_list(:proposal, 1, :with_votes, component: proposal_component) }
+
+        it "shows the amount of supports" do
+          visit_budget
+          click_link translated(project.title)
+
+          expect(page.find('span[class="card--list__data__number"]')).to have_content("5")
+        end
+      end
+
+      context "with supports disabled" do
+        let(:proposal_component) do
+          create(:proposal_component, participatory_space: project.component.participatory_space)
+        end
+
+        let(:proposals) { create_list(:proposal, 1, :with_votes, component: proposal_component) }
+
+        it "does not show supports" do
+          visit_budget
+          click_link translated(project.title)
+
+          expect(page).not_to have_selector('span[class="card--list__data__number"]')
         end
       end
     end

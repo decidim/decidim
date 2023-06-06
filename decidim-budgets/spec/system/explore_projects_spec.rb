@@ -5,13 +5,25 @@ require "spec_helper"
 describe "Explore projects", :slow, type: :system do
   include_context "with a component"
   let(:manifest_name) { "budgets" }
-  let(:budget) { create :budget, component: }
+  let(:budget) { create(:budget, component:) }
   let(:projects_count) { 5 }
   let!(:projects) do
     create_list(:project, projects_count, budget:)
   end
   let!(:project) { projects.first }
   let(:categories) { create_list(:category, 3, participatory_space: component.participatory_space) }
+
+  describe "show" do
+    let(:description) { { en: "Short description", ca: "Descripció curta", es: "Descripción corta" } }
+    let(:project) { create(:project, budget:, description:) }
+
+    before do
+      visit_budget
+      click_link translated(project.title)
+    end
+
+    it_behaves_like "has embedded video in description", :description
+  end
 
   describe "index" do
     it "shows all resources for the given component" do
@@ -38,6 +50,23 @@ describe "Explore projects", :slow, type: :system do
           expect(page).to have_css(".budget-list__item", count: 1)
           expect(page).to have_content(translated(project.title))
         end
+      end
+
+      it "updates the current URL with the text filter" do
+        create(:project, budget:, title: { en: "Foobar project" })
+        create(:project, budget:, title: { en: "Another project" })
+        visit_budget
+
+        within "form.new_filter" do
+          fill_in("filter[search_text_cont]", with: "foobar")
+          click_button "Search"
+        end
+
+        expect(page).not_to have_content("Another project")
+        expect(page).to have_content("Foobar project")
+
+        filter_params = CGI.parse(URI.parse(page.current_url).query)
+        expect(filter_params["filter[search_text_cont]"]).to eq(["foobar"])
       end
 
       it "allows filtering by scope" do

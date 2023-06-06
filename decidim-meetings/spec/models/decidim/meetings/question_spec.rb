@@ -8,12 +8,12 @@ module Decidim
       subject { question }
 
       let(:current_organization) { create(:organization) }
-      let(:current_user) { create :user, organization: meeting_component.organization }
-      let(:meeting_component) { create :meeting_component }
-      let(:meeting) { create :meeting, component: meeting_component }
-      let(:poll) { create :poll, meeting: }
-      let(:questionnaire) { create :meetings_poll_questionnaire, questionnaire_for: poll }
-      let(:question) { create :meetings_poll_question, questionnaire: }
+      let(:current_user) { create(:user, organization: meeting_component.organization) }
+      let(:meeting_component) { create(:meeting_component) }
+      let(:meeting) { create(:meeting, component: meeting_component) }
+      let(:poll) { create(:poll, meeting:) }
+      let(:questionnaire) { create(:meetings_poll_questionnaire, questionnaire_for: poll) }
+      let(:question) { create(:meetings_poll_question, questionnaire:) }
 
       it { is_expected.to be_valid }
 
@@ -43,8 +43,8 @@ module Decidim
         end
       end
 
-      context "when question type doesn't exists in allowed types" do
-        let(:question) { build :meetings_poll_question, questionnaire:, question_type: "foo" }
+      context "when question type does not exists in allowed types" do
+        let(:question) { build(:meetings_poll_question, questionnaire:, question_type: "foo") }
 
         it { is_expected.not_to be_valid }
       end

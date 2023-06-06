@@ -5,10 +5,10 @@ require "spec_helper"
 describe Decidim::Budgets::Admin::UpdateBudget do
   subject { described_class.new(form, budget) }
 
-  let(:budget) { create :budget }
+  let(:budget) { create(:budget) }
   let(:organization) { budget.component.organization }
-  let(:scope) { create :scope, organization: }
-  let(:user) { create :user, :admin, :confirmed, organization: }
+  let(:scope) { create(:scope, organization:) }
+  let(:user) { create(:user, :admin, :confirmed, organization:) }
   let(:form) do
     double(
       invalid?: invalid,

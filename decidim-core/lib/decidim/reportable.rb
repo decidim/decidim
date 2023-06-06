@@ -15,6 +15,20 @@ module Decidim
       scope :hidden, -> { left_outer_joins(:moderation).where.not(Decidim::Moderation.arel_table[:hidden_at].eq nil) }
       scope :not_hidden, -> { left_outer_joins(:moderation).where(Decidim::Moderation.arel_table[:hidden_at].eq nil) }
 
+      # Public: Check if the supplied user can administrate the resource
+      #
+      # Returns Boolean
+      def can_be_administered_by?(user)
+        return false if user.blank?
+        return true if user.admin?
+        return false if participatory_space.respond_to?(:user_roles) && participatory_space.user_roles(:valuator).where(user:).any?
+
+        [
+          participatory_space.moderators.exists?(id: user.id),
+          participatory_space.admins.exists?(id: user.id)
+        ].any?
+      end
+
       # Public: Check if the user has reported the reportable.
       #
       # Returns Boolean.

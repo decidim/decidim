@@ -6,7 +6,7 @@ describe "sortitions", type: :system do
   include_context "with a component"
 
   let(:manifest_name) { "sortitions" }
-  let!(:user) { create :user, :confirmed, organization: participatory_process.organization }
+  let!(:user) { create(:user, :confirmed, organization: participatory_process.organization) }
 
   context "when listing sortitions in a participatory process" do
     it "lists all the sortitions" do
@@ -41,10 +41,31 @@ describe "sortitions", type: :system do
     end
 
     context "when paginating" do
-      let!(:collection) { create_list :sortition, collection_size, component: }
+      let!(:collection) { create_list(:sortition, collection_size, component:) }
       let!(:resource_selector) { ".card--sortition" }
 
       it_behaves_like "a paginated resource"
+    end
+  end
+
+  describe "filters" do
+    context "when filtering by text" do
+      it "updates the current URL" do
+        create(:sortition, component:, title: { en: "Foobar sortition" })
+        create(:sortition, component:, title: { en: "Another sortition" })
+        visit_component
+
+        within "form.new_filter" do
+          fill_in("filter[search_text_cont]", with: "foobar")
+          click_button "Search"
+        end
+
+        expect(page).not_to have_content("Another sortition")
+        expect(page).to have_content("Foobar sortition")
+
+        filter_params = CGI.parse(URI.parse(page.current_url).query)
+        expect(filter_params["filter[search_text_cont]"]).to eq(["foobar"])
+      end
     end
   end
 end

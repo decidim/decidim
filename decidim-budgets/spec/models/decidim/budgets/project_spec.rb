@@ -6,7 +6,7 @@ module Decidim::Budgets
   describe Project do
     subject { project }
 
-    let(:project) { create :project }
+    let(:project) { create(:project) }
 
     include_examples "has reference"
     include_examples "resourceable"
@@ -15,21 +15,21 @@ module Decidim::Budgets
     it { is_expected.to be_versioned }
 
     context "without a budget" do
-      let(:project) { build :project, budget: nil }
+      let(:project) { build(:project, budget: nil) }
 
       it { is_expected.not_to be_valid }
     end
 
     context "when the scope is from another organization" do
-      let(:scope) { create :scope }
-      let(:project) { build :project, scope: }
+      let(:scope) { create(:scope) }
+      let(:project) { build(:project, scope:) }
 
       it { is_expected.not_to be_valid }
     end
 
     context "when the category is from another organization" do
-      let(:category) { create :category }
-      let(:project) { build :project, category: }
+      let(:category) { create(:category) }
+      let(:project) { build(:project, category:) }
 
       it { is_expected.not_to be_valid }
     end
@@ -41,7 +41,7 @@ module Decidim::Budgets
       before do
         # Reset the project IDs to start from 1 in order to get possibly
         # "conflicting" ID sequences for the `.ordered_ids` call. In the past,
-        # e.g. IDs such as "2", and "23" (containing "2") would've caused the
+        # e.g. IDs such as "2", and "23" (containing "2") would have caused the
         # wrong order in case "23" comes first in the ordered IDs list.
         ActiveRecord::Base.connection.reset_pk_sequence!(described_class.table_name)
 
@@ -64,11 +64,11 @@ module Decidim::Budgets
     end
 
     describe "#orders_count" do
-      let(:project) { create :project, budget_amount: 75_000_000 }
-      let(:order) { create :order, budget: project.budget }
-      let(:unfinished_order) { create :order, budget: project.budget }
-      let!(:line_item) { create :line_item, project:, order: }
-      let!(:line_item1) { create :line_item, project:, order: unfinished_order }
+      let(:project) { create(:project, budget_amount: 75_000_000) }
+      let(:order) { create(:order, budget: project.budget) }
+      let(:unfinished_order) { create(:order, budget: project.budget) }
+      let!(:line_item) { create(:line_item, project:, order:) }
+      let!(:line_item1) { create(:line_item, project:, order: unfinished_order) }
 
       it "return number of finished orders for this project" do
         order.reload.update!(checked_out_at: Time.current)
@@ -85,7 +85,7 @@ module Decidim::Budgets
     end
 
     describe "#selected?" do
-      let(:project) { create :project, selected_at: }
+      let(:project) { create(:project, selected_at:) }
 
       context "when selected_at is blank" do
         let(:selected_at) { nil }

@@ -6,7 +6,7 @@ module Decidim
   # Helpers meant to be used only during capybara test runs.
   module CapybaraTestHelpers
     def switch_to_host(host = "lvh.me")
-      raise "Can't switch to a custom host unless it really exists. Use `whatever.lvh.me` as a workaround." unless /lvh\.me$/.match?(host)
+      raise "Cannot switch to a custom host unless it really exists. Use `whatever.lvh.me` as a workaround." unless /lvh\.me$/.match?(host)
 
       app_host = (host ? "#{protocol}://#{host}" : nil)
       Capybara.app_host = app_host
@@ -28,23 +28,6 @@ module Decidim
   end
 end
 
-Capybara.register_driver :headless_chrome do |app|
-  options = ::Selenium::WebDriver::Chrome::Options.new
-  options.args << "--headless"
-  options.args << "--no-sandbox"
-  options.args << if ENV["BIG_SCREEN_SIZE"].present?
-                    "--window-size=1920,3000"
-                  else
-                    "--window-size=1920,1080"
-                  end
-  options.args << "--ignore-certificate-errors" if ENV["TEST_SSL"]
-  Capybara::Selenium::Driver.new(
-    app,
-    browser: :chrome,
-    capabilities: [options]
-  )
-end
-
 1.step do
   port = rand(5000..6999)
   begin
@@ -56,12 +39,31 @@ end
   end
 end
 
-# In order to work with PWA apps, Chrome can't be run in headless mode, and requires
+Capybara.register_driver :headless_chrome do |app|
+  options = Selenium::WebDriver::Chrome::Options.new
+  options.args << "--explicitly-allowed-ports=#{Capybara.server_port}"
+  options.args << "--headless"
+  options.args << "--no-sandbox"
+  options.args << if ENV["BIG_SCREEN_SIZE"].present?
+                    "--window-size=1920,3000"
+                  else
+                    "--window-size=1920,1080"
+                  end
+  options.args << "--ignore-certificate-errors" if ENV["TEST_SSL"]
+  Capybara::Selenium::Driver.new(
+    app,
+    browser: :chrome,
+    options:
+  )
+end
+
+# In order to work with PWA apps, Chrome cannot be run in headless mode, and requires
 # setting up special prefs and flags
 Capybara.register_driver :pwa_chrome do |app|
-  options = ::Selenium::WebDriver::Chrome::Options.new
+  options = Selenium::WebDriver::Chrome::Options.new
+  options.args << "--explicitly-allowed-ports=#{Capybara.server_port}"
   options.args << "--no-sandbox"
-  # Don't limit browser resources
+  # Do not limit browser resources
   options.args << "--disable-dev-shm-usage"
   # Add pwa.lvh.me host as a secure origin
   options.args << "--unsafely-treat-insecure-origin-as-secure=http://pwa.lvh.me:#{Capybara.server_port}"
@@ -80,12 +82,12 @@ Capybara.register_driver :pwa_chrome do |app|
   Capybara::Selenium::Driver.new(
     app,
     browser: :chrome,
-    capabilities: [options]
+    options:
   )
 end
 
 Capybara.register_driver :iphone do |app|
-  options = ::Selenium::WebDriver::Chrome::Options.new
+  options = Selenium::WebDriver::Chrome::Options.new
   options.args << "--headless"
   options.args << "--no-sandbox"
   options.add_emulation(device_name: "iPhone 6")
@@ -93,7 +95,7 @@ Capybara.register_driver :iphone do |app|
   Capybara::Selenium::Driver.new(
     app,
     browser: :chrome,
-    capabilities: [options]
+    options:
   )
 end
 

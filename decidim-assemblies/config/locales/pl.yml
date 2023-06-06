@@ -4,6 +4,7 @@ pl:
       assemblies_setting:
         enable_organization_chart: Włącz wykres dla organizacji
       assembly:
+        announcement: Powiadomienie
         area_id: Kategoria
         assembly_type: Typ zespołu
         assembly_type_other: Typ zespołu inny
@@ -68,12 +69,6 @@ pl:
         email: E-mail
         name: Imię
         role: Rola
-    errors:
-      models:
-        assembly:
-          attributes:
-            document:
-              allowed_file_content_types: 'Nieprawidłowy typ dokumentu. Akceptowane formaty to: %{types}'
   activerecord:
     models:
       decidim/assembly:
@@ -248,6 +243,9 @@ pl:
     admin_log:
       assembly:
         create: "%{user_name} utworzył(a) zespół %{resource_name}"
+        duplicate: "%{user_name} zduplikował(a) zespół %{resource_name}"
+        export: "%{user_name} wyeksportował(a) zespół %{resource_name}"
+        import: "%{user_name} zaimportował(a) zespół %{resource_name}"
         publish: "%{user_name} upublicznił(a) zespół %{resource_name}"
         unpublish: "%{user_name} anulował(a) publikację zespołu %{resource_name}"
         update: "%{user_name} zaktualizował(a) zespół %{resource_name}"
@@ -352,8 +350,6 @@ pl:
         working_group: Grupa robocza
       index:
         title: Zespoły
-      last_activity:
-        new_assembly: Nowy zespół
       pages:
         home:
           highlighted_assemblies:
@@ -431,9 +427,6 @@ pl:
         related_assemblies: Powiązane zespoły
     statistics:
       assemblies_count: Zespoły
-  errors:
-    messages:
-      cannot_be_blank: nie może być puste
   layouts:
     decidim:
       assemblies:

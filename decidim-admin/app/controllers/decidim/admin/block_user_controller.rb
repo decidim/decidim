@@ -3,7 +3,7 @@
 module Decidim
   module Admin
     class BlockUserController < Decidim::Admin::ApplicationController
-      layout "decidim/admin/users"
+      layout "decidim/admin/global_moderations"
 
       helper_method :user
 
@@ -11,6 +11,7 @@ module Decidim
         enforce_permission_to :block, :admin_user
 
         @form = form(BlockUserForm).from_model(user)
+        @form.hide = params[:hide] || false
       end
 
       def create
@@ -21,7 +22,7 @@ module Decidim
         BlockUser.call(@form) do
           on(:ok) do
             flash[:notice] = I18n.t("officializations.block.success", scope: "decidim.admin")
-            redirect_to officializations_path(q: { name_or_nickname_or_email_cont: user.name }), notice:
+            redirect_to moderated_users_path(blocked: true), notice:
           end
 
           on(:invalid) do
@@ -44,13 +45,13 @@ module Decidim
           end
         end
 
-        redirect_to officializations_path(q: { name_or_nickname_or_email_cont: user.name }), notice:
+        redirect_to moderated_users_path, notice:
       end
 
       private
 
       def user
-        @user ||= Decidim::User.find_by(
+        @user ||= Decidim::UserBaseEntity.find_by(
           id: params[:user_id],
           organization: current_organization
         )

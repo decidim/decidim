@@ -64,9 +64,9 @@ describe Decidim::ParticipatoryProcessGroups::ContentBlocks::TitleCell, type: :c
       let(:meta_scope) { nil }
 
       it "hides meta attributes containers" do
-        expect(subject).to have_no_selector("svg.icon--twitter")
-        expect(subject).to have_no_selector("svg.icon--external-link")
-        expect(subject).to have_no_selector("svg.icon--globe")
+        expect(subject).not_to have_selector("svg.icon--twitter")
+        expect(subject).not_to have_selector("svg.icon--external-link")
+        expect(subject).not_to have_selector("svg.icon--globe")
       end
     end
 

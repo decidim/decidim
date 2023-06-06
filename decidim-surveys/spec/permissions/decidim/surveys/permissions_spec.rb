@@ -5,13 +5,13 @@ require "spec_helper"
 describe Decidim::Surveys::Permissions do
   subject { described_class.new(user, permission_action, context).permissions.allowed? }
 
-  let(:user) { create :user, organization: survey_component.organization }
+  let(:user) { create(:user, organization: survey_component.organization) }
   let(:context) do
     {
       current_component: survey_component
     }
   end
-  let(:survey_component) { create :surveys_component }
+  let(:survey_component) { create(:surveys_component) }
   let(:permission_action) { Decidim::PermissionAction.new(**action) }
 
   context "when scope is admin" do
