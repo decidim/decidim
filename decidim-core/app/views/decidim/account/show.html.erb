@@ -46,7 +46,7 @@
           <%= render partial: "password_fields", locals: { form: f } %>
         <% else %>
           <% if current_organization.sign_in_enabled? %>
-            <div data-component="accordion" id="accordion-password" >
+            <div data-component="accordion" id="accordion-password">
               <span class="text-lg font-semibold text-secondary underline block" data-controls="panel-password">
                 <%= t("change_password", scope:"decidim.account.show") %>
               </span>
