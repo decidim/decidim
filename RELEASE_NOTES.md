@@ -162,7 +162,7 @@ You can run the task with the following command:
 bundle exec rake decidim:initiatives:upgrade:fix_broken_pages
 ```
 
-You can see more details about this change on PR [\#](https://github.com/decidim/decidim/pull/)
+You can see more details about this change on PR [\#10928](https://github.com/decidim/decidim/pull/10928)
 
 ## 4. Scheduled tasks
 
