@@ -154,7 +154,7 @@ You can see more details about this change on PR [\#10607](https://github.com/de
 
 ### 3.7. Initiatives pages exception fix
 
-We have addede a new tasks to fix a bug related to the pages component inside of the Initiatives module (`decidim-initiatives`).
+We have added a new tasks to fix a bug related to the pages component inside of the Initiatives module (`decidim-initiatives`).
 
 You can run the task with the following command:
 
