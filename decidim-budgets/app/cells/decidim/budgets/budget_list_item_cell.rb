@@ -64,6 +64,10 @@ module Decidim
         "decidim.budgets.budgets_list"
       end
 
+      def resource_path
+        resource_locator(budget).path
+      end
+
       def current_workflow
         @current_workflow ||=
           controller.try(:current_workflow) ||
