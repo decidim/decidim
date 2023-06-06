@@ -17,9 +17,9 @@ module Decidim
                 type: "Point",
                 coordinates: [longitude, latitude]
               }.to_json,
-              zoom: options[:zoom] || 15,
-              width: options[:width] || 300,
-              height: options[:height] || 300
+              zoom: options[:zoom] || Decidim::Map::StaticMap::DEFAULT_ZOOM,
+              width: options[:width] || Decidim::Map::StaticMap::DEFAULT_SIZE,
+              height: options[:height] || Decidim::Map::StaticMap::DEFAULT_SIZE
             }
           end
         end
