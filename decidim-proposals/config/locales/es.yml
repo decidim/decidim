@@ -110,16 +110,18 @@ es:
             values:
               accepted: Aceptada
               evaluating: En evaluación
+              not_answered: Sin respuesta
               published: Publicada
               rejected: Rechazada
               validating: Validación técnica
               withdrawn: Retirada
-          state_null:
-            label: Estado
-            values:
-              'true': No contestada
           valuator_role_ids_has:
             label: Asignada a evaluadora
+          with_any_state:
+            label: Respondidas
+            values:
+              state_not_published: Sin respuesta
+              state_published: Respondidas
         search_placeholder:
           id_string_or_title_cont: Buscar %{collection} por ID o título.
     components:

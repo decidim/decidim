@@ -117,10 +117,6 @@ lt:
               rejected: Atmesta
               validating: Techninis patvirtinimas
               withdrawn: Atsiimta
-          state_null:
-            label: Būsena
-            values:
-              'true': Neatsakyta
           valuator_role_ids_has:
             label: Pavesta vertintojui
         search_placeholder:

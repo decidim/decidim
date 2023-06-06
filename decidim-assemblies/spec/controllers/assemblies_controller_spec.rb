@@ -60,23 +60,18 @@ module Decidim
 
         it "includes only published assemblies with their children (two levels)" do
           get :index, format: :json
-          expect(parsed_response).to match_array(
-            [
-              {
-                name: translated(promoted.title),
-                children: []
-              },
-              {
-                name: translated(published.title),
-                children: [
-                  {
-                    name: translated(first_level.title),
-                    children: [{ name: translated(second_level.title) }]
-                  }
-                ]
-              }
-            ]
-          )
+          expect(parsed_response).to contain_exactly({
+                                                       name: translated(promoted.title),
+                                                       children: []
+                                                     }, {
+                                                       name: translated(published.title),
+                                                       children: [
+                                                         {
+                                                           name: translated(first_level.title),
+                                                           children: [{ name: translated(second_level.title) }]
+                                                         }
+                                                       ]
+                                                     })
         end
       end
 

@@ -55,7 +55,7 @@ module Decidim
     include_examples "publicable"
 
     context "when there is a consultation with the same slug in the same organization" do
-      let!(:external_assembly) { create :consultation, organization: consultation.organization, slug: "my-slug" }
+      let!(:external_assembly) { create(:consultation, organization: consultation.organization, slug: "my-slug") }
 
       it "is not valid" do
         expect(subject).not_to be_valid
@@ -64,7 +64,7 @@ module Decidim
     end
 
     context "when there is a consultation with the same slug in another organization" do
-      let!(:external_assembly) { create :consultation, slug: "my-slug" }
+      let!(:external_assembly) { create(:consultation, slug: "my-slug") }
 
       it { is_expected.to be_valid }
     end

@@ -6,7 +6,7 @@ module Decidim::ParticipatoryProcesses
   describe Admin::ReorderParticipatoryProcessSteps do
     subject { described_class.new(collection, order) }
 
-    let(:process) { create :participatory_process }
+    let(:process) { create(:participatory_process) }
     let!(:process_step1) do
       create(
         :participatory_process_step,

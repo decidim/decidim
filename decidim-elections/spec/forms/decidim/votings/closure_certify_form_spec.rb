@@ -5,7 +5,7 @@ require "spec_helper"
 describe Decidim::Votings::ClosureCertifyForm do
   subject { described_class.from_params(params).with_context(closure:) }
 
-  let(:closure) { create :ps_closure, :with_results, phase: }
+  let(:closure) { create(:ps_closure, :with_results, phase:) }
   let(:phase) { :certificate }
   let(:add_photos) { [Decidim::Dev.test_file("city.jpeg", "image/jpeg")] }
   let(:params) do

@@ -11,7 +11,7 @@ module Decidim
         let(:organization) { component.organization }
         let(:meeting_component) { create(:meeting_component, participatory_space: component.participatory_space) }
         let(:meetings) { create_list(:meeting, 3, :published, component: meeting_component) }
-        let(:user) { create :user, :admin, :confirmed, organization: }
+        let(:user) { create(:user, :admin, :confirmed, organization:) }
         let(:form) do
           form_klass.from_params(
             form_params
@@ -99,7 +99,7 @@ module Decidim
               end
 
               context "when the meeting is already linked to other proposals" do
-                let(:another_proposal) { create :proposal, component: }
+                let(:another_proposal) { create(:proposal, component:) }
 
                 it "keeps the old proposals linked" do
                   another_proposal.link_resources(meeting_as_author, "proposals_from_meeting")
@@ -107,7 +107,7 @@ module Decidim
                   proposal = Decidim::Proposals::Proposal.last
                   linked_proposals = meeting_as_author.linked_resources(:proposal, "proposals_from_meeting")
 
-                  expect(linked_proposals).to match_array([proposal, another_proposal])
+                  expect(linked_proposals).to contain_exactly(proposal, another_proposal)
                 end
               end
             end
@@ -157,7 +157,7 @@ module Decidim
               end
 
               context "when active record is slow" do
-                let(:proposal) { build :proposal, component: }
+                let(:proposal) { build(:proposal, component:) }
 
                 before do
                   allow(command).to receive(:proposal).and_return(nil)

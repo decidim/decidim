@@ -8,8 +8,8 @@ module Decidim
       describe AdminUsers do
         subject { described_class.new(voting) }
 
-        let(:organization) { create :organization }
-        let!(:voting) { create :voting, organization: }
+        let(:organization) { create(:organization) }
+        let!(:voting) { create(:voting, organization:) }
         let!(:admins) { create_list(:user, 3, :admin, :confirmed, organization:) }
         let!(:normal_user) { create(:user, :confirmed, organization:) }
         let!(:other_organization_user) { create(:user, :confirmed) }

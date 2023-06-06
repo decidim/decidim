@@ -6,7 +6,7 @@ describe Decidim::ContentBlocks::StatsCell, type: :cell do
   subject { stats_cell.call }
 
   let(:organization) { create(:organization) }
-  let(:content_block) { create :content_block, organization:, manifest_name: :stats, scope_name: :homepage }
+  let(:content_block) { create(:content_block, organization:, manifest_name: :stats, scope_name: :homepage) }
   let(:stats_cell) { cell(content_block.cell, content_block) }
 
   let!(:users) { create_list(:user, 10, :confirmed, organization:) }
@@ -31,7 +31,7 @@ describe Decidim::ContentBlocks::StatsCell, type: :cell do
     subject { stats_cell.send(:cache_hash) }
 
     let!(:other_cell) { cell(other_content_block.cell, other_content_block) }
-    let(:other_content_block) { create :content_block, organization: other_organization, manifest_name: :stats, scope_name: :homepage }
+    let(:other_content_block) { create(:content_block, organization: other_organization, manifest_name: :stats, scope_name: :homepage) }
 
     it "generate a unique hash per organization" do
       target_hash = subject

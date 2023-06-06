@@ -7,7 +7,7 @@ module Decidim::Budgets
     subject { described_class.new(order, project, user) }
 
     let(:user) { create(:user) }
-    let(:participatory_process) { create :participatory_process, :with_steps, organization: user.organization }
+    let(:participatory_process) { create(:participatory_process, :with_steps, organization: user.organization) }
     let(:component) { create(:budgets_component, participatory_space: participatory_process, settings:) }
     let(:budget) { create(:budget, component:, total_budget: 100_000) }
     let(:project) { create(:project, budget:, budget_amount: 60_000) }

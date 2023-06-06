@@ -10,7 +10,7 @@ module Decidim
 
         let(:html) { cell("decidim/meetings/content_blocks/upcoming_meetings").call }
         let(:organization) { create(:organization) }
-        let(:current_user) { create :user, :confirmed, organization: }
+        let(:current_user) { create(:user, :confirmed, organization:) }
 
         before do
           expect(controller).to receive(:current_organization).at_least(:once).and_return(organization)
@@ -86,7 +86,7 @@ module Decidim
 
         context "with no meetings" do
           it "renders nothing" do
-            expect(html).to have_no_css(".upcoming-meetings")
+            expect(html).not_to have_css(".upcoming-meetings")
           end
         end
       end

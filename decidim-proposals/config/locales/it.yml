@@ -107,10 +107,6 @@ it:
               rejected: Rifiutato
               validating: Convalida Tecnica
               withdrawn: Ritirato
-          state_null:
-            label: Stato
-            values:
-              'true': Senza risposta
           valuator_role_ids_has:
             label: Assegnato al valutatore
         search_placeholder:

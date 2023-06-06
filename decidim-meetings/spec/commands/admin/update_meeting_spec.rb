@@ -8,8 +8,8 @@ module Decidim::Meetings
 
     let(:meeting) { create(:meeting, :published) }
     let(:organization) { meeting.component.organization }
-    let(:scope) { create :scope, organization: }
-    let(:category) { create :category, participatory_space: meeting.component.participatory_space }
+    let(:scope) { create(:scope, organization:) }
+    let(:category) { create(:category, participatory_space: meeting.component.participatory_space) }
     let(:address) { meeting.address }
     let(:invalid) { false }
     let(:latitude) { 40.1234 }
@@ -21,7 +21,7 @@ module Decidim::Meetings
     let(:services_to_persist) do
       services.map { |service| Admin::MeetingServiceForm.from_params(service) }
     end
-    let(:user) { create :user, :admin, organization: }
+    let(:user) { create(:user, :admin, organization:) }
     let(:private_meeting) { false }
     let(:transparent) { true }
     let(:type_of_meeting) { "online" }
@@ -130,7 +130,7 @@ module Decidim::Meetings
       end
 
       describe "events" do
-        let!(:follow) { create :follow, followable: meeting, user: }
+        let!(:follow) { create(:follow, followable: meeting, user:) }
         let(:title) { meeting.title }
         let(:start_time) { meeting.start_time }
         let(:end_time) { meeting.end_time }

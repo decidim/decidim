@@ -60,7 +60,7 @@ module Decidim::Assemblies
       end
 
       context "when assembly has area" do
-        let(:area) { create :area, organization: resource.organization }
+        let(:area) { create(:area, organization: resource.organization) }
 
         before do
           resource.area = area
@@ -78,7 +78,7 @@ module Decidim::Assemblies
       end
 
       context "when assembly has scope" do
-        let(:scope) { create :scope, organization: resource.organization }
+        let(:scope) { create(:scope, organization: resource.organization) }
 
         before do
           resource.scope = scope

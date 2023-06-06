@@ -3,6 +3,7 @@ el:
     models:
       decidim/comments/comment_by_followed_user_event: Σχόλιο
       decidim/comments/comment_created_event: Σχόλιο
+      decidim/comments/comment_upvoted_event: Το σχόλιο ψηφίστηκε
       decidim/comments/reply_created_event: Απάντηση σχολίου
       decidim/comments/user_group_mentioned_event: Αναφορά
       decidim/comments/user_mentioned_event: Αναφορά
@@ -16,12 +17,21 @@ el:
         other: Ψήφοι
   decidim:
     comments:
+      admin:
+        shared:
+          availability_fields:
+            enabled: Τα σχόλια ενεργοποιήθηκαν
+            end_time: Τα σχόλια ενεργοποιήθηκαν μέχρι
+            start_time: Τα σχόλια ενεργοποιήθηκαν από
       comments:
         create:
           error: Υπήρξε ένα πρόβλημα στη δημιουργία του σχολίου.
+        delete:
+          error: Το σχόλιο δεν μπόρεσε να διαγραφεί.
         update:
           error: Υπήρξε ένα πρόβλημα στην ενημέρωση του σχολίου.
       comments_count: Αριθμός σχολίων
+      comments_title: Σχόλιο
       last_activity:
         new_comment_at_html: "<span>Νέο σχόλιο στο %{link}</span>"
       view: Προβολή
@@ -35,6 +45,7 @@ el:
           body:
             label: Σχόλιο
             placeholder: Ποια είναι η γνώμη σας για αυτό;
+          form_error: Το κείμενο είναι υποχρεωτικό και δεν μπορεί να υπερβαίνει τους %{length} χαρακτήρες.
           submit: Αποστολή
           user_group_id:
             label: Σχόλιο ως
@@ -55,11 +66,12 @@ el:
           in_favor: Υπέρ
         confirm_destroy: Είστε σίγουροι ότι θέλετε να διαγράψετε αυτό το σχόλιο;
         delete: Διαγραφή
-        deleted_at: Σχόλιο διεγράφη στις %{date}
+        deleted_at: Το σχόλιο διεγράφη στις %{date}
         deleted_user: Διαγραμμένος συμμετέχων
         edit: Επεξεργασία
         edited: Επεξεργασμένο
         hide_replies: Απόκρυψη απαντήσεων
+        moderated_at: Σχόλιο διαχειρίστηκε στις %{date}
         reply: Απάντηση
         report:
           action: Αναφορά
@@ -68,9 +80,13 @@ el:
           description: Αυτό το περιεχόμενο είναι ακατάλληλο;
           details: Πρόσθετα σχόλια
           reasons:
+            does_not_belong: Περιέχει παράνομη δραστηριότητα, απειλές αυτοκτονίας, προσωπικά στοιχεία ή κάτι άλλο που πιστεύετε ότι δεν ανήκει στον οργανισμό %{organization_name}.
             offensive: Περιέχει ρατσισμό, σεξισμό, δυσφημίσεις, προσωπικές επιθέσεις, απειλές θανάτου, αιτήματα αυτοκτονίας ή οποιαδήποτε μορφή ρητορικής μίσους.
             spam: Περιέχει clickbait, διαφημίσεις, απάτες ή script bot.
           title: Αναφορά ακατάλληλου περιεχομένου
+        show_replies:
+          one: Εμφάνιση απάντησης
+          other: Εμφάνιση %{count} απαντήσεων
         single_comment_link_title: Αποκτήστε σύνδεσμο
       comment_order_selector:
         order:
@@ -87,6 +103,7 @@ el:
         blocked_comments_warning: Τα σχόλια είναι απενεργοποιημένα αυτήν τη στιγμή, αλλά μπορείτε να διαβάσετε τα προηγούμενα σχόλια.
         comment_details_title: Λεπτομέρειες σχολίων
         loading: Φόρτωση σχολίων...
+        single_comment_warning: <a href="%{url}">Δείτε όλα τα σχόλια</a>
         single_comment_warning_title: Βλέπετε ένα μόνο σχόλιο
         title:
           one: "%{count} σχόλιο"
@@ -150,3 +167,6 @@ el:
         description: Αριθμός σχολίων που δημιουργήθηκαν από συμμετέχοντες
         object: σχόλια
         title: Σχόλια
+  errors:
+    messages:
+      cannot_have_comments: δεν μπορεί να έχει σχόλια

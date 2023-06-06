@@ -5,7 +5,7 @@ require "spec_helper"
 module Decidim
   describe ContentSecurityPolicy do
     subject { described_class.new(organization, additional_content_security_policies) }
-    let!(:organization) { create :organization, content_security_policy: additional_content_security_policies }
+    let!(:organization) { create(:organization, content_security_policy: additional_content_security_policies) }
 
     let(:additional_content_security_policies) { {} }
 

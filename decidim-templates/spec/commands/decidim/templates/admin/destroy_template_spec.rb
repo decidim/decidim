@@ -8,9 +8,9 @@ module Decidim
       describe DestroyTemplate do
         subject { described_class.new(template, user) }
 
-        let(:organization) { create :organization }
-        let(:user) { create :user, :admin, :confirmed, organization: }
-        let(:template) { create :questionnaire_template, organization: }
+        let(:organization) { create(:organization) }
+        let(:user) { create(:user, :admin, :confirmed, organization:) }
+        let(:template) { create(:questionnaire_template, organization:) }
 
         it "broadcasts ok" do
           expect { subject.call }.to broadcast(:ok)

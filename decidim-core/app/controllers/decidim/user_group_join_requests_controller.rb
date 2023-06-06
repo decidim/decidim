@@ -26,7 +26,7 @@ module Decidim
     end
 
     def update
-      enforce_permission_to :manage, :user_group, user_group: user_group
+      enforce_permission_to(:manage, :user_group, user_group:)
 
       AcceptUserGroupJoinRequest.call(membership) do
         on(:ok) do
@@ -43,7 +43,7 @@ module Decidim
     end
 
     def destroy
-      enforce_permission_to :manage, :user_group, user_group: user_group
+      enforce_permission_to(:manage, :user_group, user_group:)
 
       RejectUserGroupJoinRequest.call(membership) do
         on(:ok) do

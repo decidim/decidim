@@ -6,7 +6,7 @@ describe Decidim::Admin::FakeNewsletter do
   subject { newsletter }
 
   let(:newsletter) { described_class.new(organization, manifest) }
-  let(:organization) { create :organization }
+  let(:organization) { create(:organization) }
   let(:manifest) do
     Decidim
       .content_blocks

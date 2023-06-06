@@ -808,7 +808,6 @@ pt:
           intro: 'Há os seguintes erros com a sua mensagem:'
           ok: OK
         index:
-          ago: atrás
           new_conversation: Nova conversa
           next: Seguinte
           title: Conversas

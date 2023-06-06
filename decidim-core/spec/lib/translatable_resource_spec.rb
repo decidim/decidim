@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   describe TranslatableResource do
-    let(:dummy_resource) { create :dummy_resource }
+    let(:dummy_resource) { create(:dummy_resource) }
     let(:organization) { dummy_resource.organization }
     let(:current_locale) { "en" }
 
@@ -33,7 +33,7 @@ module Decidim
 
     describe "when resource has machine translations and is updated" do
       let(:new_title) { { en: "New Title", machine_translations: { ca: "nou títol" } } }
-      let!(:process) { create :participatory_process, title: new_title }
+      let!(:process) { create(:participatory_process, title: new_title) }
 
       before do
         updated_title = { en: "New Title", es: "nuevo título", ca: "" }
@@ -65,7 +65,7 @@ module Decidim
       end
 
       it "enqueues the machine translation job when resource is created" do
-        another_resource = create :dummy_resource, component: dummy_resource.component
+        another_resource = create(:dummy_resource, component: dummy_resource.component)
 
         expect(Decidim::MachineTranslationResourceJob).to have_been_enqueued.on_queue("translations").with(
           another_resource,

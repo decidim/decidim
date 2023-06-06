@@ -16,7 +16,7 @@ module Decidim
 
     # Removes a user from a user group
     def destroy
-      enforce_permission_to :manage, :user_group, user_group: user_group
+      enforce_permission_to(:manage, :user_group, user_group:)
 
       RemoveUserFromGroup.call(membership, user_group) do
         on(:ok) do
@@ -33,7 +33,7 @@ module Decidim
     end
 
     def promote
-      enforce_permission_to :manage, :user_group, user_group: user_group
+      enforce_permission_to(:manage, :user_group, user_group:)
 
       PromoteMembership.call(membership, user_group) do
         on(:ok) do

@@ -4,7 +4,7 @@ require "spec_helper"
 
 describe "Vote online in an election", type: :system do
   let(:manifest_name) { "elections" }
-  let!(:election) { create :election, :bb_test, :vote, component: }
+  let!(:election) { create(:election, :bb_test, :vote, component:) }
   let(:user) { create(:user, :confirmed, organization: component.organization) }
   let!(:elections) { create_list(:election, 2, :vote, component:) } # prevents redirect to single election page
   let(:router) { Decidim::EngineRouter.main_proxy(component).decidim_participatory_process_elections }
@@ -72,21 +72,21 @@ describe "Vote online in an election", type: :system do
   end
 
   context "when the election is not published" do
-    let(:election) { create :election, :upcoming, :complete, component: }
+    let(:election) { create(:election, :upcoming, :complete, component:) }
 
     it_behaves_like "does not allow to vote"
     it_behaves_like "allows admins to preview the voting booth"
   end
 
   context "when the election has not started yet" do
-    let(:election) { create :election, :upcoming, :published, :complete, component: }
+    let(:election) { create(:election, :upcoming, :published, :complete, component:) }
 
     it_behaves_like "does not allow to vote"
     it_behaves_like "allows admins to preview the voting booth"
   end
 
   context "when the election has finished" do
-    let(:election) { create :election, :finished, :published, :complete, component: }
+    let(:election) { create(:election, :finished, :published, :complete, component:) }
 
     it_behaves_like "does not allow to vote"
     it_behaves_like "does not allow admins to preview the voting booth"
@@ -115,7 +115,7 @@ describe "Vote online in an election", type: :system do
     end
 
     context "when the election has not started yet" do
-      let(:election) { create :election, :upcoming, :published, :complete, component: }
+      let(:election) { create(:election, :upcoming, :published, :complete, component:) }
 
       it_behaves_like "allows admins to preview the voting booth"
     end
@@ -144,7 +144,7 @@ describe "Vote online in an election", type: :system do
     end
 
     context "when the election has not started yet" do
-      let(:election) { create :election, :upcoming, :published, :complete, component: }
+      let(:election) { create(:election, :upcoming, :published, :complete, component:) }
 
       it_behaves_like "allows admins to preview the voting booth"
     end

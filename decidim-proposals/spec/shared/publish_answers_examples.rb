@@ -3,7 +3,7 @@
 shared_examples "publish answers" do
   context "when publishing answers at once" do
     before do
-      create_list :proposal, 3, :accepted_not_published, component: current_component
+      create_list(:proposal, 3, :accepted_not_published, component: current_component)
 
       visit current_path
     end

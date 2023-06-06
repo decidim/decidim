@@ -548,7 +548,6 @@ pt:
         promotal_committee: Comité Promotor
         select_initiative_type: Escolher
         show_similar_initiatives: Comparar
-        step: Passo %{current} de %{total}
         title: Criar nova iniciativa
       initiative_header:
         initiative_menu_item: Iniciativa

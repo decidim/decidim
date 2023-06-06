@@ -26,7 +26,7 @@ describe BudgetsWorkflowRandom do
       expect(subject).not_to be_vote_allowed(resource)
     end
 
-    expect(workflow.allowed).to match_array([chosen_resource])
+    expect(workflow.allowed).to contain_exactly(chosen_resource)
   end
 
   it "has an allowed status only for the chosen resource" do
@@ -47,7 +47,7 @@ describe BudgetsWorkflowRandom do
     shared_examples "allows to vote only in the order resource" do
       it "allows to vote in the order resource" do
         expect(subject).to be_vote_allowed(order_resource)
-        expect(workflow.allowed).to match_array([order_resource])
+        expect(workflow.allowed).to contain_exactly(order_resource)
       end
 
       it "does not allow to vote in the other resources" do

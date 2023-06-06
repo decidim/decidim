@@ -425,7 +425,7 @@ describe "Authentication", type: :system do
         end
 
         expect(page).to have_content("Signed out successfully.")
-        expect(page).to have_no_content(user.name)
+        expect(page).not_to have_content(user.name)
       end
     end
 

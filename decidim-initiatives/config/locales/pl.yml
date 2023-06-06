@@ -562,7 +562,6 @@ pl:
         promotal_committee: Komitet organizacyjny
         select_initiative_type: Wybierz
         show_similar_initiatives: Porównaj
-        step: Krok %{current} z %{total}
         title: Utwórz nową inicjatywę
       initiative_header:
         initiative_menu_item: Inicjatywa

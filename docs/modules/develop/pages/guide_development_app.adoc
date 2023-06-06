@@ -62,7 +62,12 @@ We do not recommend using seed data for production environments, but it is usefu
 
 Once the app is created you are ready to start the server:
 
-* `bin/rails server`
+* `bin/dev`
+
+[NOTE]
+====
+This script starts the rails web server and also the webpack dev server, so you do not have to worry about starting them separately.
+====
 
 == Migrations
 

@@ -792,7 +792,6 @@ tr:
           intro: 'Mesajınızda aşağıdaki hatalar vardı:'
           ok: OK
         index:
-          ago: önce
           new_conversation: Yeni görüşme
           next: Sonraki
           title: Konuşmalar

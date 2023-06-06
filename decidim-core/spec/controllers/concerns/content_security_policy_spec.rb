@@ -5,8 +5,8 @@ require "spec_helper"
 module Decidim
   module Headers
     describe "ContentSecurityPolicy", type: :controller do
-      let!(:organization) { create :organization }
-      let!(:user) { create :user, :confirmed, organization: }
+      let!(:organization) { create(:organization) }
+      let!(:user) { create(:user, :confirmed, organization:) }
       let!(:additional_content_security_policies) do
         {
 
@@ -51,7 +51,7 @@ module Decidim
       end
 
       context "when content policy is added by organization" do
-        let!(:organization) { create :organization, content_security_policy: additional_content_security_policies }
+        let!(:organization) { create(:organization, content_security_policy: additional_content_security_policies) }
 
         it "sets the appropiate headers" do
           get :show

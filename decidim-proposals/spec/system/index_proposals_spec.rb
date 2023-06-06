@@ -12,7 +12,7 @@ describe "Index proposals", type: :system do
     it "does not display empty message" do
       visit_component
 
-      expect(page).to have_no_content("There is no proposal yet")
+      expect(page).not_to have_content("There is no proposal yet")
     end
   end
 
