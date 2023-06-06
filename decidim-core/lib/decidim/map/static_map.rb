@@ -51,9 +51,9 @@ module Decidim
       #   * zoom: A number to represent the zoom value of the map image (default
       #     15)
       #   * width: A number to represent the pixel width of the map image
-      #     (default 120)
+      #     (default 300)
       #   * height: A number to represent the pixel height of the map image
-      #     (default 120)
+      #     (default 300)
       #
       # @return [String] The URL to request for the static map image.
       def url(latitude:, longitude:, options: {})
