@@ -347,9 +347,16 @@ describe "Proposals", type: :system do
               # Attach one card image and two document images and go to preview
               dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city.jpeg"), front_interface: true)
               sleep 4
+              expect(page).to have_content("city.jpeg")
               dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city2.jpeg"), front_interface: true)
               sleep 4
+              expect(page).to have_content("city.jpeg")
+              expect(page).to have_content("city2.jpeg")
               dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city3.jpeg"), front_interface: true)
+              sleep 4
+              expect(page).to have_content("city.jpeg")
+              expect(page).to have_content("city2.jpeg")
+              expect(page).to have_content("city3.jpeg")
 
               within ".edit_proposal" do
                 find("*[type=submit]").click

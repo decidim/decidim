@@ -116,17 +116,20 @@ describe "Edit proposals", type: :system do
         it "can add many images many times" do
           click_link "Edit proposal"
           dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city.jpeg"), front_interface: true)
+          sleep 4
           dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("icon.png"), front_interface: true)
+          sleep 4
           dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("avatar.jpg"), front_interface: true)
+          sleep 4
           click_button "Send"
           click_link "Edit proposal"
           expect(page).to have_content("city.jpeg")
           expect(page).to have_content("icon.png")
           expect(page).to have_content("avatar.jpg")
           dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city2.jpeg"), front_interface: true)
+          sleep 4
           expect(page).to have_content("city2.jpeg")
           expect(page).to have_no_content("city3.jpeg")
-          sleep 4
           dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city3.jpeg"), front_interface: true)
           sleep 4
           expect(page).to have_content("city2.jpeg")
