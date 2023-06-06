@@ -15,14 +15,14 @@
       <span class="collapsible-list__see-less" data-toggle="collapsible-list-<%= seed %>"><%= t("decidim.collapsible_list.see_less") %></span>
     </span>
   </div>
-  <% else %>
-    <div class="<%= list_class %>">
-      <% list.each do |element| %>
-        <% if cell_name %>
-          <%= cell cell_name, element, cell_options %>
-        <% else %>
-          <%= card_for element, cell_options %>
-        <% end %>
+<% else %>
+  <div class="<%= list_class %>">
+    <% list.each do |element| %>
+      <% if cell_name %>
+        <%= cell cell_name, element, cell_options %>
+      <% else %>
+        <%= card_for element, cell_options %>
       <% end %>
-    </div>
+    <% end %>
+  </div>
 <% end %>
