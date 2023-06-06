@@ -155,7 +155,7 @@ describe "Orders", type: :system do
 
           within "#order-progress .budget-summary__progressbox" do
             expect(page).to have_content "25%"
-            expect(page).to have_selector("button.small:disabled")
+            expect(page).to have_button(class: "small", disabled: true)
           end
         end
 
@@ -190,7 +190,7 @@ describe "Orders", type: :system do
 
           within "#order-progress .budget-summary__progressbox" do
             expect(page).to have_content "25%"
-            expect(page).to have_selector("button.small:disabled")
+            expect(page).to have_button(class: "small", disabled: true)
           end
         end
 
@@ -226,7 +226,7 @@ describe "Orders", type: :system do
 
           within "#order-progress .budget-summary__progressbox" do
             expect(page).to have_content "16%"
-            expect(page).to have_selector("button.small")
+            expect(page).to have_button(class: "small")
           end
         end
 
@@ -261,7 +261,7 @@ describe "Orders", type: :system do
 
           within "#order-progress .budget-summary__progressbox" do
             expect(page).to have_content "16%"
-            expect(page).to have_selector("button.small")
+            expect(page).to have_button(class: "small", disabled: true)
           end
         end
 
@@ -371,7 +371,7 @@ describe "Orders", type: :system do
           page.visit Decidim::EngineRouter.main_proxy(component).budget_project_path(budget, expensive_project)
 
           within "#project-#{expensive_project.id}-budget-button" do
-            page.find("button").click
+            click_button
           end
 
           expect(page).to have_css("#budget-excess", visible: :visible)
@@ -403,7 +403,7 @@ describe "Orders", type: :system do
           expect(page).to have_content("successfully")
 
           within "#order-progress .budget-summary__progressbox" do
-            expect(page).not_to have_selector("button.small")
+            expect(page).not_to have_button(class: "small")
           end
         end
       end
@@ -540,7 +540,7 @@ describe "Orders", type: :system do
         expect(page).to have_content("successfully")
 
         within "#order-progress .budget-summary__progressbox" do
-          expect(page).to have_selector("button.small:disabled")
+          expect(page).to have_button(class: "small", disabled: true)
         end
 
         within ".budget-summary" do
@@ -570,7 +570,7 @@ describe "Orders", type: :system do
       it "cannot create new orders" do
         visit_budget
 
-        expect(page).not_to have_selector("button.budget-list__action")
+        expect(page).not_to have_button(class: "budget-list__action")
       end
     end
 

@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Comments", type: :system, perform_enqueued: true do
+describe "Comments", perform_enqueued: true, type: :system do
   let!(:component) { create(:debates_component, organization:) }
   let!(:commentable) { create(:debate, :open_ama, component:) }
 

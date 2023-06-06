@@ -38,7 +38,7 @@ describe "Content pages", type: :system do
         page_title = decidim_page.title[I18n.locale.to_s]
 
         within(".page__accordion", text: topic_title) do
-          find("button").click
+          click_button
 
           expect(page).to have_css(
             "a[href=\"#{decidim.page_path(decidim_page)}\"]",
