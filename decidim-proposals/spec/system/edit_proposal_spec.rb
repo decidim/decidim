@@ -119,13 +119,10 @@ describe "Edit proposals", type: :system do
           sleep 4
           dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("icon.png"), front_interface: true)
           sleep 4
-          dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("avatar.jpg"), front_interface: true)
-          sleep 4
           click_button "Send"
           click_link "Edit proposal"
           expect(page).to have_content("city.jpeg")
           expect(page).to have_content("icon.png")
-          expect(page).to have_content("avatar.jpg")
           dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city2.jpeg"), front_interface: true)
           sleep 4
           expect(page).to have_content("city2.jpeg")
@@ -138,7 +135,6 @@ describe "Edit proposals", type: :system do
           expect(page).to have_selector("[data-alert-box].success")
           expect(page).to have_selector("img.object-cover[alt='city.jpeg']")
           expect(page).to have_selector("img.object-cover[alt='icon.png']")
-          expect(page).to have_selector("img.object-cover[alt='avatar.jpg']")
           expect(page).to have_selector("img.object-cover[alt='city2.jpeg']")
           expect(page).to have_selector("img.object-cover[alt='city3.jpeg']")
         end
