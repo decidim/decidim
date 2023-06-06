@@ -50,7 +50,7 @@ module Decidim
     describe "metadata" do
       subject { handler.metadata }
 
-      it { is_expected.to be_kind_of(Hash) }
+      it { is_expected.to be_a(Hash) }
     end
 
     describe "#unique?" do
@@ -119,7 +119,7 @@ module Decidim
           end
 
           context "when the handler is configured" do
-            it { is_expected.to be_kind_of(described_class) }
+            it { is_expected.to be_a(described_class) }
           end
         end
       end

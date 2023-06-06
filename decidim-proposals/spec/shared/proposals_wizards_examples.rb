@@ -180,7 +180,7 @@ shared_examples "proposals wizards" do |options|
       end
 
       it "shows a publish button" do
-        expect(page).to have_selector("button", text: "Publish")
+        expect(page).to have_button(text: "Publish")
       end
 
       it "shows a modify proposal link" do
@@ -305,7 +305,7 @@ shared_examples "proposals wizards" do |options|
       end
 
       it "shows a publish button" do
-        expect(page).to have_selector("button", text: "Publish")
+        expect(page).to have_button(text: "Publish")
       end
 
       it "shows a modify proposal link" do

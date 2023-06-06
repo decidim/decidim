@@ -142,7 +142,7 @@ shared_examples_for "has questionnaire" do
       it "does not leak defaults from other answers" do
         visit questionnaire_public_path
 
-        expect(page).not_to have_selector("input[type=radio]:checked")
+        expect(page).not_to have_field(type: "radio", checked: true)
       end
     end
 
@@ -152,7 +152,7 @@ shared_examples_for "has questionnaire" do
 
         expect(form_fields[0]).to have_i18n_content(question.body)
         expect(form_fields[1]).to have_i18n_content(other_question.body)
-        (0..1).each do |index|
+        2.times do |index|
           expect(form_fields[index]).to have_css("[data-answer-idx='#{index + 1}']")
         end
       end
@@ -383,7 +383,7 @@ shared_examples_for "has questionnaire" do
         let(:question_type) { "multiple_option" }
 
         it "renders them as check boxes with attached text fields disabled by default" do
-          expect(page.first(".js-check-box-collection")).to have_selector("input[type=checkbox]", count: 3)
+          expect(page.first(".js-check-box-collection")).to have_field(type: "checkbox", count: 3)
 
           expect(page).to have_field("questionnaire_responses_0_choices_2_custom_body", disabled: true, count: 1)
 
@@ -448,7 +448,7 @@ shared_examples_for "has questionnaire" do
       it "renders the answer as a text field" do
         visit questionnaire_public_path
 
-        expect(page).to have_selector("input[type=text]#questionnaire_responses_0")
+        expect(page).to have_field(id: "questionnaire_responses_0")
       end
 
       it_behaves_like "question has a character limit"

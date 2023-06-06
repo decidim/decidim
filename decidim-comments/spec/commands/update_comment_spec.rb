@@ -68,7 +68,7 @@ module Decidim
           it "updates the comment" do
             command.call
             comment.reload
-            expect(comment.body).to be_kind_of(Hash)
+            expect(comment.body).to be_a(Hash)
             expect(comment.body["en"]).to eq body
           end
 

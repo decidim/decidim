@@ -112,7 +112,7 @@ module Decidim
           context "when the user exists" do
             let(:user_id) { create(:user, organization:).id }
 
-            it { is_expected.to be_kind_of(Decidim::User) }
+            it { is_expected.to be_a(Decidim::User) }
           end
 
           context "when the user does not exist" do
