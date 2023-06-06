@@ -20,11 +20,12 @@ module Decidim
 
     def show
       if authorable?
-        cell "decidim/author", presenter_for_author(model), extra_classes.merge(has_actions: has_actions?, from: model)
+        cell "decidim/redesigned_author", presenter_for_author(model), extra_classes.merge(has_actions: has_actions?, from: model)
       else
         cell(
           "decidim/collapsible_authors",
-          presenters_for_identities(model)
+          presenters_for_identities(model),
+          options
         )
       end
     end

@@ -89,6 +89,10 @@
           @apply w-3.5 h-3.5 fill-current text-gray;
         }
       }
+
+      [data-author] + [data-author]{
+        @apply -ml-4;
+      }
     }
 
     & + &{
