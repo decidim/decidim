@@ -42,7 +42,7 @@ describe Decidim::Elections::Admin::ElectionsController, type: :controller do
     it "updates the election" do
       allow(controller).to receive(:elections_path).and_return("/elections")
 
-      patch :update, params: params
+      patch(:update, params:)
 
       expect(flash[:notice]).not_to be_empty
       expect(response).to have_http_status(:found)
@@ -54,7 +54,7 @@ describe Decidim::Elections::Admin::ElectionsController, type: :controller do
         let(:election) { create(:election, :with_photos, component:) }
 
         it "displays the editing form with errors" do
-          patch :update, params: params
+          patch(:update, params:)
 
           expect(flash[:alert]).not_to be_empty
           expect(response).to have_http_status(:ok)

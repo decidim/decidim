@@ -7,7 +7,7 @@ module Decidim
     subject { initiative }
 
     let(:organization) { create(:organization) }
-    let(:initiative) { build :initiative }
+    let(:initiative) { build(:initiative) }
 
     let(:initiatives_type_minimum_committee_members) { 2 }
     let(:initiatives_type) do
@@ -55,7 +55,7 @@ module Decidim
     end
 
     context "when published initiative" do
-      let(:published_initiative) { build :initiative }
+      let(:published_initiative) { build(:initiative) }
       let(:online_allowed_type) { create(:initiatives_type, :online_signature_enabled, organization:) }
       let(:online_allowed_scope) { create(:initiatives_type_scope, type: online_allowed_type) }
 

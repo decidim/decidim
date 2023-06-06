@@ -7,7 +7,7 @@ describe "Editor", type: :system do
   include Decidim::FrontEndFileTestHelpers
 
   let!(:organization) { create(:organization) }
-  let(:user) { create :user, :admin, :confirmed, organization: }
+  let(:user) { create(:user, :admin, :confirmed, organization:) }
 
   # Which features to enable for the toolbar: basic|full
   let(:features) { "basic" }
@@ -1257,13 +1257,13 @@ describe "Editor", type: :system do
   context "with hashtags, mentions and emojis" do
     let(:editor_options) { { hashtaggable: true, mentionable: true, emojiable: true } }
 
-    let!(:user1) { create :user, :confirmed, name: "John Doe", nickname: "doe_john", organization: }
-    let!(:user2) { create :user, :confirmed, name: "Jon Doe", nickname: "doe_jon", organization: }
-    let!(:user3) { create :user, :confirmed, name: "Jane Doe", nickname: "doe_jane", organization: }
+    let!(:user1) { create(:user, :confirmed, name: "John Doe", nickname: "doe_john", organization:) }
+    let!(:user2) { create(:user, :confirmed, name: "Jon Doe", nickname: "doe_jon", organization:) }
+    let!(:user3) { create(:user, :confirmed, name: "Jane Doe", nickname: "doe_jane", organization:) }
 
-    let!(:hashtag1) { create :hashtag, name: "nature", organization: }
-    let!(:hashtag2) { create :hashtag, name: "nation", organization: }
-    let!(:hashtag3) { create :hashtag, name: "native", organization: }
+    let!(:hashtag1) { create(:hashtag, name: "nature", organization:) }
+    let!(:hashtag2) { create(:hashtag, name: "nation", organization:) }
+    let!(:hashtag3) { create(:hashtag, name: "native", organization:) }
 
     it "allows selecting hashtags" do
       prosemirror.native.send_keys "#na"
@@ -1345,8 +1345,8 @@ describe "Editor", type: :system do
 
           within "[data-bubble-menu] [data-linkbubble]" do
             expect(page).to have_content("URL:\nhttps://decidim.org")
-            expect(page).to have_selector("button", text: "Edit")
-            expect(page).to have_selector("button", text: "Remove")
+            expect(page).to have_button(text: "Edit")
+            expect(page).to have_button(text: "Remove")
           end
         end
       end
@@ -1586,7 +1586,7 @@ describe "Editor", type: :system do
           add_file("city.jpeg", ".dropzone-container .dropzone", "drop")
           fill_in "Alternative text for the image", with: "City landscape"
 
-          find("button.add-file-file").click
+          click_button(class: "add-file-file")
         end
         expect(Decidim::EditorImage.count).to be(1)
 
@@ -1607,7 +1607,7 @@ describe "Editor", type: :system do
           add_file("city.jpeg", ".dropzone-container .dropzone", "select")
           fill_in "Alternative text for the image", with: "City landscape"
 
-          find("button.add-file-file").click
+          click_button(class: "add-file-file")
         end
         expect(Decidim::EditorImage.count).to be(1)
 

@@ -5,12 +5,12 @@ require "spec_helper"
 describe Decidim::Elections::Admin::StartVote do
   subject { described_class.new(form) }
 
-  let(:organization) { create :organization, available_locales: [:en, :ca, :es], default_locale: :en }
+  let(:organization) { create(:organization, available_locales: [:en, :ca, :es], default_locale: :en) }
   let(:invalid) { false }
-  let(:participatory_process) { create :participatory_process, organization: }
-  let(:current_component) { create :component, participatory_space: participatory_process, manifest_name: "elections" }
-  let(:user) { create :user, :admin, :confirmed, organization: }
-  let(:election) { create :election, :key_ceremony_ended }
+  let(:participatory_process) { create(:participatory_process, organization:) }
+  let(:current_component) { create(:component, participatory_space: participatory_process, manifest_name: "elections") }
+  let(:user) { create(:user, :admin, :confirmed, organization:) }
+  let(:election) { create(:election, :key_ceremony_ended) }
   let(:form) do
     double(
       invalid?: invalid,

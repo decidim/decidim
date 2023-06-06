@@ -11,15 +11,22 @@ de:
         decidim_area_id: Bereich
         description: Beschreibung
         developer_group: Promoter-Gruppe
+        document: Dokument
         domain: Domäne
         end_date: Enddatum
         hashtag: Hashtag
         hero_image: Hauptbild
+        import_attachments: Anhänge importieren
+        import_categories: Kategorien importieren
+        import_components: Komponenten importieren
+        import_steps: Schritte importieren
         local_area: Organisationsbereich
         meta_scope: Bereichs-Metadaten
         participatory_process_group_id: Prozessgruppe
+        participatory_process_type_id: Prozesstyp
         participatory_scope: Was wird entschieden?
         participatory_structure: Wie wird es entschieden?
+        private_space: Privater Prozess
         promoted: Hervorgehoben
         published_at: Veröffentlicht unter
         related_process_ids: Ähnliche Beteiligungsprozesse
@@ -62,6 +69,12 @@ de:
         email: E-Mail
         name: Name
         role: Rolle
+    errors:
+      models:
+        participatory_process:
+          attributes:
+            document:
+              allowed_file_content_types: 'Ungültiger Dokumententyp. Nur Dateien mit folgenden Erweiterungen sind erlaubt: %{types}'
     models:
       decidim/participatory_process_step_activated_event: Phase aktiviert
       decidim/participatory_process_step_changed_event: Phase geändert
@@ -89,6 +102,7 @@ de:
           all_processes: Alle Beteiligungsprozesse anzeigen
           process_groups: Prozessgruppen
         import_process: Importieren
+        moderate: Moderieren
         new_process: Neuer Beteiligungsprozess
         new_process_group: Neue Prozessgruppe
         new_process_step: Neue Phase
@@ -163,8 +177,17 @@ de:
       participatory_process_group_landing_page:
         edit:
           active_content_blocks: Aktive Inhaltsblöcke
+          add: Inhaltsblock hinzufügen
+          destroy_confirmation: Sind Sie sicher, dass Sie diesen Inhaltsblock löschen möchten?
           inactive_content_blocks: Inaktive Inhaltsblöcke
+          title: Seiteninhalt
       participatory_process_group_landing_page_content_blocks:
+        create:
+          error: Es gab ein Problem beim Erstellen dieses Inhaltsblocks.
+          success: Inhaltsblock erfolgreich erstellt.
+        destroy:
+          error: Es gab ein Problem beim Löschen dieses Inhaltsblocks.
+          success: Inhaltsblock erfolgreich gelöscht.
         edit:
           update: Aktualisieren
       participatory_process_groups:
@@ -205,6 +228,9 @@ de:
           success: Partizipativer Prozessschritt erfolgreich erstellt
         default_title: Einführung
         destroy:
+          error:
+            active_step: Der aktive Schritt kann nicht gelöscht werden.
+            last_step: Der letzte Schritt eines Prozesses kann nicht gelöscht werden.
           success: Participatory-Prozessschritt erfolgreich gelöscht
         edit:
           title: Beteiligungsschritt bearbeiten
@@ -306,6 +332,7 @@ de:
       participatory_process_type:
         create: "%{user_name} hat den Beteiligungsprozesstyp %{resource_name} erstellt"
         delete: "%{user_name} hat den Beteiligungsprozesstyp %{resource_name} gelöscht"
+        update: "%{user_name} hat den Prozesstyp %{resource_name} aktualisiert"
       participatory_process_user_role:
         create: "%{user_name} lud den Benutzer %{resource_name} zu dem %{space_name} Partizipationsprozess ein"
         delete: "%{user_name} entfernte den Benutzer %{resource_name} aus dem %{space_name} Partizipationsprozess"
@@ -333,6 +360,10 @@ de:
           contextual: "<p>Ein <strong>Partizipationsprozess</strong> ist eine Folge von Partizipations-Aktivitäten (z.B. zuerst eine Umfrage ausfüllen, dann Vorschläge machen, diese face-to-face oder an virtuellen Sitzungen diskutieren, und sie schließlich zu priorisieren) mit dem Ziel, ein bestimmtes Thema zu definieren und Entscheidungen dazu zu treffen.</p> <p>Beispiele für partizipatorische Prozesse sind: ein Verfahren zur Wahl von Ausschussmitgliedern (bei dem die Kandidaturen zuerst präsentiert und anschließend debattiert werden, und schließlich eine Kandidatur ausgewählt wird), die partizipative Budgets (bei denen Vorschläge gemacht und wirtschaftlich bewertet werden und über das verfügbare Geld abgestimmt wird), ein strategischer Planungsprozess, die gemeinschaftliche Ausarbeitung einer Vorschrift oder Norm, die Gestaltung eines städtischen Raums oder die Erstellung einer öffentlichen Strategie.</p>\n"
           page: "<p>Ein <strong>Partizipationsprozess</strong> ist eine Folge von Partizipations-Aktivitäten (z.B. zuerst eine Umfrage ausfüllen, dann Vorschläge machen, diese face-to-face oder an virtuellen Sitzungen diskutieren, und sie schließlich zu priorisieren) mit dem Ziel, ein bestimmtes Thema zu definieren und Entscheidungen dazu zu treffen.</p> <p>Beispiele für partizipatorische Prozesse sind: ein Verfahren zur Wahl von Ausschussmitgliedern (bei dem die Kandidaturen zuerst präsentiert und anschließend debattiert werden, und schließlich eine Kandidatur ausgewählt wird), die partizipative Budgets (bei denen Vorschläge gemacht und wirtschaftlich bewertet werden und über das verfügbare Geld abgestimmt wird), ein strategischer Planungsprozess, die gemeinschaftliche Ausarbeitung einer Vorschrift oder Norm, die Gestaltung eines städtischen Raums oder die Erstellung einer öffentlichen Strategie.</p>\n"
           title: Was ist ein partizipativer Prozess?
+    log:
+      value_types:
+        participatory_process_type_presenter:
+          not_found: 'Der Prozesstyp wurde nicht in der Datenbank gefunden (ID: %{id}).'
     menu:
       processes: Beteiligungsprozesse
     metrics:
@@ -450,6 +481,8 @@ de:
               one: 1 bevorstehender Beteiligungsprozess
               other: "%{count} bevorstehende Beteiligungsprozesse"
           explanations:
+            no_active: Keine laufenden Prozesse.
+            no_active_nor_upcoming: Keine laufende oder bevorstehende Prozesse.
             no_active_nor_upcoming_callout: Es gibt keine aktiven oder zukünftigen Beteiligungsprozesse. Hier ist eine Liste der vergangenen.
           filter_by: Anzeigen
           names:

@@ -6,10 +6,10 @@ module Decidim::Accountability
   describe Admin::CreateStatus do
     subject { described_class.new(form, user) }
 
-    let(:organization) { create :organization, available_locales: [:en] }
+    let(:organization) { create(:organization, available_locales: [:en]) }
     let(:user) { create(:user, organization:) }
-    let(:participatory_process) { create :participatory_process, organization: }
-    let(:current_component) { create :component, manifest_name: "accountability", participatory_space: participatory_process }
+    let(:participatory_process) { create(:participatory_process, organization:) }
+    let(:current_component) { create(:component, manifest_name: "accountability", participatory_space: participatory_process) }
 
     let(:key) { "planned" }
     let(:name) { "Planned" }

@@ -533,7 +533,7 @@ fr:
           download_example_format: Exemple comme %{name}
           file_legend: Ajouter un fichier d'import qui sera analysé.
           import: Importer
-        notice: "Import réussie de %{count} %{resource_name}."
+        notice: "Import réussi de %{count} %{resource_name}."
       logs:
         filters:
           participatory_space: Trouver un espace participatif

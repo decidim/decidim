@@ -10,7 +10,7 @@ module Decidim::Comments
 
     let(:my_cell) { cell("decidim/comments/comment_form", commentable) }
     let(:organization) { create(:organization) }
-    let(:participatory_process) { create :participatory_process, organization: }
+    let(:participatory_process) { create(:participatory_process, organization:) }
     let(:component) { create(:component, participatory_space: participatory_process) }
     let(:commentable) { create(:dummy_resource, component:) }
     let(:comment) { create(:comment, commentable:) }
@@ -33,8 +33,8 @@ module Decidim::Comments
         expect(subject).to have_css(".hashtags__container textarea#add-comment-DummyResource-#{commentable.id}[maxlength='1000']")
         expect(subject).to have_css("#add-comment-DummyResource-#{commentable.id}-remaining-characters")
         expect(subject).to have_css("input.alignment-input[name='comment[alignment]'][value='0']", visible: :hidden)
-        expect(subject).to have_css("input[name='comment[commentable_gid]']", visible: :hidden)
-        expect(subject).to have_css("button", text: "Send")
+        expect(subject).to have_field(name: "comment[commentable_gid]", type: :hidden)
+        expect(subject).to have_button(text: "Send", disabled: true)
 
         expect(subject).not_to have_css("#add-comment-DummyResource-#{commentable.id}-user-group-id")
       end

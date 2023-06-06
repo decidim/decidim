@@ -111,16 +111,18 @@ en:
             values:
               accepted: Accepted
               evaluating: Evaluating
+              not_answered: Not answered
               published: Published
               rejected: Rejected
               validating: Technical validation
               withdrawn: Withdrawn
-          state_null:
-            label: State
-            values:
-              'true': Not answered
           valuator_role_ids_has:
             label: Assigned to valuator
+          with_any_state:
+            label: Answered
+            values:
+              state_not_published: Not answered
+              state_published: Answered
         search_placeholder:
           id_string_or_title_cont: Search %{collection} by ID or title.
     components:

@@ -44,7 +44,7 @@ module Decidim::Budgets
       it_behaves_like "allows voting in every resources"
 
       it "has one discardable order" do
-        expect(workflow.progress).to match_array([order_resource])
+        expect(workflow.progress).to contain_exactly(order_resource)
       end
 
       context "when order has been checked out" do

@@ -26,7 +26,7 @@ describe "User group leaving", type: :system do
         let(:another_admin) { create(:user, :confirmed, organization: user.organization) }
 
         before do
-          create :user_group_membership, user: another_admin, user_group: user_group, role: :admin
+          create(:user_group_membership, user: another_admin, user_group:, role: :admin)
           visit decidim.profile_path(user_group.nickname)
         end
 
@@ -43,8 +43,8 @@ describe "User group leaving", type: :system do
       let(:another_user) { create(:user, :confirmed, organization: user.organization) }
 
       before do
-        create :user_group_membership, user: user, user_group: user_group, role: :admin
-        create :user_group_membership, user: another_user, user_group:, role: :admin
+        create(:user_group_membership, user:, user_group:, role: :admin)
+        create(:user_group_membership, user: another_user, user_group:, role: :admin)
       end
 
       it "allows the user to leave and join back" do
@@ -60,7 +60,7 @@ describe "User group leaving", type: :system do
 
   context "when the user does not belong to the group" do
     it "does not show the link to leave" do
-      expect(page).to have_no_content("Leave group")
+      expect(page).not_to have_content("Leave group")
     end
   end
 end

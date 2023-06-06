@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe Premailer::Adapter::Decidim do
-  let(:document) { ::Nokogiri::HTML(document_template, nil, "UTF-8", &:recover) }
+  let(:document) { Nokogiri::HTML(document_template, nil, "UTF-8", &:recover) }
   let(:document_template) do
     <<~HTML
       <html>

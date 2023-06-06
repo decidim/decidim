@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Explore versions", versioning: true, type: :system do
+describe "Explore versions", type: :system, versioning: true do
   include_context "with a component"
   let(:manifest_name) { "meetings" }
 
@@ -13,7 +13,7 @@ describe "Explore versions", versioning: true, type: :system do
       id: meeting.id
     )
   end
-  let!(:scope) { create :scope, organization: }
+  let!(:scope) { create(:scope, organization:) }
   let!(:meeting) do
     create(
       :meeting,

@@ -6,9 +6,9 @@ describe "Proposals", type: :system do
   include_context "with a component"
   let(:manifest_name) { "proposals" }
 
-  let!(:category) { create :category, participatory_space: participatory_process }
-  let!(:scope) { create :scope, organization: }
-  let!(:user) { create :user, :confirmed, organization: }
+  let!(:category) { create(:category, participatory_space: participatory_process) }
+  let!(:scope) { create(:scope, organization:) }
+  let!(:user) { create(:user, :confirmed, organization:) }
   let(:scoped_participatory_process) { create(:participatory_process, :with_steps, organization:, scope:) }
 
   let(:address) { "Some address" }
@@ -63,7 +63,7 @@ describe "Proposals", type: :system do
             visit complete_proposal_path(component, proposal_draft)
 
             within "form.edit_proposal" do
-              expect(page).to have_no_content("Scope")
+              expect(page).not_to have_content("Scope")
             end
           end
         end
@@ -93,7 +93,7 @@ describe "Proposals", type: :system do
           expect(page).to have_author(user.name)
         end
 
-        context "when geocoding is enabled", :serves_map, :serves_geocoding_autocomplete do
+        context "when geocoding is enabled", :serves_geocoding_autocomplete, :serves_map do
           let!(:component) do
             create(:proposal_component,
                    :with_creation_enabled,
@@ -228,7 +228,7 @@ describe "Proposals", type: :system do
             expect(page).to have_author(user_group.name)
           end
 
-          context "when geocoding is enabled", :serves_map, :serves_geocoding_autocomplete do
+          context "when geocoding is enabled", :serves_geocoding_autocomplete, :serves_map do
             let!(:component) do
               create(:proposal_component,
                      :with_creation_enabled,
@@ -363,7 +363,7 @@ describe "Proposals", type: :system do
                 click_button "Edit image"
               end
               within ".upload-modal" do
-                find("button.remove-upload-item").click
+                click_button(class: "remove-upload-item")
                 click_button "Save"
               end
 
@@ -392,7 +392,7 @@ describe "Proposals", type: :system do
       context "when creation is not enabled" do
         it "does not show the creation button" do
           visit_component
-          expect(page).to have_no_link("New proposal")
+          expect(page).not_to have_link("New proposal")
         end
       end
 
@@ -405,7 +405,7 @@ describe "Proposals", type: :system do
                  participatory_space: participatory_process)
         end
 
-        let!(:proposal_first) { create(:proposal, users: [user], component:, title: "Creating my first and only proposal", body: "This is my only proposal's body and I'm using it unwisely.") }
+        let!(:proposal_first) { create(:proposal, users: [user], component:, title: "Creating my first and only proposal", body: "This is my only proposal's body and I am using it unwisely.") }
 
         before do
           visit_component
@@ -415,12 +415,12 @@ describe "Proposals", type: :system do
         it "allows the creation of a single new proposal" do
           within ".new_proposal" do
             fill_in :proposal_title, with: "Creating my second proposal"
-            fill_in :proposal_body, with: "This is my second proposal's body and I'm using it unwisely."
+            fill_in :proposal_body, with: "This is my second proposal's body and I am using it unwisely."
 
             find("*[type=submit]").click
           end
 
-          expect(page).to have_no_content("successfully")
+          expect(page).not_to have_content("successfully")
           expect(page).to have_css("[data-alert-box].alert", text: "limit")
         end
       end

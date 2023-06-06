@@ -362,7 +362,6 @@ id:
         promotal_committee: Komite promotor
         select_initiative_type: Memilih
         show_similar_initiatives: Membandingkan
-        step: Langkah %{current} dari %{total}
         title: Buat inisiatif baru
       initiative_header:
         initiative_menu_item: Prakarsa

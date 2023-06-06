@@ -35,7 +35,7 @@ module Decidim
       end
 
       # Ugly fix to get the user from the block inside the
-      # `InviteUser#call` method. I'm not proud of this.
+      # `InviteUser#call` method. I am not proud of this.
       def save_user(user)
         @user = user
       end

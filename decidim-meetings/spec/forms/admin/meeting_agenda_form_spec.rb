@@ -15,9 +15,9 @@ module Decidim::Meetings
         meeting:
       }
     end
-    let(:participatory_process) { create :participatory_process, organization: }
-    let(:current_component) { create :component, participatory_space: participatory_process, manifest_name: "meetings" }
-    let(:meeting) { create :meeting, component: current_component }
+    let(:participatory_process) { create(:participatory_process, organization:) }
+    let(:current_component) { create(:component, participatory_space: participatory_process, manifest_name: "meetings") }
+    let(:meeting) { create(:meeting, component: current_component) }
 
     let(:title) do
       Decidim::Faker::Localized.sentence(word_count: 3)

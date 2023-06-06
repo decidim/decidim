@@ -244,7 +244,7 @@ Decidim.register_component(:proposals) do |component|
                                           elsif n.positive?
                                             ["accepted", Decidim::Faker::Localized.sentence(word_count: 10), nil]
                                           else
-                                            [nil, nil, nil]
+                                            ["not_answered", nil, nil]
                                           end
 
       params = {
@@ -451,16 +451,10 @@ Decidim.register_component(:proposals) do |component|
 
       case n
       when 2
-        author2 = Decidim::User.where(organization: component.organization).all.sample
-        Decidim::Coauthorship.create(coauthorable: draft, author: author2)
-        author3 = Decidim::User.where(organization: component.organization).all.sample
-        Decidim::Coauthorship.create(coauthorable: draft, author: author3)
-        author4 = Decidim::User.where(organization: component.organization).all.sample
-        Decidim::Coauthorship.create(coauthorable: draft, author: author4)
-        author5 = Decidim::User.where(organization: component.organization).all.sample
-        Decidim::Coauthorship.create(coauthorable: draft, author: author5)
-        author6 = Decidim::User.where(organization: component.organization).all.sample
-        Decidim::Coauthorship.create(coauthorable: draft, author: author6)
+        authors = Decidim::User.where(organization: component.organization).all.sample(5)
+        authors.each do |local_author|
+          Decidim::Coauthorship.create(coauthorable: draft, author: local_author)
+        end
       when 3
         author2 = Decidim::User.where(organization: component.organization).all.sample
         Decidim::Coauthorship.create(coauthorable: draft, author: author2)

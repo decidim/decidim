@@ -6,9 +6,9 @@ module Decidim::Meetings
   describe Admin::CopyMeeting do
     subject { described_class.new(form, meeting) }
 
-    let!(:meeting) { create :meeting }
+    let!(:meeting) { create(:meeting) }
 
-    let(:current_user) { create :user, :admin, :confirmed, organization: meeting.organization }
+    let(:current_user) { create(:user, :admin, :confirmed, organization: meeting.organization) }
     let(:address) { "address" }
     let(:invalid) { false }
     let(:latitude) { 40.1234 }
@@ -90,7 +90,7 @@ module Decidim::Meetings
 
       context "and saves the correct meeting type" do
         context "with in_person meeting type" do
-          let!(:meeting) { create :meeting, :in_person }
+          let!(:meeting) { create(:meeting, :in_person) }
 
           it "duplicates an in_person meeting" do
             expect { subject.call }.to change(Meeting, :count).by(1)
@@ -100,7 +100,7 @@ module Decidim::Meetings
         end
 
         context "with online meeting type" do
-          let!(:meeting) { create :meeting, :online }
+          let!(:meeting) { create(:meeting, :online) }
 
           it "duplicates an online meeting" do
             expect { subject.call }.to change(Meeting, :count).by(1)
@@ -111,7 +111,7 @@ module Decidim::Meetings
         end
 
         context "with hybrid meeting type" do
-          let!(:meeting) { create :meeting, :hybrid }
+          let!(:meeting) { create(:meeting, :hybrid) }
 
           it "duplicates a hybrid meeting" do
             expect { subject.call }.to change(Meeting, :count).by(1)
@@ -124,7 +124,7 @@ module Decidim::Meetings
     end
 
     describe "events" do
-      let!(:follow) { create :follow, followable: meeting.participatory_space, user: current_user }
+      let!(:follow) { create(:follow, followable: meeting.participatory_space, user: current_user) }
 
       it "notifies the change" do
         expect(Decidim::EventsManager)

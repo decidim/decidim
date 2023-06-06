@@ -6,7 +6,7 @@ module Decidim
   module Consultations
     module Admin
       describe UpdateQuestion do
-        let(:question) { create :question }
+        let(:question) { create(:question) }
         let(:params) do
           {
             question: {

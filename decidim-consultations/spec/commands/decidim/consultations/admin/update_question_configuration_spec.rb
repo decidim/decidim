@@ -6,7 +6,7 @@ module Decidim
   module Consultations
     module Admin
       describe UpdateQuestionConfiguration do
-        let(:question) { create :question }
+        let(:question) { create(:question) }
         let(:min_votes) { "3" }
         let(:max_votes) { "5" }
         let(:params) do

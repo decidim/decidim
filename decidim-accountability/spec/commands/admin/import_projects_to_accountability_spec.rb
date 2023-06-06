@@ -6,7 +6,7 @@ module Decidim::Accountability
   describe Admin::ImportProjectsToAccountability do
     describe "#call" do
       subject { command.call }
-      let(:user) { create :user, organization: }
+      let(:user) { create(:user, organization:) }
       let(:organization) { create(:organization) }
       let(:participatory_space) { create(:participatory_process, organization:) }
       let(:budget_component) { create(:component, manifest_name: "budgets", participatory_space:) }

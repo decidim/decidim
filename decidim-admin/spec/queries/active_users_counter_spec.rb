@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim::Admin
   describe ActiveUsersCounter do
-    let!(:organization) { create :organization }
+    let!(:organization) { create(:organization) }
     let!(:now) { Time.zone.now }
     let!(:last_day) { Time.zone.yesterday }
     let!(:last_week) { Time.zone.today.prev_week }

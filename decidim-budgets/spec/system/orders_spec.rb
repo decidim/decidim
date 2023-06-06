@@ -6,8 +6,8 @@ describe "Orders", type: :system do
   include_context "with a component"
   let(:manifest_name) { "budgets" }
 
-  let(:organization) { create :organization, available_authorizations: %w(dummy_authorization_handler) }
-  let!(:user) { create :user, :confirmed, organization: }
+  let(:organization) { create(:organization, available_authorizations: %w(dummy_authorization_handler)) }
+  let!(:user) { create(:user, :confirmed, organization:) }
   let(:project) { projects.first }
 
   let!(:component) do
@@ -16,7 +16,7 @@ describe "Orders", type: :system do
            manifest:,
            participatory_space: participatory_process)
   end
-  let(:budget) { create :budget, component: }
+  let(:budget) { create(:budget, component:) }
 
   context "when the user is not logged in" do
     let!(:projects) { create_list(:project, 1, budget:, budget_amount: 25_000_000) }
@@ -155,7 +155,7 @@ describe "Orders", type: :system do
 
           within "#order-progress .budget-summary__progressbox" do
             expect(page).to have_content "25%"
-            expect(page).to have_selector("button.small:disabled")
+            expect(page).to have_button(class: "small", disabled: true)
           end
         end
 
@@ -190,7 +190,7 @@ describe "Orders", type: :system do
 
           within "#order-progress .budget-summary__progressbox" do
             expect(page).to have_content "25%"
-            expect(page).to have_selector("button.small:disabled")
+            expect(page).to have_button(class: "small", disabled: true)
           end
         end
 
@@ -226,7 +226,7 @@ describe "Orders", type: :system do
 
           within "#order-progress .budget-summary__progressbox" do
             expect(page).to have_content "16%"
-            expect(page).to have_selector("button.small")
+            expect(page).to have_button(class: "small")
           end
         end
 
@@ -261,7 +261,7 @@ describe "Orders", type: :system do
 
           within "#order-progress .budget-summary__progressbox" do
             expect(page).to have_content "16%"
-            expect(page).to have_selector("button.small")
+            expect(page).to have_button(class: "small", disabled: true)
           end
         end
 
@@ -311,14 +311,14 @@ describe "Orders", type: :system do
         end
 
         expect(page).to have_content "ASSIGNED: €0"
-        expect(page).to have_no_content "1 project selected"
-        expect(page).to have_no_selector ".budget-summary__selected"
+        expect(page).not_to have_content "1 project selected"
+        expect(page).not_to have_selector ".budget-summary__selected"
 
         within "#order-progress .budget-summary__progressbox" do
           expect(page).to have_content "0%"
         end
 
-        expect(page).to have_no_selector ".budget-list__data--added"
+        expect(page).not_to have_selector ".budget-list__data--added"
       end
 
       it "is alerted when trying to leave the component before completing" do
@@ -371,7 +371,7 @@ describe "Orders", type: :system do
           page.visit Decidim::EngineRouter.main_proxy(component).budget_project_path(budget, expensive_project)
 
           within "#project-#{expensive_project.id}-budget-button" do
-            page.find("button").click
+            click_button
           end
 
           expect(page).to have_css("#budget-excess", visible: :visible)
@@ -403,7 +403,7 @@ describe "Orders", type: :system do
           expect(page).to have_content("successfully")
 
           within "#order-progress .budget-summary__progressbox" do
-            expect(page).to have_no_selector("button.small")
+            expect(page).not_to have_button(class: "small")
           end
         end
       end
@@ -540,11 +540,11 @@ describe "Orders", type: :system do
         expect(page).to have_content("successfully")
 
         within "#order-progress .budget-summary__progressbox" do
-          expect(page).to have_selector("button.small:disabled")
+          expect(page).to have_button(class: "small", disabled: true)
         end
 
         within ".budget-summary" do
-          expect(page).to have_no_selector(".cancel-order")
+          expect(page).not_to have_selector(".cancel-order")
         end
       end
 
@@ -570,7 +570,7 @@ describe "Orders", type: :system do
       it "cannot create new orders" do
         visit_budget
 
-        expect(page).to have_no_selector("button.budget-list__action")
+        expect(page).not_to have_button(class: "budget-list__action")
       end
     end
 

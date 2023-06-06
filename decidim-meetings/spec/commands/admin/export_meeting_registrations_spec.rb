@@ -6,9 +6,9 @@ module Decidim::Meetings
   describe Admin::ExportMeetingRegistrations do
     subject { described_class.new(meeting, format, user) }
 
-    let(:meeting) { create :meeting }
+    let(:meeting) { create(:meeting) }
     let(:format) { "CSV" }
-    let(:user) { create :user, :admin }
+    let(:user) { create(:user, :admin) }
 
     context "when everything is ok" do
       it "exports the meeting registrations" do
