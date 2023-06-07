@@ -2,7 +2,7 @@
   <div id="highlighted-initiatives">
     <h2 class="h2 decorator"><%= t("active_initiatives", scope: i18n_scope) %></h2>
     <% highlighted_initiatives.each do |initiative| %>
-      <%= link_to decidim_initiatives.initiative_path(initiative), class: "card__highlight" do %>
+      <%= link_to decidim_initiatives.initiative_path(initiative), class: "card__highlight card__grid" do %>
         <div aria-hidden="true" class="card__highlight-img"
           style="background-image:url('<%= initiative.banner_image.path %>')"></div>
         <span class="show-for-sr"><%= translated_attribute initiative.title %></span>
