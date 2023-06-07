@@ -122,7 +122,7 @@ module Decidim
 
         expect(page).to have_content("Elections")
 
-        within ".trustee_zone table" do
+        within "#trustee_zone table" do
           expect(page).to have_content(translated(election.title, locale: :en))
           expect(page).to have_content("key_ceremony_ended")
           expect(page).not_to have_link("Perform action")

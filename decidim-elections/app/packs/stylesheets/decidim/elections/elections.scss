@@ -149,3 +149,38 @@
     }
   }
 }
+
+.election-trustee{
+  &__container{
+    @apply space-y-6 [&_p]:text-gray-2;
+  }
+
+  &__list{
+    @apply list-disc pl-4 text-gray-2;
+  }
+
+  &__table{
+    @apply text-left w-full border-2 border-background;
+
+    th,
+    td{
+      @apply px-4 py-2;
+    }
+
+    th{
+      @apply bg-background;
+    }
+
+    tr:nth-child(even) td{
+      @apply bg-gray-3;
+    }
+
+    a{
+      @apply text-secondary underline;
+    }
+  }
+
+  &__submit{
+    @apply p-4 border-4 border-background space-y-4 rounded;
+  }
+}

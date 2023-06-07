@@ -13,7 +13,7 @@ import { TrusteeWrapperAdapter as ElectionGuardTrusteeWrapperAdapter } from "@de
 
 $(() => {
   // UI Elements
-  const $tally = $(".trustee-step");
+  const $tally = $("#trustee-step");
 
   if ($tally.length) {
     const $startButton = $tally.find(".start");
