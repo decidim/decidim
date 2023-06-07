@@ -32,7 +32,7 @@ module Decidim
       end
 
       def count_label
-        content_tag(:span, label(t("decidim.budgets.projects.project.votes", count: model.confirmed_orders_count)), class: "text-uppercase text-small")
+        content_tag(:span, t("decidim.budgets.projects.project.votes", count: model.confirmed_orders_count), class: "text-uppercase text-small")
       end
 
       def css_class
