@@ -6,10 +6,10 @@ module Decidim::Admin
   describe DestroyParticipatorySpacePrivateUser do
     subject { described_class.new(participatory_space_private_user, user) }
 
-    let(:organization) { create :organization }
+    let(:organization) { create(:organization) }
     # let(:privatable_to) { create :participatory_process }
-    let(:user) { create :user, :admin, :confirmed, organization: }
-    let(:participatory_space_private_user) { create :participatory_space_private_user, user: }
+    let(:user) { create(:user, :admin, :confirmed, organization:) }
+    let(:participatory_space_private_user) { create(:participatory_space_private_user, user:) }
 
     it "destroys the participatory space private user" do
       subject.call

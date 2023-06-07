@@ -99,10 +99,6 @@ pt-BR:
               rejected: Rejeitado
               validating: Validação técnica
               withdrawn: Retirado
-          state_null:
-            label: Estado
-            values:
-              'true': Não respondido
           valuator_role_ids_has:
             label: Atribuído ao avaliador
         search_placeholder:

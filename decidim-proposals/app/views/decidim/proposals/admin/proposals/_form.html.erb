@@ -29,7 +29,7 @@
       <div class="field">
         <%= form.label :suggested_hashtags %>
         <div class="checkboxes hashtags">
-          <%= form.collection_check_boxes :suggested_hashtags, @form.component_suggested_hashtags.map {|hashtag| [hashtag.downcase, "##{hashtag}"]}, :first, :last do |option|
+          <%= form.collection_check_boxes :suggested_hashtags, @form.component_suggested_hashtags.map { |hashtag| [hashtag.downcase, "##{hashtag}"] }, :first, :last do |option|
             option.label { option.check_box(checked: @form.suggested_hashtag_checked?(option.value)) + option.text }
           end %>
         </div>
@@ -44,7 +44,7 @@
 
         <div class="row column" id="proposal_meeting">
           <%= form.select :meeting_id,
-                          options_for_select(@form.meetings&.map { |meeting| [present(meeting).title, meeting.id] }, selected: meetings_as_authors_selected ),
+                          options_for_select(@form.meetings&.map { |meeting| [present(meeting).title(html_escape: true), meeting.id] }, selected: meetings_as_authors_selected ),
                           { include_blank: true, label: t(".select_a_meeting") },
                           { multiple: false, class: "chosen-select" } %>
         </div>
@@ -70,7 +70,7 @@
     <% end %>
 
     <% if component_settings.attachments_allowed? %>
-      <%= render partial: "decidim/admin/shared/gallery", locals: { form: form } %>
+      <%= render partial: "decidim/admin/shared/gallery", locals: { form: } %>
     <% end %>
 
     <% if component_settings.attachments_allowed? %>

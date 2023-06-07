@@ -1,6 +1,6 @@
 <% data = has_tooltip? ? { tooltip: render(:profile_minicard).html_safe } : nil %>
 <div class="author" data-author>
-  <%= content_tag :div, class: "author__container#{' is-compact' if layout == :compact}", data: do %>
+  <%= content_tag :div, class: "author__container#{" is-compact" if layout == :compact}", data: do %>
     <% if layout == :compact %>
       <%= render :avatar %>
 

@@ -72,7 +72,7 @@ module Decidim
       end
 
       def show
-        enforce_permission_to :read, :conversation, conversation: conversation
+        enforce_permission_to(:read, :conversation, conversation:)
 
         @conversation.mark_as_read(current_user)
 
@@ -80,7 +80,7 @@ module Decidim
       end
 
       def update
-        enforce_permission_to :update, :conversation, conversation: conversation
+        enforce_permission_to(:update, :conversation, conversation:)
 
         @form = form(MessageForm).from_params(params, sender: current_user)
 

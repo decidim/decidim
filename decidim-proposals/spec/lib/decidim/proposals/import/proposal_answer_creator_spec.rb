@@ -7,16 +7,15 @@ describe Decidim::Proposals::Import::ProposalAnswerCreator do
 
   let(:proposal) { create(:proposal, state:, component:) }
   let!(:moment) { Time.current }
-  # rubocop:disable Style/HashSyntax
   let(:data) do
     {
       id: proposal.id,
-      state: state,
-      :"answer/en" => Faker::Lorem.paragraph
+      state:,
+      "answer/en": Faker::Lorem.paragraph
     }
   end
   let(:organization) { create(:organization, available_locales: [:en]) }
-  let(:user) { create(:user, organization: organization) }
+  let(:user) { create(:user, organization:) }
   let(:context) do
     {
       current_organization: organization,
@@ -25,8 +24,8 @@ describe Decidim::Proposals::Import::ProposalAnswerCreator do
       current_participatory_space: participatory_process
     }
   end
-  let(:participatory_process) { create :participatory_process, organization: organization }
-  let(:component) { create :component, manifest_name: :proposals, participatory_space: participatory_process }
+  let(:participatory_process) { create(:participatory_process, organization:) }
+  let(:component) { create(:component, manifest_name: :proposals, participatory_space: participatory_process) }
   let(:state) { %w(evaluating accepted rejected).sample }
 
   describe "#resource_klass" do
@@ -39,7 +38,7 @@ describe Decidim::Proposals::Import::ProposalAnswerCreator do
     it "returns the attributes hash" do
       expect(subject.resource_attributes).to eq(
         id: data[:id],
-        :"answer/en" => data[:"answer/en"],
+        "answer/en": data[:"answer/en"],
         state: data[:state]
       )
     end
@@ -57,8 +56,8 @@ describe Decidim::Proposals::Import::ProposalAnswerCreator do
     end
 
     context "with an emendation" do
-      let!(:amendable) { create(:proposal, component: component) }
-      let!(:amendment) { create(:amendment, amendable: amendable, emendation: proposal, state: "evaluating") }
+      let!(:amendable) { create(:proposal, component:) }
+      let!(:amendment) { create(:amendment, amendable:, emendation: proposal, state: "evaluating") }
 
       it "does not produce a record" do
         record = subject.produce
@@ -83,6 +82,39 @@ describe Decidim::Proposals::Import::ProposalAnswerCreator do
       expect(log.resource).to eq(record)
       expect(log.action).to eq("answer")
     end
+
+    context "when proposal state changes" do
+      let!(:proposal) { create(:proposal, :evaluating, component:) }
+      let(:state) { "accepted" }
+
+      it "returns broadcast :ok" do
+        expect(subject.finish!).to eq({ ok: [] })
+      end
+
+      context "and notifies followers" do
+        before do
+          allow(Decidim::Proposals::Admin::NotifyProposalAnswer).to receive(:call).with(proposal, "evaluating")
+        end
+
+        it "notifies followers" do
+          subject.finish!
+          expect(Decidim::Proposals::Admin::NotifyProposalAnswer).to have_received(:call)
+        end
+      end
+    end
+
+    context "when proposal does not exists" do
+      let(:data) do
+        {
+          id: 99_999_999,
+          state:,
+          "answer/en": Faker::Lorem.paragraph
+        }
+      end
+
+      it "broadcasts invalid message" do
+        expect(subject.finish!).to eq({ invalid: [] })
+      end
+    end
   end
-  # rubocop:enable Style/HashSyntax
 end

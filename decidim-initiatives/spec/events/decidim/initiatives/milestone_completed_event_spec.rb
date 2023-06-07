@@ -8,9 +8,10 @@ describe Decidim::Initiatives::MilestoneCompletedEvent do
   let(:event_name) { "decidim.events.initiatives.milestone_completed" }
   let(:resource) { initiative }
 
-  let(:initiative) { create :initiative }
+  let(:initiative) { create(:initiative) }
   let(:extra) { { percentage: 75 } }
   let(:participatory_space) { initiative }
+  let(:initiative_title) { decidim_html_escape(resource_title) }
 
   it_behaves_like "a simple event"
 
@@ -35,14 +36,14 @@ describe Decidim::Initiatives::MilestoneCompletedEvent do
   describe "email_intro" do
     it "is generated correctly" do
       expect(subject.email_intro)
-        .to eq("The initiative #{resource_title} has achieved the 75% of signatures!")
+        .to eq("The initiative #{initiative_title} has achieved the 75% of signatures!")
     end
   end
 
   describe "notification_title" do
     it "is generated correctly" do
       expect(subject.notification_title)
-        .to include("The <a href=\"#{resource_path}\">#{resource_title}</a> initiative has achieved the 75% of signatures")
+        .to include("The <a href=\"#{resource_path}\">#{initiative_title}</a> initiative has achieved the 75% of signatures")
     end
   end
 end

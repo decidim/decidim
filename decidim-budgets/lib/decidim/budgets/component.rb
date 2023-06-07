@@ -111,9 +111,9 @@ Decidim.register_component(:budgets) do |component|
 
   component.seeds do |participatory_space|
     landing_page_content = Decidim::Faker::Localized.localized do
-      "<h2>#{::Faker::Lorem.sentence}</h2>" \
-        "<p>#{::Faker::Lorem.paragraph}</p>" \
-        "<p>#{::Faker::Lorem.paragraph}</p>"
+      "<h2>#{Faker::Lorem.sentence}</h2>" \
+        "<p>#{Faker::Lorem.paragraph}</p>" \
+        "<p>#{Faker::Lorem.paragraph}</p>"
     end
 
     component = Decidim::Component.create!(

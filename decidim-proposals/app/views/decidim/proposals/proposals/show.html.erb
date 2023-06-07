@@ -1,8 +1,8 @@
 <% add_decidim_meta_tags({
-  description: present(@proposal).body,
-  title: present(@proposal).title,
-  url: proposal_url(@proposal.id)
-}) %>
+                           description: present(@proposal).body,
+                           title: present(@proposal).title,
+                           url: proposal_url(@proposal.id)
+                         }) %>
 
 <%
 edit_link(
@@ -49,12 +49,12 @@ extra_admin_link(
 
     <% unless component_settings.participatory_texts_enabled? %>
       <div class="proposal__author">
-        <% # REDESIGN_PENDING: Logic copied from decidim-core/app/cells/decidim/coauthorships_cell.rb
-            author = if @proposal.respond_to?(:official?) && @proposal.official?
-                        Decidim::Proposals::OfficialAuthorPresenter.new
-                      else
-                        @proposal.identities.first&.presenter
-                      end %>
+        <%# REDESIGN_PENDING: Logic copied from decidim-core/app/cells/decidim/coauthorships_cell.rb %>
+        <% author = if @proposal.respond_to?(:official?) && @proposal.official?
+                      Decidim::Proposals::OfficialAuthorPresenter.new
+                    else
+                      @proposal.identities.first&.presenter
+                    end %>
 
         <%= cell "decidim/redesigned_author", author, from: @proposal, context_actions: nil, layout: :compact %>
 
@@ -85,7 +85,7 @@ extra_admin_link(
         <ul class="tab-x-container">
           <% tabs.each_with_index do |tab, i| %>
             <li>
-              <button id="trigger-<%= tab[:id] %>" class="tab-x" data-controls="panel-<%= tab[:id] %>" data-open="<%= "true" if i == 0 %>">
+              <button id="trigger-<%= tab[:id] %>" class="tab-x" data-controls="panel-<%= tab[:id] %>" data-open="<%= "true" if i.zero? %>">
                 <%= icon tab[:icon], class: "text-gray fill-current" %><%= tab[:text] %>
               </button>
             </li>

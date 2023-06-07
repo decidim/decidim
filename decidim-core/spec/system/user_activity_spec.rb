@@ -80,7 +80,7 @@ describe "User activity", type: :system do
           expect(page).to have_content(translated(resource.title))
           expect(page).to have_content(translated(comment.commentable.title))
           expect(page).to have_content(translated(resource3.title))
-          expect(page).to have_no_content(translated(resource2.title))
+          expect(page).not_to have_content(translated(resource2.title))
         end
       end
     end
@@ -97,8 +97,8 @@ describe "User activity", type: :system do
 
         expect(page).to have_content(translated(resource.title))
         expect(page).to have_content(translated(comment.commentable.title))
-        expect(page).to have_no_content(translated(resource2.title))
-        expect(page).to have_no_content(translated(resource3.title))
+        expect(page).not_to have_content(translated(resource2.title))
+        expect(page).not_to have_content(translated(resource3.title))
       end
     end
 

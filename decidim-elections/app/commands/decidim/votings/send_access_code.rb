@@ -30,7 +30,7 @@ module Decidim
         when "email"
           AccessCodeMailer.send_access_code(datum).deliver_later
         when "sms"
-          sms_gateway.new(datum.mobile_phone_number, access_code).deliver_code
+          sms_gateway.new(datum.mobile_phone_number, access_code, sms_gateway_context).deliver_code
         else
           raise ArgumentError, "Medium parameter is invalid"
         end
@@ -38,6 +38,10 @@ module Decidim
 
       def sms_gateway
         Decidim.sms_gateway_service.to_s.safe_constantize
+      end
+
+      def sms_gateway_context
+        { organization: try(:current_organization) }
       end
 
       def access_code

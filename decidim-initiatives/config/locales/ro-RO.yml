@@ -332,7 +332,6 @@ ro:
           back: Înapoi
           continue: Continuă
           fill_data_help: "<ul> <li>Examinează conținutul inițiativei tale. Este ușor de înțeles titlul pus de tine? E clar obiectivul inițiativei?</li> <li>Trebuie să alegi tipul de semnătură. În persoană, online sau o combinație a ambelor</li> <li>Care este aria geografică a inițiativei?</li> </ul>"
-          initiative_type: Tip de inițiativă
           more_information: "(Informaţii principale)"
           select_area: Selectează o zonă
           select_scope: Selectează un domeniu de interes
@@ -589,7 +588,6 @@ ro:
         promotal_committee: Comitet de promovare
         select_initiative_type: Alege
         show_similar_initiatives: Compară
-        step: Pasul %{current} din %{total}
         title: Creează o inițiativă nouă
       initiative_header:
         initiative_menu_item: Inițiativă

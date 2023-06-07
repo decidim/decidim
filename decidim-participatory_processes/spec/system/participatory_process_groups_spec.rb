@@ -42,7 +42,7 @@ describe "Participatory Process Groups", type: :system do
         expect(page).to have_content(translated(participatory_process_group.title, locale: :en))
         expect(page).to have_selector("a.card__grid", count: 1)
 
-        expect(page).to have_no_content(translated(other_group.title, locale: :en))
+        expect(page).not_to have_content(translated(other_group.title, locale: :en))
       end
     end
 
@@ -161,7 +161,7 @@ describe "Participatory Process Groups", type: :system do
         let(:cta_settings) { nil }
 
         it "does not show the block" do
-          expect(page).to have_no_selector("div.hero__container")
+          expect(page).not_to have_selector("div.hero__container")
         end
       end
     end
@@ -308,7 +308,7 @@ describe "Participatory Process Groups", type: :system do
     it "shows no statistics content block if there are no components or followers in depending participatory processes" do
       visit decidim_participatory_processes.participatory_process_group_path(participatory_process_group)
 
-      expect(page).to have_no_css("section[data-statistics]")
+      expect(page).not_to have_css("section[data-statistics]")
     end
 
     context "when there are components and depending resources" do
@@ -358,8 +358,8 @@ describe "Participatory Process Groups", type: :system do
   end
 
   context "when participatory processes block is enabled" do
-    let!(:scope) { create :scope, organization: }
-    let!(:area) { create :area, organization: }
+    let!(:scope) { create(:scope, organization:) }
+    let!(:area) { create(:area, organization:) }
     let!(:participatory_process_group) do
       create(
         :participatory_process_group,
@@ -438,6 +438,22 @@ describe "Participatory Process Groups", type: :system do
     end
     let(:titles) { page.all("a.card__grid h3") }
 
+    shared_examples "showing all processes counts" do
+      it "shows count of all group processes" do
+        within "#processes-grid h3" do
+          expect(page).to have_content(/ALL\s+\(5\)/)
+        end
+      end
+    end
+
+    shared_examples "not showing processes belonging to other group" do
+      it "does not list process of other group" do
+        within("#processes-grid") do
+          expect(page).not_to have_content(translated(other_group_process.title, locale: :en))
+        end
+      end
+    end
+
     before do
       create(
         :content_block,
@@ -461,14 +477,14 @@ describe "Participatory Process Groups", type: :system do
 
       it "does not list process of other group" do
         within "section.content-block" do
-          expect(page).to have_no_content(translated(other_group_process.title, locale: :en))
+          expect(page).not_to have_content(translated(other_group_process.title, locale: :en))
         end
       end
 
       it "does not list inactice processes" do
         within "section.content-block" do
-          expect(page).to have_no_content(translated(upcoming_process_with_area.title, locale: :en))
-          expect(page).to have_no_content(translated(past_process_with_scope.title, locale: :en))
+          expect(page).not_to have_content(translated(upcoming_process_with_area.title, locale: :en))
+          expect(page).not_to have_content(translated(past_process_with_scope.title, locale: :en))
         end
       end
 
@@ -505,14 +521,14 @@ describe "Participatory Process Groups", type: :system do
 
       it "does not list process of other group" do
         within "section.content-block" do
-          expect(page).to have_no_content(translated(other_group_process.title, locale: :en))
+          expect(page).not_to have_content(translated(other_group_process.title, locale: :en))
         end
       end
 
       it "shows count of all processes" do
         within "div.content-block__title" do
           expect(page).to have_content("Participatory processes")
-          expect(page).to have_no_content("Active")
+          expect(page).not_to have_content("Active")
           expect(page).to have_content("5")
         end
       end

@@ -61,6 +61,9 @@ namespace :decidim do
 
       # Update JS dependencies
       install_decidim_npm
+
+      # Update JS config files
+      copy_folder_to_application "decidim-core/lib/decidim/webpacker/webpack", "config"
     end
 
     def install_decidim_npm

@@ -7,7 +7,7 @@
 <%= translated_attribute(current_organization.id_documents_explanation_text).html_safe unless using_online? %>
 
 <%= decidim_form_for(@form, url: authorization_path) do |form| %>
-  <%= render partial: "form", locals: { form: form } %>
+      <%= render partial: "form", locals: { form: } %>
 
   <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
     <%= link_to decidim_verifications.authorizations_path, class: "button button__sm md:button__lg button__text-secondary" do %>

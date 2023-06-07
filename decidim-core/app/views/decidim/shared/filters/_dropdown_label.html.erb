@@ -13,7 +13,7 @@
 <% end %>
 
 <% if leaf.value == "" %>
-  <%= hidden_field_tag "#{form.object_name}[#{method}][]", "", id: "#{form.options[:namespace] rescue 'default'}_filter_#{method}_all" %>
+  <%= hidden_field_tag "#{form.object_name}[#{method}][]", "", id: "#{form.options[:namespace] rescue "default"}_filter_#{method}_all" %>
 <% end %>
 
 <%= form.check_box(

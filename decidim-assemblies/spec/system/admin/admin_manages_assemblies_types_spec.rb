@@ -5,7 +5,7 @@ require "spec_helper"
 describe "Admin manages assemblies", type: :system do
   include Decidim::SanitizeHelper
 
-  let(:admin) { create :user, :admin, :confirmed }
+  let(:admin) { create(:user, :admin, :confirmed) }
   let(:organization) { admin.organization }
 
   describe "Managing assemblies types" do
@@ -70,7 +70,7 @@ describe "Admin manages assemblies", type: :system do
         expect(page).to have_admin_callout("successfully")
 
         within ".card-section" do
-          expect(page).to have_no_content(translated(assembly_type.title))
+          expect(page).not_to have_content(translated(assembly_type.title))
         end
       end
     end

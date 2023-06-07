@@ -3,6 +3,8 @@
 require "spec_helper"
 
 describe Decidim::Comments::Engine do
+  it_behaves_like "clean engine"
+
   describe "decidim_comments.authorization_transfer" do
     include_context "authorization transfer"
 

@@ -298,7 +298,6 @@ it:
           back: Indietro
           continue: Continua
           fill_data_help: "<ul> <li>Rivedi il contenuto della tua iniziativa. Il tuo titolo è facile da capire? L'obiettivo della tua iniziativa è chiaro?</li> <li>Devi scegliere il tipo di firma. Di persona, online o una combinazione di entrambe</li> <li>Qual è l'ambito territoriale dell'iniziativa? Città, municipio, quartiere?</li> </ul>"
-          initiative_type: Tipo di iniziativa
           more_information: "(Maggiori informazioni)"
           select_area: Seleziona un'area
           select_scope: Seleziona un ambito
@@ -549,7 +548,6 @@ it:
         promotal_committee: Comitato promotore
         select_initiative_type: Scegliere
         show_similar_initiatives: Confronta
-        step: Passaggio %{current} di %{total}
         title: Crea una nuova iniziativa
       initiative_header:
         initiative_menu_item: Iniziativa

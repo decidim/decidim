@@ -6,8 +6,8 @@ module Decidim::ParticipatoryProcesses
   describe Admin::UpdateParticipatoryProcessStep do
     subject { described_class.new(step, form) }
 
-    let(:step) { create :participatory_process_step }
-    let(:user) { create :user, :admin, :confirmed }
+    let(:step) { create(:participatory_process_step) }
+    let(:user) { create(:user, :admin, :confirmed) }
     let(:participatory_process) { step.participatory_process }
     let(:form) do
       instance_double(

@@ -1,4 +1,4 @@
-<%= link_to version_path, class: "version__list #{params[:id] == index.to_s ? 'is-active' : ''}", **html_options do %>
+<%= link_to version_path, class: "version__list #{params[:id] == index.to_s ? "is-active" : ""}", **html_options do %>
   <%= i18n_version_index %>
   <%= icon "checkbox-circle-line" %>
 <% end %>

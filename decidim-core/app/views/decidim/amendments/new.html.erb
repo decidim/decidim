@@ -6,7 +6,7 @@
     <%= form.hidden_field :amendable_gid %>
 
     <div class="form__wrapper">
-      <%= render partial: "edit_form_fields", locals: { form: form, original: :amendable } %>
+      <%= render partial: "edit_form_fields", locals: { form:, original: :amendable } %>
 
       <% if current_organization.user_groups_enabled? && current_user.user_groups.verified.any? %>
         <%= user_group_select_field form, :user_group_id, label: t("new.amendment_author", scope: "decidim.amendments") %>

@@ -6,15 +6,25 @@ require "decidim/core/test/shared_examples/has_contextual_help"
 describe "Assemblies", type: :system do
   let(:organization) { create(:organization) }
   let(:show_statistics) { true }
-  let(:base_description) { { en: "Description", ca: "Descripció", es: "Descripción" } }
+
+  let(:description) { { en: "Description", ca: "Descripció", es: "Descripción" } }
+  let(:short_description) { { en: "Short description", ca: "Descripció curta", es: "Descripción corta" } }
+  let(:purpose_of_action) { { en: "Purpose of action", ca: "Propòsit de l'acció", es: "Propósito de la acción" } }
+  let(:internal_organisation) { { en: "Internal organisation", ca: "Organització interna", es: "Organización interna" } }
+  let(:composition) { { en: "Composition", ca: "Composició", es: "Composición" } }
+  let(:closing_date_reason) { { en: "Closing date reason", ca: "Motiu de la data de tancament", es: "Razón de la fecha de cierre" } }
   let(:base_assembly) do
     create(
       :assembly,
       :with_type,
       :with_content_blocks,
       organization:,
-      description: base_description,
-      short_description: { en: "Short description", ca: "Descripció curta", es: "Descripción corta" },
+      description:,
+      short_description:,
+      purpose_of_action:,
+      internal_organisation:,
+      composition:,
+      closing_date_reason:,
       show_statistics:,
       blocks_manifests:
     )
@@ -38,7 +48,7 @@ describe "Assemblies", type: :system do
 
       find("#main-dropdown-summary").hover
       within ".menu-bar__main-dropdown__menu" do
-        expect(page).to have_no_content("Assemblies")
+        expect(page).not_to have_content("Assemblies")
       end
     end
   end
@@ -67,7 +77,7 @@ describe "Assemblies", type: :system do
 
         find("#main-dropdown-summary").hover
         within ".menu-bar__main-dropdown__menu" do
-          expect(page).to have_no_content("Assemblies")
+          expect(page).not_to have_content("Assemblies")
         end
       end
     end
@@ -180,9 +190,35 @@ describe "Assemblies", type: :system do
         end
       end
 
-      # REDESIGN_PENDING - These examples have to be moved to the details
-      # page
-      # it_behaves_like "has embedded video in description", :base_description
+      context "when having rich content" do
+        context "when short_description" do
+          it_behaves_like "has embedded video in description", :short_description
+        end
+
+        context "when description" do
+          before { click_button("Read more") }
+
+          it_behaves_like "has embedded video in description", :description
+        end
+
+        context "when purpose_of_action" do
+          before { click_button("Read more") }
+
+          it_behaves_like "has embedded video in description", :purpose_of_action
+        end
+
+        context "when internal_organisation" do
+          before { click_button("Read more") }
+
+          it_behaves_like "has embedded video in description", :internal_organisation
+        end
+
+        context "when composition" do
+          before { click_button("Read more") }
+
+          it_behaves_like "has embedded video in description", :composition
+        end
+      end
 
       context "when the assembly has some components and main data block is active" do
         let(:blocks_manifests) { [:main_data] }
@@ -190,7 +226,7 @@ describe "Assemblies", type: :system do
         it "shows the components" do
           within ".participatory-space__nav-container" do
             expect(page).to have_content(translated(proposals_component.name, locale: :en))
-            expect(page).to have_no_content(translated(meetings_component.name, locale: :en))
+            expect(page).not_to have_content(translated(meetings_component.name, locale: :en))
           end
         end
       end
@@ -203,8 +239,8 @@ describe "Assemblies", type: :system do
           within "[data-statistic]" do
             expect(page).to have_css(".statistic__title", text: "Proposals")
             expect(page).to have_css(".statistic__number", text: "3")
-            expect(page).to have_no_css(".statistic__title", text: "Meetings")
-            expect(page).to have_no_css(".statistic__number", text: "0")
+            expect(page).not_to have_css(".statistic__title", text: "Meetings")
+            expect(page).not_to have_css(".statistic__number", text: "0")
           end
         end
       end
@@ -214,16 +250,16 @@ describe "Assemblies", type: :system do
         let(:blocks_manifests) { [:stats] }
 
         it "does not render the stats for those components that are not visible" do
-          expect(page).to have_no_css("h2.h2", text: "Statistics")
-          expect(page).to have_no_css(".statistic__title", text: "Proposals")
-          expect(page).to have_no_css(".statistic__number", text: "3")
+          expect(page).not_to have_css("h2.h2", text: "Statistics")
+          expect(page).not_to have_css(".statistic__title", text: "Proposals")
+          expect(page).not_to have_css(".statistic__number", text: "3")
         end
       end
 
       context "when the assembly has children assemblies and related assemblies block is active" do
-        let!(:child_assembly) { create :assembly, organization:, parent: assembly, weight: 0 }
-        let!(:second_child_assembly) { create :assembly, organization:, parent: assembly, weight: 1 }
-        let!(:unpublished_child_assembly) { create :assembly, :unpublished, organization:, parent: assembly }
+        let!(:child_assembly) { create(:assembly, organization:, parent: assembly, weight: 0) }
+        let!(:second_child_assembly) { create(:assembly, organization:, parent: assembly, weight: 1) }
+        let!(:unpublished_child_assembly) { create(:assembly, :unpublished, organization:, parent: assembly) }
         let(:blocks_manifests) { [:related_assemblies] }
 
         before do
@@ -252,7 +288,7 @@ describe "Assemblies", type: :system do
               visit decidim_assemblies.assembly_path(assembly)
 
               within(".assembly__block-grid") do
-                expect(page).to have_no_css("[data-upcoming-meeting]")
+                expect(page).not_to have_css("[data-upcoming-meeting]")
               end
             end
           end
@@ -272,8 +308,8 @@ describe "Assemblies", type: :system do
       end
 
       context "when the assembly has children private and transparent assemblies and related assemblies block is active" do
-        let!(:private_transparent_child_assembly) { create :assembly, organization:, parent: assembly, private_space: true, is_transparent: true }
-        let!(:private_transparent_unpublished_child_assembly) { create :assembly, :unpublished, organization:, parent: assembly, private_space: true, is_transparent: true }
+        let!(:private_transparent_child_assembly) { create(:assembly, organization:, parent: assembly, private_space: true, is_transparent: true) }
+        let!(:private_transparent_unpublished_child_assembly) { create(:assembly, :unpublished, organization:, parent: assembly, private_space: true, is_transparent: true) }
         let(:blocks_manifests) { [:related_assemblies] }
 
         before do
@@ -289,8 +325,8 @@ describe "Assemblies", type: :system do
       end
 
       context "when the assembly has children private and not transparent assemblies" do
-        let!(:private_child_assembly) { create :assembly, organization:, parent: assembly, private_space: true, is_transparent: false }
-        let!(:private_unpublished_child_assembly) { create :assembly, :unpublished, organization:, parent: assembly, private_space: true, is_transparent: false }
+        let!(:private_child_assembly) { create(:assembly, organization:, parent: assembly, private_space: true, is_transparent: false) }
+        let!(:private_unpublished_child_assembly) { create(:assembly, :unpublished, organization:, parent: assembly, private_space: true, is_transparent: false) }
 
         before do
           visit decidim_assemblies.assembly_path(assembly)
@@ -305,7 +341,7 @@ describe "Assemblies", type: :system do
 
   describe "when going to the assembly child page" do
     let!(:parent_assembly) { base_assembly }
-    let!(:child_assembly) { create :assembly, organization:, parent: parent_assembly }
+    let!(:child_assembly) { create(:assembly, organization:, parent: parent_assembly) }
 
     before do
       visit decidim_assemblies.assembly_path(child_assembly)

@@ -1,21 +1,21 @@
 <% add_decidim_meta_tags({
-  description: translated_attribute(debate.description),
-  title: present(debate).title,
-  url: debate_url(debate.id)
-}) %>
+                           description: translated_attribute(debate.description),
+                           title: present(debate).title,
+                           url: debate_url(debate.id)
+                         }) %>
 
 <%
 edit_link(
   resource_locator(debate).edit,
   :update,
   :debate,
-  debate: debate
+  debate:
 )
 %>
 
 <%=
   render partial: "close_debate_modal", locals: {
-    debate: debate,
+    debate:,
     form: close_debate_form
   }
 %>

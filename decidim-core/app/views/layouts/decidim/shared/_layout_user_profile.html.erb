@@ -4,7 +4,7 @@
   <header class="text-center py-10">
     <h1 class="h3 md:h1 decorator inline-block text-left md:mb-12">
       <%= t("title", scope: "layouts.decidim.user_profile") %>
-      <%= " - #{subtitle}" unless subtitle.blank? %>
+      <%= " - #{subtitle}" if subtitle.present? %>
     </h1>
   </header>
 

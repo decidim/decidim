@@ -22,7 +22,7 @@ describe "Assembly members", type: :system do
       it "the menu nav is not shown" do
         visit decidim_assemblies.assembly_path(assembly)
 
-        expect(page).to have_no_css(".participatory-space__nav-container")
+        expect(page).not_to have_css(".participatory-space__nav-container")
       end
     end
 
@@ -33,7 +33,7 @@ describe "Assembly members", type: :system do
         visit decidim_assemblies.assembly_path(assembly)
 
         within ".participatory-space__nav-container" do
-          expect(page).to have_no_content("Members")
+          expect(page).not_to have_content("Members")
         end
       end
     end
@@ -62,7 +62,7 @@ describe "Assembly members", type: :system do
         it "the menu nav is not shown" do
           visit decidim_assemblies.assembly_path(assembly)
 
-          expect(page).to have_no_css(".participatory-space__nav-container")
+          expect(page).not_to have_css(".participatory-space__nav-container")
         end
       end
 
@@ -73,7 +73,7 @@ describe "Assembly members", type: :system do
           visit decidim_assemblies.assembly_path(assembly)
 
           within ".participatory-space__nav-container" do
-            expect(page).to have_no_content("Members")
+            expect(page).not_to have_content("Members")
           end
         end
       end
@@ -93,7 +93,7 @@ describe "Assembly members", type: :system do
         it "the menu nav is not shown" do
           visit decidim_assemblies.assembly_path(assembly)
 
-          expect(page).to have_no_css(".participatory-space__nav-container")
+          expect(page).not_to have_css(".participatory-space__nav-container")
         end
       end
 

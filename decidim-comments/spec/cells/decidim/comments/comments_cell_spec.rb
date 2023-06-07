@@ -10,7 +10,7 @@ module Decidim::Comments
 
     let(:my_cell) { cell("decidim/comments/comments", comment.commentable) }
     let(:organization) { create(:organization) }
-    let(:participatory_process) { create :participatory_process, organization: }
+    let(:participatory_process) { create(:participatory_process, organization:) }
     let(:component) { create(:component, participatory_space: participatory_process) }
     let(:commentable) { create(:dummy_resource, component:) }
     let(:comment) { create(:comment, commentable:) }
@@ -19,7 +19,7 @@ module Decidim::Comments
       it "renders the thread" do
         expect(subject).to have_css(".comments-count", text: "1 comment")
         expect(subject).to have_css(".callout.primary.loading-comments p", text: "Loading comments ...")
-        expect(subject).to have_no_content(comment.body.values.first)
+        expect(subject).not_to have_content(comment.body.values.first)
         expect(subject).to have_css(".add-comment")
         expect(subject).to have_content("Sign in with your account or sign up to add your comment.")
 

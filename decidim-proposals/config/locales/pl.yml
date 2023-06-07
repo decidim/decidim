@@ -114,10 +114,6 @@ pl:
               rejected: Odrzucono
               validating: Walidacja techniczna
               withdrawn: Wycofaj
-          state_null:
-            label: Stan
-            values:
-              'true': Bez odpowiedzi
           valuator_role_ids_has:
             label: Przypisano do weryfikatora
         search_placeholder:

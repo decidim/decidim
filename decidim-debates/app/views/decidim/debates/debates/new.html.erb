@@ -6,7 +6,7 @@
   </div>
   <div class="mb-24">
     <%= decidim_form_for(@form) do |form| %>
-      <%= render partial: "form", locals: { form: form } %>
+      <%= render partial: "form", locals: { form: } %>
       <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
         <%= link_to :back, class: "button button__sm md:button__lg button__text-secondary" do %>
           <%= icon "arrow-left-line", class: "fill-current" %>

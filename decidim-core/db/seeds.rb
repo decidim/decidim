@@ -173,7 +173,7 @@ if !Rails.env.production? || ENV.fetch("SEED", nil)
   Decidim::Messaging::Conversation.start!(
     originator: admin,
     interlocutors: [regular_user],
-    body: "Hey! I'm glad you like Decidim"
+    body: "Hey! I am glad you like Decidim"
   )
 
   Decidim::User.find_each do |user|

@@ -176,7 +176,7 @@ module Decidim
     end
 
     def withdraw
-      enforce_permission_to :withdraw, :amendment, amendment: amendment, current_component: amendable.component
+      enforce_permission_to :withdraw, :amendment, amendment:, current_component: amendable.component
 
       Decidim::Amendable::Withdraw.call(amendment, current_user) do
         on(:ok) do |withdrawn_emendation|

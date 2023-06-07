@@ -7,10 +7,10 @@ module Decidim
     describe ScopeForm do
       subject { described_class.from_params(attributes).with_context(context) }
 
-      let(:organization) { create :organization }
+      let(:organization) { create(:organization) }
       let(:name) { Decidim::Faker::Localized.literal(::Faker::Address.unique.state) }
       let(:code) { ::Faker::Address.unique.state_abbr }
-      let(:scope_type) { create :scope_type }
+      let(:scope_type) { create(:scope_type) }
       let(:attributes) do
         {
           "scope" => {

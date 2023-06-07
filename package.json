@@ -3,7 +3,7 @@
   "description": "Note: this is not a package, just the dependencies for the project in the dev environment.",
   "private": true,
   "engines": {
-    "node": ">=16.9.1",
+    "node": ">=16.13.0",
     "npm": ">=7.21.1"
   },
   "files": [
@@ -12,10 +12,13 @@
   "browserslist": [
     "extends @decidim/browserslist-config"
   ],
+  "prettier": "@decidim/prettier-config",
   "scripts": {
     "lint": "eslint -c .eslintrc.json --no-error-on-unmatched-pattern --ext .js,.jsx decidim-*",
     "markdownlint": "markdownlint '**/*.md'",
     "stylelint": "stylelint decidim-*/**/*.scss",
+    "prettier": "prettier --check 'decidim-*/**/*.scss'",
+    "prettify": "prettier --write 'decidim-*/**/*.scss'",
     "test": "jest",
     "test:watch": "npm run test -- --watch",
     "test:ci": "npm run lint && npm run test"
@@ -57,6 +60,7 @@
   "devDependencies": {
     "@decidim/dev": "file:packages/dev",
     "@decidim/eslint-config": "file:packages/eslint-config",
+    "@decidim/prettier-config": "file:packages/prettier-config",
     "@decidim/stylelint-config": "file:packages/stylelint-config",
     "babel-jest": "^29.5.0",
     "concat-stream": "^2.0.0",

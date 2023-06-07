@@ -5,7 +5,7 @@ require "spec_helper"
 describe Decidim::Debates::Permissions do
   subject { described_class.new(user, permission_action, context).permissions.allowed? }
 
-  let(:user) { create :user, organization: debates_component.organization }
+  let(:user) { create(:user, organization: debates_component.organization) }
   let(:context) do
     {
       current_component: debates_component,
@@ -14,8 +14,8 @@ describe Decidim::Debates::Permissions do
       component_settings: nil
     }
   end
-  let(:debates_component) { create :debates_component }
-  let(:debate) { create :debate, component: debates_component }
+  let(:debates_component) { create(:debates_component) }
+  let(:debate) { create(:debate, component: debates_component) }
   let(:current_settings) do
     double(settings.merge(extra_settings))
   end
@@ -75,7 +75,7 @@ describe Decidim::Debates::Permissions do
     end
 
     context "when the user is the author" do
-      let(:debate) { create :debate, author: user, component: debates_component }
+      let(:debate) { create(:debate, author: user, component: debates_component) }
 
       it { is_expected.to be true }
     end
@@ -101,7 +101,7 @@ describe Decidim::Debates::Permissions do
     it { is_expected.to be true }
 
     context "when the debate is closed" do
-      let(:debate) { create :debate, :closed, component: debates_component }
+      let(:debate) { create(:debate, :closed, component: debates_component) }
 
       it { is_expected.to be false }
     end

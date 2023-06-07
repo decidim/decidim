@@ -34,6 +34,9 @@ module Decidim
         body = translated_attribute(model.body)
         @suggested_hashtags = Decidim::ContentRenderers::HashtagRenderer.new(body).extra_hashtags.map(&:name).map(&:downcase)
 
+        presenter = ProposalPresenter.new(model)
+        self.body = presenter.editor_body(all_locales: body.is_a?(Hash))
+
         # The scope attribute is with different key (decidim_scope_id), so it
         # has to be manually mapped.
         self.scope_id = model.scope.id if model.scope
@@ -79,7 +82,7 @@ module Decidim
       end
 
       def suggested_hashtags
-        downcased_suggested_hashtags = super.map(&:downcase).to_set
+        downcased_suggested_hashtags = super.to_set(&:downcase)
         component_suggested_hashtags.select { |hashtag| downcased_suggested_hashtags.member?(hashtag.downcase) }
       end
 

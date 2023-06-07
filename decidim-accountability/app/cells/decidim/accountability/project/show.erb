@@ -9,7 +9,7 @@
       <% tabs.each_with_index do |tab, i| %>
         <% next unless panel_contents.has_key?(tab[:id]) %>
         <li>
-          <button class="tab-x" data-controls="panel-<%= tab[:id] %>" data-open="<%= "true" if i == 0 %>">
+          <button class="tab-x" data-controls="panel-<%= tab[:id] %>" data-open="<%= "true" if i.zero? %>">
             <%= icon tab[:icon], class: "text-gray fill-current" %><%= tab[:text] %>
           </button>
         </li>

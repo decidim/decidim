@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 RSpec.shared_examples "manage debates" do
-  let!(:debate) { create :debate, category:, component: current_component }
+  let!(:debate) { create(:debate, category:, component: current_component) }
 
   before { visit_component_admin }
 
@@ -56,7 +56,7 @@ RSpec.shared_examples "manage debates" do
 
       it "cannot edit the debate" do
         within find("tr", text: translated(debate.title)) do
-          expect(page).to have_no_selector(".action-icon--edit")
+          expect(page).not_to have_selector(".action-icon--edit")
         end
       end
     end
@@ -209,7 +209,7 @@ RSpec.shared_examples "manage debates" do
 
       it "cannot delete the debate" do
         within find("tr", text: translated(debate2.title)) do
-          expect(page).to have_no_selector(".action-icon--remove")
+          expect(page).not_to have_selector(".action-icon--remove")
         end
       end
     end
@@ -239,7 +239,7 @@ RSpec.shared_examples "manage debates" do
 
       within "table" do
         within find("tr", text: translated(debate.title)) do
-          expect(page).to have_no_selector(".action-icon--edit")
+          expect(page).not_to have_selector(".action-icon--edit")
           page.find(".action-icon--close").click
         end
       end
@@ -252,7 +252,7 @@ RSpec.shared_examples "manage debates" do
 
       it "cannot close the debate" do
         within find("tr", text: translated(debate.title)) do
-          expect(page).to have_no_selector(".action-icon--close")
+          expect(page).not_to have_selector(".action-icon--close")
         end
       end
     end

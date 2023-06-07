@@ -216,7 +216,6 @@ gl:
         fill_data:
           back: De volta
           continue: Continuar
-          initiative_type: Tipo de iniciativa
           more_information: "(Máis información)"
           select_scope: Seleccione un alcance
         finish:
@@ -375,7 +374,6 @@ gl:
         promotal_committee: Comité de promoción
         select_initiative_type: Elixe
         show_similar_initiatives: Compare
-        step: Paso %{current} de %{total}
         title: Crea unha nova iniciativa
       initiative_header:
         initiative_menu_item: Iniciativa

@@ -26,7 +26,7 @@ describe "Invite process collaborator", type: :system do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_current_path "/admin/"
+      expect(page).to have_current_path "/admin/admin_terms/show"
       expect(page).to have_content("Dashboard")
 
       visit decidim_admin.admin_terms_show_path
@@ -44,7 +44,7 @@ describe "Invite process collaborator", type: :system do
     let(:email) { "collaborator@example.org" }
 
     let!(:collaborator) do
-      create :user, :confirmed, :admin_terms_accepted, email:, organization:
+      create(:user, :confirmed, :admin_terms_accepted, email:, organization:)
     end
 
     before do

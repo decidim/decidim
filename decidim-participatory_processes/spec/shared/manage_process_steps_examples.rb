@@ -17,6 +17,10 @@ shared_examples "manage process steps examples" do
     click_link "Phases"
   end
 
+  it_behaves_like "having a rich text editor for field", ".tabs-content[data-tabs-content='participatory_process_step-description-tabs']", "full" do
+    before { find(".card-title a.button").click }
+  end
+
   it "creates a new participatory_process" do
     find(".card-title a.button").click
 
@@ -100,7 +104,7 @@ shared_examples "manage process steps examples" do
       expect(page).to have_admin_callout("successfully")
 
       within "#steps table" do
-        expect(page).to have_no_content(translated(process_step2.title))
+        expect(page).not_to have_content(translated(process_step2.title))
       end
     end
   end
@@ -112,7 +116,7 @@ shared_examples "manage process steps examples" do
       end
 
       within find("tr", text: translated(process_step.title)) do
-        expect(page).to have_no_content("Activate")
+        expect(page).not_to have_content("Activate")
       end
     end
   end

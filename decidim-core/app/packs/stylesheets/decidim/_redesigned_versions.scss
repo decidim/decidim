@@ -1,62 +1,62 @@
-.version{
-  &__list{
+.version {
+  &__list {
     @apply flex items-center justify-between rounded p-3 bg-background text-secondary text-md font-semibold [&>svg]:hidden;
 
-    &.is-active{
+    &.is-active {
       @apply bg-background-4 font-bold [&>svg]:block [&>svg]:fill-current;
     }
 
-    & + &{
+    & + & {
       @apply mt-4;
     }
   }
 
-  &__author{
+  &__author {
     @apply mt-4;
   }
 
-  &__selector{
+  &__selector {
     @apply flex flex-col gap-2;
 
-    &-container{
+    &-container {
       @apply mt-8 flex items-start gap-4 [&>*]:w-1/2;
     }
 
-    > label{
+    > label {
       @apply text-gray-2 text-lg font-semibold;
     }
   }
 
-  &__diff{
+  &__diff {
     @apply space-y-4;
 
-    &-container{
+    &-container {
       @apply mt-8 space-y-8;
     }
 
-    &-split{
+    &-split {
       @apply flex justify-start gap-4 [&>*]:w-1/2 [&_span]:text-sm [&_span]:text-gray-2;
     }
 
-    li{
+    li {
       @apply p-3 rounded bg-background text-black [&_span]:mr-2 [&_strong]:font-normal;
 
-      &.ins{
+      &.ins {
         @apply bg-success/20 [&_strong]:bg-success/20;
       }
 
-      &.del{
+      &.del {
         @apply bg-alert/20 [&_strong]:bg-alert/20;
       }
 
       > ins,
       > del,
-      > *{
+      > * {
         @apply no-underline break-words;
       }
     }
 
-    li + li{
+    li + li {
       @apply mt-4;
     }
   }

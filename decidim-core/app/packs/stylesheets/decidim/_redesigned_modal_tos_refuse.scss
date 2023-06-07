@@ -1,6 +1,6 @@
-.tos-refuse{
+.tos-refuse {
   /* Overwrite default modal styles */
-  [data-dialog-actions]{
+  [data-dialog-actions] {
     @apply flex-nowrap;
   }
 }

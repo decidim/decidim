@@ -45,5 +45,7 @@ module Decidim
     def unpublish!
       update!(published_at: nil)
     end
+
+    def previously_published? = respond_to?(:versions) && versions.where(event: "update").where("object ->> 'published_at' IS NOT NULL").any?
   end
 end

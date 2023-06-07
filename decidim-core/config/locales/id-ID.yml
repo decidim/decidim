@@ -966,7 +966,8 @@ id:
       widget:
         see_more: Lihat lebih banyak
   locale:
-    name: Inggris
+    name: Bahasa Indonesia
+    name_with_error: Bahasa Indonesia (salah!)
   password_validator:
     domain_included_in_password: terlalu mirip dengan nama domain ini
     email_included_in_password: terlalu mirip dengan email Anda

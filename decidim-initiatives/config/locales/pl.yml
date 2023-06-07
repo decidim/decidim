@@ -302,7 +302,6 @@ pl:
           back: Wróć
           continue: Dalej
           fill_data_help: "<ul> <li>Sprawdź treść swojej inicjatywy. Czy tytuł jest łatwy do zrozumienia? Czy cel inicjatywy jest jasny?</li> <li>Musisz wybrać rodzaj podpisu. Na piśmie, online lub połączenie obu</li> <li>Jaki jest zasięg geograficzny inicjatywy?</li> </ul>"
-          initiative_type: Typ inicjatywy
           more_information: "(Więcej informacji)"
           select_area: Wybierz kategorię
           select_scope: Wybierz zakres
@@ -563,7 +562,6 @@ pl:
         promotal_committee: Komitet organizacyjny
         select_initiative_type: Wybierz
         show_similar_initiatives: Porównaj
-        step: Krok %{current} z %{total}
         title: Utwórz nową inicjatywę
       initiative_header:
         initiative_menu_item: Inicjatywa

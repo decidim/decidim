@@ -46,10 +46,10 @@
           <%= t("notifications_sending_frequency", scope: "decidim.notifications_settings.show") %>
         </span>
         <div class="flex items-center gap-x-6 mt-4">
-          <%= f.collection_radio_buttons:notifications_sending_frequency, frequencies_collection, :first, :last, { checked: @notifications_settings.notifications_sending_frequency || "daily" }, class: "flex items-center" do |b| %>
+          <%= f.collection_radio_buttons :notifications_sending_frequency, frequencies_collection, :first, :last, { checked: @notifications_settings.notifications_sending_frequency || "daily" }, class: "flex items-center" do |b| %>
             <div>
               <%= b.radio_button %>
-              <%= b.label :class => "!text-md !font-normal" %>
+              <%= b.label class: "!text-md !font-normal" %>
             </div>
           <% end %>
         </div>
@@ -60,7 +60,7 @@
       <div class="toggle__switch-trigger">
         <label for="newsletter_notifications" class="toggle__switch-toggle">
           <input
-            <%= %(checked="checked") if  @notifications_settings.newsletter_notifications %>
+            <%= %(checked="checked") if @notifications_settings.newsletter_notifications %>
             id="newsletter_notifications"
             type="checkbox"
             name="newsletter_notifications">
@@ -116,7 +116,7 @@
           </span>
         </label>
       </div>
-        <% Decidim.notification_settings_registry.manifests.filter{ |a| a.settings_area == :administrators }.each do |manifest| %>
+        <% Decidim.notification_settings_registry.manifests.filter { |a| a.settings_area == :administrators }.each do |manifest| %>
           <div class="toggle__switch-trigger">
             <label class="toggle__switch-toggle" for="user_notification_settings[<%= manifest.name %>]">
               <%= f.check_box "notification_settings[#{manifest.name}]",

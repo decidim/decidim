@@ -12,7 +12,7 @@
 
   <%= decidim_form_for(@form, url: accept_amend_path(emendation.amendment), method: :patch) do |form| %>
     <div class="form__wrapper">
-      <%= render partial: "edit_form_fields", locals: { form: form, original: :emendation } %>
+      <%= render partial: "edit_form_fields", locals: { form:, original: :emendation } %>
     </div>
 
     <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">

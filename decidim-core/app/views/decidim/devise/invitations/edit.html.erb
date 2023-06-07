@@ -32,8 +32,8 @@
       </div>
 
       <% link = link_to t("terms", scope: "decidim.devise.registrations.new"), page_path("terms-and-conditions"), target: "_blank" %>
-      <% label = t("tos_agreement", scope: "decidim.devise.registrations.new", link: link) %>
-      <%= f.check_box :tos_agreement, label: label, required: "required", label_options: { class: "form__wrapper-checkbox-label" } %>
+      <% label = t("tos_agreement", scope: "decidim.devise.registrations.new", link:) %>
+      <%= f.check_box :tos_agreement, label:, required: "required", label_options: { class: "form__wrapper-checkbox-label" } %>
     </div>
 
     <div class="form__wrapper-block">

@@ -1,21 +1,21 @@
 <% provide(:title, present(meeting).title) %>
 
 <% add_decidim_meta_tags({
-  title: present(meeting).title,
-  description: present(meeting).description,
-  url: meeting_url(meeting.id)
-}) %>
+                           title: present(meeting).title,
+                           description: present(meeting).description,
+                           url: meeting_url(meeting.id)
+                         }) %>
 
 <%
 edit_link(
   resource_locator(meeting).edit,
   :update,
   :meeting,
-  meeting: meeting
+  meeting:
 )
 %>
 
 <%= append_stylesheet_pack_tag "decidim_meetings", media: "all" %>
 <%= append_javascript_pack_tag "decidim_meetings" %>
 
-<%= render partial: "meeting", locals: { meeting: meeting } %>
+<%= render partial: "meeting", locals: { meeting: } %>

@@ -21,7 +21,7 @@ shared_examples "shows contextual help" do
 
     visit current_path
 
-    expect(page).to have_no_content("Some relevant help")
+    expect(page).not_to have_content("Some relevant help")
 
     if Decidim.redesign_active
       find("#floating-helper-tip button").click

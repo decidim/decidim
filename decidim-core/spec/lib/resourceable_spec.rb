@@ -117,7 +117,7 @@ module Decidim
     describe "resource_manifest" do
       it "finds the resource manifest for the model" do
         manifest = resource.class.resource_manifest
-        expect(manifest).to be_kind_of(Decidim::ResourceManifest)
+        expect(manifest).to be_a(Decidim::ResourceManifest)
         expect(manifest.model_class).to eq(resource.class)
       end
     end
@@ -125,14 +125,14 @@ module Decidim
     describe "#linked_classes_for" do
       subject { Decidim::Proposals::Proposal }
 
-      let(:proposals_component1) { create :component, manifest_name: "proposals" }
-      let(:proposals_component2) { create :component, manifest_name: "proposals" }
-      let(:meetings_component) { create :component, manifest_name: "meetings", participatory_space: proposals_component1.participatory_space }
-      let(:dummy_component) { create :component, manifest_name: "dummy", participatory_space: proposals_component2.participatory_space }
-      let(:proposal1) { create :proposal, component: proposals_component1 }
-      let(:proposal2) { create :proposal, component: proposals_component2 }
-      let(:meeting) { create :meeting, component: meetings_component }
-      let(:dummy_resource) { create :dummy_resource, component: dummy_component }
+      let(:proposals_component1) { create(:component, manifest_name: "proposals") }
+      let(:proposals_component2) { create(:component, manifest_name: "proposals") }
+      let(:meetings_component) { create(:component, manifest_name: "meetings", participatory_space: proposals_component1.participatory_space) }
+      let(:dummy_component) { create(:component, manifest_name: "dummy", participatory_space: proposals_component2.participatory_space) }
+      let(:proposal1) { create(:proposal, component: proposals_component1) }
+      let(:proposal2) { create(:proposal, component: proposals_component2) }
+      let(:meeting) { create(:meeting, component: meetings_component) }
+      let(:dummy_resource) { create(:dummy_resource, component: dummy_component) }
 
       before do
         proposal1.link_resources([meeting], "proposals_from_meeting")

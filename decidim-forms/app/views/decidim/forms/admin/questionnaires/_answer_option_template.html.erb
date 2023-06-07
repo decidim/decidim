@@ -2,6 +2,6 @@
 
 <script type="text/template" class="decidim-answer-option-template decidim-template" id="<%= template_id %>">
   <%= fields_for "questionnaire[questions][#{question.to_param}][answer_options][]", blank_answer_option do |answer_option_form| %>
-    <%= render "decidim/forms/admin/questionnaires/answer_option", form: answer_option_form, question: question, editable: editable %>
+    <%= render "decidim/forms/admin/questionnaires/answer_option", form: answer_option_form, question:, editable: %>
   <% end %>
 </script>

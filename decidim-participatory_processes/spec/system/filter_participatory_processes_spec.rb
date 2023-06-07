@@ -27,12 +27,12 @@ describe "Filter Participatory Processes", type: :system do
   end
 
   context "when filtering processes by date" do
-    let!(:active_process) { create :participatory_process, title: { en: "Started today" }, start_date: Date.current, organization: }
-    let!(:active_process2) { create :participatory_process, title: { en: "Started 1 day ago" }, start_date: 1.day.ago, organization: }
-    let!(:past_process) { create :participatory_process, :past, title: { en: "Ended 1 week ago" }, organization: }
-    let!(:past_process2) { create :participatory_process, :past, title: { en: "Ended 1 month ago" }, end_date: 1.month.ago, organization: }
-    let!(:upcoming_process) { create :participatory_process, :upcoming, title: { en: "Starts 1 week from now" }, organization: }
-    let!(:upcoming_process2) { create :participatory_process, :upcoming, title: { en: "Starts 1 year from now" }, start_date: 1.year.from_now, organization: }
+    let!(:active_process) { create(:participatory_process, title: { en: "Started today" }, start_date: Date.current, organization:) }
+    let!(:active_process2) { create(:participatory_process, title: { en: "Started 1 day ago" }, start_date: 1.day.ago, organization:) }
+    let!(:past_process) { create(:participatory_process, :past, title: { en: "Ended 1 week ago" }, organization:) }
+    let!(:past_process2) { create(:participatory_process, :past, title: { en: "Ended 1 month ago" }, end_date: 1.month.ago, organization:) }
+    let!(:upcoming_process) { create(:participatory_process, :upcoming, title: { en: "Starts 1 week from now" }, organization:) }
+    let!(:upcoming_process2) { create(:participatory_process, :upcoming, title: { en: "Starts 1 year from now" }, start_date: 1.year.from_now, organization:) }
     let(:titles) { page.all(".card__grid-text h3") }
 
     before do
@@ -114,7 +114,7 @@ describe "Filter Participatory Processes", type: :system do
   end
 
   context "when filtering processes by scope" do
-    let!(:scope) { create :scope, organization: }
+    let!(:scope) { create(:scope, organization:) }
     let!(:process_with_scope) { create(:participatory_process, scope:, organization:) }
     let!(:process_without_scope) { create(:participatory_process, organization:) }
 
@@ -131,7 +131,7 @@ describe "Filter Participatory Processes", type: :system do
   end
 
   context "when filtering processes by area" do
-    let!(:area) { create :area, organization: }
+    let!(:area) { create(:area, organization:) }
     let!(:process_with_area) { create(:participatory_process, area:, organization:) }
     let!(:process_without_area) { create(:participatory_process, organization:) }
 
@@ -178,7 +178,7 @@ describe "Filter Participatory Processes", type: :system do
         end
 
         it "does not show the participatory process types filter" do
-          expect(page).to have_no_css("#process-type-filter")
+          expect(page).not_to have_css("#process-type-filter")
         end
       end
     end
@@ -266,10 +266,49 @@ describe "Filter Participatory Processes", type: :system do
               expect(page).to have_content("3 active processes")
             end
 
-            expect(page).to have_no_content("NW Rocks!")
-            expect(page).to have_no_content("SE Rocks!")
+            expect(page).not_to have_content("NW Rocks!")
+            expect(page).not_to have_content("SE Rocks!")
             group_2_process_type.processes.groupless.each do |group|
               expect(page).to have_content(translated(group.title))
+            end
+          end
+        end
+      end
+
+      context "when visiting processes group page with processes block enabled" do
+        before do
+          create(
+            :content_block,
+            organization:,
+            scope_name: :participatory_process_group_homepage,
+            scoped_resource_id: processes_group1.id,
+            manifest_name: :participatory_processes
+          )
+          visit decidim_participatory_processes.participatory_process_group_path(processes_group1)
+        end
+
+        context "and choosing 'active' processes" do
+          it "lists all active processes inside the group" do
+            within "#processes-grid h3" do
+              expect(page).to have_content("3 ACTIVE PROCESSES")
+            end
+
+            expect(page).to have_content("SE Rocks!")
+            expect(page).not_to have_content("NW Rocks!")
+            group_1_process_type.processes.groupless.each do |group|
+              expect(page).not_to have_content(translated(group.title))
+            end
+          end
+
+          it "only shows process types with active processes in the group" do
+            within "#process-type-filter" do
+              click_button "All types"
+              expect(page).not_to have_content("Awesome Type")
+              expect(page).to have_content("The East Type")
+              expect(page).not_to have_content("The West Type")
+              expect(page).not_to have_content("Old Type")
+              expect(page).not_to have_content("Empty Type")
+              expect(page).not_to have_content("Unpublished Type")
             end
           end
         end

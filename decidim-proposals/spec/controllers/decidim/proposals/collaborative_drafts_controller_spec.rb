@@ -37,7 +37,7 @@ module Decidim
           get :show, params: { id: collaborative_draft.id }
 
           expect(response).to have_http_status(:ok)
-          expect(assigns(:collaborative_draft)).to be_kind_of(Decidim::Proposals::CollaborativeDraft)
+          expect(assigns(:collaborative_draft)).to be_a(Decidim::Proposals::CollaborativeDraft)
           expect(subject).to render_template("decidim/proposals/collaborative_drafts/show")
         end
       end
@@ -51,7 +51,7 @@ module Decidim
 
         describe "GET new" do
           it "renders the empty form" do
-            get :new, params: params
+            get(:new, params:)
             expect(response).to have_http_status(:ok)
             expect(subject).to render_template(:new)
           end
@@ -73,14 +73,14 @@ module Decidim
           let(:component) { create(:proposal_component, :with_collaborative_drafts_enabled) }
 
           it "redirects" do
-            post :create, params: params
+            post(:create, params:)
             expect(response).to have_http_status(:found)
           end
         end
 
         context "when creation is enabled" do
           it "creates a collaborative draft" do
-            post :create, params: params
+            post(:create, params:)
             expect(response).to have_http_status(:found)
           end
         end
@@ -94,7 +94,7 @@ module Decidim
         it "renders the edit form" do
           get :edit, params: { id: collaborative_draft.id }
           expect(response).to have_http_status(:ok)
-          expect(assigns(:collaborative_draft)).to be_kind_of(Decidim::Proposals::CollaborativeDraft)
+          expect(assigns(:collaborative_draft)).to be_a(Decidim::Proposals::CollaborativeDraft)
           expect(subject).to render_template(:edit)
         end
       end
@@ -112,8 +112,8 @@ module Decidim
         end
 
         it "updates the collaborative draft" do
-          put :update, params: params
-          expect(assigns(:collaborative_draft)).to be_kind_of(Decidim::Proposals::CollaborativeDraft)
+          put(:update, params:)
+          expect(assigns(:collaborative_draft)).to be_a(Decidim::Proposals::CollaborativeDraft)
           expect(response).to have_http_status(:found)
         end
       end

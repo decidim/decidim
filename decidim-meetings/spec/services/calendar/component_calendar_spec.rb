@@ -6,12 +6,13 @@ module Decidim::Meetings::Calendar
   describe ComponentCalendar do
     subject { described_class.for(component) }
 
-    let!(:meeting) { create :meeting, :published }
+    let(:title) { Decidim::Faker::Localized.localized { "<script>alert(\"fooo\")</script> #{generate(:title)}" } }
+    let!(:meeting) { create(:meeting, :published, title:) }
     let!(:component) { meeting.component }
-    let!(:another_meeting) { create :meeting, :published, component: }
-    let!(:external_meeting) { create :meeting }
-    let!(:unpublished_meeting) { create :meeting, component: }
-    let!(:withdrawn_meeting) { create :meeting, :published, :withdrawn }
+    let!(:another_meeting) { create(:meeting, :published, component:, title: Decidim::Faker::Localized.localized { generate(:title) }) }
+    let!(:external_meeting) { create(:meeting, title: Decidim::Faker::Localized.localized { generate(:title) }) }
+    let!(:unpublished_meeting) { create(:meeting, component:, title: Decidim::Faker::Localized.localized { generate(:title) }) }
+    let!(:withdrawn_meeting) { create(:meeting, :published, :withdrawn, title: Decidim::Faker::Localized.localized { generate(:title) }) }
 
     describe "#calendar" do
       it "renders a full calendar" do
@@ -55,7 +56,7 @@ module Decidim::Meetings::Calendar
       let!(:filters) { { "with_any_origin" => ["", "official"], "with_any_type" => ["", "online"] } }
 
       context "when no meetings returned" do
-        let!(:online_meeting) { create :meeting, :published, :not_official, :online, component: }
+        let!(:online_meeting) { create(:meeting, :published, :not_official, :online, component:, title:) }
 
         it "returns a nil value" do
           expect(subject).to be_nil
@@ -63,7 +64,7 @@ module Decidim::Meetings::Calendar
       end
 
       context "when having meetings returned" do
-        let!(:online_meeting) { create :meeting, :published, :official, :online, component: }
+        let!(:online_meeting) { create(:meeting, :published, :official, :online, component:, title: Decidim::Faker::Localized.localized { generate(:title) }) }
 
         it "renders the meetings of the given component based on filters" do
           expect(subject).to include(online_meeting.title["en"])

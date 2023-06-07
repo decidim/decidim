@@ -8,7 +8,7 @@ module Decidim
       let(:form_klass) { ProposalWizardCreateStepForm }
       let(:component) { create(:proposal_component) }
       let(:organization) { component.organization }
-      let(:user) { create :user, :admin, :confirmed, organization: }
+      let(:user) { create(:user, :admin, :confirmed, organization:) }
       let(:form) do
         form_klass.from_params(
           form_params
@@ -70,9 +70,9 @@ module Decidim
             command.call
             proposal = Decidim::Proposals::Proposal.last
 
-            expect(proposal.title).to be_kind_of(Hash)
+            expect(proposal.title).to be_a(Hash)
             expect(proposal.title[I18n.locale.to_s]).to eq form_params[:title]
-            expect(proposal.body).to be_kind_of(Hash)
+            expect(proposal.body).to be_a(Hash)
             expect(proposal.body[I18n.locale.to_s]).to eq form_params[:body]
           end
 

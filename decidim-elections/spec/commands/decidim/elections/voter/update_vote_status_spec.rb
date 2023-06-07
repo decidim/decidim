@@ -5,9 +5,9 @@ require "spec_helper"
 describe Decidim::Elections::Voter::UpdateVoteStatus do
   subject { described_class.new(vote) }
 
-  let(:election) { create :election }
-  let(:vote) { create :vote, user:, email:, election: }
-  let(:user) { create :user, organization: }
+  let(:election) { create(:election) }
+  let(:vote) { create(:vote, user:, email:, election:) }
+  let(:user) { create(:user, organization:) }
   let(:component) { election.component }
   let(:organization) { component.organization }
   let(:email) { "an_email@example.org" }

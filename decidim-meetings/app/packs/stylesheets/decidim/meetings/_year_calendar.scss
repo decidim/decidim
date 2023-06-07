@@ -1,46 +1,46 @@
-.meeting-calendar{
+.meeting-calendar {
   @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 grid-rows-4 md:gap-y-6 md:gap-x-8 lg:gap-y-12 lg:gap-x-16 place-items-start;
 
-  &__selector{
+  &__selector {
     @apply flex items-center gap-4;
 
-    &-container{
+    &-container {
       @apply flex justify-between items-center mb-8;
     }
 
-    &-arrow{
+    &-arrow {
       @apply w-6 h-6 rounded-full bg-background;
     }
   }
 
-  &__link{
+  &__link {
     @apply flex items-center gap-2 text-secondary font-semibold;
   }
 
-  &__month{
+  &__month {
     @apply text-center border-separate;
 
-    caption{
+    caption {
       @apply text-lg text-gray-2 text-left font-semibold mb-4;
     }
 
-    th{
+    th {
       @apply text-xs text-black uppercase font-semibold;
     }
 
-    td{
+    td {
       @apply text-md text-gray-2 font-semibold w-9 h-9 rounded;
     }
 
-    .is-today{
+    .is-today {
       @apply border border-gray bg-background font-bold;
     }
 
-    .is-past-event{
+    .is-past-event {
       @apply bg-gray-2 text-white font-bold;
     }
 
-    .is-upcoming-event{
+    .is-upcoming-event {
       @apply bg-secondary text-white font-bold;
     }
   }

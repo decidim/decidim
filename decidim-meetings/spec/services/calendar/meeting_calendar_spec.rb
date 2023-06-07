@@ -6,8 +6,8 @@ module Decidim::Meetings::Calendar
   describe MeetingCalendar do
     subject { described_class.for(meeting) }
 
-    let!(:meeting) { create :meeting }
-    let!(:another_meeting) { create :meeting }
+    let!(:meeting) { create(:meeting, title: Decidim::Faker::Localized.localized { "<script>alert(\"foo\")</script> #{generate(:title)}" }) }
+    let!(:another_meeting) { create(:meeting, title: Decidim::Faker::Localized.localized { "<script>alert(\"bar\")</script> #{generate(:title)}" }) }
 
     describe "#calendar" do
       it "renders a full calendar" do

@@ -116,7 +116,7 @@ shared_examples "manage attachments examples" do
 
       within "#attachments" do
         within find("tr", text: translated(attachment.title)) do
-          expect(page).to have_no_text(translated(attachment_collection.name, locale: :en))
+          expect(page).not_to have_text(translated(attachment_collection.name, locale: :en))
         end
       end
     end
@@ -128,7 +128,7 @@ shared_examples "manage attachments examples" do
 
       expect(page).to have_admin_callout("successfully")
 
-      expect(page).to have_no_content(translated(attachment.title, locale: :en))
+      expect(page).not_to have_content(translated(attachment.title, locale: :en))
     end
 
     it "can update an attachment" do

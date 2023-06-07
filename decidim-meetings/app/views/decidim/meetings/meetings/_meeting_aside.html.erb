@@ -4,7 +4,7 @@
   <% end %>
 
   <% if allowed_to?(:close, :meeting, meeting: meeting) %>
-    <% caption =  meeting.closed? ? t("edit_close_meeting", scope: "decidim.meetings.meetings.meeting") : t("close_meeting", scope: "decidim.meetings.meetings.meeting") %>
+    <% caption = meeting.closed? ? t("edit_close_meeting", scope: "decidim.meetings.meetings.meeting") : t("close_meeting", scope: "decidim.meetings.meetings.meeting") %>
     <%= link_to caption, edit_meeting_meeting_close_path(meeting_id: meeting.id, id: meeting.id), class: "button button__xl button__secondary w-full" %>
   <% end %>
 

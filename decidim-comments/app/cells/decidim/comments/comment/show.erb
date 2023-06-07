@@ -66,7 +66,7 @@
       </div>
       <% if can_reply? %>
         <div id="panel-<%= reply_id %>" class="add-comment">
-          <%== cell("decidim/comments/comment_form", model, root_depth: root_depth, order: order) %>
+          <%== cell("decidim/comments/comment_form", model, root_depth:, order:) %>
         </div>
       <% end %>
     </div>

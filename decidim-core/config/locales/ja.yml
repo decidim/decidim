@@ -29,6 +29,7 @@ ja:
         password_confirmation: パスワードの確認
         personal_url: 個人用URL
         remove_avatar: アバターを削除
+        tos_agreement: 利用規約
     models:
       decidim/attachment_created_event: 添付ファイル
       decidim/component_published_event: アクティブなコンポーネント
@@ -95,13 +96,15 @@ ja:
       less_than_x_seconds:
         other: '%{count} 秒未満'
       x_days:
-        other: "%{count} 日前"
+        other: "%{count} 日"
       x_hours:
-        other: "%{count} 時間前"
+        other: "%{count} 時間"
       x_minutes:
-        other: "%{count} 分前"
+        other: "%{count} 分"
+      x_months:
+        other: "%{count} ヶ月"
       x_seconds:
-        other: "%{count} 秒前"
+        other: "%{count} 秒"
   decidim:
     accessibility:
       external_link: 外部リンク
@@ -109,6 +112,7 @@ ja:
       logo: "%{organization}の公式ロゴ"
       skip_button: メインコンテンツにスキップ
     account:
+      blocked: このアカウントは利用規約に違反しているためブロックされています
       delete:
         alert: この操作は取り消すことができません。アカウントを削除すると、あなたのアカウント情報でログインできなくなります。 アカウントを削除すると、あなたの貢献内容は匿名化されます。 新しいアカウントを作成することはできますが、これらの貢献内容は新しいアカウントと関連付けられません。
         confirm:
@@ -239,6 +243,8 @@ ja:
         verify_via_csv: "%{user_name} がCSVファイルを介してグループ %{resource_name} を確認しました"
       user_moderation:
         unreport: "%{user_name} が %{resource_type} - %{unreported_user_name} の報告を解除しました"
+    admin_terms_of_service:
+      default_body: "<h2>管理者利用規約</h2><p>他のシステム管理者から一般的なレクチャーを受けたことを信じています。通常、それは以下の3つのポイントに集約されます：</p><ol><li>他人のプライバシーを尊重する。</li><li>クリックする前に考える。</li><li>偉大な力には偉大な責任が伴う。</li></ol>"
     alert:
       dismiss: 通知を消去
     amendments:
@@ -535,6 +541,7 @@ ja:
           sign_up_as:
             legend: として登録
           subtitle: 参加するにはユーザ登録をしてください。
+          terms: 利用規約
           tos_agreement: ユーザ登録することで、 %{link} に同意したことになります。
           tos_title: 利用規約
           username_help: 投稿に表示される公表名。匿名性を保証する目的で、任意の名前にすることができます。
@@ -1070,7 +1077,6 @@ ja:
           intro: 'あなたのメッセージには次のエラーがありました:'
           ok: OK
         index:
-          ago: 前
           new_conversation: 新しい会話
           next: 次へ
           no_conversations: まだ会話がありません。
@@ -1245,6 +1251,24 @@ ja:
         metrics:
           headline: 指標
           link: すべての指標を表示
+      terms_of_service:
+        accept:
+          error: 利用規約に同意する際に問題が発生しました。
+          success: 素晴らしい！利用規約に同意しました。
+        form:
+          agreement: これらの規約に同意します
+          legend: 利用規約に同意する
+        refuse:
+          modal_body: 拒否された場合、プラットフォームを使用できなくなりますが、<a href="%{download_your_data_path}">データ</a> をダウンロードしたり、 <a href="%{delete_path}">アカウントを削除</a> することはできます。
+          modal_btn_continue: 利用規約に同意して続ける
+          modal_btn_exit: 後で確認する
+          modal_button: 利用規約に同意しない
+          modal_close: 閉じる
+          modal_title: 更新された利用規約を本当に拒否しますか?
+        required_review:
+          alert: 利用規約を更新しました。ご確認ください。
+          body: 利用規約の更新内容を確認してください。確認しない場合、プラットフォームを使用することはできません。
+          title: '必須: 利用規約の更新を確認する'
     participatory_space_private_users:
       not_allowed: このコンテンツを表示する権限がありません
     passwords:
@@ -1253,6 +1277,7 @@ ja:
         success: パスワードを更新しました。
     profile:
       deleted: 参加者を削除しました
+      inaccessible_message: このプロファイルは利用規約違反のためアクセスできません！
       view: 表示
     profiles:
       default_officialization_text_for_user_groups: このグループは公的に検証されており、その名前が実際の名前に対応していることが検証されています。
@@ -1377,7 +1402,7 @@ ja:
         already_reported: このコンテンツはすでに報告されており、管理者が確認します。
         close: 閉じる
         description: このコンテンツは不適切ですか？
-        does_not_belong: 違法行為、自殺の脅威、個人情報、または %{organization_name} に属していないと思われる何かが含まれています。
+        does_not_belong: 違法行為、自殺予告、個人情報、または %{organization_name} に属していないと思われる内容が含まれています。
         hide: 非表示
         hide_content: このコンテンツを非表示
         offensive: 差別的な内容、誹謗中傷などの不適切な内容が含まれています。
@@ -1388,9 +1413,11 @@ ja:
         visit_profile: この参加者と残りの内容の部分もブロックしたい場合は、 %{user_link} プロフィールページにアクセスしてください。
       flag_user_modal:
         already_reported: このコンテンツはすでに報告されており、管理者が確認します。
+        block: この参加者をブロック
         close: 閉じる
         description: ユーザーに不適切なのはどの点ですか？
         does_not_belong: 違法行為、自殺の脅威、個人情報、または %{organization_name} に属していないと思われる何かが含まれています。
+        hide: すべての内容を隠す
         offensive: 人種差別、性差別、中傷、個人攻撃、死の脅威、自殺要求や何かしらの形態のヘイトスピーチが含まれています。
         report: 報告
         spam: 虚偽情報、広告、詐欺やスクリプトボットが含まれています。
@@ -1586,11 +1613,11 @@ ja:
         decline: 招待を拒否
         hello: こんにちは、 %{email} さん。
         ignore: |-
-          招待を受け取りたくない場合は、このメールを無視してください。<br />上記のリンクにアクセスし、ニックネームとパスワードを設定するまで、アカウントは作成されません。
+          招待を受け入れたくない場合は、このメールを無視してください。<br />上記のリンクにアクセスし、アカウントIDとパスワードを設定するまで、あなたのアカウントは作成されません。
         invited_you_as_admin: "%{invited_by} さんが %{application}の管理者としてあなたを招待しました。以下のリンクから承認できます。"
         invited_you_as_private_user: "%{invited_by} が %{application}の非公開参加者としてあなたを招待しました。以下のリンクから承認できます。"
-        someone_invited_you: 誰かが %{application}にあなたを招待しました。以下のリンクから受け入れることができます。
-        someone_invited_you_as_admin: 誰かが %{application}の管理者としてあなたを招待しました。以下のリンクから承認できます。
+        someone_invited_you: '%{application} にあなたを招待しました。以下のリンクから受け入れることができます。'
+        someone_invited_you_as_admin: '%{application} の管理者としてあなたを招待しました。以下のリンクから承認できます。'
         someone_invited_you_as_private_user: '%{application}の非公開参加者としてあなたを招待しました。以下のリンクから承認できます。'
         subject: 招待の説明
       invite_admin:
@@ -1656,8 +1683,8 @@ ja:
     shared:
       links:
         back: 戻る
-        didn_t_receive_confirmation_instructions: 確認の指示を受信しませんでしたか？
-        didn_t_receive_unlock_instructions: ロック解除の指示を受け取れませんでしたか？
+        didn_t_receive_confirmation_instructions: ユーザ登録確認メールが届かない方はこちら
+        didn_t_receive_unlock_instructions: ロック解除の手順を送信したい方はこちら
         forgot_your_password: パスワードをお忘れですか？
         sign_in: ログイン
         sign_in_with_provider: '%{provider} でログイン'
@@ -1805,7 +1832,7 @@ ja:
       language_chooser:
         choose_language: 言語を選択
       notifications_dashboard:
-        mark_all_as_read: すべて既読にする
+        mark_all_as_read: すべての通知を削除する
         mark_as_read: 既読にする
       offline_banner:
         cache_version_page: 注意：あなたのネットワークはオフラインです。これは以前にアクセスしているページのキャッシュされたバージョンです。おそらくコンテンツが最新ではありません。

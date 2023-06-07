@@ -200,7 +200,7 @@ ca:
         verify: Verificar
       admin_terms_of_service:
         accept:
-          error: S'ha produït un error en acceptar les condicions del servei d'administració.
+          error: S'ha produït un error en acceptar els Termes i Condicions d'administració.
           success: Genial! Has acceptat les condicions del servei d'administració.
         actions:
           accept: Estic d'acord amb les condicions
@@ -287,6 +287,7 @@ ca:
       block_user:
         new:
           action: Bloquejar compte i enviar justificació
+          already_reported_html: Si segueixes amb aquesta acció amagaràs tots els continguts de la participant. <a href="%{link}">Bloquejar el compte</a>.
           description: El bloqueig d'una usuària deixarà el seu compte inutilitzable. Pots proporcionar en la teva justificació els criteris sota els quals consideraries desbloquejar-la.
           justification: Justificació
           title: Bloquejar a la usuària %{name}
@@ -681,6 +682,7 @@ ca:
         report:
           reasons:
             does_not_belong: No pertany
+            hidden_during_block: Ocult mentre es bloqueja a la participant
             offensive: Ofensiu
             spam: Contingut no desitjat
         reports:

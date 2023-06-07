@@ -13,7 +13,7 @@ shared_examples "logged in user reports content" do
         expect(page).to have_selector(".author-data__extra")
 
         within ".author-data__extra", match: :first do
-          page.find("button").click
+          click_button
         end
 
         expect(page).to have_css(".modal__report", visible: :visible)
@@ -51,7 +51,7 @@ shared_examples "higher user role hides" do
       expect(page).to have_selector(".author-data__extra")
 
       within ".author-data__extra", match: :first do
-        page.find("button").click
+        click_button
       end
 
       expect(page).to have_css(".modal__report", visible: :visible)
@@ -78,13 +78,13 @@ shared_examples "higher user role does not have hide" do
       expect(page).to have_selector(".author-data__extra")
 
       within ".author-data__extra", match: :first do
-        page.find("button").click
+        click_button
       end
 
       expect(page).to have_css(".modal__report", visible: :visible)
 
       within ".modal__report" do
-        expect(page).not_to have_selector "input[name='report[hide]']"
+        expect(page).not_to have_field(name: "report[hide]")
       end
     end
   end
@@ -95,7 +95,7 @@ shared_examples "reports" do
     it "gives the option to sign in" do
       visit reportable_path
 
-      expect(page).to have_no_css("html.is-reveal-open")
+      expect(page).not_to have_css("html.is-reveal-open")
 
       click_button "Report"
 
@@ -118,7 +118,7 @@ shared_examples "reports" do
       expect(page).to have_selector(".author-data__extra")
 
       within ".author-data__extra", match: :first do
-        page.find("button").click
+        click_button
       end
 
       expect(page).to have_css(".modal__report", visible: :visible)
@@ -156,6 +156,6 @@ shared_examples "reports by user type" do
   context "When reporting user is process valuator" do
     let!(:user) { create :process_valuator, :confirmed, participatory_process: }
     include_examples "higher user role reports"
-    include_examples "higher user role hides"
+    include_examples "higher user role does not have hide"
   end
 end

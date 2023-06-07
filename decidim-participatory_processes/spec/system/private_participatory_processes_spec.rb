@@ -4,14 +4,14 @@ require "spec_helper"
 
 describe "Private Participatory Processes", type: :system do
   let!(:organization) { create(:organization) }
-  let!(:participatory_process) { create :participatory_process, :published, organization: }
-  let!(:private_participatory_process) { create :participatory_process, :published, organization:, private_space: true }
+  let!(:participatory_process) { create(:participatory_process, :published, organization:) }
+  let!(:private_participatory_process) { create(:participatory_process, :published, organization:, private_space: true) }
   let!(:admin) { create(:user, :admin, :confirmed, organization:) }
-  let!(:user) { create :user, :confirmed, organization: }
-  let!(:other_user) { create :user, :confirmed, organization: }
-  let!(:other_user2) { create :user, :confirmed, organization: }
-  let!(:participatory_space_private_user) { create :participatory_space_private_user, user: other_user, privatable_to: private_participatory_process }
-  let!(:participatory_space_private_user2) { create :participatory_space_private_user, user: other_user2, privatable_to: private_participatory_process }
+  let!(:user) { create(:user, :confirmed, organization:) }
+  let!(:other_user) { create(:user, :confirmed, organization:) }
+  let!(:other_user2) { create(:user, :confirmed, organization:) }
+  let!(:participatory_space_private_user) { create(:participatory_space_private_user, user: other_user, privatable_to: private_participatory_process) }
+  let!(:participatory_space_private_user2) { create(:participatory_space_private_user, user: other_user2, privatable_to: private_participatory_process) }
 
   context "when there are private participatory processes" do
     context "and no user is logged in" do
@@ -29,7 +29,7 @@ describe "Private Participatory Processes", type: :system do
           expect(page).to have_content(translated(participatory_process.title, locale: :en))
           expect(page).to have_selector(".card__grid", count: 1)
 
-          expect(page).to have_no_content(translated(private_participatory_process.title, locale: :en))
+          expect(page).not_to have_content(translated(private_participatory_process.title, locale: :en))
         end
       end
     end
@@ -50,7 +50,7 @@ describe "Private Participatory Processes", type: :system do
           expect(page).to have_content(translated(participatory_process.title, locale: :en))
           expect(page).to have_selector(".card__grid", count: 1)
 
-          expect(page).to have_no_content(translated(private_participatory_process.title, locale: :en))
+          expect(page).not_to have_content(translated(private_participatory_process.title, locale: :en))
         end
       end
 

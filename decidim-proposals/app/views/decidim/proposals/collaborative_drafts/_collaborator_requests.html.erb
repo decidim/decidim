@@ -7,8 +7,8 @@
         <%= cell "decidim/author", present(requester) %>
 
         <div class="flex gap-1 [&>*]:grow">
-          <%= render partial: "accept_request_access_form", locals: { requester: requester } %>
-          <%= render partial: "reject_request_access_form", locals: { requester: requester } %>
+          <%= render partial: "accept_request_access_form", locals: { requester: } %>
+          <%= render partial: "reject_request_access_form", locals: { requester: } %>
         </div>
       </div>
     <% end %>

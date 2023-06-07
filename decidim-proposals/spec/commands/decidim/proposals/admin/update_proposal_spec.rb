@@ -7,7 +7,7 @@ describe Decidim::Proposals::Admin::UpdateProposal do
 
   let(:component) { create(:proposal_component) }
   let(:organization) { component.organization }
-  let(:user) { create :user, :admin, :confirmed, organization: }
+  let(:user) { create(:user, :admin, :confirmed, organization:) }
   let(:form) do
     form_klass.from_params(
       form_params
@@ -19,7 +19,7 @@ describe Decidim::Proposals::Admin::UpdateProposal do
     )
   end
 
-  let!(:proposal) { create :proposal, :official, component: }
+  let!(:proposal) { create(:proposal, :official, component:) }
 
   let(:has_address) { false }
   let(:address) { nil }

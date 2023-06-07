@@ -1,60 +1,60 @@
-.meeting-list{
+.meeting-list {
   @apply flex items-stretch gap-4 cursor-pointer;
 
-  &__container{
+  &__container {
     @apply space-y-10;
   }
 
-  &__map{
+  &__map {
     /* negative main padding values */
     @apply md:-ml-16 -mt-6 md:-mt-12 aspect-square md:aspect-[21/9] [&>*]:h-full [&+*]:mt-6 md:[&+*]:mt-12;
   }
 
-  &__link{
+  &__link {
     @apply py-6 flex items-center justify-end gap-1 text-secondary;
   }
 
-  &__modal{
+  &__modal {
     @apply pr-16 pb-16;
 
-    &-title{
+    &-title {
       @apply flex items-baseline gap-2;
     }
 
-    &-text{
+    &-text {
       @apply text-lg text-gray-2;
     }
 
-    &-input{
+    &-input {
       @apply text-lg text-gray-2 relative;
 
-      input{
+      input {
         @apply w-full;
       }
 
-      button{
+      button {
         @apply z-10 absolute top-1/2 right-2 -translate-y-1/2 text-sm;
       }
     }
   }
 
-  &:hover h2{
+  &:hover h2 {
     @apply underline;
   }
 
-  &__block{
-    &-map{
+  &__block {
+    &-map {
       @apply aspect-[2/1] md:aspect-[4/1] rounded overflow-hidden [&>*]:h-full;
     }
 
-    &-list{
+    &-list {
       @apply flex flex-col md:flex-row justify-start gap-16 last:[&>*]:grow;
 
-      &-aside{
+      &-aside {
         @apply flex flex-col gap-4 items-stretch;
       }
 
-      &-title{
+      &-title {
         @apply text-gray-2 font-semibold uppercase;
       }
     }

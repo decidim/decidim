@@ -110,10 +110,6 @@ ja:
               rejected: 却下済み
               validating: 技術的検証
               withdrawn: 撤回
-          state_null:
-            label: 州(県)
-            values:
-              'true': 回答なし
           valuator_role_ids_has:
             label: 評価者にアサインされました
         search_placeholder:
@@ -672,10 +668,10 @@ ja:
         new_collaborative_draft_button:
           new_collaborative_draft: 新しい共同草案を作成
         orders:
-          label: '草案の依頼:'
-          most_contributed: 最も貢献したもの
+          label: '草案の並び順:'
+          most_contributed: 貢献の多い順
           random: ランダム
-          recent: 最近のもの
+          recent: 新しい順
         requests:
           accepted_request:
             error: コラボレーターとして受け入れることができませんでした。後でもう一度お試しください。
@@ -722,7 +718,7 @@ ja:
           proposals: 提案
       create:
         error: 提案を保存する際に問題がありました。
-        success: 提案は正常に作成されました。ドラフトとして保存されました。
+        success: 提案は正常に作成されました。草案として保存されました。
       destroy_draft:
         error: 共同草案を削除する際に問題が発生しました。
         success: 提案の下書きは正常に削除されました。
@@ -824,14 +820,14 @@ ja:
           send: 続ける
           title: 提案を作成
         orders:
-          label: '提案の順序：'
-          most_commented: コメントが多い順
-          most_endorsed: 最もオススメされた
-          most_followed: 最もフォローされている
-          most_voted: サポートされている順
+          label: '提案の並び順：'
+          most_commented: コメントの多い順
+          most_endorsed: オススメの多い順
+          most_followed: フォローの多い順
+          most_voted: サポートの多い順
           random: ランダム
-          recent: 最近のもの
-          with_more_authors: より多くの著者と一緒に
+          recent: 新しい順
+          with_more_authors: 起案者の多い順
         participatory_texts:
           index:
             document_index: ドキュメントのインデックス

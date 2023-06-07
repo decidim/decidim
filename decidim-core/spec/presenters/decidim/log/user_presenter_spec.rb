@@ -5,7 +5,7 @@ require "spec_helper"
 describe Decidim::Log::UserPresenter, type: :helper do
   subject { described_class.new(user, helper, extra).present }
 
-  let!(:user) { create :user }
+  let!(:user) { create(:user) }
   let(:user_nickname) { h(user.nickname) }
   let(:extra) do
     {

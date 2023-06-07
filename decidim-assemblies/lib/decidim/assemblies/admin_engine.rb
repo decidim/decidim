@@ -92,7 +92,7 @@ module Decidim
         end
       end
 
-      initializer "decidim_assemblies.action_controller" do |app|
+      initializer "decidim_assemblies_admin.action_controller" do |app|
         app.config.to_prepare do
           ActiveSupport.on_load :action_controller do
             helper Decidim::Assemblies::Admin::AssembliesAdminMenuHelper if respond_to?(:helper)
@@ -100,7 +100,7 @@ module Decidim
         end
       end
 
-      initializer "decidim_assemblies.admin_menu" do
+      initializer "decidim_assemblies_admin.menu" do
         Decidim.menu :admin_menu do |menu|
           menu.add_item :assemblies,
                         I18n.t("menu.assemblies", scope: "decidim.admin"),
@@ -114,7 +114,7 @@ module Decidim
         end
       end
 
-      initializer "decidim_assemblies.assemblies_admin_attachments_menu" do
+      initializer "decidim_assemblies_admin.attachments_menu" do
         Decidim.menu :assemblies_admin_attachments_menu do |menu|
           menu.add_item :assembly_attachment_collections,
                         I18n.t("attachment_collections", scope: "decidim.admin.menu.assemblies_submenu"),
@@ -129,7 +129,7 @@ module Decidim
                         if: allowed_to?(:read, :attachment, assembly: current_participatory_space)
         end
       end
-      initializer "decidim_assemblies.admin_assemblies_components_menu" do
+      initializer "decidim_assemblies_admin.components_menu" do
         Decidim.menu :admin_assemblies_components_menu do |menu|
           current_participatory_space.components.each do |component|
             caption = translated_attribute(component.name)
@@ -148,7 +148,7 @@ module Decidim
           end
         end
       end
-      initializer "decidim_assemblies.assemblies_admin_menu" do
+      initializer "decidim_assemblies_admin.assembly_menu" do
         Decidim.menu :admin_assembly_menu do |menu|
           menu.add_item :edit_assembly,
                         I18n.t("info", scope: "decidim.admin.menu.assemblies_submenu"),
@@ -210,7 +210,7 @@ module Decidim
                         active: is_active_link?(decidim_admin_assemblies.assembly_landing_page_path(current_participatory_space))
         end
       end
-      initializer "decidim_assemblies.admin_assemblies_menu" do
+      initializer "decidim_assemblies_admin.assemblies_menu" do
         Decidim.menu :admin_assemblies_menu do |menu|
           menu.add_item :assemblies,
                         I18n.t("menu.assemblies", scope: "decidim.admin"),

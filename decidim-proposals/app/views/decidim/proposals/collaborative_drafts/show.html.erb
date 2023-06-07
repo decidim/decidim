@@ -1,9 +1,9 @@
 <% add_decidim_page_title(t("name", scope: "decidim.proposals.collaborative_drafts")) %>
 <% add_decidim_meta_tags({
-  description: present(@collaborative_draft).body,
-  title: present(@collaborative_draft).title,
-  url: collaborative_draft_url(@collaborative_draft.id)
-}) %>
+                           description: present(@collaborative_draft).body,
+                           title: present(@collaborative_draft).title,
+                           url: collaborative_draft_url(@collaborative_draft.id)
+                         }) %>
 
 <%= append_stylesheet_pack_tag "decidim_proposals", media: "all" %>
 <%= append_javascript_pack_tag "decidim_proposals" %>
@@ -45,7 +45,7 @@
       <ul class="tab-x-container">
         <% tabs.each_with_index do |tab, i| %>
           <li>
-            <button id="trigger-<%= tab[:id] %>" class="tab-x" data-controls="panel-<%= tab[:id] %>" data-open="<%= "true" if i == 0 %>">
+            <button id="trigger-<%= tab[:id] %>" class="tab-x" data-controls="panel-<%= tab[:id] %>" data-open="<%= "true" if i.zero? %>">
               <%= icon tab[:icon], class: "text-gray fill-current" %><%= tab[:text] %>
             </button>
           </li>

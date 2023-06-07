@@ -3,8 +3,8 @@
         path,
         class: button_classes,
         title: text,
-        method: method,
-        remote: remote,
+        method:,
+        remote:,
         id: dom_id(model, :follow)
       ) do %>
     <%= render :content %>
@@ -17,7 +17,7 @@
         class: button_classes,
         title: t("decidim.shared.follow_button.sign_in_before_follow"),
         params: req_params,
-        :'aria-haspopup' => true,
+        'aria-haspopup': true,
         id: dom_id(model, :follow)
       ) do %>
     <%= render :content %>

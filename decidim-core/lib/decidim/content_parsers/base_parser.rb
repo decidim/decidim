@@ -11,6 +11,8 @@ module Decidim
     #
     # @abstract Subclass and override {#rewrite} and {#metadata} to implement a content parser
     class BaseParser
+      include Decidim::ContentProcessor::Common
+
       # Class used as a container for metadata
       Metadata = Class.new
 

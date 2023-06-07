@@ -8,7 +8,6 @@
 import "core-js/stable";
 import "regenerator-runtime/runtime";
 import "jquery"
-import "quill"
 
 // external deps that require initialization
 import Rails from "@rails/ujs"
@@ -62,10 +61,9 @@ import "./sw"
 // local deps that require initialization
 import formDatePicker from "./form_datepicker"
 import fixDropdownMenus from "./dropdowns_menus"
-import createQuillEditor from "./editor"
 import Configuration from "./configuration"
 import ExternalLink from "./redesigned_external_link"
-import updateExternalDomainLinks from "./external_domain_warning"
+import ExternalDomainLink from "./external_domain_warning"
 import scrollToLastChild from "./scroll_to_last_child"
 import InputCharacterCounter, { createCharacterCounter } from "./redesigned_input_character_counter"
 import FormValidator from "./form_validator"
@@ -147,11 +145,18 @@ const initializer = (element = document) => {
 
   formDatePicker();
 
-  $(".editor-container").each((_idx, container) => {
-    createQuillEditor(container);
+  document.querySelectorAll(".editor-container").forEach((container) => {
+    window.createEditor(container);
   });
 
-  element.querySelectorAll("a[target=\"_blank\"]:not([data-external-link=\"false\"])").forEach((elem) => new ExternalLink(elem))
+  element.querySelectorAll("a[target=\"_blank\"]:not([data-external-link=\"false\"])").forEach((elem) => {
+    if (elem.closest(".editor-container")) {
+      return null;
+    }
+    return new ExternalLink(elem);
+  });
+
+  element.querySelectorAll("a[target=\"_blank\"]:not([data-external-domain-link=\"false\"])").forEach((elem) => new ExternalDomainLink(elem))
 
   // initialize character counter
   $("input[type='text'], textarea, .editor>input[type='hidden']").each((_i, elem) => {
@@ -170,8 +175,6 @@ const initializer = (element = document) => {
 
     formFilter.mountComponent();
   })
-
-  updateExternalDomainLinks($("body"))
 
   addInputEmoji(element)
 

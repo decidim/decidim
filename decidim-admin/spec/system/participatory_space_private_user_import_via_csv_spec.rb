@@ -28,7 +28,7 @@ describe "Admin manages participatory space private users via csv import", type:
 
   context "when there are existing users" do
     before do
-      create_list :assembly_private_user, 3, privatable_to: assembly, user: create(:user, organization: assembly.organization)
+      create_list(:assembly_private_user, 3, privatable_to: assembly, user: create(:user, organization: assembly.organization))
       visit current_path
     end
 

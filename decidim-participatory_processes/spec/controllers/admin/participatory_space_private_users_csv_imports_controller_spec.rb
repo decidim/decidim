@@ -8,7 +8,7 @@ module Decidim
       describe ParticipatorySpacePrivateUsersCsvImportsController, type: :controller do
         routes { Decidim::ParticipatoryProcesses::AdminEngine.routes }
 
-        let!(:organization) { create :organization }
+        let!(:organization) { create(:organization) }
         let!(:admin) { create(:user, :admin, :confirmed, organization:) }
         let!(:user) { create(:user, organization:) }
         let!(:private_user) { create(:participatory_space_private_user, user:) }

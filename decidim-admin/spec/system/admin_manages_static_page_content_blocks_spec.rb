@@ -19,7 +19,7 @@ describe "Admin manages static page content blocks", type: :system do
       expect(Decidim::ContentBlock.count).to eq 0
 
       within ".edit_content_blocks" do
-        find("button", text: "Add content block").click
+        click_button "Add content block"
         within ".add-components" do
           find("a", text: "Summary").click
         end
@@ -37,7 +37,7 @@ describe "Admin manages static page content blocks", type: :system do
       expect do
         number_of_content_blocks.times do
           within ".edit_content_blocks" do
-            find("button", text: "Add content block").click
+            click_button "Add content block"
             within ".add-components" do
               find("a", text: "Section").click
             end
@@ -50,8 +50,8 @@ describe "Admin manages static page content blocks", type: :system do
   context "when the page has multiple content blocks with the same manifest" do
     let(:content1) { Faker::Lorem.sentence }
     let(:content2) { Faker::Lorem.sentence }
-    let!(:content_block1) { create :content_block, organization:, manifest_name: :section, scope_name: :static_page, scoped_resource_id: tos_page.id, settings: { content_en: content1 } }
-    let!(:content_block2) { create :content_block, organization:, manifest_name: :section, scope_name: :static_page, scoped_resource_id: tos_page.id, settings: { content_en: content2 } }
+    let!(:content_block1) { create(:content_block, organization:, manifest_name: :section, scope_name: :static_page, scoped_resource_id: tos_page.id, settings: { content_en: content1 }) }
+    let!(:content_block2) { create(:content_block, organization:, manifest_name: :section, scope_name: :static_page, scoped_resource_id: tos_page.id, settings: { content_en: content2 }) }
 
     it "shows all of them" do
       visit decidim.page_path(tos_page)
@@ -62,7 +62,7 @@ describe "Admin manages static page content blocks", type: :system do
 
   context "when deleting content block" do
     let(:content) { Faker::Lorem.sentence }
-    let!(:content_block) { create :content_block, organization:, manifest_name: :section, scope_name: :static_page, scoped_resource_id: tos_page.id, settings: { content_en: content } }
+    let!(:content_block) { create(:content_block, organization:, manifest_name: :section, scope_name: :static_page, scoped_resource_id: tos_page.id, settings: { content_en: content }) }
 
     it "the content block is no further visible on the page" do
       visit decidim_admin.edit_static_page_path(tos_page)
@@ -85,7 +85,7 @@ describe "Admin manages static page content blocks", type: :system do
   end
 
   context "when editing a persisted content block" do
-    let!(:content_block) { create :content_block, organization:, manifest_name: :summary, scope_name: :static_page, scoped_resource_id: tos_page.id }
+    let!(:content_block) { create(:content_block, organization:, manifest_name: :summary, scope_name: :static_page, scoped_resource_id: tos_page.id) }
 
     it "updates the settings of the content block" do
       visit decidim_admin.edit_static_page_content_block_path(content_block, static_page_id: tos_page.slug)

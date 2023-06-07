@@ -37,7 +37,7 @@ describe "Search", type: :system do
       visit decidim.root_path
 
       within ".topbar .topbar__menu" do
-        page.find("button").click
+        click_button
       end
     end
 
