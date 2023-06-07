@@ -304,8 +304,9 @@ describe "Orders", type: :system do
       it "is alerted but can sign out before completing" do
         visit_budget
 
-        page.find("#user-menu-control").click
-        page.find(".sign-out-link").click
+        within_user_menu do
+          click_link("Sign out")
+        end
 
         expect(page).to have_content "You have not yet voted"
 
@@ -516,7 +517,7 @@ describe "Orders", type: :system do
 
         expect(page).to have_content("Budget vote completed")
 
-        page.find(".logo-wrapper a").click
+        page.find("a[aria-label='Go to front page']").click
 
         expect(page).to have_current_path decidim.root_path
       end
@@ -557,7 +558,7 @@ describe "Orders", type: :system do
         visit_budget
 
         within "#project-#{project.id}-item .card__list" do
-          expect(page).to have_selector(".project-votes", text: "1 VOTE")
+          expect(page).to have_selector(".project-votes", text: "1 vote")
         end
       end
     end
