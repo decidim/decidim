@@ -15,6 +15,10 @@ describe "Monitoring committee member manages voting results", type: :system do
     visit decidim_admin_votings.edit_voting_path(voting)
   end
 
+  it_behaves_like "needs admin TOS accepted" do
+    let(:user) { create(:user, :confirmed, organization: organization) }
+  end
+
   context "when there are more than one finished elections" do
     let!(:other_election) { create(:election, :complete, :published, :finished, component: elections_component) }
 

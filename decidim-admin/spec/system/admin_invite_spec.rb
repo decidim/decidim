@@ -55,7 +55,7 @@ describe "Admin invite", type: :system do
       end
 
       expect(page).to have_content("Dashboard")
-      expect(page).to have_current_path "/admin/"
+      expect(page).to have_current_path "/admin/admin_terms/show"
     end
   end
 end

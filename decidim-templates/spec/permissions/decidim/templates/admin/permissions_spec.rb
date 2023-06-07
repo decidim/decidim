@@ -6,7 +6,7 @@ describe Decidim::Templates::Admin::Permissions do
   subject { described_class.new(user, permission_action, context).permissions.allowed? }
 
   let(:organization) { create :organization }
-  let(:user) { create :user, organization: organization }
+  let(:user) { create :user, :admin, organization: organization }
   let(:context) do
     {
       current_organization: create(:organization)
@@ -38,12 +38,27 @@ describe Decidim::Templates::Admin::Permissions do
     it_behaves_like "permission is not set"
   end
 
+  context "when user is not admin" do
+    let(:user) { create(:user, :confirmed, organization: organization) }
+    let(:action) do
+      { scope: :admin, action: :read, subject: :template }
+    end
+
+    it_behaves_like "permission is not set"
+  end
+
   shared_examples_for "action is allowed" do |scope, action, subject|
     let(:action) do
       { scope: scope, action: action, subject: subject }
     end
 
     it { is_expected.to eq true }
+  end
+
+  context "when user is admin" do
+    let(:user) { create(:user, :admin, organization: organization) }
+
+    it_behaves_like "action is allowed", :admin, :index, :templates
   end
 
   context "when indexing templates" do
