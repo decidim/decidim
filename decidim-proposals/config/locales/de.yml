@@ -107,10 +107,6 @@ de:
               rejected: Abgelehnt
               validating: Technische Validierung
               withdrawn: Zurückgezogen
-          state_null:
-            label: Bundesländer
-            values:
-              'true': Unbeantwortet
           valuator_role_ids_has:
             label: Zugewiesen zu dem Schätzer
         search_placeholder:
@@ -423,6 +419,11 @@ de:
           leave_your_note: Anmerkung hinterlassen
           title: Private Notizen
         proposals:
+          answer:
+            success: Der Vorschlag wurde erfolgreich beantwortet.
+          create:
+            invalid: Beim Erstellen dieses Vorschlags ist ein Fehler aufgetreten.
+            success: Vorschlag erfolgreich erstellt.
           edit:
             title: Vorschlag aktualisieren
             update: Aktualisieren
@@ -457,6 +458,7 @@ de:
             title: Vorschlag erstellen
           publish_answers:
             number_of_proposals: Die Antworten für %{number} Vorschläge werden veröffentlicht.
+            select_a_proposal: Bitte wählen Sie einen Vorschlag.
           show:
             amendments_count: Anzahl der Ergänzungen
             assigned_valuators: Zugewiesene Schätzer
@@ -486,11 +488,18 @@ de:
             votes_ranking: Nach Unterstützungen sortieren
           update_category:
             invalid: 'Diese Vorschläge gehörten bereits zur Kategorie %{subject_name}: %{proposals}.'
+            select_a_category: Bitte wählen Sie eine Kategorie aus.
+            select_a_proposal: Bitte wählen Sie einen Vorschlag.
             success: 'Die Vorschlag wurde erfolgreich zur Kategorie %{subject_name} aktualisiert: %{proposals}.'
           update_scope:
             invalid: 'Diese Vorschläge gehörten bereits um Umfang %{subject_name}: %{proposals}.'
+            select_a_proposal: Bitte wählen Sie einen Vorschlag.
+            select_a_scope: Bitte wählen Sie einen Themenbereich.
             success: 'Die Vorschläge wurden erfolgreich zum Umfang %{subject_name} aktualisiert: %{proposals}.'
         proposals_imports:
+          create:
+            invalid: Beim Importieren der Vorschläge ist ein Problem aufgetreten.
+            success: "%{number} Vorschläge erfolgreich importiert."
           new:
             create: Vorschläge importieren
             no_components: In diesem partizipatorischen Bereich gibt es keine weiteren Vorschlagskomponenten, aus denen die Vorschläge importiert werden könnten.
@@ -644,6 +653,9 @@ de:
       destroy_draft:
         error: Es gab Fehler beim Löschen des Vorschlagsentwurfs.
         success: Der Vorschlagsentwurf wurde erfolgreich gelöscht.
+      last_activity:
+        new_proposal: 'Neuer Vorschlag:'
+        proposal_updated: 'Vorschlag aktualisiert:'
       models:
         collaborative_draft:
           fields:
@@ -654,7 +666,7 @@ de:
           fields:
             category: Kategorie
             comments: Bemerkungen
-            id: ICH WÜRDE
+            id: ID
             notes: Anmerkungen
             official_proposal: Offizieller Vorschlag
             published_answer: Veröffentlichte Antwort
@@ -764,6 +776,9 @@ de:
         proposal:
           creation_date: 'Erstellt am %{date}'
           view_proposal: Vorschlag anzeigen
+        proposals:
+          empty: Es gibt noch keine Vorschläge.
+          empty_filters: Es gibt keine Vorschläge mit diesen Kriterien.
         show:
           answer: Antworten
           back_to: Zurück zu
@@ -858,6 +873,9 @@ de:
           title: Versionen
         proposals:
           back_to_resource: Gehen Sie zurück zum Vorschlag
+      withdraw:
+        errors:
+          has_supports: Dieser Vorschlag kann nicht zurückgezogen werden, da er bereits unterstützt wird.
     resource_links:
       copied_from_component:
         proposal_proposal: Ähnliche Vorschläge

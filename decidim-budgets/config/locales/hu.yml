@@ -116,6 +116,8 @@ hu:
             invalid: 'Ezeknek a javaslatoknak már megvolt a(z) %{subject_name} hatásköre: %{projects}.'
             select_a_project: Kérlek, válassz projektet.
             select_a_scope: Kérlek válassz hatókört.
+          update_selected:
+            select_a_project: Kérlek, válassz projektet.
         proposals_imports:
           new:
             create: Javaslatok importálása projektekbe

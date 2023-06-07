@@ -26,7 +26,7 @@ module Decidim
 
             expect(closure.monitoring_committee_notes).to eq(monitoring_committee_notes)
             expect(closure.validated_at).to be_present
-            expect(closure.validated_at).to be_kind_of(Date)
+            expect(closure.validated_at).to be_a(Date)
           end
         end
 

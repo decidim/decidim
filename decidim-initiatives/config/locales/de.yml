@@ -100,7 +100,7 @@ de:
         initiatives:
           fields:
             created_at: Hergestellt in
-            id: ICH WÜRDE
+            id: ID
             published_at: Veröffentlicht am
             state: Zustand
             supports_count: Unterschriften
@@ -575,7 +575,6 @@ de:
         promotal_committee: Promoter-Komitee
         select_initiative_type: Wählen
         show_similar_initiatives: Vergleichen
-        step: Schritt %{current} von %{total}
         title: Neue Initiative schaffen
       initiative_header:
         initiative_menu_item: Initiative

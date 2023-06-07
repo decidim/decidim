@@ -184,7 +184,7 @@ fr:
       participatory_process_group_landing_page_content_blocks:
         create:
           error: Un problème est survenu lors de la création de ce bloc de contenu.
-          success: Bloc de contenu a été créé avec succès.
+          success: Le bloc de contenu a été créé avec succès.
         destroy:
           error: Un problème est survenu lors de la suppression de ce bloc de contenu.
           success: Bloc de contenu supprimé avec succès.
@@ -229,7 +229,7 @@ fr:
         default_title: Introduction
         destroy:
           error:
-            active_step: Vous ne pouvez pas supprimer l'étape active de ce processus.
+            active_step: Vous ne pouvez pas supprimer l'étape active.
             last_step: Vous ne pouvez pas supprimer la dernière étape d'une concertation.
           success: L'étape de la concertation a été supprimée avec succès.
         edit:

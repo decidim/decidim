@@ -90,8 +90,8 @@ module Decidim
 
       describe "#export_manifests" do
         it "creates manifest instances" do
-          expect(manifests[0]).to be_kind_of(Decidim::Exporters::ExportManifest)
-          expect(manifests[1]).to be_kind_of(Decidim::Exporters::ExportManifest)
+          expect(manifests[0]).to be_a(Decidim::Exporters::ExportManifest)
+          expect(manifests[1]).to be_a(Decidim::Exporters::ExportManifest)
         end
 
         it "initializes instances properly" do

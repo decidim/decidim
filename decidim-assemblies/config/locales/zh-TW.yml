@@ -85,11 +85,11 @@ zh-TW:
   activerecord:
     models:
       decidim/assembly:
-        other: 大會
+        other: "One\n集會\n\nOther\n集會"
       decidim/assembly_member:
-        other: 大會成員
+        other: "One\n集會成員\nOther\n集會成員"
       decidim/assembly_user_role:
-        other: 大會使用者角色
+        other: "One\n集會使用者角色\nOther\n集會使用者角色"
   decidim:
     admin:
       actions:

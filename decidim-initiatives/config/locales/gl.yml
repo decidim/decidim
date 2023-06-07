@@ -374,7 +374,6 @@ gl:
         promotal_committee: Comité de promoción
         select_initiative_type: Elixe
         show_similar_initiatives: Compare
-        step: Paso %{current} de %{total}
         title: Crea unha nova iniciativa
       initiative_header:
         initiative_menu_item: Iniciativa

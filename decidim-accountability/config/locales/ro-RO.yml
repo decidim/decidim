@@ -130,7 +130,7 @@ ro:
           fields:
             category: Categorie
             created_at: Creat
-            end_date: Dată de sfârşit
+            end_date: Dată de sfârșit
             id: ID
             progress: Progres
             scope: Domeniu de interes

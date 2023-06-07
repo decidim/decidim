@@ -26,7 +26,7 @@ describe "Monitoring committee member manages votings", type: :system do
   describe "when listing votings" do
     let(:other_voting) { create(:voting, organization:) }
 
-    it "only lists the voting I'm a monitoring committee member of" do
+    it "only lists the voting I am a monitoring committee member of" do
       within "#votings table" do
         expect(page).to have_text(translated(voting.title))
         expect(page).not_to have_text(translated(other_voting.title))

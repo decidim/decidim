@@ -342,7 +342,7 @@ de:
           success: Die Komponente wurde erfolgreich veröffentlicht.
         title: Komponenten
         unpublish:
-          success: Die Komponente wurde erfolgreich veröffentlicht.
+          success: Die Veröffentlichung der Komponente wurde erfolgreich zurückgezogen.
         update:
           error: Beim Aktualisieren dieser Komponente ist ein Fehler aufgetreten.
           success: Die Komponente wurde erfolgreich aktualisiert.
@@ -362,6 +362,12 @@ de:
         'true': 'Ja'
         user_name: Nutzer
       dashboard:
+        pending_moderations:
+          anouncement:
+            one: Es gibt %{count} ausstehende Moderation
+            other: Es gibt %{count} ausstehende Moderationen
+          goto_moderation: Gehe zur globalen Moderation
+          title: Offene Moderationen
         show:
           view_more_logs: Weitere Protokolle anzeigen
           welcome: Willkommen beim Admin-Panel von Decidim.
@@ -378,6 +384,7 @@ de:
           Excel: Excel
           FormPDF: PDF
           JSON: JSON
+        notice: Ihr Export wird gerade ausgeführt. Sie erhalten nach Fertigstellung eine E-Mail.
       filters:
         category_id_eq:
           label: Kategorie
@@ -513,6 +520,8 @@ de:
             message:
               one: Fehlende Spalte %{columns}.
               other: Fehlende Spalten %{columns}.
+        error: Beim Importieren ist ein Problem aufgetreten.
+        example_error: Es gab ein Problem beim Erstellen eines Beispiels für den angegebenen Typ.
         new:
           accepted_mime_types:
             csv: CSV
@@ -524,6 +533,15 @@ de:
           download_example_format: Beispiel als %{name}
           file_legend: Datei zum Importieren hinzufügen.
           import: Importieren
+        notice: "%{number} %{resource_name} erfolgreich importiert."
+      logs:
+        filters:
+          participatory_space: Partizipativen Raum finden
+          text: Suche nach E-Mail, Name oder Spitzname.
+          user: Benutzer*in
+        logs_list:
+          no_logs_yet: Es gibt noch keine Protokolle.
+          no_matching_logs: Es gibt keine Protokolle mit den angegebenen Suchfiltern. Ändern Sie sie und versuchen Sie es erneut.
       managed_users:
         promotion:
           error: Es ist ein Fehler aufgetreten, der den verwalteten Benutzer unterstützt.
@@ -540,6 +558,7 @@ de:
         area_types: Bereichstypen
         areas: Bereiche
         configuration: Aufbau
+        content: Gemeldeter Inhalt
         dashboard: Instrumententafel
         external_domain_whitelist: Erlaubte externe Domains
         help_sections: Hilfeabschnitte
@@ -548,6 +567,7 @@ de:
         moderation: Globale Moderationen
         newsletters: Newsletter
         participants: Teilnehmer
+        reported_users: Gemeldete Teilnehmende
         scope_types: Bereichstypen
         scopes: Bereiche
         settings: die Einstellungen
@@ -632,6 +652,7 @@ de:
             created_at: Hergestellt in
             document_number: Dokumentnummer
             name: Name
+            nickname: Spitzname
             phone: Telefon
             state: Zustand
             users_count: Benutzer zählen
@@ -646,6 +667,7 @@ de:
           nickname: Spitzname
           reason: Grund
           reports: Anzahl Meldungen
+          title: Gemeldete Teilnehmende
         report:
           reasons:
             does_not_belong: Gehört nicht zu
@@ -655,9 +677,12 @@ de:
           blocked: Blockiert
           unblocked: Nicht blockiert
       moderations:
+        index:
+          title: Gemeldeter Inhalt
         report:
           reasons:
             does_not_belong: Gehört nicht
+            hidden_during_block: Versteckt beim Blockieren des Benutzers
             offensive: Beleidigend
             spam: Spam
         reports:
@@ -829,9 +854,14 @@ de:
           destroy:
             error: Es gab ein Problem beim Löschen dieses Inhaltsblocks.
             success: Inhaltsblock erfolgreich gelöscht.
+          edit:
+            update: Aktualisieren
         edit:
           active_content_blocks: Aktive Inhaltsblöcke
+          add: Inhaltsblock hinzufügen
+          destroy_confirmation: Sind Sie sicher, dass Sie diesen Inhaltsblock löschen möchten?
           inactive_content_blocks: Inaktive Inhaltsblöcke
+          title: Seiteninhalt
       participatory_space_private_users:
         create:
           error: Beim Hinzufügen eines privaten Benutzers für diesen partizipativen Bereich ist ein Fehler aufgetreten.
@@ -848,13 +878,19 @@ de:
       participatory_space_private_users_csv_imports:
         create:
           invalid: Beim Lesen der CSV-Datei ist ein Problem aufgetreten. Bitte stellen Sie sicher, dass Sie den Anweisungen korrekt gefolgt sind.
+          success: CSV-Datei wurde erfolgreich hochgeladen, wir senden eine Einladungs-E-Mail an die Teilnehmenden. Dies kann eine Weile dauern.
         new:
           destroy:
             button: Alle private Teilnehmende auswählen
+            confirm: Sind Sie sicher, dass Sie alle private Teilnehmende entfernen möchten? Diese Aktion kann nicht rückgängig gemacht werden. Sie werden sie nicht wiederherstellen können.
             empty: Sie haben keine private Teilnehmende.
             explanation: Sie haben %{count} private Teilnehmende.
             title: Alle private Teilnehmende entfernen
           example_file: 'Beispieldatei:'
+          explanation: 'Laden Sie Ihre CSV-Datei mit den Teilnehmenden, die Sie zum Prozess hinzufügen möchten, hoch. Sie muss zwei Spalten (ohne Kopfzeile) haben, mit der E-Mail-Adresse in der ersten Spalte und dem Namen in der zweiten Spalte der Datei. Verwenden Sie keine ungültige Zeichen wie `<>?%&^*#@()[]=+:;"{}\|` im Namen der Teilnehmenden.'
+          explanation_example: |
+            john.doe@example.org%{csv_col_sep}John Doe
+            jane.doe@example.org%{csv_col_sep}Jane Doe
           title: CSV-Datei hochladen
           upload: Hochladen
       reminders:
@@ -944,14 +980,25 @@ de:
           view: Öffentliche Seite anzeigen
         content_blocks:
           active_content_blocks: Aktive Inhaltsblöcke
+          add: Inhaltsblock hinzufügen
           create:
             error: Es gab ein Problem beim Versuch, diesen Inhaltsblock zu erstellen.
+            success: Inhaltsblock erfolgreich erstellt.
+          destroy:
+            error: Es gab ein Problem beim Löschen dieses Inhaltsblocks.
+            success: Inhaltsblock erfolgreich gelöscht.
+          destroy_confirmation: Sind Sie sicher, dass Sie diesen Inhaltsblock löschen möchten?
+          edit:
+            update: Aktualisieren
+          inactive_content_blocks: Inaktive Inhaltsblöcke
+          title: Seiteninhalt
         create:
           error: Beim Erstellen einer neuen Seite ist ein Fehler aufgetreten.
           success: Seite erfolgreich erstellt
         destroy:
           success: Seite erfolgreich zerstört
         edit:
+          changed_notably_help: Wenn diese Option aktiviert ist, werden Nutzende benachrichtigt, um die neuen Nutzungsbedingungen zu akzeptieren.
           title: Seite bearbeiten
           update: Aktualisieren
         form:
@@ -965,9 +1012,11 @@ de:
         topic:
           destroy: Thema entfernen
           edit: Thema bearbeiten
+          empty: Es gibt keine Seite zu diesem Thema.
           without_topic: Seiten ohne Thema
         update:
           error: Beim Aktualisieren dieser Seite ist ein Fehler aufgetreten.
+          success: Seite wurde erfolgreich aktualisiert.
       titles:
         admin_log: Adminprotokoll
         area_types: Bereichstypen
@@ -988,10 +1037,13 @@ de:
       user_group:
         csv_verify:
           invalid: Beim Lesen der CSV-Datei ist ein Fehler aufgetreten.
+          success: CSV-Datei wurde erfolgreich hochgeladen. Wir überprüfen, welche Gruppen den Kriterien entsprechen. Das kann eine Weile dauern.
         reject:
           invalid: Beim Ablehnen dieser Benutzergruppe ist ein Fehler aufgetreten.
+          success: Gruppe erfolgreich abgelehnt.
         verify:
           invalid: Beim Überprüfen dieser Benutzergruppe ist ein Fehler aufgetreten.
+          success: Gruppe erfolgreich verifiziert.
       user_groups:
         index:
           state:
@@ -1001,7 +1053,11 @@ de:
           verify_via_csv: Überprüfen Sie über CSV
       user_groups_csv_verifications:
         new:
+          example_file: 'Beispieldatei:'
           explanation: Laden Sie Ihre CSV-Datei hoch. In der ersten Spalte der Datei müssen die offiziellen E-Mails der Benutzergruppen in Ihrer Organisation enthalten sein, ohne Kopfzeilen. Nur Benutzergruppen, die ihre E-Mail bestätigt haben und deren E-Mail in der CSV-Datei enthalten ist, werden überprüft.
+          explanation_example: |
+            acme@example.org
+            bubba.gump@example.org
           title: Laden Sie Ihre CSV-Datei hoch
           upload: Hochladen
       users:
@@ -1024,8 +1080,13 @@ de:
           last_day: Letzter Tag
           last_month: Letzter Monat
           last_week: Letzte Woche
+          no_users_count_statistics_yet: Es gibt noch keine Nutzendestatistiken.
           participants: Teilnehmer
       view_public_page: Öffentliche Seite anzeigen
+    forms:
+      errors:
+        impersonate_user:
+          reason: Sie müssen einen Grund angeben, weshalb Sie sich als nicht-verwaltete Nutzende ausgeben.
     metrics:
       blocked_users:
         object: blockierte Benutzer
@@ -1059,11 +1120,15 @@ de:
       models:
         moderation:
           fields:
+            created_at: Gemeldet am
+            deleted_resource: Gelöschte Ressource
             hidden_at: Versteckt bei
             participatory_space: Beteiligungsbereich
+            report_count: Anzahl Meldungen
             reportable_id: ID
             reportable_type: Typ
             reported_content_url: URL des gemeldeten Inhalts
+            reports: Begründung
             visit_url: Besuchs-URL
         report:
           fields:
@@ -1076,6 +1141,8 @@ de:
   layouts:
     decidim:
       admin:
+        global_moderations:
+          title: Globale Moderationen
         newsletters:
           title: Newsletter
         settings:
