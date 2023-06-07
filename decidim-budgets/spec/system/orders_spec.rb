@@ -283,8 +283,6 @@ describe "Orders", type: :system do
       end
 
       it "is alerted when trying to leave the component before completing" do
-        skip_unless_redesign_enabled "This test pass with redesigned modals enabled"
-
         budget_projects_path = Decidim::EngineRouter.main_proxy(component).budget_projects_path(budget)
 
         visit_budget
@@ -293,6 +291,7 @@ describe "Orders", type: :system do
 
         page.find("header a", text: organization.name).click
 
+        # REDESIGN_PENDING - This test fails, the expected behaviour is not present
         expect(page).to have_content "You have not yet voted"
 
         click_button "Return to voting"
@@ -308,6 +307,7 @@ describe "Orders", type: :system do
           click_link("Sign out")
         end
 
+        # REDESIGN_PENDING - This test fails, the expected behaviour is not present
         expect(page).to have_content "You have not yet voted"
 
         page.find("#exit-notification-link").click
@@ -519,6 +519,7 @@ describe "Orders", type: :system do
 
         page.find("a[aria-label='Go to front page']").click
 
+        # REDESIGN_PENDING - This test fails, the expected behaviour is not present
         expect(page).to have_current_path decidim.root_path
       end
     end
