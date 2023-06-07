@@ -183,4 +183,12 @@
   &__submit{
     @apply p-4 border-4 border-background space-y-4 rounded;
   }
+
+  &__buttons{
+    @apply flex items-center gap-4;
+
+    [hidden]{
+      @apply hidden;
+    }
+  }
 }

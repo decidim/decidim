@@ -21,12 +21,9 @@ $(() => {
   const $keyCeremony = $("#trustee-step");
 
   if ($keyCeremony.length) {
-    const $startButton = $keyCeremony.find(".start");
-    const $backupModal = $("#show-backup-modal");
-    const $backupButton = $backupModal.find(".download-election-keys");
-    const $backButton = $keyCeremony.find(".back");
-    const $restoreModal = $("#show-restore-modal");
-    const $restoreButton = $restoreModal.find(".upload-election-keys");
+    const $startButton = $keyCeremony.find("#start");
+    const $backButton = $keyCeremony.find("#back");
+
     const getStepRow = (step) => {
       return $(`#${step.replace(".", "-")}`);
     };
@@ -91,16 +88,14 @@ $(() => {
 
         await component.bindEvents({
           onBindRestoreButton(onEventTriggered) {
-            $restoreButton.on(
-              "change",
-              ".restore-button-input",
-              onEventTriggered
-            );
+            $("#restore-button-input").on("change", onEventTriggered);
           },
           onBindStartButton(onEventTriggered) {
             $startButton.on("click", onEventTriggered);
           },
           onBindBackupButton(backupData, backupFilename, onEventTriggered) {
+            const $backupButton = $("#download-election-keys");
+
             $backupButton.attr(
               "href",
               `data:text/plain;charset=utf-8,${backupData}`
@@ -127,14 +122,14 @@ $(() => {
             }
           },
           onRestore() {
-            $restoreModal.foundation("close");
+            window.Decidim.currentDialogs["show-restore-modal"].close()
           },
           onComplete() {
             const $allSteps = $(".step_status");
             $allSteps.attr("data-step-status", "completed");
 
-            $startButton.addClass("hide");
-            $backButton.removeClass("hide");
+            $startButton.attr("hidden", true);
+            $backButton.attr("hidden", false);
 
             $.ajax({
               method: "PATCH",
@@ -152,13 +147,13 @@ $(() => {
             $startButton.prop("disabled", true);
           },
           onTrusteeNeedsToBeRestored() {
-            $restoreModal.foundation("open");
+            window.Decidim.currentDialogs["show-restore-modal"].open()
           },
           onBackupNeeded() {
-            $backupModal.foundation("open");
+            window.Decidim.currentDialogs["show-restore-modal"].open()
           },
           onBackupStarted() {
-            $backupModal.foundation("close");
+            window.Decidim.currentDialogs["show-restore-modal"].close()
           }
         });
 

@@ -16,13 +16,13 @@ $(() => {
   const $tally = $("#trustee-step");
 
   if ($tally.length) {
-    const $startButton = $tally.find(".start");
+    const $startButton = $tally.find("#start");
+    const $backButton = $tally.find("#back");
+
     const getStepRow = (step) => {
       return $(`#${step.replace(".", "-")}`);
     };
-    const $restoreModal = $("#show-restore-modal");
-    const $restoreButton = $restoreModal.find(".upload-election-keys");
-    const $backButton = $tally.find(".back");
+
     const TRUSTEE_AUTHORIZATION_EXPIRATION_TIME_IN_HOURS = 2;
 
     // Data
@@ -109,8 +109,8 @@ $(() => {
           const $allSteps = $(".step_status");
           $allSteps.attr("data-step-status", "completed");
 
-          $startButton.addClass("hide");
-          $backButton.removeClass("hide");
+          $startButton.attr("hidden", true);
+          $backButton.attr("hidden", false);
 
           $.ajax({
             method: "PATCH",
@@ -125,13 +125,13 @@ $(() => {
           });
         },
         onTrusteeNeedsToBeRestored() {
-          $restoreModal.foundation("open");
+          window.Decidim.currentDialogs["show-restore-modal"].open()
         },
         onBindRestoreButton(onEventTriggered) {
-          $restoreButton.on("change", ".restore-button-input", onEventTriggered);
+          $("#restore-button-input").on("change", onEventTriggered);
         },
         onRestore() {
-          $restoreModal.foundation("close");
+          window.Decidim.currentDialogs["show-restore-modal"].close()
         }
       });
       $startButton.prop("disabled", false);
