@@ -5,6 +5,7 @@ require "spec_helper"
 describe "AdminTosAcceptance", type: :system do
   let(:organization) { create(:organization) }
   let(:user) { create(:user, :admin, :confirmed, admin_terms_accepted_at: nil, organization:) }
+  let(:review_message) { "Please take a moment to review the admin terms of service. Otherwise you will not be able to manage the platform" }
 
   before do
     switch_to_host(organization.host)
@@ -15,18 +16,18 @@ describe "AdminTosAcceptance", type: :system do
       login_as user, scope: :user
     end
 
-    context "when they visit the dashbaord" do
+    context "when they visit the dashboard" do
       before do
         visit decidim_admin.root_path
       end
 
       it "has a message that they need to accept the admin TOS" do
-        expect(page).to have_content("Please take a moment to review the admin terms of service. Otherwise you will not be able to manage the platform")
+        expect(page).to have_content(review_message)
       end
 
       it "has only the Dashboard menu item in the main navigation" do
         within ".main-nav" do
-          expect(page).to have_text("Dashboard")
+          expect(page).to have_content("Dashboard")
           expect(page).to have_selector("li a", count: 1)
         end
       end
@@ -37,9 +38,51 @@ describe "AdminTosAcceptance", type: :system do
         visit decidim_admin.newsletters_path
       end
 
-      it "says that you are not authorized" do
-        within ".callout.alert" do
-          expect(page).to have_text("You are not authorized to perform this action")
+      it "has a message that they need to accept the admin TOS" do
+        expect(page).to have_content(review_message)
+      end
+    end
+
+    context "when they visit other admin pages from other engines" do
+      before do
+        visit decidim_admin_participatory_processes.participatory_processes_path
+      end
+
+      it "has a message that they need to accept the admin TOS" do
+        expect(page).to have_content(review_message)
+      end
+
+      it "allows accepting and redirects to the previous page" do
+        click_button "I agree with the terms"
+        expect(page).to have_content("New process")
+        expect(page).to have_content("Process types")
+        expect(page).to have_content("Process groups")
+      end
+
+      context "with a long list of URL parameters" do
+        let(:long_parameters) do
+          # This should generate a string of at least 4 KB in length which is
+          # the cookie session store's maximum cookie size due to browser
+          # limitations. Each parameter here is in the form of "paramxx=aaa",
+          # where "paramxx" is the parameter name and "aaa" is the value. The
+          # total length of each parameter is therefore 6 + 2 + 100 characters
+          # = 108 bytes. Cookie overflow should therefore happen at latest
+          # around 38 of these parameters concenated together.
+          50.times.map do |i|
+            "param#{i.to_s.rjust(2, "0")}=#{SecureRandom.alphanumeric(100)}"
+          end.join("&")
+        end
+
+        it "responds to requests containing very long URL parameters" do
+          # Calling any URL in Decidim with long parameters should not store
+          # the parameters in the user_return_to cookie in order to avoid
+          # ActionDispatch::Cookies::CookieOverflow exception
+          visit "#{decidim_admin_participatory_processes.participatory_processes_path}?#{long_parameters}"
+          expect(page).to have_content(review_message)
+          click_button "I agree with the terms"
+          expect(page).to have_content("New process")
+          expect(page).to have_content("Process types")
+          expect(page).to have_content("Process groups")
         end
       end
     end
@@ -50,20 +93,20 @@ describe "AdminTosAcceptance", type: :system do
       end
 
       it "renders the TOS page" do
-        expect(page).to have_text("Agree to the terms of service")
+        expect(page).to have_content("Agree to the terms of service")
       end
 
       it "allows accepting the terms" do
         click_button "I agree with the terms"
-        expect(page).to have_text("Activity")
-        expect(page).to have_text("Metrics")
+        expect(page).to have_content("Activity")
+        expect(page).to have_content("Metrics")
 
         within ".main-nav" do
-          expect(page).to have_text("Dashboard")
-          expect(page).to have_text("Newsletters")
-          expect(page).to have_text("Participants")
-          expect(page).to have_text("Settings")
-          expect(page).to have_text("Admin activity log")
+          expect(page).to have_content("Dashboard")
+          expect(page).to have_content("Newsletters")
+          expect(page).to have_content("Participants")
+          expect(page).to have_content("Settings")
+          expect(page).to have_content("Admin activity log")
         end
       end
     end
