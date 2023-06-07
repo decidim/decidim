@@ -25,7 +25,9 @@ describe "Polling Officer zone", type: :system do
 
     expect(page).to have_content("Polling Officer zone")
 
-    click_link "Polling Officer zone"
+    within "#dropdown-menu" do
+      click_link "Polling Officer zone"
+    end
   end
 
   shared_examples "a polling officer registers an in person vote" do

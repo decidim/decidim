@@ -79,6 +79,14 @@ module Decidim
       }
     end
 
+    def presenter_for_identity(identity)
+      if identity.is_a?(Decidim::Organization)
+        "#{model.class.module_parent}::OfficialAuthorPresenter".constantize.new
+      else
+        present(identity)
+      end
+    end
+
     def emendation_item
       # REDESIGN_DETAILS - Maybe this item should be moved to another part of
       # the card instead of the metadata list

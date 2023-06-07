@@ -306,8 +306,6 @@ describe "Meeting registrations", type: :system do
         end
 
         it "shows errors for invalid file" do
-          skip "REDESIGN_PENDING - Validation messages in questionnaire don't appear. Issue https://github.com/decidim/decidim/issues/10852"
-
           visit questionnaire_public_path
 
           input_element = find("input[type='file']", visible: :all)
