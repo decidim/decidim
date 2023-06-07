@@ -29,7 +29,6 @@ module Decidim
             :finish
 
       def show
-        enforce_permission_to :create, :initiative
         send("#{step}_step", initiative: session_initiative)
       end
 

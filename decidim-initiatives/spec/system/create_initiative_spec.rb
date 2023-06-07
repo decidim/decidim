@@ -221,7 +221,7 @@ describe "Initiative", type: :system do
 
             it "they need to verify" do
               click_link "New initiative"
-              expect(page).to have_css("button[data-open=not-authorized-modal]", visible: :all, count: 2)
+              expect(page).to have_css("button[data-dialog-open=not-authorized-modal]", visible: :all, count: 2)
             end
 
             it "they are redirected to the initiative form after verifying" do
@@ -314,7 +314,7 @@ describe "Initiative", type: :system do
               fill_in "Password", with: "decidim123456789"
               click_button "Log in"
 
-              expect(page).to have_css("button[data-open=not-authorized-modal]", visible: :all, count: 2)
+              expect(page).to have_css("button[data-dialog-open=not-authorized-modal]", visible: :all, count: 2)
             end
           end
         end

@@ -23,7 +23,7 @@ describe "Edit initiative", type: :system do
 
       click_link("Edit", href: edit_initiative_path)
 
-      expect(page).to have_content "EDIT INITIATIVE"
+      expect(page).to have_content "Edit Initiative"
 
       within "form.edit_initiative" do
         fill_in :initiative_title, with: new_title
