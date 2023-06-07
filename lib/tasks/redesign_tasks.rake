@@ -30,7 +30,7 @@ def register_redesigned_js_entrypoint(assets_config_path, old_entrypoint, new_en
   Decidim::GemManager.replace_file(
     assets_config_path,
     %r{^(\s*)(\S*):\s*"\#\{base_path\}/#{old_entrypoint}"(,?)},
-    "\\1\\2: \"\#\{base_path\}\/#{old_entrypoint}\",\n\\1redesigned_\\2: \"\#\{base_path\}\/#{new_entrypoint}\"\\3"
+    "\\1\\2: \"\#{base_path}/#{old_entrypoint}\",\n\\1redesigned_\\2: \"\#{base_path}/#{new_entrypoint}\"\\3"
   )
 end
 

@@ -3,7 +3,7 @@
 require "spec_helper"
 require "decidim/proposals/test/capybara_proposals_picker"
 
-describe "Admin manages meetings", type: :system, serves_map: true, serves_geocoding_autocomplete: true do
+describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_map: true, type: :system do
   let(:manifest_name) { "meetings" }
   let!(:meeting) { create(:meeting, :published, scope:, services: [], component: current_component) }
   let(:address) { "Some address" }
@@ -88,34 +88,34 @@ describe "Admin manages meetings", type: :system, serves_map: true, serves_geoco
         within "#meeting-title-tabs" do
           click_link "English"
         end
-        expect(page).to have_css("input", text: meeting.title[:en], visible: :visible)
+        expect(page).to have_field(text: meeting.title[:en], visible: :visible)
 
         within "#meeting-title-tabs" do
           click_link "Català"
         end
-        expect(page).to have_css("input", text: meeting.title[:ca], visible: :visible)
+        expect(page).to have_field(text: meeting.title[:ca], visible: :visible)
 
         within "#meeting-title-tabs" do
           click_link "Castellano"
         end
-        expect(page).to have_css("input", text: meeting.title[:es], visible: :visible)
+        expect(page).to have_field(text: meeting.title[:es], visible: :visible)
       end
 
       it "shows the description correctly in all available locales" do
         within "#meeting-description-tabs" do
           click_link "English"
         end
-        expect(page).to have_css("input", text: meeting.description[:en], visible: :visible)
+        expect(page).to have_field(text: meeting.description[:en], visible: :visible)
 
         within "#meeting-description-tabs" do
           click_link "Català"
         end
-        expect(page).to have_css("input", text: meeting.description[:ca], visible: :visible)
+        expect(page).to have_field(text: meeting.description[:ca], visible: :visible)
 
         within "#meeting-description-tabs" do
           click_link "Castellano"
         end
-        expect(page).to have_css("input", text: meeting.description[:es], visible: :visible)
+        expect(page).to have_field(text: meeting.description[:es], visible: :visible)
       end
     end
 
@@ -129,12 +129,12 @@ describe "Admin manages meetings", type: :system, serves_map: true, serves_geoco
 
       it "shows the title correctly" do
         expect(page).not_to have_css("#meeting-title-tabs")
-        expect(page).to have_css("input", text: meeting.title[:en], visible: :visible)
+        expect(page).to have_field(text: meeting.title[:en], visible: :visible)
       end
 
       it "shows the description correctly" do
         expect(page).not_to have_css("#meeting-description-tabs")
-        expect(page).to have_css("input", text: meeting.description[:en], visible: :visible)
+        expect(page).to have_field(text: meeting.description[:en], visible: :visible)
       end
     end
   end
@@ -265,7 +265,7 @@ describe "Admin manages meetings", type: :system, serves_map: true, serves_geoco
     expect(page).to have_current_path(meeting_path)
   end
 
-  it "creates a new meeting", :slow, :serves_geocoding_autocomplete do # rubocop:disable RSpec/ExampleLength
+  it "creates a new meeting", :serves_geocoding_autocomplete, :slow do # rubocop:disable RSpec/ExampleLength
     find(".card-title a.button").click
 
     fill_in_i18n(

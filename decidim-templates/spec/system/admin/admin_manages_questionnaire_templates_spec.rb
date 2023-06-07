@@ -286,7 +286,7 @@ describe "Admin manages questionnaire templates", type: :system do
       within ".questionnaire-template-preview" do
         expect(page).to have_i18n_content(questionnaire.title, upcase: true)
         expect(page).to have_i18n_content(questionnaire.questions.first.body)
-        expect(page).to have_selector("input#questionnaire_responses_0")
+        expect(page).to have_field(id: "questionnaire_responses_0")
         expect(page).to have_selector("button[type=submit][disabled]")
       end
     end

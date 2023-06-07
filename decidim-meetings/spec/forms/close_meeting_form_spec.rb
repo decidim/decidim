@@ -28,7 +28,7 @@ module Decidim::Meetings
 
     describe "closed_at" do
       it "is set by default" do
-        expect(subject.closed_at).to be_kind_of(Time)
+        expect(subject.closed_at).to be_a(Time)
       end
     end
 

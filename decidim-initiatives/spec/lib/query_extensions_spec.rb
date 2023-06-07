@@ -24,7 +24,7 @@ module Decidim
 
       describe "initiativesType" do
         let(:model) { create(:initiatives_type, organization: current_organization) }
-        let(:query) { %({ initiativesType(id: \"#{model.id}\") { id }}) }
+        let(:query) { %({ initiativesType(id: "#{model.id}") { id }}) }
 
         it "returns the initiativesType" do
           expect(response["initiativesType"]).to eq("id" => model.id.to_s)
@@ -46,7 +46,7 @@ module Decidim
       end
 
       describe "initiative" do
-        let(:query) { %({ initiative(id: \"#{id}\") { id }}) }
+        let(:query) { %({ initiative(id: "#{id}") { id }}) }
 
         context "with a consultation that belongs to the current organization" do
           let!(:initiative) { create(:initiative, organization: current_organization) }

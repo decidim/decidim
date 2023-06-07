@@ -39,7 +39,7 @@ describe "Admin manages surveys", type: :system do
 
     it "allows to answer survey" do
       visit questionnaire_public_path
-      expect(page).to have_selector("input#questionnaire_responses_0")
+      expect(page).to have_field(id: "questionnaire_responses_0")
     end
 
     context "when the survey has answers" do
