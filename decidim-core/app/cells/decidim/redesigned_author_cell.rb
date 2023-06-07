@@ -62,9 +62,9 @@ module Decidim
     def context_actions
       # REDESIGN_PENDING: deprecated?
       # return [] unless actionable?
-
       actions = [].tap do |list|
         list << :date if creation_date?
+        list << :cancelled_on if cancelable?
         list << :comments if commentable?
         list << :endorsements if endorsable?
         # REDESIGN_PENDING: deprecated?
@@ -123,8 +123,18 @@ module Decidim
       l date_at, format: :decidim_short
     end
 
+    def cancelled_on_date
+      date_at = from_context.try(:cancelled_on)
+
+      l date_at, format: :decidim_short
+    end
+
     def commentable?
       from_context && from_context.class.include?(Decidim::Comments::Commentable)
+    end
+
+    def cancelable?
+      from_context && from_context.respond_to?(:cancelled_on)
     end
 
     def endorsable?

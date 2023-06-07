@@ -1271,11 +1271,6 @@ en:
         retry: Retry
     open_data:
       not_available_yet: The Open Data files are not yet available, please try again in a few minutes.
-    own_user_groups:
-      index:
-        pending: Pending
-        rejected: Rejected
-        verified: Verified
     pad_iframe:
       disclaimer: The contents of this pad are written by registered users and express their opinions. %{organization} cannot be held responsible for its contents.
       explanation: Use this pad to collaboratively take notes during the meeting so it is easier to write down the minute afterwards.

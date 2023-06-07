@@ -20,6 +20,7 @@ module Capybara
         input_element.attach_file(file_location)
         within "[data-filename='#{filename}']" do
           expect(page).to have_css(filled_selector(front_interface), wait: 5)
+          expect(page).to have_content(filename) if front_interface
         end
         all(title_input(front_interface)).last.set(options[:title]) if options.has_key?(:title)
         click_button(front_interface ? "Next" : "Save") unless options[:keep_modal_open]
