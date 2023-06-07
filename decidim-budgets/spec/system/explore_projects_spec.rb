@@ -27,13 +27,13 @@ describe "Explore projects", :slow, type: :system do
 
     context "when filtering" do
       it "allows searching by text" do
-        skip "REDESIGN_PENDING - Filters integration pending"
-
         visit_budget
-        within ".filters__search" do
+        within "aside form.new_filter" do
           fill_in "filter[search_text_cont]", with: translated(project.title)
 
-          find(".button").click
+          within "div.filter-search" do
+            click_button
+          end
         end
 
         within "#projects" do
@@ -43,15 +43,15 @@ describe "Explore projects", :slow, type: :system do
       end
 
       it "updates the current URL with the text filter" do
-        skip "REDESIGN_PENDING - Filters integration pending"
-
         create(:project, budget:, title: { en: "Foobar project" })
         create(:project, budget:, title: { en: "Another project" })
         visit_budget
 
-        within "form.new_filter" do
+        within "aside form.new_filter" do
           fill_in("filter[search_text_cont]", with: "foobar")
-          click_button "Search"
+          within "div.filter-search" do
+            click_button
+          end
         end
 
         expect(page).not_to have_content("Another project")
@@ -62,17 +62,15 @@ describe "Explore projects", :slow, type: :system do
       end
 
       it "allows filtering by scope" do
-        skip "REDESIGN_PENDING - Filters integration pending"
-
         scope = create(:scope, organization:)
         project.scope = scope
         project.save
 
         visit_budget
 
-        within ".with_any_scope_check_boxes_tree_filter" do
-          uncheck "All"
-          check translated(scope.name)
+        within "#panel-dropdown-menu-scope" do
+          click_filter_item "All"
+          click_filter_item translated(scope.name)
         end
 
         within "#projects" do
@@ -82,17 +80,15 @@ describe "Explore projects", :slow, type: :system do
       end
 
       it "allows filtering by category" do
-        skip "REDESIGN_PENDING - Filters integration pending"
-
         category = categories.first
         project.category = category
         project.save
 
         visit_budget
 
-        within ".with_any_category_check_boxes_tree_filter" do
-          uncheck "All"
-          check translated(category.name)
+        within "#panel-dropdown-menu-category" do
+          click_filter_item "All"
+          click_filter_item translated(category.name)
         end
 
         within "#projects" do
@@ -102,17 +98,15 @@ describe "Explore projects", :slow, type: :system do
       end
 
       it "works with 'back to list' link" do
-        skip "REDESIGN_PENDING - Filters integration pending"
-
         category = categories.first
         project.category = category
         project.save
 
         visit_budget
 
-        within ".with_any_category_check_boxes_tree_filter" do
-          uncheck "All"
-          check translated(category.name)
+        within "#panel-dropdown-menu-category" do
+          click_filter_item "All"
+          click_filter_item translated(category.name)
         end
 
         within "#projects" do
@@ -120,8 +114,8 @@ describe "Explore projects", :slow, type: :system do
           expect(page).to have_content(translated(project.title))
         end
 
-        page.find(".card__list .card__link", match: :first).click
-        click_link "View all projects"
+        page.find(".card__list a", match: :first).click
+        click_link "Back"
 
         take_screenshot
         within "#projects" do
@@ -139,15 +133,13 @@ describe "Explore projects", :slow, type: :system do
         end
 
         it "allows filtering by status" do
-          skip "REDESIGN_PENDING - Filters integration pending"
-
           project.selected_at = Time.current
           project.save
 
           visit_budget
 
-          within ".with_any_status_check_boxes_tree_filter" do
-            uncheck "Selected"
+          within "#panel-dropdown-menu-status" do
+            click_filter_item "Selected"
           end
 
           within "#projects" do
