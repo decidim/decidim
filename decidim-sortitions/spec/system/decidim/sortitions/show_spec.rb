@@ -11,7 +11,7 @@ describe "show", type: :system do
 
     before do
       visit_component
-      click_link "View"
+      find("#sortitions .card__list").click
     end
 
     it "shows the sortition additional info" do
@@ -36,7 +36,7 @@ describe "show", type: :system do
     before do
       sortition.update(selected_proposals: Decidim::Sortitions::Admin::Draw.for(sortition))
       visit_component
-      click_link "View"
+      find("#sortitions .card__list").click
     end
 
     it "There are selected proposals" do
@@ -55,7 +55,7 @@ describe "show", type: :system do
 
     before do
       page.visit "#{main_component_path(component)}?filter[with_any_state]=cancelled"
-      click_link "View"
+      find("#sortitions .card__list").click
     end
 
     it "shows the cancel reasons" do

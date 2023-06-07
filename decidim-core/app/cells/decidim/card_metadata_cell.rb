@@ -71,16 +71,26 @@ module Decidim
     end
 
     def coauthors_item
-      # REDESIGN_PENDING - Define a cell to deal with coauthors of a resource.
-      # For the moment this item only shows first coauthor
       return unless coauthorable?
 
-      presented_author = official? ? "#{resource.class.module_parent}::OfficialAuthorPresenter".constantize.new : present(resource.identities.first)
+      # REDESIGN_PENDING - Define a cell to deal with coauthors of a resource.
+      # For the moment this item only shows first coauthor
+      first_identity = resource.identities.first
+
+      presented_author = presenter_for_identity(first_identity)
 
       {
         cell: "decidim/redesigned_author",
         args: [presented_author, { from: resource, skip_profile_link: true, context_actions: [] }]
       }
+    end
+
+    def presenter_for_identity(identity)
+      if identity.is_a?(Decidim::Organization)
+        "#{model.class.module_parent}::OfficialAuthorPresenter".constantize.new
+      else
+        present(identity)
+      end
     end
 
     def emendation_item

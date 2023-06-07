@@ -72,6 +72,7 @@ describe "Collaborative drafts", type: :system do
 
         it "creates a new collaborative draft", :slow do
           visit new_collaborative_draft_path
+          visit new_collaborative_draft_path
 
           within ".new_collaborative_draft" do
             fill_in :collaborative_draft_title, with: "More sidewalks and less roads"
@@ -113,7 +114,7 @@ describe "Collaborative drafts", type: :system do
           it "allows returning to the index" do
             click_link "Back to collaborative drafts"
 
-            expect(page).to have_content("0 collaborative drafts")
+            expect(page).to have_content("There are no collaborative drafts yet")
           end
         end
 
@@ -323,8 +324,6 @@ describe "Collaborative drafts", type: :system do
           end
 
           it "creates a new collaborative draft with attachments" do
-            skip "REDESIGN_PENDING - This test should be fixed in https://github.com/decidim/decidim/pull/10729"
-
             visit new_collaborative_draft_path
 
             within ".new_collaborative_draft" do
@@ -332,7 +331,7 @@ describe "Collaborative drafts", type: :system do
               fill_in :collaborative_draft_body, with: "This is my collaborative draft and I want to upload attachments."
             end
 
-            dynamically_attach_file(:collaborative_draft_documents, Decidim::Dev.asset("city.jpeg"), title: "My attachment", front_interface: true)
+            dynamically_attach_file(:collaborative_draft_documents, Decidim::Dev.asset("city.jpeg"), front_interface: true)
 
             within ".new_collaborative_draft" do
               find("*[type=submit]").click
@@ -340,7 +339,7 @@ describe "Collaborative drafts", type: :system do
 
             expect(page).to have_content("successfully")
 
-            within ".section.images" do
+            within "#panel-images" do
               expect(page).to have_selector("img[src*=\"city.jpeg\"]", count: 1)
             end
           end
