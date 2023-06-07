@@ -74,7 +74,7 @@ describe Decidim::Elections::Admin::CreateAnswer do
   end
 
   context "when the election has been created in the bulletin board" do
-    let(:election) { create(:election, :started) }
+    let(:election) { create(:election, :ongoing) }
 
     it "is not valid" do
       expect { subject.call }.to broadcast(:invalid)
