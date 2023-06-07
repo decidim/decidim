@@ -180,13 +180,13 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
 
       context "when publishing as a proposal" do
         before do
-          within ".view-header" do
+          within ".proposal__container" do
             expect(page).to have_content(collaborative_draft.title)
           end
           login_as author, scope: :user
           visit current_path
-          within ".header .title-bar .topbar__user__logged" do
-            expect(page).to have_content(author.name)
+          within ".main-bar__links-desktop" do
+            expect(page).to have_css("#trigger-dropdown-account")
           end
         end
 
@@ -220,13 +220,13 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
 
       context "when visits an non author user" do
         before do
-          within ".view-header" do
+          within ".proposal__container" do
             expect(page).to have_content(collaborative_draft.title)
           end
           login_as user, scope: :user
           visit current_path
-          within ".header .title-bar .topbar__user__logged" do
-            expect(page).to have_content(user.name)
+          within ".main-bar__links-desktop" do
+            expect(page).to have_css("#trigger-dropdown-account")
           end
         end
 
@@ -243,7 +243,7 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
         context "when the user requests access" do
           before do
             click_button "Request access"
-            expect(page).to have_button("Access requested")
+            expect(page).to have_button("Access requested", disabled: true)
           end
 
           it "renders an flash informing about the request" do
@@ -265,8 +265,8 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
             before do
               relogin_as author, scope: :user
               visit current_path
-              within ".header .title-bar .topbar__user__logged" do
-                expect(page).to have_content(author.name)
+              within ".main-bar__links-desktop" do
+                expect(page).to have_css("#trigger-dropdown-account")
               end
             end
 
@@ -289,7 +289,7 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
                 expect(page).to have_content("@#{user.nickname} has been accepted as a collaborator successfully")
                 relogin_as user, scope: :user
                 visit current_path
-                within ".header .title-bar .topbar__user__logged" do
+                within ".main-bar__links-desktop" do
                   skip "REDESIGN_PENDING - The collaborative draft currently only displays the first coauthors identity. This is pending in https://github.com/decidim/decidim/issues/10846"
                   expect(page).to have_content(user.name)
                 end
@@ -325,13 +325,13 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
 
       context "when the author visits the collaborative draft" do
         before do
-          within ".view-header" do
+          within ".proposal__container" do
             expect(page).to have_content(collaborative_draft.title)
           end
           login_as author, scope: :user
           visit current_path
-          within ".header .title-bar .topbar__user__logged" do
-            expect(page).to have_content(author.name)
+          within ".main-bar__links-desktop" do
+            expect(page).to have_css("#trigger-dropdown-account")
           end
         end
 
