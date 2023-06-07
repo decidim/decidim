@@ -110,10 +110,6 @@ zh-TW:
               rejected: 已拒絕
               validating: 技術驗證
               withdrawn: 已撤回
-          state_null:
-            label: 狀態
-            values:
-              'true': 未回答
           valuator_role_ids_has:
             label: 已分配給評估人員
         search_placeholder:

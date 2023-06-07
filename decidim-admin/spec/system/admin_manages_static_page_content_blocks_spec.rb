@@ -19,7 +19,7 @@ describe "Admin manages static page content blocks", type: :system do
       expect(Decidim::ContentBlock.count).to eq 0
 
       within ".edit_content_blocks" do
-        find("button", text: "Add content block").click
+        click_button "Add content block"
         within ".add-components" do
           find("a", text: "Summary").click
         end
@@ -37,7 +37,7 @@ describe "Admin manages static page content blocks", type: :system do
       expect do
         number_of_content_blocks.times do
           within ".edit_content_blocks" do
-            find("button", text: "Add content block").click
+            click_button "Add content block"
             within ".add-components" do
               find("a", text: "Section").click
             end

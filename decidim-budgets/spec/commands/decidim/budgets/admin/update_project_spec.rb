@@ -127,7 +127,7 @@ module Decidim::Budgets
           subject.call
 
           expect(project.selected_at).to be_present
-          expect(project.selected_at).to be_kind_of(Date)
+          expect(project.selected_at).to be_a(Date)
           expect(project.selected?).to be true
         end
       end

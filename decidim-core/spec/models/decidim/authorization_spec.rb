@@ -98,7 +98,7 @@ module Decidim
       end
 
       it "has metadata_cell" do
-        expect(authorization.metadata_cell).to be_kind_of String
+        expect(authorization.metadata_cell).to be_a String
       end
     end
 

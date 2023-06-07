@@ -14,7 +14,7 @@ module Decidim::Votings
     it "saves the attachment" do
       expect { subject.call }.to change(Decidim::Attachment, :count).by(1)
       expect(closure.photos.first).to be_present
-      expect(closure.photos.first).to be_kind_of(Decidim::Attachment)
+      expect(closure.photos.first).to be_a(Decidim::Attachment)
     end
 
     it "changes to signature phase" do

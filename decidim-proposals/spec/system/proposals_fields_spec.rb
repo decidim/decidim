@@ -93,7 +93,7 @@ describe "Proposals", type: :system do
           expect(page).to have_author(user.name)
         end
 
-        context "when geocoding is enabled", :serves_map, :serves_geocoding_autocomplete do
+        context "when geocoding is enabled", :serves_geocoding_autocomplete, :serves_map do
           let!(:component) do
             create(:proposal_component,
                    :with_creation_enabled,
@@ -228,7 +228,7 @@ describe "Proposals", type: :system do
             expect(page).to have_author(user_group.name)
           end
 
-          context "when geocoding is enabled", :serves_map, :serves_geocoding_autocomplete do
+          context "when geocoding is enabled", :serves_geocoding_autocomplete, :serves_map do
             let!(:component) do
               create(:proposal_component,
                      :with_creation_enabled,
@@ -363,7 +363,7 @@ describe "Proposals", type: :system do
                 click_button "Edit image"
               end
               within ".upload-modal" do
-                find("button.remove-upload-item").click
+                click_button(class: "remove-upload-item")
                 click_button "Save"
               end
 
@@ -405,7 +405,7 @@ describe "Proposals", type: :system do
                  participatory_space: participatory_process)
         end
 
-        let!(:proposal_first) { create(:proposal, users: [user], component:, title: "Creating my first and only proposal", body: "This is my only proposal's body and I'm using it unwisely.") }
+        let!(:proposal_first) { create(:proposal, users: [user], component:, title: "Creating my first and only proposal", body: "This is my only proposal's body and I am using it unwisely.") }
 
         before do
           visit_component
@@ -415,7 +415,7 @@ describe "Proposals", type: :system do
         it "allows the creation of a single new proposal" do
           within ".new_proposal" do
             fill_in :proposal_title, with: "Creating my second proposal"
-            fill_in :proposal_body, with: "This is my second proposal's body and I'm using it unwisely."
+            fill_in :proposal_body, with: "This is my second proposal's body and I am using it unwisely."
 
             find("*[type=submit]").click
           end
