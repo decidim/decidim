@@ -31,7 +31,7 @@
       <div class="budget-summary__progressbar-marks">
         <span class="budget-summary__progressbar-legend" style="width: <%= current_order_budget_percent_minimum %>%;">
           <%= t("assigned", scope: "decidim.budgets.projects.order_progress") %>
-          <%= render partial: "order_total_budget" %>
+          <%= render partial: "decidim/budgets/projects/order_total_budget" %>
         </span>
         <% if current_order.minimum_budget > 0 %>
           <span class="budget-summary__progressbar-legend budget-summary__progressbar-marks_center">
@@ -41,7 +41,7 @@
             </strong>
           </span>
         <% end %>
-        <%= render partial: "order_progress_progressbar_marks_right" %>
+        <%= render partial: "decidim/budgets/projects/order_progress_progressbar_marks_right" %>
       </div>
     </div>
   </div>
@@ -79,7 +79,7 @@
         <div class="budget-summary__progressbar-marks">
           <span class="budget-summary__progressbar-legend" style="width: <%= current_order_budget_percent_minimum %>%;">
             <%= t("assigned", scope: "decidim.budgets.projects.order_progress") %>
-            <%= render partial: "order_total_budget" %>
+            <%= render partial: "decidim/budgets/projects/order_total_budget" %>
           </span>
           <% if current_order.minimum_budget > 0 %>
           <span class="budget-summary__progressbar-legend budget-summary__progressbar-marks_center">
@@ -89,7 +89,7 @@
             </strong>
           </span>
           <% end %>
-          <%= render partial: "order_progress_progressbar_marks_right" %>
+          <%= render partial: "decidim/budgets/projects/order_progress_progressbar_marks_right" %>
         </div>
       </div>
       <div class="layout-item__aside budget-summary__progressbox-buttons">
