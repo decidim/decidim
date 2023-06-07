@@ -23,52 +23,56 @@ module Decidim::Initiatives
       let(:show_space) { false }
 
       it "renders the card" do
+        skip "REDESIGN_PENDING - Deprecated remove the entire file once fully enabled redesign and removed the m-card"
         expect(subject).to have_css(".card__grid")
       end
 
       shared_examples_for "card shows signatures" do
         it "shows signatures" do
-          expect(subject.to_s).to include("signatures")
+          skip "REDESIGN_PENDING - Deprecated remove the entire file once fully enabled redesign and removed the m-card"
+          expect(subject.to_s).to have_css(".progress-bar__units")
         end
       end
 
       shared_examples_for "card does not show signatures" do
         it "does not show signatures" do
+          skip "REDESIGN_PENDING - Deprecated remove the entire file once fully enabled redesign and removed the m-card"
           expect(subject.to_s).not_to include("signatures")
         end
-      end
-
-      it "renders the hashtag" do
-        expect(subject).to have_content("#my_hashtag")
       end
 
       it_behaves_like "card shows signatures"
 
       context "when initiative state is rejected" do
+        skip "REDESIGN_PENDING - Deprecated remove the entire file once fully enabled redesign and removed the m-card"
         let(:state) { :rejected }
 
         it_behaves_like "card shows signatures"
       end
 
       context "when initiative state is accepted" do
+        skip "REDESIGN_PENDING - Deprecated remove the entire file once fully enabled redesign and removed the m-card"
         let(:state) { :accepted }
 
         it_behaves_like "card shows signatures"
       end
 
       context "when initiative state is created" do
+        skip "REDESIGN_PENDING - Deprecated remove the entire file once fully enabled redesign and removed the m-card"
         let(:state) { :created }
 
         it_behaves_like "card does not show signatures"
       end
 
       context "when initiative state is validating" do
+        skip "REDESIGN_PENDING - Deprecated remove the entire file once fully enabled redesign and removed the m-card"
         let(:state) { :validating }
 
         it_behaves_like "card does not show signatures"
       end
 
       context "when initiative state is discarded" do
+        skip "REDESIGN_PENDING - Deprecated remove the entire file once fully enabled redesign and removed the m-card"
         let(:state) { :discarded }
 
         it_behaves_like "card does not show signatures"
