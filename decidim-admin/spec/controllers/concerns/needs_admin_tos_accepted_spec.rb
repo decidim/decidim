@@ -44,22 +44,20 @@ module Decidim
         sign_in user, scope: :user
       end
 
-      context "when the user has not accepted the TOS" do
-        let(:user) { create(:user, :admin, :confirmed, admin_terms_accepted_at: nil, organization:) }
-
-        it "allows entering the root page" do
+      shared_examples "needs admins' TOS acceptance to access other pages" do
+        it "allows accessing the root page" do
           get :root
 
           expect(response.body).to have_text("Root page")
         end
 
-        it "allows entering the TOS page" do
+        it "allows accessing the TOS page" do
           get :admin_tos
 
           expect(response.body).to have_text("Admin TOS page")
         end
 
-        it "does not allow entering another page" do
+        it "does not allow accessing another page" do
           get :another
 
           expect(response).to redirect_to("/admin_tos")
@@ -68,26 +66,36 @@ module Decidim
         end
       end
 
-      context "when the user has accepted the TOS" do
-        let(:user) { create(:user, :admin, :confirmed) }
-
-        it "allows entering the root page" do
+      shared_examples "allows accessing all the pages" do
+        it "allows accessing the root page" do
           get :root
 
           expect(response.body).to have_text("Root page")
         end
 
-        it "allows entering the TOS page" do
+        it "allows accessing the TOS page" do
           get :admin_tos
 
           expect(response.body).to have_text("Admin TOS page")
         end
 
-        it "allows entering another page" do
+        it "allows accessing another page" do
           get :another
 
           expect(response.body).to have_text("Another page")
         end
+      end
+
+      context "when the user has not accepted the TOS" do
+        let(:user) { create(:user, :admin, :confirmed, admin_terms_accepted_at: nil, organization:) }
+
+        it_behaves_like "needs admins' TOS acceptance to access other pages"
+      end
+
+      context "when the user has accepted the TOS" do
+        let(:user) { create(:user, :admin, :confirmed) }
+
+        it_behaves_like "allows accessing all the pages"
       end
     end
   end
