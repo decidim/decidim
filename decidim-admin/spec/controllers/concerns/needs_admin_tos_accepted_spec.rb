@@ -86,16 +86,34 @@ module Decidim
         end
       end
 
-      context "when the user has not accepted the TOS" do
-        let(:user) { create(:user, :admin, :confirmed, admin_terms_accepted_at: nil, organization:) }
+      context "when the user is an admin" do
+        context "and has not accepted the TOS" do
+          let(:user) { create(:user, :admin, :confirmed, admin_terms_accepted_at: nil, organization:) }
 
-        it_behaves_like "needs admins' TOS acceptance to access other pages"
+          it_behaves_like "needs admins' TOS acceptance to access other pages"
+        end
+
+        context "and has accepted the TOS" do
+          let(:user) { create(:user, :admin, :confirmed) }
+
+          it_behaves_like "allows accessing all the pages"
+        end
       end
 
-      context "when the user has accepted the TOS" do
-        let(:user) { create(:user, :admin, :confirmed) }
+      context "when the user has another role with access to admin panel" do
+        let(:participatory_process) { create(:participatory_process, organization:) }
 
-        it_behaves_like "allows accessing all the pages"
+        context "and has not accepted the TOS" do
+          let(:user) { create(:process_moderator, confirmed_at: Time.current, admin_terms_accepted_at: nil, participatory_process:) }
+
+          it_behaves_like "needs admins' TOS acceptance to access other pages"
+        end
+
+        context "and has accepted the TOS" do
+          let(:user) { create(:process_moderator, confirmed_at: Time.current, participatory_process:) }
+
+          it_behaves_like "allows accessing all the pages"
+        end
       end
     end
   end
