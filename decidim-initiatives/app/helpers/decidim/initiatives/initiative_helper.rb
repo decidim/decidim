@@ -106,7 +106,7 @@ module Decidim
           if action_authorized_to("create", permissions_holder: type).ok?
             html_options["data-dialog-open"] = "not-authorized-modal"
           else
-            html_options["data-dialog-open"] = "not-authorized-modal"
+            html_options["data-dialog-open"] = "authorizationModal"
             html_options["data-dialog-open-url"] = authorization_create_modal_initiative_path(type)
           end
         else
@@ -125,7 +125,7 @@ module Decidim
         html_options ||= {}
 
         if current_user
-          html_options["data-dialog-open"] = "not-authorized-modal"
+          html_options["data-dialog-open"] = "authorizationModal"
           html_options["data-open-url"] = authorization_sign_modal_initiative_path(initiative)
         else
           html_options["data-dialog-open"] = "loginModal"
