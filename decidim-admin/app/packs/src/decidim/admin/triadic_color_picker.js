@@ -85,7 +85,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (selector) {
     const primary = document.querySelector("#preview-primary")
-    const primarySat = document.querySelector("#primary-sat")
+    const primarySaturation = document.querySelector("#primary-saturation")
     const updateButton = document.querySelector("#set-colors")
 
     generateHslaColors(50, 50).forEach((e) => {
@@ -100,8 +100,8 @@ document.addEventListener("DOMContentLoaded", () => {
     // previous value set or the first color in the palette
     setTheme(primary.value || selector.firstChild.dataset.value)
 
-    selector.addEventListener("click", ({ target: { dataset: { value }}}) => setTheme(value, Number(primarySat.value)));
-    primarySat.addEventListener("input", ({ target: { value }}) => setTheme(primary.value, Number(value)));
+    selector.addEventListener("click", ({ target: { dataset: { value }}}) => setTheme(value, Number(primarySaturation.value)));
+    primarySaturation.addEventListener("input", ({ target: { value }}) => setTheme(primary.value, Number(value)));
     updateButton.addEventListener("click", (e) => {
       e.preventDefault()
 
