@@ -54,6 +54,10 @@ module Decidim
       isolate_namespace Decidim
       engine_name "decidim"
 
+      initializer "patch_webpacker", before: "webpacker.version_checker" do
+        ENV["WEBPACKER_CONFIG"] = Decidim::Webpacker.configuration.configuration_file
+      end
+
       initializer "decidim.action_controller" do |_app|
         config.to_prepare do
           ActiveSupport.on_load :action_controller do

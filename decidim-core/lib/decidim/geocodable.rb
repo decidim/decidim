@@ -16,7 +16,7 @@ module Decidim
     extend ActiveSupport::Concern
 
     class_methods do
-      # Avoid double loading Geocoder::Store::ActiveRecord since it's already
+      # Avoid double loading Geocoder::Store::ActiveRecord since it is already
       # loaded by this concern (below in the included block).
       def geocoder_init(options)
         @geocoder_options = {} unless defined?(@geocoder_options)

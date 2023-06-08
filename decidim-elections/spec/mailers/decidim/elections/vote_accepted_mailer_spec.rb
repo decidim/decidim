@@ -19,7 +19,7 @@ module Decidim::Elections
         let(:body) do
           ["<h2>Your vote for #{translated_title} was accepted.</h2>",
            "<p>Your vote was accepted! Using your voting token: #{vote.encrypted_vote_hash}, you can verify your vote <a href=\"#{verify_url}\">here</a>.</p>",
-           "<p>You have received this notification because you&#39;ve voted for the #{translated_title} election.</p>"]
+           "<p>You have received this notification because you have voted for the #{translated_title} election.</p>"]
         end
 
         it "sends an email with the right subject" do

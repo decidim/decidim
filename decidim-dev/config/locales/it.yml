@@ -46,7 +46,6 @@ it:
           description_own: Hai creato %{score} test.
           name: Test
           next_level_in: Crea altri %{score} test per raggiungere il livello successivo!
-          unearned_another: Questo utente non ha ancora creato alcun test.
           unearned_own: Non hai ancora creato alcun test.
     resource_links:
       test_link:

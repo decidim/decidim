@@ -76,12 +76,6 @@ ar:
         email: البريد الإلكتروني
         name: الاسم
         role: الوظيفة
-    errors:
-      models:
-        assembly:
-          attributes:
-            document:
-              allowed_file_content_types: 'نوع الوثيقة غير صالح. يسمح فقط بالملفات ذات الإضافات التالية: %{types}'
   activerecord:
     models:
       decidim/assembly:
@@ -456,9 +450,6 @@ ar:
         related_assemblies: التجمعات ذات الصلة
     statistics:
       assemblies_count: التجمعات
-  errors:
-    messages:
-      cannot_be_blank: لا يمكن أن يكون فارغا
   layouts:
     decidim:
       assemblies:

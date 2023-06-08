@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe Decidim::Meetings::CloseMeetingEvent do
-  let(:resource) { create :meeting, title: { en: "It's my overdue meeting" } }
+  let(:resource) { create :meeting, title: { en: "It is my overdue meeting" } }
   let(:resource_title) { translated(resource.title) }
   let(:event_name) { "decidim.events.meetings.meeting_closed" }
 

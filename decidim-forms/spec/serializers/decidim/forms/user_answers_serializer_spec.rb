@@ -146,6 +146,48 @@ module Decidim
             expect(serialized).to include("5. #{translated(conditional_question.body, locale: I18n.locale)}" => "")
           end
         end
+
+        context "when the questionnaire body is very long" do
+          let!(:questionnaire) { create(:questionnaire, questionnaire_for: questionable, description: questionnaire_description) }
+          let(:questionnaire_description) do
+            Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+              Decidim::Faker::Localized.localized { "a" * 1_000_000 }
+            end
+          end
+          let!(:users) { create_list(:user, 100, organization: questionable.organization) }
+
+          before do
+            users.each do |user|
+              questions.each do |question|
+                create(:answer, questionnaire:, question:, user:)
+              end
+            end
+          end
+
+          it "does not load the questionnaire description to memory every time when iterating an answer" do
+            # NOTE:
+            # For this test it is important to fetch the single user "answer
+            # sets" to an array and store them there because this is the same
+            # way the answers are loaded e.g. in the survey component export
+            # functionality. The export had previously a memory leak because the
+            # questionnaire is fetched individually for each "answer set" and if
+            # it has a very long description, it caused the description to be
+            # stored multiple times within the array (for each "answer set"
+            # separately) causing a out of memory errors when there is a large
+            # amount of answers.
+            all_answers = Decidim::Forms::QuestionnaireUserAnswers.for(questionnaire)
+
+            initial_memory = memory_usage
+            all_answers.each do |answer_set|
+              described_class.new(answer_set).serialize
+            end
+            expect(memory_usage - initial_memory).to be < 10_000
+          end
+
+          def memory_usage
+            `ps -o rss #{Process.pid}`.lines.last.to_i
+          end
+        end
       end
     end
   end

@@ -13,18 +13,11 @@ gl:
       templates:
         apply:
           error: Produciuse un problema ao aplicar o padrón.
-          success: Padrón aplicado con éxito
         copy:
           error: Produciuse un problema ao copiar o padrón.
-          success: Padrón copiado con éxito
         create:
           error: Produciuse un problema ao crear o padrón.
-          success: Padrón creado con éxito
-        destroy:
-          success: Padrón eliminado con éxito
         empty: Aínda non hai padróns.
-        update:
-          success: Padrón actualizado con éxito
       titles:
         template_types:
           questionnaires: Padrón para cuestionarios
@@ -49,7 +42,6 @@ gl:
             skip_template: Omitir
           edit:
             edit: Editar
-            empty: Aínda non hai preguntas
             questionnaire: Cuestionario
           form:
             save: Gardar

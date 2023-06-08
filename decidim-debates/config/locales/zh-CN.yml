@@ -211,7 +211,6 @@ zh-CN:
           name: 辩论
           next_level_in: 参加更多的 %{score} 次辩论，以达到下一级！
           unearned_another: 这位与会者尚未参加任何辩论。
-          unearned_own: 你还没有参与任何辩论。
     metrics:
       debates:
         description: 创建的辩论数

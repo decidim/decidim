@@ -212,7 +212,6 @@ describe "Explore meetings", :slow, type: :system do
         skip_unless_redesign_enabled
 
         visit_component
-
         within "form.new_filter" do
           fill_in("filter[search_text_cont]", with: translated(meetings.first.title))
           within "div.filter-search" do
