@@ -1,13 +1,13 @@
 <% content_for :js_content do %>
-  <%= javascript_pack_tag "decidim_initiatives" %>
+  <%= append_javascript_pack_tag "decidim_initiatives" %>
 <% end %>
 
 <% content_for :css_content do %>
-  <%= stylesheet_pack_tag "decidim_initiatives", media: "all" %>
+  <%= append_stylesheet_pack_tag "decidim_initiatives", media: "all" %>
 <% end %>
 
 <% content_for :css_content do %>
-  <%= stylesheet_pack_tag "decidim_verifications", media: "all" %>
+  <%= append_stylesheet_pack_tag "decidim_verifications", media: "all" %>
 <% end %>
 
 <%= render "layouts/decidim/redesigned_application" do %>
