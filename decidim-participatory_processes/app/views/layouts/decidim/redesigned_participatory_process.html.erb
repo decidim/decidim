@@ -5,13 +5,8 @@
   description: translated_attribute(current_participatory_space.short_description),
 ) %>
 
-<% content_for :js_content do %>
-  <%= javascript_pack_tag "decidim_participatory_processes" %>
-<% end %>
-
-<% content_for :css_content do %>
-  <%= stylesheet_pack_tag "decidim_participatory_processes", media: "all" %>
-<% end %>
+<%= append_javascript_pack_tag "decidim_participatory_processes" %>
+<%= append_stylesheet_pack_tag "decidim_participatory_processes", media: "all" %>
 
 <%= render "layouts/decidim/redesigned_application" do %>
   <%= cell "decidim/translation_bar", current_organization %>

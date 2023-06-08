@@ -42,7 +42,7 @@ const createDialog = (component) => {
     dataset: { dialog }
   } = component;
 
-  // NOTE: due to some SR bugs we've to set the focus on the title
+  // NOTE: due to some SR bugs we have to set the focus on the title
   // See discussion: https://github.com/decidim/decidim/issues/9760
   // See further info: https://adrianroselli.com/2020/10/dialog-focus-in-screen-readers.html
   const setFocusOnTitle = (content) => {
@@ -61,7 +61,7 @@ const createDialog = (component) => {
     onOpen: (params) => {
       setFocusOnTitle(params)
     },
-    // optional parameters (whenever exists the id, it'll add the tagging)
+    // optional parameters (whenever exists the id, it will add the tagging)
     ...(Boolean(component.querySelector(`#dialog-title-${dialog}`)) && {
       labelledby: `dialog-title-${dialog}`
     }),
@@ -77,7 +77,7 @@ const createDialog = (component) => {
   window.Decidim.currentDialogs = { ...window.Decidim.currentDialogs, [dialog]: modal }
 
   // NOTE: when a remote modal is open, the contents are empty
-  // once they're in the DOM, we append the ARIA attributes
+  // once they are in the DOM, we append the ARIA attributes
   // otherwise they could not exist yet
   // (this listener must be applied over 'document', not 'element')
   document.addEventListener("remote-modal:loaded", () => {

@@ -42,7 +42,7 @@ module Decidim
           it { is_expected.to be_invalid }
         end
 
-        context "when there's no state" do
+        context "when there is no state" do
           let(:state) { nil }
 
           it { is_expected.to be_invalid }
@@ -51,7 +51,7 @@ module Decidim
         context "when rejecting a proposal" do
           let(:state) { "rejected" }
 
-          context "and there's no answer" do
+          context "and there is no answer" do
             let(:answer) { nil }
 
             it { is_expected.to be_invalid }

@@ -74,7 +74,7 @@ cs:
         conference_registration_invite:
           attributes:
             email:
-              already_invited: Tento e-mail již byl pozván
+              already_invited: Tento e-mail již byl pozván.
   activerecord:
     models:
       decidim/conference:
@@ -359,7 +359,7 @@ cs:
             invites: Pozvánky
             search: Vyhledávání
           new:
-            explanation: Uživatel bude vyzván, aby se připojil ke konferenci. Pokud není e-mail zaregistrován, budou také pozváni do organizace.
+            explanation: Uživatel bude pozván, aby se připojil k konferenci. Pokud není jeho e-mail registrován, bude také pozván do organizace.
             invite: Pozvat
             new_invite: Pozvat uživatele
         conference_registrations:
@@ -465,7 +465,7 @@ cs:
           main_promotors: Organizátoři
         show:
           login_as: Jste přihlášeni jako %{name} <%{email}>
-          make_conference_registration: Zaregistrujte se na konferenci
+          make_conference_registration: Registrovat na konferenci
           register: Registrovat
       content_blocks:
         highlighted_conferences:
@@ -475,9 +475,9 @@ cs:
       mailer:
         conference_registration_mailer:
           confirmation:
-            subject: Registrace vaší konference byla potvrzena
+            subject: Registrace na konferenci byla potvrzena
           pending_validation:
-            subject: Registrace vaší konference čeká na potvrzení
+            subject: Registrace na konferenci čeká na potvrzení.
         invite_join_conference_mailer:
           invite:
             subject: Pozvánka na konferenci
@@ -564,7 +564,7 @@ cs:
     log:
       value_types:
         conference_presenter:
-          not_found: 'Konference nebyla nalezena v databázi (ID: %{id})'
+          not_found: 'Konference nebyla v databázi nalezena (ID: %{id}).'
     media:
       index:
         description: Odkazy na tuto konferenci

@@ -475,7 +475,7 @@ module Decidim
           subject { parsed.css("span.form-error").first.text }
 
           context "with no translations for the field" do
-            it { is_expected.to eq("There's an error in this field.") }
+            it { is_expected.to eq("There is an error in this field.") }
           end
 
           context "with custom I18n for the class and attribute" do

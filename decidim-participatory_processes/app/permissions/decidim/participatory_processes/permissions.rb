@@ -52,7 +52,7 @@ module Decidim
 
       private
 
-      # It's an admin user if it's an organization admin or is a space admin
+      # It is an admin user if it is an organization admin or is a space admin
       # for the current `process`.
       def admin_user?
         user.admin? || (process ? can_manage_process?(role: :admin) : has_manageable_processes?)

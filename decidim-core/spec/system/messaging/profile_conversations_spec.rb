@@ -260,7 +260,7 @@ describe "ProfileConversations", type: :system do
         before do
           click_button "Send"
           expect(page).to have_selector("#messages .conversation-chat:last-child", text: "Please reply!")
-          relogin_as interlocutor
+          relogin_as interlocutor, scope: :user
           visit decidim.conversations_path
         end
 
@@ -268,7 +268,7 @@ describe "ProfileConversations", type: :system do
           expect(page).to have_selector(".conversation__item-unread", text: "2")
         end
 
-        it "appears as read after it's seen", :slow do
+        it "appears as read after it is seen", :slow do
           click_link "conversation-#{conversation.id}"
           expect(page).to have_content("Please reply!")
 
@@ -320,7 +320,7 @@ describe "ProfileConversations", type: :system do
         let!(:interlocutor2) { create(:user, :confirmed, organization:, direct_message_types: "followed-only") }
 
         it "cannot be selected on the mentioned list", :slow do
-          skip "REDESIGN_PENDING: The profile conversations functionality is going to be removed and it's not necessary to fix this because the modal used here will be deprecated" do
+          skip "REDESIGN_PENDING: The profile conversations functionality is going to be removed and it is not necessary to fix this because the modal used here will be deprecated" do
             visit_profile_inbox
             expect(page).to have_content("New conversation")
             click_button "New conversation"
@@ -337,13 +337,13 @@ describe "ProfileConversations", type: :system do
         end
 
         it "has disabled submit button" do
-          skip "REDESIGN_PENDING: The profile conversations functionality is going to be removed and it's not necessary to fix this because the modal used here will be deprecated" do
+          skip "REDESIGN_PENDING: The profile conversations functionality is going to be removed and it is not necessary to fix this because the modal used here will be deprecated" do
             expect(page).to have_button("Next", disabled: true)
           end
         end
 
         it "enables submit button after selecting interlocutor" do
-          skip "REDESIGN_PENDING: The profile conversations functionality is going to be removed and it's not necessary to fix this because the modal used here will be deprecated" do
+          skip "REDESIGN_PENDING: The profile conversations functionality is going to be removed and it is not necessary to fix this because the modal used here will be deprecated" do
             find("#add_conversation_users").fill_in with: "@#{interlocutor.nickname}"
             find("#autoComplete_result_0").click
             expect(page).to have_button("Next", disabled: false)

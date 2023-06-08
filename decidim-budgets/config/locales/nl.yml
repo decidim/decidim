@@ -50,12 +50,6 @@ nl:
         title: Acties
       admin:
         budgets:
-          create:
-            invalid: Er is een fout opgetreden bij het aanmaken van dit budget
-            success: Budget succesvol aangemaakt
-          destroy:
-            invalid: Er is een probleem opgetreden bij het verwijderen van dit budget
-            success: Budget succesvol verwijderd
           edit:
             title: Budget bewerken
             update: Budget bijwerken
@@ -68,9 +62,6 @@ nl:
           new:
             create: Budget maken
             title: Nieuw budget
-          update:
-            invalid: Er is een fout opgetreden bij het bijwerken van dit budget
-            success: Budget succesvol bijgewerkt
         exports:
           projects: Projecten
         models:
@@ -79,11 +70,6 @@ nl:
           project:
             name: Project
         projects:
-          create:
-            invalid: Er is een probleem opgetreden bij het creëren van dit project
-            success: Voorstel succesvol aangemaakt
-          destroy:
-            success: Project succesvol verwijderd
           edit:
             title: Bewerk project
             update: Bijwerken
@@ -101,25 +87,13 @@ nl:
           new:
             create: Creëren
             title: Nieuw project
-          update:
-            invalid: Er is een probleem opgetreden bij het bijwerken van dit project
-            success: Project succesvol bijgewerkt
           update_category:
             invalid: 'Deze voorstellen hadden al categorie %{subject_name}: %{projects}.'
-            select_a_category: Selecteer een categorie
-            select_a_project: Selecteer een project
             success: 'Voorstellen succesvol bijgewerkt naar categorie %{subject_name}: %{projects}.'
           update_scope:
             invalid: 'Deze voorstellen hadden al scope %{subject_name}: %{projects}.'
-            select_a_project: Selecteer een project
-            select_a_scope: Selecteer een scope
             success: 'Voorstellen succesvol bijgewerkt naar categorie %{subject_name}: %{projects}.'
-          update_selected:
-            select_a_project: Selecteer een project
         proposals_imports:
-          create:
-            invalid: Er is een probleem opgetreden bij het importeren van de voorstellen in projecten
-            success: "%{number} voorstellen succesvol geïmporteerd in projecten"
           new:
             create: Voorstellen importeren in projecten
             default_budget: Standaard budget
@@ -150,23 +124,16 @@ nl:
         close_modal: Sluit venster
         continue: Doorgaan
         more_information: Meer informatie
-      budget_list_item:
-        voting_finished: Je hebt gestemd in dit budget
-        voting_started: Je bent begonnen met stemmen in dit budget
       budgets_list:
         cancel_order:
           more_than_one: verwijder je stem op %{name} en begin opnieuw
           only_one: verwijder je stem en begin opnieuw.
-        finished_message: Je hebt het stemproces voltooid. Bedankt voor je deelname!
         highlighted_cta: Stem op %{name}
-        if_change_opinion: Als je van gedachten veranderd bent, kun je
         my_budgets: Mijn budgetten
         progress: Beëindig stemmen
         show: Bekijk projecten
         vote: Stem
-        voted_on: Je hebt gestemd op %{links}
       limit_announcement:
-        cant_vote: Je kunt niet stemmen op dit budget. <a href="%{landing_path}">Probeer een ander budget</a>.
         limit_reached: Je hebt actieve stemmen in %{links}. Om op deze begroting te stemmen, moet je <a href="%{landing_path}">je stem verwijderen en opnieuw beginnen</a>.
       models:
         budget:
@@ -195,10 +162,8 @@ nl:
           title: Bevestig de stem
         budget_excess:
           budget_excess:
-            description: Dit project overschrijdt het maximale budget en kan niet worden toegevoegd. Als je wil, kun je een project verwijderen dat je al had geselecteerd, om je stem opnieuw te kunnen uitbrengen.
             title: Maximum budget overschreden
           close: Sluit
-          description: Dit project overschrijdt het maximale budget en kan niet worden toegevoegd. Als je wil, kun je een project verwijderen dat je al had geselecteerd, om je stem opnieuw te kunnen uitbrengen.
           ok: OK
           projects_excess:
             description: Dit project overschrijdt het maximale aantal projecten en kan niet worden toegevoegd. Als je wil, kun je een project verwijderen dat je al had geselecteerd, om je stem opnieuw te kunnen uitbrengen.
@@ -208,7 +173,6 @@ nl:
           assigned: 'Toegewezen:'
           cancel_order: Verwijder uw stem en begin opnieuw
           checked_out:
-            description: Je hebt al voor de begroting gestemd. Als u van mening bent, kunt u %{cancel_link}.
             title: Begrotingsstemming voltooid
           minimum_projects_rule:
             description: Aan welke projecten moeten volgens jou middelen worden toegewezen? Selecteer minstens %{minimum_number} project(en) en geef zo je voorkeur voor het budget door.
@@ -269,8 +233,6 @@ nl:
           random: Willekeurige volgorde
           selected: Geselecteerd
         project:
-          add: Voeg project %{resource_name} toe aan je stem
-          remove: Verwijder project %{resource_name} uit je stem
           selected: Geselecteerd
           view: Bekijk
           votes:
@@ -278,9 +240,7 @@ nl:
             other: stemmen
         project_budget_button:
           add: Voeg toe aan je stem
-          add_descriptive: Voeg project %{resource_name} toe aan je stem
           added: Toegevoegd aan je stem
-          added_descriptive: Project %{resource_name} is aan je stem toegevoegd
         projects_for: Projecten voor %{name}
         show:
           budget: Begroting
@@ -305,10 +265,6 @@ nl:
             announcement: Aankondiging
             comments_enabled: Reacties ingeschakeld
             comments_max_length: Commentaar maximale lengte (laat 0 voor standaardwaarde)
-            form:
-              errors:
-                budget_voting_rule_only_one: Slechts één stemregel kan ingesteld zijn
-                budget_voting_rule_required: Eén stemregel is vereist
             geocoding_enabled: Geocoding ingeschakeld
             landing_page_content: Budgetten landingspagina
             more_information_modal: Meer informatie
@@ -350,13 +306,6 @@ nl:
           email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title} volgt. Schakel de meldingen uit door te klikken op de voorgaande link.
           email_subject: De stap %{resource_title} budget is nu geactiveerd voor %{participatory_space_title}.
           notification_title: Budget <a href="%{resource_path}">%{resource_title}</a> is nu geactiveerd in %{participatory_space_title}.
-    orders:
-      checkout:
-        error: Er is een fout opgetreden tijdens het verwerken van uw stem
-        success: Uw stem is aanvaard
-      destroy:
-        error: Er is een fout opgetreden tijdens het annuleren van uw stem
-        success: Uw stem is geannuleerd
     resource_links:
       included_proposals:
         project_proposal: Voorstellen opgenomen in dit project

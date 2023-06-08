@@ -22,8 +22,6 @@ lb:
             choices:
               missing: sind nicht vollständig
               too_many: sind zu viele
-        questionnaire:
-          request_invalid: Bei der Bearbeitung der Anfrage ist ein Fehler aufgetreten. Bitte versuchen Sie es nochmal
   decidim:
     forms:
       admin:
@@ -111,9 +109,6 @@ lb:
           update:
             invalid: Beim Speichern des Fragebogens sind Fehler aufgetreten.
             success: Formular erfolgreich gespeichert.
-      errors:
-        answer:
-          body: Körper kann nicht leer sein
       images:
         dimensions: "%{width} x %{height} px"
       question_types:

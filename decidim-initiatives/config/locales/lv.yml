@@ -48,13 +48,8 @@ lv:
             attachment:
               file: Fails nav derīgs
               needs_to_be_reattached: Jāpievieno no jauna
-              title: Virsrakstam nevajadzētu būt tukšam
   activerecord:
     models:
-      decidim/initiative:
-        zero: Iniciatīvas
-        one: Iniciatīva
-        other: Iniciatīvas
       decidim/initiative_comittee:
         zero: Komitejas
         one: Komiteja
@@ -143,10 +138,8 @@ lv:
             - Sekojiet soļiem, lai izveidotu jaunu iniciatīvu
           description: Šis žetons tiek piešķirts, kad jūs sākat jaunas iniciatīvas, sadarbojoties ar citiem, lai tās īstenotu.
           description_another: Šis dalībnieks ir publicējis %{score} iniciatīvas.
-          description_own: Jūs esat publicējis %{score} iniciatīvas.
           name: Publicētās iniciatīvas
           next_level_in: Publicējiet vēl vairākas %{score} iniciatīvas, lai sasniegtu nākamo līmeni!
-          unearned_another: Šim dalībniekam vēl nav nevienas publicētas iniciatīvas.
           unearned_own: Jums vēl nav nevienas publicētas iniciatīvas.
     help:
       participatory_spaces:
@@ -172,8 +165,6 @@ lv:
           index:
             approve: Apstiprināt
             confirm_revoke: Vai esat pārliecināts?
-            invite_to_committee_help: Kopīgojiet šo saiti, lai uzaicinātu citus dalībniekus uz veicinātāju komiteju
-            no_members_yet: Veicinātāju komitejā nav locekļu
             revoke: Atsaukt
             title: Komitejas locekļi
         content_blocks:
@@ -190,7 +181,6 @@ lv:
             export_votes: Eksportēt parakstus
             reject: Noraidīt iniciatīvu
             send_to_technical_validation: Nosūtiet tehniskajai validācijai
-            success: Iniciatīva ir nosūtīta tehniskajai validācijai
             update: Atjaunināt
           form:
             title: Vispārēja informācija
@@ -203,15 +193,7 @@ lv:
             edit: Labot
             new: Jauns
             photos: Fotogrāfijas
-          update:
-            error: Ir radusies kļūda
-            success: Iniciatīva tika veiksmīgi atjaunināta
         initiatives_type_scopes:
-          create:
-            error: Ir radusies kļūda
-            success: Konkrētajam iniciatīvas veidam ir izveidots jauns darbības tvērums
-          destroy:
-            success: Darbības tvērums ir veiksmīgi noņemts
           edit:
             back: Atpakaļ
             confirm_destroy: Vai esat pārliecināts?
@@ -222,15 +204,7 @@ lv:
             back: Atpakaļ
             create: Izveidot
             title: Izveidot iniciatīvas darbības veida tvērumu
-          update:
-            error: Ir radusies kļūda
-            success: Darbības tvērums ir veiksmīgi atjaunināts
         initiatives_types:
-          create:
-            error: Ir radusies kļūda
-            success: Jaunais iniciatīvas veids ir veiksmīgi izveidots
-          destroy:
-            success: Iniciatīvas veids ir veiksmīgi noņemts
           edit:
             confirm_destroy: Vai esat pārliecināts?
             destroy: Dzēst
@@ -242,9 +216,6 @@ lv:
           new:
             create: Izveidot
             title: Jauns iniciatīvas veids
-          update:
-            error: Ir radusies kļūda
-            success: Iniciatīvas veids ir veiksmīgi atjaunināts
       admin_log:
         initiative:
           publish: "%{user_name} publicēja iniciatīvu %{resource_name}"
@@ -275,7 +246,6 @@ lv:
       committee_requests:
         new:
           continue: Turpināt
-          help_text: Jūs tūliņ kļūsiet par šīs iniciatīvas veicinātāju komitejas locekli
         spawn:
           success: Jūsu pieprasījums ir nosūtīts iniciatīvas autoram.
       content_blocks:
@@ -335,7 +305,6 @@ lv:
             day: Diena
             month: Mēnesis
             year: Gads
-          help: Lai parakstītu iniciatīvu, lūdzu, aizpildiet šos laukus, ierakstot savus personas datus
         finish:
           back_to_initiative: Atpakaļ pie iniciatīvas
         sms_code:
@@ -343,16 +312,11 @@ lv:
           help: Pārbaudiet tālrunī saņemto SMS
         sms_phone_number:
           continue: Sūtīt man SMS
-          help: Lai pieprasītu verifikācijas kodu, aizpildiet veidlapu, izmantojot verificēto tālruņa numuru
       initiative_votes:
         create:
           error: Iniciatīvas parakstīšanas laikā radās problēma
-          invalid: Iniciatīvas parakstīšanai sniegtie dati nav derīgi
-          success_html: Apsveicam! Iniciatīva <strong> %{title}</strong> ir veiksmīgi parakstīta
         personal_data:
           invalid: Personas dati neatbilst autorizējoties sniegtajiem datiem.
-        sms_code:
-          invalid: Jūsu verifikācijas kods neatbilst mūsu kodam. Lūdzu, vēlreiz pārbaudiet SMS, kuru mēs jums nosūtījām.
         sms_phone:
           invalid: Tālruņa numurs nav derīgs vai gaida autorizāciju. Lūdzu, pārbaudiet savas autorizācijas.
       initiatives:

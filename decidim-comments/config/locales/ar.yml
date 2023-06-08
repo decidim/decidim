@@ -34,12 +34,9 @@ ar:
       comments:
         create:
           error: طرأت مشكلة خلال إنشاء التعليق.
-        delete:
-          error: حذف التعليق لم يكن ممكنا.
         update:
           error: طرأت مشكلة خلال تحديث التعليق.
       comments_count: تعداد التعليقات
-      comments_title: التعليقات
       last_activity:
         new_comment_at_html: "<span>تعليق جديد على %{link}</span>"
       view: العرض
@@ -53,7 +50,6 @@ ar:
           body:
             label: تعليق
             placeholder: ما رأيك بهذا؟
-          form_error: النص مطلوب ولا يمكن أن يكون أطول من %{length} حرف.
           submit: إرسال
           user_group_id:
             label: التعليق باسم
@@ -88,7 +84,6 @@ ar:
           description: هل هذا المحتوى غير مناسب؟
           details: تعليقات اضافية
           reasons:
-            does_not_belong: يحتوي على نشاط غير قانوني أو تهديدات انتحارية أو معلومات شخصية أو أي شيء آخر تعتقد أنه لا ينتمي إلى %{organization_name}.
             offensive: يحتوي على العنصرية والتمييز الجنسي والتشهير والهجمات الشخصية والتهديدات بالقتل أو طلبات الانتحار أو أي شكل من أشكال خطاب الكراهية.
             spam: يحتوي على clickbait أو الإعلان أو الخدع أو روبوت البرامج النصية.
           title: الإبلاغ عن محتوى غير لائق
@@ -111,6 +106,13 @@ ar:
         loading: جارٍ تحميل التعليقات ...
         single_comment_warning: <a href="%{url}"> عرض جميع التعليقات</a>
         single_comment_warning_title: إنك ترى تعليقا واحدا
+        title:
+          zero: "%{count} تعليقات"
+          one: "%{count} تعليق"
+          two: "%{count} تعليقان"
+          few: "%{count} تعليقات"
+          many: "%{count} تعليقات"
+          other: "%{count} تعليقات"
       down_vote_button:
         text: أنا لا أوافق على هذا التعليق
       edit_comment_modal_form:
@@ -170,6 +172,3 @@ ar:
         description: عدد التعليقات الناتجة عن المشاركين
         object: تعليقات
         title: تعليقات
-  errors:
-    messages:
-      cannot_have_comments: لا يمكن أن يكون لديك تعليقات

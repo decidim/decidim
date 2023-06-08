@@ -270,7 +270,7 @@ module Decidim
 
               put :withdraw, params: params.merge(id: proposal.id)
 
-              expect(flash[:alert]).to eq("You are not authorized to perform this action")
+              expect(flash[:alert]).to eq("You are not authorized to perform this action.")
               expect(response).to have_http_status(:found)
               proposal.reload
               expect(proposal.withdrawn?).to be false

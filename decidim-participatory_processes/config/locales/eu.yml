@@ -202,9 +202,6 @@ eu:
           success: Prozesu partizipatiboaren fasea zuzen sortu da.
         default_title: Sarrera
         destroy:
-          error:
-            active_step: Ezin da ezabatu fase aktiboa.
-            last_step: Ezin da ezabatu prozesuaren azken fasea.
           success: Parte-hartze prozesuaren pausoa arrakastaz ezabatu da.
         edit:
           title: Editatu prozesu partizipatiboaren fasea
@@ -420,8 +417,6 @@ eu:
               one: 1 hurrengo prozesua
               other: "%{count} hurrengo prozesuetan"
           explanations:
-            no_active: Ez dago prozesu aktiborik
-            no_active_nor_upcoming: Prozesu aktibo ez etorkizunik ez
             no_active_nor_upcoming_callout: Prozesu aktibo eta ez datoz bat. Hona hemen iraganekoen zerrenda.
           names:
             active: Aktiboa

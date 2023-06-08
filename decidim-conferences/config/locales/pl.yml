@@ -61,12 +61,6 @@ pl:
         email: E-mail
         name: Imię
         role: Rola
-    errors:
-      models:
-        conference_registration_invite:
-          attributes:
-            email:
-              already_invited: Ten e-mail został już zaproszony
   activerecord:
     models:
       decidim/conference:
@@ -348,7 +342,6 @@ pl:
             invites: Zaproszeni
             search: Szukaj
           new:
-            explanation: Użytkownik zostanie zaproszony do udziału w konferencji. Jeśli e-mail nie został wcześniej zarejestrowany, zostanie również zaproszony do organizacji.
             invite: Zaproś
             new_invite: Zaproś użytkownika
         conference_registrations:
@@ -451,11 +444,6 @@ pl:
       index:
         title: Konferencje
       mailer:
-        conference_registration_mailer:
-          confirmation:
-            subject: Twoja rejestracja na konferencję została potwierdzona
-          pending_validation:
-            subject: Twoja rejestracja na konferencję oczekuje na potwierdzenie
         invite_join_conference_mailer:
           invite:
             subject: Zaproszenie do udziału w konferencji
@@ -538,10 +526,6 @@ pl:
           contextual: "<p> <strong>Konferencja</strong> jest zbiorem spotkań zorganizowanych wedle ułożonego programu, z udziałem osób zaproszonych jako prelegenci, oraz innymi polami informacyjnymi typowymi dla dużych kongresów lub wydarzeń społecznościowych (rejestracja, wykaz organizacji wspierających lub sponsorujących wydarzenie itp.).</p> <p>Przykłady: konferencja może być istotnym wydarzeniem dla organizacji i jej członków, może odbywać się w ramach procesu partycypacyjnego lub być wynikiem konsultacji.</p>\n"
           page: "<p> <strong>Konferencja</strong> jest zbiorem spotkań zorganizowanych wedle ułożonego programu, z udziałem osób zaproszonych jako prelegenci, oraz innymi polami informacyjnymi typowymi dla dużych kongresów lub wydarzeń społecznościowych (rejestracja, wykaz organizacji wspierających lub sponsorujących wydarzenie itp.).</p> <p>Przykłady: konferencja może być istotnym wydarzeniem dla organizacji i jej członków, może odbywać się w ramach procesu partycypacyjnego lub być wynikiem konsultacji.</p>\n"
           title: Czym są konferencje?
-    log:
-      value_types:
-        conference_presenter:
-          not_found: 'Konferencji nie znaleziono w bazie danych (ID: %{id})'
     media:
       index:
         description: Linki do tej konferencji

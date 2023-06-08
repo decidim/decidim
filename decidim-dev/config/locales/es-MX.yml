@@ -52,7 +52,7 @@ es-MX:
           description_own: Has creado %{score} pruebas.
           name: Pruebas
           next_level_in: '¡Crea %{score} pruebas más para alcanzar el siguiente nivel!'
-          unearned_another: Este usuario aún no ha creado ninguna prueba.
+          unearned_another: Esta participante aún no ha creado ninguna prueba.
           unearned_own: No has creado ninguna prueba todavía.
     resource_links:
       test_link:

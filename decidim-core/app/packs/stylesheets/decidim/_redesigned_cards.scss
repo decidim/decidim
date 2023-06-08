@@ -52,7 +52,7 @@
   }
 
   &__list{
-    @apply flex flex-col md:flex-row gap-2.5 md:gap-4 px-4 rounded overflow-hidden border-l-4 border-background hover:border-tertiary focus-visible:border-tertiary focus-visible:outline-none transition transition;
+    @apply flex flex-col md:flex-row gap-2.5 md:gap-4 px-4 rounded overflow-hidden border-l-4 border-background hover:border-tertiary focus-visible:border-tertiary focus-visible:outline-none transition;
 
     &-content{
       @apply flex flex-col gap-2.5;
