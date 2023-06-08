@@ -47,7 +47,7 @@ describe "Edit initiative", type: :system do
     it "does not show the header's edit link" do
       visit initiative_path
 
-      within ".topbar" do
+      within ".main-bar" do
         expect(page).not_to have_link("Edit")
       end
     end
