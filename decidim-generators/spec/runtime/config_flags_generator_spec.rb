@@ -120,6 +120,7 @@ module Decidim
           "name" => "decidim-#{test_component}",
           "version" => "0.0.1",
           "description" => "",
+          "private" => true,
           "license" => "AGPL-3.0",
           "scripts" => {
             "lint" => "eslint -c .eslintrc.json --no-error-on-unmatched-pattern --ignore-pattern app/packs/vendor --ext .js app/packs",
