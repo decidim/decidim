@@ -25,7 +25,7 @@ module Decidim
       end
 
       def filter_type_values
-        type_values = flat_filter_values(*Decidim::Meetings::Meeting::TYPE_OF_MEETING, scope: "decidim.meetings.meetings.filters.type_values").map do |args|
+        type_values = flat_filter_values(*Decidim::Meetings::Meeting::TYPE_OF_MEETING.keys, scope: "decidim.meetings.meetings.filters.type_values").map do |args|
           TreePoint.new(*args)
         end
 

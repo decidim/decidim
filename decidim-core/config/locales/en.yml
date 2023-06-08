@@ -104,6 +104,23 @@ en:
       less_than_x_seconds:
         one: less than 1 second
         other: less than %{count} seconds
+      short:
+        about_x_days: "%{count}d"
+        about_x_hours: "%{count}h"
+        about_x_minutes: "%{count}m"
+        about_x_months: "%{count} mo."
+        about_x_years: "%{count}y"
+        almost_x_years: "%{count}y"
+        half_a_minute: 1m
+        less_than_x_minutes: "%{count}m"
+        less_than_x_seconds: "%{count}s"
+        over_x_years: "%{count}y"
+        x_days: "%{count}d"
+        x_hours: "%{count}h"
+        x_minutes: "%{count}m"
+        x_months: "%{count} mo."
+        x_seconds: "%{count}s"
+        x_years: "%{count}y"
       x_days:
         one: 1 day
         other: "%{count} days"
@@ -1444,6 +1461,8 @@ en:
         close: Close
         description: Is this content inappropriate?
         does_not_belong: Contains illegal activity, suicide threats, personal information, or something else you think does not belong on %{organization_name}.
+        hide: Hide
+        hide_content: Hide this content
         offensive: Contains racism, sexism, slurs, personal attacks, death threats, suicide requests or any form of hate speech.
         reason: Reason
         report: Report

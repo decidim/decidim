@@ -10,7 +10,7 @@ module Decidim
 
       alias meeting model
 
-      delegate :start_time, :end_time, :maps_enabled?, :online_meeting?, to: :meeting
+      delegate :start_time, :end_time, :maps_enabled?, :online?, to: :meeting
       delegate :snippets, to: :controller
 
       def static_map
@@ -28,7 +28,7 @@ module Decidim
       end
 
       def display_map?
-        maps_enabled? && !online_meeting?
+        maps_enabled? && !online?
       end
     end
   end

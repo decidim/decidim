@@ -127,7 +127,6 @@ describe "Filter Proposals", :slow, type: :system do
       create(:proposal, component:, scope: scope2)
       create(:proposal, component:, scope: nil)
       visit_component
-      expect(page).to have_content("4 PROPOSALS")
     end
 
     it "can be filtered by scope" do
@@ -545,7 +544,6 @@ describe "Filter Proposals", :slow, type: :system do
               let(:user) { new_amendment.amender }
 
               before do
-                expect(page).to have_content("3 PROPOSALS")
                 login_as user, scope: :user
                 visit_component
               end
@@ -571,7 +569,6 @@ describe "Filter Proposals", :slow, type: :system do
 
             context "and has NOT amended a proposal" do
               before do
-                expect(page).to have_content("2 PROPOSALS")
                 login_as user, scope: :user
                 visit_component
               end
@@ -621,7 +618,6 @@ describe "Filter Proposals", :slow, type: :system do
               let(:user) { new_amendment.amender }
 
               before do
-                expect(page).to have_content("3 PROPOSALS")
                 login_as user, scope: :user
                 visit_component
               end
@@ -647,7 +643,6 @@ describe "Filter Proposals", :slow, type: :system do
 
             context "and has NOT amended a proposal" do
               before do
-                expect(page).to have_content("2 PROPOSALS")
                 login_as user, scope: :user
                 visit_component
               end

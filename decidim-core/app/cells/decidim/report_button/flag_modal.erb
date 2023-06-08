@@ -17,6 +17,39 @@
 
           <%= f.label :details, nil, class: "flag-modal__form-textarea-label" %>
           <%= f.text_area :details, rows: 4, label: false %>
+
+          <% if frontend_administrable? %>
+            <% if user_reportable? %>
+              <% if current_user&.admin? %>
+                <%= f.check_box :block,
+                                label: t("decidim.shared.flag_user_modal.block"),
+                                include_hidden: false,
+                                data: {
+                                  label_action: t("decidim.shared.flag_user_modal.block"),
+                                  label_report: t("decidim.shared.flag_user_modal.report"),
+                                  block: "true"
+                                } %>
+                <%= f.check_box :hide, label: t("decidim.shared.flag_user_modal.hide"), label_options: { class: :invisible, id: "block_and_hide" } %>
+              <% end %>
+            <% else %>
+              <fieldset>
+                <div class="modal__report-container__radio">
+                  <%= f.check_box :hide,
+                                  label: false,
+                                  include_hidden: false,
+                                  data: {
+                                    label_action: t("decidim.shared.flag_modal.hide"),
+                                    label_report: t("decidim.shared.flag_modal.report"),
+                                    hide: "true"
+                                  }, id: hide_checkbox_id %>
+                  <label for="<%= hide_checkbox_id %>">
+                    <%= t("decidim.shared.flag_modal.hide_content") %>
+                  </label>
+                </div>
+              </fieldset>
+            <% end %>
+          <% end %>
+
         </div>
       </div>
     </div>
@@ -27,7 +60,7 @@
       </button>
 
       <button type="submit" class="button button__lg button__secondary">
-        <%= t("decidim.shared.flag_modal.report") %>
+        <span><%= t("decidim.shared.flag_modal.report") %></span>
         <%= icon "arrow-right-line", class: "fill-current" %>
       </button>
     </div>

@@ -241,7 +241,7 @@ describe "Explore Collaborative Drafts", type: :system, versioning: true do
         end
 
         it "renders a button to request access" do
-          expect(page).to have_css("button", text: "Request access")
+          expect(page).to have_button(text: "Request access")
         end
 
         context "when the user requests access" do
@@ -280,7 +280,7 @@ describe "Explore Collaborative Drafts", type: :system, versioning: true do
             end
 
             it "shows the button to accept the request" do
-              expect(page).to have_css("button", text: "Accept")
+              expect(page).to have_button(text: "Accept")
             end
 
             it "shows the button to reject the request" do

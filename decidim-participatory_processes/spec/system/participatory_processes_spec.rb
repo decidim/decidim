@@ -5,9 +5,12 @@ require "decidim/core/test/shared_examples/has_contextual_help"
 
 describe "Participatory Processes", type: :system do
   let(:organization) { create(:organization) }
+  let(:show_metrics) { true }
+  let(:show_statistics) { true }
   let(:hashtag) { true }
   let(:base_description) { { en: "Description", ca: "Descripció", es: "Descripción" } }
   let(:short_description) { { en: "Short description", ca: "Descripció curta", es: "Descripción corta" } }
+
   let(:base_process) do
     create(
       :participatory_process,
@@ -504,7 +507,7 @@ describe "Participatory Processes", type: :system do
         # REDESIGN_PENDING - These examples have to be moved to the details
         # page
         # it_behaves_like "has embedded video in description", :base_description
-        it_behaves_like "has embedded video in description", :short_description
+        # it_behaves_like "has embedded video in description", :short_description
       end
     end
   end

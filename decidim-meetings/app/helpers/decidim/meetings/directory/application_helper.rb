@@ -17,10 +17,14 @@ module Decidim
         include Decidim::FiltersHelper
 
         def filter_type_values
-          type_values = Decidim::Meetings::Meeting::TYPE_OF_MEETING.map { |type| [type, filter_text_for(t(type, scope: "decidim.meetings.meetings.filters.type_values"))] }
-          type_values.prepend(["", filter_text_for(t("decidim.meetings.meetings.filters.type_values.all"))])
+          type_values = flat_filter_values(*Decidim::Meetings::Meeting::TYPE_OF_MEETING.keys, scope: "decidim.meetings.meetings.filters.type_values").map do |args|
+            TreePoint.new(*args)
+          end
 
-          filter_tree_from_array(type_values)
+          TreeNode.new(
+            TreePoint.new("", filter_text_for(t("decidim.meetings.meetings.filters.type_values.all"))),
+            type_values
+          )
         end
 
         def filter_date_values

@@ -18,7 +18,7 @@
       <% if current_user && poll %>
         <div class="flex gap-2">
           <button class="button button__sm button__secondary meeting-polls__action-list">
-            <%= t("questions", scope: "decidim.meetings.layouts.live_event") %> <span id="visible-questions-count">(<%= questionnaire.questions.visible.count %>)<span>
+            <%= t("questions", scope: "decidim.meetings.layouts.live_event") %> <span id="visible-questions-count">(<%= questionnaire.questions.visible.count %>)</span>
           </button>
 
           <% if admin_allowed_to?(:update, :poll, meeting: meeting, poll: poll) %>
@@ -28,7 +28,7 @@
       <% end %>
 
       <div>
-        <strong class="text-secondary"><%= current_organization.name %></strong> / <strong><%= present(meeting).title(links: true) %></strong>
+        <strong class="text-secondary"><%= current_organization.name %></strong> / <strong><%= present(meeting).title(links: true, html_escape: true ) %></strong>
       </div>
 
       <div class="flex gap-10">

@@ -31,7 +31,7 @@ shared_examples "manage landing page examples" do
 
       expect do
         within ".edit_content_blocks" do
-          find("button", text: "Add content block").click
+          click_button(text: "Add content block")
           within ".add-components" do
             find("a", text: "Hero image", exact_text: true).click
           end
@@ -44,7 +44,7 @@ shared_examples "manage landing page examples" do
 
       expect do
         within ".edit_content_blocks" do
-          find("button", text: "Add content block").click
+          click_button(text: "Add content block")
           within ".add-components" do
             find("a", text: "Hero image", exact_text: true).click
           end

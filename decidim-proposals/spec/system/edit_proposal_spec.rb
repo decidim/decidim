@@ -263,6 +263,8 @@ describe "Edit proposals", type: :system do
         let(:body_en) { %(Hello <a href="#{link}" target="_blank">this is a link</a> World) }
 
         before do
+          organization.update(rich_text_editor_in_public_views: true)
+
           body = proposal.body
           body["en"] = body_en
           proposal.update!(body:)

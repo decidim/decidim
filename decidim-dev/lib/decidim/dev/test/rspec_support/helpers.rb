@@ -28,7 +28,7 @@ module Decidim
         find(options.fetch(:admin, !Decidim.redesign_active) ? "ul.dropdown.menu" : "#language-chooser-control").click
         yield
       end
-      end
+    end
 
     def stripped(text)
       text.gsub(/^<p>/, "").gsub(%r{</p>$}, "")

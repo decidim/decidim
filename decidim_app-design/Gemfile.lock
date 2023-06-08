@@ -566,8 +566,8 @@ GEM
     paper_trail (12.3.0)
       activerecord (>= 5.2)
       request_store (~> 1.1)
-    parallel (1.22.1)
-    parallel_tests (4.2.0)
+    parallel (1.23.0)
+    parallel_tests (4.2.1)
       parallel
     parser (3.2.2.1)
       ast (~> 2.4.1)
@@ -813,7 +813,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap (~> 1.4)
-  brakeman (~> 5.4)
+  brakeman (~> 5.2)
   byebug (~> 11.0)
   decidim!
   decidim-conferences!
@@ -822,6 +822,7 @@ DEPENDENCIES
   decidim-elections!
   decidim-initiatives!
   decidim-templates!
+  faker (~> 3.2)
   letter_opener_web (~> 2.0)
   listen (~> 3.1)
   net-imap (~> 0.2.3)

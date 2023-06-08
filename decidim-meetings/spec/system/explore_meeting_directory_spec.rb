@@ -184,27 +184,21 @@ describe "Explore meeting directory", type: :system do
       let!(:online_meeting2) { create(:meeting, :published, :online, component: components.last) }
 
       it "allows filtering by type 'online'" do
-        skip_unless_redesign_enabled
-
         within "#panel-dropdown-menu-type" do
-          click_filter_item "All"
           click_filter_item "Online"
         end
 
-        expect(page).to have_content(online_meeting1.title["en"])
-        expect(page).to have_content(online_meeting2.title["en"])
+        expect(page).to have_content(translated(online_meeting1.title))
+        expect(page).to have_content(translated(online_meeting2.title))
       end
 
       it "allows linking to the filtered view using a short link" do
-        skip_unless_redesign_enabled
-
         within "#panel-dropdown-menu-type" do
-          click_filter_item "All"
           click_filter_item "Online"
         end
 
-        expect(page).to have_content(online_meeting1.title["en"])
-        expect(page).to have_content(online_meeting2.title["en"])
+        expect(page).to have_content(translated(online_meeting1.title))
+        expect(page).to have_content(translated(online_meeting2.title))
 
         filter_params = CGI.parse(URI.parse(page.current_url).query)
         base_url = "http://#{organization.host}:#{Capybara.server_port}"
@@ -222,8 +216,8 @@ describe "Explore meeting directory", type: :system do
         end
 
         visit short_url
-        expect(page).to have_content(online_meeting1.title["en"])
-        expect(page).to have_content(online_meeting2.title["en"])
+        expect(page).to have_content(translated(online_meeting1.title))
+        expect(page).to have_content(translated(online_meeting2.title))
         expect(page).to have_current_path(/^#{directory}/)
 
         current_params = CGI.parse(URI.parse(page.current_url).query)
@@ -235,10 +229,7 @@ describe "Explore meeting directory", type: :system do
       let!(:in_person_meeting) { create(:meeting, :published, :in_person, component: components.last) }
 
       it "allows filtering by type 'in-person'" do
-        skip_unless_redesign_enabled
-
         within "#panel-dropdown-menu-type" do
-          click_filter_item "All"
           click_filter_item "In-person"
         end
 

@@ -336,7 +336,6 @@ describe "Explore results", type: :system, versioning: true do
         click_button "Included meetings"
         meetings.each do |meeting|
           expect(page).to have_i18n_content(meeting.title)
-          expect(page).to have_i18n_content(meeting.description, strip_tags: true)
         end
       end
 

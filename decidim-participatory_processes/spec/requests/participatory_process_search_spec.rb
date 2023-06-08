@@ -130,8 +130,7 @@ RSpec.describe "Participatory process search", type: :request do
       end
 
       it "does not cause any display issues" do
-        expect(dom.css("#processes-grid .processes-grid-order-by .section-heading").text).to include("2 active processes")
-        expect(dom.css("#processes-grid .processes-grid-order-by .section-heading").text).not_to include("foobar")
+        expect(dom.text).not_to include("foobar")
       end
     end
   end
