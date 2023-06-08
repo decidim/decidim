@@ -26,13 +26,13 @@
           <legend><%== t(".legend", link: "https://www.color-meanings.com/triadic-colors/") %></legend>
 
           <label>
-            <%= t("activemodel.attributes.organization.primary_color") %>
+            <%= t("primary_color", scope: "activemodel.attributes.organization") %>
             <div class="color-picker__color color-picker__color_primary"></div>
             <input id="preview-primary" type="hidden">
           </label>
 
           <label>
-            <%= t("activemodel.attributes.organization.secondary_color") %>
+            <%= t("secondary_color", scope: "activemodel.attributes.organization") %>
             <div class="color-picker__color color-picker__color_secondary"></div>
             <input id="preview-secondary" type="hidden">
           </label>
@@ -40,7 +40,7 @@
           <%# show when redesign active %>
           <% if false %>
             <label>
-              <%= t("activemodel.attributes.organization.tertiary_color") %>
+              <%= t("tertiary_color", scope: "activemodel.attributes.organization") %>
               <div class="color-picker__color color-picker__color_tertiary"></div>
               <input id="preview-tertiary" type="hidden">
             </label>
