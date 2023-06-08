@@ -24,10 +24,10 @@ This page provides an overview of the security procedures followed by the Mainta
 
 This release addresses several security issues, including the following:
 
-* CVE-20XX-XXXX
-* CVE-20XX-XXXX
+* CVE-20XXX-XXX
+* CVE-20XXX-XXX
 
-The details regarding the security vulnerability will be published on XXXX 2023, which is two months after the release date of this version. For more information, please refer to our [Security Policy](https://github.com/decidim/decidim/blob/develop/SECURITY.md).
+The details regarding the security vulnerability will be published on XXX 2023, which is two months after the release date of this version. For more information, please refer to our [Security Policy](https://github.com/decidim/decidim/blob/develop/SECURITY.md).
 
 We highly recommend updating to this version as soon as possible to ensure the security of your system.
 ----
@@ -38,7 +38,7 @@ We highly recommend updating to this version as soon as possible to ensure the s
 ----
 Hi everyone! On behalf of the Decidim Maintainers Team, I would like to share the following message:
 
-We want to inform you that there are new releases with some security vulnerabilities fixes, v0.XX.X [0] and v0.XX.X [1]. We strongly recommend that you plan to update your installations accordingly.
+We want to inform you that there are new releases with some security vulnerabilities fixes, v0.XXX.XXX [0] and v0.XXX.XXX [1]. We strongly recommend that you plan to update your installations accordingly.
 
 As per our Security policy [2], we will publish information about these vulnerabilities on XXX.
 
@@ -46,7 +46,7 @@ Regards,
 XXX
 (from the Decidim Maintainers Team)
 
-[0] https://github.com/decidim/decidim/releases/tag/v0.XX.X
-[1] https://github.com/decidim/decidim/releases/tag/v0.XX.X
+[0] https://github.com/decidim/decidim/releases/tag/v0.XXX.XXX
+[1] https://github.com/decidim/decidim/releases/tag/v0.XXX.XXX
 [2] https://github.com/decidim/decidim/blob/develop/SECURITY.md
 ----
