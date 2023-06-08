@@ -97,8 +97,9 @@ document.addEventListener("DOMContentLoaded", () => {
       selector.appendChild(div)
     })
 
-    // previous value set or the first color in the palette
-    setTheme(primary.value || selector.firstChild.dataset.value)
+    // Use the previous primary and secondary colors as the default selection
+    document.documentElement.style.setProperty("--primary", document.querySelector("#organization_primary_color").value);
+    document.documentElement.style.setProperty("--secondary", document.querySelector("#organization_secondary_color").value);
 
     selector.addEventListener("click", ({ target: { dataset: { value }}}) => setTheme(value, Number(primarySaturation.value)));
     primarySaturation.addEventListener("input", ({ target: { value }}) => setTheme(primary.value, Number(value)));
