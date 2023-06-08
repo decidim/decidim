@@ -8,10 +8,10 @@ This page provides an overview of the security procedures followed by the Mainta
 .. the metadata necessary, such as affected releases and severity.
 .. we will not give a step by step explanation on how to exploit the vulnerability.
 . The issue will be handled privately (on a private fork) until a fix is ready.
-. Once the fix is ready, we'll open a PR to the `develop` branch with the fix.
+. Once the fix is ready, we will open a PR to the `develop` branch with the fix.
 . We will do the backports to the https://github.com/decidim/decidim/blob/develop/SECURITY.md[supported versions].
 . We will release a new version with the fix.
-. On the Release Notes of the versions with the fix, we will add a note about the vulnerability with a reference to the CVE or the GitHub Security Advisory ID if there isn't any ID. See below the `Template for the Release Notes`.
+. On the Release Notes of the versions with the fix, we will add a note about the vulnerability with a reference to the CVE or the GitHub Security Advisory ID if there is not any ID. See below the `Template for the Release Notes`.
 . We will send a notification to the Decidim Devs Matrix chat room. We will not mention the vulnerability, just that there is a new version with a security fix. See below the `Template for the Decidim Devs chat room message`
 . We will wait the grace period (2 or 4 months depending on the severity) before disclosing the vulnerability.
 . After the grace period, we will publish the Security Advisory.
