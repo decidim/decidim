@@ -265,7 +265,7 @@ describe "Initiative", type: :system do
             click_link 'Authorize with "Example authorization"'
             fill_in "Document number", with: "123456789X"
             click_button "Send"
-            click_on(class: 'card__highlight')
+            click_on(class: "card__highlight")
             expect(page).to have_content("Create a new initiative")
           end
         end
@@ -355,8 +355,8 @@ describe "Initiative", type: :system do
     before do
       organization.update(rich_text_editor_in_public_views: true)
       click_link "New initiative"
-      find('button.card__highlight').click
-      find('button.card__highlight').click
+      find("button.card__highlight").click
+      find("button.card__highlight").click
     end
 
     it_behaves_like "having a rich text editor", "new_initiative_previous_form", "full"
@@ -392,7 +392,7 @@ describe "Initiative", type: :system do
 
       context "and fill basic data" do
         before do
-          find('button.card__highlight').click
+          find("button.card__highlight").click
         end
 
         it "has a hidden field with the selected initiative type" do
@@ -447,7 +447,7 @@ describe "Initiative", type: :system do
         let!(:initiative) { create(:initiative, organization:) }
 
         before do
-          find('button.card__highlight').click
+          find("button.card__highlight").click
           fill_in "Title", with: translated(initiative.title, locale: :en)
           fill_in "initiative_description", with: translated(initiative.description, locale: :en)
           find_button("Continue").click
@@ -493,7 +493,7 @@ describe "Initiative", type: :system do
 
         context "when there are several initiatives type" do
           before do
-            find('button.card__highlight').click
+            find("button.card__highlight").click
             fill_in "Title", with: translated(initiative.title, locale: :en)
             fill_in "initiative_description", with: translated(initiative.description, locale: :en)
             find_button("Continue").click
@@ -572,7 +572,7 @@ describe "Initiative", type: :system do
         let(:initiative) { build(:initiative, organization:, scoped_type: initiative_type_scope) }
 
         before do
-          find('button.card__highlight').click
+          find("button.card__highlight").click
 
           fill_in "Title", with: translated(initiative.title, locale: :en)
           fill_in "initiative_description", with: translated(initiative.description, locale: :en)
@@ -626,7 +626,7 @@ describe "Initiative", type: :system do
         let(:initiative) { build(:initiative) }
 
         before do
-          find('button.card__highlight').click
+          find("button.card__highlight").click
 
           fill_in "Title", with: translated(initiative.title, locale: :en)
           fill_in "initiative_description", with: translated(initiative.description, locale: :en)
