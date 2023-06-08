@@ -27,7 +27,7 @@ describe "Initiative", type: :system do
   shared_examples "initiatives path redirection" do
     it "redirects to initiatives path" do
       accept_confirm do
-        click_link("Send my initiative")
+        click_link("Send my initiative to technical validation")
       end
 
       expect(page).to have_current_path("/initiatives")
@@ -50,7 +50,7 @@ describe "Initiative", type: :system do
         context "and they do not need to be verified" do
           it "they are taken to the initiative form" do
             click_link "New initiative"
-            expect(page).to have_content("Create a new initiative ")
+            expect(page).to have_content("Create a new initiative")
           end
         end
 
@@ -81,7 +81,7 @@ describe "Initiative", type: :system do
               click_link(text: /Example authorization/)
               fill_in "Document number", with: "123456789X"
               click_button "Send"
-              expect(page).to have_content("What does the initiative consist of?")
+              expect(page).to have_content("Review the content of your initiative.")
             end
           end
         end
@@ -406,7 +406,7 @@ describe "Initiative", type: :system do
 
         it "offers contextual help" do
           within ".callout.secondary" do
-            expect(page).to have_content("What does the initiative consist of? Write down the title and description. We recommend a short and concise title and a description focused on the proposed solution.")
+            expect(page).to have_content("Review the content of your initiative.")
           end
         end
       end
@@ -437,7 +437,7 @@ describe "Initiative", type: :system do
 
         it "offers contextual help" do
           within ".callout.secondary" do
-            expect(page).to have_content("What does the initiative consist of? Write down the title and description. We recommend a short and concise title and a description focused on the proposed solution.")
+            expect(page).to have_content("Review the content of your initiative.")
           end
         end
       end
@@ -615,9 +615,7 @@ describe "Initiative", type: :system do
           end
 
           it "displays an edit link" do
-            within ".actions" do
-              expect(page).to have_link("Edit my initiative")
-            end
+            expect(page).to have_link("Edit my initiative")
           end
         end
 
@@ -627,10 +625,8 @@ describe "Initiative", type: :system do
 
           it "displays a send to technical validation link" do
             expected_message = "You are going to send the initiative for an admin to review it and publish it. Once published you will not be able to edit it. Are you sure?"
-            within ".actions" do
-              expect(page).to have_link("Send my initiative")
-              expect(page).to have_selector "a[data-confirm='#{expected_message}']"
-            end
+            expect(page).to have_link("Send my initiative to technical validation")
+            expect(page).to have_selector "a[data-confirm='#{expected_message}']"
           end
 
           it_behaves_like "initiatives path redirection"
@@ -644,10 +640,8 @@ describe "Initiative", type: :system do
           expected_message = "You are going to send the initiative for an admin to review it and publish it. Once published you will not be able to edit it. Are you sure?"
 
           it "displays a send to technical validation link" do
-            within ".actions" do
-              expect(page).to have_link("Send my initiative")
-              expect(page).to have_selector "a[data-confirm='#{expected_message}']"
-            end
+            expect(page).to have_link("Send my initiative to technical validation")
+            expect(page).to have_selector "a[data-confirm='#{expected_message}']"
           end
 
           it_behaves_like "initiatives path redirection"
