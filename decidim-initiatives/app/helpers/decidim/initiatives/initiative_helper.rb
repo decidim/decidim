@@ -107,7 +107,7 @@ module Decidim
             html_options["data-dialog-open"] = "not-authorized-modal"
           else
             html_options["data-dialog-open"] = "authorizationModal"
-            html_options["data-dialog-open-url"] = authorization_create_modal_initiative_path(type)
+            html_options["data-dialog-remote-url"] = authorization_create_modal_initiative_path(type)
           end
         else
           html_options["data-dialog-open"] = "loginModal"
