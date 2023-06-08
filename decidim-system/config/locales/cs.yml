@@ -43,9 +43,9 @@ cs:
       admins:
         create:
           error: Při vytváření nového administrátora došlo k chybě.
-          success: Správce byl úspěšně vytvořen
+          success: Správce byl úspěšně vytvořen.
         destroy:
-          success: Správce úspěšně smazán
+          success: Správce byl úspěšně smazán.
         edit:
           title: Upravit admin
           update: Aktualizace
@@ -56,13 +56,14 @@ cs:
           title: Nový admin
         update:
           error: Při aktualizaci tohoto administrátora došlo k chybě.
-          success: Správce byl úspěšně aktualizován
+          success: Správce byl úspěšně aktualizován.
       dashboard:
         show:
           current_organizations: Aktuální organizace
       default_pages:
         placeholders:
           content: Přidejte smysluplný obsah na statickou stránku %{page} na ovládacím panelu administrátora.
+          summary: Přidejte smysluplný obsah na statickou stránku %{page} na ovládacím panelu administrátora.
           title: Výchozí název pro %{page}
       menu:
         admins: Správci
@@ -144,8 +145,8 @@ cs:
         index:
           title: Organizace
         new:
-          reference_prefix_hint: Předpona reference se používá k jednoznačné identifikaci zdrojů ve všech organizacích
-          secondary_hosts_hint: Zadejte každý z nich do nového řádku
+          reference_prefix_hint: Předpona reference se používá k jednoznačné identifikaci zdrojů ve všech organizacích.
+          secondary_hosts_hint: Každou vložte do nového řádku.
           title: Nová organizace
         omniauth_settings:
           decidim:
@@ -169,7 +170,7 @@ cs:
           fieldsets:
             sender: Odesilatel
           instructions:
-            from_label: 'Odesílatel e-mailu bude: "Název vaší organizace <your-organization@example.org>". Ponechte prázdné pro použití ''E-mailová adresa'' jako popisku'
+            from_label: 'Odesílatel e-mailu bude: "Název vaší organizace <your-organization@example.org>". Ponechte prázdné pro použití ''E-mailové adresy'' jako popisku.'
           placeholder:
             from_email: vaše-organizace@example.org
             from_label: jméno vaší organizace
@@ -179,7 +180,7 @@ cs:
         users_registration_mode:
           disabled: Přístup lze provádět pouze s externími účty
           enabled: Umožnit uživatelům registraci a přihlášení
-          existing: Nedovolte, aby se uživatelé registrovali, ale umožněte stávajícím uživatelům přihlášení
+          existing: Neumožnit účastníkům registraci, ale umožnit stávajícím účastníkům přihlášení
       shared:
         notices:
           no_organization_warning_html: Abyste mohli začít, musíte vytvořit organizaci. Před pokračováním se ujistěte, že jste si přečetli %{guide}.

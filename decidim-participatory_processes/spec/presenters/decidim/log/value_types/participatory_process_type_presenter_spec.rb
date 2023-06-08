@@ -26,7 +26,7 @@ describe Decidim::Log::ValueTypes::ParticipatoryProcessTypePresenter, type: :hel
       let(:value) { participatory_process_type.id + 1 }
 
       it "shows a string explaining the problem" do
-        expect(subject.present).to eq "The process type was not found on the database (ID: #{value})"
+        expect(subject.present).to eq "The process type was not found on the database (ID: #{value})."
       end
     end
   end

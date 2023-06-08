@@ -52,11 +52,6 @@ ru:
           timeline_entry:
             name: Запись на линии времени
         results:
-          create:
-            invalid: При попытке добавить этот итог произошла ошибка
-            success: Итог успешно создан
-          destroy:
-            success: Итог успешно удален
           edit:
             title: Редактировать итог
             update: Обновить итог
@@ -65,18 +60,10 @@ ru:
           new:
             create: Создать итог
             title: Добавить итог
-          update:
-            invalid: При попытке обновить этот итог произошла ошибка
-            success: Итог успешно обновлен
         shared:
           subnav:
             statuses: Состояния
         statuses:
-          create:
-            invalid: При попытке создать это состояние произошла ошибка
-            success: Состояние успешно создано
-          destroy:
-            success: Состояние успешно удалено
           edit:
             title: Редактировать состояние
             update: Обновить состояние
@@ -85,15 +72,7 @@ ru:
           new:
             create: Создать состояние
             title: Добавить состояние
-          update:
-            invalid: При попытке обновить это состояние произошла ошибка
-            success: Состояние успешно обновлено
         timeline_entries:
-          create:
-            invalid: При попытке создать эту запись произошла ошибка
-            success: Запись успешно создана
-          destroy:
-            success: Запись успешно удалена
           edit:
             title: Редактировать запись
             update: Обновить запись
@@ -102,9 +81,6 @@ ru:
           new:
             create: Создать запись
             title: Создать запись
-          update:
-            invalid: При попытке обновить эту запись произошла ошибка
-            success: Запись успешно обновлена
       admin_log:
         result:
           create: "%{user_name} создал итог %{resource_name} в %{space_name}"

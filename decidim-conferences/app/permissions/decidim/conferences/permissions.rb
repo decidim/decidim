@@ -87,7 +87,7 @@ module Decidim
         allow!
       end
 
-      # It's an admin user if it's an organization admin or is a space admin
+      # It is an admin user if it is an organization admin or is a space admin
       # for the current `conference`.
       def admin_user?
         user.admin? || (conference ? can_manage_conference?(role: :admin) : has_manageable_conferences?)

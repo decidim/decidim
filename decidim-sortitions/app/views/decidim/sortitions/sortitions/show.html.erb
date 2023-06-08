@@ -13,13 +13,8 @@ edit_link(
 )
 %>
 
-<% content_for :js_content do %>
-  <%= javascript_pack_tag "decidim_sortitions" %>
-<% end %>
-
-<% content_for :css_content do %>
-  <%= stylesheet_pack_tag "decidim_sortitions" %>
-<% end %>
+<%= append_javascript_pack_tag "decidim_sortitions" %>
+<%= append_stylesheet_pack_tag "decidim_sortitions" %>
 
 <%= render layout: "layouts/decidim/shared/layout_item", locals: { back_path: :sortitions, commentable: sortition } do %>
   <% announcement_body = capture do %>

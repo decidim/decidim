@@ -1,12 +1,7 @@
 <% add_decidim_page_title(proposal_wizard_step_title(action_name)) %>
 
-<% content_for :css_content do %>
-  <%= stylesheet_pack_tag "decidim_proposals", media: "all" %>
-<% end %>
-
-<% content_for :js_content do %>
-  <%= javascript_pack_tag "decidim_proposals" %>
-<% end %>
+<%= append_stylesheet_pack_tag "decidim_proposals", media: "all" %>
+<%= append_javascript_pack_tag "decidim_proposals" %>
 
 <%= render layout: "layouts/decidim/shared/layout_center" do %>
 

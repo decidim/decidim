@@ -28,12 +28,9 @@ ro:
       comments:
         create:
           error: A apărut o problemă la crearea comentariului.
-        delete:
-          error: Comentariul nu a putut fi șters.
         update:
           error: A apărut o eroare la actualizarea comentariului.
       comments_count: Număr de comentarii
-      comments_title: Comentarii
       last_activity:
         new_comment_at_html: "<span>Comentariu nou la %{link}</span>"
       view: Vizualizează
@@ -47,7 +44,6 @@ ro:
           body:
             label: Comentariu
             placeholder: Ce părere ai despre asta?
-          form_error: Textul este obligatoriu și nu poate fi mai lung de %{length} caractere.
           submit: Trimite
           user_group_id:
             label: Comentează în calitate de
@@ -82,7 +78,6 @@ ro:
           description: Este acest conținut neadecvat?
           details: Comentarii suplimentare
           reasons:
-            does_not_belong: Conține activitate ilegală, amenințări cu sinuciderea, informații personale sau altceva ce consideri că nu aparține de %{organization_name}.
             offensive: Conține rasism, sexism, insulte, atacuri personale, amenințări cu moartea, cereri de sinucidere sau orice formă de discurs de incitare la ură.
             spam: Conține clickbait, publicitate, escrocherii sau script rulat de roboți.
           title: Raportează conținut nepotrivit
@@ -168,6 +163,3 @@ ro:
         description: Numărul de comentarii generate de participanți
         object: comentarii
         title: Comentarii
-  errors:
-    messages:
-      cannot_have_comments: nu poate fi comentat

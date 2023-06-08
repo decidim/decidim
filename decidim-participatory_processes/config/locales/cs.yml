@@ -189,11 +189,11 @@ cs:
           title: Obsah stránky
       participatory_process_group_landing_page_content_blocks:
         create:
-          error: Při pokusu o vytvoření tohoto bloku obsahu se vyskytl problém
-          success: Blok obsahu byl úspěšně vytvořen
+          error: Při pokusu o vytvoření tohoto obsahu došlo k chybě.
+          success: Blok obsahu byl úspěšně vytvořen.
         destroy:
-          error: Při pokusu o odstranění tohoto bloku obsahu došlo k chybě
-          success: Blok obsahu byl úspěšně odstraněn
+          error: Při pokusu o odstranění tohoto obsahu došlo k chybě.
+          success: Blok obsahu byl úspěšně odstraněn.
         edit:
           update: Aktualizovat
       participatory_process_groups:
@@ -235,8 +235,8 @@ cs:
         default_title: Úvod
         destroy:
           error:
-            active_step: Aktivní krok nelze odstranit.
-            last_step: Poslední krok procesu nelze odstranit.
+            active_step: Nelze odstranit aktivní fázi.
+            last_step: Nelze odstranit poslední fázi procesu.
           success: Úspěšný krok procesu byl úspěšně smazán.
         edit:
           title: Úprava kroku procesu participace
@@ -369,7 +369,7 @@ cs:
     log:
       value_types:
         participatory_process_type_presenter:
-          not_found: 'Typ procesu nebyl v databázi nalezen (ID: %{id})'
+          not_found: 'Typ procesu nebyl v databázi nalezen (ID: %{id}).'
     menu:
       processes: Procesy
     metrics:
@@ -497,8 +497,8 @@ cs:
               many: "%{count} nadcházejících procesů"
               other: "%{count} nadcházejících procesů"
           explanations:
-            no_active: Žádné aktivní procesy
-            no_active_nor_upcoming: Žádné aktivní ani nadcházející procesy
+            no_active: Žádné aktivní procesy.
+            no_active_nor_upcoming: Žádné aktivní ani nadcházející procesy.
             no_active_nor_upcoming_callout: Neexistují žádné aktivní ani nadcházející procesy. Zde je seznam minulých.
           filter_by: Zobrazit
           names:

@@ -31,23 +31,16 @@ ar:
           post:
             name: بريد
         posts:
-          create:
-            invalid: حدثت مشكلة أثناء إنشاء هذا المنشور
-            success: تم النشر بنجاح
-          destroy:
-            success: تم حذف المشاركة بنجاح
           edit:
             save: تحديث
             title: تعديل المنشور
           index:
-            not_published_yet: لم يتم النشر بعد
             title: المشاركات
           new:
             create: إنشاء
             title: إنشاء وظيفة
           update:
             invalid: حدثت مشكلة في حفظ المشاركة.
-            success: تم حفظ النشر بنجاح
       admin_log:
         post:
           create: "%{user_name} أنشأ منشور المدونة %{resource_name} في %{space_name}"

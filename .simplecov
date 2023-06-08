@@ -2,7 +2,7 @@
 
 if ENV["SIMPLECOV"]
   SimpleCov.start do
-    # `ENGINE_ROOT` holds the name of the engine we're testing.
+    # `ENGINE_ROOT` holds the name of the engine we are testing.
     # This brings us to the main Decidim folder.
     root File.expand_path("..", ENV.fetch("ENGINE_ROOT", nil))
 

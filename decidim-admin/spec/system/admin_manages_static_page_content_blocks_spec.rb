@@ -5,7 +5,7 @@ require "spec_helper"
 describe "Admin manages static page content blocks", type: :system do
   let(:organization) { create(:organization) }
   let(:user) { create(:user, :admin, :confirmed, organization:) }
-  let!(:tos_page) { Decidim::StaticPage.find_by(slug: "terms-and-conditions", organization:) }
+  let!(:tos_page) { Decidim::StaticPage.find_by(slug: "terms-of-service", organization:) }
 
   before do
     switch_to_host(organization.host)

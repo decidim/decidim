@@ -50,6 +50,6 @@ To better understand this feature, the final idea is to have the three moments o
 * *During the meeting*, notes can be taken on a collaborative way
 * *After the meeting*, you upload the notes, minutes, metadata and/or pictures to have a record on what was discussed
 
-Pad creation can be enabled by administrators in each `Meetings` component. When enabled, the public view of a Meeting renders an iframe which encapsulates the integrated Pad. This Pad is automatically created before rendering, so there's nothing the user or the administrators has to do to see the Pad.
+Pad creation can be enabled by administrators in each `Meetings` component. When enabled, the public view of a Meeting renders an iframe which encapsulates the integrated Pad. This Pad is automatically created before rendering, so there is nothing the user or the administrators has to do to see the Pad.
 
 The pad iframe is only accessible for 24 hours before and 72 hours after the meeting. After the meeting only the read only URL for this pad is shown.

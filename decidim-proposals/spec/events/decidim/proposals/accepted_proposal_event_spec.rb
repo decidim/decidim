@@ -12,7 +12,7 @@ describe Decidim::Proposals::AcceptedProposalEvent do
 
   describe "email_subject" do
     it "is generated correctly" do
-      expect(subject.email_subject).to eq("A proposal you're following has been accepted")
+      expect(subject.email_subject).to eq("A proposal you are following has been accepted")
     end
   end
 

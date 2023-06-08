@@ -15,12 +15,7 @@ edit_link(
 )
 %>
 
-<% content_for :css_content do %>
-  <%= stylesheet_pack_tag "decidim_meetings", media: "all" %>
-<% end %>
-
-<% content_for :js_content do %>
-  <%= javascript_pack_tag "decidim_meetings" %>
-<% end %>
+<%= append_stylesheet_pack_tag "decidim_meetings", media: "all" %>
+<%= append_javascript_pack_tag "decidim_meetings" %>
 
 <%= render partial: "meeting", locals: { meeting: meeting } %>

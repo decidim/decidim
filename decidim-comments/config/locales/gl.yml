@@ -25,12 +25,9 @@ gl:
       comments:
         create:
           error: Produciuse un problema ao crear o comentario.
-        delete:
-          error: Non foi posíbel eliminar o comentario.
         update:
           error: Produciuse un problema ao actualizar o comentario.
       comments_count: Número de comentarios
-      comments_title: Comentarios
       last_activity:
         new_comment_at_html: "<span>Novo comentario en %{link}</span>"
       view: Ver
@@ -44,7 +41,6 @@ gl:
           body:
             label: Comentario
             placeholder: Que vos parece?
-          form_error: Requírese o texto e non pode ter máis de %{length} caracteres.
           submit: Enviar
           user_group_id:
             label: Comentar como
@@ -79,7 +75,6 @@ gl:
           description: Este contido é inapropiado?
           details: Comentarios adicionais
           reasons:
-            does_not_belong: Contén actividades ilegais, ameazas de suicidio, información persoal ou outra cousa que pensas que non pertence a %{organization_name}.
             offensive: Contén racismo, sexismo, abuso, ataques persoais, ameazas de morte, solicitudes de suicidio ou calquera tipo de discurso de odio.
             spam: Contén clic, publicidade, fraudes ou bots de script.
           title: Denunciar contido inapropiado
@@ -147,6 +142,3 @@ gl:
         description: Número de comentarios xerados polos usuarios
         object: comentarios
         title: Comentarios
-  errors:
-    messages:
-      cannot_have_comments: Non podo ter comentarios

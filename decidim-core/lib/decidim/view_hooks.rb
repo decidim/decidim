@@ -33,7 +33,7 @@ module Decidim
 
     # Initializes the class.
     #
-    # hooks - a Hash to store the different view hooks. By default, it's a Hash with
+    # hooks - a Hash to store the different view hooks. By default, it is a Hash with
     #   Arrays as default values.
     def initialize(hooks = Hash.new { |h, k| h[k] = [] })
       @hooks = hooks

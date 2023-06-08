@@ -46,8 +46,6 @@ module Decidim
     attr_reader :form, :verified_email
 
     def create_or_find_user
-      generated_password = SecureRandom.hex
-
       @user = User.find_or_initialize_by(
         email: verified_email,
         organization:
@@ -59,6 +57,8 @@ module Decidim
         # to be marked confirmed.
         @user.skip_confirmation! if !@user.confirmed? && @user.email == verified_email
       else
+        generated_password = SecureRandom.hex
+
         @user.email = (verified_email || form.email)
         @user.name = form.name
         @user.nickname = form.normalized_nickname

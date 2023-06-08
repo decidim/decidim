@@ -18,7 +18,7 @@ If you want to integrate Decidim to some other map service provider, read how to
 
 == Configuring maps and geocoding
 
-After generating your app, you'll see that your `config/initializers/decidim.rb` file includes commented code about map services:
+After generating your app, you will see that your `config/initializers/decidim.rb` file includes commented code about map services:
 
 [source,ruby]
 ----
@@ -227,12 +227,12 @@ If you want to integrate the map functionality with a new service provider, take
 
 == Enabling maps and geocoding
 
-Once the maps functionality is configured, you'll need to activate it.
+Once the maps functionality is configured, you will need to activate it.
 As of April 2017, only proposals and meetings have maps and geocoding.
 
 === Proposals
 
-In order to enable geocoding for proposals you'll need to edit the component configuration and turn on "Geocoding enabled" configuration.
+In order to enable geocoding for proposals you will need to edit the component configuration and turn on "Geocoding enabled" configuration.
 This works for that specific component, so you can have geocoding enabled for proposals in a participatory process, and disabled for another proposals component in the same participatory process.
 
 === Meetings

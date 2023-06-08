@@ -27,7 +27,7 @@ module Decidim
     #
     # metric_name - a symbol representing the name of the metric
     #
-    # Returns nothing. Raises an error if there's already a metric
+    # Returns nothing. Raises an error if there is already a metric
     # registered with that metric name.
     def register(metric_name)
       metric_name = metric_name.to_s
@@ -36,7 +36,7 @@ module Decidim
       if metric_exists
         raise(
           MetricAlreadyRegistered,
-          "There's a metric already registered with the name `:#{metric_name}`, must be unique"
+          "There is a metric already registered with the name `:#{metric_name}`, must be unique"
         )
       end
 

@@ -204,7 +204,6 @@ pl:
           email_intro: 'Możesz teraz tworzyć nowe debaty w %{participatory_space_title}! Zacznij aktywnie działać na tej stronie:'
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{participatory_space_title}. Możesz przestać otrzymywać powiadomienia po kliknięciu w poprzedni link.
           email_subject: Debaty są teraz dostępne w %{participatory_space_title}
-          notification_title: Możesz teraz tworzyć <a href="%{resource_path}">nowe debaty</a> w <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         debate_closed:
           affected_user:
             email_intro: 'Debata "%{resource_title}" została zamknięta. Możesz przeczytać wnioski na jej stronie:'
@@ -227,7 +226,6 @@ pl:
           name: Debaty
           next_level_in: Weź udział w %{score} kolejnych debatach, aby awansować na kolejny poziom!
           unearned_another: Ten użytkownik nie uczestniczył jeszcze w żadnej debacie.
-          unearned_own: Nie uczestniczyłeś/łaś jeszcze w żadnych debatach.
     metrics:
       debates:
         description: Liczba utworzonych debat
