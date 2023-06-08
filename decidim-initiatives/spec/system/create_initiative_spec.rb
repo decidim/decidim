@@ -265,7 +265,7 @@ describe "Initiative", type: :system do
             click_link 'Authorize with "Example authorization"'
             fill_in "Document number", with: "123456789X"
             click_button "Send"
-            click_on(class: 'card__highlight')
+            click_on(class: "card__highlight")
             expect(page).to have_content("Create a new initiative")
           end
         end
