@@ -4,7 +4,7 @@ Decidim modules are included to Decidim apps as gems. Since the introduction of 
 
 == About Webpacker
 
-It's recommended to understand how Webpacker works. More information:
+It is recommended to understand how Webpacker works. More information:
 
 * https://github.com/rails/webpacker#usage
 * https://edgeguides.rubyonrails.org/webpacker.html
@@ -17,7 +17,7 @@ Once created, you should update the instructions to install the module and add t
 
 == Folder migration
 
-It's recommend to migrate to the new folders structure:
+It is recommend to migrate to the new folders structure:
 
 ```
 app/packs:

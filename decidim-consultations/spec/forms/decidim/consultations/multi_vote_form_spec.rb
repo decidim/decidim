@@ -56,7 +56,7 @@ module Decidim
 
         it "Returns a message error" do
           subject.validate
-          expect(subject.errors[:responses]).to include("Number of votes is invalid")
+          expect(subject.errors[:responses]).to include("Number of votes is invalid.")
         end
       end
 
@@ -67,7 +67,7 @@ module Decidim
 
         it "Returns a message error" do
           subject.validate
-          expect(subject.errors[:responses]).to include("Number of votes is invalid")
+          expect(subject.errors[:responses]).to include("Number of votes is invalid.")
         end
       end
     end

@@ -13,19 +13,13 @@ eu:
       templates:
         apply:
           error: Arazo bat izan da txantiloi hau aplikatzean.
-          success: Txantiloia zuzen aplikatu da
         copy:
           error: Arazo bat izan da txantiloi hau kopiatzean.
-          success: Txantiloia zuzen kopiatu da
         create:
           error: Arazo bat izan da txantiloi hau sortzean.
-          success: Txantiloia zuzen sortu da
-        destroy:
-          success: Txantiloia zuzen ezabatu da
         empty: Oraindik ez dago txantiloirik.
         update:
           error: Arazo bat izan da txantiloi hau eguneratzean.
-          success: Txantiloia zuzen eguneratu da
       titles:
         template_types:
           questionnaires: Galdeketa-txantiloiak
@@ -59,7 +53,6 @@ eu:
             skip_template: Saltatu
           edit:
             edit: Editatu
-            empty: Oraindik ez dago galderarik
             questionnaire: Galdetegia
           form:
             save: Gorde

@@ -28,22 +28,22 @@ fi-pl:
             name: Artikkeli
         posts:
           create:
-            invalid: Tämän artikkelin luomisessa esiintyi ongelma
-            success: Artikkeli luotu onnistuneesti
+            invalid: Artikkelin luonti epäonnistui.
+            success: Artikkelin luonti onnistui.
           destroy:
-            success: Artikkeli poistettu onnistuneesti
+            success: Artikkelin poisto onnistui.
           edit:
             save: Päivitä
             title: Muokkaa artikkelia
           index:
-            not_published_yet: Ei vielä julkaistu
+            not_published_yet: Ei vielä julkaistu.
             title: Artikkelit
           new:
             create: Luo
             title: Luo artikkeli
           update:
             invalid: Artikkelin tallennuksessa tapahtui virheitä.
-            success: Artikkeli tallennettu onnistuneesti
+            success: Artikkelin tallennus onnistui.
       admin_log:
         post:
           create: "%{user_name} loi blogikirjoituksen %{resource_name} tilassa %{space_name}"

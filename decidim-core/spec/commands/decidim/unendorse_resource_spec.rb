@@ -55,7 +55,7 @@ module Decidim
         expect(resource.endorsements_count).to be_zero
       end
 
-      context "when it's from other user" do
+      context "when it is from other user" do
         let(:other_user) { create(:user, organization: endorsement.resource.organization) }
         let(:command) { described_class.new(endorsement.resource, other_user, endorsement.user_group) }
 

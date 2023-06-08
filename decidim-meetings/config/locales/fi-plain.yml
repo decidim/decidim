@@ -55,16 +55,16 @@ fi-pl:
         meeting:
           attributes:
             iframe_embed_type:
-              not_embeddable: Tätä URL-osoitetta ei voi upottaa tapaamisen sivulle tai reaaliaikaisen tapahtuman sivulle
+              not_embeddable: Tätä URL-osoitetta ei voi upottaa tapaamisen sivulle tai reaaliaikaisen tapahtuman sivulle.
         meeting_agenda:
           attributes:
             base:
-              too_many_minutes: Kohteiden kesto ylittää tapahtuman keston %{count} minuutilla
-              too_many_minutes_child: Alakohdan kesto ylittää esityslistan kohdan "%{parent_title}" keston %{count} minuutilla
+              too_many_minutes: Aiheiden kesto ylittää kokouksen keston %{count} minuutilla.
+              too_many_minutes_child: Alakohdan kesto ylittää esityslistan kohdan "%{parent_title}" keston %{count} minuutilla.
         meeting_registration_invite:
           attributes:
             email:
-              already_invited: Tämä sähköposti on jo kutsuttu
+              already_invited: Tämä sähköpostiosoite on jo kutsuttu.
     models:
       decidim/meetings/close_meeting_event: Tapahtuma suljettu
       decidim/meetings/create_meeting_event: Tapahtuma
@@ -205,8 +205,8 @@ fi-pl:
           description_own: Olet osallistunut %{score} tapahtumaan.
           name: Tapahtumiin osallistuminen
           next_level_in: Osallistu %{score} uuteen tapahtumaan seuraavan tason saavuttamiseksi!
-          unearned_another: Tämä käyttäjä ei ole vielä osallistunut yhteenkään tapahtumaan.
-          unearned_own: Et ole vielä osallistunut yhteenkään tapahtumaan.
+          unearned_another: Tämä käyttäjä ei ole vielä osallistunut yhteenkään tapaamiseen.
+          unearned_own: Et ole vielä osallistunut yhteenkään tapaamiseen.
     meetings:
       actions:
         agenda: Esityslista
@@ -240,8 +240,8 @@ fi-pl:
             remove: Poista
             up: Ylös
           create:
-            invalid: Tämän esityslistan luomisessa esiintyi ongelma
-            success: Esityslista luotiin onnistuneesti
+            invalid: Esityslistan luominen epäonnistui.
+            success: Esityslistan luonti onnistui.
           edit:
             title: Muokkaa esityslistaa
             update: Päivitä
@@ -254,8 +254,8 @@ fi-pl:
             create: Luo
             title: Uusi esityslista
           update:
-            invalid: Tämän esityslistan päivityksessä esiintyi ongelma
-            success: Esityslista päivitettiin onnistuneesti
+            invalid: Esityslistan päivittäminen epäonnistui.
+            success: Esityslistan päivitys onnistui.
         exports:
           answers: Vastaukset
           meeting_comments: Kommentit
@@ -292,28 +292,25 @@ fi-pl:
           edit:
             close: Sulje
             title: Sulje tapahtuma
-        meeting_copies:
-          form:
-            select_a_meeting_type: Valitse tapaamisen tyyppi
         meetings:
           close:
-            invalid: Tapahtuman sulkemisessa tapahtui virhe
-            success: Tapahtuma onnistuneesti suljettu
+            invalid: Tapaamisen sulkeminen epäonnistui.
+            success: Tapaamisen sulkeminen onnistui.
           create:
-            invalid: Tapahtuman luonnissa esiintyi ongelma
+            invalid: Tapaamisen luonti epäonnistui.
             success: Tapaamisen luonti onnistui. Huomaa, että tapaamista ei ole vielä julkaistu, sinun pitää julkaista se manuaalisesti.
           destroy:
             invalid:
               proposals_count:
-                one: Tapahtumaa ei voi poistaa, koska siihen on liitetty %{count} ehdotus
-                other: Tapahtumaa ei voi poistaa, koska siihen on liitetty %{count} ehdotusta
+                one: Tapaamista ei voi poistaa, koska siihen on liitetty %{count} ehdotus.
+                other: Tapaamista ei voi poistaa, koska siihen on liitetty %{count} ehdotusta.
             success: Tapahtuma onnistuneesti luotu
           edit:
             title: Muokkaa tapaamista
             update: Päivitä
           form:
             address_help: 'Osoite: käytetään sijainnin löytämiseksi geokoodaukseen'
-            disclaimer: 'Vastuuvapauslauseke: Käyttämällä ulkoista ilmoittautumisjärjestelmää olet tietoinen siitä, että organisaatio %{organization} ei ole vastuussa tiedoista, jotka käyttäjät ovat antaneet ulkoiselle palvelulle.'
+            disclaimer: 'Vastuuvapauslauseke: Käyttämällä ulkoista ilmoittautumisjärjestelmää olet tietoinen siitä, että palvelu %{organization} ei ole vastuussa tiedoista, jotka käyttäjät ovat antaneet ulkoiselle palvelulle.'
             location_help: 'Sijainti: viesti osallistujille tapaamispaikan sijainnin löytämiseksi'
             location_hints_help: 'Vihjeet sijainnille: sijainnin lisätieto. Esimerkiksi rakennuksen kerros fyysisissä tapaamisissa tai tapaamisen salasana rajatussa verkkotapaamisessa.'
             online_meeting_url_help: 'Linkki: salli osallistujien yhdistäminen tapaamiseen suoraan'
@@ -328,8 +325,8 @@ fi-pl:
             create: Luo
             title: Luo tapahtuma
           publish:
-            invalid: Tapaamisen julkaiseminen epäonnistui
-            success: Tapaamisen julkaiseminen onnistui
+            invalid: Tapaamisen julkaiseminen epäonnistui.
+            success: Tapaamisen julkaiseminen onnistui.
           service:
             description: Kuvaus
             down: Alas
@@ -341,17 +338,17 @@ fi-pl:
             add_service: Lisää palvelu
             services: Palvelut
           unpublish:
-            invalid: Tapaamisen julkaisemisen peruminen epäonnistui
-            success: Tapaamisen julkaisemisen peruminen onnistui
+            invalid: Tapaamisen julkaisemisen peruminen epäonnistui.
+            success: Tapaamisen julkaisemisen peruminen onnistui.
           update:
-            invalid: Tämän tapahtuman päivittämisessa esiintyi ongelma
-            success: Tapahtuma luotiin onnistuneesti
+            invalid: Tapaamisen päivitys epäonnistui.
+            success: Tapaamisen päivitys onnistui.
         meetings_poll:
           form:
             title: Muokkaa mielipidetiedustelun kyselylomaketta kohteelle %{questionnaire_for}
           update:
-            invalid: Tapaamisen mielipidetiedustelun päivittäminen epäonnistui
-            success: Tapaamisen mielipidetiedustelun päivittäminen onnistui
+            invalid: Tapaamisen mielipidetiedustelun päivittäminen epäonnistui.
+            success: Tapaamisen mielipidetiedustelun päivittäminen onnistui.
         models:
           meeting:
             name: Tapahtuma
@@ -369,7 +366,7 @@ fi-pl:
             registrations_count:
               one: Tapahtumaan on %{count} ilmoittautuminen.
               other: Tapahtumaan on %{count} ilmoittautumista.
-            reserved_slots_help: Jätä arvoksi 0, jos sinulla ei ole varattuja paikkoja
+            reserved_slots_help: Jätä arvoksi 0, jos sinulla ei ole varattuja paikkoja.
             reserved_slots_less_than: Täytyy olla vähemmän tai yhtä paljon kuin %{count}
             title: Rekisteröitymiset
           update:
@@ -453,7 +450,7 @@ fi-pl:
           confirmation:
             subject: Tapahtumailmoittautumisesi on vahvistettu
       meeting:
-        not_allowed: Sinulla ei ole lupaa tarkastella tätä tapahtumaa
+        not_allowed: Sinulla ei ole lupaa tarkastella tätä tapaamista.
       meeting_closes:
         edit:
           back: Takaisin
@@ -511,7 +508,7 @@ fi-pl:
           address_help: 'Osoite: käytetään karttapisteen etsimiseen geokoodauksen avulla'
           available_slots_help: Määritä tähän kenttään arvo 0, jos tapahtuman paikkamäärää ei ole rajoitettu
           create_as: Luo tapahtuma käyttäjänä
-          disclaimer: 'Vastuuvapauslauseke: Käyttämällä ulkoista ilmoittautumisjärjestelmää olet tietoinen siitä, että organisaatio %{organization} ei ole vastuussa tiedoista, jotka käyttäjät ovat antaneet ulkoiselle palvelulle.'
+          disclaimer: 'Vastuuvapauslauseke: Käyttämällä ulkoista ilmoittautumisjärjestelmää olet tietoinen siitä, että palvelu %{organization} ei ole vastuussa tiedoista, jotka käyttäjät ovat antaneet ulkoiselle palvelulle.'
           location_help: 'Paikka: kuvaus tapahtumapaikan tarkemmasta sijainnista osallistujille'
           location_hints_help: 'Vihjeet sijainnille: sijainnin lisätieto. Esimerkiksi rakennuksen kerros fyysisissä tapaamisissa tai tapaamisen salasana rajatussa verkkotapaamisessa.'
           online_meeting_url_help: 'Linkki: salli osallistujien yhdistäminen tapaamiseen suoraan'
@@ -530,7 +527,7 @@ fi-pl:
         meeting_minutes:
           related_information: Liittyviä tietoja
         meetings:
-          no_meetings_warning: Yksikään tapahtuma ei vastaa hakukriteerejäsi tai yhtään tapahtumaa ei ole suunniteltu.
+          no_meetings_warning: Yksikään tapaaminen ei vastaa hakukriteerejäsi tai yhtään tapaamista ei ole suunniteltu.
           upcoming_meetings_warning: Tällä hetkellä ei ole suuniteltuja tapahtumia, mutta täältä löydät kaikki aikaisemmat tapahtumat.
         new:
           back: Takaisin
@@ -633,7 +630,7 @@ fi-pl:
       registrations:
         create:
           invalid: Tapahtumaan liittymisessä tapahtui virhe.
-          success: Olet liittynyt tapahtumaan onnistuneesti.
+          success: Liittymisesi tapaamiseen onnistui. Koska olet ilmoittautunut tähän tapaamiseen, sinulle ilmoitetaan, kun tapaamista päivitetään.
         decline_invitation:
           invalid: Kutsun hyläämisessä esiintyi ongelma.
           success: Olet hylännyt kutsun onnistuneesti.
@@ -651,8 +648,8 @@ fi-pl:
       versions:
         back_to_resource: Takaisin tapahtumaan
       withdraw:
-        error: Tapahtuman peruuttaminen epäonnistui
-        success: Tapahtuman peruuttaminen onnistui
+        error: Tapaamisen peruuttaminen epäonnistui.
+        success: Tapaaminen on peruttu.
     metrics:
       meetings:
         description: Tapahtumien määrä

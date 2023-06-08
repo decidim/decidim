@@ -22,8 +22,6 @@ de:
             choices:
               missing: sind nicht vollständig
               too_many: sind zu viele
-        questionnaire:
-          request_invalid: Bei der Bearbeitung der Anfrage ist ein Fehler aufgetreten. Bitte versuchen Sie es nochmal
   decidim:
     forms:
       admin:
@@ -124,9 +122,6 @@ de:
       admin_log:
         questionnaire:
           update: "%{user_name} hat die Umfrage %{resource_name} aktualisiert"
-      errors:
-        answer:
-          body: Körper kann nicht leer sein
       images:
         dimensions: "%{width} x %{height} px"
         processors:

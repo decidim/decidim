@@ -8,7 +8,7 @@ module Decidim
   # * Pages of topics: To appear in the footer both the topic and the page must
   #   be marked to appear in footer. The topic will be shown as the title and
   #   all the pages marked will appear below
-  # * Pages without topic. The pages marked to appear in footer which don't
+  # * Pages without topic. The pages marked to appear in footer which do not
   #   belong to a topic will be shown as a list
   #
   # Example:

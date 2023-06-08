@@ -14,19 +14,19 @@ en:
       templates:
         apply:
           error: There was a problem applying this template.
-          success: Template applied successfully
+          success: Template applied successfully.
         copy:
           error: There was a problem copying this template.
-          success: Template copied successfully
+          success: Template copied successfully.
         create:
           error: There was a problem creating this template.
-          success: Template created successfully
+          success: Template created successfully.
         destroy:
-          success: Template deleted successfully
+          success: Template deleted successfully.
         empty: There are no templates yet.
         update:
           error: There was a problem updating this template.
-          success: Template updated successfully
+          success: Template updated successfully.
       titles:
         template_types:
           questionnaires: Questionnaire templates
@@ -60,7 +60,7 @@ en:
             skip_template: Skip
           edit:
             edit: Edit
-            empty: There are no questions yet
+            empty: There are no questions yet.
             questionnaire: Questionnaire
           form:
             save: Save

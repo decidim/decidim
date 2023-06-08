@@ -1,6 +1,6 @@
 <% if block_user_templates.any? %>
   <div class="row column">
-    <%= javascript_pack_tag "decidim_templates_admin" %>
+    <%= append_javascript_pack_tag "decidim_templates_admin" %>
 
     <select id="block_template_chooser" data-locale="en" data-url="<%= decidim_admin_templates.fetch_block_user_templates_url %>">
       <option value=""><%= t(".select_template") %></option>

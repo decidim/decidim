@@ -2,7 +2,7 @@
 
 module Decidim
   # Interaction between a user and an organization is done via a
-  # ParticipatoryProcess. It's a unit of action from the Organization point of
+  # ParticipatoryProcess. It is a unit of action from the Organization point of
   # view that groups several components (proposals, debates...) distributed in
   # steps that get enabled or disabled depending on which step is currently
   # active.

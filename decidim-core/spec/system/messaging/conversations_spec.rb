@@ -182,7 +182,7 @@ describe "Conversations", type: :system do
         before do
           click_button "Send"
           expect(page).to have_selector(".conversation__message:last-child", text: message_body)
-          relogin_as interlocutor
+          relogin_as interlocutor, scope: :user
           visit_inbox
         end
 
@@ -190,7 +190,7 @@ describe "Conversations", type: :system do
           expect(page).to have_selector(".conversation__item-unread", text: "2")
         end
 
-        it "appears as read after it's seen", :slow do
+        it "appears as read after it is seen", :slow do
           click_link "conversation-#{conversation.id}"
           expect(page).to have_content("Please reply!")
 
@@ -305,7 +305,7 @@ describe "Conversations", type: :system do
   end
 
   describe "when having a conversation with multiple participants" do
-    context "and it's with only one participant" do
+    context "and it is with only one participant" do
       let(:user1) { create(:user, organization:) }
       let!(:conversation2) do
         Decidim::Messaging::Conversation.start!(
@@ -354,7 +354,7 @@ describe "Conversations", type: :system do
       end
     end
 
-    context "and it's with four participants" do
+    context "and it is with four participants" do
       let(:user1) { create(:user, organization:) }
       let(:user2) { create(:user_group, organization:) }
       let(:user3) { create(:user, organization:) }
@@ -414,7 +414,7 @@ describe "Conversations", type: :system do
       end
     end
 
-    context "and it's with ten participants" do
+    context "and it is with ten participants" do
       let(:user1) { create(:user, organization:) }
       let(:user2) { create(:user_group, organization:) }
       let(:user3) { create(:user, organization:) }
@@ -502,7 +502,7 @@ describe "Conversations", type: :system do
       visit_inbox
 
       within ".conversation__container" do
-        expect(page).to have_selector(".conversation__item img[alt='Avatar: Participant deleted']")
+        expect(page).to have_selector(".conversation__item img[alt='Avatar: Deleted participant']")
         expect(page).to have_selector(".conversation__item", text: "who wants apples?")
       end
     end
@@ -511,7 +511,7 @@ describe "Conversations", type: :system do
       visit_inbox
       click_link "conversation-#{conversation.id}"
 
-      expect(page).to have_content("Conversation with\nParticipant deleted")
+      expect(page).to have_content("Conversation with\nDeleted participant")
       expect(page).to have_content("who wants apples?")
     end
   end
