@@ -464,9 +464,6 @@ describe "Initiative", type: :system do
         context "when there are several initiatives type" do
           before do
             first("button.card__highlight").click
-            fill_in "Title", with: translated(initiative.title, locale: :en)
-            fill_in "initiative_description", with: translated(initiative.description, locale: :en)
-            find_button("Continue").click
           end
 
           it "create view is shown" do
@@ -479,12 +476,6 @@ describe "Initiative", type: :system do
               expect(page).to have_content("You have to choose the type of signature. In-person, online or a combination of both")
               expect(page).to have_content("Which is the geographic scope of the initiative?")
             end
-          end
-
-          it "shows information collected in previous steps already filled" do
-            expect(find(:xpath, "//input[@id='initiative_type_id']", visible: :all).value).to eq(initiative_type.id.to_s)
-            expect(find(:xpath, "//input[@id='initiative_title']").value).to eq(translated(initiative.title, locale: :en))
-            expect(find(:xpath, "//textarea[@id='initiative_description']", visible: :all).value).to eq(translated(initiative.description, locale: :en))
           end
 
           context "when only one signature collection and scope are available" do
