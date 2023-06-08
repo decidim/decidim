@@ -8,6 +8,8 @@ describe Decidim::UserActivityCell, type: :cell do
 
   subject { my_cell.call }
 
+  let(:view_context) { Class.new(ActionView::Base).new(ActionView::LookupContext.new(ActionController::Base.view_paths), {}, []) }
+
   let(:my_cell) do
     cell(
       "decidim/user_activity",
@@ -16,6 +18,7 @@ describe Decidim::UserActivityCell, type: :cell do
         activities:,
         filter:,
         resource_types:,
+        view_context:,
         user: model
       }
     )

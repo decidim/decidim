@@ -24,7 +24,7 @@ const updateActiveUploads = (modal) => {
   // fastest way to clean children nodes
   files.textContent = ""
 
-  // divide the items between those'll gonna be removed, and added
+  // divide the items between those will gonna be removed, and added
   const [removeFiles, addFiles] = [modal.items.filter(({ removable }) => removable), modal.items.filter(({ removable }) => !removable)]
 
   addFiles.forEach((file, ix) => {
@@ -32,7 +32,7 @@ const updateActiveUploads = (modal) => {
 
     let hidden = ""
     if (file.hiddenField) {
-      // if there's hiddenField, this file is new
+      // if there is hiddenField, this file is new
       // eslint-disable-next-line no-ternary
       const fileField = isMultiple
         ? `${modal.options.resourceName}[${modal.options.addAttribute}][${ix}][file]`

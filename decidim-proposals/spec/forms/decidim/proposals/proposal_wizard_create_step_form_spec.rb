@@ -37,7 +37,7 @@ module Decidim
         it { is_expected.to be_valid }
       end
 
-      context "when there's no title" do
+      context "when there is no title" do
         let(:title) { nil }
 
         it { is_expected.to be_invalid }
@@ -48,7 +48,7 @@ module Decidim
         end
       end
 
-      context "when there's no body" do
+      context "when there is no body" do
         let(:body) { nil }
 
         it { is_expected.to be_invalid }
@@ -69,7 +69,7 @@ module Decidim
         end
       end
 
-      context "when there's a body template set" do
+      context "when there is a body template set" do
         let(:body_template) { "This is the template" }
 
         it { is_expected.to be_valid }

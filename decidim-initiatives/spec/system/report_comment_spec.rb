@@ -17,7 +17,7 @@ describe "Report Comment", type: :system do
 
   # Redesign pending
   # Uncomment when the redesign is done in this module, otherwise tests will fail because
-  # the reports old markup doesn't work with the new design and the new tests created for it.
+  # the reports old markup does not work with the new design and the new tests created for it.
   # include_examples "comments_reports"
 end
 # rubocop:enable RSpec/EmptyExampleGroup

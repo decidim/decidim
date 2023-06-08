@@ -63,10 +63,6 @@ sk:
             title: Zrušenie voľby losovaním
           create:
             error: Pri vytváraní novej voľby došlo k chybe.
-            success: Voľba losovaním bola úspešne vytvorená
-          destroy:
-            error: Voľbu nemožno zrušiť.
-            success: Voľba bola úspešne zrušená
           edit:
             title: Aktualizujte informácie o voľbe losovaním
             update: Aktualizácia
@@ -83,7 +79,6 @@ sk:
             selected_proposals: Návrhy vybrané pre kreslenie
           update:
             error: Pri aktualizácii výberu došlo k chybe.
-            success: Sortifikace bola úspešne aktualizovaná
       admin_log:
         sortition:
           create: "%{user_name} vytvoril %{resource_name} voľbu v priestore %{space_name}"

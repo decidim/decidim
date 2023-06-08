@@ -1,5 +1,5 @@
 /* eslint-disable id-length, max-lines */
-/* global spyOn, jest */
+/* global jest */
 
 const $ = require("jquery");
 
@@ -54,13 +54,13 @@ describe("CommentsComponent", () => {
       addComment[i].commentTextarea = $("textarea", addComment[i].commentForm);
 
       if (methodToSpy) {
-        spyOn(addComment[i].opinionToggles, methodToSpy);
-        spyOn(addComment[i].commentForm, methodToSpy);
-        spyOn(addComment[i].commentTextarea, methodToSpy);
+        jest.spyOn(addComment[i].opinionToggles, methodToSpy);
+        jest.spyOn(addComment[i].commentForm, methodToSpy);
+        jest.spyOn(addComment[i].commentTextarea, methodToSpy);
       }
     });
 
-    spyOn(window, "$").mockImplementation((...args) => {
+    jest.spyOn(window, "$").mockImplementation((...args) => {
       const jqSelector = args[0];
       const parent = args[1];
 
@@ -132,7 +132,7 @@ describe("CommentsComponent", () => {
            </button>
           </span>
           <span class="emoji__reference" style="position: absolute; display: block; bottom: -8px; right: -16px;"></span>
-          <span class="form-error">There's an error in this field.</span>
+          <span class="form-error">There is an error in this field.</span>
         </span>
         <span role="status" id="add-comment-${modelName}-${modelId}-remaining-characters_sr" class="sr-only remaining-character-count-sr">1000 characters left</span>
         <span id="add-comment-${modelName}-${modelId}-remaining-characters" class="remaining-character-count show-erb-comment" aria-hidden="true">1000 characters left</span>
@@ -180,7 +180,7 @@ describe("CommentsComponent", () => {
                   <div class="modal__report-container__radio">
                     <input id="does_not_belong" type="radio" value="does_not_belong" name="report[reason]">
                     <label for="does_not_belong">
-                      Contains illegal activity, suicide threats, personal information, or something else you think doesn't belong on Reichel, Bernhard and Glover.
+                      Contains illegal activity, suicide threats, personal information, or something else you think does not belong on Reichel, Bernhard and Glover.
                     </label>
                   </div>
               </fieldset>
@@ -387,7 +387,7 @@ describe("CommentsComponent", () => {
   });
 
   it("initializes the comments element with the given selector", () => {
-    expect(subject.$element).toEqual($(selector));
+    expect(subject.$element[0]).toEqual($(selector)[0]);
   });
 
   it("loads the comments through AJAX", () => {
@@ -421,6 +421,7 @@ describe("CommentsComponent", () => {
   });
 
   it("starts polling for new comments", () => {
+    jest.spyOn(window, "setTimeout");
     Rails.ajax.mockImplementationOnce((options) => options.success());
 
     subject.mountComponent();
@@ -436,7 +437,7 @@ describe("CommentsComponent", () => {
     // Delay the success call 2s after the polling has happened to test that
     // the textarea is still enabled when the polling is happening.
     Rails.ajax.mockImplementationOnce((options) => {
-      setTimeout(options.success(), 2000);
+      setTimeout(() => options.success(), 2000);
     });
     jest.advanceTimersByTime(1500);
 
@@ -446,8 +447,8 @@ describe("CommentsComponent", () => {
   describe("when mounted", () => {
     beforeEach(() => {
       spyOnAddComment("on");
-      spyOn(orderLinks, "on");
-      spyOn($doc, "trigger");
+      jest.spyOn(orderLinks, "on");
+      jest.spyOn($doc, "trigger");
 
       subject.mountComponent();
     });
@@ -522,7 +523,7 @@ describe("CommentsComponent", () => {
       });
 
       it("disables the submit button on submit and stops polling", () => {
-        spyOn(window, "clearTimeout");
+        jest.spyOn(window, "clearTimeout");
 
         commentText.html("This is a test comment")
         commentText.trigger("input");
@@ -661,10 +662,10 @@ describe("CommentsComponent", () => {
 
   describe("when unmounted", () => {
     beforeEach(() => {
-      spyOn(orderLinks, "off");
-      spyOn(allToggles, "off");
-      spyOn(allTextareas, "off");
-      spyOn(allForms, "off");
+      jest.spyOn(orderLinks, "off");
+      jest.spyOn(allToggles, "off");
+      jest.spyOn(allTextareas, "off");
+      jest.spyOn(allForms, "off");
 
       subject.mountComponent();
       subject.unmountComponent();

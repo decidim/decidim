@@ -1,24 +1,24 @@
 <button class="button button__sm button__transparent-secondary" data-dialog-open="tos-refuse-modal">
-  <%= t("refuse.modal_button", scope: "decidim.pages.terms_and_conditions") %>
+  <%= t("refuse.modal_button", scope: "decidim.pages.terms_of_service") %>
 </button>
 
 <%= decidim_modal id: "tos-refuse-modal", class: "tos-refuse" do %>
   <div data-dialog-container>
     <%= icon "file-list-3-line" %>
     <h3 id="dialog-title-tos-refuse-modal" data-dialog-title>
-      <%= t("refuse.modal_title", scope: "decidim.pages.terms_and_conditions") %>
+      <%= t("refuse.modal_title", scope: "decidim.pages.terms_of_service") %>
     </h3>
     <p id="dialog-desc-tos-refuse-modal">
-      <%= t("refuse.modal_body", scope: "decidim.pages.terms_and_conditions", download_your_data_path: decidim.download_your_data_path, delete_path: decidim.delete_account_path) %>
+      <%= t("refuse.modal_body", scope: "decidim.pages.terms_of_service", download_your_data_path: decidim.download_your_data_path, delete_path: decidim.delete_account_path) %>
     </p>
   </div>
   <div data-dialog-actions>
     <%= button_to decidim.destroy_user_session_path, method: :delete, class: "button button__sm md:button__lg button__transparent-secondary" do %>
-      <%= t("refuse.modal_btn_exit", scope: "decidim.pages.terms_and_conditions") %>
+      <%= t("refuse.modal_btn_exit", scope: "decidim.pages.terms_of_service") %>
     <% end %>
 
     <%= button_to decidim.accept_tos_path, method: :put, class: "button button__sm md:button__lg button__secondary" do %>
-      <%= t("refuse.modal_btn_continue", scope: "decidim.pages.terms_and_conditions") %>
+      <%= t("refuse.modal_btn_continue", scope: "decidim.pages.terms_of_service") %>
     <% end %>
   </div>
 <% end %>

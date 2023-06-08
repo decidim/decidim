@@ -184,7 +184,7 @@ module Decidim
     end
 
     # Public: Check if an initiative has been created by an individual person.
-    # If it's false, then it has been created by an authorized organization.
+    # If it is false, then it has been created by an authorized organization.
     #
     # Returns a Boolean
     def created_by_individual?

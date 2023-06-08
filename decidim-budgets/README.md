@@ -30,7 +30,7 @@ bundle
 
 ## Budget Workflows
 
-A budget workflow, let's an admin pick, at the component level, how a user can participate in it.
+A budget workflow, lets an admin pick, at the component level, how a user can participate in it.
 By default there are two workflows included in this module, `:one` and `:all` that can be found in the `lib/decidim/budgets/workflows/` directory, any app can add its own workflow.
 
 ### Adding a custom workflow

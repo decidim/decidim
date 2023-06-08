@@ -22,10 +22,10 @@ module Decidim
             page.title = localized_attribute(slug, :title)
             page.content = localized_attribute(slug, :content)
             page.show_in_footer = true
-            page.allow_public_access = true if slug == "terms-and-conditions"
+            page.allow_public_access = true if slug == "terms-of-service"
           end
 
-          create_summary_content_blocks_for(static_page) if slug == "terms-and-conditions"
+          create_summary_content_blocks_for(static_page) if slug == "terms-of-service"
         end
       end
 

@@ -19,7 +19,7 @@ module Decidim::Conferences
       end
 
       # REDESIGN_PENDING: The footer link dissapears with the redesign. Remove
-      # these shared examples if it's correct
+      # these shared examples if it is correct
       #
       # it_behaves_like "space cell changes button text CTA"
     end

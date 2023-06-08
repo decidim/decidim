@@ -56,5 +56,4 @@ sk:
       surveys:
         answer:
           invalid: Vyskytol sa problém s odpovedaním na prieskum.
-          spam_detected: Vyskytol sa problém s odpovedaním na formulár. Možno ste boli príliš rýchli, skúste prosíme znovu.
           success: Odpoveď úspešne zaznamenaná.

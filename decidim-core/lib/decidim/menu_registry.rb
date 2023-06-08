@@ -11,7 +11,7 @@ module Decidim
       # registers a MenuItem DSL block for the menu.
       #
       # @param name [Symbol] Name of the menu
-      # @param &block [Menu] Registration body of the menu. It's stored to be
+      # @param &block [Menu] Registration body of the menu. It is stored to be
       #                      evaluated at rendering time
       #
       def register(name, &block)

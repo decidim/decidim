@@ -81,7 +81,7 @@ cs:
         assembly:
           attributes:
             document:
-              allowed_file_content_types: 'Neplatný typ dokumentu. Jsou povoleny pouze soubory s následujícími příponami: %{types}'
+              allowed_file_content_types: 'Neplatný typ dokumentu. Jsou povoleny pouze soubory s následujícími příponami: %{types}.'
   activerecord:
     models:
       decidim/assembly:
@@ -450,9 +450,6 @@ cs:
         related_assemblies: Související shromáždění
     statistics:
       assemblies_count: Shromáždění
-  errors:
-    messages:
-      cannot_be_blank: nemůže být prázdný
   layouts:
     decidim:
       assemblies:

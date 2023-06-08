@@ -69,12 +69,6 @@ fr:
         email: Email
         name: Nom
         role: Rôle
-    errors:
-      models:
-        conference_registration_invite:
-          attributes:
-            email:
-              already_invited: Cet email a déjà été invité
   activerecord:
     models:
       decidim/conference:
@@ -353,7 +347,7 @@ fr:
             invites: Invite
             search: Chercher
           new:
-            explanation: L'utilisateur sera invité à participer à une conférence. Si l'e-mail n'est pas enregistré, ils seront également invités dans l'organisation.
+            explanation: "The participant will be invited to join a conference. If their email is not registered, they will be invited to the organization as well.\nLe participant sera invité à se joindre à une conférence. Si son adresse électronique n'est pas enregistrée, il sera également invité à s'inscrire sur la plateforme."
             invite: Inviter
             new_invite: Inviter un utilisateur
         conference_registrations:
@@ -455,7 +449,6 @@ fr:
           main_promotors: Organisateurs
         show:
           login_as: Vous êtes connecté en tant que %{name} <%{email}>
-          make_conference_registration: Inscrivez-vous à la conférence
           register: S'inscrire
       content_blocks:
         highlighted_conferences:
@@ -463,11 +456,6 @@ fr:
       index:
         title: Conférences
       mailer:
-        conference_registration_mailer:
-          confirmation:
-            subject: Votre inscription à la conférence a été confirmée
-          pending_validation:
-            subject: Votre inscription à la conférence est en attente de confirmation
         invite_join_conference_mailer:
           invite:
             subject: Invitation à participer à une conférence
@@ -551,10 +539,6 @@ fr:
           contextual: "<p>Une <strong>conférence</strong> est un ensemble de rencontres organisées dans un programme, avec un certain nombre de personnes invitées en tant qu'orateurs, et d'autres informations typiques des grands congrès ou événements (inscription, liste des organisations qui soutiennent ou parrainent l'événement, etc.).</p> <p>Exemples : Une conférence peut être un événement pertinent pour une organisation et ses membres, ou se dérouler dans le cadre d'un processus participatif ou faire suite à une consultation.</p>\n"
           page: "<p>Une <strong>conférence</strong> est un ensemble de rencontres organisées dans un programme, avec un certain nombre de personnes invitées en tant qu'orateurs, et d'autres informations typiques des grands congrès ou événements (inscription, liste des organisations qui soutiennent ou parrainent l'événement, etc.).</p> <p>Exemples : Une conférence peut être un événement pertinent pour une organisation et ses membres, ou se dérouler dans le cadre d'un processus participatif ou faire suite à une consultation.</p>\n"
           title: Que sont les conférences?
-    log:
-      value_types:
-        conference_presenter:
-          not_found: 'La conférence n''a pas été trouvée sur la base de données (ID: %{id})'
     media:
       index:
         description: Liens sur cette conférence

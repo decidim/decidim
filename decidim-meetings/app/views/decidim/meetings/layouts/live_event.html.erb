@@ -49,7 +49,7 @@
       <%= yield %>
     </main>
 
+    <%= append_javascript_pack_tag "decidim_meetings" %>
     <%= render partial: "layouts/decidim/decidim_javascript" %>
-    <%= javascript_pack_tag "decidim_meetings" %>
   </body>
 </html>

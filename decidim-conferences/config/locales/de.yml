@@ -68,12 +68,6 @@ de:
         email: Email
         name: Name
         role: Rolle
-    errors:
-      models:
-        conference_registration_invite:
-          attributes:
-            email:
-              already_invited: Diese E-Mail wurde bereits eingeladen
   activerecord:
     models:
       decidim/conference:
@@ -349,7 +343,6 @@ de:
             invites: Lädt ein
             search: Suche
           new:
-            explanation: Der Benutzer wird eingeladen, an einer Konferenz teilzunehmen. Wenn die E-Mail nicht registriert ist, werden sie ebenfalls zur Organisation eingeladen.
             invite: Einladen
             new_invite: Nutzer einladen
         conference_registrations:
@@ -451,10 +444,8 @@ de:
         title: Konferenzen
       mailer:
         conference_registration_mailer:
-          confirmation:
-            subject: Die Registrierung Ihrer Konferenz wurde bestätigt
           pending_validation:
-            subject: Ihre Anmeldung zur Konferenz steht noch aus
+            subject: Ihre Anmeldung zur Konferenz steht noch aus.
         invite_join_conference_mailer:
           invite:
             subject: Einladung zur Teilnahme an einer Konferenz
@@ -541,7 +532,7 @@ de:
     log:
       value_types:
         conference_presenter:
-          not_found: 'Die Konferenz wurde nicht in der Datenbank gefunden (ID: %{id})'
+          not_found: 'Die Konferenz wurde nicht in der Datenbank gefunden (ID: %{id}).'
     media:
       index:
         description: Links zu dieser Konferenz

@@ -13,7 +13,7 @@ describe Decidim::Search do
       create(:searchable_resource, organization: current_organization, content_a: "Fight fire with fire")
     end
     let!(:non_searchable_resource) do
-      create(:searchable_resource, organization: current_organization, resource_type: fake_type, content_a: "Where's your crown king nothing?")
+      create(:searchable_resource, organization: current_organization, resource_type: fake_type, content_a: "Where is your crown king nothing?")
     end
 
     before do
@@ -191,7 +191,7 @@ describe Decidim::Search do
       let(:resource_type) { "Decidim::DummyResources::DummyResource" }
 
       before do
-        create_list(:searchable_resource, 5, organization: current_organization, resource_type:, content_a: "Where's your crown king nothing?")
+        create_list(:searchable_resource, 5, organization: current_organization, resource_type:, content_a: "Where is your crown king nothing?")
 
         # rubocop:disable RSpec/FactoryBot/CreateList
         3.times do
@@ -201,7 +201,7 @@ describe Decidim::Search do
             resource: build(:user, organization: current_organization),
             scope: nil,
             decidim_participatory_space: nil,
-            content_a: "Where's your crown king nothing?"
+            content_a: "Where is your crown king nothing?"
           )
         end
         # rubocop:enable RSpec/FactoryBot/CreateList
@@ -274,11 +274,11 @@ describe Decidim::Search do
 
     context "with scope" do
       let!(:scoped_resource) do
-        create(:searchable_resource, organization: current_organization, scope:, content_a: "Where's your crown king nothing?")
+        create(:searchable_resource, organization: current_organization, scope:, content_a: "Where is your crown king nothing?")
       end
 
       before do
-        create(:searchable_resource, organization: current_organization, content_a: "Where's your crown king nothing?")
+        create(:searchable_resource, organization: current_organization, content_a: "Where is your crown king nothing?")
       end
 
       context "when scope is setted" do
@@ -313,7 +313,7 @@ describe Decidim::Search do
         create(
           :searchable_resource,
           organization: current_organization,
-          content_a: "Where's your crown king nothing?",
+          content_a: "Where is your crown king nothing?",
           decidim_participatory_space: create(:participatory_process, :active, organization: current_organization)
         )
       end
@@ -321,7 +321,7 @@ describe Decidim::Search do
         create(
           :searchable_resource,
           organization: current_organization,
-          content_a: "Where's your crown king nothing?",
+          content_a: "Where is your crown king nothing?",
           decidim_participatory_space: create(:participatory_process, :past, organization: current_organization)
         )
       end
@@ -329,7 +329,7 @@ describe Decidim::Search do
         create(
           :searchable_resource,
           organization: current_organization,
-          content_a: "Where's your crown king nothing?",
+          content_a: "Where is your crown king nothing?",
           decidim_participatory_space: create(:participatory_process, :upcoming, organization: current_organization)
         )
       end
