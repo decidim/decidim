@@ -37,7 +37,7 @@
         @include ellipsis();
 
         .author__name{
-          // Allow the ellipsis, otherwise it's not shown
+          // Allow the ellipsis, otherwise it is not shown
           display: inherit;
         }
       }

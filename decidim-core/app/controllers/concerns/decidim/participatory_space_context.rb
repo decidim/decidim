@@ -53,7 +53,7 @@ module Decidim
     # * dropdown_cell - When this value is present is used to generate a dropdown
     #                   associated to the item (optional).
     # * resource - The resource of the item. This value is passed to the
-    #              dropdown cell, so it's mandatory if the dropdown cell is
+    #              dropdown cell, so it is mandatory if the dropdown cell is
     #              present.
     def current_participatory_space_breadcrumb_item
       return {} if current_participatory_space.blank?

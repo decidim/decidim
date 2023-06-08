@@ -32,7 +32,7 @@ describe "Admin manages meetings registration forms", type: :system do
       fill_in_i18n_editor(
         :meeting_registration_email_custom_content,
         "#meeting-registration_email_custom_content-tabs",
-        en: "We're very happy you registered for this event!"
+        en: "We are very happy you registered for this event!"
       )
     end
   end

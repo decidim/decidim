@@ -66,10 +66,10 @@ cs:
             title: Zrušení losování
           create:
             error: Při vytváření nového losování došlo k chybě.
-            success: Losování bylo úspěšně vytvořeno
+            success: Losování bylo úspěšně vytvořeno.
           destroy:
             error: Nelze zrušit losování.
-            success: Losování bylo úspěšně zrušeno
+            success: Losování bylo úspěšně zrušeno.
           edit:
             title: Aktualizovat informace o volbě losem
             update: Aktualizace
@@ -80,14 +80,14 @@ cs:
           index:
             title: Losování
           new:
-            confirm: Stisknutím dalšího tlačítka bude platforma zaznamenávat datum a čas (s přesností sekund) a společně s kostkou, tyto informace budou použity k vytvoření náhodného výběru. Akce bude nevratná, po kliknutí na tlačítko bude výsledek tohoto remízu publikován, spolu s údaji zadanými v tomto formuláři a nelze je změnit, pečlivě zkontrolujte obsah
+            confirm: Stisknutím tlačítka Další bude platforma zaznamenávat datum a čas (s přesností sekund) společně s hodem kostkou, tyto informace budou použity k vytvoření náhodného výběru. Akce bude nevratná, po kliknutí na tlačítko bude výsledek tohoto losu publikován, spolu s údaji zadanými v tomto formuláři a nelze je změnit, pečlivě zkontrolujte obsah.
             create: Vytvořit
             title: Nové losování
           show:
             selected_proposals: Návrhy vybrané pro losování
           update:
             error: Při aktualizaci losování došlo k chybě.
-            success: Losování úspěšně aktualizováno
+            success: Losování úspěšně aktualizováno.
       admin_log:
         sortition:
           create: "%{user_name} vytvořil %{resource_name} losování v %{space_name}"

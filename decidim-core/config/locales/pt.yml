@@ -33,7 +33,6 @@ pt:
       decidim/component_published_event: Componente ativo
       decidim/demoted_membership: Já não é um administrador de grupo
       decidim/gamification/badge_earned_event: Distintivo ganho
-      decidim/gamification/level_up_event: Subiu de nível
       decidim/join_request_accepted_event: Pedido de adesão aceite
       decidim/join_request_rejected_event: Pedido de adesão rejeitado
       decidim/profile_updated_event: Perfil atualizado
@@ -81,9 +80,7 @@ pt:
       logo: "Logótipo oficial de %{organization}"
       skip_button: Avançar para o conteúdo principal
     account:
-      blocked: Esta conta foi bloqueada por violação dos Termos e Condições
       delete:
-        alert: Esta acção não pode ser revertida. Se apagar a sua conta não poderá mais ligar-se com as suas credenciais. Apagar a sua conta resultará no anonimizar de todas as suas contribuições. Conseguirá criar uma nova conta, mas essas contribuições não serão associadas a ela.
         confirm:
           close: Fechar janela
           ok: Sim, eu quero cancelar a minha conta
@@ -95,14 +92,12 @@ pt:
         success: A sua conta foi eliminada corretamente.
       download_your_data_export:
         file_no_exists: Ficheiro não existente
-        notice: A transferência dos seus dados está atualmente em progresso. Receberá um e-mail quando estiver concluído.
       show:
         change_password: Mudar senha
         update_account: Atualizar conta
       update:
         error: Ocorreu um problema ao atualizar a sua conta.
         success: A sua conta foi atualizada corretamente.
-        success_with_email_confirmation: A sua conta foi atualizada corretamente. Irá receber um e-mail para confirmar o seu novo endereço de e-mail.
     admin:
       actions:
         cancel: Cancelar
@@ -163,8 +158,6 @@ pt:
         verify_via_csv: "%{user_name} verificou o grupo %{resource_name} através de um ficheiro CSV"
       user_moderation:
         unreport: "%{user_name} retirou denuncia a %{resource_type} - %{unreported_user_name}"
-    admin_terms_of_use:
-      default_body: "<h2>TERMOS DE UTILIZAÇÃO DE ADMINISTRADOR</h2><p>Confiamos que recebeu as instruções habituais por parte do Administrador de Sistema local. Normalmente resume-se a estes três fatores:</p><ol><li>Respeitar a privacidade dos outros.</li><li>Pensar antes de clicar.</li><li>Um grande poder acarreta uma grande responsabilidade.</li></ol>"
     alert:
       dismiss: Descartar notificação
     amendments:
@@ -175,10 +168,8 @@ pt:
         amended_by: Modificada por
         button: Modificar %{model_name}
         error: Ocorreu um erro ao modificar este recurso.
-        help_text: Melhore este %{model_name} modificando os seus %{amendable_fields}
         promote_button: Promover a %{model_name}
         promote_confirm_text: Tem a certeza de que deseja promover esta retificação?
-        promote_help_text: Pode promover esta retificação e publicá-la como um %{model_name} independente
         section_heading: Modificações (%{count})
       compare_draft:
         continue: Continuar
@@ -219,26 +210,16 @@ pt:
         modify: Modificar
         publish: Publicar
         title: Publicar Rascunho da Modificação
-      promoted:
-        error: Ocorreu um problema ao publicar a modificação como uma nova proposta
-        success: A modificação foi publicada corretamente como uma nova proposta
       publish_draft:
         error: Ocorreu um problema a publicar a modificação.
         success: Modificação publicada corretamente.
-      rejected:
-        error: Ocorreu um problema ao rejeitar esta modificação, por favor tente novamente mais tarde
-        success: A modificação foi rejeitada corretamente
       review:
         back: Retroceder
         heading: Rever a modificação
-        help_text: Está a rever uma modificação a %{model_name}
         send: Aceitar modificação
       update_draft:
         error: Ocorreu um problema ao atualizar o rascunho da modificação.
         success: Rascunho da modificação atualizado corretamente.
-      withdraw:
-        error: Ocorreu um erro ao retirar a modificação
-        success: A modificação foi retirada corretamente
       wizard_step_form:
         steps:
           '1': Criar a sua modificação
@@ -266,13 +247,11 @@ pt:
         other: endossos
     authorization_handlers:
       another_dummy_authorization_handler:
-        explanation: Seja verificado através da introdução de um número de passaporte começado em "A"
         fields:
           passport_number: Número do passaporte
           postal_code: Código postal
         name: Outro exemplo de autorização
       dummy_authorization_handler:
-        explanation: Seja verificado através da introdução de um número de documento terminado em "X"
         fields:
           allowed_postal_codes: Códigos postais permitidos (separados por vírgula)
           allowed_scope_id: Âmbito permitido
@@ -304,7 +283,6 @@ pt:
           title: A autorização expirou
         incomplete:
           cancel: Cancelar
-          explanation: 'Embora esteja atualmente autorizado com "%{authorization}", precisamos que reautorize porque nos faltam os seguintes dados:'
           invalid_field: "%{field}"
           reauthorize: Reautorizar
           title: Por favor reautorize
@@ -312,19 +290,12 @@ pt:
           authorize: Autorizar com "%{authorization}"
           explanation: Para executar esta ação, você precisa ser autorizado com "%{authorization}".
           title: Autorização necessária
-        ok:
-          title: Recebeu autorização enquanto nesta página. Por favor carregue a página de novo para executar a sua acção.
         pending:
-          explanation: De forma a executar esta ação, precisa de ser autorizado com "%{authorization}", mas a sua autorização ainda está em progresso
-          resume: Verifique o progresso da sua autorização "%{authorization}"
           title: A autorização ainda está em progresso
         unauthorized:
-          explanation: Desculpe, não pode executar esta ação porque alguns dos seus dados de autorização não coincidem.
-          invalid_field: "O campo %{field} com valor %{value} não é válido."
           ok: Ok
           title: Não autorizado
         unconfirmed:
-          confirmation_instructions: 'Se não recebeu as instruções de confirmação, pode solicitá-las novamente:'
           explanation_html: De forma a executar esta ação precisa de estar autorizado, antes de fazer isso precisa de confirmar o seu e-mail <strong>%{email}</strong>.
           request_confirmation_instructions: Solicitar instruções de confirmação
           title: Confirmar o seu e-mail
@@ -343,7 +314,6 @@ pt:
       see_more: "(ver mais)"
     components:
       component_order_selector:
-        no_content: Não foi possível encontrar qualquer conteúdo com este critério
         order:
           all_types: Todos os tipos
           collaborative_draft: Rascunho Colaborativo
@@ -419,16 +389,10 @@ pt:
         name: Estatísticas da organização
       sub_hero:
         name: Faixa de sub hero
-    core:
-      actions:
-        login_before_access: Por favor, inicie sessão na sua conta antes de aceder
-        unauthorized: Não está autorizado a realizar esta ação
     datepicker:
       help_text: 'Formato esperado: %{datepicker_format}'
     devise:
       omniauth_registrations:
-        create:
-          email_already_exists: Outra conta está usando o mesmo endereço de e-mail
         new:
           complete_profile: Complete o seu perfil
           nickname_help: A sua alcunha em %{organization}. Só pode conter letras, números, “-”, e “_”
@@ -446,7 +410,6 @@ pt:
           sign_up_as:
             legend: Inscreva-se como
           subtitle: Inscreva-se para participar em discussões e propostas de suporte.
-          terms: os termos e condições de uso
           tos_agreement: Ao se inscrever, aceita %{link}.
           tos_title: Termos de Serviço
           username_help: Nome público que aparece nas suas publicações. Com o objetivo de garantir o anonimato, pode ser qualquer nome.
@@ -454,8 +417,6 @@ pt:
         new:
           are_you_new?: Novo na plataforma?
           register: Criar uma conta
-          sign_in_disabled: Pode aceder com uma conta externa
-          sign_up_disabled: A inscrição está desativada, pode utilizar uma conta existente para aceder
         user:
           timed_out: Esteve inactivo por muito tempo e foi automaticamente desligado do serviço. Se quiser continuar a usar o serviço, por favor ligue-se de novo.
       shared:
@@ -464,13 +425,6 @@ pt:
             check: Verificar e continuar
             close_modal: Fechar modal
             uncheck: Manter não verificado
-          notice: |-
-            <p>Tem a certeza de que não deseja receber um boletim informativo?<br>
-            Por favor, considere novamente marcar a caixa de seleção do boletim informativo abaixo.<br>
-            É muito importante para nós que receba e-mails ocasionais para que possamos fazer anúncios importantes, pode sempre alterar isso na sua página de configurações de notificações.</p>
-            <p>Se não marcar a caixa, pode estar a perder informações relevantes sobre novas oportunidades participativas na plataforma.<br>
-            Se ainda assim quiser evitar receber boletins de notícias, entendemos perfeitamente a sua decisão.</p>
-            <p>Obrigado por ler isto!</p>
           title: Notificações do boletim informativo
         omniauth_buttons:
           or: Ou
@@ -480,7 +434,6 @@ pt:
           authorize: Autorizar aplicação
           by_organization_link_html: <small class="heading-small">por %{link}</small>
           cancel: Cancelar
-          connect_your_account_html: Ligue a sua conta ao iniciar sessão em <strong>%{organization}</strong>
           publish_content: Publicar conteúdo para si
           see_email: Ver o seu e-mail
           see_name: Ver o seu nome
@@ -509,7 +462,6 @@ pt:
       not_found:
         back_home: Voltar ao início
         content_doesnt_exist: Este endereço está incorreto ou foi apagado.
-        title: A página que procura não foi encontrada
     events:
       amendments:
         amendment_accepted:
@@ -575,15 +527,9 @@ pt:
         email_subject: Uma atualização a %{resource_title}
       gamification:
         badge_earned:
-          email_intro: Parabéns! Ganhou o <a href="%{resource_url}">distintivo %{badge_name}</a> (nível %{current_level}).
           email_outro: Recebeu esta notificação porque realizou uma atividade no nosso sítio.
-          email_subject: 'Ganhou um novo distintivo: %{badge_name}!'
-          notification_title: Parabéns! Ganhou o <a href="%{resource_path}">distintivo %{badge_name}</a> (nível %{current_level}).
         level_up:
-          email_intro: Parabéns! Atingiu o nível %{current_level} no <a href="%{resource_url}">distintivo %{badge_name}</a>!
           email_outro: Recebeu esta notificação porque realizou uma atividade no nosso sítio.
-          email_subject: Atingiu o nível %{current_level} no distintivo %{badge_name}!
-          notification_title: Parabéns! Atingiu o nível %{current_level} no <a href="%{resource_path}">distintivo %{badge_name}</a>!
       groups:
         demoted_membership:
           email_intro: Um administrador do grupo <a href="%{resource_url}">%{user_group_name}</a> removeu os seus direitos de administrador desse grupo.
@@ -669,7 +615,6 @@ pt:
         result: Resultados
     fingerprint:
       check: Verifique a impressão digital
-      explanation: O texto abaixo é uma representação encurtada e hash deste conteúdo. É útil garantir que o conteúdo não tenha sido adulterado, já que uma única modificação resultaria em um valor totalmente diferente.
       online_calculator_name: Calculadora MD5 online
       replicate_help: Esta impressão digital é calculada usando um algoritmo de hashing SHA256. Para replicá-la, pode usar uma %{online_calculator_link} e copiar e colar os dados de origem.
       source: Origem
@@ -680,8 +625,6 @@ pt:
         one: "%{count} seguidor"
         other: "%{count} seguidores"
       no_followers: Ainda não há seguidores.
-    following:
-      no_followings: Ainda não segue alguém ou algo.
     follows:
       create:
         button: Seguir
@@ -695,7 +638,6 @@ pt:
         decidim/user:
           password: A palavra-passe é demasiado curta.
           password_confirmation: A confirmação da palavra-passe deverá corresponder à palavra-passe.
-        error: Há um erro neste campo.
       file_help:
         file:
           explanation: 'Orientação para o ficheiro:'
@@ -718,8 +660,6 @@ pt:
           description_own: "%{score} pessoas seguem-no(a)."
           name: Seguidores
           next_level_in: Obtenha mais %{score} pessoas para segui-lo(a) para alcançar o próximo nível!
-          unearned_another: Este participante ainda não possui seguidores.
-          unearned_own: Ainda não tem seguidores.
         index:
           badge_title: "Distintivo %{name}"
           how: Como pode ganhar
@@ -727,37 +667,20 @@ pt:
           title: Distintivos
       description: Distintivos são reconhecimentos para ações dos participantes e progresso na plataforma. Ao começar a descobrir, participar e interagir na plataforma, ganhará distintivos diferentes.
       level: Nível %{level}
-      reached_top: Atingiu o nível superior para este distintivo.
     group_admins:
       actions:
-        are_you_sure: Tem a certeza? Isto não removerá o participante do grupo.
         demote_admin: Remover administrador
-      demote:
-        error: Ocorreu um problema ao remover este participante da lista de administradores
-        success: Participante removido de administrador corretamente
       index:
         current_admins: 'Administradores atuais:'
         manage_admins: Gerir administradores
     group_invites:
-      accept:
-        error: Ocorreu um problema ao aceitar este convite
-        success: Convite aceite corretamente
       accept_invitation: Aceitar
       accept_or_reject_group_invitations: 'Os seguintes grupos convidaram-no(a) para se juntar a eles. Aceite ou rejeite os seus pedidos:'
       index:
         invite: Convite
         invite_user: Convidar um participante
-      invite:
-        error: Ocorreu um problema ao convidar este participante
-        success: Participante convidado corretamente
-      reject:
-        error: Ocorreu um problema ao rejeitar este convite
-        success: Convite rejeitado corretamente
       reject_invitation: Rejeitar
     group_members:
-      accept:
-        error: Ocorreu um problema ao aceitar este pedido de adesão
-        success: Pedido de adesão aceite corretamente
       actions:
         are_you_sure: Tem a certeza?
         promote_to_admin: Tornar administrador
@@ -765,36 +688,20 @@ pt:
       index:
         current_members_without_admins: 'Membros atuais (sem administradores):'
         manage_members: Gerir membros
-      promote:
-        error: Ocorreu um problema ao promover este participante
-        success: Participante promovido corretamente
-      reject:
-        error: Ocorreu um problema ao rejeitar este pedido de adesão
-        success: Pedido de adesão rejeitado corretamente
-      remove:
-        error: Ocorreu um erro ao remover este participante do grupo
-        success: Participante removido do grupo corretamente
     groups:
       actions:
         are_you_sure: Tem a certeza?
-      create:
-        error: Ocorreu um problema ao criar o grupo
-        success: Grupo criado corretamente
       edit:
         edit_user_group: Editar grupo
         update_user_group: Atualizar grupo
       form:
-        document_number_help: Não use traços nem espaços
         email_help: E-mail da sua organização, associação, coletivo, grupo etc.
         fill_in_for_verification: 'Preencha estes campos se quiser que o seu grupo seja verificado:'
         name_help: Nome da sua organização, associação, coletivo, grupo etc.
         nickname_help: Alcunha da sua organização, associação, coletivo, grupo, etc. Não use espaços nem acentos.
-        phone_help: Não use traços nem espaços
       join:
-        error: Ocorreu um problema ao aderir ao grupo
         success: Pedido de adesão criado corretamente. Um administrador analisará o seu pedido antes de aceitá-lo(a) no grupo.
       leave:
-        error: Ocorreu um problema ao sair do grupo
         success: Grupo abandonado corretamente.
       members:
         accept_or_reject_join_requests: 'Os seguintes utilizadores pediram para aderir a este grupo. Aceite ou rejeite os seus pedidos:'
@@ -804,19 +711,14 @@ pt:
         create_user_group: Criar grupo
         new_user_group: Novo grupo
         subtitle: Crie um grupo e convide outros utilizadores a aderir para participarem a um nível coletivo.
-      no_user_groups: Ainda não pertence a nenhum grupo.
       roles:
         admin: Administrador
         member: Membro
-      update:
-        error: Ocorreu um problema ao atualizar o grupo
-        success: Grupo atualizado corretamente
     help:
       main_topic:
         default_page:
           content: "<p>Em %{organization} pode participar e decidir sobre diferentes tópicos, através dos espaços que vê no menu superior: Processos, Reuniões, Iniciativas, Consultas.</p> <p>Dentro de cada um encontrará diferentes opções para participar: fazer propostas - individualmente ou com outras pessoas -, participar em debates, priorizar projetos a serem implementados, participar em reuniões presenciais e outras ações.</p>\n"
           title: O que posso fazer em %{organization}?
-        description: Ler mais sobre %{organization}
         title: Ajuda Geral
     last_activities:
       activities:
@@ -861,8 +763,6 @@ pt:
       static:
         latlng_text: 'latitude: %{latitude}, longitude: %{longitude}'
         map_service_brand: OpenStreetMap
-    members:
-      no_members: Este grupo ainda não possui nenhum membro.
     menu:
       help: Ajuda
       home: Inicio
@@ -872,35 +772,29 @@ pt:
           admin_in_group: Está a receber isto pois é um administrador(a) em %{group}.
           greeting: Olá, %{recipient}!
           intro: "%{manager} iniciou uma nova conversa em nome de %{group}. Clique aqui para vê-la:"
-          outro: Usufrua do decidim!
           subject: "%{manager} iniciou uma nova conversa como %{group}"
         comanagers_new_message:
           admin_in_group: Está a receber isto pois é um(a) administrador(a) em %{group}.
           greeting: Olá, %{recipient}!
           intro: "%{manager} publicou novas mensagens numa conversa em nome de %{group}. Clique aqui para vê-las:"
-          outro: Usufrua do decidim!
           subject: "%{manager} enviou novas mensagens como %{group}"
         new_conversation:
           greeting: Olá, %{recipient}!
           intro: "%{sender} iniciou uma nova conversa consigo. Clique aqui para vê-la:"
-          outro: Usufrua do decidim!
           subject: "%{sender} iniciou uma conversa consigo"
         new_group_conversation:
           admin_in_group: Está a receber isto pois é um(a) administrador(a) em %{group}.
           greeting: Olá, %{recipient}!
           intro: "%{sender} iniciou uma nova conversa com o grupo %{group}. Clique aqui para vê-la:"
-          outro: Usufrua do decidim!
           subject: "%{sender} iniciou uma conversa com %{group}"
         new_group_message:
           admin_in_group: Está a receber isto pois é um(a) administrador(a) em %{group}.
           greeting: Olá, %{recipient}!
           intro: "%{sender} publicou novas mensagens numa conversa com o grupo %{group}. Clique aqui para vê-las:"
-          outro: Usufrua do decidim!
           subject: "%{group} tem novas mensagens de %{sender}"
         new_message:
           greeting: Olá, %{recipient}!
           intro: "%{sender} publicou novas mensagens na sua conversa. Clique aqui para vê-las:"
-          outro: Usufrua do decidim!
           subject: Tem novas mensagens de %{sender}
       conversations:
         add_conversation_users:
@@ -908,9 +802,6 @@ pt:
           add_users_placeholder: Pesquisar...
           modal_title: Nova conversa
           no_results: Sem resultados
-          participant_with_disabled_message_reception: Este participante desativou a receção de mensagens
-        create:
-          error: Conversa não iniciada. Tente novamente mais tarde
         error_modal:
           close: Fechar modal
           correct_errors: Por favor corrija os erros e tente de novo
@@ -920,7 +811,6 @@ pt:
           ago: atrás
           new_conversation: Nova conversa
           next: Seguinte
-          no_conversations: Ainda não tem conversas
           title: Conversas
         show:
           back: Retroceder a todas as conversas
@@ -929,8 +819,6 @@ pt:
           title: Conversa com %{usernames}
         start:
           send: Enviar
-        update:
-          error: A mensagem não foi enviada devido a um erro
     metrics:
       download:
         csv: Descarregar dados (CSV)
@@ -948,7 +836,6 @@ pt:
         title: Participantes
     newsletter_mailer:
       newsletter:
-        note: Recebeu este e-mail porque está inscrito em boletins informativos de %{organization_name}. Pode alterar as suas configurações na sua <a href="%{link}">página de notificações</a>.
         unsubscribe: Para optar por não receber este tipo de e-mail, <a href="%{link}" target="_blank" class="unsubscribe">Cancele a subscrição</a>.
     newsletter_templates:
       basic_only_text:
@@ -971,16 +858,9 @@ pt:
         main_image: Imagem principal
     newsletters:
       unsubscribe:
-        check_subscription: Se deseja alterar as suas preferências, pode fazê-lo na <a href="%{link}" target="_blank">página de configurações</a>
-        error: Ocorreu um problema ao cancelar a subscrição
         success: Subscrição cancelada corretamente.
         token_error: A hiperligação expirou.
         unsubscribe: Cancelar subscrição
-    newsletters_opt_in:
-      unathorized: Lamentamos, esta hiperligação já não está disponível
-      update:
-        error: Aconteceu algo de errado
-        success: Configurações de boletim informativo atualizadas corretamente
     newsletters_opt_in_mailer:
       notify:
         body_1: O processamento de dados pessoais e a sua proteção estão a tornar-se cada vez mais importantes para todos nós. Com o novo Regulamento Geral de Proteção de Dados (GDPR) de 25 de maio de 2018, os indivíduos têm melhor controlo sobre os seus dados pessoais. Por este motivo, precisamos do seu "OK" para continuar a enviar informações relevantes sobre as atividades de %{organization_name}.
@@ -995,7 +875,6 @@ pt:
     notifications_settings:
       show:
         administrators: Administradores
-        allow_public_contact: Permitir que qualquer pessoa me envie uma mensagem direta, mesmo que não a siga.
         direct_messages: Receber mensagens diretas de qualquer pessoa
         everything_followed: Tudo o que eu sigo
         newsletter_notifications: Quero receber boletins informativos
@@ -1015,7 +894,6 @@ pt:
         verified: Verificado
     pad_iframe:
       disclaimer: O conteúdo deste bloco é escrito por usuários registrados e expressa suas opiniões. %{organization} não pode ser responsabilizado pelo seu conteúdo.
-      explanation: Use esse bloco para fazer anotações de forma colaborativa durante a reunião, para que seja mais fácil escrever o minuto depois.
       pad: Bloco
     pages:
       home:
@@ -1050,32 +928,11 @@ pt:
         metrics:
           headline: Métricas
           link: Mostrar todas as métricas
-      terms_and_conditions:
-        accept:
-          error: Ocorreu um problema ao aceitar os termos e condições.
-          success: Ótimo! Aceitou os termos e condições.
-        form:
-          agreement: Concordo com estes termos
-          legend: Concordo com os termos e condições de uso
-        refuse:
-          modal_btn_continue: Aceitar os termos e continuar
-          modal_btn_exit: Irei revê-los mais tarde
-          modal_button: Recusar os termos
-          modal_close: Fechar modal
-          modal_title: Recusa realmente os Termos e Condições atualizados?
-        required_review:
-          alert: Atualizámos os nossos Termos de Serviço, por favor reveja-os.
-          body: Por favor, dedique um momento para rever as atualizações dos nossos Termos de Serviços. Caso contrário, não poderá utilizar a plataforma.
-          title: 'Obrigatório: reveja as atualizações dos nossos termos de serviço'
     participatory_space_private_users:
       not_allowed: Não tem permissão para visualizar este conteúdo
     profile:
-      deleted: Participante eliminado
-      inaccessible_message: Esta conta foi bloqueada por violação dos Termos e Condições!
       view: Visualizar
     profiles:
-      default_officialization_text_for_user_groups: Este grupo está verificado publicamente, o seu nome foi confirmado para corresponder ao seu nome real
-      default_officialization_text_for_users: Este participante está verificado publicamente, o seu nome ou função foram verificados para corresponder com o seu nome e função reais
       show:
         activity: Atividade
         badges: Distintivos
@@ -1092,11 +949,9 @@ pt:
           info: Os distintivos são obtidos através da realização de atividades específicas na plataforma.
           title: Distintivos
       user:
-        confirmation_instructions_sent: Instruções de confirmação de e-mail enviadas
         create_user_group: Criar grupo
         edit_profile: Editar perfil
         edit_user_group: Editar perfil do grupo
-        fill_in_email_to_confirm_it: Por favor, preencha o e-mail do seu grupo para confirmar
         invite_user: Convidar participante
         join_user_group: Solicitar adesão ao grupo
         leave_user_group: Deixar o grupo
@@ -1188,7 +1043,6 @@ pt:
         already_reported: Este conteúdo já foi reportado e será revisto por um administrador.
         close: Fechar
         description: Este conteúdo é impróprio?
-        does_not_belong: Contém atividades ilegais, ameaças suicidas, informações pessoais ou qualquer outra coisa que pense não pertencer a %{organization_name}.
         offensive: Contém racismo, sexismo, insultos, ataques pessoais, ameaças de morte, pedidos de suicídio ou qualquer tipo de discurso de ódio.
         reason: Motivo
         report: Reportar
@@ -1198,7 +1052,6 @@ pt:
         already_reported: Este conteúdo já foi denunciado e será revisto por um administrador.
         close: Fechar
         description: O que é inapropriado acerca do utilizador?
-        does_not_belong: Contém actividade ilegal, ameaças de suicídio, informações pessoais ou algo que acha que não pertence a %{organization_name}.
         offensive: Contém racismo, sexismo, insultos, ataques pessoais, ameaças de morte, pedidos de suicídio ou qualquer forma de discurso de ódio.
         report: Denuncie
         spam: Contém clickbait, publicidade, golpes ou bots de script.
@@ -1250,13 +1103,9 @@ pt:
       help_text: "<strong>Aviso:</strong> O conteúdo pode ser traduzido automaticamente e não ser 100% fidedigno."
       show_original: Mostrar texto original
       show_translated: Mostrar texto traduzido automaticamente
-    user_activity:
-      index:
-        no_activities_warning: Este participante ainda não possui nenhuma atividade.
     user_contact_disabled: Este participante não aceita mensagens diretas.
     user_conversations:
       create:
-        error: Não foi possível criar a mensagem. Tente novamente mais tarde
         existing_error: Não foi possível criar a mensagem. A conversa já existe, por favor tente novamente agora.
         success: Conversa iniciada corretamente!
       index:
@@ -1271,7 +1120,6 @@ pt:
         next: Seguinte
         no_conversations_warning: Ainda não há conversas.
         no_results: Sem resultados
-        participant_with_disabled_message_reception: Este participante desativou a receção de mensagens
         time_ago: "Há %{time}"
       new:
         title: Iniciar uma conversa
@@ -1288,8 +1136,6 @@ pt:
     user_interests:
       show:
         my_interests: Os meus interesses
-        no_scopes: Esta organização ainda não possui nenhum âmbito!
-        select_your_interests: Selecione os tópicos em que está interessado para receber eventos relacionados com eles no separador Cronograma do seu perfil.
         update_my_interests: Atualizar os meus interesses
       update:
         error: Ocorreu um problema ao atualizar os seus interesses.
@@ -1330,7 +1176,6 @@ pt:
       show:
         version_index: Versão %{index}
     welcome_notification:
-      default_body: <p>Olá {{name}}, agradecemos por se juntar a {{organization}} e seja bem-vindo(a)!</p><ul><li>Se quiser ter uma ideia rápida do que pode fazer aqui, veja a secção <a href="{{help_url}}">Ajuda</a> .</li><li>Depois de lê-la, receberá o seu primeiro distintivo. Aqui está uma <a href="{{badges_url}}">lista de todos os distintivos</a> que pode obter como participante de {{organization}}</li><li>Por último, mas não menos importante, junte-se a outras pessoas, compartilhe com elas a sua experiência de estar envolvido e participar em {{organization}}. Faça propostas, comentários, debata, pense em como contribuir para o bem comum, forneça argumentos para convencer, escute e leia para ser convencido, expresse as suas ideias de maneira concreta e direta, responda com paciência e decisão, defenda as suas ideias e mantenha uma mente aberta para colaborar e juntar-se às ideias de outras pessoas.</li></ul>
       default_subject: Obrigado por se juntar a {{organization}}!
     wizard_step_form:
       wizard_aside:
@@ -1377,40 +1222,25 @@ pt:
         subject: Instruções de confirmação
       email_changed:
         greeting: Olá %{recipient}!
-        message: Estamos a contactá-lo(a) para notificá-lo(a) de que o seu e-mail está a ser modificado para %{email}.
         subject: E-mail Modificado
       invitation_instructions:
         accept: Aceitar convite
         accept_until: Este convite irá expirar em %{due_date}.
         decline: Recusar convite
         hello: Olá %{email},
-        ignore: |-
-          Se não quiser aceitar o convite, por favor ignore este e-mail.<br />
-          A sua conta não será criada até que aceda à hiperligação acima e defina a sua alcunha e palavra-passe.
         invited_you_as_admin: "%{invited_by} convidou-(a) como administrador(a) de %{application}. Pode aceitar através da hiperligação abaixo."
         invited_you_as_private_user: "%{invited_by} convidou-o(a) como participante privado de %{application}. Pode aceitar através da hiperligação abaixo."
         someone_invited_you: Alguém convidou-o(a) para %{application}. Pode aceitar através da hiperligação abaixo.
         someone_invited_you_as_admin: Alguém convidou-o(a) como administrador(a) de %{application}, pode aceitar através da hiperligação abaixo.
         someone_invited_you_as_private_user: Alguém convidou-o(a) como participante privado de %{application}, pode aceitar através da hiperligação abaixo.
         subject: Instruções de convite
-      invite_admin:
-        subject: Foi convidado(a) a gerir %{organization}
-      invite_collaborator:
-        subject: Foi convidado(a) a colaborar em %{organization}
-      invite_private_user:
-        subject: Foi convidado(a) para um processo participativo privado em %{organization}
-      organization_admin_invitation_instructions:
-        subject: Foi convidado(a) a gerir %{organization}
       password_change:
         greeting: Olá %{recipient}!
-        message: Estamos a contactá-lo(a) para notificá-lo(a) de que a sua palavra-passe foi modificada.
         subject: Palavra-passe modificada
       reset_password_instructions:
         action: Modificar a minha palavra-passe
         greeting: Olá %{recipient}!
         instruction: Alguém solicitou uma hiperligação para alterar a sua palavra-passe e pode fazer isso através da hiperligação abaixo.
-        instruction_2: Se não solicitou isto, por favor ignore este e-mail.
-        instruction_3: A sua palavra-passe não será alterada até que aceda à hiperligação acima e crie uma nova.
         subject: Instruções de reposição da palavra-passe
       unlock_instructions:
         action: Desbloquear a minha conta
@@ -1430,7 +1260,6 @@ pt:
       new:
         forgot_your_password: Esqueceu a sua palavra-passe?
         send_me_reset_password_instructions: Envie-me as instruções de reposição da palavra-passe
-      no_token: Não pode aceder a esta página sem ter vindo a partir de um e-mail de reposição da palavra-passe. Se vier a partir de um e-mail de reposição da palavra-passe, verifique se usou o URL completo fornecido.
       send_instructions: Receberá um e-mail com instruções sobre como repor a sua palavra-passe dentro de poucos minutos.
       send_paranoid_instructions: Se o seu endereço de e-mail existir na nossa base de dados, receberá uma hiperligação de recuperação da palavra-passe no seu endereço de e-mail dentro de poucos minutos.
       updated: A sua palavra-passe foi modificada corretamente. Agora tem sessão iniciada.
@@ -1454,8 +1283,6 @@ pt:
     shared:
       links:
         back: Retroceder
-        didn_t_receive_confirmation_instructions: Não recebeu as instruções de confirmação?
-        didn_t_receive_unlock_instructions: Não recebeu as instruções de desbloqueio?
         forgot_your_password: Esqueceu a sua palavra-passe?
         sign_in: Iniciar sessão
         sign_in_with_provider: Iniciar sessão com %{provider}
@@ -1477,13 +1304,11 @@ pt:
       already_confirmed: já foi confirmado, por favor tente iniciar sessão
       confirmation_period_expired: necessita de ser confirmado dentro de %{period}, por favor solicite um novo
       content_type_allowlist_error: o tipo de ficheiro não é válido
-      cycle_detected: o pai de um âmbito não pode ser um dos seus descendentes
       expired: expirou, por favor solicite um novo
       file_size_is_less_than_or_equal_to: o tamanho do ficheiro deve ser menor ou igual a %{count}
       invalid_time_zone: não é um fuso horário válido
       long_words: contém palavras muito longas (acima de 35 caracteres)
       must_start_with_caps: deve começar com uma letra maiúscula
-      nesting_too_deep: não pode estar dentro de uma subcategoria
       not_found: não foi encontrado(a). Já se inscreveu anteriormente?
       not_locked: não estava bloqueado
       not_saved:

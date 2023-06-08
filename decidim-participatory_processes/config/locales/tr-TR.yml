@@ -198,9 +198,6 @@ tr:
           success: Katılımcı süreç adımı başarıyla oluşturuldu.
         default_title: Giriş
         destroy:
-          error:
-            active_step: Aktif adımı silemiyorum.
-            last_step: Bir işlemin son adımı silinemiyor.
           success: Katılımcı süreç adımı başarıyla silindi.
         edit:
           title: Katılımcı süreç adımını düzenle
@@ -419,8 +416,6 @@ tr:
               one: 1 yaklaşan süreç
               other: "%{count} gelecek süreç"
           explanations:
-            no_active: Etkin işlem yok
-            no_active_nor_upcoming: Etkin ve yaklaşan süreç yok
             no_active_nor_upcoming_callout: Etkin ve yaklaşan süreçler yoktur. İşte geçmiş olanların listesi.
           names:
             active: Aktif

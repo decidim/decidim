@@ -15,8 +15,6 @@ el:
             choices:
               missing: δεν έχουν ολοκληρωθεί
               too_many: είναι πάρα πολλά
-        questionnaire:
-          request_invalid: Παρουσιάστηκε σφάλμα κατά τον χειρισμό του αιτήματος. Δοκιμάστε ξανά
   decidim:
     forms:
       admin:
@@ -62,9 +60,6 @@ el:
             up: Επάνω
           update:
             invalid: Υπήρξε ένα πρόβλημα κατά την αποθήκευση της φόρμας.
-      errors:
-        answer:
-          body: Το σώμα δεν μπορεί να είναι κενό
       images:
         dimensions: "Π %{width} x Υ %{height} px"
       question_types:
