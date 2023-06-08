@@ -28,12 +28,6 @@ hu:
         email: Email
         name: Név
         role: Szerep
-    errors:
-      models:
-        conference_registration_invite:
-          attributes:
-            email:
-              already_invited: Ezt az e-mailt már meghívták
   activerecord:
     models:
       decidim/conference:
@@ -304,7 +298,6 @@ hu:
             invites: Meghívottak
             search: Keresés
           new:
-            explanation: A felhasználó meghívást kap egy konferenciára. Ha az e-mail nincs regisztrálva, akkor a szervezet is meghívást kap.
             invite: Meghívás
             new_invite: Felhasználó meghívása
         conference_registrations:
@@ -404,11 +397,6 @@ hu:
       index:
         title: Konferenciák
       mailer:
-        conference_registration_mailer:
-          confirmation:
-            subject: A konferencia regisztrációja megerősítést nyert
-          pending_validation:
-            subject: A konferencia regisztrációd megerősítése függőben van
         invite_join_conference_mailer:
           invite:
             subject: Meghívás egy konferenciára való belépéshez
@@ -479,10 +467,6 @@ hu:
           email_outro: Ezt az értesítést azért kaptad, mert a "%{resource_title}" konferenciát követed. Leiratkozhatsz az értesítésekről az előző linken keresztül.
           email_subject: A "%{resource_title}" konferencia hamarosan indul!
           notification_title: A <a href="%{resource_path}">%{resource_title}</a> konferencia 2 nap múlva kezdődik.
-    log:
-      value_types:
-        conference_presenter:
-          not_found: 'A konferencia nem található az adatbázisban (ID: %{id})'
     media:
       index:
         description: Linkek erről a konferenciáról

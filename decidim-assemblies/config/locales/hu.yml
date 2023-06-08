@@ -428,9 +428,6 @@ hu:
         related_assemblies: Kapcsolódó gyűlések
     statistics:
       assemblies_count: Gyűlések
-  errors:
-    messages:
-      cannot_be_blank: nem lehet üres
   layouts:
     decidim:
       assemblies:

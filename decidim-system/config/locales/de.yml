@@ -43,9 +43,6 @@ de:
       admins:
         create:
           error: Beim Erstellen eines neuen Administrators ist ein Fehler aufgetreten.
-          success: Administrator erfolgreich erstellt
-        destroy:
-          success: Der Administrator wurde erfolgreich gelöscht
         edit:
           title: Administrator bearbeiten
           update: Aktualisieren
@@ -56,7 +53,6 @@ de:
           title: Neuer Administrator
         update:
           error: Beim Aktualisieren dieses Administrators ist ein Fehler aufgetreten.
-          success: Administrator wurde erfolgreich aktualisiert
       dashboard:
         show:
           current_organizations: Aktuelle Organisationen
@@ -144,8 +140,6 @@ de:
         index:
           title: Organisationen
         new:
-          reference_prefix_hint: Das Referenzpräfix wird zur eindeutigen Identifizierung von Ressourcen in allen Organisationen verwendet
-          secondary_hosts_hint: Geben Sie jede von ihnen in einer neuen Zeile ein
           title: Neue Organisation
         omniauth_settings:
           decidim:
@@ -168,8 +162,6 @@ de:
         smtp_settings:
           fieldsets:
             sender: Absender
-          instructions:
-            from_label: 'E-Mail-Absender lautet: "Dein-Organisationsname <your-organization@example.org>". Leer lassen um ''from_email'' als Absender zu verwenden'
           placeholder:
             from_email: deine-organisation@example.org
             from_label: name-ihrer-organisation
@@ -179,7 +171,6 @@ de:
         users_registration_mode:
           disabled: Der Zugriff kann nur mit externen Konten erfolgen
           enabled: Benutzern erlauben, sich zu registrieren und sich anzumelden
-          existing: Erlauben Sie Benutzern keine Registrierung, sondern erlauben Sie bestehenden Benutzern, sich anzumelden
       shared:
         notices:
           no_organization_warning_html: Sie müssen eine Organisation erstellen, um zu beginnen. Stellen Sie sicher, dass Sie %{guide} lesen, bevor Sie fortfahren.

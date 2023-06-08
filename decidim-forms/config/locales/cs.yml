@@ -23,7 +23,7 @@ cs:
               missing: nejsou úplné
               too_many: jsou příliš mnoho
         questionnaire:
-          request_invalid: Při zpracování požadavku došlo k chybě. Prosím zkuste to znovu
+          request_invalid: Při zpracování požadavku došlo k chybě. Prosím zkuste to znovu.
   decidim:
     forms:
       admin:
@@ -128,7 +128,7 @@ cs:
           update: "%{user_name} aktualizoval dotazník %{resource_name}"
       errors:
         answer:
-          body: Tělo nemůže být prázdné
+          body: Tělo textu nemůže být prázdné
       images:
         dimensions: "%{width} x %{height} px"
         processors:

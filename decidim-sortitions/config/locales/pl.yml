@@ -64,10 +64,6 @@ pl:
             title: Anulowanie wyboru losowego
           create:
             error: Wystąpił błąd podczas tworzenia nowego wyboru losowego.
-            success: Wybór losowy został utworzony
-          destroy:
-            error: Nie można anulować wyboru losowego.
-            success: Wybór losowy został anulowane
           edit:
             title: Zaktualizuj informacje o wyborze losowym
             update: Aktualizuj
@@ -84,7 +80,6 @@ pl:
             selected_proposals: Propozycje wskazane do losowania
           update:
             error: Wystąpił błąd podczas aktualizacji wyboru losowego.
-            success: Wybór losowy został zaktualizowany
       admin_log:
         sortition:
           create: "%{user_name} utworzył(a) wybór losowy %{resource_name} w %{space_name}"

@@ -203,7 +203,6 @@ sv:
           email_intro: 'Nu kan du starta nya debatter i %{participatory_space_title}! Börja att delta på den här sidan:'
           email_outro: Du har fått det här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta att ta emot meddelanden via föregående länk.
           email_subject: Debatter är nu tillgängliga i %{participatory_space_title}
-          notification_title: Nu kan du starta <a href="%{resource_path}">nya debatter</a> i <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         debate_closed:
           affected_user:
             email_intro: 'Debatten "%{resource_title}" stängdes. Du kan läsa slutsatserna från dess sida:'
@@ -226,7 +225,6 @@ sv:
           name: Debatter
           next_level_in: Delta i %{score} till debatter för att nå nästa nivå!
           unearned_another: Deltagaren har inte deltagit i någon debatt än.
-          unearned_own: Du har inte deltagit i några debatter än.
     metrics:
       debates:
         description: Antal skapade debatter

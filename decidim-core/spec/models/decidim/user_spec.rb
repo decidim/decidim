@@ -277,6 +277,52 @@ module Decidim
       end
     end
 
+    describe "#needs_password_update?" do
+      subject { user.needs_password_update? }
+
+      let(:user) { create(:user, :confirmed, organization:) }
+      let(:password_expired_time) { Decidim.config.admin_password_expiration_days.days.ago - 1.second }
+
+      context "with participant" do
+        before { user.update!(password_updated_at: password_expired_time) }
+
+        it { is_expected.to be(false) }
+      end
+
+      context "with admin" do
+        let(:user) { create(:user, :confirmed, :admin, organization:, password_updated_at:) }
+        let(:password_updated_at) { Time.current }
+
+        context "when the password has been recently updated" do
+          it { is_expected.to be(false) }
+        end
+
+        context "when the password was updated a long time ago" do
+          let(:password_updated_at) { password_expired_time }
+
+          it { is_expected.to be(true) }
+
+          context "when strong passwords are disabled" do
+            before { allow(Decidim.config).to receive(:admin_password_strong).and_return(false) }
+
+            it { is_expected.to be(false) }
+          end
+        end
+
+        context "when password_updated_at is blank" do
+          let(:password_updated_at) { nil }
+
+          it { is_expected.to be(true) }
+
+          context "when the user has identities" do
+            let!(:identity) { create(:identity, user:) }
+
+            it { is_expected.to be(false) }
+          end
+        end
+      end
+    end
+
     describe ".interested_in_scopes" do
       let(:scopes) { [] }
 

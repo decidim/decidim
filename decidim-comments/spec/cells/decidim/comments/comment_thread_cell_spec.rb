@@ -40,7 +40,7 @@ module Decidim::Comments
           let(:comment) { create(:comment, commentable:, author: user) }
 
           it "renders the user as deleted" do
-            expect(subject).to have_css(".comment__header", text: "Participant deleted")
+            expect(subject).to have_css(".comment__header", text: "Deleted participant")
           end
         end
       end

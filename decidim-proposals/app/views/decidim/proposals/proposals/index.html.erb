@@ -1,12 +1,7 @@
 <% add_decidim_page_title(t("name", scope: "decidim.components.proposals")) %>
 
-<% content_for :css_content do %>
-  <%= stylesheet_pack_tag "decidim_proposals", media: "all" %>
-<% end %>
-
-<% content_for :js_content do %>
-  <%= javascript_pack_tag "decidim_proposals" %>
-<% end %>
+<% append_stylesheet_pack_tag "decidim_proposals", media: "all" %>
+<% append_javascript_pack_tag "decidim_proposals" %>
 
 <% content_for :aside do %>
   <h1 id="proposals-count" class="h3 md:h1 decorator">

@@ -21,11 +21,6 @@ gl:
           post:
             name: Publicación
         posts:
-          create:
-            invalid: Produciuse un problema ao crear esta publicación
-            success: Publicación creada con éxito
-          destroy:
-            success: Publicación eliminada con éxito
           edit:
             save: Actualizar
             title: Editar publicación
@@ -36,7 +31,6 @@ gl:
             title: Crear unha publicación
           update:
             invalid: Produciuse un erro ao gardar a publicación.
-            success: Publicación gardada con éxito
       models:
         post:
           fields:

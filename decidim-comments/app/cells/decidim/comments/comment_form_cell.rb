@@ -92,13 +92,13 @@ module Decidim
       def component_comments_max_length
         return unless model.component&.settings.respond_to?(:comments_max_length)
 
-        model.component.settings.comments_max_length if model.component.settings.comments_max_length.positive?
+        model.component.settings.comments_max_length if model.component.settings.comments_max_length.to_i.positive?
       end
 
       def organization_comments_max_length
         return unless organization
 
-        organization.comments_max_length if organization.comments_max_length.positive?
+        organization.comments_max_length if organization.comments_max_length.to_i.positive?
       end
 
       def organization

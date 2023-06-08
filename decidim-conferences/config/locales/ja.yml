@@ -74,7 +74,7 @@ ja:
         conference_registration_invite:
           attributes:
             email:
-              already_invited: このメールアドレスは既に招待されています
+              already_invited: このメールアドレスは既に招待されています。
   activerecord:
     models:
       decidim/conference:
@@ -350,7 +350,7 @@ ja:
             invites: 招待
             search: 検索
           new:
-            explanation: 参加者はカンファレンスに招待されます。 参加者の電子メールが組織に登録されていない場合、同様に組織に招待されます。
+            explanation: 参加者はカンファレンスに参加するように招待されます。参加者のメールアドレスが組織に登録されていない場合は、組織にも招待されます。
             invite: 招待
             new_invite: 参加者の招待
         conference_registrations:
@@ -450,7 +450,7 @@ ja:
           main_promotors: オーガナイザー
         show:
           login_as: '%{name} <%{email} >としてログインしています'
-          make_conference_registration: カンファレンスに参加登録する
+          make_conference_registration: カンファレンスに登録する
           register: 登録
       content_blocks:
         highlighted_conferences:
@@ -460,9 +460,9 @@ ja:
       mailer:
         conference_registration_mailer:
           confirmation:
-            subject: カンファレンスの登録が確認されました
+            subject: カンファレンスの登録が確認されました。
           pending_validation:
-            subject: カンファレンスの登録は保留中です
+            subject: カンファレンスの登録は保留中です。
         invite_join_conference_mailer:
           invite:
             subject: カンファレンスへの招待
@@ -549,7 +549,7 @@ ja:
     log:
       value_types:
         conference_presenter:
-          not_found: 'データベース上にカンファレンスが見つかりませんでした (ID: %{id})'
+          not_found: 'データベース上にカンファレンスが見つかりませんでした (ID: %{id}).'
     media:
       index:
         description: このカンファレンスに関するリンク

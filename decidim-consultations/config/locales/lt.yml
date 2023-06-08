@@ -46,12 +46,6 @@ lt:
         decidim_consultations_response_id:
           not_found: Atsakymo nerasta.
   activerecord:
-    errors:
-      models:
-        decidim/consultations/vote:
-          attributes:
-            question:
-              invalid_num_votes: Negaliojantis balsų skaičius
     models:
       decidim/consultation:
         one: Konsultacija
@@ -102,7 +96,6 @@ lt:
         create:
           error: Kuriant naują konsultaciją iškilo problema.
           success: Konsultacija sukurta.
-        deprecation_warning: Konsultacijų modulis greitu metu bus išimtas. Šiuo metu dirbame prie kitos, kriptografiškai saugios versijos pavadinimu Balsavimai.
         edit:
           update: Atnaujinti
         form:
@@ -167,7 +160,6 @@ lt:
             many: Atsakymai (-ų)
             other: Atsakymai (-ų)
       question_configuration:
-        disable_external_voting: Dėl išplėstinės konfigūracijos išjunkite išorės balsavimą
         form:
           help: Sudarykite klausimus su keliais pasirenkamais atsakymais, padidindami didžiausią atsakymų, kuriuos dalyvis gali pasirinkti, skaičių. Numatytoji didžiausia vertė yra 1, o tai reiškia, kad galima pasirinkti tik vieną atsakymą.
           title: Papildomi nustatymai
@@ -320,7 +312,6 @@ lt:
             votes: Balsai
       question_votes:
         create:
-          error: Balsuojant dėl klausimo iškilo problema
           success: Galite tai keisti iki konsultacijos pabaigos. Įskaitytas bus tik paskutinis balsas.
           title_error: Balsavimo klaida!
           title_success: Balsas įskaitytas

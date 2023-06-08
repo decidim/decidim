@@ -52,7 +52,6 @@ ar:
           description_own: لقد أنشأت %{score} اختبارات.
           name: الاختبارات
           next_level_in: إنشاء %{score} اختبارات أخرى للوصول إلى المستوى التالي!
-          unearned_another: لم ينشئ هذا المشارك أي اختبارات حتى الآن.
           unearned_own: لم تنشئ أية اختبارات بعد.
     resource_links:
       test_link:

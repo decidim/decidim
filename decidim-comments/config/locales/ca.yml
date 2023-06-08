@@ -31,7 +31,7 @@ ca:
         update:
           error: S'ha produït un error en actualitzar el comentari.
       comments_count: Número de comentaris
-      comments_title: Comentaris
+      comments_title: Comentari
       last_activity:
         new_comment_at_html: "<span>Nou comentari a %{link}</span>"
       view: Mostrar
@@ -45,7 +45,7 @@ ca:
           body:
             label: Comentari
             placeholder: Què en penses d'això?
-          form_error: El text és necessari i no pot ser més llarg de %{length}
+          form_error: El text és necessari i no pot ser més llarg de %{length}.
           submit: Enviar
           user_group_id:
             label: Comentar com a
@@ -167,4 +167,4 @@ ca:
         title: Comentaris
   errors:
     messages:
-      cannot_have_comments: no pot tenir comentaris
+      cannot_have_comments: no es poden fer comentaris

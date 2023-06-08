@@ -86,6 +86,7 @@
 // participatory spaces are quite similar between processes and assemblies (different modules), so their stylesheets are placed in the core
 @import "stylesheets/decidim/redesigned_participatory_spaces.scss";
 @import "stylesheets/decidim/redesigned_omnipresent_banner.scss";
+@import "stylesheets/decidim/redesigned_toggle_switch.scss";
 
 // This imports all the Decidim module stylesheet imports registered at
 // `config/assets.rb` of the module for the "app" group.

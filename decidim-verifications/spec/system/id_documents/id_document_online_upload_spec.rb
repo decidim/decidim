@@ -29,7 +29,7 @@ describe "Identity document online upload", type: :system do
     expect(page).to have_content("Document successfully uploaded")
   end
 
-  it "doesn't allow to upload an invalid file" do
+  it "does not allow to upload an invalid file" do
     submit_upload_form(
       doc_type: "DNI",
       doc_number: "XXXXXXXX",

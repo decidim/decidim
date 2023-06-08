@@ -46,12 +46,6 @@ ar:
         decidim_consultations_response_id:
           not_found: الرد غير موجود.
   activerecord:
-    errors:
-      models:
-        decidim/consultations/vote:
-          attributes:
-            question:
-              invalid_num_votes: عدد الأصوات غير صالح
     models:
       decidim/consultation:
         zero: المشاورات
@@ -110,7 +104,6 @@ ar:
         create:
           error: كانت هناك مشكلة في إنشاء استشارة جديدة.
           success: تم إنشاء التشاور بنجاح.
-        deprecation_warning: سيتم إهمال وحدة المشاورات في المستقبل القريب. نحن قيد العمل على نسخة جديدة آمنة تشفيرياً والمسماة التصويتات.
         edit:
           update: تحديث
         form:
@@ -181,7 +174,6 @@ ar:
             many: استجابات
             other: استجابات
       question_configuration:
-        disable_external_voting: الرجاء تعطيل التصويت الخارجي للتكوينات المتقدمة
         form:
           help: يمكن بإعداد أسئلة خيارات متعددة عن طريق زيادة الحد الأقصى لعدد الردود التي يمكن أن يختارها المشارك. القيمة القصوى الافتراضية هي 1، بمعنى أنه يمكن التصويت على رد واحد فقط.
           title: الإعداد المتقدّم
@@ -340,7 +332,6 @@ ar:
             votes: أصوات
       question_votes:
         create:
-          error: كانت هناك مشكلة في التصويت على السؤال
           success: يمكنك تغيير ذلك حتى نهاية المشاورة. سيتم قبول التصويت الأخير فقط.
           title_error: خطأ في التصويت!
           title_success: تم تسجيل التصويت بنجاح

@@ -20,6 +20,7 @@ module Decidim
         return broadcast(:invalid) unless form.valid?
 
         transaction do
+          find_or_create_moderation!
           register_justification!
           block!
           notify_user!
@@ -31,6 +32,10 @@ module Decidim
       private
 
       attr_reader :form
+
+      def find_or_create_moderation!
+        Decidim::UserModeration.create_or_find_by!(user: form.user)
+      end
 
       def register_justification!
         @current_blocking = UserBlock.create!(
