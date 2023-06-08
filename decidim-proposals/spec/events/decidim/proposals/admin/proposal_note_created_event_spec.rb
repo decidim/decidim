@@ -14,7 +14,7 @@ describe Decidim::Proposals::Admin::ProposalNoteCreatedEvent do
   it_behaves_like "a simple event"
 
   describe "email_subject" do
-    let(:resource) { create :proposal, title: { en: "It's my proposal" } }
+    let(:resource) { create :proposal, title: { en: "It is my proposal" } }
 
     it "is generated correctly" do
       expect(subject.email_subject).to eq("Someone left a note on proposal #{resource_title}.")
@@ -24,7 +24,7 @@ describe Decidim::Proposals::Admin::ProposalNoteCreatedEvent do
   describe "email_intro" do
     it "is generated correctly" do
       expect(subject.email_intro)
-        .to eq(%(Someone has left a note on the proposal "#{resource_title}". Check it out at <a href="#{admin_proposal_info_url}">the admin panel</a>))
+        .to eq(%(Someone has left a note on the proposal "#{resource_title}". Check it out at <a href="#{admin_proposal_info_url}">the admin panel</a>.))
     end
   end
 
@@ -52,7 +52,7 @@ describe Decidim::Proposals::Admin::ProposalNoteCreatedEvent do
     describe "email_intro" do
       it "is generated correctly" do
         expect(subject.email_intro)
-          .to eq(%(Someone has left a note on the proposal "#{resource_title}". Check it out at <a href="#{admin_proposal_info_url}">the admin panel</a>))
+          .to eq(%(Someone has left a note on the proposal "#{resource_title}". Check it out at <a href="#{admin_proposal_info_url}">the admin panel</a>.))
       end
     end
 

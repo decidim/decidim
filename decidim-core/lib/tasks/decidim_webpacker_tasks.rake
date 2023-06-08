@@ -27,6 +27,19 @@ namespace :decidim do
       # Remove the webpacker dependencies as they come through Decidim dependencies.
       # This ensures we can control their versions from Decidim dependencies to avoid version conflicts.
       webpacker_packages = %w(
+        @babel/core
+        @babel/plugin-transform-runtime
+        @babel/preset-env
+        @babel/runtime
+        babel-loader
+        compression-webpack-plugin
+        shakapacker
+        terser-webpack-plugin
+        webpack
+        webpack-assets-manifest
+        webpack-cli
+        webpack-dev-server
+        webpack-merge
         @rails/actioncable
         @rails/activestorage
         @rails/ujs
@@ -35,8 +48,8 @@ namespace :decidim do
       system! "npm uninstall #{webpacker_packages.join(" ")}"
 
       # Modify the webpack binstubs
-      add_binstub_load_path "bin/webpack"
-      add_binstub_load_path "bin/webpack-dev-server"
+      add_binstub_load_path "bin/webpacker"
+      add_binstub_load_path "bin/webpacker-dev-server"
 
       # Add the Browserslist configuration to the project
       add_decidim_browserslist_configuration

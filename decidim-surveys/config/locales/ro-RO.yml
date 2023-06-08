@@ -66,5 +66,4 @@ ro:
       surveys:
         answer:
           invalid: A apărut o problemă în timpul răspunsului pentru sondaj.
-          spam_detected: A apărut o problemă în timpul răspunsului pentru sondaj. Poate ai fost prea rapid, poţi încerca din nou?
           success: Răspunsul pentru sondaj a fost înregistrat cu succes.

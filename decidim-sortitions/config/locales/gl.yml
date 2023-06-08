@@ -62,10 +62,6 @@ gl:
             title: Cancelación do sortition
           create:
             error: Produciuse un erro ao crear unha nova xeración.
-            success: Creouse a edición correctamente
-          destroy:
-            error: Non se pode cancelar o sorteo.
-            success: A eliminación cancelouse correctamente
           edit:
             title: Actualiza a información sobre a clasificación
             update: Actualización
@@ -76,14 +72,12 @@ gl:
           index:
             title: Edicións
           new:
-            confirm: Ao premer no seguinte botón, a plataforma rexistrará a data e hora (cunha precisión de segundos) e xunto coa tirada de dados, esta información empregarase para xerar unha escolla ao chou. Esta acción será irreversíbel, unha vez premido o botón publicarase o resultado deste sorteo xunto cos datos inseridos neste formulario e que non é posíbel modificar, por favor verifica o contido con coidado
             create: Crear
             title: Nova xeración
           show:
             selected_proposals: Propostas seleccionadas para o sorteo
           update:
             error: Produciuse un erro ao actualizar o sorteo.
-            success: A clasificación actualizouse correctamente
       admin_log:
         sortition:
           create: "%{user_name} creou o sorteo %{resource_name} en %{space_name}"

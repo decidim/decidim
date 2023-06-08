@@ -51,12 +51,8 @@ lb:
             attachment:
               file: Datei ist ungültig
               needs_to_be_reattached: Der Anhang muss erneut angehängt werden
-              title: Der Titel sollte nicht leer sein
   activerecord:
     models:
-      decidim/initiative:
-        one: Initativ
-        other: Initiativen
       decidim/initiative_comittee:
         one: Komitee
         other: Ausschüsse
@@ -171,10 +167,8 @@ lb:
             - Befolgen Sie die Schritte, um eine neue Initiative zu erstellen
           description: Dieses Abzeichen wird gewährt, wenn Sie neue Initiativen starten und mit anderen zusammenarbeiten, um sie durchzuführen.
           description_another: Dieser Benutzer hat %{score} Initiativen veröffentlicht.
-          description_own: Du hast %{score} Initiativen veröffentlicht.
           name: Veröffentlichte Initiativen
           next_level_in: Holen Sie sich %{score} weitere Initiativen veröffentlicht, um das nächste Level zu erreichen!
-          unearned_another: Dieser Benutzer hat noch keine Initiativen veröffentlicht.
           unearned_own: Sie haben noch keine Initiativen veröffentlicht.
     help:
       participatory_spaces:
@@ -200,8 +194,6 @@ lb:
           index:
             approve: Genehmigen
             confirm_revoke: Bist du sicher?
-            invite_to_committee_help: Teilen Sie diesen Link, um andere Benutzer zum Promotionskomitee einzuladen
-            no_members_yet: Es gibt keine Mitglieder im Promoter-Ausschuss
         initiatives_types:
           form:
             options: Optionen
@@ -211,9 +203,6 @@ lb:
           new:
             create: Erstellen
             title: Neuer Initiativentyp
-          update:
-            error: Ein Fehler ist aufgetreten
-            success: Der Initiativentyp wurde erfolgreich aktualisiert
       admin_log:
         initiative:
           publish: "%{user_name} hat die Initiative %{resource_name} veröffentlicht"
@@ -246,7 +235,6 @@ lb:
           success: Anfrage wurde bestätigt.
         new:
           continue: Fortsetzen
-          help_text: Sie sind dabei, ein Mitglied des Promoter-Komitees dieser Initiative zu werden
         revoke:
           success: Anfrage wurde zurückgezogen.
         spawn:
@@ -346,7 +334,6 @@ lb:
             day: Tag
             month: Monat
             year: Jahr
-          help: Bitte füllen Sie die folgenden Felder mit Ihren persönlichen Daten aus, um die Initiative zu unterzeichnen
         finish:
           back_to_initiative: Zurück zur Initiative
         sms_code:
@@ -354,16 +341,11 @@ lb:
           help: Überprüfen Sie die an Ihrem Telefon empfangene SMS
         sms_phone_number:
           continue: Senden Sie mir eine SMS
-          help: Füllen Sie das Formular mit Ihrer bestätigten Telefonnummer aus, um Ihren Bestätigungscode anzufordern
       initiative_votes:
         create:
           error: Beim Signieren der Initiative sind Fehler aufgetreten.
-          invalid: Die zur Unterzeichnung der Initiative bereitgestellten Daten sind nicht gültig
-          success_html: Herzliche Glückwünsche! Die <strong> %{title}</strong> -Initiative wurde korrekt unterzeichnet
         personal_data:
           invalid: Persönliche Daten stimmen nicht mit den zur Autorisierung angegebenen Daten überein.
-        sms_code:
-          invalid: Ihr Bestätigungscode stimmt nicht mit unserem überein. Bitte überprüfen Sie noch einmal die SMS, die wir Ihnen gesendet haben.
         sms_phone:
           invalid: Die Telefonnummer ist ungültig oder muss noch autorisiert werden. Bitte überprüfen Sie Ihre Berechtigungen.
       initiatives:
@@ -376,8 +358,6 @@ lb:
         committee_members:
           approve: Genehmigen
           confirm_revoke: Bist du dir sicher?
-          invite_to_committee_help: Teilen Sie diesen Link, um andere Benutzer zum Promotionskomitee einzuladen
-          no_members_yet: Es gibt keine Mitglieder im Promoter-Ausschuss
           revoke: Widerrufen
           title: Ausschussmitglieder
         count:
@@ -435,9 +415,6 @@ lb:
         accepted: Akzeptiert
         expired: Abgelaufen
       unavailable_scope: Nicht verfügbarer Umfang
-      update:
-        error: Ein Fehler ist aufgetreten
-        success: Die Initiative wurde erfolgreich aktualisiert
       versions:
         shared:
           back_to_resource: Zurück zur Initiative

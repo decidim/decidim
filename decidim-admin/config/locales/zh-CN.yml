@@ -135,23 +135,10 @@ zh-CN:
         reject: 拒绝
         share: 分享
         verify: 验证
-      admin_terms_of_use:
-        accept:
-          error: 接受管理员使用条款时出错。
-          success: 太棒了！您已经接受了管理员使用条款。
-        actions:
-          refuse: 拒绝管理条款
-          title: 同意使用条款
-        required_review:
-          alert: '要求：审查我们的管理员使用条件'
-          cta: 现在审查它们。
-        title: 管理员使用条款
       area_types:
         create:
           error: 创建新区域类型时出现问题。
           success: 区域类型创建成功。
-        destroy:
-          success: 区域类型销毁成功
         edit:
           title: 编辑区域类型
           update: 更新
@@ -160,13 +147,10 @@ zh-CN:
           title: 新区域类型
         update:
           error: 更新区域类型时出现问题。
-          success: 区域类型更新成功
       areas:
         create:
           error: 创建一个新区域时出现问题。
           success: 区域创建成功。
-        destroy:
-          success: 已成功摧毁区域
         edit:
           title: 编辑区域
           update: 更新
@@ -176,7 +160,6 @@ zh-CN:
         no_areas: 无区域
         update:
           error: 更新这个区域时出现问题。
-          success: 区域更新成功
       attachment_collections:
         create:
           error: 创建一个新文件夹时出现问题。
@@ -214,7 +197,6 @@ zh-CN:
           success: 附件更新成功。
       autocomplete:
         no_results: 未找到结果
-        search_prompt: 输入至少三个字符进行搜索
       categories:
         create:
           error: 创建此类别时出现问题。
@@ -280,7 +262,6 @@ zh-CN:
           Excel: Excel
           FormPDF: PDF
           JSON: JSON
-        notice: 您的导出正在进行。完成后您将收到一封电子邮件。
       filters:
         category_id_eq:
           label: 类别
@@ -309,10 +290,8 @@ zh-CN:
         state_eq:
           label: 状态
       help_sections:
-        error: 更新帮助部分时出错
         form:
           save: 保存
-        success: 帮助部分更新成功
       impersonatable_users:
         index:
           filter:
@@ -456,8 +435,6 @@ zh-CN:
             state: 状态
             users_count: 参与者数量
       moderations:
-        index:
-          title: 版面
         report:
           reasons:
             does_not_belong: 不属于哪个国家
@@ -517,8 +494,6 @@ zh-CN:
           send_to_participants: 发送给参与者
           title: 选择要交付的收件人
           warning: "<strong>注意:</strong> 这份通讯将只发送给已激活 <em>我想在其通知设置中接收新闻简讯</em>。"
-        send:
-          no_recipients: 此选择没有收件人
         show:
           preview: 预览
           select_recipients_to_deliver: 选择要交付的收件人
@@ -527,10 +502,6 @@ zh-CN:
           error: 更新这份通讯时出现问题。
           success: 通讯更新成功。请在发送前查看。
       officializations:
-        create:
-          success: 参与者已成功正式化
-        destroy:
-          success: 参与者已成功取消授权
         index:
           actions: 行动
           badge: 徽章
@@ -601,8 +572,6 @@ zh-CN:
           create: 创建
           title: 新的参与性空间活动私人参与者。
       participatory_space_private_users_csv_imports:
-        create:
-          success: CSV 文件上传成功，我们正在向参与者发送邀请邮件。这可能需要一段时间。
         new:
           title: 上传您的 CSV 文件
           upload: 上传
@@ -635,8 +604,6 @@ zh-CN:
         create:
           error: 创建新范围时出现问题。
           success: 范围创建成功。
-        destroy:
-          success: 已成功摧毁范围
         edit:
           title: 编辑范围
           update: 更新
@@ -656,7 +623,6 @@ zh-CN:
           error: 摧毁令牌时出现问题。
           success: 令牌已成功销毁。
         share_tokens:
-          empty: 没有活动令牌
           help: 这些代币用于公开分享此未发布的资源给任何用户。 当资源发布时，它们将被隐藏。点击令牌的共享图标访问可共享的 URL。
           title: 分享令牌
       shared:
@@ -668,8 +634,6 @@ zh-CN:
         create:
           error: 创建一个新主题时出现问题。
           success: 主题创建成功。
-        destroy:
-          success: 主题已成功删除
         edit:
           title: 编辑主题
           update: 更新主题
@@ -688,7 +652,6 @@ zh-CN:
         destroy:
           success: 页面已成功删除
         edit:
-          changed_notably_help: 如果选中，将通知参与者接受新的条款和条件。
           title: 编辑页面
           update: 更新
         form:
@@ -702,11 +665,9 @@ zh-CN:
         topic:
           destroy: 删除主题
           edit: 编辑主题
-          empty: 此主题下没有页面
           without_topic: 无主题页面
         update:
           error: 更新此页面时出现问题。
-          success: 页面更新成功
       titles:
         admin_log: 管理员日志
         area_types: 区域类型
@@ -725,13 +686,10 @@ zh-CN:
       user_group:
         csv_verify:
           invalid: 读取CSV文件时出现问题。
-          success: CSV 文件上传成功，我们正在验证符合条件的组。这可能需要一段时间。
         reject:
           invalid: 拒绝这个组时出现问题。
-          success: 组成功拒绝
         verify:
           invalid: 验证此组时出现问题。
-          success: 组验证成功
       user_groups:
         index:
           state:
@@ -763,7 +721,6 @@ zh-CN:
           last_day: 最后一天
           last_month: 上月
           last_week: 上周
-          no_users_count_statistics_yet: 还没有用户统计信息
           participants: 参加者
       view_public_page: 查看公共页面
     moderations:

@@ -51,9 +51,6 @@ hu:
           new:
             import: Importál
             title: Eredmények betöltése CSV-ből
-        imports:
-          create:
-            success: A fájl importálása folyamatban van. Néhány perc múlva e-mailben értesítjük az importálás eredményéről
         models:
           result:
             name: Eredmény
@@ -62,11 +59,6 @@ hu:
           timeline_entry:
             name: Idővonal bejegyzés
         results:
-          create:
-            invalid: Probléma történt az eredmény létrehozásakor
-            success: Eredmény sikeresen létrehozva
-          destroy:
-            success: Eredmény sikeresen törölve
           edit:
             title: Eredmény szerkesztése
             update: Eredmény frissítése
@@ -75,18 +67,10 @@ hu:
           new:
             create: Eredmény létrehozása
             title: Új eredmény
-          update:
-            invalid: Probléma történt az eredmény frissítésekor
-            success: Eredmény sikeresen frissítve
         shared:
           subnav:
             statuses: Állapotok
         statuses:
-          create:
-            invalid: Probléma történt az állapot létrehozásakor
-            success: Állapot létrehozása sikeres
-          destroy:
-            success: Állapot eltávolítása sikeres
           edit:
             title: Állapot szerkesztése
             update: Állapot frissítése
@@ -95,15 +79,7 @@ hu:
           new:
             create: Állapot létrehozása
             title: Új állapot
-          update:
-            invalid: Probléma történt az állapot frissítésekor
-            success: Állapot frissítése sikeres
         timeline_entries:
-          create:
-            invalid: Probléma történt a bejegyzés létrehozásakor
-            success: Bejegyzés létrehozása sikeres
-          destroy:
-            success: Bejegyzés eltávolítása sikeres
           edit:
             title: Bejegyzés szerkesztése
             update: Bejegyzés frissítése
@@ -112,9 +88,6 @@ hu:
           new:
             create: Bejegyzés létrehozása
             title: Új bejegyzés
-          update:
-            invalid: Probléma történt a bejegyzés frissítésekor
-            success: Bejegyzés frissítése sikeres
       admin_log:
         result:
           create: "%{user_name} által létrehozott eredmény: %{resource_name} (itt: %{space_name})"
@@ -139,7 +112,6 @@ hu:
       import_mailer:
         import:
           errors: Hibák
-          errors_present: Probléma merült fel az eredmények importálásakor
           row_number: Sor
           subject: Eredmények sikeres importálása
           success: Eredmények sikeres importálása. Az eredményeket az adminisztrációs felületen tekintheti meg.

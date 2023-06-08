@@ -102,10 +102,6 @@ is-IS:
               allowed_file_content_types: Vitlaus myndskrá
             official_img_header:
               allowed_file_content_types: Vitlaus myndskrá
-      new_import:
-        attributes:
-          file:
-            invalid_mime_type: Vitlaus Mime týpa
   activerecord:
     attributes:
       decidim/static_page:
@@ -126,8 +122,6 @@ is-IS:
         add: Bæta við
         attachment:
           new: Nýtt viðhengi
-        attachment_collection:
-          new: Nýtt viðhengissafn
         browse: Skoða
         category:
           new: Nýr flokkur
@@ -144,21 +138,15 @@ is-IS:
       area_types:
         create:
           success: Svæði gerð búin til með góðum árangri.
-        destroy:
-          success: Svæði gerð með góðum árangri eytt
         edit:
           title: Breyta svæðisgerð
           update: Uppfæra
         new:
           create: Búðu til svæðisgerð
           title: Ný svæðisgerð
-        update:
-          success: Svæðið gerð uppfærður með góðum árangri
       areas:
         create:
           success: Svæði búin til með góðum árangri.
-        destroy:
-          success: Svæði með góðum árangri eytt
         edit:
           title: Breyta svæði
           update: Uppfæra
@@ -166,8 +154,6 @@ is-IS:
           create: Búa til svæði
           title: Nýtt svæði
         no_areas: Engin svæði
-        update:
-          success: Svæði uppfærður með góðum árangri
       attachment_collections:
         create:
           success: Mappa búin til með góðum árangri.
@@ -198,7 +184,6 @@ is-IS:
           success: Viðhengi uppfærður með góðum árangri.
       autocomplete:
         no_results: Engar niðurstöður fundust
-        search_prompt: Sláðu inn amk þrjá stafi til að leita
       categories:
         create:
           success: Flokkur búin til með góðum árangri.
@@ -251,7 +236,6 @@ is-IS:
           view_more_logs: Skoða fleiri logs
       exports:
         export_as: "%{name} sem %{export_format}"
-        notice: Útflutningur þinn er í gangi. Þú færð tölvupóst þegar það er lokið.
       filters:
         category_id_eq:
           label: Flokkur
@@ -365,8 +349,6 @@ is-IS:
             phone: Sími
             state: Ríki
       moderations:
-        index:
-          title: Moderations
         report:
           reasons:
             does_not_belong: Tilheyrir ekki
@@ -461,8 +443,6 @@ is-IS:
       scopes:
         create:
           success: Gildissvið búið til með góðum árangri.
-        destroy:
-          success: Gildissvið eyðilagt með góðum árangri
         edit:
           title: Breyta umfangi
           update: Uppfæra
@@ -484,8 +464,6 @@ is-IS:
           update: Uppfæra
         new:
           title: Ný síða
-        update:
-          success: Síða uppfærð með góðum árangri
       titles:
         admin_log: Admin log
         area_types: Svæði tegundir

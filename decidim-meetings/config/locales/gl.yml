@@ -27,17 +27,6 @@ gl:
         registrations_enabled: Rexistros habilitados
         title: Título
         transparent: Transparente
-    errors:
-      models:
-        meeting_agenda:
-          attributes:
-            base:
-              too_many_minutes: A duración dos elementos supera a duración da reunión por %{count} minutos
-              too_many_minutes_child: A duración do elemento secundario supera o elemento da axenda "%{parent_title}" a duración dos pais por %{count} minuto
-        meeting_registration_invite:
-          attributes:
-            email:
-              already_invited: Este correo electrónico xa foi convidado
     models:
       decidim/meetings/close_meeting_event: Reunión pechada
       decidim/meetings/create_meeting_event: Reunión
@@ -148,8 +137,6 @@ gl:
           description_own: Atendeu %{score} reunións.
           name: Reunións asistidas
           next_level_in: Asistir a %{score} reunións máis para alcanzar o seguinte nivel!
-          unearned_another: Este usuario aínda non asistiu a ningunha reunión.
-          unearned_own: Aínda non asistiu a ningunha reunión.
     meetings:
       actions:
         agenda: Axenda
@@ -177,9 +164,6 @@ gl:
             down: Baixo
             remove: Quitar
             up: Arriba
-          create:
-            invalid: Produciuse un problema ao crear esta axenda
-            success: Axenda creada con éxito
           edit:
             title: Editar axenda
             update: Actualización
@@ -191,9 +175,6 @@ gl:
           new:
             create: Crear
             title: Nova axenda
-          update:
-            invalid: Produciuse un problema ao actualizar esta axenda
-            success: A axenda actualizouse correctamente
         exports:
           answers: Respostas
           meetings: Reunións
@@ -223,21 +204,12 @@ gl:
             filter_by: Filtrar por
             invite_attendee: Invitar asistente
             invites: Invitacións
-            registrations_disabled: Non podes invitar a un asistente porque os rexistros están desactivados.
             search: Busca
         meeting_closes:
           edit:
             close: Pechar
             title: Pechar reunión
-        meeting_copies:
-          form:
-            select_a_meeting_type: Por favor, selecciona un tipo de xuntanza
         meetings:
-          close:
-            invalid: Produciuse un problema ao pechar esta reunión
-            success: Reunión pechada con éxito
-          create:
-            invalid: Produciuse un problema ao crear esta reunión
           destroy:
             success: Reunión eliminada correctamente
           edit:
@@ -257,9 +229,6 @@ gl:
           services:
             add_service: Engadir servizo
             services: Servizos
-          update:
-            invalid: Produciuse un problema ao actualizar esta reunión
-            success: Reunión actualizada correctamente
         models:
           meeting:
             name: Reunión
@@ -276,7 +245,6 @@ gl:
             registrations_count:
               one: Houbo un rexistro de %{count}.
               other: Houbo %{count} rexistros.
-            reserved_slots_help: Déixao a 0 se non tes slots reservados
             reserved_slots_less_than: Debe ser inferior ou igual a %{count}
           update:
             invalid: Produciuse un problema ao gardar a configuración de rexistro.
@@ -336,8 +304,6 @@ gl:
         registration_mailer:
           confirmation:
             subject: O rexistro da túa xuntanza foi confirmado
-      meeting:
-        not_allowed: Non tes permiso para ver esta reunión
       meetings:
         calendar_modal:
           add_to_calendar: Engadir ao calendario
@@ -367,7 +333,6 @@ gl:
         meeting_minutes:
           related_information: Información relacionada
         meetings:
-          no_meetings_warning: Non hai encontros que coincidan cos seus criterios de busca ou non hai ningunha reunión programada.
           upcoming_meetings_warning: Actualmente, non hai reunións programadas, pero aquí podes atopar todas as reunións anteriores.
         registration_confirm:
           cancel: Cancelar
@@ -440,7 +405,6 @@ gl:
       registrations:
         create:
           invalid: Produciuse un problema ao unirse a esta reunión.
-          success: Uniches á reunión correctamente.
         decline_invitation:
           invalid: Produciuse un problema ao diminuír a invitación.
           success: Rexeitou con éxito a invitación.
@@ -451,9 +415,6 @@ gl:
         private_meeting: Encontro privado
         transparent: Transparente
         withdraw: Anular
-      withdraw:
-        error: Produciuse un erro ao anular a xuntanza
-        success: Xuntanza anulada con éxito
     metrics:
       meetings:
         description: Número de reunións creadas

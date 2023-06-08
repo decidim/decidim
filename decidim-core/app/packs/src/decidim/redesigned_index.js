@@ -1,3 +1,5 @@
+/* eslint-disable max-lines */
+
 /**
  * External dependencies
  */
@@ -55,6 +57,7 @@ import "./impersonation"
 import "./gallery"
 import "./direct_uploads/redesigned_upload_field"
 import "./data_consent"
+import "./sw"
 
 // local deps that require initialization
 import formDatePicker from "./form_datepicker"
@@ -76,6 +79,7 @@ import markAsReadNotifications from "./notifications"
 import RemoteModal from "./redesigned_ajax_modals"
 import selectActiveIdentity from "./redesigned_identity_selector_dialog"
 import createTooltip from "./redesigned_tooltips"
+import createToggle from "./redesigned_toggle"
 import {
   createAccordion,
   createDialog,
@@ -194,6 +198,9 @@ const initializer = (element = document) => {
 
   // Initialize data-tooltips
   element.querySelectorAll("[data-tooltip]").forEach((elem) => createTooltip(elem))
+
+  // Initialize data-toggles
+  element.querySelectorAll("[data-toggle]").forEach((elem) => createToggle(elem))
 }
 
 // If no jQuery is used the Tribute feature used in comments to autocomplete
