@@ -356,7 +356,6 @@ describe "Initiative", type: :system do
       organization.update(rich_text_editor_in_public_views: true)
       click_link "New initiative"
       first("button.card__highlight").click
-      first("button.card__highlight").click
     end
 
     it_behaves_like "having a rich text editor", "new_initiative_previous_form", "full"
