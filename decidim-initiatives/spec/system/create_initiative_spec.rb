@@ -358,7 +358,7 @@ describe "Initiative", type: :system do
       first("button.card__highlight").click
     end
 
-    it_behaves_like "having a rich text editor", "new_initiative_previous_form", "full"
+    it_behaves_like "having a rich text editor", "new_initiative_form", "full"
   end
 
   describe "creating an initiative" do
@@ -566,7 +566,7 @@ describe "Initiative", type: :system do
           let(:initiative_type_minimum_committee_members) { 0 }
 
           it "skips to next step" do
-            within(".step--active") do
+            within("#wizard-steps [data-active]") do
               expect(page).not_to have_content("Promoter committee")
               expect(page).to have_content("Finish")
             end
