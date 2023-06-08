@@ -831,7 +831,7 @@ en:
             colors_warning_html: Warning! Changing these colors can break the accessibility contrasts. You can check the contrast of your choosing with <a href="%{link}">WebAIM Contrast Checker</a> or other similar tools.
             explanation: This tool helps you out to choose a color scheme, made up of hues equally spaced around the color wheel, that will be used in the organization's website.
             header_snippets_help: Use this field to add things to the HTML head. The most common use is to integrate third-party services that require some extra JavaScript or CSS. Also, you can use it to add extra meta tags to the HTML. Note that this will only be rendered in public pages, not in the admin section.
-            legend: Main application colors, based on the <a href="https://www.color-meanings.com/triadic-colors/" target="_blank" rel="noopener noreferrer">Triadic algorithm</a>. The <i>secondary</i> color is auto-calculated from the primary color and the saturation you chose.
+            legend: Main application colors, based on the <a href="%{link}">Triadic algorithm</a>. The <i>secondary</i> color is auto-calculated from the primary color and the saturation you chose.
             saturation: Saturation
             update_suggested_colors: Update suggested colors
           cta_button_path_help: 'You can overwrite where the Call To Action button in the homepage links to. Use partial paths, not full URLs here. Accepts letters, numbers, dashes and slashes, and must start with a letter. The Call To Action button is shown in the homepage between the welcome text and the description. Example: %{url}'
