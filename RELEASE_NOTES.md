@@ -422,23 +422,13 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 ```
 
-The editor JS is automatically included in the normal Decidim layout but in case you have customized your layout, you will need to add the following snippet at the end of your layout (`layouts/decidim/_decidim_javascript.html.erb` in the default layout):
-
-```erb
-<%= javascript_pack_tag "decidim_editor", defer: false %>
-```
-
-Note that this snippet is only needed on those pages where the editor is displayed but we include this JavaScript tag on all pages to ensure the availability of the editor, even if the page content is cached when the dynamic snippets are not always added to the views. In case you do not need the rich text editor at the participant side of the site at all, you can omit this tag.
+The editor JS is automatically included in the normal Decidim layout when you display editors using the default form builder shipped with Decidim.
 
 #### 5.3.3. New CSS to display the rich text content
 
 The new version of Decidim ships with rewritten CSS for displaying the rich text editor content. This CSS has been written in Tailwind as this is the new CSS framework used in Decidim. You will need to revisit any CSS that you had previously written for the editor and preferrably rewrite it based on the updated content structure and CSS class names.
 
-The editor CSS is automatically included in the normal Decidim layout but in case you have customized your layout, you will need to add the following code snipped at the `<head>` section of your layout definition file:
-
-```erb
-<%= stylesheet_pack_tag "decidim_editor", media: "all" %>
-```
+The editor CSS is automatically included in the normal Decidim layout when you display editors using the default form builder shipped with Decidim.
 
 #### 5.3.4. Registering rich text content for the content migration
 
