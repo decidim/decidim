@@ -24,15 +24,13 @@ describe "Edit collaborative_drafts", type: :system do
     end
 
     it "can be updated" do
-      skip "REDESIGN_PENDING - This thest should be fixed in https://github.com/decidim/decidim/pull/10729"
-
       visit_component
 
       click_link "Access collaborative drafts"
       click_link collaborative_draft.title
       click_link "Edit collaborative draft"
 
-      expect(page).to have_content "EDIT COLLABORATIVE DRAFT"
+      expect(page).to have_content "Edit collaborative draft"
 
       within "form.edit_collaborative_draft" do
         fill_in :collaborative_draft_title, with: new_title
@@ -54,15 +52,13 @@ describe "Edit collaborative_drafts", type: :system do
         end
 
         it "can be updated" do
-          skip "REDESIGN_PENDING - This test should be fixed in https://github.com/decidim/decidim/pull/10729"
-
           visit_component
 
           click_link "Access collaborative drafts"
           click_link collaborative_draft.title
           click_link "Edit collaborative draft"
 
-          dynamically_attach_file(:collaborative_draft_documents, Decidim::Dev.asset("city.jpeg"), title: "My attachment", front_interface: true)
+          dynamically_attach_file(:collaborative_draft_documents, Decidim::Dev.asset("city.jpeg"), front_interface: true)
 
           within "form.edit_collaborative_draft" do
             find("*[type=submit]").click
@@ -75,8 +71,6 @@ describe "Edit collaborative_drafts", type: :system do
 
     context "when updating with wrong data" do
       it "returns an error message" do
-        skip "REDESIGN_PENDING - This thest should be fixed in https://github.com/decidim/decidim/pull/10729"
-
         visit_component
 
         click_link "Access collaborative drafts"

@@ -25,12 +25,9 @@
       comments:
         create:
           error: Et problem oppstod med å opprette kommentaren.
-        delete:
-          error: Kommentaren kunne ikke slettes.
         update:
           error: Et problem oppstod med å oppdatere kommentaren.
       comments_count: Antall kommentarer
-      comments_title: Kommentarer
       last_activity:
         new_comment_at_html: "<span>Ny kommentar på %{link}</span>"
       view: Vis
@@ -44,7 +41,6 @@
           body:
             label: Kommentar
             placeholder: Hva mener du om dette?
-          form_error: Teksten er påkrevd og den kan ikke være lengre enn %{length} tegn.
           submit: Send
           user_group_id:
             label: Kommenter som
@@ -78,7 +74,6 @@
           description: Er dette innholdet upassende?
           details: Ytterlige kommentarer
           reasons:
-            does_not_belong: Inneholder ulovlig aktivitet, selvmordstrusler, personlig informasjon eller noe annet du mener ikke hører hjemme på %{organization_name}.
             offensive: Inneholder rasisme, sexisme, banning, persjonangrep, dødstrusler, selvmords forespørsler eller all form for hatefullt språk.
             spam: Inneholder klikkagn, reklame, svindel eller manus-roboter.
           title: Rapporter upassende innhold
@@ -163,6 +158,3 @@
         description: Antall kommenterer generert av deltakerne
         object: kommentarer
         title: Kommentarer
-  errors:
-    messages:
-      cannot_have_comments: kan ikke ha kommentarer

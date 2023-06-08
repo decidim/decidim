@@ -61,5 +61,4 @@ lb:
       surveys:
         answer:
           invalid: Bei der Beantwortung der Umfrage sind Fehler aufgetreten.
-          spam_detected: Bei der Beantwortung des Fragebogens sind Fehler aufgetreten. Möglicherweise waren Sie zu schnell. Versuchen Sie es vielleicht erneut.
           success: Umfrage erfolgreich beantwortet.

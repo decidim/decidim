@@ -24,7 +24,7 @@ COPY . .
 
 # These two lines below will remove the `require` in `decidim-dev.gemspec`, which seems to be
 # causing issues in certain circumstances using bundler. They should not be needed at all, so
-# it's worth removing them in the future and checking out they work.
+# it is worth removing them in the future and checking out they work.
 RUN sed -i '/require/d' decidim-dev/decidim-dev.gemspec
 RUN sed -i "s/Decidim::Dev.version/\"$(cat .decidim-version)\"/g" decidim-dev/decidim-dev.gemspec
 

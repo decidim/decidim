@@ -8,13 +8,8 @@ edit_link(
 )
 %>
 
-<% content_for :css_content do %>
-  <%= stylesheet_pack_tag "decidim_assemblies", media: "all" %>
-<% end %>
-
-<% content_for :js_content do %>
-  <%= javascript_pack_tag "decidim_assemblies" %>
-<% end %>
+<%= append_stylesheet_pack_tag "decidim_assemblies", media: "all" %>
+<%= append_javascript_pack_tag "decidim_assemblies" %>
 
 <% content_for :aside do %>
   <h1 class="h3 md:h1 decorator"><%= t("decidim.menu.assemblies") %></h1>

@@ -114,6 +114,8 @@ describe "Edit proposals", type: :system do
 
       context "with multiple images", :slow do
         it "can add many images many times" do
+          skip "REDESIGN_PENDING - Flaky test: upload modal fails on GitHub with multiple fileshttps://github.com/decidim/decidim/issues/10961"
+
           click_link "Edit proposal"
           dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city.jpeg"), front_interface: true)
           dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("icon.png"), front_interface: true)
@@ -124,7 +126,11 @@ describe "Edit proposals", type: :system do
           expect(page).to have_content("icon.png")
           expect(page).to have_content("avatar.jpg")
           dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city2.jpeg"), front_interface: true)
+          expect(page).to have_content("city2.jpeg")
+          expect(page).to have_no_content("city3.jpeg")
           dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city3.jpeg"), front_interface: true)
+          expect(page).to have_content("city2.jpeg")
+          expect(page).to have_content("city3.jpeg")
           click_button "Send"
           expect(page).to have_selector("[data-alert-box].success")
           expect(page).to have_selector("img.object-cover[alt='city.jpeg']")
@@ -205,8 +211,6 @@ describe "Edit proposals", type: :system do
       let(:component) { create(:proposal_component, :with_creation_enabled, :with_attachments_allowed, participatory_space: participatory_process) }
 
       it "returns an error message" do
-        skip "REDESIGN_PENDING - Validation messages in forms don't appear. Issue https://github.com/decidim/decidim/issues/10852"
-
         visit_component
 
         click_link proposal_title

@@ -13,19 +13,19 @@ ca:
       templates:
         apply:
           error: S'ha produït un error en actualitzar aquesta plantilla.
-          success: La plantilla s'ha aplicat correctament
+          success: La plantilla s'ha aplicat correctament.
         copy:
           error: S'ha produït un error en copiar aquesta plantilla.
-          success: La plantilla s'ha copiat correctament
+          success: La plantilla s'ha copiat correctament.
         create:
           error: S'ha produït un error en crear aquesta plantilla.
-          success: La plantilla s'ha creat correctament
+          success: La plantilla s'ha creat correctament.
         destroy:
-          success: La plantilla s'ha eliminat correctament
+          success: La plantilla s'ha eliminat correctament.
         empty: Encara no hi ha plantilles.
         update:
           error: S'ha produït un error en actualitzar aquesta plantilla.
-          success: La plantilla s'ha actualitzat correctament
+          success: La plantilla s'ha actualitzat correctament.
       titles:
         template_types:
           questionnaires: Plantilles de qüestionari
@@ -59,7 +59,7 @@ ca:
             skip_template: Ometre
           edit:
             edit: Editar
-            empty: Encara no hi ha preguntes
+            empty: Encara no hi ha preguntes.
             questionnaire: Qüestionari
           form:
             save: Desar

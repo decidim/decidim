@@ -17,8 +17,6 @@ describe "Amendment Wizard", type: :system do
 
   context "when amending a proposal" do
     before do
-      skip "REDESIGN_PENDING - This test should be fixed in https://github.com/decidim/decidim/pull/10765"
-
       login_as user, scope: :user
       visit proposal_path
       click_link "Amend"

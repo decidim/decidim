@@ -3,8 +3,6 @@
     <%= form.hidden_field :id, value: @collaborative_draft.id %>
     <%= form.hidden_field :state, value: @collaborative_draft.state %>
     <%= form.hidden_field :requester_user_id, value: requester.id %>
-    <%= button_tag type: "submit", data: { disable: true }, title: reject_request_button_label do %>
-      <%= icon "x", class: "icon--small muted ml-xs", aria_label: reject_request_button_label, role: "img" %>
-    <% end %>
+    <%= form.submit reject_request_button_label, class: "button button__sm button__transparent-secondary w-full", data: { disable: true } %>
   <% end %>
 <% end %>

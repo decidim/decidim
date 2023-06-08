@@ -30,7 +30,7 @@ describe "Explore versions", versioning: true, type: :system do
 
   context "when visiting versions index" do
     before do
-      click_link "see other versions"
+      click_link "see other versions", match: :first
     end
 
     it "lists all versions" do
@@ -41,7 +41,7 @@ describe "Explore versions", versioning: true, type: :system do
 
   context "when showing version" do
     before do
-      click_link "see other versions"
+      click_link "see other versions", match: :first
 
       click_link("Version 2 of 2")
     end
@@ -103,11 +103,7 @@ describe "Explore versions", versioning: true, type: :system do
     end
 
     it "shows number of versions" do
-      expect(page).to have_css(".versions_status", text: collaborative_draft.versions.count)
-    end
-
-    it "shows number of authors" do
-      expect(page).to have_css(".authors_status", text: collaborative_draft.versions.group_by(&:whodunnit).size)
+      expect(page).to have_content("(of #{collaborative_draft.versions.count})")
     end
   end
 end

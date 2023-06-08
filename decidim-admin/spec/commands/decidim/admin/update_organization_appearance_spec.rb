@@ -112,7 +112,7 @@ module Decidim::Admin
           end
         end
 
-        context "when there's a favicon in the params" do
+        context "when there is a favicon in the params" do
           it "does set a favicon for the organization" do
             command.call
             organization.reload

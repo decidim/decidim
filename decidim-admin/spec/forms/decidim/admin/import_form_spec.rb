@@ -38,7 +38,7 @@ module Decidim
 
         it "reports invalid and adds the correct error for the file field" do
           expect(subject).not_to be_valid
-          expect(subject.errors[:file]).to include("Invalid mime type")
+          expect(subject.errors[:file]).to include("Invalid MIME type.")
         end
       end
     end

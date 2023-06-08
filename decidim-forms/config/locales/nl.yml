@@ -17,8 +17,6 @@ nl:
             choices:
               missing: zijn niet compleet
               too_many: zijn te veel
-        questionnaire:
-          request_invalid: Er is een fout opgetreden bij het verwerken van het verzoek. Probeer het opnieuw
   decidim:
     forms:
       admin:
@@ -115,9 +113,6 @@ nl:
           update:
             invalid: Er zijn fouten opgetreden bij het opslaan van de vragenlijst.
             success: Formulier succesvol opgeslagen.
-      errors:
-        answer:
-          body: Lichaam mag niet leeg zijn
       images:
         dimensions: "%{width} x %{height} px"
       question_types:

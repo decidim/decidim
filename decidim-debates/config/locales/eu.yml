@@ -124,7 +124,7 @@ eu:
           origin: Origin
           participants: Parte-hartzaileak
           scope: Eremua
-          search: Search
+          search: Bilatu
           state: Egoera
           state_values:
             closed: Itxita
@@ -208,10 +208,9 @@ eu:
           email_intro: 'Orain %{participatory_space_title}hizketaldi berriak hasi ditzakezu! Hasi orri honetan parte hartzea:'
           email_outro: Jakinarazpena jaso duzu %{participatory_space_title}jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
           email_subject: Debates orain eskuragarri %{participatory_space_title}
-          notification_title: Orain <a href="%{resource_path}">eztabaida berriak hasi ditzakezu</a> <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         debate_closed:
           affected_user:
-            email_intro: '"%{resource_title}" eztabaida itrxi egin da. Ondorioak bere orrialdean irakur ditzakezu:'
+            email_intro: '"%{resource_title}" eztabaida itxi egin da. Ondorioak bere orrialdean irakur ditzakezu:'
             email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" eztabaida jarraitzen ari zarelako. Aurreko loturan utzi ahal diozu jarraitzeari .
             email_subject: '"%{resource_title}" eztabaida itxi egin da'
             notification_title: <a href="%{resource_path}">%{resource_title}</a> eztabaida itxi egin da.
@@ -231,7 +230,6 @@ eu:
           name: eztabaidak
           next_level_in: Parte hartu %{score} eztabaidagai gehiago hurrengo mailara iristeko!
           unearned_another: Erabiltzaile honek eztabaida batean parte hartu du oraindik.
-          unearned_own: Oraindik eztabaidetan parte hartu duzu.
     metrics:
       debates:
         description: Sortutako eztabaida kopurua

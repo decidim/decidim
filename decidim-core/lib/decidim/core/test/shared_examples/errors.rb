@@ -15,7 +15,7 @@ shared_examples_for "a 404 page" do
     end
 
     it "leads to a 404" do
-      expect(page).to have_content("The page you're looking for cannot be found")
+      expect(page).to have_content("The page you are looking for cannot be found")
 
       expect(page).to have_http_status(:not_found)
     end
