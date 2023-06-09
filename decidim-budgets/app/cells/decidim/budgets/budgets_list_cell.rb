@@ -48,6 +48,12 @@ module Decidim
         @budget_paginate ||= Kaminari.paginate_array(budgets).page(params[:page]).per(10)
       end
 
+      def reordered_highlighted_budgets
+        return highlighted if highlighted.length < 2
+
+        reorder(budgets.where(id: highlighted.map(&:id)))
+      end
+
       def reorder(budgets)
         case order
         when "highest_cost"

@@ -1,6 +1,6 @@
 <% if highlighted.any? %>
   <div id="highlighted-budgets" class="card__highlight-container">
-    <% reorder(highlighted).each do |budget| %>
+    <% reordered_highlighted_budgets.each do |budget| %>
       <%= cell("decidim/budgets/budget_list_item", budget) %>
     <% end %>
   </div>
