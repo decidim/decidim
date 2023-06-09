@@ -28,14 +28,14 @@ if !Rails.env.production? || ENV.fetch("SEED", nil)
   ].sample
 
   colors = {
-    "alert": "#ec5840",
-    "highlight": "#be6400",
+    alert: "#ec5840",
+    highlight: "#be6400",
     "highlight-alternative": "#ff5731",
-    "primary": primary_color,
-    "secondary": secondary_color,
-    "success": "#57d685",
-    "theme": "#ef604d",
-    "warning": "#ffae00"
+    primary: primary_color,
+    secondary: secondary_color,
+    success: "#57d685",
+    theme: "#ef604d",
+    warning: "#ffae00"
   }
 
   organization = Decidim::Organization.first || Decidim::Organization.create!(
@@ -69,7 +69,7 @@ if !Rails.env.production? || ENV.fetch("SEED", nil)
     user_groups_enabled: true,
     send_welcome_notification: true,
     file_upload_settings: Decidim::OrganizationSettings.default(:upload),
-    colors: colors
+    colors:
   )
 
   if organization.top_scopes.none?
