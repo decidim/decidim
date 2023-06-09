@@ -10,8 +10,6 @@ module ConfirmationHelpers
   def accept_confirm(_text = nil, **options)
     yield if block_given?
 
-    # The test can already be "within", so find the body using xpath
-    message = nil
     confirm_selector = options.fetch(:admin, !Decidim.redesign_active) ? ".confirm-modal-content" : "[data-confirm-modal-content]"
     message = find(confirm_selector).text
     find("[data-confirm-ok]").click
@@ -27,8 +25,6 @@ module ConfirmationHelpers
   def dismiss_confirm(_text = nil, **_options)
     yield if block_given?
 
-    # The test can already be "within", so find the body using xpath
-    message = nil
     confirm_selector = options.fetch(:admin, !Decidim.redesign_active) ? ".confirm-modal-content" : "[data-confirm-modal-content]"
     message = find(confirm_selector).text
     find("[data-confirm-cancel]").click
