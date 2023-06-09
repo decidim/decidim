@@ -17,7 +17,9 @@
   }
 
   &__section-image{
-    @apply px-0 py-8 md:p-16;
+    background-image: linear-gradient(180deg, rgba(0, 0, 0, .7) 21.88%, rgba(0, 0, 0, .46421) 60.94%, rgba(0, 0, 0, .105) 100%), var(--hero-image);
+
+    @apply px-0 py-8 md:p-16 bg-center bg-cover;
   }
 
   &__section-header{
@@ -29,7 +31,7 @@
   }
 
   &__section-content-banner{
-    @apply flex flex-col md:flex-row gap-x-1 items-center px-4 md:px-20;
+    @apply flex flex-col md:flex-row items-center;
 
     &__title{
       @apply h2 text-white;
