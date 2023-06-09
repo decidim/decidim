@@ -1,4 +1,3 @@
-
 .color-picker {
   cursor: pointer;
   margin-bottom: 1rem;
@@ -17,7 +16,7 @@
   &__label_choose {
     height: 5rem;
     display: flex;
-    flex-direction:column;
+    flex-direction: column;
     margin-bottom: 1rem;
 
     div {
@@ -25,16 +24,14 @@
       height: 100%;
       cursor: pointer;
     }
-
   }
 
   &__label_saturation {
-    height:3rem;
+    height: 3rem;
     margin-bottom: 1rem;
 
-
     input {
-      display: block
+      display: block;
     }
   }
 
@@ -48,9 +45,8 @@
     display: grid;
     place-items: center;
     width: 12rem;
-    height:2rem;
-    border-radius:4px;
-
+    height: 2rem;
+    border-radius: 4px;
   }
 
   &__color_primary {
