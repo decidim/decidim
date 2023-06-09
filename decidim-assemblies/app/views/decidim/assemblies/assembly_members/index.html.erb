@@ -9,9 +9,29 @@ edit_link(
 )
 %>
 
-<h3 class="section-heading"><%= t(".members") %>
-  <span class="text-muted">(<%= collection.size %>)</span>
-</h3>
-<div id="assembly_members-grid" class="card-grid">
-  <%= render(collection) %>
-</div>
+<section style="background-image:url('<%= current_participatory_space.attached_uploader(:banner_image).path %>');" data-process-hero>
+  <div class="assembly__hero">
+    <div class="assembly__hero-text">
+      <h1 class="h1 text-5xl">
+        <%= translated_attribute(current_participatory_space.title) %>
+      </h1>
+      <p class="assembly__hero-slogan">
+        <% if current_participatory_space.hashtag.present? %>
+          <span class="block">
+            <%= link_to "##{decidim_html_escape(current_participatory_space.hashtag)}", twitter_hashtag_url(decidim_html_escape(current_participatory_space.hashtag)), target: "_blank" %>
+          </span>
+        <% end %>
+        <%= translated_attribute(current_participatory_space.subtitle) %>
+      </p>
+    </div>
+  </div>
+</section>
+<%= render layout: "layouts/decidim/shared/layout_item" do %>
+  <h3 class="h3 decorator">
+    <%= t("members", scope: "decidim.assemblies.assembly_members.index") %>
+    <span class="text-muted"><%= collection.size %></span>
+  </h3>
+  <div id="assembly_members-grid">
+    <%= render(collection) %>
+  </div>
+<% end %>
