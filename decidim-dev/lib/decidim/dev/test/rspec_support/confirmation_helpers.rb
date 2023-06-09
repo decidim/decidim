@@ -10,9 +10,13 @@ module ConfirmationHelpers
   def accept_confirm(_text = nil, **options)
     yield if block_given?
 
+    body = find(:xpath, "/html/body")
     confirm_selector = options.fetch(:admin, !Decidim.redesign_active) ? ".confirm-modal-content" : "[data-confirm-modal-content]"
-    message = find(confirm_selector).text
-    find("[data-confirm-ok]").click
+
+    within body do
+      message = find(confirm_selector).text
+      find("[data-confirm-ok]").click
+    end
 
     message
   end
@@ -25,9 +29,13 @@ module ConfirmationHelpers
   def dismiss_confirm(_text = nil, **_options)
     yield if block_given?
 
+    body = find(:xpath, "/html/body")
     confirm_selector = options.fetch(:admin, !Decidim.redesign_active) ? ".confirm-modal-content" : "[data-confirm-modal-content]"
-    message = find(confirm_selector).text
-    find("[data-confirm-cancel]").click
+
+    within body do
+      message = find(confirm_selector).text
+      find("[data-confirm-cancel]").click
+    end
 
     message
   end
