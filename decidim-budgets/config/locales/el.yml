@@ -14,14 +14,29 @@ el:
         decidim_scope_id: Πεδίο εφαρμογής
         description: Περιγραφή
         proposal_ids: Σχετικές προτάσεις
+        proposals: Προτάσεις
         selected: Επιλεγμένο για εφαρμογή
         title: Τίτλος
+      proposals_import:
+        scope_id: Πεδίο εφαρμογής
   activerecord:
     models:
       decidim/budgets/project:
         one: Έργο
         other: Έργα
   decidim:
+    admin:
+      filters:
+        projects:
+          category_id_eq:
+            label: Κατηγορία
+          scope_id_eq:
+            label: Πεδίο εφαρμογής
+          selected_at_null:
+            label: Επιλέχθηκε
+            values:
+              'false': Επιλέχθηκε για υλοποίηση
+              'true': Δεν επιλέχθηκε για υλοποίηση
     budgets:
       actions:
         attachment_collections: Φάκελοι
@@ -33,6 +48,7 @@ el:
         import: Εισαγωγή προτάσεων σε έργα
         new: Νέο %{name}
         preview: Προεπισκόπηση
+        send_voting_reminders: Αποστολή υπενθυμίσεων ψήφου
         title: Ενέργειες
       admin:
         budgets:
@@ -74,25 +90,56 @@ el:
             title: Επεξεργασία έργου
             update: Ενημέρωση
           index:
+            actions: Ενέργειες
+            cancel: Ακύρωση
+            change_category: Αλλαγή κατηγορίας
+            change_scope: Αλλαγή πεδίου εφαρμογής
+            change_selected: Αλλαγή επιλεγμένης κατάστασης
+            deselect_implementation: Αποεπιλογή για υλοποίηση
             finished_orders: Ολοκληρωμένες ψηφοφορίες
             pending_orders: Ψηφοφορίες σε εκκρεμότητα
+            select_for_implementation: Επιλέχθηκε για υλοποίηση
             selected: Επιλεγμένο
             title: Έργα
+            update: Ενημέρωση
+            update_scope_button: Ενημέρωση πεδίου εφαρμογής
           new:
             create: Δημιουργία
             title: Νέο έργο
           update:
             invalid: Υπήρξε ένα πρόβλημα κατά την ενημέρωση αυτού του έργου
             success: Το έργο ενημερώθηκε με επιτυχία
+          update_category:
+            invalid: 'Αυτά τα έργα είχαν ήδη την %{subject_name} κατηγορία: %{projects}.'
+            success: 'Τα έργα ενημερώθηκαν επιτυχώς στην %{subject_name} κατηγορία: %{projects}.'
+          update_scope:
+            invalid: 'Αυτά τα έργα είχαν ήδη %{subject_name} εμβέλεια: %{projects}.'
+            success: 'Τα έργα ενημερώθηκαν με επιτυχία στο %{subject_name} πεδίο εφαρμογής: %{projects}.'
+          update_selected:
+            invalid:
+              selected: 'Αυτά τα έργα έχουν ήδη επιλεχθεί για υλοποίηση: %{projects}.'
+              unselected: 'Αυτά τα έργα έχουν ήδη αποεπιλεχθεί για υλοποίηση: %{projects}.'
+            success:
+              selected: 'Αυτά τα έργα επιλέχθηκαν επιτυχώς για υλοποίηση: %{projects}.'
+              unselected: 'Αυτά τα έργα αποεπιλέχθηκαν επιτυχώς για υλοποίηση: %{projects}.'
         proposals_imports:
           create:
             invalid: Υπήρξε ένα πρόβλημα κατά την εισαγωγή των προτάσεων σε έργα
             success: "%{number} προτάσεις εισήχθηκαν με επιτυχία σε έργα"
           new:
             create: Εισαγωγή προτάσεων σε έργα
+            default_budget: Προεπιλεγμένος προϋπολογισμός
+            import_all_accepted_proposals: Εισαγωγή όλων των αποδεχθείσων προτάσεων
             no_components: Δεν υπάρχουν άλλα στοιχεία προτάσεων σε αυτόν τον χώρο συμμετοχής για εισαγωγή των προτάσεων σε έργα.
+            origin_component_id: Στοιχείο καταγωγής
             select_component: Επιλέξτε ένα στοιχείο
             title: Προτάσεις εισαγωγής
+        reminders:
+          orders:
+            description: Οι χρήστες θα λάβουν ένα email με συνδέσμους στους προϋπολογισμούς όπου έχουν εκκρεμή παραγγελία.
+            title:
+              one: Πρόκειται να στείλετε μια υπενθύμιση ηλεκτρονικού ταχυδρομείου σε %{count} χρήστες
+              other: Πρόκειται να στείλετε μια υπενθύμιση ηλεκτρονικού ταχυδρομείου σε %{count} χρήστες
       admin_log:
         budget:
           create: "%{user_name} δημιούργησε τον προϋπολογισμό %{resource_name} στον χώρο %{space_name}"
