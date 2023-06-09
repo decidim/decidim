@@ -499,9 +499,9 @@ en:
       pages:
         home:
           highlighted_conferences:
-            active_conferences: Active conferences
+            active_conferences: Conferences
             conferences_button_title: Link to the Conferences page displaying all the conferences
-            see_all_conferences: Conferences
+            see_all_conferences: See all conferences
       registration_types:
         index:
           choose_an_option: 'Choose your registration option:'
