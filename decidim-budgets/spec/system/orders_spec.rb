@@ -291,7 +291,6 @@ describe "Orders", type: :system do
 
         page.find("header a", text: organization.name).click
 
-        # REDESIGN_PENDING - This test fails, the expected behaviour is not present
         expect(page).to have_content "You have not yet voted"
 
         click_button "Return to voting"
@@ -307,7 +306,6 @@ describe "Orders", type: :system do
           click_link("Sign out")
         end
 
-        # REDESIGN_PENDING - This test fails, the expected behaviour is not present
         expect(page).to have_content "You have not yet voted"
 
         page.find("#exit-notification-link").click
@@ -519,7 +517,6 @@ describe "Orders", type: :system do
 
         page.find("a[aria-label='Go to front page']").click
 
-        # REDESIGN_PENDING - This test fails, the expected behaviour is not present
         expect(page).to have_current_path decidim.root_path
       end
     end
