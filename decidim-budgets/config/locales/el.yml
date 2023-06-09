@@ -13,14 +13,29 @@ el:
         decidim_scope_id: Πεδίο εφαρμογής
         description: Περιγραφή
         proposal_ids: Σχετικές προτάσεις
+        proposals: Προτάσεις
         selected: Επιλεγμένο για εφαρμογή
         title: Τίτλος
+      proposals_import:
+        scope_id: Πεδίο εφαρμογής
   activerecord:
     models:
       decidim/budgets/project:
         one: Έργο
         other: Έργα
   decidim:
+    admin:
+      filters:
+        projects:
+          category_id_eq:
+            label: Κατηγορία
+          scope_id_eq:
+            label: Πεδίο εφαρμογής
+          selected_at_null:
+            label: Επιλέχθηκε
+            values:
+              'false': Επιλέχθηκε για υλοποίηση
+              'true': Δεν επιλέχθηκε για υλοποίηση
     budgets:
       actions:
         attachment_collections: Φάκελοι
@@ -89,7 +104,10 @@ el:
             success: "%{number} προτάσεις εισήχθηκαν με επιτυχία σε έργα"
           new:
             create: Εισαγωγή προτάσεων σε έργα
+            default_budget: Προεπιλεγμένος προϋπολογισμός
+            import_all_accepted_proposals: Εισαγωγή όλων των αποδεχθείσων προτάσεων
             no_components: Δεν υπάρχουν άλλα στοιχεία προτάσεων σε αυτόν τον χώρο συμμετοχής για εισαγωγή των προτάσεων σε έργα.
+            origin_component_id: Στοιχείο καταγωγής
             select_component: Επιλέξτε ένα στοιχείο
             title: Προτάσεις εισαγωγής
       admin_log:
