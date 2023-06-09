@@ -43,6 +43,14 @@ module Decidim
       attached_uploader(:non_user_avatar)
     end
 
+    def has_tooltip?
+      false
+    end
+
+    def deleted?
+      false
+    end
+
     private
 
     def user
