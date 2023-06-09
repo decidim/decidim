@@ -12,13 +12,9 @@ module ConfirmationHelpers
 
     # The test can already be "within", so find the body using xpath
     message = nil
-    body = find(:xpath, "/html/body")
-    confirm_selector = options.fetch(:admin, !Decidim.redesign_active) ? ".confirm-reveal" : "[data-dialog='confirm-modal']"
-
-    within(body.find(confirm_selector)) do
-      message = find(".confirm-modal-content").text
-      find("a.button[data-confirm-ok]").click
-    end
+    confirm_selector = options.fetch(:admin, !Decidim.redesign_active) ? ".confirm-modal-content" : "[data-confirm-modal-content]"
+    message = find(confirm_selector).text
+    find("[data-confirm-ok]").click
 
     message
   end
@@ -33,11 +29,9 @@ module ConfirmationHelpers
 
     # The test can already be "within", so find the body using xpath
     message = nil
-    body = find(:xpath, "/html/body")
-    within(body.find(".confirm-reveal")) do
-      message = find(".confirm-modal-content").text
-      find("a.button[data-confirm-cancel]").click
-    end
+    confirm_selector = options.fetch(:admin, !Decidim.redesign_active) ? ".confirm-modal-content" : "[data-confirm-modal-content]"
+    message = find(confirm_selector).text
+    find("[data-confirm-cancel]").click
 
     message
   end
