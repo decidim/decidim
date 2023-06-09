@@ -204,7 +204,6 @@ de:
           email_intro: 'Sie können jetzt neue Debatten in %{participatory_space_title} eröffnen! Beteiligen Sie sich auf dieser Seite:'
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
           email_subject: Debatten jetzt in %{participatory_space_title} verfügbar
-          notification_title: Sie können jetzt <a href="%{resource_path}">neue Debatten</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a> starten
         debate_closed:
           affected_user:
             email_intro: 'Die Debatte "%{resource_title}" wurde beendet. Sie können die Resultate auf dieser Seite lesen:'

@@ -44,12 +44,6 @@ sv:
           attributes:
             attachment:
               needs_to_be_reattached: Måste bifogas igen
-        trustee:
-          attributes:
-            name:
-              cant_be_changed: kan inte ändras
-            public_key:
-              cant_be_changed: kan inte ändras
   activerecord:
     models:
       decidim/elections/answer:
@@ -100,9 +94,6 @@ sv:
             'true': Inte signerat
         validated_eq:
           label: Bekräftad
-          values:
-            'false': Bekräftad
-            'true': Ej Validerad
     components:
       elections:
         actions:
@@ -130,12 +121,6 @@ sv:
         unpublish: Avpublicera
       admin:
         answers:
-          create:
-            invalid: Det gick inte att skapa svaret
-            success: Svaret har skapats
-          destroy:
-            invalid: Det gick inte att ta bort svaret
-            success: Svaret har tagits bort
           edit:
             title: Redigera svar
             update: Uppdatera svar
@@ -148,16 +133,7 @@ sv:
           select:
             disable: Avmarkera svar
           selected: Valda
-          update:
-            invalid: Det gick inte att uppdatera svaret
-            success: Svaret har uppdaterats
         elections:
-          create:
-            invalid: Det gick inte att skapa detta val
-            success: Val har skapats
-          destroy:
-            invalid: Det gick inte att ta bort valet
-            success: Val har tagits bort
           edit:
             title: Redigera val
             update: Uppdatera val
@@ -170,9 +146,6 @@ sv:
             success: Valet har publicerats framgångsrikt.
           unpublish:
             success: Valet har avpublicerats framgångsrikt.
-          update:
-            invalid: Det gick inte att uppdatera valet
-            success: Val har uppdaterats
         exports:
           elections: Val
         menu:
@@ -187,21 +160,12 @@ sv:
           trustee:
             name: Förvaltare
         proposals_imports:
-          create:
-            invalid: Det gick inte att importera förslagen till svar
-            success: "%{number} förslag importerades till svar"
           new:
             create: Importera förslag till svar
             no_components: Det finns inga andra förslagskomponenter i det här deltagarutrymmet för att importera förslagen till svar.
             select_component: Välj en komponent
             title: Importera förslag
         questions:
-          create:
-            invalid: Det gick inte att skapa denna fråga
-            success: Frågan har skapats
-          destroy:
-            invalid: Det gick inte att ta bort denna fråga
-            success: Frågan har tagits bort
           edit:
             title: Redigera fråga
             update: Uppdatera fråga
@@ -210,9 +174,6 @@ sv:
           new:
             create: Skapa fråga
             title: Ny fråga
-          update:
-            invalid: Det gick inte att uppdatera denna fråga
-            success: Frågan har uppdaterats
         steps:
           create_election:
             census: Census
@@ -466,7 +427,6 @@ sv:
           back: Tillbaka
           continue: Nästa
       warnings:
-        no_elections_warning: Inga omröstningar matchar dina sökkriterier eller det finns ingen omröstning planerad.
         no_scheduled_elections_warning: För närvarande finns det inga planerade omröstningar, men här hittar du alla tidigare omröstningar listade.
     events:
       elections:

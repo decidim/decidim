@@ -39,7 +39,7 @@ cs:
         body: Tělo
         subject: Předmět
       organization:
-        admin_terms_of_use_body: Tělo zprávy správcovských podmínek použití
+        admin_terms_of_service_body: Tělo zprávy správcovských podmínek použití
         alert_color: Upozornění
         available_authorizations: Dostupná oprávnění
         badges_enabled: Povolit odznaky
@@ -137,7 +137,7 @@ cs:
         newsletter:
           attributes:
             base:
-              at_least_one_space: Vyberte alespoň jeden participační prostor
+              at_least_one_space: Vyberte alespoň jeden participační prostor.
         organization:
           attributes:
             official_img_footer:
@@ -155,8 +155,8 @@ cs:
       new_import:
         attributes:
           file:
-            invalid_file: Neplatný soubor, zkontrolujte, zda je soubor správně naformátován
-            invalid_mime_type: Neplatný typ mime
+            invalid_file: Neplatný soubor, zkontrolujte, zda je soubor správně naformátován.
+            invalid_mime_type: Neplatný typ MIME.
   activerecord:
     attributes:
       decidim/static_page:
@@ -178,7 +178,7 @@ cs:
         attachment:
           new: Nová příloha
         attachment_collection:
-          new: Nová sbírka příloh
+          new: Nová složka příloh
         browse: Procházet
         category:
           new: Nová kategorie
@@ -198,18 +198,18 @@ cs:
         user:
           new: Nový administrátor
         verify: Ověřit
-      admin_terms_of_use:
+      admin_terms_of_service:
         accept:
           error: Při přijímání správcovských podmínek použití došlo k chybě.
           success: Skvělé! Přijali jste administrátorské podmínky použití.
         actions:
           accept: Souhlasím s podmínkami
-          are_you_sure: Opravdu chcete odmítnout Podmínky použití pro správce?
+          are_you_sure: Opravdu chcete odmítnout Podmínky použití pro administrátora?
           refuse: Odmítnout administrátorské podmínky
-          title: Souhlasit s podmínkami používání
+          title: Souhlasit s podmínkami služby
         required_review:
           alert: 'Vyžadováno: Zkontrolujte naše administrátorské podmínky použití'
-          callout: Věnujte prosím chvíli a přečtěte si podmínky použití správce. V opačném případě nebudete moci platformu spravovat.
+          callout: Věnujte prosím chvíli a zkontrolujte podmínky používání administrátora. V opačném případě nebudete moci platformu spravovat.
           cta: Zkontrolovat je nyní.
         title: Administrátorské podmínky použití
       area_types:
@@ -217,7 +217,7 @@ cs:
           error: Při vytváření nového typu oblasti došlo k chybě.
           success: Typ oblasti byl úspěšně vytvořen.
         destroy:
-          success: Typ oblasti byl úspěšně smazán
+          success: Typ oblasti byl úspěšně zničen.
         edit:
           title: Upravit typ oblasti
           update: Aktualizace
@@ -226,14 +226,14 @@ cs:
           title: Nový typ oblasti
         update:
           error: Při aktualizaci tohoto typu oblasti došlo k chybě.
-          success: Typ oblasti byl úspěšně aktualizován
+          success: Typ oblasti byl úspěšně aktualizován.
       areas:
         create:
           error: Při vytváření nové oblasti došlo k chybě.
           success: Oblast byla úspěšně vytvořena.
         destroy:
           has_spaces: Tato oblast má závislé prostory. Před smazáním se prosím ujistěte, že žádný účastnický prostor neodkazuje na tuto oblast.
-          success: Oblast úspěšně zničena
+          success: Oblast byla úspěšně zničena.
         edit:
           title: Upravit oblast
           update: Aktualizace
@@ -243,7 +243,7 @@ cs:
         no_areas: Žádné oblasti
         update:
           error: Při aktualizaci této oblasti došlo k chybě.
-          success: Oblast byla úspěšně aktualizována
+          success: Oblast byla úspěšně aktualizována.
       attachment_collections:
         create:
           error: Při vytváření nové složky došlo k chybě.
@@ -283,7 +283,7 @@ cs:
         message: Buďte opatrní při práci s přílohami v soukromém prostoru. Každý účastník by mohl sdílet tento dokument s ostatními.
       autocomplete:
         no_results: Nenalezeny žádné výsledky
-        search_prompt: Zadejte nejméně tři znaky, které chcete vyhledat
+        search_prompt: Zadejte alespoň tři znaky pro vyhledávání.
       block_user:
         new:
           action: Blokovat účet a odeslat odůvodnění
@@ -376,8 +376,8 @@ cs:
         form:
           domain_too_short: Doména je příliš krátká
         update:
-          error: Nepodařilo se aktualizovat seznam povolených domén
-          success: Seznam povolených domén byl úspěšně aktualizován
+          error: Nepodařilo se aktualizovat seznam povolených domén.
+          success: Seznam povolených domén byl úspěšně aktualizován.
       exports:
         export_as: "%{name} jako %{export_format}"
         formats:
@@ -385,7 +385,7 @@ cs:
           Excel: Excel
           FormPDF: PDF
           JSON: JSON
-        notice: Váš export právě probíhá. Po jeho dokončení obdržíte e-mail.
+        notice: Váš export právě probíhá. Po dokončení obdržíte e-mail.
       filters:
         category_id_eq:
           label: Kategorie
@@ -460,10 +460,10 @@ cs:
             message_1: CSV, JSON a Excel (.xlsx) jsou podporovány
             message_2: Pro CSV soubory musí být oddělovač mezi sloupci středníkem (";")
       help_sections:
-        error: Při aktualizaci sekcí nápovědy došlo k chybě
+        error: Při aktualizaci sekcí nápovědy došlo k chybě.
         form:
           save: Uložit
-        success: Části nápovědy byly úspěšně aktualizovány
+        success: Sekce nápovědy byly úspěšně aktualizovány.
       impersonatable_users:
         index:
           filter:
@@ -529,8 +529,8 @@ cs:
               few: Chybí sloupce %{columns}.
               many: Chybí sloupce %{columns}.
               other: Chybí sloupce %{columns}.
-        error: Při importu došlo k chybě
-        example_error: Nelze vytvořit příklad pro daný typ
+        error: Při importu došlo k chybě.
+        example_error: Při vytváření příkladu pro daný typ došlo k chybě.
         new:
           accepted_mime_types:
             csv: CSV
@@ -542,7 +542,7 @@ cs:
           download_example_format: Příklad jako %{name}
           file_legend: Přidat importovaný soubor, který bude analyzován.
           import: Importovat
-        notice: "%{number} %{resource_name} úspěšně importováno"
+        notice: "%{count} %{resource_name} úspěšně importováno."
       logs:
         filters:
           participatory_space: Najít participační prostor
@@ -567,7 +567,7 @@ cs:
         area_types: Typy oblastí
         areas: Oblasti
         configuration: Konfigurace
-        content: Obsah
+        content: Nahlášený obsah
         dashboard: Ovládací panel
         external_domain_whitelist: Povolené externí domény
         help_sections: Sekce nápovědy
@@ -676,7 +676,7 @@ cs:
           nickname: Přezdívka
           reason: Důvod
           reports: Počet zpráv
-          title: Výpis účastníků
+          title: Nahlášení účastníci
         report:
           reasons:
             does_not_belong: Nepatří
@@ -687,7 +687,7 @@ cs:
           unblocked: Neblokováno
       moderations:
         index:
-          title: Moderování
+          title: Nahlášený obsah
         report:
           reasons:
             does_not_belong: Nepatří
@@ -764,7 +764,7 @@ cs:
           title: Vybrat příjemce k doručení
           warning: "<strong> Pozor: </strong> Tento zpravodaj bude zasílán pouze uživatelům, kteří si aktivovali <em> chci dostávat zpravodaj </em> v nastavení oznámení."
         send:
-          no_recipients: Žádný příjemce pro tento výběr
+          no_recipients: Žádní příjemci pro tento výběr.
         show:
           preview: Náhled
           select_recipients_to_deliver: Vybrat příjemce k doručení
@@ -774,12 +774,12 @@ cs:
           success: Zpravodaj byl úspěšně aktualizován. Před odesláním jej prosím zkontrolujte.
       officializations:
         block:
-          error: Při blokování uživatele došlo k chybě
-          success: Uživatel byl úspěšně zablokován
+          error: Při blokování účastníka došlo k chybě.
+          success: Účastník byl úspěšně zablokován.
         create:
-          success: Účastník úspěšně oficiálně zaregistrován
+          success: Účastník úspěšně oficiálně zaregistrován.
         destroy:
-          success: Uživatel úspěšně zbaven oficiální registrace
+          success: Účastník úspěšně zbaven oficiální registrace.
         index:
           actions: Akce
           badge: Odznak
@@ -809,8 +809,8 @@ cs:
           show: Zobrazit
           title: Zobrazit e-mailovou adresu účastníka
         unblock:
-          error: Při odblokování uživatele došlo k chybě
-          success: Uživatel byl úspěšně odblokován
+          error: Při odblokování účastníka došlo k chybě.
+          success: Účastník byl úspěšně odblokován.
       organization:
         edit:
           title: Upravit organizaci
@@ -857,11 +857,11 @@ cs:
       organization_homepage:
         content_blocks:
           create:
-            error: Při pokusu o vytvoření tohoto obsahu se vyskytl problém
-            success: Blok obsahu byl úspěšně vytvořen
+            error: Při pokusu o vytvoření tohoto bloku obsahu se vyskytl problém.
+            success: Blok obsahu byl úspěšně vytvořen.
           destroy:
-            error: Při pokusu o odstranění tohoto bloku obsahu došlo k chybě
-            success: Blok obsahu byl úspěšně odstraněn
+            error: Při pokusu o odstranění tohoto bloku obsahu došlo k chybě.
+            success: Blok obsahu byl úspěšně odstraněn.
           edit:
             update: Aktualizovat
         edit:
@@ -886,7 +886,7 @@ cs:
       participatory_space_private_users_csv_imports:
         create:
           invalid: Při čtení souboru CSV se vyskytl problém. Ujistěte se, že jste dodrželi pokyny.
-          success: CSV soubor byl úspěšně nahrán, posíláme e-maily na účastníky. To může trvat nějakou dobu.
+          success: CSV soubor byl úspěšně nahrán, posíláme účastníkům e-mail s pozvánkou. To může chvíli trvat.
         new:
           destroy:
             button: Odstranit všechny soukromé účastníky
@@ -941,7 +941,7 @@ cs:
           error: Při vytváření nové oblasti působnosti došlo k chybě.
           success: Oblast působnosti byla úspěšně vytvořena.
         destroy:
-          success: Oblast působnosti úspěšně zničena
+          success: Oblast působnosti úspěšně zničena.
         edit:
           title: Upravit oblast působnosti
           update: Aktualizace
@@ -961,7 +961,7 @@ cs:
           error: Při zničení tokenu došlo k chybě.
           success: Token byl úspěšně smazán.
         share_tokens:
-          empty: Nejsou žádné aktivní tokeny
+          empty: Nejsou žádné aktivní tokeny.
           help: Tyto tokeny se používají k veřejnému sdílení tohoto nezveřejněného zdroje každému uživateli. Budou skryty, když bude dokument publikován. Klikněte na ikonu sdílení tokenu a navštivte sdílenou URL.
           title: Sdílet tokeny
       shared:
@@ -975,7 +975,7 @@ cs:
           error: Při vytváření nového tématu došlo k chybě.
           success: Téma vytvořeno úspěšně.
         destroy:
-          success: Téma úspěšně zničena
+          success: Téma úspěšně zničeno.
         edit:
           title: Upravit téma
           update: Aktualizovat téma
@@ -992,11 +992,11 @@ cs:
           active_content_blocks: Aktivní bloky obsahu
           add: Přidat blok obsahu
           create:
-            error: Při pokusu o vytvoření tohoto bloku obsahu se vyskytl problém
-            success: Blok obsahu byl úspěšně vytvořen
+            error: Při pokusu o vytvoření tohoto bloku obsahu se vyskytl problém.
+            success: Blok obsahu byl úspěšně vytvořen.
           destroy:
-            error: Při pokusu o odstranění tohoto bloku obsahu došlo k chybě
-            success: Blok obsahu byl úspěšně odstraněn
+            error: Při pokusu o odstranění tohoto bloku obsahu došlo k chybě.
+            success: Blok obsahu byl úspěšně odstraněn.
           destroy_confirmation: Opravdu chcete smazat tento blok obsahu?
           edit:
             update: Aktualizovat
@@ -1022,11 +1022,11 @@ cs:
         topic:
           destroy: Odebrat téma
           edit: Upravit téma
-          empty: V tomto tématu není žádná stránka
+          empty: V tomto tématu nejsou žádné stránky.
           without_topic: Stránky bez tématu
         update:
           error: Při aktualizaci této stránky došlo k chybě.
-          success: Stránka byla úspěšně aktualizována
+          success: Stránka byla úspěšně aktualizována.
       titles:
         admin_log: Správce protokolu
         area_types: Typy oblastí
@@ -1047,13 +1047,13 @@ cs:
       user_group:
         csv_verify:
           invalid: Při čtení souboru CSV došlo k chybě.
-          success: Soubor CSV byl úspěšně nahrán, ověřujeme skupiny, které odpovídají kritériím. To může chvíli trvat.
+          success: CSV soubor byl úspěšně nahrán, ověřujeme skupiny odpovídající kritériím. To může chvíli trvat.
         reject:
           invalid: Při odmítnutí této skupiny došlo k chybě.
-          success: Skupina byla úspěšně odmítnuta
+          success: Skupina byla úspěšně zamítnuta.
         verify:
           invalid: Při ověřování této skupiny došlo k chybě.
-          success: Skupina byla úspěšně ověřena
+          success: Skupina byla úspěšně ověřena.
       user_groups:
         index:
           state:
@@ -1090,13 +1090,13 @@ cs:
           last_day: Poslední den
           last_month: Minulý měsíc
           last_week: Minulý týden
-          no_users_count_statistics_yet: Zatím nejsou žádné statistiky počtu uživatelů
+          no_users_count_statistics_yet: Zatím nejsou žádné statistiky počtu uživatelů.
           participants: Účastníci
       view_public_page: Zobrazit veřejnou stránku
     forms:
       errors:
         impersonate_user:
-          reason: Při správě nespravovaného účastníka musíte uvést důvod
+          reason: Musíte uvést důvod pro správu neřízeného účastníka.
     metrics:
       blocked_users:
         object: blokovaní uživatelé
@@ -1152,7 +1152,7 @@ cs:
     decidim:
       admin:
         global_moderations:
-          title: Moderování obsahu
+          title: Globální moderace
         newsletters:
           title: Zpravodaje
         settings:

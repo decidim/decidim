@@ -40,7 +40,7 @@ These are one time actions that need to be done after the code is updated in the
 
 Decidim redesign has introduced Tailwind CSS framework to compile CSS. It integrates with Webpacker, which generates Tailwind configuration dynamically when Webpacker is invoked.
 
-You'll need to add `tailwind.config.js` to your app `.gitignore`. If you generate a new Decidim app from scratch, that entry will already be included in the `.gitignore`.
+You will need to add `tailwind.config.js` to your app `.gitignore`. If you generate a new Decidim app from scratch, that entry will already be included in the `.gitignore`.
 
 You can read more about this change on PR [\#9480](https://github.com/decidim/decidim/pull/9480).
 
@@ -55,7 +55,7 @@ bundle exec rake decidim:procfile:install
 After this command has been ran, a new command will be available in your `bin/`, so in order to boot up your application you will just need to run
 
 ```console
-bin/dev
+./bin/dev
 ```
 
 Additional notes on Procfile:
@@ -63,6 +63,64 @@ Additional notes on Procfile:
 In some cases, when running in a containerized environment, you may need to manually edit the `config/webpacker.yml` to edit the host parameter from `host: localhost` to `host: 0.0.0.0`
 
 In some other cases when you run your application on a custom port (other than 3000), you will need to edit the `Procfile`, and add the parameter. `web: bin/rails server -b 0.0.0.0 -p 3000`
+
+### 3.3. User moderation panel changes
+
+In older Decidim installations, when blocking an user directly from the participants menu, without being previously reported, it will hide that user, making it unavailable in the Reported Participants section. You will need to run this command once to make sure there are no users or entities that got blocked but are not visible in the participants listing.
+
+```console
+bundle exec rake decidim:upgrade:moderation:fix_blocked_user_panel
+```
+
+You can read more about this change on PR [\#10521](https://github.com/decidim/decidim/pull/10521).
+
+### 3.4. Change Webpacker to Shakapacker
+
+Since the Rails team has retired the Webpacker in favour or importmap-rails or js-bundling, we got ouserlves in a situation where performance improvements could not be performed.
+In order to continue having support for Webpacker like syntax, we have switched to Shakapacker.
+
+In order to perform the update, you will need to make sure that you **do not have webpacker in your Gemfile**.
+If you have it, please remove it, adn allow Decidim to handle the webpacker / shackapacker dependency.
+
+In order to perform the migration to shakapacker, please backup the following files, to make sure that you save any customizations you may have done to webpacker:
+
+```console
+config/webpacker.yml
+config/webpack/*
+package.json
+postcss.config.js
+```
+
+After all the backups and changes mentioned above have been completed, follow the default upgrade steps, as mentioned above in the document.
+Then run the below command, and replace all the configuration with the one that Decidim is providing by default:
+
+```console
+bundle exec rake decidim:webpacker:install
+```
+
+This will make the necessary changes in the `config/webpacker.yml`, but also in the `config/webpack/` folder.
+
+#### Note for development
+
+If you are using the `Procfile.dev` file, you will need to make sure that you have the following line in your configuration. If you have not altered the `Procfile.dev` file, you will not need to do anything, as we covered that part:
+
+```console
+webpacker: ./bin/webpacker-dev-server
+```
+
+In order to run your development server, you will need to run the following command:
+
+```console
+./bin/dev
+```
+
+You can read more about this change on PR [\#10389](https://github.com/decidim/decidim/pull/10389).
+
+### 3.5. Graphql upgrade
+
+In [\#10606](https://github.com/decidim/decidim/pull/10606) we have upgraded the GraphQL gem to version 2.0.19. This upgrade introduces some breaking changes, so you will need to update your GraphQL queries to match the new API. This change should be transparent for most of the users, but if you have custom GraphQL queries, you will need to update them. Also, please note, there might be some issues with community plugins that offer support for GraphQL, so you might need to update them as well.
+
+Please see the [change log](https://github.com/rmosolgo/graphql-ruby/blob/master/CHANGELOG.md) for graphql gem for more information.
 
 ## 4. Scheduled tasks
 
@@ -95,7 +153,7 @@ If you want to have the default social share services enabled (Twitter, Facebook
 rm config/initializers/social_share_button.rb
 ```
 
-If you want to change the default social share services, you'll need to remove this initializer and add it to the Decidim initializer. We recommend doing it with the environment variables and secrets to be consistent with the rest of configurations.
+If you want to change the default social share services, you will need to remove this initializer and add it to the Decidim initializer. We recommend doing it with the environment variables and secrets to be consistent with the rest of configurations.
 
 ```console
 rm config/initializers/social_share_button.rb

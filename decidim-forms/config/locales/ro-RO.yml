@@ -23,7 +23,7 @@ ro:
               missing: nu sunt completate
               too_many: sunt prea multe
         questionnaire:
-          request_invalid: A apărut o eroare la procesarea cererii. Te rugăm să încerci din nou
+          request_invalid: A apărut o eroare la procesarea cererii. Te rugăm să încerci din nou.
   decidim:
     forms:
       admin:

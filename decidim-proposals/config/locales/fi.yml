@@ -31,7 +31,7 @@ fi:
         cost_report: Kustannusraportti
         execution_period: Toteutusjakso
       proposals_copy:
-        copy_proposals: Ymmärrän, että tämä tuo kaikki valitun komponentin ehdotukset nykyiseen komponenttiin ja että tätä toimenpidettä ei voi peruuttaa.
+        copy_proposals: Ymmärrän, että tämä tuo kaikki ideat valitusta komponentista tähän komponenttiin ja tätä toimintoa ei voi peruuttaa.
         origin_component_id: Osio josta ehdotukset kopioidaan
       proposals_import:
         import_proposals: Tuo ehdotuksia
@@ -222,10 +222,10 @@ fi:
       proposals:
         admin:
           proposal_note_created:
-            email_intro: Joku on jättänyt huomion ehdotukseen "%{resource_title}". Tutustu siihen <a href="%{admin_proposal_info_url}">hallintapaneelin kautta</a>
+            email_intro: Joku on jättänyt muistiinpanon ehdotukseen "%{resource_title}". Tutustu siihen <a href="%{admin_proposal_info_url}">hallintapaneelin kautta</a>.
             email_outro: Tämä ilmoitus on lähetetty sinulle, koska voit arvioida ehdotuksen.
             email_subject: Joku on jättänyt huomion ehdotukseen %{resource_title}.
-            notification_title: Joku on jättänyt huomion ehdotukseen <a href="%{resource_path}">%{resource_title}</a>. Tutustu siihen <a href="%{admin_proposal_info_path}">hallintapaneelin kautta</a>
+            notification_title: Joku on jättänyt muistiinpanon ehdotukseen <a href="%{resource_path}">%{resource_title}</a>. Tutustu siihen <a href="%{admin_proposal_info_path}">hallintapaneelin kautta</a>.
         collaborative_draft_access_accepted:
           email_intro: '%{requester_name} on hyväksytty osallistujaksi yhteistyöluonnokseen <a href="%{resource_url}">%{resource_title}</a>.'
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet osallistujana kohteessa <a href="%{resource_url}">%{resource_title}</a>.
@@ -260,12 +260,12 @@ fi:
           email_intro: 'Voit nyt luoda uusia ehdotuksia osallistumistilassa %{participatory_space_title}! Aloita osallistuminen tällä sivulla:'
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
           email_subject: Ehdotuksia on nyt mahdollista laatia osallistumistilassa %{participatory_space_title}
-          notification_title: Voit nyt esittää <a href="%{resource_path}">uusia ehdotuksia</a> osallistumistilassa <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          notification_title: Voit nyt esittää <a href="%{resource_path}">uusia ehdotuksia</a> osallistumistilassa <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
         endorsing_enabled:
           email_intro: 'Voit suositella ehdotuksia osallistumistilassa %{participatory_space_title}! Aloita osallistuminen tällä sivulla:'
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esiteyn linkin kautta.
           email_subject: Ehdotusten suosittelu on alkanut kohteelle %{participatory_space_title}
-          notification_title: Voit nyt aloittaa <a href="%{resource_path}">ehdotusten suosittelun</a> osallistumistilassa <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          notification_title: Voit nyt aloittaa <a href="%{resource_path}">ehdotusten suosittelun</a> osallistumistilassa <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
         proposal_accepted:
           affected_user:
             email_intro: 'Ehdotuksesi "%{resource_title}" on hyväksytty. Voit lukea vastauksen täältä:'
@@ -302,8 +302,8 @@ fi:
           email_intro: Ehdotus "%{resource_title}", jota seuraat, on lisätty kohteeseen "%{participatory_space_title}".
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta "%{participatory_space_title}". Voit lopettaa seuraamisen edellä esitetyn linkin kautta.
           email_subject: Uusi ehdotus "%{resource_title}" lisätty kohteeseen %{participatory_space_title}
-          notification_title: '%{author} on lisännyt ehdotuksen <a href="%{resource_path}">%{resource_title}</a> kohteeseen %{participatory_space_title}'
-          notification_title_official: Virallinen ehdotus <a href="%{resource_path}">%{resource_title}</a> on lisätty kohteeseen %{participatory_space_title}
+          notification_title: '%{author} on lisännyt ehdotuksen <a href="%{resource_path}">%{resource_title}</a> osallistumistilaan %{participatory_space_title}.'
+          notification_title_official: Virallinen ehdotus <a href="%{resource_path}">%{resource_title}</a> on lisätty osallistumistilaan %{participatory_space_title}.
         proposal_rejected:
           affected_user:
             email_intro: 'Ehdotuksesi "%{resource_title}" on hylätty. Voit lukea vastauksen täältä:'
@@ -457,8 +457,8 @@ fi:
             title: Lisää aineisto
             upload_document: Lataa aineisto
           publish:
-            invalid: Ehdotuksia ei voitu julkaista
-            success: Kaikki ehdotukset on julkaistu
+            invalid: Ehdotusten julkaisu epäonnistui.
+            success: Kaikki ehdotukset on julkaistu.
           sections:
             article: "<em>Kappalesisältö</em>"
             section: "<em>Osio:</em> <strong>%{title}</strong>"
@@ -475,8 +475,8 @@ fi:
             title: 'Vastaa ehdotukseen: %{title}'
         proposal_notes:
           create:
-            error: Ehdotuksen muistiinpanojen luonti epäonnistui
-            success: Ehdotusmerkinnän luonti onnistui
+            error: Muistiinpanon luonti ehdotukselle epäonnistui.
+            success: Muistiinpanon luonti ehdotukselle onnistui.
           form:
             note: Huomautus
             submit: Lähetä
@@ -484,11 +484,11 @@ fi:
           title: Omat muistiinpanot
         proposals:
           answer:
-            invalid: Ehdotukseen vastaaminen epäonnistui
-            success: Ehdotukseen vastaaminen onnistui
+            invalid: Ehdotukseen vastaaminen epäonnistui.
+            success: Ehdotukseen vastaaminen onnistui.
           create:
-            invalid: Ehdotuksen luonti epäonnistui
-            success: Ehdotuksen luonti onnistui
+            invalid: Ehdotuksen luonti epäonnistui.
+            success: Ehdotuksen luonti onnistui.
           edit:
             title: Päivitä ehdotusta
             update: Päivitä
@@ -523,7 +523,7 @@ fi:
             title: Luo ehdotus
           publish_answers:
             number_of_proposals: Julkaistaan %{number} vastausta ehdotuksille.
-            select_a_proposal: Valitse ehdotus
+            select_a_proposal: Valitse ehdotus.
           show:
             amendments_count: Muutosten lukumäärä
             assigned_valuators: Arvioijat
@@ -553,18 +553,18 @@ fi:
             votes_ranking: Luokittelu kannatusten mukaan
           update_category:
             invalid: 'Näillä ehdotuksilla oli jo aihepiiri %{subject_name}: %{proposals}.'
-            select_a_category: Valitse aihepiiri
-            select_a_proposal: Valitse ehdotus
+            select_a_category: Valitse aihepiiri.
+            select_a_proposal: Valitse ehdotus.
             success: 'Seuraavien ehdotusten aihepiirin päivitys onnistui %{subject_name}: %{proposals}.'
           update_scope:
             invalid: 'Näillä ehdotuksilla oli jo teema %{subject_name}: %{proposals}.'
-            select_a_proposal: Valitse ehdotus
-            select_a_scope: Valitse teema
+            select_a_proposal: Valitse ehdotus.
+            select_a_scope: Valitse teema.
             success: 'Seuraavien ehdotusten teeman päivitys onnistui %{subject_name}: %{proposals}.'
         proposals_imports:
           create:
-            invalid: Ehdotuksien tuominen epäonnistui
-            success: "%{number} ehdotuksen tuonti onnistui"
+            invalid: Ehdotusten tuonti epäonnistui.
+            success: "%{number} ehdotuksen tuonti onnistui."
           new:
             create: Tuo ehdotuksia
             no_components: Tässä osallistumistilassa ei ole muita ehdotuskomponentteja ehdotusten tuomiseksi.
@@ -581,11 +581,11 @@ fi:
             success: Ehdotukset jaettiin onnistuneesti uusiksi ehdotuksiksi.
         valuation_assignments:
           create:
-            invalid: Arvioijien asettaminen ehdotuksille epäonnistui
-            success: Arvioijien asettaminen ehdotuksille onnistui
+            invalid: Arvioijien asettaminen ehdotuksille epäonnistui.
+            success: Arvioijien asettaminen ehdotuksille onnistui.
           delete:
-            invalid: Arvioijien poistaminen ehdotuksilta epäonnistui
-            success: Arvioijien poistaminen ehdotuksilta onnistui
+            invalid: Arvioijien poistaminen ehdotuksilta epäonnistui.
+            success: Arvioijien poistaminen ehdotuksilta onnistui.
       admin_log:
         proposal:
           answer: "%{user_name} vastasi ehdotukseen %{resource_name} osallistumistilassa %{space_name}"
@@ -686,17 +686,17 @@ fi:
         requests:
           accepted_request:
             error: Osallistujaa ei voitu hyväksyä, yritä myöhemmin uudelleen.
-            success: "Käyttäjän @%{user} hyväksyminen muokkaajaksi onnistui"
+            success: "Käyttäjän @%{user} hyväksyminen muokkaajaksi onnistui."
           access_requested:
             error: Pyyntöäsi ei voitu suorittaa, yritä myöhemmin uudelleen.
-            success: Osallistumispyyntösi lähetys onnistui
+            success: Osallistumispyyntösi lähetys onnistui.
           collaboration_requests:
             accept_request: Hyväksy
             reject_request: Hylkää
             title: Yhteistyöpyynnöt
           rejected_request:
             error: Osallistujaa ei voitu hylätä, yritä myöhemmin uudelleen.
-            success: "Käyttäjän @%{user} osallistumispyynnön hylkäys onnistui"
+            success: "Käyttäjän @%{user} osallistumispyynnön hylkäys onnistui."
         show:
           back: Takaisin
           edit: Muokkaa yhteistyöluonnosta
@@ -759,7 +759,7 @@ fi:
             valuators: Arvioijat
             votes: Äänet
       new:
-        limit_reached: Et voi luoda uusia ehdotuksia, koska olet ylittänyt rajan.
+        limit_reached: Et voi luoda uusia ehdotuksia, koska olet ylittänyt niille asetetun rajan.
       participatory_text_proposal:
         alternative_title: Ei osallistuvia tekstejä tällä hetkellä
         buttons:
@@ -862,8 +862,8 @@ fi:
           creation_date: 'Luontiaika: %{date}'
           view_proposal: Näytä ehdotus
         proposals:
-          empty: Ei vielä yhtään ehdotusta
-          empty_filters: Ei yhtään ehdotusta annetuilla hakuehdoilla
+          empty: Ehdotuksia ei ole vielä tehty.
+          empty_filters: Ehdotuksia ei löytynyt annetuilla hakuehdoilla.
         show:
           answer: Vastaus
           back_to: Takaisin sivulle
@@ -917,7 +917,7 @@ fi:
           proposal_limit:
             description: Voit luoda enintään %{limit} ehdotusta.
           threshold_per_proposal:
-            description: Jotta ehdotukset vahvistettaisiin, niiden on saavutettava %{limit} kannatusta
+            description: Jotta ehdotukset vahvistettaisiin, niiden on saavutettava %{limit} kannatusta.
           title: 'Kannatukseen sovelletaan seuraavia sääntöjä:'
           vote_limit:
             description: Voit kannattaa enintään %{limit} ehdotusta.
@@ -969,9 +969,9 @@ fi:
       copied_from_component:
         proposal_proposal: Liittyvät ehdotukset
       included_projects:
-        project_result: 'Ehdotus sisältyy seuraaviin suunnitelmiin:'
+        project_result: 'Ehdotus sisältyy seuraaviin hankkeisiin:'
       included_proposals:
-        proposal_project: 'Ehdotus sisältyy seuraaviin suunnitelmiin:'
+        proposal_project: 'Ehdotus sisältyy seuraaviin hankkeisiin:'
         proposal_result: 'Ehdotus sisältyy seuraaviin tuloksiin:'
     statistics:
       proposals_accepted: Hyväksyttyä ehdotusta

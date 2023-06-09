@@ -53,12 +53,8 @@ eu:
             attachment:
               file: Fitxategi hau ez da baliozkoa
               needs_to_be_reattached: Artxiboa berriro erantsi behar da
-              title: Izenburua ezin da hutsik egon
   activerecord:
     models:
-      decidim/initiative:
-        one: Ekimena
-        other: Initatives
       decidim/initiative_comittee:
         one: Batzordea
         other: Comittees
@@ -173,10 +169,8 @@ eu:
             - Jarraitu urrats berriak ekimen berri bat sortzeko
           description: Idazmahaia ekimen berriak abiarazten dituzunean, besteekin elkarlanean aritzea ekartzen baduzu.
           description_another: Erabiltzaile honek argitaratutako %{score} ekimen lortu ditu.
-          description_own: Argitaratutako %{score} ekimen dituzu.
           name: Argitaratutako ekimenak
           next_level_in: Talde %{score} ekimen gehiago argitaratu hurrengo mailara iristeko!
-          unearned_another: Erabiltzaile honek oraindik ez du argitaratutako ekimenik lortu.
           unearned_own: Ez duzu oraindik argitaratutako ekimenik.
     help:
       participatory_spaces:
@@ -202,8 +196,6 @@ eu:
           index:
             approve: Onartu
             confirm_revoke: Ziur zaude?
-            invite_to_committee_help: Partekatu esteka hau beste erabiltzaileei sustapen batzordera gonbidatzeko
-            no_members_yet: Ez dago bazkide promoziorako batzordean
             revoke: Baliogabetu
             title: Batzorde kideak
         content_blocks:
@@ -225,7 +217,6 @@ eu:
             export_votes: Esportatu euskarriak
             reject: Ezetsi ekimena
             send_to_technical_validation: Bidali baliozkotzeko teknikora
-            success: Ekimena balioztatze teknikora bidali da
             update: eguneratzearen
           form:
             attachments: Erantsitako artxiboak
@@ -240,15 +231,7 @@ eu:
             edit: Editatu
             new: Berria
             photos: Argazkiak
-          update:
-            error: akats bat gertatu da
-            success: Herritarren ekimena ondo eguneratu da
         initiatives_type_scopes:
-          create:
-            error: akats bat gertatu da
-            success: Emandako ekimen motako esparru berria sortu da
-          destroy:
-            success: Eranskina kendu egin da
           edit:
             back: Back
             confirm_destroy: Ziur zaude?
@@ -259,15 +242,7 @@ eu:
             back: Back
             create: Sortu
             title: Sortu ekimena mota alorra
-          update:
-            error: akats bat gertatu da
-            success: Esparrua ondo eguneratu da
         initiatives_types:
-          create:
-            error: akats bat gertatu da
-            success: Ekimen mota berri bat sortu da
-          destroy:
-            success: Ekimen mota behar bezala ezabatu da
           edit:
             confirm_destroy: Ziur zaude?
             destroy: ezabatu
@@ -281,9 +256,6 @@ eu:
           new:
             create: Sortu
             title: Ekimen mota berria
-          update:
-            error: akats bat gertatu da
-            success: Ekimen mota ondo eguneratu da
       admin_log:
         initiative:
           publish: "%{user_name} %{resource_name} ekimena argitaratu du"
@@ -316,7 +288,6 @@ eu:
           success: Eskaera onartu egin da.
         new:
           continue: Jarraitu
-          help_text: Ekimen honen sustatzaile batzordeko kidea bihurtu nahi duzu
         revoke:
           success: Eskaera baliogabetu egin da.
         spawn:
@@ -415,7 +386,6 @@ eu:
             day: eguna
             month: hilabetea
             year: Urtea
-          help: Mesedez, bete zure datu pertsonalak ondorengo eremuak ekimena sinatzeko
         finish:
           back_to_initiative: Ekimenera itzuli
         sms_code:
@@ -423,16 +393,11 @@ eu:
           help: Egiaztatu telefonoan jasotako SMSa
         sms_phone_number:
           continue: Bidali SMS bat
-          help: Bete ezazu zure egiaztatutako telefono-zenbakia zure egiaztapen-kodea eskatzeko
       initiative_votes:
         create:
           error: Ekimena sinatu zenean akatsak izan dira.
-          invalid: Ekimena sinatzeko emandako datuak ez dira baliozkoak
-          success_html: Zorionak! <strong> %{title}</strong> ekimena ongi sinatu da
         personal_data:
           invalid: Datu pertsonalak ez dira bat datozen baimenarekin emandako datuak.
-        sms_code:
-          invalid: Zure egiaztapen-kodea ez dator bat gurearekin. Begiratu bi aldiz bidalitako SMSa.
         sms_phone:
           invalid: Telefono-zenbakia baliogabea edo baimenaren zain dago. Egiaztatu zure baimenak.
       initiatives:
@@ -445,8 +410,6 @@ eu:
         committee_members:
           approve: Onartu
           confirm_revoke: Ziur zaude?
-          invite_to_committee_help: Partekatu lotura hau beste parte-hartzaile batzuk batzorde bultzatzailera gonbidatzeko
-          no_members_yet: Ez dago kiderik batzorde bultzatzailean
           revoke: Baliogabetu
           title: Batzorde-kideak
         count:
@@ -459,7 +422,7 @@ eu:
           author: Egilea
           myself: Nire ekimenak
           scope: Eremua
-          search: Search
+          search: Bilatu
           state: Estatu
           type: Mota
         filters_small_view:
@@ -506,7 +469,6 @@ eu:
           section: 'Antolakuntzak eskatzen badu, mesedez, inprimatu eta bete formulario hau, adierazten den tokira bidaltzeko:'
           signature: Sinadura
         result:
-          answer_title: Ekimen hau erantzun egin da
           initiative_rejected_reason: Ekimen hau baztertu egin da laguntza faltagatik.
         show:
           any_vote_method: Ekimen honek lineako eta aurrez aurreko sinadurak biltzen ditu.
@@ -565,9 +527,6 @@ eu:
         accepted: Onartu
         expired: iraungi
       unavailable_scope: Ez dago erabilgarri
-      update:
-        error: Akats bat gertatu da
-        success: Ekimena zuzen eguneratu da
       versions:
         shared:
           back_to_resource: Itzuli ekimenera

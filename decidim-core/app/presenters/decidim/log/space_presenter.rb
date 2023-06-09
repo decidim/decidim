@@ -6,7 +6,7 @@ module Decidim
     # activity log. The data needed for this class to work should be sent by
     # `Decidim::Log::BasePresenter` or any of its children.
     #
-    # In order to be able to use your own class to present a space, you'll need to
+    # In order to be able to use your own class to present a space, you will need to
     # overwrite `BasePresenter#space_presenter` to return your custom space presenter.
     # The only requirement for custom renderers is that they should respond to `present`.
     class SpacePresenter

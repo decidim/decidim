@@ -11,10 +11,6 @@ is-IS:
           post:
             name: Post
         posts:
-          create:
-            success: Post var búin til
-          destroy:
-            success: Post var eytt
           edit:
             save: Uppfæra
           index:

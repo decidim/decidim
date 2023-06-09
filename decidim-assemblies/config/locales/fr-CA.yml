@@ -76,12 +76,6 @@ fr-CA:
         email: E-mail
         name: "Nom\n"
         role: Fonction
-    errors:
-      models:
-        assembly:
-          attributes:
-            document:
-              allowed_file_content_types: 'Type de document invalide. Seuls les fichiers avec les extensions suivantes sont autorisés : %{types}'
   activerecord:
     models:
       decidim/assembly:
@@ -444,9 +438,6 @@ fr-CA:
         related_assemblies: Assemblées associées
     statistics:
       assemblies_count: Assemblées
-  errors:
-    messages:
-      cannot_be_blank: ne peut être vide
   layouts:
     decidim:
       assemblies:
