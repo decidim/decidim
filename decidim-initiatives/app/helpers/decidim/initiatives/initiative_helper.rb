@@ -126,7 +126,7 @@ module Decidim
 
         if current_user
           html_options["data-dialog-open"] = "authorizationModal"
-          html_options["data-open-url"] = authorization_sign_modal_initiative_path(initiative)
+          html_options["data-dialog-remote-url"] = authorization_sign_modal_initiative_path(initiative)
         else
           html_options["data-dialog-open"] = "loginModal"
         end
