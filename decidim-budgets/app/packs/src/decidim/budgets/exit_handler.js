@@ -40,7 +40,7 @@ const allowExitFrom = ($el) => {
     return true;
   } else if (isSafeUrl($el.attr("href"))) {
     return true
-  } else if (document.querySelector(".panel-container") && panelContainer.contains($el[0])) {
+  } else if (document.querySelector(".panel-container") && document.querySelector(".panel-container").contains($el[0])) {
     return true
   }
 
