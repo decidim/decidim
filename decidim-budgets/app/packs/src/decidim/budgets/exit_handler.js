@@ -26,7 +26,6 @@ const isSafeUrl = (exitUrl) => {
 }
 
 const allowExitFrom = ($el) => {
-  const panelContainer = document.querySelector(".panel-container");
   if (currentAllocationZero()) {
     return true
   } else if ($el.attr("target") === "_blank") {
@@ -41,7 +40,7 @@ const allowExitFrom = ($el) => {
     return true;
   } else if (isSafeUrl($el.attr("href"))) {
     return true
-  } else if (panelContainer.contains($el[0])) {
+  } else if (document.querySelector(".panel-container") && panelContainer.contains($el[0])) {
     return true
   }
 
@@ -85,7 +84,7 @@ $(() => {
   // logout form submit and so that it changes the exit link text. This does
   // not trigger the document link click listener because it has the
   // data-method attribute to trigger a form submit event.
-  $(".header a.sign-out-link").on("click", (event) => {
+  $("[href='/users/sign_out']").on("click", (event) => {
     event.preventDefault();
     event.stopPropagation();
 
@@ -96,7 +95,7 @@ $(() => {
   // Custom handling for the exit link which needs to change the exit link
   // text to the default text as this is not handled by the document click
   // listener.
-  $("a[data-open='exit-notification']").on("click", () => {
+  $("a[data-dialog-open='exit-notification']").on("click", () => {
     exitLinkText = defaultExitLinkText;
     openExitNotification(defaultExitUrl);
   });
