@@ -89,6 +89,12 @@ el:
           new:
             create: Δημιουργία ερώτησης
             title: Νέα ερώτηση
+        steps:
+          create_election:
+            errors:
+              time_before: Η ώρα έναρξης είναι σε <strong>λιγότερο από %{hours}</strong> πριν από την έναρξη των εκλογών.
+            requirements:
+              time_before: Η ρύθμιση γίνεται <strong>τουλάχιστον %{hours}</strong> πριν ξεκινήσουν οι εκλογές.
       models:
         answer:
           fields:
