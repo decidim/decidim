@@ -26,27 +26,26 @@ module Decidim
 
     attr_reader :organization, :current_user
 
-    def filter_deleted(query)
-      conditions = []
+    def base_query
+      ActionLog
+        .where(organization:, visibility:)
+        .order(created_at: :desc)
+    end
 
-      ActionLog.public_resource_types.each do |resource_type|
-        klass = resource_type.constantize
+    def visibility
+      %w(public-only all)
+    end
 
-        condition = if klass.respond_to?(:not_deleted)
-                      Arel.sql(
-                        [
-                          "decidim_action_logs.resource_type = '#{resource_type}'",
-                          "decidim_action_logs.resource_id IN (#{Arel.sql(klass.not_deleted.select(:id).to_sql)})"
-                        ].join(" AND ")
-                      ).to_s
-                    else
-                      Arel.sql("decidim_action_logs.resource_type = '#{resource_type}'").to_s
-                    end
-
-        conditions << "(#{condition})"
-      end
-
-      query.where(Arel.sql(conditions.join(" OR ")).to_s)
+    def filter_moderated(query)
+      # Filter out the items that have been moderated.
+      query.joins(
+        <<~SQL.squish
+          LEFT JOIN decidim_moderations
+            ON decidim_moderations.decidim_reportable_type = decidim_action_logs.resource_type
+            AND decidim_moderations.decidim_reportable_id = decidim_action_logs.resource_id
+            AND decidim_moderations.hidden_at IS NOT NULL
+      SQL
+      ).where(decidim_moderations: { id: nil })
     end
 
     def filter_spaces(query)
@@ -71,26 +70,27 @@ module Decidim
       query.where(Arel.sql(conditions.join(" OR ")).to_s)
     end
 
-    def visibility
-      %w(public-only all)
-    end
+    def filter_deleted(query)
+      conditions = []
 
-    def filter_moderated(query)
-      # Filter out the items that have been moderated.
-      query.joins(
-        <<~SQL.squish
-          LEFT JOIN decidim_moderations
-            ON decidim_moderations.decidim_reportable_type = decidim_action_logs.resource_type
-            AND decidim_moderations.decidim_reportable_id = decidim_action_logs.resource_id
-            AND decidim_moderations.hidden_at IS NOT NULL
-      SQL
-      ).where(decidim_moderations: { id: nil })
-    end
+      ActionLog.public_resource_types.each do |resource_type|
+        klass = resource_type.constantize
 
-    def base_query
-      ActionLog
-        .where(organization:, visibility:)
-        .order(created_at: :desc)
+        condition = if klass.respond_to?(:not_deleted)
+                      Arel.sql(
+                        [
+                          "decidim_action_logs.resource_type = '#{resource_type}'",
+                          "decidim_action_logs.resource_id IN (#{Arel.sql(klass.not_deleted.select(:id).to_sql)})"
+                        ].join(" AND ")
+                      ).to_s
+                    else
+                      Arel.sql("decidim_action_logs.resource_type = '#{resource_type}'").to_s
+                    end
+
+        conditions << "(#{condition})"
+      end
+
+      query.where(Arel.sql(conditions.join(" OR ")).to_s)
     end
   end
 end
