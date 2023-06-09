@@ -109,12 +109,11 @@ describe "Initiative", type: :system do
 
           it "they are authorized to create after verifying" do
             click_button "New initiative"
-            click_link "View authorizations"
-            click_link(text: /Example authorization/)
+            click_link 'Authorize with "Example authorization"'
             fill_in "Document number", with: "123456789X"
             click_button "Send"
             click_link "New initiative"
-            expect(page).to have_content("Create a new initiative")
+            expect(page).to have_content("Review the content of your initiative. ")
           end
         end
       end
@@ -265,8 +264,8 @@ describe "Initiative", type: :system do
             click_link 'Authorize with "Example authorization"'
             fill_in "Document number", with: "123456789X"
             click_button "Send"
-            click_on(class: "card__highlight")
-            expect(page).to have_content("Create a new initiative")
+            click_on(class: "card__highlight", text: translated(initiative_type.title))
+            expect(page).to have_content("Review the content of your initiative.")
           end
         end
       end
