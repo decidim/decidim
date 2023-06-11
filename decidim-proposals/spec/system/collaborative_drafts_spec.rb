@@ -267,8 +267,8 @@ describe "Explore Collaborative Drafts", type: :system, versioning: true do
 
           context "when the author receives the request" do
             before do
-              within ".header .title-bar .topbar__user__logged" do
-                expect(page).to have_content(user.name)
+              within ".main-bar__links-desktop" do
+                expect(page).to have_css("#trigger-dropdown-account")
               end
               relogin_as author, scope: :user
               visit current_path
