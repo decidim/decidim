@@ -445,14 +445,27 @@ To customize export fields, you can subscribe to any serialize event. Every seri
 Defines additional content security policies following the structure keys are the CSP directives and the values are arrays of allowed sources
 
 List of additional content security policies to be appended to the default ones
-This is useful for adding custom CSPs for external services like Here Maps, YouTube, etc.
+This is useful for adding custom CSPs for external services like Here Maps, YouTube, Twitter etc.
+
+Below you will find a the recepy of enabling Twitter timelines, based on https://content-security-policy.com/examples/twitter/ example.
 The format is a Hash with the following structure:
 [source,ruby]
 ....
   {
-    "connect-src": %w(*.hereapi.com),
-    "frame-src": %w(*.youtube.com),
-    "img-src": %w(*.hereapi.com data:)
+    "script-src": %w(platform.twitter.com syndication.twitter.com),
+    "style-src": %w('sha256-5g0QXxO6NfvHJ6Uf5BK/hqQHtso8ZOdjlnbyKtYLvwc='),
+    "frame-src": %w(platform.twitter.com),
+    "img-src": %w(syndication.twitter.com),
+  }
+....
+
+Additionally, the following example, will allow you to enable Jitsi meetings:
+
+[source,ruby]
+....
+  {
+    "connect-src": %w(meet.jit.si),
+    "frame-src": %w(meet.jit.si),
   }
 ....
 
