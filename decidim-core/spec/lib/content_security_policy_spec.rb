@@ -43,12 +43,8 @@ module Decidim
         it { expect(subject.output_policy).to include("object-src https://example.org") }
       end
 
-      context "when has invalid rule" do
-        before do
-          subject.append_csp_directive("missing-rule", "https://example.org")
-        end
-
-        it { expect(subject.output_policy).not_to include("missing-rule https://example.org") }
+      it "when has invalid rule" do
+        expect { subject.append_csp_directive("invalid-rule", "https://example.org") }.to raise_error(RuntimeError)
       end
     end
   end
