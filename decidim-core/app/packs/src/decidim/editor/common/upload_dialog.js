@@ -1,5 +1,6 @@
 import icon from "src/decidim/redesigned_icon";
 import { fileNameToTitle } from "src/decidim/editor/utilities/file";
+import Dialog from "a11y-dialog-component";
 
 const createElement = (template) => {
   const el = document.createElement("div");
@@ -127,6 +128,20 @@ export default class UploadDialog {
     if (this.legacyDesign) {
       $(this.element).on("closed.zf.reveal", handleClose);
     } else {
+      const uniq = this.element.id;
+
+      this.element.dialog = new Dialog(`[data-dialog="${uniq}"]`, {
+        // openingSelector: `[data-dialog-open="${uniq}"]`,
+        closingSelector: `[data-dialog-close="${uniq}"]`,
+        backdropSelector: `[data-dialog="${uniq}"]`,
+        enableAutoFocus: false,
+        onOpen: () => {
+          setTimeout(() => this.onOpen(this), 0);
+        },
+        onClose: () => {
+          setTimeout(handleClose, 0);
+        }
+      });
       this.element.addEventListener("close.dialog", () => setTimeout(handleClose, 0));
     }
   }
