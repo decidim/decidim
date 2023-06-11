@@ -526,7 +526,7 @@ module Decidim
 
   # List of additional content security policies to be appended to the default ones
   # This is useful for adding custom CSPs for external services like Here Maps, YouTube, etc.
-  # Read more: https://docs.decidim.org/en/v0.27/configure/initializer/#_content-security-policy
+  # Read more: https://docs.decidim.org/en/develop/configure/initializer/#_content-security-policy
   config_accessor :additional_content_security_policies do
     {}
   end

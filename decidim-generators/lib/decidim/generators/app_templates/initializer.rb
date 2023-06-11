@@ -378,7 +378,7 @@ Decidim.configure do |config|
   # ]
 
   # Defines additional content security policies following the structure
-  # Read more: https://docs.decidim.org/en/v0.27/configure/initializer/#_content-security-policy
+  # Read more: https://docs.decidim.org/en/develop/configure/initializer/#_content-security-policy
   config.additional_content_security_policies = {}
 
   # Admin admin password configurations

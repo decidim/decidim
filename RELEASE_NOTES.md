@@ -159,14 +159,14 @@ By default, the CSP is enabled, and is configured to be as restrictive as possib
 
 ```ruby
 {
-  "default-src" => 'self' 'unsafe-inline',
-  "script-src" => 'self' 'unsafe-inline' 'unsafe-eval',
-  "style-src" => 'self' 'unsafe-inline',
-  "img-src" => 'self' *.hereapi.com data:,
-  "font-src" => 'self',
-  "connect-src" => 'self' *.hereapi.com *.jsdelivr.net,
-  "frame-src" => 'self',
-  "media-src" => 'self'
+        "default-src" => %w('self' 'unsafe-inline'),
+        "script-src" => %w('self' 'unsafe-inline' 'unsafe-eval'),
+        "style-src" => %w('self' 'unsafe-inline'),
+        "img-src" => %w('self' *.hereapi.com data:),
+        "font-src" => %w('self'),
+        "connect-src" => %w('self' *.hereapi.com *.jsdelivr.net),
+        "frame-src" => %w('self'),
+        "media-src" => %w('self')
 }
 ```
 
