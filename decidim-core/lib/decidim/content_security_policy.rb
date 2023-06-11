@@ -122,7 +122,7 @@ module Decidim
         "style-src" => %w('self' 'unsafe-inline'),
         "img-src" => %w('self' *.hereapi.com data:),
         "font-src" => %w('self'),
-        "connect-src" => %w('self' *.hereapi.com),
+        "connect-src" => %w('self' *.hereapi.com *.jsdelivr.net),
         "frame-src" => %w('self'),
         "media-src" => %w('self')
       }
