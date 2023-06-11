@@ -48,7 +48,7 @@ describe "Valuator manages proposals", type: :system do
     it "can unassign themselves" do
       within "#js-form-unassign-proposals-from-valuator" do
         select user.name, from: :valuator_role_id
-        page.find("button#js-submit-unassign-proposals-from-valuator").click
+        click_button(id: "js-submit-unassign-proposals-from-valuator")
       end
 
       expect(page).to have_content("Valuator unassigned from proposals successfully")
@@ -57,7 +57,7 @@ describe "Valuator manages proposals", type: :system do
     it "cannot unassign others" do
       within "#js-form-unassign-proposals-from-valuator" do
         select another_user.name, from: :valuator_role_id
-        page.find("button#js-submit-unassign-proposals-from-valuator").click
+        click_button(id: "js-submit-unassign-proposals-from-valuator")
       end
 
       expect(page).to have_content("You are not authorized to perform this action")

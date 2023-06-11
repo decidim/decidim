@@ -91,7 +91,7 @@ module Decidim
             participatory_space: initiative
           )
 
-          initialize_pages(component) if component_name == :pages
+          initialize_pages(component) if component_name.in? ["pages", :pages]
         end
       end
 

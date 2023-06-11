@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Explore Collaborative Drafts", versioning: true, type: :system do
+describe "Explore Collaborative Drafts", type: :system, versioning: true do
   include Decidim::Proposals::ApplicationHelper
   include ActionView::Helpers::TextHelper
 
@@ -202,7 +202,7 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
 
         it "shows the publish button" do
           within ".view-side" do
-            expect(page).to have_css("button", text: "PUBLISH")
+            expect(page).to have_button(text: "PUBLISH")
           end
         end
 
@@ -214,7 +214,7 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
           it "shows the a modal" do
             within "[id$='publish-irreversible-action-modal'" do
               expect(page).to have_css("h3", text: "The following action is irreversible")
-              expect(page).to have_css("button", text: "Publish as a Proposal")
+              expect(page).to have_button(text: "Publish as a Proposal")
             end
             click_button "Publish as a Proposal"
             expect(page).to have_content("Collaborative draft published successfully as a proposal.")
@@ -281,6 +281,9 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
 
           context "when the author receives the request" do
             before do
+              within ".header .title-bar .topbar__user__logged" do
+                expect(page).to have_content(user.name)
+              end
               relogin_as author, scope: :user
               visit current_path
               within ".header .title-bar .topbar__user__logged" do

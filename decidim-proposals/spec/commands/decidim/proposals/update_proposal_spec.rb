@@ -111,9 +111,9 @@ module Decidim
           it "updates the proposal" do
             command.call
             proposal.reload
-            expect(proposal.title).to be_kind_of(Hash)
+            expect(proposal.title).to be_a(Hash)
             expect(proposal.title["en"]).to eq title
-            expect(proposal.body).to be_kind_of(Hash)
+            expect(proposal.body).to be_a(Hash)
             expect(proposal.body["en"]).to match(/^#{body}/)
           end
 
