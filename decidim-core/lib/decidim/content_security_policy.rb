@@ -45,6 +45,7 @@ module Decidim
       add_system_csp_directives
       add_additional_policies
       organization_csp_directives
+      append_development_directives
 
       format_policies
     end
@@ -62,6 +63,16 @@ module Decidim
     private
 
     attr_reader :policy, :organization, :additional_policies
+
+    def append_development_directives
+      return unless Rails.env.development?
+
+      host = ::Webpacker.config.dev_server[:host]
+      port = ::Webpacker.config.dev_server[:port]
+
+      append_csp_directive("connect-src", "wss://#{host}:#{port}")
+      append_csp_directive("connect-src", "ws://#{host}:#{port}")
+    end
 
     def format_policies
       policy.map do |directive, values|
