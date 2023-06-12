@@ -28,7 +28,7 @@ module ConfirmationHelpers
   #
   # See:
   # https://github.com/teamcapybara/capybara/blob/44621209496fe4dd352709799a0061a80d97d562/lib/capybara/session.rb#L657
-  def dismiss_confirm(_text = nil, **_options)
+  def dismiss_confirm(_text = nil, **options)
     yield if block_given?
 
     # The test can already be "within", so find the body using xpath
