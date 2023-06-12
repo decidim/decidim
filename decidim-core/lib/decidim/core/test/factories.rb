@@ -679,11 +679,6 @@ FactoryBot.define do
         }.compact
       }.deep_merge(extra_data)
     end
-    after(:build) do |action_log, evaluator|
-      if action_log.participatory_space != action_log.try(:resource).try(:participatory_space)
-        action_log.participatory_space = action_log.try(:resource).try(:participatory_space)
-      end
-    end
   end
 
   factory :oauth_application, class: "Decidim::OAuthApplication" do
