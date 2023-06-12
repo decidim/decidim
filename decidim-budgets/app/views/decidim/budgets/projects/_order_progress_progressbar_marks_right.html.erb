@@ -2,9 +2,9 @@
   <%= t("budget", scope: "decidim.budgets.projects.order_progress") %>
   <strong class="budget-summary__progressbar-legend-strong">
     <% if current_order.projects_rule? %>
-    <%= current_order.maximum_projects %>
+      <%= current_order.maximum_projects %>
     <% else %>
-    <%= budget_to_currency(budget.total_budget) %>
+      <%= budget_to_currency(budget.total_budget) %>
     <% end %>
   </strong>
 </span>
