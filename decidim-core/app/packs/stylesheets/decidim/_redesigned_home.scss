@@ -8,6 +8,10 @@
     }
   }
 
+  .activity__container:not(:last-child) .activity:last-child{
+    @apply pb-4 mb-4 border-b border-gray-3;
+  }
+
   &__section-content-block{
     @apply flex flex-col gap-8 items-stretch;
   }
