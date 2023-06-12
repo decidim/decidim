@@ -155,7 +155,7 @@ describe "Assemblies", type: :system do
       end
 
       context "when hero, main_data and type and duration blocks are enabled" do
-        let(:blocks_manifests) { [:hero, :main_data, :extra_data] }
+        let(:blocks_manifests) { [:hero, :main_data, :extra_data, :metadata] }
 
         before do
           visit decidim_assemblies.assembly_path(assembly)
