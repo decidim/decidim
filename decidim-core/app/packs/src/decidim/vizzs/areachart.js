@@ -49,7 +49,7 @@ export default function areachart(opts = {}) {
 
   // set the dimensions and margins of the graph
   let margin = {
-    top: 0,
+    top: 40,
     right: 0,
     bottom: 0,
     left: 0
