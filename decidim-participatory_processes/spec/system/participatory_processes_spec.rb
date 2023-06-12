@@ -31,7 +31,8 @@ describe "Participatory Processes", type: :system do
     it "does not show the menu link" do
       visit decidim.root_path
 
-      within ".main-nav" do
+      find("button#main-dropdown-summary").hover
+      within "#breadcrumb-main-dropdown-desktop" do
         expect(page).to have_no_content("Processes")
       end
     end
@@ -59,7 +60,8 @@ describe "Participatory Processes", type: :system do
       it "the menu link is not shown" do
         visit decidim.root_path
 
-        within ".main-nav" do
+        find("button#main-dropdown-summary").hover
+        within "#breadcrumb-main-dropdown-desktop" do
           expect(page).to have_no_content("Processes")
         end
       end
@@ -97,7 +99,8 @@ describe "Participatory Processes", type: :system do
         it "the menu link is not shown" do
           visit decidim.root_path
 
-          within ".main-nav" do
+          find("button#main-dropdown-summary").hover
+          within "#breadcrumb-main-dropdown-desktop" do
             expect(page).to have_content("Processes")
             click_link "Processes"
           end
