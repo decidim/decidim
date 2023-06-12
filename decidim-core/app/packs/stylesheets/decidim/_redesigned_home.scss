@@ -41,8 +41,8 @@
       @apply h2 text-white;
     }
 
-    &__text{
-      @apply text-lg text-white mt-6;
+    .editor-content{
+      @apply text-white;
     }
   }
 
@@ -50,11 +50,19 @@
     @apply grid grid-cols-1 md:grid-cols-3 my-12 md:gap-x-8 gap-y-4;
 
     &__title{
-      @apply h3 mb-2;
+      @apply h3 mb-2 leading-6;
     }
 
     &__text{
       @apply text-md text-gray-2;
+    }
+
+    &__block{
+      @apply grid grid-cols-[1.5rem_1fr] gap-2;
+    }
+
+    &__icon{
+      @apply w-6 h-6 fill-secondary;
     }
   }
 
