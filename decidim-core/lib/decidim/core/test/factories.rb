@@ -654,8 +654,7 @@ FactoryBot.define do
 
     organization { user.organization }
     user
-    participatory_space { build :participatory_process, organization: }
-    component { build :component, participatory_space: }
+    participatory_space { resource.try(:participatory_space) || resource.try(:component).try(:participatory_space) }
     resource { build(:dummy_resource, component:) }
     action { "create" }
     visibility { "admin-only" }

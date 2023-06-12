@@ -10,7 +10,7 @@ describe "Last activity", type: :system do
     create(:action_log, created_at: 1.day.ago, action: "create", visibility: "public-only", resource: comment, organization:)
   end
   let!(:other_action_log) do
-    create(:action_log, action: "publish", visibility: "all", resource:, organization:, participatory_space: component.participatory_space)
+    create(:action_log, action: "publish", visibility: "all", resource:, organization:)
   end
   let(:long_body_comment) { "This is my very long comment for Last Activity card that must be shorten up because is more than 100 chars" }
   let(:another_comment) { create(:comment, body: long_body_comment) }
@@ -121,9 +121,13 @@ describe "Last activity", type: :system do
 
       context "when there are activities from private spaces" do
         before do
-          Decidim::ActionLog.find_each do |action_log|
-            action_log.participatory_space.update(private_space: true)
-          end
+          comment.update(body: { es: "this is a private comment" })
+          another_comment.update(body: { es: "this is another private comment" })
+
+          component.participatory_space.update(private_space: true)
+          comment.participatory_space.update(private_space: true)
+          another_comment.participatory_space.update(private_space: true)
+
           visit current_path
         end
 
