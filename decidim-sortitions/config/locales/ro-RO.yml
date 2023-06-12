@@ -64,10 +64,6 @@ ro:
             title: Anularea tragerii la sorți
           create:
             error: A apărut o problemă la crearea unei noi trageri la sorți.
-            success: Tragerea la sorți a fost creată cu succes
-          destroy:
-            error: Nu se poate anula tragerea la sorți.
-            success: Tragerea la sorți a fost anulată cu succes
           edit:
             title: Actualizează informațiile despre tragerea la sorți
             update: Actualizează
@@ -84,7 +80,6 @@ ro:
             selected_proposals: Propuneri selectate pentru tragerea la sorți
           update:
             error: A apărut o eroare la actualizarea tragerii la sorți.
-            success: Tragerea la sorți a fost actualizată cu succes
       admin_log:
         sortition:
           create: "%{user_name} a creat tragerea la sorți %{resource_name} în %{space_name}"

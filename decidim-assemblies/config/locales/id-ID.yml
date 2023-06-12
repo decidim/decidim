@@ -336,9 +336,6 @@ id:
         description: Jumlah rakitan dibuat
         object: majelis
         title: Assemblies
-  errors:
-    messages:
-      cannot_be_blank: tidak bisa kosong
   layouts:
     decidim:
       assemblies:

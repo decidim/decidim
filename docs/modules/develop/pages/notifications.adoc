@@ -49,8 +49,8 @@ Both, `EmailNotificationGenerator` and `NotificationGenerator` are use the same 
 * *event*: A String with the name of the event.
 * *event_class*: A class that wraps the event.
 * *resource*: an instance of a class implementing the `Decidim::Resource` concern.
-* *followers*: a collection of Users that receive the notification because they're following it.
-* *affected_users*: a collection of Users that receive the notification because they're affected by it.
+* *followers*: a collection of Users that receive the notification because they are following it.
+* *affected_users*: a collection of Users that receive the notification because they are affected by it.
 * *force_send*: boolean indicating if EventPublisherJob should skip the `notifiable?` check it performs before notifying.
 * *extra*: a Hash with extra information to be included in the notification.
 
@@ -96,7 +96,7 @@ The keys to be used will have the translation scope corresponding to the event n
 The following are the parts of the notification email:
 
 * _email_subject_, to be customized
-* email_greeting, with a good default, usually there's no need to cusomize it
+* email_greeting, with a good default, usually there is no need to cusomize it
 * _email_intro_, to be customized
 * _resource_text_ (optional), rendered `html_safe` if present
 * _resource_url_, a link to the involved resource if resource_url and resource_title are present

@@ -101,7 +101,7 @@ module Decidim
           it "sets the organizations TOS version" do
             command.call
             organization = Organization.last
-            tos_page = Decidim::StaticPage.find_by(slug: "terms-and-conditions", organization:)
+            tos_page = Decidim::StaticPage.find_by(slug: "terms-of-service", organization:)
 
             expect(organization.tos_version).not_to be_nil
             expect(organization.tos_version).to eq(tos_page.updated_at)

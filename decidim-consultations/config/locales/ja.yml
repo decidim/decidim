@@ -51,7 +51,7 @@ ja:
         decidim/consultations/vote:
           attributes:
             question:
-              invalid_num_votes: 投票数が無効です
+              invalid_num_votes: 投票数が無効です。
     models:
       decidim/consultation:
         other: 議案
@@ -90,7 +90,7 @@ ja:
         create:
           error: 新しい議案を作成する際に問題がありました。
           success: 議案を作成しました。
-        deprecation_warning: コンサルテーションモジュールは近い将来非推奨になります。Votingsと呼ばれる次世代の暗号を利用した安全なバージョンに取り組んでいます。
+        deprecation_warning: コンサルテーションモジュールは近い将来、廃止されます。Votingsという次世代の暗号化された安全なバージョンの開発に取り組んでいます。
         edit:
           update: 更新
         form:
@@ -146,7 +146,7 @@ ja:
           name:
             other: 回答
       question_configuration:
-        disable_external_voting: 詳細設定の外部投票を無効にしてください
+        disable_external_voting: 詳細設定の外部投票を無効にしてください。
         form:
           help: 参加者が選択できる回答の最大数を増やすことで、複数の選択問題を設定します。 デフォルトの最大値は1で、1つの応答しか投票できません。
           title: 高度な構成
@@ -290,7 +290,7 @@ ja:
             votes: 投票
       question_votes:
         create:
-          error: 質問に投票中に問題が発生しました
+          error: 質問への投票中に問題がありました。
           success: 議案が終了するまで変更できます。最後の投票のみが承認されます。
           title_error: 投票エラー！
           title_success: 投票が正常に登録されました

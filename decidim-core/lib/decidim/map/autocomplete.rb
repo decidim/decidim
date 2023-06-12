@@ -20,6 +20,7 @@ module Decidim
         def geocoding_field(object_name, method, options = {})
           options[:autocomplete] ||= "off"
 
+          append_assets
           template.text_field(
             object_name,
             method,
@@ -48,16 +49,6 @@ module Decidim
             @template,
             geocoding_options
           )
-
-          unless @template.snippets.any?(:geocoding_styles) || @template.snippets.any?(:geocoding_scripts)
-            @template.snippets.add(:geocoding_styles, builder.stylesheet_snippets)
-            @template.snippets.add(:geocoding_scripts, builder.javascript_snippets)
-
-            # This will display the snippets in the <head> part of the page.
-            @template.snippets.add(:head, @template.snippets.for(:geocoding_styles))
-            # This will display the snippets in the bottom part of the page.
-            @template.snippets.add(:foot, @template.snippets.for(:geocoding_scripts))
-          end
 
           options = merge_geocoding_options(attribute, options)
 

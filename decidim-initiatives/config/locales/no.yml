@@ -51,12 +51,8 @@
             attachment:
               file: Filen er ugyldig
               needs_to_be_reattached: Må festes på nytt
-              title: Tittelen bør ikke være tom
   activerecord:
     models:
-      decidim/initiative:
-        one: Initiativ
-        other: Initiativer
       decidim/initiative_comittee:
         one: Komité
         other: Komitér
@@ -84,10 +80,6 @@
             label: Type
         search_placeholder:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Søk i %{collection} etter tittel, beskrivelse, ID eller forfatternavn.
-      initiatives_settings:
-        update:
-          error: Det oppstod en feil
-          success: Innstillingene for initiativer har blitt oppdatert
       menu:
         attachments: Vedlegg
         committee_members: Utvalgets medlemmer
@@ -176,10 +168,8 @@
             - Følg trinnene for å opprette et nytt initiativ
           description: Dette merket blir gitt når du setter i gang nye initiativer, og samarbeider med andre for å gjennomføre dem.
           description_another: Denne deltakeren har fått %{score} initiativer publisert.
-          description_own: Du har fått %{score} initiativer publisert.
           name: Publiserte initiativ
           next_level_in: Få %{score} flere initiativer publisert for å nå neste nivå!
-          unearned_another: Denne deltakeren har ikke fått publisert noen tiltak ennå.
           unearned_own: Du har ingen initiativer publisert ennå.
     help:
       participatory_spaces:
@@ -205,8 +195,6 @@
           index:
             approve: Godkjenn
             confirm_revoke: Er du sikker?
-            invite_to_committee_help: Del denne lenken for å invitere andre deltakere til promotør komiteen
-            no_members_yet: Det er ingen medlemmer i promotør komiteen
             revoke: Tilbakekalle
             title: Komité medlemer
         content_blocks:
@@ -228,7 +216,6 @@
             export_votes: Eksporter signaturer
             reject: Avvis initiativ
             send_to_technical_validation: Send til teknisk validering
-            success: Initiativet er sendt til teknisk validering
             update: Oppdater
           form:
             attachments: Vedlegg
@@ -243,9 +230,6 @@
             edit: Rediger
             new: Ny
             photos: Bilder
-          update:
-            error: Det oppstod en feil
-            success: Initiativet er oppdatert
         initiatives_settings:
           edit:
             update: Oppdater
@@ -257,11 +241,6 @@
             signatures: Flest signeringer
             title: Innstillinger for initiativer
         initiatives_type_scopes:
-          create:
-            error: Det oppstod en feil
-            success: Et nytt tema for den gitte initiativtypen er blitt opprettet
-          destroy:
-            success: Temaet ble fjernet
           edit:
             back: Tilbake
             confirm_destroy: Er du sikker?
@@ -272,15 +251,7 @@
             back: Tilbake
             create: Opprett
             title: Opprett tema for initiativtype
-          update:
-            error: Det oppstod en feil
-            success: Temaet ble oppdatert
         initiatives_types:
-          create:
-            error: Det oppstod en feil
-            success: En ny initiativtype er blitt opprettet
-          destroy:
-            success: Initiativtypen er fjernet
           edit:
             confirm_destroy: Er du sikker?
             destroy: Slett
@@ -294,9 +265,6 @@
           new:
             create: Opprett
             title: Ny intiativtype
-          update:
-            error: Det oppstod en feil
-            success: Initiativtypen er oppdatert
       admin_log:
         initiative:
           publish: "%{user_name} publiserte %{resource_name} initiativet"
@@ -331,7 +299,6 @@
           success: Forespørselen er godkjent.
         new:
           continue: Fortsett
-          help_text: Du er i ferd med å be om å bli medlem av promotør komiteen for dette initiativet
         revoke:
           success: Forespørselen er ikke godkjent.
         spawn:
@@ -425,7 +392,6 @@
             day: Dag
             month: Måned
             year: År
-          help: Vennligst fyll ut følgende felt med dine personopplysninger for å signere initiativet
         finish:
           back_to_initiative: Tilbake til initiativ
         sms_code:
@@ -433,16 +399,11 @@
           help: Sjekk SMS mottatt på telefonen
         sms_phone_number:
           continue: Send meg en meldig
-          help: Fyll skjemaet med det verifiserte telefonnummeret ditt for å be om verifiseringskoden din
       initiative_votes:
         create:
           error: Det oppstod et problem med å signere initiativet.
-          invalid: Dataene som er gitt for å signere initiativet er ikke gyldige
-          success_html: Gratulerer! Initiativet <strong> %{title}</strong> er signert
         personal_data:
           invalid: Personopplysninger samsvar ikke med informasjonen som er gitt for autorisering.
-        sms_code:
-          invalid: Verifiseringskoden din samsvarer ikke med vår. Dobbel-sjekk SMS-en vi sendte deg.
         sms_phone:
           invalid: Telefonnummeret er ugyldig eller venter på godkjenning. Vennligst sjekk autorisasjonene dine.
       initiatives:
@@ -455,8 +416,6 @@
         committee_members:
           approve: Godkjenn
           confirm_revoke: Er du sikker?
-          invite_to_committee_help: Del denne lenken for å invitere andre deltakere til promotørutvalget
-          no_members_yet: Det er ingen medlemmer i promotørkomiteen
           revoke: Tilbakekall
           title: Utvalgets medlemmer
         count:
@@ -516,7 +475,6 @@
           section: 'Hvis organisasjonen ber om det, vennligst skriv ut og fyll ut dette skjemaet for å levere der det angitt:'
           signature: Signatur
         result:
-          answer_title: Initiativet har blitt besvart
           initiative_rejected_reason: Dette initiativet er blitt avvist på grunn av manglende underskrifter.
         show:
           any_vote_method: Initiativet samler inn signaturer både på nett og fysisk.
@@ -575,9 +533,6 @@
         accepted: Aksepterte
         expired: Utløpt
       unavailable_scope: Utilgjengelig tema
-      update:
-        error: Det oppstod en feil
-        success: Initiativet er oppdatert
       versions:
         shared:
           back_to_resource: Tilbake til initiativ

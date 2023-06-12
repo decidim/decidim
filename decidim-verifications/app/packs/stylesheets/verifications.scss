@@ -1,6 +1,10 @@
 .verification{
   @apply flex items-center justify-between gap-4 border-[3px] border-background rounded px-4 py-2 cursor-pointer;
 
+  &__no_clickable{
+    @apply cursor-default;
+  }
+
   &__container{
     @apply space-y-8;
 
@@ -29,11 +33,11 @@
     @apply w-full block mt-4;
   }
 
-  &:hover{
+  &:not(.verification__no_clickable):hover{
     @apply border-tertiary;
   }
 
-  &:hover &__text > :first-child{
+  &:not(.verification__no_clickable):hover &__text > :first-child{
     @apply underline;
   }
 }

@@ -3,7 +3,7 @@
 </div>
 <script>
   document.addEventListener("DOMContentLoaded", () => {
-    // show the banner if it's offline AND the offline-fallback is not displaying
+    // show the banner if it is offline AND the offline-fallback is not displaying
     if (!navigator.onLine && !document.querySelector("#offline-fallback-html")) {
       document.querySelector(".js-offline-message").style.display = "block"
     }

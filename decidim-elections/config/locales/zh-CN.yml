@@ -57,31 +57,15 @@ zh-CN:
         unpublish: 取消发布
       admin:
         answers:
-          create:
-            invalid: 创建此答案时出现问题
-            success: 答案已成功创建
-          destroy:
-            invalid: 删除答案时出错
-            success: 答案已成功删除
           edit:
             title: 编辑答案
             update: 更新答案
           index:
-            invalid_max_selections: 您需要 %{missing_answers} 个更多答案才能匹配最大选择
             title: 答案
           new:
             create: 创建答案
             title: 新答案
-          update:
-            invalid: 更新此答案时出现问题
-            success: 答案已成功更新
         elections:
-          create:
-            invalid: 创建此选举时出现问题
-            success: 已成功创建选举
-          destroy:
-            invalid: 删除此选择时出现问题
-            success: 选区删除成功
           edit:
             title: 编辑选择
             update: 更新选择
@@ -95,9 +79,6 @@ zh-CN:
             success: 选举已成功发布。
           unpublish:
             success: 选举已成功取消发布。
-          update:
-            invalid: 更新这次选举时遇到问题
-            success: 选举已成功更新
         models:
           answer:
             name: 答案
@@ -106,20 +87,11 @@ zh-CN:
           question:
             name: 问
         proposals_imports:
-          create:
-            invalid: 将建议导入答案时遇到问题
-            success: "%{number} 个建议已成功导入答案"
           new:
             create: 导入建议以答案
             no_components: 在这个参与性空间中，没有其他提案组成部分可以将提案引入答案。
             select_component: 请选择一个组件
         questions:
-          create:
-            invalid: 创建这个问题时出错
-            success: 问题已成功创建
-          destroy:
-            invalid: 删除这个问题时出错
-            success: 问题已成功删除
           edit:
             title: 编辑问题
             update: 更新问题
@@ -128,9 +100,6 @@ zh-CN:
           new:
             create: 创建问题
             title: 新问题
-          update:
-            invalid: 更新此问题时出错
-            success: 问题已成功更新
       election_m:
         badge_name:
           finished: 已完成
@@ -219,7 +188,6 @@ zh-CN:
           back: 后退
           continue: 下一个
       warnings:
-        no_elections_warning: 没有符合您的搜索条件的选项，或者没有排定任何选区。
         no_scheduled_elections_warning: 目前没有预定的选举，但是你们可以在这里看到过去的所有选举都被列入清单。
     events:
       elections:

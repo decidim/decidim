@@ -40,20 +40,20 @@ When using Decidim as multi-tenant, you should keep these in mind:
 
 ## Managing System admins
 
-For logging in to this dashboard, you'll need to create a system admin account from your terminal:
+For logging in to this dashboard, you will need to create a system admin account from your terminal:
 
 ```bash
 bin/rails decidim_system:create_admin
 ```
 
-You'll be asked for an email and a password. For security, the password will not get displayed back at you and you'll need to confirm it.
+You will be asked for an email and a password. For security, the password will not get displayed back at you and you will need to confirm it.
 
 Once you have created your first admin you can access the system dashboard at `/system`. For instance, if you have Decidim running at `https://example.org`, this URL would be `https://example.org/system`.
-You'll be able to login with your newly created user.
+You will be able to login with your newly created user.
 
 From the system dashboard you can add new admins.
 
-⚠️ If you need to reset your administrator password you'll need to do it by entering the Rails console and changing it manually. ⚠️
+⚠️ If you need to reset your administrator password you will need to do it by entering the Rails console and changing it manually. ⚠️
 
 . Open the rails console:
 
