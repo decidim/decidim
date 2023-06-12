@@ -4,14 +4,16 @@
       <h2 class="home__section-content-banner__title">
         <%= translated_attribute current_organization.highlighted_content_banner_title %>
       </h2>
-      <div class="home__section-content-banner__text">
-        <%= decidim_sanitize_editor_admin translated_attribute current_organization.highlighted_content_banner_short_description %>
+      <div class="editor-content">
+        <%= translated_attribute current_organization.highlighted_content_banner_short_description %>
       </div>
     </div>
     <%= link_to current_organization.highlighted_content_banner_action_url, class: "button button__lg button__secondary mt-4 md:mt-0 mr-auto md:mr-0 md:ml-auto" do %>
       <span>
         <%= translated_attribute current_organization.highlighted_content_banner_action_title %>
-        <%= translated_attribute current_organization.highlighted_content_banner_action_subtitle %>
+        <span class="block font-normal text-sm">
+          <%= translated_attribute current_organization.highlighted_content_banner_action_subtitle %>
+        </span>
       </span>
     <% end %>
   </div>
