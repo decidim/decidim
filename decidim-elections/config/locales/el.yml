@@ -246,6 +246,7 @@ el:
             title: Τα αποτελέσματα δημοσιεύτηκαν
           tally:
             continue: Συνέχεια
+            title: Διαδικασία καταμέτρησης
           tally_ended:
             answer: Απάντηση
       admin_log:
@@ -290,6 +291,7 @@ el:
             not_started: Η διαδικασία κλειδιού δεν έχει ξεκινήσει ακόμα.
             started: Η διαδικασία κλειδιού έχει ξεκινήσει αλλά δεν έχει ολοκληρωθεί ακόμα.
           key_ceremony_title: Διαδικασία κλειδιού
+          not_available: Μη διαθέσιμο ακόμα
           not_created: Δεν δημιουργήθηκε
           not_published: Δεν έχει δημοσιευτεί
           not_ready: Δεν είναι έτοιμο
@@ -301,7 +303,19 @@ el:
           results_title: Αποτελέσματα
           started: Ξεκίνησε
           tally_description:
-            finished: Η διαδικασία κατάταξης έχει ολοκληρωθεί.
+            finished: Η διαδικασία καταμέτρησης έχει ολοκληρωθεί.
+            not_started: Η διαδικασία καταμέτρησης δεν έχει ξεκινήσει ακόμα.
+            started: Η διαδικασία καταμέτρησης έχει ξεκινήσει.
+          tally_title: Διαδικασία καταμέτρησης
+          title: Καταγραφή Εκλογών
+          verifiable_results:
+            checksum: 'SHA256 checksum αρχείου:'
+            description:
+              ready: 'Εδώ, έχετε την επιλογή να επαληθεύσετε τις εκλογές. Πρώτα, πρέπει να κατεβάσετε το αρχείο και να βεβαιωθείτε ότι δεν έχει καταστραφεί. Για να το κάνετε αυτό, εκτελέστε την ακόλουθη εντολή και ελέγξτε ότι η έξοδος ταιριάζει με το checksum:'
+            how_to_verify: 'Μόλις κατεβάσετε το αρχείο και βεβαιωθείτε ότι είναι εντάξει, μπορείτε να προχωρήσετε στην εκτέλεση της καθολικής επαλήθευσης. Κλωνοποιήστε <a href=''https://github.com/decidim/decidim-bulletin-board''>αυτό το αποθετήριο</a> και, από το ριζικό φάκελο, εκτελέστε την ακόλουθη εντολή:'
+            title: Επαλήθευση αποτελεσμάτων εκλογών
+        filters:
+          state: Κατάσταση
       models:
         answer:
           fields:
@@ -317,8 +331,333 @@ el:
             answers: Απαντήσεις
             max_selections: Μέγιστες επιλογές
             title: Τίτλος
+        trustees_participatory_space:
+          fields:
+            name: Όνομα
+            notification: Η ειδοποίηση απεστάλη στις
+            public_key: Δημόσιο Κλειδί
+            status: Κατάσταση
+      orders:
+        label: Ταξινόμηση εκλογών κατά
+        older: Παλαιότερη
+        recent: Πρόσφατη
+      trustee_zone:
+        elections:
+          backup_modal:
+            description: Αυτές οι εκλογές δημιουργούνται στον Πίνακα Ανακοινώσεων. Είναι πολύ σημαντικό κάθε Επίτροπος που συμμετέχει να δημιουργεί ένα αντίγραφο ασφαλείας αυτών των κλειδιών και να τα αποθηκεύει σε ασφαλές μέρος. Μετά από αυτό, η διαδικασία συνεχίζεται.
+            download_election_keys: Λήψη κλειδιών
+            download_icon: Εικονίδιο που υποδεικνύει μια ενέργεια λήψης
+            title: Αντίγραφο ασφαλείας των κλειδιών εκλογών για %{election}
+          key_ceremony_steps:
+            back: Πίσω
+            description: Αυτές οι εκλογές δημιουργούνται στον Πίνακα Ανακοινώσεων. Για να ολοκληρωθεί αυτή η διαδικασία, απαιτείται η συμμετοχή σας ως Επίτροπος.
+            keys:
+              create_election: Δημιουργία κλειδιών
+              key_ceremony:
+                joint_election_key: Δημιουργία κοινού κλειδιού
+                step_1: Δημοσίευση κλειδιών
+            list:
+              status: Κατάσταση
+              task: Εργασία
+            process_warning: Μόλις ξεκινήσει η διαδικασία, δεν πρέπει να βγείτε από αυτή τη σελίδα μέχρι να τελειώσει η διαδικασία. Θα χρειαστούν αρκετά λεπτά, καθώς όλοι οι Επίτροποι θα πρέπει να συνδεθούν για να την ολοκληρώσουν.
+            start: Έναρξη
+            start_icon: Εικονίδιο που υποδηλώνει ένα κουμπί έναρξης για την έναρξη της δημιουργίας κλειδιών εκλογών
+            status:
+              completed: Ολοκληρώθηκε
+              pending: Εκκρεμεί
+              processing: Σε επεξεργασία
+            title: Δημιουργία κλειδιών εκλογών για %{election}
+          restore_modal:
+            description: Ο Πίνακας Ανακοινώσεων έχει πληροφορίες από εσάς ως Επίτροπος για αυτές τις εκλογές. Για να συνεχίσετε τη διαδικασία, ανεβάστε πρώτα το αρχείο αντιγράφου ασφαλείας που δημιουργήθηκε κατά την προηγούμενη συνεδρία.
+            title: Επαναφορά των κλειδιών εκλογών για %{election}
+            upload_election_keys: Μεταφόρτωση κλειδιών εκλογών
+            upload_icon: Εικονίδιο που υποδεικνύει μια ενέργεια λήψης
+          tally_steps:
+            back: Πίσω
+            list:
+              status: Κατάσταση
+              task: Εργασία
+            process_warning: Μόλις ξεκινήσει η διαδικασία, δεν πρέπει να βγείτε από αυτή τη σελίδα μέχρι να τελειώσει η διαδικασία. Θα χρειαστούν αρκετά λεπτά, καθώς όλοι οι Επίτροποι θα πρέπει να συνδεθούν για να την ολοκληρώσουν.
+            start: Έναρξη
+            start_icon: Εικονίδιο που υποδηλώνει ένα κουμπί έναρξης για την έναρξη της δημιουργίας κλειδιών εκλογών
+            status:
+              completed: Ολοκληρώθηκε
+              pending: Εκκρεμεί
+              processing: Σε επεξεργασία
+        menu:
+          trustee_zone: Ζώνη Επιτρόπου
+        no_bulletin_board:
+          body: Απαιτείται ένας καθορισμένος Πίνακας Ανακοινώσεων για αυτήν την ενότητα. Επικοινωνήστε με τον Διαχειριστή για περισσότερες λεπτομέρειες.
+          title: Συγγνώμη, ο Πίνακας Ανακοινώσεων δεν έχει ρυθμιστεί ακόμα.
+        trustees:
+          show:
+            elections:
+              list:
+                action_required:
+                  'false': 'Όχι'
+                  name: Απαιτείται ενέργεια;
+                  'true': Εκτέλεση ενέργειας
+                bb_status: Κατάσταση
+                election: Εκλογές
+                voting_period: Περίοδος ψηφοφορίας
+              no_elections: Δεν υπάρχουν εκλογές όπου να ενεργείτε ως Επίτροπος.
       votes:
         failed:
           modal:
+            close: Κλείσιμο
             communication_lost: Δυστυχώς, φαίνεται ότι η επικοινωνία με τον διακομιστή ψηφοφορίας (Bulletin Board) έχει χαθεί.<br>Μπορεί η σύνδεση στο Διαδίκτυο να έχει διακοπεί ή ο διακομιστής προορισμού είναι πολύ απασχολημένος.<br>Μπορείτε να δοκιμάσετε ξανά αργότερα ή να επικοινωνήσετε με την υποστήριξη αν αυτό το πρόβλημα επιμείνει.
             title: Κάτι πήγε στραβά
+          text: Παρουσιάστηκε σφάλμα, δοκιμάστε ξανά.
+          try_again: Προσπαθήστε ξανά
+        header:
+          ballot_decision: Ρίξτε ή ελέγξτε την ψήφο σας
+          casting: Ρίξτε την ψήφο
+          confirm: Επιβεβαιώστε την ψήφο σας
+          confirmed: Η ψήφος επιβεβαιώθηκε
+          encrypting: Κρυπτογράφηση της ψήφου
+          failed: Η ψήφος απέτυχε
+        messages:
+          invalid_token: Η συνεδρία σας στο παραβάν ψηφοφορίας δεν είναι έγκυρη. Προσπαθήστε να ψηφίσετε ξανά.
+          not_allowed: Αυτή τη στιγμή δεν επιτρέπεται να ψηφίσετε σε αυτές τις εκλογές.
+        modal:
+          close: Κλείσιμο
+          proposal_header: 'Προτάσεις:'
+        new:
+          answer_choices: Μπορείτε να επιλέξετε έως και %{choices} απαντήσεις
+          more_information: Περισσότερες πληροφορίες
+          nota_option: Κενό/ Κανένα από τα παραπάνω
+          preview_alert: Αυτή είναι μια προεπισκόπηση του παραβάν ψηφοφορίας.
+          question_steps: Ερώτηση %{current_step} από %{total_steps}
+          selections: "%{selected} από %{max_selections}<br> επιλογές"
+        onboarding_modal:
+          close: Κλείσιμο παραθύρου διαλόγου
+          create_account: Δημιουργία λογαριασμού
+          no_account: Όχι, ευχαριστώ.
+        update:
+          error: Υπήρξε πρόβλημα με την ενημέρωση της κατάστασης της ψήφου. Παρακαλώ, ψηφίστε ξανά.
+        verify:
+          content:
+            heading: Επαληθεύστε την ψήφο σας
+            info: Αυτός ο ελεγκτής ελέγχει ότι η ψήφος σας, που ταυτοποιείται με ένα κρυπτογραφημένο κείμενο, έχει ριχθεί σωστά και βρίσκεται μέσα στην κάλπη.
+          error:
+            header: Η ψήφος δεν βρέθηκε!
+            info: Ο κωδικός ψήφου δεν βρέθηκε στην %{link} κάλπη, προσπαθήστε ξανά.
+          form:
+            submit: Έλεγχος
+            vote_identifier: 'Κωδικός αναγνώρισης:'
+          header:
+            title: Επαληθεύστε την ψήφο σας
+          success:
+            header: Η ψήφος εντοπίστηκε!
+        voting_step:
+          back: Πίσω
+          continue: Επόμενο
+      warnings:
+        no_scheduled_elections_warning: Προς το παρόν, δεν υπάρχουν προγραμματισμένες εκλογές, αλλά εδώ μπορείτε να βρείτε όλες τις προηγούμενες εκλογές.
+    events:
+      elections:
+        election_published:
+          email_intro: 'Οι εκλογές %{resource_title} είναι πλέον ενεργές για τον χώρο %{participatory_space_title}. Μπορείτε να το δείτε από αυτήν τη σελίδα:'
+          email_outro: Λάβατε αυτή την ειδοποίηση επειδή ακολουθείτε το %{participatory_space_title}. Μπορείτε να σταματήσετε να λαμβάνετε ειδοποιήσεις ακολουθώντας τον προηγούμενο σύνδεσμο.
+          email_subject: Οι εκλογές %{resource_title} είναι πλέον ενεργές για τον χώρο %{participatory_space_title}.
+          notification_title: Οι εκλογές <a href="%{resource_path}">%{resource_title}</a> είναι πλέον ενεργές για τον χώρο %{participatory_space_title}.
+        trustees:
+          new_election:
+            email_intro: Έχετε προστεθεί ως επίτροπος για τις εκλογές %{resource_title}.
+            email_subject: Έχετε προστεθεί ως επίτροπος για τις εκλογές %{resource_title}..
+            notification_title: Είστε επίτροπος για τις εκλογές <a href="%{resource_path}">%{resource_title}</a>.
+          new_trustee:
+            email_intro: Ένας διαχειριστής σας πρόσθεσε ως επίτροπο για το %{resource_name}. Θα πρέπει να δημιουργήσετε το δημόσιο κλειδί σας <a href='%{trustee_zone_url}'>στη ζώνη εμπιστοσύνης</a>
+            email_subject: Είστε επίτροπος για το %{resource_name}.
+    votings:
+      admin:
+        content_blocks:
+          landing_page:
+            timeline:
+              name: Χρονοδιάγραμμα ψηφοφορίας
+        index:
+          not_published: Αδημοσίευτο
+          published: Δημοσιεύθηκε
+        landing_page:
+          content_blocks:
+            edit:
+              update: Ενημέρωση
+          edit:
+            active_content_blocks: Ενεργά μπλοκ περιεχομένου
+            inactive_content_blocks: Ανενεργά μπλοκ περιεχομένου
+        menu:
+          votings: Ψηφοφορίες
+          votings_submenu:
+            attachment_collections: Φάκελοι
+            attachment_files: Αρχεία
+            attachments: Συνημμένα
+            ballot_styles: Στυλ ψηφοδελτίων
+            census: Απογραφή
+            components: Στοιχεία
+            info: Πληροφορίες
+            landing_page: Σελίδα άφιξης
+            monitoring_committee: Επιτροπή Παρακολούθησης
+            monitoring_committee_election_results: Επικύρωση Αποτελεσμάτων
+            monitoring_committee_members: Μέλη
+            monitoring_committee_polling_station_closures: Επικύρωση πιστοποιητικών
+            monitoring_committee_verify_elections: Επαλήθευση Εκλογών
+            polling_officers: Αξιωματούχοι εκλογών
+            polling_stations: Εκλογικά κέντρα
+        models:
+          ballot_style:
+            fields:
+              code: Κωδικός
+            name: Στυλ ψηφοδελτίων
+          monitoring_committee_member:
+            fields:
+              email: Email
+              name: Όνομα
+            name: Μέλος της Επιτροπής Παρακολούθησης
+          polling_officer:
+            fields:
+              email: Email
+              name: Όνομα
+              polling_station: Εκλογικό κέντρο (ρόλος)
+            name: Αξιωματούχος εκλογών
+          polling_station:
+            fields:
+              address: Διεύθυνση
+              polling_station_managers: Διαχειριστές
+              polling_station_president: Πρόεδρος
+              title: Τίτλος
+            name: Εκλογικό κέντρο
+          voting:
+            fields:
+              created_at: Δημιουργήθηκε στις
+              promoted: Επισημάνθηκε
+              published: Δημοσιεύθηκε
+              title: Τίτλος
+        monitoring_committee_election_results:
+          actions:
+            title: Ενέργειες
+            view: Προβολή
+          index:
+            title: Επιλέξτε μια εκλογή για την οποία θέλετε να δείτε τα αποτελέσματα
+        monitoring_committee_verify_elections:
+          index:
+            title: Εκλογές
+        polling_officers:
+          form:
+            existing_user: Υπάρχων συμμετέχων
+            non_user: Προσκαλέστε νέο συμμετέχοντα
+            select_user: Αναζήτηση με όνομα, email ή ψευδώνυμο
+            user_type: Τύπος συμμετέχοντα
+          index:
+            role_manager: διαχειριστής
+            role_president: πρόεδρος
+            title: Αξιωματούχοι εκλογών
+          new:
+            create: Δημιουργία
+            title: Δημιουργία αξιωματούχου εκλογών
+          polling_officers_picker:
+            choose_polling_officers: Επιλέξτε αξιωματούχους εκλογών
+            close: Κλείσιμο
+            more_polling_officers: Υπάρχουν %{number} ακόμα αξιωματούχοι εκλογών. Περιορίστε την αναζήτησή σας για να τους εντοπίσετε.
+        polling_stations:
+          edit:
+            title: Επεξεργασία εκλογικού τμήματος
+            update: Ενημέρωση εκλογικού τμήματος
+          form:
+            address_help: 'Διεύθυνση: χρησιμοποιείται από το Geocoder για τον εντοπισμό της τοποθεσίας'
+            location_help: 'Τοποθεσία: μήνυμα που απευθύνεται στους ψηφοφόρους δείχνοντας την ακριβή θέση του εκλογικού τμήματος'
+            location_hints_help: 'Υποδείξεις τοποθεσίας: πρόσθετες πληροφορίες. Παράδειγμα: ο όροφος του κτιρίου όπου βρίσκεται το εκλογικό τμήμα.'
+            polling_station_managers_help: 'Διαχειριστές εκλογικού τμήματος: οι υπεύθυνοι που θα ενεργήσουν ως διαχειριστές εκλογικών τμημάτων. Βεβαιωθείτε ότι οι αξιωματούχοι έχουν ήδη δημιουργηθεί στους Αξιωματούχους Εκλογών και ότι δεν έχουν ήδη ανατεθεί σε άλλο εκλογικό τμήμα'
+            select_president: Επιλέξτε έναν αξιωματούχο εκλογών ως πρόεδρο του εκλογικού τμήματος
+          index:
+            title: Εκλογικά τμήματα
+          new:
+            create: Δημιουργία
+            title: Δημιουργία εκλογικού τμήματος
+        titles:
+          votings: Ψηφοφορίες
+        votings:
+          actions:
+            confirm_destroy: Είστε σίγουροι;
+            destroy: Καταστροφή
+            new_voting: Νέος Χώρος Ψηφοφορίας
+            publish: Δημοσίευση
+            unpublish: Κατάργηση δημοσίευσης
+          edit:
+            update: Ενημέρωση
+          form:
+            banner_image: Εικόνα banner
+            census_contact_information: Στοιχεία επικοινωνίας απογραφής
+            census_contact_information_help: Αυτά τα στοιχεία επικοινωνίας είναι για έναν συμμετέχοντα που θέλει να αναφέρει θέματα με την απογραφή. Μπορεί να είναι μια διεύθυνση email, μια φόρμα επικοινωνίας σε μια άλλη ιστοσελίδα, μια έρευνα για τους επισκέπτες κλπ.
+            introductory_image: Εισαγωγική εικόνα
+      census:
+        admin:
+          census:
+            generate_access_codes:
+              confirm: Αν συνεχίσετε, δεν θα μπορείτε να τροποποιήσετε την απογραφή.
+              info_message_all: "<strong>Όλες οι σειρές εισήχθησαν επιτυχώς</strong> από το αρχείο %{file} (%{raw_count} από %{data_count})."
+              info_message_warn: Παρακαλώ ελέγξτε ότι δεν λείπουν δεδομένα, επειδή δημιουργήθηκαν %{data_count} εγγραφές και το αρχείο %{file} είχε %{raw_count} σειρές.
+              launch_error: Πρόβλημα κατά την έναρξη της παραγωγής κωδικών πρόσβασης
+              launch_success: Έναρξη παραγωγής κωδίκων.
+            new:
+              file_help:
+                explanation: 'Οδηγίες για το αρχείο:'
+                message_1: Επιτρέπονται μόνο αρχεία CSV (.csv).
+                message_2: Το διαχωριστικό μεταξύ των στηλών πρέπει να είναι ερωτηματικό (";").
+              has_ballot_styles_message: Μπορείτε να ρυθμίσετε τα Στυλ Ψηφοδελτίων. Παρακαλώ σιγουρευτείτε ότι το πεδίο "%{ballot_style_code_header}" στο CSV αντιστοιχεί στον κωδικό του Στυλ Ψηφοδελτίου που επιθυμείτε.
+              info_message: "<strong>Δεν υπάρχει απογραφή ακόμα.</strong> Παρακαλούμε χρησιμοποιήστε την παρακάτω φόρμα για να τη δημιουργήσετε εισάγοντας ένα αρχείο CSV."
+              missing_ballot_styles_message: 'Δεν υπάρχει Στυλ Ψηφοδελτίου για αυτή την ψηφοφορία ακόμα. Αν θέλετε να έχετε ερωτήσεις υπό όρους (δηλ. να παρουσιάστε στον ψηφοφόρο διαφορετικές ερωτήσεις ανάλογα, π.χ. με την περιοχή κατοικίας), θα πρέπει να ρυθμίσετε το <a href=%{ballot_styles_admin_path}>Στυλ Ψηφοδελτίου</a> <strong>πριν</strong> εισάγετε την απογραφή. Αν θέλετε να παρουσιάσετε σε όλους τους ψηφοφόρους τις ίδιες ερωτήσεις, μπορείτε να προχωρήσετε με τη διαδικασία εισαγωγής της απογραφής.'
+              submit: Υποβολή CSV
+              title: Δημιουργία της απογραφής
+            show:
+              heading: Απογραφή χώρου ψηφοφορίας
+            upload_info:
+              csv_example_with_ballot_style: 'Ένα παράδειγμα του αρχείου <strong>με</strong> στυλ ψηφοφορίας:'
+              csv_example_without_ballot_style: 'Ένα παράδειγμα του αρχείου <strong>χωρίς</strong> στυλ ψηφοφορίας:'
+              csv_header_after: Μην συμπεριλάβετε το τελευταίο πεδίο ("%{ballot_style_code_header}") αν δεν χρειάζεστε στυλ ψηφοφορίας/ερωτήσεις υπό όρους
+              csv_header_before: 'Το αρχείο απογραφής πρέπει να είναι αρχείο CSV με την ακόλουθη κεφαλίδα:'
+        document_types:
+          dni: DNI
+          nie: NIE
+          passport: Διαβατήριο
+        export_mailer:
+          access_codes_export:
+            click_button: 'Κάντε κλικ στον επόμενο σύνδεσμο για να κατεβάσετε τα δεδομένα κωδικών πρόσβασης.<br/>Το αρχείο θα είναι διαθέσιμο μέχρι %{date}.<br/>Θα χρειαστείτε το <a href="https://www.7-zip.org/">7-Zip</a> (για Windows), <a href="https://www.keka.io/en/">Keka</a> (για MacOS) ή <a href="https://peazip.github.io">PeaZip</a> (για Linux) για να το ανοίξετε. Κωδικός: %{password}'
+            download: Λήψη
+            subject: Η εξαγωγή των κωδικών πρόσβασης ψήφου για το %{voting_title} είναι διαθέσιμη
+        vote_flow:
+          already_voted_in_person: Αυτός ο συμμετέχων έχει ήδη ψηφίσει αυτοπροσώπως και δεν έχει δικαίωμα ψήφου.
+      content_blocks:
+        highlighted_votings:
+          name: Επισημασμένες ψηφοφορίες
+        landing_page:
+          description:
+            title: Σχετικά με αυτή την ψηφοφορία
+          metrics:
+            heading: Μετρήσεις
+          polling_stations:
+            heading: Εκλογικά τμήματα
+            no_polling_stations: Δεν υπάρχουν ακόμα εκλογικά τμήματα.
+          timeline:
+            heading: Χρονοδιάγραμμα
+      monitoring_committee_members:
+        actions:
+          confirm_destroy: Είστε σίγουροι;
+          destroy: Διαγραφή
+          new: Νέο μέλος
+          title: Ενέργειες
+      pages:
+        home:
+          highlighted_votings:
+            active_votings: Ενεργές ψηφοφορίες
+            see_all_votings: Δείτε όλες τις ψηφοφορίες
+            votings_button_title: Σύνδεσμος προς τη σελίδα που εμφανίζει όλες τις ψηφοφορίες
+      polling_officer_zone:
+        closures:
+          back_to_polling_stations: Πίσω στα εκλογικά τμήματα
+          certify:
+            add_images: Προσθήκη εικόνων
+            error: Παρουσιάστηκε σφάλμα κατά την επισύναψη του πιστοποιητικού, παρακαλώ προσπαθήστε ξανά.
+            form_legend: Ανεβάστε μια εικόνα του Πιστοποιητικού Κλεισίματος των Εκλογών
+      votings:
+        filters:
+          state: Κατάσταση
