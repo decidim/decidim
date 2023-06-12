@@ -1,10 +1,5 @@
-<% content_for :js_content do %>
-  <%= append_javascript_pack_tag "decidim_initiatives" %>
-<% end %>
-
-<% content_for :css_content do %>
-  <%= append_stylesheet_pack_tag "decidim_initiatives", media: "all" %>
-<% end %>
+<%= append_javascript_pack_tag "decidim_initiatives" %>
+<%= append_stylesheet_pack_tag "decidim_initiatives", media: "all" %>
 
 <%= render "layouts/decidim/redesigned_application" do %>
   <%= render layout: "layouts/decidim/shared/layout_center" do %>
