@@ -6,21 +6,76 @@ el:
         image: Εικόνα
         proposals: Σχετικές προτάσεις
         title: Τίτλος
+      ballot_style:
+        code: Κωδικός
       election:
         description: Περιγραφή
         end_time: Η ψηφοφορία λήγει στις
         start_time: Η ψηφοφορία ξεκινά στις
         title: Τίτλος
+      monitoring_committee_member:
+        email: Email
+        name: Όνομα
+      polling_officer:
+        email: Email
+        name: Όνομα
+      polling_station:
+        address: Διεύθυνση
+        location: Τοποθεσία
+        location_hints: Υποδείξεις τοποθεσίας
+        polling_station_managers: Διαχειριστές
+        polling_station_president_id: Πρόεδρος
+        title: Τίτλος
       question:
         max_selections: Μέγιστος αριθμός επιλογών
+        min_selections: Καμία από τις παραπάνω επιλογές
         title: Τίτλος
+      trustees_participatory_space:
+        user_id: Συμμετέχοντας
+      voting:
+        banner_image: Εικόνα banner
+        census_contact_information: Στοιχεία επικοινωνίας απογραφής
+        description: Περιγραφή
+        end_time: Η ψηφοφορία λήγει
+        introductory_image: Εισαγωγική εικόνα
+        promoted: Προβιβάστηκε
+        show_check_census: Εμφάνιση σελίδας "έλεγχος απογραφής"
+        start_time: Η ψηφοφορία αρχίζει
+        title: Τίτλος
+        voting_type: Τύπος ψηφοφορίας
     errors:
       models:
         answer:
           attributes:
             attachment:
               needs_to_be_reattached: Πρέπει να επισυναφθεί ξανά
+        election:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Πρέπει να επισυναφθεί ξανά
+        trustee:
+          attributes:
+            name:
+              cant_be_changed: δεν μπορεί να αλλαχθεί
+            public_key:
+              cant_be_changed: δεν μπορεί να αλλαχθεί
+        voting:
+          attributes:
+            voting_type:
+              inclusion: "%{value} δεν είναι έγκυρος τύπος ψηφοφορίας"
   activerecord:
+    errors:
+      models:
+        decidim/votings/polling_officer:
+          attributes:
+            presided_polling_station:
+              president_and_manager: Ο αξιωματούχος εκλογών είναι ήδη πρόεδρος/διαχειριστής του εκλογικού τμήματος.
+            voting:
+              different_organization: Η ψηφοφορία πρέπει να είναι στον ίδιο οργανισμό με τον χρήστη.
+        decidim/votings/polling_station:
+          attributes:
+            polling_station_president:
+              different_voting: Ο αξιωματούχος εκλογών πρέπει να είναι στην ίδια ψηφοφορία με το εκλογικό τμήμα.
     models:
       decidim/elections/answer:
         one: Απάντηση
@@ -31,7 +86,48 @@ el:
       decidim/elections/question:
         one: Ερώτηση
         other: Ερωτήσεις
+      decidim/voting:
+        one: Ψηφοφορία
+        other: Ψηφοφορίες
+      decidim/votings/census/dataset:
+        one: Σύνολο δεδομένων
+        other: Σύνολα δεδομένων
+      decidim/votings/polling_officer:
+        one: Αξιωματούχος εκλογών
+        other: Αξιωματούχοι εκλογών
+      decidim/votings/polling_station:
+        one: Εκλογικό κέντρο
+        other: Εκλογικά κέντρα
+      decidim/votings/voting:
+        one: Ψηφοφορία
+        other: Ψηφοφορίες
   decidim:
+    admin:
+      filters:
+        officers_assigned_eq:
+          label: Αξιωματούχοι
+          values:
+            assigned: Ανατεθειμένο
+            unassigned: Δεν έχει ανατεθεί
+        role_eq:
+          label: Ρόλος
+          values:
+            manager: Διαχειριστής
+            president: Πρόεδρος
+            unassigned: Μη αναθετημένο
+        search_placeholder:
+          name_or_email_or_nickname_or_presided_station_title_or_managed_station_title_cont: Αναζήτηση στο %{collection} με όνομα/email/ψευδώνυμο ή εκλογικό σταθμό.
+          ? title_or_address_or_manager_name_or_manager_email_or_manager_nickname_or_president_name_or_president_email_or_president_nickname_cont
+          : Αναζήτηση στο %{collection} ανά τίτλο, διεύθυνση ή όνομα/email/ψευδώνυμο.
+        signed_eq:
+          label: Υπογεγραμμένο
+          values:
+            'false': Υπογεγραμμένο
+            'true': Δεν έχει υπογραφεί
+        validated_eq:
+          label: Επιβεβαιωμένο
+          values:
+            'false': Μη επιβεβαιωμένο
     components:
       elections:
         name: Εκλογές
@@ -91,10 +187,121 @@ el:
             title: Νέα ερώτηση
         steps:
           create_election:
+            census: Απογραφή
             errors:
+              census_codes_generated: Δεν δημιουργούνται κωδικοί πρόσβασης για την απογραφή.
+              census_frozen: Δεν εξάγονται κωδικοί πρόσβασης για την απογραφή.
+              census_uploaded: Δεν έχει ανέβει απογραφή για αυτές τις εκλογές.
+              component_published: Το στοιχείο των εκλογών <strong>δεν έχει δημοσιευθεί</strong>.
+              max_selections: Οι ερωτήσεις δεν έχουν <strong>σωστή τιμή για το ποσό των απαντήσεων</strong>
+              minimum_answers: Οι ερωτήσεις πρέπει να έχουν <strong>τουλάχιστον δύο απαντήσεις</strong>.
+              minimum_questions: Οι εκλογές <strong>πρέπει να έχουν τουλάχιστον μια ερώτηση</strong>.
+              published: Οι εκλογές <strong>δεν έχουν δημοσιευθεί</strong>.
               time_before: Η ώρα έναρξης είναι σε <strong>λιγότερο από %{hours}</strong> πριν από την έναρξη των εκλογών.
+              trustees_number: Ο συμμετοχικός χώρος <strong>πρέπει να έχει τουλάχιστον %{number} επιτρόπους με δημόσιο κλειδί</strong>.
+            invalid: Υπήρξε ένα πρόβλημα κατά τη δημιουργία αυτών των εκλογών
+            no_trustees: Δεν υπάρχουν Επίτροποι για αυτόν τον συμμετοχικό χώρο
+            not_used_trustee: "(δεν χρησιμοποιείται)"
+            public_key:
+              'false': δεν έχει <strong>δημόσιο κλειδί</strong>
+              'true': έχει <strong>δημόσιο κλειδί</strong>
             requirements:
+              census_codes_generated: Δημιουργούνται κωδικοί πρόσβασης για την απογραφή.
+              census_frozen: Οι κωδικοί πρόσβασης για την απογραφή εξάγονται και η απογραφή παγώνει.
+              census_uploaded: Η απογραφή φορτώθηκε.
+              component_published: Το στοιχείο των εκλογών <strong>δεν έχει δημοσιευθεί</strong>.
+              max_selections: Όλες οι ερωτήσεις έχουν σωστή τιμή για <strong>το μέγιστο των απαντήσεων</strong>.
+              minimum_answers: Κάθε ερώτηση έχει <strong>τουλάχιστον 2 απαντήσεις</strong>.
+              minimum_questions: Οι εκλογές <strong>έχουν τουλάχιστον μια ερώτηση</strong>.
+              published: Οι εκλογές <strong>έχουν δημοσιευθεί</strong>.
               time_before: Η ρύθμιση γίνεται <strong>τουλάχιστον %{hours}</strong> πριν ξεκινήσουν οι εκλογές.
+              trustees_number: Ο συμμετοχικός χώρος <strong>πρέπει να έχει τουλάχιστον %{number} επιτρόπους με δημόσιο κλειδί</strong>.
+            submit: Ρύθμιση εκλογών
+            success: Οι εκλογές απεστάλησαν επιτυχώς στον Πίνακα Ανακοινώσεων.
+            title: Ρύθμιση εκλογών
+            trustees: Επίτροποι Εκλογών
+          created:
+            invalid: Υπήρξε ένα πρόβλημα κατά την έναρξη της διαδικασίας του κλειδιού.
+            submit: Ξεκινήστε την διαδικασίας του κλειδιού
+            success: Το αίτημα έναρξης της διαδικασίας κλειδιού εστάλη επιτυχώς στον Πίνακα Ανακοινώσεων.
+            title: Οι εκλογές δημιουργήθηκαν
+            trustees: Επίτροποι
+          key_ceremony:
+            continue: Συνέχεια
+            title: Διαδικασία κλειδιού
+          key_ceremony_ended:
+            errors:
+              time_before: Οι εκλογές είναι έτοιμες να ξεκινήσουν. Πρέπει να περιμένετε μέχρι %{hours} ώρες πριν την ώρα έναρξης (%{start_time}) για να ξεκινήσετε την περίοδο της ψηφοφορίας.
+            invalid: Υπήρξε ένα πρόβλημα κατά την έναρξη της περιόδου ψηφοφορίας.
+            requirements:
+              time_before: Οι εκλογές θα ξεκινήσουν σύντομα. Μπορείτε να ξεκινήσετε την περίοδο ψηφοφορίας χειροκίνητα, ή θα ξεκινήσει αυτόματα πριν από την ώρα έναρξης, στις %{start_time}.
+            submit: Έναρξη περιόδου ψηφοφορίας
+            success: Το αίτημα έναρξης της διαδικασίας κλειδιού εστάλη επιτυχώς στον Πίνακα Ανακοινώσεων.
+            title: Έτοιμο να ξεκινήσει
+          processing: Επεξεργασία...
+          results_published:
+            answer: Απάντηση
+            not_selected: Δεν έχει επιλεγεί
+            question: Ερώτηση
+            result: Αποτέλεσμα
+            selected: Επιλεγμένο
+            submit: Υποβολή
+            title: Τα αποτελέσματα δημοσιεύτηκαν
+          tally_ended:
+            answer: Απάντηση
+      admin_log:
+        election:
+          unpublish: "Ο/Η %{user_name} κατάργησε τη δημοσίευση του %{resource_name} των εκλογών %{space_name}"
+          update: "Ο/Η %{user_name} ενημέρωσε τις εκλογές %{resource_name} του %{space_name}"
+        trustee:
+          create: "Ο/Η %{user_name} έθεσε τον χρήστη %{trustee_user} ως Επίτροπο"
+      connection:
+        failed:
+          modal:
+            close: Κλείσιμο
+            communication_lost: Δυστυχώς, φαίνεται ότι η επικοινωνία με τον διακομιστή ψηφοφορίας (Bulletin Board) έχει χαθεί.<br>Μπορεί η σύνδεση στο Διαδίκτυο να έχει διακοπεί ή ο διακομιστής προορισμού είναι πολύ απασχολημένος.<br>Μπορείτε να δοκιμάσετε ξανά αργότερα ή να επικοινωνήσετε με την υποστήριξη αν αυτό το πρόβλημα επιμείνει.
+            generic_error: Δυστυχώς, συνέβη ένα άγνωστο σφάλμα. Είναι πιθανό ότι το πρόγραμμα περιήγησής σας δεν υποστηρίζεται ή ότι χρησιμοποιείτε τη λειτουργία "incognito" ή "private" που δεν υποστηρίζεται.
+            title: Κάτι πήγε στραβά
+      election_m:
+        badge_name:
+          finished: Ολοκληρώθηκε
+          ongoing: Ενεργό
+          upcoming: Προσεχείς
+        end_date: Τελειώνει
+        footer:
+          remaining_time:
+            one: "<strong>%{count} ώρα %{minutes} λεπτά</strong> απομένουν να ψηφίσετε."
+            other: "<strong>%{count} ώρες %{minutes} λεπτά</strong> απομένουν να ψηφίσετε."
+          view: Προβολή
+          vote: Ψήφος
+        label:
+          date: Ημερομηνίες
+        questions: Ερωτήσεις %{count}
+        start_date: Αρχίζει
+        unspecified: Δεν προσδιορίστηκε
+      elections:
+        election_log:
+          chained_hash: Το chained Hash αυτού του μηνύματος
+          complete: Ολοκλήρωση
+          creation_description:
+            complete: Οι εκλογές δημιουργήθηκαν και ρυθμίστηκαν με επιτυχία στον Πίνακα Ανακοινώσεων.
+            not_created: Οι εκλογές δεν έχουν δημιουργηθεί ακόμα.
+          creation_title: Οι εκλογές δημιουργήθηκαν
+          description: Αυτό είναι το αρχείο καταγραφής των εκλογών όπου μπορείτε να ελέγξετε την κατάσταση κάθε βήματος, π.χ. πότε δημιουργήθηκαν οι εκλογές, εάν ολοκληρωθεί η διαδικασία, και πότε έκλεισαν οι εκλογές.
+          download: Λήψη
+          key_ceremony_description:
+            complete: Η διαδικασία κλειδιού ολοκληρώθηκε. Κάθε επίτροπος έχει έγκυρα κλειδιά και έχει κατεβάσει τα απαραίτητα αντίγραφα ασφαλείας των κλειδιών.
+            not_started: Η διαδικασία κλειδιού δεν έχει ξεκινήσει ακόμα.
+            started: Η διαδικασία κλειδιού έχει ξεκινήσει αλλά δεν έχει ολοκληρωθεί ακόμα.
+          key_ceremony_title: Διαδικασία κλειδιού
+          not_created: Δεν δημιουργήθηκε
+          not_published: Δεν έχει δημοσιευτεί
+          not_ready: Δεν είναι έτοιμο
+          not_started: Δεν ξεκίνησε
+          published: Δημοσιεύτηκε
+          results_description:
+            not_published: Τα αποτελέσματα δεν έχουν δημοσιευθεί ακόμα.
+            published: Τα αποτελέσματα δημοσιεύονται.
       models:
         answer:
           fields:
