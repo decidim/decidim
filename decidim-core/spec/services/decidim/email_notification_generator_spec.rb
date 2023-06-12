@@ -16,6 +16,33 @@ describe Decidim::EmailNotificationGenerator do
   let(:followers) { [follower] }
   let(:extra) { {} }
 
+  shared_examples "enqueues the job" do
+    it "schedules a job for each recipient" do
+      allow(Decidim::NotificationMailer)
+        .to receive(:event_received)
+        .with(event, event_class_name, resource, recipient, :affected_user.to_s, extra)
+        .and_return(mailer)
+
+      allow(Decidim::NotificationMailer)
+        .to receive(:event_received)
+        .with(event, event_class_name, resource, follower, :follower.to_s, extra)
+        .and_return(mailer)
+
+      expect(mailer).to receive(:deliver_later)
+
+      subject.generate
+    end
+  end
+
+  shared_examples "does not enqueue the job" do
+    it "does not schedule a job for that recipient" do
+      expect(Decidim::NotificationMailer)
+        .not_to receive(:event_received)
+
+      subject.generate
+    end
+  end
+
   describe "generate" do
     context "when the event_class supports emails" do
       let(:mailer) { double(deliver_later: true) }
@@ -30,12 +57,7 @@ describe Decidim::EmailNotificationGenerator do
           follower.update(notifications_sending_frequency: "none")
         end
 
-        it "does not schedule a job for that recipient" do
-          expect(Decidim::NotificationMailer)
-            .not_to receive(:event_received)
-
-          subject.generate
-        end
+        it_behaves_like "does not enqueue the job"
       end
 
       context "when the user wants emails for notifications" do
@@ -45,21 +67,7 @@ describe Decidim::EmailNotificationGenerator do
             follower.update!(notifications_sending_frequency: "real_time")
           end
 
-          it "schedules a job for each recipient" do
-            allow(Decidim::NotificationMailer)
-              .to receive(:event_received)
-              .with(event, event_class_name, resource, recipient, :affected_user.to_s, extra)
-              .and_return(mailer)
-
-            allow(Decidim::NotificationMailer)
-              .to receive(:event_received)
-              .with(event, event_class_name, resource, follower, :follower.to_s, extra)
-              .and_return(mailer)
-
-            expect(mailer).to receive(:deliver_later)
-
-            subject.generate
-          end
+          it_behaves_like "enqueues the job"
         end
 
         context "and has the digest notifications' sending frequency" do
@@ -68,31 +76,12 @@ describe Decidim::EmailNotificationGenerator do
             follower.update!(notifications_sending_frequency: "digest")
           end
 
-          it "does not schedule a job for that recipient" do
-            expect(Decidim::NotificationMailer)
-              .not_to receive(:event_received)
-
-            subject.generate
-          end
+          it_behaves_like "does not enqueue the job"
 
           context "and the extra force_email is enabled" do
             let(:extra) { { force_email: true } }
 
-            it "schedules a job for each recipient" do
-              allow(Decidim::NotificationMailer)
-                .to receive(:event_received)
-                .with(event, event_class_name, resource, recipient, :affected_user.to_s, extra)
-                .and_return(mailer)
-
-              allow(Decidim::NotificationMailer)
-                .to receive(:event_received)
-                .with(event, event_class_name, resource, follower, :follower.to_s, extra)
-                .and_return(mailer)
-
-              expect(mailer).to receive(:deliver_later)
-
-              subject.generate
-            end
+            it_behaves_like "enqueues the job"
           end
         end
       end
@@ -106,21 +95,7 @@ describe Decidim::EmailNotificationGenerator do
         end
 
         context "and the user can participate" do
-          it "enqueues the job" do
-            allow(Decidim::NotificationMailer)
-              .to receive(:event_received)
-              .with(event, event_class_name, resource, recipient, :affected_user.to_s, extra)
-              .and_return(mailer)
-
-            allow(Decidim::NotificationMailer)
-              .to receive(:event_received)
-              .with(event, event_class_name, resource, follower, :follower.to_s, extra)
-              .and_return(mailer)
-
-            expect(mailer).to receive(:deliver_later)
-
-            subject.generate
-          end
+          it_behaves_like "enqueues the job"
         end
 
         context "and the user cannot participate" do
@@ -128,12 +103,7 @@ describe Decidim::EmailNotificationGenerator do
             allow(resource).to receive(:can_participate?).with(kind_of(Decidim::User)).and_return(false)
           end
 
-          it "does not schedule a job" do
-            expect(Decidim::NotificationMailer)
-              .not_to receive(:event_received)
-
-            subject.generate
-          end
+          it_behaves_like "does not enqueue the job"
         end
       end
     end
@@ -143,12 +113,7 @@ describe Decidim::EmailNotificationGenerator do
         allow(event_class).to receive(:types).and_return([])
       end
 
-      it "does not schedule a job for each recipient" do
-        expect(Decidim::NotificationMailer)
-          .not_to receive(:event_received)
-
-        subject.generate
-      end
+      it_behaves_like "does not enqueue the job"
     end
   end
 end
