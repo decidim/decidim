@@ -21,14 +21,14 @@
       cursor: pointer;
 
       &.is-dragover {
-        background-color: lighten($secondary, 50);
+        background-color: rgba(var(--secondary-rgb), 0.1);
       }
 
       &.dropzone {
         padding: 1rem;
         text-align: center;
         border-style: dashed;
-        border-color: $secondary;
+        border-color: var(--secondary);
         border-width: 2px;
         border-radius: 4px;
 
@@ -40,7 +40,7 @@
       &.disabled {
         background-color: $light-gray;
         cursor: not-allowed;
-        border-color: lighten($secondary, 50);
+        border-color: rgba(var(--secondary-rgb), 0.1);
 
         span {
           color: #ccc;
@@ -62,7 +62,7 @@
       .progress-bar-wrapper {
         .progress-bar-border {
           height: 2rem;
-          border: 1px solid $primary;
+          border: 1px solid var(--primary);
           box-sizing: border-box;
           padding: 0;
 
@@ -71,7 +71,7 @@
             justify-content: flex-start;
             align-items: center;
             color: white;
-            background-color: $primary;
+            background-color: var(--primary);
             padding: 0 0.5rem;
             height: 2rem;
 
