@@ -2,10 +2,12 @@
   <div class="editor-content text-center">
     <%= organization_description %>
     <% unless current_user %>
-      <%= link_to decidim.new_user_registration_path, class: "button button__sm md:button__lg button__secondary", title: t("decidim.pages.home.sub_hero.register_title") do %>
-        <%= t("decidim.pages.home.sub_hero.register") %>
-        <%= icon "arrow-right-line", class: "fill-current" %>
-      <% end %>
+      <div>
+        <%= link_to decidim.new_user_registration_path, class: "button button__sm md:button__lg button__secondary no-underline", title: t("decidim.pages.home.sub_hero.register_title") do %>
+          <%= t("decidim.pages.home.sub_hero.register") %>
+          <%= icon "arrow-right-line", class: "fill-current" %>
+        <% end %>
+      </div>
     <% end %>
   </div>
 </section>
