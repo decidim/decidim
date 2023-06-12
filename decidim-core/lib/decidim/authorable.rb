@@ -53,8 +53,8 @@ module Decidim
         other_author == author || (other_author.respond_to?(:user_groups) && other_author.user_groups.include?(user_group))
       end
 
-      # Returns the normalized author, whether it's a user group or a user. Ideally this should be
-      # the *author* method, but it's pending a refactor.
+      # Returns the normalized author, whether it is a user group or a user. Ideally this should be
+      # the *author* method, but it is pending a refactor.
       #
       # Returns an Author, a UserGroup or nil.
       def normalized_author

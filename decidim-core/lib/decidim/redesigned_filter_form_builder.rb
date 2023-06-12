@@ -14,7 +14,7 @@ module Decidim
     #               struct as defined in Decidim::CheckBoxesTreeHelper for more
     #               complex situations which require nested options.
     # * label_scope: The scope used to translate the title of the section.
-    # * id: The id of the section. It's also used to get the translation of the
+    # * id: The id of the section. It is also used to get the translation of the
     #       section title.
     # * options: Additional options:
     #   * type: The type of selector to use with the collection it can be

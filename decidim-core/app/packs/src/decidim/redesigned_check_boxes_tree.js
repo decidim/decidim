@@ -73,7 +73,7 @@ export default class CheckBoxesTree {
       input.indeterminate = false;
       input.classList.add("ignore-filter");
 
-      // recursive call if the input it's also a tree
+      // recursive call if the input it is also a tree
       if (input.dataset.checkboxesTree) {
         this.checkTheCheckBoxes(input)
       }
@@ -88,10 +88,10 @@ export default class CheckBoxesTree {
    */
   checkTheCheckParent(input) {
     const key = input.parentNode.dataset.childrenCheckbox
-    // search in the checkboxes array if some id ends with the childrenCheckbox key, what means it's the parent
+    // search in the checkboxes array if some id ends with the childrenCheckbox key, what means it is the parent
     const parentCheck = this.checkboxesTree.find(({ id }) => new RegExp(`${key}$`, "i").test(id))
 
-    // search for leaves with the same parent, what means they're siblings
+    // search for leaves with the same parent, what means they are siblings
     const totalCheckSiblings = this.checkboxesLeaf.filter((node) => node.parentNode.dataset.childrenCheckbox === key)
     const checkedSiblings = totalCheckSiblings.filter((checkbox) => checkbox.checked)
     const indeterminateSiblings = totalCheckSiblings.filter((checkbox) => checkbox.indeterminate)

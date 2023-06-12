@@ -39,7 +39,6 @@ ja:
         body: 本文
         subject: 件名
       organization:
-        admin_terms_of_use_body: 管理者向け利用規約の本文
         alert_color: アラート
         available_authorizations: 利用可能な認証方式
         badges_enabled: バッジを有効にする
@@ -137,7 +136,7 @@ ja:
         newsletter:
           attributes:
             base:
-              at_least_one_space: 少なくとも1つの参加スペースを選択してください
+              at_least_one_space: 少なくとも参加型スペースを1つ選択してください．
         organization:
           attributes:
             official_img_footer:
@@ -155,8 +154,8 @@ ja:
       new_import:
         attributes:
           file:
-            invalid_file: 無効なファイルが指定されました。正しいフォーマットのファイルかどうか確認してください。
-            invalid_mime_type: MIMEタイプが無効です
+            invalid_file: 無効なファイルです。ファイルのフォーマットが正しいか確認してください。
+            invalid_mime_type: 無効な MIME タイプです。
   activerecord:
     attributes:
       decidim/static_page:
@@ -178,7 +177,7 @@ ja:
         attachment:
           new: 新しい添付ファイル
         attachment_collection:
-          new: 新しい添付ファイルのコレクション
+          new: 新しい添付ファイルフォルダ
         browse: 検索
         category:
           new: 新しいカテゴリ
@@ -198,26 +197,12 @@ ja:
         user:
           new: 新しい管理者
         verify: 確認する
-      admin_terms_of_use:
-        accept:
-          error: 管理者向け利用規約に同意中にエラーが発生しました。
-          success: ありがとうございます、管理者向け利用規約に同意しました。
-        actions:
-          accept: 利用規約に同意します
-          are_you_sure: 管理者向け利用規約を削除してもよろしいですか？
-          refuse: 同意しない
-          title: 利用規約に同意する
-        required_review:
-          alert: '必須：管理者向け利用規約を確認してください'
-          callout: 管理者向け利用規約を確認してください。そうでなければ、プラットフォームを管理することはできません。
-          cta: 今すぐレビューしましょう。
-        title: 管理者向け利用規約
       area_types:
         create:
           error: 新しいエリア種別の作成中に問題が発生しました。
           success: エリア種別が正常に作成されました。
         destroy:
-          success: エリア種別を削除しました
+          success: エリアタイプを削除しました。
         edit:
           title: エリア種別の編集
           update: 更新
@@ -226,14 +211,14 @@ ja:
           title: 新しいエリア種別
         update:
           error: このエリア種別の更新中に問題が発生しました。
-          success: エリア種別が正常に更新されました
+          success: エリアタイプを更新しました。
       areas:
         create:
           error: 新しいエリアの作成中に問題が発生しました。
           success: エリアの作成に成功しました。
         destroy:
           has_spaces: このエリアには依存スペースがあります。削除する前に参加型スペースがこのエリアを参照していないことを確認してください。
-          success: エリアの削除に成功しました
+          success: エリアを削除しました。
         edit:
           title: エリアを編集
           update: 更新
@@ -243,7 +228,7 @@ ja:
         no_areas: エリアがありません
         update:
           error: このエリアの更新中に問題が発生しました。
-          success: エリアの更新が完了しました
+          success: エリアを更新しました。
       attachment_collections:
         create:
           error: 新しいフォルダの作成中に問題が発生しました。
@@ -283,7 +268,7 @@ ja:
         message: プライベートスペースで添付ファイルを扱う場合は注意してください．すべての参加者がこの文書を他の人と共有することができます．
       autocomplete:
         no_results: 結果が見つかりませんでした
-        search_prompt: 検索するには少なくとも3文字を入力してください
+        search_prompt: 検索には3文字以上入力してください。
       block_user:
         new:
           action: アカウントをブロックして理由を送信
@@ -348,7 +333,7 @@ ja:
       conflicts:
         attempts: 試行回数
         'false': 'いいえ'
-        managed_user_name: 管理ユーザー
+        managed_user_name: 管理対象ユーザー
         solved: 解決済み
         title: 確認の競合
         transfer:
@@ -373,8 +358,8 @@ ja:
         form:
           domain_too_short: ドメインが短すぎます
         update:
-          error: ドメインのホワイトリストを更新できませんでした
-          success: ドメインのホワイトリストが更新されました
+          error: ドメインのホワイトリストを更新できませんでした。
+          success: ドメインのホワイトリストを更新しました。
       exports:
         export_as: "%{name} を %{export_format} 形式で取得"
         formats:
@@ -382,7 +367,7 @@ ja:
           Excel: エクセル
           FormPDF: PDF
           JSON: JSON
-        notice: エクスポートが進行中です。完了するとメールが届きます。
+        notice: 現在エクスポートが進行中です。完了した際にはメールでお知らせします。
       filters:
         category_id_eq:
           label: カテゴリ
@@ -457,10 +442,10 @@ ja:
             message_1: CSV、JSON、Excel (.xlsx) ファイルがサポートされています
             message_2: CSV ファイルの場合、列間の区切り文字はセミコロン(";") でなければなりません。
       help_sections:
-        error: ヘルプセクションの更新中に問題が発生しました
+        error: ヘルプセクションの更新中に問題が発生しました。
         form:
           save: 保存
-        success: ヘルプセクションが正常に更新されました
+        success: ヘルプセクションを更新しました。
       impersonatable_users:
         index:
           filter:
@@ -470,7 +455,7 @@ ja:
           filter_by: フィルター
           impersonate: なりすまし
           impersonate_new_managed_user: 新規参加者の管理
-          managed: 管理
+          managed: 管理対象
           name: 名前
           needs_authorization_warning: この組織に対して少なくとも1つの承認が有効になっている必要があります。
           not_managed: 非管理対象
@@ -514,8 +499,8 @@ ja:
             detail: ファイルに必要な列が含まれていることを確認してください。
             message:
               other: 列 %{columns} が見つかりません。
-        error: インポート中に問題が発生しました
-        example_error: 指定された型の例を作成できませんでした
+        error: インポート中に問題が発生しました。
+        example_error: 指定されたタイプのサンプルを作成する際に問題が発生しました。
         new:
           accepted_mime_types:
             csv: csv
@@ -527,7 +512,7 @@ ja:
           download_example_format: '%{name} の例'
           file_legend: 解析されるインポート ファイルを追加します。
           import: インポート
-        notice: "%{number} %{resource_name} を正常にインポートしました"
+        notice: "%{count} %{resource_name} が正常にインポートされました。"
       logs:
         filters:
           participatory_space: 参加型スペースを探す
@@ -552,7 +537,7 @@ ja:
         area_types: エリア種別
         areas: エリア
         configuration: 設定
-        content: コンテンツ
+        content: 報告されたコンテンツ
         dashboard: ダッシュボード
         external_domain_whitelist: 許可された外部ドメイン
         help_sections: ヘルプセクション
@@ -661,7 +646,7 @@ ja:
           nickname: ニックネーム
           reason: 理由
           reports: レポート数
-          title: 参加者一覧
+          title: 報告された参加者
         report:
           reasons:
             does_not_belong: 所属していない
@@ -672,7 +657,7 @@ ja:
           unblocked: 未ブロック
       moderations:
         index:
-          title: モデレーション
+          title: 報告されたコンテンツ
         report:
           reasons:
             does_not_belong: 属していません
@@ -749,7 +734,7 @@ ja:
           title: 配信する宛先を選択
           warning: "<strong>注意:</strong> このニュースレターは、通知設定で <em>ニュースレターを受信したい</em> ユーザーにのみ送信されます。"
         send:
-          no_recipients: この選択の受信者はありません
+          no_recipients: 受信者が選択されていません。
         show:
           preview: プレビュー
           select_recipients_to_deliver: 配信する宛先を選択
@@ -759,12 +744,12 @@ ja:
           success: ニュースレターは正常に更新されました。送信する前に確認してください。
       officializations:
         block:
-          error: 参加者のブロック中にエラーが発生しました
-          success: 参加者が正常にブロックされました
+          error: 参加者のブロック中にエラーが発生しました。
+          success: 参加者をブロックしました。
         create:
-          success: 参加者が正常に公式化されました
+          success: 参加者が公式化されました。
         destroy:
-          success: 参加者が非公式化されました
+          success: 参加者が非公式化されました。
         index:
           actions: アクション
           badge: バッジ
@@ -775,7 +760,7 @@ ja:
           not_officialized: 公式化されていない
           officialize: 公式化
           officialized: 公式化済み
-          reofficialize: Reofficize
+          reofficialize: 再公式化
           reports: 報告
           show_email: メールアドレスを表示
           status: ステータス
@@ -794,8 +779,8 @@ ja:
           show: 表示
           title: 参加者のメールアドレスを表示
         unblock:
-          error: 参加者のブロック解除中にエラーが発生しました
-          success: 参加者のブロックを解除しました
+          error: 参加者のブロック解除中にエラーが発生しました。
+          success: 参加者のブロックを解除しました。
       organization:
         edit:
           title: 組織を編集
@@ -842,11 +827,11 @@ ja:
       organization_homepage:
         content_blocks:
           create:
-            error: コンテンツブロックの作成中に問題が発生しました
-            success: コンテンツブロックを作成しました
+            error: コンテンツブロックの作成中に問題が発生しました。
+            success: コンテンツブロックを作成しました。
           destroy:
-            error: コンテンツブロックの削除中に問題が発生しました
-            success: コンテンツブロックを削除しました
+            error: コンテンツブロックの削除中に問題が発生しました。
+            success: コンテンツブロックを削除しました。
           edit:
             update: 更新
         edit:
@@ -871,11 +856,11 @@ ja:
       participatory_space_private_users_csv_imports:
         create:
           invalid: CSVファイルの読み込み中に問題が発生しました。手順を確認してください。
-          success: CSVファイルが正常にアップロードされました。出席者に招待メールを送信します。時間がかかる場合があります。
+          success: CSVファイルは正常にアップロードされました。参加者に招待メールを送信しています。しばらくお待ちください。
         new:
           destroy:
             button: すべてのプライベート参加者を削除
-            confirm: すべてのプライベート参加者を削除してもよろしいですか？この操作は元に戻せず、削除したデータを復元できません。
+            confirm: すべてのプライベート参加者を削除してもよろしいですか？この操作は元に戻せず、削除された方を復元することはできません。
             empty: プライベートの参加者はいません。
             explanation: '%{count} 人のプライベート参加者がいます。'
             title: プライベート参加者を削除
@@ -923,7 +908,7 @@ ja:
           error: 新しいスコープの作成中に問題が発生しました。
           success: スコープが正常に作成されました。
         destroy:
-          success: スコープが削除されました
+          success: スコープを削除しました。
         edit:
           title: スコープを編集
           update: 更新
@@ -943,7 +928,7 @@ ja:
           error: トークンを削除する際に問題が発生しました。
           success: トークンが正常に破棄されました。
         share_tokens:
-          empty: アクティブなトークンはありません
+          empty: 有効なトークンはありません。
           help: これらのトークンは、公開されていないリソースをすべてのユーザーに公開するために使用されます。 リソースが公開されると、それらは非表示になります。共有可能なURLにアクセスするにはトークンの共有アイコンをクリックしてください。
           title: トークンを共有
       shared:
@@ -957,7 +942,7 @@ ja:
           error: 新しいトピックを作成中に問題が発生しました。
           success: トピックを正常に作成しました。
         destroy:
-          success: トピックを削除しました
+          success: トピックを削除しました。
         edit:
           title: トピックを編集
           update: トピックを更新
@@ -974,11 +959,11 @@ ja:
           active_content_blocks: アクティブコンテンツブロック
           add: コンテンツブロックを追加
           create:
-            error: コンテンツブロックの作成中に問題が発生しました
-            success: コンテンツブロックを作成しました
+            error: コンテンツブロックの作成中に問題が発生しました。
+            success: コンテンツブロックを作成しました。
           destroy:
-            error: コンテンツブロックの削除中に問題が発生しました
-            success: コンテンツブロックを削除しました
+            error: コンテンツブロックの削除中に問題が発生しました。
+            success: コンテンツブロックを削除しました。
           destroy_confirmation: このコンテンツブロックを削除してもよろしいですか？
           edit:
             update: 更新
@@ -990,7 +975,6 @@ ja:
         destroy:
           success: ページを削除しました
         edit:
-          changed_notably_help: チェックした場合、参加者に新しい利用規約に同意するよう通知されます。
           title: ページを編集
           update: 更新
         form:
@@ -1004,11 +988,11 @@ ja:
         topic:
           destroy: トピックを削除
           edit: トピックを編集
-          empty: このトピックの下にはページがありません
+          empty: このトピックのページはありません。
           without_topic: トピックがないページ
         update:
           error: このページの更新中に問題が発生しました。
-          success: ページが正常に更新されました
+          success: ページが更新されました。
       titles:
         admin_log: 管理者ログ
         area_types: エリア種別
@@ -1029,13 +1013,13 @@ ja:
       user_group:
         csv_verify:
           invalid: CSVファイルの読み込みに問題が発生しました。
-          success: CSVファイルが正常にアップロードされました。条件に一致するグループを検証しています。しばらく時間がかかる場合があります。
+          success: CSVファイルは正常にアップロードされました。条件に一致するグループを確認しています。しばらくお待ちください。
         reject:
           invalid: このグループを拒否する際に問題が発生しました。
-          success: グループを拒否しました
+          success: グループを却下しました。
         verify:
           invalid: このグループを確認する際に問題が発生しました。
-          success: グループが正常に検証されました
+          success: グループを確認しました。
       user_groups:
         index:
           state:
@@ -1072,13 +1056,13 @@ ja:
           last_day: 過去24時間
           last_month: 過去1ヶ月間
           last_week: 過去1週間
-          no_users_count_statistics_yet: まだユーザー数の統計がありません
+          no_users_count_statistics_yet: ユーザー数の統計情報はまだありません。
           participants: 参加者
       view_public_page: 公開ページを表示
     forms:
       errors:
         impersonate_user:
-          reason: 管理対象ではない参加者を管理する場合、その理由を入力する必要があります
+          reason: 管理対象ではない参加者を管理する場合は、理由を入力する必要があります。
     metrics:
       blocked_users:
         object: ブロックされたユーザー
@@ -1096,7 +1080,7 @@ ja:
         hide: 非表示
         not_hidden: 表示
         title: アクション
-        unhide: Unhide
+        unhide: 非表示解除
         unreport: 報告解除
       admin:
         reportable:
@@ -1134,7 +1118,7 @@ ja:
     decidim:
       admin:
         global_moderations:
-          title: コンテンツモデレーション
+          title: グローバルモデレーション
         newsletters:
           title: ニュースレター
         settings:

@@ -1194,7 +1194,7 @@
     nonpunctuation: /[^ -\/:-@\[\u3400-\u9fff-`{-~\t\n\r]+/g,
     parseFormat: function(format) {
       // IE treats \0 as a string end in inputs (truncating the value),
-      // so it's a bad format delimiter, anyway
+      // so it is a bad format delimiter, anyway
       let separators = format.replace(this.validParts, "\0").split("\0"),
           parts = format.match(this.validParts);
       if (!separators || !separators.length || !parts || parts.length === 0) {

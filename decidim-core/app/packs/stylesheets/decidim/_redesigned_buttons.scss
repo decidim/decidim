@@ -1,5 +1,5 @@
 .button{
-  @apply inline-flex items-center justify-center font-semibold border border-transparent rounded transition cursor-pointer [&>svg]:flex-none [&>svg]:fill-current first-letter:[&>span]:uppercase [&>span]:text-center [&>span]:break-words;
+  @apply inline-flex items-center justify-center font-semibold text-center border border-transparent rounded transition cursor-pointer [&>svg]:flex-none [&>svg]:fill-current first-letter:[&>span]:uppercase [&>span]:text-center [&>span]:break-words;
 
   &__xs{
     @apply text-sm [&:not([class*="button\\_\\_text"])]:px-3 [&:not([class*="button\\_\\_text"])]:py-1 gap-1;

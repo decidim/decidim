@@ -23,7 +23,7 @@
     &.is-open{
       @apply w-1/5 [&+div]:w-4/5;
 
-      // shrink iframe when there's two panels
+      // shrink iframe when there is two panels
       & + & + div{
         @apply w-3/5;
       }

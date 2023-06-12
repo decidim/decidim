@@ -29,7 +29,6 @@ tr:
       decidim/component_published_event: Aktif bileşen
       decidim/demoted_membership: Artık bir grup yöneticisi
       decidim/gamification/badge_earned_event: Kazanılan rozet
-      decidim/gamification/level_up_event: Seviye atladın
       decidim/join_request_accepted_event: Katılma isteği kabul edildi
       decidim/join_request_rejected_event: Katılma isteği reddedildi
       decidim/profile_updated_event: Profil güncellendi
@@ -76,7 +75,6 @@ tr:
       logo: "%{organization} resmi logosu"
       skip_button: Ana içeriğe geç
     account:
-      blocked: Bu hesap, Şartlar ve Koşullar ihlali nedeniyle engellendi
       delete:
         confirm:
           close: Pencereyi kapat
@@ -89,14 +87,12 @@ tr:
         success: Hesabınız başarıyla silindi.
       download_your_data_export:
         file_no_exists: Dosya bulunmuyor
-        notice: Verilerinizin indirilmesi şu anda devam ediyor. Tamamlandığında bir e-posta alacaksınız.
       show:
         change_password: Şifre değiştir
         update_account: Hesabı güncelle
       update:
         error: Hesabınız güncellenirken bir hata oluştu.
         success: Hesabınız başarıyla güncellendi.
-        success_with_email_confirmation: Hesabınız başarıyla güncellendi. Yeni e-posta adresinizi onaylamak için bir e-posta alacaksınız.
     admin:
       actions:
         cancel: İptal Et
@@ -157,8 +153,6 @@ tr:
         verify_via_csv: "%{user_name}, bir CSV dosyası aracılığıyla %{resource_name} kullanıcı grubunu doğruladı"
       user_moderation:
         unreport: "%{user_name}, bir %{resource_type} - %{unreported_user_name} raporunu bildirdi"
-    admin_terms_of_use:
-      default_body: "<h2> YÖNETİCİ KULLANIM ŞARTLARI </h2> <p> Yerel Sistem Yöneticinizden olağan dersi almış olduğunuza güveniyoruz. Genellikle şu üç şeye indirgenir: </p> <ol> <li> Başkalarının mahremiyetine saygı gösterin. </li> <li> Tıklamadan önce düşünün. </li> <li> Büyük güç, büyük sorumluluk getirir. </li> </ol>"
     alert:
       dismiss: Bildirimleri yoksay
     amendments:
@@ -169,10 +163,8 @@ tr:
         amended_by: Tarafından değiştirildi
         button: '%{model_name} üzerinde değişiklik yapın'
         error: Bu kaynağı değiştiren bir hata oluştu.
-        help_text: Bu %{model_name} 'yi %{amendable_fields} değiştirerek geliştirin
         promote_button: '%{model_name} olarak yükselt'
         promote_confirm_text: Bu değişikliği tanıtmak istediğinizden emin misiniz?
-        promote_help_text: Bu değişikliği tanıtabilir ve bağımsız bir %{model_name} olarak yayınlayabilirsiniz
         section_heading: Değişiklikler (%{count})
       compare_draft:
         continue: Devam et
@@ -212,26 +204,16 @@ tr:
         modify: Düzenle
         publish: Yayınla
         title: Değişiklik Taslağını Yayınla
-      promoted:
-        error: Değişikliği yeni bir teklif olarak yayınlarken bir hata oluştu
-        success: Değişiklik yeni bir teklif olarak başarıyla yayınlandı
       publish_draft:
         error: Değişiklik yayınlanırken bir hata oluştu.
         success: Değişiklik başarıyla yayınlandı.
-      rejected:
-        error: Bu değişikliği reddederken bir hata oluştu, lütfen daha sonra tekrar deneyin
-        success: Değişiklik başarıyla reddedildi
       review:
         back: Geri
         heading: Değişikliği gözden geçirin
-        help_text: '%{model_name} yapılan bir değişikliği inceliyorsunuz'
         send: Değişikliği kabul et
       update_draft:
         error: Değişiklik taslağı güncellenirken bir hata oluştu.
         success: Değişiklik taslağı başarıyla güncellendi.
-      withdraw:
-        error: Değişiklik geri çekilirken bir hata oluştu
-        success: Değişiklik başarıyla geri çekildi
       wizard_step_form:
         steps:
           '1': Değişikliğinizi oluşturun
@@ -255,13 +237,11 @@ tr:
         other: onaylar
     authorization_handlers:
       another_dummy_authorization_handler:
-        explanation: '"A" ile başlayan bir pasaport numarası girerek doğrulanın.'
         fields:
           passport_number: Pasaport numarası
           postal_code: Posta kodu
         name: Başka bir örnek yetkilendirme
       dummy_authorization_handler:
-        explanation: '"X" ile biten bir belge numarası girerek doğrulanmış olsun'
         fields:
           allowed_postal_codes: İzin verilen posta kodları (virgülle ayrılmış)
           allowed_scope_id: İzin Verilen Kapsamlar
@@ -293,7 +273,6 @@ tr:
           title: Yetkilendirme süresi doldu
         incomplete:
           cancel: İptal Et
-          explanation: 'Şu anda "%{authorization}" için yetkilendirilmiş olmanıza rağmen, aşağıdaki veriler eksik olduğu için yeniden yetkilendirmeniz gerekiyor:'
           invalid_field: "%{field}"
           reauthorize: Yeniden yetkilendir
           title: Lütfen yeniden yetkilendirin
@@ -302,16 +281,11 @@ tr:
           explanation: Bu eylemi gerçekleştirmek için "%{authorization}" ile yetkilendirilmeniz gerekir.
           title: Yetkilendirme gerekli
         pending:
-          explanation: Bu işlemi gerçekleştirmek için "%{authorization}" ile yetkilendirilmeniz gerekir, ancak yetkilendirmeniz hala devam ediyor
-          resume: '"%{authorization}" yetkilendirme işleminizi kontrol edin'
           title: Yetkilendirme devam ediyor
         unauthorized:
-          explanation: Maalesef, bu eylemi, yetki verilerinizden bazıları eşleşmediğinden gerçekleştiremezsiniz.
-          invalid_field: "%{field} için değer %{value} geçerli değil."
           ok: Tamam
           title: Yetkili değil
         unconfirmed:
-          confirmation_instructions: 'Onay talimatlarını almadıysanız tekrar talep edebilirsiniz:'
           explanation_html: Bu eylemi gerçekleştirmek için yetkilendirilmeniz gerekir, bunu yapmadan önce e-postanızı doğrulamanız gerekir <strong>%{email}</strong>.
           request_confirmation_instructions: Onaylama talimatlarını tekrar gönder
           title: E-posta adresinizi doğrulayın
@@ -330,7 +304,6 @@ tr:
       see_more: "(daha fazla gör)"
     components:
       component_order_selector:
-        no_content: Bu kriterlere sahip herhangi bir içerik bulamadık
         order:
           all_types: Bütün türler
           collaborative_draft: İşbirlikçi Taslak
@@ -408,22 +381,15 @@ tr:
           section_content: İçerik
         two_pane_section:
           left_column: Sol Sütun
-          name: Iki bölme bölümü
           right_column: Sağ sütun
       stats:
         name: Organizasyon istatistikleri
       sub_hero:
         name: Alt ana afişi
-    core:
-      actions:
-        login_before_access: Lütfen, erişmeden önce hesabınızla giriş yapın
-        unauthorized: Bu eylemi gerçekleştirmek için yetkiniz yok
     datepicker:
       help_text: 'Beklenen format: %{datepicker_format}'
     devise:
       omniauth_registrations:
-        create:
-          email_already_exists: Başka bir hesap aynı e-posta adresini kullanıyor
         new:
           complete_profile: Profilini tamamla
           nickname_help: Takma adınız %{organization}. Yalnızca harf, rakam, "-" ve "_" içerebilir.
@@ -441,7 +407,6 @@ tr:
           sign_up_as:
             legend: Olarak kaydol
           subtitle: Tartışmalara katılmak ve teklifleri desteklemek için kaydolun.
-          terms: kullanım şartları ve koşulları
           tos_agreement: Kaydolarak %{link}kabul ediyorsunuz.
           tos_title: Kullanım Şartları
           username_help: Yayınlarınızda görünen genel ad. Anonimlik garantilemek amacıyla herhangi bir isim olabilir.
@@ -449,25 +414,12 @@ tr:
         new:
           are_you_new?: Platformda yeni misiniz?
           register: Hesap oluştur
-          sign_in_disabled: Harici bir hesaba erişebilirsiniz
-          sign_up_disabled: Kaydolma devre dışı, mevcut bir kullanıcıyı kullanmak için kullanabilirsiniz
       shared:
         newsletter_modal:
           buttons:
             check: Kontrol et ve devam et
             close_modal: Yakın kalıcı
             uncheck: İşaretlemeyin
-          notice: |-
-            <p>Hey, bir haber bülteni almak istemediğine emin misin?<br>
-            Lütfen aşağıdaki haber bülteni onay kutusunu tekrar işaretleyin.<br>
-            Size ara sıra e-postaları alabilmeniz bizim için çok önemlidir
-            her zaman bu değiştirebilir, önemli duyurular yapmak için
-            bildirimleri ayarları sayfasında.</p>
-            <p>Eğer kutuyu işaretlemezseniz, platformdaki yeni katılımcı fırsatlar hakkında ilgili bilgileri
-            kaçırıyor olabilirsiniz.<br>
-            Hala alıcı haber kaçınmak istiyorsak, mükemmel
-            kararınızı anlıyoruz.</p>
-            <p>Bunu okuduğunuz için teşekkürler!</p>
           title: Bülten bildirimleri
         omniauth_buttons:
           or: Veya
@@ -477,7 +429,6 @@ tr:
           authorize: Uygulamayı yetkilendir
           by_organization_link_html: <small class="heading-small">x %{link}</small>
           cancel: İptal etmek
-          connect_your_account_html: Hesabınıza bağlanarak bağlanın <strong>%{organization}</strong>
           publish_content: İçeriği sizin için yayınlayın
           see_email: E-postanızı görün
           see_name: İsmini gör
@@ -505,7 +456,6 @@ tr:
       not_found:
         back_home: Eve dön
         content_doesnt_exist: Bu adres yanlış veya kaldırılmış.
-        title: Aradığınız sayfa bulunamadı
     events:
       amendments:
         amendment_accepted:
@@ -571,15 +521,9 @@ tr:
         email_subject: '%{resource_title} bir güncelleme'
       gamification:
         badge_earned:
-          email_intro: İyi iş! <a href="%{resource_url}">%{badge_name} rozeti</a> (seviye %{current_level}) kazandınız.
           email_outro: Web sitemizde etkinlik yaptığınız için bu bildirimi aldınız.
-          email_subject: 'Yeni bir rozet kazandınız: %{badge_name}!'
-          notification_title: İyi iş! <a href="%{resource_path}">%{badge_name} rozeti</a> (seviye %{current_level}) kazandınız.
         level_up:
-          email_intro: İyi iş! Sen seviyeye ulaşan %{current_level} üzerinde <a href="%{resource_url}">%{badge_name} rozet</a>!
           email_outro: Web sitemizde etkinlik yaptığınız için bu bildirimi aldınız.
-          email_subject: '%{badge_name} rozette seviye %{current_level} ulaştınız!'
-          notification_title: İyi iş! Sen seviyeye ulaşan %{current_level} üzerinde <a href="%{resource_path}">%{badge_name} rozet</a>!
       groups:
         demoted_membership:
           email_intro: <a href="%{resource_url}">%{user_group_name}</a> grubunun yöneticisi, yönetici haklarınızı bu gruba kaldırdı.
@@ -664,7 +608,6 @@ tr:
         result: Sonuçlar
     fingerprint:
       check: Parmak izi kontrol edin
-      explanation: Aşağıdaki metin parçası, bu içeriğin kısaltılmış, temsili bir temsilidir. Tek bir değişikliğin tamamen farklı bir değerle sonuçlanacağı için içeriğin müdahale edilmediğinden emin olmak yararlıdır.
       online_calculator_name: Çevrimiçi MD5 hesap makinesi
       replicate_help: Bu parmak izi, bir SHA256 karma algoritması kullanılarak hesaplanır. Kendiniz çoğaltmak için, bir %{online_calculator_link} kullanabilir ve kaynak verileri kopyalayıp yapıştırabilirsiniz.
       source: Kaynak
@@ -675,8 +618,6 @@ tr:
         one: "%{count} takipçi"
         other: "%{count} takipçi"
       no_followers: Henüz takipçisi yok.
-    following:
-      no_followings: Henüz kimseyi takip etmiyor.
     follows:
       create:
         button: Takip et
@@ -689,7 +630,6 @@ tr:
         decidim/user:
           password: Bu şifre çok kısa.
           password_confirmation: Şifre onayı şifre ile uyuşmuyor.
-        error: Bu alanda bir hata var.
       file_help:
         file:
           explanation: 'Dosya kılavuzu:'
@@ -712,8 +652,6 @@ tr:
           description_own: "%{score} kullanıcı sizi takip ediyor."
           name: İzleyiciler
           next_level_in: Bir sonraki seviyeye ulaşmak için sizi takip etmek için %{score} kullanıcı daha alın!
-          unearned_another: Bu kullanıcının henüz hiç takipçisi yok.
-          unearned_own: Henüz takipçiniz yok.
         index:
           badge_title: "%{name} rozet"
           how: Nasıl kazanabilirsin
@@ -721,37 +659,20 @@ tr:
           title: Rozetler
       description: Rozetler, katılımcı eylemleri ve platformdaki ilerlemeleri tanımaktadır. Platformda keşfetmeye, katılmaya ve etkileşim kurmaya başladığınızda farklı rozetler kazanacaksınız.
       level: Seviye %{level}
-      reached_top: Bu rozetin en üst seviyesine ulaştınız.
     group_admins:
       actions:
-        are_you_sure: Emin misiniz? Bu, kullanıcıyı gruptan kaldırmaz.
         demote_admin: Yönetici kaldır
-      demote:
-        error: Bu kullanıcıyı yönetici listesinden kaldırırken bir hata oluştu
-        success: Kullanıcı yönetici tarafından başarıyla kaldırıldı
       index:
         current_admins: 'Mevcut yöneticiler:'
         manage_admins: Yöneticileri yönet
     group_invites:
-      accept:
-        error: Bu daveti kabul eden bir hata oluştu
-        success: Davetiye başarıyla kabul edildi
       accept_invitation: Kabul Et
       accept_or_reject_group_invitations: 'Aşağıdaki gruplar, onlara katılmaları için sizi davet etti. İsteklerini kabul etme veya reddetme:'
       index:
         invite: Davet et
         invite_user: Bir katılımcı davet et
-      invite:
-        error: Bu katılımcıyı davet ederken bir sorun oluştu
-        success: Katılımcı başarıyla davet edildi
-      reject:
-        error: Bu davet reddedilirken bir hata oluştu
-        success: Davet başarıyla reddedildi
       reject_invitation: Reddet
     group_members:
-      accept:
-        error: Bu katılma isteğini kabul eden bir hata oluştu
-        success: Katılım isteği başarıyla kabul edildi
       actions:
         are_you_sure: Emin misiniz?
         promote_to_admin: Yönetici yap
@@ -759,36 +680,20 @@ tr:
       index:
         current_members_without_admins: 'Mevcut üyeler (yöneticiler olmadan):'
         manage_members: Üyeleri yönet
-      promote:
-        error: Bu katılımcıyı tanıtırken bir sorun oluştu
-        success: Katılımcı başarıyla tanıtıldı
-      reject:
-        error: Bu katılma isteğini reddeden bir hata oluştu
-        success: Katılma isteği başarıyla reddedildi
-      remove:
-        error: Bu katılımcıyı gruptan çıkarırken bir sorun oluştu
-        success: Katılımcı gruptan başarıyla kaldırıldı
     groups:
       actions:
         are_you_sure: Emin misiniz?
-      create:
-        error: Grup oluşturulurken bir sorun oluştu
-        success: Grup başarıyla oluşturuldu
       edit:
         edit_user_group: Grubu düzenle
         update_user_group: Grubu güncelle
       form:
-        document_number_help: Tire veya boşluk kullanmayın
         email_help: Kuruluşunuzun, derneğin, kolektif, grubun vb. e-posta adresi.
         fill_in_for_verification: 'Grubunuzun doğrulanmasını istiyorsanız, bu alanları doldurun:'
         name_help: Kuruluşunuzun, derneğin, kolektif, grubun vb. e-posta adresi.
         nickname_help: Kuruluşunuzun, derneğinizin, kolektifiniziz, grubunuzun vb. isimlerinde boşluk veya aksan kullanmayın.
-        phone_help: Tire veya boşluk kullanmayın
       join:
-        error: Gruba katılırken bir sorun oluştu
         success: Katılım isteği başarıyla oluşturuldu. Bir yönetici sizi gruba kabul etmeden önce isteğinizi inceleyecektir.
       leave:
-        error: Gruptan ayrılırken bir sorun oluştu
         success: Grup başarıyla terk edildi.
       members:
         accept_or_reject_join_requests: 'Aşağıdaki kullanıcılar bu gruba katılmak için başvurdu. İsteklerini kabul edin veya reddedin:'
@@ -798,19 +703,14 @@ tr:
         create_user_group: Grup oluştur
         new_user_group: Yeni grup
         subtitle: Bir grup oluşturun ve diğer kullanıcıları ortak bir düzeye katılmaya davet edin.
-      no_user_groups: Henüz herhangi bir gruba ait değil.
       roles:
         admin: Yönetici
         member: Üye
-      update:
-        error: Grup güncellemede bir hata oluştu
-        success: Grup başarıyla güncellendi
     help:
       main_topic:
         default_page:
           content: "<p>%{organization}'da üst menüde gördüğünüz alanlar aracılığıyla katılabilir ve farklı konulara karar verebilirsiniz: Süreçler, Toplantılar, Girişimler, İstişareler. </p> <p> Her birinde farklı seçenekler bulacaksınız. katılmak: bireysel olarak veya diğer insanlarla birlikte teklifler yapın, tartışmalara katılın, uygulanacak projelere öncelik verin, yüz yüze toplantılara ve diğer eylemlere katılın. </p>\n"
           title: '%{organization} ne yapabilirim?'
-        description: '%{organization} hakkında daha fazla bilgi edinin'
         title: Genel Yardım
     last_activities:
       activities:
@@ -847,8 +747,6 @@ tr:
       static:
         latlng_text: 'latitude: %{latitude}, longitude: %{longitude}'
         map_service_brand: OpenStreetMap
-    members:
-      no_members: Bu kullanıcı grubunun henüz üye yok.
     menu:
       help: Yardım
       home: Ana Sayfa
@@ -858,35 +756,29 @@ tr:
           admin_in_group: Bunu, %{group} grubunun yöneticisi olduğunuz için alıyorsunuz.
           greeting: Merhaba, %{recipient}!
           intro: "%{manager}, %{group} adına yeni bir görüşme başlattı. Görmek için buraya tıklayın:"
-          outro: Decidim'in tadını çıkarın!
           subject: "%{manager}, %{group} olarak yeni bir görüşme başlattı"
         comanagers_new_message:
           admin_in_group: Bunu, %{group} grubunun yöneticisi olduğunuz için alıyorsunuz.
           greeting: Merhaba, %{recipient}!
           intro: "%{manager}, %{group} adına bir görüşmede yeni mesajlar yayınladı. Onları görmek için buraya tıklayın:"
-          outro: Decidim'in tadını çıkarın!
           subject: "%{manager} %{group} olarak yeni mesajlar gönderdi"
         new_conversation:
           greeting: Merhaba %{recipient}!
           intro: "%{sender} sizinle yeni bir sohbet başlattı. Görmek için buraya tıklayın:"
-          outro: Decidimin tadını çıkar!
           subject: "%{sender} sizinle bir konuşma başlattı"
         new_group_conversation:
           admin_in_group: Bunu, %{group} grubunun yöneticisi olduğunuz için alıyorsunuz.
           greeting: Merhaba, %{recipient}!
           intro: "%{sender}, %{group} adına yeni bir görüşme başlattı. Görmek için buraya tıklayın:"
-          outro: Decidimin tadını çıkarın!
           subject: "%{sender}, %{group} olarak yeni bir görüşme başlattı"
         new_group_message:
           admin_in_group: Bunu, %{group} grubunun yöneticisi olduğunuz için alıyorsunuz.
           greeting: Merhaba, %{recipient}!
           intro: "%{sender}, %{group} grubuyla bir görüşmede yeni mesajlar yayınladı. Görmek için buraya tıklayın:"
-          outro: Decidimin tadını çıkarın!
           subject: "%{group}, %{sender} adlı kişiden yeni mesajlar aldı"
         new_message:
           greeting: Merhaba %{recipient}!
           intro: "%{sender}, konuşmanıza yeni mesajlar gönderdi. Görmek için buraya tıklayın:"
-          outro: Decidimin tadını çıkar!
           subject: '%{sender}, size yeni mesaj gönderdi'
       conversations:
         add_conversation_users:
@@ -894,9 +786,6 @@ tr:
           add_users_placeholder: Arama...
           modal_title: Yeni görüşme
           no_results: Sonuç bulunamadı
-          participant_with_disabled_message_reception: Bu katılımcı mesaj alımını devre dışı bıraktı
-        create:
-          error: Konuşma başlamadı. Daha sonra tekrar deneyin
         error_modal:
           close: Pencereyi kapat
           correct_errors: Lütfen hataları düzeltip tekrar deneyin.
@@ -906,7 +795,6 @@ tr:
           ago: önce
           new_conversation: Yeni görüşme
           next: Sonraki
-          no_conversations: Henüz konuşma yok
           title: Konuşmalar
         show:
           back: Tüm görüşmelere dön
@@ -914,8 +802,6 @@ tr:
           title: '%{usernames} ile görüşme'
         start:
           send: Gönder
-        update:
-          error: Bir hata nedeniyle mesaj gönderilemedi
     metrics:
       download:
         csv: Veri indir (csv)
@@ -933,7 +819,6 @@ tr:
         title: Katılımcılar
     newsletter_mailer:
       newsletter:
-        note: Bu e-postayı, %{organization_name} bültenlere abone olduğunuz için aldınız. Eğer ayarlarınızı değiştirebilirsiniz <a href="%{link}">bildirimleri sayfa</a>.
         unsubscribe: Bu tür bir e-posta almayı iptal etmek için, <a href="%{link}" target="_blank" class="unsubscribe">Abonelikten Ayrıl</a>.
     newsletter_templates:
       basic_only_text:
@@ -956,16 +841,9 @@ tr:
         main_image: Ana resim
     newsletters:
       unsubscribe:
-        check_subscription: Tercihlerinizi değiştirmek isterseniz, bunu <a href="%{link}" target="_blank">Yapılandırma Sayfasında</a> yapabilirsiniz
-        error: Abonelik iptal edildiğinde bir hata oluştu
         success: Abonelikten başarıyla çıktınız.
         token_error: Bağlantının süresi doldu.
         unsubscribe: Abonelikten ayrıl
-    newsletters_opt_in:
-      unathorized: Üzgünüz, bu bağlantı artık mevcut değil
-      update:
-        error: Üzgünüm, bir şeyler ters gitti
-        success: Bülten ayarları başarıyla güncellendi
     newsletters_opt_in_mailer:
       notify:
         body_1: Kişisel verilerin işlenmesi ve korunması, hepimiz için giderek daha önemli hale gelmektedir. 25 Mayıs 2018 tarihli yeni Genel Veri Koruma Yönetmeliği (GDPR) ile bireyler kişisel verileri üzerinde daha iyi bir kontrole sahiptir. Bu nedenle, %{organization_name}faaliyetleri hakkında ilgili bilgileri göndermeye devam etmek için "OK" e ihtiyacımız var.
@@ -979,7 +857,6 @@ tr:
       no_notifications: Henüz bildirim yok.
     notifications_settings:
       show:
-        allow_public_contact: Takip etmesem bile herkesin bana doğrudan mesaj göndermesine izin ver.
         direct_messages: Herkesten doğrudan mesaj alın
         everything_followed: Takip ettiğim her şey
         newsletter_notifications: Bülten almak istiyorum
@@ -999,7 +876,6 @@ tr:
         verified: Doğrulanmış
     pad_iframe:
       disclaimer: B içerikler kayıtlı kullanıcılar tarafından yazılır ve görüşlerini ifade eder. %{organization}, içeriğinden sorumlu tutulamaz.
-      explanation: Toplantı sırasında notları ortaklaşa almak için bu alanı kullanın, böylece daha sonra yazmak kolay olur.
       pad: Tablet
     pages:
       home:
@@ -1034,32 +910,11 @@ tr:
         metrics:
           headline: Metrikler
           link: Bütün istatistikleri göster
-      terms_and_conditions:
-        accept:
-          error: Şartları ve koşulları kabul ederken bir hata oluştu.
-          success: Harika! Şartları ve koşulları kabul ettiniz.
-        form:
-          agreement: Bu koşulları kabul ediyorum
-          legend: Kullanım şartlarını ve koşullarını kabul et
-        refuse:
-          modal_btn_continue: Şartları kabul et ve devam et
-          modal_btn_exit: Daha sonra inceleyeceğim
-          modal_button: Şartları reddet
-          modal_close: Pencereyi kapat
-          modal_title: Güncellenmiş Şartlar ve Koşulları gerçekten reddediyor musunuz?
-        required_review:
-          alert: Hizmet Şartlarımızı güncellendi, lütfen inceleyin.
-          body: Hizmet Şartlarımıza ait güncellemeleri incelemek için lütfen biraz zaman ayırın. Aksi halde platformu kullanamazsınız.
-          title: 'Gerekli: Hizmet şartlarımızı güncellemeleri inceleyin'
     participatory_space_private_users:
       not_allowed: Bu içeriği görüntüleme izniniz bulunmuyor
     profile:
-      deleted: Katılımcı silindi
-      inaccessible_message: Bu profile, Şartlar ve Koşullar ihlali nedeniyle erişilemez!
       view: Görünüm
     profiles:
-      default_officialization_text_for_user_groups: Bu grup herkese açık olarak doğrulandı, adının gerçek adıyla eşleştiği doğrulandı
-      default_officialization_text_for_users: Bu katılımcı herkese açık olarak doğrulandı, adı veya rolü gerçek adı ve rolüyle eşleşecek şekilde doğrulandı
       show:
         activity: Aktivite
         badges: Rozetler
@@ -1075,11 +930,9 @@ tr:
           info: Rozetler, platformda belirli etkinlikler gerçekleştirilerek kazanılır.
           title: Rozetler
       user:
-        confirmation_instructions_sent: E-posta doğrulama talimatları gönderildi
         create_user_group: Grup oluştur
         edit_profile: Profili Düzenle
         edit_user_group: Grup profilini düzenle
-        fill_in_email_to_confirm_it: Lütfen onaylamak için grubunuzun e-posta adresini doldurun
         invite_user: Katılımcı davet et
         join_user_group: Gruba katılma isteği
         leave_user_group: Gruptan ayrıl
@@ -1171,7 +1024,6 @@ tr:
         already_reported: Bu içerik zaten bildirilmiştir ve bir yönetici tarafından incelenecektir.
         close: Kapat
         description: Bu içerik uygunsuz mu?
-        does_not_belong: Yasadışı etkinlik, intihar tehditleri, kişisel bilgiler veya %{organization_name}ait olmadığını düşündüğünüz başka bir şey içeriyor.
         offensive: Irkçılığı, cinsiyetçiliği, sarsıntıları, kişisel saldırıları, ölüm tehditlerini, intihar isteklerini veya herhangi bir nefret söylemini içerir.
         report: Rapor
         spam: Tıklama, reklam, dolandırıcılık veya komut dosyası botları içerir.
@@ -1180,7 +1032,6 @@ tr:
         already_reported: Bu içerik zaten bildirildi ve bir yönetici tarafından incelenecek.
         close: Kapat
         description: Kullanıcı hakkında uygunsuz olan nedir?
-        does_not_belong: Yasadışı faaliyet, intihar tehditleri, kişisel bilgiler veya %{organization_name} kuruluşuna ait olmadığını düşündüğünüz başka bir şey içeriyor.
         offensive: Irkçılık, cinsiyetçilik, hakaretler, kişisel saldırılar, ölüm tehditleri, intihar talepleri veya her türlü nefret söylemi içerir.
         report: Bildir
         spam: Tıklama tuzağı, reklam, dolandırıcılık veya komut dosyası botları içerir.
@@ -1219,13 +1070,9 @@ tr:
       help_text: "<strong> Uyarı: </strong> İçerik otomatik olarak çevrilebilir ve %100 doğru olmayabilir."
       show_original: Orijinal metni göster
       show_translated: Otomatik olarak çevrilmiş metni göster
-    user_activity:
-      index:
-        no_activities_warning: Bu kullanıcının henüz herhangi bir etkinliği olmadı.
     user_contact_disabled: Bu katılımcı doğrudan mesajları kabul etmiyor.
     user_conversations:
       create:
-        error: Mesaj oluşturulamadı. Daha sonra tekrar deneyin
         existing_error: Mesaj oluşturulamadı. Konuşma zaten mevcut, lütfen şimdi tekrar deneyin.
         success: Görüşme başarıyla başladı!
       index:
@@ -1240,7 +1087,6 @@ tr:
         next: Sonraki
         no_conversations_warning: Henüz bir görüşme yok.
         no_results: Sonuç bulunamadı
-        participant_with_disabled_message_reception: Bu katılımcı mesaj alımını devre dışı bıraktı
         time_ago: "%{time} önce"
       new:
         title: Bir görüşme başlatın
@@ -1256,8 +1102,6 @@ tr:
     user_interests:
       show:
         my_interests: İlgi alanlarım
-        no_scopes: Bu organizasyonun henüz bir kapsamı yok!
-        select_your_interests: Profil Zaman Çizelgesi sekmesinde kendileriyle ilgili etkinlikleri almak için ilgilendiğiniz konuları seçin.
         update_my_interests: İlgi alanlarımı güncelle
       update:
         error: İlgi alanlarınız güncellenirken bir hata oluştu.
@@ -1297,7 +1141,6 @@ tr:
       show:
         version_index: Sürüm %{index}
     welcome_notification:
-      default_body: <p>Merhaba {{name}}, {{organization}} katıldığınız için teşekkürler ve hoş geldiniz!</p><ul><li>Burada neler yapabileceğiniz hakkında hızlı bir fikir edinmek istiyorsanız, <a href="{{help_url}}">Yardım</a> bölümüne bakın.</li><li>Okuduktan sonra ilk rozetinizi alacaksınız. İşte bu <a href="{{badges_url}}">tüm rozetlerle listesi</a> size katılmak olarak alabilirsiniz {{organization}}</li><li>onlarla Son ama en az, diğer insanları birleştirmek, paylaşmak yapan ve katılan olma deneyimi {{organization}}. Öneriler, yorumlar, tartışmalar yapın, ortak iyiliğe nasıl katkıda bulunacağınızı düşünün, ikna edeceğiniz argümanlar sunun, ikna olun, ikna olun, fikirlerinizi somut ve doğrudan bir şekilde ifade edin, sabır ve kararla karşılık verin, fikirlerinizi savunun ve saklayın. İşbirliği yapmak ve diğer insanların fikirlerine katılmak için açık bir zihin.</li></ul>
       default_subject: '{{organization}}katıldığınız için teşekkürler!'
     wizard_step_form:
       wizard_aside:
@@ -1344,40 +1187,25 @@ tr:
         subject: Onaylama talimatları
       email_changed:
         greeting: Merhaba %{recipient}!
-        message: E-postanızın %{email}olarak değiştirildiğini bildirmek için sizinle iletişim kurarız.
         subject: E-posta Değişti
       invitation_instructions:
         accept: Daveti kabul etmek
         accept_until: Bu davetiye %{due_date}.
         decline: Davet reddet
         hello: Merhaba %{email}
-        ignore: |-
-          Davetiyeyi kabul etmek istemiyorsanız, lütfen bu e-postayı yoksayın.<br />
-          Yukarıdaki bağlantıya erişip takma adınızı ve şifrenizi ayarlayana kadar hesabınız oluşturulmaz.
         invited_you_as_admin: "%{invited_by} sizi %{application}yönetici olarak davet etti. Aşağıdaki bağlantıdan kabul edebilirsiniz."
         invited_you_as_private_user: "%{invited_by} özel bir kullanıcı olarak davet etti %{application}. Aşağıdaki bağlantıdan kabul edebilirsiniz."
         someone_invited_you: Birisi sizi %{application}davet etti. Aşağıdaki bağlantıdan kabul edebilirsiniz.
         someone_invited_you_as_admin: Birisi sizi %{application}yönetici olarak davet etti, aşağıdaki bağlantıdan kabul edebilirsiniz.
         someone_invited_you_as_private_user: Birisi sizi %{application}private_user olarak davet etti, aşağıdaki bağlantıdan kabul edebilirsiniz.
         subject: Davet talimatları
-      invite_admin:
-        subject: '%{organization}yönetmeye davet edildiniz'
-      invite_collaborator:
-        subject: '%{organization}ortak çalışmaya davet edildiniz'
-      invite_private_user:
-        subject: '%{organization}özel bir katılımcı sürecine davet edildiniz'
-      organization_admin_invitation_instructions:
-        subject: '%{organization}yönetmeye davet edildiniz'
       password_change:
         greeting: Merhaba %{recipient}!
-        message: Şifrenizin değiştirildiğini size bildirmek için sizinle iletişim kuruyoruz.
         subject: şifre değişti
       reset_password_instructions:
         action: Şifremi Değiştir
         greeting: Merhaba %{recipient}!
         instruction: Birisi şifrenizi değiştirmek için bir bağlantı istedi ve bunu aşağıdaki bağlantıdan yapabilirsiniz.
-        instruction_2: Bunu istemediyseniz, lütfen bu e-postayı yoksayın.
-        instruction_3: Yukarıdaki bağlantıya erişip yeni bir tane oluşturana kadar şifreniz değişmeyecek.
         subject: Şifre talimatlarını sıfırla
       unlock_instructions:
         action: Hesabımın kilidini aç
@@ -1397,7 +1225,6 @@ tr:
       new:
         forgot_your_password: Parolanızı mı unuttunuz?
         send_me_reset_password_instructions: Bana şifre sıfırlama talimatlarını gönder
-      no_token: Şifre sıfırlama e-postasından gelmeden bu sayfaya erişemezsiniz. Şifre sıfırlama e-postasından geliyorsanız, lütfen sağlanan URL’yi kullandığınızdan emin olun.
       send_instructions: Birkaç dakika içinde şifrenizi nasıl sıfırlayacağınızla ilgili talimatları içeren bir e-posta alacaksınız.
       send_paranoid_instructions: E-posta adresiniz veritabanımızda bulunuyorsa, birkaç dakika içinde e-posta adresinizde bir şifre kurtarma bağlantısı alacaksınız.
       updated: Şifreniz başarıyla değiştirildi. Şimdi oturum açtınız.
@@ -1421,8 +1248,6 @@ tr:
     shared:
       links:
         back: Geri
-        didn_t_receive_confirmation_instructions: Onaylama talimatları almadı mı?
-        didn_t_receive_unlock_instructions: Kilit açma talimatları almadı mı?
         forgot_your_password: Parolanızı mı unuttunuz?
         sign_in: Oturum aç
         sign_in_with_provider: '%{provider}ile giriş yap'
@@ -1444,13 +1269,11 @@ tr:
       already_confirmed: zaten onaylandı, lütfen giriş yapmayı deneyin
       confirmation_period_expired: '%{period}içinde onaylanması gerekiyor, lütfen yeni bir tane isteyin'
       content_type_allowlist_error: dosya türü geçerli değil
-      cycle_detected: bir kapsamın ebeveyni torunlarından biri olamaz
       expired: süresi doldu, lütfen yeni bir tane isteyin
       file_size_is_less_than_or_equal_to: dosya boyutu %{count}eşit veya daha küçük olmalıdır
       invalid_time_zone: geçerli bir zaman değil
       long_words: çok uzun kelimeler içeriyor (35 karakterden fazla)
       must_start_with_caps: büyük harfle başlamalıdır
-      nesting_too_deep: bir alt kategorinin içinde olamaz
       not_found: bulunamadı. Daha önce üye oldunuz mu?
       not_locked: kilitli değildi
       not_saved:

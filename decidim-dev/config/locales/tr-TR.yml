@@ -44,7 +44,6 @@ tr:
           description_own: '%{score} test oluşturdunuz.'
           name: Testler
           next_level_in: Bir sonraki seviyeye ulaşmak için %{score} test daha oluştur!
-          unearned_another: Bu katılımcı henüz bir test oluşturmadı.
           unearned_own: Henüz bir test oluşturmadınız.
     resource_links:
       test_link:

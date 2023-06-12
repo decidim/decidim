@@ -72,7 +72,7 @@ module Decidim
             budget:,
             scope: scope1,
             title: Decidim::Faker::Localized.name,
-            description: Decidim::Faker::Localized.prefixed("Chewie, I'll be waiting for your signal. Take care, you two. May the Force be with you. Ow!", test_locales)
+            description: Decidim::Faker::Localized.prefixed("Chewie, I will be waiting for your signal. Take care, you two. May the Force be with you. Ow!", test_locales)
           )
         end
 

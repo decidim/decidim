@@ -25,13 +25,15 @@ describe "Polling Officer zone", type: :system do
 
     expect(page).to have_content("Polling Officer zone")
 
-    click_link "Polling Officer zone"
+    within "#dropdown-menu" do
+      click_link "Polling Officer zone"
+    end
   end
 
   shared_examples "a polling officer registers an in person vote" do
     include_context "with test bulletin board"
 
-    let(:questions_title) { "They're entitled to vote in the following questions:" }
+    let(:questions_title) { "They are entitled to vote in the following questions:" }
     let(:census_verified) { "This participant has not voted in person yet." }
 
     it "can identify a person and register their vote", :slow do
