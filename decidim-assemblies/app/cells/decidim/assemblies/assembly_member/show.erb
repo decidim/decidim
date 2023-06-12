@@ -1,51 +1,36 @@
-<div class="card--member">
-  <div class="card__content">
-    <div class="card__header">
-      <div class="author-data author-data--big">
-        <div class="author-data__main">
-          <div class="author author--flex">
-            <% if has_profile? %>
-              <%= link_to profile_url, class: "author__avatar" do %>
-                <%= image_tag model.avatar_url(:big), alt: "member-avatar" %>
-              <% end %>
-              <div>
-                <div class="author__name--container">
-                  <%= link_to profile_url, class: "author__name" do %>
-                    <%= name %>
-                  <% end %>
-                </div>
-                <% if nickname.present? %>
-                  <%= link_to profile_url, class: "author__nickname" do %>
-                    <%= nickname %>
-                  <% end %>
-                <% else %>
-                  <div class="author__nickname">&nbsp;</div>
-                <% end %>
-              </div>
-            <% else %>
-              <div class="author__avatar"><%= image_tag model.non_user_avatar_path, alt: "member-avatar" %></div>
-              <div>
-                <div class="author__name--container">
-                  <div class="author__name">
-                    <%= name %>
-                  </div>
-                </div>
-                <div class="author__nickname"><%= nickname.presence || "&nbsp;" %></div>
-              </div>
-            <% end %>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="card__text card--picture-offset">
-      <div>
-        <small><strong><%= position %></strong></small>
-      </div>
-      <div class="text-small">
-        <%= t("decidim.assembly_members.assembly_member.designated_on") %>
-        <strong> <%= l designation_date, format: :decidim_short %></strong>
-      </div>
-      <div class="text-small mt-s"><%= personal_information %></div>
+<div class="profile__user">
+  <div class="profile__user-avatar-container">
+    <div class="profile__user-avatar">
+      <% if has_profile? %>
+        <%= link_to profile_url, class: "author__avatar" do %>
+          <%= image_tag model.avatar_url(:big), alt: "member-avatar" %>
+        <% end %>
+      <% else %>
+        <div class="author__avatar"><%= image_tag model.non_user_avatar_path, alt: "member-avatar" %></div>
+      <% end %>
     </div>
   </div>
+  <div class="space-y-1">
+    <h5 class="profile__user-name">
+      <%= name %>
+    </h5>
+    <% if nickname.present? %>
+      <span class="profile__user-nick">
+        <%= nickname %>
+      </span>
+    <% end %>
+    <span class="profile__user-nick">
+      <%= position %>
+    </span>
+    <span class="profile__user-nick block">
+      <%= t("decidim.assembly_members.assembly_member.designated_on") %>
+      <strong>
+        <%= l designation_date, format: :decidim_short %>
+      </strong>
+    </span>
+    <span class="profile__user-nick">
+      <%= personal_information %>
+    </span>
+  </div>
 </div>
+
