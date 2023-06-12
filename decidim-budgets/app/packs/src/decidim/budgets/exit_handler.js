@@ -52,6 +52,7 @@ $(() => {
   const $exitLink = $("#exit-notification-link");
   const defaultExitUrl = $exitLink.attr("href");
   const defaultExitLinkText = $exitLink.text();
+  const signOutPath = window.Decidim.config.get("sign_out_path");
   let exitLinkText = defaultExitLinkText;
 
   if ($exitNotification.length < 1) {
@@ -84,7 +85,7 @@ $(() => {
   // logout form submit and so that it changes the exit link text. This does
   // not trigger the document link click listener because it has the
   // data-method attribute to trigger a form submit event.
-  $("[href='/users/sign_out']").on("click", (event) => {
+  $(`[href='${signOutPath}']`).on("click", (event) => {
     event.preventDefault();
     event.stopPropagation();
 
