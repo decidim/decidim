@@ -654,7 +654,8 @@ FactoryBot.define do
 
     organization { user.organization }
     user
-    participatory_space { resource.try(:participatory_space) || resource.try(:component).try(:participatory_space) }
+    participatory_space { build :participatory_process, organization: }
+    component { build(:component, participatory_space:) }
     resource { build(:dummy_resource, component:) }
     action { "create" }
     visibility { "admin-only" }
@@ -677,6 +678,11 @@ FactoryBot.define do
           nickname: user.try(:nickname)
         }.compact
       }.deep_merge(extra_data)
+    end
+    after(:build) do |action_log, evaluator|
+      if action_log.participatory_space != action_log.try(:resource).try(:participatory_space)
+        action_log.participatory_space = action_log.try(:resource).try(:participatory_space)
+      end
     end
   end
 
