@@ -1,11 +1,11 @@
 <section id="sub_hero" class="home__section">
-  <p class="text-xl text-gray-2 mb-4">
+  <div class="editor-content text-center">
     <%= organization_description %>
-  </p>
-  <% unless current_user %>
-    <%= link_to decidim.new_user_registration_path, class: "button button__sm md:button__lg button__secondary", title: t("decidim.pages.home.sub_hero.register_title") do %>
-      <%= t("decidim.pages.home.sub_hero.register") %>
-      <%= icon "arrow-right-line", class: "fill-current" %>
+    <% unless current_user %>
+      <%= link_to decidim.new_user_registration_path, class: "button button__sm md:button__lg button__secondary", title: t("decidim.pages.home.sub_hero.register_title") do %>
+        <%= t("decidim.pages.home.sub_hero.register") %>
+        <%= icon "arrow-right-line", class: "fill-current" %>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
 </section>
