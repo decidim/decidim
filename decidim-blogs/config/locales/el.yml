@@ -68,6 +68,7 @@ el:
           comment: Σχόλιο
           create: Δημιουργία
           destroy: Διαγραφή
+          endorse: Επιδοκιμασία
           update: Ενημέρωση
         name: Ιστολόγιο
         settings:
