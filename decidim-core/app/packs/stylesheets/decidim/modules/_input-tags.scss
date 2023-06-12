@@ -1,5 +1,3 @@
-@import "bootstrap-tagsinput/src/bootstrap-tagsinput";
-
 $tag-padding: 0.25rem;
 $tag-margin: 0.2rem;
 
@@ -16,43 +14,5 @@ $tag-margin: 0.2rem;
 
   span {
     color: $secondary;
-  }
-}
-
-// Override defaults
-.bootstrap-tagsinput {
-  // Use foundation precalculated methods to get accurate form css properties
-  $height: ($input-font-size * unitless-calc($input-line-height)) +
-    (get-side($input-padding, "top") + get-side($input-padding, "bottom"));
-  $tag-line-height: rem-calc(22);
-  $span-height: ($input-font-size * unitless-calc($tag-line-height)) +
-    (get-side($tag-padding, "top") + get-side($tag-padding, "bottom")) -
-    rem-calc(1);
-
-  width: 100%;
-  border: $border;
-  min-height: $height;
-  padding-bottom: $tag-margin * 0.25;
-
-  &.focus {
-    outline: none;
-    border: $input-border-focus;
-    background-color: $input-background-focus;
-    box-shadow: $input-shadow-focus;
-
-    @if has-value($input-transition) {
-      transition: $input-transition;
-    }
-  }
-
-  input {
-    height: $span-height;
-    display: inline-block;
-  }
-
-  .tag {
-    color: inherit;
-    margin-right: 0; // fix whitespace
-    margin-bottom: $tag-margin;
   }
 }

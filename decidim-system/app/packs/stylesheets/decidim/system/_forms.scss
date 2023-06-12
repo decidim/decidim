@@ -1,5 +1,3 @@
-@import "bootstrap-tagsinput/src/bootstrap-tagsinput";
-
 $tag-padding: 0.25rem;
 $tag-margin: 0.2rem;
 
@@ -13,27 +11,4 @@ $tag-margin: 0.2rem;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-}
-
-// Override defaults
-.bootstrap-tagsinput {
-  margin-bottom: $form-spacing;
-
-  // Use foundation precalculated methods to get accurate form css properties
-  $height: ($input-font-size * unitless-calc($input-line-height)) +
-    (get-side($input-padding, "top") + get-side($input-padding, "bottom"));
-  $tag-line-height: rem-calc(22);
-  $span-height: ($input-font-size * unitless-calc($tag-line-height)) +
-    (get-side($tag-padding, "top") + get-side($tag-padding, "bottom")) -
-    rem-calc(1);
-
-  width: 100%;
-  min-height: $height;
-  padding-bottom: $tag-margin * 0.25;
-
-  .tag {
-    color: inherit;
-    margin-right: 0; // fix whitespace
-    margin-bottom: $tag-margin;
-  }
 }
