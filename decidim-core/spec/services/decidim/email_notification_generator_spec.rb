@@ -14,7 +14,7 @@ describe Decidim::EmailNotificationGenerator do
   let(:affected_users) { [recipient] }
   let(:follower) { create(:user) }
   let(:followers) { [follower] }
-  let(:extra) { double }
+  let(:extra) { {} }
 
   describe "generate" do
     context "when the event_class supports emails" do
@@ -39,25 +39,61 @@ describe Decidim::EmailNotificationGenerator do
       end
 
       context "when the user wants emails for notifications" do
-        before do
-          recipient.update!(notifications_sending_frequency: "real_time")
-          follower.update!(notifications_sending_frequency: "real_time")
+        context "and has the real_time notifications' sending frequency" do
+          before do
+            recipient.update!(notifications_sending_frequency: "real_time")
+            follower.update!(notifications_sending_frequency: "real_time")
+          end
+
+          it "schedules a job for each recipient" do
+            allow(Decidim::NotificationMailer)
+              .to receive(:event_received)
+              .with(event, event_class_name, resource, recipient, :affected_user.to_s, extra)
+              .and_return(mailer)
+
+            allow(Decidim::NotificationMailer)
+              .to receive(:event_received)
+              .with(event, event_class_name, resource, follower, :follower.to_s, extra)
+              .and_return(mailer)
+
+            expect(mailer).to receive(:deliver_later)
+
+            subject.generate
+          end
         end
 
-        it "schedules a job for each recipient" do
-          allow(Decidim::NotificationMailer)
-            .to receive(:event_received)
-            .with(event, event_class_name, resource, recipient, :affected_user.to_s, extra)
-            .and_return(mailer)
+        context "and has the digest notifications' sending frequency" do
+          before do
+            recipient.update!(notifications_sending_frequency: "digest")
+            follower.update!(notifications_sending_frequency: "digest")
+          end
 
-          allow(Decidim::NotificationMailer)
-            .to receive(:event_received)
-            .with(event, event_class_name, resource, follower, :follower.to_s, extra)
-            .and_return(mailer)
+          it "does not schedule a job for that recipient" do
+            expect(Decidim::NotificationMailer)
+              .not_to receive(:event_received)
 
-          expect(mailer).to receive(:deliver_later)
+            subject.generate
+          end
 
-          subject.generate
+          context "and the extra force_email is enabled" do
+            let(:extra) { { force_email: true } }
+
+            it "schedules a job for each recipient" do
+              allow(Decidim::NotificationMailer)
+                .to receive(:event_received)
+                .with(event, event_class_name, resource, recipient, :affected_user.to_s, extra)
+                .and_return(mailer)
+
+              allow(Decidim::NotificationMailer)
+                .to receive(:event_received)
+                .with(event, event_class_name, resource, follower, :follower.to_s, extra)
+                .and_return(mailer)
+
+              expect(mailer).to receive(:deliver_later)
+
+              subject.generate
+            end
+          end
         end
       end
 
