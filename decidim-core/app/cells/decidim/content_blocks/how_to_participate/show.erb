@@ -3,29 +3,38 @@
     <%= t("decidim.pages.home.extended.how_to_participate") %>
   </h2>
   <div class="home__section-participate-grid">
-    <div>
-      <h3 class="home__section-participate-grid__title">
-        <%= t("decidim.pages.home.extended.meetings") %>
-      </h3>
-      <p class="home__section-participate-grid__text">
-        <%= t("decidim.pages.home.extended.meetings_explanation") %>
-      </p>
+    <div class="home__section-participate-grid__block">
+      <%= icon "map-pin-line", class: "home__section-participate-grid__icon " %>
+      <div>
+        <h3 class="home__section-participate-grid__title">
+          <%= t("decidim.pages.home.extended.meetings") %>
+        </h3>
+        <p class="home__section-participate-grid__text">
+          <%= t("decidim.pages.home.extended.meetings_explanation") %>
+        </p>
+      </div>
     </div>
-    <div>
-      <h3 class="home__section-participate-grid__title">
-        <%= t("decidim.pages.home.extended.debates") %>
-      </h3>
-      <p class="home__section-participate-grid__text">
-        <%= t("decidim.pages.home.extended.debates_explanation") %>
-      </p>
+    <div class="home__section-participate-grid__block">
+      <%= icon "chat-1-line", class: "home__section-participate-grid__icon " %>
+      <div>
+        <h3 class="home__section-participate-grid__title">
+          <%= t("decidim.pages.home.extended.debates") %>
+        </h3>
+        <p class="home__section-participate-grid__text">
+          <%= t("decidim.pages.home.extended.debates_explanation") %>
+        </p>
+      </div>
     </div>
-    <div>
-      <h3 class="home__section-participate-grid__title">
-        <%= t("decidim.pages.home.extended.proposals") %>
-      </h3>
-      <p class="home__section-participate-grid__text">
-        <%= t("decidim.pages.home.extended.proposals_explanation") %>
-      </p>
+    <div class="home__section-participate-grid__block">
+      <%= icon "file-3-line", class: "home__section-participate-grid__icon " %>
+      <div>
+        <h3 class="home__section-participate-grid__title">
+          <%= t("decidim.pages.home.extended.proposals") %>
+        </h3>
+        <p class="home__section-participate-grid__text">
+          <%= t("decidim.pages.home.extended.proposals_explanation") %>
+        </p>
+      </div>
     </div>
   </div>
   <%= link_to decidim.pages_path, class: "button button__sm md:button__lg button__secondary mt-6" do %>
