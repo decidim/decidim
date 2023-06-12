@@ -7,7 +7,9 @@ module Decidim
     end
 
     def categories
-      @categories ||= Decidim.consent_categories.map do |category|
+      @categories ||= Decidim.consent_categories
+                             .select { |category| category.has_key?(:items) }
+                             .map do |category|
         {
           slug: category[:slug],
           title: t("layouts.decidim.data_consent.modal.#{category[:slug]}.title"),
