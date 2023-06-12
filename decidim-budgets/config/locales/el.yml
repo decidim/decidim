@@ -167,6 +167,9 @@ el:
         highlighted_cta: Ψηφίστε για %{name}
         if_change_opinion: Αν αλλάξατε γνώμη, μπορείτε να
         my_budgets: Οι προϋπολογισμοί μου
+        progress: Ολοκλήρωση ψηφοφορίας
+        show: Δείτε τα έργα
+        vote: Ψήφος
         voted_on: Έχετε ψηφίσει για %{links}
       limit_announcement:
         cant_vote: Δεν μπορείτε να ψηφίσετε αυτόν τον προϋπολογισμό. <a href="%{landing_path}">Δοκιμάστε έναν άλλο προϋπολογισμό</a>.
@@ -179,6 +182,9 @@ el:
             total_budget: Συνολικός προϋπολογισμός
         project:
           fields:
+            category: Κατηγορία
+            id: ID
+            scope: Πεδίο εφαρμογής
             title: Τίτλος
       order_summary_mailer:
         order_summary:
@@ -199,6 +205,7 @@ el:
           close: Κλείσιμο
           ok: OK
           projects_excess:
+            description: Το έργο αυτό υπερβαίνει τον μέγιστο αριθμό έργων και δεν μπορεί να προστεθεί. Εάν θέλετε, μπορείτε να διαγράψετε ένα έργο που έχετε ήδη επιλέξει, για να μπορείτε να ψηφίσετε σύμφωνα με τις προτιμήσεις σας.
             title: Υπέρβαση των μέγιστων έργων
         budget_summary:
           are_you_sure: Είστε βέβαιοι ότι θέλετε να ακυρώσετε την ψήφο σας;
@@ -228,6 +235,12 @@ el:
           projects_count:
             one: 1 έργο
             other: "%{count} έργα"
+        exit_modal:
+          cancel: Επιστροφή στην ψηφοφορία
+          close_modal: Κλείσιμο παραθύρου διαλόγου
+          exit: Έξοδος από την ψηφοφορία
+          message: Η ψήφος σας δεν έχει εγγραφεί επειδή δεν έχετε ολοκληρώσει ακόμα τη διαδικασία ψηφοφορίας. Είστε σίγουροι ότι θέλετε να βγείτε από την ψηφοφορία;
+          title: Δεν έχετε ψηφίσει ακόμα
         filters:
           category: Κατηγορία
           scope: Πεδίο εφαρμογής
@@ -242,6 +255,8 @@ el:
           filter: Φίλτρο
           filter_by: Φιλτράρισμα κατά
           unfold: Αποκάλυψη
+        index:
+          view_project: Προβολή έργου
         order_progress:
           vote: Ψηφοφορία
         order_selected_projects:
@@ -265,6 +280,7 @@ el:
           votes:
             one: ψήφος
             other: ψήφοι
+          you_voted: Ψηφίσατε για αυτό
         project_budget_button:
           add: Προσθέστε στην ψήφο σας
           add_descriptive: Προσθήκη του έργου %{resource_name} στην ψήφο σας
@@ -274,6 +290,15 @@ el:
         show:
           budget: Προϋπολογισμός
           view_all_projects: Προβολή όλων των έργων
+      vote_reminder_mailer:
+        vote_reminder:
+          email_budgets: 'Περιοχές όπου έχετε μια ημιτελή ψηφοφορία:'
+          email_intro: Ξεκινήσατε την ψηφοφορία για τον συμμετοχικό προϋπολογισμό, αλλά δεν την ολοκληρώσατε.
+          email_link: Πηγαίνετε να συνεχίσετε την ψηφοφορία
+          email_outro: Παρακαλώ θυμηθείτε να ολοκληρώσετε την ψηφοφορία. Για να ψηφίσετε, πρέπει πρώτα να επιλέξετε την πρόταση ή τις προτάσεις που θέλετε να ψηφίσετε και στη συνέχεια να επιβεβαιώσετε την ψήφο σας με το κουμπί "Ψήφος".
+          email_subject:
+            one: Έχετε μια ημιτελή ψήφο στην ψηφοφορία για τον συμμετοχικό προϋπολογισμό
+            other: Έχετε ημιτελείς ψήφους στην ψηφοφορία για τον συμμετοχικό προϋπολογισμό
     components:
       budgets:
         actions:
@@ -289,6 +314,7 @@ el:
               errors:
                 budget_voting_rule_only_one: Μόνο ένας κανόνας ψηφοφορίας πρέπει να είναι ενεργοποιημένος
                 budget_voting_rule_required: Απαιτείται ένας κανόνας ψηφοφορίας
+            geocoding_enabled: Γεωκωδικοποίηση ενεργοποιημένη
             landing_page_content: Σελίδα προορισμού προϋπολογισμών
             more_information_modal: Παράθυρο για περισσότερες πληροφορίες
             projects_per_page: Έργα ανά σελίδα
@@ -299,6 +325,7 @@ el:
             total_budget: Συνολικός προϋπολογισμός
             vote_minimum_budget_projects_number: Ελάχιστος αριθμός έργων προς ψηφοφορία
             vote_rule_minimum_budget_projects_enabled: 'Ενεργοποίηση κανόνα: Ελάχιστος αριθμός έργων προς ψηφοφορία'
+            vote_rule_selected_projects_enabled: 'Ενεργοποίηση κανόνα: Ελάχιστος και μέγιστος αριθμός έργων που θα ψηφιστούν'
             vote_rule_threshold_percent_enabled: 'Ενεργοποίηση κανόνα: Ελάχιστο ποσοστό προϋπολογισμού'
             vote_selected_projects_maximum: Μέγιστο ποσό έργων προς επιλογή
             vote_selected_projects_minimum: Ελάχιστος αριθμός έργων προς επιλογή
