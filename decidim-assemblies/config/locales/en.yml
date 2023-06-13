@@ -248,6 +248,7 @@ en:
       titles:
         assemblies: Assemblies
         assemblies_types: Assemblies types
+        assemblies_setting: Assemblies settings
     admin_log:
       assembly:
         create: "%{user_name} created the %{resource_name} assembly"
