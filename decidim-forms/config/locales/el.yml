@@ -86,12 +86,15 @@ el:
             expand: Ανάπτυξη όλων των ερωτήσεων
             preview: Προεπισκόπηση
             title: Επεξεργασία φόρμας για %{questionnaire_for}
+            unpublished_warning: Η φόρμα δεν έχει δημοσιευτεί. Μπορείτε να τροποποιήσετε τις ερωτήσεις της, αλλά με αυτόν τον τρόπο θα διαγράψετε τις τρέχουσες απαντήσεις.
           matrix_row:
             matrix_row: Γραμμή
             remove: Κατάργηση
             statement: Δήλωση
           question:
             add_answer_option: Προσθήκη επιλογής απάντησης
+            add_display_condition: Προσθήκη συνθήκης εμφάνισης
+            add_display_condition_info: Αποθηκεύστε τη φόρμα για να ρυθμίσετε τις συνθήκες εμφάνισης
             add_matrix_row: Προσθήκη γραμμής
             any: Οποιαδήποτε
             collapse: Σύμπτυξη
@@ -107,8 +110,21 @@ el:
             remove: Κατάργηση
             separator: Διαχωριστικό
             up: Επάνω
+          title_and_description:
+            collapse: Σύμπτυξη
+            description: Περιγραφή
+            down: Κάτω
+            expand: Ανάπτυξη
+            remove: Αφαίρεση
+            title: Τίτλος
+            title_and_description: Τίτλος και περιγραφή
+            up: Πάνω
           update:
             invalid: Υπήρξε ένα πρόβλημα κατά την αποθήκευση της φόρμας.
+            success: Η φόρμα αποθηκεύτηκε επιτυχώς.
+      admin_log:
+        questionnaire:
+          update: "Ο/Η %{user_name} ενημέρωσε το %{resource_name} ερωτηματολόγιο"
       errors:
         answer:
           body: Το σώμα δεν μπορεί να είναι κενό
