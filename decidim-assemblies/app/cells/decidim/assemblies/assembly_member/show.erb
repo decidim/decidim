@@ -16,10 +16,10 @@
     <% if has_profile? %>
       <h5 class="profile__user-name">
         <%= name %>
+        <span class="capitalize profile__user-role">
+          <%= position %>
+        </span>
       </h5>
-      <span class="capitalize mt-2 profile__user-role">
-        <%= position %>
-      </span>
       <% if nickname.present? %>
         <span class="profile__user-nick block">
           <%= nickname %>
@@ -28,10 +28,10 @@
     <% else %>
       <div class="profile__user-nick">
         <%= nickname.presence || "&nbsp;" %>
+        <span class="capitalize profile__user-role">
+          <%= position %>
+        </span>
       </div>
-      <span class="capitalize mt-2 profile__user-role">
-        <%= position %>
-      </span>
     <% end %>
     <div class="profile__user-nick">
       <span class="normal-case">
