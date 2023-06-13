@@ -4,15 +4,26 @@ require "spec_helper"
 
 describe "Data consent within organization", type: :system do
   let(:organization) { create(:organization) }
-  let(:cookie) { page.driver.browser.manage.cookie_named(Decidim.consent_cookie_name) }
+  let(:cookie) do
+    if Capybara.current_driver == :cuprite
+      page.driver.cookies[Decidim.consent_cookie_name]
+    else
+      page.driver.browser.manage.cookie_named(Decidim.consent_cookie_name)
+    end
+  end
 
   before do
-    page.driver.browser.execute_cdp(
-      "Network.deleteCookies",
-      domain: ".#{organization.host}",
-      name: Decidim.consent_cookie_name,
-      path: "/"
-    )
+    if Capybara.current_driver == :cuprite
+      page.driver.clear_cookies
+    else
+
+      page.driver.browser.execute_cdp(
+        "Network.deleteCookies",
+        domain: ".#{organization.host}",
+        name: Decidim.consent_cookie_name,
+        path: "/"
+      )
+    end
 
     switch_to_host(organization.host)
     visit decidim.root_path

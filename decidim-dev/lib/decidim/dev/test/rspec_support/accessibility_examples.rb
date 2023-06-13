@@ -100,7 +100,11 @@ module AxeMatchers
       JS
       page = page.driver if page.respond_to?("driver")
       page = page.browser if page.respond_to?("browser") && !page.browser.is_a?(::Symbol)
-      page.execute_async_script(script)
+      if Capybara.current_driver == :cuprite
+        page.evaluate_async(script, 10)
+      else
+        page.execute_async_script(script)
+      end
     end
 
     def load_axe(page)

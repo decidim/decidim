@@ -3,7 +3,6 @@
 require "selenium-webdriver"
 require "capybara/cuprite"
 
-
 module Decidim
   # Helpers meant to be used only during capybara test runs.
   module CapybaraTestHelpers
@@ -44,15 +43,15 @@ end
 Capybara.javascript_driver = :cuprite
 Capybara.register_driver :cuprite do |app|
   options = {
-    window_size: [1920,1080],
+    window_size: [1920, 1080],
     headless: true,
     timeout: 60,
     process_timeout: 60,
     js_errors: true,
     browser_options: {
-      "ignore-certificate-errors" => ENV["TEST_SSL"],
-      'no-sandbox': nil,
-    },
+      "ignore-certificate-errors" => ENV.fetch("TEST_SSL", nil),
+      "no-sandbox": nil
+    }
   }
   Capybara::Cuprite::Driver.new(app, options)
 end
@@ -143,7 +142,7 @@ RSpec.configure do |config|
       # Javascript sets the cookie also for all subdomains but localhost is a
       # special case.
       domain = ".#{domain}" unless domain == "localhost"
-      cookie_options = { domain: , path: "/", expires: 1.day.from_now.to_i, same_site: "Lax" }
+      cookie_options = { domain:, path: "/", expires: 1.day.from_now.to_i, same_site: "Lax" }
 
       if [:headless_chrome, :pwa_chrome, :iphone, :rack_test].include?(Capybara.current_driver)
         page.driver.browser.execute_cdp(
@@ -153,7 +152,7 @@ RSpec.configure do |config|
           **cookie_options
         )
       elsif Capybara.current_driver == :cuprite
-        page.driver.set_cookie(Decidim.consent_cookie_name, { essential: true }.to_json, **cookie_options )
+        page.driver.set_cookie(Decidim.consent_cookie_name, { essential: true }.to_json, **cookie_options)
       end
     end
   end
