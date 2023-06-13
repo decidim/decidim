@@ -70,21 +70,30 @@ el:
             mandatory: Αυτή η συνθήκη πρέπει να ικανοποιείται πάντα ανεξάρτητα από την κατάσταση άλλων συνθηκών
             remove: Αφαίρεση
             save_warning: Θυμηθείτε να αποθηκεύσετε τη φόρμα πριν διαμορφώσετε τις συνθήκες εμφάνισης
+            select_answer_option: Επιλέξτε επιλογή απάντησης
+            select_condition_question: Επιλέξτε μια ερώτηση
+            select_condition_type: Επιλέξτε έναν τύπο συνθήκης
           edit:
             save: Αποθήκευση
             title: Επεξεργασία ερωτηματολογίου
           form:
             add_question: Προσθήκη ερώτησης
             add_separator: Προσθήκη διαχωριστικού
+            add_title_and_description: Προσθήκη τίτλου και περιγραφής
             already_answered_warning: Η φόρμα έχει ήδη απαντηθεί από ορισμένους χρήστες, επομένως δεν μπορείτε να τροποποιήσετε τις ερωτήσεις της.
             collapse: Σύμπτυξη όλων των ερωτήσεων
             expand: Ανάπτυξη όλων των ερωτήσεων
+            preview: Προεπισκόπηση
+            title: Επεξεργασία φόρμας για %{questionnaire_for}
+            unpublished_warning: Η φόρμα δεν έχει δημοσιευτεί. Μπορείτε να τροποποιήσετε τις ερωτήσεις της, αλλά με αυτόν τον τρόπο θα διαγράψετε τις τρέχουσες απαντήσεις.
           matrix_row:
             matrix_row: Γραμμή
             remove: Κατάργηση
             statement: Δήλωση
           question:
             add_answer_option: Προσθήκη επιλογής απάντησης
+            add_display_condition: Προσθήκη συνθήκης εμφάνισης
+            add_display_condition_info: Αποθηκεύστε τη φόρμα για να ρυθμίσετε τις συνθήκες εμφάνισης
             add_matrix_row: Προσθήκη γραμμής
             any: Οποιαδήποτε
             collapse: Σύμπτυξη
@@ -100,8 +109,18 @@ el:
             remove: Κατάργηση
             separator: Διαχωριστικό
             up: Επάνω
+          title_and_description:
+            collapse: Σύμπτυξη
+            description: Περιγραφή
+            down: Κάτω
+            expand: Ανάπτυξη
+            remove: Αφαίρεση
+            title: Τίτλος
+            title_and_description: Τίτλος και περιγραφή
+            up: Πάνω
           update:
             invalid: Υπήρξε ένα πρόβλημα κατά την αποθήκευση της φόρμας.
+            success: Η φόρμα αποθηκεύτηκε επιτυχώς.
       errors:
         answer:
           body: Το σώμα δεν μπορεί να είναι κενό
