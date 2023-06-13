@@ -13,12 +13,11 @@
             <%= t("description", scope: "decidim.budgets.projects.budget_summary.checked_out") %>
           </p>
         </div>
+      <% else %>
+        <p class="budget-summary__progressbox--checked_out">
+          <%= current_rule_description %>
+        </p>
       <% end %>
-    <% end %>
-    <% if include_heading && !current_order_checked_out? %>
-      <p class="budget-summary__progressbox--checked_out">
-        <%= current_rule_description %>
-      </p>
     <% end %>
     <div class="budget-summary__progressbar">
       <div class="progress budget-progress" role="progressbar" aria-valuenow="<%= current_order_budget_percent %>" aria-valuetext="<%= current_order_budget_percent %>%" aria-valuemin="0" aria-valuemax="100">
