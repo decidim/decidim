@@ -133,6 +133,7 @@ el:
           resize_and_pad: Αλλάξει το μέγεθος και θα συμπληρωθεί σε
           resize_to_fit: Αλλάξει το μέγεθος για προσαρμογή
       question_types:
+        files: Αρχεία
         long_answer: Μεγάλη απάντηση
         matrix_multiple: Πίνακας (πολλαπλή επιλογή)
         matrix_single: Πίνακας (μία επιλογή)
@@ -140,6 +141,9 @@ el:
         short_answer: Σύντομη απάντηση
         single_option: Μία επιλογή
         sorting: Ταξινόμηση
+        title_and_description: Τίτλος και περιγραφή
+      questionnaire_answer_presenter:
+        download_attachment: Λήψη συνημμένου
       questionnaires:
         answer:
           invalid: Υπήρξε ένα πρόβλημα κατά την απάντηση της φόρμας.
@@ -162,6 +166,11 @@ el:
           questionnaire_for_private_users:
             body: Η φόρμα είναι διαθέσιμη μόνο για ιδιωτικούς χρήστες
             title: Η φόρμα έκλεισε
+          questionnaire_js_disabled:
+            body: Ορισμένες από τις δυνατότητες αυτής της φόρμας θα απενεργοποιηθούν. Για να βελτιώσετε την εμπειρία σας, ενεργοποιήστε την JavaScript στο πρόγραμμα περιήγησης.
+            title: Η JavaScript είναι απενεργοποιημένη
+          questionnaire_not_published:
+            body: Αυτή η φόρμα δεν έχει δημοσιευτεί ακόμη.
           tos_agreement: Με τη συμμετοχή σας, αποδέχεστε τους Όρους παροχής υπηρεσίας
       step_navigation:
         show:
@@ -170,8 +179,13 @@ el:
           continue: Συνέχεια
           submit: Υποβολή
       user_answers_serializer:
+        body: Απάντηση
+        completion: Ολοκλήρωση
         created_at: Απαντήθηκε στις
         id: Αναγνωριστικό απάντησης
+        ip_hash: IP Hash
+        question: Ερώτηση
         registered: Έχει εγγραφεί
+        session_token: Αναγνωριστικό χρήστη
         unregistered: Δεν έχει εγγραφεί
         user_status: Κατάσταση χρήστη
