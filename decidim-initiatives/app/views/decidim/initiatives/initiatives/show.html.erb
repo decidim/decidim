@@ -22,10 +22,8 @@ edit_link(
   <div class="initiative__aside">
     <% if current_initiative.published? || current_initiative.rejected? || current_initiative.accepted? || current_initiative.discarded? %>
       <% if current_initiative.votes_enabled? %>
-        <div class="initiative__aside__element">
-          <div class="mb-4" id="initiative-<%= current_initiative.id %>-vote-cabin">
-            <%= render partial: "vote_cabin", locals: { initiative: current_initiative } %>
-          </div>
+        <div class="initiative__aside__element" id="initiative-<%= current_initiative.id %>-vote-cabin">
+          <%= render partial: "vote_cabin", locals: { initiative: current_initiative } %>
         </div>
       <% end %>
     <% else %>
@@ -89,7 +87,9 @@ edit_link(
           <%= t("scope", scope: "decidim.initiatives.initiatives.show") %>
         </p>
         <span class="initiative__aside__element__data-text">
-          <%= render partial: "tags_scope", locals: { resource: current_initiative } %>
+          <span class="text-sm font-normal text-gray-2 block">
+            <%= link_to translated_attribute(current_initiative.scope_name), initiatives_path(filter: { scope_id: [current_initiative.scope&.id] }) %>
+          </span>
         </span>
       </div>
 
@@ -108,7 +108,9 @@ edit_link(
             <%= t("area", scope: "decidim.initiatives.initiatives.show") %>
           </p>
           <span class="initiative__aside__element__data-text">
-            <%= render partial: "tags_area", locals: { resource: current_initiative } %>
+            <span class="text-sm font-normal text-gray-2 block">
+              <%= link_to translated_attribute(current_initiative.area_name), initiatives_path(filter: { area_id: [current_initiative.area.id] }) %>
+            </span>
           </span>
         </div>
       <% end %>
