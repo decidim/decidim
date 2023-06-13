@@ -2,8 +2,7 @@
   <div id="highlighted-conferences">
     <div class="home__section-header">
       <h2 class="home__section-title">
-        <%= t("see_all_conferences", scope: "decidim.conferences.pages.home.highlighted_conferences") %>
-        <%= t("active_conferences", scope: i18n_scope) %>
+        <%= t("active_conferences", scope: "decidim.conferences.pages.home.highlighted_conferences") %>
       </h2>
       <%= link_to decidim_conferences.conferences_path, class: "button button__sm button__text-secondary" do %>
           <%= t("see_all_conferences", scope: "decidim.conferences.pages.home.highlighted_conferences") %>
