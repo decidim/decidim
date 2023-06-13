@@ -19,10 +19,13 @@ el:
   decidim:
     components:
       sortitions:
+        actions:
+          comment: Σχόλιο
         name: Κληρώσεις
         settings:
           global:
             comments_enabled: Τα σχόλια ενεργοποιήθηκαν
+            comments_max_length: Μέγιστο μέγεθος σχολίων (Αφήστε το 0 για την προκαθορισμένη τιμή)
     events:
       sortitions:
         sortition_created:
@@ -143,3 +146,5 @@ el:
           count:
             one: 1 κλήρωση
             other: "%{count} κληρώσεις"
+    statistics:
+      sortitions_count: Κληρώσεις
