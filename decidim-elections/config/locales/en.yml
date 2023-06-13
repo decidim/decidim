@@ -108,6 +108,8 @@ en:
         other: Votings
   decidim:
     admin:
+      titles:
+        votings: Votings
       filters:
         officers_assigned_eq:
           label: Officers
