@@ -131,7 +131,11 @@ el:
           body: Το σώμα δεν μπορεί να είναι κενό
       images:
         dimensions: "Π %{width} x Υ %{height} px"
+        processors:
+          resize_and_pad: Αυτή η εικόνα θα αλλάξει μέγεθος σε %{dimensions}.
+          resize_to_fit: Αυτή η εικόνα θα αλλάξει μέγεθος για να χωρέσει σε %{dimensions}.
       question_types:
+        files: Αρχεία
         long_answer: Μεγάλη απάντηση
         matrix_multiple: Πίνακας (πολλαπλή επιλογή)
         matrix_single: Πίνακας (μία επιλογή)
@@ -139,6 +143,9 @@ el:
         short_answer: Σύντομη απάντηση
         single_option: Μία επιλογή
         sorting: Ταξινόμηση
+        title_and_description: Τίτλος και περιγραφή
+      questionnaire_answer_presenter:
+        download_attachment: Λήψη συνημμένου
       questionnaires:
         answer:
           invalid: Υπήρξε ένα πρόβλημα κατά την απάντηση της φόρμας.
@@ -148,7 +155,11 @@ el:
           max_choices: 'Μέγιστες επιλογές: %{n}'
         show:
           answer_questionnaire:
+            already_have_an_account?: Έχετε ήδη λογαριασμό;
             anonymous_user_message: <a href="%{sign_in_link}">Είσοδος με τον λογαριασμό σας</a> ή <a href="%{sign_up_link}">εγγραφή</a> για να απαντήσετε στη φόρμα.
+            are_you_new?: Νέος χρήστης;
+            sign_in_description: Συνδεθείτε για να πραγματοποιήσετε την έρευνα
+            sign_up_description: Δημιουργήστε ένα λογαριασμό συμμετέχοντα για να κάνετε την έρευνα
             title: Απαντήστε στη φόρμα
           current_step: Βήμα %{step}
           of_total_steps: από %{total_steps}
@@ -161,7 +172,13 @@ el:
           questionnaire_for_private_users:
             body: Η φόρμα είναι διαθέσιμη μόνο για ιδιωτικούς χρήστες
             title: Η φόρμα έκλεισε
+          questionnaire_js_disabled:
+            body: Ορισμένες από τις δυνατότητες αυτής της φόρμας θα απενεργοποιηθούν. Για να βελτιώσετε την εμπειρία σας, ενεργοποιήστε την JavaScript στο πρόγραμμα περιήγησης.
+            title: Η JavaScript είναι απενεργοποιημένη
+          questionnaire_not_published:
+            body: Αυτή η φόρμα δεν έχει δημοσιευτεί ακόμη.
           tos_agreement: Με τη συμμετοχή σας, αποδέχεστε τους Όρους παροχής υπηρεσίας
+          upload_file: Φόρτωση αρχείου
       step_navigation:
         show:
           are_you_sure: Αυτή η ενέργεια δεν μπορεί να αναιρεθεί και δεν θα μπορείτε να επεξεργαστείτε τις απαντήσεις σας. Είστε βέβαιοι;
@@ -169,8 +186,13 @@ el:
           continue: Συνέχεια
           submit: Υποβολή
       user_answers_serializer:
+        body: Απάντηση
+        completion: Ολοκλήρωση
         created_at: Απαντήθηκε στις
         id: Αναγνωριστικό απάντησης
+        ip_hash: IP Hash
+        question: Ερώτηση
         registered: Έχει εγγραφεί
+        session_token: Αναγνωριστικό χρήστη
         unregistered: Δεν έχει εγγραφεί
         user_status: Κατάσταση χρήστη
