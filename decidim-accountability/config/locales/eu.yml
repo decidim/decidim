@@ -75,6 +75,10 @@ eu:
             select_component: Aukeratu osagaia
             title: Inportatu proiektuak jarraipenera
         results:
+          create:
+            success: Emaitza ondo sortu da.
+          destroy:
+            success: Emaitza ondo ezabatu da.
           edit:
             title: Editatu emaitza
             update: Eguneratu emaitza
