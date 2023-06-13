@@ -70,7 +70,7 @@ describe("CommentsComponent", () => {
         return orderLinks;
       } else if (jqSelector === ".add-comment" && parent.is(subject.$element)) {
         return addComment;
-      } else if (jqSelector === ".add-comment .opinion-toggle .button" && parent.is(subject.$element)) {
+      } else if (jqSelector === ".add-comment .opinion-toggle button" && parent.is(subject.$element)) {
         return allToggles;
       } else if (jqSelector === ".add-comment textarea" && parent.is(subject.$element)) {
         return allTextareas;
