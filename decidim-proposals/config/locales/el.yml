@@ -239,25 +239,35 @@ el:
           email_subject: "Ο αιτών %{requester_name} απορρίφθηκε για πρόσβαση ως συμβάλλων στο προσχέδιο συνεργασίας %{resource_title}."
           notification_title: Ο αιτών <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> <strong>απορρίφθηκε για πρόσβαση ως συμβάλλων</strong> στο προσχέδιο συνεργασίας <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_requested:
+          email_intro: 'Ο/Η %{requester_name} ζήτησε πρόσβαση ως συνεισφέρων. Μπορείτε να <strong>αποδεχτείτε ή να απορρίψετε το αίτημα</strong> από τη σελίδα του συνεργατικού προσχεδίου <a href="%{resource_path}">%{resource_title}</a>.'
+          email_outro: Έχετε λάβει αυτήν την ειδοποίηση επειδή είστε συνεργάτης του <a href="%{resource_url}">%{resource_title}</a>.
           email_subject: "Ο αιτών %{requester_name} ζήτησε πρόσβαση για να συνεισφέρει στο στοιχείο %{resource_title}."
           notification_title: Ο αιτών <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> ζήτησε πρόσβαση για να συνεισφέρει στο προσχέδιο συνεργασίας <a href="%{resource_path}">%{resource_title}</a>. <strong>Αποδεχτείτε ή απορρίψτε το αίτημα</strong>.
         collaborative_draft_access_requester_accepted:
+          email_intro: Έχετε γίνει δεκτός να έχετε πρόσβαση ως συνεισφέρων του συνεργατικού σχεδίου <a href="%{resource_url}">%{resource_title}</a>.
+          email_outro: Έχετε λάβει αυτήν την ειδοποίηση επειδή ζητήσατε να γίνετε συνεργάτης του <a href="%{resource_url}">%{resource_title}</a>.
           email_subject: Γίνατε δεκτοί για πρόσβαση ως συμβάλλων για το στοιχείο %{resource_title}.
           notification_title: Γίνατε <strong>δεκτοί για πρόσβαση ως συμβάλλων</strong> στο προσχέδιο συνεργασίας <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_requester_rejected:
+          email_intro: Έχετε απορριφθεί για πρόσβαση ως συνεισφέρων του συνεργατικού σχεδίου <a href="%{resource_url}">%{resource_title}</a>.
+          email_outro: Έχετε λάβει αυτήν την ειδοποίηση επειδή ζητήσατε να γίνετε συνεργάτης του <a href="%{resource_url}">%{resource_title}</a>.
           email_subject: Απορριφθήκατε ως συμβάλλων για το στοιχείο %{resource_title}.
           notification_title: <strong>Απορριφθήκατε για πρόσβαση ως συμβάλλων</strong> στο προσχέδιο συνεργασίας <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_withdrawn:
+          email_intro: <a href="%{author_url}">%{author_name} %{author_nickname}</a> απέσυρε το <a href="%{resource_url}">%{resource_title}</a> συνεργατικό προσχέδιο.
+          email_outro: Έχετε λάβει αυτήν την ειδοποίηση επειδή είστε συνεργάτης του <a href="%{resource_url}">%{resource_title}</a>.
           email_subject: "Ο συντάκτης %{author_name} %{author_nickname} απέσυρε το προσχέδιο συνεργασίας %{resource_title}."
           notification_title: Ο συντάκτης <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>απέσυρε</strong> το προσχέδιο συνεργασίας <a href="%{resource_path}">%{resource_title}</a>.
         creation_enabled:
           email_intro: 'Τώρα μπορείτε να δημιουργήσετε νέες προτάσεις στον χώρο συμμετοχής %{participatory_space_title}! Ξεκινήστε να συμμετέχετε σε αυτήν τη σελίδα:'
           email_outro: Λάβατε αυτήν την ειδοποίηση επειδή ακολουθείτε τον χώρο συμμετοχής %{participatory_space_title}. Μπορείτε να διακόψετε τη λήψη ειδοποιήσεων ακολουθώντας τον προηγούμενο σύνδεσμο.
           email_subject: Οι προτάσεις είναι πλέον διαθέσιμες στον χώρο συμμετοχής %{participatory_space_title}
+          notification_title: Τώρα μπορείτε να υποβάλετε <a href="%{resource_path}">νέες προτάσεις</a> στο <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
         endorsing_enabled:
           email_intro: 'Μπορείτε να επιδοκιμάσετε προτάσεις στον χώρο συμμετοχής %{participatory_space_title}! Ξεκινήστε να συμμετέχετε σε αυτήν τη σελίδα:'
           email_outro: Λάβατε αυτήν την ειδοποίηση επειδή ακολουθείτε τον χώρο συμμετοχής %{participatory_space_title}. Μπορείτε να διακόψετε τη λήψη ειδοποιήσεων ακολουθώντας τον προηγούμενο σύνδεσμο.
           email_subject: Έχει ξεκινήσει η επιδοκιμασία προτάσεων για τον χώρο συμμετοχής %{participatory_space_title}
+          notification_title: Τώρα μπορείτε να ξεκινήσετε την <a href="%{resource_path}">έγκριση προτάσεων</a> στο <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
         proposal_accepted:
           affected_user:
             email_intro: 'Η πρότασή σας «%{resource_title}» έγινε δεκτή. Μπορείτε να διαβάσετε την απάντηση σε αυτήν τη σελίδα:'
@@ -267,6 +277,7 @@ el:
           follower:
             email_intro: 'Η πρόταση «%{resource_title}» έγινε δεκτή. Μπορείτε να διαβάσετε την απάντηση σε αυτήν τη σελίδα:'
             email_outro: Λάβατε αυτήν την ειδοποίηση επειδή ακολουθείτε τον χώρο συμμετοχής «%{resource_title}». Μπορείτε να σταματήσετε να τον ακολουθείτε από τον προηγούμενο σύνδεσμο.
+            email_subject: Μια πρόταση που ακολουθείτε έχει γίνει αποδεκτή
             notification_title: Η πρόταση <a href="%{resource_path}">%{resource_title}</a> έγινε δεκτή.
         proposal_evaluating:
           affected_user:
@@ -277,6 +288,7 @@ el:
           follower:
             email_intro: 'Η πρόταση «%{resource_title}» αξιολογείται αυτήν τη στιγμή. Μπορείτε να δείτε μια απάντηση σε αυτήν τη σελίδα:'
             email_outro: Λάβατε αυτήν την ειδοποίηση επειδή ακολουθείτε τον χώρο συμμετοχής «%{resource_title}». Μπορείτε να σταματήσετε να τον ακολουθείτε από τον προηγούμενο σύνδεσμο.
+            email_subject: Μια πρόταση που ακολουθείτε αξιολογείται
             notification_title: Η πρόταση <a href="%{resource_path}">%{resource_title}</a> αξιολογείται.
         proposal_mentioned:
           email_intro: Η πρότασή σας «%{mentioned_proposal_title}» αναφέρθηκε <a href="%{resource_url}">σε αυτόν τον χώρο</a> στα σχόλια.
@@ -292,14 +304,18 @@ el:
           email_intro: Η πρόταση «%{resource_title}» προστέθηκε στον χώρο συμμετοχής «%{participatory_space_title}» που ακολουθείτε.
           email_outro: Λάβατε αυτήν την ειδοποίηση επειδή ακολουθείτε τον χώρο συμμετοχής «%{participatory_space_title}». Μπορείτε να διακόψετε τη λήψη ειδοποιήσεων ακολουθώντας τον προηγούμενο σύνδεσμο.
           email_subject: Η νέα πρόταση «%{resource_title}» προστέθηκε στον χώρο συμμετοχής %{participatory_space_title}
+          notification_title: Η πρόταση <a href="%{resource_path}">%{resource_title}</a> έχει προστεθεί στο %{participatory_space_title} από %{author}.
+          notification_title_official: Η επίσημη πρόταση <a href="%{resource_path}">%{resource_title}</a> έχει προστεθεί στο %{participatory_space_title}.
         proposal_rejected:
           affected_user:
             email_intro: 'Η πρότασή σας «%{resource_title}» απορρίφθηκε. Μπορείτε να διαβάσετε την απάντηση σε αυτήν τη σελίδα:'
             email_outro: Λάβατε αυτήν την ειδοποίηση επειδή είστε συντάκτης του στοιχείου «%{resource_title}».
+            email_subject: Η πρότασή σας έχει απορριφθεί
             notification_title: Η πρότασή σας <a href="%{resource_path}">%{resource_title}</a> απορρίφθηκε.
           follower:
             email_intro: 'Η πρόταση «%{resource_title}» απορρίφθηκε. Μπορείτε να διαβάσετε την απάντηση σε αυτήν τη σελίδα:'
             email_outro: Λάβατε αυτήν την ειδοποίηση επειδή ακολουθείτε τον χώρο συμμετοχής «%{resource_title}». Μπορείτε να σταματήσετε να τον ακολουθείτε από τον προηγούμενο σύνδεσμο.
+            email_subject: Μια πρόταση που ακολουθείτε έχει απορριφθεί
             notification_title: Η πρόταση <a href="%{resource_path}">%{resource_title}</a> απορρίφθηκε.
         proposal_update_category:
           email_intro: 'Ένας διαχειριστής ενημέρωσε την κατηγορία της πρότασής σας «%{resource_title}», δείτε την σε αυτήν τη σελίδα:'
@@ -338,6 +354,7 @@ el:
           description_own: Έχετε υποστηρίξει %{score} προτάσεις.
           name: Υποστηρίξεις προτάσεων
           next_level_in: Υποστηρίξτε %{score} ακόμη προτάσεις για να φτάσετε στο επόμενο επίπεδο!
+          unearned_another: Αυτός ο συμμετέχων δεν έχει υποστηρίξει ακόμα καμία πρόταση.
           unearned_own: Δεν έχετε υποστηρίξει καμία πρόταση ακόμη.
         proposals:
           conditions:
@@ -348,6 +365,7 @@ el:
           description_own: Έχετε δημιουργήσει %{score} προτάσεις.
           name: Προτάσεις
           next_level_in: Δημιουργήστε %{score} ακόμη προτάσεις για να φτάσετε στο επόμενο επίπεδο!
+          unearned_another: Αυτός ο συμμετέχων δεν έχει ακόμα δημιουργήσει προτάσεις.
           unearned_own: Δεν έχετε δημιουργήσει ακόμη προτάσεις.
     metrics:
       accepted_proposals:
@@ -382,7 +400,38 @@ el:
         actions:
           preview: Προεπισκόπηση
         exports:
+          proposal_comments: Σχόλια
           proposals: Προτάσεις
+        imports:
+          help:
+            answers: |
+              Το έγγραφο εισαγωγής πρέπει να περιέχει τα ακόλουθα ονόματα στηλών σε περίπτωση αρχείων CSV ή Excel, ή ονόματα κλειδιών σε περίπτωση αρχείων JSON:
+              <ul>
+              <li><b>id:</b> ID της πρότασης απάντησης</li>
+              <li><b>state:</b> Ένα από τα "accepted", "evaluating", or "rejected"</li>
+              <li><b>answer/en:</b> Απάντηση στην αγγλική γλώσσα. Αυτό θα εξαρτηθεί από τις ρυθμίσεις της γλώσσας της πλατφόρμας σας.</li>
+              </ul>
+            proposals: |
+              Το αρχείο πρέπει να έχει τα ακόλουθα ονόματα στηλών σε περίπτωση CSV ή Excel αρχεία, ή ονόματα κλειδιών σε περίπτωση αρχείων JSON:
+              <ul>
+              <li><b>title/en:</b> Τίτλος στην αγγλική γλώσσα. Αυτό θα εξαρτηθεί από τις ρυθμίσεις της γλώσσας της πλατφόρμας σας.</li>
+              <li><b>body/en:</b> Σώμα στην αγγλική γλώσσα. Αυτό θα εξαρτηθεί από τη διαμόρφωση της γλώσσας της πλατφόρμας σας.</li>
+              <li><b>scope/id:</b> ID για το πεδίο εφαρμογής</li>
+              <li><b>category/id:</b> ID για την κατηγορία</li>
+              </ul>
+          label:
+            answers: Εισαγωγή απαντήσεων από ένα αρχείο
+            proposals: Εισαγωγή προτάσεων από ένα αρχείο
+          resources:
+            answers:
+              one: απάντηση πρότασης
+              other: απαντήσεις πρότασης
+            proposals:
+              one: πρόταση
+              other: προτάσεις
+          title:
+            answers: Εισαγωγή απαντήσεων πρότασης
+            proposals: Εισαγωγή προτάσεων
         models:
           proposal:
             name: Πρόταση
@@ -405,9 +454,14 @@ el:
           new_import:
             accepted_mime_types:
               md: Μείωση
+              odt: ODT
             bottom_hint: "(Θα μπορείτε να κάνετε προεπισκόπηση και ταξινόμηση ενοτήτων εγγράφων)"
+            document_legend: 'Προσθέστε ένα έγγραφο μικρότερο από 2MB, κάθε ενότητα με έως 3 επίπεδα θα αναλυθεί στις προτάσεις. Οι υποστηριζόμενες μορφές είναι: %{valid_mime_types}'
             title: Προσθήκη εγγράφου
             upload_document: Αποστολή εγγράφου
+          publish:
+            invalid: Υπήρξε ένα πρόβλημα δημοσίευσης προτάσεων.
+            success: Όλες οι προτάσεις έχουν δημοσιευθεί.
           sections:
             article: "<em>Άρθρο</em>"
             section: "<em>Ενότητα:</em> <strong>%{title}</strong>"
@@ -419,21 +473,32 @@ el:
             accepted: Έγινε αποδοχή
             answer_proposal: Απάντηση
             evaluating: Αξιολόγηση...
+            not_answered: Δεν απαντήθηκε
             rejected: Απορρίφθηκε
             title: Απάντηση για την πρόταση %{title}
         proposal_notes:
+          create:
+            error: Υπήρξε ένα πρόβλημα κατά τη δημιουργία αυτής της σημείωσης πρότασης.
+            success: Η σημείωση πρότασης δημιουργήθηκε επιτυχώς.
           form:
             note: Σημείωση
             submit: Υποβολή
           leave_your_note: Αφήστε τη σημείωσή σας
           title: Ιδιωτικές σημειώσεις
         proposals:
+          answer:
+            invalid: Υπήρξε πρόβλημα στην απάντηση αυτής της πρότασης.
+            success: Η πρόταση απαντήθηκε επιτυχώς.
+          create:
+            invalid: Υπήρξε ένα πρόβλημα με τη δημιουργία αυτής της πρότασης.
+            success: Η πρόταση δημιουργήθηκε επιτυχώς.
           edit:
             title: Ενημέρωση πρότασης
             update: Ενημέρωση
           form:
             attachment_legend: "(Προαιρετικά) Προσθήκη συνημμένου"
             created_in_meeting: Αυτή η πρόταση προέρχεται από μια σύσκεψη
+            delete_attachment: Διαγραφή συνημμένου
             select_a_category: Επιλέξτε μια κατηγορία
             select_a_meeting: Επιλέξτε σύσκεψη
           index:
@@ -461,6 +526,7 @@ el:
             title: Δημιουργία πρότασης
           publish_answers:
             number_of_proposals: Θα δημοσιευτούν απαντήσεις για %{number} προτάσεις.
+            select_a_proposal: Παρακαλώ επιλέξτε μια πρόταση.
           show:
             amendments_count: Πλήθος τροποποιήσεων
             assigned_valuators: Εκχωρημένοι εκτιμητές
@@ -490,6 +556,7 @@ el:
             votes_ranking: Κατάταξη βάσει υποστηρίξεων
           update_category:
             invalid: 'Αυτές οι προτάσεις είχαν ήδη την κατηγορία %{subject_name}: %{proposals}.'
+            select_a_category: Παρακαλώ επιλέξτε μια κατηγορία.
             select_a_proposal: Επιλέξτε μια πρόταση.
             success: 'Οι προτάσεις ενημερώθηκαν με επιτυχία στην κατηγορία %{subject_name}: %{proposals}.'
           update_scope:
