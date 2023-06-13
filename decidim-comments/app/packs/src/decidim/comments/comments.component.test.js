@@ -49,7 +49,7 @@ describe("CommentsComponent", () => {
   const spyOnAddComment = (methodToSpy) => {
     addComment.each((i) => {
       addComment[i].$ = $(addComment[i]);
-      addComment[i].opinionToggles = $(".opinion-toggle .button", addComment[i].$);
+      addComment[i].opinionToggles = $(".opinion-toggle button", addComment[i].$);
       addComment[i].commentForm = $("form", addComment[i].$);
       addComment[i].commentTextarea = $("textarea", addComment[i].commentForm);
 
@@ -79,7 +79,7 @@ describe("CommentsComponent", () => {
       }
       const addCommentsArray = addComment.toArray();
       for (let i = 0; i < addCommentsArray.length; i += 1) {
-        if (jqSelector === ".opinion-toggle .button" && parent.is(addCommentsArray[i].$)) {
+        if (jqSelector === ".opinion-toggle button" && parent.is(addCommentsArray[i].$)) {
           return addCommentsArray[i].opinionToggles;
         } else if (jqSelector === "form" && parent.is(addCommentsArray[i].$)) {
           return addCommentsArray[i].commentForm;
