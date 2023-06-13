@@ -20,7 +20,7 @@ describe Decidim::Assemblies::ContentBlocks::HighlightedAssembliesCell, type: :c
 
   context "when the content block has no settings" do
     it "shows 6 assemblies" do
-      expect(highlighted_assemblies).to have_selector("a.card--assembly", count: 6)
+      expect(highlighted_assemblies).to have_selector("a.card__grid", count: 6)
     end
   end
 
@@ -32,7 +32,7 @@ describe Decidim::Assemblies::ContentBlocks::HighlightedAssembliesCell, type: :c
     end
 
     it "shows up to 8 assemblies" do
-      expect(highlighted_assemblies).to have_selector("a.card--assembly", count: 8)
+      expect(highlighted_assemblies).to have_selector("a.card__grid", count: 8)
     end
   end
 end
