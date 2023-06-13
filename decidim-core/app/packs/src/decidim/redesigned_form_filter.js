@@ -75,14 +75,14 @@ export default class FormFilterComponent {
         }
       });
 
-      this.$form.on("ajax:success", () => {
+      $(document).on("ajax:success", () => {
         queue -= 1;
         if (queue <= 0 && contentContainer.length > 0) {
           contentContainer.removeClass("spinner-container");
         }
       });
 
-      this.$form.on("ajax:error", () => {
+      $(document).on("ajax:error", () => {
         queue -= 1;
         if (queue <= 0 && contentContainer.length > 0) {
           contentContainer.removeClass("spinner-container");
