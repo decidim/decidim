@@ -280,6 +280,8 @@ el:
         download: Λήψη αρχείου
       documents:
         related_documents: Σχετικά έγγραφα
+      geocoding:
+        geocoded_address: Διεύθυνση
       photos:
         related_photos: Σχετικές εικόνες
     author:
