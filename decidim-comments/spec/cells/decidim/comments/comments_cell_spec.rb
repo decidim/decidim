@@ -91,9 +91,9 @@ module Decidim::Comments
           end
 
           it "renders the alignment buttons" do
-            expect(subject).to have_css(".opinion-toggle.button-group .opinion-toggle--ok")
-            expect(subject).to have_css(".opinion-toggle.button-group .opinion-toggle--meh")
-            expect(subject).to have_css(".opinion-toggle.button-group .opinion-toggle--ko")
+            expect(subject).to have_css(".opinion-toggle--ok")
+            expect(subject).to have_css(".opinion-toggle--meh")
+            expect(subject).to have_css(".opinion-toggle--ko")
           end
         end
 
