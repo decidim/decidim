@@ -90,6 +90,7 @@ cs:
         secondary_hosts: Sekundární hostitelé
         send_welcome_notification: Odeslat uvítací oznámení
         success_color: Úspěch
+        tertiary_color: Terciární
         time_zone: Časové pásmo
         tos_version: Verze podmínek služby
         twitter_handler: Twitter handler
@@ -834,8 +835,15 @@ cs:
           update: Aktualizace
         form:
           colors:
+            choose_color: Vyberte hlavní barvu
             colors_title: Organizační barvy
+            colors_warning_html: Varování! Změna těchto barev může narušit kontrasty přístupnosti. Svůj výběr můžete zkontrolovat pomocí <a href="https://webaim.org/resources/contrastchecker">WebAIM Contrast Checker</a> nebo jiných podobných nástrojů.
+            explanation: Tento nástroj vám pomůže vybrat barevné schéma skládající se z odstínů rovnoměrně rozložených kolem barevného kruhového spektra, který bude použit na internetových stránkách organizace.
             header_snippets_help: Toto pole použijte k přidání věcí do hlavičky HTML. Nejběžnějším používáním je integrace služeb třetích stran, které vyžadují nějaký extra JavaScript nebo CSS. Můžete také použít k přidání dalších metaznaček do HTML. Všimněte si, že to bude vykresleno pouze na veřejných stránkách, nikoliv v sekci admin.
+            legend_html: Hlavní barvy aplikace, založené na <a href="https://www.color-meanings.com/triadic-colors/">Triadic algoritmu</a>. <i>sekundární</i> barva je automaticky vypočítána z primární barvy a sytosti, kterou vyberete.
+            saturation: Sytost
+            title: Výběr barev
+            update_suggested_colors: Aktualizovat navrhované barvy
           cta_button_path_help: 'Můžete přepsat, kde se na domovské stránce odkazuje tlačítko Výzvy k akci. Použijte zde částečné cesty, ne úplné adresy URL. Přijme písmena, čísla, pomlčky a lomítka a musí začínat písmenem. Tlačítko Výzvy k akci se na domovské stránce zobrazí mezi uvítacím textem a popisem. Příklad: %{url}'
           cta_button_text_help: Text tlačítka výzvy k akci můžete na domovské stránce přepsat pro každý dostupný jazyk ve vaší organizaci. Pokud není nastaveno, bude použita výchozí hodnota. Tlačítko Výzvy k akci se na domovské stránce zobrazí mezi uvítacím textem a popisem.
           homepage_appearance_title: Upravit vzhled stránky
