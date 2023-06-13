@@ -70,7 +70,8 @@
   @import "stylesheets/decidim/redesigned_wizard_steps.scss";
   @import "stylesheets/decidim/redesigned_progress-bar.scss";
   @import "stylesheets/decidim/redesigned_spinner.scss";
-  @import "stylesheets/decidim/redesigned_home.scss";
+  @import "stylesheets/decidim/redesigned_toggle_switch.scss";
+  @import "stylesheets/decidim/redesigned_hero.scss";
 }
 
 // On the other hand, the following styles match with specific routes
@@ -81,13 +82,12 @@
 @import "stylesheets/decidim/redesigned_profile.scss";
 @import "stylesheets/decidim/redesigned_conversations.scss";
 @import "stylesheets/decidim/redesigned_versions.scss";
-@import "stylesheets/decidim/redesigned_hero.scss";
+@import "stylesheets/decidim/redesigned_home.scss";
 @import "stylesheets/decidim/redesigned_search.scss";
 @import "stylesheets/decidim/redesigned_cookies.scss";
 // participatory spaces are quite similar between processes and assemblies (different modules), so their stylesheets are placed in the core
 @import "stylesheets/decidim/redesigned_participatory_spaces.scss";
 @import "stylesheets/decidim/redesigned_omnipresent_banner.scss";
-@import "stylesheets/decidim/redesigned_toggle_switch.scss";
 
 // This imports all the Decidim module stylesheet imports registered at
 // `config/assets.rb` of the module for the "app" group.
