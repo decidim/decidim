@@ -33,31 +33,31 @@
     @apply bg-transparent text-white border border-white;
 
     &-primary{
-      @apply button__transparent bg-white border-primary text-primary;
+      @apply border bg-white border-primary text-primary;
     }
 
     &-secondary{
-      @apply button__transparent bg-white border-secondary text-secondary;
+      @apply border bg-white border-secondary text-secondary;
     }
 
     &-tertiary{
-      @apply button__transparent bg-white border-tertiary text-tertiary;
+      @apply border bg-white border-tertiary text-tertiary;
     }
   }
 
   &__text{
-    @apply bg-transparent text-black border-0 p-0 hover:underline;
+    @apply bg-transparent border-0 p-0 hover:underline text-black;
 
     &-primary{
-      @apply button__text text-primary;
+      @apply bg-transparent border-0 p-0 hover:underline text-primary;
     }
 
     &-secondary{
-      @apply button__text text-secondary;
+      @apply bg-transparent border-0 p-0 hover:underline text-secondary;
     }
 
     &-tertiary{
-      @apply button__text text-tertiary;
+      @apply bg-transparent border-0 p-0 hover:underline text-tertiary;
     }
   }
 
