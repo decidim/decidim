@@ -247,8 +247,11 @@ en:
             valuator: Valuator
       titles:
         assemblies: Assemblies
+        new_assembly: New Assembly
         assemblies_types: Assemblies types
         assemblies_setting: Assemblies settings
+        assemblies_types_edit: Assemblies types edit
+        new_assenbly_type: New assesmblies type
     admin_log:
       assembly:
         create: "%{user_name} created the %{resource_name} assembly"
