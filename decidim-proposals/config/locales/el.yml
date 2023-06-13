@@ -236,15 +236,23 @@ el:
           email_subject: "Ο αιτών %{requester_name} απορρίφθηκε για πρόσβαση ως συμβάλλων στο προσχέδιο συνεργασίας %{resource_title}."
           notification_title: Ο αιτών <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> <strong>απορρίφθηκε για πρόσβαση ως συμβάλλων</strong> στο προσχέδιο συνεργασίας <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_requested:
+          email_intro: 'Ο/Η %{requester_name} ζήτησε πρόσβαση ως συνεισφέρων. Μπορείτε να <strong>αποδεχτείτε ή να απορρίψετε το αίτημα</strong> από τη σελίδα του συνεργατικού προσχεδίου <a href="%{resource_path}">%{resource_title}</a>.'
+          email_outro: Έχετε λάβει αυτήν την ειδοποίηση επειδή είστε συνεργάτης του <a href="%{resource_url}">%{resource_title}</a>.
           email_subject: "Ο αιτών %{requester_name} ζήτησε πρόσβαση για να συνεισφέρει στο στοιχείο %{resource_title}."
           notification_title: Ο αιτών <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> ζήτησε πρόσβαση για να συνεισφέρει στο προσχέδιο συνεργασίας <a href="%{resource_path}">%{resource_title}</a>. <strong>Αποδεχτείτε ή απορρίψτε το αίτημα</strong>.
         collaborative_draft_access_requester_accepted:
+          email_intro: Έχετε γίνει δεκτός να έχετε πρόσβαση ως συνεισφέρων του συνεργατικού σχεδίου <a href="%{resource_url}">%{resource_title}</a>.
+          email_outro: Έχετε λάβει αυτήν την ειδοποίηση επειδή ζητήσατε να γίνετε συνεργάτης του <a href="%{resource_url}">%{resource_title}</a>.
           email_subject: Γίνατε δεκτοί για πρόσβαση ως συμβάλλων για το στοιχείο %{resource_title}.
           notification_title: Γίνατε <strong>δεκτοί για πρόσβαση ως συμβάλλων</strong> στο προσχέδιο συνεργασίας <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_requester_rejected:
+          email_intro: Έχετε απορριφθεί για πρόσβαση ως συνεισφέρων του συνεργατικού σχεδίου <a href="%{resource_url}">%{resource_title}</a>.
+          email_outro: Έχετε λάβει αυτήν την ειδοποίηση επειδή ζητήσατε να γίνετε συνεργάτης του <a href="%{resource_url}">%{resource_title}</a>.
           email_subject: Απορριφθήκατε ως συμβάλλων για το στοιχείο %{resource_title}.
           notification_title: <strong>Απορριφθήκατε για πρόσβαση ως συμβάλλων</strong> στο προσχέδιο συνεργασίας <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_withdrawn:
+          email_intro: <a href="%{author_url}">%{author_name} %{author_nickname}</a> απέσυρε το <a href="%{resource_url}">%{resource_title}</a> συνεργατικό προσχέδιο.
+          email_outro: Έχετε λάβει αυτήν την ειδοποίηση επειδή είστε συνεργάτης του <a href="%{resource_url}">%{resource_title}</a>.
           email_subject: "Ο συντάκτης %{author_name} %{author_nickname} απέσυρε το προσχέδιο συνεργασίας %{resource_title}."
           notification_title: Ο συντάκτης <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>απέσυρε</strong> το προσχέδιο συνεργασίας <a href="%{resource_path}">%{resource_title}</a>.
         creation_enabled:
@@ -297,6 +305,7 @@ el:
           affected_user:
             email_intro: 'Η πρότασή σας «%{resource_title}» απορρίφθηκε. Μπορείτε να διαβάσετε την απάντηση σε αυτήν τη σελίδα:'
             email_outro: Λάβατε αυτήν την ειδοποίηση επειδή είστε συντάκτης του στοιχείου «%{resource_title}».
+            email_subject: Η πρότασή σας έχει απορριφθεί
             notification_title: Η πρότασή σας <a href="%{resource_path}">%{resource_title}</a> απορρίφθηκε.
           follower:
             email_intro: 'Η πρόταση «%{resource_title}» απορρίφθηκε. Μπορείτε να διαβάσετε την απάντηση σε αυτήν τη σελίδα:'
@@ -386,7 +395,38 @@ el:
         actions:
           preview: Προεπισκόπηση
         exports:
+          proposal_comments: Σχόλια
           proposals: Προτάσεις
+        imports:
+          help:
+            answers: |
+              Το έγγραφο εισαγωγής πρέπει να περιέχει τα ακόλουθα ονόματα στηλών σε περίπτωση αρχείων CSV ή Excel, ή ονόματα κλειδιών σε περίπτωση αρχείων JSON:
+              <ul>
+              <li><b>id:</b> ID της πρότασης απάντησης</li>
+              <li><b>state:</b> Ένα από τα "accepted", "evaluating", or "rejected"</li>
+              <li><b>answer/en:</b> Απάντηση στην αγγλική γλώσσα. Αυτό θα εξαρτηθεί από τις ρυθμίσεις της γλώσσας της πλατφόρμας σας.</li>
+              </ul>
+            proposals: |
+              Το αρχείο πρέπει να έχει τα ακόλουθα ονόματα στηλών σε περίπτωση CSV ή Excel αρχεία, ή ονόματα κλειδιών σε περίπτωση αρχείων JSON:
+              <ul>
+              <li><b>title/en:</b> Τίτλος στην αγγλική γλώσσα. Αυτό θα εξαρτηθεί από τις ρυθμίσεις της γλώσσας της πλατφόρμας σας.</li>
+              <li><b>body/en:</b> Σώμα στην αγγλική γλώσσα. Αυτό θα εξαρτηθεί από τη διαμόρφωση της γλώσσας της πλατφόρμας σας.</li>
+              <li><b>scope/id:</b> ID για το πεδίο εφαρμογής</li>
+              <li><b>category/id:</b> ID για την κατηγορία</li>
+              </ul>
+          label:
+            answers: Εισαγωγή απαντήσεων από ένα αρχείο
+            proposals: Εισαγωγή προτάσεων από ένα αρχείο
+          resources:
+            answers:
+              one: απάντηση πρότασης
+              other: απαντήσεις πρότασης
+            proposals:
+              one: πρόταση
+              other: προτάσεις
+          title:
+            answers: Εισαγωγή απαντήσεων πρότασης
+            proposals: Εισαγωγή προτάσεων
         models:
           proposal:
             name: Πρόταση
@@ -409,7 +449,9 @@ el:
           new_import:
             accepted_mime_types:
               md: Μείωση
+              odt: ODT
             bottom_hint: "(Θα μπορείτε να κάνετε προεπισκόπηση και ταξινόμηση ενοτήτων εγγράφων)"
+            document_legend: 'Προσθέστε ένα έγγραφο μικρότερο από 2MB, κάθε ενότητα με έως 3 επίπεδα θα αναλυθεί στις προτάσεις. Οι υποστηριζόμενες μορφές είναι: %{valid_mime_types}'
             title: Προσθήκη εγγράφου
             upload_document: Αποστολή εγγράφου
           publish:
@@ -426,6 +468,7 @@ el:
             accepted: Έγινε αποδοχή
             answer_proposal: Απάντηση
             evaluating: Αξιολόγηση...
+            not_answered: Δεν απαντήθηκε
             rejected: Απορρίφθηκε
             title: Απάντηση για την πρόταση %{title}
         proposal_notes:
@@ -450,6 +493,7 @@ el:
           form:
             attachment_legend: "(Προαιρετικά) Προσθήκη συνημμένου"
             created_in_meeting: Αυτή η πρόταση προέρχεται από μια σύσκεψη
+            delete_attachment: Διαγραφή συνημμένου
             select_a_category: Επιλέξτε μια κατηγορία
             select_a_meeting: Επιλέξτε σύσκεψη
           index:
