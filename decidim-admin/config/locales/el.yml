@@ -637,6 +637,7 @@ el:
           nickname: Ψευδώνυμο
           reason: Αιτία
           reports: Πλήθος αναφορών
+          title: Συμμετέχοντες που αναφέρθηκαν
         report:
           reasons:
             does_not_belong: Δεν ανήκει
@@ -646,6 +647,8 @@ el:
           blocked: Αποκλεισμένος
           unblocked: Δεν έχει μπλοκαριστεί
       moderations:
+        index:
+          title: Περιεχόμενο που αναφέρθηκε
         report:
           reasons:
             does_not_belong: Δεν ανήκει
