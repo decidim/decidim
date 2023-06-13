@@ -648,6 +648,7 @@ el:
           nickname: Ψευδώνυμο
           reason: Αιτία
           reports: Πλήθος αναφορών
+          title: Συμμετέχοντες που αναφέρθηκαν
         report:
           reasons:
             does_not_belong: Δεν ανήκει
@@ -657,6 +658,8 @@ el:
           blocked: Αποκλεισμένος
           unblocked: Δεν έχει μπλοκαριστεί
       moderations:
+        index:
+          title: Περιεχόμενο που αναφέρθηκε
         report:
           reasons:
             does_not_belong: Δεν ανήκει
@@ -850,6 +853,9 @@ el:
           explanation: 'Ανεβάστε το αρχείο CSV. Πρέπει να έχει δύο στήλες με το email στην πρώτη στήλη του αρχείου και το όνομα στην τελευταία στήλη του αρχείου (email, όνομα) των χρηστών που θέλετε να προσθέσετε στον συμμετοχικό χώρο, χωρίς επικεφαλίδες. Αποφύγετε τη χρήση άκυρων χαρακτήρων όπως `<>?%&^*#@()[]=+:;"{}\|` στο όνομα χρήστη.'
           title: Αποστολή του CSV αρχείου σας
           upload: Αποστολή
+      reminders:
+        new:
+          submit: Αποστολή
       resource_permissions:
         edit:
           submit: Υποβολή
@@ -907,6 +913,7 @@ el:
         gallery:
           add_images: Προσθήκη εικόνων
           delete_image: Διαγραφή εικόνας
+          edit_images: Επεξεργασία εικόνας
           gallery_legend: Προσθήκη συλλογής εικόνων (προαιρετικά)
       static_page_topics:
         create:
