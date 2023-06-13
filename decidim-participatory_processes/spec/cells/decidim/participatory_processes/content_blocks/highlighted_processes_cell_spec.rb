@@ -10,7 +10,7 @@ describe Decidim::ParticipatoryProcesses::ContentBlocks::HighlightedProcessesCel
   let!(:processes) { create_list :participatory_process, 8, organization: }
   let(:settings) { {} }
 
-  let(:highlighted_processes) { subject.find("#highlighted_processes") }
+  let(:highlighted_processes) { subject.find("#highlighted-processes") }
 
   controller Decidim::PagesController
 
