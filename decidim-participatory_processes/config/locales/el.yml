@@ -11,15 +11,22 @@ el:
         decidim_area_id: Τομέας
         description: Περιγραφή
         developer_group: Ομάδα προώθησης
+        document: Έγγραφο
         domain: Τομέας
         end_date: Ημερομηνία λήξης
         hashtag: Hashtag
         hero_image: Εικόνα αρχικής σελίδας
+        import_attachments: Εισαγωγή συνημμένων
+        import_categories: Εισαγωγή κατηγοριών
+        import_components: Εισαγωγή στοιχείων
+        import_steps: Εισαγωγή βημάτων
         local_area: Τομέας οργανισμού
         meta_scope: Μεταδεδομένα πεδίου εφαρμογής
         participatory_process_group_id: Ομάδα διαδικασιών
+        participatory_process_type_id: Τύπος διεργασιών
         participatory_scope: Τι αποφασίστηκε
         participatory_structure: Πώς αποφασίζεται
+        private_space: Ιδιωτική διαδικασία
         promoted: Προωθήθηκε
         published_at: Δημοσιεύτηκε στις
         related_process_ids: Σχετικές διαδικασίες
@@ -34,10 +41,20 @@ el:
         subtitle: Υπότιτλος
         target: Ποιος συμμετέχει
         title: Τίτλος
+        weight: Θέση κατάταξης
       participatory_process_group:
         description: Περιγραφή
+        developer_group: Ομάδα προώθησης
+        group_url: Ιστοσελίδα
+        hashtag: Hashtag
         hero_image: Εικόνα
+        local_area: Περιοχή οργανισμού
+        meta_scope: Μεταδεδομένα πεδίου εφαρμογής
         participatory_process_ids: Σχετικές διαδικασίες
+        participatory_scope: Τι αποφασίστηκε
+        participatory_structure: Πώς αποφασίστηκε
+        target: Ποιος συμμετέχει
+        title: Τίτλος
       participatory_process_step:
         cta_path: Διαδρομή Call To Action
         cta_text: Κείμενο κουμπιού «Call To Action»
@@ -93,6 +110,9 @@ el:
         unpublish: Κατάργηση δημοσίευσης
       menu:
         participatory_process_groups: Ομάδες διαδικασιών
+        participatory_process_groups_submenu:
+          info: Πληροφορίες
+          landing_page: Σελίδα άφιξης
         participatory_processes: Διαδικασίες
         participatory_processes_submenu:
           attachment_collections: Φάκελοι
@@ -115,6 +135,8 @@ el:
             title: Τίτλος
           name: Διαδικασία συμμετοχής
         participatory_process_group:
+          fields:
+            title: Τίτλος
           name: Ομάδα διαδικασιών
         participatory_process_step:
           fields:
@@ -142,6 +164,13 @@ el:
           copy: Αντιγραφή
           select: Επιλέξτε ποια δεδομένα θέλετε να αντιγράψετε
           title: Αντιγραφή διαδικασίας συμμετοχής
+      participatory_process_group_landing_page:
+        edit:
+          active_content_blocks: Ενεργά μπλοκ περιεχομένου
+          inactive_content_blocks: Μπλοκ ανενεργού περιεχομένου
+      participatory_process_group_landing_page_content_blocks:
+        edit:
+          update: Ενημέρωση
       participatory_process_groups:
         destroy:
           error: Παρουσιάστηκε σφάλμα κατά την καταστροφή της ομάδας διαδικασιών συμμετοχής.
