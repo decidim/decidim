@@ -5,6 +5,8 @@ el:
         delete_reason: Λόγος διαγραφής λογαριασμού
       common:
         created_at: Δημιουργήθηκε στις
+      conversation:
+        body: Σώμα
       group:
         about: Σχετικά με
         avatar: Άβαταρ
@@ -13,29 +15,43 @@ el:
         name: Όνομα
         nickname: Ψευδώνυμο
         phone: Τηλέφωνο
+      message:
+        body: Σώμα
       report:
         details: Πρόσθετα σχόλια
       user:
         about: Σχετικά με
         email: Το email σας
+        locale: Γλωσσικές Ρυθμίσεις
         name: Το όνομά σας
         nickname: Ψευδώνυμο
         password: Κωδικός πρόσβασης
         password_confirmation: Επιβεβαιώστε τον κωδικό πρόσβασης
         personal_url: Προσωπική ιστοσελίδα
         remove_avatar: Αφαίρεση avatar
+        tos_agreement: Όροι Παροχής Υπηρεσιών
     models:
       decidim/attachment_created_event: Συνημμένο
       decidim/component_published_event: Ενεργό στοιχείο
       decidim/demoted_membership: Δεν είναι πλέον διαχειριστής ομάδας
       decidim/gamification/badge_earned_event: Κερδίσατε έμβλημα
+      decidim/gamification/level_up_event: Ανεβήκατε επίπεδο
+      decidim/invited_to_group_event: Προσκλήθηκε στην ομάδα
       decidim/join_request_accepted_event: Το αίτημα συμμετοχής έγινε αποδεκτό
       decidim/join_request_rejected_event: Το αίτημα συμμετοχής απορρίφθηκε
       decidim/profile_updated_event: Το προφίλ ενημερώθηκε
       decidim/promote_to_admin: Αναβάθμιση σε διαχειριστής ομάδας
+      decidim/promoted_to_admin_event: Αναβάθμιση σε διαχειριστής ομάδας
       decidim/removed_from_group: Αφαιρέθηκε από την ομάδα
+      decidim/resource_endorsed_event: Ο πόρος επιδοκιμάστηκε
+      decidim/resource_hidden_event: Κρυφός πόρος
+      decidim/user_group_created_event: Η ομάδα χρηστών δημιουργήθηκε
+      decidim/welcome_notification_event: Μήνυμα καλωσορίσματος
   activerecord:
     attributes:
+      decidim/action_log:
+        created_at: Χρόνος
+        with_participatory_space: Συμμετοχικός χώρος
       decidim/user:
         current_password: Τρέχων κωδικός πρόσβασης
         email: Email
@@ -59,6 +75,12 @@ el:
   booleans:
     'false': 'Όχι'
     'true': 'Ναι'
+  carrierwave:
+    errors:
+      file_cannot_be_processed: Το αρχείο δεν μπορεί να επεξεργαστεί
+      file_resolution_too_large: Η ανάλυση του αρχείου είναι πολύ μεγάλη
+      file_size_too_large: Το μέγεθος του αρχείου είναι πολύ μεγάλο
+      not_inside_organization: Το αρχείο δεν είναι συνδεδεμένο σε κανέναν οργανισμό
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -66,38 +88,96 @@ el:
       decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: περίπου 1 ώρα
+        other: περίπου %{count} ώρες
+      about_x_months:
+        one: περίπου 1 μήνας
+        other: περίπου %{count} μήνες
+      half_a_minute: μισό λεπτό
+      less_than_x_minutes:
+        one: λιγότερο από ένα λεπτό
+        other: λιγότερο από 1 δευτερόλεπτο
+      less_than_x_seconds:
+        one: λιγότερο από 1 δευτερόλεπτο
+        other: λιγότερο από %{count} δευτερόλεπτα
+      x_days:
+        one: 1 ημέρα
+        other: "%{count} ημέρες"
+      x_hours:
+        one: 1 ώρα
+        other: "%{count} ώρες"
+      x_minutes:
+        one: 1 λεπτό
+        other: "%{count} λεπτά"
+      x_months:
+        one: 1 μήνας
+        other: "%{count} μήνες"
+      x_seconds:
+        one: 1 δευτερόλεπτο
+        other: "%{count} δευτερόλεπτα"
   decidim:
     accessibility:
       external_link: Εξωτερικός σύνδεσμος
+      front_page_link: Μετάβαση στην αρχική σελίδα
       logo: "Επίσημο λογότυπο του οργανισμού %{organization}"
       skip_button: Μετάβαση στο κύριο περιεχόμενο
     account:
+      blocked: Αυτός ο λογαριασμός έχει αποκλειστεί λόγω παραβίασης όρων υπηρεσίας
       delete:
+        alert: Αυτή η ενέργεια δεν μπορεί να αναιρεθεί. Αν διαγράψετε το λογαριασμό σας, δεν θα μπορείτε να συνδεθείτε με τα στοιχεία σας. Η διαγραφή του λογαριασμού σας θα έχει ως αποτέλεσμα την ανωνυμία των συνεισφορών σας. Θα είστε σε θέση να δημιουργήσετε ένα νέο λογαριασμό, αλλά αυτές οι συνεισφορές δεν θα συσχετιστούν με αυτόν.
         confirm:
           close: Κλείσιμο παραθύρου
           ok: Ναι, θέλω να διαγράψω τον λογαριασμό μου
           question: Είστε βέβαιοι ότι θέλετε να διαγράψετε τον λογαριασμό σας;
           title: Διαγραφή του λογαριασμού μου
         explanation: Συμπληρώστε τον λόγο για τον οποίο θέλετε να διαγράψετε τον λογαριασμό σας (προαιρετικό).
+        leaving_authorizations_behind: Ορισμένα δεδομένα που συνδέονται με την εξουσιοδότησή σας θα αποθηκευτούν για ασφάλεια. Εάν δημιουργήσετε έναν άλλο λογαριασμό και εξουσιοδοτήσετε ξανά, αυτά τα δεδομένα θα ανακτηθούν στο νέο σας λογαριασμό.
       destroy:
         error: Υπήρξε ένα πρόβλημα κατά τη διαγραφή του λογαριασμού σας.
         success: Ο λογαριασμός σας διαγράφηκε με επιτυχία.
       download_your_data_export:
         file_no_exists: Το αρχείο δεν υπάρχει
+        notice: Η λήψη των δεδομένων σας είναι σε εξέλιξη. Θα λάβετε email όταν ολοκληρωθεί.
+      email_change:
+        body1: Έχουμε στείλει ένα email στο %{unconfirmed_email} για να επαληθεύσουμε τη νέα σας διεύθυνση email.
+        body2: Πρέπει να στείλουμε ξανά το email επαλήθευσης; %{resend_link} ή %{cancel_link}.
+        cancel: ακύρωση
+        cancel_error: Δεν ήταν δυνατή η ακύρωση της αλλαγής του email.
+        cancel_successfully: Η αλλαγή email ακυρώθηκε επιτυχώς.
+        resend_error: Αδύνατη η αποστολή email επιβεβαίωσης.
+        resend_successfully: Το email επιβεβαίωσης στάλθηκε επιτυχώς στο %{unconfirmed_email}.
+        send_again: Αποστολή ξανά
+        title: Επαλήθευση αλλαγής email
       show:
+        available_locales_helper: Επιλέξτε τη γλώσσα που θέλετε να χρησιμοποιήσετε για να περιηγηθείτε και να λαμβάνετε ειδοποιήσεις στην πλατφόρμα.
         change_password: Αλλαγή κωδικού πρόσβασης
         update_account: Ενημέρωση λογαριασμού
       update:
         error: Υπήρξε ένα πρόβλημα κατά την ενημέρωση του λογαριασμού σας.
         success: Ο λογαριασμός σας ενημερώθηκε με επιτυχία.
+        success_with_email_confirmation: Ο λογαριασμός σας ενημερώθηκε με επιτυχία. Θα λάβετε email για επιβεβαίωση της νέας σας διεύθυνσης email.
+    activity:
+      time_ago: "%{time} πριν"
     admin:
       actions:
         cancel: Ακύρωση
+      password_change:
+        alert: Πρέπει να αλλάξετε τον κωδικό πρόσβασής σας για να προχωρήσετε περαιτέρω.
+        notification: Οι χρήστες διαχειριστές πρέπει να αλλάζουν τον κωδικό τους κάθε %{days} ημέρες.
     admin_log:
       area:
         create: "Ο χρήστης %{user_name} δημιούργησε τον τομέα %{resource_name}"
         delete: "Ο χρήστης %{user_name} διέγραψε τον τομέα %{resource_name}"
         update: "Ο χρήστης %{user_name} ενημέρωσε τον τομέα %{resource_name}"
+      area_type:
+        create: "Ο/Η %{user_name} δημιούργησε τον τύπο περιοχής %{resource_name}"
+        delete: "Ο/Η %{user_name} διέγραψε τον τύπο περιοχής %{resource_name}"
+        update: "Ο/Η %{user_name} ενημέρωσε τον τύπο περιοχής %{resource_name}"
+      attachment:
+        create: "Ο/Η %{user_name} δημιούργησε το %{resource_name} συνημμένο"
       component:
         create: "Ο χρήστης %{user_name} πρόσθεσε το στοιχείο %{resource_name} στον τομέα %{space_name}"
         delete: "Ο χρήστης %{user_name} κατάργησε το στοιχείο %{resource_name} από τον χώρο %{space_name}"
@@ -249,12 +329,14 @@ el:
       started_at: Ξεκίνησε στις %{timestamp}
     authorization_modals:
       content:
+        close_modal: Κλείσιμο παραθύρου διαλόγου
         expired:
           authorize: Εκ νέου εξουσιοδότηση με «%{authorization}»
           explanation: Η εξουσιοδότησή σας έχει λήξει. Για να εκτελέσετε αυτήν την ενέργεια, απαιτείται εκ νέου εξουσιοδότηση με «%{authorization}».
           title: Η εξουσιοδότηση έληξε
         incomplete:
           cancel: Ακύρωση
+          explanation: 'Ακόμα κι αν είστε επί του παρόντος εξουσιοδοτημένοι με «%{authorization}», απαιτείται εκ νέου εξουσιοδότηση επειδή λείπουν τα ακόλουθα δεδομένα:'
           invalid_field: "%{field}"
           reauthorize: Εκ νέου εξουσιοδότηση
           title: Πραγματοποιήστε εκ νέου εξουσιοδότηση
@@ -262,15 +344,29 @@ el:
           authorize: Εξουσιοδότηση με «%{authorization}»
           explanation: Για να εκτελέσετε αυτήν την ενέργεια, πρέπει να εξουσιοδοτηθείτε με «%{authorization}».
           title: Απαιτείται εξουσιοδότηση
+        ok:
+          title: Έχετε εξουσιοδοτηθεί ενώ βρίσκεστε σε αυτή τη σελίδα. Παρακαλώ, ανανεώστε τη σελίδα για να εκτελέσετε την ενέργειά σας.
         pending:
+          explanation: Για να εκτελέσετε αυτήν την ενέργεια, πρέπει να εξουσιοδοτηθείτε με «%{authorization}», αλλά η εξουσιοδότησή σας βρίσκεται ακόμα σε εξέλιξη.
+          resume: Ελέγξτε την πρόοδο της εξουσιοδότησης «%{authorization}».
           title: Η εξουσιοδότηση βρίσκεται ακόμα σε εξέλιξη
         unauthorized:
+          explanation: Δυστυχώς, δεν μπορείτε να εκτελέσετε αυτήν την ενέργεια, καθώς ορισμένα από τα δεδομένα εξουσιοδότησης δεν ταιριάζουν.
+          invalid_field: "Η τιμή %{field} %{value} δεν είναι έγκυρη."
           ok: ΟΚ
           title: Χωρίς εξουσιοδότηση
         unconfirmed:
+          confirmation_instructions: 'Εάν δεν έχετε λάβει τις οδηγίες επιβεβαίωσης μπορείτε να τις ζητήσετε ξανά:'
           explanation_html: Για να εκτελέσετε αυτήν την ενέργεια, θα πρέπει να είστε εξουσιοδοτημένοι. Για να το κάνετε αυτό, πρέπει να επιβεβαιώσετε τη διεύθυνση email σας <strong>%{email}</strong>.
           request_confirmation_instructions: Ζητήστε οδηγίες επιβεβαίωσης
           title: Επιβεβαίωση διεύθυνσης email
+    block_user_mailer:
+      notify:
+        body_1: Ο λογαριασμός σας αποκλείστηκε.
+        body_2: 'Αιτία: %{justification}'
+        greetings: Με φιλικούς χαιρετισμούς,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Γεια σας,
+        subject: Ο λογαριασμός σας αποκλείστηκε από τον %{organization_name}
     collapsible_list:
       hidden_elements_count:
         one: και %{count} ακόμη
@@ -279,6 +375,7 @@ el:
       see_more: "(προβολή περισσότερων)"
     components:
       component_order_selector:
+        no_content: Δεν ήταν δυνατή η εύρεση περιεχομένου με αυτά τα κριτήρια.
         order:
           all_types: Όλοι οι τύποι
           collaborative_draft: Προσχέδιο συνεργασίας
@@ -286,6 +383,7 @@ el:
           debate: Συζήτηση
           initiative: Πρωτοβουλία
           meeting: Σύσκεψη
+          order: Ψήφος προϋπολογισμού
           post: Δημοσίευση
           proposal: Πρόταση
           question: Ερώτηση
@@ -299,11 +397,13 @@ el:
           global:
             amendments_enabled: Οι τροποποιήσεις ενεργοποιήθηκαν
             comments_enabled: Τα σχόλια ενεργοποιήθηκαν
+            comments_max_length: Μέγιστο μήκος σχολίων
             dummy_global_attribute1: Εικονικό χαρακτηριστικό 1
             dummy_global_attribute2: Εικονικό χαρακτηριστικό 2
             dummy_global_translatable_text: Εικονικό μετατρέψιμο κείμενο
             enable_pads_creation: Ενεργοποίηση δημιουργίας πινάκων σημειώσεων
             resources_permissions_enabled: Τα δικαιώματα πόρων ενεργοποιήθηκαν
+            scope_id: Πεδίο εφαρμογής
           step:
             amendment_creation_enabled: Η δημιουργία τροποποίησης ενεργοποιήθηκε
             amendment_promotion_enabled: Η προώθηση τροποποίησης ενεργοποιήθηκε
