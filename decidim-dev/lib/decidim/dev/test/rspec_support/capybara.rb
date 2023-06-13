@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 require "selenium-webdriver"
+require "capybara/cuprite"
+
 
 module Decidim
   # Helpers meant to be used only during capybara test runs.
@@ -37,6 +39,22 @@ end
     Capybara.server_port = port
     break
   end
+end
+
+Capybara.javascript_driver = :cuprite
+Capybara.register_driver :cuprite do |app|
+  options = {
+    window_size: [1920,1080],
+    headless: true,
+    timeout: 60,
+    process_timeout: 60,
+    js_errors: true,
+    browser_options: {
+      "ignore-certificate-errors" => ENV["TEST_SSL"],
+      'no-sandbox': nil,
+    },
+  }
+  Capybara::Cuprite::Driver.new(app, options)
 end
 
 Capybara.register_driver :headless_chrome do |app|
@@ -118,22 +136,25 @@ Capybara.default_max_wait_time = 10
 
 RSpec.configure do |config|
   config.before :each, type: :system do
-    driven_by(:headless_chrome)
+    driven_by(ENV.fetch("TEST_DRIVER", "cuprite").to_sym)
     switch_to_default_host
     domain = (try(:organization) || try(:current_organization))&.host
     if domain
       # Javascript sets the cookie also for all subdomains but localhost is a
       # special case.
       domain = ".#{domain}" unless domain == "localhost"
-      page.driver.browser.execute_cdp(
-        "Network.setCookie",
-        domain:,
-        name: Decidim.consent_cookie_name,
-        value: { essential: true }.to_json,
-        path: "/",
-        expires: 1.day.from_now.to_i,
-        same_site: "Lax"
-      )
+      cookie_options = { domain: , path: "/", expires: 1.day.from_now.to_i, same_site: "Lax" }
+
+      if [:headless_chrome, :pwa_chrome, :iphone, :rack_test].include?(Capybara.current_driver)
+        page.driver.browser.execute_cdp(
+          "Network.setCookie",
+          name: Decidim.consent_cookie_name,
+          value: { essential: true }.to_json,
+          **cookie_options
+        )
+      elsif Capybara.current_driver == :cuprite
+        page.driver.set_cookie(Decidim.consent_cookie_name, { essential: true }.to_json, **cookie_options )
+      end
     end
   end
 
@@ -150,7 +171,7 @@ RSpec.configure do |config|
   end
 
   config.after(type: :system) do |example|
-    warn page.driver.browser.logs.get(:browser) unless example.metadata[:driver].eql?(:rack_test)
+    warn page.driver.browser.logs.get(:browser) if [:headless_chrome, :pwa_chrome, :iphone].include?(example.metadata[:driver])
   end
 
   config.include Decidim::CapybaraTestHelpers, type: :system

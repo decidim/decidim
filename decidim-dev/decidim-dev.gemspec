@@ -28,6 +28,7 @@ Gem::Specification.new do |s|
   s.files = Dir["{app,config,db,lib,vendor}/**/*", "Rakefile", "README.md", "rubocop-decidim.yml"]
 
   s.add_dependency "capybara", "~> 3.39"
+  s.add_dependency "cuprite", "~> 0.14.0"
   s.add_dependency "decidim", Decidim::Dev.version
   s.add_dependency "factory_bot_rails", "~> 6.2"
   s.add_dependency "faker", "~> 3.2"

@@ -116,6 +116,7 @@ PATH
     decidim-dev (0.28.0.dev)
       byebug (~> 11.0)
       capybara (~> 3.39)
+      cuprite (~> 0.14.0)
       decidim (= 0.28.0.dev)
       erb_lint (~> 0.4.0)
       factory_bot_rails (~> 6.2)
@@ -322,6 +323,9 @@ GEM
     crass (1.0.6)
     css_parser (1.11.0)
       addressable
+    cuprite (0.14.3)
+      capybara (~> 3.0)
+      ferrum (~> 0.13.0)
     date_validator (0.12.0)
       activemodel (>= 3)
       activesupport (>= 3)
@@ -401,6 +405,11 @@ GEM
     faraday-retry (1.0.3)
     faraday_middleware (1.2.0)
       faraday (~> 1.0)
+    ferrum (0.13)
+      addressable (~> 2.5)
+      concurrent-ruby (~> 1.1)
+      webrick (~> 1.7)
+      websocket-driver (>= 0.6, < 0.8)
     ffi (1.15.5)
     file_validators (3.0.0)
       activemodel (>= 3.2)
@@ -798,6 +807,7 @@ GEM
       addressable (>= 2.8.0)
       crack (>= 0.3.2)
       hashdiff (>= 0.4.0, < 2.0.0)
+    webrick (1.8.1)
     websocket (1.2.9)
     websocket-driver (0.7.5)
       websocket-extensions (>= 0.1.0)
@@ -839,7 +849,7 @@ DEPENDENCIES
   web-console (~> 4.2)
 
 RUBY VERSION
-   ruby 3.1.1p18
+   ruby 3.1.2p20
 
 BUNDLED WITH
    2.4.6
