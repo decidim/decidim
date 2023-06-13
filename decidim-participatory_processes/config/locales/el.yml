@@ -297,6 +297,7 @@ el:
           success: Η ομάδα διαδικασίας συμμετοχής δημιουργήθηκε με επιτυχία.
       titles:
         participatory_process_groups: Ομάδες διαδικασιών συμμετοχής
+        participatory_process_types: Τύποι συμμετοχικών διεργασιών
         participatory_processes: Διαδικασίες συμμετοχής
       users:
         resend_invitation:
@@ -305,6 +306,9 @@ el:
     admin_log:
       participatory_process:
         create: "Ο χρήστης %{user_name} δημιούργησε τη διαδικασία συμμετοχής %{resource_name}"
+        duplicate: "%{user_name} αντέγραψε τη %{resource_name} συμμετοχική διεργασία"
+        export: "%{user_name} εξήγαγε την %{resource_name} συμμετοχική διεργασία"
+        import: "%{user_name} εισήγαγε την %{resource_name} συμμετοχική διεργασία"
         publish: "Ο χρήστης %{user_name} δημοσίευσε τη διαδικασία συμμετοχής %{resource_name}"
         unpublish: "Ο χρήστης %{user_name} κατάργησε τη δημοσίευση της διαδικασίας συμμετοχής %{resource_name}"
         update: "Ο χρήστης %{user_name} ενημέρωσε τη διαδικασία συμμετοχής %{resource_name}"
@@ -316,6 +320,10 @@ el:
         create: "Ο χρήστης %{user_name} δημιούργησε τη φάση %{resource_name} στη διαδικασία συμμετοχής %{space_name}"
         delete: "Ο χρήστης %{user_name} διέγραψε τη φάση %{resource_name} στη διαδικασία συμμετοχής %{space_name}"
         update: "Ο χρήστης %{user_name} ενημέρωσε τη φάση %{resource_name} στη διαδικασία συμμετοχής %{space_name}"
+      participatory_process_type:
+        create: "%{user_name} δημιούργησε τον %{resource_name} τύπο συμμετοχικής διεργασίας"
+        delete: "%{user_name} διέγραψε τον %{resource_name} τύπο συμμετοχικής διεργασίας"
+        update: "%{user_name} ενημέρωσε τον %{resource_name} τύπο συμμετοχικής διεργασίας"
       participatory_process_user_role:
         create: "Ο χρήστης %{user_name} προσκάλεσε τον συμμετέχοντα %{resource_name} στη διαδικασία συμμετοχής %{space_name}"
         delete: "Ο χρήστης %{user_name} κατάργησε τον συμμετέχοντα %{resource_name} από τη διαδικασία συμμετοχής %{space_name}"
@@ -355,8 +363,28 @@ el:
         related_assemblies: Σχετικές συνελεύσεις
     participatory_process_groups:
       content_blocks:
+        html_1:
+          name: Πρώτο μπλοκ HTML
+        html_2:
+          name: Δεύτερο μπλοκ HTML
+        html_3:
+          name: Πρώτο μπλοκ HTML
+        metadata:
+          developer_group: Προβιβάστηκε από
+          name: Μεταδεδομένα
+          participatory_scope: Τι αποφασίστηκε
+          participatory_structure: Πώς αποφασίστηκε
+          target: Ποιος συμμετέχει
+        participatory_processes:
+          name: Συμμετοχικές διαδικασίες
         stats:
           name: Στατιστικά στοιχεία
+        title:
+          meta_scope: Πεδία εφαρμογής
+          name: Τίτλος, περιγραφή και hashtag
+          participatory_processes:
+            one: 1 διεργασία
+            other: "%{count} διεργασίες"
       show:
         title: Ομάδες διαδικασιών συμμετοχής
     participatory_process_steps:
@@ -368,9 +396,17 @@ el:
         content_blocks:
           highlighted_processes:
             max_results: Μέγιστη ποσότητα στοιχείων προς εμφάνιση
+        new_import:
+          accepted_types:
+            json: JSON
         participatory_process_copies:
           form:
             slug_help: 'Τα slug διεύθυνσης URL χρησιμοποιούνται για τη δημιουργία διευθύνσεων URL που οδηγούν σε αυτήν τη διαδικασία. Δέχεται μόνο γράμματα, αριθμούς και παύλες, και πρέπει να ξεκινά με γράμμα. Παράδειγμα: διεύθυνση %{url}'
+        participatory_process_groups:
+          form:
+            metadata: Μεταδεδομένα
+            title: Γενικές πληροφορίες
+            visibility: Ορατότητα
         participatory_process_imports:
           form:
             document_legend: Προσθήκη εγγράφου
@@ -390,6 +426,7 @@ el:
             related_processes: Σχετικές διαδικασίες
             scope_type_max_depth_help: Περιορίστε το βάθος του φίλτρου πεδίου εφαρμογής. Το φίλτρο θα εμφανίζεται από γενικό έως τον επιλεγμένο τύπο πεδίου εφαρμογής.
             select_an_area: Επιλέξτε «Τομέα»
+            select_participatory_process_type: Επιλέξτε έναν τύπο διεργασίας
             select_process_group: Επιλέξτε ομάδα διαδικασίας
             slug_help: 'Τα slug διεύθυνσης URL χρησιμοποιούνται για τη δημιουργία διευθύνσεων URL που οδηγούν σε αυτήν τη διαδικασία. Δέχεται μόνο γράμματα, αριθμούς και παύλες, και πρέπει να ξεκινά με γράμμα. Παράδειγμα: διεύθυνση %{url}'
             title: Γενικές πληροφορίες
@@ -409,12 +446,14 @@ el:
             more_information: Περισσότερες πληροφορίες
             participate: Συμμετοχή
             participate_in: Συμμετάσχετε στην διαδικασία %{resource_name}
+            processes_button_title: Σύνδεση με τη σελίδα Διεργασίεςπου εμφανίζει όλες τις διεργασίες
             see_all_processes: Δείτε όλες τις διαδικασίες
       participatory_process_steps:
         index:
           back_to_process: Πίσω στην σελίδα της διαδικασίας
       participatory_processes:
         filters:
+          all_types: Όλοι οι τύποι
           counters:
             active:
               one: 1 ενεργή διαδικασία
@@ -432,6 +471,7 @@ el:
             no_active: Δεν υπάρχουν ενεργές διαδικασίες
             no_active_nor_upcoming: Δεν υπάρχουν ενεργές ούτε προσεχείς διαδικασίες
             no_active_nor_upcoming_callout: Δεν υπάρχουν ενεργές ούτε προσεχείς διαδικασίες. Παρακάτω ακολουθεί μια λίστα με τις προηγούμενες διαδικασίες.
+          filter_by: Εμφάνιση
           names:
             active: Ενεργές
             all: Όλα
@@ -440,8 +480,11 @@ el:
           see: Προβολή
         index:
           loading: Φόρτωση αποτελεσμάτων...
+        show:
+          title: Σχετικά με αυτή τη διεργασία
       show:
         area: Τομέας
+        belongs_to_group: Αυτή η διεργασία ανήκει σε
         dates: Ημερομηνίες
         developer_group: Ομάδα προώθησης
         end_date: Ημερομηνία λήξης
@@ -454,6 +497,8 @@ el:
         start_date: Ημερομηνία έναρξης
         target: Ποιος συμμετέχει
         unspecified: Δεν προσδιορίστηκε
+    statistics:
+      processes_count: Διεργασίες
   layouts:
     decidim:
       participatory_process_groups:
@@ -480,6 +525,8 @@ el:
           more_info_about: Περισσότερες πληροφορίες για τη διαδικασία %{resource_name}
           take_part: Συμμετάσχετε
           take_part_in: Πάρτε μέρος στην διαδικασία %{resource_name}
+        promoted_process_group:
+          more_info: Περισσότερες πληροφορίες
       process_header_steps:
         step: Φάση %{current} από %{total}
         view_steps: Φάσεις διαδικασίας
