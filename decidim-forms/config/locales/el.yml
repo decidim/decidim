@@ -3,15 +3,22 @@ el:
     attributes:
       answer:
         body: Απάντηση
+        choices: Επιλογές
+        selected_choices: Επιλεγμένες επιλογές
       question:
         max_choices: Μέγιστος αριθμός επιλογών
         question_type: Τύπος
       questionnaire_question:
         mandatory: Υποχρεωτικό
+        max_characters: Όριο χαρακτήρων (αφήστε στο 0 αν δεν υπάρχει όριο)
     errors:
       models:
         answer:
           attributes:
+            add_documents:
+              needs_to_be_reattached: Πρέπει να επισυναφθεί ξανά
+            body:
+              too_long: είναι πολύ μεγάλο
             choices:
               missing: δεν έχουν ολοκληρωθεί
               too_many: είναι πάρα πολλά
@@ -25,11 +32,44 @@ el:
             description: Περιγραφή
             tos: Όροι χρήσης υπηρεσίας
         questionnaires:
+          actions:
+            back: Επιστροφή στις ερωτήσεις
+            show: Εμφάνιση απαντήσεων
           answer_option:
             answer_option: Επιλογή απάντησης
             free_text: Ελεύθερο κείμενο
             remove: Κατάργηση
             statement: Δήλωση
+          answers:
+            actions:
+              back: Επιστροφή στις απαντήσεις
+              export: Εξαγωγή
+              show: Εμφάνιση απαντήσεων
+            empty: Δεν υπάρχουν απαντήσεις ακόμη
+            export:
+              answer:
+                title: 'Απάντηση #%{number}'
+            export_response:
+              title: survey_user_answers_%{token}
+            index:
+              title: "%{total} συνολικές απαντήσεις"
+            show:
+              title: 'Απάντηση #%{number}'
+          display_condition:
+            answer_option: Επιλογή απάντησης
+            condition_question: Ερώτηση
+            condition_type: Συνθήκη
+            condition_types:
+              answered: Απαντήθηκε
+              equal: Ίσο
+              match: Περιλαμβάνει κείμενο
+              not_answered: Δεν απαντήθηκε
+              not_equal: Όχι ίσο
+            condition_value: Περιλαμβανόμενο κείμενο
+            display_condition: Συνθήκη εμφάνισης
+            mandatory: Αυτή η συνθήκη πρέπει να ικανοποιείται πάντα ανεξάρτητα από την κατάσταση άλλων συνθηκών
+            remove: Αφαίρεση
+            save_warning: Θυμηθείτε να αποθηκεύσετε τη φόρμα πριν διαμορφώσετε τις συνθήκες εμφάνισης
           edit:
             save: Αποθήκευση
             title: Επεξεργασία ερωτηματολογίου
