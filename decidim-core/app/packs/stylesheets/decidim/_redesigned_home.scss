@@ -42,7 +42,7 @@
       @apply h2 text-white;
     }
 
-    .editor-content{
+    .editor-content > *{
       @apply text-white;
     }
   }
