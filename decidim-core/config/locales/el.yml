@@ -183,6 +183,9 @@ el:
         delete: "Ο χρήστης %{user_name} κατάργησε το στοιχείο %{resource_name} από τον χώρο %{space_name}"
         publish: "Ο χρήστης %{user_name} δημοσίευσε το στοιχείο %{resource_name} στον χώρο %{space_name}"
         unpublish: "Ο χρήστης %{user_name} κατάργησε τη δημοσίευση του στοιχείου %{resource_name} από τον τομέα %{space_name}"
+      helpers:
+        answers: απαντήσεις
+        comments: σχόλιο
       moderation:
         hide: "Ο χρήστης %{user_name} απέκρυψε έναν πόρο του τύπου %{resource_type} στον χώρο %{space_name}"
         unreport: "Ο χρήστης %{user_name} κατάργησε την αναφορά ενός πόρου του τύπου %{resource_type} στον χώρο %{space_name}"
@@ -293,6 +296,10 @@ el:
         download: Λήψη αρχείου
       documents:
         related_documents: Σχετικά έγγραφα
+      geocoding:
+        geocoded_address: Διεύθυνση
+      photo:
+        alt: Εικόνα πολυμέσων
       photos:
         related_photos: Σχετικές εικόνες
     author:
