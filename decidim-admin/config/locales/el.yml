@@ -90,6 +90,7 @@ el:
         secondary_hosts: Δευτερεύοντες διακομιστές
         send_welcome_notification: Αποστολή ειδοποίησης καλωσορίσματος
         success_color: Επιτυχία
+        tertiary_color: Τριτοβάθμιος
         time_zone: Ζώνη ώρας
         tos_version: Έκδοση όρων χρήσης υπηρεσίας
         twitter_handler: Πρόγραμμα χειρισμού Twitter
@@ -144,9 +145,18 @@ el:
               allowed_file_content_types: Μη έγκυρο αρχείο εικόνας
             official_img_header:
               allowed_file_content_types: Μη έγκυρο αρχείο εικόνας
+        participatory_space_private_user_csv_import:
+          attributes:
+            file:
+              malformed: Λάθος στο αρχείο εισαγωγής, παρακαλούμε διαβάστε προσεκτικά τις οδηγίες και βεβαιωθείτε ότι το αρχείο είναι κωδικοποιημένο σε UTF-8.
+        user_group_csv_verification:
+          attributes:
+            file:
+              malformed: Λάθος στο αρχείο εισαγωγής, παρακαλούμε διαβάστε προσεκτικά τις οδηγίες και βεβαιωθείτε ότι το αρχείο είναι κωδικοποιημένο σε UTF-8.
       new_import:
         attributes:
           file:
+            invalid_file: Μη έγκυρο αρχείο, παρακαλώ ελέγξτε ότι το αρχείο έχει μορφοποιηθεί σωστά.
             invalid_mime_type: Μη έγκυρος τύπος MIME.
   activerecord:
     attributes:
@@ -207,6 +217,8 @@ el:
         create:
           error: Υπήρξε ένα πρόβλημα κατά τη δημιουργία ενός νέου τύπου περιοχής.
           success: Ο τύπος τομέα δημιουργήθηκε με επιτυχία.
+        destroy:
+          success: Ο τύπος περιοχής καταστράφηκε με επιτυχία.
         edit:
           title: Επεξεργασία τύπου τομέα
           update: Ενημέρωση
@@ -215,12 +227,14 @@ el:
           title: Νέος τύπος τομέα
         update:
           error: Υπήρξε ένα πρόβλημα κατά την ενημέρωση αυτού του τύπου τομέα.
+          success: Ο τύπος περιοχής ενημερώθηκε επιτυχώς.
       areas:
         create:
           error: Υπήρξε ένα πρόβλημα κατά τη δημιουργία ενός νέου τομέα.
           success: Ο τομέας δημιουργήθηκε με επιτυχία.
         destroy:
           has_spaces: Η περιοχή αυτή έχει εξαρτημένους χώρους. Βεβαιωθείτε ότι κανένας συμμετοχικός χώρος δεν αναφέρεται σε αυτήν την περιοχή πριν τη διαγράψετε.
+          success: Η περιοχή καταστράφηκε με επιτυχία.
         edit:
           title: Επεξεργασία τομέα
           update: Ενημέρωση
@@ -230,6 +244,7 @@ el:
         no_areas: Δεν υπάρχουν τομείς
         update:
           error: Υπήρξε ένα πρόβλημα κατά την ενημέρωση αυτού του τομέα.
+          success: Η περιοχή ενημερώθηκε επιτυχώς.
       attachment_collections:
         create:
           error: Υπήρξε ένα πρόβλημα κατά τη δημιουργία ενός νέου φακέλου.
@@ -265,11 +280,15 @@ el:
         update:
           error: Υπήρξε ένα πρόβλημα κατά την ενημέρωση αυτού του συνημμένου.
           success: Το συνημμένο ενημερώθηκε με επιτυχία.
+      attachments_privacy_warning:
+        message: Να είστε προσεκτικοί όταν εργάζεστε με συνημμένα σε έναν ιδιωτικό χώρο. Οποιοσδήποτε συμμετέχων θα μπορούσε να μοιραστεί αυτό το έγγραφο σε άλλους.
       autocomplete:
         no_results: Δεν βρέθηκαν αποτελέσματα
+        search_prompt: Πληκτρολογήστε τουλάχιστον τρεις χαρακτήρες για αναζήτηση.
       block_user:
         new:
           action: Αποκλεισμός λογαριασμού και αποστολή αιτιολόγησης
+          already_reported_html: Συνεχίζοντας με αυτήν την ενέργεια θα αποκρύψετε επίσης όλα τα περιεχόμενα των συμμετεχόντων. <a href="%{link}">Φραγή του λογαριασμού</a>.
           description: Ο αποκλεισμός ενός χρήστη θα καταστήσει τον λογαριασμό του μη χρησιμοποιήσιμο. Μπορείτε να δώσετε στην αιτιολόγησή σας οποιεσδήποτε κατευθυντήριες γραμμές σχετικά με τους τρόπους με τους οποίους θα εξετάζατε το ενδεχόμενο άρσης του αποκλεισμού του χρήστη.
           justification: Αιτιολόγηση
           title: Αποκλεισμός Χρήστη %{name}
@@ -344,11 +363,21 @@ el:
         'true': 'Ναι'
         user_name: Χρήστης
       dashboard:
+        pending_moderations:
+          anouncement:
+            one: Υπάρχουν %{count} έγκριση σε εκκρεμότητα
+            other: Υπάρχουν %{count} εγκρίσεις σε εκκρεμότητα
+          goto_moderation: Πηγαίνετε στις καθολικές εγκρίσεις
+          title: Εκκρεμείς εγκρίσεις
         show:
           view_more_logs: Προβολή περισσότερων αρχείων καταγραφής
+          welcome: Καλώς ήλθατε στον Πίνακα Διαχειριστή.
       domain_whitelist:
         form:
           domain_too_short: Πολύ σύντομος τομέας
+        update:
+          error: Απέτυχε η ενημέρωση της λίστας επιτρεπόμενων τομέων.
+          success: Η λίστα επιτρεπόμενων τομέων ενημερώθηκε με επιτυχία.
       exports:
         export_as: "Όνομα %{name} ως μορφή %{export_format}"
         formats:
@@ -356,6 +385,7 @@ el:
           Excel: Excel
           FormPDF: PDF
           JSON: JSON
+        notice: Η εξαγωγή σας είναι σε εξέλιξη. Θα λάβετε ένα email όταν ολοκληρωθεί.
       filters:
         category_id_eq:
           label: Κατηγορία
@@ -370,6 +400,13 @@ el:
           values:
             'false': 'Όχι'
             'true': 'Ναι'
+        moderated_users:
+          reports_reason_eq:
+            label: Λόγος αναφοράς
+            values:
+              does_not_belong: Δεν ανήκει
+              offensive: Επιθετικό
+              spam: Ανεπιθύμητο
         moderations:
           reportable_type_string_eq:
             label: Τύπος
@@ -404,11 +441,18 @@ el:
         search_label: Αναζήτηση
         search_placeholder:
           name_or_nickname_or_email_cont: Αναζήτηση συλλογής %{collection} με βάση το email, όνομα ή ψευδώνυμο.
+          report_count_eq: Αναφορά μετρητή eq
           reported_id_string_or_reported_content_cont: Αναζήτηση %{collection} με αναγνωριστικό ή περιεχόμενο προς αναφορά.
           title_cont: Αναζήτηση συλλογής %{collection} με βάση τον τίτλο.
           user_name_or_user_email_cont: Αναζήτηση %{collection} με βάση το όνομα ή το email.
+          user_name_or_user_nickname_or_user_email_cont: Αναζήτηση %{collection} με email, όνομα ή ψευδώνυμο.
         state_eq:
           label: Κατάσταση
+          values:
+            all: Όλα
+            pending: Εκκρεμεί
+            rejected: Απορρίφθηκε
+            verified: Επαληθεύτηκε
       forms:
         file_help:
           import:
@@ -416,8 +460,10 @@ el:
             message_1: Υποστηρίζονται αρχεία CSV, JSON και Excel (.xlsx)
             message_2: Για αρχεία CSV, ο διαχωρισμός μεταξύ των στηλών πρέπει να είναι άνω τελεία (";")
       help_sections:
+        error: Υπήρξε ένα πρόβλημα κατά την ενημέρωση των τμημάτων βοήθειας.
         form:
           save: Αποθήκευση
+        success: Οι ενότητες βοήθειας ενημερώθηκαν επιτυχώς.
       impersonatable_users:
         index:
           filter:
@@ -452,11 +498,48 @@ el:
           impersonate_existing_user: Διαχείριση συμμετέχοντα «%{name}»
           impersonate_new_managed_user: Διαχείριση νέου συμμετέχοντα
       imports:
+        and: και
+        data_errors:
+          duplicate_headers:
+            detail: Παρακαλώ ελέγξτε ότι το αρχείο περιέχει τις απαιτούμενες στήλες ή κεφαλίδες μόνο μία φορά.
+            message:
+              one: Διπλότυπη στήλη %{columns}.
+              other: Διπλότυπες στήλες %{columns}.
+          invalid_indexes:
+            lines:
+              detail: Παρακαλώ ελέγξτε ότι αυτές οι γραμμές έχουν μορφοποιηθεί σωστά και περιέχουν έγκυρες εγγραφές.
+              message:
+                one: Βρέθηκε ένα σφάλμα στο αρχείο εισαγωγής στη γραμμή %{indexes}.
+                other: Βρέθηκαν σφάλματα στο αρχείο εισαγωγής στις γραμμές %{indexes}.
+            records:
+              detail: Παρακαλώ ελέγξτε ότι αυτές οι γραμμές έχουν μορφοποιηθεί σωστά και περιέχουν έγκυρες εγγραφές.
+              message:
+                one: Βρέθηκε ένα σφάλμα στο αρχείο εισαγωγής για εγγραφές με αριθμούς παραγγελίας %{indexes}.
+                other: Βρέθηκαν σφάλματα στο αρχείο εισαγωγής για εγγραφές με αριθμούς παραγγελίας %{indexes}.
+          missing_headers:
+            detail: Παρακαλώ ελέγξτε ότι το αρχείο περιέχει τις απαιτούμενες στήλες.
+            message:
+              one: Λείπει στήλη %{columns}.
+              other: Λείπουν στήλες %{columns}.
+        error: Υπήρξε ένα πρόβλημα κατά την εισαγωγή.
+        example_error: Υπήρξε ένα πρόβλημα δημιουργώντας ένα παράδειγμα για τον συγκεκριμένο τύπο.
         new:
+          accepted_mime_types:
+            csv: CSV
+            json: JSON
+            xlsx: Excel (.xlsx)
           actions:
             back: Πίσω
+          download_example: Παράδειγμα λήψης
+          download_example_format: Παράδειγμα ως %{name}
           file_legend: Προσθέστε ένα αρχείο εισαγωγής που θα αναλυθεί.
           import: Εισαγωγή
+        notice: "%{count} %{resource_name} εισήχθησαν επιτυχώς."
+      logs:
+        filters:
+          participatory_space: Βρείτε συμμετοχικό χώρο
+          text: Αναζήτηση με email, όνομα ή ψευδώνυμο.
+          user: Χρήστης
       managed_users:
         promotion:
           error: Υπήρξε ένα πρόβλημα κατά την προώθηση του διαχειριζόμενου συμμετέχοντα.
@@ -833,12 +916,24 @@ el:
       static_pages:
         actions:
           view: Προβολή δημόσιας σελίδας
+        content_blocks:
+          create:
+            success: Το μπλοκ περιεχομένου δημιουργήθηκε επιτυχώς.
+          destroy:
+            error: Παρουσιάστηκε ένα πρόβλημα κατά την προσπάθεια διαγραφής αυτού του μπλοκ περιεχομένου.
+            success: Το μπλοκ περιεχομένου διαγράφτηκε επιτυχώς.
+          destroy_confirmation: Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτό το μπλοκ περιεχομένου;
+          edit:
+            update: Ενημέρωση
+          inactive_content_blocks: Μπλοκ ανενεργού περιεχομένου
+          title: Περιεχόμενα σελίδας
         create:
           error: Υπήρξε ένα πρόβλημα κατά τη δημιουργία μιας νέας σελίδας.
           success: Η σελίδα δημιουργήθηκε με επιτυχία.
         destroy:
           success: Η σελίδα καταστράφηκε με επιτυχία
         edit:
+          changed_notably_help: Εάν επιλεγεί, οι συμμετέχοντες θα ειδοποιηθούν για να αποδεχθούν τους νέους όρους υπηρεσίας.
           title: Επεξεργασία σελίδας
           update: Ενημέρωση
         form:
@@ -852,9 +947,11 @@ el:
         topic:
           destroy: Κατάργηση θέματος
           edit: Επεξεργασία θέματος
+          empty: Δεν υπάρχουν σελίδες κάτω από αυτό το θέμα.
           without_topic: Σελίδες χωρίς θέμα
         update:
           error: Υπήρξε ένα πρόβλημα κατά την ενημέρωση αυτής της σελίδας.
+          success: Η σελίδα ενημερώθηκε επιτυχώς.
       titles:
         admin_log: Αρχείο καταγραφής διαχειριστή
         area_types: Τύποι τομέα
@@ -871,13 +968,17 @@ el:
         static_pages: Σελίδες
         statistics: Δραστηριότητα
         user_groups: Ομάδες
+        users: Διαχειριστές
       user_group:
         csv_verify:
           invalid: Υπήρξε ένα πρόβλημα κατά την ανάγνωση του αρχείου CSV.
+          success: Το αρχείο CSV ανέβηκε με επιτυχία, επαληθεύουμε τις ομάδες που ταιριάζουν στα κριτήρια. Αυτό μπορεί να διαρκέσει λίγο.
         reject:
           invalid: Υπήρξε ένα πρόβλημα κατά την απόρριψη αυτής της ομάδας.
+          success: Η ομάδα απορρίφθηκε με επιτυχία.
         verify:
           invalid: Υπήρξε ένα πρόβλημα κατά την επαλήθευση αυτής της ομάδας.
+          success: Η ομάδα επαληθεύτηκε με επιτυχία.
       user_groups:
         index:
           state:
@@ -887,7 +988,11 @@ el:
           verify_via_csv: Επαλήθευση μέσω CSV
       user_groups_csv_verifications:
         new:
+          example_file: 'Παράδειγμα αρχείου:'
           explanation: Πραγματοποιήστε αποστολή του αρχείου CSV. Πρέπει να έχει τις επίσημες διευθύνσεις email των ομάδων του οργανισμού σας στην πρώτη στήλη του αρχείου, χωρίς κεφαλίδες. Θα επικυρωθούν μόνο οι ομάδες που έχουν επιβεβαιώσει τη διεύθυνση email τους και το email εμφανίζεται στο αρχείο CSV.
+          explanation_example: |
+            acme@example.org
+            bubba.gump@example.org
           title: Αποστολή του αρχείου σας CSV
           upload: Αποστολή
       users:
@@ -903,14 +1008,20 @@ el:
           role: Ρόλος
         new:
           create: Πρόσκληση
+          title: Προσκαλέστε νέο διαχειριστή
       users_statistics:
         users_count:
           admins: Διαχειριστές
           last_day: Τελευταία ημέρα
           last_month: Τελευταίος μήνας
           last_week: Τελευταία εβδομάδα
+          no_users_count_statistics_yet: Δεν υπάρχουν στατιστικά στοιχεία καταμέτρησης χρηστών ακόμα.
           participants: Συμμετέχοντες
       view_public_page: Προβολή δημόσιας σελίδας
+    forms:
+      errors:
+        impersonate_user:
+          reason: Πρέπει να καταχωρήσετε έναν λόγο κατά τη διαχείριση ενός μη διαχειριζόμενου συμμετέχοντα.
     metrics:
       blocked_users:
         object: αποκλεισμένοι χρήστες
@@ -944,10 +1055,15 @@ el:
       models:
         moderation:
           fields:
+            created_at: Αναφέρθηκε στις
+            deleted_resource: Διαγραμμένος πόρος
             hidden_at: Αποκρύφτηκε στις
             participatory_space: Συμμετοχικός χώρος
+            report_count: Αριθμός αναφορών
+            reportable_id: ID
             reportable_type: Τύπος
             reported_content_url: Διεύθυνση URL περιεχομένου που έχει αναφερθεί
+            reports: Αιτία
             visit_url: Διεύθυνση URL επίσκεψης
         report:
           fields:
@@ -960,6 +1076,8 @@ el:
   layouts:
     decidim:
       admin:
+        global_moderations:
+          title: Γενικές εποπτεύσεις
         newsletters:
           title: Ενημερωτικά δελτία
         settings:
