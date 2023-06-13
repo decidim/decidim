@@ -3,11 +3,13 @@
   <%= form.hidden_field :alignment, id: nil, class: "alignment-input" %>
   <%= comment_as_for(form) %>
 
-  <label class="comment__form-label" for="<%= add_comment_id %>">
-    <%= t("decidim.components.add_comment_form.form.body.label") %>
-  </label>
+  <div class="flex justify-between items-end mb-4">
+    <label class="comment__form-label" for="<%= add_comment_id %>">
+      <%= t("decidim.components.add_comment_form.form.body.label") %>
+    </label>
 
-  <span id="<%= add_comment_id %>-remaining-characters" class="remaining-character-count"></span>
+    <span id="<%= add_comment_id %>-remaining-characters" class="remaining-character-count"></span>
+  </div>
 
   <%= form.text_area(
     :body,
