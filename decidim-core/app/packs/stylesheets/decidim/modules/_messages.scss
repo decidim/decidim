@@ -7,7 +7,7 @@ $message-padding: 1rem;
   $counter-size: 25px;
   $counter-font-size: $counter-size - 12px;
 
-  background-color: $secondary;
+  background-color: var(--secondary);
   border-radius: 50%;
   color: $white;
   font-size: $counter-font-size;

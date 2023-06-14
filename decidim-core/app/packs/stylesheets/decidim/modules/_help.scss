@@ -19,9 +19,9 @@
   @include flex;
   @include flex-align(center, middle);
 
-  border: 0.25rem solid lighten($secondary, 25%);
+  border: 0.25rem solid rgba(var(--secondary-rgb, 0.25));
   border-radius: 50%;
-  background-color: $secondary;
+  background-color: var(--secondary);
   color: $light-gray;
   padding: 0.25rem;
   cursor: pointer;

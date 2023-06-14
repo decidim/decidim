@@ -133,7 +133,8 @@ a .card__title {
   }
 
   a:hover {
-    color: darken($secondary, 20%);
+    filter: brightness(0.85);
+    color: var(--secondary);
     text-decoration: underline;
   }
 
@@ -698,7 +699,7 @@ a .card__title {
     $counter-size: 20px;
     $counter-font-size: $counter-size - 8px;
 
-    background-color: $secondary;
+    background-color: var(--secondary);
     border-radius: 50%;
     color: $white;
     font-size: $counter-font-size;

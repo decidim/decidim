@@ -69,7 +69,7 @@
 
   .programme-title {
     font-size: rem-calc(24);
-    color: $secondary;
+    color: var(--secondary);
     font-weight: $global-weight-bold;
 
     @include breakpoint(small only) {

@@ -20,7 +20,7 @@
   $dropdown-width: 12rem;
 
   button[data-toggle] {
-    color: $secondary;
+    color: var(--secondary);
     margin: 0;
     width: $dropdown-width;
 
@@ -53,7 +53,7 @@
 
       &:hover {
         cursor: pointer;
-        background-color: rgba($secondary, 0.05);
+        background-color: rgba(var(--secondary-rgb), 0.05);
       }
     }
 

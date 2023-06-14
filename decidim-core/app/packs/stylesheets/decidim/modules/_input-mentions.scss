@@ -65,7 +65,7 @@
     position: relative;
     min-width: 100%;
     top: -1rem - rem-calc(1);
-    color: $secondary;
+    color: var(--secondary);
 
     ul {
       //reset list
