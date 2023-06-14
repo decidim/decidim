@@ -7,9 +7,9 @@
   overflow: visible;
 
   .tooltip-content {
-    @extend .text-medium;
     @extend .p-xs;
 
+    font-size: 90%;
     position: relative;
 
     &::after,
