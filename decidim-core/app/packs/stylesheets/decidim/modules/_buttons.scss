@@ -260,18 +260,8 @@
 /* Extra buttons styles */
 
 .button--shadow {
-  $shadows: (
-    primary: shade($primary, 50%),
-    secondary: shade($secondary, 50%),
-    success: shade($success, 50%),
-    warning: shade($warning, 50%),
-    alert: shade($alert, 50%),
-    muted: shade($muted, 50%)
-  );
-
-  @include modifiers(background-color, $shadows) {
-    color: $white;
-  }
+  color: $white;
+  filter: brightness(0.85);
 }
 
 .button--icon {
@@ -379,7 +369,7 @@
   font-weight: $anchor-font-weight;
 
   &:hover {
-    color: $anchor-color-hover;
+    color: var(--secondary);
     text-decoration: underline;
     text-decoration-skip-ink: auto;
   }
@@ -387,11 +377,11 @@
 
 .link-alt {
   cursor: pointer;
-  color: $anchor-color;
+  color: var(--secondary);
   font-weight: $anchor-font-weight;
 
   &:hover {
-    color: $anchor-color-hover;
+    color: var(--secondary);
     text-decoration: underline;
     text-decoration-skip-ink: auto;
   }
@@ -402,7 +392,7 @@
   color: $muted;
 
   &:hover {
-    color: $anchor-color;
+    color: var(--secondary);
     text-decoration: underline;
   }
 }
