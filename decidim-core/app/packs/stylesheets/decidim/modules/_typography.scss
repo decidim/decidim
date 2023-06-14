@@ -103,6 +103,37 @@ hr{
 
 /* New typographic styles */
 
+// Introduced because .section-heading has a position: relative
+// that breaks when there are two headings in the same section
+// This should be revisited in the redesign.
+
+.heading-section-heading{
+  margin-bottom: 1rem;
+  font-weight: 600;
+  font-size: 1.125em;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+
+  &::before{
+    content: "";
+    display: inline-block;
+    width: 4px;
+    height: 1.35em;
+    background-color: var(--primary);
+    margin-right: .5rem;
+    margin-bottom: -.5rem;
+    vertical-align: top;
+  }
+
+  &.collapse{
+    margin: 0;
+  }
+
+  span{
+    font-weight: normal;
+  }
+}
+
 .section-heading{
   position: relative;
   margin-bottom: 1rem;

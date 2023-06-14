@@ -1,2 +1,1 @@
-<label for="<%= field_id %>" class="answer-questionnaire__file button button__lg button__transparent-secondary"><%= t("decidim.forms.questionnaires.show.upload_file") %></label>
-<%= answer_form.file_field :add_documents, label: false, multiple: true, id: field_id, disabled: disabled %>
+<%= answer_form.upload :add_documents, label: false, multiple: true, id: field_id, disabled: disabled, button_class: "button button__lg button__transparent-secondary w-full" %>

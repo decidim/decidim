@@ -82,6 +82,8 @@ module Decidim::Initiatives
         end
 
         it "does not render comments" do
+          skip "REDESIGN_PENDING - Deprecated remove the entire file once fully enabled redesign and removed the m-card"
+
           expect(subject).not_to have_css(".comments_count_status")
           expect(subject).not_to have_content("0 comments")
         end
