@@ -1,11 +1,11 @@
 <% if has_profile? %>
   <%= link_to profile_url, class: "profile__user" do %>
     <div class="profile__user-avatar-container">
-        <div class="profile__user-avatar">
-          <%= image_tag model.avatar_url(:big), alt: "member-avatar" %>
+      <div class="profile__user-avatar">
+        <%= image_tag model.avatar_url(:big), alt: "member-avatar" %>
       </div>
     </div>
-    <div class="space-y-1">
+    <div>
       <h5 class="profile__user-name">
         <%= name %>
         <span class="capitalize profile__user-role">
@@ -17,7 +17,7 @@
           <%= nickname %>
         </span>
       <% end %>
-      <div class="mt-4 text-sm">
+      <div class="mt-2 text-sm">
         <span class="text-gray-2">
           <%= t("decidim.assembly_members.assembly_member.designated_on") %>
         </span>
@@ -37,14 +37,14 @@
         <%= image_tag model.non_user_avatar_path, alt: "member-avatar" %>
       </div>
     </div>
-    <div class="space-y-1">
+    <div>
       <div class="profile__user-nick">
         <%= nickname.presence %>
         <span class="capitalize profile__user-role">
           <%= position %>
         </span>
       </div>
-      <div class="mt-4 text-sm">
+      <div class="mt-2 text-sm">
         <span class="text-gray-2">
           <%= t("decidim.assembly_members.assembly_member.designated_on") %>
         </span>
