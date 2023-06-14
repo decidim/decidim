@@ -1,5 +1,7 @@
-<% if resource_image_path.present? %>
-  <div class="card__list-image">
+<div class="card__list-image">
+  <% if resource_image_path.present? %>
     <%= image_tag resource_image_path, class: "w-full h-full object-cover" %>
-  </div>
-<% end %>
+  <% else %>
+    <%= icon "placeholder-card-g", class: "w-full h-full fill-primary" %>
+  <% end %>
+</div>
