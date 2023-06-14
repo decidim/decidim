@@ -6,6 +6,8 @@ fi:
         offline: Offline
         offline_explanation: Ohjeet offline-vahvistamiseen
         online: Verkossa
+      confirmation:
+        verification_code: Vahvistuskoodi
       id_document_information:
         document_number: Asiakirjan numero (kirjeellä toimitettava)
         document_type: Asiakirjan tyyppi
@@ -14,6 +16,8 @@ fi:
         document_type: Asiakirjan tyyppi
         user: Käyttäjä
         verification_attachment: Asiakirjan skannattu kopio
+      mobile_phone:
+        mobile_phone_number: Matkapuhelimen numero
       offline_confirmation:
         email: Käyttäjän sähköposti
       postal_letter_address:
