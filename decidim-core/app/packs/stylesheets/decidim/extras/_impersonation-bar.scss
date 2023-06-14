@@ -4,7 +4,8 @@
   text-align: center;
 
   a {
-    color: darken($anchor-color, 10%);
+    color: var(--secondary);
+    filter: brightness(0.90);
   }
 }
 

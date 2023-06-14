@@ -293,7 +293,7 @@
     .accordion-title::before {
       font-size: 1.5rem;
       margin-top: -0.75rem;
-      color: $anchor-color;
+      color: var(--secondary);
       font-weight: normal;
     }
   }

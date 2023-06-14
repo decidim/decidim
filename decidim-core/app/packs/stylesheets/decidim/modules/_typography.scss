@@ -8,16 +8,17 @@ input {
 }
 
 a {
-  color: $anchor-color;
+  color: var(--secondary);
   font-weight: $anchor-font-weight;
 
   &:hover {
-    color: $anchor-color-hover;
+    color: var(--secondary);
     text-decoration: underline;
     text-decoration-skip-ink: auto;
   }
 
   &:focus {
+    color: var(--secondary);
     outline: $anchor-outline-focus;
     outline-offset: $anchor-outline-offset;
   }

@@ -61,7 +61,7 @@ $order-border: $border;
   }
 
   &.is-active {
-    color: $anchor-color;
+    color: var(--secondary);
   }
 
   &:first-of-type {

@@ -20,7 +20,7 @@
       }
 
       a {
-        color: $anchor-color;
+        color: var(--secondary);
         padding: $global-padding * 3 * 0.25;
         position: relative;
 

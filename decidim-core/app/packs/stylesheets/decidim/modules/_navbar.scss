@@ -2,7 +2,6 @@
 
 $navbar-bg: $dark-gray;
 $navbar-bg-hover: rgba(white, 0.02);
-$navbar-bg-focus: $primary;
 $navbar-color: rgba(white, 0.5);
 $navbar-color-hover: $white;
 $navbar-active-color: $white;
@@ -252,7 +251,7 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 var(--primary);
 
       a {
         padding: 0.5rem;
-        color: $anchor-color;
+        color: var(--secondary);
 
         &:hover,
         &:focus {
@@ -411,7 +410,7 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 var(--primary);
   @include flexgap(1rem);
 
   strong {
-    color: $anchor-color;
+    color: var(--secondary);
   }
 
   :last-child {
@@ -426,7 +425,7 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 var(--primary);
 .topbar__notifications__item--more {
   text-align: center;
   background-color: $light-gray-dark;
-  color: $anchor-color;
+  color: var(--secondary);
   font-size: 90%;
 }
 

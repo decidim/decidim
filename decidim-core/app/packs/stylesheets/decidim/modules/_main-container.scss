@@ -59,13 +59,13 @@ $container-padding-2y: 2rem;
       color: $body-font-color;
 
       &:hover {
-        color: $anchor-color;
+        color: var(--secondary);
       }
     }
 
     &.is-active > [role="tab"],
     &.is-active > a {
-      color: $anchor-color;
+      color: var(--secondary);
       box-shadow: inset 4px 0 0 var(--primary);
     }
   }

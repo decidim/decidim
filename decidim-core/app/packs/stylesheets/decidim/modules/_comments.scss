@@ -169,10 +169,10 @@ $comment-form-bg: $light-gray;
   }
 
   &.muted-link {
-    color: $anchor-color;
+    color: var(--secondary);
 
     &:hover {
-      color: $anchor-color-hover;
+      color: rgba(var(--secondary-rgb), 0.86)
     }
   }
 }

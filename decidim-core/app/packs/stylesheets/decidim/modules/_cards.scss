@@ -473,10 +473,10 @@ a .card__title {
 
 /* Card Link */
 .card__link {
-  color: $anchor-color;
+  color: var(--secondary);
 
   &:hover {
-    color: $anchor-color;
+    color: var(--secondary);
     text-decoration: underline;
   }
 
@@ -530,7 +530,7 @@ a .card__title {
 
 .card--list__icon {
   display: none;
-  fill: $anchor-color;
+  fill: var(--secondary);
 
   @include modifiers(fill);
 
@@ -654,7 +654,7 @@ a .card__title {
 
   &:hover {
     .icon {
-      fill: $anchor-color;
+      fill: var(--secondary);
     }
   }
 }

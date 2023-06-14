@@ -10,7 +10,7 @@
     padding: 2px;
 
     &:hover {
-      background: $anchor-color;
+      background: var(--secondary);
     }
   }
 }

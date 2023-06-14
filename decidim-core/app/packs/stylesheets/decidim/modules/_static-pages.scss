@@ -32,7 +32,7 @@
     color: $body-font-color;
 
     &:hover {
-      color: $anchor-color;
+      color: var(--secondary);
     }
   }
 }

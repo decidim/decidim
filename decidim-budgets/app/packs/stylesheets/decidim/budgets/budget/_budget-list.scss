@@ -131,7 +131,7 @@
 
     &:hover {
       .icon {
-        fill: $anchor-color;
+        fill: var(--secondary);
       }
     }
   }
