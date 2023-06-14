@@ -93,8 +93,8 @@ export class EmojiButton {
       autoFocus: "search",
       locale: document.documentElement.getAttribute("lang"),
       i18n,
-      // shrink the size of the emoji when
-      ...(window.matchMedia(`(max-width: ${screens.sm})`).matches && { emojiSize: "1.75rem" })
+      // shrink the size of the emoji when mobile
+      ...(window.matchMedia(`(max-width: ${screens.sm})`).matches && { emojiSize: "1.5rem" })
     }, {
       position: "bottom-end",
       triggerElement: btn,
