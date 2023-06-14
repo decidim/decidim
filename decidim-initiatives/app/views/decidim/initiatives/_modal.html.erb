@@ -1,19 +1,15 @@
-<div class="reveal not-authorized-reveal" id="not-authorized-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="not-authorized-modal-title" data-reveal data-multiple-opened="true">
-  <div class="reveal__header">
-    <h2 class="reveal__title" id="not-authorized-modal-title"><%= t(".not_authorized.title") %></h2>
-    <button class="close-button" data-close aria-label="<%= t(".not_authorized.close") %>"
-            type="button">
-      <span aria-hidden="true">&times;</span>
+<%= decidim_modal id: "not-authorized-modal" do %>
+  <div data-dialog-container>
+    <%= icon "information-line" %>
+    <h3 class="h3" id="dialog-title-not-authorized-modal" data-dialog-title>
+      <%= t(".not_authorized.title") %>
+    </h3>
+    <p id="dialog-desc-not-authorized-modal"><%= t(".not_authorized.explanation") %></p>
+  </div>
+  <div data-dialog-actions>
+    <%= link_to t(".not_authorized.authorizations_page"), decidim_verifications.authorizations_path(redirect_url: create_initiative_url(:select_initiative_type)), class: "button button__sm md:button__lg button__secondary" %>
+    <button data-dialog-close="not-authorized-modal" class="button button__sm md:button__lg button__secondary">
+      <%= t("ok", scope: "decidim.budgets.projects.budget_excess") %>
     </button>
   </div>
-  <div class="not-authhorized-content">
-    <div class="not-authorized-modal-content">
-      <p>
-        <%= t(".not_authorized.explanation") %>
-      </p>
-    </div>
-  </div>
-  <div class="not-authorized-modal-footer reveal__footer">
-    <%= link_to t(".not_authorized.authorizations_page"), decidim_verifications.authorizations_path(redirect_url: create_initiative_url(:select_initiative_type)), class: "button expanded" %>
-  </div>
-</div>
+<% end %>

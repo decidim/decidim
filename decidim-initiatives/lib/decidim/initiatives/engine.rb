@@ -52,7 +52,7 @@ module Decidim
               delete :revoke
             end
           end
-          resources :versions, only: [:show, :index]
+          resources :versions, only: [:show]
         end
 
         scope "/initiatives/:initiative_slug/f/:component_id" do

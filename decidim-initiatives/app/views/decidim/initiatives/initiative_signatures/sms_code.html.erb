@@ -1,8 +1,4 @@
-<div class="callout secondary mb-sm">
-  <p>
-    <%= t ".help" %>
-  </p>
-</div>
+<%= cell("decidim/announcement", t("decidim.initiatives.initiative_signatures.sms_code.help"), callout_class: "secondary") %>
 <h2 class="section-heading"><%= t(step, scope: "layouts.decidim.initiative_signature_creation_header") %></h2>
 
 <%= render partial: "wizard_steps" %>
