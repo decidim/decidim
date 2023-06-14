@@ -215,14 +215,51 @@ $map: map-merge(
   )
 );
 
-@each $key, $value in $map {
-  .text-#{$key} {
-    color: $value;
-  }
+.text-primary {
+  color: var(--primary);
+}
 
-  .bg-#{$key} {
-    background-color: lighten($value, 30);
-  }
+.bg-primary {
+  background-color: rgba(var(--primary), 0.30);
+}
+
+.text-secondary {
+  color: var(--secondary);
+}
+.bg-secondary {
+  background-color: rgba(var(--secondary), 0.30);
+}
+
+.text-success {
+  color: var(--success);
+}
+
+.bg-success {
+  background-color: rgba(var(--success), 0.30);
+}
+
+.text-warning {
+  color: var(--warning);
+}
+
+.bg-warning {
+  background-color: rgba(var(--warning), 0.30);
+}
+
+.text-alert {
+  color: var(--alert);
+}
+
+.bg-alert {
+  background-color: rgba(var(--alert), 0.30);
+}
+
+.text-muted {
+  color: $muted;
+}
+
+.bg-muted, .meeting-polls__iframe {
+  background-color: rgba($muted, 0.30);
 }
 
 .text-large {
