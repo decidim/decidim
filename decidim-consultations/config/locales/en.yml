@@ -226,6 +226,7 @@ en:
         new_question: New question
         response_groups: Response Groups
         responses: Responses
+        new_response: New response
         results: Results
     consultations:
       admin:
