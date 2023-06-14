@@ -1593,6 +1593,7 @@ fr:
       too_many_marks: utilise trop de signes de ponctuation consécutifs (par exemple! et?)
       too_much_caps: utilise trop de lettres majuscules (plus de 25% du texte)
       too_short: est trop court (le minimum est de %{count} caractères)
+      url_format: Le format de cette URL est incorrect
   forms:
     correct_errors: Il y a des erreurs dans le formulaire, veuillez les corriger pour continuer.
     length_validator:
