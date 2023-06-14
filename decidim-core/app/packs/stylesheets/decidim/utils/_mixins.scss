@@ -166,7 +166,7 @@ $palette: (
 
   &:focus,
   &:active {
-    background-color: $primary;
+    background-color: var(--primary);
     color: $white;
     left: 0;
     top: 0;

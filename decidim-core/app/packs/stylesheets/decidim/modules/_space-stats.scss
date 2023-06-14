@@ -23,7 +23,7 @@
     &::after {
       content: "";
       display: inline-block;
-      border-left: 2px solid $primary;
+      border-left: 2px solid var(--primary);
       height: 2rem;
       position: absolute;
       left: 0;

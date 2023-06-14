@@ -1,7 +1,6 @@
 $calendar-bg-color: $white;
 $calendar-border: 1px solid rgba(0, 0, 0, 0.1);
 $calendar-border-color: rgba(0, 0, 0, 0.1);
-$calendar-active-color: $primary-color;
 $calendar-bg-hover: $light-gray;
 $calendar-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 $calendar-color-old: $medium-gray;
@@ -72,7 +71,7 @@ $calendar-font-size: $global-font-size * 0.9;
 
 .datepicker td.active.day,
 .datepicker td.active.year {
-  background: $calendar-active-color;
+  background: var(--primary);
 }
 
 .datepicker .day:hover,
@@ -84,7 +83,7 @@ $calendar-font-size: $global-font-size * 0.9;
   background-color: $calendar-bg-hover;
 
   &.active {
-    background: $calendar-active-color;
+    background: var(--primary);
   }
 }
 
@@ -94,7 +93,7 @@ $calendar-font-size: $global-font-size * 0.9;
 }
 
 .datepicker td span.active {
-  background: $calendar-active-color;
+  background: var(--primary);
 }
 
 .datepicker td.day.disabled {
@@ -119,7 +118,7 @@ $calendar-font-size: $global-font-size * 0.9;
 
 .datepicker th.active.day,
 .datepicker th.active.year {
-  background: $calendar-active-color;
+  background: var(--primary);
 }
 
 .datepicker th.date-switch {
@@ -127,7 +126,7 @@ $calendar-font-size: $global-font-size * 0.9;
 }
 
 .datepicker th span.active {
-  background: $calendar-active-color;
+  background: var(--primary);
 }
 
 .datepicker .cw {
