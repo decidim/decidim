@@ -56,7 +56,7 @@ module Decidim
       end
 
       def activities
-        @activities ||= Decidim::LastActivity.new(current_organization).query.limit(activities_to_show * 6)
+        @activities ||= Decidim::LastActivity.new(current_organization, current_user: current_user).query.limit(activities_to_show * 6)
       end
 
       def activities_to_show
