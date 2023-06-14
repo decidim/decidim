@@ -18,6 +18,8 @@ module Decidim
     end
 
     def resource_path
+      return "#" unless user.visible?
+
       decidim.profile_path(user.nickname)
     end
 

@@ -24,6 +24,8 @@ module Decidim
     end
 
     def show
+      return unless profile_visible?
+
       render
     end
 
@@ -32,6 +34,12 @@ module Decidim
     end
 
     def profile_inline
+      render
+    end
+
+    def profile_minicard
+      return unless profile_visible?
+
       render
     end
 
@@ -127,6 +135,12 @@ module Decidim
       return false if options[:skip_profile_link] == true
 
       profile_path.present?
+    end
+
+    def profile_visible?
+      return true unless raw_model.respond_to?(:visible?)
+
+      raw_model.visible?
     end
 
     def raw_model

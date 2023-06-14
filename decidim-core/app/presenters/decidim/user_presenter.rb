@@ -80,7 +80,7 @@ module Decidim
     end
 
     def has_tooltip?
-      true
+      visible?
     end
 
     private

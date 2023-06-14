@@ -45,6 +45,23 @@ module Decidim
       validate :verified_user_group, :user_group_membership
       validate :author_belongs_to_organization
 
+      # Overridden to return a dummy author if the mapped author record is not
+      # visible or if the associated record has been destroyed completely.
+      def author
+        mapped_author = super
+        return mapped_author unless mapped_author.respond_to?(:visible?)
+        return mapped_author if mapped_author.visible?
+
+        klass =
+          if mapped_author.is_a?(Decidim::UserGroup)
+            mapped_author.class
+          else
+            Decidim::User
+          end
+
+        klass.new(id: 0, name: "", nickname: "", organization: mapped_author.organization)
+      end
+
       # Checks whether the user is author of the given resource, either directly
       # authoring it or via a user group.
       #
