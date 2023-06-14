@@ -1,40 +1,40 @@
 @import "stylesheets/decidim/modules/upload_modal";
 
-.upload-modal{
-  button{
+.upload-modal {
+  button {
     cursor: pointer;
   }
 
-  .upload-items{
-    .upload-item-first-row{
+  .upload-items {
+    .upload-item-first-row {
       display: flex;
 
-      .file-name-span{
+      .file-name-span {
         flex: 4 1 0;
       }
 
-      .title-container{
+      .title-container {
         flex: 3.5 1 0;
       }
     }
 
-    .upload-item-second-row{
+    .upload-item-second-row {
       display: flex;
 
-      .progress-bar-wrapper{
+      .progress-bar-wrapper {
         flex: 4 1 0;
         margin-right: 1rem;
 
-        .progress-bar-border{
+        .progress-bar-border {
           border: 1px solid map-get($foundation-palette, primary);
 
-          .progress-bar{
+          .progress-bar {
             background-color: map-get($foundation-palette, primary);
           }
         }
       }
 
-      .remove-upload-item{
+      .remove-upload-item {
         flex: 1 1 0;
       }
     }

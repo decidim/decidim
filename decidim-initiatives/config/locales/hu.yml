@@ -318,7 +318,6 @@ hu:
           back: Vissza
           continue: Tovább
           fill_data_help: "<ul><li>Nézd meg a kezdeményezésed tartalmát. Könnyű megérteni? Tiszta a kezdeményezésed célja?</li><li>Az aláírás típusát válaszd ki. Személyes, online vagy a kombinációja mindkettőnek</li><li>Mi a földrajzi hatóköre a kezdeményezésednek?</li></ul>"
-          initiative_type: Kezdeményezés típusa
           more_information: "(További információk)"
           select_area: Válasszon ki egy területet
           select_scope: Válassz hatáskört
@@ -573,7 +572,6 @@ hu:
         promotal_committee: Kezdeményező bizottság
         select_initiative_type: Válassz
         show_similar_initiatives: Összehasonlítás
-        step: '%{current} lépés a %{total} lépésből'
         title: Új kezdeményezés létrehozása
       initiative_header:
         initiative_menu_item: Kezdeményezés

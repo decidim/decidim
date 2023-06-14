@@ -12,13 +12,13 @@ module Decidim
         helper_method :conference
 
         def index
-          enforce_permission_to :read_conference_registrations, :conference, conference: conference
+          enforce_permission_to(:read_conference_registrations, :conference, conference:)
 
           @conference_registrations = paginate(Decidim::Conferences::ConferenceRegistration.where(conference:))
         end
 
         def export
-          enforce_permission_to :export_conference_registrations, :conference, conference: conference
+          enforce_permission_to(:export_conference_registrations, :conference, conference:)
 
           ExportConferenceRegistrations.call(conference, params[:format], current_user) do
             on(:ok) do |export_data|
@@ -28,7 +28,7 @@ module Decidim
         end
 
         def confirm
-          enforce_permission_to :confirm, :conference_registration, conference_registration: conference_registration
+          enforce_permission_to(:confirm, :conference_registration, conference_registration:)
 
           ConfirmConferenceRegistration.call(conference_registration, current_user) do
             on(:ok) do

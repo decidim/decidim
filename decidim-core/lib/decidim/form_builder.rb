@@ -190,21 +190,33 @@ module Decidim
       label_text = options[:label].to_s
       label_text = label_for(name) if label_text.blank?
       options.delete(:required)
-      hashtaggable = options.delete(:hashtaggable)
+      editor_image = Decidim::EditorImage.new
+      editor_options = editor_options(editor_image, options)
       hidden_options = extract_validations(name, options).merge(options)
 
-      content_tag(:div, class: "editor #{"hashtags__container" if hashtaggable}") do
+      @template.append_stylesheet_pack_tag "decidim_editor"
+      @template.append_javascript_pack_tag "decidim_editor", defer: false
+
+      content_tag(
+        :div,
+        class: "editor #{"hashtags__container" if editor_options[:editor]["class"].include?("js-hashtags")}",
+        id: "#{sanitize_for_dom_selector(@object_name)}_#{sanitize_for_dom_selector(name)}"
+      ) do
         template = ""
-        template += label(name, label_text + required_for_attribute(name)) if options.fetch(:label, true)
-        template += hidden_field(name, hidden_options)
-        template += content_tag(:div, nil, class: "editor-container #{"js-hashtags" if hashtaggable}", data: {
-                                  toolbar:,
-                                  disabled: options[:disabled],
-                                  editor_images: true,
-                                  upload_images_path: Decidim::Core::Engine.routes.url_helpers.editor_images_path,
-                                  drag_and_drop_help_text: I18n.t("drag_and_drop_help", scope: "decidim.editor_images")
-                                }, style: "height: #{lines}rem")
+        template += label(name, label_text + required_for_attribute(name), for: nil) if options.fetch(:label, true)
+        template += hidden_field(name, hidden_options.merge(id: nil))
+        template += content_tag(
+          :div,
+          nil,
+          class: editor_options[:editor].delete("class").join(" "),
+          data: {
+            toolbar:,
+            disabled: options[:disabled],
+            options: editor_options[:editor]
+          }
+        ) { content_tag(:div, nil, class: "editor-input", style: "height: #{lines}rem") }
         template += error_for(name, options) if error?(name)
+        template += editor_upload(editor_image, editor_options[:upload])
         template.html_safe
       end
     end
@@ -459,7 +471,7 @@ module Decidim
       max_file_size = options[:max_file_size] || max_file_size(object, attribute)
       button_label = options[:button_label] || choose_button_label(attribute)
       help_messages = options[:help] || upload_help(object, attribute, options)
-      redesigned = @template.redesign_enabled?
+      redesigned = @template.try(:redesign_enabled?)
 
       options = {
         attribute:,
@@ -952,6 +964,65 @@ module Decidim
       return object.send(attribute).record.class if klass.respond_to?(:record) && klass.record.present?
 
       object.class
+    end
+
+    # Private: creates the options to pass to the view editor and its attached
+    # upload modal.
+    def editor_options(editor_image, options)
+      upload_options = options.delete(:image_upload) || {}
+      upload_options[:modal_id] ||= "upload_#{SecureRandom.uuid}"
+
+      hashtaggable = options.delete(:hashtaggable)
+      mentionable = options.delete(:mentionable)
+      emojiable = options.delete(:emojiable)
+
+      editor_classes = ["editor-container"]
+      editor_classes << "js-hashtags" if hashtaggable
+      editor_classes << "js-mentions" if mentionable
+      editor_classes << "js-emojis" if emojiable
+
+      editor_options = {
+        class: editor_classes,
+        context: options.delete(:context) || "admin",
+        content_types: {
+          image: editor_image.attached_uploader(:file).content_type_allowlist
+        },
+        upload_images_path: Decidim::Core::Engine.routes.url_helpers.editor_images_path,
+        drag_and_drop_help_text: I18n.t("drag_and_drop_help", scope: "decidim.editor_images"),
+        upload_dialog_selector: "##{upload_options[:modal_id]}"
+      }.transform_keys { |key| key.to_s.camelize(:lower) }
+
+      { editor: editor_options, upload: upload_options }
+    end
+
+    # Private: creates an upload modal for the editor that we use to dynamically
+    # upload the images to the editor.
+    def editor_upload(editor_image, options = {})
+      upload_options = {
+        titled: true,
+        modal_only: true,
+        resource_class: "Decidim::EditorImage",
+        show_current: false,
+        max_file_size: max_file_size(editor_image, :file),
+        label: I18n.t("decidim.forms.upload.labels.add_image"),
+        button_edit_label: I18n.t("decidim.forms.upload.labels.edit_image")
+      }.merge(options || {})
+
+      if upload_options[:help].blank?
+        # Upload help uses extension allowlist from the options so we need to call this AFTER setting the defaults.
+        upload_options[:help] = upload_help(
+          editor_image,
+          :file,
+          help_i18n_scope: "decidim.forms.file_help.image"
+        )
+      end
+
+      field = nil
+      @template.form_for(editor_image, url: "") do |form|
+        field = capture { form.upload(:file, upload_options) }
+      end
+
+      field
     end
   end
 end

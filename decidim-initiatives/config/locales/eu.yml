@@ -300,7 +300,6 @@ eu:
           back: Back
           continue: Jarraitu
           fill_data_help: "<ul> <li>Berrikusi zure ekimenaren edukia. Zure izenburua ulertzen erraza da? Zure ekimenaren helburua argi dago?</li> <li>Sinadura mota aukeratu behar duzu.</li> <li>aurrez aurre, linean edo biak konbinatuta. Zein da ekimenaren eremu geografikoa? </li> </ul>"
-          initiative_type: Ekimen mota
           more_information: "(Informazio gehiago)"
           select_area: Hautatu eremu bat
           select_scope: Aukeratu esparrua
@@ -550,7 +549,6 @@ eu:
         promotal_committee: Sustatzaile batzordea
         select_initiative_type: Aukeratu
         show_similar_initiatives: konparatu
-        step: Step %{current} of %{total}
         title: Sortu ekimen berria
       initiative_header:
         initiative_menu_item: Initiative

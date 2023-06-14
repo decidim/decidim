@@ -11,7 +11,7 @@ module Decidim
         let(:organization) { create(:organization) }
         let(:initiative) { create(:initiative, :created, organization:) }
         let(:admin_user) { create(:user, :admin, :confirmed, organization:) }
-        let(:user) { create(:user, :confirmed, organization:) }
+        let(:user) { create(:user, :confirmed, :admin_terms_accepted, organization:) }
 
         before do
           request.env["decidim.current_organization"] = organization
@@ -44,6 +44,7 @@ module Decidim
 
           context "and author" do
             before do
+              initiative.author.update(admin_terms_accepted_at: Time.current)
               sign_in initiative.author, scope: :user
             end
 
@@ -56,6 +57,7 @@ module Decidim
 
           context "and committee members" do
             before do
+              initiative.committee_members.approved.first.user.update(admin_terms_accepted_at: Time.current)
               sign_in initiative.committee_members.approved.first.user, scope: :user
             end
 
@@ -72,6 +74,7 @@ module Decidim
 
           context "and Owner" do
             before do
+              initiative.author.update(admin_terms_accepted_at: Time.current)
               sign_in initiative.author, scope: :user
             end
 
@@ -87,6 +90,7 @@ module Decidim
 
             before do
               create(:authorization, user:)
+              user.update(admin_terms_accepted_at: Time.current)
               sign_in user, scope: :user
             end
 
@@ -115,6 +119,7 @@ module Decidim
 
           context "and Owner" do
             before do
+              initiative.author.update(admin_terms_accepted_at: Time.current)
               sign_in initiative.author, scope: :user
             end
 
@@ -130,6 +135,7 @@ module Decidim
 
             before do
               create(:authorization, user:)
+              user.update(admin_terms_accepted_at: Time.current)
               sign_in user, scope: :user
             end
 

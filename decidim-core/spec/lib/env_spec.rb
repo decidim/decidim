@@ -153,7 +153,7 @@ module Decidim
     end
 
     context "when value" do
-      let(:value) { "I know what I'm doing" }
+      let(:value) { "I know what I am doing" }
 
       it_behaves_like "a defined value"
       it_behaves_like "default_or_present as boolean", true

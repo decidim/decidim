@@ -1,44 +1,44 @@
-.callout.callout--full{
+.callout.callout--full {
   border: 0;
   margin-bottom: 0;
   background-color: $primary-color;
   font-weight: 600;
   color: $white;
 
-  a{
+  a {
     color: inherit;
     text-decoration: underline;
-    opacity: .8;
-    transition: opacity .5s;
+    opacity: 0.8;
+    transition: opacity 0.5s;
 
-    &:hover{
+    &:hover {
       opacity: 1;
     }
   }
 
-  &.warning{
+  &.warning {
     background-color: $warning-color;
   }
 
-  &.success{
+  &.success {
     background-color: $success-color;
   }
 
-  &.alert{
+  &.alert {
     background-color: $alert-color;
   }
 
-  p:last-of-type{
+  p:last-of-type {
     margin-bottom: 0;
   }
 
-  .close-button{
+  .close-button {
     color: white;
   }
 }
 
-.has-process-title .callout-wrapper{
-  @include breakpoint(large){
+.has-process-title .callout-wrapper {
+  @include breakpoint(large) {
     padding-top: $process-title-height;
     margin-bottom: -$process-title-height;
   }

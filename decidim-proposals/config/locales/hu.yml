@@ -89,16 +89,18 @@ hu:
             values:
               accepted: Elfogadva
               evaluating: Értékelés
+              not_answered: Megválaszolatlan
               published: Közzétéve
               rejected: Elutasítva
               validating: Műszaki érvényesítés
               withdrawn: Visszavonva
-          state_null:
-            label: Állapot
-            values:
-              'true': Megválaszolatlan
           valuator_role_ids_has:
             label: Értékelőhöz rendelve
+          with_any_state:
+            label: Megválaszolt
+            values:
+              state_not_published: Megválaszolatlan
+              state_published: Megválaszolt
         search_placeholder:
           id_string_or_title_cont: Keresés %{collection} ID vagy cím alapján.
     components:

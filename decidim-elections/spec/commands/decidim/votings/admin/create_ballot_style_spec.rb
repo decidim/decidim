@@ -8,10 +8,10 @@ module Decidim
       describe CreateBallotStyle do
         subject { described_class.new(form) }
 
-        let(:user) { create :user, :admin, :confirmed }
-        let(:election) { create :election, :complete, component: elections_component }
-        let(:elections_component) { create :elections_component, participatory_space: voting }
-        let(:voting) { create :voting, organization: user.organization }
+        let(:user) { create(:user, :admin, :confirmed) }
+        let(:election) { create(:election, :complete, component: elections_component) }
+        let(:elections_component) { create(:elections_component, participatory_space: voting) }
+        let(:voting) { create(:voting, organization: user.organization) }
 
         let(:form) do
           double(

@@ -272,7 +272,6 @@ nl:
           back: Terug
           continue: Doorgaan met
           fill_data_help: "<ul> <li>Herbekijk de inhoud van je initiatief. Is de titel begrijpelijk? Is het doel van uw initiatief duidelijk?</li> <li>Je moet het type handtekening kiezen. Persoonlijk, online of een combinatie van beide</li> <li>Wat is de geografische reikwijdte van het initiatief?</li> </ul>"
-          initiative_type: Initiatieftype
           more_information: "(Meer informatie)"
           select_area: Selecteer een gebied
           select_scope: Selecteer een scope
@@ -472,7 +471,6 @@ nl:
         promotal_committee: Promotieraad
         select_initiative_type: Kiezen
         show_similar_initiatives: Vergelijken
-        step: Stap %{current} van %{total}
         title: Maak nieuw initiatief
       initiative_header:
         initiative_menu_item: Initiatief

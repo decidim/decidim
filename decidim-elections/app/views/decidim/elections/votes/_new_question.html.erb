@@ -24,7 +24,7 @@
       </span>
     <% end %>
 
-    <%= render("new_question_modal", answer: answer) if more_information?(answer) %>
+    <%= render("new_question_modal", answer:) if more_information?(answer) %>
   <% end %>
 
   <% if question.nota_option? %>

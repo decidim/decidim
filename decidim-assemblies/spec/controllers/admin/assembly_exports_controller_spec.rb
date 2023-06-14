@@ -9,7 +9,7 @@ module Decidim
         routes { Decidim::Assemblies::AdminEngine.routes }
 
         let!(:organization) { create(:organization) }
-        let!(:assembly) { create :assembly, organization: }
+        let!(:assembly) { create(:assembly, organization:) }
         let!(:user) { create(:user, :admin, :confirmed, organization:) }
 
         let(:params) do

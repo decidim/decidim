@@ -42,7 +42,7 @@ module Decidim
       end
 
       def resend_invitation
-        enforce_permission_to :invite, :admin_user, user: user
+        enforce_permission_to(:invite, :admin_user, user:)
 
         InviteUserAgain.call(user, "invite_admin") do
           on(:ok) do
@@ -58,7 +58,7 @@ module Decidim
       end
 
       def destroy
-        enforce_permission_to :destroy, :admin_user, user: user
+        enforce_permission_to(:destroy, :admin_user, user:)
 
         RemoveAdmin.call(user, current_user) do
           on(:ok) do

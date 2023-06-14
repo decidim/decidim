@@ -28,8 +28,10 @@ module Decidim
       end
 
       initializer "decidim_blogs.authorization_transfer" do
-        Decidim::AuthorizationTransfer.register(:blogs) do |transfer|
-          transfer.move_records(Decidim::Blogs::Post, :decidim_author_id)
+        config.to_prepare do
+          Decidim::AuthorizationTransfer.register(:blogs) do |transfer|
+            transfer.move_records(Decidim::Blogs::Post, :decidim_author_id)
+          end
         end
       end
     end

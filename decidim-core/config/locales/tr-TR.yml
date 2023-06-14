@@ -792,7 +792,6 @@ tr:
           intro: 'Mesajınızda aşağıdaki hatalar vardı:'
           ok: OK
         index:
-          ago: önce
           new_conversation: Yeni görüşme
           next: Sonraki
           title: Konuşmalar
@@ -1337,8 +1336,8 @@ tr:
       widget:
         see_more: Daha fazla gör
   locale:
-    name: ingilizce
-    name_with_error: İngilizce (hata!)
+    name: Türkçe
+    name_with_error: Türkçe (hata!)
   password_validator:
     domain_included_in_password: bu alan adına çok benzer
     email_included_in_password: e-postanıza çok benzer

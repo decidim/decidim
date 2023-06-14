@@ -322,7 +322,6 @@ lt:
           back: Atgal
           continue: Tęsti
           fill_data_help: "<ul> <li>Peržiūrėkite savo iniciatyvos turinį. Ar jūsų pavadinimas lengvai suprantamas? Ar jūsų iniciatyvos tikslas aiškus?</li> <li>Turite pasirinkti parašo rūšį. Asmeniškai, internetu, derinti abu būdus</li> <li>Kokia iniciatyvos geografinė taikymo sritis?</li> </ul>"
-          initiative_type: Iniciatyvos tipas
           more_information: "(Daugiau informacijos)"
           select_area: Pasirinkti erdvę
           select_scope: Pasirinkti apimtį
@@ -591,7 +590,6 @@ lt:
         promotal_committee: Rėmėjų komitetas
         select_initiative_type: Pasirinkti
         show_similar_initiatives: Palyginti
-        step: '%{current} žingsnis iš %{total}'
         title: Sukurti naują iniciatyvą
       initiative_header:
         initiative_menu_item: Iniciatyva

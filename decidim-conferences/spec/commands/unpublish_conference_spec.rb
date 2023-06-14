@@ -6,8 +6,8 @@ module Decidim::Conferences
   describe Admin::UnpublishConference do
     subject { described_class.new(my_conference, user) }
 
-    let(:my_conference) { create :conference, :published, organization: user.organization }
-    let(:user) { create :user }
+    let(:my_conference) { create(:conference, :published, organization: user.organization) }
+    let(:user) { create(:user) }
 
     context "when the conference is nil" do
       let(:my_conference) { nil }
@@ -18,7 +18,7 @@ module Decidim::Conferences
     end
 
     context "when the conference is not published" do
-      let(:my_conference) { create :conference, :unpublished }
+      let(:my_conference) { create(:conference, :unpublished) }
 
       it "is not valid" do
         expect { subject.call }.to broadcast(:invalid)

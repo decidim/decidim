@@ -8,7 +8,7 @@ describe "Homepage initiatives content blocks", type: :system do
   let!(:closed_initiative) { create(:initiative, :rejected, organization:) }
 
   before do
-    create :content_block, organization: organization, scope_name: :homepage, manifest_name: :highlighted_initiatives
+    create(:content_block, organization:, scope_name: :homepage, manifest_name: :highlighted_initiatives)
     switch_to_host(organization.host)
   end
 

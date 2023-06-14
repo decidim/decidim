@@ -368,8 +368,8 @@ cs:
         fill_data:
           back: Zpět
           continue: Pokračovat
+          decidim_user_group_id_help: Po vytvoření není možné změnit autoritu iniciativy.
           fill_data_help: "<ul> <li>Přečtěte si obsah vaší iniciativy. Je váš název snadno srozumitelný? Je cíl vaší iniciativy jasný?</li> <li>Musíte zvolit typ podpisu. Osobní, on-line nebo kombinace obou</li> <li>Jaká je geografická oblast působnosti?</li> </ul>"
-          initiative_type: Typ iniciativy
           more_information: "(Více informací)"
           select_area: Vybrat oblast
           select_scope: Zvolte rozsah
@@ -451,6 +451,7 @@ cs:
         delete_attachment: Smazat
       index:
         title: Iniciativy
+        uninitialized: Iniciativy ještě nejsou nakonfigurovány správcem.
       initiative_signatures:
         fill_personal_data:
           continue: Pokračovat
@@ -650,7 +651,6 @@ cs:
         promotal_committee: Výbor předkladatelů
         select_initiative_type: Vybrat
         show_similar_initiatives: Porovnat
-        step: Krok %{current} z %{total}
         title: Vytvořit novou iniciativu
       initiative_header:
         initiative_menu_item: Iniciativa

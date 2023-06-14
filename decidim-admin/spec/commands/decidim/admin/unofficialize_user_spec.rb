@@ -6,7 +6,7 @@ module Decidim::Admin
   describe UnofficializeUser do
     subject { described_class.new(user, current_user) }
 
-    let(:organization) { create :organization }
+    let(:organization) { create(:organization) }
     let(:user) { create(:user, :officialized, organization:) }
     let(:current_user) { create(:user, organization:) }
     let(:log_info) do

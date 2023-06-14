@@ -27,7 +27,7 @@ end
 
 shared_examples "highlights a resource" do
   it "highlight only the given resource" do
-    expect(workflow.highlighted).to match_array([highlighted_resource])
+    expect(workflow.highlighted).to contain_exactly(highlighted_resource)
 
     expect(subject).to be_highlighted(highlighted_resource)
 
@@ -83,7 +83,7 @@ shared_examples "has an in-progress order" do
   end
 
   it "has one order in progress" do
-    expect(workflow.progress).to match_array([order_resource])
+    expect(workflow.progress).to contain_exactly(order_resource)
   end
 
   it "does not have any order voted" do
@@ -107,6 +107,6 @@ shared_examples "has a voted order" do
   end
 
   it "has one voted order" do
-    expect(workflow.voted).to match_array([order_resource])
+    expect(workflow.voted).to contain_exactly(order_resource)
   end
 end

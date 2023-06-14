@@ -108,8 +108,6 @@ gl:
               rejected: Rexeitada
               validating: Validación técnica
               withdrawn: Retiradas
-          state_null:
-            label: Estado
         search_placeholder:
           id_string_or_title_cont: Procurar %{collection} por ID ou título.
     components:

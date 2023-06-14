@@ -90,6 +90,15 @@ module Decidim
         end
       end
 
+      describe "float" do
+        let(:type) { :float }
+
+        it "is supported" do
+          expect(form).to receive(:number_field).with(:test, options)
+          render_input
+        end
+      end
+
       describe "texts" do
         let(:type) { :text }
         let(:extra_options) { options.merge(rows: 6) }

@@ -7,9 +7,9 @@ describe "Proposals", type: :system do
   include_context "with a component"
   let(:manifest_name) { "proposals" }
 
-  let!(:category) { create :category, participatory_space: participatory_process }
-  let!(:scope) { create :scope, organization: }
-  let!(:user) { create :user, :confirmed, organization: }
+  let!(:category) { create(:category, participatory_space: participatory_process) }
+  let!(:scope) { create(:scope, organization:) }
+  let!(:user) { create(:user, :confirmed, organization:) }
   let(:scoped_participatory_process) { create(:participatory_process, :with_steps, organization:, scope:) }
 
   let(:address) { "Some address" }
@@ -82,7 +82,7 @@ describe "Proposals", type: :system do
       it "does not show the scope name" do
         visit_component
         click_link proposal_title
-        expect(page).to have_no_content(translated(scope.name))
+        expect(page).not_to have_content(translated(scope.name))
       end
     end
 
@@ -154,7 +154,7 @@ describe "Proposals", type: :system do
       end
 
       it "shows the author as meeting" do
-        expect(page).to have_content(translated(proposal.authors.first.title))
+        expect(page).to have_content(ActionView::Base.full_sanitizer.sanitize(translated(proposal.authors.first.title)))
       end
 
       it_behaves_like "rendering safe content", ".columns.mediumlarge-8.large-9"
@@ -171,6 +171,53 @@ describe "Proposals", type: :system do
 
         comments.each do |comment|
           expect(page).to have_content(comment.body.values.first)
+        end
+      end
+    end
+
+    context "when a proposal has video embeds" do
+      let(:cost_report) { { en: "My cost report" } }
+      let(:execution_period) { { en: "My execution period" } }
+      let(:body) { Decidim::Faker::Localized.localized { "<script>alert(\"TITLE\");</script> #{Faker::Lorem.sentences(number: 3).join("\n")}" } }
+      let(:answer) { generate_localized_title }
+
+      let!(:proposal) do
+        create(
+          :proposal,
+          :accepted,
+          :official,
+          :with_answer,
+          component:,
+          body:,
+          answer:,
+          cost: 20_000,
+          cost_report:,
+          execution_period:
+        )
+      end
+
+      before do
+        component.update!(
+          step_settings: {
+            component.participatory_space.active_step.id => {
+              answers_with_costs: true
+            }
+          }
+        )
+
+        visit_component
+        click_link proposal_title
+      end
+
+      context "when is created by the admin" do
+        context "when the field is body" do
+          it_behaves_like "has embedded video in description", :body
+        end
+      end
+
+      context "when is created by the user" do
+        context "when the field is answer" do
+          it_behaves_like "has embedded video in description", :answer
         end
       end
     end
@@ -394,7 +441,7 @@ describe "Proposals", type: :system do
       let(:proposal) { create(:proposal, component:) }
       let(:author) { create(:user, :confirmed, organization: component.organization) }
       let!(:comments) { create_list(:comment, 3, commentable: proposal) }
-      let!(:moderation) { create :moderation, reportable: comments.first, hidden_at: 1.day.ago }
+      let!(:moderation) { create(:moderation, reportable: comments.first, hidden_at: 1.day.ago) }
 
       it "displays unhidden comments count" do
         visit_component
@@ -439,7 +486,7 @@ describe "Proposals", type: :system do
 
       it "shows a disabled vote button for each proposal, but no links to full proposals" do
         expect(page).to have_button("Supports disabled", disabled: true, count: 2)
-        expect(page).to have_no_link("View proposal")
+        expect(page).not_to have_link("View proposal")
       end
     end
 
@@ -460,8 +507,8 @@ describe "Proposals", type: :system do
 
         visit_component
 
-        expect(page).to have_no_button("Supports disabled", disabled: true)
-        expect(page).to have_no_button("Vote")
+        expect(page).not_to have_button("Supports disabled", disabled: true)
+        expect(page).not_to have_button("Vote")
         expect(page).to have_link("View proposal", count: 2)
       end
     end
@@ -601,7 +648,7 @@ describe "Proposals", type: :system do
     end
 
     context "when paginating" do
-      let!(:collection) { create_list :proposal, collection_size, component: }
+      let!(:collection) { create_list(:proposal, collection_size, component:) }
       let!(:resource_selector) { ".card--proposal" }
 
       it_behaves_like "a paginated resource"

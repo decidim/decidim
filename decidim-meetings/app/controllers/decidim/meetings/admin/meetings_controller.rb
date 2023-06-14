@@ -34,13 +34,13 @@ module Decidim
         end
 
         def edit
-          enforce_permission_to :update, :meeting, meeting: meeting
+          enforce_permission_to(:update, :meeting, meeting:)
 
           @form = meeting_form.from_model(meeting)
         end
 
         def update
-          enforce_permission_to :update, :meeting, meeting: meeting
+          enforce_permission_to(:update, :meeting, meeting:)
 
           @form = meeting_form.from_params(params, current_component:)
 
@@ -58,7 +58,7 @@ module Decidim
         end
 
         def destroy
-          enforce_permission_to :destroy, :meeting, meeting: meeting
+          enforce_permission_to(:destroy, :meeting, meeting:)
 
           Decidim::Meetings::Admin::DestroyMeeting.call(meeting, current_user) do
             on(:ok) do
@@ -79,7 +79,7 @@ module Decidim
         end
 
         def publish
-          enforce_permission_to :update, :meeting, meeting: meeting
+          enforce_permission_to(:update, :meeting, meeting:)
 
           Decidim::Meetings::Admin::PublishMeeting.call(meeting, current_user) do
             on(:ok) do
@@ -95,7 +95,7 @@ module Decidim
         end
 
         def unpublish
-          enforce_permission_to :update, :meeting, meeting: meeting
+          enforce_permission_to(:update, :meeting, meeting:)
 
           Decidim::Meetings::Admin::UnpublishMeeting.call(meeting, current_user) do
             on(:ok) do

@@ -11,6 +11,7 @@ module Decidim
         boolean: :check_box,
         integer: :number_field,
         string: :text_field,
+        float: :number_field,
         text: :text_area,
         select: :select_field,
         scope: :scope_field,

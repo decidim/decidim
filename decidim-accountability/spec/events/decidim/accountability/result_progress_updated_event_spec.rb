@@ -10,7 +10,7 @@ describe Decidim::Accountability::ResultProgressUpdatedEvent do
   let(:proposal_component) do
     create(:component, manifest_name: "proposals", participatory_space: resource.component.participatory_space)
   end
-  let(:proposal) { create :proposal, component: proposal_component, title: { en: "My super proposal" } }
+  let(:proposal) { create(:proposal, component: proposal_component, title: { en: "My super proposal" }) }
   let(:extra) { { proposal_id: proposal.id, progress: 95 } }
   let(:proposal_path) { resource_locator(proposal).path }
   let(:proposal_title) { translated(proposal.title) }

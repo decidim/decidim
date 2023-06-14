@@ -8,7 +8,7 @@ describe "User group manage admins", type: :system do
   let!(:admin) { create(:user, :confirmed, organization: creator.organization) }
 
   before do
-    create :user_group_membership, user: admin, user_group: user_group, role: :admin
+    create(:user_group_membership, user: admin, user_group:, role: :admin)
 
     switch_to_host(user_group.organization.host)
   end
@@ -21,7 +21,7 @@ describe "User group manage admins", type: :system do
     end
 
     it "does not show the link to edit" do
-      expect(page).to have_no_content("Manage admins")
+      expect(page).not_to have_content("Manage admins")
     end
 
     it "rejects the user that accesses manually" do
@@ -41,7 +41,7 @@ describe "User group manage admins", type: :system do
     it "allows demoting a user" do
       accept_confirm { click_link "Remove admin" }
       expect(page).to have_content("Participant successfully removed from admin")
-      expect(page).to have_no_content(admin.name)
+      expect(page).not_to have_content(admin.name)
     end
   end
 end

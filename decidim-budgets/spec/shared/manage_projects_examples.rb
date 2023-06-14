@@ -188,14 +188,14 @@ shared_examples "manage projects" do
       expect(page).to have_admin_callout("successfully")
 
       within "table" do
-        expect(page).to have_no_content(translated(project2.title))
+        expect(page).not_to have_content(translated(project2.title))
       end
     end
   end
 
   context "when having existing proposals" do
     let!(:proposal_component) { create(:proposal_component, participatory_space:) }
-    let!(:proposals) { create_list :proposal, 5, component: proposal_component, skip_injection: true }
+    let!(:proposals) { create_list(:proposal, 5, component: proposal_component) }
 
     it "updates a project" do
       within find("tr", text: translated(project.title)) do

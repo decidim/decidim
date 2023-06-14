@@ -79,7 +79,6 @@ sv:
             offensive: Innehåller rasism, sexism, skällsord, personliga attacker, dödshot, uppmaningar att begå självmord eller någon form av hatpropaganda.
             spam: Innehåller clickbait, reklam, bedrägerier eller skriptrobotar.
           title: Rapportera olämpligt innehåll
-        show_replies: Visa %{replies_count} svar
         single_comment_link_title: Hämta länk
       comment_order_selector:
         order:

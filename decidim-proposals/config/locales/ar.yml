@@ -129,10 +129,6 @@ ar:
               rejected: تم رفضه
               validating: تحقق تقني
               withdrawn: تم السحب
-          state_null:
-            label: الحالة
-            values:
-              'true': لم تتم الإجابة عليها
           valuator_role_ids_has:
             label: تم إسناده إلى مُقيِّم
         search_placeholder:

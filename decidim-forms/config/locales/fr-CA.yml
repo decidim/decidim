@@ -23,7 +23,7 @@ fr-CA:
               missing: ne sont pas complets
               too_many: sont trop nombreux
         questionnaire:
-          request_invalid: Il y a eu une erreur lors du traitement de la demande. Veuillez réessayer.
+          request_invalid: Une erreur s'est produite. Veuillez réessayer.
   decidim:
     forms:
       admin:
@@ -128,7 +128,7 @@ fr-CA:
           update: "%{user_name} a modifié le questionnaire %{resource_name}"
       errors:
         answer:
-          body: "Body cannot be blank\nChamp obligatoire"
+          body: ne peut être vide
       images:
         dimensions: "%{width} x %{height} px"
         processors:

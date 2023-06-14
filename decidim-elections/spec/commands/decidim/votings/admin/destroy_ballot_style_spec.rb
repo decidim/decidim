@@ -8,10 +8,10 @@ module Decidim
       describe DestroyBallotStyle do
         subject { described_class.new(ballot_style, user) }
 
-        let(:ballot_style) { create :ballot_style }
+        let(:ballot_style) { create(:ballot_style) }
         let(:user) { create(:user, organization: ballot_style.voting.organization) }
-        let(:election) { create :election, :complete, component: elections_component }
-        let(:elections_component) { create :elections_component, participatory_space: ballot_style.voting }
+        let(:election) { create(:election, :complete, component: elections_component) }
+        let(:elections_component) { create(:elections_component, participatory_space: ballot_style.voting) }
         let!(:ballot_style_questions) do
           election.questions.map { |question| create(:ballot_style_question, question:, ballot_style:) }
         end
