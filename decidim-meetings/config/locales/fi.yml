@@ -57,6 +57,8 @@ fi:
           attributes:
             iframe_embed_type:
               not_embeddable: Tätä URL-osoitetta ei voi upottaa tapaamisen sivulle tai reaaliaikaisen tapahtuman sivulle
+            online_meeting_url:
+              url_format: URL-osoitteen tulee olla oikean muotoinen
         meeting_agenda:
           attributes:
             base:
