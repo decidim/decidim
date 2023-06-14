@@ -1,0 +1,7 @@
+<div class="address__container">
+  <%= icon "map-pin-line", class: "text-gray fill-current" %>
+  <div class="address">
+    <div class="address__location"><%= t(model.type_of_meeting, scope: "decidim.meetings.meetings.filters.type_values") %></div>
+    <div class="address__hints"><%= model.online_meeting_url %></div>
+  </div>
+</div>

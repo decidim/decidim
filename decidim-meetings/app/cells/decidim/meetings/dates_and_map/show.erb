@@ -16,5 +16,14 @@
       <span><%= l(end_time, format: "%H:%M") %></span>
     </div>
   </div>
+
   <%= static_map %>
+
+  <% if online_meeting? %>
+    <div class="static-map__container">
+      <div>
+        <%= cell("decidim/address", meeting, online: true) %>
+      </div>
+    </div>
+  <% end %>
 </div>
