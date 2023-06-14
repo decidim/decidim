@@ -11,7 +11,7 @@ module Decidim
 
     translatable_fields :position, :affiliation, :short_bio
 
-    belongs_to :user, foreign_key: "decidim_user_id", class_name: "Decidim::User", optional: true
+    belongs_to :user, -> { visible }, foreign_key: "decidim_user_id", class_name: "Decidim::User", optional: true
     belongs_to :conference, foreign_key: "decidim_conference_id", class_name: "Decidim::Conference"
     has_many :conference_speaker_conference_meetings, dependent: :destroy
     has_many :conference_meetings, through: :conference_speaker_conference_meetings, class_name: "Decidim::ConferenceMeeting"

@@ -30,9 +30,45 @@ module Decidim
     scope :confirmed, -> { where.not(confirmed_at: nil) }
     scope :not_confirmed, -> { where(confirmed_at: nil) }
 
+    # Visible user entities (users or groups) are those that should appear
+    # publicly on the platform, such as on their personal profile page, the
+    # GraphQL API or other places where the user may appear.
+    scope :visible, lambda {
+      profile_published.not_blocked.merge(
+        Decidim::User.tos_accepted.or(Decidim::UserGroup.verified)
+      )
+    }
+
+    # User entities (user groups) that have their profile visible on the
+    # platform from the user's own perspective. This includes also blocked users
+    # because the decision to hide their profile has been made by someone else.
+    scope :profile_published, -> { confirmed.where(deleted_at: nil, managed: false) }
+
     scope :blocked, -> { where(blocked: true) }
     scope :not_blocked, -> { where(blocked: false) }
     scope :available, -> { where(deleted_at: nil, blocked: false, managed: false) }
+
+    def visible?
+      return false if blocked?
+
+      profile_published?
+    end
+
+    # Note that the blocked users have the profile published on purpose for the
+    # admin users to be able access those profiles e.g. for inspecting the
+    # user's activity on the platform.
+    def profile_published?
+      return false if managed?
+      return false if deleted_at.present?
+
+      confirmed_at.present?
+    end
+
+    # This will hide the resource from the search index when the resource is not
+    # public and when the resource is searchable (i.e. `Decidim::User`).
+    def hidden?
+      !visible?
+    end
 
     # Public: Returns a collection with all the public entities this user is following.
     #

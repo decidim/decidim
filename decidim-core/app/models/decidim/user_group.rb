@@ -62,6 +62,12 @@ module Decidim
       Decidim::AdminLog::UserGroupPresenter
     end
 
+    def profile_published?
+      return false unless verified?
+
+      super
+    end
+
     # Public: Checks if the user group is verified.
     def verified?
       verified_at.present?

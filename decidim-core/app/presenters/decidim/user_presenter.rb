@@ -12,9 +12,15 @@ module Decidim
     # nickname presented in a twitter-like style
     #
     def nickname
-      return "" if __getobj__.blocked?
+      return "" unless visible?
 
       "@#{__getobj__.nickname}"
+    end
+
+    def name
+      return "" unless visible?
+
+      super
     end
 
     def badge
@@ -24,7 +30,7 @@ module Decidim
     end
 
     def profile_url
-      return "" if respond_to?(:deleted?) && deleted?
+      return "" unless visible?
 
       decidim.profile_url(__getobj__.nickname)
     end
@@ -45,7 +51,7 @@ module Decidim
     end
 
     def profile_path
-      return "" if respond_to?(:deleted?) && deleted?
+      return "" unless visible?
 
       decidim.profile_path(__getobj__.nickname)
     end

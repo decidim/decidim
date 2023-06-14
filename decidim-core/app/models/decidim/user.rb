@@ -51,6 +51,8 @@ module Decidim
 
     has_one_attached :download_your_data_file
 
+    scope :tos_accepted, -> { where.not(accepted_tos_version: nil) }
+
     scope :not_deleted, -> { where(deleted_at: nil) }
 
     scope :managed, -> { where(managed: true) }
@@ -83,14 +85,20 @@ module Decidim
                         B: :nickname,
                         datetime: :created_at
                       },
-                      index_on_create: ->(user) { !(user.deleted? || user.blocked?) },
-                      index_on_update: ->(user) { !(user.deleted? || user.blocked?) })
+                      index_on_create: ->(user) { !user.hidden? },
+                      index_on_update: ->(user) { !user.hidden? })
 
     before_save :ensure_encrypted_password
     before_save :save_password_change
 
     def user_invited?
       invitation_token_changed? && invitation_accepted_at_changed?
+    end
+
+    def profile_published?
+      return false unless tos_accepted?
+
+      super
     end
 
     # Public: Allows customizing the invitation instruction email content when

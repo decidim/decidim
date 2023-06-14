@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   describe UserPresenter, type: :helper do
-    let(:user) { build(:user) }
+    let(:user) { build(:user, :confirmed) }
 
     describe "#nickname" do
       subject { described_class.new(user).nickname }
@@ -97,7 +97,7 @@ module Decidim
     end
 
     context "when user is a group" do
-      let(:user) { build(:user_group) }
+      let(:user) { build(:user_group, :confirmed, :verified) }
 
       describe "#profile_path" do
         subject { described_class.new(user).profile_path }
