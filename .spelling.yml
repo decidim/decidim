@@ -5,6 +5,12 @@ exclude_paths:
   - decidim-core/lib/decidim/db/common-passwords.txt
   - decidim-initiatives/spec/types/initiative_type_spec.rb
   - decidim-proposals/app/packs/documents/decidim/proposals/participatory_texts/participatory_text.md
+  - decidim-admin/app/packs/stylesheets/decidim/admin/
+  - decidim-system/app/packs/stylesheets/decidim/system/
+  - decidim-core/app/packs/stylesheets/decidim/_properties.scss
+  - decidim-core/app/packs/stylesheets/decidim/_variables.scss
+  - decidim-core/app/packs/stylesheets/decidim/utils/_settings.scss
+  - decidim-core/app/packs/stylesheets/decidim/email.scss
 
 forbidden:
   arent: are not
@@ -89,3 +95,6 @@ forbidden:
   "I’ll": I will
   "those'll": those will
   "those’ll": those will
+  "$primary": var(--primary)
+  "$secondary": var(--secondary)
+  "$anchor-color": var(--secondary)
