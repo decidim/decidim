@@ -51,6 +51,10 @@ el:
         code: Κωδικός
     errors:
       models:
+        meeting:
+          attributes:
+            online_meeting_url:
+              url_format: Πρέπει να είναι έγκυρο URL
         meeting_agenda:
           attributes:
             base:
