@@ -17,7 +17,7 @@ describe "Explore projects", :slow, type: :system do
     it "shows all resources for the given component" do
       visit_budget
       within "#projects" do
-        expect(page).to have_selector(".budget-list__item", count: projects_count)
+        expect(page).to have_selector(".card__list", count: projects_count)
       end
 
       projects.each do |project|
@@ -28,14 +28,16 @@ describe "Explore projects", :slow, type: :system do
     context "when filtering" do
       it "allows searching by text" do
         visit_budget
-        within ".filters__search" do
+        within "aside form.new_filter" do
           fill_in "filter[search_text_cont]", with: translated(project.title)
 
-          find(".button").click
+          within "div.filter-search" do
+            click_button
+          end
         end
 
         within "#projects" do
-          expect(page).to have_css(".budget-list__item", count: 1)
+          expect(page).to have_css(".card__list", count: 1)
           expect(page).to have_content(translated(project.title))
         end
       end
@@ -45,9 +47,11 @@ describe "Explore projects", :slow, type: :system do
         create(:project, budget:, title: { en: "Another project" })
         visit_budget
 
-        within "form.new_filter" do
+        within "aside form.new_filter" do
           fill_in("filter[search_text_cont]", with: "foobar")
-          click_button "Search"
+          within "div.filter-search" do
+            click_button
+          end
         end
 
         expect(page).not_to have_content("Another project")
@@ -64,13 +68,13 @@ describe "Explore projects", :slow, type: :system do
 
         visit_budget
 
-        within ".with_any_scope_check_boxes_tree_filter" do
-          uncheck "All"
-          check translated(scope.name)
+        within "#panel-dropdown-menu-scope" do
+          click_filter_item "All"
+          click_filter_item translated(scope.name)
         end
 
         within "#projects" do
-          expect(page).to have_css(".budget-list__item", count: 1)
+          expect(page).to have_css(".card__list", count: 1)
           expect(page).to have_content(translated(project.title))
         end
       end
@@ -82,13 +86,13 @@ describe "Explore projects", :slow, type: :system do
 
         visit_budget
 
-        within ".with_any_category_check_boxes_tree_filter" do
-          uncheck "All"
-          check translated(category.name)
+        within "#panel-dropdown-menu-category" do
+          click_filter_item "All"
+          click_filter_item translated(category.name)
         end
 
         within "#projects" do
-          expect(page).to have_css(".budget-list__item", count: 1)
+          expect(page).to have_css(".card__list", count: 1)
           expect(page).to have_content(translated(project.title))
         end
       end
@@ -100,22 +104,22 @@ describe "Explore projects", :slow, type: :system do
 
         visit_budget
 
-        within ".with_any_category_check_boxes_tree_filter" do
-          uncheck "All"
-          check translated(category.name)
+        within "#panel-dropdown-menu-category" do
+          click_filter_item "All"
+          click_filter_item translated(category.name)
         end
 
         within "#projects" do
-          expect(page).to have_css(".budget-list__item", count: 1)
+          expect(page).to have_css(".card__list", count: 1)
           expect(page).to have_content(translated(project.title))
         end
 
-        page.find(".budget-list__item .card__link", match: :first).click
-        click_link "View all projects"
+        page.find(".card__list a", match: :first).click
+        click_link "Back"
 
         take_screenshot
         within "#projects" do
-          expect(page).to have_css(".budget-list__item", count: 1)
+          expect(page).to have_css(".card__list", count: 1)
           expect(page).to have_content(translated(project.title))
         end
       end
@@ -134,12 +138,12 @@ describe "Explore projects", :slow, type: :system do
 
           visit_budget
 
-          within ".with_any_status_check_boxes_tree_filter" do
-            uncheck "Selected"
+          within "#panel-dropdown-menu-status" do
+            click_filter_item "Selected"
           end
 
           within "#projects" do
-            expect(page).to have_css(".budget-list__item", count: 1)
+            expect(page).to have_css(".card__list", count: 1)
             expect(page).to have_content(translated(project.title))
           end
         end

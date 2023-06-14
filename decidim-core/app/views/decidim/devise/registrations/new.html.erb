@@ -23,7 +23,7 @@
     <%= form_required_explanation %>
   </div>
 
-  <div class="border-t-2 border-background">
+  <div class="login__omniauth-container">
     <% cache current_organization do %>
       <%= render "decidim/devise/shared/omniauth_buttons" %>
     <% end %>

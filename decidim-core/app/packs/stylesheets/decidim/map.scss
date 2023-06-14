@@ -23,6 +23,14 @@
       @apply font-sans text-white;
     }
 
+    &-title{
+      @apply truncate;
+    }
+
+    &-content{
+      @apply w-full;
+    }
+
     &:focus &-title{
       @apply underline;
     }

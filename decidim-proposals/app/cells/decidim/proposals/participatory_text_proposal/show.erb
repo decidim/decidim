@@ -1,9 +1,5 @@
-<div class="row hover-section">
-  <div class="columns mediumlarge-8">
-    <%= link_to resource_path, class: "card__link--block pt-s pb-s" do %>
-      <%= title %>
-      <%= body %>
-    <% end %>
-  </div>
-  <%= render :buttons %>
-</div>
+<section id="<%= dom_id(model) %>" class="proposal-participatory__section">
+  <%= link_to section_title, resource_path, class: "proposal-participatory__title" %>
+  <div class="proposal-participatory__text"><%= body %></div>
+  <div class="flex"><%= render :buttons %></div>
+</section>
