@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# REDESIGN_PENDING: deprecated cell
 module Decidim
   # This cell renders a collapsible list of elements. Each element from the
   # `model` array will be rendered with the `:cell_name` cell.

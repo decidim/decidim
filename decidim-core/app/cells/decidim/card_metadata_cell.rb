@@ -73,15 +73,9 @@ module Decidim
     def coauthors_item
       return unless coauthorable?
 
-      # REDESIGN_PENDING - Define a cell to deal with coauthors of a resource.
-      # For the moment this item only shows first coauthor
-      first_identity = resource.identities.first
-
-      presented_author = presenter_for_identity(first_identity)
-
       {
-        cell: "decidim/redesigned_author",
-        args: [presented_author, { from: resource, skip_profile_link: true, context_actions: [] }]
+        cell: "decidim/coauthorships",
+        args: [resource, { stack: true }]
       }
     end
 

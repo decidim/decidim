@@ -49,14 +49,7 @@ extra_admin_link(
 
     <% unless component_settings.participatory_texts_enabled? %>
       <div class="proposal__author">
-        <% # REDESIGN_PENDING: Logic copied from decidim-core/app/cells/decidim/coauthorships_cell.rb
-            author = if @proposal.respond_to?(:official?) && @proposal.official?
-                        Decidim::Proposals::OfficialAuthorPresenter.new
-                      else
-                        @proposal.identities.first&.presenter
-                      end %>
-
-        <%= cell "decidim/redesigned_author", author, from: @proposal, context_actions: nil, layout: :compact %>
+        <%= cell "decidim/coauthorships", @proposal %>
 
         <% if not ["section","subsection"].include? @proposal.participatory_text_level %>
           <%== cell("decidim/proposals/proposal_m", @proposal, full_badge: true).badge %>
