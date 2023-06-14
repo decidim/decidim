@@ -20,10 +20,8 @@
   <%= static_map %>
 
   <% if online_meeting? %>
-    <div class="static-map__container">
-      <div>
-        <%= cell("decidim/address", meeting, online: true) %>
-      </div>
+    <div class="flex items-center">
+      <%= cell("decidim/address", meeting, online: true) %>
     </div>
   <% end %>
 </div>
