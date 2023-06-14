@@ -16,7 +16,6 @@ module Decidim
 
       helper Decidim::Admin::IconLinkHelper
       helper InitiativeHelper
-      helper_method :similar_initiatives
       helper_method :scopes
       helper_method :areas
       helper_method :current_initiative
@@ -24,8 +23,6 @@ module Decidim
       helper_method :promotal_committee_required?
 
       steps :select_initiative_type,
-            :previous_form,
-            :show_similar_initiatives,
             :fill_data,
             :promotal_committee,
             :finish
@@ -54,32 +51,11 @@ module Decidim
         render_wizard unless performed?
       end
 
-      def previous_form_step(parameters)
-        @form = build_form(Decidim::Initiatives::PreviousForm, parameters)
-
-        enforce_permission_to :create, :initiative, { initiative_type: }
-
-        render_wizard
-      end
-
-      def show_similar_initiatives_step(parameters)
-        @form = build_form(Decidim::Initiatives::PreviousForm, parameters)
-        unless @form.valid?
-          redirect_to previous_wizard_path(validate_form: true)
-          return
-        end
-
-        if similar_initiatives.empty?
-          @form = build_form(Decidim::Initiatives::InitiativeForm, parameters)
-          redirect_to wizard_path(:fill_data)
-        end
-
-        render_wizard unless performed?
-      end
-
       def fill_data_step(parameters)
         @form = build_form(Decidim::Initiatives::InitiativeForm, parameters)
         @form.attachment = form(AttachmentForm).from_params({})
+
+        enforce_permission_to :create, :initiative, { initiative_type: }
 
         render_wizard
       end
@@ -117,12 +93,6 @@ module Decidim
 
       def finish_step(_parameters)
         render_wizard
-      end
-
-      def similar_initiatives
-        @similar_initiatives ||= Decidim::Initiatives::SimilarInitiatives
-                                 .for(current_organization, @form)
-                                 .all
       end
 
       def build_form(klass, parameters)

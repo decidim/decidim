@@ -46,7 +46,6 @@ module Webpacker
         expect(runtime_config["default"]["stylesheet_imports"].keys).to include("imports")
         expect(runtime_config["default"]["stylesheet_imports"]["imports"].keys).to include("app")
         expect(runtime_config["default"]["stylesheet_imports"]["imports"]["app"]).to include(
-          "stylesheets/decidim/budgets/budgets",
           "stylesheets/decidim/consultations/consultations",
           "stylesheets/decidim/elections/elections",
           "stylesheets/decidim/votings/votings",

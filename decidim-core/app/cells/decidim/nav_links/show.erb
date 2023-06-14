@@ -5,7 +5,7 @@
     <%= icon "arrow-up-s-line" %>
   </button>
   <ul id="dropdown-menu" class="participatory-space__nav">
-    <% nav_items.each do |item| %>
+    <% model.each do |item| %>
       <li>
         <%= link_to item[:url], class: "participatory-space__nav-item" do %>
           <%= item[:name] %>

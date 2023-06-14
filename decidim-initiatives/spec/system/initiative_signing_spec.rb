@@ -26,7 +26,7 @@ describe "Initiative signing", type: :system do
         it "voting disabled message is shown" do
           visit decidim_initiatives.initiative_path(initiative)
 
-          expect(page).to have_content("SIGNING DISABLED")
+          expect(page).to have_content("Signing disabled")
         end
 
         it "shows the offline supports received" do
@@ -49,10 +49,10 @@ describe "Initiative signing", type: :system do
       it "unsigning initiative is disabled" do
         vote_initiative
 
-        within ".view-side" do
+        within ".initiative__aside" do
           expect(page).to have_content(signature_text(1))
           expect(page).to have_button("Already signed", disabled: true)
-          click_button "Already signed", disabled: true
+          find("div", text: "Already signed").click
           expect(page).to have_content(signature_text(1))
         end
       end
@@ -61,9 +61,9 @@ describe "Initiative signing", type: :system do
     it "removes the signature" do
       vote_initiative
 
-      within ".view-side" do
+      within ".initiative__aside" do
         expect(page).to have_content(signature_text(1))
-        click_button "Already signed"
+        find("div", text: "Already signed").click
         expect(page).to have_content(signature_text(0))
       end
     end
@@ -88,10 +88,10 @@ describe "Initiative signing", type: :system do
         it "signin initiative is disabled", :slow do
           visit decidim_initiatives.initiative_path(initiative)
 
-          within ".view-side" do
-            expect(page).to have_content("VERIFY YOUR ACCOUNT")
+          within ".initiative__aside" do
+            expect(page).to have_content("Verify your account to sign the initiative")
           end
-          click_button "Verify your account"
+          click_button "Verify your account to sign the initiative"
           expect(page).to have_content("Authorization required")
         end
       end
@@ -117,10 +117,10 @@ describe "Initiative signing", type: :system do
         it "unsigning initiative is disabled" do
           visit decidim_initiatives.initiative_path(initiative)
 
-          within ".view-side" do
+          within ".initiative__aside" do
             expect(page).to have_content(signature_text(1))
             expect(page).to have_button("Already signed", disabled: true)
-            click_button "Already signed", disabled: true
+            find("div", text: "Already signed").click
             expect(page).to have_content(signature_text(1))
           end
         end
@@ -155,7 +155,7 @@ describe "Initiative signing", type: :system do
         it "does not allow voting" do
           visit decidim_initiatives.initiative_path(initiative)
 
-          within ".view-side" do
+          within ".initiative__aside" do
             expect(page).to have_content(signature_text(0))
             click_on "Sign"
           end
@@ -165,7 +165,7 @@ describe "Initiative signing", type: :system do
 
           visit decidim_initiatives.initiative_path(initiative)
 
-          within ".view-side" do
+          within ".initiative__aside" do
             expect(page).to have_content(signature_text(0))
             click_on "Sign"
           end
@@ -177,7 +177,7 @@ describe "Initiative signing", type: :system do
   def vote_initiative
     visit decidim_initiatives.initiative_path(initiative)
 
-    within ".view-side" do
+    within ".initiative__aside" do
       expect(page).to have_content(signature_text(0))
       click_on "Sign"
     end
@@ -196,7 +196,7 @@ describe "Initiative signing", type: :system do
       click_on "Back to initiative"
     end
 
-    within ".view-side" do
+    within ".initiative__aside" do
       expect(page).to have_content(signature_text(1))
     end
   end

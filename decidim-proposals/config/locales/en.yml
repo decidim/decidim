@@ -759,7 +759,6 @@ en:
         buttons:
           amend: Amend
           comment: Comment
-          comments: Comments
       proposal_votes:
         create:
           error: There was a problem supporting the proposal.
@@ -820,10 +819,8 @@ en:
           recent: Recent
           with_more_authors: With more authors
         participatory_texts:
-          index:
-            document_index: Document index
           view_index:
-            see_index: See index
+            document_index: Document index
         placeholder:
           address: 37 Homewood Drive Brownsburg, IN 46112
         preview:
