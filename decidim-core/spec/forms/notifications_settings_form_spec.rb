@@ -188,7 +188,7 @@ module Decidim
     describe "#meet_push_notifications_requirements?" do
       context "when the notifications requirements are met" do
         before do
-          allow(Rails.application.secrets).to receive("vapid").and_return({ enabled: true })
+          Rails.application.secrets[:vapid] = { enabled: true }
         end
 
         it "returns true" do
@@ -196,9 +196,19 @@ module Decidim
         end
       end
 
+      context "when vapid secrets are not present" do
+        before do
+          Rails.application.secrets.delete(:vapid)
+        end
+
+        it "returns false" do
+          expect(subject.meet_push_notifications_requirements?).to be false
+        end
+      end
+
       context "when the notifications requirements aren't met" do
         before do
-          allow(Rails.application.secrets).to receive("vapid").and_return({ enabled: false })
+          Rails.application.secrets[:vapid] = { enabled: false }
         end
 
         it "returns false" do
