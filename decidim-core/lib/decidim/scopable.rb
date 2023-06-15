@@ -52,7 +52,7 @@ module Decidim
 
     # Gets the children scopes of the object's scope.
     #
-    # If it's global, returns the organization's top scopes.
+    # If it is global, returns the organization's top scopes.
     #
     # Returns an ActiveRecord::Relation.
     def subscopes

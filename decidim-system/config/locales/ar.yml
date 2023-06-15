@@ -43,9 +43,6 @@ ar:
       admins:
         create:
           error: كانت هناك مشكلة في إنشاء مسؤول جديد.
-          success: تم إنشاء المشرف بنجاح
-        destroy:
-          success: تم حذف المشرف بنجاح
         edit:
           title: تحرير المشرف
           update: تحديث
@@ -56,7 +53,6 @@ ar:
           title: المشرف الجديد
         update:
           error: حدثت مشكلة أثناء تحديث هذا المشرف.
-          success: تم تحديث المشرف بنجاح
       dashboard:
         show:
           current_organizations: المنظمات الحالية
@@ -144,8 +140,6 @@ ar:
         index:
           title: المنظمات
         new:
-          reference_prefix_hint: يتم استخدام بادئة المرجع لتعريف الموارد بشكل فريد في كل المؤسسة
-          secondary_hosts_hint: أدخل كل واحد منهم في سطر جديد
           title: منظمة جديدة
         omniauth_settings:
           decidim:
@@ -168,8 +162,6 @@ ar:
         smtp_settings:
           fieldsets:
             sender: المُرسِل
-          instructions:
-            from_label: 'مرسل البريد الإلكتروني سيكون هو: "اسم منظمتك <your-organization@example.org>". اتركه فارغاً لاستخدام "عنوان البريد الإلكتروني" كتسمية'
           placeholder:
             from_email: your-organization@example.org
             from_label: اسم منظمتك
@@ -179,7 +171,6 @@ ar:
         users_registration_mode:
           disabled: يمكن فقط الوصول باستخدام الحسابات الخارجية
           enabled: السماح للمشاركين بالتسجيل والدخول
-          existing: لا تسمح للمشاركين بالتسجيل ، لكن اسمح للمشاركين الحاليين بتسجيل الدخول
       shared:
         notices:
           no_organization_warning_html: يجب عليك إنشاء منظمة للبدء. تأكد من قراءة %{guide} قبل المتابعة.

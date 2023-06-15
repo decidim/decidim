@@ -130,7 +130,6 @@ gl:
           email_intro: 'Agora podes comezar novos debates en %{participatory_space_title}. Comezar a participar nesta páxina:'
           email_outro: Recibiches esta notificación porque estás seguindo %{participatory_space_title}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
           email_subject: Os debates agora están dispoñibles en %{participatory_space_title}
-          notification_title: Agora podes comezar <a href="%{resource_path}">novos debates</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         debate_closed:
           affected_user:
             email_intro: 'Pechouse o debate "%{resource_title}". Podes ler as súas conclusións na súa páxina:'
@@ -153,7 +152,6 @@ gl:
           name: Debates
           next_level_in: '¡Participa en %{score} debates máis para alcanzar o seguinte nivel!'
           unearned_another: Este usuario aínda non participou en ningún debate.
-          unearned_own: Participaches nos debates aínda.
     metrics:
       debates:
         description: Número de debates creados

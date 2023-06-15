@@ -134,8 +134,6 @@ ga:
             link: Nasc
             photos: Grianghraif
             proposals: Moltaí
-          update_category:
-            select_a_category: Roghnaigh catagóir le do thoil
       answers:
         accepted: Glactha
         rejected: Diúltaithe

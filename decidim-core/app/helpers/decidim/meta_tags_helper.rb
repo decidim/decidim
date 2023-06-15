@@ -3,7 +3,7 @@
 module Decidim
   # Helper that provides convenient methods to deal with the page meta tags.
   module MetaTagsHelper
-    # Public: Sets the given metatags for the page. It's a wrapper for the individual
+    # Public: Sets the given metatags for the page. It is a wrapper for the individual
     # methods, so that you can set multiple values with a single call. See the docs for
     # the other methods to see how they work.
     #
@@ -20,7 +20,7 @@ module Decidim
 
     # Public: Add base url to path if path does not include host.
     # path - A String containing path (e.g. "/proposals/1" )
-    # Returns a String of URL including base URL and path, or path if it's blank.
+    # Returns a String of URL including base URL and path, or path if it is blank.
     def add_base_url_to(path)
       return path if path.blank?
       return path if URI.parse(path).host.present?

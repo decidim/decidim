@@ -71,16 +71,20 @@ module Decidim
     end
 
     def coauthors_item
-      # REDESIGN_PENDING - Define a cell to deal with coauthors of a resource.
-      # For the moment this item only shows first coauthor
       return unless coauthorable?
 
-      presented_author = official? ? "#{resource.class.module_parent}::OfficialAuthorPresenter".constantize.new : present(resource.identities.first)
-
       {
-        cell: "decidim/redesigned_author",
-        args: [presented_author, { from: resource, skip_profile_link: true, context_actions: [] }]
+        cell: "decidim/coauthorships",
+        args: [resource, { stack: true }]
       }
+    end
+
+    def presenter_for_identity(identity)
+      if identity.is_a?(Decidim::Organization)
+        "#{model.class.module_parent}::OfficialAuthorPresenter".constantize.new
+      else
+        present(identity)
+      end
     end
 
     def emendation_item
@@ -109,6 +113,24 @@ module Decidim
       {
         text: distance_of_time_in_words(start_date, end_date, scope: "datetime.distance_in_words.short"),
         icon: "time-line"
+      }
+    end
+
+    def scope_item
+      return unless resource.is_a?(Decidim::ScopableResource) && has_visible_scopes?(resource)
+
+      {
+        icon: resource_type_icon_key("Decidim::Scope"),
+        text: translated_attribute(resource.scope.name)
+      }
+    end
+
+    def category_item
+      return unless resource.is_a?(Decidim::HasCategory) && resource.category.present?
+
+      {
+        text: resource.category.translated_name,
+        icon: resource_type_icon_key("Decidim::Category")
       }
     end
 

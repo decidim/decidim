@@ -50,7 +50,7 @@ module Decidim
     end
 
     describe "sibling_scope" do
-      context "when there's a resource manifest" do
+      context "when there is a resource manifest" do
         context "when there are no component for the sibling" do
           it "returns a none relation" do
             expect(resource.sibling_scope(:foo)).to be_none
@@ -107,7 +107,7 @@ module Decidim
         end
       end
 
-      context "when there's no resource manifest" do
+      context "when there is no resource manifest" do
         it "returns a none relation" do
           expect(resource.sibling_scope(:foo)).to be_none
         end

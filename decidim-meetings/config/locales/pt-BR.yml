@@ -32,17 +32,6 @@ pt-BR:
         title: Título
         transparent: Transparente
         type_of_meeting: Tipo
-    errors:
-      models:
-        meeting_agenda:
-          attributes:
-            base:
-              too_many_minutes: A duração dos itens excede a duração da reunião em %{count} minutos
-              too_many_minutes_child: A duração do item childs excede o item da agenda "%{parent_title}" duração pai em %{count} minuto
-        meeting_registration_invite:
-          attributes:
-            email:
-              already_invited: Este endereço de e-mail já foi convidado
     models:
       decidim/meetings/close_meeting_event: Reunião fechada
       decidim/meetings/create_meeting_event: Encontro
@@ -151,8 +140,6 @@ pt-BR:
           description_own: Você participou de %{score} reuniões.
           name: Participou de reuniões
           next_level_in: Participe de mais %{score} reuniões para alcançar o próximo nível!
-          unearned_another: Este usuário ainda não participou de nenhuma reunião.
-          unearned_own: Você não participou de nenhuma reunião ainda.
     meetings:
       actions:
         agenda: Agenda
@@ -185,9 +172,6 @@ pt-BR:
             down: Baixa
             remove: Remover
             up: Acima
-          create:
-            invalid: Houve um problema ao criar esta agenda
-            success: Agenda criada com sucesso
           edit:
             title: Editar agenda
             update: Atualizar
@@ -199,9 +183,6 @@ pt-BR:
           new:
             create: Crio
             title: Nova agenda
-          update:
-            invalid: Houve um problema ao atualizar esta agenda
-            success: Agenda atualizada com sucesso
         exports:
           answers: Respostas
           meeting_comments: Comentários
@@ -232,31 +213,21 @@ pt-BR:
             filter_by: Filtrar por
             invite_attendee: Convidar participante
             invites: Convites
-            registrations_disabled: Você não pode convidar um participante porque os registros estão desativados.
             search: Pesquisar
         meeting_closes:
           edit:
             close: Fechar
             title: Reunião próxima
         meetings:
-          close:
-            invalid: Tem havido um problema ao encerrar esta reunião
-            success: Reunião fechada com sucesso
           create:
-            invalid: Tem havido um problema ao criar esta reunião
             success: Reunião criada com sucesso. Note que ainda não foi publicada, você precisa publicá-la manualmente.
           destroy:
-            invalid:
-              proposals_count:
-                one: A reunião não pode ser destruída porque tem %{count} proposta associada a ela
-                other: A reunião não pode ser destruída porque tem %{count} propostas associadas a ela
             success: Reunião excluída com sucesso
           edit:
             title: Editar reuniões
             update: Atualizar
           form:
             address_help: 'Endereço: usado pelo Geocodificador para encontrar a localização'
-            disclaimer: 'Aviso: ao usar um sistema de registro externo, você está ciente de que os organizadores do %{organization} não são responsáveis pelos dados fornecidos pelos usuários ao serviço externo.'
             location_help: 'Localização: mensagem direcionada aos usuários que imprimem o local para'
             location_hints_help: 'Dicas de localização: informações adicionais Exemplo: o piso do edifício se é uma reunião presencial, ou a senha da reunião, se é uma reunião online com acesso restrito.'
             online_meeting_url_help: 'Link: permitir que os participantes se conectem diretamente à sua reunião'
@@ -268,9 +239,6 @@ pt-BR:
           new:
             create: Criar
             title: Criar reunião
-          publish:
-            invalid: Ocorreu um erro ao publicar esta reunião
-            success: Reunião publicada com sucesso
           service:
             description: Descrição
             down: Baixa
@@ -281,18 +249,9 @@ pt-BR:
           services:
             add_service: Adicionar serviço
             services: Serviços
-          unpublish:
-            invalid: Ocorreu um erro ao cancelar a publicação desta reunião
-            success: Reunião despublicada com sucesso
-          update:
-            invalid: Tem havido um problema ao atualizar esta reunião
-            success: Reunião atualizada com sucesso
         meetings_poll:
           form:
             title: Editar questionário da enquete para %{questionnaire_for}
-          update:
-            invalid: Houve um problema ao atualizar essa pesquisa de reunião
-            success: Enquete da reunião atualizada com sucesso
         models:
           meeting:
             name: encontro
@@ -310,7 +269,6 @@ pt-BR:
             registrations_count:
               one: Houve %{count} registro.
               other: Houve %{count} inscrições.
-            reserved_slots_help: Deixe para 0 se você não tiver slots reservados
             reserved_slots_less_than: Deve ser menor ou igual a %{count}
             title: Registros
           update:
@@ -358,8 +316,6 @@ pt-BR:
         registration_mailer:
           confirmation:
             subject: O registro da sua reunião foi confirmado
-      meeting:
-        not_allowed: Você não tem permissão para ver esta reunião
       meeting_closes:
         edit:
           back: Voltar
@@ -415,7 +371,6 @@ pt-BR:
           address_help: 'Endereço: usado pelo Geocodificador para encontrar a localização'
           available_slots_help: Deixe-o em 0 se você tiver slots ilimitados disponíveis
           create_as: Criar reunião como
-          disclaimer: 'Aviso: ao usar um sistema de registro externo, você está ciente de que os organizadores do %{organization} não são responsáveis pelos dados fornecidos pelos usuários ao serviço externo.'
           location_help: 'Localização: mensagem direcionada aos usuários que imprimem o local para'
           location_hints_help: 'Dicas de localização: informações adicionais Exemplo: o piso do edifício se é uma reunião presencial, ou a senha da reunião, se é uma reunião online com acesso restrito.'
           online_meeting_url_help: 'Link: permitir que os participantes se conectem diretamente à sua reunião'
@@ -428,7 +383,6 @@ pt-BR:
         meeting_minutes:
           related_information: Informação relacionada
         meetings:
-          no_meetings_warning: Nenhuma reunião corresponde aos seus critérios de pesquisa ou não há nenhuma reunião agendada.
           upcoming_meetings_warning: Atualmente, não há reuniões agendadas, mas aqui você pode encontrar todas as reuniões anteriores listadas.
         new:
           back: Voltar
@@ -521,7 +475,6 @@ pt-BR:
       registrations:
         create:
           invalid: Houve um problema ao se juntar a essa reunião.
-          success: Você se juntou à reunião com sucesso.
         decline_invitation:
           invalid: Houve um problema ao recusar o convite.
           success: Você recusou o convite.

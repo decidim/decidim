@@ -30,22 +30,22 @@ cs:
             name: Příspěvek
         posts:
           create:
-            invalid: Při vytváření tohoto příspěvku došlo k potížím
-            success: Příspěvek byl úspěšně vytvořen
+            invalid: Při vytváření tohoto příspěvku nastal problém.
+            success: Příspěvek byl úspěšně vytvořen.
           destroy:
-            success: Příspěvek byl úspěšně odstraněn
+            success: Příspěvek byl úspěšně smazán.
           edit:
             save: Aktualizovat
             title: Upravit příspěvek
           index:
-            not_published_yet: Zatím nezveřejněno
+            not_published_yet: Zatím nezveřejněno.
             title: Příspěvky
           new:
             create: Vytvořit
             title: Vytvořit příspěvek
           update:
             invalid: Při ukládání příspěvku došlo k chybám.
-            success: Příspěvek byl úspěšně uložen
+            success: Příspěvek byl úspěšně uložen.
       admin_log:
         post:
           create: "%{user_name} vytvořil příspěvek %{resource_name} v %{space_name}"

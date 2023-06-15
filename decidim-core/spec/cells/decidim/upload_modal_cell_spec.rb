@@ -194,5 +194,36 @@ describe Decidim::UploadModalCell, type: :cell do
         expect(details).to have_content("#{attachments[0].title["en"]} (#{filename1})")
       end
     end
+
+    context "when there is a title" do
+      let(:titled) { true }
+      let(:attachment) do
+        instance_double(
+          Decidim::Attachment,
+          title: { en: title },
+          id: 123,
+          url: "https://example.org/file.png"
+        )
+      end
+      let(:attachments) { [attachment] }
+      let(:title) { "An image title" }
+
+      it "renders the title" do
+        expect(subject).to have_css(".attachment-details")
+        expect(subject).to have_content("An image title")
+      end
+
+      context "when there is rich content in the title" do
+        let(:title) { "An image <script>alert(\"ALERT\")</script>" }
+
+        it "renders the title" do
+          expect(subject).to have_content("An image alert(\"ALERT\")")
+        end
+
+        it "escapes the title" do
+          expect(my_cell.send(:title_for, attachment)).to eq("An image alert(&quot;ALERT&quot;)")
+        end
+      end
+    end
   end
 end

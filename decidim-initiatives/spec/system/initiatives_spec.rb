@@ -33,19 +33,6 @@ describe "Initiatives", type: :system do
         visit decidim_initiatives.initiatives_path
       end
 
-      context "when accessing from the homepage" do
-        it "the menu link is shown" do
-          visit decidim.root_path
-
-          within ".main-nav" do
-            expect(page).to have_content("Initiatives")
-            click_link "Initiatives"
-          end
-
-          expect(page).to have_current_path(decidim_initiatives.initiatives_path)
-        end
-      end
-
       it "lists all the initiatives" do
         within "#initiatives-count" do
           expect(page).to have_content("1")
@@ -53,7 +40,6 @@ describe "Initiatives", type: :system do
 
         within "#initiatives" do
           expect(page).to have_content(translated(initiative.title, locale: :en))
-          expect(page).to have_content(initiative.author_name, count: 1)
           expect(page).not_to have_content(translated(unpublished_initiative.title, locale: :en))
         end
       end
@@ -118,7 +104,6 @@ describe "Initiatives", type: :system do
 
         within "#initiatives" do
           expect(page).to have_content(translated(initiative.title, locale: :en))
-          expect(page).to have_content(initiative.author_name, count: 1)
           expect(page).not_to have_content(translated(unpublished_initiative.title, locale: :en))
         end
       end
@@ -136,7 +121,7 @@ describe "Initiatives", type: :system do
 
       it "shows the card image" do
         within "#initiative_#{initiative.id}" do
-          expect(page).to have_selector(".card__image")
+          expect(page).to have_selector(".card__grid-img")
         end
       end
     end

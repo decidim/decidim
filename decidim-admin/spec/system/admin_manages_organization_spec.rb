@@ -27,7 +27,7 @@ describe "Admin manages organization", type: :system do
       select "Castellano", from: "Default locale"
       fill_in "Reference prefix", with: "ABC"
 
-      fill_in_i18n_editor :organization_admin_terms_of_use_body, "#organization-admin_terms_of_use_body-tabs",
+      fill_in_i18n_editor :organization_admin_terms_of_service_body, "#organization-admin_terms_of_service_body-tabs",
                           en: "<p>Respect the privacy of others.</p>",
                           es: "<p>Spanish - Respect the privacy of others.</p>"
 
@@ -35,55 +35,64 @@ describe "Admin manages organization", type: :system do
       expect(page).to have_content("updated successfully")
     end
 
+    it "marks the comments_max_length as required" do
+      visit decidim_admin.edit_organization_path
+      expect(find("#organization_comments_max_length")[:required]).to eq("true")
+
+      expect(page).not_to have_content("There is an error in this field.")
+      fill_in :organization_comments_max_length, with: ""
+      expect(page).to have_content("There is an error in this field.")
+    end
+
     context "when using the rich text editor" do
       before do
         visit decidim_admin.edit_organization_path
 
         # Makes sure in the error screenshots the editor is visible
-        page.scroll_to(find("#organization-admin_terms_of_use_body-tabs-admin_terms_of_use_body-panel-0 .editor"))
+        page.scroll_to(find("#organization-admin_terms_of_service_body-tabs-admin_terms_of_service_body-panel-0 .editor"))
       end
 
-      context "when the admin terms of use content is empty" do
+      context "when the admin terms of service content is empty" do
         let(:organization) do
           create(
             :organization,
-            admin_terms_of_use_body: Decidim::Faker::Localized.localized { "" }
+            admin_terms_of_service_body: Decidim::Faker::Localized.localized { "" }
           )
         end
 
         it "renders the editor" do
           expect(page).to have_selector(
-            "#organization-admin_terms_of_use_body-tabs-admin_terms_of_use_body-panel-0 .editor .ql-editor.ql-blank",
+            "#organization-admin_terms_of_service_body-tabs-admin_terms_of_service_body-panel-0 .editor .ql-editor.ql-blank",
             text: ""
           )
           expect(find(
-            "#organization-admin_terms_of_use_body-tabs-admin_terms_of_use_body-panel-0 .editor .ql-editor"
+            "#organization-admin_terms_of_service_body-tabs-admin_terms_of_service_body-panel-0 .editor .ql-editor"
           )["innerHTML"]).to eq("<p><br></p>")
         end
 
         it "deletes paragraph changes pressing backspace" do
           find('div[contenteditable="true"].ql-editor').native.send_keys "ef", [:enter], "gh", [:backspace], [:backspace], [:backspace], [:backspace]
           expect(find(
-            "#organization-admin_terms_of_use_body-tabs-admin_terms_of_use_body-panel-0 .editor .ql-editor"
+            "#organization-admin_terms_of_service_body-tabs-admin_terms_of_service_body-panel-0 .editor .ql-editor"
           )["innerHTML"]).to eq("<p>e</p>".gsub("\n", ""))
         end
 
         it "deletes linebreaks when pressing backspace" do
           find('div[contenteditable="true"].ql-editor').native.send_keys "a", [:left], [:enter], [:shift, :enter], [:backspace], [:backspace]
           expect(find(
-            "#organization-admin_terms_of_use_body-tabs-admin_terms_of_use_body-panel-0 .editor .ql-editor"
+            "#organization-admin_terms_of_service_body-tabs-admin_terms_of_service_body-panel-0 .editor .ql-editor"
           )["innerHTML"]).to eq("<p>a</p>".gsub("\n", ""))
         end
 
         it "creates and deletes linebreaks with enter, shift+enter and backspace" do
           find('div[contenteditable="true"].ql-editor').native.send_keys "acd", [:left], [:left], [:enter], [:shift, :enter], [:shift, :enter], "b", [:left], [:backspace], [:backspace]
           expect(find(
-            "#organization-admin_terms_of_use_body-tabs-admin_terms_of_use_body-panel-0 .editor .ql-editor"
+            "#organization-admin_terms_of_service_body-tabs-admin_terms_of_service_body-panel-0 .editor .ql-editor"
           )["innerHTML"]).to eq("<p>abcd</p>".gsub("\n", ""))
         end
       end
 
-      context "when the admin terms of use content has a list" do
+      context "when the admin terms of service content has a list" do
         let(:terms_content) do
           # This is actually how the content is saved from quill.js to the Decidim
           # database.
@@ -97,24 +106,24 @@ describe "Admin manages organization", type: :system do
         let(:organization) do
           create(
             :organization,
-            admin_terms_of_use_body: Decidim::Faker::Localized.localized { terms_content }
+            admin_terms_of_service_body: Decidim::Faker::Localized.localized { terms_content }
           )
         end
 
         it "renders the correct content inside the editor" do
           expect(find(
-            "#organization-admin_terms_of_use_body-tabs-admin_terms_of_use_body-panel-0 .editor .ql-editor"
+            "#organization-admin_terms_of_service_body-tabs-admin_terms_of_service_body-panel-0 .editor .ql-editor"
           )["innerHTML"]).to eq(terms_content.gsub("\n", ""))
         end
       end
 
-      context "when the admin terms of use content has an image with an alt tag" do
+      context "when the admin terms of service content has an image with an alt tag" do
         let(:another_organization) { create(:organization) }
         let(:image) { create(:attachment, attached_to: another_organization) }
         let(:organization) do
           create(
             :organization,
-            admin_terms_of_use_body: Decidim::Faker::Localized.localized { terms_content }
+            admin_terms_of_service_body: Decidim::Faker::Localized.localized { terms_content }
           )
         end
         let(:terms_content) do
@@ -126,18 +135,18 @@ describe "Admin manages organization", type: :system do
 
         it "renders an image and its attributes inside the editor" do
           expect(find(
-            "#organization-admin_terms_of_use_body-tabs-admin_terms_of_use_body-panel-0 .editor .ql-editor"
+            "#organization-admin_terms_of_service_body-tabs-admin_terms_of_service_body-panel-0 .editor .ql-editor"
           )["innerHTML"]).to eq(terms_content.gsub("\n", ""))
         end
       end
 
-      context "when the admin terms of use content has an br tags" do
+      context "when the admin terms of service content has an br tags" do
         let(:another_organization) { create(:organization) }
         let(:image) { create(:attachment, attached_to: another_organization) }
         let(:organization) do
           create(
             :organization,
-            admin_terms_of_use_body: Decidim::Faker::Localized.localized { terms_content }
+            admin_terms_of_service_body: Decidim::Faker::Localized.localized { terms_content }
           )
         end
         let(:terms_content) do
@@ -150,12 +159,12 @@ describe "Admin manages organization", type: :system do
 
         it "renders br tags inside the editor" do
           expect(find(
-            "#organization-admin_terms_of_use_body-tabs-admin_terms_of_use_body-panel-0 .editor .ql-editor"
+            "#organization-admin_terms_of_service_body-tabs-admin_terms_of_service_body-panel-0 .editor .ql-editor"
           )["innerHTML"]).to eq(terms_content.gsub("\n", ""))
         end
       end
 
-      context "when the admin terms of use content has a link" do
+      context "when the admin terms of service content has a link" do
         let(:terms_content) do
           <<~HTML
             <p>foo<br><a href="https://www.decidim.org" rel="noopener noreferrer" target="_blank">link</a></p>
@@ -164,26 +173,26 @@ describe "Admin manages organization", type: :system do
         let(:organization) do
           create(
             :organization,
-            admin_terms_of_use_body: Decidim::Faker::Localized.localized { terms_content }
+            admin_terms_of_service_body: Decidim::Faker::Localized.localized { terms_content }
           )
         end
 
         it "creates single br tag" do
           find('div[contenteditable="true"].ql-editor').native.send_keys([:left, :left, :left, :left, :left], [:shift, :enter])
           expect(find(
-            "#organization-admin_terms_of_use_body-tabs-admin_terms_of_use_body-panel-0 .editor .ql-editor"
+            "#organization-admin_terms_of_service_body-tabs-admin_terms_of_service_body-panel-0 .editor .ql-editor"
           )["innerHTML"]).to eq('<p>foo<br><br><a href="https://www.decidim.org" rel="noopener noreferrer" target="_blank">link</a></p>')
         end
 
         it "does not create br tag inside a tag" do
           find('div[contenteditable="true"].ql-editor').native.send_keys([:left, :left, :left, :left], [:shift, :enter])
           expect(find(
-            "#organization-admin_terms_of_use_body-tabs-admin_terms_of_use_body-panel-0 .editor .ql-editor"
+            "#organization-admin_terms_of_service_body-tabs-admin_terms_of_service_body-panel-0 .editor .ql-editor"
           )["innerHTML"]).to eq('<p>foo<br><br><a href="https://www.decidim.org" rel="noopener noreferrer" target="_blank">link</a></p>')
         end
       end
 
-      context "when the admin terms of use content has linebreaks inside different formattings" do
+      context "when the admin terms of service content has linebreaks inside different formattings" do
         let(:terms_content) do
           <<~HTML
             <p>foo</p>
@@ -197,7 +206,7 @@ describe "Admin manages organization", type: :system do
         let(:organization) do
           create(
             :organization,
-            admin_terms_of_use_body: Decidim::Faker::Localized.localized { terms_content }
+            admin_terms_of_service_body: Decidim::Faker::Localized.localized { terms_content }
           )
         end
 
@@ -206,18 +215,18 @@ describe "Admin manages organization", type: :system do
           click_button "Update"
           expect(page).to have_content("Organization updated successfully")
           expect(find(
-            "#organization-admin_terms_of_use_body-tabs-admin_terms_of_use_body-panel-0 .editor .ql-editor"
+            "#organization-admin_terms_of_service_body-tabs-admin_terms_of_service_body-panel-0 .editor .ql-editor"
           )["innerHTML"]).to eq("<p>bar baz</p>")
         end
       end
 
-      context "when adding br tags to terms of use content" do
+      context "when adding br tags to terms of service content" do
         let(:another_organization) { create(:organization) }
         let(:image) { create(:attachment, attached_to: another_organization) }
         let(:organization) do
           create(
             :organization,
-            admin_terms_of_use_body: Decidim::Faker::Localized.localized { terms_content }
+            admin_terms_of_service_body: Decidim::Faker::Localized.localized { terms_content }
           )
         end
         let(:terms_content) do
@@ -231,7 +240,7 @@ describe "Admin manages organization", type: :system do
         it "renders new br tags inside the editor" do
           find('div[contenteditable="true"].ql-editor').native.send_keys [:enter], "Here shift+enter makes line change:", [:shift, :enter], "instead of new paragraph!"
           expect(find(
-            "#organization-admin_terms_of_use_body-tabs-admin_terms_of_use_body-panel-0 .editor .ql-editor"
+            "#organization-admin_terms_of_service_body-tabs-admin_terms_of_service_body-panel-0 .editor .ql-editor"
           )["innerHTML"]).to eq("#{terms_content}<p>Here shift+enter makes line change:<br>instead of new paragraph!</p>".gsub("\n", ""))
         end
 
@@ -240,7 +249,7 @@ describe "Admin manages organization", type: :system do
           click_button("⏎")
           find('div[contenteditable="true"].ql-editor').native.send_keys "bar"
           expect(find(
-            "#organization-admin_terms_of_use_body-tabs-admin_terms_of_use_body-panel-0 .editor .ql-editor"
+            "#organization-admin_terms_of_service_body-tabs-admin_terms_of_service_body-panel-0 .editor .ql-editor"
           )["innerHTML"]).to eq("#{terms_content}<p>foo<br>bar</p>".gsub("\n", ""))
         end
 
@@ -259,14 +268,14 @@ describe "Admin manages organization", type: :system do
               [:control, "z"]
             )
             expect(find(
-              "#organization-admin_terms_of_use_body-tabs-admin_terms_of_use_body-panel-0 .editor .ql-editor"
+              "#organization-admin_terms_of_service_body-tabs-admin_terms_of_service_body-panel-0 .editor .ql-editor"
             )["innerHTML"]).to eq(terms_content.gsub("\n", ""))
           end
 
           it "has redo" do
             find('div[contenteditable="true"].ql-editor').native.send_keys [:shift, :enter], "X", [:control, "z"], [:control, :shift, "z"]
             expect(find(
-              "#organization-admin_terms_of_use_body-tabs-admin_terms_of_use_body-panel-0 .editor .ql-editor"
+              "#organization-admin_terms_of_service_body-tabs-admin_terms_of_service_body-panel-0 .editor .ql-editor"
             )["innerHTML"]).to eq("<p>Paragraph</p><p>Some<br>text<br>here</p><p>Another paragraph<br>X</p>".gsub("\n", ""))
           end
         end
@@ -278,7 +287,7 @@ describe "Admin manages organization", type: :system do
         let(:organization) do
           create(
             :organization,
-            admin_terms_of_use_body: Decidim::Faker::Localized.localized { terms_content }
+            admin_terms_of_service_body: Decidim::Faker::Localized.localized { terms_content }
           )
         end
         let(:terms_content) do
@@ -293,63 +302,63 @@ describe "Admin manages organization", type: :system do
         it "renders new list item" do
           find('div[contenteditable="true"].ql-editor').native.send_keys [:enter], "List item 4"
           expect(find(
-            "#organization-admin_terms_of_use_body-tabs-admin_terms_of_use_body-panel-0 .editor .ql-editor"
+            "#organization-admin_terms_of_service_body-tabs-admin_terms_of_service_body-panel-0 .editor .ql-editor"
           )["innerHTML"]).to eq("<p>Paragraph</p><ul><li>List item 1</li><li>List item 2</li><li>List item 3</li><li>List item 4</li></ul>".gsub("\n", ""))
         end
 
         it "ends the list when pressing enter twice and starts new paragraph" do
           find('div[contenteditable="true"].ql-editor').native.send_keys [:enter, :enter], "Another paragraph"
           expect(find(
-            "#organization-admin_terms_of_use_body-tabs-admin_terms_of_use_body-panel-0 .editor .ql-editor"
+            "#organization-admin_terms_of_service_body-tabs-admin_terms_of_service_body-panel-0 .editor .ql-editor"
           )["innerHTML"]).to eq("#{terms_content}<p>Another paragraph</p>".gsub("\n", ""))
         end
 
         it "deletes empty list item when pressing backspace and starts new paragraph" do
           find('div[contenteditable="true"].ql-editor').native.send_keys [:enter, :backspace], "Another paragraph"
           expect(find(
-            "#organization-admin_terms_of_use_body-tabs-admin_terms_of_use_body-panel-0 .editor .ql-editor"
+            "#organization-admin_terms_of_service_body-tabs-admin_terms_of_service_body-panel-0 .editor .ql-editor"
           )["innerHTML"]).to eq("#{terms_content}<p>Another paragraph</p>".gsub("\n", ""))
         end
 
         it "deletes linebreaks (and smartbreaks) using the backspace" do
           find('div[contenteditable="true"].ql-editor').native.send_keys [:enter, :enter, :enter, :backspace, :backspace]
           expect(find(
-            "#organization-admin_terms_of_use_body-tabs-admin_terms_of_use_body-panel-0 .editor .ql-editor"
+            "#organization-admin_terms_of_service_body-tabs-admin_terms_of_service_body-panel-0 .editor .ql-editor"
           )["innerHTML"]).to eq(terms_content.to_s.gsub("\n", ""))
         end
 
         it "keeps right curson position when using the backspace" do
           find('div[contenteditable="true"].ql-editor').native.send_keys [:enter, "bc", :left, :left, :enter, :backspace, :backspace, "a"]
           expect(find(
-            "#organization-admin_terms_of_use_body-tabs-admin_terms_of_use_body-panel-0 .editor .ql-editor"
+            "#organization-admin_terms_of_service_body-tabs-admin_terms_of_service_body-panel-0 .editor .ql-editor"
           )["innerHTML"]).to eq("<p>Paragraph</p><ul><li>List item 1</li><li>List item 2</li><li>List item 3</li><li>abc</li></ul>".to_s.gsub("\n", ""))
         end
 
         it "keeps right format when using the backspace" do
           find('div[contenteditable="true"].ql-editor').native.send_keys [:enter, :backspace, "abc", :left, :left, :left, :backspace]
           expect(find(
-            "#organization-admin_terms_of_use_body-tabs-admin_terms_of_use_body-panel-0 .editor .ql-editor"
+            "#organization-admin_terms_of_service_body-tabs-admin_terms_of_service_body-panel-0 .editor .ql-editor"
           )["innerHTML"]).to eq("<p>Paragraph</p><ul><li>List item 1</li><li>List item 2</li><li>List item 3abc</li></ul>".to_s.gsub("\n", ""))
         end
 
         it "keeps right cursor position when using backspace after empty list item" do
           find('div[contenteditable="true"].ql-editor').native.send_keys [:enter, "bcd", :left, :left, :left, :enter, :backspace, :enter, :enter, :backspace, :backspace, :backspace, "a"]
           expect(find(
-            "#organization-admin_terms_of_use_body-tabs-admin_terms_of_use_body-panel-0 .editor .ql-editor"
+            "#organization-admin_terms_of_service_body-tabs-admin_terms_of_service_body-panel-0 .editor .ql-editor"
           )["innerHTML"]).to eq("<p>Paragraph</p><ul><li>List item 1</li><li>List item 2</li><li>List item 3</li><li>abcd</li></ul>".to_s.gsub("\n", ""))
         end
 
         it "keeps right cursor position when using backspace after list item with text" do
           find('div[contenteditable="true"].ql-editor').native.send_keys [:enter, "acd", :left, :left, :enter, :backspace, :enter, :enter, :backspace, :backspace, :backspace, "b"]
           expect(find(
-            "#organization-admin_terms_of_use_body-tabs-admin_terms_of_use_body-panel-0 .editor .ql-editor"
+            "#organization-admin_terms_of_service_body-tabs-admin_terms_of_service_body-panel-0 .editor .ql-editor"
           )["innerHTML"]).to eq("<p>Paragraph</p><ul><li>List item 1</li><li>List item 2</li><li>List item 3</li><li>abcd</li></ul>".to_s.gsub("\n", ""))
         end
 
         it "does not delete characters below when pressing backspace" do
           find('div[contenteditable="true"].ql-editor').native.send_keys [:up, :up, :up, :home, :enter, :enter, :enter, :backspace, :backspace, :backspace]
           expect(find(
-            "#organization-admin_terms_of_use_body-tabs-admin_terms_of_use_body-panel-0 .editor .ql-editor"
+            "#organization-admin_terms_of_service_body-tabs-admin_terms_of_service_body-panel-0 .editor .ql-editor"
           )["innerHTML"]).to eq(terms_content.to_s.gsub("\n", ""))
         end
       end
@@ -358,7 +367,7 @@ describe "Admin manages organization", type: :system do
         let(:organization) do
           create(
             :organization,
-            admin_terms_of_use_body: Decidim::Faker::Localized.localized { "" }
+            admin_terms_of_service_body: Decidim::Faker::Localized.localized { "" }
           )
         end
 
@@ -421,19 +430,19 @@ describe "Admin manages organization", type: :system do
               dt.setData("text/html", #{clipboard_content_html.to_json});
               dt.setData("text/plain", #{clipboard_content_plain.to_json});
 
-              var element = document.querySelector("#organization-admin_terms_of_use_body-tabs-admin_terms_of_use_body-panel-0 div[contenteditable='true'].ql-editor");
+              var element = document.querySelector("#organization-admin_terms_of_service_body-tabs-admin_terms_of_service_body-panel-0 div[contenteditable='true'].ql-editor");
               element.dispatchEvent(new ClipboardEvent("paste", { clipboardData: dt }));
             JS
           )
 
           expect(find(
-            "#organization-admin_terms_of_use_body-tabs-admin_terms_of_use_body-panel-0 .editor .ql-editor"
+            "#organization-admin_terms_of_service_body-tabs-admin_terms_of_service_body-panel-0 .editor .ql-editor"
           )["innerHTML"]).to eq(parsed_content)
         end
       end
 
-      context "when the admin terms of use content has only a video" do
-        let(:organization) { create(:organization, admin_terms_of_use_body: {}) }
+      context "when the admin terms of service content has only a video" do
+        let(:organization) { create(:organization, admin_terms_of_service_body: {}) }
 
         it "saves the content correctly with the video" do
           within ".editor" do
@@ -449,7 +458,7 @@ describe "Admin manages organization", type: :system do
           click_button "Update"
 
           organization.reload
-          expect(translated(organization.admin_terms_of_use_body)).to eq(
+          expect(translated(organization.admin_terms_of_service_body)).to eq(
             %(<iframe class="ql-video" frameborder="0" allowfullscreen="true" src="https://www.youtube.com/embed/f6JMgJAQ2tc?showinfo=0"></iframe>)
           )
         end

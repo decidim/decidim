@@ -75,14 +75,14 @@ export default class FormFilterComponent {
         }
       });
 
-      this.$form.on("ajax:success", () => {
+      $(document).on("ajax:success", () => {
         queue -= 1;
         if (queue <= 0 && contentContainer.length > 0) {
           contentContainer.removeClass("spinner-container");
         }
       });
 
-      this.$form.on("ajax:error", () => {
+      $(document).on("ajax:error", () => {
         queue -= 1;
         if (queue <= 0 && contentContainer.length > 0) {
           contentContainer.removeClass("spinner-container");
@@ -141,7 +141,7 @@ export default class FormFilterComponent {
     // Every location param is constructed like this: filter[key]=value
     let regexpResult = decodeURIComponent(this._getLocation()).match(/filter\[([^\]]*)\](?:\[\])?=([^&]*)/g);
 
-    // The RegExp g flag returns null or an array of coincidences. It doesn't return the match groups
+    // The RegExp g flag returns null or an array of coincidences. It does not return the match groups
     if (regexpResult) {
       const filterParams = regexpResult.reduce((acc, result) => {
         const [, key, array, value] = result.match(/filter\[([^\]]*)\](\[\])?=([^&]*)/);

@@ -24,7 +24,7 @@ en:
               missing: are not complete
               too_many: are too many
         questionnaire:
-          request_invalid: There's been an error handling the request. Please try again
+          request_invalid: There is been an error handling the request. Please try again.
   decidim:
     forms:
       admin:
@@ -179,7 +179,6 @@ en:
           questionnaire_not_published:
             body: This form is not published yet.
           tos_agreement: By participating you accept its Terms of Service
-          upload_file: Upload file
       step_navigation:
         show:
           are_you_sure: This action cannot be undone and you will not be able to edit your answers. Are you sure?

@@ -13,12 +13,7 @@ edit_link(
 )
 %>
 
-<% content_for :js_content do %>
-  <%= javascript_pack_tag "decidim_accountability" %>
-<% end %>
-
-<% content_for :css_content do %>
-  <%= stylesheet_pack_tag "decidim_accountability", media: "all" %>
-<% end %>
+<%= append_javascript_pack_tag "decidim_accountability" %>
+<%= append_stylesheet_pack_tag "decidim_accountability" %>
 
 <%= render partial: "project", locals: { result: result } %>

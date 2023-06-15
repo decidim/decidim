@@ -19,12 +19,9 @@ pt-BR:
       comments:
         create:
           error: Houveram erros ao criar o comentário.
-        delete:
-          error: O comentário não pode ser excluído.
         update:
           error: Houve um erro ao atualizar o comentário.
       comments_count: Contagem de Comentários
-      comments_title: Comentários
       last_activity:
         new_comment_at_html: "<span>Novo comentário em %{link}</span>"
       view: Visualizar
@@ -38,7 +35,6 @@ pt-BR:
           body:
             label: Comente
             placeholder: O que você pensa sobre isso?
-          form_error: O texto é obrigatório e não pode ser maior que %{length} caracteres.
           submit: Enviar
           user_group_id:
             label: Comente como
@@ -72,7 +68,6 @@ pt-BR:
           description: Este conteúdo é impróprio?
           details: Comentários adicionais
           reasons:
-            does_not_belong: Contém atividades ilegais, ameaças suicidas, informações pessoais ou qualquer outra coisa que você acha que não pertence ao %{organization_name}.
             offensive: Contém racismo, sexismo, insultos, ataques pessoais, ameaças de morte, pedidos de suicídio ou qualquer tipo de discurso de ódio.
             spam: Contém clickbait, publicidade, fraudes ou script bots.
           title: Reportar conteúdo impróprio
@@ -156,6 +151,3 @@ pt-BR:
         description: Número de comentários gerados pelos usuários
         object: comentários
         title: Comentários
-  errors:
-    messages:
-      cannot_have_comments: não pode ter comentários

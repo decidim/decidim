@@ -2,9 +2,9 @@
 
 module Decidim
   module Components
-    # Controller from which all component engines inherit from. It's in charge of
+    # Controller from which all component engines inherit from. It is in charge of
     # setting the appropiate layout, including necessary helpers, and overall
-    # fooling the engine into thinking it's isolated.
+    # fooling the engine into thinking it is isolated.
     class BaseController < Decidim::ApplicationController
       include Settings
       include Decidim::NeedsPermission

@@ -1,13 +1,5 @@
-<div>
-  <%= link_header %>
-</div>
-
-<div>
-  <%= link_help_text %>
-</div>
-
-<%= link_to_resource %>
-
-<div class="mt-xs">
-  <%= link_to_versions %>
+<div class="flex flex-col gap-2 items-center">
+  <h3 class="h3"><%= t("final_proposal", scope: "decidim.proposals.collaborative_drafts.show") %></h3>
+  <p class="text-center text-gray-2"><%= t("final_proposal_help_text", scope: "decidim.proposals.collaborative_drafts.show") %></p>
+  <%= link_to t("published_proposal", scope: "decidim.proposals.collaborative_drafts.show"), resource_locator(@proposal).path, class: "button button__lg button__secondary w-full mt-4" %>
 </div>

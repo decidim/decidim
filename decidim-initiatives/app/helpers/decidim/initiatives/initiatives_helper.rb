@@ -47,6 +47,24 @@ module Decidim
       def filter_form_namespace
         "filters_#{SecureRandom.uuid}"
       end
+
+      def filter_sections
+        sections = [
+          { method: :with_any_state, collection: filter_states_values, label_scope: "decidim.initiatives.initiatives.filters", id: "state" },
+          { method: :with_any_scope, collection: filter_global_scopes_values, label_scope: "decidim.initiatives.initiatives.filters", id: "scope" }
+        ]
+        sections.append(method: :with_any_type, collection: filter_types_values, label_scope: "decidim.initiatives.initiatives.filters", id: "type") unless single_initiative_type?
+        sections.append(method: :with_any_area, collection: filter_areas_values, label_scope: "decidim.initiatives.initiatives.filters", id: "area")
+        sections.append(method: :author, collection: filter_author_values, label_scope: "decidim.initiatives.initiatives.filters", id: "author") if current_user
+        sections.reject { |item| item[:collection].blank? }
+      end
+
+      def filter_author_values
+        [
+          ["any", filter_text_for(t("any", scope: "decidim.initiatives.initiatives.filters"))],
+          ["myself", filter_text_for(t("myself", scope: "decidim.initiatives.initiatives.filters"))]
+        ]
+      end
     end
   end
 end
