@@ -1293,18 +1293,18 @@ en:
         hero:
           participate: Participate
           welcome: Welcome to %{organization}!
+        menu:
+          assemblies: Assemblies
+          conferences: Conferences
+          initiatives: Initiatives
+          processes: Processes
+          votings: Votings
         metrics:
           headline: Metrics
         statistics:
           headline: Current state of %{organization}
         sub_hero:
           register: Register
-        menu:
-          processes: Processes
-          assemblies: Assemblies
-          initiatives: Initiatives
-          votings: Votings
-          conferences: Conferences
       index:
         standalone_pages: Pages
         subheading: Navigate through the help pages of %{name}
