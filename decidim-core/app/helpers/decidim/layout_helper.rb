@@ -79,7 +79,7 @@ module Decidim
 
         attributes = { class: classes.join(" ") }.merge(options)
         asset = File.read(icon_path)
-        asset.gsub("<svg ", "<svg#{tag_builder.tag_options(attributes).html_safe} ").html_safe
+        asset.gsub("<svg ", "<svg#{tag_builder.tag_options(attributes)} ").html_safe
       else
         image_pack_tag(path, class: classes.join(" "), style: "display: none")
       end
