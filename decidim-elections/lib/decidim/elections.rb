@@ -28,7 +28,7 @@ module Decidim
 
     # Public Setting that defines how many hours should the setup be run before the election starts
     config_accessor :setup_minimum_hours_before_start do
-      1
+      3
     end
 
     # Public Setting that defines how many hours the ballot box can be opened before the election starts
