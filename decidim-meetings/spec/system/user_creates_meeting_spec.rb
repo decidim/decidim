@@ -60,7 +60,7 @@ describe "User creates meeting", type: :system do
         let(:meeting_available_slots) { 30 }
         let(:meeting_registration_terms) { "These are the registration terms for this meeting" }
         let(:online_meeting_url) { "http://decidim.org" }
-        let(:meeting_scope) { create :scope, organization: }
+        let!(:meeting_scope) { create :scope, organization: }
         let(:datetime_format) { I18n.t("time.formats.decidim_short") }
         let(:time_format) { I18n.t("time.formats.time_of_day") }
 
