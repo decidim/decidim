@@ -25,11 +25,7 @@
 <% else %>
   <div class="main-bar__dropdown-container">
     <button id="trigger-dropdown-account" class="main-bar__dropdown-trigger" data-component="dropdown" data-target="dropdown-menu-account">
-        <% unread_data = {}.tap do |d|
-            d.merge!(unread_notifications: true) if current_user.notifications.any?
-            d.merge!(unread_conversations: true) if current_user.unread_conversations.any?
-            d.merge!(unread_items: d.present?)
-          end %>
+      <% unread_data = current_user_unread_data %>
       <% if unread_data[:unread_items] %>
         <%= content_tag :span, "", class: "main-bar__notification", data: unread_data %>
       <% end %>
