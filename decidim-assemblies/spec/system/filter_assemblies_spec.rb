@@ -94,8 +94,6 @@ describe "Filter Assemblies", type: :system do
 
     context "and choosing an area" do
       before do
-        skip "REDESIGN_PENDING - This test fails with redesigned filters using checkboxes. The issue is addressed in https://github.com/decidim/decidim/issues/10801"
-
         visit decidim_assemblies.assemblies_path
 
         within "#dropdown-menu-filters div.filter-container", text: "Area" do
@@ -103,10 +101,10 @@ describe "Filter Assemblies", type: :system do
         end
       end
 
-      it "lists all processes belonging to that area" do
+      it "enables the all option and lists all processes" do
         within "#assemblies-grid" do
           expect(page).to have_content(translated(assembly_with_area.title))
-          expect(page).not_to have_content(translated(assembly_without_area.title))
+          expect(page).to have_content(translated(assembly_without_area.title))
         end
       end
     end
