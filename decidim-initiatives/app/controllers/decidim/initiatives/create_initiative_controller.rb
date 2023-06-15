@@ -2,8 +2,6 @@
 
 module Decidim
   module Initiatives
-    require "wicked"
-
     # Controller in charge of managing the create initiative wizard.
     class CreateInitiativeController < Decidim::Initiatives::ApplicationController
       layout "layouts/decidim/initiative_creation"
@@ -26,10 +24,10 @@ module Decidim
 
       before_action :authenticate_user!
       before_action :ensure_type_exists,
-                    only: [:store_initiative_type, :previous_form, :store_initial_data, :fill_data, :store_data, :show_similar_initiatives, :promotal_committee, :finish]
+                    only: [:store_initiative_type, :previous_form, :store_initial_data, :fill_data, :store_data, :promotal_committee, :finish]
       before_action :ensure_user_can_create_initiative,
-                    only: [:previous_form, :store_initial_data, :fill_data, :store_data, :show_similar_initiatives, :promotal_committee, :finish]
-      before_action :ensure_initiative_exists, only: [:fill_data, :store_data, :show_similar_initiatives, :promotal_committee, :finish]
+                    only: [:previous_form, :store_initial_data, :fill_data, :store_data, :promotal_committee, :finish]
+      before_action :ensure_initiative_exists, only: [:fill_data, :store_data, :promotal_committee, :finish]
 
       def select_initiative_type
         @form = form(Decidim::Initiatives::SelectInitiativeTypeForm).from_params(params)
@@ -58,19 +56,13 @@ module Decidim
         CreateInitiative.call(@form, current_user) do
           on(:ok) do |initiative|
             session[:initiative_id] = initiative.id
-            redirect_to show_similar_initiatives_create_initiative_index_path
+            redirect_to fill_data_create_initiative_index_path
           end
 
           on(:invalid) do
             render :previous_form
           end
         end
-      end
-
-      def show_similar_initiatives
-        @form = form(Decidim::Initiatives::PreviousForm).from_model(current_initiative)
-
-        redirect_to fill_data_create_initiative_index_path if similar_initiatives.empty?
       end
 
       def fill_data
@@ -132,8 +124,8 @@ module Decidim
 
       def similar_initiatives
         @similar_initiatives ||= Decidim::Initiatives::SimilarInitiatives
-                                 .for(current_organization, @form)
-                                 .all
+                                   .for(current_organization, @form)
+                                   .all
       end
 
       def scopes
@@ -152,7 +144,7 @@ module Decidim
         return false unless initiative_type.promoting_committee_enabled?
 
         minimum_committee_members = initiative_type.minimum_committee_members ||
-                                    Decidim::Initiatives.minimum_committee_members
+          Decidim::Initiatives.minimum_committee_members
         minimum_committee_members.present? && minimum_committee_members.positive?
       end
     end

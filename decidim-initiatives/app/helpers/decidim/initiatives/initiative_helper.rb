@@ -19,6 +19,19 @@ module Decidim
         "warning"
       end
 
+      def metadata_badge_css_class(initiative)
+        case initiative
+        when "accepted", "published"
+          "success"
+        when "rejected", "discarded"
+          "alert"
+        when "validating"
+          "warning"
+        else
+          "muted"
+        end
+      end
+
       # Public: The state of an initiative in a way a human can understand.
       #
       # initiative - Decidim::Initiative.
@@ -91,13 +104,13 @@ module Decidim
 
         if current_user
           if action_authorized_to("create", permissions_holder: type).ok?
-            html_options["data-open"] = "not-authorized-modal"
+            html_options["data-dialog-open"] = "not-authorized-modal"
           else
-            html_options["data-open"] = "authorizationModal"
-            html_options["data-open-url"] = authorization_create_modal_initiative_path(type)
+            html_options["data-dialog-open"] = "authorizationModal"
+            html_options["data-dialog-remote-url"] = authorization_create_modal_initiative_path(type)
           end
         else
-          html_options["data-open"] = "loginModal"
+          html_options["data-dialog-open"] = "loginModal"
         end
 
         html_options["onclick"] = "event.preventDefault();"
@@ -112,10 +125,10 @@ module Decidim
         html_options ||= {}
 
         if current_user
-          html_options["data-open"] = "authorizationModal"
-          html_options["data-open-url"] = authorization_sign_modal_initiative_path(initiative)
+          html_options["data-dialog-open"] = "authorizationModal"
+          html_options["data-dialog-remote-url"] = authorization_sign_modal_initiative_path(initiative)
         else
-          html_options["data-open"] = "loginModal"
+          html_options["data-dialog-open"] = "loginModal"
         end
 
         html_options["onclick"] = "event.preventDefault();"
@@ -133,6 +146,16 @@ module Decidim
         return false unless initiative.area_enabled?
 
         initiative.created? || initiative.validating?
+      end
+
+      def render_committee_tooltip
+        with_tooltip t("decidim.initiatives.create_initiative.share_committee_link.invite_to_committee_help"), class: "left" do
+          icon "file-copy-line"
+        end
+      end
+
+      def hero_background_path(initiative)
+        initiative.attachments.find(&:image?)&.url
       end
     end
   end

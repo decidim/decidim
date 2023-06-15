@@ -163,3 +163,11 @@
     width: 1em;
   }
 }
+
+input[type="search"]::-webkit-search-cancel-button{
+  -webkit-appearance: none;
+}
+
+.autoComplete_wrapper{
+  display: block;
+}

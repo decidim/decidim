@@ -64,3 +64,45 @@
     }
   }
 }
+
+.proposal-participatory{
+  &__heading{
+    @apply mt-10 first:mt-0 mb-6 pb-6 border-b-4 border-background font-sans font-semibold text-xl md:text-3xl;
+  }
+
+  &__section{
+    @apply p-4 rounded hover:bg-background-4 space-y-4 transition;
+  }
+
+  &__section + &__section{
+    @apply mt-2;
+  }
+
+  &__title{
+    @apply block font-semibold text-xl text-secondary;
+  }
+
+  &__text{
+    @apply text-md text-gray-2;
+  }
+
+  &__button{
+    @apply inline-flex items-center gap-1 px-0 md:px-6 border-gray-3 border-0 md:border-r first:pl-0 last:pr-0 last:border-r-0 text-sm text-secondary;
+
+    & > span{
+      @apply underline;
+    }
+
+    & > svg{
+      @apply w-3.5 h-3.5 fill-current text-gray;
+    }
+  }
+
+  &__section:hover &__title{
+    @apply underline;
+  }
+
+  &__section:hover .label{
+    @apply text-white bg-secondary;
+  }
+}

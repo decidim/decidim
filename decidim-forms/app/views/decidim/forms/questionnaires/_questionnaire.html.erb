@@ -1,7 +1,3 @@
-<div class="mb-10">
-  <%= form_required_explanation %>
-</div>
-
 <noscript>
   <%= cell("decidim/announcement", { title: t("decidim.forms.questionnaires.show.questionnaire_js_disabled.title"), body: t("decidim.forms.questionnaires.show.questionnaire_js_disabled.body") }, callout_class: "warning") %>
 </noscript>
@@ -10,14 +6,17 @@
   <%= cell("decidim/announcement", { title: t("decidim.forms.questionnaires.show.questionnaire_for_private_users.title"), body: t("decidim.forms.questionnaires.show.questionnaire_for_private_users.body") }, callout_class: "alert") %>
 <% end %>
 
+<div class="mb-10">
+  <%= form_required_explanation %>
+</div>
+
 <%= decidim_form_for(@form, url: update_url, method: :post, html: { multipart: true, class: "form answer-questionnaire" }, data: { "safe-path" => form_path }) do |form| %>
 
   <%= invisible_captcha %>
   <% answer_idx = 0 %>
   <% cleaned_answer_idx = 1 %>
   <% @form.responses_by_step.each_with_index do |step_answers, step_index| %>
-    <!-- REDESIGN_PENDING: replace foundation toggler -->
-    <div id="step-<%= step_index %>" class="answer-questionnaire__step <%= "hidden" if !step_index.zero? %>" data-toggler=".hidden">
+    <div id="step-<%= step_index %>" class="answer-questionnaire__step" <%= "hidden" if !step_index.zero? %>>
 
       <% if @form.total_steps > 1 %>
         <p class="answer-questionnaire__step-counter">
