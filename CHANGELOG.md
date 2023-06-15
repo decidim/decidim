@@ -1,6 +1,6 @@
 # Change Log
 
-## [0.27.4](https://github.com/decidim/decidim/tree/0.27.4)
+## Unreleased
 
 ### Upgrade notes
 
