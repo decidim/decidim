@@ -77,6 +77,7 @@ describe "Proposals", type: :system do
             select translated(category.name), from: :proposal_category_id
             # REDESIGN_PENDING - scope picker is pending https://github.com/decidim/decidim/issues/10192
             # scope_pick scope_picker, scope
+            select translated(scope.name), from: :proposal_scope_id
 
             find("*[type=submit]").click
           end
@@ -91,7 +92,7 @@ describe "Proposals", type: :system do
           expect(page).to have_content("Cities need more people, not more cars")
           expect(page).to have_content(translated(category.name))
           # REDESIGN_PENDING - scope picker is pending https://github.com/decidim/decidim/issues/10192
-          # expect(page).to have_content(translated(scope.name))
+          expect(page).to have_content(translated(scope.name))
           expect(page).to have_author(user.name)
         end
 
@@ -125,6 +126,7 @@ describe "Proposals", type: :system do
               select translated(category.name), from: :proposal_category_id
               # REDESIGN_PENDING - scope picker is pending https://github.com/decidim/decidim/issues/10192
               # scope_pick scope_picker, scope
+              select translated(scope.name), from: :proposal_scope_id
 
               find("*[type=submit]").click
             end
@@ -141,7 +143,7 @@ describe "Proposals", type: :system do
             expect(page).to have_content(address)
             expect(page).to have_content(translated(category.name))
             # REDESIGN_PENDING - scope picker is pending https://github.com/decidim/decidim/issues/10192
-            # expect(page).to have_content(translated(scope.name))
+            expect(page).to have_content(translated(scope.name))
             expect(page).to have_author(user.name)
           end
 
@@ -215,6 +217,7 @@ describe "Proposals", type: :system do
               select translated(category.name), from: :proposal_category_id
               # REDESIGN_PENDING - scope picker is pending https://github.com/decidim/decidim/issues/10192
               # scope_pick scope_picker, scope
+              select translated(scope.name), from: :proposal_scope_id
               select user_group.name, from: :proposal_user_group_id
 
               find("*[type=submit]").click
@@ -227,7 +230,7 @@ describe "Proposals", type: :system do
             expect(page).to have_content("Cities need more people, not more cars")
             expect(page).to have_content(translated(category.name))
             # REDESIGN_PENDING - scope picker is pending https://github.com/decidim/decidim/issues/10192
-            # expect(page).to have_content(translated(scope.name))
+            expect(page).to have_content(translated(scope.name))
             expect(page).to have_author(user_group.name)
           end
 
@@ -256,6 +259,7 @@ describe "Proposals", type: :system do
                 select translated(category.name), from: :proposal_category_id
                 # REDESIGN_PENDING - scope picker is pending https://github.com/decidim/decidim/issues/10192
                 # scope_pick scope_picker, scope
+                select translated(scope.name), from: :proposal_scope_id
                 select user_group.name, from: :proposal_user_group_id
 
                 find("*[type=submit]").click
@@ -269,7 +273,7 @@ describe "Proposals", type: :system do
               expect(page).to have_content(address)
               expect(page).to have_content(translated(category.name))
               # REDESIGN_PENDING - scope picker is pending https://github.com/decidim/decidim/issues/10192
-              # expect(page).to have_content(translated(scope.name))
+              expect(page).to have_content(translated(scope.name))
               expect(page).to have_author(user_group.name)
             end
           end
@@ -289,7 +293,7 @@ describe "Proposals", type: :system do
           end
 
           it "shows a modal dialog" do
-            skip "REDESIGN_PENDING - The upload feature has to be simplified in redesign and multiple files upload fails"
+            # skip "REDESIGN_PENDING - The upload feature has to be simplified in redesign and multiple files upload fails"
 
             visit_component
             click_link "New proposal"
@@ -309,7 +313,7 @@ describe "Proposals", type: :system do
           let(:proposal_draft) { create(:proposal, :draft, users: [user], component:, title: "Proposal with attachments", body: "This is my proposal and I want to upload attachments.") }
 
           it "creates a new proposal with attachments" do
-            skip "REDESIGN_PENDING - The upload feature has to be simplified in redesign and multiple files upload fails"
+            # skip "REDESIGN_PENDING - The upload feature has to be simplified in redesign and multiple files upload fails"
 
             visit complete_proposal_path(component, proposal_draft)
 

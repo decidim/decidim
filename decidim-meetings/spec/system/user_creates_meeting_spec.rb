@@ -96,9 +96,9 @@ describe "User creates meeting", type: :system do
             fill_in :meeting_end_time, with: meeting_end_time.strftime(datetime_format)
             select "Registration disabled", from: :meeting_registration_type
             select translated(category.name), from: :meeting_decidim_category_id
-            # REDESIGN_PENDING - Uncomment / adapt the next line after completing
-            # redesign of data picker of scope
+            # REDESIGN_PENDING - scope picker is pending https://github.com/decidim/decidim/issues/10192
             # scope_pick select_data_picker(:meeting_decidim_scope_id), meeting_scope
+            select translated(meeting_scope.name), from: :meeting_decidim_scope_id
 
             find("*[type=submit]").click
           end
@@ -107,9 +107,8 @@ describe "User creates meeting", type: :system do
           expect(page).to have_content(meeting_title)
           expect(page).to have_content(meeting_description)
           expect(page).to have_content(translated(category.name))
-          # REDESIGN_PENDING - Uncomment / adapt the next line after completing
-          # redesign of data picker of scope
-          # expect(page).to have_content(translated(meeting_scope.name))
+          # REDESIGN_PENDING - scope picker is pending https://github.com/decidim/decidim/issues/10192
+          expect(page).to have_content(translated(meeting_scope.name))
           expect(page).to have_content(meeting_address)
           expect(page).to have_content(meeting_start_time.strftime(time_format))
           expect(page).to have_content(meeting_end_time.strftime(time_format))
@@ -164,9 +163,9 @@ describe "User creates meeting", type: :system do
               fill_in :meeting_end_time, with: meeting_end_time.strftime(datetime_format)
               select "Registration disabled", from: :meeting_registration_type
               select translated(category.name), from: :meeting_decidim_category_id
-              # REDESIGN_PENDING - Uncomment / adapt the next line after completing
-              # redesign of data picker of scope
+              # REDESIGN_PENDING - scope picker is pending https://github.com/decidim/decidim/issues/10192
               # scope_pick select_data_picker(:meeting_decidim_scope_id), meeting_scope
+              select translated(meeting_scope.name), from: :meeting_decidim_scope_id
               select user_group.name, from: :meeting_user_group_id
 
               find("*[type=submit]").click
@@ -176,9 +175,8 @@ describe "User creates meeting", type: :system do
             expect(page).to have_content(meeting_title)
             expect(page).to have_content(meeting_description)
             expect(page).to have_content(translated(category.name))
-            # REDESIGN_PENDING - Uncomment / adapt the next line after completing
-            # redesign of data picker of scope
-            # expect(page).to have_content(translated(meeting_scope.name))
+            # REDESIGN_PENDING - scope picker is pending https://github.com/decidim/decidim/issues/10192
+            expect(page).to have_content(translated(meeting_scope.name))
             expect(page).to have_content(meeting_address)
             expect(page).to have_content(meeting_start_time.strftime(time_format))
             expect(page).to have_content(meeting_end_time.strftime(time_format))
@@ -206,9 +204,9 @@ describe "User creates meeting", type: :system do
               fill_in :meeting_available_slots, with: meeting_available_slots
               fill_in :meeting_registration_terms, with: meeting_registration_terms
               select translated(category.name), from: :meeting_decidim_category_id
-              # REDESIGN_PENDING - Uncomment / adapt the next line after completing
-              # redesign of data picker of scope
+              # REDESIGN_PENDING - scope picker is pending https://github.com/decidim/decidim/issues/10192
               # scope_pick select_data_picker(:meeting_decidim_scope_id), meeting_scope
+              select translated(meeting_scope.name), from: :meeting_decidim_scope_id
               select user_group.name, from: :meeting_user_group_id
 
               find("*[type=submit]").click
@@ -218,9 +216,8 @@ describe "User creates meeting", type: :system do
             expect(page).to have_content(meeting_title)
             expect(page).to have_content(meeting_description)
             expect(page).to have_content(translated(category.name))
-            # REDESIGN_PENDING - Uncomment / adapt the next line after completing
-            # redesign of data picker of scope
-            # expect(page).to have_content(translated(meeting_scope.name))
+            # REDESIGN_PENDING - scope picker is pending https://github.com/decidim/decidim/issues/10192
+            expect(page).to have_content(translated(meeting_scope.name))
             expect(page).to have_content(meeting_address)
             expect(page).to have_content(meeting_start_time.strftime(time_format))
             expect(page).to have_content(meeting_end_time.strftime(time_format))
