@@ -40,6 +40,21 @@ module Decidim
     # Returns nothing.
     def scopes_picker_field(form, name, root: false, options: { checkboxes_on_top: true })
       root = try(:current_participatory_space)&.scope if root == false
+
+      form.scopes_picker name, options do |scope|
+        { url: decidim.scopes_picker_path(root:, current: scope&.id, field: form.label_for(name)),
+          text: scope_name_for_picker(scope, I18n.t("decidim.scopes.global")) }
+      end
+    end
+
+    # Renders a scopes select field in a form.
+    # form - FormBuilder object
+    # name - attribute name
+    # options       - An optional Hash with options:
+    #
+    # Returns nothing.
+    def scopes_select_field(form, name, root: false, options: {})
+      root = try(:current_participatory_space)&.scope if root == false
       ordered_descendants = if root.present?
                               root.descendants
                             else
@@ -51,11 +66,6 @@ module Decidim
         ordered_descendants.map { |scope| [" #{"-" * (scope.part_of.count - 1)} #{translated_attribute(scope.name)}", scope&.id] },
         options.merge(include_blank: I18n.t("decidim.scopes.prompt"))
       )
-
-      # form.scopes_picker name, options do |scope|
-      #   { url: decidim.scopes_picker_path(root:, current: scope&.id, field: form.label_for(name)),
-      #     text: scope_name_for_picker(scope, I18n.t("decidim.scopes.global")) }
-      # end
     end
 
     # Renders a scopes picker field in a form, not linked to a specific model.
