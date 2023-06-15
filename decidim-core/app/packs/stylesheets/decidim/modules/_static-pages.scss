@@ -1,51 +1,51 @@
-.static-with-nav{
-  @include breakpoint(medium){
+.static-with-nav {
+  @include breakpoint(medium) {
     display: flex;
   }
 }
 
-.static__content{
+.static__content {
   //padding: 2rem 1rem;
-  @include breakpoint(medium){
+  @include breakpoint(medium) {
     //padding: 2rem 1.5rem;
   }
 }
 
-.static-nav{
+.static-nav {
   min-height: 100%;
 
-  .list-latin{
+  .list-latin {
     list-style-type: upper-latin;
   }
 
-  ul{
-    margin-left: .5rem;
+  ul {
+    margin-left: 0.5rem;
   }
 
-  li{
+  li {
     color: darken($medium-gray, 30);
     line-height: 1.2;
-    margin-bottom: .8rem;
+    margin-bottom: 0.8rem;
   }
 
-  a{
+  a {
     color: $body-font-color;
 
-    &:hover{
+    &:hover {
       color: $anchor-color;
     }
   }
 }
 
-.static__message{
+.static__message {
   text-align: center;
   padding: 2rem 1rem;
 
-  @include breakpoint(medium){
+  @include breakpoint(medium) {
     padding: 4rem 1.5rem;
   }
 }
 
-.static__message__cta{
+.static__message__cta {
   margin-top: 2rem;
 }

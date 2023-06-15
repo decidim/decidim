@@ -47,12 +47,12 @@
               </li>
               <li class="card-data__item">
                 <div>
-                  <strong>Comienzo</strong>&nbsp;<%= Faker::Date.forward(365).strftime("%d/%m/%y") %>
+                  <strong>Comienzo</strong>&nbsp;<%= Faker::Date.forward(days: 365).strftime("%d/%m/%y") %>
                 </div>
               </li>
               <li class="card-data__item">
                 <div>
-                  <strong>Fin</strong>&nbsp;<%= Faker::Date.forward(365).strftime("%d/%m/%y") %>
+                  <strong>Fin</strong>&nbsp;<%= Faker::Date.forward(days: 365).strftime("%d/%m/%y") %>
                 </div>
               </li>
             </ul>
@@ -60,7 +60,7 @@
           <div class="card__status">
             <ul class="card-data">
               <li class="card-data__item">
-                <%= Faker::Date.backward(725).strftime("%d/%m/%Y") %>
+                <%= Faker::Date.backward(days: 725).strftime("%d/%m/%Y") %>
               </li>
               <li class="card-data__item">
                 <a href="">
@@ -120,7 +120,7 @@
           <div class="card__status">
             <ul class="card-data">
               <li class="card-data__item">
-                <%= Faker::Date.backward(725).strftime("%d/%m/%Y") %>
+                <%= Faker::Date.backward(days: 725).strftime("%d/%m/%Y") %>
               </li>
               <li class="card-data__item">
                 <a href="">

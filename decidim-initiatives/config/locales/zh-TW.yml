@@ -1,1 +1,13 @@
 zh-TW:
+  activerecord:
+    models:
+      decidim/initiative:
+        other: 倡議
+  decidim:
+    initiatives:
+      modal:
+        not_authorized:
+          authorizations_page: 查看授權
+          close: 關閉
+          explanation: 你需要先通過驗證才能創建新的倡議。
+          title: 需要授權

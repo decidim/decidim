@@ -46,7 +46,7 @@ module Decidim
       # find the opening `<p>` tag and include the badge right after it. This
       # makes the layout look good.
       def description
-        text = decidim_sanitize_editor(translated_attribute(model.additional_info))
+        text = decidim_sanitize_editor(translated_attribute(model.additional_info), strip_tags: true)
         text.sub!(/<p>/, "<p>#{render :badge}")
         html_truncate(text, length: 100)
       end

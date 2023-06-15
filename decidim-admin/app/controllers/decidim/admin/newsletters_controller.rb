@@ -26,7 +26,7 @@ module Decidim
       end
 
       def send_to_user
-        enforce_permission_to :read, :newsletter, newsletter: newsletter
+        enforce_permission_to :read, :newsletter, newsletter:
 
         NewsletterMailer.newsletter(current_user, newsletter).deliver_later
         flash[:notice] = I18n.t("newsletters.send_to_user.sent_successfully", scope: "decidim.admin", email: current_user.email)

@@ -1,0 +1,16 @@
+{
+  "name": "@decidim/prettier-config",
+  "description": "The prettier configuration for Decidim",
+  "version": "0.28.0-dev",
+  "repository": {
+    "url": "git@github.com:decidim/decidim.git",
+    "type": "git",
+    "directory": "packages/prettier-config"
+  },
+  "author": "Decidim Contributors",
+  "license": "AGPL-3.0",
+  "main": "index.js",
+  "peerDependencies": {
+    "prettier": "^2.3.2"
+  }
+}

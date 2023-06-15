@@ -80,7 +80,7 @@ module Decidim
         end
       end
 
-      initializer "decidim_admin.admin_user_menu" do
+      initializer "decidim_admin.user_menu" do
         Decidim.menu :admin_user_menu do |menu|
           menu.add_item :users,
                         I18n.t("menu.admins", scope: "decidim.admin"), decidim_admin.users_path,
@@ -108,7 +108,7 @@ module Decidim
         end
       end
 
-      initializer "decidim_admin.admin_settings_menu" do
+      initializer "decidim_admin.settings_menu" do
         Decidim.menu :admin_settings_menu do |menu|
           menu.add_item :edit_organization,
                         I18n.t("menu.configuration", scope: "decidim.admin"),

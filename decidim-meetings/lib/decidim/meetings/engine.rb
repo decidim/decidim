@@ -42,7 +42,7 @@ module Decidim
         end
       end
 
-      initializer "decidim.content_processors" do |_app|
+      initializer "decidim_meetings.content_processors" do |_app|
         Decidim.configure do |config|
           config.content_processors += [:meeting]
         end
@@ -139,6 +139,12 @@ module Decidim
           transfer.move_records(Decidim::Meetings::Meeting, :decidim_author_id)
           transfer.move_records(Decidim::Meetings::Registration, :decidim_user_id)
           transfer.move_records(Decidim::Meetings::Answer, :decidim_user_id)
+        end
+      end
+
+      initializer "decidim_meetings.moderation_content" do
+        ActiveSupport::Notifications.subscribe("decidim.system.events.hide_user_created_content") do |_event_name, data|
+          Decidim::Meetings::HideAllCreatedByAuthorJob.perform_later(**data)
         end
       end
     end

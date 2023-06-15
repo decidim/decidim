@@ -25,6 +25,8 @@ describe "Admin manages consultations", type: :system do
       end
     end
 
+    it_behaves_like "having a rich text editor for field", ".tabs-content[data-tabs-content='consultation-description-tabs']", "full"
+
     it "creates a new consultation" do
       execute_script("$('#consultation_start_voting_date').focus()")
       find(".active").click

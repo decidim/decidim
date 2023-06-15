@@ -154,7 +154,7 @@ describe "Proposals", type: :system do
       end
 
       it "shows the author as meeting" do
-        expect(page).to have_content(translated(proposal.authors.first.title))
+        expect(page).to have_content(ActionView::Base.full_sanitizer.sanitize(translated(proposal.authors.first.title)))
       end
 
       it_behaves_like "rendering safe content", ".columns.mediumlarge-8.large-9"
@@ -171,6 +171,53 @@ describe "Proposals", type: :system do
 
         comments.each do |comment|
           expect(page).to have_content(comment.body.values.first)
+        end
+      end
+    end
+
+    context "when a proposal has video embeds" do
+      let(:cost_report) { { en: "My cost report" } }
+      let(:execution_period) { { en: "My execution period" } }
+      let(:body) { Decidim::Faker::Localized.localized { "<script>alert(\"TITLE\");</script> #{Faker::Lorem.sentences(number: 3).join("\n")}" } }
+      let(:answer) { generate_localized_title }
+
+      let!(:proposal) do
+        create(
+          :proposal,
+          :accepted,
+          :official,
+          :with_answer,
+          component:,
+          body:,
+          answer:,
+          cost: 20_000,
+          cost_report:,
+          execution_period:
+        )
+      end
+
+      before do
+        component.update!(
+          step_settings: {
+            component.participatory_space.active_step.id => {
+              answers_with_costs: true
+            }
+          }
+        )
+
+        visit_component
+        click_link proposal_title
+      end
+
+      context "when is created by the admin" do
+        context "when the field is body" do
+          it_behaves_like "has embedded video in description", :body
+        end
+      end
+
+      context "when is created by the user" do
+        context "when the field is answer" do
+          it_behaves_like "has embedded video in description", :answer
         end
       end
     end

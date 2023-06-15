@@ -18,7 +18,9 @@ ro:
         decidim_scope_id: Domeniu de interes
         decidim_user_group_id: Grup de utilizatori
         description: Descriere
+        end_time: Data sfarsit
         id: ID
+        iframe_embed_type: Tip încorporare iframe
         location: Locaţie
         location_hints: Sugestii de localizare
         online_meeting_url: URL-ul întâlnirii online
@@ -28,16 +30,36 @@ ro:
         registration_email_custom_content: Conținut personalizat de e-mail de înregistrare
         registration_form_enabled: Formular de înregistrare activat
         registration_terms: Termeni de înregistrare
+        registration_type: Tipul de înscriere
         registration_url: URL înregistrare
         registrations_enabled: Înregistrări activate
+        reserved_slots: Locuri disponibile pentru acest eveniment
+        start_time: Data inceput
         title: Titlu
         transparent: Transparentă
         type_of_meeting: Tip
       meeting_agenda:
         title: Titlu
+        visible: Vizibil
       meeting_agenda_items:
+        description: Descriere
         duration: Durată
         title: Titlu
+      meeting_registration_invite:
+        email: E-mail
+        name: Nume
+      validate_registration_code:
+        code: Cod
+    errors:
+      models:
+        meeting:
+          attributes:
+            iframe_embed_type:
+              not_embeddable: Această adresă URL nu poate fi încorporată în eveniment sau pagina de evenimente live.
+        meeting_agenda:
+          attributes:
+            base:
+              too_many_minutes: Durata elementelor depășește durata evenimentului cu %{count} minute.
     models:
       decidim/meetings/close_meeting_event: Ședință închisă
       decidim/meetings/create_meeting_event: Întâlnire
@@ -279,6 +301,8 @@ ro:
           new:
             create: Creează
             title: Creează întâlnire
+          publish:
+            success: Evenimentul publicat cu succes.
           service:
             description: Descriere
             down: Jos
@@ -289,6 +313,10 @@ ro:
           services:
             add_service: Adaugă serviciu
             services: Servicii
+          unpublish:
+            invalid: S-a întâmpinat o problemă la retragerea de la publicare a acestui eveniment.
+          update:
+            success: Eveniment actualizat cu succes.
         meetings_poll:
           form:
             title: Editează chestionarul sondajului pentru %{questionnaire_for}

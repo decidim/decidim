@@ -5,10 +5,10 @@
 //     exp(-1) // 0.36788
 @use "sass:math";
 
-@function exp ($x){
+@function exp($x) {
   $ret: 0;
 
-  @for $n from 0 to 24{
+  @for $n from 0 to 24 {
     $ret: $ret + math.div(pow($x, $n), fact($n));
   }
 

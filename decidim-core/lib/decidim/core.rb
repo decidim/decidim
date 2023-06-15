@@ -119,6 +119,7 @@ module Decidim
   autoload :BlockRegistry, "decidim/block_registry"
   autoload :DependencyResolver, "decidim/dependency_resolver"
   autoload :ParticipatorySpaceUser, "decidim/participatory_space_user"
+  autoload :ModerationTools, "decidim/moderation_tools"
 
   include ActiveSupport::Configurable
   # Loads seeds from all engines.

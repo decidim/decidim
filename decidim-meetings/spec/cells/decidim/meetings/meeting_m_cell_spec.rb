@@ -5,6 +5,7 @@ require "spec_helper"
 module Decidim::Meetings
   describe MeetingMCell, type: :cell do
     controller Decidim::Meetings::MeetingsController
+    include Decidim::SanitizeHelper
 
     let!(:meeting) { create(:meeting, :published, created_at: "2001-01-01") }
     let(:model) { meeting }
@@ -57,7 +58,9 @@ module Decidim::Meetings
       end
 
       it "escapes them correctly" do
-        expect(the_cell.title).to eq("#{@original_title} &amp;&#39;&lt;")
+        title = decidim_html_escape(@original_title)
+
+        expect(the_cell.title).to eq("#{title} &amp;&#39;&lt;")
         # as the `cell` test helper wraps content in a Capybara artifact that already converts html entities
         # we should compare with the expected visual result, as we were checking the DOM instead of the html
         expect(cell_html).to have_content("#{@original_title} &'<")

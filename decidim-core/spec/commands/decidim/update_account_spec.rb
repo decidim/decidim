@@ -78,8 +78,14 @@ module Decidim
       end
 
       describe "updating the email" do
+        let(:validator) { instance_double(ValidEmail2::Address) }
+
         before do
           form.email = "new@email.com"
+
+          allow(ValidEmail2::Address).to receive(:new).and_return(validator)
+          allow(validator).to receive(:valid?).and_return(true)
+          allow(validator).to receive(:disposable?).and_return(false)
         end
 
         it "broadcasts ok" do

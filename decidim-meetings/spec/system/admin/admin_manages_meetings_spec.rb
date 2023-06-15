@@ -75,6 +75,8 @@ describe "Admin manages meetings", type: :system, serves_map: true, serves_geoco
       click_link "Edit"
     end
 
+    it_behaves_like "having a rich text editor for field", ".tabs-content[data-tabs-content='meeting-description-tabs']", "full"
+
     it "shows help text" do
       expect(help_text_for("label[for*='meeting_address']")).to be_present
       expect(help_text_for("div[data-tabs-content*='meeting-location']")).to be_present
@@ -133,6 +135,14 @@ describe "Admin manages meetings", type: :system, serves_map: true, serves_geoco
       it "shows the description correctly" do
         expect(page).not_to have_css("#meeting-description-tabs")
         expect(page).to have_css("input", text: meeting.description[:en], visible: :visible)
+      end
+    end
+  end
+
+  it_behaves_like "having a rich text editor for field", ".tabs-content[data-tabs-content='meeting-description-tabs']", "full" do
+    before do
+      within find("tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title) do
+        click_link "Edit"
       end
     end
   end
@@ -545,7 +555,7 @@ describe "Admin manages meetings", type: :system, serves_map: true, serves_geoco
     let(:proposal_component) do
       create(:component, manifest_name: :proposals, participatory_space: meeting.component.participatory_space)
     end
-    let!(:proposals) { create_list(:proposal, 3, component: proposal_component, skip_injection: true) }
+    let!(:proposals) { create_list(:proposal, 3, component: proposal_component) }
 
     it "closes a meeting with a report" do
       within find("tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title) do
