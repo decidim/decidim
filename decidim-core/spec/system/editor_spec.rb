@@ -1136,6 +1136,11 @@ describe "Editor", type: :system do
         HTML
       end
 
+      before do
+        # Focuses the image within the editor
+        prosemirror.native.send_keys [:left]
+      end
+
       shared_examples "resize controls" do |mode|
         context "with right side controls" do
           it "allows resizing the image" do
@@ -1207,11 +1212,6 @@ describe "Editor", type: :system do
       end
 
       context "when the resize controls receive a click event" do
-        before do
-          # Focuses the image within the editor
-          prosemirror.native.send_keys [:left]
-        end
-
         it "does not submit the form when resizing the image" do
           page.find("[data-image-resizer-control='top-left']").click
           page.find("[data-image-resizer-control='top-right']").click
