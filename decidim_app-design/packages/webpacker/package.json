@@ -22,7 +22,7 @@
     "@rails/ujs": "^6.1.7",
     "@tailwindcss/typography": "^0.5.2",
     "autoprefixer": "^10.4.14",
-    "babel-loader": "^9.0.0",
+    "babel-loader": "^9.1.2",
     "compression-webpack-plugin": "^10.0.0",
     "css-loader": "^6.7.3",
     "expose-loader": "^4.1.0",

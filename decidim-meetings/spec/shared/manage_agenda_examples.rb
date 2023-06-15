@@ -2,7 +2,7 @@
 
 shared_examples "manage agenda" do
   context "when agenda is created" do
-    let!(:agenda) { create :agenda, meeting: }
+    let!(:agenda) { create(:agenda, meeting:) }
     let!(:agenda_items) { create_list(:agenda_item, 2, agenda:, duration: 15) }
 
     it "updates the agenda" do

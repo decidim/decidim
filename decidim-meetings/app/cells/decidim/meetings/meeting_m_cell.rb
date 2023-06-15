@@ -43,7 +43,7 @@ module Decidim
         ["alert"]
       end
 
-      delegate :online_meeting?, to: :model
+      delegate :online?, to: :model
 
       private
 

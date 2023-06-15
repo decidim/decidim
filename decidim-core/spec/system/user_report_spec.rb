@@ -35,7 +35,7 @@ describe "Report User", type: :system do
     it "gives the option to sign in" do
       page.visit reportable_path
 
-      expect(page).to have_no_css("html.is-reveal-open")
+      expect(page).not_to have_css("html.is-reveal-open")
 
       click_button "Report"
 
@@ -53,14 +53,14 @@ describe "Report User", type: :system do
         expect(page).to have_selector(".profile--sidebar")
 
         within ".profile--sidebar", match: :first do
-          page.find("button").click
+          click_button
         end
 
         expect(page).to have_css(".flag-modal", visible: :visible)
 
         within ".flag-modal" do
-          expect(page).to have_css("input[name='report[block]']", visible: :visible)
-          expect(page).not_to have_css("input[name='report[hide]']", visible: :visible)
+          expect(page).to have_field(name: "report[block]", visible: :visible)
+          expect(page).not_to have_field(name: "report[hide]", visible: :visible)
 
           click_button "Report"
         end
@@ -74,15 +74,15 @@ describe "Report User", type: :system do
         expect(page).to have_selector(".profile--sidebar")
 
         within ".profile--sidebar", match: :first do
-          page.find("button").click
+          click_button
         end
 
         expect(page).to have_css(".flag-modal", visible: :visible)
 
         within ".flag-modal" do
           find(:css, "input[name='report[block]']").set(true)
-          expect(page).to have_css("input[name='report[block]']", visible: :visible)
-          expect(page).to have_css("input[name='report[hide]']", visible: :visible)
+          expect(page).to have_field(name: "report[block]", visible: :visible)
+          expect(page).to have_field(name: "report[hide]", visible: :visible)
           click_button "Block this participant"
         end
 
@@ -103,12 +103,12 @@ describe "Report User", type: :system do
         expect(page).to have_selector(".profile--sidebar")
 
         within ".profile--sidebar", match: :first do
-          page.find("button").click
+          click_button
         end
 
         expect(page).to have_css(".flag-modal", visible: :visible)
-        expect(page).not_to have_css("input[name='report[block]']", visible: :visible)
-        expect(page).not_to have_css("input[name='report[hide]']", visible: :visible)
+        expect(page).not_to have_field(name: "report[block]", visible: :visible)
+        expect(page).not_to have_field(name: "report[hide]", visible: :visible)
 
         within ".flag-modal" do
           click_button "Report"
@@ -130,7 +130,7 @@ describe "Report User", type: :system do
         expect(page).to have_selector(".profile--sidebar")
 
         within ".profile--sidebar", match: :first do
-          page.find("button").click
+          click_button
         end
 
         expect(page).to have_css(".flag-modal", visible: :visible)

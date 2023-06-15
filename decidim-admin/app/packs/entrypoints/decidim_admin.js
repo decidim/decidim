@@ -4,7 +4,6 @@
 import "core-js/stable";
 import "regenerator-runtime/runtime";
 import $ from "jquery"
-import Quill from "quill"
 import Rails from "@rails/ujs"
 
 import "foundation-sites"
@@ -35,6 +34,7 @@ import "src/decidim/session_timeouter"
 import "src/decidim/slug_form"
 import "src/decidim/direct_uploads/upload_field"
 import "src/decidim/admin/admin_autocomplete"
+import "src/decidim/admin/triadic_color_picker"
 import "src/decidim/admin/participatory_space_search"
 
 // CSS

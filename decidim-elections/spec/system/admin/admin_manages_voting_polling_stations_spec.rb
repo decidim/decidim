@@ -3,7 +3,7 @@
 require "spec_helper"
 require "decidim/votings/test/capybara_polling_officers_picker"
 
-describe "Admin manages polling stations", type: :system, serves_geocoding_autocomplete: true do
+describe "Admin manages polling stations", serves_geocoding_autocomplete: true, type: :system do
   let(:address) { "Somewhere over the rainbow" }
   let(:latitude) { 42.123 }
   let(:longitude) { 2.123 }
@@ -151,7 +151,7 @@ describe "Admin manages polling stations", type: :system, serves_geocoding_autoc
 
       expect(page).to have_admin_callout("successfully")
 
-      expect(page).to have_no_content(translated(polling_station.title, locale: :en))
+      expect(page).not_to have_content(translated(polling_station.title, locale: :en))
     end
 
     it "can update a polling_station" do

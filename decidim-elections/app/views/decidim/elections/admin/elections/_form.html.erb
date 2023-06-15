@@ -13,6 +13,11 @@
     </div>
 
     <div class="row">
+      <div class="callout warning">
+        <p><%= t(".organization_time_zone",
+                 time_zone: current_organization.time_zone,
+                 time: Time.zone.now) %></p>
+      </div>
       <div class="column xlarge-6">
         <%= form.datetime_field :start_time %>
       </div>

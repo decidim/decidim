@@ -12,7 +12,7 @@ module Decidim
         let(:proposals) { create_list(:proposal, 2, component:) }
         let(:component) { create(:proposal_component) }
         let(:valuator_process) { component.participatory_space }
-        let(:valuator) { create :user, organization: }
+        let(:valuator) { create(:user, organization:) }
         let(:valuator_role) { create(:participatory_process_user_role, role: :valuator, user: valuator, participatory_process: valuator_process) }
         let(:params) do
           {
@@ -45,7 +45,7 @@ module Decidim
         end
 
         context "when given a valuator role from another space" do
-          let(:valuator_process) { create :participatory_process, organization: }
+          let(:valuator_process) { create(:participatory_process, organization:) }
 
           it { is_expected.to be_invalid }
         end

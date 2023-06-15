@@ -18,7 +18,7 @@ shared_context "when performing the whole process" do
       Decidim::Dev.asset("private_key3.jwk")
     ]
   end
-  let(:election) { create :election, :ready_for_setup, trustee_keys:, component: current_component }
+  let(:election) { create(:election, :ready_for_setup, trustee_keys:, component: current_component) }
 end
 
 module Decidim
@@ -94,7 +94,7 @@ module Decidim
 
         click_button "Start"
 
-        expect(page).to have_selector("button.start:disabled")
+        expect(page).to have_button(class: "start", disabled: true)
       end
 
       def complete_key_ceremony(trustee_index)
@@ -111,7 +111,7 @@ module Decidim
         expect(page).to have_css("#create_election", text: "Completed")
         expect(page).to have_css("#key_ceremony-step_1", text: "Completed")
         expect(page).to have_css("#key_ceremony-joint_election_key", text: "Completed")
-        expect(page).not_to have_selector("button.start")
+        expect(page).not_to have_button(class: "start")
         expect(page).to have_link("Back")
 
         expect(page).to have_content("The election status is: key_ceremony_ended")

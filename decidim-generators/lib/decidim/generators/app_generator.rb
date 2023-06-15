@@ -132,7 +132,7 @@ module Decidim
       end
 
       def ruby_version
-        copy_file ".ruby-version", ".ruby-version"
+        copy_file ".ruby-version", ".ruby-version", force: true
       end
 
       def node_version

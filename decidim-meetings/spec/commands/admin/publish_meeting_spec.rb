@@ -8,14 +8,14 @@ module Decidim
       describe PublishMeeting do
         subject { described_class.new(meeting, user) }
 
-        let(:organization) { create :organization, available_locales: [:en] }
-        let(:user) { create :user, :admin, :confirmed, organization: }
-        let(:participatory_process) { create :participatory_process, organization: }
-        let(:current_component) { create :component, participatory_space: participatory_process, manifest_name: "meetings" }
-        let(:meeting) { create :meeting, component: current_component }
+        let(:organization) { create(:organization, available_locales: [:en]) }
+        let(:user) { create(:user, :admin, :confirmed, organization:) }
+        let(:participatory_process) { create(:participatory_process, organization:) }
+        let(:current_component) { create(:component, participatory_space: participatory_process, manifest_name: "meetings") }
+        let(:meeting) { create(:meeting, component: current_component) }
 
         context "when the meeting is already published" do
-          let(:meeting) { create :meeting, :published }
+          let(:meeting) { create(:meeting, :published) }
 
           it "broadcasts :invalid" do
             expect { subject.call }.to broadcast(:invalid)
@@ -64,7 +64,7 @@ module Decidim
 
           context "when the meeting is being republished" do
             let(:user) { create(:user, organization:) }
-            let!(:follower) { create :follow, followable: participatory_process, user: }
+            let!(:follower) { create(:follow, followable: participatory_process, user:) }
 
             it "does not fire an event", versioning: true do
               subject.call

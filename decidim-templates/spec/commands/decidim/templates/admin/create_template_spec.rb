@@ -16,8 +16,8 @@ module Decidim
           ).new(form)
         end
 
-        let(:organization) { create :organization }
-        let(:user) { create :user, :admin, :confirmed, organization: }
+        let(:organization) { create(:organization) }
+        let(:user) { create(:user, :admin, :confirmed, organization:) }
 
         let(:form) do
           instance_double(

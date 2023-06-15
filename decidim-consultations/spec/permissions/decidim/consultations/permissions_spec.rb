@@ -5,10 +5,10 @@ require "spec_helper"
 describe Decidim::Consultations::Permissions do
   subject { described_class.new(user, permission_action, context).permissions.allowed? }
 
-  let(:user) { create :user, organization: }
-  let(:organization) { create :organization }
-  let(:consultation) { create :consultation, organization: }
-  let(:question) { create :question, consultation: }
+  let(:user) { create(:user, organization:) }
+  let(:organization) { create(:organization) }
+  let(:consultation) { create(:consultation, organization:) }
+  let(:question) { create(:question, consultation:) }
   let(:context) { { consultation:, question: } }
   let(:permission_action) { Decidim::PermissionAction.new(**action) }
 
@@ -30,13 +30,13 @@ describe Decidim::Consultations::Permissions do
       let(:action_subject) { :consultation }
 
       context "when the consultation is published" do
-        let(:consultation) { create :consultation, :published, organization: }
+        let(:consultation) { create(:consultation, :published, organization:) }
 
         it { is_expected.to be true }
       end
 
       context "when the consultation is not published" do
-        let(:consultation) { create :consultation, :unpublished, organization: }
+        let(:consultation) { create(:consultation, :unpublished, organization:) }
 
         context "when the user is not an admin" do
           let(:user) { nil }
@@ -45,7 +45,7 @@ describe Decidim::Consultations::Permissions do
         end
 
         context "when the user is an admin" do
-          let(:user) { create :user, :admin, organization: }
+          let(:user) { create(:user, :admin, organization:) }
 
           it { is_expected.to be true }
         end
@@ -56,13 +56,13 @@ describe Decidim::Consultations::Permissions do
       let(:action_subject) { :question }
 
       context "when the question is published" do
-        let(:question) { create :question, :published, consultation: }
+        let(:question) { create(:question, :published, consultation:) }
 
         it { is_expected.to be true }
       end
 
       context "when the question is not published" do
-        let(:question) { create :question, :unpublished, consultation: }
+        let(:question) { create(:question, :unpublished, consultation:) }
 
         context "when the user is not an admin" do
           let(:user) { nil }
@@ -71,7 +71,7 @@ describe Decidim::Consultations::Permissions do
         end
 
         context "when the user is an admin" do
-          let(:user) { create :user, :admin, organization: }
+          let(:user) { create(:user, :admin, organization:) }
 
           it { is_expected.to be true }
         end

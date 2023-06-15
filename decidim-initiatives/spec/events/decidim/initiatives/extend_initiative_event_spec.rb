@@ -8,7 +8,7 @@ describe Decidim::Initiatives::ExtendInitiativeEvent do
   let(:event_name) { "decidim.events.initiatives.initiative_extended" }
   let(:resource) { initiative }
 
-  let(:initiative) { create :initiative }
+  let(:initiative) { create(:initiative) }
   let(:participatory_space) { initiative }
 
   it_behaves_like "a simple event"

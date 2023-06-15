@@ -9,9 +9,9 @@ describe "Admin checks pagination on participatory space private users", type: :
   let(:assembly) { create(:assembly, organization:) }
 
   before do
-    (0..20).each do |_i|
-      user = create :user, organization: organization
-      create :assembly_private_user, user:, privatable_to: assembly
+    21.times do |_i|
+      user = create(:user, organization:)
+      create(:assembly_private_user, user:, privatable_to: assembly)
     end
     switch_to_host(organization.host)
     login_as user, scope: :user

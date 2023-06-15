@@ -79,7 +79,7 @@ describe "Internal server error display", type: :system do
   describe "generate reference" do
     before do
       allow(Rails.application.config).to receive(:log_level).and_return(:error)
-      allow(Rails.application.config).to receive(:log_formatter).and_return(::Logger::Formatter.new)
+      allow(Rails.application.config).to receive(:log_formatter).and_return(Logger::Formatter.new)
       allow(Rails.application.config).to receive(:log_tags).and_return([->(request) { "dummy changes-#{request.request_id}" }, :request_id, "normal_string"])
       visit "/"
     end

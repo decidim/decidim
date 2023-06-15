@@ -7,7 +7,7 @@ module Decidim
     let(:organization) { create(:organization, name: "O'Connor") }
     let(:user) { create(:user, name: "Sarah Connor", organization:) }
     let(:notification_ids) { [notification.id] }
-    let(:notification) { create :notification, user:, resource: }
+    let(:notification) { create(:notification, user:, resource:) }
     let(:component) { create(:component, manifest_name: "dummy", organization:) }
     let(:resource) { create(:dummy_resource, title: { en: %(Testing <a href="/resource">resource</a>) }, component:) }
 

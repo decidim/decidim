@@ -8,6 +8,7 @@ module Decidim
       include NeedsPermission
       include NeedsPasswordChange
       include NeedsSnippets
+      include NeedsAdminTosAccepted
       include FormFactory
       include LocaleSwitcher
       include UseOrganizationTimeZone

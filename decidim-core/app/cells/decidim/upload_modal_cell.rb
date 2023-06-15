@@ -123,6 +123,10 @@ module Decidim
       options[:titled] == true
     end
 
+    def modal_only?
+      options[:modal_only] == true
+    end
+
     def with_title
       "with-title" if has_title?
     end
@@ -207,7 +211,7 @@ module Decidim
     end
 
     def modal_id
-      @modal_id ||= "upload_#{SecureRandom.uuid}"
+      @modal_id ||= options[:modal_id] || "upload_#{SecureRandom.uuid}"
     end
 
     def current_organization

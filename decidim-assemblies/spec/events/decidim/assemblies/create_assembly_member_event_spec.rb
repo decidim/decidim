@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe Decidim::Assemblies::CreateAssemblyMemberEvent do
-  let(:assembly) { create :assembly }
+  let(:assembly) { create(:assembly) }
   let(:resource) { assembly }
   let(:event_name) { "decidim.events.assemblies.create_assembly_member" }
   let(:assembly_title) { translated(assembly.title) }

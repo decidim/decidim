@@ -7,8 +7,8 @@ RSpec.describe "Proposal search", type: :request do
 
   subject { response.body }
 
-  let(:component) { create :proposal_component }
-  let(:user) { create :user, :confirmed, organization: }
+  let(:component) { create(:proposal_component) }
+  let(:user) { create(:user, :confirmed, organization:) }
   let(:participatory_space) { component.participatory_space }
   let(:organization) { participatory_space.organization }
   let(:filter_params) { {} }
@@ -22,10 +22,10 @@ RSpec.describe "Proposal search", type: :request do
   let!(:proposal7) { create(:proposal, :accepted, component:) }
 
   let(:meetings_component) { create(:component, manifest_name: "meetings", participatory_space:) }
-  let(:meeting) { create :meeting, :published, component: meetings_component }
+  let(:meeting) { create(:meeting, :published, component: meetings_component) }
 
   let(:dummy_component) { create(:component, manifest_name: "dummy", participatory_space:) }
-  let(:dummy_resource) { create :dummy_resource, component: dummy_component }
+  let(:dummy_resource) { create(:dummy_resource, component: dummy_component) }
 
   let(:request_path) { Decidim::EngineRouter.main_proxy(component).proposals_path }
 

@@ -16,7 +16,7 @@ describe Decidim::Votings::Voting do
   end
 
   context "when there is a voting with the same slug in the same organization" do
-    let!(:another_voting) { create :voting, organization: voting.organization, slug: "my-slug" }
+    let!(:another_voting) { create(:voting, organization: voting.organization, slug: "my-slug") }
 
     it "is not valid" do
       expect(subject).not_to be_valid
@@ -25,7 +25,7 @@ describe Decidim::Votings::Voting do
   end
 
   context "when there is a voting with the same slug in another organization" do
-    let!(:another_voting) { create :voting, slug: "my-slug" }
+    let!(:another_voting) { create(:voting, slug: "my-slug") }
 
     it { is_expected.to be_valid }
   end

@@ -95,8 +95,10 @@ module Decidim
       end
 
       initializer "decidim_consultations.authorization_transfer" do
-        Decidim::AuthorizationTransfer.register(:consultations) do |transfer|
-          transfer.move_records(Decidim::Consultations::Vote, :decidim_author_id)
+        config.to_prepare do
+          Decidim::AuthorizationTransfer.register(:consultations) do |transfer|
+            transfer.move_records(Decidim::Consultations::Vote, :decidim_author_id)
+          end
         end
       end
     end

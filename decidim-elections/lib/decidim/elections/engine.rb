@@ -36,8 +36,10 @@ module Decidim
       end
 
       initializer "decidim_elections.authorization_transfer" do
-        Decidim::AuthorizationTransfer.register(:elections) do |transfer|
-          transfer.move_records(Decidim::Elections::Vote, :decidim_user_id)
+        config.to_prepare do
+          Decidim::AuthorizationTransfer.register(:elections) do |transfer|
+            transfer.move_records(Decidim::Elections::Vote, :decidim_user_id)
+          end
         end
       end
     end

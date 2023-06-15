@@ -6,9 +6,9 @@ module Decidim::Conferences
   describe Admin::CreateConference do
     subject { described_class.new(form) }
 
-    let(:organization) { create :organization }
-    let(:current_user) { create :user, :admin, :confirmed, organization: }
-    let(:scope) { create :scope, organization: }
+    let(:organization) { create(:organization) }
+    let(:current_user) { create(:user, :admin, :confirmed, organization:) }
+    let(:scope) { create(:scope, organization:) }
     let(:errors) { double.as_null_object }
     let!(:participatory_processes) do
       create_list(
@@ -24,7 +24,7 @@ module Decidim::Conferences
         organization:
       )
     end
-    let(:consultation) { create :consultation, organization: }
+    let(:consultation) { create(:consultation, organization:) }
     let!(:questions) do
       create_list(
         :question,
@@ -152,11 +152,11 @@ module Decidim::Conferences
       end
 
       context "when sorting linked_participatory_space_resources" do
-        let!(:process_one) { create :participatory_process, organization:, weight: 2 }
-        let!(:process_two) { create :participatory_process, organization:, weight: 1 }
+        let!(:process_one) { create(:participatory_process, organization:, weight: 2) }
+        let!(:process_two) { create(:participatory_process, organization:, weight: 1) }
         let(:related_process_ids) { [process_one.id, process_two.id] }
-        let!(:consultation_one) { create :consultation, organization: }
-        let!(:consultation_two) { create :consultation, organization: }
+        let!(:consultation_one) { create(:consultation, organization:) }
+        let!(:consultation_two) { create(:consultation, organization:) }
         let(:related_consultation_ids) { [consultation_one.id, consultation_two.id] }
 
         it "sorts by created at" do
@@ -175,11 +175,11 @@ module Decidim::Conferences
       end
 
       context "when linking unpublished linked_participatory_space_resources" do
-        let!(:process_one) { create :participatory_process, :unpublished, organization:, weight: 2 }
-        let!(:process_two) { create :participatory_process, organization:, weight: 1 }
+        let!(:process_one) { create(:participatory_process, :unpublished, organization:, weight: 2) }
+        let!(:process_two) { create(:participatory_process, organization:, weight: 1) }
         let(:related_process_ids) { [process_one.id, process_two.id] }
-        let!(:consultation_one) { create :consultation, :unpublished, organization: }
-        let!(:consultation_two) { create :consultation, organization: }
+        let!(:consultation_one) { create(:consultation, :unpublished, organization:) }
+        let!(:consultation_two) { create(:consultation, organization:) }
         let(:related_consultation_ids) { [consultation_one.id, consultation_two.id] }
 
         it "does not include unpublished meetings" do

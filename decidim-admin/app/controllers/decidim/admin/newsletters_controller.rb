@@ -21,7 +21,7 @@ module Decidim
       end
 
       def show
-        enforce_permission_to :read, :newsletter, newsletter: newsletter
+        enforce_permission_to(:read, :newsletter, newsletter:)
         @email = NewsletterMailer.newsletter(current_user, newsletter)
       end
 
@@ -35,7 +35,7 @@ module Decidim
       end
 
       def preview
-        enforce_permission_to :read, :newsletter, newsletter: newsletter
+        enforce_permission_to(:read, :newsletter, newsletter:)
 
         email = NewsletterMailer.newsletter(current_user, newsletter, preview: true)
         Premailer::Rails::Hook.perform(email)
@@ -62,12 +62,12 @@ module Decidim
       end
 
       def edit
-        enforce_permission_to :update, :newsletter, newsletter: newsletter
+        enforce_permission_to(:update, :newsletter, newsletter:)
         @form = form(NewsletterForm).from_model(content_block)
       end
 
       def update
-        enforce_permission_to :update, :newsletter, newsletter: newsletter
+        enforce_permission_to(:update, :newsletter, newsletter:)
         @form = form(NewsletterForm).from_params(params)
         @form.images = images_block_context unless has_images_block_context?
 
@@ -86,7 +86,7 @@ module Decidim
       end
 
       def destroy
-        enforce_permission_to :destroy, :newsletter, newsletter: newsletter
+        enforce_permission_to(:destroy, :newsletter, newsletter:)
 
         DestroyNewsletter.call(newsletter, current_user) do
           on(:already_sent) do
@@ -102,7 +102,7 @@ module Decidim
       end
 
       def select_recipients_to_deliver
-        enforce_permission_to :update, :newsletter, newsletter: newsletter
+        enforce_permission_to(:update, :newsletter, newsletter:)
         @form = form(SelectiveNewsletterForm).from_model(newsletter)
         @form.send_to_all_users = current_user.admin?
       end
@@ -114,7 +114,7 @@ module Decidim
       end
 
       def deliver
-        enforce_permission_to :update, :newsletter, newsletter: newsletter
+        enforce_permission_to(:update, :newsletter, newsletter:)
         @form = form(SelectiveNewsletterForm).from_params(params)
 
         DeliverNewsletter.call(newsletter, @form, current_user) do

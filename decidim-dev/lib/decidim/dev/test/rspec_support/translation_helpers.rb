@@ -90,8 +90,8 @@ module TranslationHelpers
     raise ArgumentError if params[:with].blank?
 
     page.execute_script <<-SCRIPT
-      $('##{locator}').siblings('.editor-container').find('.ql-editor')[0].innerHTML = "#{params[:with]}";
-      $('##{locator}').val("#{params[:with]}")
+      document.querySelector('##{locator} .editor-container .ProseMirror').innerHTML = `#{params[:with]}`;
+      document.querySelector('##{locator} input').value = `#{params[:with]}`;
     SCRIPT
   end
 
@@ -100,8 +100,8 @@ module TranslationHelpers
   # locator - The input field ID. The DOM element is selected using jQuery.
   def clear_editor(locator)
     page.execute_script <<-SCRIPT
-      $('##{locator}').siblings('.editor-container').find('.ql-editor')[0].innerHTML = "<p><br></p>";
-      $('##{locator}').val("")
+      document.querySelector('##{locator} .editor-container .ProseMirror').innerHTML = '<p><br class="ProseMirror-trailingBreak"></p>';
+      document.querySelector('##{locator} input').value = "";
     SCRIPT
   end
 

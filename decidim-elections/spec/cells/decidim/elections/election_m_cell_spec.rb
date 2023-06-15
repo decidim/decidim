@@ -14,7 +14,7 @@ module Decidim::Elections
     let(:end_time) { 1.day.from_now }
     let!(:election) { create(:election, :complete, :published, start_time:, end_time:) }
     let(:model) { election }
-    let(:user) { create :user, organization: election.participatory_space.organization }
+    let(:user) { create(:user, organization: election.participatory_space.organization) }
 
     before do
       allow(controller).to receive(:current_user).and_return(user)

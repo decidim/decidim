@@ -170,7 +170,7 @@ shared_examples "manage processes examples" do
 
     it "does not let the admin manage processes form other organizations" do
       within "table" do
-        expect(page).to have_no_content(external_participatory_process.title["en"])
+        expect(page).not_to have_content(external_participatory_process.title["en"])
       end
     end
   end

@@ -46,7 +46,7 @@ module Decidim
                                                                                                          per_page:) => nil
             },
             t("models.proposal.fields.state", scope: "decidim.proposals") =>
-              Decidim::Proposals::Proposal::POSSIBLE_STATES.each_with_object({}) do |state, hash|
+              Decidim::Proposals::Proposal::STATES.each_pair do |state, hash|
                 if state == "not_answered"
                   hash[link_to((humanize_proposal_state state), q: ransak_params_for_query(state_null: 1), per_page:)] = nil
                 else

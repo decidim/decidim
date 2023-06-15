@@ -44,8 +44,8 @@ module Decidim
     end
 
     describe ".sorted_by_i18n_title" do
-      let!(:page1) { create :static_page, title: { ca: "Bcde", en: "Afgh" } }
-      let!(:page2) { create :static_page, title: { ca: "Abcd", en: "Defg" } }
+      let!(:page1) { create(:static_page, title: { ca: "Bcde", en: "Afgh" }) }
+      let!(:page2) { create(:static_page, title: { ca: "Abcd", en: "Defg" }) }
 
       before { I18n.locale = :ca }
 

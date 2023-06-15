@@ -46,7 +46,7 @@ module Decidim
 
       it "returns the correct metadata" do
         expect(parser.metadata).to be_a(Decidim::ContentParsers::UserParser::Metadata)
-        expect(parser.metadata.users).to match_array([user, user2])
+        expect(parser.metadata.users).to contain_exactly(user, user2)
       end
     end
 
@@ -73,6 +73,26 @@ module Decidim
       it "returns the correct metadata" do
         expect(parser.metadata).to be_a(Decidim::ContentParsers::UserParser::Metadata)
         expect(parser.metadata.users).to eq([user])
+      end
+    end
+
+    context "when the mentions are added through the WYSIWYG editor" do
+      let(:user2) { create(:user, :confirmed, organization:) }
+      let(:content) { "<p>This text contains multiple valid user mentions: #{html_mention(user)} and #{html_mention(user2)}</p>" }
+
+      it "rewrites all mentions" do
+        expect(parser.rewrite).to eq("<p>This text contains multiple valid user mentions: #{user.to_global_id} and #{user2.to_global_id}</p>")
+      end
+
+      it "returns the correct metadata" do
+        expect(parser.metadata).to be_a(Decidim::ContentParsers::UserParser::Metadata)
+        expect(parser.metadata.users).to contain_exactly(user, user2)
+      end
+
+      def html_mention(mentionable)
+        mention = "@#{mentionable.nickname}"
+        label = "#{mention} (#{CGI.escapeHTML(mentionable.name)})"
+        %(<span data-type="mention" data-id="#{mention}" data-label="#{label}">#{label}</span>)
       end
     end
   end

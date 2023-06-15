@@ -7,7 +7,7 @@ module Decidim
     subject { described_class.new(params) }
 
     let(:organization) { create(:organization) }
-    let(:scope1) { create :scope, organization: }
+    let(:scope1) { create(:scope, organization:) }
     let!(:user) { create(:user, nickname: "the_solitary_man", name: "Neil Diamond", organization:) }
 
     describe "Indexing of users" do

@@ -10,7 +10,7 @@ module Decidim::Admin
     let(:user) { create(:user, organization: newsletter.organization) }
 
     context "when the newsletter is already sent" do
-      let(:newsletter) { create :newsletter, :sent }
+      let(:newsletter) { create(:newsletter, :sent) }
 
       it "does not destroy the newsletter" do
         subject.call
