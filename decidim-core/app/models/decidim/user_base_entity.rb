@@ -21,11 +21,19 @@ module Decidim
 
     # Regex for name & nickname format validations
     REGEXP_NAME = /\A(?!.*[<>?%&\^*#@()\[\]=+:;"{}\\|])/
+    REGEXP_NICKNAME = /\A[\w-]+\z/
 
     has_one_attached :avatar
     validates_avatar :avatar, uploader: Decidim::AvatarUploader
 
     validates :name, format: { with: REGEXP_NAME }
+    validates :nickname,
+              presence: true,
+              format: { with: REGEXP_NICKNAME },
+              length: { maximum: Decidim::UserBaseEntity.nickname_max_length },
+              unless: -> { profile_published? }
+    validates :nickname, uniqueness: { scope: :organization }, unless: -> { profile_published? || nickname.blank? }
+    validates :email, uniqueness: { scope: :organization }, unless: -> { profile_published? }
 
     scope :confirmed, -> { where.not(confirmed_at: nil) }
     scope :not_confirmed, -> { where(confirmed_at: nil) }
