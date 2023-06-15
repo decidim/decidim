@@ -1,5 +1,31 @@
 # Change Log
 
+## Unreleased
+
+### Upgrade notes
+
+We have added a new tasks to fix a bug related to the pages component inside of the Initiatives module (`decidim-initiatives`).
+
+You can run the task with the following command:
+
+```console
+bundle exec rake decidim:initiatives:upgrade:fix_broken_pages
+```
+
+You can see more details about this change on PR [\#10928](https://github.com/decidim/decidim/pull/10928)
+
+### Added
+
+### Changed
+
+### Fixed
+
+### Removed
+
+### Developer improvements
+
+### Internal
+
 ## [0.27.3](https://github.com/decidim/decidim/tree/0.27.3)
 
 ### Added
