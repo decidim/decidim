@@ -63,6 +63,11 @@ header{
         }
       }
 
+      /* overwrite default dropdown styles */
+      [data-target*="dropdown"] > span:only-of-type{
+        @apply gap-0;
+      }
+
       svg{
         @apply w-5 h-5 fill-current;
       }
@@ -73,7 +78,7 @@ header{
     }
 
     &__links-mobile{
-      @apply fixed bottom-0 left-0 z-20 bg-white w-full px-4 py-3 flex justify-center gap-10 text-secondary shadow-[0_-4px_6px_rgba(198,198,198,0.25)];
+      @apply fixed bottom-0 left-0 z-40 bg-white w-full px-4 py-3 flex justify-center gap-10 text-secondary shadow-[0_-4px_6px_rgba(198,198,198,0.25)];
 
       &__trigger{
         @apply flex flex-col items-center text-secondary cursor-pointer;
@@ -88,10 +93,40 @@ header{
       }
 
       &__dropdown{
-        @apply absolute top-full left-0 z-20;
+        @apply absolute top-full left-0 z-30 bg-white;
       }
 
-      & > a{
+      &__account{
+        @apply fixed bottom-0 left-0 w-full h-screen z-30 bg-white;
+
+        animation-name: slideInUp;
+        animation-duration: 500ms;
+
+        ul{
+          @apply my-6 divide-y divide-gray-3;
+        }
+
+        li{
+          @apply py-4;
+        }
+
+        .dropdown__item{
+          @apply text-md;
+        }
+
+        @keyframes slideInUp{
+          from{
+            transform: translate3d(0, 100%, 0);
+            visibility: visible;
+          }
+
+          to{
+            transform: translate3d(0, 0, 0);
+          }
+        }
+      }
+
+      & > *{
         @apply flex flex-col items-center relative;
 
         svg{
@@ -100,6 +135,11 @@ header{
 
         svg + span{
           @apply text-sm first-letter:uppercase;
+        }
+
+        /* overwrite default dropdown styles */
+        &[data-target*="dropdown"]{
+          @apply p-0 gap-0 w-auto;
         }
       }
     }
@@ -202,14 +242,6 @@ header{
           @apply w-5 h-5 text-white;
         }
       }
-
-      // [data-target*="dropdown"]{
-      //   @apply w-auto last-of-type:[&>svg]:block;
-
-      //   > svg{
-      //     @apply text-white;
-      //   }
-      // }
     }
 
     &__breadcrumb-mobile{
@@ -261,6 +293,10 @@ header{
         }
       }
 
+      &__bottom{
+        @apply hidden md:flex;
+      }
+
       &__title{
         @apply h4 md:h3;
       }
@@ -270,14 +306,14 @@ header{
       }
 
       &__menu{
-        @apply w-full md:w-1/2 mt-8 md:mt-0 grid md:grid-cols-2 gap-x-6 text-secondary;
+        @apply w-full md:w-1/2 mt-0 grid md:grid-cols-2 gap-x-6 text-secondary;
 
         > *{
-          @apply py-3 md:py-3.5 border-b border-gray-3;
+          @apply py-3 md:py-3.5 border-b last:border-0 border-gray-3;
 
           /* since the grid has 2 columns, remove the border for these last 2 columns */
           &:nth-last-child(-n+2){
-            @apply border-0;
+            @apply md:border-0;
           }
         }
 

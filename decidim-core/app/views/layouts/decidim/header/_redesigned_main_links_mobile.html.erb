@@ -11,7 +11,7 @@
 <% end %>
 
 <% if current_user %>
-  <%= link_to decidim.profile_path(current_user.nickname) do %>
+  <button id="dropdown-trigger-links-mobile" data-component="dropdown" data-target="dropdown-menu-account-mobile">
     <% if current_user.notifications.any? %>
       <span class="main-bar__notification"></span>
     <% end %>
@@ -28,7 +28,7 @@
     <% end %>
 
     <span><%= t("layouts.decidim.user_profile.account") %></span>
-  <% end %>
+  </button>
 <% else %>
   <%= link_to decidim.new_user_session_path do %>
     <%= icon "login-box-line" %><span><%= t("layouts.decidim.header.sign_in") %></span>
