@@ -1035,6 +1035,7 @@ en:
         statistics: Activity
         user_groups: Groups
         users: Administrators
+        global_moderations: Global moderations
       user_group:
         csv_verify:
           invalid: There was a problem reading the CSV file.
