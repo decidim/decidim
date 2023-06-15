@@ -16,27 +16,15 @@ You can see more details about this change on PR [\#10928](https://github.com/de
 
 ### Added
 
-Nothing.
-
 ### Changed
-
-Nothing.
 
 ### Fixed
 
-Nothing.
-
 ### Removed
-
-Nothing.
 
 ### Developer improvements
 
-Nothing.
-
 ### Internal
-
-Nothing.
 
 ## [0.27.3](https://github.com/decidim/decidim/tree/0.27.3)
 
