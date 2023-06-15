@@ -2,6 +2,10 @@
   <% if resource_image_path.present? %>
     <%= image_tag resource_image_path, class: "w-full h-full object-cover" %>
   <% else %>
-    <%= icon "placeholder-card-l", class: "w-full h-full fill-primary" %>
+    <div class="w-full h-full relative">
+      <div class="w-full h-full bg-primary opacity-10 absolute top-0 left-0 z-10">
+      </div>
+      <%= icon "placeholder-card-l" , class: "card__placeholder-l" %>
+    </div>
   <% end %>
 </div>
