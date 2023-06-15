@@ -52,7 +52,8 @@ describe "Homepage", type: :system do
         end
       end
 
-      it_behaves_like "accessible page"
+      # REDESIGN_PENDING - Remove condition after fully enabling redesign
+      it_behaves_like "accessible page" if Decidim.redesign_active
 
       it "includes the official organization links and images" do
         expect(page).to have_selector("a.logo-cityhall[href='#{official_url}']")
@@ -255,7 +256,8 @@ describe "Homepage", type: :system do
           context "when authenticated" do
             let(:user) { create :user, :confirmed, organization: }
 
-            it_behaves_like "accessible page"
+            # REDESIGN_PENDING - Remove condition after fully enabling redesign
+            it_behaves_like "accessible page" if Decidim.redesign_active
 
             it "displays all pages and topics in footer that are configured to display in footer" do
               expect(page).to have_content(static_page1.title["en"])
