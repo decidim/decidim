@@ -289,6 +289,22 @@ en:
           success: Conference registration type successfully updated.
       titles:
         conferences: Conferences
+        new_conference: New conference
+        conference_registrations: Conference registrations
+        conference_invites: Conference invites
+        new_conference_invite: New conference invite
+        duplicate_conference: Duplicate - %{title} - conference
+        conference_speakers: Conference speakers
+        update_conference_speaker: Update conference speaker
+        new_conference_speaker: New conference speaker
+        conference_partners: Conference partners
+        new_conference_partner: New conference partner
+        registration_types: Registration types
+        new_registration_type: New registration type
+        media_links: Media links
+        new_media_link: New media link
+        conference_admins: Conference admins
+        new_conference_admin: New conference admin
     admin_log:
       conference:
         create: "%{user_name} created the %{resource_name} conference"
