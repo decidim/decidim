@@ -188,9 +188,9 @@ describe "Homepage", type: :system do
         end
 
         it "includes the footer sub_hero with the current organization name" do
-          expect(page).to have_css(".footer__subhero")
+          expect(page).to have_css("#footer_sub_hero")
 
-          within ".footer__subhero" do
+          within "#footer_sub_hero" do
             expect(page).to have_content(organization.name)
           end
         end
@@ -457,7 +457,7 @@ describe "Homepage", type: :system do
         end
 
         it "shows the banner's action title" do
-          expect(page).to have_i18n_content(organization.highlighted_content_banner_action_title, upcase: true)
+          expect(page).to have_i18n_content(organization.highlighted_content_banner_action_title)
         end
 
         it "shows the banner's action subtitle" do
