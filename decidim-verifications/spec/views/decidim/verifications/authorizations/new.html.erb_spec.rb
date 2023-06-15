@@ -7,7 +7,7 @@ module Decidim
     let(:handler) do
       DummyAuthorizationHandler.new({})
     end
-    let(:organization) { double(cta_button_path: "/") }
+    let(:organization) { double(cta_button_path: "/", scopes: Decidim::Scope.none) }
     let(:redesign_enabled) { false }
 
     before do
