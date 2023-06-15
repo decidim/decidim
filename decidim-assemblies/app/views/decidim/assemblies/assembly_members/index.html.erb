@@ -29,7 +29,7 @@ edit_link(
 <div class="container py-8">
   <h3 class="h3 decorator mb-8">
     <%= t("members", scope: "decidim.assemblies.assembly_members.index") %>
-    <span class="text-muted"><%= collection.size %></span>
+    <span class="label text-md"><%= collection.size %></span>
   </h3>
   <div id="assembly_members-grid" class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-12">
     <%= render(collection) %>
