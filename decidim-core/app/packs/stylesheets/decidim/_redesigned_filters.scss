@@ -33,6 +33,14 @@
     input[type="checkbox"],
     input[type="radio"]{
       @apply w-3.5 h-3.5;
+
+      &:checked{
+        @apply accent-primary;
+
+        + span{
+          @apply text-primary font-bold;
+        }
+      }
     }
 
     // nesting cases
