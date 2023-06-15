@@ -13,9 +13,10 @@
   <%= form.text_field :postal_code %>
   <%= form.date_field :birthday %>
 
-  <%# REDESIGN_PENDING: requires the modal implementation %>
-  <%= form.scopes_picker :scope_id, {} do |scope|
-      { url: decidim.scopes_picker_path(root: nil, current: form.object.scope_id, field: form.label_for(:scope_id)),
-        text: scope_name_for_picker(form.object.scope, I18n.t("decidim.scopes.global")) }
-    end %>
+  <%# REDESIGN_PENDING:  https://github.com/decidim/decidim/issues/10192 %>
+  <%= scopes_select_field(form, :scope_id) %>
+  <%# <%= form.scopes_picker :scope_id, {} do |scope| %>
+  <%#     { url: decidim.scopes_picker_path(root: nil, current: form.object.scope_id, field: form.label_for(:scope_id)), %>
+  <%#       text: scope_name_for_picker(form.object.scope, I18n.t("decidim.scopes.global")) } %>
+  <%#   end %1> %>
 </div>
