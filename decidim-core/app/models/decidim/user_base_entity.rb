@@ -52,7 +52,9 @@ module Decidim
     end
 
     def public_users_followings
-      @public_users_followings ||= self.class.joins(:follows).where(decidim_follows: { user: self }).not_blocked
+      # To include users and gropus self.class is not valid because for a user
+      # self.class.joins(:follows)... only return users
+      @public_users_followings ||= Decidim::UserBaseEntity.joins(:follows).where(decidim_follows: { user: self }).not_blocked
     end
 
     private
