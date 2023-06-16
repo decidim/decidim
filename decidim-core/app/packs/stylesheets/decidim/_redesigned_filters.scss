@@ -34,7 +34,8 @@
     input[type="radio"]{
       @apply w-3.5 h-3.5;
 
-      &:checked{
+      &:checked,
+      &:indeterminate{
         @apply accent-primary;
 
         + span{
