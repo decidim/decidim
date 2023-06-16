@@ -90,7 +90,7 @@
   }
 
   &__menu-element{
-    @apply relative after:content-[''] after:h-full after:w-[1px] after:absolute after:top-0 after:left-0 after:bg-white after:opacity-60 last:before:content-[''] last:before:h-full last:before:w-[1px] last:before:absolute last:before:top-0 last:before:right-0 last:before:bg-white last:before:opacity-60;
+    @apply relative after:content-[''] after:h-[1px] md:after:h-full after:w-full md:after:w-[1px] after:absolute after:top-0 after:left-0 after:bg-white after:opacity-60 last:before:content-[''] md:last:before:h-full md:last:before:w-[1px] md:last:before:absolute md:last:before:top-0 md:last:before:right-0 md:last:before:bg-white md:last:before:opacity-60;
   }
 
   &__menu-element--link{
