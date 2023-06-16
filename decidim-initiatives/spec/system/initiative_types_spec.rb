@@ -17,9 +17,11 @@ describe "Initiatives", type: :system do
     it "does not show the menu link" do
       visit decidim.root_path
 
-      within ".main-nav" do
+      find("#main-dropdown-summary").hover
+      within ".menu-bar__main-dropdown__menu" do
         expect(page).not_to have_content("Initiatives")
       end
+
     end
 
     it "does not let access to the initiatives" do
@@ -59,7 +61,8 @@ describe "Initiatives", type: :system do
           it "the menu link is shown" do
             visit decidim.root_path
 
-            within ".main-nav" do
+            find("#main-dropdown-summary").hover
+            within ".menu-bar__main-dropdown__menu" do
               expect(page).to have_content("Initiatives")
               click_link "Initiatives"
             end
@@ -75,7 +78,6 @@ describe "Initiatives", type: :system do
 
           within "#initiatives" do
             expect(page).to have_content(translated(initiative.title, locale: :en))
-            expect(page).to have_content(initiative.author_name, count: 1)
             expect(page).not_to have_content(translated(unpublished_initiative.title, locale: :en))
           end
         end
@@ -140,7 +142,6 @@ describe "Initiatives", type: :system do
 
           within "#initiatives" do
             expect(page).to have_content(translated(initiative.title, locale: :en))
-            expect(page).to have_content(initiative.author_name, count: 1)
             expect(page).not_to have_content(translated(unpublished_initiative.title, locale: :en))
           end
         end
@@ -158,7 +159,7 @@ describe "Initiatives", type: :system do
 
         it "shows the card image" do
           within "#initiative_#{initiative.id}" do
-            expect(page).to have_selector(".card__image")
+            expect(page).to have_selector(".card__grid-img")
           end
         end
       end

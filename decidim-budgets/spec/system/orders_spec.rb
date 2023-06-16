@@ -230,7 +230,7 @@ describe "Orders", type: :system do
 
           within "#order-progress .budget-summary__content", match: :first do
             expect(page).to have_selector ".budget-summary__progressbar--meter", style: "width: 16%"
-            expect(page).to have_button(text: "Vote budget")
+            expect(page).to have_button(disabled: true, text: "Vote budget")
           end
         end
 

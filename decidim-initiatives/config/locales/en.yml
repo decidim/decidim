@@ -1,6 +1,5 @@
 ---
 en:
-
   activemodel:
     attributes:
       initiative:
@@ -360,11 +359,10 @@ en:
           name: Highlighted initiatives
       create_initiative:
         fill_data:
-          initiative_type: Initiative type
           back: Back
           continue: Continue
-          decidim_user_group_id_help: It is not possible to change initiative authorship after creation.
           fill_data_help: "<ul> <li>Review the content of your initiative. Is your title easy to understand? Is the objective of your initiative clear?</li> <li>You have to choose the type of signature. In-person, online or a combination of both</li> <li>Which is the geographic scope of the initiative?</li> </ul>"
+          initiative_type: Initiative type
           more_information: "(More information)"
           select_area: Select an area
           select_scope: Select a scope
@@ -440,7 +438,6 @@ en:
         edit_image: Edit image
         image_legend: "(Optional) Add an image"
       index:
-        title: Initiatives
         uninitialized: Initiatives are not yet configured by an administrator.
       initiative_signatures:
         fill_personal_data:
@@ -616,26 +613,15 @@ en:
   layouts:
     decidim:
       initiative_creation_header:
-        back: Back
         fill_data: Create
         finish: Finish
-        previous_form: Start
         promotal_committee: Promoter committee
         select_initiative_type: Choose
-        show_similar_initiatives: Compare
-        title: Create new initiative
       initiative_header:
         initiative_menu_item: Initiative
       initiative_signature_creation_header:
         back: Back
-        fill_personal_data: Complete your data
-        finish: Finish
         finished: Initiative signature created
-        see_steps: see steps
-        select_identity: Select identity
-        sms_code: SMS code verification
-        sms_phone_number: Mobile phone number
-        step: Step %{current} of %{total}
         title: Sign %{initiative_title}
       initiatives:
         initiative:
