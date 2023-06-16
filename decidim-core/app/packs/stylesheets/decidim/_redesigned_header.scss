@@ -99,9 +99,6 @@ header{
       &__account{
         @apply fixed bottom-0 left-0 w-full h-screen z-30 bg-white;
 
-        animation-name: slideInUp;
-        animation-duration: 500ms;
-
         ul{
           @apply my-6 divide-y divide-gray-3;
         }
@@ -112,17 +109,6 @@ header{
 
         .dropdown__item{
           @apply text-md;
-        }
-
-        @keyframes slideInUp{
-          from{
-            transform: translate3d(0, 100%, 0);
-            visibility: visible;
-          }
-
-          to{
-            transform: translate3d(0, 0, 0);
-          }
         }
       }
 
