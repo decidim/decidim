@@ -54,7 +54,15 @@ module Decidim
     def public_users_followings
       # To include users and gropus self.class is not valid because for a user
       # self.class.joins(:follows)... only return users
-      @public_users_followings ||= Decidim::UserBaseEntity.joins(:follows).where(decidim_follows: { user: self }).not_blocked
+      @public_users_followings ||= users_followings.not_blocked
+    end
+
+    def users_followings
+      @users_followings ||= Decidim::UserBaseEntity.joins(:follows).where(decidim_follows: { user: self })
+    end
+
+    def followings_blocked?
+      Decidim::UserBaseEntity.joins(:follows).where(decidim_follows: { user: self }).blocked.exists?
     end
 
     private

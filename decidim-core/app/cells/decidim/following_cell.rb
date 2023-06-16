@@ -16,7 +16,7 @@ module Decidim
     end
 
     def non_public_followings?
-      public_followings.count < model.following_count
+      model.followings_blocked?
     end
 
     def validation_messages
