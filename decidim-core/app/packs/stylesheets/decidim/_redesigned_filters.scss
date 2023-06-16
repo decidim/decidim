@@ -1,5 +1,5 @@
 .filter{
-  @apply flex items-center gap-2 p-1.5 rounded cursor-pointer;
+  @apply flex items-center gap-2 p-1.5 rounded cursor-pointer relative;
 
   &-container{
     @apply rounded border-4 border-background md:border-0;
@@ -32,14 +32,18 @@
 
     input[type="checkbox"],
     input[type="radio"]{
-      @apply w-3.5 h-3.5;
+      @apply w-3.5 h-3.5 relative z-[10];
 
       &:checked,
       &:indeterminate{
         @apply accent-primary;
 
         + span{
-          @apply text-primary font-bold;
+          @apply text-primary font-bold relative z-[10];
+        }
+
+        + span + div{
+          @apply w-full absolute top-0 left-0 bg-background-4 h-full rounded;
         }
       }
     }
