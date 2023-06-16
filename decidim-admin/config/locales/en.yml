@@ -761,7 +761,7 @@ en:
         send:
           no_recipients: No recipients for this selection.
         send_to_user:
-          sent_successfully: Yay! Newsletter has been sent successfully to %{email}
+          sent_successfully: Newsletter has been sent successfully to %{email}
         show:
           preview: Preview
           select_recipients_to_deliver: Select recipients to deliver

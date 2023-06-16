@@ -16,7 +16,7 @@
 </div>
 <div class="button--double form-general-submit">
   <% if allowed_to?(:update, :newsletter, newsletter: @newsletter) %>
-    <% if  !@newsletter.sent? %>
+    <% unless @newsletter.sent? %>
       <%= link_to t("actions.edit", scope: "decidim.admin"), [:edit, @newsletter], class: "button" %>
     <% end %>
     <%= link_to t(".send_me_a_test_email"), send_to_user_newsletter_path(@newsletter), class: "button hollow", method: :post %>
