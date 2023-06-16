@@ -63,7 +63,7 @@ module Decidim
 
       form.select(
         name,
-        ordered_descendants.map { |scope| [" #{"-" * (scope.part_of.count - 1)} #{translated_attribute(scope.name)}", scope&.id] },
+        ordered_descendants.map { |scope| [" #{"&nbsp;" * 4 * (scope.part_of.count - 1)} #{translated_attribute(scope.name)}".html_safe, scope&.id] },
         options.merge(include_blank: I18n.t("decidim.scopes.prompt"))
       )
     end
