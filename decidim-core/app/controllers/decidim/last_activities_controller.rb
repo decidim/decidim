@@ -26,7 +26,7 @@ module Decidim
     end
 
     def search_collection
-      LastActivity.new(current_organization).query
+      LastActivity.new(current_organization, current_user:).query
     end
 
     def default_filter_params
