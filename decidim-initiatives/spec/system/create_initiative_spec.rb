@@ -53,8 +53,6 @@ describe "Initiative", type: :system do
 
       [
         :select_initiative_type,
-        :previous_form,
-        :show_similar_initiatives,
         :fill_data,
         :promotal_committee,
         :finish
@@ -70,8 +68,6 @@ describe "Initiative", type: :system do
     context "when there are more initiative types" do
       [
         :select_initiative_type,
-        :previous_form,
-        :show_similar_initiatives,
         :fill_data,
         :promotal_committee,
         :finish
@@ -95,8 +91,6 @@ describe "Initiative", type: :system do
 
       [
         :select_initiative_type,
-        :previous_form,
-        :show_similar_initiatives,
         :fill_data,
         :promotal_committee,
         :finish
@@ -104,15 +98,13 @@ describe "Initiative", type: :system do
         it "redirects to the previous_form page when landing on #{step}" do
           expect(Decidim::InitiativesType.count).to eq(1)
           visit decidim_initiatives.create_initiative_path(step)
-          expect(page).to have_current_path(decidim_initiatives.create_initiative_path(:previous_form))
+          expect(page).to have_current_path(decidim_initiatives.create_initiative_path(:fill_data))
         end
       end
     end
 
     context "when there are more initiative types" do
       [
-        :previous_form,
-        :show_similar_initiatives,
         :fill_data,
         :promotal_committee,
         :finish
@@ -442,7 +434,7 @@ describe "Initiative", type: :system do
       first("button.card__highlight").click
     end
 
-    it_behaves_like "having a rich text editor", "new_initiative_previous_form", "full"
+    it_behaves_like "having a rich text editor", "new_initiative_form", "content"
   end
 
   describe "creating an initiative" do
@@ -478,9 +470,9 @@ describe "Initiative", type: :system do
           first("button.card__highlight").click
         end
 
-        it "has a hidden field with the selected initiative type" do
-          expect(page).to have_xpath("//input[@id='initiative_type_id']", visible: :all)
-          expect(find(:xpath, "//input[@id='initiative_type_id']", visible: :all).value).to eq(initiative_type.id.to_s)
+        it "shows select input for initiative_type" do
+          expect(page).to have_content("Type")
+          expect(find(:xpath, "//select[@id='initiative_type_id']", visible: :all).value).to eq(initiative_type.id.to_s)
         end
 
         it "have fields for title and description" do
@@ -571,7 +563,7 @@ describe "Initiative", type: :system do
           end
         end
 
-        context "when there are several initiatives type" do
+        context "when there are several initiative types" do
           before do
             first("button.card__highlight").click
           end
@@ -593,11 +585,6 @@ describe "Initiative", type: :system do
             expect(find(:xpath, "//select[@id='initiative_type_id']", visible: :all).value).to eq(initiative_type.id.to_s)
           end
 
-          it "shows information collected in previous steps already filled" do
-            expect(find(:xpath, "//input[@id='initiative_title']").value).to eq(translated(initiative.title, locale: :en))
-            expect(find(:xpath, "//textarea[@id='initiative_description']", visible: :all).value).to eq(translated(initiative.description, locale: :en))
-          end
-
           it "shows input for signature collection type" do
             expect(page).to have_content("Signature collection type")
             expect(find(:xpath, "//select[@id='initiative_signature_type']", visible: :all).value).to eq(signature_type)
@@ -615,7 +602,7 @@ describe "Initiative", type: :system do
             it "hides and automatically selects the values" do
               expect(page).not_to have_content("Signature collection type")
               expect(page).not_to have_content("Scope")
-              expect(find(:xpath, "//input[@id='initiative_type_id']", visible: :all).value).to eq(initiative_type.id.to_s)
+              expect(find(:xpath, "//select[@id='initiative_type_id']", visible: :all).value).to eq(initiative_type.id.to_s)
               expect(find(:xpath, "//input[@id='initiative_signature_type']", visible: :all).value).to eq("offline")
             end
           end
@@ -676,14 +663,12 @@ describe "Initiative", type: :system do
         let(:initiative) { build(:initiative, organization:, scoped_type: initiative_type_scope) }
 
         before do
-          expect(page).to have_content("I want to promote this initiative")
-          find_button("I want to promote this initiative").click
+          first("button.card__highlight").click
 
           fill_in "Title", with: translated(initiative.title, locale: :en)
           fill_in "initiative_description", with: translated(initiative.description, locale: :en)
-          find_button("Continue").click
-
           select("Online", from: "Signature collection type")
+          select(translated(initiative_type_scope&.scope&.name, locale: :en), from: "Scope")
           find_button("Continue").click
         end
 
@@ -733,18 +718,17 @@ describe "Initiative", type: :system do
 
         before do
           authorized_user.reload
-          find_button("I want to promote this initiative").click
+          first("button.card__highlight").click
 
           fill_in "Title", with: translated(initiative.title, locale: :en)
           fill_in "initiative_description", with: translated(initiative.description, locale: :en)
-          find_button("Continue").click
-
           select("Online", from: "Signature collection type")
-          select(user_group.name, from: "Author")
+          select(translated(initiative_type_scope&.scope&.name, locale: :en), from: "Scope")
         end
 
         it "shows the user group as author" do
           expect(Decidim::Initiative.where(decidim_user_group_id: user_group.id).count).to eq(0)
+          select(user_group.name, from: "Author")
           find_button("Continue").click
           expect(Decidim::Initiative.where(decidim_user_group_id: user_group.id).count).to eq(1)
         end
@@ -758,9 +742,8 @@ describe "Initiative", type: :system do
 
           fill_in "Title", with: translated(initiative.title, locale: :en)
           fill_in "initiative_description", with: translated(initiative.description, locale: :en)
-          find_button("Continue").click
-
           select("Online", from: "Signature collection type")
+          select(translated(initiative_type_scope&.scope&.name, locale: :en), from: "Scope")
           dynamically_attach_file(:initiative_add_documents, Decidim::Dev.asset("Exampledocument.pdf"), front_interface: true)
           find_button("Continue").click
         end
@@ -797,21 +780,29 @@ describe "Initiative", type: :system do
         end
 
         it "displays a link to take the user to their initiatives" do
-          within ".actions" do
-            expect(page).to have_link("Go to my initiatives")
-            find_link("Go to my initiatives").click
-          end
+          find_link("Continue").click
+          find_link("Edit my initiative").click
 
-          expect(page).to have_content(translated(initiative.title, locale: :en))
+          expect(page).to have_field(translated(initiative.title, locale: :en))
         end
       end
 
       context "when minimum committee size is zero" do
         let(:initiative) { build(:initiative, organization:, scoped_type: initiative_type_scope) }
         let(:initiative_type_minimum_committee_members) { 0 }
+        let(:expected_message) { "You are going to send the initiative for an admin to review it and publish it. Once published you will not be able to edit it. Are you sure?" }
+
+        before do
+          first("button.card__highlight").click
+
+          fill_in "Title", with: translated(initiative.title, locale: :en)
+          fill_in "initiative_description", with: translated(initiative.description, locale: :en)
+          select("Online", from: "Signature collection type")
+          select(translated(initiative_type_scope&.scope&.name, locale: :en), from: "Scope")
+          find_button("Continue").click
+        end
 
         it "displays a send to technical validation link" do
-          expected_message = "You are going to send the initiative for an admin to review it and publish it. Once published you will not be able to edit it. Are you sure?"
           expect(page).to have_link("Send my initiative to technical validation")
           expect(page).to have_selector "a[data-confirm='#{expected_message}']"
         end
@@ -823,8 +814,17 @@ describe "Initiative", type: :system do
         let(:initiative) { build(:initiative, organization:, scoped_type: initiative_type_scope) }
         let(:initiative_type_promoting_committee_enabled) { false }
         let(:initiative_type_minimum_committee_members) { 0 }
+        let(:expected_message) { "You are going to send the initiative for an admin to review it and publish it. Once published you will not be able to edit it. Are you sure?" }
 
-        expected_message = "You are going to send the initiative for an admin to review it and publish it. Once published you will not be able to edit it. Are you sure?"
+        before do
+          first("button.card__highlight").click
+
+          fill_in "Title", with: translated(initiative.title, locale: :en)
+          fill_in "initiative_description", with: translated(initiative.description, locale: :en)
+          select("Online", from: "Signature collection type")
+          select(translated(initiative_type_scope&.scope&.name, locale: :en), from: "Scope")
+          find_button("Continue").click
+        end
 
         it "displays a send to technical validation link" do
           expect(page).to have_link("Send my initiative to technical validation")

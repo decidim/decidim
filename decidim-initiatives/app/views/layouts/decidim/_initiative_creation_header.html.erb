@@ -5,12 +5,11 @@
 </div>
 
 <ol id="wizard-steps" class="wizard-steps">
-  <% options = { data: { active: nil }, aria: { current: "step" } } %>
+  <% options = { data: { active: true }, aria: { current: "step" } } %>
 
   <% unless single_initiative_type? %>
     <%= content_tag :li, t(".select_initiative_type"), action_name == "select_initiative_type" ? options : {} %>
   <% end %>
-  <%= content_tag :li, t(".previous_form"), action_name == "previous_form" ? options : {} %>
   <%= content_tag :li, t(".fill_data"), action_name == "fill_data" ? options : {} %>
   <% if promotal_committee_required? %>
     <%= content_tag :li, t(".promotal_committee"), action_name == "promotal_committee" ? options : {} %>

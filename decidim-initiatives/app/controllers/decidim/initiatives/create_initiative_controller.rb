@@ -24,15 +24,15 @@ module Decidim
 
       before_action :authenticate_user!
       before_action :ensure_type_exists,
-                    only: [:store_initiative_type, :previous_form, :store_initial_data, :fill_data, :store_data, :promotal_committee, :finish]
+                    only: [:store_initiative_type, :fill_data, :store_data, :promotal_committee, :finish]
       before_action :ensure_user_can_create_initiative,
-                    only: [:previous_form, :store_initial_data, :fill_data, :store_data, :promotal_committee, :finish]
-      before_action :ensure_initiative_exists, only: [:fill_data, :store_data, :promotal_committee, :finish]
+                    only: [:fill_data, :store_data, :promotal_committee, :finish]
+      before_action :ensure_initiative_exists, only: [:promotal_committee, :finish]
 
       def select_initiative_type
         @form = form(Decidim::Initiatives::SelectInitiativeTypeForm).from_params(params)
 
-        redirect_to previous_form_create_initiative_index_path if single_initiative_type?
+        redirect_to fill_data_create_initiative_index_path if single_initiative_type?
       end
 
       def store_initiative_type
@@ -40,40 +40,27 @@ module Decidim
 
         if @form.valid?
           session[:type_id] = @form.type_id
-          redirect_to previous_form_create_initiative_index_path
+          redirect_to fill_data_create_initiative_index_path
         else
           render :select_initiative_type
         end
       end
 
-      def previous_form
-        @form = form(Decidim::Initiatives::PreviousForm).from_params({ type_id: initiative_type_id })
-      end
-
-      def store_initial_data
-        @form = form(Decidim::Initiatives::PreviousForm).from_params(params, { initiative_type: })
-
-        CreateInitiative.call(@form, current_user) do
-          on(:ok) do |initiative|
-            session[:initiative_id] = initiative.id
-            redirect_to fill_data_create_initiative_index_path
-          end
-
-          on(:invalid) do
-            render :previous_form
-          end
-        end
-      end
-
       def fill_data
-        @form = form(Decidim::Initiatives::InitiativeForm).from_model(current_initiative, { initiative_type: })
+        @form = if session[:initiative_id].present?
+                  form(Decidim::Initiatives::InitiativeForm).from_model(current_initiative, { initiative_type: })
+                else
+                  form(Decidim::Initiatives::InitiativeForm).from_params(params.merge({ type_id: initiative_type_id }), { initiative_type: })
+                end
       end
 
       def store_data
         @form = form(Decidim::Initiatives::InitiativeForm).from_params(params, { initiative_type: })
 
-        UpdateInitiative.call(current_initiative, @form, current_user) do
-          on(:ok) do
+        CreateInitiative.call(@form, current_user) do
+          on(:ok) do |initiative|
+            session[:initiative_id] = initiative.id
+
             path = promotal_committee_required? ? "promotal_committee" : "finish"
 
             redirect_to send("#{path}_create_initiative_index_path".to_sym)
@@ -110,11 +97,11 @@ module Decidim
       end
 
       def ensure_initiative_exists
-        redirect_to previous_form_create_initiative_index_path if session[:initiative_id].blank?
+        redirect_to fill_data_create_initiative_index_path if session[:initiative_id].blank?
       end
 
       def ensure_type_exists
-        destination_step = single_initiative_type? ? "previous_form" : "select_initiative_type"
+        destination_step = single_initiative_type? ? "fill_data" : "select_initiative_type"
 
         return if action_name == destination_step
         return if initiative_type_id.present? && initiative_type.present?
@@ -124,8 +111,8 @@ module Decidim
 
       def similar_initiatives
         @similar_initiatives ||= Decidim::Initiatives::SimilarInitiatives
-                                   .for(current_organization, @form)
-                                   .all
+                                 .for(current_organization, @form)
+                                 .all
       end
 
       def scopes
@@ -133,18 +120,19 @@ module Decidim
       end
 
       def current_initiative
-        Initiative.find(session[:initiative_id] || nil)
+        Initiative.find_by(id: session[:initiative_id])
       end
 
       def initiative_type
-        @initiative_type ||= InitiativesType.find(initiative_type_id)
+        @initiative_type ||= InitiativesType.find_by(id: initiative_type_id)
       end
 
       def promotal_committee_required?
+        return false if initiative_type.blank?
         return false unless initiative_type.promoting_committee_enabled?
 
         minimum_committee_members = initiative_type.minimum_committee_members ||
-          Decidim::Initiatives.minimum_committee_members
+                                    Decidim::Initiatives.minimum_committee_members
         minimum_committee_members.present? && minimum_committee_members.positive?
       end
     end

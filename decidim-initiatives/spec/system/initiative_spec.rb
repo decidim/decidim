@@ -42,7 +42,7 @@ describe "Initiative", type: :system do
 
       shared_examples_for "initiative does not show signatures" do
         it "does not show signatures for the state" do
-          expect(page).to have_no_css(".progress-bar__container")
+          expect(page).not_to have_css(".progress-bar__container")
         end
       end
 
@@ -149,7 +149,7 @@ describe "Initiative", type: :system do
       it "shows the components" do
         within ".participatory-space__nav-container" do
           expect(page).to have_content(translated(meetings_component.name, locale: :en))
-          expect(page).to have_no_content(translated(proposals_component.name, locale: :en))
+          expect(page).not_to have_content(translated(proposals_component.name, locale: :en))
         end
       end
 
