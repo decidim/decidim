@@ -17,9 +17,7 @@ describe "User group profile", type: :system do
     end
 
     it "adds a link to conversations" do
-      within "#profile-tabs" do
-        click_link "Conversations"
-      end
+      click_link "Conversations", class: "profile__tab-item"
 
       expect(page).to have_current_path(decidim.profile_conversations_path(nickname: user_group.nickname))
     end
@@ -31,9 +29,7 @@ describe "User group profile", type: :system do
     end
 
     it "does not have a link to conversations" do
-      within "#profile-tabs" do
-        expect(page).not_to have_link("Conversations")
-      end
+      expect(page).to have_no_css("a.profile__tab-item", text: "Conversations")
     end
 
     it "shows user group name in the header and its nickname" do
@@ -64,7 +60,7 @@ describe "User group profile", type: :system do
       end
 
       it "shows the number of followers and following" do
-        expect(page).to have_link("Followers 1")
+        expect(page).to have_content("1 follower")
       end
 
       it "lists the followers" do
@@ -79,7 +75,7 @@ describe "User group profile", type: :system do
       let!(:pending_membership) { create :user_group_membership, user_group:, user: pending_user, role: "requested" }
 
       it "lists the members" do
-        expect(page).to have_link("Members 1")
+        expect(page).to have_css("div.profile__user-grid", count: 1)
         click_link "Members"
 
         expect(page).to have_content(user.name)
