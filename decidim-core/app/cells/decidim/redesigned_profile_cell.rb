@@ -30,11 +30,11 @@ module Decidim
       render :show
     end
 
-    private
-
     def profile_holder
       model
     end
+
+    private
 
     def presented_profile
       present(profile_holder)
