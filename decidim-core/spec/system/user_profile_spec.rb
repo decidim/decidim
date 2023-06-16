@@ -232,6 +232,8 @@ describe "Profile", type: :system do
       let(:view_hook) { :user_profile_bottom }
 
       it "renders the view hook" do
+        skip "REDESIGN_PENDING - The user_profile_botton view hook is not considered in the redesign. Remove the test if it's correct"
+
         expect(Decidim.view_hooks).to have_received(:render).with(:user_profile_bottom, a_kind_of(Decidim::ProfileSidebarCell))
         expect(page).to have_content("Rendered from user_profile_bottom view hook")
       end
