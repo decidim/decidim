@@ -2,7 +2,7 @@
   @apply container flex flex-col md:flex-row justify-between items-start md:items-center gap-6 md:gap-24 py-6;
 
   &__container{
-    @apply fixed bottom-0 z-30 bg-white w-full shadow-[0_-4px_6px_rgba(211,211,211,0.25)];
+    @apply fixed bottom-0 z-50 bg-white w-full shadow-[0_-4px_6px_rgba(211,211,211,0.25)];
 
     animation-name: slideInUp;
     animation-duration: 500ms;

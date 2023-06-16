@@ -78,10 +78,10 @@ header{
     }
 
     &__links-mobile{
-      @apply fixed bottom-0 left-0 z-40 bg-white w-full px-4 py-3 flex justify-center gap-10 text-secondary shadow-[0_-4px_6px_rgba(198,198,198,0.25)];
+      @apply fixed bottom-0 left-0 z-40 bg-white w-full px-4 py-3 flex justify-between text-secondary shadow-[0_-4px_6px_rgba(198,198,198,0.25)];
 
       &__trigger{
-        @apply flex flex-col items-center text-secondary cursor-pointer;
+        @apply flex flex-col items-center text-secondary cursor-pointer p-2;
 
         svg{
           @apply w-5 h-5 fill-current;
@@ -97,7 +97,7 @@ header{
       }
 
       &__account{
-        @apply fixed bottom-0 left-0 w-full h-screen z-30 bg-white;
+        @apply fixed top-0 left-0 w-full h-full z-30 bg-white;
 
         ul{
           @apply my-6 divide-y divide-gray-3;
@@ -111,13 +111,37 @@ header{
           @apply text-md;
         }
 
+        .main-bar{
+          @apply border-b border-gray;
+        }
+
         .main-bar__avatar{
           @apply w-12 h-12;
         }
       }
 
-      & > *{
-        @apply flex flex-col items-center relative;
+      &__search{
+        @apply fixed top-0 left-0 w-full h-full z-30 bg-white;
+
+        &-block{
+          @apply container h-full flex flex-col justify-center;
+        }
+
+        .main-bar{
+          @apply border-b border-gray;
+        }
+
+        label{
+          @apply block mb-4 text-black;
+        }
+
+        form{
+          @apply relative;
+        }
+      }
+
+      &__item{
+        @apply w-1/4 flex flex-col items-center relative;
 
         svg{
           @apply w-8 h-8 fill-current;
