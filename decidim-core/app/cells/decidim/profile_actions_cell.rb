@@ -10,6 +10,7 @@ module Decidim
     ACTIONS_ITEMS = {
       edit_profile: { icon: "pencil-line", path: :profile_edit_path },
       create_user_group: { icon: "team-line", path: :profile_new_group_path },
+      resend_email_confirmation_instructions: { icon: "share-forward-line", path: :group_email_confirmation_path, options: { method: :post } },
       edit_user_group: { icon: "team-line", path: :edit_group_path },
       message: { icon: "mail-send-line", path: :new_conversation_path },
       manage_user_group_users: { icon: "user-settings-line", path: :profile_group_members_path },
@@ -75,6 +76,7 @@ module Decidim
                                          :manage_user_group_admins,
                                          :invite_user
                                        ].tap do |keys|
+                                         keys.prepend(:resend_email_confirmation_instructions) if user_group_email_to_be_confirmed?
                                          keys << :join_user_group if can_join_user_group?
                                          keys << :leave_user_group if can_leave_group?
                                        end
@@ -115,6 +117,13 @@ module Decidim
       return false unless current_user
 
       !Decidim::UserGroupMembership.exists?(user: current_user, user_group: model)
+    end
+
+    def user_group_email_to_be_confirmed?
+      return false unless user_group?
+      return false unless current_user
+
+      !model.confirmed?
     end
 
     def group_member?
