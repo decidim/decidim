@@ -131,7 +131,7 @@ describe "Orders", type: :system do
 
           within "#order-progress .budget-summary__content", match: :first do
             expect(page).to have_selector ".budget-summary__progressbar--meter", style: "width: 25%"
-            expect(page).to have_selector("button:disabled", text: "Vote budget")
+            expect(page).to have_button(disabled: true, text: "Vote budget")
           end
         end
 
@@ -164,7 +164,7 @@ describe "Orders", type: :system do
 
           within "#order-progress .budget-summary__content", match: :first do
             expect(page).to have_selector ".budget-summary__progressbar--meter", style: "width: 25%"
-            expect(page).to have_selector("button:disabled", text: "Vote budget")
+            expect(page).to have_button(disabled: true, text: "Vote budget")
           end
         end
 
@@ -198,7 +198,7 @@ describe "Orders", type: :system do
 
           within "#order-progress .budget-summary__content", match: :first do
             expect(page).to have_selector ".budget-summary__progressbar--meter", style: "width: 16%"
-            expect(page).to have_selector("button", text: "Vote budget")
+            expect(page).to have_button(text: "Vote budget")
           end
         end
 
@@ -230,7 +230,7 @@ describe "Orders", type: :system do
 
           within "#order-progress .budget-summary__content", match: :first do
             expect(page).to have_selector ".budget-summary__progressbar--meter", style: "width: 16%"
-            expect(page).to have_selector("button", text: "Vote budget")
+            expect(page).to have_button(text: "Vote budget")
           end
         end
 
@@ -289,7 +289,7 @@ describe "Orders", type: :system do
           expect(page).to have_content(/Added\s0/)
         end
         expect(page).to have_selector ".budget-summary__progressbar--meter", style: "width: 0%"
-        expect(page).to have_no_selector ".budget-list__data--added"
+        expect(page).not_to have_selector ".budget-list__data--added"
       end
 
       it "is alerted when trying to leave the component before completing" do
@@ -512,11 +512,11 @@ describe "Orders", type: :system do
         expect(page).to have_content("successfully")
 
         within "#order-progress .budget-summary__content", match: :first do
-          expect(page).to have_selector("button:disabled")
+          expect(page).to have_button(disabled: true)
         end
 
         within ".budget-summary__content", match: :first do
-          expect(page).to have_no_selector(".button", text: "delete your vote")
+          expect(page).not_to have_selector(".button", text: "delete your vote")
         end
       end
 

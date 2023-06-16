@@ -97,7 +97,7 @@ shared_examples_for "has questionnaire" do
 
       def answer_first_questionnaire
         within "#step-0" do
-          expect(page).to have_no_selector("#questionnaire_tos_agreement")
+          expect(page).not_to have_selector("#questionnaire_tos_agreement")
 
           fill_in question.body["en"], with: "My first answer"
           click_button "Continue"

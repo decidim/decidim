@@ -95,7 +95,7 @@
         }
       }
 
-      [data-author] + [data-author]{
+      [data-author] + [data-author] {
         @apply -ml-4;
       }
     }

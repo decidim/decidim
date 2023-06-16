@@ -2,13 +2,13 @@
   margin-bottom: 0.5rem;
 }
 
-.budget-summary__progressbar{
+.budget-summary__progressbar {
   flex-grow: 1;
 }
 
 .budget-summary__progressbox {
   align-items: flex-start;
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
 
   @include breakpoint(smallmedium down) {
     text-align: center;
@@ -63,26 +63,26 @@
   }
 }
 
-.budget-progress_marks{
+.budget-progress_marks {
   display: flex;
   flex-direction: row;
   margin-right: 1rem;
 }
 
-.budget-progress_left_mark{
+.budget-progress_left_mark {
   text-align: left;
 }
 
-.budget-progress_medium_mark{
+.budget-progress_medium_mark {
   text-align: center;
   transform: translateX(-50%);
 
-  @include breakpoint(smallmedium down){
+  @include breakpoint(smallmedium down) {
     display: none;
   }
 }
 
-.budget-progress_right_mark{
+.budget-progress_right_mark {
   margin-left: auto;
   text-align: right;
 }

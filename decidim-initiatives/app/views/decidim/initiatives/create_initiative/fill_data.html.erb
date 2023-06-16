@@ -22,7 +22,7 @@
                      "data-scope-id": f.object.scope_id.to_s,
                      "data-scope-search-url": decidim_initiatives.initiative_type_scopes_search_url,
                      "data-signature-types-selector": "initiative_signature_type",
-                     "data-signature-type": current_initiative.signature_type,
+                     "data-signature-type": current_initiative&.signature_type,
                      "data-signature-types-search-url": decidim_initiatives.initiative_type_signature_types_search_url
                    } %>
     <% end %>
@@ -79,8 +79,13 @@
           button_class: "button button__lg button__transparent-secondary w-full",
           button_edit_label: t("decidim.initiatives.form.edit_documents"),
           help_text: t("attachment_legend", scope: "decidim.initiatives.form") %>
-
     <% end %>
+
+    <%= f.select :state,
+                    Decidim::Initiative.states.keys.map { |state| [I18n.t(state, scope: "decidim.initiatives.admin_states"), state] },
+                    {},
+                    { disabled: !@form.state_updatable? } %>
+
     <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
       <%= link_to :back, class: "button button__sm md:button__lg button__text-secondary" do %>
         <%= icon "arrow-left-line", class: "fill-current" %>

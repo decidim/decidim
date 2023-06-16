@@ -1,5 +1,6 @@
 ---
 en:
+
   activemodel:
     attributes:
       initiative:
@@ -359,6 +360,7 @@ en:
           name: Highlighted initiatives
       create_initiative:
         fill_data:
+          initiative_type: Initiative type
           back: Back
           continue: Continue
           decidim_user_group_id_help: It is not possible to change initiative authorship after creation.

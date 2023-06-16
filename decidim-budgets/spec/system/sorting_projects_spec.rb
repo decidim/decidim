@@ -38,7 +38,7 @@ describe "Sorting projects", type: :system do
 
     it "lists the projects ordered by selected option" do
       within "#projects div.collection-sort-controls" do
-        expect(page).to have_no_selector("a.underline.font-bold", text: "Random order")
+        expect(page).not_to have_selector("a.underline.font-bold", text: "Random order")
         expect(page).to have_selector("a.underline.font-bold", text: selected_option)
       end
 
