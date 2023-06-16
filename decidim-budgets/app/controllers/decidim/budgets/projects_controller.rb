@@ -54,7 +54,7 @@ module Decidim
       end
 
       def default_filter_status_params
-        voting_finished? ? %w(selected) : %w(all)
+        voting_finished? && budget.projects.selected.any? ? %w(selected) : %w(all)
       end
     end
   end
