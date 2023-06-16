@@ -7,6 +7,7 @@ module Decidim
     include Decidim::UserProfileHelper
     include Decidim::AriaSelectedLinkToHelper
     include Decidim::LayoutHelper
+    include Decidim::ViewHooksHelper
     include ActiveLinkTo
 
     delegate :current_organization, :current_user, :user_groups_enabled?, to: :controller
