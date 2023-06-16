@@ -110,6 +110,10 @@ header{
         .dropdown__item{
           @apply text-md;
         }
+
+        .main-bar__avatar{
+          @apply w-12 h-12;
+        }
       }
 
       & > *{

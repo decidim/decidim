@@ -42,7 +42,7 @@
               <%= icon "user-smile-line", class: "main-bar__avatar" %>
             <% end %>
 
-            <p class="h3 mt-2"><%= t("decidim.events.email_event.email_greeting", user_name: current_user.name) %></p>
+            <p class="h3 mt-2"><%= t("decidim.block_user_mailer.notify.hello") %>&nbsp;<%= current_user.name %></p>
 
             <ul>
               <%= render partial: "layouts/decidim/header/redesigned_main_links_dropdown" %>
