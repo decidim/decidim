@@ -107,7 +107,7 @@ describe "Edit initiative", type: :system do
 
       click_link("Edit", href: edit_initiative_path)
 
-      expect(page).to have_content "EDIT INITIATIVE"
+      expect(page).to have_content "Edit Initiative"
     end
 
     it_behaves_like "having a rich text editor", "edit_initiative", "content"

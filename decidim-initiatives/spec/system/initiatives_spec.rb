@@ -17,7 +17,8 @@ describe "Initiatives", type: :system do
     it "does not show the menu link" do
       visit decidim.root_path
 
-      within ".main-nav" do
+      find("#main-dropdown-summary").hover
+      within ".menu-bar__main-dropdown__menu" do
         expect(page).not_to have_content("Initiatives")
       end
     end

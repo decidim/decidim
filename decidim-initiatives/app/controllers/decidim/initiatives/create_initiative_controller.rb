@@ -15,7 +15,6 @@ module Decidim
       helper InitiativeHelper
       helper SignatureTypeOptionsHelper
 
-      helper_method :similar_initiatives
       helper_method :scopes
       helper_method :areas
       helper_method :current_initiative
@@ -112,12 +111,6 @@ module Decidim
         return if initiative_type_id.present? && initiative_type.present?
 
         redirect_to send("#{destination_step}_create_initiative_index_path".to_sym)
-      end
-
-      def similar_initiatives
-        @similar_initiatives ||= Decidim::Initiatives::SimilarInitiatives
-                                 .for(current_organization, @form)
-                                 .all
       end
 
       def scopes

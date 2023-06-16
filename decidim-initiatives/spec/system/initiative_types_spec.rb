@@ -21,7 +21,6 @@ describe "Initiatives", type: :system do
       within ".menu-bar__main-dropdown__menu" do
         expect(page).not_to have_content("Initiatives")
       end
-
     end
 
     it "does not let access to the initiatives" do

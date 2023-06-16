@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-
 # i18n-tasks-use t('decidim.initiatives.show.badge_name.accepted')
 # i18n-tasks-use t('decidim.initiatives.show.badge_name.created')
 # i18n-tasks-use t('decidim.initiatives.show.badge_name.discarded')

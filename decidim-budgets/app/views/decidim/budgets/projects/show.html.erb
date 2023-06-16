@@ -50,7 +50,7 @@ edit_link(
         <ul class="tab-x-container">
           <% tabs.each_with_index do |tab, i| %>
             <li>
-              <button id="trigger-<%= tab[:id] %>" class="tab-x" data-controls="panel-<%= tab[:id] %>" data-open="<%= "true" if i == 0 %>">
+              <button id="trigger-<%= tab[:id] %>" class="tab-x" data-controls="panel-<%= tab[:id] %>" data-open="<%= "true" if i.zero? %>">
                 <%= icon tab[:icon], class: "text-gray fill-current" %><%= tab[:text] %>
               </button>
             </li>
@@ -74,7 +74,7 @@ edit_link(
 
     <% content_for :aside do %>
       <% if voting_open? %>
-        <%= render partial: "project_budget_button", locals: { project: project } %>
+        <%= render partial: "project_budget_button", locals: { project: } %>
       <% end %>
 
       <span class="budget__definition-data__title">
