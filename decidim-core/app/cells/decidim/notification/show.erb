@@ -6,11 +6,6 @@
       <% if notification.display_resource_text? %>
         <div class="editor-content"><%= notification.resource_text %></div>
       <% end %>
-      <span class="notification__snippet-resource">
-        <%# REDESIGN_PENDING: get the right icon and text %>
-        <%= icon notification.resource[:icon] || "treasure-map-line" %>
-        <%= participatory_space_link %>
-      </span>
     </div>
   </div>
   <%= link_to model, remote: true, method: :delete, class: "notification__button", data: { "notification-read": "" } do %>
