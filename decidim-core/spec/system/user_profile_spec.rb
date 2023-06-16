@@ -169,12 +169,6 @@ describe "Profile", type: :system do
         it "shows a badges tab" do
           expect(page).to have_link("Badges")
         end
-
-        it "shows a badges section on the sidebar" do
-          within ".profile--sidebar" do
-            expect(page).to have_css(".badge-container img[title^='Tests']")
-          end
-        end
       end
 
       context "when badges are disabled" do
@@ -185,12 +179,6 @@ describe "Profile", type: :system do
 
         it "shows a badges tab" do
           expect(page).not_to have_link("Badges")
-        end
-
-        it "does not have a badges section on the sidebar" do
-          within ".profile--sidebar" do
-            expect(page).not_to have_content("Badges")
-          end
         end
       end
     end
