@@ -37,20 +37,6 @@ describe "User group profile", type: :system do
       expect(page).to have_content(user_group.nickname)
     end
 
-    it "does not show verification stuff" do
-      expect(page).to have_no_content("This group is publicly verified")
-    end
-
-    context "and user group is verified" do
-      let(:user_group) do
-        create(:user_group, :verified, users: [user], organization: user.organization)
-      end
-
-      it "shows officialization status" do
-        expect(page).to have_content("This group is publicly verified")
-      end
-    end
-
     context "when displaying followers" do
       let(:other_user) { create(:user, organization: user_group.organization) }
 
