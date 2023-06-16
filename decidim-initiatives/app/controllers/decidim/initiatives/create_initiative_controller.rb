@@ -50,7 +50,8 @@ module Decidim
         @form = if session[:initiative_id].present?
                   form(Decidim::Initiatives::InitiativeForm).from_model(current_initiative, { initiative_type: })
                 else
-                  form(Decidim::Initiatives::InitiativeForm).from_params(params.merge({ type_id: initiative_type_id }), { initiative_type: })
+                  extras = { type_id: initiative_type_id, signature_type: initiative_type.signature_type }
+                  form(Decidim::Initiatives::InitiativeForm).from_params(params.merge(extras), { initiative_type: })
                 end
       end
 
@@ -76,7 +77,11 @@ module Decidim
         redirect_to finish_create_initiative_index_path unless promotal_committee_required?
       end
 
-      def finish; end
+      def finish
+        current_initiative.presence
+        session[:type_id] = nil
+        session[:initiative_id] = nil
+      end
 
       private
 
@@ -120,7 +125,7 @@ module Decidim
       end
 
       def current_initiative
-        Initiative.find_by(id: session[:initiative_id])
+        @current_initiative ||= Initiative.find_by(id: session[:initiative_id])
       end
 
       def initiative_type

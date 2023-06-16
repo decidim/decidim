@@ -15,7 +15,7 @@
 <%= render partial: "finish_help" %>
 <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
   <%= link_to t(".edit_my_initiative"), edit_initiative_path(current_initiative), class: "button button__sm button__transparent-secondary md:button__lg" %>
-  <%= link_to t(".go_to_my_initiatives"), decidim_initiatives.initiatives_path(filter: { author: "myself", state: "" }), class: "button button__sm md:button__lg button__secondary" %>
+  <%= link_to t(".go_to_my_initiatives"), decidim_initiatives.initiatives_path(filter: { author: "myself", with_any_state: "" }), class: "button button__sm md:button__lg button__secondary" %>
 </div>
 
 <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">

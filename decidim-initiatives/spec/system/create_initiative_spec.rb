@@ -528,12 +528,6 @@ describe "Initiative", type: :system do
           let(:initiative_type_scope2) { nil }
           let(:initiative_type) { create(:initiatives_type, organization:, minimum_committee_members: initiative_type_minimum_committee_members, signature_type:) }
 
-          before do
-            fill_in "Title", with: translated(initiative.title, locale: :en)
-            fill_in "initiative_description", with: translated(initiative.description, locale: :en)
-            find_button("Continue").click
-          end
-
           it "hides and automatically selects the values" do
             expect(page).not_to have_content("Signature collection type")
             expect(page).not_to have_content("Scope")
@@ -587,7 +581,7 @@ describe "Initiative", type: :system do
 
           it "shows input for signature collection type" do
             expect(page).to have_content("Signature collection type")
-            expect(find(:xpath, "//select[@id='initiative_signature_type']", visible: :all).value).to eq(signature_type)
+            expect(find(:xpath, "//select[@id='initiative_signature_type']", visible: :all).value).to eq(initiative_type.signature_type)
           end
 
           it "shows input for hashtag" do
@@ -750,9 +744,10 @@ describe "Initiative", type: :system do
 
         it "shows the page component" do
           find_link("Continue").click
-          find_link("Edit my initiative").click
+          find_link("Go to my initiatives").click
+          find_link(translated(initiative.title, locale: :en)).click
 
-          within ".process-nav__content" do
+          within ".participatory-space__nav-container" do
             find_link("Page").click
           end
 
@@ -783,7 +778,7 @@ describe "Initiative", type: :system do
           find_link("Continue").click
           find_link("Edit my initiative").click
 
-          expect(page).to have_field(translated(initiative.title, locale: :en))
+          expect(page).to have_field("initiative_title", with: translated(initiative.title, locale: :en))
         end
       end
 
