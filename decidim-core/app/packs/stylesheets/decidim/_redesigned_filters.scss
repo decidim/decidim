@@ -37,7 +37,9 @@
       &:checked,
       &:indeterminate{
         @apply accent-primary;
+      }
 
+      &:checked{
         + span{
           @apply text-primary font-bold relative z-[10];
         }
