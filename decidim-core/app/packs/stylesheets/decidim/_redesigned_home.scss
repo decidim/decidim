@@ -90,10 +90,10 @@
   }
 
   &__menu-element{
-    @apply first:border-t md:first:border-t-0 border-b md:border-b-0 md:border-l border-white md:last:border-r hover:underline;
+    @apply hover:underline relative after:content-[''] after:h-full after:w-[1px] after:absolute after:top-0 after:left-0 after:bg-white after:opacity-60 last:before:content-[''] last:before:h-full last:before:w-[1px] last:before:absolute last:before:top-0 last:before:left-0 last:before:bg-white last:before:opacity-60;
   }
 
   &__menu-element--link{
-    @apply p-4 text-white text-sm font-semibold text-center block;
+    @apply py-4 px-8 text-white text-lg font-semibold text-center block;
   }
 }
