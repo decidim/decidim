@@ -1036,6 +1036,8 @@ en:
         user_groups: Groups
         users: Administrators
         global_moderations: Global moderations
+        pages: Pages
+        new_page: New page
       user_group:
         csv_verify:
           invalid: There was a problem reading the CSV file.
