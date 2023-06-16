@@ -43,7 +43,7 @@ describe "Profile", type: :system do
     it "shows user name in the header, its nickname and a contact link" do
       expect(page).to have_selector("h1", text: user.name)
       expect(page).to have_content(user.nickname)
-      expect(page).to have_link("Contact")
+      expect(page).to have_link("Message")
     end
 
     it "does not show officialization stuff" do
@@ -54,7 +54,7 @@ describe "Profile", type: :system do
       let(:user) { create(:user, :officialized, officialized_as: nil) }
 
       it "shows officialization status" do
-        expect(page).to have_content("This participant is publicly verified")
+        expect(page).to have_content("Official participant")
       end
     end
 
