@@ -8,7 +8,9 @@ module Decidim
       class ConferenceInvitesController < Decidim::Conferences::Admin::ApplicationController
         include Concerns::ConferenceAdmin
 
-        alias conference current_conference
+        helper_method :conference
+
+        alias conference current_participatory_space
 
         def index
           enforce_permission_to(:read_invites, :conference, conference: current_participatory_space)
