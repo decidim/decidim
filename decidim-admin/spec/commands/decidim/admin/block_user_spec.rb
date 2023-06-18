@@ -17,7 +17,7 @@ module Decidim::Admin
           double(
             user: user_to_block,
             current_user:,
-            justification: :justification,
+            justification: justification,
             valid?: true,
             hide?: false
           )
@@ -32,8 +32,7 @@ module Decidim::Admin
         end
 
         it "user is notified" do
-          subject.call
-          expect(Decidim::BlockUserJob).to have_been_enqueued.on_queue("block_user")
+          expect { subject.call }.to have_enqueued_mail(Decidim::BlockUserMailer).once
         end
 
         it "user is updated" do
@@ -80,14 +79,14 @@ module Decidim::Admin
     end
 
     context "with a user" do
-      let(:user_to_block) { create(:user, name: user_name, organization:) }
+      let!(:user_to_block) { create(:user, :confirmed, name: user_name, organization:) }
       let(:user_name) { "Testing user" }
 
       it_behaves_like "blocking user or group form"
     end
 
     context "with a user group" do
-      let(:user_to_block) { create(:user_group, name: user_name, organization:) }
+      let!(:user_to_block) { create(:user_group, :confirmed, name: user_name, organization:) }
       let(:user_name) { "Testing user group" }
 
       it_behaves_like "blocking user or group form"
