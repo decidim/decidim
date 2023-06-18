@@ -42,12 +42,12 @@ module Decidim
       @caller.respond_to?(method_name, include_private)
     end
 
-    def with_event_around(with_transaction: false, &block)
-      Decidim::EventsManager.publish(event: "#{event_namespace}:before", **event_arguments)
+    def with_events(with_transaction: false, before: true, after: true, &block)
+      ActiveSupport::Notifications.publish("#{event_namespace}:before", **event_arguments) if before
 
       with_transaction ? transaction(&block) : yield
 
-      Decidim::EventsManager.publish(event: "#{event_namespace}:after", **event_arguments)
+      ActiveSupport::Notifications.publish("#{event_namespace}:after", **event_arguments) if after
     end
 
     private

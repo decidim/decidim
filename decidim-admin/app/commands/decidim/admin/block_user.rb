@@ -19,7 +19,7 @@ module Decidim
       def call
         return broadcast(:invalid) unless form.valid?
 
-        with_event_around(with_transaction: true) do
+        with_events(with_transaction: true) do
           find_or_create_moderation!
           register_justification!
           block!

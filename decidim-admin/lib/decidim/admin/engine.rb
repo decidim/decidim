@@ -277,18 +277,9 @@ module Decidim
         Decidim.register_assets_path File.expand_path("app/packs", root)
       end
 
-      initializer "decidim_admin.register_events" do |app|
-        app.config.to_prepare do
-          Decidim::EventsManager.subscribe(/^decidim\.admin\.block_user:after$/) do |_event_name, data|
-            if data.dig(:extra, :hide)
-              event_name = "decidim.system.events.hide_user_created_content"
-              ActiveSupport::Notifications.publish(event_name, {
-                                                     author: data[:resource],
-                                                     justification: data.dig(:extra, :justification),
-                                                     current_user: data.dig(:extra, :event_author)
-                                                   })
-            end
-
+      initializer "decidim_admin.register_events" do
+        config.to_prepare do
+          Decidim::EventsManager.subscribe("decidim.admin.block_user:after") do |_event_name, data|
             Decidim::BlockUserMailer.notify(data[:resource], data.dig(:extra, :justification)).deliver_later
           end
         end
