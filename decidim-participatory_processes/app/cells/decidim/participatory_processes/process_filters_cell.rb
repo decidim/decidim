@@ -17,7 +17,7 @@ module Decidim
       end
 
       def current_type_filter_name
-        participatory_process_types_for_select.find { |_, id| id == get_filter(:with_type) }&.first ||
+        participatory_process_types_for_select.find { |_, id| id == get_filter(:with_any_type) }&.first ||
           I18n.t("all_types", scope: "decidim.participatory_processes.participatory_processes.filters")
       end
 
@@ -29,9 +29,9 @@ module Decidim
         {
           filter: {
             with_date: date_filter,
-            with_scope: get_filter(:with_scope),
-            with_area: get_filter(:with_area),
-            with_type: type_filter || get_filter(:with_type)
+            with_any_scope: get_filter(:with_any_scope),
+            with_any_area: get_filter(:with_any_area),
+            with_any_type: type_filter || get_filter(:with_any_type)
           }
         }
       end
@@ -40,9 +40,9 @@ module Decidim
         query = ParticipatoryProcess.where(organization: current_organization).ransack(
           {
             with_date: date_filter,
-            with_scope: get_filter(:with_scope),
-            with_area: get_filter(:with_area),
-            with_type: filter_with_type ? get_filter(:with_type) : nil
+            with_any_scope: get_filter(:with_any_scope),
+            with_any_area: get_filter(:with_any_area),
+            with_any_type: filter_with_type ? get_filter(:with_any_type) : nil
           },
           current_user:
         ).result

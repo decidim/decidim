@@ -1,24 +1,7 @@
-  <h1 class="h2 decorator"><%= title %></h1>
+<h1 class="h2 decorator"><%= title %></h1>
 
-  <div class="editor-content mt-8">
-    <%= description %>
-  </div>
+<div class="editor-content mt-8">
+  <%= description %>
+</div>
 
-  <div class="mt-8" data-component="accordion" data-multiselectable="false" data-collapsible="false" id="accordion-<%= model.id %>">
-    <ul class="tab-x-container">
-      <% tabs.each_with_index do |tab, i| %>
-        <% next unless panel_contents.has_key?(tab[:id]) %>
-        <li>
-          <button class="tab-x" data-controls="panel-<%= tab[:id] %>" data-open="<%= "true" if i == 0 %>">
-            <%= icon tab[:icon], class: "text-gray fill-current" %><%= tab[:text] %>
-          </button>
-        </li>
-      <% end %>
-    </ul>
-
-    <% panel_contents.each do |id, content| %>
-      <div id="panel-<%= id %>" class="py-8">
-        <%= content %>
-      </div>
-    <% end %>
-  </div>
+<%= cell "decidim/tab_panels", tab_panel_items %>

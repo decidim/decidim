@@ -20,7 +20,7 @@ describe Decidim::Votings::ContentBlocks::LandingPage::AttachmentsAndFoldersCell
 
   context "when rendering attachments" do
     it "shows image attachment" do
-      expect(subject).to have_selector(".thumbnail", count: 1)
+      expect(subject).to have_selector("img", count: 1)
     end
 
     it "shows pdf attachment" do
