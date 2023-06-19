@@ -18,9 +18,9 @@ module Decidim
     end
 
     def name
-      return "" unless visible?
+      return super if visible? || deleted?
 
-      super
+      ""
     end
 
     def badge
@@ -30,7 +30,7 @@ module Decidim
     end
 
     def profile_url
-      return "" unless visible?
+      return decidim.root_url unless visible?
 
       decidim.profile_url(__getobj__.nickname)
     end
@@ -51,7 +51,7 @@ module Decidim
     end
 
     def profile_path
-      return "" unless visible?
+      return decidim.root_path unless visible?
 
       decidim.profile_path(__getobj__.nickname)
     end
