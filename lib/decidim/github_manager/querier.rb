@@ -9,6 +9,7 @@ module Decidim
     # @see https://docs.github.com/en/rest
     module Querier
       autoload :ByIssueId, "decidim/github_manager/querier/by_issue_id"
+      autoload :ByLabel, "decidim/github_manager/querier/by_label"
     end
   end
 end
