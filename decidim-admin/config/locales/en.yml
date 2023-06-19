@@ -1022,7 +1022,10 @@ en:
         administrators: Administrators
         admin_log: Admin log
         area_types: Area types
+        new_area_type: New area type
+        edit_area_type: Edit area type
         areas: Areas
+        new_area: New area
         authorization_workflows: Verification methods
         dashboard: Dashboard
         impersonatable_users: Manageable participants
@@ -1032,8 +1035,11 @@ en:
         panel: Admin
         participants: Participants
         new_participant: New participant
+        new_scope_type: New scope type
+        edit_scope_type: Edit scope type
         scope_types: Scope types
         scopes: Scopes
+        new_scope: New scope
         static_pages: Pages
         statistics: Activity
         user_groups: Groups
@@ -1048,6 +1054,11 @@ en:
         new_newsletter: New newsletter
         newsletter_templates: Newsletter templates
         newsletter_example_preview: Example newsletter template
+        edit_organization: Edit organization
+        edit_organization_appearance: Edit homepage appearance
+        scope_type: Scope type
+        edit_help_sections: Edit help sections
+        edit_external_domains: Edit external domains
       user_group:
         csv_verify:
           invalid: There was a problem reading the CSV file.
