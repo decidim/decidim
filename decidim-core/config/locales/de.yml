@@ -177,7 +177,9 @@ de:
         unblock: "%{user_name} hat die Blockierung von %{resource_name} aufgehoben"
         unofficialize: "%{user_name} hat die offizielle Anerkennung des Benutzers %{resource_name} widerrufen"
       user_group:
+        block: "%{user_name} hat die Gruppe %{resource_name} blockiert"
         reject: "%{user_name} hat die Gruppen-Verifikation %{resource_name} abgelehnt"
+        unblock: "%{user_name} hat die Blockierung der Gruppe %{resource_name} aufgehoben"
         verify: "%{user_name} hat die Gruppe %{resource_name} verifiziert"
         verify_via_csv: "%{user_name} hat die Gruppe %{resource_name} über eine CSV-Datei verifiziert"
       user_moderation:
