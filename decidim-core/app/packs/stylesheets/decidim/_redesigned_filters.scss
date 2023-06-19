@@ -44,8 +44,8 @@
           @apply text-primary font-bold relative z-[10];
         }
 
-        + span + div{
-          @apply w-full absolute top-0 left-0 bg-background-4 h-full rounded;
+        + span + span{
+          @apply w-full absolute top-0 left-0 bg-background-4 h-full rounded block;
         }
       }
     }
