@@ -40,7 +40,7 @@
   }
 
   &__description{
-    @apply pt-3 text-sm text-gray-2;
+    @apply py-3 last:pb-0 text-sm text-gray-2;
   }
 
   &__actions{
