@@ -968,7 +968,7 @@ de:
         create:
           error: Die Unterhaltung wurde nicht gestartet. Versuchen Sie es später noch einmal
         error_modal:
-          close: Dialog schließen
+          close: Fenster schließen
           correct_errors: Bitte korrigiere diese Fehler und versuche es erneut.
           intro: 'Es gab folgende Fehler bei Ihrer Nachricht:'
           ok: OK
@@ -1140,6 +1140,7 @@ de:
           modal_body: Wenn Sie die Nutzungsbedingungen nicht akzeptieren, werden Sie automatisch abgemeldet und können die Plattform nicht mehr nutzen. Sie können <a href="%{download_your_data_path}">Ihre persönlichen Daten herunterladen</a> und / oder <a href="%{delete_path}"> ihr Konto löschen</a>.
           modal_btn_continue: Bedingungen akzeptieren und fortfahren
           modal_btn_exit: Ich werde es später überprüfen
+          modal_button: Bedingungen ablehnen
           modal_close: Modal schließen
           modal_title: Lehnen Sie die aktualisierten Geschäftsbedingungen wirklich ab?
         required_review:
@@ -1234,7 +1235,7 @@ de:
           future: Zukunft
           past: Vergangenheit
       filters_small_view:
-        close_modal: Modal schließen
+        close_modal: Fenster schließen
         filter: Filter
         filter_by: Filtern nach
         unfold: Entfalten
@@ -1250,7 +1251,7 @@ de:
     shared:
       confirm_modal:
         cancel: Abbrechen
-        close_modal: Modal schließen
+        close_modal: Fenster schließen
         ok: Ok
         title: Bestätigen
       embed_modal:
@@ -1288,7 +1289,7 @@ de:
       follow_button:
         sign_in_before_follow: Bitte melden Sie sich an, bevor Sie diese Aktion ausführen
       login_modal:
-        close_modal: Modal schließen
+        close_modal: Fenster schließen
         please_sign_in: Bitte einloggen
         sign_up: Registrieren
       participatory_space_filters:
