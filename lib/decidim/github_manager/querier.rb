@@ -10,6 +10,7 @@ module Decidim
     module Querier
       autoload :ByIssueId, "decidim/github_manager/querier/by_issue_id"
       autoload :ByLabel, "decidim/github_manager/querier/by_label"
+      autoload :RelatedIssues, "decidim/github_manager/querier/related_issues"
     end
   end
 end
