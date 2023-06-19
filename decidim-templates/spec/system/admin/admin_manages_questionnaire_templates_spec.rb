@@ -4,12 +4,16 @@ require "spec_helper"
 
 describe "Admin manages questionnaire templates", type: :system do
   let!(:organization) { create :organization }
-  let!(:user) { create :user, :confirmed, organization: organization }
+  let!(:user) { create :user, :admin, :confirmed, organization: organization }
 
   before do
     switch_to_host(organization.host)
     login_as user, scope: :user
     visit decidim_admin_templates.questionnaire_templates_path
+  end
+
+  it_behaves_like "needs admin TOS accepted" do
+    let(:user) { create(:user, :admin, :confirmed, admin_terms_accepted_at: nil, organization: organization) }
   end
 
   describe "listing templates" do

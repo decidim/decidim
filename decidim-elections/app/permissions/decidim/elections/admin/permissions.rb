@@ -24,10 +24,8 @@ module Decidim
             case permission_action.action
             when :create, :read
               allow!
-            when :delete, :update, :unpublish
+            when :delete, :update, :unpublish, :publish
               allow_if_not_blocked
-            when :publish
-              allow_if_valid_and_not_blocked
             end
           when :trustees
             case permission_action.action
@@ -78,10 +76,6 @@ module Decidim
 
         def allow_if_not_blocked
           toggle_allow(election && !election.blocked?)
-        end
-
-        def allow_if_valid_and_not_blocked
-          toggle_allow(election && !election.blocked? && election.valid_questions?)
         end
 
         def allow_if_not_related_to_any_election
