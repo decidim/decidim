@@ -8,12 +8,18 @@ module Decidim
       # Makes a GET request for the list of Issues or Pull Requests in GitHub
       # by a label that were created in the last 90 days and that are closed.
       #
+      # @option token [String]
+      # @option days_to_check_from [Integer]
+      # @option label [String] the label that we want to search by
+      # @option exclude_label [String] the label that we want to exclude in the search
+      #
       # @see https://docs.github.com/en/rest/issues/issues#list-repository-issues GitHub API documentation
       class ByLabel < Decidim::GithubManager::Querier::Base
-        def initialize(label:, exclude_label:, token:)
+        def initialize(token:, days_to_check_from: 90, label: "type: fix", exclude_label: "backport")
           @label = label
           @exclude_label = exclude_label
           @token = token
+          @days_to_check_from = days_to_check_from
         end
 
         # Makes the GET request and parses the response of an Issue or Pull Request in GitHub
@@ -25,17 +31,14 @@ module Decidim
 
         private
 
-        attr_reader :label, :exclude_label
-
-        # CHANGEME: only for testing
-        # DAYS_TO_CHECK_FROM = 90
-        DAYS_TO_CHECK_FROM = 10
+        attr_reader :label, :exclude_label, :days_to_check_from
 
         def headers
           {
             labels: label,
             state: "closed",
-            since: (Date.today - DAYS_TO_CHECK_FROM).iso8601
+            per_page: 100,
+            since: (Date.today - days_to_check_from).iso8601
           }
         end
 
