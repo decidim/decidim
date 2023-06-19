@@ -367,6 +367,7 @@ eu:
             label: Arrazoiaren berri eman
             values:
               offensive: Iraingarria
+              spam: Spam
         moderations:
           reportable_type_string_eq:
             label: Mota
@@ -479,6 +480,7 @@ eu:
           import: Inportatu
       logs:
         filters:
+          participatory_space: Espazio parte-hartzailea bilatu
           user: Erabiltzailea
       managed_users:
         promotion:
@@ -873,6 +875,9 @@ eu:
       static_pages:
         actions:
           view: Ikusi orri publikoa
+        content_blocks:
+          edit:
+            update: Eguneratu
         create:
           error: Errorea gertatu da orri berri bat sortzean.
           success: Orria zuzen eguneratu da. Orain, jarrai ezazu faseak konfiguratzen.
