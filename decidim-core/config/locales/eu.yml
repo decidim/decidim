@@ -499,6 +499,8 @@ eu:
         download_data: Deskargatu datuak
         request_data: Eskaera datuak
     editor_images:
+      create:
+        error: Arazo bat gertatu da irudia eguneratzean.
       drag_and_drop_help: Gehitu irudiak arrastatuz edo itsatsiz.
     endorsable:
       endorsements: Oniritziak
@@ -512,6 +514,7 @@ eu:
         select_identity: Hautatu identitatea
     errors:
       internal_server_error:
+        copy_to_clipboard: Kopiatu arbelera
         date_and_time: Data eta ordua
         reference: Erreferentzia
         title: Arazo bat izan da gure zerbitzariarekin
@@ -852,29 +855,35 @@ eu:
           admin_in_group: Jakinarazpen hau jaso duzu %{group} taldearen administratzailea zarelako.
           greeting: Kaixo, %{recipient}!
           intro: "%{manager} k elkarrizketa berri bat hasi du %{group} taldearekin. Egin klik hemen ikusteko:"
+          outro: Disfrutatu Decidim-ekin!
           subject: "%{manager} k elkarrizketa berri bat hasi du %{group} taldearekin"
         comanagers_new_message:
           admin_in_group: Jakinarazpen hau jaso duzu %{group} taldearen administratzailea zarelako.
           greeting: Kaixo, %{recipient}!
           intro: "%{manager} k mezu berriak argitaratu ditu %{group} taldearen elkarrizketa batean. Egin klik hemen ikusteko:"
+          outro: Disfrutatu Decidim-ekin!
           subject: "%{manager} k mezu berriak bidali ditu %{group} gisa"
         new_conversation:
           greeting: Kaixo, %{recipient}!
           intro: "%{sender} elkarrizketa berria hasi duzu zurekin. Egin klik hemen ikusteko:"
+          outro: Disfrutatu Decidim-ekin!
           subject: "%{sender} elkarrizketa bat hasi da zurekin"
         new_group_conversation:
           admin_in_group: Jakinarazpen hau jaso duzu %{group} taldearen administratzailea zarelako.
           greeting: Kaixo, %{recipient}!
           intro: "%{sender} k elkarrizketa berri bat hasi du %{group} taldearekin. Egin klik hemen ikusteko:"
+          outro: Disfrutatu Decidim-ekin!
           subject: "%{sender} k elkarrizketa berri bat hasi du %{group} taldearekin"
         new_group_message:
           admin_in_group: Jakinarazpen hau jaso duzu %{group} taldearen administratzailea zarelako.
           greeting: Kaixo, %{recipient}!
           intro: "%{sender} k elkarrizketa berri bat hasi du %{group} taldearekin. Egin klik hemen ikusteko:"
+          outro: Disfrutatu Decidim-ekin!
           subject: "%{group} k %{sender} ren mezu berriak ditu"
         new_message:
           greeting: Kaixo, %{recipient}!
           intro: "%{sender} k elkarrizketan mezu berriak argitaratu ditu. Egin klik hemen ikusteko:"
+          outro: Disfrutatu Decidim-ekin!
           subject: '%{sender}-tik mezu berriak dituzu'
       conversations:
         add_conversation_users:
@@ -1424,6 +1433,7 @@ eu:
               bottomLeft: beheko ezker ertza
       link:
         bubbleMenu:
+          edit: Editatu
           remove: Kendu
           url: URL-a
       videoEmbed:
