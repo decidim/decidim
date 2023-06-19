@@ -24,7 +24,7 @@ module Decidim
       # Returns an ActiveRecord::Relation.
       def query
         user_group
-          .non_deleted_memberships
+          .visible_memberships
           .includes(:user)
           .where(role: :admin)
       end

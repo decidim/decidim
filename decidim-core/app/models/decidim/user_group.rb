@@ -49,7 +49,13 @@ module Decidim
     end
 
     def non_deleted_memberships
-      memberships.where(decidim_users: { deleted_at: nil })
+      ActiveSupport::Deprecation.warn("#{self.class.name}#non_deleted_memberships is deprecated (please use #visible_memberships)")
+
+      visible_memberships
+    end
+
+    def visible_memberships
+      memberships.joins(:user)
     end
 
     # Returns the presenter for this author, to be used in the views.
