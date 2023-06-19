@@ -220,14 +220,15 @@ $map: map-merge(
 }
 
 .bg-primary {
-  background-color: rgba(var(--primary), 0.30);
+  background-color: rgba(var(--primary), 0.3);
 }
 
 .text-secondary {
   color: var(--secondary);
 }
+
 .bg-secondary {
-  background-color: rgba(var(--secondary), 0.30);
+  background-color: rgba(var(--secondary), 0.3);
 }
 
 .text-success {
@@ -235,7 +236,7 @@ $map: map-merge(
 }
 
 .bg-success {
-  background-color: rgba(var(--success), 0.30);
+  background-color: rgba(var(--success), 0.3);
 }
 
 .text-warning {
@@ -243,7 +244,7 @@ $map: map-merge(
 }
 
 .bg-warning {
-  background-color: rgba(var(--warning), 0.30);
+  background-color: rgba(var(--warning), 0.3);
 }
 
 .text-alert {
@@ -251,15 +252,16 @@ $map: map-merge(
 }
 
 .bg-alert {
-  background-color: rgba(var(--alert), 0.30);
+  background-color: rgba(var(--alert), 0.3);
 }
 
 .text-muted {
   color: $muted;
 }
 
-.bg-muted, .meeting-polls__iframe {
-  background-color: rgba($muted, 0.30);
+.bg-muted,
+.meeting-polls__iframe {
+  background-color: rgba($muted, 0.3);
 }
 
 .text-large {
