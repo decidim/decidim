@@ -6,7 +6,7 @@ require "webmock/rspec"
 describe Decidim::GithubManager::Querier::ByLabel do
   let(:querier) { described_class.new(token: "abc") }
   let(:date) { Date.new(2020, 1, 1) }
-  let(:stubbed_url) { "https://api.github.com/repos/decidim/decidim/issues?labels=type:%20fix&since=2019-10-03&state=closed" }
+  let(:stubbed_url) { "https://api.github.com/repos/decidim/decidim/issues?labels=type:%20fix&per_page=100&since=2019-10-03&state=closed" }
 
   before do
     allow(Date).to receive(:today).and_return(date)
