@@ -51,6 +51,7 @@ module Decidim
         mapped_author = super
         return mapped_author unless mapped_author.respond_to?(:visible?)
         return mapped_author if mapped_author.visible?
+        return mapped_author if mapped_author.deleted?
 
         klass =
           if mapped_author.is_a?(Decidim::UserGroup)
@@ -59,7 +60,7 @@ module Decidim
             Decidim::User
           end
 
-        klass.new(id: 0, name: "", nickname: "", organization: mapped_author.organization)
+        klass.new(id: 0, name: "", nickname: "", decidim_organization_id: mapped_author.organization)
       end
 
       # Checks whether the user is author of the given resource, either directly
