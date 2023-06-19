@@ -31,8 +31,8 @@ describe Decidim::GithubManager::Querier::RelatedIssues do
   describe ".call" do
     let(:response) do
       [
-        { issue_id: 456, title: "Backport 'Fix whatever' to v0.1", state: "merged" },
-        { issue_id: 457, title: "Backport 'Fix whatever' to v0.2", state: "merged" }
+        { id: 456, title: "Backport 'Fix whatever' to v0.1", state: "merged" },
+        { id: 457, title: "Backport 'Fix whatever' to v0.2", state: "merged" }
       ]
     end
 

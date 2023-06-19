@@ -39,7 +39,7 @@ module Decidim
           end
           references.map do |item|
             {
-              issue_id: item["source"]["issue"]["number"],
+              id: item["source"]["issue"]["number"],
               title: item["source"]["issue"]["title"],
               state: item["source"]["issue"]["state"]
             }
