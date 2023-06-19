@@ -9,23 +9,7 @@ edit_link(
 )
 %>
 
-<section style="background-image:url('<%= current_participatory_space.attached_uploader(:banner_image).path %>');" data-process-hero>
-  <div class="assembly__hero">
-    <div class="assembly__hero-text">
-      <h1 class="h1 text-5xl">
-        <%= translated_attribute(current_participatory_space.title) %>
-      </h1>
-      <p class="assembly__hero-slogan">
-        <% if current_participatory_space.hashtag.present? %>
-          <span class="block mb-2">
-            <%= link_to "##{decidim_html_escape(current_participatory_space.hashtag)}", twitter_hashtag_url(decidim_html_escape(current_participatory_space.hashtag)), target: "_blank" %>
-          </span>
-        <% end %>
-        <%= translated_attribute(current_participatory_space.subtitle) %>
-      </p>
-    </div>
-  </div>
-</section>
+<%= cell "decidim/content_blocks/participatory_space_hero", nil, resource: current_participatory_space %>
 <div class="container py-8">
   <h3 class="h3 decorator mb-8">
     <%= t("members", scope: "decidim.assemblies.assembly_members.index") %>
