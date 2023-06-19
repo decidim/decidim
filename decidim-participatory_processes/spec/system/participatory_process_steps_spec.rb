@@ -15,6 +15,8 @@ describe "Participatory Process Steps", type: :system do
   end
 
   before do
+    skip "REDESIGN_PENDING - Deprecated: Those tests, associated views, controllers and paths should be removed after fully enabling redesign. Equivalent test should be added to the content block which implements this feature"
+
     switch_to_host(organization.host)
   end
 

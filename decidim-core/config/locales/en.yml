@@ -1356,6 +1356,7 @@ en:
       user:
         actions:
           create_user_group: Create group
+          disabled_message: Message
           edit_profile: Edit profile
           edit_user_group: Edit group profile
           invite_user: Invite participant
