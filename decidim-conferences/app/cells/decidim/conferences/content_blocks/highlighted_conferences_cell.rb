@@ -3,15 +3,12 @@
 module Decidim
   module Conferences
     module ContentBlocks
-      class HighlightedConferencesCell < Decidim::ViewModel
-        include Decidim::CardHelper
+      class HighlightedConferencesCell < Decidim::ContentBlocks::HighlightedParticipatorySpacesCell
+        BLOCK_ID = "highlighted-conferences"
+
         delegate :current_user, to: :controller
 
-        def show
-          render if highlighted_conferences.any?
-        end
-
-        def highlighted_conferences
+        def highlighted_spaces
           OrganizationPrioritizedConferences.new(current_organization, current_user)
         end
 
@@ -19,18 +16,13 @@ module Decidim
           "decidim.conferences.pages.home.highlighted_conferences"
         end
 
-        def decidim_conferences
-          Decidim::Conferences::Engine.routes.url_helpers
+        def all_path
+          Decidim::Conferences::Engine.routes.url_helpers.conferences_path
         end
 
         private
 
-        def cache_hash
-          hash = []
-          hash.push(I18n.locale)
-          hash.push(highlighted_conferences.map(&:cache_key_with_version))
-          hash.join(Decidim.cache_key_separator)
-        end
+        def block_id = BLOCK_ID
       end
     end
   end
