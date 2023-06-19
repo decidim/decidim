@@ -143,6 +143,7 @@ if !Rails.env.production? || ENV.fetch("SEED", nil)
     admin: true,
     personal_url: Faker::Internet.url,
     about: Faker::Lorem.paragraph(sentence_count: 2),
+    tos_agreement: true,
     accepted_tos_version: organization.tos_version + 1.hour,
     newsletter_notifications_at: Time.current,
     password_updated_at: Time.current,
@@ -162,6 +163,7 @@ if !Rails.env.production? || ENV.fetch("SEED", nil)
       organization:,
       personal_url: Faker::Internet.url,
       about: Faker::Lorem.paragraph(sentence_count: 2),
+      tos_agreement: true,
       accepted_tos_version: organization.tos_version + 1.hour,
       newsletter_notifications_at: Time.current
     )
@@ -181,6 +183,7 @@ if !Rails.env.production? || ENV.fetch("SEED", nil)
     organization:,
     personal_url: Faker::Internet.url,
     about: Faker::Lorem.paragraph(sentence_count: 2),
+    tos_agreement: true,
     accepted_tos_version: organization.tos_version + 1.hour
   )
 

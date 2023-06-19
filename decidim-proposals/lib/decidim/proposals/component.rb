@@ -295,6 +295,7 @@ Decidim.register_component(:proposals) do |component|
           name:,
           nickname: Faker::Twitter.unique.screen_name,
           organization: component.organization,
+          tos_agreement: true,
           accepted_tos_version: component.organization.tos_version,
           confirmed_at: Time.current
         )
@@ -361,6 +362,7 @@ Decidim.register_component(:proposals) do |component|
           name:,
           nickname: Faker::Twitter.unique.screen_name,
           organization: component.organization,
+          tos_agreement: true,
           accepted_tos_version: component.organization.tos_version,
           confirmed_at: Time.current,
           personal_url: Faker::Internet.url,
@@ -383,6 +385,7 @@ Decidim.register_component(:proposals) do |component|
             name:,
             nickname: Faker::Twitter.unique.screen_name,
             organization: component.organization,
+            tos_agreement: true,
             accepted_tos_version: component.organization.tos_version,
             confirmed_at: Time.current
           )
