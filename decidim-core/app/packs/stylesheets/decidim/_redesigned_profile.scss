@@ -222,10 +222,10 @@
 
   &__scaffold{
     &__top{
-      @apply bg-background;
+      @apply bg-background [&>*]:mb-0;
 
       &-content{
-        @apply lg:w-2/3 mx-auto flex flex-col items-center md:items-start md:flex-row justify-between py-6 md:py-12 gap-6;
+        @apply flex flex-col items-center md:items-start md:flex-row justify-between py-6 md:py-12 gap-6;
 
         & > *{
           &:nth-child(1){
@@ -244,19 +244,19 @@
     }
 
     &__middle{
-      @apply bg-background overflow-x-auto;
+      @apply bg-background overflow-x-auto [&>*]:mb-0;
 
       &-content{
-        @apply lg:w-2/3 mx-auto flex justify-between text-gray-2;
+        @apply flex justify-between text-gray-2;
       }
     }
 
     &__bottom{
       /* stylelint-disable-next-line number-leading-zero */
-      @apply border-t-2 border-gray-3 -mt-0.5;
+      @apply border-t-2 border-gray-3 -mt-0.5 [&>*]:mb-0;
 
       &-content{
-        @apply lg:w-2/3 mx-auto py-6 md:py-12 min-h-[200px] mb-32 relative;
+        @apply py-6 md:py-12 min-h-[200px] mb-32 relative;
       }
     }
   }
