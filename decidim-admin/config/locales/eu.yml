@@ -384,6 +384,7 @@ eu:
             label: Arrazoiaren berri eman
             values:
               offensive: Iraingarria
+              spam: Spam
         moderations:
           reportable_type_string_eq:
             label: Mota
