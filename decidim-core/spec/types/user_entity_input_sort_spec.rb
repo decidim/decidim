@@ -12,7 +12,7 @@ module Decidim
       let(:type_class) { Decidim::Api::QueryType }
 
       let(:user) { create(:user, :confirmed, organization: current_organization) }
-      let(:user_group) { create(:user_group, :confirmed, organization: current_organization) }
+      let(:user_group) { create(:user_group, :confirmed, :verified, organization: current_organization) }
       let!(:models) { [user, user_group] }
 
       context "when sorting by user id" do

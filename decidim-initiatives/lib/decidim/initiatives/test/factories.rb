@@ -145,7 +145,7 @@ FactoryBot.define do
 
     after(:create) do |initiative|
       if initiative.author.is_a?(Decidim::User) && Decidim::Authorization.where(user: initiative.author).where.not(granted_at: nil).none?
-        create(:authorization, user: initiative.author, granted_at: Time.now.utc)
+        create(:authorization, :granted, user: initiative.author)
       end
       create_list(:initiatives_committee_member, 3, initiative:)
     end

@@ -97,7 +97,7 @@ module Decidim::Assemblies
       end
 
       context "with an existing user in the platform" do
-        let!(:user_entity) { create(:user, organization: assembly.organization) }
+        let!(:user_entity) { create(:user, :confirmed, organization: assembly.organization) }
         let(:existing_user) { true }
 
         it "sets the user" do
@@ -122,9 +122,9 @@ module Decidim::Assemblies
       end
 
       context "with an existing group in the platform" do
-        let!(:member1) { create(:user, organization: assembly.organization) }
-        let!(:member2) { create(:user, organization: assembly.organization) }
-        let!(:user_entity) { create(:user_group, :verified, users: [member1, member2], organization: assembly.organization) }
+        let!(:member1) { create(:user, :confirmed, organization: assembly.organization) }
+        let!(:member2) { create(:user, :confirmed, organization: assembly.organization) }
+        let!(:user_entity) { create(:user_group, :confirmed, :verified, users: [member1, member2], organization: assembly.organization) }
         let(:existing_user) { true }
 
         it "sets the group" do

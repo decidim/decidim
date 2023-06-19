@@ -22,7 +22,7 @@ describe Decidim::CoauthorshipsCell, type: :cell do
   end
 
   context "with UserGroup coauthorships" do
-    let(:user_group) { create(:user_group, :verified, users: [user]) }
+    let(:user_group) { create(:user_group, :confirmed, :verified, users: [user]) }
     let(:coauthors) { [user_group] }
 
     it "renders the User author" do

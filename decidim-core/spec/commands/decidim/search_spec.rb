@@ -197,7 +197,7 @@ describe Decidim::Search do
           create(
             :searchable_resource,
             organization: current_organization,
-            resource: build(:user, organization: current_organization),
+            resource: build(:user, :confirmed, organization: current_organization),
             scope: nil,
             decidim_participatory_space: nil,
             content_a: "Where is your crown king nothing?"

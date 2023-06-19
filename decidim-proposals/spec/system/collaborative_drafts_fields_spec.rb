@@ -220,7 +220,7 @@ describe "Collaborative drafts", type: :system do
         end
 
         context "when the user has verified organizations" do
-          let(:user_group) { create(:user_group, :verified, organization:) }
+          let(:user_group) { create(:user_group, :confirmed, :verified, organization:) }
 
           before do
             create(:user_group_membership, user:, user_group:)

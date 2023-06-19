@@ -21,12 +21,12 @@ describe Decidim::ActivityCell, type: :cell do
   describe "user" do
     subject { described_class.new(model) }
 
-    let(:author) { create(:user, organization: component.organization) }
+    let(:author) { create(:user, :confirmed, organization: component.organization) }
 
     context "when the author is a user group" do
       before do
         resource.author = author
-        resource.user_group = create(:user_group, :verified, organization: component.organization, users: [author])
+        resource.user_group = create(:user_group, :confirmed, :verified, organization: component.organization, users: [author])
         resource.save!
       end
 

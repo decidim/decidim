@@ -7,11 +7,11 @@ module Decidim
     subject { user }
 
     let(:organization) { create(:organization) }
-    let(:user) { build(:user, organization:) }
+    let(:user) { build(:user, :confirmed, organization:) }
 
-    let(:user_followed) { create(:user, organization: user.organization) }
+    let(:user_followed) { create(:user, :confirmed, organization: user.organization) }
     let(:public_resource) { create(:dummy_resource, :published) }
-    let(:user_blocked) { create(:user, organization: user.organization, blocked: true) }
+    let(:user_blocked) { create(:user, :confirmed, organization: user.organization, blocked: true) }
 
     before do
       create(:follow, user:, followable: user_followed)

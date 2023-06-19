@@ -10,7 +10,7 @@ describe Decidim::Debates::CreateDebate do
   let(:current_component) { create(:component, participatory_space: participatory_process, manifest_name: "debates") }
   let(:scope) { create(:scope, organization:) }
   let(:category) { create(:category, participatory_space: participatory_process) }
-  let(:user) { create(:user, organization:) }
+  let(:user) { create(:user, :confirmed, organization:) }
   let(:form) do
     double(
       invalid?: invalid,
@@ -95,9 +95,9 @@ describe Decidim::Debates::CreateDebate do
   end
 
   describe "events" do
-    let(:author_follower) { create(:user, organization:) }
+    let(:author_follower) { create(:user, :confirmed, organization:) }
     let!(:author_follow) { create(:follow, followable: user, user: author_follower) }
-    let(:space_follower) { create(:user, organization:) }
+    let(:space_follower) { create(:user, :confirmed, organization:) }
     let!(:space_follow) { create(:follow, followable: participatory_process, user: space_follower) }
 
     it "notifies the change to the author followers" do

@@ -17,9 +17,9 @@ describe Decidim::Comments::UserGroupMentionedEvent do
     }
   end
 
-  let(:group) { create(:user_group, organization:, users: members + [user]) }
-  let(:members) { create_list(:user, 2, organization:) }
-  let(:user) { create(:user, organization:, locale: "ca") }
+  let(:group) { create(:user_group, :confirmed, :verified, organization:, users: members + [user]) }
+  let(:members) { create_list(:user, 2, :confirmed, organization:) }
+  let(:user) { create(:user, :confirmed, organization:, locale: "ca") }
 
   let(:parsed_body) { Decidim::ContentProcessor.parse("Comment mentioning some user group, @#{group.nickname}", current_organization: organization) }
   let(:parsed_ca_body) { Decidim::ContentProcessor.parse("Un commentaire pour @#{group.nickname}", current_organization: organization) }

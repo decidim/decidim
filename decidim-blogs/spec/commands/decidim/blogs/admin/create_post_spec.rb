@@ -11,7 +11,7 @@ module Decidim
         let(:organization) { create(:organization) }
         let(:participatory_process) { create(:participatory_process, organization:) }
         let(:current_component) { create(:component, participatory_space: participatory_process, manifest_name: "blogs") }
-        let(:current_user) { create(:user, organization:) }
+        let(:current_user) { create(:user, :confirmed, organization:) }
         let(:title) { "Post title" }
         let(:body) { "Lorem Ipsum dolor sit amet" }
         let(:publish_time) { nil }
@@ -82,7 +82,7 @@ module Decidim
           end
 
           it "sends a notification to the participatory space followers" do
-            follower = create(:user, organization:)
+            follower = create(:user, :confirmed, organization:)
             create(:follow, followable: participatory_process, user: follower)
 
             expect(Decidim::EventsManager)
@@ -111,7 +111,7 @@ module Decidim
           end
 
           context "with a group author" do
-            let(:group) { create(:user_group, :verified, organization:) }
+            let(:group) { create(:user_group, :confirmed, :verified, organization:) }
             let(:form) do
               double(
                 invalid?: invalid,
