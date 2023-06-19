@@ -41,7 +41,7 @@
 
       &:checked{
         + span{
-          @apply text-primary font-bold relative z-[10];
+          @apply text-primary font-semibold relative z-[10];
         }
 
         + span + span{
