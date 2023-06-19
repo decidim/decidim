@@ -10,8 +10,9 @@ module Decidim
       #
       # @see https://docs.github.com/en/rest/issues/issues#list-repository-issues GitHub API documentation
       class ByLabel < Decidim::GithubManager::Querier::Base
-        def initialize(label:, token:)
+        def initialize(label:, exclude_label:, token:)
           @label = label
+          @exclude_label = exclude_label
           @token = token
         end
 
@@ -24,7 +25,7 @@ module Decidim
 
         private
 
-        attr_reader :label
+        attr_reader :label, :exclude_label
 
         # CHANGEME: only for testing
         # DAYS_TO_CHECK_FROM = 90
@@ -47,11 +48,17 @@ module Decidim
         # @return [Hash]
         def parse(metadata)
           metadata.map do |item|
+            next if has_backport_label?(item)
+
             {
               id: item["number"],
               title: item["title"]
             }
-          end
+          end.compact
+        end
+
+        def has_backport_label?(item)
+          item["labels"].map { |label| label.map { |_key, val| val == exclude_label } }.flatten.any? true
         end
       end
     end
