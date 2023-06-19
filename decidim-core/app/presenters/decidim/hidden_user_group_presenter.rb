@@ -6,12 +6,10 @@ module Decidim
   # groups are hidden from others in case they have not yet been verified.
   #
   class HiddenUserGroupPresenter < UserGroupPresenter
+    delegate :name, to: :__getobj__
+
     def nickname
       "@#{__getobj__.nickname}"
-    end
-
-    def name
-      __getobj__.name
     end
   end
 end
