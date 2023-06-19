@@ -88,7 +88,9 @@ module Decidim
     end
 
     def profile_published?
-      return false unless tos_accepted?
+      # Note that we are not calling `tos_accepted?` here to avoid N+1 queries
+      # when querying through e.g. a list of records and their authors.
+      return false if accepted_tos_version.blank?
 
       super
     end
