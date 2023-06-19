@@ -31,9 +31,9 @@ module Decidim
               presence: true,
               format: { with: REGEXP_NICKNAME },
               length: { maximum: Decidim::UserBaseEntity.nickname_max_length },
-              unless: -> { profile_published? }
-    validates :nickname, uniqueness: { scope: :organization }, unless: -> { profile_published? || nickname.blank? }
-    validates :email, uniqueness: { scope: :organization }, unless: -> { profile_published? }
+              uniqueness: { scope: :organization },
+              if: -> { profile_published? && nickname.present? }
+    validates :email, uniqueness: { scope: :organization }, if: -> { profile_published? }
 
     scope :confirmed, -> { where.not(confirmed_at: nil) }
     scope :not_confirmed, -> { where(confirmed_at: nil) }
