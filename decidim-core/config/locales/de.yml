@@ -1061,6 +1061,7 @@ de:
     notification_mailer:
       event_received:
         original_text: 'Originaltext:'
+        same_language: Der Inhalt wurde in Ihrer bevorzugten Sprache (%{language}) veröffentlicht, daher wird in dieser E-Mail keine automatisierte Übersetzung angezeigt.
         translated_text: 'Automatisch übersetzter Text:'
     notifications:
       no_notifications: Noch keine Benachrichtigungen
@@ -1133,9 +1134,11 @@ de:
           error: Beim Akzeptieren der Nutzungsbedingungen ist ein Fehler aufgetreten.
           success: Groß! Sie haben die Allgemeinen Geschäftsbedingungen akzeptiert.
         form:
+          agreement: Ich stimme diesen Bedingungen zu
           legend: Stimme den Nutzungsbedingungen zu
         refuse:
           modal_body: Wenn Sie die Nutzungsbedingungen nicht akzeptieren, werden Sie automatisch abgemeldet und können die Plattform nicht mehr nutzen. Sie können <a href="%{download_your_data_path}">Ihre persönlichen Daten herunterladen</a> und / oder <a href="%{delete_path}"> ihr Konto löschen</a>.
+          modal_btn_continue: Bedingungen akzeptieren und fortfahren
           modal_btn_exit: Ich werde es später überprüfen
           modal_close: Modal schließen
           modal_title: Lehnen Sie die aktualisierten Geschäftsbedingungen wirklich ab?
