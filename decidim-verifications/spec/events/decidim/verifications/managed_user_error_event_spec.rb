@@ -31,15 +31,11 @@ describe Decidim::Verifications::ManagedUserErrorEvent do
     it "includes managed_user_name" do
       expect(subject.default_i18n_options[:managed_user_name]).to eq(resource.managed_user.name)
     end
-
-    it "includes managed_user_profile" do
-      expect(subject.default_i18n_options[:managed_user_path]).to eq("/profiles/#{resource.managed_user.nickname}")
-    end
   end
 
   describe "notification_title" do
     it "is generated correctly" do
-      expect(subject.notification_title).to eq("The participant <a href=\"/profiles/#{resource.current_user.nickname}\">#{resource.current_user.name}</a> has tried to verify themself with the data of another participant (<a href=\"/profiles/#{resource.managed_user.nickname}\">#{resource.managed_user.name}</a>).")
+      expect(subject.notification_title).to eq("The participant <a href=\"/profiles/#{resource.current_user.nickname}\">#{resource.current_user.name}</a> has tried to verify themself with the data of another participant (#{resource.managed_user.name}).")
     end
   end
 
@@ -51,7 +47,7 @@ describe Decidim::Verifications::ManagedUserErrorEvent do
 
   describe "email_intro" do
     it "is generated correctly" do
-      expect(subject.email_intro).to eq("The participant <a href=\"http://#{organization_host}/profiles/#{resource.current_user.nickname}\">#{resource.current_user.name}</a> has tried to verify themself with the data of another participant (<a href=\"http://#{organization_host}/profiles/#{resource.managed_user.nickname}\">#{resource.managed_user.name}</a>).")
+      expect(subject.email_intro).to eq("The participant <a href=\"http://#{organization_host}/profiles/#{resource.current_user.nickname}\">#{resource.current_user.name}</a> has tried to verify themself with the data of another participant (#{resource.managed_user.name}).")
     end
   end
 
