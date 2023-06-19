@@ -74,9 +74,9 @@ Decidim.register_component(:blogs) do |component|
 
     6.times do |n|
       author = if n >= 3
-                 Decidim::User.where(organization: component.organization).order(Arel.sql("RANDOM()")).first
+                 Decidim::User.visible.where(organization: component.organization).order(Arel.sql("RANDOM()")).first
                elsif n <= 1
-                 Decidim::UserGroup.where(organization: component.organization).order(Arel.sql("RANDOM()")).first
+                 Decidim::UserGroup.visible.where(organization: component.organization).order(Arel.sql("RANDOM()")).first
                else
                  component.organization
                end
