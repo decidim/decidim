@@ -31,9 +31,9 @@ module Decidim
               presence: true,
               format: { with: REGEXP_NICKNAME },
               length: { maximum: Decidim::UserBaseEntity.nickname_max_length },
-              uniqueness: { scope: :organization },
-              if: -> { profile_published? && nickname.present? }
-    validates :email, uniqueness: { scope: :organization }, if: -> { profile_published? }
+              if: -> { validate_nickname_and_email? }
+    validates :nickname, uniqueness: { scope: :organization }, if: -> { validate_nickname_and_email? && nickname.present? }
+    validates :email, uniqueness: { scope: :organization }, if: -> { validate_nickname_and_email? && email.present? }
 
     scope :confirmed, -> { where.not(confirmed_at: nil) }
     scope :not_confirmed, -> { where(confirmed_at: nil) }
@@ -55,6 +55,13 @@ module Decidim
     scope :blocked, -> { where(blocked: true) }
     scope :not_blocked, -> { where(blocked: false) }
     scope :available, -> { where(deleted_at: nil, blocked: false, managed: false) }
+
+    def validate_nickname_and_email?
+      return false if managed?
+      return false if deleted_at.present?
+
+      true
+    end
 
     def visible?
       return false if blocked?
