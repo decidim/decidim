@@ -114,7 +114,8 @@ describe "Admin manages newsletters", type: :system do
       expect(page).to have_content("Hello Sarah Kerrigan! Relevant content.")
     end
 
-    it "sends a test email to the logged user" do
+    context
+    it "when admin clicks on the 'send me a test email' button" do
       visit decidim_admin.newsletter_path(newsletter)
       perform_enqueued_jobs do
         click_link "Send me a test email"
@@ -123,7 +124,8 @@ describe "Admin manages newsletters", type: :system do
       expect(last_email.subject).to include("A fancy newsletter for")
     end
 
-    it "admin clicks on this index button and receives the test newsletter" do
+    context
+    it "when admin clicks on the 'send me a test email' button in the index page" do
       visit decidim_admin.newsletters_path
       perform_enqueued_jobs do
         click_link "Send me a test email"
