@@ -11,13 +11,13 @@ module ConfirmationHelpers
     yield if block_given?
 
     # The test can already be "within", so find the body using xpath
-    message = nil
     body = find(:xpath, "/html/body")
-    confirm_selector = options.fetch(:admin, !Decidim.redesign_active) ? ".confirm-reveal" : "[data-dialog='confirm-modal']"
+    confirm_selector = options.fetch(:admin, !Decidim.redesign_active) ? ".confirm-modal-content" : "[data-confirm-modal-content]"
+    message = nil
 
-    within(body.find(confirm_selector)) do
-      message = find(".confirm-modal-content").text
-      find("a.button[data-confirm-ok]").click
+    within body do
+      message = find(confirm_selector).text
+      find("[data-confirm-ok]").click
     end
 
     message
@@ -28,15 +28,17 @@ module ConfirmationHelpers
   #
   # See:
   # https://github.com/teamcapybara/capybara/blob/44621209496fe4dd352709799a0061a80d97d562/lib/capybara/session.rb#L657
-  def dismiss_confirm(_text = nil, **_options)
+  def dismiss_confirm(_text = nil, **options)
     yield if block_given?
 
     # The test can already be "within", so find the body using xpath
-    message = nil
     body = find(:xpath, "/html/body")
-    within(body.find(".confirm-reveal")) do
-      message = find(".confirm-modal-content").text
-      find("a.button[data-confirm-cancel]").click
+    confirm_selector = options.fetch(:admin, !Decidim.redesign_active) ? ".confirm-modal-content" : "[data-confirm-modal-content]"
+    message = nil
+
+    within body do
+      message = find(confirm_selector).text
+      find("[data-confirm-cancel]").click
     end
 
     message

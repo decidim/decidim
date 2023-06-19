@@ -380,7 +380,7 @@ describe "Explore results", versioning: true, type: :system do
       end
     end
 
-    it_behaves_like "has attachments" do
+    it_behaves_like "has redesigned attachments" do
       let(:attached_to) { result }
     end
   end

@@ -56,9 +56,9 @@ module Decidim
         query = base_relation.ransack(
           {
             with_date: date_filter,
-            with_scope: get_filter(:with_scope),
-            with_area: get_filter(:with_area),
-            with_type: filter_with_type ? get_filter(:with_type) : nil
+            with_any_scope: get_filter(:with_any_scope),
+            with_any_area: get_filter(:with_any_area),
+            with_any_type: filter_with_type ? get_filter(:with_any_type) : nil
           },
           current_user:,
           organization: current_organization
