@@ -4,6 +4,8 @@ eu:
     attributes:
       assemblies_setting:
         enable_organization_chart: Gaitu organigrama
+      assemblies_type:
+        title: Izenburua
       assembly:
         area_id: Arloa
         assembly_type: Batzar mota
