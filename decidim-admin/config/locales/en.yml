@@ -1044,6 +1044,10 @@ en:
         new_page: New page
         new_topic: New topic
         conflicts: Conflicts
+        newsletters: Newsletters
+        new_newsletter: New newsletter
+        newsletter_templates: Newsletter templates
+        newsletter_example_preview: Example newsletter template
       user_group:
         csv_verify:
           invalid: There was a problem reading the CSV file.
