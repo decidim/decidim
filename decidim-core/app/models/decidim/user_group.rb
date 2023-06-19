@@ -28,10 +28,10 @@ module Decidim
 
     devise :confirmable, :decidim_validatable, confirmation_keys: [:decidim_organization_id, :email]
 
-    scope :verified, -> { where.not("extended_data->>'verified_at' IS ?", nil) }
-    scope :not_verified, -> { where("extended_data->>'verified_at' IS ?", nil) }
-    scope :rejected, -> { where.not("extended_data->>'rejected_at' IS ?", nil) }
-    scope :pending, -> { where("extended_data->>'rejected_at' IS ? AND extended_data->>'verified_at' IS ?", nil, nil) }
+    scope :verified, -> { where.not("decidim_users.extended_data->>'verified_at' IS ?", nil) }
+    scope :not_verified, -> { where("decidim_users.extended_data->>'verified_at' IS ?", nil) }
+    scope :rejected, -> { where.not("decidim_users.extended_data->>'rejected_at' IS ?", nil) }
+    scope :pending, -> { where("decidim_users.extended_data->>'rejected_at' IS ? AND decidim_users.extended_data->>'verified_at' IS ?", nil, nil) }
 
     searchable_fields(
       {
@@ -45,7 +45,7 @@ module Decidim
 
     def self.with_document_number(organization, number)
       where(decidim_organization_id: organization.id)
-        .where("extended_data->>'document_number' = ?", number)
+        .where("decidim_users.extended_data->>'document_number' = ?", number)
     end
 
     def non_deleted_memberships
@@ -164,27 +164,27 @@ module Decidim
     }
 
     def self.sort_by_document_number_asc
-      order(Arel.sql("extended_data->>'document_number' ASC"))
+      order(Arel.sql("decidim_users.extended_data->>'document_number' ASC"))
     end
 
     def self.sort_by_document_number_desc
-      order(Arel.sql("extended_data->>'document_number' DESC"))
+      order(Arel.sql("decidim_users.extended_data->>'document_number' DESC"))
     end
 
     def self.sort_by_phone_asc
-      order(Arel.sql("extended_data->>'phone' ASC"))
+      order(Arel.sql("decidim_users.extended_data->>'phone' ASC"))
     end
 
     def self.sort_by_phone_desc
-      order(Arel.sql("extended_data->>'phone' DESC"))
+      order(Arel.sql("decidim_users.extended_data->>'phone' DESC"))
     end
 
     def self.sort_by_state_asc
-      order(Arel.sql("extended_data->>'rejected_at' ASC, extended_data->>'verified_at' ASC, deleted_at ASC"))
+      order(Arel.sql("decidim_users.extended_data->>'rejected_at' ASC, decidim_users.extended_data->>'verified_at' ASC, deleted_at ASC"))
     end
 
     def self.sort_by_state_desc
-      order(Arel.sql("extended_data->>'rejected_at' DESC, extended_data->>'verified_at' DESC, deleted_at DESC"))
+      order(Arel.sql("decidim_users.extended_data->>'rejected_at' DESC, decidim_users.extended_data->>'verified_at' DESC, deleted_at DESC"))
     end
 
     private
