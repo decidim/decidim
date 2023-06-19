@@ -36,6 +36,10 @@ en:
               malformed: Malformed import file, please read through the instructions carefully and make sure the file is UTF-8 encoded.
   decidim:
     admin:
+      titles:
+        pending_authorizations: Pending authorizations
+        ongoing_verifications: Ongoing verifications
+        current_census_data: Current census data
       menu:
         authorization_revocation:
           before_date_info: Useful if the process has already begun and you want to revoke the permissions of the previous process.
