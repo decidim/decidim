@@ -87,10 +87,14 @@ eu:
           new:
             create: Sortu emaitza
             title: Emaitza berria
+          update:
+            success: Emaitza zuzen eguneratu da.
         shared:
           subnav:
             statuses: Egoerak
         statuses:
+          create:
+            success: Eztabaida zuzen sortu da.
           edit:
             title: Editatu egoera
             update: Eguneratze egoera
