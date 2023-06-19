@@ -267,7 +267,7 @@ FactoryBot.define do
   factory :user_group_membership, class: "Decidim::UserGroupMembership" do
     user { create(:user, :confirmed, organization: user_group.organization) }
     role { :creator }
-    user_group
+    user_group { build(:user_group, :confirmed, :verified) }
   end
 
   factory :identity, class: "Decidim::Identity" do

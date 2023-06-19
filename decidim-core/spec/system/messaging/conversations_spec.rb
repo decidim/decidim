@@ -44,7 +44,7 @@ describe "Conversations", type: :system do
   end
 
   context "when starting a conversation" do
-    let(:recipient) { create(:user, organization:) }
+    let(:recipient) { create(:user, :confirmed, organization:) }
 
     before do
       visit decidim.new_conversation_path(recipient_id: recipient.id)
@@ -62,7 +62,7 @@ describe "Conversations", type: :system do
     it_behaves_like "create new conversation"
 
     context "and recipient has restricted communications" do
-      let(:recipient) { create(:user, direct_message_types: "followed-only", organization:) }
+      let(:recipient) { create(:user, :confirmed, direct_message_types: "followed-only", organization:) }
 
       context "and recipient does not follow user" do
         it "redirects user with access error" do
@@ -301,7 +301,7 @@ describe "Conversations", type: :system do
 
   describe "when having a conversation with multiple participants" do
     context "and it is with only one participant" do
-      let(:user1) { create(:user, organization:) }
+      let(:user1) { create(:user, :confirmed, organization:) }
       let!(:conversation2) do
         Decidim::Messaging::Conversation.start!(
           originator: user,
@@ -350,9 +350,9 @@ describe "Conversations", type: :system do
     end
 
     context "and it is with four participants" do
-      let(:user1) { create(:user, organization:) }
-      let(:user2) { create(:user_group, organization:) }
-      let(:user3) { create(:user, organization:) }
+      let(:user1) { create(:user, :confirmed, organization:) }
+      let(:user2) { create(:user_group, :confirmed, :verified, organization:) }
+      let(:user3) { create(:user, :confirmed, organization:) }
       let!(:conversation4) do
         Decidim::Messaging::Conversation.start!(
           originator: user,
@@ -410,15 +410,15 @@ describe "Conversations", type: :system do
     end
 
     context "and it is with ten participants" do
-      let(:user1) { create(:user, organization:) }
-      let(:user2) { create(:user_group, organization:) }
-      let(:user3) { create(:user, organization:) }
-      let(:user4) { create(:user, organization:) }
-      let(:user5) { create(:user, organization:) }
-      let(:user6) { create(:user, organization:) }
-      let(:user7) { create(:user, organization:) }
-      let(:user8) { create(:user, organization:) }
-      let(:user9) { create(:user, organization:) }
+      let(:user1) { create(:user, :confirmed, organization:) }
+      let(:user2) { create(:user_group, :confirmed, :verified, organization:) }
+      let(:user3) { create(:user, :confirmed, organization:) }
+      let(:user4) { create(:user, :confirmed, organization:) }
+      let(:user5) { create(:user, :confirmed, organization:) }
+      let(:user6) { create(:user, :confirmed, organization:) }
+      let(:user7) { create(:user, :confirmed, organization:) }
+      let(:user8) { create(:user, :confirmed, organization:) }
+      let(:user9) { create(:user, :confirmed, organization:) }
       let!(:conversation10) do
         Decidim::Messaging::Conversation.start!(
           originator: user,

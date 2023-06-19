@@ -198,7 +198,7 @@ describe "Proposals", type: :system do
         end
 
         context "when the user has verified organizations" do
-          let(:user_group) { create(:user_group, :verified, organization:) }
+          let(:user_group) { create(:user_group, :confirmed, :verified, organization:) }
           let(:user_group_proposal_draft) { create(:proposal, :draft, users: [user], component:, title: "More sidewalks and less roads", body: "Cities need more people, not more cars") }
 
           before do

@@ -20,8 +20,8 @@ shared_examples "a proposal form" do |options|
       { en: "Everything would be better" }
     end
   end
-  let(:author) { create(:user, organization:) }
-  let(:user_group) { create(:user_group, :verified, users: [author], organization:) }
+  let(:author) { create(:user, :confirmed, organization:) }
+  let(:user_group) { create(:user_group, :confirmed, :verified, users: [author], organization:) }
   let(:user_group_id) { user_group.id }
   let(:category) { create(:category, participatory_space:) }
   let(:parent_scope) { create(:scope, organization:) }

@@ -54,7 +54,7 @@ describe "User edits a debate", type: :system do
 
     context "when editing as a user group" do
       let(:author) { user }
-      let!(:user_group) { create(:user_group, :verified, organization:, users: [user]) }
+      let!(:user_group) { create(:user_group, :confirmed, :verified, organization:, users: [user]) }
       let!(:debate) do
         create(
           :debate,

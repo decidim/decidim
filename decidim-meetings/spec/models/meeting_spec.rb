@@ -146,7 +146,7 @@ module Decidim::Meetings
       let(:organization) { create(:organization, available_locales: [:en]) }
       let(:participatory_process) { create(:participatory_process, organization:) }
       let(:component) { create(:component, participatory_space: participatory_process, manifest_name: "meetings") }
-      let(:author) { create(:user, organization:) }
+      let(:author) { create(:user, :confirmed, organization:) }
 
       context "when user is author" do
         let(:meeting) { create(:meeting, component:, author:, created_at: Time.current) }
@@ -162,7 +162,7 @@ module Decidim::Meetings
       end
 
       context "when user is not the author" do
-        let(:someone_else) { build(:user, organization:) }
+        let(:someone_else) { build(:user, :confirmed, organization:) }
         let(:meeting) { build(:meeting, author:, created_at: Time.current) }
 
         it { is_expected.not_to be_withdrawable_by(someone_else) }

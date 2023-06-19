@@ -320,7 +320,7 @@ FactoryBot.define do
     trait :participant_author do
       after :build do |proposal|
         proposal.coauthorships.clear
-        user = build(:user, organization: proposal.component.participatory_space.organization)
+        user = build(:user, :confirmed, organization: proposal.component.participatory_space.organization)
         proposal.coauthorships.build(author: user)
       end
     end
@@ -328,8 +328,8 @@ FactoryBot.define do
     trait :user_group_author do
       after :build do |proposal|
         proposal.coauthorships.clear
-        user = create(:user, organization: proposal.component.participatory_space.organization)
-        user_group = create(:user_group, :verified, organization: user.organization, users: [user])
+        user = create(:user, :confirmed, organization: proposal.component.participatory_space.organization)
+        user_group = create(:user_group, :confirmed, :verified, organization: user.organization, users: [user])
         proposal.coauthorships.build(author: user, user_group:)
       end
     end
@@ -408,7 +408,7 @@ FactoryBot.define do
     trait :with_endorsements do
       after :create do |proposal|
         5.times.collect do
-          create(:endorsement, resource: proposal, author: build(:user, organization: proposal.participatory_space.organization))
+          create(:endorsement, resource: proposal, author: build(:user, :confirmed, organization: proposal.participatory_space.organization))
         end
       end
     end
@@ -434,20 +434,20 @@ FactoryBot.define do
 
   factory :proposal_vote, class: "Decidim::Proposals::ProposalVote" do
     proposal { build(:proposal) }
-    author { build(:user, organization: proposal.organization) }
+    author { build(:user, :confirmed, organization: proposal.organization) }
   end
 
   factory :proposal_amendment, class: "Decidim::Amendment" do
     amendable { build(:proposal) }
     emendation { build(:proposal, component: amendable.component) }
-    amender { build(:user, organization: amendable.component.participatory_space.organization) }
+    amender { build(:user, :confirmed, organization: amendable.component.participatory_space.organization) }
     state { Decidim::Amendment::STATES.keys.sample }
   end
 
   factory :proposal_note, class: "Decidim::Proposals::ProposalNote" do
     body { Faker::Lorem.sentences(number: 3).join("\n") }
     proposal { build(:proposal) }
-    author { build(:user, organization: proposal.organization) }
+    author { build(:user, :confirmed, organization: proposal.organization) }
   end
 
   factory :collaborative_draft, class: "Decidim::Proposals::CollaborativeDraft" do
@@ -465,7 +465,7 @@ FactoryBot.define do
 
     after(:build) do |collaborative_draft, evaluator|
       if collaborative_draft.component
-        users = evaluator.users || [create(:user, organization: collaborative_draft.component.participatory_space.organization)]
+        users = evaluator.users || [create(:user, :confirmed, organization: collaborative_draft.component.participatory_space.organization)]
         users.each_with_index do |user, idx|
           user_group = evaluator.user_groups[idx]
           collaborative_draft.coauthorships.build(author: user, user_group:)
@@ -476,7 +476,7 @@ FactoryBot.define do
     trait :participant_author do
       after :build do |draft|
         draft.coauthorships.clear
-        user = build(:user, organization: draft.component.participatory_space.organization)
+        user = build(:user, :confirmed, organization: draft.component.participatory_space.organization)
         draft.coauthorships.build(author: user)
       end
     end

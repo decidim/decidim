@@ -4,7 +4,7 @@ require "spec_helper"
 
 shared_examples_for "endorsable" do
   context "when endorsable" do
-    let(:user) { create(:user, organization: subject.organization) }
+    let(:user) { create(:user, :confirmed, organization: subject.organization) }
 
     describe "#endorsed_by?" do
       context "with User endorsement" do
@@ -19,7 +19,7 @@ shared_examples_for "endorsable" do
       end
 
       context "with Organization endorsement" do
-        let!(:user_group) { create(:user_group, verified_at: Time.current, organization: user.organization) }
+        let!(:user_group) { create(:user_group, :confirmed, verified_at: Time.current, organization: user.organization) }
         let!(:membership) { create(:user_group_membership, user:, user_group:) }
 
         before { user_group.reload }
@@ -53,7 +53,7 @@ shared_examples_for "endorsable" do
           end
 
           context "with another organization" do
-            let!(:another_user_group) { create(:user_group, verified_at: Time.current, organization: user.organization) }
+            let!(:another_user_group) { create(:user_group, :confirmed, verified_at: Time.current, organization: user.organization) }
             let!(:another_membership) { create(:user_group_membership, user:, user_group: another_user_group) }
 
             before { another_user_group.reload }

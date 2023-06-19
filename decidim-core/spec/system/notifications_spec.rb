@@ -115,7 +115,7 @@ describe "Notifications", type: :system do
   context "with user group mentioned notifications" do
     let(:event_class) { "Decidim::Comments::UserGroupMentionedEvent" }
     let(:event_name) { "decidim.events.comments.user_group_mentioned" }
-    let(:extra) { { comment_id: create(:comment).id, group_id: create(:user_group).id } }
+    let(:extra) { { comment_id: create(:comment).id, group_id: create(:user_group, :confirmed, :verified).id } }
     let!(:notification) { create(:notification, user:, event_class:, event_name:, extra:) }
 
     before do

@@ -81,7 +81,7 @@ module Decidim::Assemblies
       end
 
       context "when is an existing user in the platform" do
-        let!(:user) { create(:user, organization: assembly.organization) }
+        let!(:user) { create(:user, :confirmed, organization: assembly.organization) }
         let(:existing_user) { true }
 
         it "sets the user" do

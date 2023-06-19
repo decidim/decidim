@@ -28,6 +28,7 @@ describe "endorse posts", type: :system do
     let!(:user_group) do
       create(
         :user_group,
+        :confirmed,
         :verified,
         name: "Tester's Organization",
         nickname: "test_org",

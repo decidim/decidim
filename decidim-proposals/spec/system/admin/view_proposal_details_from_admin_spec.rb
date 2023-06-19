@@ -25,7 +25,7 @@ describe "Admin views proposal details from admin", type: :system do
 
   describe "with authors" do
     context "when the proposal's author is other user" do
-      let!(:other_user) { create(:user, organization: current_component.organization) }
+      let!(:other_user) { create(:user, :confirmed, organization: current_component.organization) }
       let!(:proposal) { create(:proposal, component: current_component, users: [other_user]) }
 
       it "has a link to each author profile" do
@@ -113,7 +113,7 @@ describe "Admin views proposal details from admin", type: :system do
   describe "with endorsements" do
     let!(:endorsements) do
       2.times.collect do
-        create(:endorsement, resource: proposal, author: build(:user, organization:))
+        create(:endorsement, resource: proposal, author: build(:user, :confirmed, organization:))
       end
     end
 
@@ -125,7 +125,7 @@ describe "Admin views proposal details from admin", type: :system do
 
     it "shows the ranking by endorsements" do
       another_proposal = create(:proposal, component:)
-      create(:endorsement, resource: another_proposal, author: build(:user, organization:))
+      create(:endorsement, resource: another_proposal, author: build(:user, :confirmed, organization:))
       go_to_admin_proposal_page(proposal)
 
       expect(page).to have_content("Ranking by endorsements: 1 of")
@@ -145,7 +145,7 @@ describe "Admin views proposal details from admin", type: :system do
     context "with more than 5 endorsements" do
       let!(:endorsements) do
         6.times.collect do
-          create(:endorsement, resource: proposal, author: build(:user, organization:))
+          create(:endorsement, resource: proposal, author: build(:user, :confirmed, organization:))
         end
       end
 

@@ -83,7 +83,7 @@ describe "Explore posts", type: :system do
     end
 
     context "when author is a user_group" do
-      let(:author) { create(:user_group, :verified, organization:) }
+      let(:author) { create(:user_group, :confirmed, :verified, organization:) }
 
       it "shows user group as the author" do
         within ".author__name" do

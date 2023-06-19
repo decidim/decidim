@@ -6,7 +6,7 @@ describe "Process admin manages post", type: :system do
   let(:manifest_name) { "blogs" }
   let!(:post1) { create(:post, component: current_component, author:, title: { en: "Post title 1" }) }
   let!(:post2) { create(:post, component: current_component, title: { en: "Post title 2" }) }
-  let(:author) { create(:user, organization:) }
+  let(:author) { create(:user, :confirmed, organization:) }
 
   include_context "when managing a component as a process admin"
 

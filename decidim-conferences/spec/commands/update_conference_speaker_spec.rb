@@ -127,7 +127,7 @@ module Decidim::Conferences
       end
 
       context "when is an existing user in the platform" do
-        let!(:user) { create(:user, organization: conference.organization) }
+        let!(:user) { create(:user, :confirmed, organization: conference.organization) }
         let!(:user_id) { user.id }
 
         it "sets the user" do

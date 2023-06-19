@@ -5,8 +5,8 @@ require "spec_helper"
 shared_examples_for "coauthorable" do
   describe "authorable interface" do
     let!(:creator_author) { coauthorable.authors.first }
-    let(:other_authors) { create_list(:user, 5, organization: coauthorable.component.participatory_space.organization) }
-    let(:other_user_groups) { create_list(:user_group, 5, :verified, organization: creator_author.organization, users: [creator_author]) }
+    let(:other_authors) { create_list(:user, 5, :confirmed, organization: coauthorable.component.participatory_space.organization) }
+    let(:other_user_groups) { create_list(:user_group, 5, :confirmed, :verified, organization: creator_author.organization, users: [creator_author]) }
 
     describe "authors" do
       context "when there is one author" do
@@ -34,6 +34,7 @@ shared_examples_for "coauthorable" do
     describe "user_groups" do
       let(:user_group) do
         create(:user_group,
+               :confirmed,
                :verified,
                organization: creator_author.organization,
                users: [creator_author])

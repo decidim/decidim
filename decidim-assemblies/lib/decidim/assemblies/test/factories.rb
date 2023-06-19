@@ -178,7 +178,7 @@ FactoryBot.define do
     end
 
     trait :with_user do
-      user { create(:user, organization: assembly.organization) }
+      user { create(:user, :confirmed, organization: assembly.organization) }
     end
   end
 end

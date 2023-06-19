@@ -2,13 +2,13 @@
 
 shared_context "when sends the notification digest" do
   context "when daily notification mail" do
-    let(:user) { create(:user, :admin, organization:, notifications_sending_frequency: "daily") }
+    let(:user) { create(:user, :confirmed, :admin, organization:, notifications_sending_frequency: "daily") }
 
     it_behaves_like "notification digest mail"
   end
 
   context "when weekly notification mail" do
-    let(:user) { create(:user, :admin, organization:, notifications_sending_frequency: "weekly") }
+    let(:user) { create(:user, :confirmed, :admin, organization:, notifications_sending_frequency: "weekly") }
 
     it_behaves_like "notification digest mail"
   end

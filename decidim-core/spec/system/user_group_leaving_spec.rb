@@ -4,7 +4,7 @@ require "spec_helper"
 
 describe "User group leaving", type: :system do
   let!(:user) { create(:user, :confirmed) }
-  let!(:user_group) { create(:user_group, users: [], organization: user.organization) }
+  let!(:user_group) { create(:user_group, :confirmed, :verified, users: [], organization: user.organization) }
 
   before do
     switch_to_host(user_group.organization.host)
@@ -14,7 +14,7 @@ describe "User group leaving", type: :system do
 
   context "when the user already belongs to the group" do
     context "when the user is the creator" do
-      let!(:user_group) { create(:user_group, users: [user], organization: user.organization) }
+      let!(:user_group) { create(:user_group, :confirmed, :verified, users: [user], organization: user.organization) }
 
       it "cannot leave group" do
         accept_confirm { click_link "Leave group" }
