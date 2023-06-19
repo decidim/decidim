@@ -39,7 +39,7 @@ module Decidim
     #
     # @return [Faraday::Response] An instance that represents an HTTP response from making an HTTP request
     def pull_request_metadata
-      Decidim::GithubManager::Querier.new(
+      Decidim::GithubManager::Querier::ByIssueId.new(
         token:,
         issue_id: pull_request_id
       ).call
