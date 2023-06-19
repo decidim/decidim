@@ -187,7 +187,7 @@ Decidim.register_participatory_space(:participatory_processes) do |participatory
           organization:,
           confirmed_at: Time.current,
           locale: I18n.default_locale,
-          tos_agreement: true
+          accepted_tos_version: organization.tos_version
         )
 
         Decidim::ParticipatoryProcessUserRole.find_or_create_by!(

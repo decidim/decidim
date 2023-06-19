@@ -271,9 +271,9 @@ Decidim.register_component(:proposals) do |component|
 
         coauthor = case n
                    when 0
-                     Decidim::User.where(decidim_organization_id: participatory_space.decidim_organization_id).order(Arel.sql("RANDOM()")).first
+                     Decidim::User.visible.where(decidim_organization_id: participatory_space.decidim_organization_id).order(Arel.sql("RANDOM()")).first
                    when 1
-                     Decidim::UserGroup.where(decidim_organization_id: participatory_space.decidim_organization_id).order(Arel.sql("RANDOM()")).first
+                     Decidim::UserGroup.visible.where(decidim_organization_id: participatory_space.decidim_organization_id).order(Arel.sql("RANDOM()")).first
                    when 2
                      Decidim::Meetings::Meeting.where(component: meeting_component).order(Arel.sql("RANDOM()")).first
                    else
@@ -295,7 +295,7 @@ Decidim.register_component(:proposals) do |component|
           name:,
           nickname: Faker::Twitter.unique.screen_name,
           organization: component.organization,
-          tos_agreement: "1",
+          accepted_tos_version: component.organization.tos_version,
           confirmed_at: Time.current
         )
 
@@ -361,7 +361,7 @@ Decidim.register_component(:proposals) do |component|
           name:,
           nickname: Faker::Twitter.unique.screen_name,
           organization: component.organization,
-          tos_agreement: "1",
+          accepted_tos_version: component.organization.tos_version,
           confirmed_at: Time.current,
           personal_url: Faker::Internet.url,
           about: Faker::Lorem.paragraph(sentence_count: 2)
@@ -383,7 +383,7 @@ Decidim.register_component(:proposals) do |component|
             name:,
             nickname: Faker::Twitter.unique.screen_name,
             organization: component.organization,
-            tos_agreement: "1",
+            accepted_tos_version: component.organization.tos_version,
             confirmed_at: Time.current
           )
           if index.even?

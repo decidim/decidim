@@ -212,7 +212,7 @@ Decidim.register_component(:meetings) do |component|
           name:,
           nickname: Faker::Twitter.unique.screen_name,
           organization: component.organization,
-          tos_agreement: "1",
+          accepted_tos_version: component.organization.tos_version,
           confirmed_at: Time.current,
           personal_url: Faker::Internet.url,
           about: Faker::Lorem.paragraph(sentence_count: 2)
