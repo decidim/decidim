@@ -1,5 +1,5 @@
 <div class="profile__user-avatar-container">
-  <div class="profile__user-avatar">
+  <div class="<%= has_profile? ? "profile__user-avatar" : "profile__user-avatar !border-0" %>">
     <%= image_tag(has_profile? ? model.avatar_url(:big) : model.non_user_avatar_path, alt: "member-avatar") %>
   </div>
 </div>
