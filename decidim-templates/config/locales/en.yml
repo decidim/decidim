@@ -31,6 +31,10 @@ en:
         template_types:
           questionnaires: Questionnaire templates
         templates: Templates
+        questionnaires_templates: Questionnaire templates
+        new_questionnaires_templates: New questionnaire templates
+        block_user_templates: Block user templates
+        new_blocked_user_message: New blocked user message
     models:
       questionnaire_template:
         fields:
