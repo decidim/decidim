@@ -4,10 +4,13 @@ require "decidim/github_manager/querier"
 require "webmock/rspec"
 
 describe Decidim::GithubManager::Querier::ByLabel do
-  let(:querier) { described_class.new(token: "abc", label: "type: fix", exclude_label: "backport") }
+  let(:querier) { described_class.new(token: "abc") }
+  let(:date) { Date.new(2020, 1, 1) }
+  let(:stubbed_url) { "https://api.github.com/repos/decidim/decidim/issues?labels=type:%20fix&since=2019-10-03&state=closed" }
 
   before do
-    stub_request(:get, "https://api.github.com/repos/decidim/decidim/issues?labels=type:%20fix&since=2023-06-09&state=closed")
+    allow(Date).to receive(:today).and_return(date)
+    stub_request(:get, stubbed_url)
       .to_return(status: 200, body: stubbed_response, headers: {})
   end
 
