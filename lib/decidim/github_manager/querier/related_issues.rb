@@ -38,10 +38,12 @@ module Decidim
             item["event"] == "cross-referenced"
           end
           references.map do |item|
+            issue = item["source"]["issue"]
+
             {
-              id: item["source"]["issue"]["number"],
-              title: item["source"]["issue"]["title"],
-              state: item["source"]["issue"]["state"]
+              id: issue["number"],
+              title: issue["title"],
+              state: issue.dig("pull_request", "merged_at") != nil ? "merged" : issue["state"]
             }
           end
         end
