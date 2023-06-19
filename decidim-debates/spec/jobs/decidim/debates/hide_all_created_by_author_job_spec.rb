@@ -6,8 +6,8 @@ describe Decidim::Debates::HideAllCreatedByAuthorJob do
   subject { described_class }
 
   let(:organization) { create(:organization) }
-  let(:author) { create(:user, organization:) }
-  let(:current_user) { create(:user, :admin, :confirmed, organization:) }
+  let(:author) { create(:user, :confirmed, organization:) }
+  let(:current_user) { create(:user, :confirmed, :admin, :confirmed, organization:) }
   let(:component) { create(:debates_component, organization:) }
   let!(:debate) { create(:debate, component:, author:) }
   let!(:debate2) { create(:debate, component:) }

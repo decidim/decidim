@@ -315,7 +315,7 @@ describe "Participatory Process Groups", type: :system do
       let!(:proposals_component) { create(:component, :published, participatory_space: process, manifest_name: :proposals) }
       let!(:other_process_proposals_component) { create(:component, :published, participatory_space: other_process, manifest_name: :proposals) }
       let!(:other_process_meetings_component) { create(:component, :published, participatory_space: other_process, manifest_name: :meetings) }
-      let!(:user) { create(:user, organization:) }
+      let!(:user) { create(:user, :confirmed, organization:) }
 
       before do
         create_list(:proposal, 3, component: proposals_component)

@@ -15,7 +15,7 @@ describe Decidim::Proposals::Metrics::ProposalParticipantsMetricMeasure do
   let!(:old_proposal_votes) { create_list(:proposal_vote, 5, created_at: day - 1.week, proposal: old_proposal) }
   let!(:proposal_endorsements) do
     5.times.collect do
-      create(:endorsement, created_at: day, resource: proposal, author: build(:user, organization:))
+      create(:endorsement, created_at: day, resource: proposal, author: build(:user, :confirmed, organization:))
     end
   end
   # TOTAL Participants for Proposals:

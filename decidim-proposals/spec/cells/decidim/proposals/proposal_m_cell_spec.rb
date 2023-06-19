@@ -15,7 +15,7 @@ module Decidim::Proposals
     let(:component) { create(:proposal_component, :with_attachments_allowed) }
     let!(:proposal) { create(:proposal, component:, created_at:, published_at:) }
     let(:model) { proposal }
-    let(:user) { create(:user, organization: proposal.participatory_space.organization) }
+    let(:user) { create(:user, :confirmed, organization: proposal.participatory_space.organization) }
     let!(:emendation) { create(:proposal) }
     let!(:amendment) { create(:amendment, amendable: proposal, emendation:) }
 
@@ -118,7 +118,7 @@ module Decidim::Proposals
       context "when new endorsement" do
         it "generate a different hash" do
           old_hash = my_cell.send(:cache_hash)
-          create(:endorsement, resource: proposal, author: build(:user, organization: proposal.participatory_space.organization))
+          create(:endorsement, resource: proposal, author: build(:user, :confirmed, organization: proposal.participatory_space.organization))
 
           expect(my_cell.send(:cache_hash)).not_to eq(old_hash)
         end
@@ -169,7 +169,7 @@ module Decidim::Proposals
       end
 
       context "when followers changes" do
-        let(:another_user) { create(:user, organization: proposal.participatory_space.organization) }
+        let(:another_user) { create(:user, :confirmed, organization: proposal.participatory_space.organization) }
 
         it "generate a different hash" do
           old_hash = my_cell.send(:cache_hash)

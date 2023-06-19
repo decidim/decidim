@@ -7,7 +7,7 @@ module Decidim
     module Admin
       describe CreateSortition do
         let(:organization) { create(:organization) }
-        let(:author) { create(:user, :admin, organization:) }
+        let(:author) { create(:user, :confirmed, :admin, organization:) }
         let(:participatory_process) { create(:participatory_process, organization:) }
         let(:proposal_component) { create(:proposal_component, participatory_space: participatory_process) }
         let(:dice) { ::Faker::Number.between(from: 1, to: 6) }
@@ -266,7 +266,7 @@ module Decidim
           end
 
           it "sends a notification to the participatory space followers" do
-            follower = create(:user, organization:)
+            follower = create(:user, :confirmed, organization:)
             create(:follow, followable: participatory_process, user: follower)
 
             expect(Decidim::EventsManager)

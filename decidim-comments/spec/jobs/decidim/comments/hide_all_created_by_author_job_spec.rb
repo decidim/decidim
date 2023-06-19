@@ -6,7 +6,7 @@ describe Decidim::Comments::HideAllCreatedByAuthorJob do
   subject { described_class }
 
   let(:organization) { create(:organization) }
-  let(:author) { create(:user, organization:) }
+  let(:author) { create(:user, :confirmed, organization:) }
   let(:current_user) { create(:user, :admin, :confirmed, organization:) }
   let(:participatory_process) { create(:participatory_process, organization:) }
   let(:component) { create(:component, participatory_space: participatory_process) }

@@ -69,7 +69,7 @@ describe Decidim::Meetings::MeetingsController, type: :controller do
     end
 
     context "when current user is NOT the author of the meeting" do
-      let(:current_user) { create(:user, organization: meeting_component.organization) }
+      let(:current_user) { create(:user, :confirmed, organization: meeting_component.organization) }
       let(:meeting) { create(:meeting, component: meeting_component, author: current_user) }
 
       it "is not able to withdraw the meeting" do

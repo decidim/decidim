@@ -5,7 +5,7 @@ require "spec_helper"
 module Decidim
   describe EndorseResource do
     let(:resource) { create(:dummy_resource) }
-    let!(:current_user) { create(:user, organization: resource.component.organization) }
+    let!(:current_user) { create(:user, :confirmed, organization: resource.component.organization) }
 
     describe "User endorses resource" do
       let(:command) { described_class.new(resource, current_user) }
@@ -61,7 +61,7 @@ module Decidim
     end
 
     describe "Organization endorses resource" do
-      let(:user_group) { create(:user_group, verified_at: Time.current, users: [current_user]) }
+      let(:user_group) { create(:user_group, :confirmed, :verified, users: [current_user]) }
       let(:command) { described_class.new(resource, current_user, user_group.id) }
 
       context "when in normal conditions" do

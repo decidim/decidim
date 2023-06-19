@@ -61,7 +61,7 @@ module Decidim
     end
 
     context "when user is officialized" do
-      let(:user) { build(:user, :officialized) }
+      let(:user) { build(:user, :confirmed, :officialized) }
 
       describe "#badge" do
         subject { described_class.new(user).badge }
@@ -77,12 +77,12 @@ module Decidim
     end
 
     context "when user is deleted" do
-      let(:user) { build(:user, :deleted) }
+      let(:user) { build(:user, :confirmed, :deleted) }
 
       describe "#profile_path" do
         subject { described_class.new(user).profile_path }
 
-        it { is_expected.to eq("") }
+        it { is_expected.to eq("/") }
       end
     end
 

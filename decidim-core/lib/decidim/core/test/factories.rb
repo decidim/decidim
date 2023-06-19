@@ -538,7 +538,7 @@ FactoryBot.define do
     trait :with_endorsements do
       after :create do |resource|
         5.times.collect do
-          create(:endorsement, resource:, author: build(:user, organization: resource.component.organization))
+          create(:endorsement, resource:, author: build(:user, :confirmed, organization: resource.component.organization))
         end
       end
     end
@@ -554,7 +554,7 @@ FactoryBot.define do
     component { create(:component, manifest_name: "dummy") }
 
     transient do
-      authors_list { [create(:user, organization: component.organization)] }
+      authors_list { [create(:user, :confirmed, organization: component.organization)] }
     end
 
     after :build do |resource, evaluator|
@@ -767,13 +767,13 @@ FactoryBot.define do
 
   factory :endorsement, class: "Decidim::Endorsement" do
     resource { build(:dummy_resource) }
-    author { resource.try(:creator_author) || resource.try(:author) || build(:user, organization: resource.organization) }
+    author { resource.try(:creator_author) || resource.try(:author) || build(:user, :confirmed, organization: resource.organization) }
   end
 
   factory :user_group_endorsement, class: "Decidim::Endorsement" do
     resource { build(:dummy_resource) }
-    author { build(:user, organization: resource.organization) }
-    user_group { create(:user_group, verified_at: Time.current, organization: resource.organization, users: [author]) }
+    author { build(:user, :confirmed, organization: resource.organization) }
+    user_group { create(:user_group, :confirmed, :verified, organization: resource.organization, users: [author]) }
   end
 
   factory :share_token, class: "Decidim::ShareToken" do

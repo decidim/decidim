@@ -10,7 +10,7 @@ describe "Homepage", type: :system do
   let!(:moderation) { create(:moderation, reportable: meetings.first, hidden_at: 1.day.ago) }
 
   let(:day) { Time.zone.yesterday }
-  let(:author) { create(:user, organization: component.organization) }
+  let(:author) { create(:user, :confirmed, organization: component.organization) }
   let!(:comments) { create_list(:comment, 5, created_at: day, author:, commentable: meetings.last) }
   let!(:comment_moderation) { create(:moderation, reportable: comments.last, hidden_at: 1.day.ago) }
 

@@ -3,7 +3,7 @@
 shared_examples "create an initiative" do
   let(:initiative_type) { create(:initiatives_type) }
   let(:scoped_type) { create(:initiatives_type_scope, type: initiative_type) }
-  let(:author) { create(:user, organization: initiative_type.organization) }
+  let(:author) { create(:user, :confirmed, organization: initiative_type.organization) }
   let(:form) do
     form_klass
       .from_params(form_params)

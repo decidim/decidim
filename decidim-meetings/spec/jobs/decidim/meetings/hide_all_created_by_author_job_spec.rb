@@ -6,8 +6,8 @@ describe Decidim::Meetings::HideAllCreatedByAuthorJob do
   subject { described_class }
 
   let(:organization) { create(:organization) }
-  let(:author) { create(:user, organization:) }
-  let(:current_user) { create(:user, :admin, :confirmed, organization:) }
+  let(:author) { create(:user, :confirmed, organization:) }
+  let(:current_user) { create(:user, :confirmed, :admin, :confirmed, organization:) }
   let(:participatory_process) { create(:participatory_process, organization:) }
   let(:component) { create(:component, :published, manifest_name: :meetings, participatory_space: participatory_process) }
   let!(:meeting) { create(:meeting, component:, author:) }

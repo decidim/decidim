@@ -5,7 +5,7 @@ require "spec_helper"
 describe Decidim::Initiatives::Permissions do
   subject { described_class.new(user, permission_action, context).permissions.allowed? }
 
-  let(:user) { create(:user, organization:) }
+  let(:user) { create(:user, :confirmed, organization:) }
   let(:organization) { create(:organization) }
   let(:initiative) { create(:initiative, organization:) }
   let(:context) { {} }

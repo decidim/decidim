@@ -5,7 +5,7 @@ require "spec_helper"
 describe Decidim::Sortitions::Permissions do
   subject { described_class.new(user, permission_action, context).permissions.allowed? }
 
-  let(:user) { create(:user, organization: sortition_component.organization) }
+  let(:user) { create(:user, :confirmed, organization: sortition_component.organization) }
   let(:context) do
     {
       current_component: sortition_component,

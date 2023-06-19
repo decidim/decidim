@@ -39,7 +39,7 @@ module Decidim
 
         let(:scoped_type) { create(:initiatives_type_scope) }
         let(:organization) { scoped_type.type.organization }
-        let(:author) { create(:user, organization:) }
+        let(:author) { create(:user, :confirmed, organization:) }
         let(:form) do
           form_klass
             .from_params(form_params)
@@ -58,7 +58,7 @@ module Decidim
             decidim_user_group_id: nil
           }
         end
-        let(:follower) { create(:user, organization:) }
+        let(:follower) { create(:user, :confirmed, organization:) }
         let!(:follow) { create(:follow, followable: author, user: follower) }
 
         it "does not notify author about committee request" do

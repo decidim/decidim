@@ -4,7 +4,7 @@ require "spec_helper"
 
 describe "User activity", type: :system do
   let(:organization) { create(:organization) }
-  let(:comment) { create(:comment) }
+  let(:comment) { create(:comment, commentable: resource, author: user) }
   let(:user) { create(:user, :confirmed, organization:) }
 
   let!(:action_log) do

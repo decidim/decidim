@@ -138,6 +138,7 @@ module Decidim
     end
 
     def profile_visible?
+      return true if model.respond_to?(:visible?) && model.visible?
       return true if raw_model.respond_to?(:visible?) && raw_model.visible?
 
       raw_model.respond_to?(:deleted?) && raw_model.deleted?

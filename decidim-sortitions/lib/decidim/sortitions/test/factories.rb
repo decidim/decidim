@@ -17,7 +17,7 @@ FactoryBot.define do
 
     title { generate_localized_title }
     author do
-      create(:user, :admin, organization: component.organization) if component
+      create(:user, :confirmed, :admin, organization: component.organization) if component
     end
 
     dice { Faker::Number.between(from: 1, to: 6).to_i }
@@ -31,7 +31,7 @@ FactoryBot.define do
     trait :cancelled do
       cancelled_on { Time.now.utc }
       cancel_reason { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
-      cancelled_by_user { create(:user, :admin, organization: component.organization) if component }
+      cancelled_by_user { create(:user, :confirmed, :admin, organization: component.organization) if component }
     end
   end
 end

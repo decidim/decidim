@@ -9,8 +9,8 @@ module Decidim
     let!(:organization) { create(:organization) }
     let!(:component) { create(:component, organization:, manifest_name: "dummy") }
     let!(:participatory_process) { create(:participatory_process, organization:) }
-    let!(:author) { create(:user, organization:) }
-    let!(:user_group) { create(:user_group, verified_at: Time.current, organization:, users: [author]) }
+    let!(:author) { create(:user, :confirmed, organization:) }
+    let!(:user_group) { create(:user_group, :confirmed, :verified, organization:, users: [author]) }
     let!(:resource) { create(:dummy_resource, component:, users: [author]) }
     let!(:endorsement) do
       build(:endorsement, resource:, author:,
@@ -62,7 +62,7 @@ module Decidim
     end
 
     context "when resource and author have different organization" do
-      let(:other_author) { create(:user) }
+      let(:other_author) { create(:user, :confirmed) }
       let(:other_resource) { create(:dummy_resource) }
 
       it "is invalid" do
@@ -76,7 +76,7 @@ module Decidim
         endorsement.save!
       end
 
-      let!(:other_user_group) { create(:user_group, verified_at: Time.current, organization: author.organization, users: [author]) }
+      let!(:other_user_group) { create(:user_group, :confirmed, :verified, organization: author.organization, users: [author]) }
       let!(:other_endorsement1) do
         create(:endorsement, resource:, author:)
       end

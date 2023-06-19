@@ -6,14 +6,14 @@ describe Decidim::Proposals::HideAllCreatedByAuthorJob do
   subject { described_class }
 
   let(:organization) { create(:organization) }
-  let(:author) { create(:user, organization:) }
-  let(:current_user) { create(:user, :admin, :confirmed, organization:) }
+  let(:author) { create(:user, :confirmed, organization:) }
+  let(:current_user) { create(:user, :confirmed, :admin, :confirmed, organization:) }
   let(:participatory_process) { create(:participatory_process, organization:) }
   let(:component) { create(:proposal_component, organization:) }
   let(:proposal) { create(:proposal, component:, users: [author]) }
   let(:proposal2) { create(:proposal, component:) }
   let(:collaborative_drafts_component) { create(:proposal_component, :with_collaborative_drafts_enabled, organization:) }
-  let(:authors) { create_list(:user, 5, organization:) }
+  let(:authors) { create_list(:user, 5, :confirmed, organization:) }
   let(:collaborative_draft) { create(:collaborative_draft, component: collaborative_drafts_component, users: [author]) }
   let(:collaborative_draft2) { create(:collaborative_draft, component: collaborative_drafts_component) }
 
