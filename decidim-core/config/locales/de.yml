@@ -75,6 +75,7 @@ de:
     'true': 'Ja'
   carrierwave:
     errors:
+      file_cannot_be_processed: Datei konnte nicht verarbeitet werden
       file_resolution_too_large: Die Datei-Auflösung ist zu groß
       file_size_too_large: Datei ist zu groß
       not_inside_organization: Die Datei ist keiner Organisation hinzugefügt
@@ -125,6 +126,7 @@ de:
         resend_error: Bestätigungs-E-Mail konnte nicht erneut gesendet werden.
         resend_successfully: Die Bestätigungs-E-Mail wurde erfolgreich an %{unconfirmed_email} gesendet
         send_again: Erneut senden
+        title: E-Mail-Verifizierung
       show:
         available_locales_helper: Wählen Sie die Sprache aus, in der Sie Decidim verwenden und Benachrichtigungen erhalten möchten
         change_password: Passwort ändern
@@ -190,6 +192,7 @@ de:
         update: "%{user_name} hat die OAuth-Applikation %{resource_name} aktualisiert"
       organization:
         update: "%{user_name} hat die Organisationseinstellungen aktualisiert"
+        update_external_domain: "%{user_name} hat die externe Domains der Organisation aktualisiert"
       participatory_space_private_user:
         create: "%{user_name} hat %{resource_name} als privaten Benutzer eingeladen"
         create_via_csv: "%{user_name} hat %{resource_name} per CSV als privaten Teilnehmer eingeladen"
@@ -201,6 +204,10 @@ de:
         delete_with_parent: "%{user_name} hat den Bereich %{resource_name} aus dem übergeordneten Bereich %{parent_scope} gelöscht"
         update: "%{user_name} hat den Bereich %{resource_name} aktualisiert"
         update_with_parent: "%{user_name} hat den Bereich %{resource_name} im übergeordneten Bereich %{parent_scope} aktualisiert"
+      scope_type:
+        create: "%{user_name} hat den Thementyp %{resource_name} erstellt"
+        delete: "%{user_name} hat den Thementyp %{resource_name} gelöscht"
+        update: "%{user_name} hat den Thementyp %{resource_name} aktualisiert"
       static_page:
         create: "%{user_name} hat die statische Seite %{resource_name} erstellt"
         delete: "%{user_name} hat die statische Seite %{resource_name} gelöscht"
@@ -216,7 +223,9 @@ de:
         unblock: "%{user_name} hat die Blockierung von %{resource_name} aufgehoben"
         unofficialize: "%{user_name} hat die offizielle Anerkennung des Benutzers %{resource_name} widerrufen"
       user_group:
+        block: "%{user_name} hat die Gruppe %{resource_name} blockiert"
         reject: "%{user_name} hat die Gruppen-Verifikation %{resource_name} abgelehnt"
+        unblock: "%{user_name} hat die Blockierung der Gruppe %{resource_name} aufgehoben"
         verify: "%{user_name} hat die Gruppe %{resource_name} verifiziert"
         verify_via_csv: "%{user_name} hat die Gruppe %{resource_name} über eine CSV-Datei verifiziert"
       user_moderation:
@@ -418,6 +427,7 @@ de:
           debate: Debatte
           initiative: Initiative
           meeting: Treffen
+          order: Budget-Abstimmung
           post: Beitrag
           proposal: Vorschlag
           question: Frage
