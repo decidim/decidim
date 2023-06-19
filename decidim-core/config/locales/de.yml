@@ -1016,7 +1016,7 @@ de:
           modal_title: Neue Unterhaltung
           no_results: Keine Ergebnisse
         error_modal:
-          close: Dialog schließen
+          close: Fenster schließen
           correct_errors: Bitte korrigiere diese Fehler und versuche es erneut.
           intro: 'Es gab folgende Fehler bei Ihrer Nachricht:'
           ok: OK
@@ -1186,6 +1186,12 @@ de:
         form:
           agreement: Ich stimme diesen Bedingungen zu
           legend: Nutzungsbedingungen zustimmen
+        refuse:
+          modal_body: Wenn Sie die Nutzungsbedingungen nicht akzeptieren, können Sie die Plattform nicht mehr nutzen. Sie können <a href="%{download_your_data_path}">Ihre persönlichen Daten herunterladen</a> und / oder <a href="%{delete_path}"> ihr Konto löschen</a>.
+          modal_btn_continue: Bedingungen akzeptieren und fortfahren
+          modal_btn_exit: Ich werde sie später prüfen
+          modal_button: Bedingungen ablehnen
+          modal_close: Fenster schließen
     participatory_space_private_users:
       not_allowed: Sie dürfen diesen Inhalt nicht sehen
     profile:
@@ -1275,7 +1281,7 @@ de:
           future: Zukunft
           past: Vergangenheit
       filters_small_view:
-        close_modal: Modal schließen
+        close_modal: Fenster schließen
         filter: Filter
         filter_by: Filtern nach
         unfold: Entfalten
@@ -1291,7 +1297,7 @@ de:
     shared:
       confirm_modal:
         cancel: Abbrechen
-        close_modal: Modal schließen
+        close_modal: Fenster schließen
         ok: Ok
         title: Bestätigen
       embed_modal:
@@ -1327,7 +1333,7 @@ de:
       follow_button:
         sign_in_before_follow: Bitte melden Sie sich an, bevor Sie diese Aktion ausführen
       login_modal:
-        close_modal: Modal schließen
+        close_modal: Fenster schließen
         please_sign_in: Bitte einloggen
         sign_up: Registrieren
       mentions_modal:
@@ -1575,6 +1581,9 @@ de:
   doorkeeper:
     scopes:
       public: Ihre öffentlichen Informationen.
+  editor:
+    inputDialog:
+      close: Fenster schließen
   emojis:
     button: Emoji hinzufügen
     categories:
@@ -1715,7 +1724,7 @@ de:
         sign_out: Ausloggen
         title: Möchten Sie ihre Sitzung fortsetzen?
       upload_modal:
-        close_modal: Modal schließen
+        close_modal: Fenster schließen
       user_menu:
         account: 'Benutzerkonto: %{name}'
         admin_dashboard: Admin-Dashboard
