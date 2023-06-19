@@ -12,11 +12,17 @@ module Decidim
     delegate :profile_url, :avatar_url, to: :user, allow_nil: true
 
     def name
-      user ? user.name : full_name
+      if user
+        return user.name if user.visible?
+
+        return
+      end
+
+      full_name
     end
 
     def nickname
-      user.nickname if user
+      user.nickname if user && user.visible?
     end
 
     def personal_information
