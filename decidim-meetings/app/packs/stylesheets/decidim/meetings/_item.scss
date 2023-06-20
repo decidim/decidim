@@ -17,7 +17,7 @@
     }
 
     &-container{
-      @apply grid grid-cols-[auto_1fr] md:grid-cols-[auto_1fr_1fr] items-center gap-0 md:gap-2 border-4 border-background rounded md:max-h-[120px];
+      @apply grid grid-cols-[auto_1fr] md:grid-cols-[auto_1fr_1fr] items-center gap-0 md:gap-2 border-4 border-background rounded md:h-[112px] overflow-hidden;
 
       > *:nth-child(2){
         @apply p-4 md:p-0;
@@ -28,7 +28,7 @@
       }
 
       > *:nth-child(3){
-        @apply order-1 md:order-2;
+        @apply order-1 md:order-2 h-[108px] md:h-full;
       }
     }
 
@@ -55,7 +55,7 @@
     }
 
     &__lg{
-      @apply w-fit flex-none justify-center [&>*]:px-2;
+      @apply w-fit justify-center [&>*]:px-2;
     }
 
     &__lg &-month{
