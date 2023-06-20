@@ -813,6 +813,7 @@ de:
         decidim/user:
           password: Das Passwort ist zu kurz.
           password_confirmation: Die Bestätigung muss mit dem Passwort übereinstimmen.
+        error: In diesem Feld ist ein Fehler aufgetreten.
       file_help:
         file:
           explanation: 'Anleitung für Datei:'
@@ -830,6 +831,8 @@ de:
         allowed_file_extensions: 'Erlaubte Dateiendungen: %{extensions}'
         max_file_dimension: 'Maximale Dateigröße: %{resolution} Pixel'
         max_file_size: 'Maximale Dateigröße: %{megabytes}MB'
+      files:
+        extension_allowlist: 'Akzeptierte Formate: %{extensions}'
       upload:
         labels:
           add_attachment: Anhang hinzufügen
@@ -863,6 +866,8 @@ de:
           description_own: "%{score} Benutzer*innen folgen dir."
           name: Follower
           next_level_in: Erhalten Sie %{score} weitere Nutzer, die Ihnen folgen, um das nächste Level zu erreichen!
+          unearned_another: Es gibt derzeit noch keine Follower.
+          unearned_own: Sie haben noch keine Follower.
         index:
           badge_title: "%{name} Abzeichen"
           how: Wie kannst du es verdienen?
@@ -870,20 +875,38 @@ de:
           title: Abzeichen
       description: Badges sind Anerkennungen für Aktionen der Teilnehmer und Fortschritt in der Plattform. Wenn Sie auf der Plattform entdecken, teilnehmen und interagieren, verdienen Sie verschiedene Abzeichen.
       level: Level %{level}
+      reached_top: Sie haben die höchste Stufe dieses Abzeichens erreicht.
+      title: Was sind Abzeichen?
     group_admins:
       actions:
+        are_you_sure: Sind Sie sicher? Dadurch wird der Teilnehmer nicht aus der Gruppe entfernt.
         demote_admin: Entferne Admin
+      demote:
+        error: Beim Entfernen dieses Teilnehmers aus der Adminliste ist ein Fehler aufgetreten.
+        success: Teilnehmer erfolgreich aus den Admins entfernt.
       index:
         current_admins: 'Aktuelle Admins:'
         manage_admins: Admins verwalten
     group_invites:
+      accept:
+        error: Beim Akzeptieren dieser Einladung ist ein Fehler aufgetreten.
+        success: Einladung erfolgreich angenommen.
       accept_invitation: Akzeptieren
       accept_or_reject_group_invitations: 'Die folgenden Gruppen haben Sie eingeladen, sich ihnen anzuschließen. Akzeptieren oder ablehnen ihrer Anfragen:'
       index:
         invite: Einladen
         invite_user: Laden Sie einen Benutzer ein
+      invite:
+        error: Bei der Einladung dieses Teilnehmers ist ein Problem aufgetreten.
+        success: Teilnehmer erfolgreich eingeladen.
+      reject:
+        error: Beim Ablehnen dieser Einladung ist ein Fehler aufgetreten.
+        success: Einladung erfolgreich abgelehnt.
       reject_invitation: Ablehnen
     group_members:
+      accept:
+        error: Bei der Annahme dieser Beitrittsanfrage ist ein Fehler aufgetreten.
+        success: Beitrittsanfrage erfolgreich angenommen.
       actions:
         are_you_sure: Bist du sicher?
         promote_to_admin: Machen Admin
@@ -891,20 +914,37 @@ de:
       index:
         current_members_without_admins: 'Aktuelle Mitglieder (ohne Admins):'
         manage_members: Mitglieder verwalten
+      promote:
+        error: Bei der Beförderung dieses Teilnehmers ist ein Problem aufgetreten.
+        success: Teilnehmer erfolgreich befördert.
+      reject:
+        error: Beim Ablehnen dieser Beitrittsanfrage ist ein Fehler aufgetreten.
+        success: Beitrittsanfrage erfolgreich abgelehnt.
+      remove:
+        error: Beim Entfernen dieses Teilnehmers aus der Gruppe ist ein Problem aufgetreten.
+        success: Teilnehmer erfolgreich aus der Gruppe entfernt.
     groups:
       actions:
         are_you_sure: Bist du sicher?
+      create:
+        error: Beim Erstellen der Gruppe ist ein Problem aufgetreten.
+        success: Gruppe erfolgreich erstellt.
       edit:
         edit_user_group: Gruppe bearbeiten
         update_user_group: Gruppe aktualisieren
       form:
+        document_number_help: Verwenden Sie keine Bindestriche oder Leerzeichen.
         email_help: E-Mail Ihrer Organisation, Ihrer Vereinigung, Ihres Kollektivs, Ihrer Gruppe usw.
         fill_in_for_verification: 'Füllen Sie diese Felder aus, wenn Ihre Gruppe überprüft werden soll:'
         name_help: Name Ihrer Organisation, Ihrer Vereinigung, Ihres Kollektivs, Ihrer Gruppe usw.
         nickname_help: Benutzername Ihrer Organisation, Ihrer Vereinigung, Ihres Kollektivs, Ihrer Gruppe usw. Verwenden Sie keine Leerzeichen oder Akzente.
+        phone_help: Verwenden Sie keine Bindestriche oder Leerzeichen.
       join:
+        error: Beim Beitritt zur Gruppe ist ein Problem aufgetreten.
         success: Join-Anforderung wurde erfolgreich erstellt. Ein Administrator überprüft Ihre Anfrage, bevor er Sie für die Gruppe akzeptiert.
       leave:
+        error: Beim Verlassen der Gruppe ist ein Problem aufgetreten.
+        last_admin: Sie können sich nicht von dieser Gruppe entfernen, da Sie der einzige Admin sind. Machen Sie ein anderes Mitglied zum Admin, um die Gruppe verlassen zu können.
         success: Gruppe erfolgreich verlassen.
       members:
         accept_or_reject_join_requests: 'Die folgenden Benutzer haben sich angemeldet, um dieser Gruppe beizutreten. Akzeptieren oder ablehnen ihrer Anfragen:'
@@ -914,15 +954,20 @@ de:
         create_user_group: Gruppe erstellen
         new_user_group: Neue Gruppe
         subtitle: Erstellen Sie eine Gruppe und laden Sie andere Benutzer ein, an einer kollektiven Ebene teilzunehmen.
+      no_user_groups: Gehört noch keiner Gruppe an.
       roles:
         admin: Administrator
         creator: Administrator
         member: Mitglied
+      update:
+        error: Beim Aktualisieren der Gruppe ist ein Problem aufgetreten.
+        success: Gruppe erfolgreich aktualisiert.
     help:
       main_topic:
         default_page:
           content: "<p>In %{organization} können Sie durch die Felder, die Sie im oberen Menü sehen, an verschiedenen Themen teilnehmen: Prozesse, Gremien, Initiativen, Beratungen.</p> <p>In jedem Bereich finden Sie verschiedene Optionen für die Teilnahme: Vorschläge machen - einzeln oder mit anderen -, an Debatten teilnehmen, Prioritäten für umzusetzende Projekte setzen, persönliche Treffen und andere Aktionen besuchen.</p>\n"
           title: Was kann ich in %{organization} tun?
+        description: Mehr lesen über %{organization}.
         title: Allgemeine Hilfe
     last_activities:
       activities:
@@ -970,6 +1015,8 @@ de:
       static:
         latlng_text: 'Breitengrad: %{latitude}, Längengrad: %{longitude}'
         map_service_brand: OpenStreetMap
+    members:
+      no_members: Diese Gruppe hat noch keine Mitglieder.
     menu:
       help: Hilfe
       home: Start
@@ -1015,6 +1062,9 @@ de:
           add_users_placeholder: Suche...
           modal_title: Neue Unterhaltung
           no_results: Keine Ergebnisse
+          participant_with_disabled_message_reception: Dieser Teilnehmer möchte keine privaten Nachrichten empfangen.
+        create:
+          error: Die Unterhaltung wurde nicht gestartet. Versuchen Sie es später noch einmal.
         error_modal:
           close: Fenster schließen
           correct_errors: Bitte korrigiere diese Fehler und versuche es erneut.
@@ -1023,6 +1073,7 @@ de:
         index:
           new_conversation: Neue Unterhaltung
           next: Weiter
+          no_conversations: Sie haben noch keine Unterhaltungen.
           title: Nachrichten
         reply_form:
           placeholder: Ihre Antwort...
@@ -1030,10 +1081,14 @@ de:
         show:
           back: Zurück zu allen Unterhaltungen
           chat_with: Unterhaltung mit
+          deleted_accounts: Sie können keine Unterhaltung mit gelöschten Konten führen.
           not_allowed: Dieser Teilnehmer akzeptiert keine direkten Nachrichten.
           title: Gespräch mit %{usernames}
         start:
+          placeholder: Ihre Nachricht ...
           send: Senden
+        update:
+          error: Nachricht wurde aufgrund eines Fehlers nicht gesendet.
     metrics:
       download:
         csv: Daten herunterladen (CSV)
@@ -1051,6 +1106,9 @@ de:
         title: Benutzer
     newsletter_mailer:
       newsletter:
+        no_reply_notice: Diese E-Mail wurde von einer Benachrichtigungs-E-Mail-Adresse versendet, die keine eingehende E-Mails akzeptieren kann. Bitte antworten Sie nicht auf diese Nachricht.
+        note: Sie haben diese E-Mail erhalten, weil Sie den Newsletter auf %{organization_name} abonniert haben. Sie können Ihre Einstellungen auf Ihrer <a href="%{link}">Benachrichtigungsseite</a> ändern.
+        see_on_website: Kann diese E-Mail nicht korrekt angezeigt werden? Auf der <a href="%{link}" target="_blank" class="see-on-website">Website</a> anzeigen.
         unsubscribe: Um den Empfang dieser Art von E-Mail zu deaktivieren, <a href="%{link}" target="_blank" class="unsubscribe">Abbestellen</a>.
     newsletter_templates:
       basic_only_text:
@@ -1073,9 +1131,16 @@ de:
         main_image: Hauptbild
     newsletters:
       unsubscribe:
+        check_subscription: Wenn Sie Ihre Einstellungen ändern möchten, können Sie dies auf der <a href="%{link}" target="_blank">Konfigurationsseite</a> tun.
+        error: Es gab ein Problem beim Kündigen des Abonnements.
         success: Sie haben sich erfolgreich abgemeldet.
         token_error: Der Link ist abgelaufen.
         unsubscribe: Abmelden
+    newsletters_opt_in:
+      unathorized: Entschuldigung, dieser Link ist nicht mehr verfügbar.
+      update:
+        error: Beim Speichern der Newslettereinstellungen ist ein Problem aufgetreten.
+        success: Newslettereinstellungen wurden erfolgreich aktualisiert.
     newsletters_opt_in_mailer:
       notify:
         body_1: Die Verarbeitung personenbezogener Daten und deren Schutz wird für uns alle immer wichtiger. Mit der neuen Datenschutz-Grundverordnung (DSGV) vom 25. Mai 2018 haben Einzelpersonen eine bessere Kontrolle über ihre personenbezogenen Daten. Aus diesem Grund benötigen wir Ihr "OK" um weiterhin relevante Informationen über die Aktivitäten der %{organization_name}zu senden.
@@ -1087,6 +1152,7 @@ de:
         subject: Möchten Sie weiterhin relevante Informationen über %{organization_name} erhalten?
     notification_mailer:
       event_received:
+        no_translation_available: Leider konnte die automatisierte Übersetzung nicht abgerufen werden, nachdem die E-Mail gesendet wurde. Sie können die Übersetzung des Originaltextes unter folgendem Link %{link} überprüfen.
         original_text: 'Originaltext:'
         same_language: Der Inhalt wurde in Ihrer bevorzugten Sprache (%{language}) veröffentlicht, daher wird in dieser E-Mail keine automatisierte Übersetzung angezeigt.
         translated_text: 'Automatisch übersetzter Text:'
@@ -1582,8 +1648,46 @@ de:
     scopes:
       public: Ihre öffentlichen Informationen.
   editor:
+    extensions:
+      link:
+        hrefLabel: Link-URL
+        targetLabel: Ziel
+        targets:
+          blank: Neuer Tab
+          default: Standard (im gleichen Tab)
+      videoEmbed:
+        titleLabel: Titel
+        urlLabel: Video-URL
     inputDialog:
+      buttons:
+        cancel: Abbrechen
+        remove: Entfernen
+        save: Speichern
       close: Fenster schließen
+    toolbar:
+      control:
+        blockquote: Blockzitat
+        bold: Fett
+        bulletList: Ungeordnete Liste
+        codeBlock: Code-Block
+        common:
+          eraseStyles: Stile löschen
+        hardBreak: Zeilenumbruch
+        heading: Textstil
+        image: Bild
+        indent:
+          indent: Einrücken
+          outdent: Ausrücken
+        italic: Kursiv
+        link: Link
+        orderedList: Geordnete Liste
+        underline: Unterstrichen
+        videoEmbed: Video einbinden
+      textStyle:
+        heading: Überschrift %level%
+        normal: Normal
+    upload:
+      uploadedFile: Hochgeladene Datei
   emojis:
     button: Emoji hinzufügen
     categories:
@@ -1611,14 +1715,21 @@ de:
       not_found: Keine Ergebnisse gefunden
   errors:
     messages:
+      allowed_file_content_types: 'nur Dateien mit den folgenden Typen sind erlaubt: %types%'
       already_confirmed: wurde bereits bestätigt, bitte versuchen Sie sich anzumelden
+      blank: darf nicht leer sein
+      cannot_be_blank: darf nicht leer sein
+      confirmation: stimmt nicht mit %{attribute} überein
       confirmation_period_expired: muss innerhalb von %{period}bestätigt werden, bitte einen neuen anfordern
       content_type_allowlist_error: Der Dateityp ist nicht gültig
+      cycle_detected: der Elternteil eines Themas darf in keinem seiner Nachkommen vorkommen
+      empty: kann nicht leer sein
       expired: ist abgelaufen, bitte fordern Sie einen neuen an
       file_size_is_less_than_or_equal_to: Die Dateigröße muss kleiner oder gleich %{count}
       invalid_time_zone: ist keine gültige Zeitzone
       long_words: enthält zu lange Wörter (über 35 Zeichen)
       must_start_with_caps: muss mit einem Großbuchstaben beginnen
+      nesting_too_deep: kann nicht innerhalb einer Unterkategorie sein
       not_found: konnte nicht gefunden werden. Haben Sie sich vorher angemeldet?
       not_locked: war nicht gesperrt
       not_saved:
@@ -1626,6 +1737,8 @@ de:
         other: 'Bei der Bearbeitung Ihrer Anfrage sind mehrere Fehler aufgetreten:'
       too_many_marks: benutzt zu viele aufeinanderfolgende Satzzeichen (zB! und?)
       too_much_caps: verwendet zu viele Großbuchstaben (über 25% des Textes)
+      too_short: ist zu kurz (mindestens %{count} Zeichen)
+      url_format: Diese URL ist im falschen Format
   forms:
     correct_errors: Es gibt Fehler auf dem Formular, bitte korrigieren Sie sie, um fortzufahren.
     length_validator:
@@ -1712,6 +1825,8 @@ de:
       notifications_dashboard:
         mark_all_as_read: Alles als gelesen markieren
         mark_as_read: Als gelesen markieren
+      offline_banner:
+        cache_version_page: Hoppla! Ihr Netzwerk ist offline. Dies ist eine zuvor gecachte Version der Seite, die Sie besuchen, möglicherweise ist der Inhalt nicht aktuell.
       social_media_links:
         facebook: "%{organization} auf Facebook"
         github: "%{organization} auf GitHub"
@@ -1749,6 +1864,7 @@ de:
     name: Deutsch
     name_with_error: Deutsch (Fehler!)
   password_validator:
+    denied: wurde abgelehnt
     domain_included_in_password: ist diesem Domainnamen zu ähnlich
     email_included_in_password: ist Ihrer E-Mail zu ähnlich
     fallback: ist ungültig
@@ -1763,7 +1879,9 @@ de:
   ransack:
     predicates:
       dtgt: nach
+      dtgteq: höher oder gleich
       dtlt: vor
+      dtlteq: niedriger oder gleich
   social_share_button:
     delicious: Köstlich
     douban: Douban
@@ -1804,6 +1922,7 @@ de:
             accept_until_format: "%d. %B %Y %H:%M"
       long: "%d. %B %Y %H:%M"
       long_dashed: "%d.%m.%Y %H:%M:%S"
+      long_with_particles: "%d. %B %Y %H:%M"
       short: "%d.%m.%Y %H:%M"
       time_of_day: "%H:%M"
   versions:
