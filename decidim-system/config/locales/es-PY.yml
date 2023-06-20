@@ -43,9 +43,9 @@ es-PY:
       admins:
         create:
           error: Se ha producido un error al crear un nuevo administrador.
-          success: Administrador creado correctamente
+          success: Administradora creada correctamente.
         destroy:
-          success: Administrador eliminado con éxito
+          success: Administradora eliminada correctamente.
         edit:
           title: Editar administrador
           update: Actualizar
@@ -56,13 +56,14 @@ es-PY:
           title: Nuevo administrador
         update:
           error: Se ha producido un error al actualizar este administrador.
-          success: Administrador actualizado correctamente
+          success: Administradora actualizada correctamente.
       dashboard:
         show:
           current_organizations: Organizaciones actuales
       default_pages:
         placeholders:
           content: Agrega contenido significativo a la página estática de %{page} en el panel de admin.
+          summary: Por favor, agrega un resumen significativo a la página estática %{page} en el panel de administración.
           title: Título predeterminado para %{page}
       menu:
         admins: Administradores
@@ -144,8 +145,8 @@ es-PY:
         index:
           title: Organizaciones
         new:
-          reference_prefix_hint: El prefijo de referencia se utiliza para identificar de forma única los recursos de todas las organizaciones
-          secondary_hosts_hint: Introduce cada uno de ellos en una nueva línea
+          reference_prefix_hint: El prefijo de referencia se utiliza para identificar de forma única los recursos del conjunto de la organización.
+          secondary_hosts_hint: Introduce cada uno de ellos en una nueva línea.
           title: Nueva organización
         omniauth_settings:
           decidim:
@@ -169,7 +170,7 @@ es-PY:
           fieldsets:
             sender: Remitente
           instructions:
-            from_label: 'El remitente de correo electrónico será: "su-nombre de organización <your-organization@example.org>". Déjalo en blanco para usar el campo ''Dirección de correo electrónico'' como etiqueta'
+            from_label: 'El remitente de correo electrónico será: "nombre-de-tu-organizacion <your-organization@example.org>". Déjalo en blanco para usar la ''dirección de correo electrónico'' como etiqueta.'
           placeholder:
             from_email: tu-organizacion@example.org
             from_label: el-nombre-de-tu-organizacion
@@ -179,7 +180,7 @@ es-PY:
         users_registration_mode:
           disabled: El acceso solo se puede hacer con cuentas externas.
           enabled: Permitir a los usuarios registrarse e iniciar sesión
-          existing: No permita que los usuarios se registren, pero permita que los usuarios existentes inicien sesión
+          existing: No permitir que se regustren nuevas participantes, pero permitir a las participantes existentes iniciar sesión
       shared:
         notices:
           no_organization_warning_html: Debes crear una organización para comenzar. Asegúrate de leer %{guide} antes de continuar.

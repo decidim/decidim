@@ -50,9 +50,9 @@ module Decidim
 
       def default_filter_params
         {
-          with_scope: nil,
-          with_area: nil,
-          with_type: nil,
+          with_any_scope: nil,
+          with_any_area: nil,
+          with_any_type: nil,
           with_date: default_date_filter
         }
       end
@@ -69,16 +69,17 @@ module Decidim
         ).first!
       end
 
-      def current_participatory_space_breadcrumb_item
-        return if current_participatory_space.blank?
-
-        {
-          label: current_participatory_space.title,
-          url: participatory_process_path(current_participatory_space),
-          active: true,
-          dropdown_cell: "decidim/participatory_processes/process_dropdown_metadata",
-          resource: current_participatory_space
-        }
+      def active_content_blocks
+        @active_content_blocks ||= if current_participatory_space.present?
+                                     Decidim::ContentBlock.published.for_scope(
+                                       :participatory_process_homepage,
+                                       organization: current_organization
+                                     ).where(
+                                       scoped_resource_id: current_participatory_space.id
+                                     )
+                                   else
+                                     Decidim::ContentBlock.none
+                                   end
       end
 
       def published_processes

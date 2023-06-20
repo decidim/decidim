@@ -17,7 +17,7 @@ Decidim.register_component(:sortitions) do |component|
 
   component.settings(:global) do |settings|
     settings.attribute :comments_enabled, type: :boolean, default: true
-    settings.attribute :comments_max_length, type: :integer, required: false
+    settings.attribute :comments_max_length, type: :integer, required: true
   end
 
   # Register an optional resource that can be referenced from other resources.

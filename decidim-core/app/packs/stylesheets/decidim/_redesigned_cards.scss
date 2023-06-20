@@ -3,7 +3,7 @@
     @apply ring-4 ring-background hover:ring-tertiary rounded flex flex-col md:flex-row hover:cursor-pointer transition;
 
     &-container{
-      @apply space-y-12 mb-16 md:mb-28;
+      @apply space-y-10 mb-16 md:mb-28;
     }
 
     &-img{
@@ -15,7 +15,7 @@
     }
 
     &-text{
-      @apply w-full md:w-1/2 flex flex-col px-4 md:px-8 py-3 md:py-6 gap-y-2 md:gap-y-4 text-gray-2;
+      @apply w-full md:w-1/2 flex flex-col p-4 gap-y-2 md:gap-y-4 text-gray-2;
     }
 
     &:hover &-text h3{
@@ -27,11 +27,11 @@
     @apply flex flex-col ring-4 ring-background hover:ring-tertiary rounded hover:cursor-pointer transition;
 
     &-container{
-      @apply space-y-12 mb-16;
+      @apply space-y-10 mb-16;
     }
 
     &-grid{
-      @apply grid gap-4 md:gap-x-12 md:gap-y-16 md:grid-cols-2;
+      @apply grid gap-4 md:gap-12 md:grid-cols-2;
     }
 
     &-img{
@@ -52,7 +52,7 @@
   }
 
   &__list{
-    @apply flex flex-col md:flex-row gap-2.5 md:gap-4 px-4 rounded overflow-hidden border-l-4 border-background hover:border-tertiary focus-visible:border-tertiary focus-visible:outline-none transition transition;
+    @apply flex flex-col md:flex-row gap-2.5 md:gap-4 px-4 rounded overflow-hidden border-l-4 border-background hover:border-tertiary focus-visible:border-tertiary focus-visible:outline-none transition;
 
     &-content{
       @apply flex flex-col gap-2.5;
@@ -60,6 +60,11 @@
 
     &-title{
       @apply h4 text-secondary;
+
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 3;
     }
 
     &-image{
@@ -88,6 +93,10 @@
         & > svg{
           @apply w-3.5 h-3.5 fill-current text-gray;
         }
+      }
+
+      [data-author] + [data-author]{
+        @apply -ml-4;
       }
     }
 
@@ -146,5 +155,9 @@
     --outer: theme('colors.gray.3');
 
     @apply w-3.5 h-3.5 mx-auto grid place-items-center rounded-full overflow-hidden bg-[radial-gradient(farthest-side,var(--inner)_60%,transparent_0_100%),conic-gradient(var(--color)_calc(var(--value)*100%),var(--outer)_0)];
+  }
+
+  &__placeholder-l{
+    @apply top-[calc(100%-10rem)] left-[calc(100%-11.5rem)] absolute w-48 h-44 z-20 fill-primary;
   }
 }

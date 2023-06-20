@@ -19,15 +19,12 @@
       <%= yield %>
     <% end %>
 
-    <%= render partial: "decidim/shared/redesigned_confirm_modal" %>
+    <%= render partial: redesign_enabled? ? "decidim/shared/redesigned_confirm_modal" : "decidim/shared/confirm_modal" %>
     <%= render partial: "decidim/shared/redesigned_login_modal" unless current_user %>
     <%= render partial: "decidim/shared/redesigned_authorization_modal" %>
     <%= render partial: "decidim/shared/redesigned_share_modal" %>
-    <%= render partial: "layouts/decidim/redesigned_js_configuration" %>
-    <%= render partial: "layouts/decidim/cors" if Decidim.cors_enabled %>
+    <%= render partial: "layouts/decidim/redesinged_decidim_javascript" %>
     <%= render partial: "layouts/decidim/data_consent_warning" %>
 
-    <%= yield :js_content %>
-    <%= snippets.display(:foot) %>
   </body>
 </html>

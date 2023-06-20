@@ -168,8 +168,8 @@ describe "Support Proposal", type: :system, slow: true do
               skip "REDESIGN PENDING - Vote proposals from index is not defined yet"
               visit_component
 
-              expect(page).to have_css(".voting-rules")
-              expect(page).to have_no_css(".remaining-votes-counter")
+              expect(page).to have_css("#voting-rules")
+              expect(page).to have_no_css("#remaining-votes-count")
             end
           end
 
@@ -188,8 +188,8 @@ describe "Support Proposal", type: :system, slow: true do
 
               visit_component
 
-              expect(page).to have_css(".voting-rules")
-              expect(page).to have_css(".remaining-votes-counter")
+              expect(page).to have_css("#voting-rules")
+              expect(page).to have_css("#remaining-votes-count")
             end
           end
         end
@@ -343,7 +343,7 @@ describe "Support Proposal", type: :system, slow: true do
         login_as user, scope: :user
       end
 
-      it "does not allow users to vote to a proposal that's reached the limit" do
+      it "does not allow users to vote to a proposal that is reached the limit" do
         skip "REDESIGN PENDING - Vote proposals from index is not defined yet"
         create(:proposal_vote, proposal:)
         visit_component

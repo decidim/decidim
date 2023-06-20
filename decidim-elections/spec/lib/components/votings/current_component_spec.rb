@@ -64,13 +64,13 @@ module Decidim
           params["voting_slug"] = "99999999"
         end
 
-        context "when there's no component" do
+        context "when there is no component" do
           it "does not match" do
             expect { subject.matches?(request) }.to raise_error(ActiveRecord::RecordNotFound)
           end
         end
 
-        context "when there's component" do
+        context "when there is component" do
           before do
             params["component_id"] = "1"
           end

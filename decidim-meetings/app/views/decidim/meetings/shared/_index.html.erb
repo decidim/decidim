@@ -1,12 +1,7 @@
 <% add_decidim_page_title(t("decidim.meetings.directory.meetings.index.meetings")) %>
 
-<% content_for :css_content do %>
-  <%= stylesheet_pack_tag "decidim_meetings", media: "all" %>
-<% end %>
-
-<% content_for :js_content do %>
-  <%= javascript_pack_tag "decidim_meetings" %>
-<% end %>
+<%= append_stylesheet_pack_tag "decidim_meetings", media: "all" %>
+<%= append_javascript_pack_tag "decidim_meetings" %>
 
 <% content_for :aside do %>
   <%= render partial: "decidim/meetings/shared/meetings_aside", locals: { main_action: true, search_variable:, filter_options:, component: } %>

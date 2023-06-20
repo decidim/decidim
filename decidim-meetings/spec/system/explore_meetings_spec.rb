@@ -169,7 +169,7 @@ describe "Explore meetings", :slow, type: :system do
             expect(page).to have_css(meetings_selector, count: 1)
 
             within meetings_selector do
-              expect(page).to have_content("Official meeting")
+              expect(page).to have_content(translated(official_meeting.title))
             end
           end
         end
@@ -212,7 +212,6 @@ describe "Explore meetings", :slow, type: :system do
         skip_unless_redesign_enabled
 
         visit_component
-
         within "form.new_filter" do
           fill_in("filter[search_text_cont]", with: translated(meetings.first.title))
           within "div.filter-search" do
@@ -390,7 +389,7 @@ describe "Explore meetings", :slow, type: :system do
 
         expect(page).to have_css(meetings_selector, count: 1)
 
-        find("a.meeting-list").click
+        find("a.card__list").click
 
         click_link "Back"
 

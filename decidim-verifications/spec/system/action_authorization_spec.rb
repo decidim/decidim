@@ -200,7 +200,7 @@ describe "Action Authorization", type: :system do
       end
 
       it "goes directly to action" do
-        expect(page).to have_selector("p", text: "You are creating a proposal")
+        expect(page).to have_selector("h1", text: "Create your proposal")
       end
     end
   end
@@ -287,7 +287,7 @@ describe "Action Authorization", type: :system do
       end
 
       it "goes directly to action" do
-        expect(page).to have_selector("p", text: "You are creating a proposal")
+        expect(page).to have_selector("h1", text: "Create your proposal")
       end
     end
   end

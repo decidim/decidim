@@ -23,17 +23,6 @@ el:
         registrations_enabled: Οι εγγραφές ενεργοποιήθηκαν
         title: Τίτλος
         transparent: Διαφανής
-    errors:
-      models:
-        meeting_agenda:
-          attributes:
-            base:
-              too_many_minutes: Η διάρκεια των στοιχείων υπερβαίνει τη διάρκεια της σύσκεψης κατά %{count} λεπτά
-              too_many_minutes_child: Η διάρκεια των θυγατρικών στοιχείων του στοιχείου υπερβαίνει τη διάρκεια του γονικού στοιχείου «%{parent_title}» του στοιχείου της ημερήσιας διάταξης κατά %{count} λεπτά
-        meeting_registration_invite:
-          attributes:
-            email:
-              already_invited: Αυτός ο λογαριασμός email έχει ήδη προσκληθεί
     models:
       decidim/meetings/close_meeting_event: Η σύσκεψη έκλεισε
       decidim/meetings/create_meeting_event: Σύσκεψη
@@ -132,8 +121,6 @@ el:
           description_own: Έχετε παρακολουθήσει %{score} συσκέψεις.
           name: Συσκέψεις που παρακολουθήθηκαν
           next_level_in: Παρακολουθήστε %{score} ακόμη συσκέψεις για να φτάσετε στο επόμενο επίπεδο!
-          unearned_another: Αυτός ο συμμετέχων δεν έχει παρακολουθήσει ακόμη καμία σύσκεψη.
-          unearned_own: Δεν έχετε παρακολουθήσει καμία σύσκεψη ακόμα.
     meetings:
       actions:
         agenda: Ημερήσια διάταξη
@@ -161,9 +148,6 @@ el:
             down: Κάτω
             remove: Κατάργηση
             up: Επάνω
-          create:
-            invalid: Υπήρξε ένα πρόβλημα κατά τη δημιουργία αυτής της ημερήσιας διάταξης
-            success: Η ημερήσια διάταξη δημιουργήθηκε με επιτυχία
           edit:
             title: Επεξεργασία ημερήσιας διάταξης
             update: Ενημέρωση
@@ -175,9 +159,6 @@ el:
           new:
             create: Δημιουργία
             title: Νέα ημερήσια διάταξη
-          update:
-            invalid: Υπήρξε ένα πρόβλημα κατά την ενημέρωση αυτής της ημερήσιας διάταξης
-            success: Η ημερήσια διάταξη ενημερώθηκε με επιτυχία
         exports:
           meetings: Συσκέψεις
           registrations: Εγγραφές
@@ -206,18 +187,12 @@ el:
             filter_by: Φιλτράρισμα κατά
             invite_attendee: Πρόσκληση συμμετέχοντα
             invites: Προσκλήσεις
-            registrations_disabled: Δεν μπορείτε να προσκαλέσετε έναν συμμετέχοντα επειδή οι εγγραφές είναι απενεργοποιημένες.
             search: Αναζήτηση
         meeting_closes:
           edit:
             close: Κλείσιμο
             title: Κλείσιμο σύσκεψης
         meetings:
-          close:
-            invalid: Υπήρξε ένα πρόβλημα κατά το κλείσιμο αυτής της σύσκεψης
-            success: Η σύσκεψη έκλεισε με επιτυχία
-          create:
-            invalid: Υπήρξε ένα πρόβλημα κατά τη δημιουργία αυτής της σύσκεψης
           destroy:
             success: Η σύσκεψη διαγράφηκε με επιτυχία
           edit:
@@ -240,9 +215,6 @@ el:
           services:
             add_service: Προσθήκη υπηρεσίας
             services: Υπηρεσίες
-          update:
-            invalid: Υπήρξε ένα πρόβλημα κατά την ενημέρωση αυτής της σύσκεψης
-            success: Η σύσκεψη ενημερώθηκε με επιτυχία
         models:
           meeting:
             name: Σύσκεψη
@@ -259,7 +231,6 @@ el:
             registrations_count:
               one: Πραγματοποιήθηκε %{count} εγγραφή.
               other: Πραγματοποιήθηκαν %{count} εγγραφές.
-            reserved_slots_help: Αφήστε το στο 0 εάν δεν έχετε δεσμευμένες θέσεις
             reserved_slots_less_than: Πρέπει να είναι μικρότερο ή ίσο με %{count}
             title: Εγγραφές
           update:
@@ -302,8 +273,6 @@ el:
         registration_mailer:
           confirmation:
             subject: Η εγγραφή σας στη σύσκεψη επιβεβαιώθηκε
-      meeting:
-        not_allowed: Δεν επιτρέπεται η προβολή αυτής της σύσκεψης
       meetings:
         filters:
           category: Κατηγορία
@@ -317,7 +286,6 @@ el:
         meeting_minutes:
           related_information: Σχετικές πληροφορίες
         meetings:
-          no_meetings_warning: Καμία σύσκεψη δεν ταιριάζει με τα κριτήρια αναζήτησης, ή δεν έχει προγραμματιστεί σύσκεψη.
           upcoming_meetings_warning: Προς το παρόν, δεν υπάρχουν προγραμματισμένες συσκέψεις, αλλά εδώ μπορείτε να βρείτε όλες τις προηγούμενες συσκέψεις που παρατίθενται.
         registration_confirm:
           cancel: Ακύρωση
@@ -368,7 +336,6 @@ el:
       registrations:
         create:
           invalid: Υπήρξε ένα πρόβλημα κατά τη συμμετοχή σε αυτήν τη σύσκεψη.
-          success: Έχετε εγγραφεί στη σύσκεψη με επιτυχία. Επειδή έχετε εγγραφεί σε αυτήν τη σύσκεψη, θα ειδοποιηθείτε εάν υπάρχουν ενημερώσεις σε αυτήν.
         decline_invitation:
           invalid: Υπήρξε ένα πρόβλημα κατά την απόρριψη της πρόσκλησης.
           success: Απορρίψατε την πρόσκληση με επιτυχία.

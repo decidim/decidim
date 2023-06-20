@@ -7,9 +7,9 @@ module Decidim
       @resource = resource
       @options = options
 
-      @options[:zoom] ||= 15
-      @options[:width] ||= 120
-      @options[:height] ||= 120
+      @options[:zoom] ||= Decidim::Map::StaticMap::DEFAULT_ZOOM
+      @options[:width] ||= Decidim::Map::StaticMap::DEFAULT_SIZE
+      @options[:height] ||= Decidim::Map::StaticMap::DEFAULT_SIZE
     end
 
     def data

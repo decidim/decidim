@@ -10,6 +10,7 @@ module Decidim
       helper UserGroupHelper
 
       include Decidim::ApplicationHelper
+      include Decidim::IconHelper
       include FormFactory
       include Flaggable
       include FilterResource

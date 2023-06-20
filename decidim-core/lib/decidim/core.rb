@@ -120,6 +120,7 @@ module Decidim
   autoload :DisabledRedesignLayout, "decidim/disabled_redesign_layout"
   autoload :BlockRegistry, "decidim/block_registry"
   autoload :DependencyResolver, "decidim/dependency_resolver"
+  autoload :ParticipatorySpaceUser, "decidim/participatory_space_user"
 
   include ActiveSupport::Configurable
   # Loads seeds from all engines.
@@ -255,10 +256,10 @@ module Decidim
       ref = ""
 
       if resource.is_a?(Decidim::HasComponent) && component.present?
-        # It's a component resource
+        # It is a component resource
         ref = component.participatory_space.organization.reference_prefix
       elsif resource.is_a?(Decidim::Participable)
-        # It's a participatory space
+        # It is a participatory space
         ref = resource.organization.reference_prefix
       end
 
@@ -394,7 +395,7 @@ module Decidim
   # If set to true redesigned versions of layouts and cells will be used by
   # default
   config_accessor :redesign_active do
-    false
+    ENV.fetch("REDESIGN_ENABLED", "false") == "true"
   end
 
   # The Decidim::Exporters::CSV's default column separator
@@ -519,7 +520,7 @@ module Decidim
 
   # List of static pages' slugs that can include content blocks
   config_accessor :page_blocks do
-    %w(terms-and-conditions)
+    %w(terms-of-service)
   end
 
   # Public: Registers a global engine. This method is intended to be used

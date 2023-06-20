@@ -32,7 +32,7 @@ describe "Admin manages meetings", type: :system, serves_map: true, serves_geoco
       visit current_path
 
       within find("tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title) do
-        accept_confirm { click_link "Unpublish" }
+        accept_confirm(admin: true) { click_link "Unpublish" }
       end
 
       expect(page).to have_admin_callout("successfully")
@@ -425,7 +425,7 @@ describe "Admin manages meetings", type: :system, serves_map: true, serves_geoco
 
     it "deletes a meeting" do
       within find("tr", text: Decidim::Meetings::MeetingPresenter.new(meeting2).title) do
-        accept_confirm { click_link "Delete" }
+        accept_confirm(admin: true) { click_link "Delete" }
       end
 
       expect(page).to have_admin_callout("successfully")
@@ -474,7 +474,7 @@ describe "Admin manages meetings", type: :system, serves_map: true, serves_geoco
       find(".card-title a.button").click
 
       within "label[for='meeting_registration_type']" do
-        expect(page).to have_no_content("There's an error in this field.")
+        expect(page).to have_no_content("There is an error in this field.")
       end
     end
 

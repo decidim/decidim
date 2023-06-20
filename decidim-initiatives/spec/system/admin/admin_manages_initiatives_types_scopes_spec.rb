@@ -58,7 +58,7 @@ describe "Admin manages initiatives types scopes", type: :system do
 
     it "removes the initiative type scope" do
       click_link "Configure"
-      accept_confirm { click_link "Delete" }
+      accept_confirm(admin: true) { click_link "Delete" }
       within ".callout-wrapper" do
         expect(page).to have_content("The scope has been successfully removed")
       end

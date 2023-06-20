@@ -266,7 +266,6 @@ lb:
             invites: Lädt ein
             search: Suche
           new:
-            explanation: Der Benutzer wird eingeladen, an einer Konferenz teilzunehmen. Wenn die E-Mail nicht registriert ist, werden sie ebenfalls zur Organisation eingeladen.
             invite: Einladen
             new_invite: Nutzer einladen
         conference_registrations:
@@ -367,11 +366,6 @@ lb:
       index:
         title: Konferenzen
       mailer:
-        conference_registration_mailer:
-          confirmation:
-            subject: Die Registrierung Ihrer Konferenz wurde bestätigt
-          pending_validation:
-            subject: Ihre Anmeldung zur Konferenz steht noch aus
         invite_join_conference_mailer:
           invite:
             subject: Einladung zur Teilnahme an einer Konferenz
@@ -455,10 +449,6 @@ lb:
           contextual: "<p>Eine <strong>Konferenz</strong> ist eine Sammlung von Meetings, die in einem Programm organisiert werden, mit einer Anzahl von Personen, die als Referenten eingeladen werden und andere Informationsfelder, die für große Kongresse oder gesellschaftliche Veranstaltungen typisch sind (Registrierung, Liste der Organisationen, die die Veranstaltung unterstützen oder sponsern, usw.)..</p> <p>Beispiele: Eine Konferenz kann ein relevantes Ereignis für eine Organisation und ihre Mitglieder sein oder im Rahmen eines partizipatorischen Prozesses oder einer Beratung folgen.</p>\n"
           page: "<p>Eine <strong>Konferenz</strong> ist eine Sammlung von Meetings, die in einem Programm organisiert werden, mit einer Anzahl von Personen, die als Referenten eingeladen werden und andere Informationsfelder, die für große Kongresse oder gesellschaftliche Veranstaltungen typisch sind (Registrierung, Liste der Organisationen, die die Veranstaltung unterstützen oder sponsern, usw.)..</p> <p>Beispiele: Eine Konferenz kann ein relevantes Ereignis für eine Organisation und ihre Mitglieder sein oder im Rahmen eines partizipatorischen Prozesses oder einer Beratung folgen.</p>\n"
           title: Was sind Konferenzen?
-    log:
-      value_types:
-        conference_presenter:
-          not_found: 'Die Konferenz wurde nicht in der Datenbank gefunden (ID: %{id})'
     media:
       index:
         description: Links zu dieser Konferenz

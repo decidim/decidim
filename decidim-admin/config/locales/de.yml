@@ -39,7 +39,6 @@ de:
         body: Haupttext
         subject: Betreff
       organization:
-        admin_terms_of_use_body: Inhalt für die Admin-Nutzungsbedingungen
         alert_color: Benachrichtigung
         available_authorizations: Verfügbare Autorisierungen
         badges_enabled: Abzeichen aktivieren
@@ -137,7 +136,7 @@ de:
         newsletter:
           attributes:
             base:
-              at_least_one_space: Wählen Sie mindestens einen partizipativen Bereich aus
+              at_least_one_space: Wählen Sie mindestens einen partizipativen Bereich aus.
         organization:
           attributes:
             official_img_footer:
@@ -147,8 +146,8 @@ de:
       new_import:
         attributes:
           file:
-            invalid_file: Ungültige Datei, bitte überprüfen Sie, ob die Datei korrekt formatiert ist
-            invalid_mime_type: Ungültiger MIME-Typ
+            invalid_file: Ungültige Datei, bitte überprüfen Sie, ob die Datei korrekt formatiert ist.
+            invalid_mime_type: Ungültiger MIME-Typ.
   activerecord:
     attributes:
       decidim/static_page:
@@ -169,8 +168,6 @@ de:
         add: Hinzufügen
         attachment:
           new: Neuer Anhang
-        attachment_collection:
-          new: Neuer Ordner
         browse: Durchsuchen
         category:
           new: Neue Kategorie
@@ -190,25 +187,12 @@ de:
         user:
           new: Neuer Administrator
         verify: Überprüfen
-      admin_terms_of_use:
-        accept:
-          error: Beim Akzeptieren der Nutzungsbedingungen ist ein Fehler aufgetreten.
-          success: Super! Sie haben die Admin-Nutzungsbedingungen akzeptiert.
-        actions:
-          are_you_sure: Sind Sie sicher, dass Sie die Admin-Nutzungsbedingungen ablehnen möchten?
-          refuse: Die Admin-Nutzungsbedingungen ablehnen
-          title: Den Admin-Nutzungsbedingungen zustimmen
-        required_review:
-          alert: 'Erforderlich: Überprüfen Sie unsere Admin-Nutzungsbedingungen'
-          callout: Bitte nehmen Sie sich einen Moment Zeit, um die Admin-Nutzungsbedingungen zu lesen. Ansonsten können Sie die Plattform nicht verwalten.
-          cta: Lesen Sie sie jetzt.
-        title: Admin-Nutzungsbedingungen
       area_types:
         create:
           error: Beim Erstellen eines neuen Bereichstyps ist ein Fehler aufgetreten.
           success: Bereichstyp wurde erfolgreich erstellt.
         destroy:
-          success: Der Bereichstyp wurde erfolgreich zerstört
+          success: Der Bereichstyp wurde erfolgreich zerstört.
         edit:
           title: Bereichstyp bearbeiten
           update: Aktualisieren
@@ -217,14 +201,14 @@ de:
           title: Neuer Bereichstyp
         update:
           error: Beim Aktualisieren dieses Bereichstyps ist ein Fehler aufgetreten.
-          success: Bereichstyp wurde erfolgreich aktualisiert
+          success: Bereichstyp wurde erfolgreich aktualisiert.
       areas:
         create:
           error: Beim Erstellen eines neuen Bereichs ist ein Fehler aufgetreten.
           success: Bereich wurde erfolgreich erstellt.
         destroy:
           has_spaces: Dieser Bereich hat abhängige partizipative Räume. Bitte stellen Sie sicher, dass kein partizipativer Raum mehr diesen Bereich referenziert, bevor sie ihn löschen.
-          success: Bereich wurde erfolgreich zerstört
+          success: Bereich wurde erfolgreich zerstört.
         edit:
           title: Bereich bearbeiten
           update: Aktualisieren
@@ -234,7 +218,7 @@ de:
         no_areas: Keine Bereiche
         update:
           error: Beim Aktualisieren dieses Bereichs ist ein Fehler aufgetreten.
-          success: Bereich wurde erfolgreich aktualisiert
+          success: Bereich wurde erfolgreich aktualisiert.
       attachment_collections:
         create:
           error: Beim Erstellen eines neuen Ordners ist ein Fehler aufgetreten.
@@ -274,7 +258,7 @@ de:
         message: Seien Sie vorsichtig, wenn Sie mit Anhängen in einem privaten Raum arbeiten. Jeder Teilnehmer kann dieses Dokument mit anderen teilen.
       autocomplete:
         no_results: keine Ergebnisse gefunden
-        search_prompt: Geben Sie mindestens drei Zeichen ein, um zu suchen
+        search_prompt: Geben Sie mindestens drei Zeichen ein, um zu suchen.
       block_user:
         new:
           action: Konto sperren und Begründung senden
@@ -359,8 +343,8 @@ de:
         form:
           domain_too_short: Domain zu kurz
         update:
-          error: Fehler beim Aktualisieren der Domain-Whitelist
-          success: Domain-Whitelist erfolgreich aktualisiert
+          error: Fehler beim Aktualisieren der Domain-Whitelist.
+          success: Domain-Whitelist erfolgreich aktualisiert.
       exports:
         export_as: "%{name} als %{export_format}"
         formats:
@@ -368,7 +352,6 @@ de:
           Excel: Excel
           FormPDF: PDF
           JSON: JSON
-        notice: Ihr Export wird gerade ausgeführt. Sie erhalten nach Fertigstellung eine E-Mail.
       filters:
         category_id_eq:
           label: Kategorie
@@ -443,10 +426,10 @@ de:
             message_1: CSV, JSON und Excel (.xlsx) Dateien werden unterstützt
             message_2: Bei CSV-Dateien muss das Trennzeichen zwischen den Spalten ein Semikolon sein (";")
       help_sections:
-        error: Beim Aktualisieren der Hilfeabschnitte ist ein Fehler aufgetreten
+        error: Beim Aktualisieren der Hilfeabschnitte ist ein Fehler aufgetreten.
         form:
           save: Speichern
-        success: Hilfeabschnitte wurden erfolgreich aktualisiert
+        success: Hilfeabschnitte wurden erfolgreich aktualisiert.
       impersonatable_users:
         index:
           filter:
@@ -504,8 +487,6 @@ de:
             message:
               one: Fehlende Spalte %{columns}.
               other: Fehlende Spalten %{columns}.
-        error: Beim Importieren ist ein Fehler aufgetreten
-        example_error: Konnte kein Beispiel für den angegebenen Typ erstellen
         new:
           accepted_mime_types:
             csv: CSV
@@ -517,7 +498,6 @@ de:
           download_example_format: Beispiel als %{name}
           file_legend: Datei zum Importieren hinzufügen.
           import: Importieren
-        notice: "%{number}%{resource_name} erfolgreich importiert"
       managed_users:
         promotion:
           error: Es ist ein Fehler aufgetreten, der den verwalteten Benutzer unterstützt.
@@ -649,8 +629,6 @@ de:
           blocked: Blockiert
           unblocked: Nicht blockiert
       moderations:
-        index:
-          title: Moderationen
         report:
           reasons:
             does_not_belong: Gehört nicht
@@ -727,7 +705,7 @@ de:
           title: Empfänger auswählen
           warning: "<strong>Achtung:</strong> Dieser Newsletter wird nur an Benutzer gesendet, die <em>Ich möchte Newsletter empfangen</em> in ihren Benachrichtigungseinstellungen aktiviert haben."
         send:
-          no_recipients: Keine Empfänger für diese Auswahl
+          no_recipients: Keine Empfänger für diese Auswahl.
         show:
           preview: Vorschau
           select_recipients_to_deliver: Empfänger auswählen
@@ -737,12 +715,12 @@ de:
           success: Newsletter erfolgreich aktualisiert. Bitte überprüfen Sie es vor dem Senden.
       officializations:
         block:
-          error: Beim Blockieren des Teilnehmers ist ein Fehler aufgetreten
-          success: Teilnehmer erfolgreich blockiert
+          error: Beim Blockieren des Teilnehmers ist ein Fehler aufgetreten.
+          success: Teilnehmer erfolgreich blockiert.
         create:
-          success: Benutzer wurde offiziell anerkannt
+          success: Benutzer wurde offiziell anerkannt.
         destroy:
-          success: Der Benutzer wurde erfolgreich inoffizialisiert
+          success: Der Benutzer wurde erfolgreich inoffizialisiert.
         index:
           actions: Aktionen
           badge: Abzeichen
@@ -772,8 +750,8 @@ de:
           show: Anzeigen
           title: E-Mail-Adresse des Teilnehmers anzeigen
         unblock:
-          error: Beim Blockieren des Teilnehmers ist ein Fehler aufgetreten
-          success: Blockierung des Teilnehmers wurde erfolgreich aufgehoben
+          error: Beim Blockieren des Teilnehmers ist ein Fehler aufgetreten.
+          success: Blockierung des Teilnehmers wurde erfolgreich aufgehoben.
       organization:
         edit:
           title: Organisation bearbeiten
@@ -818,6 +796,13 @@ de:
           add: Zur Whitelist hinzufügen
           title: Externe Domain-Whitelist
       organization_homepage:
+        content_blocks:
+          create:
+            error: Es gab ein Problem beim Versuch, diesen Inhaltsblock zu erstellen.
+            success: Inhaltsblock erfolgreich erstellt.
+          destroy:
+            error: Es gab ein Problem beim Löschen dieses Inhaltsblocks.
+            success: Inhaltsblock erfolgreich gelöscht.
         edit:
           active_content_blocks: Aktive Inhaltsblöcke
           inactive_content_blocks: Inaktive Inhaltsblöcke
@@ -837,11 +822,9 @@ de:
       participatory_space_private_users_csv_imports:
         create:
           invalid: Beim Lesen der CSV-Datei ist ein Problem aufgetreten. Bitte stellen Sie sicher, dass Sie den Anweisungen korrekt gefolgt sind.
-          success: CSV-Datei wurde erfolgreich hochgeladen, wir senden eine Einladungs-E-Mail an die Teilnehmer. Dies kann eine Weile dauern.
         new:
           destroy:
             button: Alle private Teilnehmende auswählen
-            confirm: Sind Sie sicher, dass Sie alle private Teilnehmende entfernen möchten? Diese Aktion kann nicht rückgängig gemacht werden. Sie werden sie nicht wiederherstellen können.
             empty: Sie haben keine private Teilnehmende.
             explanation: Sie haben %{count} private Teilnehmende.
             title: Alle private Teilnehmende entfernen
@@ -886,7 +869,7 @@ de:
           error: Beim Erstellen eines neuen Bereichs ist ein Fehler aufgetreten.
           success: Bereich erfolgreich erstellt
         destroy:
-          success: Bereich wurde erfolgreich zerstört
+          success: Scope erfolgreich gelöscht.
         edit:
           title: Bereich bearbeiten
           update: Aktualisieren
@@ -906,7 +889,7 @@ de:
           error: Beim Löschen dieses Tokens ist ein Fehler aufgetreten.
           success: Token wurde erfolgreich gelöscht.
         share_tokens:
-          empty: Es gibt keine aktiven Token
+          empty: Es gibt keine aktiven Token.
           help: Diese Token werden verwendet, um diese unveröffentlichte Ressource öffentlich an jeden Benutzer weiterzugeben. Sie werden ausgeblendet, wenn das Werk veröffentlicht wird. Klicken Sie auf das Teilen-Symbol des Tokens um die teilbare URL zu besuchen.
           title: Token teilen
       shared:
@@ -920,7 +903,7 @@ de:
           error: Beim Erstellen eines neuen Themas ist ein Fehler aufgetreten.
           success: Thema erfolgreich erstellt.
         destroy:
-          success: Thema erfolgreich zerstört
+          success: Thema erfolgreich gelöscht.
         edit:
           title: Thema bearbeiten
           update: Thema aktualisieren
@@ -935,13 +918,14 @@ de:
           view: Öffentliche Seite anzeigen
         content_blocks:
           active_content_blocks: Aktive Inhaltsblöcke
+          create:
+            error: Es gab ein Problem beim Versuch, diesen Inhaltsblock zu erstellen.
         create:
           error: Beim Erstellen einer neuen Seite ist ein Fehler aufgetreten.
           success: Seite erfolgreich erstellt
         destroy:
           success: Seite erfolgreich zerstört
         edit:
-          changed_notably_help: Wenn diese Option aktiviert ist, werden Benutzer benachrichtigt, um die neuen Nutzungsbedingungen zu akzeptieren.
           title: Seite bearbeiten
           update: Aktualisieren
         form:
@@ -955,11 +939,9 @@ de:
         topic:
           destroy: Thema entfernen
           edit: Thema bearbeiten
-          empty: Es gibt keine Seite zu diesem Thema
           without_topic: Seiten ohne Thema
         update:
           error: Beim Aktualisieren dieser Seite ist ein Fehler aufgetreten.
-          success: Seite wurde erfolgreich aktualisiert
       titles:
         admin_log: Adminprotokoll
         area_types: Bereichstypen
@@ -980,13 +962,10 @@ de:
       user_group:
         csv_verify:
           invalid: Beim Lesen der CSV-Datei ist ein Fehler aufgetreten.
-          success: CSV-Datei wurde erfolgreich hochgeladen. Wir überprüfen, ob die Benutzergruppen den Kriterien entsprechen. Das kann eine Weile dauern.
         reject:
           invalid: Beim Ablehnen dieser Benutzergruppe ist ein Fehler aufgetreten.
-          success: Benutzergruppe wurde erfolgreich abgelehnt
         verify:
           invalid: Beim Überprüfen dieser Benutzergruppe ist ein Fehler aufgetreten.
-          success: Benutzergruppe erfolgreich verifiziert
       user_groups:
         index:
           state:
@@ -1019,13 +998,8 @@ de:
           last_day: Letzter Tag
           last_month: Letzter Monat
           last_week: Letzte Woche
-          no_users_count_statistics_yet: Es gibt noch keine Nutzerstatistiken
           participants: Teilnehmer
       view_public_page: Öffentliche Seite anzeigen
-    forms:
-      errors:
-        impersonate_user:
-          reason: Sie müssen einen Grund angeben, weshalb Sie sich als nicht-verwalteten Benutzer ausgeben
     metrics:
       blocked_users:
         object: blockierte Benutzer

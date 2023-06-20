@@ -25,8 +25,10 @@ describe "Search meetings", type: :system do
 
     context "when searching for indexed searchables" do
       it "contains these searchables" do
-        fill_in "term", with: term
-        find("input#term").native.send_keys :enter
+        within "#form-search_topbar" do
+          fill_in "term", with: term
+          click_button
+        end
 
         expect(page).to have_current_path decidim.search_path, ignore_query: true
         expect(page).to have_content(/results for the search: "#{term}"/i)

@@ -154,7 +154,7 @@ Decidim::Core::Engine.routes.draw do
   get "/scopes/picker", to: "scopes#picker", as: :scopes_picker
 
   get "/static_map", to: "static_map#show", as: :static_map
-  put "/pages/terms-and-conditions/accept", to: "tos#accept_tos", as: :accept_tos
+  put "/pages/terms-of-service/accept", to: "tos#accept_tos", as: :accept_tos
 
   match "/404", to: "errors#not_found", via: :all
   match "/500", to: "errors#internal_server_error", via: :all

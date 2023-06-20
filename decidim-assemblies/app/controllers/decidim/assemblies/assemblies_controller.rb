@@ -58,9 +58,9 @@ module Decidim
 
       def default_filter_params
         {
-          with_scope: nil,
-          with_area: nil,
-          with_type: nil
+          with_any_scope: nil,
+          with_any_area: nil,
+          with_any_type: nil
         }
       end
 
@@ -70,18 +70,6 @@ module Decidim
         @current_participatory_space ||= OrganizationAssemblies.new(current_organization).query.where(slug: params[:slug]).or(
           OrganizationAssemblies.new(current_organization).query.where(id: params[:slug])
         ).first!
-      end
-
-      def current_participatory_space_breadcrumb_item
-        return if current_participatory_space.blank?
-
-        {
-          label: current_participatory_space.title,
-          url: assembly_path(current_participatory_space),
-          active: true,
-          dropdown_cell: "decidim/assemblies/assembly_dropdown_metadata",
-          resource: current_participatory_space
-        }
       end
 
       def published_assemblies

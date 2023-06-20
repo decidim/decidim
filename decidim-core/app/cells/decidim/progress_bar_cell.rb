@@ -13,7 +13,7 @@ module Decidim
   #    Defaults to `false`.
   #  - `:total` => The amount that will set the progress bar to 100%, the objective
   #    to reach.
-  #  - `:units_name` => The I18n key representing the name of the elements we're
+  #  - `:units_name` => The I18n key representing the name of the elements we are
   #    counting (votes, signatures, answers...). Can have the `%{count}` format.
   #  - `:element_id` => A String representing the ID that will be given to the
   #    progress bar HTML element.

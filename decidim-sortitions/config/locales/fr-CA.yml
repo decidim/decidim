@@ -62,10 +62,8 @@ fr-CA:
             title: Annulation du tirage au sort
           create:
             error: Une erreur s'est produite lors de la création d'un nouveau tirage au sort.
-            success: Le tirage au sort a été créé avec succès
           destroy:
             error: Impossible d'annuler le tirage au sort.
-            success: Le tirage au sort a été annulé avec succès
           edit:
             title: Mettre à jour les informations sur le tirage au sort
             update: Mettre à jour
@@ -76,14 +74,12 @@ fr-CA:
           index:
             title: Tirages au sort
           new:
-            confirm: 'En appuyant sur le bouton suivant, la plateforme enregistrera la date et l''heure à la seconde près et, en association avec le résultat du tirage de dé, générera un choix aléatoire. Cette action est irréversible : une fois que vous aurez cliqué sur le bouton, le résultat du tirage ainsi que les données saisies dans le formulaire seront publiés et ne pourront pas être modifiés. Veillez donc bien à vérifier les informations renseignées en amont'
             create: Créer
             title: Nouveau tirage au sort
           show:
             selected_proposals: Propositions sélectionnées pour le tirage au sort
           update:
             error: Une erreur est survenue lors de la mise à jour du tirage au sort.
-            success: Le tirage au sort a bien été mis à jour
       admin_log:
         sortition:
           create: "%{user_name} a créé le tirage au sort %{resource_name} dans %{space_name}"

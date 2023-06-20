@@ -21,11 +21,6 @@
           post:
             name: Innlegg
         posts:
-          create:
-            invalid: Det oppstod et problem med å opprette dette innlegget
-            success: Innlegget ble opprettet
-          destroy:
-            success: Innlegget ble slettet
           edit:
             save: Oppdater
             title: Rediger innlegg
@@ -36,7 +31,6 @@
             title: Opprett innlegg
           update:
             invalid: Det oppstod et problem med å lagre dette innlegget.
-            success: Innlegget ble lagret
       models:
         post:
           fields:

@@ -1,8 +1,4 @@
 .page{
-  &__container{
-    @apply flex flex-col gap-8;
-  }
-
   &__accordion{
     @apply border-4 border-background rounded p-4;
 

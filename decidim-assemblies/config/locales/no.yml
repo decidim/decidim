@@ -419,9 +419,6 @@
         related_assemblies: Relaterte forsamlinger
     statistics:
       assemblies_count: Forsamlinger
-  errors:
-    messages:
-      cannot_be_blank: kan ikke være blank
   layouts:
     decidim:
       assemblies:

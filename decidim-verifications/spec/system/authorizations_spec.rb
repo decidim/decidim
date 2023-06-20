@@ -17,7 +17,9 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
 
       before do
         visit decidim.root_path
-        click_link("Sign In")
+        within "#main-bar" do
+          click_link("Sign In")
+        end
 
         within "form.new_user", match: :first do
           fill_in :session_user_email, with: user.email
@@ -32,7 +34,7 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
         page.find(".datepicker-dropdown .day:not(.new)", text: "12").click
 
         click_button "Send"
-        expect(page).to have_content("You've been successfully authorized")
+        expect(page).to have_content("You have been successfully authorized")
       end
 
       it "allows the user to skip it" do
@@ -73,7 +75,7 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
           page.find(".datepicker-dropdown .day:not(.new)", text: "12").click
 
           click_button "Send"
-          expect(page).to have_content("You've been successfully authorized.")
+          expect(page).to have_content("You have been successfully authorized.")
           expect(page).not_to have_content("We have recovered the following participation data based on your authorization:")
         end
 
@@ -93,7 +95,13 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
               click_link "My account"
             end
 
-            click_link "Authorizations"
+            # REDESIGN_PENDING - My account is not redesigned yet and does not
+            # contain an "Authorizations" link. Uncomment after redesigning it
+            # and remove the visit_authorizations call
+            # click_link "Authorizations"
+
+            visit_authorizations
+
             click_link "Example authorization"
           end
 
@@ -103,7 +111,7 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
             page.find(".datepicker-dropdown .day:not(.new)", text: "12").click
 
             click_button "Send"
-            expect(page).to have_content("You've been successfully authorized.")
+            expect(page).to have_content("You have been successfully authorized.")
             expect(page).to have_content("We have recovered the following participation data based on your authorization:")
             expect(page).to have_content("Comments: 10")
             expect(page).to have_content("Proposals: 5")
@@ -117,7 +125,9 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
 
       before do
         visit decidim.root_path
-        click_link("Sign In")
+        within "#main-bar" do
+          click_link("Sign In")
+        end
 
         within "form.new_user", match: :first do
           fill_in :session_user_email, with: user.email
@@ -156,7 +166,7 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
         # page.find(".datepicker-dropdown .datepicker-days", text: "12").click
         click_button "Send"
 
-        expect(page).to have_content("You've been successfully authorized")
+        expect(page).to have_content("You have been successfully authorized")
 
         visit_authorizations
 
@@ -294,7 +304,7 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
           fill_in "Document number", with: "123456789X"
           click_button "Send"
 
-          expect(page).to have_content("You've been successfully authorized")
+          expect(page).to have_content("You have been successfully authorized")
         end
       end
     end

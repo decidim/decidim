@@ -5,6 +5,7 @@ module Decidim
   class GroupsController < Decidim::ApplicationController
     include FormFactory
     include UserGroups
+    include HasProfileBreadcrumb
 
     before_action :enforce_user_groups_enabled
     before_action :ensure_user_group_not_blocked

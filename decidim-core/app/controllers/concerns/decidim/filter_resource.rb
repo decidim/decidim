@@ -52,7 +52,12 @@ module Decidim
       def filter_params
         @filter_params = begin
           passed_params = params.to_unsafe_h[:filter].try(:symbolize_keys) || {}
-          passed_params.transform_values! { |value| value == all_value ? nil : value } if all_value.present?
+          passed_params.transform_values! do |value|
+            next nil if value == all_value
+            next value.compact_blank if value.is_a? Array
+
+            value
+          end
           default_filter_params.merge(passed_params.slice(*default_filter_params.keys))
         end
       end

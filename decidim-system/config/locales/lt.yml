@@ -43,9 +43,6 @@ lt:
       admins:
         create:
           error: Kuriant naują administratorių iškilo problema.
-          success: Administratorius sukurtas
-        destroy:
-          success: Administratorius pašalintas
         edit:
           title: Redaguoti administratorių
           update: Atnaujinti
@@ -56,7 +53,6 @@ lt:
           title: Naujas administratorius
         update:
           error: Atnaujinant šį administratorių iškilo problema.
-          success: Administratorius atnaujintas
       dashboard:
         show:
           current_organizations: Dabartinės organizacijos
@@ -144,8 +140,6 @@ lt:
         index:
           title: Organizacijos
         new:
-          reference_prefix_hint: Nuorodos priešdėlis naudojamas unikaliai identifikuoti išteklius visoje organizacijoje
-          secondary_hosts_hint: Kiekvieną iš jų įrašykite į naują eilutę
           title: Nauja organizacija
         omniauth_settings:
           decidim:
@@ -168,8 +162,6 @@ lt:
         smtp_settings:
           fieldsets:
             sender: Siuntėjas
-          instructions:
-            from_label: 'El. pašto siuntėjas bus: "jūsų-organizacijos-pavadinimas <your-organization@example.org>". Palikite tuščią, jei norite naudoti „El. pašto adresas“ kaip etiketę'
           placeholder:
             from_email: jūsų-organizacija@example.org
             from_label: jūsų-organizacijos-pavadinimas
@@ -179,7 +171,6 @@ lt:
         users_registration_mode:
           disabled: Prieiga galima tik iš išorės paskyrų
           enabled: Leisti dalyviams registruotis ir prisijungti
-          existing: Neleiskite dalyviams registruotis, bet leiskite esamiems dalyviams prisijungti
       shared:
         notices:
           no_organization_warning_html: Norėdami pradėti, turite sukurti organizaciją. Prieš tęsdami būtinai perskaitykite %{guide}.

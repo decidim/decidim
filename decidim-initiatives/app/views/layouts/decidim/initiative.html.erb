@@ -1,16 +1,19 @@
-<%= render "layouts/decidim/application" do %>
-  <%= render partial: "layouts/decidim/initiative_header" %>
-  <%= cell "decidim/translation_bar", current_organization %>
-  <div class="wrapper">
-    <%= yield %>
-  </div>
-  <% if content_for? :expanded %>
-    <div class="expanded">
-      <div class="wrapper wrapper--inner">
-        <div class="row">
-          <%= yield :expanded %>
+<%= append_javascript_pack_tag "decidim_initiatives" %>
+<%= append_stylesheet_pack_tag "decidim_initiatives", media: "all" %>
+
+<%= render "layouts/decidim/redesigned_application" do %>
+  <%= render layout: "layouts/decidim/shared/layout_center" do %>
+    <main>
+      <%= yield %>
+    </main>
+    <% if content_for? :expanded %>
+      <div class="expanded">
+        <div class="wrapper wrapper--inner">
+          <div class="row">
+            <%= yield :expanded %>
+          </div>
         </div>
       </div>
-    </div>
+    <% end %>
   <% end %>
 <% end %>

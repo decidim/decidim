@@ -26,12 +26,9 @@ nl:
       comments:
         create:
           error: Er is een probleem opgetreden bij het aanmaken van de reactie.
-        delete:
-          error: De reactie kon niet worden verwijderd.
         update:
           error: Er is een probleem opgetreden bij het bijwerken van de reactie.
       comments_count: Aantal reacties
-      comments_title: Reacties
       last_activity:
         new_comment_at_html: "<span>Nieuwe opmerking op %{link}</span>"
       view: Bekijk
@@ -45,7 +42,6 @@ nl:
           body:
             label: Reactie
             placeholder: Wat wil je hierover zeggen?
-          form_error: De tekst is verplicht en het kan niet langer zijn dan %{length} tekens.
           submit: Verzenden
           user_group_id:
             label: Reageer als
@@ -80,7 +76,6 @@ nl:
           description: Is deze inhoud ongepast?
           details: aanvullende opmerkingen
           reasons:
-            does_not_belong: Bevat illegale activiteit, zelfmoord bedreigingen, persoonlijke gegevens, of iets anders dat je denkt dat hoort niet op %{organization_name}.
             offensive: Bevat racisme, seksisme, laster, persoonlijke aanvallen, bedreigingen met de dood, zelfmoord verzoeken of enige vorm van haatzaaien.
             spam: Bevat clickbait, reclame, oplichting of script bots.
           title: Meld ongepaste inhoud
@@ -165,6 +160,3 @@ nl:
         description: Aantal reacties gegenereerd door deelnemers
         object: reacties
         title: Reacties
-  errors:
-    messages:
-      cannot_have_comments: Kan geen reacties hebben

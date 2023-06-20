@@ -32,7 +32,27 @@ module Decidim
                     end
         end
 
-        result.join(", ").html_safe
+        result.join(" - ").html_safe
+      end
+
+      def filter_sections_sortitions
+        sections = [{ method: :with_any_state, collection: filter_state_values, label_scope: "decidim.sortitions.sortitions.filters", id: "state" }]
+        if current_participatory_space.categories.any?
+          sections.append(
+            method: :with_category,
+            collection: filter_categories_values,
+            label_scope: "decidim.sortitions.sortitions.filters", id: "category"
+          )
+        end
+        sections.reject { |item| item[:collection].blank? }
+      end
+
+      def filter_state_values
+        [
+          ["all", filter_text_for(t("all", scope: "decidim.sortitions.sortitions.filters"))],
+          ["active", filter_text_for(t("active", scope: "decidim.sortitions.sortitions.filters"))],
+          ["cancelled", filter_text_for(t("cancelled", scope: "decidim.sortitions.sortitions.filters"))]
+        ]
       end
     end
   end

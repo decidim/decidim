@@ -31,7 +31,7 @@ es-MX:
         cost_report: Informe de coste
         execution_period: Período de ejecución
       proposals_copy:
-        copy_proposals: Entiendo que esto importará todas las propuestas del componente seleccionado al actual y que esta acción no se puede revertir.
+        copy_proposals: Entiendo que esto importará todas las propuestas del componente seleccionado al actual y que esta acción no se puede deshacer.
         origin_component_id: Componente desde dónde copiar las propuestas
       proposals_import:
         import_proposals: Propuestas de importación
@@ -222,10 +222,10 @@ es-MX:
       proposals:
         admin:
           proposal_note_created:
-            email_intro: Alguien ha dejado una nota en la propuesta "%{resource_title}". Revísala ahora a través del <a href="%{admin_proposal_info_url}">panel de administración</a>
+            email_intro: Alguien ha dejado una nota en la propuesta "%{resource_title}". Revísala ahora a través del <a href="%{admin_proposal_info_url}">panel de administración</a>.
             email_outro: Recibes esta notificación porque puedes evaluar la propuesta.
             email_subject: Alguien dejó una nota en la propuesta %{resource_title}.
-            notification_title: Alguien ha dejado una nota en la propuesta <a href="%{resource_path}">%{resource_title}</a>. Revísala ahora a través del <a href="%{admin_proposal_info_path}">panel de administración</a>
+            notification_title: Alguien ha dejado una nota en la propuesta <a href="%{resource_path}">%{resource_title}</a>. Revísala ahora a través del <a href="%{admin_proposal_info_path}">panel de administración</a>.
         collaborative_draft_access_accepted:
           email_intro: '%{requester_name} ha sido aceptada para acceder como contribuidora del borrador colaborativo <a href="%{resource_url}">%{resource_title}</a>.'
           email_outro: Has recibido esta notificación porque eres una contribuidora de <a href="%{resource_url}">%{resource_title}</a>.
@@ -260,12 +260,12 @@ es-MX:
           email_intro: '¡Ahora puedes crear nuevas propuestas en %{participatory_space_title}! Empieza a participar en esta página:'
           email_outro: Recibiste esta notificación porque estás siguiendo %{participatory_space_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
           email_subject: Propuestas ahora disponibles en %{participatory_space_title}
-          notification_title: Ahora puedes presentar <a href="%{resource_path}">nuevas propuestas</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          notification_title: Ahora puedes presentar <a href="%{resource_path}">nuevas propuestas</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
         endorsing_enabled:
           email_intro: '¡Puedes adherirte a propuestas en %{participatory_space_title}! Empieza a participar en esta página:'
           email_outro: Recibiste esta notificación porque estás siguiendo %{participatory_space_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
           email_subject: La adhesión de propuestas ha comenzado para %{participatory_space_title}
-          notification_title: Ahora puedes empezar a <a href="%{resource_path}">adherirte propuestas</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          notification_title: Ahora puedes empezar a <a href="%{resource_path}">adherirte propuestas</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
         proposal_accepted:
           affected_user:
             email_intro: 'Su propuesta "%{resource_title}" ha sido aceptada. Puedes leer la respuesta en esta página:'
@@ -275,7 +275,7 @@ es-MX:
           follower:
             email_intro: 'La propuesta "%{resource_title}" ha sido aceptada. Puedes leer la respuesta en esta página:'
             email_outro: Has recibido esta notificación porque sigues "%{resource_title}". Puedes dejar de seguirlo en el enlace anterior.
-            email_subject: Una propuesta que estás siguiendo ha sido aceptada
+            email_subject: Se ha aceptado una propesta que estás siguiendo
             notification_title: La propuesta <a href="%{resource_path}">%{resource_title}</a> ha sido aceptada.
         proposal_evaluating:
           affected_user:
@@ -286,7 +286,7 @@ es-MX:
           follower:
             email_intro: 'La propuesta "%{resource_title}" se está evaluando actualmente. Puedes encontrar la respuesta en esta página:'
             email_outro: Has recibido esta notificación porque sigues "%{resource_title}". Puedes dejar de seguirlo en el enlace anterior.
-            email_subject: Una propuesta que estás siguiendo está siendo evaluada
+            email_subject: Se está evaluando una propuesta que estás siguiendo
             notification_title: La propuesta <a href="%{resource_path}">%{resource_title}</a> está siendo evaluada.
         proposal_mentioned:
           email_intro: Tu propuesta "%{mentioned_proposal_title}" se ha mencionado <a href="%{resource_url}">en este espacio</a> en los comentarios.
@@ -302,8 +302,8 @@ es-MX:
           email_intro: La propuesta "%{resource_title}" se ha añadido a "%{participatory_space_title}" que estás siguiendo.
           email_outro: Recibiste esta notificación porque estás siguiendo "%{participatory_space_title}". Puedes dejar de seguirlo desde el enlace anterior.
           email_subject: Nueva propuesta "%{resource_title}" añadida a %{participatory_space_title}
-          notification_title: La propuesta <a href="%{resource_path}">%{resource_title}</a> ha sido añadida a %{participatory_space_title} por %{author}
-          notification_title_official: Se ha añadido la propuesta oficial <a href="%{resource_path}">%{resource_title}</a> en %{participatory_space_title}
+          notification_title: '%{author} ha añadido la propuesta <a href="%{resource_path}">%{resource_title}</a> a %{participatory_space_title}.'
+          notification_title_official: Se ha añadido la propuesta oficial <a href="%{resource_path}">%{resource_title}</a> en %{participatory_space_title}.
         proposal_rejected:
           affected_user:
             email_intro: 'Su propuesta "%{resource_title}" ha sido rechazada. Puedes leer la respuesta en esta página:'
@@ -313,7 +313,7 @@ es-MX:
           follower:
             email_intro: 'La propuesta "%{resource_title}" ha sido rechazada. Puedes leer la respuesta en esta página:'
             email_outro: Has recibido esta notificación porque sigues "%{resource_title}". Puedes dejar de seguirlo en el enlace anterior.
-            email_subject: Una propuesta que estás siguiendo ha sido rechazada
+            email_subject: Se ha rechazado una propuesta que estás siguiendo
             notification_title: La propuesta <a href="%{resource_path}">%{resource_title}</a> ha sido rechazada.
         proposal_update_category:
           email_intro: 'Un/a administrador/a ha actualizado la categoría de tu propuesta "%{resource_title}", compruébalo:'
@@ -352,7 +352,7 @@ es-MX:
           description_own: Has dado soporte a %{score} propuestas.
           name: Apoyos a propuestas
           next_level_in: '¡Apoya %{score} propuestas más para alcanzar el siguiente nivel!'
-          unearned_another: Este usuario aún no ha dado apoyo a ninguna propuesta.
+          unearned_another: Esta participante aún no ha apoyado ninguna propuesta.
           unearned_own: Todavía no has dado apoyo a ninguna propuesta.
         proposals:
           conditions:
@@ -363,7 +363,7 @@ es-MX:
           description_own: Has creado %{score} propuestas.
           name: Propuestas
           next_level_in: '¡Crea %{score} propuestas más para alcanzar el siguiente nivel!'
-          unearned_another: Este usuario no ha creado ninguna propuesta todavía.
+          unearned_another: Esta participante no ha creado ninguna propuesta todavía.
           unearned_own: Aún no has creado propuestas.
     metrics:
       accepted_proposals:
@@ -458,8 +458,8 @@ es-MX:
             title: AÑADIR DOCUMENTO
             upload_document: Subir documento
           publish:
-            invalid: No se pudieron publicar las propuestas
-            success: Todas las propuestas han sido publicadas
+            invalid: Se ha producido un error al publicar las propuestas.
+            success: Se han publicado todas las propuestas.
           sections:
             article: "<em>Artículo</em>"
             section: "<em>Sección:</em> <strong>%{title}</strong>"
@@ -476,8 +476,8 @@ es-MX:
             title: Responder a la propuesta %{title}
         proposal_notes:
           create:
-            error: Ha habido un problema al crear esta nota de propuesta
-            success: Nota de propuesta creada con éxito
+            error: Se ha producido un error al crear esta nota en la propuesta.
+            success: La nota en la propuesta se ha creado con éxito.
           form:
             note: Nota
             submit: Enviar
@@ -485,11 +485,11 @@ es-MX:
           title: Notas privadas
         proposals:
           answer:
-            invalid: Ha habido un problema al responder a esta propuesta
-            success: Propuesta respondida con éxito
+            invalid: Ha habido un problema al responder a esta propuesta.
+            success: Propuesta respuesta con éxito.
           create:
-            invalid: Ha habido un problema al crear esta propuesta
-            success: Propuesta creada correctamente
+            invalid: Ha habido un problema al crear esta propuesta.
+            success: Propuesta creada correctamente.
           edit:
             title: Actualizar propuesta
             update: Actualizar
@@ -524,7 +524,7 @@ es-MX:
             title: Crear propuesta
           publish_answers:
             number_of_proposals: Se publicarán las respuestas para %{number} propuestas.
-            select_a_proposal: Por favor selecciona una propuesta
+            select_a_proposal: Por favor, selecciona una propuesta.
           show:
             amendments_count: Número de enmiendas
             assigned_valuators: Evaluadoras asignadas
@@ -554,18 +554,18 @@ es-MX:
             votes_ranking: Clasificación por apoyos
           update_category:
             invalid: 'Estas propuestas ya tenían la categoría %{subject_name}: %{proposals}.'
-            select_a_category: Por favor selecciona una categoría
-            select_a_proposal: Por favor selecciona una propuesta
+            select_a_category: Por favor, selecciona una categoría.
+            select_a_proposal: Por favor, selecciona una propuesta.
             success: 'Propuestas actualizadas correctamente a la categoría %{subject_name}: %{proposals}.'
           update_scope:
             invalid: 'Estas propuestas ya tenían el ámbito %{subject_name}: %{proposals}.'
-            select_a_proposal: Por favor selecciona una propuesta
-            select_a_scope: Por favor, selecciona un ámbito
+            select_a_proposal: Por favor, selecciona una propuesta.
+            select_a_scope: Por favor, selecciona un ámbito.
             success: 'Propuestas actualizadas correctamente al ámbito %{subject_name}: %{proposals}.'
         proposals_imports:
           create:
-            invalid: Ha habido un problema al importar las propuestas
-            success: "%{number} propuestas importadas correctamente"
+            invalid: Se ha producido un error al importar las propuestas.
+            success: "%{number} propuestas importadas correctamente."
           new:
             create: Importar propuestas
             no_components: No hay otros componentes propuesta en este espacio participativo desde el que importar.
@@ -582,11 +582,11 @@ es-MX:
             success: Las propuestas se han dividido en otras nuevas con éxito.
         valuation_assignments:
           create:
-            invalid: Se ha producido un error al asignar propuestas a una evaluadora
-            success: Propuestas asignadas a una evaluadora correctamente
+            invalid: Se ha producido un error al asignar propuestas a una evaluadora.
+            success: Propuestas asignadas correctamente a una evaluadora.
           delete:
-            invalid: Se ha producido un error al desasignar propuestas a una evaluadora
-            success: Evaluadora desasignada correctamente
+            invalid: Se ha producido un error al deshacer la asignación de propuestas de una evaluadora.
+            success: Evaluadora desasignada correctamente.
       admin_log:
         proposal:
           answer: "%{user_name} respondió a la propuesta %{resource_name} en el espacio %{space_name}"
@@ -630,7 +630,7 @@ es-MX:
           publish:
             error: Ha habido errores al publicar el borrador colaborativo.
             irreversible_action_modal:
-              body: Después de publicar el borrador como una propuesta, dejará de ser editable. La propuesta no aceptará nuevos autores o contribuciones.
+              body: Después de publicar el borrador como una propuesta, dejará de ser editable. La propuesta no aceptará nuevas autoras o contribuciones.
               cancel: Cancelar
               ok: Publicar como una propuesta
               title: La siguiente acción es irreversible
@@ -639,7 +639,7 @@ es-MX:
           withdraw:
             error: Ha habido errores al cerrar el borrador colaborativo.
             irreversible_action_modal:
-              body: Después de cerrar el borrador, dejara de ser editable. El borrador no aceptará nuevos autores o contribuciones.
+              body: Después de cerrar el borrador, ya no será editable. El borrador no aceptará nuevas autoras ni contribuciones.
               cancel: Cancelar
               ok: Retirar el borrador colaborativo
               title: La siguiente acción es irreversible
@@ -687,17 +687,17 @@ es-MX:
         requests:
           accepted_request:
             error: No se pudo aceptar como contribuidor. Inténtalo de nuevo más tarde.
-            success: "@%{user} ha sido aceptado como contribuidor con éxito"
+            success: "Se ha acceptado con éxito a @%{user} como colaboradora."
           access_requested:
             error: Tu solicitud no pudo ser completada, intenta de nuevo más tarde.
-            success: Tu solicitud para colaborar ha sido enviada con éxito
+            success: Tu solicitud para colaborar ha sido enviada correctamente.
           collaboration_requests:
             accept_request: Aceptar
             reject_request: Rechazar
             title: Solicitudes de contribuciones
           rejected_request:
             error: No se pudo rechazar como colaborador, inténtalo de nuevo más tarde.
-            success: "@%{user} ha sido rechazado como contribuidor con éxito"
+            success: "Se ha rechazado con éxito @%{user} como colaboradora."
         show:
           back: Volver
           edit: Editar borrador colaborativo
@@ -706,7 +706,7 @@ es-MX:
           hidden_authors_count:
             one: y %{count} persona más
             other: y %{count} personas más
-          info-message: Este es un <strong>borrador colaborativo</strong> para una propuesta. Esto significa que puede ayudar a sus autores a dar forma a la propuesta usando la sección de comentarios que se encuentra debajo o mejorarla directamente solicitando acceso para editarla. Una vez que los autores le otorguen acceso, podrá realizar cambios en este borrador.
+          info-message: Este es un <strong>borrador colaborativo</strong> para una propuesta. Esto significa que puedes ayudar a sus autoras a dar forma a la propuesta usando la sección de comentarios que se encuentra debajo o mejorarla directamente solicitando acceso para editarla. Una vez que las autoras te den acceso, podrás realizar cambios en este borrador.
           publish: Publicar
           publish_info: Publicar esta versión del borrador o
           published_proposal: propuesta publicada
@@ -760,7 +760,7 @@ es-MX:
             valuators: Evaluadoras
             votes: Apoyos
       new:
-        limit_reached: No puedes crear nuevas propuestas ya que has superado el límite.
+        limit_reached: No puedes crear nuevas propuestas porque has superado el límite.
       participatory_text_proposal:
         alternative_title: No hay textos participativos por el momento
         buttons:
@@ -863,8 +863,8 @@ es-MX:
           creation_date: 'Fecha de creación: %{date}'
           view_proposal: Ver propuesta
         proposals:
-          empty: Aún no hay ninguna propuesta
-          empty_filters: No hay ninguna propuesta con este criterio
+          empty: Aún no hay ninguna propuesta.
+          empty_filters: No hay ninguna propuesta con este criterio.
         show:
           answer: Respuesta
           back_to: Volver a
@@ -913,12 +913,12 @@ es-MX:
             description: Cada propuesta puede acumular más de %{limit} apoyos
           minimum_votes_per_user:
             description: Debes distribuir un mínimo de %{votes} apoyos entre las diferentes propuestas.
-            given_enough_votes: Has dado suficientes apoyos.
+            given_enough_votes: Has dado apoyos suficientes.
             supports_remaining: Tienes que apoyar %{remaining_votes} propuestas más para que tus apoyos se tengan en cuenta.
           proposal_limit:
             description: Puedes crear hasta %{limit} propuestas.
           threshold_per_proposal:
-            description: Para ser validadas, las propuestas deben llegar a un cuórum nínimo de %{limit} apoyos
+            description: Para que las propuestas sean validadas necesitan alcanzar un mínimo de %{limit} apoyos.
           title: 'La recogida de apoyos se rige por las siguientes normas:'
           vote_limit:
             description: Puedes apoyar hasta %{limit} propuestas.

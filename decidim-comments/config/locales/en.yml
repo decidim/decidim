@@ -34,7 +34,7 @@ en:
       comments_count: Comments count
       comments_title: Comment
       last_activity:
-        new_comment_at_html: "<span>New comment at %{link}</span>"
+        new_comment: 'New comment:'
       view: View
       votes:
         create:

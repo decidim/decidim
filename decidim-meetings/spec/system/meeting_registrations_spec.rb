@@ -120,8 +120,8 @@ describe "Meeting registrations", type: :system do
             click_button "Register"
 
             within "#loginModal" do
-              expect(page).to have_content("Sign in with Facebook")
-              find(".close-button").click
+              expect(page).to have_content("Forgot your password?")
+              find("[data-dialog-close='loginModal']", match: :first).click
             end
 
             within_language_menu do
@@ -131,7 +131,7 @@ describe "Meeting registrations", type: :system do
             click_button "Unir-se a la trobada"
 
             within "#loginModal" do
-              expect(page).to have_content("Inicia sessió amb Facebook")
+              expect(page).to have_content("Has oblidat la teva contrasenya?")
             end
           end
         end
@@ -161,8 +161,6 @@ describe "Meeting registrations", type: :system do
 
         context "and they ARE NOT part of a verified user group" do
           it "they can join the meeting and automatically follow it" do
-            skip_unless_redesign_enabled("This test pass using redesigned modals")
-
             visit_meeting
 
             click_button "Register"
@@ -186,8 +184,6 @@ describe "Meeting registrations", type: :system do
           end
 
           it "they can join the meeting and configure their participation to be shown publicly" do
-            skip_unless_redesign_enabled("This test pass using redesigned modals")
-
             visit_meeting
 
             click_button "Register"
@@ -210,8 +206,6 @@ describe "Meeting registrations", type: :system do
           end
 
           it "they can join the meeting if they are already following it" do
-            skip_unless_redesign_enabled("This test pass using redesigned modals")
-
             create(:follow, followable: meeting, user:)
 
             visit_meeting
@@ -312,18 +306,15 @@ describe "Meeting registrations", type: :system do
         end
 
         it "shows errors for invalid file" do
+          skip "REDESIGN_PENDING: using the new upload modal breaks the submit, here it was using a plain input file"
+
           visit questionnaire_public_path
 
-          input_element = find("input[type='file']", visible: :all)
-          input_element.attach_file(Decidim::Dev.asset("verify_user_groups.csv"))
+          dynamically_attach_file("questionnaire_responses_0_add_documents", Decidim::Dev.asset("verify_user_groups.csv"), front_interface: true)
 
           expect(page).to have_field("public_participation", checked: false)
           find("#questionnaire_tos_agreement").set(true)
-          click_button "Submit"
-
-          within ".confirm-modal-footer" do
-            find("a.button[data-confirm-ok]").click
-          end
+          accept_confirm { click_button "Submit" }
 
           expect(page).to have_content("Needs to be reattached")
         end

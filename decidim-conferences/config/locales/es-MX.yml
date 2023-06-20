@@ -74,7 +74,7 @@ es-MX:
         conference_registration_invite:
           attributes:
             email:
-              already_invited: Este correo electrónico ya ha sido invitado
+              already_invited: Ya se había invitado a este correo electrónico.
   activerecord:
     models:
       decidim/conference:
@@ -353,7 +353,7 @@ es-MX:
             invites: Invitaciones
             search: Buscar
           new:
-            explanation: El usuario será invitado a unirse a una conferencia. Si el correo electrónico no está registrado, también será invitado a la organización.
+            explanation: La participante será invitada a unirse a la jornada. Si su correo electrónico no está registrado, también será invitada a unirse a la organización.
             invite: Invitar
             new_invite: Invitar a un usuario
         conference_registrations:
@@ -455,7 +455,7 @@ es-MX:
           main_promotors: Organizadores
         show:
           login_as: Has iniciado sesión como %{name} <%{email}>
-          make_conference_registration: Inscribirse a la jornada
+          make_conference_registration: Inscríbete en la jornada
           register: Inscripciones
       content_blocks:
         highlighted_conferences:
@@ -465,9 +465,9 @@ es-MX:
       mailer:
         conference_registration_mailer:
           confirmation:
-            subject: Tu inscripción a la conferencia ha sido confirmada
+            subject: Se ha confirmado tu inscripción a la jornada.
           pending_validation:
-            subject: Tu inscripción a la conferencia está pendiente de confirmación
+            subject: Tu inscripción a la jornada está pendiente de confirmación.
         invite_join_conference_mailer:
           invite:
             subject: Invitación para unirse a una conferencia
@@ -554,7 +554,7 @@ es-MX:
     log:
       value_types:
         conference_presenter:
-          not_found: 'La conferencia no se encontra en la base de datos (ID: %{id})'
+          not_found: 'La jornada no se ha encontrado en la base de datos (ID: %{id}).'
     media:
       index:
         description: Enlaces sobre esta conferencia
