@@ -600,6 +600,16 @@ describe "Authentication", type: :system do
           expect(page).to have_content("Successfully")
           expect(page).to have_content(user.name)
         end
+
+        context "when admin password is expired" do
+          let(:user) { create(:user, :confirmed, :admin, password_updated_at: 91.days.ago, organization: organization) }
+
+          it "can log in without being prompted to change the password" do
+            find(".sign-in-link").click
+            click_link "Sign in with Facebook"
+            expect(page).to have_content("Successfully")
+          end
+        end
       end
     end
   end
