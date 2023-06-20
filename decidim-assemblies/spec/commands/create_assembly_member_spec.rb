@@ -97,7 +97,7 @@ module Decidim::Assemblies
       end
 
       context "with an existing user in the platform" do
-        let!(:user_entity) { create(:user, :confirmed, organization: assembly.organization) }
+        let!(:user_entity) { create(:user, :confirmed, organization: assembly.organization, notifications_sending_frequency: :real_time) }
         let(:existing_user) { true }
 
         it "sets the user" do
@@ -115,15 +115,17 @@ module Decidim::Assemblies
               resource: assembly,
               followers: a_collection_containing_exactly(user_entity)
             )
+            .and_call_original
 
-          subject.call
-          expect(ActionMailer::MailDeliveryJob).to have_been_enqueued.on_queue("mailers")
+          perform_enqueued_jobs { subject.call }
+          expect(last_email.subject).to eq("You have been invited to be a member of the #{translated(assembly.title)} assembly!")
+          expect(last_email.to).to eq([user_entity.email])
         end
       end
 
       context "with an existing group in the platform" do
-        let!(:member1) { create(:user, :confirmed, organization: assembly.organization) }
-        let!(:member2) { create(:user, :confirmed, organization: assembly.organization) }
+        let!(:member1) { create(:user, :confirmed, organization: assembly.organization, notifications_sending_frequency: :real_time) }
+        let!(:member2) { create(:user, :confirmed, organization: assembly.organization, notifications_sending_frequency: :real_time) }
         let!(:user_entity) { create(:user_group, :confirmed, :verified, users: [member1, member2], organization: assembly.organization) }
         let(:existing_user) { true }
 
@@ -142,9 +144,14 @@ module Decidim::Assemblies
               resource: assembly,
               followers: a_collection_containing_exactly(member1, member2)
             )
+            .and_call_original
 
-          subject.call
-          expect(ActionMailer::MailDeliveryJob).to have_been_enqueued.twice.on_queue("mailers")
+          perform_enqueued_jobs { subject.call }
+          expect(emails[-1].subject).to eq("You have been invited to be a member of the #{translated(assembly.title)} assembly!")
+          expect(emails[-2].subject).to eq("You have been invited to be a member of the #{translated(assembly.title)} assembly!")
+
+          recipients = emails[-2..-1].map(&:to).flatten
+          expect(recipients).to contain_exactly(member1.email, member2.email)
         end
       end
     end
