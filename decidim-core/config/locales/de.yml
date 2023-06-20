@@ -1060,6 +1060,7 @@ de:
         subject: Möchten Sie weiterhin relevante Informationen über %{organization_name} erhalten?
     notification_mailer:
       event_received:
+        no_translation_available: Leider konnte die automatisierte Übersetzung nicht abgerufen werden, nachdem die E-Mail gesendet wurde. Sie können die Übersetzung des Originaltextes unter folgendem Link %{link} überprüfen.
         original_text: 'Originaltext:'
         same_language: Der Inhalt wurde in Ihrer bevorzugten Sprache (%{language}) veröffentlicht, daher wird in dieser E-Mail keine automatisierte Übersetzung angezeigt.
         translated_text: 'Automatisch übersetzter Text:'
@@ -1574,6 +1575,8 @@ de:
         other: 'Bei der Bearbeitung Ihrer Anfrage sind mehrere Fehler aufgetreten:'
       too_many_marks: benutzt zu viele aufeinanderfolgende Satzzeichen (zB! und?)
       too_much_caps: verwendet zu viele Großbuchstaben (über 25% des Textes)
+      too_short: ist zu kurz (mindestens %{count} Zeichen)
+      url_format: Diese URL ist im falschen Format
   forms:
     correct_errors: Es gibt Fehler auf dem Formular, bitte korrigieren Sie sie, um fortzufahren.
     length_validator:
