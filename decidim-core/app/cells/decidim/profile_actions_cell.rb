@@ -12,6 +12,7 @@ module Decidim
       create_user_group: { icon: "team-line", path: :profile_new_group_path },
       edit_user_group: { icon: "team-line", path: :edit_group_path },
       message: { icon: "mail-send-line", path: :new_conversation_path },
+      disabled_message: { icon: "mail-send-line", options: { html_options: { disabled: true, title: I18n.t("decidim.user_contact_disabled") } } },
       manage_user_group_users: { icon: "user-settings-line", path: :profile_group_members_path },
       manage_user_group_admins: { icon: "user-star-line", path: :profile_group_admins_path },
       invite_user: { icon: "user-add-line", path: :group_invites_path },
@@ -61,7 +62,7 @@ module Decidim
       @actions_keys ||= [].tap do |keys|
         keys << :edit_profile if own_profile?
         keys << :create_user_group if own_profile? && user_groups_enabled?
-        keys << :message if can_contact_user?
+        keys << message_key if can_contact_user?
         keys << :join_user_group if can_join_user_group?
         keys << :leave_user_group if can_leave_group?
       end
@@ -81,6 +82,12 @@ module Decidim
                                      else
                                        []
                                      end
+    end
+
+    def message_key
+      return :message if current_or_new_conversation_path_with(presented_profile).present?
+
+      :disabled_message
     end
 
     def profile_actions
@@ -122,7 +129,7 @@ module Decidim
     end
 
     def can_contact_user?
-      !own_profile? && presented_profile.can_be_contacted? && current_or_new_conversation_path_with(presented_profile).present?
+      !current_user || (current_user && current_user != model && presented_profile.can_be_contacted?)
     end
   end
 end

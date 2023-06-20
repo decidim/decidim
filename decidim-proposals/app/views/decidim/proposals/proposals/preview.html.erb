@@ -22,26 +22,7 @@
       <%= render partial: "decidim/shared/static_map", locals: { icon_name: "proposals", geolocalizable: @proposal } %>
     <% end %>
 
-    <% if tabs.any? %>
-      <div class="mt-8" data-component="accordion" data-multiselectable="false" data-collapsible="false">
-        <ul class="tab-x-container">
-          <% tabs.each_with_index do |tab, i| %>
-            <li>
-              <button id="trigger-<%= tab[:id] %>" class="tab-x" data-controls="panel-<%= tab[:id] %>" data-open="<%= "true" if i == 0 %>">
-                <%= icon tab[:icon], class: "text-gray fill-current" %><%= tab[:text] %>
-              </button>
-            </li>
-          <% end %>
-        </ul>
-
-        <% panels.each do |panel| %>
-          <div id="panel-<%= panel[:id] %>" class="py-8">
-            <%= send(panel[:method], *panel[:args]) %>
-          </div>
-        <% end %>
-      </div>
-    <% end %>
-
+    <%= cell "decidim/tab_panels", tab_panel_items %>
     <%= cell "decidim/tags", @proposal %>
   </div>
 

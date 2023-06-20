@@ -3,12 +3,12 @@
 require "spec_helper"
 
 module Decidim::Initiatives
-  describe InitiativeMCell, type: :cell do
+  describe InitiativeGCell, type: :cell do
     controller Decidim::Initiatives::InitiativesController
 
     subject { cell_html }
 
-    let(:my_cell) { cell("decidim/initiatives/initiative_m", initiative, context: { show_space: }) }
+    let(:my_cell) { cell("decidim/initiatives/initiative_g", initiative, context: { show_space: }) }
     let(:cell_html) { my_cell.call }
     let(:state) { :published }
     let(:organization) { create(:organization) }
@@ -23,12 +23,12 @@ module Decidim::Initiatives
       let(:show_space) { false }
 
       it "renders the card" do
-        expect(subject).to have_css(".card--initiative")
+        expect(subject).to have_css(".card__grid")
       end
 
       shared_examples_for "card shows signatures" do
         it "shows signatures" do
-          expect(subject.to_s).to include("signatures")
+          expect(subject).to have_css(".progress-bar__units")
         end
       end
 
@@ -36,10 +36,6 @@ module Decidim::Initiatives
         it "does not show signatures" do
           expect(subject.to_s).not_to include("signatures")
         end
-      end
-
-      it "renders the hashtag" do
-        expect(subject).to have_content("#my_hashtag")
       end
 
       it_behaves_like "card shows signatures"

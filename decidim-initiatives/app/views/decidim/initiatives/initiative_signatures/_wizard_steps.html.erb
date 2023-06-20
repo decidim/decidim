@@ -1,19 +1,20 @@
-<div class="hide-for-large m-bottom">
-  <span class="text-small">
-    <%= t("step", scope: "layouts.decidim.initiative_signature_creation_header", current: (wizard_steps.index(step) + 1), total: wizard_steps.length) %>
-    (<a data-toggle="steps"><%= t("see_steps", scope: "layouts.decidim.initiative_signature_creation_header") %></a>)
-  </span>
-  <ol id="steps" class="wizard__steps steps-toggle is-hidden" data-toggler=".is-hidden">
-    <% wizard_steps.each do |wizard_step| %>
-      <% if step == wizard_step %>
-        <li class="step--active">
-          <%= t(wizard_step, scope: "layouts.decidim.initiative_signature_creation_header") %>
-        </li>
-      <% else %>
-        <li>
-          <%= t(wizard_step, scope: "layouts.decidim.initiative_signature_creation_header") %>
-        </li>
-      <% end %>
-    <% end %>
-  </ol>
+<div class="text-center py-10">
+  <h1 class="h3 md:h1 decorator inline-block text-left">
+    <%= t("new", scope: "decidim.initiatives.create_initiative.select_initiative_type") %>
+  </h1>
 </div>
+<ol id="wizard-steps" class="wizard-steps">
+  <% wizard_steps.each do |wizard_step| %>
+    <% next if wizard_step.to_s == "promotal_committee" && !promotal_committee_required? %>
+    <% next if wizard_step.to_s == "select_initiative_type" && single_initiative_type? %>
+    <% if step == wizard_step %>
+      <li data-active aria-current="step">
+        <%= t(wizard_step, scope: "layouts.decidim.initiative_signature_creation_header") %>
+      </li>
+    <% else %>
+      <li>
+        <%= t(wizard_step, scope: "layouts.decidim.initiative_signature_creation_header") %>
+      </li>
+    <% end %>
+  <% end %>
+</ol>

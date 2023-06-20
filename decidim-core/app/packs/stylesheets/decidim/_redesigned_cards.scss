@@ -31,7 +31,7 @@
     }
 
     &-grid{
-      @apply grid gap-4 md:gap-x-12 md:gap-y-16 md:grid-cols-2;
+      @apply grid gap-4 md:gap-12 md:grid-cols-2;
     }
 
     &-img{
@@ -155,5 +155,9 @@
     --outer: theme('colors.gray.3');
 
     @apply w-3.5 h-3.5 mx-auto grid place-items-center rounded-full overflow-hidden bg-[radial-gradient(farthest-side,var(--inner)_60%,transparent_0_100%),conic-gradient(var(--color)_calc(var(--value)*100%),var(--outer)_0)];
+  }
+
+  &__placeholder-l{
+    @apply top-[calc(100%-10rem)] left-[calc(100%-11.5rem)] absolute w-48 h-44 z-20 fill-primary;
   }
 }

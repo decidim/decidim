@@ -162,6 +162,14 @@
   &__button svg{
     width: 1em;
   }
+
+  &__reference{
+    @apply block absolute bottom-0 right-0;
+  }
+
+  &__decidim{
+    @apply max-w-full z-50;
+  }
 }
 
 input[type="search"]::-webkit-search-cancel-button{
