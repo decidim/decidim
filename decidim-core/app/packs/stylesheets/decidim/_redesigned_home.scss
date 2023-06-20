@@ -86,7 +86,7 @@
   }
 
   &__menu__container{
-    @apply grid grid-cols-1 md:grid-cols-5 md:w-2/4 m-auto;
+    @apply flex flex-col md:flex-row md:w-2/4 m-auto;
   }
 
   &__menu-element{
