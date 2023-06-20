@@ -11,6 +11,7 @@ module Decidim
         def highlighted_spaces
           @highlighted_spaces ||= promoted_groups + highlighted_processes
         end
+        alias limited_highlighted_spaces highlighted_spaces
 
         def i18n_scope
           "decidim.participatory_processes.pages.home.highlighted_processes"
