@@ -446,9 +446,9 @@ module Decidim
           content_block.default!
         end
 
-        Decidim.content_blocks.register(:homepage, :home_menu) do |content_block|
-          content_block.cell = "decidim/content_blocks/home_menu"
-          content_block.public_name_key = "decidim.content_blocks.home_menu.name"
+        Decidim.content_blocks.register(:homepage, :global_menu) do |content_block|
+          content_block.cell = "decidim/content_blocks/global_menu"
+          content_block.public_name_key = "decidim.content_blocks.global_menu.name"
           content_block.default!
         end
 
