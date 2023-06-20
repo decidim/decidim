@@ -24,6 +24,8 @@ describe "Decidim::Api::QueryType" do
   end
 
   describe "valid query" do
+    let!(:current_user) { nil }
+
     it "executes sucessfully" do
       expect { response }.not_to raise_error
     end

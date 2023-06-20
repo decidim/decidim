@@ -10,6 +10,7 @@ module Decidim
       include_context "with a graphql class type"
       let(:type_class) { Decidim::Api::QueryType }
 
+      let!(:current_user) { nil }
       let(:user) { create(:user, :confirmed, organization: current_organization) }
       let(:user_group) { create(:user_group, :confirmed, :verified, organization: current_organization) }
       let!(:models) { [user, user_group] }
@@ -35,7 +36,7 @@ module Decidim
 
       context "when user or groups are not confirmed" do
         let(:user) { create(:user, organization: current_organization) }
-        let(:user_group) { create(:user_group, organization: current_organization) }
+        let(:user_group) { create(:user_group, :verified, organization: current_organization) }
         let(:query) { %({ users { id } }) }
 
         it "returns all the types" do
