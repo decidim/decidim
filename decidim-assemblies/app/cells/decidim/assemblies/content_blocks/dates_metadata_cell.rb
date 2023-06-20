@@ -6,7 +6,7 @@ module Decidim
       class DatesMetadataCell < Decidim::ContentBlocks::ParticipatorySpaceMetadataCell
         private
 
-        def metadata_items = %w(creation_date created_by included_at duration closing_date)
+        def metadata_items = %w(creation_date created_by included_at closing_date)
 
         def space_presenter = AssemblyPresenter
 
