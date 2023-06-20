@@ -1,10 +1,6 @@
 <% if geolocalizable.address.present? %>
-<div class="static-map__container">
-  <div>
-    <%= cell("decidim/address", geolocalizable) %>
-  </div>
+  <%= cell("decidim/address", geolocalizable) %>
   <% if Decidim::Map.available?(:static) || Decidim::Map.available?(:dynamic) %>
     <%= static_map_link(geolocalizable) %>
   <% end %>
-</div>
 <% end %>

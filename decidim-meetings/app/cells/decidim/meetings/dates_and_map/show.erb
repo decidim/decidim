@@ -1,4 +1,4 @@
-<div class="meeting__calendar-container mt-8">
+<div class="meeting__calendar-container">
   <div class="meeting__calendar meeting__calendar__lg">
     <div class="meeting__calendar-month">
       <span><%= l(start_time, format: !same_month? ? "%b" : "%B") %></span>
@@ -20,8 +20,6 @@
   <%= static_map %>
 
   <% if online_meeting? %>
-    <div class="flex items-center">
-      <%= cell("decidim/address", meeting, online: true) %>
-    </div>
+    <%= cell("decidim/address", meeting, online: true) %>
   <% end %>
 </div>
