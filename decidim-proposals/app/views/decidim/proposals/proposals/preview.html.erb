@@ -19,7 +19,9 @@
     </div>
 
     <% if component_settings.geocoding_enabled? && has_position?(@proposal) %>
-      <%= render partial: "decidim/shared/static_map", locals: { icon_name: "proposals", geolocalizable: @proposal } %>
+      <div class="static-map__container">
+        <%= render partial: "decidim/shared/static_map", locals: { icon_name: "proposals", geolocalizable: @proposal } %>
+      </div>
     <% end %>
 
     <%= cell "decidim/tab_panels", tab_panel_items %>
