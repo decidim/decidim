@@ -1295,12 +1295,6 @@ en:
         hero:
           participate: Participate
           welcome: Welcome to %{organization}!
-        menu:
-          assemblies: Assemblies
-          conferences: Conferences
-          initiatives: Initiatives
-          processes: Processes
-          votings: Votings
         metrics:
           headline: Metrics
         statistics:
