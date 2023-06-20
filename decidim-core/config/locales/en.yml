@@ -527,6 +527,8 @@ en:
           label: 'Sort elements by:'
           random: Random
           recent: Most recent
+      home_menu:
+        name: Participatory spaces menu
       how_to_participate:
         name: How to participate
       html:
