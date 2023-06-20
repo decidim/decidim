@@ -61,6 +61,15 @@ module Decidim
                         if: Decidim::Votings::Voting.where(organization: current_organization).published.any?,
                         active: :inclusive
         end
+
+        Decidim.menu :home_content_block_menu do |menu|
+          menu.add_item :votings,
+                        I18n.t("menu.votings", scope: "decidim"),
+                        decidim_votings.votings_path,
+                        position: 40,
+                        if: Decidim::Votings::Voting.where(organization: current_organization).published.any?,
+                        active: :inclusive
+        end
       end
 
       initializer "decidim_votings.content_blocks" do
