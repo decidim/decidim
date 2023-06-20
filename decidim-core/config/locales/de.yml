@@ -809,6 +809,8 @@ de:
         allowed_file_extensions: 'Erlaubte Dateiendungen: %{extensions}'
         max_file_dimension: 'Maximale Dateigröße: %{resolution} Pixel'
         max_file_size: 'Maximale Dateigröße: %{megabytes}MB'
+      files:
+        extension_allowlist: 'Akzeptierte Formate: %{extensions}'
       upload:
         labels:
           add_attachment: Anhang hinzufügen
@@ -1042,7 +1044,7 @@ de:
         create:
           error: Die Unterhaltung wurde nicht gestartet. Versuchen Sie es später noch einmal
         error_modal:
-          close: Dialog schließen
+          close: Fenster schließen
           correct_errors: Bitte korrigiere diese Fehler und versuche es erneut.
           intro: 'Es gab folgende Fehler bei Ihrer Nachricht:'
           ok: OK
@@ -1134,6 +1136,7 @@ de:
         subject: Möchten Sie weiterhin relevante Informationen über %{organization_name} erhalten?
     notification_mailer:
       event_received:
+        no_translation_available: Leider konnte die automatisierte Übersetzung nicht abgerufen werden, nachdem die E-Mail gesendet wurde. Sie können die Übersetzung des Originaltextes unter folgendem Link %{link} überprüfen.
         original_text: 'Originaltext:'
         same_language: Der Inhalt wurde in Ihrer bevorzugten Sprache (%{language}) veröffentlicht, daher wird in dieser E-Mail keine automatisierte Übersetzung angezeigt.
         translated_text: 'Automatisch übersetzter Text:'
@@ -1337,7 +1340,7 @@ de:
           future: Zukunft
           past: Vergangenheit
       filters_small_view:
-        close_modal: Modal schließen
+        close_modal: Fenster schließen
         filter: Filter
         filter_by: Filtern nach
         unfold: Entfalten
@@ -1353,7 +1356,7 @@ de:
     shared:
       confirm_modal:
         cancel: Abbrechen
-        close_modal: Modal schließen
+        close_modal: Fenster schließen
         ok: Ok
         title: Bestätigen
       embed_modal:
@@ -1391,7 +1394,7 @@ de:
       follow_button:
         sign_in_before_follow: Bitte melden Sie sich an, bevor Sie diese Aktion ausführen
       login_modal:
-        close_modal: Modal schließen
+        close_modal: Fenster schließen
         please_sign_in: Bitte einloggen
         sign_up: Registrieren
       mentions_modal:
@@ -1662,6 +1665,7 @@ de:
       public: Ihre öffentlichen Informationen.
   errors:
     messages:
+      allowed_file_content_types: 'nur Dateien mit den folgenden Typen sind erlaubt: %types%'
       already_confirmed: wurde bereits bestätigt, bitte versuchen Sie sich anzumelden
       confirmation_period_expired: muss innerhalb von %{period}bestätigt werden, bitte einen neuen anfordern
       content_type_allowlist_error: Der Dateityp ist nicht gültig
@@ -1679,6 +1683,8 @@ de:
         other: 'Bei der Bearbeitung Ihrer Anfrage sind mehrere Fehler aufgetreten:'
       too_many_marks: benutzt zu viele aufeinanderfolgende Satzzeichen (zB! und?)
       too_much_caps: verwendet zu viele Großbuchstaben (über 25% des Textes)
+      too_short: ist zu kurz (mindestens %{count} Zeichen)
+      url_format: Diese URL ist im falschen Format
   forms:
     correct_errors: Es gibt Fehler auf dem Formular, bitte korrigieren Sie sie, um fortzufahren.
     length_validator:
@@ -1779,7 +1785,7 @@ de:
         sign_out: Ausloggen
         title: Möchten Sie ihre Sitzung fortsetzen?
       upload_modal:
-        close_modal: Modal schließen
+        close_modal: Fenster schließen
       user_menu:
         account: 'Benutzerkonto: %{name}'
         admin_dashboard: Admin-Dashboard
