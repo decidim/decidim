@@ -150,7 +150,7 @@
   /* shared styles */
   &__highlight-loader,
   &__grid-loader{
-    --color: var(--alert);
+    --color: var(--primary);
     --inner: theme('colors.background.DEFAULT');
     --outer: theme('colors.gray.3');
 
