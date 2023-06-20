@@ -102,3 +102,7 @@
 .layout-aside__buttons{
   @apply space-y-4;
 }
+
+.layout-main__buttons{
+  @apply flex gap-x-1 items-center;
+}

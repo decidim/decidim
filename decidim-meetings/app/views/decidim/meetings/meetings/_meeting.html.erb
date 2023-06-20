@@ -37,7 +37,9 @@
     <% end %>
   </section>
 
-  <%= cell "decidim/meetings/redesigned_meeting_data", meeting %>
+  <section class="layout-main__section">
+    <%= cell "decidim/meetings/redesigned_meeting_data", meeting %>
+  </section>
 
   <% if meeting.agenda.present? && meeting.agenda.visible? %>
     <section class="layout-main__section">
