@@ -59,8 +59,8 @@
     }
   }
 
-  &__actions{
-    @apply flex items-center justify-between first:[&>*]:flex;
+  &__author{
+    @apply flex items-center gap-4;
   }
 
   &__grid{
