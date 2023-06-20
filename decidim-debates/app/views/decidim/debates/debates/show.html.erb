@@ -114,12 +114,10 @@ edit_link(
       </div>
     </div>
   </section>
-  <section class="layout-aside__section">
-    <div class="actions__secondary">
-      <%= follow_button_for(debate) %>
-      <%= cell "decidim/share_button", nil %>
-      <%= cell "decidim/report_button", debate %>
-    </div>
+  <section class="layout-aside__section actions__secondary">
+    <%= follow_button_for(debate) %>
+    <%= cell "decidim/share_button", nil %>
+    <%= cell "decidim/report_button", debate %>
   </section>
 
   <% end %>
