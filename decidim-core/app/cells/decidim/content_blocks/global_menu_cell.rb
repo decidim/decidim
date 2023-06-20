@@ -2,7 +2,7 @@
 
 module Decidim
   module ContentBlocks
-    class HomeMenuCell < Decidim::ViewModel
+    class GlobalMenuCell < Decidim::ViewModel
       include Decidim::MenuHelper
 
       private
@@ -29,7 +29,7 @@ module Decidim
 
       def cache_hash
         hash = []
-        hash << "decidim/content_blocks/home_menu"
+        hash << "decidim/content_blocks/global_menu"
         hash << current_organization.cache_key_with_version
         hash << I18n.locale.to_s
 
