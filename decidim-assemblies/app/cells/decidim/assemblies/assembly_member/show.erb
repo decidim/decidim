@@ -1,53 +1,9 @@
-<div class="column">
-  <div class="card card--member">
-    <div class="card__content">
-      <div class="card__header collapse">
-        <div class="author-data author-data--big">
-          <div class="author-data__main">
-            <div class="author author--flex">
-              <% if has_profile? %>
-                <%= link_to profile_url, class: "author__avatar" do %>
-                  <%= image_tag model.avatar_url(:big), alt: "member-avatar" %>
-                <% end %>
-                <div>
-                  <div class="author__name--container">
-                    <%= link_to profile_url, class: "author__name" do %>
-                      <%= name %>
-                    <% end %>
-                  </div>
-                  <% if nickname.present? %>
-                    <%= link_to profile_url, class: "author__nickname" do %>
-                      <%= nickname %>
-                    <% end %>
-                  <% else %>
-                    <div class="author__nickname">&nbsp;</div>
-                  <% end %>
-                </div>
-              <% else %>
-                <div class="author__avatar"><%= image_tag model.non_user_avatar_path, alt: "member-avatar" %></div>
-                <div>
-                  <div class="author__name--container">
-                    <div class="author__name">
-                      <%= name %>
-                    </div>
-                  </div>
-                  <div class="author__nickname"><%= nickname.presence || "&nbsp;" %></div>
-                </div>
-              <% end %>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="card__text card--picture-offset">
-        <div>
-          <small><strong><%= position %></strong></small>
-        </div>
-        <div class="text-small">
-          <%= t("decidim.assembly_members.assembly_member.designated_on") %>
-          <strong> <%= l designation_date, format: :decidim_short %></strong>
-        </div>
-        <div class="text-small mt-s"><%= personal_information %></div>
-      </div>
-    </div>
+<% if has_profile? %>
+  <%= link_to profile_url, class: "profile__user" do %>
+    <%= render :data %>
+  <% end %>
+<% else %>
+  <div class="profile__user">
+    <%= render :data %>
   </div>
-</div>
+<% end %>
