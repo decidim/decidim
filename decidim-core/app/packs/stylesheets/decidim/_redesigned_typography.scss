@@ -39,12 +39,9 @@
   }
 
   /* The editor-library adds an empty <p>. */
+  /* stylelint-disable selector-pseudo-class-no-unknown */
   p:not(:empty) + p,
-  h2 + p,
-  h3 + p,
-  h4 + p,
-  h5 + p,
-  h6 + p{
+  :where(h2,h3,h4,h5,h6) + span{
     @apply my-5;
   }
 
@@ -73,13 +70,7 @@
     @apply mt-2;
   }
 
-  h2,
-  h3,
-  h4,
-  h5,
-  h6{
-    br{
-      @apply hidden;
-    }
+  :where(h2,h3,h4,h5,h6) br{
+    @apply hidden;
   }
 }
