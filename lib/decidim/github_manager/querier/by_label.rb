@@ -8,10 +8,10 @@ module Decidim
       # Makes a GET request for the list of Issues or Pull Requests in GitHub
       # by a label that were created in the last 90 days and that are closed.
       #
-      # @option token [String]
-      # @option days_to_check_from [Integer]
-      # @option label [String] the label that we want to search by
-      # @option exclude_label [String] the label that we want to exclude in the search
+      # @param token [String] token for GitHub authentication
+      # @param days_to_check_from [Integer] the number of days from when we will start the check
+      # @param label [String] the label that we want to search by
+      # @param exclude_label [String] the label that we want to exclude in the search
       #
       # @see https://docs.github.com/en/rest/issues/issues#list-repository-issues GitHub API documentation
       class ByLabel < Decidim::GithubManager::Querier::Base
