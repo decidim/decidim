@@ -6,7 +6,9 @@
       <%= t(:comment, scope: "decidim.components.accountability.actions") %>
       <%= icon "chat-1-line", class: "fill-current flex-none" %>
     </button>
-    <%= cell "decidim/tags", result %>
+    <div class="ml-auto">
+      <%= cell "decidim/tags", result %>
+    </div>
   </section>
 
   <% content_for :aside do %>
