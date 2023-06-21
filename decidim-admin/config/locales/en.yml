@@ -195,6 +195,7 @@ en:
         per_page: Per page
         permissions: Permissions
         reject: Reject
+        send_me_a_test_email: Send me a test email
         share: Share
         user:
           new: New admin
@@ -742,10 +743,13 @@ en:
           title: Select recipients to deliver
           warning: "<strong>Attention:</strong> This newsletter will only be send to users that have activated <em>I want to receive newsletters</em> in their notifications settings."
         send:
-          no_recipients: No recipients for this selection
+          no_recipients: No recipients for this selection.
+        send_to_user:
+          sent_successfully: Newsletter has been sent successfully to %{email}
         show:
           preview: Preview
           select_recipients_to_deliver: Select recipients to deliver
+          send_me_a_test_email: Send me a test email
           subject: Subject
         update:
           error: There was a problem updating this newsletter.

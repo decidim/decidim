@@ -76,6 +76,7 @@ Decidim::Admin::Engine.routes.draw do
     resources :newsletters, except: [:new, :create] do
       member do
         get :recipients_count
+        post :send_to_user
         get :preview
         get :select_recipients_to_deliver
         post :deliver
