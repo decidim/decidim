@@ -1,7 +1,5 @@
 .sortition{
   &__aside-element{
-    @apply mb-12;
-
     &-item{
       @apply border-b border-gray-3 py-4 first:pt-0 last:pb-0 last:border-b-0;
     }
@@ -17,10 +15,6 @@
     &-item__numbers{
       @apply text-md block text-gray-2;
     }
-  }
-
-  &__author{
-    @apply flex items-center gap-4;
   }
 
   &__aside__count-number{
