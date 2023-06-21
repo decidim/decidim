@@ -90,6 +90,7 @@ hu:
         secondary_hosts: Másodlagos kiszolgáló
         send_welcome_notification: Üdvözlő értesítés küldése
         success_color: Siker
+        tertiary_color: Harmadlagos
         time_zone: Időzóna
         tos_version: Használati feltételek
         twitter_handler: Twitter kezelő
@@ -100,6 +101,7 @@ hu:
         welcome_notification_subject: Üdvözlő üzenet tárgya
         youtube_handler: YouTube kezelő
       participatory_space_private_user:
+        email: Email
         name: Név
       scope:
         code: Kód
@@ -193,6 +195,7 @@ hu:
         per_page: Oldalanként
         permissions: Engedélyek
         reject: Elutasít
+        send_me_a_test_email: Teszt e-mail küldése
         share: Megosztás
         user:
           new: Új adminisztrátor
@@ -756,9 +759,12 @@ hu:
           warning: "<strong>Figyelem:</strong> Ez a hírlevél csak azoknak a felhasználóknak kerül elküldésre, akik bejelölték a <em>Hírleveleket szeretnék kapni</em> opciót az értesítési beállításokban."
         send:
           no_recipients: Nincsenek címzettek ehhez a kiválasztáshoz.
+        send_to_user:
+          sent_successfully: A hírlevél sikeresen kiküldésre került ide %{email}
         show:
           preview: Előnézet
           select_recipients_to_deliver: Címzettek kiválasztása
+          send_me_a_test_email: Teszt e-mail küldése
           subject: Tárgy
         update:
           error: Hiba történt a hírlevél frissítése során.
@@ -823,8 +829,15 @@ hu:
           update: Frissítés
         form:
           colors:
+            choose_color: Elsődleges szín kiválasztása
             colors_title: Szervezet színei
+            colors_warning_html: Óvatosan! A színek megváltoztatása megtörik az akadálymentes kontrasztokat. Ellenőrizheti a kontrasztot a <a href="https://webaim.org/resources/contrastchecker">WebAIM Contrast Checker</a> vagy más, hasonló eszköz segítségével.
+            explanation: Ez az eszköz segít kiválasztani egy színsémát, amely a színkör körül egyenlően elosztott árnyalatokból áll, és amelyet a szervezet weboldalán használnak.
             header_snippets_help: Ebben a mezőben a HTML fejlécet szerkesztheted. Ennek akkor van jelentősége, ha olyan külső szolgáltatásokat szeretnél intergálni, amelyekhez JavaScript vagy CSS szükséges. Sőt, metacímkéket is hozzáadhatsz. Ez az adminban nem, csak a nyilvános oldalakon jelenik majd meg.
+            legend_html: Az alkalmazás fő színei a <a href="https://www.color-meanings.com/triadic-colors/">Triadic algoritmus</a>. A <i>szekunder</i> szín automatikusan kiszámításra kerül az elsődleges színből és a kiválasztott telítettségből.
+            saturation: Telítettség
+            title: Színválasztó
+            update_suggested_colors: A javasolt színekre frissítés
           cta_button_path_help: 'Felülírhatod, hogy a kezdőlap felhívás gombja link hova mutasson. Részleges, ne pedig teljes URL címeket használj. A megengedett karakterek: betű, szám, kötőjel vagy perjel, de mindig betűvel kell kezdődnie. A felhívás gomb az üdvözlő szöveg és a leírás között jelenik meg a nyitólapon. Példa: %{url}'
           cta_button_text_help: A felhívás gomb szövegét a szervezethez tartozó minden egyes nyelven megjelenítheted. Amennyiben nincs beállítva, akkor akkor az alapértelmezett értéket fogja használni. A felhívás gomb az üdvözlő szöveg és a leírás között jelenik meg a nyitólapon.
           homepage_appearance_title: Honlap megjelenésének szerkesztése
@@ -886,6 +899,9 @@ hu:
             title: Privát felhasználók törlése
           example_file: 'Példa fájl:'
           explanation: 'Töltse fel a CSV-fájlt. Két oszlopnak kell lennie, a fájl első oszlopában az e-mail címmel, a fájl utolsó oszlopában pedig a nevével azoknak a felhasználóknak, akiket hozzá szeretne adni a részvételi térhez, fejlécek nélkül. Kerülje az olyan érvénytelen karakterek használatát, mint a `<>?%&^*#@()[]=+:;"{}\|` a felhasználói névben.'
+          explanation_example: |
+            ohn.doe@example.org%{csv_col_sep}John Doe
+            jane.doe@example.org%{csv_col_sep}Jane Doe
           title: Töltse fel a CSV fájlod
           upload: Feltölt
       reminders:
@@ -1050,6 +1066,9 @@ hu:
         new:
           example_file: 'Példa fájl:'
           explanation: Töltse fel a CSV fájlját. A fájl első oszlopában, a fejlécek nélkül, rendelkeznie kell a szervezet felhasználói csoportjainak hivatalos e-mailjeivel. Csak azok a felhasználói csoportok lesznek érvényesítve, amelyek megerősítették az e-mailjüket, és e-mailjük szerepel a CSV-fájlban.
+          explanation_example: |
+            naez@azemailcim.hu
+            pelda.janos@peldaul.hu
           title: Töltse fel a CSV fájlját
           upload: Feltöltés
       users:
