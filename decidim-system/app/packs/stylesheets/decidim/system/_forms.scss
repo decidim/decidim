@@ -1,16 +1,9 @@
 @import "tom-select/dist/scss/tom-select";
 
-$tag-padding: 0.25rem;
-$tag-margin: 0.2rem;
+.ts-control {
+  margin-bottom: 0.5rem;
+}
 
-.input__tag {
-  background-color: rgba($medium-gray, 0.5);
-  border-radius: $input-radius;
-  padding: $tag-padding;
-  display: inline-block;
-  cursor: pointer;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+.ts-dropdown {
+  margin: 0;
 }
