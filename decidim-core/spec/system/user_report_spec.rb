@@ -34,11 +34,12 @@ describe "Report User", type: :system do
     it "gives the option to sign in" do
       page.visit reportable_path
 
+      expect(page).to have_css("#loginModal", visible: false)
       expect(page).to have_no_css("html.is-reveal-open")
 
       click_button "Report"
 
-      expect(page).to have_css("html.is-reveal-open")
+      expect(page).to have_css("#loginModal", visible: :visible)
     end
   end
 
@@ -51,10 +52,10 @@ describe "Report User", type: :system do
       it "reports the resource" do
         visit reportable_path
 
-        expect(page).to have_selector(".profile--sidebar")
+        expect(page).to have_selector(".profile__actions-secondary")
 
-        within ".profile--sidebar", match: :first do
-          page.find("button").click
+        within ".profile__actions-secondary", match: :first do
+          click_button "Report"
         end
 
         expect(page).to have_css(".flag-modal", visible: :visible)
@@ -76,10 +77,10 @@ describe "Report User", type: :system do
       it "cannot report it twice" do
         visit reportable_path
 
-        expect(page).to have_selector(".profile--sidebar")
+        expect(page).to have_selector(".profile__actions-secondary")
 
-        within ".profile--sidebar", match: :first do
-          page.find("button").click
+        within ".profile__actions-secondary", match: :first do
+          click_button "Report"
         end
 
         expect(page).to have_css(".flag-modal", visible: :visible)

@@ -119,7 +119,7 @@ describe "Registration", type: :system do
       user.save!
 
       # Sign in
-      click_link "Sign In"
+      click_link "Sign In", match: :first
       fill_in :session_user_email, with: user.email
       fill_in :session_user_password, with: password
       click_button "Log in"
