@@ -447,7 +447,7 @@ Defines additional content security policies following the structure keys are th
 List of additional content security policies to be appended to the default ones
 This is useful for adding custom CSPs for external services like Here Maps, YouTube, Twitter etc.
 
-Below you will find a the recepy of enabling Twitter timelines, based on https://content-security-policy.com/examples/twitter/ example.
+Below you will find a the recepy of enabling Twitter timelines, based on https://content-security-policy.com/examples/twitter/[Content Security Policy (CSP) Examples Twitter example].
 The format is a Hash with the following structure:
 [source,ruby]
 ....
@@ -470,8 +470,7 @@ Additionally, the following example, will allow you to enable Jitsi meetings:
 ....
 
 The keys are the CSP directives and the values are arrays of allowed sources
-See https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy
-for more information
+See https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy[CSP in MDN] for more information
 
 Please note, we strongly recommend not to use the wildcard (*) as a allowed source!
 
@@ -508,5 +507,5 @@ The order of the directives is the following:
 
 Additional Reading:
 
-* https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy
+* https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy[Content-Security-Policy in MDN web docs]
 * xref:customize:content_security_policy.adoc[Customize Content Security Policy]

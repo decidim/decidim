@@ -51,5 +51,3 @@ def append_csp_directives
   content_security_policy.append_csp_directive("frame-src", "https://example.com")
 end
 ....
-
-
