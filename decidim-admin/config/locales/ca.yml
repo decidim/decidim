@@ -195,6 +195,7 @@ ca:
         per_page: Per pàgina
         permissions: Permisos
         reject: Rebutjar
+        send_me_a_test_email: Envia'm un correu electrònic de prova
         share: Compartir
         user:
           new: Nova administradora
@@ -758,9 +759,12 @@ ca:
           warning: "<strong>Atenció:</strong> Aquest butlletí només s'enviarà a les participants que hagin activat <em>Vull rebre butlletins</em> a la configuració de les notificacions."
         send:
           no_recipients: No hi ha destinatàries per a aquesta selecció.
+        send_to_user:
+          sent_successfully: El butlletí s'ha enviat correctament a %{email}
         show:
           preview: Previsualitzar
           select_recipients_to_deliver: Selecciona les destinatàries a lliurar
+          send_me_a_test_email: Envia'm un correu electrònic de prova
           subject: Assumpte
         update:
           error: S'ha produït un error en actualitzar aquest butlletí.
