@@ -37,9 +37,7 @@
     <% end %>
   </section>
 
-  <section class="layout-main__section">
-    <%= cell "decidim/tab_panels", tab_panel_items %>
-  </section>
+  <%= cell "decidim/tab_panels", tab_panel_items %>
 
   <% if meeting.agenda.present? && meeting.agenda.visible? %>
     <section class="layout-main__section">
@@ -53,7 +51,7 @@
     </section>
   <% end %>
 
-  <section class="layout-main__section">
+  <section class="layout-main__section layout-main__buttons">
     <%= render partial: "actions" %>
   </section>
 

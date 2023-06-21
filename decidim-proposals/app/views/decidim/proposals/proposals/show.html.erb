@@ -78,8 +78,9 @@ extra_admin_link(
     </section>
   <% end %>
 
+  <%= cell "decidim/tab_panels", tab_panel_items %>
+
   <section class="layout-main__section">
-    <%= cell "decidim/tab_panels", tab_panel_items %>
     <%= cell "decidim/amendable/amendments", @proposal %>
   </section>
 
