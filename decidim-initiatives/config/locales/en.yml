@@ -580,8 +580,8 @@ en:
       pages:
         home:
           highlighted_initiatives:
-            active_initiatives: Active initiatives
-            see_all_initiatives: See all initiatives
+            active_spaces: Active initiatives
+            see_all_spaces: See all initiatives
       show:
         badge_name:
           accepted: Enough signatures

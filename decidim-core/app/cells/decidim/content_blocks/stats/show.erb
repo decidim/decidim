@@ -3,6 +3,5 @@
     <%= t("decidim.pages.home.statistics.headline", organization: current_organization.name) %>
   </h2>
 
-  <%= cell("decidim/statistics", stats.highlighted) %>
-  <%= cell("decidim/statistics", stats.not_highlighted) %>
+  <%= cell("decidim/statistics", stats.highlighted + stats.not_highlighted) %>
 </section>
