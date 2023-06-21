@@ -195,6 +195,7 @@ es-MX:
         per_page: Por página
         permissions: Permisos
         reject: Rechazar
+        send_me_a_test_email: Enviarme un correo electrónico de prueba
         share: Compartir
         user:
           new: Nueva administradora
@@ -758,9 +759,12 @@ es-MX:
           warning: "<strong>Atención:</strong> Este boletín sólo será enviado a participantes que hayan activado <em>Quiero recibir boletines de noticias</em> en sus ajustes de notificaciones."
         send:
           no_recipients: No hay destinatarias para esta selección.
+        send_to_user:
+          sent_successfully: El boletín ha sido enviado correctamente a %{email}
         show:
           preview: Previsualizar
           select_recipients_to_deliver: Selecciona los destinatarios
+          send_me_a_test_email: Enviarme un correo electrónico de prueba
           subject: Asunto
         update:
           error: Se ha producido un error al actualizar este boletín.
