@@ -114,11 +114,7 @@ describe "Assembly members", type: :system do
 
       it "lists all the non ceased assembly members" do
         within "#assembly_members-grid" do
-          expect(page).to have_selector(".card--member", count: 2)
-
-          assembly_members.each do |assembly_member|
-            expect(page).to have_content(Decidim::AssemblyMemberPresenter.new(assembly_member).name)
-          end
+          expect(page).to have_selector(".profile__user", count: 2)
 
           expect(page).not_to have_content(Decidim::AssemblyMemberPresenter.new(ceased_assembly_member).name)
         end

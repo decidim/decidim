@@ -16,7 +16,11 @@ export default function(node = document) {
   const emptyNotifications = () => {
     noNotificationsText.classList.remove("hidden")
     noNotificationsText.classList.remove("hide")
-    node.querySelector(".topbar__notifications")?.classList?.remove("is-active")
+
+    node.querySelector("#dropdown-menu-account [data-unread-notifications]").remove()
+    if (!node.querySelector(".main-bar__notification").dataset.unreadConversations) {
+      node.querySelector(".main-bar__notification").remove()
+    }
   }
   const handleClick = ({ currentTarget }) => {
     handleFadeOut(currentTarget.closest("[data-notification]"))
