@@ -160,4 +160,8 @@
 
     @apply w-3.5 h-3.5 mx-auto grid place-items-center rounded-full overflow-hidden bg-[radial-gradient(farthest-side,var(--inner)_60%,transparent_0_100%),conic-gradient(var(--color)_calc(var(--value)*100%),var(--outer)_0)];
   }
+
+  &__placeholder-l{
+    @apply top-[calc(100%-10rem)] left-[calc(100%-11.5rem)] absolute w-48 h-44 z-20 fill-primary;
+  }
 }
