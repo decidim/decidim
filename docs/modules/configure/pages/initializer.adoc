@@ -459,13 +459,12 @@ The format is a Hash with the following structure:
   }
 ....
 
-Additionally, the following example, will allow you to enable Jitsi meetings:
+Additionally, the following example, will allow you to enable Decidim to properly load YouTube videos:
 
 [source,ruby]
 ....
   {
-    "connect-src": %w(meet.jit.si),
-    "frame-src": %w(meet.jit.si),
+      "frame-src" => %w(https://www.youtube-nocookie.com/),
   }
 ....
 
