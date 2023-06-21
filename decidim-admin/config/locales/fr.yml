@@ -195,6 +195,7 @@ fr:
         per_page: Par page
         permissions: Autorisations
         reject: Rejeter
+        send_me_a_test_email: Envoyez-moi un e-mail de test
         share: Partager
         user:
           new: Nouvel administrateur
@@ -758,9 +759,12 @@ fr:
           warning: "<strong>Attention :</strong> Cette newsletter ne sera envoyée qu'aux utilisateurs qui ont activé <em>Je veux recevoir newsletters</em> dans leurs paramètres de notifications."
         send:
           no_recipients: Selon votre sélection, cette newsletter ne sera envoyée à aucun destinataire. 
+        send_to_user:
+          sent_successfully: La newsletter a été envoyée avec succès à %{email}
         show:
           preview: Aperçu
           select_recipients_to_deliver: Sélectionner les destinataires
+          send_me_a_test_email: Envoyez-moi un e-mail de test
           subject: Objet
         update:
           error: Erreur lors de la mise à jour de la newsletter.
