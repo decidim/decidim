@@ -49,7 +49,7 @@ import "./responsive_horizontal_tabs"
 import "./security/selfxss_warning"
 // import "./floating_help" --deprecated
 import "./redesigned_session_timeouter"
-import "./confirm"
+import "./redesigned_confirm"
 import "./results_listing"
 // import "./represent_user_group" -- deprecated
 import "./impersonation"
