@@ -34,7 +34,7 @@
 <% end %>
 
 <% if current_component.has_subscopes? %>
-  <%= scopes_picker_field form, :scope_id, root: current_component.scope %>
+  <%= scopes_select_field form, :scope_id, root: current_component.scope %>
 <% end %>
 
 <% if component_settings.attachments_allowed? && @proposal %>
