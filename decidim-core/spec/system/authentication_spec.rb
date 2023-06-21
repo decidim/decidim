@@ -602,7 +602,7 @@ describe "Authentication", type: :system do
         end
 
         context "when admin password is expired" do
-          let(:user) { create(:user, :confirmed, :admin, password_updated_at: 91.days.ago, organization: organization) }
+          let(:user) { create(:user, :confirmed, :admin, password_updated_at: 91.days.ago, organization:) }
 
           before do
             allow(Decidim.config).to receive(:admin_password_expiration_days).and_return(90)
