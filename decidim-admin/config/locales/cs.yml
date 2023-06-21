@@ -195,6 +195,7 @@ cs:
         per_page: Na stránku
         permissions: Oprávnění
         reject: Odmítnout
+        send_me_a_test_email: Pošlete mi testovací e-mail
         share: Sdílet
         user:
           new: Nový administrátor
@@ -768,9 +769,12 @@ cs:
           warning: "<strong> Pozor: </strong> Tento zpravodaj bude zasílán pouze uživatelům, kteří si aktivovali <em> chci dostávat zpravodaj </em> v nastavení oznámení."
         send:
           no_recipients: Žádní příjemci pro tento výběr.
+        send_to_user:
+          sent_successfully: Zpravodaj byl úspěšně odeslán na %{email}
         show:
           preview: Náhled
           select_recipients_to_deliver: Vybrat příjemce k doručení
+          send_me_a_test_email: Pošlete mi testovací e-mail
           subject: Předmět
         update:
           error: Při aktualizaci tohoto zpravodaje došlo k chybě.
