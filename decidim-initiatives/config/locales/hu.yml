@@ -2,8 +2,13 @@ hu:
   activemodel:
     attributes:
       initiative:
+        answer: Válasz
+        answer_url: Válasz URL
+        area_id: Terület
+        decidim_scope_id: Hatókör
         decidim_user_group_id: Szerző
         description: Leírás
+        hashtag: Kettőskereszt
         offline_votes: Támogatás szemtől szembe
         offline_votes_for_scope: 'Személyesen aláírások erre: %{scope_name}'
         scope_id: Hatáskör
@@ -16,8 +21,11 @@ hu:
           online: Online
         state: Állapot
         title: Cím
+        type_id: Típus
       initiatives_committee_member:
         user: Bizottsági tag
+      initiatives_settings:
+        initiatives_order: Sorrend
       initiatives_type:
         area_enabled: Lehetővé teszi a szerzők számára, hogy kiválasszák a kezdeményezésük területét
         attachments_enabled: Mellékletek engedélyezése
@@ -33,9 +41,13 @@ hu:
         online_signature_enabled: Online aláírás engedélyezve
         only_global_scope_enabled: Csak globális hatókörű kezdeményezések létrehozását engedélyezze
         promoting_committee_enabled: Előléptetési bizottság engedélyezése
+        signature_type: Aláírás típusa
         title: Cím
         undo_online_signatures_enabled: Engedélyezze a felhasználók számára az online aláírások visszavonását
         validate_sms_code_on_votes: SMS-kód érvényesítési lépés hozzáadása az aláíráshoz
+      initiatives_type_scope:
+        decidim_scopes_id: Hatókörök
+        supports_required: Támogatás szükséges
       initiatives_vote:
         date_of_birth: Születési dátum
         document_number: Dokumentum szám
@@ -52,6 +64,7 @@ hu:
             attachment:
               file: A fájl érvénytelen
               needs_to_be_reattached: Újra kell csatolni
+              title: A cím nem lehet üres
   activerecord:
     models:
       decidim/initiative_comittee:
@@ -81,6 +94,10 @@ hu:
             label: Típus
         search_placeholder:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Keresés a(z) %{collection} elemei között cím, leírás, azonosító vagy szerző alapján.
+      initiatives_settings:
+        update:
+          error: Hiba történt.
+          success: A kezdeményezés beállítása sikeres.
       menu:
         attachments: Csatolmányok
         committee_members: Bizottsági tagok
@@ -169,8 +186,10 @@ hu:
             - Kövesse az új kezdeményezés létrehozásához szükséges lépéseket
           description: Ezt a jelvényt akkor kapja meg, ha új kezdeményezéseket indít el, és másokkal partnerséget hajt végre.
           description_another: Ez a résztvevő %{score} kezdeményezést tett közzé.
+          description_own: '%{score} kezdeményezésed van közzétéve.'
           name: Közzétett kezdeményezések
           next_level_in: Szerezz még %{score} kezdeményezéseket a következő szint eléréséhez!
+          unearned_another: Ez a résztvevő még nem tett közzé semmilyen kezdeményezést.
           unearned_own: Még nem tettél közzé kezdeményezéseket.
     help:
       participatory_spaces:
@@ -196,6 +215,8 @@ hu:
           index:
             approve: Jóváhagy
             confirm_revoke: Biztos vagy benne?
+            invite_to_committee_help: Ossza meg ezt a hivatkozást, hogy meghívjon más résztvevőket a támogatói bizottságba.
+            no_members_yet: Nincsenek tagok a támogatói bizottságban.
             revoke: Visszavonás
             title: Bizottsági tagok
         content_blocks:
@@ -217,6 +238,7 @@ hu:
             export_votes: Exportálás támogatása
             reject: Kezdeményezés elutasítása
             send_to_technical_validation: Elküldés technikai ellenőrzésre
+            success: A kezdeményezést technikai érvényesítésre továbbítottuk.
             update: Frissítés
           form:
             attachments: Csatolmányok
@@ -231,6 +253,9 @@ hu:
             edit: Szerkeszt
             new: Új
             photos: Fotók
+          update:
+            error: Hiba történt.
+            success: A kezdeményezés frissítése sikeres.
         initiatives_settings:
           edit:
             update: Frissítés
@@ -242,6 +267,11 @@ hu:
             signatures: Legtöbb aláírással rendelkező
             title: Kezdeményezések beállításai
         initiatives_type_scopes:
+          create:
+            error: Hiba történt.
+            success: Az adott kezdeményezési típushoz új hatáskört hoztunk létre.
+          destroy:
+            success: A hatáskör eltávolítása sikeres volt.
           edit:
             back: Vissza
             confirm_destroy: Biztos vagy benne?
@@ -252,7 +282,15 @@ hu:
             back: Vissza
             create: Létrehozás
             title: Kezdeményezési típus hatáskörének létrehozása
+          update:
+            error: Hiba történt.
+            success: A hatáskör frissítése sikeres.
         initiatives_types:
+          create:
+            error: Hiba történt.
+            success: Az új kezdeményezéstípus létrehozása sikeres.
+          destroy:
+            success: A kezdeményezéstípus eltávolítása sikeres.
           edit:
             confirm_destroy: Biztos vagy benne?
             destroy: Törlés
@@ -268,6 +306,9 @@ hu:
           new:
             create: Létrehozás
             title: Új kezdeményezéstípus
+          update:
+            error: Hiba történt.
+            success: A kezdeményezéstípus frissítése sikeres.
       admin_log:
         initiative:
           publish: "%{user_name} közzétette a(z) %{resource_name} kezdeményezést"
@@ -306,6 +347,7 @@ hu:
           success: A kérés jóváhagyva.
         new:
           continue: Tovább
+          help_text: A kezdeményezés támogatási bizottságához történő csatlakozás kérelmezésére készül.
         revoke:
           success: A kérédés visszavonásra került.
         spawn:
