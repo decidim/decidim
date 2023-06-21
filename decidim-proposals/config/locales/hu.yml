@@ -666,6 +666,7 @@ hu:
             other: szavazatok
         new:
           send: Tovább
+          title: Javaslat létrehozása
         orders:
           label: 'Javaslatok rendezése:'
           most_commented: Legtöbb hozzászólással
