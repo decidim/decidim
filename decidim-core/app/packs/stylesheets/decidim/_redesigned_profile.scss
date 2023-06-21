@@ -159,7 +159,7 @@
     }
 
     &-avatar{
-      @apply w-full h-full rounded-full overflow-hidden drop-shadow-md border-2 border-white;
+      @apply w-full h-full rounded-full overflow-hidden drop-shadow-md border-2 border-white transition duration-300;
 
       img{
         @apply w-full h-full object-cover;

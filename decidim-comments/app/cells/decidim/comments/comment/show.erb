@@ -56,7 +56,9 @@
 
     <div class="comment__content">
       <%= alignment_badge %>
-      <%= comment_body %>
+      <div class="editor-content">
+        <%= comment_body %>
+      </div>
     </div>
 
     <div class="comment__footer" data-component="accordion" id="accordion-<%= model.id %>">

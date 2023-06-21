@@ -83,7 +83,7 @@ edit_link(
       <div class="budget__definition-data__number">
         <%= budget_to_currency project.budget_amount %>
       </div>
-      <div class="budget__definition-data__grid">
+      <div class="actions__secondary">
         <%= render partial: "decidim/shared/follow_button", class: "text-center", locals: { followable: project, large: false } %>
         <%= cell "decidim/share_button", nil %>
       </div>

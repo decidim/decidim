@@ -1,16 +1,14 @@
 <% add_decidim_page_title(t("notifications", scope: "layouts.decidim.user_menu")) %>
 
 <% content_for :aside do %>
-  <div class="w-full flex md:flex-col items-center justify-between gap-4 md:gap-8">
-    <h1 class="h3 md:h1 decorator"><%= t("notifications", scope: "layouts.decidim.user_menu") %></h1>
+  <h1 class="h3 md:h1 decorator"><%= t("notifications", scope: "layouts.decidim.user_menu") %></h1>
 
-    <% if current_user.notifications.exists? %>
-      <%= link_to read_all_notifications_path, class: "button button__lg button__secondary", method: :delete, data: { disable: true, "notification-read-all": "" }, remote: true do %>
-        <span class="sr-only md:not-sr-only"><%= t("mark_all_as_read", scope: "layouts.decidim.notifications_dashboard") %></span>
-        <%= icon "check-double-line", class: "fill-current" %>
-      <% end %>
+  <% if current_user.notifications.exists? %>
+    <%= link_to read_all_notifications_path, class: "button button__sm md:button__lg button__secondary w-full md:w-fit", method: :delete, data: { disable: true, "notification-read-all": "" }, remote: true do %>
+      <span><%= t("mark_all_as_read", scope: "layouts.decidim.notifications_dashboard") %></span>
+      <%= icon "check-double-line", class: "fill-current" %>
     <% end %>
-  </div>
+  <% end %>
 <% end %>
 
 <%= render layout: "layouts/decidim/shared/layout_two_col" do %>

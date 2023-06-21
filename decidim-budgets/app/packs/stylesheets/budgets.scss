@@ -135,14 +135,6 @@
     @apply text-gray-2 font-bold text-3xl bg-background text-center p-2 rounded;
   }
 
-  &__definition-data__grid{
-    @apply grid grid-cols-2 mt-4;
-
-    .button_to{
-      @apply text-center;
-    }
-  }
-
   &__filter-title{
     @apply font-bold mb-4;
   }
