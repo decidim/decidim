@@ -502,7 +502,7 @@ The order of the directives is the following:
 
 [source,ruby]
 ....
-  config.additional_content_security_policies = {}
+  config.content_security_policies_extra = {}
 ....
 
 Additional Reading:

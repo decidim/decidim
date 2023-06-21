@@ -68,7 +68,7 @@ module Decidim
 
       context "when content policy is added via decidim config" do
         it "sets the appropiate headers" do
-          allow(Decidim).to receive(:additional_content_security_policies).and_return(additional_content_security_policies)
+          allow(Decidim).to receive(:content_security_policies_extra).and_return(additional_content_security_policies)
           get :show
           expect(response.headers["Content-Security-Policy"]).to include("default-src 'self' 'unsafe-inline' https://example.org; ")
           expect(response.headers["Content-Security-Policy"]).to include("script-src 'self' 'unsafe-inline' 'unsafe-eval' https://script.example.org;")

@@ -23,7 +23,7 @@ Using the initializer is the recommended way to customize the CSP when you have 
 
 [source,ruby]
 ....
-config.additional_content_security_policies = {
+config.content_security_policies_extra = {
   "connect-src" => %w(https://*.example.com),
   "img-src" => %w(https://*.example.com)
 }

@@ -9,7 +9,7 @@ module Decidim
 
       included do
         def content_security_policy
-          @content_security_policy ||= Decidim::ContentSecurityPolicy.new(current_organization, Decidim.additional_content_security_policies)
+          @content_security_policy ||= Decidim::ContentSecurityPolicy.new(current_organization, Decidim.content_security_policies_extra)
         end
 
         after_action :append_content_security_policy_headers
