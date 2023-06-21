@@ -1,3 +1,5 @@
+/* eslint-disable camelcase */
+
 import TomSelect from "tom-select/dist/cjs/tom-select.popular";
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -10,5 +12,5 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  tagContainers.forEach(container => new TomSelect(container, config))
+  tagContainers.forEach((container) => new TomSelect(container, config))
 });
