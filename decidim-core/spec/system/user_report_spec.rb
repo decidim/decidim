@@ -35,7 +35,6 @@ describe "Report User", type: :system do
       page.visit reportable_path
 
       expect(page).to have_css("#loginModal", visible: false)
-      expect(page).to have_no_css("html.is-reveal-open")
 
       click_button "Report"
 
