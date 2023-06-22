@@ -10,7 +10,8 @@ module Decidim
     #
     # Returns an HTML.
     def card_for(model, options = {})
-      cell "decidim/card", model, options
+      cell_name = options.delete(:force_redesign) ? "decidim/redesigned_card" : "decidim/card"
+      cell cell_name, model, options
     end
   end
 end
