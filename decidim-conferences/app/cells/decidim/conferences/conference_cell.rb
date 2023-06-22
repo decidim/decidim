@@ -18,6 +18,8 @@ module Decidim
           "decidim/conferences/conference_m"
         when :l
           "decidim/conferences/conference_l"
+        when :s
+          "decidim/conferences/conference_s"
         else
           "decidim/conferences/conference_g"
         end
