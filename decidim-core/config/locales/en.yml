@@ -372,7 +372,6 @@ en:
         related_photos: Related images
     author:
       avatar: 'Avatar: %{name}'
-      avatar_multiuser: Avatar for multiple users
       comments:
         one: comment
         other: comments
@@ -1540,30 +1539,11 @@ en:
         existing_error: The message could not be created. The conversation already exists, please try again now.
         success: Conversation started successfully!
       index:
-        add_max_users: 'Add users to conversation: 9 users max'
-        add_users_placeholder: Search...
-        close: Close
         conversations_info: Conversations are private. no one else can see them. A conversation can be started with any participant or group registered on the platform.
-        from: From
-        last_message: Last message
-        modal_title: New conversation
-        new_conversation: New conversation
-        next: Next
         no_conversations_warning: There are no conversations yet.
-        no_results: No results
-        participant_with_disabled_message_reception: This participant has disabled message reception.
-        time_ago: "%{time} ago"
-      new:
-        title: Start a conversation
       reply:
         placeholder: Your reply...
         send: Send
-        title_reply: Reply
-      show:
-        back: Show all conversations
-        deleted_accounts: You cannot have a conversation with deleted accounts.
-        not_allowed: This user does not accept any more direct messages.
-        title: Conversation with %{usernames}
       update:
         error: Message not sent. Try again later
     user_interests:
