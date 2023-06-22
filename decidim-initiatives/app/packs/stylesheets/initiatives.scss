@@ -145,11 +145,7 @@
   }
 
   &__aside__element__signature{
-    @apply mb-6 md:mb-20 bg-white rounded md:py-4 md:px-6;
-  }
-
-  &__aside__element__initiative__data{
-    @apply mb-6 md:mb-12;
+    @apply bg-white rounded md:py-4 md:px-6;
   }
 
   &__aside__element__signature-title{
