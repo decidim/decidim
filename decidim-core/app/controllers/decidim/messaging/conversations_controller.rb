@@ -100,7 +100,7 @@ module Decidim
 
       def check_multiple
         @form = form(ConversationForm).from_params(params, sender: current_user)
-        redirect_link = current_or_new_conversation_path_with_multiple(@form.recipient)
+        redirect_link = current_or_new_conversation_path_with_multiple(@form.recipient, nickname: params[:nickname])
         redirect_to redirect_link
       end
 
