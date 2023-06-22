@@ -14,7 +14,7 @@ describe "Authentication", type: :system do
   describe "Sign Up" do
     context "when using email and password" do
       it "creates a new User" do
-        find(".sign-up-link").click
+        click_link(text: /Sign Up/)
 
         within ".new_user" do
           fill_in :registration_user_email, with: "user@example.org"
@@ -39,7 +39,7 @@ describe "Authentication", type: :system do
       end
 
       it "keeps the locale settings" do
-        find(".sign-up-link").click
+        click_link(text: /Sign Up/)
 
         within ".new_user" do
           fill_in :registration_user_email, with: "user@example.org"
@@ -59,7 +59,7 @@ describe "Authentication", type: :system do
 
     context "when being a robot" do
       it "denies the sign up" do
-        find(".sign-up-link").click
+        click_link(text: /Sign Up/)
 
         within ".new_user" do
           page.execute_script("$($('.new_user > div > input')[0]).val('Ima robot :D')")
@@ -104,7 +104,7 @@ describe "Authentication", type: :system do
 
       context "when the user has confirmed the email in facebook" do
         it "creates a new User without sending confirmation instructions" do
-          find(".sign-up-link").click
+          click_link(text: /Sign Up/)
 
           click_link "Sign in with Facebook"
 
@@ -144,7 +144,7 @@ describe "Authentication", type: :system do
 
       context "when the response does not include the email" do
         it "redirects the user to a finish signup page" do
-          find(".sign-up-link").click
+          click_link(text: /Sign Up/)
 
           click_link "Sign in with Twitter"
 
@@ -160,7 +160,7 @@ describe "Authentication", type: :system do
         context "and a user already exists with the given email" do
           it "does not allow it" do
             create(:user, :confirmed, email: "user@from-twitter.com", organization:)
-            find(".sign-up-link").click
+            click_link(text: /Sign Up/)
 
             click_link "Sign in with Twitter"
 
@@ -182,7 +182,7 @@ describe "Authentication", type: :system do
         let(:email) { "user@from-twitter.com" }
 
         it "creates a new User" do
-          find(".sign-up-link").click
+          click_link(text: /Sign Up/)
 
           click_link "Sign in with Twitter"
 
@@ -218,7 +218,7 @@ describe "Authentication", type: :system do
       end
 
       it "creates a new User" do
-        find(".sign-up-link").click
+        click_link(text: /Sign Up/)
 
         click_link "Sign in with Google"
 
@@ -230,7 +230,7 @@ describe "Authentication", type: :system do
       let!(:user) { create(:user, nickname: "Nick", organization:) }
 
       it "show an error message" do
-        find(".sign-up-link").click
+        click_link(text: /Sign Up/)
 
         within ".new_user" do
           fill_in :registration_user_email, with: "user@example.org"
