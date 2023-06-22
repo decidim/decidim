@@ -4,7 +4,7 @@ require "cell/partial"
 
 module Decidim
   module Debates
-    # This cell renders the Small (:s) debate card
+    # This cell renders the Search (:s) debate card
     # for an given instance of a Debate
     class DebateSCell < Decidim::CardSCell
       private

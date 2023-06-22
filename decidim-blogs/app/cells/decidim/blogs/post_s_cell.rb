@@ -2,7 +2,7 @@
 
 module Decidim
   module Blogs
-    # This cell renders the Small (:s) post card
+    # This cell renders the Search (:s) post card
     # for an given instance of a Post
     class PostSCell < Decidim::CardSCell
       private

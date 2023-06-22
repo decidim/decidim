@@ -4,7 +4,7 @@ require "cell/partial"
 
 module Decidim
   module Budgets
-    # This cell renders the Small (:s) project card
+    # This cell renders the Search (:s) project card
     # for an instance of a Project
     class ProjectSCell < Decidim::CardSCell
       private

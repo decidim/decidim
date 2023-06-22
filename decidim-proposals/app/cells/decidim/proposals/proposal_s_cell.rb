@@ -4,7 +4,7 @@ require "cell/partial"
 
 module Decidim
   module Proposals
-    # This cell renders the Small (:s) proposal card
+    # This cell renders the Search (:s) proposal card
     # for an instance of a Proposal
     class ProposalSCell < Decidim::CardSCell
       private

@@ -2,7 +2,7 @@
 
 module Decidim
   module Conferences
-    # This cell renders the Small (:s) conference card
+    # This cell renders the Search (:s) conference card
     # for an given instance of a Conference
     class ConferenceSCell < Decidim::CardSCell
       def metadata_cell

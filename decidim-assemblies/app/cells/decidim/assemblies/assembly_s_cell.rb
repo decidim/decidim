@@ -2,7 +2,7 @@
 
 module Decidim
   module Assemblies
-    # This cell renders the Small (:s) process card
+    # This cell renders the Search (:s) process card
     # for an given instance of a Assembly
     class AssemblySCell < Decidim::CardSCell
       private
