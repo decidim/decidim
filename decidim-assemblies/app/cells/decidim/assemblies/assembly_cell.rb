@@ -14,6 +14,8 @@ module Decidim
       # REDESIGN_DETAILS: size :m will be deprecated
       def card_size
         case @options[:size]
+        when :s
+          "decidim/assemblies/assembly_s"
         when :m
           "decidim/assemblies/assembly_m"
         else
