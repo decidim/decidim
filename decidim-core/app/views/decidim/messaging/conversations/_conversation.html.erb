@@ -1,4 +1,7 @@
-<%= link_to decidim.conversation_path(conversation), id: "conversation-#{conversation.id}", class: "conversation__item" do %>
+<% nickname ||= false %>
+<% conversation_path = nickname ? decidim.profile_conversation_path(conversation, nickname:) : decidim.conversation_path(conversation) %>
+
+<%= link_to conversation_path, id: "conversation-#{conversation.id}", class: "conversation__item" do %>
   <div class="conversation__item-avatar">
     <% if conversation.interlocutors(current_user).count == 1 %>
       <%= cell "decidim/author", present(conversation.interlocutors(current_user).first), layout: :avatar, skip_profile_link: true %>
