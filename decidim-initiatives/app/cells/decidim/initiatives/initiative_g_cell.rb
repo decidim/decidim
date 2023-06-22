@@ -2,8 +2,8 @@
 
 module Decidim
   module Initiatives
-    # This cell renders the Grid (:g) assembly card
-    # for an given instance of an Assembly
+    # This cell renders the Grid (:g) initiative card
+    # for an given instance of an Initiative
     class InitiativeGCell < Decidim::CardGCell
       private
 
