@@ -103,7 +103,7 @@ module Decidim
 
       {
         text: format_date_range(start_date, end_date),
-        icon: "timer-2-line"
+        icon: "calendar-line"
       }
     end
 
