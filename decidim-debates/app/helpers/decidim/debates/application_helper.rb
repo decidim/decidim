@@ -92,6 +92,10 @@ module Decidim
       end
 
       def search_variable = :search_text_cont
+
+      def component_name
+        (defined?(current_component) && translated_attribute(current_component&.name).presence) || t("decidim.components.debates.name")
+      end
     end
   end
 end

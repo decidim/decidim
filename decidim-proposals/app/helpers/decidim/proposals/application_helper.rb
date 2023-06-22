@@ -237,6 +237,11 @@ module Decidim
 
         items.reject { |item| item[:collection].blank? }
       end
+
+      def component_name
+        i18n_key = controller_name == "collaborative_drafts" ? "decidim.proposals.collaborative_drafts.name" : "decidim.components.proposals.name"
+        (defined?(current_component) && translated_attribute(current_component&.name).presence) || t(i18n_key)
+      end
     end
   end
 end

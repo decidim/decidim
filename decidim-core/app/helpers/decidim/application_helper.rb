@@ -126,12 +126,5 @@ module Decidim
     def prevent_timeout_seconds
       0
     end
-
-    # Public: Displays the name of the current component.
-    #
-    # Returns a String.
-    def component_name
-      translated_attribute(current_component.name).presence
-    end
   end
 end
