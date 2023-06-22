@@ -95,7 +95,7 @@
   }
 
   &__search{
-    @apply flex flex-col gap-2 items-start;
+    @apply flex flex-col gap-2 items-start w-full;
 
     &-title{
       @apply text-secondary;
