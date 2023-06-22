@@ -9,10 +9,6 @@
     @apply text-md font-semibold;
   }
 
-  &__address{
-    @apply underline;
-  }
-
   &__address,
   &__hints{
     @apply text-sm break-words;
