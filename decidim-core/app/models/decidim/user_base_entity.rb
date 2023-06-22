@@ -52,7 +52,7 @@ module Decidim
     end
 
     def public_users_followings
-      # To include users and gropus self.class is not valid because for a user
+      # To include users and groups self.class is not valid because for a user
       # self.class.joins(:follows)... only return users
       @public_users_followings ||= users_followings.not_blocked
     end
