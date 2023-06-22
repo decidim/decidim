@@ -17,7 +17,7 @@ describe "User group profile", type: :system do
     end
 
     it "adds a link to conversations" do
-      within "#profile-tabs" do
+      within ".profile__scaffold__middle-content" do
         click_link "Conversations"
       end
 

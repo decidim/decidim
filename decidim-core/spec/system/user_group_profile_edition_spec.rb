@@ -36,6 +36,7 @@ describe "User group profile edition", type: :system do
     end
 
     it "allows editing the profile" do
+      click_button "Manage group"
       expect(page).to have_content("Edit group profile")
       click_link "Edit group profile"
 
