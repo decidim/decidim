@@ -195,6 +195,7 @@ fi:
         per_page: Per sivu
         permissions: Oikeudet
         reject: Hylkää
+        send_me_a_test_email: Lähetä minulle testisähköposti
         share: Jaa
         user:
           new: Uusi hallintakäyttäjä
@@ -758,9 +759,12 @@ fi:
           warning: "<strong>Huomio:</strong> Tämä uutiskirje lähetetään ainoastaan käyttäjille, jotka ovat valinneet asetuksen <em>Haluan vastaanottaa uutiskirjeitä</em> tilinsä ilmoitusasetuksista."
         send:
           no_recipients: Ei yhtään vastaanottajaa valituille rajauksille.
+        send_to_user:
+          sent_successfully: Uutiskirjeen lähetys osoitteeseen %{email} onnistui
         show:
           preview: Esikatsele
           select_recipients_to_deliver: Valitse vastaanottajat
+          send_me_a_test_email: Lähetä minulle testisähköposti
           subject: Otsikko
         update:
           error: Uutiskirjeen päivitys epäonnistui.
