@@ -55,8 +55,8 @@ describe "Homepage", type: :system do
       it_behaves_like "accessible page"
 
       it "includes the official organization links and images" do
-        expect(page).to have_selector("a.logo-cityhall[href='#{official_url}']")
-        expect(page).to have_selector("a.main-footer__badge[href='#{official_url}']")
+        expect(page).to have_selector(".main-bar__logo a[href='#{official_url}']")
+        expect(page).to have_selector("footer a[href='#{official_url}']", match: :first)
       end
 
       context "and the organization has the omnipresent banner enabled" do
@@ -172,7 +172,7 @@ describe "Homepage", type: :system do
         end
 
         it "includes links to them" do
-          within ".main-footer" do
+          within "footer" do
             [static_page1, static_page2].each do |static_page|
               expect(page).to have_content(static_page.title["en"])
             end
@@ -237,7 +237,7 @@ describe "Homepage", type: :system do
           end
 
           it "displays only publicly accessible pages and topics in the footer" do
-            within ".main-footer" do
+            within "footer" do
               expect(page).to have_content(static_page1.title["en"])
               expect(page).to have_no_content(static_page2.title["en"])
               expect(page).to have_no_content(static_page3.title["en"])
@@ -416,13 +416,11 @@ describe "Homepage", type: :system do
         end
 
         it "displays the decidim link with external link indicator" do
-          within ".footer .mini-footer" do
+          within "footer" do
             expect(page).to have_selector("a[target='_blank'][href='https://github.com/decidim/decidim']")
 
             within "a[target='_blank'][href='https://github.com/decidim/decidim']" do
-              # REDESIGN_PENDING: Uncomment the next line once merged turbo-rails https://github.com/decidim/decidim/pull/9881
-              # It contains a javascript rearrangement among redesigned and the legacy version
-              # expect(page).to have_selector("svg use[href*='external-link']")
+              expect(page).to have_selector("svg")
             end
           end
         end

@@ -528,13 +528,7 @@ describe "Conversations", type: :system do
   def visit_inbox
     visit decidim.root_path
 
-    if Decidim.redesign_active
-      find("#trigger-dropdown-account").click
-      click_link("Conversations")
-    else
-      within ".topbar__user__logged" do
-        find(".icon--envelope-closed").click
-      end
-    end
+    find("#trigger-dropdown-account").click
+    find("a[href^='/conversations'", match: :first).click
   end
 end

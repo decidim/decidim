@@ -37,6 +37,7 @@ describe "User group manage members", type: :system do
       login_as creator, scope: :user
       visit decidim.profile_path(user_group.nickname)
 
+      click_button "Manage group"
       click_link "Manage members"
     end
 

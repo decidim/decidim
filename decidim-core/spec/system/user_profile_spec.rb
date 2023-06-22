@@ -43,7 +43,7 @@ describe "Profile", type: :system do
     it "shows user name in the header, its nickname and a contact link" do
       expect(page).to have_selector("h1", text: user.name)
       expect(page).to have_content(user.nickname)
-      expect(page).to have_link("Contact")
+      expect(page).to have_link("Message")
     end
 
     it "does not show officialization stuff" do
@@ -64,6 +64,7 @@ describe "Profile", type: :system do
       end
 
       it "shows officialization status" do
+        click_link "Badges"
         expect(page).to have_content("Major of Barcelona")
       end
     end
@@ -82,8 +83,8 @@ describe "Profile", type: :system do
 
       it "shows the number of followers and following" do
         visit decidim.profile_path(user.nickname)
-        expect(page).to have_link("Followers 1")
-        expect(page).to have_link("Follows 3")
+        expect(page).to have_text("Followers 1")
+        expect(page).to have_text("Follows 2")
       end
 
       it "lists the followers" do
@@ -112,7 +113,7 @@ describe "Profile", type: :system do
 
         it "lists only the public followings" do
           visit decidim.profile_path(user.nickname)
-          expect(page).to have_link("Follows 4")
+          expect(page).to have_text("Follows 4")
 
           click_link "Follows"
           expect(page).to have_content("Some of the resources followed are not public.")
@@ -171,8 +172,9 @@ describe "Profile", type: :system do
         end
 
         it "shows a badges section on the sidebar" do
-          within ".profile--sidebar" do
-            expect(page).to have_css(".badge-container img[title^='Tests']")
+          within ".profile__scaffold__middle" do
+            click_link "Badges"
+            expect(page).to have_css(".profile__badge-circle img[title^='Tests']")
           end
         end
       end
@@ -188,7 +190,7 @@ describe "Profile", type: :system do
         end
 
         it "does not have a badges section on the sidebar" do
-          within ".profile--sidebar" do
+          within ".profile__actions-secondary" do
             expect(page).not_to have_content("Badges")
           end
         end

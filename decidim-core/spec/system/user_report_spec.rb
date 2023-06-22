@@ -34,7 +34,7 @@ describe "Report User", type: :system do
     it "gives the option to sign in" do
       page.visit reportable_path
 
-      expect(page).to have_css("#loginModal", visible: false)
+      expect(page).to have_css("#loginModal", visible: :hidden)
 
       click_button "Report"
 

@@ -46,12 +46,11 @@ describe "Data consent", type: :system do
   end
 
   context "when cookie modal is open" do
-    # REDESIGN_PENDING: restore this block once redesign enabled
-    # before do
-    #   within "#dc-dialog-wrapper" do
-    #     click_button "Settings"
-    #   end
-    # end
+    before do
+      within "#dc-dialog-wrapper" do
+        click_button "Settings"
+      end
+    end
 
     it "shows cookie" do
       expect(page).not_to have_content("decidim-consent")
@@ -67,10 +66,9 @@ describe "Data consent", type: :system do
       end
       click_button "Save settings"
 
-      # REDESIGN_PENDING: restore this within once redesign enabled
-      # within "footer" do
-      click_link "Cookie settings"
-      # end
+      within "footer" do
+        click_link "Cookie settings"
+      end
 
       within "[data-id='analytics']" do
         expect(find("input", visible: :all).checked?).to be(true)

@@ -36,7 +36,6 @@ describe "Search", type: :system do
       switch_to_host(organization.host)
       visit decidim.root_path
 
-      find("button", text: "Aceptar todas").click
       within ".main-bar__links-mobile" do
         find("a[href*='search']").click
       end
