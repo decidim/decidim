@@ -15,7 +15,7 @@ describe "Components can be navigated", type: :system do
     it "renders the content of the page" do
 
       within "#menu-bar" do
-        expect(page).to have_content("Procesos")
+        expect(page).to have_content("Processes")
         find("#secondary-dropdown-menu", text: translated(participatory_space.title)).click
         click_link(translated(component.name))
       end
