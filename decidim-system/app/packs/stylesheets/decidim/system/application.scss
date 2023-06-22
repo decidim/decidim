@@ -12,9 +12,9 @@ $-zf-bp-value: null;
 @import "stylesheets/decidim/system/sidebar";
 @import "stylesheets/decidim/system/tables";
 @import "stylesheets/decidim/system/actions";
-@import "stylesheets/decidim/system/forms";
 @import "stylesheets/decidim/utils/fontface";
 @import "stylesheets/decidim/modules/upload_modal";
+@import "stylesheets/decidim/modules/input-tags";
 
 body {
   font-family: "Source Sans Pro", sans-serif;

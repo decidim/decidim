@@ -1,12 +1,16 @@
-import "bootstrap-tagsinput"
+/* eslint-disable camelcase */
 
-$(() => {
-  const $tagContainer = $(".js-tags-container");
+import TomSelect from "tom-select/dist/cjs/tom-select.popular";
 
-  // Initialize
-  $tagContainer.tagsinput({
-    tagClass: "input__tag",
-    trimValue: true
-  });
+document.addEventListener("DOMContentLoaded", () => {
+  const tagContainers = document.querySelectorAll(".js-tags-container");
+  const config = {
+    plugins: ["remove_button"],
+    create: true,
+    render: {
+      no_results: null
+    }
+  };
 
+  tagContainers.forEach((container) => new TomSelect(container, config))
 });
