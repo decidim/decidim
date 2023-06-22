@@ -19,7 +19,7 @@ describe "Search", type: :system do
     before do
       within ".main-bar__search" do
         fill_in "term", with: term
-        find("input#term").native.send_keys :enter
+        find("input#input-search").native.send_keys :enter
       end
     end
 
@@ -36,6 +36,7 @@ describe "Search", type: :system do
       switch_to_host(organization.host)
       visit decidim.root_path
 
+      click_button(id: "dc-dialog-accept")
       within ".main-bar__links-mobile" do
         find("a[href*='search']").click
       end
