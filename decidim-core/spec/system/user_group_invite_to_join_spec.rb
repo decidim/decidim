@@ -33,7 +33,7 @@ describe "User group invite to join", type: :system do
     before do
       login_as creator, scope: :user
       visit decidim.profile_path(user_group.nickname)
-
+      click_button "Manage group"
       click_link "Invite participant"
     end
 
