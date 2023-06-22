@@ -4,8 +4,8 @@ require "cell/partial"
 
 module Decidim
   module Debates
-    # This cell renders the List (:l) meeting card
-    # for an instance of a Meeting
+    # This cell renders the List (:l) debate card
+    # for an given instance of a Debate
     class DebateLCell < Decidim::CardLCell
       include Decidim::SanitizeHelper
       delegate :component_settings, to: :controller
