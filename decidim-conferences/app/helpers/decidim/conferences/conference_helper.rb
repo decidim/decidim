@@ -71,10 +71,6 @@ module Decidim
           end
         end
       end
-
-      def component_name
-        (defined?(current_component) && translated_attribute(current_component&.name).presence) || t("decidim.conferences.index.title")
-      end
     end
   end
 end
