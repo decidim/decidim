@@ -34,7 +34,7 @@ export class EmojiButton {
     let emojiLocale = document.documentElement.getAttribute("lang");
 
     if (!SUPPORTED_LOCALES.includes(emojiLocale)) {
-      const secondaryLocale = emojiLocale.split("-")[0];
+      const secondaryLocale = emojiLocale?.split("-")[0];
       if (SUPPORTED_LOCALES.includes(secondaryLocale)) {
         emojiLocale = secondaryLocale;
       } else {
