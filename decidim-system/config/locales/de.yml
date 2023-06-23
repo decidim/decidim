@@ -65,6 +65,7 @@ de:
           content: Fügen Sie der statischen Seite %{page} im Admin-Dashboard sinnvollen Inhalt hinzu.
           summary: Fügen Sie der statischen Seite %{page} im Admin-Dashboard eine sinnvolle Zusammenfassung hinzu.
           title: Standardtitel für %{page}
+        terms-of-service: Nutzungsbedingungen
       menu:
         admins: Admins
         dashboard: Instrumententafel
