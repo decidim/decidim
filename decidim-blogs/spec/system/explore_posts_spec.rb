@@ -22,6 +22,12 @@ describe "Explore posts", type: :system do
       visit_component
     end
 
+    it "shows the component name in the sidebar" do
+      within("aside") do
+        expect(page).to have_content(translated(component.name))
+      end
+    end
+
     it "shows all posts for the given process" do
       skip_unless_redesign_enabled
 
