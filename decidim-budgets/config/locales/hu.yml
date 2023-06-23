@@ -95,8 +95,11 @@ hu:
             success: "%{number} javaslat sikeresen importálva a projektekbe"
           new:
             create: Javaslatok importálása projektekbe
+            default_budget: Alapértelmezett költségvetés
+            import_all_accepted_proposals: Minden elfogadott javaslat importálása
             no_components: Ebben a részvételi térben nincs más javaslat-összetevő a javaslatok projektekbe való importálásához.
             select_component: Válassz ki egy elemet
+            title: Javaslatok importálása
       admin_log:
         project:
           create: "%{user_name} létrehozta a(z) %{resource_name} nevű projektet itt: %{space_name}"
