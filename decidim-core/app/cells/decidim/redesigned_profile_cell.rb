@@ -113,7 +113,7 @@ module Decidim
 
     def extra_data
       @extra_data ||= {}.tap do |v|
-        if user_group? && (count = profile_holder.unread_messages_count_for(current_user)).positive?
+        if current_user && user_group? && (count = profile_holder.unread_messages_count_for(current_user)).positive?
           v[:conversations] = { count: }
         end
       end
