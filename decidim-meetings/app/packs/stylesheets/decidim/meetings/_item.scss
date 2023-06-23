@@ -25,6 +25,10 @@
         &:not(:last-child){
           @apply col-span-2 md:col-auto order-2 md:order-1;
         }
+
+        &:last-child{
+          @apply md:col-span-2 pr-4;
+        }
       }
 
       > *:nth-child(3){

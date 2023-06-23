@@ -2,6 +2,8 @@
   <%= icon "map-pin-line" %>
   <div class="address">
     <div class="address__location"><%= t(model.type_of_meeting, scope: "decidim.meetings.meetings.filters.type_values") %></div>
-    <div class="address__hints"><%= model.online_meeting_url %></div>
+    <a href="<%= model.online_meeting_url %>" target="_blank" rel="noopener noreferrer" class="address__hints underline break-all">
+      <%= model.online_meeting_url %>
+    </a>
   </div>
 </div>
