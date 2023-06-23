@@ -33,17 +33,24 @@ module Decidim
       def state_item
         return if initiative.state.blank?
 
-        { text: content_tag(:span, t(initiative.state, scope: "decidim.initiatives.show.badge_name"), class: "label #{metadata_badge_css_class(initiative.state)} initiative-status") }
+        {
+          text: content_tag(:span, t(initiative.state, scope: "decidim.initiatives.show.badge_name"),
+          class: "label #{metadata_badge_css_class(initiative.state)} initiative-status")
+        }
       end
 
       def progress_bar_item
-        return if ["created", "validating", "discarded"].include?(initiative.state)
+        return if %w(created validating discarded).include?(initiative.state)
 
         type_scope = initiative.votable_initiative_type_scopes[0]
 
         {
           cell: "decidim/progress_bar",
-          args: [initiative.supports_count_for(type_scope.scope), { total: type_scope.supports_required, element_id: "initiative-#{initiative.id}-votes-count", class: "progress-bar__sm" }],
+          args: [initiative.supports_count_for(type_scope.scope), {
+            total: type_scope.supports_required,
+            element_id: "initiative-#{initiative.id}-votes-count",
+            class: "progress-bar__sm"
+          }],
           icon: nil
         }
       end
