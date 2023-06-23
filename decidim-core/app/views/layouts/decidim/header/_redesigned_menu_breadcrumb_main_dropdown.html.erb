@@ -10,7 +10,7 @@
       <%= cell("decidim/highlighted_participatory_process", menu_highlighted_participatory_process) %>
     </div>
     <div class="menu-bar__main-dropdown__bottom-right">
-      <%= cell "decidim/content_blocks/menu_breadcrumb_last_activity", nil %>
+      <%= cell "decidim/content_blocks/menu_breadcrumb_last_activity", defined?(current_participatory_space) ? current_participatory_space : current_organization %>
     </div>
   </div>
 </div>
