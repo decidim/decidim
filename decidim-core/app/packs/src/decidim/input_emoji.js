@@ -1,4 +1,5 @@
 import { createPopup } from "@picmo/popup-picker";
+import { SUPPORTED_LOCALES } from "emojibase";
 
 import * as i18n from "src/decidim/i18n";
 
@@ -28,19 +29,20 @@ export class EmojiButton {
 
   // Get the current locale used for the emoji database
   //
-  // @see {@link https://emojibase.dev/docs/datasets/#supported-locales|Supported locales in the Emojibase documentation site}
-  // @see {@link https://github.com/milesj/emojibase/blob/master/packages/core/src/constants.ts}|the SUPPORTED_LOCALES constant}
-  //
   // @returns {string} the current locale if it's supported by emoji base, or english as the fallback locale
   static locale() {
-    const emojibaseSupportedLocales = ["da", "de", "en", "en-gb", "es", "es-mx", "et", "fi", "fr", "hu", "it", "ja", "ko", "lt", "ms", "nb", "nl", "pl", "pt", "ru", "sv", "th", "uk", "zh", "zh-hant"];
-    const currentLocale = document.documentElement.getAttribute("lang");
+    let emojiLocale = document.documentElement.getAttribute("lang");
 
-    if (emojibaseSupportedLocales.includes(currentLocale)) {
-      return currentLocale;
+    if (!SUPPORTED_LOCALES.includes(emojiLocale)) {
+      const secondaryLocale = emojiLocale.split("-")[0];
+      if (SUPPORTED_LOCALES.includes(secondaryLocale)) {
+        emojiLocale = secondaryLocale;
+      } else {
+        emojiLocale = "en";
+      }
     }
 
-    return "en";
+    return emojiLocale;
   }
 
   constructor(elem) {
