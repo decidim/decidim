@@ -86,7 +86,7 @@
 .layout-aside__section + .layout-aside__section,
 .layout-item__main ~ .layout-item__main,
 .layout-item__aside--footer > * + *{
-  --vertical-spacing: 3.5rem;
+  --vertical-spacing: 2.5rem;
 
   @apply mt-[var(--vertical-spacing)];
 }
