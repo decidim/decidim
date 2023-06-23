@@ -404,7 +404,7 @@ ca:
         target: Qui participa
     assembly_members:
       assembly_member:
-        designated_on: Designat a
+        designated_on: Designació a
       index:
         title: Membres
     events:
