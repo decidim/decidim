@@ -9,8 +9,7 @@
         <li>
           <%= link_to(
             action[:path],
-            class: "dropdown__item",
-            title: action[:text]
+            { class: "dropdown__item", title: action[:text] }.merge(action[:options])
           ) do %>
           <%= icon action[:icon] %>
           <%= content_tag :span, action[:text] %>
