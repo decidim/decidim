@@ -19,7 +19,7 @@ module Decidim
       private
 
       def initiative_items
-        [dates_item, progress_bar_item, state_item]
+        [dates_item, progress_bar_item, state_item].compact
       end
 
       def start_date
@@ -37,6 +37,8 @@ module Decidim
       end
 
       def progress_bar_item
+        return if ["created", "validating", "discarded"].include?(initiative.state)
+
         type_scope = initiative.votable_initiative_type_scopes[0]
 
         {
