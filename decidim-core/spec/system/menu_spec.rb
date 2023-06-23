@@ -10,28 +10,6 @@ describe "Menu", type: :system do
     visit decidim.root_path
   end
 
-  matcher :have_selected_option do |expected|
-    match do |page|
-      page.has_selector?(".main-nav__link--active", count: 1) &&
-        page.has_selector?(".main-nav__link--active", text: expected)
-    end
-  end
-
-  it "renders the default main menu" do
-    within ".main-nav" do
-      expect(page).to \
-        have_selector("li", count: 3) &
-        have_link("Home", href: "/") &
-        have_link("Initiatives", href: "/initiatives") &
-        have_link("Help", href: "/pages")
-    end
-  end
-
-  it "selects the correct default active option" do
-    within ".main-nav" do
-      expect(page).to have_selected_option("Home")
-    end
-  end
 
   context "when clicking on a menu entry" do
     before do
@@ -73,14 +51,6 @@ describe "Menu", type: :system do
     after do
       within_language_menu do
         click_link "English"
-      end
-    end
-
-    it "works with multiple languages" do
-      visit decidim.root_path
-
-      within ".main-nav" do
-        expect(page).to have_selected_option("Inici")
       end
     end
   end

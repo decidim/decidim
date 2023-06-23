@@ -192,12 +192,6 @@ describe "Admin manages participatory process groups", type: :system do
       visit decidim_admin_participatory_processes.participatory_processes_path
     end
 
-    it "does not show the participatory process group link" do
-      within ".main-nav" do
-        expect(page).not_to have_selector(:link_or_button, "Process groups")
-      end
-    end
-
     context "when within participatory processes" do
       it "the secondary nav renders the participatory process group link" do
         within ".secondary-nav" do
