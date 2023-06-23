@@ -404,7 +404,7 @@ es:
         target: Quién participa
     assembly_members:
       assembly_member:
-        designated_on: Designación en
+        designated_on: 'Fecha de designación:'
       index:
         title: Miembros
     events:
