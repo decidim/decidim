@@ -193,7 +193,7 @@ describe "Admin manages votings", type: :system do
       find("#voting_banner_image_button").click
 
       within ".upload-modal" do
-        find(".remove-upload-item").click
+        click_button "Remove"
         input_element = find("input[type='file']", visible: :all)
         input_element.attach_file(image_invalid_path)
 
