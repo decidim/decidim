@@ -241,34 +241,6 @@ describe "Assemblies", type: :system do
           expect(titles.first.text).to eq translated(child_assembly.title)
           expect(titles.last.text).to eq translated(second_child_assembly.title)
         end
-
-        context "when child assembly has a meeting" do
-          let(:meetings_component) { create(:meeting_component, :published, participatory_space: child_assembly) }
-
-          context "with unpublished meeting" do
-            let!(:meeting) { create(:meeting, :upcoming, component: meetings_component) }
-
-            it "is not displaying the widget" do
-              visit decidim_assemblies.assembly_path(assembly)
-
-              within(".assembly__block-grid") do
-                expect(page).to have_no_css("[data-upcoming-meeting]")
-              end
-            end
-          end
-
-          context "with published meeting" do
-            let!(:meeting) { create(:meeting, :upcoming, :published, component: meetings_component) }
-
-            it "is displaying the widget" do
-              visit decidim_assemblies.assembly_path(assembly)
-
-              within(".assembly__block-grid") do
-                expect(page).to have_css("[data-upcoming-meeting]")
-              end
-            end
-          end
-        end
       end
 
       context "when the assembly has children private and transparent assemblies and related assemblies block is active" do

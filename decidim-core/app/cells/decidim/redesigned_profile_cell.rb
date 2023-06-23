@@ -7,10 +7,11 @@ module Decidim
     include Decidim::UserProfileHelper
     include Decidim::AriaSelectedLinkToHelper
     include Decidim::LayoutHelper
+    include Decidim::ViewHooksHelper
     include ActiveLinkTo
 
     delegate :current_organization, :current_user, :user_groups_enabled?, to: :controller
-    delegate :avatar_url, :nickname, :personal_url, :followers_count, :public_users_followings, :following_count, to: :presented_profile
+    delegate :avatar_url, :nickname, :personal_url, :followers_count, :users_followings, :officialized_as, to: :presented_profile
 
     TABS_ITEMS = {
       activity: { icon: "bubble-chart-line", path: :profile_activity_path },
@@ -29,11 +30,11 @@ module Decidim
       render :show
     end
 
-    private
-
     def profile_holder
       model
     end
+
+    private
 
     def presented_profile
       present(profile_holder)
@@ -45,11 +46,15 @@ module Decidim
       profile_holder.officialized?
     end
 
+    def officialization_text
+      translated_attribute(officialized_as).presence || t("decidim.profiles.show.officialized")
+    end
+
     def details_items
       [{ icon: "account-pin-circle-line", text: nickname }].tap do |items|
-        items.append(icon: "link", text: personal_url) if personal_url.present?
-        if profile_holder.public_users_followings.count.positive?
-          items.append(icon: TABS_ITEMS[:following][:icon], text: t("decidim.following.following_count", count: public_users_followings.count))
+        items.append(icon: "link", text: personal_url, url: personal_url) if personal_url.present?
+        if (following_count = users_followings.size).positive?
+          items.append(icon: TABS_ITEMS[:following][:icon], text: t("decidim.following.following_count", count: following_count))
         end
         items.append(icon: TABS_ITEMS[:followers][:icon], text: t("decidim.followers.followers_count", count: followers_count)) if profile_holder.followers_count.positive?
       end
