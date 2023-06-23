@@ -9,6 +9,10 @@ module Decidim
     class ProposalSCell < Decidim::CardSCell
       private
 
+      def title
+        present(model).title(html_escape: true)
+      end
+
       def metadata_cell
         "decidim/proposals/proposal_metadata"
       end
