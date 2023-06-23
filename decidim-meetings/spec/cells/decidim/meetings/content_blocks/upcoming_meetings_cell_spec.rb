@@ -21,7 +21,7 @@ module Decidim
           let(:meeting) { create(:meeting, :published, start_time: 1.week.from_now) }
 
           it "renders the meetings" do
-            expect(html).to have_css(".card", count: 1)
+            expect(html).to have_css("[id^=meeting]", count: 1)
           end
 
           describe "upcoming meetings" do
