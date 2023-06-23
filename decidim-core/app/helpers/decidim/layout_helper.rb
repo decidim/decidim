@@ -198,6 +198,20 @@ module Decidim
       end
     end
 
+    # Public: Gets the name of the webpacker entrypoint that will be used
+    # for the locale of the Emojibase NPM package, used with @picmo/popup-picker
+    #
+    # Returns a string with the entrypoint name
+    def emojibase_entrypoint_locale
+      entrypoint = Decidim::Webpacker.configuration.entrypoints.keys.select do |entry|
+        entry == "decidim_emojibase_#{I18n.locale}"
+      end
+
+      return "decidim_emojibase_en" if entrypoint.empty?
+
+      entrypoint.first
+    end
+
     private
 
     def tag_builder

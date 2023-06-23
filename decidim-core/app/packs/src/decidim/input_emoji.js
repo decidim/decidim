@@ -76,6 +76,8 @@ export class EmojiButton {
 
     const picker = createPopup({
       autoFocus: "search",
+      emojiData: window.Decidim.emojiData,
+      messages: window.Decidim.emojiMessages,
       locale: EmojiButton.locale(),
       i18n: i18nDictionary,
       // shrink the size of the emoji when mobile

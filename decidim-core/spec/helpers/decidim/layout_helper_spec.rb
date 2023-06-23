@@ -107,5 +107,32 @@ module Decidim
         end
       end
     end
+
+    describe "#emojibase_entrypoint_locale" do
+      subject { helper.emojibase_entrypoint_locale }
+      let(:entrypoints) do
+        {
+          "decidim_emojibase_en" => "path/to/decidim_emojibase_en.js",
+          "decidim_emojibase_es" => "path/to/decidim_emojibase_es.js"
+        }
+      end
+
+      before do
+        allow(Decidim::Webpacker.configuration).to receive(:entrypoints).and_return(entrypoints)
+        allow(I18n).to receive(:locale).and_return(locale)
+      end
+
+      context "when it is a supported locale" do
+        let(:locale) { :es }
+
+        it { is_expected.to eq("decidim_emojibase_es") }
+      end
+
+      context "when it is not a supported locale" do
+        let(:locale) { :ca }
+
+        it { is_expected.to eq("decidim_emojibase_en") }
+      end
+    end
   end
 end
