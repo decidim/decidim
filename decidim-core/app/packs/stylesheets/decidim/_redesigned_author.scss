@@ -15,6 +15,10 @@
     &-container{
       @apply rounded-full overflow-hidden inline-block w-6 h-6 align-top;
     }
+
+    &-counter{
+      @apply -ml-4 rounded-full overflow-hidden inline-grid w-6 h-6 bg-background place-items-center text-secondary text-xs font-semibold;
+    }
   }
 
   &__container.is-compact &__avatar-container{
@@ -52,5 +56,19 @@
 
   &__tooltip &__name{
     @apply text-white text-lg font-bold hover:underline;
+  }
+
+  &__coauthors{
+    @apply flex flex-wrap items-center gap-2;
+
+    &[aria-hidden="false"] + [id$="trigger"] span:last-child,
+    &[aria-hidden="true"] + [id$="trigger"] span:first-child{
+      @apply first-letter:lowercase block;
+    }
+
+    &[aria-hidden="false"] + [id$="trigger"] span:first-child,
+    &[aria-hidden="true"] + [id$="trigger"] span:last-child{
+      @apply hidden;
+    }
   }
 }

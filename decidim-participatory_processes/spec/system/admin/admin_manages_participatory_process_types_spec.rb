@@ -89,7 +89,7 @@ describe "Admin manages participatory process types", type: :system do
 
   def click_delete_participatory_process_type
     within find("tr", text: translated(participatory_process_type.title)) do
-      accept_confirm { click_link "Delete" }
+      accept_confirm(admin: true) { click_link "Delete" }
     end
   end
 end

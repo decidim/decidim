@@ -94,7 +94,7 @@ shared_examples "manage process steps examples" do
 
     it "deletes a participatory_process_step" do
       within find("tr", text: translated(process_step2.title)) do
-        accept_confirm { click_link "Delete" }
+        accept_confirm(admin: true) { click_link "Delete" }
       end
 
       expect(page).to have_admin_callout("successfully")

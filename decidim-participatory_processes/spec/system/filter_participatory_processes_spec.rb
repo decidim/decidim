@@ -120,7 +120,7 @@ describe "Filter Participatory Processes", type: :system do
 
     context "and choosing a scope" do
       before do
-        visit decidim_participatory_processes.participatory_processes_path(filter: { with_scope: scope.id })
+        visit decidim_participatory_processes.participatory_processes_path(filter: { with_any_scope: scope.id })
       end
 
       it "lists all processes belonging to that scope" do
@@ -132,6 +132,7 @@ describe "Filter Participatory Processes", type: :system do
 
   context "when filtering processes by area" do
     let!(:area) { create :area, organization: }
+    let!(:other_area) { create :area, organization: }
     let!(:process_with_area) { create(:participatory_process, area:, organization:) }
     let!(:process_without_area) { create(:participatory_process, organization:) }
 
@@ -255,7 +256,6 @@ describe "Filter Participatory Processes", type: :system do
         context "and filtering by a process type" do
           before do
             within "#panel-dropdown-menu-type" do
-              click_filter_item "All"
               click_filter_item "The West Type"
             end
             sleep 2
@@ -268,6 +268,34 @@ describe "Filter Participatory Processes", type: :system do
 
             expect(page).to have_no_content("NW Rocks!")
             expect(page).to have_no_content("SE Rocks!")
+            group_1_process_type.processes.groupless.each do |group|
+              expect(page).to have_no_content(translated(group.title))
+            end
+            group_2_process_type.processes.groupless.each do |group|
+              expect(page).to have_content(translated(group.title))
+            end
+          end
+        end
+
+        context "and filtering by more than one process type" do
+          before do
+            within "#panel-dropdown-menu-type" do
+              click_filter_item "The West Type"
+              click_filter_item "The East Type"
+            end
+            sleep 2
+          end
+
+          it "lists process type processes" do
+            within "#processes-grid h2" do
+              expect(page).to have_content("6 active processes")
+            end
+
+            expect(page).to have_no_content("NW Rocks!")
+            expect(page).to have_no_content("SE Rocks!")
+            group_1_process_type.processes.groupless.each do |group|
+              expect(page).to have_content(translated(group.title))
+            end
             group_2_process_type.processes.groupless.each do |group|
               expect(page).to have_content(translated(group.title))
             end

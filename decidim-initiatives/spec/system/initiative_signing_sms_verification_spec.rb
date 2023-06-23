@@ -35,7 +35,7 @@ describe "Initiative signing", type: :system do
     allow(Decidim::Verifications::Sms::MobilePhoneForm).to receive(:new).and_return(verification_form)
     allow(verification_form).to receive(:verification_metadata).and_return(verification_code: sms_code)
 
-    within ".view-side" do
+    within ".initiative__aside" do
       expect(page).to have_content(signature_text(0))
       click_on "Sign"
     end
@@ -71,7 +71,7 @@ describe "Initiative signing", type: :system do
           expect(page).to have_content("initiative has been successfully signed")
           click_on "Back to initiative"
 
-          within ".view-side" do
+          within ".initiative__aside" do
             expect(page).to have_content(signature_text(1))
             expect(initiative.reload.supports_count).to eq(1)
           end

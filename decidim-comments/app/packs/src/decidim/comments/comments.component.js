@@ -56,7 +56,7 @@ export default class CommentsComponent {
       this.mounted = false;
       this._stopPolling();
 
-      $(".add-comment .opinion-toggle .button", this.$element).off("click.decidim-comments");
+      $(".add-comment .opinion-toggle button", this.$element).off("click.decidim-comments");
       $(".add-comment textarea", this.$element).off("input.decidim-comments");
       $(".add-comment form", this.$element).off("submit.decidim-comments");
       $(".add-comment textarea", this.$element).each((_i, el) => el.removeEventListener("emoji.added", this._onTextInput));
@@ -117,7 +117,7 @@ export default class CommentsComponent {
     $(".add-comment", $parent).each((_i, el) => {
       const $add = $(el);
       const $form = $("form", $add);
-      const $opinionButtons = $(".opinion-toggle .button", $add);
+      const $opinionButtons = $(".opinion-toggle button", $add);
       const $text = $("textarea", $form);
 
       $opinionButtons.on("click.decidim-comments", this._onToggleOpinion);
@@ -274,13 +274,13 @@ export default class CommentsComponent {
    */
   _onToggleOpinion(ev) {
     let $btn = $(ev.target);
-    if (!$btn.is(".button")) {
-      $btn = $btn.parents(".button");
+    if (!$btn.is("button")) {
+      $btn = $btn.parents("button");
     }
 
     const $add = $btn.closest(".add-comment");
     const $form = $("form", $add);
-    const $opinionButtons = $(".opinion-toggle .button", $add);
+    const $opinionButtons = $(".opinion-toggle button", $add);
     const $selectedState = $(".opinion-toggle .selected-state", $add);
     const $alignment = $(".alignment-input", $form);
 

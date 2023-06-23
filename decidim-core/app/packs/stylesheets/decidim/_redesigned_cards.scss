@@ -15,7 +15,7 @@
     }
 
     &-text{
-      @apply w-full md:w-1/2 flex flex-col px-4 md:px-8 py-3 md:py-6 gap-y-2 md:gap-y-4 text-gray-2;
+      @apply w-full md:w-1/2 flex flex-col p-4 gap-y-2 md:gap-y-4 text-gray-2;
     }
 
     &:hover &-text h3{
@@ -31,7 +31,7 @@
     }
 
     &-grid{
-      @apply grid gap-4 md:gap-x-12 md:gap-y-16 md:grid-cols-2;
+      @apply grid gap-4 md:gap-12 md:grid-cols-2;
     }
 
     &-img{
@@ -60,6 +60,11 @@
 
     &-title{
       @apply h4 text-secondary;
+
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 3;
     }
 
     &-image{
@@ -88,6 +93,10 @@
         & > svg{
           @apply w-3.5 h-3.5 fill-current text-gray;
         }
+      }
+
+      [data-author] + [data-author]{
+        @apply -ml-4;
       }
     }
 
@@ -141,10 +150,14 @@
   /* shared styles */
   &__highlight-loader,
   &__grid-loader{
-    --color: var(--alert);
+    --color: var(--primary);
     --inner: theme('colors.background.DEFAULT');
     --outer: theme('colors.gray.3');
 
     @apply w-3.5 h-3.5 mx-auto grid place-items-center rounded-full overflow-hidden bg-[radial-gradient(farthest-side,var(--inner)_60%,transparent_0_100%),conic-gradient(var(--color)_calc(var(--value)*100%),var(--outer)_0)];
+  }
+
+  &__placeholder-l{
+    @apply top-[calc(100%-10rem)] left-[calc(100%-11.5rem)] absolute w-48 h-44 z-20 fill-primary;
   }
 }

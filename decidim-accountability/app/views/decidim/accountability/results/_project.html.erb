@@ -10,9 +10,6 @@
     <%= cell "decidim/tags", result %>
   </div>
 
-  <%# REDESIGN_PENDING: Both comments and attachments sections are pending %>
-  <%= attachments_for result %>
-
   <% content_for :aside do %>
     <div class="accountability__project-aside">
       <% if component_settings.display_progress_enabled? %>

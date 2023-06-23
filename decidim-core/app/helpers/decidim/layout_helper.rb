@@ -185,6 +185,16 @@ module Decidim
       render partial: "layouts/decidim/organization_colors", locals: { css: }
     end
 
+    def current_user_unread_data
+      return {} if current_user.blank?
+
+      {}.tap do |d|
+        d.merge!(unread_notifications: true) if current_user.notifications.any?
+        d.merge!(unread_conversations: true) if current_user.unread_conversations.any?
+        d.merge!(unread_items: d.present?)
+      end
+    end
+
     private
 
     def tag_builder

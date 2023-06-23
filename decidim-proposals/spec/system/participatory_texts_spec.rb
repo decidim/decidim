@@ -41,9 +41,9 @@ describe "Participatory texts", type: :system do
       skip "REDESIGN_PENDING - This feature redesign will be done in other PR"
 
       visit_component
-      expect(page).to have_css(".hover-section", count: proposals.count)
+      expect(page).to have_css("section[id^='proposal']", count: proposals.count)
       proposals.each_with_index do |proposal, index|
-        should_have_proposal("#proposals div.hover-section:nth-child(#{index + 1})", proposal)
+        should_have_proposal("#proposals section[id^='proposal']:nth-child(#{index + 1})", proposal)
       end
     end
 
@@ -55,7 +55,7 @@ describe "Participatory texts", type: :system do
         proposal_section.participatory_text_level = "section"
         proposal_section.save!
         visit_component
-        should_have_proposal("#proposals div.hover-section:first-child", proposal_section)
+        should_have_proposal("#proposals section[id^='proposal']:first-child", proposal_section)
       end
     end
 
@@ -67,7 +67,7 @@ describe "Participatory texts", type: :system do
         proposal_article.participatory_text_level = "article"
         proposal_article.save!
         visit_component
-        should_have_proposal("#proposals div.hover-section:last-child", proposal_article)
+        should_have_proposal("#proposals section[id^='proposal']:last-child", proposal_article)
       end
     end
   end
@@ -80,13 +80,11 @@ describe "Participatory texts", type: :system do
 
       visit_component
       proposal_title = translated(proposals.first.title)
-      find("#proposals div.hover-section", text: proposal_title).hover
-      within all("#proposals div.hover-section").first, visible: :visible do
-        within ".amend-buttons" do
-          expect(page).to have_link("Amend")
-          expect(amend_button_disabled?).to eq(disabled_value)
-          expect(page).to have_link(amendments_count)
-        end
+      find("#proposals section[id^='proposal']", text: proposal_title).hover
+      within all("#proposals section[id^='proposal']").first, visible: :visible do
+        expect(page).to have_link("Amend")
+        expect(amend_button_disabled?).to eq(disabled_value)
+        expect(page).to have_link(amendments_count)
       end
     end
   end
@@ -95,8 +93,8 @@ describe "Participatory texts", type: :system do
     it "hides the Amend button and amendments counter inside the proposal div" do
       visit_component
       proposal_title = translated(proposals.first.title)
-      find("#proposals div.hover-section", text: proposal_title).hover
-      within all("#proposals div.hover-section").first, visible: :visible do
+      find("#proposals section[id^='proposal']", text: proposal_title).hover
+      within all("#proposals section[id^='proposal']").first, visible: :visible do
         expect(page).not_to have_css(".amend-buttons")
       end
     end

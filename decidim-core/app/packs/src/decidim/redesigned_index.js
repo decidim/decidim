@@ -49,7 +49,7 @@ import "./responsive_horizontal_tabs"
 import "./security/selfxss_warning"
 // import "./floating_help" --deprecated
 import "./redesigned_session_timeouter"
-import "./confirm"
+import "./redesigned_confirm"
 import "./results_listing"
 // import "./represent_user_group" -- deprecated
 import "./impersonation"
@@ -151,8 +151,6 @@ const initializer = (element = document) => {
     createQuillEditor(container);
   });
 
-  element.querySelectorAll("a[target=\"_blank\"]:not([data-external-link=\"false\"])").forEach((elem) => new ExternalLink(elem))
-
   // initialize character counter
   $("input[type='text'], textarea, .editor>input[type='hidden']").each((_i, elem) => {
     const $input = $(elem);
@@ -171,7 +169,12 @@ const initializer = (element = document) => {
     formFilter.mountComponent();
   })
 
-  updateExternalDomainLinks($("body"))
+  element.querySelectorAll("a[target=\"_blank\"]:not([data-external-link=\"false\"])").forEach((elem) => {
+    // both functions (updateExternalDomainLinks and ExternalLink) are related, so if we disable one, the other also
+    updateExternalDomainLinks(elem)
+
+    return new ExternalLink(elem)
+  })
 
   addInputEmoji(element)
 

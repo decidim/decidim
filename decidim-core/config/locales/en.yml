@@ -1355,6 +1355,7 @@ en:
       user:
         actions:
           create_user_group: Create group
+          disabled_message: Message
           edit_profile: Edit profile
           edit_user_group: Edit group profile
           invite_user: Invite participant
@@ -1364,6 +1365,7 @@ en:
           manage_user_group_admins: Manage admins
           manage_user_group_users: Manage members
           message: Message
+          resend_email_confirmation_instructions: Resend email confirmation instructions
         confirmation_instructions_sent: Email confirmation instructions sent.
         create_user_group: Create group
         edit_profile: Edit profile
@@ -1808,6 +1810,9 @@ en:
     timestamp_error_message: Sorry, that was too quick! Please resubmit.
   layouts:
     decidim:
+      announcements:
+        close: Close
+        view_more: More information
       data_consent:
         details:
           columns:

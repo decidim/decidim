@@ -37,6 +37,10 @@ module Decidim
       announcement.is_a?(Hash) && announcement.has_key?(:title)
     end
 
+    def text
+      has_title? ? clean_body : clean_announcement
+    end
+
     def callout_class
       options[:callout_class]
     end
@@ -53,6 +57,12 @@ module Decidim
       return announcement.presence unless announcement.is_a?(Hash)
 
       announcement[:body].presence
+    end
+
+    def truncate?
+      return false unless options.has_key? :truncate
+
+      options[:truncate]
     end
 
     def clean_body

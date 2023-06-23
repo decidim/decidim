@@ -8,8 +8,6 @@
 
 <%= render layout: "layouts/decidim/shared/layout_center" do %>
 
-  <%= render partial: "decidim/shared/component_announcement" if current_component.manifest_name == "surveys" %>
-
   <div class="text-center py-10">
     <% if questionnaire.title.present? %>
       <h1 class="h3 md:h1 decorator inline-block text-left mb-12">
@@ -23,6 +21,8 @@
     </div>
     <% end %>
   </div>
+
+  <%= render partial: "decidim/shared/component_announcement" if current_component.manifest_name == "surveys" %>
 
   <% unless questionnaire_for.try(:component)&.try(:published?) %>
     <%= cell("decidim/announcement", t("decidim.forms.questionnaires.show.questionnaire_not_published.body"), callout_class: "warning") %>

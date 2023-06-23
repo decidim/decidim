@@ -12,7 +12,7 @@ module Decidim
       private
 
       def card_size
-        "decidim/initiatives/initiative_m"
+        "decidim/initiatives/initiative_g"
       end
     end
   end

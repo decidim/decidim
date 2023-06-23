@@ -4,7 +4,7 @@
   }
 
   .add-comment .remaining-character-count{
-    @apply inline-block align-middle text-sm;
+    @apply block text-right text-sm text-gray-2;
   }
 
   .add-comment .form__wrapper{
@@ -273,31 +273,36 @@
     }
   }
 
-  &__opinion-container{
-    @apply flex gap-x-6;
+  &__form{
+    &-label{
+      @apply font-semibold text-lg text-gray-2;
+    }
 
-    button.is-active{
-      svg:first-of-type{
-        @apply hidden;
-      }
+    &-submit{
+      @apply flex flex-col md:flex-row justify-between items-stretch md:items-end gap-4 mt-4;
+    }
+  }
 
-      svg:last-of-type{
-        @apply block;
-      }
+  &__opinion{
+    &-container{
+      @apply flex mt-2 w-full md:w-fit;
 
-      span{
-        @apply font-bold underline;
+      button{
+        @apply grow border border-gray first-of-type:rounded-l last-of-type:rounded-r inline-flex justify-center items-center gap-1 px-4 py-1.5 text-sm text-gray-2 -ml-px first:ml-0 transition-all;
+
+        svg{
+          @apply fill-current;
+        }
+
+        &:hover,
+        &.is-active{
+          @apply border-secondary text-secondary bg-background-4;
+        }
       }
     }
 
-    button{
-      svg:first-of-type{
-        @apply block;
-      }
-
-      svg:last-of-type{
-        @apply hidden;
-      }
+    &-label{
+      @apply text-sm text-gray-2;
     }
   }
 

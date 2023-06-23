@@ -1,5 +1,5 @@
 .answer-questionnaire{
-  @apply border-t-4 border-background pt-10;
+  @apply border-t-2 border-background pt-8;
 
   &__step{
     @apply space-y-10;
@@ -50,6 +50,10 @@
   &__single-matrix{
     @apply text-gray-2 text-sm rounded overflow-x-auto;
 
+    table{
+      @apply w-full;
+    }
+
     th,
     td{
       @apply border border-background px-2 py-2.5;
@@ -88,16 +92,8 @@
     }
   }
 
-  &__file{
-    @apply w-full justify-center;
-
-    & + input[type="file"]{
-      @apply hidden;
-    }
-  }
-
   &__footer{
-    @apply flex flex-col gap-10 pt-10 border-t-4 border-background text-gray-2 only:border-t-0;
+    @apply flex flex-col gap-10 pt-10 border-t-2 border-background text-gray-2 only:border-t-0;
   }
 
   &__tos{

@@ -9,14 +9,14 @@ module Decidim
       private
 
       def items
-        [type_item, children_item].compact
+        [assembly_type, children_item].compact
       end
 
-      def type_item
-        return unless has_meta_scope?
+      def assembly_type
+        return unless has_assembly_type?
 
         {
-          text: translated_attribute(model.meta_scope),
+          text: translated_attribute(model.assembly_type.title),
           icon: "group-2-line"
         }
       end
@@ -38,8 +38,8 @@ module Decidim
         @published_children_assemblies ||= model.children.published
       end
 
-      def has_meta_scope?
-        model.meta_scope.present?
+      def has_assembly_type?
+        model.assembly_type.present?
       end
     end
   end

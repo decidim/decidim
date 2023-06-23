@@ -15,9 +15,9 @@ module Decidim
       include FilterResource
       include Decidim::Proposals::Orderable
       include Paginable
-      include Decidim::IconHelper
+      include Decidim::AttachmentsHelper
 
-      helper_method :proposal_presenter, :form_presenter, :tabs, :panels
+      helper_method :proposal_presenter, :form_presenter, :tab_panel_items
 
       before_action :authenticate_user!, only: [:new, :create, :complete]
       before_action :ensure_is_draft, only: [:compare, :complete, :preview, :publish, :edit_draft, :update_draft, :destroy_draft]
@@ -307,16 +307,8 @@ module Decidim
         params[:proposal].merge(body_template: translated_proposal_body_template)
       end
 
-      def tabs
-        @tabs ||= items.map { |item| item.slice(:id, :text, :icon) }
-      end
-
-      def panels
-        @panels ||= items.map { |item| item.slice(:id, :method, :args) }
-      end
-
-      def items
-        @items ||= [
+      def tab_panel_items
+        @tab_panel_items ||= [
           {
             enabled: @proposal.linked_resources(:projects, "included_proposals").present?,
             id: "included_projects",
@@ -348,24 +340,8 @@ module Decidim
             icon: resource_type_icon_key("Decidim::Proposals::Proposal"),
             method: :cell,
             args: ["decidim/linked_resources_for", @proposal, { type: :proposals, link_name: "copied_from_component" }]
-          },
-          {
-            enabled: @proposal.photos.present?,
-            id: "images",
-            text: t("decidim.application.photos.photos"),
-            icon: resource_type_icon_key("images"),
-            method: :cell,
-            args: ["decidim/images_panel", @proposal]
-          },
-          {
-            enabled: @proposal.documents.present?,
-            id: "documents",
-            text: t("decidim.application.documents.documents"),
-            icon: resource_type_icon_key("documents"),
-            method: :cell,
-            args: ["decidim/documents_panel", @proposal]
           }
-        ].select { |item| item[:enabled] }
+        ] + attachments_tab_panel_items(@proposal)
       end
     end
   end

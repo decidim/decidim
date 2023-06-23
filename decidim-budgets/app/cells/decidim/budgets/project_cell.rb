@@ -14,7 +14,7 @@ module Decidim
       private
 
       def card_size
-        "decidim/budgets/project_m"
+        "decidim/budgets/project_l"
       end
     end
   end

@@ -17,7 +17,7 @@ module Decidim
       include CollaborativeOrderable
       include Paginable
 
-      helper_method :form_presenter, :tabs, :panels
+      helper_method :form_presenter
 
       helper_method :geocoded_collaborative_draft, :collaborative_draft
       before_action :collaborative_drafts_enabled?
@@ -156,35 +156,6 @@ module Decidim
         return unless current_component.participatory_space.categories.any?
 
         ["without"] + current_component.participatory_space.categories.map { |category| category.id.to_s }
-      end
-
-      def tabs
-        @tabs ||= items.map { |item| item.slice(:id, :text, :icon) }
-      end
-
-      def panels
-        @panels ||= items.map { |item| item.slice(:id, :method, :args) }
-      end
-
-      def items
-        @items ||= [
-          {
-            enabled: @collaborative_draft.photos.present?,
-            id: "images",
-            text: t("decidim.application.photos.photos"),
-            icon: resource_type_icon_key("images"),
-            method: :cell,
-            args: ["decidim/images_panel", @collaborative_draft]
-          },
-          {
-            enabled: @collaborative_draft.documents.present?,
-            id: "documents",
-            text: t("decidim.application.documents.documents"),
-            icon: resource_type_icon_key("documents"),
-            method: :cell,
-            args: ["decidim/documents_panel", @collaborative_draft]
-          }
-        ].select { |item| item[:enabled] }
       end
     end
   end

@@ -36,28 +36,17 @@ describe Decidim::Proposals::CollaborativeDraftCell, type: :cell do
       expect(subject).to have_css("[data-author]", count: 1)
     end
 
-    # REDESING_PENDING: coauthors not available yet
-    # collapsible lists uses javascript which is not available when testing cells without a real browser
-    # describe "with coauthors" do
-    #   let(:collaborative_draft) { create(:collaborative_draft, component:, users: authors) }
+    describe "with coauthors" do
+      let(:collaborative_draft) { create(:collaborative_draft, component:, users: authors) }
 
-    #   it "renders the first three authors" do
-    #     expect(subject).to have_css("[data-author]", count: 5)
-    #   end
+      it "renders the first three authors" do
+        expect(subject).to have_css("[data-author]", count: 3)
+      end
 
-    #   it "indicates number of hidden authors" do
-    #     expect(subject).to have_css(".card__text--paragraph.collapsible-list__see-more")
-    #     expect(subject.find(".card__text--paragraph.collapsible-list__see-more")).to have_content("and 4 more")
-    #   end
-
-    #   it "renders the see_more link" do
-    #     expect(subject).to have_css(".collapsible-list__see-more")
-    #   end
-
-    #   it "renders the see_less link" do
-    #     expect(subject).to have_css(".collapsible-list__see-less")
-    #   end
-    # end
+      it "indicates number of remaining authors" do
+        expect(subject.find("[data-remaining-authors]")).to have_content("+2")
+      end
+    end
 
     context "with open state" do
       let(:collaborative_draft) { create(:collaborative_draft, :open, component:) }

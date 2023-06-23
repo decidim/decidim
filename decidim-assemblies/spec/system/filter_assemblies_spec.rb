@@ -12,11 +12,9 @@ describe "Filter Assemblies", type: :system do
   context "when filtering parent assemblies by assembly_type" do
     let!(:assemblies) { create_list(:assembly, 3, :with_type, organization:) }
 
-    before do
-      visit decidim_assemblies.assemblies_path
-    end
-
     it "filters by All types" do
+      visit decidim_assemblies.assemblies_path
+
       within "#dropdown-menu-filters div.filter-container", text: "Type" do
         check "All"
       end
@@ -27,6 +25,8 @@ describe "Filter Assemblies", type: :system do
 
     3.times do |i|
       it "filters by Government type" do
+        visit decidim_assemblies.assemblies_path
+
         assembly = assemblies[i]
         within "#dropdown-menu-filters div.filter-container", text: "Type" do
           check assembly.assembly_type.title["en"]
@@ -35,6 +35,21 @@ describe "Filter Assemblies", type: :system do
           expect(page).to have_selector(".card__grid", count: 1)
           expect(page).to have_content(translated(assembly.title))
         end
+      end
+    end
+
+    it "filters by multiple types" do
+      visit decidim_assemblies.assemblies_path
+
+      within "#dropdown-menu-filters div.filter-container", text: "Type" do
+        check assemblies[0].assembly_type.title["en"]
+        check assemblies[1].assembly_type.title["en"]
+      end
+      within "#assemblies-grid" do
+        expect(page).to have_selector(".card__grid", count: 2)
+        expect(page).to have_content(translated(assemblies[0].title))
+        expect(page).to have_content(translated(assemblies[1].title))
+        expect(page).to have_no_content(translated(assemblies[2].title))
       end
     end
   end
@@ -60,7 +75,7 @@ describe "Filter Assemblies", type: :system do
 
     context "and choosing a scope" do
       before do
-        visit decidim_assemblies.assemblies_path(filter: { with_scope: scope.id })
+        visit decidim_assemblies.assemblies_path(filter: { with_any_scope: [scope.id] })
       end
 
       it "lists all processes belonging to that scope" do
@@ -77,23 +92,61 @@ describe "Filter Assemblies", type: :system do
     let!(:assembly_with_area) { create(:assembly, area:, organization:) }
     let!(:assembly_without_area) { create(:assembly, organization:) }
 
-    before do
-      visit decidim_assemblies.assemblies_path
-    end
-
     context "and choosing an area" do
       before do
-        skip "REDESIGN_PENDING - This test fails with redesigned filters using checkboxes. The issue is addressed in https://github.com/decidim/decidim/issues/10801"
+        visit decidim_assemblies.assemblies_path
 
         within "#dropdown-menu-filters div.filter-container", text: "Area" do
           check translated(area.name)
         end
       end
 
-      it "lists all processes belonging to that area" do
+      it "enables the all option and lists all processes" do
         within "#assemblies-grid" do
           expect(page).to have_content(translated(assembly_with_area.title))
-          expect(page).not_to have_content(translated(assembly_without_area.title))
+          expect(page).to have_content(translated(assembly_without_area.title))
+        end
+      end
+    end
+
+    context "when there are more than two areas" do
+      let!(:other_area) { create :area, organization: }
+      let!(:other_area_without_assemblies) { create :area, organization: }
+      let!(:assembly_with_other_area) { create(:assembly, area: other_area, organization:) }
+
+      context "and choosing an area" do
+        before do
+          visit decidim_assemblies.assemblies_path
+
+          within "#dropdown-menu-filters div.filter-container", text: "Area" do
+            check translated(area.name)
+          end
+        end
+
+        it "lists all processes belonging to that area" do
+          within "#assemblies-grid" do
+            expect(page).to have_content(translated(assembly_with_area.title))
+            expect(page).not_to have_content(translated(assembly_without_area.title))
+          end
+        end
+      end
+
+      context "and choosing two areas with assemblies" do
+        before do
+          visit decidim_assemblies.assemblies_path
+
+          within "#dropdown-menu-filters div.filter-container", text: "Area" do
+            check translated(area.name)
+            check translated(other_area.name)
+          end
+        end
+
+        it "lists all processes belonging to both areas" do
+          within "#assemblies-grid" do
+            expect(page).to have_content(translated(assembly_with_area.title))
+            expect(page).to have_content(translated(assembly_with_other_area.title))
+            expect(page).to have_no_content(translated(assembly_without_area.title))
+          end
         end
       end
     end

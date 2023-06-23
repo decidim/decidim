@@ -96,13 +96,11 @@ shared_examples_for "has questionnaire" do
       end
 
       def answer_first_questionnaire
-        within "div.answer-questionnaire__step", match: :first do
+        within "#step-0" do
           expect(page).to have_no_selector("#questionnaire_tos_agreement")
 
           fill_in question.body["en"], with: "My first answer"
-          within ".answer-questionnaire__footer", match: :first do
-            click_button "Continue"
-          end
+          click_button "Continue"
         end
         expect(page).to have_content("Step 2 of 2")
       end

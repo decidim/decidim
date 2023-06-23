@@ -1,0 +1,7 @@
+<%= render partial: "layouts/decidim/initiative_header_steps.html" %>
+
+<div class="initiatives__progress-bar">
+  <%= render partial: "decidim/initiatives/initiatives/progress_bar.html" %>
+</div>
+
+<%= render partial: "decidim/initiatives/initiatives/initiative_badge.html", locals: { initiative: current_initiative } %>

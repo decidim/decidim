@@ -5,13 +5,7 @@
   <div class="space-y-8 my-10">
     <h2 class="h3 text-secondary"><%= present(emendation).title(links: true, html_escape: true) %></h2>
 
-    <% # REDESIGN_PENDING: Logic copied from decidim-core/app/cells/decidim/coauthorships_cell.rb
-    author = if emendation.respond_to?(:official?) && emendation.official?
-                Decidim::OfficialAuthorPresenter.new
-              else
-                emendation.identities.first&.presenter
-              end %>
-    <%= cell "decidim/author", author, from: emendation, context_actions: nil %>
+    <%= cell "decidim/coauthorships", emendation %>
 
     <div class="editor-content">
       <%= render_emendation_body(emendation) %>

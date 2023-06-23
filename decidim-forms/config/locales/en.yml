@@ -179,7 +179,6 @@ en:
           questionnaire_not_published:
             body: This form is not published yet.
           tos_agreement: By participating you accept its Terms of Service
-          upload_file: Upload file
       step_navigation:
         show:
           are_you_sure: This action cannot be undone and you will not be able to edit your answers. Are you sure?

@@ -33,7 +33,7 @@
       <%= cell "decidim/meetings/online_meeting_link", meeting %>
     <% end %>
 
-    <%= cell "decidim/meetings/redesigned_meeting_data", meeting %>
+    <%= cell "decidim/tab_panels", tab_panel_items %>
 
     <%= render partial: "actions" %>
 
@@ -64,4 +64,4 @@
   <% end %>
 <% end %>
 
-<%= render partial: "redesigned_calendar_modal", locals: { ics_url: calendar_meeting_url(meeting), google_url: google_calendar_event_url(meeting), id: meeting.id } %>
+<%= render partial: "add_to_calendar_modal", locals: { ics_url: calendar_meeting_url(meeting), google_url: google_calendar_event_url(meeting), id: meeting.id } %>

@@ -10,13 +10,15 @@ module Decidim
     ACTIONS_ITEMS = {
       edit_profile: { icon: "pencil-line", path: :profile_edit_path },
       create_user_group: { icon: "team-line", path: :profile_new_group_path },
+      resend_email_confirmation_instructions: { icon: "share-forward-line", path: :group_email_confirmation_path, options: { method: :post } },
       edit_user_group: { icon: "team-line", path: :edit_group_path },
       message: { icon: "mail-send-line", path: :new_conversation_path },
+      disabled_message: { icon: "mail-send-line", options: { html_options: { disabled: true, title: I18n.t("decidim.user_contact_disabled") } } },
       manage_user_group_users: { icon: "user-settings-line", path: :profile_group_members_path },
       manage_user_group_admins: { icon: "user-star-line", path: :profile_group_admins_path },
       invite_user: { icon: "user-add-line", path: :group_invites_path },
       join_user_group: { icon: "user-add-line", path: :group_join_requests_path, options: { method: :post } },
-      leave_user_group: { icon: "logout-box-r-line", path: :leave_group_path, options: { method: :delete } }
+      leave_user_group: { icon: "logout-box-r-line", path: :leave_group_path, options: { method: :delete, data: { confirm: I18n.t("decidim.groups.actions.are_you_sure") } } }
     }.freeze
 
     private
@@ -61,7 +63,7 @@ module Decidim
       @actions_keys ||= [].tap do |keys|
         keys << :edit_profile if own_profile?
         keys << :create_user_group if own_profile? && user_groups_enabled?
-        keys << :message if can_contact_user?
+        keys << message_key if can_contact_user?
         keys << :join_user_group if can_join_user_group?
         keys << :leave_user_group if can_leave_group?
       end
@@ -75,12 +77,19 @@ module Decidim
                                          :manage_user_group_admins,
                                          :invite_user
                                        ].tap do |keys|
+                                         keys.prepend(:resend_email_confirmation_instructions) if user_group_email_to_be_confirmed?
                                          keys << :join_user_group if can_join_user_group?
                                          keys << :leave_user_group if can_leave_group?
                                        end
                                      else
                                        []
                                      end
+    end
+
+    def message_key
+      return :message if current_or_new_conversation_path_with(presented_profile).present?
+
+      :disabled_message
     end
 
     def profile_actions
@@ -117,12 +126,19 @@ module Decidim
       !Decidim::UserGroupMembership.exists?(user: current_user, user_group: model)
     end
 
+    def user_group_email_to_be_confirmed?
+      return false unless user_group?
+      return false unless current_user
+
+      !model.confirmed?
+    end
+
     def group_member?
       Decidim::UserGroupMembership.exists?(user: current_user, user_group: model)
     end
 
     def can_contact_user?
-      !own_profile? && presented_profile.can_be_contacted? && current_or_new_conversation_path_with(presented_profile).present?
+      !current_user || (current_user && current_user != model && presented_profile.can_be_contacted?)
     end
   end
 end

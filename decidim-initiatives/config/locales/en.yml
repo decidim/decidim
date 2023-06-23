@@ -381,27 +381,19 @@ en:
         previous_form:
           back: Back
           continue: Continue
-          help: What does the initiative consist of? Write down the title and description. We recommend a short and concise title and a description focused on the proposed solution.
-          more_information: "(More information)"
         promotal_committee:
-          back: Back
           individual_help_text: This kind of initiative requires a Promoting Commission consisting of at least %{committee_size} people (attestors). You must share the following link with the other people that are part of this initiative. When your contacts receive this link they will have to follow the indicated steps.
           more_information: "(More information)"
         select_initiative_type:
           back: Back
           choose_html: I want to create a <strong>%{title}</strong>
-          more_information: "(More information)"
+          more_information: More information
+          new: Create a new initiative
           select: I want to promote this initiative
           select_initiative_type_help: Initiatives are a means by which the participants can intervene so that the organization can undertake actions in defence of the general interest. Which initiative do you want to launch?
           verification_required: Verify your account to promote this initiative
         share_committee_link:
-          continue: Continue
           invite_to_committee_help: Link to invite people that will be part of the promoter committee
-        show_similar_initiatives:
-          back: Back
-          compare_help: If any of the following initiatives is similar to yours we encourage you to sign it. Your proposal will have more possibilities to get done.
-          continue: My initiative is different
-          more_information: "(More information)"
       edit:
         accept: Accept the initiative
         back: Back
@@ -439,11 +431,12 @@ en:
           email_subject: "%{applicant_nickname} wants to join your initiative"
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> applied for the promoter committee of your initiative <a href="%{resource_url}">%{resource_title}</a>. To accept or reject click <a href="%{resource_url}/edit">here</a>.
       form:
-        add_attachments: Documents
+        add_documents: Add documents
+        add_image: Add image
         attachment_legend: "(Optional) Add an attachment"
-        delete_attachment: Delete
-      index:
-        title: Initiatives
+        edit_documents: Edit documents
+        edit_image: Edit image
+        image_legend: "(Optional) Add an image"
       initiative_signatures:
         fill_personal_data:
           continue: Continue
@@ -472,8 +465,6 @@ en:
         sms_phone:
           invalid: The phone number is invalid or pending of authorization. Please, check your authorizations.
       initiatives:
-        author:
-          deleted: Deleted
         author_list:
           hidden_authors_count:
             one: and 1 more person
@@ -482,8 +473,8 @@ en:
           approve: Approve
           confirm_revoke: Are you sure?
           invite_to_committee_help: Share this link to invite other participants to the promoter committee.
+          link: Link
           no_members_yet: There are no members in the promoter committee.
-          revoke: Revoke
           title: Committee members
         count:
           title:
@@ -546,13 +537,15 @@ en:
           answer_title: This initiative has been answered.
           initiative_rejected_reason: This initiative has been rejected due to its lack of signatures.
         show:
-          any_vote_method: This initiative collects both online and in-person signatures.
+          area: Area
           confirm: You are going to send the initiative for an admin to review it and publish it. Once published you will not be able to edit it. Are you sure?
           edit: Edit
-          follow_description: Receive a notification when there are news in this initiative
-          offline_method: This initiative only collects in-person signatures.
-          print: Print Initiative
+          initiative_data: Initiative data
+          scope: Scope
           send_to_technical_validation: Send to technical validation
+          signature_collection: Signature collection
+          state: State
+          type: Type
         signatures_count:
           one: " signature"
           other: " signatures"
@@ -582,7 +575,6 @@ en:
       modal:
         not_authorized:
           authorizations_page: View authorizations
-          close: Close
           explanation: You need to be verified in order to create a new initiative.
           title: Authorization required
       pages:
@@ -598,8 +590,6 @@ en:
           published: Published
           rejected: Not enough signatures
           validating: Technical validation
-      signature_interval:
-        title: Signature collection period
       states:
         accepted: Accepted
         expired: Expired

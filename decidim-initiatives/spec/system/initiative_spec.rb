@@ -34,7 +34,7 @@ describe "Initiative", type: :system do
 
       shared_examples_for "initiative shows signatures" do
         it "shows signatures for the state" do
-          within "[data-progress-bar]" do
+          within ".progress-bar__number" do
             expect(page).to have_css("span", count: 2)
           end
         end
@@ -42,7 +42,7 @@ describe "Initiative", type: :system do
 
       shared_examples_for "initiative does not show signatures" do
         it "does not show signatures for the state" do
-          expect(page).to have_no_css("[data-progress-bar]")
+          expect(page).to have_no_css(".progress-bar__container")
         end
       end
 
@@ -52,8 +52,6 @@ describe "Initiative", type: :system do
           expect(page).to have_content(ActionView::Base.full_sanitizer.sanitize(translated(initiative.description, locale: :en), tags: []))
           expect(page).to have_content(translated(initiative.type.title, locale: :en))
           expect(page).to have_content(translated(initiative.scope.name, locale: :en))
-          expect(page).to have_content(initiative.author_name)
-          expect(page).to have_content(initiative.hashtag)
           expect(page).to have_content(initiative.reference)
         end
       end
@@ -68,8 +66,7 @@ describe "Initiative", type: :system do
         end
 
         it "displays collection period" do
-          within ".process-header__phase" do
-            expect(page).to have_content("Signature collection period")
+          within ".initiatives__card__grid-metadata-dates" do
             expect(page).to have_content(1.day.ago.strftime("%Y-%m-%d"))
             expect(page).to have_content(1.day.from_now.strftime("%Y-%m-%d"))
           end
@@ -77,12 +74,6 @@ describe "Initiative", type: :system do
       end
 
       it_behaves_like "initiative shows signatures"
-
-      it "shows the author name once in the authors list" do
-        within ".initiative-authors" do
-          expect(page).to have_content(initiative.author_name, count: 1)
-        end
-      end
 
       context "when initiative state is rejected" do
         let(:state) { :rejected }
@@ -114,11 +105,11 @@ describe "Initiative", type: :system do
         it_behaves_like "initiative does not show signatures"
       end
 
-      it_behaves_like "has attachments"
+      it_behaves_like "has redesigned attachments"
 
       it "displays comments section" do
         expect(page).to have_css(".comments")
-        expect(page).to have_content("0 Comments")
+        expect(page).to have_content("0 comments")
       end
 
       context "when comments are disabled" do
@@ -136,7 +127,7 @@ describe "Initiative", type: :system do
 
         it "does not have comments" do
           expect(page).not_to have_css(".comments")
-          expect(page).not_to have_content("0 Comments")
+          expect(page).not_to have_content("0 comments")
         end
       end
     end
@@ -156,14 +147,14 @@ describe "Initiative", type: :system do
       before { visit decidim_initiatives.initiative_path(initiative) }
 
       it "shows the components" do
-        within ".process-nav" do
-          expect(page).to have_content(translated(meetings_component.name, locale: :en).upcase)
-          expect(page).to have_no_content(translated(proposals_component.name, locale: :en).upcase)
+        within ".participatory-space__nav-container" do
+          expect(page).to have_content(translated(meetings_component.name, locale: :en))
+          expect(page).to have_no_content(translated(proposals_component.name, locale: :en))
         end
       end
 
       it "allows visiting the components" do
-        within ".process-nav" do
+        within ".participatory-space__nav-container" do
           click_link translated(meetings_component.name, locale: :en)
         end
 

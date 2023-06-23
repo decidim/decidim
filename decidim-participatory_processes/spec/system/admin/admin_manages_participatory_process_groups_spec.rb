@@ -161,7 +161,7 @@ describe "Admin manages participatory process groups", type: :system do
 
     it "can delete them" do
       within find("tr", text: participatory_process_group.title["en"]) do
-        accept_confirm { click_link "Delete" }
+        accept_confirm(admin: true) { click_link "Delete" }
       end
 
       expect(page).to have_admin_callout("successfully")

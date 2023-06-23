@@ -23,7 +23,7 @@ describe "Edit initiative", type: :system do
 
       click_link("Edit", href: edit_initiative_path)
 
-      expect(page).to have_content "EDIT INITIATIVE"
+      expect(page).to have_content "Edit Initiative"
 
       within "form.edit_initiative" do
         fill_in :initiative_title, with: new_title
@@ -47,7 +47,7 @@ describe "Edit initiative", type: :system do
     it "does not show the header's edit link" do
       visit initiative_path
 
-      within ".topbar" do
+      within ".main-bar" do
         expect(page).not_to have_link("Edit")
       end
     end
