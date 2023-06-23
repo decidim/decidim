@@ -46,12 +46,12 @@ describe "Account", type: :system do
         find("#user_avatar_button").click
 
         within ".upload-modal" do
-          find(".remove-upload-item").click
+          click_button "Remove"
           input_element = find("input[type='file']", visible: :all)
           input_element.attach_file(Decidim::Dev.asset("5000x5000.png"))
 
           expect(page).to have_content("File resolution is too large", count: 1)
-          expect(page).to have_css(".upload-errors .form-error", count: 1)
+          expect(page).to have_content("Validation error!")
         end
       end
     end

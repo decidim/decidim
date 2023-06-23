@@ -151,7 +151,7 @@ describe "Admin manages participatory process groups", type: :system do
         find("#participatory_process_group_hero_image_button").click
       end
 
-      find(".remove-upload-item").click
+      click_button "Remove"
       click_button "Save"
 
       click_button "Update"
