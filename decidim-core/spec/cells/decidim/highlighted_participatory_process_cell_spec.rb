@@ -11,6 +11,6 @@ describe Decidim::HighlightedParticipatoryProcessCell, type: :cell do
 
   it "renders the highlighted participatory process" do
     html = cell("decidim/highlighted_participatory_process", processes.first).call
-    expect(html).to have_css(".card__highlight-text")
+    expect(html).to have_content(translated(processes.first.title))
   end
 end
