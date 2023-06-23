@@ -51,7 +51,7 @@ describe "Gamification", type: :system do
     it "can be reached from the profile's badges page" do
       visit decidim.profile_path(user.nickname)
       click_link "Badges"
-      within ".tabs-panel.is-active" do
+      within ".profile__badge-banner" do
         click_link "See all available badges"
       end
 
