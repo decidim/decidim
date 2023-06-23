@@ -9,7 +9,7 @@ module Decidim
       private
 
       def items
-        [assembly_type, children_item].compact
+        [children_item, assembly_type].compact
       end
 
       def assembly_type
