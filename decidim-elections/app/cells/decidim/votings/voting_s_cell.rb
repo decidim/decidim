@@ -5,7 +5,6 @@ module Decidim
     # This cell renders the Search (:s) voting card
     # for an given instance of a Voting
     class VotingSCell < Decidim::CardSCell
-      private
     end
   end
 end

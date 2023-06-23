@@ -4,7 +4,6 @@ module Decidim
   module Budgets
     # This cell renders metadata for an instance of a budget
     class BudgetMetadataCell < Decidim::CardMetadataCell
-
       alias budget model
 
       def initialize(*)
