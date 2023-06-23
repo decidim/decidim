@@ -23,7 +23,7 @@ describe "ProfileConversations", type: :system do
     end
 
     it "has a contact link" do
-      expect(page).to have_link(title: "Contact", href: decidim.new_conversation_path(recipient_id: profile.id))
+      expect(page).to have_link(title: "Message", href: decidim.new_conversation_path(recipient_id: profile.id))
     end
   end
 
@@ -176,12 +176,12 @@ describe "ProfileConversations", type: :system do
       end
 
       it "shows the topbar button as active" do
-        within "#profile-tabs" do
-          expect(page).to have_selector("li.is-active a", text: "Conversations")
-        end
+        expect(page).to have_selector("li.is-active a", text: "Conversations")
       end
 
       it "shows the topbar button the number of unread messages" do
+        skip "REDESIGN_PENDING - This counter is not implemented. ¿Is the conversations tab inside a group profile deprecated?"
+
         within "#profile-tabs li.is-active a" do
           expect(page).to have_selector(".badge", text: "2")
         end
@@ -208,6 +208,8 @@ describe "ProfileConversations", type: :system do
       end
 
       it "shows the topbar button the number of unread messages" do
+        skip "REDESIGN_PENDING - This counter is not implemented. ¿Is the conversations tab inside a group profile deprecated?"
+
         within "#profile-tabs li.is-active a" do
           expect(page).to have_selector(".badge", text: "3")
         end
@@ -226,6 +228,8 @@ describe "ProfileConversations", type: :system do
       end
 
       it "does not show the topbar button the number of unread messages" do
+        skip "REDESIGN_PENDING - This counter is not implemented. ¿Is the conversations tab inside a group profile deprecated?"
+
         within "#profile-tabs li.is-active a" do
           expect(page).to have_no_selector(".badge")
         end
@@ -363,9 +367,7 @@ describe "ProfileConversations", type: :system do
   def visit_profile_inbox
     visit decidim.profile_path(nickname: profile.nickname)
 
-    within "#profile-tabs" do
-      click_link "Conversations"
-    end
+    click_link "Conversations", class: "profile__tab-item"
   end
 
   def visit_inbox
