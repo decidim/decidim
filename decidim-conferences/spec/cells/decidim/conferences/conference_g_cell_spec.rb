@@ -3,10 +3,11 @@
 require "spec_helper"
 
 module Decidim::Conferences
-  describe ConferenceMCell, type: :cell do
+  describe ConferenceGCell, type: :cell do
     controller Decidim::Conferences::ConferencesController
+    include Decidim::TranslatableAttributes
 
-    subject { cell("decidim/conferences/conference_m", model).call }
+    subject { cell("decidim/conferences/conference_g", model).call }
 
     let(:model) { create(:conference) }
 
@@ -14,7 +15,7 @@ module Decidim::Conferences
       let(:show_space) { false }
 
       it "renders the card" do
-        expect(subject).to have_css("[id^='conference']")
+        expect(subject).to have_content(translated_attribute(model.title))
       end
     end
   end
