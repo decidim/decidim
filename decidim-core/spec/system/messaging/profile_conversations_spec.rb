@@ -206,9 +206,6 @@ describe "ProfileConversations", type: :system do
       it "shows the topbar button the number of unread messages" do
         expect(page).to have_selector("li.profile__tab.is-active .conversation__item-unread", text: "3")
       end
-
-      it "shows the number of unread messages per conversation" do
-      end
     end
 
     context "and they are read" do
