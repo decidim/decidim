@@ -29,7 +29,7 @@ export class EmojiButton {
 
   // Get the current locale used for the emoji database
   //
-  // @returns {string} the current locale if it's supported by emoji base, or english as the fallback locale
+  // @returns {string} the current locale if it is supported by emoji base, or english as the fallback locale
   static locale() {
     let emojiLocale = document.documentElement.getAttribute("lang");
 
