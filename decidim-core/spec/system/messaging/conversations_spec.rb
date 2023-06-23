@@ -270,11 +270,7 @@ describe "Conversations", type: :system do
       end
 
       it "has a contact link" do
-        if Decidim.redesign_active
-          expect(page).to have_link(title: "Message", href: decidim.new_conversation_path(recipient_id: recipient.id))
-        else
-          expect(page).to have_link(title: "Contact", href: decidim.new_conversation_path(recipient_id: recipient.id))
-        end
+        expect(page).to have_link(title: "Message", href: decidim.new_conversation_path(recipient_id: recipient.id))
       end
 
       context "and recipient has restricted communications" do

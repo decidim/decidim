@@ -421,7 +421,7 @@ shared_examples "comments" do
       # REDESIGN PENDING: the new JS of external links is not working in tests until the redesign is enabled
       it "changes link to point to /link" do
         skip_unless_redesign_enabled
-        expect(page).to have_link("http://www.debian.org", href: "/link?external_url=http%3A%2F%2Fwww.debian.org")
+        expect(page).to have_link("http://www.debian.org", href: "/link?external_url=http%3A%2F%2Fwww.debian.org%2F")
       end
     end
 
