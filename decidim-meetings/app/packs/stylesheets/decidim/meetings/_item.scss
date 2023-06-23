@@ -84,7 +84,7 @@
   }
 
   &__online{
-    @apply bg-background grid place-items-center p-8 space-y-4 [&>p]:font-semibold [&>p]:text-lg [&>p]:text-gray-2 [&>p]:text-center;
+    @apply bg-background grid place-items-center p-8 space-y-4 text-gray-2 text-center text-lg;
   }
 
   &__agenda{
