@@ -37,7 +37,8 @@ module Decidim
           text: content_tag(
             :span,
             t(initiative.state, scope: "decidim.initiatives.show.badge_name"),
-            class: "label #{metadata_badge_css_class(initiative.state)} initiative-status")
+            class: "label #{metadata_badge_css_class(initiative.state)} initiative-status"
+          )
         }
       end
 
