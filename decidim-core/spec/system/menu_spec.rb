@@ -10,14 +10,13 @@ describe "Menu", type: :system do
     visit decidim.root_path
   end
 
-
   context "when clicking on a menu entry" do
     before do
-      click_link "Help"
+      click_link("Help", match: :first)
     end
 
     it "switches the active option" do
-      expect(page).to have_selected_option("Help")
+      expect(page).to have_selector(".menu-bar__breadcrumb-desktop__dropdown-trigger", text: "Help")
     end
 
     context "and clicking on a subpage of that entry" do
@@ -30,7 +29,7 @@ describe "Menu", type: :system do
       end
 
       it "preserves the active option" do
-        expect(page).to have_selected_option("Help")
+        expect(page).to have_selector(".menu-bar__breadcrumb-desktop__dropdown-trigger", text: "Help")
       end
     end
   end
