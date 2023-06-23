@@ -20,7 +20,6 @@ describe "Notifications", type: :system do
     end
 
     it "has a button on the topbar nav that links to the notifications page" do
-
       find("#trigger-dropdown-account").click
       within "#dropdown-menu-account" do
         click_link("Notifications")
@@ -38,7 +37,6 @@ describe "Notifications", type: :system do
       end
 
       it "displays nothing" do
-
         find("#trigger-dropdown-account").click
         within "#dropdown-menu-account" do
           click_link("Notifications")
@@ -103,7 +101,6 @@ describe "Notifications", type: :system do
 
     context "when setting all notifications as read" do
       it "hides all notifications from the page" do
-
         click_link "Mark all as read"
         expect(page).not_to have_selector("[data-notification]")
         expect(page).to have_content("No notifications yet")

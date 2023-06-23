@@ -278,7 +278,7 @@ describe "Account", type: :system do
           expect(page).to have_content("successfully")
         end
 
-        click_link('Sign in', match: :first)
+        click_link("Sign in", match: :first)
 
         within ".new_user" do
           fill_in :session_user_email, with: user.email
