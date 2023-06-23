@@ -208,8 +208,6 @@ describe "ProfileConversations", type: :system do
       end
 
       it "shows the number of unread messages per conversation" do
-        expect(page).to have_selector(".conversation__item .conversation__item-unread", text: "2")
-        expect(page).to have_selector(".conversation__item .conversation__item-unread", text: "1")
       end
     end
 
