@@ -26,7 +26,7 @@ module Decidim
 
         {
           text: t("children_item", count: children_assemblies_count_for_user, scope: "layouts.decidim.assemblies.metadata"),
-          icon: "bubble-chart-line"
+          icon: "government-line"
         }
       end
 
