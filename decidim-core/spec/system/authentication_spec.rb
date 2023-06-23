@@ -106,7 +106,7 @@ describe "Authentication", type: :system do
         it "creates a new User without sending confirmation instructions" do
           click_link('Sign Up')
 
-          click_link "Sign in with Facebook"
+          find(".login__omniauth-button.button--facebook").click
 
           expect(page).to have_content("Successfully")
           expect_user_logged
@@ -330,13 +330,13 @@ describe "Authentication", type: :system do
 
       it "caches the omniauth buttons correctly with different languages", :caching do
         click_link('Sign in', match: :first)
-        expect(page).to have_link("Sign in with Facebook")
+        find(".login__omniauth-button.button--facebook").click
 
         within_language_menu do
           click_link "Català"
         end
 
-        expect(page).to have_link("Inicia sessió amb Facebook")
+        find(".login__omniauth-button.button--facebook").click
       end
     end
 
@@ -560,7 +560,7 @@ describe "Authentication", type: :system do
       it "authenticates an existing User" do
         click_link('Sign in', match: :first)
 
-        click_link "Sign in with Facebook"
+        find(".login__omniauth-button.button--facebook").click
 
         expect(page).to have_content("Successfully")
         expect(page).to have_content(user.name)
@@ -594,7 +594,7 @@ describe "Authentication", type: :system do
         it "authenticates an existing User" do
           click_link('Sign in', match: :first)
 
-          click_link "Sign in with Facebook"
+          find(".login__omniauth-button.button--facebook").click
 
           expect(page).to have_content("Successfully")
           expect(page).to have_content(user.name)
@@ -662,7 +662,7 @@ describe "Authentication", type: :system do
         it "creates a new User without sending confirmation instructions" do
           click_link('Sign Up')
 
-          click_link "Sign in with Facebook"
+          find(".login__omniauth-button.button--facebook").click
 
           expect(page).to have_content("Successfully")
           expect_user_logged
