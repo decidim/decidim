@@ -457,7 +457,6 @@ en:
         calendar_modal:
           add_to_calendar: Add to calendar
           apple: Add to Apple calendar
-          close_window: Close window
           full_details_html: For full details go to %{link}
           google: Add to Google calendar
           outlook: Add to Outlook calendar

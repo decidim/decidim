@@ -40,6 +40,12 @@ describe "Explore results", versioning: true, type: :system do
       visit path
     end
 
+    it "shows the component name in the sidebar" do
+      within("aside") do
+        expect(page).to have_content(translated(component.name))
+      end
+    end
+
     it "shows categories and subcategories with results" do
       participatory_process.categories.each do |category|
         category_count = Decidim::Accountability::ResultsCalculator.new(component, nil, category.id).count

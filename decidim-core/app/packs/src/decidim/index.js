@@ -104,7 +104,7 @@ $(() => {
   })
   document.querySelectorAll(".new_report").forEach((container) => changeReportFormBehavior(container))
 
-  updateExternalDomainLinks($("body"))
+  document.querySelectorAll("a").forEach((elem) => updateExternalDomainLinks(elem))
 
   addInputEmoji()
 
