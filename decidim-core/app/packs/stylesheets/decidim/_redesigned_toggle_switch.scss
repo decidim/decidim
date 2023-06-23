@@ -32,7 +32,7 @@
   }
 
   &-toggle{
-    @apply relative inline-block w-14 h-6 rounded-full w-auto cursor-pointer;
+    @apply relative inline-block w-full h-6 rounded-full cursor-pointer;
 
     input{
       @apply opacity-0 w-0 h-0;
