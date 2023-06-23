@@ -119,10 +119,16 @@ hu:
           update_selected:
             select_a_project: Kérlek, válassz projektet.
         proposals_imports:
+          create:
+            invalid: Probléma merült fel a javaslatok projektekbe történő importálásakor.
+            success: "%{number} javaslat sikeresen importálva a projektekbe."
           new:
             create: Javaslatok importálása projektekbe
+            default_budget: Alapértelmezett költségvetés
+            import_all_accepted_proposals: Minden elfogadott javaslat importálása
             no_components: Ebben a részvételi térben nincs más javaslat-összetevő a javaslatok projektekbe való importálásához.
             select_component: Válassz ki egy elemet
+            title: Javaslatok importálása
         reminders:
           orders:
             title:
