@@ -43,5 +43,13 @@ module Decidim
         label: t("layouts.decidim.footer.decidim_title")
       )
     end
+
+    def menu_highlighted_participatory_process
+      @menu_highlighted_participatory_process ||= (
+        # The queries already include the order by weight
+        Decidim::ParticipatoryProcesses::OrganizationParticipatoryProcesses.new(current_organization) |
+        Decidim::ParticipatoryProcesses::PromotedParticipatoryProcesses.new
+      ).first
+    end
   end
 end
