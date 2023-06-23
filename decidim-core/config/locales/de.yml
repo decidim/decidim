@@ -1258,9 +1258,15 @@ de:
           modal_btn_exit: Ich werde sie später prüfen
           modal_button: Bedingungen ablehnen
           modal_close: Fenster schließen
+          modal_title: Möchten Sie die aktualisierten Nutzungsbedingungen wirklich ablehnen?
+        required_review:
+          alert: Wir haben unsere Nutzungsbedingungen aktualisiert. Bitte überprüfen Sie sie.
+          body: Bitte nehmen Sie sich einen Moment Zeit, um sich über die Aktualisierungen unserer Nutzungsbedingungen zu informieren. Andernfalls können Sie die Plattform nicht nutzen.
+          title: 'Erforderlich: Überprüfen Sie die Aktualisierungen unserer Nutzungsbedingungen'
     participatory_space_private_users:
       not_allowed: Sie dürfen diesen Inhalt nicht sehen
     profile:
+      inaccessible_message: Dieses Profil ist wegen Verletzung der Nutzungsbedingungen nicht zugänglich!
       view: Anzeigen
     profiles:
       show:
