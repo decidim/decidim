@@ -1409,6 +1409,7 @@ hu:
       show:
         version_index: '%{index} verzió'
     welcome_notification:
+      default_body: <p>Hi {{név}}, köszönöm, hogy csatlakoztál a {{szervezet}}-hez és üdvözöllek!</p><ul><li>Ha szeretnél egy gyors képet kapni arról, hogy mit tehetsz itt, nézd meg a <a href="{{help_url}}">Súgó</a> szakasz.</li><li>Az elolvasás után megkapod az első jelvényt. Itt a <a href="{{badges_url}}">listája az összes jelvénynek</a> amit megszerezhetsz, mivel részt veszel a {{szervezet}}</li><li> munkájában. Végül, de nem utolsósorban, csatlakozz másokhoz, oszd meg velük az elkötelezettség és a {{szervezet}} részvételi élményét. Készíts javaslatokat, szólj hozzá, vitázz, gondolkodj azon, hogyan járulhatsz hozzá a közjóhoz, szolgáltass érveket a meggyőzéshez, hallgass és olvass, hogy meggyőzz másokat. Fejezd ki gondolataidat konkrétan és közvetlenül, válaszolj türelemmel és határozottsággal, védd meg gondolataidat, és légy nyitott az együttműködésre és mások ötleteihez való csatlakozásra.</li></ul>
       default_subject: Köszönjük, hogy csatlakoztál a {{organization}} szervezethez!
     wizard_step_form:
       wizard_aside:
