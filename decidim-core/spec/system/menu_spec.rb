@@ -33,24 +33,4 @@ describe "Menu", type: :system do
       end
     end
   end
-
-  context "with a user logged in and multiple languages" do
-    let!(:user) { create :user, :confirmed, organization: }
-
-    before do
-      login_as user, scope: :user
-
-      visit decidim.root_path
-
-      within_language_menu do
-        click_link "Català"
-      end
-    end
-
-    after do
-      within_language_menu do
-        click_link "English"
-      end
-    end
-  end
 end
