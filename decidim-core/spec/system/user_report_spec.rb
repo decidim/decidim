@@ -24,21 +24,23 @@ describe "Report User", type: :system do
     end
 
     it "cannot be reported" do
-      within ".profile--sidebar", match: :first do
-        expect(page).not_to have_css(".user-report_link")
+      within ".profile__actions-secondary" do
+        expect(page).to have_no_button("Report")
       end
     end
   end
 
   context "when the user is not logged in" do
     it "gives the option to sign in" do
+      skip_unless_redesign_enabled "The login modal only works with redesign enabled"
+
       page.visit reportable_path
 
-      expect(page).to have_no_css("html.is-reveal-open")
+      expect(page).to have_no_css("#loginModal-content")
 
       click_button "Report"
 
-      expect(page).to have_css("html.is-reveal-open")
+      expect(page).to have_css("#loginModal-content")
     end
   end
 
@@ -51,15 +53,13 @@ describe "Report User", type: :system do
       it "reports the resource" do
         visit reportable_path
 
-        expect(page).to have_selector(".profile--sidebar")
-
-        within ".profile--sidebar", match: :first do
-          page.find("button").click
+        within ".profile__actions-secondary" do
+          click_button "Report"
         end
 
-        expect(page).to have_css(".flag-modal", visible: :visible)
+        expect(page).to have_css("#flagModal-content", visible: :visible)
 
-        within ".flag-modal" do
+        within "#flagModal-content" do
           click_button "Report"
         end
 
@@ -76,13 +76,11 @@ describe "Report User", type: :system do
       it "cannot report it twice" do
         visit reportable_path
 
-        expect(page).to have_selector(".profile--sidebar")
-
-        within ".profile--sidebar", match: :first do
-          page.find("button").click
+        within ".profile__actions-secondary" do
+          click_button "Report"
         end
 
-        expect(page).to have_css(".flag-modal", visible: :visible)
+        expect(page).to have_css("#flagModal-content", visible: :visible)
 
         expect(page).to have_content "already reported"
       end
