@@ -33,7 +33,6 @@ module Decidim
           get "all-metrics", on: :member
           get "description", on: :member
           resources :participatory_process_steps, only: [:index], path: "steps"
-          resource :widget, only: :show, path: "embed"
         end
 
         scope "/processes/:participatory_process_slug/f/:component_id" do

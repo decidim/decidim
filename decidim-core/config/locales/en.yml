@@ -1447,10 +1447,6 @@ en:
         close_modal: Close modal
         ok: OK
         title: Confirm
-      embed_modal:
-        close_window: Close window
-        embed: Please paste this code in your page
-        embed_link: Embed
       extended_navigation_bar:
         more: More
         unfold: Unfold
@@ -1926,8 +1922,6 @@ en:
         profile: Profile
         title: Participant settings
         user_groups: Groups
-      widget:
-        see_more: See more
   locale:
     name: English
     name_with_error: English (error!)

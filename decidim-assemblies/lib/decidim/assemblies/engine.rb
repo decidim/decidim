@@ -25,7 +25,6 @@ module Decidim
 
         resources :assemblies, only: [:index, :show], param: :slug, path: "assemblies" do
           resources :assembly_members, only: :index, path: "members"
-          resource :widget, only: :show, path: "embed"
         end
 
         scope "/assemblies/:assembly_slug/f/:component_id" do
