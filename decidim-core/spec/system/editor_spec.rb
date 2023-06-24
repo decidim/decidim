@@ -414,7 +414,7 @@ describe "Editor", type: :system do
 
     before do
       prosemirror.native.send_keys "Hello, world!", [:enter], "Another paragraph."
-      prosemirror.native.send_keys [:shift, *Array.new(10).map { :left }]
+      prosemirror.native.send_keys [:shift, *Array.new(15).map { :left }]
     end
 
     it "heading" do

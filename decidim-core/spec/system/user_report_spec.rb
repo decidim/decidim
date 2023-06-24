@@ -10,7 +10,6 @@ describe "Report User", type: :system do
 
   before do
     switch_to_host(user.organization.host)
-    login_as user, scope: :user
   end
 
   context "when the user is blocked" do
@@ -39,23 +38,31 @@ describe "Report User", type: :system do
 
       expect(page).not_to have_css("#loginModal-content")
 
-      click_button "Report"
+      within ".profile__actions-secondary" do
+        click_button "Report"
+      end
 
       expect(page).to have_css("#loginModal-content")
     end
   end
 
   context "when admin is logged in" do
-    let!(:user) { create(:user, :confirmed, :admin) }
+    let(:admin) { create(:user, :admin, :confirmed, organization: user.organization) }
+
+    before do
+      login_as admin, scope: :user
+    end
 
     context "and the admin has not reported the resource yet" do
       it "reports the resource" do
+        skip_unless_redesign_enabled "The profile report link has differnt selectors, and works only works with redesign enabled"
+
         visit reportable_path
 
-        expect(page).to have_selector(".profile--sidebar")
+        expect(page).to have_selector(".profile__actions-secondary")
 
-        within ".profile--sidebar", match: :first do
-          click_button
+        within ".profile__actions-secondary" do
+          click_button "Report"
         end
 
         expect(page).to have_css(".flag-modal", visible: :visible)
@@ -71,12 +78,14 @@ describe "Report User", type: :system do
       end
 
       it "chooses to block the resource" do
+        skip_unless_redesign_enabled "The profile report link has differnt selectors, and works only works with redesign enabled"
+
         visit reportable_path
 
-        expect(page).to have_selector(".profile--sidebar")
+        expect(page).to have_selector(".profile__actions-secondary")
 
-        within ".profile--sidebar", match: :first do
-          click_button
+        within ".profile__actions-secondary" do
+          click_button "Report"
         end
 
         expect(page).to have_css(".flag-modal", visible: :visible)
