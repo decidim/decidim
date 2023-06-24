@@ -83,13 +83,14 @@ ja:
         organization_admin_email: 組織管理者メールアドレス
         organization_admin_name: 組織管理者名
         organization_locales: 組織のロケール
-        primary_color: プライマリ（プライマリ）
+        primary_color: プライマリ
         reference_prefix: 参照の接頭辞：
         rich_text_editor_in_public_views: 参加者にリッチテキストエディタを有効にする
         secondary_color: セカンダリ
         secondary_hosts: セカンダリホスト
         send_welcome_notification: ウェルカム通知を送信
         success_color: 成功
+        tertiary_color: ターシャリ（第三色）
         time_zone: タイムゾーン
         tos_version: 利用規約のバージョン
         twitter_handler: Twitter ハンドラー
@@ -194,6 +195,7 @@ ja:
         per_page: ページごと
         permissions: アクセス許可
         reject: 拒否
+        send_me_a_test_email: テストメールを自分宛てに送信
         share: 共有
         user:
           new: 新しい管理者
@@ -752,9 +754,12 @@ ja:
           warning: "<strong>注意:</strong> このニュースレターは、通知設定で <em>ニュースレターを受信したい</em> ユーザーにのみ送信されます。"
         send:
           no_recipients: 受信者が選択されていません。
+        send_to_user:
+          sent_successfully: ニュースレターが %{email} に送信されました
         show:
           preview: プレビュー
           select_recipients_to_deliver: 配信する宛先を選択
+          send_me_a_test_email: テストメールを自分宛てに送信
           subject: 件名
         update:
           error: このニュースレターの更新中に問題が発生しました。
@@ -819,6 +824,7 @@ ja:
           update: 更新
         form:
           colors:
+            choose_color: プライマリカラーを選択
             colors_title: 組織の色
             header_snippets_help: HTML head 内にコードを追加するには、このフィールドを使用します。 最も一般的な用途は、追加の JavaScript や CSS を必要とするサードパーティのサービスを統合することです。 また、HTML にメタタグを追加するためにも使用できます。 これは公開ページでのみ表示され、管理用セクションでは表示されないことに注意してください。
           cta_button_path_help: 'ホームページへのリンクの「通話先アクション」ボタンの場所を上書きすることができます。完全なURLではなく、部分的なパスを使用してください。 文字、数字、ダッシュ、スラッシュを使用でき、文字で始まる必要があります。 Call To Actionボタンは、ウェルカムテキストと説明の間のホームページに表示されます。例: %{url}'
