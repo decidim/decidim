@@ -44,7 +44,7 @@ module Decidim
       def nav_paths
         return {} if result.blank?
 
-        { prev_path: prev_result, next_path: next_result }.compact_blank.transform_values { |result| result_path(result) }.merge(back_path: results_path)
+        { prev_path: prev_result, next_path: next_result }.compact_blank.transform_values { |result| result_path(result) }
       end
 
       def search_collection

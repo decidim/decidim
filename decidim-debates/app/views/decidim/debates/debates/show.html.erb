@@ -20,7 +20,7 @@ edit_link(
   }
 %>
 
-<%= render layout: "layouts/decidim/shared/layout_item", locals: { back_path: debates_path, commentable: debate } do %>
+<%= render layout: "layouts/decidim/shared/layout_item" do %>
   <h2 class="h2 decorator mb-8">
     <%== present(debate).title(links: true, html_escape: true) %>
   </h2>

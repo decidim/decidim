@@ -17,7 +17,5 @@ describe "show", type: :system do
     it "shows the proposal title" do
       expect(page).to have_content proposal.title[I18n.locale.to_s]
     end
-
-    it_behaves_like "going back to list button"
   end
 end

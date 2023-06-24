@@ -7,7 +7,7 @@
   ) %>
 <% end %>
 
-<%= render layout: "layouts/decidim/shared/layout_item", locals: { back_path: result_path(versioned_resource) } do %>
+<%= render layout: "layouts/decidim/shared/layout_item" do %>
   <%= cell(
     "decidim/version",
     current_version,
