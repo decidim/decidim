@@ -34,6 +34,12 @@ describe "Explore Budgets", :slow, type: :system do
       visit_component
     end
 
+    it "shows the component name in the sidebar" do
+      within("aside") do
+        expect(page).to have_content(translated(component.name))
+      end
+    end
+
     it "lists all the budgets" do
       expect(page).to have_selector(".card--list__item", count: 6)
 

@@ -55,6 +55,14 @@ describe "Proposals", type: :system do
       end
     end
 
+    it "shows the component name in the sidebar" do
+      visit_component
+
+      within("aside") do
+        expect(page).to have_content(translated(component.name))
+      end
+    end
+
     it "allows viewing a single proposal" do
       visit_component
 

@@ -37,6 +37,10 @@ module Decidim
           types_values
         )
       end
+
+      def component_name
+        (defined?(current_component) && translated_attribute(current_component&.name).presence) || t("decidim.admin.models.initiatives.fields.title")
+      end
     end
   end
 end

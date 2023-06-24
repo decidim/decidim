@@ -85,8 +85,6 @@ $(() => {
     $link.data("external-link", new ExternalLink($link));
   });
 
-  document.querySelectorAll("a[target=\"_blank\"]:not([data-external-domain-link=\"false\"])").forEach((elem) => new ExternalDomainLink(elem))
-
   // initialize character counter
   $("input[type='text'], textarea, .editor>input[type='hidden']").each((_i, elem) => {
     const $input = $(elem);
@@ -104,6 +102,8 @@ $(() => {
     formFilter.mountComponent();
   })
   document.querySelectorAll(".new_report").forEach((container) => changeReportFormBehavior(container))
+
+  document.querySelectorAll("a").forEach((elem) => updateExternalDomainLinks(elem))
 
   addInputEmoji()
 

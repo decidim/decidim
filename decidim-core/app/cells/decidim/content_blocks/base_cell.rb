@@ -15,7 +15,7 @@ module Decidim
       }.with_indifferent_access.freeze
 
       def resource
-        @resource ||= base_model.presence && base_model.find(model.scoped_resource_id)
+        @resource ||= options[:resource] || (base_model.presence && base_model.find(model.scoped_resource_id))
       end
 
       private

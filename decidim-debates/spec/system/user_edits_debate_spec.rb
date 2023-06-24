@@ -38,8 +38,7 @@ describe "User edits a debate", type: :system do
       within ".edit_debate" do
         fill_in :debate_title, with: "Should every organization use Decidim?"
         fill_in :debate_description, with: "Add your comments on whether Decidim is useful for every organization."
-        # REDESIGN_PENDING - scope picker is pending https://github.com/decidim/decidim/issues/10192
-        # scope_pick scope_picker, scope
+        select translated(scope.name), from: :debate_scope_id
         select translated(category.name), from: :debate_category_id
 
         find("*[type=submit]").click
@@ -48,8 +47,7 @@ describe "User edits a debate", type: :system do
       expect(page).to have_content("successfully")
       expect(page).to have_content("Should every organization use Decidim?")
       expect(page).to have_content("Add your comments on whether Decidim is useful for every organization.")
-      # REDESIGN_PENDING - scope picker is pending https://github.com/decidim/decidim/issues/10192
-      # expect(page).to have_content(translated(scope.name))
+      expect(page).to have_content(translated(scope.name))
       expect(page).to have_content(translated(category.name))
       expect(page).to have_selector("[data-author]", text: user.name)
     end
@@ -74,8 +72,7 @@ describe "User edits a debate", type: :system do
         within ".edit_debate" do
           fill_in :debate_title, with: "Should every organization use Decidim?"
           fill_in :debate_description, with: "Add your comment on whether Decidim is useful for every organization."
-          # REDESIGN_PENDING - scope picker is pending https://github.com/decidim/decidim/issues/10192
-          # scope_pick scope_picker, scope
+          select translated(scope.name), from: :debate_scope_id
           select translated(category.name), from: :debate_category_id
 
           find("*[type=submit]").click
@@ -84,8 +81,7 @@ describe "User edits a debate", type: :system do
         expect(page).to have_content("successfully")
         expect(page).to have_content("Should every organization use Decidim?")
         expect(page).to have_content("Add your comment on whether Decidim is useful for every organization.")
-        # REDESIGN_PENDING - scope picker is pending https://github.com/decidim/decidim/issues/10192
-        # expect(page).to have_content(translated(scope.name))
+        expect(page).to have_content(translated(scope.name))
         expect(page).to have_content(translated(category.name))
         expect(page).to have_selector("[data-author]", text: user_group.name)
       end

@@ -1366,6 +1366,7 @@ en:
           manage_user_group_admins: Manage admins
           manage_user_group_users: Manage members
           message: Message
+          resend_email_confirmation_instructions: Resend email confirmation instructions
         confirmation_instructions_sent: Email confirmation instructions sent.
         create_user_group: Create group
         edit_profile: Edit profile

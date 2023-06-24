@@ -268,11 +268,7 @@ describe "Meeting live event access", type: :system do
         it "shows the link to the external streaming service" do
           visit_meeting
 
-          # Join the meeting displays a warning to users because
-          # is redirecting to a different domain
-          click_link "Register"
-
-          expect(page).to have_content("Open external link")
+          expect(page).to have_link("Register", href: meeting.online_meeting_url)
         end
       end
 
@@ -292,11 +288,7 @@ describe "Meeting live event access", type: :system do
       it "shows the link to the meeting URL" do
         visit_meeting
 
-        # Join the meeting displays a warning to users because
-        # is redirecting to a different domain
-        click_link "Register"
-
-        expect(page).to have_content("Open external link")
+        expect(page).to have_link("Register", href: meeting.online_meeting_url)
       end
 
       it_behaves_like "belonging to an assembly which is a transparent private space"

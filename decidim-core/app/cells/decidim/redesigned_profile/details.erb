@@ -7,9 +7,16 @@
     <% details_items.each do |detail| %>
       <div class="profile__details-item">
         <%= icon detail[:icon] %>
-        <span><%= detail[:text] %></span>
+        <span>
+          <% if detail[:url].present? %>
+            <%= link_to(detail[:url], detail[:text]) %>
+          <% else %>
+            <%= detail[:text] %>
+          <% end %>
+        </span>
       </div>
     <% end %>
   </div>
 </div>
 <p class="profile__description"><%= description %></p>
+<%= render_hook(:user_profile_bottom) %>

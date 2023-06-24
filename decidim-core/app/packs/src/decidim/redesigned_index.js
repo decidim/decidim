@@ -65,7 +65,7 @@ import formDatePicker from "./form_datepicker"
 import fixDropdownMenus from "./dropdowns_menus"
 import Configuration from "./configuration"
 import ExternalLink from "./redesigned_external_link"
-import ExternalDomainLink from "./external_domain_warning"
+import updateExternalDomainLinks from "./external_domain_warning"
 import scrollToLastChild from "./scroll_to_last_child"
 import InputCharacterCounter, { createCharacterCounter } from "./redesigned_input_character_counter"
 import FormValidator from "./form_validator"
@@ -151,15 +151,6 @@ const initializer = (element = document) => {
     window.createEditor(container);
   });
 
-  element.querySelectorAll("a[target=\"_blank\"]:not([data-external-link=\"false\"])").forEach((elem) => {
-    if (elem.closest(".editor-container")) {
-      return null;
-    }
-    return new ExternalLink(elem);
-  });
-
-  element.querySelectorAll("a[target=\"_blank\"]:not([data-external-domain-link=\"false\"])").forEach((elem) => new ExternalDomainLink(elem))
-
   // initialize character counter
   $("input[type='text'], textarea, .editor>input[type='hidden']").each((_i, elem) => {
     const $input = $(elem);
@@ -176,6 +167,13 @@ const initializer = (element = document) => {
     const formFilter = new FormFilterComponent($(this));
 
     formFilter.mountComponent();
+  })
+
+  element.querySelectorAll("a[target=\"_blank\"]:not([data-external-link=\"false\"])").forEach((elem) => {
+    // both functions (updateExternalDomainLinks and ExternalLink) are related, so if we disable one, the other also
+    updateExternalDomainLinks(elem)
+
+    return new ExternalLink(elem)
   })
 
   addInputEmoji(element)
