@@ -105,6 +105,19 @@ hu:
           create: "%{user_name} létrehozta a(z) %{resource_name} nevű projektet itt: %{space_name}"
           delete: "%{user_name} eltávolította a(z) %{resource_name} nevű projektet itt: %{space_name}"
           update: "%{user_name} frissítette a(z) %{resource_name} nevű projektet itt: %{space_name}"
+      budget_information_modal:
+        close_modal: Ablak bezárás
+        continue: Folytatás
+        more_information: További információk
+      budgets_list:
+        cancel_order:
+          more_than_one: törölje a(z) %{name} kérdésében leadott szavazatát, és kezdje újra
+          only_one: törölje a szavazatát és kezdje újra.
+        highlighted_cta: Szavazzon a(z) %{name} kérdésében
+        my_budgets: Költségvetéseim
+        progress: Szavazás befejezése
+        show: Összes projekt megtekintése
+        vote: Szavazás
       models:
         project:
           fields:
