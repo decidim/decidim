@@ -186,6 +186,8 @@ hu:
             identification_keys:
               submit_legend: A fent ismertetett lépések végrehajtása után, a nyilvános azonosító kulcs szervernek való elküldésével fejezi be a folyamatot.
       votes:
+        modal:
+          proposal_header: 'Javaslatok:'
         onboarding_modal:
           description: Szeretnél új fiókot létrehozni a platformon? Képes leszel a folyamatokban részt venni, és aktív részese lehetsz a szervezetnek.
           title: Új a platformon?
