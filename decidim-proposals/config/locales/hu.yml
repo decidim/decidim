@@ -212,6 +212,7 @@ hu:
           email_intro: 'Hagyd jóvá az új javaslatokat itt: %{participatory_space_title}! Láss munkának ezen az oldalon:'
           email_outro: 'Ezt az értesítést azért kaptad, mert ezt követed: "%{participatory_space_title}". Az értesítéseket a következő linkre kattintva kapcsolhatod ki.'
           email_subject: 'Javaslatok jóváhagyása elkezdődött itt: %{participatory_space_title}'
+          notification_title: 'Mostantól <a href="%{resource_path}">támogathatsz javaslatokat</a> itt: <a href="%{participatory_space_url}">%{participatory_space_title}</a>.'
         proposal_accepted:
           affected_user:
             email_intro: 'Javaslata "%{resource_title}" elfogadva. A válasz ezen az oldalon olvasható:'
@@ -221,6 +222,7 @@ hu:
           follower:
             email_intro: 'A(z) "%{resource_title}" című javaslat elfogadva. További részletek a következő oldalon:'
             email_outro: 'Ezt az értesítést azért kaptad, mert ezt követed: "%{resource_title}". Leiratkozás az előző link segítségével.'
+            email_subject: Elfogadtak egy javaslatot, amelyet követ
             notification_title: A <a href="%{resource_path}">%{resource_title}</a> című javaslatot elfogadták.
         proposal_evaluating:
           affected_user:
@@ -231,6 +233,7 @@ hu:
           follower:
             email_intro: 'A(z) "%{resource_title}" című javaslatot éppen értékelik. További részletek a következő oldalon:'
             email_outro: 'Ezt az értesítést azért kaptad, mert ezt követed: "%{resource_title}". Leiratkozás az előző link segítségével.'
+            email_subject: A követett javaslat értékelése folyamatban van
             notification_title: A(z) <a href="%{resource_path}">%{resource_title}</a> javaslat értékelése folyamatban.
         proposal_mentioned:
           email_intro: A(z) "%{mentioned_proposal_title}" című javaslatodat említette valaki <a href="%{resource_url}">egy megjegyzésben</a>.
@@ -246,14 +249,18 @@ hu:
           email_intro: 'A(z) "%{resource_title}" című javaslatot hozzáadtuk ehhez: "%{participatory_space_title}" (követed).'
           email_outro: 'Ezt az értesítést azért kaptad, mert ezt követed: "%{participatory_space_title}". Leiratkozás az előző link segítségével.'
           email_subject: Új javaslat "%{resource_title}" hozzáadva az %{participatory_space_title}
+          notification_title: 'A(z) <a href="%{resource_path}">%{resource_title}</a> című javaslat hozzáadva ehhez: %{participatory_space_title}.'
+          notification_title_official: 'A(z) <a href="%{resource_path}">%{resource_title}</a> című hivatalos javaslat hozzáadva ehhez: %{participatory_space_title}.'
         proposal_rejected:
           affected_user:
             email_intro: 'Javaslata "%{resource_title}" elutasításra került. A válasz ezen az oldalon olvasható:'
             email_outro: Ezt az értesítést megkapta, mert a "%{resource_title}" szerzője.
+            email_subject: Javaslata elutasításra került
             notification_title: Javaslata <a href="%{resource_path}">%{resource_title}</a> elutasításra került.
           follower:
             email_intro: 'A(z) "%{resource_title}" című javaslat elutasítva. További részletek a következő oldalon:'
             email_outro: 'Ezt az értesítést azért kaptad, mert ezt követed: "%{resource_title}". Leiratkozás az előző link segítségével.'
+            email_subject: A követett javaslatot elutasították
             notification_title: A(z) <a href="%{resource_path}">%{resource_title}</a> című javaslatot elutasították.
         proposal_update_category:
           email_intro: 'Az admin frissítette a(z) "%{resource_title}" című javaslatod kategóriáját, ellenőrizd:'
@@ -292,6 +299,7 @@ hu:
           description_own: Eddig %{score} javaslatot támogattál.
           name: Javaslat támogatói
           next_level_in: Támogatja a %{score} további javaslatot a következő szint eléréséhez!
+          unearned_another: A felhasználó még nem támogatott egy javaslatot sem.
           unearned_own: Még nem támogattál egyetlen javaslatot sem.
         proposals:
           conditions:
@@ -302,6 +310,7 @@ hu:
           description_own: Eddig %{score} javaslatot hoztál létre.
           name: Javaslatok
           next_level_in: Hozz létre még %{score} javaslatot a következő szint eléréséhez!
+          unearned_another: A résztvevő még nem hozott létre egy javaslatot sem.
           unearned_own: Még nem hoztál létre javaslatokat.
     metrics:
       accepted_proposals:
@@ -337,6 +346,26 @@ hu:
           preview: Előnézet
         exports:
           proposals: Javaslatok
+        imports:
+          help:
+            answers: |
+              Az importálási dokumentumnak CSV- vagy Excel-fájlok esetén a következő oszlopneveket, JSON-fájlok esetén pedig a kulcsneveket kell tartalmaznia:
+              <ul> 
+              <li><b>id:</b> A javaslat azonosítója a</li> 
+              <li><b>state:</b> Az "elfogadott", "értékelés alatt" vagy "elutasított" egyike</li> 
+              <li><b>answer/en:</b> Válasz angol nyelven. Ez a platform nyelvi konfigurációjától függ.</li> </ul>
+          label:
+            proposals: Javaslatok importálása fájlból
+          resources:
+            answers:
+              one: javaslat válasz
+              other: válaszok a javaslatra
+            proposals:
+              one: javaslat
+              other: javaslatok
+          title:
+            answers: A javaslatok válaszainak importálása
+            proposals: Javaslatok importálása
         models:
           proposal:
             name: Javaslat
@@ -360,8 +389,12 @@ hu:
             accepted_mime_types:
               md: Árleszállítás
             bottom_hint: "(Megtekintheted és rendezheted a dokumentumokat)"
+            document_legend: 'Adjon hozzá 2 Mb-nál kisebb dokumentumot mindegyik szakaszhoz addig, amíg 3 szintnyi mélység nem kerül elemzés formájában a javaslatokba. Támogatott formátumok: %{valid_mime_types}'
             title: DOKUMENTUM hozzáadása
             upload_document: Dokumentum feltöltése
+          publish:
+            invalid: Hiba történt a javaslat közzététele során.
+            success: Az összes javaslatot közzétételre került.
           sections:
             article: "<em>Cikk</em>"
             section: "<em>szakasz:</em> <strong>%{title}</strong>"
@@ -377,12 +410,21 @@ hu:
             rejected: Elutasítva
             title: Válasz a(z) %{title} javaslatra
         proposal_notes:
+          create:
+            error: Probléma merült fel a javaslat jegyzetének létrehozásakor.
+            success: A jegyzet a javaslathoz létrejött.
           form:
             note: Jegyzet
             submit: Küldés
           leave_your_note: Jegyzet elhagyása
           title: Privát jegyzetek
         proposals:
+          answer:
+            invalid: Probléma merült fel a javaslat megválaszolásakor.
+            success: Javaslat megválaszolása sikeres.
+          create:
+            invalid: Probléma merült fel a javaslat létrehozásakor.
+            success: Javaslat létrehozása sikeres.
           edit:
             title: Frissítse a javaslatot
             update: frissítés
@@ -416,6 +458,7 @@ hu:
             title: Javaslat létrehozása
           publish_answers:
             number_of_proposals: A %{number} -s számú javaslatra adott válaszokat közzétesszük.
+            select_a_proposal: Kérjük, válasszon egy javaslatot.
           show:
             amendments_count: Módosítás száma (%{count}
             assigned_valuators: Hozzárendelt értékelők
@@ -445,9 +488,11 @@ hu:
             votes_ranking: Támogatások szerinti rangsorolás
           update_category:
             invalid: 'Ezeknek a javaslatoknak már megvolt a(z) %{subject_name} kategóriája: %{proposals}.'
+            select_a_proposal: Kérjük, válasszon egy javaslatot.
             success: 'A javaslatokat sikeresen frissítették a(z) %{subject_name} kategóriához: %{proposals}.'
           update_scope:
             invalid: 'Ezeknek a javaslatoknak már megvolt a(z) %{subject_name} hatásköre: %{proposals}.'
+            select_a_proposal: Kérjük, válasszon egy javaslatot.
             success: 'A javaslatok frissítése a(z) %{subject_name} hatáskörben sikeres: %{proposals}.'
         proposals_imports:
           new:
