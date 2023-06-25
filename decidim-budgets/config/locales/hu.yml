@@ -85,6 +85,7 @@ hu:
             cancel: Mégsem
             change_category: Kategória módosítása
             change_scope: Hatáskör megváltoztatása
+            change_selected: Kijelölés módosítása
             deselect_implementation: A kiválasztpott törlése a megvalósításra várók közül
             finished_orders: Befejezett szavazások
             pending_orders: Függőben lévő szavazások
@@ -106,6 +107,7 @@ hu:
             success: 'A projektek sikeresen frissültek a(z) %{subject_name} kategóriában: %{projects}.'
           update_scope:
             invalid: 'Ezeknek a javaslatoknak már megvolt a(z) %{subject_name} hatásköre: %{projects}.'
+            success: 'A javaslatok frissítése a(z) %{subject_name} hatáskörben sikeres: %{projects}.'
         proposals_imports:
           create:
             invalid: Probléma merült fel a javaslatok projektekbe történő importálásakor
@@ -127,6 +129,19 @@ hu:
           create: "%{user_name} létrehozta a(z) %{resource_name} nevű projektet itt: %{space_name}"
           delete: "%{user_name} eltávolította a(z) %{resource_name} nevű projektet itt: %{space_name}"
           update: "%{user_name} frissítette a(z) %{resource_name} nevű projektet itt: %{space_name}"
+      budget_information_modal:
+        close_modal: Ablak bezárás
+        continue: Folytatás
+        more_information: További információk
+      budgets_list:
+        cancel_order:
+          more_than_one: törölje a(z) %{name} kérdésében leadott szavazatát, és kezdje újra
+          only_one: törölje a szavazatát és kezdje újra.
+        highlighted_cta: Szavazzon a(z) %{name} kérdésében
+        my_budgets: Költségvetéseim
+        progress: Szavazás befejezése
+        show: Összes projekt megtekintése
+        vote: Szavazás
       models:
         project:
           fields:
