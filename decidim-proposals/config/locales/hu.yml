@@ -184,6 +184,7 @@ hu:
             email_intro: Valaki egy jegyzetet írt a(z) "%{resource_title}" javaslathoz. Ellenőrizze <a href="%{admin_proposal_info_url}">az adminisztrációs panelen</a>.
             email_outro: Azért kapta ezt az értesítést, mert értékelheti a javaslatot.
             email_subject: Valaki egy jegyzetet írt a(z) "%{resource_title}" javaslathoz.
+            notification_title: Valaki egy jegyzetet írt a(z) <a href="%{resource_path}">%{resource_title}</a> javaslathoz. Ellenőrizze <a href="%{admin_proposal_info_path}">az adminisztrációs panelen</a>.
         collaborative_draft_access_accepted:
           email_subject: "%{requester_name} jóváhagyva, mint közreműködő ebben: %{resource_title}."
           notification_title: '<a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> jóváhagyva, <strong>mint a közreműködő</strong> ebben a közös vázlatban: <a href="%{resource_path}">%{resource_title}</a>.'
@@ -206,6 +207,7 @@ hu:
           email_intro: 'Mostantól új javaslatokat készíthetsz itt: %{participatory_space_title}! Láss munkának ezen az oldalon:'
           email_outro: 'Ezt az értesítést azért kaptad, mert ezt követed: "%{participatory_space_title}". Az értesítéseket a következő linkre kattintva kapcsolhatod ki.'
           email_subject: 'Javaslatok elérhetőek innen: %{participatory_space_title}'
+          notification_title: 'Mostantól <a href="%{resource_path}">új javaslatokat terjeszthetsz elő</a> itt: <a href="%{participatory_space_url}">%{participatory_space_title}</a>.'
         endorsing_enabled:
           email_intro: 'Hagyd jóvá az új javaslatokat itt: %{participatory_space_title}! Láss munkának ezen az oldalon:'
           email_outro: 'Ezt az értesítést azért kaptad, mert ezt követed: "%{participatory_space_title}". Az értesítéseket a következő linkre kattintva kapcsolhatod ki.'
