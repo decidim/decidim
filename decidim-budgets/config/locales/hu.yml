@@ -160,26 +160,45 @@ hu:
         show: Összes projekt megtekintése
         vote: Szavazás
         voted_on: 'Szavazott a következő kérdésében: %{links}.'
+      last_activity:
+        new_vote_at: Új költségvetési szavazás itt
+      limit_announcement:
+        cant_vote: Nem szavazhat erre a költségvetésre. <a href="%{landing_path}">Próbálkozzon egy másik költségvetéssel</a>.
+        limit_reached: 'Aktív szavazásokkal rendelkezik: %{links}. A költségvetésről történő szavazáshoz <a href="%{landing_path}">törölnie kell a szavazatát, és újra kell kezdenie</a>.'
       models:
+        budget:
+          fields:
+            name: Név
+            projects_count: Projektszám
+            total_budget: Teljes költségvetés
         project:
           fields:
             category: Kategória
             id: Azonosító
+            scope: Hatókör
             title: Cím
       order_summary_mailer:
         order_summary:
           selected_projects: 'Az általad kiválasztott projektek a következők:'
+          subject: 'A következő részvételi térben szavazott: %{space_name}'
+          voted_on_space: A(z) %{space_name} részvételi tér %{budget_name} költségvetésére szavazott.
+          voted_on_space_with_scope: 'A(z) %{budget_name} részvételi tér %{space_name} költségvetésére szavazott itt: %{scope_name} (%{scope_type}).'
       projects:
         budget_confirm:
+          are_you_sure: Ha meggondolja magát, később megváltoztathatja szavazatát.
           cancel: Mégse
           confirm: Megerősítés
           description: Ezek azok a projektek, amelyek a költségvetés részét képezik.
           title: Szavazás megerősítése
         budget_excess:
           budget_excess:
+            description: A projekt meghaladja a maximális költségvetést, és nem adható hozzá. Ha szeretné, törölhet egyet a már kiválasztott projektek közül, hogy saját preferenciái szerint adhassa le szavazatát.
             title: Maximális költségkeret túllépve
           close: Bezárás
+          description: A projekt meghaladja a maximális költségvetést, és nem adható hozzá. Ha szeretné, törölheti a egyet a már kiválasztott projekte közül, hogy saját preferenciái szerint adja le szavazatát.
           ok: OK
+          projects_excess:
+            description: A projekt meghaladja a maximális költségvetést, és nem adható hozzá. Ha szeretné, törölhet egyet a már kiválasztott projektek közül, hogy saját preferenciái szerint adja le szavazatát.
         budget_summary:
           are_you_sure: Biztosan szeretnéd visszavonni a szavazatod?
           assigned: 'Hozzárendelve:'
