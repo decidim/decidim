@@ -830,7 +830,6 @@ ro:
         form:
           colors:
             colors_title: Culorile organizației
-            header_snippets_help: Utilizează acest câmp pentru a adăuga elemente în antetul HTML. Cea mai frecventă utilizare este integrarea de servicii terțe care necesită JavaScript sau CSS suplimentare. De asemenea, poți adăuga metataguri suplimentare la HTML. Reține că acest lucru va avea efect doar în paginile publice, nu și în secțiunea administrativă.
           cta_button_path_help: 'Poți modifica adresa către care direcționează butonul Apel la acțiune de pe pagina principală. Aici poți utiliza doar căi parțiale, nu URL-uri complete. Se acceptă numai litere, numere, cratime și bare oblice și trebuie să înceapă cu o literă. Butonul „Apel la acțiune” este afișat pe prima pagină, între textul de întâmpinare și descriere. Exemplu: %{url}'
           cta_button_text_help: Poți înlocui textul butonului Apel la acțiune de pe pagina principală pentru fiecare limbă disponibilă în organizația ta. În cazul în care nu există alte limbi setate, se utilizează valoarea implicită. Butonul „Apel la acțiune” este afișat pe pagina principală, între textul de întâmpinare și descriere.
           homepage_appearance_title: Editează aspectul paginii principale
