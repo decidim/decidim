@@ -546,7 +546,6 @@ zh-CN:
         form:
           colors:
             colors_title: 组织颜色
-            header_snippets_help: 使用此字段将物品添加到HTML头部。 最常见的用途是集成第三方服务，需要额外的 JavaScript 或 CSS 另外，您可以使用它添加额外的元标签到 HTML。 请注意，这只会在公开页面中提供，而不会在管理部分提供。
           cta_button_path_help: '您可以覆盖主页链接中的通话动作按钮的位置。请使用部分路径，而不是这里的完整URL。 接受字母、 数字、 破折号和斜线，并且必须以字母开头。 “调用动作”按钮在主页的欢迎文本和描述之间显示。例如： %{url}'
           cta_button_text_help: 您可以在主页中为您的组织中的每种可用语言覆盖“通话动作”按钮文本。 如果未设置，将使用默认值。 “通话动作”按钮显示在欢迎文本和描述之间的主页。
           homepage_appearance_title: 编辑主页外观
