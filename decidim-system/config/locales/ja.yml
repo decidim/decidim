@@ -89,6 +89,7 @@ ja:
           actions:
             save_and_invite: 組織を作成して管理者を招待する
           fields:
+            content_security_policy: コンテンツセキュリティポリシー
             created_at: 作成日時
             file_upload_settings: ファイルアップロードの設定
             name: 名前
@@ -123,6 +124,27 @@ ja:
         create:
           error: 新しい組織を作成する際に問題が発生しました。
           success: 組織が正常に作成されました。
+        csp_settings:
+          connect_src: Connect src
+          connect_src_hint: |
+            Connect-srcディレクティブは、<script>要素を使用して読み込まれるURLを制限します。Decidimは'self'を追加しますが、より多くを追加することも可能です。よく分からない場合は、空白のままにしておいてください。
+          default_src: Default src
+          default_src_hint: |
+            Default-srcディレクティブは、JavaScript、画像、CSS、フォント、AJAXリクエスト、フレーム、HTML5メディアなどのコンテンツを読み込むためのデフォルトポリシーです。
+            Decidimは"'self' 'unsafe-inline'"を追加しますが、より多くを指定することも可能です。よく分からない場合は、空白のままにしておいてください。
+          font_src: Font src
+          font_src_hint: |
+            Font-srcディレクティブは、@font-faceを使用して読み込まれるURLを制限します。
+            Decidimは'self'を追加しますが、より多くを指定することも可能です。よく分からない場合は、空白のままにしておいてください。
+          frame_src: Frame src
+          frame_src_hint: |
+            Frame-srcディレクティブは、<frame>、<iframe>、および<object>要素を使用して読み込まれるURLを制限します。
+            Decidimは'self'を追加しますが、より多くを指定することも可能です。よく分からない場合は、空白のままにしておいてください。
+          img_src: Img src
+          img_src_hint: |
+            Img-srcディレクティブは、<img>、<image>、<picture>、および<svg>要素を使用して読み込まれるURLを制限します。
+            Decidimは'self'を追加しますが、より多くを指定することも可能です。よく分からない場合は、空白のままにしておいてください。
+          media_src: Media src
         edit:
           secondary_hosts_hint: 新しい行にそれぞれ入力してください
         file_upload_settings:
