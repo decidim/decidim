@@ -8,7 +8,10 @@ module Decidim
         include Decidim::ComponentPathHelper
         include ActiveLinkTo
 
-        delegate :short_description, to: :resource
+        EXTRA_ATTRIBUTES = %w(purpose_of_action internal_organisation composition).freeze
+
+        delegate :short_description, :description, to: :resource
+        delegate(*EXTRA_ATTRIBUTES, to: :resource)
 
         private
 
@@ -20,8 +23,23 @@ module Decidim
           t("title", scope: "decidim.assemblies.assemblies.show")
         end
 
-        def description_text
+        def short_description_text
           decidim_sanitize_editor_admin translated_attribute(short_description)
+        end
+
+        def description_text
+          [decidim_sanitize_editor_admin(translated_attribute(description)), extra_attributes].compact_blank.join("\n")
+        end
+
+        def extra_attributes
+          EXTRA_ATTRIBUTES.filter_map do |attribute|
+            next if (text = translated_attribute(send(attribute))).blank?
+
+            [
+              content_tag(:h3, class: "h4") { t(attribute, scope: "activemodel.attributes.assembly") },
+              decidim_sanitize_editor_admin(text)
+            ].join("\n")
+          end
         end
 
         def nav_items
