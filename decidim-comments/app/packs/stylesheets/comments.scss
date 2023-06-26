@@ -3,12 +3,16 @@
     @apply md:mt-12;
   }
 
-  .add-comment .remaining-character-count{
-    @apply block text-right text-sm text-gray-2;
-  }
+  .add-comment{
+    @apply mt-12;
 
-  .add-comment .form__wrapper{
-    @apply pt-0;
+    .remaining-character-count{
+      @apply block text-right text-sm text-gray-2;
+    }
+
+    .form__wrapper{
+      @apply pt-0;
+    }
   }
 
   &__header{
