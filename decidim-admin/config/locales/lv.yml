@@ -513,7 +513,6 @@ lv:
         form:
           colors:
             colors_title: Organizācijas krāsas
-            header_snippets_help: Izmantojiet šo lauku, lai pievienotu objektus HTML galvenei. Visbiežāk tiek izmantots, lai integrētu trešo pušu pakalpojumus, kuriem nepieciešams papildu JavaScript vai CSS. Varat arī to izmantot, lai HTML pievienotu papildu meta tagus. Ņemiet vērā, ka tas tiks parādīts tikai publiskajās lapās, nevis administratoru sadaļā.
           cta_button_path_help: 'Jūs varat mainīt to, uz kurieni ved sākumlapā atrodamā poga Call To Action. Šeit izmantojiet daļējus ceļus, nevis pilnus URL. Tajos var būt tikai burti, cipari, defises un slīpsvītras, un tiem jāsākas ar burtu. Poga Call To Action redzama sākumlapā starp sveiciena tekstu un aprakstu. Piemērs: %{url}'
           cta_button_text_help: Jūs varat pārrakstīt sākumlapā redzamās pogas Call To Action tekstu visās jūsu organizācijā pieejamajās valodās. Ja vērtība nav iestatīta, tiks izmantota noklusējuma vērtība. Poga Call To Action redzama sākumlapā starp sveiciena tekstu un aprakstu.
           homepage_appearance_title: Labot sākumlapas izskatu
