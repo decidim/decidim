@@ -10,7 +10,7 @@
   }
 
   footer{
-    @apply mb-12 lg:mb-0 mt-12;
+    @apply lg:mb-0 mt-12;
   }
 }
 
@@ -27,6 +27,10 @@
 
   &.cols-10 > *{
     @apply col-span-12 lg:col-start-2 lg:col-span-10;
+  }
+
+  footer{
+    @apply mb-12;
   }
 }
 
