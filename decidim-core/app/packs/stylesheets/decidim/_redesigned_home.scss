@@ -67,20 +67,6 @@
     }
   }
 
-  .initiatives__progress-bar{
-    .progress-bar__container{
-      @apply w-16;
-    }
-
-    .progress-bar__number{
-      @apply text-gray-2 font-normal text-sm;
-    }
-
-    .progress-bar__units{
-      @apply hidden;
-    }
-  }
-
   &__menu{
     @apply bg-primary p-0 md:pb-3.5 md:pt-4;
   }
