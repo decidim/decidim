@@ -123,9 +123,27 @@ module Decidim
           content_block.default!
         end
 
+        Decidim.content_blocks.register(:assembly_homepage, :extra_data) do |content_block|
+          content_block.cell = "decidim/assemblies/content_blocks/extra_data"
+          content_block.public_name_key = "decidim.assemblies.content_blocks.extra_data.name"
+          content_block.default!
+        end
+
         Decidim.content_blocks.register(:assembly_homepage, :metadata) do |content_block|
           content_block.cell = "decidim/assemblies/content_blocks/metadata"
           content_block.public_name_key = "decidim.content_blocks.metadata.name"
+          content_block.default!
+        end
+
+        Decidim.content_blocks.register(:assembly_homepage, :dates_metadata) do |content_block|
+          content_block.cell = "decidim/assemblies/content_blocks/dates_metadata"
+          content_block.public_name_key = "decidim.assemblies.content_blocks.dates_metadata.name"
+          content_block.default!
+        end
+
+        Decidim.content_blocks.register(:assembly_homepage, :social_networks_metadata) do |content_block|
+          content_block.cell = "decidim/content_blocks/participatory_space_social_networks"
+          content_block.public_name_key = "decidim.content_blocks.social_networks_metadata.name"
           content_block.default!
         end
 

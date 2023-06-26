@@ -1,5 +1,10 @@
-<div class="participatory-space__metadata">
-  <%= render :metadata %>
-
-  <%= render :recent_users %>
+<div class="participatory-space__metadata-grid">
+  <% metadata_valued_items.each do |item| %>
+    <div class="participatory-space__metadata-item">
+      <div class="participatory-space__metadata-item-title">
+        <span><%= item[:title] %></span>
+      </div>
+      <span><%= item[:value] %></span>
+    </div>
+  <% end %>
 </div>

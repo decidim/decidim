@@ -237,6 +237,7 @@ ignore_unused:
   - password_validator.*
   - decidim.*.pages.home.highlighted_*.*
   - decidim.participatory_processes.participatory_processes.filters.*
+  - decidim.participatory_processes.participatory_processes.description.*
   - decidim.participatory_processes.show.related_assemblies
   - decidim.content_blocks.*.name
   - decidim.participatory_processes.content_blocks.*.name
@@ -272,6 +273,7 @@ ignore_unused:
   - decidim.searches.filters.state.*
   - decidim.security.selfxss_warning.*
   - decidim.assemblies.filter.*
+  - decidim.assemblies.assemblies.description.*
   - decidim.assemblies.assemblies.filters.*
   - decidim.initiatives.initiatives.votes_count.count.*
   - decidim.proposals.admin.participatory_texts.new_import.accepted_mime_types.*
