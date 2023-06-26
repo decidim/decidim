@@ -749,7 +749,6 @@ eu:
             colors_title: Antolaketa koloreak
             colors_warning_html: Oharra! Kolore horiek aldatzeak urratu egin ditzake irisgarritasun-kontrasteak. Zure hautaketaren kontrastea <a href="https://webaim.org/resources/contrastchecker">WebAIM Contrast Checker </a> edo antzeko tresnekin egiazta dezakezu.
             explanation: Tresna honek kolore-eskema bat aukeratzen laguntzen dizu, era berean kolore-gurpilaren inguruan banatutako huez osatua, erakundearen webgunean erabiliko dena.
-            header_snippets_help: Erabili eremu hau HTML goiburuari gauzak gehitzeko. Erabilerarik ohikoena da JavaScript edo CSS gehigarriak behar dituzten hirugarrenen zerbitzuak txertatzea. Gainera, HTMLari meta-etiketa gehigarriak gehitzeko erabil dezakezu. Kontuan hartu orri publikoetan baino ez dela erakutsiko, ez administrazio atalean.
             legend_html: <a href="https://www.color-meanings.com/triadic-colors/">Triadic algoritmoa.</a> <i>bigarren mailako </i> kolorea zuk aukeratutako kolore primariotik eta asetasunetik abiatuta kalkulatzen da.
             saturation: Saturazioa
             title: Kolore-hautatzailea
