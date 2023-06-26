@@ -33,12 +33,12 @@ module Decidim
 
         def extra_attributes
           %w(purpose_of_action internal_organisation composition).filter_map do |attribute|
-            if (text = translated_attribute(send(attribute))).present?
-              [
-                content_tag(:h3, class: "h4") { t(attribute, scope: "activemodel.attributes.assembly") },
-                decidim_sanitize_editor_admin(text)
-              ].join("\n")
-            end
+            next if (text = translated_attribute(send(attribute))).blank?
+
+            [
+              content_tag(:h3, class: "h4") { t(attribute, scope: "activemodel.attributes.assembly") },
+              decidim_sanitize_editor_admin(text)
+            ].join("\n")
           end
         end
 
