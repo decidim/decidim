@@ -843,6 +843,7 @@ cs:
             colors_title: Organizační barvy
             colors_warning_html: Varování! Změna těchto barev může narušit kontrasty přístupnosti. Svůj výběr můžete zkontrolovat pomocí <a href="https://webaim.org/resources/contrastchecker">WebAIM Contrast Checker</a> nebo jiných podobných nástrojů.
             explanation: Tento nástroj vám pomůže vybrat barevné schéma skládající se z odstínů rovnoměrně rozložených kolem barevného kruhového spektra, který bude použit na internetových stránkách organizace.
+            header_snippets_help_html: Toto pole použijte k přidání věcí do HTML záhlaví. Nejběžnějším použitím je integrace služeb třetích stran, které vyžadují nějaký další JavaScript nebo CSS. Můžete jej také použít k přidání dalších metaznaček do HTML. Všimněte si, že to bude vykresleno pouze na veřejných stránkách, nikoli v sekci pro správu. Pokud kód interaguje s externími rozhraními API nebo nesplňuje zásady zabezpečení aplikace, bude nutné změnit Zásady zabezpečení obsahu. Další informace o <a href="https://docs.decidim.org/develop/en/customize/content_security_policy">na webu dokumentace</a>.
             legend_html: Hlavní barvy aplikace, založené na <a href="https://www.color-meanings.com/triadic-colors/">Triadic algoritmu</a>. <i>sekundární</i> barva je automaticky vypočítána z primární barvy a sytosti, kterou vyberete.
             saturation: Sytost
             title: Výběr barev
