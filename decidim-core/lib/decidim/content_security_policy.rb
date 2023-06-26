@@ -107,10 +107,10 @@ module Decidim
     end
 
     def add_system_csp_directives
-      if Rails.configuration.action_controller.asset_host
-        %w(media-src img-src script-src style-src).each do |directive|
-          append_csp_directive(directive, Rails.configuration.action_controller.asset_host)
-        end
+      return unless Rails.configuration.action_controller.asset_host
+
+      %w(media-src img-src script-src style-src).each do |directive|
+        append_csp_directive(directive, Rails.configuration.action_controller.asset_host)
       end
     end
 
