@@ -89,6 +89,7 @@ fi-pl:
           actions:
             save_and_invite: Luo organisaatioita ja kutsu hallinnointikäyttäjiä
           fields:
+            content_security_policy: Sisällön turvallisuuskäytäntö (CSP)
             created_at: Luotu
             file_upload_settings: Tiedostojen latauksen asetukset
             name: Nimi
@@ -123,6 +124,39 @@ fi-pl:
         create:
           error: Uuden organisaation luonnissa tapahtui virhe.
           success: Organisaatio luotu onnistuneesti.
+        csp_settings:
+          connect_src: Yhteysosoitteet (connect-src)
+          connect_src_hint: |
+            Yhteysosoitteet (connect-src) rajaavat ne URL-osoitteet, joita voidaan ladata <script>-elementteihin.
+            Decidim lisää automaattisesti arvon 'self', mutta voit lisätä halutessasi muita arvoja. Jätä arvo tyhjäksi, jos et tiedä, mitä se tarkoittaa.
+          default_src: Oletusosoitteet (default-src)
+          default_src_hint: |
+            Oletusosoitteet (default-src) on oletuskäytäntö kaikelle ulkopuoliselle sisällölle, kuten JavaScriptille, kuville, CSS:lle, fonteille, asynkronisille kutsuille, kehyksille ja HTML5-mediatiedostoille.
+            Decidim lisää automaattisesti arvon "'self' 'unsafe-inline'", mutta voit lisätä halutessasi muita arvoja. Jätä arvo tyhjäksi, jos et tiedä, mitä se tarkoittaa.
+          font_src: Fonttiosoitteet (font-src)
+          font_src_hint: |
+            Fonttiosoitteet (font-src) rajaavat ne URL-osoitteet, joista voidaan ladata fontteja @font-face -määrityksille.
+            Decidim lisää automaattisesti arvon 'self', mutta voit lisätä halutessasi muita arvoja. Jätä arvo tyhjäksi, jos et tiedä, mitä se tarkoittaa.
+          frame_src: Kehysosoitteet (frame-src)
+          frame_src_hint: |
+            Kehysosoitteet (frame-src) rajaavat ne URL-osoitteet, joita voidaan ladata <frame>-, <iframe>- ja <object>-elementteihin.
+            Decidim lisää automaattisesti arvon 'self', mutta voit lisätä halutessasi muita arvoja. Jätä arvo tyhjäksi, jos et tiedä, mitä se tarkoittaa.
+          img_src: Kuvaosoitteet (img-src)
+          img_src_hint: |
+            Kuvaosoitteet (img-src) rajaavat ne URL-osoitteet, joita voidaan ladata <img>-, <image>-, <picture>- ja <svg>-elementteihin.
+            Decidim lisää automaattisesti arvon 'self', mutta voit lisätä halutessasi muita arvoja. Jätä arvo tyhjäksi, jos et tiedä, mitä se tarkoittaa.
+          media_src: Mediaosoitteet (media-src)
+          media_src_hint: |
+            Mediaosoitteet (media-src) rajaavat ne URL-osoitteet, joita voidaan ladata <video>-, <audio>- ja <source>-elementteihin.
+            Decidim lisää automaattisesti arvon 'self', mutta voit lisätä halutessasi muita arvoja. Jätä arvo tyhjäksi, jos et tiedä, mitä se tarkoittaa.
+          script_src: Skriptiosoitteet (script-src)
+          script_src_hint: |
+            Skriptiosoitteet (script-src) rajaavat ne URL-osoitteet, joita voidaan ladata <script>-elementteihin.
+            Decidim lisää automaattisesti arvon "'self' 'unsafe-inline' 'unsafe-eval'", mutta voit lisätä halutessasi muita arvoja. Jätä arvo tyhjäksi, jos et tiedä, mitä se tarkoittaa.
+          style_src: Tyyliosoitteet (style-src)
+          style_src_hint: |
+            Tyyliosoitteet (style-src) rajaavat ne URL-osoitteet, joita voidaan ladata <style>-elementteihin.
+            Decidim lisää automaattisesti arvon "'self' 'unsafe-inline'", mutta voit lisätä halutessasi muita arvoja. Jätä arvo tyhjäksi, jos et tiedä, mitä se tarkoittaa.
         edit:
           secondary_hosts_hint: Syötä jokainen niistä omalle rivilleen
         file_upload_settings:
