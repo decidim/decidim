@@ -36,7 +36,7 @@ module Decidim::ComponentTestHelpers
   end
 
   def expect_user_logged
-    expect(page).to have_css(".main-bar")
+    expect(page).to have_css(".main-bar #trigger-dropdown-account")
   end
 
   def have_admin_callout(text)

@@ -283,7 +283,9 @@ describe "Authentication", type: :system do
     end
 
     it "sends a welcome notification" do
-      find("a.topbar__notifications").click
+      within_user_menu do
+        click_link "Notifications"
+      end
 
       within "[data-notifications]" do
         expect(page).to have_content("thanks for joining #{organization.name}")
@@ -325,18 +327,18 @@ describe "Authentication", type: :system do
         end
 
         expect(page).to have_content("Signed in successfully")
-        expect(page).to have_content(user.name)
+        expect_current_user_to_be(user)
       end
 
       it "caches the omniauth buttons correctly with different languages", :caching do
         click_link("Sign In", match: :first)
-        find(".login__omniauth-button.button--facebook").click
+        expect(page).to have_link("Sign in with Facebook")
 
         within_language_menu do
           click_link "Català"
         end
 
-        find(".login__omniauth-button.button--facebook").click
+        expect(page).to have_link("Inicia sessió amb Facebook")
       end
     end
 
@@ -563,7 +565,7 @@ describe "Authentication", type: :system do
         find(".login__omniauth-button.button--facebook").click
 
         expect(page).to have_content("Successfully")
-        expect(page).to have_content(user.name)
+        expect_current_user_to_be(user)
       end
 
       context "when sign up is disabled" do
@@ -597,7 +599,7 @@ describe "Authentication", type: :system do
           find(".login__omniauth-button.button--facebook").click
 
           expect(page).to have_content("Successfully")
-          expect(page).to have_content(user.name)
+          expect_current_user_to_be(user)
         end
       end
     end
@@ -688,8 +690,16 @@ describe "Authentication", type: :system do
         end
 
         expect(page).to have_content("successfully")
-        expect(page).to have_content("Right user")
+        expect_current_user_to_be(user)
+        expect(page).to have_no_content("Wrong user")
       end
     end
   end
+end
+
+def expect_current_user_to_be(user)
+  within_user_menu do
+    click_link "My public profile"
+  end
+  expect(page).to have_content(user.name)
 end
