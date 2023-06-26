@@ -295,6 +295,11 @@ describe "Explore results", versioning: true, type: :system do
         click_link translated(proposal.title)
         expect(page).to have_i18n_content(result.title)
       end
+
+      it "a banner links back to the result" do
+        click_link translated(proposal.title)
+        expect(page).to have_content("Included in #{translated(result.title)}")
+      end
     end
 
     context "with linked projects" do
@@ -323,6 +328,12 @@ describe "Explore results", versioning: true, type: :system do
         click_link translated(project.title)
         expect(page).to have_i18n_content(result.title)
       end
+
+      it "a banner links back to the result" do
+        click_button "Included projects"
+        click_link translated(project.title)
+        expect(page).to have_content("Included in #{translated(result.title)}")
+      end
     end
 
     context "with linked meetings" do
@@ -346,10 +357,13 @@ describe "Explore results", versioning: true, type: :system do
       end
 
       it "the result is mentioned in the meeting page" do
-        skip_unless_redesign_enabled("this test pass with redesign enabled because the panel containing the result is visible")
-
         click_link translated(meeting.title)
         expect(page).to have_i18n_content(result.title)
+      end
+
+      it "a banner links back to the result" do
+        click_link translated(meeting.title)
+        expect(page).to have_content("Included in #{translated(result.title)}")
       end
     end
 

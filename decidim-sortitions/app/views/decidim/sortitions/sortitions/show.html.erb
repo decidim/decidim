@@ -51,7 +51,7 @@ edit_link(
       <%= t("proposals_selected_by_sortition", scope: "decidim.sortitions.sortitions.show") %>
     </h3>
     <div id="proposals">
-      <%= render partial: "proposal", collection: sortition.proposals %>
+      <%= render partial: "proposal", collection: sortition.proposals, locals: { sortition: sortition } %>
     </div>
   <% end %>
 

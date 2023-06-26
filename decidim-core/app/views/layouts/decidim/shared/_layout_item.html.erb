@@ -1,6 +1,10 @@
 <%= yield :item_header %>
 <div class="layout-item">
   <main class="layout-item__main">
+    <% if params[:included_in] %>
+      <%= render partial: "layouts/decidim/shared/linked_resource" %>
+    <% end %>
+
     <% if local_assigns.has_key?(:prev_path) %>
       <%= link_to prev_path, class: "layout-item__arrow prev" do %>
         <%= icon "arrow-left-s-line" %>
