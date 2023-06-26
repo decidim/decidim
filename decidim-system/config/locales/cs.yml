@@ -128,16 +128,35 @@ cs:
           connect_src: Připojit src
           connect_src_hint: |
             Direktiva connect-src omezuje URL adresy, které lze načíst pomocí <script> prvků.
-            Deidim přidá 'sebe', ale umožňuje přidat další. Nechte prázdné, pokud si nejste jistí.
+            Decidim přidá 'self', ale umožňuje přidat další. Nechte prázdné, pokud si nejste jistí.
           default_src: Default src
           default_src_hint: |
             Default-src direktiva je výchozí zásada pro načítání obsahu, jako je JavaScript, Images, CSS, Fonts, AJAX requests, Frames, HTML5 Media.
-            Deidim přidá "self" 'unsafe-inline'', ale umožňuje přidat další. Nechte prázdné, pokud si nejste jistí.
+            Deicdim přidá "self" 'unsafe-inline'', ale umožňuje přidat další. Nechte prázdné, pokud si nejste jistí.
           font_src: Font src
           font_src_hint: |
             Direktiva font-src omezuje URL, které lze nahrát pomocí @font-face.
-            Deidim přidá 'sebe', ale umožňuje přidat další. Nechte prázdné, pokud si nejste jistí.
+            Decidim přidá 'self', ale umožňuje přidat další. Nechte prázdné, pokud si nejste jistí.
           frame_src: Frame src
+          frame_src_hint: |
+            Direktiva frame-src omezuje URL, které lze načíst pomocí prvků <frame>, <iframe> a <object>.
+            Decidim přidá 'self', ale umožňuje přidat další. Nechte prázdné, pokud si nejste jistí.
+          img_src: Img src
+          img_src_hint: |
+            Direktiva img-src omezuje URL, které lze nahrát pomocí prvků <img>, <image>, <picture> a <svg>.
+            Decidim přidá 'self', ale umožňuje přidat další. Nechte prázdné, pokud si nejste jistí.
+          media_src: Média src
+          media_src_hint: |
+            Direktiva média-src omezuje URL, které lze nahrát pomocí prvků <video>, <audio> a <source>.
+            Decidim přidá 'self', ale umožňuje přidat další. Nechte prázdné, pokud si nejste jistí.
+          script_src: Script src
+          script_src_hint: |
+            Direktiva script-src omezuje URL, které lze nahrát pomocí <script> prvků.
+            Decidim přidá "'self' 'unsafe-inline' 'unsafe-eval'", ale umožňuje přidat další. Nechte prázdné, pokud si nejste jistí.
+          style_src: Style src
+          style_src_hint: |
+            Směrnice style-src omezuje URL, které lze načíst pomocí <style> prvků.
+            Decidim přidá "'self' 'unsafe-inline'", ale umožňuje přidat další. Nechte prázdné, pokud si nejste jistí.
         edit:
           secondary_hosts_hint: Zadejte každý z nich do nového řádku
         file_upload_settings:
