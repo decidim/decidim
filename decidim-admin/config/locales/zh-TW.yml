@@ -820,7 +820,6 @@ zh-TW:
         form:
           colors:
             colors_title: 組織顏色
-            header_snippets_help: 使用此字段將內容添加到HTML的head部分。最常見的用途是整合需要額外JavaScript或CSS的第三方服務。此外，您還可以使用它來添加額外的HTML meta標籤。請注意，此內容僅在公開頁面中呈現，而不在管理部分中呈現。
           cta_button_path_help: '您可以覆蓋主頁上的"呼籲行動"按鈕的鏈接目標。在此處使用部分路徑，而不是完整的URL。它接受字母、數字、破折號和斜杠，並且必須以字母開頭。"呼籲行動"按鈕顯示在主頁的歡迎文本和描述之間。範例： %{url}'
           cta_button_text_help: 您可以覆蓋主頁上每種語言對應的"呼籲行動"按鈕文本。如果未設置，將使用默認值。"呼籲行動"按鈕顯示在主頁的歡迎文本和描述之間。
           homepage_appearance_title: 編輯主頁外觀
