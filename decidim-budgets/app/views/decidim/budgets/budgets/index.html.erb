@@ -6,7 +6,7 @@
 <% end %>
 
 <%= render layout: "layouts/decidim/shared/layout_two_col" do %>
-  <%= cell("decidim/announcement", announcement_body, truncate: true) %>
+  <%= cell("decidim/announcement", announcement_body, truncate: true, callout_class: "editor-content") %>
   <%= cell("decidim/budgets/budgets_header", current_workflow) %>
   <%= cell("decidim/budgets/budgets_list", current_workflow) %>
 <% end %>
