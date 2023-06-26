@@ -89,6 +89,7 @@ cs:
           actions:
             save_and_invite: Vytvořit organizaci a pozvat administrátora
           fields:
+            content_security_policy: Zásady zabezpečení obsahu
             created_at: Vytvořeno v
             file_upload_settings: Nastavení nahrávání souborů
             name: Název
