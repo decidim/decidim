@@ -4,12 +4,16 @@ module Decidim
   module Assemblies
     module ContentBlocks
       class ExtraDataCell < Decidim::ContentBlocks::ParticipatorySpaceExtraDataCell
-        delegate :assembly_type, :duration, to: :resource
+        delegate :assembly_type, :duration, to: :presented_resource
 
         private
 
         def extra_data_items
           [type_item, duration_item].compact
+        end
+
+        def presented_resource
+          AssemblyPresenter.new(resource)
         end
 
         def type_item
@@ -18,17 +22,15 @@ module Decidim
           {
             title: t("assembly_type", scope: "decidim.assemblies.show"),
             icon: "group-2-line",
-            text: translated_attribute(assembly_type.title)
+            text: assembly_type
           }
         end
 
         def duration_item
-          text = duration.blank? ? I18n.t("indefinite_duration", scope: "decidim.assemblies.assemblies.description") : I18n.l(duration, format: :decidim_short)
-
           {
             title: t("duration", scope: "decidim.assemblies.show"),
             icon: "calendar-line",
-            text:
+            text: duration
           }
         end
       end
