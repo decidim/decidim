@@ -74,11 +74,11 @@
   &__metadata {
     @apply flex flex-col md:flex-row items-start gap-8 md:gap-0;
 
-    &-grid{
+    &-grid {
       @apply grid grid-cols-1 md:grid-cols-3 gap-y-8;
     }
 
-    &-grid &-item{
+    &-grid &-item {
       @apply border-0 px-0;
     }
 
@@ -173,23 +173,23 @@
   }
 }
 
-.participatory-space-about{
-  &__aside{
+.participatory-space-about {
+  &__aside {
     @apply md:pl-10 text-gray-2 w-full;
 
-    &-title{
+    &-title {
       @apply flex items-center gap-1 mb-6;
     }
   }
 
-  &__data{
+  &__data {
     @apply py-4 first:pt-0 last:pb-0 font-normal text-md;
 
-    &-container{
+    &-container {
       @apply divide-y-2 divide-background-3 w-full;
     }
 
-    &-title{
+    &-title {
       @apply font-semibold uppercase text-sm block;
     }
   }
