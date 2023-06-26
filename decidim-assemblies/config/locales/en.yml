@@ -333,6 +333,22 @@ en:
           accepted_types:
             json: JSON
       assemblies:
+        description:
+          area_name: Area
+          closing_date: Closing date
+          created_by: Created by
+          creation_date: Date created
+          data: Assembly data
+          developer_group: Promoter group
+          duration: Duration
+          included_at: Included at
+          indefinite_duration: Indefinite
+          local_area: Organization Area
+          meta_scope: Scope
+          participatory_scope: What is decided
+          participatory_structure: How is it decided
+          target: Who participates
+          title: About this assembly
         filters:
           names:
             all: All
@@ -353,6 +369,10 @@ en:
       content_blocks:
         children_assemblies:
           name: Assemblies
+        dates_metadata:
+          name: Dates metadata
+        extra_data:
+          name: Type & duration
         highlighted_assemblies:
           name: Highlighted assemblies
         related_assemblies:
@@ -391,7 +411,6 @@ en:
           'true': transparent
         private_space: This is a private assembly
         related_participatory_processes: Related participatory processes
-        social_networks: Social Networks
         social_networks_title: Visit assembly on
     assembly_members:
       assembly_member:
