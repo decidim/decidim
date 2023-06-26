@@ -32,7 +32,7 @@ module Decidim
         end
 
         def extra_attributes
-          %w(purpose_of_action internal_organisation composition).filter_map do |attribute|
+          EXTRA_ATTRIBUTES.filter_map do |attribute|
             next if (text = translated_attribute(send(attribute))).blank?
 
             [
