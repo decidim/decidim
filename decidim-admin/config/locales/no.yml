@@ -731,7 +731,6 @@
         form:
           colors:
             colors_title: Organisasjonens farger
-            header_snippets_help: "Bruk dette feltet til å legge til ting i HTML head. Den vanligste bruken er å integrere tredjeparts tjenester som krever litt ekstra JavaScript eller CSS. Du kan også bruke den til å legge til ekstra meta tags til HTML. Merk at dette bare blir gjengitt på offentlige sider, ikke i \nadministrator seksjonen."
           cta_button_path_help: 'Du kan overskrive hvor Kall til Handlingsknappen på hjemmesiden lenker til. Bruk delvise veier, ikke fullstendige URLer her. Godtar bokstaver, tall, tankestreker og skråstreker, og må starte med en bokstav. Kall til Handlingknappen vises på hjemmesiden mellom velkomstteksten og beskrivelsen. Eksempel: %{url}'
           cta_button_text_help: Du kan overskrive Handlingsknappens tekst på hjemmesiden for hvert tilgjengelige språk i organisasjonen. Hvis ikke satt, blir standardverdien brukt. Kall til Handlingknappen vises på hjemmesiden mellom velkomstteksten og beskrivelsen.
           homepage_appearance_title: Endre hjemmesidens utseende
