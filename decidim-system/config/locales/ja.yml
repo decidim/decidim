@@ -127,24 +127,35 @@ ja:
         csp_settings:
           connect_src: Connect src
           connect_src_hint: |
-            Connect-srcディレクティブは、<script>要素を使用して読み込まれるURLを制限します。Decidimは'self'を追加しますが、より多くを追加することも可能です。よく分からない場合は、空白のままにしておいてください。
+            Connect-srcディレクティブは、<script>要素を使用して読み込むURLを制限します。Decidimは'self'を追加しますが、より多くを追加することも可能です。よく分からない場合は、空白のままにしておいてください。
           default_src: Default src
           default_src_hint: |
             Default-srcディレクティブは、JavaScript、画像、CSS、フォント、AJAXリクエスト、フレーム、HTML5メディアなどのコンテンツを読み込むためのデフォルトポリシーです。
             Decidimは"'self' 'unsafe-inline'"を追加しますが、より多くを指定することも可能です。よく分からない場合は、空白のままにしておいてください。
           font_src: Font src
           font_src_hint: |
-            Font-srcディレクティブは、@font-faceを使用して読み込まれるURLを制限します。
+            Font-srcディレクティブは、@font-faceを使用して読み込むURLを制限します。
             Decidimは'self'を追加しますが、より多くを指定することも可能です。よく分からない場合は、空白のままにしておいてください。
           frame_src: Frame src
           frame_src_hint: |
-            Frame-srcディレクティブは、<frame>、<iframe>、および<object>要素を使用して読み込まれるURLを制限します。
+            Frame-srcディレクティブは、<frame>、<iframe>、および<object>要素を使用して読み込むURLを制限します。
             Decidimは'self'を追加しますが、より多くを指定することも可能です。よく分からない場合は、空白のままにしておいてください。
           img_src: Img src
           img_src_hint: |
-            Img-srcディレクティブは、<img>、<image>、<picture>、および<svg>要素を使用して読み込まれるURLを制限します。
+            Img-srcディレクティブは、<img>、<image>、<picture>、および<svg>要素を使用して読み込むURLを制限します。
             Decidimは'self'を追加しますが、より多くを指定することも可能です。よく分からない場合は、空白のままにしておいてください。
           media_src: Media src
+          media_src_hint: |
+            Media-srcディレクティブは、<video>、<audio>、および<source>要素を使用して読み込めるURLを制限します。
+            Decidimは'self'を追加しますが、より多くを指定することも可能です。よく分からない場合は、空白のままにしておいてください。
+          script_src: Script src
+          script_src_hint: |
+            Script-srcディレクティブは、<script>要素を使用して読み込むURLを制限します。
+            Decidimは"'self' 'unsafe-inline' 'unsafe-eval'"を追加しますが、より多くを指定することも可能です。よく分からない場合は、空白のままにしておいてください。
+          style_src: Style src
+          style_src_hint: |
+            Style-srcディレクティブは、<style>要素を使用して読み込むURLを制限します。
+            Decidimは"'self' 'unsafe-inline'"を追加しますが、より多くを指定することも可能です。よく分からない場合は、空白のままにしておいてください。
         edit:
           secondary_hosts_hint: 新しい行にそれぞれ入力してください
         file_upload_settings:
