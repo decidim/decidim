@@ -833,7 +833,6 @@ fr:
             colors_title: Couleurs de l'organisation
             colors_warning_html: Attention ! La modification de ces couleurs peut contrevenir aux règles d'accessibilité sur les taux de contraste. Vous pouvez vérifier le taux de contraste de votre choix avec <a href="https://webaim.org/resources/contrastchecker">WebAIM Contrast Checker</a> ou d'autres outils similaires.
             explanation: Cet outil vous aide à choisir une palette de couleurs, composée de teintes placées à égale distance autour de la roue de couleur, qui seront utilisés sur la plateforme.
-            header_snippets_help: Utilisez ce champ pour ajouter des éléments entre les balises HTML <head> </head>. L'utilisation la plus courante de champs consiste à intégrer des services tiers nécessitant du JavaScript ou du CSS supplémentaire. Vous pouvez aussi l'utiliser pour ajouter des méta-tags supplémentaires au code HTML. Notez que cela ne fonctionnera que dans sur les pages publiques, et non dans la section admin.
             legend_html: Couleurs principales de l'application, basées sur <a href="https://www.color-meanings.com/triadic-colors/">l'algorithme triadique</a>. La couleur <i>secondaire</i> est automatiquement calculée à partir de la couleur primaire et de la saturation que vous avez choisies.
             saturation: Saturation
             title: Sélecteur de couleurs
