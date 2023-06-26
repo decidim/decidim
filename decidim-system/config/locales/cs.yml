@@ -124,6 +124,20 @@ cs:
         create:
           error: Při vytváření nové organizace došlo k chybě.
           success: Organizace byla úspěšně vytvořena.
+        csp_settings:
+          connect_src: Připojit src
+          connect_src_hint: |
+            Direktiva connect-src omezuje URL adresy, které lze načíst pomocí <script> prvků.
+            Deidim přidá 'sebe', ale umožňuje přidat další. Nechte prázdné, pokud si nejste jistí.
+          default_src: Default src
+          default_src_hint: |
+            Default-src direktiva je výchozí zásada pro načítání obsahu, jako je JavaScript, Images, CSS, Fonts, AJAX requests, Frames, HTML5 Media.
+            Deidim přidá "self" 'unsafe-inline'', ale umožňuje přidat další. Nechte prázdné, pokud si nejste jistí.
+          font_src: Font src
+          font_src_hint: |
+            Direktiva font-src omezuje URL, které lze nahrát pomocí @font-face.
+            Deidim přidá 'sebe', ale umožňuje přidat další. Nechte prázdné, pokud si nejste jistí.
+          frame_src: Frame src
         edit:
           secondary_hosts_hint: Zadejte každý z nich do nového řádku
         file_upload_settings:
