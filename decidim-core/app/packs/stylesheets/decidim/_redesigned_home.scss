@@ -68,7 +68,7 @@
   }
 
   &__menu{
-    @apply bg-primary p-0 md:pb-3.5 md:pt-4;
+    @apply bg-primary p-0 md:py-4;
   }
 
   &__menu__container{
@@ -80,6 +80,6 @@
   }
 
   &__menu-element--link{
-    @apply py-0.5 px-8 text-white text-lg font-semibold w-full underline decoration-transparent hover:decoration-white transition duration-300 leading-[22px];
+    @apply py-4 md:py-px px-8 text-white text-lg font-semibold w-full underline decoration-transparent hover:decoration-white transition duration-300 leading-[22px];
   }
 }
