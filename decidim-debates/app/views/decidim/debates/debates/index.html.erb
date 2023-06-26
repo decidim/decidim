@@ -1,5 +1,3 @@
-<%= render partial: "decidim/shared/component_announcement" %>
-
 <% content_for :aside do %>
   <h1 class="h1 decorator"><%= component_name %></h1>
 
@@ -14,6 +12,7 @@
 <% end %>
 
 <%= render layout: "layouts/decidim/shared/layout_two_col" do %>
+  <%= render partial: "decidim/shared/component_announcement" %>
   <div id="debates" aria-live="polite">
     <%= render partial: "debates" %>
   </div>

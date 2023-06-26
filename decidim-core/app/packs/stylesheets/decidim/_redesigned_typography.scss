@@ -28,5 +28,49 @@
 
 /* default styles for those dynamic text blocks */
 .editor-content{
-  @apply prose max-w-full text-black text-lg prose-a:text-secondary break-words;
+  @apply prose max-w-full text-gray-2 text-lg prose-a:text-secondary break-words;
+
+  iframe{
+    @apply w-full block max-w-[600px] max-h-[70vh] h-[450px] my-10 mx-auto;
+  }
+
+  p{
+    @apply my-0;
+  }
+
+  /* The editor-library adds an empty <p>. */
+  /* stylelint-disable selector-pseudo-class-no-unknown */
+  p:not(:empty) + p,
+  :where(h2,h3,h4,h5,h6) + span{
+    @apply my-5;
+  }
+
+  h2,
+  h3,
+  h4,
+  h5,
+  h6{
+    @apply mt-0;
+  }
+
+  p:not(:empty) + h2{
+    @apply mt-8;
+  }
+
+  p:not(:empty) + h3{
+    @apply mt-6;
+  }
+
+  p:not(:empty) + h4{
+    @apply mt-4;
+  }
+
+  p:not(:empty) + h5,
+  p:not(:empty) + h6{
+    @apply mt-2;
+  }
+
+  :where(h2,h3,h4,h5,h6) br{
+    @apply hidden;
+  }
 }
