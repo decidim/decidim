@@ -1,5 +1,5 @@
 <% if translated_attribute(current_settings.announcement).present? %>
-  <%= cell("decidim/announcement", current_settings.announcement) %>
+  <%= cell("decidim/announcement", current_settings.announcement, callout_class: "editor-content") %>
 <% elsif translated_attribute(component_settings.announcement).present? %>
-  <%= cell("decidim/announcement", component_settings.announcement) %>
+  <%= cell("decidim/announcement", component_settings.announcement, callout_class: "editor-content") %>
 <% end %>
