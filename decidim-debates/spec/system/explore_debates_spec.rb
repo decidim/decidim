@@ -26,6 +26,14 @@ describe "Explore debates", type: :system do
       )
     end
 
+    it "shows the component name in the sidebar" do
+      visit_component
+
+      within("aside") do
+        expect(page).to have_content(translated(component.name))
+      end
+    end
+
     it "lists all debates for the given process" do
       visit_component
 
