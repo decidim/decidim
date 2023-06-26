@@ -747,7 +747,6 @@ lt:
         form:
           colors:
             colors_title: Organizacijos spalvos
-            header_snippets_help: Naudokite šį laukelį, kad į HTML antraštę (angl. head) įtraukti elementus. Dažniausiai įtraukiamos trečiųjų šalių paslaugos, kurioms reikia kai kurių papildomų „JavaScript“ arba CSS elementų. Be to, galite naudotis laukeliu ir prie HTML pridėti papildomų meta žymeklių. Atkreipkite dėmesį į tai, kad tai atsivaizduos tik viešuose puslapiuose, o ne administratoriaus skyrelyje.
           cta_button_path_help: 'Galite pakeisti į kur nukreipia pagrindinis numatytojo puslapio mygtukas. Naudokite dalines nuorodas, o ne URL nuoroda. Mygtuko pavyzdys - %{url}'
           cta_button_text_help: Galite pakeisti pagrindinio numatytojo puslapio mygtuko tekstą priklausomai nuo kalbos. Jei ne, bus naudojamas numatytasis mygtuko tekstas.
           homepage_appearance_title: Keisti numatytojo puslapio išvaizdą
