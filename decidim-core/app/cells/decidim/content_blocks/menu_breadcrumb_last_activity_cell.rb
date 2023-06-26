@@ -12,7 +12,7 @@ module Decidim
                           Decidim::LastActivity.new(model).query
                         else
                           Decidim::ParticipatorySpaceLastActivity.new(model).query
-          end.limit(activities_to_show * 6)
+                        end.limit(activities_to_show * 6)
       end
 
       # A MD5 hash of model attributes is needed because
