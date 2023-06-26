@@ -38,7 +38,7 @@ module Decidim
     def initialize(organization = nil, additional_policies = {})
       @organization = organization
       @policy = default_policy
-      @additional_policies = additional_policies
+      @additional_policies = additional_policies.stringify_keys
     end
 
     def output_policy
