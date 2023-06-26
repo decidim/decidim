@@ -83,7 +83,7 @@ ja:
         organization_admin_email: 組織管理者メールアドレス
         organization_admin_name: 組織管理者名
         organization_locales: 組織のロケール
-        primary_color: プライマリ（プライマリ）
+        primary_color: プライマリ
         reference_prefix: 参照の接頭辞：
         rich_text_editor_in_public_views: 参加者にリッチテキストエディタを有効にする
         secondary_color: セカンダリ
