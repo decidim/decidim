@@ -499,6 +499,7 @@ de:
           new_meeting: Neue Besprechung
           see_all: Alle Treffen anzeigen
           see_all_withdrawn: Alle zurückgezogenen Treffen ansehen
+          text_banner: Hier sehen Sie alle Veranstaltungen, die von ihren Autoren zurückgezogen wurden. %{go_back_link}.
         meeting_minutes:
           related_information: Zugehörige Informationen
         meetings:
