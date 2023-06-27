@@ -121,9 +121,6 @@ $(() => {
               }
             }
           },
-          onRestore() {
-            window.Decidim.currentDialogs["show-restore-modal"].close()
-          },
           onComplete() {
             const $allSteps = $(".step_status");
             $allSteps.attr("data-step-status", "completed");
@@ -146,14 +143,17 @@ $(() => {
           onStart() {
             $startButton.prop("disabled", true);
           },
+          onRestore() {
+            window.Decidim.currentDialogs["show-restore-modal"].close()
+          },
           onTrusteeNeedsToBeRestored() {
             window.Decidim.currentDialogs["show-restore-modal"].open()
           },
           onBackupNeeded() {
-            window.Decidim.currentDialogs["show-restore-modal"].open()
+            window.Decidim.currentDialogs["show-backup-modal"].open()
           },
           onBackupStarted() {
-            window.Decidim.currentDialogs["show-restore-modal"].close()
+            window.Decidim.currentDialogs["show-backup-modal"].close()
           }
         });
 

@@ -178,6 +178,18 @@
     a{
       @apply text-secondary underline;
     }
+
+    .step_status{
+      span{
+        @apply hidden;
+      }
+
+      &[data-step-status="pending"] .pending,
+      &[data-step-status="processing"] .processing,
+      &[data-step-status="completed"] .completed{
+        @apply block;
+      }
+    }
   }
 
   &__submit{
