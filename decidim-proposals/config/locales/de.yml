@@ -62,6 +62,7 @@ de:
           attributes:
             base:
               not_official: Sind nicht offiziell
+              supported: Haben Stimmen oder Unterstützung erhalten
     models:
       decidim/proposals/accepted_proposal_event: Vorschlag angenommen
       decidim/proposals/admin/update_proposal_category_event: Vorschlagskategorie geändert
