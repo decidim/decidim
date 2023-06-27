@@ -375,6 +375,12 @@ en:
         title: Participatory processes
     participatory_process_groups:
       content_blocks:
+        extra_data:
+          developer_group: Promoted by
+          name: Metadata
+          participatory_scope: What is decided
+          participatory_structure: How is it decided
+          target: Who participates
         html:
           name: HTML block
         html_1:
@@ -385,12 +391,6 @@ en:
           name: Third HTML block
         main_data:
           name: Title and description
-        metadata:
-          developer_group: Promoted by
-          name: Metadata
-          participatory_scope: What is decided
-          participatory_structure: How is it decided
-          target: Who participates
         participatory_processes:
           active: Active participatory processes
           name: Participatory processes
@@ -451,6 +451,8 @@ en:
             title: General Information
             visbility: Visibility
       content_blocks:
+        extra_data:
+          name: Phase & duration
         hero:
           name: Hero image and CTA
         highlighted_processes:
@@ -475,6 +477,16 @@ en:
         index:
           back_to_process: Back to the process page
       participatory_processes:
+        description:
+          area_name: Area
+          data: Process data
+          developer_group: Promoter group
+          local_area: Organization Area
+          meta_scope: Scope
+          participatory_scope: What is decided
+          participatory_structure: How is it decided
+          target: Who participates
+          title: About this process
         filters:
           all_types: All types
           counters:
