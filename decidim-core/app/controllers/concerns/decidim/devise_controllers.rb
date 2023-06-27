@@ -35,6 +35,7 @@ module Decidim
       helper Decidim::OmniauthHelper
       helper Decidim::CacheHelper
       helper Decidim::SocialShareButtonHelper
+      helper Decidim::SanitizeHelper
 
       layout "layouts/decidim/application"
 
