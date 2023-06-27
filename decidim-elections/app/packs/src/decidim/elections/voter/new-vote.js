@@ -45,7 +45,11 @@ $(async () => {
         castOrAuditBallot({ encryptedData, encryptedDataHash }) {
           $voteWrapper.find("#step-encrypting").attr("hidden", true);
           $ballotHash.text(encryptedDataHash);
+
+          // show the next step
           $voteWrapper.find("#step-ballot_decision").attr("hidden", false);
+          // simulates a toggle click, in order to update the wizard step
+          document.dispatchEvent(new Event("on:toggle"));
 
           const $form = $("form.new_vote");
           $("#vote_encrypted_data", $form).val(encryptedData);
