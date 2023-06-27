@@ -38,8 +38,7 @@ As the Bulletin Board service is a necessary dependency for this module to work,
 >   Sorry, something went wrong
 >
 > # ./spec/shared/test_bulletin_board_shared_context.rb:6:in `block (2 levels) in <top (required)>'
-> # /home/apereira/Work/decidim/decidim/decidim-dev/lib/decidim/dev/test/rspec_support/capybara.rb:148:in `block (3 levels) in <top (required)>'
-> # /home/apereira/Work/decidim/decidim/decidim-dev/lib/decidim/dev/test/rspec_support/capybara.rb:147:in `block (2 levels) in <top (required)>'
+> (...)
 > # ------------------
 > # --- Caused by: ---
 > # Errno::ECONNREFUSED:
