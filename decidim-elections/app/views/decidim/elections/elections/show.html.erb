@@ -12,13 +12,8 @@ edit_link(
 )
 %>
 
-<% content_for :css_content do %>
-  <%= stylesheet_pack_tag "decidim_elections", media: "all" %>
-<% end %>
-
-<% content_for :js_content do %>
-  <%= javascript_pack_tag "decidim_elections" %>
-<% end %>
+<%= append_javascript_pack_tag "decidim_elections" %>
+<%= append_stylesheet_pack_tag "decidim_elections" %>
 
 <% content_for :aside do %>
   <%= cell("decidim/elections/election_vote_cta", election) %>

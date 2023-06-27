@@ -1,12 +1,7 @@
 <% add_decidim_page_title(t("decidim.components.elections.name")) %>
 
-<% content_for :css_content do %>
-  <%= stylesheet_pack_tag "decidim_elections", media: "all" %>
-<% end %>
-
-<% content_for :js_content do %>
-  <%= javascript_pack_tag "decidim_elections" %>
-<% end %>
+<%= append_javascript_pack_tag "decidim_elections" %>
+<%= append_stylesheet_pack_tag "decidim_elections" %>
 
 <% content_for :aside do %>
   <h1 class="h3 md:h1 decorator"><%= t("decidim.components.elections.name") %></h1>
