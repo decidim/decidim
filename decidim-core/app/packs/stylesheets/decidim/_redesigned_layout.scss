@@ -8,10 +8,6 @@
   [data-content]{
     @apply min-h-[60vh] relative flex flex-col [&>*]:grow;
   }
-
-  footer{
-    @apply lg:mb-0 mt-12;
-  }
 }
 
 .layout-1col{
