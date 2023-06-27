@@ -529,8 +529,6 @@ en:
           label: 'Sort elements by:'
           random: Random
           recent: Most recent
-      global_menu:
-        name: Global menu
       how_to_participate:
         name: How to participate
       html:

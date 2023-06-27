@@ -29,11 +29,12 @@ describe "Conferences", type: :system do
   end
 
   context "when there are no conferences and accessing from the homepage" do
+    let!(:menu_content_block) { create :content_block, organization:, manifest_name: :global_menu, scope_name: :homepage }
+
     it "the menu link is not shown" do
       visit decidim.root_path
 
-      find("#main-dropdown-summary").hover
-      within ".menu-bar__main-dropdown__menu" do
+      within "#home__menu" do
         expect(page).to have_no_content("Conferences")
       end
     end
@@ -58,11 +59,12 @@ describe "Conferences", type: :system do
     end
 
     context "and accessing from the homepage" do
+      let!(:menu_content_block) { create :content_block, organization:, manifest_name: :global_menu, scope_name: :homepage }
+
       it "the menu link is not shown" do
         visit decidim.root_path
 
-        find("#main-dropdown-summary").hover
-        within ".menu-bar__main-dropdown__menu" do
+        within "#home__menu" do
           expect(page).to have_no_content("Conferences")
         end
       end
@@ -84,12 +86,12 @@ describe "Conferences", type: :system do
     end
 
     context "and accessing from the homepage" do
+      let!(:menu_content_block) { create :content_block, organization:, manifest_name: :global_menu, scope_name: :homepage }
+
       it "the menu link is shown" do
         visit decidim.root_path
 
-        find("#main-dropdown-summary").hover
-        within ".menu-bar__main-dropdown__menu" do
-          expect(page).to have_content("Conferences")
+        within "#home__menu" do
           click_link "Conferences"
         end
 

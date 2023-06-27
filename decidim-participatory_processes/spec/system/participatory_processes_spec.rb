@@ -28,11 +28,12 @@ describe "Participatory Processes", type: :system do
   end
 
   context "when there are no processes and accessing from the homepage" do
+    let!(:menu_content_block) { create :content_block, organization:, manifest_name: :global_menu, scope_name: :homepage }
+
     it "does not show the menu link" do
       visit decidim.root_path
 
-      find("button#main-dropdown-summary").hover
-      within "#breadcrumb-main-dropdown-desktop" do
+      within "#home__menu" do
         expect(page).to have_no_content("Processes")
       end
     end
@@ -57,11 +58,12 @@ describe "Participatory Processes", type: :system do
     end
 
     context "and accessing from the homepage" do
+      let!(:menu_content_block) { create :content_block, organization:, manifest_name: :global_menu, scope_name: :homepage }
+
       it "the menu link is not shown" do
         visit decidim.root_path
 
-        find("button#main-dropdown-summary").hover
-        within "#breadcrumb-main-dropdown-desktop" do
+        within "#home__menu" do
           expect(page).to have_no_content("Processes")
         end
       end
@@ -96,12 +98,12 @@ describe "Participatory Processes", type: :system do
       # it_behaves_like "accessible page"
 
       context "and accessing from the homepage" do
+        let!(:menu_content_block) { create :content_block, organization:, manifest_name: :global_menu, scope_name: :homepage }
+
         it "the menu link is not shown" do
           visit decidim.root_path
 
-          find("button#main-dropdown-summary").hover
-          within "#breadcrumb-main-dropdown-desktop" do
-            expect(page).to have_content("Processes")
+          within "#home__menu" do
             click_link "Processes"
           end
 
