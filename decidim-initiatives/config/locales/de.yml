@@ -301,6 +301,8 @@ de:
             update: Aktualisieren
           form:
             authorizations: Autorisierungseinstellungen
+            child_scope_threshold_enabled_help: 'Diese Einstellung unterstützt keine Offline-Abstimmungen. Es aktiviert Unter-Themenbereiche und arbeitet mit einem Autorisierungs-Handler zusammen, der dem Teilnehmenden einen Themenbereich zuordnet. Stellen Sie sicher, dass Sie diese Autorisierung unten in den Autorisierungseinstellungen auswählen. Hierfür müssen die Themenbereiche auf hierarchische Weise konfiguriert werden: 1 Überthema - N Unterthemen. Weitere Informationen wie diese Konfiguration funktioniert, finden Sie unter diesem <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">Link</a>.'
+            only_global_scope_enabled_help: Aktivieren Sie diese Einstellung, wenn Sie "Unterthemen-Signaturen" aktiviert haben und den globalen Themenbereich als Ihren Elternbereich konfiguriert haben. Dadurch wird die Auswahl des Initialtyps im Assistenten zur Erstellung der Initiative übersprungen. Weitere Informationen darüber, wie diese Konfiguration funktioniert, finden Sie <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">hier</a>.
             options: Optionen
             title: Allgemeine Information
           initiative_type_scopes:
@@ -539,6 +541,7 @@ de:
             title: 'Titel:'
             type: Art der Initiative
           legal_text: Die erhobenen personenbezogenen Daten werden von der Organisation entsprechend der geltenden Gesetzgebung vertraulich behandelt und aufgenommen.
+          members_header: Mitglieder des Unterstützungskomitees der Initiative
           phone_number: Telefonnummer
           place_date: Ort, Datum
           postal_code: Postleitzahl
