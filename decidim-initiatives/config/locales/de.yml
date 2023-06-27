@@ -3,8 +3,13 @@ de:
   activemodel:
     attributes:
       initiative:
+        answer: Antwort
+        answer_url: Antwort-URL
+        area_id: Gebiet
+        decidim_scope_id: Thema
         decidim_user_group_id: Autor
         description: Beschreibung
+        hashtag: Hashtag
         offline_votes: Face-to-Face-Unterstützung
         offline_votes_for_scope: Persönliche Unterschriften für %{scope_name}
         scope_id: Umfang
@@ -17,6 +22,7 @@ de:
           online: Online
         state: Zustand
         title: Titel
+        type_id: Typ
       initiatives_committee_member:
         user: Ausschussmitglied
       initiatives_settings:
@@ -36,9 +42,13 @@ de:
         online_signature_enabled: Online-Signatur aktiviert
         only_global_scope_enabled: Nur die Erstellung globaler Initiativen zulassen
         promoting_committee_enabled: Förderkomitee freigeben
+        signature_type: Unterschrifttyp
         title: Titel
         undo_online_signatures_enabled: Ermöglichen Sie Benutzern, ihre Online-Signaturen rückgängig zu machen
         validate_sms_code_on_votes: Fügen Sie dem Signaturprozess einen SMS-Validierungsschritt hinzu
+      initiatives_type_scope:
+        decidim_scopes_id: Themen
+        supports_required: Erforderliche Unterstützungen
       initiatives_vote:
         date_of_birth: Geburtsdatum
         document_number: Dokumentnummer
