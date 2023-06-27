@@ -15,7 +15,7 @@ describe "Components can be navigated", type: :system do
     it "renders the content of the page" do
       within "#menu-bar" do
         expect(page).to have_content("Processes")
-        find("a.menu-bar__breadcrumb-desktop__dropdown-trigger", text: translated(participatory_space.title)).click
+        find("a.menu-bar__breadcrumb-desktop__dropdown-trigger", text: translated(participatory_space.title)).sibling("button[data-component='dropdown']").hover
         click_link(translated(component.name))
       end
 
