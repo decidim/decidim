@@ -89,6 +89,7 @@ es:
           actions:
             save_and_invite: Crear organización e invitar a la administradora
           fields:
+            content_security_policy: Política de seguridad de los contenidos
             created_at: Fecha de creación
             file_upload_settings: Ajustes de subida de archivos
             name: Nombre
