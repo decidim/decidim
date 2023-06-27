@@ -13,8 +13,6 @@ module Decidim::Proposals
     let(:model) { proposal }
 
     context "when rendering" do
-      let(:show_space) { false }
-
       it "renders the card" do
         expect(subject).to have_content(translated_attribute(model.title))
       end
