@@ -195,6 +195,7 @@ de:
         per_page: Pro Seite
         permissions: Berechtigungen
         reject: Ablehnen
+        send_me_a_test_email: Mir eine Test-E-Mail senden
         share: Teilen
         user:
           new: Neuer Administrator
@@ -758,9 +759,12 @@ de:
           warning: "<strong>Achtung:</strong> Dieser Newsletter wird nur an Benutzer gesendet, die <em>Ich möchte Newsletter empfangen</em> in ihren Benachrichtigungseinstellungen aktiviert haben."
         send:
           no_recipients: Keine Empfänger für diese Auswahl.
+        send_to_user:
+          sent_successfully: Newsletter wurde erfolgreich an %{email} gesendet
         show:
           preview: Vorschau
           select_recipients_to_deliver: Empfänger auswählen
+          send_me_a_test_email: Mir eine Test-E-Mail senden
           subject: Gegenstand
         update:
           error: Beim Aktualisieren dieses Newsletters ist ein Fehler aufgetreten.
