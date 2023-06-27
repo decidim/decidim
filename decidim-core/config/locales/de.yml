@@ -1548,6 +1548,7 @@ de:
     invitations:
       edit:
         header: Beenden Sie die Erstellung Ihres Kontos
+        nickname_help: Ihr Pseudonym auf %{organization}. Kann nur Buchstaben, Zahlen, '-' und '_' enthalten.
         submit_button: Speichern
         subtitle: Wenn Sie die Einladung annehmen, geben Sie bitte Ihren Benutzernamen und Ihr Passwort ein.
       invitation_removed: Ihre Einladung wurde entfernt.
