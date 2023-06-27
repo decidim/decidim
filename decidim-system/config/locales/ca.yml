@@ -89,6 +89,7 @@ ca:
           actions:
             save_and_invite: Crear organització i convidar l'administradora
           fields:
+            content_security_policy: Política de seguretat dels continguts
             created_at: Data de creació
             file_upload_settings: Configuració de pujada d'arxius
             name: Nom
