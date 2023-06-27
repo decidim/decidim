@@ -211,6 +211,7 @@ describe "Homepage", type: :system do
               organization:,
               topic: static_page_topic1,
               weight: 0,
+              show_in_footer: true,
               allow_public_access: false
             )
           end
@@ -220,11 +221,12 @@ describe "Homepage", type: :system do
               organization:,
               topic: static_page_topic1,
               weight: 1,
+              show_in_footer: true,
               allow_public_access: true
             )
           end
           let!(:static_page_topic2) { create(:static_page_topic, organization:, show_in_footer: true) }
-          let!(:static_page_topic2_page1) { create(:static_page, organization:, topic: static_page_topic2, weight: 0) }
+          let!(:static_page_topic2_page1) { create(:static_page, organization:, topic: static_page_topic2, weight: 0, show_in_footer: true) }
           let!(:static_page_topic2_page2) { create(:static_page, organization:, topic: static_page_topic2, weight: 1) }
           let!(:static_page_topic3) { create(:static_page_topic, organization:) }
           let!(:static_page_topic3_page1) { create(:static_page, organization:, topic: static_page_topic3) }
@@ -236,18 +238,24 @@ describe "Homepage", type: :system do
             visit current_path
           end
 
-          it "displays only publicly accessible pages and topics in the footer" do
+          it "displays only publicly accessible pages and topics with pages configured to be shown in the footer" do
             within "footer" do
               expect(page).to have_content(static_page1.title["en"])
               expect(page).to have_no_content(static_page2.title["en"])
               expect(page).to have_no_content(static_page3.title["en"])
               expect(page).to have_content(static_page_topic1.title["en"])
+              expect(page).to have_no_content(static_page_topic1_page1.title["en"])
+              expect(page).to have_content(static_page_topic1_page2.title["en"])
               expect(page).to have_no_content(static_page_topic2.title["en"])
               expect(page).to have_no_content(static_page_topic3.title["en"])
 
               expect(page).to have_link(
-                static_page_topic1.title["en"],
+                static_page_topic1_page2.title["en"],
                 href: "/pages/#{static_page_topic1_page2.slug}"
+              )
+              expect(page).to have_no_link(
+                static_page_topic1_page1.title["en"],
+                href: "/pages/#{static_page_topic1_page1.slug}"
               )
             end
           end
@@ -257,21 +265,33 @@ describe "Homepage", type: :system do
 
             it_behaves_like "accessible page"
 
-            it "displays all pages and topics in footer that are configured to display in footer" do
+            it "displays all pages and topics with pages in footer that are configured to display in footer" do
               expect(page).to have_content(static_page1.title["en"])
               expect(page).to have_content(static_page2.title["en"])
               expect(page).to have_no_content(static_page3.title["en"])
               expect(page).to have_content(static_page_topic1.title["en"])
+              expect(page).to have_content(static_page_topic1_page1.title["en"])
+              expect(page).to have_content(static_page_topic1_page2.title["en"])
               expect(page).to have_content(static_page_topic2.title["en"])
+              expect(page).to have_content(static_page_topic2_page1.title["en"])
+              expect(page).to have_no_content(static_page_topic2_page2.title["en"])
               expect(page).to have_no_content(static_page_topic3.title["en"])
 
               expect(page).to have_link(
-                static_page_topic1.title["en"],
+                static_page_topic1_page2.title["en"],
+                href: "/pages/#{static_page_topic1_page2.slug}"
+              )
+              expect(page).to have_link(
+                static_page_topic1_page1.title["en"],
                 href: "/pages/#{static_page_topic1_page1.slug}"
               )
               expect(page).to have_link(
-                static_page_topic2.title["en"],
+                static_page_topic2_page1.title["en"],
                 href: "/pages/#{static_page_topic2_page1.slug}"
+              )
+              expect(page).to have_no_link(
+                static_page_topic2_page2.title["en"],
+                href: "/pages/#{static_page_topic2_page2.slug}"
               )
             end
           end
