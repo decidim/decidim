@@ -8,7 +8,7 @@ module Decidim
       describe CreateQuestion do
         subject { described_class.new(form) }
 
-        let(:organization) { create :organization }
+        let(:organization) { create(:organization) }
         let(:consultation) { create(:consultation, organization:) }
         let(:scope) { create(:scope, organization:) }
         let(:errors) { double.as_null_object }

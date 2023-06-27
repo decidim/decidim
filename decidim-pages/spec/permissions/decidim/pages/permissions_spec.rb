@@ -5,14 +5,14 @@ require "spec_helper"
 describe Decidim::Pages::Permissions do
   subject { described_class.new(user, permission_action, context).permissions.allowed? }
 
-  let(:user) { build :user }
+  let(:user) { build(:user) }
   let(:space_allows) { true }
   let(:context) do
     {
       current_component: page_component
     }
   end
-  let(:page_component) { create :page_component }
+  let(:page_component) { create(:page_component) }
   let(:permission_action) { Decidim::PermissionAction.new(**action) }
 
   context "when updating a page" do

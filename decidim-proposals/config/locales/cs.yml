@@ -118,16 +118,18 @@ cs:
             values:
               accepted: Přijato
               evaluating: Hodnocení
+              not_answered: Nezodpovězeno
               published: Publikováno
               rejected: Zamítnuto
               validating: Technické ověření
               withdrawn: Odebráno
-          state_null:
-            label: Stav
-            values:
-              'true': Nezodpovězeno
           valuator_role_ids_has:
             label: Přiřazeno k hodnotiteli
+          with_any_state:
+            label: Odpovězeno
+            values:
+              state_not_published: Nezodpovězeno
+              state_published: Odpovězeno
         search_placeholder:
           id_string_or_title_cont: Hledat %{collection} podle ID nebo názvu.
     components:

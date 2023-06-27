@@ -8,9 +8,9 @@ describe "Organizations", type: :system do
   shared_examples "form hiding advanced settings" do
     it "hides advanced settings" do
       expect(page).to have_content "Show advanced settings"
-      expect(page).to have_no_content "SMTP settings"
-      expect(page).to have_no_content "Omniauth settings"
-      expect(page).to have_no_content "File upload settings"
+      expect(page).not_to have_content "SMTP settings"
+      expect(page).not_to have_content "Omniauth settings"
+      expect(page).not_to have_content "File upload settings"
     end
   end
 

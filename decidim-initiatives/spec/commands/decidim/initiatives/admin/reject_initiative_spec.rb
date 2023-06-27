@@ -8,11 +8,11 @@ module Decidim
       describe RejectInitiative do
         subject { described_class.new(initiative, user) }
 
-        let(:initiative) { create :initiative, :validating }
-        let(:user) { create :user, :admin, :confirmed, organization: initiative.organization }
+        let(:initiative) { create(:initiative, :validating) }
+        let(:user) { create(:user, :admin, :confirmed, organization: initiative.organization) }
 
         context "when the initiative is already rejected" do
-          let(:initiative) { create :initiative, :rejected }
+          let(:initiative) { create(:initiative, :rejected) }
 
           it "broadcasts :invalid" do
             expect { subject.call }.to broadcast(:invalid)

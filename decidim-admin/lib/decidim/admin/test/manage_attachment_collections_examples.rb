@@ -95,7 +95,7 @@ shared_examples "manage attachment collections examples" do
         expect(page).to have_admin_callout("successfully")
 
         within "#attachment_collections table" do
-          expect(page).to have_no_content(translated(attachment_collection2.name))
+          expect(page).not_to have_content(translated(attachment_collection2.name))
         end
       end
     end
@@ -109,7 +109,7 @@ shared_examples "manage attachment collections examples" do
 
       it "cannot delete it" do
         within find("tr", text: translated(attachment_collection.name)) do
-          expect(page).to have_no_selector("a.action-icon--remove")
+          expect(page).not_to have_selector("a.action-icon--remove")
         end
       end
     end

@@ -8,6 +8,7 @@ module Decidim
 
       class ApplicationController < ::Decidim::ApplicationController
         include Decidim::UserProfile
+        include Decidim::Elections::ContentSecurityPolicy
 
         helper_method :trustee
 

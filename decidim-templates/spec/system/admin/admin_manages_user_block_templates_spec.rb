@@ -3,13 +3,17 @@
 require "spec_helper"
 
 describe "Admin manages user block templates", type: :system do
-  let!(:organization) { create :organization }
-  let!(:user) { create :user, :confirmed, organization: }
+  let!(:organization) { create(:organization) }
+  let!(:user) { create(:user, :confirmed, :admin, organization:) }
 
   before do
     switch_to_host(organization.host)
     login_as user, scope: :user
     visit decidim_admin_templates.block_user_templates_path
+  end
+
+  it_behaves_like "needs admin TOS accepted" do
+    let(:user) { create(:user, :admin, :confirmed, admin_terms_accepted_at: nil, organization:) }
   end
 
   describe "listing templates" do

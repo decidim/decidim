@@ -7,7 +7,7 @@ module Decidim::Admin::ContentBlocks
     subject { described_class.new(*args) }
 
     let(:args) { [organization, scope, order] }
-    let(:organization) { create :organization }
+    let(:organization) { create(:organization) }
     let(:scope) { :homepage }
     let(:resource1) do
       create(:newsletter, organization:)

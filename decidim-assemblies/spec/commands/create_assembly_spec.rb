@@ -6,11 +6,11 @@ module Decidim::Assemblies
   describe Admin::CreateAssembly do
     subject { described_class.new(form) }
 
-    let(:organization) { create :organization }
-    let(:current_user) { create :user, :admin, :confirmed, organization: }
-    let(:assembly_type) { create :assemblies_type, organization: }
-    let(:scope) { create :scope, organization: }
-    let(:area) { create :area, organization: }
+    let(:organization) { create(:organization) }
+    let(:current_user) { create(:user, :admin, :confirmed, organization:) }
+    let(:assembly_type) { create(:assemblies_type, organization:) }
+    let(:scope) { create(:scope, organization:) }
+    let(:area) { create(:area, organization:) }
     let(:errors) { double.as_null_object }
     let(:participatory_processes) do
       create_list(
@@ -193,8 +193,8 @@ module Decidim::Assemblies
       end
 
       context "when sorting by weight" do
-        let!(:process_one) { create :participatory_process, organization:, weight: 2 }
-        let!(:process_two) { create :participatory_process, organization:, weight: 1 }
+        let!(:process_one) { create(:participatory_process, organization:, weight: 2) }
+        let!(:process_two) { create(:participatory_process, organization:, weight: 1) }
         let(:related_process_ids) { [process_one.id, process_two.id] }
 
         it "links processes in right way" do
@@ -206,8 +206,8 @@ module Decidim::Assemblies
       end
 
       context "when linking draft processes" do
-        let!(:process_one) { create :participatory_process, :unpublished, organization:, weight: 2 }
-        let!(:process_two) { create :participatory_process, organization:, weight: 1 }
+        let!(:process_one) { create(:participatory_process, :unpublished, organization:, weight: 2) }
+        let!(:process_two) { create(:participatory_process, organization:, weight: 1) }
         let(:related_process_ids) { [process_one.id, process_two.id] }
 
         it "links processes in right way" do

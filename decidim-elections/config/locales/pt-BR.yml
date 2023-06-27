@@ -17,6 +17,7 @@ pt-BR:
         title: Título
       voting:
         end_time: Votação termina
+        scope_id: Escopo
         start_time: A votação começa
     errors:
       models:

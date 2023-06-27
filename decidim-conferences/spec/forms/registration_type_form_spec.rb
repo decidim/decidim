@@ -8,8 +8,8 @@ module Decidim
       describe RegistrationTypeForm do
         subject(:form) { described_class.from_params(attributes).with_context(context) }
 
-        let(:organization) { create :organization }
-        let(:conference) { create :conference, organization: }
+        let(:organization) { create(:organization) }
+        let(:conference) { create(:conference, organization:) }
         let(:current_participatory_space) { conference }
         let(:context) do
           {

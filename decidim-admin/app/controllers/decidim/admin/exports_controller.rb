@@ -7,7 +7,7 @@ module Decidim
       include Decidim::ComponentPathHelper
 
       def create
-        enforce_permission_to :export, :component_data, component: component
+        enforce_permission_to(:export, :component_data, component:)
         name = params[:id]
 
         Decidim.traceability.perform_action!("export_component", component, current_user, { name:, format: params[:format] || default_format }) do

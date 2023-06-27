@@ -88,7 +88,7 @@ module Decidim
         end
       end
 
-      initializer "decidim_conferences.admin_conferences_components_menu" do
+      initializer "decidim_conferences_admin.components_menu" do
         Decidim.menu :admin_conferences_components_menu do |menu|
           current_participatory_space.components.each do |component|
             caption = translated_attribute(component.name)
@@ -107,7 +107,7 @@ module Decidim
           end
         end
       end
-      initializer "decidim_conferences.conferences_admin_registrations_menu" do
+      initializer "decidim_conferences_admin.registrations_menu" do
         Decidim.menu :conferences_admin_registrations_menu do |menu|
           menu.add_item :conference_registration_types,
                         I18n.t("registration_types", scope: "decidim.admin.menu.conferences_submenu"),
@@ -134,7 +134,7 @@ module Decidim
                         if: allowed_to?(:update, :conference, conference: current_participatory_space)
         end
       end
-      initializer "decidim_conferences.conferences_admin_attachments_menu" do
+      initializer "decidim_conferences_admin.attachments_menu" do
         Decidim.menu :conferences_admin_attachments_menu do |menu|
           menu.add_item :conference_attachment_collections,
                         I18n.t("attachment_collections", scope: "decidim.admin.menu.conferences_submenu"),
@@ -149,7 +149,7 @@ module Decidim
                         if: allowed_to?(:read, :attachment, conference: current_participatory_space)
         end
       end
-      initializer "decidim_conferences.conferences_admin_menu" do
+      initializer "decidim_conferences_admin.conferences_menu" do
         Decidim.menu :conferences_admin_menu do |menu|
           menu.add_item :edit_conference,
                         I18n.t("info", scope: "decidim.admin.menu.conferences_submenu"),
@@ -221,7 +221,7 @@ module Decidim
         end
       end
 
-      initializer "decidim_conferences.admin_menu" do
+      initializer "decidim_conferences_admin.menu" do
         Decidim.menu :admin_menu do |menu|
           menu.add_item :conferences,
                         I18n.t("menu.conferences", scope: "decidim.admin"),

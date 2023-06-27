@@ -34,6 +34,12 @@ module Decidim
         content_handle_locale(meeting.description, all_locales, extras, links, strip_tags)
       end
 
+      def editor_description(all_locales: false, extras: true)
+        return unless meeting
+
+        editor_locales(meeting.description, all_locales, extras:)
+      end
+
       def location(all_locales: false)
         return unless meeting
 

@@ -8,7 +8,7 @@ module Decidim
 
     include_context "when a resource is ready for global search"
 
-    let(:current_component) { create :post_component, organization: }
+    let(:current_component) { create(:post_component, organization:) }
 
     let!(:resource) do
       create(
@@ -82,7 +82,7 @@ module Decidim
             on(:ok) do |results_by_type|
               results = results_by_type[resource.class.name]
               expect(results[:count]).to eq 2
-              expect(results[:results]).to match_array [resource, resource2]
+              expect(results[:results]).to contain_exactly(resource, resource2)
             end
             on(:invalid) { raise("Should not happen") }
           end

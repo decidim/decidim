@@ -4,8 +4,8 @@ require "spec_helper"
 
 describe "Follow users", type: :system do
   let!(:organization) { create(:organization) }
-  let(:user) { create :user, :confirmed, organization: }
-  let!(:followable) { create :user, :confirmed, organization: }
+  let(:user) { create(:user, :confirmed, organization:) }
+  let!(:followable) { create(:user, :confirmed, organization:) }
 
   before do
     switch_to_host(organization.host)

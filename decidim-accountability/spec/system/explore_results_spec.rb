@@ -2,12 +2,12 @@
 
 require "spec_helper"
 
-describe "Explore results", versioning: true, type: :system do
+describe "Explore results", type: :system, versioning: true do
   include_context "with a component"
 
   let(:manifest_name) { "accountability" }
   let(:results_count) { 5 }
-  let!(:scope) { create :scope, organization: }
+  let!(:scope) { create(:scope, organization:) }
   let!(:results) do
     create_list(
       :result,
@@ -23,11 +23,11 @@ describe "Explore results", versioning: true, type: :system do
   end
 
   describe "home" do
-    let!(:other_category) { create :category, participatory_space: }
-    let!(:other_scope) { create :scope, organization: }
+    let!(:other_category) { create(:category, participatory_space:) }
+    let!(:other_scope) { create(:scope, organization:) }
 
-    let(:subcategory) { create :subcategory, parent: category }
-    let(:other_subcategory) { create :subcategory, parent: other_category }
+    let(:subcategory) { create(:subcategory, parent: category) }
+    let(:other_subcategory) { create(:subcategory, parent: other_category) }
 
     let(:path) { decidim_participatory_process_accountability.root_path(participatory_process_slug: participatory_process.slug, component_id: component.id) }
 
@@ -62,9 +62,9 @@ describe "Explore results", versioning: true, type: :system do
       it "does not show progress" do
         visit path
 
-        expect(page).to have_no_content("Global execution status")
+        expect(page).not_to have_content("Global execution status")
         within("aside") do
-          expect(page).to have_no_selector(".accountability__status-value")
+          expect(page).not_to have_selector(".accountability__status-value")
         end
       end
     end
@@ -143,8 +143,8 @@ describe "Explore results", versioning: true, type: :system do
     end
 
     context "with a category and a scope" do
-      let!(:category) { create :category, participatory_space: participatory_process }
-      let!(:scope) { create :scope, organization: }
+      let!(:category) { create(:category, participatory_space: participatory_process) }
+      let!(:scope) { create(:scope, organization:) }
       let!(:result) do
         result = results.first
         result.category = category
@@ -206,7 +206,7 @@ describe "Explore results", versioning: true, type: :system do
 
     context "without category or scope" do
       it "does not show any tag" do
-        expect(page).to have_no_selector("ul.tags.tag-container")
+        expect(page).not_to have_selector("ul.tags.tag-container")
       end
     end
 
@@ -229,7 +229,7 @@ describe "Explore results", versioning: true, type: :system do
     context "with a scope" do
       let(:result) do
         result = results.first
-        result.scope = create :scope, organization: organization
+        result.scope = create(:scope, organization:)
         result.save
         result
       end
@@ -357,7 +357,7 @@ describe "Explore results", versioning: true, type: :system do
         end
 
         it "disables filtering by scope" do
-          expect(page).to have_no_selector("[data-scope-filters]")
+          expect(page).not_to have_selector("[data-scope-filters]")
         end
       end
 

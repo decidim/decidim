@@ -158,7 +158,7 @@ describe "Initiative", type: :system do
       it "shows the components" do
         within ".process-nav" do
           expect(page).to have_content(translated(meetings_component.name, locale: :en).upcase)
-          expect(page).to have_no_content(translated(proposals_component.name, locale: :en).upcase)
+          expect(page).not_to have_content(translated(proposals_component.name, locale: :en).upcase)
         end
       end
 

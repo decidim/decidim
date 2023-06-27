@@ -377,6 +377,10 @@ Decidim.configure do |config|
   #   }
   # ]
 
+  # Defines additional content security policies following the structure
+  # Read more: https://docs.decidim.org/en/develop/configure/initializer/#_content-security-policy
+  config.content_security_policies_extra = {}
+
   # Admin admin password configurations
   Rails.application.secrets.dig(:decidim, :admin_password, :strong).tap do |strong_pw|
     # When the strong password is not configured, default to true
@@ -474,7 +478,7 @@ end
 
 if Decidim.module_installed? :elections
   Decidim::Elections.configure do |config|
-    config.setup_minimum_hours_before_start = Rails.application.secrets.dig(:elections, :setup_minimum_hours_before_start).presence || 3
+    config.setup_minimum_hours_before_start = Rails.application.secrets.dig(:elections, :setup_minimum_hours_before_start).presence || 1
     config.start_vote_maximum_hours_before_start = Rails.application.secrets.dig(:elections, :start_vote_maximum_hours_before_start).presence || 6
     config.voter_token_expiration_minutes = Rails.application.secrets.dig(:elections, :voter_token_expiration_minutes).presence || 120
   end

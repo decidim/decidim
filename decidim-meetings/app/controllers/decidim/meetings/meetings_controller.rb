@@ -18,6 +18,8 @@ module Decidim
 
       helper_method :meetings, :meeting, :registration, :search
 
+      before_action :add_addtional_csp_directives, only: [:show]
+
       def new
         enforce_permission_to :create, :meeting
 
@@ -65,13 +67,13 @@ module Decidim
       end
 
       def edit
-        enforce_permission_to :update, :meeting, meeting: meeting
+        enforce_permission_to(:update, :meeting, meeting:)
 
         @form = meeting_form.from_model(meeting)
       end
 
       def update
-        enforce_permission_to :update, :meeting, meeting: meeting
+        enforce_permission_to(:update, :meeting, meeting:)
 
         @form = meeting_form.from_params(params)
 
@@ -89,7 +91,7 @@ module Decidim
       end
 
       def withdraw
-        enforce_permission_to :withdraw, :meeting, meeting: meeting
+        enforce_permission_to(:withdraw, :meeting, meeting:)
 
         WithdrawMeeting.call(@meeting, current_user) do
           on(:ok) do

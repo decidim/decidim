@@ -9,13 +9,13 @@ module Decidim
         helper_method :authorization
 
         def new
-          enforce_permission_to :create, :authorization, authorization: authorization
+          enforce_permission_to(:create, :authorization, authorization:)
 
           @form = MobilePhoneForm.new
         end
 
         def create
-          enforce_permission_to :create, :authorization, authorization: authorization
+          enforce_permission_to(:create, :authorization, authorization:)
 
           @form = MobilePhoneForm.from_params(params.merge(user: current_user))
 
@@ -33,13 +33,13 @@ module Decidim
         end
 
         def edit
-          enforce_permission_to :update, :authorization, authorization: authorization
+          enforce_permission_to(:update, :authorization, authorization:)
 
           @form = ConfirmationForm.from_params(params)
         end
 
         def update
-          enforce_permission_to :update, :authorization, authorization: authorization
+          enforce_permission_to(:update, :authorization, authorization:)
 
           @form = ConfirmationForm.from_params(params)
 
@@ -58,7 +58,7 @@ module Decidim
         end
 
         def destroy
-          enforce_permission_to :destroy, :authorization, authorization: authorization
+          enforce_permission_to(:destroy, :authorization, authorization:)
 
           authorization.destroy!
           flash[:notice] = t("authorizations.destroy.success", scope: "decidim.verifications.sms")

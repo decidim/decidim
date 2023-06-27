@@ -21,7 +21,7 @@ describe "Assembly members", type: :system do
       visit decidim_assemblies.assembly_path(assembly)
 
       within ".main-nav" do
-        expect(page).to have_no_content("Members")
+        expect(page).not_to have_content("Members")
       end
     end
   end
@@ -49,7 +49,7 @@ describe "Assembly members", type: :system do
         visit decidim_assemblies.assembly_path(assembly)
 
         within ".process-header" do
-          expect(page).to have_no_content("MEMBERS")
+          expect(page).not_to have_content("MEMBERS")
         end
       end
     end

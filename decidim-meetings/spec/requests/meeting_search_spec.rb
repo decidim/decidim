@@ -8,8 +8,8 @@ RSpec.describe "Meeting search", type: :request do
 
   subject { response.body }
 
-  let(:component) { create :meeting_component }
-  let(:user) { create :user, :confirmed, organization: }
+  let(:component) { create(:meeting_component) }
+  let(:user) { create(:user, :confirmed, organization:) }
   let(:participatory_space) { component.participatory_space }
   let(:organization) { participatory_space.organization }
   let(:filter_params) { {} }

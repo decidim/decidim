@@ -2,7 +2,7 @@
 
 shared_examples "copy assemblies" do
   let!(:assembly) { create(:assembly, organization:) }
-  let!(:component) { create :component, manifest_name: :dummy, participatory_space: assembly }
+  let!(:component) { create(:component, manifest_name: :dummy, participatory_space: assembly) }
   let!(:category) do
     create(
       :category,

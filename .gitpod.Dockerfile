@@ -3,7 +3,8 @@ USER root
 
 # Install PostgreSQL
 ENV PGVERSION=14
-RUN apt-get install -y postgresql postgresql-client postgresql-server-dev-${PGVERSION} libpq-dev
+RUN apt-get update \
+  && apt-get install -y postgresql postgresql-client postgresql-server-dev-${PGVERSION} libpq-dev
 
 # Setup the database user env vars, drop the default database cluster and change the folders to the workspace
 # This makes it possible to persist the database within the workspace

@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim::Budgets
   describe OrderSummaryMailer, type: :mailer do
-    let(:order) { create :order, :with_projects }
+    let(:order) { create(:order, :with_projects) }
     let(:user) { order.user }
     let(:space) { order.budget.participatory_space }
     let(:organization) { space.organization }

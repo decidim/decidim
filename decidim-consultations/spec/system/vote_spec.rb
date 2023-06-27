@@ -4,7 +4,7 @@ require "spec_helper"
 
 describe "Question vote", type: :system do
   let(:organization) { create(:organization) }
-  let(:question) { create :question, :published, consultation: }
+  let(:question) { create(:question, :published, consultation:) }
 
   context "when upcoming consultation" do
     let(:consultation) { create(:consultation, :published, :upcoming, organization:) }
@@ -25,7 +25,7 @@ describe "Question vote", type: :system do
 
   context "when finished consultation" do
     let(:consultation) { create(:consultation, :finished, organization:) }
-    let(:user) { create :user, :confirmed, organization: }
+    let(:user) { create(:user, :confirmed, organization:) }
 
     context "and guest user" do
       before do
@@ -60,7 +60,7 @@ describe "Question vote", type: :system do
       end
 
       context "and voted before" do
-        let!(:vote) { create :vote, author: user, question: }
+        let!(:vote) { create(:vote, author: user, question:) }
 
         before do
           switch_to_host(organization.host)
@@ -78,7 +78,7 @@ describe "Question vote", type: :system do
 
   context "when active consultation" do
     let(:consultation) { create(:consultation, :active, organization:) }
-    let(:user) { create :user, :confirmed, organization: }
+    let(:user) { create(:user, :confirmed, organization:) }
 
     context "and guest user" do
       before do
@@ -97,7 +97,7 @@ describe "Question vote", type: :system do
     end
 
     context "and authenticated user" do
-      let!(:response) { create :response, question: }
+      let!(:response) { create(:response, question:) }
 
       context "and never voted before" do
         before do
@@ -120,7 +120,7 @@ describe "Question vote", type: :system do
 
       context "and voted before" do
         let!(:vote) do
-          create :vote, author: user, question:, response:
+          create(:vote, author: user, question:, response:)
         end
 
         before do
@@ -143,8 +143,8 @@ describe "Question vote", type: :system do
 
   context "when verification is required" do
     let(:consultation) { create(:consultation, :active, organization:) }
-    let(:user) { create :user, :confirmed, organization: }
-    let!(:response) { create :response, question: }
+    let(:user) { create(:user, :confirmed, organization:) }
+    let!(:response) { create(:response, question:) }
     let(:permissions) do
       {
         vote: {

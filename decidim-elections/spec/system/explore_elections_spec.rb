@@ -127,7 +127,7 @@ describe "Explore elections", :slow, type: :system do
         Decidim::Elections::Election.destroy_all
       end
 
-      let!(:collection) { create_list :election, collection_size, :complete, :published, :ongoing, component: }
+      let!(:collection) { create_list(:election, collection_size, :complete, :published, :ongoing, component:) }
       let!(:resource_selector) { ".card--election" }
 
       it_behaves_like "a paginated resource"
@@ -173,7 +173,7 @@ describe "Explore elections", :slow, type: :system do
 
   context "with results" do
     let(:election) { create(:election, :published, :results_published, component:) }
-    let(:question) { create :question, :with_votes, election: }
+    let(:question) { create(:question, :with_votes, election:) }
 
     before do
       election.update!(questions: [question])

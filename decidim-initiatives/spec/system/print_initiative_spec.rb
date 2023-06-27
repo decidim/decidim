@@ -39,7 +39,7 @@ describe "User prints the initiative", type: :system do
     end
 
     context "and the organization has a logo" do
-      let(:organization) { create :organization, logo: Decidim::Dev.test_file("avatar.jpg", "image/jpeg") }
+      let(:organization) { create(:organization, logo: Decidim::Dev.test_file("avatar.jpg", "image/jpeg")) }
 
       it "shows a printable form when created" do
         within "[data-content]" do

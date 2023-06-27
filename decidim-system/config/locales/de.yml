@@ -43,6 +43,9 @@ de:
       admins:
         create:
           error: Beim Erstellen eines neuen Administrators ist ein Fehler aufgetreten.
+          success: Admin erfolgreich erstellt.
+        destroy:
+          success: Admin erfolgreich gelöscht.
         edit:
           title: Administrator bearbeiten
           update: Aktualisieren
@@ -53,12 +56,14 @@ de:
           title: Neuer Administrator
         update:
           error: Beim Aktualisieren dieses Administrators ist ein Fehler aufgetreten.
+          success: Admin erfolgreich aktualisiert.
       dashboard:
         show:
           current_organizations: Aktuelle Organisationen
       default_pages:
         placeholders:
           content: Fügen Sie der statischen Seite %{page} im Admin-Dashboard sinnvollen Inhalt hinzu.
+          summary: Fügen Sie der statischen Seite %{page} im Admin-Dashboard eine sinnvolle Zusammenfassung hinzu.
           title: Standardtitel für %{page}
       menu:
         admins: Admins
@@ -140,6 +145,8 @@ de:
         index:
           title: Organisationen
         new:
+          reference_prefix_hint: Das Referenzpräfix wird zur eindeutigen Identifizierung von Ressourcen in allen Organisationen verwendet.
+          secondary_hosts_hint: Geben Sie jede von ihnen in einer neuen Zeile ein.
           title: Neue Organisation
         omniauth_settings:
           decidim:
@@ -162,6 +169,8 @@ de:
         smtp_settings:
           fieldsets:
             sender: Absender
+          instructions:
+            from_label: 'E-Mail-Absender lautet: "Ihr-Organisationsname <your-organization@example.org>". Leer lassen, um die E-Mail-Adresse als Absender zu verwenden.'
           placeholder:
             from_email: deine-organisation@example.org
             from_label: name-ihrer-organisation
@@ -171,6 +180,7 @@ de:
         users_registration_mode:
           disabled: Der Zugriff kann nur mit externen Konten erfolgen
           enabled: Benutzern erlauben, sich zu registrieren und sich anzumelden
+          existing: Teilnehmende können sich nicht neu registrieren, bestehende teilnehmende sich aber weiterhin anmelden
       shared:
         notices:
           no_organization_warning_html: Sie müssen eine Organisation erstellen, um zu beginnen. Stellen Sie sicher, dass Sie %{guide} lesen, bevor Sie fortfahren.

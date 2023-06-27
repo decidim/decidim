@@ -22,6 +22,8 @@ de:
             choices:
               missing: sind nicht vollständig
               too_many: sind zu viele
+        questionnaire:
+          request_invalid: Beim Bearbeiten der Anfrage ist ein Fehler aufgetreten. Bitte versuchen Sie es nochmal.
   decidim:
     forms:
       admin:
@@ -42,6 +44,8 @@ de:
             actions:
               back: Zurück zu Antworten
               export: Exportieren
+              next: Nächste &rsaquo;
+              previous: "&lsaquo; Vorherige"
               show: Antworten anzeigen
             empty: Noch keine Antworten
             export:
@@ -122,6 +126,9 @@ de:
       admin_log:
         questionnaire:
           update: "%{user_name} hat die Umfrage %{resource_name} aktualisiert"
+      errors:
+        answer:
+          body: Textkörper kann nicht leer sein
       images:
         dimensions: "%{width} x %{height} px"
         processors:
@@ -137,6 +144,8 @@ de:
         single_option: Einzelne Option
         sorting: Sortierung
         title_and_description: Titel und Beschreibung
+      questionnaire_answer_presenter:
+        download_attachment: Anhang herunterladen
       questionnaires:
         answer:
           invalid: Bei der Beantwortung des Fragebogens sind Fehler aufgetreten.
@@ -146,7 +155,11 @@ de:
           max_choices: 'Max Auswahlmöglichkeiten: %{n}'
         show:
           answer_questionnaire:
+            already_have_an_account?: Haben Sie bereits ein Konto?
             anonymous_user_message: <a href="%{sign_in_link}">Melden Sie sich mit Ihrem Konto an</a> oder <a href="%{sign_up_link}">Melden Sie sich an</a> , um den Fragebogen zu beantworten.
+            are_you_new?: Neue Teilnehmer*in?
+            sign_in_description: Melden Sie sich an, um an der Umfrage teilzunehmen
+            sign_up_description: Erstellen Sie ein Nutzendenkonto, um an der Umfrage teilzunehmen
             title: Beantworten Sie den Fragebogen
           current_step: Schritt %{step}
           of_total_steps: von %{total_steps}
@@ -165,6 +178,7 @@ de:
           questionnaire_not_published:
             body: Dieses Formular ist noch nicht veröffentlicht.
           tos_agreement: Mit der Teilnahme stimmen Sie den Nutzungsbedingungen zu
+          upload_file: Datei hochladen
       step_navigation:
         show:
           are_you_sure: Diese Aktion kann nicht rückgängig gemacht werden und Sie können Ihre Antworten nicht bearbeiten. Bist du sicher?

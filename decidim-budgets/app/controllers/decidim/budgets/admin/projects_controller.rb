@@ -42,13 +42,13 @@ module Decidim
         end
 
         def edit
-          enforce_permission_to :update, :project, project: project
+          enforce_permission_to(:update, :project, project:)
           @form = form(ProjectForm).from_model(project)
           @form.attachment = form(AttachmentForm).instance
         end
 
         def update
-          enforce_permission_to :update, :project, project: project
+          enforce_permission_to(:update, :project, project:)
           @form = form(ProjectForm).from_params(params, budget:)
 
           UpdateProject.call(@form, project) do
@@ -65,7 +65,7 @@ module Decidim
         end
 
         def destroy
-          enforce_permission_to :destroy, :project, project: project
+          enforce_permission_to(:destroy, :project, project:)
 
           DestroyProject.call(project, current_user) do
             on(:ok) do

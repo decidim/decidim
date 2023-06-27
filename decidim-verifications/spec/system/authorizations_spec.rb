@@ -8,7 +8,7 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
   end
 
   context "when a new user" do
-    let(:organization) { create :organization, available_authorizations: authorizations }
+    let(:organization) { create(:organization, available_authorizations: authorizations) }
 
     let(:user) { create(:user, :confirmed, organization:) }
 
@@ -133,7 +133,7 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
   end
 
   context "when existing user from their account" do
-    let(:organization) { create :organization, available_authorizations: authorizations }
+    let(:organization) { create(:organization, available_authorizations: authorizations) }
     let(:user) { create(:user, :confirmed, organization:) }
 
     before do
@@ -162,7 +162,7 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
 
         within ".authorizations-list" do
           expect(page).to have_content("Example authorization")
-          expect(page).to have_no_link(text: /Example authorization/)
+          expect(page).not_to have_link(text: /Example authorization/)
         end
       end
 
@@ -207,8 +207,8 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
             visit_authorizations
 
             within ".authorizations-list" do
-              expect(page).to have_no_link(text: /Example authorization/)
-              expect(page).to have_no_css(".authorization-renewable")
+              expect(page).not_to have_link(text: /Example authorization/)
+              expect(page).not_to have_css(".authorization-renewable")
             end
           end
         end
@@ -262,7 +262,7 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
           visit_authorizations
 
           within ".authorizations-list" do
-            expect(page).to have_no_link(text: /Example authorization/)
+            expect(page).not_to have_link(text: /Example authorization/)
             expect(page).to have_content(I18n.l(authorization.granted_at, format: :long_with_particles))
           end
         end
@@ -298,7 +298,7 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
 
       it "does not list authorizations" do
         visit decidim_verifications.authorizations_path
-        expect(page).to have_no_link("Authorizations")
+        expect(page).not_to have_link("Authorizations")
       end
     end
   end

@@ -9,7 +9,7 @@ module Decidim
         let(:form) do
           UpdateOrganizationForm.new(params)
         end
-        let(:organization) { create :organization, name: "My organization" }
+        let(:organization) { create(:organization, name: "My organization") }
 
         let(:command) { described_class.new(organization.id, form) }
 
@@ -50,7 +50,7 @@ module Decidim
 
             expect(organization.name).to eq("Gotham City")
             expect(organization.host).to eq("decide.gotham.gov")
-            expect(organization.secondary_hosts).to match_array(["foo.gotham.gov", "bar.gotham.gov"])
+            expect(organization.secondary_hosts).to contain_exactly("foo.gotham.gov", "bar.gotham.gov")
             expect(organization.users_registration_mode).to eq("existing")
             expect(organization.smtp_settings["from"]).to eq("Decide Gotham <decide@gotham.gov>")
             expect(organization.smtp_settings["from_email"]).to eq("decide@gotham.gov")

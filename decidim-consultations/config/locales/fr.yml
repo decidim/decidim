@@ -361,6 +361,10 @@ fr:
         actions:
           comment: Commenter
           vote: Voter
+      question:
+        actions:
+          comment: Commenter
+          vote: Voter
     statistics:
       consultations_count: Consultations
       votes_count: Votes

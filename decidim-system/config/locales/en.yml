@@ -66,6 +66,7 @@ en:
           content: Please add meaningful content to the %{page} static page on the admin dashboard.
           summary: Please add meaningful summary to the %{page} static page on the admin dashboard.
           title: Default title for %{page}
+        terms-of-service: Terms of service
       menu:
         admins: Admins
         dashboard: Dashboard
@@ -89,6 +90,7 @@ en:
           actions:
             save_and_invite: Create organization & invite admin
           fields:
+            content_security_policy: Content security policy
             created_at: Created at
             file_upload_settings: File upload settings
             name: Name
@@ -123,6 +125,39 @@ en:
         create:
           error: There was a problem creating a new organization.
           success: Organization successfully created.
+        csp_settings:
+          connect_src: Connect src
+          connect_src_hint: |
+            The connect-src directive restricts the URLs which can be loaded using <script> elements.
+            Decidim will add 'self', but allows you to add more. leave it blank if you are unsure.
+          default_src: Default src
+          default_src_hint: |
+            The default-src directive is the default policy for loading content such as JavaScript, Images, CSS, Fonts, AJAX requests, Frames, HTML5 Media.
+            Decidim will add "'self' 'unsafe-inline'", but allows you to add more. leave it blank if you are unsure.
+          font_src: Font src
+          font_src_hint: |
+            The font-src directive restricts the URLs which can be loaded using @font-face.
+            Decidim will add 'self', but allows you to add more. leave it blank if you are unsure.
+          frame_src: Frame src
+          frame_src_hint: |
+            The frame-src directive restricts the URLs which can be loaded using <frame>, <iframe> and <object> elements.
+            Decidim will add 'self', but allows you to add more. leave it blank if you are unsure.
+          img_src: Img src
+          img_src_hint: |
+            The img-src directive restricts the URLs which can be loaded using <img>, <image>, <picture> and <svg> elements.
+            Decidim will add 'self', but allows you to add more. leave it blank if you are unsure.
+          media_src: Media src
+          media_src_hint: |
+            The media-src directive restricts the URLs which can be loaded using the <video>, <audio> and <source> elements.
+            Decidim will add 'self', but allows you to add more. leave it blank if you are unsure.
+          script_src: Script src
+          script_src_hint: |
+            The script-src directive restricts the URLs which can be loaded using <script> elements.
+            Decidim will add "'self' 'unsafe-inline' 'unsafe-eval'", but allows you to add more. leave it blank if you are unsure.
+          style_src: Style src
+          style_src_hint: |
+            The style-src directive restricts the URLs which can be loaded using <style> elements.
+            Decidim will add "'self' 'unsafe-inline'", but allows you to add more. leave it blank if you are unsure.
         edit:
           secondary_hosts_hint: Enter each one of them in a new line
         file_upload_settings:

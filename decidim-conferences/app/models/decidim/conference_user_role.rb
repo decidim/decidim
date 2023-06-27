@@ -11,6 +11,8 @@ module Decidim
     belongs_to :conference, foreign_key: "decidim_conference_id", class_name: "Decidim::Conference", optional: true
     alias participatory_space conference
 
+    scope :for_space, ->(participatory_space) { where(conference: participatory_space) }
+
     validates :role, inclusion: { in: ParticipatorySpaceUser::ROLES }, uniqueness: { scope: [:user, :conference] }
     def target_space_association = :conference
 

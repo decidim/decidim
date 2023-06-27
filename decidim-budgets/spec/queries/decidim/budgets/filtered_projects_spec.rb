@@ -8,11 +8,11 @@ describe Decidim::Budgets::FilteredProjects do
   let(:component) { create(:budgets_component, participatory_space: participatory_process) }
   let(:another_component) { create(:budgets_component, participatory_space: participatory_process) }
 
-  let(:budget) { create :budget, component: }
+  let(:budget) { create(:budget, component:) }
   let(:projects) { create_list(:project, 3, budget:) }
-  let(:third_budget) { create :budget, :with_projects, component: }
+  let(:third_budget) { create(:budget, :with_projects, component:) }
   let(:old_projects) { create_list(:project, 3, budget:, created_at: 10.days.ago) }
-  let(:another_budget) { create :budget, component: another_component }
+  let(:another_budget) { create(:budget, component: another_component) }
   let(:another_projects) { create_list(:project, 3, budget: another_budget) }
 
   it "returns projects included in a collection of components" do

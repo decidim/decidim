@@ -8,9 +8,9 @@ module Decidim
       describe SendInitiativeToTechnicalValidation do
         subject { described_class.new(initiative, user) }
 
-        let(:initiative) { create :initiative }
+        let(:initiative) { create(:initiative) }
         let(:organization) { initiative.organization }
-        let(:user) { create :user, :admin, :confirmed, organization: }
+        let(:user) { create(:user, :admin, :confirmed, organization:) }
         let!(:another_admin) { create(:user, :admin, organization:) }
 
         context "when everything is ok" do

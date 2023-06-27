@@ -14,7 +14,7 @@ module Decidim
         end
 
         let(:current_organization) { create(:organization) }
-        let(:current_user) { create :user, organization: current_organization }
+        let(:current_user) { create(:user, organization: current_organization) }
         let(:another_user) { create(:user, organization: current_organization) }
         let(:user_group) { create(:user_group, :verified, organization: current_organization) }
         let(:decidim_author_id) { "" }

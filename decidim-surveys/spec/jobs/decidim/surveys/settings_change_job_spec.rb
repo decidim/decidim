@@ -15,8 +15,8 @@ module Decidim
       let(:current_settings) do
         { allow_answers: currently_allowing_answers }
       end
-      let(:user) { create :user, organization: component.organization }
-      let!(:follow) { create :follow, followable: component.participatory_space, user: }
+      let(:user) { create(:user, organization: component.organization) }
+      let!(:follow) { create(:follow, followable: component.participatory_space, user:) }
 
       context "when there are relevant setting changes" do
         context "when the survey becomes open" do

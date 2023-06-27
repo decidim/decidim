@@ -18,7 +18,7 @@ describe "User group email confirmation", type: :system do
     end
 
     it "does not show the link to edit" do
-      expect(page).to have_no_content("Resend email confirmation instructions")
+      expect(page).not_to have_content("Resend email confirmation instructions")
     end
   end
 

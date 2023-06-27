@@ -25,7 +25,7 @@ module Decidim::Budgets
 
       it "allows to vote in the order resource" do
         expect(subject).to be_vote_allowed(order_resource)
-        expect(workflow.allowed).to match_array([order_resource])
+        expect(workflow.allowed).to contain_exactly(order_resource)
       end
 
       it "does not allow to vote in the other resources" do
@@ -64,7 +64,7 @@ module Decidim::Budgets
         end
 
         it "does have a discardable order" do
-          expect(workflow.discardable).to match_array([order_resource])
+          expect(workflow.discardable).to contain_exactly(order_resource)
         end
       end
     end

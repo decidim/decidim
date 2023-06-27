@@ -31,7 +31,7 @@ describe "Report Proposal", type: :system do
       expect(page).to have_selector(".author-data__extra")
 
       within ".author-data__extra", match: :first do
-        page.find("button").click
+        click_button
       end
 
       expect(page).to have_css(".flag-modal", visible: :visible)
@@ -51,28 +51,28 @@ describe "Report Proposal", type: :system do
     end
 
     context "when reporting user is process admin" do
-      let!(:user) { create :process_admin, :confirmed, participatory_process: }
+      let!(:user) { create(:process_admin, :confirmed, participatory_process:) }
 
       include_examples "higher user role reports"
       include_examples "higher user role does not have hide"
     end
 
     context "when reporting user is process collaborator" do
-      let!(:user) { create :process_collaborator, :confirmed, participatory_process: }
+      let!(:user) { create(:process_collaborator, :confirmed, participatory_process:) }
 
       include_examples "higher user role reports"
       include_examples "higher user role does not have hide"
     end
 
     context "when reporting user is process moderator" do
-      let!(:user) { create :process_moderator, :confirmed, participatory_process: }
+      let!(:user) { create(:process_moderator, :confirmed, participatory_process:) }
 
       include_examples "higher user role reports"
       include_examples "higher user role does not have hide"
     end
 
     context "when reporting user is process valuator" do
-      let!(:user) { create :process_valuator, :confirmed, participatory_process: }
+      let!(:user) { create(:process_valuator, :confirmed, participatory_process:) }
 
       include_examples "higher user role reports"
       include_examples "higher user role does not have hide"

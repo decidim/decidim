@@ -60,6 +60,7 @@ eu:
         placeholders:
           content: Gehitu eduki adierazgarria %{page} (a)ren orri estatikoaren administrazio-panelean.
           title: 'Izenburu lehenetsia orri honetarako: %{page}'
+        terms-of-service: Zerbitzu-baldintzak
       menu:
         admins: Administratzaileak
         dashboard: Kontrol-panela

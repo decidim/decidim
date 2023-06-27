@@ -2,16 +2,16 @@
 
 require "spec_helper"
 
-describe "Explore Collaborative Drafts", versioning: true, type: :system do
+describe "Explore Collaborative Drafts", type: :system, versioning: true do
   include Decidim::Proposals::ApplicationHelper
   include ActionView::Helpers::TextHelper
 
   include_context "with a component"
 
   let(:manifest_name) { "proposals" }
-  let!(:scope) { create :scope, organization: }
-  let!(:author) { create :user, :confirmed, organization: }
-  let!(:user) { create :user, :confirmed, organization: }
+  let!(:scope) { create(:scope, organization:) }
+  let!(:author) { create(:user, :confirmed, organization:) }
+  let!(:user) { create(:user, :confirmed, organization:) }
   let(:participatory_process) { create(:participatory_process, :with_steps, organization:) }
   let!(:component) do
     create(:proposal_component,
@@ -25,9 +25,9 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
              scope_id: participatory_process.scope&.id
            })
   end
-  let!(:category) { create :category, participatory_space: participatory_process }
-  let!(:category2) { create :category, participatory_space: participatory_process }
-  let!(:category3) { create :category, participatory_space: participatory_process }
+  let!(:category) { create(:category, participatory_space: participatory_process) }
+  let!(:category2) { create(:category, participatory_space: participatory_process) }
+  let!(:category3) { create(:category, participatory_space: participatory_process) }
   let!(:collaborative_draft) { create(:collaborative_draft, :open, component:, category:, scope:, users: [author]) }
   let!(:collaborative_draft_no_tags) { create(:collaborative_draft, :open, component:) }
 
@@ -36,7 +36,7 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
   let!(:published_collaborative_draft) { create(:collaborative_draft, :published, component:, category: category3) }
 
   let(:request_access_form) { Decidim::Proposals::RequestAccessToCollaborativeDraftForm.from_params(state: collaborative_draft.state, id: collaborative_draft.id) }
-  let!(:other_user) { create :user, :confirmed, organization: }
+  let!(:other_user) { create(:user, :confirmed, organization:) }
   let(:request_access_from_other_user) { Decidim::Proposals::RequestAccessToCollaborativeDraft.new(request_access_form, other_user) }
 
   context "with collaborative drafts enabled" do
@@ -202,7 +202,7 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
 
         it "shows the publish button" do
           within ".view-side" do
-            expect(page).to have_css("button", text: "PUBLISH")
+            expect(page).to have_button(text: "PUBLISH")
           end
         end
 
@@ -214,7 +214,7 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
           it "shows the a modal" do
             within "[id$='publish-irreversible-action-modal'" do
               expect(page).to have_css("h3", text: "The following action is irreversible")
-              expect(page).to have_css("button", text: "Publish as a Proposal")
+              expect(page).to have_button(text: "Publish as a Proposal")
             end
             click_button "Publish as a Proposal"
             expect(page).to have_content("Collaborative draft published successfully as a proposal.")
@@ -281,6 +281,9 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
 
           context "when the author receives the request" do
             before do
+              within ".header .title-bar .topbar__user__logged" do
+                expect(page).to have_content(user.name)
+              end
               relogin_as author, scope: :user
               visit current_path
               within ".header .title-bar .topbar__user__logged" do
@@ -382,7 +385,7 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
     end
 
     it "does not show the Collaborative drafts access button" do
-      expect(page).to have_no_content("Access collaborative drafts")
+      expect(page).not_to have_content("Access collaborative drafts")
     end
   end
 end

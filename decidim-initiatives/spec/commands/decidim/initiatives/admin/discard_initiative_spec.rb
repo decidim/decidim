@@ -8,11 +8,11 @@ module Decidim
       describe DiscardInitiative do
         subject { described_class.new(initiative, user) }
 
-        let(:initiative) { create :initiative, :validating }
-        let(:user) { create :user, :admin, :confirmed, organization: initiative.organization }
+        let(:initiative) { create(:initiative, :validating) }
+        let(:user) { create(:user, :admin, :confirmed, organization: initiative.organization) }
 
         context "when the initiative is already discarded" do
-          let(:initiative) { create :initiative, :discarded }
+          let(:initiative) { create(:initiative, :discarded) }
 
           it "broadcasts :invalid" do
             expect { subject.call }.to broadcast(:invalid)

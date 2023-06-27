@@ -24,8 +24,8 @@ module Decidim::Meetings
       end
 
       it "does not show creation date" do
-        expect(cell_html).to have_no_content("Created at")
-        expect(cell_html).to have_no_content(I18n.l(meeting.created_at.to_date, format: :decidim_short))
+        expect(cell_html).not_to have_content("Created at")
+        expect(cell_html).not_to have_content(I18n.l(meeting.created_at.to_date, format: :decidim_short))
       end
 
       context "when there are long descriptions" do

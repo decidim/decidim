@@ -6,7 +6,7 @@ module Decidim
   describe NewslettersOptInController, type: :controller do
     routes { Decidim::Core::Engine.routes }
 
-    let(:organization) { create :organization }
+    let(:organization) { create(:organization) }
     let(:user) { create(:user, :confirmed, organization:, newsletter_notifications_at: nil, newsletter_token: token) }
     let(:token) { SecureRandom.base58(24) }
 

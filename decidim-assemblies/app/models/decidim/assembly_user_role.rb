@@ -11,6 +11,8 @@ module Decidim
     belongs_to :assembly, foreign_key: "decidim_assembly_id", class_name: "Decidim::Assembly", optional: true
     alias participatory_space assembly
 
+    scope :for_space, ->(participatory_space) { where(assembly: participatory_space) }
+
     validates :role, inclusion: { in: ParticipatorySpaceUser::ROLES }, uniqueness: { scope: [:user, :assembly] }
     def target_space_association = :assembly
 

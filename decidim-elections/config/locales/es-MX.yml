@@ -198,6 +198,8 @@ es-MX:
           edit:
             title: Editar la votación
             update: Actualizar la votación
+          form:
+            organization_time_zone: Compruebe que la zona horaria es correcta en la configuración de la organización. La configuración actual es %{time_zone} (%{time}).
           index:
             no_bulletin_board: No hay ningún <a href="https://github.com/decidim/decidim-bulletin-board">servidor de Bulletin Board</a> configurado, el cual es necesario para utilizar este módulo. Esta tarea debe ser realizada por la persona administradora del sistema.
             title: Votaciones

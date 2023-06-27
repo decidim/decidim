@@ -292,8 +292,8 @@ describe "Account", type: :system do
           find("*[type=submit]").click
         end
 
-        expect(page).to have_no_content("Signed in successfully")
-        expect(page).to have_no_content(user.name)
+        expect(page).not_to have_content("Signed in successfully")
+        expect(page).not_to have_content(user.name)
       end
 
       context "when the user has an authorization" do
@@ -363,7 +363,7 @@ describe "Account", type: :system do
       end
 
       it "does not show the push notifications switch" do
-        expect(page).to have_no_selector(".push-notifications")
+        expect(page).not_to have_selector(".push-notifications")
       end
     end
 
@@ -377,7 +377,7 @@ describe "Account", type: :system do
       end
 
       it "does not show the push notifications switch" do
-        expect(page).to have_no_selector(".push-notifications")
+        expect(page).not_to have_selector(".push-notifications")
       end
     end
   end

@@ -3,13 +3,13 @@
 require "spec_helper"
 
 describe Decidim::Meetings::DiffRenderer, versioning: true do
-  let!(:meeting) { create :meeting }
+  let!(:meeting) { create(:meeting) }
   let!(:old_values) { meeting.attributes }
   let(:version) { meeting.versions.last }
 
   let!(:start_time) { 1.day.ago }
   let!(:end_time) { Time.zone.now }
-  let!(:user_group) { create :user_group, organization: meeting.organization }
+  let!(:user_group) { create(:user_group, organization: meeting.organization) }
   let!(:scope) { create(:scope, organization: meeting.organization) }
 
   before do
@@ -37,7 +37,7 @@ describe Decidim::Meetings::DiffRenderer, versioning: true do
 
     it "calculates the fields that have changed" do
       expect(subject.keys)
-        .to match_array [:title_en, :description_ca, :address, :location_ca, :location_en, :location_hints_ca, :location_hints_en, :start_time, :end_time, :decidim_scope_id]
+        .to contain_exactly(:title_en, :description_ca, :address, :location_ca, :location_en, :location_hints_ca, :location_hints_en, :start_time, :end_time, :decidim_scope_id)
     end
 
     it "has the old and new values for each field" do

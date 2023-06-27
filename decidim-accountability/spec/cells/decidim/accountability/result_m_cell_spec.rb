@@ -43,7 +43,7 @@ module Decidim::Accountability
         let(:end_date) { nil }
 
         it "hides dates block" do
-          expect(subject).to have_no_css(".card-data__item--centerblock")
+          expect(subject).not_to have_css(".card-data__item--centerblock")
         end
       end
 
@@ -51,7 +51,7 @@ module Decidim::Accountability
         let(:progress) { nil }
 
         it "hides progress value and bar" do
-          expect(subject).to have_no_css(".progress__bar")
+          expect(subject).not_to have_css(".progress__bar")
         end
       end
     end

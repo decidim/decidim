@@ -6,7 +6,7 @@ describe Decidim::Log::ValueTypes::ConferencePresenter, type: :helper do
   subject { described_class.new(value, helper) }
 
   let(:value) { conference.id }
-  let!(:conference) { create :conference }
+  let!(:conference) { create(:conference) }
 
   before do
     helper.extend(Decidim::ApplicationHelper)

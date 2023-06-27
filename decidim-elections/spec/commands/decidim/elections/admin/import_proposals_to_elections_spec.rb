@@ -10,15 +10,15 @@ module Decidim
           let!(:proposals) { create_list(:proposal, 3, :accepted) }
           let!(:proposal) { proposals.first }
           let!(:organization) { component.participatory_space.organization }
-          let!(:user) { create :user, :admin, :confirmed, organization: }
+          let!(:user) { create(:user, :admin, :confirmed, organization:) }
           let(:component) do
             create(
               :component, manifest_name: "elections",
                           participatory_space: proposal.component.participatory_space
             )
           end
-          let(:question) { create :question, election: }
-          let(:election) { create :election, component: }
+          let(:question) { create(:question, election:) }
+          let(:election) { create(:election, component:) }
           let!(:form) do
             instance_double(
               AnswerImportProposalsForm,

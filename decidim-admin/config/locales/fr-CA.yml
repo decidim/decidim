@@ -375,8 +375,8 @@ fr-CA:
         form:
           domain_too_short: Le nom de domaine est trop court
         update:
-          error: Échec lors de la mise à jour de la liste blanche du domaine.
-          success: Liste blanche du domaine mise à jour avec succès.
+          error: Échec lors de la mise à jour de la liste des domaines externes autorisés.
+          success: Liste des domaines externes autorisés mise à jour avec succès.
       exports:
         export_as: "%{name} en format %{export_format}"
         formats:
@@ -384,7 +384,7 @@ fr-CA:
           Excel: Excel
           FormPDF: PDF
           JSON: JSON
-        notice: Votre exportation est en cours. Vous recevrez un email quand elle sera terminée.
+        notice: Votre export est en cours. Vous recevrez un email quand il sera terminé.
       filters:
         category_id_eq:
           label: Catégorie
@@ -521,7 +521,7 @@ fr-CA:
               one: Colonne %{columns} manquante.
               other: Colonnes %{columns} manquantes.
         error: Un problème est survenu lors de l'import.
-        example_error: "There was a problem creating an example for the given type.\nUne erreur est survenue lors de la création d'un exemple pour le type donné."
+        example_error: Une erreur est survenue lors de la création d'un exemple pour le type donné.
         new:
           accepted_mime_types:
             csv: csv
@@ -533,7 +533,7 @@ fr-CA:
           download_example_format: Exemple comme %{name}
           file_legend: Ajouter un fichier d'import qui sera analysé.
           import: Importer
-        notice: "%{count} %{resource_name} successfully imported.\nImportation réussie de %{count} %{resource_name}."
+        notice: "Import réussi de %{count} %{resource_name}."
       logs:
         filters:
           participatory_space: Trouver un espace participatif
@@ -682,7 +682,7 @@ fr-CA:
         report:
           reasons:
             does_not_belong: N'appartient pas
-            hidden_during_block: Masqué en bloquant l'utilisateur
+            hidden_during_block: Masqué pour blocage de l'utilisateur
             offensive: Agressif
             spam: Spam
         reports:
@@ -756,7 +756,7 @@ fr-CA:
           title: Sélectionner les destinataires
           warning: "<strong>Attention :</strong> Cette newsletter ne sera envoyée qu'aux utilisateurs qui ont activé <em>Je veux recevoir newsletters</em> dans leurs paramètres de notifications."
         send:
-          no_recipients: "No recipients for this selection.\nVous n'avez aucun destinataire pour cette sélection."
+          no_recipients: Selon votre sélection, cette newsletter ne sera envoyée à aucun destinataire. 
         show:
           preview: Aperçu
           select_recipients_to_deliver: Sélectionner les destinataires
@@ -771,7 +771,7 @@ fr-CA:
         create:
           success: Utilisateur validé avec succès.
         destroy:
-          success: Validation de l'utilisateur supprimée avec succès.
+          success: Validation de l'utilisateur retirée avec succès.
         index:
           actions: Actions
           badge: Badge
@@ -850,9 +850,9 @@ fr-CA:
         content_blocks:
           create:
             error: Un problème est survenu lors de la création de ce bloc de contenu.
-            success: Le contenu a été créé avec succès.
+            success: Le bloc de contenu a été créé avec succès.
           destroy:
-            error: "There was a problem trying to delete this content block.\nUne erreur est survenue lors de la suppression de ce contenu."
+            error: Une erreur est survenue lors de la suppression de ce bloc de contenu.
             success: Le bloc de contenu a été supprimé avec succès.
           edit:
             update: Mettre à jour
@@ -878,11 +878,11 @@ fr-CA:
       participatory_space_private_users_csv_imports:
         create:
           invalid: Un problème est survenu lors de la lecture du fichier CSV. Veuillez vous assurer que vous avez suivi les instructions.
-          success: "CSV file uploaded successfully, we are sending an invitation email to participants. This might take a while.\nLe fichier CSV a été téléchargé avec succès. Une invitation par courriel sera envoyée sous peu à chaque participant."
+          success: Le fichier CSV a été téléchargé avec succès. Une invitation par courriel sera envoyée sous peu à chaque participant. Cela peut prendre quelques instants. 
         new:
           destroy:
             button: Supprimer tous les utilisateurs privés
-            confirm: "Are you sure you want to delete all private participants? This action cannot be undone, you will not be able to recover them.\n\nÊtes-vous sûr de vouloir supprimer tous les utilisateurs privés ? Cette action est irréversible, vous ne pourrez pas les récupérer."
+            confirm: Êtes-vous sûr de vouloir supprimer tous les utilisateurs privés ? Cette action est irréversible, vous ne pourrez pas les récupérer.
             empty: Vous n'avez aucun utilisateur privé.
             explanation: Vous avez %{count} utilisateurs privés.
             title: Supprimer les utilisateurs privés
@@ -931,7 +931,7 @@ fr-CA:
           error: Une erreur s'est produite lors de la création d'un nouveau périmètre d’application.
           success: Périmètre d'application créé avec succès.
         destroy:
-          success: Le périmètre d’application a été supprimé avec succès.
+          success: Le secteur a été supprimé avec succès.
         edit:
           title: Modifier le périmètre d'application
           update: Mettre à jour
@@ -965,7 +965,7 @@ fr-CA:
           error: Une erreur s'est produite lors de la création d'un nouveau sujet.
           success: Sujet créé avec succès.
         destroy:
-          success: "Topic successfully destroyed.\nLe sujet a été détruit avec succès."
+          success: Le sujet a été détruit avec succès.
         edit:
           title: Modifier le sujet
           update: Mettre à jour le sujet
@@ -1037,7 +1037,7 @@ fr-CA:
       user_group:
         csv_verify:
           invalid: Une erreur s'est produite lors de la lecture du fichier CSV.
-          success: "CSV file uploaded successfully, we are verifying the groups matching the criteria. This might take a while.\nLe fichier CSV a été téléchargé avec succès, une vérification des groupes correspondant aux critères est en cours. Un délai d'attente peut survenir."
+          success: Le fichier CSV a été téléchargé avec succès, une vérification des groupes correspondant aux critères est en cours. Cela peut prendre quelques instants. 
         reject:
           invalid: Une erreur s'est produite lors du refus de ce groupe d'utilisateurs.
           success: Groupe d'utilisateurs refusé avec succès.

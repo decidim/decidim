@@ -31,7 +31,7 @@ module Decidim
       end
 
       def send_form_and_expect_rendering_the_new_template_again
-        post :create, params: params
+        post(:create, params:)
         expect(controller).to render_template "new"
       end
 
@@ -45,7 +45,7 @@ module Decidim
         end
 
         it "does not ask the user to confirm the email" do
-          post :create, params: params
+          post(:create, params:)
           expect(controller.flash.notice).not_to have_content("confirmation")
         end
       end
@@ -58,7 +58,7 @@ module Decidim
         end
 
         it "adds the flash message" do
-          post :create, params: params
+          post(:create, params:)
           expect(controller.flash.now[:alert]).to have_content("Your email cannot be blank")
         end
 
@@ -79,7 +79,7 @@ module Decidim
           end
 
           it "adds the flash message" do
-            post :create, params: params
+            post(:create, params:)
             expect(controller.flash.now[:alert]).to have_content(
               [
                 "Your name cannot be blank",

@@ -23,7 +23,7 @@ module Decidim
       end
 
       context "without an agenda" do
-        let(:agenda_item) { build :agenda_item, agenda: nil }
+        let(:agenda_item) { build(:agenda_item, agenda: nil) }
 
         it { is_expected.not_to be_valid }
       end

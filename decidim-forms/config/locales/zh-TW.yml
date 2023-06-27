@@ -22,6 +22,8 @@ zh-TW:
             choices:
               missing: 尚未完成
               too_many: 太多了
+        questionnaire:
+          request_invalid: 處理請求時發生錯誤。請再試一次。
   decidim:
     forms:
       admin:

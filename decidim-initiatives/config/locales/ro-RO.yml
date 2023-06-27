@@ -588,7 +588,6 @@ ro:
         promotal_committee: Comitet de promovare
         select_initiative_type: Alege
         show_similar_initiatives: Compară
-        step: Pasul %{current} din %{total}
         title: Creează o inițiativă nouă
       initiative_header:
         initiative_menu_item: Inițiativă

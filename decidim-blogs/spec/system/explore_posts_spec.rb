@@ -38,7 +38,7 @@ describe "Explore posts", type: :system do
 
     context "when paginating" do
       let(:collection_size) { 15 }
-      let!(:collection) { create_list :post, collection_size, component: }
+      let!(:collection) { create_list(:post, collection_size, component:) }
       let!(:resource_selector) { "div[data-post]" }
 
       before do

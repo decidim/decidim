@@ -425,7 +425,7 @@ describe "Authentication", type: :system do
         end
 
         expect(page).to have_content("Signed out successfully.")
-        expect(page).to have_no_content(user.name)
+        expect(page).not_to have_content(user.name)
       end
     end
 
@@ -599,6 +599,20 @@ describe "Authentication", type: :system do
 
           expect(page).to have_content("Successfully")
           expect(page).to have_content(user.name)
+        end
+
+        context "when admin password is expired" do
+          let(:user) { create(:user, :confirmed, :admin, password_updated_at: 91.days.ago, organization:) }
+
+          before do
+            allow(Decidim.config).to receive(:admin_password_expiration_days).and_return(90)
+          end
+
+          it "can log in without being prompted to change the password" do
+            find(".sign-in-link").click
+            click_link "Sign in with Facebook"
+            expect(page).to have_content("Successfully")
+          end
         end
       end
     end

@@ -112,12 +112,12 @@ module Decidim
         end
 
         context "when the author is a meeting" do
-          let(:meetings_component) { create :component, manifest_name: :meetings, organization: reportable.organization }
-          let!(:meeting) { create :meeting, component: meetings_component }
+          let(:meetings_component) { create(:component, manifest_name: :meetings, organization: reportable.organization) }
+          let!(:meeting) { create(:meeting, component: meetings_component) }
 
           it "includes the title of the meeting" do
             reportable.coauthorships.destroy_all
-            create :coauthorship, coauthorable: reportable, author: meeting
+            create(:coauthorship, coauthorable: reportable, author: meeting)
 
             expect(email_body(mail)).to have_content(translated(meeting.title))
           end

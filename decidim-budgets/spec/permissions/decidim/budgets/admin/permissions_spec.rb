@@ -5,7 +5,7 @@ require "spec_helper"
 describe Decidim::Budgets::Admin::Permissions do
   subject { described_class.new(user, permission_action, context).permissions.allowed? }
 
-  let(:user) { build :user }
+  let(:user) { build(:user) }
   let(:context) do
     {
       current_component: budgets_component,
@@ -13,9 +13,9 @@ describe Decidim::Budgets::Admin::Permissions do
       project:
     }
   end
-  let(:budgets_component) { create :budgets_component }
-  let(:budget) { create :budget, component: budgets_component }
-  let(:project) { create :project, component: budgets_component }
+  let(:budgets_component) { create(:budgets_component) }
+  let(:budget) { create(:budget, component: budgets_component) }
+  let(:project) { create(:project, component: budgets_component) }
   let(:permission_action) { Decidim::PermissionAction.new(**action) }
 
   context "when scope and action are both random" do
@@ -69,7 +69,7 @@ describe Decidim::Budgets::Admin::Permissions do
     end
 
     describe "with projects" do
-      let(:budget) { create :budget, :with_projects, component: budgets_component }
+      let(:budget) { create(:budget, :with_projects, component: budgets_component) }
       let(:action) do
         { scope: :admin, action: :delete, subject: :budget }
       end

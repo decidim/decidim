@@ -139,7 +139,10 @@ module Decidim
       # non-nil because otherwise it will be set to the asset host at
       # ActionView::Helpers::AssetUrlHelper#compute_asset_host.
       img_path = asset_pack_path(path, host: "", protocol: :relative)
-      Rails.public_path.join(img_path.sub(%r{^/}, ""))
+      path = Rails.public_path.join(img_path.sub(%r{^/}, ""))
+      return unless File.exist?(path)
+
+      path
     rescue ::Webpacker::Manifest::MissingEntryError
       nil
     end

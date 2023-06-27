@@ -141,7 +141,7 @@ module Decidim
         end
 
         # This is a Dedicim::Verifications specific initializer
-        initializer "decidim.my_verifier_verification_workflow" do |_app|
+        initializer "decidim_verifications_my_verifier.verification_workflow" do |_app|
           Decidim::Verifications.register_workflow(:my_verifier) do |workflow|
             workflow.engine = Decidim::Verifications::MyVerifier::Engine
           end

@@ -52,7 +52,7 @@ module Decidim
         end
       end
 
-      initializer "decidim.stats" do
+      initializer "decidim_consultations.stats" do
         Decidim.stats.register :consultations_count, priority: StatsRegistry::HIGH_PRIORITY do |organization, _start_at, _end_at|
           Decidim::Consultation.where(organization:).published.count
         end
@@ -95,8 +95,10 @@ module Decidim
       end
 
       initializer "decidim_consultations.authorization_transfer" do
-        Decidim::AuthorizationTransfer.register(:consultations) do |transfer|
-          transfer.move_records(Decidim::Consultations::Vote, :decidim_author_id)
+        config.to_prepare do
+          Decidim::AuthorizationTransfer.register(:consultations) do |transfer|
+            transfer.move_records(Decidim::Consultations::Vote, :decidim_author_id)
+          end
         end
       end
     end

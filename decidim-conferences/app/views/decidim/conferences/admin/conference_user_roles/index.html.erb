@@ -23,7 +23,7 @@
           </tr>
         </thead>
         <tbody>
-          <% @conference_user_roles.each do |role| %>
+          <% filtered_collection.each do |role| %>
             <tr>
               <td>
                 <%= role.user.name %><br>
@@ -61,7 +61,7 @@
           <% end %>
         </tbody>
       </table>
-      <%= paginate @conference_user_roles, theme: "decidim" %>
+      <%= paginate filtered_collection, theme: "decidim" %>
     </div>
   </div>
 </div>

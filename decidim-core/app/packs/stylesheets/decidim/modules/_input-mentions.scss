@@ -127,23 +127,5 @@
         border-top-right-radius: 0;
       }
     }
-
-    // Quill.js
-    &.editor {
-      > :first-child {
-        border-top-left-radius: $input-radius;
-        border-top-right-radius: $input-radius;
-        border-top: $input-border-focus;
-        border-right: $input-border-focus;
-        border-left: $input-border-focus;
-      }
-
-      .editor-container {
-        border-right: $input-border-focus;
-        border-left: $input-border-focus;
-        margin-bottom: 1rem;
-        outline: none;
-      }
-    }
   }
 }

@@ -39,8 +39,8 @@ export default class UploadModal {
     this.modalTitle = this.modal.querySelector("[data-dialog-title]");
     this.dropZone = this.modal.querySelector("[data-dropzone]");
 
-    this.emptyItems = this.modal.querySelector("#dropzone-no-items");
-    this.uploadItems = this.modal.querySelector("#dropzone-items");
+    this.emptyItems = this.modal.querySelector("[data-dropzone-no-items]");
+    this.uploadItems = this.modal.querySelector("[data-dropzone-items]");
     this.input = this.dropZone.querySelector("input");
     this.items = []
 

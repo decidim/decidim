@@ -16,7 +16,8 @@ module Decidim
         attribute :decidim_scope_id, Integer
 
         validates :title, translatable_presence: true
-        validates :weight, :total_budget, numericality: { greater_than_or_equal_to: 0 }
+        validates :weight, numericality: { greater_than_or_equal_to: 0 }
+        validates :total_budget, numericality: { greater_than: 0 }
         validates :scope, presence: true, if: ->(form) { form.decidim_scope_id.present? }
         validates :decidim_scope_id, scope_belongs_to_component: true, if: ->(form) { form.decidim_scope_id.present? }
 

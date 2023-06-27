@@ -5,8 +5,8 @@ require "spec_helper"
 describe "Admin manages the monitoring committee", type: :system do
   include_context "when admin managing a voting"
 
-  let(:other_user) { create :user, organization:, email: "my_email@example.org" }
-  let!(:monitoring_committee_member) { create :monitoring_committee_member, user: other_user, voting: }
+  let(:other_user) { create(:user, organization:, email: "my_email@example.org") }
+  let!(:monitoring_committee_member) { create(:monitoring_committee_member, user: other_user, voting:) }
 
   before do
     switch_to_host(organization.host)
@@ -22,7 +22,7 @@ describe "Admin manages the monitoring committee", type: :system do
   end
 
   context "when creating a new member" do
-    let(:existing_user) { create :user, organization: voting.organization }
+    let(:existing_user) { create(:user, organization: voting.organization) }
 
     before do
       click_link("New member")
@@ -70,7 +70,7 @@ describe "Admin manages the monitoring committee", type: :system do
       expect(page).to have_admin_callout("successfully")
 
       within "#monitoring_committee_members table" do
-        expect(page).to have_no_content(other_user.email)
+        expect(page).not_to have_content(other_user.email)
       end
     end
   end

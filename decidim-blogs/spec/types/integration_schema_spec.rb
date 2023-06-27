@@ -236,7 +236,7 @@ describe "Decidim::Api::QueryType" do
 
         context "with admin user" do
           let!(:current_user) { create(:user, :admin, :confirmed, organization:) }
-          let(:organization) { create :organization }
+          let(:organization) { create(:organization) }
 
           it {
             expect(edges).to eq([

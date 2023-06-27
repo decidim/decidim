@@ -8,7 +8,7 @@ module Decidim
       describe CreateResponse do
         subject { described_class.new(form) }
 
-        let(:question) { create :question }
+        let(:question) { create(:question) }
         let(:errors) { double.as_null_object }
         let(:params) do
           {

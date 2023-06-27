@@ -1,4 +1,4 @@
-# frozen-string_literal: true
+# frozen_string_literal: true
 
 module Decidim
   # To be used by UserGroup related events that trigger a notification to the administrators.

@@ -23,7 +23,7 @@ describe "Locales", type: :system do
       within_language_menu do
         expect(page).to have_content("Català")
         expect(page).to have_content("English")
-        expect(page).to have_no_content("Castellano")
+        expect(page).not_to have_content("Castellano")
       end
     end
 

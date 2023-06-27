@@ -6,7 +6,7 @@ module Decidim::Budgets
   describe LineItem do
     subject { line_item }
 
-    let(:line_item) { build :line_item }
+    let(:line_item) { build(:line_item) }
 
     describe "validations" do
       it "is valid" do
@@ -25,7 +25,7 @@ module Decidim::Budgets
 
       it "is invalid when the same litem item exists" do
         subject.save
-        new_line_item = build :line_item, order: subject.order, project: subject.project
+        new_line_item = build(:line_item, order: subject.order, project: subject.project)
         expect(new_line_item).to be_invalid
       end
 

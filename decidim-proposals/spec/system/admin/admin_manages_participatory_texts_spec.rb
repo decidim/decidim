@@ -56,7 +56,7 @@ describe "Admin manages participatory texts", type: :system do
   def move_some_sections; end
 
   def publish_participatory_text
-    find("button[name=commit]").click
+    click_button(name: "commit")
     expect(page).to have_content "All proposals have been published"
   end
 
@@ -85,8 +85,8 @@ describe "Admin manages participatory texts", type: :system do
   def validate_proposals
     proposals = Decidim::Proposals::Proposal.where(component: current_component)
     proposals.each do |proposal|
-      expect(proposal.title).to be_kind_of(Hash)
-      expect(proposal.body).to be_kind_of(Hash)
+      expect(proposal.title).to be_a(Hash)
+      expect(proposal.body).to be_a(Hash)
     end
   end
 
@@ -123,7 +123,7 @@ describe "Admin manages participatory texts", type: :system do
   end
 
   describe "accessing participatory texts in draft mode" do
-    let!(:proposal) { create :proposal, :draft, component: current_component, participatory_text_level: "section" }
+    let!(:proposal) { create(:proposal, :draft, component: current_component, participatory_text_level: "section") }
 
     it "renders only draft proposals" do
       visit_participatory_texts
@@ -143,7 +143,7 @@ describe "Admin manages participatory texts", type: :system do
   end
 
   describe "updating participatory texts in draft mode" do
-    let!(:proposal) { create :proposal, :draft, component: current_component, participatory_text_level: "article" }
+    let!(:proposal) { create(:proposal, :draft, component: current_component, participatory_text_level: "article") }
     let!(:new_body) { Faker::Lorem.unique.sentences(number: 3).join("\n") }
 
     it "persists changes and all proposals remain as drafts" do

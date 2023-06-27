@@ -13,7 +13,7 @@ module Decidim
       end
 
       let(:current_organization) { create(:organization) }
-      let!(:user) { create :user, :confirmed, organization: current_organization }
+      let!(:user) { create(:user, :confirmed, organization: current_organization) }
 
       let(:email) { "foo@example.org" }
       let(:attributes) do
@@ -35,7 +35,7 @@ module Decidim
       end
 
       context "when email already exist" do
-        let!(:another_user) { create :user, :confirmed, email:, organization: current_organization }
+        let!(:another_user) { create(:user, :confirmed, email:, organization: current_organization) }
 
         it { is_expected.to be_invalid }
       end

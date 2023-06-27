@@ -5,24 +5,16 @@ $(() => {
   const $mentionContainer = $(".js-mentions");
   const nodatafound = $mentionContainer.attr("data-noresults");
 
+  // The editor implements hashtags functionality by itself so it is not needed
+  // to attach tribute to the rich text editor.
+  if ($mentionContainer.parent().hasClass("editor")) {
+    return;
+  }
+
   let noMatchTemplate = null
   if (nodatafound) {
     noMatchTemplate = () => `<li>${nodatafound}</li>`;
   }
-
-  // Listener for the event triggered by quilljs
-  let cursor = "";
-  $mentionContainer.on("quill-position", (event) => {
-    if (event.detail !== null) {
-      // When replacing the text content after selecting a hashtag, we only need
-      // to know the hashtag's start position as that is the point which we want
-      // to replace.
-      let quill = event.target.__quill;
-      if (quill.getText(event.detail.index - 1, 1) === "@") {
-        cursor = event.detail.index;
-      }
-    }
-  });
 
   // Returns a function, that, as long as it continues to be invoked, will not
   // be triggered. The function will be called after it stops being called for
@@ -80,30 +72,6 @@ $(() => {
     selectTemplate: function(item) {
       if (typeof item === "undefined") {
         return null;
-      }
-      if (this.range.isContentEditable(this.current.element)) {
-        // Check quill.js
-        if ($(this.current.element).hasClass("ql-editor")) {
-          let editorContainer = $(this.current.element).parent().get(0);
-          let quill = editorContainer.__quill;
-          quill.insertText(cursor - 1, `${item.original.nickname} `, Quill.sources.API);
-          // cursor position + nickname length + "@" sign + space
-          let position = cursor + item.original.nickname.length + 2
-
-          let next = 0;
-          if (quill.getLength() > position) {
-            next = position
-          } else {
-            next = quill.getLength() - 1
-          }
-          // Workaround https://github.com/quilljs/quill/issues/731
-          setTimeout(function () {
-            quill.setSelection(next, 0);
-          }, 500);
-
-          return ""
-        }
-        return `<span contenteditable="false">${item.original.nickname}</span>`;
       }
       return item.original.nickname;
     },
@@ -170,18 +138,11 @@ $(() => {
   });
 
   // tribute.attach($mentionContainer);
-  // Tribute needs to be attached to the `.ql-editor` element as said at:
-  // https://github.com/quilljs/quill/issues/1816
-  //
-  // For this reason we need to wait a bit for quill to initialize itself.
+  // Add a small timeout in order for any elements attached to the mentions
+  // element to initialize themselves.
   setTimeout(function() {
     $mentionContainer.each((index, item) => {
-      let $qlEditor = $(".ql-editor", item);
-      if ($qlEditor.length > 0) {
-        tribute.attach($qlEditor);
-      } else {
-        tribute.attach(item);
-      }
+      tribute.attach(item);
     });
   }, 1000);
 });

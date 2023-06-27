@@ -8,8 +8,8 @@ module Decidim
       describe PublishConsultation do
         subject { described_class.new(consultation, current_user) }
 
-        let(:consultation) { create :consultation, :unpublished }
-        let(:current_user) { create :user, :admin, organization: consultation.organization }
+        let(:consultation) { create(:consultation, :unpublished) }
+        let(:current_user) { create(:user, :admin, organization: consultation.organization) }
 
         context "when the consultation is nil" do
           let(:consultation) { nil }
@@ -21,7 +21,7 @@ module Decidim
         end
 
         context "when the consultation is published" do
-          let(:consultation) { create :consultation, :published }
+          let(:consultation) { create(:consultation, :published) }
 
           it "is not valid" do
             expect { subject.call }.to broadcast(:invalid)

@@ -6,8 +6,8 @@ module Decidim::Assemblies
   describe Admin::UnpublishAssembly do
     subject { described_class.new(my_assembly, user) }
 
-    let(:my_assembly) { create :assembly, :published, organization: user.organization }
-    let(:user) { create :user }
+    let(:my_assembly) { create(:assembly, :published, organization: user.organization) }
+    let(:user) { create(:user) }
 
     context "when the assembly is nil" do
       let(:my_assembly) { nil }
@@ -18,7 +18,7 @@ module Decidim::Assemblies
     end
 
     context "when the assembly is not published" do
-      let(:my_assembly) { create :assembly, :unpublished }
+      let(:my_assembly) { create(:assembly, :unpublished) }
 
       it "is not valid" do
         expect { subject.call }.to broadcast(:invalid)

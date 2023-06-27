@@ -96,13 +96,15 @@ ja:
       less_than_x_seconds:
         other: '%{count} 秒未満'
       x_days:
-        other: "%{count} 日前"
+        other: "%{count} 日"
       x_hours:
-        other: "%{count} 時間前"
+        other: "%{count} 時間"
       x_minutes:
-        other: "%{count} 分前"
+        other: "%{count} 分"
+      x_months:
+        other: "%{count} ヶ月"
       x_seconds:
-        other: "%{count} 秒前"
+        other: "%{count} 秒"
   decidim:
     accessibility:
       external_link: 外部リンク
@@ -1075,7 +1077,6 @@ ja:
           intro: 'あなたのメッセージには次のエラーがありました:'
           ok: OK
         index:
-          ago: 前
           new_conversation: 新しい会話
           next: 次へ
           no_conversations: まだ会話がありません。

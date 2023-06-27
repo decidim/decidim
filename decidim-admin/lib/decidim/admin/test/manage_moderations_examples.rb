@@ -58,7 +58,7 @@ shared_examples "manage moderations" do
 
       visit current_path
 
-      expect(page).to have_no_selector("tr[data-id=\"#{external_moderation.id}\"]")
+      expect(page).not_to have_selector("tr[data-id=\"#{external_moderation.id}\"]")
     end
 
     it "user can review them" do
@@ -84,7 +84,7 @@ shared_examples "manage moderations" do
       end
 
       expect(page).to have_admin_callout("Resource successfully hidden")
-      expect(page).to have_no_content(moderation.reportable.reported_content_url)
+      expect(page).not_to have_content(moderation.reportable.reported_content_url)
     end
 
     it "user can sort by report count" do
@@ -134,7 +134,7 @@ shared_examples "manage moderations" do
         moderation.reportable.destroy
         visit current_path
 
-        expect(page).to have_no_selector("tr[data-id=\"#{moderation.id}\"]")
+        expect(page).not_to have_selector("tr[data-id=\"#{moderation.id}\"]")
       end
     end
 

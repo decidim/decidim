@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe Decidim::Meetings::CreateMeetingEvent do
-  let(:resource) { create :meeting }
+  let(:resource) { create(:meeting) }
   let(:event_name) { "decidim.events.meetings.meeting_created" }
   let(:available_slots) { 10 }
   let(:questionnaire) { nil }
@@ -59,9 +59,9 @@ describe Decidim::Meetings::CreateMeetingEvent do
   end
 
   context "when in a participatory space and the registration is enabled" do
-    let(:organization) { create :organization }
-    let(:participatory_process) { create :participatory_process, organization: }
-    let(:component) { create :component, manifest_name: :meetings, participatory_space: participatory_process }
+    let(:organization) { create(:organization) }
+    let(:participatory_process) { create(:participatory_process, organization:) }
+    let(:component) { create(:component, manifest_name: :meetings, participatory_space: participatory_process) }
     let(:registrations_enabled) { true }
     let(:resource) do
       create(:meeting,

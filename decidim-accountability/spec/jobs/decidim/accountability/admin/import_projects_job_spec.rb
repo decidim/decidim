@@ -5,7 +5,7 @@ require "spec_helper"
 describe Decidim::Accountability::Admin::ImportProjectsJob do
   subject { described_class }
 
-  let(:user) { create :user, organization: }
+  let(:user) { create(:user, organization:) }
 
   let(:organization) { create(:organization) }
   let(:participatory_space) { create(:participatory_process, organization:) }

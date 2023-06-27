@@ -371,6 +371,10 @@ ro:
         actions:
           comment: Comentează
           vote: Votează
+      question:
+        actions:
+          comment: Comentează
+          vote: Votează
     statistics:
       consultations_count: Consultări
       votes_count: Voturi

@@ -57,8 +57,8 @@ module Decidim
       end
 
       context "with a list of ids" do
-        let(:resource1) { create :dummy_resource }
-        let(:resource2) { create :dummy_resource }
+        let(:resource1) { create(:dummy_resource) }
+        let(:resource2) { create(:dummy_resource) }
         let(:ids) { [resource2.id, resource1.id] }
 
         it { is_expected.to eq [resource2, resource1] }

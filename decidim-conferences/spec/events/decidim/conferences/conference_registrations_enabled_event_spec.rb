@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe Decidim::Conferences::ConferenceRegistrationsEnabledEvent do
-  let(:resource) { create :conference }
+  let(:resource) { create(:conference) }
   let(:event_name) { "decidim.events.conferences.registrations_enabled" }
 
   include_context "when a simple event"

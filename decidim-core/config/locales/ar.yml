@@ -118,48 +118,6 @@ ar:
         many: حوالي %{count} شهراً
         other: حوالي %{count} شهراً
       half_a_minute: نصف دقيقة
-      less_than_x_minutes:
-        zero: أقل من %{count} دقيقة
-        one: أقل من دقيقة
-        two: أقل من %{count} دقيقتين
-        few: أقل من %{count} دقيقة
-        many: أقل من %{count} دقيقة
-        other: أقل من %{count} دقيقة
-      less_than_x_seconds:
-        zero: أقل من %{count} ثواني
-        one: الآن في الحال
-        two: أقل من %{count} ثانيتين
-        few: أقل من %{count} ثواني
-        many: أقل من %{count} ثواني
-        other: أقل من %{count} ثواني
-      x_days:
-        zero: "قبل %{count} أيام"
-        one: قبل يوم واحد
-        two: "قبل %{count} يومين"
-        few: "قبل %{count} أيام"
-        many: "قبل %{count} أيام"
-        other: "قبل %{count} أيام"
-      x_hours:
-        zero: "قبل %{count} ساعات"
-        one: قبل ساعة واحدة
-        two: "قبل %{count} ساعتين"
-        few: "قبل %{count} ساعات"
-        many: "قبل %{count} ساعات"
-        other: "قبل %{count} ساعات"
-      x_minutes:
-        zero: "قبل %{count} دقيقة"
-        one: قبل دقيقة واحدة
-        two: "قبل %{count} دقيقتين"
-        few: "قبل %{count} دقيقة"
-        many: "قبل %{count} دقيقة"
-        other: "قبل %{count} دقيقة"
-      x_seconds:
-        zero: "منذ %{count} ثوان"
-        one: منذ ثانية واحدة
-        two: "منذ %{count} ثانيتين"
-        few: "منذ %{count} ثوان"
-        many: "منذ %{count} ثوان"
-        other: "منذ %{count} ثوان"
   decidim:
     accessibility:
       external_link: الرابط الخارجي
@@ -1038,7 +996,6 @@ ar:
           intro: 'حدثت الأخطاء التالية في رسالتك:'
           ok: حسناً
         index:
-          ago: منذ
           new_conversation: محادثة جديدة
           next: التالي
           title: المحادثات

@@ -5,15 +5,15 @@ require "spec_helper"
 describe Decidim::Debates::Admin::Permissions do
   subject { described_class.new(user, permission_action, context).permissions.allowed? }
 
-  let(:user) { create :user, organization: debates_component.organization }
+  let(:user) { create(:user, organization: debates_component.organization) }
   let(:context) do
     {
       current_component: debates_component,
       debate:
     }
   end
-  let(:debates_component) { create :debates_component }
-  let(:debate) { create :debate, component: debates_component }
+  let(:debates_component) { create(:debates_component) }
+  let(:debate) { create(:debate, component: debates_component) }
   let(:permission_action) { Decidim::PermissionAction.new(**action) }
 
   context "when scope is not admin" do
@@ -68,7 +68,7 @@ describe Decidim::Debates::Admin::Permissions do
     end
 
     context "when debate is not official" do
-      let(:debate) { create :debate, author: user, component: debates_component }
+      let(:debate) { create(:debate, author: user, component: debates_component) }
 
       it { is_expected.to be false }
     end
@@ -84,7 +84,7 @@ describe Decidim::Debates::Admin::Permissions do
     end
 
     context "when debate is not official" do
-      let(:debate) { create :debate, author: user, component: debates_component }
+      let(:debate) { create(:debate, author: user, component: debates_component) }
 
       it { is_expected.to be false }
     end

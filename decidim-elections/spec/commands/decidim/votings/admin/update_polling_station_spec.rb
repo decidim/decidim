@@ -6,12 +6,12 @@ module Decidim
   module Votings
     module Admin
       describe UpdatePollingStation do
-        let(:polling_station) { create :polling_station }
-        let!(:president) { create :polling_officer, voting: polling_station.voting, presided_polling_station: polling_station }
-        let!(:managers) { create_list :polling_officer, 3, voting: polling_station.voting, managed_polling_station: polling_station }
+        let(:polling_station) { create(:polling_station) }
+        let!(:president) { create(:polling_officer, voting: polling_station.voting, presided_polling_station: polling_station) }
+        let!(:managers) { create_list(:polling_officer, 3, voting: polling_station.voting, managed_polling_station: polling_station) }
 
-        let(:updated_president) { create :polling_officer, voting: polling_station.voting, presided_polling_station: nil }
-        let(:updated_managers) { create_list :polling_officer, 3, voting: polling_station.voting, managed_polling_station: nil }
+        let(:updated_president) { create(:polling_officer, voting: polling_station.voting, presided_polling_station: nil) }
+        let(:updated_managers) { create_list(:polling_officer, 3, voting: polling_station.voting, managed_polling_station: nil) }
         let(:params) do
           {
             polling_station: {

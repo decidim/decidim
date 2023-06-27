@@ -65,10 +65,10 @@ module Decidim
 
           it "correctly renders proposals with mentions" do
             html = cell("decidim/proposals/proposal_activity", action_log).call
-            expect(html).to have_no_content("gid://")
+            expect(html).not_to have_content("gid://")
             # REDESIGN_PENDING: The body is not displayed. Remove when redesign
             # is finished
-            expect(html).to have_no_content("#myhashtag")
+            expect(html).not_to have_content("#myhashtag")
           end
         end
       end

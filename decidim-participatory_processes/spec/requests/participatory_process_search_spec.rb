@@ -6,7 +6,7 @@ RSpec.describe "Participatory process search", type: :request do
   subject { response.body }
 
   let(:organization) { create(:organization) }
-  let(:current_user) { create :user, :confirmed, organization: }
+  let(:current_user) { create(:user, :confirmed, organization:) }
   let!(:process1) do
     create(
       :participatory_process,

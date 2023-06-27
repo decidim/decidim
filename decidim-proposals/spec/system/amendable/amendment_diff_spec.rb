@@ -2,12 +2,12 @@
 
 require "spec_helper"
 
-describe "Amendment Diff", versioning: true, type: :system do
+describe "Amendment Diff", type: :system, versioning: true do
   let!(:component) { create(:proposal_component) }
   let!(:proposal) { create(:proposal, title: { en: "Original long enough title" }, body: { en: "Original one liner body" }, component:) }
   # The first version of the emendation should hold the original proposal attribute values being amended.
   let!(:emendation) { create(:proposal, title: proposal.title, body: proposal.body, component:) }
-  let!(:amendment) { create :amendment, amendable: proposal, emendation: }
+  let!(:amendment) { create(:amendment, amendable: proposal, emendation:) }
 
   let(:emendation_path) { Decidim::ResourceLocatorPresenter.new(emendation).path }
   let(:proposal_path) { Decidim::ResourceLocatorPresenter.new(proposal).path }
@@ -139,7 +139,6 @@ describe "Amendment Diff", versioning: true, type: :system do
         proposal.update(title: { en: "Updated long enough title" }, body: { en: "Updated one liner body" })
         # The last version of the emendation should hold the amending attribute values.
         emendation.update(title: { en: "Amended long enough title" }, body: { en: "Amended one liner body" })
-        visit emendation_path
         login_as user, scope: :user
         visit decidim.review_amend_path(amendment)
       end

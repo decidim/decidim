@@ -200,6 +200,7 @@ ja:
         verify: 確認する
       admin_terms_of_service:
         accept:
+          error: 管理者向け利用規約に同意する際にエラーが発生しました。
           success: 素晴らしい！あなたは管理者向け利用規約に同意しました。
         actions:
           accept: 利用規約に同意する

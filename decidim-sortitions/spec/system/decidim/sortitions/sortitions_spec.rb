@@ -6,7 +6,7 @@ describe "sortitions", type: :system do
   include_context "with a component"
 
   let(:manifest_name) { "sortitions" }
-  let!(:user) { create :user, :confirmed, organization: participatory_process.organization }
+  let!(:user) { create(:user, :confirmed, organization: participatory_process.organization) }
 
   context "when listing sortitions in a participatory process" do
     it "lists all the sortitions" do
@@ -41,7 +41,7 @@ describe "sortitions", type: :system do
     end
 
     context "when paginating" do
-      let!(:collection) { create_list :sortition, collection_size, component: }
+      let!(:collection) { create_list(:sortition, collection_size, component:) }
       let!(:resource_selector) { ".card--sortition" }
 
       it_behaves_like "a paginated resource"

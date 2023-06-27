@@ -7,9 +7,9 @@ describe Decidim::Forms::QuestionReadonlyCell, type: :cell do
 
   subject { cell("decidim/forms/question_readonly", model, indexed_items:) }
 
-  let(:question) { create :questionnaire_question }
-  let(:separator) { create :questionnaire_question, :separator }
-  let(:title_and_description) { create :questionnaire_question, :title_and_description }
+  let(:question) { create(:questionnaire_question) }
+  let(:separator) { create(:questionnaire_question, :separator) }
+  let(:title_and_description) { create(:questionnaire_question, :title_and_description) }
   let(:model) { question }
   let(:indexed_items) { [question.id + 1, question.id + 2, question.id] }
 
@@ -34,7 +34,7 @@ describe Decidim::Forms::QuestionReadonlyCell, type: :cell do
     end
 
     it "does not render the element with the answer idx attribute" do
-      expect(subject.call).to have_no_css("[data-answer-idx]")
+      expect(subject.call).not_to have_css("[data-answer-idx]")
     end
   end
 

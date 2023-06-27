@@ -15,7 +15,7 @@ describe "Explore meetings", :slow, type: :system do
     # Required for the link to be pointing to the correct URL with the server
     # port since the server port is not defined for the test environment.
     allow(ActionMailer::Base).to receive(:default_url_options).and_return(port: Capybara.server_port)
-    component_scope = create :scope, parent: participatory_process.scope
+    component_scope = create(:scope, parent: participatory_process.scope)
     component_settings = component["settings"]["global"].merge!(scopes_enabled: true, scope_id: component_scope.id)
     component.update!(settings: component_settings)
   end
@@ -94,7 +94,7 @@ describe "Explore meetings", :slow, type: :system do
       let(:meeting) { meetings.last }
 
       before do
-        create :moderation, :hidden, reportable: meeting
+        create(:moderation, :hidden, reportable: meeting)
       end
 
       it "does not list the hidden meetings" do
@@ -102,14 +102,14 @@ describe "Explore meetings", :slow, type: :system do
 
         expect(page).to have_selector(".card.card--meeting", count: meetings_count - 1)
 
-        expect(page).to have_no_content(translated(meeting.title))
+        expect(page).not_to have_content(translated(meeting.title))
       end
     end
 
     context "when comments have been moderated" do
       let(:meeting) { create(:meeting, :published, component:) }
       let!(:comments) { create_list(:comment, 3, commentable: meeting) }
-      let!(:moderation) { create :moderation, reportable: comments.first, hidden_at: 1.day.ago }
+      let!(:moderation) { create(:moderation, reportable: comments.first, hidden_at: 1.day.ago) }
 
       it "displays unhidden comments count" do
         visit_component
@@ -163,7 +163,7 @@ describe "Explore meetings", :slow, type: :system do
               check "Official"
             end
 
-            expect(page).to have_no_content("6 MEETINGS")
+            expect(page).not_to have_content("6 MEETINGS")
             expect(page).to have_content("1 MEETING")
             expect(page).to have_css(".card--meeting", count: 1)
 
@@ -182,7 +182,7 @@ describe "Explore meetings", :slow, type: :system do
               check "Groups"
             end
 
-            expect(page).to have_no_content("6 MEETINGS")
+            expect(page).not_to have_content("6 MEETINGS")
             expect(page).to have_content("1 MEETING")
             expect(page).to have_css(".card--meeting", count: 1)
             within ".card--meeting" do
@@ -200,7 +200,7 @@ describe "Explore meetings", :slow, type: :system do
               check "Participants"
             end
 
-            expect(page).to have_no_content("6 MEETINGS")
+            expect(page).not_to have_content("6 MEETINGS")
             expect(page).to have_css(".card--meeting", count: meetings_count)
             expect(page).to have_content("#{meetings_count} MEETINGS")
           end
@@ -418,7 +418,7 @@ describe "Explore meetings", :slow, type: :system do
         Decidim::Meetings::Meeting.destroy_all
       end
 
-      let!(:collection) { create_list :meeting, collection_size, :published, component: }
+      let!(:collection) { create_list(:meeting, collection_size, :published, component:) }
       let!(:resource_selector) { ".card--meeting" }
 
       it_behaves_like "a paginated resource"
@@ -432,7 +432,7 @@ describe "Explore meetings", :slow, type: :system do
       it "hides map" do
         visit_component
 
-        expect(page).to have_no_css("div.map__help")
+        expect(page).not_to have_css("div.map__help")
       end
     end
   end
@@ -467,7 +467,7 @@ describe "Explore meetings", :slow, type: :system do
 
     context "without category or scope" do
       it "does not show any tag" do
-        expect(page).to have_no_selector("ul.tags.tag-container")
+        expect(page).not_to have_selector("ul.tags.tag-container")
       end
     end
 
@@ -585,7 +585,7 @@ describe "Explore meetings", :slow, type: :system do
 
       it "does not show contributions count" do
         within ".definition-data" do
-          expect(page).to have_no_content("CONTRIBUTIONS COUNT\n0")
+          expect(page).not_to have_content("CONTRIBUTIONS COUNT\n0")
         end
       end
     end

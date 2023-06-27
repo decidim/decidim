@@ -809,7 +809,6 @@ pt-BR:
           intro: 'Sua mensagem contém os seguintes erros:'
           ok: OK
         index:
-          ago: atrás
           new_conversation: Nova conversa
           next: Próxima
           title: Conversas

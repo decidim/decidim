@@ -42,7 +42,7 @@ describe "Participatory Process Groups", type: :system do
         expect(page).to have_content(translated(participatory_process_group.title, locale: :en))
         expect(page).to have_selector(".card", count: 1)
 
-        expect(page).to have_no_content(translated(other_group.title, locale: :en))
+        expect(page).not_to have_content(translated(other_group.title, locale: :en))
       end
     end
 
@@ -157,7 +157,7 @@ describe "Participatory Process Groups", type: :system do
         let(:cta_settings) { nil }
 
         it "does not show the block" do
-          expect(page).to have_no_selector("div.hero__container")
+          expect(page).not_to have_selector("div.hero__container")
         end
       end
     end
@@ -351,8 +351,8 @@ describe "Participatory Process Groups", type: :system do
   end
 
   context "when participatory processes block is enabled" do
-    let!(:scope) { create :scope, organization: }
-    let!(:area) { create :area, organization: }
+    let!(:scope) { create(:scope, organization:) }
+    let!(:area) { create(:area, organization:) }
     let!(:participatory_process_group) do
       create(
         :participatory_process_group,
@@ -435,7 +435,7 @@ describe "Participatory Process Groups", type: :system do
     shared_examples "not showing processes belonging to other group" do
       it "does not list process of other group" do
         within("#processes-grid") do
-          expect(page).to have_no_content(translated(other_group_process.title, locale: :en))
+          expect(page).not_to have_content(translated(other_group_process.title, locale: :en))
         end
       end
     end

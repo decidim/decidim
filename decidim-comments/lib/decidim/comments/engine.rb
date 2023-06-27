@@ -29,7 +29,7 @@ module Decidim
         Decidim::Api::MutationType.include MutationExtensions
       end
 
-      initializer "decidim.stats" do
+      initializer "decidim_comments.stats" do
         Decidim.stats.register :comments_count, priority: StatsRegistry::MEDIUM_PRIORITY do |organization|
           Decidim.component_manifests.sum do |component|
             component.stats.filter(tag: :comments).with_context(organization.published_components).map { |_name, value| value }.sum
@@ -72,9 +72,11 @@ module Decidim
       end
 
       initializer "decidim_comments.authorization_transfer" do
-        Decidim::AuthorizationTransfer.register(:comments) do |transfer|
-          transfer.move_records(Decidim::Comments::Comment, :decidim_author_id)
-          transfer.move_records(Decidim::Comments::CommentVote, :decidim_author_id)
+        config.to_prepare do
+          Decidim::AuthorizationTransfer.register(:comments) do |transfer|
+            transfer.move_records(Decidim::Comments::Comment, :decidim_author_id)
+            transfer.move_records(Decidim::Comments::CommentVote, :decidim_author_id)
+          end
         end
       end
 

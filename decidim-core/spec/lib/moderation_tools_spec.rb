@@ -6,8 +6,8 @@ module Decidim
   describe ModerationTools do
     subject { described_class.new(resource, current_user) }
 
-    let(:resource) { create :dummy_resource }
-    let(:current_user) { create :user, :confirmed, organization: resource.organization }
+    let(:resource) { create(:dummy_resource) }
+    let(:current_user) { create(:user, :confirmed, organization: resource.organization) }
     let(:justification) { "This is a spam" }
     let(:report_params) { { reason: "hidden_during_block", details: justification } }
 

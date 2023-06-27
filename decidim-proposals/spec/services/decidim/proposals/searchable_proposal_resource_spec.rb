@@ -9,7 +9,7 @@ module Decidim
     include_context "when a resource is ready for global search"
 
     let(:participatory_space) { create(:participatory_process, :published, :with_steps, organization:) }
-    let(:component) { create :proposal_component, organization:, participatory_space: }
+    let(:component) { create(:proposal_component, organization:, participatory_space:) }
     let!(:proposal) do
       create(
         :proposal,
@@ -151,7 +151,7 @@ module Decidim
             on(:ok) do |results_by_type|
               results = results_by_type[proposal.class.name]
               expect(results[:count]).to eq 2
-              expect(results[:results]).to match_array [proposal, proposal2]
+              expect(results[:results]).to contain_exactly(proposal, proposal2)
             end
             on(:invalid) { raise("Should not happen") }
           end

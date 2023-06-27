@@ -471,7 +471,6 @@ nl:
         promotal_committee: Promotieraad
         select_initiative_type: Kiezen
         show_similar_initiatives: Vergelijken
-        step: Stap %{current} van %{total}
         title: Maak nieuw initiatief
       initiative_header:
         initiative_menu_item: Initiatief

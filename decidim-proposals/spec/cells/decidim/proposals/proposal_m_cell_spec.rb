@@ -15,9 +15,9 @@ module Decidim::Proposals
     let(:component) { create(:proposal_component, :with_attachments_allowed) }
     let!(:proposal) { create(:proposal, component:, created_at:, published_at:) }
     let(:model) { proposal }
-    let(:user) { create :user, organization: proposal.participatory_space.organization }
+    let(:user) { create(:user, organization: proposal.participatory_space.organization) }
     let!(:emendation) { create(:proposal) }
-    let!(:amendment) { create :amendment, amendable: proposal, emendation: }
+    let!(:amendment) { create(:amendment, amendable: proposal, emendation:) }
 
     before do
       allow(controller).to receive(:current_user).and_return(user)
@@ -70,7 +70,7 @@ module Decidim::Proposals
         it "renders the card with no status info" do
           expect(subject).to have_css(".card__header")
           expect(subject).to have_css(".card__text")
-          expect(subject).to have_no_css(".card-data__item")
+          expect(subject).not_to have_css(".card-data__item")
         end
       end
 
@@ -169,7 +169,7 @@ module Decidim::Proposals
       end
 
       context "when followers changes" do
-        let(:another_user) { create :user, organization: proposal.participatory_space.organization }
+        let(:another_user) { create(:user, organization: proposal.participatory_space.organization) }
 
         it "generate a different hash" do
           old_hash = my_cell.send(:cache_hash)

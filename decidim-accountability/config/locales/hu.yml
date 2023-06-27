@@ -7,6 +7,7 @@ hu:
         decidim_scope_id: Hatókör
         description: Leírás
         end_date: Befejezés dátuma
+        meetings_ids: Mellékelt találkozók
         progress: Folyamat
         project_ids: Mellékelt projektek
         proposals: Mellékelt javaslatok
@@ -38,6 +39,7 @@ hu:
         confirm_destroy: 'Biztosan törölni szeretnéd ezt: %{name}?'
         destroy: Törlés
         edit: Szerkesztés
+        import: Projektek importálása az eredményekhez
         import_csv: CSV importálása
         new: Új %{name}
         preview: Előnézet
@@ -49,8 +51,33 @@ hu:
           results: Eredmények
         import_results:
           new:
+            download_export: A CSV formátumú exportálás letöltése
             import: Importál
+            info: |
+              <p>Javasoljuk, hogy kövesse az alábbi lépéseket:</p>
+              <ol>
+              <li><a href='%{link_new_status}' target='_blank'>Hozzáadni kívánt eredmények státuszainak létrehozása</a> </li>
+              <li>Az Importálás használata előtt<a href='%{link_new_result}' target='_blank'>hozzon létre legalább egy Eredményt manuálisan</a> ezen az adminisztrációs panelen keresztül, hogy jobban megértse a formátumot és azt, hogy mit kell kitöltenie.</li>
+              <li>%{link_export_csv}</li>
+              <li>Végezze el a módosításokat helyben. Csak a CSV következő oszlopait tudja módosítani:
+                <ul>
+                <li><b>kategória/id:</b> A kategória azonosítója</li>
+                <li><b>scope/id:</b> A hatókör azonosítója</li>
+                <li><b>parent/id:</b> A szülő azonosítója (a kapcsolódó eredményekhez). Választható</li>
+                <li><b>title/en:</b> Angol nyelvű cím. Ez a platform nyelvi konfigurációjától függ.</li>
+                <li><b>description/en:</b> Leírás angol nyelven. Ez a platform nyelvi konfigurációjától függ.</li>
+                <li><b>start_date:</b> az eredmény végrehajtásának kezdeti időpontja (formátum ÉÉÉÉÉ-HH-HH-NN)</li>
+                <li><b>end_date:</b> az eredmény végrehajtásának befejezésének dátuma (formátum ÉÉÉÉÉ-HH-HH-NN)</li>
+                <li><b>status/id:</b> Az eredmény státuszának azonosítója</li>
+                <li><b>progress:</b> A végrehajtás százalékos aránya (0-tól 100-ig)</li>
+                <li><b>proposals_ids:</b> a kapcsolódó javaslatok belső azonosítója (vesszővel elválasztva). Automatikusan átkonvertálódik <span class='attribute-name'>proposal_url</span> címre</li>
+                </ul>
+              </li>
+              </ol>
             title: Eredmények betöltése CSV-ből
+        imports:
+          create:
+            success: A fájl importálása megkezdődött. A következő néhány percben kapni fog egy e-mailt az importálás eredményéről.
         models:
           result:
             name: Eredmény
@@ -58,7 +85,28 @@ hu:
             name: Állapot
           timeline_entry:
             name: Idővonal bejegyzés
+        projects_import:
+          create:
+            invalid: Probléma merült fel a projektek importálásával az eredményekbe, kérjük, gondosan kövesse az utasításokat, és győződjön meg róla, hogy a projekteket a végrehajtáshoz kiválasztotta.
+          new:
+            create: Importálás
+            import_all_selected_projects: A végrehajtásra kiválasztott összes projekt importálása
+            new_items:
+              one: 1 kiválasztott projekt kerül importálásra
+              other: "%{count} kiválasztott projekt kerül importálásra"
+            no_components: Ebben a részvételi térben nincsenek olyan költségvetési elemek, amelyek a projekteket eredményekbe importálnák.
+            origin_component_id: A komponens származása
+            select_component: Komponens választása
+            success:
+              one: 1 projekt várakozik importálásra. A befejezés után e-mailben értesítjük Önt.
+              other: "%{count} importálásra váró projektek. A befejezés után e-mailben értesítjük Önt."
+            title: Projektek importálása az elszámoltathatóságba
         results:
+          create:
+            invalid: Volt egy probléma az eredmény létrehozásával.
+            success: Eredmény sikeresen létrehozva.
+          destroy:
+            success: Eredmény sikeresen törölve.
           edit:
             title: Eredmény szerkesztése
             update: Eredmény frissítése
@@ -67,10 +115,18 @@ hu:
           new:
             create: Eredmény létrehozása
             title: Új eredmény
+          update:
+            invalid: Az eredmény frissítésével probléma adódott.
+            success: Az eredmény sikeresen frissült.
         shared:
           subnav:
             statuses: Állapotok
         statuses:
+          create:
+            invalid: Probléma merült fel ennek a státusznak a létrehozásával.
+            success: Sikeresen létrehozott állapot.
+          destroy:
+            success: Sikeresen törölve.
           edit:
             title: Állapot szerkesztése
             update: Állapot frissítése
@@ -79,7 +135,15 @@ hu:
           new:
             create: Állapot létrehozása
             title: Új állapot
+          update:
+            invalid: Probléma adódott az állapot frissítésével.
+            success: Állapot sikeresen frissítve.
         timeline_entries:
+          create:
+            invalid: Probléma adódott a bejegyzés létrehozásával.
+            success: A bejegyzés sikeresen létrejött.
+          destroy:
+            success: A bejegyzés sikeresen törölve.
           edit:
             title: Bejegyzés szerkesztése
             update: Bejegyzés frissítése
@@ -88,6 +152,9 @@ hu:
           new:
             create: Bejegyzés létrehozása
             title: Új bejegyzés
+          update:
+            invalid: Probléma adódott a bejegyzés frissítésével.
+            success: A bejegyzés sikeresen frissült.
       admin_log:
         result:
           create: "%{user_name} által létrehozott eredmény: %{resource_name} (itt: %{space_name})"
@@ -112,9 +179,19 @@ hu:
       import_mailer:
         import:
           errors: Hibák
+          errors_present: Probléma adódott az eredmények importálásával.
           row_number: Sor
           subject: Eredmények sikeres importálása
           success: Eredmények sikeres importálása. Az eredményeket az adminisztrációs felületen tekintheti meg.
+      import_projects_mailer:
+        import:
+          added_projects:
+            one: Az egyik eredmény a projektekből importálásra került.
+            other: "%{count} az eredmények a projektekből importálásra kerültek."
+          subject: Sikeres projektimport
+          success: A sikeresen importált projektek eredményei a %{component_name} komponensben találhatók. Az eredményeket az adminisztrációs felületen tekintheti meg.
+      last_activity:
+        new_result: 'Új eredmény:'
       models:
         result:
           fields:

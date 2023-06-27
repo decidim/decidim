@@ -10,7 +10,7 @@ module Decidim::Meetings
       ).with_context(current_organization: meeting.organization, meeting:)
     end
 
-    let!(:meeting) { create :meeting }
+    let!(:meeting) { create(:meeting) }
     let!(:registration) { create(:registration, meeting:, code:) }
 
     let(:code) { "RT67YU45" }

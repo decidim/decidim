@@ -5,7 +5,7 @@ require "spec_helper"
 describe Decidim::Log::SpacePresenter, type: :helper do
   subject { described_class.new(space, helper, extra).present }
 
-  let(:space) { create :participatory_process }
+  let(:space) { create(:participatory_process) }
   let(:extra) do
     {
       "title" => space.title

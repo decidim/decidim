@@ -46,7 +46,21 @@ You will need to add `tailwind.config.js` to your app `.gitignore`. If you gener
 
 You can read more about this change on PR [\#9480](https://github.com/decidim/decidim/pull/9480).
 
-### 3.2. Added Procfile support
+### 3.2. Content migration for rich text editor
+
+The rich text editor has been changed to a new editor named Tiptap. This change causes some changes in the HTML content structure stored in the database as well as in the CSS to display this content. We have introduced a new task to take care of the content migration for all components and models managed by the Decidim core modules. To migrate the content to the new structure, you need to run this task as follows:
+
+```console
+bin/rails decidim:upgrade:migrate_wysiwyg_content
+```
+
+Module developers may need to register their own models for the content migration or implement custom content migrations in case their modules contain any content that is managed through the rich text editors. To learn how to do this, please refer to the "Changes in APIs" section of this document.
+
+In case you have done any customizations to the old editor, you will need to remove those customizations and re-do then on the APIs provided by Tiptap. You will also need to do changes in any CSS you have added or customized for displaying the editor content. To learn more about these new APIs, please refer to the "Changes in APIs" section of this document.
+
+You can read more about this change on PR [\#10196](https://github.com/decidim/decidim/pull/10196).
+
+### 3.3. Added Procfile support
 
 We have added Procfile support to ease up the development of Decidim instances. In order to install `foreman` and the `Procfile.dev`, you need to run the following command:
 
@@ -137,6 +151,45 @@ bundle exec rake decidim:proposals:upgrade:remove_valuator_orphan_records
 ```
 
 You can see more details about this change on PR [\#10607](https://github.com/decidim/decidim/pull/10607)
+
+### 3.7. Initiatives pages exception fix
+
+We have added a new tasks to fix a bug related to the pages component inside of the Initiatives module (`decidim-initiatives`).
+
+You can run the task with the following command:
+
+```console
+bundle exec rake decidim:initiatives:upgrade:fix_broken_pages
+```
+
+You can see more details about this change on PR [\#10928](https://github.com/decidim/decidim/pull/10928)
+
+### 3.7. Add Content Security Policy (CSP) support
+
+We have introduced support for Content Security Policy (CSP). This is a security feature that helps to detect and mitigate certain types of attacks, including Cross Site Scripting (XSS) and data injection attacks.
+By default, the CSP is enabled, and is configured to be as restrictive as possible, having the following default configuration:
+
+```ruby
+{
+        "default-src" => %w('self' 'unsafe-inline'),
+        "script-src" => %w('self' 'unsafe-inline' 'unsafe-eval'),
+        "style-src" => %w('self' 'unsafe-inline'),
+        "img-src" => %w('self' *.hereapi.com data:),
+        "font-src" => %w('self'),
+        "connect-src" => %w('self' *.hereapi.com *.jsdelivr.net),
+        "frame-src" => %w('self'),
+        "media-src" => %w('self')
+}
+```
+
+In order to customize the CSP we are providing, have 2 options, either by using a configuration key the initializer `config/initializers/decidim.rb` or by setting values in the Organization's system admin.
+
+Please read more in the docs:
+
+- [Customize Content Security Policy](https://docs.decidim.org/develop/en/customize/content_security_policy)
+- [Using Content Security Policy initializer](https://docs.decidim.org/en/develop/configure/initializer#_content_security_policy)
+
+You can check more about the implementation in the [\#10700](https://github.com/decidim/decidim/pull/10700) pull request.
 
 ## 4. Scheduled tasks
 
@@ -348,7 +401,121 @@ Note that when unregistering an authorization transfer handler, the transfers wi
 
 You can read more about this change at PR [\#9463](https://github.com/decidim/decidim/pull/9463).
 
-### 5.3 Ability to hide content of a user from the public interface
+### 5.3. Tiptap rich text editor
+
+The WYSIWYG ("What You See Is What You Get") rich text editor has been replaced with a new editor named Tiptap to improve the rich text editing experience in Decidim and to ensure that the codebase remains maintained. This change may affect developers that have customized the rich text editor or who are storing rich text editable content in the database.
+
+You can read more about this change on PR [\#10196](https://github.com/decidim/decidim/pull/10196).
+
+#### 5.3.1. New rich text editing API
+
+The new rich text editor is built on the [Tiptap](https://tiptap.dev/) editor which uses the [ProseMirror](https://prosemirror.net/) toolkit for managing the editor's functionality and the content it produces. These frameworks allow the content to be stored in multiple different formats but in Decidim we store them in HTML format because the content is being displayed in an HTML based website.
+
+Tiptap is a headless WYSIWYG editor which does not include a user interface by itself. The user interface is custom built in to Decidim which also allows us to provide a deeper integration and make the editing experience more integrated with the Decidim user interface. This means that Decidim itself ships quite a lot of custom code to add functionality to the editor itself.
+
+Tiptap is well documented and you can find more information about it from its website at:
+
+https://tiptap.dev/introduction
+
+As Tiptap utilizes ProseMirror as its "engine", you can also use any APIs directly that ProseMirror provides. You can learn more about these APIs at:
+
+https://prosemirror.net/docs/ref/
+
+When extending the editor or adding new features to it, you should always primarily rely on the APIs provided by Tiptap. If that is not enough, then look into ProseMirror. Also, take a look at the already implemented Decidim Tiptap extensions to learn how to utilize the APIs in action.
+
+#### 5.3.2. Updated rich text editor JavaScript
+
+The new rich text editor is bundled into its own JavaScript "pack" named `decidim_editor`. You will find the entrypoint file for that from the `decidim-core` gem at `app/packs/entrypoints/decidim_editor.js` and all the editor related JavaScript from the same gem at the `app/packs/src/decidim/editor` folder in case you want to modify any of its functionality.
+
+The initialization of the editor has also changed. In case you are using the `form.editor` or `form.translated :editor` method to generate the rich text editing fields, there is nothing extra you need to do. Those fields should be automatically initialized by the core. But in case you need to initialize the editor for some custom editor elements, you will need to do the following change in your JavaScript code:
+
+```js
+// This is what you did in previous Decidim versions (0.27 and earlier)
+import createQuillEditor from "src/decidim/editor"
+
+window.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".your-custom-editor-container").forEach((container) => {
+    createQuillEditor(container);
+  });
+});
+
+// This is what you need to do in newer Decidim versions (0.28 and newer)
+// Note that you do not need to import anything as the `createEditor` method is
+// exposed through the window object.
+window.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".your-custom-editor-container").forEach((container) => {
+    window.createEditor(container);
+  });
+});
+```
+
+The editor JS is automatically included in the normal Decidim layout when you display editors using the default form builder shipped with Decidim.
+
+#### 5.3.3. New CSS to display the rich text content
+
+The new version of Decidim ships with rewritten CSS for displaying the rich text editor content. This CSS has been written in Tailwind as this is the new CSS framework used in Decidim. You will need to revisit any CSS that you had previously written for the editor and preferrably rewrite it based on the updated content structure and CSS class names.
+
+The editor CSS is automatically included in the normal Decidim layout when you display editors using the default form builder shipped with Decidim.
+
+#### 5.3.4. Registering rich text content for the content migration
+
+Before running the content migration task explained at the "One time actions" section of this document, the modules that store rich text content may need to register their own records for the content migration. This can be done by shipping a custom rake task with the module that does this when when the content migration task is through the task provided by the core.
+
+In case your module ships any models that stores rich text content, you can register that model and its rich text content columns for this migration by creating a new task in the module's `lib/tasks/upgrade` folder and adding the following contents to the new rake task:
+
+```ruby
+# frozen_string_literal: true
+
+# Replace `decidim_yourmodule` with the actual name of your module.
+namespace :decidim_yourmodule do
+  namespace :upgrade do
+    desc "Registers YourModule records for the WYSIWYG content migration"
+    task :register_wysiwyg_migration do
+      # Register here all the models with their column names that need to be
+      # included in the content migration. The first argument is the model's
+      # class name as string and the second argument is an array of the columns
+      # to be updated. The columns in the database can be either text columns
+      # or JSONB columns that store text for multiple languages.
+      Decidim::Upgrade::WysiwygMigrator.register_model("Decidim::YourModule::Record", [:body])
+      Decidim::Upgrade::WysiwygMigrator.register_model("Decidim::YourModule::AnotherRecord", [:short_description, :description])
+    end
+  end
+end
+
+# NOTE:
+# The line below is important as it tells Decidim to run your custom task as
+# part of the core migration registration.
+Rake::Task["decidim:upgrade:register_wysiwyg_migration"].enhance ["decidim_yourmodule:upgrade:register_wysiwyg_migration"]
+```
+
+In case you have some extremely custom content stored outside of models, you can also migrate the content manually by adding the following custom migration code to the rake task shipped with your module:
+
+```ruby
+# frozen_string_literal: true
+
+# Replace `decidim_yourmodule` with the actual name of your module.
+namespace :decidim_yourmodule do
+  namespace :upgrade do
+    desc "Updates YourModule content entered through the WYSIWYG editors"
+    task :migrate_wysiwyg_content do
+      Decidim::YourModule::SomeVeryCustomContentRecord.find_each do |record|
+        record.update!(
+          content: Decidim::Upgrade::WysiwygMigrator.convert(record.content)
+        )
+      end
+    end
+  end
+end
+
+# NOTE:
+# The line below is important as it tells Decidim to run your custom task as
+# part of the core migration.
+Rake::Task["decidim:upgrade:migrate_wysiwyg_content"].enhance ["decidim_yourmodule:upgrade:migrate_wysiwyg_content"]
+```
+
+Note that the component settings are already automatically handled by the core as long as you have defined `editor: true` on the component attribute. This marks those attributes to be editable through the rich text editor. There is nothing you need to do regarding the components to get their content migrated to the new format.
+
+### 5.4 Ability to hide content of a user from the public interface
 
 As of [\#10111](https://github.com/decidim/decidim/pull/10111), the administrators have the ability of blocking the user from the public interface.
 In order to do so, the administrator needs to go to the user's profile and click on the "Report user" button. If the reporting user is a system wide admin, a new "Block this participant" checkbox will appear. If the checkbox is checked, then the reporting user will have the ability as well to check "Hide all their contents". The first checkbox will force the reporting user to admin area where he can add a justification for blocking the offending Participant. The second checkbox will hide all the content of the user from the public interface.

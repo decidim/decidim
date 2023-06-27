@@ -5,7 +5,7 @@ require "spec_helper"
 describe Decidim::Elections::Admin::UpdateTrusteeParticipatorySpace do
   subject { described_class.new(trustee_participatory_space) }
 
-  let(:trustee_participatory_space) { create :trustees_participatory_space }
+  let(:trustee_participatory_space) { create(:trustees_participatory_space) }
 
   it "toggles the considered status" do
     subject.call

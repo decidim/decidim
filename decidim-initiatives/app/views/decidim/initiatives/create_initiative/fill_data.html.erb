@@ -18,7 +18,7 @@
   <div class="medium-centered">
     <div class="card">
       <div class="card__content">
-        <%= decidim_form_for(@form, url: next_wizard_path, method: :put, html: { class: "form new_initiative_form", novalidate: false }) do |f| %>
+        <%= decidim_form_for(@form, url: fill_data_create_initiative_index_path, method: :put, html: { class: "form new_initiative_form", novalidate: false }) do |f| %>
           <%= form_required_explanation %>
           <div class=section>
             <% if single_initiative_type? %>
@@ -30,22 +30,22 @@
                                 {},
                                 {
                                   disabled: !@form.signature_type_updatable?,
-                                  "data-scope-selector": "initiative_decidim_scope_id",
+                                  "data-scope-selector": "initiative_scope_id",
                                   "data-scope-id": f.object.scope_id.to_s,
                                   "data-scope-search-url": decidim_initiatives.initiative_type_scopes_search_url,
                                   "data-signature-types-selector": "initiative_signature_type",
-                                  "data-signature-type": current_initiative&.signature_type,
+                                  "data-signature-type": current_initiative.signature_type,
                                   "data-signature-types-search-url": decidim_initiatives.initiative_type_signature_types_search_url
                                 } %>
               </div>
             <% end %>
 
             <div class="field">
-              <%= f.text_field :title, autofocus: true %>
+              <%= f.text_field :title, autofocus: true, value: translated_attribute(f.object.title) %>
             </div>
 
             <div class="field">
-              <%= text_editor_for(f, :description, lines: 8, toolbar: :content) %>
+              <%= text_editor_for(f, :description, lines: 8, toolbar: :content, value: translated_attribute(f.object.description)) %>
             </div>
 
             <div class="field">

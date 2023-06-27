@@ -4,7 +4,7 @@ require "spec_helper"
 
 describe "ProfileConversations", type: :system do
   let(:organization) { create(:organization) }
-  let(:user) { create :user, :confirmed, organization: }
+  let(:user) { create(:user, :confirmed, organization:) }
   let(:another_user) { create(:user, :confirmed, organization:) }
   let(:extra_user) { create(:user, :confirmed, organization:) }
   let(:user_group) { create(:user_group, :confirmed, organization:, users: [user, extra_user]) }
@@ -73,7 +73,7 @@ describe "ProfileConversations", type: :system do
     end
 
     it "shows an empty conversation page" do
-      expect(page).to have_no_selector(".card.card--widget")
+      expect(page).not_to have_selector(".card.card--widget")
       expect(page).to have_current_path decidim.new_profile_conversation_path(nickname: profile.nickname, recipient_id: recipient.id)
     end
 
@@ -105,7 +105,7 @@ describe "ProfileConversations", type: :system do
       end
 
       context "and recipient follows user" do
-        let!(:follow) { create :follow, user: recipient, followable: profile }
+        let!(:follow) { create(:follow, user: recipient, followable: profile) }
 
         before do
           visit decidim.new_profile_conversation_path(nickname: profile.nickname, recipient_id: recipient.id)
@@ -156,7 +156,7 @@ describe "ProfileConversations", type: :system do
         it_behaves_like "conversation field with maximum length", "message_body"
 
         describe "reply to conversation" do
-          let(:reply_message) { ::Faker::Lorem.sentence }
+          let(:reply_message) { Faker::Lorem.sentence }
 
           it "can reply to conversation" do
             fill_in "message_body", with: reply_message
@@ -227,18 +227,18 @@ describe "ProfileConversations", type: :system do
 
       it "does not show the topbar button the number of unread messages" do
         within "#profile-tabs li.is-active a" do
-          expect(page).to have_no_selector(".badge")
+          expect(page).not_to have_selector(".badge")
         end
       end
 
       it "does not show an unread count" do
-        expect(page).to have_no_selector(".card.card--widget .unread_message__counter")
+        expect(page).not_to have_selector(".card.card--widget .unread_message__counter")
       end
 
       it "conversation page does not show the number of unread messages" do
         visit_inbox
 
-        expect(page).to have_no_selector(".user-groups .card--list__author .card--list__counter")
+        expect(page).not_to have_selector(".user-groups .card--list__author .card--list__counter")
       end
     end
 
@@ -273,7 +273,7 @@ describe "ProfileConversations", type: :system do
           expect(page).to have_content("Please reply!")
 
           visit decidim.conversations_path
-          expect(page).to have_no_selector(".card.card--widget .unread_message__counter")
+          expect(page).not_to have_selector(".card.card--widget .unread_message__counter")
         end
       end
     end
@@ -298,7 +298,7 @@ describe "ProfileConversations", type: :system do
       end
 
       context "and interlocutor follows profile" do
-        let!(:follow) { create :follow, user: interlocutor, followable: profile }
+        let!(:follow) { create(:follow, user: interlocutor, followable: profile) }
 
         before do
           visit_profile_inbox
@@ -320,13 +320,12 @@ describe "ProfileConversations", type: :system do
         let!(:interlocutor2) { create(:user, :confirmed, organization:, direct_message_types: "followed-only") }
 
         it "cannot be selected on the mentioned list", :slow do
-          skip "REDESIGN_PENDING: The profile conversations functionality is going to be removed and it is not necessary to fix this because the modal used here will be deprecated" do
-            visit_profile_inbox
-            expect(page).to have_content("New conversation")
-            click_button "New conversation"
-            find("#add_conversation_users").fill_in with: "@#{interlocutor2.nickname}"
-            expect(page).to have_selector("#autoComplete_list_1 li.disabled", wait: 2)
-          end
+          skip "REDESIGN_PENDING: The profile conversations functionality is going to be removed and it is not necessary to fix this because the modal used here will be deprecated"
+          visit_profile_inbox
+          expect(page).to have_content("New conversation")
+          click_button "New conversation"
+          find("#add_conversation_users").fill_in with: "@#{interlocutor2.nickname}"
+          expect(page).to have_selector("#autoComplete_list_1 li.disabled", wait: 2)
         end
       end
 
@@ -337,17 +336,15 @@ describe "ProfileConversations", type: :system do
         end
 
         it "has disabled submit button" do
-          skip "REDESIGN_PENDING: The profile conversations functionality is going to be removed and it is not necessary to fix this because the modal used here will be deprecated" do
-            expect(page).to have_button("Next", disabled: true)
-          end
+          skip "REDESIGN_PENDING: The profile conversations functionality is going to be removed and it is not necessary to fix this because the modal used here will be deprecated"
+          expect(page).to have_button("Next", disabled: true)
         end
 
         it "enables submit button after selecting interlocutor" do
-          skip "REDESIGN_PENDING: The profile conversations functionality is going to be removed and it is not necessary to fix this because the modal used here will be deprecated" do
-            find("#add_conversation_users").fill_in with: "@#{interlocutor.nickname}"
-            find("#autoComplete_result_0").click
-            expect(page).to have_button("Next", disabled: false)
-          end
+          skip "REDESIGN_PENDING: The profile conversations functionality is going to be removed and it is not necessary to fix this because the modal used here will be deprecated"
+          find("#add_conversation_users").fill_in with: "@#{interlocutor.nickname}"
+          find("#autoComplete_result_0").click
+          expect(page).to have_button("Next", disabled: false)
         end
       end
     end

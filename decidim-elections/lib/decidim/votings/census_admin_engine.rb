@@ -8,7 +8,7 @@ module Decidim
       paths["db/migrate"] = nil
       paths["lib/tasks"] = nil
 
-      initializer "decidim_votings.decidim_voting_menu" do
+      initializer "decidim_votings_census.admin_voting_menu" do
         Decidim.menu :admin_voting_menu do |menu|
           menu.add_item :voting_census,
                         I18n.t("census", scope: "decidim.votings.admin.menu.votings_submenu"),

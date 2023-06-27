@@ -8,9 +8,9 @@ describe Decidim::EventsManager do
     let(:event_class) { Decidim::Events::BaseEvent }
     let(:resource) { double }
     let(:extra) { double }
-    let(:organization) { create :organization }
-    let(:followers) { create_list :user, 3, organization: }
-    let(:affected_users) { create_list :user, 3, organization: }
+    let(:organization) { create(:organization) }
+    let(:followers) { create_list(:user, 3, organization:) }
+    let(:affected_users) { create_list(:user, 3, organization:) }
     let(:force_send) { true }
 
     it "delegates the params to ActiveSupport::Notifications" do

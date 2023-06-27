@@ -90,7 +90,7 @@ describe "Edit initiative", type: :system do
     it "renders an error" do
       visit decidim_initiatives.initiative_path(initiative)
 
-      expect(page).to have_no_content("Edit initiative")
+      expect(page).not_to have_content("Edit initiative")
 
       visit edit_initiative_path
 

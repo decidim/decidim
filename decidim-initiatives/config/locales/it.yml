@@ -548,7 +548,6 @@ it:
         promotal_committee: Comitato promotore
         select_initiative_type: Scegliere
         show_similar_initiatives: Confronta
-        step: Passaggio %{current} di %{total}
         title: Crea una nuova iniziativa
       initiative_header:
         initiative_menu_item: Iniziativa

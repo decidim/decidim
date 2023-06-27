@@ -7,7 +7,7 @@ module Decidim
     describe QueriesController, type: :controller do
       routes { Decidim::Api::Engine.routes }
 
-      let(:organization) { create :organization }
+      let(:organization) { create(:organization) }
 
       before do
         request.env["decidim.current_organization"] = organization

@@ -15,10 +15,10 @@ module Decidim
             )
         end
 
-        let(:organization) { create :organization }
-        let(:consultation) { create :consultation, organization: }
-        let(:question) { create :question }
-        let(:response_group) { create :response_group }
+        let(:organization) { create(:organization) }
+        let(:consultation) { create(:consultation, organization:) }
+        let(:question) { create(:question) }
+        let(:response_group) { create(:response_group) }
         let(:title) do
           {
             en: "Title",

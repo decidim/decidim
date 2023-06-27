@@ -8,9 +8,7 @@ module Decidim
       engine_name "decidim_dev"
 
       initializer "decidim_dev.tools" do
-        ActiveSupport.on_load :action_controller do
-          ActionController::Base.include Decidim::Dev::NeedsDevelopmentTools
-        end
+        ActiveSupport.on_load(:action_controller) { include Decidim::Dev::NeedsDevelopmentTools }
       end
 
       initializer "decidim_dev.webpacker.assets_path" do

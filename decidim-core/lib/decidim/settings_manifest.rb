@@ -92,6 +92,7 @@ module Decidim
         boolean: { klass: Boolean, default: false },
         integer: { klass: Integer, default: 0 },
         string: { klass: String, default: nil },
+        float: { klass: Float, default: nil },
         text: { klass: String, default: nil },
         array: { klass: Array, default: [] },
         enum: { klass: String, default: nil },

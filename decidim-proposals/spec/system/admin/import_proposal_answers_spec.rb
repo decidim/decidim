@@ -9,7 +9,7 @@ describe "Import proposal answers", type: :system do
 
   let(:manifest_name) { "proposals" }
   let(:participatory_space) { component.participatory_space }
-  let(:user) { create :user, organization: }
+  let(:user) { create(:user, organization:) }
 
   let(:answers) do
     proposals.map do |proposal|

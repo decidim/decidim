@@ -39,7 +39,7 @@ module Decidim
 
       let(:scopes) { create_list(:scope, 2, organization:) }
 
-      it { is_expected.to contain_exactly(*scopes) }
+      it { is_expected.to match_array(scopes) }
     end
 
     describe "has an association for scope types" do
@@ -47,7 +47,7 @@ module Decidim
 
       let(:scope_types) { create_list(:scope_type, 2, organization:) }
 
-      it { is_expected.to contain_exactly(*scope_types) }
+      it { is_expected.to match_array(scope_types) }
     end
 
     describe "validations" do

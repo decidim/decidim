@@ -47,7 +47,7 @@ describe "Profile", type: :system do
     end
 
     it "does not show officialization stuff" do
-      expect(page).to have_no_content("This participant is publicly verified")
+      expect(page).not_to have_content("This participant is publicly verified")
     end
 
     context "and user officialized the standard way" do
@@ -196,9 +196,9 @@ describe "Profile", type: :system do
     end
 
     context "when belonging to user groups" do
-      let!(:accepted_user_group) { create :user_group, users: [user], organization: user.organization }
-      let!(:pending_user_group) { create :user_group, users: [], organization: user.organization }
-      let!(:pending_membership) { create :user_group_membership, user_group: pending_user_group, user:, role: "requested" }
+      let!(:accepted_user_group) { create(:user_group, users: [user], organization: user.organization) }
+      let!(:pending_user_group) { create(:user_group, users: [], organization: user.organization) }
+      let!(:pending_membership) { create(:user_group_membership, user_group: pending_user_group, user:, role: "requested") }
 
       before do
         visit decidim.profile_path(user.nickname)
@@ -208,14 +208,14 @@ describe "Profile", type: :system do
         click_link "Groups"
 
         expect(page).to have_content(accepted_user_group.name)
-        expect(page).to have_no_content(pending_user_group.name)
+        expect(page).not_to have_content(pending_user_group.name)
       end
 
       context "when user groups are disabled" do
         let(:organization) { create(:organization, user_groups_enabled: false) }
         let(:user) { create(:user, :confirmed, organization:) }
 
-        it { is_expected.to have_no_content("Groups") }
+        it { is_expected.not_to have_content("Groups") }
       end
     end
   end

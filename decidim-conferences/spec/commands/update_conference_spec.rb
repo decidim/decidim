@@ -5,8 +5,8 @@ require "spec_helper"
 module Decidim::Conferences
   describe Admin::UpdateConference do
     describe "call" do
-      let(:my_conference) { create :conference }
-      let(:user) { create :user, :admin, :confirmed, organization: my_conference.organization }
+      let(:my_conference) { create(:conference) }
+      let(:user) { create(:user, :admin, :confirmed, organization: my_conference.organization) }
       let!(:participatory_processes) do
         create_list(
           :participatory_process,
@@ -21,7 +21,7 @@ module Decidim::Conferences
           organization: my_conference.organization
         )
       end
-      let(:consultation) { create :consultation, organization: my_conference.organization }
+      let(:consultation) { create(:consultation, organization: my_conference.organization) }
       let!(:questions) do
         create_list(
           :question,
@@ -200,7 +200,7 @@ module Decidim::Conferences
       end
 
       describe "events" do
-        let!(:follow) { create :follow, followable: my_conference, user: }
+        let!(:follow) { create(:follow, followable: my_conference, user:) }
         let(:title) { my_conference.title }
         let(:start_date) { my_conference.start_date }
         let(:end_date) { my_conference.end_date }

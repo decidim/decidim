@@ -5,19 +5,19 @@ require "spec_helper"
 describe Decidim::Elections::TrusteeZone::Permissions do
   subject { described_class.new(user, permission_action, context).permissions.allowed? }
 
-  let(:user) { create :user, organization: elections_component.organization }
+  let(:user) { create(:user, organization: elections_component.organization) }
   let(:context) do
     {
       current_component: elections_component,
       trustee: permission_trustee
     }
   end
-  let(:elections_component) { create :elections_component }
+  let(:elections_component) { create(:elections_component) }
   let(:trustee) { create(:trustee, user:) }
   let(:election) do
     create(:election, :ready_for_setup, trustees_participatory_space: trustee_participatory_space)
   end
-  let(:trustee_participatory_space) { create :trustees_participatory_space, trustee: }
+  let(:trustee_participatory_space) { create(:trustees_participatory_space, trustee:) }
   let(:permission_trustee) { trustee }
   let(:permission_action) { Decidim::PermissionAction.new(**action) }
 

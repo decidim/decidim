@@ -4,7 +4,7 @@ require "spec_helper"
 
 describe "Newsletters (view in web)", type: :system do
   let(:organization) { create(:organization) }
-  let!(:newsletter) { create :newsletter, :sent, organization: }
+  let!(:newsletter) { create(:newsletter, :sent, organization:) }
   let!(:content_block) do
     content_block = Decidim::ContentBlock.find_by(organization:, scope_name: :newsletter_template, scoped_resource_id: newsletter.id)
     content_block.destroy!

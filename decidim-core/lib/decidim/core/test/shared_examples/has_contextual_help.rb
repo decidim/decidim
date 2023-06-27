@@ -19,7 +19,7 @@ shared_examples "shows contextual help" do
 
     visit current_path
 
-    expect(page).to have_no_content("Some relevant help")
+    expect(page).not_to have_content("Some relevant help")
 
     find(".floating-helper__text").click
 

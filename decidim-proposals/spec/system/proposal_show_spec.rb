@@ -5,7 +5,7 @@ require "spec_helper"
 describe "Show a Proposal", type: :system do
   include_context "with a component"
   let(:manifest_name) { "proposals" }
-  let(:proposal) { create :proposal, component: }
+  let(:proposal) { create(:proposal, component:) }
 
   def visit_proposal
     visit resource_locator(proposal).path
@@ -19,6 +19,7 @@ describe "Show a Proposal", type: :system do
     context "when requesting the proposal path" do
       before do
         visit_proposal
+        expect(page).to have_content(translated(proposal.title))
       end
 
       it_behaves_like "share link"
@@ -29,7 +30,7 @@ describe "Show a Proposal", type: :system do
           visit current_path
         end
 
-        context "when I'm an admin user" do
+        context "when I am an admin user" do
           let(:user) { create(:user, :admin, :confirmed, organization:) }
 
           it "has a link to answer to the proposal at the admin" do
@@ -39,7 +40,7 @@ describe "Show a Proposal", type: :system do
           end
         end
 
-        context "when I'm a regular user" do
+        context "when I am a regular user" do
           let(:user) { create(:user, :confirmed, organization:) }
 
           it "does not have a link to answer the proposal at the admin" do

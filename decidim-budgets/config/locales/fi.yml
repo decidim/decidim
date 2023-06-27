@@ -195,7 +195,7 @@ fi:
             title: Otsikko
       order_summary_mailer:
         order_summary:
-          selected_projects: 'Hankkeet, jotka olet valinnut:'
+          selected_projects: 'Hankkeet, jotka valitsit:'
           subject: Olet äänestänyt osallistumistilassa %{space_name}
           voted_on_space: Olet äänestänyt budjetista %{budget_name} osallistumistilassa %{space_name}.
           voted_on_space_with_scope: Olet äänestänyt budjetista %{budget_name} osallistumistilassa %{space_name} koskien teemaa %{scope_name} (%{scope_type}).

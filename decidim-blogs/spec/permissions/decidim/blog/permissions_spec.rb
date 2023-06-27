@@ -5,13 +5,13 @@ require "spec_helper"
 describe Decidim::Blog::Permissions do
   subject { described_class.new(user, permission_action, context).permissions.allowed? }
 
-  let(:user) { create :user, organization: blog_component.organization }
+  let(:user) { create(:user, organization: blog_component.organization) }
   let(:context) do
     {
       current_component: blog_component
     }
   end
-  let(:blog_component) { create :post_component }
+  let(:blog_component) { create(:post_component) }
   let(:permission_action) { Decidim::PermissionAction.new(**action) }
 
   context "when scope is public" do

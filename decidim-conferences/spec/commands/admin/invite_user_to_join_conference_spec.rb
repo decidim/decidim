@@ -6,9 +6,9 @@ module Decidim::Conferences::Admin
   describe InviteUserToJoinConference do
     let(:command) { described_class.new(form, conference, invited_by) }
 
-    let(:conference) { create :conference }
-    let(:invited_by) { create :user, :admin, :confirmed, organization: conference.organization }
-    let(:invited_user) { create :user, :confirmed, organization: conference.organization }
+    let(:conference) { create(:conference) }
+    let(:invited_by) { create(:user, :admin, :confirmed, organization: conference.organization) }
+    let(:invited_user) { create(:user, :confirmed, organization: conference.organization) }
     let(:form) do
       double(
         invalid?: invalid,

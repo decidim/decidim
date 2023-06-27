@@ -7,9 +7,9 @@ describe "Proposals", type: :system do
   include_context "with a component"
   let(:manifest_name) { "proposals" }
 
-  let!(:category) { create :category, participatory_space: participatory_process }
-  let!(:scope) { create :scope, organization: }
-  let!(:user) { create :user, :confirmed, organization: }
+  let!(:category) { create(:category, participatory_space: participatory_process) }
+  let!(:scope) { create(:scope, organization:) }
+  let!(:user) { create(:user, :confirmed, organization:) }
   let(:scoped_participatory_process) { create(:participatory_process, :with_steps, organization:, scope:) }
 
   let(:address) { "Some address" }
@@ -82,7 +82,7 @@ describe "Proposals", type: :system do
       it "does not show the scope name" do
         visit_component
         click_link proposal_title
-        expect(page).to have_no_content(translated(scope.name))
+        expect(page).not_to have_content(translated(scope.name))
       end
     end
 
@@ -441,7 +441,7 @@ describe "Proposals", type: :system do
       let(:proposal) { create(:proposal, component:) }
       let(:author) { create(:user, :confirmed, organization: component.organization) }
       let!(:comments) { create_list(:comment, 3, commentable: proposal) }
-      let!(:moderation) { create :moderation, reportable: comments.first, hidden_at: 1.day.ago }
+      let!(:moderation) { create(:moderation, reportable: comments.first, hidden_at: 1.day.ago) }
 
       it "displays unhidden comments count" do
         visit_component
@@ -486,7 +486,7 @@ describe "Proposals", type: :system do
 
       it "shows a disabled vote button for each proposal, but no links to full proposals" do
         expect(page).to have_button("Supports disabled", disabled: true, count: 2)
-        expect(page).to have_no_link("View proposal")
+        expect(page).not_to have_link("View proposal")
       end
     end
 
@@ -507,8 +507,8 @@ describe "Proposals", type: :system do
 
         visit_component
 
-        expect(page).to have_no_button("Supports disabled", disabled: true)
-        expect(page).to have_no_button("Vote")
+        expect(page).not_to have_button("Supports disabled", disabled: true)
+        expect(page).not_to have_button("Vote")
         expect(page).to have_link("View proposal", count: 2)
       end
     end
@@ -648,7 +648,7 @@ describe "Proposals", type: :system do
     end
 
     context "when paginating" do
-      let!(:collection) { create_list :proposal, collection_size, component: }
+      let!(:collection) { create_list(:proposal, collection_size, component:) }
       let!(:resource_selector) { ".card--proposal" }
 
       it_behaves_like "a paginated resource"

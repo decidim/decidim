@@ -25,7 +25,7 @@ describe Decidim::SendPushNotification do
 
     describe "#perform" do
       let(:user) { create(:user) }
-      let(:notification) { create :notification, user: }
+      let(:notification) { create(:notification, user:) }
 
       it "returns false" do
         expect(subject.perform(notification)).to be_falsy
@@ -40,7 +40,7 @@ describe Decidim::SendPushNotification do
 
     describe "#perform" do
       let(:user) { create(:user) }
-      let(:notification) { create :notification, user: }
+      let(:notification) { create(:notification, user:) }
 
       it "returns false" do
         expect(subject.perform(notification)).to be_falsy
@@ -51,7 +51,7 @@ describe Decidim::SendPushNotification do
   context "without any subscription" do
     describe "#perform" do
       let(:user) { create(:user, notification_settings: { subscriptions: {} }) }
-      let(:notification) { create :notification, user: }
+      let(:notification) { create(:notification, user:) }
 
       it "returns empty array" do
         expect(subject.perform(notification)).to be_empty
@@ -61,7 +61,7 @@ describe Decidim::SendPushNotification do
 
   context "with subscriptions" do
     let(:user) { create(:user, notification_settings: { subscriptions: }) }
-    let(:notification) { create :notification, user: }
+    let(:notification) { create(:notification, user:) }
 
     describe "#perform" do
       it "returns 201 and created if the message is sent ok" do
@@ -117,7 +117,7 @@ describe Decidim::SendPushNotification do
 
   context "with subscription" do
     let(:user) { create(:user, notification_settings: { subscriptions: subscription }) }
-    let(:notification) { create :notification, user: }
+    let(:notification) { create(:notification, user:) }
 
     describe "#perform" do
       it "returns 201 and created if the message is sent ok" do
