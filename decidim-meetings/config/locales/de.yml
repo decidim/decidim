@@ -56,6 +56,8 @@ de:
           attributes:
             iframe_embed_type:
               not_embeddable: Diese URL kann nicht in der Veranstaltungs- oder Live-Eventseite eingebettet werden
+            online_meeting_url:
+              url_format: Muss eine gültige URL sein
         meeting_agenda:
           attributes:
             base:
@@ -503,6 +505,7 @@ de:
           select_a_category: Bitte wählen sie eine Kategorie
           select_a_meeting_type: Bitte eine Meeting-Art auswählen
           select_a_registration_type: Bitte wählen Sie eine Registrierungsart aus
+          select_an_iframe_access_level: Bitte wählen Sie eine iFrame-Zugriffsebene aus
           show_embedded_iframe_help: Nur wenige Dienste erlauben das Einbetten einer Veranstaltung oder eines Livestreams (Youtube, Twitch und Jitsi)
         index:
           click_here: Alle Treffen anzeigen
@@ -528,6 +531,7 @@ de:
           close_meeting: Meeting beenden
           contributions: Beiträge zählen
           date: Datum
+          edit_close_meeting: Veranstaltungsbericht bearbeiten
           edit_meeting: Besprechung bearbeiten
           going: Sie haben sich für diese Sitzung angemeldet
           join: Tritt dem Treffen bei
@@ -537,6 +541,7 @@ de:
           link_closed: Der Link, um an dem Treffen teilzunehmen, wird einige Minuten vor dem Start verfügbar sein
           live_event: Dieses Meeting findet gerade statt
           meeting_minutes: Sitzungsprotokolle
+          micro_camera_permissions_warning: Wenn Sie auf die Schaltfläche unten klicken, werden Sie nach Mikrofon- und/oder Kamera-Berechtigungen gefragt und Sie werden der Videokonferenz hinzugefügt
           no_slots_available: Keine Steckplätze verfügbar
           organizations: Teilnahme an Organisationen
           registration_code_help_text: Ihr Registrierungscode
@@ -549,6 +554,7 @@ de:
           view: Anzeigen
           visit_finished: Vergangene Treffen anzeigen
           withdraw_btn_hint: Sie können Ihr Treffen zurückziehen, wenn Sie Ihre Meinung ändern. Das Meeting wird nicht gelöscht, es wird in der Liste der zurückgezogenen Meetings angezeigt.
+          withdraw_confirmation_html: Sind Sie sicher, dass Sie diese Veranstaltung zurückziehen möchten?<br><br><strong> Diese Aktion kann nicht rückgängig gemacht werden!</strong>
           withdraw_meeting: Treffen zurückziehen
         update:
           invalid: Beim Aktualisieren der Besprechung ist ein Fehler aufgetreten.
@@ -594,7 +600,9 @@ de:
             max_choices_alert: Es wurden zu viele Auswahlmöglichkeiten ausgewählt
             question: Frage
             question_replied: Frage beantwortet
+            reply_question: Frage beantworten
       public_participants_list:
+        attending_participants: Teilnehmer
         hidden_participants_count:
           one: und %{count} weitere Person
           other: und %{count} weitere Personen
