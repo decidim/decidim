@@ -42,7 +42,7 @@ describe "User group manage members", type: :system do
     end
 
     it "allows managing the group members" do
-      expect(page).to have_content("Current members (without admins)")
+      expect(page).to have_content("Manage members")
       expect(page).to have_content(member.name)
     end
 
