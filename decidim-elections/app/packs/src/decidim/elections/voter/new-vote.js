@@ -26,11 +26,9 @@ $(async () => {
 
       await voteComponent.bindEvents({
         onBindEncryptButton(onEventTriggered) {
-          $(".button.confirm").on("click", onEventTriggered);
+          $("[id='next-encrypting']").on("click", onEventTriggered);
         },
-        onStart() {
-          console.log("start");
-        },
+        onStart() {},
         onVoteEncryption(validVoteFn) {
           const getFormData = (formData) => {
             return formData.serializeArray().reduce((acc, { name, value }) => {
