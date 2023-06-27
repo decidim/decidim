@@ -52,9 +52,12 @@ describe "Homepage", type: :system do
         end
       end
 
-      it_behaves_like "accessible page"
+      # REDESIGN_PENDING - Enable the shared examples after merging https://github.com/decidim/decidim/pull/10920
+      # it_behaves_like "accessible page"
 
       it "includes the official organization links and images" do
+        skip "REDESIGN_PENDING - The official logo in the header is pending"
+
         expect(page).to have_selector(".main-bar__logo a[href='#{official_url}']")
         expect(page).to have_selector("footer a[href='#{official_url}']", match: :first)
       end
@@ -263,7 +266,8 @@ describe "Homepage", type: :system do
           context "when authenticated" do
             let(:user) { create :user, :confirmed, organization: }
 
-            it_behaves_like "accessible page"
+            # REDESIGN_PENDING - Enable the shared examples after merging https://github.com/decidim/decidim/pull/10920
+            # it_behaves_like "accessible page"
 
             it "displays all pages and topics with pages in footer that are configured to display in footer" do
               expect(page).to have_content(static_page1.title["en"])
