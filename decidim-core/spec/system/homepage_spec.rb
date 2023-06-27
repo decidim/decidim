@@ -473,7 +473,7 @@ describe "Homepage", type: :system do
         end
 
         it "shows the banner's action title" do
-          expect(page).to have_i18n_content(organization.highlighted_content_banner_action_title, upcase: true)
+          expect(page).to have_i18n_content(organization.highlighted_content_banner_action_title)
         end
 
         it "shows the banner's action subtitle" do
