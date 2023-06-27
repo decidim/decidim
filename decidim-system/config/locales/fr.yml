@@ -89,6 +89,7 @@ fr:
           actions:
             save_and_invite: Créer une organisation et inviter un administrateur
           fields:
+            content_security_policy: Content Security Policy
             created_at: Créé le
             file_upload_settings: Paramètres de téléchargement de fichier
             name: Nom
@@ -123,6 +124,39 @@ fr:
         create:
           error: Une erreur s'est produite lors de la création d'une nouvelle organisation.
           success: Organisation créée avec succès.
+        csp_settings:
+          connect_src: Connecter src
+          connect_src_hint: |
+            La directive connect-src limite les URL qui peuvent être chargées en utilisant les éléments <script> .
+            Decidim ajoutera 'self', mais vous permet d'en ajouter plus. Laissez le vide si vous n'êtes pas sûr.
+          default_src: src par défaut
+          default_src_hint: |
+            La directive default-src est la politique par défaut pour charger des contenus tels que JavaScript, Images, CSS, Polices, requêtes AJAX, Frames, HTML5 Media.
+            Decidim ajoutera « self» « unsafe-inline» mais vous permet d'en ajouter plus. Laissez vide si vous n'êtes pas sûr.
+          font_src: Police src
+          font_src_hint: |
+            La directive font-src limite les URL qui peuvent être chargées en utilisant @font-face.
+            Decidim ajoutera 'self', mais vous permet d'en ajouter plus. Laissez ce champ vide si vous n'êtes pas sûr.
+          frame_src: Frame src
+          frame_src_hint: |
+            La directive frame-src limite les URL qui peuvent être chargées en utilisant les éléments <frame>, <iframe> et <object> .
+            Decidim ajoutera 'self', mais vous permet d'en ajouter plus. Laissez ce champ vide si vous n'êtes pas sûr.
+          img_src: Img src
+          img_src_hint: |
+            La directive img-src restreint les URL qui peuvent être chargées en utilisant les éléments <img>, <image>, <picture> et <svg> .
+            Decidim ajoutera 'self', mais vous permet d'en ajouter davantage. Laissez vide si vous n'êtes pas sûr.
+          media_src: Media src
+          media_src_hint: |
+            La directive media-src limite les URL qui peuvent être chargées en utilisant les éléments <video>, <audio> et <source> .
+            Decidim ajoutera 'self', mais vous permet d'en ajouter plus. Laissez ce champ vide si vous n'êtes pas sûr.
+          script_src: Script src
+          script_src_hint: |
+            La directive script-src limite les URL qui peuvent être chargées en utilisant les éléments <script> .
+            Decidim ajoutera « self» « unsafe-inline» « unsafe-eval», mais vous permet d’en ajouter davantage. Laissez vide si vous n’êtes pas sûr.
+          style_src: Style src
+          style_src_hint: |
+            La directive style-src limite les URL qui peuvent être chargées en utilisant les éléments <style> .
+            Decidim ajoutera « self» « unsafe-inline», mais vous permet d’en ajouter plus. Laissez vide si vous n’êtes pas sûr.
         edit:
           secondary_hosts_hint: Entrez chacun d'eux dans une nouvelle ligne
         file_upload_settings:
