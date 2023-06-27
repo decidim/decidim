@@ -1265,10 +1265,17 @@ de:
           title: 'Erforderlich: Überprüfen Sie die Aktualisierungen unserer Nutzungsbedingungen'
     participatory_space_private_users:
       not_allowed: Sie dürfen diesen Inhalt nicht sehen
+    passwords:
+      update:
+        error: Es gab ein Problem bei der Aktualisierung des Passwortes.
+        success: Passwort erfolgreich aktualisiert.
     profile:
+      deleted: Gelöschter Teilnehmer
       inaccessible_message: Dieses Profil ist wegen Verletzung der Nutzungsbedingungen nicht zugänglich!
       view: Anzeigen
     profiles:
+      default_officialization_text_for_user_groups: Diese Benutzergruppe wurde öffentlich überprüft. Der Gruppenname entspricht ihrem tatsächlichen Namen.
+      default_officialization_text_for_users: Dieser Teilnehmer ist öffentlich verifiziert, sein/ihr Name oder seine/ihre Rolle wurde auf Übereinstimmung mit dem wirklichen Namen und der wirklichen Rolle überprüft.
       show:
         activity: Aktivität
         badges: Abzeichen
@@ -1288,13 +1295,17 @@ de:
         actions:
           create_user_group: Gruppe erstellen
           edit_profile: Profil bearbeiten
+          edit_user_group: Gruppenprofil bearbeiten
           invite_user: Teilnehmer einladen
+          join_user_group: Gruppenbeitritt anfragen
           manage_user_group_admins: Admins verwalten
           manage_user_group_users: Mitglieder verwalten
           message: Nachricht
+        confirmation_instructions_sent: E-Mail-Bestätigungsanweisungen gesendet.
         create_user_group: Gruppe erstellen
         edit_profile: Profil bearbeiten
         edit_user_group: Gruppenprofil bearbeiten
+        fill_in_email_to_confirm_it: Bitte geben Sie die E-Mail-Adresse Ihrer Gruppe zur Bestätigung ein.
         invite_user: Nutzer einladen
         join_user_group: Anfrage zur Teilnahme an der Gruppe
         leave_user_group: Gruppe verlassen
@@ -1386,15 +1397,22 @@ de:
         already_reported: Dieser Inhalt wurde bereits gemeldet und wird von einem Administrator überprüft.
         close: Schließen
         description: Ist dieser Inhalt unangemessen?
+        does_not_belong: Enthält illegale Aktivitäten, Selbstmorddrohungen, persönliche Informationen oder etwas anderes, von dem Sie denken, dass es nicht auf %{organization_name} gehört.
+        hide: Verbergen
+        hide_content: Diesen Inhalt verbergen
         offensive: Enthält Rassismus, Sexismus, Verunglimpfungen, persönliche Angriffe, Morddrohungen, Selbstmordanträge oder jede Form von Hassreden.
         reason: Begründung
         report: Bericht
         spam: Enthält Clickbait, Werbung, Scams oder Script Bots.
         title: Ein Problem melden
+        visit_profile: Wenn Sie auch den Teilnehmer und den Rest seines Inhalts blockieren möchten, gehen Sie auf die Profilseite von %{user_link}.
       flag_user_modal:
         already_reported: Dieser Inhalt wurde bereits gemeldet und wird von einem Administrator überprüft.
+        block: Diesen Teilnehmer blockieren
         close: Schließen
         description: Was ist unangebracht über den Benutzer?
+        does_not_belong: Enthält illegale Aktivitäten, Selbstmorddrohungen, persönliche Informationen oder etwas anderes, von dem Sie denken, dass es nicht auf %{organization_name} gehört.
+        hide: Alle dessen Inhalte verbergen
         offensive: Enthält Rassismus, Sexismus, Verunglimpfungen, persönliche Angriffe, Morddrohungen, Selbstmordanträge oder eine Form von Hassrede.
         report: Melden
         spam: Enthält Clickbait, Werbung, Scams oder Script Bots.
@@ -1416,6 +1434,9 @@ de:
           select_an_area: Wählen Sie einen Bereich aus
       public_participation:
         public_participation: Meine Teilnahme öffentlich anzeigen
+      redesigned_login_modal:
+        please_sign_in: Bitte anmelden
+        sign_up: Registrieren
       reference:
         reference: 'Referenz: %{reference}'
       represent_user_group:
@@ -1432,6 +1453,7 @@ de:
         copy_share_link_message: Der Link wurde erfolgreich in die Zwischenablage kopiert.
         share: Teilen
         share_link: Link teilen
+        share_to: Teilen mit %{service}
     statistics:
       comments_count: Kommentare
       endorsements_count: Befürworungen
@@ -1454,6 +1476,7 @@ de:
     user_contact_disabled: Dieser Teilnehmer akzeptiert keine Direktnachrichten.
     user_conversations:
       create:
+        error: Die Nachricht konnte nicht erstellt werden. Versuchen Sie es später nochmal.
         existing_error: Die Nachricht konnte nicht erstellt werden. Die Unterhaltung besteht bereits, versuchen Sie es noch einmal.
         success: Unterhaltung erfolgreich gestartet!
       index:
@@ -1468,6 +1491,7 @@ de:
         next: Weiter
         no_conversations_warning: Es gibt noch keine Unterhaltungen.
         no_results: Keine Ergebnisse
+        participant_with_disabled_message_reception: Dieser Teilnehmer hat Nachrichten deaktiviert.
         time_ago: "Vor %{time}"
       new:
         title: Eine Unterhaltung beginnen
@@ -1477,6 +1501,7 @@ de:
         title_reply: Antworten
       show:
         back: Alle Unterhaltungen anzeigen
+        deleted_accounts: Sie können keine Unterhaltung mit gelöschten Konten führen.
         not_allowed: Dieser Benutzer akzeptiert keine Direktnachrichten mehr.
         title: Unterhaltung mit %{usernames}
       update:
@@ -1484,6 +1509,8 @@ de:
     user_interests:
       show:
         my_interests: Meine Interessen
+        no_scopes: Dieser Organisation ist noch kein Thema zugewiesen!
+        select_your_interests: Wählen Sie die Themen aus, an denen Sie interessiert sind, um dazu Benachrichtigungen auf der Registerkarte "Zeitleiste" Ihres Profils zu erhalten.
         update_my_interests: Aktualisieren Sie meine Interessen
       update:
         error: Beim Aktualisieren Ihrer Interessen ist ein Fehler aufgetreten.
@@ -1525,6 +1552,7 @@ de:
       show:
         version_index: Version %{index}
     welcome_notification:
+      default_body: <p>Guten Tag {{name}}, vielen Dank dafür, dass Sie {{organization}} beigetreten sind und herzlich willkommen!</p><ul><li>Wenn Sie einen kurzen Überblick darüber bekommen möchten, was Sie hier tun können, schauen Sie sich den <a href="{{help_url}}">Hilfe-Abschnitt </a> an.</li><li>Sobald Sie ihn gelesen haben, bekommen Sie Ihr erstes Abzeichen. Hier finden Sie eine<a href="{{badges_url}}">Liste aller Abzeichen</a>, die Sie bei der Teilnahme auf {{organization}}</li> erhalten können<li>Folgen Sie anderen Menschen, teilen Sie die Erfahrung der Zusammenarbeit und Teilnahme auf {{organization}} mit ihnen. Machen Sie Vorschläge und Kommentare, nehmen Sie an Debatten teil, denken Sie darüber nach, wie Sie zum Gemeinwohl beitragen können, liefern Sie Argumente zum Überzeugen, hören und lesen Sie, um sich überzeugen zu lassen, drücken Sie Ihre Ideen auf konkrete und direkte Weise aus, reagieren Sie mit Geduld und Entschlossenheit, verteidigen Sie Ihre Ideen und bleiben Sie offen für die Zusammenarbeit und die Ideen anderer Menschen.</li></ul>
       default_subject: Danke, dass du {{organization}}beigetreten {{organization}} !
     wizard_step_form:
       wizard_aside:
@@ -1552,6 +1580,7 @@ de:
     invitations:
       edit:
         header: Beenden Sie die Erstellung Ihres Kontos
+        nickname_help: Ihr Pseudonym auf %{organization}. Kann nur Buchstaben, Zahlen, '-' und '_' enthalten.
         submit_button: Speichern
         subtitle: Wenn Sie die Einladung annehmen, geben Sie bitte Ihren Benutzernamen und Ihr Passwort ein.
       invitation_removed: Ihre Einladung wurde entfernt.
@@ -1571,26 +1600,40 @@ de:
         subject: Bestätigungsanweisungen
       email_changed:
         greeting: Hallo %{recipient}!
+        message: Wir kontaktieren Sie, um Sie darüber zu informieren, dass Ihre E-Mail-Adresse zu %{email} geändert wird.
         subject: E-Mail geändert
       invitation_instructions:
         accept: Die Einladung annehmen
         accept_until: Diese Einladung wird in %{due_date}fällig.
         decline: Einladung ablehnen
         hello: Hallo %{email},
+        ignore: |-
+          Wenn Sie die Einladung nicht annehmen möchten, ignorieren Sie diese E-Mail.<br />
+          Ihr Konto wird erst erstellt, wenn Sie auf den obigen Link zugreifen und Ihren Benutzernamen und Ihr Passwort festlegen.
         invited_you_as_admin: "%{invited_by} hat dich als Admin von %{application}eingeladen. Sie können es über den folgenden Link akzeptieren."
         invited_you_as_private_user: "%{invited_by} hat dich als privaten Benutzer von %{application}eingeladen. Sie können es über den folgenden Link akzeptieren."
         someone_invited_you: Jemand hat dich zu %{application}eingeladen. Sie können es über den folgenden Link akzeptieren.
         someone_invited_you_as_admin: Jemand hat dich als Admin von %{application}eingeladen, du kannst es über den untenstehenden Link akzeptieren.
         someone_invited_you_as_private_user: Jemand hat dich als private_user von %{application}eingeladen, du kannst es über den folgenden Link akzeptieren.
         subject: Anweisungen zur Einladung
+      invite_admin:
+        subject: Sie wurden eingeladen %{organization} zu verwalten
+      invite_collaborator:
+        subject: Sie wurden zur Zusammenarbeit auf %{organization} eingeladen
+      invite_private_user:
+        subject: Sie wurden zu einem privaten Beteiligungsprozess auf %{organization} eingeladen
+      organization_admin_invitation_instructions:
+        subject: Sie wurden eingeladen %{organization} zu verwalten
       password_change:
         greeting: Hallo %{recipient}!
+        message: Wir kontaktieren Sie, um Ihnen mitzuteilen, dass Ihr Passwort geändert wurde.
         subject: Passwort geändert
       reset_password_instructions:
         action: Ändere mein Passwort
         greeting: Hallo %{recipient}!
         instruction: Jemand hat einen Link angefordert, um Ihr Passwort zu ändern, und Sie können dies über den folgenden Link tun.
         instruction_2: Wenn Sie dies nicht angefordert haben, ignorieren Sie diese E-Mail.
+        instruction_3: Ihr Passwort ändert sich erst, wenn Sie auf den obigen Link zugreifen und ein Neues erstellen.
         subject: Passwort-Anweisungen zurücksetzen
       unlock_instructions:
         action: Entsperren Sie mein Konto
@@ -1612,6 +1655,7 @@ de:
       new:
         forgot_your_password: Haben Sie Ihr Passwort vergessen?
         send_me_reset_password_instructions: Senden Sie mir das Passwort zurück
+      no_token: Sie können nicht auf diese Seite zugreifen, ohne von einer E-Mail zum Zurücksetzen des Kennworts zu stammen. Wenn Sie eine E-Mail zum Zurücksetzen des Passworts erhalten, vergewissern Sie sich bitte, dass Sie die vollständige URL verwendet haben.
       send_instructions: Sie erhalten eine E-Mail mit Anweisungen zum Zurücksetzen Ihres Passworts in wenigen Minuten.
       send_paranoid_instructions: Wenn Ihre E-Mail-Adresse in unserer Datenbank vorhanden ist, erhalten Sie innerhalb weniger Minuten einen Link zur Passwortwiederherstellung unter Ihrer E-Mail-Adresse.
       updated: Ihr Passwort wurde erfolgreich geändert. Sie sind jetzt angemeldet.
@@ -1655,7 +1699,23 @@ de:
       public: Ihre öffentlichen Informationen.
   editor:
     extensions:
+      image:
+        altLabel: Alternativer Bildtext
+        nodeView:
+          resizer:
+            control:
+              resize: Bild skalieren (%position%)
+            position:
+              bottomLeft: untere linke Ecke
+              bottomRight: untere rechte Ecke
+              topLeft: obere linke Ecke
+              topRight: obere rechte Ecke
+        uploadError: Fehler beim Upload des Dokuments.
       link:
+        bubbleMenu:
+          edit: Bearbeiten
+          remove: Entfernen
+          url: URL
         hrefLabel: Link-URL
         targetLabel: Ziel
         targets:
