@@ -571,9 +571,6 @@ en:
     decidim:
       conference_hero:
         register: Register
-      conference_widgets:
-        show:
-          take_part: Take part
       conferences:
         conference:
           more_info: More info

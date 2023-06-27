@@ -527,10 +527,6 @@ en:
           browse: Browse
           browse_resource: Browse process group %{resource_name}
           processes_count: 'Processes:'
-      participatory_process_widgets:
-        show:
-          active_step: Active phase
-          take_part: Take part
       participatory_processes:
         index:
           promoted_processes: Highlighted processes
