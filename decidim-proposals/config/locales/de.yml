@@ -781,6 +781,7 @@ de:
           new_proposal: Neuer Vorschlag
           see_all: Alle Vorschläge ansehen
           see_all_withdrawn: Sehen Sie sich alle zurückgezogenen Vorschläge an
+          text_banner: Hier sehen Sie alle Vorschläge, die von ihren Autoren zurückgezogen wurden. %{go_back_link}.
           view_proposal: Vorschlag anzeigen
         linked_proposals:
           proposal_votes:
