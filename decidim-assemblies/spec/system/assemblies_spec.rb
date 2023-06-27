@@ -149,13 +149,13 @@ describe "Assemblies", type: :system do
       let(:target_path) { decidim_assemblies.assembly_path(assembly) }
     end
 
-    context "and requesting the assembly path with main data and metadata blocks active" do
+    context "and requesting the assembly path with main data and type and duration blocks active" do
       before do
         visit decidim_assemblies.assembly_path(assembly)
       end
 
-      context "when hero, main_data and metadata blocks are enabled" do
-        let(:blocks_manifests) { [:hero, :main_data, :metadata] }
+      context "when hero, main_data and type and duration blocks are enabled" do
+        let(:blocks_manifests) { [:hero, :main_data, :extra_data, :metadata] }
 
         before do
           visit decidim_assemblies.assembly_path(assembly)

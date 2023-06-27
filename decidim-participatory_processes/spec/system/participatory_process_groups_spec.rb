@@ -117,13 +117,13 @@ describe "Participatory Process Groups", type: :system do
           organization:,
           scope_name: :participatory_process_group_homepage,
           scoped_resource_id: participatory_process_group.id,
-          manifest_name: :metadata
+          manifest_name: :extra_data
         )
         visit decidim_participatory_processes.participatory_process_group_path(participatory_process_group)
       end
 
       it "shows metadata attributes" do
-        within "#participatory_process_group-metadata" do
+        within "#participatory_process_group-extra_data" do
           expect(page).to have_i18n_content(participatory_process_group.developer_group)
           expect(page).to have_i18n_content(participatory_process_group.target)
           expect(page).to have_i18n_content(participatory_process_group.participatory_scope)
