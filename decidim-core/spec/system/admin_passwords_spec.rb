@@ -32,7 +32,7 @@ describe "Admin passwords", type: :system do
     it "cannot dismiss password change" do
       manual_login(user.email, password)
       expect(page).to have_content("Password change")
-      click_link "Home"
+      click_link "Home", match: :first
       expect(page).to have_content("You need to change your password in order to proceed further")
       expect(page).to have_content("Password change")
       expect(page).to have_current_path(decidim.change_password_path)
