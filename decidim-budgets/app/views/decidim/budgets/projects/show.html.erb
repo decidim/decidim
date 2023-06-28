@@ -21,8 +21,6 @@ edit_link(
   <%= render partial: "exit_modal" %>
 <% end %>
 
-<%= cell("decidim/budgets/budget_information_modal", budget) %>
-
 <div id="project-item">
   <%= render partial: "budget_summary", locals: { include_heading: true, project_item: true, responsive: true } %>
     <% content_for :item_header do %>
@@ -34,7 +32,9 @@ edit_link(
     <% end %>
     <%= render layout: "layouts/decidim/shared/layout_item", locals: { back_path: budget_projects_path(budget) } do %>
     <section class="layout-main__section layout-main__heading">
+      <%= cell("decidim/budgets/budget_information_modal", budget) %>
       <%= cell("decidim/budgets/limit_announcement", budget) %>
+
       <% if component_settings.geocoding_enabled? && project.geocoded? %>
         <div class="static-map__container">
           <%= render partial: "decidim/shared/static_map", locals: { icon_name: "projects", geolocalizable: project } %>

@@ -17,11 +17,7 @@ edit_link(
 <%= append_stylesheet_pack_tag "decidim_sortitions" %>
 
 <%= render layout: "layouts/decidim/shared/layout_item", locals: { back_path: :sortitions, commentable: sortition } do %>
-  <% announcement_body = capture do %>
-    <%= t("introduction", scope: "decidim.sortitions.sortitions.show", reference: sortition.id, target_items: sortition.target_items) %>
-  <% end %>
-
-  <%= cell("decidim/announcement", announcement_body, truncate: true, callout_class: "secondary") %>
+  <%= cell("decidim/announcement", t("introduction", scope: "decidim.sortitions.sortitions.show", reference: sortition.id, target_items: sortition.target_items), truncate: true, callout_class: "secondary") %>
 
   <section class="layout-main__section layout-main__heading">
     <h1 class="h1 decorator mb-4">
