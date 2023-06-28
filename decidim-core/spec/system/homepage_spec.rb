@@ -52,7 +52,8 @@ describe "Homepage", type: :system do
         end
       end
 
-      it_behaves_like "accessible page"
+      # REDESIGN_PENDING - Remove condition after fully enabling redesign
+      it_behaves_like "accessible page" if Decidim.redesign_active
 
       it "includes the official organization links and images" do
         expect(page).to have_selector("a.logo-cityhall[href='#{official_url}']")
@@ -187,9 +188,9 @@ describe "Homepage", type: :system do
         end
 
         it "includes the footer sub_hero with the current organization name" do
-          expect(page).to have_css(".footer__subhero")
+          expect(page).to have_css("#footer_sub_hero")
 
-          within ".footer__subhero" do
+          within "#footer_sub_hero" do
             expect(page).to have_content(organization.name)
           end
         end
@@ -255,7 +256,8 @@ describe "Homepage", type: :system do
           context "when authenticated" do
             let(:user) { create :user, :confirmed, organization: }
 
-            it_behaves_like "accessible page"
+            # REDESIGN_PENDING - Remove condition after fully enabling redesign
+            it_behaves_like "accessible page" if Decidim.redesign_active
 
             it "displays all pages and topics in footer that are configured to display in footer" do
               expect(page).to have_content(static_page1.title["en"])
@@ -352,7 +354,7 @@ describe "Homepage", type: :system do
             end
 
             it "shows the metrics block" do
-              within "#metrics" do
+              within "[data-metrics]" do
                 expect(page).to have_content("Metrics")
                 Decidim.metrics_registry.filtered(highlight: true, scope: "home").each do |metric_registry|
                   expect(page).to have_css(%(##{metric_registry.metric_name}_chart), visible: :all)
@@ -371,7 +373,7 @@ describe "Homepage", type: :system do
             end
 
             it "shows the metrics block empty" do
-              within "#metrics" do
+              within "[data-metrics]" do
                 expect(page).to have_content("Metrics")
                 Decidim.metrics_registry.highlighted.each do |metric_registry|
                   expect(page).to have_no_css("##{metric_registry.metric_name}_chart")
@@ -455,7 +457,7 @@ describe "Homepage", type: :system do
         end
 
         it "shows the banner's action title" do
-          expect(page).to have_i18n_content(organization.highlighted_content_banner_action_title, upcase: true)
+          expect(page).to have_i18n_content(organization.highlighted_content_banner_action_title)
         end
 
         it "shows the banner's action subtitle" do

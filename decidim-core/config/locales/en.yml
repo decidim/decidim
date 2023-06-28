@@ -1294,8 +1294,6 @@ en:
         hero:
           participate: Participate
           welcome: Welcome to %{organization}!
-        metrics:
-          headline: Metrics
         statistics:
           headline: Current state of %{organization}
         sub_hero:

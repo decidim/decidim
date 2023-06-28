@@ -398,9 +398,8 @@ en:
       pages:
         home:
           highlighted_assemblies:
-            active_assemblies: Active assemblies
-            assemblies_button_title: Link to the Assemblies page displaying all the assemblies
-            see_all_assemblies: See all assemblies
+            active_spaces: Active assemblies
+            see_all_spaces: See all assemblies
         user_profile:
           member_of:
             member_of: Member of
