@@ -10,7 +10,7 @@
   <% end %>
 </section>
 
-<% if allowed_to?(:publish, :collaborative_draft, collaborative_draft: @collaborative_draft) || @collaborative_draft.requesters.include? current_user || allowed_to?(:request_access, :collaborative_draft, collaborative_draft: @collaborative_draft) %>
+<% if allowed_to?(:publish, :collaborative_draft, collaborative_draft: @collaborative_draft) || @collaborative_draft.requesters.include?(current_user) || allowed_to?(:request_access, :collaborative_draft, collaborative_draft: @collaborative_draft) %>
 <section class="layout-aside__section layout-aside__buttons">
   <% if allowed_to?(:publish, :collaborative_draft, collaborative_draft: @collaborative_draft) %>
     <div>
