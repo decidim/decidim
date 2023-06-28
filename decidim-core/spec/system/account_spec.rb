@@ -339,7 +339,7 @@ describe "Account", type: :system do
             expect(page).to have_content("successfully")
           end
 
-          expect(page.find("#allow_push_notifications")).to be_checked
+          expect(page.find("#allow_push_notifications", visible: false)).to be_checked
         end
       end
     end
