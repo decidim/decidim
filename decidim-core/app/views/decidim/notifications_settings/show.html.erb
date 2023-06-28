@@ -144,7 +144,7 @@
         </div>
       <% end %>
 
-      <% if !@notifications_settings.meet_push_notifications_requirements? %>
+      <% if @notifications_settings.meet_push_notifications_requirements? %>
         <div class="push-notifications js-sw-mandatory">
           <label>
             <%= t("push_notifications", scope: "decidim.notifications_settings.show") %>
