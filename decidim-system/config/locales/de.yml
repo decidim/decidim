@@ -89,6 +89,7 @@ de:
           actions:
             save_and_invite: Organisation erstellen & den Admin einladen
           fields:
+            content_security_policy: Sicherheitsrichtlinie für Inhalte (Content Security Policy)
             created_at: Hergestellt in
             file_upload_settings: Datei-Upload Einstellungen
             name: Name
@@ -123,6 +124,8 @@ de:
         create:
           error: Beim Erstellen einer neuen Organisation ist ein Fehler aufgetreten.
           success: Organisation erfolgreich erstellt
+        csp_settings:
+          connect_src: src verbinden
         edit:
           secondary_hosts_hint: Geben Sie jede von ihnen in einer neuen Zeile ein
         file_upload_settings:
