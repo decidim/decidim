@@ -23,7 +23,7 @@ module Decidim
       end
 
       def component_name
-        translated_attribute(current_component.name).presence || t("decidim.components.accountability.name")
+        (defined?(current_component) && translated_attribute(current_component&.name).presence) || t("decidim.components.accountability.name")
       end
 
       def categories_label

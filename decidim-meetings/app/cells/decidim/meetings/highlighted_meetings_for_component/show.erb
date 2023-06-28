@@ -7,8 +7,8 @@
     <%= single_component? ? translated_attribute(model.name) : t("decidim.components.meetings.name") %>
   </h2>
   <div class="label text-lg"><%= meetings_count %></div>
-  <% if single_component? %>
-    <%= link_to main_component_path(model), class: "button button__sm button__text-secondary" do %>
+  <% if see_all_path.present? %>
+    <%= link_to see_all_path, class: "button button__sm button__text-secondary" do %>
       <span><%= t("decidim.participatory_spaces.highlighted_meetings.see_all") %></span>
       <%= icon "arrow-right-line" %>
     <% end %>

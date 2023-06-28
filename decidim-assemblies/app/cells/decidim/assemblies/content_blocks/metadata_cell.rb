@@ -4,30 +4,18 @@ module Decidim
   module Assemblies
     module ContentBlocks
       class MetadataCell < Decidim::ContentBlocks::ParticipatorySpaceMetadataCell
-        delegate :meta_scope, :duration, to: :resource
-
         private
 
         def metadata_items
-          [type_item, duration_item].compact
+          %w(meta_scope developer_group local_area target participatory_scope participatory_structure area_name)
         end
 
-        def type_item
-          {
-            title: t("assembly_type", scope: "decidim.assemblies.show"),
-            icon: "group-2-line",
-            text: translated_attribute(meta_scope)
-          }
+        def space_presenter
+          AssemblyPresenter
         end
 
-        def duration_item
-          return if duration.blank?
-
-          {
-            title: t("duration", scope: "decidim.assemblies.show"),
-            icon: "calendar-line",
-            text: duration
-          }
+        def translations_scope
+          "decidim.assemblies.assemblies.description"
         end
       end
     end

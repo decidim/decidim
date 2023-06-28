@@ -19,9 +19,11 @@ module Decidim
         @list_cell ||= cell(
           list_cell_path,
           published_components.one? ? published_components.first : published_components,
-          **model.settings.to_h
+          **model.settings.to_h.merge(see_all_path:)
         )
       end
+
+      def see_all_path; end
     end
   end
 end
