@@ -4,7 +4,6 @@ module Decidim
   module Proposals
     # Exposes Collaborative Drafts resource so users can view and create them.
     class CollaborativeDraftsController < Decidim::Proposals::ApplicationController
-      helper Decidim::WidgetUrlsHelper
       helper ProposalWizardHelper
       helper TooltipHelper
       helper UserGroupHelper

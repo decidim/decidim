@@ -4,9 +4,7 @@
 <% append_javascript_pack_tag "decidim_proposals" %>
 
 <% content_for :aside do %>
-  <h1 id="proposals-count" class="h3 md:h1 decorator">
-    <%= t("name", scope: "decidim.components.proposals") %>
-  </h1>
+  <h1 id="proposals-count" class="h3 md:h1 decorator"><%= component_name %></h1>
 
   <div class="proposal-list__aside__button-container">
     <% if current_settings.creation_enabled && current_component.participatory_space.can_participate?(current_user) %>

@@ -477,7 +477,7 @@ module Decidim
         end
 
         Decidim.content_blocks.register(:homepage, :metrics) do |content_block|
-          content_block.cell = "decidim/content_blocks/metrics"
+          content_block.cell = "decidim/content_blocks/organization_metrics"
           content_block.public_name_key = "decidim.content_blocks.metrics.name"
         end
 

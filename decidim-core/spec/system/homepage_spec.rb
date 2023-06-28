@@ -52,8 +52,7 @@ describe "Homepage", type: :system do
         end
       end
 
-      # REDESIGN_PENDING - Enable the shared examples after merging https://github.com/decidim/decidim/pull/10920
-      # it_behaves_like "accessible page"
+      it_behaves_like "accessible page"
 
       context "and the organization has the omnipresent banner enabled" do
         let(:organization) do
@@ -183,9 +182,9 @@ describe "Homepage", type: :system do
         end
 
         it "includes the footer sub_hero with the current organization name" do
-          expect(page).to have_css(".footer__subhero")
+          expect(page).to have_css("#footer_sub_hero")
 
-          within ".footer__subhero" do
+          within "#footer_sub_hero" do
             expect(page).to have_content(organization.name)
           end
         end
@@ -259,8 +258,7 @@ describe "Homepage", type: :system do
           context "when authenticated" do
             let(:user) { create :user, :confirmed, organization: }
 
-            # REDESIGN_PENDING - Enable the shared examples after merging https://github.com/decidim/decidim/pull/10920
-            # it_behaves_like "accessible page"
+            it_behaves_like "accessible page"
 
             it "displays all pages and topics with pages in footer that are configured to display in footer" do
               expect(page).to have_content(static_page1.title["en"])
@@ -369,7 +367,7 @@ describe "Homepage", type: :system do
             end
 
             it "shows the metrics block" do
-              within "#metrics" do
+              within "[data-metrics]" do
                 expect(page).to have_content("Metrics")
                 Decidim.metrics_registry.filtered(highlight: true, scope: "home").each do |metric_registry|
                   expect(page).to have_css(%(##{metric_registry.metric_name}_chart), visible: :all)
@@ -388,7 +386,7 @@ describe "Homepage", type: :system do
             end
 
             it "shows the metrics block empty" do
-              within "#metrics" do
+              within "[data-metrics]" do
                 expect(page).to have_content("Metrics")
                 Decidim.metrics_registry.highlighted.each do |metric_registry|
                   expect(page).to have_no_css("##{metric_registry.metric_name}_chart")
