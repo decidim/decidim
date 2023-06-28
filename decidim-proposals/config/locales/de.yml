@@ -146,6 +146,7 @@ de:
             comments_enabled: Kommentare aktiviert
             comments_max_length: Maximale Länge der Kommentare (0 für Standardwert)
             default_sort_order: Standardsortierung für Vorschläge
+            default_sort_order_help: Standardmäßig bedeutet, dass, wenn Vorschläge unterstützt werden können, sie nach Zufall sortiert werden, und wenn die Unterstützung blockiert werden, sie nach den meist unterstützten sortiert werden.
             default_sort_order_options:
               default: Standard
               most_commented: Am häufigsten kommentiert
@@ -197,7 +198,9 @@ de:
             automatic_hashtags: Hashtags wurden allen Vorschlägen hinzugefügt
             comments_blocked: Kommentare blockiert
             creation_enabled: Teilnehmer können Vorschläge erstellen
+            creation_enabled_readonly: Diese Einstellung ist deaktiviert, wenn Sie die Funktion "Partizipative Texte" aktivieren. Um Vorschläge als partizipativen Text hochzuladen, klicken Sie "Partizipative Texte" und folgen Sie den Anweisungen.
             default_sort_order: Standardsortierung für Vorschläge
+            default_sort_order_help: Standardmäßig bedeutet, dass, wenn Vorschläge unterstützt werden können, sie nach Zufall sortiert werden, und wenn die Unterstützung blockiert werden, sie nach den meist unterstützten sortiert werden.
             default_sort_order_options:
               default: Standard
               most_commented: Am meisten kommentiert
