@@ -38,56 +38,60 @@
   </section>
 <% end %>
 
-<% if meeting.closed? && meeting.closing_visible? %>
-  <% if meeting.has_contributions? %>
-    <%= render layout: "decidim/meetings/layouts/aside_block", locals: { emoji: "add-box-line" } do %>
-      <h3 class="meeting__aside-block__title"><%= t("contributions", scope: "decidim.meetings.meetings.show") %></h3>
-      <div class="meeting__aside-block__large"><%= meeting.contributions_count %></div>
+<% if (meeting.closed? && meeting.closing_visible?) || (registration.present? && registration.meeting.component.settings.registration_code_enabled) || (meeting.services.any?) %>
+<section class="layout-aside__section layout-aside__buttons">
+  <% if meeting.closed? && meeting.closing_visible? %>
+    <% if meeting.has_contributions? %>
+      <%= render layout: "decidim/meetings/layouts/aside_block", locals: { emoji: "add-box-line" } do %>
+        <h3 class="meeting__aside-block__title"><%= t("contributions", scope: "decidim.meetings.meetings.show") %></h3>
+        <div class="meeting__aside-block__large"><%= meeting.contributions_count %></div>
+      <% end %>
+    <% end %>
+
+    <% if meeting.has_attendees? %>
+      <%= render layout: "decidim/meetings/layouts/aside_block", locals: { emoji: "group-line" } do %>
+        <h3 class="meeting__aside-block__title"><%= t("attendees", scope: "decidim.meetings.meetings.show") %></h3>
+        <div class="meeting__aside-block__large"><%= meeting.attendees_count %></div>
+      <% end %>
+    <% end %>
+
+    <% if meeting.attending_organizations.present? %>
+      <%= render layout: "decidim/meetings/layouts/aside_block", locals: { emoji: "community-line" } do %>
+        <h3 class="meeting__aside-block__title"><%= t("organizations", scope: "decidim.meetings.meetings.show") %></h3>
+        <ul class="meeting__aside-block__list">
+          <% meeting.attending_organizations.split("\n").each do |organizations| %>
+          <li><%= organizations %></li>
+          <% end %>
+        </ul>
+      <% end %>
     <% end %>
   <% end %>
 
-  <% if meeting.has_attendees? %>
-    <%= render layout: "decidim/meetings/layouts/aside_block", locals: { emoji: "group-line" } do %>
-      <h3 class="meeting__aside-block__title"><%= t("attendees", scope: "decidim.meetings.meetings.show") %></h3>
-      <div class="meeting__aside-block__large"><%= meeting.attendees_count %></div>
+  <% if registration.present? && registration.meeting.component.settings.registration_code_enabled %>
+    <%= render layout: "decidim/meetings/layouts/aside_block", locals: { emoji: "qr-code-line" } do %>
+      <h3 class="meeting__aside-block__title"><%= registration_code_help_text %></h3>
+      <div class="meeting__aside-block__large"><%= registration.code %></div>
+      <% if registration.validated? %>
+        <div class="label success"><%= t("validated", scope: "decidim.meetings.meetings.show.registration_state") %></div>
+        <% else %>
+        <div class="label warning"><%= t("validation_pending", scope: "decidim.meetings.meetings.show.registration_state") %></div>
+      <% end %>
     <% end %>
   <% end %>
 
-  <% if meeting.attending_organizations.present? %>
-    <%= render layout: "decidim/meetings/layouts/aside_block", locals: { emoji: "community-line" } do %>
-      <h3 class="meeting__aside-block__title"><%= t("organizations", scope: "decidim.meetings.meetings.show") %></h3>
-      <ul class="meeting__aside-block__list">
-        <% meeting.attending_organizations.split("\n").each do |organizations| %>
-        <li><%= organizations %></li>
-        <% end %>
-      </ul>
+  <% if meeting.services.any? %>
+    <% meeting.services.each do |service| %>
+      <%= render layout: "decidim/meetings/layouts/aside_block", locals: { emoji: "star-line" } do %>
+        <h3 class="meeting__aside-block__title"><%= translated_attribute(service["title"]) %></h3>
+        <div class="meeting__aside-block__text"><%= translated_attribute(service["description"]) %></div>
+      <% end %>
     <% end %>
   <% end %>
+</section>
 <% end %>
 
-<% if registration.present? && registration.meeting.component.settings.registration_code_enabled %>
-  <%= render layout: "decidim/meetings/layouts/aside_block", locals: { emoji: "qr-code-line" } do %>
-    <h3 class="meeting__aside-block__title"><%= registration_code_help_text %></h3>
-    <div class="meeting__aside-block__large"><%= registration.code %></div>
-    <% if registration.validated? %>
-      <div class="label success"><%= t("validated", scope: "decidim.meetings.meetings.show.registration_state") %></div>
-      <% else %>
-      <div class="label warning"><%= t("validation_pending", scope: "decidim.meetings.meetings.show.registration_state") %></div>
-    <% end %>
-  <% end %>
-<% end %>
-
-<% if meeting.services.any? %>
-  <% meeting.services.each do |service| %>
-    <%= render layout: "decidim/meetings/layouts/aside_block", locals: { emoji: "star-line" } do %>
-      <h3 class="meeting__aside-block__title"><%= translated_attribute(service["title"]) %></h3>
-      <div class="meeting__aside-block__text"><%= translated_attribute(service["description"]) %></div>
-    <% end %>
-  <% end %>
-<% end %>
-
-<div class="actions__secondary">
+<section class="layout-aside__section actions__secondary">
   <%= follow_button_for(meeting) %>
   <%= cell "decidim/share_button", nil %>
   <%= cell "decidim/report_button", meeting %>
-</div>
+</section>

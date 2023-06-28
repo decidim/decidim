@@ -1,5 +1,9 @@
 .actions__secondary{
-  @apply flex flex-row md:flex-col justify-center md:gap-y-4 gap-x-10 md:gap-x-0 mt-4;
+  @apply flex flex-row md:flex-col justify-center md:gap-y-4 gap-x-10 md:gap-x-0;
+
+  &:not(:first-child){
+    @apply mt-4;
+  }
 
   .button{
     @apply justify-start;
