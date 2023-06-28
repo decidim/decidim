@@ -43,6 +43,10 @@ de:
           valuator_role_id: Name des Schätzers
     errors:
       models:
+        participatory_text:
+          attributes:
+            document:
+              allowed_file_content_types: 'Ungültiger Dokumententyp. Nur Dateien mit folgenden Erweiterungen sind erlaubt: %{types}'
         proposal:
           attributes:
             add_documents:
@@ -58,6 +62,7 @@ de:
           attributes:
             base:
               not_official: Sind nicht offiziell
+              supported: Haben Stimmen oder Unterstützung erhalten
         proposals_split:
           attributes:
             base:
