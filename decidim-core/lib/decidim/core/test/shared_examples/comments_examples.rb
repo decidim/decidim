@@ -103,15 +103,12 @@ shared_examples "comments" do
     end
 
     describe "when using emojis" do
-      before do
-        within_language_menu do
-          click_link "Castellano"
-        end
-      end
       shared_examples_for "allowing to select emojis" do
         it "allows selecting emojis" do
-          within_language_menu do
-            click_link locale
+          if locale != "English"
+            within_language_menu do
+              click_link locale
+            end
           end
 
           within ".add-comment form" do
@@ -123,6 +120,7 @@ shared_examples "comments" do
           within ".picmo__popupContainer .picmo__picker .picmo__content" do
             expect(page).to have_content(phrase)
             categories = page.all(".picmo__emojiCategory")
+            expect(page.find("button[data-emoji='😀']")["title"]).to eq(emoji_name)
             within categories[1] do
               click_button "😀"
             end
@@ -134,9 +132,18 @@ shared_examples "comments" do
         end
       end
 
-      context "when the locale is supported" do
+      context "when using the default locale" do
         let(:locale) { "English" }
         let(:phrase) { "SMILEYS & EMOTION" }
+        let(:emoji_name) { "grinning face" }
+
+        it_behaves_like "allowing to select emojis"
+      end
+
+      context "when the locale is supported" do
+        let(:locale) { "Castellano" }
+        let(:phrase) { "SONRISAS Y EMOCIONES" }
+        let(:emoji_name) { "cara sonriendo" }
 
         it_behaves_like "allowing to select emojis"
       end
@@ -144,6 +151,7 @@ shared_examples "comments" do
       context "when the locale is not supported" do
         let(:locale) { "Català" }
         let(:phrase) { "SOMRIURES I EMOCIONS" }
+        let(:emoji_name) { "grinning face" }
 
         it_behaves_like "allowing to select emojis"
       end
