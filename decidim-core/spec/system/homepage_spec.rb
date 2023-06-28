@@ -55,13 +55,6 @@ describe "Homepage", type: :system do
       # REDESIGN_PENDING - Enable the shared examples after merging https://github.com/decidim/decidim/pull/10920
       # it_behaves_like "accessible page"
 
-      it "includes the official organization links and images" do
-        skip "REDESIGN_PENDING - The official logo in the header is pending"
-
-        expect(page).to have_selector(".main-bar__logo a[href='#{official_url}']")
-        expect(page).to have_selector("footer a[href='#{official_url}']", match: :first)
-      end
-
       context "and the organization has the omnipresent banner enabled" do
         let(:organization) do
           create(:organization,
