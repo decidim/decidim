@@ -104,6 +104,48 @@ shared_examples "comments" do
       expect(page).to have_selector(".add-comment form")
     end
 
+    describe "when using emojis" do
+      shared_examples_for "allowing to select emojis" do
+        it "allows selecting emojis" do
+          within_language_menu do
+            click_link locale
+          end
+
+          within ".add-comment form" do
+            expect(page).to have_selector(".emoji__container")
+            expect(page).to have_selector(".emoji__trigger .emoji__button")
+            find(".emoji__trigger .emoji__button").click
+          end
+
+          within ".picmo__popupContainer .picmo__picker .picmo__content" do
+            expect(page).to have_content(phrase)
+            categories = page.all(".picmo__emojiCategory")
+            within categories[1] do
+              click_button "😀"
+            end
+          end
+
+          within ".add-comment form" do
+            expect(find("textarea").value.strip).to have_content("😀")
+          end
+        end
+      end
+
+      context "when the locale is supported" do
+        let(:locale) { "English" }
+        let(:phrase) { "SMILEYS & EMOTION" }
+
+        it_behaves_like "allowing to select emojis"
+      end
+
+      context "when the locale is not supported" do
+        let(:locale) { "Català" }
+        let(:phrase) { "SOMRIURES I EMOCIONS" }
+
+        it_behaves_like "allowing to select emojis"
+      end
+    end
+
     context "when no default comments length specified" do
       it "displays the numbers of characters left" do
         within ".add-comment form" do
