@@ -339,7 +339,7 @@ describe "Account", type: :system do
             expect(page).to have_content("successfully")
           end
 
-          expect(page.find(:css, "#allow_push_notifications", visible: false).execute_script('this.checked = true'))
+          find(:css, "#allow_push_notifications", visible: false).execute_script("this.checked = true")
         end
       end
     end
