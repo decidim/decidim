@@ -186,7 +186,7 @@ In order to customize the CSP we are providing, have 2 options, either by using 
 
 Please read more in the docs:
 
-- [Customize Content Security Policy](https://docs.decidim.org/develop/en/customize/content_security_policy)
+- [Customize Content Security Policy](https://docs.decidim.org/en/develop/customize/content_security_policy)
 - [Using Content Security Policy initializer](https://docs.decidim.org/en/develop/configure/initializer#_content_security_policy)
 
 You can check more about the implementation in the [\#10700](https://github.com/decidim/decidim/pull/10700) pull request.
