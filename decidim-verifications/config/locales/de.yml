@@ -6,6 +6,8 @@ de:
         offline: Offline
         offline_explanation: Anweisungen zur Offline-Verifizierung
         online: Online
+      confirmation:
+        verification_code: Bestätigungscode
       id_document_information:
         document_number: Dokumentennummer (mit Buchstaben)
         document_type: Art des Dokuments
@@ -14,6 +16,8 @@ de:
         document_type: Art Ihres Dokuments
         user: Benutzer
         verification_attachment: Gescannte Kopie Ihres Dokuments
+      mobile_phone:
+        mobile_phone_number: Mobiltelefonnummer
       offline_confirmation:
         email: Benutzer Email
       postal_letter_address:
@@ -23,6 +27,12 @@ de:
       postal_letter_postage:
         full_address: Vollständige Adresse
         verification_code: Bestätigungscode
+    errors:
+      models:
+        census_data:
+          attributes:
+            file:
+              malformed: Fehlerhafte Importdatei. Bitte lesen Sie die Anweisungen sorgfältig durch und stellen Sie sicher, dass die Datei UTF-8 kodiert ist.
   decidim:
     admin:
       menu:
@@ -30,8 +40,13 @@ de:
           before_date_info: Das ist nützlich, wenn der Prozess bereits begonnen hat und Sie die Rechte des vorherigen Prozesses zurückziehen möchten.
           button: Alle entziehen
           button_before: Entziehen vor Datum
+          destroy:
+            confirm: Das Entziehen aller Berechtigungen vor einem Datum kann nicht rückgängig gemacht werden. Sind Sie sicher, dass Sie fortfahren möchten?
+            confirm_all: Das Entziehen aller Berechtigungen nicht rückgängig gemacht werden. Sind Sie sicher, dass Sie fortfahren möchten?
+          destroy_nok: Beim Entziehen der Berechtigungen ist ein Fehler aufgetreten.
           destroy_ok: Alle übereinstimmenden Berechtigungen wurden erfolgreich entzogen.
           info: Es gibt insgesamt %{count} verifizierte Teilnehmer.
+          no_data: Keine verifizierten Teilnehmer.
           title: Berechtigungen widerrufen
         authorization_workflows: Berechtigungen
     admin_log:
@@ -41,12 +56,16 @@ de:
         grant_id_documents_offline_verification: "%{user_name} hat die Identitätsdokumente von %{resource_name} offline überprüft"
     authorization_handlers:
       admin:
+        csv_census:
+          help:
+            - Admins laden ein CSV mit den E-Mails der akzeptierten Teilnehmer hoch.
+            - Nur Teilnehmer mit einer E-Mail in dieser CSV-Datei können überprüft werden.
         id_documents:
           help:
             - Benutzer geben ihre Identitätsinformationen ein und laden eine Kopie ihres Dokuments hoch.
             - Sie geben die Informationen ein, die im hochgeladenen Bild vorhanden sind.
             - Die Informationen sollten mit denen übereinstimmen, die der Benutzer ausgefüllt hat.
-            - If you cannot clearly see the information or you cannot get it verified, you can reject the request and the user will be able to fix it.
+            - Wenn Sie die Informationen nicht klar sehen können oder nicht verifiziert werden können, können Sie die Anfrage ablehnen und der Benutzer kann sie beheben.
         postal_letter:
           help:
             - Benutzer fordern einen Bestätigungscode an, der an ihre Adresse gesendet werden soll.
@@ -54,15 +73,25 @@ de:
             - Sie markieren den Brief als gesendet.
             - Sobald Sie den Brief als gesendet markiert haben, kann der Benutzer den Code einführen und verifiziert werden.
       csv_census:
+        explanation: Lassen Sie sich anhand der Volkszählung der Organisation überprüfen.
         name: Zensus der Organisation
       direct: Direkte
       help: Hilfe
       id_documents:
+        explanation: Laden Sie Ihre Identitätsdokumente hoch, damit wir Ihre Identität überprüfen können.
         name: Identitätsdokumente
       multistep: Mehrschritt
       name: Name
       postal_letter:
+        explanation: Wir senden Ihnen einen Brief mit einem Code, den Sie eingeben müssen, damit wir Ihre Adresse bestätigen können.
         name: Code per Post
+    events:
+      verifications:
+        verify_with_managed_user:
+          email_intro: Der Teilnehmer <a href="%{resource_url}">%{resource_title}</a> hat versucht, sich mit den Daten eines anderen Teilnehmers (<a href="%{managed_user_url}">%{managed_user_name}</a>) zu verifizieren.
+          email_outro: Prüfen Sie die <a href="%{conflicts_url}">Konfliktliste der Verifizierungsmethode</a> und wenden Sie sich an den Teilnehmer, um dessen Details zu überprüfen und das Problem zu lösen.
+          email_subject: Verifizierungsversuch gegenüber eines anderen Teilnehmers fehlgeschlagen
+          notification_title: Der Teilnehmer <a href="%{resource_path}">%{resource_title}</a> hat versucht, sich mit den Daten eines anderen Teilnehmers (<a href="%{managed_user_path}">%{managed_user_name}</a>) zu verifizieren.
     verifications:
       authorizations:
         authorization_metadata:
@@ -70,9 +99,12 @@ de:
           no_data_stored: Keine gespeicherten Daten.
         create:
           error: Beim Erstellen der Autorisierung ist ein Fehler aufgetreten.
+          success: Sie wurden erfolgreich autorisiert.
+          transferred: 'Wir haben die folgenden Mitwirkungsdaten basierend auf Ihrer Autorisierung wiederhergestellt:'
           unconfirmed: Sie müssen Ihre E-Mail bestätigen, um sich zu autorisieren.
         destroy:
           error: Beim Löschen der Berechtigung ist ein Fehler aufgetreten.
+          success: Sie haben die Berechtigung erfolgreich gelöscht.
         first_login:
           actions:
             another_dummy_authorization_handler: Überprüfen Sie anhand eines anderen Beispiels des Autorisierungshandlers
@@ -86,14 +118,19 @@ de:
           verify_with_these_options: 'Mit diesen Optionen können Sie Ihre Identität überprüfen:'
         index:
           expired_verification: Verifizierung abgelaufen
+          granted_verification: Verifizierung erfolgeich
+          introduce_code: Code einfügen
           pending_verification: Ausstehende Verifizierung
           show_renew_info: Klicken Sie, um die Verifizierung zu erneuern
+          subscribe: Abonnieren
+          unauthorized_methods: Verifizierungsmethoden
         new:
           authorize: Senden
           authorize_with: Bestätigen Sie mit %{authorizer}
         renew_modal:
           cancel: Stornieren
           continue: Weiter
+          info_renew: Wenn Sie die Daten aktualisieren möchten, fahren Sie mit der Erneuerung fort.
           title: Verifizierung erneuern
         skip_verification: Sie können dies für jetzt und %{link}überspringen
         start_exploring: Fang an zu erforschen
@@ -102,7 +139,11 @@ de:
           census:
             create:
               error: Beim Import der Volkszählung ist ein Fehler aufgetreten.
+              success: '%{count} Elemente erfolgreich hinzugefügt (%{errors} Fehler).'
+            destroy_all:
+              success: Alle Volkszählungsdaten wurden gelöscht.
           destroy:
+            confirm: Das Löschen der Volkszählungsdaten kann nicht rückgängig gemacht werden. Sind Sie sicher, dass Sie fortfahren möchten?
             title: Löschen Sie alle Volkszählungsdaten
           index:
             empty: Es gibt keine Zensusdaten. Verwenden Sie das folgende Formular, um es mit einer CSV-Datei zu importieren.
