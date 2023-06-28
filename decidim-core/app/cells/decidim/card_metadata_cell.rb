@@ -39,11 +39,11 @@ module Decidim
       }
     end
 
-    def comments_count_item
-      return unless model.is_a?(Decidim::Comments::Commentable) && model.commentable?
+    def comments_count_item(commentable = model)
+      return unless commentable.is_a?(Decidim::Comments::Commentable) && commentable.commentable?
 
       {
-        text: model.comments_count,
+        text: commentable.comments_count,
         icon: resource_type_icon_key(:comments_count),
         data_attributes: { comments_count: "" }
       }
