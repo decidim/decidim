@@ -1019,46 +1019,46 @@ en:
           error: There was a problem updating this page.
           success: Page updated successfully.
       titles:
-        administrators: Administrators
         admin_log: Admin log
+        administrators: Administrators
         area_types: Area types
-        new_area_type: New area type
-        edit_area_type: Edit area type
         areas: Areas
-        new_area: New area
         authorization_workflows: Verification methods
+        conflicts: Conflicts
         dashboard: Dashboard
+        edit_area_type: Edit area type
+        edit_external_domains: Edit external domains
+        edit_help_sections: Edit help sections
+        edit_organization: Edit organization
+        edit_organization_appearance: Edit homepage appearance
+        edit_scope_type: Edit scope type
+        global_moderations: Global moderations
         impersonatable_users: Manageable participants
         impersonations: Participants management
-        new_managable_participant: New managable participant
         metrics: Metrics
+        new_area: New area
+        new_area_type: New area type
+        new_managable_participant: New managable participant
+        new_newsletter: New newsletter
+        new_page: New page
+        new_participant: New participant
+        new_scope: New scope
+        new_scope_type: New scope type
+        new_topic: New topic
+        newsletter_example_preview: Example newsletter template
+        newsletter_templates: Newsletter templates
+        newsletters: Newsletters
+        pages: Pages
         panel: Admin
         participants: Participants
-        new_participant: New participant
-        new_scope_type: New scope type
-        edit_scope_type: Edit scope type
+        scope_type: Scope type
         scope_types: Scope types
         scopes: Scopes
-        new_scope: New scope
         static_pages: Pages
         statistics: Activity
         user_groups: Groups
-        verify_user_groups: Verfiy user groups
         users: Administrators
-        global_moderations: Global moderations
-        pages: Pages
-        new_page: New page
-        new_topic: New topic
-        conflicts: Conflicts
-        newsletters: Newsletters
-        new_newsletter: New newsletter
-        newsletter_templates: Newsletter templates
-        newsletter_example_preview: Example newsletter template
-        edit_organization: Edit organization
-        edit_organization_appearance: Edit homepage appearance
-        scope_type: Scope type
-        edit_help_sections: Edit help sections
-        edit_external_domains: Edit external domains
+        verify_user_groups: Verfiy user groups
       user_group:
         csv_verify:
           invalid: There was a problem reading the CSV file.

@@ -36,10 +36,6 @@ en:
               malformed: Malformed import file, please read through the instructions carefully and make sure the file is UTF-8 encoded.
   decidim:
     admin:
-      titles:
-        pending_authorizations: Pending authorizations
-        ongoing_verifications: Ongoing verifications
-        current_census_data: Current census data
       menu:
         authorization_revocation:
           before_date_info: Useful if the process has already begun and you want to revoke the permissions of the previous process.
@@ -54,6 +50,10 @@ en:
           no_data: No verified participants.
           title: Authorizations revocation
         authorization_workflows: Authorizations
+      titles:
+        current_census_data: Current census data
+        ongoing_verifications: Ongoing verifications
+        pending_authorizations: Pending authorizations
     admin_log:
       organization:
         update_id_documents_config: "%{user_name} updated the Identity Documents authorization configuration"

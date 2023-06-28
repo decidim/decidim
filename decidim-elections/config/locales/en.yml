@@ -108,8 +108,6 @@ en:
         other: Votings
   decidim:
     admin:
-      titles:
-        votings: Votings
       filters:
         officers_assigned_eq:
           label: Officers
@@ -136,6 +134,8 @@ en:
           values:
             'false': Not validated
             'true': Validated
+      titles:
+        votings: Votings
     components:
       elections:
         actions:

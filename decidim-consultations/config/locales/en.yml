@@ -222,11 +222,11 @@ en:
       titles:
         consultations: Consultations
         new_consultations: New consultations
-        questions: Questions
         new_question: New question
+        new_response: New response
+        questions: Questions
         response_groups: Response Groups
         responses: Responses
-        new_response: New response
         results: Results
     consultations:
       admin:
