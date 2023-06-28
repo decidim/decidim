@@ -4,8 +4,6 @@ module Decidim
   module Conferences
     module ContentBlocks
       class HighlightedConferencesCell < Decidim::ContentBlocks::HighlightedParticipatorySpacesCell
-        BLOCK_ID = "highlighted-conferences"
-
         delegate :current_user, to: :controller
 
         def highlighted_spaces
@@ -22,7 +20,9 @@ module Decidim
 
         private
 
-        def block_id = BLOCK_ID
+        def block_id
+          "highlighted-conferences"
+        end
       end
     end
   end

@@ -4,13 +4,12 @@ module Decidim
   module ParticipatoryProcesses
     module ContentBlocks
       class HighlightedProcessesCell < Decidim::ContentBlocks::HighlightedParticipatorySpacesCell
-        BLOCK_ID = "highlighted-processes"
-
         delegate :current_user, to: :controller
 
         def highlighted_spaces
           @highlighted_spaces ||= promoted_groups + highlighted_processes
         end
+
         alias limited_highlighted_spaces highlighted_spaces
 
         def i18n_scope
@@ -27,7 +26,9 @@ module Decidim
 
         private
 
-        def block_id = BLOCK_ID
+        def block_id
+          "highlighted-processes"
+        end
 
         def highlighted_processes
           @highlighted_processes ||= if highlighted_processes_max_results.zero?

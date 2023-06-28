@@ -13,7 +13,9 @@ module Decidim
         "home"
       end
 
-      def display_not_highlighted_metrics = true
+      def display_not_highlighted_metrics
+        true
+      end
     end
   end
 end

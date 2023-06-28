@@ -4,8 +4,6 @@ module Decidim
   module Assemblies
     module ContentBlocks
       class HighlightedAssembliesCell < Decidim::ContentBlocks::HighlightedParticipatorySpacesCell
-        BLOCK_ID = "highlighted-assemblies"
-
         delegate :current_user, to: :controller
 
         def highlighted_spaces
@@ -30,7 +28,9 @@ module Decidim
 
         private
 
-        def block_id = BLOCK_ID
+        def block_id
+          "highlighted-assemblies"
+        end
       end
     end
   end

@@ -5,8 +5,6 @@ module Decidim
     class HighlightedParticipatorySpacesCell < BaseCell
       include Decidim::CardHelper
 
-      SECTION_CLASS = "home__section"
-
       def show
         render if highlighted_spaces.any?
       end
@@ -33,7 +31,9 @@ module Decidim
         [I18n.locale, highlighted_spaces.map(&:cache_key_with_version)].join(Decidim.cache_key_separator)
       end
 
-      def section_class = SECTION_CLASS
+      def section_class
+        "home__section"
+      end
     end
   end
 end
