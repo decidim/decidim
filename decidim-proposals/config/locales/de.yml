@@ -31,6 +31,7 @@ de:
         cost_report: Kostenbericht
         execution_period: Ausführungszeitraum
       proposals_copy:
+        copy_proposals: Ich verstehe, dass dies alle Vorschläge von der ausgewählten Komponente in die aktuelle Komponente importiert und dass diese Aktion nicht rückgängig gemacht werden kann.
         origin_component_id: Komponente zum Kopieren der Vorschläge aus
       proposals_import:
         import_proposals: Vorschläge importieren
@@ -41,6 +42,10 @@ de:
           valuator_role_id: Name des Schätzers
     errors:
       models:
+        participatory_text:
+          attributes:
+            document:
+              allowed_file_content_types: 'Ungültiger Dokumententyp. Nur Dateien mit folgenden Erweiterungen sind erlaubt: %{types}'
         proposal:
           attributes:
             add_documents:
@@ -56,6 +61,7 @@ de:
           attributes:
             base:
               not_official: Sind nicht offiziell
+              supported: Haben Stimmen oder Unterstützung erhalten
         proposals_split:
           attributes:
             base:
