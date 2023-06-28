@@ -30,10 +30,7 @@ module Decidim
       private
 
       def cache_hash
-        hash = []
-        hash.push(I18n.locale)
-        hash.push(highlighted_spaces.map(&:cache_key_with_version))
-        hash.join(Decidim.cache_key_separator)
+        [I18n.locale, highlighted_spaces.map(&:cache_key_with_version)].join(Decidim.cache_key_separator)
       end
 
       def section_class = SECTION_CLASS
