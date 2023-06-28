@@ -125,7 +125,31 @@ de:
           error: Beim Erstellen einer neuen Organisation ist ein Fehler aufgetreten.
           success: Organisation erfolgreich erstellt
         csp_settings:
-          connect_src: src verbinden
+          connect_src: Verbindungsvorschriften (connect-src)
+          connect_src_hint: |
+            Die connect-src Anweisung schränkt URLs ein, die mittels <script> Elementen geladen werden können. Decidim fügt "self" hinzu, erlaubt aber zusätzliche Quellen. Lassen Sie das Feld leer, wenn Sie unsicher sind.
+          default_src: Standardvorschriften (default-src)
+          default_src_hint: |
+            Die default-src Anweisung ist die Standardmethode um Inhalte wie JavaScript, Bilder, CSS, Schriften, AJAX-Anfragen, Frames oder HTML5-Medien.
+            Decidim fügt "'self' 'unsafe-inline'" hinzu, erlaubt aber zusätzliche Quellen. Lassen Sie das Feld leer, wenn Sie unsicher sind.
+          font_src: Schriftvorschriften (font-src)
+          font_src_hint: |
+            Die font-src Anweisung schränkt URLs ein, die mittels @font-face geladen werden können. Decidim fügt "self" hinzu, erlaubt aber zusätzliche Quellen. Lassen Sie das Feld leer, wenn Sie unsicher sind.
+          frame_src: Framevorschriften (frame-src)
+          frame_src_hint: |
+            Die frame-src Anweisung schränkt URLs ein, die mittels <frame>, <iframe> und <object> Elementen geladen werden können. Decidim fügt "self" hinzu, erlaubt aber zusätzliche Quellen. Lassen Sie das Feld leer, wenn Sie unsicher sind.
+          img_src: Bildvorschriften
+          img_src_hint: |
+            Die img-src Anweisung schränkt URLs ein, die mittels <img>, <image>, <picture> und <svg>Elementen geladen werden können. Decidim fügt "self" hinzu, erlaubt aber zusätzliche Quellen. Lassen Sie das Feld leer, wenn Sie unsicher sind.
+          media_src: Medienvorschriften (media-src)
+          media_src_hint: |
+            Die media-src Anweisung schränkt URLs ein, die mittels <video>, <audio> und <source> Elementen geladen werden können. Decidim fügt "self" hinzu, erlaubt aber zusätzliche Quellen. Lassen Sie das Feld leer, wenn Sie unsicher sind.
+          script_src: Skriptvorschriften (script-src)
+          script_src_hint: |
+            Die script-src Anweisung schränkt URLs ein, die mittels <script> Elementen geladen werden können. Decidim fügt "'self' 'unsafe-inline''unsafe-eval'" hinzu, erlaubt aber zusätzliche Quellen. Lassen Sie das Feld leer, wenn Sie unsicher sind.
+          style_src: Stilvorschriften (style-src)
+          style_src_hint: |
+            Die style-src Anweisung schränkt URLs ein, die mittels <style> Elementen geladen werden können. Decidim fügt "'self' 'unsafe-inline'" hinzu, erlaubt aber zusätzliche Quellen. Lassen Sie das Feld leer, wenn Sie unsicher sind.
         edit:
           secondary_hosts_hint: Geben Sie jede von ihnen in einer neuen Zeile ein
         file_upload_settings:
