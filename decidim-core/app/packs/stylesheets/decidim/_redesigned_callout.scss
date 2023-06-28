@@ -17,6 +17,10 @@
     @apply mt-4;
   }
 
+  a{
+    @apply text-secondary;
+  }
+
   &[data-component="accordion"]{
     [id*="panel"][aria-hidden="true"]{
       @apply block max-h-14 overflow-hidden relative before:content-[''] before:absolute before:inset-0 before:h-full before:w-full before:bg-gradient-to-b before:from-transparent before:to-white after:content-[''] after:absolute after:inset-0 after:h-full after:w-full after:bg-gradient-to-b after:from-transparent after:to-secondary/5;
