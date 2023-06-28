@@ -786,7 +786,7 @@ de:
         result: Ergebnisse
     fingerprint:
       check: Fingerabdruck überprüfen
-      explanation: Der folgende Textteil ist eine verkürzte, gehashte Darstellung dieses Inhalts. Es macht Sinn, sicherzustellen, dass der Inhalt nicht manipuliert wurde, da eine einzige Änderung zu einem völlig anderen Wert führen würde.
+      explanation: Der folgende Textteil ist eine verkürzte, gehashte Darstellung dieses Inhalts. Stellen Sie sicher, dass der Inhalt nicht manipuliert wurde, da eine einzige Änderung zu einem völlig anderen Wert führen würde.
       online_calculator_name: MD5 Rechner online
       replicate_help: Dieser Fingerabdruck wird unter Verwendung eines SHA256-Hashing-Algorithmus berechnet. Um es selbst zu replizieren, können Sie eine %{online_calculator_link} und die Quelldaten kopieren.
       source: Quelle
