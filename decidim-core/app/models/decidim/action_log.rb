@@ -253,7 +253,7 @@ module Decidim
         participatory_space_lazy.present? &&
         !resource_lazy.try(:deleted?) &&
         !resource_lazy.try(:hidden?) &&
-        (participatory_space_lazy.try(:is_transparent?) || resource_lazy.try(:can_participate?, user))
+        (participatory_space_lazy.try(:is_transparent?) || !resource_lazy.respond_to?(:can_participate?) || resource_lazy.try(:can_participate?, user))
     rescue NameError => e
       Rails.logger.warn "Failed resource for #{self.class.name}(id=#{id}): #{e.message}"
 
