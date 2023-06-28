@@ -18,6 +18,10 @@ module Decidim
       def resource_path
         resource_link_path
       end
+
+      def metadata_cell
+        "decidim/comments/comment_metadata"
+      end
     end
   end
 end
