@@ -61,6 +61,7 @@ de:
           attributes:
             base:
               not_official: Sind nicht offiziell
+              supported: Haben Stimmen oder Unterstützung erhalten
         proposals_split:
           attributes:
             base:
