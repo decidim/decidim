@@ -120,6 +120,11 @@ de:
         unpublish: Veröffentlichung rückgängig machen
       admin:
         answers:
+          create:
+            success: Antwort erfolgreich erstellt.
+          destroy:
+            invalid: Beim Löschen dieser Antwort ist ein Fehler aufgetreten.
+            success: Antwort erfolgreich gelöscht.
           edit:
             title: Antwort bearbeiten
             update: Antwort aktualisieren
