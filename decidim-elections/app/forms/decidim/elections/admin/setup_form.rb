@@ -41,7 +41,8 @@ module Decidim
             [:max_selections, {}, election.valid_questions?],
             [:published, {}, election.published_at.present?],
             [:component_published, {}, election.component.published?],
-            [:time_before, { hours: Decidim::Elections.setup_minimum_hours_before_start }, election.minimum_hours_before_start?],
+            [:time_before, { hours: I18n.t("datetime.distance_in_words.x_hours", count: Decidim::Elections.setup_minimum_hours_before_start) },
+             election.minimum_hours_before_start?],
             [:trustees_number, { number: bulletin_board.number_of_trustees }, participatory_space_trustees_with_public_key.size >= bulletin_board.number_of_trustees]
           ].freeze
         end

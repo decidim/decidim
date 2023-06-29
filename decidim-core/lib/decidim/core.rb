@@ -121,6 +121,7 @@ module Decidim
   autoload :Upgrade, "decidim/upgrade"
   autoload :ParticipatorySpaceUser, "decidim/participatory_space_user"
   autoload :ModerationTools, "decidim/moderation_tools"
+  autoload :ContentSecurityPolicy, "decidim/content_security_policy"
 
   include ActiveSupport::Configurable
   # Loads seeds from all engines.
@@ -521,6 +522,13 @@ module Decidim
   # List of static pages' slugs that can include content blocks
   config_accessor :page_blocks do
     %w(terms-of-service)
+  end
+
+  # List of additional content security policies to be appended to the default ones
+  # This is useful for adding custom CSPs for external services like Here Maps, YouTube, etc.
+  # Read more: https://docs.decidim.org/en/develop/configure/initializer#_content_security_policy
+  config_accessor :content_security_policies_extra do
+    {}
   end
 
   # Public: Registers a global engine. This method is intended to be used

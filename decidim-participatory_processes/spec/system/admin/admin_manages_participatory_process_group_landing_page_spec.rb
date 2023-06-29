@@ -56,7 +56,7 @@ describe "Admin manages participatory process group landing page", type: :system
 
       expect do
         within ".edit_content_blocks" do
-          find("button", text: "Add content block").click
+          click_button "Add content block"
           within ".add-components" do
             find("a", text: "Hero image").click
           end
@@ -69,7 +69,7 @@ describe "Admin manages participatory process group landing page", type: :system
 
       expect do
         within ".edit_content_blocks" do
-          find("button", text: "Add content block").click
+          click_button "Add content block"
           within ".add-components" do
             find("a", text: "Hero image").click
           end

@@ -115,7 +115,7 @@ describe "Collaborative drafts", type: :system do
           end
         end
 
-        context "when geocoding is enabled", :serves_map, :serves_geocoding_autocomplete do
+        context "when geocoding is enabled", :serves_geocoding_autocomplete, :serves_map do
           let!(:component) do
             create(:proposal_component,
                    :with_creation_enabled,
@@ -247,7 +247,7 @@ describe "Collaborative drafts", type: :system do
             expect(page).to have_author(user_group.name)
           end
 
-          context "when geocoding is enabled", :serves_map, :serves_geocoding_autocomplete do
+          context "when geocoding is enabled", :serves_geocoding_autocomplete, :serves_map do
             let!(:component) do
               create(:proposal_component,
                      :with_creation_enabled,

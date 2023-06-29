@@ -23,7 +23,7 @@ module Decidim
       end
 
       describe "conference" do
-        let(:query) { %({ conference(id: \"#{id}\") { id }}) }
+        let(:query) { %({ conference(id: "#{id}") { id }}) }
 
         context "with a participatory conference that belongs to the current organization" do
           let!(:conference) { create(:conference, organization: current_organization) }

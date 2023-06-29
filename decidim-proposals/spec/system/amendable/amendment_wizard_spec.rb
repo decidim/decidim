@@ -252,7 +252,7 @@ describe "Amendment Wizard", type: :system do
           expect(page).to have_content(title)
           expect(page).to have_content(user.name)
           expect(page).to have_content(body)
-          expect(page).to have_selector("button", text: "Publish")
+          expect(page).to have_button(text: "Publish")
           expect(page).to have_selector("a", text: "Modify")
         end
       end

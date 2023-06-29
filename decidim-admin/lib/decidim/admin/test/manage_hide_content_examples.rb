@@ -18,7 +18,7 @@ shared_examples "hideable resource during block" do
     login_as admin, scope: :user
     visit reportable_path
     within ".profile--sidebar", match: :first do
-      page.find("button").click
+      click_button
     end
     within ".flag-modal" do
       find(:css, "input[name='report[block]']").set(true)

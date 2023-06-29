@@ -788,6 +788,17 @@ describe "Initiative", type: :system do
           find_button("Continue").click
         end
 
+        it "shows the page component" do
+          find_link("Continue").click
+          find_link("Edit my initiative").click
+
+          within ".process-nav__content" do
+            find_link("Page").click
+          end
+
+          expect(page).to have_content("Page")
+        end
+
         context "when minimum committee size is above zero" do
           before do
             find_link("Continue").click

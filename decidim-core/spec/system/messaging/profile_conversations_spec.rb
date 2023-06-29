@@ -320,13 +320,12 @@ describe "ProfileConversations", type: :system do
         let!(:interlocutor2) { create(:user, :confirmed, organization:, direct_message_types: "followed-only") }
 
         it "cannot be selected on the mentioned list", :slow do
-          skip "REDESIGN_PENDING: The profile conversations functionality is going to be removed and it is not necessary to fix this because the modal used here will be deprecated" do
-            visit_profile_inbox
-            expect(page).to have_content("New conversation")
-            click_button "New conversation"
-            find("#add_conversation_users").fill_in with: "@#{interlocutor2.nickname}"
-            expect(page).to have_selector("#autoComplete_list_1 li.disabled", wait: 2)
-          end
+          skip "REDESIGN_PENDING: The profile conversations functionality is going to be removed and it is not necessary to fix this because the modal used here will be deprecated"
+          visit_profile_inbox
+          expect(page).to have_content("New conversation")
+          click_button "New conversation"
+          find("#add_conversation_users").fill_in with: "@#{interlocutor2.nickname}"
+          expect(page).to have_selector("#autoComplete_list_1 li.disabled", wait: 2)
         end
       end
 
@@ -337,17 +336,15 @@ describe "ProfileConversations", type: :system do
         end
 
         it "has disabled submit button" do
-          skip "REDESIGN_PENDING: The profile conversations functionality is going to be removed and it is not necessary to fix this because the modal used here will be deprecated" do
-            expect(page).to have_button("Next", disabled: true)
-          end
+          skip "REDESIGN_PENDING: The profile conversations functionality is going to be removed and it is not necessary to fix this because the modal used here will be deprecated"
+          expect(page).to have_button("Next", disabled: true)
         end
 
         it "enables submit button after selecting interlocutor" do
-          skip "REDESIGN_PENDING: The profile conversations functionality is going to be removed and it is not necessary to fix this because the modal used here will be deprecated" do
-            find("#add_conversation_users").fill_in with: "@#{interlocutor.nickname}"
-            find("#autoComplete_result_0").click
-            expect(page).to have_button("Next", disabled: false)
-          end
+          skip "REDESIGN_PENDING: The profile conversations functionality is going to be removed and it is not necessary to fix this because the modal used here will be deprecated"
+          find("#add_conversation_users").fill_in with: "@#{interlocutor.nickname}"
+          find("#autoComplete_result_0").click
+          expect(page).to have_button("Next", disabled: false)
         end
       end
     end

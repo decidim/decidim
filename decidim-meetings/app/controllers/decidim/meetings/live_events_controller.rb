@@ -9,6 +9,7 @@ module Decidim
       include Decidim::Meetings::PollsResources
 
       helper_method :live_meeting_embed_code
+      before_action :add_addtional_csp_directives, only: :show
 
       def show
         raise ActionController::RoutingError, "Not Found" unless meeting

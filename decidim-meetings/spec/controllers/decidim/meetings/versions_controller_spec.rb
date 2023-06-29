@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   module Meetings
-    describe VersionsController, versioning: true, type: :controller do
+    describe VersionsController, type: :controller, versioning: true do
       routes { Decidim::Meetings::Engine.routes }
 
       let(:resource) { create(:meeting) }

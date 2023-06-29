@@ -3,7 +3,7 @@
 require "spec_helper"
 require "csv"
 
-describe "Participatory Processes", type: :system, download: true do
+describe "Participatory Processes", download: true, type: :system do
   let(:date) { Time.zone.today - 1.week }
   let(:organization) { create(:organization) }
   let(:show_metrics) { true }

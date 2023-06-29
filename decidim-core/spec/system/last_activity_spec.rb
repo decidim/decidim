@@ -7,16 +7,31 @@ describe "Last activity", type: :system do
   let(:commentable) { create(:dummy_resource, component:) }
   let(:comment) { create(:comment, commentable:) }
   let!(:action_log) do
-    create(:action_log, created_at: 1.day.ago, action: "create", visibility: "public-only", resource: comment, organization:)
+    create(:action_log,
+           created_at: 1.day.ago,
+           visibility: "public-only",
+           participatory_space: comment.participatory_space,
+           resource: comment,
+           organization:)
+  end
+  let!(:another_action_log) do
+    create(:action_log,
+           created_at: 2.days.ago,
+           visibility: "public-only",
+           participatory_space: another_comment.participatory_space,
+           resource: another_comment,
+           organization:)
   end
   let!(:other_action_log) do
-    create(:action_log, action: "publish", visibility: "all", resource:, organization:, participatory_space: component.participatory_space)
+    create(:action_log,
+           action: "publish",
+           visibility: "all",
+           resource:,
+           participatory_space: resource.participatory_space,
+           organization:)
   end
   let(:long_body_comment) { "This is my very long comment for Last Activity card that must be shorten up because is more than 100 chars" }
   let(:another_comment) { create(:comment, body: long_body_comment) }
-  let!(:another_action_log) do
-    create(:action_log, created_at: 2.days.ago, action: "create", visibility: "public-only", resource: another_comment, organization:)
-  end
   let(:component) do
     create(:component, :published, organization:)
   end
@@ -121,14 +136,19 @@ describe "Last activity", type: :system do
 
       context "when there are activities from private spaces" do
         before do
+          comment.update(body: { es: "this is a private comment" })
+          another_comment.update(body: { es: "this is another private comment" })
+
           component.participatory_space.update(private_space: true)
           comment.participatory_space.update(private_space: true)
           another_comment.participatory_space.update(private_space: true)
+
           visit current_path
         end
 
         it "does not show the activities" do
           expect(page).to have_css("[data-activity]", count: 0)
+          expect(page).to have_content "No activity"
         end
       end
     end

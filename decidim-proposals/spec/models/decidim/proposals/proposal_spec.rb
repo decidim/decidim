@@ -81,13 +81,13 @@ module Decidim
           let(:proposal) { build(:proposal, :official) }
 
           it "returns the followers and the component's participatory space admins" do
-            expect(subject.users_to_notify_on_comment_created).to match_array(followers.concat([participatory_process_admin]))
+            expect(subject.users_to_notify_on_comment_created).to match_array(followers.push(participatory_process_admin))
           end
         end
 
         context "when the proposal is not official" do
           it "returns the followers and the author" do
-            expect(subject.users_to_notify_on_comment_created).to match_array(followers.concat([proposal.creator.author]))
+            expect(subject.users_to_notify_on_comment_created).to match_array(followers.push(proposal.creator.author))
           end
         end
       end

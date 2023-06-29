@@ -152,6 +152,45 @@ bundle exec rake decidim:proposals:upgrade:remove_valuator_orphan_records
 
 You can see more details about this change on PR [\#10607](https://github.com/decidim/decidim/pull/10607)
 
+### 3.7. Initiatives pages exception fix
+
+We have added a new tasks to fix a bug related to the pages component inside of the Initiatives module (`decidim-initiatives`).
+
+You can run the task with the following command:
+
+```console
+bundle exec rake decidim:initiatives:upgrade:fix_broken_pages
+```
+
+You can see more details about this change on PR [\#10928](https://github.com/decidim/decidim/pull/10928)
+
+### 3.7. Add Content Security Policy (CSP) support
+
+We have introduced support for Content Security Policy (CSP). This is a security feature that helps to detect and mitigate certain types of attacks, including Cross Site Scripting (XSS) and data injection attacks.
+By default, the CSP is enabled, and is configured to be as restrictive as possible, having the following default configuration:
+
+```ruby
+{
+        "default-src" => %w('self' 'unsafe-inline'),
+        "script-src" => %w('self' 'unsafe-inline' 'unsafe-eval'),
+        "style-src" => %w('self' 'unsafe-inline'),
+        "img-src" => %w('self' *.hereapi.com data:),
+        "font-src" => %w('self'),
+        "connect-src" => %w('self' *.hereapi.com *.jsdelivr.net),
+        "frame-src" => %w('self'),
+        "media-src" => %w('self')
+}
+```
+
+In order to customize the CSP we are providing, have 2 options, either by using a configuration key the initializer `config/initializers/decidim.rb` or by setting values in the Organization's system admin.
+
+Please read more in the docs:
+
+- [Customize Content Security Policy](https://docs.decidim.org/en/develop/customize/content_security_policy)
+- [Using Content Security Policy initializer](https://docs.decidim.org/en/develop/configure/initializer#_content_security_policy)
+
+You can check more about the implementation in the [\#10700](https://github.com/decidim/decidim/pull/10700) pull request.
+
 ## 4. Scheduled tasks
 
 Implementers need to configure these changes it in your scheduler task system in the production server. We give the examples
@@ -410,23 +449,13 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 ```
 
-The editor JS is automatically included in the normal Decidim layout but in case you have customized your layout, you will need to add the following snippet at the end of your layout (`layouts/decidim/_decidim_javascript.html.erb` in the default layout):
-
-```erb
-<%= javascript_pack_tag "decidim_editor", defer: false %>
-```
-
-Note that this snippet is only needed on those pages where the editor is displayed but we include this JavaScript tag on all pages to ensure the availability of the editor, even if the page content is cached when the dynamic snippets are not always added to the views. In case you do not need the rich text editor at the participant side of the site at all, you can omit this tag.
+The editor JS is automatically included in the normal Decidim layout when you display editors using the default form builder shipped with Decidim.
 
 #### 5.3.3. New CSS to display the rich text content
 
 The new version of Decidim ships with rewritten CSS for displaying the rich text editor content. This CSS has been written in Tailwind as this is the new CSS framework used in Decidim. You will need to revisit any CSS that you had previously written for the editor and preferrably rewrite it based on the updated content structure and CSS class names.
 
-The editor CSS is automatically included in the normal Decidim layout but in case you have customized your layout, you will need to add the following code snipped at the `<head>` section of your layout definition file:
-
-```erb
-<%= stylesheet_pack_tag "decidim_editor", media: "all" %>
-```
+The editor CSS is automatically included in the normal Decidim layout when you display editors using the default form builder shipped with Decidim.
 
 #### 5.3.4. Registering rich text content for the content migration
 

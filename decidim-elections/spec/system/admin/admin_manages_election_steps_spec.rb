@@ -19,7 +19,7 @@ describe "Admin manages election steps", :slow, type: :system do
         expect(page).to have_content("All the questions have a correct value for maximum of answers.")
         expect(page).to have_content("The election is published.")
         expect(page).to have_content("The election component is published.")
-        expect(page).to have_content("The setup is being done at least 3 hours before the election starts.")
+        expect(page).to have_content("The setup is being done at least 1 hour before the election starts.")
         expect(page).to have_content("The participatory space has at least 3 trustees with public key.")
         expect(page).to have_content("has a public key", minimum: 2)
         expect(page).not_to have_content("Census is uploaded.")
@@ -50,7 +50,7 @@ describe "Admin manages election steps", :slow, type: :system do
           expect(page).to have_content("All the questions have a correct value for maximum of answers.")
           expect(page).to have_content("The election is published.")
           expect(page).to have_content("The election component is published.")
-          expect(page).to have_content("The setup is being done at least 3 hours before the election starts.")
+          expect(page).to have_content("The setup is being done at least 1 hour before the election starts.")
           expect(page).to have_content("The participatory space has at least 3 trustees with public key.")
           expect(page).to have_content("has a public key", minimum: 2)
           expect(page).to have_content("There is no census uploaded for this election.")
@@ -241,7 +241,7 @@ describe "Admin manages election steps", :slow, type: :system do
       visit_steps_page
 
       # allows admin to mark trustees as missing
-      expect(page).to have_selector("button", text: "Mark as missing")
+      expect(page).to have_button(text: "Mark as missing")
 
       within find("tr", text: trustee.name) do
         click_button "Mark as missing"
@@ -255,7 +255,7 @@ describe "Admin manages election steps", :slow, type: :system do
       end
 
       # do not allow to mark more trustees as missing
-      expect(page).not_to have_selector("button", text: "Mark as missing")
+      expect(page).not_to have_button(text: "Mark as missing")
     end
   end
 

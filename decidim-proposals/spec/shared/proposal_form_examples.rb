@@ -234,7 +234,7 @@ shared_examples "a proposal form" do |options|
     subject { form.category }
 
     context "when the category exists" do
-      it { is_expected.to be_kind_of(Decidim::Category) }
+      it { is_expected.to be_a(Decidim::Category) }
     end
 
     context "when the category does not exist" do

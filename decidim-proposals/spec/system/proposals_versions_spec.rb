@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Explore versions", versioning: true, type: :system do
+describe "Explore versions", type: :system, versioning: true do
   include_context "with a component"
   let(:component) { create(:proposal_component, organization:) }
   let!(:proposal) { create(:proposal, body: { en: "One liner body" }, component:) }

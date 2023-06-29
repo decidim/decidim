@@ -10,7 +10,7 @@ describe "Valuator checks components", type: :system do
     decidim_admin_assemblies.components_path(assembly)
   end
   let(:components_path) { participatory_space_path }
-  let!(:user) { create(:user, :confirmed, organization:) }
+  let!(:user) { create(:user, :confirmed, :admin_terms_accepted, admin: false, organization:) }
   let!(:valuator_role) { create(:assembly_user_role, role: :valuator, user:, assembly:) }
   let(:another_component) { create(:component, participatory_space: assembly) }
 
@@ -19,13 +19,15 @@ describe "Valuator checks components", type: :system do
   include_context "when administrating an assembly"
 
   before do
-    user.update(admin: false)
-
     create(:valuation_assignment, proposal: assigned_proposal, valuator_role:)
 
     switch_to_host(organization.host)
     login_as user, scope: :user
     visit components_path
+  end
+
+  it_behaves_like "needs admin TOS accepted" do
+    let(:user) { create(:user, :confirmed, organization:) }
   end
 
   context "when listing the space components in the sidebar" do
