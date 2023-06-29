@@ -27,6 +27,11 @@ const createMapController = (mapId, config) => {
 
 window.Decidim.createMapController = createMapController;
 
+// Prevent external requests to the Here URLs during tests
+if (L.TileLayer.HERE) {
+  L.TileLayer.HERE.prototype.onAdd = function(map) {};
+}
+
 // Test that the map events are working correctly
 $("[data-decidim-map]").on("ready.decidim", (ev, _map, mapConfig) => {
   appendToBody("Custom map ready");
