@@ -39,15 +39,10 @@ namespace :decidim do
   end
 
   desc "Applies upgrade modifications to the already installed application."
-  task upgrade_app: [:"decidim:remove_default_favicon", :"decidim:upgrade_ruby_version"]
+  task upgrade_app: [:"decidim:remove_default_favicon"]
 
   desc "Removes the default favicon from the application."
   task :remove_default_favicon do
     FileUtils.rm("public/favicon.ico", force: true)
-  end
-
-  task :upgrade_ruby_version do
-    template_dir = "#{Gem.loaded_specs["decidim-generators"].full_gem_path}/lib/decidim/generators/app_templates"
-    FileUtils.cp("#{template_dir}/.ruby-version", ".")
   end
 end
