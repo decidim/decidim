@@ -69,6 +69,15 @@ module Decidim
                         if: Decidim::Consultation.where(organization: current_organization).published.any?,
                         active: :inclusive
         end
+
+        Decidim.menu :home_content_block_menu do |menu|
+          menu.add_item :consultations,
+                        I18n.t("menu.consultations", scope: "decidim"),
+                        decidim_consultations.consultations_path,
+                        position: 60,
+                        if: Decidim::Consultation.where(organization: current_organization).published.any?,
+                        active: :inclusive
+        end
       end
 
       initializer "decidim_consultations.content_blocks" do

@@ -512,6 +512,8 @@ en:
         description: Description
       footer_sub_hero:
         name: Footer sub hero banner
+      global_menu:
+        name: Global menu
       hero:
         name: Hero image
       hero_settings_form:
