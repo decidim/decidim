@@ -10,9 +10,9 @@ module Decidim
       if start_date.to_date == end_date.to_date && start_date.to_time == end_date.to_time
         l(start_date.to_date, format:)
       elsif start_date.to_date == end_date.to_date
-        "#{l(start_date.to_date, format:)} #{l(start_date, format: :time_of_day)} #{icon("arrow-right-line")} #{l(end_date, format: :time_of_day)}".html_safe
+        "#{l(start_date.to_date, format:)} #{l(start_date, format: :time_of_day)} → #{l(end_date, format: :time_of_day)}".html_safe
       else
-        "#{l(start_date.to_date, format:)} #{icon("arrow-right-line")} #{l(end_date.to_date, format:)}".html_safe
+        "#{l(start_date.to_date, format:)} → #{l(end_date.to_date, format:)}".html_safe
       end
     end
   end

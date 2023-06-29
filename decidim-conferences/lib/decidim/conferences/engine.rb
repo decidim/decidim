@@ -69,6 +69,15 @@ module Decidim
                         if: Decidim::Conference.where(organization: current_organization).published.any?,
                         active: :inclusive
         end
+
+        Decidim.menu :home_content_block_menu do |menu|
+          menu.add_item :conferences,
+                        I18n.t("menu.conferences", scope: "decidim"),
+                        decidim_conferences.conferences_path,
+                        position: 50,
+                        if: Decidim::Conference.where(organization: current_organization).published.any?,
+                        active: :inclusive
+        end
       end
 
       initializer "decidim_conferences.content_blocks" do

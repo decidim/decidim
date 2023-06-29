@@ -10,22 +10,34 @@
   }
 
   &__calendar{
-    @apply w-14 flex flex-col justify-start rounded overflow-hidden bg-background text-center;
+    @apply w-14 flex flex-col justify-start rounded bg-background text-center;
 
     &:only-child &-month{
       @apply rounded-t;
     }
 
     &-container{
-      @apply flex flex-col md:flex-row items-stretch gap-y-2 md:gap-0 rounded overflow-hidden md:max-h-[120px];
+      @apply grid grid-cols-[auto_1fr] md:grid-cols-[auto_1fr_1fr] items-center gap-0 md:gap-x-5 border-4 border-background rounded md:h-[120px] overflow-hidden;
 
-      > *:last-child:not(:only-child){
-        @apply grow md:pl-5 md:border-4 md:border-l-0 border-background;
+      > *:nth-child(2){
+        @apply p-4 md:p-0;
+
+        &:not(:last-child){
+          @apply col-span-2 md:col-auto order-2 md:order-1;
+        }
+
+        &:last-child{
+          @apply md:col-span-2 pr-4;
+        }
+      }
+
+      > *:nth-child(3){
+        @apply order-1 md:order-2 h-[116px] md:h-full;
       }
     }
 
     &-month{
-      @apply bg-primary uppercase text-white text-xs rounded-t md:rounded-tr-none;
+      @apply bg-primary uppercase text-white text-xs rounded-tl;
     }
 
     &-day{
@@ -47,7 +59,7 @@
     }
 
     &__lg{
-      @apply w-fit flex-none justify-center [&>*]:px-2 border-4 md:border-r-0 border-background only:border-r-4;
+      @apply w-fit justify-center [&>*]:px-2;
     }
 
     &__lg &-month{
@@ -59,7 +71,7 @@
     }
 
     &__lg &-time{
-      @apply text-md;
+      @apply text-md pb-2;
     }
   }
 
@@ -72,7 +84,7 @@
   }
 
   &__online{
-    @apply bg-background grid place-items-center p-8 space-y-4 [&>p]:font-semibold [&>p]:text-lg [&>p]:text-gray-2 [&>p]:text-center;
+    @apply bg-background grid place-items-center p-8 space-y-4 text-gray-2 text-center text-lg;
   }
 
   &__agenda{
