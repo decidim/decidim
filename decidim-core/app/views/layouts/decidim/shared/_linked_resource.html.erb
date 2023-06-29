@@ -1,8 +1,6 @@
 <% announcement_body = capture do %>
-  <div class="max-w-full prose">
-    <%= t("decidim.linked_resource_from.included_in") %>
-    <%= link_to translated_attribute(linked_resource.title), located_linked_resource.path, class: "button button__sm button__text-secondary text-left" %>
-  </div>
+  <%= t("decidim.linked_resource_from.included_in") %>
+  <%= link_to translated_attribute(linked_resource.title), located_linked_resource.path %>
 <% end %>
 
-<%= cell("decidim/announcement", { body: announcement_body }, callout_class: "secondary") %>
+<%= cell("decidim/announcement", { body: announcement_body }) %>
