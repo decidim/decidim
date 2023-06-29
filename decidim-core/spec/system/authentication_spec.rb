@@ -146,7 +146,7 @@ describe "Authentication", type: :system do
         it "redirects the user to a finish signup page" do
           click_link("Sign Up")
 
-          find(".login__omniauth-button.button--twitter").click
+          find(".button--twitter").click
 
           expect(page).to have_content("Successfully")
           expect(page).to have_content("Please complete your profile")
@@ -159,12 +159,10 @@ describe "Authentication", type: :system do
 
         context "and a user already exists with the given email" do
           it "does not allow it" do
-            skip "REDESIGN_PENDING - Ths submit action fails with redesigned form https://github.com/decidim/decidim/issues/11101"
-
             create(:user, :confirmed, email: "user@from-twitter.com", organization:)
             click_link("Sign Up")
 
-            find(".login__omniauth-button.button--twitter").click
+            find(".button--twitter").click
 
             expect(page).to have_content("Successfully")
             expect(page).to have_content("Please complete your profile")
