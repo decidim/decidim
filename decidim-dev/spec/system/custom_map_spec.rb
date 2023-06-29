@@ -46,6 +46,12 @@ describe "Custom map", type: :system do
       expect(page).to have_content("Custom map started")
       expect(page).to have_content("Custom map ready")
     end
+
+    it "shows the map marker" do
+      within "[data-decidim-map]" do
+        expect(page).to have_css(".leaflet-marker-icon", count: marker_data.length)
+      end
+    end
   end
 
   let(:marker_data) do
