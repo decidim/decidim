@@ -1,5 +1,4 @@
 <% add_decidim_page_title(translated_attribute(current_voting.title)) %>
-
 <%= decidim_form_for @form,
                      method: :patch,
                      url: voting_path(@current_voting),
