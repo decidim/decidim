@@ -35,7 +35,9 @@ edit_link(
   <%= render layout: "layouts/decidim/shared/layout_item", locals: { back_path: budget_projects_path(budget) } do %>
     <%= cell("decidim/budgets/limit_announcement", budget) %>
     <% if component_settings.geocoding_enabled? && project.geocoded? %>
-      <%= render partial: "decidim/shared/static_map", locals: { icon_name: "projects", geolocalizable: project } %>
+      <div class="static-map__container">
+        <%= render partial: "decidim/shared/static_map", locals: { icon_name: "projects", geolocalizable: project } %>
+      </div>
     <% end %>
     <%= cell("decidim/budgets/project_selected_status", project, as_label: true) %>
     <h1 class="h1 decorator budget__definition-project__title editor-content">

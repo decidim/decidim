@@ -107,6 +107,15 @@ module Decidim
                         active: %r{^/(initiatives|create_initiative)},
                         if: !Decidim::InitiativesType.joins(:scopes).where(organization: current_organization).all.empty?
         end
+
+        Decidim.menu :home_content_block_menu do |menu|
+          menu.add_item :initiatives,
+                        I18n.t("menu.initiatives", scope: "decidim"),
+                        decidim_initiatives.initiatives_path,
+                        position: 30,
+                        active: :inclusive,
+                        if: !Decidim::InitiativesType.joins(:scopes).where(organization: current_organization).all.empty?
+        end
       end
 
       initializer "decidim_initiatives.badges" do

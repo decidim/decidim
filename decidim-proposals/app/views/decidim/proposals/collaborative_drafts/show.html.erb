@@ -22,7 +22,9 @@
     <h1 class="h2 decorator"><%= present(@collaborative_draft).title(links: true, html_escape: true) %></h1>
 
     <% if component_settings.geocoding_enabled? %>
-      <%= render partial: "decidim/shared/static_map", locals: { icon_name: "proposals", geolocalizable: @collaborative_draft } %>
+      <div class="static-map__container">
+        <%= render partial: "decidim/shared/static_map", locals: { icon_name: "proposals", geolocalizable: @collaborative_draft } %>
+      </div>
     <% end %>
 
     <div class="proposal__author">

@@ -73,6 +73,22 @@
     }
   }
 
+  &__menu {
+    @apply hidden md:block bg-primary py-4;
+  }
+
+  &__menu__container {
+    @apply flex flex-row justify-center;
+  }
+
+  &__menu-element {
+    @apply relative after:content-[''] after:h-full after:w-[1px] after:absolute after:top-0 after:left-0 after:bg-white after:opacity-60 last:before:content-[''] last:before:h-full last:before:w-[1px] last:before:absolute last:before:top-0 last:before:right-0 last:before:bg-white last:before:opacity-60;
+  }
+
+  &__menu-element--link {
+    @apply py-px px-8 text-white text-lg font-semibold w-full underline decoration-transparent hover:decoration-white transition duration-300 leading-[22px];
+  }
+
   .initiatives__progress-bar {
     .progress-bar__container {
       @apply w-16;

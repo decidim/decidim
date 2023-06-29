@@ -8,6 +8,7 @@ describe "Initiatives", type: :system do
   let(:base_initiative) do
     create(:initiative, organization:)
   end
+  let!(:menu_content_block) { create(:content_block, organization:, manifest_name: :global_menu, scope_name: :homepage) }
 
   before do
     switch_to_host(organization.host)
@@ -17,8 +18,7 @@ describe "Initiatives", type: :system do
     it "does not show the menu link" do
       visit decidim.root_path
 
-      find("#main-dropdown-summary").hover
-      within ".menu-bar__main-dropdown__menu" do
+      within "#home__menu" do
         expect(page).not_to have_content("Initiatives")
       end
     end
@@ -34,6 +34,17 @@ describe "Initiatives", type: :system do
   context "when initiative types and scopes have been created" do
     let(:base_initiative) do
       create(:initiative, organization:)
+    end
+
+    it "shows the menu link" do
+      type = create(:initiatives_type, organization:)
+      create(:initiatives_type_scope, type:)
+
+      visit decidim.root_path
+
+      within "#home__menu" do
+        expect(page).to have_content("Initiatives")
+      end
     end
 
     context "when there are some published initiatives" do
@@ -58,7 +69,7 @@ describe "Initiatives", type: :system do
 
         context "when accessing from the homepage" do
           it "the menu link is shown" do
-            visit decidim.root_path
+            visit decidim_initiatives.initiatives_path
 
             find("#main-dropdown-summary").hover
             within ".menu-bar__main-dropdown__menu" do

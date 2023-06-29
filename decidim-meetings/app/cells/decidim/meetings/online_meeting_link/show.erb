@@ -6,7 +6,7 @@
   <% elsif future? %>
     <p><%= t("link_closed", scope: "decidim.meetings.meetings.show") %></p>
   <% elsif live? %>
-    <p><%= t("live_event", scope: "decidim.meetings.meetings.show") %></p>
+    <p class="h3"><%= t("live_event", scope: "decidim.meetings.meetings.show") %></p>
 
     <% unless show_embed? %>
       <p><%= t("micro_camera_permissions_warning", scope: "decidim.meetings.meetings.show") %></p>
@@ -14,6 +14,6 @@
 
     <%== embed_code(request.host) if show_embed? %>
 
-    <%= link_to t("join", scope: "decidim.meetings.meetings.show"), live_event_url, target: "_blank", class: "button button__xl button__secondary", data: { "external-link": false } %>
+    <%= link_to t("join_meeting", scope: "decidim.meetings.meetings.meeting"), live_event_url, target: "_blank", class: "button button__xl button__secondary", data: { "external-link": false } %>
   <% end %>
 </div>
