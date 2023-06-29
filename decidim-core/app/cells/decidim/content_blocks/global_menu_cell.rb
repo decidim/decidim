@@ -28,12 +28,7 @@ module Decidim
       end
 
       def cache_hash
-        hash = []
-        hash << "decidim/content_blocks/global_menu"
-        hash << current_organization.cache_key_with_version
-        hash << I18n.locale.to_s
-
-        hash.join(Decidim.cache_key_separator)
+        ["decidim/content_blocks/global_menu", current_organization.cache_key_with_version, I18n.locale].join(Decidim.cache_key_separator)
       end
     end
   end
