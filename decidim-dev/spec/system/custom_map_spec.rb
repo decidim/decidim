@@ -69,7 +69,6 @@ describe "Custom map", type: :system do
     let(:map_config) do
       {
         provider: :here
-        # dynamic: { api_key: "12345" }
       }
     end
 
