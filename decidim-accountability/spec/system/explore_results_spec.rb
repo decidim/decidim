@@ -296,7 +296,7 @@ describe "Explore results", versioning: true, type: :system do
 
       it "a banner links back to the result" do
         click_link translated(proposal.title)
-        expect(page).to have_content("Included in\n#{translated(result.title)}")
+        expect(page).to have_content("Included in #{translated(result.title)}")
       end
     end
 
@@ -355,7 +355,7 @@ describe "Explore results", versioning: true, type: :system do
 
       it "a banner links back to the result" do
         click_link translated(meeting.title)
-        expect(page).to have_content("Included in\n#{translated(result.title)}")
+        expect(page).to have_content("Included in #{translated(result.title)}")
       end
     end
 
