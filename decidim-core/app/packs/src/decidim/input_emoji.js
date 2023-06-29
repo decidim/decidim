@@ -1,5 +1,6 @@
 import { createPopup } from "@picmo/popup-picker";
 import { screens } from "tailwindcss/defaultTheme"
+import { SUPPORTED_LOCALES } from "emojibase";
 
 import * as i18n from "src/decidim/i18n";
 
@@ -25,6 +26,24 @@ export class EmojiButton {
       messages: { buttonText }
     }
     return I18N_CONFIG;
+  }
+
+  // Get the current locale used for the emoji database
+  //
+  // @returns {string} the current locale if it is supported by emoji base, or english as the fallback locale
+  static locale() {
+    let emojiLocale = document.documentElement.getAttribute("lang");
+
+    if (!SUPPORTED_LOCALES.includes(emojiLocale)) {
+      const secondaryLocale = emojiLocale?.split("-")[0];
+      if (SUPPORTED_LOCALES.includes(secondaryLocale)) {
+        emojiLocale = secondaryLocale;
+      } else {
+        emojiLocale = "en";
+      }
+    }
+
+    return emojiLocale;
   }
 
   constructor(elem) {
@@ -65,7 +84,7 @@ export class EmojiButton {
 
     const picker = createPopup({
       autoFocus: "search",
-      locale: document.documentElement.getAttribute("lang"),
+      locale: EmojiButton.locale(),
       i18n: i18nDictionary,
       // shrink the size of the emoji when mobile
       ...(window.matchMedia(`(max-width: ${screens.sm})`).matches && { emojiSize: "1.5rem" })
