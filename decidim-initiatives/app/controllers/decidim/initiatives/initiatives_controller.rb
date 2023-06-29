@@ -7,7 +7,6 @@ module Decidim
       include ParticipatorySpaceContext
       redesign_participatory_space_layout only: [:show]
 
-      helper Decidim::WidgetUrlsHelper
       helper Decidim::AttachmentsHelper
       helper Decidim::FiltersHelper
       helper Decidim::OrdersHelper

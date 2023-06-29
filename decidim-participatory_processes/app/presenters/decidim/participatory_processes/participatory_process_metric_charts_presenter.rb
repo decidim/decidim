@@ -26,18 +26,6 @@ module Decidim
         render_not_highlighted(Decidim.metrics_registry.filtered(highlight: false, scope: "participatory_process"))
       end
 
-      def redesigned_charts(charts)
-        safe_join(
-          charts.map do |metric_manifest|
-            redesigned_render_metrics(metric_manifest.metric_name,
-                                      title: I18n.t("decidim.metrics.#{metric_manifest.metric_name}.title"),
-                                      description: I18n.t("decidim.metrics.#{metric_manifest.metric_name}.description"),
-                                      download: true,
-                                      data: { ratio: "11:4", axis: true }).html_safe
-          end
-        )
-      end
-
       # deprecated
       def big_stats
         safe_join(

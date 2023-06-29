@@ -104,6 +104,11 @@ shared_examples "comments" do
     end
 
     describe "when using emojis" do
+      before do
+        within_language_menu do
+          click_link "Castellano"
+        end
+      end
       shared_examples_for "allowing to select emojis" do
         it "allows selecting emojis" do
           within_language_menu do

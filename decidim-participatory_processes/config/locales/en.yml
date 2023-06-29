@@ -466,13 +466,8 @@ en:
       pages:
         home:
           highlighted_processes:
-            active_processes: Active processes
-            active_step: Active phase
-            more_information: More information
-            participate: Participate
-            participate_in: Participate in process %{resource_name}
-            processes_button_title: Link to the Processes page displaying all the processes
-            see_all_processes: See all processes
+            active_spaces: Active processes
+            see_all_spaces: See all processes
       participatory_process_steps:
         index:
           back_to_process: Back to the process page
@@ -532,10 +527,6 @@ en:
           browse: Browse
           browse_resource: Browse process group %{resource_name}
           processes_count: 'Processes:'
-      participatory_process_widgets:
-        show:
-          active_step: Active phase
-          take_part: Take part
       participatory_processes:
         index:
           promoted_processes: Highlighted processes

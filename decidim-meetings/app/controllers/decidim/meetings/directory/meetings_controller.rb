@@ -11,7 +11,6 @@ module Decidim
         include Filterable
         include Paginable
 
-        helper Decidim::WidgetUrlsHelper
         helper Decidim::FiltersHelper
         helper Decidim::Meetings::MapHelper
         helper Decidim::ResourceHelper

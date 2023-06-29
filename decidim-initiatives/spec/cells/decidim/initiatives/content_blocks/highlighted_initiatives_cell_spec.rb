@@ -25,7 +25,7 @@ describe Decidim::Initiatives::ContentBlocks::HighlightedInitiativesCell, type: 
     end
 
     it "shows up initiatives ordered by default" do
-      expect(subject.highlighted_initiatives.first).not_to eq(most_recent_initiative)
+      expect(subject.highlighted_spaces.first).not_to eq(most_recent_initiative)
     end
   end
 
@@ -50,7 +50,7 @@ describe Decidim::Initiatives::ContentBlocks::HighlightedInitiativesCell, type: 
       end
 
       it "shows up initiatives ordered by published_at" do
-        expect(subject.highlighted_initiatives.first).to eq(most_recent_initiative)
+        expect(subject.highlighted_spaces.first).to eq(most_recent_initiative)
       end
     end
 
@@ -62,7 +62,7 @@ describe Decidim::Initiatives::ContentBlocks::HighlightedInitiativesCell, type: 
       end
 
       it "shows up initiatives ordered by published_at" do
-        expect(subject.highlighted_initiatives.first).not_to eq(most_recent_initiative)
+        expect(subject.highlighted_spaces.first).not_to eq(most_recent_initiative)
       end
     end
   end

@@ -12,7 +12,6 @@ module Decidim
       include FormFactory
       include Paginable
 
-      helper Decidim::WidgetUrlsHelper
       helper Decidim::ResourceVersionsHelper
       helper Decidim::ShortLinkHelper
       include Decidim::AttachmentsHelper

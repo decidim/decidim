@@ -5,29 +5,24 @@ require "spec_helper"
 module Decidim
   module Meetings
     module ContentBlocks
-      describe UpcomingMeetingsCell, type: :cell do
+      describe HighlightedMeetingsCell, type: :cell do
         controller Decidim::Meetings::Directory::MeetingsController
 
-        let(:html) { cell("decidim/meetings/content_blocks/upcoming_meetings").call }
+        let(:content_block) { create(:content_block, organization:, manifest_name: :upcoming_meetings, scope_name: :homepage) }
         let(:organization) { create(:organization) }
         let(:current_user) { create(:user, :confirmed, organization:) }
-
-        before do
-          expect(controller).to receive(:current_organization).at_least(:once).and_return(organization)
-        end
+        let(:html) { cell("decidim/meetings/content_blocks/highlighted_meetings", content_block).call }
 
         context "with meetings" do
           let(:organization) { meeting.organization }
           let(:meeting) { create(:meeting, :published, start_time: 1.week.from_now) }
 
           it "renders the meetings" do
-            expect(html).to have_css(".card", count: 1)
+            expect(html).to have_css(".card__list", count: 1)
           end
 
-          describe "upcoming meetings" do
-            subject { cell.upcoming_meetings }
-
-            let(:cell) { described_class.new(nil, context: { controller: }) }
+          context "with upcoming meetings" do
+            let(:meetings_ids) { html.find_all("a.card__list").map { |node| node[:id] } }
             let!(:past_meeting) do
               create(:meeting, :published, start_time: 1.week.ago, component: meeting.component)
             end
@@ -41,16 +36,18 @@ module Decidim
               create(:meeting, start_time: 2.weeks.from_now, component: meeting.component)
             end
 
-            it { is_expected.not_to include(moderated_meeting) }
-            it { is_expected.not_to include(past_meeting) }
-            it { is_expected.to include(meeting) }
-            it { is_expected.to include(second_meeting) }
-            it { is_expected.not_to include(unpublished_meeting) }
+            it { expect(html).to have_content("Upcoming meetings") }
+            it { expect(html).not_to have_content("Past meetings") }
+            it { expect(meetings_ids).not_to include(item_id(moderated_meeting)) }
+            it { expect(meetings_ids).not_to include(item_id(past_meeting)) }
+            it { expect(meetings_ids).to include(item_id(meeting)) }
+            it { expect(meetings_ids).to include(item_id(second_meeting)) }
+            it { expect(meetings_ids).not_to include(item_id(unpublished_meeting)) }
 
             it "orders them correctly" do
-              expect(subject.length).to eq(2)
-              expect(subject.first).to eq(meeting)
-              expect(subject.last).to eq(second_meeting)
+              expect(meetings_ids.length).to eq(2)
+              expect(meetings_ids.first).to eq(item_id(meeting))
+              expect(meetings_ids.last).to eq(item_id(second_meeting))
             end
 
             context "with upcoming private meetings" do
@@ -61,8 +58,13 @@ module Decidim
                 create(:meeting, :published, start_time: meeting.start_time.advance(weeks: 1), component: meeting.component, private_meeting: true, transparent: false)
               end
 
-              it "renders nothing" do
-                expect(subject.length).to eq(0)
+              it "renders past meetings" do
+                expect(html).not_to have_content("Upcoming meetings")
+                expect(html).to have_content("Past meetings")
+                expect(meetings_ids).not_to include(item_id(meeting))
+                expect(meetings_ids).not_to include(item_id(second_meeting))
+                expect(meetings_ids).to include(item_id(past_meeting))
+                expect(meetings_ids.length).to eq(1)
               end
             end
 
@@ -78,7 +80,8 @@ module Decidim
               end
 
               it "renders only user's invited upcoming private meeting correctly" do
-                expect(subject.length).to eq(1)
+                expect(meetings_ids.length).to eq(1)
+                expect(meetings_ids).to include(item_id(meeting))
               end
             end
           end
@@ -86,10 +89,14 @@ module Decidim
 
         context "with no meetings" do
           it "renders nothing" do
-            expect(html).not_to have_css(".upcoming-meetings")
+            expect(html).not_to have_css(".meeting-list__block-list")
           end
         end
       end
     end
   end
+end
+
+def item_id(meeting)
+  "meetings__meeting_#{meeting.id}"
 end

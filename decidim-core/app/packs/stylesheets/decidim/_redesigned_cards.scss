@@ -34,6 +34,10 @@
       @apply grid gap-4 md:gap-12 md:grid-cols-2;
     }
 
+    &-home {
+      @apply grid gap-4 md:gap-12 md:grid-cols-3;
+    }
+
     &-img {
       @apply aspect-[21/9] rounded-t overflow-hidden;
 

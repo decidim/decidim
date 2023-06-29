@@ -8,6 +8,7 @@ describe "Admin reports user", type: :system do
   let(:reportable_path) { decidim.profile_path(reportable.nickname) }
 
   before do
+    allow(Decidim).to receive(:redesign_active).and_return(true)
     switch_to_host(admin.organization.host)
     login_as admin, scope: :user
   end
