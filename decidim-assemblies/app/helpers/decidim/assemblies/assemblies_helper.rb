@@ -7,7 +7,6 @@ module Decidim
       include Decidim::ResourceHelper
       include Decidim::AttachmentsHelper
       include Decidim::IconHelper
-      include Decidim::WidgetUrlsHelper
       include Decidim::SanitizeHelper
       include Decidim::ResourceReferenceHelper
       include Decidim::FiltersHelper
@@ -36,26 +35,6 @@ module Decidim
         html += t("assemblies.show.private_space", scope: "decidim").to_s.html_safe
         html += ", #{t("assemblies.show.is_transparent.#{assembly.is_transparent}", scope: "decidim")}".html_safe if assembly.is_transparent?
         html += " #{decidim_sanitize_editor translated_attribute(assembly.special_features)}".html_safe
-        html.html_safe
-      end
-
-      def social_handler_links(assembly)
-        html = "".html_safe
-        if Decidim::Assembly::SOCIAL_HANDLERS.any? { |h| assembly.try("#{h}_handler").present? }
-          html += "<div class='definition-data__item social_networks'>".html_safe
-          html += "<span class='definition-data__title'>#{t("assemblies.show.social_networks", scope: "decidim")}</span>".html_safe
-          Decidim::Assembly::SOCIAL_HANDLERS.each do |handler|
-            handler_name = "#{handler}_handler"
-            next if assembly.send(handler_name).blank?
-
-            html += link_to handler.capitalize, "https://#{handler}.com/#{assembly.send(handler_name)}",
-                            target: "_blank",
-                            class: "",
-                            title: t("assemblies.show.social_networks_title", scope: "decidim") << " " << handler.capitalize.to_s, rel: "noopener"
-          end
-          html += "</div>".html_safe
-        end
-
         html.html_safe
       end
 

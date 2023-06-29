@@ -42,7 +42,6 @@ module Decidim
           end
 
           resource :initiative_vote, only: [:create, :destroy]
-          resource :widget, only: :show, path: "embed"
           resources :committee_requests, only: [:new] do
             collection do
               get :spawn
@@ -90,6 +89,14 @@ module Decidim
                         I18n.t("menu.initiatives", scope: "decidim"),
                         decidim_initiatives.initiatives_path,
                         position: 2.4,
+                        active: :inclusive
+        end
+
+        Decidim.menu :home_content_block_menu do |menu|
+          menu.add_item :initiatives,
+                        I18n.t("menu.initiatives", scope: "decidim"),
+                        decidim_initiatives.initiatives_path,
+                        position: 30,
                         active: :inclusive
         end
       end
