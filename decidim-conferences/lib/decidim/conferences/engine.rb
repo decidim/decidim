@@ -28,7 +28,6 @@ module Decidim
           get :user, to: "conferences#user_diploma"
           resources :conference_speakers, only: :index, path: "speakers"
           resources :conference_program, only: :show, path: "program"
-          resource :conference_widget, only: :show, path: "embed"
           resources :registration_types, only: :index, path: "registration" do
             resource :conference_registration, only: [:create, :destroy] do
               collection do

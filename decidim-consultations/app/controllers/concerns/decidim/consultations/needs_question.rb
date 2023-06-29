@@ -9,8 +9,6 @@ module Decidim
         instance_or_module.class_eval do
           helper_method :current_question, :previous_question, :next_question, :previous_published_question, :next_published_question,
                         :current_consultation, :current_participatory_space, :stats, :sorted_results
-
-          helper Decidim::WidgetUrlsHelper
         end
       end
 

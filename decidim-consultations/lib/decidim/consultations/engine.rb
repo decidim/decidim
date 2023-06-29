@@ -24,13 +24,10 @@ module Decidim
         }, constraints: { question_id: /[0-9]+/ }
 
         resources :consultations, only: [:index, :show], param: :slug, path: "consultations" do
-          resource :consultation_widget, only: :show, path: "embed"
-
           resources :questions, only: [:show], param: :slug, path: "questions", shallow: true do
             member do
               get :authorization_vote_modal, to: "authorization_vote_modals#show"
             end
-            resource :question_widget, only: :show, path: "embed"
             resource :question_votes, only: [:create, :destroy], path: "vote"
             resource :question_multiple_votes, only: [:create, :show], path: "multivote"
           end

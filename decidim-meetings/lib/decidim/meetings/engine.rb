@@ -32,7 +32,6 @@ module Decidim
             end
           end
           resources :versions, only: [:show]
-          resource :widget, only: :show, path: "embed"
           resource :live_event, only: :show
           namespace :polls do
             resources :questions, only: [:index, :update]

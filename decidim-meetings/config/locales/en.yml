@@ -416,8 +416,6 @@ en:
       content_blocks:
         upcoming_meetings:
           name: Upcoming meetings
-          upcoming_meetings: Upcoming meetings
-          view_all_meetings: View all
       directory:
         meetings:
           index:

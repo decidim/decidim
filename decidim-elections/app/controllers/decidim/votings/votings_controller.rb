@@ -22,7 +22,6 @@ module Decidim
       helper Decidim::SanitizeHelper
       helper Decidim::PaginateHelper
       helper Decidim::IconHelper
-      helper Decidim::WidgetUrlsHelper
       helper Decidim::ResourceHelper
       helper Decidim::Admin::IconLinkHelper
 

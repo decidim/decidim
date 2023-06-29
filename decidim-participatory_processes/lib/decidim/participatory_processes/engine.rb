@@ -31,9 +31,7 @@ module Decidim
         resources :participatory_process_groups, only: :show, path: "processes_groups"
         resources :participatory_processes, only: [:index, :show], param: :slug, path: "processes" do
           get "all-metrics", on: :member
-          get "description", on: :member
           resources :participatory_process_steps, only: [:index], path: "steps"
-          resource :widget, only: :show, path: "embed"
         end
 
         scope "/processes/:participatory_process_slug/f/:component_id" do
@@ -132,6 +130,12 @@ module Decidim
         Decidim.content_blocks.register(:participatory_process_homepage, :main_data) do |content_block|
           content_block.cell = "decidim/participatory_processes/content_blocks/main_data"
           content_block.public_name_key = "decidim.content_blocks.main_data.name"
+          content_block.default!
+        end
+
+        Decidim.content_blocks.register(:participatory_process_homepage, :extra_data) do |content_block|
+          content_block.cell = "decidim/participatory_processes/content_blocks/extra_data"
+          content_block.public_name_key = "decidim.participatory_processes.content_blocks.extra_data.name"
           content_block.default!
         end
 
@@ -286,9 +290,9 @@ module Decidim
           end
         end
 
-        Decidim.content_blocks.register(:participatory_process_group_homepage, :metadata) do |content_block|
-          content_block.cell = "decidim/participatory_process_groups/content_blocks/metadata"
-          content_block.public_name_key = "decidim.participatory_process_groups.content_blocks.metadata.name"
+        Decidim.content_blocks.register(:participatory_process_group_homepage, :extra_data) do |content_block|
+          content_block.cell = "decidim/participatory_process_groups/content_blocks/extra_data"
+          content_block.public_name_key = "decidim.participatory_process_groups.content_blocks.extra_data.name"
           content_block.default!
         end
 

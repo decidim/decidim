@@ -4,7 +4,6 @@ module Decidim
   module Proposals
     # Exposes the proposal resource so users can view and create them.
     class ProposalsController < Decidim::Proposals::ApplicationController
-      helper Decidim::WidgetUrlsHelper
       helper ProposalWizardHelper
       helper ParticipatoryTextsHelper
       helper UserGroupHelper

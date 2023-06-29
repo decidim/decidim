@@ -97,6 +97,10 @@ module Decidim
       def limit
         3
       end
+
+      def see_all_path
+        @see_all_path ||= options[:see_all_path] || (single_component? && main_component_path(model))
+      end
     end
   end
 end
