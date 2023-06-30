@@ -670,7 +670,7 @@ en:
           feedback: Give us some feedback
           header: Vote confirmed
           lead: Your vote has been cast!
-          text: 'You can check that your vote has been successfully added to the ballot box with the following identifier: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
+          text: 'You can check that your vote has been successfully added to the ballot box with the following identifier: '
           verify_link: To check it, copy the identifier and paste it on the <a href="%{link}">vote verification page</a>
         create:
           error: There was a problem casting the vote. Please, try again.

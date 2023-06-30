@@ -4,7 +4,7 @@ import "src/decidim/elections/broken_promises_handler";
 import { Client } from "@decidim/decidim-bulletin_board";
 
 $(async () => {
-  const $castingVoteWrapper = $(".casting-vote-wrapper");
+  const $castingVoteWrapper = $("#casting-vote-wrapper");
 
   if ($castingVoteWrapper.length) {
     const bulletinBoardClient = new Client({
