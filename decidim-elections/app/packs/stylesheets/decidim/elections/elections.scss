@@ -1,8 +1,4 @@
 .election{
-  &__container{
-    @apply space-y-8;
-  }
-
   &__section{
     &-title{
       @apply flex gap-1 items-center;

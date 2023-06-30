@@ -16,9 +16,11 @@ edit_link(
 <%= append_stylesheet_pack_tag "decidim_elections" %>
 
 <% content_for :aside do %>
-  <%= cell("decidim/elections/election_vote_cta", election) %>
+  <section class="layout-aside__section layout-aside__buttons">
+    <%= cell("decidim/elections/election_vote_cta", election) %>
+  </section>
 
-  <div class="mt-14 space-y-4">
+  <section class="layout-aside__section layout-aside__buttons">
     <p class="election__aside-heading"><%= t("verify.already_voted", scope: "decidim.elections.elections.show") %></p>
 
     <div class="election__aside-link">
@@ -40,14 +42,12 @@ edit_link(
       <%= icon "book-2-line" %>
       <%= link_to(t("election_log", scope: "decidim.elections.elections.show"), election_log_election_path(election)) %>
     </div>
-  </div>
+  </section>
 <% end %>
 
-<%= render layout: "layouts/decidim/shared/layout_item", locals: { back_path: :elections } do %>
+<%= render layout: "layouts/decidim/shared/layout_item" do %>
 
-  <div class="election__container">
-    <h1 class="h2 decorator"><%== present(election).title %></h1>
-
+  <section class="layout-main__section layout-main__heading">
     <%= cell "decidim/elections/remaining_time_callout", election %>
 
     <%= cell("decidim/announcement", t("voting_period_status.#{election.voting_period_status}",
@@ -55,37 +55,31 @@ edit_link(
               start_time: "<strong>#{l election.start_time, format: :long}</strong>",
               end_time: "<strong>#{l election.end_time, format: :long}</strong>").html_safe) %>
 
+    <h1 class="h2 decorator"><%== present(election).title %></h1>
+  </section>
+
+  <section class="layout-main__section">
     <div class="editor-content">
       <%= decidim_sanitize_editor(simple_format(translated_attribute(election.description))) %>
     </div>
+  </section>
 
-    <% if tabs.any? %>
-      <div class="mt-8" data-component="accordion" data-multiselectable="false" data-collapsible="false">
-        <ul class="tab-x-container">
-          <% tabs.each_with_index do |tab, i| %>
-            <li>
-              <button id="trigger-<%= tab[:id] %>" class="tab-x" data-controls="panel-<%= tab[:id] %>" data-open="<%= "true" if i == 0 %>">
-                <%= icon tab[:icon], class: "text-gray fill-current" %><%= tab[:text] %>
-              </button>
-            </li>
-          <% end %>
-        </ul>
+  <%= attachments_for election %>
 
-        <% panels.each do |panel| %>
-          <div id="panel-<%= panel[:id] %>" class="py-8">
-            <%= send(panel[:method], *panel[:args]) %>
-          </div>
-        <% end %>
-      </div>
-    <% end %>
+  <% if onboarding %>
+    <%= render partial: "decidim/elections/votes/onboarding_modal" %>
+  <% end %>
 
-    <% if onboarding %>
-      <%= render partial: "decidim/elections/votes/onboarding_modal" %>
-    <% end %>
+  <% unless election.finished? %>
+    <section class="layout-main__section">
+      <%= cell("decidim/elections/election_preview", election) %>
+    </section>
+  <% end %>
 
-    <%= cell("decidim/elections/election_preview", election) %>
-
-    <%= cell("decidim/elections/election_results", election) %>
-  </div>
+  <% if election.results_published? %>
+    <section class="layout-main__section">
+      <%= cell("decidim/elections/election_results", election) %>
+    </section>
+  <% end %>
 
 <% end %>

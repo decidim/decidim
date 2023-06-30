@@ -1,30 +1,28 @@
-<section>
-  <div class="election__section-title">
-    <%= icon "question-mark" %>
-    <h2 class="h4"><%= t("decidim.elections.elections.preview.title") %></h2>
-  </div>
+<div class="election__section-title">
+  <%= icon "question-mark" %>
+  <h2 class="h4"><%= t("decidim.elections.elections.preview.title") %></h2>
+</div>
 
-  <p class="election__section-desc"><%= t("decidim.elections.elections.preview.description") %></p>
+<p class="election__section-desc"><%= t("decidim.elections.elections.preview.description") %></p>
 
-  <ul class="space-y-8" data-component="accordion">
-    <% model.questions.each_with_index do |question, ix| %>
-      <li class="election__accordion">
-        <button id="accordion-trigger-<%= ix %>" data-controls="accordion-panel-<%= ix %>" class="election__accordion-trigger" <%= " data-open='true'" if model.questions.one? %>>
-          <%= translated_attribute(question.title) %>
-          <%= icon "arrow-down-s-line" %>
-          <%= icon "arrow-up-s-line" %>
-        </button>
+<ul class="space-y-8" data-component="accordion">
+  <% model.questions.each_with_index do |question, ix| %>
+    <li class="election__accordion">
+      <button id="accordion-trigger-<%= ix %>" data-controls="accordion-panel-<%= ix %>" class="election__accordion-trigger" <%= " data-open='true'" if model.questions.one? %>>
+        <%= translated_attribute(question.title) %>
+        <%= icon "arrow-down-s-line" %>
+        <%= icon "arrow-up-s-line" %>
+      </button>
 
-        <div id="accordion-panel-<%= ix %>" class="election__accordion-panel" aria-hidden="true">
-          <strong><%= t("decidim.elections.elections.preview.available_answers") %></strong>
+      <div id="accordion-panel-<%= ix %>" class="election__accordion-panel" aria-hidden="true">
+        <strong><%= t("decidim.elections.elections.preview.available_answers") %></strong>
 
-          <ul>
-            <% question.answers.each do |answer| %>
-              <li><%= translated_attribute(answer.title) %></li>
-            <% end %>
-          </ul>
-        </div>
-      </li>
-    <% end %>
-  </ul>
-</section>
+        <ul>
+          <% question.answers.each do |answer| %>
+            <li><%= translated_attribute(answer.title) %></li>
+          <% end %>
+        </ul>
+      </div>
+    </li>
+  <% end %>
+</ul>
