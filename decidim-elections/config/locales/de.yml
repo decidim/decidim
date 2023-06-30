@@ -37,7 +37,7 @@ de:
         introductory_image: Einleitendes Bild
         promoted: Hervorgehoben
         scope_id: Themenbereich
-        show_check_census: '"Überprüfe Zählung"-Seite anzeigen'
+        show_check_census: '"Überprüfe Erhebung"-Seite anzeigen'
         start_time: Abstimmung beginnt
     errors:
       models:
@@ -123,6 +123,7 @@ de:
           label: Überprüft
           values:
             'false': Überprüft
+            'true': Nicht überprüft
     components:
       elections:
         actions:
@@ -208,6 +209,7 @@ de:
           trustee_mailer:
             body: "<p>Hallo %{user_name},</p><p>Sie wurden als TreuhänderIn zu %{resource_name} hinzugefügt.</p>"
             subject: Sie wurden als TreuhänderIn zu %{resource_name} hinzugefügt
+            trustee_zone: Bring mich zum Wahlhelferbereich
         menu:
           trustees: Wahlhelfer
         models:
@@ -249,11 +251,17 @@ de:
             success: Frage wurde erfolgreich aktualisiert
         steps:
           create_election:
+            census: Erhebung
             errors:
+              census_codes_generated: Zugangscodes für die Erhebung wurden nicht generiert.
+              census_frozen: Zugangscodes für die Erhebung wurden nicht exportiert.
+              census_uploaded: Es wurde keine Erhebung für diese Wahl hochgeladen.
+              component_published: Die Wahlkomponente ist <strong>nicht veröffentlicht</strong>.
               max_selections: Die <strong>maximale Anzahl Antworten</strong> für die Fragen ist inkorrekt
               minimum_answers: Fragen müssen <strong>mindestens zwei Antworten</strong> haben.
               minimum_questions: Die Wahl <strong>muss mindestens eine Frage</strong> haben.
               published: Die Wahl ist <strong>nicht veröffentlicht</strong>.
+              time_before: Die Startzeit ist <strong>weniger als %{hours}</strong> vor Beginn der Wahl.
               trustees_number: <strong>Mindestens %{number} Wahlhelfer mit Public Key</strong> werden benötigt.
             invalid: Beim Erstellen dieser Wahl ist ein Fehler aufgetreten
             no_trustees: Es sind keine Wahlhelfer eingetragen
@@ -262,10 +270,15 @@ de:
               'false': hat keinen <strong>Public Key</strong>
               'true': hat einen <strong>Public Key</strong>
             requirements:
+              census_codes_generated: Zugangscodes für die Erhebung wurden generiert.
+              census_frozen: Zugangscodes für die Erhebung wurden exportiert und die Erhebung ist eingefroren.
+              census_uploaded: Erhebung wird hochgeladen.
+              component_published: Die Wahlkomponente ist <strong>veröffentlicht</strong>.
               max_selections: Die <strong>maximale Anzahl Antworten</strong> aller Fragen sind korrekt.
               minimum_answers: Jede Frage hat <strong>mindestens 2 Antworten</strong>.
               minimum_questions: Die Wahl hat <strong>mindestens 1 Frage</strong>.
               published: Die Wahl ist <strong>veröffentlicht</strong>.
+              time_before: Die Einrichtung wird <strong>mindestens %{hours}</strong> vor Beginn der Wahl fertiggestellt werden.
               trustees_number: <strong>Mindestens %{number} Wahlhelfer mit Public Key</strong> sind vorhanden.
             submit: Wahl einrichten
             success: Wahl erfolgreich an das Bulletin Board gesendet
@@ -615,6 +628,8 @@ de:
           back: Abstimmungsvorgang erneut starten
           ballot_hash: 'Ihre Wahlurnen-ID ist:'
           description: Hier können Sie ihre Stimme abgeben, sodass sie gezählt wird, oder alternativ können Sie überprüfen ob ihre Stimme richtig verschlüsselt wurde. Aus Sicherheitsgründen wird die Überprüfung die Stimme ungültig machen. Das bedeutet, um Ihre Stimme danach abzugeben, müssen Sie den Abstimmungsprozess erneut durchlaufen.
+        casting:
+          header: Stimme wird abgegeben...
         confirm:
           answer: Antwort
           answer_number: Antwort %{number}
@@ -634,6 +649,8 @@ de:
           verify_link: Um dies zu überprüfen, kopieren Sie die Kennung und fügen Sie sie auf der <a href="%{link}">Bestätigungsseite</a> ein
         create:
           error: Beim Abgeben dieser Stimme ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.
+        encrypting:
+          header: Stimme wird verschlüsselt...
         failed:
           header: Abstimmung fehlgeschlagen
           lead: Ihre Stimme wurde nicht abgegeben!
@@ -645,8 +662,10 @@ de:
           try_again: Erneut versuchen
         header:
           ballot_decision: Stimme abgeben oder überprüfen
+          casting: Stimme wird abgegeben
           confirm: Bestätige deine Stimme
           confirmed: Abstimmung bestätigt
+          encrypting: Stimme wird verschlüsselt
           failed: Abstimmung fehlgeschlagen
         messages:
           invalid_token: Ihre Sitzung in der Abstimmung ist nicht gültig. Versuchen Sie, erneut abzustimmen.
@@ -992,6 +1011,9 @@ de:
             update: Aktualisieren
           form:
             banner_image: Kopf-Bild
+            census_contact_information: Kontaktinformation der Erhebung
+            census_contact_information_help: Die Kontaktinformationen richten sich an einen Teilnehmer, die Probleme mit einer Erhebung melden möchte. Es kann eine E-Mail-Adresse, ein Kontaktformular auf einer anderen Seite, eine Decidim-Umfrage für Besucher o.ä. sein.
+            introductory_image: Einleitendes Bild
             promoted: Hervorgehoben
             select_a_voting_type: Bitte einen Abstimmungs-Typ auswählen
             slug: URL-Segment
@@ -1059,6 +1081,7 @@ de:
               has_ballot_styles_message: Sie haben Wahlkategorien eingerichtet. Bitte stellen Sie sicher dass das Feld "%{ballot_style_code_header}" im CSV dem Code der gewünschten Wahlkategorie entspricht.
               info_message: "<strong>Es gibt noch keine Erhebungsdaten.</strong> Bitte verwenden Sie das untenstehende Formular um die Erhebungsdaten aus einer CSV-Datei zu importieren."
               missing_ballot_styles_message: 'Es gibt noch keine Wahlkategorien für diese Abstimmung. Wenn Sie variable Fragen haben möchten (d.h. dem Wähler unterschiedliche Fragen anzeigen, je nach z.B. Wohnort), müssen Sie die <a href=%{ballot_styles_admin_path}>Wahlkategorien</a> einrichten, <strong>bevor</strong> Sie die Erhebungsdaten importieren. Wenn Sie allen Wählern die gleichen Fragen stellen wollen, können Sie mit dem Import für Erhebungsdaten fortfahren.'
+              submit: CSV absenden
               title: Erhebungsdaten erfassen
             show:
               heading: Erhebungsdaten der Abstimmung
@@ -1175,7 +1198,7 @@ de:
           create:
             error: Die Stimme wurde nicht registriert. Bitte versuchen Sie es erneut.
           in_person_form:
-            census_not_present: Dieser Teilnehmer ist nicht in den Zählungsdaten aufgeführt.
+            census_not_present: Dieser Teilnehmer ist nicht in der Erhebung aufgeführt.
             census_not_present_description: Er/Sie muss zum Beschwerdenbüro gehen oder den Support kontaktieren.
             date_of_birth: Geburtsdatum
             day: Tag
@@ -1201,7 +1224,7 @@ de:
               accepted: Die Stimme wurde erfolgreich registriert.
               rejected: Die Abstimmung wurde vom Bulletin Board nicht akzeptiert. Bitte kontaktieren Sie den Systemadministrator.
           verify_document:
-            census_present: Dieser Teilnehmer ist in den Zählungsdaten aufgeführt.
+            census_present: Dieser Teilnehmer ist in der Erhebung aufgeführt.
             name: Name
             title: 'Überprüfen Sie, dass die folgenden Daten korrekt sind:'
             verify_document: Dokument verifizieren
@@ -1261,6 +1284,7 @@ de:
           description: Hier haben Sie die Möglichkeit, Ihre Erhebungsdaten zu überprüfen, um herauszufinden ob Sie das Recht haben, an dieser Abstimmung teilzunehmen. Sie sollten bereits einen Zugangscode haben, aber wenn Sie ihn verloren haben können Sie ihn erneut anfragen, sobald Ihre Daten korrekt sind.
           error:
             info: 'Bitte versuchen Sie es erneut. Wenn Sie denken, dass die Daten im System nicht korrekt sind, können Sie das hier melden: %{census_contact_information}'
+            title: Die von Ihnen eingegebenen Daten sind nicht in der Erhebung für diese Abstimmung
           form_title: 'Füllen Sie das folgende Formular aus, um Ihre Erhebungsdaten zu überprüfen:'
           invalid: Bei der Überprüfung der Erhebung ist ein Problem aufgetreten.
           success:
