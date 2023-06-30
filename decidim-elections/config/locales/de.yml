@@ -34,13 +34,13 @@ de:
         user_id: Teilnehmer
       voting:
         banner_image: Kopf-Bild
-        census_contact_information: Kontaktinformation der Zählung
+        census_contact_information: Kontaktinformation der Erhebung
         description: Beschreibung
         end_time: Abstimmung endet
         introductory_image: Einleitendes Bild
         promoted: Hervorgehoben
         scope_id: Themenbereich
-        show_check_census: '"Überprüfe Zählung"-Seite anzeigen'
+        show_check_census: '"Überprüfe Erhebung"-Seite anzeigen'
         start_time: Abstimmung beginnt
         title: Titel
         voting_type: Art der Abstimmung
@@ -65,6 +65,18 @@ de:
             voting_type:
               inclusion: "%{value} ist kein gültiger Abstimmungstyp"
   activerecord:
+    errors:
+      models:
+        decidim/votings/polling_officer:
+          attributes:
+            presided_polling_station:
+              president_and_manager: Wahllokal-Mitarbeitender ist bereits Präsident/Leiter eines Wahllokals.
+            voting:
+              different_organization: Die Abstimmung muss in der selben Organisation wie der Benutzer sein.
+        decidim/votings/polling_station:
+          attributes:
+            polling_station_president:
+              different_voting: Der Wahllokal-Mitarbeiter und das Wahllokal müssen in der gleichen Abstimmung sein.
     models:
       decidim/elections/answer:
         one: Antwort
@@ -118,6 +130,9 @@ de:
             'true': Nicht signiert
         validated_eq:
           label: Überprüft
+          values:
+            'false': Nicht überprüft
+            'true': Validiert
     components:
       elections:
         actions:
@@ -146,6 +161,7 @@ de:
       admin:
         answers:
           create:
+            invalid: Beim Erstellen dieser Antwort ist ein Fehler aufgetreten.
             success: Antwort erfolgreich erstellt.
           destroy:
             invalid: Beim Löschen dieser Antwort ist ein Fehler aufgetreten.
@@ -154,6 +170,7 @@ de:
             title: Antwort bearbeiten
             update: Antwort aktualisieren
           index:
+            invalid_max_selections: Sie benötigen %{missing_answers} weitere Antwort/en, um die maximale Auswahl zu erfüllen.
             title: Antworten
           new:
             create: Antwort erstellen
@@ -199,6 +216,11 @@ de:
         exports:
           elections: Wahlen
           feedback_form_answers: Antworten auf Feedback-Formular
+        mailers:
+          trustee_mailer:
+            body: "<p>Hallo %{user_name},</p><p>Sie wurden als Wahlhelfer zu %{resource_name} hinzugefügt.</p>"
+            subject: Sie wurden als Wahlhelfer zu %{resource_name} hinzugefügt
+            trustee_zone: Bring mich zum Wahlhelferbereich
         menu:
           trustees: Wahlhelfer
         models:
@@ -211,12 +233,22 @@ de:
           trustee:
             name: Wahlhelfer
         proposals_imports:
+          create:
+            invalid: Beim Importieren der Vorschläge in Antworten ist ein Problem aufgetreten.
+            success: "%{number} Vorschläge wurden erfolgreich in Antworten importiert."
           new:
             create: Importieren Sie Vorschläge in Projekte
             no_components: Es gibt keine weiteren Vorschlagskomponenten in diesem partizipativen Raum, um die Vorschläge in Projekte zu importieren.
             select_component: Bitte wählen Sie ein Objekt
             title: Vorschläge importieren
         questions:
+          create:
+            election_started: Die Wahl hat bereits begonnen.
+            invalid: Beim Erstellen dieser Frage ist ein Fehler aufgetreten.
+            success: Frage erfolgreich erstellt.
+          destroy:
+            invalid: Beim Löschen dieser Frage ist ein Fehler aufgetreten.
+            success: Frage erfolgreich gelöscht.
           edit:
             title: Frage bearbeiten
             update: Frage aktualisieren
@@ -225,13 +257,22 @@ de:
           new:
             create: Frage erstellen
             title: Neue Frage
+          update:
+            invalid: Beim Aktualisieren dieser Frage ist ein Fehler aufgetreten.
+            success: Frage erfolgreich aktualisiert.
         steps:
           create_election:
+            census: Erhebung
             errors:
+              census_codes_generated: Zugangscodes für die Erhebung wurden nicht generiert.
+              census_frozen: Zugangscodes für die Erhebung wurden nicht exportiert.
+              census_uploaded: Es wurde keine Erhebung für diese Wahl hochgeladen.
+              component_published: Die Wahlkomponente ist <strong>nicht veröffentlicht</strong>.
               max_selections: Die <strong>maximale Anzahl Antworten</strong> für die Fragen ist inkorrekt
               minimum_answers: Fragen müssen <strong>mindestens zwei Antworten</strong> haben.
               minimum_questions: Die Wahl <strong>muss mindestens eine Frage</strong> haben.
               published: Die Wahl ist <strong>nicht veröffentlicht</strong>.
+              time_before: Die Startzeit ist <strong>weniger als %{hours}</strong> vor Beginn der Wahl.
               trustees_number: <strong>Mindestens %{number} Wahlhelfer mit Public Key</strong> werden benötigt.
             invalid: Beim Erstellen dieser Wahl ist ein Fehler aufgetreten
             no_trustees: Es sind keine Wahlhelfer eingetragen
@@ -240,10 +281,15 @@ de:
               'false': hat keinen <strong>Public Key</strong>
               'true': hat einen <strong>Public Key</strong>
             requirements:
+              census_codes_generated: Zugangscodes für die Erhebung wurden generiert.
+              census_frozen: Zugangscodes für die Erhebung wurden exportiert und die Erhebung ist eingefroren.
+              census_uploaded: Erhebung wird hochgeladen.
+              component_published: Die Wahlkomponente ist <strong>veröffentlicht</strong>.
               max_selections: Die <strong>maximale Anzahl Antworten</strong> aller Fragen sind korrekt.
               minimum_answers: Jede Frage hat <strong>mindestens 2 Antworten</strong>.
               minimum_questions: Die Wahl hat <strong>mindestens 1 Frage</strong>.
               published: Die Wahl ist <strong>veröffentlicht</strong>.
+              time_before: Die Einrichtung wird <strong>mindestens %{hours}</strong> vor Beginn der Wahl fertiggestellt werden.
               trustees_number: <strong>Mindestens %{number} Wahlhelfer mit Public Key</strong> sind vorhanden.
             submit: Wahl einrichten
             title: Wahl einrichten
@@ -305,6 +351,8 @@ de:
           actions:
             disable: Deaktivieren
             enable: Berücksichtigen
+          create:
+            exists: Ein Wahlhelfer existiert für diesen partizipativen Raum.
           form:
             select_user: Nutzer wählen
           index:
@@ -552,6 +600,8 @@ de:
           audit: "(Stimmzettel überprüfen)"
           back: Abstimmungsvorgang erneut starten
           ballot_hash: 'Ihre Wahlurnen-ID ist:'
+        casting:
+          header: Stimme wird abgegeben...
         confirm:
           answer: Antwort
           answer_number: Antwort %{number}
@@ -571,6 +621,8 @@ de:
           verify_link: Um dies zu überprüfen, kopieren Sie die Kennung und fügen Sie sie auf der <a href="%{link}">Bestätigungsseite</a> ein
         create:
           error: Beim Abgeben dieser Stimme ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.
+        encrypting:
+          header: Stimme wird verschlüsselt...
         failed:
           header: Abstimmung fehlgeschlagen
           lead: Ihre Stimme wurde nicht abgegeben!
@@ -578,8 +630,10 @@ de:
           try_again: Erneut versuchen
         header:
           ballot_decision: Stimme abgeben oder überprüfen
+          casting: Stimme wird abgegeben
           confirm: Bestätige deine Stimme
           confirmed: Abstimmung bestätigt
+          encrypting: Stimme wird verschlüsselt
           failed: Abstimmung fehlgeschlagen
         messages:
           invalid_token: Ihre Sitzung in der Abstimmung ist nicht gültig. Versuchen Sie, erneut abzustimmen.
@@ -607,6 +661,7 @@ de:
             header: Stimme nicht gefunden!
             info: Diese Kennung wurde nicht in der Wahlurne %{link} gefunden. Versuchen Sie es erneut.
           form:
+            back: Zurück zur Plattform
             submit: Überprüfen
             vote_identifier: 'Kennung:'
           header:
@@ -860,6 +915,9 @@ de:
           new:
             create: Erstellen
             title: Wahllokal erstellen
+          update:
+            invalid: Beim Aktualisieren dieses Wahllokals ist ein Fehler aufgetreten.
+            success: Wahllokal erfolgreich aktualisiert.
         titles:
           votings: Abstimmungen
         votings:
@@ -869,12 +927,21 @@ de:
             new_voting: Neue Abstimmung
             publish: Veröffentlichen
             unpublish: Veröffentlichung rückgängig machen
+          create:
+            invalid: Beim Erstellen dieser Abstimmung ist ein Problem aufgetreten.
+            success: Abstimmung erfolgreich erstellt.
           edit:
+            add_election_component: Sie haben keine Wahl für diese Abstimmung konfiguriert. Bitte fügen Sie sie im Abschnitt "Komponenten" hinzu.
+            assign_missing_officers: Es gibt noch Wahllokale ohne Präsident und/oder Wahlleiter. Bitte ordnen Sie diese im Wahllokal-Abschnitt zu.
             update: Aktualisieren
           form:
             banner_image: Kopf-Bild
+            census_contact_information: Kontaktinformation der Erhebung
+            census_contact_information_help: Die Kontaktinformationen richten sich an einen Teilnehmer, die Probleme mit einer Erhebung melden möchte. Es kann eine E-Mail-Adresse, ein Kontaktformular auf einer anderen Seite, eine Decidim-Umfrage für Besucher o.ä. sein.
+            introductory_image: Einleitendes Bild
             promoted: Hervorgehoben
             select_a_voting_type: Bitte einen Abstimmungs-Typ auswählen
+            show_check_census_help: Soll der Link "Kann ich abstimmen?" im Menü "öffentliche Abstimmung" angezeigt werden.
             slug: URL-Segment
             slug_help: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf diese Abstimmung verweisen. Akzeptiert nur Buchstaben, Zahlen und Bindestriche und muss mit einem Buchstaben beginnen. Beispiel: %{url}'
             title: Titel
@@ -886,6 +953,13 @@ de:
           new:
             create: Erstellen
             title: Neue Abstimmung
+          publish:
+            success: Abstimmung erfolgreich veröffentlicht.
+          unpublish:
+            success: Veröffentlichung der Abstimmung erfolgreich rückgängig gemacht.
+          update:
+            invalid: Beim Aktualisieren dieser Abstimmung ist ein Problem aufgetreten.
+            success: Abstimmung erfolgreich aktualisiert.
       admin_log:
         voting:
           create: "%{user_name} hat die Abstimmung %{resource_name} erstellt"
@@ -900,10 +974,12 @@ de:
               button: Alle Erhebungsdaten löschen
             destroy:
               error: Beim Löschen der Erhebungsdaten ist ein Fehler aufgetreten, bitte versuchen Sie es später erneut.
+              success: Erhebungsdaten gelöscht.
             export_access_codes:
               button: Zugangscodes für die Abstimmung exportieren
               callout: Sie können jetzt die Zugangscodes exportieren. Dies kann nur einmal geschehen. Sobald Sie den Export gestartet haben, werden Sie eine E-Mail mit den Anweisungen unter <strong>%{email}</strong> erhalten
               confirm: Sie können die Zugangscodes nur einmal exportieren. Stellen Sie sicher, dass Sie Zugang zum E-Mail-Konto <strong>%{email}</strong> haben.
+              file_not_exist: Diese Datei existiert nicht.
             freeze:
               callout: Die Erhebung ist geschlossen und kann nicht verändert werden.
             generate_access_codes:
@@ -922,6 +998,7 @@ de:
               has_ballot_styles_message: Sie haben Wahlkategorien eingerichtet. Bitte stellen Sie sicher dass das Feld "%{ballot_style_code_header}" im CSV dem Code der gewünschten Wahlkategorie entspricht.
               info_message: "<strong>Es gibt noch keine Erhebungsdaten.</strong> Bitte verwenden Sie das untenstehende Formular um die Erhebungsdaten aus einer CSV-Datei zu importieren."
               missing_ballot_styles_message: 'Es gibt noch keine Wahlkategorien für diese Abstimmung. Wenn Sie variable Fragen haben möchten (d.h. dem Wähler unterschiedliche Fragen anzeigen, je nach z.B. Wohnort), müssen Sie die <a href=%{ballot_styles_admin_path}>Wahlkategorien</a> einrichten, <strong>bevor</strong> Sie die Erhebungsdaten importieren. Wenn Sie allen Wählern die gleichen Fragen stellen wollen, können Sie mit dem Import für Erhebungsdaten fortfahren.'
+              submit: CSV absenden
               title: Erhebungsdaten erfassen
             show:
               heading: Erhebungsdaten der Abstimmung
@@ -1017,6 +1094,7 @@ de:
             heading: Neuzählung - Schliessung signieren
             submit: Schliessung signieren
             success: Schliessung erfolgreich signiert.
+            title: Aktion kann nicht rückgängig gemacht werden
           update:
             error: Beim Aktualisieren der Abschluss-Resultate ist ein Fehler aufgetreten, bitte versuchen Sie es später erneut.
             success: Abschluss-Resultate erfolgreich aktualisiert.
@@ -1031,7 +1109,7 @@ de:
           create:
             error: Die Stimme wurde nicht registriert. Bitte versuchen Sie es erneut.
           in_person_form:
-            census_not_present: Dieser Teilnehmer ist nicht in den Zählungsdaten aufgeführt.
+            census_not_present: Dieser Teilnehmer ist nicht in der Erhebung aufgeführt.
             census_not_present_description: Er/Sie muss zum Beschwerdenbüro gehen oder den Support kontaktieren.
             date_of_birth: Geburtsdatum
             day: Tag
@@ -1057,7 +1135,7 @@ de:
               accepted: Die Stimme wurde erfolgreich registriert.
               rejected: Die Abstimmung wurde vom Bulletin Board nicht akzeptiert. Bitte kontaktieren Sie den Systemadministrator.
           verify_document:
-            census_present: Dieser Teilnehmer ist in den Zensusdaten aufgeführt.
+            census_present: Dieser Teilnehmer ist in der Erhebung aufgeführt.
             name: Name
             title: 'Überprüfen Sie, dass die folgenden Daten korrekt sind:'
             verify_document: Dokument verifizieren
@@ -1115,11 +1193,14 @@ de:
         check_census:
           check_status: Status überprüfen
           description: Hier haben Sie die Möglichkeit, Ihre Erhebungsdaten zu überprüfen, um herauszufinden ob Sie das Recht haben, an dieser Abstimmung teilzunehmen. Sie sollten bereits einen Zugangscode haben, aber wenn Sie ihn verloren haben können Sie ihn erneut anfragen, sobald Ihre Daten korrekt sind.
+          error:
+            title: Die von Ihnen eingegebenen Daten sind nicht in der Erhebung für diese Abstimmung
           form_title: 'Füllen Sie das folgende Formular aus, um Ihre Erhebungsdaten zu überprüfen:'
           invalid: Bei der Überprüfung der Erhebung ist ein Problem aufgetreten.
           success:
             access_link: per E-Mail.
             access_link_with_sms: via SMS oder E-Mail.
+            info: Sie sollten Ihren Zugangscode bereits brieflich bekommen haben. Falls nicht, können Sie ihn hier anfordern
             title: Ihre Erhebungsdaten sind korrekt!
           title: Kann ich abstimmen?
         check_fields:
@@ -1165,14 +1246,19 @@ de:
           access_code: Zugangscode
           access_code_placeholder: Zugangscode
           ask_for_a_new_one: Erneut anfordern.
+          dont_have_access_code: Sie haben keinen Zugangscode?
           form_title: 'Füllen Sie das folgende Formular aus um auf die Abstimmung zuzugreifen:'
           start_voting: Jetzt abstimmen
           step: Identifikation
           title: Mich via Erhebungsdaten identifizieren
+        no_census_contact_information: Es sind noch keine Kontaktinformationen vorhanden.
         orders:
           label: 'Abstimmungen sortieren nach:'
           random: Zufällig
           recent: Neueste zuerst
+        send_access_code:
+          invalid: Beim Versenden des Zugangscodes ist ein Problem aufgetreten.
+          success: Ihr Zugangscode wurde erfolgreich versandt.
         show:
           dates: Daten
       votings_m:
