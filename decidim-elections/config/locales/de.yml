@@ -370,6 +370,22 @@ de:
           update:
             invalid: Es ist ein Problem beim Aktualisieren des Wahlhelfers %{trustee} aufgetreten
             success: Wahlhelfer %{trustee} erfolgreich aktualisiert
+      admin_log:
+        election:
+          create: "%{user_name} hat das Wahl %{resource_name} in %{space_name} erstellt"
+          delete: "%{user_name} hat die Wahl %{resource_name} in %{space_name} gelöscht"
+          end_vote: "%{user_name} hat die Abstimmungsperiode für die Wahl %{resource_name} im Bulletin Board beendet"
+          publish: "%{user_name} hat die Wahl %{resource_name} in %{space_name} veröffentlicht"
+          publish_results: "%{user_name} hat die Resultate für die Wahl %{resource_name} in %{space_name} im Bulletin Board veröffentlicht"
+          report_missing_trustee: "%{user_name} meldete %{trustee_name} als fehlender Wahlhelfer während der Zählung für die Wahl %{resource_name} auf %{space_name} auf der Pinwand"
+          setup: "%{user_name} hat die Wahl %{resource_name} in %{space_name} auf dem Bulletin Board erstellt"
+          start_key_ceremony: "%{user_name} hat die Schlüssel-Zeremonie für die Wahl %{resource_name} auf %{space_name} im Bulletin Board eröffnet"
+          start_tally: "%{user_name} hat die Stimmenzählung für die Wahl %{resource_name} auf %{space_name} im Bulletin Board eröffnet"
+          start_vote: "%{user_name} hat die Abstimmungsperiode für die Wahl %{resource_name} auf %{space_name} im Bulletin Board gestartet"
+          unpublish: "%{user_name} hat die Veröffentlichung von %{resource_name} in %{space_name} aufgehoben"
+          update: "%{user_name} hat die Wahl %{resource_name} in %{space_name} erstellt"
+        trustee:
+          create: "%{user_name} hat den Benutzer %{trustee_user} als Wahlhelfer zugewiesen"
       connection:
         failed:
           modal:
@@ -478,6 +494,7 @@ de:
           back: Verfügbare Wahlen
           callout:
             already_voted: Sie haben bei dieser Wahl bereits abgestimmt. Sie können Ihre Stimme ändern oder sie verifizieren.
+            pending_vote: Deine Stimme wird auf dem Server abgegeben.
             vote_rejected: Es war nicht möglich, Ihre Stimme zu verifizieren. Bitte geben Sie ihre Stimme erneut ab.
           election_log: Wahl-Protokoll
           preview: Vorschau
@@ -627,9 +644,12 @@ de:
           audit: "(Stimmzettel überprüfen)"
           back: Abstimmungsvorgang erneut starten
           ballot_hash: 'Ihre Wahlurnen-ID ist:'
+          cast: Stimmzettel abgeben, um Ihre Stimme abzuschließen
           description: Hier können Sie ihre Stimme abgeben, sodass sie gezählt wird, oder alternativ können Sie überprüfen ob ihre Stimme richtig verschlüsselt wurde. Aus Sicherheitsgründen wird die Überprüfung die Stimme ungültig machen. Das bedeutet, um Ihre Stimme danach abzugeben, müssen Sie den Abstimmungsprozess erneut durchlaufen.
+          header: 'Stimmzettel ist verschlüsselt: Stimmzettel absenden oder überprüfen'
         casting:
           header: Stimme wird abgegeben...
+          text: Ihr Stimmzettel wird an der Wahlurne abgegeben.
         confirm:
           answer: Antwort
           answer_number: Antwort %{number}
@@ -651,6 +671,7 @@ de:
           error: Beim Abgeben dieser Stimme ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.
         encrypting:
           header: Stimme wird verschlüsselt...
+          text: Ihr Stimmzettel wird verschlüsselt, um ihre Abstimmungsfreiheit zu gewährleisten.
         failed:
           header: Abstimmung fehlgeschlagen
           lead: Ihre Stimme wurde nicht abgegeben!
@@ -686,6 +707,8 @@ de:
           description: Möchten Sie ein neues Konto in Decidim erstellen? Sie können an den Prozessen teilnehmen und aktiv an der Organisation teilnehmen.
           no_account: Nein, danke.
           title: Neu bei Decidim?
+        update:
+          error: Beim Aktualisieren der Abstimmungsstatus ist ein Fehler aufgetreten. Bitte versuchen Sie es noch einmal.
         verify:
           content:
             heading: Stimme verifizieren
@@ -926,6 +949,7 @@ de:
           edit:
             change_polling_station: Zurück zu den Wahllokalen
             monitoring_committee_notes: Bemerkungen
+            monitoring_committee_notes_placeholder: Vorfall melden
             title: Ergebnisse für die Wahl <i>%{election_title}</i> im Wahllokal <i>%{polling_station_title}</i>
           elections:
             title: Wählen Sie eine Wahl aus, die Sie überprüfen möchten
@@ -1035,6 +1059,24 @@ de:
             invalid: Beim Aktualisieren dieser Abstimmung ist ein Problem aufgetreten
             success: Abstimmung erfolgreich aktualisiert
       admin_log:
+        ballot_style:
+          create: "%{user_name} hat eine Wahlkategorie mit dem Code %{ballot_style_code} in der Gruppe %{space_name} erstellt"
+          delete: "%{user_name} hat eine Wahlkategorie mit dem Code %{ballot_style_code} in der Gruppe %{space_name} gelöscht"
+          update: "%{user_name} hat eine Wahlkategorie mit dem Code %{ballot_style_code} in der Gruppe %{space_name} aktualisiert"
+        census:
+          create: "%{user_name} hat die Erhebung für die Gruppe %{space_name} erstellt"
+          delete: "%{user_name} hat die Erhebung für die Gruppe %{space_name} gelöscht"
+          update: "%{user_name} hat die Erhebung für die Gruppe %{space_name} aktualisiert"
+        monitoring_committee_member:
+          create: "%{user_name} hat den Benutzer %{monitoring_committee_member_user} als Mitglied des Wahlbeobachtungskomitees auf %{space_name} zugewiesen"
+          delete: "%{user_name} hat die Zuweisung des Benutzers %{monitoring_committee_member_user} als Mitglied des Wahlbeobachtungskomitees auf %{space_name} zurückgezogen"
+        polling_officer:
+          create: "%{user_name} hat den Benutzer %{polling_officer_user} als Stimmenzähler auf %{space_name} zugewiesen"
+          delete: "%{user_name} hat den die Zuweisung des Benutzers %{polling_officer_user} als Stimmenzähler auf %{space_name} zurückgezogen"
+        polling_station:
+          create: "%{user_name} hat das Wahllokal %{resource_name} in %{space_name} erstellt"
+          delete: "%{user_name} hat das Wahllokal %{resource_name} in %{space_name} gelöscht"
+          update: "%{user_name} hat das Wahllokal %{resource_name} in %{space_name} aktualisiert"
         voting:
           create: "%{user_name} hat die Abstimmung %{resource_name} erstellt"
           publish: "%{user_name} hat die Abstimmung %{resource_name} veröffentlicht"
@@ -1049,6 +1091,7 @@ de:
               info_message: "<strong>Bitte warten</strong>, %{processed_count} von %{raw_count} Zeilen aus der Datei %{file} wurden verarbeitet."
             delete:
               button: Alle Erhebungsdaten löschen
+              confirm: Das Löschen der Erhebungsdaten kann nicht rückgängig gemacht werden. Sind Sie sicher, dass Sie fortfahren möchten?
             destroy:
               error: Beim Löschen der Erhebungsdaten ist ein Fehler aufgetreten, bitte versuchen Sie es später erneut.
               success: Erhebungsdaten gelöscht
@@ -1091,6 +1134,8 @@ de:
               csv_header_after: Lassen Sie das letzte Feld ("%{ballot_style_code_header}") weg, wenn Sie keine Wahlkategorien / variablen Fragen benötigen
               csv_header_before: 'Die Erhebungsdatei muss eine CSV-Datei mit folgender Kopfzeile sein:'
         document_types:
+          dni: Pass-/ID-Nummer
+          nie: Nummer Ausländerausweis
           passport: Reisepass
         export_mailer:
           access_codes_export:
