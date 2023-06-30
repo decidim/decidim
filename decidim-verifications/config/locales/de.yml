@@ -74,7 +74,7 @@ de:
             - Sobald Sie den Brief als gesendet markiert haben, kann der Benutzer den Code einführen und verifiziert werden.
       csv_census:
         explanation: Lassen Sie sich anhand der Volkszählung der Organisation überprüfen.
-        name: Zensus der Organisation
+        name: Zählung der Organisation
       direct: Direkte
       help: Hilfe
       id_documents:
@@ -146,11 +146,11 @@ de:
             confirm: Das Löschen der Volkszählungsdaten kann nicht rückgängig gemacht werden. Sind Sie sicher, dass Sie fortfahren möchten?
             title: Löschen Sie alle Volkszählungsdaten
           index:
-            empty: Es gibt keine Zensusdaten. Verwenden Sie das folgende Formular, um es mit einer CSV-Datei zu importieren.
+            empty: Es gibt keine Zählungsdaten. Verwenden Sie das folgende Formular, um es mit einer CSV-Datei zu importieren.
             title: Aktuelle Volkszählungsdaten
           instructions:
             body: Dazu müssen Sie die Systemverwaltung eingeben und der Organisation die csv_census-Berechtigungen hinzufügen
-            title: Sie müssen die CSV Zensus für diese Organisation aktivieren
+            title: Sie müssen die CSV Zählung für diese Organisation aktivieren
           new:
             file: "CSV-Datei mit E-Mail-Daten"
             info: 'Muss eine Datei im CSV-Format sein, mit nur einer Spalte der E-Mail-Adresse:'
