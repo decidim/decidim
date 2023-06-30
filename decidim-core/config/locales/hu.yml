@@ -91,6 +91,12 @@ hu:
         one: kb. 1 hónapja
         other: kb %{count} hónapja
       half_a_minute: fél perce
+      x_days:
+        one: 1 napja
+        other: "%{count} napja"
+      x_hours:
+        one: 1 óra
+        other: "%{count} óraája"
   decidim:
     accessibility:
       external_link: Külső hivatkozás
