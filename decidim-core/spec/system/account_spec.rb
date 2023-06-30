@@ -68,8 +68,7 @@ describe "Account", type: :system do
           find("*[type=submit]").click
         end
 
-        # REDESIGN_PENDING - Replace with within_flash_messages after redesigning this form
-        within ".flash", match: :first do
+        within_flash_messages do
           expect(page).to have_content("successfully")
         end
 
@@ -99,8 +98,7 @@ describe "Account", type: :system do
             find("*[type=submit]").click
           end
 
-          # REDESIGN_PENDING - Replace with within_flash_messages after redesigning this form
-          within ".flash", match: :first do
+          within_flash_messages do
             expect(page).to have_content("successfully")
           end
 
@@ -119,8 +117,7 @@ describe "Account", type: :system do
             find("*[type=submit]").click
           end
 
-          # REDESIGN_PENDING - Replace with within_flash_messages after redesigning this form
-          within ".flash", match: :first do
+          within_flash_messages do
             expect(page).to have_content("There was a problem")
           end
 
@@ -139,8 +136,7 @@ describe "Account", type: :system do
           perform_enqueued_jobs { find("*[type=submit]").click }
         end
 
-        # REDESIGN_PENDING - Replace with within_flash_messages after redesigning this form
-        within ".flash", match: :first do
+        within_flash_messages do
           expect(page).to have_content("You will receive an email to confirm your new email address")
         end
       end
