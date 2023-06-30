@@ -98,14 +98,22 @@ hu:
             default_budget: Alapértelmezett költségvetés
             import_all_accepted_proposals: Minden elfogadott javaslat importálása
             no_components: Ebben a részvételi térben nincs más javaslat-összetevő a javaslatok projektekbe való importálásához.
+            origin_component_id: A komponens származása
             select_component: Válassz ki egy elemet
             title: Javaslatok importálása
       admin_log:
+        budget:
+          create: "%{user_name} létrehozta a(z) %{resource_name} költségvetést a következő térben: %{space_name}"
+          delete: "%{user_name} törölte a(z) %{resource_name} költségvetést a következő térben: %{space_name}"
+          update: "%{user_name} frissítette a(z) %{resource_name} költségvetést a következő térben: %{space_name}"
         project:
           create: "%{user_name} létrehozta a(z) %{resource_name} nevű projektet itt: %{space_name}"
           delete: "%{user_name} eltávolította a(z) %{resource_name} nevű projektet itt: %{space_name}"
           update: "%{user_name} frissítette a(z) %{resource_name} nevű projektet itt: %{space_name}"
+      budget:
+        view: Az összes költségvetés-projekt megtekintése
       budget_information_modal:
+        back_to: Vissza a(z) %{component_name} komponenshez
         close_modal: Ablak bezárás
         continue: Folytatás
         more_information: További információk
@@ -153,6 +161,7 @@ hu:
           ok: OK
           projects_excess:
             description: A projekt meghaladja a maximális költségvetést, és nem adható hozzá. Ha szeretné, törölhet egyet a már kiválasztott projektek közül, hogy saját preferenciái szerint adja le szavazatát.
+            title: Projektek maximuma túllépve
         budget_summary:
           are_you_sure: Biztosan szeretnéd visszavonni a szavazatod?
           assigned: 'Hozzárendelve:'
