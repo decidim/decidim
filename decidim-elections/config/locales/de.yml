@@ -7,22 +7,41 @@ de:
         image: Bild
         proposals: Ähnliche Vorschläge
         title: Titel
+      ballot_style:
+        code: Code
       election:
         description: Beschreibung
         end_time: Die Abstimmung endet um
         start_time: Die Abstimmung beginnt um
         title: Titel
+      monitoring_committee_member:
+        email: E-Mail
+        name: Name
+      polling_officer:
+        email: E-Mail
+        name: Name
+      polling_station:
+        address: Adresse
+        location: Ort
+        location_hints: Standorthinweise
+        polling_station_managers: Vorgesetzte
+        polling_station_president_id: Präsident
+        title: Titel
       question:
         max_selections: Maximale Anzahl Antworten
         min_selections: Nichts davon
         title: Titel
+      trustees_participatory_space:
+        user_id: Teilnehmer
       voting:
         banner_image: Kopf-Bild
-        census_contact_information: Kontaktinformation des Zensus
+        census_contact_information: Kontaktinformation der Zählung
         description: Beschreibung
         end_time: Abstimmung endet
+        introductory_image: Einleitendes Bild
         promoted: Hervorgehoben
         scope_id: Themenbereich
+        show_check_census: '"Überprüfe Zählung"-Seite anzeigen'
         start_time: Abstimmung beginnt
         title: Titel
         voting_type: Art der Abstimmung
@@ -1150,7 +1169,7 @@ de:
           create:
             error: Die Stimme wurde nicht registriert. Bitte versuchen Sie es erneut.
           in_person_form:
-            census_not_present: Dieser Teilnehmer ist nicht in den Zensusdaten aufgeführt.
+            census_not_present: Dieser Teilnehmer ist nicht in den Zählungsdaten aufgeführt.
             census_not_present_description: Er/Sie muss zum Beschwerdenbüro gehen oder den Support kontaktieren.
             date_of_birth: Geburtsdatum
             day: Tag
@@ -1176,7 +1195,7 @@ de:
               accepted: Die Stimme wurde erfolgreich registriert.
               rejected: Die Abstimmung wurde vom Bulletin Board nicht akzeptiert. Bitte kontaktieren Sie den Systemadministrator.
           verify_document:
-            census_present: Dieser Teilnehmer ist in den Zensusdaten aufgeführt.
+            census_present: Dieser Teilnehmer ist in der Zählung aufgeführt.
             name: Name
             title: 'Überprüfen Sie, dass die folgenden Daten korrekt sind:'
             verify_document: Dokument verifizieren
