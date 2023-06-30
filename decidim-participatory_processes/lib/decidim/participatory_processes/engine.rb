@@ -138,19 +138,16 @@ module Decidim
           content_block.settings do |settings|
             settings.attribute :html_content, type: :text, translated: true
           end
-          content_block.default!
         end
 
         Decidim.content_blocks.register(:participatory_process_homepage, :process_hero) do |content_block|
           content_block.cell = "decidim/participatory_processes/content_blocks/hero"
           content_block.public_name_key = "decidim.participatory_processes.content_blocks.hero.name"
-          content_block.default!
         end
 
         Decidim.content_blocks.register(:participatory_process_homepage, :announcement) do |content_block|
           content_block.cell = "decidim/content_blocks/participatory_space_announcement"
           content_block.public_name_key = "decidim.content_blocks.announcement.name"
-          content_block.default!
         end
 
         Decidim.content_blocks.register(:participatory_process_homepage, :main_data) do |content_block|
@@ -162,7 +159,6 @@ module Decidim
         Decidim.content_blocks.register(:participatory_process_homepage, :extra_data) do |content_block|
           content_block.cell = "decidim/participatory_processes/content_blocks/extra_data"
           content_block.public_name_key = "decidim.participatory_processes.content_blocks.extra_data.name"
-          content_block.default!
         end
 
         Decidim.content_blocks.register(:participatory_process_homepage, :metadata) do |content_block|
@@ -178,19 +174,16 @@ module Decidim
           content_block.settings do |settings|
             settings.attribute :max_last_activity_users, type: :integer, default: Decidim::ContentBlocks::ParticipatorySpaceLastActivityCell::DEFAULT_MAX_LAST_ACTIVITY_USERS
           end
-          content_block.default!
         end
 
         Decidim.content_blocks.register(:participatory_process_homepage, :stats) do |content_block|
           content_block.cell = "decidim/participatory_processes/content_blocks/stats"
           content_block.public_name_key = "decidim.content_blocks.participatory_space_stats.name"
-          content_block.default!
         end
 
         Decidim.content_blocks.register(:participatory_process_homepage, :metrics) do |content_block|
           content_block.cell = "decidim/participatory_processes/content_blocks/metrics"
           content_block.public_name_key = "decidim.content_blocks.participatory_space_metrics.name"
-          content_block.default!
         end
 
         if Decidim.module_installed?(:accountability)
