@@ -62,10 +62,11 @@ namespace :decidim do
     task upgrade: :environment do
       raise "Decidim gem is not installed" if decidim_path.nil?
 
+      remove_file_from_application"bin/yarn"
+      remove_file_from_application"bin/webpack"
+      remove_file_from_application"bin/webpack-dev-server"
+
       Rake::Task["webpacker:binstubs"].invoke unless File.exist?(rails_app_path.join("bin/webpacker"))
-      remove_file_from_application "bin/yarn" if File.exist?(rails_app_path.join("bin/yarn"))
-      remove_file_from_application "bin/webpack" if File.exist?(rails_app_path.join("bin/webpack"))
-      remove_file_from_application "bin/webpack-dev-server" if File.exist?(rails_app_path.join("bin/webpack-dev-server"))
 
       # Update JS dependencies
       install_decidim_npm
