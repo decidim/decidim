@@ -40,8 +40,6 @@ module Decidim
         end
       end
 
-      def description; end
-
       private
 
       def search_collection

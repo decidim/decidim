@@ -7,7 +7,6 @@ module Decidim
       include Decidim::FiltersHelper
       include Decidim::AttachmentsHelper
       include Decidim::IconHelper
-      include Decidim::WidgetUrlsHelper
       include Decidim::SanitizeHelper
       include Decidim::ResourceReferenceHelper
       include Decidim::CheckBoxesTreeHelper

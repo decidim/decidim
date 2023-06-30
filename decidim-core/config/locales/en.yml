@@ -85,6 +85,7 @@ en:
   date:
     formats:
       decidim_short: "%d/%m/%Y"
+      decidim_short_dashed: "%d-%m-%Y"
       decidim_short_with_month_name_short: "%d %b %Y"
       decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
@@ -512,6 +513,8 @@ en:
         description: Description
       footer_sub_hero:
         name: Footer sub hero banner
+      global_menu:
+        name: Global menu
       hero:
         name: Hero image
       hero_settings_form:
@@ -544,12 +547,12 @@ en:
         name: Metadata
       metrics:
         name: Organization metrics
-      participatory_space_main_data:
-        more_info: More info
       participatory_space_metrics:
         name: Metrics
       participatory_space_stats:
         name: Statistics
+      social_networks_metadata:
+        name: Social networks
       static_page:
         section:
           name: Section
@@ -1293,8 +1296,6 @@ en:
         hero:
           participate: Participate
           welcome: Welcome to %{organization}!
-        metrics:
-          headline: Metrics
         statistics:
           headline: Current state of %{organization}
         sub_hero:
@@ -1447,10 +1448,6 @@ en:
         close_modal: Close modal
         ok: OK
         title: Confirm
-      embed_modal:
-        close_window: Close window
-        embed: Please paste this code in your page
-        embed_link: Embed
       extended_navigation_bar:
         more: More
         unfold: Unfold
@@ -1926,8 +1923,6 @@ en:
         profile: Profile
         title: Participant settings
         user_groups: Groups
-      widget:
-        see_more: See more
   locale:
     name: English
     name_with_error: English (error!)

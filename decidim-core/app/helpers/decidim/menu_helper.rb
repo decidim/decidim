@@ -51,5 +51,15 @@ module Decidim
         Decidim::ParticipatoryProcesses::PromotedParticipatoryProcesses.new
       ).first
     end
+
+    def home_content_block_menu
+      @home_content_block_menu ||= ::Decidim::MenuPresenter.new(
+        :home_content_block_menu,
+        self,
+        element_class: "main-nav__link",
+        active_class: "main-nav__link--active",
+        label: t("layouts.decidim.header.main_menu")
+      )
+    end
   end
 end

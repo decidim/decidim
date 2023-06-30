@@ -33,11 +33,12 @@ describe "Assemblies", type: :system do
   end
 
   context "when there are no assemblies and accessing from the homepage" do
+    let!(:menu_content_block) { create :content_block, organization:, manifest_name: :global_menu, scope_name: :homepage }
+
     it "the menu link is not shown" do
       visit decidim.root_path
 
-      find("#main-dropdown-summary").hover
-      within ".menu-bar__main-dropdown__menu" do
+      within "#home__menu" do
         expect(page).to have_no_content("Assemblies")
       end
     end
@@ -62,11 +63,12 @@ describe "Assemblies", type: :system do
     end
 
     context "and accessing from the homepage" do
+      let!(:menu_content_block) { create :content_block, organization:, manifest_name: :global_menu, scope_name: :homepage }
+
       it "the menu link is not shown" do
         visit decidim.root_path
 
-        find("#main-dropdown-summary").hover
-        within ".menu-bar__main-dropdown__menu" do
+        within "#home__menu" do
           expect(page).to have_no_content("Assemblies")
         end
       end
@@ -94,12 +96,12 @@ describe "Assemblies", type: :system do
       end
 
       context "and accessing from the homepage" do
+        let!(:menu_content_block) { create :content_block, organization:, manifest_name: :global_menu, scope_name: :homepage }
+
         it "the menu link is shown" do
           visit decidim.root_path
 
-          find("#main-dropdown-summary").hover
-          within ".menu-bar__main-dropdown__menu" do
-            expect(page).to have_content("Assemblies")
+          within "#home__menu" do
             click_link "Assemblies"
           end
 
@@ -149,13 +151,13 @@ describe "Assemblies", type: :system do
       let(:target_path) { decidim_assemblies.assembly_path(assembly) }
     end
 
-    context "and requesting the assembly path with main data and metadata blocks active" do
+    context "and requesting the assembly path with main data and type and duration blocks active" do
       before do
         visit decidim_assemblies.assembly_path(assembly)
       end
 
-      context "when hero, main_data and metadata blocks are enabled" do
-        let(:blocks_manifests) { [:hero, :main_data, :metadata] }
+      context "when hero, main_data and type and duration blocks are enabled" do
+        let(:blocks_manifests) { [:hero, :main_data, :extra_data, :metadata] }
 
         before do
           visit decidim_assemblies.assembly_path(assembly)
