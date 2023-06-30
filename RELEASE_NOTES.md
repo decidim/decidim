@@ -100,14 +100,6 @@ In order to continue having support for Webpacker like syntax, we have switched 
 In order to perform the update, you will need to make sure that you **do not have webpacker in your Gemfile**.
 If you have it, please remove it, and allow Decidim to handle the webpacker / shakapacker dependency.
 
-By this time, you should have already ran the below commands. If you have not, please do it now. Running the below commands will purge any webapcker related binaries `bin/webpack` and `bin/webpack-dev-server` and will install the shakapacker binaries named `bin/webpacker` and `bin/webpacker-dev-server`.
-
-```console
-bundle update decidim
-bin/rails decidim:upgrade
-bin/rails db:migrate
-```
-
 In order to perform the migration to shakapacker, please backup the following files, to make sure that you save any customizations you may have done to webpacker:
 
 ```console
