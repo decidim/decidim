@@ -6,22 +6,41 @@ de:
         image: Bild
         proposals: Ähnliche Vorschläge
         title: Titel
+      ballot_style:
+        code: Code
       election:
         description: Beschreibung
         end_time: Die Abstimmung endet um
         start_time: Die Abstimmung beginnt um
         title: Titel
+      monitoring_committee_member:
+        email: E-Mail
+        name: Name
+      polling_officer:
+        email: E-Mail
+        name: Name
+      polling_station:
+        address: Adresse
+        location: Ort
+        location_hints: Standorthinweise
+        polling_station_managers: Vorgesetzte
+        polling_station_president_id: Präsident
+        title: Titel
       question:
         max_selections: Maximale Anzahl Antworten
         min_selections: Nichts davon
         title: Titel
+      trustees_participatory_space:
+        user_id: Teilnehmer
       voting:
         banner_image: Kopf-Bild
-        census_contact_information: Kontaktinformation des Zensus
+        census_contact_information: Kontaktinformation der Zählung
         description: Beschreibung
         end_time: Abstimmung endet
+        introductory_image: Einleitendes Bild
         promoted: Hervorgehoben
         scope_id: Themenbereich
+        show_check_census: '"Überprüfe Zählung"-Seite anzeigen'
         start_time: Abstimmung beginnt
         title: Titel
         voting_type: Art der Abstimmung
@@ -35,6 +54,12 @@ de:
           attributes:
             attachment:
               needs_to_be_reattached: Der Anhang muss erneut angehängt werden
+        trustee:
+          attributes:
+            name:
+              cant_be_changed: kann nicht geändert werden
+            public_key:
+              cant_be_changed: kann nicht geändert werden
         voting:
           attributes:
             voting_type:
@@ -137,11 +162,27 @@ de:
           select:
             disable: Antwort abwählen
             enable: Antwort als ausgewählt markieren
+            invalid: Beim Auswählen dieser Antwort ist ein Fehler aufgetreten.
+            success: Antwort erfolgreich ausgewählt.
           selected: Ausgewählt
+          unselect:
+            invalid: Beim Abwählen dieser Antwort ist ein Fehler aufgetreten.
+            success: Antwort erfolgreich abgwählt.
+          update:
+            invalid: Beim Aktualisieren dieser Antwort ist ein Fehler aufgetreten.
+            success: Antwort wurde erfolgreich aktualisiert.
         elections:
+          create:
+            invalid: Beim Erstellen dieser Wahl ist ein Fehler aufgetreten.
+            success: Wahl wurde erfolgreich erstellt.
+          destroy:
+            invalid: Beim Löschen dieser Wahl ist ein Fehler aufgetreten.
+            success: Wahl wurde erfolgreich gelöscht.
           edit:
             title: Wahl bearbeiten
             update: Wahl aktualisieren
+          form:
+            organization_time_zone: Überprüfen Sie, ob die Zeitzone in den Organisationseinstellungen korrekt ist. Die aktuelle Konfiguration ist %{time_zone} (%{time}).
           index:
             no_bulletin_board: Es ist kein <a href="https://github.com/decidim/decidim-bulletin-board">Bulletin Board Server</a> konfiguriert, das benötigt wird, um dieses Modul zu verwenden. Diese Aufgabe sollte vom Systemadministrator erledigt werden.
             title: Wahlen
@@ -152,6 +193,9 @@ de:
             success: Die Wahl wurde erfolgreich veröffentlicht.
           unpublish:
             success: Die Veröffentlichung der Wahl wurde erfolgreich zurückgezogen.
+          update:
+            invalid: Beim Aktualisieren dieser Wahl ist ein Fehler aufgetreten.
+            success: Wahl wurde erfolgreich aktualisiert.
         exports:
           elections: Wahlen
           feedback_form_answers: Antworten auf Feedback-Formular
@@ -987,7 +1031,7 @@ de:
           create:
             error: Die Stimme wurde nicht registriert. Bitte versuchen Sie es erneut.
           in_person_form:
-            census_not_present: Dieser Teilnehmer ist nicht in den Zensusdaten aufgeführt.
+            census_not_present: Dieser Teilnehmer ist nicht in den Zählungsdaten aufgeführt.
             census_not_present_description: Er/Sie muss zum Beschwerdenbüro gehen oder den Support kontaktieren.
             date_of_birth: Geburtsdatum
             day: Tag
