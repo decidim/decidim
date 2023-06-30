@@ -155,11 +155,11 @@ describe "Explore elections", :slow, type: :system do
     end
 
     it "shows accordion with questions and answers" do
-      expect(page).to have_css(".accordion-item", count: election.questions.count)
-      expect(page).not_to have_css(".accordion-content")
+      expect(page).to have_css("#accordion-preview li", count: election.questions.count)
+      expect(page).not_to have_css("[id^='accordion-panel']")
 
-      within ".accordion-item:first-child" do
-        click_link translated(question.title)
+      within "#accordion-preview li", match: :first do
+        click_button translated(question.title)
         expect(page).to have_css("li", count: question.answers.count)
       end
     end

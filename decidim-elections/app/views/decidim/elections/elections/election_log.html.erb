@@ -41,7 +41,7 @@
         <%= t("decidim.elections.elections.election_log.creation_description.complete") %>
       </span>
 
-      <span class="election-log__hash"><strong><%= t("decidim.elections.elections.election_log.chained_hash") %></strong> <span data-chained-hash></span></span>
+      <span class="election-log__hash" hidden><strong><%= t("decidim.elections.elections.election_log.chained_hash") %></strong> <span data-chained-hash></span></span>
     </div>
 
     <!-- KEY CEREMONY STEP -->
@@ -65,7 +65,7 @@
         <%= t("decidim.elections.elections.election_log.key_ceremony_description.complete") %>
       </span>
 
-      <span class="election-log__hash"><strong><%= t("decidim.elections.elections.election_log.chained_hash") %></strong> <span data-chained-hash></span></span>
+      <span class="election-log__hash" hidden><strong><%= t("decidim.elections.elections.election_log.chained_hash") %></strong> <span data-chained-hash></span></span>
     </div>
 
     <!-- VOTE STEP -->
@@ -89,7 +89,7 @@
         <%= t("decidim.elections.elections.election_log.vote_description.finished") %>
       </span>
 
-      <span class="election-log__hash"><strong><%= t("decidim.elections.elections.election_log.chained_hash") %></strong> <span data-chained-hash></span></span>
+      <span class="election-log__hash" hidden><strong><%= t("decidim.elections.elections.election_log.chained_hash") %></strong> <span data-chained-hash></span></span>
     </div>
 
     <!-- TALLY STEP -->
@@ -113,7 +113,7 @@
         <%= t("decidim.elections.elections.election_log.tally_description.finished") %>
       </span>
 
-      <span class="election-log__hash"><strong><%= t("decidim.elections.elections.election_log.chained_hash") %></strong> <span data-chained-hash></span></span>
+      <span class="election-log__hash" hidden><strong><%= t("decidim.elections.elections.election_log.chained_hash") %></strong> <span data-chained-hash></span></span>
     </div>
 
     <!-- PUBLISHED RESULTS STEP -->
@@ -133,10 +133,9 @@
         <%= t("decidim.elections.elections.election_log.results_description.published") %>
       </span>
 
-      <span class="election-log__hash"><strong><%= t("decidim.elections.elections.election_log.chained_hash") %></strong> <span data-chained-hash></span></span>
+      <span class="election-log__hash" hidden><strong><%= t("decidim.elections.elections.election_log.chained_hash") %></strong> <span data-chained-hash></span></span>
     </div>
 
-    <%# REDESIGN_PENDING: This block does not look like to be in use %>
     <!-- VERIFIABLE RESULTS STEP -->
     <div id="verifiable-results-step" class="election-log__entry">
       <h2 class="h4 text-secondary">
@@ -161,7 +160,7 @@
         <span class="election-log__hash">
           <strong><%= t("decidim.elections.elections.election_log.verifiable_results.verifiable_file") %></strong>
           <% if election.verifiable_results_file_url.present? %>
-            <%= link_to t("decidim.elections.elections.election_log.download"), election.verifiable_results_file_url, class: "card__button button small" %>
+            <%= link_to t("decidim.elections.elections.election_log.download"), election.verifiable_results_file_url, class: "button button__sm button__transparent-secondary" %>
           <% else %>
             <span><%= t("decidim.elections.elections.election_log.not_available") %></span>
           <% end %>

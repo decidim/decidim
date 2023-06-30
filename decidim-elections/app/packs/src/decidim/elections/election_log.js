@@ -59,7 +59,10 @@ $(async () => {
 
     // adds the chained Hash of the message to the UI
     const addChainedHash = (logEntryStep, uiStep) => {
-      uiStep.find("[data-chained-hash]").html(logEntryStep.chainedHash);
+      const $hash = uiStep.find("[data-chained-hash]");
+
+      $hash.parent().attr("hidden", false);
+      $hash.html(logEntryStep.chainedHash);
     };
 
     // finds the logEntry for each step

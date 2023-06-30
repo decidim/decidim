@@ -5,7 +5,7 @@
 
 <p class="election__section-desc"><%= t("decidim.elections.elections.results.description") %></p>
 
-<ul class="space-y-8" data-component="accordion">
+<ul id="accordion-results" class="space-y-8" data-component="accordion">
   <% model.questions.each_with_index do |question, ix| %>
     <li class="election__accordion">
       <button id="accordion-trigger-<%= ix %>" data-controls="accordion-panel-<%= ix %>" class="election__accordion-trigger" <%= " data-open='true'" if ix == 0 %>>
