@@ -559,6 +559,8 @@ hu:
             check: Ellenőrzés és folytatás
             close_modal: Modal bezárása
             uncheck: Kijelöletlenül hagy
+          notice: |-
+            <p>Biztos, hogy nem szeretne hírlevelet kapni?<br> Kérjük, fontolja meg újra, hogy bejelölje a hírlevél fogadására vonatkozó jelölőnégyzetet.<br> Nagyon fontos számunkra, hogy alkalmanként e-maileket kaphasson fontos bejelentésekről, ezt bármikor megváltoztathatja az értesítések beállításai oldalon.</p> <p>Ha nem jelöli be a négyzetet, akkor lemaradhat a platformon belüli új részvételi lehetőségekről szóló releváns információkról.<br> Ha mégis el szeretné kerülni a hírlevelek fogadását, tökéletesen megértjük döntését.</p> <p>Köszönjük, hogy elolvasta!</p>
           title: Hírlevél értesítések
         omniauth_buttons:
           or: Vagy
@@ -568,6 +570,7 @@ hu:
           authorize: Engedélyezési kérelem
           by_organization_link_html: <small class="heading-small">, %{link}</small>
           cancel: Mégse
+          connect_your_account_html: Csatlakoztassa fiókját a <strong>%{organization}</strong>.
           publish_content: Tartalom közzététele neked
           see_email: Email cím megjelenítése
           see_name: Neved megjelenítése
@@ -584,22 +587,39 @@ hu:
         download_data_description: Minden, a fiókodhoz kapcsolód információt összesítő fájl elküldésre kerül a <strong>%{user_email}</strong> címre. Ez az email egy zip fájlt fog tartalmazni és egy jelszót a megnyitásához <br/><br/> A fájl kibontásához szükséged lesz egy programra pl <a href="https://www.7-zip.org/">7-Zip</a> Windowson vagy <a href="https://www.keka.io/">Keka</a> Macen. Ha Linuxot használsz, akkor biztos telepítve van egy megfelelő program. Ha nincs, akkor használni tudod a következőt <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> vagy ezt <a href="https://peazip.github.io">PeaZip</a>).
         request_data: Adatkérés
     editor_images:
+      create:
+        error: Hiba történt a kép feltöltése közben.
+        success: Kép sikeresen feltöltve.
       drag_and_drop_help: Képek hozzáadása húzással és ejtéssel vagy beillesztéssel.
     endorsable:
       endorsements: Jóváhagyások
       endorsements_count: Támogatások száma
+    endorsement_buttons_cell:
+      already_endorsed: Nem tetszik
+      endorse: Tetszik
     endorsements:
       identities:
         done: Kész
         select_identity: Válassz azonosítót
+    endorsers_list:
+      endorsed_by: Kedvelte…
     errors:
       internal_server_error:
         copied: Szöveg kimásolva!
+        copy_error_message_clarification: A hibaüzenet másolása a vágólapra
+        copy_to_clipboard: Másolás vágólapra
+        date_and_time: Dátum és idő
         reference: Referencia
+        request_method: Kérelem módja
         title: Valami probléma volt a szerverrel
+        try_later: Kérjük, próbálja meg később újra. Ha a hiba továbbra is fennáll, kérjük, másolja ki az alábbi információt, és küldje el a platform karbantartóinak, bármilyen más információval együtt.
+        unknown: Ismeretlen
+        url: URL
+        user: Felhasználói ID
       not_found:
         back_home: Vissza a főoldalra
         content_doesnt_exist: A cím helytelen vagy el lett távolítva.
+        title: A keresett oldal nem található
     events:
       amendments:
         amendment_accepted:
@@ -665,9 +685,15 @@ hu:
         email_subject: 'Frissítés ehhez: %{resource_title}'
       gamification:
         badge_earned:
+          email_intro: 'Szép munka! Megszerezte a(z) <a href="%{resource_url}">%{badge_name} jelvényt</a> (szint: %{current_level}).'
           email_outro: Ezt az értesítést azért kaptad, mert aktív voltál a weboldalunkon.
+          email_subject: 'Új jelvényt szerzett: %{badge_name}!'
+          notification_title: 'Szép munka! Megszerezte a(z) <a href="%{resource_path}">%{badge_name} jelvényt</a> (szint: %{current_level}).'
         level_up:
+          email_intro: Szép munka! Elérted a(z) %{current_level} szintet a <a href="%{resource_url}">%{badge_name} jelvényhez</a>!
           email_outro: Ezt az értesítést azért kaptad, mert aktív voltál a weboldalunkon.
+          email_subject: Elérte a(z) %{badge_name} jelvény %{current_level}. szintjét!
+          notification_title: Szép munka! Elértee a(z) %{current_level} szintet a <a href="%{resource_path}">%{badge_name} jelvényhez</a>!
       groups:
         demoted_membership:
           email_intro: A <a href="%{resource_url}">%{user_group_name}</a> csoport adminisztrátora eltávolította az adminisztrátori jogokat a csoporthoz.
@@ -705,13 +731,27 @@ hu:
           email_subject: Eltávolításra kerültél a %{user_group_name} csoportból!
           notification_title: Eltávolításra kerültál a <a href="%{resource_path}">%{user_group_name}</a> csoportból.
         user_group_created:
+          email_intro: 'Egy új felhasználói csoportot hoztak létre a következő névvel: %{user_group_name}. Jóváhagyhatja a <a href="%{groups_admin_url}">adminisztrációs panelen</a>.'
           email_outro: Ezt az értesítést kaptad, mert te vagy a platform adminja.
           email_subject: Új felhasználói csoport létrehozva
+          notification_title: Létrehozták a(z) %{user_group_name} felhasználói csoportot. Jóváhagyhatja a <a href="%{groups_admin_path}">adminisztrációs panelen</a>.
         user_group_updated:
+          email_intro: A(z) %{user_group_name} felhasználói csoport frissítette a profilját, így az ellenőrizetlen maradt. Jóváhagyhatja az <a href="%{groups_admin_url}">adminisztrációs panelen</a>.
           email_outro: Ezt az értesítést kaptad, mert te vagy a platform adminja.
           email_subject: Egy felhasználói csoport frissítette a profilját
+          notification_title: A(z) %{user_group_name} felhasználói csoport frissítette a profilját, így az ellenőrizetlen maradt. Jóváhagyhatja az <a href="%{groups_admin_path}">adminisztrációs panelen</a>.
+      nickname_event:
+        notification_body: Javítottunk a becenevek használatán, hogy elkerüljük a duplikációkat, és ezért megszüntettük a nagy- és kisbetűkre vonatkozó szabályt. <br/> A beceneve egy másik, azonos nevű becenév után jött létre, ezért automatikusan át lett nevezve. Megváltoztathatja itt <a href="%{link_to_account_settings}">a Fiókbeállítások menüpontban</a>.
       notification_event:
         notification_title: 'Új esemény itt: <a href="%{resource_path}">%{resource_title}</a>.'
+      reports:
+        resource_hidden:
+          email_intro: Egy adminisztrátor eltávolította a %{resource_type} -ját mert %{report_reasons}-ként jelentették.
+          email_outro: 'Azért kapta ezt az értesítést, mert Ön a következő szerzője: "%{resource_title}".'
+          email_subject: A %{resource_type} eltávolításra került
+          notification_title: |-
+            Egy adminisztrátor eltávolította a %{resource_type} -ját mert %{report_reasons}-ként jelentették </br>
+            <i>%{resource_content}</i>
       resource_endorsed:
         email_intro: '%{endorser_name}% {endorser_nickname}, akit követsz, éppen jóváhagyta a "%{resource_title}" -t, és úgy gondoljuk, hogy ez érdekes lehet számodra. Nézd meg, és járulj hozzá:'
         email_outro: Azért kaptad ezt az értesítést, mert %{endorser_nickname} követed. Az előző hivatkozást követve abbahagyhatod az értesítések fogadását.
