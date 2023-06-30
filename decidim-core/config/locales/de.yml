@@ -95,6 +95,27 @@ de:
         one: etwa ein Monat
         other: etwa %{count} Monate
       half_a_minute: eine halbe Minute
+      less_than_x_minutes:
+        one: weniger als eine Minute
+        other: weniger als %{count} Minuten
+      less_than_x_seconds:
+        one: weniger als eine Sekunde
+        other: weniger als %{count} Sekunden
+      x_days:
+        one: 1 Tag
+        other: "%{count} Tage"
+      x_hours:
+        one: 1 Stunde
+        other: "%{count} Stunden"
+      x_minutes:
+        one: 1 Minute
+        other: "%{count} Minuten"
+      x_months:
+        one: 1 Monat
+        other: "%{count} Monate"
+      x_seconds:
+        one: 1 Sekunde
+        other: "%{count} Sekunden"
   decidim:
     accessibility:
       external_link: Externer Link
