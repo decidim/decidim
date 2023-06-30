@@ -476,7 +476,6 @@ en:
         filters:
           active: Active
           all: All
-          date: Date
           finished: Finished
           upcoming: Upcoming
         preview:
@@ -554,7 +553,6 @@ en:
           backup_modal:
             description: This election is being created in the Bulletin Board. Is is very important that every Trustee participating in it creates a backup copy of these keys and store them in a safe place. After that, the process continues.
             download_election_keys: Download keys
-            download_icon: Icon that indicates a download action
             title: Backup election keys for %{election}
           key_ceremony_steps:
             back: Back
@@ -569,7 +567,6 @@ en:
               task: Task
             process_warning: Once the process is started, you should not exit this page until the process ends. It will take several minutes, as all Trustees should be connected to complete it.
             start: Start
-            start_icon: Icon that indicates a start button to start the election keys generation
             status:
               completed: Completed
               pending: Pending
@@ -579,7 +576,6 @@ en:
             description: The Bulletin Board has information from you as a Trustee on this election. To continue the process, first upload the backup file generated during the previous session.
             title: Restore election keys for %{election}
             upload_election_keys: Upload election keys
-            upload_icon: Icon that indicates a download action
           tally_started_steps:
             back: Back
             description: The results for this election are being computed in the Bulletin Board. To complete this process, your participitation as a Trustee is needed.
@@ -593,7 +589,6 @@ en:
               task: Task
             process_warning: Once the process is started, you should not exit this page until the process ends. It will take several minutes, as all Trustees should be connected to complete it.
             start: Start
-            start_icon: Icon that indicates a start button to start the election keys generation
             status:
               completed: Completed
               pending: Pending
@@ -656,14 +651,12 @@ en:
           header: Casting the vote...
           text: Your ballot is being casted on the ballot box.
         confirm:
-          answer: Answer
           answer_number: answer %{number}
           confirm: Confirm
           edit: edit
           header: Confirm your vote
           intro: Here is a summary of the vote you are about to cast. <br> Please confirm your vote or edit your answers.
           nota_option: Blank
-          question: Question %{count}
         confirmed:
           back: Back to elections
           experience: How was your experience?
