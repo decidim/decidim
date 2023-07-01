@@ -7,7 +7,7 @@
         <%= link_to item[:url], class: "menu-bar__breadcrumb-desktop__dropdown-trigger" do %>
           <%= item_label %>
         <% end %>
-        <button id="secondary-dropdown-summary"
+        <button id="secondary-dropdown-summary-<%= i %>"
           class="menu-bar__breadcrumb-desktop__dropdown-trigger"
           data-component="dropdown"
           data-hover="true"
