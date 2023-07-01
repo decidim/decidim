@@ -20,16 +20,6 @@ edit_link(
   </section>
 <% end %>
 
-<%# REDESIGN_PENDING - This part requires a redesign and maybe moved to the type and duration content block %>
-<% if current_participatory_space.parent.present? %>
-  <div class="row">
-    <div class="small-12 columns">
-      <%= render partial: "decidim/assemblies/assemblies/nav_breadcrumb",
-        locals: { assemblies: current_participatory_space.ancestors.to_a } %>
-    </div>
-  </div>
-<% end %>
-
 <div class="participatory-space__container">
 
   <%= participatory_space_floating_help %>
@@ -40,3 +30,7 @@ edit_link(
   <% end %>
 
 </div>
+
+<section class="participatory-space__block-reference">
+  <%= resource_reference(current_participatory_space) %>
+</section>

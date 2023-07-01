@@ -5,6 +5,7 @@ module Decidim
     # A controller that holds the logic to show Assemblies in a public layout.
     class AssembliesController < Decidim::Assemblies::ApplicationController
       include ParticipatorySpaceContext
+      include AssemblyBreadcrumb
 
       redesign_participatory_space_layout only: :show
 
