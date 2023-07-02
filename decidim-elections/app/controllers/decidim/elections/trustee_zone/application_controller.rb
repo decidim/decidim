@@ -14,6 +14,11 @@ module Decidim
 
         before_action :ensure_configured_bulletin_board!
 
+        register_permissions(::Decidim::Elections::TrusteeZone::ApplicationController,
+                             ::Decidim::Admin::Permissions,
+                             ::Decidim::Elections::Permissions,
+                             ::Decidim::Permissions)
+
         private
 
         def ensure_configured_bulletin_board!
@@ -35,10 +40,7 @@ module Decidim
         end
 
         def permission_class_chain
-          [
-            Decidim::Elections::Permissions,
-            Decidim::Permissions
-          ]
+          ::Decidim.permissions_registry.chain_for(::Decidim::Elections::TrusteeZone::ApplicationController)
         end
       end
     end
