@@ -40,6 +40,12 @@ describe "Explore results", versioning: true, type: :system do
       visit path
     end
 
+    it "shows the component name in the sidebar" do
+      within("aside") do
+        expect(page).to have_content(translated(component.name))
+      end
+    end
+
     it "shows categories and subcategories with results" do
       participatory_process.categories.each do |category|
         category_count = Decidim::Accountability::ResultsCalculator.new(component, nil, category.id).count
@@ -256,8 +262,6 @@ describe "Explore results", versioning: true, type: :system do
       end
 
       it "shows the comments" do
-        skip "REDESIGN_PENDING - Comments integration pending"
-
         comments.each do |comment|
           expect(page).to have_content(comment.body.values.first)
         end
@@ -288,6 +292,11 @@ describe "Explore results", versioning: true, type: :system do
       it "the result is mentioned in the proposal page" do
         click_link translated(proposal.title)
         expect(page).to have_i18n_content(result.title)
+      end
+
+      it "a banner links back to the result" do
+        click_link translated(proposal.title)
+        expect(page).to have_content("Included in #{translated(result.title)}")
       end
     end
 
@@ -340,10 +349,13 @@ describe "Explore results", versioning: true, type: :system do
       end
 
       it "the result is mentioned in the meeting page" do
-        skip_unless_redesign_enabled("this test pass with redesign enabled because the panel containing the result is visible")
-
         click_link translated(meeting.title)
         expect(page).to have_i18n_content(result.title)
+      end
+
+      it "a banner links back to the result" do
+        click_link translated(meeting.title)
+        expect(page).to have_content("Included in #{translated(result.title)}")
       end
     end
 

@@ -32,7 +32,7 @@ describe "Locales", type: :system do
         click_link "Català"
       end
 
-      click_link "Inici"
+      click_link "Inici", match: :first
 
       expect(page).to have_content("Inici")
     end
@@ -48,7 +48,7 @@ describe "Locales", type: :system do
     end
 
     it "displays devise messages with the right locale when authentication fails" do
-      click_link "Sign In"
+      click_link "Sign In", match: :first
 
       within_language_menu do
         click_link "Català"

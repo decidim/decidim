@@ -51,7 +51,11 @@ module Decidim
     end
 
     def resource_path
-      resource_locator(resource).path
+      resource_locator(resource).path(url_extra_params)
+    end
+
+    def url_extra_params
+      options[:url_extra_params] || {}
     end
 
     def class_base_name

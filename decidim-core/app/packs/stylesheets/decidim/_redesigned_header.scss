@@ -296,7 +296,7 @@ header{
     }
 
     &__main-dropdown{
-      @apply bg-white divide-y divide-gray-3 rounded-b shadow-lg text-black w-full lg:w-[1200px];
+      @apply bg-white divide-y divide-gray-3 rounded-b shadow-lg text-black w-full lg:w-[1280px];
 
       &__bottom,
       &__top{
@@ -304,9 +304,14 @@ header{
 
         &-left{
           @apply w-full md:w-1/2;
+
+          /* Overwrite default size */
+          .card__highlight-text{
+            @apply text-md;
+          }
         }
 
-        &-left{
+        &-right{
           @apply hidden md:block md:w-1/2;
         }
       }

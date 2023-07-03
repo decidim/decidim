@@ -109,7 +109,7 @@ describe "User creates meeting", type: :system do
           expect(page).to have_content(meeting_address)
           expect(page).to have_content(meeting_start_time.strftime(time_format))
           expect(page).to have_content(meeting_end_time.strftime(time_format))
-          expect(page).to have_selector(".meeting__author", text: user.name)
+          expect(page).to have_selector("[data-author]", text: user.name)
         end
 
         context "when using the front-end geocoder" do
@@ -175,7 +175,7 @@ describe "User creates meeting", type: :system do
             expect(page).to have_content(meeting_start_time.strftime(time_format))
             expect(page).to have_content(meeting_end_time.strftime(time_format))
             expect(page).not_to have_css(".button", text: "Register")
-            expect(page).to have_selector(".meeting__author", text: user_group.name)
+            expect(page).to have_selector("[data-author]", text: user_group.name)
           end
 
           it "creates a new meeting with registrations on this platform", :slow do
@@ -215,7 +215,7 @@ describe "User creates meeting", type: :system do
             # REDESIGN_PENDING: this button is inside the modal, so it'd go once clicked
             # but the tests are running using redesing_enable = false, then the modal still there.
             # expect(page).to have_css(".button", text: "Register")
-            expect(page).to have_selector(".meeting__author", text: user_group.name)
+            expect(page).to have_selector("[data-author]", text: user_group.name)
           end
         end
 

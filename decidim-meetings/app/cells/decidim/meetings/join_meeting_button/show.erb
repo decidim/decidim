@@ -1,47 +1,44 @@
-<div class="meeting__aside-button">
-  <% if model.can_be_joined_by?(current_user) %>
-
-    <% if model.has_registration_for? current_user %>
-      <%= render :cancelation_modal %>
-      <%= action_authorized_button_to(
+<% if model.can_be_joined_by?(current_user) %>
+  <% if model.has_registration_for? current_user %>
+    <%= render :cancelation_modal %>
+    <%= action_authorized_button_to(
+      :join,
+      t("leave", scope: "decidim.meetings.meetings.show"),
+      "#",
+      class: button_classes,
+      data: { "dialog-open": "meeting-cancelation-confirm-#{model.id}" }
+    ) %>
+  <% else %>
+    <% if model.registration_form_enabled? %>
+      <%= action_authorized_link_to(
         :join,
-        t("leave", scope: "decidim.meetings.meetings.show"),
-        "#",
+        i18n_join_text,
+        join_meeting_registration_path(model),
         class: button_classes,
-        data: { "dialog-open": "meeting-cancelation-confirm-#{model.id}" }
+        disabled: !model.has_available_slots?,
       ) %>
     <% else %>
-      <% if model.registration_form_enabled? %>
-        <%= action_authorized_link_to(
-          :join,
-          i18n_join_text,
-          join_meeting_registration_path(model),
-          class: button_classes,
-          disabled: !model.has_available_slots?,
-        ) %>
-      <% else %>
-        <%= render :registration_modal %>
-        <%= action_authorized_button_to(
-          :join,
-          i18n_join_text,
-          "#",
-          class: button_classes,
-          disabled: !model.has_available_slots?,
-          data: { "dialog-open": current_user.present? ? "meeting-registration-confirm-#{model.id}" : "loginModal" }
-        ) %>
-      <% end %>
+      <%= render :registration_modal %>
+      <%= action_authorized_button_to(
+        :join,
+        i18n_join_text,
+        "#",
+        class: button_classes,
+        disabled: !model.has_available_slots?,
+        data: { "dialog-open": current_user.present? ? "meeting-registration-confirm-#{model.id}" : "loginModal" }
+      ) %>
     <% end %>
-
-    <% if shows_remaining_slots? %>
-      <%= render :remaining_slots %>
-    <% end %>
-
-  <% elsif model.on_different_platform? %>
-    <%= action_authorized_link_to(
-      :join,
-      i18n_join_text,
-      model.registration_url,
-      class: button_classes
-    ) %>
   <% end %>
-</div>
+
+  <% if shows_remaining_slots? %>
+    <%= render :remaining_slots %>
+  <% end %>
+
+<% elsif model.on_different_platform? %>
+  <%= action_authorized_link_to(
+    :join,
+    i18n_join_text,
+    model.registration_url,
+    class: button_classes
+  ) %>
+<% end %>

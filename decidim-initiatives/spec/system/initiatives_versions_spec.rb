@@ -76,11 +76,6 @@ describe "Explore versions", versioning: true, type: :system do
     # REDESIGN_PENDING: The accessibility should be tested after complete redesign
     # it_behaves_like "accessible page"
 
-    it "allows going back to the initiative" do
-      click_link "Back"
-      expect(page).to have_current_path initiative_path, ignore_query: true
-    end
-
     it "allows going back to the versions list" do
       skip "REDESIGN_PENDING: Once redesigned this page will contain a call to the versions_list cell with links to each one"
 

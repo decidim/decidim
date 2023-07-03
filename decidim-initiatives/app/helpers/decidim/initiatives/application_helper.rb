@@ -6,6 +6,7 @@ module Decidim
     #
     module ApplicationHelper
       include Decidim::CheckBoxesTreeHelper
+      include Decidim::DateRangeHelper
       include InitiativesHelper
 
       def filter_states_values
@@ -36,6 +37,10 @@ module Decidim
           TreePoint.new("", filter_text_for(t("decidim.initiatives.application_helper.filter_type_values.all"))),
           types_values
         )
+      end
+
+      def component_name
+        (defined?(current_component) && translated_attribute(current_component&.name).presence) || t("decidim.admin.models.initiatives.fields.title")
       end
     end
   end

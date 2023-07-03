@@ -26,6 +26,14 @@ describe "Explore debates", type: :system do
       )
     end
 
+    it "shows the component name in the sidebar" do
+      visit_component
+
+      within("aside") do
+        expect(page).to have_content(translated(component.name))
+      end
+    end
+
     it "lists all debates for the given process" do
       visit_component
 
@@ -208,23 +216,6 @@ describe "Explore debates", type: :system do
 
           expect(page).to have_css("a.card__list", count: 1)
         end
-
-        it "works with 'back to list' link" do
-          skip_unless_redesign_enabled "Only redesigned filters work"
-
-          within "#panel-dropdown-menu-category" do
-            uncheck "All"
-            check category.name[I18n.locale.to_s]
-          end
-
-          expect(page).to have_css("a.card__list", count: 1)
-
-          page.find("a.card__list").click
-
-          click_link "Back"
-
-          expect(page).to have_css("a.card__list", count: 1)
-        end
       end
     end
 
@@ -295,7 +286,7 @@ describe "Explore debates", type: :system do
       within ".layout-item__aside" do
         expect(page).to have_content(13)
         expect(page).to have_content(/Dec/i)
-        expect(page).to have_content(/14:15\s16:17/)
+        expect(page).to have_content(/14:15 → 16:17/)
       end
     end
 

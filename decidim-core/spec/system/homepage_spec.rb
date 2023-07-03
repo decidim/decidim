@@ -54,11 +54,6 @@ describe "Homepage", type: :system do
 
       it_behaves_like "accessible page"
 
-      it "includes the official organization links and images" do
-        expect(page).to have_selector("a.logo-cityhall[href='#{official_url}']")
-        expect(page).to have_selector("a.main-footer__badge[href='#{official_url}']")
-      end
-
       context "and the organization has the omnipresent banner enabled" do
         let(:organization) do
           create(:organization,
@@ -172,7 +167,7 @@ describe "Homepage", type: :system do
         end
 
         it "includes links to them" do
-          within ".main-footer" do
+          within "footer" do
             [static_page1, static_page2].each do |static_page|
               expect(page).to have_content(static_page.title["en"])
             end
@@ -187,9 +182,9 @@ describe "Homepage", type: :system do
         end
 
         it "includes the footer sub_hero with the current organization name" do
-          expect(page).to have_css(".footer__subhero")
+          expect(page).to have_css("#footer_sub_hero")
 
-          within ".footer__subhero" do
+          within "#footer_sub_hero" do
             expect(page).to have_content(organization.name)
           end
         end
@@ -211,6 +206,7 @@ describe "Homepage", type: :system do
               organization:,
               topic: static_page_topic1,
               weight: 0,
+              show_in_footer: true,
               allow_public_access: false
             )
           end
@@ -220,11 +216,12 @@ describe "Homepage", type: :system do
               organization:,
               topic: static_page_topic1,
               weight: 1,
+              show_in_footer: true,
               allow_public_access: true
             )
           end
           let!(:static_page_topic2) { create(:static_page_topic, organization:, show_in_footer: true) }
-          let!(:static_page_topic2_page1) { create(:static_page, organization:, topic: static_page_topic2, weight: 0) }
+          let!(:static_page_topic2_page1) { create(:static_page, organization:, topic: static_page_topic2, weight: 0, show_in_footer: true) }
           let!(:static_page_topic2_page2) { create(:static_page, organization:, topic: static_page_topic2, weight: 1) }
           let!(:static_page_topic3) { create(:static_page_topic, organization:) }
           let!(:static_page_topic3_page1) { create(:static_page, organization:, topic: static_page_topic3) }
@@ -236,18 +233,24 @@ describe "Homepage", type: :system do
             visit current_path
           end
 
-          it "displays only publicly accessible pages and topics in the footer" do
-            within ".main-footer" do
+          it "displays only publicly accessible pages and topics with pages configured to be shown in the footer" do
+            within "footer" do
               expect(page).to have_content(static_page1.title["en"])
               expect(page).to have_no_content(static_page2.title["en"])
               expect(page).to have_no_content(static_page3.title["en"])
               expect(page).to have_content(static_page_topic1.title["en"])
+              expect(page).to have_no_content(static_page_topic1_page1.title["en"])
+              expect(page).to have_content(static_page_topic1_page2.title["en"])
               expect(page).to have_no_content(static_page_topic2.title["en"])
               expect(page).to have_no_content(static_page_topic3.title["en"])
 
               expect(page).to have_link(
-                static_page_topic1.title["en"],
+                static_page_topic1_page2.title["en"],
                 href: "/pages/#{static_page_topic1_page2.slug}"
+              )
+              expect(page).to have_no_link(
+                static_page_topic1_page1.title["en"],
+                href: "/pages/#{static_page_topic1_page1.slug}"
               )
             end
           end
@@ -257,21 +260,33 @@ describe "Homepage", type: :system do
 
             it_behaves_like "accessible page"
 
-            it "displays all pages and topics in footer that are configured to display in footer" do
+            it "displays all pages and topics with pages in footer that are configured to display in footer" do
               expect(page).to have_content(static_page1.title["en"])
               expect(page).to have_content(static_page2.title["en"])
               expect(page).to have_no_content(static_page3.title["en"])
               expect(page).to have_content(static_page_topic1.title["en"])
+              expect(page).to have_content(static_page_topic1_page1.title["en"])
+              expect(page).to have_content(static_page_topic1_page2.title["en"])
               expect(page).to have_content(static_page_topic2.title["en"])
+              expect(page).to have_content(static_page_topic2_page1.title["en"])
+              expect(page).to have_no_content(static_page_topic2_page2.title["en"])
               expect(page).to have_no_content(static_page_topic3.title["en"])
 
               expect(page).to have_link(
-                static_page_topic1.title["en"],
+                static_page_topic1_page2.title["en"],
+                href: "/pages/#{static_page_topic1_page2.slug}"
+              )
+              expect(page).to have_link(
+                static_page_topic1_page1.title["en"],
                 href: "/pages/#{static_page_topic1_page1.slug}"
               )
               expect(page).to have_link(
-                static_page_topic2.title["en"],
+                static_page_topic2_page1.title["en"],
                 href: "/pages/#{static_page_topic2_page1.slug}"
+              )
+              expect(page).to have_no_link(
+                static_page_topic2_page2.title["en"],
+                href: "/pages/#{static_page_topic2_page2.slug}"
               )
             end
           end
@@ -352,7 +367,7 @@ describe "Homepage", type: :system do
             end
 
             it "shows the metrics block" do
-              within "#metrics" do
+              within "[data-metrics]" do
                 expect(page).to have_content("Metrics")
                 Decidim.metrics_registry.filtered(highlight: true, scope: "home").each do |metric_registry|
                   expect(page).to have_css(%(##{metric_registry.metric_name}_chart), visible: :all)
@@ -371,7 +386,7 @@ describe "Homepage", type: :system do
             end
 
             it "shows the metrics block empty" do
-              within "#metrics" do
+              within "[data-metrics]" do
                 expect(page).to have_content("Metrics")
                 Decidim.metrics_registry.highlighted.each do |metric_registry|
                   expect(page).to have_no_css("##{metric_registry.metric_name}_chart")
@@ -416,13 +431,11 @@ describe "Homepage", type: :system do
         end
 
         it "displays the decidim link with external link indicator" do
-          within ".footer .mini-footer" do
+          within "footer" do
             expect(page).to have_selector("a[target='_blank'][href='https://github.com/decidim/decidim']")
 
             within "a[target='_blank'][href='https://github.com/decidim/decidim']" do
-              # REDESIGN_PENDING: Uncomment the next line once merged turbo-rails https://github.com/decidim/decidim/pull/9881
-              # It contains a javascript rearrangement among redesigned and the legacy version
-              # expect(page).to have_selector("svg use[href*='external-link']")
+              expect(page).to have_selector("svg")
             end
           end
         end
@@ -455,7 +468,7 @@ describe "Homepage", type: :system do
         end
 
         it "shows the banner's action title" do
-          expect(page).to have_i18n_content(organization.highlighted_content_banner_action_title, upcase: true)
+          expect(page).to have_i18n_content(organization.highlighted_content_banner_action_title)
         end
 
         it "shows the banner's action subtitle" do

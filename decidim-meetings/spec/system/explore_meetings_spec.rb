@@ -371,30 +371,6 @@ describe "Explore meetings", :slow, type: :system do
 
         expect(page).to have_css(meetings_selector, count: 1)
       end
-
-      it "works with 'back to list' link" do
-        skip_unless_redesign_enabled
-
-        scope = create(:scope, organization:)
-        meeting = meetings.first
-        meeting.scope = scope
-        meeting.save
-
-        visit_component
-
-        within "#panel-dropdown-menu-scope" do
-          click_filter_item "All"
-          click_filter_item translated(scope.name)
-        end
-
-        expect(page).to have_css(meetings_selector, count: 1)
-
-        find("a.card__list").click
-
-        click_link "Back"
-
-        expect(page).to have_css(meetings_selector, count: 1)
-      end
     end
 
     context "when no upcoming meetings scheduled" do

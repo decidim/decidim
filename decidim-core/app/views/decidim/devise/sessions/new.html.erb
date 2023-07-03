@@ -3,10 +3,10 @@
 <%= render layout: "layouts/decidim/shared/layout_center" do %>
 
   <div class="flex justify-center">
-    <h1 class="h1 decorator my-12"><%= t("devise.sessions.new.sign_in") %></h1>
+    <h1 class="h3 md:h1 decorator my-12"><%= t("devise.sessions.new.sign_in") %></h1>
   </div>
 
-  <div class="login__info">
+  <div class="login__info font-semibold">
     <% if current_organization.sign_up_enabled? %>
       <p>
         <%= t("decidim.devise.sessions.new.are_you_new?") %>

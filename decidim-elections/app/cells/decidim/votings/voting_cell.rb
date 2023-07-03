@@ -11,8 +11,14 @@ module Decidim
 
       private
 
+      # REDESIGN_PENDING: size :m is deprecated
       def card_size
-        "decidim/votings/voting_m"
+        case @options[:size]
+        when :s
+          "decidim/votings/voting_s"
+        else
+          "decidim/votings/voting_m"
+        end
       end
     end
   end

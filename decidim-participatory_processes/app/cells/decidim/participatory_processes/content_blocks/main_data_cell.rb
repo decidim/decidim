@@ -9,7 +9,7 @@ module Decidim
         include Decidim::ComponentPathHelper
         include ActiveLinkTo
 
-        delegate :short_description, to: :resource
+        delegate :short_description, :description, to: :resource
 
         private
 
@@ -17,12 +17,12 @@ module Decidim
           t("title", scope: "decidim.participatory_processes.participatory_processes.show")
         end
 
-        def description_text
+        def short_description_text
           decidim_sanitize_editor_admin translated_attribute(short_description)
         end
 
-        def details_path
-          decidim_participatory_processes.description_participatory_process_path(resource)
+        def description_text
+          decidim_sanitize_editor_admin translated_attribute(description)
         end
 
         def nav_items

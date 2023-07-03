@@ -11,7 +11,6 @@ module Decidim
       include FormFactory
       include Paginable
 
-      helper Decidim::WidgetUrlsHelper
       helper Decidim::ResourceVersionsHelper
       helper Decidim::ShortLinkHelper
       include Decidim::AttachmentsHelper
@@ -155,7 +154,7 @@ module Decidim
       def nav_paths
         return {} if meeting.blank?
 
-        { prev_path: prev_meeting, next_path: next_meeting }.compact_blank.transform_values { |meeting| meeting_path(meeting) }.merge(back_path: meetings_path)
+        { prev_path: prev_meeting, next_path: next_meeting }.compact_blank.transform_values { |meeting| meeting_path(meeting) }
       end
 
       def meetings

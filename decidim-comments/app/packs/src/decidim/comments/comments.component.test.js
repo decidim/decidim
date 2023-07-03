@@ -312,7 +312,7 @@ describe("CommentsComponent", () => {
 
     let comments = `
       <div id="comments-for-Dummy-123" data-decidim-comments='{"singleComment":false,"toggleTranslations":false,"commentableGid":"commentable-gid","commentsUrl":"/comments","rootDepth":0,"lastCommentId":456,"order":"older"}'>
-        <div class="comments__container" id="comments">
+        <div id="comments">
           <div class="comments">
             <div class="comments__header">
               <h2 class="h4">
