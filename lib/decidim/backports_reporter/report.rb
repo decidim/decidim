@@ -4,15 +4,22 @@ module Decidim
   module BackportsReporter
     # Abstract class for the different formats
     class Report
-      attr_reader :report
+      attr_reader :report, :last_version_number
 
-      def initialize(report:)
+      def initialize(report:, last_version_number:)
         @report = report
+        @last_version_number = last_version_number
       end
 
       def call = output_report
 
       private
+
+      def penultimate_version_number
+        major, minor = last_version_number.split(".")
+
+        "#{major}.#{minor.to_i - 1}"
+      end
 
       def output_report
         output = output_head

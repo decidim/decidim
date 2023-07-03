@@ -3,14 +3,15 @@
 require "decidim/backports_reporter/cli_report"
 
 describe Decidim::BackportsReporter::CLIReport do
-  subject { described_class.new(report:).call }
+  subject { described_class.new(report:, last_version_number:).call }
+
+  let(:report) do
+    [{ id: 1234, title: "Fix the world", related_issues: [] }]
+  end
+  let(:last_version_number) { "0.27" }
 
   describe ".call" do
     context "without related_issues" do
-      let(:report) do
-        [{ id: 1234, title: "Fix the world", related_issues: [] }]
-      end
-
       it "returns a valid response" do
         response = <<~RESPONSE
           | ID     | Title                                                                               | Backport v0.27 | Backport v0.26 |
@@ -18,6 +19,19 @@ describe Decidim::BackportsReporter::CLIReport do
           | #1234 | Fix the world                                                                       | None           | None           |
         RESPONSE
         expect(subject).to eq response
+      end
+
+      context "with another version number" do
+        let(:last_version_number) { "0.31" }
+
+        it "returns a valid response" do
+          response = <<~RESPONSE
+            | ID     | Title                                                                               | Backport v0.31 | Backport v0.30 |
+            |--------|-------------------------------------------------------------------------------------|----------------|----------------|
+            | #1234 | Fix the world                                                                       | None           | None           |
+          RESPONSE
+          expect(subject).to eq response
+        end
       end
     end
 

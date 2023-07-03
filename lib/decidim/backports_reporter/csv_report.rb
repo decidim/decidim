@@ -7,13 +7,15 @@ module Decidim
     class CSVReport < Decidim::BackportsReporter::Report
       private
 
-      def output_head = "ID;Title;Backport v0.27;Backport v0.26\n"
+      def output_head
+        "ID;Title;Backport v#{last_version_number};Backport v#{penultimate_version_number}\n"
+      end
 
       def output_line(line)
         output = "#{line[:id]};"
         output += "#{line[:title]};"
-        output += "#{format_backport(line[:related_issues], "v0.27")};"
-        output += "#{format_backport(line[:related_issues], "v0.26")}\n"
+        output += "#{format_backport(line[:related_issues], "v#{last_version_number}")};"
+        output += "#{format_backport(line[:related_issues], "v#{penultimate_version_number}")}\n"
         output
       end
 

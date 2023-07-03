@@ -8,7 +8,7 @@ module Decidim
       private
 
       def output_head
-        head = "| #{"ID".ljust(6)} | #{"Title".ljust(83)} | Backport v0.27 | Backport v0.26 |\n"
+        head = "| #{"ID".ljust(6)} | #{"Title".ljust(83)} | Backport v#{last_version_number} | Backport v#{penultimate_version_number} |\n"
         head += "|#{"-" * 8}|#{"-" * 85}|#{"-" * 16}|#{"-" * 16}|\n"
         head
       end
@@ -16,8 +16,8 @@ module Decidim
       def output_line(line)
         output = "| ##{line[:id]} "
         output += "| #{line[:title].ljust(84, " ")}"
-        output += "| #{format_backport(line[:related_issues], "v0.27")}"
-        output += "| #{format_backport(line[:related_issues], "v0.26")}|\n"
+        output += "| #{format_backport(line[:related_issues], "v#{last_version_number}")}"
+        output += "| #{format_backport(line[:related_issues], "v#{penultimate_version_number}")}|\n"
         output
       end
 

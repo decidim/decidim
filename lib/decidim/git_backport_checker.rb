@@ -12,9 +12,11 @@ module Decidim
   class GitBackportChecker
     # @param token [String] token for GitHub authentication
     # @param days_to_check_from [Integer] the number of days from when we will start the check
-    def initialize(token:, days_to_check_from:)
+    # @param last_version_number [String] the version number of the last release that we want to make the backport to
+    def initialize(token:, days_to_check_from:, last_version_number:)
       @token = token
       @days_to_check_from = days_to_check_from
+      @last_version_number = last_version_number
     end
 
     def call
@@ -31,9 +33,19 @@ module Decidim
       end
     end
 
-    def csv_report = Decidim::BackportsReporter::CSVReport.new(report: @report).call
+    def csv_report
+      Decidim::BackportsReporter::CSVReport.new(
+        report: @report,
+        last_version_number: @last_version_number
+      ).call
+    end
 
-    def cli_report = Decidim::BackportsReporter::CLIReport.new(report: @report).call
+    def cli_report
+      Decidim::BackportsReporter::CLIReport.new(
+        report: @report,
+        last_version_number: @last_version_number
+      ).call
+    end
 
     private
 
