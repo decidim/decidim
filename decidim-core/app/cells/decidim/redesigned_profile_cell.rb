@@ -90,6 +90,7 @@ module Decidim
       values = TABS_ITEMS[key].dup
       values[:path] = send(values[:path], nickname: profile_holder.nickname)
       values[:text] = t(key, scope: "decidim.profiles.show")
+      values.merge!(extra_data[key]) if extra_data.has_key?(key)
       values
     end
 
@@ -108,6 +109,14 @@ module Decidim
         keys << :conversations if manageable_group?
       end
       items.map { |key| tab_item(key) }
+    end
+
+    def extra_data
+      @extra_data ||= {}.tap do |v|
+        if current_user && user_group? && (count = profile_holder.unread_messages_count_for(current_user)).positive?
+          v[:conversations] = { count: }
+        end
+      end
     end
 
     def tab_items

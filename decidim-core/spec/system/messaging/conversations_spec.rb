@@ -5,7 +5,6 @@ require "spec_helper"
 describe "Conversations", type: :system do
   let!(:organization) { create(:organization, twitter_handler: "redesigned") }
   let(:user) { create :user, :confirmed, organization: }
-  let!(:redesign_enabled?) { true }
 
   before do
     switch_to_host(organization.host)
@@ -524,13 +523,9 @@ describe "Conversations", type: :system do
   def visit_inbox
     visit decidim.root_path
 
-    if Decidim.redesign_active
-      find("#trigger-dropdown-account").click
+    find("#trigger-dropdown-account").click
+    within "#dropdown-menu-account" do
       click_link("Conversations")
-    else
-      within ".topbar__user__logged" do
-        find(".icon--envelope-closed").click
-      end
     end
   end
 end

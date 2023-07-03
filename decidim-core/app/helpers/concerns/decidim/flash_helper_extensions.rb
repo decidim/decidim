@@ -43,17 +43,18 @@ module Decidim
       # closable - A boolean indicating whether the close icon is added.
       #
       # Returns a HTML string.
-      def alert_box(value, alert_class, closable)
+      def alert_box(value, alert_class, closable, opts = {})
         options = {
           class: "flash #{alert_class}",
           data: { "alert-box": "" },
           role: "alert",
           aria: { atomic: "true" }
-        }
+        }.merge(opts)
+
         options[:data] = options[:data].merge(closable: "") if closable
         icon = {
           secondary: "information-line",
-          alert: "information-line",
+          alert: "alert-line",
           warning: "alert-line",
           success: "checkbox-circle-line"
         }
