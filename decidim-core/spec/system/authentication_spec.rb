@@ -610,7 +610,7 @@ describe "Authentication", type: :system do
           end
 
           it "can log in without being prompted to change the password" do
-            find(".sign-in-link").click
+            click_link("Sign In", match: :first)
             click_link "Sign in with Facebook"
             expect(page).to have_content("Successfully")
           end

@@ -136,7 +136,7 @@ describe "ProfileConversations", type: :system do
         within "div.conversation__container" do
           expect(page).to have_selector(".conversation__item", text: /#{interlocutor.name}/i)
           expect(page).to have_selector(".conversation__item", text: "who wants apples?")
-          expect(page).to have_selector(".conversation__item", text: "less than a min.")
+          expect(page).to have_selector(".conversation__item", text: "less than a minute")
         end
       end
 
