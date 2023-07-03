@@ -705,7 +705,7 @@ describe "Authentication", type: :system do
 
         expect(page).to have_content("successfully")
         expect_current_user_to_be(user)
-        expect(page).to have_no_content("Wrong user")
+        expect(page).not_to have_content("Wrong user")
       end
     end
   end

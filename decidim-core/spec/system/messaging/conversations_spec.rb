@@ -4,7 +4,7 @@ require "spec_helper"
 
 describe "Conversations", type: :system do
   let!(:organization) { create(:organization, twitter_handler: "redesigned") }
-  let(:user) { create :user, :confirmed, organization: }
+  let(:user) { create(:user, :confirmed, organization:) }
 
   before do
     switch_to_host(organization.host)

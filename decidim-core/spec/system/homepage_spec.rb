@@ -248,7 +248,7 @@ describe "Homepage", type: :system do
                 static_page_topic1_page2.title["en"],
                 href: "/pages/#{static_page_topic1_page2.slug}"
               )
-              expect(page).to have_no_link(
+              expect(page).not_to have_link(
                 static_page_topic1_page1.title["en"],
                 href: "/pages/#{static_page_topic1_page1.slug}"
               )
@@ -284,7 +284,7 @@ describe "Homepage", type: :system do
                 static_page_topic2_page1.title["en"],
                 href: "/pages/#{static_page_topic2_page1.slug}"
               )
-              expect(page).to have_no_link(
+              expect(page).not_to have_link(
                 static_page_topic2_page2.title["en"],
                 href: "/pages/#{static_page_topic2_page2.slug}"
               )

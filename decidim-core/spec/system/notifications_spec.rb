@@ -52,7 +52,7 @@ describe "Notifications", type: :system do
 
       it "the button is not shown as active" do
         within ".main-bar" do
-          expect(page).to have_no_selector("[data-unread-items]")
+          expect(page).not_to have_selector("[data-unread-items]")
         end
       end
     end
@@ -106,7 +106,7 @@ describe "Notifications", type: :system do
         expect(page).to have_content("No notifications yet")
 
         within ".main-bar" do
-          expect(page).to have_no_selector("[data-unread-items]")
+          expect(page).not_to have_selector("[data-unread-items]")
         end
       end
     end
