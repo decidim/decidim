@@ -1038,6 +1038,8 @@ en:
       index:
         last_activity: Last activity
       name: Last activities
+    linked_resource_from:
+      included_in: Included in
     links:
       invalid_url: Invalid URL
       warning:

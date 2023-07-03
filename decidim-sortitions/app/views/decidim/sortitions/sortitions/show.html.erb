@@ -16,7 +16,7 @@ edit_link(
 <%= append_javascript_pack_tag "decidim_sortitions" %>
 <%= append_stylesheet_pack_tag "decidim_sortitions" %>
 
-<%= render layout: "layouts/decidim/shared/layout_item", locals: { back_path: :sortitions, commentable: sortition } do %>
+<%= render layout: "layouts/decidim/shared/layout_item" do %>
   <% announcement_body = capture do %>
     <%= t("introduction", scope: "decidim.sortitions.sortitions.show", reference: sortition.id, target_items: sortition.target_items) %>
   <% end %>
@@ -51,7 +51,7 @@ edit_link(
       <%= t("proposals_selected_by_sortition", scope: "decidim.sortitions.sortitions.show") %>
     </h3>
     <div id="proposals">
-      <%= render partial: "proposal", collection: sortition.proposals %>
+      <%= render partial: "proposal", collection: sortition.proposals, locals: { sortition: sortition } %>
     </div>
   <% end %>
 

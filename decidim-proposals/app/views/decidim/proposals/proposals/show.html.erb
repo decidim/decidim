@@ -31,7 +31,7 @@ extra_admin_link(
 <% end %>
 
 <%# REDESIGN_PENDING: define nav_paths %>
-<%= render layout: "layouts/decidim/shared/layout_item", locals: { back_path: component_settings.participatory_texts_enabled? ? main_component_path(current_component) : proposals_path } do %>
+<%= render layout: "layouts/decidim/shared/layout_item" do %>
 
   <div class="proposal__container">
 

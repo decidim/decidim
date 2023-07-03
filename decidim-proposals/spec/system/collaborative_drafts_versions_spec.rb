@@ -49,11 +49,6 @@ describe "Explore versions", versioning: true, type: :system do
     # REDESIGN_PENDING: The accessibility should be tested after complete redesign
     # it_behaves_like "accessible page"
 
-    it "allows going back to the collaborative draft" do
-      click_link "Back"
-      expect(page).to have_current_path collaborative_draft_path
-    end
-
     it "shows the version author and creation date" do
       skip_unless_redesign_enabled("this test pass using redesigned version_author cell")
 
