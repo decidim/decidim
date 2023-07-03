@@ -11,13 +11,13 @@ module Decidim
       # @param token [String] token for GitHub authentication
       # @param days_to_check_from [Integer] the number of days from when we will start the check
       # @param label [String] the label that we want to search by
-      # @param exclude_label [String] the label that we want to exclude in the search
+      # @param exclude_labels [Array] the labels that we want to exclude in the search
       #
       # @see https://docs.github.com/en/rest/issues/issues#list-repository-issues GitHub API documentation
       class ByLabel < Decidim::GithubManager::Querier::Base
-        def initialize(token:, days_to_check_from: 90, label: "type: fix", exclude_label: "backport")
+        def initialize(token:, days_to_check_from: 90, label: "type: fix", exclude_labels: ["backport", "no-backport"])
           @label = label
-          @exclude_label = exclude_label
+          @exclude_labels = exclude_labels
           @token = token
           @days_to_check_from = days_to_check_from
         end
@@ -31,7 +31,7 @@ module Decidim
 
         private
 
-        attr_reader :label, :exclude_label, :days_to_check_from
+        attr_reader :label, :exclude_labels, :days_to_check_from
 
         def headers
           {
@@ -42,16 +42,14 @@ module Decidim
           }
         end
 
-        def uri
-          "https://api.github.com/repos/decidim/decidim/issues"
-        end
+        def uri = "https://api.github.com/repos/decidim/decidim/issues"
 
         # Parses the response of an Issue or Pull Request in GitHub
         #
         # @return [Hash]
         def parse(metadata)
           metadata.map do |item|
-            next if has_backport_label?(item)
+            next if has_any_of_excluded_labels?(item)
 
             {
               id: item["number"],
@@ -60,8 +58,8 @@ module Decidim
           end.compact
         end
 
-        def has_backport_label?(item)
-          item["labels"].map { |label| label.map { |_key, val| val == exclude_label } }.flatten.any? true
+        def has_any_of_excluded_labels?(item)
+          item["labels"].map { |label| label.map { |_key, val| exclude_labels.include?(val) } }.flatten.any? true
         end
       end
     end
