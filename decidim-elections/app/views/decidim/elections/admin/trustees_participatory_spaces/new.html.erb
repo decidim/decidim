@@ -1,3 +1,4 @@
+<% add_decidim_page_title(t("new_trustee", scope: "decidim.admin.titles")) %>
 <%= decidim_form_for(@form, url: trustees_path, html: { class: "form new_trustee" }) do |f| %>
   <%= render partial: "form", object: f, locals: { title: t(".title") } %>
 

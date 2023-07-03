@@ -26,6 +26,9 @@ en:
         other: Projects
   decidim:
     admin:
+      titles:
+        budgets: Budgets
+        new_budget: New budget
       filters:
         projects:
           category_id_eq:

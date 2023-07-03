@@ -1046,6 +1046,10 @@ en:
         statistics: Activity
         user_groups: Groups
         users: Administrators
+        edit_content_block: Edit content block
+        edit_landing_page: Edit landing page
+        components: Components
+        new_component: New component
       user_group:
         csv_verify:
           invalid: There was a problem reading the CSV file.

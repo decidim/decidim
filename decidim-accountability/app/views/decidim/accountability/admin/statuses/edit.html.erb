@@ -1,3 +1,4 @@
+<% add_decidim_page_title(translated_attribute(@status.key)) %>
 <%= decidim_form_for(@form, html: { class: "form edit_status" }) do |f| %>
   <%= render partial: "form", object: f, locals: { title: t(".title") } %>
 

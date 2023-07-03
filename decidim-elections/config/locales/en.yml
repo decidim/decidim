@@ -108,6 +108,14 @@ en:
         other: Votings
   decidim:
     admin:
+      titles:
+        elections: Elections
+        new_election: New election
+        census: Census
+        trustees: Trustees
+        new_trustee: New trustee
+        ballot_styles: Ballot styles
+        new_ballot_style: New ballot style
       filters:
         officers_assigned_eq:
           label: Officers

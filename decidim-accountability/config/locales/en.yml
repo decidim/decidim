@@ -257,6 +257,12 @@ en:
             label: Scope
           status_id_eq:
             label: Status
+      titles:
+          new_result: New result
+          statuses: Statuses
+          new_status: New status
+          new_CSV_import: New CSV import
+          import_projects: Import projects
     components:
       accountability:
         actions:
