@@ -35,15 +35,14 @@ As the Bulletin Board service is a necessary dependency for this module to work,
 > Failure/Error: Decidim::Elections.bulletin_board.reset_test_database
 >
 > StandardError:
->   Sorry, something went wrong
+> Sorry, something went wrong
 >
-> # ./spec/shared/test_bulletin_board_shared_context.rb:6:in `block (2 levels) in <top (required)>'
+> ./spec/shared/test_bulletin_board_shared_context.rb:6:in 'block (2 levels) in <top (required)>'
 > (...)
-> # ------------------
-> # --- Caused by: ---
-> # Errno::ECONNREFUSED:
-> #   Connection refused - connect(2) for 127.0.0.1:5017
-> #   ./spec/shared/test_bulletin_board_shared_context.rb:6:in `block (2 levels) in <top (required)>'
+> -- Caused by:
+> Errno::ECONNREFUSED:
+> Connection refused - connect(2) for 127.0.0.1:5017
+> ./spec/shared/test_bulletin_board_shared_context.rb:6:in 'block (2 levels) in <top (required)>'
 
 ## Installation
 
