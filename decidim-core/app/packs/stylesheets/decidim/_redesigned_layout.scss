@@ -25,7 +25,7 @@
     @apply col-span-12 lg:col-start-2 lg:col-span-10;
   }
 
-  footer{
+  footer {
     @apply mb-12;
   }
 }
@@ -85,24 +85,24 @@
 .layout-main__section + .layout-main__section,
 .layout-aside__section + .layout-aside__section,
 .layout-item__main ~ .layout-item__main,
-.layout-item__aside--footer > * + *{
+.layout-item__aside--footer > * + * {
   --vertical-spacing: 2.5rem;
 
   @apply mt-[var(--vertical-spacing)];
 }
 
-.layout-main__heading{
+.layout-main__heading {
   @apply space-y-8;
 }
 
-.layout-author{
+.layout-author {
   @apply flex items-center gap-4;
 }
 
-.layout-aside__buttons{
+.layout-aside__buttons {
   @apply space-y-4;
 }
 
-.layout-main__buttons{
+.layout-main__buttons {
   @apply flex gap-x-1 items-center;
 }

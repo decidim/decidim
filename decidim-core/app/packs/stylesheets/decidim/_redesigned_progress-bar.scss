@@ -28,15 +28,15 @@
     @apply text-sm text-gray-2 first-letter:uppercase;
   }
 
-  &__sm{
+  &__sm {
     @apply w-16;
   }
 
-  &__sm &__number{
+  &__sm &__number {
     @apply text-gray-2 font-normal text-sm;
   }
 
-  &__sm &__units{
+  &__sm &__units {
     @apply hidden;
   }
 }
