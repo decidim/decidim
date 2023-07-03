@@ -37,13 +37,11 @@ describe "Search", type: :system do
       visit decidim.root_path
 
       click_button(id: "dc-dialog-accept")
-      within ".main-bar__links-mobile" do
-        find("a[href*='search']").click
-      end
+      click_button(id: "dropdown-trigger-links-mobile-search")
     end
 
     it "shows the mobile version of the search form" do
-      expect(page).to have_css("#input-search")
+      expect(page).to have_css("#input-search-mobile")
     end
   end
 end
