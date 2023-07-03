@@ -24,8 +24,6 @@ module Decidim
     # @return [void]
     def call
       metadata = pull_request_metadata
-      raise InvalidMetadataError unless metadata
-
       make_cherrypick_and_branch(metadata)
       create_pull_request(metadata)
       Decidim::GitBackportManager.checkout_develop

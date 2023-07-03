@@ -12,6 +12,8 @@ module Decidim
       # - uri
       # @see https://docs.github.com/en/rest
       class Base
+        class InvalidMetadataError < StandardError; end
+
         def initialize(token:)
           @token = token
         end
@@ -37,7 +39,10 @@ module Decidim
         end
 
         def json_response
-          JSON.parse(response.body)
+          json = JSON.parse(response.body)
+          raise InvalidMetadataError if json.is_a?(Hash) && json["message"] == "Bad credentials"
+
+          json
         end
       end
     end
