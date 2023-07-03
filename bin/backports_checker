@@ -23,7 +23,6 @@ class BackportsCheckerCLI < Thor
       days_to_check_from: options[:days_to_check_from]
     )
     checker.call
-    puts checker.csv_report
     puts checker.cli_report
   rescue Decidim::GithubManager::Querier::Base::InvalidMetadataError
     puts "Metadata was not returned from the server. Please check that the provided GitHub token is correct."
