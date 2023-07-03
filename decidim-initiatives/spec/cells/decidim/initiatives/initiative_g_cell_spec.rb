@@ -23,18 +23,18 @@ module Decidim::Initiatives
       let(:show_space) { false }
 
       it "renders the card" do
-        expect(subject).to have_css(".card__grid")
+        expect(subject).to have_css("[id^=initiative]")
       end
 
       shared_examples_for "card shows signatures" do
         it "shows signatures" do
-          expect(subject).to have_css(".progress-bar__units")
+          expect(subject).to have_css("[data-progress-bar]")
         end
       end
 
       shared_examples_for "card does not show signatures" do
         it "does not show signatures" do
-          expect(subject.to_s).not_to include("signatures")
+          expect(subject).not_to have_css("[data-progress-bar]")
         end
       end
 

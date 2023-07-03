@@ -14,7 +14,7 @@ end
   ) %>
 <% end %>
 
-<%= render layout: "layouts/decidim/shared/layout_item", locals: { back_path: versioned_resource.is_a?(Decidim::Proposals::CollaborativeDraft) ? collaborative_draft_path(versioned_resource) : proposal_path(versioned_resource) } do %>
+<%= render layout: "layouts/decidim/shared/layout_item" do %>
   <%= cell(
     "decidim/version",
     current_version,

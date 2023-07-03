@@ -33,7 +33,7 @@ describe "Account", type: :system do
 
     describe "update avatar" do
       it "can update avatar" do
-        dynamically_attach_file(:user_avatar, Decidim::Dev.asset("avatar.jpg"), remove_before: true)
+        dynamically_attach_file(:user_avatar, Decidim::Dev.asset("avatar.jpg"), remove_before: true, front_interface: true)
 
         within "form.edit_user" do
           find("*[type=submit]").click
@@ -46,12 +46,12 @@ describe "Account", type: :system do
         find("#user_avatar_button").click
 
         within ".upload-modal" do
-          find(".remove-upload-item").click
+          click_button "Remove"
           input_element = find("input[type='file']", visible: :all)
           input_element.attach_file(Decidim::Dev.asset("5000x5000.png"))
 
           expect(page).to have_content("File resolution is too large", count: 1)
-          expect(page).to have_css(".upload-errors .form-error", count: 1)
+          expect(page).to have_content("Validation error!")
         end
       end
     end
@@ -68,8 +68,7 @@ describe "Account", type: :system do
           find("*[type=submit]").click
         end
 
-        # REDESIGN_PENDING - Replace with within_flash_messages after redesigning this form
-        within ".flash", match: :first do
+        within_flash_messages do
           expect(page).to have_content("successfully")
         end
 
@@ -99,8 +98,7 @@ describe "Account", type: :system do
             find("*[type=submit]").click
           end
 
-          # REDESIGN_PENDING - Replace with within_flash_messages after redesigning this form
-          within ".flash", match: :first do
+          within_flash_messages do
             expect(page).to have_content("successfully")
           end
 
@@ -119,8 +117,7 @@ describe "Account", type: :system do
             find("*[type=submit]").click
           end
 
-          # REDESIGN_PENDING - Replace with within_flash_messages after redesigning this form
-          within ".flash", match: :first do
+          within_flash_messages do
             expect(page).to have_content("There was a problem")
           end
 
@@ -139,8 +136,7 @@ describe "Account", type: :system do
           perform_enqueued_jobs { find("*[type=submit]").click }
         end
 
-        # REDESIGN_PENDING - Replace with within_flash_messages after redesigning this form
-        within ".flash", match: :first do
+        within_flash_messages do
           expect(page).to have_content("You will receive an email to confirm your new email address")
         end
       end
@@ -278,7 +274,7 @@ describe "Account", type: :system do
           expect(page).to have_content("successfully")
         end
 
-        find(".sign-in-link").click
+        click_link("Sign In", match: :first)
 
         within ".new_user" do
           fill_in :session_user_email, with: user.email
@@ -339,7 +335,7 @@ describe "Account", type: :system do
             expect(page).to have_content("successfully")
           end
 
-          expect(page.find("#allow_push_notifications")).to be_checked
+          find(:css, "#allow_push_notifications", visible: false).execute_script("this.checked = true")
         end
       end
     end

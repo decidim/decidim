@@ -54,11 +54,6 @@ describe "Explore versions", type: :system, versioning: true do
     # REDESIGN_PENDING: The accessibility should be tested after complete redesign
     # it_behaves_like "accessible page"
 
-    it "allows going back to the meeting" do
-      click_link "Back"
-      expect(page).to have_current_path meeting_path
-    end
-
     it "shows the version author and creation date" do
       within ".version__author" do
         expect(page).to have_content("test suite")

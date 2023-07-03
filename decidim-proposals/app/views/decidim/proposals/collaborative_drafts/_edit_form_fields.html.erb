@@ -20,7 +20,6 @@
 <% end %>
 
 <% if @form.geocoding_enabled? %>
-  <%= form.label :has_address %>
   <%= form.geocoding_field :address %>
 <% end %>
 

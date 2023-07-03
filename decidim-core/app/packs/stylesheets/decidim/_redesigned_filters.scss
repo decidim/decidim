@@ -32,16 +32,16 @@
 
     input[type="checkbox"],
     input[type="radio"] {
-      @apply w-3.5 h-3.5 relative z-[10];
+      @apply w-3.5 h-3.5 relative z-10;
 
       &:checked,
       &:indeterminate {
-        @apply accent-primary;
+        @apply accent-secondary;
       }
 
       &:checked {
         + span {
-          @apply text-primary font-semibold relative z-[10];
+          @apply text-secondary font-semibold relative z-10;
         }
 
         + span + span {

@@ -48,11 +48,6 @@ describe "Explore versions", type: :system, versioning: true do
       click_link "Version 2 of 2"
     end
 
-    it "allows going back to the result" do
-      click_link "Back"
-      expect(page).to have_current_path result_path
-    end
-
     it "shows the version author and creation date" do
       within ".version__author" do
         expect(page).to have_content("test suite")

@@ -1,7 +1,7 @@
-<div class="proposal__actions">
-  <div>
-    <%= cell "decidim/comments_button", nil %>
-  </div>
+<section class="layout-main__section layout-main__buttons" data-buttons>
+  <%= cell "decidim/comments_button", nil %>
 
-  <%= cell "decidim/tags", @collaborative_draft %>
-</div>
+  <div class="ml-auto">
+    <%= cell "decidim/tags", @collaborative_draft %>
+  </div>
+</section>

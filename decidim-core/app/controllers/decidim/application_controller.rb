@@ -22,6 +22,7 @@ module Decidim
     include UserBlockedChecker
     include DisableRedirectionToExternalHost
     include NeedsPasswordChange
+    include LinkedResourceReference
 
     include RedesignLayout
     redesign active: true

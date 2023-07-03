@@ -9,19 +9,11 @@ module Decidim
       end
     end
 
-    def within_user_menu
-      main_bar_selector = Decidim.redesign_active ? ".main-bar" : ".topbar__user__logged"
+  def within_user_menu
+    main_bar_selector = ".main-bar"
 
-      within main_bar_selector do
-        if Decidim.redesign_active
-          find("#trigger-dropdown-account").click
-        else
-          find("a", text: user.name).click
-        end
-
-        yield
-      end
-    end
+    within main_bar_selector do
+      find("#trigger-dropdown-account").click
 
     def within_language_menu(options = {})
       within(options.fetch(:admin, !Decidim.redesign_active) ? ".topbar__dropmenu.language-choose" : "footer details") do
@@ -41,7 +33,7 @@ module Decidim
     end
 
     def expect_user_logged
-      expect(page).to have_css(".topbar__user__logged")
+      expect(page).to have_css(".main-bar #trigger-dropdown-account")
     end
 
     def have_admin_callout(text)

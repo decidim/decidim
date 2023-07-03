@@ -6,6 +6,7 @@ module Decidim
     #
     module ApplicationHelper
       include Decidim::CheckBoxesTreeHelper
+      include Decidim::DateRangeHelper
       include InitiativesHelper
 
       def filter_states_values

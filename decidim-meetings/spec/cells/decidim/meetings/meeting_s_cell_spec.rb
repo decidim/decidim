@@ -3,16 +3,18 @@
 require "spec_helper"
 
 module Decidim::Meetings
-  describe MeetingListItemCell, type: :cell do
+  describe MeetingSCell, type: :cell do
+    controller Decidim::Meetings::MeetingsController
     include Decidim::SanitizeHelper
+
     subject { my_cell.call }
 
     let!(:meeting) { create(:meeting, :published) }
-    let(:my_cell) { cell("decidim/meetings/meeting_list_item", meeting) }
+    let(:my_cell) { cell("decidim/meetings/meeting_s", meeting) }
 
     context "when rendering" do
       it "renders the card" do
-        expect(subject).to have_css(".card--list__item")
+        expect(subject).to have_css("#meeting_#{meeting.id}.card__search")
       end
     end
 

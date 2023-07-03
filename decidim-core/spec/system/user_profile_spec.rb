@@ -64,6 +64,7 @@ describe "Profile", type: :system do
       end
 
       it "shows officialization status" do
+        click_link "Badges"
         expect(page).to have_content("Major of Barcelona")
       end
     end
@@ -83,7 +84,6 @@ describe "Profile", type: :system do
       end
 
       it "shows the number of followers and following" do
-        visit decidim.profile_path(user.nickname)
         visit decidim.profile_path(user.nickname)
         within(".profile__details") do
           expect(page).to have_content("1 follower")

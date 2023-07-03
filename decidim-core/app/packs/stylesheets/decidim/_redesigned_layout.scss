@@ -6,16 +6,12 @@
   }
 
   [data-content] {
-    @apply min-h-[60vh] relative flex flex-col [&>*]:grow;
-  }
-
-  footer {
-    @apply mb-12 lg:mb-0;
+    @apply min-h-[60vh] relative flex flex-col;
   }
 }
 
 .layout-1col {
-  @apply container grid grid-cols-12 mb-12 md:mb-32;
+  @apply container grid grid-cols-12 mb-12 md:mb-32 grow;
 
   &.cols-6 > * {
     @apply col-span-12 md:col-start-3 md:col-span-8 lg:col-start-4 lg:col-span-6;
@@ -28,10 +24,14 @@
   &.cols-10 > * {
     @apply col-span-12 lg:col-start-2 lg:col-span-10;
   }
+
+  footer{
+    @apply mb-12;
+  }
 }
 
 .layout-2col {
-  @apply md:grid grid-cols-12 container;
+  @apply md:grid grid-cols-12 container grow;
 
   &__aside {
     @apply col-span-3 md:pr-16 py-6 md:py-12 gap-6 md:gap-12 flex flex-col justify-between items-start md:justify-start before:content-[''] before:absolute before:top-0 before:left-0 before:h-full before:w-1/2 before:-z-10 md:before:bg-background;
@@ -80,4 +80,29 @@
       @apply w-8 h-8 text-secondary fill-current;
     }
   }
+}
+
+.layout-main__section + .layout-main__section,
+.layout-aside__section + .layout-aside__section,
+.layout-item__main ~ .layout-item__main,
+.layout-item__aside--footer > * + *{
+  --vertical-spacing: 2.5rem;
+
+  @apply mt-[var(--vertical-spacing)];
+}
+
+.layout-main__heading{
+  @apply space-y-8;
+}
+
+.layout-author{
+  @apply flex items-center gap-4;
+}
+
+.layout-aside__buttons{
+  @apply space-y-4;
+}
+
+.layout-main__buttons{
+  @apply flex gap-x-1 items-center;
 }

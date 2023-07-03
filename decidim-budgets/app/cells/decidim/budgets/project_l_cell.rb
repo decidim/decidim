@@ -15,7 +15,7 @@ module Decidim
       private
 
       def resource_path
-        resource_locator([project.budget, project]).path
+        resource_locator([project.budget, project]).path(url_extra_params)
       end
 
       def resource_added?

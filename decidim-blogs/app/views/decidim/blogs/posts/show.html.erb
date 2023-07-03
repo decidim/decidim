@@ -32,7 +32,7 @@
   <div class="blog__container">
     <%= cell "decidim/author", post_presenter.author, from: post, context_actions: [:date], layout: :compact %>
 
-    <div class="blog__text">
+    <div class="editor-content">
       <%= decidim_sanitize_editor_admin translated_attribute post.body %>
     </div>
 

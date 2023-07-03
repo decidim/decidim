@@ -20,8 +20,6 @@ describe "Notifications", type: :system do
     end
 
     it "has a button on the topbar nav that links to the notifications page" do
-      skip_unless_redesign_enabled
-
       find("#trigger-dropdown-account").click
       within "#dropdown-menu-account" do
         click_link("Notifications")
@@ -39,8 +37,6 @@ describe "Notifications", type: :system do
       end
 
       it "displays nothing" do
-        skip_unless_redesign_enabled
-
         find("#trigger-dropdown-account").click
         within "#dropdown-menu-account" do
           click_link("Notifications")
@@ -55,29 +51,16 @@ describe "Notifications", type: :system do
       let!(:notification) { nil }
 
       it "the button is not shown as active" do
-        if Decidim.redesign_active
-          within ".main-bar" do
-            expect(page).not_to have_selector("[data-unread-items]")
-          end
-        else
-          within ".topbar__user__logged" do
-            expect(page).not_to have_selector("a.topbar__notifications.is-active")
-            expect(page).to have_selector("a.topbar__notifications")
-          end
+        within ".main-bar" do
+          expect(page).to have_no_selector("[data-unread-items]")
         end
       end
     end
 
     context "when there are some notifications" do
       it "the button is shown as active" do
-        if Decidim.redesign_active
-          within ".main-bar" do
-            expect(page).to have_selector("[data-unread-items]")
-          end
-        else
-          within ".topbar__user__logged" do
-            expect(page).to have_selector("a.topbar__notifications.is-active")
-          end
+        within ".main-bar" do
+          expect(page).to have_selector("[data-unread-items]")
         end
       end
     end
@@ -118,21 +101,12 @@ describe "Notifications", type: :system do
 
     context "when setting all notifications as read" do
       it "hides all notifications from the page" do
-        skip_unless_redesign_enabled
-
         click_link "Mark all as read"
         expect(page).not_to have_selector("[data-notification]")
         expect(page).to have_content("No notifications yet")
 
-        if Decidim.redesign_active
-          within ".main-bar" do
-            expect(page).not_to have_selector("[data-unread-items]")
-          end
-        else
-          within ".title-bar" do
-            expect(page).to have_css(".topbar__notifications")
-            expect(page).not_to have_css(".topbar__notifications.is-active")
-          end
+        within ".main-bar" do
+          expect(page).to have_no_selector("[data-unread-items]")
         end
       end
     end

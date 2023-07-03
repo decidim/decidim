@@ -67,8 +67,8 @@ describe "Initiative", type: :system do
 
         it "displays collection period" do
           within ".initiatives__card__grid-metadata-dates" do
-            expect(page).to have_content(1.day.ago.strftime("%Y-%m-%d"))
-            expect(page).to have_content(1.day.from_now.strftime("%Y-%m-%d"))
+            expect(page).to have_content(1.day.ago.strftime("%d %b"))
+            expect(page).to have_content(1.day.from_now.strftime("%d %b"))
           end
         end
       end

@@ -3,16 +3,24 @@
     @apply md:mt-12;
   }
 
-  .add-comment .remaining-character-count {
-    @apply block text-right text-sm text-gray-2;
-  }
+  .add-comment {
+    @apply mt-12;
 
-  .add-comment .form__wrapper {
-    @apply pt-0;
+    .remaining-character-count {
+      @apply block text-right text-sm text-gray-2;
+    }
+
+    .form__wrapper {
+      @apply pt-0;
+    }
   }
 
   &__header {
     @apply flex flex-col md:flex-row md:items-center gap-x-2 mb-4;
+  }
+
+  .author__avatar-container {
+    @apply w-8 h-8;
   }
 
   .tribute-container {
@@ -58,10 +66,10 @@
 }
 
 .comment {
-  @apply rounded-lg border-2 border-background p-4 pl-6;
+  @apply rounded-lg border-2 border-background p-3 pl-6;
 
   &__header {
-    @apply flex items-center gap-x-2 mb-2 -ml-[calc(1.5rem+.75rem)] relative;
+    @apply flex items-center gap-x-2 mb-2 -ml-10 relative;
 
     a[href^="/profile"] > span:first-child {
       @apply z-10;
@@ -83,7 +91,7 @@
   }
 
   &__footer-grid {
-    @apply grid grid-cols-2 items-center mt-2;
+    @apply grid grid-cols-2 items-center mt-4;
   }
 
   &-reply {
@@ -102,7 +110,7 @@
 
   &-reply &,
   & &-reply {
-    @apply border-0 pr-0;
+    @apply border-0 pr-0 mt-4;
   }
 
   &-thread {
@@ -309,5 +317,9 @@
   &__deleted,
   &__moderated {
     @apply font-bold;
+  }
+
+  .comment__content > *{
+    @apply text-md;
   }
 }

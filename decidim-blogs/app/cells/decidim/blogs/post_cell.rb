@@ -16,6 +16,8 @@ module Decidim
         case @options[:size]
         when :m
           "decidim/blogs/post_m"
+        when :s
+          "decidim/blogs/post_s"
         when :g
           "decidim/blogs/post_g"
         else
