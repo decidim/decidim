@@ -15,8 +15,8 @@ module Decidim
         before_action :ensure_configured_bulletin_board!
 
         register_permissions(::Decidim::Elections::TrusteeZone::ApplicationController,
-                             ::Decidim::Admin::Permissions,
                              ::Decidim::Elections::Permissions,
+                             ::Decidim::Admin::Permissions,
                              ::Decidim::Permissions)
 
         private
