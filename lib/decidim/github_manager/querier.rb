@@ -3,6 +3,10 @@
 require "faraday"
 require "json"
 
+require_relative "querier/by_issue_id"
+require_relative "querier/by_label"
+require_relative "querier/related_issues"
+
 module Decidim
   module GithubManager
     # Allows to make GET requests to GitHub Rest API about Issues and Pull Requests
