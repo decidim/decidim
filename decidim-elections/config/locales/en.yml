@@ -677,13 +677,13 @@ en:
           text: Something went wrong, please try it again.
           try_again: Try again
         header:
-          casting: Casting the vote
-          confirmed: Vote confirmed
-          confirm: Confirm
           ballot_decision: Cast
+          casting: Casting the vote
+          confirm: Confirm
+          confirmed: Vote confirmed
+          election: Election
           failed: Vote failed
           register: Register
-          election: Election
           vote_for: Vote for %{title}
         messages:
           invalid_token: Your session in the voting booth is not valid. Try to vote again.
