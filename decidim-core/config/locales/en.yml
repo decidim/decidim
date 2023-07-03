@@ -1546,6 +1546,7 @@ en:
       index:
         conversations_info: Conversations are private. no one else can see them. A conversation can be started with any participant or group registered on the platform.
         no_conversations_warning: There are no conversations yet.
+        time_ago: "%{time} ago"
       reply:
         placeholder: Your reply...
         send: Send
