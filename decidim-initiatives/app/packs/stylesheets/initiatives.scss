@@ -99,50 +99,28 @@
 
   &__aside{
     @apply md:px-6 md:pb-6 w-full;
-  }
 
-  &__aside__element{
-    @apply mb-6 md:mb-20;
-
-    .profile__user-nick,
-    .profile__user-role{
-      @apply hidden;
-    }
-
-    .participatory-space__nav-container{
-      @apply ml-0;
-    }
-
-    .author{
-      @apply mb-6;
-    }
-
-    .profile__user-avatar-container{
-      @apply w-6 h-6;
-    }
-
-    .profile__user-name{
-      @apply text-sm ml-2;
-    }
-  }
-
-  &__nav{
-    @apply divide-y divide-white [&>li]:py-3.5 first:[&>li]:pt-0 last:[&>li]:pb-0;
-
-    &-container{
-      @apply ml-0 bg-primary p-3 md:p-6 rounded w-full md:w-auto self-stretch;
-
-      [id*="dropdown-menu"]{
-        @apply mx-0;
+    .layout-aside__section{
+      .profile__user-nick,
+      .profile__user-role{
+        @apply hidden;
       }
 
-      [data-target*="dropdown"]{
-        @apply p-0 [&>span]:text-white [&>svg]:text-white;
+      .participatory-space__nav-container{
+        @apply ml-0;
       }
-    }
 
-    &-item{
-      @apply flex items-center gap-1 text-white font-semibold hover:underline [&>svg]:fill-current;
+      .author{
+        @apply mb-6;
+      }
+
+      .profile__user-avatar-container{
+        @apply w-6 h-6;
+      }
+
+      .profile__user-name{
+        @apply text-sm ml-2;
+      }
     }
   }
 
@@ -167,11 +145,7 @@
   }
 
   &__aside__element__signature{
-    @apply mb-6 md:mb-20 bg-white rounded md:py-4 md:px-6;
-  }
-
-  &__aside__element__initiative__data{
-    @apply mb-6 md:mb-12;
+    @apply bg-white rounded md:py-4 md:px-6;
   }
 
   &__aside__element__signature-title{

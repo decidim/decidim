@@ -28,7 +28,7 @@
 
 /* default styles for those dynamic text blocks */
 .editor-content{
-  @apply prose max-w-full text-gray-2 text-lg prose-a:text-secondary break-words;
+  @apply prose max-w-full text-gray-2 text-lg prose-a:text-secondary break-words prose-ul:pl-4;
 
   iframe{
     @apply w-full block max-w-[600px] max-h-[70vh] h-[450px] my-10 mx-auto;

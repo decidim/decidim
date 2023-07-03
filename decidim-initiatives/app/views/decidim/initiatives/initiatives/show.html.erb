@@ -19,32 +19,32 @@ edit_link(
 <% add_decidim_page_title(translated_attribute(current_initiative.title)) %>
 
 <%= content_for :aside do %>
-  <div class="initiative__aside">
+  <section class="initiative__aside">
     <% if current_initiative.published? || current_initiative.rejected? || current_initiative.accepted? || current_initiative.discarded? %>
       <% if current_initiative.votes_enabled? %>
-        <div class="initiative__aside__element" id="initiative-<%= current_initiative.id %>-vote-cabin">
+        <section class="layout-aside__section layout-aside__buttons" id="initiative-<%= current_initiative.id %>-vote-cabin">
           <%= render partial: "vote_cabin", locals: { initiative: current_initiative } %>
-        </div>
+        </section>
       <% end %>
     <% else %>
-      <div class="initiative__aside__element">
+      <section class="layout-aside__section layout-aside__buttons">
         <%= link_to t(".edit"),
             edit_initiative_path(current_initiative),
             class: "button button__xl w-full button__secondary" %>
         <%= render partial: "send_to_technical_validation", locals: { title: t(".send_to_technical_validation"), confirm: t(".confirm") } %>
-      </div>
+      </section>
     <% end %>
 
-    <div class="initiative__aside__element">
+    <section class="layout-aside__section">
       <%= render partial: "progress_bar" %>
-    </div>
+    </section>
 
-    <div class="initiative__aside__element">
+    <section class="layout-aside__section">
       <%= cell("decidim/nav_links", initiative_nav_items(current_initiative)) %>
-    </div>
+    </section>
 
     <% if current_initiative.offline_signature_type? || current_initiative.online_signature_type? %>
-      <div class="initiative__aside__element__signature">
+      <section class="layout-aside__section initiative__aside__element__signature">
         <span class="initiative__aside__element__signature-title">
           <%= t("signature_collection", scope: "decidim.initiatives.initiatives.show") %>
         </span>
@@ -62,10 +62,10 @@ edit_link(
             </span>
           <% end %>
         </div>
-      </div>
+      </section>
     <% end %>
 
-    <div class="initiative__aside__element__initiative__data">
+    <section class="layout-aside__section">
       <div class="mb-6">
         <%= icon "apps-line", class: "fill-gray inline-block" %>
         <span class="initiative__aside__element-title">
@@ -114,10 +114,10 @@ edit_link(
           </span>
         </div>
       <% end %>
-    </div>
+    </section>
 
     <% if current_initiative.type.promoting_committee_enabled? && current_user&.admin? %>
-      <div class="initiative__aside__element">
+      <div class="layout-aside__section">
         <div class="initiative__aside__element__committee">
           <%= icon "account-circle-line", class: "fill-gray inline-block" %>
           <span class="ml-2 initiative__aside__element-title">
@@ -143,41 +143,51 @@ edit_link(
             </div>
           <% end %>
       </div>
+    <% end %>
+  </section>
+<% end %>
+
+<section class="layout-main__section layout-main__heading">
+  <h2 class="h2 decorator">
+    <%= translated_attribute(current_initiative.title) %>
+  </h2>
+</section>
+
+<section class="layout-main__section">
+  <div class="content-block__description">
+    <div class="editor-content">
+      <%= decidim_sanitize_editor translated_attribute(current_initiative.description) %>
+    </div>
+  </div>
+</section>
+
+<section class="layout-main__section">
+  <% if tabs.any? %>
+    <div class="mt-8" data-component="accordion" data-multiselectable="false" data-collapsible="false">
+      <ul class="tab-x-container">
+        <% tabs.each_with_index do |tab, i| %>
+          <li>
+            <button id="trigger-<%= tab[:id] %>" class="tab-x" data-controls="panel-<%= tab[:id] %>" data-open="<%= "true" if i == 0 %>">
+              <%= icon tab[:icon], class: "text-gray fill-current" %><%= tab[:text] %>
+            </button>
+          </li>
+        <% end %>
+      </ul>
+
+      <% panels.each do |panel| %>
+        <div id="panel-<%= panel[:id] %>" class="py-8">
+          <%= send(panel[:method], *panel[:args]) %>
+        </div>
+      <% end %>
     </div>
   <% end %>
-<% end %>
+</section>
 
-<h2 class="h2 decorator mb-4">
-  <%= translated_attribute(current_initiative.title) %>
-</h2>
+<section class="layout-main__section">
+  <%= render partial: "result", locals: { initiative: current_initiative } %>
+</section>
 
-<div class="content-block__description editor-content">
-  <%= decidim_sanitize_editor translated_attribute(current_initiative.description) %>
-</div>
-
-<% if tabs.any? %>
-  <div class="mt-8" data-component="accordion" data-multiselectable="false" data-collapsible="false">
-    <ul class="tab-x-container">
-      <% tabs.each_with_index do |tab, i| %>
-        <li>
-          <button id="trigger-<%= tab[:id] %>" class="tab-x" data-controls="panel-<%= tab[:id] %>" data-open="<%= "true" if i == 0 %>">
-            <%= icon tab[:icon], class: "text-gray fill-current" %><%= tab[:text] %>
-          </button>
-        </li>
-      <% end %>
-    </ul>
-
-    <% panels.each do |panel| %>
-      <div id="panel-<%= panel[:id] %>" class="py-8">
-        <%= send(panel[:method], *panel[:args]) %>
-      </div>
-    <% end %>
-  </div>
-<% end %>
-
-<%= render partial: "result", locals: { initiative: current_initiative } %>
-
-<div class="my-4 flex gap-x-1 items-center">
+<section class="layout-main__section layout-main__buttons" data-buttons>
   <% if current_initiative.commentable? && current_initiative.published? %>
     <%= cell "decidim/comments_button", nil %>
   <% end %>
@@ -187,10 +197,12 @@ edit_link(
       <%= render partial: "decidim/shared/follow_button", class: "text-center", locals: { followable: current_participatory_space, large: true } %>
     <% end %>
   </div>
-</div>
+</section>
 
-<%= comments_for current_initiative if current_initiative.commentable? && current_initiative.published? %>
-<ul class="drawer-metadata__container" data-metadata-footer>
-  <%= content_tag :li, resource_reference(current_initiative), class: "drawer-metadata__item" %>
-  <%= content_tag :li, resource_version(current_initiative, versions_path: initiative_version_path(current_initiative, current_initiative.versions.count)), class: "drawer-metadata__item" %>
-</ul>
+<section class="layout-main__section">
+  <%= comments_for current_initiative if current_initiative.commentable? && current_initiative.published? %>
+  <ul class="drawer-metadata__container layout-main__section" data-metadata-footer>
+    <%= content_tag :li, resource_reference(current_initiative), class: "drawer-metadata__item" %>
+    <%= content_tag :li, resource_version(current_initiative, versions_path: initiative_version_path(current_initiative, current_initiative.versions.count)), class: "drawer-metadata__item" %>
+  </ul>
+</section>

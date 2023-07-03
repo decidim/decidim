@@ -12,11 +12,9 @@
   <%= render partial: "collaborative_draft_aside" %>
 <% end %>
 
-<%# REDESIGN_PENDING: define nav_paths %>
-<%= render layout: "layouts/decidim/shared/layout_item" do %>
+<%= render layout: "layouts/decidim/shared/layout_item", locals: { back_path: collaborative_drafts_path } do %>
 
-  <div class="proposal__container">
-
+  <section class="layout-main__section layout-main__heading">
     <%= cell("decidim/announcement", t("info-message", scope: "decidim.proposals.collaborative_drafts.show").html_safe) if current_user.nil? || allowed_to?(:request_access, :collaborative_draft, collaborative_draft: @collaborative_draft) %>
 
     <h1 class="h2 decorator"><%= present(@collaborative_draft).title(links: true, html_escape: true) %></h1>
@@ -27,7 +25,7 @@
       </div>
     <% end %>
 
-    <div class="proposal__author">
+    <div class="layout-author">
       <%= cell "decidim/coauthorships", @collaborative_draft %>
 
       <% if @collaborative_draft.state %>
@@ -36,24 +34,27 @@
         </span>
       <% end %>
     </div>
+  </section>
 
+  <section class="layout-main__section">
     <div class="editor-content">
       <%= simple_format(present(@collaborative_draft).body(links: true, strip_tags: true), nil, sanitize: false) %>
     </div>
+  </section>
 
-    <%= render partial: "actions" %>
+  <%= attachments_for @collaborative_draft %>
 
-    <%= attachments_for @collaborative_draft %>
+  <%= render partial: "actions" %>
 
-    <% content_for :item_footer do %>
-      <%= comments_for @collaborative_draft %>
+  <% content_for :item_footer do %>
+    <%= comments_for @collaborative_draft %>
 
-      <div class="mt-8">
-        <ul class="drawer-metadata__container" data-metadata-footer>
-          <%= content_tag :li, resource_reference(@collaborative_draft), class: "drawer-metadata__item" %>
-          <%= content_tag :li, resource_version(@collaborative_draft, versions_path: collaborative_draft_version_path(@collaborative_draft, @collaborative_draft.versions.count)), class: "drawer-metadata__item" %>
-        </ul>
-      </div>
-    <% end %>
-  </div>
+    <div class="mt-8">
+      <ul class="drawer-metadata__container" data-metadata-footer>
+        <%= content_tag :li, resource_reference(@collaborative_draft), class: "drawer-metadata__item" %>
+        <%= content_tag :li, resource_version(@collaborative_draft, versions_path: collaborative_draft_version_path(@collaborative_draft, @collaborative_draft.versions.count)), class: "drawer-metadata__item" %>
+      </ul>
+    </div>
+  <% end %>
+
 <% end %>

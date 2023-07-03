@@ -1,8 +1,4 @@
 .meeting{
-  &__container{
-    @apply space-y-8;
-  }
-
   &__filter{
     &-container{
       @apply self-stretch;
@@ -118,12 +114,6 @@
   }
 
   &__aside{
-    @apply space-y-14;
-
-    &-button{
-      @apply space-y-4 mb-14;
-    }
-
     &-progress{
       @apply text-sm text-gray-2 text-center space-y-1;
 

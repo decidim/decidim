@@ -8,10 +8,6 @@
   [data-content]{
     @apply min-h-[60vh] relative flex flex-col;
   }
-
-  footer{
-    @apply mb-12 lg:mb-0;
-  }
 }
 
 .layout-1col{
@@ -27,6 +23,10 @@
 
   &.cols-10 > *{
     @apply col-span-12 lg:col-start-2 lg:col-span-10;
+  }
+
+  footer{
+    @apply mb-12;
   }
 }
 
@@ -80,4 +80,29 @@
       @apply w-8 h-8 text-secondary fill-current;
     }
   }
+}
+
+.layout-main__section + .layout-main__section,
+.layout-aside__section + .layout-aside__section,
+.layout-item__main ~ .layout-item__main,
+.layout-item__aside--footer > * + *{
+  --vertical-spacing: 2.5rem;
+
+  @apply mt-[var(--vertical-spacing)];
+}
+
+.layout-main__heading{
+  @apply space-y-8;
+}
+
+.layout-author{
+  @apply flex items-center gap-4;
+}
+
+.layout-aside__buttons{
+  @apply space-y-4;
+}
+
+.layout-main__buttons{
+  @apply flex gap-x-1 items-center;
 }
