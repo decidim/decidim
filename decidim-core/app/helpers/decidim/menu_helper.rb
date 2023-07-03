@@ -44,6 +44,14 @@ module Decidim
       )
     end
 
+    def menu_highlighted_participatory_process
+      @menu_highlighted_participatory_process ||= (
+        # The queries already include the order by weight
+        Decidim::ParticipatoryProcesses::OrganizationParticipatoryProcesses.new(current_organization) |
+        Decidim::ParticipatoryProcesses::PromotedParticipatoryProcesses.new
+      ).first
+    end
+
     def home_content_block_menu
       @home_content_block_menu ||= ::Decidim::MenuPresenter.new(
         :home_content_block_menu,

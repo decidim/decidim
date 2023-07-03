@@ -1,4 +1,4 @@
-<div id="<%= element_id %>" class="progress-bar__container" data-progress-bar>
+<div id="<%= element_id %>" class="progress-bar__container <%= options[:class] %>" data-progress-bar>
   <div class="progress-bar__number">
     <span><%= progress %></span>
     <%= content_tag :span, total if total != 0 %>

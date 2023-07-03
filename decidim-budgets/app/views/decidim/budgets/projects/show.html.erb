@@ -23,14 +23,14 @@ edit_link(
 
 <div id="project-item">
   <%= render partial: "budget_summary", locals: { include_heading: true, project_item: true, responsive: true } %>
-    <% content_for :item_header do %>
-      <% unless voting_finished? %>
-        <%= render partial: "budget_summary", locals: { include_heading: true, project_item: true, responsive: false } %>
-        <%= render partial: "budget_excess" %>
-        <%= render partial: "budget_confirm" %>
-      <% end %>
+  <% content_for :item_header do %>
+    <% unless voting_finished? %>
+      <%= render partial: "budget_summary", locals: { include_heading: true, project_item: true, responsive: false } %>
+      <%= render partial: "budget_excess" %>
+      <%= render partial: "budget_confirm" %>
     <% end %>
-    <%= render layout: "layouts/decidim/shared/layout_item", locals: { back_path: budget_projects_path(budget) } do %>
+  <% end %>
+  <%= render layout: "layouts/decidim/shared/layout_item", locals: { back_path: budget_projects_path(budget) } do %>
     <section class="layout-main__section layout-main__heading">
       <%= cell("decidim/budgets/budget_information_modal", budget) %>
       <%= cell("decidim/budgets/limit_announcement", budget) %>

@@ -2,13 +2,7 @@
   <div class="initiatives__card__grid-metadata-dates">
     <div class="flex items-center text-center justify-center">
       <%= icon "calendar-line", class: "fill-gray mr-1" %>
-      <span class="text-sm">
-        <%= l(initiative.signature_start_date, format: :default) %>
-      </span>
-      <%= icon "arrow-right-line", class: "fill-gray mx-1" %>
-      <span class="text-sm">
-        <%= l(initiative.signature_end_date, format: :default) %>
-      </span>
+      <%= format_date_range(initiative.signature_start_date, initiative.signature_end_date) %>
     </div>
   </div>
 <% end %>

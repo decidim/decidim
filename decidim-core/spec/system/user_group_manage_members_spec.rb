@@ -37,11 +37,12 @@ describe "User group manage members", type: :system do
       login_as creator, scope: :user
       visit decidim.profile_path(user_group.nickname)
 
+      click_button "Manage group"
       click_link "Manage members"
     end
 
     it "allows managing the group members" do
-      expect(page).to have_content("Current members (without admins)")
+      expect(page).to have_content("Manage members")
       expect(page).to have_content(member.name)
     end
 

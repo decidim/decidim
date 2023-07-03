@@ -168,6 +168,10 @@
         @apply bg-alert/25;
       }
     }
+
+    &-breadcrumb{
+      @apply container py-4 flex items-center gap-4 text-left text-secondary text-md font-normal [&>svg]:fill-current;
+    }
   }
 }
 

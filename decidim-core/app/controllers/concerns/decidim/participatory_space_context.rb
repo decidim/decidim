@@ -84,7 +84,7 @@ module Decidim
     end
 
     def context_breadcrumb_items
-      @context_breadcrumb_items ||= [current_participatory_space_breadcrumb_item].compact_blank
+      @context_breadcrumb_items ||= [current_participatory_space_breadcrumb_item].flatten.compact_blank
     end
 
     def layout

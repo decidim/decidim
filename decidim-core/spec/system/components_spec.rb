@@ -13,11 +13,9 @@ describe "Components can be navigated", type: :system do
     end
 
     it "renders the content of the page" do
-      skip_unless_redesign_enabled "This test works with the redesigned navigation layout"
-
       within "#menu-bar" do
         expect(page).to have_content("Processes")
-        find("#secondary-dropdown-summary", text: translated(participatory_space.title)).click
+        find("a.menu-bar__breadcrumb-desktop__dropdown-trigger", text: translated(participatory_space.title)).sibling("button[data-component='dropdown']").hover
         click_link(translated(component.name))
       end
 
