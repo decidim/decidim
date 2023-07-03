@@ -41,14 +41,14 @@ edit_link(
 
     <section class="content-block">
       <h2 class="h2 decorator"><%= t("conferences.show.introduction", scope: "decidim") %></h2>
-      <div class="content-block__description">
+      <div class="content-block__description editor-content">
         <%= decidim_sanitize_editor_admin translated_attribute(current_participatory_space.short_description) %>
       </div>
     </section>
 
     <section class="content-block conference__content-block">
       <h2 class="h2 decorator"><%= t("conferences.show.details", scope: "decidim") %></h2>
-      <div class="content-block__description">
+      <div class="content-block__description editor-content">
         <%= decidim_sanitize_editor_admin translated_attribute(current_participatory_space.description) %>
       </div>
 
@@ -69,7 +69,7 @@ edit_link(
     <% unless translated_attribute(current_participatory_space.objectives).blank? %>
       <section class="content-block">
         <h2 class="h2 decorator"><%= t("decidim.conferences.show.objectives") %></h2>
-        <div class="content-block__description">
+        <div class="editor-content">
           <%= decidim_sanitize_editor_admin translated_attribute(current_participatory_space.objectives) %>
         </div>
       </section>

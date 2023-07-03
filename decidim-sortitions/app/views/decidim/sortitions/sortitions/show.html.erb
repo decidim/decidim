@@ -34,10 +34,8 @@ edit_link(
       </span>
     <% end %>
   </div>
-  <div class="content-block__description">
-    <div class="editor-content">
-      <%= decidim_sanitize_editor translated_attribute sortition.additional_info %>
-    </div>
+  <div class="content-block__description editor-content">
+    <%= decidim_sanitize_editor translated_attribute sortition.additional_info %>
   </div>
   <h3 class="h3">
     <%= t("witnesses", scope: "decidim.sortitions.sortitions.show") %>
