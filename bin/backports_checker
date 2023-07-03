@@ -1,0 +1,37 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require "thor"
+
+require "./lib/decidim/git_backport_checker"
+
+class BackportsCheckerCLI < Thor
+  desc "", "Backports checker. Shows the status of the pull requests opened in the last days"
+  option :github_token, required: true, desc: <<~HELP
+    Required. Github Personal Access Token (PAT). It can be obtained from https://github.com/settings/tokens/new. You will need to create one with `public_repo` access.
+  HELP
+  option :days_to_check_from, required: false, default: 90, type: :numeric, desc: "How many days we will check from."
+  default_task :backports_checker
+
+  def backports_checker
+    checker = Decidim::GitBackportChecker.new(
+      token: options[:github_token],
+      days_to_check_from: options[:days_to_check_from]
+    )
+    checker.call
+    puts checker.csv_report
+    puts checker.cli_report
+  rescue Decidim::GithubManager::Querier::Base::InvalidMetadataError
+    puts "Metadata was not returned from the server. Please check that the provided GitHub token is correct."
+  end
+
+  def help
+    super("backports_checker")
+  end
+
+  def self.exit_on_failure?
+    true
+  end
+end
+
+BackportsCheckerCLI.start(ARGV)
