@@ -101,6 +101,23 @@ module Decidim
         end
       end
 
+      initializer "decidim_meetings.register_events" do
+        config.to_prepare do
+          Decidim::EventsManager.subscribe("decidim.meetings.create_meeting:after") do |_event_name, data|
+            Decidim::EventsManager.publish(
+              event: "decidim.events.meetings.meeting_created",
+              event_class: Decidim::Meetings::CreateMeetingEvent,
+              resource: data[:resource],
+              followers: data[:resource].participatory_space.followers
+            )
+            follow_form = Decidim::FollowForm
+                          .from_params(followable_gid: data[:resource].to_signed_global_id.to_s)
+                          .with_context(current_user: data[:resource].author)
+            Decidim::CreateFollow.call(follow_form, data[:resource].author)
+          end
+        end
+      end
+
       initializer "decidim_meetings.register_metrics" do
         Decidim.metrics_registry.register(:meetings) do |metric_registry|
           metric_registry.manager_class = "Decidim::Meetings::Metrics::MeetingsMetricManage"

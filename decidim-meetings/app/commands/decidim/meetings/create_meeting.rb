@@ -15,19 +15,27 @@ module Decidim
       def call
         return broadcast(:invalid) if form.invalid?
 
-        transaction do
+        with_events(with_transaction: true, before: false) do
           create_meeting!
-          schedule_upcoming_meeting_notification
-          send_notification
         end
 
-        create_follow_form_resource(form.current_user)
+        schedule_upcoming_meeting_notification
         broadcast(:ok, meeting)
       end
 
       private
 
       attr_reader :meeting, :form
+
+      def event_arguments
+        {
+          resource: meeting,
+          extra: {
+            event_author: form.current_user,
+            locale:
+          }
+        }
+      end
 
       def create_meeting!
         parsed_title = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.title, current_organization: form.current_organization).rewrite
@@ -79,20 +87,6 @@ module Decidim
         Decidim::Meetings::UpcomingMeetingNotificationJob
           .set(wait_until: meeting.start_time - Decidim::Meetings.upcoming_meeting_notification)
           .perform_later(meeting.id, checksum)
-      end
-
-      def send_notification
-        Decidim::EventsManager.publish(
-          event: "decidim.events.meetings.meeting_created",
-          event_class: Decidim::Meetings::CreateMeetingEvent,
-          resource: meeting,
-          followers: meeting.participatory_space.followers
-        )
-      end
-
-      def create_follow_form_resource(user)
-        follow_form = Decidim::FollowForm.from_params(followable_gid: meeting.to_signed_global_id.to_s).with_context(current_user: user)
-        Decidim::CreateFollow.call(follow_form, user)
       end
     end
   end

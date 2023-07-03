@@ -68,6 +68,10 @@ module Decidim::Meetings
     context "when everything is ok" do
       let(:meeting) { Meeting.last }
 
+      it_behaves_like "fires an ActiveSupport::Notification event", "decidim.meetings.create_meeting:after" do
+        let(:command) { subject }
+      end
+
       it "creates and publishes the meeting and log both actions" do
         subject.call
         meeting.reload
