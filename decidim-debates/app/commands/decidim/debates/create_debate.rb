@@ -15,19 +15,25 @@ module Decidim
       def call
         return broadcast(:invalid) if form.invalid?
 
-        transaction do
+        with_events(with_transaction: true, before: false) do
           create_debate
-          send_notification_to_author_followers
-          send_notification_to_space_followers
         end
-
-        follow_debate
         broadcast(:ok, debate)
       end
 
       private
 
       attr_reader :debate, :form
+
+      def event_arguments
+        {
+          resource: debate,
+          extra: {
+            event_author: form.current_user,
+            locale:
+          }
+        }
+      end
 
       def create_debate
         parsed_title = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.title, current_organization: form.current_organization).rewrite
@@ -52,37 +58,6 @@ module Decidim
           params,
           visibility: "public-only"
         )
-      end
-
-      def send_notification_to_author_followers
-        Decidim::EventsManager.publish(
-          event: "decidim.events.debates.debate_created",
-          event_class: Decidim::Debates::CreateDebateEvent,
-          resource: debate,
-          followers: debate.author.followers,
-          extra: {
-            type: "user"
-          }
-        )
-      end
-
-      def send_notification_to_space_followers
-        Decidim::EventsManager.publish(
-          event: "decidim.events.debates.debate_created",
-          event_class: Decidim::Debates::CreateDebateEvent,
-          resource: debate,
-          followers: debate.participatory_space.followers,
-          extra: {
-            type: "participatory_space"
-          }
-        )
-      end
-
-      def follow_debate
-        follow_form = Decidim::FollowForm
-                      .from_params(followable_gid: debate.to_signed_global_id.to_s)
-                      .with_context(current_user: debate.author)
-        Decidim::CreateFollow.call(follow_form, debate.author)
       end
     end
   end

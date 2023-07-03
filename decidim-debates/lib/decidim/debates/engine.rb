@@ -97,6 +97,37 @@ module Decidim
         end
       end
 
+      initializer "decidim_debates.register_events" do
+        config.to_prepare do
+          Decidim::EventsManager.subscribe("decidim.debates.create_debate:after") do |_event_name, data|
+            Decidim::EventsManager.publish(
+              event: "decidim.events.debates.debate_created",
+              event_class: Decidim::Debates::CreateDebateEvent,
+              resource: data[:resource],
+              followers: data[:resource].author.followers,
+              extra: {
+                type: "user"
+              }
+            )
+
+            Decidim::EventsManager.publish(
+              event: "decidim.events.debates.debate_created",
+              event_class: Decidim::Debates::CreateDebateEvent,
+              resource: data[:resource],
+              followers: data[:resource].participatory_space.followers,
+              extra: {
+                type: "participatory_space"
+              }
+            )
+
+            follow_form = Decidim::FollowForm
+                          .from_params(followable_gid: data[:resource].to_signed_global_id.to_s)
+                          .with_context(current_user: data[:resource].author)
+            Decidim::CreateFollow.call(follow_form, data[:resource].author)
+          end
+        end
+      end
+
       initializer "decidim_debates.webpacker.assets_path" do
         Decidim.register_assets_path File.expand_path("app/packs", root)
       end
