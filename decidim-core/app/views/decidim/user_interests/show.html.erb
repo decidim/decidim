@@ -8,17 +8,15 @@
     <%= t("select_your_interests", scope: "decidim.user_interests.show") %>
   </p>
   <%= form_for(@user_interests, url: user_interests_path, method: :put, class: "user-form") do |f| %>
-    <div class="form-wrapper">
-      <% if @user_interests.scopes.any? %>
-        <%= render partial: "scopes", locals: { scopes: @user_interests.scopes, f: f } %>
-        <div class="form__wrapper-block">
-          <%= f.submit t("update_my_interests", scope:"decidim.user_interests.show"), class: "button button__sm md:button__lg button__secondary mr-auto !ml-0" %>
-        </div>
-      <% else %>
-        <p>
-          <%= t("no_scopes", scope: "decidim.user_interests.show") %>
-        </p>
-      <% end %>
-    </div>
+    <% if @user_interests.scopes.any? %>
+      <%= render partial: "scopes", locals: { scopes: @user_interests.scopes, f: f } %>
+      <div class="form__wrapper-block">
+        <%= f.submit t("update_my_interests", scope:"decidim.user_interests.show"), class: "button button__sm md:button__lg button__secondary mr-auto !ml-0" %>
+      </div>
+    <% else %>
+      <p>
+        <%= t("no_scopes", scope: "decidim.user_interests.show") %>
+      </p>
+    <% end %>
   <% end %>
 <% end %>
