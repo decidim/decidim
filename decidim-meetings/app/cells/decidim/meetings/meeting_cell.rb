@@ -18,10 +18,6 @@ module Decidim
 
       def card_size
         case @options[:size]
-        when :highlighted_list_item
-          "decidim/meetings/meeting_highlighted_list_item"
-        when :list_item
-          "decidim/meetings/meeting_list_item"
         when :s
           "decidim/meetings/meeting_s"
         else
