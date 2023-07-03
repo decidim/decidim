@@ -9,11 +9,15 @@ module Decidim
       end
     end
 
-  def within_user_menu
-    main_bar_selector = ".main-bar"
+    def within_user_menu
+      main_bar_selector = ".main-bar"
 
-    within main_bar_selector do
-      find("#trigger-dropdown-account").click
+      within main_bar_selector do
+        find("#trigger-dropdown-account").click
+
+        yield
+      end
+    end
 
     def within_language_menu(options = {})
       within(options.fetch(:admin, !Decidim.redesign_active) ? ".topbar__dropmenu.language-choose" : "footer details") do
