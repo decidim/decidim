@@ -678,7 +678,6 @@ en:
           try_again: Try again
         header:
           ballot_decision: Cast
-          casting: Casting the vote
           confirm: Confirm
           election: Election
           register: Register
