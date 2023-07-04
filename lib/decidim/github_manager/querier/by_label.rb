@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require "active_support/core_ext/time/zones"
 require_relative "base"
 
 module Decidim
@@ -34,11 +35,13 @@ module Decidim
         attr_reader :label, :exclude_labels, :days_to_check_from
 
         def headers
+          Time.zone = "UTC"
+
           {
             labels: label,
             state: "closed",
             per_page: 100,
-            since: (Date.today - days_to_check_from).iso8601
+            since: (Time.zone.today - days_to_check_from).iso8601
           }
         end
 
