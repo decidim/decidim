@@ -48,6 +48,8 @@ edit_link(
 <%= render layout: "layouts/decidim/shared/layout_item" do %>
 
   <section class="layout-main__section layout-main__heading">
+    <%= render partial: "decidim/shared/component_announcement" %>
+
     <%= cell "decidim/elections/remaining_time_callout", election %>
 
     <%= cell("decidim/announcement", t("voting_period_status.#{election.voting_period_status}",
