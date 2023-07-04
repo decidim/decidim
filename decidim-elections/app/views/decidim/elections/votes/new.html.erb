@@ -27,7 +27,7 @@
       </div>
 
       <ol id="wizard-steps" class="wizard-steps">
-        <% ["register", "election", "confirm", "ballot_decision"].each_with_index do |wizard_step, i| %>
+        <% %w(register election confirm ballot_decision).each_with_index do |wizard_step, i| %>
           <li data-step="step-<%= wizard_step %>" <%= "aria-current=step" if i.zero? %>><%= t(wizard_step, scope: "decidim.elections.votes.header") %></li>
         <% end %>
       </ol>
@@ -73,10 +73,7 @@
     <% end %>
 
     <div id="step-confirm" hidden>
-      <%= render(
-        "new_confirm_step",
-        questions:
-      ) %>
+      <%= render("new_confirm_step", questions:) %>
     </div>
 
     <div id="step-encrypting" hidden>

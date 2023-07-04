@@ -10,7 +10,7 @@
       f.append(method: :with_any_date, collection: date_filter_values, label_scope: "decidim.elections.elections.filters", id: "date")
     end
 
-    search_variable = :search_text_cont %>
+     search_variable = :search_text_cont %>
 
   <%= render layout: "decidim/shared/filters", locals: { filter_sections: , search_variable: } do %>
     <%= hidden_field_tag :order, order, id: nil, class: "order_filter" %>
