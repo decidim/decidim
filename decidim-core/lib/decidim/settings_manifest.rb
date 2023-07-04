@@ -133,6 +133,7 @@ module Decidim
 
       def editor?(context)
         return editor.call(context) if editor.respond_to?(:call)
+
         editor
       end
     end
