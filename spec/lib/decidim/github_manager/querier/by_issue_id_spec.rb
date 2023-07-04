@@ -14,7 +14,7 @@ describe Decidim::GithubManager::Querier::ByIssueId do
   describe ".call" do
     let(:response) do
       {
-        labels: [ "module: admin", "type: fix" ],
+        labels: ["module: admin", "type: fix"],
         modules: ["module: admin"],
         type: ["type: fix"],
         id: 12_345,
