@@ -1,4 +1,4 @@
-<% add_decidim_page_title(translated_attribute(current_conference.title)) %>
+<% add_decidim_page_title(translated_attribute(@user_role.role)) %>
 <%= decidim_form_for(@form, url: conference_user_role_path(@user_role.conference, @user_role), html: { class: "form edit_conference_user_roles" }) do |f| %>
   <%= render partial: "form", object: f, locals: { title: t("conference_user_roles.edit.title", scope: "decidim.admin") } %>
 
