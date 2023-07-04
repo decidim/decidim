@@ -34,6 +34,14 @@ describe Decidim::GitBackportManager do
     FileUtils.rm_r(Dir.glob(tmp_repository_dir))
   end
 
+  describe "#initialize" do
+    let(:backport_branch) { "backport/fix-`top`something-9876" }
+
+    it "sets the backport_branch as expected" do
+      expect(subject.send(:backport_branch)).to eq("backport/fix-topsomething-9876")
+    end
+  end
+
   describe "#checkout_develop" do
     it "changes the branch to develop" do
       `
