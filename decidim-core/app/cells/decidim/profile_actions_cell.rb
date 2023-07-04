@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Decidim
-  class ProfileActionsCell < RedesignedProfileCell
+  class ProfileActionsCell < ProfileCell
     include CellsHelper
     include Decidim::Messaging::ConversationHelper
 

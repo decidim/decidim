@@ -49,7 +49,7 @@ module Decidim
     end
 
     def button_cell
-      @button_cell ||= cell(redesign_enabled? ? "decidim/redesigned_follow_button" : "decidim/follow_button", resource, **button_options)
+      @button_cell ||= cell("decidim/follow_button", resource, **button_options)
     end
   end
 end

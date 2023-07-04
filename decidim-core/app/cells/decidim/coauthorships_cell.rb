@@ -11,7 +11,7 @@ module Decidim
 
     def show
       if authorable?
-        cell "decidim/redesigned_author", presenter_for_author(model), has_actions: has_actions?, from: model
+        cell "decidim/author", presenter_for_author(model), has_actions: has_actions?, from: model
       else
         cell(
           "decidim/collapsible_authors",

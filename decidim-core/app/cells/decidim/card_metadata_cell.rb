@@ -65,7 +65,7 @@ module Decidim
       presented_author = official? ? "#{resource.class.module_parent}::OfficialAuthorPresenter".constantize.new : present(resource.author)
 
       {
-        cell: "decidim/redesigned_author",
+        cell: "decidim/author",
         args: [presented_author, { from: resource, skip_profile_link: true, context_actions: [] }]
       }
     end

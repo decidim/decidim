@@ -7,7 +7,7 @@ module Decidim
     MAX_ITEMS_STACKED = 3
 
     def show
-      return cell("decidim/redesigned_author", model.first, single_author_options.merge(options)) if model.length == 1
+      return cell("decidim/author", model.first, single_author_options.merge(options)) if model.length == 1
       return render :stack if options[:stack]
 
       render
