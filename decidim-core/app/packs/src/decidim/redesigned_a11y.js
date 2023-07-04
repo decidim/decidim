@@ -34,6 +34,12 @@ const createDropdown = (component) => {
     component.id = `dropdown-${Math.random().toString(36).substring(7)}`
   }
 
+  const autofocus = component.dataset.autofocus;
+  if (autofocus) {
+    // set the focus to some inner element, use setTimeout hack due to waiting for element to display
+    component.addEventListener("click", () => setTimeout(() => document.getElementById(autofocus).focus(), 0));
+  }
+
   Dropdowns.render(component.id, dropdownOptions);
 }
 

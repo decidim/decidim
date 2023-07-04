@@ -1,4 +1,4 @@
-<div class="filter-search filter-container">
+<div class="filter-search filter-container hidden md:block">
   <%= form_tag(decidim.search_path, method: :get) do %>
     <%= text_field_tag(
       :term,
@@ -15,6 +15,6 @@
   <% end %>
 </div>
 
-<h1 class="h3 decorator my-10">
+<h1 class="h3 decorator mb-10 md:my-10">
   <%= t("decidim.search.results_found_for_term", count: @results_count, term: term) %>
 </h1>
