@@ -680,9 +680,7 @@ en:
           ballot_decision: Cast
           casting: Casting the vote
           confirm: Confirm
-          confirmed: Vote confirmed
           election: Election
-          failed: Vote failed
           register: Register
           vote_for: Vote for %{title}
         messages:
