@@ -132,7 +132,7 @@ module Decidim
       end
 
       def ruby_version
-        copy_file ".ruby-version", ".ruby-version"
+        copy_file ".ruby-version", ".ruby-version", force: true
       end
 
       def node_version
@@ -243,6 +243,16 @@ module Decidim
         return unless File.exist?("config/spring.rb")
 
         prepend_to_file "config/spring.rb", "require \"decidim/spring\"\n\n"
+      end
+
+      def tweak_csp_initializer
+        return unless File.exist?("config/initializers/content_security_policy.rb")
+
+        remove_file("config/initializers/content_security_policy.rb")
+        create_file "config/initializers/content_security_policy.rb" do
+          %(# For tuning the Content Security Policy, check the Decidim documentation site
+# https://docs.decidim.org/develop/en/customize/content_security_policy)
+        end
       end
 
       def puma_ssl_options

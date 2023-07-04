@@ -88,7 +88,7 @@ describe "Editor", type: :system do
             protection.
           -->
           <meta name="csrf-token" content="abcdef0123456789">
-          #{stylesheet_pack_tag "#{pack_prefix}decidim_core", "decidim_editor", media: "all"}
+          #{stylesheet_pack_tag "#{pack_prefix}decidim_core", media: "all"}
         </head>
         <body>
           <header>
@@ -96,7 +96,7 @@ describe "Editor", type: :system do
           </header>
           #{content_wrapper}
           <footer>Decidim</footer>
-          #{javascript_pack_tag "#{pack_prefix}decidim_core", "decidim_editor", defer: false}
+          #{javascript_pack_tag "#{pack_prefix}decidim_core", defer: false}
           <script>
             Decidim.config.set(#{js_configs.to_json});
           </script>

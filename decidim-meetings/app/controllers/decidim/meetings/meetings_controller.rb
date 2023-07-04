@@ -18,6 +18,8 @@ module Decidim
 
       helper_method :meetings, :meeting, :registration, :search
 
+      before_action :add_addtional_csp_directives, only: [:show]
+
       def new
         enforce_permission_to :create, :meeting
 

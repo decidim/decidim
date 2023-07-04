@@ -41,11 +41,11 @@ module Decidim
 
     # rubocop:disable RSpec/BeforeAfterAll
     before(:all) do
-      Decidim::GemManager.install_all(out: File::NULL)
+      Bundler.with_original_env { Decidim::GemManager.install_all(out: File::NULL) }
     end
 
     after(:all) do
-      Decidim::GemManager.uninstall_all(out: File::NULL)
+      Bundler.with_original_env { Decidim::GemManager.uninstall_all(out: File::NULL) }
     end
     # rubocop:enable RSpec/BeforeAfterAll
 
@@ -108,11 +108,35 @@ module Decidim
     context "with a component" do
       let(:test_component) { "dummy_component" }
       let(:command) { "decidim --component #{test_component}" }
+      let(:semver_friendly_version) { Decidim::GemManager.semver_friendly_version(Decidim.version) }
+      let(:npm_package_version) { "^#{semver_friendly_version}" }
 
       after { FileUtils.rm_rf("decidim-module-#{test_component}") }
 
-      it "suceeeds" do
+      it "succeeds" do
         expect(result[1]).to be_success, result[0]
+
+        expect(JSON.parse(File.read("decidim-module-#{test_component}/package.json"))).to eq(
+          "name" => "decidim-#{test_component}",
+          "version" => "0.0.1",
+          "description" => "",
+          "private" => true,
+          "license" => "AGPL-3.0",
+          "scripts" => {
+            "lint" => "eslint -c .eslintrc.json --no-error-on-unmatched-pattern --ignore-pattern app/packs/vendor --ext .js app/packs",
+            "stylelint" => "stylelint app/packs/**/*.scss"
+          },
+          "dependencies" => {
+            "@decidim/browserslist-config" => npm_package_version,
+            "@decidim/webpacker" => npm_package_version
+          },
+          "devDependencies" => {
+            "@decidim/dev" => npm_package_version,
+            "@decidim/eslint-config" => npm_package_version,
+            "@decidim/stylelint-config" => npm_package_version
+          },
+          "browserslist" => ["extends @decidim/browserslist-config"]
+        )
       end
     end
 

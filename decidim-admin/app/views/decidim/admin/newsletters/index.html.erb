@@ -50,6 +50,10 @@
                 <% end %>
 
                 <% if allowed_to?(:read, :newsletter, newsletter: newsletter) %>
+                  <%= icon_link_to "share-boxed", decidim_admin.send_to_user_newsletter_path(newsletter), t("actions.send_me_a_test_email", scope: "decidim.admin"), class: "preview", method: :post %>
+                <% end %>
+
+                <% if allowed_to?(:read, :newsletter, newsletter: newsletter) %>
                   <%= icon_link_to "eye", decidim_admin.newsletter_path(newsletter), t("actions.preview", scope: "decidim.admin"), class: "preview" %>
                 <% end %>
 
