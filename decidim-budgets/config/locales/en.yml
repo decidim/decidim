@@ -29,6 +29,9 @@ en:
       titles:
         budgets: Budgets
         new_budget: New budget
+        projects: Projects
+        new_project: New project
+        import_proposals: Import proposals
       filters:
         projects:
           category_id_eq:

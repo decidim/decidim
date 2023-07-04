@@ -1,3 +1,4 @@
+<% add_decidim_page_title(t("new_budget", scope: "decidim.admin.titles")) %>
 <%= decidim_form_for(@form, html: { class: "form new_budget" }) do |f| %>
   <%= render partial: "form", object: f, locals: { title: t(".title") } %>
 

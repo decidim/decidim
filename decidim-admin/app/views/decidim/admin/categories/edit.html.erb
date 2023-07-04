@@ -1,3 +1,4 @@
+<% add_decidim_page_title(translated_attribute(@category.name)) %>
 <%= decidim_form_for(@form, url: category_path(@category.participatory_space, @category), html: { class: "form edit_category" }) do |f| %>
   <%= render partial: "form", object: f, locals: { title: t(".title") } %>
 

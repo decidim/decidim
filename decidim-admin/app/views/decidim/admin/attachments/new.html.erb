@@ -1,3 +1,4 @@
+<% add_decidim_page_title(t("title", scope: "decidim.admin.attachments.new")) %>
 <%= decidim_form_for(@form, url: url_for([attached_to, @form]), html: { class: "form new_attachment" }) do |f| %>
   <%= render partial: "decidim/admin/attachments/form", object: f, locals: { title: t(".title") } %>
 
