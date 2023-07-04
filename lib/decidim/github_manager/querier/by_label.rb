@@ -6,8 +6,12 @@ require_relative "base"
 module Decidim
   module GithubManager
     module Querier
-      # Makes a GET request for the list of Issues or Pull Requests in GitHub
-      # by a label that were created in the last 90 days and that are closed.
+      # Makes a GET request for the list of Issues or Pull Requests in GitHub.
+      # They must comply the following conditions:
+      # * To be created in the period between the days to check from and today. (90 days by default)
+      # * To have the label that we are querying ("type: fix" by default)
+      # * To not have any of the excluded labels (["backport", "no-backport"] by default)
+      # * To have been merged
       #
       # @param token [String] token for GitHub authentication
       # @param days_to_check_from [Integer] the number of days from when we will start the check
