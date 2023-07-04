@@ -53,6 +53,7 @@ module Decidim
         def parse(metadata)
           metadata.map do |item|
             next if has_any_of_excluded_labels?(item)
+            next unless merged?(item)
 
             {
               id: item["number"],
@@ -63,6 +64,12 @@ module Decidim
 
         def has_any_of_excluded_labels?(item)
           item["labels"].map { |label| label.map { |_key, val| exclude_labels.include?(val) } }.flatten.any? true
+        end
+
+        def merged?(item)
+          Date.parse(item["pull_request"]["merged_at"]).present?
+        rescue TypeError, Date::Error
+          false
         end
       end
     end

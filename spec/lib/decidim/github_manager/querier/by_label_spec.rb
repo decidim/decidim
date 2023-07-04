@@ -22,8 +22,8 @@ describe Decidim::GithubManager::Querier::ByLabel do
     let(:stubbed_response) do
       <<~RESPONSE
         [
-          {"number": 12345, "title": "Fix whatever", "labels": [{"name": "type: fix"}, {"name": "module: admin"}]},
-          {"number": 98765, "title": "Fix another thing", "labels": [{"name": "type: fix"}, {"name": "module: core"}]}
+          {"number": 12345, "title": "Fix whatever", "labels": [{"name": "type: fix"}, {"name": "module: admin"}], "pull_request": { "merged_at": "2020-01-01T01:01:01Z" }},
+          {"number": 98765, "title": "Fix another thing", "labels": [{"name": "type: fix"}, {"name": "module: core"}], "pull_request": { "merged_at": "2020-01-01T01:01:01Z" }}
         ]
       RESPONSE
     end
@@ -42,8 +42,28 @@ describe Decidim::GithubManager::Querier::ByLabel do
       let(:stubbed_response) do
         <<~RESPONSE
           [
-            {"number": 12345, "title": "Fix whatever", "labels": [{"name": "type: fix"}, {"name": "module: admin"}]},
-            {"number": 98765, "title": "Fix another thing", "labels": [{"name": "type: fix"}, {"name": "backport"}]}
+            {"number": 12345, "title": "Fix whatever", "labels": [{"name": "type: fix"}, {"name": "module: admin"}], "pull_request": { "merged_at": "2020-01-01T01:01:01Z" }},
+            {"number": 98765, "title": "Fix another thing", "labels": [{"name": "type: fix"}, {"name": "backport"}], "pull_request": { "merged_at": "2020-01-01T01:01:01Z" }}
+          ]
+        RESPONSE
+      end
+      let(:result) do
+        [
+          { id: 12_345, title: "Fix whatever" }
+        ]
+      end
+
+      it "returns a valid result" do
+        expect(querier.call).to eq result
+      end
+    end
+
+    context "when there are pull requests that were not merged" do
+      let(:stubbed_response) do
+        <<~RESPONSE
+          [
+            {"number": 12345, "title": "Fix whatever", "labels": [{"name": "type: fix"}, {"name": "module: admin"}], "pull_request": { "merged_at": "2020-01-01T01:01:01Z" }},
+            {"number": 98765, "title": "Fix another thing", "labels": [{"name": "type: fix"}, {"name": "module: admin"}], "pull_request": { "merged_at": "nil" }}
           ]
         RESPONSE
       end
