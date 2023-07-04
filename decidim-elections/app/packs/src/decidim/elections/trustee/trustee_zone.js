@@ -22,7 +22,7 @@ $(() => {
     const $generate = $("#generate_identification_keys");
     const $upload = $("#upload_identification_keys");
 
-    $("button", $generate).on("click", () => {
+    $generate.on("click", () => {
       window.trusteeIdentificationKeys.
         generate().
         then(() => {
