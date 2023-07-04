@@ -169,7 +169,7 @@ describe "Explore projects", :slow, type: :system do
             expect(page).to have_content(translated(project.title))
           end
 
-          within ".with_any_status_check_boxes_tree_filter" do
+          within ".status_check_boxes_tree_filter" do
             check "Not selected"
           end
 
@@ -181,7 +181,7 @@ describe "Explore projects", :slow, type: :system do
 
         it "does not filter selected by default" do
           visit_budget
-          within ".with_any_status_check_boxes_tree_filter" do
+          within ".status_check_boxes_tree_filter" do
             expect(all("input[type=checkbox]")[0]).not_to be_checked
             expect(all("input[type=checkbox]")[1]).not_to be_checked
           end
