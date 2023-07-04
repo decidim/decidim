@@ -245,6 +245,16 @@ module Decidim
         prepend_to_file "config/spring.rb", "require \"decidim/spring\"\n\n"
       end
 
+      def tweak_csp_initializer
+        return unless File.exist?("config/initializers/content_security_policy.rb")
+
+        remove_file("config/initializers/content_security_policy.rb")
+        create_file "config/initializers/content_security_policy.rb" do
+          %(# For tuning the Content Security Policy, check the Decidim documentation site
+# https://docs.decidim.org/develop/en/customize/content_security_policy)
+        end
+      end
+
       def puma_ssl_options
         return unless options[:dev_ssl]
 
