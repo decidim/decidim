@@ -151,11 +151,43 @@ describe "Explore projects", :slow, type: :system do
           visit_budget
 
           within ".status_check_boxes_tree_filter" do
-            uncheck "Selected"
+            expect(all("input[type=checkbox]")[0]).to be_checked
+            expect(all("input[type=checkbox]")[2]).not_to be_checked
           end
 
           within "#projects" do
             expect(page).to have_css(".budget-list__item", count: 1)
+            expect(page).to have_content(translated(project.title))
+          end
+
+          within ".status_check_boxes_tree_filter" do
+            uncheck "Selected"
+          end
+
+          within "#projects" do
+            expect(page).to have_css(".budget-list__item", count: 5)
+            expect(page).to have_content(translated(project.title))
+          end
+
+          within ".status_check_boxes_tree_filter" do
+            check "Not selected"
+          end
+
+          within "#projects" do
+            expect(page).to have_css(".budget-list__item", count: 4)
+            expect(page).not_to have_content(translated(project.title))
+          end
+        end
+
+        it "does not filter selected by default" do
+          visit_budget
+          within ".status_check_boxes_tree_filter" do
+            expect(all("input[type=checkbox]")[0]).not_to be_checked
+            expect(all("input[type=checkbox]")[1]).not_to be_checked
+          end
+
+          within "#projects" do
+            expect(page).to have_css(".budget-list__item", count: 5)
             expect(page).to have_content(translated(project.title))
           end
         end
