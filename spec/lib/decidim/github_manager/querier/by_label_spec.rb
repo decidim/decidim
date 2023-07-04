@@ -12,9 +12,10 @@ describe Decidim::GithubManager::Querier::ByLabel do
   let(:stubbed_url) { "https://api.github.com/repos/decidim/decidim/issues?labels=type:%20fix&per_page=100&since=2019-10-03&state=closed" }
 
   before do
-    Time.zone = "UTC"
-    travel_to Time.zone.parse("2020-1-1")
-    stub_request(:get, stubbed_url).to_return(status: 200, body: stubbed_response, headers: {})
+    Time.use_zone("UTC") do
+      travel_to Time.zone.parse("2020-1-1")
+      stub_request(:get, stubbed_url).to_return(status: 200, body: stubbed_response, headers: {})
+    end
   end
 
   describe ".call" do
