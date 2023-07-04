@@ -31,10 +31,10 @@
     }
   }
 
-  &-toggle{
+  &-toggle {
     @apply relative inline-block w-full rounded-full cursor-pointer;
 
-    > :first-child{
+    > :first-child {
       @apply h-6 relative;
     }
 

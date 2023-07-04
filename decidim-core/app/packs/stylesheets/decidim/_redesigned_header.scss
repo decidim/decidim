@@ -64,11 +64,11 @@ header {
       }
 
       /* overwrite default dropdown styles */
-      [data-target*="dropdown"] > span:only-of-type{
+      [data-target*="dropdown"] > span:only-of-type {
         @apply gap-0;
       }
 
-      svg{
+      svg {
         @apply w-5 h-5 fill-current;
       }
 
@@ -77,10 +77,10 @@ header {
       }
     }
 
-    &__links-mobile{
+    &__links-mobile {
       @apply fixed bottom-0 left-0 z-40 bg-white w-full px-4 py-3 flex justify-between text-secondary shadow-[0_-4px_6px_rgba(198,198,198,0.25)];
 
-      &__trigger{
+      &__trigger {
         @apply flex flex-col items-center text-secondary cursor-pointer p-2;
 
         svg {
@@ -92,55 +92,55 @@ header {
         }
       }
 
-      &__dropdown{
+      &__dropdown {
         @apply absolute top-full left-0 z-30 bg-white;
       }
 
-      &__account{
+      &__account {
         @apply fixed top-0 left-0 w-full h-full z-30 bg-white;
 
-        ul{
+        ul {
           @apply my-6 divide-y divide-gray-3;
         }
 
-        li{
+        li {
           @apply py-4;
         }
 
-        .dropdown__item{
+        .dropdown__item {
           @apply text-md;
         }
 
-        .main-bar{
+        .main-bar {
           @apply border-b border-gray;
         }
 
-        .main-bar__avatar{
+        .main-bar__avatar {
           @apply w-12 h-12;
         }
       }
 
-      &__search{
+      &__search {
         @apply fixed top-0 left-0 w-full h-full z-30 bg-white;
 
-        &-block{
+        &-block {
           @apply container h-full flex flex-col justify-center;
         }
 
-        .main-bar{
+        .main-bar {
           @apply border-b border-gray;
         }
 
-        label{
+        label {
           @apply block mb-4 text-black;
         }
 
-        form{
+        form {
           @apply relative;
         }
       }
 
-      &__item{
+      &__item {
         @apply w-1/4 flex flex-col items-center relative;
 
         svg {
@@ -152,10 +152,10 @@ header {
         }
 
         /* overwrite default dropdown styles */
-        &[data-target*="dropdown"]{
+        &[data-target*="dropdown"] {
           @apply p-0 gap-0;
 
-          > span{
+          > span {
             @apply block font-normal text-sm first-letter:uppercase;
           }
         }
@@ -195,7 +195,7 @@ header {
     }
 
     /* overwrite default dropdown styles */
-    [id*="dropdown-menu"]{
+    [id*="dropdown-menu"] {
       @apply py-0 mx-0 w-full;
 
       &[aria-hidden="true"] {
@@ -316,11 +316,11 @@ header {
         }
       }
 
-      &__bottom{
+      &__bottom {
         @apply hidden md:flex;
       }
 
-      &__title{
+      &__title {
         @apply h4 md:h3;
       }
 
@@ -328,14 +328,14 @@ header {
         @apply text-md md:text-lg text-gray-2 mt-5;
       }
 
-      &__menu{
+      &__menu {
         @apply w-full md:w-1/2 mt-0 grid md:grid-cols-2 gap-x-6 text-secondary;
 
-        > *{
+        > * {
           @apply py-3 md:py-3.5 border-b last:border-0 border-gray-3;
 
           /* since the grid has 2 columns, remove the border for these last 2 columns */
-          &:nth-last-child(-n+2){
+          &:nth-last-child(-n + 2) {
             @apply md:border-0;
           }
         }

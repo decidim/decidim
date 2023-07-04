@@ -1,4 +1,4 @@
-.vertical-tabs{
+.vertical-tabs {
   @apply grid gap-10 lg:gap-20 grid-rows-[max-content] grid-cols-1 md:grid-cols-10 first:[&>*]:col-span-full md:first:[&>*]:col-span-3 last:[&>*]:col-span-full md:last:[&>*]:col-span-7;
 
   &__list {
@@ -13,7 +13,7 @@
     }
   }
 
-  nav{
+  nav {
     @apply rounded border-4 border-background md:border-0 self-start;
   }
 
