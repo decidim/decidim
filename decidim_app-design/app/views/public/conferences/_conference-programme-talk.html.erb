@@ -8,7 +8,7 @@
 </div>
 <div class="row">
   <div class="column medium-10 medium-push-2">
-    <div class="programme-resume"><%= Faker::Lorem.paragraph(8) %></div>
+    <div class="programme-resume"><%= Faker::Lorem.paragraph(sentence_count: 8) %></div>
     <div class="programme-extra">
       <div class="row">
         <div class="column medium-2">
@@ -16,7 +16,7 @@
         </div>
         <div class="column medium-10">
           <% speakers = SecureRandom.random_number(8) + 1 %>
-          <%= render layout: "public/components/collapsible-list", locals: { text: raw("y #{ speakers - 2 } más"), size: 2, classText: "" } do %>
+          <%= render layout: "public/components/collapsible-list", locals: { text: raw("y #{speakers - 2} más"), size: 2, classText: "" } do %>
           <% speakers.times do %>
           <%= partial "author_data", { nick: false } %>
           <% end %>

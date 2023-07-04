@@ -6,7 +6,7 @@ module Decidim::Admin
   describe NewsletterRecipients do
     subject { described_class.new(form) }
 
-    let(:newsletter) { create :newsletter }
+    let(:newsletter) { create(:newsletter) }
     let(:organization) { newsletter.organization }
     let(:send_to_all_users) { true }
     let(:send_to_followers) { false }
@@ -178,7 +178,7 @@ module Decidim::Admin
           end
 
           it "do not return recipients" do
-            expect(subject.query).to match_array []
+            expect(subject.query).to be_empty
           end
         end
       end

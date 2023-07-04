@@ -2,12 +2,12 @@
 
 require "spec_helper"
 
-describe "Explore versions", versioning: true, type: :system do
+describe "Explore versions", type: :system, versioning: true do
   include_context "with a component"
   let(:component) { create(:proposal_component, organization:) }
-  let!(:proposal) { create(:proposal, body: { en: "One liner body" }, component:, skip_injection: true) }
-  let!(:emendation) { create(:proposal, body: { en: "Amended One liner body" }, component:, skip_injection: true) }
-  let!(:amendment) { create :amendment, amendable: proposal, emendation: }
+  let!(:proposal) { create(:proposal, body: { en: "One liner body" }, component:) }
+  let!(:emendation) { create(:proposal, body: { en: "Amended One liner body" }, component:) }
+  let!(:amendment) { create(:amendment, amendable: proposal, emendation:) }
 
   let(:form) do
     Decidim::Amendable::ReviewForm.from_params(
@@ -92,11 +92,11 @@ describe "Explore versions", versioning: true, type: :system do
         expect(page).to have_content("Title")
 
         within ".diff > ul > .del" do
-          expect(page).to have_content(translated(proposal.title))
+          expect(page).to have_content(translated(proposal.title).dump)
         end
 
         within ".diff > ul > .ins" do
-          expect(page).to have_content(translated(emendation.title))
+          expect(page).to have_content(translated(emendation.title).dump)
         end
       end
 

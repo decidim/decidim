@@ -16,7 +16,7 @@
     </span>
   </div>
 <% else %>
-  <div class="collapsible-list <%= list_class %>">
+  <div class="<%= list_class %>">
     <% list.each do |element| %>
       <% if cell_name %>
         <%= cell cell_name, element, cell_options %>

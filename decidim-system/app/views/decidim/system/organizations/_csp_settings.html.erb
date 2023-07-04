@@ -1,0 +1,38 @@
+<div class="fieldset">
+  <h4><%= t("decidim.system.models.organization.fields.content_security_policy") %></h4>
+
+  <%= f.fields_for :content_security_policy do %>
+    <div class="field">
+      <%= f.text_field "default-src".to_sym, label: t(".default_src") %>
+      <p class="help-text"><%= t(".default_src_hint") %></p>
+    </div>
+    <div class="field">
+      <%= f.text_field "img-src".to_sym, label: t(".img_src") %>
+      <p class="help-text"><%= t(".img_src_hint") %></p>
+    </div>
+    <div class="field">
+      <%= f.text_field "media-src".to_sym, label: t(".media_src") %>
+      <p class="help-text"><%= t(".media_src_hint") %></p>
+    </div>
+    <div class="field">
+      <%= f.text_field "script-src".to_sym, label: t(".script_src") %>
+      <p class="help-text"><%= t(".script_src_hint") %></p>
+    </div>
+    <div class="field">
+      <%= f.text_field "style-src".to_sym, label: t(".style_src") %>
+      <p class="help-text"><%= t(".style_src_hint") %></p>
+    </div>
+    <div class="field">
+      <%= f.text_field "frame-src".to_sym, label: t(".frame_src") %>
+      <p class="help-text"><%= t(".frame_src_hint") %></p>
+    </div>
+    <div class="field">
+      <%= f.text_field "font-src".to_sym, label: t(".font_src") %>
+      <p class="help-text"><%= t(".font_src_hint") %></p>
+    </div>
+    <div class="field">
+      <%= f.text_field "connect-src".to_sym, label: t(".connect_src") %>
+      <p class="help-text"><%= t(".connect_src_hint") %></p>
+    </div>
+  <% end %>
+</div>

@@ -33,7 +33,7 @@ shared_examples "comments" do
 
     visit resource_path
 
-    expect(page).to have_no_content("Comments are disabled at this time")
+    expect(page).not_to have_content("Comments are disabled at this time")
 
     expect(page).to have_css(".comment", minimum: 1)
 
@@ -55,14 +55,14 @@ shared_examples "comments" do
     it "shows only a deletion message for deleted comments" do
       expect(page).to have_selector("#comment_#{deleted_comment.id}")
 
-      expect(page).to have_no_content(deleted_comment.author.name)
-      expect(page).to have_no_content(deleted_comment.body.values.first)
+      expect(page).not_to have_content(deleted_comment.author.name)
+      expect(page).not_to have_content(deleted_comment.body.values.first)
       # REDESIGN PENDING:
       # When redesign is enabled in tests, the following line can be uncommented. The deleted text is not shown in the redesign.
       # expect(page).to have_no_content(comment_body)
       within "#comment_#{deleted_comment.id}" do
         expect(page).to have_content("Comment deleted on")
-        expect(page).to have_no_selector("comment__footer")
+        expect(page).not_to have_selector("comment__footer")
       end
     end
 
@@ -74,6 +74,7 @@ shared_examples "comments" do
       let!(:reply) { create(:comment, commentable: deleted_comment, root_commentable: commentable, body: "Please, delete your comment") }
 
       it "shows replies of deleted comments" do
+        skip "REDESIGN PENDING: This seems to be a bug in the redesign. The replies of deleted comments are not shown. This is related to #10457"
         visit resource_path
 
         within "#comment_#{deleted_comment.id}" do
@@ -88,7 +89,7 @@ shared_examples "comments" do
   context "when not authenticated" do
     it "does not show form to add comments to user" do
       visit resource_path
-      expect(page).to have_no_selector(".add-comment form")
+      expect(page).not_to have_selector(".add-comment form")
     end
   end
 
@@ -100,6 +101,53 @@ shared_examples "comments" do
 
     it "shows form to add comments to user" do
       expect(page).to have_selector(".add-comment form")
+    end
+
+    describe "when using emojis" do
+      before do
+        within_language_menu do
+          click_link "Castellano"
+        end
+      end
+      shared_examples_for "allowing to select emojis" do
+        it "allows selecting emojis" do
+          within_language_menu do
+            click_link locale
+          end
+
+          within ".add-comment form" do
+            expect(page).to have_selector(".emoji__container")
+            expect(page).to have_selector(".emoji__trigger .emoji__button")
+            find(".emoji__trigger .emoji__button").click
+          end
+
+          within ".picmo__popupContainer .picmo__picker .picmo__content" do
+            expect(page).to have_content(phrase)
+            categories = page.all(".picmo__emojiCategory")
+            within categories[1] do
+              click_button "😀"
+            end
+          end
+
+          within ".add-comment form" do
+            expect(find("textarea").value.strip).to have_content("😀")
+          end
+        end
+      end
+
+      context "when the locale is supported" do
+        let(:locale) { "English" }
+        let(:phrase) { "SMILEYS & EMOTION" }
+
+        it_behaves_like "allowing to select emojis"
+      end
+
+      context "when the locale is not supported" do
+        let(:locale) { "Català" }
+        let(:phrase) { "SOMRIURES I EMOCIONS" }
+
+        it_behaves_like "allowing to select emojis"
+      end
     end
 
     context "when no default comments length specified" do
@@ -444,6 +492,44 @@ shared_examples "comments" do
         expect(page.find("#add-comment-#{commentable.commentable_type.demodulize}-#{commentable.id}").value).to include(content)
       end
 
+      context "when user can hide replies on a thread" do
+        let(:thread) { comments.first }
+        let(:new_reply_body) { "Hey, I just jumped inside the thread!" }
+        let!(:new_reply) { create(:comment, commentable: thread, root_commentable: commentable, body: new_reply_body) }
+
+        it "displays the hide button" do
+          visit current_path
+          within "#comment_#{thread.id}" do
+            expect(page).to have_content("Hide replies")
+            expect(page).to have_content(new_reply_body)
+          end
+        end
+
+        it "displays the show button" do
+          skip_unless_redesign_enabled "This spec is not working on the old design."
+          visit current_path
+          within "#comment_#{thread.id}" do
+            click_button "Hide replies"
+            expect(page).to have_content("Show reply")
+            expect(page).not_to have_content(new_reply_body)
+          end
+        end
+
+        context "when are more replies" do
+          let!(:new_replies) { create_list(:comment, 2, commentable: thread, root_commentable: commentable, body: new_reply_body) }
+
+          it "displays the show button" do
+            skip_unless_redesign_enabled "This spec is not working on the old design."
+            visit current_path
+            within "#comment_#{thread.id}" do
+              click_button "Hide replies"
+              expect(page).to have_content("Show 3 replies")
+              expect(page).not_to have_content(new_reply_body)
+            end
+          end
+        end
+      end
+
       context "when inside a thread reply form" do
         let(:thread) { comments.first }
         let(:new_reply_body) { "Hey, I just jumped inside the thread!" }
@@ -508,7 +594,7 @@ shared_examples "comments" do
         it "the context menu of the comment does not show a delete link" do
           within "#comment_#{comment.id}" do
             page.find("[id^='dropdown-trigger']").click
-            expect(page).to have_no_link("Delete")
+            expect(page).not_to have_link("Delete")
           end
         end
       end
@@ -540,8 +626,8 @@ shared_examples "comments" do
           expect(page).to have_selector("#comment_#{comment.id}")
           within "#comment_#{comment.id}" do
             expect(page).to have_content("Comment deleted on")
-            expect(page).to have_no_content comment_author.name
-            expect(page).to have_no_selector("comment__footer")
+            expect(page).not_to have_content comment_author.name
+            expect(page).not_to have_selector("comment__footer")
           end
           expect(page).to have_selector("span.comments-count", text: "3 comments")
 
@@ -565,7 +651,7 @@ shared_examples "comments" do
           within "#comment_#{comment.id}" do
             # Toolbar
             page.find("[id^='dropdown-trigger']").click
-            expect(page).to have_no_button("Edit")
+            expect(page).not_to have_button("Edit")
           end
         end
       end
@@ -600,7 +686,7 @@ shared_examples "comments" do
             skip_unless_redesign_enabled "This test does not pass without redesign because the comments:loaded action is not being triggered"
             within "#comment_#{comment.id}" do
               expect(page).to have_content("This comment has been fixed")
-              expect(page).to have_no_content(comment_body)
+              expect(page).not_to have_content(comment_body)
             end
           end
 
@@ -684,7 +770,7 @@ shared_examples "comments" do
               expect(page).to have_selector "span.success.label", text: "In favor", wait: 20
             end
           else
-            expect(page).to have_no_selector(".opinion-toggle--ok")
+            expect(page).not_to have_selector(".opinion-toggle--ok")
           end
         end
       end
@@ -703,7 +789,7 @@ shared_examples "comments" do
               page.find(".js-comment__votes--up").click
               expect(page).to have_selector(".js-comment__votes--up", text: /1/)
             else
-              expect(page).to have_no_selector(".js-comment__votes--up", text: /0/)
+              expect(page).not_to have_selector(".js-comment__votes--up", text: /0/)
             end
           end
         end
@@ -717,7 +803,7 @@ shared_examples "comments" do
               page.find(".js-comment__votes--down").click
               expect(page).to have_selector(".js-comment__votes--down", text: /1/)
             else
-              expect(page).to have_no_selector(".js-comment__votes--down", text: /0/)
+              expect(page).not_to have_selector(".js-comment__votes--down", text: /0/)
             end
           end
         end

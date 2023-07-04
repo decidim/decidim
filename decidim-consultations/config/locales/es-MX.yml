@@ -361,6 +361,10 @@ es-MX:
         actions:
           comment: Comentar
           vote: Votar
+      question:
+        actions:
+          comment: Comentar
+          vote: Votar
     statistics:
       consultations_count: Consultas
       votes_count: Votos

@@ -33,13 +33,13 @@ module Decidim
         end
 
         def edit
-          enforce_permission_to :update, :timeline_entry, timeline_entry: timeline_entry
+          enforce_permission_to(:update, :timeline_entry, timeline_entry:)
 
           @form = form(TimelineEntryForm).from_model(timeline_entry)
         end
 
         def update
-          enforce_permission_to :update, :timeline_entry, timeline_entry: timeline_entry
+          enforce_permission_to(:update, :timeline_entry, timeline_entry:)
 
           @form = form(TimelineEntryForm).from_params(params)
 
@@ -57,7 +57,7 @@ module Decidim
         end
 
         def destroy
-          enforce_permission_to :destroy, :timeline_entry, timeline_entry: timeline_entry
+          enforce_permission_to(:destroy, :timeline_entry, timeline_entry:)
 
           Decidim.traceability.perform_action!("delete", timeline_entry, current_user) do
             timeline_entry.destroy!

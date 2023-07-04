@@ -298,7 +298,6 @@ pt-BR:
           back: Costas
           continue: Continuar
           fill_data_help: "<ul> <li>Revise o conteúdo de sua iniciativa. Seu título é fácil de entender? O objetivo da sua iniciativa é claro?</li> <li>Você tem que escolher o tipo de assinatura. Pessoalmente, online ou uma combinação de ambos</li> <li>Qual é o âmbito geográfico da iniciativa?</li> </ul>"
-          initiative_type: Tipo de iniciativa
           more_information: "(Mais Informações)"
           select_area: Selecione uma área
           select_scope: Selecione um âmbito
@@ -546,7 +545,6 @@ pt-BR:
         promotal_committee: Comitê Promotor
         select_initiative_type: Escolher
         show_similar_initiatives: Comparar
-        step: Etapa %{current} de %{total}
         title: Criar nova iniciativa
       initiative_header:
         initiative_menu_item: Iniciativa

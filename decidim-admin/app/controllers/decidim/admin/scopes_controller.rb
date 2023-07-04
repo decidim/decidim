@@ -36,12 +36,12 @@ module Decidim
       end
 
       def edit
-        enforce_permission_to :update, :scope, scope: scope
+        enforce_permission_to(:update, :scope, scope:)
         @form = form(ScopeForm).from_model(scope)
       end
 
       def update
-        enforce_permission_to :update, :scope, scope: scope
+        enforce_permission_to(:update, :scope, scope:)
         @form = form(ScopeForm).from_params(params)
 
         UpdateScope.call(scope, @form) do
@@ -58,7 +58,7 @@ module Decidim
       end
 
       def destroy
-        enforce_permission_to :destroy, :scope, scope: scope
+        enforce_permission_to(:destroy, :scope, scope:)
 
         DestroyScope.call(scope, current_user) do
           on(:ok) do

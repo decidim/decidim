@@ -7,17 +7,17 @@ describe "Meeting live event poll answer", type: :system do
   let(:manifest_name) { "meetings" }
 
   let(:user) do
-    create :user,
+    create(:user,
            :confirmed,
-           organization:
+           organization:)
   end
   let(:user2) do
-    create :user,
+    create(:user,
            :confirmed,
-           organization:
+           organization:)
   end
 
-  let(:meeting) { create :meeting, :published, :online, :live, component: }
+  let(:meeting) { create(:meeting, :published, :online, :live, component:) }
   let(:meeting_live_event_path) do
     decidim_participatory_process_meetings.meeting_live_event_path(
       participatory_process_slug: participatory_process.slug,

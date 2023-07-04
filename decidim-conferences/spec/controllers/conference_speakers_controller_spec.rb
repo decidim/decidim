@@ -38,7 +38,7 @@ module Decidim
             it "displays list of speakers" do
               get :index, params: { conference_slug: conference.slug }
 
-              expect(controller.helpers.collection).to match_array([speaker1, speaker2])
+              expect(controller.helpers.collection).to contain_exactly(speaker1, speaker2)
             end
           end
 

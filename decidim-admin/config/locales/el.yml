@@ -14,17 +14,24 @@ el:
         description: Περιγραφή
         file: Αρχείο
         title: Συνημμένο ή όνομα εικόνας
+        weight: Θέση κατάταξης
       attachment_collection:
         description: Περιγραφή
         name: Όνομα
+        weight: Θέση κατάταξης
       category:
         description: Περιγραφή
         name: Όνομα
         parent_id: Γονικό στοιχείο
+        weight: Θέση κατάταξης
       component:
         name: Όνομα
         published_at: Δημοσιεύτηκε στις
         weight: Θέση κατάταξης
+      external_domain:
+        value: Τιμή
+      help_section:
+        content: Περιεχόμενο
       id: Αναγνωριστικό
       import:
         user_group_id: Δημιουργία εισαγωγών ως
@@ -32,6 +39,7 @@ el:
         body: Σώμα
         subject: Θέμα
       organization:
+        admin_terms_of_service_body: Περιεχόμενο για τους όρους χρήσης του διαχειριστή
         alert_color: Ειδοποίηση
         available_authorizations: Διαθέσιμες εγκρίσεις
         badges_enabled: Ενεργοποίηση εμβλημάτων
@@ -91,6 +99,9 @@ el:
         welcome_notification_body: Σώμα ειδοποίησης καλωσορίσματος
         welcome_notification_subject: Θέμα ειδοποίησης καλωσορίσματος
         youtube_handler: Πρόγραμμα χειρισμού YouTube
+      participatory_space_private_user:
+        email: Email
+        name: Όνομα
       scope:
         code: Κωδικός
         name: Όνομα
@@ -112,6 +123,7 @@ el:
         show_in_footer: Εμφάνιση στο υποσέλιδο
         slug: Slug διεύθυνσης URL
         title: Τίτλος
+        topic_id: Θέμα
         weight: Θέση κατάταξης
       static_page_topic:
         description: Περιγραφή
@@ -122,12 +134,20 @@ el:
         file: Αρχείο
     errors:
       models:
+        newsletter:
+          attributes:
+            base:
+              at_least_one_space: Επιλέξτε τουλάχιστον έναν συμμετοχικό χώρο.
         organization:
           attributes:
             official_img_footer:
               allowed_file_content_types: Μη έγκυρο αρχείο εικόνας
             official_img_header:
               allowed_file_content_types: Μη έγκυρο αρχείο εικόνας
+      new_import:
+        attributes:
+          file:
+            invalid_mime_type: Μη έγκυρος τύπος MIME.
   activerecord:
     attributes:
       decidim/static_page:
@@ -148,6 +168,8 @@ el:
         add: Προσθήκη
         attachment:
           new: Νέο συνημμένο
+        attachment_collection:
+          new: Νέος φάκελος συνημμένων
         browse: Αναζήτηση
         category:
           new: Νέα κατηγορία
@@ -164,7 +186,23 @@ el:
         permissions: Δικαιώματα
         reject: Απόρριψη
         share: Κοινοποίηση
+        user:
+          new: Νέος διαχειριστής
         verify: Επαλήθευση
+      admin_terms_of_service:
+        accept:
+          error: Παρουσιάστηκε σφάλμα κατά την αποδοχή των όρων της υπηρεσίας διαχειριστή.
+          success: Τέλεια! Έχετε αποδεχτεί τους όρους παροχής υπηρεσιών διαχειριστή.
+        actions:
+          accept: Συμφωνώ με τους όρους
+          are_you_sure: Είστε σίγουροι ότι θέλετε να απορρίψετε τους όρους παροχής υπηρεσιών διαχειριστή;
+          refuse: Απόρριψη των όρων διαχειριστή
+          title: Συμφωνώ με τους όρους παροχής υπηρεσιών
+        required_review:
+          alert: 'Απαιτείται: Διαβάστε τους όρους παροχής υπηρεσιών διαχειριστή'
+          callout: Παρακαλούμε αφιερώστε λίγο χρόνο για να διαβάσετε τους όρους παροχής υπηρεσιών του διαχειριστή. Διαφορετικά δεν θα μπορείτε να διαχειριστείτε την πλατφόρμα.
+          cta: Διαβάστε τους τώρα.
+        title: Όροι παροχής υπηρεσιών διαχειριστή
       area_types:
         create:
           error: Υπήρξε ένα πρόβλημα κατά τη δημιουργία ενός νέου τύπου περιοχής.

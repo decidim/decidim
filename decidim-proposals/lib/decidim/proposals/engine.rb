@@ -38,7 +38,7 @@ module Decidim
         root to: "proposals#index"
       end
 
-      initializer "decidim.content_processors" do |_app|
+      initializer "decidim_proposals.content_processors" do |_app|
         Decidim.configure do |config|
           config.content_processors += [:proposal]
         end
@@ -50,7 +50,7 @@ module Decidim
         end
       end
 
-      initializer "decidim_changes" do
+      initializer "decidim_proposals.settings_changes" do
         config.to_prepare do
           Decidim::SettingsChange.subscribe "surveys" do |changes|
             Decidim::Proposals::SettingsChangeJob.perform_later(
@@ -87,6 +87,12 @@ module Decidim
       initializer "decidim_proposals.add_cells_view_paths" do
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Proposals::Engine.root}/app/cells")
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Proposals::Engine.root}/app/views") # for proposal partials
+      end
+
+      initializer "decidim_proposals.remove_space_admins" do
+        ActiveSupport::Notifications.subscribe("decidim.system.participatory_space.admin.destroyed") do |_event_name, klass, id|
+          Decidim::Proposals::ValuationAssignment.where(valuator_role_type: klass, valuator_role_id: id).destroy_all
+        end
       end
 
       initializer "decidim_proposals.add_badges" do
@@ -203,8 +209,16 @@ module Decidim
       end
 
       initializer "decidim_proposals.authorization_transfer" do
-        Decidim::AuthorizationTransfer.register(:proposals) do |transfer|
-          transfer.move_records(Decidim::Proposals::ProposalVote, :decidim_author_id)
+        config.to_prepare do
+          Decidim::AuthorizationTransfer.register(:proposals) do |transfer|
+            transfer.move_records(Decidim::Proposals::ProposalVote, :decidim_author_id)
+          end
+        end
+      end
+
+      initializer "decidim_proposals.moderation_content" do
+        ActiveSupport::Notifications.subscribe("decidim.system.events.hide_user_created_content") do |_event_name, data|
+          Decidim::Proposals::HideAllCreatedByAuthorJob.perform_later(**data)
         end
       end
     end

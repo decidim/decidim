@@ -809,7 +809,6 @@ pt-BR:
           intro: 'Sua mensagem contém os seguintes erros:'
           ok: OK
         index:
-          ago: atrás
           new_conversation: Nova conversa
           next: Próxima
           title: Conversas
@@ -1385,8 +1384,8 @@ pt-BR:
       widget:
         see_more: Ver mais
   locale:
-    name: Português
-    name_with_error: Português (erro!)
+    name: Português brasileiro
+    name_with_error: Português brasileiro (erro!)
   password_validator:
     domain_included_in_password: é muito semelhante a este nome de domínio
     email_included_in_password: é muito parecido com o seu email

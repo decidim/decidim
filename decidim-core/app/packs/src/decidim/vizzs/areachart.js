@@ -3,7 +3,7 @@
 /* eslint dot-location: ["error", "property"] */
 /* eslint no-unused-vars: 0 */
 
-import { select, mouse } from "d3-selection";
+import { select, pointer } from "d3-selection";
 import { min, max, extent, ascending, bisector } from "d3-array";
 import { scaleTime, scaleLinear } from "d3-scale";
 import { axisLeft, axisBottom } from "d3-axis";
@@ -117,8 +117,8 @@ export default function areachart(opts = {}) {
         circle.style("display", "none")
         tooltip.style("opacity", 0)
       })
-      .on("mousemove", function() {
-        let x0 = x.invert(mouse(this)[0])
+      .on("mousemove", function(event) {
+        let x0 = x.invert(pointer(event)[0])
         let i = bisector((d) => d.key).left(data, x0, 1)
         let d0 = data[i - 1]
         let d1 = data[i]

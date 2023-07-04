@@ -5,7 +5,7 @@
 //     csc(60deg)  // 1.1547
 @use "sass:math";
 
-@function csc ($x){
+@function csc($x) {
   $x: unitless-rad($x);
 
   @return math.div(1, sin($x));

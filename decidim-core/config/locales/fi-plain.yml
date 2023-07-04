@@ -29,6 +29,7 @@ fi-pl:
         password_confirmation: Vahvista salasanasi
         personal_url: Henkilökohtainen URL-osoite
         remove_avatar: Poista profiilikuva
+        tos_agreement: Käyttöehtojen hyväksyntä
     models:
       decidim/attachment_created_event: Liite
       decidim/component_published_event: Aktiivinen komponentti
@@ -97,23 +98,26 @@ fi-pl:
         other: noin %{count} kuukautta
       half_a_minute: puoli minuuttia
       less_than_x_minutes:
-        one: alle minuutti.
-        other: alle %{count} minuuttia.
+        one: alle minuutti
+        other: alle %{count} minuuttia
       less_than_x_seconds:
-        one: juuri nyt
-        other: vähemmän kuin %{count} sekuntia.
+        one: alle 1 sekunti
+        other: alle %{count} sekuntia
       x_days:
-        one: päivä sitten
-        other: "%{count} päivää sitten"
+        one: 1 päivä
+        other: "%{count} päivää"
       x_hours:
-        one: tunti sitten
-        other: "%{count} tuntia sitten"
+        one: 1 tunti
+        other: "%{count} tuntia"
       x_minutes:
-        one: minuutti sitten
-        other: "%{count} minuuttia sitten"
+        one: 1 minuutti
+        other: "%{count} minuuttia"
+      x_months:
+        one: 1 kuukausi
+        other: "%{count} kuukautta"
       x_seconds:
-        one: sekunti sitten
-        other: "%{count} sekuntia sitten"
+        one: 1 sekunti
+        other: "%{count} sekuntia"
   decidim:
     accessibility:
       external_link: Ulkoinen linkki
@@ -121,6 +125,7 @@ fi-pl:
       logo: "Organisaation %{organization} virallinen logo"
       skip_button: Siirry sisältöön
     account:
+      blocked: Tämä käyttäjätili on estetty, koska käyttäjä ei noudattanut käyttöehtoja
       delete:
         alert: Tätä toimintoa ei voi peruuttaa. Jos poistat tilisi, et voi enää kirjautua sisään tunnuksillasi. Tilisi poiston yhteydessä nimesi ja tietosi poistuvat kaikkien laatimiesi asioiden yhteydestä. Voit kuitenkin aina luoda uuden tilin, mutta näitä aikaisemmin laadittuja asioita ei voida enää jälkikäteen liittää uuteen tiliisi.
         confirm:
@@ -251,6 +256,8 @@ fi-pl:
         verify_via_csv: "%{user_name} vahvisti käyttäjäryhmän %{resource_name} CSV-tiedoston avulla"
       user_moderation:
         unreport: "%{user_name} poisti ilmoituksen kohteelta %{resource_type} - %{unreported_user_name}"
+    admin_terms_of_service:
+      default_body: "<h2>HALLINTAKÄYTTÄJÄN KÄYTTÖEHDOT</h2><p>Oletamme, että olet saanut järjestelmänvalvojalta koulutuksen järjestelmän turvalliseen hallintakäyttöön. Usein siinä korostuu seuraavat asiat:</p><ol><li>Kunnioita muiden käyttäjien yksityisyyttä ja tietosuojaa.</li><li>Mieti hetki ennen kuin klikkaat painikkeita.</li><li>Mitä enemmän sinulla on valtaa, sitä enemmän sinulla on vastuuta tekemisistäsi.</li></ol>"
     alert:
       dismiss: Piilota ilmoitus
     amendments:
@@ -550,6 +557,7 @@ fi-pl:
           sign_up_as:
             legend: Rekisteröidy
           subtitle: Rekisteröidy osallistuaksesi keskusteluihin ja kannattaaksesi ehdotuksia.
+          terms: käyttöehdot
           tos_agreement: Rekisteröitymällä palveluun hyväksyt %{link}.
           tos_title: Käyttöehdot
           username_help: Julkinen nimi, joka näytetään viestiesi yhteydessä. Anonyymiteetin taataksemme, voi olla mikä tahansa nimi.
@@ -1086,7 +1094,6 @@ fi-pl:
           intro: 'Viestisi sisältää seuraavia virheitä:'
           ok: OK
         index:
-          ago: sitten
           new_conversation: Uusi keskustelu
           next: Seuraava
           no_conversations: Sinulla ei vielä ole keskusteluja.
@@ -1261,6 +1268,24 @@ fi-pl:
         metrics:
           headline: Osallistuminen lukuina
           link: Näytä kaikki tilastot
+      terms_of_service:
+        accept:
+          error: Käyttöehtojen hyväksyminen epäonnistui.
+          success: Hienoa! Olet hyväksynyt käyttöehdot.
+        form:
+          agreement: Hyväksyn nämä ehdot
+          legend: Käyttöehtojen hyväksyntä
+        refuse:
+          modal_body: Jos kieltäydyt hyväksymästä ehtoja, et voi käyttää palvelua. Voit <a href="%{download_your_data_path}">ladata omat tietosi</a> ja/tai <a href="%{delete_path}">poistaa tilisi</a>.
+          modal_btn_continue: Hyväksy ehdot ja jatka
+          modal_btn_exit: Tarkastan ne myöhemmin
+          modal_button: Kieltäydy hyväksymästä ehtoja
+          modal_close: Sulje ikkuna
+          modal_title: Kieltäydytkö tosiaan hyväksymästä päivitettyjä käyttöehtoja?
+        required_review:
+          alert: Olemme päivittäneet käyttöehtojamme. Ole hyvä ja tutustu päivitettyihin ehtoihin.
+          body: Ole hyvä ja tutustu päivitetyihin käyttöehtoihimme. Jatkaaksesi palvelun käyttöä sinun on tutustuttava päivitettyihin ehtoihin.
+          title: 'Pakollinen: Tarkista päivitetyt käyttöehtomme'
     participatory_space_private_users:
       not_allowed: Et voi katsoa tätä sisältöä
     passwords:
@@ -1269,6 +1294,7 @@ fi-pl:
         success: Salasanan päivitys onnistui.
     profile:
       deleted: Poistettu osallistuja
+      inaccessible_message: Tämä käyttäjäprofiili ei ole käytettävissä, koska käyttäjä on rikkonut käyttöehtoja!
       view: Näytä
     profiles:
       default_officialization_text_for_user_groups: Tämä ryhmä on julkisesti varmennettu, ja sen nimen on varmennettu vastaavan todellista nimeä.
@@ -1405,9 +1431,11 @@ fi-pl:
         visit_profile: Jos haluat myös estää osallistujan ja hänen lähettämän muun sisällön, siirry profiilisivulle %{user_link}.
       flag_user_modal:
         already_reported: Tämä sisältö on jo ilmoitettu ja se odottaa hallintakäyttäjän tarkastusta.
+        block: Estä tämä osallistuja
         close: Sulje
         description: Mikä tässä käyttäjässä on asiatonta?
         does_not_belong: Sisältää laitonta toimintaa, itsemurhauhkailua, henkilökohtaisia tietoja tai jotain muuta, jonka et usko kuuluvan %{organization_name} -palveluun.
+        hide: Piilota kaikki osallistujan luoma sisältö
         offensive: Sisältää rasismia, seksismiä, haukkumista, henkilökohtaisia hyökkäyksiä, tappouhkauksia, itsemurhapyyntöjä tai muuta vihapuhetta.
         report: Tee ilmoitus
         spam: Sisältää klikkihoukutteita, mainostusta, huijauksia tai bottiskriptejä.
@@ -1692,6 +1720,63 @@ fi-pl:
   doorkeeper:
     scopes:
       public: Julkiset tietosi.
+  editor:
+    extensions:
+      image:
+        altLabel: Vaihtoehtoinen teksti kuvalle
+        nodeView:
+          resizer:
+            control:
+              resize: Muuta kuvan kokoa (%position%)
+            position:
+              bottomLeft: vasen alakulma
+              bottomRight: oikea alakulma
+              topLeft: vasen yläkulma
+              topRight: oikea yläkulma
+        uploadError: Tiedoston lataaminen epäonnistui.
+      link:
+        bubbleMenu:
+          edit: Muokkaa
+          remove: Poista
+          url: URL
+        hrefLabel: Linkin URL-osoite
+        targetLabel: Kohde
+        targets:
+          blank: Uusi välilehti
+          default: Oletus (sama välilehti)
+      videoEmbed:
+        titleLabel: Otsikko
+        urlLabel: Videon URL-osoite
+    inputDialog:
+      buttons:
+        cancel: Peruuta
+        remove: Poista
+        save: Tallenna
+      close: Sulje ikkuna
+    toolbar:
+      control:
+        blockquote: Sitaatti
+        bold: Lihavointi
+        bulletList: Järjestämätön lista
+        codeBlock: Koodinäyte
+        common:
+          eraseStyles: Poista tyylit
+        hardBreak: Rivinvaihto
+        heading: Tekstin tyyli
+        image: Kuva
+        indent:
+          indent: Sisennys
+          outdent: Sisennyksen vähennys
+        italic: Kursivointi
+        link: Linkki
+        orderedList: Järjestetty lista
+        underline: Alleviivaus
+        videoEmbed: Videoupotus
+      textStyle:
+        heading: Otsikkotaso %level%
+        normal: Normaali
+    upload:
+      uploadedFile: Ladattu tiedosto
   emojis:
     button: Lisää emoji
     categories:
@@ -1742,6 +1827,7 @@ fi-pl:
       too_many_marks: liian monta välimerkkiä peräkkäin (esim. ! ja ?)
       too_much_caps: liian monta isoa kirjainta (yli 25% tekstistä)
       too_short: liian lyhyt (alle %{count} merkkiä)
+      url_format: Tämä URL-osoite on väärässä muodossa
   forms:
     correct_errors: Lomakkeella on virheitä, korjaa ne jatkaaksesi.
     length_validator:

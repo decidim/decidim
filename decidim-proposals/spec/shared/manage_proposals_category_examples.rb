@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 shared_examples "when managing proposals category as an admin" do
-  let(:parent_category) { create :category, participatory_space: participatory_process }
-  let(:category) { create :category, participatory_space: participatory_process, parent_id: parent_category.id }
-  let!(:my_category) { create :category, participatory_space: participatory_process, parent_id: parent_category.id }
+  let(:parent_category) { create(:category, participatory_space: participatory_process) }
+  let(:category) { create(:category, participatory_space: participatory_process, parent_id: parent_category.id) }
+  let!(:my_category) { create(:category, participatory_space: participatory_process, parent_id: parent_category.id) }
   let!(:proposal_first) { reportables.first }
   let!(:proposal_last) { reportables.last }
 
@@ -50,11 +50,11 @@ shared_examples "when managing proposals category as an admin" do
         end
 
         it "shows the category select" do
-          expect(page).to have_css("select#category_id", count: 1)
+          expect(page).to have_select(id: "category_id", count: 1)
         end
 
         it "shows an update button" do
-          expect(page).to have_css("button#js-submit-edit-category", count: 1)
+          expect(page).to have_button(id: "js-submit-edit-category", count: 1)
         end
       end
 
@@ -64,7 +64,7 @@ shared_examples "when managing proposals category as an admin" do
           click_button "Change category"
           within "#js-form-recategorize-proposals" do
             select translated(category.name), from: :category_id
-            page.find("button#js-submit-edit-category").click
+            click_button(id: "js-submit-edit-category")
           end
         end
 

@@ -2,7 +2,6 @@
 /* eslint id-length: ["error", { "exceptions": ["$"] }] */
 
 import $ from "jquery"
-import Quill from "quill"
 import Rails from "@rails/ujs"
 
 import "core-js/stable";

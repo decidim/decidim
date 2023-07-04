@@ -10,7 +10,6 @@ import AutoLabelByPositionComponent from "src/decidim/admin/auto_label_by_positi
 import createSortList from "src/decidim/admin/sort_list.component"
 import createDynamicFields from "src/decidim/admin/dynamic_fields.component"
 import createFieldDependentInputs from "src/decidim/admin/field_dependent_inputs.component"
-import createQuillEditor from "src/decidim/editor"
 import initLanguageChangeSelect from "src/decidim/admin/choose_language"
 
 export default function createEditableForm() {
@@ -387,8 +386,8 @@ export default function createEditableForm() {
       setupInitialQuestionAttributes($field);
       createSortableList();
 
-      $field.find(".editor-container").each((idx, el) => {
-        createQuillEditor(el);
+      $field[0].querySelectorAll(".editor-container").forEach((el) => {
+        window.createEditor(el);
       });
 
       autoLabelByPosition.run();

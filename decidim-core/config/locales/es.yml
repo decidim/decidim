@@ -98,23 +98,26 @@ es:
         other: aproximadamente %{count} meses
       half_a_minute: medio minuto
       less_than_x_minutes:
-        one: menos de 1 minuto
-        other: menos de %{count} minutos
+        one: hace menos de un minuto
+        other: ha menos de %{count} minutos
       less_than_x_seconds:
-        one: ahora mismo
-        other: menos de %{count} segundos
+        one: hace menos de un segundo
+        other: hace menos de %{count} segundos
       x_days:
-        one: hace 1 día
-        other: "hace %{count} días"
+        one: 1 día
+        other: "%{count} días"
       x_hours:
-        one: hace 1 hora
-        other: "hace %{count} días"
+        one: 1 hora
+        other: "%{count} horas"
       x_minutes:
-        one: hace 1 minuto
-        other: "hace %{count} minutos"
+        one: 1 minuto
+        other: "%{count} minutos"
+      x_months:
+        one: 1 mes
+        other: "%{count} meses"
       x_seconds:
-        one: hace 1 segundo
-        other: "hace %{count} segundos"
+        one: 1 segundo
+        other: "%{count} segundos"
   decidim:
     accessibility:
       external_link: Enlace externo
@@ -1087,7 +1090,6 @@ es:
           intro: 'Se han producido los siguientes errores en tu mensaje:'
           ok: De acuerdo
         index:
-          ago: hace
           new_conversation: Nueva conversación
           next: Siguiente
           no_conversations: Aún no tienes ninguna conversarción.
@@ -1425,9 +1427,11 @@ es:
         visit_profile: Si también quieres bloquear al participante y el resto de sus contenidos, ve a la página de perfil de %{user_link}.
       flag_user_modal:
         already_reported: Este contenido ya ha sido reportado y será revisado por una administradora.
+        block: Eliminar a esta participante
         close: Cerrar
         description: '¿Qué es inapropiado de la usuaria?'
         does_not_belong: Contiene actividad ilegal, amenazas de suicidio, información personal o cualquier otra cosa que creas que no pertenece a %{organization_name}.
+        hide: Esconder todos sus contenidos
         offensive: Contiene el racismo, el sexismo, los golpes personales, las amenazas de muerte, las peticiones de suicidio o cualquier forma de discurso de odio.
         report: Reporte
         spam: Contiene clickbait, publicidad, estafas o robots de guión.
@@ -1711,6 +1715,63 @@ es:
   doorkeeper:
     scopes:
       public: Tu información pública
+  editor:
+    extensions:
+      image:
+        altLabel: Texto alternativo para la imagen
+        nodeView:
+          resizer:
+            control:
+              resize: Redimensiona la imagen (%position%)
+            position:
+              bottomLeft: esquina inferior izquierda
+              bottomRight: esquina inferior derecha
+              topLeft: esquina superior izquierda
+              topRight: esquina superior derecha
+        uploadError: No se ha podido subir el archivo.
+      link:
+        bubbleMenu:
+          edit: Editar
+          remove: Borrar
+          url: URL
+        hrefLabel: URL del enlace
+        targetLabel: Insertar enlace
+        targets:
+          blank: Nueva pestaña
+          default: Por defecto (en la misma pestaña)
+      videoEmbed:
+        titleLabel: Título
+        urlLabel: URL del vídeo
+    inputDialog:
+      buttons:
+        cancel: Cancelar
+        remove: Borrar
+        save: Guardar
+      close: Cerrar la ventana
+    toolbar:
+      control:
+        blockquote: Cita
+        bold: Negrita
+        bulletList: Lista desordenada
+        codeBlock: Bloque de códigos
+        common:
+          eraseStyles: Borrar los estilos
+        hardBreak: Salto de línea
+        heading: Estilo de texto
+        image: Imagen
+        indent:
+          indent: Aumentar la sangria
+          outdent: Reduiir la sangria
+        italic: Cursiva
+        link: Enlace
+        orderedList: Lista ordenada
+        underline: Subrayado
+        videoEmbed: Incrustar vídeo
+      textStyle:
+        heading: Encabezado %level%
+        normal: Normal
+    upload:
+      uploadedFile: Archivo subido
   emojis:
     button: Añadir emoji
     categories:
@@ -1761,6 +1822,7 @@ es:
       too_many_marks: Estás usando demasiados signos de puntuación consecutivos (por ejemplo,! y?)
       too_much_caps: Está usando demasiadas letras mayúsculas (más del 25% del texto)
       too_short: es demasiado corto (menos %{count} caracteres)
+      url_format: El formato de esta URL es incorrecto
   forms:
     correct_errors: Hay errores en el formulario, por favor corrígelos para continuar.
     length_validator:

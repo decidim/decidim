@@ -6,13 +6,13 @@ module Decidim::Admin
   describe UpdateScope do
     subject { described_class.new(scope, form) }
 
-    let(:organization) { create :organization }
-    let(:parent_scope) { create :scope, organization: }
-    let(:scope) { create :scope, parent: parent_scope, organization: }
-    let(:user) { create :user, :admin, :confirmed, organization: }
+    let(:organization) { create(:organization) }
+    let(:parent_scope) { create(:scope, organization:) }
+    let(:scope) { create(:scope, parent: parent_scope, organization:) }
+    let(:user) { create(:user, :admin, :confirmed, organization:) }
     let(:name) { Decidim::Faker::Localized.literal("New name") }
     let(:code) { "NEWCODE" }
-    let(:scope_type) { create :scope_type, organization: }
+    let(:scope_type) { create(:scope_type, organization:) }
 
     let(:form) do
       double(

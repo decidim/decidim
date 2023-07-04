@@ -1,15 +1,15 @@
 <%= render partial: "decidim/meetings/shared/index", locals: {
-  display_map: current_component.settings.maps_enabled? && search.result.not_online.exists?,
-  display_announcement: true,
-  component: current_component,
-  search_variable: :search_text_cont,
-  filter_options: {
-    date: !@forced_past_meetings,
-    type: true,
-    scopes: current_component.has_subscopes?,
-    categories: current_component.categories.any?,
-    origin: component_settings.creation_enabled_for_participants?,
-    space_type: false,
-    activity: current_user.present?
-  }
-} %>
+      display_map: current_component.settings.maps_enabled? && search.result.not_online.exists?,
+      display_announcement: true,
+      component: current_component,
+      search_variable: :search_text_cont,
+      filter_options: {
+        date: !@forced_past_meetings,
+        type: true,
+        scopes: current_component.has_subscopes?,
+        categories: current_component.categories.any?,
+        origin: component_settings.creation_enabled_for_participants?,
+        space_type: false,
+        activity: current_user.present?
+      }
+    } %>

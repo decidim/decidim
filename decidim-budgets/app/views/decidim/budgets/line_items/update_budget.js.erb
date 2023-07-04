@@ -22,12 +22,12 @@ if ($projectItem.length > 0) {
   <% if params[:action] == "destroy" && params[:show_only_added] == "true" %>
     $projectItem[0].remove();
   <% else %>
-    morphdom($projectItem[0], '<%= j(render partial: "decidim/budgets/projects/project", locals: { project: project }).strip.html_safe %>');
+    morphdom($projectItem[0], '<%= j(render partial: "decidim/budgets/projects/project", locals: { project: }).strip.html_safe %>');
   <% end %>
 }
 
 if ($projectBudgetButton.length > 0) {
-  morphdom($projectBudgetButton[0], '<%= j(render partial: "decidim/budgets/projects/project_budget_button", locals: { project: project }).strip.html_safe %>');
+  morphdom($projectBudgetButton[0], '<%= j(render partial: "decidim/budgets/projects/project_budget_button", locals: { project: }).strip.html_safe %>');
 }
 
 window.DecidimBudgets.checkProgressPosition();

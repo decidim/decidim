@@ -13,7 +13,7 @@ module Decidim
       end
 
       def current_filter
-        get_filter(:with_date, model[:default_filter])
+        get_filter_in(:with_date, ALL_FILTERS, model[:default_filter])
       end
 
       def current_type_filter_name
@@ -23,6 +23,11 @@ module Decidim
 
       def get_filter(filter_name, default = nil)
         params&.dig(:filter, filter_name) || default
+      end
+
+      def get_filter_in(filter_name, options, default = nil)
+        value = get_filter(filter_name)
+        options.include?(value) ? value : default
       end
 
       def filter_params(date_filter, type_filter)

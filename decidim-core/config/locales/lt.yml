@@ -106,36 +106,6 @@ lt:
         many: apie %{count} mėnesiai
         other: apie %{count} mėnesiai
       half_a_minute: pusė minutės
-      less_than_x_minutes:
-        one: mažiau nei minutė.
-        few: mažiau nei %{count} minutės.
-        many: mažiau nei %{count} minutės.
-        other: mažiau nei %{count} minutės.
-      less_than_x_seconds:
-        one: dabar
-        few: mažiau nei %{count} sek.
-        many: mažiau nei %{count} sek.
-        other: mažiau nei %{count} sek.
-      x_days:
-        one: prieš 1 dieną
-        few: "prieš %{count} dienas"
-        many: "prieš %{count} dienas"
-        other: "prieš %{count} dienas"
-      x_hours:
-        one: prieš vieną valandą
-        few: "prieš %{count} valandas"
-        many: "prieš %{count} valandų"
-        other: "prieš %{count} valandas"
-      x_minutes:
-        one: prieš 1 min.
-        few: "prieš %{count} min."
-        many: "prieš %{count} min."
-        other: "prieš %{count} min."
-      x_seconds:
-        one: prieš 1 sekundę
-        few: "prieš %{count} sekundes"
-        many: "prieš %{count} sekundes"
-        other: "prieš %{count} sekundes"
   decidim:
     accessibility:
       external_link: Išorinė nuoroda
@@ -975,7 +945,6 @@ lt:
           intro: 'Jūsų pranešime aptiktos šios klaidos:'
           ok: Gerai
         index:
-          ago: prieš
           new_conversation: Naujas pokalbis
           next: Kitas
           title: Pokalbiai

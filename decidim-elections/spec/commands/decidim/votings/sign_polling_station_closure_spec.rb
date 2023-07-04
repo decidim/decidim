@@ -33,7 +33,7 @@ module Decidim::Votings
         subject.call
 
         expect(closure.signed_at).to be_present
-        expect(closure.signed_at).to be_kind_of(Date)
+        expect(closure.signed_at).to be_a(Date)
         expect(closure.signed?).to be true
       end
 

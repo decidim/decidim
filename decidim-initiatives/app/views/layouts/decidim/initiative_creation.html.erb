@@ -1,5 +1,5 @@
 <%= render "layouts/decidim/application" do %>
-  <% if wizard_steps.first == step %>
+  <% if action_name == "select_initiative_type" %>
     <div class="wrapper">
       <%= yield %>
     </div>

@@ -8,8 +8,8 @@ module Decidim
       describe CreateVoting do
         subject { described_class.new(form) }
 
-        let(:organization) { create :organization, available_locales: [:en, :ca, :es], default_locale: :en }
-        let(:user) { create :user, :admin, :confirmed, organization: }
+        let(:organization) { create(:organization, available_locales: [:en, :ca, :es], default_locale: :en) }
+        let(:user) { create(:user, :admin, :confirmed, organization:) }
 
         let(:form) do
           double(
@@ -37,7 +37,7 @@ module Decidim
         let(:start_time) { 1.day.from_now }
         let(:end_time) { start_time + 1.month }
         let(:slug) { "voting-slug" }
-        let(:scope) { create :scope, organization: }
+        let(:scope) { create(:scope, organization:) }
         let(:promoted) { true }
         let(:voting_type) { "online" }
         let(:census_contact_information) { nil }

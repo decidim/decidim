@@ -3,7 +3,7 @@
     <div class="columns mediumlarge-8 large-9 card--process__column">
       <div class="card__content">
         <%= link_to decidim_consultations.question_path(question), class: "card__link" do %>
-          <h2 class="heading5"><%= decidim_sanitize translated_attribute question.title %></h2>
+          <h2 class="heading5"><%= decidim_sanitize translated_attribute(question.title), strip_tags: true %></h2>
         <% end %>
         <p><%= translated_attribute question.subtitle %></p>
       </div>

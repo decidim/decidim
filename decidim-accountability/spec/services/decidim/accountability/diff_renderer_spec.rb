@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe Decidim::Accountability::DiffRenderer, versioning: true do
-  let!(:result) { create :result, progress: 50 }
+  let!(:result) { create(:result, progress: 50) }
   let(:version) { result.versions.last }
 
   before do
@@ -26,7 +26,7 @@ describe Decidim::Accountability::DiffRenderer, versioning: true do
 
     it "calculates the fields that have changed" do
       expect(subject.keys)
-        .to match_array [:title_en, :description_ca, :progress, :start_date]
+        .to contain_exactly(:title_en, :description_ca, :progress, :start_date)
     end
 
     it "has the old and new values for each field" do

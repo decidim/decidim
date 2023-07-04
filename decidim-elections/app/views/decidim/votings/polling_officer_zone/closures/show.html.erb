@@ -6,12 +6,12 @@
 </div>
 
 <%= content_tag :h2, if closure.certificate_phase?
-               t("heading", scope: "decidim.votings.polling_officer_zone.closures.certify")
-             elsif closure.signature_phase?
-               t("heading", scope: "decidim.votings.polling_officer_zone.closures.sign")
-             else
-               t("heading", scope: "decidim.votings.polling_officer_zone.closures.show")
-             end %>
+                       t("heading", scope: "decidim.votings.polling_officer_zone.closures.certify")
+                     elsif closure.signature_phase?
+                       t("heading", scope: "decidim.votings.polling_officer_zone.closures.sign")
+                     else
+                       t("heading", scope: "decidim.votings.polling_officer_zone.closures.show")
+                     end %>
 
 <%= content_tag :p,
                 if closure.certificate_phase?

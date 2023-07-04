@@ -35,10 +35,12 @@ ro:
       decidim/demoted_membership: Nu mai este un administrator de grup
       decidim/gamification/badge_earned_event: Insignă câștigată
       decidim/gamification/level_up_event: Ai crescut în nivel
+      decidim/invited_to_group_event: Invitat în grup
       decidim/join_request_accepted_event: Cerere de înscriere acceptată
       decidim/join_request_rejected_event: Cerere de înscriere respinsă
       decidim/profile_updated_event: Profil actualizat
       decidim/promote_to_admin: Promovat ca administrator
+      decidim/promoted_to_admin_event: Promovat ca administrator
       decidim/removed_from_group: Eliminat din grup
       decidim/resource_endorsed_event: Resursă susținută
       decidim/resource_hidden_event: Resursă ascunsă
@@ -78,6 +80,7 @@ ro:
     'true': 'Da'
   carrierwave:
     errors:
+      file_cannot_be_processed: Fișierul nu poate fi procesat
       file_resolution_too_large: Rezoluția fișierului este prea mare
       file_size_too_large: Mărimea fișierului este prea mare
       not_inside_organization: Fișierul nu este atașat niciunei organizații
@@ -107,6 +110,7 @@ ro:
           question: Sigur dorești să-ți ștergi contul?
           title: Șterge contul meu
         explanation: Care este motivul pentru care dorești să-ți ștergi (opțional).
+        leaving_authorizations_behind: Unele date asociate autorizării dvs. vor fi salvate pentru securitate. Dacă creați un alt cont și autorizați din nou, aceste date vor fi recuperate în noul dvs. cont.
       destroy:
         error: A apărut o eroare la ștergerea contului tău.
         success: Contul tău a fost șters cu succes.
@@ -114,18 +118,23 @@ ro:
         file_no_exists: Fișierul nu există
         notice: Descărcarea datelor dvs. este în curs de desfășurare. Veți primi un e-mail atunci când este completă.
       email_change:
+        body1: Am trimis un e-mail către %{unconfirmed_email} pentru a verifica noua ta adresă de e-mail.
+        body2: Ai nevoie să trimitem e-mailul de verificare din nou? %{resend_link} sau %{cancel_link}.
         cancel: anulare
         cancel_error: Nu s-a putut anula schimbarea de e-mail.
         cancel_successfully: Modificare e-mail anulată cu succes.
         resend_error: Nu s-a putut retrimite e-mailul de confirmare.
+        resend_successfully: E-mail de confirmare retrimis cu succes la %{unconfirmed_email}.
         send_again: Trimite din nou
         title: Verificarea adresei de e-mail
       show:
+        available_locales_helper: Alege limba pe care dorești să o utilizezi pentru a naviga și primi notificări din platformă.
         change_password: Schimbă parola
         update_account: Actualizați contul
       update:
         error: A apărut o eroare la actualizarea contului tău.
         success: Contul tău fost actualizat cu succes.
+        success_with_email_confirmation: Contul tău a fost actualizat cu succes. Vei primi un e-mail pentru a confirma noua ta adresă de e-mail.
     activity:
       time_ago: "În urmă cu %{time}"
     admin:
@@ -136,11 +145,31 @@ ro:
         create: "%{user_name} a creat zona %{resource_name}"
         delete: "%{user_name} a șters zona %{resource_name}"
         update: "%{user_name} a actualizat zona %{resource_name}"
+      area_type:
+        create: "%{user_name} a creat tipul de zonă %{resource_name}"
+        delete: "%{user_name} a șters tipul de zonă %{resource_name}"
+        update: "%{user_name} a actualizat tipul de zonă %{resource_name}"
+      attachment:
+        create: "%{user_name} a creat ataşamentul %{resource_name}"
+        delete: "%{user_name} a șters atașamentul %{resource_name}"
+        update: "%{user_name} a actualizat atașamentul %{resource_name}"
+      attachment_collection:
+        create: "%{user_name} a creat colecția de atașamente %{resource_name}"
+        delete: "%{user_name} a șters colecția de atașamente %{resource_name}"
+        update: "%{user_name} a actualizat colecția de atașamente %{resource_name}"
+      category:
+        create: "%{user_name} a adăugat categoria %{resource_name} în spațiul %{space_name}"
+        delete: "%{user_name} a șters categoria %{resource_name} din spațiul %{space_name}"
+        update: "%{user_name} a actualizat categoria %{resource_name} în spațiul %{space_name}"
       component:
         create: "%{user_name} a adăugat componenta %{resource_name} la spațiul %{space_name}"
         delete: "%{user_name} a eliminat componenta %{resource_name} din spațiul %{space_name}"
+        export_component: "%{user_name} a exportat %{resource_name} %{component_name} în %{space_name} ca %{format_name}"
         publish: "%{user_name} a publicat componenta %{resource_name} în spațiul %{space_name}"
         unpublish: "%{user_name} a anulat publicarea componentei %{resource_name} din spațiul %{space_name}"
+        update_permissions_with_space: "%{user_name} a actualizat permisiunile %{resource_name} în %{space_name}"
+      contextual_help_section:
+        update: "%{user_name} a actualizat secțiunea de ajutor în %{resource_name}"
       helpers:
         answers: răspunsuri
         comments: comentarii
@@ -162,6 +191,7 @@ ro:
         update: "%{user_name} a actualizat aplicația OAuth %{resource_name}"
       organization:
         update: "%{user_name} a actualizat setările organizației"
+        update_external_domain: "%{user_name} a actualizat domeniile externe ale organizației"
       participatory_space_private_user:
         create: "%{user_name} a invitat pe %{resource_name} să fie un participant privat"
         create_via_csv: "%{user_name} a invitat pe %{resource_name} prin CSV să fie un participant privat"
@@ -173,6 +203,10 @@ ro:
         delete_with_parent: "%{user_name} a şters subdomeniul %{resource_name} în cadrul domeniului %{parent_scope}"
         update: "%{user_name} a actualizat domeniul de interes %{resource_name}"
         update_with_parent: "%{user_name} a actualizat subdomeniul %{resource_name} în cadrul domeniului %{parent_scope}"
+      scope_type:
+        create: "%{user_name} a creat tipul de domeniu %{resource_name}"
+        delete: "%{user_name} a șters tipul de domeniu %{resource_name}"
+        update: "%{user_name} a actualizat tipul de domeniu %{resource_name}"
       static_page:
         create: "%{user_name} a creat pagina statică %{resource_name}"
         delete: "%{user_name} a șters pagina statică %{resource_name}"
@@ -188,7 +222,9 @@ ro:
         unblock: "%{user_name} utilizator deblocat %{resource_name}"
         unofficialize: "%{user_name} a revocat validarea pentru participantul %{resource_name}"
       user_group:
+        block: "%{user_name} a blocat grupul de utilizatori %{resource_name}"
         reject: "%{user_name} a respins verificarea grupului %{resource_name}"
+        unblock: "%{user_name} a deblocat grupul de utilizatori %{resource_name}"
         verify: "%{user_name} a verificat grupul %{resource_name}"
         verify_via_csv: "%{user_name} a verificat grupul %{resource_name} printr-un fișier CSV"
       user_moderation:
@@ -895,7 +931,6 @@ ro:
           intro: 'Au existat următoarele erori cu mesajul tău:'
           ok: Ok
         index:
-          ago: acum
           new_conversation: Conversație nouă
           next: Următoarea
           title: Conversații

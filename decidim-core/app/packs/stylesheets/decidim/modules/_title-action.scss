@@ -1,29 +1,29 @@
-.title-action{
+.title-action {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   margin-bottom: 1.5rem;
 }
 
-.title-action__title{
+.title-action__title {
   display: inline-block;
   margin-right: 1rem;
   vertical-align: middle;
   margin-bottom: 0;
 
-  &.section-heading{
+  &.section-heading {
     margin-bottom: 0;
   }
 }
 
-.title-action__action{
+.title-action__action {
   display: inline-block;
   vertical-align: middle;
   margin-bottom: 0;
 
-  .icon{
+  .icon {
     width: 11px;
     height: 11px;
-    margin-left: .3rem;
+    margin-left: 0.3rem;
   }
 }

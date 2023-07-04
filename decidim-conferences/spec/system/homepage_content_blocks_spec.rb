@@ -10,7 +10,7 @@ describe "Homepage conferences content blocks", type: :system do
   let!(:promoted_external_conference) { create(:conference, :promoted) }
 
   before do
-    create :content_block, organization: organization, scope_name: :homepage, manifest_name: :highlighted_conferences
+    create(:content_block, organization:, scope_name: :homepage, manifest_name: :highlighted_conferences)
     switch_to_host(organization.host)
   end
 

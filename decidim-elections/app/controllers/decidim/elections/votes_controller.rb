@@ -46,7 +46,7 @@ module Decidim
       end
 
       def update
-        enforce_permission_to :view, :election, election: election
+        enforce_permission_to(:view, :election, election:)
 
         Voter::UpdateVoteStatus.call(vote) do
           on(:ok) do
@@ -60,7 +60,7 @@ module Decidim
       end
 
       def verify
-        enforce_permission_to :view, :election, election: election
+        enforce_permission_to(:view, :election, election:)
 
         @form = form(Voter::VerifyVoteForm).instance(election:)
       end
@@ -78,7 +78,7 @@ module Decidim
       end
 
       def exit_path
-        @exit_path ||= if allowed_to? :view, :election, election: election
+        @exit_path ||= if allowed_to?(:view, :election, election:)
                          election_path(election)
                        else
                          elections_path
@@ -141,7 +141,7 @@ module Decidim
           return false
         end
 
-        enforce_permission_to :vote, :election, election: election
+        enforce_permission_to(:vote, :election, election:)
 
         true
       end

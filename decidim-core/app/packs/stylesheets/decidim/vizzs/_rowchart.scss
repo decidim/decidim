@@ -1,59 +1,59 @@
-.rowchart{
+.rowchart {
   //common
-  .background{
+  .background {
     fill: darken($body-background, 2.5);
   }
 
-  .title{
+  .title {
     fill: $muted;
     font-weight: 600;
     font-size: rem-calc(24);
   }
 
-  .subtitle{
+  .subtitle {
     fill: $muted;
     font-size: rem-calc(14);
   }
 
-  .tick{
-    opacity: .5;
+  .tick {
+    opacity: 0.5;
 
-    .dashed{
+    .dashed {
       stroke-dasharray: 3;
     }
   }
 
   // helper to colors
-  @mixin loop-colors-types($color, $max: 12){
-    @for $i from 0 through ($max - 1){
+  @mixin loop-colors-types($color, $max: 12) {
+    @for $i from 0 through ($max - 1) {
       $interval: ($i % 4) * 24 + 1;
       $tints: tint($color, $interval * 1%);
       $shades: shade($color, $interval * 1%);
-      $adjusts: adjust-color($color, $lightness: $interval * 1%, $hue: -$interval);
+      $adjusts: adjust-color(
+        $color,
+        $lightness: $interval * 1%,
+        $hue: -$interval
+      );
 
-      .type-#{$i}{
-        @if $i < 4{
+      .type-#{$i} {
+        @if $i < 4 {
           fill: $tints;
 
-          &:hover{
+          &:hover {
             cursor: pointer;
             fill: complement($tints);
           }
-        }
-
-        @else if $i >= 4 and $i < 8{
+        } @else if $i >= 4 and $i < 8 {
           fill: $shades;
 
-          &:hover{
+          &:hover {
             cursor: pointer;
             fill: complement($shades);
           }
-        }
-
-        @else{
+        } @else {
           fill: $adjusts;
 
-          &:hover{
+          &:hover {
             cursor: pointer;
             fill: complement($adjusts);
           }
@@ -68,8 +68,8 @@
   // colors modifiers
   $map: $foundation-palette;
 
-  @each $key, $value in $map{
-    &.#{$key}{
+  @each $key, $value in $map {
+    &.#{$key} {
       @include loop-colors-types($value);
     }
   }

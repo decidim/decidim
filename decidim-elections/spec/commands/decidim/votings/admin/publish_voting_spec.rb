@@ -8,8 +8,8 @@ module Decidim
       describe PublishVoting do
         subject { described_class.new(voting, current_user) }
 
-        let(:voting) { create :voting, :unpublished }
-        let(:current_user) { create :user, :admin, organization: voting.organization }
+        let(:voting) { create(:voting, :unpublished) }
+        let(:current_user) { create(:user, :admin, organization: voting.organization) }
 
         context "when the voting is nil" do
           let(:voting) { nil }
@@ -21,7 +21,7 @@ module Decidim
         end
 
         context "when the voting is published" do
-          let(:voting) { create :voting, :published }
+          let(:voting) { create(:voting, :published) }
 
           it "is not valid" do
             expect { subject.call }.to broadcast(:invalid)

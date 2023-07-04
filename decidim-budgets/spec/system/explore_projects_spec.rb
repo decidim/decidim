@@ -5,13 +5,25 @@ require "spec_helper"
 describe "Explore projects", :slow, type: :system do
   include_context "with a component"
   let(:manifest_name) { "budgets" }
-  let(:budget) { create :budget, component: }
+  let(:budget) { create(:budget, component:) }
   let(:projects_count) { 5 }
   let!(:projects) do
     create_list(:project, projects_count, budget:)
   end
   let!(:project) { projects.first }
   let(:categories) { create_list(:category, 3, participatory_space: component.participatory_space) }
+
+  describe "show" do
+    let(:description) { { en: "Short description", ca: "Descripció curta", es: "Descripción corta" } }
+    let(:project) { create(:project, budget:, description:) }
+
+    before do
+      visit_budget
+      click_link translated(project.title)
+    end
+
+    it_behaves_like "has embedded video in description", :description
+  end
 
   describe "index" do
     it "shows all resources for the given component" do

@@ -1,9 +1,9 @@
 <% add_decidim_meta_tags({
-  image_url: current_participatory_space.attached_uploader(:hero_image).path,
-  description: translated_attribute(current_participatory_space.short_description),
-  url: assembly_url(current_participatory_space),
-  twitter_handler: current_organization.twitter_handler
-}) %>
+                           image_url: current_participatory_space.attached_uploader(:hero_image).path,
+                           description: translated_attribute(current_participatory_space.short_description),
+                           url: assembly_url(current_participatory_space),
+                           twitter_handler: current_organization.twitter_handler
+                         }) %>
 
 <%
 edit_link(

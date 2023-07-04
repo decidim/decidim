@@ -1,48 +1,48 @@
-.process-header__phase{
+.process-header__phase {
   background: $white;
   padding: $global-padding;
   margin: $global-margin 0;
   border-radius: $global-radius;
 
-  .button{
-    margin-top: $global-margin * .75;
+  .button {
+    margin-top: $global-margin * 0.75;
     margin-bottom: 0;
   }
 }
 
-.process-header__phase--simple{
-  padding: .5rem 1rem;
+.process-header__phase--simple {
+  padding: 0.5rem 1rem;
 
-  @include breakpoint(medium){
+  @include breakpoint(medium) {
     padding: 2rem 1rem;
   }
 }
 
-.phase-title{
+.phase-title {
   display: block;
   font-weight: $global-weight-bold;
   font-size: 1rem;
   line-height: 1;
 
-  @include breakpoint(medium){
+  @include breakpoint(medium) {
     font-size: rem-calc(20);
   }
 
-  .is-inactive &{
+  .is-inactive & {
     color: $muted;
   }
 }
 
-.phase-date{
+.phase-date {
   color: $muted;
   font-weight: 600;
   font-size: 90%;
 }
 
-.process-header__progress{
-  margin-bottom: $global-margin * .5;
+.process-header__progress {
+  margin-bottom: $global-margin * 0.5;
 
-  ol{
+  ol {
     list-style: none;
     margin: 0;
     padding: 0;
@@ -50,18 +50,18 @@
     justify-content: flex-start;
   }
 
-  li{
+  li {
     margin: 0;
     padding: 0;
     position: relative;
     width: 1rem;
     text-align: center;
 
-    &:first-child{
+    &:first-child {
       width: auto;
     }
 
-    &::after{
+    &::after {
       $line-thickness: 2px;
 
       content: "";
@@ -74,7 +74,7 @@
       z-index: 0;
     }
 
-    span{
+    span {
       display: block;
       width: 9px;
       height: 9px;
@@ -85,20 +85,20 @@
     }
   }
 
-  .phase-item--past{
-    &::after{
+  .phase-item--past {
+    &::after {
       background-color: var(--primary);
     }
 
-    span{
+    span {
       background-color: var(--primary);
       opacity: 1;
     }
   }
 
   // arrow
-  .phase-item--current{
-    span::before{
+  .phase-item--current {
+    span::before {
       content: " ";
       height: 0;
       position: absolute;
@@ -110,63 +110,63 @@
       z-index: 2;
     }
 
-    &:first-child span::before{
+    &:first-child span::before {
       left: 0;
     }
   }
 }
 
-.phase-current{
+.phase-current {
   font-weight: $global-weight-normal;
   font-size: rem-calc(12);
   text-transform: uppercase;
   color: $muted;
 }
 
-.process-phase{
+.process-phase {
   @extend .process-header__phase;
 
   padding: 0;
 
-  .process-header__progress{
+  .process-header__progress {
     display: flex;
     align-items: center;
     margin-bottom: 0;
     border-bottom: 1px solid $muted;
-    padding: .5rem 1rem;
+    padding: 0.5rem 1rem;
 
-    ol{
+    ol {
       flex: 1;
     }
 
-    .phase-current{
+    .phase-current {
       margin-left: 1rem;
     }
   }
 }
 
-.process-header__body{
+.process-header__body {
   padding: 1rem 1rem 1.5rem;
 
-  .process-header__link{
-    margin-top: .5rem;
+  .process-header__link {
+    margin-top: 0.5rem;
   }
 }
 
-.process-header__button{
-  .button{
+.process-header__button {
+  .button {
     border-color: var(--primary);
   }
 }
 
-.phase-title--initiatives{
+.phase-title--initiatives {
   @extend .phase-title;
 
   font-size: 1.125rem;
-  margin: 0 0 .5rem;
+  margin: 0 0 0.5rem;
 }
 
-.phase-subtitle--initiatives{
+.phase-subtitle--initiatives {
   @extend .phase-title;
 
   font-size: rem-calc(15);

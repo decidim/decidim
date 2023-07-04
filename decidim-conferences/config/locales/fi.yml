@@ -221,7 +221,7 @@ fi:
             role: Rooli
           name: Konferenssin hallintakäyttäjä
           roles:
-            admin: Hallinnointikäyttäjä
+            admin: Hallintakäyttäjä
             collaborator: Työryhmän jäsen
             moderator: Moderoija
             valuator: Arvioija

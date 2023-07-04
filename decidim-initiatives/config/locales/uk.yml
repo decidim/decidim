@@ -155,7 +155,6 @@ uk:
         fill_data:
           back: Повернутись
           continue: Продовжити
-          initiative_type: Різновид почину
           more_information: "(Додаткові відомості)"
           select_scope: Оберіть обсяг
         finish:

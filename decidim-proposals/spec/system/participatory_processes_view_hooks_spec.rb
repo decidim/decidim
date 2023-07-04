@@ -19,7 +19,7 @@ describe "Proposals in process home", type: :system do
   context "when there are no proposals" do
     it "does not show the highlighted proposals section" do
       visit resource_locator(participatory_process).path
-      expect(page).to have_no_css("#participatory-process-homepage-highlighted-proposals")
+      expect(page).not_to have_css("#participatory-process-homepage-highlighted-proposals")
     end
   end
 

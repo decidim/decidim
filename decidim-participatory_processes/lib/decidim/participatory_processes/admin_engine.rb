@@ -98,7 +98,7 @@ module Decidim
         end
       end
 
-      initializer "decidim_participatory_processes.admin_menu" do
+      initializer "decidim_participatory_processes_admin.menu" do
         Decidim.menu :admin_menu do |menu|
           menu.add_item :participatory_processes,
                         I18n.t("menu.participatory_processes", scope: "decidim.admin"),
@@ -112,7 +112,7 @@ module Decidim
         end
       end
 
-      initializer "decidim_participatory_processes.admin_participatory_processes_menu" do
+      initializer "decidim_participatory_processes_admin.participatory_processes_menu" do
         Decidim.menu :admin_participatory_processes_menu do |menu|
           menu.add_item :participatory_processes,
                         I18n.t("menu.participatory_processes", scope: "decidim.admin"),
@@ -137,7 +137,7 @@ module Decidim
         end
       end
 
-      initializer "decidim_participatory_processes.admin_process_attachments_menu" do
+      initializer "decidim_participatory_processes_admin.process_attachments_menu" do
         Decidim.menu :admin_participatory_process_attachments_menu do |menu|
           menu.add_item :participatory_process_attachment_collections,
                         I18n.t("attachment_collections", scope: "decidim.admin.menu.participatory_processes_submenu"),
@@ -153,7 +153,7 @@ module Decidim
         end
       end
 
-      initializer "decidim_participatory_processes.admin_process_components_menu" do
+      initializer "decidim_participatory_processes_admin.process_components_menu" do
         Decidim.menu :admin_participatory_process_components_menu do |menu|
           current_participatory_space.components.each do |component|
             caption = translated_attribute(component.name)
@@ -173,7 +173,7 @@ module Decidim
         end
       end
 
-      initializer "decidim_participatory_processes.admin_process_group_menu" do
+      initializer "decidim_participatory_processes_admin.process_menu" do
         Decidim.menu :admin_participatory_process_menu do |menu|
           menu.add_item :edit_participatory_process,
                         I18n.t("info", scope: "decidim.admin.menu.participatory_processes_submenu"),
@@ -234,7 +234,7 @@ module Decidim
         end
       end
 
-      initializer "decidim_participatory_processes.admin_process_group_menu" do
+      initializer "decidim_participatory_processes_admin.process_group_menu" do
         Decidim.menu :admin_participatory_process_group_menu do |menu|
           menu.add_item :edit_participatory_process_group,
                         I18n.t("info", scope: "decidim.admin.menu.participatory_process_groups_submenu"),

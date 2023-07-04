@@ -37,7 +37,7 @@ module Decidim
     end
 
     def decidim_sanitize_editor(html, options = {})
-      content_tag(:div, decidim_sanitize(html, options), class: %w(ql-editor ql-reset-decidim))
+      content_tag(:div, decidim_sanitize(html, options), class: %w(rich-text-display))
     end
 
     def decidim_sanitize_editor_admin(html, options = {})
@@ -64,13 +64,15 @@ module Decidim
     end
 
     def sanitize_unordered_lists(text)
-      text.gsub(%r{(?=.*</ul>)(?!.*?<li>.*?</ol>.*?</ul>)<li>}) { |li| "#{li}• " }
+      text.gsub(%r{(\n+)?(</?li>)(\n+)?}, "\\2")
+          .gsub(%r{(?=.*</ul>)(?!.*?<li>.*?</ol>.*?</ul>)<li>}) { |li| "#{li}• " }
     end
 
     def sanitize_ordered_lists(text)
       i = 0
 
-      text.gsub(%r{(?=.*</ol>)(?!.*?<li>.*?</ul>.*?</ol>)<li>}) do |li|
+      text.gsub(%r{(\n+)?(</?li>)(\n+)?}, "\\2")
+          .gsub(%r{(?=.*</ol>)(?!.*?<li>.*?</ul>.*?</ol>)<li>}) do |li|
         i += 1
 
         li + "#{i}. "

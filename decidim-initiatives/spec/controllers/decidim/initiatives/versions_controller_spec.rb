@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   module Initiatives
-    describe VersionsController, versioning: true, type: :controller do
+    describe VersionsController, type: :controller, versioning: true do
       routes { Decidim::Initiatives::Engine.routes }
 
       let(:resource) { create(:initiative) }

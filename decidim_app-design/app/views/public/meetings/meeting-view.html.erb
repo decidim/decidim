@@ -18,7 +18,7 @@
         <div class="card text-center">
           <div class="card__content">
             <div class="extra__date">20 <span class="extra__month text-small">Agosto</span></div>
-            <div class="extra__time text-small"><%= Faker::Time.forward(365, :evening).strftime("%R") %> - <%= Faker::Time.forward(365, :evening).strftime("%R") %></div>
+            <div class="extra__time text-small"><%= Faker::Time.forward(days: 365, period: :evening).strftime("%R") %> - <%= Faker::Time.forward(days: 365, period: :evening).strftime("%R") %></div>
           </div>
           <div class="card__footer">
             <div class="card--widget card--widget__list">

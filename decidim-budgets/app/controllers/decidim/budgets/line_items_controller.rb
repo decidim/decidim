@@ -9,7 +9,7 @@ module Decidim
       helper_method :budget, :project
 
       def create
-        enforce_permission_to :vote, :project, project: project, budget: budget, workflow: current_workflow
+        enforce_permission_to :vote, :project, project:, budget:, workflow: current_workflow
 
         respond_to do |format|
           AddLineItem.call(persisted_current_order, project, current_user) do

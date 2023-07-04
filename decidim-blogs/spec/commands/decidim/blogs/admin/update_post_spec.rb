@@ -9,9 +9,9 @@ module Decidim
         subject { described_class.new(form, post, current_user) }
 
         let(:organization) { create(:organization) }
-        let(:participatory_process) { create :participatory_process, organization: }
-        let(:current_component) { create :component, participatory_space: participatory_process, manifest_name: "blogs" }
-        let(:current_user) { create :user, organization: }
+        let(:participatory_process) { create(:participatory_process, organization:) }
+        let(:current_component) { create(:component, participatory_space: participatory_process, manifest_name: "blogs") }
+        let(:current_user) { create(:user, organization:) }
         let(:title) { "Post title" }
         let(:body) { "Lorem Ipsum dolor sit amet" }
         let(:post) { create(:post, component: current_component, author: current_user) }

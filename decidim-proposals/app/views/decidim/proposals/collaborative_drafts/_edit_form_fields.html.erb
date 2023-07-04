@@ -1,7 +1,7 @@
 <%= form_required_explanation %>
 
 <%= form.text_field :title, class: "js-hashtags", value: form_presenter.title %>
-<%= form.text_area :body, rows: 10, class: "js-hashtags", value: form_presenter.body(extras: false).strip %>
+<%= text_editor_for_proposal_body(form) %>
 
 <% if @form.component_automatic_hashtags.any? %>
   <%= field_set_tag form.label(:automatic_hashtags, nil, for: nil) do %>

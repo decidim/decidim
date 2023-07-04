@@ -21,7 +21,7 @@ module Decidim
       let(:user_group) { create(:user_group, :verified) }
       let(:user_group_id) { user_group.id }
 
-      let(:commentable) { create :dummy_resource }
+      let(:commentable) { create(:dummy_resource) }
 
       let(:attributes) do
         {

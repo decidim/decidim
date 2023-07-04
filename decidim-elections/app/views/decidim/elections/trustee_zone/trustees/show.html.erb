@@ -49,7 +49,7 @@
       </button>
     </div>
   <% else %>
-    <div <%= t(".identification_keys.upload_error").map {|key, message| "data-#{key}=\"#{message}\""} .join(" ").html_safe %>
+    <div <%= t(".identification_keys.upload_error").map { |key, message| "data-#{key}=\"#{message}\"" } .join(" ").html_safe %>
          id="upload_identification_keys" class="hide">
       <h2><%= t(".identification_keys.title") %></h2>
       <p><%= t(".identification_keys.upload_legend") %></p>

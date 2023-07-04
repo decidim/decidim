@@ -381,6 +381,10 @@ cs:
         actions:
           comment: Komentář
           vote: Hlasovat
+      question:
+        actions:
+          comment: Komentář
+          vote: Hlasovat
     statistics:
       consultations_count: Konzultace
       votes_count: Hlasy

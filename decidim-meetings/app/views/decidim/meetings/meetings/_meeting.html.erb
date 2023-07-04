@@ -32,8 +32,8 @@
   </section>
 
   <section class="layout-main__section">
-    <% unless meeting.in_person_meeting? || meeting.withdrawn? %>
-        <%= cell "decidim/meetings/online_meeting_link", meeting %>
+    <% unless meeting.in_person? || meeting.withdrawn? %>
+      <%= cell "decidim/meetings/online_meeting_link", meeting %>
     <% end %>
   </section>
 

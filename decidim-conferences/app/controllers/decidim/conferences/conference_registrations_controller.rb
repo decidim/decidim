@@ -7,7 +7,7 @@ module Decidim
       before_action :ensure_signed_in
 
       def create
-        enforce_permission_to :join, :conference, conference: conference
+        enforce_permission_to(:join, :conference, conference:)
 
         JoinConference.call(conference, registration_type, current_user) do
           on(:ok) do
@@ -23,7 +23,7 @@ module Decidim
       end
 
       def destroy
-        enforce_permission_to :leave, :conference, conference: conference
+        enforce_permission_to(:leave, :conference, conference:)
 
         LeaveConference.call(conference, registration_type, current_user) do
           on(:ok) do
@@ -39,7 +39,7 @@ module Decidim
       end
 
       def decline_invitation
-        enforce_permission_to :decline_invitation, :conference, conference: conference
+        enforce_permission_to(:decline_invitation, :conference, conference:)
 
         DeclineInvitation.call(conference, current_user) do
           on(:ok) do

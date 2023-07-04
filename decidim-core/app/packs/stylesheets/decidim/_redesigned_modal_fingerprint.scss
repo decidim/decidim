@@ -1,17 +1,17 @@
-.fingerprint-modal{
-  &__container{
+.fingerprint-modal {
+  &__container {
     @apply space-y-4;
   }
 
-  &__span{
+  &__span {
     @apply block font-semibold mb-2;
   }
 
-  &__code{
+  &__code {
     @apply block max-h-24 overflow-auto border border-gray-3 bg-background p-2 break-all;
   }
 
-  a{
+  a {
     @apply text-secondary cursor-pointer;
   }
 }

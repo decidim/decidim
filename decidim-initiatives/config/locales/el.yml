@@ -255,7 +255,6 @@ el:
         fill_data:
           back: Πίσω
           continue: Συνέχεια
-          initiative_type: Τύπος πρωτοβουλίας
           more_information: "(Περισσότερες πληροφορίες)"
           select_area: Επιλέξτε τομέα
           select_scope: Επιλέξτε πεδίο εφαρμογής
@@ -427,7 +426,6 @@ el:
         promotal_committee: Επιτροπή προώθησης
         select_initiative_type: Επιλέξτε
         show_similar_initiatives: Σύγκριση
-        step: Βήμα %{current} από %{total}
         title: Δημιουργία νέας πρωτοβουλίας
       initiative_header:
         initiative_menu_item: Πρωτοβουλία

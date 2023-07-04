@@ -14,7 +14,7 @@ module Decidim
       end
 
       let(:user) { create(:user, managed:, organization:) }
-      let(:organization) { create :organization }
+      let(:organization) { create(:organization) }
       let(:reason) { nil }
       let(:managed) { true }
       let(:document_number) { "12345678X" }

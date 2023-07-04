@@ -4,10 +4,10 @@ main_tag = redesign_enabled? && main_enabled ? :main : :div
 columns ||= 6
 # Class names need to be complete, not metaprogarmmed, because of Tailwind class purge
 css_class = case columns
-                when 10 then "cols-10"
-                when 8 then "cols-8"
-                else "cols-6"
-                end
+            when 10 then "cols-10"
+            when 8 then "cols-8"
+            else "cols-6"
+            end
 %>
 
 <%= content_tag main_tag, class: "layout-1col #{css_class}" do %>

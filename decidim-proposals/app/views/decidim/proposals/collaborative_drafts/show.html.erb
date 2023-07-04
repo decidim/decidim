@@ -1,9 +1,9 @@
 <% add_decidim_page_title(t("name", scope: "decidim.proposals.collaborative_drafts")) %>
 <% add_decidim_meta_tags({
-  description: present(@collaborative_draft).body,
-  title: present(@collaborative_draft).title,
-  url: collaborative_draft_url(@collaborative_draft.id)
-}) %>
+                           description: present(@collaborative_draft).body,
+                           title: present(@collaborative_draft).title,
+                           url: collaborative_draft_url(@collaborative_draft.id)
+                         }) %>
 
 <%= append_stylesheet_pack_tag "decidim_proposals", media: "all" %>
 <%= append_javascript_pack_tag "decidim_proposals" %>
@@ -38,7 +38,7 @@
 
   <section class="layout-main__section">
     <div class="editor-content">
-      <%= simple_format(present(@collaborative_draft).body(links: true, strip_tags: true), nil, sanitize: false) %>
+      <%= decidim_sanitize_editor present(@collaborative_draft).body(links: true) %>
     </div>
   </section>
 

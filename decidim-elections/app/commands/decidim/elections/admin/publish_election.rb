@@ -19,7 +19,7 @@ module Decidim
         # Broadcasts :ok if published, :invalid otherwise.
         def call
           publish_election
-          publish_event
+          publish_event unless election.previously_published?
 
           broadcast(:ok, election)
         end

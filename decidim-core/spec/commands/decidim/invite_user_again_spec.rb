@@ -67,8 +67,8 @@ module Decidim
     end
 
     context "when the user exists in the organization" do
-      let!(:organization) { create :organization }
-      let!(:user) { create :user, organization: }
+      let!(:organization) { create(:organization) }
+      let!(:user) { create(:user, organization:) }
 
       before do
         clear_enqueued_jobs

@@ -80,7 +80,9 @@ eu:
             offensive: Ertan badago arrazakeriarik, sexismorik, irainik, eraso pertsonalik, heriotza-mehatxurik, suizidio-eskaerarik edo beste edozein eratako gorroto-diskurtsorik.
             spam: Bertan badago clickbait-ik, publizitaterik edo iruzurrik.
           title: Jakinarazi eduki desegokia
-        show_replies: Erakutsi %{replies_count} erantzun
+        show_replies:
+          one: Erakutsi erantzuna
+          other: Erakutsi %{count} erantzunak
         single_comment_link_title: Lortu esteka
       comment_order_selector:
         order:

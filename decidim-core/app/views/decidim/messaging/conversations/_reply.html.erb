@@ -2,7 +2,7 @@
   <% if conversation.with_deleted_users?(current_user) %>
     <%= cell("decidim/announcement", t("decidim.messaging.conversations.show.deleted_accounts"), callout_class: "warning") %>
   <% elsif conversation.accept_user?(current_user) %>
-    <%= render "reply_form", form: form, conversation: conversation %>
+    <%= render "reply_form", form:, conversation: %>
   <% else %>
     <%= cell("decidim/announcement", t("decidim.messaging.conversations.show.not_allowed"), callout_class: "warning") %>
   <% end %>

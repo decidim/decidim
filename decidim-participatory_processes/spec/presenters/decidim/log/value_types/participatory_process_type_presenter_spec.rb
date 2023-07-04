@@ -6,7 +6,7 @@ describe Decidim::Log::ValueTypes::ParticipatoryProcessTypePresenter, type: :hel
   subject { described_class.new(value, helper) }
 
   let(:value) { participatory_process_type.id }
-  let!(:participatory_process_type) { create :participatory_process_type }
+  let!(:participatory_process_type) { create(:participatory_process_type) }
 
   before do
     helper.extend(Decidim::ApplicationHelper)

@@ -8,13 +8,13 @@ module Decidim
         helper_method :debate
 
         def edit
-          enforce_permission_to :close, :debate, debate: debate
+          enforce_permission_to(:close, :debate, debate:)
 
           @form = form(Admin::CloseDebateForm).from_model(debate)
         end
 
         def update
-          enforce_permission_to :close, :debate, debate: debate
+          enforce_permission_to(:close, :debate, debate:)
 
           @form = form(Admin::CloseDebateForm).from_params(params)
 

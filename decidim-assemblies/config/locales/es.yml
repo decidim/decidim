@@ -285,7 +285,7 @@ es:
             metadata: Metadatos
             other: Otro
             select_a_created_by: Selecciona una creadora
-            select_an_area: Seleccione un Área
+            select_an_area: Selecciona un área
             select_an_assembly_type: Selecciona un tipo de asamblea
             select_parent_assembly: Selecciona una asamblea principal
             slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a esta asamblea. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'

@@ -811,7 +811,6 @@ it:
           intro: 'Ci sono stati i seguenti errori con il tuo messaggio:'
           ok: Ok
         index:
-          ago: fa
           new_conversation: Nuova conversazione
           next: Successivo
           title: Conversazioni

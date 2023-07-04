@@ -30,11 +30,7 @@
     <p class="conversation__item-snippet-message"><%= truncate conversation.last_message.body, length: 150 %></p>
 
     <div class="conversation__item-snippet-time">
-      <% if I18n.locale != :en %>
-        <%= t("ago", scope: "decidim.messaging.conversations.index") %> <%= time_ago_in_words(Time.parse(conversation.last_message.created_at.to_s)) %>
-      <% else %>
-        <%= time_ago_in_words(Time.parse(conversation.last_message.created_at.to_s)) %>
-      <% end %>
+      <%= t("decidim.user_conversations.index.time_ago", time: time_ago_in_words(Time.zone.parse(conversation.last_message.created_at.to_s))) %>
     </div>
   </div>
 

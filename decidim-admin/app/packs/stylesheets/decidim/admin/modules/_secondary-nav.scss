@@ -2,45 +2,45 @@
 $process-title-height: 3rem;
 
 //Styles
-.secondary-nav{
+.secondary-nav {
   width: 220px;
   min-height: 100%;
   float: left;
   background-color: $white;
-  box-shadow: 6px 6px 10px rgba(black, .04);
+  box-shadow: 6px 6px 10px rgba(black, 0.04);
 
-  ul{
+  ul {
     list-style: none;
     margin-left: 0;
   }
 
-  li > a{
+  li > a {
     display: block;
-    padding: .5rem 1rem;
-    margin: 0 .5rem;
+    padding: 0.5rem 1rem;
+    margin: 0 0.5rem;
     color: $body-font-color;
 
     &:hover,
-    &:focus{
+    &:focus {
       color: lighten($body-font-color, 20);
     }
   }
 
-  li.is-active > a{
+  li.is-active > a {
     background-color: $lighter-gray;
     border-radius: $global-radius;
   }
 
-  li > ul{
+  li > ul {
     margin-left: 1rem;
     font-size: 90%;
 
-    a{
-      padding-top: .2rem;
-      padding-bottom: .2rem;
+    a {
+      padding-top: 0.2rem;
+      padding-bottom: 0.2rem;
     }
 
-    li.is-active a{
+    li.is-active a {
       font-weight: 600;
       background-color: transparent;
     }
@@ -48,14 +48,14 @@ $process-title-height: 3rem;
 }
 
 .secondary-nav--subnav,
-.process-content{
+.process-content {
   padding-top: 1rem;
 
-  & > .card:first-child{
+  & > .card:first-child {
     margin-top: -2rem;
   }
 
-  @include breakpoint(large){
+  @include breakpoint(large) {
     min-height: calc(100% - #{$process-title-height});
     margin-top: $process-title-height;
   }
@@ -63,10 +63,10 @@ $process-title-height: 3rem;
 
 .secondary-nav__title,
 .process-title-content,
-.voting-title-content{
+.voting-title-content {
   margin-bottom: 1.5rem;
-  font-size: .8rem;
-  letter-spacing: .1em;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
   font-weight: bold;
   white-space: nowrap;
   max-width: 100%;
@@ -74,33 +74,33 @@ $process-title-height: 3rem;
   text-overflow: ellipsis;
 }
 
-.secondary-nav__title{
+.secondary-nav__title {
   padding: 1rem;
   margin-bottom: 2rem;
 }
 
-.secondary-nav__actions{
+.secondary-nav__actions {
   padding: 1rem;
   margin-top: 2rem;
 }
 
-.secondary-nav__subtitle{
+.secondary-nav__subtitle {
   display: block;
-  padding: .5rem 1rem;
-  margin: 0 .5rem;
+  padding: 0.5rem 1rem;
+  margin: 0 0.5rem;
   color: $body-font-color;
 }
 
 .process-title,
-.voting-title{
-  @include breakpoint(large){
+.voting-title {
+  @include breakpoint(large) {
     margin-bottom: $process-title-height;
   }
 }
 
 .process-title-content,
-.voting-title-content{
-  @include breakpoint(large){
+.voting-title-content {
+  @include breakpoint(large) {
     position: absolute;
     left: 120px;
     right: 0;
@@ -109,6 +109,6 @@ $process-title-height: 3rem;
     background-color: $white;
     padding: 1rem 1.5rem;
     height: $process-title-height;
-    box-shadow: 0 6px 10px rgba(black, .04);
+    box-shadow: 0 6px 10px rgba(black, 0.04);
   }
 }

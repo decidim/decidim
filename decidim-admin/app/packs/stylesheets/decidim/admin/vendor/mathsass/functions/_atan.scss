@@ -5,32 +5,29 @@
 //     atan(-1)  // -0.7854
 @use "sass:math";
 
-@function atan ($x){
-  $i:  24;
+@function atan($x) {
+  $i: 24;
   $sgn: 0;
-  $a:   0;
+  $a: 0;
 
-  @if $x > 1{
-    $sgn:  1;
-    $x:    math.div(1, $x);
-  }
-  @else if $x < -1{
+  @if $x > 1 {
+    $sgn: 1;
+    $x: math.div(1, $x);
+  } @else if $x < -1 {
     $sgn: -1;
-    $x:    math.div(1, $x);
+    $x: math.div(1, $x);
   }
 
-  @while $i > 0{
+  @while $i > 0 {
     $a: math.div($i * $i * $x * $x, 2 * $i + 1 + $a);
     $i: $i - 1;
   }
 
-  @if $sgn > 0{
-    @return  $PI * .5 - math.div($x, 1 + $a);
-  }
-  @else if $sgn < 0{
-    @return -$PI * .5 - math.div($x, 1 + $a);
-  }
-  @else{
-    @return             math.div($x, 1 + $a);
+  @if $sgn > 0 {
+    @return $PI * 0.5 - math.div($x, 1 + $a);
+  } @else if $sgn < 0 {
+    @return -$PI * 0.5 - math.div($x, 1 + $a);
+  } @else {
+    @return math.div($x, 1 + $a);
   }
 }

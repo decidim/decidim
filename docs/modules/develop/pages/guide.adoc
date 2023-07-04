@@ -8,6 +8,5 @@
 
 == Good to know
 
-* There is an application with current designs at: https://decidim-design.herokuapp.com/
 * We follow https://12factor.net/[12factor recommendations]
 * For testing, refer to the xref:develop:testing.adoc[testing] guide.

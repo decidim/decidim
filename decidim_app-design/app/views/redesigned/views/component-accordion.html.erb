@@ -1,4 +1,4 @@
-<% data = 5.times.map {|e| ["Element #{e}", Faker::Movies::StarWars.quote[0..75]]} %>
+<% data = 5.times.map { |e| ["Element #{e}", Faker::Movies::StarWars.quote[0..75]] } %>
 
 <div class="container py-10">
   <section class="py-4">
@@ -68,7 +68,7 @@
     <div data-component="accordion" data-multiselectable="false" data-collapsible="false" class="mt-5">
       <div class="flex">
         <% data.each_with_index do |e,i| %>
-          <button data-controls="panel-tabs-<%= i %>" data-open="<%= i == 0 %>"><%= e[0] %></button>
+          <button data-controls="panel-tabs-<%= i %>" data-open="<%= i.zero? %>"><%= e[0] %></button>
         <% end %>
       </div>
 

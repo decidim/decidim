@@ -14,7 +14,7 @@
     <% if missing_trustees_allowed > 0 %>
       <ul>
         <%= content_tag :li, t(".mark_as_missing_description") %>
-        <%= content_tag :li, t(".tally_completion", quorum: quorum) %>
+        <%= content_tag :li, t(".tally_completion", quorum:) %>
         <%= content_tag :li, t(".undo_mark_as_missing") %>
       </ul>
     <% end %>

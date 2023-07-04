@@ -6,8 +6,8 @@ describe "Orders", type: :system do
   include_context "with a component"
   let(:manifest_name) { "budgets" }
 
-  let(:organization) { create :organization, available_authorizations: %w(dummy_authorization_handler) }
-  let!(:user) { create :user, :confirmed, organization: }
+  let(:organization) { create(:organization, available_authorizations: %w(dummy_authorization_handler)) }
+  let!(:user) { create(:user, :confirmed, organization:) }
   let(:project) { projects.first }
 
   let!(:component) do
@@ -16,7 +16,7 @@ describe "Orders", type: :system do
            manifest:,
            participatory_space: participatory_process)
   end
-  let(:budget) { create :budget, component: }
+  let(:budget) { create(:budget, component:) }
 
   context "when the user is not logged in" do
     let!(:projects) { create_list(:project, 1, budget:, budget_amount: 25_000_000) }
@@ -97,6 +97,16 @@ describe "Orders", type: :system do
           end
         end
       end
+
+      context "when the total budget is zero" do
+        let(:budget) { create(:budget, total_budget: 0, component:) }
+
+        it "displays total budget" do
+          within ".budget-summary", match: :first do
+            expect(page).to have_content("Budget\n€0")
+          end
+        end
+      end
     end
 
     context "and has not a pending order" do
@@ -121,7 +131,7 @@ describe "Orders", type: :system do
 
           within "#order-progress .budget-summary__content", match: :first do
             expect(page).to have_selector ".budget-summary__progressbar--meter", style: "width: 25%"
-            expect(page).to have_selector("button:disabled", text: "Vote budget")
+            expect(page).to have_button(disabled: true, text: "Vote budget")
           end
         end
 
@@ -154,7 +164,7 @@ describe "Orders", type: :system do
 
           within "#order-progress .budget-summary__content", match: :first do
             expect(page).to have_selector ".budget-summary__progressbar--meter", style: "width: 25%"
-            expect(page).to have_selector("button:disabled", text: "Vote budget")
+            expect(page).to have_button(disabled: true, text: "Vote budget")
           end
         end
 
@@ -188,7 +198,7 @@ describe "Orders", type: :system do
 
           within "#order-progress .budget-summary__content", match: :first do
             expect(page).to have_selector ".budget-summary__progressbar--meter", style: "width: 16%"
-            expect(page).to have_selector("button", text: "Vote budget")
+            expect(page).to have_button(text: "Vote budget")
           end
         end
 
@@ -220,7 +230,7 @@ describe "Orders", type: :system do
 
           within "#order-progress .budget-summary__content", match: :first do
             expect(page).to have_selector ".budget-summary__progressbar--meter", style: "width: 16%"
-            expect(page).to have_selector("button", text: "Vote budget")
+            expect(page).to have_button(disabled: true, text: "Vote budget")
           end
         end
 
@@ -279,7 +289,7 @@ describe "Orders", type: :system do
           expect(page).to have_content(/Added\s0/)
         end
         expect(page).to have_selector ".budget-summary__progressbar--meter", style: "width: 0%"
-        expect(page).to have_no_selector ".budget-list__data--added"
+        expect(page).not_to have_selector ".budget-list__data--added"
       end
 
       it "is alerted when trying to leave the component before completing" do
@@ -333,7 +343,7 @@ describe "Orders", type: :system do
           page.visit Decidim::EngineRouter.main_proxy(component).budget_project_path(budget, expensive_project)
 
           within "#project-#{expensive_project.id}-budget-button" do
-            page.find("button").click
+            click_button
           end
 
           expect(page).to have_css("#budget-excess", visible: :visible)
@@ -502,11 +512,11 @@ describe "Orders", type: :system do
         expect(page).to have_content("successfully")
 
         within "#order-progress .budget-summary__content", match: :first do
-          expect(page).to have_selector("button:disabled")
+          expect(page).to have_button(disabled: true)
         end
 
         within ".budget-summary__content", match: :first do
-          expect(page).to have_no_selector(".button", text: "delete your vote")
+          expect(page).not_to have_selector(".button", text: "delete your vote")
         end
       end
 
@@ -532,7 +542,7 @@ describe "Orders", type: :system do
       it "cannot create new orders" do
         visit_budget
 
-        expect(page).to have_no_selector("button.budget-list__action")
+        expect(page).not_to have_button(class: "budget-list__action")
       end
     end
 
@@ -644,6 +654,38 @@ describe "Orders", type: :system do
           expect(page).to have_content(translated(proposal.title))
           expect(page).to have_content(proposal.creator_author.name)
           expect(page).to have_content(proposal.votes.size)
+        end
+      end
+
+      context "with supports enabled" do
+        let(:proposal_component) do
+          create(:proposal_component, :with_votes_enabled, participatory_space: project.component.participatory_space)
+        end
+
+        let(:proposals) { create_list(:proposal, 1, :with_votes, component: proposal_component) }
+
+        it "shows the amount of supports" do
+          skip "REDESIGN_PENDING: This needs to be fixed after #10671 is being merged"
+          visit_budget
+          click_link translated(project.title)
+
+          expect(page.find('span[class="card--list__data__number"]')).to have_content("5")
+        end
+      end
+
+      context "with supports disabled" do
+        let(:proposal_component) do
+          create(:proposal_component, participatory_space: project.component.participatory_space)
+        end
+
+        let(:proposals) { create_list(:proposal, 1, :with_votes, component: proposal_component) }
+
+        it "does not show supports" do
+          skip "REDESIGN_PENDING: This needs to be fixed after #10671 is being merged"
+          visit_budget
+          click_link translated(project.title)
+
+          expect(page).not_to have_selector('span[class="card--list__data__number"]')
         end
       end
     end

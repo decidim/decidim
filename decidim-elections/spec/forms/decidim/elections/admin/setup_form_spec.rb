@@ -13,7 +13,7 @@ describe Decidim::Elections::Admin::SetupForm do
       current_step: "create_election"
     }
   end
-  let(:election) { create :election, :ready_for_setup, trustee_keys: [] }
+  let(:election) { create(:election, :ready_for_setup, trustee_keys: []) }
   let(:component) { election.component }
   let(:attributes) do
     {
@@ -22,7 +22,7 @@ describe Decidim::Elections::Admin::SetupForm do
       }
     }
   end
-  let!(:trustees) { create_list :trustee, 5, :with_public_key, election: }
+  let!(:trustees) { create_list(:trustee, 5, :with_public_key, election:) }
   let(:trustee_ids) { trustees.pluck(:id) }
 
   it { is_expected.to be_valid }
@@ -34,7 +34,7 @@ describe Decidim::Elections::Admin::SetupForm do
                        minimum_answers: "Each question has <strong>at least 2 answers</strong>.",
                        minimum_questions: "The election has <strong>at least 1 question</strong>.",
                        published: "The election is <strong>published</strong>.",
-                       time_before: "The setup is being done <strong>at least 3 hours</strong> before the election starts.",
+                       time_before: "The setup is being done <strong>at least 1 hour</strong> before the election starts.",
                        trustees_number: "The participatory space has <strong>at least 3 trustees with public key</strong>."
                      })
     )
@@ -46,7 +46,7 @@ describe Decidim::Elections::Admin::SetupForm do
   end
 
   context "when the election is not ready for the setup" do
-    let(:election) { create :election }
+    let(:election) { create(:election) }
 
     it { is_expected.to be_invalid }
 
@@ -62,8 +62,8 @@ describe Decidim::Elections::Admin::SetupForm do
   end
 
   context "when there are no answers created" do
-    let(:election) { create :election, :published }
-    let!(:question) { create :question, election:, weight: 1 }
+    let(:election) { create(:election, :published) }
+    let!(:question) { create(:question, election:, weight: 1) }
 
     it { is_expected.to be_invalid }
 
@@ -102,16 +102,16 @@ describe Decidim::Elections::Admin::SetupForm do
   describe ".participatory_space_trustees" do
     subject { form.participatory_space_trustees.pluck(:id) }
 
-    let!(:other_trustees) { create_list :trustee, 3, :with_public_key }
+    let!(:other_trustees) { create_list(:trustee, 3, :with_public_key) }
 
     it { is_expected.to match_array(trustees.pluck(:id)) }
   end
 
   context "when census is required" do
-    let(:election) { create :election, :ready_for_setup, trustee_keys: [], component: }
+    let(:election) { create(:election, :ready_for_setup, trustee_keys: [], component:) }
 
-    let(:voting) { create :voting }
-    let(:component) { create :elections_component, participatory_space: voting }
+    let(:voting) { create(:voting) }
+    let(:component) { create(:elections_component, participatory_space: voting) }
 
     it { is_expected.not_to be_valid }
 
@@ -121,7 +121,7 @@ describe Decidim::Elections::Admin::SetupForm do
     end
 
     context "and census is valid" do
-      let!(:dataset) { create :dataset, :with_data, :frozen, voting: }
+      let!(:dataset) { create(:dataset, :with_data, :frozen, voting:) }
 
       it { is_expected.to be_valid }
 
@@ -137,7 +137,7 @@ describe Decidim::Elections::Admin::SetupForm do
     end
 
     context "and census is empty" do
-      let!(:dataset) { create :dataset, voting: }
+      let!(:dataset) { create(:dataset, voting:) }
 
       it { is_expected.to be_invalid }
 
@@ -152,7 +152,7 @@ describe Decidim::Elections::Admin::SetupForm do
     end
 
     context "and census has no codes generated" do
-      let!(:dataset) { create :dataset, :with_data, voting: }
+      let!(:dataset) { create(:dataset, :with_data, voting:) }
 
       it { is_expected.to be_invalid }
 
@@ -166,7 +166,7 @@ describe Decidim::Elections::Admin::SetupForm do
     end
 
     context "and census is not frozen" do
-      let!(:dataset) { create :dataset, :codes_generated, voting: }
+      let!(:dataset) { create(:dataset, :codes_generated, voting:) }
 
       it { is_expected.to be_invalid }
 

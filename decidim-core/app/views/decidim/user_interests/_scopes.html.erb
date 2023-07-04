@@ -1,4 +1,4 @@
-<% scopes.each do |scope| %>
+  <% scopes.each do |scope| %>
   <div class="toggle__switch-trigger mb-4">
     <%= f.fields_for "scopes[]", scope do |form| %>
       <%= form.hidden_field "id", value: scope.id %>
@@ -17,6 +17,6 @@
     <% end %>
   </div>
   <div class="ml-4 mb-2">
-    <%= render partial: "scopes", locals: { scopes: scope.children, f: f } %>
+    <%= render partial: "scopes", locals: { scopes: scope.children, f: } %>
   </div>
 <% end %>

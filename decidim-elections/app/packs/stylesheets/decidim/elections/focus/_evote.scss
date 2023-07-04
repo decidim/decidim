@@ -1,57 +1,57 @@
-.vote-wrapper{
+.vote-wrapper {
   display: flex;
   flex-grow: 1;
 }
 
-.evote{
-  $checkfocus: 1px dotted rgba(black, .5);
-  $checkfocus-offset: .1em;
+.evote {
+  $checkfocus: 1px dotted rgba(black, 0.5);
+  $checkfocus-offset: 0.1em;
 
   padding: 1rem;
   margin-top: 1rem;
 
-  @include breakpoint(medium){
+  @include breakpoint(medium) {
     padding: 2rem;
     margin-top: 2rem;
   }
 
-  .row{
+  .row {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
   }
 
-  &__grid .row{
+  &__grid .row {
     display: block;
     text-align: left;
   }
 
-  &__content{
+  &__content {
     margin: 1rem auto;
 
-    @include breakpoint(medium){
+    @include breakpoint(medium) {
       margin: 2rem auto;
     }
   }
 
-  &__options{
+  &__options {
     text-align: left;
     margin: 1rem auto;
     flex-grow: 1;
 
-    @include breakpoint(medium){
+    @include breakpoint(medium) {
       margin: 2rem auto;
     }
 
-    &--boolean{
-      @include breakpoint(medium){
+    &--boolean {
+      @include breakpoint(medium) {
         display: flex;
         width: 100%;
         justify-content: center;
       }
 
-      > *{
+      > * {
         flex-basis: 200px;
         margin-left: 1rem;
         margin-right: 1rem;
@@ -59,34 +59,34 @@
     }
   }
 
-  &__card{
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1), 0 1px 2px 0 rgba(0, 0, 0, .06);
+  &__card {
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
     padding: 1rem 2rem;
-    border-radius: .5rem;
+    border-radius: 0.5rem;
     background-color: $white;
     margin-bottom: 1rem;
 
-    &.is-disabled{
+    &.is-disabled {
       background-color: $medium-gray;
       cursor: not-allowed;
 
-      > *{
-        opacity: .5;
+      > * {
+        opacity: 0.5;
       }
     }
   }
 
-  &__check{
+  &__check {
     cursor: pointer;
     display: flex;
     align-items: center;
 
-    @include breakpoint(medium){
+    @include breakpoint(medium) {
       font-size: 1.2rem;
     }
 
     input[type="checkbox"],
-    input[type="radio"]{
+    input[type="radio"] {
       position: absolute;
       width: 1px;
       height: 1px;
@@ -97,72 +97,72 @@
       border: 0;
     }
 
-    [aria-disabled="true"]{
+    [aria-disabled="true"] {
       pointer-events: none;
     }
   }
 
-  &__check-label{
+  &__check-label {
     position: relative;
     padding-left: 1em;
     line-height: 1.4;
 
-    input[type="radio"] + &::before{
+    input[type="radio"] + &::before {
       content: "";
       width: 1em;
       height: 1em;
       border-radius: 50%;
       border: 1px solid;
       position: absolute;
-      left: -.7em;
-      top: .2em;
+      left: -0.7em;
+      top: 0.2em;
       color: $secondary;
     }
 
-    input[type="radio"]:focus + &::before{
+    input[type="radio"]:focus + &::before {
       outline: $checkfocus;
       outline-offset: $checkfocus-offset;
     }
 
-    input[type="radio"]:checked + &::after{
+    input[type="radio"]:checked + &::after {
       content: "";
-      width: .7em;
-      height: .7em;
+      width: 0.7em;
+      height: 0.7em;
       border-radius: 50%;
       background-color: $secondary;
       position: absolute;
-      left: -.55em;
-      top: .35em;
+      left: -0.55em;
+      top: 0.35em;
     }
 
-    input[type="checkbox"] + &::before{
+    input[type="checkbox"] + &::before {
       content: "";
       width: 1em;
       height: 1em;
       border: 1px solid;
       position: absolute;
-      left: -.7em;
-      top: .2em;
+      left: -0.7em;
+      top: 0.2em;
       color: $secondary;
       border-radius: 3px;
     }
 
-    input[type="checkbox"]:focus + &::before{
+    input[type="checkbox"]:focus + &::before {
       outline: $checkfocus;
       outline-offset: $checkfocus-offset;
     }
 
-    input[type="checkbox"]:checked + &::before{
+    input[type="checkbox"]:checked + &::before {
       background-color: $secondary;
     }
 
-    input[type="checkbox"]:checked + &::after{
+    input[type="checkbox"]:checked + &::after {
       content: "";
-      width: .3em;
-      height: .6em;
+      width: 0.3em;
+      height: 0.6em;
       position: absolute;
-      left: -.5em;
-      top: .15em;
+      left: -0.5em;
+      top: 0.15em;
       border-width: 0 2px 2px 0;
       border-style: solid;
       border-color: $white;
@@ -171,21 +171,21 @@
     }
   }
 
-  &__check-extra{
+  &__check-extra {
     display: block;
     font-size: 60%;
     text-transform: uppercase;
-    letter-spacing: .01em;
+    letter-spacing: 0.01em;
     font-weight: 600;
 
-    button{
+    button {
       font-size: inherit;
       text-transform: inherit;
       font-family: inherit;
     }
   }
 
-  &__counter{
+  &__counter {
     position: sticky;
     bottom: 2rem;
     right: 0;
@@ -193,150 +193,150 @@
     text-align: right;
     line-height: 1.2;
     background-color: $medium-gray;
-    padding: .3rem 1rem;
+    padding: 0.3rem 1rem;
     border-radius: $global-radius;
   }
 
-  &__counter-num{
+  &__counter-num {
     font-size: 1.2em;
   }
 
-  &__confirm{
+  &__confirm {
     margin-top: 2rem;
     max-width: 40em;
     text-align: left;
     line-height: 1.2;
 
-    dt{
+    dt {
       font-weight: 600;
     }
 
-    dd:not(:last-child){
+    dd:not(:last-child) {
       margin-bottom: 2rem;
     }
   }
 
-  &__confirm-label{
+  &__confirm-label {
     font-size: 80%;
     text-transform: uppercase;
-    letter-spacing: .01em;
+    letter-spacing: 0.01em;
     color: $primary;
   }
 
-  &__edit-answer{
+  &__edit-answer {
     text-transform: none;
     letter-spacing: normal;
   }
 
   &__encrypting,
   &__casting,
-  &__confirming{
+  &__confirming {
     width: 200px;
     height: 40px;
     display: flex;
     margin: 2rem auto;
   }
 
-  &__dot{
+  &__dot {
     width: 10px;
     height: 10px;
     margin: 10px auto;
     border-radius: 50px;
     background: $primary;
 
-    &:nth-child(odd){
+    &:nth-child(odd) {
       animation: dotTop 1s infinite ease-in-out;
     }
 
-    &:nth-child(even){
+    &:nth-child(even) {
       animation: dotBottom 1s infinite ease-in-out;
     }
 
-    @media (prefers-reduced-motion){
+    @media (prefers-reduced-motion) {
       animation: none !important;
     }
 
-    @keyframes dotTop{
-      0%{
+    @keyframes dotTop {
+      0% {
         transform: translateY(-15px);
       }
 
-      50%{
+      50% {
         transform: translateY(15px);
       }
 
-      100%{
+      100% {
         transform: translateY(-15px);
       }
     }
 
-    @keyframes dotBottom{
-      0%{
+    @keyframes dotBottom {
+      0% {
         transform: translateY(15px);
       }
 
-      50%{
+      50% {
         transform: translateY(-15px);
       }
 
-      100%{
+      100% {
         transform: translateY(15px);
       }
     }
   }
 
-  &__poll-id{
+  &__poll-id {
     overflow-wrap: anywhere;
   }
 
-  &__preview{
-    .accordion-title::before{
+  &__preview {
+    .accordion-title::before {
       font-size: 1.5rem;
-      margin-top: -.75rem;
+      margin-top: -0.75rem;
       color: $anchor-color;
       font-weight: normal;
     }
   }
 
-  &__preview-question{
+  &__preview-question {
     border: $border;
     font-weight: 600;
 
-    &:not(:first-child){
+    &:not(:first-child) {
       border-top: 0;
     }
 
-    .label{
-      margin-left: .5rem;
+    .label {
+      margin-left: 0.5rem;
     }
   }
 
-  &__preview-result{
+  &__preview-result {
     line-height: 1.2;
     margin-bottom: 1rem;
   }
 
-  &__preview-option{
-    margin-bottom: -.2rem;
+  &__preview-option {
+    margin-bottom: -0.2rem;
     font-size: 1rem;
   }
 
-  &__preview-bar{
+  &__preview-bar {
     display: flex;
     align-items: center;
 
-    .progress{
+    .progress {
       flex-grow: 1;
       margin-right: 1rem;
     }
   }
 
-  &__preview-label{
-    font-size: .8rem;
-    margin-top: -.2rem;
+  &__preview-label {
+    font-size: 0.8rem;
+    margin-top: -0.2rem;
   }
 
-  &__preview-perc{
+  &__preview-perc {
     width: 2rem;
     text-align: right;
     font-weight: bold;

@@ -2,12 +2,12 @@
 
 require "spec_helper"
 
-describe "Amend Proposal", versioning: true, type: :system do
+describe "Amend Proposal", type: :system, versioning: true do
   let!(:participatory_space) { create(:participatory_process, :with_steps) }
   let!(:component) { create(:proposal_component, participatory_space:) }
   let!(:proposal) { create(:proposal, title: { en: "Long enough title" }, component:) }
   let!(:emendation) { create(:proposal, title: { en: "Amended Long enough title" }, component:) }
-  let!(:amendment) { create :amendment, amendable: proposal, emendation: }
+  let!(:amendment) { create(:amendment, amendable: proposal, emendation:) }
   let(:proposal_title) { translated(proposal.title) }
   let(:emendation_title) { translated(emendation.title) }
   let(:emendation_body) { translated(emendation.body) }
@@ -49,7 +49,7 @@ describe "Amend Proposal", versioning: true, type: :system do
         end
 
         it "is NOT shown a link to Amend it" do
-          expect(page).to have_no_css("#amend-button")
+          expect(page).not_to have_css("#amend-button")
         end
       end
     end
@@ -117,7 +117,7 @@ describe "Amend Proposal", versioning: true, type: :system do
         end
 
         context "and visit an amendable proposal that they have NOT amended" do
-          let!(:user) { create :user, :confirmed, organization: component.organization }
+          let!(:user) { create(:user, :confirmed, organization: component.organization) }
 
           it "is shown the emendation from other users in the amendments list" do
             within "#amendment-list" do
@@ -159,14 +159,15 @@ describe "Amend Proposal", versioning: true, type: :system do
 
         before do
           visit proposal_path
+          expect(page).to have_content(proposal_title)
         end
 
         it "is NOT shown a link to Amend it" do
-          expect(page).to have_no_css("#amend-button")
+          expect(page).not_to have_css("#amend-button")
         end
 
         context "when a private user is logged in" do
-          let!(:user) { create :user, :confirmed, organization: component.organization }
+          let!(:user) { create(:user, :confirmed, organization: component.organization) }
 
           before do
             participatory_space.update(users: [user])
@@ -183,6 +184,7 @@ describe "Amend Proposal", versioning: true, type: :system do
       context "and visits an amendable proposal" do
         before do
           visit proposal_path
+          expect(page).to have_content(proposal_title)
         end
 
         it "is shown a link to Amend it" do
@@ -200,12 +202,13 @@ describe "Amend Proposal", versioning: true, type: :system do
         end
 
         context "when the user is logged in and clicks" do
-          let!(:user) { create :user, :confirmed, organization: component.organization }
+          let!(:user) { create(:user, :confirmed, organization: component.organization) }
           let!(:user_group) { create(:user_group, :verified, organization: user.organization, users: [user]) }
 
           before do
             login_as user, scope: :user
             visit proposal_path
+            expect(page).to have_content(proposal_title)
             click_link "Amend"
           end
 
@@ -266,7 +269,7 @@ describe "Amend Proposal", versioning: true, type: :system do
         end
 
         it "is NOT shown a link to Amend it" do
-          expect(page).to have_no_css("#amend-button")
+          expect(page).not_to have_css("#amend-button")
         end
       end
     end
@@ -447,7 +450,7 @@ describe "Amend Proposal", versioning: true, type: :system do
         end
 
         context "and visit an amendable proposal that they have NOT amended" do
-          let!(:user) { create :user, :confirmed, organization: component.organization }
+          let!(:user) { create(:user, :confirmed, organization: component.organization) }
 
           it "is NOT shown the amendments list" do
             expect(page).not_to have_css("#amendment-list")
@@ -490,7 +493,7 @@ describe "Amend Proposal", versioning: true, type: :system do
         end
 
         context "and visit an amendable proposal that they have NOT amended" do
-          let!(:user) { create :user, :confirmed, organization: component.organization }
+          let!(:user) { create(:user, :confirmed, organization: component.organization) }
 
           it "is shown the emendation from other users in the amendments list" do
             within "#amendment-list" do

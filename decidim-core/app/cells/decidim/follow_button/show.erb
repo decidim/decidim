@@ -37,7 +37,7 @@
       class: button_classes,
       params: { follow: { followable_gid: model.to_sgid.to_s, inline: inline? } },
       data: { tooltip: true, disable_hover: false },
-      :'aria-haspopup' => true,
+      'aria-haspopup': true,
       title: t("decidim.shared.follow_button.sign_in_before_follow"),
       remote: true) do %>
       <span class="icon-wrap">

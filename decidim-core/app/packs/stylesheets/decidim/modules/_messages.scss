@@ -3,7 +3,7 @@ $message-padding: 1rem;
 
 /* Messages */
 
-.unread_message__counter{
+.unread_message__counter {
   $counter-size: 25px;
   $counter-font-size: $counter-size - 12px;
 
@@ -16,7 +16,7 @@ $message-padding: 1rem;
   margin-right: 5%;
   width: $counter-size;
 
-  span{
+  span {
     display: block;
     line-height: $counter-size;
     text-align: center;
@@ -25,12 +25,12 @@ $message-padding: 1rem;
 
 /* Message form */
 
-.add-message{
+.add-message {
   @extend .card;
 
   padding: $message-padding;
 
-  .button{
+  .button {
     margin-bottom: 0;
   }
 }

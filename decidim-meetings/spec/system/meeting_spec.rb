@@ -2,12 +2,12 @@
 
 require "spec_helper"
 
-describe "Meeting", type: :system, download: true do
+describe "Meeting", download: true, type: :system do
   include_context "with a component"
   let(:manifest_name) { "meetings" }
 
-  let(:meeting) { create :meeting, :published, :with_services, component: }
-  let!(:user) { create :user, :confirmed, organization: }
+  let(:meeting) { create(:meeting, :published, :with_services, component:) }
+  let!(:user) { create(:user, :confirmed, organization:) }
 
   def visit_meeting
     visit resource_locator(meeting).path
@@ -63,17 +63,17 @@ describe "Meeting", type: :system, download: true do
     end
 
     context "and meeting is online" do
-      let(:meeting) { create :meeting, :published, :with_services, :online, component: }
+      let(:meeting) { create(:meeting, :published, :with_services, :online, component:) }
 
       it "hides the map section" do
         visit_meeting
 
-        expect(page).to have_no_css("div.meeting__calendar-container .static-map")
+        expect(page).not_to have_css("div.meeting__calendar-container .static-map")
       end
     end
 
     context "and meeting is in_person" do
-      let(:meeting) { create :meeting, :published, :with_services, component: }
+      let(:meeting) { create(:meeting, :published, :with_services, component:) }
 
       it "shows the map section" do
         visit_meeting
@@ -83,7 +83,7 @@ describe "Meeting", type: :system, download: true do
     end
 
     context "and meeting is hybrid" do
-      let(:meeting) { create :meeting, :published, :with_services, :hybrid, component: }
+      let(:meeting) { create(:meeting, :published, :with_services, :hybrid, component:) }
 
       it "shows the map section" do
         visit_meeting
@@ -105,22 +105,22 @@ describe "Meeting", type: :system, download: true do
     end
 
     context "and meeting is in_person" do
-      let(:meeting) { create :meeting, :published, :with_services, component: }
+      let(:meeting) { create(:meeting, :published, :with_services, component:) }
 
       it "hides the map section" do
         visit_meeting
 
-        expect(page).to have_no_css("div.meeting__calendar-container .static-map")
+        expect(page).not_to have_css("div.meeting__calendar-container .static-map")
       end
     end
 
     context "and meeting is hybrid" do
-      let(:meeting) { create :meeting, :published, :with_services, :hybrid, component: }
+      let(:meeting) { create(:meeting, :published, :with_services, :hybrid, component:) }
 
       it "hides the map section" do
         visit_meeting
 
-        expect(page).to have_no_css("div.meeting__calendar-container .static-map")
+        expect(page).not_to have_css("div.meeting__calendar-container .static-map")
       end
     end
   end
@@ -132,7 +132,7 @@ describe "Meeting", type: :system, download: true do
       visit_meeting
 
       within ".meeting__calendar-container .meeting__calendar" do
-        expect(page).to have_no_content(meeting.start_time.year)
+        expect(page).not_to have_content(meeting.start_time.year)
       end
     end
   end

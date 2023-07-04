@@ -4,7 +4,7 @@ require "spec_helper"
 
 describe "Conversations", type: :system do
   let!(:organization) { create(:organization, twitter_handler: "redesigned") }
-  let(:user) { create :user, :confirmed, organization: }
+  let(:user) { create(:user, :confirmed, organization:) }
 
   before do
     switch_to_host(organization.host)
@@ -22,7 +22,7 @@ describe "Conversations", type: :system do
 
     it "shows the topbar button as inactive" do
       within "#trigger-dropdown-account" do
-        expect(page).to have_no_selector("span[data-unread-items]")
+        expect(page).not_to have_selector("span[data-unread-items]")
       end
     end
   end
@@ -52,7 +52,7 @@ describe "Conversations", type: :system do
     it_behaves_like "accessible page"
 
     it "shows an empty conversation page" do
-      expect(page).to have_no_selector(".card--list__item")
+      expect(page).not_to have_selector(".card--list__item")
       expect(page).to have_current_path decidim.new_conversation_path(recipient_id: recipient.id)
     end
 
@@ -86,7 +86,7 @@ describe "Conversations", type: :system do
       end
 
       context "and recipient follows user" do
-        let!(:follow) { create :follow, user: recipient, followable: user }
+        let!(:follow) { create(:follow, user: recipient, followable: user) }
 
         before do
           visit decidim.new_conversation_path(recipient_id: recipient.id)
@@ -152,7 +152,7 @@ describe "Conversations", type: :system do
 
       it "shows the topbar button as inactive" do
         within "#trigger-dropdown-account" do
-          expect(page).to have_no_selector("span[data-unread-items]")
+          expect(page).not_to have_selector("span[data-unread-items]")
         end
       end
 
@@ -238,7 +238,7 @@ describe "Conversations", type: :system do
       end
 
       context "and interlocutor follows user" do
-        let!(:follow) { create :follow, user: interlocutor, followable: user }
+        let!(:follow) { create(:follow, user: interlocutor, followable: user) }
 
         before do
           visit_inbox
@@ -403,7 +403,7 @@ describe "Conversations", type: :system do
             expect(page).to have_css("img[alt='Avatar: #{user1.name}']")
             expect(page).to have_css("img[alt='Avatar: #{user2.name}']")
             expect(page).to have_css("img[alt='Avatar: #{user3.name}']")
-            expect(page).to have_no_css("img[alt='Avatar: #{user.name}']")
+            expect(page).not_to have_css("img[alt='Avatar: #{user.name}']")
           end
         end
       end

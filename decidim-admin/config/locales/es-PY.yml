@@ -39,6 +39,7 @@ es-PY:
         body: Cuerpo
         subject: Asunto
       organization:
+        admin_terms_of_service_body: Cuerpo de texto para los términos de servicio de administración
         alert_color: Alerta
         available_authorizations: Autorizaciones disponibles
         badges_enabled: Habilitar insignias
@@ -136,7 +137,7 @@ es-PY:
         newsletter:
           attributes:
             base:
-              at_least_one_space: Seleccione al menos un espacio participativo.
+              at_least_one_space: Selecciona al menos un espacio participativo.
         organization:
           attributes:
             official_img_footer:
@@ -197,6 +198,20 @@ es-PY:
         user:
           new: Nueva administradora
         verify: Verificar
+      admin_terms_of_service:
+        accept:
+          error: Ha habido un error al aceptar los Términos y Condiciones de administración.
+          success: '¡Genial! Has aceptado los términos del servicio de administración.'
+        actions:
+          accept: Estoy de acuerdo con los términos
+          are_you_sure: '¿Seguro que quieres rechazar los términos del servicio de administración?'
+          refuse: Rechazar los términos del servicio de administración
+          title: Aceptar los términos del servicio
+        required_review:
+          alert: 'Requerido: Revisa nuestros términos del servicio de administración'
+          callout: Por favor dedica un momento a revisar los términos del servicio de administración. En caso contrario, no podrás administrar la plataforma.
+          cta: Revisarlos ahora.
+        title: Términos y condiciones del servicio de administración
       area_types:
         create:
           error: Hubo un error al crear un nuevo tipo de área.
@@ -272,6 +287,7 @@ es-PY:
       block_user:
         new:
           action: Bloquear cuenta y enviar justificación
+          already_reported_html: Continuando con esta acción también esconderás todos los contenidos de la participante. <a href="%{link}">Bloquea la cuenta</a>.
           description: El bloqueo de una usuaria dejará su cuenta inutilizable. Puedes proporcionar en tu justificación los criterios bajo los cuales considerarías desbloquearla.
           justification: Justificación
           title: Bloquear a la usuaria %{name}
@@ -666,6 +682,7 @@ es-PY:
         report:
           reasons:
             does_not_belong: No pertenece
+            hidden_during_block: Oculto mientras se bloquea a la participante
             offensive: Ofensiva
             spam: Contenido no deseado
         reports:
@@ -981,6 +998,7 @@ es-PY:
         destroy:
           success: La página se ha eliminado correctamente.
         edit:
+          changed_notably_help: Si se marca, se notificará a las participantes para que acepten los nuevos términos y condiciones de uso.
           title: Editar página
           update: Actualizar
         form:

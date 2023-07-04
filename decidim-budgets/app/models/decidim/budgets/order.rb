@@ -108,6 +108,7 @@ module Decidim
       # enabled
       def budget_percent
         return (total_projects.to_f / maximum_projects) * 100 if projects_rule?
+        return 0 if budget.total_budget.zero?
 
         (total_budget.to_f / budget.total_budget) * 100
       end

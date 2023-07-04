@@ -84,7 +84,9 @@ es-MX:
             offensive: Contiene racismo, sexismo, insultos, ataques personales, amenazas de muerte, solicitudes de suicidio o cualquier forma de discurso de odio.
             spam: Contiene clickbait, publicidad o estafas.
           title: Notificar contenido inapropiado
-        show_replies: Mostrar %{replies_count} respuestas
+        show_replies:
+          one: Mostrar la respuesta
+          other: Mostrar las %{count} respuestas
         single_comment_link_title: Obtener enlace
       comment_order_selector:
         order:

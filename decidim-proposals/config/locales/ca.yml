@@ -110,16 +110,18 @@ ca:
             values:
               accepted: Acceptada
               evaluating: En avaluació
+              not_answered: Sense resposta
               published: Publicades
               rejected: Rebutjada
               validating: Validació tècnica
               withdrawn: Retirades
-          state_null:
-            label: Estat
-            values:
-              'true': No resposta
           valuator_role_ids_has:
             label: Assignada a avaluadora
+          with_any_state:
+            label: Amb resposta
+            values:
+              state_not_published: Sense resposta
+              state_published: Amb resposta
         search_placeholder:
           id_string_or_title_cont: Cerca %{collection} per ID o títol.
     components:

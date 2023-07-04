@@ -20,16 +20,16 @@
   <% end %>
 
   <%= render partial: "decidim/meetings/shared/filters", locals: {
-    search_variable: search_variable,
-    filter_options:
-  } %>
+        search_variable:,
+        filter_options:
+      } %>
 
   <%= render partial: "decidim/meetings/calendar_modal", locals: {
-    path: short_url(
-      route_name: "calendar",
-      params: { filter: params.fetch(:filter, {}).try(:to_unsafe_hash) }
-    )
-  } %>
+        path: short_url(
+          route_name: "calendar",
+          params: { filter: params.fetch(:filter, {}).try(:to_unsafe_hash) }
+        )
+      } %>
 <% end %>
 
 <%= render layout: "layouts/decidim/shared/layout_two_col" do %>

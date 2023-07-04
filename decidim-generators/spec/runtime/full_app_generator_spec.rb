@@ -41,11 +41,11 @@ module Decidim
 
     # rubocop:disable RSpec/BeforeAfterAll
     before(:all) do
-      Decidim::GemManager.install_all(out: File::NULL)
+      Bundler.with_original_env { Decidim::GemManager.install_all(out: File::NULL) }
     end
 
     after(:all) do
-      Decidim::GemManager.uninstall_all(out: File::NULL)
+      Bundler.with_original_env { Decidim::GemManager.uninstall_all(out: File::NULL) }
     end
     # rubocop:enable RSpec/BeforeAfterAll
 

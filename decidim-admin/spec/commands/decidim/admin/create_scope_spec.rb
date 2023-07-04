@@ -6,11 +6,11 @@ module Decidim::Admin
   describe CreateScope do
     subject { described_class.new(form) }
 
-    let(:organization) { create :organization }
-    let(:user) { create :user, :admin, :confirmed, organization: }
+    let(:organization) { create(:organization) }
+    let(:user) { create(:user, :admin, :confirmed, organization:) }
     let(:name) { Decidim::Faker::Localized.literal(Faker::Address.unique.state) }
     let(:code) { Faker::Address.unique.state_abbr }
-    let(:scope_type) { create :scope_type }
+    let(:scope_type) { create(:scope_type) }
 
     let(:form) do
       double(
@@ -60,7 +60,7 @@ module Decidim::Admin
       context "when its a child scope" do
         subject { described_class.new(form, parent_scope) }
 
-        let!(:parent_scope) { create :scope, organization: }
+        let!(:parent_scope) { create(:scope, organization:) }
 
         it "broadcasts ok" do
           expect { subject.call }.to broadcast(:ok)

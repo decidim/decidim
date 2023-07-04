@@ -1,31 +1,31 @@
-.sortition{
-  &__aside-element{
-    &-item{
+.sortition {
+  &__aside-element {
+    &-item {
       @apply border-b border-gray-3 py-4 first:pt-0 last:pb-0 last:border-b-0;
     }
 
-    &-item__title{
+    &-item__title {
       @apply text-sm block text-gray-2 mb-1;
     }
 
-    &-item__text{
+    &-item__text {
       @apply text-md block font-semibold text-gray-2;
     }
 
-    &-item__numbers{
+    &-item__numbers {
       @apply text-md block text-gray-2;
     }
   }
 
-  &__aside__count-number{
+  &__aside__count-number {
     @apply text-5xl block text-center text-gray-2 font-bold;
   }
 
-  &__aside__count-text{
+  &__aside__count-text {
     @apply text-gray-2 text-sm block text-center;
   }
 }
 
-a.sortition__aside-element-item__title{
+a.sortition__aside-element-item__title {
   @apply text-secondary underline;
 }

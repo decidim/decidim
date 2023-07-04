@@ -26,7 +26,7 @@ module Decidim
 
           transaction do
             publish_meeting
-            send_notification
+            send_notification unless meeting.previously_published?
             schedule_upcoming_meeting_notification
           end
 

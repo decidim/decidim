@@ -1,11 +1,11 @@
 <% if initiative.accepts_online_votes? %>
     <%= render partial: "decidim/initiatives/initiatives/vote_button",
                locals: {
-                   initiative: initiative,
-                   vote_label: t("vote", scope: "decidim.initiatives.initiatives.vote_cabin"),
-                   unvote_label: t("already_voted", scope: "decidim.initiatives.initiatives.vote_cabin"),
-                   verification_label: t("verification_required", scope: "decidim.initiatives.initiatives.vote_cabin"),
-                   steps: signature_has_steps?
+                 initiative:,
+                 vote_label: t("vote", scope: "decidim.initiatives.initiatives.vote_cabin"),
+                 unvote_label: t("already_voted", scope: "decidim.initiatives.initiatives.vote_cabin"),
+                 verification_label: t("verification_required", scope: "decidim.initiatives.initiatives.vote_cabin"),
+                 steps: signature_has_steps?
                } %>
 <% else %>
   <button class='button button__lg button__secondary w-full' disabled>

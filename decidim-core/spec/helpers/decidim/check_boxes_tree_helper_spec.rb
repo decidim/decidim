@@ -39,7 +39,7 @@ module Decidim
 
       context "when the participatory space has a scope with subscopes" do
         let(:participatory_space) { create(:participatory_process, :with_scope, organization:) }
-        let!(:subscopes) { create_list :subscope, 5, parent: participatory_space.scope }
+        let!(:subscopes) { create_list(:subscope, 5, parent: participatory_space.scope) }
 
         it "returns all the subscopes" do
           expect(leaf.value).to eq("")
@@ -63,7 +63,7 @@ module Decidim
 
       context "when the component has a scope with subscopes" do
         let(:participatory_space) { create(:participatory_process, :with_scope, organization:) }
-        let!(:subscopes) { create_list :subscope, 5, parent: participatory_space.scope }
+        let!(:subscopes) { create_list(:subscope, 5, parent: participatory_space.scope) }
 
         before do
           component.update!(settings: { scopes_enabled: true, scope_id: participatory_space.scope.id })
@@ -91,7 +91,7 @@ module Decidim
 
       context "when there is a scope with subscopes" do
         let!(:scope) { create(:scope, organization:) }
-        let!(:subscopes) { create_list :subscope, 5, parent: scope }
+        let!(:subscopes) { create_list(:subscope, 5, parent: scope) }
 
         it "returns the global scope, the scope and subscopes" do
           expect(leaf.value).to eq("")

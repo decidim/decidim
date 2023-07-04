@@ -15,9 +15,9 @@
 
 <%= render layout: "decidim/shared/filters", locals: { filter_sections:, search_variable: } do %>
   <%= render partial: "decidim/meetings/calendar_modal", locals: {
-    path: short_url(
-      route_name: "calendar",
-      params: { filter: params.fetch(:filter, {}).try(:to_unsafe_hash) }
-    )
-  } %>
+        path: short_url(
+          route_name: "calendar",
+          params: { filter: params.fetch(:filter, {}).try(:to_unsafe_hash) }
+        )
+      } %>
 <% end %>

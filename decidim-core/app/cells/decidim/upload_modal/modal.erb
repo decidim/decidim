@@ -8,26 +8,27 @@
         id: "files-#{modal_id}",
         label: false,
         required: false,
-        multiple: multiple,
+        multiple:,
         direct_upload: true,
         hidden: true,
-        data: { direct_upload_url: direct_upload_url } %>
+        data: { direct_upload_url: } %>
 
-      <%= tag.ul id: "dropzone-items", class: "upload-modal__dropzone", hidden: true, data: {
-        locales: {
-          error: t("decidim.forms.upload.labels.error"),
-          title_required: t("decidim.forms.upload.labels.title_required"),
-          filename: t("decidim.forms.upload.labels.filename"),
-          file_size_too_large: t("decidim.forms.upload.labels.file_size_too_large", megabytes: (max_file_size_mb)),
-          remove: t("decidim.forms.upload.labels.remove"),
-          title: t("decidim.forms.upload.labels.title"),
-          uploaded: t("decidim.forms.upload.labels.uploaded"),
-          validating: t("decidim.forms.upload.labels.validating"),
-          validation_error: t("decidim.forms.upload.labels.validation_error")
-        }
-      } %>
+      <%= tag.ul class: "upload-modal__dropzone", hidden: true, data: {
+            dropzone_items: "",
+            locales: {
+              error: t("decidim.forms.upload.labels.error"),
+              title_required: t("decidim.forms.upload.labels.title_required"),
+              filename: t("decidim.forms.upload.labels.filename"),
+              file_size_too_large: t("decidim.forms.upload.labels.file_size_too_large", megabytes: (max_file_size_mb)),
+              remove: t("decidim.forms.upload.labels.remove"),
+              title: t("decidim.forms.upload.labels.title"),
+              uploaded: t("decidim.forms.upload.labels.uploaded"),
+              validating: t("decidim.forms.upload.labels.validating"),
+              validation_error: t("decidim.forms.upload.labels.validation_error")
+            }
+          } %>
 
-      <div id="dropzone-no-items" class="upload-modal__dropzone">
+      <div data-dropzone-no-items="" class="upload-modal__dropzone">
         <div class="upload-modal__dropzone-placeholder">
           <span>
             <%= icon "upload-cloud-2-line", class: "w-8 h-8 text-gray fill-current" %>

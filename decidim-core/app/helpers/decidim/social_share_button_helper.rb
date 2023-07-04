@@ -35,8 +35,13 @@ module Decidim
 
       link_to(
         uri,
-        rel: "nofollow",
-        data: { site: service.name.downcase },
+        rel: "nofollow noopener noreferrer",
+        target: "_blank",
+        data: {
+          "site" => service.name.downcase,
+          "external-link" => false,
+          "external-domain-link" => false
+        },
         title: t("decidim.shared.share_modal.share_to", service: service.name)
       ) do
         social_icon + content_tag(:span, service.name)

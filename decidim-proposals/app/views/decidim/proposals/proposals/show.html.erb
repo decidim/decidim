@@ -1,8 +1,8 @@
 <% add_decidim_meta_tags({
-  description: present(@proposal).body,
-  title: present(@proposal).title,
-  url: proposal_url(@proposal.id)
-}) %>
+                           description: present(@proposal).body,
+                           title: present(@proposal).title,
+                           url: proposal_url(@proposal.id)
+                         }) %>
 
 <%
 edit_link(

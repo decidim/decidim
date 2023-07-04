@@ -18,7 +18,7 @@ module Decidim
         root to: "surveys#show"
       end
 
-      initializer "decidim_changes" do
+      initializer "decidim_surveys.settings_changes" do
         config.to_prepare do
           Decidim::SettingsChange.subscribe "surveys" do |changes|
             Decidim::Surveys::SettingsChangeJob.perform_later(

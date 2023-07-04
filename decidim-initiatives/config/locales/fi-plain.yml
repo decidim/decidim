@@ -362,8 +362,8 @@ fi-pl:
         fill_data:
           back: Takaisin
           continue: Jatka
+          decidim_user_group_id_help: Aloitteen laatijan muuttaminen ei ole mahdollista luonnin jälkeen.
           fill_data_help: "<ul> <li>Tarkasta aloitteesi sisältö. Onko aloitteen otsikko helppo ymmärtää? Onko aloitteen tavoitteet tarpeeksi selkeästi kuvattu?</li> <li>Sinun on valittava allekirjoitustapa. Palvelun ulkopuolella, verkossa tai molemmat.</li> <li>Mikä on aloitteen maantieteellinen laajuus?</li> </ul>"
-          initiative_type: Aloitteen tyyppi
           more_information: "(Lisää tietoa)"
           select_area: Valitse alue
           select_scope: Valitse teema
@@ -445,6 +445,7 @@ fi-pl:
         delete_attachment: Poista
       index:
         title: Aloitteet
+        uninitialized: Hallintakäyttäjä ei ole vielä määrittänyt aloitteiden asetuksia.
       initiative_signatures:
         fill_personal_data:
           continue: Jatka
@@ -634,7 +635,6 @@ fi-pl:
         promotal_committee: Kannatuskomitea
         select_initiative_type: Valitse
         show_similar_initiatives: Vertaile
-        step: Vaihe %{current} / %{total}
         title: Luo uusi aloite
       initiative_header:
         initiative_menu_item: Aloite

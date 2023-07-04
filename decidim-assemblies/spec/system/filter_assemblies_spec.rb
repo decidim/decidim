@@ -49,7 +49,7 @@ describe "Filter Assemblies", type: :system do
         expect(page).to have_selector(".card__grid", count: 2)
         expect(page).to have_content(translated(assemblies[0].title))
         expect(page).to have_content(translated(assemblies[1].title))
-        expect(page).to have_no_content(translated(assemblies[2].title))
+        expect(page).not_to have_content(translated(assemblies[2].title))
       end
     end
   end
@@ -63,13 +63,13 @@ describe "Filter Assemblies", type: :system do
 
     it "does not show the assemblies types filter" do
       within("#dropdown-menu-filters") do
-        expect(page).to have_no_css("#dropdown-menu-filters div.filter-container", text: "Type")
+        expect(page).not_to have_css("#dropdown-menu-filters div.filter-container", text: "Type")
       end
     end
   end
 
   context "when filtering parent assemblies by scope" do
-    let!(:scope) { create :scope, organization: }
+    let!(:scope) { create(:scope, organization:) }
     let!(:assembly_with_scope) { create(:assembly, scope:, organization:) }
     let!(:assembly_without_scope) { create(:assembly, organization:) }
 
@@ -81,14 +81,14 @@ describe "Filter Assemblies", type: :system do
       it "lists all processes belonging to that scope" do
         within "#assemblies-grid" do
           expect(page).to have_content(translated(assembly_with_scope.title))
-          expect(page).to have_no_content(translated(assembly_without_scope.title))
+          expect(page).not_to have_content(translated(assembly_without_scope.title))
         end
       end
     end
   end
 
   context "when filtering parent assemblies by area" do
-    let!(:area) { create :area, organization: }
+    let!(:area) { create(:area, organization:) }
     let!(:assembly_with_area) { create(:assembly, area:, organization:) }
     let!(:assembly_without_area) { create(:assembly, organization:) }
 
@@ -110,8 +110,8 @@ describe "Filter Assemblies", type: :system do
     end
 
     context "when there are more than two areas" do
-      let!(:other_area) { create :area, organization: }
-      let!(:other_area_without_assemblies) { create :area, organization: }
+      let!(:other_area) { create(:area, organization:) }
+      let!(:other_area_without_assemblies) { create(:area, organization:) }
       let!(:assembly_with_other_area) { create(:assembly, area: other_area, organization:) }
 
       context "and choosing an area" do
@@ -145,7 +145,7 @@ describe "Filter Assemblies", type: :system do
           within "#assemblies-grid" do
             expect(page).to have_content(translated(assembly_with_area.title))
             expect(page).to have_content(translated(assembly_with_other_area.title))
-            expect(page).to have_no_content(translated(assembly_without_area.title))
+            expect(page).not_to have_content(translated(assembly_without_area.title))
           end
         end
       end

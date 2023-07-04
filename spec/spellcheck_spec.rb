@@ -70,8 +70,16 @@ describe "Spellcheck utility" do
     it "returns the correct errors" do
       expect(exitstatus).to be(1)
 
+      invalid_locale_lines = output_lines[0..2]
+      expect(invalid_locale_lines[0]).to eq(
+        %(::error file=decidim-test/config/locales/en.yml,line=2,col=10,endColumn=15::Use "is not" instead of "isn't".)
+      )
+      expect(invalid_locale_lines[1]).to eq(
+        %(::error file=decidim-test/config/locales/en.yml,line=2,col=34,endColumn=41::Use "does not" instead of "doesn't".)
+      )
+
       start_lines = [5, 5 + config["forbidden"].length]
-      invalid_code_lines = output_lines[0..(2 * config["forbidden"].length)]
+      invalid_code_lines = output_lines[2..((2 * config["forbidden"].length) + 2)]
       config["forbidden"].each_with_index do |(word, preferred), idx|
         expect(invalid_code_lines[idx]).to eq(
           %(::error file=decidim-test/lib/invalid.rb,line=#{start_lines[0] + idx},col=27,endColumn=#{27 + word.length}::Use "#{preferred}" instead of "#{word}".)
@@ -80,14 +88,6 @@ describe "Spellcheck utility" do
           %(::error file=decidim-test/lib/invalid.rb,line=#{start_lines[1] + idx},col=5,endColumn=#{5 + word.length}::Use "#{preferred}" instead of "#{word}".)
         )
       end
-
-      invalid_locale_lines = output_lines[(2 * config["forbidden"].length)..((2 * config["forbidden"].length) + 2)]
-      expect(invalid_locale_lines[0]).to eq(
-        %(::error file=decidim-test/config/locales/en.yml,line=2,col=10,endColumn=15::Use "is not" instead of "isn't".)
-      )
-      expect(invalid_locale_lines[1]).to eq(
-        %(::error file=decidim-test/config/locales/en.yml,line=2,col=34,endColumn=41::Use "does not" instead of "doesn't".)
-      )
 
       start_lines = [5, 6 + config["forbidden"].length]
       invalid_doc_lines = output_lines[((2 * config["forbidden"].length) + 2)..((4 * config["forbidden"].length) + 2)]

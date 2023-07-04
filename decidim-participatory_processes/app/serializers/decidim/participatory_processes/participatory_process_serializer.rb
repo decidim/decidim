@@ -54,6 +54,10 @@ module Decidim
           scopes_enabled: participatory_process.scopes_enabled,
           show_metrics: participatory_process.show_metrics,
           show_statistics: participatory_process.show_statistics,
+          participatory_process_type: {
+            id: participatory_process.participatory_process_type.try(:id),
+            title: participatory_process.participatory_process_type.try(:title) || empty_translatable
+          },
           participatory_process_steps: serialize_participatory_process_steps,
           participatory_process_categories: serialize_categories,
           attachments: {

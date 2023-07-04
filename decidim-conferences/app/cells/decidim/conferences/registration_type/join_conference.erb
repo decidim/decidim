@@ -12,7 +12,7 @@
   <% else %>
     <% if allowed? %>
       <%= button_tag(
-          type:"button",
+          type: "button",
           class: "#{button_classes} conference__registration-button",
           disabled: !conference.has_available_slots? || conference.has_registration_for?(current_user),
           data: { modal_open_key => current_user.present? ? "conference-registration-confirm-#{model.id}" : "loginModal" }

@@ -4,7 +4,7 @@
   </h1>
 </div>
 
-<%= decidim_form_for(@form, url: authorization_path(redirect_url: redirect_url), method: :put) do |form| %>
+<%= decidim_form_for(@form, url: authorization_path(redirect_url:), method: :put) do |form| %>
   <%= form_required_explanation %>
 
   <div class="form__wrapper">

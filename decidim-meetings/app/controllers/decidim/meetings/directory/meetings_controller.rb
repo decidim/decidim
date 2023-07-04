@@ -35,7 +35,7 @@ module Decidim
         end
 
         def calendar
-          render plain: CalendarRenderer.for(current_organization, params[:filter]), content_type: "type/calendar"
+          render plain: CalendarRenderer.for(current_organization, filter_params), content_type: "type/calendar"
         end
 
         private

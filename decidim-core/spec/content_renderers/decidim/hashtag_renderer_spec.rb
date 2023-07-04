@@ -81,6 +81,14 @@ module Decidim
       end
     end
 
+    context "when rendering for editor" do
+      it "renders the hashtag wrapper for the editor" do
+        expect(renderer.render(editor: true)).to eq(
+          %(This text contains a valid Decidim::Hashtag Global ID: <span data-type="hashtag" data-label="##{hashtag.name}">##{hashtag.name}</span>)
+        )
+      end
+    end
+
     describe "#extra_hashtags" do
       subject { renderer.extra_hashtags }
 

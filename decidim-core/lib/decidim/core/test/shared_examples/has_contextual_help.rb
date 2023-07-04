@@ -12,19 +12,29 @@ shared_examples "shows contextual help" do
   it "shows the contextual help on the root path on first visit, hides it on subsequent ones" do
     visit index_path
 
-    find("#floating-helper-tip button").click if Decidim.redesign_active
+    if Decidim.redesign_active
+      within "#floating-helper-tip" do
+        click_button
+      end
+    end
 
     within "#floating-helper-block" do
       expect(page).to have_content("Some relevant help")
-      find(Decidim.redesign_active ? "button" : ".floating-helper__content-close").click
+      if Decidim.redesign_active
+        click_button
+      else
+        find(".floating-helper__content-close").click
+      end
     end
 
     visit current_path
 
-    expect(page).to have_no_content("Some relevant help")
+    expect(page).not_to have_content("Some relevant help")
 
     if Decidim.redesign_active
-      find("#floating-helper-tip button").click
+      within "#floating-helper-tip" do
+        click_button
+      end
     else
       find(".floating-helper__text").click
     end

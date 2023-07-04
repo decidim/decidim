@@ -65,7 +65,7 @@ describe "Assembly description", type: :system do
 
       it "shows indefinite duration without closing date" do
         expect(page).to have_content("Duration Indefinite")
-        expect(page).to have_no_content("Closing date")
+        expect(page).not_to have_content("Closing date")
       end
     end
 

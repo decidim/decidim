@@ -36,7 +36,7 @@ module Decidim
         end
 
         def destroy
-          enforce_permission_to :delete, :monitoring_committee_member, voting: current_voting, monitoring_committee_member: monitoring_committee_member
+          enforce_permission_to(:delete, :monitoring_committee_member, voting: current_voting, monitoring_committee_member:)
 
           DestroyMonitoringCommitteeMember.call(monitoring_committee_member, current_user) do
             on(:ok) do

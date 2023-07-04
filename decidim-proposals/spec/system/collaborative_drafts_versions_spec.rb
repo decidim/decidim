@@ -2,12 +2,12 @@
 
 require "spec_helper"
 
-describe "Explore versions", versioning: true, type: :system do
+describe "Explore versions", type: :system, versioning: true do
   include_context "with a component"
   let(:component) { create(:proposal_component, :with_creation_enabled, :with_collaborative_drafts_enabled, organization:) }
 
   let(:manifest_name) { "proposals" }
-  let!(:author) { create :user, :confirmed, organization: }
+  let!(:author) { create(:user, :confirmed, organization:) }
 
   let(:collaborative_draft_path) do
     Decidim::ResourceLocatorPresenter.new(collaborative_draft).path

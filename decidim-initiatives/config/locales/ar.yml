@@ -227,7 +227,6 @@ ar:
         fill_data:
           back: الى الخلف
           continue: استمر
-          initiative_type: نوع المبادرة
           more_information: "(معلومات اكثر)"
           select_scope: حدد النطاق
         finish:
@@ -413,7 +412,6 @@ ar:
         promotal_committee: لجنة المروجين
         select_initiative_type: أختر
         show_similar_initiatives: قارن
-        step: الخطوة %{current} من %{total}
         title: ابتكار مبادرة جديدة
       initiative_header:
         initiative_menu_item: مبادرة

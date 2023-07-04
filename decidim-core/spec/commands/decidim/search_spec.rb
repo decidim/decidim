@@ -193,7 +193,6 @@ describe Decidim::Search do
       before do
         create_list(:searchable_resource, 5, organization: current_organization, resource_type:, content_a: "Where is your crown king nothing?")
 
-        # rubocop:disable RSpec/FactoryBot/CreateList
         3.times do
           create(
             :searchable_resource,
@@ -204,7 +203,6 @@ describe Decidim::Search do
             content_a: "Where is your crown king nothing?"
           )
         end
-        # rubocop:enable RSpec/FactoryBot/CreateList
       end
 
       context "when resource_type is setted" do
@@ -379,7 +377,7 @@ describe Decidim::Search do
             on(:ok) do |results_by_type|
               results = results_by_type["Decidim::DummyResources::DummyResource"]
               expect(results[:count]).to eq 3
-              expect(results[:results]).to match_array [active.resource, past.resource, future.resource]
+              expect(results[:results]).to contain_exactly(active.resource, past.resource, future.resource)
             end
             on(:invalid) { raise("Should not happen") }
           end

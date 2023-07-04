@@ -44,7 +44,7 @@ module Decidim
         end
       end
 
-      initializer "decidim.content_processors" do |_app|
+      initializer "decidim_meetings.content_processors" do |_app|
         Decidim.configure do |config|
           config.content_processors += [:meeting]
         end
@@ -127,20 +127,30 @@ module Decidim
       end
 
       initializer "decidim_meetings.register_reminders" do
-        Decidim.reminders_registry.register(:close_meeting) do |reminder_registry|
-          reminder_registry.generator_class_name = "Decidim::Meetings::CloseMeetingReminderGenerator"
+        config.after_initialize do
+          Decidim.reminders_registry.register(:close_meeting) do |reminder_registry|
+            reminder_registry.generator_class_name = "Decidim::Meetings::CloseMeetingReminderGenerator"
 
-          reminder_registry.settings do |settings|
-            settings.attribute :reminder_times, type: :array, default: [3.days, 7.days]
+            reminder_registry.settings do |settings|
+              settings.attribute :reminder_times, type: :array, default: [3.days, 7.days]
+            end
           end
         end
       end
 
       initializer "decidim_meetings.authorization_transfer" do
-        Decidim::AuthorizationTransfer.register(:meetings) do |transfer|
-          transfer.move_records(Decidim::Meetings::Meeting, :decidim_author_id)
-          transfer.move_records(Decidim::Meetings::Registration, :decidim_user_id)
-          transfer.move_records(Decidim::Meetings::Answer, :decidim_user_id)
+        config.to_prepare do
+          Decidim::AuthorizationTransfer.register(:meetings) do |transfer|
+            transfer.move_records(Decidim::Meetings::Meeting, :decidim_author_id)
+            transfer.move_records(Decidim::Meetings::Registration, :decidim_user_id)
+            transfer.move_records(Decidim::Meetings::Answer, :decidim_user_id)
+          end
+        end
+      end
+
+      initializer "decidim_meetings.moderation_content" do
+        ActiveSupport::Notifications.subscribe("decidim.system.events.hide_user_created_content") do |_event_name, data|
+          Decidim::Meetings::HideAllCreatedByAuthorJob.perform_later(**data)
         end
       end
     end

@@ -50,7 +50,7 @@
         <%= t("notifications_sending_frequency", scope: "decidim.notifications_settings.show") %>
       </label>
       <div class="flex flex-col md:flex-row md:items-center gap-x-6">
-        <%= f.collection_radio_buttons :notifications_sending_frequency, frequencies_collection, :first, :last  do |option|
+        <%= f.collection_radio_buttons :notifications_sending_frequency, frequencies_collection, :first, :last do |option|
         option.label(class: "form__wrapper-checkbox-label first-of-type:mt-0 md:first-of-type:-mt-4 md:-mt-4 text-black") { option.radio_button + option.text }
       end %>
       </div>
@@ -62,7 +62,7 @@
         <label for="newsletter_notifications" class="toggle__switch-toggle">
           <span>
             <input
-              <%= %(checked="checked") if  @notifications_settings.newsletter_notifications %>
+              <%= %(checked="checked") if @notifications_settings.newsletter_notifications %>
               id="newsletter_notifications"
               type="checkbox"
               name="newsletter_notifications">
@@ -122,7 +122,7 @@
               </span>
             </label>
           </div>
-          <% Decidim.notification_settings_registry.manifests.filter{ |a| a.settings_area == :administrators }.each do |manifest| %>
+          <% Decidim.notification_settings_registry.manifests.filter { |a| a.settings_area == :administrators }.each do |manifest| %>
             <div class="toggle__switch-trigger">
               <label class="toggle__switch-toggle" for="user_notification_settings[<%= manifest.name %>]">
                 <span>

@@ -6,7 +6,7 @@
           <div class="column">
             <article class="card card--process">
               <a href="">
-                <%= image_pack_tag Faker::Boolean.boolean(0.3) ? "media/images/hero-home.jpg" : Faker::Boolean.boolean(0.3) ? "media/images/gracia.jpg" : "media/images/superilles.jpg", class: "card__image" %>
+                <%= image_pack_tag Faker::Boolean.boolean(true_ratio: 0.3) ? "media/images/hero-home.jpg" : Faker::Boolean.boolean(true_ratio: 0.3) ? "media/images/gracia.jpg" : "media/images/superilles.jpg", class: "card__image" %>
               </a>
               <div class="card__content">
                 <div class="card__header">
@@ -34,12 +34,12 @@
                   </li>
                   <li class="card-data__item">
                     <div class="card-data__item--centerblock">
-                      <strong>Starts</strong>&nbsp;<%= Faker::Date.forward(365).strftime("%d/%m/%y") %>
+                      <strong>Starts</strong>&nbsp;<%= Faker::Date.forward(days: 365).strftime("%d/%m/%y") %>
                     </div>
                   </li>
                   <li class="card-data__item">
                     <div class="card-data__item--centerblock">
-                      <strong>Ends</strong>&nbsp;<%= Faker::Date.forward(365).strftime("%d/%m/%y") %>
+                      <strong>Ends</strong>&nbsp;<%= Faker::Date.forward(days: 365).strftime("%d/%m/%y") %>
                     </div>
                   </li>
                 </ul>

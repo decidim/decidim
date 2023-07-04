@@ -1,11 +1,11 @@
-.callout.announcement{
+.callout.announcement {
   margin-bottom: 1em;
 }
 
-.announcement-show-less{
+.announcement-show-less {
   position: relative;
 
-  &::before{
+  &::before {
     content: "";
     width: 100%;
     height: 21px;
@@ -17,13 +17,13 @@
   }
 }
 
-.announcement-show-button{
+.announcement-show-button {
   font-weight: 600;
   cursor: pointer;
   color: var(--secondary);
 }
 
-.announcement-show-icon{
+.announcement-show-icon {
   cursor: pointer;
   display: inline-block;
   height: 1.5em;

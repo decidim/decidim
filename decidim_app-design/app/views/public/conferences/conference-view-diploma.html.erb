@@ -1,5 +1,5 @@
 <% conference = Faker::Job.title %>
-<% date = Faker::Date.between(2.days.ago, Date.today).strftime("%d/%m/%Y") %>
+<% date = Faker::Date.between(from: 2.days.ago, to: Time.zone.today).strftime("%d/%m/%Y") %>
 <main class="conference-diploma">
   <div class="diploma__border">
     <div class="diploma__content">

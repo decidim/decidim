@@ -62,24 +62,6 @@ gl:
         one: ao redor de 1 mes
         other: ao redor de %{count} meses
       half_a_minute: medio minuto
-      less_than_x_minutes:
-        one: menos de 1 minuto
-        other: menos de %{count} minutos
-      less_than_x_seconds:
-        one: agora
-        other: menos de %{count} segundos
-      x_days:
-        one: hai 1 día
-        other: "hai %{count} días"
-      x_hours:
-        one: hai 1 hora
-        other: "hai %{count} horas"
-      x_minutes:
-        one: hai 1 min
-        other: "hai %{count} min"
-      x_seconds:
-        one: hai 1 seg
-        other: "hai %{count} seg"
   decidim:
     accessibility:
       front_page_link: Ir á páxina principal

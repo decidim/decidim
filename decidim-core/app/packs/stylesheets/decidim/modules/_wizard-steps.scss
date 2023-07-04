@@ -1,23 +1,23 @@
-.wizard__steps{
+.wizard__steps {
   list-style-type: none;
-  margin-left: .25rem;
+  margin-left: 0.25rem;
 
-  &.steps-toggle{
+  &.steps-toggle {
     margin-top: 1rem;
   }
 
-  li{
+  li {
     border: none;
     color: var(--primary);
     border-left: 2px solid var(--primary);
     box-sizing: border-box;
     border-radius: 0;
     padding: 1rem 0;
-    font-size: .875rem;
+    font-size: 0.875rem;
     cursor: default;
   }
 
-  li::before{
+  li::before {
     border-radius: 50%;
     background-color: var(--primary);
     content: "";
@@ -27,17 +27,17 @@
     line-height: 10px;
     text-align: center;
     width: 10px;
-    margin: .4rem 4px 0 -6px;
+    margin: 0.4rem 4px 0 -6px;
   }
 
-  .step--active{
+  .step--active {
     font-weight: bold;
 
-    & ~ li{
+    & ~ li {
       color: $muted;
       border-left: 2px solid $muted;
 
-      &::before{
+      &::before {
         background-color: $muted;
       }
     }

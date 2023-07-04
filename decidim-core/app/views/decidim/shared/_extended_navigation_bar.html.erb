@@ -12,7 +12,7 @@
         <ul>
           <% items.each_with_index do |item, index| %>
             <li class="<%= "is-active" if item[:active] %> <%= "hide-for-medium" if index > max_items %>">
-              <%= link_to item[:url], class: "process-nav__link #{item[:active] ? 'active' : nil}" do %>
+              <%= link_to item[:url], class: "process-nav__link #{item[:active] ? "active" : nil}" do %>
                 <%= item[:name] %>
               <% end %>
             </li>
@@ -36,7 +36,7 @@
             <ul>
               <% extra_items.each do |item| %>
                 <li class="<%= "is-active" if item[:active] %>">
-                  <%= link_to item[:url], class: "process-nav__link #{item[:active] ? 'active' : nil}" do %>
+                  <%= link_to item[:url], class: "process-nav__link #{item[:active] ? "active" : nil}" do %>
                     <%= item[:name] %>
                   <% end %>
                 </li>

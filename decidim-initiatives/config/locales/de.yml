@@ -100,7 +100,7 @@ de:
         initiatives:
           fields:
             created_at: Hergestellt in
-            id: ICH WÜRDE
+            id: ID
             published_at: Veröffentlicht am
             state: Zustand
             supports_count: Unterschriften
@@ -322,7 +322,6 @@ de:
           back: Zurück
           continue: Fortsetzen
           fill_data_help: "<ul> <li>Inhalt Ihrer Initiative überprüfen. Ist Ihr Titel leicht verständlich? Ist das Ziel Ihrer Initiative klar?</li> <li>Sie müssen die Art der Unterschrift wählen. Persönlich, online oder eine Kombination aus beidem</li> <li>Was ist die geografische Reichweite der Initiative? Stadt, Bezirk?</li> </ul>"
-          initiative_type: Art der Initiative
           more_information: "(Weitere Informationen)"
           select_area: Wählen Sie einen Bereich aus
           select_scope: Wählen Sie einen Bereich aus
@@ -576,7 +575,6 @@ de:
         promotal_committee: Promoter-Komitee
         select_initiative_type: Wählen
         show_similar_initiatives: Vergleichen
-        step: Schritt %{current} von %{total}
         title: Neue Initiative schaffen
       initiative_header:
         initiative_menu_item: Initiative

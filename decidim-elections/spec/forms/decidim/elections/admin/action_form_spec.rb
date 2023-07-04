@@ -13,7 +13,7 @@ describe Decidim::Elections::Admin::ActionForm do
       election:
     }
   end
-  let(:election) { create :election, :created }
+  let(:election) { create(:election, :created) }
   let(:component) { election.component }
 
   it { is_expected.to be_valid }

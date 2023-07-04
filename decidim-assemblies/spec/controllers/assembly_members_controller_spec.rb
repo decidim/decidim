@@ -38,7 +38,7 @@ module Decidim
             it "displays list of members" do
               get :index, params: { assembly_slug: assembly.slug }
 
-              expect(controller.helpers.collection).to match_array([member1, member2])
+              expect(controller.helpers.collection).to contain_exactly(member1, member2)
             end
           end
 

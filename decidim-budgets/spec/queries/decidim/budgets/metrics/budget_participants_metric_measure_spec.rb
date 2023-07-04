@@ -10,7 +10,7 @@ describe Decidim::Budgets::Metrics::BudgetParticipantsMetricMeasure do
 
   # Vote a participatory budgeting project (Budgets)
   let(:budgets_component) { create(:budgets_component, :published, participatory_space:, settings: { vote_threshold_percent: 0 }) }
-  let(:budget) { create :budget, component: budgets_component }
+  let(:budget) { create(:budget, component: budgets_component) }
   let!(:orders) { create_list(:order, 5, budget:, checked_out_at: day) }
   let!(:old_orders) { create_list(:order, 5, budget:, checked_out_at: day - 1.week) }
   # TOTAL Participants for Budgets:

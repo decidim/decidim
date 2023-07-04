@@ -1,128 +1,128 @@
-.meeting-polls{
-  &__body{
+.meeting-polls {
+  &__body {
     @apply flex flex-col min-h-screen;
   }
 
-  &__header{
+  &__header {
     @apply flex items-center justify-between p-2.5 bg-background border;
   }
 
-  &__main{
+  &__main {
     @apply flex grow items-stretch;
   }
 
-  &__iframe{
+  &__iframe {
     @apply flex grow bg-gray-2 [&>*]:grow [&>*]:border-0;
   }
 
-  &__aside{
+  &__aside {
     @apply flex-none bg-background-2;
 
     counter-reset: question;
 
-    &.is-open{
+    &.is-open {
       @apply w-1/5 [&+div]:w-4/5;
 
       // shrink iframe when there is two panels
-      & + & + div{
+      & + & + div {
         @apply w-3/5;
       }
 
-      & + &{
+      & + & {
         @apply border-l border-l-background;
       }
     }
   }
 
-  &__question{
+  &__question {
     @apply bg-white;
 
-    summary{
+    summary {
       @apply p-4 cursor-pointer font-bold text-secondary text-md transition border-b border-b-background hover:bg-background;
 
-      transition: background-color .2s ease-in-out;
+      transition: background-color 0.2s ease-in-out;
 
-      &::after{
+      &::after {
         counter-increment: question;
         content: "#" counter(question);
       }
 
-      & ~ *{
+      & ~ * {
         @apply p-4;
 
         // dynamic content
-        > :first-child{
+        > :first-child {
           @apply font-bold;
         }
 
-        label{
+        label {
           @apply flex items-baseline cursor-pointer;
         }
 
-        label + label{
+        label + label {
           @apply mt-4;
         }
         // end dynamic content
       }
     }
 
-    &[open] .meeting-polls__answer--bar > *{
+    &[open] .meeting-polls__answer--bar > * {
       opacity: 1;
       transform: translateX(0);
     }
 
-    &.is-new{
+    &.is-new {
       animation: animateHighlight 5s ease-in-out forwards;
     }
 
-    @keyframes animateHighlight{
+    @keyframes animateHighlight {
       0%,
-      80%{
-        background-color: rgba(var(--warning-rgb), .1);
+      80% {
+        background-color: rgba(var(--warning-rgb), 0.1);
       }
     }
   }
 
-  &__question--admin{
-    summary ~ *{
+  &__question--admin {
+    summary ~ * {
       @apply border-t border-t-background p-4 bg-background-2;
 
-      a{
+      a {
         @apply my-4 block text-sm underline;
       }
 
-      > :first-child{
+      > :first-child {
         @apply font-normal;
       }
     }
   }
 
-  &__answer{
+  &__answer {
     @apply flex items-center gap-2;
 
-    &--value{
+    &--value {
       @apply w-1/5 font-bold;
     }
 
-    &--bar{
+    &--bar {
       @apply w-4/5 h-2.5 overflow-hidden;
 
-      > *{
+      > * {
         @apply bg-primary h-full opacity-0;
       }
     }
   }
 
   // vertical flow
-  label + &__answer + label{
+  label + &__answer + label {
     @apply mt-6;
   }
 
-  &__admin-label{
+  &__admin-label {
     @apply p-4 bg-secondary text-white font-bold text-sm;
   }
 
-  &__admin-action{
+  &__admin-action {
     @apply py-2 flex items-center border-t-background [&>*]:flex-none first:[&>*]:w-2/5 last:[&>*]:w-3/5;
   }
 }

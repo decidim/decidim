@@ -113,10 +113,6 @@ ro:
               rejected: Respins
               validating: Validarea tehnică
               withdrawn: Retras
-          state_null:
-            label: Stadiu
-            values:
-              'true': Fără răspuns
           valuator_role_ids_has:
             label: Atribuit evaluatorului
         search_placeholder:

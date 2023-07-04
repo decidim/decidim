@@ -65,7 +65,11 @@ const createDialog = (component) => {
     backdropSelector: `[data-dialog="${dialog}"]`,
     enableAutoFocus: false,
     onOpen: (params) => {
-      setFocusOnTitle(params)
+      setFocusOnTitle(params);
+      params.dispatchEvent(new CustomEvent("open.dialog"));
+    },
+    onClose: (params) => {
+      params.dispatchEvent(new CustomEvent("close.dialog"));
     },
     // optional parameters (whenever exists the id, it will add the tagging)
     ...(Boolean(component.querySelector(`#dialog-title-${dialog}`)) && {

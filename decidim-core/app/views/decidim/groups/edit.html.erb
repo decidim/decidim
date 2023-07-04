@@ -9,7 +9,7 @@
 
   <%= decidim_form_for(@form, url: group_path(@user_group.nickname), method: :patch, html: { id: "edit-group" }) do |f| %>
     <div class="form__wrapper">
-      <%= render partial: "form", locals: { f: f } %>
+      <%= render partial: "form", locals: { f: } %>
     </div>
 
     <div class="form__wrapper-block">

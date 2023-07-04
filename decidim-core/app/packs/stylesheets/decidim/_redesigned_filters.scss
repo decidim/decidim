@@ -1,95 +1,95 @@
-.filter{
+.filter {
   @apply flex items-center gap-2 p-1.5 rounded cursor-pointer relative;
 
-  &-container{
+  &-container {
     @apply rounded border-4 border-background md:border-0;
 
-    [id*="dropdown-menu"]{
+    [id*="dropdown-menu"] {
       @apply gap-1;
     }
 
-    [data-controls*="panel"]{
+    [data-controls*="panel"] {
       @apply flex items-center justify-start gap-2 p-1.5 first-of-type:[&>svg]:block last-of-type:[&>svg]:hidden;
 
-      & > span{
+      & > span {
         @apply text-gray-2 font-bold;
       }
 
-      > svg{
+      > svg {
         @apply w-3.5 h-3.5 text-gray-2 fill-current;
       }
 
       &[aria-expanded="false"] > svg:last-of-type,
-      &[aria-expanded="true"] > svg:first-of-type{
+      &[aria-expanded="true"] > svg:first-of-type {
         @apply hidden;
       }
 
       &[aria-expanded="true"] > svg:last-of-type,
-      &[aria-expanded="false"] > svg:first-of-type{
+      &[aria-expanded="false"] > svg:first-of-type {
         @apply block;
       }
     }
 
     input[type="checkbox"],
-    input[type="radio"]{
+    input[type="radio"] {
       @apply w-3.5 h-3.5 relative z-10;
 
       &:checked,
-      &:indeterminate{
+      &:indeterminate {
         @apply accent-secondary;
       }
 
-      &:checked{
-        + span{
+      &:checked {
+        + span {
           @apply text-secondary font-semibold relative z-10;
         }
 
-        + span + span{
+        + span + span {
           @apply w-full absolute top-0 left-0 bg-background-4 h-full rounded block;
         }
       }
     }
 
     // nesting cases
-    [id*="panel"] [id*="panel"]{
+    [id*="panel"] [id*="panel"] {
       @apply ml-6;
     }
 
-    & + &{
+    & + & {
       @apply mt-4 md:mt-8;
     }
   }
 
-  &-search{
+  &-search {
     @apply w-full relative;
 
-    input{
+    input {
       @apply w-full;
     }
 
-    button{
+    button {
       @apply absolute right-2 inset-y-2;
     }
   }
 
-  svg{
+  svg {
     @apply w-4 h-4 flex-none text-gray fill-current;
   }
 
-  span{
+  span {
     @apply text-sm text-gray-2 truncate whitespace-nowrap first-letter:uppercase;
   }
 
-  [data-controls*="panel"]{
+  [data-controls*="panel"] {
     @apply ml-auto p-0 first-of-type:[&>svg]:block last-of-type:[&>svg]:hidden rounded hover:bg-gray-2 hover:[&>svg]:text-white transition-colors;
 
     &[aria-expanded="false"] > svg:last-of-type,
-    &[aria-expanded="true"] > svg:first-of-type{
+    &[aria-expanded="true"] > svg:first-of-type {
       @apply hidden;
     }
 
     &[aria-expanded="true"] > svg:last-of-type,
-    &[aria-expanded="false"] > svg:first-of-type{
+    &[aria-expanded="false"] > svg:first-of-type {
       @apply block;
     }
   }
@@ -97,33 +97,33 @@
   &-container [type="radio"]:checked + &,
   &-container [type="checkbox"]:checked + &,
   &-container [id*="dropdown-menu"] .is-active,
-  &:hover{
+  &:hover {
     @apply bg-background-4;
   }
 
   &-container [type="radio"]:checked + &,
   &-container [type="checkbox"]:checked + &,
   &-container [id*="dropdown-menu"] .is-active,
-  &-container [type="checkbox"]:indeterminate + &{
-    svg{
+  &-container [type="checkbox"]:indeterminate + & {
+    svg {
       @apply text-secondary;
     }
 
-    span{
+    span {
       @apply text-secondary font-semibold;
     }
   }
 }
 
 /* overwrite default dropdowns */
-[data-target="dropdown-menu-filters"]{
+[data-target="dropdown-menu-filters"] {
   @apply px-0 justify-start [&>span]:text-gray-2;
 
-  > svg{
+  > svg {
     @apply h-4 w-4 text-gray;
   }
 
-  & + [id="dropdown-menu-filters"]{
+  & + [id="dropdown-menu-filters"] {
     @apply mx-0;
   }
 }

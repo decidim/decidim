@@ -15,7 +15,7 @@
     <% if @form.parent_id %>
 
       <div class="row column">
-        <%= form.select :parent_id, parent_results.map{|result| [translated_attribute(result.title), result.id] }, include_blank: true %>
+        <%= form.select :parent_id, parent_results.map { |result| [translated_attribute(result.title), result.id] }, include_blank: true %>
       </div>
 
     <% else %>
@@ -44,7 +44,7 @@
 
     <div class="row">
       <div class="columns xlarge-6">
-        <%= form.select :decidim_accountability_status_id, statuses.map{|status| [translated_attribute(status.name), status.id, { "data-progress" => status.progress }] }, include_blank: true %>
+        <%= form.select :decidim_accountability_status_id, statuses.map { |status| [translated_attribute(status.name), status.id, { "data-progress" => status.progress }] }, include_blank: true %>
       </div>
 
       <div class="columns xlarge-6">

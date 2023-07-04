@@ -158,7 +158,7 @@ shared_examples "manage assembly components" do
         click_link "Delete"
       end
 
-      expect(page).to have_no_content("My component")
+      expect(page).not_to have_content("My component")
     end
   end
 

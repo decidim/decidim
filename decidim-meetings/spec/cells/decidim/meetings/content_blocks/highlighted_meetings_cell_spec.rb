@@ -8,9 +8,9 @@ module Decidim
       describe HighlightedMeetingsCell, type: :cell do
         controller Decidim::Meetings::Directory::MeetingsController
 
-        let(:content_block) { create :content_block, organization:, manifest_name: :upcoming_meetings, scope_name: :homepage }
+        let(:content_block) { create(:content_block, organization:, manifest_name: :upcoming_meetings, scope_name: :homepage) }
         let(:organization) { create(:organization) }
-        let(:current_user) { create :user, :confirmed, organization: }
+        let(:current_user) { create(:user, :confirmed, organization:) }
         let(:html) { cell("decidim/meetings/content_blocks/highlighted_meetings", content_block).call }
 
         context "with meetings" do
@@ -37,7 +37,7 @@ module Decidim
             end
 
             it { expect(html).to have_content("Upcoming meetings") }
-            it { expect(html).to have_no_content("Past meetings") }
+            it { expect(html).not_to have_content("Past meetings") }
             it { expect(meetings_ids).not_to include(item_id(moderated_meeting)) }
             it { expect(meetings_ids).not_to include(item_id(past_meeting)) }
             it { expect(meetings_ids).to include(item_id(meeting)) }
@@ -59,7 +59,7 @@ module Decidim
               end
 
               it "renders past meetings" do
-                expect(html).to have_no_content("Upcoming meetings")
+                expect(html).not_to have_content("Upcoming meetings")
                 expect(html).to have_content("Past meetings")
                 expect(meetings_ids).not_to include(item_id(meeting))
                 expect(meetings_ids).not_to include(item_id(second_meeting))
@@ -89,7 +89,7 @@ module Decidim
 
         context "with no meetings" do
           it "renders nothing" do
-            expect(html).to have_no_css(".meeting-list__block-list")
+            expect(html).not_to have_css(".meeting-list__block-list")
           end
         end
       end

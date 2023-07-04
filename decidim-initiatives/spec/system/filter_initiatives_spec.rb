@@ -3,18 +3,18 @@
 require "spec_helper"
 
 describe "Filter Initiatives", :slow, type: :system do
-  let(:organization) { create :organization }
-  let(:type1) { create :initiatives_type, organization: }
-  let(:type2) { create :initiatives_type, organization: }
-  let(:type3) { create :initiatives_type, organization: }
-  let(:scoped_type1) { create :initiatives_type_scope, type: type1 }
-  let(:scoped_type2) { create :initiatives_type_scope, type: type2 }
-  let(:scoped_type3) { create :initiatives_type_scope, type: type3, scope: nil }
-  let(:area_type1) { create(:area_type, organization:) }
-  let(:area_type2) { create(:area_type, organization:) }
-  let(:area1) { create(:area, area_type: area_type1, organization:) }
-  let(:area2) { create(:area, area_type: area_type1, organization:) }
-  let(:area3) { create(:area, area_type: area_type2, organization:) }
+  let!(:organization) { create(:organization) }
+  let!(:type1) { create(:initiatives_type, organization:) }
+  let!(:type2) { create(:initiatives_type, organization:) }
+  let!(:type3) { create(:initiatives_type, organization:) }
+  let!(:scoped_type1) { create(:initiatives_type_scope, type: type1) }
+  let!(:scoped_type2) { create(:initiatives_type_scope, type: type2) }
+  let!(:scoped_type3) { create(:initiatives_type_scope, type: type3, scope: nil) }
+  let!(:area_type1) { create(:area_type, organization:) }
+  let!(:area_type2) { create(:area_type, organization:) }
+  let!(:area1) { create(:area, area_type: area_type1, organization:) }
+  let!(:area2) { create(:area, area_type: area_type1, organization:) }
+  let!(:area3) { create(:area, area_type: area_type2, organization:) }
 
   before do
     switch_to_host(organization.host)
@@ -303,7 +303,7 @@ describe "Filter Initiatives", :slow, type: :system do
     end
 
     context "when logged in" do
-      let(:user) { create :user, :confirmed, organization: }
+      let(:user) { create(:user, :confirmed, organization:) }
 
       before do
         create_list(:initiative, 2, organization:, author: user)

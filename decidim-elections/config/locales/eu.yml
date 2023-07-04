@@ -26,6 +26,7 @@ eu:
         min_selections: Aurreko bat ere ez
         title: Izenburua
       voting:
+        banner_image: Bannerra
         end_time: Bozketaren amaiera-data
         start_time: Bozketaren hasiera-data
         title: Izenburua
@@ -373,6 +374,7 @@ eu:
       feedback:
         answer:
           invalid: Errore bat izan da zure feedbacka bidaltzean.
+          spam_detected: Arazo bat izan da galdetegia erantzutean. Agian azkarregi joan zara, berriro egin dezakezu?
           success: Feedbacka zuzen bidali da.
       models:
         answer:

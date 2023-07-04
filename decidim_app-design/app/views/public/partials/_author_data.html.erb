@@ -12,7 +12,7 @@
         <%= partial "author_data--avatar" %>
         <div>
           <div class="author__name--container">
-            <%= partial "author_data--name", { tooltip: tooltip } %>
+            <%= partial "author_data--name", { tooltip: } %>
 
             <% if verified %>
               <%= icon "verified-badge", class: "author__verified" %>
@@ -29,7 +29,7 @@
     <% else %>
       <div class="author author--inline">
         <%= partial "author_data--avatar" %>
-        <%= partial "author_data--name", { tooltip: tooltip } %>
+        <%= partial "author_data--name", { tooltip: } %>
 
         <% if nick %>
           <a href="user-profile" class="author__nickname">
@@ -46,7 +46,7 @@
 
   <% if extra %>
     <div class="author-data__extra">
-      <%= Faker::Date.backward(725).strftime("%d/%m/%Y") %>&nbsp;&nbsp;·&nbsp;&nbsp;
+      <%= Faker::Date.backward(days: 725).strftime("%d/%m/%Y") %>&nbsp;&nbsp;·&nbsp;&nbsp;
       <a href="#comments" title="Comentarios">
         <%= icon "comment-square", class: "icon--small", aria_label: "Comentarios", role: "img" %>
         <%= Faker::Number.between(from: 1, to: 100) %> comentarios
@@ -55,7 +55,7 @@
   <% end %>
   <% if timestamp %>
     <div class="author-data__extra">
-      <%= Faker::Date.backward(725).strftime("%d/%m/%Y") %>&nbsp;&nbsp;·&nbsp;&nbsp;12:54
+      <%= Faker::Date.backward(days: 725).strftime("%d/%m/%Y") %>&nbsp;&nbsp;·&nbsp;&nbsp;12:54
     </div>
   <% end %>
 

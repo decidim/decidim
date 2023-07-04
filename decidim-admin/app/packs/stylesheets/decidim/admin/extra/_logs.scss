@@ -1,33 +1,33 @@
-.logs{
+.logs {
   list-style: none;
   margin-left: 0;
   margin-bottom: 0;
 
-  p.logs--no-logs{
+  p.logs--no-logs {
     margin: rem-calc(16);
   }
 
-  li{
+  li {
     .logs__log__content,
-    .logs__log__diff-row{
+    .logs__log__diff-row {
       display: flex;
       flex-direction: row;
       padding: $table-padding;
-      border-bottom: 1px solid rgba(black, .05);
+      border-bottom: 1px solid rgba(black, 0.05);
     }
 
-    .logs__log__diff-row{
-      &:last-child{
+    .logs__log__diff-row {
+      &:last-child {
         border-bottom: none;
       }
     }
   }
 
-  .logs__log--deletion .logs__log__content{
+  .logs__log--deletion .logs__log__content {
     background-color: rgb(255, 242, 242);
   }
 
-  .logs__log__date{
+  .logs__log__date {
     font-family: $font-family-monospace;
     font-size: 14px;
     margin-top: 2px;
@@ -38,62 +38,62 @@
     flex-basis: 1px;
   }
 
-  .logs__log__explanation{
+  .logs__log__explanation {
     flex-grow: 34;
     flex-basis: 1px;
 
     span,
-    a{
+    a {
       font-weight: 600;
     }
 
-    .logs__log__author{
+    .logs__log__author {
       color: rgb(89, 197, 100);
     }
 
-    .logs__log__resource{
+    .logs__log__resource {
       color: rgb(58, 134, 222);
     }
 
-    .logs__log__space{
+    .logs__log__space {
       color: rgb(143, 107, 201);
     }
   }
 
-  .logs__log__actions{
+  .logs__log__actions {
     flex-grow: 1;
     flex-basis: 1px;
     text-align: right;
   }
 
-  .logs__log__actions-dropdown{
+  .logs__log__actions-dropdown {
     color: $muted;
     padding: rem-calc(0 10);
 
-    &::after{
+    &::after {
       content: "▸";
     }
   }
 
-  .logs__log__diff{
+  .logs__log__diff {
     max-height: 200px;
     overflow-y: scroll;
     display: none;
   }
 
-  .logs__log--expanded{
-    .logs__log__diff{
+  .logs__log--expanded {
+    .logs__log__diff {
       display: block;
     }
 
-    .logs__log__actions-dropdown{
-      &::after{
+    .logs__log__actions-dropdown {
+      &::after {
         content: "▾";
       }
     }
   }
 
-  .logs__log__diff-title{
+  .logs__log__diff-title {
     padding-right: rem-calc(10);
     flex-grow: 5;
     font-weight: 600;
@@ -101,19 +101,19 @@
     flex-basis: 1px;
   }
 
-  .logs__log__diff-value{
+  .logs__log__diff-value {
     flex-grow: 35;
     flex-basis: 1px;
   }
 
-  .logs__log__diff-row--new-value{
+  .logs__log__diff-row--new-value {
     background-color: rgb(217, 255, 221);
   }
 
-  .logs__log__diff-row--previous-value{
+  .logs__log__diff-row--previous-value {
     background-color: rgb(238, 238, 238);
 
-    .logs__log__diff-title{
+    .logs__log__diff-title {
       color: rgb(152, 152, 152);
       font-weight: normal;
       text-transform: lowercase;

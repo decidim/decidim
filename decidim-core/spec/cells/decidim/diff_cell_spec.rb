@@ -3,7 +3,7 @@
 require "spec_helper"
 require "decidim/accountability/test/factories"
 
-describe Decidim::DiffCell, versioning: true, type: :cell do
+describe Decidim::DiffCell, type: :cell, versioning: true do
   subject { my_cell.call }
 
   let(:my_cell) { cell("decidim/diff", model, path: proc { |_extra_params| "/" }) }

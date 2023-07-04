@@ -3,10 +3,10 @@
 <div>
   <p><%= translated_attribute(question.body) %></p>
 
-  <% @form = form || Decidim::Meetings::AnswerForm.new(question_id: question.id, current_user: current_user) %>
+  <% @form = form || Decidim::Meetings::AnswerForm.new(question_id: question.id, current_user:) %>
   <%= decidim_form_for(@form, url: meeting_polls_answers_path(meeting), method: :post, remote: true, html: { class: "form-defaults mt-4" }, data: { "safe-path" => meeting_live_event_path(meeting) }) do |form| %>
     <div class="answer question" data-max-choices="<%= question.max_choices %>">
-      <%= render partial: "decidim/meetings/polls/answers/#{question.question_type}", locals: { answer: @form.answer, question: question, answer_form: form, disabled: question.answered_by?(current_user), field_id: question.id  } %>
+      <%= render partial: "decidim/meetings/polls/answers/#{question.question_type}", locals: { answer: @form.answer, question:, answer_form: form, disabled: question.answered_by?(current_user), field_id: question.id } %>
 
       <%= form.hidden_field :question_id %>
 

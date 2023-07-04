@@ -7,7 +7,7 @@ RSpec.describe "Project search", type: :request do
 
   subject { response.body }
 
-  let(:component) { create :budgets_component }
+  let(:component) { create(:budgets_component) }
   let(:participatory_space) { component.participatory_space }
   let(:organization) { participatory_space.organization }
   let(:filter_params) { {} }

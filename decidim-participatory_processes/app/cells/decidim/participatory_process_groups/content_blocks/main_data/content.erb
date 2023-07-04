@@ -4,11 +4,11 @@
   <%= description_text %>
 </div>
 
-<% group_attributes_1 = [processes_count_item, meta_scope_item].compact %>
-<% group_attributes_2 = [hashtag_item, external_link_item].compact %>
+<% group_attributes1 = [processes_count_item, meta_scope_item].compact %>
+<% group_attributes2 = [hashtag_item, external_link_item].compact %>
 
 <div class="participatory-space-group__content-block-metadata">
-  <% group_attributes_1.each do |item| %>
+  <% group_attributes1.each do |item| %>
     <% next if item.blank? %>
 
     <span>
@@ -19,7 +19,7 @@
 </div>
 
 <div class="participatory-space-group__content-block-metadata">
-  <% group_attributes_2.each do |item| %>
+  <% group_attributes2.each do |item| %>
     <% next if item.blank? %>
 
     <span>

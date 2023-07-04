@@ -3,6 +3,8 @@
 require "spec_helper"
 
 describe Decidim::Budgets::Engine do
+  it_behaves_like "clean engine"
+
   describe "decidim_budgets.authorization_transfer" do
     include_context "authorization transfer"
 

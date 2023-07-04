@@ -36,7 +36,7 @@
             :locale,
             @account.organization.available_locales,
             :to_s,
-            ->(locale) {locale_name(locale) }
+            ->(locale) { locale_name(locale) }
           ) %>
       <p class="help-text !-mt-8">
         <%= t("available_locales_helper", scope:"decidim.account.show") %>

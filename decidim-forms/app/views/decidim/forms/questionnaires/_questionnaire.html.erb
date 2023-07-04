@@ -33,10 +33,10 @@
           <%= fields_for "questionnaire[responses][#{answer_idx}]", answer do |answer_form| %>
             <%= render(
               "decidim/forms/questionnaires/answer",
-              answer_form: answer_form,
-              answer: answer,
-              answer_idx: answer_idx,
-              cleaned_answer_idx: cleaned_answer_idx,
+              answer_form:,
+              answer:,
+              answer_idx:,
+              cleaned_answer_idx:,
               disabled: !current_participatory_space.can_participate?(current_user)
             ) %>
           <% end %>
@@ -73,7 +73,7 @@
           step_index,
           total_steps: @form.total_steps,
           button_disabled: !current_participatory_space.can_participate?(current_user),
-          form: form
+          form:
         ) %>
       </div>
     </div>

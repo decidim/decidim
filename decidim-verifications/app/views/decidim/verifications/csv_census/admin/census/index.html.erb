@@ -7,7 +7,7 @@
   <div class="card-section">
     <% if @status.count > 0 %>
       <p><%= t("decidim.verifications.csv_census.admin.index.data", count: @status.count,
-        due_date: l(@status.last_import_at, format: :long)) %>
+                                                                    due_date: l(@status.last_import_at, format: :long)) %>
       </p>
       <%= link_to t("decidim.verifications.csv_census.admin.destroy.title"),
         destroy_all_census_path,

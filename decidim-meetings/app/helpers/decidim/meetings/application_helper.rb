@@ -25,7 +25,7 @@ module Decidim
       end
 
       def filter_type_values
-        type_values = flat_filter_values(*Decidim::Meetings::Meeting::TYPE_OF_MEETING, scope: "decidim.meetings.meetings.filters.type_values").map do |args|
+        type_values = flat_filter_values(*Decidim::Meetings::Meeting::TYPE_OF_MEETING.keys, scope: "decidim.meetings.meetings.filters.type_values").map do |args|
           TreePoint.new(*args)
         end
 
@@ -78,7 +78,7 @@ module Decidim
       end
 
       def online_or_hybrid_meeting?(meeting)
-        meeting.online_meeting? || meeting.hybrid_meeting?
+        meeting.online? || meeting.hybrid?
       end
 
       def iframe_embed_or_live_event_page?(meeting)

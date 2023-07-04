@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
 shared_examples "manage assembly admins examples" do
-  let(:other_user) { create :user, organization:, email: "my_email@example.org" }
+  let(:other_user) { create(:user, organization:, email: "my_email@example.org") }
 
   let!(:assembly_admin) do
-    create :assembly_admin,
+    create(:assembly_admin,
            :confirmed,
            organization:,
-           assembly:
+           assembly:)
   end
 
   before do
@@ -75,7 +75,7 @@ shared_examples "manage assembly admins examples" do
       expect(page).to have_admin_callout("successfully")
 
       within "#assembly_admins table" do
-        expect(page).to have_no_content(other_user.email)
+        expect(page).not_to have_content(other_user.email)
       end
     end
 
@@ -85,13 +85,12 @@ shared_examples "manage assembly admins examples" do
           name: "test",
           email: "test@example.org",
           role: "admin"
-        )
+        ).with_context(current_user: user)
 
-        Decidim::Assemblies::Admin::CreateAssemblyAdmin.call(
-          form,
-          user,
-          assembly
-        )
+        Decidim::Admin::ParticipatorySpace::CreateAdmin.call(form, assembly,
+                                                             event_class: Decidim::RoleAssignedToAssemblyEvent,
+                                                             event: "decidim.events.assembly.role_assigned",
+                                                             role_class: Decidim::AssemblyUserRole)
 
         visit current_path
       end

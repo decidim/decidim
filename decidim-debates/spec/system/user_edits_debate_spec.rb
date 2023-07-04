@@ -10,24 +10,23 @@ describe "User edits a debate", type: :system do
     create(
       :debate,
       author:,
-      component:,
-      skip_injection: true
+      component:
     )
   end
 
   before do
     switch_to_host(organization.host)
     login_as user, scope: :user
-    component_scope = create :scope, parent: component.participatory_space.scope
+    component_scope = create(:scope, parent: component.participatory_space.scope)
     component_settings = component["settings"]["global"].merge!(scopes_enabled: true, scope_id: component_scope.id)
     component.update!(settings: component_settings)
   end
 
   context "when editing my debate" do
-    let(:user) { create :user, :confirmed, organization: }
+    let(:user) { create(:user, :confirmed, organization:) }
     let(:author) { user }
     let!(:scope) { create(:scope, organization:) }
-    let!(:category) { create :category, participatory_space: }
+    let!(:category) { create(:category, participatory_space:) }
     let(:scope_picker) { select_data_picker(:debate_scope_id) }
 
     it "allows editing my debate", :slow do
@@ -55,14 +54,13 @@ describe "User edits a debate", type: :system do
 
     context "when editing as a user group" do
       let(:author) { user }
-      let!(:user_group) { create :user_group, :verified, organization:, users: [user] }
+      let!(:user_group) { create(:user_group, :verified, organization:, users: [user]) }
       let!(:debate) do
         create(
           :debate,
           author:,
           user_group:,
-          component:,
-          skip_injection: true
+          component:
         )
       end
 

@@ -7,7 +7,7 @@
       <div class="card__filter">
         <%= link_to t("decidim.admin.moderated_users.tabs.unblocked"), moderated_users_path %>
         |
-        <%= link_to  t("decidim.admin.moderated_users.tabs.blocked"), moderated_users_path(blocked: true) %>
+        <%= link_to t("decidim.admin.moderated_users.tabs.blocked"), moderated_users_path(blocked: true) %>
       </div>
     </h2>
   </div>
@@ -38,7 +38,7 @@
               <td><%= moderation.user.nickname %></td>
             <% end %>
             <td> <%#= moderation.reason %>
-              <% reports = moderation.reports.map { |report| render "report", report: report } %>
+              <% reports = moderation.reports.map { |report| render "report", report: } %>
               <%= safe_join(reports, ",") %>
             </td>
             <td>

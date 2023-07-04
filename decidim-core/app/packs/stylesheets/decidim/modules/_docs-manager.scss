@@ -1,15 +1,15 @@
-.docs__container{
-  h6{
+.docs__container {
+  h6 {
     cursor: pointer;
   }
 
-  svg{
+  svg {
     color: $medium-gray;
   }
 
-  .docs__content{
+  .docs__content {
     border-left: $border;
     padding-left: 1rem;
-    margin-left: .25rem;
+    margin-left: 0.25rem;
   }
 }

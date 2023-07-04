@@ -1,33 +1,33 @@
-.label--basic{
+.label--basic {
   background-color: lighten($dark-gray, 60);
 }
 
-.label--highlight{
+.label--highlight {
   background-color: var(--secondary);
 }
 
-.label--admin{
+.label--admin {
   background-color: var(--primary);
 }
 
 .proposal-status,
 .collaborative-draft-status,
-.project-status{
+.project-status {
   float: left;
-  margin-right: .5rem;
+  margin-right: 0.5rem;
 }
 
 .proposal-status--small,
-.label--small{
-  margin: .2rem .2rem .2rem 0;
-  padding: .2rem .3rem;
+.label--small {
+  margin: 0.2rem 0.2rem 0.2rem 0;
+  padding: 0.2rem 0.3rem;
 }
 
-.label.light{
+.label.light {
   color: $white;
 }
 
-.label.muted{
+.label.muted {
   background: $muted;
   color: $white;
 }

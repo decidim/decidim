@@ -87,7 +87,7 @@
                   <%= icon_link_to "dial",
                                    url_for(query_params_with(parent_id_eq: assembly.id)),
                                    t("decidim.admin.titles.assemblies"),
-                                   class: "action-icon--dial #{'highlighted' if assembly.children.count.positive?}" %>
+                                   class: "action-icon--dial #{"highlighted" if assembly.children.count.positive?}" %>
                 <% else %>
                   <span class="action-space icon"></span>
                 <% end %>

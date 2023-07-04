@@ -1,7 +1,7 @@
 <% add_decidim_meta_tags({
-  title: translated_attribute(questionnaire.title),
-  description: translated_attribute(questionnaire.description),
-}) %>
+                           title: translated_attribute(questionnaire.title),
+                           description: translated_attribute(questionnaire.description)
+                         }) %>
 
 <%= append_stylesheet_pack_tag "decidim_forms" %>
 <%= append_javascript_pack_tag "decidim_forms" %>
@@ -17,7 +17,7 @@
 
     <% if questionnaire.description.present? %>
     <div class="text-lg text-gray-2 text-left">
-      <%= decidim_sanitize_editor translated_attribute questionnaire.description %>
+      <%= decidim_sanitize_editor_admin translated_attribute questionnaire.description %>
     </div>
     <% end %>
   </div>

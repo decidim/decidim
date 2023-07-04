@@ -20,7 +20,7 @@ shared_examples "searchable results" do
       find(search_input_selector).native.send_keys :enter
 
       expect(page).to have_current_path decidim.search_path, ignore_query: true
-      expect(page).to have_content(/results for the search: "#{term}"/i)
+      expect(page).to have_content(%(Results for the search: "#{term}"))
       expect(page).to have_selector(".filter-search.filter-container")
       expect(page.find("#search-count h1").text.to_i).to be_positive
     end
@@ -47,7 +47,7 @@ shared_examples "searchable results" do
         find(search_input_selector).native.send_keys :enter
 
         expect(page).to have_current_path decidim.search_path, ignore_query: true
-        expect(page).to have_content(/results for the search: "#{term}"/i)
+        expect(page).to have_content(%(Results for the search: "#{term}"))
         expect(page).to have_selector(".filter-search.filter-container")
         expect(page.find("#search-count h1").text.to_i).to be_positive
 
@@ -66,7 +66,7 @@ shared_examples "searchable results" do
         find(search_input_selector).native.send_keys :enter
 
         expect(page).to have_current_path decidim.search_path, ignore_query: true
-        expect(page).to have_content(/results for the search: "#{term}"/i)
+        expect(page).to have_content(%(Results for the search: "#{term}"))
         expect(page).to have_selector(".filter-search.filter-container")
         expect(page.find("#search-count h1").text.to_i).not_to be_positive
       end
@@ -82,7 +82,7 @@ shared_examples "searchable results" do
           find(search_input_selector).native.send_keys :enter
 
           expect(page).to have_current_path decidim.search_path, ignore_query: true
-          expect(page).to have_content(/results for the search: "#{term}"/i)
+          expect(page).to have_content(%(Results for the search: "#{term}"))
           expect(page).to have_selector(".filter-search.filter-container")
           expect(page.find("#search-count h1").text.to_i).not_to be_positive
         end

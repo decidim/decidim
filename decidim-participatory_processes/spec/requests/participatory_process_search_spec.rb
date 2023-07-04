@@ -6,7 +6,7 @@ RSpec.describe "Participatory process search", type: :request do
   subject { response.body }
 
   let(:organization) { create(:organization) }
-  let(:current_user) { create :user, :confirmed, organization: }
+  let(:current_user) { create(:user, :confirmed, organization:) }
   let!(:process1) do
     create(
       :participatory_process,
@@ -115,6 +115,22 @@ RSpec.describe "Participatory process search", type: :request do
         expect(subject).to include(translated(process2.title))
         expect(subject).to include(translated(past_process.title))
         expect(subject).to include(translated(upcoming_process.title))
+      end
+    end
+
+    context "and the date is set to an unknown value" do
+      let(:date) { "foobar" }
+      let(:dom) { Nokogiri::HTML(subject) }
+
+      it "displays all public processes" do
+        expect(subject).to include(translated(process1.title))
+        expect(subject).to include(translated(process2.title))
+        expect(subject).to include(translated(past_process.title))
+        expect(subject).to include(translated(upcoming_process.title))
+      end
+
+      it "does not cause any display issues" do
+        expect(dom.text).not_to include("foobar")
       end
     end
   end

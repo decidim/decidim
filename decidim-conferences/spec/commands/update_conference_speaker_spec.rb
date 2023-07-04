@@ -7,8 +7,8 @@ module Decidim::Conferences
     subject { described_class.new(form, conference_speaker) }
 
     let!(:conference) { create(:conference) }
-    let(:conference_speaker) { create :conference_speaker, :with_user, conference: }
-    let!(:current_user) { create :user, :confirmed, organization: conference.organization }
+    let(:conference_speaker) { create(:conference_speaker, :with_user, conference:) }
+    let!(:current_user) { create(:user, :confirmed, organization: conference.organization) }
     let(:user) { nil }
     let!(:meeting_component) do
       create(:component, manifest_name: :meetings, participatory_space: conference)

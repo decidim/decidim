@@ -5,6 +5,7 @@ require "spec_helper"
 module Decidim::Meetings
   describe MeetingSCell, type: :cell do
     controller Decidim::Meetings::MeetingsController
+    include Decidim::SanitizeHelper
 
     subject { my_cell.call }
 
@@ -26,7 +27,8 @@ module Decidim::Meetings
       end
 
       it "escapes them correctly" do
-        expect(subject.to_s).to include("&lt;strong&gt;#{original_title}&lt;/strong&gt; &amp;'&lt;")
+        title = decidim_html_escape(original_title).gsub("&quot;", '"')
+        expect(subject.to_s).to include("&lt;strong&gt;#{title}&lt;/strong&gt; &amp;'&lt;")
       end
     end
   end

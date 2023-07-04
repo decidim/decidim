@@ -75,6 +75,7 @@ eu:
     'true': 'Bai'
   carrierwave:
     errors:
+      file_cannot_be_processed: Fitxategia ezina prozesatu
       file_resolution_too_large: Fitxategiaren erresoluzioa handiegia da
       file_size_too_large: Fitxategiaren taimaina handiegia da
       not_inside_organization: Artxiboa ez dago antolatzaile batekin erlazionatuta
@@ -93,12 +94,6 @@ eu:
       about_x_months:
         one: hilabete inguru
         other: '%{count} hilabete inguru'
-      x_days:
-        one: Duela egun bat
-        other: "Duela %{count} egun"
-      x_minutes:
-        one: duela minutu bat
-        other: "duela %{count} minutu"
   decidim:
     accessibility:
       external_link: Kanpoko lotura
@@ -893,7 +888,6 @@ eu:
           intro: 'Zure mezuan honako akats hauek gertatu dira:'
           ok: Ados
         index:
-          ago: orain dela
           new_conversation: Elkarrizketa berria
           next: Hurrengoa
           title: Elkarrizketak
@@ -1190,7 +1184,7 @@ eu:
       reference:
         reference: 'Erreferentzia: %{reference}'
       represent_user_group:
-        represent_user_group: Talde bat irudikatzen dut
+        represent_user_group: Talde bat ordezkatzen dut
         select_user_group: Aukeratu talde bat
       results_per_page:
         label: 'Emaitzak, orrialdeko:'
@@ -1420,6 +1414,29 @@ eu:
   doorkeeper:
     scopes:
       public: Zure informazio publikoa.
+  editor:
+    extensions:
+      image:
+        altLabel: Testu alternatiboa irudiarentzat
+        nodeView:
+          resizer:
+            position:
+              bottomLeft: beheko ezker ertza
+      link:
+        bubbleMenu:
+          remove: Kendu
+          url: URL-a
+      videoEmbed:
+        titleLabel: Izenburua
+    inputDialog:
+      buttons:
+        cancel: Utzi
+    toolbar:
+      control:
+        heading: Testu estiloa
+        image: Irudia
+        italic: Italikoa
+        link: Esteka
   emojis:
     button: Gehitu emojia
     categories:

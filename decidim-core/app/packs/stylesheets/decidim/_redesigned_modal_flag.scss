@@ -1,39 +1,39 @@
-.flag-modal{
-  &__form{
+.flag-modal {
+  &__form {
     @apply gap-1 pt-8 pb-10;
 
-    &-description{
+    &-description {
       @apply text-xl font-semibold text-gray-2;
     }
 
-    &-reason{
+    &-reason {
       @apply text-lg text-gray-2 mt-6;
     }
 
-    &-textarea-label{
+    &-textarea-label {
       @apply text-gray-2 mt-8;
     }
   }
 }
 
-.modal__report{
-  &-container__radio{
+.modal__report {
+  &-container__radio {
     @apply grid grid-cols-[min-content_1fr] content-start mb-4;
 
-    label{
+    label {
       @apply font-semibold text-lg mb-2;
     }
   }
 
-  &-text{
+  &-text {
     @apply text-lg text-gray-2 font-semibold mt-4;
   }
 
-  fieldset label{
+  fieldset label {
     @apply inline-block text-md font-normal mb-0;
   }
 
-  legend{
+  legend {
     @apply text-lg my-4 block;
   }
 }

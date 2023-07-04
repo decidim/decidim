@@ -84,7 +84,9 @@ fi-pl:
             offensive: Sisältää rasismia, seksismiä, haukkumista, henkilökohtaisia hyökkäyksiä, tappouhkauksia, itsemurhapyyntöjä tai muuta vihapuhetta.
             spam: Sisältää klikkihoukutteita, mainostusta, huijauksia tai bottiskriptejä.
           title: Ilmoita asiatonta sisältöä
-        show_replies: Näytä %{replies_count} vastausta
+        show_replies:
+          one: Näytä vastaus
+          other: Näytä %{count} vastausta
         single_comment_link_title: Linkki kommenttiin
       comment_order_selector:
         order:

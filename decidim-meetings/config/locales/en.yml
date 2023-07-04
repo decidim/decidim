@@ -57,6 +57,8 @@ en:
           attributes:
             iframe_embed_type:
               not_embeddable: This URL cannot be embedded in meeting or live event page.
+            online_meeting_url:
+              url_format: Must be valid URL
         meeting_agenda:
           attributes:
             base:

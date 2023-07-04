@@ -1,23 +1,23 @@
-.consultations-header{
+.consultations-header {
   margin-bottom: $margin-sm;
 
-  @include breakpoint(medium){
+  @include breakpoint(medium) {
     margin-bottom: $margin-m;
   }
 
-  .heading2{
+  .heading2 {
     font-weight: bold;
   }
 }
 
-.consultations-header__main{
+.consultations-header__main {
   background-size: cover;
   position: relative;
   z-index: 0;
   display: flex;
   flex-direction: column;
 
-  &::after{
+  &::after {
     content: "";
     display: block;
     position: absolute;
@@ -25,21 +25,21 @@
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba($black, .6);
+    background-color: rgba($black, 0.6);
   }
 }
 
-.consultations-header__container{
+.consultations-header__container {
   position: relative;
   z-index: 1;
   padding: 0 0 0 1rem;
 
-  @include breakpoint(mediumlarge){
+  @include breakpoint(mediumlarge) {
     display: flex;
     align-items: stretch;
 
-    .columns{
-      > *{
+    .columns {
+      > * {
         height: 100%;
         display: flex;
         flex-direction: column;
@@ -49,37 +49,37 @@
   }
 }
 
-.consultations-header__info{
+.consultations-header__info {
   padding: 1rem 1.5rem 1rem 1rem;
   text-align: center;
 
-  @include breakpoint(medium){
+  @include breakpoint(medium) {
     padding: 1rem 1.5rem 1rem 1rem;
   }
 
-  @include breakpoint(mediumlarge){
+  @include breakpoint(mediumlarge) {
     padding-left: 2rem;
     text-align: left;
   }
 }
 
-.consultations-header__link{
+.consultations-header__link {
   font-weight: 600;
   color: $white;
 
   &:hover,
-  &:focus{
+  &:focus {
     color: var(--primary);
   }
 
-  .icon{
+  .icon {
     width: 8px;
     height: 8px;
   }
 }
 
-.consultations-header__extra{
-  background: rgba($dark-gray, .8);
+.consultations-header__extra {
+  background: rgba($dark-gray, 0.8);
   color: $white;
   text-align: center;
   margin-left: auto;
@@ -88,7 +88,7 @@
   padding: 1rem;
   margin-bottom: 1.5rem;
 
-  @include breakpoint(medium){
+  @include breakpoint(medium) {
     margin-left: -1rem;
     margin-right: 0;
     margin-bottom: 0;
@@ -97,18 +97,18 @@
   }
 }
 
-.consultations-header__extra-title{
+.consultations-header__extra-title {
   display: block;
   font-weight: 600;
   font-size: 1rem;
 
-  @include breakpoint(medium){
+  @include breakpoint(medium) {
     font-size: 1.1rem;
   }
 
   line-height: 1;
 }
 
-.consultations-header__extra-date{
+.consultations-header__extra-date {
   font-weight: 900;
 }

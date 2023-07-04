@@ -1,15 +1,15 @@
 <% add_decidim_meta_tags({
-  description: decidim_sanitize_editor(translated_attribute(sortition.additional_info)),
-  title: decidim_html_escape(translated_attribute(sortition.title)),
-  url: sortition_url(sortition.to_param)
-}) %>
+                           description: decidim_sanitize_editor(translated_attribute(sortition.additional_info)),
+                           title: decidim_html_escape(translated_attribute(sortition.title)),
+                           url: sortition_url(sortition.to_param)
+                         }) %>
 
 <%
 edit_link(
   resource_locator(sortition).edit,
   :update,
   :sortition,
-  sortition: sortition
+  sortition:
 )
 %>
 
@@ -34,7 +34,7 @@ edit_link(
   </section>
   <section class="layout-main__section">
     <div class="editor-content">
-      <%= decidim_sanitize_editor translated_attribute sortition.additional_info %>
+      <%= decidim_sanitize_editor_admin translated_attribute sortition.additional_info %>
     </div>
   </section>
   <section class="layout-main__section">
@@ -82,7 +82,7 @@ edit_link(
 
   <% content_for :aside do %>
     <section class="layout-aside__section">
-      <%= render partial: "results_count", locals: { sortition: sortition } %>
+      <%= render partial: "results_count", locals: { sortition: } %>
     </section>
     <section class="layout-aside__section">
       <h4 class="text-sm text-gray-2 uppercase font-semibold mb-4 ">

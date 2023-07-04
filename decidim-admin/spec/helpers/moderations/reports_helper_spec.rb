@@ -47,8 +47,9 @@ module Decidim
             let(:reportable) { proposal }
 
             it "returns the meeting's title" do
+              meeting_title = ActionView::Base.full_sanitizer.sanitize(translated_attribute(reportable.authors.first.title))
               expect(helper.reportable_author_name(reportable)).to include("reportable-authors")
-              expect(helper.reportable_author_name(reportable)).to include(translated_attribute(reportable.authors.first.title))
+              expect(helper.reportable_author_name(reportable)).to include(meeting_title)
             end
           end
         end

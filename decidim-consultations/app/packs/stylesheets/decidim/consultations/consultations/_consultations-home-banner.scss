@@ -1,15 +1,15 @@
-.consultations-home-banner{
-  .consultations-header__main{
-    &::after{
+.consultations-home-banner {
+  .consultations-header__main {
+    &::after {
       display: none;
     }
   }
 
-  .consultations-header__container{
+  .consultations-header__container {
     min-height: 8rem;
   }
 
-  p:last-child{
+  p:last-child {
     margin-bottom: 0;
   }
 }

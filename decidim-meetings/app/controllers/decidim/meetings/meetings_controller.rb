@@ -6,6 +6,7 @@ module Decidim
     class MeetingsController < Decidim::Meetings::ApplicationController
       include FilterResource
       include Filterable
+      include ComponentFilterable
       include Flaggable
       include Withdrawable
       include FormFactory
@@ -18,6 +19,8 @@ module Decidim
       helper_method :meetings, :meeting, :registration, :search, :nav_paths, :tab_panel_items
 
       redesign active: true
+
+      before_action :add_addtional_csp_directives, only: [:show]
 
       def new
         enforce_permission_to :create, :meeting
@@ -83,13 +86,13 @@ module Decidim
       end
 
       def edit
-        enforce_permission_to :update, :meeting, meeting: meeting
+        enforce_permission_to(:update, :meeting, meeting:)
 
         @form = meeting_form.from_model(meeting)
       end
 
       def update
-        enforce_permission_to :update, :meeting, meeting: meeting
+        enforce_permission_to(:update, :meeting, meeting:)
 
         @form = meeting_form.from_params(params)
 
@@ -107,7 +110,7 @@ module Decidim
       end
 
       def withdraw
-        enforce_permission_to :withdraw, :meeting, meeting: meeting
+        enforce_permission_to(:withdraw, :meeting, meeting:)
 
         WithdrawMeeting.call(@meeting, current_user) do
           on(:ok) do
@@ -177,20 +180,6 @@ module Decidim
 
       def meeting_form
         form(Decidim::Meetings::MeetingForm)
-      end
-
-      def default_filter_params
-        {
-          search_text_cont: "",
-          with_any_date: "upcoming",
-          activity: "all",
-          with_availability: "",
-          with_any_scope: default_filter_scope_params,
-          with_any_category: default_filter_category_params,
-          with_any_state: nil,
-          with_any_origin: default_filter_origin_params,
-          with_any_type: default_filter_type_params
-        }
       end
 
       def tab_panel_items

@@ -6,7 +6,7 @@ describe Decidim::Verifications::ManagedUserErrorEvent do
   include_context "when a simple event"
 
   let(:event_name) { "decidim.events.verifications.managed_user_error_event" }
-  let(:resource) { create :conflict }
+  let(:resource) { create(:conflict) }
   let(:organization_host) { "#{resource.current_user.organization.host}:#{Capybara.server_port}" }
 
   describe "resource_title" do

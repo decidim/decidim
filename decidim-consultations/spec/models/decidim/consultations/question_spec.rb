@@ -13,7 +13,7 @@ module Decidim
       it { is_expected.to be_valid }
 
       describe ".hashtag" do
-        let(:question) { build :question, hashtag: "#hashtag", max_votes: }
+        let(:question) { build(:question, hashtag: "#hashtag", max_votes:) }
 
         it "Do not includes the hash character" do
           expect(question.hashtag).to eq("hashtag")

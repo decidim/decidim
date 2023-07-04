@@ -5,7 +5,7 @@ if respond_to?(:meeting_component) && meeting_component
     :read,
     :component,
     component: meeting_component,
-    current_participatory_space: current_participatory_space
+    current_participatory_space:
   )
 end
 %>
@@ -23,7 +23,7 @@ end
       <ul class="conference__program-selector">
         <% meeting_days.each_with_index do |day, i| %>
           <li>
-            <button id="conference-trigger<%= i %>" class="button button__sm md:button__lg button__transparent-secondary" data-controls="conference-panel<%= i %>" data-open="<%= "true" if i == 0 %>">
+            <button id="conference-trigger<%= i %>" class="button button__sm md:button__lg button__transparent-secondary" data-controls="conference-panel<%= i %>" data-open="<%= "true" if i.zero? %>">
               <%= l day, format: :decidim_with_day_and_month_name %>
             </button>
           </li>

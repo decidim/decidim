@@ -7,11 +7,11 @@ module Decidim
     describe VoteQuestion do
       subject { described_class.new(form) }
 
-      let(:organization) { create :organization }
-      let(:consultation) { create :consultation, organization: }
-      let(:question) { create :question, consultation: }
-      let(:user) { create :user, organization: }
-      let(:response) { create :response, question: }
+      let(:organization) { create(:organization) }
+      let(:consultation) { create(:consultation, organization:) }
+      let(:question) { create(:question, consultation:) }
+      let(:user) { create(:user, organization:) }
+      let(:response) { create(:response, question:) }
       let(:decidim_consultations_response_id) { response.id }
       let(:attributes) do
         {
@@ -52,7 +52,7 @@ module Decidim
       end
 
       context "when user tries to vote twice" do
-        let!(:vote) { create :vote, author: user, question: }
+        let!(:vote) { create(:vote, author: user, question:) }
 
         it "broadcasts invalid" do
           expect { subject.call }.to broadcast(:invalid)

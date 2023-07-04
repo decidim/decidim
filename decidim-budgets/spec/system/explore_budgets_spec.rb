@@ -47,11 +47,19 @@ describe "Explore Budgets", :slow, type: :system do
         expect(page).to have_content(translated(budget.title))
         expect(page).to have_content(number_to_currency(budget.total_budget, unit: Decidim.currency_unit, precision: 0))
       end
-      expect(page).to have_no_content("Remove vote")
+      expect(page).not_to have_content("Remove vote")
       expect(page).to have_content("0 projects")
     end
 
     describe "budget list item" do
+      let!(:component) do
+        create(:budgets_component,
+               :with_vote_threshold_percent,
+               manifest:,
+               participatory_space: participatory_process,
+               settings: { landing_page_content: description })
+      end
+      let(:description) { { en: "Short description", ca: "Descripció curta", es: "Descripción corta" } }
       let(:budget) { budgets.first }
       let(:item) { page.find("#budgets .card--list__item:first-child", match: :first) }
       let!(:projects) { create_list(:project, 3, budget:, budget_amount: 10_000_000) }
@@ -59,6 +67,8 @@ describe "Explore Budgets", :slow, type: :system do
       before do
         login_as user, scope: :user
       end
+
+      it_behaves_like "has embedded video in description", :description
 
       it "has a clickable title" do
         expect(item).to have_link(translated(budget.title), href: budget_path(budget))
@@ -77,7 +87,7 @@ describe "Explore Budgets", :slow, type: :system do
         it "shows the projects count and it has no remove vote link" do
           visit_component
 
-          expect(page).to have_no_content("Remove vote")
+          expect(page).not_to have_content("Remove vote")
           expect(item).to have_content("3 projects")
         end
       end

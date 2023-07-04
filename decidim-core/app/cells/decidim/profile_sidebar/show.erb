@@ -84,7 +84,7 @@
           <% badge_statuses.each do |status| %>
             <div class="column">
               <div class="badge-container pr-xs">
-                <%= cell("decidim/badge", profile_holder, badge: status.badge, status: status).(:small) %>
+                <%= cell("decidim/badge", profile_holder, badge: status.badge, status:).call(:small) %>
               </div>
             </div>
           <% end %>

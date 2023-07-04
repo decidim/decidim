@@ -5,7 +5,6 @@ require "rspec/rails"
 require "rspec/cells"
 require "byebug"
 require "wisper/rspec/stub_wisper_publisher"
-require "db-query-matchers"
 require "action_view/helpers/sanitize_helper"
 require "w3c_rspec_validators"
 require "decidim/dev/test/w3c_rspec_validators_overrides"
@@ -38,5 +37,11 @@ RSpec.configure do |config|
 
   config.before :all, type: :system do
     ActiveStorage.service_urls_expire_in = 24.hours
+  end
+
+  config.before :all do
+    Decidim.content_security_policies_extra = {
+      "img-src": %w(https://via.placeholder.com)
+    }
   end
 end

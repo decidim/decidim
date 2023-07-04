@@ -287,6 +287,7 @@ fi:
       block_user:
         new:
           action: Estä tili ja lähetä perustelut
+          already_reported_html: Tämä toiminto piilottaa myös kaiken sisällön, jonka kyseinen osallistuja on luonut. <a href="%{link}">Estä tili</a>.
           description: Estämällä käyttäjän estät kyseisen käyttäjän pääsyn hänen omalle tililleen. Voit antaa perusteluissasi ja ohjeistuksissasi tietoa siitä, mitä kyseinen käyttäjä voi tehdä palauttaakseen pääsyn tililleen.
           justification: Perustelut
           title: Estä käyttäjä %{name}
@@ -681,6 +682,7 @@ fi:
         report:
           reasons:
             does_not_belong: Ei kuulu
+            hidden_during_block: Piilotettu käyttäjän piilotuksen yhteydessä
             offensive: Loukkaava
             spam: Roskaposti
         reports:
@@ -1064,7 +1066,7 @@ fi:
           success: Käyttäjän kutsuminen onnistui.
         destroy:
           error: Hallintakäyttäjän poisto epäonnistui.
-          success: Käyttäjä ei ole enää hallinnointikäyttäjä.
+          success: Käyttäjä ei ole enää hallintakäyttäjä.
         form:
           email: Sähköposti
           name: Nimi

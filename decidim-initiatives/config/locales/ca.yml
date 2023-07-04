@@ -362,8 +362,8 @@ ca:
         fill_data:
           back: Torna
           continue: Continua
+          decidim_user_group_id_help: No és possible canviar l'autoria de la iniciativa després de crear-la.
           fill_data_help: "<ul> <li>Revisa el contingut de la teva iniciativa. El títol és fàcil d'entendre? L'objectiu de la teva iniciativa és clar?</li> <li>Has d'escollir el tipus de signatura. Presencial, digital o una combinació de totes dues.</li> <li>Quin és l'àmbit geogràfic de la iniciativa?</li> </ul>"
-          initiative_type: Tipus d'iniciativa
           more_information: "(Més informació)"
           select_area: Selecciona una àrea
           select_scope: Selecciona un àmbit d'aplicació
@@ -445,6 +445,7 @@ ca:
         delete_attachment: Esborrar
       index:
         title: Iniciatives
+        uninitialized: Les iniciatives no han estat configurades encara des de l'administració.
       initiative_signatures:
         fill_personal_data:
           continue: Continua
@@ -634,7 +635,6 @@ ca:
         promotal_committee: Comissió Promotora
         select_initiative_type: Tria
         show_similar_initiatives: Compara
-        step: Pas %{current} de %{total}
         title: Crea una nova iniciativa
       initiative_header:
         initiative_menu_item: Iniciativa

@@ -1,95 +1,96 @@
-.button{
+.button {
   @apply inline-flex items-center justify-center font-semibold text-center border border-transparent rounded transition cursor-pointer [&>svg]:flex-none [&>svg]:fill-current first-letter:[&>span]:uppercase [&>span]:text-center [&>span]:break-words;
 
-  &__xs{
+  &__xs {
     @apply text-sm [&:not([class*="button\\_\\_text"])]:px-3 [&:not([class*="button\\_\\_text"])]:py-1 gap-1;
   }
 
-  &__sm{
+  &__sm {
     @apply text-sm [&:not([class*="button\\_\\_text"])]:px-4 [&:not([class*="button\\_\\_text"])]:py-1.5 gap-1.5;
   }
 
-  &__lg{
+  &__lg {
     @apply text-lg [&:not([class*="button\\_\\_text"])]:px-6 [&:not([class*="button\\_\\_text"])]:py-3 gap-2;
   }
 
-  &__xl{
+  &__xl {
     @apply text-xl [&:not([class*="button\\_\\_text"])]:px-8 [&:not([class*="button\\_\\_text"])]:py-4 gap-4;
   }
 
-  &__primary{
+  &__primary {
     @apply bg-primary text-white;
   }
 
-  &__secondary{
+  &__secondary {
     @apply bg-secondary text-white;
   }
 
-  &__tertiary{
+  &__tertiary {
     @apply bg-tertiary text-white;
   }
 
-  &__transparent{
+  &__transparent {
     @apply bg-transparent text-white border border-white;
 
-    &-primary{
+    &-primary {
       @apply border bg-white border-primary text-primary;
     }
 
-    &-secondary{
+    &-secondary {
       @apply border bg-white border-secondary text-secondary;
     }
 
-    &-tertiary{
+    &-tertiary {
       @apply border bg-white border-tertiary text-tertiary;
     }
   }
 
-  &__text{
+  &__text {
     @apply bg-transparent border-0 p-0 hover:underline text-black;
 
-    &-primary{
+    &-primary {
       @apply bg-transparent border-0 p-0 hover:underline text-primary;
     }
 
-    &-secondary{
+    &-secondary {
       @apply bg-transparent border-0 p-0 hover:underline text-secondary;
     }
 
-    &-tertiary{
+    &-tertiary {
       @apply bg-transparent border-0 p-0 hover:underline text-tertiary;
     }
   }
 
   &[disabled],
-  &.disabled{
+  &.disabled {
     @apply text-gray-2 bg-background-3 border border-gray-2;
   }
 
   &.is-hover,
-  &:not([disabled]):not([class*="button__text"]):hover{
+  &:not([disabled]):not([class*="button__text"]):hover {
     @apply text-white;
 
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), theme('colors.secondary');
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+      theme("colors.secondary");
   }
 
-  &__pill{
+  &__pill {
     @apply bg-gray-5 text-secondary mx-0 rounded-l rounded-r-none;
   }
 
-  &__pill:last-child{
+  &__pill:last-child {
     @apply rounded-r rounded-l-none;
   }
 
-  &__pill--active{
+  &__pill--active {
     @apply bg-secondary text-white;
 
-    .button__pill--count{
+    .button__pill--count {
       @apply bg-white text-secondary;
     }
   }
 
-  &__pill--count{
+  &__pill--count {
     @apply rounded-full bg-secondary text-white inline-block h-[18px] w-[18px] ml-2 text-xs;
   }
 }

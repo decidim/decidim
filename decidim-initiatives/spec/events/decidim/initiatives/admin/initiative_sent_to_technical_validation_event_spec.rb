@@ -3,24 +3,27 @@
 require "spec_helper"
 
 describe Decidim::Initiatives::Admin::InitiativeSentToTechnicalValidationEvent do
-  let(:resource) { create :initiative }
+  let(:resource) { create(:initiative) }
   let(:event_name) { "decidim.events.initiatives.admin.initiative_sent_to_technical_validation" }
   let(:admin_initiative_path) { "/admin/initiatives/#{resource.slug}/edit?initiative_slug=#{resource.slug}" }
   let(:admin_initiative_url) { "http://#{organization.host}#{admin_initiative_path}" }
+  let!(:initiative_title) { decidim_html_escape(resource_title) }
 
   include_context "when a simple event"
   it_behaves_like "a simple event"
 
   describe "email_subject" do
+    let!(:initiative_title) { decidim_sanitize(resource_title) }
+
     it "is generated correctly" do
-      expect(subject.email_subject).to eq("Initiative \"#{resource_title}\" was sent to technical validation.")
+      expect(subject.email_subject).to eq("Initiative \"#{initiative_title}\" was sent to technical validation.")
     end
   end
 
   describe "email_intro" do
     it "is generated correctly" do
       expect(subject.email_intro)
-        .to eq(%(The initiative "#{resource_title}" has been sent to technical validation. Check it out at <a href="#{admin_initiative_url}">the admin panel</a>))
+        .to eq(%(The initiative "#{initiative_title}" has been sent to technical validation. Check it out at <a href="#{admin_initiative_url}">the admin panel</a>))
     end
   end
 
@@ -34,7 +37,7 @@ describe Decidim::Initiatives::Admin::InitiativeSentToTechnicalValidationEvent d
   describe "notification_title" do
     it "is generated correctly" do
       expect(subject.notification_title)
-        .to include(%(The initiative "#{resource_title}" has been sent to technical validation. Check it out at <a href="#{admin_initiative_path}">the admin panel</a>))
+        .to include(%(The initiative "#{initiative_title}" has been sent to technical validation. Check it out at <a href="#{admin_initiative_path}">the admin panel</a>))
     end
   end
 end

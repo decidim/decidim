@@ -8,7 +8,7 @@
         <%= icon "bullhorn", class: "icon--small", aria_label: "Endorsements", role: "img" %> 332
       </button>
       <button type="button" name="button" class="button small compact light <%= status %> button--sc">
-        <%= (status == "secondary")? "Reivindicar" : "Reivindicada" %>
+        <%= status == "secondary" ? "Reivindicar" : "Reivindicada" %>
       </button>
     </div>
   </div>

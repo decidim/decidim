@@ -3,7 +3,7 @@
 require "spec_helper"
 require "csv"
 
-describe "Participatory Processes", type: :system, download: true do
+describe "Participatory Processes", download: true, type: :system do
   let(:date) { Time.zone.today - 1.week }
   let(:organization) { create(:organization) }
   let(:show_metrics) { true }
@@ -86,15 +86,15 @@ describe "Participatory Processes", type: :system, download: true do
     it "does not render any metric chart" do
       # BIG CHART
       Decidim.metrics_registry.filtered(scope: "participatory_process", block: "big").each do |metric_manifest|
-        expect(page).to have_no_css(%(##{metric_manifest.metric_name}_chart))
+        expect(page).not_to have_css(%(##{metric_manifest.metric_name}_chart))
       end
       # MEDIUM CHARTS
       Decidim.metrics_registry.filtered(scope: "participatory_process", block: "medium").each do |metric_manifest|
-        expect(page).to have_no_css(%(##{metric_manifest.metric_name}_chart))
+        expect(page).not_to have_css(%(##{metric_manifest.metric_name}_chart))
       end
       # LITTLE CHARTS
       Decidim.metrics_registry.filtered(scope: "participatory_process", block: "small").each do |metric_manifest|
-        expect(page).to have_no_css(%(##{metric_manifest.metric_name}_chart))
+        expect(page).not_to have_css(%(##{metric_manifest.metric_name}_chart))
       end
     end
   end

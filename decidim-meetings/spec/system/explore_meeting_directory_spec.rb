@@ -5,7 +5,7 @@ require "spec_helper"
 describe "Explore meeting directory", type: :system do
   let(:directory) { Decidim::Meetings::DirectoryEngine.routes.url_helpers.root_path }
   let(:organization) { create(:organization) }
-  let(:participatory_process) { create :participatory_process, organization: }
+  let(:participatory_process) { create(:participatory_process, organization:) }
   let(:components) { create_list(:meeting_component, 3, organization:) }
   let(:meetings_selector) { "[id^='meetings__meeting_']" }
   let!(:meetings) do
@@ -184,27 +184,21 @@ describe "Explore meeting directory", type: :system do
       let!(:online_meeting2) { create(:meeting, :published, :online, component: components.last) }
 
       it "allows filtering by type 'online'" do
-        skip_unless_redesign_enabled
-
         within "#panel-dropdown-menu-type" do
-          click_filter_item "All"
           click_filter_item "Online"
         end
 
-        expect(page).to have_content(online_meeting1.title["en"])
-        expect(page).to have_content(online_meeting2.title["en"])
+        expect(page).to have_content(translated(online_meeting1.title))
+        expect(page).to have_content(translated(online_meeting2.title))
       end
 
       it "allows linking to the filtered view using a short link" do
-        skip_unless_redesign_enabled
-
         within "#panel-dropdown-menu-type" do
-          click_filter_item "All"
           click_filter_item "Online"
         end
 
-        expect(page).to have_content(online_meeting1.title["en"])
-        expect(page).to have_content(online_meeting2.title["en"])
+        expect(page).to have_content(translated(online_meeting1.title))
+        expect(page).to have_content(translated(online_meeting2.title))
 
         filter_params = CGI.parse(URI.parse(page.current_url).query)
         base_url = "http://#{organization.host}:#{Capybara.server_port}"
@@ -222,8 +216,8 @@ describe "Explore meeting directory", type: :system do
         end
 
         visit short_url
-        expect(page).to have_content(online_meeting1.title["en"])
-        expect(page).to have_content(online_meeting2.title["en"])
+        expect(page).to have_content(translated(online_meeting1.title))
+        expect(page).to have_content(translated(online_meeting2.title))
         expect(page).to have_current_path(/^#{directory}/)
 
         current_params = CGI.parse(URI.parse(page.current_url).query)
@@ -235,10 +229,7 @@ describe "Explore meeting directory", type: :system do
       let!(:in_person_meeting) { create(:meeting, :published, :in_person, component: components.last) }
 
       it "allows filtering by type 'in-person'" do
-        skip_unless_redesign_enabled
-
         within "#panel-dropdown-menu-type" do
-          click_filter_item "All"
           click_filter_item "In-person"
         end
 
@@ -293,7 +284,7 @@ describe "Explore meeting directory", type: :system do
           click_filter_item "Past"
         end
 
-        expect(page).to have_no_content(translated(upcoming_meeting1.title))
+        expect(page).not_to have_content(translated(upcoming_meeting1.title))
 
         result = page.find("#meetings .meeting-list__container").text
         expect(result.index(translated(past_meeting3.title))).to be < result.index(translated(past_meeting1.title))
@@ -334,7 +325,7 @@ describe "Explore meeting directory", type: :system do
         click_filter_item "Past"
       end
 
-      expect(page).to have_no_css(meetings_selector)
+      expect(page).not_to have_css(meetings_selector)
       within("#panel-dropdown-menu-space_type") do
         click_filter_item "All"
         click_filter_item "Assemblies"

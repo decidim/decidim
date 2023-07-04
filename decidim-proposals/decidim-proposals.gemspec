@@ -29,12 +29,13 @@ Gem::Specification.new do |s|
 
   s.add_dependency "decidim-comments", Decidim::Proposals.version
   s.add_dependency "decidim-core", Decidim::Proposals.version
-  s.add_dependency "doc2text", "~> 0.4.5"
+  s.add_dependency "doc2text", "~> 0.4.6"
   s.add_dependency "redcarpet", "~> 3.5", ">= 3.5.1"
 
   s.add_development_dependency "decidim-admin", Decidim::Proposals.version
   s.add_development_dependency "decidim-assemblies", Decidim::Proposals.version
   s.add_development_dependency "decidim-budgets", Decidim::Proposals.version
+  s.add_development_dependency "decidim-conference", Decidim::Proposals.version
   s.add_development_dependency "decidim-dev", Decidim::Proposals.version
   s.add_development_dependency "decidim-meetings", Decidim::Proposals.version
   s.add_development_dependency "decidim-participatory_processes", Decidim::Proposals.version

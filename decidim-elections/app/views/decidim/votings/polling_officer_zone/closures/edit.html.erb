@@ -20,14 +20,14 @@
 <%= content_tag :p, t(".info_text") %>
 
 <%= decidim_form_for(@form, url: polling_officer_election_closure_path(polling_officer, election),
-                     html: { class: "form edit_closure" }) do |form| %>
+                            html: { class: "form edit_closure" }) do |form| %>
 
   <%= form.hidden_field :election_id %>
   <%= form.hidden_field :polling_station_id %>
 
-  <%= render partial: "ballot_results_form_fields", locals: { form: form } %>
+  <%= render partial: "ballot_results_form_fields", locals: { form: } %>
 
-  <%= render partial: "question_results_form_fields", locals: { form: form } %>
+  <%= render partial: "question_results_form_fields", locals: { form: } %>
 
   <%= form.submit t(".save_recount"), id: "submit-ballot-recount", class: "button button--sc mt-sm" %>
 
@@ -38,9 +38,9 @@
                   class: "button button--sc mt-sm hide",
                   data: { open: "modal-closure-results-count-error" },
                   aria: {
-                          controls:"modal-closure-results-count-error",
-                          haspopup: "dialog"
-                        } %>
+                    controls: "modal-closure-results-count-error",
+                    haspopup: "dialog"
+                  } %>
 <% end %>
 
 <%= render "modal_ballots_results_count_error" %>

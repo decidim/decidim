@@ -15,7 +15,7 @@
           <%= t(".no_email") %>
         </button>
       <% else %>
-        <%= button_to t(".email", email: email), voting_send_access_code_path(datum.dataset.voting, datum_id: datum, medium: "email"), class: "button hollow expanded" %>
+        <%= button_to t(".email", email:), voting_send_access_code_path(datum.dataset.voting, datum_id: datum, medium: "email"), class: "button hollow expanded" %>
       <% end %>
     </div>
   </div>
@@ -26,7 +26,7 @@
           <%= t(".no_sms") %>
         </button>
       <% else %>
-        <%= button_to t(".sms", sms: sms), voting_send_access_code_path(datum.dataset.voting, datum_id: datum, medium: "sms"), class: "button hollow expanded" %>
+        <%= button_to t(".sms", sms:), voting_send_access_code_path(datum.dataset.voting, datum_id: datum, medium: "sms"), class: "button hollow expanded" %>
       <% end %>
     </div>
   </div>

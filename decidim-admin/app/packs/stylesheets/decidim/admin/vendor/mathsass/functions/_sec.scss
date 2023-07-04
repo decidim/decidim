@@ -5,7 +5,7 @@
 //     sec(45deg)  // 1.41422
 @use "sass:math";
 
-@function sec ($x){
+@function sec($x) {
   $x: unitless-rad($x);
 
   @return math.div(1, cos($x));

@@ -10,8 +10,8 @@ module Decidim
   # for the Active Record models.
   #
   # NOTE: This module is automatically loaded for all active record models in
-  #       the "decidim.geocoding_extensions" initializer. It does not need to be
-  #       included separately into any models.
+  #       the "decidim_core.geocoding_extensions" initializer. It does not need
+  #       to be included separately into any models.
   module Geocodable
     extend ActiveSupport::Concern
 

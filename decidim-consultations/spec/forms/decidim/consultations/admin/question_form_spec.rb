@@ -15,9 +15,9 @@ module Decidim
             )
         end
 
-        let(:organization) { create :organization }
-        let(:consultation) { create :consultation, organization: }
-        let(:scope) { create :scope, organization: }
+        let(:organization) { create(:organization) }
+        let(:consultation) { create(:consultation, organization:) }
+        let(:scope) { create(:scope, organization:) }
         let(:slug) { "slug" }
         let(:title) do
           {
@@ -223,7 +223,7 @@ module Decidim
           end
 
           context "when in another organization" do
-            let(:consultation) { create :consultation }
+            let(:consultation) { create(:consultation) }
 
             before do
               create(:question, slug:, consultation:)

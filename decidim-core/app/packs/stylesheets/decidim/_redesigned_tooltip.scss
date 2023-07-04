@@ -1,41 +1,41 @@
-[role=tooltip]{
+[role="tooltip"] {
   @apply absolute bg-black z-10 p-4 w-max max-w-xs rounded text-left text-white;
 
-  & > *{
+  & > * {
     @apply relative z-20;
   }
 
-  &[aria-hidden="false"]{
+  &[aria-hidden="false"] {
     animation-name: fadeIn;
     animation-duration: 500ms;
     animation-fill-mode: forwards;
   }
 
-  &[aria-hidden="true"]{
+  &[aria-hidden="true"] {
     animation-name: fadeOut;
     animation-duration: 500ms;
     animation-fill-mode: forwards;
   }
 
-  @keyframes fadeIn{
-    from{
+  @keyframes fadeIn {
+    from {
       opacity: 0;
       visibility: hidden;
     }
 
-    to{
+    to {
       opacity: 1;
       visibility: visible;
     }
   }
 
-  @keyframes fadeOut{
-    from{
+  @keyframes fadeOut {
+    from {
       opacity: 1;
       visibility: visible;
     }
 
-    to{
+    to {
       opacity: 0;
       visibility: hidden;
     }
@@ -51,19 +51,19 @@
   --arrow-visible-size: var(--arrow-size) * 0.5;
   --arrow-margin: var(--arrow-visible-size) * 1.4142135623730951; // due to the rotation, the margin is SQRT2 times the visible size
 
-  &.top{
+  &.top {
     @apply -translate-x-[calc(100%-var(--arrow-offset)-var(--arrow-visible-size))] -translate-y-[calc(100%+var(--arrow-margin))] before:content-[''] before:absolute before:-z-10 before:right-[var(--arrow-offset)] before:-bottom-[var(--arrow-visible-size)] before:w-[var(--arrow-size)] before:h-[var(--arrow-size)] before:rotate-45 before:bg-black before:rounded-br;
   }
 
-  &.right{
+  &.right {
     @apply translate-x-[calc(var(--arrow-margin))] -translate-y-[calc(var(--arrow-offset)+var(--arrow-visible-size))] before:content-[''] before:absolute before:-z-10 before:top-[var(--arrow-offset)] before:-left-[var(--arrow-visible-size)] before:w-[var(--arrow-size)] before:h-[var(--arrow-size)] before:rotate-45 before:bg-black before:rounded-bl;
   }
 
-  &.bottom{
+  &.bottom {
     @apply -translate-x-[calc(100%-var(--arrow-offset)-var(--arrow-visible-size))] translate-y-[calc(var(--arrow-margin))] before:content-[''] before:absolute before:-z-10 before:right-[var(--arrow-offset)] before:-top-[var(--arrow-visible-size)] before:w-[var(--arrow-size)] before:h-[var(--arrow-size)] before:rotate-45 before:bg-black before:rounded-tl;
   }
 
-  &.left{
+  &.left {
     @apply -translate-x-[calc(100%+var(--arrow-margin))] -translate-y-[calc(var(--arrow-offset)+var(--arrow-visible-size))] before:content-[''] before:absolute before:-z-10 before:top-[var(--arrow-offset)] before:-right-[var(--arrow-visible-size)] before:w-[var(--arrow-size)] before:h-[var(--arrow-size)] before:rotate-45 before:bg-black before:rounded-tr;
   }
 }

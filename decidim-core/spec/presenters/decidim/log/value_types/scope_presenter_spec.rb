@@ -6,7 +6,7 @@ describe Decidim::Log::ValueTypes::ScopePresenter, type: :helper do
   subject { described_class.new(value, helper) }
 
   let(:value) { scope.id }
-  let!(:scope) { create :scope }
+  let!(:scope) { create(:scope) }
 
   before do
     helper.extend(Decidim::ApplicationHelper)

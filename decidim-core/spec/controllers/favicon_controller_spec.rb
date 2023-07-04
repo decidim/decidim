@@ -6,7 +6,7 @@ module Decidim
   describe FaviconController, type: :controller do
     routes { Decidim::Core::Engine.routes }
 
-    let!(:organization) { create :organization }
+    let!(:organization) { create(:organization) }
 
     before do
       request.env["decidim.current_organization"] = organization
@@ -25,7 +25,7 @@ module Decidim
       end
 
       context "when the organization does not have a favicon" do
-        let!(:organization) { create :organization, favicon: nil }
+        let!(:organization) { create(:organization, favicon: nil) }
 
         it "renders empty favicon before it has been processed" do
           get :show

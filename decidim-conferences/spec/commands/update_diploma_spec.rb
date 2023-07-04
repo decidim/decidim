@@ -5,8 +5,8 @@ require "spec_helper"
 module Decidim::Conferences
   describe Admin::UpdateDiploma do
     describe "call" do
-      let(:my_conference) { create :conference }
-      let(:user) { create :user, :admin, :confirmed, organization: my_conference.organization }
+      let(:my_conference) { create(:conference) }
+      let(:user) { create(:user, :admin, :confirmed, organization: my_conference.organization) }
 
       let(:params) do
         {

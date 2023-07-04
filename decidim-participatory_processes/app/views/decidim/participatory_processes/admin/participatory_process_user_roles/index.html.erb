@@ -24,7 +24,7 @@
           </tr>
         </thead>
         <tbody>
-          <% @participatory_process_user_roles.each do |role| %>
+          <% filtered_collection.each do |role| %>
             <tr>
               <td>
                 <%= role.user.name %><br>
@@ -68,6 +68,7 @@
           <% end %>
         </tbody>
       </table>
+      <%= paginate filtered_collection, theme: "decidim" %>
     </div>
   </div>
 </div>

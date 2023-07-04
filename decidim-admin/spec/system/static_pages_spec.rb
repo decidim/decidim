@@ -5,7 +5,7 @@ require "spec_helper"
 describe "Content pages", type: :system do
   include ActionView::Helpers::SanitizeHelper
 
-  let(:admin) { create :user, :admin, :confirmed }
+  let(:admin) { create(:user, :admin, :confirmed) }
   let(:organization) { admin.organization }
 
   before do
@@ -38,7 +38,7 @@ describe "Content pages", type: :system do
         page_title = decidim_page.title[I18n.locale.to_s]
 
         within(".page__accordion", text: topic_title) do
-          find("button").click
+          click_button
 
           expect(page).to have_css(
             "a[href=\"#{decidim.page_path(decidim_page)}\"]",
@@ -143,7 +143,7 @@ describe "Content pages", type: :system do
         expect(page).to have_admin_callout("successfully")
 
         within "table" do
-          expect(page).to have_no_content(translated(topic.title))
+          expect(page).not_to have_content(translated(topic.title))
         end
       end
     end
@@ -156,6 +156,14 @@ describe "Content pages", type: :system do
       login_as admin, scope: :user
       visit decidim_admin.root_path
       click_link "Pages"
+    end
+
+    context "when displaying the page form" do
+      before do
+        click_link "Create page"
+      end
+
+      it_behaves_like "having a rich text editor", "new_static_page", "full"
     end
 
     it "can create new pages" do
@@ -201,6 +209,16 @@ describe "Content pages", type: :system do
         visit current_path
       end
 
+      context "when displaying the page form" do
+        before do
+          within find("tr", text: translated(decidim_page.title)) do
+            click_link "Edit"
+          end
+        end
+
+        it_behaves_like "having a rich text editor", "edit_static_page", "full"
+      end
+
       it "can edit them" do
         within find("tr", text: translated(decidim_page.title)) do
           click_link "Edit"
@@ -236,7 +254,7 @@ describe "Content pages", type: :system do
         expect(page).to have_admin_callout("successfully")
 
         within "table" do
-          expect(page).to have_no_content(translated(decidim_page.title))
+          expect(page).not_to have_content(translated(decidim_page.title))
         end
       end
 

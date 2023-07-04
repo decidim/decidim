@@ -32,7 +32,7 @@
       <div class="card__status">
         <ul class="card-data">
           <li class="card-data__item">
-            <%= Faker::Date.backward(725).strftime("%d/%m/%Y") %>
+            <%= Faker::Date.backward(days: 725).strftime("%d/%m/%Y") %>
           </li>
           <li class="card-data__item">
             <a href="">
@@ -94,7 +94,7 @@
       <div class="card__status">
         <ul class="card-data">
           <li class="card-data__item">
-            <%= Faker::Date.backward(725).strftime("%d/%m/%Y") %>
+            <%= Faker::Date.backward(days: 725).strftime("%d/%m/%Y") %>
           </li>
           <li class="card-data__item">
             <a href="">
@@ -162,7 +162,7 @@
           </li>
           <li class="card-data__item">
             <div class="text-left text-uppercase">
-              <strong class="heading4"><%= Faker::Number.between(from: 500000, to: 100000000) %></strong>&nbsp;<small>random seed</small>
+              <strong class="heading4"><%= Faker::Number.between(from: 500_000, to: 100_000_000) %></strong>&nbsp;<small>random seed</small>
             </div>
           </li>
         </ul>
@@ -170,7 +170,7 @@
       <div class="card__status">
         <ul class="card-data">
           <li class="card-data__item">
-            <%= Faker::Date.backward(725).strftime("%d/%m/%Y") %>
+            <%= Faker::Date.backward(days: 725).strftime("%d/%m/%Y") %>
           </li>
           <li class="card-data__item">
             <a href="">

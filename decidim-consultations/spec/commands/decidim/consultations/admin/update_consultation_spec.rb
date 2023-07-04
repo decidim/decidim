@@ -6,7 +6,7 @@ module Decidim
   module Consultations
     module Admin
       describe UpdateConsultation do
-        let(:consultation) { create :consultation }
+        let(:consultation) { create(:consultation) }
         let(:params) do
           {
             consultation: {

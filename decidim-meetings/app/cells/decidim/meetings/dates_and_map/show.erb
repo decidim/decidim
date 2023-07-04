@@ -19,7 +19,7 @@
 
   <%= static_map %>
 
-  <% if online_meeting? %>
+  <% if online? %>
     <%= cell("decidim/address", meeting, online: true) %>
   <% end %>
 </div>

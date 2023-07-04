@@ -8,7 +8,7 @@ module Decidim::Admin
     let(:step) { participatory_process.steps.first }
     let!(:component) { create(:component, :with_one_step, participatory_space: participatory_process) }
     let(:manifest) { component.manifest }
-    let(:user) { create :user }
+    let(:user) { create(:user) }
 
     let(:form) do
       instance_double(

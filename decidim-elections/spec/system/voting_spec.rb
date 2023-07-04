@@ -5,7 +5,7 @@ require "spec_helper"
 describe "Voting", type: :system do
   let!(:organization) { create(:organization) }
   let!(:voting) { create(:voting, :published, organization:) }
-  let!(:user) { create :user, :confirmed, organization: }
+  let!(:user) { create(:user, :confirmed, organization:) }
 
   before do
     switch_to_host(organization.host)

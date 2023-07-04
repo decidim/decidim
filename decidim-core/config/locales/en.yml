@@ -100,11 +100,11 @@ en:
         other: about %{count} months
       half_a_minute: half a minute
       less_than_x_minutes:
-        one: less than a min.
-        other: less than %{count} min.
+        one: less than a minute
+        other: less than %{count} minutes
       less_than_x_seconds:
-        one: right now
-        other: less than %{count} sec.
+        one: less than 1 second
+        other: less than %{count} seconds
       short:
         about_x_days: "%{count}d"
         about_x_hours: "%{count}h"
@@ -123,18 +123,20 @@ en:
         x_seconds: "%{count}s"
         x_years: "%{count}y"
       x_days:
-        one: 1 day ago
-        other: "%{count} days ago"
+        one: 1 day
+        other: "%{count} days"
       x_hours:
-        one: 1 hour ago
-        other: "%{count} hours ago"
+        one: 1 hour
+        other: "%{count} hours"
       x_minutes:
-        one: 1 min. ago
-        other: "%{count} min. ago"
+        one: 1 minute
+        other: "%{count} minutes"
+      x_months:
+        one: 1 month
+        other: "%{count} months"
       x_seconds:
-        one: 1 sec. ago
-        other: "%{count} sec. ago"
-        zero: right now
+        one: 1 second
+        other: "%{count} seconds"
   decidim:
     accessibility:
       external_link: External link
@@ -1135,7 +1137,6 @@ en:
           intro: 'There were the following errors with your message:'
           ok: OK
         index:
-          ago: ago
           new_conversation: New conversation
           next: Next
           no_conversations: You have no conversations yet.
@@ -1460,6 +1461,8 @@ en:
         close: Close
         description: Is this content inappropriate?
         does_not_belong: Contains illegal activity, suicide threats, personal information, or something else you think does not belong on %{organization_name}.
+        hide: Hide
+        hide_content: Hide this content
         offensive: Contains racism, sexism, slurs, personal attacks, death threats, suicide requests or any form of hate speech.
         reason: Reason
         report: Report
@@ -1467,9 +1470,11 @@ en:
         title: Report inappropriate content
       flag_user_modal:
         already_reported: This content is already reported and it will be reviewed by an admin.
+        block: Block this participant
         close: Close
         description: What is inappropriate about the user?
         does_not_belong: Contains illegal activity, suicide threats, personal information, or something else you think does not belong on %{organization_name}.
+        hide: Hide all their contents
         offensive: Contains racism, sexism, slurs, personal attacks, death threats, suicide requests or any form of hate speech.
         report: Report
         spam: Contains clickbait, advertising, scams or script bots.
@@ -1541,6 +1546,7 @@ en:
       index:
         conversations_info: Conversations are private. no one else can see them. A conversation can be started with any participant or group registered on the platform.
         no_conversations_warning: There are no conversations yet.
+        time_ago: "%{time} ago"
       reply:
         placeholder: Your reply...
         send: Send
@@ -1726,6 +1732,63 @@ en:
   doorkeeper:
     scopes:
       public: Your public information.
+  editor:
+    extensions:
+      image:
+        altLabel: Alternative text for the image
+        nodeView:
+          resizer:
+            control:
+              resize: Resize image (%position%)
+            position:
+              bottomLeft: bottom left corner
+              bottomRight: bottom right corner
+              topLeft: top left corner
+              topRight: top right corner
+        uploadError: Uploading the file failed.
+      link:
+        bubbleMenu:
+          edit: Edit
+          remove: Remove
+          url: URL
+        hrefLabel: Link URL
+        targetLabel: Target
+        targets:
+          blank: New tab
+          default: Default (same tab)
+      videoEmbed:
+        titleLabel: Title
+        urlLabel: Video URL
+    inputDialog:
+      buttons:
+        cancel: Cancel
+        remove: Remove
+        save: Save
+      close: Close modal
+    toolbar:
+      control:
+        blockquote: Blockquote
+        bold: Bold
+        bulletList: Unordered list
+        codeBlock: Code block
+        common:
+          eraseStyles: Erase styles
+        hardBreak: Line break
+        heading: Text style
+        image: Image
+        indent:
+          indent: Indent
+          outdent: Outdent
+        italic: Italic
+        link: Link
+        orderedList: Ordered list
+        underline: Underline
+        videoEmbed: Video embed
+      textStyle:
+        heading: Heading %level%
+        normal: Normal
+    upload:
+      uploadedFile: Uploaded file
   emojis:
     button: Add emoji
     categories:
@@ -1776,6 +1839,7 @@ en:
       too_many_marks: is using too many consecutive punctuation marks (e.g. ! and ?)
       too_much_caps: is using too many capital letters (over 25% of the text)
       too_short: is too short (under %{count} characters)
+      url_format: This URL is in the incorrect format
   forms:
     correct_errors: There are errors on the form, please correct them to continue.
     length_validator:

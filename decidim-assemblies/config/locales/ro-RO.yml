@@ -76,6 +76,12 @@ ro:
         email: E-mail
         name: Nume
         role: Rol
+    errors:
+      models:
+        assembly:
+          attributes:
+            document:
+              allowed_file_content_types: 'Tip de document invalid. Sunt permise numai fișiere cu următoarele extensii: %{types}.'
   activerecord:
     models:
       decidim/assembly:
@@ -278,6 +284,7 @@ ro:
             duration_help: În cazul în care durata acestui grup de lucru este limitată, selectaţi data de încheiere. În caz contrar, va apărea ca nelimitată.
             filters: Filtre
             images: Imagini
+            included_at_help: Selectați data la care acest grup de lucru a fost adăugat în platformă. Nu trebuie să fie neapărat aceeași dată cu data creării.
             metadata: Metadate
             other: Altul
             select_a_created_by: Selectați după persoana care a creat
@@ -407,6 +414,7 @@ ro:
       assemblies:
         create_assembly_member:
           email_intro: Un administrator al grupului de lucru <a href="%{resource_url}">%{resource_name}</a> te-a adăugat ca unul dintre membrii săi.
+          email_outro: Ai primit această notificare deoarece ai fost invitat la un grup de lucru. Verifică <a href="%{resource_url}">pagina grupului de lucru</a> pentru a colabora!
           email_subject: Ai primit invitație drept membru al grupului de lucru %{resource_name}!
           notification_title: Ai fost înregistrat ca membru al grupului de lucru <a href="%{resource_path}">%{resource_name}</a>. Verificați pagina <a href="%{resource_path}">grupului de lucru</a> pentru a accepta!
       assembly:

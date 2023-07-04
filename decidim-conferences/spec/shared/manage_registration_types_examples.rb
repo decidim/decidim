@@ -54,7 +54,7 @@ shared_examples "manage registration types examples" do
       expect(page).to have_admin_callout("successfully")
 
       within "#registration_types table" do
-        expect(page).to have_no_content(translated(registration_type.title))
+        expect(page).not_to have_content(translated(registration_type.title))
       end
     end
   end

@@ -3,7 +3,7 @@
     <h2 class="card-title">
       <%= title %>
       <% if allowed_to?(:send_diplomas, :conference, conference: current_participatory_space ) && current_participatory_space.sign_date.present? && current_participatory_space.conference_registrations.confirmed.any? %>
-        <%= link_to t("actions.send_diplomas", scope: "decidim.admin"), send_conference_diploma_path(current_conference), method: :post, id: "send-diplomas", class: "button tiny button--title new #{"disabled" if current_participatory_space.diploma_sent? }" %>
+        <%= link_to t("actions.send_diplomas", scope: "decidim.admin"), send_conference_diploma_path(current_conference), method: :post, id: "send-diplomas", class: "button tiny button--title new #{"disabled" if current_participatory_space.diploma_sent?}" %>
       <% end %>
     </h2>
   </div>

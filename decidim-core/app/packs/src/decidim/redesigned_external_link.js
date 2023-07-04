@@ -17,6 +17,10 @@ export default class ExternalLink {
       externalLink: "External link"
     };
 
+    if (node.closest(".editor-container")) {
+      return;
+    }
+
     if (!node.querySelector("span[data-external-link]")) {
       this.setup(node);
     }

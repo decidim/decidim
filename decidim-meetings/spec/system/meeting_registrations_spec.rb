@@ -8,8 +8,8 @@ describe "Meeting registrations", type: :system do
 
   let!(:questionnaire) { create(:questionnaire) }
   let!(:question) { create(:questionnaire_question, questionnaire:, position: 0) }
-  let!(:meeting) { create :meeting, :published, component:, questionnaire: }
-  let!(:user) { create :user, :confirmed, organization: }
+  let!(:meeting) { create(:meeting, :published, component:, questionnaire:) }
+  let!(:user) { create(:user, :confirmed, organization:) }
 
   let(:registrations_enabled) { true }
   let(:registration_form_enabled) { false }
@@ -179,8 +179,8 @@ describe "Meeting registrations", type: :system do
             expect(page).to have_css(".button", text: "Cancel your registration")
             expect(page).to have_text("19 slots remaining")
             expect(page).to have_text("Stop following")
-            expect(page).to have_no_text("Participants")
-            expect(page).to have_no_css("#panel-participants")
+            expect(page).not_to have_text("Participants")
+            expect(page).not_to have_css("#panel-participants")
           end
 
           it "they can join the meeting and configure their participation to be shown publicly" do
@@ -230,7 +230,7 @@ describe "Meeting registrations", type: :system do
         end
 
         context "and they ARE part of a verified user group" do
-          let!(:user_group) { create :user_group, :verified, users: [user], organization: }
+          let!(:user_group) { create(:user_group, :verified, users: [user], organization:) }
 
           it "they can join the meeting representing a group and appear in the attending organizations list" do
             skip_unless_redesign_enabled("This test pass using redesigned modals")
@@ -259,9 +259,9 @@ describe "Meeting registrations", type: :system do
 
             expect(page).to have_text("Organization")
             expect(page).to have_text(user_group.name)
-            expect(page).to have_no_text("Participants")
+            expect(page).not_to have_text("Participants")
             expect(page).to have_css("#panel-organizations")
-            expect(page).to have_no_css("#panel-participants")
+            expect(page).not_to have_css("#panel-participants")
           end
         end
       end
@@ -396,8 +396,8 @@ describe "Meeting registrations", type: :system do
         it "does not show the registration code" do
           visit_meeting
 
-          expect(page).to have_no_css(".registration_code")
-          expect(page).to have_no_content(registration.code)
+          expect(page).not_to have_css(".registration_code")
+          expect(page).not_to have_content(registration.code)
         end
       end
 
@@ -423,7 +423,7 @@ describe "Meeting registrations", type: :system do
           visit_meeting
 
           expect(registration.validated_at).to be_nil
-          expect(page).to have_no_content("VALIDATION PENDING")
+          expect(page).not_to have_content("VALIDATION PENDING")
         end
       end
 
@@ -451,7 +451,7 @@ describe "Meeting registrations", type: :system do
           visit_meeting
 
           expect(registration.validated_at).not_to be_nil
-          expect(page).to have_no_content("VALIDATED")
+          expect(page).not_to have_content("VALIDATED")
         end
       end
 

@@ -1,73 +1,73 @@
-.author{
+.author {
   @apply flex items-center [&>*:not(:first-child)]:pl-5 [&>*:not(:last-child)]:pr-6 divide-gray-3 divide-x text-sm text-gray-2;
 
-  &__container{
+  &__container {
     @apply flex items-center gap-2.5 first:[&>*]:flex-none;
 
-    > :last-child{
+    > :last-child {
       @apply flex flex-col [&>*]:grow;
     }
   }
 
-  &__avatar{
+  &__avatar {
     @apply w-full h-full object-cover;
 
-    &-container{
+    &-container {
       @apply rounded-full overflow-hidden inline-block w-6 h-6 align-top;
     }
 
-    &-counter{
+    &-counter {
       @apply -ml-4 rounded-full overflow-hidden inline-grid w-6 h-6 bg-background place-items-center text-secondary text-xs font-semibold;
     }
   }
 
-  &__container.is-compact &__avatar-container{
+  &__container.is-compact &__avatar-container {
     @apply w-8 h-8;
   }
 
-  &__container.is-compact &__name{
+  &__container.is-compact &__name {
     @apply text-secondary font-semibold;
   }
 
-  &__metadata{
+  &__metadata {
     @apply flex items-center gap-1 text-gray-2 text-sm;
 
-    > svg{
+    > svg {
       @apply text-gray fill-current flex-none;
     }
   }
 
-  &__tooltip{
+  &__tooltip {
     @apply grid grid-cols-[1fr_max-content] gap-6 odd:[&>*]:place-self-start even:[&>*]:place-self-end z-50;
 
     /* overwrite default styles */
-    &[role="tooltip"]{
+    &[role="tooltip"] {
       @apply max-w-max;
     }
 
-    &-links{
+    &-links {
       @apply flex flex-col items-end justify-evenly h-full whitespace-nowrap text-sm hover:[&>*]:underline;
     }
   }
 
-  &__tooltip &__avatar-container{
+  &__tooltip &__avatar-container {
     @apply w-10 h-10 border-2 border-white hover:border-tertiary;
   }
 
-  &__tooltip &__name{
+  &__tooltip &__name {
     @apply text-white text-lg font-bold hover:underline;
   }
 
-  &__coauthors{
+  &__coauthors {
     @apply flex flex-wrap items-center gap-2;
 
     &[aria-hidden="false"] + [id$="trigger"] span:last-child,
-    &[aria-hidden="true"] + [id$="trigger"] span:first-child{
+    &[aria-hidden="true"] + [id$="trigger"] span:first-child {
       @apply first-letter:lowercase block;
     }
 
     &[aria-hidden="false"] + [id$="trigger"] span:first-child,
-    &[aria-hidden="true"] + [id$="trigger"] span:last-child{
+    &[aria-hidden="true"] + [id$="trigger"] span:last-child {
       @apply hidden;
     }
   }

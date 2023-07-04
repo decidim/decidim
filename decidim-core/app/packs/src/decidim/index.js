@@ -3,7 +3,6 @@
 import svg4everybody from "svg4everybody"
 import formDatePicker from "src/decidim/form_datepicker"
 import fixDropdownMenus from "src/decidim/dropdowns_menus"
-import createQuillEditor from "src/decidim/editor"
 import Configuration from "src/decidim/configuration"
 import ExternalLink from "src/decidim/external_link"
 import updateExternalDomainLinks from "src/decidim/external_domain_warning"
@@ -77,13 +76,8 @@ $(() => {
 
   formDatePicker();
 
-  $(".editor-container").each((_idx, container) => {
-    createQuillEditor(container);
-  });
-
-  $('a[target="_blank"]').each((_i, elem) => {
-    const $link = $(elem);
-    $link.data("external-link", new ExternalLink($link));
+  document.querySelectorAll(".editor-container").forEach((container) => {
+    window.createEditor(container);
   });
 
   // initialize character counter
@@ -104,7 +98,12 @@ $(() => {
   })
   document.querySelectorAll(".new_report").forEach((container) => changeReportFormBehavior(container))
 
-  document.querySelectorAll("a").forEach((elem) => updateExternalDomainLinks(elem))
+  document.querySelectorAll("a[target=\"_blank\"]:not([data-external-link=\"false\"])").forEach((elem) => {
+    // both functions (updateExternalDomainLinks and ExternalLink) are related, so if we disable one, the other also
+    updateExternalDomainLinks(elem)
+
+    return new ExternalLink($(elem))
+  })
 
   addInputEmoji()
 

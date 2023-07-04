@@ -25,7 +25,7 @@ describe "Report User", type: :system do
 
     it "cannot be reported" do
       within ".profile__actions-secondary" do
-        expect(page).to have_no_button("Report")
+        expect(page).not_to have_button("Report")
       end
     end
   end
@@ -36,11 +36,69 @@ describe "Report User", type: :system do
 
       page.visit reportable_path
 
-      expect(page).to have_no_css("#loginModal-content")
+      expect(page).not_to have_css("#loginModal-content")
 
-      click_button "Report"
+      within ".profile__actions-secondary" do
+        click_button "Report"
+      end
 
       expect(page).to have_css("#loginModal-content")
+    end
+  end
+
+  context "when admin is logged in" do
+    let(:admin) { create(:user, :admin, :confirmed, organization: user.organization) }
+
+    before do
+      login_as admin, scope: :user
+    end
+
+    context "and the admin has not reported the resource yet" do
+      it "reports the resource" do
+        skip_unless_redesign_enabled "The profile report link has differnt selectors, and works only works with redesign enabled"
+
+        visit reportable_path
+
+        expect(page).to have_selector(".profile__actions-secondary")
+
+        within ".profile__actions-secondary" do
+          click_button "Report"
+        end
+
+        expect(page).to have_css(".flag-modal", visible: :visible)
+
+        within ".flag-modal" do
+          expect(page).to have_field(name: "report[block]", visible: :visible)
+          expect(page).not_to have_field(name: "report[hide]", visible: :visible)
+
+          click_button "Report"
+        end
+
+        expect(page).to have_content "report has been created"
+      end
+
+      it "chooses to block the resource" do
+        skip_unless_redesign_enabled "The profile report link has differnt selectors, and works only works with redesign enabled"
+
+        visit reportable_path
+
+        expect(page).to have_selector(".profile__actions-secondary")
+
+        within ".profile__actions-secondary" do
+          click_button "Report"
+        end
+
+        expect(page).to have_css(".flag-modal", visible: :visible)
+
+        within ".flag-modal" do
+          find(:css, "input[name='report[block]']").set(true)
+          expect(page).to have_field(name: "report[block]", visible: :visible)
+          expect(page).to have_field(name: "report[hide]", visible: :visible)
+          click_button "Block this participant"
+        end
+
+        expect(page).to have_content "report has been created"
+      end
     end
   end
 
@@ -58,6 +116,8 @@ describe "Report User", type: :system do
         end
 
         expect(page).to have_css("#flagModal-content", visible: :visible)
+        expect(page).not_to have_field(name: "report[block]", visible: :visible)
+        expect(page).not_to have_field(name: "report[hide]", visible: :visible)
 
         within "#flagModal-content" do
           click_button "Report"

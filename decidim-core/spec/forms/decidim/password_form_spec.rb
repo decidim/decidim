@@ -10,7 +10,7 @@ describe Decidim::PasswordForm do
     )
   end
 
-  let(:password) { Faker::Internet.password(min_length: 17) }
+  let(:password) { Faker::Internet.password(min_length: 17, max_length: 20) }
 
   context "when passwords match" do
     let(:password_confirmation) { password }

@@ -168,8 +168,8 @@ module Decidim
 
           it "adds an error to the `:attachment` field" do
             expect(subject).not_to be_valid
-            expect(subject.errors.full_messages).to match_array(["Title cannot be blank", "Attachment Needs to be reattached"])
-            expect(subject.errors.attribute_names).to match_array([:title, :attachment])
+            expect(subject.errors.full_messages).to contain_exactly("Title cannot be blank", "Attachment Needs to be reattached")
+            expect(subject.errors.attribute_names).to contain_exactly(:title, :attachment)
           end
         end
       end

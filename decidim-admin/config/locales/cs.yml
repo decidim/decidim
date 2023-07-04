@@ -200,7 +200,7 @@ cs:
         verify: Ověřit
       admin_terms_of_service:
         accept:
-          error: Při přijímání správcovských podmínek použití došlo k chybě.
+          error: Při přijímání podmínek služby administrátora došlo k chybě.
           success: Skvělé! Přijali jste administrátorské podmínky použití.
         actions:
           accept: Souhlasím s podmínkami
@@ -287,6 +287,7 @@ cs:
       block_user:
         new:
           action: Blokovat účet a odeslat odůvodnění
+          already_reported_html: Pokračováním v této akci také skryjete veškerý obsah účastníků. <a href="%{link}">Blokujte účet</a>.
           description: Blokováním uživatele bude jejich účet nepoužitelný. Ve svém zdůvodnění můžete uvést veškerá pravidla pro způsob, jakým byste uvažovali o odblokování uživatele.
           justification: Odůvodnění
           title: Blokovat uživatele %{name}
@@ -691,6 +692,7 @@ cs:
         report:
           reasons:
             does_not_belong: Nepatří
+            hidden_during_block: Skrytý při blokování uživatele
             offensive: Urážlivý
             spam: Spam
         reports:

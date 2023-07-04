@@ -240,7 +240,7 @@ fi:
             role: Rooli
           name: Ryhmän hallintakäyttäjä
           roles:
-            admin: Hallinnointikäyttäjä
+            admin: Hallintakäyttäjä
             collaborator: Osallistumiskäyttäjä
             moderator: Moderoija
             valuator: Arvioija

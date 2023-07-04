@@ -1,5 +1,5 @@
 <div class="meeting__online">
-  <%= icon "broadcast-line", class: "w-14 h-14 fill-current #{live? && online_meeting_url? ? 'text-tertiary' : 'text-gray' }" %>
+  <%= icon "broadcast-line", class: "w-14 h-14 fill-current #{live? && online_meeting_url? ? "text-tertiary" : "text-gray"}" %>
 
   <% if !online_meeting_url? %>
     <p><%= t("link_available_soon", scope: "decidim.meetings.meetings.show") %></p>

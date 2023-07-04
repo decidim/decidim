@@ -169,7 +169,6 @@ ga:
         error_modal:
           ok: Togha
         index:
-          ago: ó shin
           next: I ndiaidh
         start:
           send: Seol
@@ -335,6 +334,7 @@ ga:
         see_more: Feic níos mó
   locale:
     name: Gaeilge
+    name_with_error: Gaeilge (earráid!)
   social_share_button:
     douban: Douban
     email: Seoladh ríomhphoist

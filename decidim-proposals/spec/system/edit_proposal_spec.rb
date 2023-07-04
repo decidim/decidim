@@ -6,9 +6,9 @@ describe "Edit proposals", type: :system do
   include_context "with a component"
   let(:manifest_name) { "proposals" }
 
-  let!(:user) { create :user, :confirmed, organization: participatory_process.organization }
-  let!(:another_user) { create :user, :confirmed, organization: participatory_process.organization }
-  let!(:proposal) { create :proposal, users: [user], component: }
+  let!(:user) { create(:user, :confirmed, organization: participatory_process.organization) }
+  let!(:another_user) { create(:user, :confirmed, organization: participatory_process.organization) }
+  let!(:proposal) { create(:proposal, users: [user], component:) }
   let!(:proposal_title) { translated(proposal.title) }
 
   before do
@@ -81,13 +81,13 @@ describe "Edit proposals", type: :system do
 
           click_button "Send"
 
-          expect(page).to have_no_content("Documents")
-          expect(page).to have_no_content("Images")
+          expect(page).not_to have_content("Documents")
+          expect(page).not_to have_content("Images")
         end
 
         context "with attachment titles" do
-          let(:attachment_file_title) { ::Faker::Lorem.sentence }
-          let(:attachment_image_title) { ::Faker::Lorem.sentence }
+          let(:attachment_file_title) { Faker::Lorem.sentence }
+          let(:attachment_image_title) { Faker::Lorem.sentence }
 
           it "can change attachment titles" do
             click_link "Edit proposal"
@@ -127,7 +127,7 @@ describe "Edit proposals", type: :system do
           expect(page).to have_content("avatar.jpg")
           dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city2.jpeg"), front_interface: true)
           expect(page).to have_content("city2.jpeg")
-          expect(page).to have_no_content("city3.jpeg")
+          expect(page).not_to have_content("city3.jpeg")
           dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city3.jpeg"), front_interface: true)
           expect(page).to have_content("city2.jpeg")
           expect(page).to have_content("city3.jpeg")
@@ -146,7 +146,7 @@ describe "Edit proposals", type: :system do
       let(:component) { create(:proposal_component, :with_geocoding_enabled, participatory_space: participatory_process) }
       let(:address) { "6 Villa des Nymphéas 75020 Paris" }
       let(:new_address) { "6 rue Sorbier 75020 Paris" }
-      let!(:proposal) { create :proposal, address:, users: [user], component: }
+      let!(:proposal) { create(:proposal, address:, users: [user], component:) }
       let(:latitude) { 48.8682538 }
       let(:longitude) { 2.389643 }
 
@@ -263,20 +263,23 @@ describe "Edit proposals", type: :system do
         let(:body_en) { %(Hello <a href="#{link}" target="_blank">this is a link</a> World) }
 
         before do
+          organization.update(rich_text_editor_in_public_views: true)
+
           body = proposal.body
           body["en"] = body_en
           proposal.update!(body:)
           visit_component
           click_link proposal_title
+          click_link "Edit proposal"
         end
 
+        it_behaves_like "having a rich text editor", "edit_proposal", "basic"
+
         it "does not change the href" do
-          click_link "Edit proposal"
           expect(page).to have_link("this is a link", href: link)
         end
 
         it "does not add external link container inside the editor" do
-          click_link "Edit proposal"
           editor = page.find(".editor-container")
           expect(editor).to have_selector("a[href='#{link}']")
           expect(editor).not_to have_selector("a.external-link-container")
@@ -294,7 +297,7 @@ describe "Edit proposals", type: :system do
       visit_component
 
       click_link proposal_title
-      expect(page).to have_no_content("Edit proposal")
+      expect(page).not_to have_content("Edit proposal")
       visit "#{current_path}/edit"
 
       expect(page).to have_content("not authorized")
@@ -302,7 +305,7 @@ describe "Edit proposals", type: :system do
   end
 
   describe "editing my proposal outside the time limit" do
-    let!(:proposal) { create :proposal, users: [user], component:, created_at: 1.hour.ago }
+    let!(:proposal) { create(:proposal, users: [user], component:, created_at: 1.hour.ago) }
 
     before do
       login_as another_user, scope: :user
@@ -312,7 +315,7 @@ describe "Edit proposals", type: :system do
       visit_component
 
       click_link proposal_title
-      expect(page).to have_no_content("Edit proposal")
+      expect(page).not_to have_content("Edit proposal")
       visit "#{current_path}/edit"
 
       expect(page).to have_content("not authorized")

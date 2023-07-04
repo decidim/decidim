@@ -338,11 +338,33 @@ ignore_unused:
   - decidim.initiatives.create_initiative.select_initiative_type.*
   - decidim.blogs.admin_log.*
   - decidim.templates.admin_log.*
+  - editor.*
   - emojis.*
   - ransack.predicates.*
   - decidim.profiles.user.actions.*
   - decidim.forms.questionnaires.show.answer_questionnaire.*
   - decidim.forms.upload_help.explanation
+  - decidim.admin.assembly_user_roles.create.*
+  - decidim.admin.assembly_user_roles.update.*
+  - decidim.admin.assembly_user_roles.destroy.*
+  - decidim.admin.conference_user_roles.create.*
+  - decidim.admin.conference_user_roles.update.*
+  - decidim.admin.conference_user_roles.destroy.*
+  - decidim.admin.participatory_process_user_roles.create.*
+  - decidim.admin.participatory_process_user_roles.update.*
+  - decidim.admin.participatory_process_user_roles.destroy.*
+  - decidim.votings.polling_officers.roles.*
+  - layouts.decidim.participatory_processes.promoted_process.*
+  - layouts.decidim.conferences.promoted_conference.*
+  - layouts.decidim.assemblies.assembly.*
+  - layouts.decidim.conferences.promoted_conference.*
+  - layouts.decidim.votings.promoted_voting.vote
+  - versions.directions.*
+  - layouts.decidim.conferences.conference.*
+  - decidim.consultations.show.footer_button_text.*
+  - decidim.admin.conflicts.*
+  - decidim.profiles.show.view_full_profile
+  - layouts.decidim.assemblies.promoted_assembly.take_part
   - versions.dropdown.option_*
   - decidim.meetings.meetings.filters.*
   - decidim.meetings.directory.meetings.index.space_type

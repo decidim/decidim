@@ -82,7 +82,8 @@ ja:
             offensive: 差別的な内容、誹謗中傷などの不適切な内容が含まれています。
             spam: 本来の内容に関係が無い広告、詐欺や悪意のある処理などが含まれています。
           title: 不適切なコンテンツを報告する
-        show_replies: '%{replies_count} 件の返信を表示'
+        show_replies:
+          other: '%{count} 件の返信を表示'
         single_comment_link_title: リンク取得
       comment_order_selector:
         order:

@@ -59,7 +59,7 @@
               <% if allowed_to? :read, :initiative, initiative: initiative %>
                 <%= icon_link_to "print",
                                  decidim_initiatives.print_initiative_path(initiative),
-                                 t(".print",),
+                                 t(".print"),
                                  class: "action-icon--print",
                                  target: :blank %>
               <% else %>

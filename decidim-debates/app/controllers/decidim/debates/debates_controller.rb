@@ -43,13 +43,13 @@ module Decidim
       end
 
       def edit
-        enforce_permission_to :edit, :debate, debate: debate
+        enforce_permission_to(:edit, :debate, debate:)
 
         @form = form(DebateForm).from_model(debate)
       end
 
       def update
-        enforce_permission_to :edit, :debate, debate: debate
+        enforce_permission_to(:edit, :debate, debate:)
 
         @form = form(DebateForm).from_params(params)
 
@@ -67,7 +67,7 @@ module Decidim
       end
 
       def close
-        enforce_permission_to :close, :debate, debate: debate
+        enforce_permission_to(:close, :debate, debate:)
 
         @form = form(CloseDebateForm).from_params(params)
 

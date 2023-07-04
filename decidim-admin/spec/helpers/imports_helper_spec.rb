@@ -53,9 +53,9 @@ module Decidim
           allow(helper).to receive(:current_user).and_return(user)
         end
 
-        let(:organization) { create :organization, available_locales: [:en] }
-        let(:user) { create :user, organization: }
-        let(:user_group) { create :user_group, :confirmed, :verified, organization: }
+        let(:organization) { create(:organization, available_locales: [:en]) }
+        let(:user) { create(:user, organization:) }
+        let(:user_group) { create(:user_group, :confirmed, :verified, organization:) }
         let!(:membership) { create(:user_group_membership, user:, user_group:) }
 
         it "return users user groups" do

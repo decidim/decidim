@@ -1,20 +1,20 @@
-.authorization-modal{
+.authorization-modal {
   @apply pb-16 pr-16;
 
-  &__verification{
-    p{
+  &__verification {
+    p {
       @apply text-gray-2 text-lg;
     }
 
-    p + *{
+    p + * {
       @apply mt-8;
     }
 
-    li{
+    li {
       @apply font-semibold;
     }
 
-    &-container{
+    &-container {
       @apply mt-8 space-y-8;
     }
   }

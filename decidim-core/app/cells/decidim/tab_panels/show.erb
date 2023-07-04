@@ -3,7 +3,7 @@
     <ul class="tab-x-container">
       <% tabs.each_with_index do |tab, i| %>
         <li>
-          <button id="trigger-<%= tab[:id] %>" class="tab-x" data-controls="panel-<%= tab[:id] %>" data-open="<%= "true" if i == 0 %>">
+          <button id="trigger-<%= tab[:id] %>" class="tab-x" data-controls="panel-<%= tab[:id] %>" data-open="<%= "true" if i.zero? %>">
             <%= icon tab[:icon], class: "text-gray fill-current" %><%= tab[:text] %>
           </button>
         </li>

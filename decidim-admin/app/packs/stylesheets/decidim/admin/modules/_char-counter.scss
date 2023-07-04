@@ -1,22 +1,22 @@
-.textarea-char-counter{
+.textarea-char-counter {
   position: relative;
 
-  textarea{
+  textarea {
     padding-bottom: 2.2rem;
   }
 }
 
-.char-counter{
+.char-counter {
   position: absolute;
   color: $muted;
   background-color: $white;
-  padding: .3rem .5rem;
-  left: .5rem;
-  right: .5rem;
+  padding: 0.3rem 0.5rem;
+  left: 0.5rem;
+  right: 0.5rem;
   bottom: 1px;
   text-align: right;
 }
 
-.char-counter--excess{
+.char-counter--excess {
   color: $alert-color;
 }

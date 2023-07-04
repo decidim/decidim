@@ -1,10 +1,10 @@
 <% add_decidim_meta_tags({
-  image_url: current_initiative.type.attached_uploader(:banner_image).path,
-  description: translated_attribute(current_initiative.description),
-  title: translated_attribute(current_initiative.title),
-  url: initiative_url(current_initiative.id),
-  twitter_handler: current_organization.twitter_handler
-}) %>
+                           image_url: current_initiative.type.attached_uploader(:banner_image).path,
+                           description: translated_attribute(current_initiative.description),
+                           title: translated_attribute(current_initiative.title),
+                           url: initiative_url(current_initiative.id),
+                           twitter_handler: current_organization.twitter_handler
+                         }) %>
 
 <%
 edit_link(
@@ -167,7 +167,7 @@ edit_link(
       <ul class="tab-x-container">
         <% tabs.each_with_index do |tab, i| %>
           <li>
-            <button id="trigger-<%= tab[:id] %>" class="tab-x" data-controls="panel-<%= tab[:id] %>" data-open="<%= "true" if i == 0 %>">
+            <button id="trigger-<%= tab[:id] %>" class="tab-x" data-controls="panel-<%= tab[:id] %>" data-open="<%= "true" if i.zero? %>">
               <%= icon tab[:icon], class: "text-gray fill-current" %><%= tab[:text] %>
             </button>
           </li>

@@ -6,7 +6,7 @@ describe Decidim::ContentBlocks::SubHeroCell, type: :cell do
   subject { cell(content_block.cell, content_block).call }
 
   let(:organization) { create(:organization, description:) }
-  let(:content_block) { create :content_block, organization:, manifest_name: :sub_hero, scope_name: :homepage }
+  let(:content_block) { create(:content_block, organization:, manifest_name: :sub_hero, scope_name: :homepage) }
 
   controller Decidim::PagesController
 
@@ -14,7 +14,7 @@ describe Decidim::ContentBlocks::SubHeroCell, type: :cell do
     let(:description) { {} }
 
     it "displays nothing" do
-      expect(subject).to have_no_css(".subhero")
+      expect(subject).not_to have_css(".subhero")
     end
   end
 

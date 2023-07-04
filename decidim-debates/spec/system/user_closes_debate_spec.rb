@@ -10,8 +10,7 @@ describe "User closes a debate", type: :system do
     create(
       :debate,
       author: user,
-      component:,
-      skip_injection: true
+      component:
     )
   end
 
@@ -42,13 +41,12 @@ describe "User closes a debate", type: :system do
         :debate,
         :closed,
         author: user,
-        component:,
-        skip_injection: true
+        component:
       )
     end
 
     it "cannot be edited" do
-      expect(page).to have_no_content("Edit debate")
+      expect(page).not_to have_content("Edit debate")
     end
 
     it "is allowed to change the conclusions" do

@@ -437,6 +437,8 @@ en:
         edit_documents: Edit documents
         edit_image: Edit image
         image_legend: "(Optional) Add an image"
+      index:
+        uninitialized: Initiatives are not yet configured by an administrator.
       initiative_signatures:
         fill_personal_data:
           continue: Continue
@@ -611,15 +613,10 @@ en:
   layouts:
     decidim:
       initiative_creation_header:
-        back: Back
         fill_data: Create
         finish: Finish
-        previous_form: Start
         promotal_committee: Promoter committee
         select_initiative_type: Choose
-        show_similar_initiatives: Compare
-        step: Step %{current} of %{total}
-        title: Create new initiative
       initiative_header:
         initiative_menu_item: Initiative
       initiative_signature_creation_header:
@@ -627,11 +624,8 @@ en:
         fill_personal_data: Complete your data
         finish: Finish
         finished: Initiative signature created
-        see_steps: see steps
-        select_identity: Select identity
         sms_code: SMS code verification
         sms_phone_number: Mobile phone number
-        step: Step %{current} of %{total}
         title: Sign %{initiative_title}
       initiatives:
         initiative:

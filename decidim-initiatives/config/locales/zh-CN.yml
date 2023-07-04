@@ -275,7 +275,6 @@ zh-CN:
         fill_data:
           back: 后退
           continue: 继续
-          initiative_type: 倡议类型
           more_information: "(更多信息)"
           select_area: 选择区域
           select_scope: 选择范围
@@ -451,7 +450,6 @@ zh-CN:
         promotal_committee: 宣传委员会
         select_initiative_type: 选择
         show_similar_initiatives: 比较
-        step: 步骤 %{current} / %{total}
         title: 创建新的倡议
       initiative_header:
         initiative_menu_item: 倡议

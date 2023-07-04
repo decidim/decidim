@@ -13,7 +13,8 @@ module Decidim
     include ImpersonateUsers
     include HasStoredPath
     include NeedsTosAccepted
-    include HttpCachingDisabler
+    include Headers::HttpCachingDisabler
+    include Headers::ContentSecurityPolicy
     include ActionAuthorization
     include ForceAuthentication
     include SafeRedirect

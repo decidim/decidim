@@ -79,7 +79,6 @@ pl:
             offensive: Promuje rasizm, seksizm, nienawiść, ataki osobiste, groźby śmierci, groźby samobójcze jakąkolwiek formę mowy nienawiści.
             spam: Zawiera clickbaity, reklamy, oszustwa lub skrypty botów.
           title: Zgłoś niewłaściwą treść
-        show_replies: Pokaż %{replies_count} odpowiedzi
         single_comment_link_title: Pobierz link
       comment_order_selector:
         order:

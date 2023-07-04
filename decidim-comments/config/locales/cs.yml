@@ -88,7 +88,11 @@ cs:
             offensive: Obsahuje rasismus, sexismus, podvody, osobní útoky, hrozby smrti, žádosti o sebevraždu nebo jakoukoli formu projevy nenávisti.
             spam: Obsahuje clickbait, reklamu, podvody nebo škodlivé skripty.
           title: Nahlásit nevhodný obsah
-        show_replies: Zobrazit %{replies_count} odpovědí
+        show_replies:
+          one: Zobrazit odpověď
+          few: Zobrazit %{count} odpovědi
+          many: Zobrazit %{count} odpovědí
+          other: Zobrazit %{count} odpovědí
         single_comment_link_title: Získat odkaz
       comment_order_selector:
         order:

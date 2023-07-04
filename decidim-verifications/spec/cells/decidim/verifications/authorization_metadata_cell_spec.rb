@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe Decidim::Verifications::AuthorizationMetadataCell, type: :cell do
-  controller ::Decidim::ApplicationController
+  controller Decidim::ApplicationController
 
   subject { cell("decidim/verifications/authorization_metadata", model).call }
 

@@ -19,7 +19,7 @@
 
   <div id="proposals">
     <% @proposals.each do |proposal| %>
-      <%= cell("decidim/proposals/participatory_text_proposal", proposal, context: { current_user: current_user }) %>
+    <%= cell("decidim/proposals/participatory_text_proposal", proposal, context: { current_user: }) %>
     <% end %>
   </div>
 

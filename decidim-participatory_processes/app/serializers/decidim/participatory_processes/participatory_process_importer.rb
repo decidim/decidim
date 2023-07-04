@@ -42,7 +42,10 @@ module Decidim
             announcement: attributes["announcement"],
             private_space: attributes["private_space"],
             scopes_enabled: attributes["scopes_enabled"],
-            participatory_process_group: import_process_group(attributes["participatory_process_group"])
+            show_metrics: attributes["show_metrics"],
+            show_statistics: attributes["show_statistics"],
+            participatory_process_group: import_process_group(attributes["participatory_process_group"]),
+            participatory_process_type: import_participatory_process_type(attributes["participatory_process_type"])
           )
           @imported_process.attached_uploader(:hero_image).remote_url = attributes["remote_hero_image_url"] if attributes["remote_hero_image_url"].present?
           @imported_process.attached_uploader(:banner_image).remote_url = attributes["remote_banner_image_url"] if attributes["remote_banner_image_url"].present?
@@ -53,6 +56,11 @@ module Decidim
       end
 
       def import_process_group(attributes)
+        title = compact_translation(attributes["title"] || attributes["name"])
+        description = compact_translation(attributes["description"])
+
+        return if title.blank? && description.blank?
+
         Decidim.traceability.perform_action!("create", ParticipatoryProcessGroup, @user) do
           group = ParticipatoryProcessGroup.find_or_initialize_by(
             title: attributes["title"] || attributes["name"],
@@ -63,6 +71,19 @@ module Decidim
           group.remote_hero_image_url = attributes["remote_hero_image_url"] if remote_file_exists?(attributes["remote_hero_image_url"])
           group.save!
           group
+        end
+      end
+
+      def import_participatory_process_type(participatory_process_type)
+        return if participatory_process_type.blank?
+
+        return if compact_translation(participatory_process_type["title"]).blank?
+
+        Decidim.traceability.perform_action!("create", ParticipatoryProcessType, @user) do
+          Decidim::ParticipatoryProcessType.find_or_create_by(
+            title: participatory_process_type["title"],
+            organization: @organization
+          )
         end
       end
 
@@ -151,6 +172,11 @@ module Decidim
       end
 
       private
+
+      def compact_translation(translation)
+        translation["machine_translations"] = translation["machine_translations"].compact_blank if translation["machine_translations"].present?
+        translation.compact_blank
+      end
 
       def create_attachment_collection(attributes)
         return unless attributes.compact.any?

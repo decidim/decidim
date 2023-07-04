@@ -90,11 +90,26 @@ describe "Edit initiative", type: :system do
     it "renders an error" do
       visit decidim_initiatives.initiative_path(initiative)
 
-      expect(page).to have_no_content("Edit initiative")
+      expect(page).not_to have_content("Edit initiative")
 
       visit edit_initiative_path
 
       expect(page).to have_content("not authorized")
     end
+  end
+
+  context "when rich text editor is enabled for participants" do
+    let(:initiative) { create(:initiative, :created, author: user, scoped_type:, organization:) }
+    let(:organization) { create(:organization, rich_text_editor_in_public_views: true) }
+
+    before do
+      visit initiative_path
+
+      click_link("Edit", href: edit_initiative_path)
+
+      expect(page).to have_content "Edit Initiative"
+    end
+
+    it_behaves_like "having a rich text editor", "edit_initiative", "content"
   end
 end

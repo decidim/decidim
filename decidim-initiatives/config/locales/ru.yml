@@ -155,7 +155,6 @@ ru:
         fill_data:
           back: Вернуться
           continue: Продолжить
-          initiative_type: Вид почина
           more_information: "(Дополнительные сведения)"
           select_scope: Выбрать охват
         finish:

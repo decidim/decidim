@@ -48,7 +48,7 @@ module Decidim
       def link_to_current_or_new_conversation_with(user, title = t("decidim.contact"))
         conversation_path = current_or_new_conversation_path_with(user)
         if conversation_path
-          link_to conversation_path, title: title do
+          link_to(conversation_path, title:) do
             icon "envelope-closed", aria_label: title, class: "icon--small"
           end
         else

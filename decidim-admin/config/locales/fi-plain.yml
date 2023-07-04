@@ -39,6 +39,7 @@ fi-pl:
         body: Runko
         subject: Otsikko
       organization:
+        admin_terms_of_service_body: Hallintakäyttäjien käyttöehtojen sisältöteksti
         alert_color: Ilmoitus
         available_authorizations: Käytettävissä olevat tunnistautumistavat
         badges_enabled: Ota kunniamerkit käyttöön
@@ -197,6 +198,20 @@ fi-pl:
         user:
           new: Uusi hallintakäyttäjä
         verify: Vahvista
+      admin_terms_of_service:
+        accept:
+          error: Hallintakäyttäjän ehtojen hyväksyminen epäonnistui.
+          success: Hienoa! Olet hyväksynyt hallintakäyttäjän ehdot.
+        actions:
+          accept: Hyväksyn ehdot
+          are_you_sure: Oletko varma, että haluat kieltäytyä hyväksymästä hallintakäyttäjien käyttöehtoja?
+          refuse: Kieltäydy hyväksymästä hallintakäyttäjän ehtoja
+          title: Käyttöehtojen hyväksyntä
+        required_review:
+          alert: 'Vaadittu: tutustu hallintakäyttäjän ehtoihimme'
+          callout: Ole hyvä ja tutustu hallintakäyttäjän käyttöehtoihin. Ehtojen hyväksyminen vaaditaan, jotta saat oikeudet järjestelmän hallintatoimintoihin.
+          cta: Tutustu nyt.
+        title: Hallintakäyttäjän käyttöehdot
       area_types:
         create:
           error: Uuden aluetyypin luomisessa tapahtui virhe.
@@ -272,6 +287,7 @@ fi-pl:
       block_user:
         new:
           action: Estä tili ja lähetä perustelut
+          already_reported_html: Tämä toiminto piilottaa myös kaiken sisällön, jonka kyseinen osallistuja on luonut. <a href="%{link}">Estä tili</a>.
           description: Estämällä käyttäjän estät kyseisen käyttäjän pääsyn hänen omalle tililleen. Voit antaa perusteluissasi ja ohjeistuksissasi tietoa siitä, mitä kyseinen käyttäjä voi tehdä palauttaakseen pääsyn tililleen.
           justification: Perustelut
           title: Estä käyttäjä %{name}
@@ -666,6 +682,7 @@ fi-pl:
         report:
           reasons:
             does_not_belong: Ei kuulu
+            hidden_during_block: Piilotettu käyttäjän piilotuksen yhteydessä
             offensive: Loukkaava
             spam: Roskaposti
         reports:
@@ -981,6 +998,7 @@ fi-pl:
         destroy:
           success: Sivu tuhottu onnistuneesti
         edit:
+          changed_notably_help: Jos valitset tämän, käyttäjiä pyydetään hyväksymään päivitetyt käyttöehdot.
           title: Muokkaa sivua
           update: Päivitä
         form:

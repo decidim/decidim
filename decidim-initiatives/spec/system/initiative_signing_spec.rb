@@ -52,7 +52,7 @@ describe "Initiative signing", type: :system do
         within ".initiative__aside" do
           expect(page).to have_content(signature_text(1))
           expect(page).to have_button("Already signed", disabled: true)
-          find("button", text: "Already signed").click
+          click_button("Already signed", disabled: true)
           expect(page).to have_content(signature_text(1))
         end
       end
@@ -63,7 +63,7 @@ describe "Initiative signing", type: :system do
 
       within ".initiative__aside" do
         expect(page).to have_content(signature_text(1))
-        find("button", text: "Already signed").click
+        click_button("Already signed")
         expect(page).to have_content(signature_text(0))
       end
     end
@@ -120,7 +120,7 @@ describe "Initiative signing", type: :system do
           within ".initiative__aside" do
             expect(page).to have_content(signature_text(1))
             expect(page).to have_button("Already signed", disabled: true)
-            find("button", text: "Already signed").click
+            click_button("Already signed", disabled: true)
             expect(page).to have_content(signature_text(1))
           end
         end

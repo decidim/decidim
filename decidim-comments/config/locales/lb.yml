@@ -71,7 +71,6 @@ lb:
             offensive: Enthält Rassismus, Sexismus, Verleumdungen, persönliche Angriffe, Morddrohungen, Selbstmordanträge oder jegliche Form von Hassreden.
             spam: Enthält Clickbait, Werbung, Scams oder Script Bots.
           title: Ungeeigneten Inhalt melden
-        show_replies: '%{replies_count} Antworten anzeigen'
         single_comment_link_title: Link ufroen
       comment_order_selector:
         order:

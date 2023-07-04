@@ -8,7 +8,7 @@ module Decidim
       describe AssembliesSettingForm do
         subject { described_class.from_params(attributes).with_context(current_organization: organization) }
 
-        let(:organization) { create :organization }
+        let(:organization) { create(:organization) }
         let(:enable_organization_chart) { true }
 
         let(:attributes) do

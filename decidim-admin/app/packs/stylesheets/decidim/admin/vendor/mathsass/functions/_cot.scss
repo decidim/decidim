@@ -5,7 +5,7 @@
 //     cot(30deg)  // 1.73205
 @use "sass:math";
 
-@function cot ($x){
+@function cot($x) {
   $x: unitless-rad($x);
 
   @return math.div(1, tan($x));

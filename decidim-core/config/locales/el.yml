@@ -729,7 +729,6 @@ el:
           modal_title: Νέα συνομιλία
           no_results: Δεν υπάρχουν αποτελέσματα
         index:
-          ago: πριν
           new_conversation: Νέα συνομιλία
           next: Επόμενο
           title: Συνομιλίες
@@ -1239,7 +1238,8 @@ el:
       widget:
         see_more: Δείτε περισσότερα
   locale:
-    name: Αγγλικά
+    name: Ελληνικά
+    name_with_error: Ελληνικά (σφάλμα!)
   password_validator:
     domain_included_in_password: είναι πολύ παρόμοιο με αυτό το όνομα τομέα
     email_included_in_password: είναι πολύ παρόμοια με τη διεύθυνση email σας

@@ -42,7 +42,7 @@ module Decidim::Admin
 
     let(:participatory_process) { create(:participatory_process, :with_steps) }
     let(:step) { participatory_process.steps.first }
-    let(:current_user) { create :user, organization: participatory_process.organization }
+    let(:current_user) { create(:user, organization: participatory_process.organization) }
 
     describe "when valid" do
       let(:valid) { true }

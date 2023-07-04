@@ -29,13 +29,13 @@ describe "Conferences", type: :system do
   end
 
   context "when there are no conferences and accessing from the homepage" do
-    let!(:menu_content_block) { create :content_block, organization:, manifest_name: :global_menu, scope_name: :homepage }
+    let!(:menu_content_block) { create(:content_block, organization:, manifest_name: :global_menu, scope_name: :homepage) }
 
     it "the menu link is not shown" do
       visit decidim.root_path
 
       within "#home__menu" do
-        expect(page).to have_no_content("Conferences")
+        expect(page).not_to have_content("Conferences")
       end
     end
   end
@@ -59,13 +59,13 @@ describe "Conferences", type: :system do
     end
 
     context "and accessing from the homepage" do
-      let!(:menu_content_block) { create :content_block, organization:, manifest_name: :global_menu, scope_name: :homepage }
+      let!(:menu_content_block) { create(:content_block, organization:, manifest_name: :global_menu, scope_name: :homepage) }
 
       it "the menu link is not shown" do
         visit decidim.root_path
 
         within "#home__menu" do
-          expect(page).to have_no_content("Conferences")
+          expect(page).not_to have_content("Conferences")
         end
       end
     end
@@ -86,7 +86,7 @@ describe "Conferences", type: :system do
     end
 
     context "and accessing from the homepage" do
-      let!(:menu_content_block) { create :content_block, organization:, manifest_name: :global_menu, scope_name: :homepage }
+      let!(:menu_content_block) { create(:content_block, organization:, manifest_name: :global_menu, scope_name: :homepage) }
 
       it "the menu link is shown" do
         visit decidim.root_path
@@ -161,7 +161,7 @@ describe "Conferences", type: :system do
       it "shows the components" do
         within ".conference__nav" do
           expect(page).to have_content(translated(proposals_component.name, locale: :en))
-          expect(page).to have_no_content(translated(meetings_component.name, locale: :en))
+          expect(page).not_to have_content(translated(meetings_component.name, locale: :en))
         end
       end
 
@@ -169,8 +169,8 @@ describe "Conferences", type: :system do
         within "[data-statistic]" do
           expect(page).to have_css(".statistic__title", text: "Proposals")
           expect(page).to have_css(".statistic__number", text: "3")
-          expect(page).to have_no_css(".statistic__title", text: "Meetings")
-          expect(page).to have_no_css(".statistic__number", text: "0")
+          expect(page).not_to have_css(".statistic__title", text: "Meetings")
+          expect(page).not_to have_css(".statistic__number", text: "0")
         end
       end
 
@@ -178,8 +178,8 @@ describe "Conferences", type: :system do
         let(:show_statistics) { false }
 
         it "does not render the stats for those components that are not visible" do
-          expect(page).to have_no_css(".statistic__title", text: "Proposals")
-          expect(page).to have_no_css(".statistic__number", text: "3")
+          expect(page).not_to have_css(".statistic__title", text: "Proposals")
+          expect(page).not_to have_css(".statistic__number", text: "3")
         end
       end
     end

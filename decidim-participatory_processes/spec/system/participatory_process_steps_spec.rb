@@ -48,7 +48,7 @@ describe "Participatory Process Steps", type: :system do
       visit decidim_participatory_processes.participatory_process_path(participatory_process)
 
       within "[data-process-hero]" do
-        expect(page).to have_no_css("[data-cta]")
+        expect(page).not_to have_css("[data-cta]")
       end
     end
 

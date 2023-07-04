@@ -5,7 +5,7 @@
 //     tan(30deg)  // 0.57735
 @use "sass:math";
 
-@function tan ($x){
+@function tan($x) {
   $x: unitless-rad($x);
 
   @return math.div(sin($x), cos($x));

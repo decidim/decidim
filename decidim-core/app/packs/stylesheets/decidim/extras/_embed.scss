@@ -1,11 +1,11 @@
-.reveal--embed{
+.reveal--embed {
   overflow-y: hidden;
 
-  .embed__code{
+  .embed__code {
     font-family: monospace;
     background: $light-gray-dark;
     padding: 1em;
-    border-radius: .3em;
+    border-radius: 0.3em;
     font-size: 1em;
     overflow-y: auto;
   }
@@ -13,20 +13,20 @@
 
 $widget-padding: 8px;
 
-body.widget{
+body.widget {
   background: #fff;
   padding: $widget-padding;
   margin: 0;
 
-  .participatory-process{
+  .participatory-process {
     margin-bottom: $widget-padding;
   }
 
-  .card{
+  .card {
     margin: 0;
   }
 
-  .organization{
+  .organization {
     margin-top: $widget-padding;
     text-align: right;
   }

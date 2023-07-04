@@ -21,7 +21,7 @@
       aria-labelledby="language-chooser-control">
       <% (available_locales - [I18n.locale.to_s]).each do |locale| %>
         <li class="text-black text-md hover:bg-secondary hover:text-white transition" role="presentation">
-          <%= link_to locale_name(locale), decidim.locale_path(locale: locale), method: :post, role: "menuitem", lang: locale, class: "p-2 w-full block" %>
+          <%= link_to locale_name(locale), decidim.locale_path(locale:), method: :post, role: "menuitem", lang: locale, class: "p-2 w-full block" %>
         </li>
         <% end %>
     </ul>

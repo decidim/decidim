@@ -1,4 +1,4 @@
-.register__separator{
+.register__separator {
   display: block;
   text-align: center;
   position: relative;
@@ -6,7 +6,7 @@
   font-style: italic;
   margin: 1rem 0 2rem;
 
-  &::before{
+  &::before {
     content: "";
     display: block;
     height: 1px;
@@ -18,20 +18,20 @@
   }
 }
 
-.register__separator__text{
+.register__separator__text {
   display: inline-block;
   background: $light-gray;
   padding: 0 1rem;
 }
 
-.register-form{
+.register-form {
   input[type="text"],
   input[type="email"],
-  input[type="password"]{
+  input[type="password"] {
     height: 3rem;
   }
 
-  h3{
+  h3 {
     display: table;
     font-size: 1.25em;
     line-height: 1.2;
@@ -40,30 +40,30 @@
     text-align: center;
   }
 
-  label > [type='checkbox']{
+  label > [type="checkbox"] {
     margin-bottom: 1rem;
   }
 
-  .tos-text{
-    padding: .5rem;
+  .tos-text {
+    padding: 0.5rem;
     border: none;
     margin: 1rem 0;
     max-height: auto;
     overflow: auto;
-    font-size: .8rem;
+    font-size: 0.8rem;
     font-style: italic;
     text-align: left;
   }
 
   #card__tos,
-  #card__newsletter{
+  #card__newsletter {
     text-align: center;
   }
 }
 
-.user-nickname{
-  label .row{
-    > span:first-of-type{
+.user-nickname {
+  label .row {
+    > span:first-of-type {
       // this is the prefix div
       @extend .input-group-label;
 
@@ -74,47 +74,47 @@
       border-top-left-radius: $input-radius;
       border-bottom-left-radius: $input-radius;
 
-      .prefix{
+      .prefix {
         display: inline-block;
         height: 2.9rem;
-        padding-top: .8rem;
+        padding-top: 0.8rem;
       }
     }
 
-    > span:last-of-type{
+    > span:last-of-type {
       // this is the input div
       @extend .input-group-field;
 
       width: 92%;
       height: 3rem;
 
-      input{
+      input {
         border-top-left-radius: 0;
         border-bottom-left-radius: 0;
       }
     }
   }
 
-  label.is-invalid-label .row{
+  label.is-invalid-label .row {
     margin-bottom: $form-spacing;
 
-    > span:first-of-type{
+    > span:first-of-type {
       // this is the prefix div
       background-color: mix($input-background-invalid, $light-gray, 8%);
       border-color: $input-error-color;
     }
 
-    > span:last-of-type{
+    > span:last-of-type {
       // this is the input div
       height: 4.2rem;
 
-      .form-error.is-visible{
+      .form-error.is-visible {
         margin-left: -8%;
       }
     }
   }
 
-  .help-text{
+  .help-text {
     margin-top: 1rem;
   }
 }

@@ -19,7 +19,7 @@
         data-tabs>
         <% speechs = Faker::Number.between(from: 2, to: 4) %>
         <% speechs.times do |i| %>
-        <li class="tabs-title<%= " is-active" if i == 0 %>">
+        <li class="tabs-title<%= " is-active" if i.zero? %>">
           <!-- Wrap button in an anchor to make foundation tabs work -->
           <a href="#conference-row-<%= seed %>-tab<%= i %>">
             <button class="button button--shadow secondary tiny light">Talk #<%= Faker::Hacker.abbreviation %></button>
@@ -31,8 +31,8 @@
   </div>
   <div class="tabs-content" data-tabs-content="conference-row-<%= seed %>-tabs">
     <% speechs.times do |i| %>
-    <div class="tabs-panel<%= " is-active" if i == 0 %>" id="conference-row-<%= seed %>-tab<%= i %>">
-      <%= render partial: page_path("conferences") + "/conference-programme-talk", locals: { e: e, s: s } %>
+    <div class="tabs-panel<%= " is-active" if i.zero? %>" id="conference-row-<%= seed %>-tab<%= i %>">
+      <%= render partial: page_path("conferences") + "/conference-programme-talk", locals: { e:, s: } %>
     </div>
     <% end %>
   </div>

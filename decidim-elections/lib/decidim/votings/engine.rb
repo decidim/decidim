@@ -41,7 +41,7 @@ module Decidim
         end
       end
 
-      initializer "decidim.stats" do
+      initializer "decidim_votings.stats" do
         Decidim.stats.register :votings_count, priority: StatsRegistry::HIGH_PRIORITY do |organization, _start_at, _end_at|
           Decidim::Votings::Voting.where(organization:).published.count
         end

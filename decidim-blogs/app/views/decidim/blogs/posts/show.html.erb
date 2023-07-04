@@ -1,10 +1,10 @@
 <% provide(:title, translated_attribute(post.title)) %>
 
 <% add_decidim_meta_tags({
-  title: translated_attribute(post.title),
-  description: translated_attribute(post.body),
-  url: post_url(post.id)
-}) %>
+                           title: translated_attribute(post.title),
+                           description: translated_attribute(post.body),
+                           url: post_url(post.id)
+                         }) %>
 
 <%
   edit_link(
@@ -33,7 +33,7 @@
     <%= cell "decidim/author", post_presenter.author, from: post, context_actions: [:date], layout: :compact %>
 
     <div class="editor-content">
-      <%= decidim_sanitize_editor translated_attribute post.body %>
+      <%= decidim_sanitize_editor_admin translated_attribute post.body %>
     </div>
 
     <%= render partial: "actions" %>
@@ -42,5 +42,4 @@
   </div>
 
   <%= comments_for post %>
-
 <% end %>

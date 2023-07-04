@@ -7,7 +7,7 @@ module Decidim::Meetings
     subject { meeting }
 
     let(:address) { Faker::Lorem.sentence(word_count: 3) }
-    let(:meeting) { build :meeting, address: }
+    let(:meeting) { build(:meeting, address:) }
 
     it { is_expected.to be_valid }
     it { is_expected.to be_versioned }
@@ -37,7 +37,7 @@ module Decidim::Meetings
     end
 
     context "without a title" do
-      let(:meeting) { build :meeting, title: nil }
+      let(:meeting) { build(:meeting, title: nil) }
 
       it { is_expected.not_to be_valid }
     end
@@ -68,15 +68,15 @@ module Decidim::Meetings
 
     describe "#visible_for" do
       subject { Decidim::Meetings::Meeting.visible_for(user) }
-      let(:meeting) { create :meeting, :published }
-      let(:user) { create :user, organization: meeting.component.organization }
+      let(:meeting) { create(:meeting, :published) }
+      let(:user) { create(:user, organization: meeting.component.organization) }
 
       it "returns published meetings" do
         expect(subject).to include(meeting)
       end
 
       context "when the meeting is not published" do
-        let(:meeting) { create :meeting }
+        let(:meeting) { create(:meeting) }
 
         it "does not returns the meeting" do
           expect(subject).not_to include(meeting)
@@ -97,22 +97,22 @@ module Decidim::Meetings
     describe "#can_be_joined_by?" do
       subject { meeting.can_be_joined_by?(user) }
 
-      let(:user) { build :user, organization: meeting.component.organization }
+      let(:user) { build(:user, organization: meeting.component.organization) }
 
       context "when registrations are disabled" do
-        let(:meeting) { build :meeting, registrations_enabled: false }
+        let(:meeting) { build(:meeting, registrations_enabled: false) }
 
         it { is_expected.to be false }
       end
 
       context "when meeting is closed" do
-        let(:meeting) { build :meeting, :closed }
+        let(:meeting) { build(:meeting, :closed) }
 
         it { is_expected.to be false }
       end
 
       context "when the user cannot participate to the meeting" do
-        let(:meeting) { build :meeting, :closed }
+        let(:meeting) { build(:meeting, :closed) }
 
         before do
           allow(meeting).to receive(:can_participate?).and_return(false)
@@ -122,7 +122,7 @@ module Decidim::Meetings
       end
 
       context "when everything is OK" do
-        let(:meeting) { build :meeting, registrations_enabled: true }
+        let(:meeting) { build(:meeting, registrations_enabled: true) }
 
         it { is_expected.to be true }
       end
@@ -130,46 +130,46 @@ module Decidim::Meetings
 
     describe "#withdrawn?" do
       context "when meeting is withdrawn" do
-        let(:meeting) { build :meeting, :withdrawn }
+        let(:meeting) { build(:meeting, :withdrawn) }
 
         it { is_expected.to be_withdrawn }
       end
 
       context "when meeting is not withdrawn" do
-        let(:meeting) { build :meeting }
+        let(:meeting) { build(:meeting) }
 
         it { is_expected.not_to be_withdrawn }
       end
     end
 
     describe "#withdrawable_by" do
-      let(:organization) { create :organization, available_locales: [:en] }
-      let(:participatory_process) { create :participatory_process, organization: }
-      let(:component) { create :component, participatory_space: participatory_process, manifest_name: "meetings" }
+      let(:organization) { create(:organization, available_locales: [:en]) }
+      let(:participatory_process) { create(:participatory_process, organization:) }
+      let(:component) { create(:component, participatory_space: participatory_process, manifest_name: "meetings") }
       let(:author) { create(:user, organization:) }
 
       context "when user is author" do
-        let(:meeting) { create :meeting, component:, author:, created_at: Time.current }
+        let(:meeting) { create(:meeting, component:, author:, created_at: Time.current) }
 
         it { is_expected.to be_withdrawable_by(author) }
       end
 
       context "when user is admin" do
         let(:admin) { build(:user, :admin, organization:) }
-        let(:meeting) { build :meeting, author:, created_at: Time.current }
+        let(:meeting) { build(:meeting, author:, created_at: Time.current) }
 
         it { is_expected.not_to be_withdrawable_by(admin) }
       end
 
       context "when user is not the author" do
         let(:someone_else) { build(:user, organization:) }
-        let(:meeting) { build :meeting, author:, created_at: Time.current }
+        let(:meeting) { build(:meeting, author:, created_at: Time.current) }
 
         it { is_expected.not_to be_withdrawable_by(someone_else) }
       end
 
       context "when meeting is already withdrawn" do
-        let(:meeting) { build :meeting, :withdrawn, author:, created_at: Time.current }
+        let(:meeting) { build(:meeting, :withdrawn, author:, created_at: Time.current) }
 
         it { is_expected.not_to be_withdrawable_by(author) }
       end
@@ -178,22 +178,22 @@ module Decidim::Meetings
     describe "#can_register_invitation?" do
       subject { meeting.can_register_invitation?(user) }
 
-      let(:user) { build :user, organization: meeting.component.organization }
+      let(:user) { build(:user, organization: meeting.component.organization) }
 
       context "when registrations are disabled" do
-        let(:meeting) { build :meeting, registrations_enabled: false }
+        let(:meeting) { build(:meeting, registrations_enabled: false) }
 
         it { is_expected.to be false }
       end
 
       context "when meeting is closed" do
-        let(:meeting) { build :meeting, :closed }
+        let(:meeting) { build(:meeting, :closed) }
 
         it { is_expected.to be false }
       end
 
       context "when the user cannot participate to the meeting" do
-        let(:meeting) { build :meeting, :closed }
+        let(:meeting) { build(:meeting, :closed) }
 
         before do
           allow(meeting).to receive(:can_register_invitation?).and_return(false)
@@ -203,20 +203,20 @@ module Decidim::Meetings
       end
 
       context "when everything is OK" do
-        let(:meeting) { build :meeting, registrations_enabled: true }
+        let(:meeting) { build(:meeting, registrations_enabled: true) }
 
         it { is_expected.to be true }
       end
 
       context "when no user on register process" do
-        let(:meeting) { build :meeting, registrations_enabled: true, private_meeting: true, transparent: false }
+        let(:meeting) { build(:meeting, registrations_enabled: true, private_meeting: true, transparent: false) }
         let(:user) { nil }
 
         it { is_expected.to be false }
       end
 
       context "when user has invitation to register" do
-        let(:meeting) { create :meeting, registrations_enabled: true, private_meeting: true, transparent: false }
+        let(:meeting) { create(:meeting, registrations_enabled: true, private_meeting: true, transparent: false) }
         let(:invite) { create(:invite, accepted_at: Time.current, rejected_at: nil, user:, meeting:) }
 
         it "allows the user to join the meeting" do
@@ -226,7 +226,7 @@ module Decidim::Meetings
       end
 
       context "when user has no invitation to register" do
-        let(:meeting) { build :meeting, registrations_enabled: true, private_meeting: true, transparent: false }
+        let(:meeting) { build(:meeting, registrations_enabled: true, private_meeting: true, transparent: false) }
 
         it { is_expected.to be false }
       end
@@ -279,7 +279,7 @@ module Decidim::Meetings
       end
 
       context "when is updated" do
-        let!(:meeting) { create :meeting }
+        let!(:meeting) { create(:meeting) }
 
         context "and salt is empty" do
           before do
@@ -394,7 +394,7 @@ module Decidim::Meetings
 
     describe "#past?" do
       context "when past meeting" do
-        let(:meeting) { build :meeting, :past }
+        let(:meeting) { build(:meeting, :past) }
 
         it "returns true" do
           expect(subject.past?).to be true
@@ -410,7 +410,7 @@ module Decidim::Meetings
 
     describe "#has_contributions?" do
       context "when the meeting has contributions" do
-        let(:meeting) { build :meeting, contributions_count: 10 }
+        let(:meeting) { build(:meeting, contributions_count: 10) }
 
         it "returns true" do
           expect(subject.has_contributions?).to be true
@@ -418,7 +418,7 @@ module Decidim::Meetings
       end
 
       context "when the meeting does not have contributions" do
-        let(:meeting) { build :meeting }
+        let(:meeting) { build(:meeting) }
 
         it "returns false" do
           expect(subject.has_contributions?).to be false
@@ -428,7 +428,7 @@ module Decidim::Meetings
 
     describe "#has_attendees?" do
       context "when the meeting has attendees" do
-        let(:meeting) { build :meeting, attendees_count: 10 }
+        let(:meeting) { build(:meeting, attendees_count: 10) }
 
         it "returns true" do
           expect(subject.has_attendees?).to be true
@@ -436,7 +436,7 @@ module Decidim::Meetings
       end
 
       context "when the meeting does not have attendees" do
-        let(:meeting) { build :meeting }
+        let(:meeting) { build(:meeting) }
 
         it "returns false" do
           expect(subject.has_attendees?).to be false

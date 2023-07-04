@@ -10,7 +10,24 @@ module Decidim
       render
     end
 
+    def frontend_administrable?
+      return true if user_reportable? && current_user&.admin?
+
+      user_entity? &&
+        model.can_be_administered_by?(current_user) &&
+        (model.respond_to?(:official?) && !model.official?)
+    end
+
     private
+
+    def user_entity?
+      (model.respond_to?(:creator_author) && model.creator_author.respond_to?(:nickname)) ||
+        (model.respond_to?(:author) && model.author.respond_to?(:nickname))
+    end
+
+    def hide_checkbox_id
+      @hide_checkbox_id ||= Digest::MD5.hexdigest("report_form_hide_#{model.class.name}_#{model.id}")
+    end
 
     def cache_hash
       hash = []

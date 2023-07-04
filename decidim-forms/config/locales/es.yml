@@ -74,7 +74,7 @@ es:
             save_warning: Recuerda guardar el formulario antes de configurar las condiciones de visualización
             select_answer_option: Seleccionar opción de respuesta
             select_condition_question: Seleccionar una pregunta
-            select_condition_type: Seleccione un tipo de condición
+            select_condition_type: Selecciona un tipo de condición
           edit:
             save: Guardar
             title: Editar el cuestionario

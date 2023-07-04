@@ -1,5 +1,11 @@
 hu:
   activemodel:
+    attributes:
+      post:
+        body: Törzs
+        decidim_author_id: Szerző
+        published_at: Közzététel időpontja
+        title: Cím
     models:
       decidim/blogs/create_post_event: Új blogbejegyzés
   activerecord:
@@ -21,35 +27,48 @@ hu:
           post:
             name: Bejegyzés
         posts:
+          create:
+            invalid: Probléma történt a bejegyzés létrehozásakor.
+            success: Bejegyzés sikeresen létrehozva.
+          destroy:
+            success: Bejegyzés sikeresen törölve.
           edit:
             save: Frissítés
             title: Bejegyzés szerkesztése
           index:
+            not_published_yet: Még nincs közzétéve.
             title: Bejegyzések
           new:
             create: Létrehozás
             title: Bejegyzés létrehozása
           update:
             invalid: Hiba történt a bejegyzés mentése során.
+            success: Bejegyzés mentése sikeres.
       admin_log:
         post:
           create: "%{user_name} létrehozta a(z) %{resource_name} blogposztot itt: %{space_name}"
           delete: "%{user_name} törölte a(z) %{resource_name} blogposztot itt: %{space_name}"
           update: "%{user_name} frissítette a(z) %{resource_name} blogposztot itt: %{space_name}"
+      last_activity:
+        new_post: 'Új bejegyzés:'
       models:
         post:
           fields:
             author: Szerző
             body: Szöveg
             official_blog_post: Hivatalos bejegyzés
+            published_at: Közzététel időpontja
+            title: Cím
       posts:
         show:
           view: Nézet
     components:
       blogs:
         actions:
+          comment: Hozzászólás
           create: Létrehozás
           destroy: Törlés
+          endorse: Helyesel/Jóváhagy
           update: Frissítés
         name: Blog
         settings:

@@ -71,11 +71,11 @@
           <div class="grid-x grid-padding-x">
             <div class="cell medium-6">
               <label>Start time *</label>
-              <input type="text" value="<%= Faker::Time.forward(7).strftime("%m/%d/%Y %R") %>">
+              <input type="text" value="<%= Faker::Time.forward(days: 7).strftime("%m/%d/%Y %R") %>">
             </div>
             <div class="cell medium-6">
               <label>End time *</label>
-              <input type="text" value="<%= Faker::Time.forward(7).strftime("%m/%d/%Y %R") %>">
+              <input type="text" value="<%= Faker::Time.forward(days: 7).strftime("%m/%d/%Y %R") %>">
             </div>
           </div>
           <div class="grid-x grid-padding-x">

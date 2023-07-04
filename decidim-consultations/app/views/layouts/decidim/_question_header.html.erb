@@ -23,7 +23,7 @@
 <%= yield :question_header_instructions if content_for? :question_header_instructions %>
 
 <div class="row column consultations-title">
-  <h2 class="heading2"><%= decidim_sanitize translated_attribute question.title %></h2>
+  <h2 class="heading2"><%= decidim_sanitize translated_attribute(question.title), scrubber: Decidim::Consultations::QuestionTitleScrubber.new %></h2>
   <% unless question.hashtag.blank? %>
     <div class="text-center">
       <%= link_to "##{question.hashtag}", twitter_hashtag_url(question.hashtag), target: "_blank" %>
