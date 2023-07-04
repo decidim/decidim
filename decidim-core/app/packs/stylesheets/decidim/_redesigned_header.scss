@@ -63,7 +63,12 @@ header {
         }
       }
 
-      svg {
+      /* overwrite default dropdown styles */
+      [data-target*="dropdown"] > span:only-of-type{
+        @apply gap-0;
+      }
+
+      svg{
         @apply w-5 h-5 fill-current;
       }
 
@@ -72,11 +77,11 @@ header {
       }
     }
 
-    &__links-mobile {
-      @apply fixed bottom-0 left-0 z-20 bg-white w-full px-4 py-3 flex justify-between text-secondary shadow-[0_-4px_6px_rgba(198,198,198,0.25)];
+    &__links-mobile{
+      @apply fixed bottom-0 left-0 z-40 bg-white w-full px-4 py-3 flex justify-between text-secondary shadow-[0_-4px_6px_rgba(198,198,198,0.25)];
 
-      &__trigger {
-        @apply flex flex-col items-center text-secondary cursor-pointer;
+      &__trigger{
+        @apply flex flex-col items-center text-secondary cursor-pointer p-2;
 
         svg {
           @apply w-5 h-5 fill-current;
@@ -87,11 +92,55 @@ header {
         }
       }
 
-      &__dropdown {
-        @apply absolute top-full left-0 z-20;
+      &__dropdown{
+        @apply absolute top-full left-0 z-30 bg-white;
       }
 
-      & > a {
+      &__account{
+        @apply fixed top-0 left-0 w-full h-full z-30 bg-white;
+
+        ul{
+          @apply my-6 divide-y divide-gray-3;
+        }
+
+        li{
+          @apply py-4;
+        }
+
+        .dropdown__item{
+          @apply text-md;
+        }
+
+        .main-bar{
+          @apply border-b border-gray;
+        }
+
+        .main-bar__avatar{
+          @apply w-12 h-12;
+        }
+      }
+
+      &__search{
+        @apply fixed top-0 left-0 w-full h-full z-30 bg-white;
+
+        &-block{
+          @apply container h-full flex flex-col justify-center;
+        }
+
+        .main-bar{
+          @apply border-b border-gray;
+        }
+
+        label{
+          @apply block mb-4 text-black;
+        }
+
+        form{
+          @apply relative;
+        }
+      }
+
+      &__item{
         @apply w-1/4 flex flex-col items-center relative;
 
         svg {
@@ -100,6 +149,15 @@ header {
 
         svg + span {
           @apply text-sm first-letter:uppercase;
+        }
+
+        /* overwrite default dropdown styles */
+        &[data-target*="dropdown"]{
+          @apply p-0 gap-0;
+
+          > span{
+            @apply block font-normal text-sm first-letter:uppercase;
+          }
         }
       }
     }
@@ -137,8 +195,8 @@ header {
     }
 
     /* overwrite default dropdown styles */
-    [id*="dropdown-menu"] {
-      @apply py-0 mx-0 w-full md:w-auto;
+    [id*="dropdown-menu"]{
+      @apply py-0 mx-0 w-full;
 
       &[aria-hidden="true"] {
         @apply md:hidden;
@@ -202,14 +260,6 @@ header {
           @apply w-5 h-5 text-white;
         }
       }
-
-      // [data-target*="dropdown"]{
-      //   @apply w-auto last-of-type:[&>svg]:block;
-
-      //   > svg{
-      //     @apply text-white;
-      //   }
-      // }
     }
 
     &__breadcrumb-mobile {
@@ -266,7 +316,11 @@ header {
         }
       }
 
-      &__title {
+      &__bottom{
+        @apply hidden md:flex;
+      }
+
+      &__title{
         @apply h4 md:h3;
       }
 
@@ -274,15 +328,15 @@ header {
         @apply text-md md:text-lg text-gray-2 mt-5;
       }
 
-      &__menu {
-        @apply w-full md:w-1/2 mt-8 md:mt-0 grid md:grid-cols-2 gap-x-6 text-secondary;
+      &__menu{
+        @apply w-full md:w-1/2 mt-0 grid md:grid-cols-2 gap-x-6 text-secondary;
 
-        > * {
-          @apply py-3 md:py-3.5 border-b border-gray-3;
+        > *{
+          @apply py-3 md:py-3.5 border-b last:border-0 border-gray-3;
 
           /* since the grid has 2 columns, remove the border for these last 2 columns */
-          &:nth-last-child(-n + 2) {
-            @apply border-0;
+          &:nth-last-child(-n+2){
+            @apply md:border-0;
           }
         }
 

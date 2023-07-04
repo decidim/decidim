@@ -31,8 +31,12 @@
     }
   }
 
-  &-toggle {
-    @apply relative inline-block w-14 h-6 rounded-full w-auto cursor-pointer;
+  &-toggle{
+    @apply relative inline-block w-full rounded-full cursor-pointer;
+
+    > :first-child{
+      @apply h-6 relative;
+    }
 
     input {
       @apply opacity-0 w-0 h-0;

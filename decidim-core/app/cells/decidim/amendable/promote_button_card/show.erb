@@ -1,5 +1,8 @@
-<%= action_authorized_link_to :amend, promote_amend_path, method: :post,
-    data: { confirm: promote_confirm_text }, class: "button button__sm button__transparent-secondary" do %>
+<%= action_authorized_link_to :amend,
+                              promote_amend_path,
+                              method: :post,
+                              data: { confirm: promote_confirm_text },
+                              class: "button button__sm button__transparent-secondary" do %>
     <span><%= promote_amend_button_label %></span>
     <%= icon "pencil-line" %>
 <% end %>
