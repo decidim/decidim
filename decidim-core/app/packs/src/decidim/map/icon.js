@@ -1,4 +1,3 @@
-import * as L from "leaflet";
 import { SVGIcon } from "src/decidim/map/svg-icon";
 
 L.DivIcon.SVGIcon = SVGIcon;
