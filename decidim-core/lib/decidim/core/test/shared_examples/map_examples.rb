@@ -60,6 +60,7 @@ shared_context "with frontend map elements" do
   let(:html_document) do
     document_inner = html_body
     head_extra = html_head
+    template.append_stylesheet_pack_tag("decidim_dev")
     template.instance_eval do
       <<~HTML.strip
         <!doctype html>
@@ -68,6 +69,7 @@ shared_context "with frontend map elements" do
           <title>Map Test</title>
           #{stylesheet_pack_tag "decidim_core"}
           #{javascript_pack_tag "decidim_core", defer: false}
+
           #{head_extra}
         </head>
         <body>
@@ -76,7 +78,9 @@ shared_context "with frontend map elements" do
           </header>
           <main id="content">
             <h1>Map Test</h1>
-            #{document_inner}
+            <div class="dev__map">
+              #{document_inner}
+            </div>
           </main>
           <script type="text/javascript">
             // This is just to indicate to Capybara that the page has fully
