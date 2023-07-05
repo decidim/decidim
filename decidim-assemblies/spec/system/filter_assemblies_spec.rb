@@ -29,7 +29,7 @@ describe "Filter Assemblies", type: :system do
 
         assembly = assemblies[i]
         within "#dropdown-menu-filters div.filter-container", text: "Type" do
-          check assembly.assembly_type.title["en"]
+          check translated(assembly.assembly_type.title)
         end
         within "#assemblies-grid" do
           expect(page).to have_selector(".card__grid", count: 1)
