@@ -1,4 +1,4 @@
-<% add_decidim_page_title(t("assemblies_setting", scope: "decidim.admin.titles")) %>
+<% add_decidim_page_title(t("assemblies_settings", scope: "decidim.admin.titles")) %>
 <%= decidim_form_for(@form, html: { class: "form edit_assemblies_settings" }, url: assemblies_settings_path, method: :put) do |f| %>
   <%= render partial: "form", object: f %>
   <div class="button--double form-general-submit">

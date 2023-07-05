@@ -221,7 +221,7 @@ en:
           success: Response successfully updated.
       titles:
         consultations: Consultations
-        new_consultations: New consultations
+        new_consultation: New consultation
         new_question: New question
         new_response: New response
         questions: Questions
