@@ -26,7 +26,7 @@ describe "Custom map", type: :system do
 
       markers = marker_data
       template.instance_eval do
-        dynamic_map_for type: "custom", markers:, popup_template_id: "custom-popup" do
+        dynamic_map_for type: "custom", markers: markers, popup_template_id: "custom-popup" do
           append_javascript_pack_tag("decidim_dev_test_custom_map")
 
           <<~HTML.html_safe
