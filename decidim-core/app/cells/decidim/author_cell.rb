@@ -60,8 +60,6 @@ module Decidim
     end
 
     def context_actions
-      # REDESIGN_PENDING: deprecated?
-      # return [] unless actionable?
       actions = [].tap do |list|
         list << :date if creation_date?
         list << :cancelled_on if cancelable?
