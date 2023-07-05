@@ -26,6 +26,10 @@ module Decidim
 
         attr_reader :issue_id
 
+        def headers
+          { per_page: 100 }
+        end
+
         def uri
           "https://api.github.com/repos/decidim/decidim/issues/#{issue_id}/timeline"
         end

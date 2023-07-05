@@ -24,7 +24,7 @@ describe Decidim::GithubManager::Querier::RelatedIssues do
       ]
     RESPONSE
 
-    stub_request(:get, "https://api.github.com/repos/decidim/decidim/issues/12345/timeline")
+    stub_request(:get, "https://api.github.com/repos/decidim/decidim/issues/12345/timeline?per_page=100")
       .to_return(status: 200, body: stubbed_response, headers: {})
   end
 
