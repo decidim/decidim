@@ -42,8 +42,8 @@ describe "Filter Assemblies", type: :system do
       visit decidim_assemblies.assemblies_path
 
       within "#dropdown-menu-filters div.filter-container", text: "Type" do
-        check assemblies[0].assembly_type.title["en"]
-        check assemblies[1].assembly_type.title["en"]
+        check translated(assemblies[0].title)
+        check translated(assemblies[1].title)
       end
       within "#assemblies-grid" do
         expect(page).to have_selector(".card__grid", count: 2)
