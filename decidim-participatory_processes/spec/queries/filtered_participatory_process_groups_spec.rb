@@ -11,16 +11,16 @@ module Decidim::ParticipatoryProcesses
     let(:organization) { create(:organization) }
 
     # Active
-    let(:active_group) { create(:participatory_process_group, organization:) }
-    let!(:active_participatory_process) { create(:participatory_process, start_date: Date.current, end_date: 2.months.from_now, participatory_process_group: active_group, organization:) }
+    let(:active_group) { create(:participatory_process_group, organization: organization) }
+    let!(:active_participatory_process) { create(:participatory_process, start_date: Date.current, end_date: 2.months.from_now, participatory_process_group: active_group, organization: organization) }
 
     # Past
-    let(:past_group) { create(:participatory_process_group, organization:) }
-    let!(:past_participatory_process) { create(:participatory_process, start_date: 2.months.ago, end_date: 1.day.ago, participatory_process_group: past_group, organization:) }
+    let(:past_group) { create(:participatory_process_group, organization: organization) }
+    let!(:past_participatory_process) { create(:participatory_process, start_date: 2.months.ago, end_date: 1.day.ago, participatory_process_group: past_group, organization: organization) }
 
     # Upcoming
-    let(:upcoming_group) { create(:participatory_process_group, organization:) }
-    let!(:upcoming_participatory_process) { create(:participatory_process, start_date: 1.day.from_now, end_date: 2.months.from_now, participatory_process_group: upcoming_group, organization:) }
+    let(:upcoming_group) { create(:participatory_process_group, organization: organization) }
+    let!(:upcoming_participatory_process) { create(:participatory_process, start_date: 1.day.from_now, end_date: 2.months.from_now, participatory_process_group: upcoming_group, organization: organization) }
 
     describe "#query" do
       subject { query.query }
@@ -34,7 +34,7 @@ module Decidim::ParticipatoryProcesses
         end
 
         context "when the end date is the current date" do
-          let!(:active_participatory_process) { create(:participatory_process, start_date: 2.months.ago, end_date: Date.current, participatory_process_group: active_group, organization:) }
+          let!(:active_participatory_process) { create(:participatory_process, start_date: 2.months.ago, end_date: Date.current, participatory_process_group: active_group, organization: organization) }
 
           it "returns only the active group" do
             expect(subject.count).to eq(1)
@@ -43,7 +43,7 @@ module Decidim::ParticipatoryProcesses
         end
 
         context "when end date is not set" do
-          let!(:active_participatory_process) { create(:participatory_process, start_date: 2.months.ago, end_date: nil, participatory_process_group: active_group, organization:) }
+          let!(:active_participatory_process) { create(:participatory_process, start_date: 2.months.ago, end_date: nil, participatory_process_group: active_group, organization: organization) }
 
           it "returns only the active group" do
             expect(subject.count).to eq(1)
