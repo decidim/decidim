@@ -22,7 +22,7 @@ $(() => {
     const $generate = $("#generate_identification_keys");
     const $upload = $("#upload_identification_keys");
 
-    $generate.on("click", () => {
+    $("button", $generate).on("click", () => {
       window.trusteeIdentificationKeys.
         generate().
         then(() => {
@@ -30,6 +30,7 @@ $(() => {
             JSON.stringify(window.trusteeIdentificationKeys.publicKey)
           );
           $submit.attr("hidden", false);
+          $generate.attr("hidden", true);
         }).
         catch(() => {
           alert($generate.data("error"));
