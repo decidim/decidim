@@ -14,9 +14,9 @@ describe Decidim::BackportsReporter::CLIReport do
     context "without related_issues" do
       it "returns a valid response" do
         response = <<~RESPONSE
-          | ID     | Title                                                                               | Backport v0.27 | Backport v0.26 |
+          |   ID   |                                        Title                                        | Backport v0.27 | Backport v0.26 |
           |--------|-------------------------------------------------------------------------------------|----------------|----------------|
-          | #1234 | Fix the world                                                                       | None           | None           |
+          | #1234 | Fix the world                                                                       |      None      |      None      |
         RESPONSE
         expect(subject).to eq response
       end
@@ -26,9 +26,9 @@ describe Decidim::BackportsReporter::CLIReport do
 
         it "returns a valid response" do
           response = <<~RESPONSE
-            | ID     | Title                                                                               | Backport v0.31 | Backport v0.30 |
+            |   ID   |                                        Title                                        | Backport v0.31 | Backport v0.30 |
             |--------|-------------------------------------------------------------------------------------|----------------|----------------|
-            | #1234 | Fix the world                                                                       | None           | None           |
+            | #1234 | Fix the world                                                                       |      None      |      None      |
           RESPONSE
           expect(subject).to eq response
         end
@@ -43,9 +43,9 @@ describe Decidim::BackportsReporter::CLIReport do
 
         it "returns a valid response" do
           response = <<~RESPONSE
-            | ID     | Title                                                                               | Backport v0.27 | Backport v0.26 |
+            |   ID   |                                        Title                                        | Backport v0.27 | Backport v0.26 |
             |--------|-------------------------------------------------------------------------------------|----------------|----------------|
-            | #1234 | Fix the world                                                                       | None           | None           |
+            | #1234 | Fix the world                                                                       |      None      |      None      |
           RESPONSE
           expect(subject).to eq response
         end
@@ -58,9 +58,9 @@ describe Decidim::BackportsReporter::CLIReport do
 
         it "returns a valid response" do
           response = <<~RESPONSE
-            | ID     | Title                                                                               | Backport v0.27 | Backport v0.26 |
+            |   ID   |                                        Title                                        | Backport v0.27 | Backport v0.26 |
             |--------|-------------------------------------------------------------------------------------|----------------|----------------|
-            | #1234 | Fix the world                                                                       | None           | \e[31m#9876\e[0m          |
+            | #1234 | Fix the world                                                                       |      None      |      \e[34m#9876\e[0m     |
           RESPONSE
           expect(subject).to eq response
         end
