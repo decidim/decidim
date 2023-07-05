@@ -1035,7 +1035,7 @@ en:
         area_types: Area types
         areas: Areas
         authorization_workflows: Verification methods
-        conflicts: Conflicts
+        conflicts: Verification conflicts
         dashboard: Dashboard
         edit_area_type: Edit area type
         edit_external_domains: Edit external domains

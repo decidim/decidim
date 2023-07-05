@@ -53,7 +53,7 @@ en:
       titles:
         current_census_data: Current census data
         ongoing_verifications: Ongoing verifications
-        pending_authorizations: Pending authorizations
+        pending_authorizations: Pending online verifications 
     admin_log:
       organization:
         update_id_documents_config: "%{user_name} updated the Identity Documents authorization configuration"
