@@ -23,12 +23,6 @@ module Decidim
           collection do
             get :select_initiative_type
             put :select_initiative_type, to: "create_initiative#store_initiative_type"
-            #
-            # get :previous_form
-            # put :previous_form, to: "create_initiative#store_initial_data"
-            #
-            # get :show_similar_initiatives
-
             get :fill_data
             put :fill_data, to: "create_initiative#store_data"
             get :promotal_committee

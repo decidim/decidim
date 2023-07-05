@@ -11,7 +11,7 @@ module Decidim
         return unless resource.commentable?
 
         append_stylesheet_pack_tag "decidim_comments"
-        # This script can not be deferred, otherwise the DOMReady and turbo:load listeners are not
+        # This script cannot be deferred, otherwise the DOMReady and turbo:load listeners are not
         # executed from a Turbo Frame call
         append_javascript_pack_tag "decidim_comments", defer: false
 

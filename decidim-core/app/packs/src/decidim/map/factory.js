@@ -1,5 +1,3 @@
-import "src/decidim/map/icon"
-
 import MapMarkersController from "src/decidim/map/controller/markers"
 import MapStaticController from "src/decidim/map/controller/static"
 import MapDragMarkerController from "src/decidim/map/controller/drag_marker"
