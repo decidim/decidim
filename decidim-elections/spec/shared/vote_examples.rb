@@ -130,12 +130,12 @@ def question_step(number)
   within "#step-#{number - 1}" do
     question = election.questions[number - 1]
 
-    expect(page).to have_content("QUESTION #{number} OF 4")
+    expect(page).to have_content("Question #{number} of 4")
     expect(page).to have_i18n_content(question.title)
 
     yield question if block_given?
 
-    click_link("Next")
+    click_button("Next")
   end
 end
 
@@ -178,9 +178,9 @@ def expect_only_one_step
 end
 
 def expect_not_valid
-  expect(page).not_to have_link("Next")
+  expect(page).not_to have_button("Next")
 end
 
 def expect_valid
-  expect(page).to have_link("Next")
+  expect(page).to have_button("Next")
 end
