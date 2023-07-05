@@ -16,6 +16,14 @@
   <%= cell("decidim/announcement", t("trustee_role_description", scope: "decidim.elections.trustee_zone.trustees.show"), callout_class: "success" ) %>
 
   <div id="trustee_zone" class="election-trustee__container">
+    <%# This hidden form must be shared in both partials %>
+    <%= decidim_form_for(trustee, html: { hidden: true }) do |f| %>
+      <%= f.hidden_field :slug %>
+      <%= f.hidden_field :name %>
+      <%= f.hidden_field :public_key %>
+      <%= f.submit "", id: "submit_identification_public_key" %>
+    <% end %>
+
     <% if trustee.public_key.blank? %>
       <%= render partial: "no_public_keys" %>
     <% else %>
