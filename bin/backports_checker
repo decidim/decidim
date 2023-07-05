@@ -6,7 +6,14 @@ require "thor"
 require "./lib/decidim/git_backport_checker"
 
 class BackportsCheckerCLI < Thor
-  desc "", "Backports checker. Shows the status of the pull requests opened in the last days"
+  desc "", <<~HELP
+    Backports checker. Shows the status of the pull requests opened in the last days
+
+    The output by default is for the terminal. It uses a color code to differentiate the status of the Pull Requests, following the colors of GitHub:
+    - \e[34mPurple\e[0m: closed with a merge
+    - \e[35mRed\e[0m: closed without being merge
+    - \e[32mGreen\e[0m: opened without being merge
+  HELP
   option :github_token, required: true, desc: <<~HELP
     Required. Github Personal Access Token (PAT). It can be obtained from https://github.com/settings/tokens/new. You will need to create one with `public_repo` access.
   HELP
