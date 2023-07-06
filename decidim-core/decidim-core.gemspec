@@ -40,7 +40,7 @@ Gem::Specification.new do |s|
   s.add_dependency "hashdiff", ">= 0.4.0", "< 2.0.0"
   s.add_dependency "invisible_captcha", "~> 0.12"
   s.add_dependency "kaminari", "~> 1.2", ">= 1.2.1"
-  s.add_dependency "loofah", "~> 2.3.1"
+  s.add_dependency "loofah", "~> 2.19.0"
   s.add_dependency "mime-types", ">= 1.16", "< 4.0"
   s.add_dependency "mini_magick", "~> 4.9"
   s.add_dependency "mustache", "~> 1.1.0"
