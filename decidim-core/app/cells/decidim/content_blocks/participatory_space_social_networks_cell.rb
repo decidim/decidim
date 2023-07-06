@@ -10,7 +10,7 @@ module Decidim
       end
 
       def social_handler_items
-        Decidim::Assembly::SOCIAL_HANDLERS.filter_map do |handler|
+        Decidim::Organization::SOCIAL_HANDLERS.filter_map do |handler|
           if (handler_name = resource.try("#{handler}_handler")).present?
             {
               icon: "#{handler}-line",

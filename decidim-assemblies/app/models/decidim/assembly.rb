@@ -37,7 +37,6 @@ module Decidim
     include Decidim::HasArea
     include Decidim::FilterableResource
 
-    SOCIAL_HANDLERS = [:twitter, :facebook, :instagram, :youtube, :github].freeze
     CREATED_BY = %w(city_council public others).freeze
 
     translatable_fields :title, :subtitle, :short_description, :description, :developer_group, :meta_scope, :local_area,
