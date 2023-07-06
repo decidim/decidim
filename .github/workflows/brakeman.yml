@@ -1,0 +1,30 @@
+on:
+  workflow_call:
+    inputs:
+      ruby_version:
+        description: 'Ruby Version'
+        default: "3.1.1"
+        type: string
+        required: false
+      working-directory:
+        required: true
+        type: string
+
+jobs:
+  brakeman:
+    runs-on: ubuntu-latest
+    name: Brakeman
+    if: "!startsWith(github.head_ref, 'chore/l10n')"
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 1
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ inputs.ruby_version }}
+          bundler-cache: true
+      - run: bundle exec brakeman --rails6 --force-scan .
+        name: Scanning Security issues on module
+        working-directory: ${{ inputs.working-directory }}
+        shell: "bash"

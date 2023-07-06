@@ -1,0 +1,66 @@
+name: "[CI] Admin (unit tests)"
+on:
+  push:
+    branches:
+      - develop
+      - release/*
+      - "*-stable"
+  pull_request:
+    branches-ignore:
+      - "chore/l10n*"
+    paths:
+      - "*"
+      - ".github/**"
+      - "decidim-admin/**"
+      - "decidim-core/**"
+      - "decidim-dev/**"
+      - "decidim-participatory_processes/**"
+
+env:
+  CI: "true"
+  RUBY_VERSION: 3.1.1
+  NODE_VERSION: 16.13.0
+  DECIDIM_MODULE: decidim-admin
+  PARALLEL_TEST_PROCESSORS: 2
+  CODECOV_TOKEN: bc15b944-6b42-420a-b3f9-a5a8fb214326
+  WEBPACKER_RUNTIME_COMPILE: "false"
+  WORKING_DIRECTORY: "decidim-admin"
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
+jobs:
+  brakeman:
+    uses: ./.github/workflows/brakeman.yml
+    secrets: inherit
+    with:
+      working-directory: "decidim-admin"
+  build_app:
+    uses: ./.github/workflows/build_app.yml
+    secrets: inherit
+  test_app:
+    strategy:
+      matrix:
+        test_command:
+          - spec/commands
+          - spec/controllers
+          - spec/events
+          - spec/forms
+          - spec/helpers
+          - spec/jobs
+          - spec/lib
+          - spec/models
+          - spec/permissions
+          - spec/presenters
+          - spec/queries
+          - spec/shared
+          - spec/system
+          - spec/views
+    needs: build_app
+    uses: ./.github/workflows/test_app.yml
+    secrets: inherit
+    with:
+      name: "decidim-admin"
+      working-directory: "decidim-admin"
+      test_command: ${{ matrix.test_command }}

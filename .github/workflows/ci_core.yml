@@ -1,0 +1,83 @@
+name: "[CI] Core"
+on:
+  push:
+    branches:
+      - develop
+      - release/*
+      - "*-stable"
+  pull_request:
+    branches-ignore:
+      - "chore/l10n*"
+    paths:
+      - "*"
+      - ".github/**"
+      - "decidim-api/**"
+      - "decidim-core/**"
+      - "decidim-dev/**"
+      - "packages/**"
+
+env:
+  RUBYOPT: '-W:no-deprecated'
+  CI: "true"
+  SIMPLECOV: "true"
+  RUBY_VERSION: 3.1.1
+  NODE_VERSION: 16.13.0
+  DECIDIM_MODULE: decidim-core
+  PARALLEL_TEST_PROCESSORS: 2
+  CODECOV_TOKEN: bc15b944-6b42-420a-b3f9-a5a8fb214326
+  WEBPACKER_RUNTIME_COMPILE: "false"
+  WORKING_DIRECTORY: "decidim-core"
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
+jobs:
+  brakeman:
+    uses: ./.github/workflows/brakeman.yml
+    secrets: inherit
+    with:
+      working-directory: "decidim-core"
+  build_app:
+    uses: ./.github/workflows/build_app.yml
+    secrets: inherit
+  test_app:
+    strategy:
+      matrix:
+        test_command:
+          - spec/assets
+          - spec/cells
+          - spec/commands
+          - spec/content_parsers
+          - spec/content_renderers
+          - spec/controllers
+          - spec/db
+          - spec/events
+          - spec/forms
+          - spec/helpers
+          - spec/jobs
+          - spec/js
+          - spec/lib
+          - spec/mailers
+          - spec/models
+          - spec/permissions
+          - spec/presenters
+          - spec/queries
+          - spec/requests
+          - spec/routing
+          - spec/scrubbers
+          - spec/serializers
+          - spec/services
+          - spec/system
+          - spec/tasks
+          - spec/types
+          - spec/uploaders
+          - spec/validators
+
+    needs: build_app
+    uses: ./.github/workflows/test_app.yml
+    secrets: inherit
+    with:
+      name: "decidim-core"
+      working-directory: "decidim-core"
+      test_command: ${{ matrix.test_command }}

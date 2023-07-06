@@ -23,13 +23,6 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - uses: ruby/setup-ruby@v1
-      with:
-        ruby-version: ${{ inputs.ruby_version }}
-        bundler-cache: true
-    - uses: actions/setup-node@v3
-      with:
-        node-version: ${{ inputs.node_version }}
     - name: Get npm cache directory path
       id: npm-cache-dir-path
       run: echo "dir=$(npm get cache)-${{ inputs.name }}" >> $GITHUB_OUTPUT
@@ -43,18 +36,6 @@ runs:
           npm-
     - run: bundle exec rake test_app
       name: Create test app
-      shell: "bash"
-    - run: mkdir -p ./spec/decidim_dummy_app/tmp/screenshots
-      name: Create the screenshots folder
-      shell: "bash"
-    - uses: nanasess/setup-chromedriver@v2
-    - run: RAILS_ENV=test bundle exec rails assets:precompile
-      name: Precompile assets
-      working-directory: ./spec/decidim_dummy_app/
-      shell: "bash"
-    - run: bundle exec brakeman --rails6 --force-scan .
-      name: Scanning Security issues on module
-      working-directory: ${{ inputs.name }}
       shell: "bash"
     - run: bundle exec rake parallel:create parallel:migrate
       name: Parallel tests

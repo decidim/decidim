@@ -1,0 +1,86 @@
+on:
+  workflow_call:
+    inputs:
+      codecov_token:
+        required: false
+        description: 'Codecov token'
+        default: "bc15b944-6b42-420a-b3f9-a5a8fb214326"
+        type: string
+      ruby_version:
+        description: 'Ruby Version'
+        default: "3.1.1"
+        required: false
+        type: string
+      working-directory:
+        required: true
+        type: string
+      test_command:
+        description: 'The testing command to be ran'
+        required: true
+        type: string
+      name:
+        description: 'Module Name'
+        required: true
+        type: string
+
+jobs:
+  build_app:
+    name: Test app
+    runs-on: ubuntu-latest
+    if: "!startsWith(github.head_ref, 'chore/l10n')"
+    timeout-minutes: 60
+    env:
+      DATABASE_USERNAME: postgres
+      DATABASE_PASSWORD: postgres
+      DATABASE_HOST: localhost
+      RUBYOPT: '-W:no-deprecated'
+    services:
+      postgres:
+        image: postgres:11
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        env:
+          POSTGRES_PASSWORD: postgres
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 1
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ inputs.ruby_version }}
+          bundler-cache: true
+      - uses: nanasess/setup-chromedriver@v2
+      - uses: actions/cache@v3
+        id: app-cache
+        with:
+          path: ./spec/decidim_dummy_app/
+          key: app-${{ github.sha }}
+          restore-keys: app-${{ github.sha }}
+      - run: bundle exec rake parallel:create parallel:load_schema
+        name: Parallel tests
+        shell: "bash"
+        working-directory: ./spec/decidim_dummy_app/
+      - run: |
+          sudo Xvfb -ac $DISPLAY -screen 0 1920x1084x24 > /dev/null 2>&1 & # optional
+          bundle exec rake parallel:spec['${{ inputs.test_command }}']
+        name: RSpec
+        working-directory: ${{ inputs.working-directory }}
+        env:
+          DISPLAY: ":99"
+      - uses: codecov/codecov-action@v3
+        name: Upload coverage
+        with:
+          token: ${{ inputs.codecov_token }}
+          name: decidim-core-lib
+          flags: decidim-core-lib
+      - uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: screenshots
+          path: ./spec/decidim_dummy_app/tmp/screenshots
+          if-no-files-found: ignore
+
