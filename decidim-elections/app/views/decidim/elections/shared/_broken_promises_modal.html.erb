@@ -4,7 +4,7 @@
   <div data-dialog-container>
     <%= icon "error-warning-line" %>
     <h2 id="dialog-title-server-failure" tabindex="-1" data-dialog-title><%= t("modal.title", scope: i18n_scope) %></h2>
-    <div>
+    <div class="space-y-8">
       <p id="communication_error">
         <%= t("modal.communication_lost", scope: i18n_scope).html_safe %>
       </p>
@@ -12,7 +12,7 @@
         <%= t("modal.generic_error", scope: i18n_scope).html_safe %>
       </p>
 
-      <p id="tech-info"></p>
+      <code id="tech-info" class="block"></code>
     </div>
   </div>
 
