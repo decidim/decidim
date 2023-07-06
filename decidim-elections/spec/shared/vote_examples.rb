@@ -121,7 +121,6 @@ def uses_the_voting_booth
   end
 
   # confirmed vote page
-  byebug
   expect(page).to have_content("Vote confirmed")
   expect(page).to have_content("Your vote has been cast!")
 end

@@ -42,7 +42,7 @@ end
 Capybara.register_driver :headless_chrome do |app|
   options = Selenium::WebDriver::Chrome::Options.new
   options.args << "--explicitly-allowed-ports=#{Capybara.server_port}"
-  # options.args << "--headless"
+  options.args << "--headless"
   options.args << "--no-sandbox"
   options.args << if ENV["BIG_SCREEN_SIZE"].present?
                     "--window-size=1920,3000"

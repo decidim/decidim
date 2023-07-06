@@ -28,16 +28,14 @@ describe "Vote online in an election", type: :system do
 
       expect(page).not_to have_content("This is a preview of the voting booth.")
 
-      # TODO: don't upload
-      page.refresh
-      # END_TODO: don't upload
       uses_the_voting_booth
 
-      page.find("a.focus__exit").click
+      click_link "Back to elections"
+      click_link(id: "elections__election_#{election.id}")
 
       expect(page).to have_current_path router.election_path(id: election.id)
-
       expect(page).to have_content("You have already voted in this election.")
+
       click_link "Change your vote"
 
       uses_the_voting_booth
