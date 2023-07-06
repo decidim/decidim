@@ -1,6 +1,6 @@
 <% if user_flaggable? && model.try(:id) != current_user.try(:id) %>
   <%= cell(
-        "decidim/redesigned_button",
+        "decidim/button",
         { icon: "flag-line", text: t("decidim.shared.flag_modal.report") },
         button_classes: "button button__sm button__text-secondary only:m-auto",
         html_options: {
