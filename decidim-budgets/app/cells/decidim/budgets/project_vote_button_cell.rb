@@ -37,10 +37,24 @@ module Decidim
         current_user && !can_have_order?
       end
 
-      def vote_button_class
-        return "success" if resource_added?
+      def vote_button_classes
+        classes = []
 
-        "hollow"
+        classes << if resource_added?
+                     "success button__secondary budget-list__data--added"
+                   else
+                     "hollow button__transparent-secondary"
+                   end
+
+        classes << if project_item?
+                     "button__lg"
+                   else
+                     "button__sm"
+                   end
+
+        classes << "budget-list__action" unless vote_button_disabled?
+
+        classes.join(" ")
       end
 
       def vote_button_method
