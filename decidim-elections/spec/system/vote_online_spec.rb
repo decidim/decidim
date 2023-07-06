@@ -159,7 +159,8 @@ describe "Vote online in an election", type: :system do
       click_link "Start voting"
 
       dismiss_prompt do
-        page.find("a.focus__exit").click
+        # click anything outside of the #vote-wrapper element
+        page.find("#main-bar [aria-label='Go to front page']").click
       end
 
       expect(page).to have_content("Next")
