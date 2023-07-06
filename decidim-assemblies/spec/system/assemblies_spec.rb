@@ -199,22 +199,21 @@ describe "Assemblies", type: :system do
           it_behaves_like "has embedded video in description", :short_description
         end
 
-        # REDESIGN_PENDING: enable those after #10637 is merged
-        # context "when description" do
-        #   it_behaves_like "has embedded video in description", :description
-        # end
-        #
-        # context "when purpose_of_action" do
-        #   it_behaves_like "has embedded video in description", :purpose_of_action
-        # end
-        #
-        # context "when internal_organisation" do
-        #   it_behaves_like "has embedded video in description", :internal_organisation
-        # end
-        #
-        # context "when composition" do
-        #   it_behaves_like "has embedded video in description", :composition
-        # end
+        context "when description" do
+          it_behaves_like "has embedded video in description", :description
+        end
+
+        context "when purpose_of_action" do
+          it_behaves_like "has embedded video in description", :purpose_of_action
+        end
+
+        context "when internal_organisation" do
+          it_behaves_like "has embedded video in description", :internal_organisation
+        end
+
+        context "when composition" do
+          it_behaves_like "has embedded video in description", :composition
+        end
       end
 
       context "when the assembly has some components and main data block is active" do
