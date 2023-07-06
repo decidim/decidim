@@ -83,7 +83,7 @@ module Decidim
     end
 
     def official_author?
-      ["Decidim::Proposals::OfficialAuthorPresenter", "Decidim::Debates::OfficialAuthorPresenter"].include? model.class.to_s
+      model.is_a? Decidim::OfficialAuthorPresenter
     end
 
     def user_or_user_group?
