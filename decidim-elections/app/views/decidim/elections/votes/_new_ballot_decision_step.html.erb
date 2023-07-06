@@ -16,11 +16,11 @@
     <%= t("decidim.elections.votes.ballot_decision.back") %>
   <% end %>
 
-  <%= decidim_form_for(@form, url: election_votes_path(election), id: "cast_ballot", html: { autocomplete: "off" }) do |f| %>
+  <%= decidim_form_for(@form, url: election_votes_path(election), html: { autocomplete: "off" }) do |f| %>
     <%= f.hidden_field :encrypted_data %>
     <%= f.hidden_field :encrypted_data_hash %>
     <%= f.hidden_field :voter_token %>
     <%= f.hidden_field :voter_id %>
-    <%= f.submit t("decidim.elections.votes.ballot_decision.cast"), class: "button button__sm md:button__lg button__transparent-secondary" %>
+    <%= f.submit t("decidim.elections.votes.ballot_decision.cast"), id: "cast_ballot", class: "button button__sm md:button__lg button__transparent-secondary" %>
   <% end %>
 </div>
