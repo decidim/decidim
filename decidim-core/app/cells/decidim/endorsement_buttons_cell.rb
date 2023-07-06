@@ -26,8 +26,9 @@ module Decidim
     # - if users can endorse with many identities (of their user_groups)
     # - if users require verification
     def show
+      return render :disabled_endorsements if endorsements_blocked?
       return render unless current_user
-      return render :disabled_endorsements if endorsements_blocked_or_user_can_not_participate?
+      return render :disabled_endorsements if user_can_not_participate?
       return render :verification_modal unless endorse_allowed?
       return render :select_identity_button if user_has_verified_groups?
 
@@ -63,8 +64,12 @@ module Decidim
 
     private
 
-    def endorsements_blocked_or_user_can_not_participate?
-      current_settings.endorsements_blocked? || !current_component.participatory_space.can_participate?(current_user)
+    def endorsements_blocked?
+      current_settings.endorsements_blocked?
+    end
+
+    def user_can_not_participate?
+      !current_component.participatory_space.can_participate?(current_user)
     end
 
     def endorse_allowed?
