@@ -87,7 +87,7 @@ module Decidim
     end
 
     def user_or_user_group?
-      ["Decidim::User", "Decidim::UserGroup"].include? model.model_name.name
+      model.is_a?(Decidim::UserBaseEntity)
     end
 
     def group_membership?
