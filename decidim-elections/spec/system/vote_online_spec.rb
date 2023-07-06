@@ -28,6 +28,9 @@ describe "Vote online in an election", type: :system do
 
       expect(page).not_to have_content("This is a preview of the voting booth.")
 
+      # TODO: don't upload
+      page.refresh
+      # END_TODO: don't upload
       uses_the_voting_booth
 
       page.find("a.focus__exit").click
@@ -51,7 +54,7 @@ describe "Vote online in an election", type: :system do
         visit_component
         click_link translated(election.title)
         click_link "Start voting"
-        expect(page).to have_content("MORE INFORMATION")
+        expect(page).to have_content("More information")
       end
     end
 
@@ -66,7 +69,7 @@ describe "Vote online in an election", type: :system do
         visit_component
         click_link translated(election.title)
         click_link "Start voting"
-        expect(page).not_to have_content("MORE INFORMATION")
+        expect(page).not_to have_content("More information")
       end
     end
   end

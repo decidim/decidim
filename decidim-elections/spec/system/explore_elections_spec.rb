@@ -142,7 +142,7 @@ describe "Explore elections", :slow, type: :system do
       end
 
       let!(:collection) { create_list(:election, collection_size, :complete, :published, :ongoing, component:) }
-      let!(:resource_selector) { "[id^=elections]" }
+      let!(:resource_selector) { "[id^=elections__election]" }
 
       it_behaves_like "a paginated resource"
     end
