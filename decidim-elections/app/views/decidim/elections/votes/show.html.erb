@@ -2,13 +2,11 @@
 <%= append_javascript_pack_tag "decidim_elections" %>
 
 <%= render layout: "layouts/decidim/shared/layout_center" do %>
-  <div id="vote-wrapper">
-    <% if vote&.pending? %>
-      <%= render("show_casting") %>
-    <% elsif vote&.accepted? || preview_mode? %>
-      <%= render("show_casted") %>
-    <% else %>
-      <%= render("show_failed") %>
-    <% end %>
-  </div>
+  <% if vote&.pending? %>
+    <%= render("show_casting") %>
+  <% elsif vote&.accepted? || preview_mode? %>
+    <%= render("show_casted") %>
+  <% else %>
+    <%= render("show_failed") %>
+  <% end %>
 <% end %>
