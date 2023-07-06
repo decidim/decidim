@@ -1,4 +1,4 @@
-name: "[CI] Initiatives (unit tests)"
+name: "[CI] Meetings (system admin)"
 on:
   push:
     branches:
@@ -12,20 +12,20 @@ on:
       - "*"
       - ".github/**"
       - "decidim-admin/**"
-      - "decidim-comments/**"
+      - "decidim-assemblies/**"
       - "decidim-core/**"
       - "decidim-dev/**"
-      - "decidim-initiatives/**"
-      - "decidim-verifications/**"
+      - "decidim-forms/**"
+      - "decidim-meetings/**"
+      - "decidim-participatory_processes/**"
 
 env:
   CI: "true"
   RUBY_VERSION: 3.1.1
   NODE_VERSION: 16.13.0
-  DECIDIM_MODULE: decidim-initiatives
+  DECIDIM_MODULE: decidim-meetings
   PARALLEL_TEST_PROCESSORS: 2
   CODECOV_TOKEN: bc15b944-6b42-420a-b3f9-a5a8fb214326
-  REDESIGN_ENABLED: "true"
   WEBPACKER_RUNTIME_COMPILE: "false"
 
 concurrency:
@@ -33,58 +33,8 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  main:
-    name: "[CI] Initiatives (unit tests)"
-    runs-on: ubuntu-latest
-    if: "!startsWith(github.head_ref, 'chore/l10n')"
-    timeout-minutes: 60
-    services:
-      postgres:
-        image: postgres:11
-        ports: ["5432:5432"]
-        options: >-
-          --health-cmd pg_isready
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
-        env:
-          POSTGRES_PASSWORD: postgres
-    env:
-      DATABASE_USERNAME: postgres
-      DATABASE_PASSWORD: postgres
-      DATABASE_HOST: localhost
-      RUBYOPT: '-W:no-deprecated'
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 1
-      - uses: ./.github/actions/module-rspec
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          name: ${{ env.DECIDIM_MODULE }}
-          processor_count: ${{ env.PARALLEL_TEST_PROCESSORS }}
-          ruby_version: ${{ env.RUBY_VERSION }}
-          node_version: ${{ env.NODE_VERSION }}
-          redesign_enabled: ${{ env.REDESIGN_ENABLED }}
-      - run: bundle exec rake parallel:spec['spec\/(?!system)']
-        name: RSpec
-        working-directory: ${{ env.DECIDIM_MODULE }}
-        env:
-          SIMPLECOV: "true"
-      - uses: codecov/codecov-action@v3
-        name: Upload coverage
-        with:
-          token: ${{ env.CODECOV_TOKEN }}
-          name: ${{ env.DECIDIM_MODULE }}
-          flags: ${{ env.DECIDIM_MODULE }}
-      - uses: actions/upload-artifact@v3
-        if: always()
-        with:
-          name: screenshots
-          path: ./spec/decidim_dummy_app/tmp/screenshots
-          if-no-files-found: ignore
   system_admin:
-    name: "[CI] Initiatives (system admin)"
+    name: "[CI] Meetings (system admin)"
     runs-on: ubuntu-latest
     if: "!startsWith(github.head_ref, 'chore/l10n')"
     timeout-minutes: 60
@@ -128,8 +78,8 @@ jobs:
         name: Upload coverage
         with:
           token: ${{ env.CODECOV_TOKEN }}
-          name: decidim-initiatives-system-admin
-          flags: decidim-initiatives-system-admin
+          name: decidim-meetings-system-admin
+          flags: decidim-meetings-system-admin
       - uses: actions/upload-artifact@v3
         if: always()
         with:
@@ -137,7 +87,7 @@ jobs:
           path: ./spec/decidim_dummy_app/tmp/screenshots
           if-no-files-found: ignore
   system_public:
-    name: "[CI] Initiatives (system public)"
+    name: "[CI] Meetings (system public)"
     runs-on: ubuntu-latest
     if: "!startsWith(github.head_ref, 'chore/l10n')"
     timeout-minutes: 60
@@ -181,13 +131,60 @@ jobs:
         name: Upload coverage
         with:
           token: ${{ env.CODECOV_TOKEN }}
-          name: decidim-initiatives-system-public
-          flags: decidim-initiatives-system-public
+          name: decidim-meetings-system-public
+          flags: decidim-meetings-system-public
       - uses: actions/upload-artifact@v3
         if: always()
         with:
           name: screenshots
           path: ./spec/decidim_dummy_app/tmp/screenshots
           if-no-files-found: ignore
-
-
+  unit_tests:
+    name: "[CI] Meetings (unit tests)"
+    runs-on: ubuntu-latest
+    if: "!startsWith(github.head_ref, 'chore/l10n')"
+    timeout-minutes: 60
+    services:
+      postgres:
+        image: postgres:11
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        env:
+          POSTGRES_PASSWORD: postgres
+    env:
+      DATABASE_USERNAME: postgres
+      DATABASE_PASSWORD: postgres
+      DATABASE_HOST: localhost
+      RUBYOPT: '-W:no-deprecated'
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 1
+      - uses: ./.github/actions/module-rspec
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          name: ${{ env.DECIDIM_MODULE }}
+          processor_count: ${{ env.PARALLEL_TEST_PROCESSORS }}
+          ruby_version: ${{ env.RUBY_VERSION }}
+          node_version: ${{ env.NODE_VERSION }}
+      - run: bundle exec rake parallel:spec['spec\/(?!system)']
+        name: RSpec
+        working-directory: ${{ env.DECIDIM_MODULE }}
+        env:
+          SIMPLECOV: "true"
+      - uses: codecov/codecov-action@v3
+        name: Upload coverage
+        with:
+          token: ${{ env.CODECOV_TOKEN }}
+          name: ${{ env.DECIDIM_MODULE }}
+          flags: ${{ env.DECIDIM_MODULE }}
+      - uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: screenshots
+          path: ./spec/decidim_dummy_app/tmp/screenshots
+          if-no-files-found: ignore
