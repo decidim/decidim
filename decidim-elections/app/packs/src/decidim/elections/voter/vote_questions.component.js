@@ -105,15 +105,18 @@ export default class VoteQuestionsComponent {
 
   updateWizardSteps(id) {
     const wizard = document.getElementById("wizard-steps")
+    const heading = document.getElementById("heading")
 
-    // this step has no heading 🤷‍♀️
-    if (id === "step-encrypting") {
-      document.getElementById("heading").hidden = true
+    if (heading) {
+      // this step has no heading 🤷‍♀️
+      if (id === "step-encrypting") {
+        heading.hidden = true
 
-      return
+        return
+      }
+
+      heading.hidden = false
     }
-
-    document.getElementById("heading").hidden = false
 
     if (wizard) {
       let selector = id
