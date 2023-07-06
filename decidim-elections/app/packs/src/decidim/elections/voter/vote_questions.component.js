@@ -140,22 +140,22 @@ export default class VoteQuestionsComponent {
   // receive confirmed answers
   toggleConfirmAnswers() {
     $(".answer_input:checked").each((_index, element) => {
-      const confirmedAnswer = $("#confirm").find(`#${element.value}`);
+      const confirmedAnswer = $("#step-confirm").find(`#${element.value}`);
       $(confirmedAnswer).attr("hidden", false)
     })
 
     $(".answer_input").not(":checked").each((_index, element) => {
-      const confirmedAnswer = $("#confirm").find(`#${element.value}`);
+      const confirmedAnswer = $("#step-confirm").find(`#${element.value}`);
       $(confirmedAnswer).attr("hidden", true)
     })
 
     $(".nota_input:checked").each((_index, element) => {
-      const confirmedAnswer = $("#confirm").find(`#${element.value}`);
+      const confirmedAnswer = $("#step-confirm").find(`#${element.value}`);
       $(confirmedAnswer).attr("hidden", false)
     })
 
     $(".nota_input").not(":checked").each((_index, element) => {
-      const confirmedAnswer = $("#confirm").find(`#${element.value}`);
+      const confirmedAnswer = $("#step-confirm").find(`#${element.value}`);
       $(confirmedAnswer).attr("hidden", true)
     })
   }
