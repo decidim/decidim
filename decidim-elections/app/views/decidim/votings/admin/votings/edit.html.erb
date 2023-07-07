@@ -1,22 +1,22 @@
 <%= decidim_form_for @form,
                      method: :patch,
                      url: voting_path(@current_voting),
-                     html: { class: "form edit_voting" } do |f| %>
+                     html: { class: "form form-defaults edit_voting" } do |f| %>
   <%= render partial: "form", object: f %>
-  <div class="button--double form-general-submit">
-    <%= f.submit t("votings.edit.update", scope: "decidim.votings.admin"), class: "button", disabled: !allowed_to?(:update, :voting, voting: current_voting) %>
+  <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
+    <%= f.submit t("votings.edit.update", scope: "decidim.votings.admin"), class: "button button__sm md:button__lg button__secondary", disabled: !allowed_to?(:update, :voting, voting: current_voting) %>
 
     <% if allowed_to? :publish, :voting, voting: @current_voting %>
       <% if @current_voting.published? %>
         <%= link_to t("votings.actions.unpublish", scope: "decidim.votings.admin"),
                     url_for(action: :unpublish, id: @current_voting, controller: "votings"),
                     method: :put,
-                    class: "button muted" %>
+                    class: "button button__sm md:button__lg button__secondary" %>
       <% else %>
         <%= link_to t("votings.actions.publish", scope: "decidim.votings.admin"),
                     url_for(action: :publish, id: @current_voting, controller: "votings"),
                     method: :put,
-                    class: "button hollow" %>
+                    class: "button button__sm md:button__lg button__secondary" %>
       <% end %>
     <% end %>
 
@@ -24,7 +24,7 @@
       <%= link_to t("votings.actions.destroy", scope: "decidim.votings.admin"),
                   @current_voting,
                   method: :delete,
-                  class: "alert button",
+                  class: "button button__sm md:button__lg button__secondary",
                   data: { confirm: t("votings.actions.confirm_destroy", scope: "decidim.votings.admin") } %>
     <% end %>
   </div>
