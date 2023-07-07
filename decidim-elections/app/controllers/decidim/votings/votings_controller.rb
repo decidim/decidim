@@ -13,6 +13,8 @@ module Decidim
       include Decidim::Votings::Orderable
       include Decidim::Elections::HasVoteFlow
 
+      redesign_participatory_space_layout only: [:show]
+
       helper_method :published_votings, :paginated_votings, :filter, :promoted_votings, :only_finished_votings?, :landing_content_blocks, :census_contact_information
 
       helper Decidim::FiltersHelper
