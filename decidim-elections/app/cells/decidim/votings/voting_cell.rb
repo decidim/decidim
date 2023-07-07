@@ -16,8 +16,10 @@ module Decidim
         case @options[:size]
         when :s
           "decidim/votings/voting_s"
-        else
+        when :m
           "decidim/votings/voting_m"
+        else
+          "decidim/votings/voting_g"
         end
       end
     end

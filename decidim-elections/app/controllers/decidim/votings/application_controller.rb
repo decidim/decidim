@@ -5,6 +5,7 @@ module Decidim
     # A controller that holds the logic to show votings in a
     # public layout.
     class ApplicationController < Decidim::ApplicationController
+      redesign_participatory_space_layout
       include NeedsPermission
 
       register_permissions(::Decidim::Votings::ApplicationController,
