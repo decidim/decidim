@@ -19,7 +19,7 @@ module Decidim
       def type_item
         {
           icon: resource_type_icon_key(model.voting_type),
-          text: t(model.voting_type, scope: "decidim.votings.votings_m.voting_type"),
+          text: t(model.voting_type, scope: "decidim.votings.votings_m.voting_type")
         }
       end
 
