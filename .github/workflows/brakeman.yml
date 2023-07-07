@@ -1,3 +1,5 @@
+name: "[CI] Brakeman analisys"
+
 on:
   push:
     branches:
