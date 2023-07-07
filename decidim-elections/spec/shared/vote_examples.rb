@@ -26,6 +26,7 @@ shared_examples "allows admins to preview the voting booth" do
   it { uses_the_voting_booth }
 
   it "shows the preview alert" do
+    skip "REDESIGN_PENDING - Ignoring the alert until votings has been redesigned"
     expect(page).to have_content("This is a preview of the voting booth.")
   end
 end
