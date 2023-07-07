@@ -56,7 +56,7 @@ describe "Admin passwords", type: :system do
     end
 
     context "when password expiry is disabled" do
-      around(:example) do |ex|
+      around do |ex|
         original = Decidim.config.admin_password_expiration_days
         Decidim.config.admin_password_expiration_days = 0
         ex.run
