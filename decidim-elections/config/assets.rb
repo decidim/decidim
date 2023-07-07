@@ -6,17 +6,6 @@ Decidim::Webpacker.register_path("#{base_path}/app/packs")
 Decidim::Webpacker.register_entrypoints(
   decidim_elections: "#{base_path}/app/packs/entrypoints/decidim_elections.js",
   decidim_elections_admin: "#{base_path}/app/packs/entrypoints/decidim_elections_admin.js",
-  decidim_votings_admin_monitoring_committee_members_form: "#{base_path}/app/packs/entrypoints/decidim_votings_admin_monitoring_committee_members_form.js",
-  decidim_votings_admin_polling_officers_form: "#{base_path}/app/packs/entrypoints/decidim_votings_admin_polling_officers_form.js",
-  decidim_votings_admin_polling_officers_picker: "#{base_path}/app/packs/entrypoints/decidim_votings_admin_polling_officers_picker.js",
-  decidim_votings_voting_polling_officer_zone_in_person_vote: "#{base_path}/app/packs/entrypoints/decidim_votings_voting_polling_officer_zone-in-person-vote.js",
-  decidim_votings_voting_polling_officer_zone_new_closure: "#{base_path}/app/packs/entrypoints/decidim_votings_voting_polling_officer_zone-new-closure.js",
-  decidim_votings_voting_polling_officer_zone_edit_closure: "#{base_path}/app/packs/entrypoints/decidim_votings_voting_polling_officer_zone-edit-closure.js",
-  decidim_votings_voting_polling_officer_zone_sign_closure: "#{base_path}/app/packs/entrypoints/decidim_votings_voting_polling_officer_zone-sign-closure.js",
-  decidim_votings_admin_polling_stations_form: "#{base_path}/app/packs/entrypoints/decidim_votings_admin_polling_stations_form.js",
-  decidim_votings_admin_update_census_dataset_status: "#{base_path}/app/packs/entrypoints/decidim_votings_admin_update_census_dataset_status.js",
-  decidim_votings_voting_description_cell: "#{base_path}/app/packs/entrypoints/decidim_votings_voting-description-cell.js",
-  decidim_votings_in_person_vote: "#{base_path}/app/packs/entrypoints/decidim_votings_in-person-vote.js",
-  decidim_votings_admin_votings: "#{base_path}/app/packs/entrypoints/decidim_votings_admin_votings.js"
+  decidim_votings: "#{base_path}/app/packs/entrypoints/decidim_votings.js",
+  decidim_votings_admin: "#{base_path}/app/packs/entrypoints/decidim_votings_admin.js"
 )
-Decidim::Webpacker.register_stylesheet_import("stylesheets/decidim/votings/votings")
