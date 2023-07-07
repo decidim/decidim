@@ -39,6 +39,8 @@
       </ol>
     </div>
 
+    <%= cell("decidim/announcement", t("decidim.elections.votes.new.preview_alert"), callout_class: "warning mb-4") if preview_mode? %>
+
     <% questions.each_with_index do |step_question, step_index| %>
       <div id="step-<%= step_index %>" <%= "hidden" unless step_index.zero? %>>
 
