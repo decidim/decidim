@@ -1,5 +1,5 @@
 <% visible_authors.each do |visible_author| %>
-  <%= cell "decidim/redesigned_author", visible_author, layout: :avatar, skip_profile_link: true %>
+  <%= cell "decidim/author", visible_author, layout: :avatar, skip_profile_link: true %>
 <% end %>
 
 <% if model.length > MAX_ITEMS_STACKED %>

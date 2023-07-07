@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Decidim
-  class ReportButtonCell < RedesignedButtonCell
+  class ReportButtonCell < ButtonCell
     include ActionView::Helpers::FormOptionsHelper
 
     def flag_modal

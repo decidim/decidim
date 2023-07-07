@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Decidim
-  class EndorsersListButtonCell < RedesignedButtonCell
+  class EndorsersListButtonCell < ButtonCell
     private
 
     def button_classes

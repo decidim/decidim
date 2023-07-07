@@ -1337,7 +1337,6 @@ en:
     profile:
       deleted: Deleted participant
       inaccessible_message: This profile is inaccessible due to terms of service violation!
-      view: View
     profiles:
       default_officialization_text_for_user_groups: This group is publicly verified, its name has been verified to correspond with its real name.
       default_officialization_text_for_users: This participant is publicly verified, his/her name or role has been verified to correspond with his/her real name and role.
@@ -1575,9 +1574,6 @@ en:
         changes_at_title: Changes at "%{title}"
         number_of_versions: Versions
         version_created_at: Version created at
-    version_author:
-      show:
-        deleted: Deleted participant
     versions:
       resource_version:
         of_versions: "(of %{number})"

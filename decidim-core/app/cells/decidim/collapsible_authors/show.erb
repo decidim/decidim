@@ -1,12 +1,12 @@
 <div class="author__coauthors" data-component="accordion">
   <% visible_authors.each do |author| %>
-    <%= cell "decidim/redesigned_author", author, layout: :compact %>
+    <%= cell "decidim/author", author, layout: :compact %>
   <% end %>
 
   <% if model.length > MAX_ITEMS_STACKED %>
     <div id="panel-coauthors" class="author__coauthors" aria-hidden="true">
       <% (model - visible_authors).each do |author| %>
-        <%= cell "decidim/redesigned_author", author, layout: :compact %>
+        <%= cell "decidim/author", author, layout: :compact %>
       <% end %>
     </div>
 

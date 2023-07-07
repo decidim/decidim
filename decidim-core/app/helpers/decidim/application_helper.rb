@@ -100,8 +100,6 @@ module Decidim
     # Renders the cell contents.
     def cell(name, model, options = {}, &)
       options = { context: { view_context: self, current_user: } }.deep_merge(options)
-      name = redesigned_cell_name(name) unless name.include?("redesigned_")
-
       super(name, model, options, &)
     end
 
