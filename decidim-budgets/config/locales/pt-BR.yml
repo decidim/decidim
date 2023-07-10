@@ -121,33 +121,13 @@ pt-BR:
         budget_excess:
           budget_excess:
             title: O orçamento máximo excedeu
-          close: Fechar
           ok: OK
           projects_excess:
             title: Máximo de projetos excedido
         budget_summary:
           are_you_sure: Deseja mesmo cancelar o seu voto?
-          assigned: 'Atribuído:'
-          cancel_order: exclua seu voto e comece de novo
           checked_out:
             title: Votação do orçamento concluída
-          minimum_projects_rule:
-            description: Em que projetos julga que devemos alocar o orçamento? Selecione pelo menos %{minimum_number} projeto que você deseja e vote de acordo com suas preferências para definir o orçamento.
-            instruction: "<li>Selecione pelo menos %{minimum_number} projetos que você deseja e vote de acordo com suas preferências para definir o orçamento.</li>"
-          projects_rule:
-            description: Em que projetos julga que devemos alocar o orçamento? Selecione pelo menos %{minimum_number} e até %{maximum_number} projetos que você deseja e vote de acordo com suas preferências para definir o orçamento.
-            instruction: "<li>Selecione pelo menos %{minimum_number} e até %{maximum_number} projetos que você deseja e vote de acordo com suas preferências para definir o orçamento.</li>"
-          projects_rule_maximum_only:
-            description: Em que projetos julga que devemos alocar o orçamento? Selecione até %{maximum_number} projetos que você deseja e vote de acordo com suas preferências para definir o orçamento.
-            instruction: "<li>Selecione até %{maximum_number} projetos que você desejar e vote de acordo com suas preferências para definir o orçamento.</li>"
-          rules:
-            title: Regras do orçamento
-          title: Você decide o orçamento
-          total_budget: Orçamento total
-          total_projects: Total de votos
-          vote_threshold_percent_rule:
-            description: Em que projetos julga que devemos alocar o orçamento? Atribua pelo menos %{minimum_budget} aos projetos que você deseja e vote de acordo com suas preferências para definir o orçamento.
-            instruction: "<li>Atribua pelo menos %{minimum_budget} aos projetos que você deseja e vote de acordo com suas preferências para definir o orçamento.</li>"
         count:
           projects_count:
             one: 1 projeto
@@ -161,19 +141,6 @@ pt-BR:
             all: Todos
             not_selected: Não selecionado
             selected: Selecionado
-        filters_small_view:
-          close_modal: Fechar modal
-          filter: Filtro
-          filter_by: Filtrar por
-          unfold: Desdobrar
-        order_progress:
-          vote: Voto
-        order_selected_projects:
-          remove: Remover
-          selected_projects:
-            one: projeto selecionado
-            other: projetos selecionados
-          view: Visão
         orders:
           highest_cost: Custo mais alto
           label: Ordenar projetos por
@@ -187,13 +154,9 @@ pt-BR:
           votes:
             one: voto
             other: votos
-        project_budget_button:
-          add: Adicione ao seu voto
-          added: Adicionado ao seu voto
         projects_for: Projetos para %{name}
         show:
           budget: Orçamento
-          view_all_projects: Ver todos os projetos
     components:
       budgets:
         actions:
