@@ -1,5 +1,13 @@
 .title-bar{
   @apply py-2 px-8 flex items-center bg-tertiary text-black;
+
+  [data-target*="dropdown"] > svg:first-of-type {
+    @apply inline-block;
+  }
+
+  .dropdown__trigger{
+    @apply flex items-center gap-x-2;
+  }
 }
 
 .menu-trigger{
@@ -24,5 +32,19 @@
   .user-login,
   .language-choose{
     @apply inline-block;
+  }
+
+  .button__site{
+    @apply flex items-center gap-x-2 px-1 text-black font-normal rounded;
+
+    background-color: rgba(255, 255, 255, 0.15);
+
+    &:hover{
+      background-color: rgba(255, 255, 255, 0.35);
+    }
+
+    svg{
+      @apply fill-black;
+    }
   }
 }

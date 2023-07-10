@@ -578,6 +578,7 @@ en:
         user_groups: Groups
         users: Participants
         see_processes: See processes
+        see_site: See site
       metrics:
         metrics:
           see_more_metrics: See more metrics
