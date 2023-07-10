@@ -369,7 +369,9 @@ ca:
       pages:
         home:
           highlighted_assemblies:
+            active_assemblies: Assemblees actives
             assemblies_button_title: Enllaç a la pàgina d'Assemblees mostrant totes les assemblees
+            see_all_assemblies: Veure totes les assemblees
         user_profile:
           member_of:
             member_of: Membre de
@@ -384,6 +386,7 @@ ca:
         developer_group: Grup promotor
         duration: Durada
         included_at: Inclòs a
+        indefinite_duration: Indefinida
         internal_organisation: Organització interna
         is_transparent:
           'false': opaca
