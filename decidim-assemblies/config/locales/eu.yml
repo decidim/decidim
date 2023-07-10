@@ -346,41 +346,17 @@ eu:
       index:
         title: Biltzarrak
       pages:
-        home:
-          highlighted_assemblies:
-            active_assemblies: Batzar aktiboak
-            assemblies_button_title: Lotura batzar guztiak erakusten dituen Batzarren orrialdera
-            see_all_assemblies: Ikusi biltzar guztiak
         user_profile:
           member_of:
             member_of: Kidea
       show:
-        area: Area
         assembly_type: Muntatze-mota
-        children: Batzar
-        closing_date: Amaiera data
-        composition: Konposizio
-        created_by: Sortuta
-        creation_date: Data sortu da
-        developer_group: Sustatzailearen taldea
         duration: Iraupena
-        included_at: Barruan sartzen da
-        indefinite_duration: mugagabeak
-        internal_organisation: Barneko antolaketa
         is_transparent:
           'false': opakua
           'true': gardena
-        local_area: Antolakuntza eremua
-        participatory_scope: Zer erabaki
-        participatory_structure: Nola erabakitzen da?
         private_space: Hau muntaia pribatua da
-        purpose_of_action: Ekintza xedea
-        read_less: Irakurri gutxiago
-        read_more: Irakurri gehiago
         related_participatory_processes: Partaidetza prozesu erlazionatuak
-        scope: Esparrua
-        social_networks: Sare sozialak
-        target: Nor parte hartzen du
     assembly_members:
       assembly_member:
         designated_on: Izendatuta
@@ -430,19 +406,11 @@ eu:
           take_part: Parte hartu
         index:
           children: 'Batzarrak: '
-          organizational_chart: Organigrama
           promoted_assemblies: Batzar nabarmenduak
-          reset_chart: Berrezarri
         order_by_assemblies:
           assemblies:
             one: "%{count} batzarra"
             other: "%{count} batzarrak"
-        promoted_assembly:
-          more_info: Informazio gehiago
-          take_part: Parte hartu
       assembly_navigation:
         assembly_member_menu_item: Kideak
         assembly_menu_item: Biltzarra
-      assembly_widgets:
-        show:
-          take_part: Parte hartu
