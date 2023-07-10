@@ -192,7 +192,7 @@ hu:
             other: "%{count} projektek"
         exit_modal:
           cancel: Vissza a szavazáshoz
-          close_modal: Felugró ablak bezárása
+          close_modal: Ablak bezárás
           exit: Kilépés a szavazásból
           message: Szavazatod nem regisztráltuk, mert még nem fejezted be a szavazási folyamatot. Biztosan kilépsz a szavazásból?
           title: Még nem szavaztál
@@ -206,7 +206,7 @@ hu:
             not_selected: Nincs kiválasztva
             selected: Kiválasztva
         filters_small_view:
-          close_modal: Modal bezárása
+          close_modal: Ablak bezárás
           filter: Szűrő
           filter_by: 'Szűrés ez alapján:'
           unfold: Kibont
