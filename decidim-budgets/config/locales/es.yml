@@ -162,6 +162,7 @@ es:
         continue: Continuar
         more_information: Más información
       budgets_list:
+        budgets: Presupuestos
         cancel_order:
           more_than_one: eliminar tu voto en %{name} y empezar de nuevo
           only_one: eliminar tu voto y empezar de nuevo.
@@ -170,8 +171,10 @@ es:
         if_change_opinion: Si has cambiado de opinión, puedes %{cancel_link}.
         my_budgets: Mis presupuestos
         progress: Finalizar votación
+        remove_vote: Eliminar el voto
         show: Ver proyectos
         vote: Votar
+        voted_budgets: Presupuestos votados
         voted_on: Has votado a %{links}.
       last_activity:
         new_vote_at: Nueva votación presupuestaria en
