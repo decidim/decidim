@@ -348,6 +348,7 @@ cs:
           duration: Doba trvání
           included_at: Zahrnuto v
           indefinite_duration: Neurčité
+          local_area: Oblast působnosti organizace
           meta_scope: Oblast působnosti
           participatory_scope: O čem se rozhoduje
           participatory_structure: Jak se o tom rozhoduje
@@ -373,8 +374,14 @@ cs:
       content_blocks:
         children_assemblies:
           name: Shromáždění
+        dates_metadata:
+          name: Metadata dat
+        extra_data:
+          name: Typ a doba trvání
         highlighted_assemblies:
           name: Zvýrazněná shromáždění
+        related_assemblies:
+          name: Související shromáždění
       created_by:
         city_council: Městská rada
         others: Ostatní
@@ -394,6 +401,10 @@ cs:
       last_activity:
         new_assembly: 'Nové shromáždění:'
       pages:
+        home:
+          highlighted_assemblies:
+            active_spaces: Aktivní shromáždění
+            see_all_spaces: Zobrazit všechna shromáždění
         user_profile:
           member_of:
             member_of: Člen
@@ -457,6 +468,12 @@ cs:
         index:
           children: 'Shromáždění: '
           promoted_assemblies: Zvýrazněná shromáždění
+        metadata:
+          children_item:
+            one: "%{count} shromáždění"
+            few: "%{count} shromáždění"
+            many: "%{count} shromáždění"
+            other: "%{count} shromáždění"
         order_by_assemblies:
           assemblies:
             one: "%{count} sestav"
