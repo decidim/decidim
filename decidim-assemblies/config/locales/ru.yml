@@ -272,10 +272,6 @@ ru:
       last_activity:
         new_assembly: Добавить собрание
       pages:
-        home:
-          highlighted_assemblies:
-            active_assemblies: Действующие собрания
-            see_all_assemblies: Просмотреть все собрания
         user_profile:
           member_of:
             member_of: 'Входит в состав:'
@@ -290,7 +286,6 @@ ru:
         developer_group: Рабочая группа по продвижению
         duration: Длительность
         included_at: Включено в
-        indefinite_duration: Бессрочное
         internal_organisation: Внутренняя организация
         is_transparent:
           'false': непрозрачное
@@ -334,7 +329,6 @@ ru:
             many: "%{count} собраний"
             other: "%{count} собраний"
         promoted_assembly:
-          more_info: Дополнительные сведения
           take_part: Принять участие
       assembly_navigation:
         assembly_menu_item: Собрание
