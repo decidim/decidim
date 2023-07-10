@@ -437,7 +437,7 @@ de:
             subject: Einladung, an einem Meeting teilzunehmen
         registration_mailer:
           confirmation:
-            subject: Die Registrierung Ihrer Konferenz wurde bestätigt
+            subject: Sie haben sich erfolgreich angemeldet
       meeting:
         not_allowed: Sie dürfen dieses Meeting nicht sehen
       meeting_closes:
@@ -609,7 +609,7 @@ de:
       read_more: "(Weiterlesen)"
       registration_mailer:
         confirmation:
-          confirmed_html: Ihre Registrierung für das Treffen <a href="%{url}">%{title}</a> wurde bestätigt.
+          confirmed_html: Ihre Anmeldung für die Veranstaltung <a href="%{url}">%{title}</a> wurde bestätigt.
           details: Sie finden die Details zum Meeting im Anhang.
           registration_code: Ihr Registrierungscode ist %{code}.
       registration_type:
