@@ -250,14 +250,14 @@ nl:
             not_selected: Niet geselecteerd
             selected: Geselecteerd
         filters_small_view:
-          close_modal: Dialoogvenster sluiten
+          close_modal: Sluit venster
           filter: Filter
           filter_by: Filteren op
           unfold: Uitvouwen
         index:
           view_project: Bekijk project
         order_progress:
-          vote: Stem
+          vote: Stemmen
         order_selected_projects:
           remove: Verwijderen
           selected_projects:
