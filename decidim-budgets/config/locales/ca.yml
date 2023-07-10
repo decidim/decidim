@@ -162,6 +162,7 @@ ca:
         continue: Continuar
         more_information: Més informació
       budgets_list:
+        budgets: Pressupostos
         cancel_order:
           more_than_one: eliminar el teu vot a %{name} i començar de nou
           only_one: eliminar el teu vot i començar de nou.
@@ -170,8 +171,10 @@ ca:
         if_change_opinion: Si has canviat d'opinió, pots %{cancel_link}.
         my_budgets: Els meus pressupostos
         progress: Acaba la votació
+        remove_vote: Eliminar el vot
         show: Mostra els projectes
         vote: Vota
+        voted_budgets: Pressupostos votats
         voted_on: Has votat a %{links}.
       last_activity:
         new_vote_at: Nova votació pressupostària a
@@ -214,6 +217,7 @@ ca:
             title: Màxim de projectes excedit
         budget_summary:
           are_you_sure: Segur que vols cancel·lar el teu vot?
+          cancel_order: Esborra el teu vot
           checked_out:
             title: Vot pels pressupostos completat
         count:
