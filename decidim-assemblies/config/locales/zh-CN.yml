@@ -329,9 +329,7 @@ zh-CN:
       pages:
         home:
           highlighted_assemblies:
-            active_assemblies: 活动的组件
             assemblies_button_title: 链接到显示所有程序集的程序集页面
-            see_all_assemblies: 查看所有程序集
         user_profile:
           member_of:
             member_of: 成员
@@ -346,7 +344,6 @@ zh-CN:
         developer_group: 促销者组
         duration: 期限
         included_at: 包含于
-        indefinite_duration: 不确定
         internal_organisation: 内部组织
         is_transparent:
           'false': 不透明度
