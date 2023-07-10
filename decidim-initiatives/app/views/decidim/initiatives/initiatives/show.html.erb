@@ -14,10 +14,6 @@ edit_link(
 )
 %>
 
-<%= participatory_space_floating_help %>
-
-<% add_decidim_page_title(translated_attribute(current_initiative.title)) %>
-
 <%= content_for :aside do %>
   <section class="initiative__aside">
     <% if current_initiative.published? || current_initiative.rejected? || current_initiative.accepted? || current_initiative.discarded? %>
@@ -28,10 +24,10 @@ edit_link(
       <% end %>
     <% else %>
       <section class="layout-aside__section layout-aside__buttons">
-        <%= link_to t(".edit"),
-            edit_initiative_path(current_initiative),
-            class: "button button__xl w-full button__secondary" %>
-        <%= render partial: "send_to_technical_validation", locals: { title: t(".send_to_technical_validation"), confirm: t(".confirm") } %>
+        <%= link_to t("edit", scope: "decidim.initiatives.initiatives.show"),
+          edit_initiative_path(current_initiative),
+          class: "button button__xl w-full button__secondary" %>
+        <%= render partial: "send_to_technical_validation", locals: { title: t("send_to_technical_validation", scope: "decidim.initiatives.initiatives.show"), confirm: t("confirm", scope: "decidim.initiatives.initiatives.show") } %>
       </section>
     <% end %>
 
@@ -130,79 +126,87 @@ edit_link(
             </button>
           </div>
         </div>
-          <% if current_initiative.committee_members.empty? %>
-            <span class="initiative__aside__element__data-text">
-              <%= t("no_members_yet", scope: "decidim.initiatives.admin.committee_requests.index") %>
-            </span>
-          <% end %>
-          <% current_initiative.committee_members.each do |request| %>
-            <div class="author" data-id="<%= request.id %>">
-              <div class="profile__group__list">
-                <%= card_for request.user %>
-              </div>
+        <% if current_initiative.committee_members.empty? %>
+          <span class="initiative__aside__element__data-text">
+            <%= t("no_members_yet", scope: "decidim.initiatives.admin.committee_requests.index") %>
+          </span>
+        <% end %>
+        <% current_initiative.committee_members.each do |request| %>
+          <div class="author" data-id="<%= request.id %>">
+            <div class="profile__group__list">
+              <%= card_for request.user %>
             </div>
-          <% end %>
+          </div>
+        <% end %>
       </div>
     <% end %>
   </section>
 <% end %>
 
-<section class="layout-main__section layout-main__heading">
-  <h2 class="h2 decorator">
-    <%= translated_attribute(current_initiative.title) %>
-  </h2>
-</section>
+<%= render partial: "decidim/initiatives/initiatives/initiative_hero" %>
 
-<section class="layout-main__section">
-  <div class="content-block__description">
-    <div class="editor-content">
-      <%= decidim_sanitize_editor translated_attribute(current_initiative.description) %>
+<%= render layout:"layouts/decidim/shared/layout_two_col", locals: { reverse: true, main_enabled: false } do %>
+  <%= participatory_space_floating_help %>
+
+  <% add_decidim_page_title(translated_attribute(current_initiative.title)) %>
+
+  <section class="layout-main__section layout-main__heading">
+    <h2 class="h2 decorator">
+      <%= translated_attribute(current_initiative.title) %>
+    </h2>
+  </section>
+
+  <section class="layout-main__section">
+    <div class="content-block__description">
+      <div class="editor-content">
+        <%= decidim_sanitize_editor translated_attribute(current_initiative.description) %>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="layout-main__section">
-  <% if tabs.any? %>
-    <div class="mt-8" data-component="accordion" data-multiselectable="false" data-collapsible="false">
-      <ul class="tab-x-container">
-        <% tabs.each_with_index do |tab, i| %>
-          <li>
-            <button id="trigger-<%= tab[:id] %>" class="tab-x" data-controls="panel-<%= tab[:id] %>" data-open="<%= "true" if i.zero? %>">
-              <%= icon tab[:icon], class: "text-gray fill-current" %><%= tab[:text] %>
-            </button>
-          </li>
+  <section class="layout-main__section">
+    <% if tabs.any? %>
+      <div class="mt-8" data-component="accordion" data-multiselectable="false" data-collapsible="false">
+        <ul class="tab-x-container">
+          <% tabs.each_with_index do |tab, i| %>
+            <li>
+              <button id="trigger-<%= tab[:id] %>" class="tab-x" data-controls="panel-<%= tab[:id] %>" data-open="<%= "true" if i.zero? %>">
+                <%= icon tab[:icon], class: "text-gray fill-current" %><%= tab[:text] %>
+              </button>
+            </li>
+          <% end %>
+        </ul>
+
+        <% panels.each do |panel| %>
+          <div id="panel-<%= panel[:id] %>" class="py-8">
+            <%= send(panel[:method], *panel[:args]) %>
+          </div>
         <% end %>
-      </ul>
+      </div>
+    <% end %>
+  </section>
 
-      <% panels.each do |panel| %>
-        <div id="panel-<%= panel[:id] %>" class="py-8">
-          <%= send(panel[:method], *panel[:args]) %>
-        </div>
+  <section class="layout-main__section">
+    <%= render partial: "result", locals: { initiative: current_initiative } %>
+  </section>
+
+  <section class="layout-main__section layout-main__buttons" data-buttons>
+    <% if current_initiative.commentable? && current_initiative.published? %>
+      <%= cell "decidim/comments_button", nil %>
+    <% end %>
+    <div class="ml-auto">
+      <%= cell "decidim/share_button", nil %>
+      <% if current_user %>
+        <%= render partial: "decidim/shared/follow_button", class: "text-center", locals: { followable: current_participatory_space, large: true } %>
       <% end %>
     </div>
-  <% end %>
-</section>
+  </section>
 
-<section class="layout-main__section">
-  <%= render partial: "result", locals: { initiative: current_initiative } %>
-</section>
-
-<section class="layout-main__section layout-main__buttons" data-buttons>
-  <% if current_initiative.commentable? && current_initiative.published? %>
-    <%= cell "decidim/comments_button", nil %>
-  <% end %>
-  <div class="ml-auto">
-    <%= cell "decidim/share_button", nil %>
-    <% if current_user %>
-      <%= render partial: "decidim/shared/follow_button", class: "text-center", locals: { followable: current_participatory_space, large: true } %>
-    <% end %>
-  </div>
-</section>
-
-<section class="layout-main__section">
-  <%= comments_for current_initiative if current_initiative.commentable? && current_initiative.published? %>
-  <ul class="drawer-metadata__container layout-main__section" data-metadata-footer>
-    <%= content_tag :li, resource_reference(current_initiative), class: "drawer-metadata__item" %>
-    <%= content_tag :li, resource_version(current_initiative, versions_path: initiative_version_path(current_initiative, current_initiative.versions.count)), class: "drawer-metadata__item" %>
-  </ul>
-</section>
+  <section class="layout-main__section">
+    <%= comments_for current_initiative if current_initiative.commentable? && current_initiative.published? %>
+    <ul class="drawer-metadata__container layout-main__section" data-metadata-footer>
+      <%= content_tag :li, resource_reference(current_initiative), class: "drawer-metadata__item" %>
+      <%= content_tag :li, resource_version(current_initiative, versions_path: initiative_version_path(current_initiative, current_initiative.versions.count)), class: "drawer-metadata__item" %>
+    </ul>
+  </section>
+<% end %>
