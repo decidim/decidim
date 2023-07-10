@@ -579,8 +579,8 @@ es:
           rejected: No ha conseguido las firmas
           validating: Validación técnica
       states:
-        accepted: Aceptado
-        expired: Caducado
+        accepted: Aceptada
+        expired: Caducada
       unavailable_scope: Ámbito no disponible
       update:
         error: Se ha producido un error
