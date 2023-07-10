@@ -243,9 +243,6 @@ eu:
         description: Sortutako emaitza kopurua
         object: emaitzak
         title: Emaitzak
-    participatory_spaces:
-      highlighted_results:
-        see_all: Ikusi emaitza guztiak (%{count})
     resource_links:
       included_projects:
         result_project: Emaitza honetan sartutako proiektuak
