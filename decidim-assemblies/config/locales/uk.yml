@@ -269,40 +269,17 @@ uk:
       index:
         title: Збори
       pages:
-        home:
-          highlighted_assemblies:
-            active_assemblies: Діючі збори
-            see_all_assemblies: Переглянути всі збори
         user_profile:
           member_of:
             member_of: 'Входить у склад:'
       show:
-        area: Дільниця
         assembly_type: Різновид зборів
-        children: Збори
-        closing_date: Дата закриття
-        composition: Склад
-        created_by: 'Автор:'
-        creation_date: Дата створення
-        developer_group: Робочий гурт з просування
         duration: Тривалість
-        included_at: Включено в
-        indefinite_duration: Безстрокова
-        internal_organisation: Внутрішня організація
         is_transparent:
           'false': непрозорі
           'true': прозорі
-        local_area: Дільниця організації
-        participatory_scope: Що вирішується
-        participatory_structure: Як це вирішується
         private_space: Це приватні збори
-        purpose_of_action: Мета дії
-        read_less: Читати менше
-        read_more: Читати далі
         related_participatory_processes: Пов'язані рухи співучасті
-        scope: Обсяг
-        social_networks: Соціальні мережі
-        target: Хто бере участь
     assembly_members:
       assembly_member:
         designated_on: 'Надано повноваження:'
@@ -327,11 +304,5 @@ uk:
             few: "%{count} зборів"
             many: "%{count} зборів"
             other: "%{count} зборів"
-        promoted_assembly:
-          more_info: Додаткові відомості
-          take_part: Взяти участь
       assembly_navigation:
         assembly_menu_item: Збори
-      assembly_widgets:
-        show:
-          take_part: Взяти участь
