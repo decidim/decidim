@@ -369,9 +369,7 @@ es-MX:
       pages:
         home:
           highlighted_assemblies:
-            active_assemblies: Asambleas activas
             assemblies_button_title: Enlace a la página de Asambleas que muestra todas las asambleas
-            see_all_assemblies: Ver todas las asambleas
         user_profile:
           member_of:
             member_of: Miembro de
@@ -382,11 +380,10 @@ es-MX:
         closing_date: Fecha de cierre
         composition: Composición
         created_by: Creado por
-        creation_date: Fecha de creación
+        creation_date: Fecha de creacion
         developer_group: Grupo promotor
         duration: Duración
         included_at: Incluido en
-        indefinite_duration: Indefinido
         internal_organisation: Organización interna
         is_transparent:
           'false': opaco
