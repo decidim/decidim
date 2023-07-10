@@ -366,42 +366,18 @@ hu:
       last_activity:
         new_assembly: 'Új gyűlés:'
       pages:
-        home:
-          highlighted_assemblies:
-            active_assemblies: Aktív gyűlések
-            assemblies_button_title: A Gyűlések oldalra mutató link, ahol az összes Gyűlés látható
-            see_all_assemblies: Összes gyűlés
         user_profile:
           member_of:
             member_of: 'Tagja következőnek:'
       show:
-        area: Terület
         assembly_type: Gyűlés típusa
-        children: Gyűlések
-        closing_date: Határidő
-        composition: Összetétel
-        created_by: Készítette
-        creation_date: Létrehozás dátuma
-        developer_group: Kezdeményező csoport
         duration: Időtartam
-        included_at: 'Tartalmazza:'
-        indefinite_duration: Határozatlan
-        internal_organisation: Belső szervezet
         is_transparent:
           'false': áttetsző
           'true': átlátszó
-        local_area: Szervezet területe
-        participatory_scope: Mi a döntés
-        participatory_structure: Hogyan döntenek
         private_space: Ez egy privát gyűlés
-        purpose_of_action: Fellépés célja
-        read_less: Kevesebb
-        read_more: Bővebben
         related_participatory_processes: Kapcsolódó részvételi folyamatok
-        scope: Hatáskör
-        social_networks: Közösségi háló
         social_networks_title: Látogasd meg a gyűlést itt
-        target: Ki vesz részt benne
     assembly_members:
       assembly_member:
         designated_on: Kijelölt
@@ -452,19 +428,11 @@ hu:
           take_part: Vegyél részt
         index:
           children: 'Gyűlések: '
-          organizational_chart: Szervezési táblázat
           promoted_assemblies: Kiemelt gyűlések
-          reset_chart: Visszaállítás
         order_by_assemblies:
           assemblies:
             one: "%{count} gyűlés"
             other: "%{count} gyűlés"
-        promoted_assembly:
-          more_info: További információ
-          take_part: Vegyél részt
       assembly_navigation:
         assembly_member_menu_item: Tagok
         assembly_menu_item: A gyűlés
-      assembly_widgets:
-        show:
-          take_part: Vegyél részt
