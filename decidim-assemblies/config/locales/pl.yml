@@ -359,9 +359,7 @@ pl:
       pages:
         home:
           highlighted_assemblies:
-            active_assemblies: Aktywne zespoły
             assemblies_button_title: Link do strony Zespołów wyświetlającej wszystkie zespoły
-            see_all_assemblies: Zobacz wszystkie zespoły
         user_profile:
           member_of:
             member_of: Członek
@@ -371,12 +369,11 @@ pl:
         children: Zespoły
         closing_date: Data zamknięcia
         composition: Skład zespołu
-        created_by: Utworzone przez
+        created_by: Utworzony przez
         creation_date: Data utworzenia
         developer_group: Grupa inicjatorów
         duration: Czas trwania
         included_at: Dołączono
-        indefinite_duration: Nie określono
         internal_organisation: Organizacja wewnętrzna
         is_transparent:
           'false': nietransparentny
