@@ -30,7 +30,7 @@
   }
 
   [data-dialog-title] {
-    @apply text-2xl text-black font-semibold;
+    @apply text-2xl text-black font-semibold focus:outline-none;
   }
 
   [data-dialog-actions] {

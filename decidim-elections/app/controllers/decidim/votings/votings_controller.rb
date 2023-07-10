@@ -5,8 +5,6 @@ module Decidim
     # A controller that holds the logic to show votings in a
     # public layout.
     class VotingsController < Decidim::Votings::ApplicationController
-      layout "layouts/decidim/voting_landing", only: :show
-
       include FormFactory
       include ParticipatorySpaceContext
       include NeedsVoting
@@ -14,6 +12,8 @@ module Decidim
       include Paginable
       include Decidim::Votings::Orderable
       include Decidim::Elections::HasVoteFlow
+
+      redesign_participatory_space_layout only: [:show]
 
       helper_method :published_votings, :paginated_votings, :filter, :promoted_votings, :only_finished_votings?, :landing_content_blocks, :census_contact_information
 

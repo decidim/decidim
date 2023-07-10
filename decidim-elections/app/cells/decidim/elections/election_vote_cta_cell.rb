@@ -41,6 +41,7 @@ module Decidim
         end
       end
 
+      # REDESIGN_PENDING: deprecated
       def election_vote_verify_path
         engine_router.election_vote_verify_path(
           "#{key_participatory_space_slug}": current_participatory_space.slug,

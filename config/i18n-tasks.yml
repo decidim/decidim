@@ -315,8 +315,9 @@ ignore_unused:
   - decidim.elections.feedback.answer.*
   - decidim.elections.trustee_zone.elections.key_ceremony_steps.keys.*
   - decidim.elections.trustee_zone.elections.tally_started_steps.keys.*
+  - decidim.elections.elections.filters.*
   - decidim.votings.admin_log.*
-  - decidim.votings.admin.content_blocks.landing_page.*
+  - decidim.votings.admin.content_blocks.*
   - decidim.votings.census.admin.census.new.file_help.*
   - decidim.votings.census.document_types.*
   - decidim.devise.sessions.user.timed_out

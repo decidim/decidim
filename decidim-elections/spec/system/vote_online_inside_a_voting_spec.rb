@@ -31,7 +31,8 @@ describe "Vote online in an election inside a Voting", type: :system do
     it "can vote and then change the vote", :slow do
       vote_with_census_data
 
-      page.find("a.focus__exit").click
+      click_link "Back to elections"
+      click_link(id: "elections__election_#{election.id}")
 
       expect(page).to have_current_path router.election_path(id: election.id)
       expect(page).not_to have_content("You have already voted in this election.")

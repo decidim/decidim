@@ -4,7 +4,6 @@ module Decidim
   module Elections
     # Exposes the elections resources so users can participate on them
     class VotesController < Decidim::Elections::ApplicationController
-      layout "decidim/election_votes"
       include FormFactory
       include HasVoteFlow
 
