@@ -375,6 +375,7 @@ cs:
       pages:
         home:
           highlighted_assemblies:
+            active_assemblies: Aktivní shromáždění
             assemblies_button_title: Odkaz na stránku Shromáždění zobrazující všechna shromáždění
         user_profile:
           member_of:
@@ -390,6 +391,7 @@ cs:
         developer_group: Skupina promotérů
         duration: Doba trvání
         included_at: Zahrnuty v
+        indefinite_duration: Neurčité
         internal_organisation: Vnitřní organizace
         is_transparent:
           'false': neprůhledný
