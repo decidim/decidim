@@ -214,33 +214,14 @@ is-IS:
         public: Opinber
       index:
         title: Þing
-      pages:
-        home:
-          highlighted_assemblies:
-            active_assemblies: Virkir þættir
-            see_all_assemblies: Sjá allar þingmenn
       show:
-        area: Svæði
         assembly_type: Samsetning gerð
-        children: Þing
-        closing_date: Lokadagur
-        composition: Samsetning
-        created_by: Búið til af
-        creation_date: Dagsetning búin til
         duration: Lengd
-        included_at: Innifalið á
-        indefinite_duration: Óákveðinn
-        internal_organisation: Innri skipulagning
         is_transparent:
           'false': ógagnsæ
           'true': gagnsæ
         private_space: Þetta er einkasamkoma
-        purpose_of_action: Tilgangur aðgerða
-        read_less: Lesa minna
-        read_more: Lestu meira
         related_participatory_processes: Svipaðir þátttakandi ferli
-        scope: Umfang
-        social_networks: Samfélagsmiðlar
     assembly_members:
       index:
         title: Meðlimir
@@ -257,11 +238,5 @@ is-IS:
           take_part: Taka þátt
         index:
           promoted_assemblies: Hápunktar þingsins
-        promoted_assembly:
-          more_info: Meiri upplýsingar
-          take_part: Taka þátt
       assembly_navigation:
         assembly_menu_item: Samkoma
-      assembly_widgets:
-        show:
-          take_part: Taka þátt
