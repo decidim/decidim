@@ -205,6 +205,7 @@ hu:
           categories: Kategóriák
           components: Elemek
           info: Info
+          landing_page: Landing oldal
           moderations: Moderálás
           private_users: Privát felhasználók
         assemblies_types: Gyűlés típusa
@@ -331,6 +332,26 @@ hu:
           accepted_types:
             json: JSON
       assemblies:
+        description:
+          area_name: Terület
+          closing_date: Határidő
+          created_by: Létrehozta
+          creation_date: Létrehozás dátuma
+          data: Gyűlés adatai
+          developer_group: Előterjesztő csoport
+          duration: Időtartam
+          included_at: Beleértve
+          indefinite_duration: Határozatlan
+          local_area: Szervezeti terület
+          meta_scope: Hatáskör
+          participatory_scope: Miről születik döntés
+          participatory_structure: Hogyan születik döntés
+          target: Ki vesz részt
+          title: Erről a gyűlésről
+        filters:
+          names:
+            all: Összes
+          type: Típus
         show:
           title: Erről a gyűlésről
       assembly_members:
@@ -345,8 +366,16 @@ hu:
         participatory: Részvételi
         working_group: Munkacsoport
       content_blocks:
+        children_assemblies:
+          name: Gyűlések
+        dates_metadata:
+          name: Dátumok metaadatai
+        extra_data:
+          name: Típus és időtartam
         highlighted_assemblies:
           name: Kiemelt gyűlések
+        related_assemblies:
+          name: Kapcsolódó gyűlések
       created_by:
         city_council: Városi közgyűlés
         others: Egyéb
@@ -366,6 +395,10 @@ hu:
       last_activity:
         new_assembly: 'Új gyűlés:'
       pages:
+        home:
+          highlighted_assemblies:
+            active_spaces: Aktív gyűlések
+            see_all_spaces: Az összes közgyűlés megtekintése
         user_profile:
           member_of:
             member_of: 'Tagja következőnek:'
