@@ -806,29 +806,28 @@ en:
         content_blocks:
           highlighted_votings:
             max_results: Maximum amount of elements to show
-          landing_page:
-            attachments_and_folders:
-              name: Voting attachments and folders
-            description:
-              name: Voting description
-            elections:
-              name: Voting elections
-            header:
-              name: Voting header
-            html_block_1:
-              name: Voting html block 1
-            html_block_2:
-              name: Voting html block 2
-            html_block_3:
-              name: Voting html block 3
-            metrics:
-              name: Voting metrics
-            polling_stations:
-              name: Voting polling stations
-            stats:
-              name: Voting statistics
-            timeline:
-              name: Voting timeline
+          attachments_and_folders:
+            name: Voting attachments and folders
+          description:
+            name: Voting description
+          related_elections:
+            name: Voting elections
+          header:
+            name: Voting header
+          html_block_1:
+            name: Voting html block 1
+          html_block_2:
+            name: Voting html block 2
+          html_block_3:
+            name: Voting html block 3
+          metrics:
+            name: Voting metrics
+          polling_stations:
+            name: Voting polling stations
+          stats:
+            name: Voting statistics
+          timeline:
+            name: Voting timeline
         index:
           not_published: Unpublished
           published: Published
