@@ -331,6 +331,16 @@ fr:
           accepted_types:
             json: JSON
       assemblies:
+        description:
+          closing_date: Date de clôture
+          created_by: Créé par
+          creation_date: Date de création
+          duration: Durée
+          indefinite_duration: Indéfinie
+        filters:
+          names:
+            all: Toutes
+          type: Type
         show:
           title: À propos de cette assemblée
       assembly_members:
@@ -345,8 +355,14 @@ fr:
         participatory: Organe participatif
         working_group: Groupe de travail
       content_blocks:
+        children_assemblies:
+          name: Assemblées
+        extra_data:
+          name: Type et durée
         highlighted_assemblies:
           name: Assemblées mises en avant
+        related_assemblies:
+          name: Assemblées en relation
       created_by:
         city_council: Conseil municipal
         others: Autres
@@ -366,6 +382,10 @@ fr:
       last_activity:
         new_assembly: 'Nouvelle assemblée :'
       pages:
+        home:
+          highlighted_assemblies:
+            active_spaces: Assemblées actives
+            see_all_spaces: Voir toutes les assemblées
         user_profile:
           member_of:
             member_of: Membre de
@@ -429,6 +449,10 @@ fr:
         index:
           children: 'Assemblées : '
           promoted_assemblies: Assemblées mises en avant
+        metadata:
+          children_item:
+            one: "%{count} assemblée"
+            other: "%{count} assemblées"
         order_by_assemblies:
           assemblies:
             one: "%{count} assemblée"
