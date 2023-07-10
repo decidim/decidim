@@ -4,7 +4,18 @@
 <% provide :meta_image_url, current_participatory_space.type.attached_uploader(:banner_image).path %>
 
 <%= render "layouts/decidim/application" do %>
-  <main>
-    <%= yield %>
-  </main>
+  <%= render layout: "layouts/decidim/shared/layout_center" do %>
+    <main>
+      <%= yield %>
+    </main>
+    <% if content_for? :expanded %>
+      <div class="expanded">
+        <div class="wrapper wrapper--inner">
+          <div class="row">
+            <%= yield :expanded %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
 <% end %>

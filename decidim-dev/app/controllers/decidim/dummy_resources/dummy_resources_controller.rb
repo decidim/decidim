@@ -6,6 +6,8 @@ module Decidim
       helper Decidim::Comments::CommentsHelper
       include Decidim::TranslatableAttributes
 
+      participatory_space_context
+
       def show
         @commentable = DummyResources::DummyResource.find(params[:id])
       end

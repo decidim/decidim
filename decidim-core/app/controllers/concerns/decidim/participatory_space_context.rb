@@ -20,6 +20,10 @@ module Decidim
         layout :layout, **options
         before_action :authorize_participatory_space, **options
       end
+
+      def participatory_space_context(options = {})
+        before_action :authorize_participatory_space, **options
+      end
     end
 
     included do
