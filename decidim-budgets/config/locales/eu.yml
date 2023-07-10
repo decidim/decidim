@@ -159,33 +159,13 @@ eu:
         budget_excess:
           budget_excess:
             title: Aurrekontua gainditu da
-          close: Itxi
           ok: Ados
           projects_excess:
             title: Gehieneko proiektu kopurua gainditu egin da
         budget_summary:
           are_you_sure: Ziur zaude zure botoa ezeztatu nahi duzula?
-          assigned: 'Esleituta:'
-          cancel_order: ezabatu ezazu botoa eta hasi berriro
           checked_out:
             title: Botoa zuzen bidali da
-          minimum_projects_rule:
-            description: Zure aburuz, proiektuetako zeinei esleitu behar diegu aurrekontua? Hautatu gutxienez %{minimum_number} eta bozkatu zure lehentasunen arabera proiektua zehazteko.
-            instruction: "<li>Hautatu gutxienez nahi dituzun %{minimum_number} proiektu eta bozkatu zure lehentasunen arabera </li> proiektua zehazteko"
-          projects_rule:
-            description: Zure ustez, zein proiekturi esleitu beharko genieke aurrekontua? Hautatu %{minimum_number} eta %{maximum_number} arteko proiektuak, eta eman botoa zure lehentasunen arabera aurrekontua zehazteko.
-            instruction: "<li>Hautatu gutxienez nahi dituzun %{minimum_number} eta %{maximum_number} arteko proiektu eta bozkatu zure lehentasunen arabera </li> proiektua zehazteko"
-          projects_rule_maximum_only:
-            description: Zure ustez, zein proiekturi eman beharko genieke aurrekontua? Hautatu %{maximum_number} arte eta eman botoa zure lehentasunen arabera aurrekontua zehazteko.
-            instruction: "<li>Hautatu %{maximum_number} arte nahi beste proiektu eta eman botoa zure lehentasunen arabera aurrekontua zehazteko </li>"
-          rules:
-            title: Aurrekontuaren arauak
-          title: Zure esku dago aurrekontua erabakitzea
-          total_budget: Aurrekontua guztira
-          total_projects: Botoak guztira
-          vote_threshold_percent_rule:
-            description: Zure ustez, zein proiekturi eman beharko genieke aurrekontua? Hautatu %{minimum_budget} arte eta eman botoa zure lehentasunen arabera aurrekontua zehazteko.
-            instruction: "<li>Hautatu %{minimum_budget} arte nahi beste proiektu eta eman botoa zure lehentasunen arabera aurrekontua zehazteko </li>"
         count:
           projects_count:
             one: Proiektu bat
@@ -204,19 +184,6 @@ eu:
             all: Denak
             not_selected: Ez hautatua
             selected: Hautatua
-        filters_small_view:
-          close_modal: Itxi leihoa
-          filter: Iragazi
-          filter_by: 'Iragazi honen arabera:'
-          unfold: Zabaldu
-        order_progress:
-          vote: Proiektuaren alde egin
-        order_selected_projects:
-          remove: Kendu
-          selected_projects:
-            one: hautatutako proiektua
-            other: hautatutako proiektuak
-          view: Ikusi
         orders:
           highest_cost: Kostu handiena
           label: Antolatu proiektuak honen arabera
@@ -231,13 +198,9 @@ eu:
             one: Botoa
             other: botoak
           you_voted: Honen aldeko botoa eman duzu
-        project_budget_button:
-          add: Gehitu zure botoari
-          added: Gehituta zure botoari
         projects_for: '%{name} ren prozesuak'
         show:
           budget: Aurrekontua
-          view_all_projects: Ikusi proiektu guztiak
     components:
       budgets:
         actions:
