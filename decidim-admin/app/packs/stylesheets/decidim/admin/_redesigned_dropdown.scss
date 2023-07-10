@@ -6,4 +6,8 @@
   .dropdown__trigger{
     @apply flex underline p-0;
   }
+
+  .dropdown{
+    @apply divide-y divide-gray-3 z-20;
+  }
 }

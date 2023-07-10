@@ -158,7 +158,7 @@ module Decidim
           menu.add_item :edit_participatory_process,
                         I18n.t("info", scope: "decidim.admin.menu.participatory_processes_submenu"),
                         decidim_admin_participatory_processes.edit_participatory_process_path(current_participatory_space),
-                        icon_name: "dashboard",
+                        icon_name: "tools-line",
                         if: allowed_to?(:update, :process, process: current_participatory_space)
           current_participatory_space.components.each do |component|
             caption = translated_attribute(component.name)
@@ -167,7 +167,7 @@ module Decidim
             menu.add_item [component.manifest_name, component.id].join("_"),
                           caption.html_safe,
                           manage_component_path(component),
-                          icon_name: "dashboard",
+                          icon_name: "pages-line",
                           if: component.manifest.admin_engine && user_role_config.component_is_accessible?(component.manifest_name)
           end
         end
@@ -179,7 +179,7 @@ module Decidim
                         I18n.t("info", scope: "decidim.admin.menu.participatory_processes_submenu"),
                         decidim_admin_participatory_processes.edit_participatory_process_path(current_participatory_space),
                         active: is_active_link?(decidim_admin_participatory_processes.edit_participatory_process_path(current_participatory_space)),
-                        icon_name: "dashboard",
+                        icon_name: "tools-line",
                         if: allowed_to?(:update, :process, process: current_participatory_space)
 
           menu.add_item :participatory_process_steps,
