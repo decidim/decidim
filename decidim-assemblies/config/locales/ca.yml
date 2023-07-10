@@ -365,9 +365,7 @@ ca:
       pages:
         home:
           highlighted_assemblies:
-            active_assemblies: Assemblees actives
             assemblies_button_title: Enllaç a la pàgina d'Assemblees mostrant totes les assemblees
-            see_all_assemblies: Veure totes les assemblees
         user_profile:
           member_of:
             member_of: Membre de
@@ -382,13 +380,12 @@ ca:
         developer_group: Grup promotor
         duration: Durada
         included_at: Inclòs a
-        indefinite_duration: Indefinida
         internal_organisation: Organització interna
         is_transparent:
           'false': opaca
           'true': transparent
         local_area: Àrea d'organització
-        participatory_scope: Què es decideix
+        participatory_scope: Què es decideix?
         participatory_structure: Com es decideix
         private_space: Aquesta és una assemblea privada
         purpose_of_action: Propòsit de l'acció
