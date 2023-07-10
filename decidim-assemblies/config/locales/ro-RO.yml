@@ -369,42 +369,18 @@ ro:
       last_activity:
         new_assembly: 'Adunare nouă:'
       pages:
-        home:
-          highlighted_assemblies:
-            active_assemblies: Grupuri de lucru active
-            assemblies_button_title: Link către pagina Grupuri de lucru care afișează toate grupurile
-            see_all_assemblies: Vezi toate grupurile de lucru
         user_profile:
           member_of:
             member_of: Membru al
       show:
-        area: Zonă
         assembly_type: Tipul grupului de lucru
-        children: Grupuri de lucru
-        closing_date: Data închiderii
-        composition: Componență
-        created_by: Creat de
-        creation_date: Data creării
-        developer_group: Grup promotor
         duration: Durată
-        included_at: Inclus la
-        indefinite_duration: Nedeterminată
-        internal_organisation: Organizare internă
         is_transparent:
           'false': opac
           'true': transparent
-        local_area: Zona grupului de lucru
-        participatory_scope: Ce se decide
-        participatory_structure: Cum se decide
         private_space: Acesta este un grup de lucru privat
-        purpose_of_action: Scopul acțiunii
-        read_less: Citește mai puțin
-        read_more: Citește mai mult
         related_participatory_processes: Procese participative asociate
-        scope: Domeniu de interes
-        social_networks: Rețele sociale
         social_networks_title: Vizitează adunarea pe
-        target: Cine participă
     assembly_members:
       assembly_member:
         designated_on: Desemnat la
@@ -455,20 +431,12 @@ ro:
           take_part: Participă
         index:
           children: 'Grupuri de lucru: '
-          organizational_chart: Grafic organizațional
           promoted_assemblies: Grupuri de lucru evidențiate
-          reset_chart: Resetează
         order_by_assemblies:
           assemblies:
             one: "%{count} grup de lucru"
             few: "%{count} grupuri de lucru"
             other: "%{count} grupuri de lucru"
-        promoted_assembly:
-          more_info: Mai multe informații
-          take_part: Participă
       assembly_navigation:
         assembly_member_menu_item: Membri
         assembly_menu_item: Organizația
-      assembly_widgets:
-        show:
-          take_part: Participă
