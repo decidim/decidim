@@ -386,6 +386,7 @@ cs:
         developer_group: Skupina promotérů
         duration: Doba trvání
         included_at: Zahrnuty v
+        indefinite_duration: Neurčité
         internal_organisation: Vnitřní organizace
         is_transparent:
           'false': neprůhledný
