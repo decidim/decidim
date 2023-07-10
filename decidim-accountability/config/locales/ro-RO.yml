@@ -225,9 +225,6 @@ ro:
         description: Număr de rezultate generate
         object: rezultate
         title: Rezultate
-    participatory_spaces:
-      highlighted_results:
-        see_all: Vezi toate rezultatele (%{count})
     resource_links:
       included_projects:
         result_project: Proiecte incluse în acest rezultat
