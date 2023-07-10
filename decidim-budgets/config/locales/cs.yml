@@ -166,6 +166,7 @@ cs:
         continue: Pokračovat
         more_information: Více informací
       budgets_list:
+        budgets: Rozpočty
         cancel_order:
           more_than_one: smažte svůj hlas na %{name} a začněte znovu
           only_one: smazat váš hlas a začít znovu.
@@ -174,8 +175,10 @@ cs:
         if_change_opinion: Pokud jste změnili názor, můžete
         my_budgets: Mé rozpočty
         progress: Dokončit hlasování
+        remove_vote: Odebrat hlas
         show: Zobrazit projekty
         vote: Hlasovat
+        voted_budgets: Hlasované rozpočty
         voted_on: Hlasovali jste na %{links}.
       last_activity:
         new_vote_at: Nový rozpočtový hlas v
@@ -218,8 +221,11 @@ cs:
             title: Byl překročen maximální počet projektů
         budget_summary:
           are_you_sure: Opravdu chcete zrušit hlasování?
+          cancel_order: smazat váš hlas
           checked_out:
+            description: Již jste hlasovali pro rozpočet. Pokud jste změnili názor, můžete svůj hlas odstranit.
             title: Hlasování o rozpočtu bylo dokončeno
+          vote: Hlasovat o rozpočtu
         count:
           projects_count:
             one: 1 projekt
@@ -240,6 +246,24 @@ cs:
             all: Vše
             not_selected: Nevybráno
             selected: Vybrané
+        index:
+          back_to_budgets: zpět do rozpočtů
+        order_progress:
+          assigned: Přiřazeno
+          budget: Rozpočet
+          dynamic_help:
+            keep_adding_projects: Pokračovat v přidávání projektů
+            minimum_reached: Dosáhli jste minima, abyste mohli hlasovat
+            start_adding_projects: Začít přidávat projekty
+          minimum: Minimum
+          minimum_projects_rule:
+            description: Vyberte alespoň %{minimum_number} projekty, které chcete a hlasujte podle vašich preferencí pro definování rozpočtu.
+          projects_rule:
+            description: Vyberte alespoň %{minimum_number} a až %{maximum_number} projekty, které chcete a hlasujte podle vašich preferencí pro definování rozpočtu.
+          projects_rule_maximum_only:
+            description: Vyberte až %{maximum_number} projektů, které chcete a hlasujte podle vašich preferencí pro definování rozpočtu.
+          vote_threshold_percent_rule:
+            description: Přiřaďte alespoň %{minimum_budget} k projektům, které chcete, a hlasujte podle vašich preferencí pro definování rozpočtu.
         orders:
           highest_cost: Nejvyšší náklady
           label: Seřadit projekty podle
@@ -259,9 +283,15 @@ cs:
             other: hlasů
           you_voted: Hlasoval jste pro toto
         project_budget_button:
+          add: Přidat
           add_descriptive: Přidat k hlasování projekt %{resource_name}.
+          added: Přidáno
           added_descriptive: Projekt %{resource_name} přidán k vašemu hlasování.
+        project_filter:
+          added: Přidáno
+          all: Vše
         projects_for: Projekty pro %{name}
+        select_projects: Vybrat projekty
         show:
           budget: Rozpočet
       vote_reminder_mailer:
@@ -334,6 +364,8 @@ cs:
     orders:
       checkout:
         error: Při zpracování vašeho hlasování nastal problém.
+        success_html: <p>Váš hlas byl úspěšně přijat.</p> <p class="text-sm font-normal">Můžete prozkoumat <a class="text-secondary underline" href="%{rest_of_budgets_link}">zbývající rozpočty</a>.</p>
+        success_no_left_budgets_html: Váš hlas byl úspěšně přijat.
       destroy:
         error: Při rušení vašeho hlasování došlo k chybě.
         success: Váš hlas byl úspěšně zrušen.
