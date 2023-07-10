@@ -248,9 +248,6 @@ ar:
         description: عدد النتائج التي تم توليدها
         object: النتائج
         title: النتائج
-    participatory_spaces:
-      highlighted_results:
-        see_all: عرض كل النتائج (%{count})
     resource_links:
       included_projects:
         result_project: المشاريع المدرجة في هذه النتيجة
