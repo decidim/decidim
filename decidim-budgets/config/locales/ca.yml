@@ -219,7 +219,9 @@ ca:
           are_you_sure: Segur que vols cancel·lar el teu vot?
           cancel_order: Esborra el teu vot
           checked_out:
+            description: Ja has votat pel pressupost. Si has canviat d'idea, pots esborrar el teu vot.
             title: Vot pels pressupostos completat
+          vote: Votar pressupost
         count:
           projects_count:
             one: 1 projecte
@@ -238,6 +240,24 @@ ca:
             all: Tots
             not_selected: No seleccionat
             selected: Seleccionat
+        index:
+          back_to_budgets: tornar als pressupostos
+        order_progress:
+          assigned: Assignat
+          budget: Pressupost
+          dynamic_help:
+            keep_adding_projects: Seguir afegint projectes
+            minimum_reached: Has arribat al mínim per a poder votar
+            start_adding_projects: Començar a afegir projectes
+          minimum: Mínim
+          minimum_projects_rule:
+            description: Selecciona com a mínim %{minimum_number} projectes que vulguis i vota segons les teves preferències per a definir el pressupost.
+          projects_rule:
+            description: Selecciona entre %{minimum_number} i %{maximum_number} projectes que vulguis i vota segons les teves preferències per a definir el pressupost.
+          projects_rule_maximum_only:
+            description: Selecciona fins a %{maximum_number} projectes que vulguis i vota segons les teves preferències per a definir el pressupost.
+          vote_threshold_percent_rule:
+            description: Assigna com a mínim %{minimum_budget} amb els projectes que vulguis i vota segons les teves preferències per a definir el pressupost.
         orders:
           highest_cost: Major cost
           label: Ordenar projectes per
@@ -255,9 +275,15 @@ ca:
             other: vots
           you_voted: Has votat això
         project_budget_button:
+          add: Afegir
           add_descriptive: Afegeix el projecte %{resource_name} al teu vot.
+          added: Afegit
           added_descriptive: El projecte %{resource_name} s'ha afegit al teu vot.
+        project_filter:
+          added: Afegit
+          all: Tots
         projects_for: Projectes per a %{name}
+        select_projects: Selecciona projectes
         show:
           budget: Pressupost
       vote_reminder_mailer:
@@ -328,6 +354,8 @@ ca:
     orders:
       checkout:
         error: S'ha produït un error en processar el teu vot.
+        success_html: <p>El teu vot ha estat acceptat amb èxit.</p> <p class="text-sm font-normal">Pots <a class="text-secondary underline" href="%{rest_of_budgets_link}">consultar la resta de pressupostos</a>.</p>
+        success_no_left_budgets_html: El teu vot s'ha acceptat correctament.
       destroy:
         error: S'ha produït un error en cancel·lar el teu vot.
         success: El teu vot ha estat cancel·lat correctament.
