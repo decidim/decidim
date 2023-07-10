@@ -362,9 +362,7 @@ zh-TW:
       pages:
         home:
           highlighted_assemblies:
-            active_assemblies: 活耀大會
             assemblies_button_title: 鏈接到顯示所有大會的大會頁面
-            see_all_assemblies: 查看所有大會
         user_profile:
           member_of:
             member_of: 的成員
@@ -379,7 +377,6 @@ zh-TW:
         developer_group: 促銷團隊
         duration: 持續時間
         included_at: 包含於
-        indefinite_duration: 不確定
         internal_organisation: 內部組織
         is_transparent:
           'false': 不透明
