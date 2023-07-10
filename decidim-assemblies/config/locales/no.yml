@@ -348,9 +348,7 @@
       pages:
         home:
           highlighted_assemblies:
-            active_assemblies: Aktive forsamlinger
             assemblies_button_title: Lenke til forsamlingssiden som viser alle forsamlinger
-            see_all_assemblies: Se alle forsamlingene
         user_profile:
           member_of:
             member_of: Medlem av
@@ -362,15 +360,14 @@
         composition: Sammensetning
         created_by: Opprettet av
         creation_date: Dato opprettet
-        developer_group: Promotør gruppe
+        developer_group: Prosessen styres av
         duration: Varighet
         included_at: Inkludert på
-        indefinite_duration: Ubestemt
         internal_organisation: Intern organisasjon
         is_transparent:
           'false': opaque
           'true': privat
-        local_area: Organisasjonsområdet
+        local_area: Organisasjonsområde
         participatory_scope: Hva er bestemt
         participatory_structure: Hvordan blir det bestemt
         private_space: Dette er en privat forsamling
