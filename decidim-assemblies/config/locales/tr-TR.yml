@@ -348,41 +348,17 @@ tr:
       index:
         title: Kurullar
       pages:
-        home:
-          highlighted_assemblies:
-            active_assemblies: Aktif kurullar
-            assemblies_button_title: Tüm kurulları görüntüleyen Kurullar sayfasına bağlantı
-            see_all_assemblies: Tüm kurulları gör
         user_profile:
           member_of:
             member_of: Üyesi
       show:
-        area: Alan
         assembly_type: Kurul türü
-        children: Kurullar
-        closing_date: Kapanış tarihi
-        composition: Komposizyon
-        created_by: Oluşturan
-        creation_date: Oluşturulma tarihi
-        developer_group: Tanıtım grubu
         duration: Süre
-        included_at: Dahil
-        indefinite_duration: Belirsiz
-        internal_organisation: İç organizasyon
         is_transparent:
           'false': opak
           'true': şeffaf
-        local_area: Organizasyon alanı
-        participatory_scope: Karar nedir
-        participatory_structure: Nasıl karar verilir
         private_space: Bu özel bir kurul
-        purpose_of_action: Eylem amacı
-        read_less: Daha az oku
-        read_more: Daha fazla oku
         related_participatory_processes: İlgili katılımcı süreçleri
-        scope: Kapsam
-        social_networks: Sosyal ağlar
-        target: Katılanlar
     assembly_members:
       assembly_member:
         designated_on: Üzerinde belirlenen
@@ -430,19 +406,11 @@ tr:
           take_part: Yer almak
         index:
           children: 'Kurullar: '
-          organizational_chart: Organizasyon şeması
           promoted_assemblies: Vurgulanan kurullar
-          reset_chart: Sıfırla
         order_by_assemblies:
           assemblies:
             one: "%{count} kurul"
             other: "%{count} kurul"
-        promoted_assembly:
-          more_info: Daha fazla bilgi
-          take_part: Yer almak
       assembly_navigation:
         assembly_member_menu_item: Üyeler
         assembly_menu_item: Kurul
-      assembly_widgets:
-        show:
-          take_part: Yer almak
