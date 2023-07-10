@@ -363,42 +363,18 @@ ja:
       last_activity:
         new_assembly: '新しい参加スペース:'
       pages:
-        home:
-          highlighted_assemblies:
-            active_assemblies: アクティブな参加スペース
-            assemblies_button_title: すべての参加スペースを表示する参加スペースページへのリンク
-            see_all_assemblies: すべての参加スペースを表示
         user_profile:
           member_of:
             member_of: メンバー
       show:
-        area: エリア
         assembly_type: 参加スペース種別
-        children: 参加スペース
-        closing_date: 終了日
-        composition: 構成
-        created_by: '作成者:'
-        creation_date: 作成日
-        developer_group: プロモーターグループ
         duration: 持続期間
-        included_at: 含まれた日
-        indefinite_duration: 無期限
-        internal_organisation: 内部組織
         is_transparent:
           'false': 不透明な
           'true': 透明性
-        local_area: 組織エリア
-        participatory_scope: 決定されるもの
-        participatory_structure: どのように決められますか？
         private_space: これは私的参加スペースです
-        purpose_of_action: アクションの目的
-        read_less: 未読にする
-        read_more: もっと読む
         related_participatory_processes: 関連する参加型プロセス
-        scope: スコープ
-        social_networks: ソーシャル ネットワーク
         social_networks_title: 参加スペースを訪問
-        target: 参加者
     assembly_members:
       assembly_member:
         designated_on: 指定日時：
@@ -449,18 +425,10 @@ ja:
           take_part: 参加する
         index:
           children: '参加スペース: '
-          organizational_chart: 組織図
           promoted_assemblies: ハイライトされた参加スペース
-          reset_chart: リセット
         order_by_assemblies:
           assemblies:
             other: "%{count} 個の参加スペース"
-        promoted_assembly:
-          more_info: 詳細情報
-          take_part: 参加する
       assembly_navigation:
         assembly_member_menu_item: メンバー
         assembly_menu_item: 参加スペース
-      assembly_widgets:
-        show:
-          take_part: 参加する
