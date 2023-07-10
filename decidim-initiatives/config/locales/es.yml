@@ -605,8 +605,8 @@ es:
       signature_interval:
         title: Período de recogida de firmas
       states:
-        accepted: Aceptado
-        expired: Caducado
+        accepted: Aceptada
+        expired: Caducada
       unavailable_scope: Ámbito no disponible
       update:
         error: Se ha producido un error.
