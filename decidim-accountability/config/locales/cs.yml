@@ -301,6 +301,9 @@ cs:
         description: Počet vygenerovaných výsledků
         object: výsledky
         title: Výsledky
+    participatory_spaces:
+      highlighted_results:
+        see_all: Zobrazit všechny výsledky
     resource_links:
       included_projects:
         result_project: Projekty zahrnuté v tomto výsledku
