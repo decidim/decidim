@@ -205,6 +205,7 @@ ca:
           categories: Categories
           components: Components
           info: Informació
+          landing_page: Pàgina d'inici
           moderations: Moderacions
           private_users: Participants privades
         assemblies_types: Tipus d'assemblees
@@ -331,6 +332,26 @@ ca:
           accepted_types:
             json: JSON
       assemblies:
+        description:
+          area_name: Àrea
+          closing_date: Data de finalització
+          created_by: Creat per
+          creation_date: Data de creació
+          data: Administradora de l'assemblea
+          developer_group: Grup promotor
+          duration: Durada
+          included_at: Inclòs el
+          indefinite_duration: Indefinida
+          local_area: Àrea d'organització
+          meta_scope: Àmbit
+          participatory_scope: Què es decideix
+          participatory_structure: Com es decideix
+          target: Qui participa
+          title: Sobre aquesta assemblea
+        filters:
+          names:
+            all: Totes
+          type: Tipus
         show:
           title: Sobre aquesta assemblea
       assembly_members:
@@ -345,8 +366,16 @@ ca:
         participatory: Participativa
         working_group: Grup de treball
       content_blocks:
+        children_assemblies:
+          name: Assemblees
+        dates_metadata:
+          name: Metadades de dates
+        extra_data:
+          name: Tipus i durada
         highlighted_assemblies:
           name: Asemblees destacades
+        related_assemblies:
+          name: Assemblees relacionades
       created_by:
         city_council: Ajuntament
         others: Altres
@@ -366,6 +395,10 @@ ca:
       last_activity:
         new_assembly: 'Nova assemblea:'
       pages:
+        home:
+          highlighted_assemblies:
+            active_spaces: Assemblees actives
+            see_all_spaces: Veure totes les assemblees
         user_profile:
           member_of:
             member_of: Membre de
@@ -429,6 +462,10 @@ ca:
         index:
           children: 'Assemblees: '
           promoted_assemblies: Assemblees destacades
+        metadata:
+          children_item:
+            one: "%{count} assemblea"
+            other: "%{count} assemblees"
         order_by_assemblies:
           assemblies:
             one: "%{count} assemblea"
