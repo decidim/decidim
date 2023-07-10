@@ -58,7 +58,7 @@ describe "Initiative signing", type: :system do
     let(:initiatives_type) { create(:initiatives_type, :with_sms_code_validation, organization:) }
 
     it "The sms step appears" do
-      expect(page).to have_content("MOBILE PHONE NUMBER")
+      expect(page).to have_content("Mobile phone number")
     end
   end
 
