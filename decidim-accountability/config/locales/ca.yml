@@ -291,9 +291,6 @@ ca:
         description: Nombre de resultats generats
         object: resultats
         title: Resultats
-    participatory_spaces:
-      highlighted_results:
-        see_all: Veure tots els resultats (%{count})
     resource_links:
       included_projects:
         result_project: Projectes inclosos en aquest resultat
