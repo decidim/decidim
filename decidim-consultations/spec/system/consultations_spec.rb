@@ -10,10 +10,11 @@ describe "Consultations", type: :system do
     switch_to_host(organization.host)
   end
 
-  it_behaves_like "shows contextual help" do
-    let(:index_path) { decidim_consultations.consultations_path }
-    let(:manifest_name) { :consultations }
-  end
+  # REDESIGN_DISABLED - The consultations module will be deprecated and is not redesigned"
+  # it_behaves_like "shows contextual help" do
+  #   let(:index_path) { decidim_consultations.consultations_path }
+  #   let(:manifest_name) { :consultations }
+  # end
 
   context "when ordering by 'Most recent'" do
     let!(:older_consultation) do
@@ -28,9 +29,10 @@ describe "Consultations", type: :system do
       switch_to_host(organization.host)
     end
 
-    it_behaves_like "editable content for admins" do
-      let(:target_path) { visit decidim_consultations.consultations_path }
-    end
+    # REDESIGN_DISABLED - The consultations module will be deprecated and is not redesigned"
+    # it_behaves_like "editable content for admins" do
+    #   let(:target_path) { visit decidim_consultations.consultations_path }
+    # end
 
     context "when requesting the consultations path" do
       before do

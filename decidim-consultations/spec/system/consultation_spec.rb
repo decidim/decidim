@@ -13,9 +13,10 @@ describe "Consultation", type: :system do
     switch_to_host(organization.host)
   end
 
-  it_behaves_like "editable content for admins" do
-    let(:target_path) { decidim_consultations.consultation_path(consultation) }
-  end
+  # REDESIGN_DISABLED - The consultations module will be deprecated and is not redesigned"
+  # it_behaves_like "editable content for admins" do
+  #   let(:target_path) { decidim_consultations.consultation_path(consultation) }
+  # end
 
   context "when requesting the consultation path" do
     before do
@@ -64,6 +65,8 @@ describe "Consultation", type: :system do
       let!(:question) { create(:question, :published, consultation:, scope: consultation.highlighted_scope) }
 
       before do
+        skip "REDESIGN_DISABLED - The consultations module will be deprecated and is not redesigned"
+
         switch_to_host(organization.host)
         visit decidim_consultations.consultation_path(consultation)
       end
@@ -83,6 +86,8 @@ describe "Consultation", type: :system do
       let!(:question) { create(:question, :published, consultation:, scope:) }
 
       before do
+        skip "REDESIGN_DISABLED - The consultations module will be deprecated and is not redesigned"
+
         switch_to_host(organization.host)
         visit decidim_consultations.consultation_path(consultation)
       end
@@ -106,6 +111,8 @@ describe "Consultation", type: :system do
 
       context "when the user is not logged in" do
         before do
+          skip "REDESIGN_DISABLED - The consultations module will be deprecated and is not redesigned"
+
           switch_to_host(organization.host)
           visit decidim_consultations.consultation_path(consultation)
         end
@@ -117,6 +124,8 @@ describe "Consultation", type: :system do
 
       context "when the user is logged in" do
         before do
+          skip "REDESIGN_DISABLED - The consultations module will be deprecated and is not redesigned"
+
           switch_to_host(organization.host)
           login_as user, scope: :user
         end
