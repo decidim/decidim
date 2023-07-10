@@ -347,9 +347,7 @@ pt-BR:
       pages:
         home:
           highlighted_assemblies:
-            active_assemblies: Conjuntos ativos
             assemblies_button_title: Link para a página de Assembleias exibindo todos as assembleias
-            see_all_assemblies: Veja todas as assembleias
         user_profile:
           member_of:
             member_of: Membro de
@@ -364,12 +362,11 @@ pt-BR:
         developer_group: Grupo promotor
         duration: Duração
         included_at: Incluído em
-        indefinite_duration: Indeterminado
         internal_organisation: Organização interna
         is_transparent:
           'false': opaco
           'true': transparente
-        local_area: Área de organização
+        local_area: Área da organização
         participatory_scope: O que é decidido
         participatory_structure: Como é decidido
         private_space: Esta é uma assembleia privada
@@ -379,7 +376,7 @@ pt-BR:
         related_participatory_processes: Processos participativos relacionados
         scope: Âmbito
         social_networks: Redes sociais
-        target: Quem pode participar
+        target: Quem participa
     assembly_members:
       assembly_member:
         designated_on: Designado em
