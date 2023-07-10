@@ -161,9 +161,6 @@ de:
         close_modal: Dialog schließen
         continue: Weiter
         more_information: Mehr Informationen
-      budget_list_item:
-        voting_finished: Sie haben bei diesem Budget abgestimmt.
-        voting_started: Sie haben damit begonnen, bei diesem Budget abzustimmen.
       budgets_list:
         cancel_order:
           more_than_one: lösche deine Stimme am %{name} und beginne neu
@@ -210,7 +207,6 @@ de:
           budget_excess:
             description: Wenn Sie dieses Projekt hinzufügen, überschreiten Sie das maximale Budget und kann deshalb nicht hinzugefügt werden. Entfernen Sie ein bereits ausgewähltes Projekt um diesem Projekt eine Stimme zu geben.
             title: Maximales Budget überschritten
-          close: Schließen
           description: Wenn Sie dieses Projekt hinzufügen, überschreiten Sie das maximale Budget. Wenn Sie möchten, können Sie ein bereits ausgewähltes Projekt entfernen, um diesem Projekt eine Stimme zu geben.
           ok: OK
           projects_excess:
@@ -218,35 +214,14 @@ de:
             title: Maximale Anzahl Projekte überschritten
         budget_summary:
           are_you_sure: Sind Sie sicher, dass Sie Ihre Stimme zurückziehen wollen?
-          assigned: 'Zugewiesen:'
-          cancel_order: Löschen Sie Ihre Stimme und beginnen Sie von vorne
           checked_out:
-            description: Sie haben bereits über dieses Budget abgestimmt. Wenn Sie Ihre Meinung geändert haben, können Sie %{cancel_link}.
             title: Budget-Abstimmung abgeschlossen
-          minimum_projects_rule:
-            description: Welche Projekte sollen finanziert werden? Wählen Sie mindestens %{minimum_number} Projekte aus und stimmen Sie entsprechend Ihren Präferenzen ab, um das Budget festzulegen.
-            instruction: "<li>Wählen Sie mindestens %{minimum_number} Projekte, die Sie unterstützen möchten, und stimmen Sie entsprechend Ihren Präferenzen ab, um das Budget zu definieren.</li>"
-          projects_rule:
-            description: Welche Projekte sollen finanziert werden? Wählen Sie mindestens %{minimum_number} und bis zu %{maximum_number} Projekte aus und stimmen Sie entsprechend Ihren Präferenzen ab, um das Budget festzulegen.
-            instruction: "<li>Wählen Sie mindestens %{minimum_number} und bis zu %{maximum_number} Projekte, die Sie wünschen und stimmen Sie nach Ihren Präferenzen ab, um das Budget zu definieren.</li>"
-          projects_rule_maximum_only:
-            description: Welche Projekte sollen finanziert werden? Wählen Sie bis zu %{maximum_number} Projekte aus und stimmen Sie entsprechend Ihren Präferenzen ab, um das Budget festzulegen.
-            instruction: "<li>Wählen Sie bis zu %{maximum_number} Projekte, die Sie unterstützen möchten, und stimmen Sie entsprechend Ihren Präferenzen ab, um das Budget zu definieren.</li>"
-          rules:
-            title: Budgetregeln
-          title: Sie entscheiden über das Budget
-          total_budget: Gesamtbudget
-          total_projects: Stimmen insgesamt
-          vote_threshold_percent_rule:
-            description: Welche Projekte sollen finanziert werden? Wählen Sie Projekte im Wert von mindestens %{minimum_budget} aus und stimmen Sie entsprechend Ihren Präferenzen ab, um das Budget festzulegen.
-            instruction: "<li>Wählen Sie Projekte im Wert von mindestens %{minimum_budget} aus und stimmen Sie entsprechend Ihren Präferenzen ab, um das Budget festzulegen.</li>"
         count:
           projects_count:
             one: 1 Projekt
             other: "%{count} Projekte"
         exit_modal:
           cancel: Zurück zur Abstimmung
-          close_modal: Dialog schließen
           exit: Abstimmung verlassen
           message: Ihre Stimme wurde nicht registriert, weil Sie den Abstimmungsprozess noch nicht abgeschlossen haben. Sind Sie sicher, dass Sie die Abstimmung beenden möchten?
           title: Sie haben noch nicht abgestimmt
@@ -259,21 +234,6 @@ de:
             all: Alle
             not_selected: Nicht ausgewählt
             selected: Ausgewählt
-        filters_small_view:
-          close_modal: Modal schließen
-          filter: Filter
-          filter_by: Filtern nach
-          unfold: Aufklappen
-        index:
-          view_project: Projekt anzeigen
-        order_progress:
-          vote: Abstimmung
-        order_selected_projects:
-          remove: Löschen
-          selected_projects:
-            one: Projekt ausgewählt
-            other: ausgewählte Projekte
-          view: Anzeigen
         orders:
           highest_cost: Höchste Kosten
           label: Projekte sortieren nach
@@ -291,14 +251,11 @@ de:
             other: Abstimmungen
           you_voted: Sie haben dafür gestimmt
         project_budget_button:
-          add: Zur Abstimmung hinzufügen
           add_descriptive: Projekt %{resource_name} zu Ihrer Abstimmung hinzufügen.
-          added: Zu deiner Abstimmung hinzugefügt
           added_descriptive: Project %{resource_name} zu Ihrer Abstimmung hinzugefügt.
         projects_for: Projekte für %{name}
         show:
           budget: Budget
-          view_all_projects: Alle Projekte anzeigen
       vote_reminder_mailer:
         vote_reminder:
           email_budgets: 'Bereiche, in denen Sie eine unvollendete Abstimmung haben:'
@@ -367,7 +324,6 @@ de:
     orders:
       checkout:
         error: Bei der Bearbeitung Ihrer Stimme ist ein Problem aufgetreten.
-        success: Ihre Stimme wurde erfolgreich abgegeben.
       destroy:
         error: Beim Löschen Ihrer Stimme ist ein Problem aufgetreten.
         success: Ihre Stimme wurde erfolgreich gelöscht.
