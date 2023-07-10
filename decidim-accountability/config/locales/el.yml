@@ -291,9 +291,6 @@ el:
         description: Αριθμός αποτελεσμάτων που δημιουργήθηκαν
         object: αποτελέσματα
         title: Αποτελέσματα
-    participatory_spaces:
-      highlighted_results:
-        see_all: Δείτε όλα τα αποτελέσματα (%{count})
     resource_links:
       included_projects:
         result_project: Έργα που περιλαμβάνονται σε αυτό το αποτέλεσμα
