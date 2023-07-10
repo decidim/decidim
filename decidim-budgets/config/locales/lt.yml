@@ -169,34 +169,14 @@ lt:
         budget_excess:
           budget_excess:
             title: Didžiausia nustatyta biudžeto riba viršyta
-          close: Uždaryti
           ok: OK
           projects_excess:
             description: Šio projekto biudžetas viršija didžiausią nustatytą projektų kiekio ribą ir projekto negalima pridėti. Jei norite, galite pašalinti projektą, kurį jau pasirinkote pridėti, arba balsuoti atsižvelgdami į tai kam teikiate pirmenybę.
             title: Didžiausio nustatyto projektų skaičiaus riba viršyta
         budget_summary:
           are_you_sure: Ar tikrai norite atšauti savo balsą?
-          assigned: 'Priskirta:'
-          cancel_order: pašalinti balsą ir pradėti iš naujo
           checked_out:
             title: Balsavimas dėl biudžeto baigtas
-          minimum_projects_rule:
-            description: Kokiems projektams, jūsų nuomone, turėtume skirti biudžetą? Pasirinkite ne mažiau kaip %{minimum_number} projektus, kuriuos norite paremti ir atitinkamai išreiškite savo prioritetus.
-            instruction: "<li>Pasirinkite bent %{minimum_number} projektus ir balsuokite pagal savo prioritetus tam, kad numatyti biudžeto išlaidas.</li>"
-          projects_rule:
-            description: Kokie projektai Jūsų manymu turėtų gauti finansavimą? Pasirinkite tarp %{minimum_number} ir %{maximum_number} projektų kurių norėtumėt ir skirkite balsuos pagal Jūsų prioritetus.
-            instruction: "<li>Pasirinkite tarp %{minimum_number} ir %{maximum_number} projektų ir balsuokite pagal savo prioritetus tam, kad nustatyti kam skirti biudžetą.</li>"
-          projects_rule_maximum_only:
-            description: Kokiems projektams, jūsų nuomone, turėtume skirti biudžetą? Pasirinkite ne mažiau kaip %{maximum_number} projektus, kuriuos norite paremti ir atitinkamai išreiškite savo prioritetus.
-            instruction: "<li>Pasirinkite iki %{maximum_number} projektų ir balsuokite pagal savo prioritetus tam, kad numatyti biudžeto išlaidas.</li>"
-          rules:
-            title: Biudžeto taisyklės
-          title: Jūs sprendžiate dėl biudžeto
-          total_budget: Visas biudžetas
-          total_projects: Viso balsų
-          vote_threshold_percent_rule:
-            description: Kokiems projektams, jūsų nuomone, turėtume skirti biudžetą? Projektams, kuriuos norite paremti, skirkite ne mažiau kaip %{minimum_budget} ir, norėdami nustatyti biudžetą, balsuokite pagal tai kam teikiate pirmenybę.
-            instruction: "<li>Pasirinkite bent %{minimum_budget} projektus ir balsuokite pagal savo prioritetus tam, kad numatyti biudžeto išlaidas.</li>"
         count:
           projects_count:
             one: 1 projektas
@@ -205,7 +185,6 @@ lt:
             other: "%{count} projektai"
         exit_modal:
           cancel: Grįžti į balsavimą
-          close_modal: Uždaryti modalinį langą
           exit: Išeiti iš balsavimo
           message: Jūsų balsas nebuvo registruotas nes dar neįvykdėte viso balsavimo proceso. Ar tikrai norite išeiti iš balsavimo aplinkos?
           title: Dar nebasavote
@@ -218,23 +197,6 @@ lt:
             all: Visi
             not_selected: Nepasrinkta
             selected: Pasirinkta
-        filters_small_view:
-          close_modal: Uždaryti modalinį langą
-          filter: Filtras
-          filter_by: Filtruoti pagal
-          unfold: Išskleisti
-        index:
-          view_project: Peržiūrėti projektą
-        order_progress:
-          vote: Balsuoti
-        order_selected_projects:
-          remove: Pašalinti
-          selected_projects:
-            one: pasirinktas projektas
-            few: pasirinkti projektai
-            many: pasirinkti projektai
-            other: pasirinkti projektai
-          view: Peržiūra
         orders:
           highest_cost: Didžiausia kaina
           label: Rikiuoti projektus pagal
@@ -250,13 +212,9 @@ lt:
             few: balsai
             many: balsai
             other: balsai
-        project_budget_button:
-          add: Pridėti prie balsų
-          added: Pridėta prie Jūsų balsų
         projects_for: Projektai dėl %{name}
         show:
           budget: Biudžetas
-          view_all_projects: Peržiūrėti visus projektus
       vote_reminder_mailer:
         vote_reminder:
           email_budgets: 'Aplinkos kuriose nebaigėte balsuoti:'
