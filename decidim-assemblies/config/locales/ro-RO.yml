@@ -383,6 +383,7 @@ ro:
         developer_group: Grup promotor
         duration: Durată
         included_at: Inclus la
+        indefinite_duration: Nedeterminată
         internal_organisation: Organizare internă
         is_transparent:
           'false': opac
