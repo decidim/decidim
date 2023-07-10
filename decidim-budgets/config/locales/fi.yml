@@ -236,7 +236,7 @@ fi:
           rules:
             title: Budjetoinnin säännöt
           title: Voit päättää budjetin
-          total_budget: Käytettävissä oleva budjetti
+          total_budget: Kokonaisbudjetti
           total_projects: Käytettävissä olevat äänet
           vote_threshold_percent_rule:
             description: Mille hankkeille budjetin rahaa tulisi jakaa? Varaa vähintään %{minimum_budget} hankkeille, jotka haluat toteutettavan ja äänestä mieltymystesi mukaisesti määrittääksesi budjetin.
