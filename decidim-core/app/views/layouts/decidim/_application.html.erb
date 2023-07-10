@@ -16,6 +16,8 @@
     <!--googleon: all--><!--/noindex-->
 
     <%= render "layouts/decidim/wrapper" do %>
+      <%= cell "decidim/translation_bar", current_organization %>
+
       <%= yield %>
     <% end %>
 
