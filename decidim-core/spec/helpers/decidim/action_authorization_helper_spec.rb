@@ -28,8 +28,8 @@ module Decidim
 
           it "renders a widget toggling the authorization modal" do
             expect(subject).not_to include(path)
-            expect(subject).to include('data-open="authorizationModal"')
-            expect(subject).to include("data-open-url=\"/authorization_modals/#{action}/f/#{component.id}\"")
+            expect(subject).to include('data-dialog-open="authorizationModal"')
+            expect(subject).to include("data-dialog-remote-url=\"/authorization_modals/#{action}/f/#{component.id}\"")
             expect(subject).to include(*params[:widget_parts])
           end
 
@@ -38,8 +38,8 @@ module Decidim
 
             it "renders a widget toggling the authorization modal" do
               expect(subject).not_to include(path)
-              expect(subject).to include('data-open="authorizationModal"')
-              expect(subject).to include("data-open-url=\"/authorization_modals/#{action}/f/#{component.id}/#{resource.resource_manifest.name}/#{resource.id}\"")
+              expect(subject).to include('data-dialog-open="authorizationModal"')
+              expect(subject).to include("data-dialog-remote-url=\"/authorization_modals/#{action}/f/#{component.id}/#{resource.resource_manifest.name}/#{resource.id}\"")
               expect(subject).to include(*params[:widget_parts])
             end
           end
@@ -51,8 +51,8 @@ module Decidim
 
             it "renders a widget toggling the authorization modal of free resources not related with a component" do
               expect(subject).not_to include(path)
-              expect(subject).to include('data-open="authorizationModal"')
-              expect(subject).to include("data-open-url=\"/free_resource_authorization_modals/#{action}/f/#{resource.resource_manifest.name}/#{resource.id}\"")
+              expect(subject).to include('data-dialog-open="authorizationModal"')
+              expect(subject).to include("data-dialog-remote-url=\"/free_resource_authorization_modals/#{action}/f/#{resource.resource_manifest.name}/#{resource.id}\"")
               expect(subject).to include(*params[:widget_parts])
             end
           end
@@ -64,7 +64,7 @@ module Decidim
 
       context "when #{params[:has_action] ? "the action is authorized" : "the user is logged"}" do
         it "renders a regular widget" do
-          expect(subject).not_to include("data-open")
+          expect(subject).not_to include("data-dialog-open")
           expect(subject).to include(path)
           expect(subject).to include(*params[:widget_parts])
         end
@@ -75,7 +75,7 @@ module Decidim
 
         it "renders a widget toggling the login modal" do
           expect(subject).not_to include(path)
-          expect(subject).to include('data-open="loginModal"')
+          expect(subject).to include('data-dialog-open="loginModal"')
           expect(subject).to include(*params[:widget_parts])
         end
       end
