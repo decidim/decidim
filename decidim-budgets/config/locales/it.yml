@@ -205,13 +205,13 @@ it:
           filter_by: Filtra per
           unfold: Espandi
         order_progress:
-          vote: Vota
+          vote: Votazione
         order_selected_projects:
           remove: Rimuovi
           selected_projects:
             one: Progetto scelto
             other: Progetti scelti
-          view: Visualizza
+          view: vista
         orders:
           highest_cost: Costo più alto
           label: Ordina i progetti per
