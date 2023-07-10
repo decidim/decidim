@@ -49,6 +49,11 @@ ca:
           create: "%{user_name} ha creat el post %{resource_name} al blog de %{space_name}"
           delete: "%{user_name} ha eliminat el post %{resource_name} del blog de %{space_name}"
           update: "%{user_name} ha actualitzat el post %{resource_name} en el blog de %{space_name}"
+      content_blocks:
+        highlighted_posts:
+          last_published: Darrera publicació
+          name: Publicacions
+          see_all: Veure totes les publicacions
       last_activity:
         new_post: 'Nova publicació:'
       models:
