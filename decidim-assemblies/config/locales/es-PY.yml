@@ -366,42 +366,18 @@ es-PY:
       last_activity:
         new_assembly: 'Nueva asamblea:'
       pages:
-        home:
-          highlighted_assemblies:
-            active_assemblies: Asambleas activas
-            assemblies_button_title: Enlace a la página de Asambleas que muestra todas las asambleas
-            see_all_assemblies: Ver todas las asambleas
         user_profile:
           member_of:
             member_of: Miembro de
       show:
-        area: Área
         assembly_type: Tipo de asambleas
-        children: Asambleas
-        closing_date: Fecha de cierre
-        composition: Composición
-        created_by: Creado por
-        creation_date: Fecha de creación
-        developer_group: Grupo promotor
         duration: Duración
-        included_at: Incluido en
-        indefinite_duration: Indefinido
-        internal_organisation: Organización interna
         is_transparent:
           'false': opaco
           'true': transparente
-        local_area: Área de organización
-        participatory_scope: Qué se decide
-        participatory_structure: Cómo se decide
         private_space: Esta es una asamblea privada
-        purpose_of_action: Propósito de la acción
-        read_less: Leer menos
-        read_more: Lee más
         related_participatory_processes: Procesos participativos relacionados
-        scope: Ámbito
-        social_networks: Redes sociales
         social_networks_title: Visita la asamblea en
-        target: Quién participa
     assembly_members:
       assembly_member:
         designated_on: Designado en
@@ -452,19 +428,11 @@ es-PY:
           take_part: Participa
         index:
           children: 'Asambleas: '
-          organizational_chart: Organigrama
           promoted_assemblies: Asambleas destacadas
-          reset_chart: Reiniciar
         order_by_assemblies:
           assemblies:
             one: "%{count} asamblea"
             other: "%{count} asambleas"
-        promoted_assembly:
-          more_info: Más información
-          take_part: Participa
       assembly_navigation:
         assembly_member_menu_item: Miembros
         assembly_menu_item: La asamblea
-      assembly_widgets:
-        show:
-          take_part: Participa
