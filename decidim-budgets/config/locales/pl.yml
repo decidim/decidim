@@ -126,33 +126,13 @@ pl:
         budget_excess:
           budget_excess:
             title: Przekroczono maksymalny budżet
-          close: Zamknij
           ok: ok
           projects_excess:
             title: Maksymalna liczba projektów została przekroczona
         budget_summary:
           are_you_sure: Czy na pewno chcesz anulować swój głos?
-          assigned: 'Przypisano:'
-          cancel_order: usuń głos i zacznij od nowa
           checked_out:
             title: Ukończono głosowanie dot. budżetu
-          minimum_projects_rule:
-            description: Na jakie projekty Twoim zdaniem powinniśmy przeznaczyć budżet? Wybierz co najmniej %{minimum_number} projektów i głosuj zgodnie ze swoimi preferencjami aby zdefiniować budżet.
-            instruction: "<li>Wybierz co najmniej %{minimum_number} projektów i zagłosuj zgodnie ze swoimi preferencjami w celu zdefiniowania budżetu.</li>"
-          projects_rule:
-            description: Na jakie projekty Twoim zdaniem powinniśmy przeznaczyć budżet? Wybierz co najmniej %{minimum_number} i maksymalnie %{maximum_number} projektów i głosuj zgodnie ze swoimi preferencjami w celu zdefiniowania budżetu.
-            instruction: "<li>Wybierz co najmniej %{minimum_number} i maksymalnie %{maximum_number} projektów i głosuj zgodnie ze swoimi preferencjami w celu zdefiniowania budżetu.</li>"
-          projects_rule_maximum_only:
-            description: Na jakie projekty Twoim zdaniem powinniśmy przeznaczyć budżet? Wybierz do %{maximum_number} projektów i głosuj zgodnie ze swoimi preferencjami aby zdefiniować budżet.
-            instruction: "<li>Wybierz do %{maximum_number} projektów i głosuj zgodnie ze swoimi preferencjami w celu zdefiniowania budżetu.</li>"
-          rules:
-            title: Zasady budżetu
-          title: Ty decydujesz o budżecie
-          total_budget: Całkowity budżet
-          total_projects: Liczba głosów
-          vote_threshold_percent_rule:
-            description: Na jakie projekty Państwa zdaniem powinniśmy przeznaczyć budżet? Przypisz co najmniej %{minimum_budget} do projektów, które chcesz i głosuj zgodnie ze swoimi preferencjami w celu zdefiniowania budżetu.
-            instruction: "<li>Przypisz co najmniej %{minimum_budget} do projektów i głosuj zgodnie ze swoimi preferencjami w celu zdefiniowania budżetu.</li>"
         count:
           projects_count:
             one: 1 projekt
@@ -168,21 +148,6 @@ pl:
             all: Wszystkie
             not_selected: Nie wybrano
             selected: Wybrano
-        filters_small_view:
-          close_modal: Zamknij okno
-          filter: Filtr
-          filter_by: Filtruj według
-          unfold: Rozwiń
-        order_progress:
-          vote: Głosuj
-        order_selected_projects:
-          remove: Usuń
-          selected_projects:
-            one: wybrany projekt
-            few: wybranych projekty
-            many: wybrane projektów
-            other: wybranych projektów
-          view: Zobacz
         orders:
           highest_cost: Najwyższy koszt
           label: Uporządkuj projekty według
@@ -198,13 +163,9 @@ pl:
             few: głosów
             many: głosów
             other: głosów
-        project_budget_button:
-          add: Dodaj do swojego głosu
-          added: Dodano do Twojego głosu
         projects_for: Projekty dla %{name}
         show:
           budget: Budżet
-          view_all_projects: Wyświetl wszystkie projekty
     components:
       budgets:
         actions:
