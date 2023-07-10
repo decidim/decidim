@@ -362,9 +362,7 @@ ja:
       pages:
         home:
           highlighted_assemblies:
-            active_assemblies: アクティブな参加スペース
             assemblies_button_title: すべての参加スペースを表示する参加スペースページへのリンク
-            see_all_assemblies: すべての参加スペースを表示
         user_profile:
           member_of:
             member_of: メンバー
@@ -379,7 +377,6 @@ ja:
         developer_group: プロモーターグループ
         duration: 持続期間
         included_at: 含まれた日
-        indefinite_duration: 無期限
         internal_organisation: 内部組織
         is_transparent:
           'false': 不透明な
