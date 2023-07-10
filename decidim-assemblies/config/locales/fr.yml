@@ -365,7 +365,9 @@ fr:
       pages:
         home:
           highlighted_assemblies:
+            active_assemblies: Assemblées actives
             assemblies_button_title: Lien vers la page Assemblées où toutes les assemblées sont affichées
+            see_all_assemblies: Voir toutes les assemblées
         user_profile:
           member_of:
             member_of: Membre de
@@ -380,6 +382,7 @@ fr:
         developer_group: Organisateur
         duration: Durée
         included_at: Intégrée à cette plateforme le
+        indefinite_duration: Indéfinie
         internal_organisation: Organisation interne
         is_transparent:
           'false': non-visible par les non-membres
