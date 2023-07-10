@@ -173,6 +173,8 @@ tr:
           projects_count:
             one: 1 proje
             other: "%{count} proje"
+        exit_modal:
+          close_modal: Pencereyi kapat
         filters:
           category: Kategori
           scope: Kapsam
@@ -188,7 +190,7 @@ tr:
           filter_by: Şuna göre filtrele
           unfold: Aç
         order_progress:
-          vote: Oy ver
+          vote: Oy
         order_selected_projects:
           remove: Kaldır
           selected_projects:
