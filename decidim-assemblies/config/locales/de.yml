@@ -369,7 +369,9 @@ de:
       pages:
         home:
           highlighted_assemblies:
+            active_assemblies: Aktive Gremien
             assemblies_button_title: Verknüpfung zu der Versammlungsseite mit einem Überblick aller Versammlungen
+            see_all_assemblies: Alle Gremien anzeigen
         user_profile:
           member_of:
             member_of: Mitglied von
@@ -384,6 +386,7 @@ de:
         developer_group: Promoter-Gruppe
         duration: Dauer
         included_at: Inbegriffen bei
+        indefinite_duration: Unbestimmt
         internal_organisation: Interne Organisation
         is_transparent:
           'false': undurchsichtig
