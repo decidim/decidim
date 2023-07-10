@@ -192,9 +192,6 @@ is-IS:
       results:
         object: niðurstöður
         title: Niðurstöður
-    participatory_spaces:
-      highlighted_results:
-        see_all: Sjá allar niðurstöður (%{count})
     resource_links:
       included_projects:
         result_project: Verkefni í þessari niðurstöðu
