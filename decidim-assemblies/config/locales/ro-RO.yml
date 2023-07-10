@@ -208,6 +208,7 @@ ro:
           categories: Categorii
           components: Componente
           info: Informații
+          landing_page: Pagina principală
           moderations: Moderări
           private_users: Utilizatori privați
         assemblies_types: Tipuri de grupuri de lucru
@@ -334,6 +335,22 @@ ro:
           accepted_types:
             json: JSON
       assemblies:
+        description:
+          area_name: Zonă
+          closing_date: Data închiderii
+          created_by: Creat de
+          creation_date: Data creării
+          developer_group: Grup de promotori
+          duration: Durată
+          included_at: Inclus la
+          indefinite_duration: Nedeterminată
+          participatory_scope: Ce se decide
+          participatory_structure: Cum se decide
+          target: Cine participă
+          title: Despre această adunare
+        filters:
+          names:
+            all: Toate
         show:
           title: Despre această adunare
       assembly_members:
