@@ -161,9 +161,6 @@ fr:
         close_modal: Fermer la fenêtre de dialogue
         continue: Continuer
         more_information: Plus d'information
-      budget_list_item:
-        voting_finished: Vous avez voté dans ce budget.
-        voting_started: Vous avez commencé à voter dans ce budget.
       budgets_list:
         cancel_order:
           more_than_one: supprimer votre vote sur %{name} et recommencer
@@ -210,7 +207,6 @@ fr:
           budget_excess:
             description: Ce projet dépasse le budget maximum et ne peut pas être ajouté à votre vote. Si vous le souhaitez, vous pouvez supprimer un projet que vous avez déjà sélectionné, puis voter de nouveau selon vos préférences.
             title: Budget maximum dépassé
-          close: Fermer
           description: Ce projet dépasse le budget maximum et ne peut pas être ajouté à votre vote. Si vous le souhaitez, vous pouvez supprimer un projet que vous avez déjà sélectionné, puis voter de nouveau selon vos préférences.
           ok: D'accord
           projects_excess:
@@ -218,35 +214,14 @@ fr:
             title: Nombre maximum de projets dépassé
         budget_summary:
           are_you_sure: Êtes-vous certain de vouloir annuler votre vote ?
-          assigned: 'Affecté à :'
-          cancel_order: supprimer votre vote et recommencer
           checked_out:
-            description: Vous avez déjà voté pour le budget. Si vous avez changé d'avis, vous pouvez %{cancel_link}.
             title: Vote du budget terminé
-          minimum_projects_rule:
-            description: A quels projets pensez-vous que nous devrions allouer un budget ? Sélectionnez au moins %{minimum_number} projets que vous soutenez et votez selon vos préférences pour définir le budget.
-            instruction: "<li>Sélectionnez au moins %{minimum_number} projets que vous souhaitez voir se réaliser et votez selon vos préférences pour définir le budget.</li>"
-          projects_rule:
-            description: A quels projets pensez-vous que nous devrions allouer un budget ? Sélectionnez entre %{minimum_number} et %{maximum_number} projets que vous soutenez et votez selon vos préférences pour définir le budget.
-            instruction: "<li>Sélectionnez entre %{minimum_number} et %{maximum_number} projets que vous souhaitez et votez selon vos préférences pour définir le budget.</li>"
-          projects_rule_maximum_only:
-            description: A quels projets pensez-vous que nous devrions allouer un budget ? Sélectionnez au maximum %{maximum_number} projets que vous soutenez et votez selon vos préférences pour définir le budget.
-            instruction: "<li>Sélectionnez au maximum %{maximum_number} projets que vous souhaitez et votez selon vos préférences pour définir le budget.</li>"
-          rules:
-            title: Règles du vote
-          title: Vous décidez du budget
-          total_budget: Budget total
-          total_projects: Nombre total de votes
-          vote_threshold_percent_rule:
-            description: À quels projets pensez-vous que nous devrions allouer un budget ? Assignez au moins %{minimum_budget} aux projets que vous soutenez et votez selon vos préférences pour définir le budget.
-            instruction: "<li>Assignez au moins %{minimum_budget} aux projets que vous soutenez et votez selon vos préférences pour définir le budget.</li>"
         count:
           projects_count:
             one: 1 projet
             other: "%{count} projets"
         exit_modal:
           cancel: Revenir au vote
-          close_modal: Fermer la fenêtre de dialogue
           exit: Quitter le vote
           message: Votre vote n'a pas encore été enregistré car vous n'avez pas terminé le processus de vote. Êtes-vous sûr de vouloir quitter le vote ?
           title: Vous n'avez pas encore voté
@@ -259,21 +234,6 @@ fr:
             all: Tous
             not_selected: Non sélectionné
             selected: Sélectionné
-        filters_small_view:
-          close_modal: Fermez la fenêtre
-          filter: Filtrer
-          filter_by: Filtrer par
-          unfold: Voir la suite
-        index:
-          view_project: Voir le projet
-        order_progress:
-          vote: Voter
-        order_selected_projects:
-          remove: Supprimer
-          selected_projects:
-            one: projet sélectionné
-            other: projets sélectionnés
-          view: Voir
         orders:
           highest_cost: Prix décroissant
           label: Trier les projets par
@@ -291,14 +251,11 @@ fr:
             other: votes
           you_voted: Vous avez voté pour ceci
         project_budget_button:
-          add: Ajouter à votre vote
           add_descriptive: Ajouter le projet %{resource_name} à votre vote.
-          added: Ajouté à votre vote
           added_descriptive: Projet %{resource_name} ajouté à votre vote.
         projects_for: Projets pour %{name}
         show:
           budget: Budget
-          view_all_projects: Voir tous les projets
       vote_reminder_mailer:
         vote_reminder:
           email_budgets: 'Budgets où vous avez un vote encore en cours :'
@@ -367,7 +324,6 @@ fr:
     orders:
       checkout:
         error: Une erreur s'est produite lors du traitement de votre vote.
-        success: Votre vote a été accepté avec succès.
       destroy:
         error: Un problème est survenu lors de l'annulation de votre vote.
         success: Votre vote a été annulé avec succès.
