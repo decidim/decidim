@@ -23,7 +23,7 @@ describe Decidim::Votings::VotingCell, type: :cell do
     end
 
     it "renders the title and text" do
-      expect(subject).to have_content(translated((model.title)))
+      expect(subject).to have_content(translated(model.title))
     end
   end
 end
