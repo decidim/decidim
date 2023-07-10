@@ -286,9 +286,6 @@ zh-TW:
         description: 產生的結果數量
         object: 結果
         title: 結果
-    participatory_spaces:
-      highlighted_results:
-        see_all: 檢視所有結果 (%{count})
     resource_links:
       included_projects:
         result_project: 這個結果包含的專案
