@@ -398,7 +398,7 @@ module Decidim
   # If set to true redesigned versions of layouts and cells will be used by
   # default
   config_accessor :redesign_active do
-    ENV.fetch("REDESIGN_ENABLED", "false") == "true"
+    ENV.fetch("REDESIGN_ENABLED", "true") == "true"
   end
 
   # The Decidim::Exporters::CSV's default column separator
