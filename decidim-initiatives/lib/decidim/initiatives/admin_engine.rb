@@ -88,7 +88,7 @@ module Decidim
           menu.add_item :initiatives,
                         I18n.t("menu.initiatives", scope: "decidim.admin"),
                         decidim_admin_initiatives.initiatives_path,
-                        icon_name: "chat",
+                        icon_name: "lightbulb-flash-line",
                         position: 2.4,
                         active: is_active_link?(decidim_admin_initiatives.initiatives_path) ||
                                 is_active_link?(decidim_admin_initiatives.initiatives_types_path) ||

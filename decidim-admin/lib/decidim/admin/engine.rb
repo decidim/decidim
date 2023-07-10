@@ -175,16 +175,6 @@ module Decidim
 
       initializer "decidim_admin.menu" do
         Decidim.menu :admin_menu do |menu|
-          menu.add_item :dashboard,
-                        I18n.t("menu.dashboard", scope: "decidim.admin"),
-                        decidim_admin.root_path,
-                        icon_name: "dashboard",
-                        position: 1,
-                        active: [%w(
-                          decidim/admin/dashboard
-                          decidim/admin/metrics
-                        ), []]
-
           menu.add_item :moderations,
                         I18n.t("menu.moderation", scope: "decidim.admin"),
                         decidim_admin.moderations_path,

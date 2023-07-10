@@ -76,7 +76,7 @@ module Decidim
           menu.add_item :votings,
                         I18n.t("menu.votings", scope: "decidim.votings.admin"),
                         decidim_admin_votings.votings_path,
-                        icon_name: "comment-square",
+                        icon_name: "mail-line",
                         position: 2.6,
                         active: :inclusive,
                         if: allowed_to?(:enter, :space_area, space_name: :votings)

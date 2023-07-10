@@ -75,17 +75,6 @@ module Decidim
                         if: allowed_to?(:read, :question)
         end
       end
-      initializer "decidim_consultations_admin.menu" do
-        Decidim.menu :admin_menu do |menu|
-          menu.add_item :consultations,
-                        I18n.t("menu.consultations", scope: "decidim.admin"),
-                        decidim_admin_consultations.consultations_path,
-                        icon_name: "comment-square",
-                        position: 2.65,
-                        active: :inclusive,
-                        if: allowed_to?(:enter, :space_area, space_name: :consultations)
-        end
-      end
 
       initializer "decidim_consultations_admin.question_menu" do
         Decidim.menu :admin_question_menu do |menu|

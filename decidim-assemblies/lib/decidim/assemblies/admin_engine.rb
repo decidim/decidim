@@ -105,7 +105,7 @@ module Decidim
           menu.add_item :assemblies,
                         I18n.t("menu.assemblies", scope: "decidim.admin"),
                         decidim_admin_assemblies.assemblies_path,
-                        icon_name: "dial",
+                        icon_name: "government-line",
                         position: 2.2,
                         active: is_active_link?(decidim_admin_assemblies.assemblies_path) ||
                                 is_active_link?(decidim_admin_assemblies.assemblies_types_path) ||

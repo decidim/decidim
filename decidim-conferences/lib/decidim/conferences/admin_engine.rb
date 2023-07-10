@@ -223,7 +223,7 @@ module Decidim
           menu.add_item :conferences,
                         I18n.t("menu.conferences", scope: "decidim.admin"),
                         decidim_admin_conferences.conferences_path,
-                        icon_name: "microphone",
+                        icon_name: "live-line",
                         position: 2.8,
                         active: :inclusive,
                         if: allowed_to?(:enter, :space_area, space_name: :conferences)

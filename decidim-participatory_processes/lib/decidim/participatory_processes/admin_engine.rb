@@ -103,7 +103,7 @@ module Decidim
           menu.add_item :participatory_processes,
                         I18n.t("menu.participatory_processes", scope: "decidim.admin"),
                         decidim_admin_participatory_processes.participatory_processes_path,
-                        icon_name: "target",
+                        icon_name: "treasure-map-line",
                         position: 2,
                         active: is_active_link?(decidim_admin_participatory_processes.participatory_processes_path, :inclusive) ||
                                 is_active_link?(decidim_admin_participatory_processes.participatory_process_groups_path, :inclusive) ||
