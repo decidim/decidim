@@ -204,28 +204,10 @@ sl:
         commission: Provizija
       index:
         title: Združbe
-      pages:
-        home:
-          highlighted_assemblies:
-            active_assemblies: Aktivne združbe
-            assemblies_button_title: Povezava do strani Združb
-            see_all_assemblies: Poglej vse združbe
       show:
         assembly_type: Vrsta združbe
-        children: Združbe
-        closing_date: Datum zaprtja
-        composition: Sestava
-        created_by: Ustvaril
-        creation_date: Datum nastanka
         duration: Trajanje
-        included_at: Vsebovan
-        indefinite_duration: Nedoločno
-        read_less: Preberi manj
-        read_more: Preberi več
         related_participatory_processes: Povezani participativni procesi
-        scope: Področje
-        social_networks: Socialna omrežja
-        target: Kdor je prisostoval
     help:
       participatory_spaces:
         assemblies:
@@ -247,14 +229,10 @@ sl:
           more_info: Več informacij
         index:
           children: 'Združbe: '
-          organizational_chart: Organizacijska struktura
           promoted_assemblies: Poudarjene združbe
-          reset_chart: Ponastavi
         order_by_assemblies:
           assemblies:
             one: "%{count} združba"
             two: "%{count} združbi"
             few: "%{count} združb"
             other: "%{count} združb"
-        promoted_assembly:
-          more_info: Več informacij
