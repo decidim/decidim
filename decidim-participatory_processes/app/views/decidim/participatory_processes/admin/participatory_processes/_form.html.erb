@@ -94,11 +94,11 @@
     <div id="panel-<%= t('images', scope: 'decidim.participatory_processes.admin.participatory_processes.form') %>" class="card-section">
       <div class="row">
         <div class="columns xlarge-6">
-          <%= form.upload :hero_image %>
+          <%= form.upload :hero_image, button_class: "button button__md button__transparent-secondary" %>
         </div>
 
         <div class="columns xlarge-6">
-          <%= form.upload :banner_image %>
+          <%= form.upload :banner_image, button_class: "button button__md button__transparent-secondary" %>
         </div>
       </div>
     </div>

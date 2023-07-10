@@ -83,7 +83,7 @@
             </div>
 
             <div class="row column">
-              <%= form.upload :file %>
+              <%= form.upload :file, button_class: "button button__md button__transparent-secondary" %>
               <% if params[:id].present? %>
                 <% if proposal.documents.present? %>
                   <%= form.hidden_field :id, value: proposal.documents.first.id %>

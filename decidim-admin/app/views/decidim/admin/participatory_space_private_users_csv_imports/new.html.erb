@@ -31,7 +31,7 @@
         <code class="code-block"><%= t(".explanation_example", csv_col_sep: Decidim.default_csv_col_sep) %></code>
       </div>
       <div class="row column">
-        <%= form.upload :file, required: true %>
+        <%= form.upload :file, required: true, button_class: "button button__md button__transparent-secondary" %>
       </div>
 
       <div class="button--double form-general-submit">
