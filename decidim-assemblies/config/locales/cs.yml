@@ -371,9 +371,7 @@ cs:
       pages:
         home:
           highlighted_assemblies:
-            active_assemblies: Aktivní shromáždění
             assemblies_button_title: Odkaz na stránku Shromáždění zobrazující všechna shromáždění
-            see_all_assemblies: Zobrazit všechny shromáždění
         user_profile:
           member_of:
             member_of: Člen
@@ -381,21 +379,20 @@ cs:
         area: Oblast
         assembly_type: Typ shromáždění
         children: Shromáždění
-        closing_date: Uzávěrka
+        closing_date: Datum ukončení
         composition: Složení
         created_by: Vytvořil
         creation_date: Datum vytvoření
-        developer_group: Skupina propagátorů
+        developer_group: Skupina promotérů
         duration: Doba trvání
-        included_at: Zahrnuto v
-        indefinite_duration: Neurčité
-        internal_organisation: Interní organizace
+        included_at: Zahrnuty v
+        internal_organisation: Vnitřní organizace
         is_transparent:
           'false': neprůhledný
           'true': transparentní
         local_area: Oblast působnosti organizace
         participatory_scope: Co se rozhodlo
-        participatory_structure: Jak se o tom rozhoduje
+        participatory_structure: Jak se to rozhoduje
         private_space: Toto je soukromé shromáždění
         purpose_of_action: Účel akce
         read_less: Číst méně
