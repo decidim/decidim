@@ -32,9 +32,9 @@ jobs:
     strategy:
       matrix:
         test-command:
-          - bundle exec rspec spec/system/admin
-          - bundle exec rspec spec/system/ --exclude-pattern 'spec/system/admin/**/*_spec.rb'
-          - bundle exec parallel_test --type rspec --pattern spec/ --exclude-pattern spec/system
+          - REDESIGN_ENABLED="false" bundle exec rspec spec/system/admin
+          - REDESIGN_ENABLED="false" bundle exec rspec spec/system/ --exclude-pattern 'spec/system/admin/**/*_spec.rb'
+          - REDESIGN_ENABLED="false" bundle exec parallel_test --type rspec --pattern spec/ --exclude-pattern spec/system
     needs: build_app
     name: Tests
     uses: ./.github/workflows/test_app.yml
