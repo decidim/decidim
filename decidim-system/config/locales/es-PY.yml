@@ -89,6 +89,7 @@ es-PY:
           actions:
             save_and_invite: Crear organización e invitar a administrador
           fields:
+            content_security_policy: Política de seguridad de los contenidos
             created_at: Fecha de creación
             file_upload_settings: Ajustes de subida de archivos
             name: Nombre
@@ -123,6 +124,39 @@ es-PY:
         create:
           error: Se ha producido un error al crear una nueva organización.
           success: Organización creada correctamente.
+        csp_settings:
+          connect_src: Direcciones de conexión (connect-src)
+          connect_src_hint: |
+            Las direcciones de conexión (connect-src) delimitan las URL que se pueden cargar en los elementos <script>.
+            Decidim añade automáticamente el valor 'self', pero, si quieres, puedes añadir otros valores. Deja el valor en blanco si no sabes lo que significa.
+          default_src: SRC por defecto
+          default_src_hint: |
+            Default-src es la convención predeterminada para todo el contenido externo, como JavaScript, imágenes, CSS, fuentes, llamadas asincrónicas, marcos y archivos multimedia HTML5.
+            Decidim añade automáticamente el valor "'self' 'unsafe-inline'", pero, si quieres, puedes añadir otros valores. Deja el valor en blanco si no sabe lo que significa.
+          font_src: Direcciones de fuentes (font-src)
+          font_src_hint: |
+            La directiva font-src restringe las URL que se pueden cargar con @font-face.
+            Decidim añade automáticamente 'self', pero, si quieres, puedes añadir otros valores. Déjalo en blanco si no sabes lo que significa.
+          frame_src: Direcciones de marco (frame-src)
+          frame_src_hint: |
+            La directiva frame-src restringe las URL que se pueden cargar con elementos <frame>, <iframe> y <object>.
+            Decidim añade automáticamente 'self', pero, si quieres, puedes añadir otros valores. Déjalo en blanco si no sabes lo que significa.
+          img_src: Direcciones de imagen (img-src)
+          img_src_hint: |
+            Las URL de imagen (img-src) delimitan las URL que se pueden cargar usando los elementos <img>, <image>, <picture> y <svg>.
+            Decidim añade automáticamente 'self', pero, si quieres, puedes añadir otros valores. Déjalo en blanco si no sabes lo que significa.
+          media_src: Direcciones multimedia (media-src)
+          media_src_hint: |
+            Las direcciones multimedia (media-src) delimitan las URL que se pueden cargar en los elementos <video>, <audio> y <source>.
+            Decidim añade automáticamente el valor 'self', pero, si quieres, puedes añadir otros valores. Deja el valor en blanco si no sabes lo que significa.
+          script_src: Direcciones de script (script-src)
+          script_src_hint: |
+            Las direcciones de script (script-src) delimitan las URL que se pueden cargar en los elementos <script>.
+            Decidim añade automáticamente el valor '"self' 'unsafe-inline' 'unsafe-eval'", pero, si lo deseas, puedes añadir otros valores. Deja el valor en blanco si no sabes lo que significa.
+          style_src: Direcciones de estilo (style-src)
+          style_src_hint: |
+            Las direcciones de estilo (style-src) limitan las URL que se pueden cargar en los elementos <style>.
+            Decidim añade automáticamente el valor "'self' 'unsafe-inline'", pero, si quieres, puedes añadir otros valores. Deja el valor en blanco si no sabes lo que significa.
         edit:
           secondary_hosts_hint: Introduce cada uno de ellos en una nueva línea
         file_upload_settings:
