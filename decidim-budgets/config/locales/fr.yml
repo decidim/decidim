@@ -162,6 +162,7 @@ fr:
         continue: Continuer
         more_information: Plus d'information
       budgets_list:
+        budgets: Budgets
         cancel_order:
           more_than_one: supprimer votre vote sur %{name} et recommencer
           only_one: supprimer votre vote et recommencez.
@@ -170,8 +171,10 @@ fr:
         if_change_opinion: Si vous avez changé d’avis, vous pouvez
         my_budgets: Mes Budgets
         progress: Terminer le vote
+        remove_vote: Retirer le vote
         show: Voir les projets
         vote: Voter
+        voted_budgets: Budgets votés
         voted_on: Vous avez voté sur %{links}.
       last_activity:
         new_vote_at: Nouveau vote sur un budget à
@@ -214,8 +217,10 @@ fr:
             title: Nombre maximum de projets dépassé
         budget_summary:
           are_you_sure: Êtes-vous certain de vouloir annuler votre vote ?
+          cancel_order: supprimer votre vote
           checked_out:
             title: Vote du budget terminé
+          vote: Voter pour le budget
         count:
           projects_count:
             one: 1 projet
@@ -234,6 +239,12 @@ fr:
             all: Tous
             not_selected: Non sélectionné
             selected: Sélectionné
+        index:
+          back_to_budgets: Retour aux budgets
+        order_progress:
+          assigned: Assigné
+          budget: Budget
+          minimum: Minimum
         orders:
           highest_cost: Prix décroissant
           label: Trier les projets par
@@ -251,7 +262,9 @@ fr:
             other: votes
           you_voted: Vous avez voté pour ceci
         project_budget_button:
+          add: Ajouter
           add_descriptive: Ajouter le projet %{resource_name} à votre vote.
+          added: Ajouté
           added_descriptive: Projet %{resource_name} ajouté à votre vote.
         projects_for: Projets pour %{name}
         show:
