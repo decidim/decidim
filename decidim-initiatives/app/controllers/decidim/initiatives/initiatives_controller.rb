@@ -31,6 +31,8 @@ module Decidim
       helper_method :collection, :initiatives, :filter, :stats, :tabs, :panels
       helper_method :initiative_type, :available_initiative_types
 
+      before_action :authorize_participatory_space, only: [:show]
+
       # GET /initiatives
       def index
         enforce_permission_to :list, :initiative
