@@ -9,7 +9,6 @@ module Decidim
     let(:available_locales) { %w(ca en de-CH) }
     let(:uploader) { Decidim::ApplicationUploader }
     let(:organization) { create(:organization) }
-    let(:redesign_enabled?) { false }
 
     let(:resource) do
       class DummyClass
@@ -80,7 +79,6 @@ module Decidim
     before do
       allow(Decidim).to receive(:available_locales).and_return available_locales
       allow(I18n.config).to receive(:enforce_available_locales).and_return(false)
-      allow(helper).to receive(:redesign_enabled?).and_return(redesign_enabled?)
     end
 
     describe "#editor" do

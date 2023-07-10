@@ -66,13 +66,8 @@ describe Decidim::UserActivityCell, type: :cell do
   end
   let(:controller) { double }
 
-  def redesigned_layout(name)
-    name
-  end
-
   before do
     allow(controller).to receive(:current_organization).and_return(component.organization)
-    allow(controller).to receive(:redesign_enabled?).and_return(true)
     allow(controller).to receive(:params).and_return(ActionController::Parameters.new({}))
 
     allow(my_cell).to receive(:url_for).and_return("/")
