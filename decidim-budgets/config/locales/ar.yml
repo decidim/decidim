@@ -119,6 +119,7 @@ ar:
             description: لقد قمت بالتصويت بالفعل على الميزانية. إذا غيرت رأيك ، يمكنك %{cancel_link}.
             title: اكتمال التصويت في الميزانية
           title: عليك أن تقرر الميزانية
+          total_budget: الميزانية الإجمالية
         count:
           projects_count:
             zero: "%{count} مشاريع"
@@ -132,7 +133,6 @@ ar:
           scope: نطاق
           search: بحث
         filters_small_view:
-          close_modal: إغلاق مشروط
           filter: منقي
           filter_by: مصنف بواسطة
           unfold: كشف
