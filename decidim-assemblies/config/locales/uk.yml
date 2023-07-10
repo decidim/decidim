@@ -272,10 +272,6 @@ uk:
       last_activity:
         new_assembly: Додати збори
       pages:
-        home:
-          highlighted_assemblies:
-            active_assemblies: Діючі збори
-            see_all_assemblies: Переглянути всі збори
         user_profile:
           member_of:
             member_of: 'Входить у склад:'
@@ -290,7 +286,6 @@ uk:
         developer_group: Робочий гурт з просування
         duration: Тривалість
         included_at: Включено в
-        indefinite_duration: Безстрокова
         internal_organisation: Внутрішня організація
         is_transparent:
           'false': непрозорі
@@ -334,7 +329,6 @@ uk:
             many: "%{count} зборів"
             other: "%{count} зборів"
         promoted_assembly:
-          more_info: Додаткові відомості
           take_part: Взяти участь
       assembly_navigation:
         assembly_menu_item: Збори
