@@ -363,42 +363,18 @@ zh-TW:
       last_activity:
         new_assembly: '新大會:'
       pages:
-        home:
-          highlighted_assemblies:
-            active_assemblies: 活耀大會
-            assemblies_button_title: 鏈接到顯示所有大會的大會頁面
-            see_all_assemblies: 查看所有大會
         user_profile:
           member_of:
             member_of: 的成員
       show:
-        area: 區域
         assembly_type: 大會類型
-        children: 大會
-        closing_date: 截止日期
-        composition: 組成
-        created_by: 創建者
-        creation_date: 創建日期
-        developer_group: 促銷團隊
         duration: 持續時間
-        included_at: 包含於
-        indefinite_duration: 不確定
-        internal_organisation: 內部組織
         is_transparent:
           'false': 不透明
           'true': 透明
-        local_area: 組織區域
-        participatory_scope: 決定了什麼
-        participatory_structure: 如何決定
         private_space: 這是一個私人大會
-        purpose_of_action: 行動目的
-        read_less: 閱讀減少
-        read_more: 閱讀變多
         related_participatory_processes: 相關參與過程
-        scope: 範圍
-        social_networks: 社群網路
         social_networks_title: 訪問大會
-        target: 誰參加
     assembly_members:
       assembly_member:
         designated_on: 指定於
@@ -449,18 +425,10 @@ zh-TW:
           take_part: 參與
         index:
           children: '大會: '
-          organizational_chart: 組織結構圖
           promoted_assemblies: 關注的大會
-          reset_chart: 重置
         order_by_assemblies:
           assemblies:
             other: "%{count} 大會"
-        promoted_assembly:
-          more_info: 更多資訊
-          take_part: 參與
       assembly_navigation:
         assembly_member_menu_item: 成員
         assembly_menu_item: 該大會
-      assembly_widgets:
-        show:
-          take_part: 參與
