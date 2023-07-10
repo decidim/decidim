@@ -88,6 +88,7 @@ sk:
             description: Už ste hlasovali za rozpočet. Ak ste zmenili názor, môžete %{cancel_link}.
             title: Hlasovanie o rozpočte dokončené
           title: Vy rozhodujete o rozpočte
+          total_budget: Celkový rozpočet
         count:
           projects_count:
             one: 1 projekt
@@ -99,7 +100,6 @@ sk:
           scope: Rozsah
           search: Hľadať
         filters_small_view:
-          close_modal: Zavrieť okno
           filter: Filter
           filter_by: Filtrovať podľa
           unfold: Rozbaliť
