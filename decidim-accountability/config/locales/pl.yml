@@ -239,9 +239,6 @@ pl:
         description: Liczba wygenerowanych wyników
         object: wyniki
         title: Wyniki
-    participatory_spaces:
-      highlighted_results:
-        see_all: Zobacz wszystkie wyniki (%{count})
     resource_links:
       included_projects:
         result_project: Projekty uwzględnione w tym wyniku
