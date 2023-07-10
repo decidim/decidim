@@ -204,9 +204,6 @@ lb:
         description: Anzahl der generierten Ergebnisse
         object: Ergebnisse
         title: Ergebnisse
-    participatory_spaces:
-      highlighted_results:
-        see_all: Alle Ergebnisse ansehen (%{count})
     resource_links:
       included_projects:
         result_project: Projekte in diesem Ergebnis enthalten
