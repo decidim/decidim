@@ -87,6 +87,9 @@ ro:
             create: Creează stadiu
             title: Stadiu nou
         timeline_entries:
+          create:
+            invalid: A apărut o eroare la crearea acestei înregistrări.
+            success: Înregistrare creată cu succes.
           edit:
             title: Editare înregistrare
             update: Actualizare înregistrare
@@ -95,6 +98,8 @@ ro:
           new:
             create: Creează înregistrare
             title: Înregistrare nouă
+          update:
+            success: Înregistrare actualizată cu succes.
       admin_log:
         result:
           create: "%{user_name} a creat %{resource_name} în %{space_name}"
@@ -117,6 +122,7 @@ ro:
       import_mailer:
         import:
           errors: Erori
+          errors_present: A apărut o problemă la importul rezultatelor.
           row_number: Rând
           subject: Importare cu succes a rezultatelor
           success: Rezultate importate. Puteți revizui rezultatele în interfața de administrare.
@@ -225,6 +231,9 @@ ro:
         description: Număr de rezultate generate
         object: rezultate
         title: Rezultate
+    participatory_spaces:
+      highlighted_results:
+        see_all: Vezi toate rezultatele
     resource_links:
       included_projects:
         result_project: Proiecte incluse în acest rezultat
