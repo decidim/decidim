@@ -165,9 +165,6 @@ cs:
         close_modal: Zavřít okno
         continue: Pokračovat
         more_information: Více informací
-      budget_list_item:
-        voting_finished: Hlasovali jste v tomto rozpočtu.
-        voting_started: Začali jste hlasovat v tomto rozpočtu.
       budgets_list:
         cancel_order:
           more_than_one: smažte svůj hlas na %{name} a začněte znovu
@@ -214,7 +211,6 @@ cs:
           budget_excess:
             description: Tento projekt překračuje maximální rozpočet a nemůže být přidán. Pokud chcete, můžete smazat již vybraný projekt, abyste mohli hlasovat znovu podle vašich preferencí.
             title: Maximální rozpočet byl překročen
-          close: Zavřít
           description: Tento projekt překračuje maximální rozpočet a nemůže být přidán. Pokud chcete, můžete smazat již vybraný projekt, abyste mohli hlasovat znovu podle vašich preferencí.
           ok: OK
           projects_excess:
@@ -222,28 +218,8 @@ cs:
             title: Byl překročen maximální počet projektů
         budget_summary:
           are_you_sure: Opravdu chcete zrušit hlasování?
-          assigned: 'Přiřazeno:'
-          cancel_order: smazat váš hlas a začít znovu
           checked_out:
-            description: Už jste pro rozpočet hlasovali. Pokud jste změnili názor, můžete %{cancel_link}.
             title: Hlasování o rozpočtu bylo dokončeno
-          minimum_projects_rule:
-            description: Na jaké projekty bychom podle vás měli vyčlenit rozpočet? Vyberte alespoň %{minimum_number} projektů, které chcete a hlasujte podle vašich preferencí pro definování rozpočtu.
-            instruction: "<li>Vyberte alespoň %{minimum_number} projektů, které chcete a hlasujte podle vašich preferencí, abyste mohli definovat rozpočet.</li>"
-          projects_rule:
-            description: Na jaké projekty bychom podle vás měli vyčlenit rozpočet? Vyberte alespoň %{minimum_number} až %{maximum_number} projektů, které chcete a hlasujte podle vašich preferencí pro definování rozpočtu.
-            instruction: "<li>Vyberte alespoň %{minimum_number} až %{maximum_number} projektů, které chcete, a hlasujte podle vašich preferencí pro definování rozpočtu</li>"
-          projects_rule_maximum_only:
-            description: Na jaké projekty bychom podle vás měli vyčlenit rozpočet? Vyberte až %{maximum_number} projektů, které chcete a hlasujte podle vašich preferencí pro definování rozpočtu.
-            instruction: "<li>Vyberte až %{maximum_number} projektů, které chcete a hlasujte podle vašich preferencí pro definování rozpočtu</li>"
-          rules:
-            title: Rozpočtová pravidla
-          title: Rozhodujete o rozpočtu
-          total_budget: Celkový rozpočet
-          total_projects: Celkem hlasů
-          vote_threshold_percent_rule:
-            description: Na jaké projekty bychom podle vás měli vyčlenit rozpočet? Přiřaďte k projektům, které chcete alespoň %{minimum_budget} a hlasujte podle vašich preferencí pro definování rozpočtu.
-            instruction: "<li>Přiřaďte alespoň %{minimum_budget} projektům, které chcete a hlasovat podle vašich preferencí pro definování rozpočtu</li>"
         count:
           projects_count:
             one: 1 projekt
@@ -252,7 +228,6 @@ cs:
             other: "%{count} projektů"
         exit_modal:
           cancel: Návrat k hlasování
-          close_modal: Zavřít modal
           exit: Ukončit hlasování
           message: Váš hlas nebyl zaregistrován, protože jste ještě nedokončili proces hlasování. Opravdu chcete ukončit hlasování?
           title: Zatím jste nehlasovali
@@ -265,23 +240,6 @@ cs:
             all: Vše
             not_selected: Nevybráno
             selected: Vybrané
-        filters_small_view:
-          close_modal: Zavřít modální
-          filter: Filtr
-          filter_by: Filtrovat podle
-          unfold: Rozbalit
-        index:
-          view_project: Zobrazit projekt
-        order_progress:
-          vote: Hlasovat
-        order_selected_projects:
-          remove: Odstranit
-          selected_projects:
-            one: vybraný projekt
-            few: vybraných projektů
-            many: vybraných projektů
-            other: vybraných projektů
-          view: Zobrazit
         orders:
           highest_cost: Nejvyšší náklady
           label: Seřadit projekty podle
@@ -301,14 +259,11 @@ cs:
             other: hlasů
           you_voted: Hlasoval jste pro toto
         project_budget_button:
-          add: Přidat do vašeho hlasování
           add_descriptive: Přidat k hlasování projekt %{resource_name}.
-          added: Přidáno k vašemu hlasování
           added_descriptive: Projekt %{resource_name} přidán k vašemu hlasování.
         projects_for: Projekty pro %{name}
         show:
           budget: Rozpočet
-          view_all_projects: Zobrazit všechny projekty
       vote_reminder_mailer:
         vote_reminder:
           email_budgets: 'Oblasti, kde máte nedokončené hlasování:'
@@ -379,7 +334,6 @@ cs:
     orders:
       checkout:
         error: Při zpracování vašeho hlasování nastal problém.
-        success: Váš hlas byl úspěšně přijat.
       destroy:
         error: Při rušení vašeho hlasování došlo k chybě.
         success: Váš hlas byl úspěšně zrušen.
