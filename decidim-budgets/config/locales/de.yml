@@ -162,6 +162,7 @@ de:
         continue: Weiter
         more_information: Mehr Informationen
       budgets_list:
+        budgets: Budgets
         cancel_order:
           more_than_one: lösche deine Stimme am %{name} und beginne neu
           only_one: Löschen Sie Ihre Stimme und beginnen Sie von vorne.
@@ -170,8 +171,10 @@ de:
         if_change_opinion: Wenn Sie ihr Meinung geändert haben, können Sie
         my_budgets: Meine Budgets
         progress: Abstimmung beenden
+        remove_vote: Stimme entfernen
         show: Projekte ansehen
         vote: Abstimmen
+        voted_budgets: Gewählte Budgets
         voted_on: 'Sie haben über abgestimmt folgende Projekte abgestimmt: %{links}.'
       last_activity:
         new_vote_at: Neue Budgetabstimmung bei
@@ -214,8 +217,11 @@ de:
             title: Maximale Anzahl Projekte überschritten
         budget_summary:
           are_you_sure: Sind Sie sicher, dass Sie Ihre Stimme zurückziehen wollen?
+          cancel_order: Ihre Stimme löschen
           checked_out:
+            description: Sie haben bereits über dieses Budget abgestimmt. Wenn Sie Ihre Meinung geändert haben, können Sie %{cancel_link}.
             title: Budget-Abstimmung abgeschlossen
+          vote: Gewähltes Budget
         count:
           projects_count:
             one: 1 Projekt
@@ -234,6 +240,24 @@ de:
             all: Alle
             not_selected: Nicht ausgewählt
             selected: Ausgewählt
+        index:
+          back_to_budgets: zurück zu Budgets
+        order_progress:
+          assigned: Zugewiesen
+          budget: Bugdet
+          dynamic_help:
+            keep_adding_projects: Weitere Projekte hinzufügen
+            minimum_reached: Sie haben das Minimum erreicht, um abstimmen zu können
+            start_adding_projects: Mit dem Hinzufügen von Projekten beginnen
+          minimum: Minimum
+          minimum_projects_rule:
+            description: Wählen Sie mindestens %{minimum_number} Projekte aus, die Sie unterstützen möchten, und stimmen Sie dafür ab, um ihr Budget zu gestalten.
+          projects_rule:
+            description: Wählen Sie zwischen %{minimum_number} und %{maximum_number} Projekten aus, die Sie unterstützen möchten, und stimmen Sie dafür ab, um ihr Budget zu gestalten.
+          projects_rule_maximum_only:
+            description: Wählen Sie bis zu %{maximum_number} Projekte aus, die Sie unterstützen möchten, und stimmen Sie dafür ab, um ihr Budget zu gestalten.
+          vote_threshold_percent_rule:
+            description: Teilen Sie mindestens %{minimum_budget} den Projekten zu, die Sie unterstützen möchten, und stimmen Sie dafür ab, um ihr Budget zu gestalten.
         orders:
           highest_cost: Höchste Kosten
           label: Projekte sortieren nach
@@ -251,9 +275,15 @@ de:
             other: Abstimmungen
           you_voted: Sie haben dafür gestimmt
         project_budget_button:
+          add: Hinzufügen
           add_descriptive: Projekt %{resource_name} zu Ihrer Abstimmung hinzufügen.
+          added: Hinzugefügt
           added_descriptive: Project %{resource_name} zu Ihrer Abstimmung hinzugefügt.
+        project_filter:
+          added: Hinzugefügt
+          all: Alle
         projects_for: Projekte für %{name}
+        select_projects: Projekte auswählen
         show:
           budget: Budget
       vote_reminder_mailer:
@@ -324,6 +354,8 @@ de:
     orders:
       checkout:
         error: Bei der Bearbeitung Ihrer Stimme ist ein Problem aufgetreten.
+        success_html: <p>Ihre Stimme wurde erfolgreich angenommen.</p> <p class="text-sm font-normal">Sie können die <a class="text-secondary underline" href="%{rest_of_budgets_link}">restlichen Budgets</a> erkunden.</p>
+        success_no_left_budgets_html: Ihre Stimme wurde erfolgreich abgegeben.
       destroy:
         error: Beim Löschen Ihrer Stimme ist ein Problem aufgetreten.
         success: Ihre Stimme wurde erfolgreich gelöscht.
