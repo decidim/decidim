@@ -336,41 +336,17 @@ pt-BR:
       index:
         title: Assembleias
       pages:
-        home:
-          highlighted_assemblies:
-            active_assemblies: Conjuntos ativos
-            assemblies_button_title: Link para a página de Assembleias exibindo todos as assembleias
-            see_all_assemblies: Veja todas as assembleias
         user_profile:
           member_of:
             member_of: Membro de
       show:
-        area: Área
         assembly_type: Tipo de assembleia
-        children: Assembleias
-        closing_date: Data de encerramento
-        composition: Composição
-        created_by: Criado por
-        creation_date: Data Criada
-        developer_group: Grupo promotor
         duration: Duração
-        included_at: Incluído em
-        indefinite_duration: Indeterminado
-        internal_organisation: Organização interna
         is_transparent:
           'false': opaco
           'true': transparente
-        local_area: Área de organização
-        participatory_scope: O que é decidido
-        participatory_structure: Como é decidido
         private_space: Esta é uma assembleia privada
-        purpose_of_action: Objetivo da ação
-        read_less: Leia menos
-        read_more: Consulte Mais informação
         related_participatory_processes: Processos participativos relacionados
-        scope: Âmbito
-        social_networks: Redes sociais
-        target: Quem pode participar
     assembly_members:
       assembly_member:
         designated_on: Designado em
@@ -420,19 +396,11 @@ pt-BR:
           take_part: Participar
         index:
           children: 'Assembleias: '
-          organizational_chart: Organograma
           promoted_assemblies: Montagens destacadas
-          reset_chart: Restabelecer
         order_by_assemblies:
           assemblies:
             one: "Assembly %{count}"
             other: "Conjuntos %{count}"
-        promoted_assembly:
-          more_info: Mais informações
-          take_part: Participar
       assembly_navigation:
         assembly_member_menu_item: Membros
         assembly_menu_item: A assembleia
-      assembly_widgets:
-        show:
-          take_part: Participar
