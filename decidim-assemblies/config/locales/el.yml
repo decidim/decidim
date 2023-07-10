@@ -363,9 +363,7 @@ el:
       pages:
         home:
           highlighted_assemblies:
-            active_assemblies: Ενεργές συνελεύσεις
             assemblies_button_title: Σύνδεσμος προς τη σελίδα «Συνελεύσεις» που εμφανίζει όλες τις συνελεύσεις
-            see_all_assemblies: Δείτε όλες τις συνελεύσεις
         user_profile:
           member_of:
             member_of: Μέλος
@@ -380,7 +378,6 @@ el:
         developer_group: Ομάδα προώθησης
         duration: Διάρκεια
         included_at: Συμπεριλήφθηκε στις
-        indefinite_duration: Αόριστη
         internal_organisation: Εσωτερικός οργανισμός
         is_transparent:
           'false': αδιαφανής
