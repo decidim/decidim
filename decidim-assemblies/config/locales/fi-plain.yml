@@ -365,24 +365,21 @@ fi-pl:
       pages:
         home:
           highlighted_assemblies:
-            active_assemblies: Aktiiviset ryhmät
             assemblies_button_title: Linkki kaikkien ryhmien sivulle
-            see_all_assemblies: Näytä kaikki ryhmät
         user_profile:
           member_of:
             member_of: Jäsen ryhmässä
       show:
-        area: alue
+        area: Alue
         assembly_type: Ryhmän tyyppi
         children: Ryhmät
-        closing_date: Sulkemispäivä
+        closing_date: Sulkeutumispäivä
         composition: Kokoonpano
         created_by: Luonut
         creation_date: Luontipäivämäärä
         developer_group: Perustajaryhmä
         duration: Kesto
         included_at: Mukana osoitteessa
-        indefinite_duration: Määrittelemätön
         internal_organisation: Sisäinen organisaatio
         is_transparent:
           'false': läpinäkymätön
@@ -460,7 +457,7 @@ fi-pl:
             one: "%{count} ryhmä"
             other: "%{count} ryhmää"
         promoted_assembly:
-          more_info: Lisätiedot
+          more_info: Lisätietoja
           take_part: Osallistu
       assembly_navigation:
         assembly_member_menu_item: Jäsenet
