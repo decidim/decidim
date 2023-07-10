@@ -135,19 +135,14 @@ ga:
         help: 'Taispeáin:'
         others: Eile
       show:
-        area: Ceantar
         duration: Fad
         is_transparent:
           'false': doiléir
         related_participatory_processes: Próisis Rannpháirteacha Ceangailte
-        scope: Scóip
     assembly_members:
       index:
         title: Baill
   layouts:
     decidim:
-      assemblies:
-        index:
-          reset_chart: Athshocraigh
       assembly_navigation:
         assembly_member_menu_item: Baill
