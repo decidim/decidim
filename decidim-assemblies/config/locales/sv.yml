@@ -355,41 +355,17 @@ sv:
       last_activity:
         new_assembly: 'Ny grupp:'
       pages:
-        home:
-          highlighted_assemblies:
-            active_assemblies: Aktiva grupper
-            assemblies_button_title: Länk till sidan över grupper som visar alla grupper
-            see_all_assemblies: Visa alla grupper
         user_profile:
           member_of:
             member_of: Medlem av
       show:
-        area: Område
         assembly_type: Typ av grupp
-        children: Grupper
-        closing_date: Stängningsdatum
-        composition: Sammansättning
-        created_by: Skapad av
-        creation_date: Skapelsedatum
-        developer_group: Kampanjgrupp
         duration: Varaktighet
-        included_at: Ingår vid
-        indefinite_duration: Permanent
-        internal_organisation: Intern organisation
         is_transparent:
           'false': ogenomskinlig
           'true': transparent
-        local_area: Område
-        participatory_scope: Vad bestäms
-        participatory_structure: Hur det bestäms
         private_space: Detta är en privat grupp
-        purpose_of_action: Syftet med åtgärden
-        read_less: Läs mindre
-        read_more: Läs mer
         related_participatory_processes: Relaterade dialoger
-        scope: Omfång
-        social_networks: Sociala nätverk
-        target: Vilka deltar
     assembly_members:
       assembly_member:
         designated_on: Utsedd den
@@ -440,19 +416,11 @@ sv:
           take_part: Delta
         index:
           children: 'Grupper: '
-          organizational_chart: Organisationsschema
           promoted_assemblies: Viktiga grupper
-          reset_chart: Återställ
         order_by_assemblies:
           assemblies:
             one: "%{count} grupp"
             other: "%{count} grupper"
-        promoted_assembly:
-          more_info: Mer information
-          take_part: Delta
       assembly_navigation:
         assembly_member_menu_item: Medlemmar
         assembly_menu_item: Gruppen
-      assembly_widgets:
-        show:
-          take_part: Delta
