@@ -366,42 +366,18 @@ el:
       last_activity:
         new_assembly: 'Νέα συνέλευση:'
       pages:
-        home:
-          highlighted_assemblies:
-            active_assemblies: Ενεργές συνελεύσεις
-            assemblies_button_title: Σύνδεσμος προς τη σελίδα «Συνελεύσεις» που εμφανίζει όλες τις συνελεύσεις
-            see_all_assemblies: Δείτε όλες τις συνελεύσεις
         user_profile:
           member_of:
             member_of: Μέλος
       show:
-        area: Τομέας
         assembly_type: Τύπος συνέλευσης
-        children: Συνελεύσεις
-        closing_date: Ημερομηνία κλεισίματος
-        composition: Σύνθεση
-        created_by: Δημιουργήθηκε από
-        creation_date: Ημερομηνία δημιουργίας
-        developer_group: Ομάδα προώθησης
         duration: Διάρκεια
-        included_at: Συμπεριλήφθηκε στις
-        indefinite_duration: Αόριστη
-        internal_organisation: Εσωτερικός οργανισμός
         is_transparent:
           'false': αδιαφανής
           'true': διαφανής
-        local_area: Τομέας οργανισμού
-        participatory_scope: Τι αποφασίστηκε
-        participatory_structure: Πώς αποφασίζεται
         private_space: Αυτή είναι μια ιδιωτική συνέλευση
-        purpose_of_action: Σκοπός της δράσης
-        read_less: Διαβάστε λιγότερα
-        read_more: Διαβάστε περισσότερα
         related_participatory_processes: Σχετικές διαδικασίες συμμετοχής
-        scope: Πεδίο εφαρμογής
-        social_networks: Κοινωνικά δίκτυα
         social_networks_title: Επίσκεψη στη συνέλευση στις
-        target: Ποιος συμμετέχει
     assembly_members:
       assembly_member:
         designated_on: Διορίστηκε στις
@@ -452,19 +428,11 @@ el:
           take_part: Συμμετάσχετε
         index:
           children: 'Συνελεύσεις:'
-          organizational_chart: Οργανόγραμμα
           promoted_assemblies: Επισημασμένες συνελεύσεις
-          reset_chart: Επαναφορά
         order_by_assemblies:
           assemblies:
             one: "%{count} συνελεύσεις"
             other: "%{count} συνελεύσεις"
-        promoted_assembly:
-          more_info: Περισσότερες πληροφορίες
-          take_part: Συμμετάσχετε
       assembly_navigation:
         assembly_member_menu_item: Μέλη
         assembly_menu_item: Η συνέλευση
-      assembly_widgets:
-        show:
-          take_part: Συμμετάσχετε
