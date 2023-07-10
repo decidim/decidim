@@ -205,6 +205,7 @@ de:
           categories: Kategorien
           components: Komponenten
           info: Info
+          landing_page: Startseite
           moderations: Moderationen
           private_users: Private Benutzer
         assemblies_types: Versammlungstypen
@@ -331,6 +332,26 @@ de:
           accepted_types:
             json: JSON
       assemblies:
+        description:
+          area_name: Gebiet
+          closing_date: Abschlussdatum
+          created_by: Erstellt von
+          creation_date: Erstellungsdatum
+          data: Gremiendaten
+          developer_group: Gruppe der Unterstützenden
+          duration: Dauer
+          included_at: Inbegriffen in
+          indefinite_duration: Unbestimmt
+          local_area: Gebiet der Organisation
+          meta_scope: Bereich
+          participatory_scope: Was wird entschieden
+          participatory_structure: Wie wird es entschieden
+          target: Wer nimmt teil
+          title: Über dieses Gremium
+        filters:
+          names:
+            all: Alle
+          type: Typ
         show:
           title: Über dieses Gremium
       assembly_members:
@@ -345,8 +366,16 @@ de:
         participatory: Teilnehmend
         working_group: Arbeitsgruppe
       content_blocks:
+        children_assemblies:
+          name: Gremien
+        dates_metadata:
+          name: Metadaten der Daten
+        extra_data:
+          name: Typ & Dauer
         highlighted_assemblies:
           name: Hervorgehobene Gremien
+        related_assemblies:
+          name: Ähnliche Gremien
       created_by:
         city_council: Stadtrat
         others: Andere
@@ -366,6 +395,10 @@ de:
       last_activity:
         new_assembly: 'Neues Gremium:'
       pages:
+        home:
+          highlighted_assemblies:
+            active_spaces: Aktive Gremien
+            see_all_spaces: Alle Gremien anzeigen
         user_profile:
           member_of:
             member_of: Mitglied von
@@ -429,6 +462,10 @@ de:
         index:
           children: 'Versammlungen:'
           promoted_assemblies: Hervorgehobene Gremien
+        metadata:
+          children_item:
+            one: "%{count} Gremium"
+            other: "%{count} Gremien"
         order_by_assemblies:
           assemblies:
             one: "%{count} Gremien"
