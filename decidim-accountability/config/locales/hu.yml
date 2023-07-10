@@ -291,6 +291,9 @@ hu:
         description: A keletkezett eredmények száma
         object: eredmények
         title: Eredmények
+    participatory_spaces:
+      highlighted_results:
+        see_all: Minden eredmény megtekintése
     resource_links:
       included_projects:
         result_project: Az eredményben szereplő projektek
