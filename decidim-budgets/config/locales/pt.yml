@@ -183,6 +183,8 @@ pt:
           projects_count:
             one: 1 projeto
             other: "%{count} projetos"
+        exit_modal:
+          close_modal: Fechar o modal
         filters:
           category: Categoria
           scope: Âmbito
@@ -193,7 +195,7 @@ pt:
             not_selected: Não seleccionado
             selected: Seleccionado
         filters_small_view:
-          close_modal: Fechar modal
+          close_modal: Fechar o modal
           filter: Filtrar
           filter_by: Filtrar por
           unfold: Desdobrar
