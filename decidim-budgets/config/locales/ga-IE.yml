@@ -65,7 +65,7 @@ ga:
           filter: Scag
           unfold: Oscail
         order_progress:
-          vote: Vóta
+          vote: Vótáil
         order_selected_projects:
           remove: Bain as
           view: Amharc
