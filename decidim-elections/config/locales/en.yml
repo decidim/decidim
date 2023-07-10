@@ -1377,11 +1377,6 @@ en:
           finished: Finished
           search: Search
           upcoming: Upcoming
-        filters_small_view:
-          close_modal: Close modal
-          filter: Filter
-          filter_by: Filter by
-          unfold: Unfold
         index:
           no_votings: No voting matches your search criteria.
           only_finished: Currently, there are no scheduled votings, but here you can find the finished votings listed.
@@ -1432,5 +1427,4 @@ en:
         index:
           promoted_votings: Highlighted votings
         promoted_voting:
-          more_info: More info
           vote: Vote
