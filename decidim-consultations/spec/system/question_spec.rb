@@ -30,6 +30,8 @@ describe "Question", type: :system do
     end
 
     it "Shows the basic question data" do
+      skip "REDESIGN_DISABLED - The consultations module will be deprecated and is not redesigned"
+
       expect(page).to have_i18n_content(question.promoter_group)
       expect(page).to have_i18n_content(question.scope.name)
       expect(page).to have_i18n_content(question.participatory_scope)
@@ -59,6 +61,8 @@ describe "Question", type: :system do
 
   context "when previous question is published" do
     before do
+      skip "REDESIGN_DISABLED - The consultations module will be deprecated and is not redesigned"
+
       previous_question.publish!
       question.publish!
       switch_to_host(organization.host)
@@ -104,6 +108,8 @@ describe "Question", type: :system do
 
   context "when next question is published" do
     before do
+      skip "REDESIGN_DISABLED - The consultations module will be deprecated and is not redesigned"
+
       question.publish!
       next_question.publish!
       switch_to_host(organization.host)
@@ -141,6 +147,8 @@ describe "Question", type: :system do
       end
 
       it "Has the results" do
+        skip "REDESIGN_DISABLED - The consultations module will be deprecated and is not redesigned"
+
         expect(page).to have_content("RESULTS")
         expect(page).to have_i18n_content(response.title)
         expect(page).to have_content(response.votes_count)

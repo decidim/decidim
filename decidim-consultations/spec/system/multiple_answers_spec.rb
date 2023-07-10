@@ -10,6 +10,8 @@ describe "Multiple Answers Question", type: :system do
 
   context "and guest user" do
     before do
+      skip "REDESIGN_DISABLED - The consultations module will be deprecated and is not redesigned"
+
       switch_to_host(organization.host)
       visit decidim_consultations.question_path(question)
     end
