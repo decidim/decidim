@@ -23,12 +23,6 @@ module Decidim
           collection do
             get :select_initiative_type
             put :select_initiative_type, to: "create_initiative#store_initiative_type"
-
-            get :previous_form
-            put :previous_form, to: "create_initiative#store_initial_data"
-
-            get :show_similar_initiatives
-
             get :fill_data
             put :fill_data, to: "create_initiative#store_data"
             get :promotal_committee
@@ -57,7 +51,6 @@ module Decidim
           end
 
           resource :initiative_vote, only: [:create, :destroy]
-          resource :widget, only: :show, path: "embed"
           resources :committee_requests, only: [:new] do
             collection do
               get :spawn
@@ -67,7 +60,7 @@ module Decidim
               delete :revoke
             end
           end
-          resources :versions, only: [:show, :index]
+          resources :versions, only: [:show]
         end
 
         scope "/initiatives/:initiative_slug/f/:component_id" do
@@ -106,6 +99,15 @@ module Decidim
                         decidim_initiatives.initiatives_path,
                         position: 2.4,
                         active: %r{^/(initiatives|create_initiative)},
+                        if: !Decidim::InitiativesType.joins(:scopes).where(organization: current_organization).all.empty?
+        end
+
+        Decidim.menu :home_content_block_menu do |menu|
+          menu.add_item :initiatives,
+                        I18n.t("menu.initiatives", scope: "decidim"),
+                        decidim_initiatives.initiatives_path,
+                        position: 30,
+                        active: :inclusive,
                         if: !Decidim::InitiativesType.joins(:scopes).where(organization: current_organization).all.empty?
         end
       end

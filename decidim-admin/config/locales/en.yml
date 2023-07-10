@@ -196,6 +196,7 @@ en:
         per_page: Per page
         permissions: Permissions
         reject: Reject
+        send_me_a_test_email: Send me a test email
         share: Share
         user:
           new: New admin
@@ -759,9 +760,12 @@ en:
           warning: "<strong>Attention:</strong> This newsletter will only be send to users that have activated <em>I want to receive newsletters</em> in their notifications settings."
         send:
           no_recipients: No recipients for this selection.
+        send_to_user:
+          sent_successfully: Newsletter has been sent successfully to %{email}
         show:
           preview: Preview
           select_recipients_to_deliver: Select recipients to deliver
+          send_me_a_test_email: Send me a test email
           subject: Subject
         update:
           error: There was a problem updating this newsletter.
@@ -830,7 +834,7 @@ en:
             colors_title: Organization colors
             colors_warning_html: Warning! Changing these colors can break the accessibility contrasts. You can check the contrast of your choosing with <a href="https://webaim.org/resources/contrastchecker">WebAIM Contrast Checker</a> or other similar tools.
             explanation: This tool helps you out to choose a color scheme, made up of hues equally spaced around the color wheel, that will be used in the organization's website.
-            header_snippets_help: Use this field to add things to the HTML head. The most common use is to integrate third-party services that require some extra JavaScript or CSS. Also, you can use it to add extra meta tags to the HTML. Note that this will only be rendered in public pages, not in the admin section.
+            header_snippets_help_html: Use this field to add things to the HTML head. The most common use is to integrate third-party services that require some extra JavaScript or CSS. Also, you can use it to add extra meta tags to the HTML. Note that this will only be rendered in public pages, not in the admin section. If the code interacts with external APIs or does not comply with the application security guidelines, it will be necessary to change the Content Security Policy. Read more about <a href="https://docs.decidim.org/develop/en/customize/content_security_policy">on the documentation site</a> .
             legend_html: Main application colors, based on the <a href="https://www.color-meanings.com/triadic-colors/">Triadic algorithm</a>. The <i>secondary</i> color is auto-calculated from the primary color and the saturation you chose.
             saturation: Saturation
             title: Color chooser

@@ -4,6 +4,7 @@ module Decidim
   class AmendmentsController < Decidim::ApplicationController
     include Decidim::ApplicationHelper
     include FormFactory
+    include HasSpecificBreadcrumb
     helper Decidim::ResourceReferenceHelper
     helper UserGroupHelper
 
@@ -220,6 +221,13 @@ module Decidim
 
     def similar_emendations
       @similar_emendations ||= Decidim::SimilarEmendations.for(amendment)
+    end
+
+    def breadcrumb_item
+      {
+        label: t("decidim.amendments.name"),
+        active: true
+      }
     end
   end
 end

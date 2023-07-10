@@ -164,6 +164,33 @@ bundle exec rake decidim:initiatives:upgrade:fix_broken_pages
 
 You can see more details about this change on PR [\#10928](https://github.com/decidim/decidim/pull/10928)
 
+### 3.7. Add Content Security Policy (CSP) support
+
+We have introduced support for Content Security Policy (CSP). This is a security feature that helps to detect and mitigate certain types of attacks, including Cross Site Scripting (XSS) and data injection attacks.
+By default, the CSP is enabled, and is configured to be as restrictive as possible, having the following default configuration:
+
+```ruby
+{
+        "default-src" => %w('self' 'unsafe-inline'),
+        "script-src" => %w('self' 'unsafe-inline' 'unsafe-eval'),
+        "style-src" => %w('self' 'unsafe-inline'),
+        "img-src" => %w('self' *.hereapi.com data:),
+        "font-src" => %w('self'),
+        "connect-src" => %w('self' *.hereapi.com *.jsdelivr.net),
+        "frame-src" => %w('self'),
+        "media-src" => %w('self')
+}
+```
+
+In order to customize the CSP we are providing, have 2 options, either by using a configuration key the initializer `config/initializers/decidim.rb` or by setting values in the Organization's system admin.
+
+Please read more in the docs:
+
+- [Customize Content Security Policy](https://docs.decidim.org/en/develop/customize/content_security_policy)
+- [Using Content Security Policy initializer](https://docs.decidim.org/en/develop/configure/initializer#_content_security_policy)
+
+You can check more about the implementation in the [\#10700](https://github.com/decidim/decidim/pull/10700) pull request.
+
 ## 4. Scheduled tasks
 
 Implementers need to configure these changes it in your scheduler task system in the production server. We give the examples

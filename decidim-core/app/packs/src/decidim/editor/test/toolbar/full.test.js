@@ -49,6 +49,7 @@ describe("full toolbar", () => {
 
     beforeEach(() => {
       prosemirror = ctx.editorContainer.querySelector(".editor-input .ProseMirror");
+      window.Decidim.currentDialogs = {};
     });
 
     describe("videoEmbed", () => {
@@ -144,6 +145,7 @@ describe("full toolbar", () => {
           ...(Boolean(uploadDialog.querySelector(`#dialog-title-${dialog}`)) && { labelledby: `dialog-title-${dialog}` }),
           ...(Boolean(uploadDialog.querySelector(`#dialog-desc-${dialog}`)) && { describedby: `dialog-desc-${dialog}` })
         });
+        window.Decidim.currentDialogs[dialog] = dialogEl.dialog;
       }
 
       beforeEach(() => {

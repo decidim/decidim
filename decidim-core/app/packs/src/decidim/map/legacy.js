@@ -1,6 +1,5 @@
 /* eslint-disable require-jsdoc */
 
-import * as L from "leaflet";
 import "src/decidim/map/factory"
 
 /**

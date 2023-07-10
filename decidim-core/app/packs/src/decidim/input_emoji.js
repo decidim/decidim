@@ -1,4 +1,6 @@
 import { createPopup } from "@picmo/popup-picker";
+import { screens } from "tailwindcss/defaultTheme"
+import { SUPPORTED_LOCALES } from "emojibase";
 
 import * as i18n from "src/decidim/i18n";
 
@@ -26,6 +28,24 @@ export class EmojiButton {
     return I18N_CONFIG;
   }
 
+  // Get the current locale used for the emoji database
+  //
+  // @returns {string} the current locale if it is supported by emoji base, or english as the fallback locale
+  static locale() {
+    let emojiLocale = document.documentElement.getAttribute("lang");
+
+    if (!SUPPORTED_LOCALES.includes(emojiLocale)) {
+      const secondaryLocale = emojiLocale?.split("-")[0];
+      if (SUPPORTED_LOCALES.includes(secondaryLocale)) {
+        emojiLocale = secondaryLocale;
+      } else {
+        emojiLocale = "en";
+      }
+    }
+
+    return emojiLocale;
+  }
+
   constructor(elem) {
     const i18nConfig = EmojiButton.i18n();
     const i18nDictionary = i18nConfig.dictionary;
@@ -39,7 +59,6 @@ export class EmojiButton {
       reveal.style.overflowY = "unset"
     }
 
-    const elemStyle = window.getComputedStyle(elem, null);
     const wrapper = document.createElement("span");
     wrapper.className = "emoji__container"
     const btnContainer = document.createElement("span");
@@ -51,7 +70,6 @@ export class EmojiButton {
     btn.innerHTML = '<svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="smile" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M248 8C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm0 448c-110.3 0-200-89.7-200-200S137.7 56 248 56s200 89.7 200 200-89.7 200-200 200zm-80-216c17.7 0 32-14.3 32-32s-14.3-32-32-32-32 14.3-32 32 14.3 32 32 32zm160 0c17.7 0 32-14.3 32-32s-14.3-32-32-32-32 14.3-32 32 14.3 32 32 32zm4 72.6c-20.8 25-51.5 39.4-84 39.4s-63.2-14.3-84-39.4c-8.5-10.2-23.7-11.5-33.8-3.1-10.2 8.5-11.5 23.6-3.1 33.8 30 36 74.1 56.6 120.9 56.6s90.9-20.6 120.9-56.6c8.5-10.2 7.1-25.3-3.1-33.8-10.1-8.4-25.3-7.1-33.8 3.1z"></path></svg>'
     const referenceElement = document.createElement("span");
     referenceElement.className = "emoji__reference";
-    referenceElement.style = `position: absolute; display: block; bottom: -${elemStyle["padding-bottom"]}; right: -${elemStyle["padding-right"]};`;
 
     const parent = elem.parentNode;
     parent.insertBefore(wrapper, elem);
@@ -66,11 +84,14 @@ export class EmojiButton {
 
     const picker = createPopup({
       autoFocus: "search",
-      locale: document.documentElement.getAttribute("lang"),
-      i18n: i18nDictionary
+      locale: EmojiButton.locale(),
+      i18n: i18nDictionary,
+      // shrink the size of the emoji when mobile
+      ...(window.matchMedia(`(max-width: ${screens.sm})`).matches && { emojiSize: "1.5rem" })
     }, {
       position: "bottom-end",
       triggerElement: btn,
+      className: "emoji__decidim",
       referenceElement
     });
 

@@ -123,7 +123,7 @@ shared_examples "manage attachments examples" do
 
     it "can delete an attachment from a process" do
       within find("tr", text: translated(attachment.title)) do
-        accept_confirm { click_link "Delete" }
+        accept_confirm(admin: true) { click_link "Delete" }
       end
 
       expect(page).to have_admin_callout("successfully")

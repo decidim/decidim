@@ -96,7 +96,7 @@ describe "Admin manages budgets", type: :system do
   describe "deleting a budget" do
     it "deletes a budget" do
       within find("tr", text: translated(budget.title)) do
-        accept_confirm do
+        accept_confirm(admin: true) do
           page.find(".action-icon--remove").click
         end
       end

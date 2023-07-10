@@ -17,8 +17,10 @@ shared_examples "hideable resource during block" do
     switch_to_host(admin.organization.host)
     login_as admin, scope: :user
     visit reportable_path
-    within ".profile--sidebar", match: :first do
-      click_button
+    selector = Decidim.redesign_active ? ".profile__actions-secondary" : ".profile--sidebar"
+
+    within selector, match: :first do
+      click_button(I18n.t("decidim.shared.flag_modal.report"))
     end
     within ".flag-modal" do
       find(:css, "input[name='report[block]']").set(true)

@@ -3,6 +3,7 @@
 module Decidim
   class VersionCell < Decidim::ViewModel
     include Decidim::TraceabilityHelper
+    include Decidim::LayoutHelper
     include Decidim::SanitizeHelper
 
     def resource_title
@@ -17,6 +18,10 @@ module Decidim
       options[:versioned_resource]
     end
 
+    def path
+      options[:path]
+    end
+
     def versions_path
       options[:versions_path].call
     end
@@ -25,28 +30,8 @@ module Decidim
       i18n("changes_at_title", title: resource_title)
     end
 
-    def i18n_version_number
-      i18n("version_number")
-    end
-
     def i18n_back_to_resource
       i18n("back_to_resource")
-    end
-
-    def i18n_version_number_out_of_total
-      i18n("version_number_out_of_total", current_version: index, total_count: versioned_resource.versions.count)
-    end
-
-    def i18n_show_all_versions
-      i18n("show_all_versions")
-    end
-
-    def i18n_version_author
-      i18n("version_author")
-    end
-
-    def i18n_version_created_at
-      i18n("version_created_at")
     end
 
     def i18n(string, **params)
@@ -65,8 +50,8 @@ module Decidim
       options[:index]
     end
 
-    def resource_path
-      resource_locator(versioned_resource).path
+    def html_options
+      @html_options ||= options[:html_options] || {}
     end
   end
 end

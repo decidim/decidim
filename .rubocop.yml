@@ -72,6 +72,8 @@ RSpec/NoExpectationExample:
     - decidim-initiatives/spec/system/admin/update_initiative_spec.rb
     - decidim-initiatives/spec/system/initiative_signing_spec.rb
     - decidim-meetings/spec/commands/admin/export_meeting_registrations_spec.rb
+    - decidim-meetings/spec/system/explore_meeting_directory_spec.rb
+    - decidim-meetings/spec/system/explore_meetings_spec.rb
     - decidim-proposals/spec/lib/decidim/proposals/markdown_to_proposals_spec.rb
     - decidim-proposals/spec/shared/import_proposals_examples.rb
     - decidim-proposals/spec/shared/proposals_wizards_examples.rb

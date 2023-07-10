@@ -4,6 +4,7 @@ module Decidim
   module Verifications
     class ApplicationController < Decidim::ApplicationController
       include NeedsPermission
+      include HasAccountBreadcrumb
 
       layout "layouts/decidim/authorizations"
 
