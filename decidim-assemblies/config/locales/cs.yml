@@ -211,6 +211,7 @@ cs:
           categories: Kategorie
           components: Komponenty
           info: Info
+          landing_page: Úvodní stránka
           moderations: Moderování
           private_users: Soukromí uživatelé
         assemblies_types: Typy shromáždění
@@ -337,6 +338,25 @@ cs:
           accepted_types:
             json: JSON
       assemblies:
+        description:
+          area_name: Oblast
+          closing_date: Datum ukončení
+          created_by: Vytvořil
+          creation_date: Datum vytvoření
+          data: Data shromáždění
+          developer_group: Skupina propagátorů
+          duration: Doba trvání
+          included_at: Zahrnuto v
+          indefinite_duration: Neurčité
+          meta_scope: Oblast působnosti
+          participatory_scope: O čem se rozhoduje
+          participatory_structure: Jak se o tom rozhoduje
+          target: Kdo se účastní
+          title: O tomto shromáždění
+        filters:
+          names:
+            all: Vše
+          type: Typ
         show:
           title: O tomto shromáždění
       assembly_members:
@@ -351,6 +371,8 @@ cs:
         participatory: Účastnický
         working_group: Pracovní skupina
       content_blocks:
+        children_assemblies:
+          name: Shromáždění
         highlighted_assemblies:
           name: Zvýrazněná shromáždění
       created_by:
