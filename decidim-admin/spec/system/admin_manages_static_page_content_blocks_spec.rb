@@ -69,7 +69,7 @@ describe "Admin manages static page content blocks", type: :system do
 
       within ".edit_content_blocks" do
         within first("ul.js-list-actives li") do
-          find(".icon--x").click
+          find("a[data-method='delete']").click
         end
       end
 
