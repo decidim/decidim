@@ -378,20 +378,20 @@ fr-CA:
       show:
         area: Zone d'application
         assembly_type: Type d'assemblée
-        children: Sous-assemblées
+        children: Assemblées
         closing_date: Date de clôture
         composition: Composition
         created_by: Créé par
         creation_date: Date de création
         developer_group: Organisateur
         duration: Durée
-        included_at: Inclus à
+        included_at: Intégrée à cette plateforme le
         indefinite_duration: Indéfinie
         internal_organisation: Organisation interne
         is_transparent:
           'false': non-visible par les non-membres
           'true': visible par les non-membres
-        local_area: Périmètre d'assemblée
+        local_area: Espace d'organisation
         participatory_scope: Objectifs
         participatory_structure: Modalités de décision
         private_space: Ceci est une assemblée privée
