@@ -350,42 +350,18 @@ nl:
       index:
         title: Groepen
       pages:
-        home:
-          highlighted_assemblies:
-            active_assemblies: Huidige events
-            assemblies_button_title: Link naar de groepspagina die alle groepen laat zien
-            see_all_assemblies: Bekijk alle events
         user_profile:
           member_of:
             member_of: Lid van
       show:
-        area: onderwerp
         assembly_type: Groepstype
-        children: Groepen
-        closing_date: Einddatum
-        composition: Samenstelling
-        created_by: Aangemaakt door
-        creation_date: Gemaakt op
-        developer_group: Organisator
         duration: Duur
-        included_at: Opgenomen op
-        indefinite_duration: onbepaald
-        internal_organisation: Interne organisatie
         is_transparent:
           'false': ondoorzichtig
           'true': Transparant
-        local_area: Organisatiegebied
-        participatory_scope: Wat wordt besloten
-        participatory_structure: Hoe wordt er besloten
         private_space: Dit is een privé event
-        purpose_of_action: Doelstelling
-        read_less: Minder lezen
-        read_more: Lees verder
         related_participatory_processes: Verwante inspraakprocessen
-        scope: Scope
-        social_networks: Sociale netwerken
         social_networks_title: Bezoek groep op
-        target: Wie doet mee
     assembly_members:
       assembly_member:
         designated_on: Aangewezen op
@@ -436,19 +412,11 @@ nl:
           take_part: Deelnemen
         index:
           children: 'Groepen: '
-          organizational_chart: Organogram
           promoted_assemblies: Uitgelichte groepen
-          reset_chart: Reset
         order_by_assemblies:
           assemblies:
             one: "%{count} groep"
             other: "%{count} groepen"
-        promoted_assembly:
-          more_info: Meer informatie
-          take_part: Deelnemen
       assembly_navigation:
         assembly_member_menu_item: Leden
         assembly_menu_item: De bijeenkomst
-      assembly_widgets:
-        show:
-          take_part: Deelnemen
