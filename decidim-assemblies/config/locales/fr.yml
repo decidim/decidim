@@ -366,42 +366,18 @@ fr:
       last_activity:
         new_assembly: 'Nouvelle assemblée :'
       pages:
-        home:
-          highlighted_assemblies:
-            active_assemblies: Assemblées actives
-            assemblies_button_title: Lien vers la page Assemblées où toutes les assemblées sont affichées
-            see_all_assemblies: Voir toutes les assemblées
         user_profile:
           member_of:
             member_of: Membre de
       show:
-        area: Périmètre d'assemblée
         assembly_type: Type d'assemblée
-        children: Sous-assemblées
-        closing_date: Date de clôture
-        composition: Composition
-        created_by: Créé par
-        creation_date: Date de création
-        developer_group: Organisateur
         duration: Durée
-        included_at: Inclus à
-        indefinite_duration: Indéfinie
-        internal_organisation: Organisation interne
         is_transparent:
           'false': non-visible par les non-membres
           'true': visible par les non-membres
-        local_area: Périmètre d'assemblée
-        participatory_scope: Objectifs
-        participatory_structure: Modalités de décision
         private_space: Ceci est une assemblée privée
-        purpose_of_action: But de l'action
-        read_less: Voir moins
-        read_more: Voir la suite
         related_participatory_processes: Concertations associées
-        scope: Périmètre d'application
-        social_networks: Réseaux sociaux
         social_networks_title: Visiter l'assemblée sur
-        target: Participants
     assembly_members:
       assembly_member:
         designated_on: Désigné le
@@ -452,19 +428,11 @@ fr:
           take_part: Participer
         index:
           children: 'Assemblées : '
-          organizational_chart: Organigramme
           promoted_assemblies: Assemblées mises en avant
-          reset_chart: Réinitialiser
         order_by_assemblies:
           assemblies:
             one: "%{count} assemblée"
             other: "%{count} assemblées"
-        promoted_assembly:
-          more_info: Plus d'informations
-          take_part: Participer
       assembly_navigation:
         assembly_member_menu_item: Membres
         assembly_menu_item: Présentation
-      assembly_widgets:
-        show:
-          take_part: Participer
