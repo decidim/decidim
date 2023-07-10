@@ -62,7 +62,7 @@ edit_link(
 
   <section class="layout-main__section">
     <div class="editor-content">
-      <%= decidim_sanitize_editor(simple_format(translated_attribute(election.description))) %>
+      <%= decidim_sanitize_editor_admin(translated_attribute(election.description)) %>
     </div>
   </section>
 
