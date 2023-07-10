@@ -366,42 +366,18 @@ fi:
       last_activity:
         new_assembly: 'Uusi ryhmä:'
       pages:
-        home:
-          highlighted_assemblies:
-            active_assemblies: Aktiiviset ryhmät
-            assemblies_button_title: Linkki kaikkien ryhmien sivulle
-            see_all_assemblies: Näytä kaikki ryhmät
         user_profile:
           member_of:
             member_of: Jäsen ryhmässä
       show:
-        area: alue
         assembly_type: Ryhmän tyyppi
-        children: Ryhmät
-        closing_date: Sulkemispäivä
-        composition: Kokoonpano
-        created_by: Luonut
-        creation_date: Luontipäivämäärä
-        developer_group: Edistäjäryhmä
         duration: Kesto
-        included_at: Lisäysaika
-        indefinite_duration: Määrittelemätön
-        internal_organisation: Sisäinen organisaatio
         is_transparent:
           'false': läpinäkymätön
           'true': läpinäkyvä
-        local_area: Organisaatioalue
-        participatory_scope: Mitä päätetään
-        participatory_structure: Miten päätetään
         private_space: Tämä on yksityinen ryhmä
-        purpose_of_action: Toiminnan tarkoitus
-        read_less: Vähennä tekstiä
-        read_more: Lue lisää
         related_participatory_processes: Liittyvät osallistumisprosessit
-        scope: Teema
-        social_networks: Sosiaalinen media
         social_networks_title: Vieraile ryhmän sivulla palvelussa
-        target: Kuka osallistuu
     assembly_members:
       assembly_member:
         designated_on: Nimetty
@@ -452,19 +428,11 @@ fi:
           take_part: Osallistu
         index:
           children: 'Ryhmät: '
-          organizational_chart: Organisaatiokaavio
           promoted_assemblies: Korostetut ryhmät
-          reset_chart: Palauta
         order_by_assemblies:
           assemblies:
             one: "%{count} ryhmä"
             other: "%{count} ryhmää"
-        promoted_assembly:
-          more_info: Lisätiedot
-          take_part: Osallistu
       assembly_navigation:
         assembly_member_menu_item: Jäsenet
         assembly_menu_item: Ryhmä
-      assembly_widgets:
-        show:
-          take_part: Osallistu
