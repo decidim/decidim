@@ -7,7 +7,6 @@
   <% end %>
 
   <% if last_step? %>
-    <!-- REDESIGN_PENDING: This submit must show a modal with a confirm message defined in decidim.forms.step_navigation.show.are_you_sure. -->
     <%= form.submit(
       "#{t("decidim.forms.step_navigation.show.submit")}#{icon "mail-send-line", class: "fill-current"}".html_safe,
       class: "button button__lg button__secondary",

@@ -85,6 +85,7 @@ en:
   date:
     formats:
       decidim_short: "%d/%m/%Y"
+      decidim_short_dashed: "%d-%m-%Y"
       decidim_short_with_month_name_short: "%d %b %Y"
       decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
@@ -104,6 +105,23 @@ en:
       less_than_x_seconds:
         one: less than 1 second
         other: less than %{count} seconds
+      short:
+        about_x_days: "%{count}d"
+        about_x_hours: "%{count}h"
+        about_x_minutes: "%{count}m"
+        about_x_months: "%{count} mo."
+        about_x_years: "%{count}y"
+        almost_x_years: "%{count}y"
+        half_a_minute: 1m
+        less_than_x_minutes: "%{count}m"
+        less_than_x_seconds: "%{count}s"
+        over_x_years: "%{count}y"
+        x_days: "%{count}d"
+        x_hours: "%{count}h"
+        x_minutes: "%{count}m"
+        x_months: "%{count} mo."
+        x_seconds: "%{count}s"
+        x_years: "%{count}y"
       x_days:
         one: 1 day
         other: "%{count} days"
@@ -266,7 +284,6 @@ en:
         error: An error ocurred while accepting the amendment.
         success: The amendment has been accepted successfully.
       amendable:
-        amended_by: Amended by
         button: Amend %{model_name}
         error: There has been an error amending this resource.
         help_text: Improve this %{model_name} by modifying its %{amendable_fields}.
@@ -274,6 +291,10 @@ en:
         promote_confirm_text: Are you sure you want to promote this emendation?
         promote_help_text: You can promote this emendation and publish it as an independent %{model_name}.
         section_heading: Amendments (%{count})
+      amendments:
+        title:
+          one: "%{count} amendment"
+          other: "%{count} amendments"
       compare_draft:
         continue: Continue
         no_similars_found: No similar emendations found.
@@ -286,7 +307,6 @@ en:
         success: Amendment draft was successfully deleted.
       edit_draft:
         discard: Discard this draft
-        discard_confirmation: Are you sure you want to discard this amendment draft?
         send: Preview
         title: Edit Amendment Draft
       emendation:
@@ -306,6 +326,7 @@ en:
           withdrawn: |-
             This amendment for the %{amendable_type} %{proposal_link}
             has been withdrawn by the author.
+      name: Amendment
       new:
         amendment_author: Amendment author
         send: Create
@@ -326,7 +347,6 @@ en:
       review:
         back: Back
         heading: Review the amendment
-        help_text: You are reviewing an amendment to the %{model_name}.
         send: Accept amendment
       update_draft:
         error: There was a problem updating the amendment draft.
@@ -345,17 +365,16 @@ en:
       document:
         download: Download file
       documents:
+        documents: Documents
         related_documents: Related documents
-      geocoding:
-        geocoded_address: Address
       photo:
         alt: Media picture
         title: Image
       photos:
+        photos: Images
         related_photos: Related images
     author:
       avatar: 'Avatar: %{name}'
-      avatar_multiuser: Avatar for multiple users
       comments:
         one: comment
         other: comments
@@ -484,6 +503,8 @@ en:
             dummy_step_translatable_text: Dummy Step Translatable Text
     contact: Contact
     content_blocks:
+      announcement:
+        name: Announcement
       cta:
         name: Image, text and Call To Action button
       cta_settings_form:
@@ -493,6 +514,8 @@ en:
         description: Description
       footer_sub_hero:
         name: Footer sub hero banner
+      global_menu:
+        name: Global menu
       hero:
         name: Hero image
       hero_settings_form:
@@ -501,6 +524,9 @@ en:
       highlighted_content_banner:
         name: Highlighted content banner
       highlighted_elements_settings_form:
+        components:
+          all: All
+          label: 'Select component:'
         orders:
           label: 'Sort elements by:'
           random: Random
@@ -514,8 +540,20 @@ en:
         name: Last activity
         title: Last activity
         view_all: View all
+      last_activity_settings_form:
+        max_last_activity_users: Maximum number of user avatars with recent activity to show
+      main_data:
+        name: Main data
+      metadata:
+        name: Metadata
       metrics:
         name: Organization metrics
+      participatory_space_metrics:
+        name: Metrics
+      participatory_space_stats:
+        name: Statistics
+      social_networks_metadata:
+        name: Social networks
       static_page:
         section:
           name: Section
@@ -555,8 +593,6 @@ en:
           nickname_help: Your alias in %{organization}. Can only contain letters, numbers, '-' and '_'.
           sign_in: Log in
           sign_up: Sign up
-          sign_up_as:
-            legend: Sign up as
           subtitle: Sign up to participate in discussions and support proposals.
           terms: the terms of service
           tos_agreement: By signing up you agree to %{link}.
@@ -574,11 +610,10 @@ en:
         newsletter_modal:
           buttons:
             check: Check and continue
-            close_modal: Close modal
             uncheck: Keep unchecked
           notice: |-
-            <p>Hey, are you sure you do not want to receive a newsletter?<br>
-            Please consider again ticking the newsletter checkbox below.<br>
+            <p>Hey, are you sure you do not want to receive a newsletter?
+            Please consider again ticking the newsletter checkbox below.
             It is very important for us that you can receive occasional emails
             to make important announcements, you can always change this on your
             notifications settings page.</p>
@@ -594,9 +629,9 @@ en:
       authorizations:
         new:
           authorize: Authorize application
-          by_organization_link_html: <small class="heading-small">by %{link}</small>
+          by_organization_link_html: by %{link}
           cancel: Cancel
-          connect_your_account_html: Connect your account by signing in to <strong>%{organization}</strong>.
+          connect_your_account_html: Connect your account by signing in to %{organization}.
           publish_content: Publish content for you
           see_email: See your email
           see_name: See your name
@@ -604,7 +639,7 @@ en:
           this_application_will_be_able_to: 'This application will be able to:'
           this_application_will_not_be_able_to: 'This application will not be able to:'
           update_profile: Update your profile
-          wants_to_use_your_account_html: "<strong>%{application_name}</strong> wants to use your account"
+          wants_to_use_your_account_html: "%{application_name} wants to use your account"
     download_your_data:
       export:
         ready: Ready
@@ -804,6 +839,7 @@ en:
     filters:
       linked_classes:
         all: All
+        answer: Answer
         collaborative_draft: Collaborative draft
         dummy_resource: Dummy resources
         meeting: Meetings
@@ -928,6 +964,7 @@ en:
       invite:
         error: There was a problem inviting this participant.
         success: Participant successfully invited.
+      pending_invitations: Pending requests
       reject:
         error: There was a problem rejecting this invitation.
         success: Invitation successfully rejected.
@@ -999,12 +1036,12 @@ en:
         description: Read more about %{organization}.
         title: General Help
     last_activities:
-      activities:
-        no_activities_warning: No activity
       all: All activity types
       index:
         last_activity: Last activity
-        resource_type: Type
+      name: Last activities
+    linked_resource_from:
+      included_in: Included in
     links:
       invalid_url: Invalid URL
       warning:
@@ -1118,6 +1155,12 @@ en:
           send: Send
         update:
           error: Message was not sent due to an error.
+    metadata:
+      progress:
+        active: Active
+        finished: 'Finished: %{end_date}'
+        not_started: Not started yet
+        remaining: "%{time_distance} remaining"
     metrics:
       download:
         csv: Download data (CSV)
@@ -1227,16 +1270,12 @@ en:
         error: There was a problem updating your notifications settings.
         success: Your notifications settings were successfully updated.
     offline:
+      name: Offline
       show:
         message: It looks like you are currently offline. Please, try again later.
         retry: Retry
     open_data:
       not_available_yet: The Open Data files are not yet available, please try again in a few minutes.
-    own_user_groups:
-      index:
-        pending: Pending
-        rejected: Rejected
-        verified: Verified
     pad_iframe:
       disclaimer: The contents of this pad are written by registered users and express their opinions. %{organization} cannot be held responsible for its contents.
       explanation: Use this pad to collaboratively take notes during the meeting so it is easier to write down the minute afterwards.
@@ -1259,8 +1298,6 @@ en:
         hero:
           participate: Participate
           welcome: Welcome to %{organization}!
-        metrics:
-          headline: Metrics
         statistics:
           headline: Current state of %{organization}
         sub_hero:
@@ -1273,7 +1310,7 @@ en:
       participatory_space:
         metrics:
           headline: Metrics
-          link: Show all metrics
+          link: Show all
       terms_of_service:
         accept:
           error: There was a problem accepting the terms of service.
@@ -1286,7 +1323,6 @@ en:
           modal_btn_continue: Accept terms and continue
           modal_btn_exit: I will review it later
           modal_button: Refuse the terms
-          modal_close: Close modal
           modal_title: Do you really refuse the updated terms of service?
         required_review:
           alert: We have updated our Terms of Service, please review them.
@@ -1301,7 +1337,6 @@ en:
     profile:
       deleted: Deleted participant
       inaccessible_message: This profile is inaccessible due to terms of service violation!
-      view: View
     profiles:
       default_officialization_text_for_user_groups: This group is publicly verified, its name has been verified to correspond with its real name.
       default_officialization_text_for_users: This participant is publicly verified, his/her name or role has been verified to correspond with his/her real name and role.
@@ -1315,7 +1350,6 @@ en:
         members: Members
         officialized: Official participant
         send_private_message: Send private message
-        view_full_profile: View full profile
       sidebar:
         badges:
           info: Badges are earned by performing specific activity in the platform.
@@ -1323,13 +1357,17 @@ en:
       user:
         actions:
           create_user_group: Create group
+          disabled_message: Message
           edit_profile: Edit profile
           edit_user_group: Edit group profile
           invite_user: Invite participant
           join_user_group: Request to join group
+          leave_user_group: Leave group
+          manage_user_group: Manage group
           manage_user_group_admins: Manage admins
           manage_user_group_users: Manage members
           message: Message
+          resend_email_confirmation_instructions: Resend email confirmation instructions
         confirmation_instructions_sent: Email confirmation instructions sent.
         create_user_group: Create group
         edit_profile: Edit profile
@@ -1380,13 +1418,14 @@ en:
       scopes_picker_input:
         select_scope: 'Select a scope (currently: %{current})'
     search:
+      name: Search
       results: Search results
       results_found_for_term: '%{count} Results for the search: "%{term}"'
       term_input_placeholder: Search
     searches:
       filters:
-        back: Back to results
         jump_to: 'Jump to:'
+        search: Search
         state:
           active: Active
           all: All
@@ -1395,12 +1434,10 @@ en:
       filters_small_view:
         close_modal: Close modal
         filter: Filter
+        filter_and_search: Filter and Search
         filter_by: Filter by
         unfold: Unfold
       results:
-        results:
-          one: "%{count} result"
-          other: "%{count} results"
         view_all: View all (%{count})
     security:
       selfxss_warning:
@@ -1412,10 +1449,6 @@ en:
         close_modal: Close modal
         ok: OK
         title: Confirm
-      embed_modal:
-        close_window: Close window
-        embed: Please paste this code in your page
-        embed_link: Embed
       extended_navigation_bar:
         more: More
         unfold: Unfold
@@ -1434,7 +1467,6 @@ en:
         report: Report
         spam: Contains clickbait, advertising, scams or script bots.
         title: Report inappropriate content
-        visit_profile: If you want to also block the participant and the rest of its contents, go to %{user_link} profile page.
       flag_user_modal:
         already_reported: This content is already reported and it will be reviewed by an admin.
         block: Block this participant
@@ -1459,7 +1491,9 @@ en:
         remove_recipient: Remove recipient %{name}
       participatory_space_filters:
         filters:
+          area: Area
           areas: Areas
+          scope: Scope
           select_an_area: Select an area
       public_participation:
         public_participation: Show my attendance publicly
@@ -1509,30 +1543,12 @@ en:
         existing_error: The message could not be created. The conversation already exists, please try again now.
         success: Conversation started successfully!
       index:
-        add_max_users: 'Add users to conversation: 9 users max'
-        add_users_placeholder: Search...
-        close: Close
         conversations_info: Conversations are private. no one else can see them. A conversation can be started with any participant or group registered on the platform.
-        from: From
-        last_message: Last message
-        modal_title: New conversation
-        new_conversation: New conversation
-        next: Next
         no_conversations_warning: There are no conversations yet.
-        no_results: No results
-        participant_with_disabled_message_reception: This participant has disabled message reception.
         time_ago: "%{time} ago"
-      new:
-        title: Start a conversation
       reply:
         placeholder: Your reply...
         send: Send
-        title_reply: Reply
-      show:
-        back: Show all conversations
-        deleted_accounts: You cannot have a conversation with deleted accounts.
-        not_allowed: This user does not accept any more direct messages.
-        title: Conversation with %{usernames}
       update:
         error: Message not sent. Try again later
     user_interests:
@@ -1557,29 +1573,15 @@ en:
         back_to_resource: Go back
         changes_at_title: Changes at "%{title}"
         number_of_versions: Versions
-        show_all_versions: Show all versions
-        version_author: Version author
         version_created_at: Version created at
-        version_number: Version number
-        version_number_out_of_total: "%{current_version} out of %{total_count}"
-    version_author:
-      show:
-        deleted: Deleted participant
     versions:
       resource_version:
         of_versions: "(of %{number})"
         see_other_versions: see other versions
         version: Version number %{number}
-    versions_list:
-      show:
-        back_to_resource: Go back
-        changes_at_title: Changes at "%{title}"
-        number_of_versions: Versions
-        title: Versions
     versions_list_item:
-      back: Show all versions
       show:
-        version_index: Version %{index}
+        version_index: Version %{index} of %{total}
     welcome_notification:
       default_body: <p>Hi {{name}}, thanks for joining {{organization}} and welcome!</p><ul><li>If you want to get a quick idea of what you can do here, have a look at the <a href="{{help_url}}">Help</a> section.</li><li>Once you have read it you will get your first badge. Here is a <a href="{{badges_url}}">list of all the badges</a> you can get as you participate in {{organization}}</li><li>Last but not least, join other people, share with them the experience of being engaged and participating in {{organization}}. Make proposals, comments, debate, think about how to contribute to the common good, provide arguments to convince, listen and read to be convinced, express your ideas in a concrete and direct way, respond with patience and decision, defend your ideas and keep an open mind to collaborate and join other people's ideas.</li></ul>
       default_subject: Thanks for joining {{organization}}!
@@ -1847,6 +1849,9 @@ en:
     timestamp_error_message: Sorry, that was too quick! Please resubmit.
   layouts:
     decidim:
+      announcements:
+        close: Close
+        view_more: More information
       data_consent:
         details:
           columns:
@@ -1902,8 +1907,13 @@ en:
         cc_by_license: Creative Commons License
         data_consent_settings: Cookie settings
         decidim_logo: Decidim Logo
+        decidim_title: Decidim
         download_open_data: Download Open Data files
         made_with_open_source: Website made with <a target="_blank" href="https://github.com/decidim/decidim">free software</a>.
+        resources: Resources
+        sign_in: Sign In
+        sign_up: Sign Up
+        terms_and_conditions: Terms and Conditions
       header:
         close_menu: Close menu
         main_menu: Main menu
@@ -1938,6 +1948,7 @@ en:
       user_menu:
         account: 'User account: %{name}'
         admin_dashboard: Admin dashboard
+        configuration: Configuration
         conversations: Conversations
         notifications: Notifications
         profile: My account
@@ -1951,10 +1962,9 @@ en:
         my_data: My data
         my_interests: My interests
         notifications_settings: Notifications settings
+        profile: Profile
         title: Participant settings
         user_groups: Groups
-      widget:
-        see_more: See more
   locale:
     name: English
     name_with_error: English (error!)
@@ -2027,7 +2037,6 @@ en:
     dropdown:
       choose_diff_view_html: 'HTML view mode:'
       choose_diff_view_mode: 'Compare view mode:'
-      choose_diff_view_mode_menu: Choose compare mode
       option_escaped: Escaped
       option_split: Side-by-side
       option_unescaped: Unescaped

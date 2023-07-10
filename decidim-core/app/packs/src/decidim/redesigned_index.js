@@ -1,3 +1,5 @@
+/* eslint-disable max-lines */
+
 /**
  * External dependencies
  */
@@ -6,15 +8,11 @@
 import "core-js/stable";
 import "regenerator-runtime/runtime";
 import "jquery"
-import Rails from "@rails/ujs"
-import "@hotwired/turbo-rails"
 
 // external deps that require initialization
+import Rails from "@rails/ujs"
 import svg4everybody from "svg4everybody"
 import morphdom from "morphdom"
-import Accordions from "a11y-accordion-component";
-import Dropdowns from "a11y-dropdown-component";
-import Dialogs from "a11y-dialog-component";
 
 // vendor customizated scripts (bad practice: these ones should be removed eventually)
 import "./vendor/foundation-datepicker"
@@ -30,7 +28,6 @@ import "./input_tags"
 import "./input_hashtags"
 import "./input_mentions"
 import "./input_multiple_mentions"
-// import "./input_character_counter" --deprecated
 import "./input_autojump"
 import "./history"
 import "./callout"
@@ -43,33 +40,37 @@ import "./append_redirect_url_to_modals"
 import "./form_attachments"
 import "./form_remote"
 // import "./conferences" -- deprecated
-import "./tooltip_keep_on_hover"
-import "./diff_mode_dropdown"
+// import "./tooltip_keep_on_hover" -- deprecated
+// import "./diff_mode_dropdown" -- deprecated
 import "./delayed"
 import "./vizzs"
 import "./responsive_horizontal_tabs"
 import "./security/selfxss_warning"
-import "./session_timeouter"
-import "./floating_help"
-import "./confirm"
+// import "./floating_help" --deprecated
+import "./redesigned_session_timeouter"
+import "./redesigned_confirm"
 import "./results_listing"
-import "./represent_user_group"
+// import "./represent_user_group" -- deprecated
 import "./impersonation"
 // import "./start_conversation_dialog" -- deprecated
 import "./gallery"
 import "./direct_uploads/redesigned_upload_field"
+import "./data_consent"
+import "./sw"
+import changeReportFormBehavior from "./redesigned_change_report_form_behavior"
+
 
 // local deps that require initialization
 import formDatePicker from "./form_datepicker"
 import fixDropdownMenus from "./dropdowns_menus"
 import Configuration from "./configuration"
 import ExternalLink from "./redesigned_external_link"
-import ExternalDomainLink from "./external_domain_warning"
+import updateExternalDomainLinks from "./external_domain_warning"
 import scrollToLastChild from "./scroll_to_last_child"
 import InputCharacterCounter, { createCharacterCounter } from "./redesigned_input_character_counter"
 import FormValidator from "./form_validator"
 import DataPicker from "./data_picker"
-import FormFilterComponent from "./form_filter"
+import FormFilterComponent from "./redesigned_form_filter"
 import addInputEmoji, { EmojiButton } from "./input_emoji"
 import dialogMode from "./dialog_mode"
 import FocusGuard from "./focus_guard"
@@ -77,6 +78,14 @@ import backToListLink from "./back_to_list"
 import markAsReadNotifications from "./notifications"
 import RemoteModal from "./redesigned_ajax_modals"
 import selectActiveIdentity from "./redesigned_identity_selector_dialog"
+import createTooltip from "./redesigned_tooltips"
+import createToggle from "./redesigned_toggle"
+import {
+  createAccordion,
+  createDialog,
+  createDropdown,
+  Dialogs
+} from "./redesigned_a11y"
 
 // bad practice: window namespace should avoid be populated as much as possible
 // rails-translations could be referrenced through a single Decidim.I18n object
@@ -88,8 +97,6 @@ window.Decidim = window.Decidim || {
   DataPicker,
   addInputEmoji,
   EmojiButton,
-  Accordions,
-  Dropdowns,
   Dialogs
 };
 
@@ -106,7 +113,12 @@ Rails.start()
  */
 const initializer = (element = document) => {
   window.theDataPicker = new DataPicker($(".data-picker"));
-  window.focusGuard = new FocusGuard(element.querySelector("body"));
+
+  let focusContainer = element;
+  if (element === document) {
+    focusContainer = document.querySelector("body");
+  }
+  window.focusGuard = new FocusGuard(focusContainer);
 
   $(element).foundation();
   $(element).on("open.zf.reveal", (ev) => {
@@ -139,15 +151,6 @@ const initializer = (element = document) => {
     window.createEditor(container);
   });
 
-  element.querySelectorAll("a[target=\"_blank\"]:not([data-external-link=\"false\"])").forEach((elem) => {
-    if (elem.closest(".editor-container")) {
-      return null;
-    }
-    return new ExternalLink(elem);
-  });
-
-  element.querySelectorAll("a[target=\"_blank\"]:not([data-external-domain-link=\"false\"])").forEach((elem) => new ExternalDomainLink(elem))
-
   // initialize character counter
   $("input[type='text'], textarea, .editor>input[type='hidden']").each((_i, elem) => {
     const $input = $(elem);
@@ -166,6 +169,13 @@ const initializer = (element = document) => {
     formFilter.mountComponent();
   })
 
+  element.querySelectorAll("a[target=\"_blank\"]:not([data-external-link=\"false\"])").forEach((elem) => {
+    // both functions (updateExternalDomainLinks and ExternalLink) are related, so if we disable one, the other also
+    updateExternalDomainLinks(elem)
+
+    return new ExternalLink(elem)
+  })
+
   addInputEmoji(element)
 
   backToListLink(element.querySelectorAll(".js-back-to-list"));
@@ -175,86 +185,47 @@ const initializer = (element = document) => {
   scrollToLastChild()
 
   // https://github.com/jonathanlevaillant/a11y-accordion-component
-  Accordions.init();
+  element.querySelectorAll('[data-component="accordion"]').forEach((component) => createAccordion(component))
+
   // https://github.com/jonathanlevaillant/a11y-dropdown-component
-  Dropdowns.init();
+  element.querySelectorAll('[data-component="dropdown"]').forEach((component) => createDropdown(component))
+
   // https://github.com/jonathanlevaillant/a11y-dialog-component
-  element.querySelectorAll("[data-dialog]").forEach((elem) => {
-    const {
-      dataset: { dialog }
-    } = elem;
-
-    // NOTE: due to some SR bugs we have to set the focus on the title
-    // See discussion: https://github.com/decidim/decidim/issues/9760
-    // See further info: https://adrianroselli.com/2020/10/dialog-focus-in-screen-readers.html
-    const setFocusOnTitle = (content) => {
-      const heading = content.querySelector("[id^=dialog-title]")
-      if (heading) {
-        heading.setAttribute("tabindex", heading.getAttribute("tabindex") || -1)
-        heading.focus();
-      }
-    }
-
-    const modal = new Dialogs(`[data-dialog="${dialog}"]`, {
-      openingSelector: `[data-dialog-open="${dialog}"]`,
-      closingSelector: `[data-dialog-close="${dialog}"]`,
-      backdropSelector: `[data-dialog="${dialog}"]`,
-      enableAutoFocus: false,
-      onOpen: (el) => {
-        setFocusOnTitle(el)
-        el.dispatchEvent(new CustomEvent("open.dialog"));
-      },
-      onClose: (el) => {
-        el.dispatchEvent(new CustomEvent("close.dialog"));
-      },
-      // optional parameters (whenever exists the id, it will add the tagging)
-      ...(Boolean(elem.querySelector(`#dialog-title-${dialog}`)) && {
-        labelledby: `dialog-title-${dialog}`
-      }),
-      ...(Boolean(elem.querySelector(`#dialog-desc-${dialog}`)) && {
-        describedby: `dialog-desc-${dialog}`
-      })
-    });
-    elem.dialog = modal;
-
-    // NOTE: when a remote modal is open, the contents are empty
-    // once they are in the DOM, we append the ARIA attributes
-    // otherwise they could not exist yet
-    // (this listener must be applied over 'document', not 'element')
-    document.addEventListener("remote-modal:loaded", () => {
-      const heading = modal.dialog.querySelector(`#dialog-title-${dialog}`)
-      if (heading) {
-        modal.dialog.setAttribute("aria-labelledby", `dialog-title-${dialog}`);
-        setFocusOnTitle(modal.dialog)
-      }
-      if (modal.dialog.querySelector(`#dialog-desc-${dialog}`)) {
-        modal.dialog.setAttribute("aria-describedby", `dialog-desc-${dialog}`);
-      }
-    })
-  });
-
-  element.querySelectorAll("[data-drawer]").forEach(
-    ({ dataset: { drawer } }) =>
-      new Dialogs(`[data-drawer="${drawer}"]`, {
-        openingSelector: `[data-drawer-open="${drawer}"]`,
-        closingSelector: `[data-drawer-close="${drawer}"]`,
-        backdropSelector: "[data-drawer]"
-      })
-  );
+  element.querySelectorAll("[data-dialog]").forEach((component) => createDialog(component))
 
   // Initialize available remote modals (ajax-fetched contents)
   element.querySelectorAll("[data-dialog-remote-url]").forEach((elem) => new RemoteModal(elem))
 
   // Add event listeners to identity modal
   element.querySelectorAll("[data-user-identity]").forEach((elem) => selectActiveIdentity(elem))
+
+  // Initialize data-tooltips
+  element.querySelectorAll("[data-tooltip]").forEach((elem) => createTooltip(elem))
+
+  // Initialize data-toggles
+  element.querySelectorAll("[data-toggle]").forEach((elem) => createToggle(elem))
+
+  document.querySelectorAll(".new_report").forEach((elem) => changeReportFormBehavior(elem))
 }
 
-if ("Turbo" in window) {
-  document.addEventListener("turbo:load", () => initializer());
-  document.addEventListener("remote-modal:loaded", ({ detail }) => initializer(detail));
-} else {
-  // If no jQuery is used the Tribute feature used in comments to autocomplete
-  // mentions stops working
-  // document.addEventListener("DOMContentLoaded", () => {
-  $(() => initializer());
-}
+// If no jQuery is used the Tribute feature used in comments to autocomplete
+// mentions stops working
+// document.addEventListener("DOMContentLoaded", () => {
+$(() => initializer());
+
+// Run initializer action over the new DOM elements
+document.addEventListener("remote-modal:loaded", ({ detail }) => initializer(detail));
+document.addEventListener("ajax:loaded", ({ detail }) => initializer(detail));
+
+// Run initializer action over the new DOM elements (for example after comments polling)
+document.addEventListener("comments:loaded", (event) => {
+  const commentsIds = event.detail.commentsIds;
+  if (commentsIds) {
+    commentsIds.forEach((commentId) => {
+      const commentsContainer = document.getElementById(`comment_${commentId}`);
+      if (commentsContainer) {
+        initializer(commentsContainer)
+      }
+    });
+  }
+});

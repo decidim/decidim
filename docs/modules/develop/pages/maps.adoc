@@ -435,8 +435,8 @@ By default, this will return a link to the configured static map URL with the fo
  ** `latitude` - The value for the `latitude` option provided for the method.
  ** `longitude` - The value for the `longitude` option provided for the method.
  ** `zoom` - The value for key `:zoom` in the options hash (default: 15).
- ** `width` - The value for key `:width` in the options hash (default: 120).
- ** `height` - The value for key `:height` in the options hash (default: 120).
+ ** `width` - The value for key `:width` in the options hash (default: 300).
+ ** `height` - The value for key `:height` in the options hash (default: 300).
 * `url_params(latitude:, longitude:, options: {})` - Returns a hash of prepared URL parameters for the `url` method.
 For the default parameters, see the explanations above for the `url` method.
 * `image_data(latitude:, longitude:, options: {})` - Does a request to the URL defined by the `url` method and returns the raw binary data in the response body of that request.
@@ -476,7 +476,7 @@ When calling the `url` method with the latitude of `1.123` and longitude of `2.4
 
 [source,bash]
 ----
-https://staticmap.example.org/?latitude=1.123&longitude=2.456&zoom=15&width=120&height=120&style=bright&foo=bar
+https://staticmap.example.org/?latitude=1.123&longitude=2.456&zoom=15&width=300&height=300&style=bright&foo=bar
 ----
 
 If you want to use the dynamic map replacements for the static map images, do not configure `static` section for your maps:

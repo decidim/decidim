@@ -80,7 +80,7 @@ describe "Admin manages assemblies", type: :system do
 
   def click_delete_assembly_type
     within find("tr", text: translated(assembly_type.title)) do
-      accept_confirm { click_link "Delete" }
+      accept_confirm(admin: true) { click_link "Delete" }
     end
   end
 end

@@ -56,7 +56,7 @@
   }
 
   &__participants {
-    @apply bg-background rounded px-4 py-2 flex items-center gap-6 mb-14;
+    @apply bg-background rounded px-4 py-2 flex flex-col md:flex-row items-start md:items-center gap-2 md:gap-6 mb-14;
   }
 
   &__message {

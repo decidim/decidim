@@ -8,6 +8,7 @@ describe "Initiatives", type: :system do
   let(:base_initiative) do
     create(:initiative, organization:)
   end
+  let!(:menu_content_block) { create(:content_block, organization:, manifest_name: :global_menu, scope_name: :homepage) }
 
   before do
     switch_to_host(organization.host)
@@ -17,7 +18,7 @@ describe "Initiatives", type: :system do
     it "does not show the menu link" do
       visit decidim.root_path
 
-      within ".main-nav" do
+      within "#home__menu" do
         expect(page).not_to have_content("Initiatives")
       end
     end
@@ -33,6 +34,17 @@ describe "Initiatives", type: :system do
   context "when initiative types and scopes have been created" do
     let(:base_initiative) do
       create(:initiative, organization:)
+    end
+
+    it "shows the menu link" do
+      type = create(:initiatives_type, organization:)
+      create(:initiatives_type_scope, type:)
+
+      visit decidim.root_path
+
+      within "#home__menu" do
+        expect(page).to have_content("Initiatives")
+      end
     end
 
     context "when there are some published initiatives" do
@@ -55,19 +67,6 @@ describe "Initiatives", type: :system do
           visit decidim_initiatives.initiatives_path
         end
 
-        context "when accessing from the homepage" do
-          it "the menu link is shown" do
-            visit decidim.root_path
-
-            within ".main-nav" do
-              expect(page).to have_content("Initiatives")
-              click_link "Initiatives"
-            end
-
-            expect(page).to have_current_path(decidim_initiatives.initiatives_path)
-          end
-        end
-
         it "lists all the initiatives" do
           within "#initiatives-count" do
             expect(page).to have_content("1")
@@ -75,7 +74,6 @@ describe "Initiatives", type: :system do
 
           within "#initiatives" do
             expect(page).to have_content(translated(initiative.title, locale: :en))
-            expect(page).to have_content(initiative.author_name, count: 1)
             expect(page).not_to have_content(translated(unpublished_initiative.title, locale: :en))
           end
         end
@@ -140,7 +138,6 @@ describe "Initiatives", type: :system do
 
           within "#initiatives" do
             expect(page).to have_content(translated(initiative.title, locale: :en))
-            expect(page).to have_content(initiative.author_name, count: 1)
             expect(page).not_to have_content(translated(unpublished_initiative.title, locale: :en))
           end
         end
@@ -158,7 +155,7 @@ describe "Initiatives", type: :system do
 
         it "shows the card image" do
           within "#initiative_#{initiative.id}" do
-            expect(page).to have_selector(".card__image")
+            expect(page).to have_selector(".card__grid-img")
           end
         end
       end

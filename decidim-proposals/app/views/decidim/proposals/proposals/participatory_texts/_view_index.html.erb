@@ -1,10 +1,17 @@
-<div class="card card__link p-xs flex--fsc reveal__trigger" data-open="participatory-text-index">
-  <%= icon "list", class: "mr-s", role: "img", "aria-hidden": true %>
-  <strong><%= t(".see_index") %></strong>
-</div>
-<div id="participatory-text-index" class="reveal large" data-reveal>
-  <%= render partial: "decidim/proposals/proposals/participatory_texts/index" %>
-  <button class="close-button" data-close aria-label="Close reveal" type="button">
-    <span aria-hidden="true">&times;</span>
+<div class="filter-container self-stretch" data-component="accordion">
+  <button id="trigger-menu" data-controls="panel-dropdown-menu-index" data-open="false" data-open-md="true">
+    <%= icon "arrow-down-s-line" %>
+    <%= icon "arrow-up-s-line" %>
+    <span><%= t(".document_index") %></span>
   </button>
+
+  <div id="panel-dropdown-menu-index">
+    <% @proposals.each do |proposal| %>
+      <%= link_to resource_locator(proposal).path, class: "filter last:[&>svg]:text-gray-2" do %>
+        <%= icon "bookmark-line" %>
+        <span><%= decidim_html_escape(present(proposal).title) %></span>
+        <%= icon "arrow-right-s-fill", class: "ml-auto" %>
+      <% end %>
+    <% end %>
+  </div>
 </div>

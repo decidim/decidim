@@ -48,7 +48,7 @@ module Decidim
         end
 
         it "formats the linked classes with underscore name and name" do
-          expect(subject).to eq [["decidim/meetings/meeting", "Meetings"]]
+          expect(subject).to eq [["decidim/meetings/meeting", "<span>Meetings</span>"]]
         end
       end
     end
@@ -59,11 +59,11 @@ module Decidim
       before do
         allow(helper)
           .to receive(:linked_classes_for)
-          .and_return([["decidim/meetings/meeting", "Meetings"]])
+          .and_return([["decidim/meetings/meeting", "<span>Meetings</span>"]])
       end
 
       it "formats the values for the form" do
-        expect(subject).to eq [["", "All"], ["decidim/meetings/meeting", "Meetings"]]
+        expect(subject).to eq [["", "<span>All</span>"], ["decidim/meetings/meeting", "<span>Meetings</span>"]]
       end
     end
 

@@ -22,6 +22,7 @@ module Decidim
     include UserBlockedChecker
     include DisableRedirectionToExternalHost
     include NeedsPasswordChange
+    include LinkedResourceReference
 
     include RedesignLayout
     redesign active: true
@@ -33,6 +34,7 @@ module Decidim
     helper Decidim::TranslationsHelper
     helper Decidim::AriaSelectedLinkToHelper
     helper Decidim::MenuHelper
+    helper Decidim::BreadcrumbHelper
     helper Decidim::ComponentPathHelper
     helper Decidim::ViewHooksHelper
     helper Decidim::CardHelper

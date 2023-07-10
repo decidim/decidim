@@ -27,9 +27,5 @@ module Decidim
     def paginated?
       options[:is_paginated]
     end
-
-    def last_section?
-      options[:is_last_section]
-    end
   end
 end

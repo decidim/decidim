@@ -14,7 +14,7 @@ module Decidim
       private
 
       def card_size
-        "decidim/sortitions/sortition_m"
+        "decidim/sortitions/sortition_l"
       end
     end
   end

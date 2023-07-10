@@ -1,0 +1,13 @@
+<section class="layout-main__section layout-main__buttons" data-buttons>
+  <% if endorsements_enabled? %>
+    <%= endorsement_buttons_cell(@proposal) %>
+  <% end %>
+
+  <%= cell "decidim/comments_button", nil %>
+
+  <div class="ml-auto">
+    <%= cell "decidim/tags", @proposal %>
+  </div>
+</section>
+
+<%= cell "decidim/endorsers_list", @proposal, layout: :full %>
