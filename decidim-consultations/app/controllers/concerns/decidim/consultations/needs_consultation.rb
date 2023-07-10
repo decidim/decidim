@@ -37,6 +37,8 @@ module Decidim
         private
 
         def detect_consultation
+          return if action_name == "index"
+
           request.env["current_consultation"] ||
             organization_consultations.find_by!(slug: params[:consultation_slug] || params[:slug])
         end
