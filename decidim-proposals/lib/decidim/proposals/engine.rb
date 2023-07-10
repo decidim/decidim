@@ -23,8 +23,7 @@ module Decidim
             put :withdraw
           end
           resource :proposal_vote, only: [:create, :destroy]
-          resource :widget, only: :show, path: "embed"
-          resources :versions, only: [:show, :index]
+          resources :versions, only: [:show]
         end
         resources :collaborative_drafts, except: [:destroy] do
           member do
@@ -34,7 +33,7 @@ module Decidim
             post :withdraw
             post :publish
           end
-          resources :versions, only: [:show, :index]
+          resources :versions, only: [:show]
         end
         root to: "proposals#index"
       end
@@ -210,8 +209,10 @@ module Decidim
       end
 
       initializer "decidim_proposals.authorization_transfer" do
-        Decidim::AuthorizationTransfer.register(:proposals) do |transfer|
-          transfer.move_records(Decidim::Proposals::ProposalVote, :decidim_author_id)
+        config.to_prepare do
+          Decidim::AuthorizationTransfer.register(:proposals) do |transfer|
+            transfer.move_records(Decidim::Proposals::ProposalVote, :decidim_author_id)
+          end
         end
       end
 

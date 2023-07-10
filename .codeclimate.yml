@@ -79,6 +79,7 @@ plugins:
       - decidim-core/app/assets/javascripts/decidim/core/bundle.js
       - decidim-elections/lib/decidim/elections/jwk_utils.rb
       - decidim-dev/config/rubocop/ruby.yml
+      - docs/modules/develop/pages/maintainers/security.adoc
 
   grep:
     enabled: true
@@ -134,3 +135,5 @@ exclude_patterns:
   - "spec/decidim_dummy_app/"
   - "coverage/"
   - "webpack.report.html"
+  - "decidim_app-design/public/sw.js"
+  - "decidim_app-design/public/sw.js.map"

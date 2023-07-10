@@ -103,36 +103,6 @@ pl:
         many: około %{count} mies.
         other: około %{count} mies.
       half_a_minute: pół minuty
-      less_than_x_minutes:
-        one: mniej niż min.
-        few: mniej niż %{count} min.
-        many: mniej niż %{count} min.
-        other: mniej niż %{count} min.
-      less_than_x_seconds:
-        one: teraz
-        few: mniej niż %{count} min.
-        many: mniej niż %{count} min.
-        other: mniej niż %{count} min.
-      x_days:
-        one: 1 dzień temu
-        few: "%{count} dni temu"
-        many: "%{count} dni temu"
-        other: "%{count} dni temu"
-      x_hours:
-        one: 1 godzinę temu
-        few: "%{count} godzin temu"
-        many: "%{count} godzin temu"
-        other: "%{count} godzin temu"
-      x_minutes:
-        one: 1 min. temu
-        few: "%{count} min. temu"
-        many: "%{count} min. temu"
-        other: "%{count} min. temu"
-      x_seconds:
-        one: 1 sek. temu
-        few: "%{count} sek. temu"
-        many: "%{count} sek. temu"
-        other: "%{count} sek. temu"
   decidim:
     accessibility:
       external_link: Link zewnętrzny
@@ -909,7 +879,6 @@ pl:
           intro: 'W wiadomości wystąpiły błędy:'
           ok: ok
         index:
-          ago: temu
           new_conversation: Nowa konwersacja
           next: Dalej
           title: Konwersacje

@@ -1,10 +1,14 @@
 <% if user_flaggable? && model.try(:id) != current_user.try(:id) %>
-  <button type="button" class="link-alt" data-open="<%= current_user.present? ? "flagUserModal" : "loginModal" %>" title="<%= t("report", scope: "decidim.proposals.proposals.show") %>" aria-controls="<%= current_user.present? ? "flagUserModal" : "loginModal" %>" aria-haspopup="dialog" tabindex="0">
-    <%= icon "flag", aria_hidden: true, class: "icon--small", role: "img", "aria-hidden": true %>
-    <span class="show-for-sr">
-        <%= t("report", scope: "decidim.proposals.proposals.show") %>
-    </span>
-  </button>
+  <%= cell(
+        "decidim/button",
+        { icon: "flag-line", text: t("decidim.shared.flag_modal.report") },
+        button_classes: "button button__sm button__text-secondary only:m-auto",
+        html_options: {
+          "data-open" => current_user.present? ? "flagUserModal" : "loginModal",
+          "aria-controls" => current_user.present? ? "flagUserModal" : "loginModal",
+          "aria-haspopup" => "dialog"
+        }
+      ) %>
 
   <%= cell("decidim/flag_modal", model).flag_user %>
 <% end %>

@@ -8,8 +8,8 @@ module Decidim
       describe CreateConsultation do
         subject { described_class.new(form) }
 
-        let(:organization) { create :organization }
-        let(:scope) { create :scope, organization: }
+        let(:organization) { create(:organization) }
+        let(:scope) { create(:scope, organization:) }
         let(:start_voting_date) { Time.zone.today }
         let(:end_voting_date) { Time.zone.today + 1.month }
         let(:attachment) { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }

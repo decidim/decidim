@@ -4,7 +4,7 @@ require "spec_helper"
 
 describe "User manages group invitations", type: :system do
   let(:user) { create(:user, :confirmed) }
-  let!(:membership) { create :user_group_membership, user:, role: :invited }
+  let!(:membership) { create(:user_group_membership, user:, role: :invited) }
 
   before do
     switch_to_host(user.organization.host)
@@ -14,7 +14,7 @@ describe "User manages group invitations", type: :system do
 
   context "with invitations" do
     it "allows accepting the invitation" do
-      within ".list-invitation" do
+      within "#list-invitation" do
         expect(page).to have_content(membership.user_group.name)
       end
 
@@ -26,7 +26,7 @@ describe "User manages group invitations", type: :system do
     end
 
     it "allows rejecting the invitation" do
-      within ".list-invitation" do
+      within "#list-invitation" do
         expect(page).to have_content(membership.user_group.name)
       end
 

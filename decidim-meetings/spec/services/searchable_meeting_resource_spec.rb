@@ -6,9 +6,9 @@ module Decidim
   describe Search do
     subject { described_class.new(params) }
 
-    let(:current_component) { create :component, manifest_name: "meetings" }
+    let(:current_component) { create(:component, manifest_name: "meetings") }
     let(:organization) { current_component.organization }
-    let(:scope1) { create :scope, organization: }
+    let(:scope1) { create(:scope, organization:) }
     let!(:meeting) do
       create(
         :meeting,
@@ -100,7 +100,7 @@ module Decidim
             on(:ok) do |results_by_type|
               results = results_by_type[meeting.class.name]
               expect(results[:count]).to eq 2
-              expect(results[:results]).to match_array [meeting, meeting2]
+              expect(results[:results]).to contain_exactly(meeting, meeting2)
             end
             on(:invalid) { raise("Should not happen") }
           end

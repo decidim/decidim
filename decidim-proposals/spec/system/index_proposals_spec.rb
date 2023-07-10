@@ -12,7 +12,7 @@ describe "Index proposals", type: :system do
     it "does not display empty message" do
       visit_component
 
-      expect(page).to have_no_content("There is no proposal yet")
+      expect(page).not_to have_content("There is no proposal yet")
     end
   end
 
@@ -43,7 +43,7 @@ describe "Index proposals", type: :system do
       end
 
       it "shows all the withdrawn proposals" do
-        expect(page).to have_css(".card--proposal.alert", count: 3)
+        expect(page).to have_css(".card__list span.alert", count: 3)
         within ".callout.warning" do
           expect(page).to have_content("You are viewing the list of proposals withdrawn by their authors.")
         end

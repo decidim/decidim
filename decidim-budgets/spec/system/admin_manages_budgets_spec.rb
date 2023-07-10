@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe "Admin manages budgets", type: :system do
-  let(:budget) { create :budget, component: current_component }
+  let(:budget) { create(:budget, component: current_component) }
   let(:manifest_name) { "budgets" }
 
   include_context "when managing a component as an admin"
@@ -96,7 +96,7 @@ describe "Admin manages budgets", type: :system do
   describe "deleting a budget" do
     it "deletes a budget" do
       within find("tr", text: translated(budget.title)) do
-        accept_confirm do
+        accept_confirm(admin: true) do
           page.find(".action-icon--remove").click
         end
       end
@@ -115,7 +115,7 @@ describe "Admin manages budgets", type: :system do
 
       it "cannot delete the budget" do
         within find("tr", text: translated(budget.title)) do
-          expect(page).to have_no_selector(".action-icon--remove")
+          expect(page).not_to have_selector(".action-icon--remove")
         end
       end
     end
@@ -126,8 +126,8 @@ describe "Admin manages budgets", type: :system do
       let(:budget2) { create(:budget, :with_projects, component: current_component) }
       let(:project) { create(:project, budget:, budget_amount: 90_000_000) }
       let(:project2) { create(:project, budget: budget2, budget_amount: 95_000_000) }
-      let(:user2) { create :user, :confirmed, organization: }
-      let(:user3) { create :user, :confirmed, organization: }
+      let(:user2) { create(:user, :confirmed, organization:) }
+      let(:user3) { create(:user, :confirmed, organization:) }
 
       # User has one finished and pending order
       let!(:finished_order) do

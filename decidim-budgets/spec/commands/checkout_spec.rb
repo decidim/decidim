@@ -15,7 +15,7 @@ module Decidim::Budgets
         organization: user.organization
       )
     end
-    let(:budget) { create :budget, component: }
+    let(:budget) { create(:budget, component:) }
 
     let(:projects) { create_list(:project, 2, budget:, budget_amount: 45_000_000) }
 

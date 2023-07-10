@@ -4,33 +4,11 @@ module Decidim
   module Proposals
     # Simple helpers to handle markup variations for proposal votes partials
     module ProposalVotesHelper
-      # Returns the css classes used for proposal votes count in both proposals list and show pages
-      #
-      # from_proposals_list - A boolean to indicate if the template is rendered from the proposals list page
-      #
-      # Returns a hash with the css classes for the count number and label
-      def votes_count_classes(from_proposals_list)
-        return { number: "card__support__number", label: "" } if from_proposals_list
-
-        { number: "extra__suport-number", label: "extra__suport-text" }
-      end
-
-      # Returns the css classes used for proposal vote button in both proposals list and show pages
-      #
-      # from_proposals_list - A boolean to indicate if the template is rendered from the proposals list page
-      #
-      # Returns a string with the value of the css classes.
-      def vote_button_classes(from_proposals_list)
-        return "card__button" if from_proposals_list
-
-        "expanded"
-      end
-
       # Public: Gets the vote limit for each user, if set.
       #
       # Returns an Integer if set, nil otherwise.
       def vote_limit
-        return nil if component_settings.vote_limit.zero?
+        return nil if component_settings.vote_limit&.zero?
 
         component_settings.vote_limit
       end
@@ -53,7 +31,7 @@ module Decidim
       #
       # Returns an Integer with the maximum amount of votes, nil otherwise.
       def threshold_per_proposal
-        return nil unless component_settings.threshold_per_proposal.positive?
+        return nil unless component_settings.threshold_per_proposal&.positive?
 
         component_settings.threshold_per_proposal
       end

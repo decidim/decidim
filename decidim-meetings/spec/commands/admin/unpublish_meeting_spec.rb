@@ -8,11 +8,11 @@ module Decidim
       describe UnpublishMeeting do
         subject { described_class.new(meeting, user) }
 
-        let(:meeting) { create :meeting, :published }
-        let(:user) { create :user, :admin, :confirmed, organization: meeting.organization }
+        let(:meeting) { create(:meeting, :published) }
+        let(:user) { create(:user, :admin, :confirmed, organization: meeting.organization) }
 
         context "when the meeting is already unpublished" do
-          let(:meeting) { create :meeting }
+          let(:meeting) { create(:meeting) }
 
           it "broadcasts :invalid" do
             expect { subject.call }.to broadcast(:invalid)

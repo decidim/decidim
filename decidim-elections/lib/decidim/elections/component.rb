@@ -516,6 +516,14 @@ Decidim.register_component(:elections) do |component|
         question.answer_options.create!(body: Decidim::Faker::Localized.sentence)
       end
     end
+
+    %w(admin@example.org user@example.org user2@example.org).each do |email|
+      trustee = Decidim::Elections::Trustee.find_or_create_by(
+        user: Decidim::User.find_by(email:),
+        organization: participatory_space.organization
+      )
+      trustee.trustees_participatory_spaces.create!(participatory_space:)
+    end
   end
 end
 

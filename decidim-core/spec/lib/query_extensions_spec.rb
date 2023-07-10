@@ -9,7 +9,7 @@ module Decidim
       include_context "with a graphql class type"
 
       describe "component" do
-        let(:query) { %({ component(id: \"#{id}\") { id }}) }
+        let(:query) { %({ component(id: "#{id}") { id }}) }
 
         context "with a participatory space that belongs to the current organization" do
           let!(:component) { create(:dummy_component, participatory_space: participatory_process) }

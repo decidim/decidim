@@ -6,7 +6,7 @@ module Decidim
   describe DummyTranslator do
     subject { described_class.new(resource, field_name, original_value, target_locale, source_locale) }
 
-    let(:resource) { create :participatory_process, title: { source_locale => original_value } }
+    let(:resource) { create(:participatory_process, title: { source_locale => original_value }) }
     let(:source_locale) { :en }
     let(:target_locale) { :ca }
     let(:field_name) { :title }

@@ -7,7 +7,7 @@ module Decidim
     describe VoteForm do
       subject { described_class.from_params(attributes) }
 
-      let(:response) { create :response }
+      let(:response) { create(:response) }
       let(:decidim_consultations_response_id) { response.id }
       let(:attributes) do
         {

@@ -40,14 +40,11 @@ module Webpacker
           "decidim_geocoding_provider_photon" => "#{core_path}/app/packs/entrypoints/decidim_geocoding_provider_photon.js",
           "decidim_geocoding_provider_here" => "#{core_path}/app/packs/entrypoints/decidim_geocoding_provider_here.js",
           "decidim_map_provider_default" => "#{core_path}/app/packs/entrypoints/decidim_map_provider_default.js",
-          "decidim_map_provider_here" => "#{core_path}/app/packs/entrypoints/decidim_map_provider_here.js",
-          "decidim_widget" => "#{core_path}/app/packs/entrypoints/decidim_widget.js"
+          "decidim_map_provider_here" => "#{core_path}/app/packs/entrypoints/decidim_map_provider_here.js"
         )
         expect(runtime_config["default"]["stylesheet_imports"].keys).to include("imports")
         expect(runtime_config["default"]["stylesheet_imports"]["imports"].keys).to include("app")
         expect(runtime_config["default"]["stylesheet_imports"]["imports"]["app"]).to include(
-          "stylesheets/decidim/budgets/budgets",
-          "stylesheets/decidim/proposals/proposals",
           "stylesheets/decidim/consultations/consultations",
           "stylesheets/decidim/elections/elections",
           "stylesheets/decidim/votings/votings",

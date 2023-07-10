@@ -8,7 +8,7 @@ describe "Admin copies meetings", type: :system do
   let(:latitude) { 40.1234 }
   let(:longitude) { 2.1234 }
   let(:service_titles) { ["This is the first service", "This is the second service"] }
-  let!(:meeting) { create :meeting, type_of_meeting, :published, scope:, services: [], component: current_component }
+  let!(:meeting) { create(:meeting, type_of_meeting, :published, scope:, services: [], component: current_component) }
 
   include Decidim::SanitizeHelper
   include_context "when managing a component as an admin"
@@ -71,14 +71,14 @@ describe "Admin copies meetings", type: :system do
     end
   end
 
-  context "when hybrid", serves_map: true, serves_geocoding_autocomplete: true do
+  context "when hybrid", serves_geocoding_autocomplete: true, serves_map: true do
     let(:type_of_meeting) { :hybrid }
 
     before do
       stub_geocoding(address, [latitude, longitude])
     end
 
-    it "creates a new hybrid meeting", :slow, :serves_geocoding_autocomplete do
+    it "creates a new hybrid meeting", :serves_geocoding_autocomplete, :slow do
       within find("tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title) do
         click_link "Duplicate"
       end
@@ -137,14 +137,14 @@ describe "Admin copies meetings", type: :system do
     end
   end
 
-  context "when in person", serves_map: true, serves_geocoding_autocomplete: true do
+  context "when in person", serves_geocoding_autocomplete: true, serves_map: true do
     let(:type_of_meeting) { :in_person }
 
     before do
       stub_geocoding(address, [latitude, longitude])
     end
 
-    it "creates a new In person meeting", :slow, :serves_geocoding_autocomplete do
+    it "creates a new In person meeting", :serves_geocoding_autocomplete, :slow do
       within find("tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title) do
         click_link "Duplicate"
       end

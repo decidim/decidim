@@ -13,8 +13,7 @@ module Decidim
           member do
             post :close
           end
-          resources :versions, only: [:show, :index]
-          resource :widget, only: :show, path: "embed"
+          resources :versions, only: [:show]
         end
         root to: "debates#index"
       end
@@ -103,8 +102,10 @@ module Decidim
       end
 
       initializer "decidim_debates.authorization_transfer" do
-        Decidim::AuthorizationTransfer.register(:debates) do |transfer|
-          transfer.move_records(Decidim::Debates::Debate, :decidim_author_id)
+        config.to_prepare do
+          Decidim::AuthorizationTransfer.register(:debates) do |transfer|
+            transfer.move_records(Decidim::Debates::Debate, :decidim_author_id)
+          end
         end
       end
 

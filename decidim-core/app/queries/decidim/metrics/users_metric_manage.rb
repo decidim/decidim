@@ -11,15 +11,15 @@ module Decidim
       private
 
       def query
-        return @query if @query
-
-        @query = Decidim::User.where(organization: @organization)
-        @query = @query.where("created_at <= ?", end_time)
-        @query
+        @query ||= Decidim::User.where(organization: @organization)
+                                .where("deleted_at IS NULL OR deleted_at > ?", end_time)
+                                .where("blocked_at IS NULL OR blocked_at > ?", end_time)
+                                .confirmed
+                                .where("created_at <= ?", end_time)
       end
 
       def quantity
-        @quantity ||= @query.where("created_at >= ?", start_time).count
+        @quantity ||= query.where("created_at >= ?", start_time).count
       end
     end
   end

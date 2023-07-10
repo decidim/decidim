@@ -33,7 +33,6 @@ Gem::Specification.new do |s|
   s.add_dependency "faker", "~> 3.2"
 
   s.add_dependency "byebug", "~> 11.0"
-  s.add_dependency "db-query-matchers", "~> 0.11.0"
   s.add_dependency "erb_lint", "~> 0.4.0"
   s.add_dependency "i18n-tasks", "~> 1.0"
   s.add_dependency "nokogiri", "~> 1.14", ">= 1.14.3"

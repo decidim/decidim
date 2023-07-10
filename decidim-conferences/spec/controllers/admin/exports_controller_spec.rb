@@ -9,7 +9,7 @@ module Decidim
         routes { Decidim::Conferences::AdminEngine.routes }
 
         let!(:organization) { create(:organization) }
-        let!(:conference) { create :conference, organization: }
+        let!(:conference) { create(:conference, organization:) }
         let!(:user) { create(:user, :admin, :confirmed, organization:) }
         let!(:component) { create(:component, participatory_space: conference, manifest_name: "dummy") }
 

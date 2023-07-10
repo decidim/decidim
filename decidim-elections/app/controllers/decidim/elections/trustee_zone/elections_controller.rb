@@ -12,7 +12,7 @@ module Decidim
         end
 
         def update
-          enforce_permission_to :update, :election, trustee: trustee
+          enforce_permission_to(:update, :election, trustee:)
 
           UpdateElectionBulletinBoardStatus.call(election, params[:status]) do
             on(:ok) do

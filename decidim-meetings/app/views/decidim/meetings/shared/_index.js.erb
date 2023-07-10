@@ -1,0 +1,16 @@
+var $meetings = $('#meetings');
+$meetings.html('<%= j(render partial: "decidim/meetings/shared/meetings", locals: { component: }).strip.html_safe %>');
+
+var $urlCalendarUrl = $('#urlCalendarUrl');
+$urlCalendarUrl.val("<%= short_url(route_name: "calendar", params: { filter: params.fetch(:filter, {}).try(:to_unsafe_hash) }) %>");
+
+var meeting_frame = document.getElementById("meeting_frame");
+meeting_frame.dataset.filteredPath = "<%= request.fullpath %>"
+
+var $map = $("#map");
+var controller = $map.data("map-controller");
+if (controller) {
+  var markerData = JSON.parse('<%= escape_javascript meetings_data_for_map(search.result).to_json.html_safe %>');
+  controller.clearMarkers();
+  controller.addMarkers(markerData);
+}

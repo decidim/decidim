@@ -6,9 +6,9 @@ describe Decidim::Initiatives::ContentBlocks::HighlightedInitiativesCell, type: 
   subject { cell(content_block.cell, content_block) }
 
   let(:organization) { create(:organization) }
-  let(:content_block) { create :content_block, organization:, manifest_name: :highlighted_initiatives, scope_name: :homepage, settings: }
-  let!(:initiatives) { create_list :initiative, 5, organization: }
-  let!(:most_recent_initiative) { create :initiative, published_at: 1.day.from_now, organization: }
+  let(:content_block) { create(:content_block, organization:, manifest_name: :highlighted_initiatives, scope_name: :homepage, settings:) }
+  let!(:initiatives) { create_list(:initiative, 5, organization:) }
+  let!(:most_recent_initiative) { create(:initiative, published_at: 1.day.from_now, organization:) }
   let(:settings) { {} }
 
   let(:highlighted_initiatives) { subject.call.find("#highlighted-initiatives") }
@@ -21,11 +21,11 @@ describe Decidim::Initiatives::ContentBlocks::HighlightedInitiativesCell, type: 
 
   context "when the content block has no settings" do
     it "shows 4 initiatives" do
-      expect(highlighted_initiatives).to have_selector("a.card--initiative", count: 4)
+      expect(highlighted_initiatives).to have_selector("a.card__grid", count: 4)
     end
 
     it "shows up initiatives ordered by default" do
-      expect(subject.highlighted_initiatives.first).not_to eq(most_recent_initiative)
+      expect(subject.highlighted_spaces.first).not_to eq(most_recent_initiative)
     end
   end
 
@@ -37,7 +37,7 @@ describe Decidim::Initiatives::ContentBlocks::HighlightedInitiativesCell, type: 
     end
 
     it "shows up to 8 initiatives" do
-      expect(highlighted_initiatives).to have_selector("a.card--initiative", count: 6)
+      expect(highlighted_initiatives).to have_selector("a.card__grid", count: 6)
     end
   end
 
@@ -50,7 +50,7 @@ describe Decidim::Initiatives::ContentBlocks::HighlightedInitiativesCell, type: 
       end
 
       it "shows up initiatives ordered by published_at" do
-        expect(subject.highlighted_initiatives.first).to eq(most_recent_initiative)
+        expect(subject.highlighted_spaces.first).to eq(most_recent_initiative)
       end
     end
 
@@ -62,7 +62,7 @@ describe Decidim::Initiatives::ContentBlocks::HighlightedInitiativesCell, type: 
       end
 
       it "shows up initiatives ordered by published_at" do
-        expect(subject.highlighted_initiatives.first).not_to eq(most_recent_initiative)
+        expect(subject.highlighted_spaces.first).not_to eq(most_recent_initiative)
       end
     end
   end

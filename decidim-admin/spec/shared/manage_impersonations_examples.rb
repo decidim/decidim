@@ -262,6 +262,10 @@ shared_examples "manage impersonations examples" do
       end
 
       expect(page).to have_content("successfully")
+      within_user_menu do
+        click_link "My public profile"
+      end
+
       expect(page).to have_content(managed_user.name)
 
       relogin_as user
@@ -269,7 +273,7 @@ shared_examples "manage impersonations examples" do
       navigate_to_impersonations_page
 
       within find("tr", text: managed_user.name) do
-        expect(page).to have_no_link("Promote")
+        expect(page).not_to have_link("Promote")
       end
     end
   end

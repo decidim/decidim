@@ -53,7 +53,7 @@ module Decidim
     end
 
     def link_to_tag(path, name, title)
-      link_to path, title: title, class: "tag" do
+      link_to path, title:, class: "tag" do
         sr_title = content_tag(
           :span,
           title,

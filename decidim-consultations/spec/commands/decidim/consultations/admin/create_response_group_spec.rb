@@ -8,7 +8,7 @@ module Decidim
       describe CreateResponseGroup do
         subject { described_class.new(form) }
 
-        let(:question) { create :question }
+        let(:question) { create(:question) }
         let(:params) do
           {
             response_group: {

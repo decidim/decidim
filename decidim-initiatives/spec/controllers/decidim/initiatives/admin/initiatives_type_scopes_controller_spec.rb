@@ -10,7 +10,7 @@ module Decidim
 
         let(:organization) { create(:organization) }
         let(:admin_user) { create(:user, :confirmed, :admin, organization:) }
-        let(:user) { create(:user, :confirmed, organization:) }
+        let(:user) { create(:user, :confirmed, :admin_terms_accepted, organization:) }
         let(:initiative_type) do
           create(:initiatives_type, organization:)
         end

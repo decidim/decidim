@@ -6,9 +6,9 @@ describe Decidim::Meetings::Directory::MeetingsController, type: :controller do
   routes { Decidim::Meetings::DirectoryEngine.routes }
 
   let(:organization) { create(:organization) }
-  let(:participatory_process1) { create :participatory_process, organization: }
+  let(:participatory_process1) { create(:participatory_process, organization:) }
   let(:meeting_component1) { create(:meeting_component, :with_creation_enabled, participatory_space: participatory_process1) }
-  let(:participatory_process2) { create :participatory_process, organization: }
+  let(:participatory_process2) { create(:participatory_process, organization:) }
   let(:meeting_component2) { create(:meeting_component, :with_creation_enabled, participatory_space: participatory_process2) }
 
   let!(:meetings) do

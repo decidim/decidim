@@ -13,7 +13,7 @@ module Decidim
       end
 
       let(:organization) { create(:organization) }
-      let!(:user) { create :user, :confirmed, :admin, organization: }
+      let!(:user) { create(:user, :confirmed, :admin, organization:) }
       let(:scopes) do
         create_list(:scope, 5, organization:)
       end

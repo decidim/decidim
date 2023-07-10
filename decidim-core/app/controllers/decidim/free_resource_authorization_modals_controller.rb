@@ -9,6 +9,10 @@ module Decidim
       render template: "decidim/authorization_modals/show"
     end
 
+    def authorize_action_path(handler_name)
+      authorizations.status_for(handler_name).current_path(redirect_url: URI(request.referer).path)
+    end
+
     private
 
     def resource
@@ -20,10 +24,6 @@ module Decidim
 
     def authorization_action
       @authorization_action ||= params[:authorization_action]
-    end
-
-    def authorize_action_path(handler_name)
-      authorizations.status_for(handler_name).current_path(redirect_url: URI(request.referer).path)
     end
 
     def authorizations

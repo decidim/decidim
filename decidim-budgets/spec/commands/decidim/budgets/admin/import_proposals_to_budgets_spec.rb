@@ -17,7 +17,7 @@ module Decidim
               participatory_space: proposal.component.participatory_space
             )
           end
-          let(:budget) { create :budget, component: current_component }
+          let(:budget) { create(:budget, component: current_component) }
           let!(:current_user) { create(:user, :admin, organization: current_component.participatory_space.organization) }
           let!(:organization) { current_component.participatory_space.organization }
           let(:scope) { nil }
@@ -68,7 +68,7 @@ module Decidim
             end
 
             context "when there are no proposals in the selected scope" do
-              let(:scope) { create :scope, organization: }
+              let(:scope) { create(:scope, organization:) }
 
               it "does not create any project" do
                 expect do

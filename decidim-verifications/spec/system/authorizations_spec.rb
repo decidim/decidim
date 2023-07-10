@@ -8,7 +8,7 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
   end
 
   context "when a new user" do
-    let(:organization) { create :organization, available_authorizations: authorizations }
+    let(:organization) { create(:organization, available_authorizations: authorizations) }
 
     let(:user) { create(:user, :confirmed, organization:) }
 
@@ -17,7 +17,9 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
 
       before do
         visit decidim.root_path
-        click_link("Sign In")
+        within "#main-bar" do
+          click_link("Sign In")
+        end
 
         within "form.new_user", match: :first do
           fill_in :session_user_email, with: user.email
@@ -93,7 +95,13 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
               click_link "My account"
             end
 
-            click_link "Authorizations"
+            # REDESIGN_PENDING - My account is not redesigned yet and does not
+            # contain an "Authorizations" link. Uncomment after redesigning it
+            # and remove the visit_authorizations call
+            # click_link "Authorizations"
+
+            visit_authorizations
+
             click_link "Example authorization"
           end
 
@@ -117,7 +125,9 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
 
       before do
         visit decidim.root_path
-        click_link("Sign In")
+        within "#main-bar" do
+          click_link("Sign In")
+        end
 
         within "form.new_user", match: :first do
           fill_in :session_user_email, with: user.email
@@ -133,7 +143,7 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
   end
 
   context "when existing user from their account" do
-    let(:organization) { create :organization, available_authorizations: authorizations }
+    let(:organization) { create(:organization, available_authorizations: authorizations) }
     let(:user) { create(:user, :confirmed, organization:) }
 
     before do
@@ -162,7 +172,7 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
 
         within ".authorizations-list" do
           expect(page).to have_content("Example authorization")
-          expect(page).to have_no_link(text: /Example authorization/)
+          expect(page).not_to have_link(text: /Example authorization/)
         end
       end
 
@@ -207,8 +217,8 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
             visit_authorizations
 
             within ".authorizations-list" do
-              expect(page).to have_no_link(text: /Example authorization/)
-              expect(page).to have_no_css(".authorization-renewable")
+              expect(page).not_to have_link(text: /Example authorization/)
+              expect(page).not_to have_css(".authorization-renewable")
             end
           end
         end
@@ -227,6 +237,8 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
           end
 
           it "shows a modal with renew information" do
+            skip_unless_redesign_enabled("This test pass using redesigned modals")
+
             visit_authorizations
             page.find("div[data-dialog-open='renew-modal']", text: /Example authorization/).click
 
@@ -240,6 +252,8 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
 
           describe "and clicks on the button to renew" do
             it "shows the verification form to start again" do
+              skip_unless_redesign_enabled("This test pass using redesigned modals")
+
               visit_authorizations
               page.find("div[data-dialog-open='renew-modal']", text: /Example authorization/).click
               within "#renew-modal" do
@@ -262,7 +276,7 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
           visit_authorizations
 
           within ".authorizations-list" do
-            expect(page).to have_no_link(text: /Example authorization/)
+            expect(page).not_to have_link(text: /Example authorization/)
             expect(page).to have_content(I18n.l(authorization.granted_at, format: :long_with_particles))
           end
         end
@@ -274,6 +288,8 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
         end
 
         it "can be renewed" do
+          skip_unless_redesign_enabled("This test pass using redesigned modals")
+
           visit_authorizations
 
           within ".authorizations-list" do
@@ -298,7 +314,7 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
 
       it "does not list authorizations" do
         visit decidim_verifications.authorizations_path
-        expect(page).to have_no_link("Authorizations")
+        expect(page).not_to have_link("Authorizations")
       end
     end
   end

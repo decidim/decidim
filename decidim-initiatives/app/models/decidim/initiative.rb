@@ -27,6 +27,11 @@ module Decidim
 
     translatable_fields :title, :description, :answer
 
+    delegate :type, :scope, :scope_name, :supports_required, to: :scoped_type, allow_nil: true
+    delegate :document_number_authorization_handler, :promoting_committee_enabled?, :attachments_enabled?,
+             :promoting_committee_enabled?, :custom_signature_end_date_enabled?, :area_enabled?, to: :type
+    delegate :name, to: :area, prefix: true, allow_nil: true
+
     belongs_to :organization,
                foreign_key: "decidim_organization_id",
                class_name: "Decidim::Organization"
@@ -34,10 +39,6 @@ module Decidim
     belongs_to :scoped_type,
                class_name: "Decidim::InitiativesTypeScope",
                inverse_of: :initiatives
-
-    delegate :type, :scope, :scope_name, :supports_required, to: :scoped_type, allow_nil: true
-    delegate :attachments_enabled?, :promoting_committee_enabled?, :custom_signature_end_date_enabled?, :area_enabled?, to: :type
-    delegate :name, to: :area, prefix: true, allow_nil: true
 
     has_many :votes,
              foreign_key: "decidim_initiative_id",
@@ -166,9 +167,6 @@ module Decidim
     def self.ransackable_scopes(_auth_object = nil)
       [:with_any_state, :with_any_type, :with_any_scope, :with_any_area]
     end
-
-    delegate :document_number_authorization_handler, :promoting_committee_enabled?, to: :type
-    delegate :type, :scope, :scope_name, to: :scoped_type, allow_nil: true
 
     # Public: Overrides participatory space's banner image with the banner image defined
     # for the initiative type.

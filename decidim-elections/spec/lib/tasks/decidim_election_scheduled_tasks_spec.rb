@@ -10,7 +10,7 @@ describe "decidim_elections:scheduled_tasks", type: :task do
   end
 
   context "with elections to start" do
-    let!(:election) { create :election, :bb_test, :key_ceremony_ended }
+    let!(:election) { create(:election, :bb_test, :key_ceremony_ended) }
 
     before { task.execute }
 
@@ -21,7 +21,7 @@ describe "decidim_elections:scheduled_tasks", type: :task do
   end
 
   context "with elections to end" do
-    let!(:election) { create :election, :bb_test, :vote, :finished }
+    let!(:election) { create(:election, :bb_test, :vote, :finished) }
 
     before { task.execute }
 
@@ -32,9 +32,9 @@ describe "decidim_elections:scheduled_tasks", type: :task do
   end
 
   context "with elections that should not be affected" do
-    let!(:election1) { create :election, :key_ceremony_ended, start_time: 1.day.from_now }
-    let!(:election2) { create :election, :vote, :upcoming }
-    let!(:election3) { create :election, :vote, :ongoing }
+    let!(:election1) { create(:election, :key_ceremony_ended, start_time: 1.day.from_now) }
+    let!(:election2) { create(:election, :vote, :upcoming) }
+    let!(:election3) { create(:election, :vote, :ongoing) }
 
     before { task.execute }
 
@@ -45,7 +45,7 @@ describe "decidim_elections:scheduled_tasks", type: :task do
   end
 
   context "with pending votes" do
-    let!(:vote) { create :vote, message_id: "decidim-test-authority.10004.vote.cast+v.voter-1" }
+    let!(:vote) { create(:vote, message_id: "decidim-test-authority.10004.vote.cast+v.voter-1") }
 
     before { task.execute }
 
@@ -56,7 +56,7 @@ describe "decidim_elections:scheduled_tasks", type: :task do
   end
 
   context "with votes that should not be affected" do
-    let!(:vote) { create :vote, status: "accepted" }
+    let!(:vote) { create(:vote, status: "accepted") }
 
     before { task.execute }
 

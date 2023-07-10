@@ -5,13 +5,13 @@ require "spec_helper"
 describe Decidim::Accountability::Permissions do
   subject { described_class.new(user, permission_action, context).permissions.allowed? }
 
-  let(:user) { create :user, organization: accountability_component.organization }
+  let(:user) { create(:user, organization: accountability_component.organization) }
   let(:context) do
     {
       current_component: accountability_component
     }
   end
-  let(:accountability_component) { create :accountability_component }
+  let(:accountability_component) { create(:accountability_component) }
   let(:permission_action) { Decidim::PermissionAction.new(**action) }
 
   context "when scope is admin" do

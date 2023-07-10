@@ -1,8 +1,6 @@
-<% if flaggable? %>
-  <button type="button" class="link-alt" data-open="<%= current_user.present? ? "flagModal" : "loginModal" %>" title="<%= t("report", scope: "decidim.proposals.proposals.show") %>" aria-controls="<%= current_user.present? ? "flagModal" : "loginModal" %>" aria-haspopup="true" tabindex="0">
-    <%= icon "flag", aria_hidden: true, class: "icon--small", role: "img", "aria-hidden": true %>
-    <span class="show-for-sr">
-      <%= t("report", scope: "decidim.proposals.proposals.show") %>
-    </span>
-  </button>
-<% end %>
+<button type="button" class="link-alt" data-open="<%= current_user.present? ? "flagModal" : "loginModal" %>" title="<%= t("report", scope: "decidim.proposals.proposals.show") %>" aria-controls="<%= current_user.present? ? "flagModal" : "loginModal" %>" aria-haspopup="true" tabindex="0">
+  <%= icon "flag", aria_hidden: true, class: "icon--small", role: "img", "aria-hidden": true %>
+  <span class="show-for-sr">
+    <%= t("report", scope: "decidim.proposals.proposals.show") %>
+  </span>
+</button>

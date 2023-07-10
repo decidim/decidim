@@ -65,6 +65,7 @@ ca:
           content: Si us plau, afegeix contingut significatiu a la pàgina estàtica de %{page} dins el panell d'administració.
           summary: Si us plau, afegeix un resum significatiu a la pàgina estàtica %{page} dins el panell d'administració.
           title: Títol predeterminat per %{page}
+        terms-of-service: Termes i condicions d'ús
       menu:
         admins: Administradores
         dashboard: Tauler d'administració

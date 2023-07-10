@@ -450,7 +450,6 @@ zh-CN:
         promotal_committee: 宣传委员会
         select_initiative_type: 选择
         show_similar_initiatives: 比较
-        step: 步骤 %{current} / %{total}
         title: 创建新的倡议
       initiative_header:
         initiative_menu_item: 倡议

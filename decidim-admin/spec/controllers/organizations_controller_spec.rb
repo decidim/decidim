@@ -7,7 +7,7 @@ module Decidim
     describe OrganizationController, type: :controller do
       routes { Decidim::Admin::Engine.routes }
 
-      let(:organization) { create :organization }
+      let(:organization) { create(:organization) }
       let(:current_user) { create(:user, :admin, :confirmed, organization:) }
 
       before do

@@ -18,7 +18,7 @@ describe Decidim::PublicActivities do
     # Note that it is possible to add private users also to public processes
     # and assemblies, there is no programming logic forbidding that to happen.
     [process, assembly, private_process, private_assembly].each do |space|
-      10.times { create(:participatory_space_private_user, user: build(:user, :confirmed, organization:), privatable_to: space) } # rubocop:disable RSpec/FactoryBot/CreateList
+      10.times { create(:participatory_space_private_user, user: build(:user, :confirmed, organization:), privatable_to: space) }
     end
 
     # Add the user to both private spaces

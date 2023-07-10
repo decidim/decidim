@@ -5,15 +5,15 @@ require "spec_helper"
 describe Decidim::Sortitions::Admin::Permissions do
   subject { described_class.new(user, permission_action, context).permissions.allowed? }
 
-  let(:user) { create :user, organization: sortition_component.organization }
+  let(:user) { create(:user, organization: sortition_component.organization) }
   let(:context) do
     {
       current_component: sortition_component,
       sortition:
     }
   end
-  let(:sortition_component) { create :sortition_component }
-  let(:sortition) { create :sortition, component: sortition_component }
+  let(:sortition_component) { create(:sortition_component) }
+  let(:sortition) { create(:sortition, component: sortition_component) }
   let(:permission_action) { Decidim::PermissionAction.new(**action) }
   let(:registrations_enabled) { true }
   let(:action) do
@@ -64,7 +64,7 @@ describe Decidim::Sortitions::Admin::Permissions do
       end
 
       context "when sortition is cancelled" do
-        let(:sortition) { create :sortition, :cancelled, component: sortition_component }
+        let(:sortition) { create(:sortition, :cancelled, component: sortition_component) }
 
         it_behaves_like "permission is not set"
       end

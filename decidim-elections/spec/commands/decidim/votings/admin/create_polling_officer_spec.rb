@@ -8,9 +8,9 @@ module Decidim
       describe CreatePollingOfficer do
         subject { described_class.new(form, current_user, voting) }
 
-        let!(:existing_user) { create :user, email: user_email, organization: voting.organization }
-        let!(:current_user) { create :user, email: ::Faker::Internet.email, organization: voting.organization }
-        let(:voting) { create :voting }
+        let!(:existing_user) { create(:user, email: user_email, organization: voting.organization) }
+        let!(:current_user) { create(:user, email: ::Faker::Internet.email, organization: voting.organization) }
+        let(:voting) { create(:voting) }
         let(:name) { ::Faker::Name.name }
         let(:email) { ::Faker::Internet.email }
         let(:user) { existing_user }

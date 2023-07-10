@@ -12,6 +12,7 @@ module Decidim
     def text_editor_for(form, attribute, options = {})
       if rich_text_editor_in_public_views?
         options[:lines] ||= 25
+        options[:context] ||= "participant"
         form.editor attribute, options
       else
         options.delete(:hashtaggable)

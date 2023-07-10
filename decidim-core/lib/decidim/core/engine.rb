@@ -39,7 +39,6 @@ require "diffy"
 require "ransack"
 require "wisper"
 require "webpacker"
-require "turbo-rails"
 
 # Needed for the assets:precompile task, for configuring webpacker instance
 require "decidim/webpacker"
@@ -128,9 +127,7 @@ module Decidim
         # Include it in ActiveRecord base in order to apply it to all models
         # that may be using the `geocoded_by` or `reverse_geocoded_by` class
         # methods injected by the Geocoder gem.
-        ActiveSupport.on_load :active_record do
-          ActiveRecord::Base.include Decidim::Geocodable
-        end
+        ActiveSupport.on_load(:active_record) { include Decidim::Geocodable }
       end
 
       initializer "decidim_core.maps" do
@@ -344,9 +341,10 @@ module Decidim
         end
       end
 
-      initializer "decidim_core.expire_sessions" do
-        Rails.application.config.session_store :cookie_store, secure: Decidim.config.force_ssl, expire_after: Decidim.config.expire_session_after
-        Rails.application.config.action_dispatch.cookies_same_site_protection = :lax
+      initializer "decidim_core.session_store" do |app|
+        next if app.config.session_store?
+
+        app.config.session_store :cookie_store, secure: Decidim.config.force_ssl, expire_after: Decidim.config.expire_session_after
       end
 
       initializer "decidim_core.register_resources" do
@@ -447,6 +445,12 @@ module Decidim
           content_block.default!
         end
 
+        Decidim.content_blocks.register(:homepage, :global_menu) do |content_block|
+          content_block.cell = "decidim/content_blocks/global_menu"
+          content_block.public_name_key = "decidim.content_blocks.global_menu.name"
+          content_block.default!
+        end
+
         Decidim.content_blocks.register(:homepage, :sub_hero) do |content_block|
           content_block.cell = "decidim/content_blocks/sub_hero"
           content_block.public_name_key = "decidim.content_blocks.sub_hero.name"
@@ -478,7 +482,7 @@ module Decidim
         end
 
         Decidim.content_blocks.register(:homepage, :metrics) do |content_block|
-          content_block.cell = "decidim/content_blocks/metrics"
+          content_block.cell = "decidim/content_blocks/organization_metrics"
           content_block.public_name_key = "decidim.content_blocks.metrics.name"
         end
 
@@ -740,10 +744,12 @@ module Decidim
       end
 
       initializer "decidim_core.authorization_transfer" do
-        Decidim::AuthorizationTransfer.register(:core) do |transfer|
-          transfer.move_records(Decidim::Coauthorship, :decidim_author_id)
-          transfer.move_records(Decidim::Endorsement, :decidim_author_id)
-          transfer.move_records(Decidim::Amendment, :decidim_user_id)
+        config.to_prepare do
+          Decidim::AuthorizationTransfer.register(:core) do |transfer|
+            transfer.move_records(Decidim::Coauthorship, :decidim_author_id)
+            transfer.move_records(Decidim::Endorsement, :decidim_author_id)
+            transfer.move_records(Decidim::Amendment, :decidim_user_id)
+          end
         end
       end
 

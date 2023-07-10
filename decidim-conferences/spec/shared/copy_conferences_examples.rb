@@ -2,7 +2,7 @@
 
 shared_examples "copy conferences" do
   let!(:conference) { create(:conference, organization:) }
-  let!(:component) { create :component, manifest_name: :dummy, participatory_space: conference }
+  let!(:component) { create(:component, manifest_name: :dummy, participatory_space: conference) }
   let!(:category) do
     create(
       :category,

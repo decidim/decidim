@@ -10,21 +10,21 @@ describe "Meeting live event poll administration", type: :system do
   let(:admin_component_organization_traits) { [] }
 
   let(:user) do
-    create :user,
+    create(:user,
            :admin,
            :confirmed,
-           organization:
+           organization:)
   end
   let(:user2) do
-    create :user,
+    create(:user,
            :admin,
            :confirmed,
-           organization:
+           organization:)
   end
 
   let(:manifest_name) { "meetings" }
 
-  let(:meeting) { create :meeting, :published, :online, :live, component: }
+  let(:meeting) { create(:meeting, :published, :online, :live, component:) }
   let(:meeting_path) do
     decidim_participatory_process_meetings.meeting_path(
       participatory_process_slug: participatory_process.slug,

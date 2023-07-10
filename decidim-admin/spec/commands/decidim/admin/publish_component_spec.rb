@@ -27,7 +27,7 @@ module Decidim::Admin
     end
 
     it "fires an event" do
-      create :follow, followable: participatory_process, user: user
+      create(:follow, followable: participatory_process, user:)
 
       expect(Decidim::EventsManager)
         .to receive(:publish)
@@ -43,7 +43,7 @@ module Decidim::Admin
 
     context "when the component is being republished" do
       let!(:component) { create(:component, :unpublished, participatory_space: participatory_process) }
-      let!(:follower) { create :follow, followable: participatory_process, user: }
+      let!(:follower) { create(:follow, followable: participatory_process, user:) }
 
       it "does not fire an event", versioning: true do
         subject.call

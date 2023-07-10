@@ -21,8 +21,8 @@ module Decidim
         let(:component) { create(:budgets_component, :with_geocoding_enabled) }
 
         it "sets two different collections" do
-          geocoded_projects = create_list :project, 10, budget: budget, latitude: 1.1, longitude: 2.2
-          _non_geocoded_projects = create_list :project, 2, budget: budget, latitude: nil, longitude: nil
+          geocoded_projects = create_list(:project, 10, budget:, latitude: 1.1, longitude: 2.2)
+          _non_geocoded_projects = create_list(:project, 2, budget:, latitude: nil, longitude: nil)
 
           get :index, params: { budget_id: budget.id }
           expect(response).to have_http_status(:ok)

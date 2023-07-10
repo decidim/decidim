@@ -23,7 +23,7 @@ module Decidim
       end
 
       def component_name
-        translated_attribute(current_component.name).presence || t("decidim.components.accountability.name")
+        (defined?(current_component) && translated_attribute(current_component&.name).presence) || t("decidim.components.accountability.name")
       end
 
       def categories_label
@@ -82,6 +82,11 @@ module Decidim
             }
           end
         ]
+      end
+
+      def apply_accountability_pack_tags
+        append_stylesheet_pack_tag("decidim_accountability", media: "all")
+        append_javascript_pack_tag("decidim_accountability")
       end
     end
   end

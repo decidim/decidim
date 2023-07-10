@@ -8,9 +8,9 @@ module Decidim
       describe UpdateTemplate do
         subject { described_class.new(template, form, user) }
 
-        let(:organization) { create :organization }
-        let(:user) { create :user, :admin, :confirmed, organization: }
-        let(:template) { create :questionnaire_template, organization: }
+        let(:organization) { create(:organization) }
+        let(:user) { create(:user, :admin, :confirmed, organization:) }
+        let(:template) { create(:questionnaire_template, organization:) }
         let(:name) { "test" }
         let(:description) { "description" }
 

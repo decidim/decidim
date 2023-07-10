@@ -98,10 +98,6 @@ tr:
               rejected: Reddedildi
               validating: Teknik doğrulama
               withdrawn: Geri çekildi
-          state_null:
-            label: Durum
-            values:
-              'true': Cevaplanmadı
           valuator_role_ids_has:
             label: Bilirkişiye atandı
         search_placeholder:

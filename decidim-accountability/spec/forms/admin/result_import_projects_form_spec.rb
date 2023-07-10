@@ -7,8 +7,8 @@ module Decidim::Accountability
     subject(:form) { described_class.from_params(attributes).with_context(context) }
 
     let(:organization) { create(:organization) }
-    let(:participatory_process) { create :participatory_process, organization: }
-    let(:current_component) { create :accountability_component, participatory_space: participatory_process }
+    let(:participatory_process) { create(:participatory_process, organization:) }
+    let(:current_component) { create(:accountability_component, participatory_space: participatory_process) }
     let(:budget_component) { create(:component, manifest_name: "budgets", participatory_space: participatory_process) }
     let(:import_all_selected) { false }
 

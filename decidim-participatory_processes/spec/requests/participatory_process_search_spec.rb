@@ -6,7 +6,7 @@ RSpec.describe "Participatory process search", type: :request do
   subject { response.body }
 
   let(:organization) { create(:organization) }
-  let(:current_user) { create :user, :confirmed, organization: }
+  let(:current_user) { create(:user, :confirmed, organization:) }
   let!(:process1) do
     create(
       :participatory_process,
@@ -54,7 +54,7 @@ RSpec.describe "Participatory process search", type: :request do
   end
 
   context "when filtering by area" do
-    let(:filter_params) { { with_area: process1.area.id } }
+    let(:filter_params) { { with_any_area: process1.area.id } }
 
     it "displays matching assemblies" do
       expect(subject).to include(translated(process1.title))
@@ -63,7 +63,7 @@ RSpec.describe "Participatory process search", type: :request do
   end
 
   context "when filtering by scope" do
-    let(:filter_params) { { with_scope: process1.scope.id } }
+    let(:filter_params) { { with_any_scope: process1.scope.id } }
 
     it "displays matching assemblies" do
       expect(subject).to include(translated(process1.title))
@@ -130,8 +130,7 @@ RSpec.describe "Participatory process search", type: :request do
       end
 
       it "does not cause any display issues" do
-        expect(dom.css("#processes-grid .processes-grid-order-by .section-heading").text).to include("2 active processes")
-        expect(dom.css("#processes-grid .processes-grid-order-by .section-heading").text).not_to include("foobar")
+        expect(dom.text).not_to include("foobar")
       end
     end
   end

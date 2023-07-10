@@ -12,13 +12,13 @@ module Decidim
       it { is_expected.to be_valid }
 
       context "without an organization" do
-        let(:template) { build :template, organization: nil }
+        let(:template) { build(:template, organization: nil) }
 
         it { is_expected.not_to be_valid }
       end
 
       context "without a name" do
-        let(:template) { build :template, name: nil }
+        let(:template) { build(:template, name: nil) }
 
         it { is_expected.not_to be_valid }
       end

@@ -12,14 +12,14 @@ $(() => {
 
     const $registrationsEnabled = $form.find("#conference_registrations_enabled");
     const $availableSlots = $form.find("#conference_available_slots");
+    const $registrationTerms = $form.find("#conference_registrations_terms");
     const toggleDisabledFields = () => {
       const enabled = $registrationsEnabled.prop("checked");
       $availableSlots.attr("disabled", !enabled);
 
-      $form.find("#conference_registrations_terms .editor-container").each((idx, node) => {
-        const quill = Quill.find(node);
-        quill.enable(enabled);
-      })
+      $registrationTerms[0].querySelectorAll(".editor-container .ProseMirror").forEach((node) => {
+        node.editor.setOptions({ editable: enabled });
+      });
     };
     $registrationsEnabled.on("change", toggleDisabledFields);
     toggleDisabledFields();

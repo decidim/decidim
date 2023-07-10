@@ -1,43 +1,32 @@
-<%# REDESIGN_PENDING: Remove the mock content once integrated in the index view %>
-<!-- MOCK CONTENT -->
-<div class="container">
-  <button class="button button__lg button__primary" data-drawer-open>Trigger</button>
-</div>
-<!-- end MOCK CONTENT -->
-
-<% content_for :aside do %>
-  <div class="accountability__project-aside">
-    <% if component_settings.display_progress_enabled? %>
-      <%= cell(
-        "decidim/accountability/status",
-        result,
-        title: t("models.result.fields.progress", scope: "decidim.accountability"),
-        extra_classes: "accountability__status__project"
-      ) %>
-  <% end %>
-
-  <%= cell("decidim/accountability/result_metadata", result, template: :project_aside) %>
-  </div>
-<% end %>
-
-<%# REDESIGN_PENDING: Resolve the drawer feature using turbo %>
-<%= render layout: "layouts/decidim/shared/drawer" , locals: { next: "https://www.." , prev: "https://www.." } do %>
+<%= render layout: "layouts/decidim/shared/layout_item", locals: nav_paths do %>
   <%= cell("decidim/accountability/project", result) %>
 
-  <div class="mt-8 accountability__project-actions">
-    <%# REDESIGN_PENDING: integrate button %>
+  <section class="layout-main__section layout-main__buttons" data-buttons>
     <button class="button button__sm button__transparent-secondary">
       <%= t(:comment, scope: "decidim.components.accountability.actions") %>
       <%= icon "chat-1-line", class: "fill-current flex-none" %>
     </button>
-    <%= cell "decidim/tags", result %>
-  </div>
+    <div class="ml-auto">
+      <%= cell "decidim/tags", result %>
+    </div>
+  </section>
 
-  <%# REDESIGN_PENDING: Both comments and attachments sections are pending %>
-  <%= comments_for result %>
-  <%= attachments_for result %>
+  <% content_for :aside do %>
+    <section class="layout-aside__section layout-aside__buttons accountability__project-aside">
+      <% if component_settings.display_progress_enabled? %>
+        <%= cell(
+          "decidim/accountability/status",
+          result,
+          title: t("models.result.fields.progress", scope: "decidim.accountability"),
+          extra_classes: "accountability__status__project"
+        ) %>
+      <% end %>
 
-  <div class="mt-8">
+    <%= cell("decidim/accountability/result_metadata", result, template: :project_aside) %>
+    </section>
+  <% end %>
+  <% content_for :item_footer do %>
+    <%= comments_for result %>
     <%= cell "decidim/accountability/result_metadata", result, template: :show_footer %>
-  </div>
+  <% end %>
 <% end %>

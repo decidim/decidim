@@ -48,7 +48,7 @@ module Decidim
       def link_to_current_or_new_conversation_with(user, title = t("decidim.contact"))
         conversation_path = current_or_new_conversation_path_with(user)
         if conversation_path
-          link_to conversation_path, title: title do
+          link_to(conversation_path, title:) do
             icon "envelope-closed", aria_label: title, class: "icon--small"
           end
         else
@@ -63,6 +63,7 @@ module Decidim
       #
       # Links to the conversation between the current user and another user
       #
+      # deprecated ?
       def text_link_to_current_or_new_conversation_with(user, body = t("decidim.profiles.show.send_private_message"))
         conversation_path = current_or_new_conversation_path_with(user)
         link_to body, conversation_path, title: body if conversation_path
@@ -89,7 +90,6 @@ module Decidim
       # @return [String] The resulting route
       #
       def current_or_new_conversation_path_with(user)
-        decidim_routes = Decidim::Core::Engine.routes.url_helpers
         return decidim_routes.new_user_session_path unless user_signed_in?
 
         conversation = conversation_between(current_user, user)
@@ -119,17 +119,17 @@ module Decidim
       #
       # Links to the conversation between the current user and another users group
       #
-      def current_or_new_conversation_path_with_multiple(users)
-        decidim_routes = Decidim::Core::Engine.routes.url_helpers
+      def current_or_new_conversation_path_with_multiple(users, opts = {})
         return decidim_routes.new_user_session_path unless user_signed_in?
 
-        participants = users.to_a.prepend(current_user)
+        active_participant = opts[:nickname].present? ? Decidim::UserBaseEntity.find_by(nickname: opts[:nickname]) : current_user
+        participants = users.to_a.prepend(active_participant)
         conversation = conversation_between_multiple(participants)
 
-        if conversation
-          decidim_routes.conversation_path(conversation)
+        if opts[:nickname].present?
+          current_or_new_profile_conversation_path(opts[:nickname], users, conversation)
         else
-          decidim_routes.new_conversation_path(recipient_id: users.pluck(:id))
+          current_or_new_user_conversation_path(users, conversation)
         end
       end
 
@@ -146,6 +146,24 @@ module Decidim
         UserConversations.for(participants.first).find do |conversation|
           conversation.participants.to_set == participants.to_set
         end
+      end
+
+      def current_or_new_profile_conversation_path(nickname, users, conversation = nil)
+        return decidim_routes.profile_conversation_path(conversation, nickname:) if conversation.present?
+
+        decidim_routes.new_profile_conversation_path(nickname:, recipient_id: users.pluck(:id))
+      end
+
+      def current_or_new_user_conversation_path(users, conversation = nil)
+        return decidim_routes.conversation_path(conversation) if conversation.present?
+
+        decidim_routes.new_conversation_path(recipient_id: users.pluck(:id))
+      end
+
+      private
+
+      def decidim_routes
+        @decidim_routes ||= Decidim::Core::Engine.routes.url_helpers
       end
     end
   end

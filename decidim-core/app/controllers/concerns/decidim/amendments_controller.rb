@@ -4,6 +4,7 @@ module Decidim
   class AmendmentsController < Decidim::ApplicationController
     include Decidim::ApplicationHelper
     include FormFactory
+    include HasSpecificBreadcrumb
     helper Decidim::ResourceReferenceHelper
     helper UserGroupHelper
 
@@ -175,7 +176,7 @@ module Decidim
     end
 
     def withdraw
-      enforce_permission_to :withdraw, :amendment, amendment: amendment, current_component: amendable.component
+      enforce_permission_to :withdraw, :amendment, amendment:, current_component: amendable.component
 
       Decidim::Amendable::Withdraw.call(amendment, current_user) do
         on(:ok) do |withdrawn_emendation|
@@ -220,6 +221,13 @@ module Decidim
 
     def similar_emendations
       @similar_emendations ||= Decidim::SimilarEmendations.for(amendment)
+    end
+
+    def breadcrumb_item
+      {
+        label: t("decidim.amendments.name"),
+        active: true
+      }
     end
   end
 end

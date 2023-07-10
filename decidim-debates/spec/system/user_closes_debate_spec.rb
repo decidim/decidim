@@ -23,11 +23,11 @@ describe "User closes a debate", type: :system do
 
   context "when closing my debate" do
     it "allows closing my debate", :slow do
-      click_button "Close debate"
+      find("button[data-dialog-open='close-debate']", text: "Close debate").click
 
       within ".close-debate-modal" do
         fill_in :debate_conclusions, with: "Yes, all organizations should use Decidim!"
-        find("*[type=submit]").click
+        click_button "Close debate"
       end
 
       expect(page).to have_content("The debate was closed")
@@ -46,7 +46,7 @@ describe "User closes a debate", type: :system do
     end
 
     it "cannot be edited" do
-      expect(page).to have_no_content("Edit debate")
+      expect(page).not_to have_content("Edit debate")
     end
 
     it "is allowed to change the conclusions" do
@@ -54,7 +54,7 @@ describe "User closes a debate", type: :system do
 
       within ".close-debate-modal" do
         fill_in :debate_conclusions, with: "New conclusions"
-        find("*[type=submit]").click
+        click_button "Close debate"
       end
 
       expect(page).to have_content("New conclusions")

@@ -22,8 +22,8 @@ module Decidim
     describe "form_attributes" do
       subject { handler.form_attributes }
 
-      it { is_expected.to match_array(["handler_name"]) }
-      it { is_expected.not_to match_array([:id, :user]) }
+      it { is_expected.to contain_exactly("handler_name") }
+      it { is_expected.not_to contain_exactly(:id, :user) }
     end
 
     describe "to_partial_path" do
@@ -50,7 +50,7 @@ module Decidim
     describe "metadata" do
       subject { handler.metadata }
 
-      it { is_expected.to be_kind_of(Hash) }
+      it { is_expected.to be_a(Hash) }
     end
 
     describe "#unique?" do
@@ -119,7 +119,7 @@ module Decidim
           end
 
           context "when the handler is configured" do
-            it { is_expected.to be_kind_of(described_class) }
+            it { is_expected.to be_a(described_class) }
           end
         end
       end

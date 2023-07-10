@@ -173,7 +173,7 @@ describe "Admin manages initiative components", type: :system do
         page.find(".action-icon--remove").click
       end
 
-      expect(page).to have_no_content("My component")
+      expect(page).not_to have_content("My component")
     end
   end
 

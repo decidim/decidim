@@ -10,12 +10,12 @@ module Decidim::Admin
     let(:event) { "decidim.events.conferences.role_assigned" }
     let(:event_class) { Decidim::Conferences::ConferenceRoleAssignedEvent }
 
-    let(:my_conference) { create :conference }
+    let(:my_conference) { create(:conference) }
     let!(:email) { "my_email_conference@example.org" }
     let!(:role) { "admin" }
     let!(:name) { "Weird Guy Conference" }
-    let!(:user) { create :user, email: "my_email_conference@example.org", organization: my_conference.organization }
-    let!(:current_user) { create :user, email: "some_email_conference@example.org", organization: my_conference.organization }
+    let!(:user) { create(:user, email: "my_email_conference@example.org", organization: my_conference.organization) }
+    let!(:current_user) { create(:user, email: "some_email_conference@example.org", organization: my_conference.organization) }
     let(:form) do
       double(
         invalid?: invalid,

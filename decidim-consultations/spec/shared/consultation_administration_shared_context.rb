@@ -5,8 +5,8 @@ shared_context "when administrating a consultation" do
   let(:user) { create(:user, :admin, :confirmed, organization:) }
 
   let!(:consultation) { create(:consultation, organization:) }
-  let!(:question) { create :question, consultation: }
-  let!(:response) { create :response, question: }
+  let!(:question) { create(:question, consultation:) }
+  let!(:response) { create(:response, question:) }
 
   let(:image1_filename) { "city.jpeg" }
   let(:image1_path) { Decidim::Dev.asset(image1_filename) }

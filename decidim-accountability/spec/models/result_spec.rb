@@ -7,7 +7,7 @@ module Decidim
     describe Result do
       subject { result }
 
-      let(:result) { build :result }
+      let(:result) { build(:result) }
 
       it { is_expected.to be_valid }
 

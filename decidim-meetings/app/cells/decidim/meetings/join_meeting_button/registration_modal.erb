@@ -1,0 +1,25 @@
+<%= decidim_modal id: "meeting-registration-confirm-#{model.id}", class: "meeting__registration-modal" do %>
+  <%= decidim_form_for(registration_form, url: meeting_registration_path(model), method: :post) do |form| %>
+    <div data-dialog-container>
+      <%= icon "login-circle-line" %>
+      <h2 id="dialog-title-meeting-registration-confirm-<%= model.id %>" data-dialog-title><%= t("join", scope: "decidim.meetings.meetings.show") %></h2>
+      <div>
+
+        <div class="form__wrapper">
+          <%= cell("decidim/represent_user_group", form) %>
+          <%= cell("decidim/public_participation", form) %>
+          <span class="meeting__registration-modal__terms"><%= registration_terms_text %></span>
+        </div>
+      </div>
+    </div>
+    <div data-dialog-actions>
+      <button type="button" class="button button__sm md:button__lg button__transparent-secondary" data-dialog-close="meeting-registration-confirm-<%= model.id %>">
+        <span><%= i18n_cancel_text %></span>
+      </button>
+      <button type="submit" class="button button__sm md:button__lg button__secondary">
+        <span><%= i18n_confirm_text %></span>
+        <%= icon "arrow-right-line" %>
+      </button>
+    </div>
+  <% end %>
+<% end %>

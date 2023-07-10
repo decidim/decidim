@@ -7,7 +7,7 @@ module Decidim::Admin
     let(:reportable) { create(:dummy_resource) }
     let(:moderation) { create(:moderation, reportable:, report_count: 1, hidden_at: Time.current) }
     let!(:report) { create(:report, moderation:) }
-    let(:current_user) { create :user, organization: reportable.participatory_space.organization }
+    let(:current_user) { create(:user, organization: reportable.participatory_space.organization) }
     let(:command) { described_class.new(reportable, current_user) }
 
     context "when everything is ok" do

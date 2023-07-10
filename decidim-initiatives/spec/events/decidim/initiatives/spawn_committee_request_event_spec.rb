@@ -14,9 +14,9 @@ describe Decidim::Initiatives::SpawnCommitteeRequestEvent do
   end
 
   let(:organization) { initiative.organization }
-  let(:initiative) { create :initiative }
+  let(:initiative) { create(:initiative) }
   let(:event_name) { "decidim.events.initiatives.initiative_created" }
-  let(:applicant) { create :user, organization: }
+  let(:applicant) { create(:user, organization:) }
   let(:applicant_profile_url) { Decidim::UserPresenter.new(applicant).profile_url }
   let(:applicant_nickname) { Decidim::UserPresenter.new(applicant).nickname }
   let(:resource_url) { resource_locator(initiative).url }

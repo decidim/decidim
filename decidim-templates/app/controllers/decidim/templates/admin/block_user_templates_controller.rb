@@ -8,7 +8,7 @@ module Decidim
         include Decidim::Paginable
 
         def fetch
-          enforce_permission_to :read, :template, template: template
+          enforce_permission_to(:read, :template, template:)
 
           response_object = {
             template: translated_attribute(template.description)
@@ -38,7 +38,7 @@ module Decidim
         end
 
         def destroy
-          enforce_permission_to :destroy, :template, template: template
+          enforce_permission_to(:destroy, :template, template:)
 
           DestroyTemplate.call(template, current_user) do
             on(:ok) do
@@ -49,7 +49,7 @@ module Decidim
         end
 
         def update
-          enforce_permission_to :update, :template, template: template
+          enforce_permission_to(:update, :template, template:)
           @form = form(TemplateForm).from_params(params)
           UpdateTemplate.call(template, @form, current_user) do
             on(:ok) do
@@ -66,7 +66,7 @@ module Decidim
         end
 
         def edit
-          enforce_permission_to :update, :template, template: template
+          enforce_permission_to(:update, :template, template:)
           @form = form(TemplateForm).from_model(template)
         end
 

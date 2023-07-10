@@ -6,7 +6,7 @@ describe Decidim::Admin::FakeNewsletter do
   subject { newsletter }
 
   let(:newsletter) { described_class.new(organization, manifest) }
-  let(:organization) { create :organization }
+  let(:organization) { create(:organization) }
   let(:manifest) do
     Decidim
       .content_blocks
@@ -28,7 +28,7 @@ describe Decidim::Admin::FakeNewsletter do
 
   describe "template" do
     it "builds a content block with preview data" do
-      expect(subject.template).to be_kind_of(Decidim::ContentBlock)
+      expect(subject.template).to be_a(Decidim::ContentBlock)
       expect(subject.template).not_to be_persisted
       expect(subject.template.settings.body).to include("Dummy text for body")
     end

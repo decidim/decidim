@@ -19,7 +19,7 @@ describe Decidim::HtmlTruncation do
   let(:count_tags) { false }
   let(:count_tail) { false }
   let(:tail_before_final_tag) { false }
-  let(:text) { ::Faker::Lorem.paragraph(sentence_count: 25) }
+  let(:text) { Faker::Lorem.paragraph(sentence_count: 25) }
 
   describe "empty content" do
     let(:text) { "" }

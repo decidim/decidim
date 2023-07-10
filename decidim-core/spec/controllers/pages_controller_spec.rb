@@ -7,7 +7,7 @@ module Decidim
     describe PagesController, type: :controller do
       routes { Decidim::Core::Engine.routes }
 
-      let(:organization) { create :organization }
+      let(:organization) { create(:organization) }
 
       before do
         request.env["decidim.current_organization"] = organization
@@ -71,7 +71,7 @@ module Decidim
         end
 
         context "when authenticated" do
-          let!(:user) { create :user, :confirmed, organization: }
+          let!(:user) { create(:user, :confirmed, organization:) }
 
           before do
             sign_in user

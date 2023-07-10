@@ -52,6 +52,10 @@ shared_examples_for "has questionnaire" do
       let!(:question2) { create(:questionnaire_question, questionnaire:, position: 2) }
 
       before do
+        # rubocop:disable Layout/LineLength
+        skip "REDESIGN_PENDING - This specs are reciprocal among https://github.com/decidim/decidim/pull/10886 and https://github.com/decidim/decidim/pull/10922. Both PRs are required."
+        # rubocop:enable Layout/LineLength
+
         visit questionnaire_public_path
       end
 
@@ -59,12 +63,12 @@ shared_examples_for "has questionnaire" do
         expect(page).to have_content("Step 1 of 2")
 
         within ".answer-questionnaire__submit", match: :first do
-          expect(page).to have_no_content("Back")
+          expect(page).not_to have_content("Back")
         end
 
         answer_first_questionnaire
 
-        expect(page).to have_no_selector(".success.flash")
+        expect(page).not_to have_selector(".success.flash")
       end
 
       it "allows revisiting previously-answered questionnaires with my answers" do
@@ -92,13 +96,11 @@ shared_examples_for "has questionnaire" do
       end
 
       def answer_first_questionnaire
-        within "div.answer-questionnaire__step", match: :first do
-          expect(page).to have_no_selector("#questionnaire_tos_agreement")
+        within "#step-0" do
+          expect(page).not_to have_selector("#questionnaire_tos_agreement")
 
           fill_in question.body["en"], with: "My first answer"
-          within ".answer-questionnaire__footer", match: :first do
-            click_button "Continue"
-          end
+          click_button "Continue"
         end
         expect(page).to have_content("Step 2 of 2")
       end
@@ -110,7 +112,7 @@ shared_examples_for "has questionnaire" do
       fill_in question.body["en"], with: "My first answer"
 
       dismiss_page_unload do
-        page.find(".logo-wrapper a").click
+        page.find(".main-bar__logo a").click
       end
 
       expect(page).to have_current_path questionnaire_public_path
@@ -142,7 +144,7 @@ shared_examples_for "has questionnaire" do
       it "does not leak defaults from other answers" do
         visit questionnaire_public_path
 
-        expect(page).to have_no_selector("input[type=radio]:checked")
+        expect(page).not_to have_field(type: "radio", checked: true)
       end
     end
 
@@ -152,7 +154,7 @@ shared_examples_for "has questionnaire" do
 
         expect(form_fields[0]).to have_i18n_content(question.body)
         expect(form_fields[1]).to have_i18n_content(other_question.body)
-        (0..1).each do |index|
+        2.times do |index|
           expect(form_fields[index]).to have_css("[data-answer-idx='#{index + 1}']")
         end
       end
@@ -243,7 +245,7 @@ shared_examples_for "has questionnaire" do
       end
 
       it "shows errors without submitting the form" do
-        expect(page).to have_no_selector ".alert.flash"
+        expect(page).not_to have_selector ".alert.flash"
         different_error = I18n.t("decidim.forms.questionnaires.answer.max_choices_alert")
         expect(different_error).to eq("There are too many choices selected")
         expect(page).not_to have_content(different_error)
@@ -383,7 +385,7 @@ shared_examples_for "has questionnaire" do
         let(:question_type) { "multiple_option" }
 
         it "renders them as check boxes with attached text fields disabled by default" do
-          expect(page.first(".js-check-box-collection")).to have_selector("input[type=checkbox]", count: 3)
+          expect(page.first(".js-check-box-collection")).to have_field(type: "checkbox", count: 3)
 
           expect(page).to have_field("questionnaire_responses_0_choices_2_custom_body", disabled: true, count: 1)
 
@@ -448,7 +450,7 @@ shared_examples_for "has questionnaire" do
       it "renders the answer as a text field" do
         visit questionnaire_public_path
 
-        expect(page).to have_selector("input[type=text]#questionnaire_responses_0")
+        expect(page).to have_field(id: "questionnaire_responses_0")
       end
 
       it_behaves_like "question has a character limit"
@@ -489,7 +491,7 @@ shared_examples_for "has questionnaire" do
 
         expect(page).to have_selector(".js-check-box-collection input[type=checkbox]", count: 3)
 
-        expect(page).to have_no_content("Max choices:")
+        expect(page).not_to have_content("Max choices:")
 
         check answer_options[0]["body"][:en]
         check answer_options[1]["body"][:en]

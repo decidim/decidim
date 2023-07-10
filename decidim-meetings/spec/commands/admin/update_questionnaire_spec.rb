@@ -7,10 +7,10 @@ module Decidim
     module Admin
       describe UpdateQuestionnaire do
         let(:current_organization) { create(:organization) }
-        let(:user) { create :user, organization: current_organization }
+        let(:user) { create(:user, organization: current_organization) }
         let(:participatory_process) { create(:participatory_process, organization: current_organization) }
-        let(:current_component) { create :component, participatory_space: participatory_process, manifest_name: "meetings" }
-        let(:meeting) { create :meeting, component: current_component }
+        let(:current_component) { create(:component, participatory_space: participatory_process, manifest_name: "meetings") }
+        let(:meeting) { create(:meeting, component: current_component) }
         let(:form_params) do
           {
             "questions" => {

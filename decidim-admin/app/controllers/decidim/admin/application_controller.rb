@@ -8,11 +8,13 @@ module Decidim
       include NeedsPermission
       include NeedsPasswordChange
       include NeedsSnippets
+      include NeedsAdminTosAccepted
       include FormFactory
       include LocaleSwitcher
       include UseOrganizationTimeZone
       include PayloadInfo
-      include HttpCachingDisabler
+      include Headers::HttpCachingDisabler
+      include Headers::ContentSecurityPolicy
       include DisableRedirectionToExternalHost
 
       include DisabledRedesignLayout

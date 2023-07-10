@@ -10,19 +10,19 @@ describe PasswordValidator do
     let(:errors) { ActiveModel::Errors.new(attribute.to_s => []) }
     let(:record) do
       double(
-        name: ::Faker::Name.name,
+        name: Faker::Name.name,
         email:,
-        nickname: ::Faker::Internet.username(specifier: 10..15),
+        nickname: Faker::Internet.username(specifier: 10..15),
         current_organization: organization,
         errors:,
         admin?: admin_record,
         previous_passwords:,
-        encrypted_password_was: ::Devise::Encryptor.digest(Decidim::User, "decidim123456"),
+        encrypted_password_was: Devise::Encryptor.digest(Decidim::User, "decidim123456"),
         encrypted_password_changed?: true
       )
     end
     let(:admin_record) { false }
-    let(:email) { ::Faker::Internet.email }
+    let(:email) { Faker::Internet.email }
     let(:previous_passwords) { [] }
     let(:attribute) { "password" }
     let(:options) do
@@ -91,7 +91,7 @@ describe PasswordValidator do
     end
 
     describe "short password" do
-      let(:value) { ::Faker::Internet.password(max_length: ::PasswordValidator::MINIMUM_LENGTH - 1) }
+      let(:value) { Faker::Internet.password(max_length: PasswordValidator::MINIMUM_LENGTH - 1) }
 
       it "is too short" do
         expect(validator).to be(false)
@@ -101,9 +101,9 @@ describe PasswordValidator do
       context "when the record is an admin" do
         let(:admin_record) { true }
         let(:value) do
-          ::Faker::Internet.password(
-            min_length: ::PasswordValidator::MINIMUM_LENGTH,
-            max_length: ::PasswordValidator::ADMIN_MINIMUM_LENGTH - 1
+          Faker::Internet.password(
+            min_length: PasswordValidator::MINIMUM_LENGTH,
+            max_length: PasswordValidator::ADMIN_MINIMUM_LENGTH - 1
           )
         end
 
@@ -115,7 +115,7 @@ describe PasswordValidator do
     end
 
     describe "long password" do
-      let(:value) { ::Faker::Internet.password(min_length: ::PasswordValidator::MAX_LENGTH + 1, max_length: ::PasswordValidator::MAX_LENGTH + 2) }
+      let(:value) { Faker::Internet.password(min_length: PasswordValidator::MAX_LENGTH + 1, max_length: PasswordValidator::MAX_LENGTH + 2) }
 
       it "is too long" do
         expect(validator).to be(false)
@@ -124,7 +124,7 @@ describe PasswordValidator do
     end
 
     describe "simple password" do
-      let(:value) { "ab" * ::PasswordValidator::MINIMUM_LENGTH }
+      let(:value) { "ab" * PasswordValidator::MINIMUM_LENGTH }
 
       it "does not have enough unique characters" do
         expect(validator).to be(false)
@@ -223,8 +223,8 @@ describe PasswordValidator do
 
     describe "repeated password" do
       let(:admin_record) { true }
-      let(:previous_passwords) { plain_passwords.map { |password| ::Devise::Encryptor.digest(Decidim::User, password) } }
-      let(:plain_passwords) { Array.new(6) { ::Faker::Internet.password(min_length: ::PasswordValidator::ADMIN_MINIMUM_LENGTH) } }
+      let(:previous_passwords) { plain_passwords.map { |password| Devise::Encryptor.digest(Decidim::User, password) } }
+      let(:plain_passwords) { Array.new(6) { Faker::Internet.password(min_length: PasswordValidator::ADMIN_MINIMUM_LENGTH) } }
 
       context "when password is last used" do
         let(:value) { plain_passwords[0] }

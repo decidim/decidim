@@ -6,7 +6,7 @@ describe Decidim::Meetings::CalendarsController, type: :controller do
   routes { Decidim::Meetings::Engine.routes }
 
   let(:organization) { create(:organization) }
-  let(:participatory_process) { create :participatory_process, organization: }
+  let(:participatory_process) { create(:participatory_process, organization:) }
   let(:meeting_component) { create(:meeting_component, :with_creation_enabled, participatory_space: participatory_process) }
   let!(:meetings) do
     [].tap do |list|

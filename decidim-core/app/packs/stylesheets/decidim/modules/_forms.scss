@@ -142,6 +142,7 @@ input[type="radio"] {
   &__trigger {
     position: relative;
     top: -$form-spacing;
+    display: block;
   }
 
   &__button {

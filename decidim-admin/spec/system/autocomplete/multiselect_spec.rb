@@ -83,7 +83,7 @@ describe "Autocomplete multiselect", type: :system do
     describe "render autocomplete wrapper with text input" do
       it "shows multiselect" do
         within ".autoComplete_wrapper" do
-          expect(page).to have_selector("input[type='text']", wait: 2)
+          expect(page).to have_field(wait: 2)
         end
       end
     end

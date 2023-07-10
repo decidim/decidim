@@ -110,16 +110,18 @@ es-PY:
             values:
               accepted: Aceptadas
               evaluating: En evaluación
+              not_answered: Sin respuesta
               published: Publicadas
               rejected: Rechazadas
               validating: Validación técnica
               withdrawn: Retiradas
-          state_null:
-            label: Estado
-            values:
-              'true': No contestadas
           valuator_role_ids_has:
             label: Asignada a evaluadora
+          with_any_state:
+            label: Respondidas
+            values:
+              state_not_published: Sin respuesta
+              state_published: Respondidas
         search_placeholder:
           id_string_or_title_cont: Buscar %{collection} por ID o título.
     components:

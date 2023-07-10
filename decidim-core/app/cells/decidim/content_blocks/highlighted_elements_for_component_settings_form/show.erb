@@ -1,0 +1,4 @@
+<% form.fields_for :settings, form.object.settings do |settings_fields| %>
+  <%= settings_fields.select(:order, order_options, prompt: "", label:) if include_order_setting? %>
+  <%= settings_fields.select :component_id, component_options, prompt: "", label: component_label %>
+<% end %>

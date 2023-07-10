@@ -24,13 +24,10 @@ module Decidim
         }, constraints: { question_id: /[0-9]+/ }
 
         resources :consultations, only: [:index, :show], param: :slug, path: "consultations" do
-          resource :consultation_widget, only: :show, path: "embed"
-
           resources :questions, only: [:show], param: :slug, path: "questions", shallow: true do
             member do
               get :authorization_vote_modal, to: "authorization_vote_modals#show"
             end
-            resource :question_widget, only: :show, path: "embed"
             resource :question_votes, only: [:create, :destroy], path: "vote"
             resource :question_multiple_votes, only: [:create, :show], path: "multivote"
           end
@@ -72,6 +69,15 @@ module Decidim
                         if: Decidim::Consultation.where(organization: current_organization).published.any?,
                         active: :inclusive
         end
+
+        Decidim.menu :home_content_block_menu do |menu|
+          menu.add_item :consultations,
+                        I18n.t("menu.consultations", scope: "decidim"),
+                        decidim_consultations.consultations_path,
+                        position: 60,
+                        if: Decidim::Consultation.where(organization: current_organization).published.any?,
+                        active: :inclusive
+        end
       end
 
       initializer "decidim_consultations.content_blocks" do
@@ -95,8 +101,10 @@ module Decidim
       end
 
       initializer "decidim_consultations.authorization_transfer" do
-        Decidim::AuthorizationTransfer.register(:consultations) do |transfer|
-          transfer.move_records(Decidim::Consultations::Vote, :decidim_author_id)
+        config.to_prepare do
+          Decidim::AuthorizationTransfer.register(:consultations) do |transfer|
+            transfer.move_records(Decidim::Consultations::Vote, :decidim_author_id)
+          end
         end
       end
     end

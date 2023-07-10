@@ -113,6 +113,28 @@ describe "Admin manages newsletters", type: :system do
       visit decidim_admin.preview_newsletter_path(newsletter)
       expect(page).to have_content("Hello Sarah Kerrigan! Relevant content.")
     end
+
+    context "when admin clicks on the 'send me a test email' button" do
+      it "sends a test email" do
+        visit decidim_admin.newsletter_path(newsletter)
+        perform_enqueued_jobs do
+          click_link "Send me a test email"
+        end
+        expect(page).to have_content("Newsletter has been sent")
+        expect(last_email.subject).to include("A fancy newsletter for")
+      end
+    end
+
+    context "when admin clicks on the 'send me a test email' button in the index page" do
+      it "sends a test email" do
+        visit decidim_admin.newsletters_path
+        perform_enqueued_jobs do
+          click_link "Send me a test email"
+        end
+        expect(page).to have_content("Newsletter has been sent")
+        expect(last_email.subject).to include("A fancy newsletter for")
+      end
+    end
   end
 
   describe "update newsletter" do
@@ -184,7 +206,7 @@ describe "Admin manages newsletters", type: :system do
           end
 
           within ".button--double" do
-            accept_confirm { find("*", text: "Deliver").click }
+            accept_confirm(admin: true) { find("*", text: "Deliver").click }
           end
 
           expect(page).to have_content("Newsletters")
@@ -221,7 +243,7 @@ describe "Admin manages newsletters", type: :system do
           end
 
           within ".button--double" do
-            accept_confirm { find("*", text: "Deliver").click }
+            accept_confirm(admin: true) { find("*", text: "Deliver").click }
           end
 
           expect(page).to have_content("Newsletters")
@@ -258,7 +280,7 @@ describe "Admin manages newsletters", type: :system do
           end
 
           within ".button--double" do
-            accept_confirm { find("*", text: "Deliver").click }
+            accept_confirm(admin: true) { find("*", text: "Deliver").click }
           end
 
           expect(page).to have_content("Newsletters")
@@ -302,7 +324,7 @@ describe "Admin manages newsletters", type: :system do
           end
 
           within ".button--double" do
-            accept_confirm { find("*", text: "Deliver").click }
+            accept_confirm(admin: true) { find("*", text: "Deliver").click }
           end
 
           expect(page).to have_content("Newsletters")
@@ -323,11 +345,11 @@ describe "Admin manages newsletters", type: :system do
       visit decidim_admin.newsletters_path
 
       within("tr[data-newsletter-id=\"#{newsletter.id}\"]") do
-        accept_confirm { click_link "Delete" }
+        accept_confirm(admin: true) { click_link "Delete" }
       end
 
       expect(page).to have_content("successfully")
-      expect(page).to have_no_css("tr[data-newsletter-id=\"#{newsletter.id}\"]")
+      expect(page).not_to have_css("tr[data-newsletter-id=\"#{newsletter.id}\"]")
     end
   end
 end

@@ -7,7 +7,7 @@ module Decidim
     routes { Decidim::Core::Engine.routes }
 
     let(:organization) { create(:organization) }
-    let(:user) { create :user, :confirmed, organization: }
+    let(:user) { create(:user, :confirmed, organization:) }
     let(:user1) { create(:user, organization:) }
     let(:user2) { create(:user, organization:) }
     let(:user3) { create(:user, organization:) }

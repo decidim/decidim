@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 shared_context "when inviting process users" do
-  let(:participatory_process) { create :participatory_process }
+  let(:participatory_process) { create(:participatory_process) }
   let(:organization) { participatory_process.organization }
-  let(:user) { create :user, :admin, :confirmed, organization: participatory_process.organization }
+  let(:user) { create(:user, :admin, :confirmed, organization: participatory_process.organization) }
   let(:email) { "this_email_does_not_exist@example.org" }
   let(:role) { "Moderator" }
 

@@ -5,7 +5,7 @@ require "spec_helper"
 describe "Content pages", type: :system do
   include ActionView::Helpers::SanitizeHelper
 
-  let(:admin) { create :user, :admin, :confirmed }
+  let(:admin) { create(:user, :admin, :confirmed) }
   let(:organization) { admin.organization }
 
   before do
@@ -38,7 +38,7 @@ describe "Content pages", type: :system do
         page_title = decidim_page.title[I18n.locale.to_s]
 
         within(".page__accordion", text: topic_title) do
-          find("button").click
+          click_button
 
           expect(page).to have_css(
             "a[href=\"#{decidim.page_path(decidim_page)}\"]",
@@ -137,13 +137,13 @@ describe "Content pages", type: :system do
 
       it "can delete them" do
         within find(".card", text: translated(topic.title)) do
-          accept_confirm { click_link "Remove topic" }
+          accept_confirm(admin: true) { click_link "Remove topic" }
         end
 
         expect(page).to have_admin_callout("successfully")
 
         within "table" do
-          expect(page).to have_no_content(translated(topic.title))
+          expect(page).not_to have_content(translated(topic.title))
         end
       end
     end
@@ -248,13 +248,13 @@ describe "Content pages", type: :system do
 
       it "can delete them" do
         within find("tr", text: translated(decidim_page.title)) do
-          accept_confirm { click_link "Delete" }
+          accept_confirm(admin: true) { click_link "Delete" }
         end
 
         expect(page).to have_admin_callout("successfully")
 
         within "table" do
-          expect(page).to have_no_content(translated(decidim_page.title))
+          expect(page).not_to have_content(translated(decidim_page.title))
         end
       end
 

@@ -18,7 +18,7 @@ module Webpacker
         threads.each(&:join)
 
         expect(results.length).to eq(10)
-        expect(results.uniq).to match_array([true])
+        expect(results.uniq).to contain_exactly(true)
       end
     end
   end

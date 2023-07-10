@@ -199,6 +199,8 @@ en:
           edit:
             title: Edit election
             update: Update election
+          form:
+            organization_time_zone: Check that the organization time zone is correct in the organization settings. The current configuration is %{time_zone} (%{time}).
           index:
             no_bulletin_board: There is no <a href="https://github.com/decidim/decidim-bulletin-board">Bulletin Board server</a> configured, which is needed to use this module. This task should be done by the System Administrator.
             title: Elections
@@ -271,7 +273,7 @@ en:
               minimum_answers: Questions must have <strong>at least two answers</strong>.
               minimum_questions: The election <strong>must have at least one question</strong>.
               published: The election is <strong>not published</strong>.
-              time_before: The start time is in <strong>less than %{hours} hours</strong> before the election starts.
+              time_before: The start time is in <strong>less than %{hours}</strong> before the election starts.
               trustees_number: The participatory space <strong>must have at least %{number} trustees with public key</strong>.
             invalid: There was a problem setting up this election
             no_trustees: There are no Trustees configured for this participatory space
@@ -288,7 +290,7 @@ en:
               minimum_answers: Each question has <strong>at least 2 answers</strong>.
               minimum_questions: The election has <strong>at least 1 question</strong>.
               published: The election is <strong>published</strong>.
-              time_before: The setup is being done <strong>at least %{hours} hours</strong> before the election starts.
+              time_before: The setup is being done <strong>at least %{hours}</strong> before the election starts.
               trustees_number: The participatory space has <strong>at least %{number} trustees with public key</strong>.
             submit: Setup election
             success: Election successfully sent to the Bulletin Board.
@@ -1189,9 +1191,8 @@ en:
       pages:
         home:
           highlighted_votings:
-            active_votings: Active votings
-            see_all_votings: See all votings
-            votings_button_title: Link to the Votings page displaying all the votings
+            active_spaces: Active votings
+            see_all_spaces: See all votings
       polling_officer_zone:
         closures:
           back_to_polling_stations: Back to polling stations

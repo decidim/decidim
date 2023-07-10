@@ -6,7 +6,7 @@ describe Decidim::ChangeNicknameEvent do
   include_context "when a simple event"
 
   let(:event_name) { "decidim.events.change_nickname_event" }
-  let(:resource) { create :user }
+  let(:resource) { create(:user) }
   let(:author) { resource }
 
   describe "notification_title" do

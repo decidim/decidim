@@ -6,9 +6,9 @@ module Decidim
   describe ResourceHiddenEvent do
     include_context "when a simple event"
 
-    let(:comment) { create :comment, body: { "en" => "a reported comment" } }
-    let(:moderation) { create :moderation, reportable: comment }
-    let(:report) { create :report, moderation: }
+    let(:comment) { create(:comment, body: { "en" => "a reported comment" }) }
+    let(:moderation) { create(:moderation, reportable: comment) }
+    let(:report) { create(:report, moderation:) }
     let(:resource) { comment }
     let(:event_name) { "decidim.events.reports.resource_hidden" }
     let(:extra) { { report_reasons: ["spam"] } }

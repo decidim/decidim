@@ -11,7 +11,7 @@ describe "Admin manages surveys", type: :system do
            published_at: nil)
   end
   let!(:questionnaire) { create(:questionnaire) }
-  let!(:survey) { create :survey, component:, questionnaire: }
+  let!(:survey) { create(:survey, component:, questionnaire:) }
 
   include_context "when managing a component as an admin"
 
@@ -39,7 +39,7 @@ describe "Admin manages surveys", type: :system do
 
     it "allows to answer survey" do
       visit questionnaire_public_path
-      expect(page).to have_selector("input#questionnaire_responses_0")
+      expect(page).to have_field(id: "questionnaire_responses_0")
     end
 
     context "when the survey has answers" do
@@ -54,7 +54,7 @@ describe "Admin manages surveys", type: :system do
         visit questionnaire_edit_path
         click_button "Expand all"
         expect(page).to have_selector("#questionnaire_questions_#{question.id}_body_en")
-        expect(page).to have_no_selector("#questionnaire_questions_#{question.id}_body_en[disabled]")
+        expect(page).not_to have_selector("#questionnaire_questions_#{question.id}_body_en[disabled]")
       end
 
       it "deletes answers after editing" do

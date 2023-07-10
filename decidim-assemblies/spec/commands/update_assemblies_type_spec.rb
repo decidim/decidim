@@ -6,9 +6,9 @@ module Decidim::Assemblies
   describe Admin::UpdateAssembliesType do
     subject { described_class.new(assembly_type, form) }
 
-    let(:organization) { create :organization }
-    let(:user) { create :user, :admin, :confirmed, organization: }
-    let(:assembly_type) { create :assemblies_type, organization: }
+    let(:organization) { create(:organization) }
+    let(:user) { create(:user, :admin, :confirmed, organization:) }
+    let(:assembly_type) { create(:assemblies_type, organization:) }
     let(:title) { Decidim::Faker::Localized.literal("New title") }
     let(:form) do
       double(

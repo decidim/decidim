@@ -5,7 +5,7 @@ require "spec_helper"
 describe Decidim::Log::DiffPresenter, type: :helper do
   subject { described_class.new(changeset, helper, options).present }
 
-  let(:user) { create :user }
+  let(:user) { create(:user) }
   let(:type) { nil }
   let(:changeset) do
     [

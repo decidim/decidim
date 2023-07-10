@@ -427,7 +427,6 @@ lv:
         promotal_committee: Veicināšanas komiteja
         select_initiative_type: Izvēlēties
         show_similar_initiatives: Salīdzināt
-        step: Solis %{current} no %{total}
         title: Izveidot jaunu iniciatīvu
       initiative_header:
         initiative_menu_item: Iniciatīva

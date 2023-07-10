@@ -9,7 +9,7 @@ describe Decidim::Votings::ContentBlocks::LandingPage::AttachmentsAndFoldersCell
 
   let(:organization) { create(:organization) }
   let(:voting) { create(:voting, :published, organization:) }
-  let(:content_block) { create :content_block, organization:, manifest_name: :attachments_and_folders, scope_name: :voting_landing_page }
+  let(:content_block) { create(:content_block, organization:, manifest_name: :attachments_and_folders, scope_name: :voting_landing_page) }
   let!(:attachment_pdf) { create(:attachment, :with_pdf, attached_to: voting) }
   let!(:attachment_img) { create(:attachment, :with_image, attached_to: voting) }
 
@@ -20,7 +20,7 @@ describe Decidim::Votings::ContentBlocks::LandingPage::AttachmentsAndFoldersCell
 
   context "when rendering attachments" do
     it "shows image attachment" do
-      expect(subject).to have_selector(".thumbnail", count: 1)
+      expect(subject).to have_selector("img", count: 1)
     end
 
     it "shows pdf attachment" do

@@ -51,7 +51,7 @@ module Decidim
       context "without a document number" do
         subject { another_user_group }
 
-        let(:another_user_group) { build :user_group, organization: user_group.organization, document_number: "" }
+        let(:another_user_group) { build(:user_group, organization: user_group.organization, document_number: "") }
 
         it { is_expected.to be_valid }
       end
@@ -59,7 +59,7 @@ module Decidim
       context "when the document number is taken" do
         subject { another_user_group }
 
-        let(:another_user_group) { build :user_group, organization: user_group.organization, document_number: user_group.document_number }
+        let(:another_user_group) { build(:user_group, organization: user_group.organization, document_number: user_group.document_number) }
 
         it { is_expected.not_to be_valid }
       end
@@ -67,7 +67,7 @@ module Decidim
       context "when the name is taken" do
         subject { another_user_group }
 
-        let(:another_user_group) { build :user_group, name: user_group.name, organization: user_group.organization }
+        let(:another_user_group) { build(:user_group, name: user_group.name, organization: user_group.organization) }
 
         it { is_expected.not_to be_valid }
 

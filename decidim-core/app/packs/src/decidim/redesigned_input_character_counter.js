@@ -89,21 +89,24 @@ export default class InputCharacterCounter {
     if (this.$target.length > 0 && (this.maxCharacters > 0 || this.minCharacters > 0)) {
       // Create the screen reader target element. We do not want to constantly
       // announce every change to screen reader, only occasionally.
-      this.$srTarget = $(
-        `<span role="status" id="${targetId}_sr" class="sr-only remaining-character-count-sr" />`
-      );
-      this.$target.before(this.$srTarget);
+      const screenReaderId = `${targetId}_sr`;
+      this.$srTarget = $(`#${screenReaderId}`);
+      if (!this.$srTarget.length) {
+        this.$srTarget = $(
+          `<span role="status" id="${screenReaderId}" class="sr-only remaining-character-count-sr" />`
+        );
+        this.$target.before(this.$srTarget);
+      }
       this.$target.attr("aria-hidden", "true");
       this.$userInput = this.$input;
 
-      // In WYSIWYG editors (Quill) we need to find the active editor from the
-      // DOM node. Quill has the experimental "find" method that should work
-      // fine in this case
-      if (Quill && this.$input.parent().is(".editor")) {
-        // Wait until the next javascript loop so Quill editors are created
+      // In WYSIWYG editors (TipTap) we need to find the active editor from the
+      // DOM node.
+      if (this.$input.parent().is(".editor")) {
+        // Wait until the next javascript loop so WYSIWYG editors are created
         setTimeout(() => {
-          this.editor = Quill.find(this.$input.siblings(".editor-container")[0]);
-          this.$userInput = $(this.editor.root);
+          this.editor = this.$input.siblings(".editor-container")[0].querySelector(".ProseMirror").editor;
+          this.$userInput = $(this.editor.view.dom);
           this.initialize();
         });
       } else {
@@ -134,7 +137,7 @@ export default class InputCharacterCounter {
 
   bindEvents() {
     if (this.editor) {
-      this.editor.on("text-change", () => {
+      this.editor.on("update", () => {
         this.handleInput();
       });
     } else {
@@ -169,7 +172,7 @@ export default class InputCharacterCounter {
   updateInputLength() {
     this.previousInputLength = this.inputLength;
     if (this.editor) {
-      this.inputLength = this.editor.getLength();
+      this.inputLength = this.editor.storage.characterCount.characters();
     } else {
       this.inputLength = this.$input.val().length;
     }
@@ -269,7 +272,7 @@ export default class InputCharacterCounter {
       if (remaining === 1) {
         message = MESSAGES.charactersLeft.one;
       }
-      this.$input[0].dispatchEvent(
+      this.$userInput[0].dispatchEvent(
         new CustomEvent("characterCounter", {detail: {remaining: remaining}})
       );
       showMessages.push(message.replace(COUNT_KEY, remaining));

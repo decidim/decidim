@@ -1,26 +1,5 @@
 <div class="profile__activity">
-  <div class="filter-container">
-    <button id="dropdown-trigger" data-component="dropdown" data-target="dropdown-menu" data-auto-close="true">
-      <% filter_items.each_with_index do |filter, i| %>
-        <span class="<%= "is-active" if (params.dig(:filter, :resource_type) || all_types_key) == filter[:name] %>">
-          <%= resource_type_icon(filter[:name]) %><%= filter[:translation] %>
-        </span>
-      <% end %>
-      <%= icon "arrow-down-s-line" %>
-      <%= icon "arrow-up-s-line" %>
-    </button>
-    <%= redesigned_filter_form_for context[:filter], url_for, class: "new_filter", id: "dropdown-menu" do |form| %>
-      <%= form.collection_radio_buttons(
-            :resource_type,
-            filter_items_for_radiobuttons,
-            :name,
-            :text,
-            { checked: all_types_key }
-          ) do |builder|
-              builder.label { builder.radio_button(class: "reset-defaults", hidden: true) + content_tag(:div, builder.text, class: "filter") }
-        end %>
-    <% end %>
-  </div>
+  <%= cell "decidim/resource_types_filter", resource_types, form_path: url_for, filter: %>
   <div class="profile__activity__container" id="activities-container">
     <% if activities.length == 0 %>
       <%= cell "decidim/announcement", t("decidim.user_activity.index.no_activities_warning") %>

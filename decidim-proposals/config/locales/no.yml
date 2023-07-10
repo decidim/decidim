@@ -106,10 +106,6 @@
               rejected: Avvist
               validating: Teknisk validering
               withdrawn: Tilbakekalt
-          state_null:
-            label: Tilstand
-            values:
-              'true': Ikke besvart
         search_placeholder:
           id_string_or_title_cont: Søk %{collection} etter ID eller tittel.
     components:

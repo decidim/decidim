@@ -98,13 +98,13 @@ shared_examples "manage process steps examples" do
 
     it "deletes a participatory_process_step" do
       within find("tr", text: translated(process_step2.title)) do
-        accept_confirm { click_link "Delete" }
+        accept_confirm(admin: true) { click_link "Delete" }
       end
 
       expect(page).to have_admin_callout("successfully")
 
       within "#steps table" do
-        expect(page).to have_no_content(translated(process_step2.title))
+        expect(page).not_to have_content(translated(process_step2.title))
       end
     end
   end
@@ -116,7 +116,7 @@ shared_examples "manage process steps examples" do
       end
 
       within find("tr", text: translated(process_step.title)) do
-        expect(page).to have_no_content("Activate")
+        expect(page).not_to have_content("Activate")
       end
     end
   end

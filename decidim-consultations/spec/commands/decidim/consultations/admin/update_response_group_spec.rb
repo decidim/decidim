@@ -6,7 +6,7 @@ module Decidim
   module Consultations
     module Admin
       describe UpdateResponseGroup do
-        let(:response_group) { create :response_group }
+        let(:response_group) { create(:response_group) }
         let(:params) do
           {
             response_group: {

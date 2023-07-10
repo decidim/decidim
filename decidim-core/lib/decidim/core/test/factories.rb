@@ -110,6 +110,7 @@ FactoryBot.define do
     end
     file_upload_settings { Decidim::OrganizationSettings.default(:upload) }
     enable_participatory_space_filters { true }
+    content_security_policy { {} }
 
     trait :secure_context do
       host { "localhost" }
@@ -558,7 +559,7 @@ FactoryBot.define do
 
     after :build do |resource, evaluator|
       evaluator.authors_list.each do |coauthor|
-        resource.coauthorships << if coauthor.is_a?(::Decidim::UserGroup)
+        resource.coauthorships << if coauthor.is_a?(Decidim::UserGroup)
                                     build(:coauthorship, author: coauthor.users.first, user_group: coauthor, coauthorable: resource, organization: evaluator.component.organization)
                                   else
                                     build(:coauthorship, author: coauthor, coauthorable: resource, organization: evaluator.component.organization)
@@ -655,7 +656,7 @@ FactoryBot.define do
     organization { user.organization }
     user
     participatory_space { build :participatory_process, organization: }
-    component { build :component, participatory_space: }
+    component { build(:component, participatory_space:) }
     resource { build(:dummy_resource, component:) }
     action { "create" }
     visibility { "admin-only" }
@@ -747,12 +748,10 @@ FactoryBot.define do
     amender { emendation.try(:creator_author) || emendation.try(:author) }
     state { "evaluating" }
 
-    trait :draft do
-      state { "draft" }
-    end
-
-    trait :rejected do
-      state { "rejected" }
+    Decidim::Amendment::STATES.keys.each do |defined_state|
+      trait defined_state do
+        state { defined_state }
+      end
     end
   end
 
@@ -809,6 +808,12 @@ FactoryBot.define do
   factory :reminder_record, class: "Decidim::ReminderRecord" do
     reminder { create(:reminder) }
     remindable { build(:dummy_resource) }
+
+    Decidim::ReminderRecord::STATES.keys.each do |defined_state|
+      trait defined_state do
+        state { defined_state }
+      end
+    end
   end
 
   factory :reminder_delivery, class: "Decidim::ReminderDelivery" do

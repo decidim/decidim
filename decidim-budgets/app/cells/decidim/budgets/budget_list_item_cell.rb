@@ -9,7 +9,6 @@ module Decidim
       include ActiveSupport::NumberHelper
       include Decidim::Budgets::ProjectsHelper
 
-      delegate :voting_finished?, to: :controller
       delegate :highlighted, to: :current_workflow
 
       property :title, :description, :total_budget
@@ -63,6 +62,30 @@ module Decidim
 
       def i18n_scope
         "decidim.budgets.budgets_list"
+      end
+
+      def resource_path
+        resource_locator(budget).path
+      end
+
+      def current_workflow
+        @current_workflow ||=
+          controller.try(:current_workflow) ||
+          Decidim::Budgets.workflows[component.settings.workflow.to_sym].new(component, current_user)
+      end
+
+      def component
+        @component ||= controller.try(:current_component) || budget.component
+      end
+
+      def voting_context?
+        controller.respond_to?(:voting_finished?)
+      end
+
+      def voting_finished?
+        return unless voting_context?
+
+        controller.voting_finished?
       end
     end
   end

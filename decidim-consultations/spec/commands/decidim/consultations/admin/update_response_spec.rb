@@ -6,7 +6,7 @@ module Decidim
   module Consultations
     module Admin
       describe UpdateResponse do
-        let(:response) { create :response }
+        let(:response) { create(:response) }
         let(:params) do
           {
             response: {

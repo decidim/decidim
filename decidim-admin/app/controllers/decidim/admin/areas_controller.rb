@@ -35,12 +35,12 @@ module Decidim
       end
 
       def edit
-        enforce_permission_to :update, :area, area: area
+        enforce_permission_to(:update, :area, area:)
         @form = form(AreaForm).from_model(area)
       end
 
       def update
-        enforce_permission_to :update, :area, area: area
+        enforce_permission_to(:update, :area, area:)
         @form = form(AreaForm).from_params(params)
 
         UpdateArea.call(area, @form) do
@@ -57,7 +57,7 @@ module Decidim
       end
 
       def destroy
-        enforce_permission_to :destroy, :area, area: area
+        enforce_permission_to(:destroy, :area, area:)
 
         DestroyArea.call(area, current_user) do
           on(:ok) do

@@ -3,7 +3,6 @@
 import svg4everybody from "svg4everybody"
 import formDatePicker from "src/decidim/form_datepicker"
 import fixDropdownMenus from "src/decidim/dropdowns_menus"
-import createQuillEditor from "src/decidim/editor"
 import Configuration from "src/decidim/configuration"
 import ExternalLink from "src/decidim/external_link"
 import updateExternalDomainLinks from "src/decidim/external_domain_warning"
@@ -23,7 +22,7 @@ import changeReportFormBehavior from "src/decidim/change_report_form_behavior"
 import Accordions from "a11y-accordion-component";
 import Dropdowns from "a11y-dropdown-component";
 import Dialogs from "a11y-dialog-component";
-import RemoteModal from "./redesigned_ajax_modals"
+import RemoteModal from "src/decidim/ajax_modals"
 // end new libraries
 
 window.Decidim = window.Decidim || {};
@@ -34,6 +33,9 @@ window.Decidim.FormValidator = FormValidator;
 window.Decidim.DataPicker = DataPicker;
 window.Decidim.addInputEmoji = addInputEmoji;
 window.Decidim.EmojiButton = EmojiButton;
+
+window.Decidim.Accordions = Accordions;
+window.Decidim.Dropdowns = Dropdowns;
 
 /**
  * Initializer event for those script who require to be triggered
@@ -74,13 +76,8 @@ $(() => {
 
   formDatePicker();
 
-  $(".editor-container").each((_idx, container) => {
-    createQuillEditor(container);
-  });
-
-  $('a[target="_blank"]').each((_i, elem) => {
-    const $link = $(elem);
-    $link.data("external-link", new ExternalLink($link));
+  document.querySelectorAll(".editor-container").forEach((container) => {
+    window.createEditor(container);
   });
 
   // initialize character counter
@@ -101,7 +98,12 @@ $(() => {
   })
   document.querySelectorAll(".new_report").forEach((container) => changeReportFormBehavior(container))
 
-  updateExternalDomainLinks($("body"))
+  document.querySelectorAll("a[target=\"_blank\"]:not([data-external-link=\"false\"])").forEach((elem) => {
+    // both functions (updateExternalDomainLinks and ExternalLink) are related, so if we disable one, the other also
+    updateExternalDomainLinks(elem)
+
+    return new ExternalLink($(elem))
+  })
 
   addInputEmoji()
 
@@ -112,6 +114,8 @@ $(() => {
   scrollToLastChild()
 
   // NOTE: new libraries required to give functionality to redesigned views
+  const screens = {md: "768px"};
+  Object.keys(screens).forEach((key) => (window.matchMedia(`(min-width: ${screens[key]})`).matches) && document.querySelectorAll(`[data-controls][data-open-${key}]`).forEach((elem) => (elem.dataset.open = elem.dataset[`open-${key}`.replace(/-([a-z])/g, (str) => str[1].toUpperCase())])))
   Accordions.init();
   Dropdowns.init();
   document.querySelectorAll("[data-dialog]").forEach(

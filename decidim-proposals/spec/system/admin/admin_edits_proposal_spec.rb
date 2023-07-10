@@ -5,8 +5,8 @@ require "spec_helper"
 describe "Admin edits proposals", type: :system do
   let(:manifest_name) { "proposals" }
   let(:organization) { participatory_process.organization }
-  let!(:user) { create :user, :admin, :confirmed, organization: }
-  let!(:proposal) { create :proposal, :official, component: }
+  let!(:user) { create(:user, :admin, :confirmed, organization:) }
+  let!(:proposal) { create(:proposal, :official, component:) }
   let(:creation_enabled?) { true }
 
   include_context "when managing a component as an admin"
@@ -45,14 +45,14 @@ describe "Admin edits proposals", type: :system do
 
     context "when the proposal has some votes" do
       before do
-        create :proposal_vote, proposal:
+        create(:proposal_vote, proposal:)
       end
 
       it "does not let the user edit it" do
         visit_component_admin
 
         expect(page).to have_content(translated(proposal.title))
-        expect(page).to have_no_css("a.action-icon--edit-proposal")
+        expect(page).not_to have_css("a.action-icon--edit-proposal")
         visit current_path + "proposals/#{proposal.id}/edit"
 
         expect(page).to have_content("not authorized")
@@ -88,7 +88,7 @@ describe "Admin edits proposals", type: :system do
 
         visit_component_admin
         find("a.action-icon--edit-proposal").click
-        expect(page).to have_no_content("Current file")
+        expect(page).not_to have_content("Current file")
       end
 
       it "can attach a file" do
@@ -112,13 +112,13 @@ describe "Admin edits proposals", type: :system do
   end
 
   describe "editing a non-official proposal" do
-    let!(:proposal) { create :proposal, users: [user], component: }
+    let!(:proposal) { create(:proposal, users: [user], component:) }
 
     it "renders an error" do
       visit_component_admin
 
       expect(page).to have_content(translated(proposal.title))
-      expect(page).to have_no_css("a.action-icon--edit-proposal")
+      expect(page).not_to have_css("a.action-icon--edit-proposal")
       visit current_path + "proposals/#{proposal.id}/edit"
 
       expect(page).to have_content("not authorized")

@@ -110,10 +110,6 @@ ja:
               rejected: 却下済み
               validating: 技術的検証
               withdrawn: 撤回
-          state_null:
-            label: 州(県)
-            values:
-              'true': 回答なし
           valuator_role_ids_has:
             label: 評価者にアサインされました
         search_placeholder:

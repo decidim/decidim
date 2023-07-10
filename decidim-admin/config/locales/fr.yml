@@ -533,14 +533,14 @@ fr:
           download_example_format: Exemple comme %{name}
           file_legend: Ajouter un fichier d'import qui sera analysé.
           import: Importer
-        notice: "Import réussie de %{count} %{resource_name}."
+        notice: "Import réussi de %{count} %{resource_name}."
       logs:
         filters:
           participatory_space: Trouver un espace participatif
           text: Recherche par adresse e-mail, nom ou pseudonyme.
           user: Utilisateur
         logs_list:
-          no_logs_yet: Il n'y a pas encore de journaux d'activité. 
+          no_logs_yet: Il n'y a pas encore de journaux d'activité.
           no_matching_logs: Il n'y a pas de journaux avec les filtres de recherche fournis. Essayez de les modifier et réessayez.
       managed_users:
         promotion:

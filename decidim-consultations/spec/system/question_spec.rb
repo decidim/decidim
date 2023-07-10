@@ -7,9 +7,9 @@ describe "Question", type: :system do
   let!(:consultation) { create(:consultation, :published, organization:) }
   let(:question_context) { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
   let(:what_is_decided) { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
-  let(:previous_question) { create :question, consultation: }
-  let(:question) { create :question, consultation:, question_context:, what_is_decided: }
-  let(:next_question) { create :question, consultation: }
+  let(:previous_question) { create(:question, consultation:) }
+  let(:question) { create(:question, consultation:, question_context:, what_is_decided:) }
+  let(:next_question) { create(:question, consultation:) }
 
   context "when shows question information" do
     before do
@@ -86,9 +86,9 @@ describe "Question", type: :system do
 
   context "when no question is published" do
     let(:user) { create(:user, :admin, :confirmed, organization:) }
-    let(:previous_question) { create :question, :unpublished, consultation: }
-    let(:question) { create :question, :unpublished, consultation: }
-    let(:next_question) { create :question, :unpublished, consultation: }
+    let(:previous_question) { create(:question, :unpublished, consultation:) }
+    let(:question) { create(:question, :unpublished, consultation:) }
+    let(:next_question) { create(:question, :unpublished, consultation:) }
 
     before do
       switch_to_host(organization.host)
@@ -131,9 +131,9 @@ describe "Question", type: :system do
 
   context "when finished consultations" do
     context "and published results" do
-      let(:consultation) { create :consultation, :finished, :published, :published_results, organization: }
-      let(:response) { create :response, question: }
-      let!(:vote) { create :vote, question:, response: }
+      let(:consultation) { create(:consultation, :finished, :published, :published_results, organization:) }
+      let(:response) { create(:response, question:) }
+      let!(:vote) { create(:vote, question:, response:) }
 
       before do
         switch_to_host(organization.host)
@@ -149,7 +149,7 @@ describe "Question", type: :system do
   end
 
   context "when question has no hero image" do
-    let(:question_without_hero) { create :question, consultation:, hero_image: nil }
+    let(:question_without_hero) { create(:question, consultation:, hero_image: nil) }
 
     before do
       switch_to_host(organization.host)

@@ -13,10 +13,9 @@ $(() => {
       $reservedSlots.attr("disabled", !enabled);
       $customizeRegistrationEmail.attr("disabled", !enabled);
 
-      $form.find(".editor-container").each((idx, node) => {
-        const quill = Quill.find(node);
-        quill.enable(enabled);
-      })
+      $form[0].querySelectorAll(".editor-container .ProseMirror").forEach((node) => {
+        node.editor.setOptions({ editable: enabled });
+      });
     };
 
     $registrationsEnabled.on("change", toggleDisabledFields);

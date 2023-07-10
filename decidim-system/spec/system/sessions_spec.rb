@@ -33,7 +33,7 @@ describe "Sessions", type: :system do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_no_content("Dashboard")
+      expect(page).not_to have_content("Dashboard")
     end
   end
 end

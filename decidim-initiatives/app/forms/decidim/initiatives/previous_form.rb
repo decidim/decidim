@@ -15,6 +15,10 @@ module Decidim
       validates :title, :description, presence: true
       validates :title, length: { maximum: 150 }
       validates :type_id, presence: true
+
+      def type
+        @type ||= type_id ? Decidim::InitiativesType.find(type_id) : context.initiative.type
+      end
     end
   end
 end

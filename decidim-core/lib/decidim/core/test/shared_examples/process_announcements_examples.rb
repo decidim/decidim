@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 shared_examples "manage processes announcements" do
-  let!(:participatory_process) { create(:participatory_process, organization:) }
+  let!(:participatory_process) { create(:participatory_process, :with_content_blocks, organization:, blocks_manifests: [:announcement]) }
 
   it "can customize a general announcement for the process" do
     within find("tr", text: translated(participatory_process.title)) do

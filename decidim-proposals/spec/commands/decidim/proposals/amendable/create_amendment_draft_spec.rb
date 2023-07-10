@@ -6,7 +6,7 @@ module Decidim
   module Amendable
     describe CreateDraft do
       let!(:component) { create(:proposal_component, :with_amendments_enabled) }
-      let!(:user) { create :user, :confirmed, organization: component.organization }
+      let!(:user) { create(:user, :confirmed, organization: component.organization) }
       let!(:amendable) { create(:proposal, component:) }
 
       let(:title) { "More sidewalks and less roads!" }

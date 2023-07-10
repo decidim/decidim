@@ -63,8 +63,8 @@ shared_examples_for "manage questionnaires" do
     it "cannot modify questionnaire questions" do
       visit questionnaire_edit_path
 
-      expect(page).to have_no_content("Add question")
-      expect(page).to have_no_content("Remove")
+      expect(page).not_to have_content("Add question")
+      expect(page).not_to have_content("Remove")
 
       expand_all_questions
 
@@ -72,7 +72,7 @@ shared_examples_for "manage questionnaires" do
       expect(page).to have_selector("select[id$=question_type][disabled]")
       expect(page).to have_selector("select[id$=max_choices][disabled]")
       expect(page).to have_selector("input[id$=max_characters][disabled]")
-      expect(page).to have_selector(".ql-editor[contenteditable=false]")
+      expect(page).to have_selector(".ProseMirror[contenteditable=false]")
     end
   end
 

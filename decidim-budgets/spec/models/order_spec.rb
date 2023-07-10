@@ -20,7 +20,7 @@ shared_examples "an order" do |*options|
 
     it "is unique for each user and component" do
       subject.save
-      new_order = build :order, user: subject.user, budget: budget
+      new_order = build(:order, user: subject.user, budget:)
       expect(new_order).to be_invalid
     end
 
@@ -70,15 +70,15 @@ module Decidim::Budgets
   describe Order do
     subject { order }
 
-    let(:component) { create :budgets_component, voting_rule }
+    let(:component) { create(:budgets_component, voting_rule) }
     let(:budget) { create(:budget, component:, total_budget:) }
-    let(:order) { create :order, budget: }
+    let(:order) { create(:order, budget:) }
     let(:voting_rule) { :with_vote_threshold_percent }
     let(:total_budget) { 100_000 }
 
     describe "with component with a vote threshold percent rule" do
       let(:total_budget) { 100 }
-      let!(:order) { create :order, budget: }
+      let!(:order) { create(:order, budget:) }
 
       it_behaves_like "an order", :with_maximum_budget
 
@@ -96,7 +96,7 @@ module Decidim::Budgets
     end
 
     describe "with component with a minimum projects rule" do
-      let!(:order) { create :order, budget: }
+      let!(:order) { create(:order, budget:) }
       let(:voting_rule) { :with_minimum_budget_projects }
 
       it_behaves_like "an order", :with_maximum_budget
@@ -131,7 +131,7 @@ module Decidim::Budgets
           vote_maximum_budget_projects_number:
         )
       end
-      let!(:order) { create :order, budget: }
+      let!(:order) { create(:order, budget:) }
       let(:voting_rule) { :with_budget_projects_range }
       let(:vote_minimum_budget_projects_number) { 0 }
       let(:vote_maximum_budget_projects_number) { 6 }
@@ -178,7 +178,7 @@ module Decidim::Budgets
           vote_maximum_budget_projects_number:
         )
       end
-      let!(:order) { create :order, budget: }
+      let!(:order) { create(:order, budget:) }
       let(:voting_rule) { :with_budget_projects_range }
       let(:vote_minimum_budget_projects_number) { 3 }
       let(:vote_maximum_budget_projects_number) { 6 }

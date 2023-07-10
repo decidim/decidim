@@ -40,7 +40,7 @@ end
 end
 
 Capybara.register_driver :headless_chrome do |app|
-  options = ::Selenium::WebDriver::Chrome::Options.new
+  options = Selenium::WebDriver::Chrome::Options.new
   options.args << "--explicitly-allowed-ports=#{Capybara.server_port}"
   options.args << "--headless"
   options.args << "--no-sandbox"
@@ -60,7 +60,7 @@ end
 # In order to work with PWA apps, Chrome cannot be run in headless mode, and requires
 # setting up special prefs and flags
 Capybara.register_driver :pwa_chrome do |app|
-  options = ::Selenium::WebDriver::Chrome::Options.new
+  options = Selenium::WebDriver::Chrome::Options.new
   options.args << "--explicitly-allowed-ports=#{Capybara.server_port}"
   options.args << "--no-sandbox"
   # Do not limit browser resources
@@ -87,7 +87,7 @@ Capybara.register_driver :pwa_chrome do |app|
 end
 
 Capybara.register_driver :iphone do |app|
-  options = ::Selenium::WebDriver::Chrome::Options.new
+  options = Selenium::WebDriver::Chrome::Options.new
   options.args << "--headless"
   options.args << "--no-sandbox"
   options.add_emulation(device_name: "iPhone 6")

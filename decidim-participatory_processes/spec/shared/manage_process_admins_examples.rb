@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
 shared_examples "manage process admins examples" do
-  let(:other_user) { create :user, organization:, email: "my_email@example.org" }
+  let(:other_user) { create(:user, organization:, email: "my_email@example.org") }
 
   let!(:process_admin) do
-    create :process_admin,
+    create(:process_admin,
            :confirmed,
            organization:,
-           participatory_process:
+           participatory_process:)
   end
 
   before do
@@ -70,13 +70,13 @@ shared_examples "manage process admins examples" do
 
     it "deletes a participatory_process_user_role" do
       within find("#process_admins tr", text: other_user.email) do
-        accept_confirm { click_link "Delete" }
+        accept_confirm(admin: true) { click_link "Delete" }
       end
 
       expect(page).to have_admin_callout("successfully")
 
       within "#process_admins table" do
-        expect(page).to have_no_content(other_user.email)
+        expect(page).not_to have_content(other_user.email)
       end
     end
 

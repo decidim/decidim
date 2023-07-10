@@ -40,7 +40,7 @@ describe "Admin checks dashboard panel statistics", type: :system do
 
   context "when has Pending moderations" do
     context "when having reported resources" do
-      let(:current_component) { create :component }
+      let(:current_component) { create(:component) }
       let!(:reportable) { create(:dummy_resource, component: current_component, title: { "en" => "<p>Dummy<br> Title</p>" }) }
       let!(:moderation) { create(:moderation, reportable:) }
       let(:organization) { current_component.organization }

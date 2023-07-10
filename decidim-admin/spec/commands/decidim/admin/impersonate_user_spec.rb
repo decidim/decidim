@@ -8,8 +8,8 @@ module Decidim::Admin
 
     subject { described_class.new(form) }
 
-    let(:organization) { create :organization }
-    let(:current_user) { create :user, :admin, organization: }
+    let(:organization) { create(:organization) }
+    let(:current_user) { create(:user, :admin, organization:) }
     let(:document_number) { "12345678X" }
     let(:form_params) do
       {
@@ -72,7 +72,7 @@ module Decidim::Admin
     end
 
     context "when logging action with reason" do
-      let(:user) { create :user, organization: }
+      let(:user) { create(:user, organization:) }
 
       it "creates a action log with reason" do
         expect do
@@ -84,19 +84,19 @@ module Decidim::Admin
     end
 
     context "when passed a regular user" do
-      let(:user) { create :user, organization: }
+      let(:user) { create(:user, organization:) }
 
       it_behaves_like "the impersonate user command"
     end
 
     context "when passed an existing managed user" do
-      let(:user) { create :user, :managed, organization: }
+      let(:user) { create(:user, :managed, organization:) }
 
       it_behaves_like "the impersonate user command"
     end
 
     context "when passed a new managed user" do
-      let(:user) { build :user, :managed, organization: }
+      let(:user) { build(:user, :managed, organization:) }
 
       it_behaves_like "the impersonate user command"
 

@@ -113,10 +113,6 @@ eu:
               rejected: Ukatua
               validating: Baliozkotze teknikoa
               withdrawn: Kenduta
-          state_null:
-            label: Egoera
-            values:
-              'true': Erantzun gabe
           valuator_role_ids_has:
             label: Esleituta ebaluatzaileari
         search_placeholder:

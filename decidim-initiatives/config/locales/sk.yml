@@ -364,7 +364,6 @@ sk:
         promotal_committee: Výbor predkladateľov
         select_initiative_type: Vybrať
         show_similar_initiatives: Porovnať
-        step: Krok%{current} z%{total}
         title: Vytvoriť novú iniciatívu
       initiative_header:
         initiative_menu_item: Iniciatíva

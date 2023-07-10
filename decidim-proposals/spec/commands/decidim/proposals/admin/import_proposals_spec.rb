@@ -86,7 +86,7 @@ module Decidim
                 end.to change { Proposal.where(component: current_component).count }.by(1)
 
                 titles = Proposal.where(component: current_component).map(&:title)
-                expect(titles).to match_array([proposal.title, second_proposal.title])
+                expect(titles).to contain_exactly(proposal.title, second_proposal.title)
               end
 
               context "and the current component was not published" do
@@ -98,7 +98,7 @@ module Decidim
                   end.to change { Proposal.where(component: current_component).count }.by(1)
 
                   titles = Proposal.where(component: current_component).map(&:title)
-                  expect(titles).to match_array([proposal.title, second_proposal.title])
+                  expect(titles).to contain_exactly(proposal.title, second_proposal.title)
                 end
               end
             end

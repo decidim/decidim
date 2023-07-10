@@ -12,9 +12,9 @@ describe Decidim::Budgets::Admin::BudgetForm do
       current_component:
     }
   end
-  let(:participatory_process) { create :participatory_process, organization: }
-  let(:current_component) { create :budgets_component, participatory_space: participatory_process }
-  let(:scope) { create :scope, organization: }
+  let(:participatory_process) { create(:participatory_process, organization:) }
+  let(:current_component) { create(:budgets_component, participatory_space: participatory_process) }
+  let(:scope) { create(:scope, organization:) }
   let(:scope_id) { scope.id }
   let(:title) { Decidim::Faker::Localized.sentence(word_count: 3) }
   let(:description) { Decidim::Faker::Localized.sentence(word_count: 3) }

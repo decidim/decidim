@@ -6,7 +6,7 @@ describe Decidim::Elections::Trustees::ByParticipatorySpace do
   let(:organization) { create(:organization) }
   let(:participatory_process) { create(:participatory_process, organization:) }
   let(:assembly) { create(:assembly) }
-  let(:user) { create :user, :confirmed }
+  let(:user) { create(:user, :confirmed) }
 
   let(:participatory_process_trustees) do
     create_list(:trustee, 5) do |trustee|

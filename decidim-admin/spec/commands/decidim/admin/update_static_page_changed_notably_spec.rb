@@ -7,7 +7,7 @@ module Decidim::Admin
     describe "call" do
       let(:organization) { create(:organization) }
       let(:page) { Decidim::StaticPage.find_by(slug: "terms-of-service", organization:) }
-      let(:user) { create :user, :admin, :confirmed, organization: }
+      let(:user) { create(:user, :admin, :confirmed, organization:) }
       let(:form) do
         StaticPageForm.from_params(
           static_page: page.attributes.merge(

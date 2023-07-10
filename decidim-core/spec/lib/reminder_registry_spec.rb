@@ -26,7 +26,7 @@ module Decidim
       end
 
       it "returns manifests" do
-        expect(subject.all).to be_kind_of(Array)
+        expect(subject.all).to be_a(Array)
         expect(subject.all.count).to eq(2)
       end
     end

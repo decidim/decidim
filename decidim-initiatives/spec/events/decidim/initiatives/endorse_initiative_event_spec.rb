@@ -11,10 +11,10 @@ describe Decidim::Initiatives::EndorseInitiativeEvent do
   end
 
   let(:organization) { initiative.organization }
-  let(:initiative) { create :initiative }
+  let(:initiative) { create(:initiative) }
   let(:initiative_author) { initiative.author }
   let(:event_name) { "decidim.events.initiatives.initiative_endorsed" }
-  let(:user) { create :user, organization: }
+  let(:user) { create(:user, organization:) }
   let(:resource_path) { resource_locator(initiative).path }
 
   describe "types" do

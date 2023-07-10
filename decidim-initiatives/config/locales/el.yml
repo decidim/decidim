@@ -426,7 +426,6 @@ el:
         promotal_committee: Επιτροπή προώθησης
         select_initiative_type: Επιλέξτε
         show_similar_initiatives: Σύγκριση
-        step: Βήμα %{current} από %{total}
         title: Δημιουργία νέας πρωτοβουλίας
       initiative_header:
         initiative_menu_item: Πρωτοβουλία

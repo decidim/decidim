@@ -24,8 +24,8 @@ describe Decidim::Proposals::Import::ProposalAnswerCreator do
       current_participatory_space: participatory_process
     }
   end
-  let(:participatory_process) { create :participatory_process, organization: }
-  let(:component) { create :component, manifest_name: :proposals, participatory_space: participatory_process }
+  let(:participatory_process) { create(:participatory_process, organization:) }
+  let(:component) { create(:component, manifest_name: :proposals, participatory_space: participatory_process) }
   let(:state) { %w(evaluating accepted rejected).sample }
 
   describe "#resource_klass" do
@@ -93,12 +93,12 @@ describe Decidim::Proposals::Import::ProposalAnswerCreator do
 
       context "and notifies followers" do
         before do
-          allow(::Decidim::Proposals::Admin::NotifyProposalAnswer).to receive(:call).with(proposal, "evaluating")
+          allow(Decidim::Proposals::Admin::NotifyProposalAnswer).to receive(:call).with(proposal, "evaluating")
         end
 
         it "notifies followers" do
           subject.finish!
-          expect(::Decidim::Proposals::Admin::NotifyProposalAnswer).to have_received(:call)
+          expect(Decidim::Proposals::Admin::NotifyProposalAnswer).to have_received(:call)
         end
       end
     end

@@ -8,7 +8,7 @@ describe "Decidim::Api::QueryType" do
   include_context "with a graphql decidim component"
   let(:component_type) { "Debates" }
 
-  let!(:current_component) { create :debates_component, participatory_space: participatory_process }
+  let!(:current_component) { create(:debates_component, participatory_space: participatory_process) }
   let!(:debate) { create(:debate, :participant_author, component: current_component, category:) }
 
   let(:debate_single_result) do

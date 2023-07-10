@@ -704,7 +704,6 @@ bg:
           modal_title: Нов разговор
           no_results: Няма резултати
         index:
-          ago: преди
           new_conversation: Нов разговор
           next: Напред
           title: Разговори

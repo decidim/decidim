@@ -6,6 +6,7 @@ module Decidim
   module Budgets
     describe ProjectsHelper do
       include Decidim::LayoutHelper
+      include ::Devise::Test::ControllerHelpers
 
       let!(:organization) { create(:organization) }
       let!(:budgets_component) { create(:budgets_component, :with_geocoding_enabled, organization:) }
@@ -21,6 +22,8 @@ module Decidim
       before do
         # rubocop:disable RSpec/AnyInstance
         allow_any_instance_of(ActionView::Base).to receive(:redesign_enabled?).and_return(redesign_enabled)
+        allow_any_instance_of(ActionView::Base).to receive(:redesigned_layout).and_return("decidim/budgets/project_metadata")
+        allow_any_instance_of(Decidim::Budgets::ProjectMetadataCell).to receive(:redesign_enabled?).and_return(redesign_enabled)
         # rubocop:enable RSpec/AnyInstance
       end
 
@@ -50,7 +53,7 @@ module Decidim
           expect(subject["longitude"]).to eq(longitude)
           expect(subject["address"]).to eq(address)
           expect(subject["title"]).to eq("&lt;script&gt;alert(&quot;HEY&quot;)&lt;/script&gt; This is my title")
-          expect(subject["description"]).to eq("<div class=\"ql-editor-display\">alert(&quot;HEY&quot;) This is my long, but still super interesting, description of my also long, but also sup…</div>")
+          expect(subject["description"]).to eq("<div class=\"rich-text-display\">alert(&quot;HEY&quot;) This is my long, but still super interesting, description of my also long, but also sup…</div>")
           expect(subject["link"]).to eq(::Decidim::ResourceLocatorPresenter.new([project.budget, project]).path)
           expect(subject["icon"]).to match(/<svg.+/)
         end

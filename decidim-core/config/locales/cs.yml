@@ -110,35 +110,40 @@ cs:
         other: asi %{count} měsíců
       half_a_minute: půl minuty
       less_than_x_minutes:
-        one: méně než minutu.
-        few: méně než %{count} minuty.
-        many: méně než %{count} minut.
-        other: méně než %{count} minut.
+        one: méně než minuta
+        few: méně než %{count} minuty
+        many: méně než %{count} minut
+        other: méně než %{count} minut
       less_than_x_seconds:
-        one: právě teď
-        few: méně než %{count} vteřiny.
-        many: méně než %{count} vteřin.
-        other: méně než %{count} vteřin.
+        one: méně než 1 sekundou
+        few: méně než %{count} sekundami
+        many: méně než %{count} sekundami
+        other: méně než %{count} sekundami
       x_days:
-        one: před 1 dnem
-        few: "před %{count} dny"
-        many: "před %{count} ti dny"
-        other: "před %{count} ti dny"
+        one: 1 dnem
+        few: "{{$count}} dny"
+        many: "{{$count}} dny"
+        other: "{{$count}} dny"
       x_hours:
-        one: před 1 hodinou
-        few: "před %{count} hodinami"
-        many: "před %{count} hodinami"
-        other: "před %{count} hodinami"
+        one: 1 hodina
+        few: "%{count} hodiny"
+        many: "%{count} hodin"
+        other: "%{count} hodin"
       x_minutes:
-        one: před 1 minutou
-        few: "před %{count} minutami"
-        many: "před %{count} minutami"
-        other: "před %{count} minutami"
+        one: 1 minuta
+        few: "%{count} minuty"
+        many: "%{count} minut"
+        other: "%{count} minut"
+      x_months:
+        one: 1 měsíc
+        few: "%{count} měsíce"
+        many: "%{count} měsíců"
+        other: "%{count} měsíců"
       x_seconds:
-        one: před 1 vteřinou
-        few: "před %{count} vteřinami"
-        many: "před %{count} vteřinami"
-        other: "před %{count} vteřinami"
+        one: 1 sekunda
+        few: "%{count} sekundy"
+        many: "%{count} sekund"
+        other: "%{count} sekund"
   decidim:
     accessibility:
       external_link: Externí odkaz
@@ -1130,7 +1135,6 @@ cs:
           intro: 'Došlo k následujícím chybám ve vaší zprávě:'
           ok: OK
         index:
-          ago: před
           new_conversation: Nová konverzace
           next: Další
           no_conversations: Zatím nemáte žádné konverzace.

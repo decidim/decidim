@@ -4,8 +4,7 @@ require "spec_helper"
 
 describe "Conversations", type: :system do
   let!(:organization) { create(:organization, twitter_handler: "redesigned") }
-  let(:user) { create :user, :confirmed, organization: }
-  let!(:redesign_enabled?) { true }
+  let(:user) { create(:user, :confirmed, organization:) }
 
   before do
     switch_to_host(organization.host)
@@ -22,8 +21,8 @@ describe "Conversations", type: :system do
     end
 
     it "shows the topbar button as inactive" do
-      within "#dropdown-summary-account" do
-        expect(page).to have_no_selector("span[data-unread-items]")
+      within "#trigger-dropdown-account" do
+        expect(page).not_to have_selector("span[data-unread-items]")
       end
     end
   end
@@ -53,7 +52,7 @@ describe "Conversations", type: :system do
     it_behaves_like "accessible page"
 
     it "shows an empty conversation page" do
-      expect(page).to have_no_selector(".card--list__item")
+      expect(page).not_to have_selector(".card--list__item")
       expect(page).to have_current_path decidim.new_conversation_path(recipient_id: recipient.id)
     end
 
@@ -87,7 +86,7 @@ describe "Conversations", type: :system do
       end
 
       context "and recipient follows user" do
-        let!(:follow) { create :follow, user: recipient, followable: user }
+        let!(:follow) { create(:follow, user: recipient, followable: user) }
 
         before do
           visit decidim.new_conversation_path(recipient_id: recipient.id)
@@ -138,7 +137,7 @@ describe "Conversations", type: :system do
       end
 
       it "shows the topbar button as active" do
-        within "#dropdown-summary-account" do
+        within "#trigger-dropdown-account" do
           expect(page).to have_selector("span[data-unread-items]")
         end
       end
@@ -152,8 +151,8 @@ describe "Conversations", type: :system do
       before { visit_inbox }
 
       it "shows the topbar button as inactive" do
-        within "#dropdown-summary-account" do
-          expect(page).to have_no_selector("span[data-unread-items]")
+        within "#trigger-dropdown-account" do
+          expect(page).not_to have_selector("span[data-unread-items]")
         end
       end
 
@@ -169,8 +168,8 @@ describe "Conversations", type: :system do
         visit_inbox
         click_link "conversation-#{conversation.id}"
         expect(page).to have_content("Send")
-        fill_in "message_body", with: message_body
-        click_button "Send"
+        field = find_field("message_body")
+        field.native.send_keys message_body
       end
 
       it "appears as the last message", :slow do
@@ -210,7 +209,8 @@ describe "Conversations", type: :system do
         visit_inbox
         click_link "conversation-#{conversation.id}"
         expect(page).to have_content("Send")
-        fill_in "message_body", with: message_body
+        field = find_field("message_body")
+        field.native.send_keys message_body
         expect(page).to have_content("0 characters left")
         click_button "Send"
         expect(page).to have_content(message)
@@ -238,7 +238,7 @@ describe "Conversations", type: :system do
       end
 
       context "and interlocutor follows user" do
-        let!(:follow) { create :follow, user: interlocutor, followable: user }
+        let!(:follow) { create(:follow, user: interlocutor, followable: user) }
 
         before do
           visit_inbox
@@ -250,7 +250,9 @@ describe "Conversations", type: :system do
         end
 
         it "sends a message", :slow do
-          fill_in "message_body", with: "Please reply!"
+          field = find_field("message_body")
+          field.native.send_keys "Please reply!"
+
           expect(page).to have_content("Send")
           click_button "Send"
 
@@ -267,11 +269,7 @@ describe "Conversations", type: :system do
       end
 
       it "has a contact link" do
-        if Decidim.redesign_active
-          expect(page).to have_link(title: "Message", href: decidim.new_conversation_path(recipient_id: recipient.id))
-        else
-          expect(page).to have_link(title: "Contact", href: decidim.new_conversation_path(recipient_id: recipient.id))
-        end
+        expect(page).to have_link(title: "Message", href: decidim.new_conversation_path(recipient_id: recipient.id))
       end
 
       context "and recipient has restricted communications" do
@@ -292,8 +290,10 @@ describe "Conversations", type: :system do
           expect(page).to have_content("New conversation")
           click_button "New conversation"
           expect(page).to have_selector("#add_conversation_users")
-          find("#add_conversation_users").fill_in with: "@#{interlocutor2.nickname.chars.first}"
-          expect(page).to have_selector("#autoComplete_list_1 li.disabled", wait: 2)
+          field = find("#add_conversation_users")
+          field.set ""
+          field.native.send_keys "@#{interlocutor2.nickname.slice(0, 3)}"
+          expect(page).to have_selector("#autoComplete_list_1 li.disabled", wait: 5)
         end
       end
     end
@@ -403,7 +403,7 @@ describe "Conversations", type: :system do
             expect(page).to have_css("img[alt='Avatar: #{user1.name}']")
             expect(page).to have_css("img[alt='Avatar: #{user2.name}']")
             expect(page).to have_css("img[alt='Avatar: #{user3.name}']")
-            expect(page).to have_no_css("img[alt='Avatar: #{user.name}']")
+            expect(page).not_to have_css("img[alt='Avatar: #{user.name}']")
           end
         end
       end
@@ -514,20 +514,18 @@ describe "Conversations", type: :system do
   private
 
   def start_conversation(message)
-    fill_in "conversation_body", with: message
+    field = find_field("conversation_body")
+    field.native.send_keys message
+
     click_button "Send"
   end
 
   def visit_inbox
     visit decidim.root_path
 
-    if Decidim.redesign_active
-      find("#dropdown-summary-account").click
+    find("#trigger-dropdown-account").click
+    within "#dropdown-menu-account" do
       click_link("Conversations")
-    else
-      within ".topbar__user__logged" do
-        find(".icon--envelope-closed").click
-      end
     end
   end
 end
