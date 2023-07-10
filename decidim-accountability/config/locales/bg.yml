@@ -178,9 +178,6 @@ bg:
         description: Брой генерирани резултати
         object: резултати
         title: Резултати
-    participatory_spaces:
-      highlighted_results:
-        see_all: Виж всички резултати (%{count})
     resource_links:
       included_projects:
         result_project: Проекти, включени в резултата
