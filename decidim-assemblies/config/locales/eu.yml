@@ -357,16 +357,14 @@ eu:
       pages:
         home:
           highlighted_assemblies:
-            active_assemblies: Batzar aktiboak
             assemblies_button_title: Lotura batzar guztiak erakusten dituen Batzarren orrialdera
-            see_all_assemblies: Ikusi biltzar guztiak
         user_profile:
           member_of:
             member_of: Kidea
       show:
-        area: Area
+        area: Arloa
         assembly_type: Muntatze-mota
-        children: Batzar
+        children: Biltzarrak
         closing_date: Amaiera data
         composition: Konposizio
         created_by: Sortuta
@@ -374,7 +372,6 @@ eu:
         developer_group: Sustatzailearen taldea
         duration: Iraupena
         included_at: Barruan sartzen da
-        indefinite_duration: mugagabeak
         internal_organisation: Barneko antolaketa
         is_transparent:
           'false': opakua
@@ -387,7 +384,7 @@ eu:
         read_less: Irakurri gutxiago
         read_more: Irakurri gehiago
         related_participatory_processes: Partaidetza prozesu erlazionatuak
-        scope: Esparrua
+        scope: esparrua
         social_networks: Sare sozialak
         target: Nor parte hartzen du
     assembly_members:
