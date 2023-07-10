@@ -136,10 +136,6 @@ sk:
         assemblies_types:
           form:
             title: Názov
-      pages:
-        home:
-          highlighted_assemblies:
-            assemblies_button_title: Odkaz na stránku Zhromaždenia, zobrazujúcu všetky zhromaždenia
     events:
       assemblies:
         create_assembly_member:
