@@ -160,6 +160,7 @@ hu:
         continue: Folytatás
         more_information: További információk
       budgets_list:
+        budgets: Költségvetések
         cancel_order:
           more_than_one: törölje a(z) %{name} kérdésében leadott szavazatát, és kezdje újra
           only_one: törölje a szavazatát és kezdje újra.
@@ -168,8 +169,10 @@ hu:
         if_change_opinion: Ha meggondolta magát, a következőket teheti
         my_budgets: Költségvetéseim
         progress: Szavazás befejezése
+        remove_vote: Szavazat eltávolítása
         show: Összes projekt megtekintése
         vote: Szavazás
+        voted_budgets: Költségvetések ahol szavaztál
         voted_on: 'Szavazott a következő kérdésében: %{links}.'
       last_activity:
         new_vote_at: Új költségvetési szavazás itt
@@ -212,8 +215,11 @@ hu:
             title: Projektek maximuma túllépve
         budget_summary:
           are_you_sure: Biztosan szeretnéd visszavonni a szavazatod?
+          cancel_order: szavazatod törlése
           checked_out:
+            description: 'Már szavaztál a költségvetésre. Ha meggondoltad magad, kattints ide: %{cancel_link}.'
             title: Költségvetési szavazás befejeződött
+          vote: Szavazás a költségvetésre
         count:
           projects_count:
             one: 1 projekt
@@ -232,6 +238,16 @@ hu:
             all: Összes
             not_selected: Nincs kiválasztva
             selected: Kiválasztva
+        index:
+          back_to_budgets: vissza a költségvetésekhez
+        order_progress:
+          assigned: Hozzárendelt
+          budget: Költségvetés
+          dynamic_help:
+            keep_adding_projects: További projektek hozzáadása
+            minimum_reached: Elérted a minimumot a szavazáshoz
+            start_adding_projects: Kezdj el projekteket hozzáadni
+          minimum: Minimum
         orders:
           highest_cost: Legmagasabb költség
           label: Projektek rendezése
@@ -246,8 +262,13 @@ hu:
           view: Nézet
           you_voted: Erre szavazott
         project_budget_button:
+          add: Hozzáad
           add_descriptive: Adja hozzá a(z) %{resource_name} projektet a szavazatához.
+          added: Hozzáadva
           added_descriptive: A(z) %{resource_name} projekt hozzáadva a szavazatához.
+        project_filter:
+          added: Hozzáadva
+          all: Összes
         projects_for: '%{name} projektek'
         show:
           budget: Költségvetés
