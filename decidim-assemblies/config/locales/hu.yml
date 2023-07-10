@@ -365,7 +365,9 @@ hu:
       pages:
         home:
           highlighted_assemblies:
+            active_assemblies: Aktív gyűlések
             assemblies_button_title: A Gyűlések oldalra mutató link, ahol az összes Gyűlés látható
+            see_all_assemblies: Az összes közgyűlés megtekintése
         user_profile:
           member_of:
             member_of: 'Tagja következőnek:'
@@ -380,6 +382,7 @@ hu:
         developer_group: Kezdeményező csoport
         duration: Időtartam
         included_at: 'Tartalmazza:'
+        indefinite_duration: Határozatlan
         internal_organisation: Belső szervezet
         is_transparent:
           'false': áttetsző
