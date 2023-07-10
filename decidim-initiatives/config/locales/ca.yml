@@ -605,8 +605,8 @@ ca:
       signature_interval:
         title: Període de recollida de signatures
       states:
-        accepted: Acceptat
-        expired: Vençut
+        accepted: Acceptada
+        expired: Vençuda
       unavailable_scope: Àmbit no disponible
       update:
         error: S'ha produït un error.
