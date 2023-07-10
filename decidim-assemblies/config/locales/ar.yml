@@ -381,9 +381,7 @@ ar:
       pages:
         home:
           highlighted_assemblies:
-            active_assemblies: الجمعيات النشطة
             assemblies_button_title: رابط إلى صفحة الجمعيات لاستعراض جميع الجمعيات
-            see_all_assemblies: عرض كافة الجمعيات
         user_profile:
           member_of:
             member_of: عضو في
@@ -398,7 +396,6 @@ ar:
         developer_group: مجموعة المروجين
         duration: المدة الزمنية
         included_at: المدرجة في
-        indefinite_duration: غير محدد
         internal_organisation: التنظيم الداخلي
         is_transparent:
           'false': مبهمة
@@ -407,11 +404,11 @@ ar:
         participatory_scope: ما الذي تقرر
         participatory_structure: كيف تقرر ذلك
         private_space: هذه جمعية خاصة
-        purpose_of_action: الغرض من الإجراء
+        purpose_of_action: الغرض من العمل
         read_less: أقرأ أقل
         read_more: اقرأ المزيد
         related_participatory_processes: العمليات التشاركية ذات الصلة
-        scope: نطاق
+        scope: النطاق
         social_networks: شبكات التواصل الاجتماعي
         social_networks_title: زيارة التجمع على
         target: من يشارك
@@ -487,4 +484,4 @@ ar:
         assembly_menu_item: الجمعية
       assembly_widgets:
         show:
-          take_part: شارِك
+          take_part: خذ جزء
