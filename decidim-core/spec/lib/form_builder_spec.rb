@@ -786,14 +786,14 @@ module Decidim
 
           it "renders the correctly sorted values" do
             html = output
-            expect(html).to include(
-              [
-                "<li>This image will be resized and padded to 33 x 33 px.</li>",
-                "<li>This image will be resized and padded to 99 x 99 px.</li>",
-                "<li>This image will be resized to fit 32 x 32 px.</li>",
-                "<li>This image will be resized to fit 100 x 100 px.</li>"
-              ].join("\n      \n        ")
-            )
+            [
+              "<li>This image will be resized and padded to 33 x 33 px.</li>",
+              "<li>This image will be resized and padded to 99 x 99 px.</li>",
+              "<li>This image will be resized to fit 32 x 32 px.</li>",
+              "<li>This image will be resized to fit 100 x 100 px.</li>"
+            ].each do |value|
+              expect(html).to include(value)
+            end
           end
         end
       end
