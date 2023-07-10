@@ -5,3 +5,7 @@ bg:
         area_id: Район
         assembly_type: Тип събрание
         assembly_type_other: Друг тип събрание
+  decidim:
+    assemblies:
+      show:
+        area: Район
