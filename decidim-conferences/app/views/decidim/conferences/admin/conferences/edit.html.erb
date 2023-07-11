@@ -1,14 +1,30 @@
-<%= decidim_form_for(@form, html: { class: "form edit_conference conference_form_admin" }) do |f| %>
-  <%= render partial: "form", object: f %>
-  <div class="button--double form-general-submit">
-    <%= f.submit t("conferences.edit.update", scope: "decidim.admin"), class: "button" %>
+<div class="item_show__header">
+  <h2 class="item_show__header-title">
+    <%= t("info", scope: "decidim.admin.menu.participatory_processes_submenu") %>
+  </h2>
+</div>
 
-    <% if allowed_to? :publish, :conference, conference: current_conference %>
-      <% if current_conference.published? %>
-        <%= link_to t("actions.unpublish", scope: "decidim.admin"), conference_publish_path(current_conference), method: :delete, class: "button muted" %>
-      <% else %>
-        <%= link_to t("actions.publish", scope: "decidim.admin"), conference_publish_path(current_conference), method: :post, class: "button hollow" %>
-      <% end %>
-    <% end %>
+<div class="item__edit">
+  <div class="item__edit-menu">
+    <p class="text-black font-semibold mb-3">Secciones</p>
+    <%= link_to t("conferences.form.title", scope: "decidim.admin"), decidim_admin_participatory_processes.edit_participatory_process_path(current_participatory_space, anchor: t("conferences.form.title", scope: "decidim.admin")), class: "item__edit-menu-anchor" %>
   </div>
-<% end %>
+
+  <div class="item__edit-form">
+    <%= decidim_form_for(@form, html: { class: "form form-defaults edit_conference conference_form_admin" }) do |f| %>
+      <%= render partial: "form", object: f %>
+      <div class="button--double form-general-submit">
+        <%= f.submit t("conferences.edit.update", scope: "decidim.admin"), class: "button button__sm md:button__lg button__secondary" %>
+
+        <% if allowed_to? :publish, :conference, conference: current_conference %>
+          <% if current_conference.published? %>
+            <%= link_to t("actions.unpublish", scope: "decidim.admin"), conference_publish_path(current_conference), method: :delete, class: "button button__sm md:button__lg button__secondary" %>
+          <% else %>
+            <%= link_to t("actions.publish", scope: "decidim.admin"), conference_publish_path(current_conference), method: :post, class: "button button__sm md:button__lg button__secondary" %>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
+
+  </div>
+</div>
