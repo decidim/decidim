@@ -1,4 +1,4 @@
-<section id="hero-<%= model.id %>" <%= "style=\"background-image:url('#{image_path}');\"" if image_path.present? %>>
+<section id="hero-<%= resource&.id %>" <%= "style=\"background-image:url('#{image_path}');\"" if image_path.present? %>>
   <div class="participatory-space__hero">
     <div class="participatory-space__hero-text">
       <h1 class="h1 text-5xl">
