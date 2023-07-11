@@ -3,19 +3,37 @@
 
   &-form{
     .card{
-      @apply rounded p-4 bg-white mb-8;
+      @apply rounded bg-white mb-8;
+
+      fill: var(--secondary);
     }
 
     .card-section{
       @apply p-0;
     }
 
+    .row{
+      @apply p-4;
+    }
+
     .card-divider{
-      @apply mt-0 mb-8 pb-2 border-b border-gray;
+      @apply mt-0 p-2 flex-none flex items-center justify-start rounded-none;
+
+      svg{
+        @apply inline-block w-6 h-6;
+      }
+
+      &[aria-expanded="true"]{
+        @apply mb-8 p-4 border-solid border-b border-gray;
+
+        svg{
+          @apply rotate-90 transition-transform;
+        }
+      }
     }
 
     .card-title{
-      @apply font-semibold text-md;
+      @apply font-semibold text-md w-auto;
 
       color: var(--secondary);
     }
