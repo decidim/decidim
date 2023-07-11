@@ -140,6 +140,7 @@ en:
             promoted: Highlighted
             published: Published
             title: Title
+            actions: Actions
           name: Participatory process
         participatory_process_group:
           fields:
