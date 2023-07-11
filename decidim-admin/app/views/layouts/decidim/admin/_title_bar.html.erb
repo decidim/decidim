@@ -9,7 +9,7 @@
       <div id="admin-dropdown-menu-language">
         <ul class="dropdown dropdown__bottom">
           <% (available_locales - [I18n.locale.to_s]).each do |locale| %>
-            <li>
+            <li class="dropdown__item">
               <%= link_to(locale_name(locale), decidim.locale_path(locale: locale), method: :post, tabindex: "-1") %>
             </li>
           <% end %>
@@ -22,7 +22,7 @@
       <%= button_tag current_user.email, id: "admin-dropdown-menu-login-trigger", data: { component: 'dropdown', target: 'admin-dropdown-menu-login' }, name: current_user.email , class: 'dropdown__trigger' %>
       <div id="admin-dropdown-menu-login">
         <ul class="dropdown dropdown__bottom">
-          <li>
+          <li class="dropdown__item">
             <%= link_to(t("layouts.decidim.user_menu.sign_out"), decidim.destroy_user_session_path, method: :delete, tabindex: "-1") %>
           </li>
         </ul>

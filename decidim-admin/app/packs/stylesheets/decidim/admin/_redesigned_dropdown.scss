@@ -1,0 +1,9 @@
+.main{
+  [id*="dropdown-menu"][aria-hidden="true"]{
+    @apply hidden;
+  }
+
+  .dropdown__trigger{
+    @apply flex underline p-0;
+  }
+}

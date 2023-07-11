@@ -25,14 +25,14 @@
           <% end %>
           <div id="assemblies-dropdown-menu-settings">
             <ul class="dropdown dropdown__bottom">
-              <li>
+              <li class="dropdown__item">
                 <% if allowed_to? :import, :assembly %>
                    <%= link_to t("actions.import_assembly", scope: "decidim.admin"),
                                new_import_path,
                                class: "text-secondary" %>
                  <% end %>
               </li>
-              <li>
+              <li class="dropdown__item">
                 <% if allowed_to? :read, :assemblies_setting %>
                   <%= link_to t("menu.assemblies_settings", scope: "decidim.admin"),
                              decidim_admin_assemblies.edit_assemblies_settings_path,
