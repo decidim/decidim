@@ -38,10 +38,6 @@ $(() => {
 
   formDatePicker();
 
-  document.querySelectorAll(".editor-container").forEach((container) => {
-    window.createEditor(container);
-  });
-
   $("form.new_filter").each(function () {
     const formFilter = new FormFilterComponent($(this));
 
