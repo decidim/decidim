@@ -1,16 +1,13 @@
 //Override Foundation defaults
 .table-scroll table{
   border-collapse: unset;
-  width: 100%;
-  border: 1px solid rgba(228, 238, 255, .6);
 
-  @apply mb-0 text-gray-2;
+  @apply mb-0 text-gray-2 border border-background-4 w-full;
 }
 
 //Table list
 .table-list{
-  border-collapse: collapse;
-  border-spacing: 0;
+  @apply border-collapse border-spacing-0 ;
 
   thead tr{
     @apply bg-background-2;
@@ -24,15 +21,26 @@
     }
   }
 
-  th,
   td{
-    border-bottom: 1px solid rgba(228, 238, 255, 0.6);
+    @apply border-b border-background-4;
+
+    &:not(:last-child){
+      @apply border-r border-background-4;
+    }
   }
 
   th{
     .sort_link.desc,
     .sort_link.asc{
       @apply underline;
+    }
+  }
+
+  thead th{
+    @apply border-b border-background-4;
+
+    &:not(:last-child){
+      @apply border-r border-background-4;
     }
   }
 
@@ -45,10 +53,6 @@
 
   tr:nth-child(even){
     @apply bg-background-2;
-  }
-
-  tr:last-child{
-    @apply border-0;
   }
 
   th:not(:first-child),
@@ -66,29 +70,11 @@
     margin-bottom: .5rem;
   }
 
-  &.table-list--lastcenter{
-    th:last-child,
-    td:last-child{
-      text-align: center;
-    }
-  }
-
-  &.table-list--lastleft{
-    th:last-child,
-    td:last-child{
-      text-align: left;
-    }
-  }
-
   &.table-list--selectable{
     th:nth-child(2),
     td:nth-child(2){
       text-align: left;
     }
-  }
-
-  tr.selected{
-    background-color: rgba($brand, .05);
   }
 
   thead tr a,
@@ -97,15 +83,11 @@
   }
 
   td a:not(.button){
-    @apply text-secondary underline text-md;
+    @apply text-secondary underline text-md font-semibold;
   }
 
   td > .button{
     margin-bottom: 0;
-  }
-
-  td{
-    @include modifiers(color, (muted: $muted));
   }
 
   .switch.tiny{
@@ -134,20 +116,12 @@
 
   .action-icon,
   a.action-icon.highlighted{
-    color: $body-font-color;
-
-    &:hover{
-      color: $primary-color;
-    }
-  }
-
-  .action-icon.action-icon--remove{
-    color: $alert-color;
+    @apply text-secondary;
   }
 }
 
 .table-list__state{
-  text-align: center;
+  @apply text-center;
 }
 
 .table-list__type-icon{
