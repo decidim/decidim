@@ -1,1 +1,13 @@
-/* REDESIGN_PENDING: keep file */
+.voting {
+  &__map {
+    @apply flex flex-col-reverse md:flex-row items-start gap-4 only:[&>*]:grow first:[&>*]:min-w-[40%];
+
+    & > :last-child:not(:only-child) {
+      @apply aspect-[4/3] w-full rounded overflow-hidden;
+    }
+
+    &-address {
+      @apply border-4 border-background rounded p-4 mt-4 first:mt-0;
+    }
+  }
+}

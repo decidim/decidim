@@ -1,25 +1,21 @@
-<section class="section polling-stations-cell">
-  <div class="row column">
-    <h3 class="section-heading">
-      <%= t("heading", scope: "decidim.votings.content_blocks.landing_page.polling_stations") %>
-    </h3>
+<section class="content-block">
+  <h2 class="h2 decorator">
+    <%= t("heading", scope: "decidim.votings.content_blocks.landing_page.polling_stations") %>
+  </h2>
 
-    <% if polling_stations.any? %>
-      <div class="row">
-        <div class="column medium-4 polling-stations-list">
-          <% polling_stations.each do |polling_station| %>
-            <%= render view: :address, locals: { polling_station: } %>
-          <% end %>
-        </div>
+  <% if polling_stations.any? %>
+    <div class="voting__map">
+      <div>
+        <% polling_stations.each do |polling_station| %>
+          <div class="voting__map-address">
+            <%== cell("decidim/address", polling_station) %>
+          </div>
+        <% end %>
+      </div>
 
-        <div class="column medium-8">
-          <%= render :map %>
-        </div>
-      </div>
-    <% else %>
-      <div class="row column">
-        <%= t("no_polling_stations", scope: "decidim.votings.content_blocks.landing_page.polling_stations") %>
-      </div>
-    <% end %>
-  </div>
+      <%= cell "decidim/votings/voting_map", polling_stations %>
+    </div>
+  <% else %>
+    <%= t("no_polling_stations", scope: "decidim.votings.content_blocks.landing_page.polling_stations") %>
+  <% end %>
 </section>
