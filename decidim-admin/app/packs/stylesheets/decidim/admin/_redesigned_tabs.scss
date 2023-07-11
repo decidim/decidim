@@ -1,27 +1,40 @@
 .tabs--lang{
-  @apply bg-transparent;
+  @apply bg-transparent flex items-center gap-x-1;
 
-  li {
-    border-right: 1px solid $light-gray;
-  }
+  li{
+    @apply float-none rounded-t-sm;
 
-  li:last-child {
-    border-right: 0;
-  }
+    &.is-active{
+      @apply border-b;
 
-  a {
-    padding: 0 0.5rem;
-    font-weight: normal;
-    color: $muted;
-
-    &:hover {
-      color: $anchor-color-hover;
+      border-color: var(--secondary);
     }
   }
 
-  .is-active a {
-    font-weight: 600;
-    color: $anchor-color;
+  a{
+    @apply p-1 rounded-t-sm text-xs;
+
+    background-color: rgba(243, 244, 247, 1);
+    color: var(--secondary);
+
+    &::before{
+      @apply content-[''] w-2 h-2 inline-block bg-white rounded-full mr-2 border;
+
+      border-color: rgba(116, 129, 144, 1);
+    }
+  }
+
+  .tabs-title > a[aria-selected="true"]{
+    background-color: rgba(243, 244, 247, 1);
+    color: var(--secondary);
+
+    @apply font-bold;
+
+    &::before{
+      @apply border-white;
+
+      background-color: rgba(40, 167, 69, 1);
+    }
   }
 
   a.is-tab-error {

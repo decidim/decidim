@@ -25,7 +25,7 @@
     }
 
     .card-divider-button{
-      @apply flex-none flex items-center justify-start;
+      @apply flex-none flex items-center justify-start w-full;
 
       &[aria-expanded="true"]{
         @apply border-solid border-b border-gray w-full rounded-none pb-3;
