@@ -1,0 +1,9 @@
+.component__show{
+  &_nav{
+    @apply flex items-center;
+  }
+
+  &_grid{
+    @apply grid grid-cols-[75%_25%] gap-x-4;
+  }
+}

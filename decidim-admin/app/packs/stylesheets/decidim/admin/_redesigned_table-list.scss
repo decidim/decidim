@@ -24,6 +24,8 @@
   td{
     @apply border-b border-background-4;
 
+    font-size: 14px;
+
     &:not(:last-child){
       @apply border-r border-background-4;
     }
@@ -65,9 +67,9 @@
     padding-left: $global-padding;
   }
 
-  th [type="checkbox"]:only-child,
-  td [type="checkbox"]:only-child{
-    margin-bottom: .5rem;
+  th [type="checkbox"],
+  td [type="checkbox"]{
+    @apply m-0;
   }
 
   &.table-list--selectable{

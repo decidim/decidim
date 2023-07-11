@@ -16,21 +16,19 @@
       </h2>
     </div>
 
-    <div class="card-section">
-      <div class="table-scroll">
-        <table class="table-list">
-          <thead>
-            <th><%= t(".headers.name") %></th>
-            <th><%= t(".headers.type") %></th>
-            <%= th_resource_scope_label(t(".headers.scope")) %>
-            <th><%= t(".headers.actions") %></th>
-          </thead>
+    <div class="table-scroll">
+      <table class="table-list">
+        <thead>
+          <th><%= t(".headers.name") %></th>
+          <th><%= t(".headers.type") %></th>
+          <%= th_resource_scope_label(t(".headers.scope")) %>
+          <th><%= t(".headers.actions") %></th>
+        </thead>
 
-          <tbody>
-            <%= render partial: "component", collection: @components %>
-          </tbody>
-        </table>
-      </div>
+        <tbody>
+          <%= render partial: "component", collection: @components %>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>
