@@ -11,6 +11,7 @@ module Decidim
         def index
           enforce_permission_to :read, :votings
           @votings = filtered_collection
+          render layout: "decidim/admin/votings"
         end
 
         def new

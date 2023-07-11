@@ -1,0 +1,26 @@
+<% content_for :breadcrumb_nav do %>
+  <div class="process-title">
+    <div class="process-title-content">
+      <%= link_to t("decidim.votings.admin.titles.votings"), decidim_assemblies.assemblies_path, target: "_blank", class: "process-title-content-breadcrumb" %>
+      <div class="process-title-content-breadcrumb-container-right">
+        <% if allowed_to? :create, :voting %>
+          <%= link_to new_voting_path, class: "process-title-content-breadcrumb-container-right-link" do %>
+            <svg viewBox="0 0 24 24" id="ri-add-line" class="w-4 h-4">
+              <path fill="none" d="M0 0h24v24H0z"/>
+              <path d="M11 11V5h2v6h6v2h-6v6h-2v-6H5v-2z"/>
+            </svg>
+            <span>
+              <%= t("votings.actions.new_voting", scope: "decidim.votings.admin") %>
+            </span>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<%= render "layouts/decidim/admin/application" do %>
+  <div class="process-content">
+    <%= yield %>
+  </div>
+<% end %>
