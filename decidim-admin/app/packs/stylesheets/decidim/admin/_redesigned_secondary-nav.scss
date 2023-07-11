@@ -54,11 +54,6 @@ $process-title-height: 3rem;
   & > .card:first-child{
     margin-top: -2rem;
   }
-
-  @include breakpoint(large){
-    min-height: calc(100% - #{$process-title-height});
-    margin-top: $process-title-height;
-  }
 }
 
 .secondary-nav__title{
@@ -81,7 +76,9 @@ $process-title-height: 3rem;
 .process-title,
 .voting-title{
   @apply bg-gray-2 px-8 p-4 relative;
+}
 
+.process-title .process-title-content{
   .dropdown__trigger{
     @apply flex underline p-0;
 
@@ -92,10 +89,6 @@ $process-title-height: 3rem;
 
   .button{
     @apply no-underline py-1 mb-0;
-  }
-
-  [id*="dropdown-menu"][aria-hidden="true"]{
-    @apply hidden;
   }
 }
 

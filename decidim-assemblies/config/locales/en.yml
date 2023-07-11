@@ -222,6 +222,7 @@ en:
             promoted: Highlighted
             published: Published
             title: Title
+            actions: Actions
           name: Assembly
         assembly_member:
           fields:
