@@ -3,7 +3,7 @@
 
   &-form{
     .card{
-      @apply rounded bg-white mb-8;
+      @apply rounded bg-white mb-8 border-background border;
 
       fill: var(--secondary);
     }
@@ -28,14 +28,10 @@
       @apply flex-none flex items-center justify-start;
 
       &[aria-expanded="true"]{
-        @apply bg-gray-5;
+        @apply border-solid border-b border-gray w-full rounded-none pb-3;
 
         svg{
           @apply rotate-90 transition-transform;
-        }
-
-        .card-title{
-          @apply border-solid border-b border-gray w-full;
         }
       }
     }

@@ -1,6 +1,5 @@
-.tabs--lang {
-  background-color: transparent;
-  float: right;
+.tabs--lang{
+  @apply bg-transparent;
 
   li {
     border-right: 1px solid $light-gray;
