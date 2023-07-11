@@ -43,18 +43,20 @@
   }
 }
 
-.label--tabs {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.label--tabs{
+  @apply flex justify-between items-center;
 
-  label {
-    display: inline-block;
+  label{
+    @apply inline-block;
   }
 }
 
-.form {
-  .language-change {
+.tabs-panel[aria-hidden="true"]{
+  @apply hidden;
+}
+
+.form{
+  .language-change{
     height: 2rem;
     margin-bottom: 1rem;
   }
@@ -74,3 +76,5 @@
 .is-tab-custom-error-visible {
   display: block;
 }
+
+

@@ -5,12 +5,8 @@
 :root{
   --primary: #e02d2d;
   --primary-rgb: 224 45 45;
-
-  /*
-    These importants are to overwrite foundation
-  */
-  --secondary: #155abf !important;
-  --secondary-rgb: 21 90 191 !important;
+  --secondary: #155abf;
+  --secondary-rgb: 21 90 191;
   --tertiary: #ebc34b;
   --tertiary-rgb: 235 195 75;
   --success: #28a745;
@@ -42,3 +38,4 @@
 @import "stylesheets/decidim/admin/_redesigned_item_edit.scss";
 @import "stylesheets/decidim/admin/_redesigned_tabs.scss";
 @import "stylesheets/decidim/admin/_redesigned_component-show.scss";
+@import "stylesheets/decidim/admin/_redesigned_legacy_foundation.scss";

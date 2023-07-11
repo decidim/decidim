@@ -14,14 +14,11 @@
 
   .is-active a{
     @apply text-white;
+
     background-color:rgba(4, 11, 23, 0.3);
   }
 
-  .icon{
-    width: 24px;
-    height: 24px;
-    display: block;
-    margin: 0 auto;
-    opacity: .5;
+  svg{
+    @apply w-6 h-6 block m-auto fill-white;
   }
 }

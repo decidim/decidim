@@ -34,6 +34,8 @@ body{
   }
 
   .form__wrapper{
+    @apply pt-0;
+
     input[type="date"],
     input[type="datetime-local"],
     input[type="email"],
@@ -55,6 +57,10 @@ body{
     &-block label:not(&-checkbox-label){
       @apply text-sm;
     }
+  }
+
+  .hide{
+    @apply hidden;
   }
 }
 
