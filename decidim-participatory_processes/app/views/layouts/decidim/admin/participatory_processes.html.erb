@@ -2,16 +2,16 @@
   <div class="process-title">
     <div class="process-title-content">
       <%= link_to t("decidim.admin.titles.participatory_processes"), decidim_participatory_processes.participatory_processes_path, target: "_blank", class: "process-title-content-breadcrumb" %>
-      <div class="ml-auto flex items-center gap-x-4">
+      <div class="process-title-content-breadcrumb-container-right">
         <% if allowed_to? :create, :process %>
-          <%= link_to [:new, :participatory_process], class: "button button__transparent !py-1.5" do %>
+          <%= link_to [:new, :participatory_process], class: "process-title-content-breadcrumb-container-right-link" do %>
             <svg viewBox="0 0 24 24" id="ri-add-line" class="w-4 h-4">
-                <g>
-                    <path fill="none" d="M0 0h24v24H0z"/>
-                    <path d="M11 11V5h2v6h6v2h-6v6h-2v-6H5v-2z"/>
-                </g>
+              <path fill="none" d="M0 0h24v24H0z"/>
+              <path d="M11 11V5h2v6h6v2h-6v6h-2v-6H5v-2z"/>
             </svg>
-            <%= t("actions.new_process", scope: "decidim.admin") %>
+            <span>
+              <%= t("actions.new_process", scope: "decidim.admin") %>
+            </span>
           <% end %>
         <% end %>
         <div class="inline-block relative">

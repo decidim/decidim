@@ -22,9 +22,7 @@
   }
 
   td{
-    @apply border-b border-background-4;
-
-    font-size: 14px;
+    @apply border-b border-background-4 text-sm;
 
     &:not(:last-child){
       @apply border-r border-background-4;
@@ -39,11 +37,19 @@
   }
 
   thead th{
-    @apply border-b border-background-4;
+    @apply border-b border-background-4 text-xs font-semibold;
 
     &:not(:last-child){
       @apply border-r border-background-4;
     }
+
+    &:first-child{
+      @apply text-left pl-4;
+    }
+  }
+
+  tbody tr td{
+    @apply p-4;
   }
 
   thead th,
@@ -60,11 +66,6 @@
   th:not(:first-child),
   td:not(:first-child){
     text-align: center;
-  }
-
-  th:first-child,
-  td:first-child{
-    padding-left: $global-padding;
   }
 
   th [type="checkbox"],
@@ -85,9 +86,7 @@
   }
 
   td a:not(.button){
-    @apply underline text-md font-semibold;
-
-    color: var(--secondary);
+    @apply underline text-md font-semibold text-secondary;
   }
 
   td > .button{
@@ -101,26 +100,24 @@
 
   .table-list__date,
   .table-list__state{
-    font-size: 14px;
+    @apply text-sm;
   }
 }
 
-.table-list__actions{
-  text-align: center;
-  white-space: nowrap;
+.table-list__actions {
+  @apply text-center;
 
-  &:last-child{
+  a:not(:last-child){
+    @apply pr-2;
+  }
+
+  &:last-child {
     text-align: right;
   }
 
   .action-icon,
-  a.action-icon{
-    color: $muted;
-  }
-
-  .action-icon,
   a.action-icon.highlighted{
-    color: var(--secondary);
+    @apply text-secondary;
   }
 }
 
@@ -138,7 +135,6 @@
   display: none;
   position: relative;
   top: -1px;
-  margin-left: -1.5 * $global-padding;
   font-weight: 600;
 
   &.expanded{

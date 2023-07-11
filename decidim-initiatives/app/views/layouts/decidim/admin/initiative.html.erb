@@ -3,14 +3,14 @@
     public_page_link decidim_initiatives.initiative_path(current_participatory_space)
   end %>
 <% end %>
-
-<%= render "layouts/decidim/admin/application" do %>
+<% content_for :breadcrumb_nav do %>
   <div class="process-title">
     <div class="process-title-content">
-      <%= link_to translated_attribute(current_participatory_space.title), decidim_initiatives.initiative_path(current_participatory_space), target: "_blank" %>
+      <%= link_to translated_attribute(current_participatory_space.title), decidim_initiatives.initiative_path(current_participatory_space), target: "_blank", class: "process-title-content-breadcrumb" %>
     </div>
   </div>
-
+<% end %>
+<%= render "layouts/decidim/admin/application" do %>
   <div class="process-content">
     <%= yield %>
   </div>

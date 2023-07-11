@@ -17,7 +17,7 @@
   </div>
 
   <div class="item__edit-form">
-    <%= decidim_form_for(@form, html: { class: "form edit_participatory_process" }) do |f| %>
+    <%= decidim_form_for(@form, html: { class: "form form-defaults edit_participatory_process" }) do |f| %>
       <%= render partial: "form", object: f %>
       <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
         <%= f.submit t("participatory_processes.edit.update", scope: "decidim.admin"), class: "button button__sm md:button__lg button__secondary" %>

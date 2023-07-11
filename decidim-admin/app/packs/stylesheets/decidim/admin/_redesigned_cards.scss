@@ -88,8 +88,6 @@
   @apply p-6 bg-white;
 
   svg{
-    @apply w-4 h-4 inline-block;
-
-    fill: var(--secondary);
+    @apply w-4 h-4 inline-block fill-secondary;
   }
 }

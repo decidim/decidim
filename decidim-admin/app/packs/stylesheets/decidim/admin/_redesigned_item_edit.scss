@@ -3,9 +3,7 @@
 
   &-form{
     .card{
-      @apply rounded bg-white mb-8 border-background border;
-
-      fill: var(--secondary);
+      @apply rounded bg-white border-background border fill-secondary;
     }
 
     .card-section{
@@ -37,9 +35,7 @@
     }
 
     .card-title{
-      @apply font-semibold text-md text-left inline-block;
-
-      color: var(--secondary);
+      @apply font-semibold text-md text-left inline-block text-secondary;
     }
 
     .label--tabs{
@@ -47,9 +43,7 @@
     }
 
     label{
-      @apply text-gray-2;
-
-      font-size: 14px;
+      @apply text-gray-2 text-sm;
     }
 
     .form{
@@ -80,10 +74,7 @@
     @apply pr-4;
 
     &-anchor{
-      @apply block underline mb-3;
-
-      font-size: 14px;
-      color: var(--secondary);
+      @apply block underline mb-3 text-secondary text-sm;
     }
   }
 }

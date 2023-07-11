@@ -66,7 +66,7 @@
 
 .process-title .process-title-content{
   .dropdown__trigger{
-    @apply flex underline p-0;
+    @apply flex underline px-2 pt-0.5 pb-1;
 
     svg{
       @apply block h-5 fill-white;
@@ -74,7 +74,7 @@
   }
 
   .button{
-    @apply no-underline p-1 mb-0;
+    @apply no-underline mb-0;
   }
 }
 
@@ -85,10 +85,14 @@
     @apply text-md font-bold text-white underline;
 
     &-container-right{
-      @apply ml-auto flex items-center gap-x-4;
+      @apply ml-auto flex items-center gap-x-2;
 
       &-link{
-        @apply button button__transparent flex items-center gap-x-2 p-1.5;
+        @apply button button__transparent flex items-center gap-x-1 px-1.5 py-1;
+
+        span{
+          @apply text-sm;
+        }
       }
 
       svg{
@@ -99,9 +103,7 @@
 
   &-dropdown{
     .dropdown__item a{
-      @apply flex items-center gap-x-4;
-
-      color: var(--secondary);
+      @apply flex items-center gap-x-4 text-secondary;
 
       svg{
         @apply fill-gray;

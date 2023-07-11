@@ -14,9 +14,7 @@
       @apply w-10 h-10 rounded-full relative border-2 border-white bg-background;
 
       svg{
-        @apply w-6 h-6 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2;
-
-        fill: var(--secondary);
+        @apply w-6 h-6 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 fill-secondary;
       }
     }
 
@@ -54,9 +52,7 @@
       }
 
       .component__show-icon-text{
-        @apply text-gray-2;
-
-        font-size: 14px;
+        @apply text-gray-2 text-sm;
       }
 
       svg{
@@ -94,8 +90,6 @@
   }
 
   .card-title{
-    @apply font-semibold text-md text-left inline-block;
-
-    color: var(--secondary);
+    @apply font-semibold text-md text-left inline-block text-secondary;
   }
 }

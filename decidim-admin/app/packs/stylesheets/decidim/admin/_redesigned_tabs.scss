@@ -2,16 +2,13 @@
   @apply bg-transparent flex items-center gap-x-1;
 
   li{
-    @apply float-none p-1 rounded-t-sm;
+    @apply float-none p-1 rounded-t-sm text-secondary;
 
     background-color: rgba(243, 244, 247, 1);
-    color: var(--secondary);
 
     &.is-active,
     &:hover{
-      @apply border-b;
-
-      border-color: var(--secondary);
+      @apply border-b border-secondary;
     }
 
     &:hover{
@@ -30,10 +27,9 @@
   }
 
   .tabs-title > a[aria-selected="true"]{
-    background-color: rgba(243, 244, 247, 1);
-    color: var(--secondary);
+    @apply font-bold text-secondary;
 
-    @apply font-bold;
+    background-color: rgba(243, 244, 247, 1);
 
     &::before{
       @apply border-white;

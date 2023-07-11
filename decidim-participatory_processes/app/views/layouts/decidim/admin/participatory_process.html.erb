@@ -10,12 +10,14 @@
     <div class="process-title-content">
       <%= link_to translated_attribute(current_participatory_space.title), decidim_participatory_processes.participatory_process_path(current_participatory_space), target: "_blank", class: "process-title-content-breadcrumb" %>
       <div class="process-title-content-breadcrumb-container-right">
-        <%= link_to decidim_participatory_processes.participatory_process_path(current_participatory_space), class: "process-title-content-breadcrumb-container-right-link !py-1.5" do %>
+        <%= link_to decidim_participatory_processes.participatory_process_path(current_participatory_space), class: "process-title-content-breadcrumb-container-right-link" do %>
           <svg viewBox="0 0 24 24" id="ri-eye-line">
             <path fill="none" d="M0 0h24v24H0z"/>
             <path d="M12 3c5.392 0 9.878 3.88 10.819 9-.94 5.12-5.427 9-10.819 9-5.392 0-9.878-3.88-10.819-9C2.121 6.88 6.608 3 12 3zm0 16a9.005 9.005 0 0 0 8.777-7 9.005 9.005 0 0 0-17.554 0A9.005 9.005 0 0 0 12 19zm0-2.5a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9zm0-2a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/>
           </svg>
-          <%= t("see_processes", scope: "decidim.admin.menu") %>
+          <span>
+            <%= t("see_processes", scope: "decidim.admin.menu") %>
+          </span>
         <% end %>
         <div class="inline-block relative">
           <%= button_tag id: "processes-dropdown-menu-trigger", data: { component: 'dropdown', target: 'processes-dropdown-menu-settings' }, class: 'dropdown__trigger button button__transparent' do %>

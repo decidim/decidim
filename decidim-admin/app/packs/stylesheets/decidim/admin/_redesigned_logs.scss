@@ -25,9 +25,7 @@
 
   .logs__log__explanation{
     a{
-      @apply underline;
-
-      color: var(--secondary);
+      @apply underline text-secondary;
     }
 
     span{

@@ -1,277 +1,279 @@
-<div class="card" data-component="accordion" id="accordion-<%= t('title', scope: 'decidim.participatory_processes.admin.participatory_processes.form') %>">
-  <div class="card-divider">
-    <button class="card-divider-button" data-controls="panel-<%= t('title', scope: 'decidim.participatory_processes.admin.participatory_processes.form') %>" type="button">
-      <svg viewBox="0 0 24 24" id="ri-arrow-right-s-line">
-        <path fill="none" d="M0 0h24v24H0z"/>
-        <path d="M13.172 12l-4.95-4.95 1.414-1.414L16 12l-6.364 6.364-1.414-1.414z"/>
-      </svg>
-      <h2 class="card-title" id="<%= t('title', scope: 'decidim.participatory_processes.admin.participatory_processes.form') %>">
-        <%= t("title", scope: "decidim.participatory_processes.admin.participatory_processes.form") %>
-      </h2>
-    </button>
-  </div>
-  <div id="panel-<%= t('title', scope: 'decidim.participatory_processes.admin.participatory_processes.form') %>" class="card-section">
-    <div class="row column">
-      <%= form.translated :text_field, :title, autofocus: true %>
-    </div>
-
-    <div class="row column">
-      <%= form.translated :text_field, :subtitle %>
-    </div>
-
-    <div class="row column">
-      <%= form.number_field :weight %>
-    </div>
-
-    <div class="row">
-      <div class="columns xlarge-6 slug">
-        <%= form.text_field :slug %>
-        <p class="help-text">
-          <%== t(".slug_help", url: decidim_form_slug_url(:processes, form.object.slug)) %>
-        </p>
-      </div>
-
-      <div class="columns xlarge-6">
-        <%= form.text_field :hashtag %>
-      </div>
-    </div>
-
-    <div class="row column">
-      <%= form.translated :editor, :short_description %>
-    </div>
-
-    <div class="row column">
-      <%= form.translated :editor, :description %>
-    </div>
-
-    <div class="row column">
-      <%= form.translated :editor, :announcement %>
-      <p class="help-text"><%== t(".announcement_help") %></p>
-    </div>
-  </div>
-</div>
-
-<div class="card" data-component="accordion" id="accordion-<%= t('duration', scope: 'decidim.participatory_processes.admin.participatory_processes.form') %>">
-  <div class="card-divider">
-    <button class="card-divider-button" data-controls="panel-<%= t('duration', scope: 'decidim.participatory_processes.admin.participatory_processes.form') %>" type="button">
+<div class="form__wrapper">
+  <div class="card" data-component="accordion" id="accordion-<%= t('title', scope: 'decidim.participatory_processes.admin.participatory_processes.form') %>">
+    <div class="card-divider">
+      <button class="card-divider-button" data-controls="panel-<%= t('title', scope: 'decidim.participatory_processes.admin.participatory_processes.form') %>" type="button">
         <svg viewBox="0 0 24 24" id="ri-arrow-right-s-line">
           <path fill="none" d="M0 0h24v24H0z"/>
           <path d="M13.172 12l-4.95-4.95 1.414-1.414L16 12l-6.364 6.364-1.414-1.414z"/>
         </svg>
-        <h2 class="card-title" id="<%= t('duration', scope: 'decidim.participatory_processes.admin.participatory_processes.form') %>">
-         <%= t("duration", scope: "decidim.participatory_processes.admin.participatory_processes.form") %>
+        <h2 class="card-title" id="<%= t('title', scope: 'decidim.participatory_processes.admin.participatory_processes.form') %>">
+          <%= t("title", scope: "decidim.participatory_processes.admin.participatory_processes.form") %>
         </h2>
-    </button>
-  </div>
-
-  <div id="panel-<%= t('duration', scope: 'decidim.participatory_processes.admin.participatory_processes.form') %>" class="card-section">
-    <div class="row">
-      <div class="columns xlarge-6">
-        <%= form.date_field :start_date %>
+      </button>
+    </div>
+    <div id="panel-<%= t('title', scope: 'decidim.participatory_processes.admin.participatory_processes.form') %>" class="card-section">
+      <div class="row column">
+        <%= form.translated :text_field, :title, autofocus: true %>
       </div>
 
-      <div class="columns xlarge-6">
-        <%= form.date_field :end_date %>
+      <div class="row column">
+        <%= form.translated :text_field, :subtitle %>
+      </div>
+
+      <div class="row column">
+        <%= form.number_field :weight %>
+      </div>
+
+      <div class="row">
+        <div class="columns xlarge-6 slug">
+          <%= form.text_field :slug %>
+          <p class="help-text">
+            <%== t(".slug_help", url: decidim_form_slug_url(:processes, form.object.slug)) %>
+          </p>
+        </div>
+
+        <div class="columns xlarge-6">
+          <%= form.text_field :hashtag %>
+        </div>
+      </div>
+
+      <div class="row column">
+        <%= form.translated :editor, :short_description %>
+      </div>
+
+      <div class="row column">
+        <%= form.translated :editor, :description %>
+      </div>
+
+      <div class="row column">
+        <%= form.translated :editor, :announcement %>
+        <p class="help-text"><%== t(".announcement_help") %></p>
       </div>
     </div>
   </div>
-</div>
 
-<div class="card" data-component="accordion" id="accordion-<%= t('images', scope: 'decidim.participatory_processes.admin.participatory_processes.form') %>">
-  <div class="card-divider">
-    <button class="card-divider-button" data-controls="panel-<%= t('images', scope: 'decidim.participatory_processes.admin.participatory_processes.form') %>" type="button">
-      <svg viewBox="0 0 24 24" id="ri-arrow-right-s-line">
-        <path fill="none" d="M0 0h24v24H0z"/>
-        <path d="M13.172 12l-4.95-4.95 1.414-1.414L16 12l-6.364 6.364-1.414-1.414z"/>
-      </svg>
-      <h2 class="card-title" id="<%= t("images", scope: "decidim.participatory_processes.admin.participatory_processes.form") %>">
-        <%= t("images", scope: "decidim.participatory_processes.admin.participatory_processes.form") %>
-      </h2>
-    </button>
-  </div>
-
-  <div id="panel-<%= t('images', scope: 'decidim.participatory_processes.admin.participatory_processes.form') %>" class="card-section">
-    <div class="row">
-      <div class="columns xlarge-6">
-        <%= form.upload :hero_image %>
-      </div>
-
-      <div class="columns xlarge-6">
-        <%= form.upload :banner_image %>
-      </div>
+  <div class="card" data-component="accordion" id="accordion-<%= t('duration', scope: 'decidim.participatory_processes.admin.participatory_processes.form') %>">
+    <div class="card-divider">
+      <button class="card-divider-button" data-controls="panel-<%= t('duration', scope: 'decidim.participatory_processes.admin.participatory_processes.form') %>" type="button">
+          <svg viewBox="0 0 24 24" id="ri-arrow-right-s-line">
+            <path fill="none" d="M0 0h24v24H0z"/>
+            <path d="M13.172 12l-4.95-4.95 1.414-1.414L16 12l-6.364 6.364-1.414-1.414z"/>
+          </svg>
+          <h2 class="card-title" id="<%= t('duration', scope: 'decidim.participatory_processes.admin.participatory_processes.form') %>">
+           <%= t("duration", scope: "decidim.participatory_processes.admin.participatory_processes.form") %>
+          </h2>
+      </button>
     </div>
-  </div>
-</div>
 
-<div class="card" data-component="accordion" id="accordion-<%= t('metadata', scope: 'decidim.participatory_processes.admin.participatory_processes.form') %>">
-  <div class="card-divider">
-    <button class="card-divider-button" data-controls="panel-<%= t('metadata', scope: 'decidim.participatory_processes.admin.participatory_processes.form') %>" type="button">
-      <svg viewBox="0 0 24 24" id="ri-arrow-right-s-line">
-        <path fill="none" d="M0 0h24v24H0z"/>
-        <path d="M13.172 12l-4.95-4.95 1.414-1.414L16 12l-6.364 6.364-1.414-1.414z"/>
-      </svg>
-      <h2 class="card-title" id="<%= t("metadata", scope: "decidim.participatory_processes.admin.participatory_processes.form") %>">
-        <%= t("metadata", scope: "decidim.participatory_processes.admin.participatory_processes.form") %>
-      </h2>
-    </button>
-  </div>
-  <div id="panel-<%= t('metadata', scope: 'decidim.participatory_processes.admin.participatory_processes.form') %>" class="card-section">
-    <div class="row">
-      <div class="columns xlarge-6">
-        <%= form.translated :text_field, :developer_group %>
-      </div>
+    <div id="panel-<%= t('duration', scope: 'decidim.participatory_processes.admin.participatory_processes.form') %>" class="card-section">
+      <div class="row">
+        <div class="columns xlarge-6">
+          <%= form.date_field :start_date %>
+        </div>
 
-      <div class="columns xlarge-6">
-        <%= form.translated :text_field, :local_area %>
+        <div class="columns xlarge-6">
+          <%= form.date_field :end_date %>
+        </div>
       </div>
     </div>
-
-    <div class="row column">
-      <%= form.translated :text_field, :meta_scope %>
-    </div>
-
-    <div class="row column">
-      <%= form.translated :text_field, :target %>
-    </div>
-
-    <div class="row column">
-      <%= form.translated :text_field, :participatory_scope %>
-    </div>
-
-    <div class="row column">
-      <%= form.translated :text_field, :participatory_structure %>
-    </div>
   </div>
-</div>
 
-<div class="card" data-component="accordion" id="accordion-<%= t('filters', scope: 'decidim.participatory_processes.admin.participatory_processes.form') %>">
-  <div class="card-divider">
-    <button class="card-divider-button" data-controls="panel-<%= t('filters', scope: 'decidim.participatory_processes.admin.participatory_processes.form') %>" type="button">
-      <svg viewBox="0 0 24 24" id="ri-arrow-right-s-line">
-        <path fill="none" d="M0 0h24v24H0z"/>
-        <path d="M13.172 12l-4.95-4.95 1.414-1.414L16 12l-6.364 6.364-1.414-1.414z"/>
-      </svg>
-      <h2 class="card-title" id="<%= t("filters", scope: "decidim.participatory_processes.admin.participatory_processes.form") %>">
-        <%= t("filters", scope: "decidim.participatory_processes.admin.participatory_processes.form") %>
-      </h2>
-    </button>
-  </div>
-  <div id="panel-<%= t('filters', scope: 'decidim.participatory_processes.admin.participatory_processes.form') %>" class="card-section">
-    <div class="row column">
-      <%= form.check_box :scopes_enabled %>
+  <div class="card" data-component="accordion" id="accordion-<%= t('images', scope: 'decidim.participatory_processes.admin.participatory_processes.form') %>">
+    <div class="card-divider">
+      <button class="card-divider-button" data-controls="panel-<%= t('images', scope: 'decidim.participatory_processes.admin.participatory_processes.form') %>" type="button">
+        <svg viewBox="0 0 24 24" id="ri-arrow-right-s-line">
+          <path fill="none" d="M0 0h24v24H0z"/>
+          <path d="M13.172 12l-4.95-4.95 1.414-1.414L16 12l-6.364 6.364-1.414-1.414z"/>
+        </svg>
+        <h2 class="card-title" id="<%= t("images", scope: "decidim.participatory_processes.admin.participatory_processes.form") %>">
+          <%= t("images", scope: "decidim.participatory_processes.admin.participatory_processes.form") %>
+        </h2>
+      </button>
     </div>
 
-    <div class="row column">
-      <%= scopes_picker_field form, :scope_id, root: nil %>
+    <div id="panel-<%= t('images', scope: 'decidim.participatory_processes.admin.participatory_processes.form') %>" class="card-section">
+      <div class="row">
+        <div class="columns xlarge-6">
+          <%= form.upload :hero_image %>
+        </div>
 
-      <div class="row" id="scope-depth ">
-        <%= form.collection_select :scope_type_max_depth_id,
-                                    organization_scope_depths,
-                                    :id,
-                                    :name,
-                                    scope_type_depth_select_options,
-                                    scope_type_depth_select_html_options %>
-        <p class="help-text">
-          <%== t(".scope_type_max_depth_help") %>
-        </p>
+        <div class="columns xlarge-6">
+          <%= form.upload :banner_image %>
+        </div>
       </div>
     </div>
-
-    <div class="row column">
-      <%= form.areas_select :area_id,
-                            areas_for_select(current_organization),
-                            selected: current_participatory_process.try(:decidim_area_id),
-                            include_blank: t(".select_an_area") %>
-    </div>
-  </div>
-</div>
-
-<div class="card" data-component="accordion" id="accordion-<%= t('visbility', scope: 'decidim.participatory_processes.admin.participatory_processes.form') %>">
-  <div class="card-divider">
-    <button class="card-divider-button" data-controls="panel-<%= t('visbility', scope: 'decidim.participatory_processes.admin.participatory_processes.form') %>" type="button">
-      <svg viewBox="0 0 24 24" id="ri-arrow-right-s-line">
-        <path fill="none" d="M0 0h24v24H0z"/>
-        <path d="M13.172 12l-4.95-4.95 1.414-1.414L16 12l-6.364 6.364-1.414-1.414z"/>
-      </svg>
-      <h2 class="card-title" id="<%= t('visbility', scope: 'decidim.participatory_processes.admin.participatory_processes.form') %>">
-        <%= t("visbility", scope: "decidim.participatory_processes.admin.participatory_processes.form") %>
-      </h2>
-    </button>
-  </div>
-  <div id="panel-<%= t('visbility', scope: 'decidim.participatory_processes.admin.participatory_processes.form') %>" class="card-section">
-    <div class="row column">
-      <% if process_groups_for_select %>
-        <%= form.select :participatory_process_group_id,
-                        process_groups_for_select,
-                        include_blank: t(".select_process_group") %>
-      <% end %>
-    </div>
-
-    <div class="row column">
-      <%= form.check_box :private_space %>
-    </div>
-        <div class="row column">
-      <%= form.check_box :promoted %>
-    </div>
-  </div>
-</div>
-
-<div class="card" data-component="accordion" id="accordion-<%= t('related_processes', scope: 'decidim.participatory_processes.admin.participatory_processes.form') %>">
-  <div class="card-divider">
-    <button class="card-divider-button" data-controls="panel-<%= t('related_processes', scope: 'decidim.participatory_processes.admin.participatory_processes.form') %>" type="button">
-      <svg viewBox="0 0 24 24" id="ri-arrow-right-s-line">
-        <path fill="none" d="M0 0h24v24H0z"/>
-        <path d="M13.172 12l-4.95-4.95 1.414-1.414L16 12l-6.364 6.364-1.414-1.414z"/>
-      </svg>
-      <h2 class="card-title" id="<%= t("related_processes", scope: "decidim.participatory_processes.admin.participatory_processes.form") %>">
-        <%= t("related_processes", scope: "decidim.participatory_processes.admin.participatory_processes.form") %>
-      </h2>
-    </button>
-  </div>
-  <div id="panel-<%= t('related_processes', scope: 'decidim.participatory_processes.admin.participatory_processes.form') %>" class="card-section">
-    <div class="row column">
-      <%= form.select(
-        :related_process_ids,
-        @form.processes.order(title: :asc).map { |process| [translated_attribute(process.title), process.id] },
-        { include_blank: true },
-        { multiple: true, class: "chosen-select" }
-      ) %>
-    </div>
-  </div>
-</div>
-
-<div class="card" data-component="accordion" id="accordion-<%= t('other', scope: 'decidim.participatory_processes.admin.participatory_processes.form') %>">
-  <div class="card-divider">
-    <button class="card-divider-button" data-controls="panel-<%= t('other', scope: 'decidim.participatory_processes.admin.participatory_processes.form') %>" type="button">
-      <svg viewBox="0 0 24 24" id="ri-arrow-right-s-line">
-        <path fill="none" d="M0 0h24v24H0z"/>
-        <path d="M13.172 12l-4.95-4.95 1.414-1.414L16 12l-6.364 6.364-1.414-1.414z"/>
-      </svg>
-      <h2 class="card-title" id="<%= t("other", scope: "decidim.participatory_processes.admin.participatory_processes.form") %>">
-        <%= t("other", scope: "decidim.participatory_processes.admin.participatory_processes.form") %>
-      </h2>
-    </button>
   </div>
 
-  <div id="panel-<%= t('other', scope: 'decidim.participatory_processes.admin.participatory_processes.form') %>" class="card-section">
-    <div class="row column">
-      <%= form.check_box :show_statistics %>
+  <div class="card" data-component="accordion" id="accordion-<%= t('metadata', scope: 'decidim.participatory_processes.admin.participatory_processes.form') %>">
+    <div class="card-divider">
+      <button class="card-divider-button" data-controls="panel-<%= t('metadata', scope: 'decidim.participatory_processes.admin.participatory_processes.form') %>" type="button">
+        <svg viewBox="0 0 24 24" id="ri-arrow-right-s-line">
+          <path fill="none" d="M0 0h24v24H0z"/>
+          <path d="M13.172 12l-4.95-4.95 1.414-1.414L16 12l-6.364 6.364-1.414-1.414z"/>
+        </svg>
+        <h2 class="card-title" id="<%= t("metadata", scope: "decidim.participatory_processes.admin.participatory_processes.form") %>">
+          <%= t("metadata", scope: "decidim.participatory_processes.admin.participatory_processes.form") %>
+        </h2>
+      </button>
     </div>
+    <div id="panel-<%= t('metadata', scope: 'decidim.participatory_processes.admin.participatory_processes.form') %>" class="card-section">
+      <div class="row">
+        <div class="columns xlarge-6">
+          <%= form.translated :text_field, :developer_group %>
+        </div>
 
-    <div class="row column">
-      <%= form.check_box :show_metrics %>
+        <div class="columns xlarge-6">
+          <%= form.translated :text_field, :local_area %>
+        </div>
+      </div>
+
+      <div class="row column">
+        <%= form.translated :text_field, :meta_scope %>
+      </div>
+
+      <div class="row column">
+        <%= form.translated :text_field, :target %>
+      </div>
+
+      <div class="row column">
+        <%= form.translated :text_field, :participatory_scope %>
+      </div>
+
+      <div class="row column">
+        <%= form.translated :text_field, :participatory_structure %>
+      </div>
     </div>
+  </div>
 
-    <% if @form.participatory_process_types_for_select.present? %>
+  <div class="card" data-component="accordion" id="accordion-<%= t('filters', scope: 'decidim.participatory_processes.admin.participatory_processes.form') %>">
+    <div class="card-divider">
+      <button class="card-divider-button" data-controls="panel-<%= t('filters', scope: 'decidim.participatory_processes.admin.participatory_processes.form') %>" type="button">
+        <svg viewBox="0 0 24 24" id="ri-arrow-right-s-line">
+          <path fill="none" d="M0 0h24v24H0z"/>
+          <path d="M13.172 12l-4.95-4.95 1.414-1.414L16 12l-6.364 6.364-1.414-1.414z"/>
+        </svg>
+        <h2 class="card-title" id="<%= t("filters", scope: "decidim.participatory_processes.admin.participatory_processes.form") %>">
+          <%= t("filters", scope: "decidim.participatory_processes.admin.participatory_processes.form") %>
+        </h2>
+      </button>
+    </div>
+    <div id="panel-<%= t('filters', scope: 'decidim.participatory_processes.admin.participatory_processes.form') %>" class="card-section">
+      <div class="row column">
+        <%= form.check_box :scopes_enabled %>
+      </div>
+
+      <div class="row column">
+        <%= scopes_picker_field form, :scope_id, root: nil %>
+
+        <div class="row" id="scope-depth ">
+          <%= form.collection_select :scope_type_max_depth_id,
+                                      organization_scope_depths,
+                                      :id,
+                                      :name,
+                                      scope_type_depth_select_options,
+                                      scope_type_depth_select_html_options %>
+          <p class="help-text">
+            <%== t(".scope_type_max_depth_help") %>
+          </p>
+        </div>
+      </div>
+
+      <div class="row column">
+        <%= form.areas_select :area_id,
+                              areas_for_select(current_organization),
+                              selected: current_participatory_process.try(:decidim_area_id),
+                              include_blank: t(".select_an_area") %>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" data-component="accordion" id="accordion-<%= t('visbility', scope: 'decidim.participatory_processes.admin.participatory_processes.form') %>">
+    <div class="card-divider">
+      <button class="card-divider-button" data-controls="panel-<%= t('visbility', scope: 'decidim.participatory_processes.admin.participatory_processes.form') %>" type="button">
+        <svg viewBox="0 0 24 24" id="ri-arrow-right-s-line">
+          <path fill="none" d="M0 0h24v24H0z"/>
+          <path d="M13.172 12l-4.95-4.95 1.414-1.414L16 12l-6.364 6.364-1.414-1.414z"/>
+        </svg>
+        <h2 class="card-title" id="<%= t('visbility', scope: 'decidim.participatory_processes.admin.participatory_processes.form') %>">
+          <%= t("visbility", scope: "decidim.participatory_processes.admin.participatory_processes.form") %>
+        </h2>
+      </button>
+    </div>
+    <div id="panel-<%= t('visbility', scope: 'decidim.participatory_processes.admin.participatory_processes.form') %>" class="card-section">
+      <div class="row column">
+        <% if process_groups_for_select %>
+          <%= form.select :participatory_process_group_id,
+                          process_groups_for_select,
+                          include_blank: t(".select_process_group") %>
+        <% end %>
+      </div>
+
+      <div class="row column">
+        <%= form.check_box :private_space %>
+      </div>
+          <div class="row column">
+        <%= form.check_box :promoted %>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" data-component="accordion" id="accordion-<%= t('related_processes', scope: 'decidim.participatory_processes.admin.participatory_processes.form') %>">
+    <div class="card-divider">
+      <button class="card-divider-button" data-controls="panel-<%= t('related_processes', scope: 'decidim.participatory_processes.admin.participatory_processes.form') %>" type="button">
+        <svg viewBox="0 0 24 24" id="ri-arrow-right-s-line">
+          <path fill="none" d="M0 0h24v24H0z"/>
+          <path d="M13.172 12l-4.95-4.95 1.414-1.414L16 12l-6.364 6.364-1.414-1.414z"/>
+        </svg>
+        <h2 class="card-title" id="<%= t("related_processes", scope: "decidim.participatory_processes.admin.participatory_processes.form") %>">
+          <%= t("related_processes", scope: "decidim.participatory_processes.admin.participatory_processes.form") %>
+        </h2>
+      </button>
+    </div>
+    <div id="panel-<%= t('related_processes', scope: 'decidim.participatory_processes.admin.participatory_processes.form') %>" class="card-section">
       <div class="row column">
         <%= form.select(
-              :participatory_process_type_id,
-              @form.participatory_process_types_for_select,
-              include_blank: t(".select_participatory_process_type")
-            ) %>
+          :related_process_ids,
+          @form.processes.order(title: :asc).map { |process| [translated_attribute(process.title), process.id] },
+          { include_blank: true },
+          { multiple: true, class: "chosen-select" }
+        ) %>
       </div>
-    <% end %>
+    </div>
   </div>
-</div>
 
+  <div class="card" data-component="accordion" id="accordion-<%= t('other', scope: 'decidim.participatory_processes.admin.participatory_processes.form') %>">
+    <div class="card-divider">
+      <button class="card-divider-button" data-controls="panel-<%= t('other', scope: 'decidim.participatory_processes.admin.participatory_processes.form') %>" type="button">
+        <svg viewBox="0 0 24 24" id="ri-arrow-right-s-line">
+          <path fill="none" d="M0 0h24v24H0z"/>
+          <path d="M13.172 12l-4.95-4.95 1.414-1.414L16 12l-6.364 6.364-1.414-1.414z"/>
+        </svg>
+        <h2 class="card-title" id="<%= t("other", scope: "decidim.participatory_processes.admin.participatory_processes.form") %>">
+          <%= t("other", scope: "decidim.participatory_processes.admin.participatory_processes.form") %>
+        </h2>
+      </button>
+    </div>
+
+    <div id="panel-<%= t('other', scope: 'decidim.participatory_processes.admin.participatory_processes.form') %>" class="card-section">
+      <div class="row column">
+        <%= form.check_box :show_statistics %>
+      </div>
+
+      <div class="row column">
+        <%= form.check_box :show_metrics %>
+      </div>
+
+      <% if @form.participatory_process_types_for_select.present? %>
+        <div class="row column">
+          <%= form.select(
+                :participatory_process_type_id,
+                @form.participatory_process_types_for_select,
+                include_blank: t(".select_participatory_process_type")
+              ) %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+</div>
 <%= append_javascript_pack_tag "decidim_participatory_processes_admin" %>

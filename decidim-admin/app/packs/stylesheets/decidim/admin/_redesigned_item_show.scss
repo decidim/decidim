@@ -34,9 +34,7 @@
       }
 
       a{
-        @apply text-md font-semibold flex items-center gap-x-4 w-full;
-
-        color: var(--secondary);
+        @apply text-md font-semibold flex items-center gap-x-4 w-full text-secondary;
 
         &:hover span{
           @apply no-underline;
