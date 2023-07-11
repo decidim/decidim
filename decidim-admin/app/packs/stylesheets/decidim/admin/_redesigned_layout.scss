@@ -3,11 +3,11 @@ html{
 }
 
 body{
-  @apply min-h-full flex flex-col;
+  @apply h-full;
 }
 
 .main{
-  @apply grow flex flex-col;
+  @apply h-full;
 
   & > .row{
     @apply w-full md:flex grow;
@@ -19,7 +19,7 @@ body{
 }
 
 .layout-nav{
-  @apply shrink-0 max-w-[340px];
+  @apply max-w-[340px];
 
   &.is-nav-open{
     transform: translateX(0);

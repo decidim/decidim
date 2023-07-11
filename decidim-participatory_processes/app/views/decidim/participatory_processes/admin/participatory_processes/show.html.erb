@@ -1,18 +1,8 @@
 <div class="item_show__header">
   <% if current_participatory_space.private_space? %>
-    <svg viewBox="0 0 24 24" id="ri-lock-line">
-      <g>
-        <path fill="none" d="M0 0h24v24H0z"/>
-        <path d="M19 10h1a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V11a1 1 0 0 1 1-1h1V9a7 7 0 1 1 14 0v1zM5 12v8h14v-8H5zm6 2h2v4h-2v-4zm6-4V9A5 5 0 0 0 7 9v1h10z"/>
-      </g>
-    </svg>
+    <%= icon "lock-line" %>
   <% else %>
-    <svg viewBox="0 0 24 24" id="ri-lock-unlock-line">
-      <g>
-        <path fill="none" d="M0 0h24v24H0z"/>
-        <path d="M7 10h13a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V11a1 1 0 0 1 1-1h1V9a7 7 0 0 1 13.262-3.131l-1.789.894A5 5 0 0 0 7 9v1zm-2 2v8h14v-8H5zm5 3h4v2h-4v-2z"/>
-      </g>
-    </svg>
+    <%= icon "lock-unlock-line" %>
   <% end %>
   <h2 class="item_show__header-title">
     <%= translated_attribute(current_participatory_space.title) %>
@@ -37,10 +27,7 @@
         <div class="flex items-center">
           <h2 class="text-lg font-semibold text-secondary mb-5">Impulso y seguimiento de proyectos</h2>
           <%= link_to decidim_admin_participatory_processes.participatory_process_steps_path(current_participatory_space), class: "button button__sm button__transparent-secondary ml-auto" do %>
-            <svg viewBox="0 0 24 24" id="ri-settings-4-line">
-              <path fill="none" d="M0 0h24v24H0z"/>
-              <path d="M2 12c0-.865.11-1.703.316-2.504A3 3 0 0 0 4.99 4.867a9.99 9.99 0 0 1 4.335-2.505 3 3 0 0 0 5.348 0 9.99 9.99 0 0 1 4.335 2.505 3 3 0 0 0 2.675 4.63c.206.8.316 1.638.316 2.503 0 .865-.11 1.703-.316 2.504a3 3 0 0 0-2.675 4.629 9.99 9.99 0 0 1-4.335 2.505 3 3 0 0 0-5.348 0 9.99 9.99 0 0 1-4.335-2.505 3 3 0 0 0-2.675-4.63C2.11 13.704 2 12.866 2 12zm4.804 3c.63 1.091.81 2.346.564 3.524.408.29.842.541 1.297.75A4.993 4.993 0 0 1 12 18c1.26 0 2.438.471 3.335 1.274.455-.209.889-.46 1.297-.75A4.993 4.993 0 0 1 17.196 15a4.993 4.993 0 0 1 2.77-2.25 8.126 8.126 0 0 0 0-1.5A4.993 4.993 0 0 1 17.195 9a4.993 4.993 0 0 1-.564-3.524 7.989 7.989 0 0 0-1.297-.75A4.993 4.993 0 0 1 12 6a4.993 4.993 0 0 1-3.335-1.274 7.99 7.99 0 0 0-1.297.75A4.993 4.993 0 0 1 6.804 9a4.993 4.993 0 0 1-2.77 2.25 8.126 8.126 0 0 0 0 1.5A4.993 4.993 0 0 1 6.805 15zM12 15a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0-2a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
-            </svg>
+            <%= icon "settings-4-line" %>
             <span>
               <%= t("steps", scope: "decidim.admin.menu.participatory_processes_submenu") %>
             </span>
